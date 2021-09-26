@@ -15,3 +15,13 @@ c2nim --cpp --header --debug --strict --out:gp_Pnt.nim occt.c2nim /usr/include/o
 
 Modify the file `occt.c2nim` until we have a working wrapper.
 
+
+## Process
+1. gp
+2. Standard
+3. Geom
+4. GC
+
+## Standard_Handle.hxx
+Sandly this is problematic with c2nim.
+

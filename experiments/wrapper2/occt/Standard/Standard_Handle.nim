@@ -80,12 +80,12 @@ template Handle*(Class: untyped): untyped =
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-var HashCode* {.importcpp: "HashCode", header: "Standard_Handle_mod.hxx".}: Standard_Integer
+var HashCode* {.importcpp: "HashCode", header: "Standard_Handle_mod.hxx".}: int
 
-when (defined(_MSC_VER) and _MSC_VER >= 1800):
-  ## ! For Visual Studio 2013+, define Handle_Class as non-template class to allow exporting this type in C++/CLI.
-else:
-  discard
+#when (defined(_MSC_VER) and _MSC_VER >= 1800):
+#  ## ! For Visual Studio 2013+, define Handle_Class as non-template class to allow exporting this type in C++/CLI.
+#else:
+#  discard
 template DEFINE_STANDARD_HANDLE*(C1, C2: untyped): untyped =
   DEFINE_STANDARD_HANDLECLASS(C1, C2, constructStandard_Transient)
 
@@ -96,4 +96,4 @@ template DEFINE_STANDARD_PHANDLE*(C1, C2: untyped): untyped =
 template DEFINE_STANDARD_HANDLECLASS*(C1, C2, BC: untyped): untyped =
   discard "forward decl of C1"
   type
-    `Handle C1` = Handle[C1]
+    `Handle C1` {.inline.} = Handle[C1]

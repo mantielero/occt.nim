@@ -330,19 +330,9 @@ Standard_Integer HashCode (const Handle (TheTransientType) & theHandle, const St
 
 #if (defined(_MSC_VER) && _MSC_VER >= 1800) 
 //! For Visual Studio 2013+, define Handle_Class as non-template class to allow exporting this type in C++/CLI.
-#define DEFINE_STANDARD_HANDLECLASS(C1,C2,BC) class C1; class Handle_##C1 : public Handle(C1) \
-{ \
-public: \
-  Handle_##C1() {} \
-  Handle_##C1(Handle(C1)&& theHandle) : Handle(C1)(theHandle) {} \
-  template <class T2, typename = typename std::enable_if <std::is_base_of <C1,T2>::value>::type> \
-  inline Handle_##C1(const opencascade::handle<T2>& theOther) : Handle(C1)(theOther) {} \
-  template <class T2, typename = typename std::enable_if <std::is_base_of <C1,T2>::value>::type> \
-  inline Handle_##C1(const T2* theOther) : Handle(C1)(theOther) {} \
-  template<typename T> inline Handle_##C1& operator=(T theOther) { Handle(C1)::operator=(theOther); return *this; } \
-};
+
 #else
-#define DEFINE_STANDARD_HANDLECLASS(C1,C2,BC) class C1; typedef Handle(C1) Handle_##C1;
+
 #endif
 
 #define DEFINE_STANDARD_HANDLE(C1,C2) DEFINE_STANDARD_HANDLECLASS(C1,C2,Standard_Transient)

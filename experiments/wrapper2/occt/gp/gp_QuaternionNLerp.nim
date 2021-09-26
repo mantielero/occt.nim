@@ -24,9 +24,9 @@ type
                                                                    ## ! Empty constructor,
 
 
-proc interpolate*(theQStart: Quaternion; theQEnd: Quaternion; theT: float): Quaternion {.
-    importcpp: "gp_QuaternionNLerp::Interpolate(@)",
-    header: "gp_QuaternionNLerp.hxx".}
+#proc interpolate*(theQStart: Quaternion; theQEnd: Quaternion; theT: float): Quaternion {.
+#    importcpp: "gp_QuaternionNLerp::Interpolate(@)",
+#    header: "gp_QuaternionNLerp.hxx".}
 proc constructQuaternionNLerp*(): QuaternionNLerp {.constructor,
     importcpp: "gp_QuaternionNLerp(@)", header: "gp_QuaternionNLerp.hxx".}
 proc constructQuaternionNLerp*(theQStart: Quaternion; theQEnd: Quaternion): QuaternionNLerp {.

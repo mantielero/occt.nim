@@ -4,6 +4,22 @@
 import ../gp/gp_includes
 
 
+# Constructors and methods
+proc constructor_handle<T>*(): handle {.constructor,importcpp: "handle<T>", header:"Standard_Handle.hxx".}
+  ## Empty constructor
+
+proc constructor_handle<T>*(thePtr: T *): handle {.constructor,importcpp: "handle<T>(@)", header:"Standard_Handle.hxx".}
+  ## Constructor from pointer to new object
+
+proc constructor_handle<T>*(theHandle: handle<T>): handle {.constructor,importcpp: "handle<T>(@)", header:"Standard_Handle.hxx".}
+  ## Copy constructor
+
+proc constructor_handle<T>*(theHandle: var handle<T> &): handle {.constructor,importcpp: "handle<T>(@)", header:"Standard_Handle.hxx".}
+  ## Move constructor
+  ## 
+
+
+
 include GC_MakeArcOfCircle
 include GC_MakeArcOfEllipse
 include GC_MakeArcOfHyperbola

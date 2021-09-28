@@ -22,25 +22,26 @@ type
 
 proc constructHLRAlgoEdgeStatus*(): HLRAlgoEdgeStatus {.constructor,
     importcpp: "HLRAlgo_EdgeStatus(@)", header: "HLRAlgo_EdgeStatus.hxx".}
-proc constructHLRAlgoEdgeStatus*(start: float; tolStart: StandardShortReal;
-                                `end`: float; tolEnd: StandardShortReal): HLRAlgoEdgeStatus {.
+proc constructHLRAlgoEdgeStatus*(start: cfloat; tolStart: StandardShortReal;
+                                `end`: cfloat; tolEnd: StandardShortReal): HLRAlgoEdgeStatus {.
     constructor, importcpp: "HLRAlgo_EdgeStatus(@)",
     header: "HLRAlgo_EdgeStatus.hxx".}
-proc initialize*(this: var HLRAlgoEdgeStatus; start: float;
-                tolStart: StandardShortReal; `end`: float; tolEnd: StandardShortReal) {.
-    importcpp: "Initialize", header: "HLRAlgo_EdgeStatus.hxx".}
-proc bounds*(this: HLRAlgoEdgeStatus; theStart: var float;
-            theTolStart: var StandardShortReal; theEnd: var float;
+proc initialize*(this: var HLRAlgoEdgeStatus; start: cfloat;
+                tolStart: StandardShortReal; `end`: cfloat;
+                tolEnd: StandardShortReal) {.importcpp: "Initialize",
+    header: "HLRAlgo_EdgeStatus.hxx".}
+proc bounds*(this: HLRAlgoEdgeStatus; theStart: var cfloat;
+            theTolStart: var StandardShortReal; theEnd: var cfloat;
             theTolEnd: var StandardShortReal) {.noSideEffect, importcpp: "Bounds",
     header: "HLRAlgo_EdgeStatus.hxx".}
-proc nbVisiblePart*(this: HLRAlgoEdgeStatus): int {.noSideEffect,
+proc nbVisiblePart*(this: HLRAlgoEdgeStatus): cint {.noSideEffect,
     importcpp: "NbVisiblePart", header: "HLRAlgo_EdgeStatus.hxx".}
-proc visiblePart*(this: HLRAlgoEdgeStatus; index: int; start: var float;
-                 tolStart: var StandardShortReal; `end`: var float;
+proc visiblePart*(this: HLRAlgoEdgeStatus; index: cint; start: var cfloat;
+                 tolStart: var StandardShortReal; `end`: var cfloat;
                  tolEnd: var StandardShortReal) {.noSideEffect,
     importcpp: "VisiblePart", header: "HLRAlgo_EdgeStatus.hxx".}
-proc hide*(this: var HLRAlgoEdgeStatus; start: float; tolStart: StandardShortReal;
-          `end`: float; tolEnd: StandardShortReal; onFace: bool; onBoundary: bool) {.
+proc hide*(this: var HLRAlgoEdgeStatus; start: cfloat; tolStart: StandardShortReal;
+          `end`: cfloat; tolEnd: StandardShortReal; onFace: bool; onBoundary: bool) {.
     importcpp: "Hide", header: "HLRAlgo_EdgeStatus.hxx".}
 proc hideAll*(this: var HLRAlgoEdgeStatus) {.importcpp: "HideAll",
     header: "HLRAlgo_EdgeStatus.hxx".}
@@ -54,3 +55,28 @@ proc allVisible*(this: HLRAlgoEdgeStatus): bool {.noSideEffect,
     importcpp: "AllVisible", header: "HLRAlgo_EdgeStatus.hxx".}
 proc allVisible*(this: var HLRAlgoEdgeStatus; b: bool) {.importcpp: "AllVisible",
     header: "HLRAlgo_EdgeStatus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

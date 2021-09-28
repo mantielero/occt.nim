@@ -30,3 +30,28 @@ proc constructRWGltfGltfPrimArrayData*(): RWGltfGltfPrimArrayData {.constructor,
 proc constructRWGltfGltfPrimArrayData*(theType: RWGltfGltfArrayType): RWGltfGltfPrimArrayData {.
     constructor, importcpp: "RWGltf_GltfPrimArrayData(@)",
     header: "RWGltf_GltfPrimArrayData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

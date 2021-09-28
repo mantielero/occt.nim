@@ -33,3 +33,28 @@ proc getValue*(this: LDOM_BasicAttribute): LDOMBasicString {.noSideEffect,
 proc setValue*(this: var LDOM_BasicAttribute; aValue: LDOMBasicString;
               aDoc: Handle[LDOM_MemManager]) {.importcpp: "SetValue",
     header: "LDOM_BasicAttribute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

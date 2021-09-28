@@ -51,13 +51,38 @@ proc constructHLRBRepTheIntPCurvePCurveOfCInter*(): HLRBRepTheIntPCurvePCurveOfC
     header: "HLRBRep_TheIntPCurvePCurveOfCInter.hxx".}
 proc perform*(this: var HLRBRepTheIntPCurvePCurveOfCInter; curve1: StandardAddress;
              domain1: IntRes2dDomain; curve2: StandardAddress;
-             domain2: IntRes2dDomain; tolConf: float; tol: float) {.
+             domain2: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "HLRBRep_TheIntPCurvePCurveOfCInter.hxx".}
 proc perform*(this: var HLRBRepTheIntPCurvePCurveOfCInter; curve1: StandardAddress;
-             domain1: IntRes2dDomain; tolConf: float; tol: float) {.
+             domain1: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "HLRBRep_TheIntPCurvePCurveOfCInter.hxx".}
 proc setMinNbSamples*(this: var HLRBRepTheIntPCurvePCurveOfCInter;
-                     theMinNbSamples: int) {.importcpp: "SetMinNbSamples",
+                     theMinNbSamples: cint) {.importcpp: "SetMinNbSamples",
     header: "HLRBRep_TheIntPCurvePCurveOfCInter.hxx".}
-proc getMinNbSamples*(this: HLRBRepTheIntPCurvePCurveOfCInter): int {.noSideEffect,
+proc getMinNbSamples*(this: HLRBRepTheIntPCurvePCurveOfCInter): cint {.noSideEffect,
     importcpp: "GetMinNbSamples", header: "HLRBRep_TheIntPCurvePCurveOfCInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of ExprIntrp_GenExp"
 discard "forward decl of ExprIntrp_GenExp"
 type
-  HandleExprIntrpGenExp* = Handle[ExprIntrpGenExp]
+  HandleC1C1* = Handle[ExprIntrpGenExp]
 
 ## ! This class permits, from a string, to create any
 ## ! kind of expression of package Expr by using
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ExprIntrp_GenExp.hxx".}
 proc dynamicType*(this: ExprIntrpGenExp): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ExprIntrp_GenExp.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

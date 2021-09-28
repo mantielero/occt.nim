@@ -54,15 +54,40 @@ proc show*(this: OSD_Chronometer) {.noSideEffect, importcpp: "Show",
                                  header: "OSD_Chronometer.hxx".}
 proc show*(this: OSD_Chronometer; theOStream: var StandardOStream) {.noSideEffect,
     importcpp: "Show", header: "OSD_Chronometer.hxx".}
-proc userTimeCPU*(this: OSD_Chronometer): float {.noSideEffect,
+proc userTimeCPU*(this: OSD_Chronometer): cfloat {.noSideEffect,
     importcpp: "UserTimeCPU", header: "OSD_Chronometer.hxx".}
-proc systemTimeCPU*(this: OSD_Chronometer): float {.noSideEffect,
+proc systemTimeCPU*(this: OSD_Chronometer): cfloat {.noSideEffect,
     importcpp: "SystemTimeCPU", header: "OSD_Chronometer.hxx".}
-proc show*(this: OSD_Chronometer; theUserSeconds: var float) {.noSideEffect,
+proc show*(this: OSD_Chronometer; theUserSeconds: var cfloat) {.noSideEffect,
     importcpp: "Show", header: "OSD_Chronometer.hxx".}
-proc show*(this: OSD_Chronometer; theUserSec: var float; theSystemSec: var float) {.
+proc show*(this: OSD_Chronometer; theUserSec: var cfloat; theSystemSec: var cfloat) {.
     noSideEffect, importcpp: "Show", header: "OSD_Chronometer.hxx".}
-proc getProcessCPU*(userSeconds: var float; systemSeconds: var float) {.
+proc getProcessCPU*(userSeconds: var cfloat; systemSeconds: var cfloat) {.
     importcpp: "OSD_Chronometer::GetProcessCPU(@)", header: "OSD_Chronometer.hxx".}
-proc getThreadCPU*(userSeconds: var float; systemSeconds: var float) {.
+proc getThreadCPU*(userSeconds: var cfloat; systemSeconds: var cfloat) {.
     importcpp: "OSD_Chronometer::GetThreadCPU(@)", header: "OSD_Chronometer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

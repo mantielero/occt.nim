@@ -20,7 +20,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IFSelect_ListEditor"
 discard "forward decl of IFSelect_ListEditor"
 type
-  HandleIFSelectListEditor* = Handle[IFSelectListEditor]
+  HandleC1C1* = Handle[IFSelectListEditor]
 
 ## ! A ListEditor is an auxiliary operator for Editor/EditForm
 ## ! I.E. it works on parameter values expressed as strings
@@ -58,7 +58,7 @@ type
 
 proc constructIFSelectListEditor*(): IFSelectListEditor {.constructor,
     importcpp: "IFSelect_ListEditor(@)", header: "IFSelect_ListEditor.hxx".}
-proc constructIFSelectListEditor*(def: Handle[InterfaceTypedValue]; max: int = 0): IFSelectListEditor {.
+proc constructIFSelectListEditor*(def: Handle[InterfaceTypedValue]; max: cint = 0): IFSelectListEditor {.
     constructor, importcpp: "IFSelect_ListEditor(@)",
     header: "IFSelect_ListEditor.hxx".}
 proc loadModel*(this: var IFSelectListEditor; model: Handle[InterfaceInterfaceModel]) {.
@@ -73,29 +73,29 @@ proc clearEdit*(this: var IFSelectListEditor) {.importcpp: "ClearEdit",
 proc loadEdited*(this: var IFSelectListEditor;
                 list: Handle[TColStdHSequenceOfHAsciiString]): bool {.
     importcpp: "LoadEdited", header: "IFSelect_ListEditor.hxx".}
-proc setValue*(this: var IFSelectListEditor; num: int;
+proc setValue*(this: var IFSelectListEditor; num: cint;
               val: Handle[TCollectionHAsciiString]): bool {.importcpp: "SetValue",
     header: "IFSelect_ListEditor.hxx".}
 proc addValue*(this: var IFSelectListEditor; val: Handle[TCollectionHAsciiString];
-              atnum: int = 0): bool {.importcpp: "AddValue",
-                                 header: "IFSelect_ListEditor.hxx".}
-proc remove*(this: var IFSelectListEditor; num: int = 0; howmany: int = 1): bool {.
+              atnum: cint = 0): bool {.importcpp: "AddValue",
+                                  header: "IFSelect_ListEditor.hxx".}
+proc remove*(this: var IFSelectListEditor; num: cint = 0; howmany: cint = 1): bool {.
     importcpp: "Remove", header: "IFSelect_ListEditor.hxx".}
 proc originalValues*(this: IFSelectListEditor): Handle[
     TColStdHSequenceOfHAsciiString] {.noSideEffect, importcpp: "OriginalValues",
                                      header: "IFSelect_ListEditor.hxx".}
 proc editedValues*(this: IFSelectListEditor): Handle[TColStdHSequenceOfHAsciiString] {.
     noSideEffect, importcpp: "EditedValues", header: "IFSelect_ListEditor.hxx".}
-proc nbValues*(this: IFSelectListEditor; edited: bool = true): int {.noSideEffect,
+proc nbValues*(this: IFSelectListEditor; edited: bool = true): cint {.noSideEffect,
     importcpp: "NbValues", header: "IFSelect_ListEditor.hxx".}
-proc value*(this: IFSelectListEditor; num: int; edited: bool = true): Handle[
+proc value*(this: IFSelectListEditor; num: cint; edited: bool = true): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "Value",
                               header: "IFSelect_ListEditor.hxx".}
-proc isChanged*(this: IFSelectListEditor; num: int): bool {.noSideEffect,
+proc isChanged*(this: IFSelectListEditor; num: cint): bool {.noSideEffect,
     importcpp: "IsChanged", header: "IFSelect_ListEditor.hxx".}
-proc isModified*(this: IFSelectListEditor; num: int): bool {.noSideEffect,
+proc isModified*(this: IFSelectListEditor; num: cint): bool {.noSideEffect,
     importcpp: "IsModified", header: "IFSelect_ListEditor.hxx".}
-proc isAdded*(this: IFSelectListEditor; num: int): bool {.noSideEffect,
+proc isAdded*(this: IFSelectListEditor; num: cint): bool {.noSideEffect,
     importcpp: "IsAdded", header: "IFSelect_ListEditor.hxx".}
 proc isTouched*(this: IFSelectListEditor): bool {.noSideEffect,
     importcpp: "IsTouched", header: "IFSelect_ListEditor.hxx".}
@@ -109,3 +109,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_ListEditor.hxx".}
 proc dynamicType*(this: IFSelectListEditor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_ListEditor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

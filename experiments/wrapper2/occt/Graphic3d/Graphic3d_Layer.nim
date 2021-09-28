@@ -50,7 +50,7 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Graphic3d_Layer.hxx".}
 proc dynamicType*(this: Graphic3dLayer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_Layer.hxx".}
-proc constructGraphic3dLayer*(theId: Graphic3dZLayerId; theNbPriorities: int;
+proc constructGraphic3dLayer*(theId: Graphic3dZLayerId; theNbPriorities: cint;
                              theBuilder: Handle[Select3D_BVHBuilder3d]): Graphic3dLayer {.
     constructor, importcpp: "Graphic3d_Layer(@)", header: "Graphic3d_Layer.hxx".}
 proc destroyGraphic3dLayer*(this: var Graphic3dLayer) {.
@@ -72,16 +72,16 @@ proc setLayerSettings*(this: var Graphic3dLayer;
                       theSettings: Graphic3dZLayerSettings) {.
     importcpp: "SetLayerSettings", header: "Graphic3d_Layer.hxx".}
 proc add*(this: var Graphic3dLayer; theStruct: ptr Graphic3dCStructure;
-         thePriority: int; isForChangePriority: bool = false) {.importcpp: "Add",
+         thePriority: cint; isForChangePriority: bool = false) {.importcpp: "Add",
     header: "Graphic3d_Layer.hxx".}
 proc remove*(this: var Graphic3dLayer; theStruct: ptr Graphic3dCStructure;
-            thePriority: var int; isForChangePriority: bool = false): bool {.
+            thePriority: var cint; isForChangePriority: bool = false): bool {.
     importcpp: "Remove", header: "Graphic3d_Layer.hxx".}
-proc nbStructures*(this: Graphic3dLayer): int {.noSideEffect,
+proc nbStructures*(this: Graphic3dLayer): cint {.noSideEffect,
     importcpp: "NbStructures", header: "Graphic3d_Layer.hxx".}
-proc nbStructuresNotCulled*(this: Graphic3dLayer): int {.noSideEffect,
+proc nbStructuresNotCulled*(this: Graphic3dLayer): cint {.noSideEffect,
     importcpp: "NbStructuresNotCulled", header: "Graphic3d_Layer.hxx".}
-proc nbPriorities*(this: Graphic3dLayer): int {.noSideEffect,
+proc nbPriorities*(this: Graphic3dLayer): cint {.noSideEffect,
     importcpp: "NbPriorities", header: "Graphic3d_Layer.hxx".}
 proc append*(this: var Graphic3dLayer; theOther: Graphic3dLayer): bool {.
     importcpp: "Append", header: "Graphic3d_Layer.hxx".}
@@ -91,22 +91,22 @@ proc invalidateBVHData*(this: var Graphic3dLayer) {.importcpp: "InvalidateBVHDat
     header: "Graphic3d_Layer.hxx".}
 proc invalidateBoundingBox*(this: Graphic3dLayer) {.noSideEffect,
     importcpp: "InvalidateBoundingBox", header: "Graphic3d_Layer.hxx".}
-proc boundingBox*(this: Graphic3dLayer; theViewId: int;
-                 theCamera: Handle[Graphic3dCamera]; theWindowWidth: int;
-                 theWindowHeight: int; theToIncludeAuxiliary: bool): BndBox {.
+proc boundingBox*(this: Graphic3dLayer; theViewId: cint;
+                 theCamera: Handle[Graphic3dCamera]; theWindowWidth: cint;
+                 theWindowHeight: cint; theToIncludeAuxiliary: bool): BndBox {.
     noSideEffect, importcpp: "BoundingBox", header: "Graphic3d_Layer.hxx".}
-proc considerZoomPersistenceObjects*(this: Graphic3dLayer; theViewId: int;
+proc considerZoomPersistenceObjects*(this: Graphic3dLayer; theViewId: cint;
                                     theCamera: Handle[Graphic3dCamera];
-                                    theWindowWidth: int; theWindowHeight: int): float {.
+                                    theWindowWidth: cint; theWindowHeight: cint): cfloat {.
     noSideEffect, importcpp: "considerZoomPersistenceObjects",
     header: "Graphic3d_Layer.hxx".}
-proc updateCulling*(this: var Graphic3dLayer; theViewId: int;
+proc updateCulling*(this: var Graphic3dLayer; theViewId: cint;
                    theSelector: Graphic3dCullingTool;
                    theFrustumCullingState: FrustumCulling) {.
     importcpp: "UpdateCulling", header: "Graphic3d_Layer.hxx".}
 proc isCulled*(this: Graphic3dLayer): bool {.noSideEffect, importcpp: "IsCulled",
     header: "Graphic3d_Layer.hxx".}
-proc nbOfTransformPersistenceObjects*(this: Graphic3dLayer): int {.noSideEffect,
+proc nbOfTransformPersistenceObjects*(this: Graphic3dLayer): cint {.noSideEffect,
     importcpp: "NbOfTransformPersistenceObjects", header: "Graphic3d_Layer.hxx".}
 proc cullableStructuresBVH*(this: Graphic3dLayer): Graphic3dBvhCStructureSet {.
     noSideEffect, importcpp: "CullableStructuresBVH", header: "Graphic3d_Layer.hxx".}
@@ -117,5 +117,30 @@ proc nonCullableStructures*(this: Graphic3dLayer): NCollectionIndexedMap[
     ptr Graphic3dCStructure] {.noSideEffect, importcpp: "NonCullableStructures",
                              header: "Graphic3d_Layer.hxx".}
 proc dumpJson*(this: Graphic3dLayer; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_Layer.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_Layer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

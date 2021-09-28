@@ -17,14 +17,54 @@
 ## !!!Ignored construct:  # _Quantity_PeriodDefinitionError_HeaderFile [NewLine] # _Quantity_PeriodDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Quantity_PeriodDefinitionError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Quantity_PeriodDefinitionError"
-type
-  HandleQuantityPeriodDefinitionErrorQuantityPeriodDefinitionError* = Handle[
-      QuantityPeriodDefinitionError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Quantity_PeriodDefinitionError , Standard_DomainError ) # ! defined No_Exception && ! defined No_Quantity_PeriodDefinitionError [NewLine] # Quantity_PeriodDefinitionError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Quantity_PeriodDefinitionError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Quantity_PeriodDefinitionError [NewLine] # if ( CONDITION ) throw Quantity_PeriodDefinitionError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Quantity_PeriodDefinitionError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Quantity_PeriodDefinitionError , Standard_DomainError ) #  _Quantity_PeriodDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Quantity_PeriodDefinitionError , Standard_DomainError ) #  _Quantity_PeriodDefinitionError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

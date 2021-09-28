@@ -95,3 +95,28 @@ proc rejectMetric*[NumType; Dimension: static[cint]; BVHSetType](
 proc stop*[NumType; Dimension: static[cint]; BVHSetType](
     this: BVH_PairDistance[NumType, Dimension, BVHSetType]): bool {.noSideEffect,
     importcpp: "Stop", header: "BVH_PairDistance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

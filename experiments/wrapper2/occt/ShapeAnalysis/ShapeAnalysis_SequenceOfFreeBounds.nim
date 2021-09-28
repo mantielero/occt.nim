@@ -18,3 +18,28 @@ type
   ShapeAnalysisSequenceOfFreeBounds* = NCollectionSequence[
       Handle[ShapeAnalysisFreeBoundData]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

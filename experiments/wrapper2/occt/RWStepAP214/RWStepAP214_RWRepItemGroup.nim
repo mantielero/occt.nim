@@ -30,7 +30,7 @@ proc constructRWStepAP214RWRepItemGroup*(): RWStepAP214RWRepItemGroup {.
     constructor, importcpp: "RWStepAP214_RWRepItemGroup(@)",
     header: "RWStepAP214_RWRepItemGroup.hxx".}
 proc readStep*(this: RWStepAP214RWRepItemGroup;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepAP214RepItemGroup]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepAP214_RWRepItemGroup.hxx".}
 proc writeStep*(this: RWStepAP214RWRepItemGroup; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepAP214RWRepItemGroup; sw: var StepDataStepWriter;
 proc share*(this: RWStepAP214RWRepItemGroup; ent: Handle[StepAP214RepItemGroup];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWRepItemGroup.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

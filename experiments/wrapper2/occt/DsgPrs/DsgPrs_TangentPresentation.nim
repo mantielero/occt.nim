@@ -58,6 +58,31 @@ type
 
 
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         offsetPoint: Pnt; aDirection: Dir; aLength: float) {.
+         offsetPoint: Pnt; aDirection: Dir; aLength: cfloat) {.
     importcpp: "DsgPrs_TangentPresentation::Add(@)",
     header: "DsgPrs_TangentPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

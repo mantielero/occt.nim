@@ -31,3 +31,28 @@ type
 
 proc constructTopoDS_Wire*(): TopoDS_Wire {.constructor,
     importcpp: "TopoDS_Wire(@)", header: "TopoDS_Wire.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,3 +16,28 @@
 type
   AspectSequenceOfColor* = NCollectionSequence[QuantityColor]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,9 +34,9 @@ proc constructGceMakeLin2d*(a: Ax2d): GceMakeLin2d {.constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
 proc constructGceMakeLin2d*(p: Pnt2d; v: Dir2d): GceMakeLin2d {.constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc constructGceMakeLin2d*(a: float; b: float; c: float): GceMakeLin2d {.constructor,
-    importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc constructGceMakeLin2d*(lin: Lin2d; dist: float): GceMakeLin2d {.constructor,
+proc constructGceMakeLin2d*(a: cfloat; b: cfloat; c: cfloat): GceMakeLin2d {.
+    constructor, importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
+proc constructGceMakeLin2d*(lin: Lin2d; dist: cfloat): GceMakeLin2d {.constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
 proc constructGceMakeLin2d*(lin: Lin2d; point: Pnt2d): GceMakeLin2d {.constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
@@ -48,3 +48,28 @@ proc operator*(this: GceMakeLin2d): Lin2d {.noSideEffect, importcpp: "Operator",
                                         header: "gce_MakeLin2d.hxx".}
 converter `lin2d`*(this: GceMakeLin2d): Lin2d {.noSideEffect,
     importcpp: "gce_MakeLin2d::operator gp_Lin2d", header: "gce_MakeLin2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

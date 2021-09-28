@@ -39,20 +39,20 @@ type
 
 
 proc constructBRepExtremaDistanceSS*(s1: TopoDS_Shape; s2: TopoDS_Shape; b1: BndBox;
-                                    b2: BndBox; dstRef: float;
+                                    b2: BndBox; dstRef: cfloat;
                                     f: ExtremaExtFlag = extremaExtFlagMINMAX;
                                     a: ExtremaExtAlgo = extremaExtAlgoGrad): BRepExtremaDistanceSS {.
     constructor, importcpp: "BRepExtrema_DistanceSS(@)",
     header: "BRepExtrema_DistanceSS.hxx".}
 proc constructBRepExtremaDistanceSS*(s1: TopoDS_Shape; s2: TopoDS_Shape; b1: BndBox;
-                                    b2: BndBox; dstRef: float; aDeflection: float;
+                                    b2: BndBox; dstRef: cfloat; aDeflection: cfloat;
                                     f: ExtremaExtFlag = extremaExtFlagMINMAX;
                                     a: ExtremaExtAlgo = extremaExtAlgoGrad): BRepExtremaDistanceSS {.
     constructor, importcpp: "BRepExtrema_DistanceSS(@)",
     header: "BRepExtrema_DistanceSS.hxx".}
 proc isDone*(this: BRepExtremaDistanceSS): bool {.noSideEffect, importcpp: "IsDone",
     header: "BRepExtrema_DistanceSS.hxx".}
-proc distValue*(this: BRepExtremaDistanceSS): float {.noSideEffect,
+proc distValue*(this: BRepExtremaDistanceSS): cfloat {.noSideEffect,
     importcpp: "DistValue", header: "BRepExtrema_DistanceSS.hxx".}
 proc seq1Value*(this: BRepExtremaDistanceSS): BRepExtremaSeqOfSolution {.
     noSideEffect, importcpp: "Seq1Value", header: "BRepExtrema_DistanceSS.hxx".}
@@ -62,3 +62,28 @@ proc setFlag*(this: var BRepExtremaDistanceSS; f: ExtremaExtFlag) {.
     importcpp: "SetFlag", header: "BRepExtrema_DistanceSS.hxx".}
 proc setAlgo*(this: var BRepExtremaDistanceSS; a: ExtremaExtAlgo) {.
     importcpp: "SetAlgo", header: "BRepExtrema_DistanceSS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

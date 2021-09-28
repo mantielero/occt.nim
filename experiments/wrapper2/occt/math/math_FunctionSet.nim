@@ -22,13 +22,38 @@ type
                     bycopy.} = object ## ! Returns the number of variables of the function.
 
 
-proc nbVariables*(this: MathFunctionSet): int {.noSideEffect,
+proc nbVariables*(this: MathFunctionSet): cint {.noSideEffect,
     importcpp: "NbVariables", header: "math_FunctionSet.hxx".}
-proc nbEquations*(this: MathFunctionSet): int {.noSideEffect,
+proc nbEquations*(this: MathFunctionSet): cint {.noSideEffect,
     importcpp: "NbEquations", header: "math_FunctionSet.hxx".}
 proc value*(this: var MathFunctionSet; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "math_FunctionSet.hxx".}
-proc getStateNumber*(this: var MathFunctionSet): int {.importcpp: "GetStateNumber",
+proc getStateNumber*(this: var MathFunctionSet): cint {.importcpp: "GetStateNumber",
     header: "math_FunctionSet.hxx".}
 proc destroyMathFunctionSet*(this: var MathFunctionSet) {.
     importcpp: "#.~math_FunctionSet()", header: "math_FunctionSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

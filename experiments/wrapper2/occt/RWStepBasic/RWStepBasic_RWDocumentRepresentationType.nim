@@ -29,7 +29,7 @@ proc constructRWStepBasicRWDocumentRepresentationType*(): RWStepBasicRWDocumentR
     constructor, importcpp: "RWStepBasic_RWDocumentRepresentationType(@)",
     header: "RWStepBasic_RWDocumentRepresentationType.hxx".}
 proc readStep*(this: RWStepBasicRWDocumentRepresentationType;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicDocumentRepresentationType]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDocumentRepresentationType.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepBasicRWDocumentRepresentationType;
            ent: Handle[StepBasicDocumentRepresentationType];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWDocumentRepresentationType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   TopOpeBRepToolPlos* = ptr TopToolsListOfShape
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

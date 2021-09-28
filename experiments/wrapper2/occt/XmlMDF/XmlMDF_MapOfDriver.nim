@@ -19,3 +19,28 @@ type
   XmlMDF_DataMapIteratorOfMapOfDriver* = Iterator[TCollectionAsciiString,
       Handle[XmlMDF_ADriver], TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

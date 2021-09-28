@@ -67,14 +67,39 @@ type
                                                                                            ## V2.
 
 
-proc constructConvertSphereToBSplineSurface*(sph: Sphere; u1: float; u2: float;
-    v1: float; v2: float): ConvertSphereToBSplineSurface {.constructor,
+proc constructConvertSphereToBSplineSurface*(sph: Sphere; u1: cfloat; u2: cfloat;
+    v1: cfloat; v2: cfloat): ConvertSphereToBSplineSurface {.constructor,
     importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}
-proc constructConvertSphereToBSplineSurface*(sph: Sphere; param1: float;
-    param2: float; uTrim: bool = true): ConvertSphereToBSplineSurface {.constructor,
+proc constructConvertSphereToBSplineSurface*(sph: Sphere; param1: cfloat;
+    param2: cfloat; uTrim: bool = true): ConvertSphereToBSplineSurface {.constructor,
     importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}
 proc constructConvertSphereToBSplineSurface*(sph: Sphere): ConvertSphereToBSplineSurface {.
     constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_PolyFunction"
 discard "forward decl of Expr_PolyFunction"
 type
-  HandleExprPolyFunction* = Handle[ExprPolyFunction]
+  HandleC1C1* = Handle[ExprPolyFunction]
 
 ## ! Defines the use of an n-ary function in an expression
 ## ! with given arguments.
@@ -56,7 +56,7 @@ proc derivative*(this: ExprPolyFunction; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_PolyFunction.hxx".}
 proc evaluate*(this: ExprPolyFunction; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_PolyFunction.hxx".}
 proc string*(this: ExprPolyFunction): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_PolyFunction.hxx".}
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_PolyFunction.hxx".}
 proc dynamicType*(this: ExprPolyFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_PolyFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

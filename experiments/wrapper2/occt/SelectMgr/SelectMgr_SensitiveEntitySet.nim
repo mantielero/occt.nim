@@ -55,19 +55,44 @@ proc append*(this: var SelectMgrSensitiveEntitySet;
 proc remove*(this: var SelectMgrSensitiveEntitySet;
             theSelection: Handle[SelectMgrSelection]) {.importcpp: "Remove",
     header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc box*(this: SelectMgrSensitiveEntitySet; theIndex: int): Select3D_BndBox3d {.
+proc box*(this: SelectMgrSensitiveEntitySet; theIndex: cint): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "SelectMgr_SensitiveEntitySet.hxx".}
 ## using statement
 
-proc center*(this: SelectMgrSensitiveEntitySet; theIndex: int; theAxis: int): float {.
+proc center*(this: SelectMgrSensitiveEntitySet; theIndex: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center", header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc swap*(this: var SelectMgrSensitiveEntitySet; theIndex1: int; theIndex2: int) {.
+proc swap*(this: var SelectMgrSensitiveEntitySet; theIndex1: cint; theIndex2: cint) {.
     importcpp: "Swap", header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc size*(this: SelectMgrSensitiveEntitySet): int {.noSideEffect, importcpp: "Size",
-    header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc getSensitiveById*(this: SelectMgrSensitiveEntitySet; theIndex: int): Handle[
+proc size*(this: SelectMgrSensitiveEntitySet): cint {.noSideEffect,
+    importcpp: "Size", header: "SelectMgr_SensitiveEntitySet.hxx".}
+proc getSensitiveById*(this: SelectMgrSensitiveEntitySet; theIndex: cint): Handle[
     SelectMgrSensitiveEntity] {.noSideEffect, importcpp: "GetSensitiveById",
                                header: "SelectMgr_SensitiveEntitySet.hxx".}
 proc sensitives*(this: SelectMgrSensitiveEntitySet): SelectMgrIndexedMapOfHSensitive {.
     noSideEffect, importcpp: "Sensitives",
     header: "SelectMgr_SensitiveEntitySet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

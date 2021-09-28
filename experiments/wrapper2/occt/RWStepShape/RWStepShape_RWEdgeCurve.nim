@@ -28,7 +28,7 @@ type
 proc constructRWStepShapeRWEdgeCurve*(): RWStepShapeRWEdgeCurve {.constructor,
     importcpp: "RWStepShape_RWEdgeCurve(@)", header: "RWStepShape_RWEdgeCurve.hxx".}
 proc readStep*(this: RWStepShapeRWEdgeCurve; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeEdgeCurve]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWEdgeCurve.hxx".}
 proc writeStep*(this: RWStepShapeRWEdgeCurve; sw: var StepDataStepWriter;
@@ -40,3 +40,28 @@ proc share*(this: RWStepShapeRWEdgeCurve; ent: Handle[StepShapeEdgeCurve];
 proc check*(this: RWStepShapeRWEdgeCurve; ent: Handle[StepShapeEdgeCurve];
            shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "Check", header: "RWStepShape_RWEdgeCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

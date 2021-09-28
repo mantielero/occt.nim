@@ -27,7 +27,7 @@ type
 proc constructRWStepShapeRWTorus*(): RWStepShapeRWTorus {.constructor,
     importcpp: "RWStepShape_RWTorus(@)", header: "RWStepShape_RWTorus.hxx".}
 proc readStep*(this: RWStepShapeRWTorus; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeTorus]) {.
+              num: cint; ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeTorus]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWTorus.hxx".}
 proc writeStep*(this: RWStepShapeRWTorus; sw: var StepDataStepWriter;
                ent: Handle[StepShapeTorus]) {.noSideEffect, importcpp: "WriteStep",
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepShapeRWTorus; sw: var StepDataStepWriter;
 proc share*(this: RWStepShapeRWTorus; ent: Handle[StepShapeTorus];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWTorus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

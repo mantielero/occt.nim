@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESGraphToolDefinitionLevel;
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolDefinitionLevel.hxx".}
 proc ownDump*(this: IGESGraphToolDefinitionLevel;
              ent: Handle[IGESGraphDefinitionLevel]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESGraph_ToolDefinitionLevel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

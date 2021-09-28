@@ -26,9 +26,9 @@ proc constructBRepBlendCurvPointRadInv*(c1: Handle[Adaptor3dHCurve];
                                        c2: Handle[Adaptor3dHCurve]): BRepBlendCurvPointRadInv {.
     constructor, importcpp: "BRepBlend_CurvPointRadInv(@)",
     header: "BRepBlend_CurvPointRadInv.hxx".}
-proc set*(this: var BRepBlendCurvPointRadInv; choix: int) {.importcpp: "Set",
+proc set*(this: var BRepBlendCurvPointRadInv; choix: cint) {.importcpp: "Set",
     header: "BRepBlend_CurvPointRadInv.hxx".}
-proc nbEquations*(this: BRepBlendCurvPointRadInv): int {.noSideEffect,
+proc nbEquations*(this: BRepBlendCurvPointRadInv): cint {.noSideEffect,
     importcpp: "NbEquations", header: "BRepBlend_CurvPointRadInv.hxx".}
 proc value*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BRepBlend_CurvPointRadInv.hxx".}
@@ -40,10 +40,35 @@ proc values*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVecto
 proc set*(this: var BRepBlendCurvPointRadInv; p: Pnt) {.importcpp: "Set",
     header: "BRepBlend_CurvPointRadInv.hxx".}
 proc getTolerance*(this: BRepBlendCurvPointRadInv; tolerance: var MathVector;
-                  tol: float) {.noSideEffect, importcpp: "GetTolerance",
-                              header: "BRepBlend_CurvPointRadInv.hxx".}
+                  tol: cfloat) {.noSideEffect, importcpp: "GetTolerance",
+                               header: "BRepBlend_CurvPointRadInv.hxx".}
 proc getBounds*(this: BRepBlendCurvPointRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
                                         header: "BRepBlend_CurvPointRadInv.hxx".}
-proc isSolution*(this: var BRepBlendCurvPointRadInv; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BRepBlendCurvPointRadInv; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BRepBlend_CurvPointRadInv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

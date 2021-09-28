@@ -28,9 +28,9 @@ type
 proc destroyIMeshDataParametersList*(this: var IMeshDataParametersList) {.
     importcpp: "#.~IMeshData_ParametersList()",
     header: "IMeshData_ParametersList.hxx".}
-proc getParameter*(this: var IMeshDataParametersList; theIndex: int): var float {.
+proc getParameter*(this: var IMeshDataParametersList; theIndex: cint): var cfloat {.
     importcpp: "GetParameter", header: "IMeshData_ParametersList.hxx".}
-proc parametersNb*(this: IMeshDataParametersList): int {.noSideEffect,
+proc parametersNb*(this: IMeshDataParametersList): cint {.noSideEffect,
     importcpp: "ParametersNb", header: "IMeshData_ParametersList.hxx".}
 proc clear*(this: var IMeshDataParametersList; isKeepEndPoints: bool) {.
     importcpp: "Clear", header: "IMeshData_ParametersList.hxx".}
@@ -44,3 +44,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IMeshData_ParametersList.hxx".}
 proc dynamicType*(this: IMeshDataParametersList): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IMeshData_ParametersList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

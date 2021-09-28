@@ -22,7 +22,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TFunction_Function"
 discard "forward decl of TFunction_Function"
 type
-  HandleTFunctionFunction* = Handle[TFunctionFunction]
+  HandleC1C1* = Handle[TFunctionFunction]
 
 ## ! Provides the following two services
 ## ! -   a link to an evaluation driver
@@ -72,9 +72,9 @@ proc setDriverGUID*(this: var TFunctionFunction; guid: StandardGUID) {.
     importcpp: "SetDriverGUID", header: "TFunction_Function.hxx".}
 proc failed*(this: TFunctionFunction): bool {.noSideEffect, importcpp: "Failed",
     header: "TFunction_Function.hxx".}
-proc setFailure*(this: var TFunctionFunction; mode: int = 0) {.importcpp: "SetFailure",
+proc setFailure*(this: var TFunctionFunction; mode: cint = 0) {.importcpp: "SetFailure",
     header: "TFunction_Function.hxx".}
-proc getFailure*(this: TFunctionFunction): int {.noSideEffect,
+proc getFailure*(this: TFunctionFunction): cint {.noSideEffect,
     importcpp: "GetFailure", header: "TFunction_Function.hxx".}
 proc id*(this: TFunctionFunction): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TFunction_Function.hxx".}
@@ -99,3 +99,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TFunction_Function.hxx".}
 proc dynamicType*(this: TFunctionFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TFunction_Function.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

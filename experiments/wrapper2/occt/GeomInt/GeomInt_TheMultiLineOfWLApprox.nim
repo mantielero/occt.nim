@@ -22,20 +22,41 @@ type
                                   bycopy.} = object
 
 
+proc `new`*(this: var GeomIntTheMultiLineOfWLApprox; theSize: csize_t): pointer {.
+    importcpp: "GeomInt_TheMultiLineOfWLApprox::operator new",
+    header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntTheMultiLineOfWLApprox; theAddress: pointer) {.
+    importcpp: "GeomInt_TheMultiLineOfWLApprox::operator delete",
+    header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
+proc `new[]`*(this: var GeomIntTheMultiLineOfWLApprox; theSize: csize_t): pointer {.
+    importcpp: "GeomInt_TheMultiLineOfWLApprox::operator new[]",
+    header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
+proc `delete[]`*(this: var GeomIntTheMultiLineOfWLApprox; theAddress: pointer) {.
+    importcpp: "GeomInt_TheMultiLineOfWLApprox::operator delete[]",
+    header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
+proc `new`*(this: var GeomIntTheMultiLineOfWLApprox; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomInt_TheMultiLineOfWLApprox::operator new",
+    header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntTheMultiLineOfWLApprox; a2: pointer; a3: pointer) {.
+    importcpp: "GeomInt_TheMultiLineOfWLApprox::operator delete",
+    header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
 proc constructGeomIntTheMultiLineOfWLApprox*(): GeomIntTheMultiLineOfWLApprox {.
     constructor, importcpp: "GeomInt_TheMultiLineOfWLApprox(@)",
     header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
 proc constructGeomIntTheMultiLineOfWLApprox*(line: Handle[IntPatchWLine];
-    ptrSvSurfaces: StandardAddress; nbP3d: int; nbP2d: int; approxU1V1: bool;
-    approxU2V2: bool; xo: float; yo: float; zo: float; u1o: float; v1o: float; u2o: float;
-    v2o: float; p2DOnFirst: bool; indMin: int = 0; indMax: int = 0): GeomIntTheMultiLineOfWLApprox {.
-    constructor, importcpp: "GeomInt_TheMultiLineOfWLApprox(@)",
-    header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
-proc constructGeomIntTheMultiLineOfWLApprox*(line: Handle[IntPatchWLine];
-    nbP3d: int; nbP2d: int; approxU1V1: bool; approxU2V2: bool; xo: float; yo: float;
-    zo: float; u1o: float; v1o: float; u2o: float; v2o: float; p2DOnFirst: bool;
+    ptrSvSurfaces: StandardAddress; nbP3d: int; nbP2d: int;
+    approxU1V1: StandardBoolean; approxU2V2: StandardBoolean; xo: StandardReal;
+    yo: StandardReal; zo: StandardReal; u1o: StandardReal; v1o: StandardReal;
+    u2o: StandardReal; v2o: StandardReal; p2DOnFirst: StandardBoolean;
     indMin: int = 0; indMax: int = 0): GeomIntTheMultiLineOfWLApprox {.constructor,
     importcpp: "GeomInt_TheMultiLineOfWLApprox(@)",
+    header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
+proc constructGeomIntTheMultiLineOfWLApprox*(line: Handle[IntPatchWLine];
+    nbP3d: int; nbP2d: int; approxU1V1: StandardBoolean; approxU2V2: StandardBoolean;
+    xo: StandardReal; yo: StandardReal; zo: StandardReal; u1o: StandardReal;
+    v1o: StandardReal; u2o: StandardReal; v2o: StandardReal;
+    p2DOnFirst: StandardBoolean; indMin: int = 0; indMax: int = 0): GeomIntTheMultiLineOfWLApprox {.
+    constructor, importcpp: "GeomInt_TheMultiLineOfWLApprox(@)",
     header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
 proc firstPoint*(this: GeomIntTheMultiLineOfWLApprox): int {.noSideEffect,
     importcpp: "FirstPoint", header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
@@ -56,13 +77,13 @@ proc value*(this: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
            tabPt: var TColgpArray1OfPnt; tabPt2d: var TColgpArray1OfPnt2d) {.
     noSideEffect, importcpp: "Value", header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
 proc tangency*(this: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
-              tabV: var TColgpArray1OfVec): bool {.noSideEffect,
+              tabV: var TColgpArray1OfVec): StandardBoolean {.noSideEffect,
     importcpp: "Tangency", header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
 proc tangency*(this: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
-              tabV2d: var TColgpArray1OfVec2d): bool {.noSideEffect,
+              tabV2d: var TColgpArray1OfVec2d): StandardBoolean {.noSideEffect,
     importcpp: "Tangency", header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
 proc tangency*(this: GeomIntTheMultiLineOfWLApprox; mPointIndex: int;
-              tabV: var TColgpArray1OfVec; tabV2d: var TColgpArray1OfVec2d): bool {.
+              tabV: var TColgpArray1OfVec; tabV2d: var TColgpArray1OfVec2d): StandardBoolean {.
     noSideEffect, importcpp: "Tangency",
     header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
 proc makeMLBetween*(this: GeomIntTheMultiLineOfWLApprox; low: int; high: int;
@@ -70,7 +91,7 @@ proc makeMLBetween*(this: GeomIntTheMultiLineOfWLApprox; low: int; high: int;
     noSideEffect, importcpp: "MakeMLBetween",
     header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
 proc makeMLOneMorePoint*(this: GeomIntTheMultiLineOfWLApprox; low: int; high: int;
-                        indbad: int; otherLine: var GeomIntTheMultiLineOfWLApprox): bool {.
+                        indbad: int; otherLine: var GeomIntTheMultiLineOfWLApprox): StandardBoolean {.
     noSideEffect, importcpp: "MakeMLOneMorePoint",
     header: "GeomInt_TheMultiLineOfWLApprox.hxx".}
 proc dump*(this: GeomIntTheMultiLineOfWLApprox) {.noSideEffect, importcpp: "Dump",

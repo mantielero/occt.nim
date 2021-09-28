@@ -29,7 +29,7 @@ proc constructRWStepVisualRWSurfaceStyleControlGrid*(): RWStepVisualRWSurfaceSty
     constructor, importcpp: "RWStepVisual_RWSurfaceStyleControlGrid(@)",
     header: "RWStepVisual_RWSurfaceStyleControlGrid.hxx".}
 proc readStep*(this: RWStepVisualRWSurfaceStyleControlGrid;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualSurfaceStyleControlGrid]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWSurfaceStyleControlGrid.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepVisualRWSurfaceStyleControlGrid;
            ent: Handle[StepVisualSurfaceStyleControlGrid];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWSurfaceStyleControlGrid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

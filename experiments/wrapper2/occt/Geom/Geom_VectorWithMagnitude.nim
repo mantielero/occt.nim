@@ -23,7 +23,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_VectorWithMagnitude"
 discard "forward decl of Geom_VectorWithMagnitude"
 type
-  HandleGeomVectorWithMagnitude* = Handle[GeomVectorWithMagnitude]
+  HandleC1C1* = Handle[GeomVectorWithMagnitude]
 
 ## ! Defines a vector with magnitude.
 ## ! A vector with magnitude can have a zero length.
@@ -43,25 +43,27 @@ type
 proc constructGeomVectorWithMagnitude*(v: Vec): GeomVectorWithMagnitude {.
     constructor, importcpp: "Geom_VectorWithMagnitude(@)",
     header: "Geom_VectorWithMagnitude.hxx".}
-proc constructGeomVectorWithMagnitude*(x: float; y: float; z: float): GeomVectorWithMagnitude {.
+proc constructGeomVectorWithMagnitude*(x: StandardReal; y: StandardReal;
+                                      z: StandardReal): GeomVectorWithMagnitude {.
     constructor, importcpp: "Geom_VectorWithMagnitude(@)",
     header: "Geom_VectorWithMagnitude.hxx".}
 proc constructGeomVectorWithMagnitude*(p1: Pnt; p2: Pnt): GeomVectorWithMagnitude {.
     constructor, importcpp: "Geom_VectorWithMagnitude(@)",
     header: "Geom_VectorWithMagnitude.hxx".}
-proc setCoord*(this: var GeomVectorWithMagnitude; x: float; y: float; z: float) {.
-    importcpp: "SetCoord", header: "Geom_VectorWithMagnitude.hxx".}
+proc setCoord*(this: var GeomVectorWithMagnitude; x: StandardReal; y: StandardReal;
+              z: StandardReal) {.importcpp: "SetCoord",
+                               header: "Geom_VectorWithMagnitude.hxx".}
 proc setVec*(this: var GeomVectorWithMagnitude; v: Vec) {.importcpp: "SetVec",
     header: "Geom_VectorWithMagnitude.hxx".}
-proc setX*(this: var GeomVectorWithMagnitude; x: float) {.importcpp: "SetX",
+proc setX*(this: var GeomVectorWithMagnitude; x: StandardReal) {.importcpp: "SetX",
     header: "Geom_VectorWithMagnitude.hxx".}
-proc setY*(this: var GeomVectorWithMagnitude; y: float) {.importcpp: "SetY",
+proc setY*(this: var GeomVectorWithMagnitude; y: StandardReal) {.importcpp: "SetY",
     header: "Geom_VectorWithMagnitude.hxx".}
-proc setZ*(this: var GeomVectorWithMagnitude; z: float) {.importcpp: "SetZ",
+proc setZ*(this: var GeomVectorWithMagnitude; z: StandardReal) {.importcpp: "SetZ",
     header: "Geom_VectorWithMagnitude.hxx".}
-proc magnitude*(this: GeomVectorWithMagnitude): float {.noSideEffect,
+proc magnitude*(this: GeomVectorWithMagnitude): StandardReal {.noSideEffect,
     importcpp: "Magnitude", header: "Geom_VectorWithMagnitude.hxx".}
-proc squareMagnitude*(this: GeomVectorWithMagnitude): float {.noSideEffect,
+proc squareMagnitude*(this: GeomVectorWithMagnitude): StandardReal {.noSideEffect,
     importcpp: "SquareMagnitude", header: "Geom_VectorWithMagnitude.hxx".}
 proc add*(this: var GeomVectorWithMagnitude; other: Handle[GeomVector]) {.
     importcpp: "Add", header: "Geom_VectorWithMagnitude.hxx".}
@@ -79,15 +81,15 @@ proc crossCross*(this: var GeomVectorWithMagnitude; v1: Handle[GeomVector];
 proc crossCrossed*(this: GeomVectorWithMagnitude; v1: Handle[GeomVector];
                   v2: Handle[GeomVector]): Handle[GeomVector] {.noSideEffect,
     importcpp: "CrossCrossed", header: "Geom_VectorWithMagnitude.hxx".}
-proc divide*(this: var GeomVectorWithMagnitude; scalar: float) {.importcpp: "Divide",
-    header: "Geom_VectorWithMagnitude.hxx".}
-proc divided*(this: GeomVectorWithMagnitude; scalar: float): Handle[
+proc divide*(this: var GeomVectorWithMagnitude; scalar: StandardReal) {.
+    importcpp: "Divide", header: "Geom_VectorWithMagnitude.hxx".}
+proc divided*(this: GeomVectorWithMagnitude; scalar: StandardReal): Handle[
     GeomVectorWithMagnitude] {.noSideEffect, importcpp: "Divided",
                               header: "Geom_VectorWithMagnitude.hxx".}
-proc multiplied*(this: GeomVectorWithMagnitude; scalar: float): Handle[
+proc multiplied*(this: GeomVectorWithMagnitude; scalar: StandardReal): Handle[
     GeomVectorWithMagnitude] {.noSideEffect, importcpp: "Multiplied",
                               header: "Geom_VectorWithMagnitude.hxx".}
-proc multiply*(this: var GeomVectorWithMagnitude; scalar: float) {.
+proc multiply*(this: var GeomVectorWithMagnitude; scalar: StandardReal) {.
     importcpp: "Multiply", header: "Geom_VectorWithMagnitude.hxx".}
 proc normalize*(this: var GeomVectorWithMagnitude) {.importcpp: "Normalize",
     header: "Geom_VectorWithMagnitude.hxx".}

@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_DesignContext"
 discard "forward decl of StepBasic_DesignContext"
 type
-  HandleStepBasicDesignContext* = Handle[StepBasicDesignContext]
+  HandleC1C1* = Handle[StepBasicDesignContext]
 
 ## ! class added to Schema AP214 around April 1996
 
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DesignContext.hxx".}
 proc dynamicType*(this: StepBasicDesignContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_DesignContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

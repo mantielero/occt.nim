@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_CameraModelD2"
 discard "forward decl of StepVisual_CameraModelD2"
 type
-  HandleStepVisualCameraModelD2* = Handle[StepVisualCameraModelD2]
+  HandleC1C1* = Handle[StepVisualCameraModelD2]
   StepVisualCameraModelD2* {.importcpp: "StepVisual_CameraModelD2",
                             header: "StepVisual_CameraModelD2.hxx", bycopy.} = object of StepVisualCameraModel ##
                                                                                                         ## !
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_CameraModelD2.hxx".}
 proc dynamicType*(this: StepVisualCameraModelD2): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_CameraModelD2.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

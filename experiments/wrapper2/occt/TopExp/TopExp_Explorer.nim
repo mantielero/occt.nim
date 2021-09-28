@@ -40,11 +40,36 @@ proc current*(this: TopExpExplorer): TopoDS_Shape {.noSideEffect,
     importcpp: "Current", header: "TopExp_Explorer.hxx".}
 proc reInit*(this: var TopExpExplorer) {.importcpp: "ReInit",
                                      header: "TopExp_Explorer.hxx".}
-proc depth*(this: TopExpExplorer): int {.noSideEffect, importcpp: "Depth",
-                                     header: "TopExp_Explorer.hxx".}
+proc depth*(this: TopExpExplorer): cint {.noSideEffect, importcpp: "Depth",
+                                      header: "TopExp_Explorer.hxx".}
 proc clear*(this: var TopExpExplorer) {.importcpp: "Clear",
                                     header: "TopExp_Explorer.hxx".}
 proc destroy*(this: var TopExpExplorer) {.importcpp: "Destroy",
                                       header: "TopExp_Explorer.hxx".}
 proc destroyTopExpExplorer*(this: var TopExpExplorer) {.
     importcpp: "#.~TopExp_Explorer()", header: "TopExp_Explorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

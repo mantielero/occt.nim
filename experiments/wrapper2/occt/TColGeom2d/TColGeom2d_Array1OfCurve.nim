@@ -17,3 +17,28 @@
 type
   TColGeom2dArray1OfCurve* = NCollectionArray1[Handle[Geom2dCurve]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

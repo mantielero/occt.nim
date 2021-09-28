@@ -90,16 +90,16 @@ proc init*(this: var ImageDiff; theImageRef: Handle[ImagePixMap];
 proc init*(this: var ImageDiff; theImgPathRef: TCollectionAsciiString;
           theImgPathNew: TCollectionAsciiString; theToBlackWhite: bool = false): bool {.
     importcpp: "Init", header: "Image_Diff.hxx".}
-proc setColorTolerance*(this: var ImageDiff; theTolerance: float) {.
+proc setColorTolerance*(this: var ImageDiff; theTolerance: cfloat) {.
     importcpp: "SetColorTolerance", header: "Image_Diff.hxx".}
-proc colorTolerance*(this: ImageDiff): float {.noSideEffect,
+proc colorTolerance*(this: ImageDiff): cfloat {.noSideEffect,
     importcpp: "ColorTolerance", header: "Image_Diff.hxx".}
 proc setBorderFilterOn*(this: var ImageDiff; theToIgnore: bool) {.
     importcpp: "SetBorderFilterOn", header: "Image_Diff.hxx".}
 proc isBorderFilterOn*(this: ImageDiff): bool {.noSideEffect,
     importcpp: "IsBorderFilterOn", header: "Image_Diff.hxx".}
-proc compare*(this: var ImageDiff): int {.importcpp: "Compare",
-                                     header: "Image_Diff.hxx".}
+proc compare*(this: var ImageDiff): cint {.importcpp: "Compare",
+                                      header: "Image_Diff.hxx".}
 proc saveDiffImage*(this: ImageDiff; theDiffImage: var ImagePixMap): bool {.
     noSideEffect, importcpp: "SaveDiffImage", header: "Image_Diff.hxx".}
 proc saveDiffImage*(this: ImageDiff; theDiffPath: TCollectionAsciiString): bool {.
@@ -115,5 +115,30 @@ proc dynamicType*(this: ImageDiff): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Image_Diff.hxx".}
 discard "forward decl of Image_Diff"
 type
-  HandleImageDiff* = Handle[ImageDiff]
+  HandleC1C1* = Handle[ImageDiff]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

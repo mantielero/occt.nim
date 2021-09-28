@@ -36,8 +36,8 @@ proc constructOpenGlMaterialCommon*(): OpenGlMaterialCommon {.constructor,
     importcpp: "OpenGl_MaterialCommon(@)", header: "OpenGl_Material.hxx".}
 proc packed*(this: OpenGlMaterialCommon): ptr OpenGlVec4 {.noSideEffect,
     importcpp: "Packed", header: "OpenGl_Material.hxx".}
-proc nbOfVec4*(): int {.importcpp: "OpenGl_MaterialCommon::NbOfVec4(@)",
-                     header: "OpenGl_Material.hxx".}
+proc nbOfVec4*(): cint {.importcpp: "OpenGl_MaterialCommon::NbOfVec4(@)",
+                      header: "OpenGl_Material.hxx".}
 ## ! OpenGL material definition
 
 type
@@ -60,8 +60,8 @@ proc constructOpenGlMaterialPBR*(): OpenGlMaterialPBR {.constructor,
     importcpp: "OpenGl_MaterialPBR(@)", header: "OpenGl_Material.hxx".}
 proc packed*(this: OpenGlMaterialPBR): ptr OpenGlVec4 {.noSideEffect,
     importcpp: "Packed", header: "OpenGl_Material.hxx".}
-proc nbOfVec4*(): int {.importcpp: "OpenGl_MaterialPBR::NbOfVec4(@)",
-                     header: "OpenGl_Material.hxx".}
+proc nbOfVec4*(): cint {.importcpp: "OpenGl_MaterialPBR::NbOfVec4(@)",
+                      header: "OpenGl_Material.hxx".}
 ## ! OpenGL material definition
 
 type
@@ -89,5 +89,30 @@ type
                        header: "OpenGl_Material.hxx".} = enum
     OpenGlMaterialFlagFront,  ## !< material for front faces
     OpenGlMaterialFlagBack    ## !< material for back  faces
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

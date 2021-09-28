@@ -29,26 +29,52 @@ proc constructFEmToolAssembly*(dependence: TColStdArray2OfInteger;
     constructor, importcpp: "FEmTool_Assembly(@)", header: "FEmTool_Assembly.hxx".}
 proc nullifyMatrix*(this: var FEmToolAssembly) {.importcpp: "NullifyMatrix",
     header: "FEmTool_Assembly.hxx".}
-proc addMatrix*(this: var FEmToolAssembly; element: int; dimension1: int;
-               dimension2: int; mat: MathMatrix) {.importcpp: "AddMatrix",
+proc addMatrix*(this: var FEmToolAssembly; element: cint; dimension1: cint;
+               dimension2: cint; mat: MathMatrix) {.importcpp: "AddMatrix",
     header: "FEmTool_Assembly.hxx".}
 proc nullifyVector*(this: var FEmToolAssembly) {.importcpp: "NullifyVector",
     header: "FEmTool_Assembly.hxx".}
-proc addVector*(this: var FEmToolAssembly; element: int; dimension: int; vec: MathVector) {.
-    importcpp: "AddVector", header: "FEmTool_Assembly.hxx".}
+proc addVector*(this: var FEmToolAssembly; element: cint; dimension: cint;
+               vec: MathVector) {.importcpp: "AddVector",
+                                header: "FEmTool_Assembly.hxx".}
 proc resetConstraint*(this: var FEmToolAssembly) {.importcpp: "ResetConstraint",
     header: "FEmTool_Assembly.hxx".}
 proc nullifyConstraint*(this: var FEmToolAssembly) {.importcpp: "NullifyConstraint",
     header: "FEmTool_Assembly.hxx".}
-proc addConstraint*(this: var FEmToolAssembly; indexofConstraint: int; element: int;
-                   dimension: int; linearForm: MathVector; value: float) {.
+proc addConstraint*(this: var FEmToolAssembly; indexofConstraint: cint; element: cint;
+                   dimension: cint; linearForm: MathVector; value: cfloat) {.
     importcpp: "AddConstraint", header: "FEmTool_Assembly.hxx".}
 proc solve*(this: var FEmToolAssembly): bool {.importcpp: "Solve",
     header: "FEmTool_Assembly.hxx".}
 proc solution*(this: FEmToolAssembly; solution: var MathVector) {.noSideEffect,
     importcpp: "Solution", header: "FEmTool_Assembly.hxx".}
-proc nbGlobVar*(this: FEmToolAssembly): int {.noSideEffect, importcpp: "NbGlobVar",
+proc nbGlobVar*(this: FEmToolAssembly): cint {.noSideEffect, importcpp: "NbGlobVar",
     header: "FEmTool_Assembly.hxx".}
 proc getAssemblyTable*(this: FEmToolAssembly;
                       assTable: var Handle[FEmToolHAssemblyTable]) {.noSideEffect,
     importcpp: "GetAssemblyTable", header: "FEmTool_Assembly.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

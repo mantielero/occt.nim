@@ -16,3 +16,28 @@ type
   BOPToolsMapOfSet* = NCollectionMap[BOPToolsSet, BOPToolsSetMapHasher]
   BOPToolsMapIteratorOfMapOfSet* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

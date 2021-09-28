@@ -25,6 +25,24 @@ type
                        header: "GeomToStep_MakeLine.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeLine; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeLine::operator new",
+    header: "GeomToStep_MakeLine.hxx".}
+proc `delete`*(this: var GeomToStepMakeLine; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeLine::operator delete",
+    header: "GeomToStep_MakeLine.hxx".}
+proc `new[]`*(this: var GeomToStepMakeLine; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeLine::operator new[]",
+    header: "GeomToStep_MakeLine.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeLine; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeLine::operator delete[]",
+    header: "GeomToStep_MakeLine.hxx".}
+proc `new`*(this: var GeomToStepMakeLine; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeLine::operator new",
+    header: "GeomToStep_MakeLine.hxx".}
+proc `delete`*(this: var GeomToStepMakeLine; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeLine::operator delete",
+    header: "GeomToStep_MakeLine.hxx".}
 proc constructGeomToStepMakeLine*(L: Lin): GeomToStepMakeLine {.constructor,
     importcpp: "GeomToStep_MakeLine(@)", header: "GeomToStep_MakeLine.hxx".}
 proc constructGeomToStepMakeLine*(L: Lin2d): GeomToStepMakeLine {.constructor,

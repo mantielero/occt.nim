@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWNodeRepresentation*(): RWStepFEA_RWNodeRepresentation 
     constructor, importcpp: "RWStepFEA_RWNodeRepresentation(@)",
     header: "RWStepFEA_RWNodeRepresentation.hxx".}
 proc readStep*(this: RWStepFEA_RWNodeRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_NodeRepresentation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWNodeRepresentation.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepFEA_RWNodeRepresentation;
            ent: Handle[StepFEA_NodeRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWNodeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

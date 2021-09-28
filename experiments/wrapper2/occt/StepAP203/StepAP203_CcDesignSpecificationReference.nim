@@ -19,8 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepAP203_CcDesignSpecificationReference"
 discard "forward decl of StepAP203_CcDesignSpecificationReference"
 type
-  HandleStepAP203CcDesignSpecificationReference* = Handle[
-      StepAP203CcDesignSpecificationReference]
+  HandleC1C1* = Handle[StepAP203CcDesignSpecificationReference]
 
 ## ! Representation of STEP entity CcDesignSpecificationReference
 
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP203_CcDesign
 proc dynamicType*(this: StepAP203CcDesignSpecificationReference): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP203_CcDesignSpecificationReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -58,7 +58,7 @@ proc normal*(theFace: TopoDS_Face; thePolyConnect: var PolyConnect;
             theNormals: var TColgpArray1OfDir) {.
     importcpp: "StdPrs_ToolTriangulatedShape::Normal(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
-proc getDeflection*(theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer]): float {.
+proc getDeflection*(theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer]): cfloat {.
     importcpp: "StdPrs_ToolTriangulatedShape::GetDeflection(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
 proc isTessellated*(theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer]): bool {.
@@ -72,3 +72,28 @@ proc clearOnOwnDeflectionChange*(theShape: TopoDS_Shape;
                                 theToResetCoeff: bool) {.
     importcpp: "StdPrs_ToolTriangulatedShape::ClearOnOwnDeflectionChange(@)",
     header: "StdPrs_ToolTriangulatedShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of GeomAdaptor_HSurface"
 discard "forward decl of GeomAdaptor_HSurface"
 type
-  HandleGeomAdaptorHSurface* = Handle[GeomAdaptorHSurface]
+  HandleC1C1* = Handle[GeomAdaptorHSurface]
 
 ## ! An interface between the services provided by any
 ## ! surface from the package Geom and those required
@@ -40,9 +40,10 @@ proc constructGeomAdaptorHSurface*(`as`: GeomAdaptorSurface): GeomAdaptorHSurfac
 proc constructGeomAdaptorHSurface*(s: Handle[GeomSurface]): GeomAdaptorHSurface {.
     constructor, importcpp: "GeomAdaptor_HSurface(@)",
     header: "GeomAdaptor_HSurface.hxx".}
-proc constructGeomAdaptorHSurface*(s: Handle[GeomSurface]; uFirst: float;
-                                  uLast: float; vFirst: float; vLast: float;
-                                  tolU: float = 0.0; tolV: float = 0.0): GeomAdaptorHSurface {.
+proc constructGeomAdaptorHSurface*(s: Handle[GeomSurface]; uFirst: StandardReal;
+                                  uLast: StandardReal; vFirst: StandardReal;
+                                  vLast: StandardReal; tolU: StandardReal = 0.0;
+                                  tolV: StandardReal = 0.0): GeomAdaptorHSurface {.
     constructor, importcpp: "GeomAdaptor_HSurface(@)",
     header: "GeomAdaptor_HSurface.hxx".}
 type

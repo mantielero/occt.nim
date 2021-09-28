@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_RebuildDrawings"
 discard "forward decl of IGESSelect_RebuildDrawings"
 type
-  HandleIGESSelectRebuildDrawings* = Handle[IGESSelectRebuildDrawings]
+  HandleC1C1* = Handle[IGESSelectRebuildDrawings]
 
 ## ! Rebuilds Drawings which were bypassed to produce new models.
 ## ! If a set of entities, all put into a same IGESModel, were
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectRebuildDrawings): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_RebuildDrawings.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

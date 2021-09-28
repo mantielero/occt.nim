@@ -20,3 +20,28 @@ type
     GCPntsLinear, GCPntsCircular, GCPntsCurved, GCPntsDefComposite
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

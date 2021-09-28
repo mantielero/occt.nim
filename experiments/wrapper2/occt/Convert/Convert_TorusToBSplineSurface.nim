@@ -75,14 +75,39 @@ type
                                                                                           ## Pi
 
 
-proc constructConvertTorusToBSplineSurface*(t: Torus; u1: float; u2: float; v1: float;
-    v2: float): ConvertTorusToBSplineSurface {.constructor,
+proc constructConvertTorusToBSplineSurface*(t: Torus; u1: cfloat; u2: cfloat;
+    v1: cfloat; v2: cfloat): ConvertTorusToBSplineSurface {.constructor,
     importcpp: "Convert_TorusToBSplineSurface(@)",
     header: "Convert_TorusToBSplineSurface.hxx".}
-proc constructConvertTorusToBSplineSurface*(t: Torus; param1: float; param2: float;
+proc constructConvertTorusToBSplineSurface*(t: Torus; param1: cfloat; param2: cfloat;
     uTrim: bool = true): ConvertTorusToBSplineSurface {.constructor,
     importcpp: "Convert_TorusToBSplineSurface(@)",
     header: "Convert_TorusToBSplineSurface.hxx".}
 proc constructConvertTorusToBSplineSurface*(t: Torus): ConvertTorusToBSplineSurface {.
     constructor, importcpp: "Convert_TorusToBSplineSurface(@)",
     header: "Convert_TorusToBSplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

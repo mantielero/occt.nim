@@ -17,3 +17,28 @@
 type
   TColgpArray1OfPnt* = NCollectionArray1[Pnt]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

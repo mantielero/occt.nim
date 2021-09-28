@@ -19,6 +19,19 @@ type
                     bycopy.} = object of GeomFillFilling
 
 
+proc `new`*(this: var GeomFillStretch; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Stretch::operator new", header: "GeomFill_Stretch.hxx".}
+proc `delete`*(this: var GeomFillStretch; theAddress: pointer) {.
+    importcpp: "GeomFill_Stretch::operator delete", header: "GeomFill_Stretch.hxx".}
+proc `new[]`*(this: var GeomFillStretch; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Stretch::operator new[]", header: "GeomFill_Stretch.hxx".}
+proc `delete[]`*(this: var GeomFillStretch; theAddress: pointer) {.
+    importcpp: "GeomFill_Stretch::operator delete[]",
+    header: "GeomFill_Stretch.hxx".}
+proc `new`*(this: var GeomFillStretch; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_Stretch::operator new", header: "GeomFill_Stretch.hxx".}
+proc `delete`*(this: var GeomFillStretch; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_Stretch::operator delete", header: "GeomFill_Stretch.hxx".}
 proc constructGeomFillStretch*(): GeomFillStretch {.constructor,
     importcpp: "GeomFill_Stretch(@)", header: "GeomFill_Stretch.hxx".}
 proc constructGeomFillStretch*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;

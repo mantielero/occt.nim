@@ -19,10 +19,10 @@ type
   ApproxCurve2d* {.importcpp: "Approx_Curve2d", header: "Approx_Curve2d.hxx", bycopy.} = object
 
 
-proc constructApproxCurve2d*(c2d: Handle[Adaptor2dHCurve2d]; first: float;
-                            last: float; tolU: float; tolV: float;
-                            continuity: GeomAbsShape; maxDegree: int;
-                            maxSegments: int): ApproxCurve2d {.constructor,
+proc constructApproxCurve2d*(c2d: Handle[Adaptor2dHCurve2d]; first: cfloat;
+                            last: cfloat; tolU: cfloat; tolV: cfloat;
+                            continuity: GeomAbsShape; maxDegree: cint;
+                            maxSegments: cint): ApproxCurve2d {.constructor,
     importcpp: "Approx_Curve2d(@)", header: "Approx_Curve2d.hxx".}
 proc isDone*(this: ApproxCurve2d): bool {.noSideEffect, importcpp: "IsDone",
                                       header: "Approx_Curve2d.hxx".}
@@ -30,7 +30,32 @@ proc hasResult*(this: ApproxCurve2d): bool {.noSideEffect, importcpp: "HasResult
     header: "Approx_Curve2d.hxx".}
 proc curve*(this: ApproxCurve2d): Handle[Geom2dBSplineCurve] {.noSideEffect,
     importcpp: "Curve", header: "Approx_Curve2d.hxx".}
-proc maxError2dU*(this: ApproxCurve2d): float {.noSideEffect,
+proc maxError2dU*(this: ApproxCurve2d): cfloat {.noSideEffect,
     importcpp: "MaxError2dU", header: "Approx_Curve2d.hxx".}
-proc maxError2dV*(this: ApproxCurve2d): float {.noSideEffect,
+proc maxError2dV*(this: ApproxCurve2d): cfloat {.noSideEffect,
     importcpp: "MaxError2dV", header: "Approx_Curve2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

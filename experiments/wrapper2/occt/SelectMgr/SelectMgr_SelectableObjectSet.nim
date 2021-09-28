@@ -94,8 +94,8 @@ proc changeSubset*(this: var SelectMgrSelectableObjectSet;
 proc updateBVH*(this: var SelectMgrSelectableObjectSet;
                theCamera: Handle[Graphic3dCamera];
                theProjectionMat: Graphic3dMat4d; theWorldViewMat: Graphic3dMat4d;
-               theViewState: Graphic3dWorldViewProjState; theViewportWidth: int;
-               theViewportHeight: int) {.importcpp: "UpdateBVH", header: "SelectMgr_SelectableObjectSet.hxx".}
+               theViewState: Graphic3dWorldViewProjState; theViewportWidth: cint;
+               theViewportHeight: cint) {.importcpp: "UpdateBVH", header: "SelectMgr_SelectableObjectSet.hxx".}
 proc markDirty*(this: var SelectMgrSelectableObjectSet) {.importcpp: "MarkDirty",
     header: "SelectMgr_SelectableObjectSet.hxx".}
 proc contains*(this: SelectMgrSelectableObjectSet;
@@ -107,13 +107,39 @@ proc isEmpty*(this: SelectMgrSelectableObjectSet;
              theSubset: SelectMgrSelectableObjectSetBVHSubset): bool {.
     noSideEffect, importcpp: "IsEmpty", header: "SelectMgr_SelectableObjectSet.hxx".}
 proc getObjectById*(this: SelectMgrSelectableObjectSet;
-                   theSubset: SelectMgrSelectableObjectSetBVHSubset; theIndex: int): Handle[
-    SelectMgrSelectableObject] {.noSideEffect, importcpp: "GetObjectById",
-                                header: "SelectMgr_SelectableObjectSet.hxx".}
+                   theSubset: SelectMgrSelectableObjectSetBVHSubset;
+                   theIndex: cint): Handle[SelectMgrSelectableObject] {.
+    noSideEffect, importcpp: "GetObjectById",
+    header: "SelectMgr_SelectableObjectSet.hxx".}
 proc bvh*(this: SelectMgrSelectableObjectSet;
          theSubset: SelectMgrSelectableObjectSetBVHSubset): Handle[
-    BVH_Tree[float, 3]] {.noSideEffect, importcpp: "BVH",
-                        header: "SelectMgr_SelectableObjectSet.hxx".}
+    BVH_Tree[cfloat, 3]] {.noSideEffect, importcpp: "BVH",
+                         header: "SelectMgr_SelectableObjectSet.hxx".}
 proc dumpJson*(this: SelectMgrSelectableObjectSet; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "SelectMgr_SelectableObjectSet.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "SelectMgr_SelectableObjectSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

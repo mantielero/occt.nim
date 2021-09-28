@@ -27,9 +27,34 @@ type
 proc constructStepAP203ContractedItem*(): StepAP203ContractedItem {.constructor,
     importcpp: "StepAP203_ContractedItem(@)",
     header: "StepAP203_ContractedItem.hxx".}
-proc caseNum*(this: StepAP203ContractedItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP203ContractedItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_ContractedItem.hxx".}
 proc productDefinitionFormation*(this: StepAP203ContractedItem): Handle[
     StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepAP203_ContractedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

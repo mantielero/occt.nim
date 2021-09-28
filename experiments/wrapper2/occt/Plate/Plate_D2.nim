@@ -25,3 +25,28 @@ proc constructPlateD2*(duu: Xyz; duv: Xyz; dvv: Xyz): PlateD2 {.constructor,
     importcpp: "Plate_D2(@)", header: "Plate_D2.hxx".}
 proc constructPlateD2*(`ref`: PlateD2): PlateD2 {.constructor,
     importcpp: "Plate_D2(@)", header: "Plate_D2.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

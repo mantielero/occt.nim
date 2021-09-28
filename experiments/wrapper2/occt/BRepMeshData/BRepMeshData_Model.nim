@@ -60,9 +60,9 @@ proc constructBRepMeshDataModel*(theShape: TopoDS_Shape): BRepMeshDataModel {.
     header: "BRepMeshData_Model.hxx".}
 proc destroyBRepMeshDataModel*(this: var BRepMeshDataModel) {.
     importcpp: "#.~BRepMeshData_Model()", header: "BRepMeshData_Model.hxx".}
-proc getMaxSize*(this: BRepMeshDataModel): float {.noSideEffect,
+proc getMaxSize*(this: BRepMeshDataModel): cfloat {.noSideEffect,
     importcpp: "GetMaxSize", header: "BRepMeshData_Model.hxx".}
-proc setMaxSize*(this: var BRepMeshDataModel; theValue: float) {.
+proc setMaxSize*(this: var BRepMeshDataModel; theValue: cfloat) {.
     importcpp: "SetMaxSize", header: "BRepMeshData_Model.hxx".}
 type
   BRepMeshDataModelbaseType* = IMeshDataModel
@@ -74,15 +74,40 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMeshData_Model.hxx".}
 proc dynamicType*(this: BRepMeshDataModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_Model.hxx".}
-proc facesNb*(this: BRepMeshDataModel): int {.noSideEffect, importcpp: "FacesNb",
+proc facesNb*(this: BRepMeshDataModel): cint {.noSideEffect, importcpp: "FacesNb",
     header: "BRepMeshData_Model.hxx".}
 proc addFace*(this: var BRepMeshDataModel; theFace: TopoDS_Face): IFaceHandle {.
     importcpp: "AddFace", header: "BRepMeshData_Model.hxx".}
-proc getFace*(this: BRepMeshDataModel; theIndex: int): IFaceHandle {.noSideEffect,
+proc getFace*(this: BRepMeshDataModel; theIndex: cint): IFaceHandle {.noSideEffect,
     importcpp: "GetFace", header: "BRepMeshData_Model.hxx".}
-proc edgesNb*(this: BRepMeshDataModel): int {.noSideEffect, importcpp: "EdgesNb",
+proc edgesNb*(this: BRepMeshDataModel): cint {.noSideEffect, importcpp: "EdgesNb",
     header: "BRepMeshData_Model.hxx".}
 proc addEdge*(this: var BRepMeshDataModel; theEdge: TopoDS_Edge): IEdgeHandle {.
     importcpp: "AddEdge", header: "BRepMeshData_Model.hxx".}
-proc getEdge*(this: BRepMeshDataModel; theIndex: int): IEdgeHandle {.noSideEffect,
+proc getEdge*(this: BRepMeshDataModel; theIndex: cint): IEdgeHandle {.noSideEffect,
     importcpp: "GetEdge", header: "BRepMeshData_Model.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

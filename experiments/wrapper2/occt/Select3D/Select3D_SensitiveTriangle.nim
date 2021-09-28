@@ -68,13 +68,13 @@ proc boundingBox*(this: var Select3D_SensitiveTriangle): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveTriangle.hxx".}
 proc toBuildBVH*(this: Select3D_SensitiveTriangle): bool {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveTriangle.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveTriangle): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitiveTriangle): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitiveTriangle.hxx".}
 proc centerOfGeometry*(this: Select3D_SensitiveTriangle): Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveTriangle.hxx".}
 proc dumpJson*(this: Select3D_SensitiveTriangle; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Select3D_SensitiveTriangle.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Select3D_SensitiveTriangle.hxx".}
 type
   Select3D_SensitiveTrianglebaseType* = Select3D_SensitiveEntity
 
@@ -88,5 +88,30 @@ proc dynamicType*(this: Select3D_SensitiveTriangle): Handle[StandardType] {.
     header: "Select3D_SensitiveTriangle.hxx".}
 discard "forward decl of Select3D_SensitiveTriangle"
 type
-  HandleSelect3D_SensitiveTriangle* = Handle[Select3D_SensitiveTriangle]
+  HandleC1C1* = Handle[Select3D_SensitiveTriangle]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

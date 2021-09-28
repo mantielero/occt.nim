@@ -17,3 +17,28 @@ type
   XCAFDimTolObjectsDatumModifiersSequence* = NCollectionSequence[
       XCAFDimTolObjectsDatumSingleModif]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

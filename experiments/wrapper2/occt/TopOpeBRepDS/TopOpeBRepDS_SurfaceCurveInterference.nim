@@ -20,8 +20,7 @@ discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopOpeBRepDS_SurfaceCurveInterference"
 discard "forward decl of TopOpeBRepDS_SurfaceCurveInterference"
 type
-  HandleTopOpeBRepDS_SurfaceCurveInterference* = Handle[
-      TopOpeBRepDS_SurfaceCurveInterference]
+  HandleC1C1* = Handle[TopOpeBRepDS_SurfaceCurveInterference]
 
 ## ! an interference with a 2d curve
 
@@ -36,7 +35,7 @@ proc constructTopOpeBRepDS_SurfaceCurveInterference*(): TopOpeBRepDS_SurfaceCurv
     header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
 proc constructTopOpeBRepDS_SurfaceCurveInterference*(
     transition: TopOpeBRepDS_Transition; supportType: TopOpeBRepDS_Kind;
-    support: int; geometryType: TopOpeBRepDS_Kind; geometry: int;
+    support: cint; geometryType: TopOpeBRepDS_Kind; geometry: cint;
     pc: Handle[Geom2dCurve]): TopOpeBRepDS_SurfaceCurveInterference {.constructor,
     importcpp: "TopOpeBRepDS_SurfaceCurveInterference(@)",
     header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
@@ -60,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopOpeBRepDS_SurfaceCurveInterference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

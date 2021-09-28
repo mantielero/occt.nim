@@ -23,7 +23,7 @@ discard "forward decl of TDF_AttributeDelta"
 discard "forward decl of TPrsStd_AISPresentation"
 discard "forward decl of TPrsStd_AISPresentation"
 type
-  HandleTPrsStdAISPresentation* = Handle[TPrsStdAISPresentation]
+  HandleC1C1* = Handle[TPrsStdAISPresentation]
 
 ## ! An attribute to associate an
 ## ! AIS_InteractiveObject to a label in an AIS viewer.
@@ -89,9 +89,9 @@ proc hasOwnMaterial*(this: TPrsStdAISPresentation): bool {.noSideEffect,
     importcpp: "HasOwnMaterial", header: "TPrsStd_AISPresentation.hxx".}
 proc unsetMaterial*(this: var TPrsStdAISPresentation) {.importcpp: "UnsetMaterial",
     header: "TPrsStd_AISPresentation.hxx".}
-proc setTransparency*(this: var TPrsStdAISPresentation; aValue: float = 0.6) {.
+proc setTransparency*(this: var TPrsStdAISPresentation; aValue: cfloat = 0.6) {.
     importcpp: "SetTransparency", header: "TPrsStd_AISPresentation.hxx".}
-proc transparency*(this: TPrsStdAISPresentation): float {.noSideEffect,
+proc transparency*(this: TPrsStdAISPresentation): cfloat {.noSideEffect,
     importcpp: "Transparency", header: "TPrsStd_AISPresentation.hxx".}
 proc hasOwnTransparency*(this: TPrsStdAISPresentation): bool {.noSideEffect,
     importcpp: "HasOwnTransparency", header: "TPrsStd_AISPresentation.hxx".}
@@ -105,30 +105,30 @@ proc hasOwnColor*(this: TPrsStdAISPresentation): bool {.noSideEffect,
     importcpp: "HasOwnColor", header: "TPrsStd_AISPresentation.hxx".}
 proc unsetColor*(this: var TPrsStdAISPresentation) {.importcpp: "UnsetColor",
     header: "TPrsStd_AISPresentation.hxx".}
-proc width*(this: TPrsStdAISPresentation): float {.noSideEffect, importcpp: "Width",
+proc width*(this: TPrsStdAISPresentation): cfloat {.noSideEffect, importcpp: "Width",
     header: "TPrsStd_AISPresentation.hxx".}
-proc setWidth*(this: var TPrsStdAISPresentation; aWidth: float) {.
+proc setWidth*(this: var TPrsStdAISPresentation; aWidth: cfloat) {.
     importcpp: "SetWidth", header: "TPrsStd_AISPresentation.hxx".}
 proc hasOwnWidth*(this: TPrsStdAISPresentation): bool {.noSideEffect,
     importcpp: "HasOwnWidth", header: "TPrsStd_AISPresentation.hxx".}
 proc unsetWidth*(this: var TPrsStdAISPresentation) {.importcpp: "UnsetWidth",
     header: "TPrsStd_AISPresentation.hxx".}
-proc mode*(this: TPrsStdAISPresentation): int {.noSideEffect, importcpp: "Mode",
+proc mode*(this: TPrsStdAISPresentation): cint {.noSideEffect, importcpp: "Mode",
     header: "TPrsStd_AISPresentation.hxx".}
-proc setMode*(this: var TPrsStdAISPresentation; theMode: int) {.importcpp: "SetMode",
+proc setMode*(this: var TPrsStdAISPresentation; theMode: cint) {.importcpp: "SetMode",
     header: "TPrsStd_AISPresentation.hxx".}
 proc hasOwnMode*(this: TPrsStdAISPresentation): bool {.noSideEffect,
     importcpp: "HasOwnMode", header: "TPrsStd_AISPresentation.hxx".}
 proc unsetMode*(this: var TPrsStdAISPresentation) {.importcpp: "UnsetMode",
     header: "TPrsStd_AISPresentation.hxx".}
-proc getNbSelectionModes*(this: TPrsStdAISPresentation): int {.noSideEffect,
+proc getNbSelectionModes*(this: TPrsStdAISPresentation): cint {.noSideEffect,
     importcpp: "GetNbSelectionModes", header: "TPrsStd_AISPresentation.hxx".}
-proc selectionMode*(this: TPrsStdAISPresentation; index: cint = 1): int {.noSideEffect,
+proc selectionMode*(this: TPrsStdAISPresentation; index: cint = 1): cint {.noSideEffect,
     importcpp: "SelectionMode", header: "TPrsStd_AISPresentation.hxx".}
-proc setSelectionMode*(this: var TPrsStdAISPresentation; theSelectionMode: int;
+proc setSelectionMode*(this: var TPrsStdAISPresentation; theSelectionMode: cint;
                       theTransaction: bool = true) {.importcpp: "SetSelectionMode",
     header: "TPrsStd_AISPresentation.hxx".}
-proc addSelectionMode*(this: var TPrsStdAISPresentation; theSelectionMode: int;
+proc addSelectionMode*(this: var TPrsStdAISPresentation; theSelectionMode: cint;
                       theTransaction: bool = true) {.importcpp: "AddSelectionMode",
     header: "TPrsStd_AISPresentation.hxx".}
 proc hasOwnSelectionMode*(this: TPrsStdAISPresentation): bool {.noSideEffect,
@@ -170,3 +170,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_AISPresentation.hxx".}
 proc dynamicType*(this: TPrsStdAISPresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TPrsStd_AISPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

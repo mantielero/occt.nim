@@ -23,7 +23,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESDefs_GenericData"
 discard "forward decl of IGESDefs_GenericData"
 type
-  HandleIGESDefsGenericData* = Handle[IGESDefsGenericData]
+  HandleC1C1* = Handle[IGESDefsGenericData]
 
 ## ! defines IGES Generic Data, Type <406> Form <27>
 ## ! in package IGESDefs
@@ -41,32 +41,32 @@ type
 
 proc constructIGESDefsGenericData*(): IGESDefsGenericData {.constructor,
     importcpp: "IGESDefs_GenericData(@)", header: "IGESDefs_GenericData.hxx".}
-proc init*(this: var IGESDefsGenericData; nbPropVal: int;
+proc init*(this: var IGESDefsGenericData; nbPropVal: cint;
           aName: Handle[TCollectionHAsciiString];
           allTypes: Handle[TColStdHArray1OfInteger];
           allValues: Handle[TColStdHArray1OfTransient]) {.importcpp: "Init",
     header: "IGESDefs_GenericData.hxx".}
-proc nbPropertyValues*(this: IGESDefsGenericData): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESDefsGenericData): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESDefs_GenericData.hxx".}
 proc name*(this: IGESDefsGenericData): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "IGESDefs_GenericData.hxx".}
-proc nbTypeValuePairs*(this: IGESDefsGenericData): int {.noSideEffect,
+proc nbTypeValuePairs*(this: IGESDefsGenericData): cint {.noSideEffect,
     importcpp: "NbTypeValuePairs", header: "IGESDefs_GenericData.hxx".}
-proc `type`*(this: IGESDefsGenericData; index: int): int {.noSideEffect,
+proc `type`*(this: IGESDefsGenericData; index: cint): cint {.noSideEffect,
     importcpp: "Type", header: "IGESDefs_GenericData.hxx".}
-proc value*(this: IGESDefsGenericData; index: int): Handle[StandardTransient] {.
+proc value*(this: IGESDefsGenericData; index: cint): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Value", header: "IGESDefs_GenericData.hxx".}
-proc valueAsInteger*(this: IGESDefsGenericData; valueNum: int): int {.noSideEffect,
+proc valueAsInteger*(this: IGESDefsGenericData; valueNum: cint): cint {.noSideEffect,
     importcpp: "ValueAsInteger", header: "IGESDefs_GenericData.hxx".}
-proc valueAsReal*(this: IGESDefsGenericData; valueNum: int): float {.noSideEffect,
+proc valueAsReal*(this: IGESDefsGenericData; valueNum: cint): cfloat {.noSideEffect,
     importcpp: "ValueAsReal", header: "IGESDefs_GenericData.hxx".}
-proc valueAsString*(this: IGESDefsGenericData; valueNum: int): Handle[
+proc valueAsString*(this: IGESDefsGenericData; valueNum: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "ValueAsString",
                               header: "IGESDefs_GenericData.hxx".}
-proc valueAsEntity*(this: IGESDefsGenericData; valueNum: int): Handle[
+proc valueAsEntity*(this: IGESDefsGenericData; valueNum: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "ValueAsEntity",
                          header: "IGESDefs_GenericData.hxx".}
-proc valueAsLogical*(this: IGESDefsGenericData; valueNum: int): bool {.noSideEffect,
+proc valueAsLogical*(this: IGESDefsGenericData; valueNum: cint): bool {.noSideEffect,
     importcpp: "ValueAsLogical", header: "IGESDefs_GenericData.hxx".}
 type
   IGESDefsGenericDatabaseType* = IGESDataIGESEntity
@@ -78,3 +78,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDefs_GenericData.hxx".}
 proc dynamicType*(this: IGESDefsGenericData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDefs_GenericData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

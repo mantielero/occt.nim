@@ -29,7 +29,7 @@ proc constructRWStepDimTolRWCircularRunoutTolerance*(): RWStepDimTolRWCircularRu
     constructor, importcpp: "RWStepDimTol_RWCircularRunoutTolerance(@)",
     header: "RWStepDimTol_RWCircularRunoutTolerance.hxx".}
 proc readStep*(this: RWStepDimTolRWCircularRunoutTolerance;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolCircularRunoutTolerance]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWCircularRunoutTolerance.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepDimTolRWCircularRunoutTolerance;
            ent: Handle[StepDimTolCircularRunoutTolerance];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWCircularRunoutTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  BinMDF_TypeIdMap* = NCollectionDoubleMap[Handle[StandardType], int,
+  BinMDF_TypeIdMap* = NCollectionDoubleMap[Handle[StandardType], cint,
       TColStdMapTransientHasher, TColStdMapIntegerHasher]
-  BinMDF_DoubleMapIteratorOfTypeIdMap* = Iterator[Handle[StandardType], int,
+  BinMDF_DoubleMapIteratorOfTypeIdMap* = Iterator[Handle[StandardType], cint,
       TColStdMapTransientHasher, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

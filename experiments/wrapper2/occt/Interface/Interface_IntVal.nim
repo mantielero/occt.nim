@@ -17,7 +17,7 @@
 discard "forward decl of Interface_IntVal"
 discard "forward decl of Interface_IntVal"
 type
-  HandleInterfaceIntVal* = Handle[InterfaceIntVal]
+  HandleC1C1* = Handle[InterfaceIntVal]
 
 ## ! An Integer through a Handle (i.e. managed as TShared)
 
@@ -28,9 +28,9 @@ type
 
 proc constructInterfaceIntVal*(): InterfaceIntVal {.constructor,
     importcpp: "Interface_IntVal(@)", header: "Interface_IntVal.hxx".}
-proc value*(this: InterfaceIntVal): int {.noSideEffect, importcpp: "Value",
-                                      header: "Interface_IntVal.hxx".}
-proc cValue*(this: var InterfaceIntVal): var int {.importcpp: "CValue",
+proc value*(this: InterfaceIntVal): cint {.noSideEffect, importcpp: "Value",
+                                       header: "Interface_IntVal.hxx".}
+proc cValue*(this: var InterfaceIntVal): var cint {.importcpp: "CValue",
     header: "Interface_IntVal.hxx".}
 type
   InterfaceIntValbaseType* = StandardTransient
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_IntVal.hxx".}
 proc dynamicType*(this: InterfaceIntVal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_IntVal.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

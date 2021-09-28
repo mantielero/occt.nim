@@ -31,7 +31,7 @@ proc constructBRepOffsetAPI_MakeEvolved*(theSpine: TopoDS_Shape;
                                         theIsAxeProf: bool = true;
                                         theIsSolid: bool = false;
                                         theIsProfOnSpine: bool = false;
-                                        theTol: float = 0.0000001;
+                                        theTol: cfloat = 0.0000001;
                                         theIsVolume: bool = false;
                                         theRunInParallel: bool = false): BRepOffsetAPI_MakeEvolved {.
     constructor, importcpp: "BRepOffsetAPI_MakeEvolved(@)",
@@ -47,3 +47,28 @@ proc top*(this: BRepOffsetAPI_MakeEvolved): TopoDS_Shape {.noSideEffect,
     importcpp: "Top", header: "BRepOffsetAPI_MakeEvolved.hxx".}
 proc bottom*(this: BRepOffsetAPI_MakeEvolved): TopoDS_Shape {.noSideEffect,
     importcpp: "Bottom", header: "BRepOffsetAPI_MakeEvolved.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

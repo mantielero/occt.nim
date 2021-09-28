@@ -18,7 +18,7 @@ discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepAP203_CcDesignApproval"
 discard "forward decl of StepAP203_CcDesignApproval"
 type
-  HandleStepAP203CcDesignApproval* = Handle[StepAP203CcDesignApproval]
+  HandleC1C1* = Handle[StepAP203CcDesignApproval]
 
 ## ! Representation of STEP entity CcDesignApproval
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP203CcDesignApproval): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_CcDesignApproval.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,3 +16,28 @@
 type
   BinObjMgtPShortReal* = ptr StandardShortReal
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

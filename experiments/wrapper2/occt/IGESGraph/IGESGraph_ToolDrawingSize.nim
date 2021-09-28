@@ -64,5 +64,30 @@ proc ownCopy*(this: IGESGraphToolDrawingSize;
              entto: Handle[IGESGraphDrawingSize]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolDrawingSize.hxx".}
 proc ownDump*(this: IGESGraphToolDrawingSize; ent: Handle[IGESGraphDrawingSize];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolDrawingSize.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

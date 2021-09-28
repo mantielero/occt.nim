@@ -20,7 +20,23 @@ type
                      header: "GeomLib_LogSample.hxx", bycopy.} = object of MathFunctionSample
 
 
-proc constructGeomLibLogSample*(a: float; b: float; n: int): GeomLibLogSample {.
+proc `new`*(this: var GeomLibLogSample; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_LogSample::operator new", header: "GeomLib_LogSample.hxx".}
+proc `delete`*(this: var GeomLibLogSample; theAddress: pointer) {.
+    importcpp: "GeomLib_LogSample::operator delete",
+    header: "GeomLib_LogSample.hxx".}
+proc `new[]`*(this: var GeomLibLogSample; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_LogSample::operator new[]",
+    header: "GeomLib_LogSample.hxx".}
+proc `delete[]`*(this: var GeomLibLogSample; theAddress: pointer) {.
+    importcpp: "GeomLib_LogSample::operator delete[]",
+    header: "GeomLib_LogSample.hxx".}
+proc `new`*(this: var GeomLibLogSample; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLib_LogSample::operator new", header: "GeomLib_LogSample.hxx".}
+proc `delete`*(this: var GeomLibLogSample; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLib_LogSample::operator delete",
+    header: "GeomLib_LogSample.hxx".}
+proc constructGeomLibLogSample*(a: StandardReal; b: StandardReal; n: int): GeomLibLogSample {.
     constructor, importcpp: "GeomLib_LogSample(@)", header: "GeomLib_LogSample.hxx".}
-proc getParameter*(this: GeomLibLogSample; index: int): float {.noSideEffect,
+proc getParameter*(this: GeomLibLogSample; index: int): StandardReal {.noSideEffect,
     importcpp: "GetParameter", header: "GeomLib_LogSample.hxx".}

@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of DrawDim_PlanarDimension"
 discard "forward decl of DrawDim_PlanarDimension"
 type
-  HandleDrawDimPlanarDimension* = Handle[DrawDimPlanarDimension]
+  HandleC1C1* = Handle[DrawDimPlanarDimension]
 
 ## ! Dimensions between point, line and circle ON a plane
 
@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawDim_PlanarDimension.hxx".}
 proc dynamicType*(this: DrawDimPlanarDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DrawDim_PlanarDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

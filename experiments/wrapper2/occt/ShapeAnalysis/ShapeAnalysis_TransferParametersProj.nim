@@ -22,8 +22,7 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of ShapeAnalysis_TransferParametersProj"
 discard "forward decl of ShapeAnalysis_TransferParametersProj"
 type
-  HandleShapeAnalysisTransferParametersProj* = Handle[
-      ShapeAnalysisTransferParametersProj]
+  HandleC1C1* = Handle[ShapeAnalysisTransferParametersProj]
 
 ## ! This tool is used for transferring parameters
 ## ! from 3d curve of the edge to pcurve and vice versa.
@@ -53,14 +52,14 @@ proc perform*(this: var ShapeAnalysisTransferParametersProj;
              papams: Handle[TColStdHSequenceOfReal]; to2d: bool): Handle[
     TColStdHSequenceOfReal] {.importcpp: "Perform",
                              header: "ShapeAnalysis_TransferParametersProj.hxx".}
-proc perform*(this: var ShapeAnalysisTransferParametersProj; param: float; to2d: bool): float {.
+proc perform*(this: var ShapeAnalysisTransferParametersProj; param: cfloat; to2d: bool): cfloat {.
     importcpp: "Perform", header: "ShapeAnalysis_TransferParametersProj.hxx".}
 proc forceProjection*(this: var ShapeAnalysisTransferParametersProj): var bool {.
     importcpp: "ForceProjection",
     header: "ShapeAnalysis_TransferParametersProj.hxx".}
 proc transferRange*(this: var ShapeAnalysisTransferParametersProj;
-                   newEdge: var TopoDS_Edge; prevPar: float; currPar: float; is2d: bool) {.
-    importcpp: "TransferRange", header: "ShapeAnalysis_TransferParametersProj.hxx".}
+                   newEdge: var TopoDS_Edge; prevPar: cfloat; currPar: cfloat;
+                   is2d: bool) {.importcpp: "TransferRange", header: "ShapeAnalysis_TransferParametersProj.hxx".}
 proc isSameRange*(this: ShapeAnalysisTransferParametersProj): bool {.noSideEffect,
     importcpp: "IsSameRange", header: "ShapeAnalysis_TransferParametersProj.hxx".}
 proc copyNMVertex*(theVert: TopoDS_Vertex; toedge: TopoDS_Edge; fromedge: TopoDS_Edge): TopoDS_Vertex {.
@@ -80,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeAnalysisTransferParametersProj): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeAnalysis_TransferParametersProj.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

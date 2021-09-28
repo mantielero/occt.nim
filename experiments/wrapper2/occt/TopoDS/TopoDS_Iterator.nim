@@ -36,3 +36,28 @@ proc next*(this: var TopoDS_Iterator) {.importcpp: "Next",
                                     header: "TopoDS_Iterator.hxx".}
 proc value*(this: TopoDS_Iterator): TopoDS_Shape {.noSideEffect, importcpp: "Value",
     header: "TopoDS_Iterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

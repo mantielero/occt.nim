@@ -16,7 +16,7 @@
 
 discard "forward decl of Geom_Transformation"
 type
-  HandleGeomTransformation* = Handle[GeomTransformation]
+  HandleC1C1* = Handle[GeomTransformation]
 
 ## ! Describes how to construct the following elementary transformations
 ## ! - translations,
@@ -81,9 +81,9 @@ proc setMirror*(this: var GeomTransformation; theA1: Ax1) {.importcpp: "SetMirro
     header: "Geom_Transformation.hxx".}
 proc setMirror*(this: var GeomTransformation; theA2: Ax2) {.importcpp: "SetMirror",
     header: "Geom_Transformation.hxx".}
-proc setRotation*(this: var GeomTransformation; theA1: Ax1; theAng: float) {.
+proc setRotation*(this: var GeomTransformation; theA1: Ax1; theAng: StandardReal) {.
     importcpp: "SetRotation", header: "Geom_Transformation.hxx".}
-proc setScale*(this: var GeomTransformation; thePnt: Pnt; theScale: float) {.
+proc setScale*(this: var GeomTransformation; thePnt: Pnt; theScale: StandardReal) {.
     importcpp: "SetScale", header: "Geom_Transformation.hxx".}
 proc setTransformation*(this: var GeomTransformation; theFromSystem1: Ax3;
                        theToSystem2: Ax3) {.importcpp: "SetTransformation",
@@ -96,16 +96,16 @@ proc setTranslation*(this: var GeomTransformation; p1: Pnt; p2: Pnt) {.
     importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}
 proc setTrsf*(this: var GeomTransformation; theTrsf: Trsf) {.importcpp: "SetTrsf",
     header: "Geom_Transformation.hxx".}
-proc isNegative*(this: GeomTransformation): bool {.noSideEffect,
+proc isNegative*(this: GeomTransformation): StandardBoolean {.noSideEffect,
     importcpp: "IsNegative", header: "Geom_Transformation.hxx".}
 proc form*(this: GeomTransformation): TrsfForm {.noSideEffect, importcpp: "Form",
     header: "Geom_Transformation.hxx".}
-proc scaleFactor*(this: GeomTransformation): float {.noSideEffect,
+proc scaleFactor*(this: GeomTransformation): StandardReal {.noSideEffect,
     importcpp: "ScaleFactor", header: "Geom_Transformation.hxx".}
 proc trsf*(this: GeomTransformation): Trsf {.noSideEffect, importcpp: "Trsf",
     header: "Geom_Transformation.hxx".}
-proc value*(this: GeomTransformation; theRow: int; theCol: int): float {.noSideEffect,
-    importcpp: "Value", header: "Geom_Transformation.hxx".}
+proc value*(this: GeomTransformation; theRow: int; theCol: int): StandardReal {.
+    noSideEffect, importcpp: "Value", header: "Geom_Transformation.hxx".}
 proc invert*(this: var GeomTransformation) {.importcpp: "Invert",
     header: "Geom_Transformation.hxx".}
 proc inverted*(this: GeomTransformation): Handle[GeomTransformation] {.noSideEffect,
@@ -121,9 +121,9 @@ proc powered*(this: GeomTransformation; n: int): Handle[GeomTransformation] {.
     noSideEffect, importcpp: "Powered", header: "Geom_Transformation.hxx".}
 proc preMultiply*(this: var GeomTransformation; other: Handle[GeomTransformation]) {.
     importcpp: "PreMultiply", header: "Geom_Transformation.hxx".}
-proc transforms*(this: GeomTransformation; theX: var float; theY: var float;
-                theZ: var float) {.noSideEffect, importcpp: "Transforms",
-                                header: "Geom_Transformation.hxx".}
+proc transforms*(this: GeomTransformation; theX: var StandardReal;
+                theY: var StandardReal; theZ: var StandardReal) {.noSideEffect,
+    importcpp: "Transforms", header: "Geom_Transformation.hxx".}
 proc copy*(this: GeomTransformation): Handle[GeomTransformation] {.noSideEffect,
     importcpp: "Copy", header: "Geom_Transformation.hxx".}
 proc dumpJson*(this: GeomTransformation; theOStream: var StandardOStream;

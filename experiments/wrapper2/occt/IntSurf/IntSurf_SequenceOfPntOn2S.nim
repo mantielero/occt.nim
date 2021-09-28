@@ -14,3 +14,28 @@
 type
   IntSurfSequenceOfPntOn2S* = NCollectionSequence[IntSurfPntOn2S]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

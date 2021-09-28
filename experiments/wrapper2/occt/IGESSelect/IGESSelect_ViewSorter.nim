@@ -23,7 +23,7 @@ discard "forward decl of IFSelect_PacketList"
 discard "forward decl of IGESSelect_ViewSorter"
 discard "forward decl of IGESSelect_ViewSorter"
 type
-  HandleIGESSelectViewSorter* = Handle[IGESSelectViewSorter]
+  HandleC1C1* = Handle[IGESSelectViewSorter]
 
 ## ! Sorts IGES Entities on the views and drawings.
 ## ! In a first step, it splits a set of entities according the
@@ -65,15 +65,15 @@ proc addList*(this: var IGESSelectViewSorter;
 proc addModel*(this: var IGESSelectViewSorter;
               model: Handle[InterfaceInterfaceModel]) {.importcpp: "AddModel",
     header: "IGESSelect_ViewSorter.hxx".}
-proc nbEntities*(this: IGESSelectViewSorter): int {.noSideEffect,
+proc nbEntities*(this: IGESSelectViewSorter): cint {.noSideEffect,
     importcpp: "NbEntities", header: "IGESSelect_ViewSorter.hxx".}
 proc sortSingleViews*(this: var IGESSelectViewSorter; alsoframes: bool) {.
     importcpp: "SortSingleViews", header: "IGESSelect_ViewSorter.hxx".}
 proc sortDrawings*(this: var IGESSelectViewSorter; g: InterfaceGraph) {.
     importcpp: "SortDrawings", header: "IGESSelect_ViewSorter.hxx".}
-proc nbSets*(this: IGESSelectViewSorter; final: bool): int {.noSideEffect,
+proc nbSets*(this: IGESSelectViewSorter; final: bool): cint {.noSideEffect,
     importcpp: "NbSets", header: "IGESSelect_ViewSorter.hxx".}
-proc setItem*(this: IGESSelectViewSorter; num: int; final: bool): Handle[
+proc setItem*(this: IGESSelectViewSorter; num: cint; final: bool): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "SetItem",
                          header: "IGESSelect_ViewSorter.hxx".}
 proc sets*(this: IGESSelectViewSorter; final: bool): Handle[IFSelectPacketList] {.
@@ -88,3 +88,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_ViewSorter.hxx".}
 proc dynamicType*(this: IGESSelectViewSorter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_ViewSorter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

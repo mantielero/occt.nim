@@ -19,3 +19,28 @@ template implement_Domstring*(fnName, string: untyped): void =
     discard
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

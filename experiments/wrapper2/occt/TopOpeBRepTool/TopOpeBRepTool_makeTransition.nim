@@ -26,16 +26,16 @@ type
 proc constructTopOpeBRepToolMakeTransition*(): TopOpeBRepToolMakeTransition {.
     constructor, importcpp: "TopOpeBRepTool_makeTransition(@)",
     header: "TopOpeBRepTool_makeTransition.hxx".}
-proc initialize*(this: var TopOpeBRepToolMakeTransition; e: TopoDS_Edge; pbef: float;
-                paft: float; parE: float; fs: TopoDS_Face; uv: Pnt2d; factor: float): bool {.
+proc initialize*(this: var TopOpeBRepToolMakeTransition; e: TopoDS_Edge; pbef: cfloat;
+                paft: cfloat; parE: cfloat; fs: TopoDS_Face; uv: Pnt2d; factor: cfloat): bool {.
     importcpp: "Initialize", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc setfactor*(this: var TopOpeBRepToolMakeTransition; factor: float) {.
+proc setfactor*(this: var TopOpeBRepToolMakeTransition; factor: cfloat) {.
     importcpp: "Setfactor", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc getfactor*(this: TopOpeBRepToolMakeTransition): float {.noSideEffect,
+proc getfactor*(this: TopOpeBRepToolMakeTransition): cfloat {.noSideEffect,
     importcpp: "Getfactor", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc isT2d*(this: TopOpeBRepToolMakeTransition): bool {.noSideEffect,
     importcpp: "IsT2d", header: "TopOpeBRepTool_makeTransition.hxx".}
-proc setRest*(this: var TopOpeBRepToolMakeTransition; es: TopoDS_Edge; parES: float): bool {.
+proc setRest*(this: var TopOpeBRepToolMakeTransition; es: TopoDS_Edge; parES: cfloat): bool {.
     importcpp: "SetRest", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc hasRest*(this: TopOpeBRepToolMakeTransition): bool {.noSideEffect,
     importcpp: "HasRest", header: "TopOpeBRepTool_makeTransition.hxx".}
@@ -48,3 +48,28 @@ proc mkT3dproj*(this: TopOpeBRepToolMakeTransition; stb: var TopAbsState;
     header: "TopOpeBRepTool_makeTransition.hxx".}
 proc mkTonE*(this: var TopOpeBRepToolMakeTransition; stb: var TopAbsState;
             sta: var TopAbsState): bool {.importcpp: "MkTonE", header: "TopOpeBRepTool_makeTransition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -83,3 +83,28 @@ proc firstShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoD
     importcpp: "FirstShape", header: "BRepPrimAPI_MakePrism.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepPrimAPI_MakePrism.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

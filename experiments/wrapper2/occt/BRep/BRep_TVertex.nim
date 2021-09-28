@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of BRep_TVertex"
 discard "forward decl of BRep_TVertex"
 type
-  HandleBRepTVertex* = Handle[BRepTVertex]
+  HandleC1C1* = Handle[BRepTVertex]
 
 ## ! The TVertex from  BRep inherits  from  the TVertex
 ## ! from TopoDS. It contains the geometric data.
@@ -32,12 +32,12 @@ type
 
 proc constructBRepTVertex*(): BRepTVertex {.constructor,
     importcpp: "BRep_TVertex(@)", header: "BRep_TVertex.hxx".}
-proc tolerance*(this: BRepTVertex): float {.noSideEffect, importcpp: "Tolerance",
-                                        header: "BRep_TVertex.hxx".}
-proc tolerance*(this: var BRepTVertex; t: float) {.importcpp: "Tolerance",
+proc tolerance*(this: BRepTVertex): cfloat {.noSideEffect, importcpp: "Tolerance",
     header: "BRep_TVertex.hxx".}
-proc updateTolerance*(this: var BRepTVertex; t: float) {.importcpp: "UpdateTolerance",
+proc tolerance*(this: var BRepTVertex; t: cfloat) {.importcpp: "Tolerance",
     header: "BRep_TVertex.hxx".}
+proc updateTolerance*(this: var BRepTVertex; t: cfloat) {.
+    importcpp: "UpdateTolerance", header: "BRep_TVertex.hxx".}
 proc pnt*(this: BRepTVertex): Pnt {.noSideEffect, importcpp: "Pnt",
                                 header: "BRep_TVertex.hxx".}
 proc pnt*(this: var BRepTVertex; p: Pnt) {.importcpp: "Pnt", header: "BRep_TVertex.hxx".}
@@ -47,8 +47,9 @@ proc changePoints*(this: var BRepTVertex): var BRepListOfPointRepresentation {.
     importcpp: "ChangePoints", header: "BRep_TVertex.hxx".}
 proc emptyCopy*(this: BRepTVertex): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "BRep_TVertex.hxx".}
-proc dumpJson*(this: BRepTVertex; theOStream: var StandardOStream; theDepth: int = -1) {.
-    noSideEffect, importcpp: "DumpJson", header: "BRep_TVertex.hxx".}
+proc dumpJson*(this: BRepTVertex; theOStream: var StandardOStream;
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "BRep_TVertex.hxx".}
 type
   BRepTVertexbaseType* = TopoDS_TVertex
 
@@ -58,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_TVertex::get_type_descriptor(@)", header: "BRep_TVertex.hxx".}
 proc dynamicType*(this: BRepTVertex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_TVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

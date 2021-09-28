@@ -19,8 +19,7 @@ discard "forward decl of StepAP214_AutoDesignGroupedItem"
 discard "forward decl of StepAP214_AutoDesignGroupAssignment"
 discard "forward decl of StepAP214_AutoDesignGroupAssignment"
 type
-  HandleStepAP214AutoDesignGroupAssignment* = Handle[
-      StepAP214AutoDesignGroupAssignment]
+  HandleC1C1* = Handle[StepAP214AutoDesignGroupAssignment]
   StepAP214AutoDesignGroupAssignment* {.importcpp: "StepAP214_AutoDesignGroupAssignment", header: "StepAP214_AutoDesignGroupAssignment.hxx",
                                        bycopy.} = object of StepBasicGroupAssignment ##
                                                                                 ## !
@@ -42,10 +41,10 @@ proc setItems*(this: var StepAP214AutoDesignGroupAssignment;
 proc items*(this: StepAP214AutoDesignGroupAssignment): Handle[
     StepAP214HArray1OfAutoDesignGroupedItem] {.noSideEffect, importcpp: "Items",
     header: "StepAP214_AutoDesignGroupAssignment.hxx".}
-proc itemsValue*(this: StepAP214AutoDesignGroupAssignment; num: int): StepAP214AutoDesignGroupedItem {.
+proc itemsValue*(this: StepAP214AutoDesignGroupAssignment; num: cint): StepAP214AutoDesignGroupedItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignGroupAssignment.hxx".}
-proc nbItems*(this: StepAP214AutoDesignGroupAssignment): int {.noSideEffect,
+proc nbItems*(this: StepAP214AutoDesignGroupAssignment): cint {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AutoDesignGroupAssignment.hxx".}
 type
   StepAP214AutoDesignGroupAssignmentbaseType* = StepBasicGroupAssignment
@@ -58,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214AutoDesignGroupAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AutoDesignGroupAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

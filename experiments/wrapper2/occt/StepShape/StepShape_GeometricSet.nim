@@ -19,7 +19,7 @@ discard "forward decl of StepShape_GeometricSetSelect"
 discard "forward decl of StepShape_GeometricSet"
 discard "forward decl of StepShape_GeometricSet"
 type
-  HandleStepShapeGeometricSet* = Handle[StepShapeGeometricSet]
+  HandleC1C1* = Handle[StepShapeGeometricSet]
   StepShapeGeometricSet* {.importcpp: "StepShape_GeometricSet",
                           header: "StepShape_GeometricSet.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                                   ## !
@@ -39,9 +39,9 @@ proc setElements*(this: var StepShapeGeometricSet;
 proc elements*(this: StepShapeGeometricSet): Handle[
     StepShapeHArray1OfGeometricSetSelect] {.noSideEffect, importcpp: "Elements",
     header: "StepShape_GeometricSet.hxx".}
-proc elementsValue*(this: StepShapeGeometricSet; num: int): StepShapeGeometricSetSelect {.
+proc elementsValue*(this: StepShapeGeometricSet; num: cint): StepShapeGeometricSetSelect {.
     noSideEffect, importcpp: "ElementsValue", header: "StepShape_GeometricSet.hxx".}
-proc nbElements*(this: StepShapeGeometricSet): int {.noSideEffect,
+proc nbElements*(this: StepShapeGeometricSet): cint {.noSideEffect,
     importcpp: "NbElements", header: "StepShape_GeometricSet.hxx".}
 type
   StepShapeGeometricSetbaseType* = StepGeomGeometricRepresentationItem
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_GeometricSet.hxx".}
 proc dynamicType*(this: StepShapeGeometricSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_GeometricSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_OrientedSurface"
 discard "forward decl of StepGeom_OrientedSurface"
 type
-  HandleStepGeomOrientedSurface* = Handle[StepGeomOrientedSurface]
+  HandleC1C1* = Handle[StepGeomOrientedSurface]
 
 ## ! Representation of STEP entity OrientedSurface
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_OrientedSurface.hxx".}
 proc dynamicType*(this: StepGeomOrientedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_OrientedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

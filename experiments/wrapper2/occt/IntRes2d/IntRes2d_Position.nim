@@ -20,3 +20,28 @@ type
     IntRes2dHead, IntRes2dMiddle, IntRes2dEnd
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

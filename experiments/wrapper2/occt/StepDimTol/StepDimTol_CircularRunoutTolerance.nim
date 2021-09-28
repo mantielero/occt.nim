@@ -16,8 +16,7 @@
 discard "forward decl of StepDimTol_CircularRunoutTolerance"
 discard "forward decl of StepDimTol_CircularRunoutTolerance"
 type
-  HandleStepDimTolCircularRunoutTolerance* = Handle[
-      StepDimTolCircularRunoutTolerance]
+  HandleC1C1* = Handle[StepDimTolCircularRunoutTolerance]
 
 ## ! Representation of STEP entity CircularRunoutTolerance
 
@@ -43,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolCircularRunoutTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_CircularRunoutTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ type
                           header: "IVtkDraw.hxx", bycopy.} = object
     topLeft* {.importc: "TopLeft".}: Graphic3dVec2i
     size* {.importc: "Size".}: Graphic3dVec2i
-    nbMsaaSample* {.importc: "NbMsaaSample".}: int
+    nbMsaaSample* {.importc: "NbMsaaSample".}: cint
     useSRGBColorSpace* {.importc: "UseSRGBColorSpace".}: bool
 
 
@@ -31,9 +31,34 @@ proc constructIVtkDrawIVtkWinParams*(): IVtkDrawIVtkWinParams {.constructor,
     importcpp: "IVtkDraw::IVtkWinParams(@)", header: "IVtkDraw.hxx".}
 proc viewerInit*(theParams: IVtkDrawIVtkWinParams) {.
     importcpp: "IVtkDraw::ViewerInit(@)", header: "IVtkDraw.hxx".}
-proc viewerInit*(thePxLeft: int; thePxTop: int; thePxWidth: int; thePxHeight: int) {.
+proc viewerInit*(thePxLeft: cint; thePxTop: cint; thePxWidth: cint; thePxHeight: cint) {.
     importcpp: "IVtkDraw::ViewerInit(@)", header: "IVtkDraw.hxx".}
 proc factory*(theDI: var DrawInterpretor) {.importcpp: "IVtkDraw::Factory(@)",
                                         header: "IVtkDraw.hxx".}
 proc commands*(theCommands: var DrawInterpretor) {.
     importcpp: "IVtkDraw::Commands(@)", header: "IVtkDraw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

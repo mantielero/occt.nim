@@ -27,7 +27,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_ToroidalSurface"
 discard "forward decl of Geom_ToroidalSurface"
 type
-  HandleGeomToroidalSurface* = Handle[GeomToroidalSurface]
+  HandleC1C1* = Handle[GeomToroidalSurface]
 
 ## ! Describes a torus.
 ## ! A torus is defined by its major and minor radii, and
@@ -187,61 +187,64 @@ type
                                                                                                 ## 0.0
 
 
-proc constructGeomToroidalSurface*(a3: Ax3; majorRadius: float; minorRadius: float): GeomToroidalSurface {.
+proc constructGeomToroidalSurface*(a3: Ax3; majorRadius: StandardReal;
+                                  minorRadius: StandardReal): GeomToroidalSurface {.
     constructor, importcpp: "Geom_ToroidalSurface(@)",
     header: "Geom_ToroidalSurface.hxx".}
 proc constructGeomToroidalSurface*(t: Torus): GeomToroidalSurface {.constructor,
     importcpp: "Geom_ToroidalSurface(@)", header: "Geom_ToroidalSurface.hxx".}
-proc setMajorRadius*(this: var GeomToroidalSurface; majorRadius: float) {.
+proc setMajorRadius*(this: var GeomToroidalSurface; majorRadius: StandardReal) {.
     importcpp: "SetMajorRadius", header: "Geom_ToroidalSurface.hxx".}
-proc setMinorRadius*(this: var GeomToroidalSurface; minorRadius: float) {.
+proc setMinorRadius*(this: var GeomToroidalSurface; minorRadius: StandardReal) {.
     importcpp: "SetMinorRadius", header: "Geom_ToroidalSurface.hxx".}
 proc setTorus*(this: var GeomToroidalSurface; t: Torus) {.importcpp: "SetTorus",
     header: "Geom_ToroidalSurface.hxx".}
 proc torus*(this: GeomToroidalSurface): Torus {.noSideEffect, importcpp: "Torus",
     header: "Geom_ToroidalSurface.hxx".}
-proc uReversedParameter*(this: GeomToroidalSurface; u: float): float {.noSideEffect,
-    importcpp: "UReversedParameter", header: "Geom_ToroidalSurface.hxx".}
-proc vReversedParameter*(this: GeomToroidalSurface; u: float): float {.noSideEffect,
-    importcpp: "VReversedParameter", header: "Geom_ToroidalSurface.hxx".}
-proc area*(this: GeomToroidalSurface): float {.noSideEffect, importcpp: "Area",
+proc uReversedParameter*(this: GeomToroidalSurface; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter",
     header: "Geom_ToroidalSurface.hxx".}
-proc bounds*(this: GeomToroidalSurface; u1: var float; u2: var float; v1: var float;
-            v2: var float) {.noSideEffect, importcpp: "Bounds",
-                          header: "Geom_ToroidalSurface.hxx".}
+proc vReversedParameter*(this: GeomToroidalSurface; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter",
+    header: "Geom_ToroidalSurface.hxx".}
+proc area*(this: GeomToroidalSurface): StandardReal {.noSideEffect,
+    importcpp: "Area", header: "Geom_ToroidalSurface.hxx".}
+proc bounds*(this: GeomToroidalSurface; u1: var StandardReal; u2: var StandardReal;
+            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+    importcpp: "Bounds", header: "Geom_ToroidalSurface.hxx".}
 proc coefficients*(this: GeomToroidalSurface; coef: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "Coefficients", header: "Geom_ToroidalSurface.hxx".}
-proc majorRadius*(this: GeomToroidalSurface): float {.noSideEffect,
+proc majorRadius*(this: GeomToroidalSurface): StandardReal {.noSideEffect,
     importcpp: "MajorRadius", header: "Geom_ToroidalSurface.hxx".}
-proc minorRadius*(this: GeomToroidalSurface): float {.noSideEffect,
+proc minorRadius*(this: GeomToroidalSurface): StandardReal {.noSideEffect,
     importcpp: "MinorRadius", header: "Geom_ToroidalSurface.hxx".}
-proc volume*(this: GeomToroidalSurface): float {.noSideEffect, importcpp: "Volume",
-    header: "Geom_ToroidalSurface.hxx".}
-proc isUClosed*(this: GeomToroidalSurface): bool {.noSideEffect,
+proc volume*(this: GeomToroidalSurface): StandardReal {.noSideEffect,
+    importcpp: "Volume", header: "Geom_ToroidalSurface.hxx".}
+proc isUClosed*(this: GeomToroidalSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsUClosed", header: "Geom_ToroidalSurface.hxx".}
-proc isVClosed*(this: GeomToroidalSurface): bool {.noSideEffect,
+proc isVClosed*(this: GeomToroidalSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVClosed", header: "Geom_ToroidalSurface.hxx".}
-proc isUPeriodic*(this: GeomToroidalSurface): bool {.noSideEffect,
+proc isUPeriodic*(this: GeomToroidalSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsUPeriodic", header: "Geom_ToroidalSurface.hxx".}
-proc isVPeriodic*(this: GeomToroidalSurface): bool {.noSideEffect,
+proc isVPeriodic*(this: GeomToroidalSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVPeriodic", header: "Geom_ToroidalSurface.hxx".}
-proc uIso*(this: GeomToroidalSurface; u: float): Handle[GeomCurve] {.noSideEffect,
-    importcpp: "UIso", header: "Geom_ToroidalSurface.hxx".}
-proc vIso*(this: GeomToroidalSurface; v: float): Handle[GeomCurve] {.noSideEffect,
-    importcpp: "VIso", header: "Geom_ToroidalSurface.hxx".}
-proc d0*(this: GeomToroidalSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
-    importcpp: "D0", header: "Geom_ToroidalSurface.hxx".}
-proc d1*(this: GeomToroidalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, importcpp: "D1",
-                     header: "Geom_ToroidalSurface.hxx".}
-proc d2*(this: GeomToroidalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+proc uIso*(this: GeomToroidalSurface; u: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "UIso", header: "Geom_ToroidalSurface.hxx".}
+proc vIso*(this: GeomToroidalSurface; v: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "VIso", header: "Geom_ToroidalSurface.hxx".}
+proc d0*(this: GeomToroidalSurface; u: StandardReal; v: StandardReal; p: var Pnt) {.
+    noSideEffect, importcpp: "D0", header: "Geom_ToroidalSurface.hxx".}
+proc d1*(this: GeomToroidalSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                                header: "Geom_ToroidalSurface.hxx".}
+proc d2*(this: GeomToroidalSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
     importcpp: "D2", header: "Geom_ToroidalSurface.hxx".}
-proc d3*(this: GeomToroidalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
-        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
-                                    header: "Geom_ToroidalSurface.hxx".}
-proc dn*(this: GeomToroidalSurface; u: float; v: float; nu: int; nv: int): Vec {.
+proc d3*(this: GeomToroidalSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
+        d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+    header: "Geom_ToroidalSurface.hxx".}
+proc dn*(this: GeomToroidalSurface; u: StandardReal; v: StandardReal; nu: int; nv: int): Vec {.
     noSideEffect, importcpp: "DN", header: "Geom_ToroidalSurface.hxx".}
 proc transform*(this: var GeomToroidalSurface; t: Trsf) {.importcpp: "Transform",
     header: "Geom_ToroidalSurface.hxx".}

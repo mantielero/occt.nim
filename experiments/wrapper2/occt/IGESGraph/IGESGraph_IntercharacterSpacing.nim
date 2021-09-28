@@ -17,7 +17,7 @@
 discard "forward decl of IGESGraph_IntercharacterSpacing"
 discard "forward decl of IGESGraph_IntercharacterSpacing"
 type
-  HandleIGESGraphIntercharacterSpacing* = Handle[IGESGraphIntercharacterSpacing]
+  HandleC1C1* = Handle[IGESGraphIntercharacterSpacing]
 
 ## ! defines IGESIntercharacterSpacing, Type <406> Form <18>
 ## ! in package IGESGraph
@@ -33,11 +33,11 @@ type
 proc constructIGESGraphIntercharacterSpacing*(): IGESGraphIntercharacterSpacing {.
     constructor, importcpp: "IGESGraph_IntercharacterSpacing(@)",
     header: "IGESGraph_IntercharacterSpacing.hxx".}
-proc init*(this: var IGESGraphIntercharacterSpacing; nbProps: int; anISpace: float) {.
+proc init*(this: var IGESGraphIntercharacterSpacing; nbProps: cint; anISpace: cfloat) {.
     importcpp: "Init", header: "IGESGraph_IntercharacterSpacing.hxx".}
-proc nbPropertyValues*(this: IGESGraphIntercharacterSpacing): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESGraphIntercharacterSpacing): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESGraph_IntercharacterSpacing.hxx".}
-proc iSpace*(this: IGESGraphIntercharacterSpacing): float {.noSideEffect,
+proc iSpace*(this: IGESGraphIntercharacterSpacing): cfloat {.noSideEffect,
     importcpp: "ISpace", header: "IGESGraph_IntercharacterSpacing.hxx".}
 type
   IGESGraphIntercharacterSpacingbaseType* = IGESDataIGESEntity
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESGraphIntercharacterSpacing): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGraph_IntercharacterSpacing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

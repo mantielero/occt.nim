@@ -20,7 +20,7 @@ discard "forward decl of Draw_Display"
 discard "forward decl of DrawDim_Dimension"
 discard "forward decl of DrawDim_Dimension"
 type
-  HandleDrawDimDimension* = Handle[DrawDimDimension]
+  HandleC1C1* = Handle[DrawDimDimension]
 
 ## ! Dimension between planes and cylinder
 
@@ -29,9 +29,9 @@ type
                      header: "DrawDim_Dimension.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc setValue*(this: var DrawDimDimension; avalue: float) {.importcpp: "SetValue",
+proc setValue*(this: var DrawDimDimension; avalue: cfloat) {.importcpp: "SetValue",
     header: "DrawDim_Dimension.hxx".}
-proc getValue*(this: DrawDimDimension): float {.noSideEffect, importcpp: "GetValue",
+proc getValue*(this: DrawDimDimension): cfloat {.noSideEffect, importcpp: "GetValue",
     header: "DrawDim_Dimension.hxx".}
 proc isValued*(this: DrawDimDimension): bool {.noSideEffect, importcpp: "IsValued",
     header: "DrawDim_Dimension.hxx".}
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawDim_Dimension.hxx".}
 proc dynamicType*(this: DrawDimDimension): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawDim_Dimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,8 +21,7 @@ discard "forward decl of Message_Messenger"
 discard "forward decl of XmlLDrivers_DocumentStorageDriver"
 discard "forward decl of XmlLDrivers_DocumentStorageDriver"
 type
-  HandleXmlLDriversDocumentStorageDriver* = Handle[
-      XmlLDriversDocumentStorageDriver]
+  HandleC1C1* = Handle[XmlLDriversDocumentStorageDriver]
   XmlLDriversDocumentStorageDriver* {.importcpp: "XmlLDrivers_DocumentStorageDriver", header: "XmlLDrivers_DocumentStorageDriver.hxx",
                                      bycopy.} = object of PCDM_StorageDriver
 
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlLDriversDocumentStorageDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlLDrivers_DocumentStorageDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,8 +17,7 @@
 discard "forward decl of StepShape_FacetedBrepShapeRepresentation"
 discard "forward decl of StepShape_FacetedBrepShapeRepresentation"
 type
-  HandleStepShapeFacetedBrepShapeRepresentation* = Handle[
-      StepShapeFacetedBrepShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeFacetedBrepShapeRepresentation]
   StepShapeFacetedBrepShapeRepresentation* {.
       importcpp: "StepShape_FacetedBrepShapeRepresentation",
       header: "StepShape_FacetedBrepShapeRepresentation.hxx", bycopy.} = object of StepShapeShapeRepresentation ##
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_FacetedB
 proc dynamicType*(this: StepShapeFacetedBrepShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepShape_FacetedBrepShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

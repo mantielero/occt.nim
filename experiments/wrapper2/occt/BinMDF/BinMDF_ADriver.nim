@@ -21,7 +21,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of BinMDF_ADriver"
 discard "forward decl of BinMDF_ADriver"
 type
-  HandleBinMDF_ADriver* = Handle[BinMDF_ADriver]
+  HandleC1C1* = Handle[BinMDF_ADriver]
 
 ## ! Attribute Storage/Retrieval Driver.
 
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BinMDF_ADriver.hxx".}
 proc dynamicType*(this: BinMDF_ADriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BinMDF_ADriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

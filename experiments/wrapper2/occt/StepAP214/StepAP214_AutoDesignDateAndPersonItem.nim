@@ -39,7 +39,7 @@ proc constructStepAP214AutoDesignDateAndPersonItem*(): StepAP214AutoDesignDateAn
     constructor, importcpp: "StepAP214_AutoDesignDateAndPersonItem(@)",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
 proc caseNum*(this: StepAP214AutoDesignDateAndPersonItem;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
 proc autoDesignOrganizationAssignment*(this: StepAP214AutoDesignDateAndPersonItem): Handle[
     StepAP214AutoDesignOrganizationAssignment] {.noSideEffect,
@@ -73,3 +73,28 @@ proc productDefinitionWithAssociatedDocuments*(
     StepBasicProductDefinitionWithAssociatedDocuments] {.noSideEffect,
     importcpp: "ProductDefinitionWithAssociatedDocuments",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

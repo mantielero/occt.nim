@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_CertificationType"
 discard "forward decl of StepBasic_CertificationType"
 type
-  HandleStepBasicCertificationType* = Handle[StepBasicCertificationType]
+  HandleC1C1* = Handle[StepBasicCertificationType]
 
 ## ! Representation of STEP entity CertificationType
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicCertificationType): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_CertificationType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

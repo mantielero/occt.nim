@@ -28,3 +28,28 @@ proc exprIntrpSetDegree*() {.importcpp: "ExprIntrp_SetDegree(@)",
                            header: "ExprIntrp_yaccintrf.hxx".}
 proc exprIntrplex*(): cint {.importcpp: "ExprIntrplex(@)",
                           header: "ExprIntrp_yaccintrf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

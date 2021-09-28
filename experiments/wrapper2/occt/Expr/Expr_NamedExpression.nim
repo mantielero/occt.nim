@@ -19,7 +19,7 @@ discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_NamedExpression"
 discard "forward decl of Expr_NamedExpression"
 type
-  HandleExprNamedExpression* = Handle[ExprNamedExpression]
+  HandleC1C1* = Handle[ExprNamedExpression]
 
 ## ! Describe an expression used  by its name (as constants
 ## ! or variables). A single reference is made to a
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_NamedExpression.hxx".}
 proc dynamicType*(this: ExprNamedExpression): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_NamedExpression.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

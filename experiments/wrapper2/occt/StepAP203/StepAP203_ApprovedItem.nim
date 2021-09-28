@@ -36,7 +36,7 @@ type
 
 proc constructStepAP203ApprovedItem*(): StepAP203ApprovedItem {.constructor,
     importcpp: "StepAP203_ApprovedItem(@)", header: "StepAP203_ApprovedItem.hxx".}
-proc caseNum*(this: StepAP203ApprovedItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP203ApprovedItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_ApprovedItem.hxx".}
 proc productDefinitionFormation*(this: StepAP203ApprovedItem): Handle[
     StepBasicProductDefinitionFormation] {.noSideEffect,
@@ -67,3 +67,28 @@ proc certification*(this: StepAP203ApprovedItem): Handle[StepBasicCertification]
     noSideEffect, importcpp: "Certification", header: "StepAP203_ApprovedItem.hxx".}
 proc contract*(this: StepAP203ApprovedItem): Handle[StepBasicContract] {.
     noSideEffect, importcpp: "Contract", header: "StepAP203_ApprovedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

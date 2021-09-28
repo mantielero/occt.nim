@@ -28,7 +28,7 @@ proc constructBlendFuncChamfInv*(s1: Handle[Adaptor3dHSurface];
                                 c: Handle[Adaptor3dHCurve]): BlendFuncChamfInv {.
     constructor, importcpp: "BlendFunc_ChamfInv(@)",
     header: "BlendFunc_ChamfInv.hxx".}
-proc isSolution*(this: var BlendFuncChamfInv; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendFuncChamfInv; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BlendFunc_ChamfInv.hxx".}
 proc value*(this: var BlendFuncChamfInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_ChamfInv.hxx".}
@@ -36,5 +36,30 @@ proc derivatives*(this: var BlendFuncChamfInv; x: MathVector; d: var MathMatrix)
     importcpp: "Derivatives", header: "BlendFunc_ChamfInv.hxx".}
 ## using statement
 
-proc set*(this: var BlendFuncChamfInv; dist1: float; dist2: float; choix: int) {.
+proc set*(this: var BlendFuncChamfInv; dist1: cfloat; dist2: cfloat; choix: cint) {.
     importcpp: "Set", header: "BlendFunc_ChamfInv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -66,3 +66,28 @@ proc initShapeMapper*(theMapper: ptr VtkMapper) {.
 
 proc initShapeMapper*(theMapper: ptr VtkMapper; theColorTable: ptr VtkLookupTable) {.
     importcpp: "IVtkTools::InitShapeMapper(@)", header: "IVtkTools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

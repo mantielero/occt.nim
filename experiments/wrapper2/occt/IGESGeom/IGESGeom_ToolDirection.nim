@@ -54,5 +54,30 @@ proc ownCopy*(this: IGESGeomToolDirection; entfrom: Handle[IGESGeomDirection];
              entto: Handle[IGESGeomDirection]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolDirection.hxx".}
 proc ownDump*(this: IGESGeomToolDirection; ent: Handle[IGESGeomDirection];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolDirection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

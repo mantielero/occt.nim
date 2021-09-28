@@ -22,21 +22,21 @@ type
 
 proc constructChFiDS_FaceInterference*(): ChFiDS_FaceInterference {.constructor,
     importcpp: "ChFiDS_FaceInterference(@)", header: "ChFiDS_FaceInterference.hxx".}
-proc setInterference*(this: var ChFiDS_FaceInterference; lineIndex: int;
+proc setInterference*(this: var ChFiDS_FaceInterference; lineIndex: cint;
                      trans: TopAbsOrientation; pCurv1: Handle[Geom2dCurve];
                      pCurv2: Handle[Geom2dCurve]) {.importcpp: "SetInterference",
     header: "ChFiDS_FaceInterference.hxx".}
 proc setTransition*(this: var ChFiDS_FaceInterference; trans: TopAbsOrientation) {.
     importcpp: "SetTransition", header: "ChFiDS_FaceInterference.hxx".}
-proc setFirstParameter*(this: var ChFiDS_FaceInterference; u1: float) {.
+proc setFirstParameter*(this: var ChFiDS_FaceInterference; u1: cfloat) {.
     importcpp: "SetFirstParameter", header: "ChFiDS_FaceInterference.hxx".}
-proc setLastParameter*(this: var ChFiDS_FaceInterference; u1: float) {.
+proc setLastParameter*(this: var ChFiDS_FaceInterference; u1: cfloat) {.
     importcpp: "SetLastParameter", header: "ChFiDS_FaceInterference.hxx".}
-proc setParameter*(this: var ChFiDS_FaceInterference; u1: float; isFirst: bool) {.
+proc setParameter*(this: var ChFiDS_FaceInterference; u1: cfloat; isFirst: bool) {.
     importcpp: "SetParameter", header: "ChFiDS_FaceInterference.hxx".}
-proc lineIndex*(this: ChFiDS_FaceInterference): int {.noSideEffect,
+proc lineIndex*(this: ChFiDS_FaceInterference): cint {.noSideEffect,
     importcpp: "LineIndex", header: "ChFiDS_FaceInterference.hxx".}
-proc setLineIndex*(this: var ChFiDS_FaceInterference; i: int) {.
+proc setLineIndex*(this: var ChFiDS_FaceInterference; i: cint) {.
     importcpp: "SetLineIndex", header: "ChFiDS_FaceInterference.hxx".}
 proc transition*(this: ChFiDS_FaceInterference): TopAbsOrientation {.noSideEffect,
     importcpp: "Transition", header: "ChFiDS_FaceInterference.hxx".}
@@ -48,9 +48,34 @@ proc changePCurveOnFace*(this: var ChFiDS_FaceInterference): var Handle[Geom2dCu
     importcpp: "ChangePCurveOnFace", header: "ChFiDS_FaceInterference.hxx".}
 proc changePCurveOnSurf*(this: var ChFiDS_FaceInterference): var Handle[Geom2dCurve] {.
     importcpp: "ChangePCurveOnSurf", header: "ChFiDS_FaceInterference.hxx".}
-proc firstParameter*(this: ChFiDS_FaceInterference): float {.noSideEffect,
+proc firstParameter*(this: ChFiDS_FaceInterference): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "ChFiDS_FaceInterference.hxx".}
-proc lastParameter*(this: ChFiDS_FaceInterference): float {.noSideEffect,
+proc lastParameter*(this: ChFiDS_FaceInterference): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "ChFiDS_FaceInterference.hxx".}
-proc parameter*(this: ChFiDS_FaceInterference; isFirst: bool): float {.noSideEffect,
+proc parameter*(this: ChFiDS_FaceInterference; isFirst: bool): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "ChFiDS_FaceInterference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

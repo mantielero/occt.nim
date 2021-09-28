@@ -15,3 +15,28 @@ type
   StepElementSequenceOfCurveElementPurposeMember* = NCollectionSequence[
       Handle[StepElementCurveElementPurposeMember]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

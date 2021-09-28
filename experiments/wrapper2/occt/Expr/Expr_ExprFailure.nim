@@ -17,13 +17,54 @@
 ## !!!Ignored construct:  # _Expr_ExprFailure_HeaderFile [NewLine] # _Expr_ExprFailure_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Expr_ExprFailure ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Expr_ExprFailure"
-type
-  HandleExprExprFailureExprExprFailure* = Handle[ExprExprFailure]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Expr_ExprFailure , Standard_Failure ) # ! defined No_Exception && ! defined No_Expr_ExprFailure [NewLine] # Expr_ExprFailure_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Expr_ExprFailure ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Expr_ExprFailure [NewLine] # if ( CONDITION ) throw Expr_ExprFailure ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Expr_ExprFailure_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_ExprFailure , Standard_Failure ) #  _Expr_ExprFailure_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_ExprFailure , Standard_Failure ) #  _Expr_ExprFailure_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

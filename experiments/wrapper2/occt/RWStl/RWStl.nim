@@ -40,3 +40,28 @@ proc readBinary*(thePath: OSD_Path;
 proc readAscii*(thePath: OSD_Path;
                theProgress: MessageProgressRange = messageProgressRange()): Handle[
     PolyTriangulation] {.importcpp: "RWStl::ReadAscii(@)", header: "RWStl.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

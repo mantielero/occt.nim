@@ -22,5 +22,17 @@ type
                    bycopy.} = object
 
 
-proc isDone*(this: GeomToStepRoot): bool {.noSideEffect, importcpp: "IsDone",
-                                       header: "GeomToStep_Root.hxx".}
+proc `new`*(this: var GeomToStepRoot; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_Root::operator new", header: "GeomToStep_Root.hxx".}
+proc `delete`*(this: var GeomToStepRoot; theAddress: pointer) {.
+    importcpp: "GeomToStep_Root::operator delete", header: "GeomToStep_Root.hxx".}
+proc `new[]`*(this: var GeomToStepRoot; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_Root::operator new[]", header: "GeomToStep_Root.hxx".}
+proc `delete[]`*(this: var GeomToStepRoot; theAddress: pointer) {.
+    importcpp: "GeomToStep_Root::operator delete[]", header: "GeomToStep_Root.hxx".}
+proc `new`*(this: var GeomToStepRoot; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_Root::operator new", header: "GeomToStep_Root.hxx".}
+proc `delete`*(this: var GeomToStepRoot; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_Root::operator delete", header: "GeomToStep_Root.hxx".}
+proc isDone*(this: GeomToStepRoot): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "GeomToStep_Root.hxx".}

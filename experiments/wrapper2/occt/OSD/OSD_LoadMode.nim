@@ -20,3 +20,28 @@ type
     OSD_RTLD_LAZY, OSD_RTLD_NOW
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

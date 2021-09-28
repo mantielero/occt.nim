@@ -32,7 +32,32 @@ proc constructConvertEllipseToBSplineCurve*(e: Elips2d;
     parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertEllipseToBSplineCurve {.
     constructor, importcpp: "Convert_EllipseToBSplineCurve(@)",
     header: "Convert_EllipseToBSplineCurve.hxx".}
-proc constructConvertEllipseToBSplineCurve*(e: Elips2d; u1: float; u2: float;
+proc constructConvertEllipseToBSplineCurve*(e: Elips2d; u1: cfloat; u2: cfloat;
     parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertEllipseToBSplineCurve {.
     constructor, importcpp: "Convert_EllipseToBSplineCurve(@)",
     header: "Convert_EllipseToBSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

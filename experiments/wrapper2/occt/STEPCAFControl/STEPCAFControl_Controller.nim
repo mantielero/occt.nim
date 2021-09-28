@@ -16,7 +16,7 @@
 discard "forward decl of STEPCAFControl_Controller"
 discard "forward decl of STEPCAFControl_Controller"
 type
-  HandleSTEPCAFControlController* = Handle[STEPCAFControlController]
+  HandleC1C1* = Handle[STEPCAFControlController]
 
 ## ! Extends Controller from STEPControl in order to provide
 ## ! ActorWrite adapted for writing assemblies from DECAF
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPCAFControl_Controller.hxx".}
 proc dynamicType*(this: STEPCAFControlController): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "STEPCAFControl_Controller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

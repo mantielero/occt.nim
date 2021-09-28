@@ -25,11 +25,36 @@ type
 
 proc constructBRepPrimWedge*(): BRepPrimWedge {.constructor,
     importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-proc constructBRepPrimWedge*(axes: Ax2; dx: float; dy: float; dz: float): BRepPrimWedge {.
+proc constructBRepPrimWedge*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimWedge {.
     constructor, importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-proc constructBRepPrimWedge*(axes: Ax2; dx: float; dy: float; dz: float; ltx: float): BRepPrimWedge {.
+proc constructBRepPrimWedge*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat; ltx: cfloat): BRepPrimWedge {.
     constructor, importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-proc constructBRepPrimWedge*(axes: Ax2; xmin: float; ymin: float; zmin: float;
-                            z2min: float; x2min: float; xmax: float; ymax: float;
-                            zmax: float; z2max: float; x2max: float): BRepPrimWedge {.
+proc constructBRepPrimWedge*(axes: Ax2; xmin: cfloat; ymin: cfloat; zmin: cfloat;
+                            z2min: cfloat; x2min: cfloat; xmax: cfloat; ymax: cfloat;
+                            zmax: cfloat; z2max: cfloat; x2max: cfloat): BRepPrimWedge {.
     constructor, importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

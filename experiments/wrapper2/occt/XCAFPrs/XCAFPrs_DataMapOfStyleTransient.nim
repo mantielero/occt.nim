@@ -19,3 +19,28 @@ type
   XCAFPrsDataMapIteratorOfDataMapOfStyleTransient* = Iterator[XCAFPrsStyle,
       Handle[StandardTransient], XCAFPrsStyle]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

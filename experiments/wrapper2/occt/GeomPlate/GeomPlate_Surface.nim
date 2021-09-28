@@ -29,7 +29,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of GeomPlate_Surface"
 discard "forward decl of GeomPlate_Surface"
 type
-  HandleGeomPlateSurface* = Handle[GeomPlateSurface]
+  HandleC1C1* = Handle[GeomPlateSurface]
 
 ## ! Describes the characteristics of plate surface objects
 ## ! returned by BuildPlateSurface::Surface. These can be
@@ -50,67 +50,69 @@ proc constructGeomPlateSurface*(surfinit: Handle[GeomSurface];
     constructor, importcpp: "GeomPlate_Surface(@)", header: "GeomPlate_Surface.hxx".}
 proc uReverse*(this: var GeomPlateSurface) {.importcpp: "UReverse",
     header: "GeomPlate_Surface.hxx".}
-proc uReversedParameter*(this: GeomPlateSurface; u: float): float {.noSideEffect,
-    importcpp: "UReversedParameter", header: "GeomPlate_Surface.hxx".}
+proc uReversedParameter*(this: GeomPlateSurface; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter", header: "GeomPlate_Surface.hxx".}
 proc vReverse*(this: var GeomPlateSurface) {.importcpp: "VReverse",
     header: "GeomPlate_Surface.hxx".}
-proc vReversedParameter*(this: GeomPlateSurface; v: float): float {.noSideEffect,
-    importcpp: "VReversedParameter", header: "GeomPlate_Surface.hxx".}
-proc transformParameters*(this: GeomPlateSurface; u: var float; v: var float; t: Trsf) {.
-    noSideEffect, importcpp: "TransformParameters", header: "GeomPlate_Surface.hxx".}
+proc vReversedParameter*(this: GeomPlateSurface; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter", header: "GeomPlate_Surface.hxx".}
+proc transformParameters*(this: GeomPlateSurface; u: var StandardReal;
+                         v: var StandardReal; t: Trsf) {.noSideEffect,
+    importcpp: "TransformParameters", header: "GeomPlate_Surface.hxx".}
 proc parametricTransformation*(this: GeomPlateSurface; t: Trsf): GTrsf2d {.
     noSideEffect, importcpp: "ParametricTransformation",
     header: "GeomPlate_Surface.hxx".}
-proc bounds*(this: GeomPlateSurface; u1: var float; u2: var float; v1: var float;
-            v2: var float) {.noSideEffect, importcpp: "Bounds",
-                          header: "GeomPlate_Surface.hxx".}
-proc isUClosed*(this: GeomPlateSurface): bool {.noSideEffect, importcpp: "IsUClosed",
-    header: "GeomPlate_Surface.hxx".}
-proc isVClosed*(this: GeomPlateSurface): bool {.noSideEffect, importcpp: "IsVClosed",
-    header: "GeomPlate_Surface.hxx".}
-proc isUPeriodic*(this: GeomPlateSurface): bool {.noSideEffect,
+proc bounds*(this: GeomPlateSurface; u1: var StandardReal; u2: var StandardReal;
+            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+    importcpp: "Bounds", header: "GeomPlate_Surface.hxx".}
+proc isUClosed*(this: GeomPlateSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsUClosed", header: "GeomPlate_Surface.hxx".}
+proc isVClosed*(this: GeomPlateSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsVClosed", header: "GeomPlate_Surface.hxx".}
+proc isUPeriodic*(this: GeomPlateSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsUPeriodic", header: "GeomPlate_Surface.hxx".}
-proc uPeriod*(this: GeomPlateSurface): float {.noSideEffect, importcpp: "UPeriod",
-    header: "GeomPlate_Surface.hxx".}
-proc isVPeriodic*(this: GeomPlateSurface): bool {.noSideEffect,
+proc uPeriod*(this: GeomPlateSurface): StandardReal {.noSideEffect,
+    importcpp: "UPeriod", header: "GeomPlate_Surface.hxx".}
+proc isVPeriodic*(this: GeomPlateSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVPeriodic", header: "GeomPlate_Surface.hxx".}
-proc vPeriod*(this: GeomPlateSurface): float {.noSideEffect, importcpp: "VPeriod",
-    header: "GeomPlate_Surface.hxx".}
-proc uIso*(this: GeomPlateSurface; u: float): Handle[GeomCurve] {.noSideEffect,
+proc vPeriod*(this: GeomPlateSurface): StandardReal {.noSideEffect,
+    importcpp: "VPeriod", header: "GeomPlate_Surface.hxx".}
+proc uIso*(this: GeomPlateSurface; u: StandardReal): Handle[GeomCurve] {.noSideEffect,
     importcpp: "UIso", header: "GeomPlate_Surface.hxx".}
-proc vIso*(this: GeomPlateSurface; v: float): Handle[GeomCurve] {.noSideEffect,
+proc vIso*(this: GeomPlateSurface; v: StandardReal): Handle[GeomCurve] {.noSideEffect,
     importcpp: "VIso", header: "GeomPlate_Surface.hxx".}
 proc continuity*(this: GeomPlateSurface): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "GeomPlate_Surface.hxx".}
-proc isCNu*(this: GeomPlateSurface; n: int): bool {.noSideEffect, importcpp: "IsCNu",
+proc isCNu*(this: GeomPlateSurface; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCNu", header: "GeomPlate_Surface.hxx".}
+proc isCNv*(this: GeomPlateSurface; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCNv", header: "GeomPlate_Surface.hxx".}
+proc d0*(this: GeomPlateSurface; u: StandardReal; v: StandardReal; p: var Pnt) {.
+    noSideEffect, importcpp: "D0", header: "GeomPlate_Surface.hxx".}
+proc d1*(this: GeomPlateSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                                header: "GeomPlate_Surface.hxx".}
+proc d2*(this: GeomPlateSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "GeomPlate_Surface.hxx".}
+proc d3*(this: GeomPlateSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
+        d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
     header: "GeomPlate_Surface.hxx".}
-proc isCNv*(this: GeomPlateSurface; n: int): bool {.noSideEffect, importcpp: "IsCNv",
-    header: "GeomPlate_Surface.hxx".}
-proc d0*(this: GeomPlateSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
-    importcpp: "D0", header: "GeomPlate_Surface.hxx".}
-proc d1*(this: GeomPlateSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
-    noSideEffect, importcpp: "D1", header: "GeomPlate_Surface.hxx".}
-proc d2*(this: GeomPlateSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
-        d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, importcpp: "D2",
-    header: "GeomPlate_Surface.hxx".}
-proc d3*(this: GeomPlateSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
-        d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec; d3uuv: var Vec;
-        d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
-                       header: "GeomPlate_Surface.hxx".}
-proc dn*(this: GeomPlateSurface; u: float; v: float; nu: int; nv: int): Vec {.noSideEffect,
-    importcpp: "DN", header: "GeomPlate_Surface.hxx".}
+proc dn*(this: GeomPlateSurface; u: StandardReal; v: StandardReal; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "GeomPlate_Surface.hxx".}
 proc copy*(this: GeomPlateSurface): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "GeomPlate_Surface.hxx".}
 proc transform*(this: var GeomPlateSurface; t: Trsf) {.importcpp: "Transform",
     header: "GeomPlate_Surface.hxx".}
 proc callSurfinit*(this: GeomPlateSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "CallSurfinit", header: "GeomPlate_Surface.hxx".}
-proc setBounds*(this: var GeomPlateSurface; umin: float; umax: float; vmin: float;
-               vmax: float) {.importcpp: "SetBounds",
-                            header: "GeomPlate_Surface.hxx".}
-proc realBounds*(this: GeomPlateSurface; u1: var float; u2: var float; v1: var float;
-                v2: var float) {.noSideEffect, importcpp: "RealBounds",
-                              header: "GeomPlate_Surface.hxx".}
+proc setBounds*(this: var GeomPlateSurface; umin: StandardReal; umax: StandardReal;
+               vmin: StandardReal; vmax: StandardReal) {.importcpp: "SetBounds",
+    header: "GeomPlate_Surface.hxx".}
+proc realBounds*(this: GeomPlateSurface; u1: var StandardReal; u2: var StandardReal;
+                v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+    importcpp: "RealBounds", header: "GeomPlate_Surface.hxx".}
 proc constraints*(this: GeomPlateSurface; seq: var TColgpSequenceOfXY) {.noSideEffect,
     importcpp: "Constraints", header: "GeomPlate_Surface.hxx".}
 type

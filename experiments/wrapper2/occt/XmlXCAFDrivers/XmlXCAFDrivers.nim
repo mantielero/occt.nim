@@ -87,3 +87,28 @@ proc factory*(aGUID: StandardGUID): Handle[StandardTransient] {.
     importcpp: "XmlXCAFDrivers::Factory(@)", header: "XmlXCAFDrivers.hxx".}
 proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
     importcpp: "XmlXCAFDrivers::DefineFormat(@)", header: "XmlXCAFDrivers.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -40,14 +40,39 @@ proc computePurgedWLine*(theWLine: Handle[IntPatchWLine];
 proc joinWLines*(theSlin: var IntPatchSequenceOfLine;
                 theSPnt: var IntPatchSequenceOfPoint;
                 theS1: Handle[Adaptor3dHSurface];
-                theS2: Handle[Adaptor3dHSurface]; theTol3D: float) {.
+                theS2: Handle[Adaptor3dHSurface]; theTol3D: cfloat) {.
     importcpp: "IntPatch_WLineTool::JoinWLines(@)",
     header: "IntPatch_WLineTool.hxx".}
 proc extendTwoWLines*(theSlin: var IntPatchSequenceOfLine;
                      theS1: Handle[Adaptor3dHSurface];
-                     theS2: Handle[Adaptor3dHSurface]; theToler3D: float;
-                     theArrPeriods: ptr float; theBoxS1: BndBox2d;
+                     theS2: Handle[Adaptor3dHSurface]; theToler3D: cfloat;
+                     theArrPeriods: ptr cfloat; theBoxS1: BndBox2d;
                      theBoxS2: BndBox2d;
                      theListOfCriticalPoints: NCollectionList[Pnt]) {.
     importcpp: "IntPatch_WLineTool::ExtendTwoWLines(@)",
     header: "IntPatch_WLineTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

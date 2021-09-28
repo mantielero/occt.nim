@@ -29,7 +29,7 @@ proc constructRWStepReprRWCompositeGroupShapeAspect*(): RWStepReprRWCompositeGro
     constructor, importcpp: "RWStepRepr_RWCompositeGroupShapeAspect(@)",
     header: "RWStepRepr_RWCompositeGroupShapeAspect.hxx".}
 proc readStep*(this: RWStepReprRWCompositeGroupShapeAspect;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprCompositeGroupShapeAspect]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWCompositeGroupShapeAspect.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepReprRWCompositeGroupShapeAspect;
            ent: Handle[StepReprCompositeGroupShapeAspect];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWCompositeGroupShapeAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

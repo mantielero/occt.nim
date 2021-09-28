@@ -16,8 +16,7 @@
 discard "forward decl of StepDimTol_NonUniformZoneDefinition"
 discard "forward decl of StepDimTol_NonUniformZoneDefinition"
 type
-  HandleStepDimTolNonUniformZoneDefinition* = Handle[
-      StepDimTolNonUniformZoneDefinition]
+  HandleC1C1* = Handle[StepDimTolNonUniformZoneDefinition]
 
 ## ! Representation of STEP entity NonUniformZoneDefinition
 
@@ -43,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolNonUniformZoneDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_NonUniformZoneDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

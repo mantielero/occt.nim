@@ -76,31 +76,56 @@ type
 
 
 proc constructMathNewtonFunctionRoot*(f: var MathFunctionWithDerivative;
-                                     guess: float; epsX: float; epsF: float;
-                                     nbIterations: int = 100): MathNewtonFunctionRoot {.
+                                     guess: cfloat; epsX: cfloat; epsF: cfloat;
+                                     nbIterations: cint = 100): MathNewtonFunctionRoot {.
     constructor, importcpp: "math_NewtonFunctionRoot(@)",
     header: "math_NewtonFunctionRoot.hxx".}
 proc constructMathNewtonFunctionRoot*(f: var MathFunctionWithDerivative;
-                                     guess: float; epsX: float; epsF: float; a: float;
-                                     b: float; nbIterations: int = 100): MathNewtonFunctionRoot {.
+                                     guess: cfloat; epsX: cfloat; epsF: cfloat;
+                                     a: cfloat; b: cfloat; nbIterations: cint = 100): MathNewtonFunctionRoot {.
     constructor, importcpp: "math_NewtonFunctionRoot(@)",
     header: "math_NewtonFunctionRoot.hxx".}
-proc constructMathNewtonFunctionRoot*(a: float; b: float; epsX: float; epsF: float;
-                                     nbIterations: int = 100): MathNewtonFunctionRoot {.
+proc constructMathNewtonFunctionRoot*(a: cfloat; b: cfloat; epsX: cfloat; epsF: cfloat;
+                                     nbIterations: cint = 100): MathNewtonFunctionRoot {.
     constructor, importcpp: "math_NewtonFunctionRoot(@)",
     header: "math_NewtonFunctionRoot.hxx".}
 proc perform*(this: var MathNewtonFunctionRoot; f: var MathFunctionWithDerivative;
-             guess: float) {.importcpp: "Perform",
-                           header: "math_NewtonFunctionRoot.hxx".}
+             guess: cfloat) {.importcpp: "Perform",
+                            header: "math_NewtonFunctionRoot.hxx".}
 proc isDone*(this: MathNewtonFunctionRoot): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_NewtonFunctionRoot.hxx".}
-proc root*(this: MathNewtonFunctionRoot): float {.noSideEffect, importcpp: "Root",
+proc root*(this: MathNewtonFunctionRoot): cfloat {.noSideEffect, importcpp: "Root",
     header: "math_NewtonFunctionRoot.hxx".}
-proc derivative*(this: MathNewtonFunctionRoot): float {.noSideEffect,
+proc derivative*(this: MathNewtonFunctionRoot): cfloat {.noSideEffect,
     importcpp: "Derivative", header: "math_NewtonFunctionRoot.hxx".}
-proc value*(this: MathNewtonFunctionRoot): float {.noSideEffect, importcpp: "Value",
+proc value*(this: MathNewtonFunctionRoot): cfloat {.noSideEffect, importcpp: "Value",
     header: "math_NewtonFunctionRoot.hxx".}
-proc nbIterations*(this: MathNewtonFunctionRoot): int {.noSideEffect,
+proc nbIterations*(this: MathNewtonFunctionRoot): cint {.noSideEffect,
     importcpp: "NbIterations", header: "math_NewtonFunctionRoot.hxx".}
 proc dump*(this: MathNewtonFunctionRoot; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_NewtonFunctionRoot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

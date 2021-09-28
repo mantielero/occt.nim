@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWFeaAxis2Placement3d*(): RWStepFEA_RWFeaAxis2Placement3
     constructor, importcpp: "RWStepFEA_RWFeaAxis2Placement3d(@)",
     header: "RWStepFEA_RWFeaAxis2Placement3d.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaAxis2Placement3d;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaAxis2Placement3d]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaAxis2Placement3d.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepFEA_RWFeaAxis2Placement3d;
            ent: Handle[StepFEA_FeaAxis2Placement3d];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaAxis2Placement3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

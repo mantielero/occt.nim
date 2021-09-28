@@ -29,7 +29,7 @@ proc constructRWStepReprRWAssemblyComponentUsageSubstitute*(): RWStepReprRWAssem
     constructor, importcpp: "RWStepRepr_RWAssemblyComponentUsageSubstitute(@)",
     header: "RWStepRepr_RWAssemblyComponentUsageSubstitute.hxx".}
 proc readStep*(this: RWStepReprRWAssemblyComponentUsageSubstitute;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprAssemblyComponentUsageSubstitute]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepReprRWAssemblyComponentUsageSubstitute;
            ent: Handle[StepReprAssemblyComponentUsageSubstitute];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWAssemblyComponentUsageSubstitute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

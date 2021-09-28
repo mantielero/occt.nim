@@ -24,4 +24,3 @@ include Geom2d_UndefinedDerivative
 include Geom2d_UndefinedValue
 include Geom2d_Vector
 include Geom2d_VectorWithMagnitude
-

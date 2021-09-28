@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_Organization"
 discard "forward decl of StepBasic_OrganizationalAddress"
 discard "forward decl of StepBasic_OrganizationalAddress"
 type
-  HandleStepBasicOrganizationalAddress* = Handle[StepBasicOrganizationalAddress]
+  HandleC1C1* = Handle[StepBasicOrganizationalAddress]
   StepBasicOrganizationalAddress* {.importcpp: "StepBasic_OrganizationalAddress", header: "StepBasic_OrganizationalAddress.hxx",
                                    bycopy.} = object of StepBasicAddress ## ! Returns a
                                                                     ## OrganizationalAddress
@@ -51,10 +51,10 @@ proc setOrganizations*(this: var StepBasicOrganizationalAddress;
     importcpp: "SetOrganizations", header: "StepBasic_OrganizationalAddress.hxx".}
 proc organizations*(this: StepBasicOrganizationalAddress): Handle[
     StepBasicHArray1OfOrganization] {.noSideEffect, importcpp: "Organizations", header: "StepBasic_OrganizationalAddress.hxx".}
-proc organizationsValue*(this: StepBasicOrganizationalAddress; num: int): Handle[
+proc organizationsValue*(this: StepBasicOrganizationalAddress; num: cint): Handle[
     StepBasicOrganization] {.noSideEffect, importcpp: "OrganizationsValue",
                             header: "StepBasic_OrganizationalAddress.hxx".}
-proc nbOrganizations*(this: StepBasicOrganizationalAddress): int {.noSideEffect,
+proc nbOrganizations*(this: StepBasicOrganizationalAddress): cint {.noSideEffect,
     importcpp: "NbOrganizations", header: "StepBasic_OrganizationalAddress.hxx".}
 proc setDescription*(this: var StepBasicOrganizationalAddress;
                     aDescription: Handle[TCollectionHAsciiString]) {.
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicOrganizationalAddress): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_OrganizationalAddress.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

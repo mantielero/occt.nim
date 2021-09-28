@@ -22,14 +22,39 @@ type
 
 proc constructMathValueAndWeight*(): MathValueAndWeight {.constructor,
     importcpp: "math_ValueAndWeight(@)", header: "math_ValueAndWeight.hxx".}
-proc constructMathValueAndWeight*(theValue: float; theWeight: float): MathValueAndWeight {.
+proc constructMathValueAndWeight*(theValue: cfloat; theWeight: cfloat): MathValueAndWeight {.
     constructor, importcpp: "math_ValueAndWeight(@)",
     header: "math_ValueAndWeight.hxx".}
-proc value*(this: MathValueAndWeight): float {.noSideEffect, importcpp: "Value",
+proc value*(this: MathValueAndWeight): cfloat {.noSideEffect, importcpp: "Value",
     header: "math_ValueAndWeight.hxx".}
-proc weight*(this: MathValueAndWeight): float {.noSideEffect, importcpp: "Weight",
+proc weight*(this: MathValueAndWeight): cfloat {.noSideEffect, importcpp: "Weight",
     header: "math_ValueAndWeight.hxx".}
 ## ! Comparison operator for math_ValueAndWeight, needed for sorting algorithms
 
 proc `<`*(theLeft: MathValueAndWeight; theRight: MathValueAndWeight): bool {.
     importcpp: "(# < #)", header: "math_ValueAndWeight.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

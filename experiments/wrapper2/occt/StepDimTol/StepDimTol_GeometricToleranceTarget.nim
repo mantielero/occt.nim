@@ -29,7 +29,7 @@ proc constructStepDimTolGeometricToleranceTarget*(): StepDimTolGeometricToleranc
     constructor, importcpp: "StepDimTol_GeometricToleranceTarget(@)",
     header: "StepDimTol_GeometricToleranceTarget.hxx".}
 proc caseNum*(this: StepDimTolGeometricToleranceTarget;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepDimTol_GeometricToleranceTarget.hxx".}
 proc dimensionalLocation*(this: StepDimTolGeometricToleranceTarget): Handle[
     StepShapeDimensionalLocation] {.noSideEffect,
@@ -42,3 +42,28 @@ proc productDefinitionShape*(this: StepDimTolGeometricToleranceTarget): Handle[
 proc shapeAspect*(this: StepDimTolGeometricToleranceTarget): Handle[
     StepReprShapeAspect] {.noSideEffect, importcpp: "ShapeAspect",
                           header: "StepDimTol_GeometricToleranceTarget.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

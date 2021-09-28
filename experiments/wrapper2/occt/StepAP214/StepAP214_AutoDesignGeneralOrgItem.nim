@@ -34,7 +34,7 @@ proc constructStepAP214AutoDesignGeneralOrgItem*(): StepAP214AutoDesignGeneralOr
     constructor, importcpp: "StepAP214_AutoDesignGeneralOrgItem(@)",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
 proc caseNum*(this: StepAP214AutoDesignGeneralOrgItem;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
 proc product*(this: StepAP214AutoDesignGeneralOrgItem): Handle[StepBasicProduct] {.
     noSideEffect, importcpp: "Product",
@@ -65,3 +65,28 @@ proc autoDesignDocumentReference*(this: StepAP214AutoDesignGeneralOrgItem): Hand
     StepAP214AutoDesignDocumentReference] {.noSideEffect,
     importcpp: "AutoDesignDocumentReference",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

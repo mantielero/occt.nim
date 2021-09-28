@@ -55,10 +55,35 @@ proc isDone*(this: ExtremaExtElSS): bool {.noSideEffect, importcpp: "IsDone",
                                        header: "Extrema_ExtElSS.hxx".}
 proc isParallel*(this: ExtremaExtElSS): bool {.noSideEffect, importcpp: "IsParallel",
     header: "Extrema_ExtElSS.hxx".}
-proc nbExt*(this: ExtremaExtElSS): int {.noSideEffect, importcpp: "NbExt",
-                                     header: "Extrema_ExtElSS.hxx".}
-proc squareDistance*(this: ExtremaExtElSS; n: int = 1): float {.noSideEffect,
+proc nbExt*(this: ExtremaExtElSS): cint {.noSideEffect, importcpp: "NbExt",
+                                      header: "Extrema_ExtElSS.hxx".}
+proc squareDistance*(this: ExtremaExtElSS; n: cint = 1): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_ExtElSS.hxx".}
-proc points*(this: ExtremaExtElSS; n: int; p1: var ExtremaPOnSurf;
+proc points*(this: ExtremaExtElSS; n: cint; p1: var ExtremaPOnSurf;
             p2: var ExtremaPOnSurf) {.noSideEffect, importcpp: "Points",
                                    header: "Extrema_ExtElSS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

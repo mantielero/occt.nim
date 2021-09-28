@@ -29,7 +29,7 @@ proc constructRWStepDimTolRWProjectedZoneDefinition*(): RWStepDimTolRWProjectedZ
     constructor, importcpp: "RWStepDimTol_RWProjectedZoneDefinition(@)",
     header: "RWStepDimTol_RWProjectedZoneDefinition.hxx".}
 proc readStep*(this: RWStepDimTolRWProjectedZoneDefinition;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolProjectedZoneDefinition]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWProjectedZoneDefinition.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepDimTolRWProjectedZoneDefinition;
            ent: Handle[StepDimTolProjectedZoneDefinition];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWProjectedZoneDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

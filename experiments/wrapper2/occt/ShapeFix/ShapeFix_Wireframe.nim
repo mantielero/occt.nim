@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeFix_Wireframe"
 discard "forward decl of ShapeFix_Wireframe"
 type
-  HandleShapeFixWireframe* = Handle[ShapeFixWireframe]
+  HandleC1C1* = Handle[ShapeFixWireframe]
 
 ## ! Provides methods for fixing wireframe of shape
 
@@ -51,7 +51,7 @@ proc mergeSmallEdges*(this: var ShapeFixWireframe;
                      theEdgeToFaces: var TopToolsDataMapOfShapeListOfShape;
                      theFaceWithSmall: var TopToolsDataMapOfShapeListOfShape;
                      theMultyEdges: var TopToolsMapOfShape;
-                     theModeDrop: bool = false; theLimitAngle: float = -1): bool {.
+                     theModeDrop: bool = false; theLimitAngle: cfloat = -1): bool {.
     importcpp: "MergeSmallEdges", header: "ShapeFix_Wireframe.hxx".}
 proc statusWireGaps*(this: ShapeFixWireframe; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusWireGaps", header: "ShapeFix_Wireframe.hxx".}
@@ -61,9 +61,9 @@ proc shape*(this: var ShapeFixWireframe): TopoDS_Shape {.importcpp: "Shape",
     header: "ShapeFix_Wireframe.hxx".}
 proc modeDropSmallEdges*(this: var ShapeFixWireframe): var bool {.
     importcpp: "ModeDropSmallEdges", header: "ShapeFix_Wireframe.hxx".}
-proc setLimitAngle*(this: var ShapeFixWireframe; theLimitAngle: float) {.
+proc setLimitAngle*(this: var ShapeFixWireframe; theLimitAngle: cfloat) {.
     importcpp: "SetLimitAngle", header: "ShapeFix_Wireframe.hxx".}
-proc limitAngle*(this: ShapeFixWireframe): float {.noSideEffect,
+proc limitAngle*(this: ShapeFixWireframe): cfloat {.noSideEffect,
     importcpp: "LimitAngle", header: "ShapeFix_Wireframe.hxx".}
 type
   ShapeFixWireframebaseType* = ShapeFixRoot
@@ -75,3 +75,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_Wireframe.hxx".}
 proc dynamicType*(this: ShapeFixWireframe): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Wireframe.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

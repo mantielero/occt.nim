@@ -37,14 +37,14 @@ proc setColor*(this: var Prs3dTextAspect; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "Prs3d_TextAspect.hxx".}
 proc setFont*(this: var Prs3dTextAspect; theFont: StandardCString) {.
     importcpp: "SetFont", header: "Prs3d_TextAspect.hxx".}
-proc setHeight*(this: var Prs3dTextAspect; theHeight: float) {.importcpp: "SetHeight",
+proc setHeight*(this: var Prs3dTextAspect; theHeight: cfloat) {.
+    importcpp: "SetHeight", header: "Prs3d_TextAspect.hxx".}
+proc setAngle*(this: var Prs3dTextAspect; theAngle: cfloat) {.importcpp: "SetAngle",
     header: "Prs3d_TextAspect.hxx".}
-proc setAngle*(this: var Prs3dTextAspect; theAngle: float) {.importcpp: "SetAngle",
+proc height*(this: Prs3dTextAspect): cfloat {.noSideEffect, importcpp: "Height",
     header: "Prs3d_TextAspect.hxx".}
-proc height*(this: Prs3dTextAspect): float {.noSideEffect, importcpp: "Height",
+proc angle*(this: Prs3dTextAspect): cfloat {.noSideEffect, importcpp: "Angle",
     header: "Prs3d_TextAspect.hxx".}
-proc angle*(this: Prs3dTextAspect): float {.noSideEffect, importcpp: "Angle",
-                                        header: "Prs3d_TextAspect.hxx".}
 proc setHorizontalJustification*(this: var Prs3dTextAspect; theJustification: Graphic3dHorizontalTextAlignment) {.
     importcpp: "SetHorizontalJustification", header: "Prs3d_TextAspect.hxx".}
 proc setVerticalJustification*(this: var Prs3dTextAspect;
@@ -65,9 +65,34 @@ proc aspect*(this: Prs3dTextAspect): Handle[Graphic3dAspectText3d] {.noSideEffec
 proc setAspect*(this: var Prs3dTextAspect; theAspect: Handle[Graphic3dAspectText3d]) {.
     importcpp: "SetAspect", header: "Prs3d_TextAspect.hxx".}
 proc dumpJson*(this: Prs3dTextAspect; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Prs3d_TextAspect.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Prs3d_TextAspect.hxx".}
 discard "forward decl of Prs3d_TextAspect"
 type
-  HandlePrs3dTextAspect* = Handle[Prs3dTextAspect]
+  HandleC1C1* = Handle[Prs3dTextAspect]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

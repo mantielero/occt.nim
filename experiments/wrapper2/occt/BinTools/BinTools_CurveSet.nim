@@ -24,11 +24,11 @@ proc constructBinToolsCurveSet*(): BinToolsCurveSet {.constructor,
     importcpp: "BinTools_CurveSet(@)", header: "BinTools_CurveSet.hxx".}
 proc clear*(this: var BinToolsCurveSet) {.importcpp: "Clear",
                                       header: "BinTools_CurveSet.hxx".}
-proc add*(this: var BinToolsCurveSet; c: Handle[GeomCurve]): int {.importcpp: "Add",
+proc add*(this: var BinToolsCurveSet; c: Handle[GeomCurve]): cint {.importcpp: "Add",
     header: "BinTools_CurveSet.hxx".}
-proc curve*(this: BinToolsCurveSet; i: int): Handle[GeomCurve] {.noSideEffect,
+proc curve*(this: BinToolsCurveSet; i: cint): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "BinTools_CurveSet.hxx".}
-proc index*(this: BinToolsCurveSet; c: Handle[GeomCurve]): int {.noSideEffect,
+proc index*(this: BinToolsCurveSet; c: Handle[GeomCurve]): cint {.noSideEffect,
     importcpp: "Index", header: "BinTools_CurveSet.hxx".}
 proc write*(this: BinToolsCurveSet; os: var StandardOStream;
            theRange: MessageProgressRange = messageProgressRange()) {.noSideEffect,
@@ -40,3 +40,28 @@ proc writeCurve*(c: Handle[GeomCurve]; os: var StandardOStream) {.
     importcpp: "BinTools_CurveSet::WriteCurve(@)", header: "BinTools_CurveSet.hxx".}
 proc readCurve*(`is`: var StandardIStream; c: var Handle[GeomCurve]): var StandardIStream {.
     importcpp: "BinTools_CurveSet::ReadCurve(@)", header: "BinTools_CurveSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

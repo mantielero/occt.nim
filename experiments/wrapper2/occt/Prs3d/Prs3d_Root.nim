@@ -20,6 +20,51 @@ type
   Prs3dRoot* {.importcpp: "Prs3d_Root", header: "Prs3d_Root.hxx", bycopy.} = object
 
 
-## !!!Ignored construct:  public : Standard_DEPRECATED ( This method is deprecated - Prs3d_Presentation::CurrentGroup() should be called instead ) static opencascade :: handle < Graphic3d_Group > CurrentGroup ( const opencascade :: handle < Prs3d_Presentation > & thePrs3d ) { return thePrs3d -> CurrentGroup ( ) ; } Standard_DEPRECATED ( This method is deprecated - Prs3d_Presentation::NewGroup() should be called instead ) static opencascade :: handle < Graphic3d_Group > NewGroup ( const opencascade :: handle < Prs3d_Presentation > & thePrs3d ) { return thePrs3d -> NewGroup ( ) ; } }
+## !!!Ignored construct:  public : Standard_DEPRECATED ( This method is deprecated - Prs3d_Presentation::CurrentGroup() should be called instead ) static Handle ( Graphic3d_Group ) CurrentGroup ( const Handle ( Prs3d_Presentation ) & thePrs3d ) { return thePrs3d -> CurrentGroup ( ) ; } Standard_DEPRECATED ( This method is deprecated - Prs3d_Presentation::NewGroup() should be called instead ) static Handle ( Graphic3d_Group ) NewGroup ( const Handle ( Prs3d_Presentation ) & thePrs3d ) { return thePrs3d -> NewGroup ( ) ; } }
 ## Error: identifier expected, but got: This method is deprecated - Prs3d_Presentation::CurrentGroup() should be called instead!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

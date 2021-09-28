@@ -19,7 +19,7 @@ discard "forward decl of StepShape_ValueQualifier"
 discard "forward decl of StepShape_MeasureQualification"
 discard "forward decl of StepShape_MeasureQualification"
 type
-  HandleStepShapeMeasureQualification* = Handle[StepShapeMeasureQualification]
+  HandleC1C1* = Handle[StepShapeMeasureQualification]
 
 ## ! Added for Dimensional Tolerances
 
@@ -57,15 +57,15 @@ proc setQualifiedMeasure*(this: var StepShapeMeasureQualification;
     importcpp: "SetQualifiedMeasure", header: "StepShape_MeasureQualification.hxx".}
 proc qualifiers*(this: StepShapeMeasureQualification): Handle[
     StepShapeHArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_MeasureQualification.hxx".}
-proc nbQualifiers*(this: StepShapeMeasureQualification): int {.noSideEffect,
+proc nbQualifiers*(this: StepShapeMeasureQualification): cint {.noSideEffect,
     importcpp: "NbQualifiers", header: "StepShape_MeasureQualification.hxx".}
 proc setQualifiers*(this: var StepShapeMeasureQualification;
                    qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "SetQualifiers", header: "StepShape_MeasureQualification.hxx".}
-proc qualifiersValue*(this: StepShapeMeasureQualification; num: int): StepShapeValueQualifier {.
+proc qualifiersValue*(this: StepShapeMeasureQualification; num: cint): StepShapeValueQualifier {.
     noSideEffect, importcpp: "QualifiersValue",
     header: "StepShape_MeasureQualification.hxx".}
-proc setQualifiersValue*(this: var StepShapeMeasureQualification; num: int;
+proc setQualifiersValue*(this: var StepShapeMeasureQualification; num: cint;
                         aqualifier: StepShapeValueQualifier) {.
     importcpp: "SetQualifiersValue", header: "StepShape_MeasureQualification.hxx".}
 type
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeMeasureQualification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_MeasureQualification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -78,35 +78,35 @@ type
 proc constructBRepMeshVertexTool*(theAllocator: Handle[NCollectionIncAllocator]): BRepMeshVertexTool {.
     constructor, importcpp: "BRepMesh_VertexTool(@)",
     header: "BRepMesh_VertexTool.hxx".}
-proc setCellSize*(this: var BRepMeshVertexTool; theSize: float) {.
+proc setCellSize*(this: var BRepMeshVertexTool; theSize: cfloat) {.
     importcpp: "SetCellSize", header: "BRepMesh_VertexTool.hxx".}
-proc setCellSize*(this: var BRepMeshVertexTool; theSizeX: float; theSizeY: float) {.
+proc setCellSize*(this: var BRepMeshVertexTool; theSizeX: cfloat; theSizeY: cfloat) {.
     importcpp: "SetCellSize", header: "BRepMesh_VertexTool.hxx".}
-proc setTolerance*(this: var BRepMeshVertexTool; theTolerance: float) {.
+proc setTolerance*(this: var BRepMeshVertexTool; theTolerance: cfloat) {.
     importcpp: "SetTolerance", header: "BRepMesh_VertexTool.hxx".}
-proc setTolerance*(this: var BRepMeshVertexTool; theToleranceX: float;
-                  theToleranceY: float) {.importcpp: "SetTolerance",
-                                        header: "BRepMesh_VertexTool.hxx".}
-proc getTolerance*(this: var BRepMeshVertexTool; theToleranceX: var float;
-                  theToleranceY: var float) {.importcpp: "GetTolerance",
+proc setTolerance*(this: var BRepMeshVertexTool; theToleranceX: cfloat;
+                  theToleranceY: cfloat) {.importcpp: "SetTolerance",
     header: "BRepMesh_VertexTool.hxx".}
-proc add*(this: var BRepMeshVertexTool; theVertex: BRepMeshVertex; isForceAdd: bool): int {.
+proc getTolerance*(this: var BRepMeshVertexTool; theToleranceX: var cfloat;
+                  theToleranceY: var cfloat) {.importcpp: "GetTolerance",
+    header: "BRepMesh_VertexTool.hxx".}
+proc add*(this: var BRepMeshVertexTool; theVertex: BRepMeshVertex; isForceAdd: bool): cint {.
     importcpp: "Add", header: "BRepMesh_VertexTool.hxx".}
-proc deleteVertex*(this: var BRepMeshVertexTool; theIndex: int) {.
+proc deleteVertex*(this: var BRepMeshVertexTool; theIndex: cint) {.
     importcpp: "DeleteVertex", header: "BRepMesh_VertexTool.hxx".}
 proc vertices*(this: BRepMeshVertexTool): Handle[VectorOfVertex] {.noSideEffect,
     importcpp: "Vertices", header: "BRepMesh_VertexTool.hxx".}
 proc changeVertices*(this: var BRepMeshVertexTool): var Handle[VectorOfVertex] {.
     importcpp: "ChangeVertices", header: "BRepMesh_VertexTool.hxx".}
-proc findKey*(this: var BRepMeshVertexTool; theIndex: int): BRepMeshVertex {.
+proc findKey*(this: var BRepMeshVertexTool; theIndex: cint): BRepMeshVertex {.
     importcpp: "FindKey", header: "BRepMesh_VertexTool.hxx".}
-proc findIndex*(this: var BRepMeshVertexTool; theVertex: BRepMeshVertex): int {.
+proc findIndex*(this: var BRepMeshVertexTool; theVertex: BRepMeshVertex): cint {.
     importcpp: "FindIndex", header: "BRepMesh_VertexTool.hxx".}
-proc extent*(this: BRepMeshVertexTool): int {.noSideEffect, importcpp: "Extent",
+proc extent*(this: BRepMeshVertexTool): cint {.noSideEffect, importcpp: "Extent",
     header: "BRepMesh_VertexTool.hxx".}
 proc isEmpty*(this: BRepMeshVertexTool): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "BRepMesh_VertexTool.hxx".}
-proc substitute*(this: var BRepMeshVertexTool; theIndex: int;
+proc substitute*(this: var BRepMeshVertexTool; theIndex: cint;
                 theVertex: BRepMeshVertex) {.importcpp: "Substitute",
     header: "BRepMesh_VertexTool.hxx".}
 proc removeLast*(this: var BRepMeshVertexTool) {.importcpp: "RemoveLast",
@@ -125,3 +125,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_VertexTool.hxx".}
 proc dynamicType*(this: BRepMeshVertexTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_VertexTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

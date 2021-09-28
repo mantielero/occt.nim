@@ -18,3 +18,28 @@ type
   TopOpeBRepToolIndexedDataMapOfShapeBox2d* = NCollectionIndexedDataMap[
       TopoDS_Shape, BndBox2d, TopToolsOrientedShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

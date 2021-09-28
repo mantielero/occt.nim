@@ -21,7 +21,7 @@ discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of GeomFill_Fixed"
 discard "forward decl of GeomFill_Fixed"
 type
-  HandleGeomFillFixed* = Handle[GeomFillFixed]
+  HandleC1C1* = Handle[GeomFillFixed]
 
 ## ! Defined an constant TrihedronLaw
 
@@ -33,14 +33,16 @@ proc constructGeomFillFixed*(tangent: Vec; normal: Vec): GeomFillFixed {.constru
     importcpp: "GeomFill_Fixed(@)", header: "GeomFill_Fixed.hxx".}
 proc copy*(this: GeomFillFixed): Handle[GeomFillTrihedronLaw] {.noSideEffect,
     importcpp: "Copy", header: "GeomFill_Fixed.hxx".}
-proc d0*(this: var GeomFillFixed; param: float; tangent: var Vec; normal: var Vec;
-        biNormal: var Vec): bool {.importcpp: "D0", header: "GeomFill_Fixed.hxx".}
-proc d1*(this: var GeomFillFixed; param: float; tangent: var Vec; dTangent: var Vec;
-        normal: var Vec; dNormal: var Vec; biNormal: var Vec; dBiNormal: var Vec): bool {.
-    importcpp: "D1", header: "GeomFill_Fixed.hxx".}
-proc d2*(this: var GeomFillFixed; param: float; tangent: var Vec; dTangent: var Vec;
-        d2Tangent: var Vec; normal: var Vec; dNormal: var Vec; d2Normal: var Vec;
-        biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
+proc d0*(this: var GeomFillFixed; param: StandardReal; tangent: var Vec; normal: var Vec;
+        biNormal: var Vec): StandardBoolean {.importcpp: "D0",
+    header: "GeomFill_Fixed.hxx".}
+proc d1*(this: var GeomFillFixed; param: StandardReal; tangent: var Vec;
+        dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
+        dBiNormal: var Vec): StandardBoolean {.importcpp: "D1",
+    header: "GeomFill_Fixed.hxx".}
+proc d2*(this: var GeomFillFixed; param: StandardReal; tangent: var Vec;
+        dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
+        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): StandardBoolean {.
     importcpp: "D2", header: "GeomFill_Fixed.hxx".}
 proc nbIntervals*(this: GeomFillFixed; s: GeomAbsShape): int {.noSideEffect,
     importcpp: "NbIntervals", header: "GeomFill_Fixed.hxx".}
@@ -49,8 +51,8 @@ proc intervals*(this: GeomFillFixed; t: var TColStdArray1OfReal; s: GeomAbsShape
 proc getAverageLaw*(this: var GeomFillFixed; aTangent: var Vec; aNormal: var Vec;
                    aBiNormal: var Vec) {.importcpp: "GetAverageLaw",
                                       header: "GeomFill_Fixed.hxx".}
-proc isConstant*(this: GeomFillFixed): bool {.noSideEffect, importcpp: "IsConstant",
-    header: "GeomFill_Fixed.hxx".}
+proc isConstant*(this: GeomFillFixed): StandardBoolean {.noSideEffect,
+    importcpp: "IsConstant", header: "GeomFill_Fixed.hxx".}
 type
   GeomFillFixedbaseType* = GeomFillTrihedronLaw
 

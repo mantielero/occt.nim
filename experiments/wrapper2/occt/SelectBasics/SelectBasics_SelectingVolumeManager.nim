@@ -52,10 +52,10 @@ proc overlaps*(this: SelectBasicsSelectingVolumeManager; thePnt: Pnt;
 proc overlaps*(this: SelectBasicsSelectingVolumeManager; thePnt: Pnt): bool {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectBasics_SelectingVolumeManager.hxx".}
-proc overlaps*(this: SelectBasicsSelectingVolumeManager;
-              theArrayOfPts: Handle[TColgpHArray1OfPnt]; theSensType: int;
-              thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
-    importcpp: "Overlaps", header: "SelectBasics_SelectingVolumeManager.hxx".}
+## !!!Ignored construct:  ! Returns true if selecting volume is overlapped by planar convex polygon, which points
+## ! are stored in theArrayOfPts, taking into account sensitivity type theSensType virtual Standard_Boolean Overlaps ( const Handle ( TColgp_HArray1OfPnt ) & theArrayOfPts , Standard_Integer theSensType , SelectBasics_PickResult & thePickResult ) const = 0 ;
+## Error: token expected: ) but got: &!!!
+
 proc overlaps*(this: SelectBasicsSelectingVolumeManager;
               theArrayOfPts: TColgpArray1OfPnt; theSensType: int;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
@@ -92,3 +92,48 @@ proc getPlanes*(this: SelectBasicsSelectingVolumeManager;
 proc dumpJson*(this: SelectBasicsSelectingVolumeManager;
               theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
     importcpp: "DumpJson", header: "SelectBasics_SelectingVolumeManager.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

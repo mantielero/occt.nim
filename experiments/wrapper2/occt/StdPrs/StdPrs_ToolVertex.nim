@@ -20,5 +20,30 @@ type
                      header: "StdPrs_ToolVertex.hxx", bycopy.} = object
 
 
-proc coord*(aPoint: TopoDS_Vertex; x: var float; y: var float; z: var float) {.
+proc coord*(aPoint: TopoDS_Vertex; x: var cfloat; y: var cfloat; z: var cfloat) {.
     importcpp: "StdPrs_ToolVertex::Coord(@)", header: "StdPrs_ToolVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

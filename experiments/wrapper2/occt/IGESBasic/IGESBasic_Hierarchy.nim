@@ -17,7 +17,7 @@
 discard "forward decl of IGESBasic_Hierarchy"
 discard "forward decl of IGESBasic_Hierarchy"
 type
-  HandleIGESBasicHierarchy* = Handle[IGESBasicHierarchy]
+  HandleC1C1* = Handle[IGESBasicHierarchy]
 
 ## ! defines Hierarchy, Type <406> Form <10>
 ## ! in package IGESBasic
@@ -31,22 +31,22 @@ type
 
 proc constructIGESBasicHierarchy*(): IGESBasicHierarchy {.constructor,
     importcpp: "IGESBasic_Hierarchy(@)", header: "IGESBasic_Hierarchy.hxx".}
-proc init*(this: var IGESBasicHierarchy; nbPropVal: int; aLineFont: int; aView: int;
-          anEntityLevel: int; aBlankStatus: int; aLineWt: int; aColorNum: int) {.
+proc init*(this: var IGESBasicHierarchy; nbPropVal: cint; aLineFont: cint; aView: cint;
+          anEntityLevel: cint; aBlankStatus: cint; aLineWt: cint; aColorNum: cint) {.
     importcpp: "Init", header: "IGESBasic_Hierarchy.hxx".}
-proc nbPropertyValues*(this: IGESBasicHierarchy): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESBasicHierarchy): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESBasic_Hierarchy.hxx".}
-proc newLineFont*(this: IGESBasicHierarchy): int {.noSideEffect,
+proc newLineFont*(this: IGESBasicHierarchy): cint {.noSideEffect,
     importcpp: "NewLineFont", header: "IGESBasic_Hierarchy.hxx".}
-proc newView*(this: IGESBasicHierarchy): int {.noSideEffect, importcpp: "NewView",
+proc newView*(this: IGESBasicHierarchy): cint {.noSideEffect, importcpp: "NewView",
     header: "IGESBasic_Hierarchy.hxx".}
-proc newEntityLevel*(this: IGESBasicHierarchy): int {.noSideEffect,
+proc newEntityLevel*(this: IGESBasicHierarchy): cint {.noSideEffect,
     importcpp: "NewEntityLevel", header: "IGESBasic_Hierarchy.hxx".}
-proc newBlankStatus*(this: IGESBasicHierarchy): int {.noSideEffect,
+proc newBlankStatus*(this: IGESBasicHierarchy): cint {.noSideEffect,
     importcpp: "NewBlankStatus", header: "IGESBasic_Hierarchy.hxx".}
-proc newLineWeight*(this: IGESBasicHierarchy): int {.noSideEffect,
+proc newLineWeight*(this: IGESBasicHierarchy): cint {.noSideEffect,
     importcpp: "NewLineWeight", header: "IGESBasic_Hierarchy.hxx".}
-proc newColorNum*(this: IGESBasicHierarchy): int {.noSideEffect,
+proc newColorNum*(this: IGESBasicHierarchy): cint {.noSideEffect,
     importcpp: "NewColorNum", header: "IGESBasic_Hierarchy.hxx".}
 type
   IGESBasicHierarchybaseType* = IGESDataIGESEntity
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESBasic_Hierarchy.hxx".}
 proc dynamicType*(this: IGESBasicHierarchy): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESBasic_Hierarchy.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SelectSignature"
 discard "forward decl of IFSelect_SelectSignature"
 type
-  HandleIFSelectSelectSignature* = Handle[IFSelectSelectSignature]
+  HandleC1C1* = Handle[IFSelectSelectSignature]
 
 ## ! A SelectSignature sorts the Entities on a Signature Matching.
 ## ! The signature to match is given at creation time. Also, the
@@ -106,10 +106,10 @@ proc signature*(this: IFSelectSelectSignature): Handle[IFSelectSignature] {.
     noSideEffect, importcpp: "Signature", header: "IFSelect_SelectSignature.hxx".}
 proc counter*(this: IFSelectSelectSignature): Handle[IFSelectSignCounter] {.
     noSideEffect, importcpp: "Counter", header: "IFSelect_SelectSignature.hxx".}
-proc sortInGraph*(this: IFSelectSelectSignature; rank: int;
+proc sortInGraph*(this: IFSelectSelectSignature; rank: cint;
                  ent: Handle[StandardTransient]; g: InterfaceGraph): bool {.
     noSideEffect, importcpp: "SortInGraph", header: "IFSelect_SelectSignature.hxx".}
-proc sort*(this: IFSelectSelectSignature; rank: int; ent: Handle[StandardTransient];
+proc sort*(this: IFSelectSelectSignature; rank: cint; ent: Handle[StandardTransient];
           model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
     importcpp: "Sort", header: "IFSelect_SelectSignature.hxx".}
 proc signatureText*(this: IFSelectSelectSignature): TCollectionAsciiString {.
@@ -129,3 +129,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectSignature.hxx".}
 proc dynamicType*(this: IFSelectSelectSignature): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectSignature.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

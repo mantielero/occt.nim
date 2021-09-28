@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectLevelNumber"
 discard "forward decl of IGESSelect_SelectLevelNumber"
 type
-  HandleIGESSelectSelectLevelNumber* = Handle[IGESSelectSelectLevelNumber]
+  HandleC1C1* = Handle[IGESSelectSelectLevelNumber]
 
 ## ! This selection looks at Level Number of IGES Entities :
 ## ! it considers items attached, either to a single level with a
@@ -64,7 +64,7 @@ proc setLevelNumber*(this: var IGESSelectSelectLevelNumber;
 proc levelNumber*(this: IGESSelectSelectLevelNumber): Handle[IFSelectIntParam] {.
     noSideEffect, importcpp: "LevelNumber",
     header: "IGESSelect_SelectLevelNumber.hxx".}
-proc sort*(this: IGESSelectSelectLevelNumber; rank: int;
+proc sort*(this: IGESSelectSelectLevelNumber; rank: cint;
           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Sort", header: "IGESSelect_SelectLevelNumber.hxx".}
 proc extractLabel*(this: IGESSelectSelectLevelNumber): TCollectionAsciiString {.
@@ -81,3 +81,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSelectLevelNumber): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectLevelNumber.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

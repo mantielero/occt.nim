@@ -75,9 +75,35 @@ type
   HLRBRep* {.importcpp: "HLRBRep", header: "HLRBRep.hxx", bycopy.} = object
 
 
-proc makeEdge*(ec: HLRBRepCurve; u1: float; u2: float): TopoDS_Edge {.
+proc makeEdge*(ec: HLRBRepCurve; u1: cfloat; u2: cfloat): TopoDS_Edge {.
     importcpp: "HLRBRep::MakeEdge(@)", header: "HLRBRep.hxx".}
-proc makeEdge3d*(ec: HLRBRepCurve; u1: float; u2: float): TopoDS_Edge {.
+proc makeEdge3d*(ec: HLRBRepCurve; u1: cfloat; u2: cfloat): TopoDS_Edge {.
     importcpp: "HLRBRep::MakeEdge3d(@)", header: "HLRBRep.hxx".}
-proc polyHLRAngleAndDeflection*(inAngl: float; outAngl: var float; outDefl: var float) {.
+proc polyHLRAngleAndDeflection*(inAngl: cfloat; outAngl: var cfloat;
+                               outDefl: var cfloat) {.
     importcpp: "HLRBRep::PolyHLRAngleAndDeflection(@)", header: "HLRBRep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

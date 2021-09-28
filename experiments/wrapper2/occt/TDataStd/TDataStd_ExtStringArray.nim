@@ -23,7 +23,7 @@ discard "forward decl of TDF_DeltaOnModification"
 discard "forward decl of TDataStd_ExtStringArray"
 discard "forward decl of TDataStd_ExtStringArray"
 type
-  HandleTDataStdExtStringArray* = Handle[TDataStdExtStringArray]
+  HandleC1C1* = Handle[TDataStdExtStringArray]
 
 ## ! ExtStringArray Attribute. Handles an array of UNICODE strings (represented by the TCollection_ExtendedString class).
 
@@ -56,31 +56,31 @@ proc dynamicType*(this: TDataStdExtStringArray): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TDataStd_ExtStringArray.hxx".}
 proc getID*(): StandardGUID {.importcpp: "TDataStd_ExtStringArray::GetID(@)",
                            header: "TDataStd_ExtStringArray.hxx".}
-proc set*(label: TDF_Label; lower: int; upper: int; isDelta: bool = false): Handle[
+proc set*(label: TDF_Label; lower: cint; upper: cint; isDelta: bool = false): Handle[
     TDataStdExtStringArray] {.importcpp: "TDataStd_ExtStringArray::Set(@)",
                              header: "TDataStd_ExtStringArray.hxx".}
-proc set*(label: TDF_Label; theGuid: StandardGUID; lower: int; upper: int;
+proc set*(label: TDF_Label; theGuid: StandardGUID; lower: cint; upper: cint;
          isDelta: bool = false): Handle[TDataStdExtStringArray] {.
     importcpp: "TDataStd_ExtStringArray::Set(@)",
     header: "TDataStd_ExtStringArray.hxx".}
-proc init*(this: var TDataStdExtStringArray; lower: int; upper: int) {.
+proc init*(this: var TDataStdExtStringArray; lower: cint; upper: cint) {.
     importcpp: "Init", header: "TDataStd_ExtStringArray.hxx".}
-proc setValue*(this: var TDataStdExtStringArray; index: int;
+proc setValue*(this: var TDataStdExtStringArray; index: cint;
               value: TCollectionExtendedString) {.importcpp: "SetValue",
     header: "TDataStd_ExtStringArray.hxx".}
 proc setID*(this: var TDataStdExtStringArray; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_ExtStringArray.hxx".}
 proc setID*(this: var TDataStdExtStringArray) {.importcpp: "SetID",
     header: "TDataStd_ExtStringArray.hxx".}
-proc value*(this: TDataStdExtStringArray; index: int): TCollectionExtendedString {.
+proc value*(this: TDataStdExtStringArray; index: cint): TCollectionExtendedString {.
     noSideEffect, importcpp: "Value", header: "TDataStd_ExtStringArray.hxx".}
-proc `()`*(this: TDataStdExtStringArray; index: int): TCollectionExtendedString {.
+proc `()`*(this: TDataStdExtStringArray; index: cint): TCollectionExtendedString {.
     noSideEffect, importcpp: "#(@)", header: "TDataStd_ExtStringArray.hxx".}
-proc lower*(this: TDataStdExtStringArray): int {.noSideEffect, importcpp: "Lower",
+proc lower*(this: TDataStdExtStringArray): cint {.noSideEffect, importcpp: "Lower",
     header: "TDataStd_ExtStringArray.hxx".}
-proc upper*(this: TDataStdExtStringArray): int {.noSideEffect, importcpp: "Upper",
+proc upper*(this: TDataStdExtStringArray): cint {.noSideEffect, importcpp: "Upper",
     header: "TDataStd_ExtStringArray.hxx".}
-proc length*(this: TDataStdExtStringArray): int {.noSideEffect, importcpp: "Length",
+proc length*(this: TDataStdExtStringArray): cint {.noSideEffect, importcpp: "Length",
     header: "TDataStd_ExtStringArray.hxx".}
 proc changeArray*(this: var TDataStdExtStringArray;
                  newArray: Handle[TColStdHArray1OfExtendedString];
@@ -110,5 +110,30 @@ proc deltaOnModification*(this: TDataStdExtStringArray;
     TDF_DeltaOnModification] {.noSideEffect, importcpp: "DeltaOnModification",
                               header: "TDataStd_ExtStringArray.hxx".}
 proc dumpJson*(this: TDataStdExtStringArray; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_ExtStringArray.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_ExtStringArray.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

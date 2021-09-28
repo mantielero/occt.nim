@@ -26,15 +26,15 @@ type
                                             ## ! The status is "NegativeRadius" if R < 0.0
 
 
-proc constructGceMakeCylinder*(a2: Ax2; radius: float): GceMakeCylinder {.constructor,
-    importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
+proc constructGceMakeCylinder*(a2: Ax2; radius: cfloat): GceMakeCylinder {.
+    constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
 proc constructGceMakeCylinder*(cyl: Cylinder; point: Pnt): GceMakeCylinder {.
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc constructGceMakeCylinder*(cyl: Cylinder; dist: float): GceMakeCylinder {.
+proc constructGceMakeCylinder*(cyl: Cylinder; dist: cfloat): GceMakeCylinder {.
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
 proc constructGceMakeCylinder*(p1: Pnt; p2: Pnt; p3: Pnt): GceMakeCylinder {.
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc constructGceMakeCylinder*(axis: Ax1; radius: float): GceMakeCylinder {.
+proc constructGceMakeCylinder*(axis: Ax1; radius: cfloat): GceMakeCylinder {.
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
 proc constructGceMakeCylinder*(circ: Circ): GceMakeCylinder {.constructor,
     importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
@@ -45,3 +45,28 @@ proc operator*(this: GceMakeCylinder): Cylinder {.noSideEffect,
 converter `cylinder`*(this: GceMakeCylinder): Cylinder {.noSideEffect,
     importcpp: "gce_MakeCylinder::operator gp_Cylinder",
     header: "gce_MakeCylinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

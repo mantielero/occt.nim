@@ -5,3 +5,28 @@
 include DrawFairCurve_Batten
 include DrawFairCurve_MinimalVariation
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

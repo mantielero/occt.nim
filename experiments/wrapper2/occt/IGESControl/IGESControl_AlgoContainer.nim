@@ -16,7 +16,7 @@
 discard "forward decl of IGESControl_AlgoContainer"
 discard "forward decl of IGESControl_AlgoContainer"
 type
-  HandleIGESControlAlgoContainer* = Handle[IGESControlAlgoContainer]
+  HandleC1C1* = Handle[IGESControlAlgoContainer]
   IGESControlAlgoContainer* {.importcpp: "IGESControl_AlgoContainer",
                              header: "IGESControl_AlgoContainer.hxx", bycopy.} = object of IGESToBRepAlgoContainer ##
                                                                                                             ## !
@@ -37,3 +37,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESControl_AlgoContainer.hxx".}
 proc dynamicType*(this: IGESControlAlgoContainer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESControl_AlgoContainer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

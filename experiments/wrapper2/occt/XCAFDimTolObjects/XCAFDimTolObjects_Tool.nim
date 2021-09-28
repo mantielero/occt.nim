@@ -43,3 +43,28 @@ proc getRefGeomTolerances*(this: XCAFDimTolObjectsTool; theShape: TopoDS_Shape;
 proc getRefDatum*(this: XCAFDimTolObjectsTool; theShape: TopoDS_Shape;
                  theDatum: var Handle[XCAFDimTolObjectsDatumObject]): bool {.
     noSideEffect, importcpp: "GetRefDatum", header: "XCAFDimTolObjects_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

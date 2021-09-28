@@ -29,15 +29,15 @@ type
                                                 ## ! [MaxUDegree+1] [MaxVDegree+1] [3]
 
 
-proc constructConvertGridPolynomialToPoles*(maxUDegree: int; maxVDegree: int;
+proc constructConvertGridPolynomialToPoles*(maxUDegree: cint; maxVDegree: cint;
     numCoeff: Handle[TColStdHArray1OfInteger];
     coefficients: Handle[TColStdHArray1OfReal];
     polynomialUIntervals: Handle[TColStdHArray1OfReal];
     polynomialVIntervals: Handle[TColStdHArray1OfReal]): ConvertGridPolynomialToPoles {.
     constructor, importcpp: "Convert_GridPolynomialToPoles(@)",
     header: "Convert_GridPolynomialToPoles.hxx".}
-proc constructConvertGridPolynomialToPoles*(nbUSurfaces: int; nBVSurfaces: int;
-    uContinuity: int; vContinuity: int; maxUDegree: int; maxVDegree: int;
+proc constructConvertGridPolynomialToPoles*(nbUSurfaces: cint; nBVSurfaces: cint;
+    uContinuity: cint; vContinuity: cint; maxUDegree: cint; maxVDegree: cint;
     numCoeffPerSurface: Handle[TColStdHArray2OfInteger];
     coefficients: Handle[TColStdHArray1OfReal];
     polynomialUIntervals: Handle[TColStdHArray1OfReal];
@@ -46,8 +46,8 @@ proc constructConvertGridPolynomialToPoles*(nbUSurfaces: int; nBVSurfaces: int;
     trueVIntervals: Handle[TColStdHArray1OfReal]): ConvertGridPolynomialToPoles {.
     constructor, importcpp: "Convert_GridPolynomialToPoles(@)",
     header: "Convert_GridPolynomialToPoles.hxx".}
-proc perform*(this: var ConvertGridPolynomialToPoles; uContinuity: int;
-             vContinuity: int; maxUDegree: int; maxVDegree: int;
+proc perform*(this: var ConvertGridPolynomialToPoles; uContinuity: cint;
+             vContinuity: cint; maxUDegree: cint; maxVDegree: cint;
              numCoeffPerSurface: Handle[TColStdHArray2OfInteger];
              coefficients: Handle[TColStdHArray1OfReal];
              polynomialUIntervals: Handle[TColStdHArray1OfReal];
@@ -55,19 +55,19 @@ proc perform*(this: var ConvertGridPolynomialToPoles; uContinuity: int;
              trueUIntervals: Handle[TColStdHArray1OfReal];
              trueVIntervals: Handle[TColStdHArray1OfReal]) {.importcpp: "Perform",
     header: "Convert_GridPolynomialToPoles.hxx".}
-proc nbUPoles*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
+proc nbUPoles*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect,
     importcpp: "NbUPoles", header: "Convert_GridPolynomialToPoles.hxx".}
-proc nbVPoles*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
+proc nbVPoles*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect,
     importcpp: "NbVPoles", header: "Convert_GridPolynomialToPoles.hxx".}
 proc poles*(this: ConvertGridPolynomialToPoles): Handle[TColgpHArray2OfPnt] {.
     noSideEffect, importcpp: "Poles", header: "Convert_GridPolynomialToPoles.hxx".}
-proc uDegree*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
+proc uDegree*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect,
     importcpp: "UDegree", header: "Convert_GridPolynomialToPoles.hxx".}
-proc vDegree*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
+proc vDegree*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect,
     importcpp: "VDegree", header: "Convert_GridPolynomialToPoles.hxx".}
-proc nbUKnots*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
+proc nbUKnots*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect,
     importcpp: "NbUKnots", header: "Convert_GridPolynomialToPoles.hxx".}
-proc nbVKnots*(this: ConvertGridPolynomialToPoles): int {.noSideEffect,
+proc nbVKnots*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect,
     importcpp: "NbVKnots", header: "Convert_GridPolynomialToPoles.hxx".}
 proc uKnots*(this: ConvertGridPolynomialToPoles): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "UKnots", header: "Convert_GridPolynomialToPoles.hxx".}
@@ -81,3 +81,28 @@ proc vMultiplicities*(this: ConvertGridPolynomialToPoles): Handle[
                               header: "Convert_GridPolynomialToPoles.hxx".}
 proc isDone*(this: ConvertGridPolynomialToPoles): bool {.noSideEffect,
     importcpp: "IsDone", header: "Convert_GridPolynomialToPoles.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

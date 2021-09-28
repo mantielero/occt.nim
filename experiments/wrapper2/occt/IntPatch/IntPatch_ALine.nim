@@ -19,7 +19,7 @@ discard "forward decl of IntPatch_Point"
 discard "forward decl of IntPatch_ALine"
 discard "forward decl of IntPatch_ALine"
 type
-  HandleIntPatchALine* = Handle[IntPatchALine]
+  HandleC1C1* = Handle[IntPatchALine]
 
 ## ! Implementation of an intersection line described by a
 ## ! parametrized curve.
@@ -53,20 +53,20 @@ proc constructIntPatchALine*(c: IntAnaCurve; tang: bool): IntPatchALine {.constr
     importcpp: "IntPatch_ALine(@)", header: "IntPatch_ALine.hxx".}
 proc addVertex*(this: var IntPatchALine; pnt: IntPatchPoint) {.importcpp: "AddVertex",
     header: "IntPatch_ALine.hxx".}
-proc replace*(this: var IntPatchALine; index: int; pnt: IntPatchPoint) {.
+proc replace*(this: var IntPatchALine; index: cint; pnt: IntPatchPoint) {.
     importcpp: "Replace", header: "IntPatch_ALine.hxx".}
-proc setFirstPoint*(this: var IntPatchALine; indFirst: int) {.
+proc setFirstPoint*(this: var IntPatchALine; indFirst: cint) {.
     importcpp: "SetFirstPoint", header: "IntPatch_ALine.hxx".}
-proc setLastPoint*(this: var IntPatchALine; indLast: int) {.importcpp: "SetLastPoint",
-    header: "IntPatch_ALine.hxx".}
-proc firstParameter*(this: IntPatchALine; isIncluded: var bool): float {.noSideEffect,
+proc setLastPoint*(this: var IntPatchALine; indLast: cint) {.
+    importcpp: "SetLastPoint", header: "IntPatch_ALine.hxx".}
+proc firstParameter*(this: IntPatchALine; isIncluded: var bool): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "IntPatch_ALine.hxx".}
-proc lastParameter*(this: IntPatchALine; isIncluded: var bool): float {.noSideEffect,
+proc lastParameter*(this: IntPatchALine; isIncluded: var bool): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "IntPatch_ALine.hxx".}
-proc value*(this: var IntPatchALine; u: float): Pnt {.importcpp: "Value",
+proc value*(this: var IntPatchALine; u: cfloat): Pnt {.importcpp: "Value",
     header: "IntPatch_ALine.hxx".}
-proc d1*(this: var IntPatchALine; u: float; p: var Pnt; du: var Vec): bool {.importcpp: "D1",
-    header: "IntPatch_ALine.hxx".}
+proc d1*(this: var IntPatchALine; u: cfloat; p: var Pnt; du: var Vec): bool {.
+    importcpp: "D1", header: "IntPatch_ALine.hxx".}
 proc findParameter*(this: IntPatchALine; p: Pnt; theParams: var TColStdListOfReal) {.
     noSideEffect, importcpp: "FindParameter", header: "IntPatch_ALine.hxx".}
 proc hasFirstPoint*(this: IntPatchALine): bool {.noSideEffect,
@@ -77,13 +77,13 @@ proc firstPoint*(this: IntPatchALine): IntPatchPoint {.noSideEffect,
     importcpp: "FirstPoint", header: "IntPatch_ALine.hxx".}
 proc lastPoint*(this: IntPatchALine): IntPatchPoint {.noSideEffect,
     importcpp: "LastPoint", header: "IntPatch_ALine.hxx".}
-proc nbVertex*(this: IntPatchALine): int {.noSideEffect, importcpp: "NbVertex",
-                                       header: "IntPatch_ALine.hxx".}
-proc vertex*(this: IntPatchALine; index: int): IntPatchPoint {.noSideEffect,
+proc nbVertex*(this: IntPatchALine): cint {.noSideEffect, importcpp: "NbVertex",
+                                        header: "IntPatch_ALine.hxx".}
+proc vertex*(this: IntPatchALine; index: cint): IntPatchPoint {.noSideEffect,
     importcpp: "Vertex", header: "IntPatch_ALine.hxx".}
-proc changeVertex*(this: var IntPatchALine; theIndex: int): var IntPatchPoint {.
+proc changeVertex*(this: var IntPatchALine; theIndex: cint): var IntPatchPoint {.
     importcpp: "ChangeVertex", header: "IntPatch_ALine.hxx".}
-proc computeVertexParameters*(this: var IntPatchALine; tol: float) {.
+proc computeVertexParameters*(this: var IntPatchALine; tol: cfloat) {.
     importcpp: "ComputeVertexParameters", header: "IntPatch_ALine.hxx".}
 proc curve*(this: IntPatchALine): IntAnaCurve {.noSideEffect, importcpp: "Curve",
     header: "IntPatch_ALine.hxx".}
@@ -97,3 +97,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IntPatch_ALine.hxx".}
 proc dynamicType*(this: IntPatchALine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_ALine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

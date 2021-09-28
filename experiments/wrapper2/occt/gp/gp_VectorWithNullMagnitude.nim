@@ -14,18 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _gp_VectorWithNullMagnitude_HeaderFile [NewLine] # _gp_VectorWithNullMagnitude_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class gp_VectorWithNullMagnitude ;
-## Error: expected ';'!!!
-
 discard "forward decl of gp_VectorWithNullMagnitude"
-# type
-#   HandleGpVectorWithNullMagnitudegpVectorWithNullMagnitude* = Handle[
-#       VectorWithNullMagnitude]
+discard "forward decl of gp_VectorWithNullMagnitude"
+type
+  VectorWithNullMagnitude* {.importcpp: "gp_VectorWithNullMagnitude",
+                            header: "gp_VectorWithNullMagnitude.hxx", bycopy.} = object of StandardDomainError
+type
+  HandleVectorWithNullMagnitude* = Handle[VectorWithNullMagnitude]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_gp_VectorWithNullMagnitude [NewLine] # if ( CONDITION ) throw gp_VectorWithNullMagnitude ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noGpVectorWithNullMagnitude):
+  template vectorWithNullMagnitudeRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc vectorWithNullMagnitude*(a1: Message): Throw {.
+          importcpp: "gp_VectorWithNullMagnitude(@)",
+          header: "gp_VectorWithNullMagnitude.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( gp_VectorWithNullMagnitude , Standard_DomainError ) #  _gp_VectorWithNullMagnitude_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
 
 

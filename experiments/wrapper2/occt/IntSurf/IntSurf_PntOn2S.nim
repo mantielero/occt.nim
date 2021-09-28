@@ -25,29 +25,54 @@ proc constructIntSurfPntOn2S*(): IntSurfPntOn2S {.constructor,
     importcpp: "IntSurf_PntOn2S(@)", header: "IntSurf_PntOn2S.hxx".}
 proc setValue*(this: var IntSurfPntOn2S; pt: Pnt) {.importcpp: "SetValue",
     header: "IntSurf_PntOn2S.hxx".}
-proc setValue*(this: var IntSurfPntOn2S; pt: Pnt; onFirst: bool; u: float; v: float) {.
+proc setValue*(this: var IntSurfPntOn2S; pt: Pnt; onFirst: bool; u: cfloat; v: cfloat) {.
     importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
-proc setValue*(this: var IntSurfPntOn2S; pt: Pnt; u1: float; v1: float; u2: float; v2: float) {.
+proc setValue*(this: var IntSurfPntOn2S; pt: Pnt; u1: cfloat; v1: cfloat; u2: cfloat;
+              v2: cfloat) {.importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
+proc setValue*(this: var IntSurfPntOn2S; onFirst: bool; u: cfloat; v: cfloat) {.
     importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
-proc setValue*(this: var IntSurfPntOn2S; onFirst: bool; u: float; v: float) {.
-    importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
-proc setValue*(this: var IntSurfPntOn2S; u1: float; v1: float; u2: float; v2: float) {.
+proc setValue*(this: var IntSurfPntOn2S; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat) {.
     importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
 proc value*(this: IntSurfPntOn2S): Pnt {.noSideEffect, importcpp: "Value",
                                      header: "IntSurf_PntOn2S.hxx".}
 proc valueOnSurface*(this: IntSurfPntOn2S; onFirst: bool): Pnt2d {.noSideEffect,
     importcpp: "ValueOnSurface", header: "IntSurf_PntOn2S.hxx".}
-proc parametersOnS1*(this: IntSurfPntOn2S; u1: var float; v1: var float) {.noSideEffect,
-    importcpp: "ParametersOnS1", header: "IntSurf_PntOn2S.hxx".}
-proc parametersOnS2*(this: IntSurfPntOn2S; u2: var float; v2: var float) {.noSideEffect,
-    importcpp: "ParametersOnS2", header: "IntSurf_PntOn2S.hxx".}
-proc parametersOnSurface*(this: IntSurfPntOn2S; onFirst: bool; u: var float;
-                         v: var float) {.noSideEffect,
-                                      importcpp: "ParametersOnSurface",
-                                      header: "IntSurf_PntOn2S.hxx".}
-proc parameters*(this: IntSurfPntOn2S; u1: var float; v1: var float; u2: var float;
-                v2: var float) {.noSideEffect, importcpp: "Parameters",
-                              header: "IntSurf_PntOn2S.hxx".}
+proc parametersOnS1*(this: IntSurfPntOn2S; u1: var cfloat; v1: var cfloat) {.
+    noSideEffect, importcpp: "ParametersOnS1", header: "IntSurf_PntOn2S.hxx".}
+proc parametersOnS2*(this: IntSurfPntOn2S; u2: var cfloat; v2: var cfloat) {.
+    noSideEffect, importcpp: "ParametersOnS2", header: "IntSurf_PntOn2S.hxx".}
+proc parametersOnSurface*(this: IntSurfPntOn2S; onFirst: bool; u: var cfloat;
+                         v: var cfloat) {.noSideEffect,
+                                       importcpp: "ParametersOnSurface",
+                                       header: "IntSurf_PntOn2S.hxx".}
+proc parameters*(this: IntSurfPntOn2S; u1: var cfloat; v1: var cfloat; u2: var cfloat;
+                v2: var cfloat) {.noSideEffect, importcpp: "Parameters",
+                               header: "IntSurf_PntOn2S.hxx".}
 proc isSame*(this: IntSurfPntOn2S; theOtherPoint: IntSurfPntOn2S;
-            theTol3D: float = 0.0; theTol2D: float = -1.0): bool {.noSideEffect,
+            theTol3D: cfloat = 0.0; theTol2D: cfloat = -1.0): bool {.noSideEffect,
     importcpp: "IsSame", header: "IntSurf_PntOn2S.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

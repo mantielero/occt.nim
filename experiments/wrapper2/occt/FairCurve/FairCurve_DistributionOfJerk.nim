@@ -20,10 +20,35 @@ type
                                 header: "FairCurve_DistributionOfJerk.hxx", bycopy.} = object of FairCurveDistributionOfEnergy
 
 
-proc constructFairCurveDistributionOfJerk*(bSplOrder: int;
+proc constructFairCurveDistributionOfJerk*(bSplOrder: cint;
     flatKnots: Handle[TColStdHArray1OfReal]; poles: Handle[TColgpHArray1OfPnt2d];
-    derivativeOrder: int; law: FairCurveBattenLaw; nbValAux: int = 0): FairCurveDistributionOfJerk {.
+    derivativeOrder: cint; law: FairCurveBattenLaw; nbValAux: cint = 0): FairCurveDistributionOfJerk {.
     constructor, importcpp: "FairCurve_DistributionOfJerk(@)",
     header: "FairCurve_DistributionOfJerk.hxx".}
 proc value*(this: var FairCurveDistributionOfJerk; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "FairCurve_DistributionOfJerk.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

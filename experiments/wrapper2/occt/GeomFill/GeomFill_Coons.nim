@@ -18,6 +18,18 @@ type
   GeomFillCoons* {.importcpp: "GeomFill_Coons", header: "GeomFill_Coons.hxx", bycopy.} = object of GeomFillFilling
 
 
+proc `new`*(this: var GeomFillCoons; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Coons::operator new", header: "GeomFill_Coons.hxx".}
+proc `delete`*(this: var GeomFillCoons; theAddress: pointer) {.
+    importcpp: "GeomFill_Coons::operator delete", header: "GeomFill_Coons.hxx".}
+proc `new[]`*(this: var GeomFillCoons; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Coons::operator new[]", header: "GeomFill_Coons.hxx".}
+proc `delete[]`*(this: var GeomFillCoons; theAddress: pointer) {.
+    importcpp: "GeomFill_Coons::operator delete[]", header: "GeomFill_Coons.hxx".}
+proc `new`*(this: var GeomFillCoons; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_Coons::operator new", header: "GeomFill_Coons.hxx".}
+proc `delete`*(this: var GeomFillCoons; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_Coons::operator delete", header: "GeomFill_Coons.hxx".}
 proc constructGeomFillCoons*(): GeomFillCoons {.constructor,
     importcpp: "GeomFill_Coons(@)", header: "GeomFill_Coons.hxx".}
 proc constructGeomFillCoons*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;

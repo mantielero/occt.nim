@@ -32,8 +32,8 @@ proc setModel*(this: var BRepToIGES_BREntity; model: Handle[IGESDataIGESModel]) 
     importcpp: "SetModel", header: "BRepToIGES_BREntity.hxx".}
 proc getModel*(this: BRepToIGES_BREntity): Handle[IGESDataIGESModel] {.noSideEffect,
     importcpp: "GetModel", header: "BRepToIGES_BREntity.hxx".}
-proc getUnit*(this: BRepToIGES_BREntity): float {.noSideEffect, importcpp: "GetUnit",
-    header: "BRepToIGES_BREntity.hxx".}
+proc getUnit*(this: BRepToIGES_BREntity): cfloat {.noSideEffect,
+    importcpp: "GetUnit", header: "BRepToIGES_BREntity.hxx".}
 proc setTransferProcess*(this: var BRepToIGES_BREntity;
                         tp: Handle[TransferFinderProcess]) {.
     importcpp: "SetTransferProcess", header: "BRepToIGES_BREntity.hxx".}
@@ -79,3 +79,28 @@ proc getPCurveMode*(this: BRepToIGES_BREntity): bool {.noSideEffect,
     importcpp: "GetPCurveMode", header: "BRepToIGES_BREntity.hxx".}
 proc destroyBRepToIGES_BREntity*(this: var BRepToIGES_BREntity) {.
     importcpp: "#.~BRepToIGES_BREntity()", header: "BRepToIGES_BREntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

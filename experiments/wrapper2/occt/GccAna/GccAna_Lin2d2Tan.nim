@@ -28,26 +28,51 @@ type
                                    ## ! when the distance between the two points is too small.
 
 
-proc constructGccAnaLin2d2Tan*(thePoint1: Pnt2d; thePoint2: Pnt2d; tolerance: float): GccAnaLin2d2Tan {.
+proc constructGccAnaLin2d2Tan*(thePoint1: Pnt2d; thePoint2: Pnt2d; tolerance: cfloat): GccAnaLin2d2Tan {.
     constructor, importcpp: "GccAna_Lin2d2Tan(@)", header: "GccAna_Lin2d2Tan.hxx".}
 proc constructGccAnaLin2d2Tan*(qualified1: GccEntQualifiedCirc; thePoint: Pnt2d;
-                              tolerance: float): GccAnaLin2d2Tan {.constructor,
+                              tolerance: cfloat): GccAnaLin2d2Tan {.constructor,
     importcpp: "GccAna_Lin2d2Tan(@)", header: "GccAna_Lin2d2Tan.hxx".}
 proc constructGccAnaLin2d2Tan*(qualified1: GccEntQualifiedCirc;
-                              qualified2: GccEntQualifiedCirc; tolerance: float): GccAnaLin2d2Tan {.
+                              qualified2: GccEntQualifiedCirc; tolerance: cfloat): GccAnaLin2d2Tan {.
     constructor, importcpp: "GccAna_Lin2d2Tan(@)", header: "GccAna_Lin2d2Tan.hxx".}
 proc isDone*(this: GccAnaLin2d2Tan): bool {.noSideEffect, importcpp: "IsDone",
                                         header: "GccAna_Lin2d2Tan.hxx".}
-proc nbSolutions*(this: GccAnaLin2d2Tan): int {.noSideEffect,
+proc nbSolutions*(this: GccAnaLin2d2Tan): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Lin2d2Tan.hxx".}
-proc thisSolution*(this: GccAnaLin2d2Tan; index: int): Lin2d {.noSideEffect,
+proc thisSolution*(this: GccAnaLin2d2Tan; index: cint): Lin2d {.noSideEffect,
     importcpp: "ThisSolution", header: "GccAna_Lin2d2Tan.hxx".}
-proc whichQualifier*(this: GccAnaLin2d2Tan; index: int; qualif1: var GccEntPosition;
+proc whichQualifier*(this: GccAnaLin2d2Tan; index: cint; qualif1: var GccEntPosition;
                     qualif2: var GccEntPosition) {.noSideEffect,
     importcpp: "WhichQualifier", header: "GccAna_Lin2d2Tan.hxx".}
-proc tangency1*(this: GccAnaLin2d2Tan; index: int; parSol: var float; parArg: var float;
-               pntSol: var Pnt2d) {.noSideEffect, importcpp: "Tangency1",
-                                 header: "GccAna_Lin2d2Tan.hxx".}
-proc tangency2*(this: GccAnaLin2d2Tan; index: int; parSol: var float; parArg: var float;
-               pntSol: var Pnt2d) {.noSideEffect, importcpp: "Tangency2",
-                                 header: "GccAna_Lin2d2Tan.hxx".}
+proc tangency1*(this: GccAnaLin2d2Tan; index: cint; parSol: var cfloat;
+               parArg: var cfloat; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Tangency1", header: "GccAna_Lin2d2Tan.hxx".}
+proc tangency2*(this: GccAnaLin2d2Tan; index: cint; parSol: var cfloat;
+               parArg: var cfloat; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Tangency2", header: "GccAna_Lin2d2Tan.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

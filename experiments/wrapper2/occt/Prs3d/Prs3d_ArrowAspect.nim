@@ -64,17 +64,17 @@ proc dynamicType*(this: Prs3dArrowAspect): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Prs3d_ArrowAspect.hxx".}
 proc constructPrs3dArrowAspect*(): Prs3dArrowAspect {.constructor,
     importcpp: "Prs3d_ArrowAspect(@)", header: "Prs3d_ArrowAspect.hxx".}
-proc constructPrs3dArrowAspect*(anAngle: float; aLength: float): Prs3dArrowAspect {.
+proc constructPrs3dArrowAspect*(anAngle: cfloat; aLength: cfloat): Prs3dArrowAspect {.
     constructor, importcpp: "Prs3d_ArrowAspect(@)", header: "Prs3d_ArrowAspect.hxx".}
 proc constructPrs3dArrowAspect*(theAspect: Handle[Graphic3dAspectLine3d]): Prs3dArrowAspect {.
     constructor, importcpp: "Prs3d_ArrowAspect(@)", header: "Prs3d_ArrowAspect.hxx".}
-proc setAngle*(this: var Prs3dArrowAspect; anAngle: float) {.importcpp: "SetAngle",
+proc setAngle*(this: var Prs3dArrowAspect; anAngle: cfloat) {.importcpp: "SetAngle",
     header: "Prs3d_ArrowAspect.hxx".}
-proc angle*(this: Prs3dArrowAspect): float {.noSideEffect, importcpp: "Angle",
+proc angle*(this: Prs3dArrowAspect): cfloat {.noSideEffect, importcpp: "Angle",
     header: "Prs3d_ArrowAspect.hxx".}
-proc setLength*(this: var Prs3dArrowAspect; theLength: float) {.
+proc setLength*(this: var Prs3dArrowAspect; theLength: cfloat) {.
     importcpp: "SetLength", header: "Prs3d_ArrowAspect.hxx".}
-proc length*(this: Prs3dArrowAspect): float {.noSideEffect, importcpp: "Length",
+proc length*(this: Prs3dArrowAspect): cfloat {.noSideEffect, importcpp: "Length",
     header: "Prs3d_ArrowAspect.hxx".}
 proc setColor*(this: var Prs3dArrowAspect; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "Prs3d_ArrowAspect.hxx".}
@@ -83,9 +83,34 @@ proc aspect*(this: Prs3dArrowAspect): Handle[Graphic3dAspectLine3d] {.noSideEffe
 proc setAspect*(this: var Prs3dArrowAspect; theAspect: Handle[Graphic3dAspectLine3d]) {.
     importcpp: "SetAspect", header: "Prs3d_ArrowAspect.hxx".}
 proc dumpJson*(this: Prs3dArrowAspect; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Prs3d_ArrowAspect.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Prs3d_ArrowAspect.hxx".}
 discard "forward decl of Prs3d_ArrowAspect"
 type
-  HandlePrs3dArrowAspect* = Handle[Prs3dArrowAspect]
+  HandleC1C1* = Handle[Prs3dArrowAspect]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

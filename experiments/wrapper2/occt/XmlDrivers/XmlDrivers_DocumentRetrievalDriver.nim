@@ -19,8 +19,7 @@ discard "forward decl of XmlMDF_ADriver"
 discard "forward decl of XmlDrivers_DocumentRetrievalDriver"
 discard "forward decl of XmlDrivers_DocumentRetrievalDriver"
 type
-  HandleXmlDriversDocumentRetrievalDriver* = Handle[
-      XmlDriversDocumentRetrievalDriver]
+  HandleC1C1* = Handle[XmlDriversDocumentRetrievalDriver]
   XmlDriversDocumentRetrievalDriver* {.importcpp: "XmlDrivers_DocumentRetrievalDriver", header: "XmlDrivers_DocumentRetrievalDriver.hxx",
                                       bycopy.} = object of XmlLDriversDocumentRetrievalDriver
 
@@ -53,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlDriversDocumentRetrievalDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlDrivers_DocumentRetrievalDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

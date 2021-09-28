@@ -60,7 +60,7 @@ type
                                                                                                    ## valid
 
 
-proc constructBRepPrimAPI_MakeRevol*(s: TopoDS_Shape; a: Ax1; d: float;
+proc constructBRepPrimAPI_MakeRevol*(s: TopoDS_Shape; a: Ax1; d: cfloat;
                                     copy: bool = false): BRepPrimAPI_MakeRevol {.
     constructor, importcpp: "BRepPrimAPI_MakeRevol(@)",
     header: "BRepPrimAPI_MakeRevol.hxx".}
@@ -87,3 +87,28 @@ proc hasDegenerated*(this: BRepPrimAPI_MakeRevol): bool {.noSideEffect,
     importcpp: "HasDegenerated", header: "BRepPrimAPI_MakeRevol.hxx".}
 proc degenerated*(this: BRepPrimAPI_MakeRevol): TopToolsListOfShape {.noSideEffect,
     importcpp: "Degenerated", header: "BRepPrimAPI_MakeRevol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

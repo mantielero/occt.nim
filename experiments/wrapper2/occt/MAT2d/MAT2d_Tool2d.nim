@@ -75,43 +75,69 @@ proc setJoinType*(this: var MAT2dTool2d; aJoinType: GeomAbsJoinType) {.
     importcpp: "SetJoinType", header: "MAT2d_Tool2d.hxx".}
 proc initItems*(this: var MAT2dTool2d; aCircuit: Handle[MAT2dCircuit]) {.
     importcpp: "InitItems", header: "MAT2d_Tool2d.hxx".}
-proc numberOfItems*(this: MAT2dTool2d): int {.noSideEffect,
+proc numberOfItems*(this: MAT2dTool2d): cint {.noSideEffect,
     importcpp: "NumberOfItems", header: "MAT2d_Tool2d.hxx".}
-proc toleranceOfConfusion*(this: MAT2dTool2d): float {.noSideEffect,
+proc toleranceOfConfusion*(this: MAT2dTool2d): cfloat {.noSideEffect,
     importcpp: "ToleranceOfConfusion", header: "MAT2d_Tool2d.hxx".}
-proc firstPoint*(this: var MAT2dTool2d; anitem: int; dist: var float): int {.
+proc firstPoint*(this: var MAT2dTool2d; anitem: cint; dist: var cfloat): cint {.
     importcpp: "FirstPoint", header: "MAT2d_Tool2d.hxx".}
-proc tangentBefore*(this: var MAT2dTool2d; anitem: int; isOpenResult: bool): int {.
+proc tangentBefore*(this: var MAT2dTool2d; anitem: cint; isOpenResult: bool): cint {.
     importcpp: "TangentBefore", header: "MAT2d_Tool2d.hxx".}
-proc tangentAfter*(this: var MAT2dTool2d; anitem: int; isOpenResult: bool): int {.
+proc tangentAfter*(this: var MAT2dTool2d; anitem: cint; isOpenResult: bool): cint {.
     importcpp: "TangentAfter", header: "MAT2d_Tool2d.hxx".}
-proc tangent*(this: var MAT2dTool2d; bisector: int): int {.importcpp: "Tangent",
+proc tangent*(this: var MAT2dTool2d; bisector: cint): cint {.importcpp: "Tangent",
     header: "MAT2d_Tool2d.hxx".}
 proc createBisector*(this: var MAT2dTool2d; abisector: Handle[MAT_Bisector]) {.
     importcpp: "CreateBisector", header: "MAT2d_Tool2d.hxx".}
 proc trimBisector*(this: var MAT2dTool2d; abisector: Handle[MAT_Bisector]): bool {.
     importcpp: "TrimBisector", header: "MAT2d_Tool2d.hxx".}
-proc trimBisector*(this: var MAT2dTool2d; abisector: Handle[MAT_Bisector]; apoint: int): bool {.
-    importcpp: "TrimBisector", header: "MAT2d_Tool2d.hxx".}
+proc trimBisector*(this: var MAT2dTool2d; abisector: Handle[MAT_Bisector];
+                  apoint: cint): bool {.importcpp: "TrimBisector",
+                                     header: "MAT2d_Tool2d.hxx".}
 proc intersectBisector*(this: var MAT2dTool2d; bisectorone: Handle[MAT_Bisector];
-                       bisectortwo: Handle[MAT_Bisector]; intpnt: var int): float {.
+                       bisectortwo: Handle[MAT_Bisector]; intpnt: var cint): cfloat {.
     importcpp: "IntersectBisector", header: "MAT2d_Tool2d.hxx".}
-proc distance*(this: MAT2dTool2d; abisector: Handle[MAT_Bisector]; param1: float;
-              param2: float): float {.noSideEffect, importcpp: "Distance",
-                                   header: "MAT2d_Tool2d.hxx".}
-proc dump*(this: MAT2dTool2d; bisector: int; erease: int) {.noSideEffect,
+proc distance*(this: MAT2dTool2d; abisector: Handle[MAT_Bisector]; param1: cfloat;
+              param2: cfloat): cfloat {.noSideEffect, importcpp: "Distance",
+                                     header: "MAT2d_Tool2d.hxx".}
+proc dump*(this: MAT2dTool2d; bisector: cint; erease: cint) {.noSideEffect,
     importcpp: "Dump", header: "MAT2d_Tool2d.hxx".}
-proc geomBis*(this: MAT2dTool2d; index: int): BisectorBisec {.noSideEffect,
+proc geomBis*(this: MAT2dTool2d; index: cint): BisectorBisec {.noSideEffect,
     importcpp: "GeomBis", header: "MAT2d_Tool2d.hxx".}
-proc geomElt*(this: MAT2dTool2d; index: int): Handle[Geom2dGeometry] {.noSideEffect,
+proc geomElt*(this: MAT2dTool2d; index: cint): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "GeomElt", header: "MAT2d_Tool2d.hxx".}
-proc geomPnt*(this: MAT2dTool2d; index: int): Pnt2d {.noSideEffect,
+proc geomPnt*(this: MAT2dTool2d; index: cint): Pnt2d {.noSideEffect,
     importcpp: "GeomPnt", header: "MAT2d_Tool2d.hxx".}
-proc geomVec*(this: MAT2dTool2d; index: int): Vec2d {.noSideEffect,
+proc geomVec*(this: MAT2dTool2d; index: cint): Vec2d {.noSideEffect,
     importcpp: "GeomVec", header: "MAT2d_Tool2d.hxx".}
 proc circuit*(this: MAT2dTool2d): Handle[MAT2dCircuit] {.noSideEffect,
     importcpp: "Circuit", header: "MAT2d_Tool2d.hxx".}
-proc bisecFusion*(this: var MAT2dTool2d; index1: int; index2: int) {.
+proc bisecFusion*(this: var MAT2dTool2d; index1: cint; index2: cint) {.
     importcpp: "BisecFusion", header: "MAT2d_Tool2d.hxx".}
-proc changeGeomBis*(this: var MAT2dTool2d; index: int): var BisectorBisec {.
+proc changeGeomBis*(this: var MAT2dTool2d; index: cint): var BisectorBisec {.
     importcpp: "ChangeGeomBis", header: "MAT2d_Tool2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

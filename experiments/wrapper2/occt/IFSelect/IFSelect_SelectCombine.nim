@@ -19,7 +19,7 @@ discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectCombine"
 discard "forward decl of IFSelect_SelectCombine"
 type
-  HandleIFSelectSelectCombine* = Handle[IFSelectSelectCombine]
+  HandleC1C1* = Handle[IFSelectSelectCombine]
 
 ## ! A SelectCombine type Selection defines algebraic operations
 ## ! between results of several Selections
@@ -44,17 +44,17 @@ type
                                                                                                 ## SelectCombine
 
 
-proc nbInputs*(this: IFSelectSelectCombine): int {.noSideEffect,
+proc nbInputs*(this: IFSelectSelectCombine): cint {.noSideEffect,
     importcpp: "NbInputs", header: "IFSelect_SelectCombine.hxx".}
-proc input*(this: IFSelectSelectCombine; num: int): Handle[IFSelectSelection] {.
+proc input*(this: IFSelectSelectCombine; num: cint): Handle[IFSelectSelection] {.
     noSideEffect, importcpp: "Input", header: "IFSelect_SelectCombine.hxx".}
-proc inputRank*(this: IFSelectSelectCombine; sel: Handle[IFSelectSelection]): int {.
+proc inputRank*(this: IFSelectSelectCombine; sel: Handle[IFSelectSelection]): cint {.
     noSideEffect, importcpp: "InputRank", header: "IFSelect_SelectCombine.hxx".}
 proc add*(this: var IFSelectSelectCombine; sel: Handle[IFSelectSelection];
-         atnum: int = 0) {.importcpp: "Add", header: "IFSelect_SelectCombine.hxx".}
+         atnum: cint = 0) {.importcpp: "Add", header: "IFSelect_SelectCombine.hxx".}
 proc remove*(this: var IFSelectSelectCombine; sel: Handle[IFSelectSelection]): bool {.
     importcpp: "Remove", header: "IFSelect_SelectCombine.hxx".}
-proc remove*(this: var IFSelectSelectCombine; num: int): bool {.importcpp: "Remove",
+proc remove*(this: var IFSelectSelectCombine; num: cint): bool {.importcpp: "Remove",
     header: "IFSelect_SelectCombine.hxx".}
 proc fillIterator*(this: IFSelectSelectCombine; iter: var IFSelectSelectionIterator) {.
     noSideEffect, importcpp: "FillIterator", header: "IFSelect_SelectCombine.hxx".}
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectCombine.hxx".}
 proc dynamicType*(this: IFSelectSelectCombine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectCombine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

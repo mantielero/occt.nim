@@ -19,7 +19,7 @@ discard "forward decl of StepData_Described"
 discard "forward decl of StepData_ESDescr"
 discard "forward decl of StepData_ESDescr"
 type
-  HandleStepDataESDescr* = Handle[StepDataESDescr]
+  HandleC1C1* = Handle[StepDataESDescr]
 
 ## ! This class is intended to describe the authorized form for a
 ## ! Simple (not Plex) Entity, as a list of fields
@@ -31,9 +31,9 @@ type
 
 proc constructStepDataESDescr*(name: StandardCString): StepDataESDescr {.
     constructor, importcpp: "StepData_ESDescr(@)", header: "StepData_ESDescr.hxx".}
-proc setNbFields*(this: var StepDataESDescr; nb: int) {.importcpp: "SetNbFields",
+proc setNbFields*(this: var StepDataESDescr; nb: cint) {.importcpp: "SetNbFields",
     header: "StepData_ESDescr.hxx".}
-proc setField*(this: var StepDataESDescr; num: int; name: StandardCString;
+proc setField*(this: var StepDataESDescr; num: cint; name: StandardCString;
               descr: Handle[StepDataPDescr]) {.importcpp: "SetField",
     header: "StepData_ESDescr.hxx".}
 proc setBase*(this: var StepDataESDescr; base: Handle[StepDataESDescr]) {.
@@ -50,13 +50,13 @@ proc super*(this: StepDataESDescr): Handle[StepDataESDescr] {.noSideEffect,
     importcpp: "Super", header: "StepData_ESDescr.hxx".}
 proc isSub*(this: StepDataESDescr; other: Handle[StepDataESDescr]): bool {.
     noSideEffect, importcpp: "IsSub", header: "StepData_ESDescr.hxx".}
-proc nbFields*(this: StepDataESDescr): int {.noSideEffect, importcpp: "NbFields",
+proc nbFields*(this: StepDataESDescr): cint {.noSideEffect, importcpp: "NbFields",
     header: "StepData_ESDescr.hxx".}
-proc rank*(this: StepDataESDescr; name: StandardCString): int {.noSideEffect,
+proc rank*(this: StepDataESDescr; name: StandardCString): cint {.noSideEffect,
     importcpp: "Rank", header: "StepData_ESDescr.hxx".}
-proc name*(this: StepDataESDescr; num: int): StandardCString {.noSideEffect,
+proc name*(this: StepDataESDescr; num: cint): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepData_ESDescr.hxx".}
-proc field*(this: StepDataESDescr; num: int): Handle[StepDataPDescr] {.noSideEffect,
+proc field*(this: StepDataESDescr; num: cint): Handle[StepDataPDescr] {.noSideEffect,
     importcpp: "Field", header: "StepData_ESDescr.hxx".}
 proc namedField*(this: StepDataESDescr; name: StandardCString): Handle[StepDataPDescr] {.
     noSideEffect, importcpp: "NamedField", header: "StepData_ESDescr.hxx".}
@@ -76,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_ESDescr.hxx".}
 proc dynamicType*(this: StepDataESDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_ESDescr.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,8 +20,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_GeometricRepresentationContextAndParametricRepresentationContext"
 discard "forward decl of StepGeom_GeometricRepresentationContextAndParametricRepresentationContext"
 type
-  HandleStepGeomGeometricRepresentationContextAndParametricRepresentationContext* = Handle[
-      StepGeomGeometricRepresentationContextAndParametricRepresentationContext]
+  HandleC1C1* = Handle[StepGeomGeometricRepresentationContextAndParametricRepresentationContext]
   StepGeomGeometricRepresentationContextAndParametricRepresentationContext* {.importcpp: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx",
       bycopy.} = object of StepReprRepresentationContext ## ! empty constructor
 
@@ -37,7 +36,7 @@ proc init*(this: var StepGeomGeometricRepresentationContextAndParametricRepresen
 proc init*(this: var StepGeomGeometricRepresentationContextAndParametricRepresentationContext;
           aContextIdentifier: Handle[TCollectionHAsciiString];
           aContextType: Handle[TCollectionHAsciiString];
-          aCoordinateSpaceDimension: int) {.importcpp: "Init", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
+          aCoordinateSpaceDimension: cint) {.importcpp: "Init", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
 proc setGeometricRepresentationContext*(this: var StepGeomGeometricRepresentationContextAndParametricRepresentationContext;
     aGeometricRepresentationContext: Handle[
     StepGeomGeometricRepresentationContext]) {.
@@ -53,9 +52,9 @@ proc parametricRepresentationContext*(this: StepGeomGeometricRepresentationConte
     StepReprParametricRepresentationContext] {.noSideEffect,
     importcpp: "ParametricRepresentationContext", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
 proc setCoordinateSpaceDimension*(this: var StepGeomGeometricRepresentationContextAndParametricRepresentationContext;
-                                 aCoordinateSpaceDimension: int) {.
+                                 aCoordinateSpaceDimension: cint) {.
     importcpp: "SetCoordinateSpaceDimension", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
-proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContextAndParametricRepresentationContext): int {.
+proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContextAndParametricRepresentationContext): cint {.
     noSideEffect, importcpp: "CoordinateSpaceDimension", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
 type
   StepGeomGeometricRepresentationContextAndParametricRepresentationContextbaseType* = StepReprRepresentationContext
@@ -64,3 +63,28 @@ proc getTypeName*(): cstring {.importcpp: "StepGeom_GeometricRepresentationConte
 proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext::get_type_descriptor(@)", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
 proc dynamicType*(this: StepGeomGeometricRepresentationContextAndParametricRepresentationContext): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

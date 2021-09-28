@@ -17,3 +17,28 @@
 type
   IGESDataArray1OfDirPart* = NCollectionArray1[IGESDataDirPart]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

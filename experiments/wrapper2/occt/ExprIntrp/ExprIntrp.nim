@@ -25,3 +25,28 @@ type
   ExprIntrp* {.importcpp: "ExprIntrp", header: "ExprIntrp.hxx", bycopy.} = object
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

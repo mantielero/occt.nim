@@ -37,3 +37,28 @@ proc next*(this: var TNamingIteratorOnShapesSet) {.importcpp: "Next",
     header: "TNaming_IteratorOnShapesSet.hxx".}
 proc value*(this: TNamingIteratorOnShapesSet): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "TNaming_IteratorOnShapesSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

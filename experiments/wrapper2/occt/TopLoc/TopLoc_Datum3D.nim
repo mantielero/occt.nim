@@ -17,7 +17,7 @@
 discard "forward decl of TopLoc_Datum3D"
 discard "forward decl of TopLoc_Datum3D"
 type
-  HandleTopLocDatum3D* = Handle[TopLocDatum3D]
+  HandleC1C1* = Handle[TopLocDatum3D]
 
 ## ! Describes a coordinate transformation, i.e. a change
 ## ! to an elementary 3D coordinate system, or position in 3D space.
@@ -45,8 +45,8 @@ proc trsf*(this: TopLocDatum3D): Trsf {.noSideEffect, importcpp: "Trsf",
 proc form*(this: TopLocDatum3D): TrsfForm {.noSideEffect, importcpp: "Form",
                                         header: "TopLoc_Datum3D.hxx".}
 proc dumpJson*(this: TopLocDatum3D; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TopLoc_Datum3D.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TopLoc_Datum3D.hxx".}
 proc shallowDump*(this: TopLocDatum3D; s: var StandardOStream) {.noSideEffect,
     importcpp: "ShallowDump", header: "TopLoc_Datum3D.hxx".}
 type
@@ -61,4 +61,29 @@ proc dynamicType*(this: TopLocDatum3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopLoc_Datum3D.hxx".}
 proc shallowDump*(me: Handle[TopLocDatum3D]; s: var StandardOStream) =
   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

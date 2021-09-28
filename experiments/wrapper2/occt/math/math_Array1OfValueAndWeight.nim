@@ -17,3 +17,28 @@
 type
   MathArray1OfValueAndWeight* = NCollectionArray1[MathValueAndWeight]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_BooleanListDriver"
 discard "forward decl of BinMDataStd_BooleanListDriver"
 type
-  HandleBinMDataStdBooleanListDriver* = Handle[BinMDataStdBooleanListDriver]
+  HandleC1C1* = Handle[BinMDataStdBooleanListDriver]
   BinMDataStdBooleanListDriver* {.importcpp: "BinMDataStd_BooleanListDriver",
                                  header: "BinMDataStd_BooleanListDriver.hxx",
                                  bycopy.} = object of BinMDF_ADriver
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdBooleanListDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_BooleanListDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

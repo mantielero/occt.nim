@@ -23,3 +23,28 @@ type
     Graphic3dTOT_1D, Graphic3dTOT_2D, Graphic3dTOT_2D_MIPMAP, Graphic3dTOT_CUBEMAP
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

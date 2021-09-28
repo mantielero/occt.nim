@@ -42,13 +42,38 @@ type
 
 
 proc constructExtremaLocateExtCC2d*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d;
-                                   u0: float; v0: float): ExtremaLocateExtCC2d {.
+                                   u0: cfloat; v0: cfloat): ExtremaLocateExtCC2d {.
     constructor, importcpp: "Extrema_LocateExtCC2d(@)",
     header: "Extrema_LocateExtCC2d.hxx".}
 proc isDone*(this: ExtremaLocateExtCC2d): bool {.noSideEffect, importcpp: "IsDone",
     header: "Extrema_LocateExtCC2d.hxx".}
-proc squareDistance*(this: ExtremaLocateExtCC2d): float {.noSideEffect,
+proc squareDistance*(this: ExtremaLocateExtCC2d): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_LocateExtCC2d.hxx".}
 proc point*(this: ExtremaLocateExtCC2d; p1: var ExtremaPOnCurv2d;
            p2: var ExtremaPOnCurv2d) {.noSideEffect, importcpp: "Point",
                                     header: "Extrema_LocateExtCC2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

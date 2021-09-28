@@ -73,3 +73,28 @@ proc perform*(this: var HLRBRepInterCSurf; curve: Lin;
 proc perform*(this: var HLRBRepInterCSurf; curve: Lin; surface: StandardAddress;
              polyhedron: HLRBRepThePolyhedronOfInterCSurf) {.importcpp: "Perform",
     header: "HLRBRep_InterCSurf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

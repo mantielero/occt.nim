@@ -54,3 +54,28 @@ type
 
 
 proc init*() {.importcpp: "RWStepAP214::Init(@)", header: "RWStepAP214.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

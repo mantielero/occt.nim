@@ -30,8 +30,33 @@ type
 
 
 proc combineVertex*(this: ShapeBuildVertex; v1: TopoDS_Vertex; v2: TopoDS_Vertex;
-                   tolFactor: float = 1.0001): TopoDS_Vertex {.noSideEffect,
+                   tolFactor: cfloat = 1.0001): TopoDS_Vertex {.noSideEffect,
     importcpp: "CombineVertex", header: "ShapeBuild_Vertex.hxx".}
-proc combineVertex*(this: ShapeBuildVertex; pnt1: Pnt; pnt2: Pnt; tol1: float;
-                   tol2: float; tolFactor: float = 1.0001): TopoDS_Vertex {.
+proc combineVertex*(this: ShapeBuildVertex; pnt1: Pnt; pnt2: Pnt; tol1: cfloat;
+                   tol2: cfloat; tolFactor: cfloat = 1.0001): TopoDS_Vertex {.
     noSideEffect, importcpp: "CombineVertex", header: "ShapeBuild_Vertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

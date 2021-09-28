@@ -28,11 +28,37 @@ type
 proc constructRWStepAP203RWChange*(): RWStepAP203RWChange {.constructor,
     importcpp: "RWStepAP203_RWChange(@)", header: "RWStepAP203_RWChange.hxx".}
 proc readStep*(this: RWStepAP203RWChange; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepAP203Change]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepAP203_RWChange.hxx".}
+              num: cint; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepAP203Change]) {.noSideEffect, importcpp: "ReadStep",
+    header: "RWStepAP203_RWChange.hxx".}
 proc writeStep*(this: RWStepAP203RWChange; sw: var StepDataStepWriter;
                ent: Handle[StepAP203Change]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP203_RWChange.hxx".}
 proc share*(this: RWStepAP203RWChange; ent: Handle[StepAP203Change];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWChange.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

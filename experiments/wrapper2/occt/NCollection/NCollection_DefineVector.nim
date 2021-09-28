@@ -34,4 +34,3 @@
 template define_Vector*(className, baseCollection, theItemType: untyped): void =
   type
     ClassName* = NCollectionVector[TheItemType]
-

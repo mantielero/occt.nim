@@ -28,7 +28,7 @@ proc constructRWStepShapeRWVertexLoop*(): RWStepShapeRWVertexLoop {.constructor,
     importcpp: "RWStepShape_RWVertexLoop(@)",
     header: "RWStepShape_RWVertexLoop.hxx".}
 proc readStep*(this: RWStepShapeRWVertexLoop; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeVertexLoop]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWVertexLoop.hxx".}
 proc writeStep*(this: RWStepShapeRWVertexLoop; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepShapeRWVertexLoop; sw: var StepDataStepWriter;
 proc share*(this: RWStepShapeRWVertexLoop; ent: Handle[StepShapeVertexLoop];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWVertexLoop.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

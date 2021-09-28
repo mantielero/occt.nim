@@ -28,7 +28,7 @@ proc constructRWStepBasicRWConversionBasedUnit*(): RWStepBasicRWConversionBasedU
     constructor, importcpp: "RWStepBasic_RWConversionBasedUnit(@)",
     header: "RWStepBasic_RWConversionBasedUnit.hxx".}
 proc readStep*(this: RWStepBasicRWConversionBasedUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicConversionBasedUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWConversionBasedUnit.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepBasicRWConversionBasedUnit;
            ent: Handle[StepBasicConversionBasedUnit];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWConversionBasedUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

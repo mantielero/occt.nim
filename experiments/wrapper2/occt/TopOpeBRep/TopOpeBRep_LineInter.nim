@@ -42,11 +42,11 @@ proc setFaces*(this: var TopOpeBRepLineInter; f1: TopoDS_Face; f2: TopoDS_Face) 
     importcpp: "SetFaces", header: "TopOpeBRep_LineInter.hxx".}
 proc typeLineCurve*(this: TopOpeBRepLineInter): TopOpeBRepTypeLineCurve {.
     noSideEffect, importcpp: "TypeLineCurve", header: "TopOpeBRep_LineInter.hxx".}
-proc nbVPoint*(this: TopOpeBRepLineInter): int {.noSideEffect, importcpp: "NbVPoint",
-    header: "TopOpeBRep_LineInter.hxx".}
-proc vPoint*(this: TopOpeBRepLineInter; i: int): TopOpeBRepVPointInter {.noSideEffect,
-    importcpp: "VPoint", header: "TopOpeBRep_LineInter.hxx".}
-proc changeVPoint*(this: var TopOpeBRepLineInter; i: int): var TopOpeBRepVPointInter {.
+proc nbVPoint*(this: TopOpeBRepLineInter): cint {.noSideEffect,
+    importcpp: "NbVPoint", header: "TopOpeBRep_LineInter.hxx".}
+proc vPoint*(this: TopOpeBRepLineInter; i: cint): TopOpeBRepVPointInter {.
+    noSideEffect, importcpp: "VPoint", header: "TopOpeBRep_LineInter.hxx".}
+proc changeVPoint*(this: var TopOpeBRepLineInter; i: cint): var TopOpeBRepVPointInter {.
     importcpp: "ChangeVPoint", header: "TopOpeBRep_LineInter.hxx".}
 proc setINL*(this: var TopOpeBRepLineInter) {.importcpp: "SetINL",
     header: "TopOpeBRep_LineInter.hxx".}
@@ -66,19 +66,19 @@ proc hasVPonR*(this: TopOpeBRepLineInter): bool {.noSideEffect,
     importcpp: "HasVPonR", header: "TopOpeBRep_LineInter.hxx".}
 proc setVPBounds*(this: var TopOpeBRepLineInter) {.importcpp: "SetVPBounds",
     header: "TopOpeBRep_LineInter.hxx".}
-proc vPBounds*(this: TopOpeBRepLineInter; f: var int; l: var int; n: var int) {.
+proc vPBounds*(this: TopOpeBRepLineInter; f: var cint; l: var cint; n: var cint) {.
     noSideEffect, importcpp: "VPBounds", header: "TopOpeBRep_LineInter.hxx".}
 proc isPeriodic*(this: TopOpeBRepLineInter): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "TopOpeBRep_LineInter.hxx".}
-proc period*(this: TopOpeBRepLineInter): float {.noSideEffect, importcpp: "Period",
+proc period*(this: TopOpeBRepLineInter): cfloat {.noSideEffect, importcpp: "Period",
     header: "TopOpeBRep_LineInter.hxx".}
-proc bounds*(this: TopOpeBRepLineInter; f: var float; l: var float) {.noSideEffect,
+proc bounds*(this: TopOpeBRepLineInter; f: var cfloat; l: var cfloat) {.noSideEffect,
     importcpp: "Bounds", header: "TopOpeBRep_LineInter.hxx".}
 proc hasVInternal*(this: var TopOpeBRepLineInter): bool {.importcpp: "HasVInternal",
     header: "TopOpeBRep_LineInter.hxx".}
-proc nbWPoint*(this: TopOpeBRepLineInter): int {.noSideEffect, importcpp: "NbWPoint",
-    header: "TopOpeBRep_LineInter.hxx".}
-proc wPoint*(this: var TopOpeBRepLineInter; i: int): TopOpeBRepWPointInter {.
+proc nbWPoint*(this: TopOpeBRepLineInter): cint {.noSideEffect,
+    importcpp: "NbWPoint", header: "TopOpeBRep_LineInter.hxx".}
+proc wPoint*(this: var TopOpeBRepLineInter; i: cint): TopOpeBRepWPointInter {.
     importcpp: "WPoint", header: "TopOpeBRep_LineInter.hxx".}
 proc transitionOnS1*(this: TopOpeBRepLineInter): IntSurfTypeTrans {.noSideEffect,
     importcpp: "TransitionOnS1", header: "TopOpeBRep_LineInter.hxx".}
@@ -90,11 +90,12 @@ proc situationS2*(this: TopOpeBRepLineInter): IntSurfSituation {.noSideEffect,
     importcpp: "SituationS2", header: "TopOpeBRep_LineInter.hxx".}
 proc curve*(this: TopOpeBRepLineInter): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "TopOpeBRep_LineInter.hxx".}
-proc curve*(this: TopOpeBRepLineInter; parmin: float; parmax: float): Handle[GeomCurve] {.
-    noSideEffect, importcpp: "Curve", header: "TopOpeBRep_LineInter.hxx".}
+proc curve*(this: TopOpeBRepLineInter; parmin: cfloat; parmax: cfloat): Handle[
+    GeomCurve] {.noSideEffect, importcpp: "Curve",
+                header: "TopOpeBRep_LineInter.hxx".}
 proc arc*(this: TopOpeBRepLineInter): TopoDS_Shape {.noSideEffect, importcpp: "Arc",
     header: "TopOpeBRep_LineInter.hxx".}
-proc arcIsEdge*(this: TopOpeBRepLineInter; i: int): bool {.noSideEffect,
+proc arcIsEdge*(this: TopOpeBRepLineInter; i: cint): bool {.noSideEffect,
     importcpp: "ArcIsEdge", header: "TopOpeBRep_LineInter.hxx".}
 proc lineW*(this: TopOpeBRepLineInter): Handle[IntPatchWLine] {.noSideEffect,
     importcpp: "LineW", header: "TopOpeBRep_LineInter.hxx".}
@@ -108,25 +109,50 @@ proc hasLastPoint*(this: TopOpeBRepLineInter): bool {.noSideEffect,
     importcpp: "HasLastPoint", header: "TopOpeBRep_LineInter.hxx".}
 proc computeFaceFaceTransition*(this: var TopOpeBRepLineInter) {.
     importcpp: "ComputeFaceFaceTransition", header: "TopOpeBRep_LineInter.hxx".}
-proc faceFaceTransition*(this: TopOpeBRepLineInter; i: int): TopOpeBRepDS_Transition {.
+proc faceFaceTransition*(this: TopOpeBRepLineInter; i: cint): TopOpeBRepDS_Transition {.
     noSideEffect, importcpp: "FaceFaceTransition",
     header: "TopOpeBRep_LineInter.hxx".}
-proc index*(this: var TopOpeBRepLineInter; i: int) {.importcpp: "Index",
+proc index*(this: var TopOpeBRepLineInter; i: cint) {.importcpp: "Index",
     header: "TopOpeBRep_LineInter.hxx".}
-proc index*(this: TopOpeBRepLineInter): int {.noSideEffect, importcpp: "Index",
+proc index*(this: TopOpeBRepLineInter): cint {.noSideEffect, importcpp: "Index",
     header: "TopOpeBRep_LineInter.hxx".}
 proc dumpType*(this: TopOpeBRepLineInter) {.noSideEffect, importcpp: "DumpType",
     header: "TopOpeBRep_LineInter.hxx".}
-proc dumpVPoint*(this: TopOpeBRepLineInter; i: int; s1: TCollectionAsciiString;
+proc dumpVPoint*(this: TopOpeBRepLineInter; i: cint; s1: TCollectionAsciiString;
                 s2: TCollectionAsciiString) {.noSideEffect,
     importcpp: "DumpVPoint", header: "TopOpeBRep_LineInter.hxx".}
 proc dumpBipoint*(this: TopOpeBRepLineInter; b: TopOpeBRepBipoint;
                  s1: TCollectionAsciiString; s2: TCollectionAsciiString) {.
     noSideEffect, importcpp: "DumpBipoint", header: "TopOpeBRep_LineInter.hxx".}
-proc setTraceIndex*(this: var TopOpeBRepLineInter; exF1: int; exF2: int) {.
+proc setTraceIndex*(this: var TopOpeBRepLineInter; exF1: cint; exF2: cint) {.
     importcpp: "SetTraceIndex", header: "TopOpeBRep_LineInter.hxx".}
-proc getTraceIndex*(this: TopOpeBRepLineInter; exF1: var int; exF2: var int) {.
+proc getTraceIndex*(this: TopOpeBRepLineInter; exF1: var cint; exF2: var cint) {.
     noSideEffect, importcpp: "GetTraceIndex", header: "TopOpeBRep_LineInter.hxx".}
 proc dumpLineTransitions*(this: TopOpeBRepLineInter; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "DumpLineTransitions",
     header: "TopOpeBRep_LineInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

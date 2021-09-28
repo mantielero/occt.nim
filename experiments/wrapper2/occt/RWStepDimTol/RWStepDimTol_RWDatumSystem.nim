@@ -30,7 +30,7 @@ proc constructRWStepDimTolRWDatumSystem*(): RWStepDimTolRWDatumSystem {.
     constructor, importcpp: "RWStepDimTol_RWDatumSystem(@)",
     header: "RWStepDimTol_RWDatumSystem.hxx".}
 proc readStep*(this: RWStepDimTolRWDatumSystem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepDimTolDatumSystem]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepDimTol_RWDatumSystem.hxx".}
 proc writeStep*(this: RWStepDimTolRWDatumSystem; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepDimTolRWDatumSystem; sw: var StepDataStepWriter;
 proc share*(this: RWStepDimTolRWDatumSystem; ent: Handle[StepDimTolDatumSystem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWDatumSystem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

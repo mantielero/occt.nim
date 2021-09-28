@@ -34,28 +34,53 @@ type
 proc compute*(dStr: var TopOpeBRepDS_DataStructure;
              data: var Handle[ChFiDS_SurfData]; s1: Handle[Adaptor3dHSurface];
              s2: Handle[Adaptor3dHSurface]; or1: TopAbsOrientation;
-             or2: TopAbsOrientation; sp: Handle[ChFiDS_Spine]; iedge: int): bool {.
+             or2: TopAbsOrientation; sp: Handle[ChFiDS_Spine]; iedge: cint): bool {.
     importcpp: "ChFiKPart_ComputeData::Compute(@)",
     header: "ChFiKPart_ComputeData.hxx".}
 proc computeCorner*(dStr: var TopOpeBRepDS_DataStructure;
                    data: Handle[ChFiDS_SurfData]; s1: Handle[Adaptor3dHSurface];
                    s2: Handle[Adaptor3dHSurface]; orFace1: TopAbsOrientation;
                    orFace2: TopAbsOrientation; or1: TopAbsOrientation;
-                   or2: TopAbsOrientation; minRad: float; majRad: float; p1s1: Pnt2d;
-                   p2s1: Pnt2d; p1s2: Pnt2d; p2s2: Pnt2d): bool {.
+                   or2: TopAbsOrientation; minRad: cfloat; majRad: cfloat;
+                   p1s1: Pnt2d; p2s1: Pnt2d; p1s2: Pnt2d; p2s2: Pnt2d): bool {.
     importcpp: "ChFiKPart_ComputeData::ComputeCorner(@)",
     header: "ChFiKPart_ComputeData.hxx".}
 proc computeCorner*(dStr: var TopOpeBRepDS_DataStructure;
                    data: Handle[ChFiDS_SurfData]; s1: Handle[Adaptor3dHSurface];
                    s2: Handle[Adaptor3dHSurface]; orFace1: TopAbsOrientation;
                    orFace2: TopAbsOrientation; or1: TopAbsOrientation;
-                   or2: TopAbsOrientation; rad: float; ps1: Pnt2d; p1s2: Pnt2d;
+                   or2: TopAbsOrientation; rad: cfloat; ps1: Pnt2d; p1s2: Pnt2d;
                    p2s2: Pnt2d): bool {.importcpp: "ChFiKPart_ComputeData::ComputeCorner(@)",
                                      header: "ChFiKPart_ComputeData.hxx".}
 proc computeCorner*(dStr: var TopOpeBRepDS_DataStructure;
                    data: Handle[ChFiDS_SurfData]; s: Handle[Adaptor3dHSurface];
                    s1: Handle[Adaptor3dHSurface]; s2: Handle[Adaptor3dHSurface];
                    ofS: TopAbsOrientation; os: TopAbsOrientation;
-                   os1: TopAbsOrientation; os2: TopAbsOrientation; radius: float): bool {.
+                   os1: TopAbsOrientation; os2: TopAbsOrientation; radius: cfloat): bool {.
     importcpp: "ChFiKPart_ComputeData::ComputeCorner(@)",
     header: "ChFiKPart_ComputeData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

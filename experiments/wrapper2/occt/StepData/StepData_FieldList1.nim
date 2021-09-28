@@ -30,9 +30,34 @@ type
 
 proc constructStepDataFieldList1*(): StepDataFieldList1 {.constructor,
     importcpp: "StepData_FieldList1(@)", header: "StepData_FieldList1.hxx".}
-proc nbFields*(this: StepDataFieldList1): int {.noSideEffect, importcpp: "NbFields",
+proc nbFields*(this: StepDataFieldList1): cint {.noSideEffect, importcpp: "NbFields",
     header: "StepData_FieldList1.hxx".}
-proc field*(this: StepDataFieldList1; num: int): StepDataField {.noSideEffect,
+proc field*(this: StepDataFieldList1; num: cint): StepDataField {.noSideEffect,
     importcpp: "Field", header: "StepData_FieldList1.hxx".}
-proc cField*(this: var StepDataFieldList1; num: int): var StepDataField {.
+proc cField*(this: var StepDataFieldList1; num: cint): var StepDataField {.
     importcpp: "CField", header: "StepData_FieldList1.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

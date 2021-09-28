@@ -74,16 +74,17 @@ proc position*(this: Graphic3dCLight): Pnt {.noSideEffect, importcpp: "Position"
     header: "Graphic3d_CLight.hxx".}
 proc setPosition*(this: var Graphic3dCLight; thePosition: Pnt) {.
     importcpp: "SetPosition", header: "Graphic3d_CLight.hxx".}
-proc position*(this: Graphic3dCLight; theX: var float; theY: var float; theZ: var float) {.
-    noSideEffect, importcpp: "Position", header: "Graphic3d_CLight.hxx".}
-proc setPosition*(this: var Graphic3dCLight; theX: float; theY: float; theZ: float) {.
+proc position*(this: Graphic3dCLight; theX: var cfloat; theY: var cfloat;
+              theZ: var cfloat) {.noSideEffect, importcpp: "Position",
+                               header: "Graphic3d_CLight.hxx".}
+proc setPosition*(this: var Graphic3dCLight; theX: cfloat; theY: cfloat; theZ: cfloat) {.
     importcpp: "SetPosition", header: "Graphic3d_CLight.hxx".}
 proc constAttenuation*(this: Graphic3dCLight): StandardShortReal {.noSideEffect,
     importcpp: "ConstAttenuation", header: "Graphic3d_CLight.hxx".}
 proc linearAttenuation*(this: Graphic3dCLight): StandardShortReal {.noSideEffect,
     importcpp: "LinearAttenuation", header: "Graphic3d_CLight.hxx".}
-proc attenuation*(this: Graphic3dCLight; theConstAttenuation: var float;
-                 theLinearAttenuation: var float) {.noSideEffect,
+proc attenuation*(this: Graphic3dCLight; theConstAttenuation: var cfloat;
+                 theLinearAttenuation: var cfloat) {.noSideEffect,
     importcpp: "Attenuation", header: "Graphic3d_CLight.hxx".}
 proc setAttenuation*(this: var Graphic3dCLight;
                     theConstAttenuation: StandardShortReal;
@@ -93,11 +94,12 @@ proc direction*(this: Graphic3dCLight): Dir {.noSideEffect, importcpp: "Directio
     header: "Graphic3d_CLight.hxx".}
 proc setDirection*(this: var Graphic3dCLight; theDir: Dir) {.
     importcpp: "SetDirection", header: "Graphic3d_CLight.hxx".}
-proc direction*(this: Graphic3dCLight; theVx: var float; theVy: var float;
-               theVz: var float) {.noSideEffect, importcpp: "Direction",
-                                header: "Graphic3d_CLight.hxx".}
-proc setDirection*(this: var Graphic3dCLight; theVx: float; theVy: float; theVz: float) {.
-    importcpp: "SetDirection", header: "Graphic3d_CLight.hxx".}
+proc direction*(this: Graphic3dCLight; theVx: var cfloat; theVy: var cfloat;
+               theVz: var cfloat) {.noSideEffect, importcpp: "Direction",
+                                 header: "Graphic3d_CLight.hxx".}
+proc setDirection*(this: var Graphic3dCLight; theVx: cfloat; theVy: cfloat;
+                  theVz: cfloat) {.importcpp: "SetDirection",
+                                 header: "Graphic3d_CLight.hxx".}
 proc angle*(this: Graphic3dCLight): StandardShortReal {.noSideEffect,
     importcpp: "Angle", header: "Graphic3d_CLight.hxx".}
 proc setAngle*(this: var Graphic3dCLight; theAngle: StandardShortReal) {.
@@ -132,9 +134,34 @@ proc packedDirectionRange*(this: Graphic3dCLight): Graphic3dVec4 {.noSideEffect,
 proc revision*(this: Graphic3dCLight): StandardSize {.noSideEffect,
     importcpp: "Revision", header: "Graphic3d_CLight.hxx".}
 proc dumpJson*(this: Graphic3dCLight; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_CLight.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_CLight.hxx".}
 discard "forward decl of Graphic3d_CLight"
 type
-  HandleGraphic3dCLight* = Handle[Graphic3dCLight]
+  HandleC1C1* = Handle[Graphic3dCLight]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

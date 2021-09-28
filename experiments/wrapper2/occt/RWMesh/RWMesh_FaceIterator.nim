@@ -64,33 +64,58 @@ proc hasFaceColor*(this: RWMeshFaceIterator): bool {.noSideEffect,
     importcpp: "HasFaceColor", header: "RWMesh_FaceIterator.hxx".}
 proc faceColor*(this: RWMeshFaceIterator): QuantityColorRGBA {.noSideEffect,
     importcpp: "FaceColor", header: "RWMesh_FaceIterator.hxx".}
-proc nbTriangles*(this: RWMeshFaceIterator): int {.noSideEffect,
+proc nbTriangles*(this: RWMeshFaceIterator): cint {.noSideEffect,
     importcpp: "NbTriangles", header: "RWMesh_FaceIterator.hxx".}
-proc elemLower*(this: RWMeshFaceIterator): int {.noSideEffect,
+proc elemLower*(this: RWMeshFaceIterator): cint {.noSideEffect,
     importcpp: "ElemLower", header: "RWMesh_FaceIterator.hxx".}
-proc elemUpper*(this: RWMeshFaceIterator): int {.noSideEffect,
+proc elemUpper*(this: RWMeshFaceIterator): cint {.noSideEffect,
     importcpp: "ElemUpper", header: "RWMesh_FaceIterator.hxx".}
-proc triangleOriented*(this: RWMeshFaceIterator; theElemIndex: int): PolyTriangle {.
+proc triangleOriented*(this: RWMeshFaceIterator; theElemIndex: cint): PolyTriangle {.
     noSideEffect, importcpp: "TriangleOriented", header: "RWMesh_FaceIterator.hxx".}
 proc hasNormals*(this: RWMeshFaceIterator): bool {.noSideEffect,
     importcpp: "HasNormals", header: "RWMesh_FaceIterator.hxx".}
 proc hasTexCoords*(this: RWMeshFaceIterator): bool {.noSideEffect,
     importcpp: "HasTexCoords", header: "RWMesh_FaceIterator.hxx".}
-proc normalTransformed*(this: var RWMeshFaceIterator; theNode: int): Dir {.
+proc normalTransformed*(this: var RWMeshFaceIterator; theNode: cint): Dir {.
     importcpp: "NormalTransformed", header: "RWMesh_FaceIterator.hxx".}
-proc nbNodes*(this: RWMeshFaceIterator): int {.noSideEffect, importcpp: "NbNodes",
+proc nbNodes*(this: RWMeshFaceIterator): cint {.noSideEffect, importcpp: "NbNodes",
     header: "RWMesh_FaceIterator.hxx".}
-proc nodeLower*(this: RWMeshFaceIterator): int {.noSideEffect,
+proc nodeLower*(this: RWMeshFaceIterator): cint {.noSideEffect,
     importcpp: "NodeLower", header: "RWMesh_FaceIterator.hxx".}
-proc nodeUpper*(this: RWMeshFaceIterator): int {.noSideEffect,
+proc nodeUpper*(this: RWMeshFaceIterator): cint {.noSideEffect,
     importcpp: "NodeUpper", header: "RWMesh_FaceIterator.hxx".}
-proc nodeTransformed*(this: RWMeshFaceIterator; theNode: int): Pnt {.noSideEffect,
+proc nodeTransformed*(this: RWMeshFaceIterator; theNode: cint): Pnt {.noSideEffect,
     importcpp: "NodeTransformed", header: "RWMesh_FaceIterator.hxx".}
-proc nodeTexCoord*(this: RWMeshFaceIterator; theNode: int): Pnt2d {.noSideEffect,
+proc nodeTexCoord*(this: RWMeshFaceIterator; theNode: cint): Pnt2d {.noSideEffect,
     importcpp: "NodeTexCoord", header: "RWMesh_FaceIterator.hxx".}
-proc node*(this: RWMeshFaceIterator; theNode: int): Pnt {.noSideEffect,
+proc node*(this: RWMeshFaceIterator; theNode: cint): Pnt {.noSideEffect,
     importcpp: "node", header: "RWMesh_FaceIterator.hxx".}
-proc normal*(this: var RWMeshFaceIterator; theNode: int): Dir {.importcpp: "normal",
+proc normal*(this: var RWMeshFaceIterator; theNode: cint): Dir {.importcpp: "normal",
     header: "RWMesh_FaceIterator.hxx".}
-proc triangle*(this: RWMeshFaceIterator; theElemIndex: int): PolyTriangle {.
+proc triangle*(this: RWMeshFaceIterator; theElemIndex: cint): PolyTriangle {.
     noSideEffect, importcpp: "triangle", header: "RWMesh_FaceIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

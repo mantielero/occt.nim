@@ -33,9 +33,34 @@ type
                                                                            ## theUpperBound]
 
 
-proc hashCode*(theSet: BOPToolsSet; theUpperBound: int): int {.
+proc hashCode*(theSet: BOPToolsSet; theUpperBound: cint): cint {.
     importcpp: "BOPTools_SetMapHasher::HashCode(@)",
     header: "BOPTools_SetMapHasher.hxx".}
 proc isEqual*(aSet1: BOPToolsSet; aSet2: BOPToolsSet): bool {.
     importcpp: "BOPTools_SetMapHasher::IsEqual(@)",
     header: "BOPTools_SetMapHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

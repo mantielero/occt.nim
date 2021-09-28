@@ -18,3 +18,28 @@ type
   StepReprArray1OfRepresentationItem* = NCollectionArray1[
       Handle[StepReprRepresentationItem]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

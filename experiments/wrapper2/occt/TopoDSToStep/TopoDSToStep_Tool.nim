@@ -63,7 +63,7 @@ proc setCurrentVertex*(this: var TopoDSToStepTool; v: TopoDS_Vertex) {.
     importcpp: "SetCurrentVertex", header: "TopoDSToStep_Tool.hxx".}
 proc currentVertex*(this: TopoDSToStepTool): TopoDS_Vertex {.noSideEffect,
     importcpp: "CurrentVertex", header: "TopoDSToStep_Tool.hxx".}
-proc lowest3DTolerance*(this: TopoDSToStepTool): float {.noSideEffect,
+proc lowest3DTolerance*(this: TopoDSToStepTool): cfloat {.noSideEffect,
     importcpp: "Lowest3DTolerance", header: "TopoDSToStep_Tool.hxx".}
 proc setSurfaceReversed*(this: var TopoDSToStepTool; b: bool) {.
     importcpp: "SetSurfaceReversed", header: "TopoDSToStep_Tool.hxx".}
@@ -71,5 +71,30 @@ proc surfaceReversed*(this: TopoDSToStepTool): bool {.noSideEffect,
     importcpp: "SurfaceReversed", header: "TopoDSToStep_Tool.hxx".}
 proc map*(this: TopoDSToStepTool): MoniToolDataMapOfShapeTransient {.noSideEffect,
     importcpp: "Map", header: "TopoDSToStep_Tool.hxx".}
-proc pCurveMode*(this: TopoDSToStepTool): int {.noSideEffect,
+proc pCurveMode*(this: TopoDSToStepTool): cint {.noSideEffect,
     importcpp: "PCurveMode", header: "TopoDSToStep_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

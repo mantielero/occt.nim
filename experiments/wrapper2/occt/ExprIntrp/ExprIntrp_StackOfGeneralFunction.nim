@@ -19,3 +19,28 @@ type
   ExprIntrpListIteratorOfStackOfGeneralFunction* = Iterator[
       Handle[ExprGeneralFunction]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

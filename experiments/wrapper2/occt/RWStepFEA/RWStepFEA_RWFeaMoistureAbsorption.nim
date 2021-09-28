@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWFeaMoistureAbsorption*(): RWStepFEA_RWFeaMoistureAbsor
     constructor, importcpp: "RWStepFEA_RWFeaMoistureAbsorption(@)",
     header: "RWStepFEA_RWFeaMoistureAbsorption.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaMoistureAbsorption;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaMoistureAbsorption]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaMoistureAbsorption.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepFEA_RWFeaMoistureAbsorption;
            ent: Handle[StepFEA_FeaMoistureAbsorption];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaMoistureAbsorption.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

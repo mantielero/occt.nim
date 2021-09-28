@@ -18,3 +18,28 @@ type
   TNamingListOfNamedShape* = NCollectionList[Handle[TNamingNamedShape]]
   TNamingListIteratorOfListOfNamedShape* = Iterator[Handle[TNamingNamedShape]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

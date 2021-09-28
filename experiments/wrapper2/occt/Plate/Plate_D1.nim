@@ -27,3 +27,28 @@ proc constructPlateD1*(`ref`: PlateD1): PlateD1 {.constructor,
     importcpp: "Plate_D1(@)", header: "Plate_D1.hxx".}
 proc du*(this: PlateD1): Xyz {.noSideEffect, importcpp: "DU", header: "Plate_D1.hxx".}
 proc dv*(this: PlateD1): Xyz {.noSideEffect, importcpp: "DV", header: "Plate_D1.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

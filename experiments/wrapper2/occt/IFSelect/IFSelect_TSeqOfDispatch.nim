@@ -17,3 +17,28 @@
 type
   IFSelectTSeqOfDispatch* = NCollectionSequence[Handle[IFSelectDispatch]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

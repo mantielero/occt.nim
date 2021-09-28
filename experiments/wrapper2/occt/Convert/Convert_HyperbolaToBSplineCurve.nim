@@ -41,6 +41,31 @@ type
                                                                               ## hyperbola.
 
 
-proc constructConvertHyperbolaToBSplineCurve*(h: Hypr2d; u1: float; u2: float): ConvertHyperbolaToBSplineCurve {.
+proc constructConvertHyperbolaToBSplineCurve*(h: Hypr2d; u1: cfloat; u2: cfloat): ConvertHyperbolaToBSplineCurve {.
     constructor, importcpp: "Convert_HyperbolaToBSplineCurve(@)",
     header: "Convert_HyperbolaToBSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

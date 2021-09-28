@@ -43,7 +43,32 @@ proc boxSort*(this: TopOpeBRepShapeScanner): TopOpeBRepToolBoxSort {.noSideEffec
     importcpp: "BoxSort", header: "TopOpeBRep_ShapeScanner.hxx".}
 proc changeBoxSort*(this: var TopOpeBRepShapeScanner): var TopOpeBRepToolBoxSort {.
     importcpp: "ChangeBoxSort", header: "TopOpeBRep_ShapeScanner.hxx".}
-proc index*(this: TopOpeBRepShapeScanner): int {.noSideEffect, importcpp: "Index",
+proc index*(this: TopOpeBRepShapeScanner): cint {.noSideEffect, importcpp: "Index",
     header: "TopOpeBRep_ShapeScanner.hxx".}
 proc dumpCurrent*(this: TopOpeBRepShapeScanner; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "DumpCurrent", header: "TopOpeBRep_ShapeScanner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

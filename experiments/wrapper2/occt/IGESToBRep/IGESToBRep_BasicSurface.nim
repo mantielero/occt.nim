@@ -67,7 +67,7 @@ proc constructIGESToBRepBasicSurface*(): IGESToBRepBasicSurface {.constructor,
 proc constructIGESToBRepBasicSurface*(cs: IGESToBRepCurveAndSurface): IGESToBRepBasicSurface {.
     constructor, importcpp: "IGESToBRep_BasicSurface(@)",
     header: "IGESToBRep_BasicSurface.hxx".}
-proc constructIGESToBRepBasicSurface*(eps: float; epsGeom: float; epsCoeff: float;
+proc constructIGESToBRepBasicSurface*(eps: cfloat; epsGeom: cfloat; epsCoeff: cfloat;
                                      mode: bool; modeapprox: bool; optimized: bool): IGESToBRepBasicSurface {.
     constructor, importcpp: "IGESToBRep_BasicSurface(@)",
     header: "IGESToBRep_BasicSurface.hxx".}
@@ -101,3 +101,28 @@ proc transferBSplineSurface*(this: var IGESToBRepBasicSurface;
                             start: Handle[IGESGeomBSplineSurface]): Handle[
     GeomBSplineSurface] {.importcpp: "TransferBSplineSurface",
                          header: "IGESToBRep_BasicSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,3 +29,28 @@ proc dumpMapOfShapeVertexInfo*(aMap: TopOpeBRepBuildIndexedDataMapOfShapeVertexI
 proc path*(aWire: TopoDS_Wire; aResList: var TopToolsListOfShape) {.
     importcpp: "TopOpeBRepBuild_Tools2d::Path(@)",
     header: "TopOpeBRepBuild_Tools2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

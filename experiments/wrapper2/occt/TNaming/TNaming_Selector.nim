@@ -50,3 +50,28 @@ proc arguments*(this: TNamingSelector; args: var TDF_AttributeMap) {.noSideEffec
     importcpp: "Arguments", header: "TNaming_Selector.hxx".}
 proc namedShape*(this: TNamingSelector): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "NamedShape", header: "TNaming_Selector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

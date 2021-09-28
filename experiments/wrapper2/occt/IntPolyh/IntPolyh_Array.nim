@@ -55,29 +55,55 @@ type
 
   IntPolyhArrayIntPolyhVectorOfType* = NCollectionVector[Type]
 
-proc constructIntPolyhArray*[Type](aIncrement: int = 256): IntPolyhArray[Type] {.
+proc constructIntPolyhArray*[Type](aIncrement: cint = 256): IntPolyhArray[Type] {.
     constructor, importcpp: "IntPolyh_Array<\'*0>(@)", header: "IntPolyh_Array.hxx".}
-proc constructIntPolyhArray*[Type](aN: int; aIncrement: int = 256): IntPolyhArray[Type] {.
-    constructor, importcpp: "IntPolyh_Array<\'*0>(@)", header: "IntPolyh_Array.hxx".}
+proc constructIntPolyhArray*[Type](aN: cint; aIncrement: cint = 256): IntPolyhArray[
+    Type] {.constructor, importcpp: "IntPolyh_Array<\'*0>(@)",
+           header: "IntPolyh_Array.hxx".}
 proc copy*[Type](this: var IntPolyhArray[Type]; aOther: IntPolyhArray): var IntPolyhArray {.
     importcpp: "Copy", header: "IntPolyh_Array.hxx".}
-proc init*[Type](this: var IntPolyhArray[Type]; aN: int) {.importcpp: "Init",
+proc init*[Type](this: var IntPolyhArray[Type]; aN: cint) {.importcpp: "Init",
     header: "IntPolyh_Array.hxx".}
 proc incrementNbItems*[Type](this: var IntPolyhArray[Type]) {.
     importcpp: "IncrementNbItems", header: "IntPolyh_Array.hxx".}
-proc getN*[Type](this: IntPolyhArray[Type]): int {.noSideEffect, importcpp: "GetN",
+proc getN*[Type](this: IntPolyhArray[Type]): cint {.noSideEffect, importcpp: "GetN",
     header: "IntPolyh_Array.hxx".}
-proc nbItems*[Type](this: IntPolyhArray[Type]): int {.noSideEffect,
+proc nbItems*[Type](this: IntPolyhArray[Type]): cint {.noSideEffect,
     importcpp: "NbItems", header: "IntPolyh_Array.hxx".}
-proc setNbItems*[Type](this: var IntPolyhArray[Type]; aNb: int) {.
+proc setNbItems*[Type](this: var IntPolyhArray[Type]; aNb: cint) {.
     importcpp: "SetNbItems", header: "IntPolyh_Array.hxx".}
-proc value*[Type](this: IntPolyhArray[Type]; aIndex: int): Type {.noSideEffect,
+proc value*[Type](this: IntPolyhArray[Type]; aIndex: cint): Type {.noSideEffect,
     importcpp: "Value", header: "IntPolyh_Array.hxx".}
-proc `[]`*[Type](this: IntPolyhArray[Type]; aIndex: int): Type {.noSideEffect,
+proc `[]`*[Type](this: IntPolyhArray[Type]; aIndex: cint): Type {.noSideEffect,
     importcpp: "#[@]", header: "IntPolyh_Array.hxx".}
-proc changeValue*[Type](this: var IntPolyhArray[Type]; aIndex: int): var Type {.
+proc changeValue*[Type](this: var IntPolyhArray[Type]; aIndex: cint): var Type {.
     importcpp: "ChangeValue", header: "IntPolyh_Array.hxx".}
-proc `[]`*[Type](this: var IntPolyhArray[Type]; aIndex: int): var Type {.
+proc `[]`*[Type](this: var IntPolyhArray[Type]; aIndex: cint): var Type {.
     importcpp: "#[@]", header: "IntPolyh_Array.hxx".}
 proc dump*[Type](this: IntPolyhArray[Type]) {.noSideEffect, importcpp: "Dump",
     header: "IntPolyh_Array.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

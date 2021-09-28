@@ -17,3 +17,28 @@
 type
   BRepFillSequenceOfSection* = NCollectionSequence[BRepFillSection]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

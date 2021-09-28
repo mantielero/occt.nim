@@ -94,3 +94,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
          pAx1: Pnt; pAx2: Pnt; pnt1: Pnt; pnt2: Pnt; offsetPoint: Pnt; intOut1: bool;
          intOut2: bool) {.importcpp: "DsgPrs_PerpenPresentation::Add(@)",
                         header: "DsgPrs_PerpenPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

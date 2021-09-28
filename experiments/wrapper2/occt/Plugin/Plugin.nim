@@ -23,3 +23,28 @@ type
 
 proc load*(aGUID: StandardGUID; theVerbose: bool = true): Handle[StandardTransient] {.
     importcpp: "Plugin::Load(@)", header: "Plugin.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

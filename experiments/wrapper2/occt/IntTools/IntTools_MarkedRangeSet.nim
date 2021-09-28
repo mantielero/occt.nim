@@ -24,43 +24,68 @@ type
 
 proc constructIntToolsMarkedRangeSet*(): IntToolsMarkedRangeSet {.constructor,
     importcpp: "IntTools_MarkedRangeSet(@)", header: "IntTools_MarkedRangeSet.hxx".}
-proc constructIntToolsMarkedRangeSet*(theFirstBoundary: float;
-                                     theLastBoundary: float; theInitFlag: int): IntToolsMarkedRangeSet {.
+proc constructIntToolsMarkedRangeSet*(theFirstBoundary: cfloat;
+                                     theLastBoundary: cfloat; theInitFlag: cint): IntToolsMarkedRangeSet {.
     constructor, importcpp: "IntTools_MarkedRangeSet(@)",
     header: "IntTools_MarkedRangeSet.hxx".}
 proc constructIntToolsMarkedRangeSet*(theSortedArray: IntToolsCArray1OfReal;
-                                     theInitFlag: int): IntToolsMarkedRangeSet {.
+                                     theInitFlag: cint): IntToolsMarkedRangeSet {.
     constructor, importcpp: "IntTools_MarkedRangeSet(@)",
     header: "IntTools_MarkedRangeSet.hxx".}
-proc setBoundaries*(this: var IntToolsMarkedRangeSet; theFirstBoundary: float;
-                   theLastBoundary: float; theInitFlag: int) {.
+proc setBoundaries*(this: var IntToolsMarkedRangeSet; theFirstBoundary: cfloat;
+                   theLastBoundary: cfloat; theInitFlag: cint) {.
     importcpp: "SetBoundaries", header: "IntTools_MarkedRangeSet.hxx".}
 proc setRanges*(this: var IntToolsMarkedRangeSet;
-               theSortedArray: IntToolsCArray1OfReal; theInitFlag: int) {.
+               theSortedArray: IntToolsCArray1OfReal; theInitFlag: cint) {.
     importcpp: "SetRanges", header: "IntTools_MarkedRangeSet.hxx".}
-proc insertRange*(this: var IntToolsMarkedRangeSet; theFirstBoundary: float;
-                 theLastBoundary: float; theFlag: int): bool {.
+proc insertRange*(this: var IntToolsMarkedRangeSet; theFirstBoundary: cfloat;
+                 theLastBoundary: cfloat; theFlag: cint): bool {.
     importcpp: "InsertRange", header: "IntTools_MarkedRangeSet.hxx".}
 proc insertRange*(this: var IntToolsMarkedRangeSet; theRange: IntToolsRange;
-                 theFlag: int): bool {.importcpp: "InsertRange",
-                                    header: "IntTools_MarkedRangeSet.hxx".}
-proc insertRange*(this: var IntToolsMarkedRangeSet; theFirstBoundary: float;
-                 theLastBoundary: float; theFlag: int; theIndex: int): bool {.
+                 theFlag: cint): bool {.importcpp: "InsertRange",
+                                     header: "IntTools_MarkedRangeSet.hxx".}
+proc insertRange*(this: var IntToolsMarkedRangeSet; theFirstBoundary: cfloat;
+                 theLastBoundary: cfloat; theFlag: cint; theIndex: cint): bool {.
     importcpp: "InsertRange", header: "IntTools_MarkedRangeSet.hxx".}
 proc insertRange*(this: var IntToolsMarkedRangeSet; theRange: IntToolsRange;
-                 theFlag: int; theIndex: int): bool {.importcpp: "InsertRange",
+                 theFlag: cint; theIndex: cint): bool {.importcpp: "InsertRange",
     header: "IntTools_MarkedRangeSet.hxx".}
-proc setFlag*(this: var IntToolsMarkedRangeSet; theIndex: int; theFlag: int) {.
+proc setFlag*(this: var IntToolsMarkedRangeSet; theIndex: cint; theFlag: cint) {.
     importcpp: "SetFlag", header: "IntTools_MarkedRangeSet.hxx".}
-proc flag*(this: IntToolsMarkedRangeSet; theIndex: int): int {.noSideEffect,
+proc flag*(this: IntToolsMarkedRangeSet; theIndex: cint): cint {.noSideEffect,
     importcpp: "Flag", header: "IntTools_MarkedRangeSet.hxx".}
-proc getIndex*(this: IntToolsMarkedRangeSet; theValue: float): int {.noSideEffect,
+proc getIndex*(this: IntToolsMarkedRangeSet; theValue: cfloat): cint {.noSideEffect,
     importcpp: "GetIndex", header: "IntTools_MarkedRangeSet.hxx".}
-proc getIndices*(this: var IntToolsMarkedRangeSet; theValue: float): TColStdSequenceOfInteger {.
+proc getIndices*(this: var IntToolsMarkedRangeSet; theValue: cfloat): TColStdSequenceOfInteger {.
     importcpp: "GetIndices", header: "IntTools_MarkedRangeSet.hxx".}
-proc getIndex*(this: IntToolsMarkedRangeSet; theValue: float; useLower: bool): int {.
+proc getIndex*(this: IntToolsMarkedRangeSet; theValue: cfloat; useLower: bool): cint {.
     noSideEffect, importcpp: "GetIndex", header: "IntTools_MarkedRangeSet.hxx".}
-proc length*(this: IntToolsMarkedRangeSet): int {.noSideEffect, importcpp: "Length",
+proc length*(this: IntToolsMarkedRangeSet): cint {.noSideEffect, importcpp: "Length",
     header: "IntTools_MarkedRangeSet.hxx".}
-proc range*(this: IntToolsMarkedRangeSet; theIndex: int): IntToolsRange {.
+proc range*(this: IntToolsMarkedRangeSet; theIndex: cint): IntToolsRange {.
     noSideEffect, importcpp: "Range", header: "IntTools_MarkedRangeSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectFromDrawing"
 discard "forward decl of IGESSelect_SelectFromDrawing"
 type
-  HandleIGESSelectSelectFromDrawing* = Handle[IGESSelectSelectFromDrawing]
+  HandleC1C1* = Handle[IGESSelectSelectFromDrawing]
 
 ## ! This selection gets in all the model, the entities which are
 ## ! attached to the drawing(s) given as input. This includes :
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSelectFromDrawing): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectFromDrawing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

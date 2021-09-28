@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_Location"
 discard "forward decl of XCAFDoc_Location"
 type
-  HandleXCAFDocLocation* = Handle[XCAFDocLocation]
+  HandleC1C1* = Handle[XCAFDocLocation]
 
 ## ! attribute to store TopLoc_Location
 
@@ -51,8 +51,8 @@ proc paste*(this: XCAFDocLocation; into: Handle[TDF_Attribute];
            rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_Location.hxx".}
 proc dumpJson*(this: XCAFDocLocation; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "XCAFDoc_Location.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFDoc_Location.hxx".}
 type
   XCAFDocLocationbaseType* = TDF_Attribute
 
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XCAFDoc_Location.hxx".}
 proc dynamicType*(this: XCAFDocLocation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_Location.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

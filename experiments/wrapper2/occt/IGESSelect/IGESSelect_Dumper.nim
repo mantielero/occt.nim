@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_Dumper"
 discard "forward decl of IGESSelect_Dumper"
 type
-  HandleIGESSelectDumper* = Handle[IGESSelectDumper]
+  HandleC1C1* = Handle[IGESSelectDumper]
 
 ## ! Dumper from IGESSelect takes into account, for SessionFile, the
 ## ! classes defined in the package IGESSelect : Selections,
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_Dumper.hxx".}
 proc dynamicType*(this: IGESSelectDumper): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_Dumper.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

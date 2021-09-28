@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_Pave"
 discard "forward decl of TopOpeBRepBuild_Pave"
 type
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
+  HandleC1C1* = Handle[TopOpeBRepBuildPave]
   TopOpeBRepBuildPave* {.importcpp: "TopOpeBRepBuild_Pave",
                         header: "TopOpeBRepBuild_Pave.hxx", bycopy.} = object of TopOpeBRepBuildLoop ##
                                                                                               ## !
@@ -55,7 +55,7 @@ type
                                                                                               ## vertex
 
 
-proc constructTopOpeBRepBuildPave*(v: TopoDS_Shape; p: float; bound: bool): TopOpeBRepBuildPave {.
+proc constructTopOpeBRepBuildPave*(v: TopoDS_Shape; p: cfloat; bound: bool): TopOpeBRepBuildPave {.
     constructor, importcpp: "TopOpeBRepBuild_Pave(@)",
     header: "TopOpeBRepBuild_Pave.hxx".}
 proc hasSameDomain*(this: var TopOpeBRepBuildPave; b: bool) {.
@@ -70,9 +70,9 @@ proc vertex*(this: TopOpeBRepBuildPave): TopoDS_Shape {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRepBuild_Pave.hxx".}
 proc changeVertex*(this: var TopOpeBRepBuildPave): var TopoDS_Shape {.
     importcpp: "ChangeVertex", header: "TopOpeBRepBuild_Pave.hxx".}
-proc parameter*(this: TopOpeBRepBuildPave): float {.noSideEffect,
+proc parameter*(this: TopOpeBRepBuildPave): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRepBuild_Pave.hxx".}
-proc parameter*(this: var TopOpeBRepBuildPave; par: float) {.importcpp: "Parameter",
+proc parameter*(this: var TopOpeBRepBuildPave; par: cfloat) {.importcpp: "Parameter",
     header: "TopOpeBRepBuild_Pave.hxx".}
 proc interferenceType*(this: var TopOpeBRepBuildPave): var TopOpeBRepDS_Kind {.
     importcpp: "InterferenceType", header: "TopOpeBRepBuild_Pave.hxx".}
@@ -92,3 +92,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepBuild_Pave.hxx".}
 proc dynamicType*(this: TopOpeBRepBuildPave): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRepBuild_Pave.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   IGESBasicArray1OfLineFontEntity* = NCollectionArray1[
       Handle[IGESDataLineFontEntity]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

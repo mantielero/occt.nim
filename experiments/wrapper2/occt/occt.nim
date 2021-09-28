@@ -20,6 +20,7 @@
 
 {.passC:"-I/usr/include/opencascade/" .}
 
+
 import AIS/AIS
 export AIS
 import AIS/AIS_AngleDimension
@@ -6280,50 +6281,50 @@ import IVtkDraw/IVtkDraw_Interactor
 export IVtkDraw_Interactor
 
 
-# include IVtkOCC/IVtkOCC_SelectableObject
-# export IVtkOCC_SelectableObject
-# include IVtkOCC/IVtkOCC_Shape
-# export IVtkOCC_Shape
-# include IVtkOCC/IVtkOCC_ShapeMesher
-# export IVtkOCC_ShapeMesher
-# include IVtkOCC/IVtkOCC_ShapePickerAlgo
-# export IVtkOCC_ShapePickerAlgo
-# include IVtkOCC/IVtkOCC_ViewerSelector
-# export IVtkOCC_ViewerSelector
+import IVtkOCC/IVtkOCC_SelectableObject
+export IVtkOCC_SelectableObject
+import IVtkOCC/IVtkOCC_Shape
+export IVtkOCC_Shape
+import IVtkOCC/IVtkOCC_ShapeMesher
+export IVtkOCC_ShapeMesher
+import IVtkOCC/IVtkOCC_ShapePickerAlgo
+export IVtkOCC_ShapePickerAlgo
+import IVtkOCC/IVtkOCC_ViewerSelector
+export IVtkOCC_ViewerSelector
 
 
 import IVtkTools/IVtkTools
 export IVtkTools
 import IVtkTools/IVtkTools_DisplayModeFilter
 export IVtkTools_DisplayModeFilter
-# include IVtkTools/IVtkTools_ShapeDataSource
-# export IVtkTools_ShapeDataSource
-# include IVtkTools/IVtkTools_ShapeObject
-# export IVtkTools_ShapeObject
-# include IVtkTools/IVtkTools_ShapePicker
-# export IVtkTools_ShapePicker
+import IVtkTools/IVtkTools_ShapeDataSource
+export IVtkTools_ShapeDataSource
+import IVtkTools/IVtkTools_ShapeObject
+export IVtkTools_ShapeObject
+import IVtkTools/IVtkTools_ShapePicker
+export IVtkTools_ShapePicker
 import IVtkTools/IVtkTools_SubPolyDataFilter
 export IVtkTools_SubPolyDataFilter
 
 
-# include IVtkVTK/IVtkVTK_ShapeData
-# export IVtkVTK_ShapeData
-# include IVtkVTK/IVtkVTK_View
-# export IVtkVTK_View
+import IVtkVTK/IVtkVTK_ShapeData
+export IVtkVTK_ShapeData
+import IVtkVTK/IVtkVTK_View
+export IVtkVTK_View
 
 
-# include IVtk/IVtk_IShape
-# export IVtk_IShape
-# include IVtk/IVtk_IShapeData
-# export IVtk_IShapeData
-# include IVtk/IVtk_IShapeMesher
-# export IVtk_IShapeMesher
-# include IVtk/IVtk_IShapePickerAlgo
-# export IVtk_IShapePickerAlgo
-# include IVtk/IVtk_IView
-# export IVtk_IView
-# include IVtk/IVtk_Interface
-# export IVtk_Interface
+import IVtk/IVtk_IShape
+export IVtk_IShape
+import IVtk/IVtk_IShapeData
+export IVtk_IShapeData
+import IVtk/IVtk_IShapeMesher
+export IVtk_IShapeMesher
+import IVtk/IVtk_IShapePickerAlgo
+export IVtk_IShapePickerAlgo
+import IVtk/IVtk_IView
+export IVtk_IView
+import IVtk/IVtk_Interface
+export IVtk_Interface
 import IVtk/IVtk_Types
 export IVtk_Types
 
@@ -7510,34 +7511,34 @@ import MoniTool/MoniTool_ValueType
 export MoniTool_ValueType
 
 
-import NCollection/NCollection_AccAllocator
-export NCollection_AccAllocator
+# include NCollection/NCollection_AccAllocator
+# export NCollection_AccAllocator
 import NCollection/NCollection_AlignedAllocator
 export NCollection_AlignedAllocator
 import NCollection/NCollection_Array1
 export NCollection_Array1
-import NCollection/NCollection_Array2
-export NCollection_Array2
+# include NCollection/NCollection_Array2
+# export NCollection_Array2
 import NCollection/NCollection_BaseAllocator
 export NCollection_BaseAllocator
-import NCollection/NCollection_BaseList
-export NCollection_BaseList
-import NCollection/NCollection_BaseMap
-export NCollection_BaseMap
-import NCollection/NCollection_BaseSequence
-export NCollection_BaseSequence
-import NCollection/NCollection_BaseVector
-export NCollection_BaseVector
-import NCollection/NCollection_Buffer
-export NCollection_Buffer
-import NCollection/NCollection_CellFilter
-export NCollection_CellFilter
-import NCollection/NCollection_DataMap
-export NCollection_DataMap
+# include NCollection/NCollection_BaseList
+# export NCollection_BaseList
+# include NCollection/NCollection_BaseMap
+# export NCollection_BaseMap
+# include NCollection/NCollection_BaseSequence
+# export NCollection_BaseSequence
+# include NCollection/NCollection_BaseVector
+# export NCollection_BaseVector
+# include NCollection/NCollection_Buffer
+# export NCollection_Buffer
+# include NCollection/NCollection_CellFilter
+# export NCollection_CellFilter
+# include NCollection/NCollection_DataMap
+# export NCollection_DataMap
 import NCollection/NCollection_DefaultHasher
 export NCollection_DefaultHasher
-import NCollection/NCollection_DefineAlloc
-export NCollection_DefineAlloc
+# include NCollection/NCollection_DefineAlloc
+# export NCollection_DefineAlloc
 import NCollection/NCollection_DefineArray1
 export NCollection_DefineArray1
 import NCollection/NCollection_DefineArray2
@@ -7546,12 +7547,12 @@ import NCollection/NCollection_DefineDataMap
 export NCollection_DefineDataMap
 import NCollection/NCollection_DefineDoubleMap
 export NCollection_DefineDoubleMap
-# include NCollection/NCollection_DefineHArray1
-# export NCollection_DefineHArray1
-import NCollection/NCollection_DefineHArray2
-export NCollection_DefineHArray2
-import NCollection/NCollection_DefineHSequence
-export NCollection_DefineHSequence
+import NCollection/NCollection_DefineHArray1
+export NCollection_DefineHArray1
+# include NCollection/NCollection_DefineHArray2
+# export NCollection_DefineHArray2
+# include NCollection/NCollection_DefineHSequence
+# export NCollection_DefineHSequence
 import NCollection/NCollection_DefineIndexedDataMap
 export NCollection_DefineIndexedDataMap
 import NCollection/NCollection_DefineIndexedMap
@@ -7564,70 +7565,70 @@ import NCollection/NCollection_DefineSequence
 export NCollection_DefineSequence
 import NCollection/NCollection_DefineVector
 export NCollection_DefineVector
-import NCollection/NCollection_DoubleMap
-export NCollection_DoubleMap
-import NCollection/NCollection_EBTree
-export NCollection_EBTree
+# include NCollection/NCollection_DoubleMap
+# export NCollection_DoubleMap
+# include NCollection/NCollection_EBTree
+# export NCollection_EBTree
 import NCollection/NCollection_HArray1
 export NCollection_HArray1
 import NCollection/NCollection_HArray2
 export NCollection_HArray2
-import NCollection/NCollection_HSequence
-export NCollection_HSequence
+# include NCollection/NCollection_HSequence
+# export NCollection_HSequence
 import NCollection/NCollection_Handle
 export NCollection_Handle
 import NCollection/NCollection_HeapAllocator
 export NCollection_HeapAllocator
 import NCollection/NCollection_IncAllocator
 export NCollection_IncAllocator
-import NCollection/NCollection_IndexedDataMap
-export NCollection_IndexedDataMap
-import NCollection/NCollection_IndexedMap
-export NCollection_IndexedMap
+# include NCollection/NCollection_IndexedDataMap
+# export NCollection_IndexedDataMap
+# include NCollection/NCollection_IndexedMap
+# export NCollection_IndexedMap
 import NCollection/NCollection_Lerp
 export NCollection_Lerp
 import NCollection/NCollection_List
 export NCollection_List
-import NCollection/NCollection_ListNode
-export NCollection_ListNode
-import NCollection/NCollection_LocalArray
-export NCollection_LocalArray
-import NCollection/NCollection_Map
-export NCollection_Map
+# include NCollection/NCollection_ListNode
+# export NCollection_ListNode
+# include NCollection/NCollection_LocalArray
+# export NCollection_LocalArray
+# include NCollection/NCollection_Map
+# export NCollection_Map
 import NCollection/NCollection_Mat4
 export NCollection_Mat4
-import NCollection/NCollection_Sequence
-export NCollection_Sequence
-import NCollection/NCollection_Shared
-export NCollection_Shared
-import NCollection/NCollection_SparseArray
-export NCollection_SparseArray
-import NCollection/NCollection_SparseArrayBase
-export NCollection_SparseArrayBase
-import NCollection/NCollection_StdAllocator
-export NCollection_StdAllocator
-import NCollection/NCollection_StlIterator
-export NCollection_StlIterator
+# include NCollection/NCollection_Sequence
+# export NCollection_Sequence
+# include NCollection/NCollection_Shared
+# export NCollection_Shared
+# include NCollection/NCollection_SparseArray
+# export NCollection_SparseArray
+# include NCollection/NCollection_SparseArrayBase
+# export NCollection_SparseArrayBase
+# include NCollection/NCollection_StdAllocator
+# export NCollection_StdAllocator
+# include NCollection/NCollection_StlIterator
+# export NCollection_StlIterator
 import NCollection/NCollection_String
 export NCollection_String
 import NCollection/NCollection_TListIterator
 export NCollection_TListIterator
-import NCollection/NCollection_TListNode
-export NCollection_TListNode
+# include NCollection/NCollection_TListNode
+# export NCollection_TListNode
 import NCollection/NCollection_TypeDef
 export NCollection_TypeDef
-import NCollection/NCollection_UBTree
-export NCollection_UBTree
-import NCollection/NCollection_UBTreeFiller
-export NCollection_UBTreeFiller
-import NCollection/NCollection_UtfIterator
-export NCollection_UtfIterator
-import NCollection/NCollection_UtfString
-export NCollection_UtfString
-import NCollection/NCollection_Vec2
-export NCollection_Vec2
-import NCollection/NCollection_Vec3
-export NCollection_Vec3
+# include NCollection/NCollection_UBTree
+# export NCollection_UBTree
+# include NCollection/NCollection_UBTreeFiller
+# export NCollection_UBTreeFiller
+# include NCollection/NCollection_UtfIterator
+# export NCollection_UtfIterator
+# include NCollection/NCollection_UtfString
+# export NCollection_UtfString
+# include NCollection/NCollection_Vec2
+# export NCollection_Vec2
+# include NCollection/NCollection_Vec3
+# export NCollection_Vec3
 import NCollection/NCollection_Vec4
 export NCollection_Vec4
 import NCollection/NCollection_Vector
@@ -10468,8 +10469,8 @@ import Standard/Standard_Address
 export Standard_Address
 import Standard/Standard_ArrayStreamBuffer
 export Standard_ArrayStreamBuffer
-# include Standard/Standard_Assert
-# export Standard_Assert
+import Standard/Standard_Assert
+export Standard_Assert
 import Standard/Standard_Atomic
 export Standard_Atomic
 import Standard/Standard_Boolean
@@ -10512,8 +10513,8 @@ import Standard/Standard_Failure
 export Standard_Failure
 import Standard/Standard_GUID
 export Standard_GUID
-# include Standard/Standard_Handle
-# export Standard_Handle
+import Standard/Standard_Handle
+export Standard_Handle
 import Standard/Standard_HandlerStatus
 export Standard_HandlerStatus
 import Standard/Standard_IStream
@@ -16074,6 +16075,5 @@ export math_Vector
 
 import step.tab/step.tab
 export step.tab
-
 
 

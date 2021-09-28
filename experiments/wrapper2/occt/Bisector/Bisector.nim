@@ -29,5 +29,30 @@ type
   Bisector* {.importcpp: "Bisector", header: "Bisector.hxx", bycopy.} = object
 
 
-proc isConvex*(cu: Handle[Geom2dCurve]; sign: float): bool {.
+proc isConvex*(cu: Handle[Geom2dCurve]; sign: cfloat): bool {.
     importcpp: "Bisector::IsConvex(@)", header: "Bisector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

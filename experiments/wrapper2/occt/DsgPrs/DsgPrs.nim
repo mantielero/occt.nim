@@ -27,43 +27,69 @@ proc computeSymbol*(aPresentation: Handle[Prs3dPresentation];
                    dir1: Dir; dir2: Dir; arrowSide: DsgPrsArrowSide;
                    drawFromCenter: bool = true) {.
     importcpp: "DsgPrs::ComputeSymbol(@)", header: "DsgPrs.hxx".}
-proc computePlanarFacesLengthPresentation*(firstArrowLength: float;
-    secondArrowLength: float; attachmentPoint1: Pnt; attachmentPoint2: Pnt;
+proc computePlanarFacesLengthPresentation*(firstArrowLength: cfloat;
+    secondArrowLength: cfloat; attachmentPoint1: Pnt; attachmentPoint2: Pnt;
     dirAttach: Dir; offsetPoint: Pnt; planeOfFaces: Pln; endOfArrow1: var Pnt;
     endOfArrow2: var Pnt; dirOfArrow1: var Dir) {.
     importcpp: "DsgPrs::ComputePlanarFacesLengthPresentation(@)",
     header: "DsgPrs.hxx".}
-proc computeCurvilinearFacesLengthPresentation*(firstArrowLength: float;
-    secondArrowLength: float; secondSurf: Handle[GeomSurface];
+proc computeCurvilinearFacesLengthPresentation*(firstArrowLength: cfloat;
+    secondArrowLength: cfloat; secondSurf: Handle[GeomSurface];
     attachmentPoint1: Pnt; attachmentPoint2: Pnt; dirAttach: Dir;
     endOfArrow2: var Pnt; dirOfArrow1: var Dir; vCurve: var Handle[GeomCurve];
-    uCurve: var Handle[GeomCurve]; firstU: var float; deltaU: var float;
-    firstV: var float; deltaV: var float) {.importcpp: "DsgPrs::ComputeCurvilinearFacesLengthPresentation(@)",
-                                      header: "DsgPrs.hxx".}
-proc computeFacesAnglePresentation*(arrowLength: float; value: float;
+    uCurve: var Handle[GeomCurve]; firstU: var cfloat; deltaU: var cfloat;
+    firstV: var cfloat; deltaV: var cfloat) {.importcpp: "DsgPrs::ComputeCurvilinearFacesLengthPresentation(@)",
+                                        header: "DsgPrs.hxx".}
+proc computeFacesAnglePresentation*(arrowLength: cfloat; value: cfloat;
                                    centerPoint: Pnt; attachmentPoint1: Pnt;
                                    attachmentPoint2: Pnt; dir1: Dir; dir2: Dir;
                                    axisdir: Dir; isPlane: bool; axisOfSurf: Ax1;
                                    offsetPoint: Pnt; angleCirc: var Circ;
-                                   firstParAngleCirc: var float;
-                                   lastParAngleCirc: var float;
+                                   firstParAngleCirc: var cfloat;
+                                   lastParAngleCirc: var cfloat;
                                    endOfArrow1: var Pnt; endOfArrow2: var Pnt;
                                    dirOfArrow1: var Dir; dirOfArrow2: var Dir;
                                    projAttachPoint2: var Pnt; attachCirc: var Circ;
-                                   firstParAttachCirc: var float;
-                                   lastParAttachCirc: var float) {.
+                                   firstParAttachCirc: var cfloat;
+                                   lastParAttachCirc: var cfloat) {.
     importcpp: "DsgPrs::ComputeFacesAnglePresentation(@)", header: "DsgPrs.hxx".}
 proc computeRadiusLine*(aCenter: Pnt; anEndOfArrow: Pnt; aPosition: Pnt;
                        drawFromCenter: bool; aRadLineOrign: var Pnt;
                        aRadLineEnd: var Pnt) {.
     importcpp: "DsgPrs::ComputeRadiusLine(@)", header: "DsgPrs.hxx".}
-proc computeFilletRadiusPresentation*(arrowLength: float; value: float;
+proc computeFilletRadiusPresentation*(arrowLength: cfloat; value: cfloat;
                                      position: Pnt; normalDir: Dir; firstPoint: Pnt;
                                      secondPoint: Pnt; center: Pnt; basePnt: Pnt;
                                      drawRevers: bool; specCase: var bool;
-                                     filletCirc: var Circ; firstParCirc: var float;
-                                     lastParCirc: var float; endOfArrow: var Pnt;
+                                     filletCirc: var Circ;
+                                     firstParCirc: var cfloat;
+                                     lastParCirc: var cfloat; endOfArrow: var Pnt;
                                      dirOfArrow: var Dir; drawPosition: var Pnt) {.
     importcpp: "DsgPrs::ComputeFilletRadiusPresentation(@)", header: "DsgPrs.hxx".}
-proc distanceFromApex*(elips: Elips; apex: Pnt; par: float): float {.
+proc distanceFromApex*(elips: Elips; apex: Pnt; par: cfloat): cfloat {.
     importcpp: "DsgPrs::DistanceFromApex(@)", header: "DsgPrs.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

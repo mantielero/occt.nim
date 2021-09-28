@@ -35,7 +35,7 @@ type
 
 
 proc compute*(asDes: Handle[BRepAlgoAsDes]; f: TopoDS_Face;
-             newEdges: TopToolsIndexedMapOfShape; tol: float;
+             newEdges: TopToolsIndexedMapOfShape; tol: cfloat;
              theEdgeIntEdges: TopToolsDataMapOfShapeListOfShape;
              theDMVV: var TopToolsIndexedDataMapOfShapeListOfShape) {.
     importcpp: "BRepOffset_Inter2d::Compute(@)", header: "BRepOffset_Inter2d.hxx".}
@@ -43,7 +43,7 @@ proc connexIntByInt*(fi: TopoDS_Face; ofi: var BRepOffsetOffset;
                     mes: var TopToolsDataMapOfShapeShape;
                     build: TopToolsDataMapOfShapeShape;
                     theAsDes: Handle[BRepAlgoAsDes];
-                    asDes2d: Handle[BRepAlgoAsDes]; offset: float; tol: float;
+                    asDes2d: Handle[BRepAlgoAsDes]; offset: cfloat; tol: cfloat;
                     analyse: BRepOffsetAnalyse;
                     facesWithVerts: var TopToolsIndexedMapOfShape;
                     theImageVV: var BRepAlgoImage;
@@ -55,7 +55,7 @@ proc connexIntByIntInVert*(fi: TopoDS_Face; ofi: var BRepOffsetOffset;
                           mes: var TopToolsDataMapOfShapeShape;
                           build: TopToolsDataMapOfShapeShape;
                           asDes: Handle[BRepAlgoAsDes];
-                          asDes2d: Handle[BRepAlgoAsDes]; tol: float;
+                          asDes2d: Handle[BRepAlgoAsDes]; tol: cfloat;
                           analyse: BRepOffsetAnalyse;
                           theDMVV: var TopToolsIndexedDataMapOfShapeListOfShape) {.
     importcpp: "BRepOffset_Inter2d::ConnexIntByIntInVert(@)",
@@ -64,6 +64,31 @@ proc fuseVertices*(theDMVV: TopToolsIndexedDataMapOfShapeListOfShape;
                   theAsDes: Handle[BRepAlgoAsDes]; theImageVV: var BRepAlgoImage): bool {.
     importcpp: "BRepOffset_Inter2d::FuseVertices(@)",
     header: "BRepOffset_Inter2d.hxx".}
-proc extentEdge*(e: TopoDS_Edge; ne: var TopoDS_Edge; theOffset: float): bool {.
+proc extentEdge*(e: TopoDS_Edge; ne: var TopoDS_Edge; theOffset: cfloat): bool {.
     importcpp: "BRepOffset_Inter2d::ExtentEdge(@)",
     header: "BRepOffset_Inter2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,10 +22,35 @@ type
                                   bycopy.} = object of MathFunctionSet ## ! returns the number of variables of the function.
 
 
-proc nbVariables*(this: FairCurveDistributionOfEnergy): int {.noSideEffect,
+proc nbVariables*(this: FairCurveDistributionOfEnergy): cint {.noSideEffect,
     importcpp: "NbVariables", header: "FairCurve_DistributionOfEnergy.hxx".}
-proc nbEquations*(this: FairCurveDistributionOfEnergy): int {.noSideEffect,
+proc nbEquations*(this: FairCurveDistributionOfEnergy): cint {.noSideEffect,
     importcpp: "NbEquations", header: "FairCurve_DistributionOfEnergy.hxx".}
 proc setDerivativeOrder*(this: var FairCurveDistributionOfEnergy;
-                        derivativeOrder: int) {.importcpp: "SetDerivativeOrder",
+                        derivativeOrder: cint) {.importcpp: "SetDerivativeOrder",
     header: "FairCurve_DistributionOfEnergy.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

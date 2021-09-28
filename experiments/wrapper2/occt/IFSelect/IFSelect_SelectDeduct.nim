@@ -23,7 +23,7 @@ discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectDeduct"
 discard "forward decl of IFSelect_SelectDeduct"
 type
-  HandleIFSelectSelectDeduct* = Handle[IFSelectSelectDeduct]
+  HandleC1C1* = Handle[IFSelectSelectDeduct]
 
 ## ! A SelectDeduct determines a list of Entities from an Input
 ## ! Selection, by a computation : Output list is not obliged to be
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectDeduct.hxx".}
 proc dynamicType*(this: IFSelectSelectDeduct): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectDeduct.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

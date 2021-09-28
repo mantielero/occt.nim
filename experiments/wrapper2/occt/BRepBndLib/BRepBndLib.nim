@@ -131,3 +131,28 @@ proc addOBB*(theS: TopoDS_Shape; theOBB: var BndOBB;
             theIsTriangulationUsed: bool = true; theIsOptimal: bool = false;
             theIsShapeToleranceUsed: bool = true) {.
     importcpp: "BRepBndLib::AddOBB(@)", header: "BRepBndLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

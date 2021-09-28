@@ -55,30 +55,30 @@ proc clear*(this: var IGESSolidTopoBuilder) {.importcpp: "Clear",
     header: "IGESSolid_TopoBuilder.hxx".}
 proc addVertex*(this: var IGESSolidTopoBuilder; val: Xyz) {.importcpp: "AddVertex",
     header: "IGESSolid_TopoBuilder.hxx".}
-proc nbVertices*(this: IGESSolidTopoBuilder): int {.noSideEffect,
+proc nbVertices*(this: IGESSolidTopoBuilder): cint {.noSideEffect,
     importcpp: "NbVertices", header: "IGESSolid_TopoBuilder.hxx".}
-proc vertex*(this: IGESSolidTopoBuilder; num: int): Xyz {.noSideEffect,
+proc vertex*(this: IGESSolidTopoBuilder; num: cint): Xyz {.noSideEffect,
     importcpp: "Vertex", header: "IGESSolid_TopoBuilder.hxx".}
 proc vertexList*(this: IGESSolidTopoBuilder): Handle[IGESSolidVertexList] {.
     noSideEffect, importcpp: "VertexList", header: "IGESSolid_TopoBuilder.hxx".}
 proc addEdge*(this: var IGESSolidTopoBuilder; curve: Handle[IGESDataIGESEntity];
-             vstart: int; vend: int) {.importcpp: "AddEdge",
-                                   header: "IGESSolid_TopoBuilder.hxx".}
-proc nbEdges*(this: IGESSolidTopoBuilder): int {.noSideEffect, importcpp: "NbEdges",
+             vstart: cint; vend: cint) {.importcpp: "AddEdge",
+                                     header: "IGESSolid_TopoBuilder.hxx".}
+proc nbEdges*(this: IGESSolidTopoBuilder): cint {.noSideEffect, importcpp: "NbEdges",
     header: "IGESSolid_TopoBuilder.hxx".}
-proc edge*(this: IGESSolidTopoBuilder; num: int;
-          curve: var Handle[IGESDataIGESEntity]; vstart: var int; vend: var int) {.
+proc edge*(this: IGESSolidTopoBuilder; num: cint;
+          curve: var Handle[IGESDataIGESEntity]; vstart: var cint; vend: var cint) {.
     noSideEffect, importcpp: "Edge", header: "IGESSolid_TopoBuilder.hxx".}
 proc edgeList*(this: IGESSolidTopoBuilder): Handle[IGESSolidEdgeList] {.
     noSideEffect, importcpp: "EdgeList", header: "IGESSolid_TopoBuilder.hxx".}
 proc makeLoop*(this: var IGESSolidTopoBuilder) {.importcpp: "MakeLoop",
     header: "IGESSolid_TopoBuilder.hxx".}
-proc makeEdge*(this: var IGESSolidTopoBuilder; edgetype: int; edge3d: int;
-              orientation: int) {.importcpp: "MakeEdge",
-                                header: "IGESSolid_TopoBuilder.hxx".}
+proc makeEdge*(this: var IGESSolidTopoBuilder; edgetype: cint; edge3d: cint;
+              orientation: cint) {.importcpp: "MakeEdge",
+                                 header: "IGESSolid_TopoBuilder.hxx".}
 proc addCurveUV*(this: var IGESSolidTopoBuilder; curve: Handle[IGESDataIGESEntity];
-                iso: int) {.importcpp: "AddCurveUV",
-                          header: "IGESSolid_TopoBuilder.hxx".}
+                iso: cint) {.importcpp: "AddCurveUV",
+                           header: "IGESSolid_TopoBuilder.hxx".}
 proc endEdge*(this: var IGESSolidTopoBuilder) {.importcpp: "EndEdge",
     header: "IGESSolid_TopoBuilder.hxx".}
 proc makeFace*(this: var IGESSolidTopoBuilder; surface: Handle[IGESDataIGESEntity]) {.
@@ -87,15 +87,15 @@ proc setOuter*(this: var IGESSolidTopoBuilder) {.importcpp: "SetOuter",
     header: "IGESSolid_TopoBuilder.hxx".}
 proc addInner*(this: var IGESSolidTopoBuilder) {.importcpp: "AddInner",
     header: "IGESSolid_TopoBuilder.hxx".}
-proc endFace*(this: var IGESSolidTopoBuilder; orientation: int) {.
+proc endFace*(this: var IGESSolidTopoBuilder; orientation: cint) {.
     importcpp: "EndFace", header: "IGESSolid_TopoBuilder.hxx".}
 proc makeShell*(this: var IGESSolidTopoBuilder) {.importcpp: "MakeShell",
     header: "IGESSolid_TopoBuilder.hxx".}
 proc endSimpleShell*(this: var IGESSolidTopoBuilder) {.importcpp: "EndSimpleShell",
     header: "IGESSolid_TopoBuilder.hxx".}
-proc setMainShell*(this: var IGESSolidTopoBuilder; orientation: int) {.
+proc setMainShell*(this: var IGESSolidTopoBuilder; orientation: cint) {.
     importcpp: "SetMainShell", header: "IGESSolid_TopoBuilder.hxx".}
-proc addVoidShell*(this: var IGESSolidTopoBuilder; orientation: int) {.
+proc addVoidShell*(this: var IGESSolidTopoBuilder; orientation: cint) {.
     importcpp: "AddVoidShell", header: "IGESSolid_TopoBuilder.hxx".}
 proc endSolid*(this: var IGESSolidTopoBuilder) {.importcpp: "EndSolid",
     header: "IGESSolid_TopoBuilder.hxx".}
@@ -103,3 +103,28 @@ proc shell*(this: IGESSolidTopoBuilder): Handle[IGESSolidShell] {.noSideEffect,
     importcpp: "Shell", header: "IGESSolid_TopoBuilder.hxx".}
 proc solid*(this: IGESSolidTopoBuilder): Handle[IGESSolidManifoldSolid] {.
     noSideEffect, importcpp: "Solid", header: "IGESSolid_TopoBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

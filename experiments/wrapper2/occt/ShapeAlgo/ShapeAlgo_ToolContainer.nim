@@ -18,7 +18,7 @@ discard "forward decl of ShapeFix_EdgeProjAux"
 discard "forward decl of ShapeAlgo_ToolContainer"
 discard "forward decl of ShapeAlgo_ToolContainer"
 type
-  HandleShapeAlgoToolContainer* = Handle[ShapeAlgoToolContainer]
+  HandleC1C1* = Handle[ShapeAlgoToolContainer]
 
 ## ! Returns tools used by AlgoContainer
 
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeAlgo_ToolContainer.hxx".}
 proc dynamicType*(this: ShapeAlgoToolContainer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeAlgo_ToolContainer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

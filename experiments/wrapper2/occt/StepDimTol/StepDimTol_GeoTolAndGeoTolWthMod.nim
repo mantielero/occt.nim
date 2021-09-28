@@ -21,7 +21,7 @@ discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepDimTol_GeoTolAndGeoTolWthMod"
 discard "forward decl of StepDimTol_GeoTolAndGeoTolWthMod"
 type
-  HandleStepDimTolGeoTolAndGeoTolWthMod* = Handle[StepDimTolGeoTolAndGeoTolWthMod]
+  HandleC1C1* = Handle[StepDimTolGeoTolAndGeoTolWthMod]
   StepDimTolGeoTolAndGeoTolWthMod* {.importcpp: "StepDimTol_GeoTolAndGeoTolWthMod", header: "StepDimTol_GeoTolAndGeoTolWthMod.hxx",
                                     bycopy.} = object of StepDimTolGeometricTolerance
 
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolGeoTolAndGeoTolWthMod): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_GeoTolAndGeoTolWthMod.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

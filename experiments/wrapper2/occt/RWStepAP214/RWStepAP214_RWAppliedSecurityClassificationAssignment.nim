@@ -30,7 +30,7 @@ proc constructRWStepAP214RWAppliedSecurityClassificationAssignment*(): RWStepAP2
     importcpp: "RWStepAP214_RWAppliedSecurityClassificationAssignment(@)",
     header: "RWStepAP214_RWAppliedSecurityClassificationAssignment.hxx".}
 proc readStep*(this: RWStepAP214RWAppliedSecurityClassificationAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AppliedSecurityClassificationAssignment]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepAP214RWAppliedSecurityClassificationAssignment;
            ent: Handle[StepAP214AppliedSecurityClassificationAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedSecurityClassificationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

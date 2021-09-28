@@ -17,8 +17,7 @@
 discard "forward decl of ShapeUpgrade_SplitSurfaceContinuity"
 discard "forward decl of ShapeUpgrade_SplitSurfaceContinuity"
 type
-  HandleShapeUpgradeSplitSurfaceContinuity* = Handle[
-      ShapeUpgradeSplitSurfaceContinuity]
+  HandleC1C1* = Handle[ShapeUpgradeSplitSurfaceContinuity]
 
 ## ! Splits a Surface with a continuity criterion.
 ## ! At the present moment C1 criterion is used only.
@@ -40,7 +39,7 @@ proc constructShapeUpgradeSplitSurfaceContinuity*(): ShapeUpgradeSplitSurfaceCon
 proc setCriterion*(this: var ShapeUpgradeSplitSurfaceContinuity;
                   criterion: GeomAbsShape) {.importcpp: "SetCriterion",
     header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
-proc setTolerance*(this: var ShapeUpgradeSplitSurfaceContinuity; tol: float) {.
+proc setTolerance*(this: var ShapeUpgradeSplitSurfaceContinuity; tol: cfloat) {.
     importcpp: "SetTolerance", header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
 proc compute*(this: var ShapeUpgradeSplitSurfaceContinuity; segment: bool) {.
     importcpp: "Compute", header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeSplitSurfaceContinuity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_SplitSurfaceContinuity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

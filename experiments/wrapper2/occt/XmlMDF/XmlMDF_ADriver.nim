@@ -21,7 +21,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of XmlMDF_ADriver"
 discard "forward decl of XmlMDF_ADriver"
 type
-  HandleXmlMDF_ADriver* = Handle[XmlMDF_ADriver]
+  HandleC1C1* = Handle[XmlMDF_ADriver]
 
 ## ! Attribute Storage/Retrieval Driver.
 
@@ -42,7 +42,7 @@ type
                                                                                                             ## available.
 
 
-proc versionNumber*(this: XmlMDF_ADriver): int {.noSideEffect,
+proc versionNumber*(this: XmlMDF_ADriver): cint {.noSideEffect,
     importcpp: "VersionNumber", header: "XmlMDF_ADriver.hxx".}
 proc newEmpty*(this: XmlMDF_ADriver): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "XmlMDF_ADriver.hxx".}
@@ -72,3 +72,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XmlMDF_ADriver.hxx".}
 proc dynamicType*(this: XmlMDF_ADriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XmlMDF_ADriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

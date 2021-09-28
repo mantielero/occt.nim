@@ -40,7 +40,7 @@ type
 
 proc constructGC_MakeEllipse*(e: Elips): GC_MakeEllipse {.constructor,
     importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc constructGC_MakeEllipse*(a2: Ax2; majorRadius: float; minorRadius: float): GC_MakeEllipse {.
+proc constructGC_MakeEllipse*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GC_MakeEllipse {.
     constructor, importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
 proc constructGC_MakeEllipse*(s1: Pnt; s2: Pnt; center: Pnt): GC_MakeEllipse {.
     constructor, importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
@@ -49,3 +49,24 @@ proc value*(this: GC_MakeEllipse): Handle[GeomEllipse] {.noSideEffect,
 converter `constopencascade`*(this: GC_MakeEllipse): Handle[GeomEllipse] {.
     noSideEffect, importcpp: "GC_MakeEllipse::operator constopencascade",
     header: "GC_MakeEllipse.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

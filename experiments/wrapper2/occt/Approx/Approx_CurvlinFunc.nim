@@ -24,7 +24,7 @@ discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Approx_CurvlinFunc"
 discard "forward decl of Approx_CurvlinFunc"
 type
-  HandleApproxCurvlinFunc* = Handle[ApproxCurvlinFunc]
+  HandleC1C1* = Handle[ApproxCurvlinFunc]
 
 ## ! defines an abstract curve with
 ## ! curvilinear parametrization
@@ -34,49 +34,50 @@ type
                       header: "Approx_CurvlinFunc.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructApproxCurvlinFunc*(c: Handle[Adaptor3dHCurve]; tol: float): ApproxCurvlinFunc {.
+proc constructApproxCurvlinFunc*(c: Handle[Adaptor3dHCurve]; tol: cfloat): ApproxCurvlinFunc {.
     constructor, importcpp: "Approx_CurvlinFunc(@)",
     header: "Approx_CurvlinFunc.hxx".}
 proc constructApproxCurvlinFunc*(c2d: Handle[Adaptor2dHCurve2d];
-                                s: Handle[Adaptor3dHSurface]; tol: float): ApproxCurvlinFunc {.
+                                s: Handle[Adaptor3dHSurface]; tol: cfloat): ApproxCurvlinFunc {.
     constructor, importcpp: "Approx_CurvlinFunc(@)",
     header: "Approx_CurvlinFunc.hxx".}
 proc constructApproxCurvlinFunc*(c2d1: Handle[Adaptor2dHCurve2d];
                                 c2d2: Handle[Adaptor2dHCurve2d];
                                 s1: Handle[Adaptor3dHSurface];
-                                s2: Handle[Adaptor3dHSurface]; tol: float): ApproxCurvlinFunc {.
+                                s2: Handle[Adaptor3dHSurface]; tol: cfloat): ApproxCurvlinFunc {.
     constructor, importcpp: "Approx_CurvlinFunc(@)",
     header: "Approx_CurvlinFunc.hxx".}
-proc setTol*(this: var ApproxCurvlinFunc; tol: float) {.importcpp: "SetTol",
+proc setTol*(this: var ApproxCurvlinFunc; tol: cfloat) {.importcpp: "SetTol",
     header: "Approx_CurvlinFunc.hxx".}
-proc firstParameter*(this: ApproxCurvlinFunc): float {.noSideEffect,
+proc firstParameter*(this: ApproxCurvlinFunc): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "Approx_CurvlinFunc.hxx".}
-proc lastParameter*(this: ApproxCurvlinFunc): float {.noSideEffect,
+proc lastParameter*(this: ApproxCurvlinFunc): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "Approx_CurvlinFunc.hxx".}
-proc nbIntervals*(this: ApproxCurvlinFunc; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: ApproxCurvlinFunc; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Approx_CurvlinFunc.hxx".}
 proc intervals*(this: ApproxCurvlinFunc; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Approx_CurvlinFunc.hxx".}
-proc trim*(this: var ApproxCurvlinFunc; first: float; last: float; tol: float) {.
+proc trim*(this: var ApproxCurvlinFunc; first: cfloat; last: cfloat; tol: cfloat) {.
     importcpp: "Trim", header: "Approx_CurvlinFunc.hxx".}
 proc length*(this: var ApproxCurvlinFunc) {.importcpp: "Length",
                                         header: "Approx_CurvlinFunc.hxx".}
-proc length*(this: ApproxCurvlinFunc; c: var Adaptor3dCurve; firstU: float; lasrU: float): float {.
-    noSideEffect, importcpp: "Length", header: "Approx_CurvlinFunc.hxx".}
-proc getLength*(this: ApproxCurvlinFunc): float {.noSideEffect,
+proc length*(this: ApproxCurvlinFunc; c: var Adaptor3dCurve; firstU: cfloat;
+            lasrU: cfloat): cfloat {.noSideEffect, importcpp: "Length",
+                                  header: "Approx_CurvlinFunc.hxx".}
+proc getLength*(this: ApproxCurvlinFunc): cfloat {.noSideEffect,
     importcpp: "GetLength", header: "Approx_CurvlinFunc.hxx".}
-proc getUParameter*(this: ApproxCurvlinFunc; c: var Adaptor3dCurve; s: float;
-                   numberOfCurve: int): float {.noSideEffect,
+proc getUParameter*(this: ApproxCurvlinFunc; c: var Adaptor3dCurve; s: cfloat;
+                   numberOfCurve: cint): cfloat {.noSideEffect,
     importcpp: "GetUParameter", header: "Approx_CurvlinFunc.hxx".}
-proc getSParameter*(this: ApproxCurvlinFunc; u: float): float {.noSideEffect,
+proc getSParameter*(this: ApproxCurvlinFunc; u: cfloat): cfloat {.noSideEffect,
     importcpp: "GetSParameter", header: "Approx_CurvlinFunc.hxx".}
-proc evalCase1*(this: ApproxCurvlinFunc; s: float; order: int;
+proc evalCase1*(this: ApproxCurvlinFunc; s: cfloat; order: cint;
                result: var TColStdArray1OfReal): bool {.noSideEffect,
     importcpp: "EvalCase1", header: "Approx_CurvlinFunc.hxx".}
-proc evalCase2*(this: ApproxCurvlinFunc; s: float; order: int;
+proc evalCase2*(this: ApproxCurvlinFunc; s: cfloat; order: cint;
                result: var TColStdArray1OfReal): bool {.noSideEffect,
     importcpp: "EvalCase2", header: "Approx_CurvlinFunc.hxx".}
-proc evalCase3*(this: var ApproxCurvlinFunc; s: float; order: int;
+proc evalCase3*(this: var ApproxCurvlinFunc; s: cfloat; order: cint;
                result: var TColStdArray1OfReal): bool {.importcpp: "EvalCase3",
     header: "Approx_CurvlinFunc.hxx".}
 type
@@ -89,3 +90,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Approx_CurvlinFunc.hxx".}
 proc dynamicType*(this: ApproxCurvlinFunc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Approx_CurvlinFunc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

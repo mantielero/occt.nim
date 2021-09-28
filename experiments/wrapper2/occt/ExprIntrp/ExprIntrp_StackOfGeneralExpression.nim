@@ -20,3 +20,28 @@ type
   ExprIntrpListIteratorOfStackOfGeneralExpression* = Iterator[
       Handle[ExprGeneralExpression]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

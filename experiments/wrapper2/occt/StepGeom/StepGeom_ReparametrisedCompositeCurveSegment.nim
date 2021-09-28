@@ -18,8 +18,7 @@ discard "forward decl of StepGeom_Curve"
 discard "forward decl of StepGeom_ReparametrisedCompositeCurveSegment"
 discard "forward decl of StepGeom_ReparametrisedCompositeCurveSegment"
 type
-  HandleStepGeomReparametrisedCompositeCurveSegment* = Handle[
-      StepGeomReparametrisedCompositeCurveSegment]
+  HandleC1C1* = Handle[StepGeomReparametrisedCompositeCurveSegment]
   StepGeomReparametrisedCompositeCurveSegment* {.
       importcpp: "StepGeom_ReparametrisedCompositeCurveSegment",
       header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx", bycopy.} = object of StepGeomCompositeCurveSegment ##
@@ -34,12 +33,12 @@ proc constructStepGeomReparametrisedCompositeCurveSegment*(): StepGeomReparametr
     header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
 proc init*(this: var StepGeomReparametrisedCompositeCurveSegment;
           aTransition: StepGeomTransitionCode; aSameSense: bool;
-          aParentCurve: Handle[StepGeomCurve]; aParamLength: float) {.
+          aParentCurve: Handle[StepGeomCurve]; aParamLength: cfloat) {.
     importcpp: "Init", header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
 proc setParamLength*(this: var StepGeomReparametrisedCompositeCurveSegment;
-                    aParamLength: float) {.importcpp: "SetParamLength",
+                    aParamLength: cfloat) {.importcpp: "SetParamLength",
     header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
-proc paramLength*(this: StepGeomReparametrisedCompositeCurveSegment): float {.
+proc paramLength*(this: StepGeomReparametrisedCompositeCurveSegment): cfloat {.
     noSideEffect, importcpp: "ParamLength",
     header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
 type
@@ -51,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_Reparamet
 proc dynamicType*(this: StepGeomReparametrisedCompositeCurveSegment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,14 +17,54 @@
 ## !!!Ignored construct:  # _Graphic3d_StructureDefinitionError_HeaderFile [NewLine] # _Graphic3d_StructureDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Graphic3d_StructureDefinitionError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Graphic3d_StructureDefinitionError"
-type
-  HandleGraphic3dStructureDefinitionErrorGraphic3dStructureDefinitionError* = Handle[
-      Graphic3dStructureDefinitionError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Graphic3d_StructureDefinitionError , Standard_OutOfRange ) # ! defined No_Exception && ! defined No_Graphic3d_StructureDefinitionError [NewLine] # Graphic3d_StructureDefinitionError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Graphic3d_StructureDefinitionError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Graphic3d_StructureDefinitionError [NewLine] # if ( CONDITION ) throw Graphic3d_StructureDefinitionError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Graphic3d_StructureDefinitionError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_StructureDefinitionError , Standard_OutOfRange ) #  _Graphic3d_StructureDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_StructureDefinitionError , Standard_OutOfRange ) #  _Graphic3d_StructureDefinitionError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

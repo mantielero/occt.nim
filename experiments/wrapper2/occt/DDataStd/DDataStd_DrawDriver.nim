@@ -21,7 +21,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of DDataStd_DrawDriver"
 discard "forward decl of DDataStd_DrawDriver"
 type
-  HandleDDataStdDrawDriver* = Handle[DDataStdDrawDriver]
+  HandleC1C1* = Handle[DDataStdDrawDriver]
 
 ## ! Root class of drivers to build draw variables from TDF_Label.
 ## ! Priority rule to display standard attributes is :
@@ -72,3 +72,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DDataStd_DrawDriver.hxx".}
 proc dynamicType*(this: DDataStdDrawDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DDataStd_DrawDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

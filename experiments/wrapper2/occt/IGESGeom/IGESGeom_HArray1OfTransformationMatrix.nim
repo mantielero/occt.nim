@@ -14,35 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESGeomHArray1OfTransformationMatrix* {.
-      importcpp: "IGESGeom_HArray1OfTransformationMatrix",
-      header: "IGESGeom_HArray1OfTransformationMatrix.hxx", bycopy.} = object of IGESGeomArray1OfTransformationMatrix
+## !!!Ignored construct:  # IGESGeom_HArray1OfTransformationMatrix_HeaderFile [NewLine] # IGESGeom_HArray1OfTransformationMatrix_HeaderFile [NewLine] # < IGESGeom_TransformationMatrix . hxx > [NewLine] # < IGESGeom_Array1OfTransformationMatrix . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESGeom_HArray1OfTransformationMatrix , IGESGeom_Array1OfTransformationMatrix ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESGeomHArray1OfTransformationMatrix*(theLower: int; theUpper: int): IGESGeomHArray1OfTransformationMatrix {.
-    constructor, importcpp: "IGESGeom_HArray1OfTransformationMatrix(@)",
-    header: "IGESGeom_HArray1OfTransformationMatrix.hxx".}
-proc constructIGESGeomHArray1OfTransformationMatrix*(theLower: int; theUpper: int;
-    theValue: ValueType): IGESGeomHArray1OfTransformationMatrix {.constructor,
-    importcpp: "IGESGeom_HArray1OfTransformationMatrix(@)",
-    header: "IGESGeom_HArray1OfTransformationMatrix.hxx".}
-proc constructIGESGeomHArray1OfTransformationMatrix*(
-    theOther: IGESGeomArray1OfTransformationMatrix): IGESGeomHArray1OfTransformationMatrix {.
-    constructor, importcpp: "IGESGeom_HArray1OfTransformationMatrix(@)",
-    header: "IGESGeom_HArray1OfTransformationMatrix.hxx".}
-proc array1*(this: IGESGeomHArray1OfTransformationMatrix): IGESGeomArray1OfTransformationMatrix {.
-    noSideEffect, importcpp: "Array1",
-    header: "IGESGeom_HArray1OfTransformationMatrix.hxx".}
-proc changeArray1*(this: var IGESGeomHArray1OfTransformationMatrix): var IGESGeomArray1OfTransformationMatrix {.
-    importcpp: "ChangeArray1",
-    header: "IGESGeom_HArray1OfTransformationMatrix.hxx".}
-type
-  IGESGeomHArray1OfTransformationMatrixbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESGeom_HArray1OfTransformationMatrix::get_type_name(@)", header: "IGESGeom_HArray1OfTransformationMatrix.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "IGESGeom_HArray1OfTransformationMatrix::get_type_descriptor(@)",
-    header: "IGESGeom_HArray1OfTransformationMatrix.hxx".}
-proc dynamicType*(this: IGESGeomHArray1OfTransformationMatrix): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESGeom_HArray1OfTransformationMatrix.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,3 +34,28 @@ proc initAreaBuilder*(this: var TopOpeBRepBuildArea2dBuilder;
                      lc: var TopOpeBRepBuildLoopClassifier;
                      forceClass: bool = false) {.importcpp: "InitAreaBuilder",
     header: "TopOpeBRepBuild_Area2dBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

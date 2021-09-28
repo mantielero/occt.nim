@@ -55,5 +55,30 @@ proc updateDrawStats*(this: OpenGlElement;
 proc synchronizeAspects*(this: var OpenGlElement) {.importcpp: "SynchronizeAspects",
     header: "OpenGl_Element.hxx".}
 proc dumpJson*(this: OpenGlElement; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_Element.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_Element.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

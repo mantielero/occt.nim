@@ -20,7 +20,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_ConeFrustum"
 discard "forward decl of IGESSolid_ConeFrustum"
 type
-  HandleIGESSolidConeFrustum* = Handle[IGESSolidConeFrustum]
+  HandleC1C1* = Handle[IGESSolidConeFrustum]
 
 ## ! defines ConeFrustum, Type <156> Form Number <0>
 ## ! in package IGESSolid
@@ -37,13 +37,14 @@ type
 
 proc constructIGESSolidConeFrustum*(): IGESSolidConeFrustum {.constructor,
     importcpp: "IGESSolid_ConeFrustum(@)", header: "IGESSolid_ConeFrustum.hxx".}
-proc init*(this: var IGESSolidConeFrustum; ht: float; r1: float; r2: float; center: Xyz;
-          anAxis: Xyz) {.importcpp: "Init", header: "IGESSolid_ConeFrustum.hxx".}
-proc height*(this: IGESSolidConeFrustum): float {.noSideEffect, importcpp: "Height",
+proc init*(this: var IGESSolidConeFrustum; ht: cfloat; r1: cfloat; r2: cfloat;
+          center: Xyz; anAxis: Xyz) {.importcpp: "Init",
+                                  header: "IGESSolid_ConeFrustum.hxx".}
+proc height*(this: IGESSolidConeFrustum): cfloat {.noSideEffect, importcpp: "Height",
     header: "IGESSolid_ConeFrustum.hxx".}
-proc largerRadius*(this: IGESSolidConeFrustum): float {.noSideEffect,
+proc largerRadius*(this: IGESSolidConeFrustum): cfloat {.noSideEffect,
     importcpp: "LargerRadius", header: "IGESSolid_ConeFrustum.hxx".}
-proc smallerRadius*(this: IGESSolidConeFrustum): float {.noSideEffect,
+proc smallerRadius*(this: IGESSolidConeFrustum): cfloat {.noSideEffect,
     importcpp: "SmallerRadius", header: "IGESSolid_ConeFrustum.hxx".}
 proc faceCenter*(this: IGESSolidConeFrustum): Pnt {.noSideEffect,
     importcpp: "FaceCenter", header: "IGESSolid_ConeFrustum.hxx".}
@@ -63,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_ConeFrustum.hxx".}
 proc dynamicType*(this: IGESSolidConeFrustum): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_ConeFrustum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

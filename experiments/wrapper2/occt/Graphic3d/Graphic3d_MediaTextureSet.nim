@@ -91,3 +91,28 @@ proc duration*(this: Graphic3dMediaTextureSet): cdouble {.noSideEffect,
     importcpp: "Duration", header: "Graphic3d_MediaTextureSet.hxx".}
 proc progress*(this: Graphic3dMediaTextureSet): cdouble {.noSideEffect,
     importcpp: "Progress", header: "Graphic3d_MediaTextureSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

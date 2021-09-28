@@ -20,8 +20,7 @@ discard "forward decl of StepGeom_Curve"
 discard "forward decl of StepGeom_SurfaceOfLinearExtrusion"
 discard "forward decl of StepGeom_SurfaceOfLinearExtrusion"
 type
-  HandleStepGeomSurfaceOfLinearExtrusion* = Handle[
-      StepGeomSurfaceOfLinearExtrusion]
+  HandleC1C1* = Handle[StepGeomSurfaceOfLinearExtrusion]
   StepGeomSurfaceOfLinearExtrusion* {.importcpp: "StepGeom_SurfaceOfLinearExtrusion", header: "StepGeom_SurfaceOfLinearExtrusion.hxx",
                                      bycopy.} = object of StepGeomSweptSurface ## !
                                                                           ## Returns a
@@ -53,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomSurfaceOfLinearExtrusion): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

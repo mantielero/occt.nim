@@ -1,6 +1,16 @@
+{.experimental: "codeReordering".}
 #import occt
-import occt/gp/gp_includes
-import occt/GC/GC_includes
+
+#type
+#  StandardSStream* {.importcpp: "std::stringstream".} = object
+#  StandardOStream* {.importcpp: "std::ostream".} = object
+
+include occt/Standard/Standard_includes
+include occt/NCollection/NCollection_includes
+include occt/gp/gp_includes
+include occt/Geom/Geom_includes
+include occt/GC/GC_includes
+
 #import cinterop
 
 proc main() =

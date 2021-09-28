@@ -58,5 +58,30 @@ proc release*(this: var OpenGlAspects; theContext: ptr OpenGlContext) {.
 proc synchronizeAspects*(this: var OpenGlAspects) {.importcpp: "SynchronizeAspects",
     header: "OpenGl_Aspects.hxx".}
 proc dumpJson*(this: OpenGlAspects; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_Aspects.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_Aspects.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

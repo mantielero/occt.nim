@@ -18,8 +18,7 @@ discard "forward decl of StepBasic_VersionedActionRequest"
 discard "forward decl of StepBasic_ActionRequestAssignment"
 discard "forward decl of StepBasic_ActionRequestAssignment"
 type
-  HandleStepBasicActionRequestAssignment* = Handle[
-      StepBasicActionRequestAssignment]
+  HandleC1C1* = Handle[StepBasicActionRequestAssignment]
 
 ## ! Representation of STEP entity ActionRequestAssignment
 
@@ -53,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicActionRequestAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ActionRequestAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

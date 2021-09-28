@@ -22,7 +22,7 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of BRep_PointRepresentation"
 discard "forward decl of BRep_PointRepresentation"
 type
-  HandleBRepPointRepresentation* = Handle[BRepPointRepresentation]
+  HandleC1C1* = Handle[BRepPointRepresentation]
 
 ## ! Root  class     for   the points  representations.
 ## ! Contains a location and a parameter.
@@ -59,13 +59,13 @@ proc location*(this: BRepPointRepresentation): TopLocLocation {.noSideEffect,
     importcpp: "Location", header: "BRep_PointRepresentation.hxx".}
 proc location*(this: var BRepPointRepresentation; L: TopLocLocation) {.
     importcpp: "Location", header: "BRep_PointRepresentation.hxx".}
-proc parameter*(this: BRepPointRepresentation): float {.noSideEffect,
+proc parameter*(this: BRepPointRepresentation): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "BRep_PointRepresentation.hxx".}
-proc parameter*(this: var BRepPointRepresentation; p: float) {.importcpp: "Parameter",
-    header: "BRep_PointRepresentation.hxx".}
-proc parameter2*(this: BRepPointRepresentation): float {.noSideEffect,
+proc parameter*(this: var BRepPointRepresentation; p: cfloat) {.
+    importcpp: "Parameter", header: "BRep_PointRepresentation.hxx".}
+proc parameter2*(this: BRepPointRepresentation): cfloat {.noSideEffect,
     importcpp: "Parameter2", header: "BRep_PointRepresentation.hxx".}
-proc parameter2*(this: var BRepPointRepresentation; p: float) {.
+proc parameter2*(this: var BRepPointRepresentation; p: cfloat) {.
     importcpp: "Parameter2", header: "BRep_PointRepresentation.hxx".}
 proc curve*(this: BRepPointRepresentation): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "BRep_PointRepresentation.hxx".}
@@ -80,8 +80,8 @@ proc surface*(this: BRepPointRepresentation): Handle[GeomSurface] {.noSideEffect
 proc surface*(this: var BRepPointRepresentation; s: Handle[GeomSurface]) {.
     importcpp: "Surface", header: "BRep_PointRepresentation.hxx".}
 proc dumpJson*(this: BRepPointRepresentation; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "BRep_PointRepresentation.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "BRep_PointRepresentation.hxx".}
 type
   BRepPointRepresentationbaseType* = StandardTransient
 
@@ -92,3 +92,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_PointRepresentation.hxx".}
 proc dynamicType*(this: BRepPointRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRep_PointRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

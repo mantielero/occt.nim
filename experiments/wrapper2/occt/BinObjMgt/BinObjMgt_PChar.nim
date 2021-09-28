@@ -16,3 +16,28 @@
 type
   BinObjMgtPChar* = ptr StandardCharacter
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,19 +26,44 @@ type
                                                                            ## Surface <S>.
 
 
-proc value*(s: BRepAdaptorSurface; u: float; v: float; p: var Pnt) {.
+proc value*(s: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt) {.
     importcpp: "BRepLProp_SurfaceTool::Value(@)",
     header: "BRepLProp_SurfaceTool.hxx".}
-proc d1*(s: BRepAdaptorSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
+proc d1*(s: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
     importcpp: "BRepLProp_SurfaceTool::D1(@)", header: "BRepLProp_SurfaceTool.hxx".}
-proc d2*(s: BRepAdaptorSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
+proc d2*(s: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec;
         d2u: var Vec; d2v: var Vec; duv: var Vec) {.
     importcpp: "BRepLProp_SurfaceTool::D2(@)", header: "BRepLProp_SurfaceTool.hxx".}
-proc dn*(s: BRepAdaptorSurface; u: float; v: float; iu: int; iv: int): Vec {.
+proc dn*(s: BRepAdaptorSurface; u: cfloat; v: cfloat; iu: cint; iv: cint): Vec {.
     importcpp: "BRepLProp_SurfaceTool::DN(@)", header: "BRepLProp_SurfaceTool.hxx".}
-proc continuity*(s: BRepAdaptorSurface): int {.
+proc continuity*(s: BRepAdaptorSurface): cint {.
     importcpp: "BRepLProp_SurfaceTool::Continuity(@)",
     header: "BRepLProp_SurfaceTool.hxx".}
-proc bounds*(s: BRepAdaptorSurface; u1: var float; v1: var float; u2: var float;
-            v2: var float) {.importcpp: "BRepLProp_SurfaceTool::Bounds(@)",
-                          header: "BRepLProp_SurfaceTool.hxx".}
+proc bounds*(s: BRepAdaptorSurface; u1: var cfloat; v1: var cfloat; u2: var cfloat;
+            v2: var cfloat) {.importcpp: "BRepLProp_SurfaceTool::Bounds(@)",
+                           header: "BRepLProp_SurfaceTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of IntSurf_PntOn2S"
 discard "forward decl of IntSurf_LineOn2S"
 discard "forward decl of IntSurf_LineOn2S"
 type
-  HandleIntSurfLineOn2S* = Handle[IntSurfLineOn2S]
+  HandleC1C1* = Handle[IntSurfLineOn2S]
   IntSurfLineOn2S* {.importcpp: "IntSurf_LineOn2S", header: "IntSurf_LineOn2S.hxx",
                     bycopy.} = object of StandardTransient
 
@@ -28,23 +28,23 @@ proc constructIntSurfLineOn2S*(theAllocator: IntSurfAllocator = 0): IntSurfLineO
     constructor, importcpp: "IntSurf_LineOn2S(@)", header: "IntSurf_LineOn2S.hxx".}
 proc add*(this: var IntSurfLineOn2S; p: IntSurfPntOn2S) {.importcpp: "Add",
     header: "IntSurf_LineOn2S.hxx".}
-proc nbPoints*(this: IntSurfLineOn2S): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: IntSurfLineOn2S): cint {.noSideEffect, importcpp: "NbPoints",
     header: "IntSurf_LineOn2S.hxx".}
-proc value*(this: IntSurfLineOn2S; index: int): IntSurfPntOn2S {.noSideEffect,
+proc value*(this: IntSurfLineOn2S; index: cint): IntSurfPntOn2S {.noSideEffect,
     importcpp: "Value", header: "IntSurf_LineOn2S.hxx".}
 proc reverse*(this: var IntSurfLineOn2S) {.importcpp: "Reverse",
                                        header: "IntSurf_LineOn2S.hxx".}
-proc split*(this: var IntSurfLineOn2S; index: int): Handle[IntSurfLineOn2S] {.
+proc split*(this: var IntSurfLineOn2S; index: cint): Handle[IntSurfLineOn2S] {.
     importcpp: "Split", header: "IntSurf_LineOn2S.hxx".}
-proc value*(this: var IntSurfLineOn2S; index: int; p: IntSurfPntOn2S) {.
+proc value*(this: var IntSurfLineOn2S; index: cint; p: IntSurfPntOn2S) {.
     importcpp: "Value", header: "IntSurf_LineOn2S.hxx".}
-proc setUV*(this: var IntSurfLineOn2S; index: int; onFirst: bool; u: float; v: float) {.
+proc setUV*(this: var IntSurfLineOn2S; index: cint; onFirst: bool; u: cfloat; v: cfloat) {.
     importcpp: "SetUV", header: "IntSurf_LineOn2S.hxx".}
 proc clear*(this: var IntSurfLineOn2S) {.importcpp: "Clear",
                                      header: "IntSurf_LineOn2S.hxx".}
-proc insertBefore*(this: var IntSurfLineOn2S; i: int; p: IntSurfPntOn2S) {.
+proc insertBefore*(this: var IntSurfLineOn2S; i: cint; p: IntSurfPntOn2S) {.
     importcpp: "InsertBefore", header: "IntSurf_LineOn2S.hxx".}
-proc removePoint*(this: var IntSurfLineOn2S; i: int) {.importcpp: "RemovePoint",
+proc removePoint*(this: var IntSurfLineOn2S; i: cint) {.importcpp: "RemovePoint",
     header: "IntSurf_LineOn2S.hxx".}
 proc isOutSurf1Box*(this: var IntSurfLineOn2S; theP: Pnt2d): bool {.
     importcpp: "IsOutSurf1Box", header: "IntSurf_LineOn2S.hxx".}
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IntSurf_LineOn2S.hxx".}
 proc dynamicType*(this: IntSurfLineOn2S): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntSurf_LineOn2S.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

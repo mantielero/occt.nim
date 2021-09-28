@@ -34,3 +34,28 @@ proc readName*(thePos: cstring; theName: var TCollectionAsciiString): bool =
 proc isSpaceChar*(theChar: char): bool =
   discard
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

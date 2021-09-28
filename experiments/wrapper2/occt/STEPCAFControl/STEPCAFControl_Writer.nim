@@ -107,3 +107,28 @@ proc setMaterialMode*(this: var STEPCAFControlWriter; matmode: bool) {.
     importcpp: "SetMaterialMode", header: "STEPCAFControl_Writer.hxx".}
 proc getMaterialMode*(this: STEPCAFControlWriter): bool {.noSideEffect,
     importcpp: "GetMaterialMode", header: "STEPCAFControl_Writer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of StepGeom_CurveBoundedSurface"
 discard "forward decl of StepShape_RevolvedAreaSolid"
 discard "forward decl of StepShape_RevolvedAreaSolid"
 type
-  HandleStepShapeRevolvedAreaSolid* = Handle[StepShapeRevolvedAreaSolid]
+  HandleC1C1* = Handle[StepShapeRevolvedAreaSolid]
   StepShapeRevolvedAreaSolid* {.importcpp: "StepShape_RevolvedAreaSolid",
                                header: "StepShape_RevolvedAreaSolid.hxx", bycopy.} = object of StepShapeSweptAreaSolid ##
                                                                                                                 ## !
@@ -35,16 +35,16 @@ proc constructStepShapeRevolvedAreaSolid*(): StepShapeRevolvedAreaSolid {.
 proc init*(this: var StepShapeRevolvedAreaSolid;
           aName: Handle[TCollectionHAsciiString];
           aSweptArea: Handle[StepGeomCurveBoundedSurface];
-          aAxis: Handle[StepGeomAxis1Placement]; aAngle: float) {.importcpp: "Init",
-    header: "StepShape_RevolvedAreaSolid.hxx".}
+          aAxis: Handle[StepGeomAxis1Placement]; aAngle: cfloat) {.
+    importcpp: "Init", header: "StepShape_RevolvedAreaSolid.hxx".}
 proc setAxis*(this: var StepShapeRevolvedAreaSolid;
              aAxis: Handle[StepGeomAxis1Placement]) {.importcpp: "SetAxis",
     header: "StepShape_RevolvedAreaSolid.hxx".}
 proc axis*(this: StepShapeRevolvedAreaSolid): Handle[StepGeomAxis1Placement] {.
     noSideEffect, importcpp: "Axis", header: "StepShape_RevolvedAreaSolid.hxx".}
-proc setAngle*(this: var StepShapeRevolvedAreaSolid; aAngle: float) {.
+proc setAngle*(this: var StepShapeRevolvedAreaSolid; aAngle: cfloat) {.
     importcpp: "SetAngle", header: "StepShape_RevolvedAreaSolid.hxx".}
-proc angle*(this: StepShapeRevolvedAreaSolid): float {.noSideEffect,
+proc angle*(this: StepShapeRevolvedAreaSolid): cfloat {.noSideEffect,
     importcpp: "Angle", header: "StepShape_RevolvedAreaSolid.hxx".}
 type
   StepShapeRevolvedAreaSolidbaseType* = StepShapeSweptAreaSolid
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeRevolvedAreaSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_RevolvedAreaSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

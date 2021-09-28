@@ -153,3 +153,28 @@ proc sNameori*(this: TopOpeBRepBuildWireEdgeSet; s: TopoDS_Shape;
 proc sNameori*(this: TopOpeBRepBuildWireEdgeSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SNameori", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

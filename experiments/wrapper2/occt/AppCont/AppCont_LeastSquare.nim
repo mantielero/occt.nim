@@ -18,21 +18,47 @@ type
   PeriodicityInfo* {.importcpp: "PeriodicityInfo",
                     header: "AppCont_LeastSquare.hxx", bycopy.} = object
     isPeriodic* {.importc: "isPeriodic".}: bool
-    myPeriod* {.importc: "myPeriod".}: float
+    myPeriod* {.importc: "myPeriod".}: cfloat
 
   AppContLeastSquare* {.importcpp: "AppCont_LeastSquare",
                        header: "AppCont_LeastSquare.hxx", bycopy.} = object ## ! Fix border point
                                                                        ## evaluation.
 
 
-proc constructAppContLeastSquare*(ssp: AppContFunction; u0: float; u1: float;
+proc constructAppContLeastSquare*(ssp: AppContFunction; u0: cfloat; u1: cfloat;
                                  firstCons: AppParCurvesConstraint;
-                                 lastCons: AppParCurvesConstraint; deg: int;
-                                 nbPoints: int): AppContLeastSquare {.constructor,
+                                 lastCons: AppParCurvesConstraint; deg: cint;
+                                 nbPoints: cint): AppContLeastSquare {.constructor,
     importcpp: "AppCont_LeastSquare(@)", header: "AppCont_LeastSquare.hxx".}
 proc value*(this: var AppContLeastSquare): AppParCurvesMultiCurve {.
     importcpp: "Value", header: "AppCont_LeastSquare.hxx".}
-proc error*(this: AppContLeastSquare; f: var float; maxE3d: var float; maxE2d: var float) {.
-    noSideEffect, importcpp: "Error", header: "AppCont_LeastSquare.hxx".}
+proc error*(this: AppContLeastSquare; f: var cfloat; maxE3d: var cfloat;
+           maxE2d: var cfloat) {.noSideEffect, importcpp: "Error",
+                              header: "AppCont_LeastSquare.hxx".}
 proc isDone*(this: AppContLeastSquare): bool {.noSideEffect, importcpp: "IsDone",
     header: "AppCont_LeastSquare.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

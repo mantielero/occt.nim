@@ -16,8 +16,7 @@
 discard "forward decl of StepDimTol_SimpleDatumReferenceModifierMember"
 discard "forward decl of StepDimTol_SimpleDatumReferenceModifierMember"
 type
-  HandleStepDimTolSimpleDatumReferenceModifierMember* = Handle[
-      StepDimTolSimpleDatumReferenceModifierMember]
+  HandleC1C1* = Handle[StepDimTolSimpleDatumReferenceModifierMember]
 
 ## ! Defines SimpleDatumReferenceModifier as unique member of DatumReferenceModifier
 ## ! Works with an EnumTool
@@ -41,13 +40,13 @@ proc setName*(this: var StepDimTolSimpleDatumReferenceModifierMember; a2: Standa
     importcpp: "SetName",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
   ## theName
-proc kind*(this: StepDimTolSimpleDatumReferenceModifierMember): int {.noSideEffect,
+proc kind*(this: StepDimTolSimpleDatumReferenceModifierMember): cint {.noSideEffect,
     importcpp: "Kind", header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
 proc enumText*(this: StepDimTolSimpleDatumReferenceModifierMember): StandardCString {.
     noSideEffect, importcpp: "EnumText",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
 proc setEnumText*(this: var StepDimTolSimpleDatumReferenceModifierMember;
-                 theValue: int; theText: StandardCString) {.
+                 theValue: cint; theText: StandardCString) {.
     importcpp: "SetEnumText",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
 proc setValue*(this: var StepDimTolSimpleDatumReferenceModifierMember;
@@ -66,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_SimpleD
 proc dynamicType*(this: StepDimTolSimpleDatumReferenceModifierMember): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

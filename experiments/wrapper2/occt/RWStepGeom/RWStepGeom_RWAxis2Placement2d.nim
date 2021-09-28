@@ -29,7 +29,7 @@ proc constructRWStepGeomRWAxis2Placement2d*(): RWStepGeomRWAxis2Placement2d {.
     constructor, importcpp: "RWStepGeom_RWAxis2Placement2d(@)",
     header: "RWStepGeom_RWAxis2Placement2d.hxx".}
 proc readStep*(this: RWStepGeomRWAxis2Placement2d;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomAxis2Placement2d]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWAxis2Placement2d.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepGeomRWAxis2Placement2d;
            ent: Handle[StepGeomAxis2Placement2d];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWAxis2Placement2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

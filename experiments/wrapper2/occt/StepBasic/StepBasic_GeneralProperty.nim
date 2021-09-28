@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_GeneralProperty"
 discard "forward decl of StepBasic_GeneralProperty"
 type
-  HandleStepBasicGeneralProperty* = Handle[StepBasicGeneralProperty]
+  HandleC1C1* = Handle[StepBasicGeneralProperty]
 
 ## ! Representation of STEP entity GeneralProperty
 
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_GeneralProperty.hxx".}
 proc dynamicType*(this: StepBasicGeneralProperty): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_GeneralProperty.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

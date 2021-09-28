@@ -31,7 +31,7 @@ proc constructRWStepBasicRWCertification*(): RWStepBasicRWCertification {.
     constructor, importcpp: "RWStepBasic_RWCertification(@)",
     header: "RWStepBasic_RWCertification.hxx".}
 proc readStep*(this: RWStepBasicRWCertification;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicCertification]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWCertification.hxx".}
 proc writeStep*(this: RWStepBasicRWCertification; sw: var StepDataStepWriter;
@@ -40,3 +40,28 @@ proc writeStep*(this: RWStepBasicRWCertification; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWCertification; ent: Handle[StepBasicCertification];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWCertification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

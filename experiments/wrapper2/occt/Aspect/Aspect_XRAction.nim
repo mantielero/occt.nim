@@ -48,3 +48,28 @@ type
   AspectXRActionMap* = NCollectionIndexedDataMap[TCollectionAsciiString,
       Handle[AspectXRAction], TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

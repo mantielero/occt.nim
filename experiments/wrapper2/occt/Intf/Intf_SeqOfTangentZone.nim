@@ -17,3 +17,28 @@
 type
   IntfSeqOfTangentZone* = NCollectionSequence[IntfTangentZone]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

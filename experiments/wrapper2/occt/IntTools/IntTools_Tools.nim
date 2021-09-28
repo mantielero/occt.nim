@@ -64,7 +64,7 @@ type
                                                                                         ## value
 
 
-proc computeVV*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): int {.
+proc computeVV*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): cint {.
     importcpp: "IntTools_Tools::ComputeVV(@)", header: "IntTools_Tools.hxx".}
 proc hasInternalEdge*(aW: TopoDS_Wire): bool {.
     importcpp: "IntTools_Tools::HasInternalEdge(@)", header: "IntTools_Tools.hxx".}
@@ -75,54 +75,79 @@ proc makeFaceFromWireAndFace*(aW: TopoDS_Wire; aF: TopoDS_Face;
 proc classifyPointByFace*(aF: TopoDS_Face; p: Pnt2d): TopAbsState {.
     importcpp: "IntTools_Tools::ClassifyPointByFace(@)",
     header: "IntTools_Tools.hxx".}
-proc isVertex*(e: TopoDS_Edge; t: float): bool {.
+proc isVertex*(e: TopoDS_Edge; t: cfloat): bool {.
     importcpp: "IntTools_Tools::IsVertex(@)", header: "IntTools_Tools.hxx".}
-proc isVertex*(e: TopoDS_Edge; v: TopoDS_Vertex; t: float): bool {.
+proc isVertex*(e: TopoDS_Edge; v: TopoDS_Vertex; t: cfloat): bool {.
     importcpp: "IntTools_Tools::IsVertex(@)", header: "IntTools_Tools.hxx".}
 proc isVertex*(aCmnPrt: IntToolsCommonPrt): bool {.
     importcpp: "IntTools_Tools::IsVertex(@)", header: "IntTools_Tools.hxx".}
 proc isMiddlePointsEqual*(e1: TopoDS_Edge; e2: TopoDS_Edge): bool {.
     importcpp: "IntTools_Tools::IsMiddlePointsEqual(@)",
     header: "IntTools_Tools.hxx".}
-proc isVertex*(aP: Pnt; aTolPV: float; aV: TopoDS_Vertex): bool {.
+proc isVertex*(aP: Pnt; aTolPV: cfloat; aV: TopoDS_Vertex): bool {.
     importcpp: "IntTools_Tools::IsVertex(@)", header: "IntTools_Tools.hxx".}
-proc intermediatePoint*(aFirst: float; aLast: float): float {.
+proc intermediatePoint*(aFirst: cfloat; aLast: cfloat): cfloat {.
     importcpp: "IntTools_Tools::IntermediatePoint(@)",
     header: "IntTools_Tools.hxx".}
-proc splitCurve*(aC: IntToolsCurve; `aS`: var IntToolsSequenceOfCurves): int {.
+proc splitCurve*(aC: IntToolsCurve; `aS`: var IntToolsSequenceOfCurves): cint {.
     importcpp: "IntTools_Tools::SplitCurve(@)", header: "IntTools_Tools.hxx".}
 proc rejectLines*(aSIn: IntToolsSequenceOfCurves;
                  aSOut: var IntToolsSequenceOfCurves) {.
     importcpp: "IntTools_Tools::RejectLines(@)", header: "IntTools_Tools.hxx".}
 proc isDirsCoinside*(d1: Dir; d2: Dir): bool {.
     importcpp: "IntTools_Tools::IsDirsCoinside(@)", header: "IntTools_Tools.hxx".}
-proc isDirsCoinside*(d1: Dir; d2: Dir; aTol: float): bool {.
+proc isDirsCoinside*(d1: Dir; d2: Dir; aTol: cfloat): bool {.
     importcpp: "IntTools_Tools::IsDirsCoinside(@)", header: "IntTools_Tools.hxx".}
 proc isClosed*(aC: Handle[GeomCurve]): bool {.
     importcpp: "IntTools_Tools::IsClosed(@)", header: "IntTools_Tools.hxx".}
-proc curveTolerance*(aC: Handle[GeomCurve]; aTolBase: float): float {.
+proc curveTolerance*(aC: Handle[GeomCurve]; aTolBase: cfloat): cfloat {.
     importcpp: "IntTools_Tools::CurveTolerance(@)", header: "IntTools_Tools.hxx".}
 proc checkCurve*(theCurve: IntToolsCurve; theBox: var BndBox): bool {.
     importcpp: "IntTools_Tools::CheckCurve(@)", header: "IntTools_Tools.hxx".}
-proc isOnPave*(theT: float; theRange: IntToolsRange; theTol: float): bool {.
+proc isOnPave*(theT: cfloat; theRange: IntToolsRange; theTol: cfloat): bool {.
     importcpp: "IntTools_Tools::IsOnPave(@)", header: "IntTools_Tools.hxx".}
-proc vertexParameters*(theCP: IntToolsCommonPrt; theT1: var float; theT2: var float) {.
+proc vertexParameters*(theCP: IntToolsCommonPrt; theT1: var cfloat; theT2: var cfloat) {.
     importcpp: "IntTools_Tools::VertexParameters(@)", header: "IntTools_Tools.hxx".}
-proc vertexParameter*(theCP: IntToolsCommonPrt; theT: var float) {.
+proc vertexParameter*(theCP: IntToolsCommonPrt; theT: var cfloat) {.
     importcpp: "IntTools_Tools::VertexParameter(@)", header: "IntTools_Tools.hxx".}
-proc isOnPave1*(theT: float; theRange: IntToolsRange; theTol: float): bool {.
+proc isOnPave1*(theT: cfloat; theRange: IntToolsRange; theTol: cfloat): bool {.
     importcpp: "IntTools_Tools::IsOnPave1(@)", header: "IntTools_Tools.hxx".}
-proc isInRange*(theRRef: IntToolsRange; theR: IntToolsRange; theTol: float): bool {.
+proc isInRange*(theRRef: IntToolsRange; theR: IntToolsRange; theTol: cfloat): bool {.
     importcpp: "IntTools_Tools::IsInRange(@)", header: "IntTools_Tools.hxx".}
-proc segPln*(theLin: Lin; theTLin1: float; theTLin2: float; theTolLin: float;
-            thePln: Pln; theTolPln: float; theP: var Pnt; theT: var float;
-            theTolP: var float; theTmin: var float; theTmax: var float): int {.
+proc segPln*(theLin: Lin; theTLin1: cfloat; theTLin2: cfloat; theTolLin: cfloat;
+            thePln: Pln; theTolPln: cfloat; theP: var Pnt; theT: var cfloat;
+            theTolP: var cfloat; theTmin: var cfloat; theTmax: var cfloat): cint {.
     importcpp: "IntTools_Tools::SegPln(@)", header: "IntTools_Tools.hxx".}
 proc computeTolerance*(theCurve3D: Handle[GeomCurve];
                       theCurve2D: Handle[Geom2dCurve];
-                      theSurf: Handle[GeomSurface]; theFirst: float; theLast: float;
-                      theMaxDist: var float; theMaxPar: var float;
-                      theTolRange: float = pConfusion()): bool {.
+                      theSurf: Handle[GeomSurface]; theFirst: cfloat;
+                      theLast: cfloat; theMaxDist: var cfloat; theMaxPar: var cfloat;
+                      theTolRange: cfloat = pConfusion()): bool {.
     importcpp: "IntTools_Tools::ComputeTolerance(@)", header: "IntTools_Tools.hxx".}
-proc computeIntRange*(theTol1: float; theTol2: float; theAngle: float): float {.
+proc computeIntRange*(theTol1: cfloat; theTol2: cfloat; theAngle: cfloat): cfloat {.
     importcpp: "IntTools_Tools::ComputeIntRange(@)", header: "IntTools_Tools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

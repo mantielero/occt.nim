@@ -32,3 +32,28 @@ type
     BRepBuilderAPI_DisconnectedShell, BRepBuilderAPI_ShellParametersOutOfRange
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

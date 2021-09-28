@@ -22,7 +22,7 @@ discard "forward decl of Plate_D3"
 discard "forward decl of NLPlate_HGPPConstraint"
 discard "forward decl of NLPlate_HGPPConstraint"
 type
-  HandleNLPlateHGPPConstraint* = Handle[NLPlateHGPPConstraint]
+  HandleC1C1* = Handle[NLPlateHGPPConstraint]
 
 ## ! define a PinPoint geometric Constraint used to load a Non Linear Plate
 
@@ -37,29 +37,29 @@ proc setUVFreeSliding*(this: var NLPlateHGPPConstraint; uVFree: bool) {.
     importcpp: "SetUVFreeSliding", header: "NLPlate_HGPPConstraint.hxx".}
 proc setIncrementalLoadAllowed*(this: var NLPlateHGPPConstraint; ila: bool) {.
     importcpp: "SetIncrementalLoadAllowed", header: "NLPlate_HGPPConstraint.hxx".}
-proc setActiveOrder*(this: var NLPlateHGPPConstraint; activeOrder: int) {.
+proc setActiveOrder*(this: var NLPlateHGPPConstraint; activeOrder: cint) {.
     importcpp: "SetActiveOrder", header: "NLPlate_HGPPConstraint.hxx".}
 proc setUV*(this: var NLPlateHGPPConstraint; uv: Xy) {.importcpp: "SetUV",
     header: "NLPlate_HGPPConstraint.hxx".}
-proc setOrientation*(this: var NLPlateHGPPConstraint; orient: int = 0) {.
+proc setOrientation*(this: var NLPlateHGPPConstraint; orient: cint = 0) {.
     importcpp: "SetOrientation", header: "NLPlate_HGPPConstraint.hxx".}
-proc setG0Criterion*(this: var NLPlateHGPPConstraint; tolDist: float) {.
+proc setG0Criterion*(this: var NLPlateHGPPConstraint; tolDist: cfloat) {.
     importcpp: "SetG0Criterion", header: "NLPlate_HGPPConstraint.hxx".}
-proc setG1Criterion*(this: var NLPlateHGPPConstraint; tolAng: float) {.
+proc setG1Criterion*(this: var NLPlateHGPPConstraint; tolAng: cfloat) {.
     importcpp: "SetG1Criterion", header: "NLPlate_HGPPConstraint.hxx".}
-proc setG2Criterion*(this: var NLPlateHGPPConstraint; tolCurv: float) {.
+proc setG2Criterion*(this: var NLPlateHGPPConstraint; tolCurv: cfloat) {.
     importcpp: "SetG2Criterion", header: "NLPlate_HGPPConstraint.hxx".}
-proc setG3Criterion*(this: var NLPlateHGPPConstraint; tolG3: float) {.
+proc setG3Criterion*(this: var NLPlateHGPPConstraint; tolG3: cfloat) {.
     importcpp: "SetG3Criterion", header: "NLPlate_HGPPConstraint.hxx".}
 proc uVFreeSliding*(this: NLPlateHGPPConstraint): bool {.noSideEffect,
     importcpp: "UVFreeSliding", header: "NLPlate_HGPPConstraint.hxx".}
 proc incrementalLoadAllowed*(this: NLPlateHGPPConstraint): bool {.noSideEffect,
     importcpp: "IncrementalLoadAllowed", header: "NLPlate_HGPPConstraint.hxx".}
-proc activeOrder*(this: NLPlateHGPPConstraint): int {.noSideEffect,
+proc activeOrder*(this: NLPlateHGPPConstraint): cint {.noSideEffect,
     importcpp: "ActiveOrder", header: "NLPlate_HGPPConstraint.hxx".}
 proc uv*(this: NLPlateHGPPConstraint): Xy {.noSideEffect, importcpp: "UV",
                                         header: "NLPlate_HGPPConstraint.hxx".}
-proc orientation*(this: var NLPlateHGPPConstraint): int {.importcpp: "Orientation",
+proc orientation*(this: var NLPlateHGPPConstraint): cint {.importcpp: "Orientation",
     header: "NLPlate_HGPPConstraint.hxx".}
 proc isG0*(this: NLPlateHGPPConstraint): bool {.noSideEffect, importcpp: "IsG0",
     header: "NLPlate_HGPPConstraint.hxx".}
@@ -71,13 +71,13 @@ proc g2Target*(this: NLPlateHGPPConstraint): PlateD2 {.noSideEffect,
     importcpp: "G2Target", header: "NLPlate_HGPPConstraint.hxx".}
 proc g3Target*(this: NLPlateHGPPConstraint): PlateD3 {.noSideEffect,
     importcpp: "G3Target", header: "NLPlate_HGPPConstraint.hxx".}
-proc g0Criterion*(this: NLPlateHGPPConstraint): float {.noSideEffect,
+proc g0Criterion*(this: NLPlateHGPPConstraint): cfloat {.noSideEffect,
     importcpp: "G0Criterion", header: "NLPlate_HGPPConstraint.hxx".}
-proc g1Criterion*(this: NLPlateHGPPConstraint): float {.noSideEffect,
+proc g1Criterion*(this: NLPlateHGPPConstraint): cfloat {.noSideEffect,
     importcpp: "G1Criterion", header: "NLPlate_HGPPConstraint.hxx".}
-proc g2Criterion*(this: NLPlateHGPPConstraint): float {.noSideEffect,
+proc g2Criterion*(this: NLPlateHGPPConstraint): cfloat {.noSideEffect,
     importcpp: "G2Criterion", header: "NLPlate_HGPPConstraint.hxx".}
-proc g3Criterion*(this: NLPlateHGPPConstraint): float {.noSideEffect,
+proc g3Criterion*(this: NLPlateHGPPConstraint): cfloat {.noSideEffect,
     importcpp: "G3Criterion", header: "NLPlate_HGPPConstraint.hxx".}
 type
   NLPlateHGPPConstraintbaseType* = StandardTransient
@@ -89,3 +89,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "NLPlate_HGPPConstraint.hxx".}
 proc dynamicType*(this: NLPlateHGPPConstraint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "NLPlate_HGPPConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

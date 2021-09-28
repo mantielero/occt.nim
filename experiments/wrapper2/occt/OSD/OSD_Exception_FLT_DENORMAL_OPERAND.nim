@@ -15,14 +15,54 @@
 ## !!!Ignored construct:  # _OSD_Exception_FLT_DENORMAL_OPERAND_HeaderFile [NewLine] # _OSD_Exception_FLT_DENORMAL_OPERAND_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_FLT_DENORMAL_OPERAND ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_Exception_FLT_DENORMAL_OPERAND"
-type
-  HandleOSD_ExceptionFLT_DENORMAL_OPERANDOSD_ExceptionFLT_DENORMAL_OPERAND* = Handle[
-      OSD_ExceptionFLT_DENORMAL_OPERAND]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_Exception_FLT_DENORMAL_OPERAND , OSD_Exception ) # ! defined No_Exception && ! defined No_OSD_Exception_FLT_DENORMAL_OPERAND [NewLine] # OSD_Exception_FLT_DENORMAL_OPERAND_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_Exception_FLT_DENORMAL_OPERAND ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_FLT_DENORMAL_OPERAND [NewLine] # if ( CONDITION ) throw OSD_Exception_FLT_DENORMAL_OPERAND ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_Exception_FLT_DENORMAL_OPERAND_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_FLT_DENORMAL_OPERAND , OSD_Exception ) #  _OSD_Exception_FLT_DENORMAL_OPERAND_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_FLT_DENORMAL_OPERAND , OSD_Exception ) #  _OSD_Exception_FLT_DENORMAL_OPERAND_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

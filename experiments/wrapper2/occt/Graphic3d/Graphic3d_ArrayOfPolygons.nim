@@ -409,13 +409,14 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Graphic3d_ArrayOfPolygons.hxx".}
 proc dynamicType*(this: Graphic3dArrayOfPolygons): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_ArrayOfPolygons.hxx".}
-proc constructGraphic3dArrayOfPolygons*(theMaxVertexs: int; theMaxBounds: int;
-                                       theMaxEdges: int;
+proc constructGraphic3dArrayOfPolygons*(theMaxVertexs: cint; theMaxBounds: cint;
+                                       theMaxEdges: cint;
                                        theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfPolygons {.
     constructor, importcpp: "Graphic3d_ArrayOfPolygons(@)",
     header: "Graphic3d_ArrayOfPolygons.hxx".}
-proc constructGraphic3dArrayOfPolygons*(theMaxVertexs: int; theMaxBounds: int = 0;
-                                       theMaxEdges: int = 0;
+proc constructGraphic3dArrayOfPolygons*(theMaxVertexs: cint;
+                                       theMaxBounds: cint = 0;
+                                       theMaxEdges: cint = 0;
                                        theHasVNormals: bool = false;
                                        theHasVColors: bool = false;
                                        theHasBColors: bool = false;
@@ -424,5 +425,30 @@ proc constructGraphic3dArrayOfPolygons*(theMaxVertexs: int; theMaxBounds: int = 
     header: "Graphic3d_ArrayOfPolygons.hxx".}
 discard "forward decl of Graphic3d_ArrayOfPolygons"
 type
-  HandleGraphic3dArrayOfPolygons* = Handle[Graphic3dArrayOfPolygons]
+  HandleC1C1* = Handle[Graphic3dArrayOfPolygons]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

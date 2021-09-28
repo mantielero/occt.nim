@@ -22,7 +22,7 @@ discard "forward decl of HLRBRep_ShapeBounds"
 discard "forward decl of HLRBRep_InternalAlgo"
 discard "forward decl of HLRBRep_InternalAlgo"
 type
-  HandleHLRBRepInternalAlgo* = Handle[HLRBRepInternalAlgo]
+  HandleC1C1* = Handle[HLRBRepInternalAlgo]
   HLRBRepInternalAlgo* {.importcpp: "HLRBRep_InternalAlgo",
                         header: "HLRBRep_InternalAlgo.hxx", bycopy.} = object of StandardTransient ##
                                                                                             ## !
@@ -62,48 +62,48 @@ proc projector*(this: var HLRBRepInternalAlgo): var HLRAlgoProjector {.
 proc update*(this: var HLRBRepInternalAlgo) {.importcpp: "Update",
     header: "HLRBRep_InternalAlgo.hxx".}
 proc load*(this: var HLRBRepInternalAlgo; s: Handle[HLRTopoBRepOutLiner];
-          sData: Handle[StandardTransient]; nbIso: int = 0) {.importcpp: "Load",
+          sData: Handle[StandardTransient]; nbIso: cint = 0) {.importcpp: "Load",
     header: "HLRBRep_InternalAlgo.hxx".}
 proc load*(this: var HLRBRepInternalAlgo; s: Handle[HLRTopoBRepOutLiner];
-          nbIso: int = 0) {.importcpp: "Load", header: "HLRBRep_InternalAlgo.hxx".}
-proc index*(this: HLRBRepInternalAlgo; s: Handle[HLRTopoBRepOutLiner]): int {.
+          nbIso: cint = 0) {.importcpp: "Load", header: "HLRBRep_InternalAlgo.hxx".}
+proc index*(this: HLRBRepInternalAlgo; s: Handle[HLRTopoBRepOutLiner]): cint {.
     noSideEffect, importcpp: "Index", header: "HLRBRep_InternalAlgo.hxx".}
-proc remove*(this: var HLRBRepInternalAlgo; i: int) {.importcpp: "Remove",
+proc remove*(this: var HLRBRepInternalAlgo; i: cint) {.importcpp: "Remove",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc shapeData*(this: var HLRBRepInternalAlgo; i: int;
+proc shapeData*(this: var HLRBRepInternalAlgo; i: cint;
                sData: Handle[StandardTransient]) {.importcpp: "ShapeData",
     header: "HLRBRep_InternalAlgo.hxx".}
 proc seqOfShapeBounds*(this: var HLRBRepInternalAlgo): var HLRBRepSeqOfShapeBounds {.
     importcpp: "SeqOfShapeBounds", header: "HLRBRep_InternalAlgo.hxx".}
-proc nbShapes*(this: HLRBRepInternalAlgo): int {.noSideEffect, importcpp: "NbShapes",
-    header: "HLRBRep_InternalAlgo.hxx".}
-proc shapeBounds*(this: var HLRBRepInternalAlgo; i: int): var HLRBRepShapeBounds {.
+proc nbShapes*(this: HLRBRepInternalAlgo): cint {.noSideEffect,
+    importcpp: "NbShapes", header: "HLRBRep_InternalAlgo.hxx".}
+proc shapeBounds*(this: var HLRBRepInternalAlgo; i: cint): var HLRBRepShapeBounds {.
     importcpp: "ShapeBounds", header: "HLRBRep_InternalAlgo.hxx".}
 proc initEdgeStatus*(this: var HLRBRepInternalAlgo) {.importcpp: "InitEdgeStatus",
     header: "HLRBRep_InternalAlgo.hxx".}
 proc select*(this: var HLRBRepInternalAlgo) {.importcpp: "Select",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc select*(this: var HLRBRepInternalAlgo; i: int) {.importcpp: "Select",
+proc select*(this: var HLRBRepInternalAlgo; i: cint) {.importcpp: "Select",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc selectEdge*(this: var HLRBRepInternalAlgo; i: int) {.importcpp: "SelectEdge",
+proc selectEdge*(this: var HLRBRepInternalAlgo; i: cint) {.importcpp: "SelectEdge",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc selectFace*(this: var HLRBRepInternalAlgo; i: int) {.importcpp: "SelectFace",
+proc selectFace*(this: var HLRBRepInternalAlgo; i: cint) {.importcpp: "SelectFace",
     header: "HLRBRep_InternalAlgo.hxx".}
 proc showAll*(this: var HLRBRepInternalAlgo) {.importcpp: "ShowAll",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc showAll*(this: var HLRBRepInternalAlgo; i: int) {.importcpp: "ShowAll",
+proc showAll*(this: var HLRBRepInternalAlgo; i: cint) {.importcpp: "ShowAll",
     header: "HLRBRep_InternalAlgo.hxx".}
 proc hideAll*(this: var HLRBRepInternalAlgo) {.importcpp: "HideAll",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc hideAll*(this: var HLRBRepInternalAlgo; i: int) {.importcpp: "HideAll",
+proc hideAll*(this: var HLRBRepInternalAlgo; i: cint) {.importcpp: "HideAll",
     header: "HLRBRep_InternalAlgo.hxx".}
 proc partialHide*(this: var HLRBRepInternalAlgo) {.importcpp: "PartialHide",
     header: "HLRBRep_InternalAlgo.hxx".}
 proc hide*(this: var HLRBRepInternalAlgo) {.importcpp: "Hide",
                                         header: "HLRBRep_InternalAlgo.hxx".}
-proc hide*(this: var HLRBRepInternalAlgo; i: int) {.importcpp: "Hide",
+proc hide*(this: var HLRBRepInternalAlgo; i: cint) {.importcpp: "Hide",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc hide*(this: var HLRBRepInternalAlgo; i: int; j: int) {.importcpp: "Hide",
+proc hide*(this: var HLRBRepInternalAlgo; i: cint; j: cint) {.importcpp: "Hide",
     header: "HLRBRep_InternalAlgo.hxx".}
 proc debug*(this: var HLRBRepInternalAlgo; deb: bool) {.importcpp: "Debug",
     header: "HLRBRep_InternalAlgo.hxx".}
@@ -121,3 +121,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRBRep_InternalAlgo.hxx".}
 proc dynamicType*(this: HLRBRepInternalAlgo): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRBRep_InternalAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

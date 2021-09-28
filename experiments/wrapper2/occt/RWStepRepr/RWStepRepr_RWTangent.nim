@@ -27,11 +27,37 @@ type
 proc constructRWStepReprRWTangent*(): RWStepReprRWTangent {.constructor,
     importcpp: "RWStepRepr_RWTangent(@)", header: "RWStepRepr_RWTangent.hxx".}
 proc readStep*(this: RWStepReprRWTangent; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepReprTangent]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepRepr_RWTangent.hxx".}
+              num: cint; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepReprTangent]) {.noSideEffect, importcpp: "ReadStep",
+    header: "RWStepRepr_RWTangent.hxx".}
 proc writeStep*(this: RWStepReprRWTangent; sw: var StepDataStepWriter;
                ent: Handle[StepReprTangent]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWTangent.hxx".}
 proc share*(this: RWStepReprRWTangent; ent: Handle[StepReprTangent];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWTangent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

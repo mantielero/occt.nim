@@ -37,3 +37,28 @@ proc current*(this: TopOpeBRepBuildGIter; s1: var TopAbsState; s2: var TopAbsSta
     noSideEffect, importcpp: "Current", header: "TopOpeBRepBuild_GIter.hxx".}
 proc dump*(this: TopOpeBRepBuildGIter; os: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "TopOpeBRepBuild_GIter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

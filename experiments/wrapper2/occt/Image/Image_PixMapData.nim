@@ -13,51 +13,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## ! Structure to manage image buffer.
+## !!!Ignored construct:  # _Image_PixMapData_H__ [NewLine] # _Image_PixMapData_H__ [NewLine] # < Image_Color . hxx > [NewLine] # < NCollection_Buffer . hxx > [NewLine] ! Structure to manage image buffer. class Image_PixMapData : public NCollection_Buffer { public : ! Empty constructor. Image_PixMapData ( ) : NCollection_Buffer ( Handle ( NCollection_BaseAllocator ) ( ) ) , myTopRowPtr ( NULL ) , SizeBPP ( 0 ) , SizeX ( 0 ) , SizeY ( 0 ) , SizeRowBytes ( 0 ) , TopToDown ( Standard_Size ( - 1 ) ) {  } ! Initializer. bool Init ( const Handle ( NCollection_BaseAllocator ) & theAlloc , const Standard_Size theSizeBPP , const Standard_Size theSizeX , const Standard_Size theSizeY , const Standard_Size theSizeRowBytes , Standard_Byte * theDataPtr ) { SetAllocator ( theAlloc ) ;  will free old data as well myData = theDataPtr ; myTopRowPtr = NULL ; SizeBPP = theSizeBPP ; SizeX = theSizeX ; SizeY = theSizeY ; SizeRowBytes = theSizeRowBytes != 0 ? theSizeRowBytes : ( theSizeX * theSizeBPP ) ; mySize = SizeRowBytes * SizeY ; if ( myData == NULL ) { Allocate ( mySize ) ; } SetTopDown ( TopToDown == 1 ) ; return ! IsEmpty ( ) ; } ! Reset all values to zeros. void ZeroData ( ) { if ( myData != NULL ) { memset ( myData , 0 , mySize ) ; } } ! @return data pointer to requested row (first column). inline const Standard_Byte * Row ( const Standard_Size theRow ) const { return myTopRowPtr + ptrdiff_t ( SizeRowBytes * theRow * TopToDown ) ; } ! @return data pointer to requested row (first column). inline Standard_Byte * ChangeRow ( const Standard_Size theRow ) { return myTopRowPtr + ptrdiff_t ( SizeRowBytes * theRow * TopToDown ) ; } ! @return data pointer to requested position. inline const Standard_Byte * Value ( const Standard_Size theRow , const Standard_Size theCol ) const { return myTopRowPtr + ptrdiff_t ( SizeRowBytes * theRow * TopToDown ) + SizeBPP * theCol ; } ! @return data pointer to requested position. inline Standard_Byte * ChangeValue ( const Standard_Size theRow , const Standard_Size theCol ) { return myTopRowPtr + ptrdiff_t ( SizeRowBytes * theRow * TopToDown ) + SizeBPP * theCol ; } ! Compute the maximal row alignment for current row size.
+## ! @return maximal row alignment in bytes (up to 16 bytes). inline Standard_Size MaxRowAligmentBytes ( ) const { Standard_Size anAlignment = 2 ; for ( ; anAlignment <= 16 ; anAlignment <<= 1 ) { if ( ( SizeRowBytes % anAlignment ) != 0 || ( Standard_Size ( myData ) % anAlignment ) != 0 ) { return ( anAlignment >> 1 ) ; } } return anAlignment ; } ! Setup scanlines order in memory - top-down or bottom-up.
+## ! Drawers should explicitly specify this value if current state IsTopDown() was ignored!
+## ! @param theIsTopDown top-down flag inline void SetTopDown ( const bool theIsTopDown ) { TopToDown = ( theIsTopDown ? 1 : Standard_Size ( - 1 ) ) ; myTopRowPtr = ( ( TopToDown == 1 || myData == NULL ) ? myData : ( myData + SizeRowBytes * ( SizeY - 1 ) ) ) ; } protected : Standard_Byte * myTopRowPtr ; !< pointer to the topmost row (depending on scanlines order in memory) public : Standard_Size SizeBPP ; !< bytes per pixel Standard_Size SizeX ; !< width  in pixels Standard_Size SizeY ; !< height in pixels Standard_Size SizeRowBytes ; !< number of bytes per line (in most cases equal to 3 * sizeX) Standard_Size TopToDown ; !< image scanlines direction in memory from Top to the Down public : public : typedef NCollection_Buffer base_type ; static const char * get_type_name ( ) { return Image_PixMapData ; ( Image_PixMapData , NCollection_Buffer ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < Image_PixMapData > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; }  Type definition } ;
+## Error: expected ';'!!!
 
-type
-  ImagePixMapData* {.importcpp: "Image_PixMapData", header: "Image_PixMapData.hxx",
-                    bycopy.} = object of NCollectionBuffer ## ! Empty constructor.
-    ## !< pointer to the topmost row (depending on scanlines order in memory)
-    sizeBPP* {.importc: "SizeBPP".}: StandardSize ## !< bytes per pixel
-    sizeX* {.importc: "SizeX".}: StandardSize ## !< width  in pixels
-    sizeY* {.importc: "SizeY".}: StandardSize ## !< height in pixels
-    sizeRowBytes* {.importc: "SizeRowBytes".}: StandardSize ## !< number of bytes per line (in most cases equal to 3 * sizeX)
-    topToDown* {.importc: "TopToDown".}: StandardSize ## !< image scanlines direction in memory from Top to the Down
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Image_PixMapData , NCollection_Buffer ) #  _Image_PixMapData_H__
+## Error: expected ';'!!!
 
 
-proc constructImagePixMapData*(): ImagePixMapData {.constructor,
-    importcpp: "Image_PixMapData(@)", header: "Image_PixMapData.hxx".}
-proc init*(this: var ImagePixMapData; theAlloc: Handle[NCollectionBaseAllocator];
-          theSizeBPP: StandardSize; theSizeX: StandardSize; theSizeY: StandardSize;
-          theSizeRowBytes: StandardSize; theDataPtr: ptr StandardByte): bool {.
-    importcpp: "Init", header: "Image_PixMapData.hxx".}
-proc zeroData*(this: var ImagePixMapData) {.importcpp: "ZeroData",
-                                        header: "Image_PixMapData.hxx".}
-proc row*(this: ImagePixMapData; theRow: StandardSize): ptr StandardByte {.
-    noSideEffect, importcpp: "Row", header: "Image_PixMapData.hxx".}
-proc changeRow*(this: var ImagePixMapData; theRow: StandardSize): ptr StandardByte {.
-    importcpp: "ChangeRow", header: "Image_PixMapData.hxx".}
-proc value*(this: ImagePixMapData; theRow: StandardSize; theCol: StandardSize): ptr StandardByte {.
-    noSideEffect, importcpp: "Value", header: "Image_PixMapData.hxx".}
-proc changeValue*(this: var ImagePixMapData; theRow: StandardSize;
-                 theCol: StandardSize): ptr StandardByte {.importcpp: "ChangeValue",
-    header: "Image_PixMapData.hxx".}
-proc maxRowAligmentBytes*(this: ImagePixMapData): StandardSize {.noSideEffect,
-    importcpp: "MaxRowAligmentBytes", header: "Image_PixMapData.hxx".}
-proc setTopDown*(this: var ImagePixMapData; theIsTopDown: bool) {.
-    importcpp: "SetTopDown", header: "Image_PixMapData.hxx".}
-type
-  ImagePixMapDatabaseType* = NCollectionBuffer
 
-proc getTypeName*(): cstring {.importcpp: "Image_PixMapData::get_type_name(@)",
-                            header: "Image_PixMapData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Image_PixMapData::get_type_descriptor(@)",
-    header: "Image_PixMapData.hxx".}
-proc dynamicType*(this: ImagePixMapData): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Image_PixMapData.hxx".}
-discard "forward decl of Image_PixMapData"
-type
-  HandleImagePixMapData* = Handle[ImagePixMapData]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -75,16 +75,66 @@ type
                                                                                ## part
 
 
-proc drawShaded*(theAxis: Ax1; theTubeRadius: float; theAxisLength: float;
-                theConeRadius: float; theConeLength: float; theNbFacettes: int): Handle[
-    Graphic3dArrayOfTriangles] {.importcpp: "Prs3d_Arrow::DrawShaded(@)",
-                                header: "Prs3d_Arrow.hxx".}
-proc drawSegments*(theLocation: Pnt; theDir: Dir; theAngle: float; theLength: float;
-                  theNbSegments: int): Handle[Graphic3dArrayOfSegments] {.
-    importcpp: "Prs3d_Arrow::DrawSegments(@)", header: "Prs3d_Arrow.hxx".}
-proc draw*(theGroup: Handle[Graphic3dGroup]; theLocation: Pnt; theDirection: Dir;
-          theAngle: float; theLength: float) {.importcpp: "Prs3d_Arrow::Draw(@)",
-    header: "Prs3d_Arrow.hxx".}
-## !!!Ignored construct:  ! Alias to another method Draw() for backward compatibility. Standard_DEPRECATED ( Prs3d_Arrow::Draw() taking Graphic3d_Group should be used instead ) static void Draw ( const opencascade :: handle < Prs3d_Presentation > [end of template] & thePrs , const gp_Pnt & theLocation , const gp_Dir & theDirection , const Standard_Real theAngle , const Standard_Real theLength ) { Draw ( thePrs -> CurrentGroup ( ) , theLocation , theDirection , theAngle , theLength ) ; } }
+## !!!Ignored construct:  DrawShaded ( const gp_Ax1 & theAxis , const Standard_Real theTubeRadius , const Standard_Real theAxisLength , const Standard_Real theConeRadius , const Standard_Real theConeLength , const Standard_Integer theNbFacettes ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  DrawSegments ( const gp_Pnt & theLocation , const gp_Dir & theDir , const Standard_Real theAngle , const Standard_Real theLength , const Standard_Integer theNbSegments ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  ! Defines the representation of the arrow.
+## ! Note that this method does NOT assign any presentation aspects to the primitives group!
+## ! @param theGroup     presentation group to add primitives
+## ! @param theLocation  location of the arrow tip
+## ! @param theDirection direction of the arrow
+## ! @param theAngle     angle of opening of the arrow head
+## ! @param theLength    length of the arrow (from the tip) static void Draw ( const Handle ( Graphic3d_Group ) & theGroup , const gp_Pnt & theLocation , const gp_Dir & theDirection , const Standard_Real theAngle , const Standard_Real theLength ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Alias to another method Draw() for backward compatibility. Standard_DEPRECATED ( Prs3d_Arrow::Draw() taking Graphic3d_Group should be used instead ) static void Draw ( const Handle ( Prs3d_Presentation ) & thePrs , const gp_Pnt & theLocation , const gp_Dir & theDirection , const Standard_Real theAngle , const Standard_Real theLength ) { Draw ( thePrs -> CurrentGroup ( ) , theLocation , theDirection , theAngle , theLength ) ; } }
 ## Error: identifier expected, but got: Prs3d_Arrow::Draw() taking Graphic3d_Group should be used instead!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TCompound"
 discard "forward decl of TopoDS_TCompound"
 type
-  HandleTopoDS_TCompound* = Handle[TopoDS_TCompound]
+  HandleC1C1* = Handle[TopoDS_TCompound]
 
 ## ! A TCompound is an all-purpose set of Shapes.
 
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopoDS_TCompound.hxx".}
 proc dynamicType*(this: TopoDS_TCompound): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TCompound.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,8 +16,7 @@
 discard "forward decl of StepFEA_SymmetricTensor43dMember"
 discard "forward decl of StepFEA_SymmetricTensor43dMember"
 type
-  HandleStepFEA_SymmetricTensor43dMember* = Handle[
-      StepFEA_SymmetricTensor43dMember]
+  HandleC1C1* = Handle[StepFEA_SymmetricTensor43dMember]
 
 ## ! Representation of member for  STEP SELECT type SymmetricTensor43d
 
@@ -50,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_SymmetricTensor43dMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_SymmetricTensor43dMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

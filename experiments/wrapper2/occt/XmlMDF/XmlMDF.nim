@@ -39,3 +39,28 @@ proc fromTo*(aSource: XmlObjMgtElement; aTarget: var Handle[TDF_Data];
 proc addDrivers*(aDriverTable: Handle[XmlMDF_ADriverTable];
                 theMessageDriver: Handle[MessageMessenger]) {.
     importcpp: "XmlMDF::AddDrivers(@)", header: "XmlMDF.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

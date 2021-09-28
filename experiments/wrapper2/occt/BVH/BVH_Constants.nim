@@ -27,3 +27,28 @@ const                         ## ! The optimal tree depth.
 var THE_NODE_MIN_SIZE* {.importcpp: "BVH::THE_NODE_MIN_SIZE",
                        header: "BVH_Constants.hxx".}: cdouble
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

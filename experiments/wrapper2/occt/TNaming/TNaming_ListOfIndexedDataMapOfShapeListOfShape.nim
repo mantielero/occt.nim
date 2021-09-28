@@ -20,3 +20,28 @@ type
   TNamingListIteratorOfListOfIndexedDataMapOfShapeListOfShape* = Iterator[
       TopToolsIndexedDataMapOfShapeListOfShape]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

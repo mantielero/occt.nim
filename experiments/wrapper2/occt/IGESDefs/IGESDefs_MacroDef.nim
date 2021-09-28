@@ -19,7 +19,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDefs_MacroDef"
 discard "forward decl of IGESDefs_MacroDef"
 type
-  HandleIGESDefsMacroDef* = Handle[IGESDefsMacroDef]
+  HandleC1C1* = Handle[IGESDefsMacroDef]
 
 ## ! defines IGES Macro Definition Entity, Type <306> Form <0>
 ## ! in package IGESDefs
@@ -35,17 +35,17 @@ type
 proc constructIGESDefsMacroDef*(): IGESDefsMacroDef {.constructor,
     importcpp: "IGESDefs_MacroDef(@)", header: "IGESDefs_MacroDef.hxx".}
 proc init*(this: var IGESDefsMacroDef; `macro`: Handle[TCollectionHAsciiString];
-          entityTypeID: int;
+          entityTypeID: cint;
           langStatements: Handle[InterfaceHArray1OfHAsciiString];
           endMacro: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESDefs_MacroDef.hxx".}
-proc nbStatements*(this: IGESDefsMacroDef): int {.noSideEffect,
+proc nbStatements*(this: IGESDefsMacroDef): cint {.noSideEffect,
     importcpp: "NbStatements", header: "IGESDefs_MacroDef.hxx".}
 proc `macro`*(this: IGESDefsMacroDef): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "MACRO", header: "IGESDefs_MacroDef.hxx".}
-proc entityTypeID*(this: IGESDefsMacroDef): int {.noSideEffect,
+proc entityTypeID*(this: IGESDefsMacroDef): cint {.noSideEffect,
     importcpp: "EntityTypeID", header: "IGESDefs_MacroDef.hxx".}
-proc languageStatement*(this: IGESDefsMacroDef; statNum: int): Handle[
+proc languageStatement*(this: IGESDefsMacroDef; statNum: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "LanguageStatement",
                               header: "IGESDefs_MacroDef.hxx".}
 proc endmacro*(this: IGESDefsMacroDef): Handle[TCollectionHAsciiString] {.
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDefs_MacroDef.hxx".}
 proc dynamicType*(this: IGESDefsMacroDef): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDefs_MacroDef.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

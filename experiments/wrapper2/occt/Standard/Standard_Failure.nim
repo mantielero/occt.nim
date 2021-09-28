@@ -17,8 +17,7 @@
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_Failure"
 discard "forward decl of Standard_Failure"
-type
-  HandleStandardFailure* = Handle[StandardFailure]
+
 
 ## ! Forms the root of the entire exception hierarchy.
 
@@ -30,6 +29,7 @@ type
                                                       ## ! and stores current object as last thrown exception,
                                                       ## ! to be accessible by method Caught()
 
+  HandleStandardFailure* = Handle[StandardFailure]
 
 proc constructStandardFailure*(): StandardFailure {.constructor,
     importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
@@ -51,30 +51,32 @@ proc reraise*(this: var StandardFailure; aMessage: StandardCString) {.
     importcpp: "Reraise", header: "Standard_Failure.hxx".}
 proc reraise*(this: var StandardFailure; aReason: StandardSStream) {.
     importcpp: "Reraise", header: "Standard_Failure.hxx".}
+#[
 proc `raise`*(aMessage: StandardCString = "") {.
     importcpp: "Standard_Failure::Raise(@)", header: "Standard_Failure.hxx".}
+]#
 proc `raise`*(aReason: StandardSStream) {.importcpp: "Standard_Failure::Raise(@)",
                                        header: "Standard_Failure.hxx".}
 proc newInstance*(aMessage: StandardCString): Handle[StandardFailure] {.
     importcpp: "Standard_Failure::NewInstance(@)", header: "Standard_Failure.hxx".}
 proc jump*(this: var StandardFailure) {.importcpp: "Jump",
                                     header: "Standard_Failure.hxx".}
-## !!!Ignored construct:  ! Returns the last caught exception.
-## ! Needed when exceptions are emulated by C longjumps,
-## ! in other cases is also provided for compatibility. Standard_DEPRECATED ( This method is deprecated (not thread-safe), use standard C++ mechanism instead ) static opencascade :: handle < Standard_Failure > [end of template] Caught ( ) ;
-## Error: identifier expected, but got: This method is deprecated (not thread-safe), use standard C++ mechanism instead!!!
-
+proc caught*(): Handle[StandardFailure] {.importcpp: "Standard_Failure::Caught(@)",
+                                       header: "Standard_Failure.hxx".}
 type
   StandardFailurebaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "Standard_Failure::get_type_name(@)",
                             header: "Standard_Failure.hxx".}
+#[
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Standard_Failure::get_type_descriptor(@)",
     header: "Standard_Failure.hxx".}
+
 proc dynamicType*(this: StandardFailure): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Standard_Failure.hxx".}
 proc `<<`*(aStream: var StandardOStream; aFailure: Handle[StandardFailure]): var StandardOStream {.
     importcpp: "(# << #)", header: "Standard_Failure.hxx".}
 proc `<<`*(aStream: var StandardOStream; aFailure: StandardFailure): var StandardOStream {.
     importcpp: "(# << #)", header: "Standard_Failure.hxx".}
+]#

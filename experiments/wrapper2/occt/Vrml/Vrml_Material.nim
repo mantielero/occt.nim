@@ -17,7 +17,7 @@
 discard "forward decl of Vrml_Material"
 discard "forward decl of Vrml_Material"
 type
-  HandleVrmlMaterial* = Handle[VrmlMaterial]
+  HandleC1C1* = Handle[VrmlMaterial]
 
 ## ! defines a Material node of VRML specifying properties of geometry
 ## ! and its appearance.
@@ -80,3 +80,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Vrml_Material.hxx".}
 proc dynamicType*(this: VrmlMaterial): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_Material.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

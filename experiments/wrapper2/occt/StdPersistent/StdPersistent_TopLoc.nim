@@ -60,3 +60,28 @@ proc translate*(theDatum: Handle[TopLocDatum3D];
                theMap: var StdObjMgtTransientPersistentMap): Handle[
     StdPersistentTopLocDatum3D] {.importcpp: "StdPersistent_TopLoc::Translate(@)",
                                  header: "StdPersistent_TopLoc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

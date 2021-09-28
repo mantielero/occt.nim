@@ -44,3 +44,28 @@ proc constructBRepBuilderAPI_Copy*(s: TopoDS_Shape; copyGeom: bool = true;
 proc perform*(this: var BRepBuilderAPI_Copy; s: TopoDS_Shape; copyGeom: bool = true;
              copyMesh: bool = false) {.importcpp: "Perform",
                                    header: "BRepBuilderAPI_Copy.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

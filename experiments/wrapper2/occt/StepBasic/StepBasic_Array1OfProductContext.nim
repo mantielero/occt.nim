@@ -18,3 +18,28 @@ type
   StepBasicArray1OfProductContext* = NCollectionArray1[
       Handle[StepBasicProductContext]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

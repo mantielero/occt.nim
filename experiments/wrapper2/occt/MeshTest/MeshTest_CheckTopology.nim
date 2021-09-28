@@ -39,34 +39,59 @@ proc constructMeshTestCheckTopology*(theShape: TopoDS_Shape): MeshTestCheckTopol
     header: "MeshTest_CheckTopology.hxx".}
 proc perform*(this: var MeshTestCheckTopology; di: var DrawInterpretor) {.
     importcpp: "Perform", header: "MeshTest_CheckTopology.hxx".}
-proc nbFacesWithFL*(this: MeshTestCheckTopology): int {.noSideEffect,
+proc nbFacesWithFL*(this: MeshTestCheckTopology): cint {.noSideEffect,
     importcpp: "NbFacesWithFL", header: "MeshTest_CheckTopology.hxx".}
-proc getFaceNumWithFL*(this: MeshTestCheckTopology; theIndex: int): int {.
+proc getFaceNumWithFL*(this: MeshTestCheckTopology; theIndex: cint): cint {.
     noSideEffect, importcpp: "GetFaceNumWithFL",
     header: "MeshTest_CheckTopology.hxx".}
-proc nbFreeLinks*(this: MeshTestCheckTopology; theIndex: int): int {.noSideEffect,
+proc nbFreeLinks*(this: MeshTestCheckTopology; theIndex: cint): cint {.noSideEffect,
     importcpp: "NbFreeLinks", header: "MeshTest_CheckTopology.hxx".}
-proc getFreeLink*(this: MeshTestCheckTopology; theFaceIndex: int; theLinkIndex: int;
-                 theNode1: var int; theNode2: var int) {.noSideEffect,
-    importcpp: "GetFreeLink", header: "MeshTest_CheckTopology.hxx".}
-proc nbCrossFaceErrors*(this: MeshTestCheckTopology): int {.noSideEffect,
+proc getFreeLink*(this: MeshTestCheckTopology; theFaceIndex: cint;
+                 theLinkIndex: cint; theNode1: var cint; theNode2: var cint) {.
+    noSideEffect, importcpp: "GetFreeLink", header: "MeshTest_CheckTopology.hxx".}
+proc nbCrossFaceErrors*(this: MeshTestCheckTopology): cint {.noSideEffect,
     importcpp: "NbCrossFaceErrors", header: "MeshTest_CheckTopology.hxx".}
-proc getCrossFaceError*(this: MeshTestCheckTopology; theIndex: int;
-                       theFace1: var int; theNode1: var int; theFace2: var int;
-                       theNode2: var int; theValue: var float) {.noSideEffect,
+proc getCrossFaceError*(this: MeshTestCheckTopology; theIndex: cint;
+                       theFace1: var cint; theNode1: var cint; theFace2: var cint;
+                       theNode2: var cint; theValue: var cfloat) {.noSideEffect,
     importcpp: "GetCrossFaceError", header: "MeshTest_CheckTopology.hxx".}
-proc nbAsyncEdges*(this: MeshTestCheckTopology): int {.noSideEffect,
+proc nbAsyncEdges*(this: MeshTestCheckTopology): cint {.noSideEffect,
     importcpp: "NbAsyncEdges", header: "MeshTest_CheckTopology.hxx".}
-proc getAsyncEdgeNum*(this: MeshTestCheckTopology; theIndex: int): int {.noSideEffect,
-    importcpp: "GetAsyncEdgeNum", header: "MeshTest_CheckTopology.hxx".}
-proc nbFreeNodes*(this: MeshTestCheckTopology): int {.noSideEffect,
+proc getAsyncEdgeNum*(this: MeshTestCheckTopology; theIndex: cint): cint {.
+    noSideEffect, importcpp: "GetAsyncEdgeNum",
+    header: "MeshTest_CheckTopology.hxx".}
+proc nbFreeNodes*(this: MeshTestCheckTopology): cint {.noSideEffect,
     importcpp: "NbFreeNodes", header: "MeshTest_CheckTopology.hxx".}
-proc getFreeNodeNum*(this: MeshTestCheckTopology; theIndex: int; theFaceNum: var int;
-                    theNodeNum: var int) {.noSideEffect,
-                                        importcpp: "GetFreeNodeNum",
-                                        header: "MeshTest_CheckTopology.hxx".}
-proc nbSmallTriangles*(this: MeshTestCheckTopology): int {.noSideEffect,
+proc getFreeNodeNum*(this: MeshTestCheckTopology; theIndex: cint;
+                    theFaceNum: var cint; theNodeNum: var cint) {.noSideEffect,
+    importcpp: "GetFreeNodeNum", header: "MeshTest_CheckTopology.hxx".}
+proc nbSmallTriangles*(this: MeshTestCheckTopology): cint {.noSideEffect,
     importcpp: "NbSmallTriangles", header: "MeshTest_CheckTopology.hxx".}
-proc getSmallTriangle*(this: MeshTestCheckTopology; theIndex: int;
-                      theFaceNum: var int; theNodeNum: var int) {.noSideEffect,
+proc getSmallTriangle*(this: MeshTestCheckTopology; theIndex: cint;
+                      theFaceNum: var cint; theNodeNum: var cint) {.noSideEffect,
     importcpp: "GetSmallTriangle", header: "MeshTest_CheckTopology.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ContractType"
 discard "forward decl of StepBasic_ContractType"
 type
-  HandleStepBasicContractType* = Handle[StepBasicContractType]
+  HandleC1C1* = Handle[StepBasicContractType]
 
 ## ! Representation of STEP entity ContractType
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_ContractType.hxx".}
 proc dynamicType*(this: StepBasicContractType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_ContractType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

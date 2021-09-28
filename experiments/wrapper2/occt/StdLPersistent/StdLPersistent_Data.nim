@@ -32,3 +32,28 @@ proc pName*(this: StdLPersistentData): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_Data.hxx".}
 proc `import`*(this: StdLPersistentData): Handle[TDF_Data] {.noSideEffect,
     importcpp: "Import", header: "StdLPersistent_Data.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,27 +30,27 @@ proc dynamicType*(this: AdvApp2VarIso): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AdvApp2Var_Iso.hxx".}
 proc constructAdvApp2VarIso*(): AdvApp2VarIso {.constructor,
     importcpp: "AdvApp2Var_Iso(@)", header: "AdvApp2Var_Iso.hxx".}
-proc constructAdvApp2VarIso*(`type`: GeomAbsIsoType; iu: int; iv: int): AdvApp2VarIso {.
+proc constructAdvApp2VarIso*(`type`: GeomAbsIsoType; iu: cint; iv: cint): AdvApp2VarIso {.
     constructor, importcpp: "AdvApp2Var_Iso(@)", header: "AdvApp2Var_Iso.hxx".}
-proc constructAdvApp2VarIso*(`type`: GeomAbsIsoType; cte: float; ufirst: float;
-                            ulast: float; vfirst: float; vlast: float; pos: int;
-                            iu: int; iv: int): AdvApp2VarIso {.constructor,
+proc constructAdvApp2VarIso*(`type`: GeomAbsIsoType; cte: cfloat; ufirst: cfloat;
+                            ulast: cfloat; vfirst: cfloat; vlast: cfloat; pos: cint;
+                            iu: cint; iv: cint): AdvApp2VarIso {.constructor,
     importcpp: "AdvApp2Var_Iso(@)", header: "AdvApp2Var_Iso.hxx".}
 proc isApproximated*(this: AdvApp2VarIso): bool {.noSideEffect,
     importcpp: "IsApproximated", header: "AdvApp2Var_Iso.hxx".}
 proc hasResult*(this: AdvApp2VarIso): bool {.noSideEffect, importcpp: "HasResult",
     header: "AdvApp2Var_Iso.hxx".}
-proc makeApprox*(this: var AdvApp2VarIso; conditions: AdvApp2VarContext; a: float;
-                b: float; c: float; d: float; `func`: AdvApp2VarEvaluatorFunc2Var;
+proc makeApprox*(this: var AdvApp2VarIso; conditions: AdvApp2VarContext; a: cfloat;
+                b: cfloat; c: cfloat; d: cfloat; `func`: AdvApp2VarEvaluatorFunc2Var;
                 nodeBegin: var AdvApp2VarNode; nodeEnd: var AdvApp2VarNode) {.
     importcpp: "MakeApprox", header: "AdvApp2Var_Iso.hxx".}
-proc changeDomain*(this: var AdvApp2VarIso; a: float; b: float) {.
+proc changeDomain*(this: var AdvApp2VarIso; a: cfloat; b: cfloat) {.
     importcpp: "ChangeDomain", header: "AdvApp2Var_Iso.hxx".}
-proc changeDomain*(this: var AdvApp2VarIso; a: float; b: float; c: float; d: float) {.
+proc changeDomain*(this: var AdvApp2VarIso; a: cfloat; b: cfloat; c: cfloat; d: cfloat) {.
     importcpp: "ChangeDomain", header: "AdvApp2Var_Iso.hxx".}
-proc setConstante*(this: var AdvApp2VarIso; newcte: float) {.
+proc setConstante*(this: var AdvApp2VarIso; newcte: cfloat) {.
     importcpp: "SetConstante", header: "AdvApp2Var_Iso.hxx".}
-proc setPosition*(this: var AdvApp2VarIso; newpos: int) {.importcpp: "SetPosition",
+proc setPosition*(this: var AdvApp2VarIso; newpos: cint) {.importcpp: "SetPosition",
     header: "AdvApp2Var_Iso.hxx".}
 proc resetApprox*(this: var AdvApp2VarIso) {.importcpp: "ResetApprox",
     header: "AdvApp2Var_Iso.hxx".}
@@ -58,28 +58,28 @@ proc overwriteApprox*(this: var AdvApp2VarIso) {.importcpp: "OverwriteApprox",
     header: "AdvApp2Var_Iso.hxx".}
 proc `type`*(this: AdvApp2VarIso): GeomAbsIsoType {.noSideEffect, importcpp: "Type",
     header: "AdvApp2Var_Iso.hxx".}
-proc constante*(this: AdvApp2VarIso): float {.noSideEffect, importcpp: "Constante",
+proc constante*(this: AdvApp2VarIso): cfloat {.noSideEffect, importcpp: "Constante",
     header: "AdvApp2Var_Iso.hxx".}
-proc t0*(this: AdvApp2VarIso): float {.noSideEffect, importcpp: "T0",
-                                   header: "AdvApp2Var_Iso.hxx".}
-proc t1*(this: AdvApp2VarIso): float {.noSideEffect, importcpp: "T1",
-                                   header: "AdvApp2Var_Iso.hxx".}
-proc u0*(this: AdvApp2VarIso): float {.noSideEffect, importcpp: "U0",
-                                   header: "AdvApp2Var_Iso.hxx".}
-proc u1*(this: AdvApp2VarIso): float {.noSideEffect, importcpp: "U1",
-                                   header: "AdvApp2Var_Iso.hxx".}
-proc v0*(this: AdvApp2VarIso): float {.noSideEffect, importcpp: "V0",
-                                   header: "AdvApp2Var_Iso.hxx".}
-proc v1*(this: AdvApp2VarIso): float {.noSideEffect, importcpp: "V1",
-                                   header: "AdvApp2Var_Iso.hxx".}
-proc uOrder*(this: AdvApp2VarIso): int {.noSideEffect, importcpp: "UOrder",
-                                     header: "AdvApp2Var_Iso.hxx".}
-proc vOrder*(this: AdvApp2VarIso): int {.noSideEffect, importcpp: "VOrder",
-                                     header: "AdvApp2Var_Iso.hxx".}
-proc position*(this: AdvApp2VarIso): int {.noSideEffect, importcpp: "Position",
-                                       header: "AdvApp2Var_Iso.hxx".}
-proc nbCoeff*(this: AdvApp2VarIso): int {.noSideEffect, importcpp: "NbCoeff",
+proc t0*(this: AdvApp2VarIso): cfloat {.noSideEffect, importcpp: "T0",
+                                    header: "AdvApp2Var_Iso.hxx".}
+proc t1*(this: AdvApp2VarIso): cfloat {.noSideEffect, importcpp: "T1",
+                                    header: "AdvApp2Var_Iso.hxx".}
+proc u0*(this: AdvApp2VarIso): cfloat {.noSideEffect, importcpp: "U0",
+                                    header: "AdvApp2Var_Iso.hxx".}
+proc u1*(this: AdvApp2VarIso): cfloat {.noSideEffect, importcpp: "U1",
+                                    header: "AdvApp2Var_Iso.hxx".}
+proc v0*(this: AdvApp2VarIso): cfloat {.noSideEffect, importcpp: "V0",
+                                    header: "AdvApp2Var_Iso.hxx".}
+proc v1*(this: AdvApp2VarIso): cfloat {.noSideEffect, importcpp: "V1",
+                                    header: "AdvApp2Var_Iso.hxx".}
+proc uOrder*(this: AdvApp2VarIso): cint {.noSideEffect, importcpp: "UOrder",
                                       header: "AdvApp2Var_Iso.hxx".}
+proc vOrder*(this: AdvApp2VarIso): cint {.noSideEffect, importcpp: "VOrder",
+                                      header: "AdvApp2Var_Iso.hxx".}
+proc position*(this: AdvApp2VarIso): cint {.noSideEffect, importcpp: "Position",
+                                        header: "AdvApp2Var_Iso.hxx".}
+proc nbCoeff*(this: AdvApp2VarIso): cint {.noSideEffect, importcpp: "NbCoeff",
+                                       header: "AdvApp2Var_Iso.hxx".}
 proc polynom*(this: AdvApp2VarIso): Handle[TColStdHArray1OfReal] {.noSideEffect,
     importcpp: "Polynom", header: "AdvApp2Var_Iso.hxx".}
 proc somTab*(this: AdvApp2VarIso): Handle[TColStdHArray1OfReal] {.noSideEffect,
@@ -90,3 +90,28 @@ proc maxErrors*(this: AdvApp2VarIso): Handle[TColStdHArray2OfReal] {.noSideEffec
     importcpp: "MaxErrors", header: "AdvApp2Var_Iso.hxx".}
 proc moyErrors*(this: AdvApp2VarIso): Handle[TColStdHArray2OfReal] {.noSideEffect,
     importcpp: "MoyErrors", header: "AdvApp2Var_Iso.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

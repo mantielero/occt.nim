@@ -28,7 +28,7 @@ proc constructRWStepVisualRWInvisibility*(): RWStepVisualRWInvisibility {.
     constructor, importcpp: "RWStepVisual_RWInvisibility(@)",
     header: "RWStepVisual_RWInvisibility.hxx".}
 proc readStep*(this: RWStepVisualRWInvisibility;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualInvisibility]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWInvisibility.hxx".}
 proc writeStep*(this: RWStepVisualRWInvisibility; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepVisualRWInvisibility; sw: var StepDataStepWriter;
 proc share*(this: RWStepVisualRWInvisibility; ent: Handle[StepVisualInvisibility];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWInvisibility.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

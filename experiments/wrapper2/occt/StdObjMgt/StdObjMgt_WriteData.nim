@@ -49,13 +49,38 @@ proc `<<`*(this: var StdObjMgtWriteData; theValue: StandardCharacter): var StdOb
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
 proc `<<`*(this: var StdObjMgtWriteData; theValue: StandardExtCharacter): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*(this: var StdObjMgtWriteData; theValue: int): var StdObjMgtWriteData {.
+proc `<<`*(this: var StdObjMgtWriteData; theValue: cint): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
 proc `<<`*(this: var StdObjMgtWriteData; theValue: bool): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
-proc `<<`*(this: var StdObjMgtWriteData; theValue: float): var StdObjMgtWriteData {.
+proc `<<`*(this: var StdObjMgtWriteData; theValue: cfloat): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
 proc `<<`*(this: var StdObjMgtWriteData; theValue: StandardShortReal): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
 proc `<<`*(theWriteData: var StdObjMgtWriteData; theGUID: StandardGUID): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObjMgt_WriteData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

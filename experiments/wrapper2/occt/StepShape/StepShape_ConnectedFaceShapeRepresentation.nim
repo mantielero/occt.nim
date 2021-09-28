@@ -16,8 +16,7 @@
 discard "forward decl of StepShape_ConnectedFaceShapeRepresentation"
 discard "forward decl of StepShape_ConnectedFaceShapeRepresentation"
 type
-  HandleStepShapeConnectedFaceShapeRepresentation* = Handle[
-      StepShapeConnectedFaceShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeConnectedFaceShapeRepresentation]
 
 ## ! Representation of STEP entity ConnectedFaceShapeRepresentation
 
@@ -42,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_Connecte
 proc dynamicType*(this: StepShapeConnectedFaceShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepShape_ConnectedFaceShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

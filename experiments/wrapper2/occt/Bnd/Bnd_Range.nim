@@ -26,49 +26,75 @@ type
 
 proc constructBndRange*(): BndRange {.constructor, importcpp: "Bnd_Range(@)",
                                    header: "Bnd_Range.hxx".}
-proc constructBndRange*(theMin: float; theMax: float): BndRange {.constructor,
+proc constructBndRange*(theMin: cfloat; theMax: cfloat): BndRange {.constructor,
     importcpp: "Bnd_Range(@)", header: "Bnd_Range.hxx".}
 proc common*(this: var BndRange; theOther: BndRange) {.importcpp: "Common",
     header: "Bnd_Range.hxx".}
 proc union*(this: var BndRange; theOther: BndRange): bool {.importcpp: "Union",
     header: "Bnd_Range.hxx".}
-proc split*(this: BndRange; theVal: float; theList: var NCollectionList[BndRange];
-           thePeriod: float = 0.0) {.noSideEffect, importcpp: "Split",
-                                 header: "Bnd_Range.hxx".}
-proc isIntersected*(this: BndRange; theVal: float; thePeriod: float = 0.0): int {.
+proc split*(this: BndRange; theVal: cfloat; theList: var NCollectionList[BndRange];
+           thePeriod: cfloat = 0.0) {.noSideEffect, importcpp: "Split",
+                                  header: "Bnd_Range.hxx".}
+proc isIntersected*(this: BndRange; theVal: cfloat; thePeriod: cfloat = 0.0): cint {.
     noSideEffect, importcpp: "IsIntersected", header: "Bnd_Range.hxx".}
-proc add*(this: var BndRange; theParameter: float) {.importcpp: "Add",
+proc add*(this: var BndRange; theParameter: cfloat) {.importcpp: "Add",
     header: "Bnd_Range.hxx".}
 proc add*(this: var BndRange; theRange: BndRange) {.importcpp: "Add",
     header: "Bnd_Range.hxx".}
-proc getMin*(this: BndRange; thePar: var float): bool {.noSideEffect,
+proc getMin*(this: BndRange; thePar: var cfloat): bool {.noSideEffect,
     importcpp: "GetMin", header: "Bnd_Range.hxx".}
-proc getMax*(this: BndRange; thePar: var float): bool {.noSideEffect,
+proc getMax*(this: BndRange; thePar: var cfloat): bool {.noSideEffect,
     importcpp: "GetMax", header: "Bnd_Range.hxx".}
-proc getBounds*(this: BndRange; theFirstPar: var float; theLastPar: var float): bool {.
+proc getBounds*(this: BndRange; theFirstPar: var cfloat; theLastPar: var cfloat): bool {.
     noSideEffect, importcpp: "GetBounds", header: "Bnd_Range.hxx".}
-proc getIntermediatePoint*(this: BndRange; theLambda: float; theParameter: var float): bool {.
-    noSideEffect, importcpp: "GetIntermediatePoint", header: "Bnd_Range.hxx".}
-proc delta*(this: BndRange): float {.noSideEffect, importcpp: "Delta",
-                                 header: "Bnd_Range.hxx".}
+proc getIntermediatePoint*(this: BndRange; theLambda: cfloat;
+                          theParameter: var cfloat): bool {.noSideEffect,
+    importcpp: "GetIntermediatePoint", header: "Bnd_Range.hxx".}
+proc delta*(this: BndRange): cfloat {.noSideEffect, importcpp: "Delta",
+                                  header: "Bnd_Range.hxx".}
 proc isVoid*(this: BndRange): bool {.noSideEffect, importcpp: "IsVoid",
                                  header: "Bnd_Range.hxx".}
 proc setVoid*(this: var BndRange) {.importcpp: "SetVoid", header: "Bnd_Range.hxx".}
-proc enlarge*(this: var BndRange; theDelta: float) {.importcpp: "Enlarge",
+proc enlarge*(this: var BndRange; theDelta: cfloat) {.importcpp: "Enlarge",
     header: "Bnd_Range.hxx".}
-proc shifted*(this: BndRange; theVal: float): BndRange {.noSideEffect,
+proc shifted*(this: BndRange; theVal: cfloat): BndRange {.noSideEffect,
     importcpp: "Shifted", header: "Bnd_Range.hxx".}
-proc shift*(this: var BndRange; theVal: float) {.importcpp: "Shift",
+proc shift*(this: var BndRange; theVal: cfloat) {.importcpp: "Shift",
     header: "Bnd_Range.hxx".}
-proc trimFrom*(this: var BndRange; theValLower: float) {.importcpp: "TrimFrom",
+proc trimFrom*(this: var BndRange; theValLower: cfloat) {.importcpp: "TrimFrom",
     header: "Bnd_Range.hxx".}
-proc trimTo*(this: var BndRange; theValUpper: float) {.importcpp: "TrimTo",
+proc trimTo*(this: var BndRange; theValUpper: cfloat) {.importcpp: "TrimTo",
     header: "Bnd_Range.hxx".}
-proc isOut*(this: BndRange; theValue: float): bool {.noSideEffect, importcpp: "IsOut",
+proc isOut*(this: BndRange; theValue: cfloat): bool {.noSideEffect, importcpp: "IsOut",
     header: "Bnd_Range.hxx".}
 proc isOut*(this: BndRange; theRange: BndRange): bool {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_Range.hxx".}
 proc `==`*(this: BndRange; theOther: BndRange): bool {.noSideEffect,
     importcpp: "(# == #)", header: "Bnd_Range.hxx".}
-proc dumpJson*(this: BndRange; theOStream: var StandardOStream; theDepth: int = -1) {.
+proc dumpJson*(this: BndRange; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Bnd_Range.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

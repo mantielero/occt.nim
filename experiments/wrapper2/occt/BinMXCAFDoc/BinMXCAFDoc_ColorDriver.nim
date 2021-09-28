@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMXCAFDoc_ColorDriver"
 discard "forward decl of BinMXCAFDoc_ColorDriver"
 type
-  HandleBinMXCAFDocColorDriver* = Handle[BinMXCAFDocColorDriver]
+  HandleC1C1* = Handle[BinMXCAFDocColorDriver]
   BinMXCAFDocColorDriver* {.importcpp: "BinMXCAFDoc_ColorDriver",
                            header: "BinMXCAFDoc_ColorDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BinMXCAFDoc_ColorDriver.hxx".}
 proc dynamicType*(this: BinMXCAFDocColorDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMXCAFDoc_ColorDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,3 +20,28 @@ type
   TFunctionDataMapIteratorOfDataMapOfLabelListOfLabel* = Iterator[TDF_Label,
       TDF_LabelList, TDF_LabelMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

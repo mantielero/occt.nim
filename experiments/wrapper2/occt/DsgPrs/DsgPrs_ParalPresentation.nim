@@ -95,3 +95,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
          attachmentPoint2: Pnt; aDirection: Dir; offsetPoint: Pnt;
          arrowSide: DsgPrsArrowSide) {.importcpp: "DsgPrs_ParalPresentation::Add(@)",
                                      header: "DsgPrs_ParalPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,38 +22,32 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Circ2d"
 type
   Geom2dGccCirc2dTanCenGeo* {.importcpp: "Geom2dGcc_Circ2dTanCenGeo",
-                             header: "Geom2dGcc_Circ2dTanCenGeo.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## This
-                                                                                   ## method
-                                                                                   ## implements
-                                                                                   ## the
-                                                                                   ## algorithms
-                                                                                   ## used
-                                                                                   ## to
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## create
-                                                                                   ## 2d
-                                                                                   ## circles
-                                                                                   ## tangent
-                                                                                   ## to
-                                                                                   ## a
-                                                                                   ## circle
-                                                                                   ## and
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## centered
-                                                                                   ## on
-                                                                                   ## a
-                                                                                   ## point.
+                             header: "Geom2dGcc_Circ2dTanCenGeo.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dGccCirc2dTanCenGeo; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc_Circ2dTanCenGeo::operator new",
+    header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}
+proc `delete`*(this: var Geom2dGccCirc2dTanCenGeo; theAddress: pointer) {.
+    importcpp: "Geom2dGcc_Circ2dTanCenGeo::operator delete",
+    header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}
+proc `new[]`*(this: var Geom2dGccCirc2dTanCenGeo; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc_Circ2dTanCenGeo::operator new[]",
+    header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}
+proc `delete[]`*(this: var Geom2dGccCirc2dTanCenGeo; theAddress: pointer) {.
+    importcpp: "Geom2dGcc_Circ2dTanCenGeo::operator delete[]",
+    header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}
+proc `new`*(this: var Geom2dGccCirc2dTanCenGeo; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dGcc_Circ2dTanCenGeo::operator new",
+    header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}
+proc `delete`*(this: var Geom2dGccCirc2dTanCenGeo; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dGcc_Circ2dTanCenGeo::operator delete",
+    header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}
 proc constructGeom2dGccCirc2dTanCenGeo*(qualified1: Geom2dGccQCurve;
-                                       pcenter: Pnt2d; tolerance: float): Geom2dGccCirc2dTanCenGeo {.
+                                       pcenter: Pnt2d; tolerance: StandardReal): Geom2dGccCirc2dTanCenGeo {.
     constructor, importcpp: "Geom2dGcc_Circ2dTanCenGeo(@)",
     header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}
-proc isDone*(this: Geom2dGccCirc2dTanCenGeo): bool {.noSideEffect,
+proc isDone*(this: Geom2dGccCirc2dTanCenGeo): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}
 proc nbSolutions*(this: Geom2dGccCirc2dTanCenGeo): int {.noSideEffect,
     importcpp: "NbSolutions", header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}
@@ -62,6 +56,6 @@ proc thisSolution*(this: Geom2dGccCirc2dTanCenGeo; index: int): Circ2d {.noSideE
 proc whichQualifier*(this: Geom2dGccCirc2dTanCenGeo; index: int;
                     qualif1: var GccEntPosition) {.noSideEffect,
     importcpp: "WhichQualifier", header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}
-proc tangency1*(this: Geom2dGccCirc2dTanCenGeo; index: int; parSol: var float;
-               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+proc tangency1*(this: Geom2dGccCirc2dTanCenGeo; index: int; parSol: var StandardReal;
+               parArg: var StandardReal; pntSol: var Pnt2d) {.noSideEffect,
     importcpp: "Tangency1", header: "Geom2dGcc_Circ2dTanCenGeo.hxx".}

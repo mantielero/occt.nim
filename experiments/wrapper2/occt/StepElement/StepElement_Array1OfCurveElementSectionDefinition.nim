@@ -15,3 +15,28 @@ type
   StepElementArray1OfCurveElementSectionDefinition* = NCollectionArray1[
       Handle[StepElementCurveElementSectionDefinition]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

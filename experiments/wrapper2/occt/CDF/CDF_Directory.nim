@@ -20,7 +20,7 @@ discard "forward decl of CDM_Document"
 discard "forward decl of CDF_Directory"
 discard "forward decl of CDF_Directory"
 type
-  HandleCDF_Directory* = Handle[CDF_Directory]
+  HandleC1C1* = Handle[CDF_Directory]
 
 ## ! A directory is a collection of documents. There is only one instance
 ## ! of a given document in a directory.
@@ -45,8 +45,8 @@ proc contains*(this: CDF_Directory; aDocument: Handle[CDM_Document]): bool {.
     noSideEffect, importcpp: "Contains", header: "CDF_Directory.hxx".}
 proc last*(this: var CDF_Directory): Handle[CDM_Document] {.importcpp: "Last",
     header: "CDF_Directory.hxx".}
-proc length*(this: CDF_Directory): int {.noSideEffect, importcpp: "Length",
-                                     header: "CDF_Directory.hxx".}
+proc length*(this: CDF_Directory): cint {.noSideEffect, importcpp: "Length",
+                                      header: "CDF_Directory.hxx".}
 proc isEmpty*(this: CDF_Directory): bool {.noSideEffect, importcpp: "IsEmpty",
                                        header: "CDF_Directory.hxx".}
 type
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "CDF_Directory.hxx".}
 proc dynamicType*(this: CDF_Directory): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDF_Directory.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

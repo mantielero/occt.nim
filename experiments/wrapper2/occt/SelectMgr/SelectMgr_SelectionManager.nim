@@ -101,34 +101,34 @@ proc contains*(this: SelectMgrSelectionManager;
               theObject: Handle[SelectMgrSelectableObject]): bool {.noSideEffect,
     importcpp: "Contains", header: "SelectMgr_SelectionManager.hxx".}
 proc load*(this: var SelectMgrSelectionManager;
-          theObject: Handle[SelectMgrSelectableObject]; theMode: int = -1) {.
+          theObject: Handle[SelectMgrSelectableObject]; theMode: cint = -1) {.
     importcpp: "Load", header: "SelectMgr_SelectionManager.hxx".}
 proc remove*(this: var SelectMgrSelectionManager;
             theObject: Handle[SelectMgrSelectableObject]) {.importcpp: "Remove",
     header: "SelectMgr_SelectionManager.hxx".}
 proc activate*(this: var SelectMgrSelectionManager;
-              theObject: Handle[SelectMgrSelectableObject]; theMode: int = 0) {.
+              theObject: Handle[SelectMgrSelectableObject]; theMode: cint = 0) {.
     importcpp: "Activate", header: "SelectMgr_SelectionManager.hxx".}
 proc deactivate*(this: var SelectMgrSelectionManager;
-                theObject: Handle[SelectMgrSelectableObject]; theMode: int = -1) {.
+                theObject: Handle[SelectMgrSelectableObject]; theMode: cint = -1) {.
     importcpp: "Deactivate", header: "SelectMgr_SelectionManager.hxx".}
 proc isActivated*(this: SelectMgrSelectionManager;
-                 theObject: Handle[SelectMgrSelectableObject]; theMode: int = -1): bool {.
+                 theObject: Handle[SelectMgrSelectableObject]; theMode: cint = -1): bool {.
     noSideEffect, importcpp: "IsActivated",
     header: "SelectMgr_SelectionManager.hxx".}
 proc clearSelectionStructures*(this: var SelectMgrSelectionManager;
                               theObj: Handle[SelectMgrSelectableObject];
-                              theMode: int = -1) {.
+                              theMode: cint = -1) {.
     importcpp: "ClearSelectionStructures",
     header: "SelectMgr_SelectionManager.hxx".}
 proc restoreSelectionStructures*(this: var SelectMgrSelectionManager;
                                 theObj: Handle[SelectMgrSelectableObject];
-                                theMode: int = -1) {.
+                                theMode: cint = -1) {.
     importcpp: "RestoreSelectionStructures",
     header: "SelectMgr_SelectionManager.hxx".}
 proc recomputeSelection*(this: var SelectMgrSelectionManager;
                         theObject: Handle[SelectMgrSelectableObject];
-                        theIsForce: bool = false; theMode: int = -1) {.
+                        theIsForce: bool = false; theMode: cint = -1) {.
     importcpp: "RecomputeSelection", header: "SelectMgr_SelectionManager.hxx".}
 proc update*(this: var SelectMgrSelectionManager;
             theObject: Handle[SelectMgrSelectableObject]; theIsForce: bool = true) {.
@@ -138,17 +138,42 @@ proc setUpdateMode*(this: var SelectMgrSelectionManager;
                    theType: SelectMgrTypeOfUpdate) {.importcpp: "SetUpdateMode",
     header: "SelectMgr_SelectionManager.hxx".}
 proc setUpdateMode*(this: var SelectMgrSelectionManager;
-                   theObject: Handle[SelectMgrSelectableObject]; theMode: int;
+                   theObject: Handle[SelectMgrSelectableObject]; theMode: cint;
                    theType: SelectMgrTypeOfUpdate) {.importcpp: "SetUpdateMode",
     header: "SelectMgr_SelectionManager.hxx".}
 proc setSelectionSensitivity*(this: var SelectMgrSelectionManager;
                              theObject: Handle[SelectMgrSelectableObject];
-                             theMode: int; theNewSens: int) {.
+                             theMode: cint; theNewSens: cint) {.
     importcpp: "SetSelectionSensitivity", header: "SelectMgr_SelectionManager.hxx".}
 proc updateSelection*(this: var SelectMgrSelectionManager;
                      theObj: Handle[SelectMgrSelectableObject]) {.
     importcpp: "UpdateSelection", header: "SelectMgr_SelectionManager.hxx".}
 discard "forward decl of SelectMgr_SelectionManager"
 type
-  HandleSelectMgrSelectionManager* = Handle[SelectMgrSelectionManager]
+  HandleC1C1* = Handle[SelectMgrSelectionManager]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

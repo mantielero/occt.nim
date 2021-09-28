@@ -111,5 +111,30 @@ proc paste*(this: XCAFDocVisMaterialTool; a2: Handle[TDF_Attribute];
     header: "XCAFDoc_VisMaterialTool.hxx".}
 discard "forward decl of XCAFDoc_VisMaterialTool"
 type
-  HandleXCAFDocVisMaterialTool* = Handle[XCAFDocVisMaterialTool]
+  HandleC1C1* = Handle[XCAFDocVisMaterialTool]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

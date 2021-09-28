@@ -23,33 +23,33 @@ type
 
 proc constructIntPolyhPoint*(): IntPolyhPoint {.constructor,
     importcpp: "IntPolyh_Point(@)", header: "IntPolyh_Point.hxx".}
-proc constructIntPolyhPoint*(x: float; y: float; z: float; u: float; v: float): IntPolyhPoint {.
+proc constructIntPolyhPoint*(x: cfloat; y: cfloat; z: cfloat; u: cfloat; v: cfloat): IntPolyhPoint {.
     constructor, importcpp: "IntPolyh_Point(@)", header: "IntPolyh_Point.hxx".}
-proc x*(this: IntPolyhPoint): float {.noSideEffect, importcpp: "X",
-                                  header: "IntPolyh_Point.hxx".}
-proc y*(this: IntPolyhPoint): float {.noSideEffect, importcpp: "Y",
-                                  header: "IntPolyh_Point.hxx".}
-proc z*(this: IntPolyhPoint): float {.noSideEffect, importcpp: "Z",
-                                  header: "IntPolyh_Point.hxx".}
-proc u*(this: IntPolyhPoint): float {.noSideEffect, importcpp: "U",
-                                  header: "IntPolyh_Point.hxx".}
-proc v*(this: IntPolyhPoint): float {.noSideEffect, importcpp: "V",
-                                  header: "IntPolyh_Point.hxx".}
-proc partOfCommon*(this: IntPolyhPoint): int {.noSideEffect,
+proc x*(this: IntPolyhPoint): cfloat {.noSideEffect, importcpp: "X",
+                                   header: "IntPolyh_Point.hxx".}
+proc y*(this: IntPolyhPoint): cfloat {.noSideEffect, importcpp: "Y",
+                                   header: "IntPolyh_Point.hxx".}
+proc z*(this: IntPolyhPoint): cfloat {.noSideEffect, importcpp: "Z",
+                                   header: "IntPolyh_Point.hxx".}
+proc u*(this: IntPolyhPoint): cfloat {.noSideEffect, importcpp: "U",
+                                   header: "IntPolyh_Point.hxx".}
+proc v*(this: IntPolyhPoint): cfloat {.noSideEffect, importcpp: "V",
+                                   header: "IntPolyh_Point.hxx".}
+proc partOfCommon*(this: IntPolyhPoint): cint {.noSideEffect,
     importcpp: "PartOfCommon", header: "IntPolyh_Point.hxx".}
-proc set*(this: var IntPolyhPoint; x: float; y: float; z: float; u: float; v: float;
-         ii: int = 1) {.importcpp: "Set", header: "IntPolyh_Point.hxx".}
-proc setX*(this: var IntPolyhPoint; x: float) {.importcpp: "SetX",
+proc set*(this: var IntPolyhPoint; x: cfloat; y: cfloat; z: cfloat; u: cfloat; v: cfloat;
+         ii: cint = 1) {.importcpp: "Set", header: "IntPolyh_Point.hxx".}
+proc setX*(this: var IntPolyhPoint; x: cfloat) {.importcpp: "SetX",
     header: "IntPolyh_Point.hxx".}
-proc setY*(this: var IntPolyhPoint; y: float) {.importcpp: "SetY",
+proc setY*(this: var IntPolyhPoint; y: cfloat) {.importcpp: "SetY",
     header: "IntPolyh_Point.hxx".}
-proc setZ*(this: var IntPolyhPoint; z: float) {.importcpp: "SetZ",
+proc setZ*(this: var IntPolyhPoint; z: cfloat) {.importcpp: "SetZ",
     header: "IntPolyh_Point.hxx".}
-proc setU*(this: var IntPolyhPoint; u: float) {.importcpp: "SetU",
+proc setU*(this: var IntPolyhPoint; u: cfloat) {.importcpp: "SetU",
     header: "IntPolyh_Point.hxx".}
-proc setV*(this: var IntPolyhPoint; v: float) {.importcpp: "SetV",
+proc setV*(this: var IntPolyhPoint; v: cfloat) {.importcpp: "SetV",
     header: "IntPolyh_Point.hxx".}
-proc setPartOfCommon*(this: var IntPolyhPoint; ii: int) {.
+proc setPartOfCommon*(this: var IntPolyhPoint; ii: cint) {.
     importcpp: "SetPartOfCommon", header: "IntPolyh_Point.hxx".}
 proc middle*(this: var IntPolyhPoint; mySurface: Handle[Adaptor3dHSurface];
             p1: IntPolyhPoint; p2: IntPolyhPoint) {.importcpp: "Middle",
@@ -62,27 +62,52 @@ proc sub*(this: IntPolyhPoint; p1: IntPolyhPoint): IntPolyhPoint {.noSideEffect,
     importcpp: "Sub", header: "IntPolyh_Point.hxx".}
 proc `-`*(this: IntPolyhPoint; p1: IntPolyhPoint): IntPolyhPoint {.noSideEffect,
     importcpp: "(# - #)", header: "IntPolyh_Point.hxx".}
-proc divide*(this: IntPolyhPoint; rr: float): IntPolyhPoint {.noSideEffect,
+proc divide*(this: IntPolyhPoint; rr: cfloat): IntPolyhPoint {.noSideEffect,
     importcpp: "Divide", header: "IntPolyh_Point.hxx".}
-proc `/`*(this: IntPolyhPoint; rr: float): IntPolyhPoint {.noSideEffect,
+proc `/`*(this: IntPolyhPoint; rr: cfloat): IntPolyhPoint {.noSideEffect,
     importcpp: "(# / #)", header: "IntPolyh_Point.hxx".}
-proc multiplication*(this: IntPolyhPoint; rr: float): IntPolyhPoint {.noSideEffect,
+proc multiplication*(this: IntPolyhPoint; rr: cfloat): IntPolyhPoint {.noSideEffect,
     importcpp: "Multiplication", header: "IntPolyh_Point.hxx".}
-proc `*`*(this: IntPolyhPoint; rr: float): IntPolyhPoint {.noSideEffect,
+proc `*`*(this: IntPolyhPoint; rr: cfloat): IntPolyhPoint {.noSideEffect,
     importcpp: "(# * #)", header: "IntPolyh_Point.hxx".}
-proc squareModulus*(this: IntPolyhPoint): float {.noSideEffect,
+proc squareModulus*(this: IntPolyhPoint): cfloat {.noSideEffect,
     importcpp: "SquareModulus", header: "IntPolyh_Point.hxx".}
-proc squareDistance*(this: IntPolyhPoint; p2: IntPolyhPoint): float {.noSideEffect,
+proc squareDistance*(this: IntPolyhPoint; p2: IntPolyhPoint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "IntPolyh_Point.hxx".}
-proc dot*(this: IntPolyhPoint; p2: IntPolyhPoint): float {.noSideEffect,
+proc dot*(this: IntPolyhPoint; p2: IntPolyhPoint): cfloat {.noSideEffect,
     importcpp: "Dot", header: "IntPolyh_Point.hxx".}
 proc cross*(this: var IntPolyhPoint; p1: IntPolyhPoint; p2: IntPolyhPoint) {.
     importcpp: "Cross", header: "IntPolyh_Point.hxx".}
 proc dump*(this: IntPolyhPoint) {.noSideEffect, importcpp: "Dump",
                                header: "IntPolyh_Point.hxx".}
-proc dump*(this: IntPolyhPoint; i: int) {.noSideEffect, importcpp: "Dump",
-                                     header: "IntPolyh_Point.hxx".}
+proc dump*(this: IntPolyhPoint; i: cint) {.noSideEffect, importcpp: "Dump",
+                                      header: "IntPolyh_Point.hxx".}
 proc setDegenerated*(this: var IntPolyhPoint; theFlag: bool) {.
     importcpp: "SetDegenerated", header: "IntPolyh_Point.hxx".}
 proc degenerated*(this: IntPolyhPoint): bool {.noSideEffect,
     importcpp: "Degenerated", header: "IntPolyh_Point.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

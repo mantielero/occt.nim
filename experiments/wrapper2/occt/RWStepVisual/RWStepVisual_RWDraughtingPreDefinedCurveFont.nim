@@ -28,7 +28,7 @@ proc constructRWStepVisualRWDraughtingPreDefinedCurveFont*(): RWStepVisualRWDrau
     constructor, importcpp: "RWStepVisual_RWDraughtingPreDefinedCurveFont(@)",
     header: "RWStepVisual_RWDraughtingPreDefinedCurveFont.hxx".}
 proc readStep*(this: RWStepVisualRWDraughtingPreDefinedCurveFont;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualDraughtingPreDefinedCurveFont]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepVisualRWDraughtingPreDefinedCurveFont;
                ent: Handle[StepVisualDraughtingPreDefinedCurveFont]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepVisual_RWDraughtingPreDefinedCurveFont.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

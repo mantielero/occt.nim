@@ -58,19 +58,44 @@ proc setTypeOfAxis*(this: var AIS_Axis; theTypeAxis: AIS_TypeOfAxis) {.
     importcpp: "SetTypeOfAxis", header: "AIS_Axis.hxx".}
 proc isXYZAxis*(this: AIS_Axis): bool {.noSideEffect, importcpp: "IsXYZAxis",
                                     header: "AIS_Axis.hxx".}
-proc acceptDisplayMode*(this: AIS_Axis; aMode: int): bool {.noSideEffect,
+proc acceptDisplayMode*(this: AIS_Axis; aMode: cint): bool {.noSideEffect,
     importcpp: "AcceptDisplayMode", header: "AIS_Axis.hxx".}
-proc signature*(this: AIS_Axis): int {.noSideEffect, importcpp: "Signature",
-                                   header: "AIS_Axis.hxx".}
+proc signature*(this: AIS_Axis): cint {.noSideEffect, importcpp: "Signature",
+                                    header: "AIS_Axis.hxx".}
 proc `type`*(this: AIS_Axis): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_Axis.hxx".}
 proc setColor*(this: var AIS_Axis; aColor: QuantityColor) {.importcpp: "SetColor",
     header: "AIS_Axis.hxx".}
-proc setWidth*(this: var AIS_Axis; aValue: float) {.importcpp: "SetWidth",
+proc setWidth*(this: var AIS_Axis; aValue: cfloat) {.importcpp: "SetWidth",
     header: "AIS_Axis.hxx".}
 proc unsetColor*(this: var AIS_Axis) {.importcpp: "UnsetColor", header: "AIS_Axis.hxx".}
 proc unsetWidth*(this: var AIS_Axis) {.importcpp: "UnsetWidth", header: "AIS_Axis.hxx".}
 discard "forward decl of AIS_Axis"
 type
-  HandleAIS_Axis* = Handle[AIS_Axis]
+  HandleC1C1* = Handle[AIS_Axis]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

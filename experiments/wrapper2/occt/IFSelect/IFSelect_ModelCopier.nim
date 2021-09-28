@@ -28,7 +28,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_ModelCopier"
 discard "forward decl of IFSelect_ModelCopier"
 type
-  HandleIFSelectModelCopier* = Handle[IFSelectModelCopier]
+  HandleC1C1* = Handle[IFSelectModelCopier]
 
 ## ! This class performs the Copy operations involved by the
 ## ! description of a ShareOut (evaluated by a ShareOutResult)
@@ -122,15 +122,15 @@ proc clearResult*(this: var IFSelectModelCopier) {.importcpp: "ClearResult",
 proc addFile*(this: var IFSelectModelCopier; filename: TCollectionAsciiString;
              content: Handle[InterfaceInterfaceModel]): bool {.
     importcpp: "AddFile", header: "IFSelect_ModelCopier.hxx".}
-proc nameFile*(this: var IFSelectModelCopier; num: int;
+proc nameFile*(this: var IFSelectModelCopier; num: cint;
               filename: TCollectionAsciiString): bool {.importcpp: "NameFile",
     header: "IFSelect_ModelCopier.hxx".}
-proc clearFile*(this: var IFSelectModelCopier; num: int): bool {.
+proc clearFile*(this: var IFSelectModelCopier; num: cint): bool {.
     importcpp: "ClearFile", header: "IFSelect_ModelCopier.hxx".}
-proc setAppliedModifiers*(this: var IFSelectModelCopier; num: int;
+proc setAppliedModifiers*(this: var IFSelectModelCopier; num: cint;
                          applied: Handle[IFSelectAppliedModifiers]): bool {.
     importcpp: "SetAppliedModifiers", header: "IFSelect_ModelCopier.hxx".}
-proc clearAppliedModifiers*(this: var IFSelectModelCopier; num: int): bool {.
+proc clearAppliedModifiers*(this: var IFSelectModelCopier; num: cint): bool {.
     importcpp: "ClearAppliedModifiers", header: "IFSelect_ModelCopier.hxx".}
 proc copy*(this: var IFSelectModelCopier; eval: var IFSelectShareOutResult;
           wl: Handle[IFSelectWorkLibrary]; protocol: Handle[InterfaceProtocol]): InterfaceCheckIterator {.
@@ -156,13 +156,13 @@ proc copiedRemaining*(this: var IFSelectModelCopier; g: InterfaceGraph;
     importcpp: "CopiedRemaining", header: "IFSelect_ModelCopier.hxx".}
 proc setRemaining*(this: IFSelectModelCopier; cg: var InterfaceGraph): bool {.
     noSideEffect, importcpp: "SetRemaining", header: "IFSelect_ModelCopier.hxx".}
-proc nbFiles*(this: IFSelectModelCopier): int {.noSideEffect, importcpp: "NbFiles",
+proc nbFiles*(this: IFSelectModelCopier): cint {.noSideEffect, importcpp: "NbFiles",
     header: "IFSelect_ModelCopier.hxx".}
-proc fileName*(this: IFSelectModelCopier; num: int): TCollectionAsciiString {.
+proc fileName*(this: IFSelectModelCopier; num: cint): TCollectionAsciiString {.
     noSideEffect, importcpp: "FileName", header: "IFSelect_ModelCopier.hxx".}
-proc fileModel*(this: IFSelectModelCopier; num: int): Handle[InterfaceInterfaceModel] {.
+proc fileModel*(this: IFSelectModelCopier; num: cint): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "FileModel", header: "IFSelect_ModelCopier.hxx".}
-proc appliedModifiers*(this: IFSelectModelCopier; num: int): Handle[
+proc appliedModifiers*(this: IFSelectModelCopier; num: cint): Handle[
     IFSelectAppliedModifiers] {.noSideEffect, importcpp: "AppliedModifiers",
                                header: "IFSelect_ModelCopier.hxx".}
 proc beginSentFiles*(this: var IFSelectModelCopier; sho: Handle[IFSelectShareOut];
@@ -182,3 +182,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_ModelCopier.hxx".}
 proc dynamicType*(this: IFSelectModelCopier): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_ModelCopier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

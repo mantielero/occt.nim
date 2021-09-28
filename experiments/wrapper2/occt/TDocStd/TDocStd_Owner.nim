@@ -22,7 +22,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDocStd_Owner"
 discard "forward decl of TDocStd_Owner"
 type
-  HandleTDocStdOwner* = Handle[TDocStdOwner]
+  HandleC1C1* = Handle[TDocStdOwner]
 
 ## ! This  attribute located  at  the  root label  of the
 ## ! framework contains  a   back reference to   the  owner
@@ -80,8 +80,8 @@ proc paste*(this: TDocStdOwner; into: Handle[TDF_Attribute];
 proc dump*(this: TDocStdOwner; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDocStd_Owner.hxx".}
 proc dumpJson*(this: TDocStdOwner; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDocStd_Owner.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDocStd_Owner.hxx".}
 type
   TDocStdOwnerbaseType* = TDF_Attribute
 
@@ -92,3 +92,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDocStd_Owner.hxx".}
 proc dynamicType*(this: TDocStdOwner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_Owner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

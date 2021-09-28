@@ -82,7 +82,7 @@ type
 
 proc addCrossUVIsoPoint*(theQSurf: Handle[Adaptor3dHSurface];
                         thePSurf: Handle[Adaptor3dHSurface];
-                        theRefPt: IntSurfPntOn2S; theTol3d: float;
+                        theRefPt: IntSurfPntOn2S; theTol3d: cfloat;
                         theAddedPoint: var IntSurfPntOn2S;
                         theIsReversed: bool = false): bool {.
     importcpp: "IntPatch_SpecialPoints::AddCrossUVIsoPoint(@)",
@@ -90,7 +90,7 @@ proc addCrossUVIsoPoint*(theQSurf: Handle[Adaptor3dHSurface];
 proc addPointOnUorVIso*(theQSurf: Handle[Adaptor3dHSurface];
                        thePSurf: Handle[Adaptor3dHSurface];
                        theRefPt: IntSurfPntOn2S; theIsU: bool;
-                       theIsoParameter: float; theToler: MathVector;
+                       theIsoParameter: cfloat; theToler: MathVector;
                        theInitPoint: MathVector; theInfBound: MathVector;
                        theSupBound: MathVector; theAddedPoint: var IntSurfPntOn2S;
                        theIsReversed: bool = false): bool {.
@@ -106,14 +106,39 @@ proc addSingularPole*(theQSurf: Handle[Adaptor3dHSurface];
 proc continueAfterSpecialPoint*(theQSurf: Handle[Adaptor3dHSurface];
                                thePSurf: Handle[Adaptor3dHSurface];
                                theRefPt: IntSurfPntOn2S;
-                               theSPType: IntPatchSpecPntType; theTol2D: float;
+                               theSPType: IntPatchSpecPntType; theTol2D: cfloat;
                                theNewPoint: var IntSurfPntOn2S;
                                theIsReversed: bool = false): bool {.
     importcpp: "IntPatch_SpecialPoints::ContinueAfterSpecialPoint(@)",
     header: "IntPatch_SpecialPoints.hxx".}
 proc adjustPointAndVertex*(theRefPoint: IntSurfPntOn2S;
-                          theArrPeriods: array[4, float];
+                          theArrPeriods: array[4, cfloat];
                           theNewPoint: var IntSurfPntOn2S;
                           theVertex: ptr IntPatchPoint = 0) {.
     importcpp: "IntPatch_SpecialPoints::AdjustPointAndVertex(@)",
     header: "IntPatch_SpecialPoints.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

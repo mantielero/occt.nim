@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectSingleViewFrom"
 discard "forward decl of IGESSelect_SelectSingleViewFrom"
 type
-  HandleIGESSelectSelectSingleViewFrom* = Handle[IGESSelectSelectSingleViewFrom]
+  HandleC1C1* = Handle[IGESSelectSelectSingleViewFrom]
 
 ## ! This selection gets the Single Views attached to its input
 ## ! IGES entities. Single Views themselves or Drawings as passed
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSelectSingleViewFrom): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectSingleViewFrom.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

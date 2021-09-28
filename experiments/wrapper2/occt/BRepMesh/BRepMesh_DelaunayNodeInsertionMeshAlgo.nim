@@ -39,3 +39,28 @@ proc isPreProcessSurfaceNodes*[RangeSplitter; BaseAlgo](
 proc setPreProcessSurfaceNodes*[RangeSplitter; BaseAlgo](
     this: var BRepMeshDelaunayNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo];
     isPreProcessSurfaceNodes: bool) {.importcpp: "SetPreProcessSurfaceNodes", header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

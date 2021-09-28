@@ -31,3 +31,28 @@ proc computeHLR*(this: StdPrsHLRShapeI; thePrs: Handle[Prs3dPresentation];
                 theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer];
                 theProjector: Handle[Graphic3dCamera]) {.noSideEffect,
     importcpp: "ComputeHLR", header: "StdPrs_HLRShapeI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

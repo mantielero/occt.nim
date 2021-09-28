@@ -17,7 +17,7 @@
 discard "forward decl of StepVisual_AnnotationText"
 discard "forward decl of StepVisual_AnnotationText"
 type
-  HandleStepVisualAnnotationText* = Handle[StepVisualAnnotationText]
+  HandleC1C1* = Handle[StepVisualAnnotationText]
   StepVisualAnnotationText* {.importcpp: "StepVisual_AnnotationText",
                              header: "StepVisual_AnnotationText.hxx", bycopy.} = object of StepReprMappedItem ##
                                                                                                        ## !
@@ -39,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_AnnotationText.hxx".}
 proc dynamicType*(this: StepVisualAnnotationText): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_AnnotationText.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

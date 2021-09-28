@@ -97,16 +97,41 @@ proc setGenMode*(this: var Graphic3dTextureParams;
                 theMode: Graphic3dTypeOfTextureMode; thePlaneS: Graphic3dVec4;
                 thePlaneT: Graphic3dVec4) {.importcpp: "SetGenMode",
     header: "Graphic3d_TextureParams.hxx".}
-proc baseLevel*(this: Graphic3dTextureParams): int {.noSideEffect,
+proc baseLevel*(this: Graphic3dTextureParams): cint {.noSideEffect,
     importcpp: "BaseLevel", header: "Graphic3d_TextureParams.hxx".}
-proc maxLevel*(this: Graphic3dTextureParams): int {.noSideEffect,
+proc maxLevel*(this: Graphic3dTextureParams): cint {.noSideEffect,
     importcpp: "MaxLevel", header: "Graphic3d_TextureParams.hxx".}
-proc setLevelsRange*(this: var Graphic3dTextureParams; theFirstLevel: int;
-                    theSecondLevel: int = 0) {.importcpp: "SetLevelsRange",
+proc setLevelsRange*(this: var Graphic3dTextureParams; theFirstLevel: cint;
+                    theSecondLevel: cint = 0) {.importcpp: "SetLevelsRange",
     header: "Graphic3d_TextureParams.hxx".}
 proc samplerRevision*(this: Graphic3dTextureParams): cuint {.noSideEffect,
     importcpp: "SamplerRevision", header: "Graphic3d_TextureParams.hxx".}
 discard "forward decl of Graphic3d_TextureParams"
 type
-  HandleGraphic3dTextureParams* = Handle[Graphic3dTextureParams]
+  HandleC1C1* = Handle[Graphic3dTextureParams]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

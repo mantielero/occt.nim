@@ -18,3 +18,28 @@ discard "forward decl of SelectMgr_EntityOwner"
 type
   SelectMgrSequenceOfOwner* = NCollectionSequence[Handle[SelectMgrEntityOwner]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

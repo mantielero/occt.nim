@@ -20,3 +20,28 @@ type
   ResourceDataMapIteratorOfDataMapOfAsciiStringAsciiString* = Iterator[
       TCollectionAsciiString, TCollectionAsciiString, TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

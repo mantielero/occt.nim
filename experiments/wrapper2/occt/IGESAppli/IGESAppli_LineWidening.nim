@@ -17,7 +17,7 @@
 discard "forward decl of IGESAppli_LineWidening"
 discard "forward decl of IGESAppli_LineWidening"
 type
-  HandleIGESAppliLineWidening* = Handle[IGESAppliLineWidening]
+  HandleC1C1* = Handle[IGESAppliLineWidening]
 
 ## ! defines LineWidening, Type <406> Form <5>
 ## ! in package IGESAppli
@@ -31,20 +31,20 @@ type
 
 proc constructIGESAppliLineWidening*(): IGESAppliLineWidening {.constructor,
     importcpp: "IGESAppli_LineWidening(@)", header: "IGESAppli_LineWidening.hxx".}
-proc init*(this: var IGESAppliLineWidening; nbPropVal: int; aWidth: float;
-          aCornering: int; aExtnFlag: int; aJustifFlag: int; aExtnVal: float) {.
+proc init*(this: var IGESAppliLineWidening; nbPropVal: cint; aWidth: cfloat;
+          aCornering: cint; aExtnFlag: cint; aJustifFlag: cint; aExtnVal: cfloat) {.
     importcpp: "Init", header: "IGESAppli_LineWidening.hxx".}
-proc nbPropertyValues*(this: IGESAppliLineWidening): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESAppliLineWidening): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_LineWidening.hxx".}
-proc widthOfMetalization*(this: IGESAppliLineWidening): float {.noSideEffect,
+proc widthOfMetalization*(this: IGESAppliLineWidening): cfloat {.noSideEffect,
     importcpp: "WidthOfMetalization", header: "IGESAppli_LineWidening.hxx".}
-proc corneringCode*(this: IGESAppliLineWidening): int {.noSideEffect,
+proc corneringCode*(this: IGESAppliLineWidening): cint {.noSideEffect,
     importcpp: "CorneringCode", header: "IGESAppli_LineWidening.hxx".}
-proc extensionFlag*(this: IGESAppliLineWidening): int {.noSideEffect,
+proc extensionFlag*(this: IGESAppliLineWidening): cint {.noSideEffect,
     importcpp: "ExtensionFlag", header: "IGESAppli_LineWidening.hxx".}
-proc justificationFlag*(this: IGESAppliLineWidening): int {.noSideEffect,
+proc justificationFlag*(this: IGESAppliLineWidening): cint {.noSideEffect,
     importcpp: "JustificationFlag", header: "IGESAppli_LineWidening.hxx".}
-proc extensionValue*(this: IGESAppliLineWidening): float {.noSideEffect,
+proc extensionValue*(this: IGESAppliLineWidening): cfloat {.noSideEffect,
     importcpp: "ExtensionValue", header: "IGESAppli_LineWidening.hxx".}
 type
   IGESAppliLineWideningbaseType* = IGESDataIGESEntity
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_LineWidening.hxx".}
 proc dynamicType*(this: IGESAppliLineWidening): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESAppli_LineWidening.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of ShapeUpgrade_SplitSurfaceAngle"
 discard "forward decl of ShapeUpgrade_SplitSurfaceAngle"
 type
-  HandleShapeUpgradeSplitSurfaceAngle* = Handle[ShapeUpgradeSplitSurfaceAngle]
+  HandleC1C1* = Handle[ShapeUpgradeSplitSurfaceAngle]
 
 ## ! Splits a surfaces of revolution, cylindrical, toroidal,
 ## ! conical, spherical so that each resulting segment covers
@@ -30,12 +30,12 @@ type
                                                                            ## constructor.
 
 
-proc constructShapeUpgradeSplitSurfaceAngle*(maxAngle: float): ShapeUpgradeSplitSurfaceAngle {.
+proc constructShapeUpgradeSplitSurfaceAngle*(maxAngle: cfloat): ShapeUpgradeSplitSurfaceAngle {.
     constructor, importcpp: "ShapeUpgrade_SplitSurfaceAngle(@)",
     header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
-proc setMaxAngle*(this: var ShapeUpgradeSplitSurfaceAngle; maxAngle: float) {.
+proc setMaxAngle*(this: var ShapeUpgradeSplitSurfaceAngle; maxAngle: cfloat) {.
     importcpp: "SetMaxAngle", header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
-proc maxAngle*(this: ShapeUpgradeSplitSurfaceAngle): float {.noSideEffect,
+proc maxAngle*(this: ShapeUpgradeSplitSurfaceAngle): cfloat {.noSideEffect,
     importcpp: "MaxAngle", header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
 proc compute*(this: var ShapeUpgradeSplitSurfaceAngle; segment: bool) {.
     importcpp: "Compute", header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeSplitSurfaceAngle): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_SplitSurfaceAngle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

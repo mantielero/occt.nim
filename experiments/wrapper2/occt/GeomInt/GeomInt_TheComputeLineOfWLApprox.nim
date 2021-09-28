@@ -29,54 +29,65 @@ discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of AppParCurves_MultiCurve"
 type
   GeomIntTheComputeLineOfWLApprox* {.importcpp: "GeomInt_TheComputeLineOfWLApprox", header: "GeomInt_TheComputeLineOfWLApprox.hxx",
-                                    bycopy.} = object ## ! The MultiLine <Line> will be approximated until tolerances
-                                                   ## ! will be reached.
-                                                   ## ! The approximation will be done from degreemin to degreemax
-                                                   ## ! with a cutting if the corresponding boolean is True.
-                                                   ## ! If <Squares> is True, the computation will be done with
-                                                   ## ! no iteration at all.
-                                                   ## !
-                                                   ## ! The multiplicities of the internal knots is set by
-                                                   ## ! default.
-                                                   ## ! is internally used in the algorithm.
+                                    bycopy.} = object ## ! is internally used in the algorithm.
 
 
+proc `new`*(this: var GeomIntTheComputeLineOfWLApprox; theSize: csize_t): pointer {.
+    importcpp: "GeomInt_TheComputeLineOfWLApprox::operator new",
+    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntTheComputeLineOfWLApprox; theAddress: pointer) {.
+    importcpp: "GeomInt_TheComputeLineOfWLApprox::operator delete",
+    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc `new[]`*(this: var GeomIntTheComputeLineOfWLApprox; theSize: csize_t): pointer {.
+    importcpp: "GeomInt_TheComputeLineOfWLApprox::operator new[]",
+    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc `delete[]`*(this: var GeomIntTheComputeLineOfWLApprox; theAddress: pointer) {.
+    importcpp: "GeomInt_TheComputeLineOfWLApprox::operator delete[]",
+    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc `new`*(this: var GeomIntTheComputeLineOfWLApprox; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "GeomInt_TheComputeLineOfWLApprox::operator new", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntTheComputeLineOfWLApprox; a2: pointer; a3: pointer) {.
+    importcpp: "GeomInt_TheComputeLineOfWLApprox::operator delete",
+    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
 proc constructGeomIntTheComputeLineOfWLApprox*(
     line: GeomIntTheMultiLineOfWLApprox; degreemin: int = 4; degreemax: int = 8;
-    tolerance3d: float = 1.0e-3; tolerance2d: float = 1.0e-6; nbIterations: int = 5;
-    cutting: bool = true;
+    tolerance3d: StandardReal = 1.0e-3; tolerance2d: StandardReal = 1.0e-6;
+    nbIterations: int = 5; cutting: StandardBoolean = true;
     parametrization: ApproxParametrizationType = approxChordLength;
-    squares: bool = false): GeomIntTheComputeLineOfWLApprox {.constructor,
+    squares: StandardBoolean = false): GeomIntTheComputeLineOfWLApprox {.constructor,
     importcpp: "GeomInt_TheComputeLineOfWLApprox(@)",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
 proc constructGeomIntTheComputeLineOfWLApprox*(
     line: GeomIntTheMultiLineOfWLApprox; parameters: MathVector; degreemin: int = 4;
-    degreemax: int = 8; tolerance3d: float = 1.0e-03; tolerance2d: float = 1.0e-06;
-    nbIterations: int = 5; cutting: bool = true; squares: bool = false): GeomIntTheComputeLineOfWLApprox {.
+    degreemax: int = 8; tolerance3d: StandardReal = 1.0e-03;
+    tolerance2d: StandardReal = 1.0e-06; nbIterations: int = 5;
+    cutting: StandardBoolean = true; squares: StandardBoolean = false): GeomIntTheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_TheComputeLineOfWLApprox(@)",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
 proc constructGeomIntTheComputeLineOfWLApprox*(parameters: MathVector;
-    degreemin: int = 4; degreemax: int = 8; tolerance3d: float = 1.0e-03;
-    tolerance2d: float = 1.0e-06; nbIterations: int = 5; cutting: bool = true;
-    squares: bool = false): GeomIntTheComputeLineOfWLApprox {.constructor,
-    importcpp: "GeomInt_TheComputeLineOfWLApprox(@)",
+    degreemin: int = 4; degreemax: int = 8; tolerance3d: StandardReal = 1.0e-03;
+    tolerance2d: StandardReal = 1.0e-06; nbIterations: int = 5;
+    cutting: StandardBoolean = true; squares: StandardBoolean = false): GeomIntTheComputeLineOfWLApprox {.
+    constructor, importcpp: "GeomInt_TheComputeLineOfWLApprox(@)",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
 proc constructGeomIntTheComputeLineOfWLApprox*(degreemin: int = 4;
-    degreemax: int = 8; tolerance3d: float = 1.0e-03; tolerance2d: float = 1.0e-06;
-    nbIterations: int = 5; cutting: bool = true;
+    degreemax: int = 8; tolerance3d: StandardReal = 1.0e-03;
+    tolerance2d: StandardReal = 1.0e-06; nbIterations: int = 5;
+    cutting: StandardBoolean = true;
     parametrization: ApproxParametrizationType = approxChordLength;
-    squares: bool = false): GeomIntTheComputeLineOfWLApprox {.constructor,
+    squares: StandardBoolean = false): GeomIntTheComputeLineOfWLApprox {.constructor,
     importcpp: "GeomInt_TheComputeLineOfWLApprox(@)",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
 proc interpol*(this: var GeomIntTheComputeLineOfWLApprox;
               line: GeomIntTheMultiLineOfWLApprox) {.importcpp: "Interpol",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
 proc init*(this: var GeomIntTheComputeLineOfWLApprox; degreemin: int = 4;
-          degreemax: int = 8; tolerance3d: float = 1.0e-03;
-          tolerance2d: float = 1.0e-06; nbIterations: int = 5; cutting: bool = true;
+          degreemax: int = 8; tolerance3d: StandardReal = 1.0e-03;
+          tolerance2d: StandardReal = 1.0e-06; nbIterations: int = 5;
+          cutting: StandardBoolean = true;
           parametrization: ApproxParametrizationType = approxChordLength;
-          squares: bool = false) {.importcpp: "Init",
-                               header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+          squares: StandardBoolean = false) {.importcpp: "Init",
+    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
 proc perform*(this: var GeomIntTheComputeLineOfWLApprox;
              line: GeomIntTheMultiLineOfWLApprox) {.importcpp: "Perform",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
@@ -92,23 +103,25 @@ proc setKnotsAndMultiplicities*(this: var GeomIntTheComputeLineOfWLApprox;
 proc setDegrees*(this: var GeomIntTheComputeLineOfWLApprox; degreemin: int;
                 degreemax: int) {.importcpp: "SetDegrees",
                                 header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc setTolerances*(this: var GeomIntTheComputeLineOfWLApprox; tolerance3d: float;
-                   tolerance2d: float) {.importcpp: "SetTolerances", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc setTolerances*(this: var GeomIntTheComputeLineOfWLApprox;
+                   tolerance3d: StandardReal; tolerance2d: StandardReal) {.
+    importcpp: "SetTolerances", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
 proc setContinuity*(this: var GeomIntTheComputeLineOfWLApprox; c: int) {.
     importcpp: "SetContinuity", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
 proc setConstraints*(this: var GeomIntTheComputeLineOfWLApprox;
                     firstC: AppParCurvesConstraint; lastC: AppParCurvesConstraint) {.
     importcpp: "SetConstraints", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc setPeriodic*(this: var GeomIntTheComputeLineOfWLApprox; thePeriodic: bool) {.
-    importcpp: "SetPeriodic", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc isAllApproximated*(this: GeomIntTheComputeLineOfWLApprox): bool {.noSideEffect,
-    importcpp: "IsAllApproximated", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc isToleranceReached*(this: GeomIntTheComputeLineOfWLApprox): bool {.
+proc setPeriodic*(this: var GeomIntTheComputeLineOfWLApprox;
+                 thePeriodic: StandardBoolean) {.importcpp: "SetPeriodic",
+    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc isAllApproximated*(this: GeomIntTheComputeLineOfWLApprox): StandardBoolean {.
+    noSideEffect, importcpp: "IsAllApproximated",
+    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc isToleranceReached*(this: GeomIntTheComputeLineOfWLApprox): StandardBoolean {.
     noSideEffect, importcpp: "IsToleranceReached",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc error*(this: GeomIntTheComputeLineOfWLApprox; tol3d: var float; tol2d: var float) {.
-    noSideEffect, importcpp: "Error",
-    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc error*(this: GeomIntTheComputeLineOfWLApprox; tol3d: var StandardReal;
+           tol2d: var StandardReal) {.noSideEffect, importcpp: "Error", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
 proc value*(this: GeomIntTheComputeLineOfWLApprox): AppParCurvesMultiBSpCurve {.
     noSideEffect, importcpp: "Value",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}

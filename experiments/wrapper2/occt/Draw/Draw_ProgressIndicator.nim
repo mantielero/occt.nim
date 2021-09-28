@@ -16,7 +16,7 @@
 discard "forward decl of Draw_ProgressIndicator"
 discard "forward decl of Draw_ProgressIndicator"
 type
-  HandleDrawProgressIndicator* = Handle[DrawProgressIndicator]
+  HandleC1C1* = Handle[DrawProgressIndicator]
 
 ## ! Implements ProgressIndicator (interface provided by Message)
 ## ! for DRAW, with possibility to output to TCL window
@@ -75,7 +75,7 @@ type
 
 
 proc constructDrawProgressIndicator*(di: DrawInterpretor;
-                                    theUpdateThreshold: float = 1.0): DrawProgressIndicator {.
+                                    theUpdateThreshold: cfloat = 1.0): DrawProgressIndicator {.
     constructor, importcpp: "Draw_ProgressIndicator(@)",
     header: "Draw_ProgressIndicator.hxx".}
 proc destroyDrawProgressIndicator*(this: var DrawProgressIndicator) {.
@@ -118,3 +118,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Draw_ProgressIndicator.hxx".}
 proc dynamicType*(this: DrawProgressIndicator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_ProgressIndicator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

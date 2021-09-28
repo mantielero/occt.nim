@@ -27,9 +27,34 @@ proc constructRWStepBasicRWApprovalStatus*(): RWStepBasicRWApprovalStatus {.
     constructor, importcpp: "RWStepBasic_RWApprovalStatus(@)",
     header: "RWStepBasic_RWApprovalStatus.hxx".}
 proc readStep*(this: RWStepBasicRWApprovalStatus;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicApprovalStatus]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWApprovalStatus.hxx".}
 proc writeStep*(this: RWStepBasicRWApprovalStatus; sw: var StepDataStepWriter;
                ent: Handle[StepBasicApprovalStatus]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWApprovalStatus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

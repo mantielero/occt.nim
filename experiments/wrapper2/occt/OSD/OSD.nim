@@ -87,11 +87,36 @@ proc signalMode*(): OSD_SignalMode {.importcpp: "OSD::SignalMode(@)",
                                   header: "OSD.hxx".}
 proc toCatchFloatingSignals*(): bool {.importcpp: "OSD::ToCatchFloatingSignals(@)",
                                     header: "OSD.hxx".}
-proc secSleep*(theSeconds: int) {.importcpp: "OSD::SecSleep(@)", header: "OSD.hxx".}
-proc milliSecSleep*(theMilliseconds: int) {.importcpp: "OSD::MilliSecSleep(@)",
+proc secSleep*(theSeconds: cint) {.importcpp: "OSD::SecSleep(@)", header: "OSD.hxx".}
+proc milliSecSleep*(theMilliseconds: cint) {.importcpp: "OSD::MilliSecSleep(@)",
     header: "OSD.hxx".}
-proc realToCString*(aReal: float; aString: var StandardPCharacter): bool {.
+proc realToCString*(aReal: cfloat; aString: var StandardPCharacter): bool {.
     importcpp: "OSD::RealToCString(@)", header: "OSD.hxx".}
-proc cStringToReal*(aString: StandardCString; aReal: var float): bool {.
+proc cStringToReal*(aString: StandardCString; aReal: var cfloat): bool {.
     importcpp: "OSD::CStringToReal(@)", header: "OSD.hxx".}
 proc controlBreak*() {.importcpp: "OSD::ControlBreak(@)", header: "OSD.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

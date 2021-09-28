@@ -14,3 +14,28 @@
 type
   BRepExtremaSeqOfSolution* = NCollectionSequence[BRepExtremaSolutionElem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

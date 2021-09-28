@@ -19,8 +19,7 @@ discard "forward decl of StepVisual_PresentationRepresentation"
 discard "forward decl of StepVisual_PresentationLayerUsage"
 discard "forward decl of StepVisual_PresentationLayerUsage"
 type
-  HandleStepVisualPresentationLayerUsage* = Handle[
-      StepVisualPresentationLayerUsage]
+  HandleC1C1* = Handle[StepVisualPresentationLayerUsage]
 
 ## ! Added from StepVisual Rev2 to Rev4
 
@@ -59,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualPresentationLayerUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationLayerUsage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

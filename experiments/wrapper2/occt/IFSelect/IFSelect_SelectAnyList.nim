@@ -24,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectAnyList"
 discard "forward decl of IFSelect_SelectAnyList"
 type
-  HandleIFSelectSelectAnyList* = Handle[IFSelectSelectAnyList]
+  HandleC1C1* = Handle[IFSelectSelectAnyList]
 
 ## ! A SelectAnyList kind Selection selects a List of an Entity, as
 ## ! well as this Entity contains some. A List contains sub-entities
@@ -96,7 +96,7 @@ type
 proc keepInputEntity*(this: IFSelectSelectAnyList;
                      iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "KeepInputEntity", header: "IFSelect_SelectAnyList.hxx".}
-proc nbItems*(this: IFSelectSelectAnyList; ent: Handle[StandardTransient]): int {.
+proc nbItems*(this: IFSelectSelectAnyList; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "NbItems", header: "IFSelect_SelectAnyList.hxx".}
 proc setRange*(this: var IFSelectSelectAnyList; rankfrom: Handle[IFSelectIntParam];
               rankto: Handle[IFSelectIntParam]) {.importcpp: "SetRange",
@@ -111,17 +111,17 @@ proc hasLower*(this: IFSelectSelectAnyList): bool {.noSideEffect,
     importcpp: "HasLower", header: "IFSelect_SelectAnyList.hxx".}
 proc lower*(this: IFSelectSelectAnyList): Handle[IFSelectIntParam] {.noSideEffect,
     importcpp: "Lower", header: "IFSelect_SelectAnyList.hxx".}
-proc lowerValue*(this: IFSelectSelectAnyList): int {.noSideEffect,
+proc lowerValue*(this: IFSelectSelectAnyList): cint {.noSideEffect,
     importcpp: "LowerValue", header: "IFSelect_SelectAnyList.hxx".}
 proc hasUpper*(this: IFSelectSelectAnyList): bool {.noSideEffect,
     importcpp: "HasUpper", header: "IFSelect_SelectAnyList.hxx".}
 proc upper*(this: IFSelectSelectAnyList): Handle[IFSelectIntParam] {.noSideEffect,
     importcpp: "Upper", header: "IFSelect_SelectAnyList.hxx".}
-proc upperValue*(this: IFSelectSelectAnyList): int {.noSideEffect,
+proc upperValue*(this: IFSelectSelectAnyList): cint {.noSideEffect,
     importcpp: "UpperValue", header: "IFSelect_SelectAnyList.hxx".}
 proc rootResult*(this: IFSelectSelectAnyList; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectAnyList.hxx".}
-proc fillResult*(this: IFSelectSelectAnyList; n1: int; n2: int;
+proc fillResult*(this: IFSelectSelectAnyList; n1: cint; n2: cint;
                 ent: Handle[StandardTransient]; res: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "FillResult", header: "IFSelect_SelectAnyList.hxx".}
 proc label*(this: IFSelectSelectAnyList): TCollectionAsciiString {.noSideEffect,
@@ -138,3 +138,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectAnyList.hxx".}
 proc dynamicType*(this: IFSelectSelectAnyList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectAnyList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

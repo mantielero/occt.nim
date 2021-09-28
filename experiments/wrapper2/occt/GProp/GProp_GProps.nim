@@ -48,19 +48,44 @@ proc constructGPropGProps*(): GPropGProps {.constructor,
     importcpp: "GProp_GProps(@)", header: "GProp_GProps.hxx".}
 proc constructGPropGProps*(systemLocation: Pnt): GPropGProps {.constructor,
     importcpp: "GProp_GProps(@)", header: "GProp_GProps.hxx".}
-proc add*(this: var GPropGProps; item: GPropGProps; density: float = 1.0) {.
+proc add*(this: var GPropGProps; item: GPropGProps; density: cfloat = 1.0) {.
     importcpp: "Add", header: "GProp_GProps.hxx".}
-proc mass*(this: GPropGProps): float {.noSideEffect, importcpp: "Mass",
-                                   header: "GProp_GProps.hxx".}
+proc mass*(this: GPropGProps): cfloat {.noSideEffect, importcpp: "Mass",
+                                    header: "GProp_GProps.hxx".}
 proc centreOfMass*(this: GPropGProps): Pnt {.noSideEffect, importcpp: "CentreOfMass",
     header: "GProp_GProps.hxx".}
 proc matrixOfInertia*(this: GPropGProps): Mat {.noSideEffect,
     importcpp: "MatrixOfInertia", header: "GProp_GProps.hxx".}
-proc staticMoments*(this: GPropGProps; ix: var float; iy: var float; iz: var float) {.
+proc staticMoments*(this: GPropGProps; ix: var cfloat; iy: var cfloat; iz: var cfloat) {.
     noSideEffect, importcpp: "StaticMoments", header: "GProp_GProps.hxx".}
-proc momentOfInertia*(this: GPropGProps; a: Ax1): float {.noSideEffect,
+proc momentOfInertia*(this: GPropGProps; a: Ax1): cfloat {.noSideEffect,
     importcpp: "MomentOfInertia", header: "GProp_GProps.hxx".}
 proc principalProperties*(this: GPropGProps): GPropPrincipalProps {.noSideEffect,
     importcpp: "PrincipalProperties", header: "GProp_GProps.hxx".}
-proc radiusOfGyration*(this: GPropGProps; a: Ax1): float {.noSideEffect,
+proc radiusOfGyration*(this: GPropGProps; a: Ax1): cfloat {.noSideEffect,
     importcpp: "RadiusOfGyration", header: "GProp_GProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

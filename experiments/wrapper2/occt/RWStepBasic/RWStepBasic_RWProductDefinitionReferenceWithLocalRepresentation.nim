@@ -26,7 +26,7 @@ type
 proc constructRWStepBasicRWProductDefinitionReferenceWithLocalRepresentation*(): RWStepBasicRWProductDefinitionReferenceWithLocalRepresentation {.
     constructor, importcpp: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation(@)", header: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation.hxx".}
 proc readStep*(this: RWStepBasicRWProductDefinitionReferenceWithLocalRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepBasicProductDefinitionReferenceWithLocalRepresentation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation.hxx".}
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepBasicRWProductDefinitionReferenceWithLocalRepresenta
 proc share*(this: RWStepBasicRWProductDefinitionReferenceWithLocalRepresentation;
     ent: Handle[StepBasicProductDefinitionReferenceWithLocalRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

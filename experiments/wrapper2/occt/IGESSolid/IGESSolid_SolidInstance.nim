@@ -18,7 +18,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESSolid_SolidInstance"
 discard "forward decl of IGESSolid_SolidInstance"
 type
-  HandleIGESSolidSolidInstance* = Handle[IGESSolidSolidInstance]
+  HandleC1C1* = Handle[IGESSolidSolidInstance]
 
 ## ! defines SolidInstance, Type <430> Form Number <0>
 ## ! in package IGESSolid
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_SolidInstance.hxx".}
 proc dynamicType*(this: IGESSolidSolidInstance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_SolidInstance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

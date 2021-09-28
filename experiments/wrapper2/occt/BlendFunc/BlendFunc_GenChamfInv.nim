@@ -29,15 +29,40 @@ proc constructBlendFuncGenChamfInv*(s1: Handle[Adaptor3dHSurface];
 proc set*(this: var BlendFuncGenChamfInv; onFirst: bool;
          cOnSurf: Handle[Adaptor2dHCurve2d]) {.importcpp: "Set",
     header: "BlendFunc_GenChamfInv.hxx".}
-proc getTolerance*(this: BlendFuncGenChamfInv; tolerance: var MathVector; tol: float) {.
+proc getTolerance*(this: BlendFuncGenChamfInv; tolerance: var MathVector; tol: cfloat) {.
     noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_GenChamfInv.hxx".}
 proc getBounds*(this: BlendFuncGenChamfInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
                                         header: "BlendFunc_GenChamfInv.hxx".}
-proc nbEquations*(this: BlendFuncGenChamfInv): int {.noSideEffect,
+proc nbEquations*(this: BlendFuncGenChamfInv): cint {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_GenChamfInv.hxx".}
 proc values*(this: var BlendFuncGenChamfInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.importcpp: "Values",
                                    header: "BlendFunc_GenChamfInv.hxx".}
-proc set*(this: var BlendFuncGenChamfInv; dist1: float; dist2: float; choix: int) {.
+proc set*(this: var BlendFuncGenChamfInv; dist1: cfloat; dist2: cfloat; choix: cint) {.
     importcpp: "Set", header: "BlendFunc_GenChamfInv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

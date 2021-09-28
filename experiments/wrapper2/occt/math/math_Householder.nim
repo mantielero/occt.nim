@@ -32,19 +32,44 @@ type
                                    ## ! above and can't be used directly.
 
 
-proc constructMathHouseholder*(a: MathMatrix; b: MathMatrix; eps: float = 1.0e-20): MathHouseholder {.
+proc constructMathHouseholder*(a: MathMatrix; b: MathMatrix; eps: cfloat = 1.0e-20): MathHouseholder {.
     constructor, importcpp: "math_Householder(@)", header: "math_Householder.hxx".}
-proc constructMathHouseholder*(a: MathMatrix; b: MathMatrix; lowerArow: int;
-                              upperArow: int; lowerAcol: int; upperAcol: int;
-                              eps: float = 1.0e-20): MathHouseholder {.constructor,
+proc constructMathHouseholder*(a: MathMatrix; b: MathMatrix; lowerArow: cint;
+                              upperArow: cint; lowerAcol: cint; upperAcol: cint;
+                              eps: cfloat = 1.0e-20): MathHouseholder {.constructor,
     importcpp: "math_Householder(@)", header: "math_Householder.hxx".}
-proc constructMathHouseholder*(a: MathMatrix; b: MathVector; eps: float = 1.0e-20): MathHouseholder {.
+proc constructMathHouseholder*(a: MathMatrix; b: MathVector; eps: cfloat = 1.0e-20): MathHouseholder {.
     constructor, importcpp: "math_Householder(@)", header: "math_Householder.hxx".}
 proc isDone*(this: MathHouseholder): bool {.noSideEffect, importcpp: "IsDone",
                                         header: "math_Householder.hxx".}
-proc value*(this: MathHouseholder; sol: var MathVector; index: int = 1) {.noSideEffect,
+proc value*(this: MathHouseholder; sol: var MathVector; index: cint = 1) {.noSideEffect,
     importcpp: "Value", header: "math_Householder.hxx".}
 proc allValues*(this: MathHouseholder): MathMatrix {.noSideEffect,
     importcpp: "AllValues", header: "math_Householder.hxx".}
 proc dump*(this: MathHouseholder; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_Householder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

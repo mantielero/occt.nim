@@ -43,3 +43,28 @@ proc constructBRepOffsetAPI_MiddlePath*(aShape: TopoDS_Shape;
     header: "BRepOffsetAPI_MiddlePath.hxx".}
 proc build*(this: var BRepOffsetAPI_MiddlePath) {.importcpp: "Build",
     header: "BRepOffsetAPI_MiddlePath.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_Document"
 discard "forward decl of StepBasic_DocumentRelationship"
 discard "forward decl of StepBasic_DocumentRelationship"
 type
-  HandleStepBasicDocumentRelationship* = Handle[StepBasicDocumentRelationship]
+  HandleC1C1* = Handle[StepBasicDocumentRelationship]
   StepBasicDocumentRelationship* {.importcpp: "StepBasic_DocumentRelationship",
                                   header: "StepBasic_DocumentRelationship.hxx",
                                   bycopy.} = object of StandardTransient
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicDocumentRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DocumentRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

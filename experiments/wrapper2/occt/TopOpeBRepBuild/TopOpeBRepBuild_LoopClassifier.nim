@@ -28,3 +28,28 @@ proc destroyTopOpeBRepBuildLoopClassifier*(
 proc compare*(this: var TopOpeBRepBuildLoopClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
     importcpp: "Compare", header: "TopOpeBRepBuild_LoopClassifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

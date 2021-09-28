@@ -16,3 +16,28 @@
 type
   IntPolyhArrayOfEdges* = IntPolyhArray[IntPolyhEdge]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ type
 proc constructRWStepBasicRWLocalTime*(): RWStepBasicRWLocalTime {.constructor,
     importcpp: "RWStepBasic_RWLocalTime(@)", header: "RWStepBasic_RWLocalTime.hxx".}
 proc readStep*(this: RWStepBasicRWLocalTime; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicLocalTime]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWLocalTime.hxx".}
 proc writeStep*(this: RWStepBasicRWLocalTime; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepBasicRWLocalTime; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWLocalTime; ent: Handle[StepBasicLocalTime];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWLocalTime.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

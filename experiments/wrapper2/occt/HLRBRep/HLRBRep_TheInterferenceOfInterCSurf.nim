@@ -97,3 +97,28 @@ proc interference*(this: var HLRBRepTheInterferenceOfInterCSurf;
                   thePolyg: HLRBRepThePolygonOfInterCSurf;
                   thePolyh: HLRBRepThePolyhedronOfInterCSurf) {.
     importcpp: "Interference", header: "HLRBRep_TheInterferenceOfInterCSurf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

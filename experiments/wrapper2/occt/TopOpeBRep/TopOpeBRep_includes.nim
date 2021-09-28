@@ -49,3 +49,28 @@ include TopOpeBRep_WPointInterIterator
 include TopOpeBRep_define
 include TopOpeBRep_traceSIFF
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

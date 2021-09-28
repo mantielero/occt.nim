@@ -34,3 +34,28 @@ proc copied*(this: TNamingTranslator): TopToolsDataMapOfShapeShape {.noSideEffec
     importcpp: "Copied", header: "TNaming_Translator.hxx".}
 proc dumpMap*(this: TNamingTranslator; isWrite: bool = false) {.noSideEffect,
     importcpp: "DumpMap", header: "TNaming_Translator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

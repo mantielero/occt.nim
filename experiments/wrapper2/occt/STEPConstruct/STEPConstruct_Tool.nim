@@ -45,3 +45,28 @@ proc transientProcess*(this: STEPConstructTool): Handle[TransferTransientProcess
     noSideEffect, importcpp: "TransientProcess", header: "STEPConstruct_Tool.hxx".}
 proc finderProcess*(this: STEPConstructTool): Handle[TransferFinderProcess] {.
     noSideEffect, importcpp: "FinderProcess", header: "STEPConstruct_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

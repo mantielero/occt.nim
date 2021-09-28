@@ -22,7 +22,7 @@ discard "forward decl of TCollection_HExtendedString"
 discard "forward decl of TObj_Object"
 discard "forward decl of TObj_Object"
 type
-  HandleTObjObject* = Handle[TObjObject]
+  HandleC1C1* = Handle[TObjObject]
 
 ## ! Basis class for transient objects in OCAF-based models
 
@@ -651,7 +651,7 @@ proc getChildren*(this: TObjObject; theType: Handle[StandardType] = nil): Handle
                          header: "TObj_Object.hxx".}
 proc getChildLabel*(this: TObjObject): TDF_Label {.noSideEffect,
     importcpp: "GetChildLabel", header: "TObj_Object.hxx".}
-proc getChildLabel*(this: TObjObject; theRank: int): TDF_Label {.noSideEffect,
+proc getChildLabel*(this: TObjObject; theRank: cint): TDF_Label {.noSideEffect,
     importcpp: "getChildLabel", header: "TObj_Object.hxx".}
 proc getLabel*(this: TObjObject): TDF_Label {.noSideEffect, importcpp: "GetLabel",
     header: "TObj_Object.hxx".}
@@ -737,21 +737,21 @@ proc copyReferences*(this: var TObjObject; theTargetObject: Handle[TObjObject];
 proc copyChildren*(this: var TObjObject; theTargetLabel: var TDF_Label;
                   theRelocTable: Handle[TDF_RelocationTable]) {.
     importcpp: "CopyChildren", header: "TObj_Object.hxx".}
-proc getOrder*(this: TObjObject): int {.noSideEffect, importcpp: "GetOrder",
-                                    header: "TObj_Object.hxx".}
-proc setOrder*(this: var TObjObject; theIndx: int): bool {.importcpp: "SetOrder",
+proc getOrder*(this: TObjObject): cint {.noSideEffect, importcpp: "GetOrder",
+                                     header: "TObj_Object.hxx".}
+proc setOrder*(this: var TObjObject; theIndx: cint): bool {.importcpp: "SetOrder",
     header: "TObj_Object.hxx".}
 proc hasModifications*(this: TObjObject): bool {.noSideEffect,
     importcpp: "HasModifications", header: "TObj_Object.hxx".}
-proc getTypeFlags*(this: TObjObject): int {.noSideEffect, importcpp: "GetTypeFlags",
-                                        header: "TObj_Object.hxx".}
-proc getFlags*(this: TObjObject): int {.noSideEffect, importcpp: "GetFlags",
-                                    header: "TObj_Object.hxx".}
-proc setFlags*(this: var TObjObject; theMask: int) {.importcpp: "SetFlags",
+proc getTypeFlags*(this: TObjObject): cint {.noSideEffect, importcpp: "GetTypeFlags",
     header: "TObj_Object.hxx".}
-proc testFlags*(this: TObjObject; theMask: int): bool {.noSideEffect,
+proc getFlags*(this: TObjObject): cint {.noSideEffect, importcpp: "GetFlags",
+                                     header: "TObj_Object.hxx".}
+proc setFlags*(this: var TObjObject; theMask: cint) {.importcpp: "SetFlags",
+    header: "TObj_Object.hxx".}
+proc testFlags*(this: TObjObject; theMask: cint): bool {.noSideEffect,
     importcpp: "TestFlags", header: "TObj_Object.hxx".}
-proc clearFlags*(this: var TObjObject; theMask: int = not 0) {.importcpp: "ClearFlags",
+proc clearFlags*(this: var TObjObject; theMask: cint = not 0) {.importcpp: "ClearFlags",
     header: "TObj_Object.hxx".}
 proc afterRetrieval*(this: var TObjObject) {.importcpp: "AfterRetrieval",
     header: "TObj_Object.hxx".}
@@ -770,3 +770,28 @@ proc dynamicType*(this: TObjObject): Handle[StandardType] {.noSideEffect,
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -62,3 +62,28 @@ proc modified*(this: var BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopTools
 proc modifiedShape*(this: BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepBuilderAPI_NurbsConvert.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

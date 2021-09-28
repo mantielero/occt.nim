@@ -26,18 +26,15 @@ type
                                       bycopy.} = object
 
 
-proc constructIntCurveSurfaceThePolygonOfHInter*(curve: Handle[Adaptor3dHCurve];
-    nbPnt: int): IntCurveSurfaceThePolygonOfHInter {.constructor,
-    importcpp: "IntCurveSurface_ThePolygonOfHInter(@)",
-    header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc constructIntCurveSurfaceThePolygonOfHInter*(curve: Handle[Adaptor3dHCurve];
-    u1: float; u2: float; nbPnt: int): IntCurveSurfaceThePolygonOfHInter {.constructor,
-    importcpp: "IntCurveSurface_ThePolygonOfHInter(@)",
-    header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc constructIntCurveSurfaceThePolygonOfHInter*(curve: Handle[Adaptor3dHCurve];
-    upars: TColStdArray1OfReal): IntCurveSurfaceThePolygonOfHInter {.constructor,
-    importcpp: "IntCurveSurface_ThePolygonOfHInter(@)",
-    header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
+## !!!Ignored construct:  public : IntCurveSurface_ThePolygonOfHInter ( const Handle ( Adaptor3d_HCurve ) & Curve , const Standard_Integer NbPnt ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  IntCurveSurface_ThePolygonOfHInter ( const Handle ( Adaptor3d_HCurve ) & Curve , const Standard_Real U1 , const Standard_Real U2 , const Standard_Integer NbPnt ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  IntCurveSurface_ThePolygonOfHInter ( const Handle ( Adaptor3d_HCurve ) & Curve , const TColStd_Array1OfReal & Upars ) ;
+## Error: token expected: ) but got: &!!!
+
 proc bounding*(this: IntCurveSurfaceThePolygonOfHInter): BndBox {.noSideEffect,
     importcpp: "Bounding", header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
 proc deflectionOverEstimation*(this: IntCurveSurfaceThePolygonOfHInter): float {.
@@ -69,6 +66,60 @@ proc approxParamOnCurve*(this: IntCurveSurfaceThePolygonOfHInter; index: int;
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
 proc dump*(this: IntCurveSurfaceThePolygonOfHInter) {.noSideEffect,
     importcpp: "Dump", header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-## !!!Ignored construct:  # TheCurve opencascade :: handle < Adaptor3d_HCurve > [end of template] [NewLine] # TheCurve_hxx < Adaptor3d_HCurve . hxx > [NewLine] # TheCurveTool IntCurveSurface_TheHCurveTool [NewLine] # TheCurveTool_hxx < IntCurveSurface_TheHCurveTool . hxx > [NewLine] # IntCurveSurface_Polygon IntCurveSurface_ThePolygonOfHInter [NewLine] # IntCurveSurface_Polygon_hxx < IntCurveSurface_ThePolygonOfHInter . hxx > [NewLine] # < IntCurveSurface_Polygon . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurveSurface_Polygon [NewLine] # IntCurveSurface_Polygon_hxx [NewLine] #  _IntCurveSurface_ThePolygonOfHInter_HeaderFile
+## !!!Ignored construct:  protected : void Init ( const Handle ( Adaptor3d_HCurve ) & Curve ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void Init ( const Handle ( Adaptor3d_HCurve ) & Curve , const TColStd_Array1OfReal & Upars ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  myParams ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  # TheCurve Handle ( Adaptor3d_HCurve ) [NewLine] # TheCurve_hxx < Adaptor3d_HCurve . hxx > [NewLine] # TheCurveTool IntCurveSurface_TheHCurveTool [NewLine] # TheCurveTool_hxx < IntCurveSurface_TheHCurveTool . hxx > [NewLine] # IntCurveSurface_Polygon IntCurveSurface_ThePolygonOfHInter [NewLine] # IntCurveSurface_Polygon_hxx < IntCurveSurface_ThePolygonOfHInter . hxx > [NewLine] # < IntCurveSurface_Polygon . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurveSurface_Polygon [NewLine] # IntCurveSurface_Polygon_hxx [NewLine] #  _IntCurveSurface_ThePolygonOfHInter_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

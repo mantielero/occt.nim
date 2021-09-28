@@ -18,5 +18,30 @@
 ## ! view (Projection or Mapping).
 
 type
-  V3dCoordinate* = float
+  V3dCoordinate* = cfloat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

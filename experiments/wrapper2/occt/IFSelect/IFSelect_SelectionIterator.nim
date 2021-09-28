@@ -49,3 +49,28 @@ proc next*(this: var IFSelectSelectionIterator) {.importcpp: "Next",
     header: "IFSelect_SelectionIterator.hxx".}
 proc value*(this: IFSelectSelectionIterator): Handle[IFSelectSelection] {.
     noSideEffect, importcpp: "Value", header: "IFSelect_SelectionIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

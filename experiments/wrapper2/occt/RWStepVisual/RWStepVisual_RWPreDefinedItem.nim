@@ -28,10 +28,35 @@ proc constructRWStepVisualRWPreDefinedItem*(): RWStepVisualRWPreDefinedItem {.
     constructor, importcpp: "RWStepVisual_RWPreDefinedItem(@)",
     header: "RWStepVisual_RWPreDefinedItem.hxx".}
 proc readStep*(this: RWStepVisualRWPreDefinedItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualPreDefinedItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPreDefinedItem.hxx".}
 proc writeStep*(this: RWStepVisualRWPreDefinedItem; sw: var StepDataStepWriter;
                ent: Handle[StepVisualPreDefinedItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPreDefinedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

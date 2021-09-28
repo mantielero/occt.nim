@@ -18,3 +18,28 @@ type
   BRepFillSequenceOfEdgeFaceAndOrder* = NCollectionSequence[
       BRepFillEdgeFaceAndOrder]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataXtd_Constraint"
 discard "forward decl of TDataXtd_Constraint"
 type
-  HandleTDataXtdConstraint* = Handle[TDataXtdConstraint]
+  HandleC1C1* = Handle[TDataXtdConstraint]
 
 ## ! The groundwork to define constraint attributes.
 ## ! The constraint attribute contains the following sorts of data:
@@ -79,9 +79,9 @@ proc isDimension*(this: TDataXtdConstraint): bool {.noSideEffect,
     importcpp: "IsDimension", header: "TDataXtd_Constraint.hxx".}
 proc getValue*(this: TDataXtdConstraint): Handle[TDataStdReal] {.noSideEffect,
     importcpp: "GetValue", header: "TDataXtd_Constraint.hxx".}
-proc nbGeometries*(this: TDataXtdConstraint): int {.noSideEffect,
+proc nbGeometries*(this: TDataXtdConstraint): cint {.noSideEffect,
     importcpp: "NbGeometries", header: "TDataXtd_Constraint.hxx".}
-proc getGeometry*(this: TDataXtdConstraint; index: int): Handle[TNamingNamedShape] {.
+proc getGeometry*(this: TDataXtdConstraint; index: cint): Handle[TNamingNamedShape] {.
     noSideEffect, importcpp: "GetGeometry", header: "TDataXtd_Constraint.hxx".}
 proc clearGeometries*(this: var TDataXtdConstraint) {.importcpp: "ClearGeometries",
     header: "TDataXtd_Constraint.hxx".}
@@ -91,7 +91,7 @@ proc setPlane*(this: var TDataXtdConstraint; plane: Handle[TNamingNamedShape]) {
     importcpp: "SetPlane", header: "TDataXtd_Constraint.hxx".}
 proc setValue*(this: var TDataXtdConstraint; v: Handle[TDataStdReal]) {.
     importcpp: "SetValue", header: "TDataXtd_Constraint.hxx".}
-proc setGeometry*(this: var TDataXtdConstraint; index: int;
+proc setGeometry*(this: var TDataXtdConstraint; index: cint;
                  g: Handle[TNamingNamedShape]) {.importcpp: "SetGeometry",
     header: "TDataXtd_Constraint.hxx".}
 proc verified*(this: var TDataXtdConstraint; status: bool) {.importcpp: "Verified",
@@ -130,3 +130,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataXtd_Constraint.hxx".}
 proc dynamicType*(this: TDataXtdConstraint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataXtd_Constraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

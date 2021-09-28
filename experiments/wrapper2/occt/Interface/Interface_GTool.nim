@@ -23,7 +23,7 @@ discard "forward decl of Interface_GeneralModule"
 discard "forward decl of Interface_GTool"
 discard "forward decl of Interface_GTool"
 type
-  HandleInterfaceGTool* = Handle[InterfaceGTool]
+  HandleC1C1* = Handle[InterfaceGTool]
 
 ## ! GTool - General Tool for a Model
 ## ! Provides the functions performed by Protocol/GeneralModule for
@@ -39,7 +39,7 @@ type
 
 proc constructInterfaceGTool*(): InterfaceGTool {.constructor,
     importcpp: "Interface_GTool(@)", header: "Interface_GTool.hxx".}
-proc constructInterfaceGTool*(proto: Handle[InterfaceProtocol]; nbent: int = 0): InterfaceGTool {.
+proc constructInterfaceGTool*(proto: Handle[InterfaceProtocol]; nbent: cint = 0): InterfaceGTool {.
     constructor, importcpp: "Interface_GTool(@)", header: "Interface_GTool.hxx".}
 proc setSignType*(this: var InterfaceGTool; sign: Handle[InterfaceSignType]) {.
     importcpp: "SetSignType", header: "Interface_GTool.hxx".}
@@ -57,12 +57,12 @@ proc protocol*(this: InterfaceGTool): Handle[InterfaceProtocol] {.noSideEffect,
     importcpp: "Protocol", header: "Interface_GTool.hxx".}
 proc lib*(this: var InterfaceGTool): var InterfaceGeneralLib {.importcpp: "Lib",
     header: "Interface_GTool.hxx".}
-proc reservate*(this: var InterfaceGTool; nb: int; enforce: bool = false) {.
+proc reservate*(this: var InterfaceGTool; nb: cint; enforce: bool = false) {.
     importcpp: "Reservate", header: "Interface_GTool.hxx".}
 proc clearEntities*(this: var InterfaceGTool) {.importcpp: "ClearEntities",
     header: "Interface_GTool.hxx".}
 proc select*(this: var InterfaceGTool; ent: Handle[StandardTransient];
-            gmod: var Handle[InterfaceGeneralModule]; cn: var int;
+            gmod: var Handle[InterfaceGeneralModule]; cn: var cint;
             enforce: bool = false): bool {.importcpp: "Select",
                                       header: "Interface_GTool.hxx".}
 type
@@ -75,3 +75,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_GTool.hxx".}
 proc dynamicType*(this: InterfaceGTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_GTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

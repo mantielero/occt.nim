@@ -32,9 +32,9 @@ proc setSmart*(this: var TopOpeBRepBuildVertexInfo; aFlag: bool) {.
     importcpp: "SetSmart", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc smart*(this: TopOpeBRepBuildVertexInfo): bool {.noSideEffect,
     importcpp: "Smart", header: "TopOpeBRepBuild_VertexInfo.hxx".}
-proc nbCases*(this: TopOpeBRepBuildVertexInfo): int {.noSideEffect,
+proc nbCases*(this: TopOpeBRepBuildVertexInfo): cint {.noSideEffect,
     importcpp: "NbCases", header: "TopOpeBRepBuild_VertexInfo.hxx".}
-proc foundOut*(this: TopOpeBRepBuildVertexInfo): int {.noSideEffect,
+proc foundOut*(this: TopOpeBRepBuildVertexInfo): cint {.noSideEffect,
     importcpp: "FoundOut", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc addIn*(this: var TopOpeBRepBuildVertexInfo; anE: TopoDS_Edge) {.
     importcpp: "AddIn", header: "TopOpeBRepBuild_VertexInfo.hxx".}
@@ -60,3 +60,28 @@ proc listPassed*(this: TopOpeBRepBuildVertexInfo): TopToolsListOfShape {.
     noSideEffect, importcpp: "ListPassed", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc prepare*(this: var TopOpeBRepBuildVertexInfo; aL: TopToolsListOfShape) {.
     importcpp: "Prepare", header: "TopOpeBRepBuild_VertexInfo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

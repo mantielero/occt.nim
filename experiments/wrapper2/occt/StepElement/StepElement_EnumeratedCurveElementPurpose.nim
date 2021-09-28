@@ -19,3 +19,28 @@ type
     StepElementTorsion, StepElementXYShear, StepElementXZShear, StepElementWarping
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -39,3 +39,28 @@ proc value*(this: StepToTopoDS_TranslateVertex): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateVertex.hxx".}
 proc error*(this: StepToTopoDS_TranslateVertex): StepToTopoDS_TranslateVertexError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

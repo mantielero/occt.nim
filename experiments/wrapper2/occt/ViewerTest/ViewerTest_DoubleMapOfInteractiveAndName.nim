@@ -23,3 +23,28 @@ type
       Handle[AIS_InteractiveObject], TCollectionAsciiString,
       TColStdMapTransientHasher, TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   BRepAdaptorArray1OfCurve* = NCollectionArray1[BRepAdaptorCurve]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

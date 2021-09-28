@@ -23,7 +23,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of RWStepAP214_GeneralModule"
 discard "forward decl of RWStepAP214_GeneralModule"
 type
-  HandleRWStepAP214GeneralModule* = Handle[RWStepAP214GeneralModule]
+  HandleC1C1* = Handle[RWStepAP214GeneralModule]
 
 ## ! Defines General Services for StepAP214 Entities
 ## ! (Share,Check,Copy; Trace already inherited)
@@ -41,26 +41,26 @@ type
 proc constructRWStepAP214GeneralModule*(): RWStepAP214GeneralModule {.constructor,
     importcpp: "RWStepAP214_GeneralModule(@)",
     header: "RWStepAP214_GeneralModule.hxx".}
-proc fillSharedCase*(this: RWStepAP214GeneralModule; cn: int;
+proc fillSharedCase*(this: RWStepAP214GeneralModule; cn: cint;
                     ent: Handle[StandardTransient];
                     iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillSharedCase", header: "RWStepAP214_GeneralModule.hxx".}
-proc checkCase*(this: RWStepAP214GeneralModule; cn: int;
+proc checkCase*(this: RWStepAP214GeneralModule; cn: cint;
                ent: Handle[StandardTransient]; shares: InterfaceShareTool;
                ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "CheckCase", header: "RWStepAP214_GeneralModule.hxx".}
-proc copyCase*(this: RWStepAP214GeneralModule; cn: int;
+proc copyCase*(this: RWStepAP214GeneralModule; cn: cint;
               entfrom: Handle[StandardTransient];
               entto: Handle[StandardTransient]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "CopyCase", header: "RWStepAP214_GeneralModule.hxx".}
-proc newVoid*(this: RWStepAP214GeneralModule; cn: int;
+proc newVoid*(this: RWStepAP214GeneralModule; cn: cint;
              ent: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "NewVoid", header: "RWStepAP214_GeneralModule.hxx".}
-proc categoryNumber*(this: RWStepAP214GeneralModule; cn: int;
-                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): int {.
+proc categoryNumber*(this: RWStepAP214GeneralModule; cn: cint;
+                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): cint {.
     noSideEffect, importcpp: "CategoryNumber",
     header: "RWStepAP214_GeneralModule.hxx".}
-proc name*(this: RWStepAP214GeneralModule; cn: int; ent: Handle[StandardTransient];
+proc name*(this: RWStepAP214GeneralModule; cn: cint; ent: Handle[StandardTransient];
           shares: InterfaceShareTool): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "RWStepAP214_GeneralModule.hxx".}
 type
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "RWStepAP214_GeneralModule.hxx".}
 proc dynamicType*(this: RWStepAP214GeneralModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "RWStepAP214_GeneralModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

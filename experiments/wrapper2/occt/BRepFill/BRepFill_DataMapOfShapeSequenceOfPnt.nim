@@ -20,3 +20,28 @@ type
   BRepFillDataMapIteratorOfDataMapOfShapeSequenceOfPnt* = Iterator[TopoDS_Shape,
       TColgpSequenceOfPnt, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

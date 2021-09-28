@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataXtd_GeometryDriver"
 discard "forward decl of XmlMDataXtd_GeometryDriver"
 type
-  HandleXmlMDataXtdGeometryDriver* = Handle[XmlMDataXtdGeometryDriver]
+  HandleC1C1* = Handle[XmlMDataXtdGeometryDriver]
 
 ## ! Attribute Driver.
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataXtdGeometryDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataXtd_GeometryDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

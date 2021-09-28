@@ -28,7 +28,7 @@ proc constructRWStepReprRWReprItemAndLengthMeasureWithUnitAndQRI*(): RWStepReprR
     importcpp: "RWStepRepr_RWReprItemAndLengthMeasureWithUnitAndQRI(@)",
     header: "RWStepRepr_RWReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
 proc readStep*(this: RWStepReprRWReprItemAndLengthMeasureWithUnitAndQRI;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprReprItemAndLengthMeasureWithUnitAndQRI]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepReprRWReprItemAndLengthMeasureWithUnitAndQRI;
                ent: Handle[StepReprReprItemAndLengthMeasureWithUnitAndQRI]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

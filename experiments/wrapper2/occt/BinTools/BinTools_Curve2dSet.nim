@@ -24,11 +24,11 @@ proc constructBinToolsCurve2dSet*(): BinToolsCurve2dSet {.constructor,
     importcpp: "BinTools_Curve2dSet(@)", header: "BinTools_Curve2dSet.hxx".}
 proc clear*(this: var BinToolsCurve2dSet) {.importcpp: "Clear",
                                         header: "BinTools_Curve2dSet.hxx".}
-proc add*(this: var BinToolsCurve2dSet; c: Handle[Geom2dCurve]): int {.
+proc add*(this: var BinToolsCurve2dSet; c: Handle[Geom2dCurve]): cint {.
     importcpp: "Add", header: "BinTools_Curve2dSet.hxx".}
-proc curve2d*(this: BinToolsCurve2dSet; i: int): Handle[Geom2dCurve] {.noSideEffect,
+proc curve2d*(this: BinToolsCurve2dSet; i: cint): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "Curve2d", header: "BinTools_Curve2dSet.hxx".}
-proc index*(this: BinToolsCurve2dSet; c: Handle[Geom2dCurve]): int {.noSideEffect,
+proc index*(this: BinToolsCurve2dSet; c: Handle[Geom2dCurve]): cint {.noSideEffect,
     importcpp: "Index", header: "BinTools_Curve2dSet.hxx".}
 proc dump*(this: BinToolsCurve2dSet; os: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "BinTools_Curve2dSet.hxx".}
@@ -44,3 +44,28 @@ proc writeCurve2d*(c: Handle[Geom2dCurve]; os: var StandardOStream) {.
 proc readCurve2d*(`is`: var StandardIStream; c: var Handle[Geom2dCurve]): var StandardIStream {.
     importcpp: "BinTools_Curve2dSet::ReadCurve2d(@)",
     header: "BinTools_Curve2dSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,3 +16,28 @@ type
   BOPDS_MapOfPair* = NCollectionMap[BOPDS_Pair, BOPDS_PairMapHasher]
   BOPDS_MapIteratorOfMapOfPair* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

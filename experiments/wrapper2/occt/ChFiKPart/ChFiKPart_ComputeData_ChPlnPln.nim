@@ -18,7 +18,32 @@ proc chFiKPartMakeChamfer*(dStr: var TopOpeBRepDS_DataStructure;
                           data: Handle[ChFiDS_SurfData];
                           theMode: ChFiDS_ChamfMode; pl1: Pln; pl2: Pln;
                           or1: TopAbsOrientation; or2: TopAbsOrientation;
-                          dis1: float; dis2: float; spine: Lin; first: float;
+                          dis1: cfloat; dis2: cfloat; spine: Lin; first: cfloat;
                           of1: TopAbsOrientation): bool {.
     importcpp: "ChFiKPart_MakeChamfer(@)",
     header: "ChFiKPart_ComputeData_ChPlnPln.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,7 +26,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Ellipse"
 discard "forward decl of Geom_Ellipse"
 type
-  HandleGeomEllipse* = Handle[GeomEllipse]
+  HandleC1C1* = Handle[GeomEllipse]
 
 ## ! Describes an ellipse in 3D space.
 ## ! An ellipse is defined by its major and minor radii and,
@@ -76,54 +76,55 @@ type
 
 proc constructGeomEllipse*(e: Elips): GeomEllipse {.constructor,
     importcpp: "Geom_Ellipse(@)", header: "Geom_Ellipse.hxx".}
-proc constructGeomEllipse*(a2: Ax2; majorRadius: float; minorRadius: float): GeomEllipse {.
-    constructor, importcpp: "Geom_Ellipse(@)", header: "Geom_Ellipse.hxx".}
+proc constructGeomEllipse*(a2: Ax2; majorRadius: StandardReal;
+                          minorRadius: StandardReal): GeomEllipse {.constructor,
+    importcpp: "Geom_Ellipse(@)", header: "Geom_Ellipse.hxx".}
 proc setElips*(this: var GeomEllipse; e: Elips) {.importcpp: "SetElips",
     header: "Geom_Ellipse.hxx".}
-proc setMajorRadius*(this: var GeomEllipse; majorRadius: float) {.
+proc setMajorRadius*(this: var GeomEllipse; majorRadius: StandardReal) {.
     importcpp: "SetMajorRadius", header: "Geom_Ellipse.hxx".}
-proc setMinorRadius*(this: var GeomEllipse; minorRadius: float) {.
+proc setMinorRadius*(this: var GeomEllipse; minorRadius: StandardReal) {.
     importcpp: "SetMinorRadius", header: "Geom_Ellipse.hxx".}
 proc elips*(this: GeomEllipse): Elips {.noSideEffect, importcpp: "Elips",
                                     header: "Geom_Ellipse.hxx".}
-proc reversedParameter*(this: GeomEllipse; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom_Ellipse.hxx".}
+proc reversedParameter*(this: GeomEllipse; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_Ellipse.hxx".}
 proc directrix1*(this: GeomEllipse): Ax1 {.noSideEffect, importcpp: "Directrix1",
                                        header: "Geom_Ellipse.hxx".}
 proc directrix2*(this: GeomEllipse): Ax1 {.noSideEffect, importcpp: "Directrix2",
                                        header: "Geom_Ellipse.hxx".}
-proc eccentricity*(this: GeomEllipse): float {.noSideEffect,
+proc eccentricity*(this: GeomEllipse): StandardReal {.noSideEffect,
     importcpp: "Eccentricity", header: "Geom_Ellipse.hxx".}
-proc focal*(this: GeomEllipse): float {.noSideEffect, importcpp: "Focal",
-                                    header: "Geom_Ellipse.hxx".}
+proc focal*(this: GeomEllipse): StandardReal {.noSideEffect, importcpp: "Focal",
+    header: "Geom_Ellipse.hxx".}
 proc focus1*(this: GeomEllipse): Pnt {.noSideEffect, importcpp: "Focus1",
                                    header: "Geom_Ellipse.hxx".}
 proc focus2*(this: GeomEllipse): Pnt {.noSideEffect, importcpp: "Focus2",
                                    header: "Geom_Ellipse.hxx".}
-proc majorRadius*(this: GeomEllipse): float {.noSideEffect, importcpp: "MajorRadius",
-    header: "Geom_Ellipse.hxx".}
-proc minorRadius*(this: GeomEllipse): float {.noSideEffect, importcpp: "MinorRadius",
-    header: "Geom_Ellipse.hxx".}
-proc parameter*(this: GeomEllipse): float {.noSideEffect, importcpp: "Parameter",
-                                        header: "Geom_Ellipse.hxx".}
-proc firstParameter*(this: GeomEllipse): float {.noSideEffect,
+proc majorRadius*(this: GeomEllipse): StandardReal {.noSideEffect,
+    importcpp: "MajorRadius", header: "Geom_Ellipse.hxx".}
+proc minorRadius*(this: GeomEllipse): StandardReal {.noSideEffect,
+    importcpp: "MinorRadius", header: "Geom_Ellipse.hxx".}
+proc parameter*(this: GeomEllipse): StandardReal {.noSideEffect,
+    importcpp: "Parameter", header: "Geom_Ellipse.hxx".}
+proc firstParameter*(this: GeomEllipse): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_Ellipse.hxx".}
-proc lastParameter*(this: GeomEllipse): float {.noSideEffect,
+proc lastParameter*(this: GeomEllipse): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_Ellipse.hxx".}
-proc isClosed*(this: GeomEllipse): bool {.noSideEffect, importcpp: "IsClosed",
-                                      header: "Geom_Ellipse.hxx".}
-proc isPeriodic*(this: GeomEllipse): bool {.noSideEffect, importcpp: "IsPeriodic",
-                                        header: "Geom_Ellipse.hxx".}
-proc d0*(this: GeomEllipse; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
+proc isClosed*(this: GeomEllipse): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom_Ellipse.hxx".}
+proc isPeriodic*(this: GeomEllipse): StandardBoolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom_Ellipse.hxx".}
+proc d0*(this: GeomEllipse; u: StandardReal; p: var Pnt) {.noSideEffect, importcpp: "D0",
     header: "Geom_Ellipse.hxx".}
-proc d1*(this: GeomEllipse; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+proc d1*(this: GeomEllipse; u: StandardReal; p: var Pnt; v1: var Vec) {.noSideEffect,
     importcpp: "D1", header: "Geom_Ellipse.hxx".}
-proc d2*(this: GeomEllipse; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    importcpp: "D2", header: "Geom_Ellipse.hxx".}
-proc d3*(this: GeomEllipse; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d2*(this: GeomEllipse; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Geom_Ellipse.hxx".}
+proc d3*(this: GeomEllipse; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
     noSideEffect, importcpp: "D3", header: "Geom_Ellipse.hxx".}
-proc dn*(this: GeomEllipse; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
-    header: "Geom_Ellipse.hxx".}
+proc dn*(this: GeomEllipse; u: StandardReal; n: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "Geom_Ellipse.hxx".}
 proc transform*(this: var GeomEllipse; t: Trsf) {.importcpp: "Transform",
     header: "Geom_Ellipse.hxx".}
 proc copy*(this: GeomEllipse): Handle[GeomGeometry] {.noSideEffect,

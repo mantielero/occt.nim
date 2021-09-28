@@ -21,15 +21,15 @@ type
                     bycopy.} = object ## ! Returns number of points in this SectionLine.
 
 
-proc numberOfPoints*(this: IntfSectionLine): int {.noSideEffect,
+proc numberOfPoints*(this: IntfSectionLine): cint {.noSideEffect,
     importcpp: "NumberOfPoints", header: "Intf_SectionLine.hxx".}
-proc getPoint*(this: IntfSectionLine; index: int): IntfSectionPoint {.noSideEffect,
+proc getPoint*(this: IntfSectionLine; index: cint): IntfSectionPoint {.noSideEffect,
     importcpp: "GetPoint", header: "Intf_SectionLine.hxx".}
 proc isClosed*(this: IntfSectionLine): bool {.noSideEffect, importcpp: "IsClosed",
     header: "Intf_SectionLine.hxx".}
 proc contains*(this: IntfSectionLine; thePI: IntfSectionPoint): bool {.noSideEffect,
     importcpp: "Contains", header: "Intf_SectionLine.hxx".}
-proc isEnd*(this: IntfSectionLine; thePI: IntfSectionPoint): int {.noSideEffect,
+proc isEnd*(this: IntfSectionLine; thePI: IntfSectionPoint): cint {.noSideEffect,
     importcpp: "IsEnd", header: "Intf_SectionLine.hxx".}
 proc isEqual*(this: IntfSectionLine; other: IntfSectionLine): bool {.noSideEffect,
     importcpp: "IsEqual", header: "Intf_SectionLine.hxx".}
@@ -51,5 +51,30 @@ proc reverse*(this: var IntfSectionLine) {.importcpp: "Reverse",
                                        header: "Intf_SectionLine.hxx".}
 proc close*(this: var IntfSectionLine) {.importcpp: "Close",
                                      header: "Intf_SectionLine.hxx".}
-proc dump*(this: IntfSectionLine; indent: int) {.noSideEffect, importcpp: "Dump",
+proc dump*(this: IntfSectionLine; indent: cint) {.noSideEffect, importcpp: "Dump",
     header: "Intf_SectionLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

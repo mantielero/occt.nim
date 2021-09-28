@@ -12,7 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
+## !!!Ignored construct:  # _GeomEvaluator_Curve_HeaderFile [NewLine] # _GeomEvaluator_Curve_HeaderFile [NewLine] # < Standard_Transient . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] class gp_Pnt ;
+## Error: expected ';'!!!
+
 discard "forward decl of gp_Vec"
 type
   GeomEvaluatorCurve* {.importcpp: "GeomEvaluator_Curve",
@@ -38,12 +40,54 @@ type
 
 proc getTypeName*(): cstring {.importcpp: "GeomEvaluator_Curve::get_type_name(@)",
                             header: "GeomEvaluator_Curve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "GeomEvaluator_Curve::get_type_descriptor(@)",
-    header: "GeomEvaluator_Curve.hxx".}
-proc dynamicType*(this: GeomEvaluatorCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "GeomEvaluator_Curve.hxx".}
-discard "forward decl of GeomEvaluator_Curve"
-type
-  HandleGeomEvaluatorCurve* = Handle[GeomEvaluatorCurve]
+## !!!Ignored construct:  & get_type_descriptor ( ) { return Standard_Type :: Instance < GeomEvaluator_Curve > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } }
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( GeomEvaluator_Curve , Standard_Transient ) #  _GeomEvaluator_Curve_HeaderFile
+## Error: expected ';'!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

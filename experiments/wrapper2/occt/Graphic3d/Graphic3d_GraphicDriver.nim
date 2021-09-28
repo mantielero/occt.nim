@@ -26,7 +26,7 @@ discard "forward decl of Quantity_Color"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_GraphicDriver"
 type
-  HandleGraphic3dGraphicDriver* = Handle[Graphic3dGraphicDriver]
+  HandleC1C1* = Handle[Graphic3dGraphicDriver]
 
 ## ! This class allows the definition of a graphic driver
 ## ! for 3d interface (currently only OpenGl driver is used).
@@ -65,13 +65,13 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Graphic3d_GraphicDriver.hxx".}
 proc dynamicType*(this: Graphic3dGraphicDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_GraphicDriver.hxx".}
-proc inquireLimit*(this: Graphic3dGraphicDriver; theType: Graphic3dTypeOfLimit): int {.
+proc inquireLimit*(this: Graphic3dGraphicDriver; theType: Graphic3dTypeOfLimit): cint {.
     noSideEffect, importcpp: "InquireLimit", header: "Graphic3d_GraphicDriver.hxx".}
-proc inquireLightLimit*(this: Graphic3dGraphicDriver): int {.noSideEffect,
+proc inquireLightLimit*(this: Graphic3dGraphicDriver): cint {.noSideEffect,
     importcpp: "InquireLightLimit", header: "Graphic3d_GraphicDriver.hxx".}
-proc inquirePlaneLimit*(this: Graphic3dGraphicDriver): int {.noSideEffect,
+proc inquirePlaneLimit*(this: Graphic3dGraphicDriver): cint {.noSideEffect,
     importcpp: "InquirePlaneLimit", header: "Graphic3d_GraphicDriver.hxx".}
-proc inquireViewLimit*(this: Graphic3dGraphicDriver): int {.noSideEffect,
+proc inquireViewLimit*(this: Graphic3dGraphicDriver): cint {.noSideEffect,
     importcpp: "InquireViewLimit", header: "Graphic3d_GraphicDriver.hxx".}
 proc createStructure*(this: var Graphic3dGraphicDriver;
                      theManager: Handle[Graphic3dStructureManager]): Handle[
@@ -126,10 +126,35 @@ proc viewExists*(this: var Graphic3dGraphicDriver; theWindow: Handle[AspectWindo
 proc getDisplayConnection*(this: Graphic3dGraphicDriver): Handle[
     AspectDisplayConnection] {.noSideEffect, importcpp: "GetDisplayConnection",
                               header: "Graphic3d_GraphicDriver.hxx".}
-proc newIdentification*(this: var Graphic3dGraphicDriver): int {.
+proc newIdentification*(this: var Graphic3dGraphicDriver): cint {.
     importcpp: "NewIdentification", header: "Graphic3d_GraphicDriver.hxx".}
-proc removeIdentification*(this: var Graphic3dGraphicDriver; theId: int) {.
+proc removeIdentification*(this: var Graphic3dGraphicDriver; theId: cint) {.
     importcpp: "RemoveIdentification", header: "Graphic3d_GraphicDriver.hxx".}
 proc dumpJson*(this: Graphic3dGraphicDriver; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_GraphicDriver.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_GraphicDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

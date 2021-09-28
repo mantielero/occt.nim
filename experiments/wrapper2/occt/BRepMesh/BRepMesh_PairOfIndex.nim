@@ -27,21 +27,46 @@ proc constructBRepMeshPairOfIndex*(): BRepMeshPairOfIndex {.constructor,
     importcpp: "BRepMesh_PairOfIndex(@)", header: "BRepMesh_PairOfIndex.hxx".}
 proc clear*(this: var BRepMeshPairOfIndex) {.importcpp: "Clear",
     header: "BRepMesh_PairOfIndex.hxx".}
-proc append*(this: var BRepMeshPairOfIndex; theIndex: int) {.importcpp: "Append",
+proc append*(this: var BRepMeshPairOfIndex; theIndex: cint) {.importcpp: "Append",
     header: "BRepMesh_PairOfIndex.hxx".}
-proc prepend*(this: var BRepMeshPairOfIndex; theIndex: int) {.importcpp: "Prepend",
+proc prepend*(this: var BRepMeshPairOfIndex; theIndex: cint) {.importcpp: "Prepend",
     header: "BRepMesh_PairOfIndex.hxx".}
 proc isEmpty*(this: BRepMeshPairOfIndex): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "BRepMesh_PairOfIndex.hxx".}
-proc extent*(this: BRepMeshPairOfIndex): int {.noSideEffect, importcpp: "Extent",
+proc extent*(this: BRepMeshPairOfIndex): cint {.noSideEffect, importcpp: "Extent",
     header: "BRepMesh_PairOfIndex.hxx".}
-proc firstIndex*(this: BRepMeshPairOfIndex): int {.noSideEffect,
+proc firstIndex*(this: BRepMeshPairOfIndex): cint {.noSideEffect,
     importcpp: "FirstIndex", header: "BRepMesh_PairOfIndex.hxx".}
-proc lastIndex*(this: BRepMeshPairOfIndex): int {.noSideEffect,
+proc lastIndex*(this: BRepMeshPairOfIndex): cint {.noSideEffect,
     importcpp: "LastIndex", header: "BRepMesh_PairOfIndex.hxx".}
-proc index*(this: BRepMeshPairOfIndex; thePairPos: int): int {.noSideEffect,
+proc index*(this: BRepMeshPairOfIndex; thePairPos: cint): cint {.noSideEffect,
     importcpp: "Index", header: "BRepMesh_PairOfIndex.hxx".}
-proc setIndex*(this: var BRepMeshPairOfIndex; thePairPos: int; theIndex: int) {.
+proc setIndex*(this: var BRepMeshPairOfIndex; thePairPos: cint; theIndex: cint) {.
     importcpp: "SetIndex", header: "BRepMesh_PairOfIndex.hxx".}
-proc removeIndex*(this: var BRepMeshPairOfIndex; thePairPos: int) {.
+proc removeIndex*(this: var BRepMeshPairOfIndex; thePairPos: cint) {.
     importcpp: "RemoveIndex", header: "BRepMesh_PairOfIndex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

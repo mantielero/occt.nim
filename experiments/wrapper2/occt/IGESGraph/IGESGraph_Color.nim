@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESGraph_Color"
 discard "forward decl of IGESGraph_Color"
 type
-  HandleIGESGraphColor* = Handle[IGESGraphColor]
+  HandleC1C1* = Handle[IGESGraphColor]
 
 ## ! defines IGESColor, Type <314> Form <0>
 ## ! in package IGESGraph
@@ -35,17 +35,17 @@ type
 
 proc constructIGESGraphColor*(): IGESGraphColor {.constructor,
     importcpp: "IGESGraph_Color(@)", header: "IGESGraph_Color.hxx".}
-proc init*(this: var IGESGraphColor; red: float; green: float; blue: float;
+proc init*(this: var IGESGraphColor; red: cfloat; green: cfloat; blue: cfloat;
           aColorName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESGraph_Color.hxx".}
-proc rGBIntensity*(this: IGESGraphColor; red: var float; green: var float;
-                  blue: var float) {.noSideEffect, importcpp: "RGBIntensity",
-                                  header: "IGESGraph_Color.hxx".}
-proc cMYIntensity*(this: IGESGraphColor; cyan: var float; magenta: var float;
-                  yellow: var float) {.noSideEffect, importcpp: "CMYIntensity",
-                                    header: "IGESGraph_Color.hxx".}
-proc hLSPercentage*(this: IGESGraphColor; hue: var float; lightness: var float;
-                   saturation: var float) {.noSideEffect,
+proc rGBIntensity*(this: IGESGraphColor; red: var cfloat; green: var cfloat;
+                  blue: var cfloat) {.noSideEffect, importcpp: "RGBIntensity",
+                                   header: "IGESGraph_Color.hxx".}
+proc cMYIntensity*(this: IGESGraphColor; cyan: var cfloat; magenta: var cfloat;
+                  yellow: var cfloat) {.noSideEffect, importcpp: "CMYIntensity",
+                                     header: "IGESGraph_Color.hxx".}
+proc hLSPercentage*(this: IGESGraphColor; hue: var cfloat; lightness: var cfloat;
+                   saturation: var cfloat) {.noSideEffect,
     importcpp: "HLSPercentage", header: "IGESGraph_Color.hxx".}
 proc hasColorName*(this: IGESGraphColor): bool {.noSideEffect,
     importcpp: "HasColorName", header: "IGESGraph_Color.hxx".}
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGraph_Color.hxx".}
 proc dynamicType*(this: IGESGraphColor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGraph_Color.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

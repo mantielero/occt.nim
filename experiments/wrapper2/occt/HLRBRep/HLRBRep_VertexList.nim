@@ -43,3 +43,28 @@ proc transition*(this: HLRBRepVertexList): TopAbsOrientation {.noSideEffect,
     importcpp: "Transition", header: "HLRBRep_VertexList.hxx".}
 proc boundaryTransition*(this: HLRBRepVertexList): TopAbsOrientation {.noSideEffect,
     importcpp: "BoundaryTransition", header: "HLRBRep_VertexList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

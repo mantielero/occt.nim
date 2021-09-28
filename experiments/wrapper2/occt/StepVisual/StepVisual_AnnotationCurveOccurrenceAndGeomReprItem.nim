@@ -16,8 +16,7 @@
 discard "forward decl of StepVisual_AnnotationCurveOccurrenceAndGeomReprItem"
 discard "forward decl of StepVisual_AnnotationCurveOccurrenceAndGeomReprItem"
 type
-  HandleStepVisualAnnotationCurveOccurrenceAndGeomReprItem* = Handle[
-      StepVisualAnnotationCurveOccurrenceAndGeomReprItem]
+  HandleC1C1* = Handle[StepVisualAnnotationCurveOccurrenceAndGeomReprItem]
 
 ## ! Added for Dimensional Tolerances
 ## ! Complex STEP entity AnnotationCurveOccurrence & AnnotationOccurrence & GeometricRepresentationItem & RepresentationItem & StyledItem
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Annotat
     header: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem.hxx".}
 proc dynamicType*(this: StepVisualAnnotationCurveOccurrenceAndGeomReprItem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_AnnotationCurveOccurrenceAndGeomReprItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

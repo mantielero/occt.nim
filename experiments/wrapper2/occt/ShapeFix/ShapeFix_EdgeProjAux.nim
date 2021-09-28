@@ -20,7 +20,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeFix_EdgeProjAux"
 discard "forward decl of ShapeFix_EdgeProjAux"
 type
-  HandleShapeFixEdgeProjAux* = Handle[ShapeFixEdgeProjAux]
+  HandleC1C1* = Handle[ShapeFixEdgeProjAux]
 
 ## ! Project 3D point (vertex) on pcurves to find Vertex Parameter
 ## ! on parametric representation of an edge
@@ -37,15 +37,15 @@ proc constructShapeFixEdgeProjAux*(f: TopoDS_Face; e: TopoDS_Edge): ShapeFixEdge
     header: "ShapeFix_EdgeProjAux.hxx".}
 proc init*(this: var ShapeFixEdgeProjAux; f: TopoDS_Face; e: TopoDS_Edge) {.
     importcpp: "Init", header: "ShapeFix_EdgeProjAux.hxx".}
-proc compute*(this: var ShapeFixEdgeProjAux; preci: float) {.importcpp: "Compute",
+proc compute*(this: var ShapeFixEdgeProjAux; preci: cfloat) {.importcpp: "Compute",
     header: "ShapeFix_EdgeProjAux.hxx".}
 proc isFirstDone*(this: ShapeFixEdgeProjAux): bool {.noSideEffect,
     importcpp: "IsFirstDone", header: "ShapeFix_EdgeProjAux.hxx".}
 proc isLastDone*(this: ShapeFixEdgeProjAux): bool {.noSideEffect,
     importcpp: "IsLastDone", header: "ShapeFix_EdgeProjAux.hxx".}
-proc firstParam*(this: ShapeFixEdgeProjAux): float {.noSideEffect,
+proc firstParam*(this: ShapeFixEdgeProjAux): cfloat {.noSideEffect,
     importcpp: "FirstParam", header: "ShapeFix_EdgeProjAux.hxx".}
-proc lastParam*(this: ShapeFixEdgeProjAux): float {.noSideEffect,
+proc lastParam*(this: ShapeFixEdgeProjAux): cfloat {.noSideEffect,
     importcpp: "LastParam", header: "ShapeFix_EdgeProjAux.hxx".}
 proc isIso*(this: var ShapeFixEdgeProjAux; c: Handle[Geom2dCurve]): bool {.
     importcpp: "IsIso", header: "ShapeFix_EdgeProjAux.hxx".}
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_EdgeProjAux.hxx".}
 proc dynamicType*(this: ShapeFixEdgeProjAux): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_EdgeProjAux.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

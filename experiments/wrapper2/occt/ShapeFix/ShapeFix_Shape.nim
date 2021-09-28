@@ -25,7 +25,7 @@ discard "forward decl of ShapeExtend_BasicMsgRegistrator"
 discard "forward decl of ShapeFix_Shape"
 discard "forward decl of ShapeFix_Shape"
 type
-  HandleShapeFixShape* = Handle[ShapeFixShape]
+  HandleC1C1* = Handle[ShapeFixShape]
 
 ## ! Fixing shape in general
 
@@ -84,25 +84,25 @@ proc status*(this: ShapeFixShape; status: ShapeExtendStatus): bool {.noSideEffec
 proc setMsgRegistrator*(this: var ShapeFixShape;
                        msgreg: Handle[ShapeExtendBasicMsgRegistrator]) {.
     importcpp: "SetMsgRegistrator", header: "ShapeFix_Shape.hxx".}
-proc setPrecision*(this: var ShapeFixShape; preci: float) {.importcpp: "SetPrecision",
-    header: "ShapeFix_Shape.hxx".}
-proc setMinTolerance*(this: var ShapeFixShape; mintol: float) {.
+proc setPrecision*(this: var ShapeFixShape; preci: cfloat) {.
+    importcpp: "SetPrecision", header: "ShapeFix_Shape.hxx".}
+proc setMinTolerance*(this: var ShapeFixShape; mintol: cfloat) {.
     importcpp: "SetMinTolerance", header: "ShapeFix_Shape.hxx".}
-proc setMaxTolerance*(this: var ShapeFixShape; maxtol: float) {.
+proc setMaxTolerance*(this: var ShapeFixShape; maxtol: cfloat) {.
     importcpp: "SetMaxTolerance", header: "ShapeFix_Shape.hxx".}
-proc fixSolidMode*(this: var ShapeFixShape): var int {.importcpp: "FixSolidMode",
+proc fixSolidMode*(this: var ShapeFixShape): var cint {.importcpp: "FixSolidMode",
     header: "ShapeFix_Shape.hxx".}
-proc fixFreeShellMode*(this: var ShapeFixShape): var int {.
+proc fixFreeShellMode*(this: var ShapeFixShape): var cint {.
     importcpp: "FixFreeShellMode", header: "ShapeFix_Shape.hxx".}
-proc fixFreeFaceMode*(this: var ShapeFixShape): var int {.
+proc fixFreeFaceMode*(this: var ShapeFixShape): var cint {.
     importcpp: "FixFreeFaceMode", header: "ShapeFix_Shape.hxx".}
-proc fixFreeWireMode*(this: var ShapeFixShape): var int {.
+proc fixFreeWireMode*(this: var ShapeFixShape): var cint {.
     importcpp: "FixFreeWireMode", header: "ShapeFix_Shape.hxx".}
-proc fixSameParameterMode*(this: var ShapeFixShape): var int {.
+proc fixSameParameterMode*(this: var ShapeFixShape): var cint {.
     importcpp: "FixSameParameterMode", header: "ShapeFix_Shape.hxx".}
-proc fixVertexPositionMode*(this: var ShapeFixShape): var int {.
+proc fixVertexPositionMode*(this: var ShapeFixShape): var cint {.
     importcpp: "FixVertexPositionMode", header: "ShapeFix_Shape.hxx".}
-proc fixVertexTolMode*(this: var ShapeFixShape): var int {.
+proc fixVertexTolMode*(this: var ShapeFixShape): var cint {.
     importcpp: "FixVertexTolMode", header: "ShapeFix_Shape.hxx".}
 type
   ShapeFixShapebaseType* = ShapeFixRoot
@@ -114,3 +114,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_Shape.hxx".}
 proc dynamicType*(this: ShapeFixShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Shape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -40,3 +40,28 @@ proc findOperator*(name: StandardCString; op: var Handle[ShapeProcessOperator]):
 proc perform*(context: Handle[ShapeProcessContext]; seq: StandardCString;
              theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "ShapeProcess::Perform(@)", header: "ShapeProcess.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

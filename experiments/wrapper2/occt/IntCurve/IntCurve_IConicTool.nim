@@ -41,15 +41,40 @@ proc constructIntCurveIConicTool*(p: Parab2d): IntCurveIConicTool {.constructor,
     importcpp: "IntCurve_IConicTool(@)", header: "IntCurve_IConicTool.hxx".}
 proc constructIntCurveIConicTool*(h: Hypr2d): IntCurveIConicTool {.constructor,
     importcpp: "IntCurve_IConicTool(@)", header: "IntCurve_IConicTool.hxx".}
-proc value*(this: IntCurveIConicTool; x: float): Pnt2d {.noSideEffect,
+proc value*(this: IntCurveIConicTool; x: cfloat): Pnt2d {.noSideEffect,
     importcpp: "Value", header: "IntCurve_IConicTool.hxx".}
-proc d1*(this: IntCurveIConicTool; u: float; p: var Pnt2d; t: var Vec2d) {.noSideEffect,
+proc d1*(this: IntCurveIConicTool; u: cfloat; p: var Pnt2d; t: var Vec2d) {.noSideEffect,
     importcpp: "D1", header: "IntCurve_IConicTool.hxx".}
-proc d2*(this: IntCurveIConicTool; u: float; p: var Pnt2d; t: var Vec2d; n: var Vec2d) {.
+proc d2*(this: IntCurveIConicTool; u: cfloat; p: var Pnt2d; t: var Vec2d; n: var Vec2d) {.
     noSideEffect, importcpp: "D2", header: "IntCurve_IConicTool.hxx".}
-proc distance*(this: IntCurveIConicTool; p: Pnt2d): float {.noSideEffect,
+proc distance*(this: IntCurveIConicTool; p: Pnt2d): cfloat {.noSideEffect,
     importcpp: "Distance", header: "IntCurve_IConicTool.hxx".}
 proc gradDistance*(this: IntCurveIConicTool; p: Pnt2d): Vec2d {.noSideEffect,
     importcpp: "GradDistance", header: "IntCurve_IConicTool.hxx".}
-proc findParameter*(this: IntCurveIConicTool; p: Pnt2d): float {.noSideEffect,
+proc findParameter*(this: IntCurveIConicTool; p: Pnt2d): cfloat {.noSideEffect,
     importcpp: "FindParameter", header: "IntCurve_IConicTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

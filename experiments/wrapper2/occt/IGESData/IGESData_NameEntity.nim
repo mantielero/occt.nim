@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESData_NameEntity"
 discard "forward decl of IGESData_NameEntity"
 type
-  HandleIGESDataNameEntity* = Handle[IGESDataNameEntity]
+  HandleC1C1* = Handle[IGESDataNameEntity]
 
 ## ! a NameEntity is a kind of IGESEntity which can provide a Name
 ## ! under alphanumeric (String) form, from Properties list
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_NameEntity.hxx".}
 proc dynamicType*(this: IGESDataNameEntity): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_NameEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

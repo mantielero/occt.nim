@@ -28,3 +28,28 @@ proc isValid*(this: AspectXRHapticActionData): bool {.noSideEffect,
 proc constructAspectXRHapticActionData*(): AspectXRHapticActionData {.constructor,
     importcpp: "Aspect_XRHapticActionData(@)",
     header: "Aspect_XRHapticActionData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

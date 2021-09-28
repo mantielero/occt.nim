@@ -17,3 +17,28 @@ type
   StepDimTolArray1OfGeometricToleranceModifier* = NCollectionArray1[
       StepDimTolGeometricToleranceModifier]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

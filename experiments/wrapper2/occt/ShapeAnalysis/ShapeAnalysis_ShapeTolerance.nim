@@ -26,15 +26,16 @@ type
 proc constructShapeAnalysisShapeTolerance*(): ShapeAnalysisShapeTolerance {.
     constructor, importcpp: "ShapeAnalysis_ShapeTolerance(@)",
     header: "ShapeAnalysis_ShapeTolerance.hxx".}
-proc tolerance*(this: var ShapeAnalysisShapeTolerance; shape: TopoDS_Shape; mode: int;
-               `type`: TopAbsShapeEnum = topAbsSHAPE): float {.
+proc tolerance*(this: var ShapeAnalysisShapeTolerance; shape: TopoDS_Shape;
+               mode: cint; `type`: TopAbsShapeEnum = topAbsSHAPE): cfloat {.
     importcpp: "Tolerance", header: "ShapeAnalysis_ShapeTolerance.hxx".}
 proc overTolerance*(this: ShapeAnalysisShapeTolerance; shape: TopoDS_Shape;
-                   value: float; `type`: TopAbsShapeEnum = topAbsSHAPE): Handle[
+                   value: cfloat; `type`: TopAbsShapeEnum = topAbsSHAPE): Handle[
     TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "OverTolerance",
                                header: "ShapeAnalysis_ShapeTolerance.hxx".}
 proc inTolerance*(this: ShapeAnalysisShapeTolerance; shape: TopoDS_Shape;
-                 valmin: float; valmax: float; `type`: TopAbsShapeEnum = topAbsSHAPE): Handle[
+                 valmin: cfloat; valmax: cfloat;
+                 `type`: TopAbsShapeEnum = topAbsSHAPE): Handle[
     TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "InTolerance",
                                header: "ShapeAnalysis_ShapeTolerance.hxx".}
 proc initTolerance*(this: var ShapeAnalysisShapeTolerance) {.
@@ -42,6 +43,31 @@ proc initTolerance*(this: var ShapeAnalysisShapeTolerance) {.
 proc addTolerance*(this: var ShapeAnalysisShapeTolerance; shape: TopoDS_Shape;
                   `type`: TopAbsShapeEnum = topAbsSHAPE) {.
     importcpp: "AddTolerance", header: "ShapeAnalysis_ShapeTolerance.hxx".}
-proc globalTolerance*(this: ShapeAnalysisShapeTolerance; mode: int): float {.
+proc globalTolerance*(this: ShapeAnalysisShapeTolerance; mode: cint): cfloat {.
     noSideEffect, importcpp: "GlobalTolerance",
     header: "ShapeAnalysis_ShapeTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

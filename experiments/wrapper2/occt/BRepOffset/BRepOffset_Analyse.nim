@@ -54,10 +54,10 @@ type
 
 proc constructBRepOffsetAnalyse*(): BRepOffsetAnalyse {.constructor,
     importcpp: "BRepOffset_Analyse(@)", header: "BRepOffset_Analyse.hxx".}
-proc constructBRepOffsetAnalyse*(theS: TopoDS_Shape; theAngle: float): BRepOffsetAnalyse {.
+proc constructBRepOffsetAnalyse*(theS: TopoDS_Shape; theAngle: cfloat): BRepOffsetAnalyse {.
     constructor, importcpp: "BRepOffset_Analyse(@)",
     header: "BRepOffset_Analyse.hxx".}
-proc perform*(this: var BRepOffsetAnalyse; theS: TopoDS_Shape; theAngle: float) {.
+proc perform*(this: var BRepOffsetAnalyse; theS: TopoDS_Shape; theAngle: cfloat) {.
     importcpp: "Perform", header: "BRepOffset_Analyse.hxx".}
 proc isDone*(this: BRepOffsetAnalyse): bool {.noSideEffect, importcpp: "IsDone",
     header: "BRepOffset_Analyse.hxx".}
@@ -90,7 +90,7 @@ proc addFaces*(this: BRepOffsetAnalyse; theFace: TopoDS_Face;
               theCo: var TopoDS_Compound; theMap: var TopToolsMapOfShape;
               theType1: ChFiDS_TypeOfConcavity; theType2: ChFiDS_TypeOfConcavity) {.
     noSideEffect, importcpp: "AddFaces", header: "BRepOffset_Analyse.hxx".}
-proc setOffsetValue*(this: var BRepOffsetAnalyse; theOffset: float) {.
+proc setOffsetValue*(this: var BRepOffsetAnalyse; theOffset: cfloat) {.
     importcpp: "SetOffsetValue", header: "BRepOffset_Analyse.hxx".}
 proc setFaceOffsetMap*(this: var BRepOffsetAnalyse;
                       theMap: TopToolsDataMapOfShapeReal) {.
@@ -109,3 +109,28 @@ proc descendants*(this: BRepOffsetAnalyse; theS: TopoDS_Shape;
     importcpp: "Descendants", header: "BRepOffset_Analyse.hxx".}
 proc clear*(this: var BRepOffsetAnalyse) {.importcpp: "Clear",
                                        header: "BRepOffset_Analyse.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,9 +13,34 @@
 
 type
   Graphic3dVec2* = NCollectionVec2[StandardShortReal]
-  Graphic3dVec2d* = NCollectionVec2[float]
-  Graphic3dVec2i* = NCollectionVec2[int]
+  Graphic3dVec2d* = NCollectionVec2[cfloat]
+  Graphic3dVec2i* = NCollectionVec2[cint]
   Graphic3dVec2u* = NCollectionVec2[cuint]
   Graphic3dVec2ub* = NCollectionVec2[StandardByte]
   Graphic3dVec2b* = NCollectionVec2[StandardCharacter]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

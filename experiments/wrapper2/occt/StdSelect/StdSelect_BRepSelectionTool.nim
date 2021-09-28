@@ -148,39 +148,65 @@ type
 
 
 proc load*(aSelection: Handle[SelectMgrSelection]; aShape: TopoDS_Shape;
-          aType: TopAbsShapeEnum; theDeflection: float; theDeviationAngle: float;
-          autoTriangulation: bool = true; aPriority: int = -1; nbPOnEdge: int = 9;
-          maximalParameter: float = 500) {.importcpp: "StdSelect_BRepSelectionTool::Load(@)", header: "StdSelect_BRepSelectionTool.hxx".}
+          aType: TopAbsShapeEnum; theDeflection: cfloat; theDeviationAngle: cfloat;
+          autoTriangulation: bool = true; aPriority: cint = -1; nbPOnEdge: cint = 9;
+          maximalParameter: cfloat = 500) {.importcpp: "StdSelect_BRepSelectionTool::Load(@)", header: "StdSelect_BRepSelectionTool.hxx".}
 proc load*(aSelection: Handle[SelectMgrSelection];
           origin: Handle[SelectMgrSelectableObject]; aShape: TopoDS_Shape;
-          aType: TopAbsShapeEnum; theDeflection: float; theDeviationAngle: float;
-          autoTriangulation: bool = true; aPriority: int = -1; nbPOnEdge: int = 9;
-          maximalParameter: float = 500) {.importcpp: "StdSelect_BRepSelectionTool::Load(@)", header: "StdSelect_BRepSelectionTool.hxx".}
-proc getStandardPriority*(theShape: TopoDS_Shape; theType: TopAbsShapeEnum): int {.
+          aType: TopAbsShapeEnum; theDeflection: cfloat; theDeviationAngle: cfloat;
+          autoTriangulation: bool = true; aPriority: cint = -1; nbPOnEdge: cint = 9;
+          maximalParameter: cfloat = 500) {.importcpp: "StdSelect_BRepSelectionTool::Load(@)", header: "StdSelect_BRepSelectionTool.hxx".}
+proc getStandardPriority*(theShape: TopoDS_Shape; theType: TopAbsShapeEnum): cint {.
     importcpp: "StdSelect_BRepSelectionTool::GetStandardPriority(@)",
     header: "StdSelect_BRepSelectionTool.hxx".}
 proc computeSensitive*(theShape: TopoDS_Shape;
                       theOwner: Handle[SelectMgrEntityOwner];
                       theSelection: Handle[SelectMgrSelection];
-                      theDeflection: float; theDeflAngle: float; theNbPOnEdge: int;
-                      theMaxiParam: float; theAutoTriang: bool = true) {.
+                      theDeflection: cfloat; theDeflAngle: cfloat;
+                      theNbPOnEdge: cint; theMaxiParam: cfloat;
+                      theAutoTriang: bool = true) {.
     importcpp: "StdSelect_BRepSelectionTool::ComputeSensitive(@)",
     header: "StdSelect_BRepSelectionTool.hxx".}
 proc getSensitiveForFace*(theFace: TopoDS_Face;
                          theOwner: Handle[SelectMgrEntityOwner];
                          theOutList: var Select3D_EntitySequence;
-                         theAutoTriang: bool = true; theNbPOnEdge: int = 9;
-                         theMaxiParam: float = 500; theInteriorFlag: bool = true): bool {.
+                         theAutoTriang: bool = true; theNbPOnEdge: cint = 9;
+                         theMaxiParam: cfloat = 500; theInteriorFlag: bool = true): bool {.
     importcpp: "StdSelect_BRepSelectionTool::GetSensitiveForFace(@)",
     header: "StdSelect_BRepSelectionTool.hxx".}
 proc getEdgeSensitive*(theShape: TopoDS_Shape;
                       theOwner: Handle[SelectMgrEntityOwner];
                       theSelection: Handle[SelectMgrSelection];
-                      theDeflection: float; theDeviationAngle: float;
-                      theNbPOnEdge: int; theMaxiParam: float;
+                      theDeflection: cfloat; theDeviationAngle: cfloat;
+                      theNbPOnEdge: cint; theMaxiParam: cfloat;
                       theSensitive: var Handle[Select3D_SensitiveEntity]) {.
     importcpp: "StdSelect_BRepSelectionTool::GetEdgeSensitive(@)",
     header: "StdSelect_BRepSelectionTool.hxx".}
 proc preBuildBVH*(theSelection: Handle[SelectMgrSelection]) {.
     importcpp: "StdSelect_BRepSelectionTool::PreBuildBVH(@)",
     header: "StdSelect_BRepSelectionTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

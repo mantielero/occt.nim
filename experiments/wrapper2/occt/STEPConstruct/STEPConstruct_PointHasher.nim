@@ -74,9 +74,34 @@ type
                                                                                    ## theUpperBound]
 
 
-proc hashCode*(thePoint: Pnt; theUpperBound: int): int {.
+proc hashCode*(thePoint: Pnt; theUpperBound: cint): cint {.
     importcpp: "STEPConstruct_PointHasher::HashCode(@)",
     header: "STEPConstruct_PointHasher.hxx".}
 proc isEqual*(point1: Pnt; point2: Pnt): bool {.
     importcpp: "STEPConstruct_PointHasher::IsEqual(@)",
     header: "STEPConstruct_PointHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

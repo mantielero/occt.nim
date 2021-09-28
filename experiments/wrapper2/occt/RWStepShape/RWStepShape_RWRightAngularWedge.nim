@@ -28,7 +28,7 @@ proc constructRWStepShapeRWRightAngularWedge*(): RWStepShapeRWRightAngularWedge 
     constructor, importcpp: "RWStepShape_RWRightAngularWedge(@)",
     header: "RWStepShape_RWRightAngularWedge.hxx".}
 proc readStep*(this: RWStepShapeRWRightAngularWedge;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeRightAngularWedge]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWRightAngularWedge.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepShapeRWRightAngularWedge;
            ent: Handle[StepShapeRightAngularWedge];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWRightAngularWedge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@ type
 proc constructLocOpePntFace*(): LocOpePntFace {.constructor,
     importcpp: "LocOpe_PntFace(@)", header: "LocOpe_PntFace.hxx".}
 proc constructLocOpePntFace*(p: Pnt; f: TopoDS_Face; `or`: TopAbsOrientation;
-                            param: float; uPar: float; vPar: float): LocOpePntFace {.
+                            param: cfloat; uPar: cfloat; vPar: cfloat): LocOpePntFace {.
     constructor, importcpp: "LocOpe_PntFace(@)", header: "LocOpe_PntFace.hxx".}
 proc pnt*(this: LocOpePntFace): Pnt {.noSideEffect, importcpp: "Pnt",
                                   header: "LocOpe_PntFace.hxx".}
@@ -41,9 +41,34 @@ proc orientation*(this: LocOpePntFace): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "LocOpe_PntFace.hxx".}
 proc changeOrientation*(this: var LocOpePntFace): var TopAbsOrientation {.
     importcpp: "ChangeOrientation", header: "LocOpe_PntFace.hxx".}
-proc parameter*(this: LocOpePntFace): float {.noSideEffect, importcpp: "Parameter",
+proc parameter*(this: LocOpePntFace): cfloat {.noSideEffect, importcpp: "Parameter",
     header: "LocOpe_PntFace.hxx".}
-proc uParameter*(this: LocOpePntFace): float {.noSideEffect, importcpp: "UParameter",
-    header: "LocOpe_PntFace.hxx".}
-proc vParameter*(this: LocOpePntFace): float {.noSideEffect, importcpp: "VParameter",
-    header: "LocOpe_PntFace.hxx".}
+proc uParameter*(this: LocOpePntFace): cfloat {.noSideEffect,
+    importcpp: "UParameter", header: "LocOpe_PntFace.hxx".}
+proc vParameter*(this: LocOpePntFace): cfloat {.noSideEffect,
+    importcpp: "VParameter", header: "LocOpe_PntFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

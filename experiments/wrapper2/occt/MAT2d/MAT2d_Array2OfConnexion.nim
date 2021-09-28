@@ -17,3 +17,28 @@
 type
   MAT2dArray2OfConnexion* = NCollectionArray2[Handle[MAT2dConnexion]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

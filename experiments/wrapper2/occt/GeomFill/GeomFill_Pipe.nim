@@ -23,29 +23,24 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Dir"
 type
-  GeomFillPipe* {.importcpp: "GeomFill_Pipe", header: "GeomFill_Pipe.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## algorithm
-                                                                                     ## for
-                                                                                     ## building
-                                                                                     ## pipes.
-                                                                                     ## Use
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## the
-                                                                                     ## function
-                                                                                     ## Init
-                                                                                     ## to
-                                                                                     ## initialize
-                                                                                     ## it.
+  GeomFillPipe* {.importcpp: "GeomFill_Pipe", header: "GeomFill_Pipe.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomFillPipe; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Pipe::operator new", header: "GeomFill_Pipe.hxx".}
+proc `delete`*(this: var GeomFillPipe; theAddress: pointer) {.
+    importcpp: "GeomFill_Pipe::operator delete", header: "GeomFill_Pipe.hxx".}
+proc `new[]`*(this: var GeomFillPipe; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Pipe::operator new[]", header: "GeomFill_Pipe.hxx".}
+proc `delete[]`*(this: var GeomFillPipe; theAddress: pointer) {.
+    importcpp: "GeomFill_Pipe::operator delete[]", header: "GeomFill_Pipe.hxx".}
+proc `new`*(this: var GeomFillPipe; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_Pipe::operator new", header: "GeomFill_Pipe.hxx".}
+proc `delete`*(this: var GeomFillPipe; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_Pipe::operator delete", header: "GeomFill_Pipe.hxx".}
 proc constructGeomFillPipe*(): GeomFillPipe {.constructor,
     importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
-proc constructGeomFillPipe*(path: Handle[GeomCurve]; radius: float): GeomFillPipe {.
+proc constructGeomFillPipe*(path: Handle[GeomCurve]; radius: StandardReal): GeomFillPipe {.
     constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc constructGeomFillPipe*(path: Handle[GeomCurve]; firstSect: Handle[GeomCurve];
     option: GeomFillTrihedron = geomFillIsCorrectedFrenet): GeomFillPipe {.
@@ -64,17 +59,18 @@ proc constructGeomFillPipe*(path: Handle[GeomCurve];
                            nSections: TColGeomSequenceOfCurve): GeomFillPipe {.
     constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc constructGeomFillPipe*(path: Handle[GeomCurve]; curve1: Handle[GeomCurve];
-                           curve2: Handle[GeomCurve]; radius: float): GeomFillPipe {.
+                           curve2: Handle[GeomCurve]; radius: StandardReal): GeomFillPipe {.
     constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc constructGeomFillPipe*(path: Handle[Adaptor3dHCurve];
                            curve1: Handle[Adaptor3dHCurve];
-                           curve2: Handle[Adaptor3dHCurve]; radius: float): GeomFillPipe {.
+                           curve2: Handle[Adaptor3dHCurve]; radius: StandardReal): GeomFillPipe {.
     constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc constructGeomFillPipe*(path: Handle[GeomCurve];
                            guide: Handle[Adaptor3dHCurve];
-                           firstSect: Handle[GeomCurve]; byACR: bool; rotat: bool): GeomFillPipe {.
-    constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
-proc init*(this: var GeomFillPipe; path: Handle[GeomCurve]; radius: float) {.
+                           firstSect: Handle[GeomCurve]; byACR: StandardBoolean;
+                           rotat: StandardBoolean): GeomFillPipe {.constructor,
+    importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
+proc init*(this: var GeomFillPipe; path: Handle[GeomCurve]; radius: StandardReal) {.
     importcpp: "Init", header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[GeomCurve];
           firstSect: Handle[GeomCurve];
@@ -94,26 +90,27 @@ proc init*(this: var GeomFillPipe; path: Handle[GeomCurve];
     header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[Adaptor3dHCurve];
           curve1: Handle[Adaptor3dHCurve]; curve2: Handle[Adaptor3dHCurve];
-          radius: float) {.importcpp: "Init", header: "GeomFill_Pipe.hxx".}
+          radius: StandardReal) {.importcpp: "Init", header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[GeomCurve];
-          guide: Handle[Adaptor3dHCurve]; firstSect: Handle[GeomCurve]; byACR: bool;
-          rotat: bool) {.importcpp: "Init", header: "GeomFill_Pipe.hxx".}
-proc perform*(this: var GeomFillPipe; withParameters: bool = false;
-             myPolynomial: bool = false) {.importcpp: "Perform",
-                                       header: "GeomFill_Pipe.hxx".}
-proc perform*(this: var GeomFillPipe; tol: float; polynomial: bool;
+          guide: Handle[Adaptor3dHCurve]; firstSect: Handle[GeomCurve];
+          byACR: StandardBoolean; rotat: StandardBoolean) {.importcpp: "Init",
+    header: "GeomFill_Pipe.hxx".}
+proc perform*(this: var GeomFillPipe; withParameters: StandardBoolean = false;
+             myPolynomial: StandardBoolean = false) {.importcpp: "Perform",
+    header: "GeomFill_Pipe.hxx".}
+proc perform*(this: var GeomFillPipe; tol: StandardReal; polynomial: StandardBoolean;
              conti: GeomAbsShape = geomAbsC1; maxDegree: int = 11;
              nbMaxSegment: int = 30) {.importcpp: "Perform",
                                    header: "GeomFill_Pipe.hxx".}
 proc surface*(this: GeomFillPipe): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "GeomFill_Pipe.hxx".}
-proc exchangeUV*(this: GeomFillPipe): bool {.noSideEffect, importcpp: "ExchangeUV",
-    header: "GeomFill_Pipe.hxx".}
-proc generateParticularCase*(this: var GeomFillPipe; b: bool) {.
+proc exchangeUV*(this: GeomFillPipe): StandardBoolean {.noSideEffect,
+    importcpp: "ExchangeUV", header: "GeomFill_Pipe.hxx".}
+proc generateParticularCase*(this: var GeomFillPipe; b: StandardBoolean) {.
     importcpp: "GenerateParticularCase", header: "GeomFill_Pipe.hxx".}
-proc generateParticularCase*(this: GeomFillPipe): bool {.noSideEffect,
+proc generateParticularCase*(this: GeomFillPipe): StandardBoolean {.noSideEffect,
     importcpp: "GenerateParticularCase", header: "GeomFill_Pipe.hxx".}
-proc errorOnSurf*(this: GeomFillPipe): float {.noSideEffect,
+proc errorOnSurf*(this: GeomFillPipe): StandardReal {.noSideEffect,
     importcpp: "ErrorOnSurf", header: "GeomFill_Pipe.hxx".}
-proc isDone*(this: GeomFillPipe): bool {.noSideEffect, importcpp: "IsDone",
-                                     header: "GeomFill_Pipe.hxx".}
+proc isDone*(this: GeomFillPipe): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "GeomFill_Pipe.hxx".}

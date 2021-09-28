@@ -14,28 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ChFiDS_SecHArray1* {.importcpp: "ChFiDS_SecHArray1",
-                      header: "ChFiDS_SecHArray1.hxx", bycopy.} = object of ChFiDS_SecArray1
+## !!!Ignored construct:  # ChFiDS_SecHArray1_HeaderFile [NewLine] # ChFiDS_SecHArray1_HeaderFile [NewLine] # < ChFiDS_CircSection . hxx > [NewLine] # < ChFiDS_SecArray1 . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( ChFiDS_SecHArray1 , ChFiDS_SecArray1 ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructChFiDS_SecHArray1*(theLower: int; theUpper: int): ChFiDS_SecHArray1 {.
-    constructor, importcpp: "ChFiDS_SecHArray1(@)", header: "ChFiDS_SecHArray1.hxx".}
-proc constructChFiDS_SecHArray1*(theLower: int; theUpper: int; theValue: ValueType): ChFiDS_SecHArray1 {.
-    constructor, importcpp: "ChFiDS_SecHArray1(@)", header: "ChFiDS_SecHArray1.hxx".}
-proc constructChFiDS_SecHArray1*(theOther: ChFiDS_SecArray1): ChFiDS_SecHArray1 {.
-    constructor, importcpp: "ChFiDS_SecHArray1(@)", header: "ChFiDS_SecHArray1.hxx".}
-proc array1*(this: ChFiDS_SecHArray1): ChFiDS_SecArray1 {.noSideEffect,
-    importcpp: "Array1", header: "ChFiDS_SecHArray1.hxx".}
-proc changeArray1*(this: var ChFiDS_SecHArray1): var ChFiDS_SecArray1 {.
-    importcpp: "ChangeArray1", header: "ChFiDS_SecHArray1.hxx".}
-type
-  ChFiDS_SecHArray1baseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "ChFiDS_SecHArray1::get_type_name(@)",
-                            header: "ChFiDS_SecHArray1.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "ChFiDS_SecHArray1::get_type_descriptor(@)",
-    header: "ChFiDS_SecHArray1.hxx".}
-proc dynamicType*(this: ChFiDS_SecHArray1): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "ChFiDS_SecHArray1.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

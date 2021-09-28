@@ -39,23 +39,48 @@ proc perform*(this: var LocOpeCSIntersector; scur: TColGeomSequenceOfCurve) {.
     importcpp: "Perform", header: "LocOpe_CSIntersector.hxx".}
 proc isDone*(this: LocOpeCSIntersector): bool {.noSideEffect, importcpp: "IsDone",
     header: "LocOpe_CSIntersector.hxx".}
-proc nbPoints*(this: LocOpeCSIntersector; i: int): int {.noSideEffect,
+proc nbPoints*(this: LocOpeCSIntersector; i: cint): cint {.noSideEffect,
     importcpp: "NbPoints", header: "LocOpe_CSIntersector.hxx".}
-proc point*(this: LocOpeCSIntersector; i: int; index: int): LocOpePntFace {.
+proc point*(this: LocOpeCSIntersector; i: cint; index: cint): LocOpePntFace {.
     noSideEffect, importcpp: "Point", header: "LocOpe_CSIntersector.hxx".}
-proc localizeAfter*(this: LocOpeCSIntersector; i: int; `from`: float; tol: float;
-                   `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+proc localizeAfter*(this: LocOpeCSIntersector; i: cint; `from`: cfloat; tol: cfloat;
+                   `or`: var TopAbsOrientation; indFrom: var cint; indTo: var cint): bool {.
     noSideEffect, importcpp: "LocalizeAfter", header: "LocOpe_CSIntersector.hxx".}
-proc localizeBefore*(this: LocOpeCSIntersector; i: int; `from`: float; tol: float;
-                    `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+proc localizeBefore*(this: LocOpeCSIntersector; i: cint; `from`: cfloat; tol: cfloat;
+                    `or`: var TopAbsOrientation; indFrom: var cint; indTo: var cint): bool {.
     noSideEffect, importcpp: "LocalizeBefore", header: "LocOpe_CSIntersector.hxx".}
-proc localizeAfter*(this: LocOpeCSIntersector; i: int; fromInd: int; tol: float;
-                   `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+proc localizeAfter*(this: LocOpeCSIntersector; i: cint; fromInd: cint; tol: cfloat;
+                   `or`: var TopAbsOrientation; indFrom: var cint; indTo: var cint): bool {.
     noSideEffect, importcpp: "LocalizeAfter", header: "LocOpe_CSIntersector.hxx".}
-proc localizeBefore*(this: LocOpeCSIntersector; i: int; fromInd: int; tol: float;
-                    `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+proc localizeBefore*(this: LocOpeCSIntersector; i: cint; fromInd: cint; tol: cfloat;
+                    `or`: var TopAbsOrientation; indFrom: var cint; indTo: var cint): bool {.
     noSideEffect, importcpp: "LocalizeBefore", header: "LocOpe_CSIntersector.hxx".}
 proc destroy*(this: var LocOpeCSIntersector) {.importcpp: "Destroy",
     header: "LocOpe_CSIntersector.hxx".}
 proc destroyLocOpeCSIntersector*(this: var LocOpeCSIntersector) {.
     importcpp: "#.~LocOpe_CSIntersector()", header: "LocOpe_CSIntersector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

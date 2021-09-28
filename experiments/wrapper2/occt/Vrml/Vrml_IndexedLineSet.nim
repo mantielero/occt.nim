@@ -17,7 +17,7 @@
 discard "forward decl of Vrml_IndexedLineSet"
 discard "forward decl of Vrml_IndexedLineSet"
 type
-  HandleVrmlIndexedLineSet* = Handle[VrmlIndexedLineSet]
+  HandleC1C1* = Handle[VrmlIndexedLineSet]
 
 ## ! defines a IndexedLineSet node of VRML specifying geometry shapes.
 ## ! This node represents a 3D shape formed by constructing polylines from vertices
@@ -78,3 +78,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Vrml_IndexedLineSet.hxx".}
 proc dynamicType*(this: VrmlIndexedLineSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_IndexedLineSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

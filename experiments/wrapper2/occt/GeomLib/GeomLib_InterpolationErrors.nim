@@ -24,4 +24,3 @@ type
     GeomLibNoError, GeomLibNotEnoughtPoints, GeomLibDegreeSmallerThan3,
     GeomLibInversionProblem
 
-

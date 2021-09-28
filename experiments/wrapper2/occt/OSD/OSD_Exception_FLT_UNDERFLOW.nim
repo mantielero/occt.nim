@@ -15,14 +15,54 @@
 ## !!!Ignored construct:  # _OSD_Exception_FLT_UNDERFLOW_HeaderFile [NewLine] # _OSD_Exception_FLT_UNDERFLOW_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_FLT_UNDERFLOW ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_Exception_FLT_UNDERFLOW"
-type
-  HandleOSD_ExceptionFLT_UNDERFLOWOSD_ExceptionFLT_UNDERFLOW* = Handle[
-      OSD_ExceptionFLT_UNDERFLOW]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_Exception_FLT_UNDERFLOW , OSD_Exception ) # ! defined No_Exception && ! defined No_OSD_Exception_FLT_UNDERFLOW [NewLine] # OSD_Exception_FLT_UNDERFLOW_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_Exception_FLT_UNDERFLOW ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_FLT_UNDERFLOW [NewLine] # if ( CONDITION ) throw OSD_Exception_FLT_UNDERFLOW ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_Exception_FLT_UNDERFLOW_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_FLT_UNDERFLOW , OSD_Exception ) #  _OSD_Exception_FLT_UNDERFLOW_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_FLT_UNDERFLOW , OSD_Exception ) #  _OSD_Exception_FLT_UNDERFLOW_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

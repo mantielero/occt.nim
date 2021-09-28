@@ -31,7 +31,7 @@ type
 proc constructStepVisualTextOrCharacter*(): StepVisualTextOrCharacter {.
     constructor, importcpp: "StepVisual_TextOrCharacter(@)",
     header: "StepVisual_TextOrCharacter.hxx".}
-proc caseNum*(this: StepVisualTextOrCharacter; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualTextOrCharacter; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_TextOrCharacter.hxx".}
 proc annotationText*(this: StepVisualTextOrCharacter): Handle[
     StepVisualAnnotationText] {.noSideEffect, importcpp: "AnnotationText",
@@ -42,3 +42,28 @@ proc compositeText*(this: StepVisualTextOrCharacter): Handle[
 proc textLiteral*(this: StepVisualTextOrCharacter): Handle[StepVisualTextLiteral] {.
     noSideEffect, importcpp: "TextLiteral",
     header: "StepVisual_TextOrCharacter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

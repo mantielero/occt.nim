@@ -34,3 +34,28 @@ proc setAlgoContainer*(aContainer: Handle[ShapeAlgoAlgoContainer]) {.
     importcpp: "ShapeAlgo::SetAlgoContainer(@)", header: "ShapeAlgo.hxx".}
 proc algoContainer*(): Handle[ShapeAlgoAlgoContainer] {.
     importcpp: "ShapeAlgo::AlgoContainer(@)", header: "ShapeAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

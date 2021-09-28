@@ -54,14 +54,39 @@ type
 proc determineTransition*(pos1: IntRes2dPosition; tan1: var Vec2d; norm1: Vec2d;
                          trans1: var IntRes2dTransition; pos2: IntRes2dPosition;
                          tan2: var Vec2d; norm2: Vec2d;
-                         trans2: var IntRes2dTransition; tol: float) {.
+                         trans2: var IntRes2dTransition; tol: cfloat) {.
     importcpp: "IntImpParGen::DetermineTransition(@)", header: "IntImpParGen.hxx".}
 proc determineTransition*(pos1: IntRes2dPosition; tan1: var Vec2d;
                          trans1: var IntRes2dTransition; pos2: IntRes2dPosition;
-                         tan2: var Vec2d; trans2: var IntRes2dTransition; tol: float): bool {.
+                         tan2: var Vec2d; trans2: var IntRes2dTransition; tol: cfloat): bool {.
     importcpp: "IntImpParGen::DetermineTransition(@)", header: "IntImpParGen.hxx".}
 proc determinePosition*(pos1: var IntRes2dPosition; dom1: IntRes2dDomain; p1: Pnt2d;
-                       tol: float) {.importcpp: "IntImpParGen::DeterminePosition(@)",
-                                   header: "IntImpParGen.hxx".}
-proc normalizeOnDomain*(par1: var float; dom1: IntRes2dDomain): float {.
+                       tol: cfloat) {.importcpp: "IntImpParGen::DeterminePosition(@)",
+                                    header: "IntImpParGen.hxx".}
+proc normalizeOnDomain*(par1: var cfloat; dom1: IntRes2dDomain): cfloat {.
     importcpp: "IntImpParGen::NormalizeOnDomain(@)", header: "IntImpParGen.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

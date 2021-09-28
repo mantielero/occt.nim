@@ -20,3 +20,28 @@ type
     IntRes2dIn, IntRes2dOut, IntRes2dTouch, IntRes2dUndecided
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

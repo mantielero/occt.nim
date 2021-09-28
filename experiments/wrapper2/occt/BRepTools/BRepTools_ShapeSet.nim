@@ -91,3 +91,28 @@ proc writePolygonOnTriangulation*(this: BRepToolsShapeSet; os: var StandardOStre
 proc dumpPolygonOnTriangulation*(this: BRepToolsShapeSet; os: var StandardOStream) {.
     noSideEffect, importcpp: "DumpPolygonOnTriangulation",
     header: "BRepTools_ShapeSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

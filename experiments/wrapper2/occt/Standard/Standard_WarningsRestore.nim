@@ -26,10 +26,11 @@
 ## ! #include <Standard_WarningsRestore.hxx>
 ## ! @endcode
 
-# when defined(clang):
-#   discard
-# elif defined(msc_Ver):
-#   discard
-# elif defined(gnuc) and (gnuc > 4 or (gnuc == 4 and gnuc_Minor >= 6)):
-#   discard
+# # # when defined(clang):
+# # #   discard
+# # # elif defined(msc_Ver):
+# # #   discard
+# # # elif defined(gnuc) and (gnuc > 4 or (gnuc == 4 and gnuc_Minor >= 6)):
+# # #   discard
+
 

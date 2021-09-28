@@ -19,3 +19,28 @@ type
   ExprIntrpListIteratorOfStackOfGeneralRelation* = Iterator[
       Handle[ExprGeneralRelation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

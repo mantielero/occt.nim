@@ -32,3 +32,28 @@ type
 
 proc init*() {.importcpp: "XSDRAW_Functions::Init(@)",
              header: "XSDRAW_Functions.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

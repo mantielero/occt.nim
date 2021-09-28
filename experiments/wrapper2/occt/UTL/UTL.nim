@@ -59,9 +59,34 @@ proc find*(aResourceManager: Handle[ResourceManager];
 proc value*(aResourceManager: Handle[ResourceManager];
            aResourceName: TCollectionExtendedString): TCollectionExtendedString {.
     importcpp: "UTL::Value(@)", header: "UTL.hxx".}
-proc integerValue*(anExtendedString: TCollectionExtendedString): int {.
+proc integerValue*(anExtendedString: TCollectionExtendedString): cint {.
     importcpp: "UTL::IntegerValue(@)", header: "UTL.hxx".}
 proc cString*(anExtendedString: TCollectionExtendedString): StandardCString {.
     importcpp: "UTL::CString(@)", header: "UTL.hxx".}
 proc isReadOnly*(aFileName: TCollectionExtendedString): bool {.
     importcpp: "UTL::IsReadOnly(@)", header: "UTL.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,3 +15,28 @@
 type
   TColStdSequenceOfBoolean* = NCollectionSequence[bool]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

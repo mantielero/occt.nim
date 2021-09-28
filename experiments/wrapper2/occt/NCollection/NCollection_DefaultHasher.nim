@@ -30,7 +30,7 @@ proc hashCodeProxy*[TheKeyType](theKey: TheKeyType; theUpperBound: int): int =
 ## purpose  : Default implementation of IsEqual via operator ==
 ## =======================================================================
 
-proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool =
+proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): StandardBoolean =
   discard
 
 ## =======================================================================
@@ -38,7 +38,7 @@ proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool =
 ## purpose  : Function is required to call the global function IsEqual.
 ## =======================================================================
 
-proc isEqualProxy*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool =
+proc isEqualProxy*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): StandardBoolean =
   discard
 
 ## *
@@ -62,6 +62,6 @@ type
 proc hashCode*[TheKeyType](theKey: TheKeyType; theUpperBound: int): int {.
     importcpp: "NCollection_DefaultHasher::HashCode(@)",
     header: "NCollection_DefaultHasher.hxx".}
-proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.
+#[ proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): StandardBoolean {.
     importcpp: "NCollection_DefaultHasher::IsEqual(@)",
-    header: "NCollection_DefaultHasher.hxx".}
+    header: "NCollection_DefaultHasher.hxx".} ]#

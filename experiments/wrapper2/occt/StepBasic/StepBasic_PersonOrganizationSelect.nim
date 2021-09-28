@@ -29,7 +29,7 @@ proc constructStepBasicPersonOrganizationSelect*(): StepBasicPersonOrganizationS
     constructor, importcpp: "StepBasic_PersonOrganizationSelect(@)",
     header: "StepBasic_PersonOrganizationSelect.hxx".}
 proc caseNum*(this: StepBasicPersonOrganizationSelect;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepBasic_PersonOrganizationSelect.hxx".}
 proc person*(this: StepBasicPersonOrganizationSelect): Handle[StepBasicPerson] {.
     noSideEffect, importcpp: "Person",
@@ -40,3 +40,28 @@ proc organization*(this: StepBasicPersonOrganizationSelect): Handle[
 proc personAndOrganization*(this: StepBasicPersonOrganizationSelect): Handle[
     StepBasicPersonAndOrganization] {.noSideEffect,
                                      importcpp: "PersonAndOrganization", header: "StepBasic_PersonOrganizationSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

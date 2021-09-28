@@ -47,26 +47,28 @@ type
                                                                                       ## the
                                                                                       ## given
                                                                                       ## triangle.
+    bRepMeshDataStructureOfDelaun* {.importc: "BRepMesh_DataStructureOfDelaun".}: Handle
+    standardType* {.importc: "Standard_Type".}: Handle
 
   BRepMeshMeshToolNodeClassifier* {.importcpp: "BRepMesh_MeshTool::NodeClassifier",
                                    header: "BRepMesh_MeshTool.hxx", bycopy.} = object
 
 
-proc constructBRepMeshMeshToolNodeClassifier*(theConstraint: BRepMeshEdge;
-    theStructure: Handle[BRepMeshDataStructureOfDelaun]): BRepMeshMeshToolNodeClassifier {.
-    constructor, importcpp: "BRepMesh_MeshTool::NodeClassifier(@)",
-    header: "BRepMesh_MeshTool.hxx".}
-proc isAbove*(this: BRepMeshMeshToolNodeClassifier; theNodeIndex: int): bool {.
-    noSideEffect, importcpp: "IsAbove", header: "BRepMesh_MeshTool.hxx".}
-proc constructBRepMeshMeshTool*(theStructure: Handle[BRepMeshDataStructureOfDelaun]): BRepMeshMeshTool {.
-    constructor, importcpp: "BRepMesh_MeshTool(@)", header: "BRepMesh_MeshTool.hxx".}
+## !!!Ignored construct:  public : NodeClassifier ( const BRepMesh_Edge & theConstraint , const Handle ( BRepMesh_DataStructureOfDelaun ) & theStructure ) : myStructure ( theStructure ) { const BRepMesh_Vertex & aVertex1 = myStructure -> GetNode ( theConstraint . FirstNode ( ) ) ; const BRepMesh_Vertex & aVertex2 = myStructure -> GetNode ( theConstraint . LastNode ( ) ) ; myConstraint . SetLocation ( aVertex1 . Coord ( ) ) ; myConstraint . SetDirection ( gp_Vec2d ( aVertex1 . Coord ( ) , aVertex2 . Coord ( ) ) ) ; mySign = myConstraint . Direction ( ) . X ( ) > 0 ; } Standard_Boolean IsAbove ( const Standard_Integer theNodeIndex ) const { const BRepMesh_Vertex & aVertex = myStructure -> GetNode ( theNodeIndex ) ; const gp_Vec2d aNodeVec ( myConstraint . Location ( ) , aVertex . Coord ( ) ) ; if ( aNodeVec . SquareMagnitude ( ) > gp :: Resolution ( ) ) { const Standard_Real aCross = aNodeVec . Crossed ( myConstraint . Direction ( ) ) ; if ( Abs ( aCross ) > gp :: Resolution ( ) ) { return mySign ? aCross < 0.0 : aCross > 0.0 ; } } return Standard_False ; } private : NodeClassifier ( const NodeClassifier & theOther ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  & myStructure ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  ! Constructor.
+## ! Initializes tool by the given data structure. BRepMesh_MeshTool ( const Handle ( BRepMesh_DataStructureOfDelaun ) & theStructure ) ;
+## Error: token expected: ) but got: &!!!
+
 proc destroyBRepMeshMeshTool*(this: var BRepMeshMeshTool) {.
     importcpp: "#.~BRepMesh_MeshTool()", header: "BRepMesh_MeshTool.hxx".}
-proc getStructure*(this: BRepMeshMeshTool): Handle[BRepMeshDataStructureOfDelaun] {.
-    noSideEffect, importcpp: "GetStructure", header: "BRepMesh_MeshTool.hxx".}
-proc dumpTriangles*(this: var BRepMeshMeshTool; theFileName: StandardCString;
-                   theTriangles: ptr MapOfInteger) {.importcpp: "DumpTriangles",
-    header: "BRepMesh_MeshTool.hxx".}
+## !!!Ignored construct:  & GetStructure ( ) const { return myStructure ; } ! Dumps triangles to specified file. void DumpTriangles ( const Standard_CString theFileName , IMeshData :: MapOfInteger * theTriangles ) ;
+## Error: identifier expected, but got: &!!!
+
 proc addAndLegalizeTriangle*(this: var BRepMeshMeshTool; thePoint1: int;
                             thePoint2: int; thePoint3: int) {.
     importcpp: "AddAndLegalizeTriangle", header: "BRepMesh_MeshTool.hxx".}
@@ -92,16 +94,65 @@ proc eraseFreeLinks*(this: var BRepMeshMeshTool) {.importcpp: "EraseFreeLinks",
     header: "BRepMesh_MeshTool.hxx".}
 proc eraseFreeLinks*(this: var BRepMeshMeshTool; theLinks: MapOfIntegerInteger) {.
     importcpp: "EraseFreeLinks", header: "BRepMesh_MeshTool.hxx".}
-proc getEdgesByType*(this: BRepMeshMeshTool; theEdgeType: BRepMeshDegreeOfFreedom): Handle[
-    MapOfInteger] {.noSideEffect, importcpp: "GetEdgesByType",
-                   header: "BRepMesh_MeshTool.hxx".}
+## !!!Ignored construct:  ! Gives the list of edges with type defined by input parameter. Handle ( IMeshData :: MapOfInteger ) GetEdgesByType ( const BRepMesh_DegreeOfFreedom theEdgeType ) const ;
+## Error: token expected: ) but got: ::!!!
+
 type
   BRepMeshMeshToolbaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "BRepMesh_MeshTool::get_type_name(@)",
                             header: "BRepMesh_MeshTool.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "BRepMesh_MeshTool::get_type_descriptor(@)",
-    header: "BRepMesh_MeshTool.hxx".}
-proc dynamicType*(this: BRepMeshMeshTool): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRepMesh_MeshTool.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  myStructure ;
+## Error: identifier expected, but got: ;!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

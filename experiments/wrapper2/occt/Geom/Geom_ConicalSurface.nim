@@ -27,7 +27,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_ConicalSurface"
 discard "forward decl of Geom_ConicalSurface"
 type
-  HandleGeomConicalSurface* = Handle[GeomConicalSurface]
+  HandleC1C1* = Handle[GeomConicalSurface]
 
 ## ! Describes a cone.
 ## ! A cone is defined by the half-angle (can be negative) at its apex, and
@@ -216,68 +216,72 @@ type
                                                                                               ## Resolution
 
 
-proc constructGeomConicalSurface*(a3: Ax3; ang: float; radius: float): GeomConicalSurface {.
+proc constructGeomConicalSurface*(a3: Ax3; ang: StandardReal; radius: StandardReal): GeomConicalSurface {.
     constructor, importcpp: "Geom_ConicalSurface(@)",
     header: "Geom_ConicalSurface.hxx".}
 proc constructGeomConicalSurface*(c: Cone): GeomConicalSurface {.constructor,
     importcpp: "Geom_ConicalSurface(@)", header: "Geom_ConicalSurface.hxx".}
 proc setCone*(this: var GeomConicalSurface; c: Cone) {.importcpp: "SetCone",
     header: "Geom_ConicalSurface.hxx".}
-proc setRadius*(this: var GeomConicalSurface; r: float) {.importcpp: "SetRadius",
-    header: "Geom_ConicalSurface.hxx".}
-proc setSemiAngle*(this: var GeomConicalSurface; ang: float) {.
+proc setRadius*(this: var GeomConicalSurface; r: StandardReal) {.
+    importcpp: "SetRadius", header: "Geom_ConicalSurface.hxx".}
+proc setSemiAngle*(this: var GeomConicalSurface; ang: StandardReal) {.
     importcpp: "SetSemiAngle", header: "Geom_ConicalSurface.hxx".}
 proc cone*(this: GeomConicalSurface): Cone {.noSideEffect, importcpp: "Cone",
     header: "Geom_ConicalSurface.hxx".}
-proc uReversedParameter*(this: GeomConicalSurface; u: float): float {.noSideEffect,
-    importcpp: "UReversedParameter", header: "Geom_ConicalSurface.hxx".}
-proc vReversedParameter*(this: GeomConicalSurface; v: float): float {.noSideEffect,
-    importcpp: "VReversedParameter", header: "Geom_ConicalSurface.hxx".}
+proc uReversedParameter*(this: GeomConicalSurface; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter",
+    header: "Geom_ConicalSurface.hxx".}
+proc vReversedParameter*(this: GeomConicalSurface; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter",
+    header: "Geom_ConicalSurface.hxx".}
 proc vReverse*(this: var GeomConicalSurface) {.importcpp: "VReverse",
     header: "Geom_ConicalSurface.hxx".}
-proc transformParameters*(this: GeomConicalSurface; u: var float; v: var float; t: Trsf) {.
-    noSideEffect, importcpp: "TransformParameters",
-    header: "Geom_ConicalSurface.hxx".}
+proc transformParameters*(this: GeomConicalSurface; u: var StandardReal;
+                         v: var StandardReal; t: Trsf) {.noSideEffect,
+    importcpp: "TransformParameters", header: "Geom_ConicalSurface.hxx".}
 proc parametricTransformation*(this: GeomConicalSurface; t: Trsf): GTrsf2d {.
     noSideEffect, importcpp: "ParametricTransformation",
     header: "Geom_ConicalSurface.hxx".}
 proc apex*(this: GeomConicalSurface): Pnt {.noSideEffect, importcpp: "Apex",
                                         header: "Geom_ConicalSurface.hxx".}
-proc bounds*(this: GeomConicalSurface; u1: var float; u2: var float; v1: var float;
-            v2: var float) {.noSideEffect, importcpp: "Bounds",
-                          header: "Geom_ConicalSurface.hxx".}
-proc coefficients*(this: GeomConicalSurface; a1: var float; a2: var float; a3: var float;
-                  b1: var float; b2: var float; b3: var float; c1: var float; c2: var float;
-                  c3: var float; d: var float) {.noSideEffect,
-    importcpp: "Coefficients", header: "Geom_ConicalSurface.hxx".}
-proc refRadius*(this: GeomConicalSurface): float {.noSideEffect,
+proc bounds*(this: GeomConicalSurface; u1: var StandardReal; u2: var StandardReal;
+            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+    importcpp: "Bounds", header: "Geom_ConicalSurface.hxx".}
+proc coefficients*(this: GeomConicalSurface; a1: var StandardReal;
+                  a2: var StandardReal; a3: var StandardReal; b1: var StandardReal;
+                  b2: var StandardReal; b3: var StandardReal; c1: var StandardReal;
+                  c2: var StandardReal; c3: var StandardReal; d: var StandardReal) {.
+    noSideEffect, importcpp: "Coefficients", header: "Geom_ConicalSurface.hxx".}
+proc refRadius*(this: GeomConicalSurface): StandardReal {.noSideEffect,
     importcpp: "RefRadius", header: "Geom_ConicalSurface.hxx".}
-proc semiAngle*(this: GeomConicalSurface): float {.noSideEffect,
+proc semiAngle*(this: GeomConicalSurface): StandardReal {.noSideEffect,
     importcpp: "SemiAngle", header: "Geom_ConicalSurface.hxx".}
-proc isUClosed*(this: GeomConicalSurface): bool {.noSideEffect,
+proc isUClosed*(this: GeomConicalSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsUClosed", header: "Geom_ConicalSurface.hxx".}
-proc isVClosed*(this: GeomConicalSurface): bool {.noSideEffect,
+proc isVClosed*(this: GeomConicalSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVClosed", header: "Geom_ConicalSurface.hxx".}
-proc isUPeriodic*(this: GeomConicalSurface): bool {.noSideEffect,
+proc isUPeriodic*(this: GeomConicalSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsUPeriodic", header: "Geom_ConicalSurface.hxx".}
-proc isVPeriodic*(this: GeomConicalSurface): bool {.noSideEffect,
+proc isVPeriodic*(this: GeomConicalSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVPeriodic", header: "Geom_ConicalSurface.hxx".}
-proc uIso*(this: GeomConicalSurface; u: float): Handle[GeomCurve] {.noSideEffect,
-    importcpp: "UIso", header: "Geom_ConicalSurface.hxx".}
-proc vIso*(this: GeomConicalSurface; v: float): Handle[GeomCurve] {.noSideEffect,
-    importcpp: "VIso", header: "Geom_ConicalSurface.hxx".}
-proc d0*(this: GeomConicalSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
-    importcpp: "D0", header: "Geom_ConicalSurface.hxx".}
-proc d1*(this: GeomConicalSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
-    noSideEffect, importcpp: "D1", header: "Geom_ConicalSurface.hxx".}
-proc d2*(this: GeomConicalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+proc uIso*(this: GeomConicalSurface; u: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "UIso", header: "Geom_ConicalSurface.hxx".}
+proc vIso*(this: GeomConicalSurface; v: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "VIso", header: "Geom_ConicalSurface.hxx".}
+proc d0*(this: GeomConicalSurface; u: StandardReal; v: StandardReal; p: var Pnt) {.
+    noSideEffect, importcpp: "D0", header: "Geom_ConicalSurface.hxx".}
+proc d1*(this: GeomConicalSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                                header: "Geom_ConicalSurface.hxx".}
+proc d2*(this: GeomConicalSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
     importcpp: "D2", header: "Geom_ConicalSurface.hxx".}
-proc d3*(this: GeomConicalSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
-        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
-                                    header: "Geom_ConicalSurface.hxx".}
-proc dn*(this: GeomConicalSurface; u: float; v: float; nu: int; nv: int): Vec {.
+proc d3*(this: GeomConicalSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
+        d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+    header: "Geom_ConicalSurface.hxx".}
+proc dn*(this: GeomConicalSurface; u: StandardReal; v: StandardReal; nu: int; nv: int): Vec {.
     noSideEffect, importcpp: "DN", header: "Geom_ConicalSurface.hxx".}
 proc transform*(this: var GeomConicalSurface; t: Trsf) {.importcpp: "Transform",
     header: "Geom_ConicalSurface.hxx".}

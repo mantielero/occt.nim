@@ -19,7 +19,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of IGESGeom_Direction"
 discard "forward decl of IGESGeom_Direction"
 type
-  HandleIGESGeomDirection* = Handle[IGESGeomDirection]
+  HandleC1C1* = Handle[IGESGeomDirection]
 
 ## ! defines IGESDirection, Type <123> Form <0>
 ## ! in package IGESGeom
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_Direction.hxx".}
 proc dynamicType*(this: IGESGeomDirection): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Direction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

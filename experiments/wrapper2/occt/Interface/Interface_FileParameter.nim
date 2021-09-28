@@ -32,9 +32,9 @@ proc cValue*(this: InterfaceFileParameter): StandardCString {.noSideEffect,
     importcpp: "CValue", header: "Interface_FileParameter.hxx".}
 proc paramType*(this: InterfaceFileParameter): InterfaceParamType {.noSideEffect,
     importcpp: "ParamType", header: "Interface_FileParameter.hxx".}
-proc setEntityNumber*(this: var InterfaceFileParameter; num: int) {.
+proc setEntityNumber*(this: var InterfaceFileParameter; num: cint) {.
     importcpp: "SetEntityNumber", header: "Interface_FileParameter.hxx".}
-proc entityNumber*(this: InterfaceFileParameter): int {.noSideEffect,
+proc entityNumber*(this: InterfaceFileParameter): cint {.noSideEffect,
     importcpp: "EntityNumber", header: "Interface_FileParameter.hxx".}
 proc clear*(this: var InterfaceFileParameter) {.importcpp: "Clear",
     header: "Interface_FileParameter.hxx".}
@@ -43,3 +43,28 @@ proc destroy*(this: var InterfaceFileParameter) {.importcpp: "Destroy",
 proc destroyInterfaceFileParameter*(this: var InterfaceFileParameter) {.
     importcpp: "#.~Interface_FileParameter()",
     header: "Interface_FileParameter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

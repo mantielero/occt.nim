@@ -50,7 +50,7 @@ proc face*(this: IntToolsEdgeFace): TopoDS_Face {.noSideEffect, importcpp: "Face
     header: "IntTools_EdgeFace.hxx".}
 proc setRange*(this: var IntToolsEdgeFace; theRange: IntToolsRange) {.
     importcpp: "SetRange", header: "IntTools_EdgeFace.hxx".}
-proc setRange*(this: var IntToolsEdgeFace; theFirst: float; theLast: float) {.
+proc setRange*(this: var IntToolsEdgeFace; theFirst: cfloat; theLast: cfloat) {.
     importcpp: "SetRange", header: "IntTools_EdgeFace.hxx".}
 proc range*(this: IntToolsEdgeFace): IntToolsRange {.noSideEffect,
     importcpp: "Range", header: "IntTools_EdgeFace.hxx".}
@@ -58,9 +58,9 @@ proc setContext*(this: var IntToolsEdgeFace; theContext: Handle[IntToolsContext]
     importcpp: "SetContext", header: "IntTools_EdgeFace.hxx".}
 proc context*(this: IntToolsEdgeFace): Handle[IntToolsContext] {.noSideEffect,
     importcpp: "Context", header: "IntTools_EdgeFace.hxx".}
-proc setFuzzyValue*(this: var IntToolsEdgeFace; theFuzz: float) {.
+proc setFuzzyValue*(this: var IntToolsEdgeFace; theFuzz: cfloat) {.
     importcpp: "SetFuzzyValue", header: "IntTools_EdgeFace.hxx".}
-proc fuzzyValue*(this: IntToolsEdgeFace): float {.noSideEffect,
+proc fuzzyValue*(this: IntToolsEdgeFace): cfloat {.noSideEffect,
     importcpp: "FuzzyValue", header: "IntTools_EdgeFace.hxx".}
 proc useQuickCoincidenceCheck*(this: var IntToolsEdgeFace; theFlag: bool) {.
     importcpp: "UseQuickCoincidenceCheck", header: "IntTools_EdgeFace.hxx".}
@@ -70,9 +70,34 @@ proc perform*(this: var IntToolsEdgeFace) {.importcpp: "Perform",
                                         header: "IntTools_EdgeFace.hxx".}
 proc isDone*(this: IntToolsEdgeFace): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntTools_EdgeFace.hxx".}
-proc errorStatus*(this: IntToolsEdgeFace): int {.noSideEffect,
+proc errorStatus*(this: IntToolsEdgeFace): cint {.noSideEffect,
     importcpp: "ErrorStatus", header: "IntTools_EdgeFace.hxx".}
 proc commonParts*(this: IntToolsEdgeFace): IntToolsSequenceOfCommonPrts {.
     noSideEffect, importcpp: "CommonParts", header: "IntTools_EdgeFace.hxx".}
-proc minimalDistance*(this: IntToolsEdgeFace): float {.noSideEffect,
+proc minimalDistance*(this: IntToolsEdgeFace): cfloat {.noSideEffect,
     importcpp: "MinimalDistance", header: "IntTools_EdgeFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

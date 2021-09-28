@@ -21,28 +21,30 @@ discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of math_Matrix"
 type
   GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox* {.importcpp: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx",
-      bycopy.} = object ## ! Given a MultiLine SSP with constraints points, this
-                     ## ! algorithm finds the best curve solution to approximate it.
-                     ## ! The poles from SCurv issued for example from the least
-                     ## ! squares are used as a guess solution for the uzawa
-                     ## ! algorithm. The tolerance used in the Uzawa algorithms
-                     ## ! is Tolerance.
-                     ## ! A is the Bernstein matrix associated to the MultiLine
-                     ## ! and DA is the derivative bernstein matrix.(They can come
-                     ## ! from an approximation with ParLeastSquare.)
-                     ## ! The MultiCurve is modified. New MultiPoles are given.
-                     ## ! is used internally to create the fields.
+      bycopy.} = object         ## ! is used internally to create the fields.
 
 
+proc `new`*(this: var GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox;
+           theSize: csize_t): pointer {.importcpp: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox::operator new", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox;
+              theAddress: pointer) {.importcpp: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox::operator delete", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
+proc `new[]`*(this: var GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox;
+             theSize: csize_t): pointer {.importcpp: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox::operator new[]", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
+proc `delete[]`*(this: var GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox;
+                theAddress: pointer) {.importcpp: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox::operator delete[]", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
+proc `new`*(this: var GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox::operator new", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox;
+              a2: pointer; a3: pointer) {.importcpp: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox::operator delete", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
 proc constructGeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox*(
     ssp: GeomIntTheMultiLineOfWLApprox; sCurv: var AppParCurvesMultiCurve;
     firstPoint: int; lastPoint: int;
     constraints: Handle[AppParCurvesHArray1OfConstraintCouple]; bern: MathMatrix;
-    derivativeBern: MathMatrix; tolerance: float = 1.0e-10): GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox {.
+    derivativeBern: MathMatrix; tolerance: StandardReal = 1.0e-10): GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox(@)", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc isDone*(this: GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox): bool {.
+proc isDone*(this: GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox): StandardBoolean {.
     noSideEffect, importcpp: "IsDone", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
-proc error*(this: GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox): float {.
+proc error*(this: GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox): StandardReal {.
     noSideEffect, importcpp: "Error", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}
 proc constraintMatrix*(this: GeomIntResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox): MathMatrix {.
     noSideEffect, importcpp: "ConstraintMatrix", header: "GeomInt_ResConstraintOfMyGradientbisOfTheComputeLineOfWLApprox.hxx".}

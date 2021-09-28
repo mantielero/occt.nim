@@ -19,7 +19,7 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of IGESDimen_BasicDimension"
 discard "forward decl of IGESDimen_BasicDimension"
 type
-  HandleIGESDimenBasicDimension* = Handle[IGESDimenBasicDimension]
+  HandleC1C1* = Handle[IGESDimenBasicDimension]
 
 ## ! Defines IGES Basic Dimension, Type 406, Form 31,
 ## ! in package IGESDimen
@@ -34,10 +34,10 @@ type
 proc constructIGESDimenBasicDimension*(): IGESDimenBasicDimension {.constructor,
     importcpp: "IGESDimen_BasicDimension(@)",
     header: "IGESDimen_BasicDimension.hxx".}
-proc init*(this: var IGESDimenBasicDimension; nbPropVal: int; lowerLeft: Xy;
+proc init*(this: var IGESDimenBasicDimension; nbPropVal: cint; lowerLeft: Xy;
           lowerRight: Xy; upperRight: Xy; upperLeft: Xy) {.importcpp: "Init",
     header: "IGESDimen_BasicDimension.hxx".}
-proc nbPropertyValues*(this: IGESDimenBasicDimension): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESDimenBasicDimension): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESDimen_BasicDimension.hxx".}
 proc lowerLeft*(this: IGESDimenBasicDimension): Pnt2d {.noSideEffect,
     importcpp: "LowerLeft", header: "IGESDimen_BasicDimension.hxx".}
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_BasicDimension.hxx".}
 proc dynamicType*(this: IGESDimenBasicDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_BasicDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

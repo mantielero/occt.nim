@@ -19,23 +19,42 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
   GeomLPropCurveTool* {.importcpp: "GeomLProp_CurveTool",
-                       header: "GeomLProp_CurveTool.hxx", bycopy.} = object ## ! Computes the point <P> of parameter <U> on the curve <C>.
+                       header: "GeomLProp_CurveTool.hxx", bycopy.} = object
 
 
-proc value*(c: Handle[GeomCurve]; u: float; p: var Pnt) {.
+proc `new`*(this: var GeomLPropCurveTool; theSize: csize_t): pointer {.
+    importcpp: "GeomLProp_CurveTool::operator new",
+    header: "GeomLProp_CurveTool.hxx".}
+proc `delete`*(this: var GeomLPropCurveTool; theAddress: pointer) {.
+    importcpp: "GeomLProp_CurveTool::operator delete",
+    header: "GeomLProp_CurveTool.hxx".}
+proc `new[]`*(this: var GeomLPropCurveTool; theSize: csize_t): pointer {.
+    importcpp: "GeomLProp_CurveTool::operator new[]",
+    header: "GeomLProp_CurveTool.hxx".}
+proc `delete[]`*(this: var GeomLPropCurveTool; theAddress: pointer) {.
+    importcpp: "GeomLProp_CurveTool::operator delete[]",
+    header: "GeomLProp_CurveTool.hxx".}
+proc `new`*(this: var GeomLPropCurveTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLProp_CurveTool::operator new",
+    header: "GeomLProp_CurveTool.hxx".}
+proc `delete`*(this: var GeomLPropCurveTool; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLProp_CurveTool::operator delete",
+    header: "GeomLProp_CurveTool.hxx".}
+proc value*(c: Handle[GeomCurve]; u: StandardReal; p: var Pnt) {.
     importcpp: "GeomLProp_CurveTool::Value(@)", header: "GeomLProp_CurveTool.hxx".}
-proc d1*(c: Handle[GeomCurve]; u: float; p: var Pnt; v1: var Vec) {.
+proc d1*(c: Handle[GeomCurve]; u: StandardReal; p: var Pnt; v1: var Vec) {.
     importcpp: "GeomLProp_CurveTool::D1(@)", header: "GeomLProp_CurveTool.hxx".}
-proc d2*(c: Handle[GeomCurve]; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(c: Handle[GeomCurve]; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
     importcpp: "GeomLProp_CurveTool::D2(@)", header: "GeomLProp_CurveTool.hxx".}
-proc d3*(c: Handle[GeomCurve]; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    importcpp: "GeomLProp_CurveTool::D3(@)", header: "GeomLProp_CurveTool.hxx".}
+proc d3*(c: Handle[GeomCurve]; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec;
+        v3: var Vec) {.importcpp: "GeomLProp_CurveTool::D3(@)",
+                    header: "GeomLProp_CurveTool.hxx".}
 proc continuity*(c: Handle[GeomCurve]): int {.
     importcpp: "GeomLProp_CurveTool::Continuity(@)",
     header: "GeomLProp_CurveTool.hxx".}
-proc firstParameter*(c: Handle[GeomCurve]): float {.
+proc firstParameter*(c: Handle[GeomCurve]): StandardReal {.
     importcpp: "GeomLProp_CurveTool::FirstParameter(@)",
     header: "GeomLProp_CurveTool.hxx".}
-proc lastParameter*(c: Handle[GeomCurve]): float {.
+proc lastParameter*(c: Handle[GeomCurve]): StandardReal {.
     importcpp: "GeomLProp_CurveTool::LastParameter(@)",
     header: "GeomLProp_CurveTool.hxx".}

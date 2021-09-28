@@ -28,7 +28,7 @@ proc constructRWStepBasicRWApprovalRelationship*(): RWStepBasicRWApprovalRelatio
     constructor, importcpp: "RWStepBasic_RWApprovalRelationship(@)",
     header: "RWStepBasic_RWApprovalRelationship.hxx".}
 proc readStep*(this: RWStepBasicRWApprovalRelationship;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicApprovalRelationship]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWApprovalRelationship.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepBasicRWApprovalRelationship;
            ent: Handle[StepBasicApprovalRelationship];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWApprovalRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Units_UnitsSystem"
 discard "forward decl of Units_UnitsSystem"
 type
-  HandleUnitsUnitsSystem* = Handle[UnitsUnitsSystem]
+  HandleC1C1* = Handle[UnitsUnitsSystem]
 
 ## ! This class  allows  the  user  to  define his  own
 ## ! system of units.
@@ -66,15 +66,15 @@ proc activates*(this: var UnitsUnitsSystem) {.importcpp: "Activates",
 proc activeUnit*(this: UnitsUnitsSystem; aquantity: StandardCString): TCollectionAsciiString {.
     noSideEffect, importcpp: "ActiveUnit", header: "Units_UnitsSystem.hxx".}
 proc convertValueToUserSystem*(this: UnitsUnitsSystem; aquantity: StandardCString;
-                              avalue: float; aunit: StandardCString): float {.
+                              avalue: cfloat; aunit: StandardCString): cfloat {.
     noSideEffect, importcpp: "ConvertValueToUserSystem",
     header: "Units_UnitsSystem.hxx".}
 proc convertSIValueToUserSystem*(this: UnitsUnitsSystem;
-                                aquantity: StandardCString; avalue: float): float {.
+                                aquantity: StandardCString; avalue: cfloat): cfloat {.
     noSideEffect, importcpp: "ConvertSIValueToUserSystem",
     header: "Units_UnitsSystem.hxx".}
 proc convertUserSystemValueToSI*(this: UnitsUnitsSystem;
-                                aquantity: StandardCString; avalue: float): float {.
+                                aquantity: StandardCString; avalue: cfloat): cfloat {.
     noSideEffect, importcpp: "ConvertUserSystemValueToSI",
     header: "Units_UnitsSystem.hxx".}
 proc dump*(this: UnitsUnitsSystem) {.noSideEffect, importcpp: "Dump",
@@ -91,3 +91,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Units_UnitsSystem.hxx".}
 proc dynamicType*(this: UnitsUnitsSystem): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_UnitsSystem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -46,15 +46,15 @@ proc continuity*(this: GeomFillAppSweep): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "GeomFill_AppSweep.hxx".}
 proc criteriumWeight*(this: GeomFillAppSweep; w1: var float; w2: var float; w3: var float) {.
     noSideEffect, importcpp: "CriteriumWeight", header: "GeomFill_AppSweep.hxx".}
-proc perform*(this: var GeomFillAppSweep; lin: Handle[GeomFillLine];
-             secGen: var GeomFillSweepSectionGenerator; spApprox: bool = false) {.
-    importcpp: "Perform", header: "GeomFill_AppSweep.hxx".}
-proc performSmoothing*(this: var GeomFillAppSweep; lin: Handle[GeomFillLine];
-                      secGen: var GeomFillSweepSectionGenerator) {.
-    importcpp: "PerformSmoothing", header: "GeomFill_AppSweep.hxx".}
-proc perform*(this: var GeomFillAppSweep; lin: Handle[GeomFillLine];
-             secGen: var GeomFillSweepSectionGenerator; nbMaxP: int) {.
-    importcpp: "Perform", header: "GeomFill_AppSweep.hxx".}
+## !!!Ignored construct:  void Perform ( const Handle ( GeomFill_Line ) & Lin , GeomFill_SweepSectionGenerator & SecGen , const Standard_Boolean SpApprox = Standard_False ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void PerformSmoothing ( const Handle ( GeomFill_Line ) & Lin , GeomFill_SweepSectionGenerator & SecGen ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void Perform ( const Handle ( GeomFill_Line ) & Lin , GeomFill_SweepSectionGenerator & SecGen , const Standard_Integer NbMaxP ) ;
+## Error: token expected: ) but got: &!!!
+
 proc isDone*(this: GeomFillAppSweep): bool {.noSideEffect, importcpp: "IsDone",
     header: "GeomFill_AppSweep.hxx".}
 proc surfShape*(this: GeomFillAppSweep; uDegree: var int; vDegree: var int;
@@ -101,6 +101,72 @@ proc tolReached*(this: GeomFillAppSweep; tol3d: var float; tol2d: var float) {.
     noSideEffect, importcpp: "TolReached", header: "GeomFill_AppSweep.hxx".}
 proc tolCurveOnSurf*(this: GeomFillAppSweep; index: int): float {.noSideEffect,
     importcpp: "TolCurveOnSurf", header: "GeomFill_AppSweep.hxx".}
-## !!!Ignored construct:  # TheSectionGenerator GeomFill_SweepSectionGenerator [NewLine] # TheSectionGenerator_hxx < GeomFill_SweepSectionGenerator . hxx > [NewLine] # Handle_TheLine opencascade :: handle < GeomFill_Line > [end of template] [NewLine] # TheLine GeomFill_Line [NewLine] # TheLine_hxx < GeomFill_Line . hxx > [NewLine] # AppBlend_AppSurf GeomFill_AppSweep [NewLine] # AppBlend_AppSurf_hxx < GeomFill_AppSweep . hxx > [NewLine] # < AppBlend_AppSurf . lxx > [NewLine] # TheSectionGenerator [NewLine] # TheSectionGenerator_hxx [NewLine] # Handle_TheLine [NewLine] # TheLine [NewLine] # TheLine_hxx [NewLine] # AppBlend_AppSurf [NewLine] # AppBlend_AppSurf_hxx [NewLine] #  _GeomFill_AppSweep_HeaderFile
+## !!!Ignored construct:  protected : private : void InternalPerform ( const Handle ( GeomFill_Line ) & Lin , GeomFill_SweepSectionGenerator & SecGen , const Standard_Boolean SpApprox , const Standard_Boolean UseVariational ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  tabPoles ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  tabWeights ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  tabUKnots ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  tabVKnots ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  tabUMults ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  tabVMults ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  # TheSectionGenerator GeomFill_SweepSectionGenerator [NewLine] # TheSectionGenerator_hxx < GeomFill_SweepSectionGenerator . hxx > [NewLine] # Handle_TheLine Handle ( GeomFill_Line ) [NewLine] # TheLine GeomFill_Line [NewLine] # TheLine_hxx < GeomFill_Line . hxx > [NewLine] # AppBlend_AppSurf GeomFill_AppSweep [NewLine] # AppBlend_AppSurf_hxx < GeomFill_AppSweep . hxx > [NewLine] # < AppBlend_AppSurf . lxx > [NewLine] # TheSectionGenerator [NewLine] # TheSectionGenerator_hxx [NewLine] # Handle_TheLine [NewLine] # TheLine [NewLine] # TheLine_hxx [NewLine] # AppBlend_AppSurf [NewLine] # AppBlend_AppSurf_hxx [NewLine] #  _GeomFill_AppSweep_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

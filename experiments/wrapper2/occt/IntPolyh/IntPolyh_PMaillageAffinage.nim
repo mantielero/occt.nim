@@ -18,3 +18,28 @@ discard "forward decl of IntPolyh_MaillageAffinage"
 type
   IntPolyhPMaillageAffinage* = ptr IntPolyhMaillageAffinage
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

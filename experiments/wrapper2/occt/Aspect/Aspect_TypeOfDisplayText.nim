@@ -27,3 +27,28 @@ type
     AspectTODT_SHADOW         ## !< the text will have a shadow at the right-bottom corner
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

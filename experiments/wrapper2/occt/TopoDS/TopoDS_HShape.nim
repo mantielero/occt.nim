@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_HShape"
 discard "forward decl of TopoDS_HShape"
 type
-  HandleTopoDS_HShape* = Handle[TopoDS_HShape]
+  HandleC1C1* = Handle[TopoDS_HShape]
 
 ## ! Class to manipulate a Shape with  handle.
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopoDS_HShape.hxx".}
 proc dynamicType*(this: TopoDS_HShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_HShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

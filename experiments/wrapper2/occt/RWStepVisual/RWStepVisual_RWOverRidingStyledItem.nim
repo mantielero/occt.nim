@@ -28,7 +28,7 @@ proc constructRWStepVisualRWOverRidingStyledItem*(): RWStepVisualRWOverRidingSty
     constructor, importcpp: "RWStepVisual_RWOverRidingStyledItem(@)",
     header: "RWStepVisual_RWOverRidingStyledItem.hxx".}
 proc readStep*(this: RWStepVisualRWOverRidingStyledItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualOverRidingStyledItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWOverRidingStyledItem.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepVisualRWOverRidingStyledItem;
            ent: Handle[StepVisualOverRidingStyledItem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWOverRidingStyledItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

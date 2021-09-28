@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_DigitalDocument"
 discard "forward decl of StepBasic_DigitalDocument"
 type
-  HandleStepBasicDigitalDocument* = Handle[StepBasicDigitalDocument]
+  HandleC1C1* = Handle[StepBasicDigitalDocument]
   StepBasicDigitalDocument* {.importcpp: "StepBasic_DigitalDocument",
                              header: "StepBasic_DigitalDocument.hxx", bycopy.} = object of StepBasicDocument
 
@@ -35,3 +35,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DigitalDocument.hxx".}
 proc dynamicType*(this: StepBasicDigitalDocument): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_DigitalDocument.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

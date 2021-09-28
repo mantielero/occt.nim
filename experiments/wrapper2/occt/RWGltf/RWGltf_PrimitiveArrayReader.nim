@@ -65,3 +65,28 @@ proc setCoordinateSystemConverter*(this: var RWGltfPrimitiveArrayReader;
 proc load*(this: var RWGltfPrimitiveArrayReader;
           theMesh: Handle[RWGltfGltfLatePrimitiveArray]): Handle[PolyTriangulation] {.
     importcpp: "Load", header: "RWGltf_PrimitiveArrayReader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

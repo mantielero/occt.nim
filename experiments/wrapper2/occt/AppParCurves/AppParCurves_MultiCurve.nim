@@ -33,7 +33,7 @@ type
 
 proc constructAppParCurvesMultiCurve*(): AppParCurvesMultiCurve {.constructor,
     importcpp: "AppParCurves_MultiCurve(@)", header: "AppParCurves_MultiCurve.hxx".}
-proc constructAppParCurvesMultiCurve*(nbPol: int): AppParCurvesMultiCurve {.
+proc constructAppParCurvesMultiCurve*(nbPol: cint): AppParCurvesMultiCurve {.
     constructor, importcpp: "AppParCurves_MultiCurve(@)",
     header: "AppParCurves_MultiCurve.hxx".}
 proc constructAppParCurvesMultiCurve*(tabMU: AppParCurvesArray1OfMultiPoint): AppParCurvesMultiCurve {.
@@ -42,50 +42,76 @@ proc constructAppParCurvesMultiCurve*(tabMU: AppParCurvesArray1OfMultiPoint): Ap
 proc destroyAppParCurvesMultiCurve*(this: var AppParCurvesMultiCurve) {.
     importcpp: "#.~AppParCurves_MultiCurve()",
     header: "AppParCurves_MultiCurve.hxx".}
-proc setNbPoles*(this: var AppParCurvesMultiCurve; nbPoles: int) {.
+proc setNbPoles*(this: var AppParCurvesMultiCurve; nbPoles: cint) {.
     importcpp: "SetNbPoles", header: "AppParCurves_MultiCurve.hxx".}
-proc setValue*(this: var AppParCurvesMultiCurve; index: int;
+proc setValue*(this: var AppParCurvesMultiCurve; index: cint;
               mPoint: AppParCurvesMultiPoint) {.importcpp: "SetValue",
     header: "AppParCurves_MultiCurve.hxx".}
-proc nbCurves*(this: AppParCurvesMultiCurve): int {.noSideEffect,
+proc nbCurves*(this: AppParCurvesMultiCurve): cint {.noSideEffect,
     importcpp: "NbCurves", header: "AppParCurves_MultiCurve.hxx".}
-proc nbPoles*(this: AppParCurvesMultiCurve): int {.noSideEffect,
+proc nbPoles*(this: AppParCurvesMultiCurve): cint {.noSideEffect,
     importcpp: "NbPoles", header: "AppParCurves_MultiCurve.hxx".}
-proc degree*(this: AppParCurvesMultiCurve): int {.noSideEffect, importcpp: "Degree",
+proc degree*(this: AppParCurvesMultiCurve): cint {.noSideEffect, importcpp: "Degree",
     header: "AppParCurves_MultiCurve.hxx".}
-proc dimension*(this: AppParCurvesMultiCurve; cuIndex: int): int {.noSideEffect,
+proc dimension*(this: AppParCurvesMultiCurve; cuIndex: cint): cint {.noSideEffect,
     importcpp: "Dimension", header: "AppParCurves_MultiCurve.hxx".}
-proc curve*(this: AppParCurvesMultiCurve; cuIndex: int; tabPnt: var TColgpArray1OfPnt) {.
-    noSideEffect, importcpp: "Curve", header: "AppParCurves_MultiCurve.hxx".}
-proc curve*(this: AppParCurvesMultiCurve; cuIndex: int;
+proc curve*(this: AppParCurvesMultiCurve; cuIndex: cint;
+           tabPnt: var TColgpArray1OfPnt) {.noSideEffect, importcpp: "Curve",
+    header: "AppParCurves_MultiCurve.hxx".}
+proc curve*(this: AppParCurvesMultiCurve; cuIndex: cint;
            tabPnt: var TColgpArray1OfPnt2d) {.noSideEffect, importcpp: "Curve",
     header: "AppParCurves_MultiCurve.hxx".}
-proc value*(this: AppParCurvesMultiCurve; index: int): AppParCurvesMultiPoint {.
+proc value*(this: AppParCurvesMultiCurve; index: cint): AppParCurvesMultiPoint {.
     noSideEffect, importcpp: "Value", header: "AppParCurves_MultiCurve.hxx".}
-proc pole*(this: AppParCurvesMultiCurve; cuIndex: int; nieme: int): Pnt {.noSideEffect,
-    importcpp: "Pole", header: "AppParCurves_MultiCurve.hxx".}
-proc pole2d*(this: AppParCurvesMultiCurve; cuIndex: int; nieme: int): Pnt2d {.
+proc pole*(this: AppParCurvesMultiCurve; cuIndex: cint; nieme: cint): Pnt {.
+    noSideEffect, importcpp: "Pole", header: "AppParCurves_MultiCurve.hxx".}
+proc pole2d*(this: AppParCurvesMultiCurve; cuIndex: cint; nieme: cint): Pnt2d {.
     noSideEffect, importcpp: "Pole2d", header: "AppParCurves_MultiCurve.hxx".}
-proc transform*(this: var AppParCurvesMultiCurve; cuIndex: int; x: float; dx: float;
-               y: float; dy: float; z: float; dz: float) {.importcpp: "Transform",
+proc transform*(this: var AppParCurvesMultiCurve; cuIndex: cint; x: cfloat; dx: cfloat;
+               y: cfloat; dy: cfloat; z: cfloat; dz: cfloat) {.importcpp: "Transform",
     header: "AppParCurves_MultiCurve.hxx".}
-proc transform2d*(this: var AppParCurvesMultiCurve; cuIndex: int; x: float; dx: float;
-                 y: float; dy: float) {.importcpp: "Transform2d",
-                                    header: "AppParCurves_MultiCurve.hxx".}
-proc value*(this: AppParCurvesMultiCurve; cuIndex: int; u: float; pt: var Pnt) {.
+proc transform2d*(this: var AppParCurvesMultiCurve; cuIndex: cint; x: cfloat;
+                 dx: cfloat; y: cfloat; dy: cfloat) {.importcpp: "Transform2d",
+    header: "AppParCurves_MultiCurve.hxx".}
+proc value*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt) {.
     noSideEffect, importcpp: "Value", header: "AppParCurves_MultiCurve.hxx".}
-proc value*(this: AppParCurvesMultiCurve; cuIndex: int; u: float; pt: var Pnt2d) {.
+proc value*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d) {.
     noSideEffect, importcpp: "Value", header: "AppParCurves_MultiCurve.hxx".}
-proc d1*(this: AppParCurvesMultiCurve; cuIndex: int; u: float; pt: var Pnt; v1: var Vec) {.
+proc d1*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt; v1: var Vec) {.
     noSideEffect, importcpp: "D1", header: "AppParCurves_MultiCurve.hxx".}
-proc d1*(this: AppParCurvesMultiCurve; cuIndex: int; u: float; pt: var Pnt2d;
+proc d1*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d;
         v1: var Vec2d) {.noSideEffect, importcpp: "D1",
                       header: "AppParCurves_MultiCurve.hxx".}
-proc d2*(this: AppParCurvesMultiCurve; cuIndex: int; u: float; pt: var Pnt; v1: var Vec;
+proc d2*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt; v1: var Vec;
         v2: var Vec) {.noSideEffect, importcpp: "D2",
                     header: "AppParCurves_MultiCurve.hxx".}
-proc d2*(this: AppParCurvesMultiCurve; cuIndex: int; u: float; pt: var Pnt2d;
+proc d2*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d;
         v1: var Vec2d; v2: var Vec2d) {.noSideEffect, importcpp: "D2",
                                   header: "AppParCurves_MultiCurve.hxx".}
 proc dump*(this: AppParCurvesMultiCurve; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "AppParCurves_MultiCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

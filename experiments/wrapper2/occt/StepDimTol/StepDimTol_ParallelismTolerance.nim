@@ -16,7 +16,7 @@
 discard "forward decl of StepDimTol_ParallelismTolerance"
 discard "forward decl of StepDimTol_ParallelismTolerance"
 type
-  HandleStepDimTolParallelismTolerance* = Handle[StepDimTolParallelismTolerance]
+  HandleC1C1* = Handle[StepDimTolParallelismTolerance]
 
 ## ! Representation of STEP entity ParallelismTolerance
 
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolParallelismTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_ParallelismTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

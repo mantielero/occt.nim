@@ -46,7 +46,7 @@ proc clear*(this: var InterfaceGeneralLib) {.importcpp: "Clear",
 proc setComplete*(this: var InterfaceGeneralLib) {.importcpp: "SetComplete",
     header: "Interface_GeneralLib.hxx".}
 proc select*(this: InterfaceGeneralLib; obj: Handle[StandardTransient];
-            module: var Handle[InterfaceGeneralModule]; cn: var int): bool {.
+            module: var Handle[InterfaceGeneralModule]; cn: var cint): bool {.
     noSideEffect, importcpp: "Select", header: "Interface_GeneralLib.hxx".}
 proc start*(this: var InterfaceGeneralLib) {.importcpp: "Start",
     header: "Interface_GeneralLib.hxx".}
@@ -58,3 +58,28 @@ proc module*(this: InterfaceGeneralLib): Handle[InterfaceGeneralModule] {.
     noSideEffect, importcpp: "Module", header: "Interface_GeneralLib.hxx".}
 proc protocol*(this: InterfaceGeneralLib): Handle[InterfaceProtocol] {.noSideEffect,
     importcpp: "Protocol", header: "Interface_GeneralLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

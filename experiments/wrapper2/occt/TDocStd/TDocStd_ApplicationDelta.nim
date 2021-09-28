@@ -17,7 +17,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TDocStd_ApplicationDelta"
 discard "forward decl of TDocStd_ApplicationDelta"
 type
-  HandleTDocStdApplicationDelta* = Handle[TDocStdApplicationDelta]
+  HandleC1C1* = Handle[TDocStdApplicationDelta]
   TDocStdApplicationDelta* {.importcpp: "TDocStd_ApplicationDelta",
                             header: "TDocStd_ApplicationDelta.hxx", bycopy.} = object of StandardTransient
 
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDocStd_ApplicationDelta.hxx".}
 proc dynamicType*(this: TDocStdApplicationDelta): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TDocStd_ApplicationDelta.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

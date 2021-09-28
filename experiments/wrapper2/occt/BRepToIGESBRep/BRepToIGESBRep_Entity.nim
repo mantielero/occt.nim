@@ -46,16 +46,16 @@ proc clear*(this: var BRepToIGESBRepEntity) {.importcpp: "Clear",
     header: "BRepToIGESBRep_Entity.hxx".}
 proc transferVertexList*(this: var BRepToIGESBRepEntity) {.
     importcpp: "TransferVertexList", header: "BRepToIGESBRep_Entity.hxx".}
-proc indexVertex*(this: BRepToIGESBRepEntity; myvertex: TopoDS_Vertex): int {.
+proc indexVertex*(this: BRepToIGESBRepEntity; myvertex: TopoDS_Vertex): cint {.
     noSideEffect, importcpp: "IndexVertex", header: "BRepToIGESBRep_Entity.hxx".}
-proc addVertex*(this: var BRepToIGESBRepEntity; myvertex: TopoDS_Vertex): int {.
+proc addVertex*(this: var BRepToIGESBRepEntity; myvertex: TopoDS_Vertex): cint {.
     importcpp: "AddVertex", header: "BRepToIGESBRep_Entity.hxx".}
 proc transferEdgeList*(this: var BRepToIGESBRepEntity) {.
     importcpp: "TransferEdgeList", header: "BRepToIGESBRep_Entity.hxx".}
-proc indexEdge*(this: BRepToIGESBRepEntity; myedge: TopoDS_Edge): int {.noSideEffect,
+proc indexEdge*(this: BRepToIGESBRepEntity; myedge: TopoDS_Edge): cint {.noSideEffect,
     importcpp: "IndexEdge", header: "BRepToIGESBRep_Entity.hxx".}
 proc addEdge*(this: var BRepToIGESBRepEntity; myedge: TopoDS_Edge;
-             mycurve3d: Handle[IGESDataIGESEntity]): int {.importcpp: "AddEdge",
+             mycurve3d: Handle[IGESDataIGESEntity]): cint {.importcpp: "AddEdge",
     header: "BRepToIGESBRep_Entity.hxx".}
 proc transferShape*(this: var BRepToIGESBRepEntity; start: TopoDS_Shape;
                    theProgress: MessageProgressRange = messageProgressRange()): Handle[
@@ -65,10 +65,10 @@ proc transferEdge*(this: var BRepToIGESBRepEntity; myedge: TopoDS_Edge): Handle[
     IGESDataIGESEntity] {.importcpp: "TransferEdge",
                          header: "BRepToIGESBRep_Entity.hxx".}
 proc transferEdge*(this: var BRepToIGESBRepEntity; myedge: TopoDS_Edge;
-                  myface: TopoDS_Face; length: float): Handle[IGESDataIGESEntity] {.
+                  myface: TopoDS_Face; length: cfloat): Handle[IGESDataIGESEntity] {.
     importcpp: "TransferEdge", header: "BRepToIGESBRep_Entity.hxx".}
 proc transferWire*(this: var BRepToIGESBRepEntity; mywire: TopoDS_Wire;
-                  myface: TopoDS_Face; length: float): Handle[IGESSolidLoop] {.
+                  myface: TopoDS_Face; length: cfloat): Handle[IGESSolidLoop] {.
     importcpp: "TransferWire", header: "BRepToIGESBRep_Entity.hxx".}
 proc transferFace*(this: var BRepToIGESBRepEntity; start: TopoDS_Face): Handle[
     IGESSolidFace] {.importcpp: "TransferFace", header: "BRepToIGESBRep_Entity.hxx".}
@@ -88,3 +88,28 @@ proc transferCompound*(this: var BRepToIGESBRepEntity; start: TopoDS_Compound;
     theProgress: MessageProgressRange = messageProgressRange()): Handle[
     IGESDataIGESEntity] {.importcpp: "TransferCompound",
                          header: "BRepToIGESBRep_Entity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

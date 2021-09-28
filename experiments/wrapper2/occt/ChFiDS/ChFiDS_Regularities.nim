@@ -18,3 +18,28 @@ type
   ChFiDS_Regularities* = NCollectionList[ChFiDS_Regul]
   ChFiDS_ListIteratorOfRegularities* = Iterator[ChFiDS_Regul]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

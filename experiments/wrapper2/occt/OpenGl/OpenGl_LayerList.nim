@@ -26,15 +26,15 @@ type
     ## ! Collection of references to layers with transparency gathered during rendering pass.
 
 
-proc constructOpenGlLayerList*(theNbPriorities: int): OpenGlLayerList {.constructor,
-    importcpp: "OpenGl_LayerList(@)", header: "OpenGl_LayerList.hxx".}
+proc constructOpenGlLayerList*(theNbPriorities: cint): OpenGlLayerList {.
+    constructor, importcpp: "OpenGl_LayerList(@)", header: "OpenGl_LayerList.hxx".}
 proc destroyOpenGlLayerList*(this: var OpenGlLayerList) {.
     importcpp: "#.~OpenGl_LayerList()", header: "OpenGl_LayerList.hxx".}
-proc nbPriorities*(this: OpenGlLayerList): int {.noSideEffect,
+proc nbPriorities*(this: OpenGlLayerList): cint {.noSideEffect,
     importcpp: "NbPriorities", header: "OpenGl_LayerList.hxx".}
-proc nbStructures*(this: OpenGlLayerList): int {.noSideEffect,
+proc nbStructures*(this: OpenGlLayerList): cint {.noSideEffect,
     importcpp: "NbStructures", header: "OpenGl_LayerList.hxx".}
-proc nbImmediateStructures*(this: OpenGlLayerList): int {.noSideEffect,
+proc nbImmediateStructures*(this: OpenGlLayerList): cint {.noSideEffect,
     importcpp: "NbImmediateStructures", header: "OpenGl_LayerList.hxx".}
 proc insertLayerBefore*(this: var OpenGlLayerList; theNewLayerId: Graphic3dZLayerId;
                        theSettings: Graphic3dZLayerSettings;
@@ -47,7 +47,7 @@ proc insertLayerAfter*(this: var OpenGlLayerList; theNewLayerId: Graphic3dZLayer
 proc removeLayer*(this: var OpenGlLayerList; theLayerId: Graphic3dZLayerId) {.
     importcpp: "RemoveLayer", header: "OpenGl_LayerList.hxx".}
 proc addStructure*(this: var OpenGlLayerList; theStruct: ptr OpenGlStructure;
-                  theLayerId: Graphic3dZLayerId; thePriority: int;
+                  theLayerId: Graphic3dZLayerId; thePriority: cint;
                   isForChangePriority: bool = false) {.importcpp: "AddStructure",
     header: "OpenGl_LayerList.hxx".}
 proc removeStructure*(this: var OpenGlLayerList; theStructure: ptr OpenGlStructure) {.
@@ -57,7 +57,7 @@ proc changeLayer*(this: var OpenGlLayerList; theStructure: ptr OpenGlStructure;
                  theNewLayerId: Graphic3dZLayerId) {.importcpp: "ChangeLayer",
     header: "OpenGl_LayerList.hxx".}
 proc changePriority*(this: var OpenGlLayerList; theStructure: ptr OpenGlStructure;
-                    theLayerId: Graphic3dZLayerId; theNewPriority: int) {.
+                    theLayerId: Graphic3dZLayerId; theNewPriority: cint) {.
     importcpp: "ChangePriority", header: "OpenGl_LayerList.hxx".}
 proc layer*(this: var OpenGlLayerList; theLayerId: Graphic3dZLayerId): var OpenGlLayer {.
     importcpp: "Layer", header: "OpenGl_LayerList.hxx".}
@@ -91,5 +91,30 @@ proc setFrustumCullingBVHBuilder*(this: var OpenGlLayerList;
                                  theBuilder: Handle[Select3D_BVHBuilder3d]) {.
     importcpp: "SetFrustumCullingBVHBuilder", header: "OpenGl_LayerList.hxx".}
 proc dumpJson*(this: OpenGlLayerList; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_LayerList.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_LayerList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

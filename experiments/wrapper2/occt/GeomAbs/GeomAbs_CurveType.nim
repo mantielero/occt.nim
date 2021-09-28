@@ -22,4 +22,3 @@ type
     GeomAbsLine, GeomAbsCircle, GeomAbsEllipse, GeomAbsHyperbola, GeomAbsParabola,
     GeomAbsBezierCurve, GeomAbsBSplineCurve, GeomAbsOffsetCurve, GeomAbsOtherCurve
 
-

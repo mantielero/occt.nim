@@ -26,3 +26,28 @@ proc getNodeType*(this: LDOM_BasicNode): NodeType {.noSideEffect,
     importcpp: "getNodeType", header: "LDOM_BasicNode.hxx".}
 proc getSibling*(this: LDOM_BasicNode): ptr LDOM_BasicNode {.noSideEffect,
     importcpp: "GetSibling", header: "LDOM_BasicNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

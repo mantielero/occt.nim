@@ -88,3 +88,28 @@ proc viewRefAnnotationGUID*(): StandardGUID {.
     importcpp: "XCAFDoc::ViewRefAnnotationGUID(@)", header: "XCAFDoc.hxx".}
 proc lockGUID*(): StandardGUID {.importcpp: "XCAFDoc::LockGUID(@)",
                               header: "XCAFDoc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

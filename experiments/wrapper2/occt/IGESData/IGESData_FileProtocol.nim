@@ -19,7 +19,7 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of IGESData_FileProtocol"
 discard "forward decl of IGESData_FileProtocol"
 type
-  HandleIGESDataFileProtocol* = Handle[IGESDataFileProtocol]
+  HandleC1C1* = Handle[IGESDataFileProtocol]
 
 ## ! This class allows to define complex protocols, in order to
 ## ! treat various sub-sets (or the complete set) of the IGES Norm,
@@ -41,9 +41,9 @@ proc constructIGESDataFileProtocol*(): IGESDataFileProtocol {.constructor,
     importcpp: "IGESData_FileProtocol(@)", header: "IGESData_FileProtocol.hxx".}
 proc add*(this: var IGESDataFileProtocol; protocol: Handle[IGESDataProtocol]) {.
     importcpp: "Add", header: "IGESData_FileProtocol.hxx".}
-proc nbResources*(this: IGESDataFileProtocol): int {.noSideEffect,
+proc nbResources*(this: IGESDataFileProtocol): cint {.noSideEffect,
     importcpp: "NbResources", header: "IGESData_FileProtocol.hxx".}
-proc resource*(this: IGESDataFileProtocol; num: int): Handle[InterfaceProtocol] {.
+proc resource*(this: IGESDataFileProtocol; num: cint): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Resource", header: "IGESData_FileProtocol.hxx".}
 type
   IGESDataFileProtocolbaseType* = IGESDataProtocol
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_FileProtocol.hxx".}
 proc dynamicType*(this: IGESDataFileProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_FileProtocol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

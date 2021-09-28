@@ -27,34 +27,59 @@ type
 
 proc constructHLRBRepIntersector*(): HLRBRepIntersector {.constructor,
     importcpp: "HLRBRep_Intersector(@)", header: "HLRBRep_Intersector.hxx".}
-proc perform*(this: var HLRBRepIntersector; a1: StandardAddress; da1: float; db1: float) {.
-    importcpp: "Perform", header: "HLRBRep_Intersector.hxx".}
-proc perform*(this: var HLRBRepIntersector; nA: int; a1: StandardAddress; da1: float;
-             db1: float; nB: int; a2: StandardAddress; da2: float; db2: float;
+proc perform*(this: var HLRBRepIntersector; a1: StandardAddress; da1: cfloat;
+             db1: cfloat) {.importcpp: "Perform", header: "HLRBRep_Intersector.hxx".}
+proc perform*(this: var HLRBRepIntersector; nA: cint; a1: StandardAddress; da1: cfloat;
+             db1: cfloat; nB: cint; a2: StandardAddress; da2: cfloat; db2: cfloat;
              noBound: bool) {.importcpp: "Perform",
                             header: "HLRBRep_Intersector.hxx".}
-proc simulateOnePoint*(this: var HLRBRepIntersector; a1: StandardAddress; u: float;
-                      a2: StandardAddress; v: float) {.
+proc simulateOnePoint*(this: var HLRBRepIntersector; a1: StandardAddress; u: cfloat;
+                      a2: StandardAddress; v: cfloat) {.
     importcpp: "SimulateOnePoint", header: "HLRBRep_Intersector.hxx".}
 proc load*(this: var HLRBRepIntersector; a: var StandardAddress) {.importcpp: "Load",
     header: "HLRBRep_Intersector.hxx".}
-proc perform*(this: var HLRBRepIntersector; L: Lin; p: float) {.importcpp: "Perform",
+proc perform*(this: var HLRBRepIntersector; L: Lin; p: cfloat) {.importcpp: "Perform",
     header: "HLRBRep_Intersector.hxx".}
 proc isDone*(this: HLRBRepIntersector): bool {.noSideEffect, importcpp: "IsDone",
     header: "HLRBRep_Intersector.hxx".}
-proc nbPoints*(this: HLRBRepIntersector): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: HLRBRepIntersector): cint {.noSideEffect, importcpp: "NbPoints",
     header: "HLRBRep_Intersector.hxx".}
-proc point*(this: HLRBRepIntersector; n: int): IntRes2dIntersectionPoint {.
+proc point*(this: HLRBRepIntersector; n: cint): IntRes2dIntersectionPoint {.
     noSideEffect, importcpp: "Point", header: "HLRBRep_Intersector.hxx".}
-proc cSPoint*(this: HLRBRepIntersector; n: int): IntCurveSurfaceIntersectionPoint {.
+proc cSPoint*(this: HLRBRepIntersector; n: cint): IntCurveSurfaceIntersectionPoint {.
     noSideEffect, importcpp: "CSPoint", header: "HLRBRep_Intersector.hxx".}
-proc nbSegments*(this: HLRBRepIntersector): int {.noSideEffect,
+proc nbSegments*(this: HLRBRepIntersector): cint {.noSideEffect,
     importcpp: "NbSegments", header: "HLRBRep_Intersector.hxx".}
-proc segment*(this: HLRBRepIntersector; n: int): IntRes2dIntersectionSegment {.
+proc segment*(this: HLRBRepIntersector; n: cint): IntRes2dIntersectionSegment {.
     noSideEffect, importcpp: "Segment", header: "HLRBRep_Intersector.hxx".}
-proc cSSegment*(this: HLRBRepIntersector; n: int): IntCurveSurfaceIntersectionSegment {.
+proc cSSegment*(this: HLRBRepIntersector; n: cint): IntCurveSurfaceIntersectionSegment {.
     noSideEffect, importcpp: "CSSegment", header: "HLRBRep_Intersector.hxx".}
 proc destroy*(this: var HLRBRepIntersector) {.importcpp: "Destroy",
     header: "HLRBRep_Intersector.hxx".}
 proc destroyHLRBRepIntersector*(this: var HLRBRepIntersector) {.
     importcpp: "#.~HLRBRep_Intersector()", header: "HLRBRep_Intersector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,7 +26,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Parabola"
 discard "forward decl of Geom2d_Parabola"
 type
-  HandleGeom2dParabola* = Handle[Geom2dParabola]
+  HandleC1C1* = Handle[Geom2dParabola]
 
 ## ! Describes a parabola in the plane (2D space).
 ## ! A parabola is defined by its focal length (i.e. the
@@ -61,54 +61,56 @@ type
 
 proc constructGeom2dParabola*(prb: Parab2d): Geom2dParabola {.constructor,
     importcpp: "Geom2d_Parabola(@)", header: "Geom2d_Parabola.hxx".}
-proc constructGeom2dParabola*(mirrorAxis: Ax2d; focal: float; sense: bool = true): Geom2dParabola {.
+proc constructGeom2dParabola*(mirrorAxis: Ax2d; focal: StandardReal;
+                             sense: StandardBoolean = true): Geom2dParabola {.
     constructor, importcpp: "Geom2d_Parabola(@)", header: "Geom2d_Parabola.hxx".}
-proc constructGeom2dParabola*(axis: Ax22d; focal: float): Geom2dParabola {.
+proc constructGeom2dParabola*(axis: Ax22d; focal: StandardReal): Geom2dParabola {.
     constructor, importcpp: "Geom2d_Parabola(@)", header: "Geom2d_Parabola.hxx".}
 proc constructGeom2dParabola*(d: Ax2d; f: Pnt2d): Geom2dParabola {.constructor,
     importcpp: "Geom2d_Parabola(@)", header: "Geom2d_Parabola.hxx".}
-proc setFocal*(this: var Geom2dParabola; focal: float) {.importcpp: "SetFocal",
+proc setFocal*(this: var Geom2dParabola; focal: StandardReal) {.importcpp: "SetFocal",
     header: "Geom2d_Parabola.hxx".}
 proc setParab2d*(this: var Geom2dParabola; prb: Parab2d) {.importcpp: "SetParab2d",
     header: "Geom2d_Parabola.hxx".}
 proc parab2d*(this: Geom2dParabola): Parab2d {.noSideEffect, importcpp: "Parab2d",
     header: "Geom2d_Parabola.hxx".}
-proc reversedParameter*(this: Geom2dParabola; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom2d_Parabola.hxx".}
-proc firstParameter*(this: Geom2dParabola): float {.noSideEffect,
+proc reversedParameter*(this: Geom2dParabola; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_Parabola.hxx".}
+proc firstParameter*(this: Geom2dParabola): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_Parabola.hxx".}
-proc lastParameter*(this: Geom2dParabola): float {.noSideEffect,
+proc lastParameter*(this: Geom2dParabola): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_Parabola.hxx".}
-proc isClosed*(this: Geom2dParabola): bool {.noSideEffect, importcpp: "IsClosed",
-    header: "Geom2d_Parabola.hxx".}
-proc isPeriodic*(this: Geom2dParabola): bool {.noSideEffect, importcpp: "IsPeriodic",
-    header: "Geom2d_Parabola.hxx".}
+proc isClosed*(this: Geom2dParabola): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom2d_Parabola.hxx".}
+proc isPeriodic*(this: Geom2dParabola): StandardBoolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom2d_Parabola.hxx".}
 proc directrix*(this: Geom2dParabola): Ax2d {.noSideEffect, importcpp: "Directrix",
     header: "Geom2d_Parabola.hxx".}
-proc eccentricity*(this: Geom2dParabola): float {.noSideEffect,
+proc eccentricity*(this: Geom2dParabola): StandardReal {.noSideEffect,
     importcpp: "Eccentricity", header: "Geom2d_Parabola.hxx".}
 proc focus*(this: Geom2dParabola): Pnt2d {.noSideEffect, importcpp: "Focus",
                                        header: "Geom2d_Parabola.hxx".}
-proc focal*(this: Geom2dParabola): float {.noSideEffect, importcpp: "Focal",
-                                       header: "Geom2d_Parabola.hxx".}
-proc parameter*(this: Geom2dParabola): float {.noSideEffect, importcpp: "Parameter",
+proc focal*(this: Geom2dParabola): StandardReal {.noSideEffect, importcpp: "Focal",
     header: "Geom2d_Parabola.hxx".}
-proc d0*(this: Geom2dParabola; u: float; p: var Pnt2d) {.noSideEffect, importcpp: "D0",
-    header: "Geom2d_Parabola.hxx".}
-proc d1*(this: Geom2dParabola; u: float; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
-    importcpp: "D1", header: "Geom2d_Parabola.hxx".}
-proc d2*(this: Geom2dParabola; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc parameter*(this: Geom2dParabola): StandardReal {.noSideEffect,
+    importcpp: "Parameter", header: "Geom2d_Parabola.hxx".}
+proc d0*(this: Geom2dParabola; u: StandardReal; p: var Pnt2d) {.noSideEffect,
+    importcpp: "D0", header: "Geom2d_Parabola.hxx".}
+proc d1*(this: Geom2dParabola; u: StandardReal; p: var Pnt2d; v1: var Vec2d) {.
+    noSideEffect, importcpp: "D1", header: "Geom2d_Parabola.hxx".}
+proc d2*(this: Geom2dParabola; u: StandardReal; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     noSideEffect, importcpp: "D2", header: "Geom2d_Parabola.hxx".}
-proc d3*(this: Geom2dParabola; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
+proc d3*(this: Geom2dParabola; u: StandardReal; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
         v3: var Vec2d) {.noSideEffect, importcpp: "D3", header: "Geom2d_Parabola.hxx".}
-proc dn*(this: Geom2dParabola; u: float; n: int): Vec2d {.noSideEffect, importcpp: "DN",
-    header: "Geom2d_Parabola.hxx".}
+proc dn*(this: Geom2dParabola; u: StandardReal; n: int): Vec2d {.noSideEffect,
+    importcpp: "DN", header: "Geom2d_Parabola.hxx".}
 proc transform*(this: var Geom2dParabola; t: Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_Parabola.hxx".}
-proc transformedParameter*(this: Geom2dParabola; u: float; t: Trsf2d): float {.
+proc transformedParameter*(this: Geom2dParabola; u: StandardReal; t: Trsf2d): StandardReal {.
     noSideEffect, importcpp: "TransformedParameter", header: "Geom2d_Parabola.hxx".}
-proc parametricTransformation*(this: Geom2dParabola; t: Trsf2d): float {.noSideEffect,
-    importcpp: "ParametricTransformation", header: "Geom2d_Parabola.hxx".}
+proc parametricTransformation*(this: Geom2dParabola; t: Trsf2d): StandardReal {.
+    noSideEffect, importcpp: "ParametricTransformation",
+    header: "Geom2d_Parabola.hxx".}
 proc copy*(this: Geom2dParabola): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_Parabola.hxx".}
 proc dumpJson*(this: Geom2dParabola; theOStream: var StandardOStream;

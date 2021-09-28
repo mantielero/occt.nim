@@ -16,3 +16,28 @@ type
   TColStdListOfAsciiString* = NCollectionList[TCollectionAsciiString]
   TColStdListIteratorOfListOfAsciiString* = Iterator[TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

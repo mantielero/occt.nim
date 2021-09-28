@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_ProductConceptContext"
 discard "forward decl of StepRepr_ProductConcept"
 discard "forward decl of StepRepr_ProductConcept"
 type
-  HandleStepReprProductConcept* = Handle[StepReprProductConcept]
+  HandleC1C1* = Handle[StepReprProductConcept]
 
 ## ! Representation of STEP entity ProductConcept
 
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_ProductConcept.hxx".}
 proc dynamicType*(this: StepReprProductConcept): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_ProductConcept.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

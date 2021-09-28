@@ -43,13 +43,13 @@ proc dynamicType*(this: Graphic3dBvhCStructureSet): Handle[StandardType] {.
 proc constructGraphic3dBvhCStructureSet*(): Graphic3dBvhCStructureSet {.
     constructor, importcpp: "Graphic3d_BvhCStructureSet(@)",
     header: "Graphic3d_BvhCStructureSet.hxx".}
-proc size*(this: Graphic3dBvhCStructureSet): int {.noSideEffect, importcpp: "Size",
+proc size*(this: Graphic3dBvhCStructureSet): cint {.noSideEffect, importcpp: "Size",
     header: "Graphic3d_BvhCStructureSet.hxx".}
-proc box*(this: Graphic3dBvhCStructureSet; theIdx: int): Graphic3dBndBox3d {.
+proc box*(this: Graphic3dBvhCStructureSet; theIdx: cint): Graphic3dBndBox3d {.
     noSideEffect, importcpp: "Box", header: "Graphic3d_BvhCStructureSet.hxx".}
-proc center*(this: Graphic3dBvhCStructureSet; theIdx: int; theAxis: int): float {.
+proc center*(this: Graphic3dBvhCStructureSet; theIdx: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center", header: "Graphic3d_BvhCStructureSet.hxx".}
-proc swap*(this: var Graphic3dBvhCStructureSet; theIdx1: int; theIdx2: int) {.
+proc swap*(this: var Graphic3dBvhCStructureSet; theIdx1: cint; theIdx2: cint) {.
     importcpp: "Swap", header: "Graphic3d_BvhCStructureSet.hxx".}
 proc add*(this: var Graphic3dBvhCStructureSet; theStruct: ptr Graphic3dCStructure): bool {.
     importcpp: "Add", header: "Graphic3d_BvhCStructureSet.hxx".}
@@ -57,8 +57,33 @@ proc remove*(this: var Graphic3dBvhCStructureSet; theStruct: ptr Graphic3dCStruc
     importcpp: "Remove", header: "Graphic3d_BvhCStructureSet.hxx".}
 proc clear*(this: var Graphic3dBvhCStructureSet) {.importcpp: "Clear",
     header: "Graphic3d_BvhCStructureSet.hxx".}
-proc getStructureById*(this: var Graphic3dBvhCStructureSet; theId: int): ptr Graphic3dCStructure {.
+proc getStructureById*(this: var Graphic3dBvhCStructureSet; theId: cint): ptr Graphic3dCStructure {.
     importcpp: "GetStructureById", header: "Graphic3d_BvhCStructureSet.hxx".}
 proc structures*(this: Graphic3dBvhCStructureSet): NCollectionIndexedMap[
     ptr Graphic3dCStructure] {.noSideEffect, importcpp: "Structures",
                              header: "Graphic3d_BvhCStructureSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

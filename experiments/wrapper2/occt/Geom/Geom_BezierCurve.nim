@@ -24,6 +24,23 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BezierCurve"
+
+type
+  GeomBezierCurve* {.importcpp: "Geom_BezierCurve", header: "Geom_BezierCurve.hxx",
+                    bycopy.} = object of GeomBoundedCurve ## ! Creates a non rational Bezier curve with a set of poles
+                                                     ## ! CurvePoles.  The weights are defaulted to all being 1.
+                                                     ## ! Raises ConstructionError if the number of poles is greater than MaxDegree + 1
+                                                     ## ! or lower than 2.
+                                                     ## ! Set  poles  to  Poles,  weights to  Weights  (not
+                                                     ## ! copied). If Weights is   null  the  curve is    non
+                                                     ## ! rational. Create the arrays of coefficients.  Poles
+                                                     ## ! and    Weights  are   assumed   to  have the  first
+                                                     ## ! coefficient 1.
+                                                     ## ! Update rational and closed.
+                                                     ## !
+                                                     ## ! if nbpoles < 2 or nbboles > MaDegree + 1
+
+
 type
   HandleGeomBezierCurve* = Handle[GeomBezierCurve]
 
@@ -76,23 +93,9 @@ type
 ## ! reason to be the same as the derivatives for the
 ## ! parameter u = 1 even if the curve is closed.
 ## ! - The length of a Bezier curve can be null.
-
 type
-  GeomBezierCurve* {.importcpp: "Geom_BezierCurve", header: "Geom_BezierCurve.hxx",
-                    bycopy.} = object of GeomBoundedCurve ## ! Creates a non rational Bezier curve with a set of poles
-                                                     ## ! CurvePoles.  The weights are defaulted to all being 1.
-                                                     ## ! Raises ConstructionError if the number of poles is greater than MaxDegree + 1
-                                                     ## ! or lower than 2.
-                                                     ## ! Set  poles  to  Poles,  weights to  Weights  (not
-                                                     ## ! copied). If Weights is   null  the  curve is    non
-                                                     ## ! rational. Create the arrays of coefficients.  Poles
-                                                     ## ! and    Weights  are   assumed   to  have the  first
-                                                     ## ! coefficient 1.
-                                                     ## ! Update rational and closed.
-                                                     ## !
-                                                     ## ! if nbpoles < 2 or nbboles > MaDegree + 1
-
-
+  GeomBezierCurvebaseType* = GeomBoundedCurve
+#[ 
 proc constructGeomBezierCurve*(curvePoles: TColgpArray1OfPnt): GeomBezierCurve {.
     constructor, importcpp: "Geom_BezierCurve(@)", header: "Geom_BezierCurve.hxx".}
 proc constructGeomBezierCurve*(curvePoles: TColgpArray1OfPnt;
@@ -102,55 +105,57 @@ proc increase*(this: var GeomBezierCurve; degree: int) {.importcpp: "Increase",
     header: "Geom_BezierCurve.hxx".}
 proc insertPoleAfter*(this: var GeomBezierCurve; index: int; p: Pnt) {.
     importcpp: "InsertPoleAfter", header: "Geom_BezierCurve.hxx".}
-proc insertPoleAfter*(this: var GeomBezierCurve; index: int; p: Pnt; weight: float) {.
-    importcpp: "InsertPoleAfter", header: "Geom_BezierCurve.hxx".}
+proc insertPoleAfter*(this: var GeomBezierCurve; index: int; p: Pnt;
+                     weight: StandardReal) {.importcpp: "InsertPoleAfter",
+    header: "Geom_BezierCurve.hxx".}
 proc insertPoleBefore*(this: var GeomBezierCurve; index: int; p: Pnt) {.
     importcpp: "InsertPoleBefore", header: "Geom_BezierCurve.hxx".}
-proc insertPoleBefore*(this: var GeomBezierCurve; index: int; p: Pnt; weight: float) {.
-    importcpp: "InsertPoleBefore", header: "Geom_BezierCurve.hxx".}
+proc insertPoleBefore*(this: var GeomBezierCurve; index: int; p: Pnt;
+                      weight: StandardReal) {.importcpp: "InsertPoleBefore",
+    header: "Geom_BezierCurve.hxx".}
 proc removePole*(this: var GeomBezierCurve; index: int) {.importcpp: "RemovePole",
     header: "Geom_BezierCurve.hxx".}
 proc reverse*(this: var GeomBezierCurve) {.importcpp: "Reverse",
                                        header: "Geom_BezierCurve.hxx".}
-proc reversedParameter*(this: GeomBezierCurve; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom_BezierCurve.hxx".}
-proc segment*(this: var GeomBezierCurve; u1: float; u2: float) {.importcpp: "Segment",
-    header: "Geom_BezierCurve.hxx".}
+proc reversedParameter*(this: GeomBezierCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_BezierCurve.hxx".}
+proc segment*(this: var GeomBezierCurve; u1: StandardReal; u2: StandardReal) {.
+    importcpp: "Segment", header: "Geom_BezierCurve.hxx".}
 proc setPole*(this: var GeomBezierCurve; index: int; p: Pnt) {.importcpp: "SetPole",
     header: "Geom_BezierCurve.hxx".}
-proc setPole*(this: var GeomBezierCurve; index: int; p: Pnt; weight: float) {.
+proc setPole*(this: var GeomBezierCurve; index: int; p: Pnt; weight: StandardReal) {.
     importcpp: "SetPole", header: "Geom_BezierCurve.hxx".}
-proc setWeight*(this: var GeomBezierCurve; index: int; weight: float) {.
+proc setWeight*(this: var GeomBezierCurve; index: int; weight: StandardReal) {.
     importcpp: "SetWeight", header: "Geom_BezierCurve.hxx".}
-proc isClosed*(this: GeomBezierCurve): bool {.noSideEffect, importcpp: "IsClosed",
-    header: "Geom_BezierCurve.hxx".}
-proc isCN*(this: GeomBezierCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
-    header: "Geom_BezierCurve.hxx".}
-proc isPeriodic*(this: GeomBezierCurve): bool {.noSideEffect,
+proc isClosed*(this: GeomBezierCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom_BezierCurve.hxx".}
+proc isCN*(this: GeomBezierCurve; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom_BezierCurve.hxx".}
+proc isPeriodic*(this: GeomBezierCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom_BezierCurve.hxx".}
-proc isRational*(this: GeomBezierCurve): bool {.noSideEffect,
+proc isRational*(this: GeomBezierCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsRational", header: "Geom_BezierCurve.hxx".}
 proc continuity*(this: GeomBezierCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_BezierCurve.hxx".}
 proc degree*(this: GeomBezierCurve): int {.noSideEffect, importcpp: "Degree",
                                        header: "Geom_BezierCurve.hxx".}
-proc d0*(this: GeomBezierCurve; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
-    header: "Geom_BezierCurve.hxx".}
-proc d1*(this: GeomBezierCurve; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+proc d0*(this: GeomBezierCurve; u: StandardReal; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_BezierCurve.hxx".}
+proc d1*(this: GeomBezierCurve; u: StandardReal; p: var Pnt; v1: var Vec) {.noSideEffect,
     importcpp: "D1", header: "Geom_BezierCurve.hxx".}
-proc d2*(this: GeomBezierCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: GeomBezierCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
     noSideEffect, importcpp: "D2", header: "Geom_BezierCurve.hxx".}
-proc d3*(this: GeomBezierCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, importcpp: "D3", header: "Geom_BezierCurve.hxx".}
-proc dn*(this: GeomBezierCurve; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
-    header: "Geom_BezierCurve.hxx".}
+proc d3*(this: GeomBezierCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec;
+        v3: var Vec) {.noSideEffect, importcpp: "D3", header: "Geom_BezierCurve.hxx".}
+proc dn*(this: GeomBezierCurve; u: StandardReal; n: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "Geom_BezierCurve.hxx".}
 proc startPoint*(this: GeomBezierCurve): Pnt {.noSideEffect, importcpp: "StartPoint",
     header: "Geom_BezierCurve.hxx".}
 proc endPoint*(this: GeomBezierCurve): Pnt {.noSideEffect, importcpp: "EndPoint",
     header: "Geom_BezierCurve.hxx".}
-proc firstParameter*(this: GeomBezierCurve): float {.noSideEffect,
+proc firstParameter*(this: GeomBezierCurve): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_BezierCurve.hxx".}
-proc lastParameter*(this: GeomBezierCurve): float {.noSideEffect,
+proc lastParameter*(this: GeomBezierCurve): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_BezierCurve.hxx".}
 proc nbPoles*(this: GeomBezierCurve): int {.noSideEffect, importcpp: "NbPoles",
                                         header: "Geom_BezierCurve.hxx".}
@@ -160,7 +165,7 @@ proc poles*(this: GeomBezierCurve; p: var TColgpArray1OfPnt) {.noSideEffect,
     importcpp: "Poles", header: "Geom_BezierCurve.hxx".}
 proc poles*(this: GeomBezierCurve): TColgpArray1OfPnt {.noSideEffect,
     importcpp: "Poles", header: "Geom_BezierCurve.hxx".}
-proc weight*(this: GeomBezierCurve; index: int): float {.noSideEffect,
+proc weight*(this: GeomBezierCurve; index: int): StandardReal {.noSideEffect,
     importcpp: "Weight", header: "Geom_BezierCurve.hxx".}
 proc weights*(this: GeomBezierCurve; w: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "Weights", header: "Geom_BezierCurve.hxx".}
@@ -170,15 +175,15 @@ proc transform*(this: var GeomBezierCurve; t: Trsf) {.importcpp: "Transform",
     header: "Geom_BezierCurve.hxx".}
 proc maxDegree*(): int {.importcpp: "Geom_BezierCurve::MaxDegree(@)",
                       header: "Geom_BezierCurve.hxx".}
-proc resolution*(this: var GeomBezierCurve; tolerance3D: float; uTolerance: var float) {.
-    importcpp: "Resolution", header: "Geom_BezierCurve.hxx".}
+proc resolution*(this: var GeomBezierCurve; tolerance3D: StandardReal;
+                uTolerance: var StandardReal) {.importcpp: "Resolution",
+    header: "Geom_BezierCurve.hxx".}
 proc copy*(this: GeomBezierCurve): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_BezierCurve.hxx".}
 proc dumpJson*(this: GeomBezierCurve; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_BezierCurve.hxx".}
-type
-  GeomBezierCurvebaseType* = GeomBoundedCurve
+
 
 proc getTypeName*(): cstring {.importcpp: "Geom_BezierCurve::get_type_name(@)",
                             header: "Geom_BezierCurve.hxx".}
@@ -186,4 +191,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_BezierCurve::get_type_descriptor(@)",
     header: "Geom_BezierCurve.hxx".}
 proc dynamicType*(this: GeomBezierCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_BezierCurve.hxx".}
+    importcpp: "DynamicType", header: "Geom_BezierCurve.hxx".} ]#

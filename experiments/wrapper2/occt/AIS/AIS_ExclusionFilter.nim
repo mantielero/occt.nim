@@ -18,7 +18,7 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_ExclusionFilter"
 discard "forward decl of AIS_ExclusionFilter"
 type
-  HandleAIS_ExclusionFilter* = Handle[AIS_ExclusionFilter]
+  HandleC1C1* = Handle[AIS_ExclusionFilter]
 
 ## ! A framework to reject or to accept only objects of
 ## ! given types and/or signatures.
@@ -73,7 +73,7 @@ proc constructAIS_ExclusionFilter*(typeToExclude: AIS_KindOfInteractive;
     constructor, importcpp: "AIS_ExclusionFilter(@)",
     header: "AIS_ExclusionFilter.hxx".}
 proc constructAIS_ExclusionFilter*(typeToExclude: AIS_KindOfInteractive;
-                                  signatureInType: int;
+                                  signatureInType: cint;
                                   exclusionFlagOn: bool = true): AIS_ExclusionFilter {.
     constructor, importcpp: "AIS_ExclusionFilter(@)",
     header: "AIS_ExclusionFilter.hxx".}
@@ -82,13 +82,13 @@ proc isOk*(this: AIS_ExclusionFilter; anObj: Handle[SelectMgrEntityOwner]): bool
 proc add*(this: var AIS_ExclusionFilter; typeToExclude: AIS_KindOfInteractive): bool {.
     importcpp: "Add", header: "AIS_ExclusionFilter.hxx".}
 proc add*(this: var AIS_ExclusionFilter; typeToExclude: AIS_KindOfInteractive;
-         signatureInType: int): bool {.importcpp: "Add",
-                                    header: "AIS_ExclusionFilter.hxx".}
+         signatureInType: cint): bool {.importcpp: "Add",
+                                     header: "AIS_ExclusionFilter.hxx".}
 proc remove*(this: var AIS_ExclusionFilter; typeToExclude: AIS_KindOfInteractive): bool {.
     importcpp: "Remove", header: "AIS_ExclusionFilter.hxx".}
 proc remove*(this: var AIS_ExclusionFilter; typeToExclude: AIS_KindOfInteractive;
-            signatureInType: int): bool {.importcpp: "Remove",
-                                       header: "AIS_ExclusionFilter.hxx".}
+            signatureInType: cint): bool {.importcpp: "Remove",
+                                        header: "AIS_ExclusionFilter.hxx".}
 proc clear*(this: var AIS_ExclusionFilter) {.importcpp: "Clear",
     header: "AIS_ExclusionFilter.hxx".}
 proc isExclusionFlagOn*(this: AIS_ExclusionFilter): bool {.noSideEffect,
@@ -113,3 +113,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "AIS_ExclusionFilter.hxx".}
 proc dynamicType*(this: AIS_ExclusionFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_ExclusionFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

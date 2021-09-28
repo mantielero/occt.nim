@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESAppli_PartNumber"
 discard "forward decl of IGESAppli_PartNumber"
 type
-  HandleIGESAppliPartNumber* = Handle[IGESAppliPartNumber]
+  HandleC1C1* = Handle[IGESAppliPartNumber]
 
 ## ! defines PartNumber, Type <406> Form <9>
 ## ! in package IGESAppli
@@ -33,13 +33,13 @@ type
 
 proc constructIGESAppliPartNumber*(): IGESAppliPartNumber {.constructor,
     importcpp: "IGESAppli_PartNumber(@)", header: "IGESAppli_PartNumber.hxx".}
-proc init*(this: var IGESAppliPartNumber; nbPropVal: int;
+proc init*(this: var IGESAppliPartNumber; nbPropVal: cint;
           aGenName: Handle[TCollectionHAsciiString];
           aMilName: Handle[TCollectionHAsciiString];
           aVendName: Handle[TCollectionHAsciiString];
           anIntName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESAppli_PartNumber.hxx".}
-proc nbPropertyValues*(this: IGESAppliPartNumber): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESAppliPartNumber): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_PartNumber.hxx".}
 proc genericNumber*(this: IGESAppliPartNumber): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GenericNumber", header: "IGESAppli_PartNumber.hxx".}
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_PartNumber.hxx".}
 proc dynamicType*(this: IGESAppliPartNumber): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESAppli_PartNumber.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

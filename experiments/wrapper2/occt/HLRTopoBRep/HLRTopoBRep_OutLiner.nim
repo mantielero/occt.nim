@@ -21,7 +21,7 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of HLRTopoBRep_OutLiner"
 discard "forward decl of HLRTopoBRep_OutLiner"
 type
-  HandleHLRTopoBRepOutLiner* = Handle[HLRTopoBRepOutLiner]
+  HandleC1C1* = Handle[HLRTopoBRepOutLiner]
   HLRTopoBRepOutLiner* {.importcpp: "HLRTopoBRep_OutLiner",
                         header: "HLRTopoBRep_OutLiner.hxx", bycopy.} = object of StandardTransient ##
                                                                                             ## !
@@ -55,7 +55,7 @@ proc outLinedShape*(this: var HLRTopoBRepOutLiner): var TopoDS_Shape {.
 proc dataStructure*(this: var HLRTopoBRepOutLiner): var HLRTopoBRepData {.
     importcpp: "DataStructure", header: "HLRTopoBRep_OutLiner.hxx".}
 proc fill*(this: var HLRTopoBRepOutLiner; p: HLRAlgoProjector;
-          mst: var BRepTopAdaptorMapOfShapeTool; nbIso: int) {.importcpp: "Fill",
+          mst: var BRepTopAdaptorMapOfShapeTool; nbIso: cint) {.importcpp: "Fill",
     header: "HLRTopoBRep_OutLiner.hxx".}
 type
   HLRTopoBRepOutLinerbaseType* = StandardTransient
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRTopoBRep_OutLiner.hxx".}
 proc dynamicType*(this: HLRTopoBRepOutLiner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRTopoBRep_OutLiner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

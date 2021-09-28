@@ -14,3 +14,28 @@
 type
   XmlObjMgtElement* = LDOM_Element
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

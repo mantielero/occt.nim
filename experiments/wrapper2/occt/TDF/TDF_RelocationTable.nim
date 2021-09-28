@@ -19,7 +19,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDF_RelocationTable"
 type
-  HandleTDF_RelocationTable* = Handle[TDF_RelocationTable]
+  HandleC1C1* = Handle[TDF_RelocationTable]
 
 ## ! This is a relocation dictionnary between source
 ## ! and target labels, attributes or any
@@ -123,3 +123,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDF_RelocationTable.hxx".}
 proc dynamicType*(this: TDF_RelocationTable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_RelocationTable.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

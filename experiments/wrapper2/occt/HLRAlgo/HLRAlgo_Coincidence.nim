@@ -34,11 +34,36 @@ type
 
 proc constructHLRAlgoCoincidence*(): HLRAlgoCoincidence {.constructor,
     importcpp: "HLRAlgo_Coincidence(@)", header: "HLRAlgo_Coincidence.hxx".}
-proc set2D*(this: var HLRAlgoCoincidence; fe: int; param: float) {.importcpp: "Set2D",
+proc set2D*(this: var HLRAlgoCoincidence; fe: cint; param: cfloat) {.importcpp: "Set2D",
     header: "HLRAlgo_Coincidence.hxx".}
 proc setState3D*(this: var HLRAlgoCoincidence; stbef: TopAbsState; staft: TopAbsState) {.
     importcpp: "SetState3D", header: "HLRAlgo_Coincidence.hxx".}
-proc value2D*(this: HLRAlgoCoincidence; fe: var int; param: var float) {.noSideEffect,
+proc value2D*(this: HLRAlgoCoincidence; fe: var cint; param: var cfloat) {.noSideEffect,
     importcpp: "Value2D", header: "HLRAlgo_Coincidence.hxx".}
 proc state3D*(this: HLRAlgoCoincidence; stbef: var TopAbsState; staft: var TopAbsState) {.
     noSideEffect, importcpp: "State3D", header: "HLRAlgo_Coincidence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

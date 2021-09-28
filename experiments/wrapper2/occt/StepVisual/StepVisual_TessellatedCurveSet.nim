@@ -20,7 +20,7 @@ type
 
 discard "forward decl of StepVisual_TessellatedCurveSet"
 type
-  HandleStepVisualTessellatedCurveSet* = Handle[StepVisualTessellatedCurveSet]
+  HandleC1C1* = Handle[StepVisualTessellatedCurveSet]
   StepVisualTessellatedCurveSet* {.importcpp: "StepVisual_TessellatedCurveSet",
                                   header: "StepVisual_TessellatedCurveSet.hxx",
                                   bycopy.} = object of StepVisualTessellatedItem ## !
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualTessellatedCurveSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_TessellatedCurveSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

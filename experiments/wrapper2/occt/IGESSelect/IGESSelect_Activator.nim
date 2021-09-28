@@ -18,7 +18,7 @@ discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IGESSelect_Activator"
 discard "forward decl of IGESSelect_Activator"
 type
-  HandleIGESSelectActivator* = Handle[IGESSelectActivator]
+  HandleC1C1* = Handle[IGESSelectActivator]
 
 ## ! Performs Actions specific to IGESSelect, i.e. creation of
 ## ! IGES Selections and Dispatches, plus dumping specific to IGES
@@ -30,10 +30,10 @@ type
 
 proc constructIGESSelectActivator*(): IGESSelectActivator {.constructor,
     importcpp: "IGESSelect_Activator(@)", header: "IGESSelect_Activator.hxx".}
-proc `do`*(this: var IGESSelectActivator; number: int;
+proc `do`*(this: var IGESSelectActivator; number: cint;
           pilot: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
     importcpp: "Do", header: "IGESSelect_Activator.hxx".}
-proc help*(this: IGESSelectActivator; number: int): StandardCString {.noSideEffect,
+proc help*(this: IGESSelectActivator; number: cint): StandardCString {.noSideEffect,
     importcpp: "Help", header: "IGESSelect_Activator.hxx".}
 type
   IGESSelectActivatorbaseType* = IFSelectActivator
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_Activator.hxx".}
 proc dynamicType*(this: IGESSelectActivator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_Activator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,8 +19,7 @@ discard "forward decl of StepBasic_EulerAngles"
 discard "forward decl of StepFEA_CurveElementIntervalConstant"
 discard "forward decl of StepFEA_CurveElementIntervalConstant"
 type
-  HandleStepFEA_CurveElementIntervalConstant* = Handle[
-      StepFEA_CurveElementIntervalConstant]
+  HandleC1C1* = Handle[StepFEA_CurveElementIntervalConstant]
 
 ## ! Representation of STEP entity CurveElementIntervalConstant
 
@@ -58,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_CurveElementIntervalConstant): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_CurveElementIntervalConstant.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

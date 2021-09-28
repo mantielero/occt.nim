@@ -60,8 +60,8 @@ type
     ## !< computed metrics
 
 
-proc undefinedMetricValue*(): float {.importcpp: "Message_AttributeMeter::UndefinedMetricValue(@)",
-                                   header: "Message_AttributeMeter.hxx".}
+proc undefinedMetricValue*(): cfloat {.importcpp: "Message_AttributeMeter::UndefinedMetricValue(@)",
+                                    header: "Message_AttributeMeter.hxx".}
 proc constructMessageAttributeMeter*(theName: TCollectionAsciiString = tCollectionAsciiString()): MessageAttributeMeter {.
     constructor, importcpp: "Message_AttributeMeter(@)",
     header: "Message_AttributeMeter.hxx".}
@@ -69,16 +69,16 @@ proc hasMetric*(this: MessageAttributeMeter; theMetric: MessageMetricType): bool
     noSideEffect, importcpp: "HasMetric", header: "Message_AttributeMeter.hxx".}
 proc isMetricValid*(this: MessageAttributeMeter; theMetric: MessageMetricType): bool {.
     noSideEffect, importcpp: "IsMetricValid", header: "Message_AttributeMeter.hxx".}
-proc startValue*(this: MessageAttributeMeter; theMetric: MessageMetricType): float {.
+proc startValue*(this: MessageAttributeMeter; theMetric: MessageMetricType): cfloat {.
     noSideEffect, importcpp: "StartValue", header: "Message_AttributeMeter.hxx".}
 proc setStartValue*(this: var MessageAttributeMeter; theMetric: MessageMetricType;
-                   theValue: float) {.importcpp: "SetStartValue",
-                                    header: "Message_AttributeMeter.hxx".}
-proc stopValue*(this: MessageAttributeMeter; theMetric: MessageMetricType): float {.
+                   theValue: cfloat) {.importcpp: "SetStartValue",
+                                     header: "Message_AttributeMeter.hxx".}
+proc stopValue*(this: MessageAttributeMeter; theMetric: MessageMetricType): cfloat {.
     noSideEffect, importcpp: "StopValue", header: "Message_AttributeMeter.hxx".}
 proc setStopValue*(this: var MessageAttributeMeter; theMetric: MessageMetricType;
-                  theValue: float) {.importcpp: "SetStopValue",
-                                   header: "Message_AttributeMeter.hxx".}
+                  theValue: cfloat) {.importcpp: "SetStopValue",
+                                    header: "Message_AttributeMeter.hxx".}
 proc startAlert*(theAlert: Handle[MessageAlertExtended]) {.
     importcpp: "Message_AttributeMeter::StartAlert(@)",
     header: "Message_AttributeMeter.hxx".}
@@ -89,8 +89,8 @@ proc setAlertMetrics*(theAlert: Handle[MessageAlertExtended]; theStartValue: boo
     importcpp: "Message_AttributeMeter::SetAlertMetrics(@)",
     header: "Message_AttributeMeter.hxx".}
 proc dumpJson*(this: MessageAttributeMeter; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Message_AttributeMeter.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Message_AttributeMeter.hxx".}
 type
   MessageAttributeMeterbaseType* = MessageAttribute
 
@@ -101,3 +101,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Message_AttributeMeter.hxx".}
 proc dynamicType*(this: MessageAttributeMeter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Message_AttributeMeter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

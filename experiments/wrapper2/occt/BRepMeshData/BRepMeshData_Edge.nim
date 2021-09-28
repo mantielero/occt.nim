@@ -26,7 +26,7 @@ proc bRepMeshDataEdge*(this: var BRepMeshDataEdge; theEdge: TopoDS_Edge;
   ## ! Constructor.
 proc destroyBRepMeshDataEdge*(this: var BRepMeshDataEdge) {.
     importcpp: "#.~BRepMeshData_Edge()", header: "BRepMeshData_Edge.hxx".}
-proc pCurvesNb*(this: BRepMeshDataEdge): int {.noSideEffect, importcpp: "PCurvesNb",
+proc pCurvesNb*(this: BRepMeshDataEdge): cint {.noSideEffect, importcpp: "PCurvesNb",
     header: "BRepMeshData_Edge.hxx".}
 proc addPCurve*(this: var BRepMeshDataEdge; theDFace: IFacePtr;
                theOrientation: TopAbsOrientation): IPCurveHandle {.
@@ -34,7 +34,7 @@ proc addPCurve*(this: var BRepMeshDataEdge; theDFace: IFacePtr;
 proc getPCurve*(this: BRepMeshDataEdge; theDFace: IFacePtr;
                theOrientation: TopAbsOrientation): IPCurveHandle {.noSideEffect,
     importcpp: "GetPCurve", header: "BRepMeshData_Edge.hxx".}
-proc getPCurve*(this: BRepMeshDataEdge; theIndex: int): IPCurveHandle {.noSideEffect,
+proc getPCurve*(this: BRepMeshDataEdge; theIndex: cint): IPCurveHandle {.noSideEffect,
     importcpp: "GetPCurve", header: "BRepMeshData_Edge.hxx".}
 type
   BRepMeshDataEdgebaseType* = IMeshDataEdge
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMeshData_Edge.hxx".}
 proc dynamicType*(this: BRepMeshDataEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_Edge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

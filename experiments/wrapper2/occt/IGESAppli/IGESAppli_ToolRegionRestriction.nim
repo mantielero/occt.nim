@@ -64,5 +64,30 @@ proc ownCopy*(this: IGESAppliToolRegionRestriction;
     header: "IGESAppli_ToolRegionRestriction.hxx".}
 proc ownDump*(this: IGESAppliToolRegionRestriction;
              ent: Handle[IGESAppliRegionRestriction]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESAppli_ToolRegionRestriction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

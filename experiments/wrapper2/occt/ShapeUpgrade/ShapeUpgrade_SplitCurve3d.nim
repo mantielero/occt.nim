@@ -18,7 +18,7 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of ShapeUpgrade_SplitCurve3d"
 discard "forward decl of ShapeUpgrade_SplitCurve3d"
 type
-  HandleShapeUpgradeSplitCurve3d* = Handle[ShapeUpgradeSplitCurve3d]
+  HandleC1C1* = Handle[ShapeUpgradeSplitCurve3d]
 
 ## ! Splits a 3d curve with a criterion.
 
@@ -35,8 +35,8 @@ proc constructShapeUpgradeSplitCurve3d*(): ShapeUpgradeSplitCurve3d {.constructo
     header: "ShapeUpgrade_SplitCurve3d.hxx".}
 proc init*(this: var ShapeUpgradeSplitCurve3d; c: Handle[GeomCurve]) {.
     importcpp: "Init", header: "ShapeUpgrade_SplitCurve3d.hxx".}
-proc init*(this: var ShapeUpgradeSplitCurve3d; c: Handle[GeomCurve]; first: float;
-          last: float) {.importcpp: "Init", header: "ShapeUpgrade_SplitCurve3d.hxx".}
+proc init*(this: var ShapeUpgradeSplitCurve3d; c: Handle[GeomCurve]; first: cfloat;
+          last: cfloat) {.importcpp: "Init", header: "ShapeUpgrade_SplitCurve3d.hxx".}
 proc build*(this: var ShapeUpgradeSplitCurve3d; segment: bool) {.importcpp: "Build",
     header: "ShapeUpgrade_SplitCurve3d.hxx".}
 proc getCurves*(this: ShapeUpgradeSplitCurve3d): Handle[TColGeomHArray1OfCurve] {.
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeUpgrade_SplitCurve3d.hxx".}
 proc dynamicType*(this: ShapeUpgradeSplitCurve3d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_SplitCurve3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

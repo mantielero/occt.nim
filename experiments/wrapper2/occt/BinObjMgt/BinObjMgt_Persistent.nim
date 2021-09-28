@@ -44,17 +44,17 @@ proc putExtCharacter*(this: var BinObjMgtPersistent; theValue: StandardExtCharac
     importcpp: "PutExtCharacter", header: "BinObjMgt_Persistent.hxx".}
 proc `<<`*(this: var BinObjMgtPersistent; theValue: StandardExtCharacter): var BinObjMgtPersistent {.
     importcpp: "(# << #)", header: "BinObjMgt_Persistent.hxx".}
-proc putInteger*(this: var BinObjMgtPersistent; theValue: int): var BinObjMgtPersistent {.
+proc putInteger*(this: var BinObjMgtPersistent; theValue: cint): var BinObjMgtPersistent {.
     importcpp: "PutInteger", header: "BinObjMgt_Persistent.hxx".}
-proc `<<`*(this: var BinObjMgtPersistent; theValue: int): var BinObjMgtPersistent {.
+proc `<<`*(this: var BinObjMgtPersistent; theValue: cint): var BinObjMgtPersistent {.
     importcpp: "(# << #)", header: "BinObjMgt_Persistent.hxx".}
 proc putBoolean*(this: var BinObjMgtPersistent; theValue: bool): var BinObjMgtPersistent {.
     importcpp: "PutBoolean", header: "BinObjMgt_Persistent.hxx".}
 proc `<<`*(this: var BinObjMgtPersistent; theValue: bool): var BinObjMgtPersistent {.
     importcpp: "(# << #)", header: "BinObjMgt_Persistent.hxx".}
-proc putReal*(this: var BinObjMgtPersistent; theValue: float): var BinObjMgtPersistent {.
+proc putReal*(this: var BinObjMgtPersistent; theValue: cfloat): var BinObjMgtPersistent {.
     importcpp: "PutReal", header: "BinObjMgt_Persistent.hxx".}
-proc `<<`*(this: var BinObjMgtPersistent; theValue: float): var BinObjMgtPersistent {.
+proc `<<`*(this: var BinObjMgtPersistent; theValue: cfloat): var BinObjMgtPersistent {.
     importcpp: "(# << #)", header: "BinObjMgt_Persistent.hxx".}
 proc putShortReal*(this: var BinObjMgtPersistent; theValue: StandardShortReal): var BinObjMgtPersistent {.
     importcpp: "PutShortReal", header: "BinObjMgt_Persistent.hxx".}
@@ -82,22 +82,22 @@ proc putGUID*(this: var BinObjMgtPersistent; theValue: StandardGUID): var BinObj
 proc `<<`*(this: var BinObjMgtPersistent; theValue: StandardGUID): var BinObjMgtPersistent {.
     importcpp: "(# << #)", header: "BinObjMgt_Persistent.hxx".}
 proc putCharArray*(this: var BinObjMgtPersistent; theArray: BinObjMgtPChar;
-                  theLength: int): var BinObjMgtPersistent {.
+                  theLength: cint): var BinObjMgtPersistent {.
     importcpp: "PutCharArray", header: "BinObjMgt_Persistent.hxx".}
 proc putByteArray*(this: var BinObjMgtPersistent; theArray: BinObjMgtPByte;
-                  theLength: int): var BinObjMgtPersistent {.
+                  theLength: cint): var BinObjMgtPersistent {.
     importcpp: "PutByteArray", header: "BinObjMgt_Persistent.hxx".}
 proc putExtCharArray*(this: var BinObjMgtPersistent; theArray: BinObjMgtPExtChar;
-                     theLength: int): var BinObjMgtPersistent {.
+                     theLength: cint): var BinObjMgtPersistent {.
     importcpp: "PutExtCharArray", header: "BinObjMgt_Persistent.hxx".}
 proc putIntArray*(this: var BinObjMgtPersistent; theArray: BinObjMgtPInteger;
-                 theLength: int): var BinObjMgtPersistent {.
+                 theLength: cint): var BinObjMgtPersistent {.
     importcpp: "PutIntArray", header: "BinObjMgt_Persistent.hxx".}
 proc putRealArray*(this: var BinObjMgtPersistent; theArray: BinObjMgtPReal;
-                  theLength: int): var BinObjMgtPersistent {.
+                  theLength: cint): var BinObjMgtPersistent {.
     importcpp: "PutRealArray", header: "BinObjMgt_Persistent.hxx".}
 proc putShortRealArray*(this: var BinObjMgtPersistent;
-                       theArray: BinObjMgtPShortReal; theLength: int): var BinObjMgtPersistent {.
+                       theArray: BinObjMgtPShortReal; theLength: cint): var BinObjMgtPersistent {.
     importcpp: "PutShortRealArray", header: "BinObjMgt_Persistent.hxx".}
 proc getCharacter*(this: BinObjMgtPersistent; theValue: var StandardCharacter): BinObjMgtPersistent {.
     noSideEffect, importcpp: "GetCharacter", header: "BinObjMgt_Persistent.hxx".}
@@ -111,17 +111,17 @@ proc getExtCharacter*(this: BinObjMgtPersistent; theValue: var StandardExtCharac
     noSideEffect, importcpp: "GetExtCharacter", header: "BinObjMgt_Persistent.hxx".}
 proc `>>`*(this: BinObjMgtPersistent; theValue: var StandardExtCharacter): BinObjMgtPersistent {.
     noSideEffect, importcpp: "(# >> #)", header: "BinObjMgt_Persistent.hxx".}
-proc getInteger*(this: BinObjMgtPersistent; theValue: var int): BinObjMgtPersistent {.
+proc getInteger*(this: BinObjMgtPersistent; theValue: var cint): BinObjMgtPersistent {.
     noSideEffect, importcpp: "GetInteger", header: "BinObjMgt_Persistent.hxx".}
-proc `>>`*(this: BinObjMgtPersistent; theValue: var int): BinObjMgtPersistent {.
+proc `>>`*(this: BinObjMgtPersistent; theValue: var cint): BinObjMgtPersistent {.
     noSideEffect, importcpp: "(# >> #)", header: "BinObjMgt_Persistent.hxx".}
 proc getBoolean*(this: BinObjMgtPersistent; theValue: var bool): BinObjMgtPersistent {.
     noSideEffect, importcpp: "GetBoolean", header: "BinObjMgt_Persistent.hxx".}
 proc `>>`*(this: BinObjMgtPersistent; theValue: var bool): BinObjMgtPersistent {.
     noSideEffect, importcpp: "(# >> #)", header: "BinObjMgt_Persistent.hxx".}
-proc getReal*(this: BinObjMgtPersistent; theValue: var float): BinObjMgtPersistent {.
+proc getReal*(this: BinObjMgtPersistent; theValue: var cfloat): BinObjMgtPersistent {.
     noSideEffect, importcpp: "GetReal", header: "BinObjMgt_Persistent.hxx".}
-proc `>>`*(this: BinObjMgtPersistent; theValue: var float): BinObjMgtPersistent {.
+proc `>>`*(this: BinObjMgtPersistent; theValue: var cfloat): BinObjMgtPersistent {.
     noSideEffect, importcpp: "(# >> #)", header: "BinObjMgt_Persistent.hxx".}
 proc getShortReal*(this: BinObjMgtPersistent; theValue: var StandardShortReal): BinObjMgtPersistent {.
     noSideEffect, importcpp: "GetShortReal", header: "BinObjMgt_Persistent.hxx".}
@@ -146,26 +146,26 @@ proc getGUID*(this: BinObjMgtPersistent; theValue: var StandardGUID): BinObjMgtP
 proc `>>`*(this: BinObjMgtPersistent; theValue: var StandardGUID): BinObjMgtPersistent {.
     noSideEffect, importcpp: "(# >> #)", header: "BinObjMgt_Persistent.hxx".}
 proc getCharArray*(this: BinObjMgtPersistent; theArray: BinObjMgtPChar;
-                  theLength: int): BinObjMgtPersistent {.noSideEffect,
+                  theLength: cint): BinObjMgtPersistent {.noSideEffect,
     importcpp: "GetCharArray", header: "BinObjMgt_Persistent.hxx".}
 proc getByteArray*(this: BinObjMgtPersistent; theArray: BinObjMgtPByte;
-                  theLength: int): BinObjMgtPersistent {.noSideEffect,
+                  theLength: cint): BinObjMgtPersistent {.noSideEffect,
     importcpp: "GetByteArray", header: "BinObjMgt_Persistent.hxx".}
 proc getExtCharArray*(this: BinObjMgtPersistent; theArray: BinObjMgtPExtChar;
-                     theLength: int): BinObjMgtPersistent {.noSideEffect,
+                     theLength: cint): BinObjMgtPersistent {.noSideEffect,
     importcpp: "GetExtCharArray", header: "BinObjMgt_Persistent.hxx".}
 proc getIntArray*(this: BinObjMgtPersistent; theArray: BinObjMgtPInteger;
-                 theLength: int): BinObjMgtPersistent {.noSideEffect,
+                 theLength: cint): BinObjMgtPersistent {.noSideEffect,
     importcpp: "GetIntArray", header: "BinObjMgt_Persistent.hxx".}
 proc getRealArray*(this: BinObjMgtPersistent; theArray: BinObjMgtPReal;
-                  theLength: int): BinObjMgtPersistent {.noSideEffect,
+                  theLength: cint): BinObjMgtPersistent {.noSideEffect,
     importcpp: "GetRealArray", header: "BinObjMgt_Persistent.hxx".}
 proc getShortRealArray*(this: BinObjMgtPersistent; theArray: BinObjMgtPShortReal;
-                       theLength: int): BinObjMgtPersistent {.noSideEffect,
+                       theLength: cint): BinObjMgtPersistent {.noSideEffect,
     importcpp: "GetShortRealArray", header: "BinObjMgt_Persistent.hxx".}
-proc position*(this: BinObjMgtPersistent): int {.noSideEffect, importcpp: "Position",
-    header: "BinObjMgt_Persistent.hxx".}
-proc setPosition*(this: BinObjMgtPersistent; thePos: int): bool {.noSideEffect,
+proc position*(this: BinObjMgtPersistent): cint {.noSideEffect,
+    importcpp: "Position", header: "BinObjMgt_Persistent.hxx".}
+proc setPosition*(this: BinObjMgtPersistent; thePos: cint): bool {.noSideEffect,
     importcpp: "SetPosition", header: "BinObjMgt_Persistent.hxx".}
 proc truncate*(this: var BinObjMgtPersistent) {.importcpp: "Truncate",
     header: "BinObjMgt_Persistent.hxx".}
@@ -176,19 +176,19 @@ proc `!`*(this: BinObjMgtPersistent): bool {.noSideEffect, importcpp: "(! #)",
 proc isOK*(this: BinObjMgtPersistent): bool {.noSideEffect, importcpp: "IsOK",
     header: "BinObjMgt_Persistent.hxx".}
 converter `bool`*(this: BinObjMgtPersistent): bool {.noSideEffect,
-    importcpp: "BinObjMgt_Persistent::operator Standard_Boolean",
+    importcpp: "BinObjMgt_Persistent::operator bool",
     header: "BinObjMgt_Persistent.hxx".}
 proc init*(this: var BinObjMgtPersistent) {.importcpp: "Init",
                                         header: "BinObjMgt_Persistent.hxx".}
-proc setId*(this: var BinObjMgtPersistent; theId: int) {.importcpp: "SetId",
+proc setId*(this: var BinObjMgtPersistent; theId: cint) {.importcpp: "SetId",
     header: "BinObjMgt_Persistent.hxx".}
-proc setTypeId*(this: var BinObjMgtPersistent; theId: int) {.importcpp: "SetTypeId",
+proc setTypeId*(this: var BinObjMgtPersistent; theId: cint) {.importcpp: "SetTypeId",
     header: "BinObjMgt_Persistent.hxx".}
-proc id*(this: BinObjMgtPersistent): int {.noSideEffect, importcpp: "Id",
-                                       header: "BinObjMgt_Persistent.hxx".}
-proc typeId*(this: BinObjMgtPersistent): int {.noSideEffect, importcpp: "TypeId",
+proc id*(this: BinObjMgtPersistent): cint {.noSideEffect, importcpp: "Id",
+                                        header: "BinObjMgt_Persistent.hxx".}
+proc typeId*(this: BinObjMgtPersistent): cint {.noSideEffect, importcpp: "TypeId",
     header: "BinObjMgt_Persistent.hxx".}
-proc length*(this: BinObjMgtPersistent): int {.noSideEffect, importcpp: "Length",
+proc length*(this: BinObjMgtPersistent): cint {.noSideEffect, importcpp: "Length",
     header: "BinObjMgt_Persistent.hxx".}
 proc write*(this: var BinObjMgtPersistent; theOS: var StandardOStream): var StandardOStream {.
     importcpp: "Write", header: "BinObjMgt_Persistent.hxx".}
@@ -198,3 +198,28 @@ proc destroy*(this: var BinObjMgtPersistent) {.importcpp: "Destroy",
     header: "BinObjMgt_Persistent.hxx".}
 proc destroyBinObjMgtPersistent*(this: var BinObjMgtPersistent) {.
     importcpp: "#.~BinObjMgt_Persistent()", header: "BinObjMgt_Persistent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

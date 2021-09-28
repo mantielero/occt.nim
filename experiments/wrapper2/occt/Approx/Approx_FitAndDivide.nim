@@ -30,30 +30,31 @@ type
                                                                        ## algorithms.
 
 
-proc constructApproxFitAndDivide*(line: AppContFunction; degreemin: int = 3;
-                                 degreemax: int = 8; tolerance3d: float = 1.0e-5;
-                                 tolerance2d: float = 1.0e-5; cutting: bool = false;
-    firstC: AppParCurvesConstraint = appParCurvesTangencyPoint; lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): ApproxFitAndDivide {.
+proc constructApproxFitAndDivide*(line: AppContFunction; degreemin: cint = 3;
+                                 degreemax: cint = 8; tolerance3d: cfloat = 1.0e-5;
+                                 tolerance2d: cfloat = 1.0e-5;
+                                 cutting: bool = false; firstC: AppParCurvesConstraint = appParCurvesTangencyPoint;
+    lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): ApproxFitAndDivide {.
     constructor, importcpp: "Approx_FitAndDivide(@)",
     header: "Approx_FitAndDivide.hxx".}
-proc constructApproxFitAndDivide*(degreemin: int = 3; degreemax: int = 8;
-                                 tolerance3d: float = 1.0e-05;
-                                 tolerance2d: float = 1.0e-05;
+proc constructApproxFitAndDivide*(degreemin: cint = 3; degreemax: cint = 8;
+                                 tolerance3d: cfloat = 1.0e-05;
+                                 tolerance2d: cfloat = 1.0e-05;
                                  cutting: bool = false; firstC: AppParCurvesConstraint = appParCurvesTangencyPoint;
     lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): ApproxFitAndDivide {.
     constructor, importcpp: "Approx_FitAndDivide(@)",
     header: "Approx_FitAndDivide.hxx".}
 proc perform*(this: var ApproxFitAndDivide; line: AppContFunction) {.
     importcpp: "Perform", header: "Approx_FitAndDivide.hxx".}
-proc setDegrees*(this: var ApproxFitAndDivide; degreemin: int; degreemax: int) {.
+proc setDegrees*(this: var ApproxFitAndDivide; degreemin: cint; degreemax: cint) {.
     importcpp: "SetDegrees", header: "Approx_FitAndDivide.hxx".}
-proc setTolerances*(this: var ApproxFitAndDivide; tolerance3d: float;
-                   tolerance2d: float) {.importcpp: "SetTolerances",
-                                       header: "Approx_FitAndDivide.hxx".}
+proc setTolerances*(this: var ApproxFitAndDivide; tolerance3d: cfloat;
+                   tolerance2d: cfloat) {.importcpp: "SetTolerances",
+                                        header: "Approx_FitAndDivide.hxx".}
 proc setConstraints*(this: var ApproxFitAndDivide; firstC: AppParCurvesConstraint;
                     lastC: AppParCurvesConstraint) {.importcpp: "SetConstraints",
     header: "Approx_FitAndDivide.hxx".}
-proc setMaxSegments*(this: var ApproxFitAndDivide; theMaxSegments: int) {.
+proc setMaxSegments*(this: var ApproxFitAndDivide; theMaxSegments: cint) {.
     importcpp: "SetMaxSegments", header: "Approx_FitAndDivide.hxx".}
 proc setInvOrder*(this: var ApproxFitAndDivide; theInvOrder: bool) {.
     importcpp: "SetInvOrder", header: "Approx_FitAndDivide.hxx".}
@@ -63,12 +64,37 @@ proc isAllApproximated*(this: ApproxFitAndDivide): bool {.noSideEffect,
     importcpp: "IsAllApproximated", header: "Approx_FitAndDivide.hxx".}
 proc isToleranceReached*(this: ApproxFitAndDivide): bool {.noSideEffect,
     importcpp: "IsToleranceReached", header: "Approx_FitAndDivide.hxx".}
-proc error*(this: ApproxFitAndDivide; index: int; tol3d: var float; tol2d: var float) {.
+proc error*(this: ApproxFitAndDivide; index: cint; tol3d: var cfloat; tol2d: var cfloat) {.
     noSideEffect, importcpp: "Error", header: "Approx_FitAndDivide.hxx".}
-proc nbMultiCurves*(this: ApproxFitAndDivide): int {.noSideEffect,
+proc nbMultiCurves*(this: ApproxFitAndDivide): cint {.noSideEffect,
     importcpp: "NbMultiCurves", header: "Approx_FitAndDivide.hxx".}
-proc value*(this: ApproxFitAndDivide; index: int = 1): AppParCurvesMultiCurve {.
+proc value*(this: ApproxFitAndDivide; index: cint = 1): AppParCurvesMultiCurve {.
     noSideEffect, importcpp: "Value", header: "Approx_FitAndDivide.hxx".}
-proc parameters*(this: ApproxFitAndDivide; index: int; firstp: var float;
-                lastp: var float) {.noSideEffect, importcpp: "Parameters",
-                                 header: "Approx_FitAndDivide.hxx".}
+proc parameters*(this: ApproxFitAndDivide; index: cint; firstp: var cfloat;
+                lastp: var cfloat) {.noSideEffect, importcpp: "Parameters",
+                                  header: "Approx_FitAndDivide.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

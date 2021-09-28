@@ -54,3 +54,28 @@ proc isCurrentViewIn2DMode*(): bool {.importcpp: "ViewerTest_V3dView::IsCurrentV
 proc setCurrentView2DMode*(theIs2d: bool) {.
     importcpp: "ViewerTest_V3dView::SetCurrentView2DMode(@)",
     header: "ViewerTest_V3dView.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,8 +18,7 @@ discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of StepBasic_ProductDefinitionReference"
 discard "forward decl of StepBasic_ProductDefinitionReference"
 type
-  HandleStepBasicProductDefinitionReference* = Handle[
-      StepBasicProductDefinitionReference]
+  HandleC1C1* = Handle[StepBasicProductDefinitionReference]
 
 ## ! Representation of STEP entity Product_Definition_Reference
 
@@ -89,3 +88,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicProductDefinitionReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ProductDefinitionReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

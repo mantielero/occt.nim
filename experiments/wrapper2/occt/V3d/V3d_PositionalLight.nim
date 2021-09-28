@@ -72,5 +72,30 @@ proc constructV3dPositionalLight*(thePos: Pnt;
 
 discard "forward decl of V3d_PositionalLight"
 type
-  HandleV3dPositionalLight* = Handle[V3dPositionalLight]
+  HandleC1C1* = Handle[V3dPositionalLight]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

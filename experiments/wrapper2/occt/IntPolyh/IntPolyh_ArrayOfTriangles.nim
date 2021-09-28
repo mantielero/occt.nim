@@ -19,3 +19,28 @@ discard "forward decl of IntPolyh_Triangle"
 type
   IntPolyhArrayOfTriangles* = IntPolyhArray[IntPolyhTriangle]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

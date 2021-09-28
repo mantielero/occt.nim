@@ -26,32 +26,57 @@ type
 
 proc constructIntToolsRoot*(): IntToolsRoot {.constructor,
     importcpp: "IntTools_Root(@)", header: "IntTools_Root.hxx".}
-proc constructIntToolsRoot*(aRoot: float; aType: int): IntToolsRoot {.constructor,
+proc constructIntToolsRoot*(aRoot: cfloat; aType: cint): IntToolsRoot {.constructor,
     importcpp: "IntTools_Root(@)", header: "IntTools_Root.hxx".}
-proc setRoot*(this: var IntToolsRoot; aRoot: float) {.importcpp: "SetRoot",
+proc setRoot*(this: var IntToolsRoot; aRoot: cfloat) {.importcpp: "SetRoot",
     header: "IntTools_Root.hxx".}
-proc setType*(this: var IntToolsRoot; aType: int) {.importcpp: "SetType",
+proc setType*(this: var IntToolsRoot; aType: cint) {.importcpp: "SetType",
     header: "IntTools_Root.hxx".}
 proc setStateBefore*(this: var IntToolsRoot; aState: TopAbsState) {.
     importcpp: "SetStateBefore", header: "IntTools_Root.hxx".}
 proc setStateAfter*(this: var IntToolsRoot; aState: TopAbsState) {.
     importcpp: "SetStateAfter", header: "IntTools_Root.hxx".}
-proc setLayerHeight*(this: var IntToolsRoot; aHeight: float) {.
+proc setLayerHeight*(this: var IntToolsRoot; aHeight: cfloat) {.
     importcpp: "SetLayerHeight", header: "IntTools_Root.hxx".}
-proc setInterval*(this: var IntToolsRoot; t1: float; t2: float; f1: float; f2: float) {.
+proc setInterval*(this: var IntToolsRoot; t1: cfloat; t2: cfloat; f1: cfloat; f2: cfloat) {.
     importcpp: "SetInterval", header: "IntTools_Root.hxx".}
-proc root*(this: IntToolsRoot): float {.noSideEffect, importcpp: "Root",
-                                    header: "IntTools_Root.hxx".}
-proc `type`*(this: IntToolsRoot): int {.noSideEffect, importcpp: "Type",
-                                    header: "IntTools_Root.hxx".}
+proc root*(this: IntToolsRoot): cfloat {.noSideEffect, importcpp: "Root",
+                                     header: "IntTools_Root.hxx".}
+proc `type`*(this: IntToolsRoot): cint {.noSideEffect, importcpp: "Type",
+                                     header: "IntTools_Root.hxx".}
 proc stateBefore*(this: IntToolsRoot): TopAbsState {.noSideEffect,
     importcpp: "StateBefore", header: "IntTools_Root.hxx".}
 proc stateAfter*(this: IntToolsRoot): TopAbsState {.noSideEffect,
     importcpp: "StateAfter", header: "IntTools_Root.hxx".}
-proc layerHeight*(this: IntToolsRoot): float {.noSideEffect,
+proc layerHeight*(this: IntToolsRoot): cfloat {.noSideEffect,
     importcpp: "LayerHeight", header: "IntTools_Root.hxx".}
 proc isValid*(this: IntToolsRoot): bool {.noSideEffect, importcpp: "IsValid",
                                       header: "IntTools_Root.hxx".}
-proc interval*(this: IntToolsRoot; t1: var float; t2: var float; f1: var float;
-              f2: var float) {.noSideEffect, importcpp: "Interval",
-                            header: "IntTools_Root.hxx".}
+proc interval*(this: IntToolsRoot; t1: var cfloat; t2: var cfloat; f1: var cfloat;
+              f2: var cfloat) {.noSideEffect, importcpp: "Interval",
+                             header: "IntTools_Root.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

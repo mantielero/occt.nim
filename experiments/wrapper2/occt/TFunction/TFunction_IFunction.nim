@@ -66,7 +66,32 @@ proc getAllFunctions*(this: TFunctionIFunction): TFunctionDoubleMapOfIntegerLabe
     noSideEffect, importcpp: "GetAllFunctions", header: "TFunction_IFunction.hxx".}
 proc getLogbook*(this: TFunctionIFunction): Handle[TFunctionLogbook] {.noSideEffect,
     importcpp: "GetLogbook", header: "TFunction_IFunction.hxx".}
-proc getDriver*(this: TFunctionIFunction; thread: int = 0): Handle[TFunctionDriver] {.
+proc getDriver*(this: TFunctionIFunction; thread: cint = 0): Handle[TFunctionDriver] {.
     noSideEffect, importcpp: "GetDriver", header: "TFunction_IFunction.hxx".}
 proc getGraphNode*(this: TFunctionIFunction): Handle[TFunctionGraphNode] {.
     noSideEffect, importcpp: "GetGraphNode", header: "TFunction_IFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

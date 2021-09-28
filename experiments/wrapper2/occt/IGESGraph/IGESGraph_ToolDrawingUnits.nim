@@ -67,5 +67,30 @@ proc ownCopy*(this: IGESGraphToolDrawingUnits;
              entto: Handle[IGESGraphDrawingUnits]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolDrawingUnits.hxx".}
 proc ownDump*(this: IGESGraphToolDrawingUnits; ent: Handle[IGESGraphDrawingUnits];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolDrawingUnits.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

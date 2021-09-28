@@ -18,3 +18,28 @@ type
   PlateSequenceOfLinearScalarConstraint* = NCollectionSequence[
       PlateLinearScalarConstraint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -52,3 +52,28 @@ proc edges*(this: LocOpeGluer): TopToolsListOfShape {.noSideEffect,
     importcpp: "Edges", header: "LocOpe_Gluer.hxx".}
 proc tgtEdges*(this: LocOpeGluer): TopToolsListOfShape {.noSideEffect,
     importcpp: "TgtEdges", header: "LocOpe_Gluer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

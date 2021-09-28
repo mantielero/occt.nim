@@ -25,7 +25,7 @@ type
 
 proc constructTNamingLocalizer*(): TNamingLocalizer {.constructor,
     importcpp: "TNaming_Localizer(@)", header: "TNaming_Localizer.hxx".}
-proc init*(this: var TNamingLocalizer; us: Handle[TNamingUsedShapes]; curTrans: int) {.
+proc init*(this: var TNamingLocalizer; us: Handle[TNamingUsedShapes]; curTrans: cint) {.
     importcpp: "Init", header: "TNaming_Localizer.hxx".}
 proc subShapes*(this: var TNamingLocalizer; s: TopoDS_Shape; `type`: TopAbsShapeEnum): TopToolsMapOfShape {.
     importcpp: "SubShapes", header: "TNaming_Localizer.hxx".}
@@ -56,3 +56,28 @@ proc findShapeContext*(ns: Handle[TNamingNamedShape]; theS: TopoDS_Shape;
                       theSC: var TopoDS_Shape) {.
     importcpp: "TNaming_Localizer::FindShapeContext(@)",
     header: "TNaming_Localizer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

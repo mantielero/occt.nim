@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWFeaParametricPoint*(): RWStepFEA_RWFeaParametricPoint 
     constructor, importcpp: "RWStepFEA_RWFeaParametricPoint(@)",
     header: "RWStepFEA_RWFeaParametricPoint.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaParametricPoint;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaParametricPoint]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaParametricPoint.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepFEA_RWFeaParametricPoint;
            ent: Handle[StepFEA_FeaParametricPoint];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaParametricPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

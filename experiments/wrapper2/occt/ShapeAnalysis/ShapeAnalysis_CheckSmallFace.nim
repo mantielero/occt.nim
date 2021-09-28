@@ -123,50 +123,51 @@ proc constructShapeAnalysisCheckSmallFace*(): ShapeAnalysisCheckSmallFace {.
     constructor, importcpp: "ShapeAnalysis_CheckSmallFace(@)",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc isSpotFace*(this: ShapeAnalysisCheckSmallFace; f: TopoDS_Face; spot: var Pnt;
-                spotol: var float; tol: float = -1.0): int {.noSideEffect,
+                spotol: var cfloat; tol: cfloat = -1.0): cint {.noSideEffect,
     importcpp: "IsSpotFace", header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc checkSpotFace*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                   tol: float = -1.0): bool {.importcpp: "CheckSpotFace",
+                   tol: cfloat = -1.0): bool {.importcpp: "CheckSpotFace",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc isStripSupport*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                    tol: float = -1.0): bool {.importcpp: "IsStripSupport",
+                    tol: cfloat = -1.0): bool {.importcpp: "IsStripSupport",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc checkStripEdges*(this: ShapeAnalysisCheckSmallFace; e1: TopoDS_Edge;
-                     e2: TopoDS_Edge; tol: float; dmax: var float): bool {.noSideEffect,
-    importcpp: "CheckStripEdges", header: "ShapeAnalysis_CheckSmallFace.hxx".}
+                     e2: TopoDS_Edge; tol: cfloat; dmax: var cfloat): bool {.
+    noSideEffect, importcpp: "CheckStripEdges",
+    header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc findStripEdges*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                    e1: var TopoDS_Edge; e2: var TopoDS_Edge; tol: float;
-                    dmax: var float): bool {.importcpp: "FindStripEdges",
+                    e1: var TopoDS_Edge; e2: var TopoDS_Edge; tol: cfloat;
+                    dmax: var cfloat): bool {.importcpp: "FindStripEdges",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc checkSingleStrip*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                      e1: var TopoDS_Edge; e2: var TopoDS_Edge; tol: float = -1.0): bool {.
+                      e1: var TopoDS_Edge; e2: var TopoDS_Edge; tol: cfloat = -1.0): bool {.
     importcpp: "CheckSingleStrip", header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc checkStripFace*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                    e1: var TopoDS_Edge; e2: var TopoDS_Edge; tol: float = -1.0): bool {.
+                    e1: var TopoDS_Edge; e2: var TopoDS_Edge; tol: cfloat = -1.0): bool {.
     importcpp: "CheckStripFace", header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc checkSplittingVertices*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
                             mapEdges: var TopToolsDataMapOfShapeListOfShape;
     mapParam: var ShapeAnalysisDataMapOfShapeListOfReal;
-                            theAllVert: var TopoDS_Compound): int {.
+                            theAllVert: var TopoDS_Compound): cint {.
     importcpp: "CheckSplittingVertices",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc checkPin*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-              whatrow: var int; sence: var int): bool {.importcpp: "CheckPin",
+              whatrow: var cint; sence: var cint): bool {.importcpp: "CheckPin",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc checkTwisted*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                  paramu: var float; paramv: var float): bool {.
+                  paramu: var cfloat; paramv: var cfloat): bool {.
     importcpp: "CheckTwisted", header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc checkPinFace*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                  mapEdges: var TopToolsDataMapOfShapeShape; toler: float = -1.0): bool {.
+                  mapEdges: var TopToolsDataMapOfShapeShape; toler: cfloat = -1.0): bool {.
     importcpp: "CheckPinFace", header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc checkPinEdges*(this: ShapeAnalysisCheckSmallFace; theFirstEdge: TopoDS_Edge;
-                   theSecondEdge: TopoDS_Edge; coef1: float; coef2: float;
-                   toler: float): bool {.noSideEffect, importcpp: "CheckPinEdges", header: "ShapeAnalysis_CheckSmallFace.hxx".}
+                   theSecondEdge: TopoDS_Edge; coef1: cfloat; coef2: cfloat;
+                   toler: cfloat): bool {.noSideEffect, importcpp: "CheckPinEdges", header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc status*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "Status", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc setTolerance*(this: var ShapeAnalysisCheckSmallFace; tol: float) {.
+proc setTolerance*(this: var ShapeAnalysisCheckSmallFace; tol: cfloat) {.
     importcpp: "SetTolerance", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc tolerance*(this: ShapeAnalysisCheckSmallFace): float {.noSideEffect,
+proc tolerance*(this: ShapeAnalysisCheckSmallFace): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "ShapeAnalysis_CheckSmallFace.hxx".}
 proc statusSpot*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusSpot",
@@ -189,3 +190,28 @@ proc statusPinFace*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus
 proc statusPinEdges*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): bool {.
     noSideEffect, importcpp: "StatusPinEdges",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

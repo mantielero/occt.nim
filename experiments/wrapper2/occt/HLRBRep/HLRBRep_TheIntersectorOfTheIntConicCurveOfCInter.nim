@@ -36,35 +36,59 @@ proc constructHLRBRepTheIntersectorOfTheIntConicCurveOfCInter*(): HLRBRepTheInte
     header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
 proc constructHLRBRepTheIntersectorOfTheIntConicCurveOfCInter*(
     iTool: IntCurveIConicTool; dom1: IntRes2dDomain; pCurve: StandardAddress;
-    dom2: IntRes2dDomain; tolConf: float; tol: float): HLRBRepTheIntersectorOfTheIntConicCurveOfCInter {.
+    dom2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): HLRBRepTheIntersectorOfTheIntConicCurveOfCInter {.
     constructor,
     importcpp: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter(@)",
     header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
 proc perform*(this: var HLRBRepTheIntersectorOfTheIntConicCurveOfCInter;
              iTool: IntCurveIConicTool; dom1: IntRes2dDomain;
-             pCurve: StandardAddress; dom2: IntRes2dDomain; tolConf: float; tol: float) {.
-    importcpp: "Perform",
-    header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
+             pCurve: StandardAddress; dom2: IntRes2dDomain; tolConf: cfloat;
+             tol: cfloat) {.importcpp: "Perform", header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
 proc findU*(this: HLRBRepTheIntersectorOfTheIntConicCurveOfCInter;
-           parameter: float; point: var Pnt2d; theParCurev: StandardAddress;
-           theImpTool: IntCurveIConicTool): float {.noSideEffect,
+           parameter: cfloat; point: var Pnt2d; theParCurev: StandardAddress;
+           theImpTool: IntCurveIConicTool): cfloat {.noSideEffect,
     importcpp: "FindU",
     header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
 proc findV*(this: HLRBRepTheIntersectorOfTheIntConicCurveOfCInter;
-           parameter: float; point: var Pnt2d; theImpTool: IntCurveIConicTool;
-           parCurve: StandardAddress; theParCurveDomain: IntRes2dDomain; v0: float;
-           v1: float; tolerance: float): float {.noSideEffect, importcpp: "FindV",
+           parameter: cfloat; point: var Pnt2d; theImpTool: IntCurveIConicTool;
+           parCurve: StandardAddress; theParCurveDomain: IntRes2dDomain; v0: cfloat;
+           v1: cfloat; tolerance: cfloat): cfloat {.noSideEffect, importcpp: "FindV",
     header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
 proc andDomaineObjet1Intersections*(this: HLRBRepTheIntersectorOfTheIntConicCurveOfCInter;
                                    theImpTool: IntCurveIConicTool;
                                    theParCurve: StandardAddress;
                                    theImpCurveDomain: IntRes2dDomain;
                                    theParCurveDomain: IntRes2dDomain;
-                                   nbResultats: var int;
+                                   nbResultats: var cint;
                                    inter2AndDomain2: var TColStdArray1OfReal;
                                    inter1: var TColStdArray1OfReal;
                                    resultat1: var TColStdArray1OfReal;
                                    resultat2: var TColStdArray1OfReal;
-                                   epsNul: float) {.noSideEffect,
+                                   epsNul: cfloat) {.noSideEffect,
     importcpp: "And_Domaine_Objet1_Intersections",
     header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

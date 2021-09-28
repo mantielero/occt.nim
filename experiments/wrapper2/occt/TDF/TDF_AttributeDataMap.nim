@@ -19,3 +19,28 @@ type
   TDF_DataMapIteratorOfAttributeDataMap* = Iterator[Handle[TDF_Attribute],
       Handle[TDF_Attribute], TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

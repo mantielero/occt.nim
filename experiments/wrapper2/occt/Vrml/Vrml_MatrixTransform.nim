@@ -31,3 +31,28 @@ proc matrix*(this: VrmlMatrixTransform): Trsf {.noSideEffect, importcpp: "Matrix
     header: "Vrml_MatrixTransform.hxx".}
 proc print*(this: VrmlMatrixTransform; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_MatrixTransform.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

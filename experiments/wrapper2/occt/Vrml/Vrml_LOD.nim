@@ -18,7 +18,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Vrml_LOD"
 discard "forward decl of Vrml_LOD"
 type
-  HandleVrmlLOD* = Handle[VrmlLOD]
+  HandleC1C1* = Handle[VrmlLOD]
 
 ## ! defines a LOD (level of detailization) node of VRML specifying properties
 ## ! of geometry  and its appearance.
@@ -69,3 +69,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_LOD::get_type_descriptor(@)", header: "Vrml_LOD.hxx".}
 proc dynamicType*(this: VrmlLOD): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_LOD.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_ShapeMapTool"
 discard "forward decl of XCAFDoc_ShapeMapTool"
 type
-  HandleXCAFDocShapeMapTool* = Handle[XCAFDocShapeMapTool]
+  HandleC1C1* = Handle[XCAFDocShapeMapTool]
 
 ## ! attribute containing map of sub shapes
 
@@ -52,8 +52,8 @@ proc paste*(this: XCAFDocShapeMapTool; into: Handle[TDF_Attribute];
 proc getMap*(this: XCAFDocShapeMapTool): TopToolsIndexedMapOfShape {.noSideEffect,
     importcpp: "GetMap", header: "XCAFDoc_ShapeMapTool.hxx".}
 proc dumpJson*(this: XCAFDocShapeMapTool; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "XCAFDoc_ShapeMapTool.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFDoc_ShapeMapTool.hxx".}
 type
   XCAFDocShapeMapToolbaseType* = TDF_Attribute
 
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XCAFDoc_ShapeMapTool.hxx".}
 proc dynamicType*(this: XCAFDocShapeMapTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_ShapeMapTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

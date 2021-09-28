@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SessionDumper"
 discard "forward decl of IFSelect_SessionDumper"
 type
-  HandleIFSelectSessionDumper* = Handle[IFSelectSessionDumper]
+  HandleC1C1* = Handle[IFSelectSessionDumper]
 
 ## ! A SessionDumper is called by SessionFile. It takes into
 ## ! account a set of classes (such as Selections, Dispatches ...).
@@ -130,3 +130,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SessionDumper.hxx".}
 proc dynamicType*(this: IFSelectSessionDumper): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SessionDumper.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

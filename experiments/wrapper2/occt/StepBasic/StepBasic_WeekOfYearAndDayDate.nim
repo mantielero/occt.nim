@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_WeekOfYearAndDayDate"
 discard "forward decl of StepBasic_WeekOfYearAndDayDate"
 type
-  HandleStepBasicWeekOfYearAndDayDate* = Handle[StepBasicWeekOfYearAndDayDate]
+  HandleC1C1* = Handle[StepBasicWeekOfYearAndDayDate]
   StepBasicWeekOfYearAndDayDate* {.importcpp: "StepBasic_WeekOfYearAndDayDate",
                                   header: "StepBasic_WeekOfYearAndDayDate.hxx",
                                   bycopy.} = object of StepBasicDate ## ! Returns a
@@ -27,18 +27,18 @@ type
 proc constructStepBasicWeekOfYearAndDayDate*(): StepBasicWeekOfYearAndDayDate {.
     constructor, importcpp: "StepBasic_WeekOfYearAndDayDate(@)",
     header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc init*(this: var StepBasicWeekOfYearAndDayDate; aYearComponent: int;
-          aWeekComponent: int; hasAdayComponent: bool; aDayComponent: int) {.
+proc init*(this: var StepBasicWeekOfYearAndDayDate; aYearComponent: cint;
+          aWeekComponent: cint; hasAdayComponent: bool; aDayComponent: cint) {.
     importcpp: "Init", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc setWeekComponent*(this: var StepBasicWeekOfYearAndDayDate; aWeekComponent: int) {.
+proc setWeekComponent*(this: var StepBasicWeekOfYearAndDayDate; aWeekComponent: cint) {.
     importcpp: "SetWeekComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc weekComponent*(this: StepBasicWeekOfYearAndDayDate): int {.noSideEffect,
+proc weekComponent*(this: StepBasicWeekOfYearAndDayDate): cint {.noSideEffect,
     importcpp: "WeekComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc setDayComponent*(this: var StepBasicWeekOfYearAndDayDate; aDayComponent: int) {.
+proc setDayComponent*(this: var StepBasicWeekOfYearAndDayDate; aDayComponent: cint) {.
     importcpp: "SetDayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
 proc unSetDayComponent*(this: var StepBasicWeekOfYearAndDayDate) {.
     importcpp: "UnSetDayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc dayComponent*(this: StepBasicWeekOfYearAndDayDate): int {.noSideEffect,
+proc dayComponent*(this: StepBasicWeekOfYearAndDayDate): cint {.noSideEffect,
     importcpp: "DayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
 proc hasDayComponent*(this: StepBasicWeekOfYearAndDayDate): bool {.noSideEffect,
     importcpp: "HasDayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicWeekOfYearAndDayDate): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_WeekOfYearAndDayDate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

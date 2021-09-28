@@ -45,15 +45,15 @@ proc setValue*(this: var ContapLine; a: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "SetValue", header: "Contap_Line.hxx".}
 proc add*(this: var ContapLine; p: ContapPoint) {.importcpp: "Add",
     header: "Contap_Line.hxx".}
-proc nbVertex*(this: ContapLine): int {.noSideEffect, importcpp: "NbVertex",
-                                    header: "Contap_Line.hxx".}
-proc vertex*(this: ContapLine; index: int): var ContapPoint {.noSideEffect,
+proc nbVertex*(this: ContapLine): cint {.noSideEffect, importcpp: "NbVertex",
+                                     header: "Contap_Line.hxx".}
+proc vertex*(this: ContapLine; index: cint): var ContapPoint {.noSideEffect,
     importcpp: "Vertex", header: "Contap_Line.hxx".}
 proc typeContour*(this: ContapLine): ContapIType {.noSideEffect,
     importcpp: "TypeContour", header: "Contap_Line.hxx".}
-proc nbPnts*(this: ContapLine): int {.noSideEffect, importcpp: "NbPnts",
-                                  header: "Contap_Line.hxx".}
-proc point*(this: ContapLine; index: int): IntSurfPntOn2S {.noSideEffect,
+proc nbPnts*(this: ContapLine): cint {.noSideEffect, importcpp: "NbPnts",
+                                   header: "Contap_Line.hxx".}
+proc point*(this: ContapLine; index: cint): IntSurfPntOn2S {.noSideEffect,
     importcpp: "Point", header: "Contap_Line.hxx".}
 proc line*(this: ContapLine): Lin {.noSideEffect, importcpp: "Line",
                                 header: "Contap_Line.hxx".}
@@ -65,3 +65,28 @@ proc setTransitionOnS*(this: var ContapLine; t: IntSurfTypeTrans) {.
     importcpp: "SetTransitionOnS", header: "Contap_Line.hxx".}
 proc transitionOnS*(this: ContapLine): IntSurfTypeTrans {.noSideEffect,
     importcpp: "TransitionOnS", header: "Contap_Line.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

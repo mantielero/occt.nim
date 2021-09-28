@@ -19,8 +19,7 @@ discard "forward decl of StepBasic_PersonAndOrganizationRole"
 discard "forward decl of StepAP203_CcDesignPersonAndOrganizationAssignment"
 discard "forward decl of StepAP203_CcDesignPersonAndOrganizationAssignment"
 type
-  HandleStepAP203CcDesignPersonAndOrganizationAssignment* = Handle[
-      StepAP203CcDesignPersonAndOrganizationAssignment]
+  HandleC1C1* = Handle[StepAP203CcDesignPersonAndOrganizationAssignment]
 
 ## ! Representation of STEP entity CcDesignPersonAndOrganizationAssignment
 
@@ -59,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP203_CcDesign
     header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
 proc dynamicType*(this: StepAP203CcDesignPersonAndOrganizationAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -52,3 +52,28 @@ proc isUsed*(this: BRepSweepPrism; aGenS: TopoDS_Shape): bool {.noSideEffect,
     importcpp: "IsUsed", header: "BRepSweep_Prism.hxx".}
 proc genIsUsed*(this: BRepSweepPrism; theS: TopoDS_Shape): bool {.noSideEffect,
     importcpp: "GenIsUsed", header: "BRepSweep_Prism.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

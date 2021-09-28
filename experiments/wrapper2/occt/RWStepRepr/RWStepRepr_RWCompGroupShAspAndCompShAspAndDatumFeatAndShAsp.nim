@@ -28,7 +28,7 @@ proc constructRWStepReprRWCompGroupShAspAndCompShAspAndDatumFeatAndShAsp*(): RWS
     constructor, importcpp: "RWStepRepr_RWCompGroupShAspAndCompShAspAndDatumFeatAndShAsp(@)",
     header: "RWStepRepr_RWCompGroupShAspAndCompShAspAndDatumFeatAndShAsp.hxx".}
 proc readStep*(this: RWStepReprRWCompGroupShAspAndCompShAspAndDatumFeatAndShAsp;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepReprCompGroupShAspAndCompShAspAndDatumFeatAndShAsp]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -42,3 +42,28 @@ proc share*(this: RWStepReprRWCompGroupShAspAndCompShAspAndDatumFeatAndShAsp;
            ent: Handle[StepReprCompGroupShAspAndCompShAspAndDatumFeatAndShAsp];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWCompGroupShAspAndCompShAspAndDatumFeatAndShAsp.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of StepShape_ClosedShell"
 discard "forward decl of StepShape_ClosedShell"
 type
-  HandleStepShapeClosedShell* = Handle[StepShapeClosedShell]
+  HandleC1C1* = Handle[StepShapeClosedShell]
   StepShapeClosedShell* {.importcpp: "StepShape_ClosedShell",
                          header: "StepShape_ClosedShell.hxx", bycopy.} = object of StepShapeConnectedFaceSet ##
                                                                                                       ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_ClosedShell.hxx".}
 proc dynamicType*(this: StepShapeClosedShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_ClosedShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

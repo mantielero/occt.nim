@@ -17,7 +17,7 @@
 discard "forward decl of Geom_Plane"
 discard "forward decl of PrsDim_ConcentricRelation"
 type
-  HandlePrsDimConcentricRelation* = Handle[PrsDimConcentricRelation]
+  HandleC1C1* = Handle[PrsDimConcentricRelation]
 
 ## ! A framework to define a constraint by a relation of
 ## ! concentricity between two or more interactive datums.
@@ -94,3 +94,28 @@ proc constructPrsDimConcentricRelation*(aFShape: TopoDS_Shape;
                                        aPlane: Handle[GeomPlane]): PrsDimConcentricRelation {.
     constructor, importcpp: "PrsDim_ConcentricRelation(@)",
     header: "PrsDim_ConcentricRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

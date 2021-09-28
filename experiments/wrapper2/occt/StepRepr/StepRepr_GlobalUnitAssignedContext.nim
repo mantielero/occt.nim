@@ -19,8 +19,7 @@ discard "forward decl of StepBasic_NamedUnit"
 discard "forward decl of StepRepr_GlobalUnitAssignedContext"
 discard "forward decl of StepRepr_GlobalUnitAssignedContext"
 type
-  HandleStepReprGlobalUnitAssignedContext* = Handle[
-      StepReprGlobalUnitAssignedContext]
+  HandleC1C1* = Handle[StepReprGlobalUnitAssignedContext]
   StepReprGlobalUnitAssignedContext* {.importcpp: "StepRepr_GlobalUnitAssignedContext", header: "StepRepr_GlobalUnitAssignedContext.hxx",
                                       bycopy.} = object of StepReprRepresentationContext ##
                                                                                     ## !
@@ -42,10 +41,10 @@ proc setUnits*(this: var StepReprGlobalUnitAssignedContext;
     importcpp: "SetUnits", header: "StepRepr_GlobalUnitAssignedContext.hxx".}
 proc units*(this: StepReprGlobalUnitAssignedContext): Handle[
     StepBasicHArray1OfNamedUnit] {.noSideEffect, importcpp: "Units", header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc unitsValue*(this: StepReprGlobalUnitAssignedContext; num: int): Handle[
+proc unitsValue*(this: StepReprGlobalUnitAssignedContext; num: cint): Handle[
     StepBasicNamedUnit] {.noSideEffect, importcpp: "UnitsValue",
                          header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc nbUnits*(this: StepReprGlobalUnitAssignedContext): int {.noSideEffect,
+proc nbUnits*(this: StepReprGlobalUnitAssignedContext): cint {.noSideEffect,
     importcpp: "NbUnits", header: "StepRepr_GlobalUnitAssignedContext.hxx".}
 type
   StepReprGlobalUnitAssignedContextbaseType* = StepReprRepresentationContext
@@ -58,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprGlobalUnitAssignedContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_GlobalUnitAssignedContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

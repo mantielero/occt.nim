@@ -17,3 +17,28 @@
 type
   AdvApp2VarSequenceOfStrip* = NCollectionSequence[AdvApp2VarStrip]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

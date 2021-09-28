@@ -20,7 +20,7 @@ discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of BRepFill_CurveConstraint"
 discard "forward decl of BRepFill_CurveConstraint"
 type
-  HandleBRepFillCurveConstraint* = Handle[BRepFillCurveConstraint]
+  HandleC1C1* = Handle[BRepFillCurveConstraint]
 
 ## ! same as CurveConstraint from GeomPlate
 ## ! with BRepAdaptor_Surface instead of
@@ -118,14 +118,14 @@ type
 
 
 proc constructBRepFillCurveConstraint*(boundary: Handle[Adaptor3dHCurveOnSurface];
-                                      order: int; nPt: int = 10;
-                                      tolDist: float = 0.0001; tolAng: float = 0.01;
-                                      tolCurv: float = 0.1): BRepFillCurveConstraint {.
+                                      order: cint; nPt: cint = 10;
+                                      tolDist: cfloat = 0.0001;
+                                      tolAng: cfloat = 0.01; tolCurv: cfloat = 0.1): BRepFillCurveConstraint {.
     constructor, importcpp: "BRepFill_CurveConstraint(@)",
     header: "BRepFill_CurveConstraint.hxx".}
 proc constructBRepFillCurveConstraint*(boundary: Handle[Adaptor3dHCurve];
-                                      tang: int; nPt: int = 10;
-                                      tolDist: float = 0.0001): BRepFillCurveConstraint {.
+                                      tang: cint; nPt: cint = 10;
+                                      tolDist: cfloat = 0.0001): BRepFillCurveConstraint {.
     constructor, importcpp: "BRepFill_CurveConstraint(@)",
     header: "BRepFill_CurveConstraint.hxx".}
 type
@@ -138,3 +138,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_CurveConstraint.hxx".}
 proc dynamicType*(this: BRepFillCurveConstraint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepFill_CurveConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

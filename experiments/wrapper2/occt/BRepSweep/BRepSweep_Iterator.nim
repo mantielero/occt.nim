@@ -34,3 +34,28 @@ proc value*(this: BRepSweepIterator): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "BRepSweep_Iterator.hxx".}
 proc orientation*(this: BRepSweepIterator): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "BRepSweep_Iterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

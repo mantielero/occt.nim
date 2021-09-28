@@ -39,3 +39,28 @@ proc typeData*(this: var StdStorageData): Handle[StdStorageTypeData] {.
     importcpp: "TypeData", header: "StdStorage_Data.hxx".}
 proc rootData*(this: var StdStorageData): Handle[StdStorageRootData] {.
     importcpp: "RootData", header: "StdStorage_Data.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

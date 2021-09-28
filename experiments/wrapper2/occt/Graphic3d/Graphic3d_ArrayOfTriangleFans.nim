@@ -111,16 +111,41 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Graphic3dArrayOfTriangleFans): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_ArrayOfTriangleFans.hxx".}
-proc constructGraphic3dArrayOfTriangleFans*(theMaxVertexs: int; theMaxFans: int;
+proc constructGraphic3dArrayOfTriangleFans*(theMaxVertexs: cint; theMaxFans: cint;
     theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfTriangleFans {.
     constructor, importcpp: "Graphic3d_ArrayOfTriangleFans(@)",
     header: "Graphic3d_ArrayOfTriangleFans.hxx".}
-proc constructGraphic3dArrayOfTriangleFans*(theMaxVertexs: int;
-    theMaxFans: int = 0; theHasVNormals: bool = false; theHasVColors: bool = false;
+proc constructGraphic3dArrayOfTriangleFans*(theMaxVertexs: cint;
+    theMaxFans: cint = 0; theHasVNormals: bool = false; theHasVColors: bool = false;
     theHasBColors: bool = false; theHasVTexels: bool = false): Graphic3dArrayOfTriangleFans {.
     constructor, importcpp: "Graphic3d_ArrayOfTriangleFans(@)",
     header: "Graphic3d_ArrayOfTriangleFans.hxx".}
 discard "forward decl of Graphic3d_ArrayOfTriangleFans"
 type
-  HandleGraphic3dArrayOfTriangleFans* = Handle[Graphic3dArrayOfTriangleFans]
+  HandleC1C1* = Handle[Graphic3dArrayOfTriangleFans]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

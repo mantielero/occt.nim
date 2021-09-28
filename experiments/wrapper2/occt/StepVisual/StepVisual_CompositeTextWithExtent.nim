@@ -19,8 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_CompositeTextWithExtent"
 discard "forward decl of StepVisual_CompositeTextWithExtent"
 type
-  HandleStepVisualCompositeTextWithExtent* = Handle[
-      StepVisualCompositeTextWithExtent]
+  HandleC1C1* = Handle[StepVisualCompositeTextWithExtent]
   StepVisualCompositeTextWithExtent* {.importcpp: "StepVisual_CompositeTextWithExtent", header: "StepVisual_CompositeTextWithExtent.hxx",
                                       bycopy.} = object of StepVisualCompositeText ## !
                                                                               ## Returns a
@@ -52,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualCompositeTextWithExtent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_CompositeTextWithExtent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

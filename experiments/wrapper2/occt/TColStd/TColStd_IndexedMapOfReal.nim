@@ -13,5 +13,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdIndexedMapOfReal* = NCollectionIndexedMap[float, TColStdMapRealHasher]
+  TColStdIndexedMapOfReal* = NCollectionIndexedMap[cfloat, TColStdMapRealHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

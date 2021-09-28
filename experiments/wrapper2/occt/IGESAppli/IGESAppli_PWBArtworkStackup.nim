@@ -19,7 +19,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESAppli_PWBArtworkStackup"
 discard "forward decl of IGESAppli_PWBArtworkStackup"
 type
-  HandleIGESAppliPWBArtworkStackup* = Handle[IGESAppliPWBArtworkStackup]
+  HandleC1C1* = Handle[IGESAppliPWBArtworkStackup]
 
 ## ! defines PWBArtworkStackup, Type <406> Form <25>
 ## ! in package IGESAppli
@@ -38,18 +38,18 @@ type
 proc constructIGESAppliPWBArtworkStackup*(): IGESAppliPWBArtworkStackup {.
     constructor, importcpp: "IGESAppli_PWBArtworkStackup(@)",
     header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc init*(this: var IGESAppliPWBArtworkStackup; nbPropVal: int;
+proc init*(this: var IGESAppliPWBArtworkStackup; nbPropVal: cint;
           anArtIdent: Handle[TCollectionHAsciiString];
           allLevelNums: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
     header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc nbPropertyValues*(this: IGESAppliPWBArtworkStackup): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESAppliPWBArtworkStackup): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_PWBArtworkStackup.hxx".}
 proc identification*(this: IGESAppliPWBArtworkStackup): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "Identification",
                               header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc nbLevelNumbers*(this: IGESAppliPWBArtworkStackup): int {.noSideEffect,
+proc nbLevelNumbers*(this: IGESAppliPWBArtworkStackup): cint {.noSideEffect,
     importcpp: "NbLevelNumbers", header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc levelNumber*(this: IGESAppliPWBArtworkStackup; index: int): int {.noSideEffect,
+proc levelNumber*(this: IGESAppliPWBArtworkStackup; index: cint): cint {.noSideEffect,
     importcpp: "LevelNumber", header: "IGESAppli_PWBArtworkStackup.hxx".}
 type
   IGESAppliPWBArtworkStackupbaseType* = IGESDataIGESEntity
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESAppliPWBArtworkStackup): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESAppli_PWBArtworkStackup.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

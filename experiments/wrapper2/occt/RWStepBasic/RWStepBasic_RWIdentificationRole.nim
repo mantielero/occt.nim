@@ -27,7 +27,7 @@ proc constructRWStepBasicRWIdentificationRole*(): RWStepBasicRWIdentificationRol
     constructor, importcpp: "RWStepBasic_RWIdentificationRole(@)",
     header: "RWStepBasic_RWIdentificationRole.hxx".}
 proc readStep*(this: RWStepBasicRWIdentificationRole;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicIdentificationRole]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWIdentificationRole.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepBasicRWIdentificationRole;
            ent: Handle[StepBasicIdentificationRole];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWIdentificationRole.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,3 +16,28 @@
 type
   BinObjMgtSRelocationTable* = TColStdIndexedMapOfTransient
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

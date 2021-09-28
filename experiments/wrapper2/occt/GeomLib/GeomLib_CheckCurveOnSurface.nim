@@ -16,41 +16,56 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of Geom2d_Curve"
 type
   GeomLibCheckCurveOnSurface* {.importcpp: "GeomLib_CheckCurveOnSurface",
-                               header: "GeomLib_CheckCurveOnSurface.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Default
-                                                                                       ## contructor
+                               header: "GeomLib_CheckCurveOnSurface.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomLibCheckCurveOnSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_CheckCurveOnSurface::operator new",
+    header: "GeomLib_CheckCurveOnSurface.hxx".}
+proc `delete`*(this: var GeomLibCheckCurveOnSurface; theAddress: pointer) {.
+    importcpp: "GeomLib_CheckCurveOnSurface::operator delete",
+    header: "GeomLib_CheckCurveOnSurface.hxx".}
+proc `new[]`*(this: var GeomLibCheckCurveOnSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_CheckCurveOnSurface::operator new[]",
+    header: "GeomLib_CheckCurveOnSurface.hxx".}
+proc `delete[]`*(this: var GeomLibCheckCurveOnSurface; theAddress: pointer) {.
+    importcpp: "GeomLib_CheckCurveOnSurface::operator delete[]",
+    header: "GeomLib_CheckCurveOnSurface.hxx".}
+proc `new`*(this: var GeomLibCheckCurveOnSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLib_CheckCurveOnSurface::operator new",
+    header: "GeomLib_CheckCurveOnSurface.hxx".}
+proc `delete`*(this: var GeomLibCheckCurveOnSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLib_CheckCurveOnSurface::operator delete",
+    header: "GeomLib_CheckCurveOnSurface.hxx".}
 proc constructGeomLibCheckCurveOnSurface*(): GeomLibCheckCurveOnSurface {.
     constructor, importcpp: "GeomLib_CheckCurveOnSurface(@)",
     header: "GeomLib_CheckCurveOnSurface.hxx".}
 proc constructGeomLibCheckCurveOnSurface*(theCurve: Handle[GeomCurve];
-    theSurface: Handle[GeomSurface]; theFirst: float; theLast: float;
-    theTolRange: float = pConfusion()): GeomLibCheckCurveOnSurface {.constructor,
-    importcpp: "GeomLib_CheckCurveOnSurface(@)",
+    theSurface: Handle[GeomSurface]; theFirst: StandardReal; theLast: StandardReal;
+    theTolRange: StandardReal = pConfusion()): GeomLibCheckCurveOnSurface {.
+    constructor, importcpp: "GeomLib_CheckCurveOnSurface(@)",
     header: "GeomLib_CheckCurveOnSurface.hxx".}
 proc init*(this: var GeomLibCheckCurveOnSurface; theCurve: Handle[GeomCurve];
-          theSurface: Handle[GeomSurface]; theFirst: float; theLast: float;
-          theTolRange: float = pConfusion()) {.importcpp: "Init",
-    header: "GeomLib_CheckCurveOnSurface.hxx".}
+          theSurface: Handle[GeomSurface]; theFirst: StandardReal;
+          theLast: StandardReal; theTolRange: StandardReal = pConfusion()) {.
+    importcpp: "Init", header: "GeomLib_CheckCurveOnSurface.hxx".}
 proc init*(this: var GeomLibCheckCurveOnSurface) {.importcpp: "Init",
     header: "GeomLib_CheckCurveOnSurface.hxx".}
 proc perform*(this: var GeomLibCheckCurveOnSurface; thePCurve: Handle[Geom2dCurve];
-             isTheMultyTheradDisabled: bool = false) {.importcpp: "Perform",
-    header: "GeomLib_CheckCurveOnSurface.hxx".}
+             isTheMultyTheradDisabled: StandardBoolean = false) {.
+    importcpp: "Perform", header: "GeomLib_CheckCurveOnSurface.hxx".}
 proc curve*(this: GeomLibCheckCurveOnSurface): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "GeomLib_CheckCurveOnSurface.hxx".}
 proc surface*(this: GeomLibCheckCurveOnSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "GeomLib_CheckCurveOnSurface.hxx".}
-proc range*(this: var GeomLibCheckCurveOnSurface; theFirst: var float;
-           theLast: var float) {.importcpp: "Range",
-                              header: "GeomLib_CheckCurveOnSurface.hxx".}
-proc isDone*(this: GeomLibCheckCurveOnSurface): bool {.noSideEffect,
+proc range*(this: var GeomLibCheckCurveOnSurface; theFirst: var StandardReal;
+           theLast: var StandardReal) {.importcpp: "Range",
+                                     header: "GeomLib_CheckCurveOnSurface.hxx".}
+proc isDone*(this: GeomLibCheckCurveOnSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomLib_CheckCurveOnSurface.hxx".}
 proc errorStatus*(this: GeomLibCheckCurveOnSurface): int {.noSideEffect,
     importcpp: "ErrorStatus", header: "GeomLib_CheckCurveOnSurface.hxx".}
-proc maxDistance*(this: GeomLibCheckCurveOnSurface): float {.noSideEffect,
+proc maxDistance*(this: GeomLibCheckCurveOnSurface): StandardReal {.noSideEffect,
     importcpp: "MaxDistance", header: "GeomLib_CheckCurveOnSurface.hxx".}
-proc maxParameter*(this: GeomLibCheckCurveOnSurface): float {.noSideEffect,
+proc maxParameter*(this: GeomLibCheckCurveOnSurface): StandardReal {.noSideEffect,
     importcpp: "MaxParameter", header: "GeomLib_CheckCurveOnSurface.hxx".}

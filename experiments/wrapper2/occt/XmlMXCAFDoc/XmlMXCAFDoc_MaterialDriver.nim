@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMXCAFDoc_MaterialDriver"
 discard "forward decl of XmlMXCAFDoc_MaterialDriver"
 type
-  HandleXmlMXCAFDocMaterialDriver* = Handle[XmlMXCAFDocMaterialDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocMaterialDriver]
 
 ## ! Attribute Driver.
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMXCAFDocMaterialDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMXCAFDoc_MaterialDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

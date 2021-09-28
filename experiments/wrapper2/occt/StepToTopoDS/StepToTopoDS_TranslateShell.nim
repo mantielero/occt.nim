@@ -36,3 +36,28 @@ proc value*(this: StepToTopoDS_TranslateShell): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateShell.hxx".}
 proc error*(this: StepToTopoDS_TranslateShell): StepToTopoDS_TranslateShellError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

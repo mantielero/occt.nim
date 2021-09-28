@@ -23,6 +23,31 @@ proc constructTopOpeBRepDS_FIR*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOp
 proc processFaceInterferences*(this: var TopOpeBRepDS_FIR;
                               m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_FIR.hxx".}
-proc processFaceInterferences*(this: var TopOpeBRepDS_FIR; i: int;
+proc processFaceInterferences*(this: var TopOpeBRepDS_FIR; i: cint;
                               m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_FIR.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,76 +25,6 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Geom_BezierSurface"
-type
-  HandleGeomBezierSurface* = Handle[GeomBezierSurface]
-
-## ! Describes a rational or non-rational Bezier surface.
-## ! - A non-rational Bezier surface is defined by a table
-## ! of poles (also known as control points).
-## ! - A rational Bezier surface is defined by a table of
-## ! poles with varying associated weights.
-## ! This data is manipulated using two associative 2D arrays:
-## ! - the poles table, which is a 2D array of gp_Pnt, and
-## ! - the weights table, which is a 2D array of reals.
-## ! The bounds of these arrays are:
-## ! - 1 and NbUPoles for the row bounds, where
-## ! NbUPoles is the number of poles of the surface
-## ! in the u parametric direction, and
-## ! - 1 and NbVPoles for the column bounds, where
-## ! NbVPoles is the number of poles of the surface
-## ! in the v parametric direction.
-## ! The poles of the surface, the "control points", are the
-## ! points used to shape and reshape the surface. They
-## ! comprise a rectangular network of points:
-## ! - The points (1, 1), (NbUPoles, 1), (1,
-## ! NbVPoles) and (NbUPoles, NbVPoles)
-## ! are the four parametric "corners" of the surface.
-## ! - The first column of poles and the last column of
-## ! poles define two Bezier curves which delimit the
-## ! surface in the v parametric direction. These are
-## ! the v isoparametric curves corresponding to
-## ! values 0 and 1 of the v parameter.
-## ! - The first row of poles and the last row of poles
-## ! define two Bezier curves which delimit the surface
-## ! in the u parametric direction. These are the u
-## ! isoparametric curves corresponding to values 0
-## ! and 1 of the u parameter.
-## ! It is more difficult to define a geometrical significance
-## ! for the weights. However they are useful for
-## ! representing a quadric surface precisely. Moreover, if
-## ! the weights of all the poles are equal, the surface has
-## ! a polynomial equation, and hence is a "non-rational surface".
-## ! The non-rational surface is a special, but frequently
-## ! used, case, where all poles have identical weights.
-## ! The weights are defined and used only in the case of
-## ! a rational surface. This rational characteristic is
-## ! defined in each parametric direction. Hence, a
-## ! surface can be rational in the u parametric direction,
-## ! and non-rational in the v parametric direction.
-## ! Likewise, the degree of a surface is defined in each
-## ! parametric direction. The degree of a Bezier surface
-## ! in a given parametric direction is equal to the number
-## ! of poles of the surface in that parametric direction,
-## ! minus 1. This must be greater than or equal to 1.
-## ! However, the degree for a Geom_BezierSurface is
-## ! limited to a value of (25) which is defined and
-## ! controlled by the system. This value is returned by the
-## ! function MaxDegree.
-## ! The parameter range for a Bezier surface is [ 0, 1 ]
-## ! in the two parametric directions.
-## ! A Bezier surface can also be closed, or open, in each
-## ! parametric direction. If the first row of poles is
-## ! identical to the last row of poles, the surface is closed
-## ! in the u parametric direction. If the first column of
-## ! poles is identical to the last column of poles, the
-## ! surface is closed in the v parametric direction.
-## ! The continuity of a Bezier surface is infinite in the u
-## ! parametric direction and the in v parametric direction.
-## ! Note: It is not possible to build a Bezier surface with
-## ! negative weights. Any weight value that is less than,
-## ! or equal to, gp::Resolution() is considered
-## ! to be zero. Two weight values, W1 and W2, are
-## ! considered equal if: |W2-W1| <= gp::Resolution()
 
 type
   GeomBezierSurface* {.importcpp: "Geom_BezierSurface",
@@ -211,6 +141,79 @@ type
                                                                                          ## V.
 
 
+type
+  HandleGeomBezierSurface* = Handle[GeomBezierSurface]
+
+## ! Describes a rational or non-rational Bezier surface.
+## ! - A non-rational Bezier surface is defined by a table
+## ! of poles (also known as control points).
+## ! - A rational Bezier surface is defined by a table of
+## ! poles with varying associated weights.
+## ! This data is manipulated using two associative 2D arrays:
+## ! - the poles table, which is a 2D array of gp_Pnt, and
+## ! - the weights table, which is a 2D array of reals.
+## ! The bounds of these arrays are:
+## ! - 1 and NbUPoles for the row bounds, where
+## ! NbUPoles is the number of poles of the surface
+## ! in the u parametric direction, and
+## ! - 1 and NbVPoles for the column bounds, where
+## ! NbVPoles is the number of poles of the surface
+## ! in the v parametric direction.
+## ! The poles of the surface, the "control points", are the
+## ! points used to shape and reshape the surface. They
+## ! comprise a rectangular network of points:
+## ! - The points (1, 1), (NbUPoles, 1), (1,
+## ! NbVPoles) and (NbUPoles, NbVPoles)
+## ! are the four parametric "corners" of the surface.
+## ! - The first column of poles and the last column of
+## ! poles define two Bezier curves which delimit the
+## ! surface in the v parametric direction. These are
+## ! the v isoparametric curves corresponding to
+## ! values 0 and 1 of the v parameter.
+## ! - The first row of poles and the last row of poles
+## ! define two Bezier curves which delimit the surface
+## ! in the u parametric direction. These are the u
+## ! isoparametric curves corresponding to values 0
+## ! and 1 of the u parameter.
+## ! It is more difficult to define a geometrical significance
+## ! for the weights. However they are useful for
+## ! representing a quadric surface precisely. Moreover, if
+## ! the weights of all the poles are equal, the surface has
+## ! a polynomial equation, and hence is a "non-rational surface".
+## ! The non-rational surface is a special, but frequently
+## ! used, case, where all poles have identical weights.
+## ! The weights are defined and used only in the case of
+## ! a rational surface. This rational characteristic is
+## ! defined in each parametric direction. Hence, a
+## ! surface can be rational in the u parametric direction,
+## ! and non-rational in the v parametric direction.
+## ! Likewise, the degree of a surface is defined in each
+## ! parametric direction. The degree of a Bezier surface
+## ! in a given parametric direction is equal to the number
+## ! of poles of the surface in that parametric direction,
+## ! minus 1. This must be greater than or equal to 1.
+## ! However, the degree for a Geom_BezierSurface is
+## ! limited to a value of (25) which is defined and
+## ! controlled by the system. This value is returned by the
+## ! function MaxDegree.
+## ! The parameter range for a Bezier surface is [ 0, 1 ]
+## ! in the two parametric directions.
+## ! A Bezier surface can also be closed, or open, in each
+## ! parametric direction. If the first row of poles is
+## ! identical to the last row of poles, the surface is closed
+## ! in the u parametric direction. If the first column of
+## ! poles is identical to the last column of poles, the
+## ! surface is closed in the v parametric direction.
+## ! The continuity of a Bezier surface is infinite in the u
+## ! parametric direction and the in v parametric direction.
+## ! Note: It is not possible to build a Bezier surface with
+## ! negative weights. Any weight value that is less than,
+## ! or equal to, gp::Resolution() is considered
+## ! to be zero. Two weight values, W1 and W2, are
+## ! considered equal if: |W2-W1| <= gp::Resolution()
+type
+  GeomBezierSurfacebaseType* = GeomBoundedSurface
+#[ 
 proc constructGeomBezierSurface*(surfacePoles: TColgpArray2OfPnt): GeomBezierSurface {.
     constructor, importcpp: "Geom_BezierSurface(@)",
     header: "Geom_BezierSurface.hxx".}
@@ -254,12 +257,14 @@ proc removePoleCol*(this: var GeomBezierSurface; vIndex: int) {.
     importcpp: "RemovePoleCol", header: "Geom_BezierSurface.hxx".}
 proc removePoleRow*(this: var GeomBezierSurface; uIndex: int) {.
     importcpp: "RemovePoleRow", header: "Geom_BezierSurface.hxx".}
-proc segment*(this: var GeomBezierSurface; u1: float; u2: float; v1: float; v2: float) {.
-    importcpp: "Segment", header: "Geom_BezierSurface.hxx".}
+proc segment*(this: var GeomBezierSurface; u1: StandardReal; u2: StandardReal;
+             v1: StandardReal; v2: StandardReal) {.importcpp: "Segment",
+    header: "Geom_BezierSurface.hxx".}
 proc setPole*(this: var GeomBezierSurface; uIndex: int; vIndex: int; p: Pnt) {.
     importcpp: "SetPole", header: "Geom_BezierSurface.hxx".}
-proc setPole*(this: var GeomBezierSurface; uIndex: int; vIndex: int; p: Pnt; weight: float) {.
-    importcpp: "SetPole", header: "Geom_BezierSurface.hxx".}
+proc setPole*(this: var GeomBezierSurface; uIndex: int; vIndex: int; p: Pnt;
+             weight: StandardReal) {.importcpp: "SetPole",
+                                   header: "Geom_BezierSurface.hxx".}
 proc setPoleCol*(this: var GeomBezierSurface; vIndex: int; cPoles: TColgpArray1OfPnt) {.
     importcpp: "SetPoleCol", header: "Geom_BezierSurface.hxx".}
 proc setPoleCol*(this: var GeomBezierSurface; vIndex: int; cPoles: TColgpArray1OfPnt;
@@ -270,8 +275,9 @@ proc setPoleRow*(this: var GeomBezierSurface; uIndex: int; cPoles: TColgpArray1O
 proc setPoleRow*(this: var GeomBezierSurface; uIndex: int; cPoles: TColgpArray1OfPnt;
                 cPoleWeights: TColStdArray1OfReal) {.importcpp: "SetPoleRow",
     header: "Geom_BezierSurface.hxx".}
-proc setWeight*(this: var GeomBezierSurface; uIndex: int; vIndex: int; weight: float) {.
-    importcpp: "SetWeight", header: "Geom_BezierSurface.hxx".}
+proc setWeight*(this: var GeomBezierSurface; uIndex: int; vIndex: int;
+               weight: StandardReal) {.importcpp: "SetWeight",
+                                     header: "Geom_BezierSurface.hxx".}
 proc setWeightCol*(this: var GeomBezierSurface; vIndex: int;
                   cPoleWeights: TColStdArray1OfReal) {.importcpp: "SetWeightCol",
     header: "Geom_BezierSurface.hxx".}
@@ -280,30 +286,31 @@ proc setWeightRow*(this: var GeomBezierSurface; uIndex: int;
     header: "Geom_BezierSurface.hxx".}
 proc uReverse*(this: var GeomBezierSurface) {.importcpp: "UReverse",
     header: "Geom_BezierSurface.hxx".}
-proc uReversedParameter*(this: GeomBezierSurface; u: float): float {.noSideEffect,
-    importcpp: "UReversedParameter", header: "Geom_BezierSurface.hxx".}
+proc uReversedParameter*(this: GeomBezierSurface; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter", header: "Geom_BezierSurface.hxx".}
 proc vReverse*(this: var GeomBezierSurface) {.importcpp: "VReverse",
     header: "Geom_BezierSurface.hxx".}
-proc vReversedParameter*(this: GeomBezierSurface; v: float): float {.noSideEffect,
-    importcpp: "VReversedParameter", header: "Geom_BezierSurface.hxx".}
-proc bounds*(this: GeomBezierSurface; u1: var float; u2: var float; v1: var float;
-            v2: var float) {.noSideEffect, importcpp: "Bounds",
-                          header: "Geom_BezierSurface.hxx".}
+proc vReversedParameter*(this: GeomBezierSurface; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter", header: "Geom_BezierSurface.hxx".}
+proc bounds*(this: GeomBezierSurface; u1: var StandardReal; u2: var StandardReal;
+            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+    importcpp: "Bounds", header: "Geom_BezierSurface.hxx".}
 proc continuity*(this: GeomBezierSurface): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_BezierSurface.hxx".}
-proc d0*(this: GeomBezierSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
-    importcpp: "D0", header: "Geom_BezierSurface.hxx".}
-proc d1*(this: GeomBezierSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
-    noSideEffect, importcpp: "D1", header: "Geom_BezierSurface.hxx".}
-proc d2*(this: GeomBezierSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
-        d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, importcpp: "D2",
+proc d0*(this: GeomBezierSurface; u: StandardReal; v: StandardReal; p: var Pnt) {.
+    noSideEffect, importcpp: "D0", header: "Geom_BezierSurface.hxx".}
+proc d1*(this: GeomBezierSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                                header: "Geom_BezierSurface.hxx".}
+proc d2*(this: GeomBezierSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_BezierSurface.hxx".}
+proc d3*(this: GeomBezierSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
+        d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
     header: "Geom_BezierSurface.hxx".}
-proc d3*(this: GeomBezierSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
-        d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec; d3uuv: var Vec;
-        d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
-                       header: "Geom_BezierSurface.hxx".}
-proc dn*(this: GeomBezierSurface; u: float; v: float; nu: int; nv: int): Vec {.noSideEffect,
-    importcpp: "DN", header: "Geom_BezierSurface.hxx".}
+proc dn*(this: GeomBezierSurface; u: StandardReal; v: StandardReal; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "Geom_BezierSurface.hxx".}
 proc nbUPoles*(this: GeomBezierSurface): int {.noSideEffect, importcpp: "NbUPoles",
     header: "Geom_BezierSurface.hxx".}
 proc nbVPoles*(this: GeomBezierSurface): int {.noSideEffect, importcpp: "NbVPoles",
@@ -316,48 +323,47 @@ proc poles*(this: GeomBezierSurface): TColgpArray2OfPnt {.noSideEffect,
     importcpp: "Poles", header: "Geom_BezierSurface.hxx".}
 proc uDegree*(this: GeomBezierSurface): int {.noSideEffect, importcpp: "UDegree",
     header: "Geom_BezierSurface.hxx".}
-proc uIso*(this: GeomBezierSurface; u: float): Handle[GeomCurve] {.noSideEffect,
-    importcpp: "UIso", header: "Geom_BezierSurface.hxx".}
+proc uIso*(this: GeomBezierSurface; u: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "UIso", header: "Geom_BezierSurface.hxx".}
 proc vDegree*(this: GeomBezierSurface): int {.noSideEffect, importcpp: "VDegree",
     header: "Geom_BezierSurface.hxx".}
-proc vIso*(this: GeomBezierSurface; v: float): Handle[GeomCurve] {.noSideEffect,
-    importcpp: "VIso", header: "Geom_BezierSurface.hxx".}
-proc weight*(this: GeomBezierSurface; uIndex: int; vIndex: int): float {.noSideEffect,
-    importcpp: "Weight", header: "Geom_BezierSurface.hxx".}
+proc vIso*(this: GeomBezierSurface; v: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "VIso", header: "Geom_BezierSurface.hxx".}
+proc weight*(this: GeomBezierSurface; uIndex: int; vIndex: int): StandardReal {.
+    noSideEffect, importcpp: "Weight", header: "Geom_BezierSurface.hxx".}
 proc weights*(this: GeomBezierSurface; w: var TColStdArray2OfReal) {.noSideEffect,
     importcpp: "Weights", header: "Geom_BezierSurface.hxx".}
 proc weights*(this: GeomBezierSurface): ptr TColStdArray2OfReal {.noSideEffect,
     importcpp: "Weights", header: "Geom_BezierSurface.hxx".}
-proc isUClosed*(this: GeomBezierSurface): bool {.noSideEffect,
+proc isUClosed*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsUClosed", header: "Geom_BezierSurface.hxx".}
-proc isVClosed*(this: GeomBezierSurface): bool {.noSideEffect,
+proc isVClosed*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVClosed", header: "Geom_BezierSurface.hxx".}
-proc isCNu*(this: GeomBezierSurface; n: int): bool {.noSideEffect, importcpp: "IsCNu",
-    header: "Geom_BezierSurface.hxx".}
-proc isCNv*(this: GeomBezierSurface; n: int): bool {.noSideEffect, importcpp: "IsCNv",
-    header: "Geom_BezierSurface.hxx".}
-proc isUPeriodic*(this: GeomBezierSurface): bool {.noSideEffect,
+proc isCNu*(this: GeomBezierSurface; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCNu", header: "Geom_BezierSurface.hxx".}
+proc isCNv*(this: GeomBezierSurface; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCNv", header: "Geom_BezierSurface.hxx".}
+proc isUPeriodic*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsUPeriodic", header: "Geom_BezierSurface.hxx".}
-proc isVPeriodic*(this: GeomBezierSurface): bool {.noSideEffect,
+proc isVPeriodic*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVPeriodic", header: "Geom_BezierSurface.hxx".}
-proc isURational*(this: GeomBezierSurface): bool {.noSideEffect,
+proc isURational*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsURational", header: "Geom_BezierSurface.hxx".}
-proc isVRational*(this: GeomBezierSurface): bool {.noSideEffect,
+proc isVRational*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVRational", header: "Geom_BezierSurface.hxx".}
 proc transform*(this: var GeomBezierSurface; t: Trsf) {.importcpp: "Transform",
     header: "Geom_BezierSurface.hxx".}
 proc maxDegree*(): int {.importcpp: "Geom_BezierSurface::MaxDegree(@)",
                       header: "Geom_BezierSurface.hxx".}
-proc resolution*(this: var GeomBezierSurface; tolerance3D: float;
-                uTolerance: var float; vTolerance: var float) {.
+proc resolution*(this: var GeomBezierSurface; tolerance3D: StandardReal;
+                uTolerance: var StandardReal; vTolerance: var StandardReal) {.
     importcpp: "Resolution", header: "Geom_BezierSurface.hxx".}
 proc copy*(this: GeomBezierSurface): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_BezierSurface.hxx".}
 proc dumpJson*(this: GeomBezierSurface; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_BezierSurface.hxx".}
-type
-  GeomBezierSurfacebaseType* = GeomBoundedSurface
+
 
 proc getTypeName*(): cstring {.importcpp: "Geom_BezierSurface::get_type_name(@)",
                             header: "Geom_BezierSurface.hxx".}
@@ -365,4 +371,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_BezierSurface::get_type_descriptor(@)",
     header: "Geom_BezierSurface.hxx".}
 proc dynamicType*(this: GeomBezierSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_BezierSurface.hxx".}
+    importcpp: "DynamicType", header: "Geom_BezierSurface.hxx".} ]#

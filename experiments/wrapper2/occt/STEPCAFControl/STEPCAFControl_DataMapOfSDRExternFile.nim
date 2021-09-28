@@ -21,3 +21,28 @@ type
       Handle[StepShapeShapeDefinitionRepresentation],
       Handle[STEPCAFControlExternFile], TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

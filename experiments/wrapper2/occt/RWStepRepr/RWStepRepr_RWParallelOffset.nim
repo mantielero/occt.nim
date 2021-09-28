@@ -30,7 +30,7 @@ proc constructRWStepReprRWParallelOffset*(): RWStepReprRWParallelOffset {.
     constructor, importcpp: "RWStepRepr_RWParallelOffset(@)",
     header: "RWStepRepr_RWParallelOffset.hxx".}
 proc readStep*(this: RWStepReprRWParallelOffset;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepReprParallelOffset]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepRepr_RWParallelOffset.hxx".}
 proc writeStep*(this: RWStepReprRWParallelOffset; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepReprRWParallelOffset; sw: var StepDataStepWriter;
 proc share*(this: RWStepReprRWParallelOffset; ent: Handle[StepReprParallelOffset];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWParallelOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

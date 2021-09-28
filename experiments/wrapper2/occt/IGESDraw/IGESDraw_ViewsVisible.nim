@@ -20,7 +20,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESDraw_ViewsVisible"
 discard "forward decl of IGESDraw_ViewsVisible"
 type
-  HandleIGESDrawViewsVisible* = Handle[IGESDrawViewsVisible]
+  HandleC1C1* = Handle[IGESDrawViewsVisible]
 
 ## ! Defines IGESViewsVisible, Type <402>, Form <3>
 ## ! in package IGESDraw
@@ -45,13 +45,14 @@ proc initImplied*(this: var IGESDrawViewsVisible;
     importcpp: "InitImplied", header: "IGESDraw_ViewsVisible.hxx".}
 proc isSingle*(this: IGESDrawViewsVisible): bool {.noSideEffect,
     importcpp: "IsSingle", header: "IGESDraw_ViewsVisible.hxx".}
-proc nbViews*(this: IGESDrawViewsVisible): int {.noSideEffect, importcpp: "NbViews",
+proc nbViews*(this: IGESDrawViewsVisible): cint {.noSideEffect, importcpp: "NbViews",
     header: "IGESDraw_ViewsVisible.hxx".}
-proc nbDisplayedEntities*(this: IGESDrawViewsVisible): int {.noSideEffect,
+proc nbDisplayedEntities*(this: IGESDrawViewsVisible): cint {.noSideEffect,
     importcpp: "NbDisplayedEntities", header: "IGESDraw_ViewsVisible.hxx".}
-proc viewItem*(this: IGESDrawViewsVisible; index: int): Handle[IGESDataViewKindEntity] {.
-    noSideEffect, importcpp: "ViewItem", header: "IGESDraw_ViewsVisible.hxx".}
-proc displayedEntity*(this: IGESDrawViewsVisible; index: int): Handle[
+proc viewItem*(this: IGESDrawViewsVisible; index: cint): Handle[
+    IGESDataViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
+                             header: "IGESDraw_ViewsVisible.hxx".}
+proc displayedEntity*(this: IGESDrawViewsVisible; index: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "DisplayedEntity",
                          header: "IGESDraw_ViewsVisible.hxx".}
 type
@@ -64,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDraw_ViewsVisible.hxx".}
 proc dynamicType*(this: IGESDrawViewsVisible): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDraw_ViewsVisible.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

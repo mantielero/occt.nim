@@ -24,7 +24,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataStd_TreeNode"
 discard "forward decl of TDataStd_TreeNode"
 type
-  HandleTDataStdTreeNode* = Handle[TDataStdTreeNode]
+  HandleC1C1* = Handle[TDataStdTreeNode]
 
 ## ! Allows you to define an explicit tree of labels
 ## ! which you can also edit.
@@ -90,9 +90,9 @@ proc insertAfter*(this: var TDataStdTreeNode; node: Handle[TDataStdTreeNode]): b
     importcpp: "InsertAfter", header: "TDataStd_TreeNode.hxx".}
 proc remove*(this: var TDataStdTreeNode): bool {.importcpp: "Remove",
     header: "TDataStd_TreeNode.hxx".}
-proc depth*(this: TDataStdTreeNode): int {.noSideEffect, importcpp: "Depth",
-                                       header: "TDataStd_TreeNode.hxx".}
-proc nbChildren*(this: TDataStdTreeNode; allLevels: bool = false): int {.noSideEffect,
+proc depth*(this: TDataStdTreeNode): cint {.noSideEffect, importcpp: "Depth",
+                                        header: "TDataStd_TreeNode.hxx".}
+proc nbChildren*(this: TDataStdTreeNode; allLevels: bool = false): cint {.noSideEffect,
     importcpp: "NbChildren", header: "TDataStd_TreeNode.hxx".}
 proc isAscendant*(this: TDataStdTreeNode; `of`: Handle[TDataStdTreeNode]): bool {.
     noSideEffect, importcpp: "IsAscendant", header: "TDataStd_TreeNode.hxx".}
@@ -166,8 +166,8 @@ proc references*(this: TDataStdTreeNode; aDataSet: Handle[TDF_DataSet]) {.
 proc dump*(this: TDataStdTreeNode; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_TreeNode.hxx".}
 proc dumpJson*(this: TDataStdTreeNode; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_TreeNode.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_TreeNode.hxx".}
 type
   TDataStdTreeNodebaseType* = TDF_Attribute
 
@@ -178,3 +178,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_TreeNode.hxx".}
 proc dynamicType*(this: TDataStdTreeNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_TreeNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

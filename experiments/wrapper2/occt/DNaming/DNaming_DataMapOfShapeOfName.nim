@@ -20,3 +20,28 @@ type
   DNamingDataMapIteratorOfDataMapOfShapeOfName* = Iterator[TopoDS_Shape,
       TCollectionAsciiString, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

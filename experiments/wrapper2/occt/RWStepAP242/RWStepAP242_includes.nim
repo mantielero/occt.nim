@@ -7,3 +7,28 @@ include RWStepAP242_RWGeometricItemSpecificUsage
 include RWStepAP242_RWIdAttribute
 include RWStepAP242_RWItemIdentifiedRepresentationUsage
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

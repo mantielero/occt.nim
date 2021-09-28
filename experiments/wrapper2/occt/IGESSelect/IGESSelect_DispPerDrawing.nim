@@ -22,7 +22,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IGESSelect_DispPerDrawing"
 discard "forward decl of IGESSelect_DispPerDrawing"
 type
-  HandleIGESSelectDispPerDrawing* = Handle[IGESSelectDispPerDrawing]
+  HandleC1C1* = Handle[IGESSelectDispPerDrawing]
 
 ## ! This type of dispatch defines sets of entities attached to
 ## ! distinct drawings. This information is taken from attached
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_DispPerDrawing.hxx".}
 proc dynamicType*(this: IGESSelectDispPerDrawing): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_DispPerDrawing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

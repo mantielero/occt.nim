@@ -14,7 +14,32 @@
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepMesh_DiscretRoot"
 type
-  BRepMeshPluginEntryType* = proc (theShape: TopoDS_Shape; theLinDeflection: float;
-                                theAngDeflection: float;
-                                theMeshAlgoInstance: ptr BRepMeshDiscretRoot): int
+  BRepMeshPluginEntryType* = proc (theShape: TopoDS_Shape; theLinDeflection: cfloat;
+                                theAngDeflection: cfloat;
+                                theMeshAlgoInstance: ptr BRepMeshDiscretRoot): cint
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

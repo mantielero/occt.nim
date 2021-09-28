@@ -31,9 +31,34 @@ proc shape*(this: BOPToolsSet): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BOPTools_Set.hxx".}
 proc add*(this: var BOPToolsSet; theS: TopoDS_Shape; theType: TopAbsShapeEnum) {.
     importcpp: "Add", header: "BOPTools_Set.hxx".}
-proc nbShapes*(this: BOPToolsSet): int {.noSideEffect, importcpp: "NbShapes",
-                                     header: "BOPTools_Set.hxx".}
+proc nbShapes*(this: BOPToolsSet): cint {.noSideEffect, importcpp: "NbShapes",
+                                      header: "BOPTools_Set.hxx".}
 proc isEqual*(this: BOPToolsSet; aOther: BOPToolsSet): bool {.noSideEffect,
     importcpp: "IsEqual", header: "BOPTools_Set.hxx".}
-proc hashCode*(this: BOPToolsSet; theUpperBound: int): int {.noSideEffect,
+proc hashCode*(this: BOPToolsSet; theUpperBound: cint): cint {.noSideEffect,
     importcpp: "HashCode", header: "BOPTools_Set.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

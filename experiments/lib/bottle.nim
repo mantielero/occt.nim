@@ -1,5 +1,6 @@
-import occt
-import cinterop
+import occt/gp/gp_includes
+
+#import cinterop
 
 proc main() =
   let

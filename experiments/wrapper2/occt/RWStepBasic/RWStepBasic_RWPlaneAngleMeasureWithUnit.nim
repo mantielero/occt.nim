@@ -29,7 +29,7 @@ proc constructRWStepBasicRWPlaneAngleMeasureWithUnit*(): RWStepBasicRWPlaneAngle
     constructor, importcpp: "RWStepBasic_RWPlaneAngleMeasureWithUnit(@)",
     header: "RWStepBasic_RWPlaneAngleMeasureWithUnit.hxx".}
 proc readStep*(this: RWStepBasicRWPlaneAngleMeasureWithUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicPlaneAngleMeasureWithUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWPlaneAngleMeasureWithUnit.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepBasicRWPlaneAngleMeasureWithUnit;
            ent: Handle[StepBasicPlaneAngleMeasureWithUnit];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWPlaneAngleMeasureWithUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

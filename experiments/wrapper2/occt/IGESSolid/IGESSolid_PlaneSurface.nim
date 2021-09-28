@@ -19,7 +19,7 @@ discard "forward decl of IGESGeom_Direction"
 discard "forward decl of IGESSolid_PlaneSurface"
 discard "forward decl of IGESSolid_PlaneSurface"
 type
-  HandleIGESSolidPlaneSurface* = Handle[IGESSolidPlaneSurface]
+  HandleC1C1* = Handle[IGESSolidPlaneSurface]
 
 ## ! defines PlaneSurface, Type <190> Form Number <0,1>
 ## ! in package IGESSolid
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_PlaneSurface.hxx".}
 proc dynamicType*(this: IGESSolidPlaneSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_PlaneSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

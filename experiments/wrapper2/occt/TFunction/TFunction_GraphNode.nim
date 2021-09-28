@@ -21,7 +21,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TFunction_GraphNode"
 discard "forward decl of TFunction_GraphNode"
 type
-  HandleTFunctionGraphNode* = Handle[TFunctionGraphNode]
+  HandleC1C1* = Handle[TFunctionGraphNode]
 
 ## ! Provides links between functions.
 
@@ -60,11 +60,11 @@ proc getID*(): StandardGUID {.importcpp: "TFunction_GraphNode::GetID(@)",
                            header: "TFunction_GraphNode.hxx".}
 proc constructTFunctionGraphNode*(): TFunctionGraphNode {.constructor,
     importcpp: "TFunction_GraphNode(@)", header: "TFunction_GraphNode.hxx".}
-proc addPrevious*(this: var TFunctionGraphNode; funcID: int): bool {.
+proc addPrevious*(this: var TFunctionGraphNode; funcID: cint): bool {.
     importcpp: "AddPrevious", header: "TFunction_GraphNode.hxx".}
 proc addPrevious*(this: var TFunctionGraphNode; `func`: TDF_Label): bool {.
     importcpp: "AddPrevious", header: "TFunction_GraphNode.hxx".}
-proc removePrevious*(this: var TFunctionGraphNode; funcID: int): bool {.
+proc removePrevious*(this: var TFunctionGraphNode; funcID: cint): bool {.
     importcpp: "RemovePrevious", header: "TFunction_GraphNode.hxx".}
 proc removePrevious*(this: var TFunctionGraphNode; `func`: TDF_Label): bool {.
     importcpp: "RemovePrevious", header: "TFunction_GraphNode.hxx".}
@@ -72,11 +72,11 @@ proc getPrevious*(this: TFunctionGraphNode): TColStdMapOfInteger {.noSideEffect,
     importcpp: "GetPrevious", header: "TFunction_GraphNode.hxx".}
 proc removeAllPrevious*(this: var TFunctionGraphNode) {.
     importcpp: "RemoveAllPrevious", header: "TFunction_GraphNode.hxx".}
-proc addNext*(this: var TFunctionGraphNode; funcID: int): bool {.importcpp: "AddNext",
+proc addNext*(this: var TFunctionGraphNode; funcID: cint): bool {.importcpp: "AddNext",
     header: "TFunction_GraphNode.hxx".}
 proc addNext*(this: var TFunctionGraphNode; `func`: TDF_Label): bool {.
     importcpp: "AddNext", header: "TFunction_GraphNode.hxx".}
-proc removeNext*(this: var TFunctionGraphNode; funcID: int): bool {.
+proc removeNext*(this: var TFunctionGraphNode; funcID: cint): bool {.
     importcpp: "RemoveNext", header: "TFunction_GraphNode.hxx".}
 proc removeNext*(this: var TFunctionGraphNode; `func`: TDF_Label): bool {.
     importcpp: "RemoveNext", header: "TFunction_GraphNode.hxx".}
@@ -111,3 +111,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TFunction_GraphNode.hxx".}
 proc dynamicType*(this: TFunctionGraphNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TFunction_GraphNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

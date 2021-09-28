@@ -19,7 +19,7 @@ discard "forward decl of StepVisual_PlanarBox"
 discard "forward decl of StepVisual_ViewVolume"
 discard "forward decl of StepVisual_ViewVolume"
 type
-  HandleStepVisualViewVolume* = Handle[StepVisualViewVolume]
+  HandleC1C1* = Handle[StepVisualViewVolume]
   StepVisualViewVolume* {.importcpp: "StepVisual_ViewVolume",
                          header: "StepVisual_ViewVolume.hxx", bycopy.} = object of StandardTransient ##
                                                                                               ## !
@@ -33,8 +33,8 @@ proc constructStepVisualViewVolume*(): StepVisualViewVolume {.constructor,
 proc init*(this: var StepVisualViewVolume;
           aProjectionType: StepVisualCentralOrParallel;
           aProjectionPoint: Handle[StepGeomCartesianPoint];
-          aViewPlaneDistance: float; aFrontPlaneDistance: float;
-          aFrontPlaneClipping: bool; aBackPlaneDistance: float;
+          aViewPlaneDistance: cfloat; aFrontPlaneDistance: cfloat;
+          aFrontPlaneClipping: bool; aBackPlaneDistance: cfloat;
           aBackPlaneClipping: bool; aViewVolumeSidesClipping: bool;
           aViewWindow: Handle[StepVisualPlanarBox]) {.importcpp: "Init",
     header: "StepVisual_ViewVolume.hxx".}
@@ -48,23 +48,25 @@ proc setProjectionPoint*(this: var StepVisualViewVolume;
     importcpp: "SetProjectionPoint", header: "StepVisual_ViewVolume.hxx".}
 proc projectionPoint*(this: StepVisualViewVolume): Handle[StepGeomCartesianPoint] {.
     noSideEffect, importcpp: "ProjectionPoint", header: "StepVisual_ViewVolume.hxx".}
-proc setViewPlaneDistance*(this: var StepVisualViewVolume; aViewPlaneDistance: float) {.
+proc setViewPlaneDistance*(this: var StepVisualViewVolume;
+                          aViewPlaneDistance: cfloat) {.
     importcpp: "SetViewPlaneDistance", header: "StepVisual_ViewVolume.hxx".}
-proc viewPlaneDistance*(this: StepVisualViewVolume): float {.noSideEffect,
+proc viewPlaneDistance*(this: StepVisualViewVolume): cfloat {.noSideEffect,
     importcpp: "ViewPlaneDistance", header: "StepVisual_ViewVolume.hxx".}
 proc setFrontPlaneDistance*(this: var StepVisualViewVolume;
-                           aFrontPlaneDistance: float) {.
+                           aFrontPlaneDistance: cfloat) {.
     importcpp: "SetFrontPlaneDistance", header: "StepVisual_ViewVolume.hxx".}
-proc frontPlaneDistance*(this: StepVisualViewVolume): float {.noSideEffect,
+proc frontPlaneDistance*(this: StepVisualViewVolume): cfloat {.noSideEffect,
     importcpp: "FrontPlaneDistance", header: "StepVisual_ViewVolume.hxx".}
 proc setFrontPlaneClipping*(this: var StepVisualViewVolume;
                            aFrontPlaneClipping: bool) {.
     importcpp: "SetFrontPlaneClipping", header: "StepVisual_ViewVolume.hxx".}
 proc frontPlaneClipping*(this: StepVisualViewVolume): bool {.noSideEffect,
     importcpp: "FrontPlaneClipping", header: "StepVisual_ViewVolume.hxx".}
-proc setBackPlaneDistance*(this: var StepVisualViewVolume; aBackPlaneDistance: float) {.
+proc setBackPlaneDistance*(this: var StepVisualViewVolume;
+                          aBackPlaneDistance: cfloat) {.
     importcpp: "SetBackPlaneDistance", header: "StepVisual_ViewVolume.hxx".}
-proc backPlaneDistance*(this: StepVisualViewVolume): float {.noSideEffect,
+proc backPlaneDistance*(this: StepVisualViewVolume): cfloat {.noSideEffect,
     importcpp: "BackPlaneDistance", header: "StepVisual_ViewVolume.hxx".}
 proc setBackPlaneClipping*(this: var StepVisualViewVolume; aBackPlaneClipping: bool) {.
     importcpp: "SetBackPlaneClipping", header: "StepVisual_ViewVolume.hxx".}
@@ -90,3 +92,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_ViewVolume.hxx".}
 proc dynamicType*(this: StepVisualViewVolume): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_ViewVolume.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

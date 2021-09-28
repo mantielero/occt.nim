@@ -22,9 +22,34 @@ type
                                                      ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 
-proc hashCode*(theKey: IntToolsCurveRangeSample; theUpperBound: int): int {.
+proc hashCode*(theKey: IntToolsCurveRangeSample; theUpperBound: cint): cint {.
     importcpp: "IntTools_CurveRangeSampleMapHasher::HashCode(@)",
     header: "IntTools_CurveRangeSampleMapHasher.hxx".}
 proc isEqual*(s1: IntToolsCurveRangeSample; s2: IntToolsCurveRangeSample): bool {.
     importcpp: "IntTools_CurveRangeSampleMapHasher::IsEqual(@)",
     header: "IntTools_CurveRangeSampleMapHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

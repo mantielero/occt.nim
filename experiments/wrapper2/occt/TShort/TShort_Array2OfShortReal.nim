@@ -15,3 +15,28 @@
 type
   TShortArray2OfShortReal* = NCollectionArray2[StandardShortReal]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

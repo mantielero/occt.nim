@@ -21,7 +21,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_PacketList"
 discard "forward decl of IFSelect_PacketList"
 type
-  HandleIFSelectPacketList* = Handle[IFSelectPacketList]
+  HandleC1C1* = Handle[IFSelectPacketList]
 
 ## ! This class gives a simple way to return then consult a
 ## ! list of packets, determined from the content of a Model,
@@ -68,17 +68,17 @@ proc add*(this: var IFSelectPacketList; ent: Handle[StandardTransient]) {.
 proc addList*(this: var IFSelectPacketList;
              list: Handle[TColStdHSequenceOfTransient]) {.importcpp: "AddList",
     header: "IFSelect_PacketList.hxx".}
-proc nbPackets*(this: IFSelectPacketList): int {.noSideEffect,
+proc nbPackets*(this: IFSelectPacketList): cint {.noSideEffect,
     importcpp: "NbPackets", header: "IFSelect_PacketList.hxx".}
-proc nbEntities*(this: IFSelectPacketList; numpack: int): int {.noSideEffect,
+proc nbEntities*(this: IFSelectPacketList; numpack: cint): cint {.noSideEffect,
     importcpp: "NbEntities", header: "IFSelect_PacketList.hxx".}
-proc entities*(this: IFSelectPacketList; numpack: int): InterfaceEntityIterator {.
+proc entities*(this: IFSelectPacketList; numpack: cint): InterfaceEntityIterator {.
     noSideEffect, importcpp: "Entities", header: "IFSelect_PacketList.hxx".}
-proc highestDuplicationCount*(this: IFSelectPacketList): int {.noSideEffect,
+proc highestDuplicationCount*(this: IFSelectPacketList): cint {.noSideEffect,
     importcpp: "HighestDuplicationCount", header: "IFSelect_PacketList.hxx".}
-proc nbDuplicated*(this: IFSelectPacketList; count: int; andmore: bool): int {.
+proc nbDuplicated*(this: IFSelectPacketList; count: cint; andmore: bool): cint {.
     noSideEffect, importcpp: "NbDuplicated", header: "IFSelect_PacketList.hxx".}
-proc duplicated*(this: IFSelectPacketList; count: int; andmore: bool): InterfaceEntityIterator {.
+proc duplicated*(this: IFSelectPacketList; count: cint; andmore: bool): InterfaceEntityIterator {.
     noSideEffect, importcpp: "Duplicated", header: "IFSelect_PacketList.hxx".}
 type
   IFSelectPacketListbaseType* = StandardTransient
@@ -90,3 +90,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_PacketList.hxx".}
 proc dynamicType*(this: IFSelectPacketList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_PacketList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

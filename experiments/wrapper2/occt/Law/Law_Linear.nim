@@ -19,7 +19,7 @@ discard "forward decl of Law_Function"
 discard "forward decl of Law_Linear"
 discard "forward decl of Law_Linear"
 type
-  HandleLawLinear* = Handle[LawLinear]
+  HandleC1C1* = Handle[LawLinear]
 
 ## ! Describes an linear evolution law.
 
@@ -36,23 +36,23 @@ type
 
 proc constructLawLinear*(): LawLinear {.constructor, importcpp: "Law_Linear(@)",
                                      header: "Law_Linear.hxx".}
-proc set*(this: var LawLinear; pdeb: float; valdeb: float; pfin: float; valfin: float) {.
+proc set*(this: var LawLinear; pdeb: cfloat; valdeb: cfloat; pfin: cfloat; valfin: cfloat) {.
     importcpp: "Set", header: "Law_Linear.hxx".}
 proc continuity*(this: LawLinear): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Law_Linear.hxx".}
-proc nbIntervals*(this: LawLinear; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: LawLinear; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Law_Linear.hxx".}
 proc intervals*(this: LawLinear; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Law_Linear.hxx".}
-proc value*(this: var LawLinear; x: float): float {.importcpp: "Value",
+proc value*(this: var LawLinear; x: cfloat): cfloat {.importcpp: "Value",
     header: "Law_Linear.hxx".}
-proc d1*(this: var LawLinear; x: float; f: var float; d: var float) {.importcpp: "D1",
+proc d1*(this: var LawLinear; x: cfloat; f: var cfloat; d: var cfloat) {.importcpp: "D1",
     header: "Law_Linear.hxx".}
-proc d2*(this: var LawLinear; x: float; f: var float; d: var float; d2: var float) {.
+proc d2*(this: var LawLinear; x: cfloat; f: var cfloat; d: var cfloat; d2: var cfloat) {.
     importcpp: "D2", header: "Law_Linear.hxx".}
-proc trim*(this: LawLinear; pFirst: float; pLast: float; tol: float): Handle[LawFunction] {.
-    noSideEffect, importcpp: "Trim", header: "Law_Linear.hxx".}
-proc bounds*(this: var LawLinear; pFirst: var float; pLast: var float) {.
+proc trim*(this: LawLinear; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handle[
+    LawFunction] {.noSideEffect, importcpp: "Trim", header: "Law_Linear.hxx".}
+proc bounds*(this: var LawLinear; pFirst: var cfloat; pLast: var cfloat) {.
     importcpp: "Bounds", header: "Law_Linear.hxx".}
 type
   LawLinearbaseType* = LawFunction
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Law_Linear::get_type_descriptor(@)", header: "Law_Linear.hxx".}
 proc dynamicType*(this: LawLinear): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_Linear.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

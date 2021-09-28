@@ -29,22 +29,47 @@ proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve;
          aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
     header: "VrmlConverter_DeflectionCurve.hxx".}
-proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve; u1: float;
-         u2: float; aDrawer: Handle[VrmlConverterDrawer]) {.
+proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve; u1: cfloat;
+         u2: cfloat; aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
     header: "VrmlConverter_DeflectionCurve.hxx".}
 proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve;
-         aDeflection: float; aLimit: float) {.
+         aDeflection: cfloat; aLimit: cfloat) {.
     importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
     header: "VrmlConverter_DeflectionCurve.hxx".}
 proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve;
-         aDeflection: float; aDrawer: Handle[VrmlConverterDrawer]) {.
+         aDeflection: cfloat; aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
     header: "VrmlConverter_DeflectionCurve.hxx".}
-proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve; u1: float;
-         u2: float; aDeflection: float) {.importcpp: "VrmlConverter_DeflectionCurve::Add(@)", header: "VrmlConverter_DeflectionCurve.hxx".}
+proc add*(anOStream: var StandardOStream; aCurve: var Adaptor3dCurve; u1: cfloat;
+         u2: cfloat; aDeflection: cfloat) {.importcpp: "VrmlConverter_DeflectionCurve::Add(@)", header: "VrmlConverter_DeflectionCurve.hxx".}
 proc add*(anOStream: var StandardOStream; aCurve: Adaptor3dCurve;
-         aParams: Handle[TColStdHArray1OfReal]; aNbNodes: int;
+         aParams: Handle[TColStdHArray1OfReal]; aNbNodes: cint;
          aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_DeflectionCurve::Add(@)",
     header: "VrmlConverter_DeflectionCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

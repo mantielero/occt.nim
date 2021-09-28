@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESDimenToolGeneralNote;
              entto: Handle[IGESDimenGeneralNote]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolGeneralNote.hxx".}
 proc ownDump*(this: IGESDimenToolGeneralNote; ent: Handle[IGESDimenGeneralNote];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESDimen_ToolGeneralNote.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

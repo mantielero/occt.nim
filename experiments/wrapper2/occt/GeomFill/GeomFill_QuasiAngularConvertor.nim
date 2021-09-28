@@ -23,26 +23,47 @@ type
                                   bycopy.} = object
 
 
+proc `new`*(this: var GeomFillQuasiAngularConvertor; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_QuasiAngularConvertor::operator new",
+    header: "GeomFill_QuasiAngularConvertor.hxx".}
+proc `delete`*(this: var GeomFillQuasiAngularConvertor; theAddress: pointer) {.
+    importcpp: "GeomFill_QuasiAngularConvertor::operator delete",
+    header: "GeomFill_QuasiAngularConvertor.hxx".}
+proc `new[]`*(this: var GeomFillQuasiAngularConvertor; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_QuasiAngularConvertor::operator new[]",
+    header: "GeomFill_QuasiAngularConvertor.hxx".}
+proc `delete[]`*(this: var GeomFillQuasiAngularConvertor; theAddress: pointer) {.
+    importcpp: "GeomFill_QuasiAngularConvertor::operator delete[]",
+    header: "GeomFill_QuasiAngularConvertor.hxx".}
+proc `new`*(this: var GeomFillQuasiAngularConvertor; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_QuasiAngularConvertor::operator new",
+    header: "GeomFill_QuasiAngularConvertor.hxx".}
+proc `delete`*(this: var GeomFillQuasiAngularConvertor; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_QuasiAngularConvertor::operator delete",
+    header: "GeomFill_QuasiAngularConvertor.hxx".}
 proc constructGeomFillQuasiAngularConvertor*(): GeomFillQuasiAngularConvertor {.
     constructor, importcpp: "GeomFill_QuasiAngularConvertor(@)",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc initialized*(this: GeomFillQuasiAngularConvertor): bool {.noSideEffect,
-    importcpp: "Initialized", header: "GeomFill_QuasiAngularConvertor.hxx".}
+proc initialized*(this: GeomFillQuasiAngularConvertor): StandardBoolean {.
+    noSideEffect, importcpp: "Initialized",
+    header: "GeomFill_QuasiAngularConvertor.hxx".}
 proc init*(this: var GeomFillQuasiAngularConvertor) {.importcpp: "Init",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
 proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: Pnt; center: Pnt;
-             dir: Vec; angle: float; poles: var TColgpArray1OfPnt;
+             dir: Vec; angle: StandardReal; poles: var TColgpArray1OfPnt;
              weights: var TColStdArray1OfReal) {.importcpp: "Section",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
 proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: Pnt; dFirstPnt: Vec;
-             center: Pnt; dCenter: Vec; dir: Vec; dDir: Vec; angle: float; dAngle: float;
-             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
-             weights: var TColStdArray1OfReal; dWeights: var TColStdArray1OfReal) {.
-    importcpp: "Section", header: "GeomFill_QuasiAngularConvertor.hxx".}
+             center: Pnt; dCenter: Vec; dir: Vec; dDir: Vec; angle: StandardReal;
+             dAngle: StandardReal; poles: var TColgpArray1OfPnt;
+             dPoles: var TColgpArray1OfVec; weights: var TColStdArray1OfReal;
+             dWeights: var TColStdArray1OfReal) {.importcpp: "Section",
+    header: "GeomFill_QuasiAngularConvertor.hxx".}
 proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: Pnt; dFirstPnt: Vec;
              d2FirstPnt: Vec; center: Pnt; dCenter: Vec; d2Center: Vec; dir: Vec;
-             dDir: Vec; d2Dir: Vec; angle: float; dAngle: float; d2Angle: float;
-             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
-             d2Poles: var TColgpArray1OfVec; weights: var TColStdArray1OfReal;
-             dWeights: var TColStdArray1OfReal; d2Weights: var TColStdArray1OfReal) {.
-    importcpp: "Section", header: "GeomFill_QuasiAngularConvertor.hxx".}
+             dDir: Vec; d2Dir: Vec; angle: StandardReal; dAngle: StandardReal;
+             d2Angle: StandardReal; poles: var TColgpArray1OfPnt;
+             dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
+             weights: var TColStdArray1OfReal; dWeights: var TColStdArray1OfReal;
+             d2Weights: var TColStdArray1OfReal) {.importcpp: "Section",
+    header: "GeomFill_QuasiAngularConvertor.hxx".}

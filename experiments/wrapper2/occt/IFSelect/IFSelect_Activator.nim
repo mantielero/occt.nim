@@ -20,7 +20,7 @@ discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IFSelect_Activator"
 discard "forward decl of IFSelect_Activator"
 type
-  HandleIFSelectActivator* = Handle[IFSelectActivator]
+  HandleC1C1* = Handle[IFSelectActivator]
 
 ## ! Defines the general frame for working with a SessionPilot.
 ## ! Each Activator treats a set of Commands. Commands are given as
@@ -103,27 +103,27 @@ type
                                                                                         ## values
 
 
-proc adding*(actor: Handle[IFSelectActivator]; number: int; command: StandardCString;
-            mode: int) {.importcpp: "IFSelect_Activator::Adding(@)",
-                       header: "IFSelect_Activator.hxx".}
-proc add*(this: IFSelectActivator; number: int; command: StandardCString) {.
+proc adding*(actor: Handle[IFSelectActivator]; number: cint;
+            command: StandardCString; mode: cint) {.
+    importcpp: "IFSelect_Activator::Adding(@)", header: "IFSelect_Activator.hxx".}
+proc add*(this: IFSelectActivator; number: cint; command: StandardCString) {.
     noSideEffect, importcpp: "Add", header: "IFSelect_Activator.hxx".}
-proc addSet*(this: IFSelectActivator; number: int; command: StandardCString) {.
+proc addSet*(this: IFSelectActivator; number: cint; command: StandardCString) {.
     noSideEffect, importcpp: "AddSet", header: "IFSelect_Activator.hxx".}
 proc remove*(command: StandardCString) {.importcpp: "IFSelect_Activator::Remove(@)",
                                       header: "IFSelect_Activator.hxx".}
-proc select*(command: StandardCString; number: var int;
+proc select*(command: StandardCString; number: var cint;
             actor: var Handle[IFSelectActivator]): bool {.
     importcpp: "IFSelect_Activator::Select(@)", header: "IFSelect_Activator.hxx".}
-proc mode*(command: StandardCString): int {.importcpp: "IFSelect_Activator::Mode(@)",
-                                        header: "IFSelect_Activator.hxx".}
-proc commands*(mode: int = -1; command: StandardCString = ""): Handle[
+proc mode*(command: StandardCString): cint {.
+    importcpp: "IFSelect_Activator::Mode(@)", header: "IFSelect_Activator.hxx".}
+proc commands*(mode: cint = -1; command: StandardCString = ""): Handle[
     TColStdHSequenceOfAsciiString] {.importcpp: "IFSelect_Activator::Commands(@)",
                                     header: "IFSelect_Activator.hxx".}
-proc `do`*(this: var IFSelectActivator; number: int;
+proc `do`*(this: var IFSelectActivator; number: cint;
           pilot: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
     importcpp: "Do", header: "IFSelect_Activator.hxx".}
-proc help*(this: IFSelectActivator; number: int): StandardCString {.noSideEffect,
+proc help*(this: IFSelectActivator; number: cint): StandardCString {.noSideEffect,
     importcpp: "Help", header: "IFSelect_Activator.hxx".}
 proc group*(this: IFSelectActivator): StandardCString {.noSideEffect,
     importcpp: "Group", header: "IFSelect_Activator.hxx".}
@@ -142,3 +142,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_Activator.hxx".}
 proc dynamicType*(this: IFSelectActivator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Activator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

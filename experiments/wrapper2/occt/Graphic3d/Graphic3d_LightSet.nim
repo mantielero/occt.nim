@@ -88,15 +88,15 @@ proc next*(this: var Graphic3dLightSetIterator) {.importcpp: "Next",
     header: "Graphic3d_LightSet.hxx".}
 proc constructGraphic3dLightSet*(): Graphic3dLightSet {.constructor,
     importcpp: "Graphic3d_LightSet(@)", header: "Graphic3d_LightSet.hxx".}
-proc lower*(this: Graphic3dLightSet): int {.noSideEffect, importcpp: "Lower",
-                                        header: "Graphic3d_LightSet.hxx".}
-proc upper*(this: Graphic3dLightSet): int {.noSideEffect, importcpp: "Upper",
-                                        header: "Graphic3d_LightSet.hxx".}
+proc lower*(this: Graphic3dLightSet): cint {.noSideEffect, importcpp: "Lower",
+    header: "Graphic3d_LightSet.hxx".}
+proc upper*(this: Graphic3dLightSet): cint {.noSideEffect, importcpp: "Upper",
+    header: "Graphic3d_LightSet.hxx".}
 proc isEmpty*(this: Graphic3dLightSet): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "Graphic3d_LightSet.hxx".}
-proc extent*(this: Graphic3dLightSet): int {.noSideEffect, importcpp: "Extent",
+proc extent*(this: Graphic3dLightSet): cint {.noSideEffect, importcpp: "Extent",
     header: "Graphic3d_LightSet.hxx".}
-proc value*(this: Graphic3dLightSet; theIndex: int): Handle[Graphic3dCLight] {.
+proc value*(this: Graphic3dLightSet; theIndex: cint): Handle[Graphic3dCLight] {.
     noSideEffect, importcpp: "Value", header: "Graphic3d_LightSet.hxx".}
 proc contains*(this: Graphic3dLightSet; theLight: Handle[Graphic3dCLight]): bool {.
     noSideEffect, importcpp: "Contains", header: "Graphic3d_LightSet.hxx".}
@@ -104,16 +104,16 @@ proc add*(this: var Graphic3dLightSet; theLight: Handle[Graphic3dCLight]): bool 
     importcpp: "Add", header: "Graphic3d_LightSet.hxx".}
 proc remove*(this: var Graphic3dLightSet; theLight: Handle[Graphic3dCLight]): bool {.
     importcpp: "Remove", header: "Graphic3d_LightSet.hxx".}
-proc nbLightsOfType*(this: Graphic3dLightSet; theType: Graphic3dTypeOfLightSource): int {.
+proc nbLightsOfType*(this: Graphic3dLightSet; theType: Graphic3dTypeOfLightSource): cint {.
     noSideEffect, importcpp: "NbLightsOfType", header: "Graphic3d_LightSet.hxx".}
 proc updateRevision*(this: var Graphic3dLightSet): StandardSize {.
     importcpp: "UpdateRevision", header: "Graphic3d_LightSet.hxx".}
 proc revision*(this: Graphic3dLightSet): StandardSize {.noSideEffect,
     importcpp: "Revision", header: "Graphic3d_LightSet.hxx".}
-proc nbEnabled*(this: Graphic3dLightSet): int {.noSideEffect, importcpp: "NbEnabled",
-    header: "Graphic3d_LightSet.hxx".}
+proc nbEnabled*(this: Graphic3dLightSet): cint {.noSideEffect,
+    importcpp: "NbEnabled", header: "Graphic3d_LightSet.hxx".}
 proc nbEnabledLightsOfType*(this: Graphic3dLightSet;
-                           theType: Graphic3dTypeOfLightSource): int {.
+                           theType: Graphic3dTypeOfLightSource): cint {.
     noSideEffect, importcpp: "NbEnabledLightsOfType",
     header: "Graphic3d_LightSet.hxx".}
 proc ambientColor*(this: Graphic3dLightSet): Graphic3dVec4 {.noSideEffect,
@@ -124,5 +124,30 @@ proc keyEnabledShort*(this: Graphic3dLightSet): TCollectionAsciiString {.
     noSideEffect, importcpp: "KeyEnabledShort", header: "Graphic3d_LightSet.hxx".}
 discard "forward decl of Graphic3d_LightSet"
 type
-  HandleGraphic3dLightSet* = Handle[Graphic3dLightSet]
+  HandleC1C1* = Handle[Graphic3dLightSet]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

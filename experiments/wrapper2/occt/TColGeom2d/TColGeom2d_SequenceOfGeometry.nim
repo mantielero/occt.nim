@@ -17,3 +17,28 @@
 type
   TColGeom2dSequenceOfGeometry* = NCollectionSequence[Handle[Geom2dGeometry]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

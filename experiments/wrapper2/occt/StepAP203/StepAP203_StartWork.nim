@@ -18,7 +18,7 @@ discard "forward decl of StepBasic_Action"
 discard "forward decl of StepAP203_StartWork"
 discard "forward decl of StepAP203_StartWork"
 type
-  HandleStepAP203StartWork* = Handle[StepAP203StartWork]
+  HandleC1C1* = Handle[StepAP203StartWork]
 
 ## ! Representation of STEP entity StartWork
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepAP203_StartWork.hxx".}
 proc dynamicType*(this: StepAP203StartWork): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP203_StartWork.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,3 +38,28 @@ proc approxCommands*(i: var DrawInterpretor) {.
     importcpp: "GeomliteTest::ApproxCommands(@)", header: "GeomliteTest.hxx".}
 proc modificationCommands*(i: var DrawInterpretor) {.
     importcpp: "GeomliteTest::ModificationCommands(@)", header: "GeomliteTest.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

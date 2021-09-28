@@ -39,17 +39,42 @@ proc constructExtremaGlobOptFuncConicS*(c: ptr Adaptor3dCurve;
 proc constructExtremaGlobOptFuncConicS*(s: ptr Adaptor3dSurface): ExtremaGlobOptFuncConicS {.
     constructor, importcpp: "Extrema_GlobOptFuncConicS(@)",
     header: "Extrema_GlobOptFuncConicS.hxx".}
-proc constructExtremaGlobOptFuncConicS*(s: ptr Adaptor3dSurface; theUf: float;
-                                       theUl: float; theVf: float; theVl: float): ExtremaGlobOptFuncConicS {.
+proc constructExtremaGlobOptFuncConicS*(s: ptr Adaptor3dSurface; theUf: cfloat;
+                                       theUl: cfloat; theVf: cfloat; theVl: cfloat): ExtremaGlobOptFuncConicS {.
     constructor, importcpp: "Extrema_GlobOptFuncConicS(@)",
     header: "Extrema_GlobOptFuncConicS.hxx".}
 proc loadConic*(this: var ExtremaGlobOptFuncConicS; s: ptr Adaptor3dCurve;
-               theTf: float; theTl: float) {.importcpp: "LoadConic",
+               theTf: cfloat; theTl: cfloat) {.importcpp: "LoadConic",
     header: "Extrema_GlobOptFuncConicS.hxx".}
-proc nbVariables*(this: ExtremaGlobOptFuncConicS): int {.noSideEffect,
+proc nbVariables*(this: ExtremaGlobOptFuncConicS): cint {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_GlobOptFuncConicS.hxx".}
-proc value*(this: var ExtremaGlobOptFuncConicS; theX: MathVector; theF: var float): bool {.
+proc value*(this: var ExtremaGlobOptFuncConicS; theX: MathVector; theF: var cfloat): bool {.
     importcpp: "Value", header: "Extrema_GlobOptFuncConicS.hxx".}
-proc conicParameter*(this: ExtremaGlobOptFuncConicS; theUV: MathVector): float {.
+proc conicParameter*(this: ExtremaGlobOptFuncConicS; theUV: MathVector): cfloat {.
     noSideEffect, importcpp: "ConicParameter",
     header: "Extrema_GlobOptFuncConicS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

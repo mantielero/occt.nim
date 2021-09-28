@@ -26,10 +26,10 @@ proc constructStepElementSurfaceElementPurpose*(): StepElementSurfaceElementPurp
     constructor, importcpp: "StepElement_SurfaceElementPurpose(@)",
     header: "StepElement_SurfaceElementPurpose.hxx".}
 proc caseNum*(this: StepElementSurfaceElementPurpose;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepElement_SurfaceElementPurpose.hxx".}
 proc caseMem*(this: StepElementSurfaceElementPurpose;
-             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
+             ent: Handle[StepDataSelectMember]): cint {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_SurfaceElementPurpose.hxx".}
 proc newMember*(this: StepElementSurfaceElementPurpose): Handle[
     StepDataSelectMember] {.noSideEffect, importcpp: "NewMember",
@@ -50,3 +50,28 @@ proc applicationDefinedElementPurpose*(this: StepElementSurfaceElementPurpose): 
     TCollectionHAsciiString] {.noSideEffect,
                               importcpp: "ApplicationDefinedElementPurpose",
                               header: "StepElement_SurfaceElementPurpose.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

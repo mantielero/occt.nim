@@ -30,7 +30,7 @@ proc constructRWStepFEA_RWFreedomsList*(): RWStepFEA_RWFreedomsList {.constructo
     importcpp: "RWStepFEA_RWFreedomsList(@)",
     header: "RWStepFEA_RWFreedomsList.hxx".}
 proc readStep*(this: RWStepFEA_RWFreedomsList;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepFEA_FreedomsList]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepFEA_RWFreedomsList.hxx".}
 proc writeStep*(this: RWStepFEA_RWFreedomsList; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepFEA_RWFreedomsList; sw: var StepDataStepWriter;
 proc share*(this: RWStepFEA_RWFreedomsList; ent: Handle[StepFEA_FreedomsList];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFreedomsList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

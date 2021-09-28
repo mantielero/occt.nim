@@ -123,3 +123,28 @@ type
 type
   OpenGlGlCore43* = OpenGlTmplCore43[OpenGlGlCore42]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,7 @@ discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerSignature"
 discard "forward decl of IFSelect_DispPerSignature"
 type
-  HandleIFSelectDispPerSignature* = Handle[IFSelectDispPerSignature]
+  HandleC1C1* = Handle[IFSelectDispPerSignature]
 
 ## ! A DispPerSignature sorts input Entities according to a
 ## ! Signature : it works with a SignCounter to do this.
@@ -59,7 +59,7 @@ proc signName*(this: IFSelectDispPerSignature): StandardCString {.noSideEffect,
     importcpp: "SignName", header: "IFSelect_DispPerSignature.hxx".}
 proc label*(this: IFSelectDispPerSignature): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_DispPerSignature.hxx".}
-proc limitedMax*(this: IFSelectDispPerSignature; nbent: int; max: var int): bool {.
+proc limitedMax*(this: IFSelectDispPerSignature; nbent: cint; max: var cint): bool {.
     noSideEffect, importcpp: "LimitedMax", header: "IFSelect_DispPerSignature.hxx".}
 proc packets*(this: IFSelectDispPerSignature; g: InterfaceGraph;
              packs: var IFGraphSubPartsIterator) {.noSideEffect,
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_DispPerSignature.hxx".}
 proc dynamicType*(this: IFSelectDispPerSignature): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_DispPerSignature.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

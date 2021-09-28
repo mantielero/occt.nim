@@ -34,3 +34,28 @@ proc generated*(this: BRepFillGenerator): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, importcpp: "Generated", header: "BRepFill_Generator.hxx".}
 proc generatedShapes*(this: BRepFillGenerator; sSection: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "GeneratedShapes", header: "BRepFill_Generator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

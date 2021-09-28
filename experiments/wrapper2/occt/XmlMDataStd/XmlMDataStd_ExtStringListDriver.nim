@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_ExtStringListDriver"
 discard "forward decl of XmlMDataStd_ExtStringListDriver"
 type
-  HandleXmlMDataStdExtStringListDriver* = Handle[XmlMDataStdExtStringListDriver]
+  HandleC1C1* = Handle[XmlMDataStdExtStringListDriver]
   XmlMDataStdExtStringListDriver* {.importcpp: "XmlMDataStd_ExtStringListDriver", header: "XmlMDataStd_ExtStringListDriver.hxx",
                                    bycopy.} = object of XmlMDF_ADriver
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataStdExtStringListDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_ExtStringListDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

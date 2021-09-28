@@ -39,9 +39,34 @@ proc destroyProjLibProjectOnSurface*(this: var ProjLibProjectOnSurface) {.
 proc load*(this: var ProjLibProjectOnSurface; s: Handle[Adaptor3dHSurface]) {.
     importcpp: "Load", header: "ProjLib_ProjectOnSurface.hxx".}
 proc load*(this: var ProjLibProjectOnSurface; c: Handle[Adaptor3dHCurve];
-          tolerance: float) {.importcpp: "Load",
-                            header: "ProjLib_ProjectOnSurface.hxx".}
+          tolerance: cfloat) {.importcpp: "Load",
+                             header: "ProjLib_ProjectOnSurface.hxx".}
 proc isDone*(this: ProjLibProjectOnSurface): bool {.noSideEffect,
     importcpp: "IsDone", header: "ProjLib_ProjectOnSurface.hxx".}
 proc bSpline*(this: ProjLibProjectOnSurface): Handle[GeomBSplineCurve] {.
     noSideEffect, importcpp: "BSpline", header: "ProjLib_ProjectOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

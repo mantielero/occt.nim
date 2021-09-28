@@ -34,48 +34,73 @@ type
 
 
 proc constructGccAnaCirc2d2TanRad*(qualified1: GccEntQualifiedCirc;
-                                  qualified2: GccEntQualifiedCirc; radius: float;
-                                  tolerance: float): GccAnaCirc2d2TanRad {.
+                                  qualified2: GccEntQualifiedCirc; radius: cfloat;
+                                  tolerance: cfloat): GccAnaCirc2d2TanRad {.
     constructor, importcpp: "GccAna_Circ2d2TanRad(@)",
     header: "GccAna_Circ2d2TanRad.hxx".}
 proc constructGccAnaCirc2d2TanRad*(qualified1: GccEntQualifiedCirc;
-                                  qualified2: GccEntQualifiedLin; radius: float;
-                                  tolerance: float): GccAnaCirc2d2TanRad {.
+                                  qualified2: GccEntQualifiedLin; radius: cfloat;
+                                  tolerance: cfloat): GccAnaCirc2d2TanRad {.
     constructor, importcpp: "GccAna_Circ2d2TanRad(@)",
     header: "GccAna_Circ2d2TanRad.hxx".}
 proc constructGccAnaCirc2d2TanRad*(qualified1: GccEntQualifiedCirc; point2: Pnt2d;
-                                  radius: float; tolerance: float): GccAnaCirc2d2TanRad {.
+                                  radius: cfloat; tolerance: cfloat): GccAnaCirc2d2TanRad {.
     constructor, importcpp: "GccAna_Circ2d2TanRad(@)",
     header: "GccAna_Circ2d2TanRad.hxx".}
 proc constructGccAnaCirc2d2TanRad*(qualified1: GccEntQualifiedLin; point2: Pnt2d;
-                                  radius: float; tolerance: float): GccAnaCirc2d2TanRad {.
+                                  radius: cfloat; tolerance: cfloat): GccAnaCirc2d2TanRad {.
     constructor, importcpp: "GccAna_Circ2d2TanRad(@)",
     header: "GccAna_Circ2d2TanRad.hxx".}
 proc constructGccAnaCirc2d2TanRad*(qualified1: GccEntQualifiedLin;
-                                  qualified2: GccEntQualifiedLin; radius: float;
-                                  tolerance: float): GccAnaCirc2d2TanRad {.
+                                  qualified2: GccEntQualifiedLin; radius: cfloat;
+                                  tolerance: cfloat): GccAnaCirc2d2TanRad {.
     constructor, importcpp: "GccAna_Circ2d2TanRad(@)",
     header: "GccAna_Circ2d2TanRad.hxx".}
-proc constructGccAnaCirc2d2TanRad*(point1: Pnt2d; point2: Pnt2d; radius: float;
-                                  tolerance: float): GccAnaCirc2d2TanRad {.
+proc constructGccAnaCirc2d2TanRad*(point1: Pnt2d; point2: Pnt2d; radius: cfloat;
+                                  tolerance: cfloat): GccAnaCirc2d2TanRad {.
     constructor, importcpp: "GccAna_Circ2d2TanRad(@)",
     header: "GccAna_Circ2d2TanRad.hxx".}
 proc isDone*(this: GccAnaCirc2d2TanRad): bool {.noSideEffect, importcpp: "IsDone",
     header: "GccAna_Circ2d2TanRad.hxx".}
-proc nbSolutions*(this: GccAnaCirc2d2TanRad): int {.noSideEffect,
+proc nbSolutions*(this: GccAnaCirc2d2TanRad): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Circ2d2TanRad.hxx".}
-proc thisSolution*(this: GccAnaCirc2d2TanRad; index: int): Circ2d {.noSideEffect,
+proc thisSolution*(this: GccAnaCirc2d2TanRad; index: cint): Circ2d {.noSideEffect,
     importcpp: "ThisSolution", header: "GccAna_Circ2d2TanRad.hxx".}
-proc whichQualifier*(this: GccAnaCirc2d2TanRad; index: int;
+proc whichQualifier*(this: GccAnaCirc2d2TanRad; index: cint;
                     qualif1: var GccEntPosition; qualif2: var GccEntPosition) {.
     noSideEffect, importcpp: "WhichQualifier", header: "GccAna_Circ2d2TanRad.hxx".}
-proc tangency1*(this: GccAnaCirc2d2TanRad; index: int; parSol: var float;
-               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+proc tangency1*(this: GccAnaCirc2d2TanRad; index: cint; parSol: var cfloat;
+               parArg: var cfloat; pntSol: var Pnt2d) {.noSideEffect,
     importcpp: "Tangency1", header: "GccAna_Circ2d2TanRad.hxx".}
-proc tangency2*(this: GccAnaCirc2d2TanRad; index: int; parSol: var float;
-               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+proc tangency2*(this: GccAnaCirc2d2TanRad; index: cint; parSol: var cfloat;
+               parArg: var cfloat; pntSol: var Pnt2d) {.noSideEffect,
     importcpp: "Tangency2", header: "GccAna_Circ2d2TanRad.hxx".}
-proc isTheSame1*(this: GccAnaCirc2d2TanRad; index: int): bool {.noSideEffect,
+proc isTheSame1*(this: GccAnaCirc2d2TanRad; index: cint): bool {.noSideEffect,
     importcpp: "IsTheSame1", header: "GccAna_Circ2d2TanRad.hxx".}
-proc isTheSame2*(this: GccAnaCirc2d2TanRad; index: int): bool {.noSideEffect,
+proc isTheSame2*(this: GccAnaCirc2d2TanRad; index: cint): bool {.noSideEffect,
     importcpp: "IsTheSame2", header: "GccAna_Circ2d2TanRad.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

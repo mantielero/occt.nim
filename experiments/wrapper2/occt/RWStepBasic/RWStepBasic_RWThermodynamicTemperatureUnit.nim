@@ -30,7 +30,7 @@ proc constructRWStepBasicRWThermodynamicTemperatureUnit*(): RWStepBasicRWThermod
     constructor, importcpp: "RWStepBasic_RWThermodynamicTemperatureUnit(@)",
     header: "RWStepBasic_RWThermodynamicTemperatureUnit.hxx".}
 proc readStep*(this: RWStepBasicRWThermodynamicTemperatureUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicThermodynamicTemperatureUnit]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepBasicRWThermodynamicTemperatureUnit;
            ent: Handle[StepBasicThermodynamicTemperatureUnit];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWThermodynamicTemperatureUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

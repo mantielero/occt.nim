@@ -28,3 +28,28 @@ proc vertex*(this: var BRepLibMakeVertex): TopoDS_Vertex {.importcpp: "Vertex",
 converter `topoDS_Vertex`*(this: var BRepLibMakeVertex): TopoDS_Vertex {.
     importcpp: "BRepLib_MakeVertex::operator TopoDS_Vertex",
     header: "BRepLib_MakeVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

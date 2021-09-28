@@ -21,7 +21,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_BezierCurve"
 discard "forward decl of DrawTrSurf_BezierCurve"
 type
-  HandleDrawTrSurfBezierCurve* = Handle[DrawTrSurfBezierCurve]
+  HandleC1C1* = Handle[DrawTrSurfBezierCurve]
   DrawTrSurfBezierCurve* {.importcpp: "DrawTrSurf_BezierCurve",
                           header: "DrawTrSurf_BezierCurve.hxx", bycopy.} = object of DrawTrSurfCurve ##
                                                                                               ## !
@@ -46,8 +46,8 @@ proc constructDrawTrSurfBezierCurve*(c: Handle[GeomBezierCurve]): DrawTrSurfBezi
     header: "DrawTrSurf_BezierCurve.hxx".}
 proc constructDrawTrSurfBezierCurve*(c: Handle[GeomBezierCurve];
                                     curvColor: DrawColor; polesColor: DrawColor;
-                                    showPoles: bool; discret: int;
-                                    deflection: float; drawMode: int): DrawTrSurfBezierCurve {.
+                                    showPoles: bool; discret: cint;
+                                    deflection: cfloat; drawMode: cint): DrawTrSurfBezierCurve {.
     constructor, importcpp: "DrawTrSurf_BezierCurve(@)",
     header: "DrawTrSurf_BezierCurve.hxx".}
 proc drawOn*(this: DrawTrSurfBezierCurve; dis: var DrawDisplay) {.noSideEffect,
@@ -56,9 +56,9 @@ proc showPoles*(this: var DrawTrSurfBezierCurve) {.importcpp: "ShowPoles",
     header: "DrawTrSurf_BezierCurve.hxx".}
 proc clearPoles*(this: var DrawTrSurfBezierCurve) {.importcpp: "ClearPoles",
     header: "DrawTrSurf_BezierCurve.hxx".}
-proc findPole*(this: DrawTrSurfBezierCurve; x: float; y: float; d: DrawDisplay;
-              prec: float; index: var int) {.noSideEffect, importcpp: "FindPole",
-                                        header: "DrawTrSurf_BezierCurve.hxx".}
+proc findPole*(this: DrawTrSurfBezierCurve; x: cfloat; y: cfloat; d: DrawDisplay;
+              prec: cfloat; index: var cint) {.noSideEffect, importcpp: "FindPole",
+    header: "DrawTrSurf_BezierCurve.hxx".}
 proc setPolesColor*(this: var DrawTrSurfBezierCurve; aColor: DrawColor) {.
     importcpp: "SetPolesColor", header: "DrawTrSurf_BezierCurve.hxx".}
 proc polesColor*(this: DrawTrSurfBezierCurve): DrawColor {.noSideEffect,
@@ -75,3 +75,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_BezierCurve.hxx".}
 proc dynamicType*(this: DrawTrSurfBezierCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_BezierCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

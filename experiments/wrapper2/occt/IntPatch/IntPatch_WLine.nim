@@ -24,7 +24,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IntPatch_WLine"
 discard "forward decl of IntPatch_WLine"
 type
-  HandleIntPatchWLine* = Handle[IntPatchWLine]
+  HandleC1C1* = Handle[IntPatchWLine]
 
 ## ! Definition of set of points as a result of the intersection
 ## ! between 2 parametrised patches.
@@ -57,17 +57,17 @@ proc constructIntPatchWLine*(line: Handle[IntSurfLineOn2S]; tang: bool): IntPatc
 proc addVertex*(this: var IntPatchWLine; pnt: IntPatchPoint;
                theIsPrepend: bool = false) {.importcpp: "AddVertex",
     header: "IntPatch_WLine.hxx".}
-proc setPoint*(this: var IntPatchWLine; index: int; pnt: IntPatchPoint) {.
+proc setPoint*(this: var IntPatchWLine; index: cint; pnt: IntPatchPoint) {.
     importcpp: "SetPoint", header: "IntPatch_WLine.hxx".}
-proc replace*(this: var IntPatchWLine; index: int; pnt: IntPatchPoint) {.
+proc replace*(this: var IntPatchWLine; index: cint; pnt: IntPatchPoint) {.
     importcpp: "Replace", header: "IntPatch_WLine.hxx".}
-proc setFirstPoint*(this: var IntPatchWLine; indFirst: int) {.
+proc setFirstPoint*(this: var IntPatchWLine; indFirst: cint) {.
     importcpp: "SetFirstPoint", header: "IntPatch_WLine.hxx".}
-proc setLastPoint*(this: var IntPatchWLine; indLast: int) {.importcpp: "SetLastPoint",
-    header: "IntPatch_WLine.hxx".}
-proc nbPnts*(this: IntPatchWLine): int {.noSideEffect, importcpp: "NbPnts",
-                                     header: "IntPatch_WLine.hxx".}
-proc point*(this: IntPatchWLine; index: int): IntSurfPntOn2S {.noSideEffect,
+proc setLastPoint*(this: var IntPatchWLine; indLast: cint) {.
+    importcpp: "SetLastPoint", header: "IntPatch_WLine.hxx".}
+proc nbPnts*(this: IntPatchWLine): cint {.noSideEffect, importcpp: "NbPnts",
+                                      header: "IntPatch_WLine.hxx".}
+proc point*(this: IntPatchWLine; index: cint): IntSurfPntOn2S {.noSideEffect,
     importcpp: "Point", header: "IntPatch_WLine.hxx".}
 proc hasFirstPoint*(this: IntPatchWLine): bool {.noSideEffect,
     importcpp: "HasFirstPoint", header: "IntPatch_WLine.hxx".}
@@ -77,17 +77,17 @@ proc firstPoint*(this: IntPatchWLine): IntPatchPoint {.noSideEffect,
     importcpp: "FirstPoint", header: "IntPatch_WLine.hxx".}
 proc lastPoint*(this: IntPatchWLine): IntPatchPoint {.noSideEffect,
     importcpp: "LastPoint", header: "IntPatch_WLine.hxx".}
-proc firstPoint*(this: IntPatchWLine; indfirst: var int): IntPatchPoint {.noSideEffect,
-    importcpp: "FirstPoint", header: "IntPatch_WLine.hxx".}
-proc lastPoint*(this: IntPatchWLine; indlast: var int): IntPatchPoint {.noSideEffect,
+proc firstPoint*(this: IntPatchWLine; indfirst: var cint): IntPatchPoint {.
+    noSideEffect, importcpp: "FirstPoint", header: "IntPatch_WLine.hxx".}
+proc lastPoint*(this: IntPatchWLine; indlast: var cint): IntPatchPoint {.noSideEffect,
     importcpp: "LastPoint", header: "IntPatch_WLine.hxx".}
-proc nbVertex*(this: IntPatchWLine): int {.noSideEffect, importcpp: "NbVertex",
-                                       header: "IntPatch_WLine.hxx".}
-proc vertex*(this: IntPatchWLine; index: int): IntPatchPoint {.noSideEffect,
+proc nbVertex*(this: IntPatchWLine): cint {.noSideEffect, importcpp: "NbVertex",
+                                        header: "IntPatch_WLine.hxx".}
+proc vertex*(this: IntPatchWLine; index: cint): IntPatchPoint {.noSideEffect,
     importcpp: "Vertex", header: "IntPatch_WLine.hxx".}
-proc changeVertex*(this: var IntPatchWLine; index: int): var IntPatchPoint {.
+proc changeVertex*(this: var IntPatchWLine; index: cint): var IntPatchPoint {.
     importcpp: "ChangeVertex", header: "IntPatch_WLine.hxx".}
-proc computeVertexParameters*(this: var IntPatchWLine; tol: float) {.
+proc computeVertexParameters*(this: var IntPatchWLine; tol: cfloat) {.
     importcpp: "ComputeVertexParameters", header: "IntPatch_WLine.hxx".}
 proc curve*(this: IntPatchWLine): Handle[IntSurfLineOn2S] {.noSideEffect,
     importcpp: "Curve", header: "IntPatch_WLine.hxx".}
@@ -97,15 +97,15 @@ proc isOutSurf2Box*(this: IntPatchWLine; theP: Pnt2d): bool {.noSideEffect,
     importcpp: "IsOutSurf2Box", header: "IntPatch_WLine.hxx".}
 proc isOutBox*(this: IntPatchWLine; theP: Pnt): bool {.noSideEffect,
     importcpp: "IsOutBox", header: "IntPatch_WLine.hxx".}
-proc setPeriod*(this: var IntPatchWLine; pu1: float; pv1: float; pu2: float; pv2: float) {.
-    importcpp: "SetPeriod", header: "IntPatch_WLine.hxx".}
-proc u1Period*(this: IntPatchWLine): float {.noSideEffect, importcpp: "U1Period",
+proc setPeriod*(this: var IntPatchWLine; pu1: cfloat; pv1: cfloat; pu2: cfloat;
+               pv2: cfloat) {.importcpp: "SetPeriod", header: "IntPatch_WLine.hxx".}
+proc u1Period*(this: IntPatchWLine): cfloat {.noSideEffect, importcpp: "U1Period",
     header: "IntPatch_WLine.hxx".}
-proc v1Period*(this: IntPatchWLine): float {.noSideEffect, importcpp: "V1Period",
+proc v1Period*(this: IntPatchWLine): cfloat {.noSideEffect, importcpp: "V1Period",
     header: "IntPatch_WLine.hxx".}
-proc u2Period*(this: IntPatchWLine): float {.noSideEffect, importcpp: "U2Period",
+proc u2Period*(this: IntPatchWLine): cfloat {.noSideEffect, importcpp: "U2Period",
     header: "IntPatch_WLine.hxx".}
-proc v2Period*(this: IntPatchWLine): float {.noSideEffect, importcpp: "V2Period",
+proc v2Period*(this: IntPatchWLine): cfloat {.noSideEffect, importcpp: "V2Period",
     header: "IntPatch_WLine.hxx".}
 proc setArcOnS1*(this: var IntPatchWLine; a: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "SetArcOnS1", header: "IntPatch_WLine.hxx".}
@@ -121,11 +121,12 @@ proc getArcOnS2*(this: IntPatchWLine): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "GetArcOnS2", header: "IntPatch_WLine.hxx".}
 proc clearVertexes*(this: var IntPatchWLine) {.importcpp: "ClearVertexes",
     header: "IntPatch_WLine.hxx".}
-proc removeVertex*(this: var IntPatchWLine; theIndex: int) {.
+proc removeVertex*(this: var IntPatchWLine; theIndex: cint) {.
     importcpp: "RemoveVertex", header: "IntPatch_WLine.hxx".}
-proc insertVertexBefore*(this: var IntPatchWLine; theIndex: int; thePnt: IntPatchPoint) {.
-    importcpp: "InsertVertexBefore", header: "IntPatch_WLine.hxx".}
-proc dump*(this: IntPatchWLine; theMode: int) {.noSideEffect, importcpp: "Dump",
+proc insertVertexBefore*(this: var IntPatchWLine; theIndex: cint;
+                        thePnt: IntPatchPoint) {.importcpp: "InsertVertexBefore",
+    header: "IntPatch_WLine.hxx".}
+proc dump*(this: IntPatchWLine; theMode: cint) {.noSideEffect, importcpp: "Dump",
     header: "IntPatch_WLine.hxx".}
 proc enablePurging*(this: var IntPatchWLine; theIsEnabled: bool) {.
     importcpp: "EnablePurging", header: "IntPatch_WLine.hxx".}
@@ -146,3 +147,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IntPatch_WLine.hxx".}
 proc dynamicType*(this: IntPatchWLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_WLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

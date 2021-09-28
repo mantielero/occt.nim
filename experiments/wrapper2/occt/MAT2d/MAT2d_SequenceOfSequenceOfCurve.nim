@@ -17,3 +17,28 @@
 type
   MAT2dSequenceOfSequenceOfCurve* = NCollectionSequence[TColGeom2dSequenceOfCurve]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

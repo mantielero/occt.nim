@@ -18,7 +18,7 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of DrawFairCurve_Batten"
 discard "forward decl of DrawFairCurve_Batten"
 type
-  HandleDrawFairCurveBatten* = Handle[DrawFairCurveBatten]
+  HandleC1C1* = Handle[DrawFairCurveBatten]
 
 ## ! Interactive Draw object of type "Batten"
 
@@ -32,23 +32,23 @@ proc constructDrawFairCurveBatten*(theBatten: StandardAddress): DrawFairCurveBat
     header: "DrawFairCurve_Batten.hxx".}
 proc compute*(this: var DrawFairCurveBatten) {.importcpp: "Compute",
     header: "DrawFairCurve_Batten.hxx".}
-proc setPoint*(this: var DrawFairCurveBatten; side: int; point: Pnt2d) {.
+proc setPoint*(this: var DrawFairCurveBatten; side: cint; point: Pnt2d) {.
     importcpp: "SetPoint", header: "DrawFairCurve_Batten.hxx".}
-proc setAngle*(this: var DrawFairCurveBatten; side: int; angle: float) {.
+proc setAngle*(this: var DrawFairCurveBatten; side: cint; angle: cfloat) {.
     importcpp: "SetAngle", header: "DrawFairCurve_Batten.hxx".}
-proc setSliding*(this: var DrawFairCurveBatten; length: float) {.
+proc setSliding*(this: var DrawFairCurveBatten; length: cfloat) {.
     importcpp: "SetSliding", header: "DrawFairCurve_Batten.hxx".}
-proc setHeight*(this: var DrawFairCurveBatten; heigth: float) {.
+proc setHeight*(this: var DrawFairCurveBatten; heigth: cfloat) {.
     importcpp: "SetHeight", header: "DrawFairCurve_Batten.hxx".}
-proc setSlope*(this: var DrawFairCurveBatten; slope: float) {.importcpp: "SetSlope",
+proc setSlope*(this: var DrawFairCurveBatten; slope: cfloat) {.importcpp: "SetSlope",
     header: "DrawFairCurve_Batten.hxx".}
-proc getAngle*(this: DrawFairCurveBatten; side: int): float {.noSideEffect,
+proc getAngle*(this: DrawFairCurveBatten; side: cint): cfloat {.noSideEffect,
     importcpp: "GetAngle", header: "DrawFairCurve_Batten.hxx".}
-proc getSliding*(this: DrawFairCurveBatten): float {.noSideEffect,
+proc getSliding*(this: DrawFairCurveBatten): cfloat {.noSideEffect,
     importcpp: "GetSliding", header: "DrawFairCurve_Batten.hxx".}
 proc freeSliding*(this: var DrawFairCurveBatten) {.importcpp: "FreeSliding",
     header: "DrawFairCurve_Batten.hxx".}
-proc freeAngle*(this: var DrawFairCurveBatten; side: int) {.importcpp: "FreeAngle",
+proc freeAngle*(this: var DrawFairCurveBatten; side: cint) {.importcpp: "FreeAngle",
     header: "DrawFairCurve_Batten.hxx".}
 proc dump*(this: DrawFairCurveBatten; s: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "DrawFairCurve_Batten.hxx".}
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawFairCurve_Batten.hxx".}
 proc dynamicType*(this: DrawFairCurveBatten): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawFairCurve_Batten.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

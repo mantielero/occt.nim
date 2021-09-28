@@ -108,3 +108,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
          pt1: Pnt; pt2: Pnt; arrowSide: DsgPrsArrowSide) {.
     importcpp: "DsgPrs_LengthPresentation::Add(@)",
     header: "DsgPrs_LengthPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,3 +20,28 @@ type
   ShapeAnalysisDataMapIteratorOfDataMapOfShapeListOfReal* = Iterator[TopoDS_Shape,
       TColStdListOfReal, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,9 +30,34 @@ type
 proc constructStepGeomVectorOrDirection*(): StepGeomVectorOrDirection {.
     constructor, importcpp: "StepGeom_VectorOrDirection(@)",
     header: "StepGeom_VectorOrDirection.hxx".}
-proc caseNum*(this: StepGeomVectorOrDirection; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepGeomVectorOrDirection; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_VectorOrDirection.hxx".}
 proc vector*(this: StepGeomVectorOrDirection): Handle[StepGeomVector] {.
     noSideEffect, importcpp: "Vector", header: "StepGeom_VectorOrDirection.hxx".}
 proc direction*(this: StepGeomVectorOrDirection): Handle[StepGeomDirection] {.
     noSideEffect, importcpp: "Direction", header: "StepGeom_VectorOrDirection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

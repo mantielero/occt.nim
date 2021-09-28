@@ -60,3 +60,28 @@ proc isKeyFrame*(this: MediaPacket): bool {.noSideEffect, importcpp: "IsKeyFrame
                                         header: "Media_Packet.hxx".}
 proc setKeyFrame*(this: var MediaPacket) {.importcpp: "SetKeyFrame",
                                        header: "Media_Packet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

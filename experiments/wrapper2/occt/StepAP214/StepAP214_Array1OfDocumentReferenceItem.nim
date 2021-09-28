@@ -18,3 +18,28 @@ type
   StepAP214Array1OfDocumentReferenceItem* = NCollectionArray1[
       StepAP214DocumentReferenceItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

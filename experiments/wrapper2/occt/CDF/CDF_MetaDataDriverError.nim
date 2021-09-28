@@ -19,14 +19,54 @@
 ## ! exception or any exception inheriting MetaDataDriverError. class CDF_MetaDataDriverError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of CDF_MetaDataDriverError"
-type
-  HandleCDF_MetaDataDriverErrorCDF_MetaDataDriverError* = Handle[
-      CDF_MetaDataDriverError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( CDF_MetaDataDriverError , Standard_Failure ) # ! defined No_Exception && ! defined No_CDF_MetaDataDriverError [NewLine] # CDF_MetaDataDriverError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw CDF_MetaDataDriverError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_CDF_MetaDataDriverError [NewLine] # if ( CONDITION ) throw CDF_MetaDataDriverError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # CDF_MetaDataDriverError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( CDF_MetaDataDriverError , Standard_Failure ) #  _CDF_MetaDataDriverError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( CDF_MetaDataDriverError , Standard_Failure ) #  _CDF_MetaDataDriverError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

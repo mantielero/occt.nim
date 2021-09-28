@@ -40,3 +40,28 @@ proc renderCulling*(this: VrmlSeparator): VrmlSeparatorRenderCulling {.noSideEff
     importcpp: "RenderCulling", header: "Vrml_Separator.hxx".}
 proc print*(this: var VrmlSeparator; anOStream: var StandardOStream): var StandardOStream {.
     importcpp: "Print", header: "Vrml_Separator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

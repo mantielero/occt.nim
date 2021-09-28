@@ -18,7 +18,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_AssemblyItemRef"
 discard "forward decl of XCAFDoc_AssemblyItemRef"
 type
-  HandleXCAFDocAssemblyItemRef* = Handle[XCAFDocAssemblyItemRef]
+  HandleC1C1* = Handle[XCAFDocAssemblyItemRef]
 
 ## ! An attribute that describes a weak reference to an assembly item
 ## ! or to a subshape or to an assembly label attribute.
@@ -51,7 +51,7 @@ proc set*(theLabel: TDF_Label; theItemId: XCAFDocAssemblyItemId;
          theGUID: StandardGUID): Handle[XCAFDocAssemblyItemRef] {.
     importcpp: "XCAFDoc_AssemblyItemRef::Set(@)",
     header: "XCAFDoc_AssemblyItemRef.hxx".}
-proc set*(theLabel: TDF_Label; theItemId: XCAFDocAssemblyItemId; theShapeIndex: int): Handle[
+proc set*(theLabel: TDF_Label; theItemId: XCAFDocAssemblyItemId; theShapeIndex: cint): Handle[
     XCAFDocAssemblyItemRef] {.importcpp: "XCAFDoc_AssemblyItemRef::Set(@)",
                              header: "XCAFDoc_AssemblyItemRef.hxx".}
 proc constructXCAFDocAssemblyItemRef*(): XCAFDocAssemblyItemRef {.constructor,
@@ -66,7 +66,7 @@ proc isSubshapeIndex*(this: XCAFDocAssemblyItemRef): bool {.noSideEffect,
     importcpp: "IsSubshapeIndex", header: "XCAFDoc_AssemblyItemRef.hxx".}
 proc getGUID*(this: XCAFDocAssemblyItemRef): StandardGUID {.noSideEffect,
     importcpp: "GetGUID", header: "XCAFDoc_AssemblyItemRef.hxx".}
-proc getSubshapeIndex*(this: XCAFDocAssemblyItemRef): int {.noSideEffect,
+proc getSubshapeIndex*(this: XCAFDocAssemblyItemRef): cint {.noSideEffect,
     importcpp: "GetSubshapeIndex", header: "XCAFDoc_AssemblyItemRef.hxx".}
 proc getItem*(this: XCAFDocAssemblyItemRef): XCAFDocAssemblyItemId {.noSideEffect,
     importcpp: "GetItem", header: "XCAFDoc_AssemblyItemRef.hxx".}
@@ -78,13 +78,13 @@ proc setItem*(this: var XCAFDocAssemblyItemRef; theString: TCollectionAsciiStrin
     importcpp: "SetItem", header: "XCAFDoc_AssemblyItemRef.hxx".}
 proc setGUID*(this: var XCAFDocAssemblyItemRef; theAttrGUID: StandardGUID) {.
     importcpp: "SetGUID", header: "XCAFDoc_AssemblyItemRef.hxx".}
-proc setSubshapeIndex*(this: var XCAFDocAssemblyItemRef; theShapeIndex: int) {.
+proc setSubshapeIndex*(this: var XCAFDocAssemblyItemRef; theShapeIndex: cint) {.
     importcpp: "SetSubshapeIndex", header: "XCAFDoc_AssemblyItemRef.hxx".}
 proc clearExtraRef*(this: var XCAFDocAssemblyItemRef) {.importcpp: "ClearExtraRef",
     header: "XCAFDoc_AssemblyItemRef.hxx".}
 proc dumpJson*(this: XCAFDocAssemblyItemRef; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "XCAFDoc_AssemblyItemRef.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFDoc_AssemblyItemRef.hxx".}
 proc id*(this: XCAFDocAssemblyItemRef): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_AssemblyItemRef.hxx".}
 proc newEmpty*(this: XCAFDocAssemblyItemRef): Handle[TDF_Attribute] {.noSideEffect,
@@ -96,3 +96,28 @@ proc paste*(this: XCAFDocAssemblyItemRef; theAttrInto: Handle[TDF_Attribute];
     header: "XCAFDoc_AssemblyItemRef.hxx".}
 proc dump*(this: XCAFDocAssemblyItemRef; theOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "XCAFDoc_AssemblyItemRef.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

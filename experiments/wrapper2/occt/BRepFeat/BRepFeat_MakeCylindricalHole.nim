@@ -46,23 +46,48 @@ proc init*(this: var BRepFeatMakeCylindricalHole; axis: Ax1) {.importcpp: "Init"
     header: "BRepFeat_MakeCylindricalHole.hxx".}
 proc init*(this: var BRepFeatMakeCylindricalHole; s: TopoDS_Shape; axis: Ax1) {.
     importcpp: "Init", header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc perform*(this: var BRepFeatMakeCylindricalHole; radius: float) {.
+proc perform*(this: var BRepFeatMakeCylindricalHole; radius: cfloat) {.
     importcpp: "Perform", header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc perform*(this: var BRepFeatMakeCylindricalHole; radius: float; pFrom: float;
-             pTo: float; withControl: bool = true) {.importcpp: "Perform",
+proc perform*(this: var BRepFeatMakeCylindricalHole; radius: cfloat; pFrom: cfloat;
+             pTo: cfloat; withControl: bool = true) {.importcpp: "Perform",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc performThruNext*(this: var BRepFeatMakeCylindricalHole; radius: float;
+proc performThruNext*(this: var BRepFeatMakeCylindricalHole; radius: cfloat;
                      withControl: bool = true) {.importcpp: "PerformThruNext",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc performUntilEnd*(this: var BRepFeatMakeCylindricalHole; radius: float;
+proc performUntilEnd*(this: var BRepFeatMakeCylindricalHole; radius: cfloat;
                      withControl: bool = true) {.importcpp: "PerformUntilEnd",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc performBlind*(this: var BRepFeatMakeCylindricalHole; radius: float;
-                  length: float; withControl: bool = true) {.
+proc performBlind*(this: var BRepFeatMakeCylindricalHole; radius: cfloat;
+                  length: cfloat; withControl: bool = true) {.
     importcpp: "PerformBlind", header: "BRepFeat_MakeCylindricalHole.hxx".}
 proc status*(this: BRepFeatMakeCylindricalHole): BRepFeatStatus {.noSideEffect,
     importcpp: "Status", header: "BRepFeat_MakeCylindricalHole.hxx".}
 proc build*(this: var BRepFeatMakeCylindricalHole) {.importcpp: "Build",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
 ## using statement
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

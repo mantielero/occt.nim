@@ -16,3 +16,28 @@ type
   Graphic3dNMapOfTransient* = NCollectionShared[
       NCollectionMap[ptr StandardTransient]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

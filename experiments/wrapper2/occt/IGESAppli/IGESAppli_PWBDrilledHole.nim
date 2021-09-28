@@ -17,7 +17,7 @@
 discard "forward decl of IGESAppli_PWBDrilledHole"
 discard "forward decl of IGESAppli_PWBDrilledHole"
 type
-  HandleIGESAppliPWBDrilledHole* = Handle[IGESAppliPWBDrilledHole]
+  HandleC1C1* = Handle[IGESAppliPWBDrilledHole]
 
 ## ! defines PWBDrilledHole, Type <406> Form <26>
 ## ! in package IGESAppli
@@ -32,16 +32,16 @@ type
 proc constructIGESAppliPWBDrilledHole*(): IGESAppliPWBDrilledHole {.constructor,
     importcpp: "IGESAppli_PWBDrilledHole(@)",
     header: "IGESAppli_PWBDrilledHole.hxx".}
-proc init*(this: var IGESAppliPWBDrilledHole; nbPropVal: int; aDrillDia: float;
-          aFinishDia: float; aCode: int) {.importcpp: "Init",
-                                       header: "IGESAppli_PWBDrilledHole.hxx".}
-proc nbPropertyValues*(this: IGESAppliPWBDrilledHole): int {.noSideEffect,
+proc init*(this: var IGESAppliPWBDrilledHole; nbPropVal: cint; aDrillDia: cfloat;
+          aFinishDia: cfloat; aCode: cint) {.importcpp: "Init",
+    header: "IGESAppli_PWBDrilledHole.hxx".}
+proc nbPropertyValues*(this: IGESAppliPWBDrilledHole): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_PWBDrilledHole.hxx".}
-proc drillDiameterSize*(this: IGESAppliPWBDrilledHole): float {.noSideEffect,
+proc drillDiameterSize*(this: IGESAppliPWBDrilledHole): cfloat {.noSideEffect,
     importcpp: "DrillDiameterSize", header: "IGESAppli_PWBDrilledHole.hxx".}
-proc finishDiameterSize*(this: IGESAppliPWBDrilledHole): float {.noSideEffect,
+proc finishDiameterSize*(this: IGESAppliPWBDrilledHole): cfloat {.noSideEffect,
     importcpp: "FinishDiameterSize", header: "IGESAppli_PWBDrilledHole.hxx".}
-proc functionCode*(this: IGESAppliPWBDrilledHole): int {.noSideEffect,
+proc functionCode*(this: IGESAppliPWBDrilledHole): cint {.noSideEffect,
     importcpp: "FunctionCode", header: "IGESAppli_PWBDrilledHole.hxx".}
 type
   IGESAppliPWBDrilledHolebaseType* = IGESDataIGESEntity
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_PWBDrilledHole.hxx".}
 proc dynamicType*(this: IGESAppliPWBDrilledHole): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_PWBDrilledHole.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,3 +19,28 @@ type
   TopOpeBRepBuildListIteratorOfListOfListOfLoop* = Iterator[
       TopOpeBRepBuildListOfLoop]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

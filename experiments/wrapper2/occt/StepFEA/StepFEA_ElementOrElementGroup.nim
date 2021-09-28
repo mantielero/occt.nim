@@ -25,7 +25,7 @@ type
 proc constructStepFEA_ElementOrElementGroup*(): StepFEA_ElementOrElementGroup {.
     constructor, importcpp: "StepFEA_ElementOrElementGroup(@)",
     header: "StepFEA_ElementOrElementGroup.hxx".}
-proc caseNum*(this: StepFEA_ElementOrElementGroup; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepFEA_ElementOrElementGroup; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepFEA_ElementOrElementGroup.hxx".}
 proc elementRepresentation*(this: StepFEA_ElementOrElementGroup): Handle[
     StepFEA_ElementRepresentation] {.noSideEffect,
@@ -34,3 +34,28 @@ proc elementRepresentation*(this: StepFEA_ElementOrElementGroup): Handle[
 proc elementGroup*(this: StepFEA_ElementOrElementGroup): Handle[
     StepFEA_ElementGroup] {.noSideEffect, importcpp: "ElementGroup",
                            header: "StepFEA_ElementOrElementGroup.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

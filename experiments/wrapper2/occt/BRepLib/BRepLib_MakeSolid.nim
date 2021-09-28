@@ -52,3 +52,28 @@ converter `topoDS_Solid`*(this: var BRepLibMakeSolid): TopoDS_Solid {.
     header: "BRepLib_MakeSolid.hxx".}
 proc faceStatus*(this: BRepLibMakeSolid; f: TopoDS_Face): BRepLibShapeModification {.
     noSideEffect, importcpp: "FaceStatus", header: "BRepLib_MakeSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

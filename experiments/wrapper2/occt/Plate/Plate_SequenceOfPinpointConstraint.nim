@@ -17,3 +17,28 @@
 type
   PlateSequenceOfPinpointConstraint* = NCollectionSequence[PlatePinpointConstraint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_Wire"
 discard "forward decl of ShapeAnalysis_FreeBoundData"
 discard "forward decl of ShapeAnalysis_FreeBoundData"
 type
-  HandleShapeAnalysisFreeBoundData* = Handle[ShapeAnalysisFreeBoundData]
+  HandleC1C1* = Handle[ShapeAnalysisFreeBoundData]
 
 ## ! This class is intended to represent free bound and to store
 ## ! its properties.
@@ -55,35 +55,36 @@ proc clear*(this: var ShapeAnalysisFreeBoundData) {.importcpp: "Clear",
     header: "ShapeAnalysis_FreeBoundData.hxx".}
 proc setFreeBound*(this: var ShapeAnalysisFreeBoundData; freebound: TopoDS_Wire) {.
     importcpp: "SetFreeBound", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc setArea*(this: var ShapeAnalysisFreeBoundData; area: float) {.
+proc setArea*(this: var ShapeAnalysisFreeBoundData; area: cfloat) {.
     importcpp: "SetArea", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc setPerimeter*(this: var ShapeAnalysisFreeBoundData; perimeter: float) {.
+proc setPerimeter*(this: var ShapeAnalysisFreeBoundData; perimeter: cfloat) {.
     importcpp: "SetPerimeter", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc setRatio*(this: var ShapeAnalysisFreeBoundData; ratio: float) {.
+proc setRatio*(this: var ShapeAnalysisFreeBoundData; ratio: cfloat) {.
     importcpp: "SetRatio", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc setWidth*(this: var ShapeAnalysisFreeBoundData; width: float) {.
+proc setWidth*(this: var ShapeAnalysisFreeBoundData; width: cfloat) {.
     importcpp: "SetWidth", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc addNotch*(this: var ShapeAnalysisFreeBoundData; notch: TopoDS_Wire; width: float) {.
+proc addNotch*(this: var ShapeAnalysisFreeBoundData; notch: TopoDS_Wire; width: cfloat) {.
     importcpp: "AddNotch", header: "ShapeAnalysis_FreeBoundData.hxx".}
 proc freeBound*(this: ShapeAnalysisFreeBoundData): TopoDS_Wire {.noSideEffect,
     importcpp: "FreeBound", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc area*(this: ShapeAnalysisFreeBoundData): float {.noSideEffect,
+proc area*(this: ShapeAnalysisFreeBoundData): cfloat {.noSideEffect,
     importcpp: "Area", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc perimeter*(this: ShapeAnalysisFreeBoundData): float {.noSideEffect,
+proc perimeter*(this: ShapeAnalysisFreeBoundData): cfloat {.noSideEffect,
     importcpp: "Perimeter", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc ratio*(this: ShapeAnalysisFreeBoundData): float {.noSideEffect,
+proc ratio*(this: ShapeAnalysisFreeBoundData): cfloat {.noSideEffect,
     importcpp: "Ratio", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc width*(this: ShapeAnalysisFreeBoundData): float {.noSideEffect,
+proc width*(this: ShapeAnalysisFreeBoundData): cfloat {.noSideEffect,
     importcpp: "Width", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc nbNotches*(this: ShapeAnalysisFreeBoundData): int {.noSideEffect,
+proc nbNotches*(this: ShapeAnalysisFreeBoundData): cint {.noSideEffect,
     importcpp: "NbNotches", header: "ShapeAnalysis_FreeBoundData.hxx".}
 proc notches*(this: ShapeAnalysisFreeBoundData): Handle[TopToolsHSequenceOfShape] {.
     noSideEffect, importcpp: "Notches", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc notch*(this: ShapeAnalysisFreeBoundData; index: int): TopoDS_Wire {.noSideEffect,
-    importcpp: "Notch", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc notchWidth*(this: ShapeAnalysisFreeBoundData; index: int): float {.noSideEffect,
-    importcpp: "NotchWidth", header: "ShapeAnalysis_FreeBoundData.hxx".}
-proc notchWidth*(this: ShapeAnalysisFreeBoundData; notch: TopoDS_Wire): float {.
+proc notch*(this: ShapeAnalysisFreeBoundData; index: cint): TopoDS_Wire {.
+    noSideEffect, importcpp: "Notch", header: "ShapeAnalysis_FreeBoundData.hxx".}
+proc notchWidth*(this: ShapeAnalysisFreeBoundData; index: cint): cfloat {.
+    noSideEffect, importcpp: "NotchWidth",
+    header: "ShapeAnalysis_FreeBoundData.hxx".}
+proc notchWidth*(this: ShapeAnalysisFreeBoundData; notch: TopoDS_Wire): cfloat {.
     noSideEffect, importcpp: "NotchWidth",
     header: "ShapeAnalysis_FreeBoundData.hxx".}
 type
@@ -97,3 +98,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeAnalysisFreeBoundData): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeAnalysis_FreeBoundData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

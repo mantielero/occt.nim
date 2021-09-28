@@ -37,3 +37,28 @@ proc copy*(this: BRepToolsQuilt; s: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
     importcpp: "Copy", header: "BRepTools_Quilt.hxx".}
 proc shells*(this: BRepToolsQuilt): TopoDS_Shape {.noSideEffect, importcpp: "Shells",
     header: "BRepTools_Quilt.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

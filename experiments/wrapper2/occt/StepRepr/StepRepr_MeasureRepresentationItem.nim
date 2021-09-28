@@ -21,8 +21,7 @@ discard "forward decl of StepBasic_Unit"
 discard "forward decl of StepRepr_MeasureRepresentationItem"
 discard "forward decl of StepRepr_MeasureRepresentationItem"
 type
-  HandleStepReprMeasureRepresentationItem* = Handle[
-      StepReprMeasureRepresentationItem]
+  HandleC1C1* = Handle[StepReprMeasureRepresentationItem]
 
 ## ! Implements a measure_representation_item entity
 ## ! which is used for storing validation properties
@@ -62,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprMeasureRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_MeasureRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -44,3 +44,28 @@ proc shape*(this: LocOpeLinearForm): TopoDS_Shape {.noSideEffect, importcpp: "Sh
     header: "LocOpe_LinearForm.hxx".}
 proc shapes*(this: LocOpeLinearForm; s: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "Shapes", header: "LocOpe_LinearForm.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

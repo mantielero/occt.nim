@@ -46,6 +46,31 @@ proc write*(this: var BinLDriversDocumentSection; theOS: var StandardOStream;
            theOffset: uint64T) {.importcpp: "Write",
                                header: "BinLDrivers_DocumentSection.hxx".}
 proc readTOC*(theSection: var BinLDriversDocumentSection;
-             theIS: var StandardIStream; theDocFormatVersion: int) {.
+             theIS: var StandardIStream; theDocFormatVersion: cint) {.
     importcpp: "BinLDrivers_DocumentSection::ReadTOC(@)",
     header: "BinLDrivers_DocumentSection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

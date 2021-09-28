@@ -23,3 +23,28 @@ type
     indices* {.importc: "Indices".}: RWGltfGltfAccessor ## !< accessor for indexes
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,7 +29,7 @@ proc constructRWStepAP214RWAutoDesignOrganizationAssignment*(): RWStepAP214RWAut
     constructor, importcpp: "RWStepAP214_RWAutoDesignOrganizationAssignment(@)",
     header: "RWStepAP214_RWAutoDesignOrganizationAssignment.hxx".}
 proc readStep*(this: RWStepAP214RWAutoDesignOrganizationAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AutoDesignOrganizationAssignment]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepAP214RWAutoDesignOrganizationAssignment;
            ent: Handle[StepAP214AutoDesignOrganizationAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAutoDesignOrganizationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -75,14 +75,14 @@ type
 
 
 proc constructAppDefResConstraintOfMyGradientOfCompute*(ssp: AppDefMultiLine;
-    sCurv: var AppParCurvesMultiCurve; firstPoint: int; lastPoint: int;
+    sCurv: var AppParCurvesMultiCurve; firstPoint: cint; lastPoint: cint;
     constraints: Handle[AppParCurvesHArray1OfConstraintCouple]; bern: MathMatrix;
-    derivativeBern: MathMatrix; tolerance: float = 1.0e-10): AppDefResConstraintOfMyGradientOfCompute {.
+    derivativeBern: MathMatrix; tolerance: cfloat = 1.0e-10): AppDefResConstraintOfMyGradientOfCompute {.
     constructor, importcpp: "AppDef_ResConstraintOfMyGradientOfCompute(@)",
     header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
 proc isDone*(this: AppDefResConstraintOfMyGradientOfCompute): bool {.noSideEffect,
     importcpp: "IsDone", header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
-proc error*(this: AppDefResConstraintOfMyGradientOfCompute): float {.noSideEffect,
+proc error*(this: AppDefResConstraintOfMyGradientOfCompute): cfloat {.noSideEffect,
     importcpp: "Error", header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
 proc constraintMatrix*(this: AppDefResConstraintOfMyGradientOfCompute): MathMatrix {.
     noSideEffect, importcpp: "ConstraintMatrix",
@@ -91,10 +91,35 @@ proc duale*(this: AppDefResConstraintOfMyGradientOfCompute): MathVector {.
     noSideEffect, importcpp: "Duale",
     header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
 proc constraintDerivative*(this: var AppDefResConstraintOfMyGradientOfCompute;
-                          ssp: AppDefMultiLine; parameters: MathVector; deg: int;
+                          ssp: AppDefMultiLine; parameters: MathVector; deg: cint;
                           da: MathMatrix): MathMatrix {.
     importcpp: "ConstraintDerivative",
     header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
 proc inverseMatrix*(this: AppDefResConstraintOfMyGradientOfCompute): MathMatrix {.
     noSideEffect, importcpp: "InverseMatrix",
     header: "AppDef_ResConstraintOfMyGradientOfCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

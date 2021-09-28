@@ -22,16 +22,18 @@
 type
   BVH_TreeBaseTransient* {.importcpp: "BVH_TreeBaseTransient",
                           header: "BVH_Tree.hxx", bycopy.} = object of StandardTransient
+    standardType* {.importc: "Standard_Type".}: Handle
 
   BVH_TreeBaseTransientbaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "BVH_TreeBaseTransient::get_type_name(@)",
                             header: "BVH_Tree.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "BVH_TreeBaseTransient::get_type_descriptor(@)",
-    header: "BVH_Tree.hxx".}
-proc dynamicType*(this: BVH_TreeBaseTransient): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BVH_Tree.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 ## ! Stores parameters of bounding volume hierarchy (BVH).
 ## ! Bounding volume hierarchy (BVH) organizes geometric objects in
 ## ! the tree based on spatial relationships. Each node in the tree
@@ -163,4 +165,49 @@ type
 
 ## !!!Ignored construct:  template < class T , int N , class Arity = BVH_BinaryTree > [end of template] class BVH_Tree {  Invalid type } ;
 ## Error: token expected: > [end of template] but got: =!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

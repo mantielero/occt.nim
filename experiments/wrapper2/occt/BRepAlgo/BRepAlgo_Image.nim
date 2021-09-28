@@ -59,3 +59,28 @@ proc compact*(this: var BRepAlgoImage) {.importcpp: "Compact",
                                      header: "BRepAlgo_Image.hxx".}
 proc filter*(this: var BRepAlgoImage; s: TopoDS_Shape; shapeType: TopAbsShapeEnum) {.
     importcpp: "Filter", header: "BRepAlgo_Image.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -50,24 +50,49 @@ proc addVIso*(aPresentation: Handle[Prs3dPresentation];
     header: "StdPrs_WFDeflectionRestrictedFace.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation];
          aFace: Handle[BRepAdaptorHSurface]; drawUIso: bool; drawVIso: bool;
-         deflection: float; nBUiso: int; nBViso: int; aDrawer: Handle[Prs3dDrawer];
+         deflection: cfloat; nBUiso: cint; nBViso: cint; aDrawer: Handle[Prs3dDrawer];
          curves: var Prs3dNListOfSequenceOfPnt) {.
     importcpp: "StdPrs_WFDeflectionRestrictedFace::Add(@)",
     header: "StdPrs_WFDeflectionRestrictedFace.hxx".}
-proc match*(x: float; y: float; z: float; aDistance: float;
+proc match*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat;
            aFace: Handle[BRepAdaptorHSurface]; aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFDeflectionRestrictedFace::Match(@)",
     header: "StdPrs_WFDeflectionRestrictedFace.hxx".}
-proc matchUIso*(x: float; y: float; z: float; aDistance: float;
+proc matchUIso*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat;
                aFace: Handle[BRepAdaptorHSurface]; aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFDeflectionRestrictedFace::MatchUIso(@)",
     header: "StdPrs_WFDeflectionRestrictedFace.hxx".}
-proc matchVIso*(x: float; y: float; z: float; aDistance: float;
+proc matchVIso*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat;
                aFace: Handle[BRepAdaptorHSurface]; aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFDeflectionRestrictedFace::MatchVIso(@)",
     header: "StdPrs_WFDeflectionRestrictedFace.hxx".}
-proc match*(x: float; y: float; z: float; aDistance: float;
+proc match*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat;
            aFace: Handle[BRepAdaptorHSurface]; aDrawer: Handle[Prs3dDrawer];
-           drawUIso: bool; drawVIso: bool; aDeflection: float; nBUiso: int; nBViso: int): bool {.
-    importcpp: "StdPrs_WFDeflectionRestrictedFace::Match(@)",
-    header: "StdPrs_WFDeflectionRestrictedFace.hxx".}
+           drawUIso: bool; drawVIso: bool; aDeflection: cfloat; nBUiso: cint;
+           nBViso: cint): bool {.importcpp: "StdPrs_WFDeflectionRestrictedFace::Match(@)",
+                              header: "StdPrs_WFDeflectionRestrictedFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

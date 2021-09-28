@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SetVersion5"
 discard "forward decl of IGESSelect_SetVersion5"
 type
-  HandleIGESSelectSetVersion5* = Handle[IGESSelectSetVersion5]
+  HandleC1C1* = Handle[IGESSelectSetVersion5]
 
 ## ! Sets IGES Version (coded in global parameter 23) to be at least
 ## ! IGES 5.1 . If it is older, it is set to IGES 5.1, and
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_SetVersion5.hxx".}
 proc dynamicType*(this: IGESSelectSetVersion5): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_SetVersion5.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

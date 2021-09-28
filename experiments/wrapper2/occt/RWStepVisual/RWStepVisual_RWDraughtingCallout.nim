@@ -27,7 +27,7 @@ proc constructRWStepVisualRWDraughtingCallout*(): RWStepVisualRWDraughtingCallou
     constructor, importcpp: "RWStepVisual_RWDraughtingCallout(@)",
     header: "RWStepVisual_RWDraughtingCallout.hxx".}
 proc readStep*(this: RWStepVisualRWDraughtingCallout;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualDraughtingCallout]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWDraughtingCallout.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepVisualRWDraughtingCallout;
            ent: Handle[StepVisualDraughtingCallout];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWDraughtingCallout.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

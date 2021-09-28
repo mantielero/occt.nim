@@ -22,7 +22,7 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of XSControl_TransferWriter"
 discard "forward decl of XSControl_TransferWriter"
 type
-  HandleXSControlTransferWriter* = Handle[XSControlTransferWriter]
+  HandleC1C1* = Handle[XSControlTransferWriter]
 
 ## ! TransferWriter gives help to control transfer to write a file
 ## ! after having converted data from Cascade/Imagine
@@ -68,13 +68,13 @@ proc controller*(this: XSControlTransferWriter): Handle[XSControlController] {.
 proc setController*(this: var XSControlTransferWriter;
                    theCtl: Handle[XSControlController]) {.
     importcpp: "SetController", header: "XSControl_TransferWriter.hxx".}
-proc clear*(this: var XSControlTransferWriter; theMode: int) {.importcpp: "Clear",
+proc clear*(this: var XSControlTransferWriter; theMode: cint) {.importcpp: "Clear",
     header: "XSControl_TransferWriter.hxx".}
-proc transferMode*(this: XSControlTransferWriter): int {.noSideEffect,
+proc transferMode*(this: XSControlTransferWriter): cint {.noSideEffect,
     importcpp: "TransferMode", header: "XSControl_TransferWriter.hxx".}
-proc setTransferMode*(this: var XSControlTransferWriter; theMode: int) {.
+proc setTransferMode*(this: var XSControlTransferWriter; theMode: cint) {.
     importcpp: "SetTransferMode", header: "XSControl_TransferWriter.hxx".}
-proc printStats*(this: XSControlTransferWriter; theWhat: int; theMode: int = 0) {.
+proc printStats*(this: XSControlTransferWriter; theWhat: cint; theMode: cint = 0) {.
     noSideEffect, importcpp: "PrintStats", header: "XSControl_TransferWriter.hxx".}
 proc recognizeTransient*(this: var XSControlTransferWriter;
                         theObj: Handle[StandardTransient]): bool {.
@@ -105,3 +105,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XSControl_TransferWriter.hxx".}
 proc dynamicType*(this: XSControlTransferWriter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XSControl_TransferWriter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

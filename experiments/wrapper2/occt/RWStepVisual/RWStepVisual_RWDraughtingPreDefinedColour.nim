@@ -28,7 +28,7 @@ proc constructRWStepVisualRWDraughtingPreDefinedColour*(): RWStepVisualRWDraught
     constructor, importcpp: "RWStepVisual_RWDraughtingPreDefinedColour(@)",
     header: "RWStepVisual_RWDraughtingPreDefinedColour.hxx".}
 proc readStep*(this: RWStepVisualRWDraughtingPreDefinedColour;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualDraughtingPreDefinedColour]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWDraughtingPreDefinedColour.hxx".}
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepVisualRWDraughtingPreDefinedColour;
                ent: Handle[StepVisualDraughtingPreDefinedColour]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepVisual_RWDraughtingPreDefinedColour.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

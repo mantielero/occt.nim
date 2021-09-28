@@ -13,12 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Message_Alert"
-discard "forward decl of Message_Alert"
-type
-  HandleMessageAlert* = Handle[MessageAlert]
+## !!!Ignored construct:  # _Message_Alert_HeaderFile [NewLine] # _Message_Alert_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] class Message_Alert ;
+## Error: expected ';'!!!
 
-## ! Base class of the hierarchy of classes describing various situations
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Message_Alert , MMgt_TShared ) ! Base class of the hierarchy of classes describing various situations
 ## ! occurring during execution of some algorithm or procedure.
 ## !
 ## ! Alert should provide unique text identifier that can be used to distinguish
@@ -29,78 +27,17 @@ type
 ## ! can be merged with another one of the same type. Method SupportsMerge()
 ## ! should return true if merge is supported; method Merge() should do the
 ## ! merge if possible and return true in that case and false otherwise.
-## !
+## ! class Message_Alert : public Standard_Transient { public : ! Return a C string to be used as a key for generating text user
+## ! messages describing this alert.
+## ! The messages are generated with help of Message_Msg class, in
+## ! Message_Report::Dump().
+## ! Base implementation returns dynamic type name of the instance. virtual Standard_CString GetMessageKey ( ) const ; ! Return true if this type of alert can be merged with other
+## ! of the same type to avoid duplication.
+## ! Basis implementation returns true. virtual Standard_Boolean SupportsMerge ( ) const ; ! If possible, merge data contained in this alert to theTarget.
+## ! @return True if merged.
+## ! Base implementation always returns true. virtual Standard_Boolean Merge ( const Handle ( Message_Alert ) & theTarget ) ; ! Dumps the content of me into the stream virtual void DumpJson ( Standard_OStream & theOStream , Standard_Integer theDepth = - 1 ) const ;  OCCT RTTI public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return Message_Alert ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; } ;
+## Error: expected ';'!!!
 
-type
-  MessageAlert* {.importcpp: "Message_Alert", header: "Message_Alert.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Return
-                                                                                                        ## a
-                                                                                                        ## C
-                                                                                                        ## string
-                                                                                                        ## to
-                                                                                                        ## be
-                                                                                                        ## used
-                                                                                                        ## as
-                                                                                                        ## a
-                                                                                                        ## key
-                                                                                                        ## for
-                                                                                                        ## generating
-                                                                                                        ## text
-                                                                                                        ## user
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## messages
-                                                                                                        ## describing
-                                                                                                        ## this
-                                                                                                        ## alert.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## The
-                                                                                                        ## messages
-                                                                                                        ## are
-                                                                                                        ## generated
-                                                                                                        ## with
-                                                                                                        ## help
-                                                                                                        ## of
-                                                                                                        ## Message_Msg
-                                                                                                        ## class,
-                                                                                                        ## in
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Message_Report::Dump().
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Base
-                                                                                                        ## implementation
-                                                                                                        ## returns
-                                                                                                        ## dynamic
-                                                                                                        ## type
-                                                                                                        ## name
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## instance.
-
-
-proc getMessageKey*(this: MessageAlert): StandardCString {.noSideEffect,
-    importcpp: "GetMessageKey", header: "Message_Alert.hxx".}
-proc supportsMerge*(this: MessageAlert): bool {.noSideEffect,
-    importcpp: "SupportsMerge", header: "Message_Alert.hxx".}
-proc merge*(this: var MessageAlert; theTarget: Handle[MessageAlert]): bool {.
-    importcpp: "Merge", header: "Message_Alert.hxx".}
-proc dumpJson*(this: MessageAlert; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Message_Alert.hxx".}
-type
-  MessageAlertbaseType* = StandardTransient
-
-# proc getTypeName*(): cstring {.importcpp: "Message_Alert::get_type_name(@)",
-#                             header: "Message_Alert.hxx".}
-# proc getTypeDescriptor*(): Handle[StandardType] {.
-#     importcpp: "Message_Alert::get_type_descriptor(@)",
-#     header: "Message_Alert.hxx".}
-proc dynamicType*(this: MessageAlert): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Message_Alert.hxx".}
 ## ! Macro allowing to define simple alert (without data) in single line of code
 
 template define_Simple_Alert*(alert: untyped): void =
@@ -111,9 +48,103 @@ template define_Simple_Alert*(alert: untyped): void =
     AlertbaseType* = MessageAlert
   proc getTypeName*(): cstring {.importcpp: "Alert::get_type_name(@)",
                               header: "Message_Alert.hxx".}
-  proc getTypeDescriptor*(): Handle[StandardType] {.
-      importcpp: "Alert::get_type_descriptor(@)", header: "Message_Alert.hxx".}
-  proc dynamicType*(this: Alert): Handle[StandardType] {.noSideEffect,
-      importcpp: "DynamicType", header: "Message_Alert.hxx".}
+  ## !!!Ignored construct:  & get_type_descriptor ( ) { return Standard_Type :: Instance < Alert > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } }
+  ## Error: identifier expected, but got: &!!!
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

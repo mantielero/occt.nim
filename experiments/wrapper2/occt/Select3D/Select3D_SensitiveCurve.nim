@@ -59,7 +59,7 @@ proc dynamicType*(this: Select3D_SensitiveCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveCurve.hxx".}
 proc constructSelect3D_SensitiveCurve*(theOwnerId: Handle[SelectMgrEntityOwner];
                                       theCurve: Handle[GeomCurve];
-                                      theNbPnts: int = 17): Select3D_SensitiveCurve {.
+                                      theNbPnts: cint = 17): Select3D_SensitiveCurve {.
     constructor, importcpp: "Select3D_SensitiveCurve(@)",
     header: "Select3D_SensitiveCurve.hxx".}
 proc constructSelect3D_SensitiveCurve*(theOwnerId: Handle[SelectMgrEntityOwner];
@@ -75,5 +75,30 @@ proc getConnected*(this: var Select3D_SensitiveCurve): Handle[
                                header: "Select3D_SensitiveCurve.hxx".}
 discard "forward decl of Select3D_SensitiveCurve"
 type
-  HandleSelect3D_SensitiveCurve* = Handle[Select3D_SensitiveCurve]
+  HandleC1C1* = Handle[Select3D_SensitiveCurve]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

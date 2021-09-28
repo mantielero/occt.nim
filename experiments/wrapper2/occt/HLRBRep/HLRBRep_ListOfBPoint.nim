@@ -18,3 +18,28 @@ type
   HLRBRepListOfBPoint* = NCollectionList[HLRBRepBiPoint]
   HLRBRepListIteratorOfListOfBPoint* = Iterator[HLRBRepBiPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -43,3 +43,28 @@ proc constructTopoDSToStepMakeShellBasedSurfaceModel*(s: TopoDS_Solid;
     header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
 proc value*(this: TopoDSToStepMakeShellBasedSurfaceModel): Handle[
     StepShapeShellBasedSurfaceModel] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

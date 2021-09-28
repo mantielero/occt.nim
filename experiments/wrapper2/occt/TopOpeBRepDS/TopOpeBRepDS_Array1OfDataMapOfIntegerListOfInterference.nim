@@ -18,3 +18,28 @@ type
   TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference* = NCollectionArray1[
       TopOpeBRepDS_DataMapOfIntegerListOfInterference]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

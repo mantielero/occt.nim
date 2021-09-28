@@ -37,11 +37,12 @@ discard "forward decl of Standard_Transient"
 
 type
   handle*[T] {.importcpp: "opencascade::handle<\'0>",
-              header: "Standard_Handle_mod.hxx", bycopy.} = object ## ! STL-compliant typedef of contained type
+              header: "Standard_Handle.hxx", bycopy.} = object ## ! STL-compliant typedef of contained type
                                                               ## ! Empty constructor
 
   handleelement_type*[T] = T
-
+  Handle*[T] = handle[T]
+  
 proc constructhandle*[T](): handle[T] {.constructor,
                                      importcpp: "opencascade::handle<\'*0>(@)",
                                      header: "Standard_Handle_mod.hxx".}
@@ -72,8 +73,6 @@ proc `==`*[T; T2](this: handle[T]; thePtr: ptr T2): bool {.noSideEffect,
     importcpp: "(# == #)", header: "Standard_Handle_mod.hxx".}
 ##  namespace opencascade
 
-template Handle*(Class: untyped): untyped =
-  handle[Class]
 
 ## ! Computes a hash code for the standard handle, in the range [1, theUpperBound]
 ## ! @param theHandle the handle which hash code is to be computed
@@ -86,6 +85,12 @@ var HashCode* {.importcpp: "HashCode", header: "Standard_Handle_mod.hxx".}: int
 #  ## ! For Visual Studio 2013+, define Handle_Class as non-template class to allow exporting this type in C++/CLI.
 #else:
 #  discard
+
+#[
+
+template Handle*(Class: untyped): untyped =
+  handle[Class]
+
 template DEFINE_STANDARD_HANDLE*(C1, C2: untyped): untyped =
   DEFINE_STANDARD_HANDLECLASS(C1, C2, constructStandard_Transient)
 
@@ -97,3 +102,49 @@ template DEFINE_STANDARD_HANDLECLASS*(C1, C2, BC: untyped): untyped =
   discard "forward decl of C1"
   type
     `Handle C1` {.inline.} = Handle[C1]
+]#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

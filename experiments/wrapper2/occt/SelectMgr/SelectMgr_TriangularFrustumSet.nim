@@ -42,7 +42,7 @@ proc destroySelectMgrTriangularFrustumSet*(
     header: "SelectMgr_TriangularFrustumSet.hxx".}
 proc build*(this: var SelectMgrTriangularFrustumSet; thePoints: TColgpArray1OfPnt2d) {.
     importcpp: "Build", header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc scaleAndTransform*(this: SelectMgrTriangularFrustumSet; theScale: int;
+proc scaleAndTransform*(this: SelectMgrTriangularFrustumSet; theScale: cint;
                        theTrsf: GTrsf): Handle[SelectMgrBaseFrustum] {.
     noSideEffect, importcpp: "ScaleAndTransform",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
@@ -81,5 +81,30 @@ proc setAllowOverlapDetection*(this: var SelectMgrTriangularFrustumSet;
     importcpp: "SetAllowOverlapDetection",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
 proc dumpJson*(this: SelectMgrTriangularFrustumSet;
-              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+              theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     importcpp: "DumpJson", header: "SelectMgr_TriangularFrustumSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

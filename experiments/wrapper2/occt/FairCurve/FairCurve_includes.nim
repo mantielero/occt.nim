@@ -15,3 +15,28 @@ include FairCurve_EnergyOfMVC
 include FairCurve_MinimalVariation
 include FairCurve_Newton
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

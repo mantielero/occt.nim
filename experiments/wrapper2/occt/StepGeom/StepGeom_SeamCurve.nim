@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_SeamCurve"
 discard "forward decl of StepGeom_SeamCurve"
 type
-  HandleStepGeomSeamCurve* = Handle[StepGeomSeamCurve]
+  HandleC1C1* = Handle[StepGeomSeamCurve]
   StepGeomSeamCurve* {.importcpp: "StepGeom_SeamCurve",
                       header: "StepGeom_SeamCurve.hxx", bycopy.} = object of StepGeomSurfaceCurve ##
                                                                                            ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_SeamCurve.hxx".}
 proc dynamicType*(this: StepGeomSeamCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_SeamCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of IGESGeom_Boundary"
 discard "forward decl of IGESGeom_BoundedSurface"
 discard "forward decl of IGESGeom_BoundedSurface"
 type
-  HandleIGESGeomBoundedSurface* = Handle[IGESGeomBoundedSurface]
+  HandleC1C1* = Handle[IGESGeomBoundedSurface]
 
 ## ! defines BoundedSurface, Type <143> Form <0>
 ## ! in package IGESGeom
@@ -35,17 +35,17 @@ type
 
 proc constructIGESGeomBoundedSurface*(): IGESGeomBoundedSurface {.constructor,
     importcpp: "IGESGeom_BoundedSurface(@)", header: "IGESGeom_BoundedSurface.hxx".}
-proc init*(this: var IGESGeomBoundedSurface; aType: int;
+proc init*(this: var IGESGeomBoundedSurface; aType: cint;
           aSurface: Handle[IGESDataIGESEntity];
           allBounds: Handle[IGESGeomHArray1OfBoundary]) {.importcpp: "Init",
     header: "IGESGeom_BoundedSurface.hxx".}
-proc representationType*(this: IGESGeomBoundedSurface): int {.noSideEffect,
+proc representationType*(this: IGESGeomBoundedSurface): cint {.noSideEffect,
     importcpp: "RepresentationType", header: "IGESGeom_BoundedSurface.hxx".}
 proc surface*(this: IGESGeomBoundedSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Surface", header: "IGESGeom_BoundedSurface.hxx".}
-proc nbBoundaries*(this: IGESGeomBoundedSurface): int {.noSideEffect,
+proc nbBoundaries*(this: IGESGeomBoundedSurface): cint {.noSideEffect,
     importcpp: "NbBoundaries", header: "IGESGeom_BoundedSurface.hxx".}
-proc boundary*(this: IGESGeomBoundedSurface; index: int): Handle[IGESGeomBoundary] {.
+proc boundary*(this: IGESGeomBoundedSurface; index: cint): Handle[IGESGeomBoundary] {.
     noSideEffect, importcpp: "Boundary", header: "IGESGeom_BoundedSurface.hxx".}
 type
   IGESGeomBoundedSurfacebaseType* = IGESDataIGESEntity
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_BoundedSurface.hxx".}
 proc dynamicType*(this: IGESGeomBoundedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGeom_BoundedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

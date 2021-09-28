@@ -28,18 +28,18 @@ type
 proc constructBRepClass3dIntersector3d*(): BRepClass3dIntersector3d {.constructor,
     importcpp: "BRepClass3d_Intersector3d(@)",
     header: "BRepClass3d_Intersector3d.hxx".}
-proc perform*(this: var BRepClass3dIntersector3d; L: Lin; prm: float; tol: float;
+proc perform*(this: var BRepClass3dIntersector3d; L: Lin; prm: cfloat; tol: cfloat;
              f: TopoDS_Face) {.importcpp: "Perform",
                              header: "BRepClass3d_Intersector3d.hxx".}
 proc isDone*(this: BRepClass3dIntersector3d): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepClass3d_Intersector3d.hxx".}
 proc hasAPoint*(this: BRepClass3dIntersector3d): bool {.noSideEffect,
     importcpp: "HasAPoint", header: "BRepClass3d_Intersector3d.hxx".}
-proc uParameter*(this: BRepClass3dIntersector3d): float {.noSideEffect,
+proc uParameter*(this: BRepClass3dIntersector3d): cfloat {.noSideEffect,
     importcpp: "UParameter", header: "BRepClass3d_Intersector3d.hxx".}
-proc vParameter*(this: BRepClass3dIntersector3d): float {.noSideEffect,
+proc vParameter*(this: BRepClass3dIntersector3d): cfloat {.noSideEffect,
     importcpp: "VParameter", header: "BRepClass3d_Intersector3d.hxx".}
-proc wParameter*(this: BRepClass3dIntersector3d): float {.noSideEffect,
+proc wParameter*(this: BRepClass3dIntersector3d): cfloat {.noSideEffect,
     importcpp: "WParameter", header: "BRepClass3d_Intersector3d.hxx".}
 proc pnt*(this: BRepClass3dIntersector3d): Pnt {.noSideEffect, importcpp: "Pnt",
     header: "BRepClass3d_Intersector3d.hxx".}
@@ -49,3 +49,28 @@ proc state*(this: BRepClass3dIntersector3d): TopAbsState {.noSideEffect,
     importcpp: "State", header: "BRepClass3d_Intersector3d.hxx".}
 proc face*(this: BRepClass3dIntersector3d): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BRepClass3d_Intersector3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

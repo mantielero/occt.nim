@@ -61,17 +61,17 @@ proc resetToDefaults*(this: var VrmlAPI_Writer) {.importcpp: "ResetToDefaults",
     header: "VrmlAPI_Writer.hxx".}
 proc drawer*(this: VrmlAPI_Writer): Handle[VrmlConverterDrawer] {.noSideEffect,
     importcpp: "Drawer", header: "VrmlAPI_Writer.hxx".}
-proc setDeflection*(this: var VrmlAPI_Writer; aDef: float) {.
+proc setDeflection*(this: var VrmlAPI_Writer; aDef: cfloat) {.
     importcpp: "SetDeflection", header: "VrmlAPI_Writer.hxx".}
 proc setRepresentation*(this: var VrmlAPI_Writer;
                        aRep: VrmlAPI_RepresentationOfShape) {.
     importcpp: "SetRepresentation", header: "VrmlAPI_Writer.hxx".}
 proc setTransparencyToMaterial*(this: var VrmlAPI_Writer;
                                aMaterial: var Handle[VrmlMaterial];
-                               aTransparency: float) {.
+                               aTransparency: cfloat) {.
     importcpp: "SetTransparencyToMaterial", header: "VrmlAPI_Writer.hxx".}
 proc setShininessToMaterial*(this: var VrmlAPI_Writer;
-                            aMaterial: var Handle[VrmlMaterial]; aShininess: float) {.
+                            aMaterial: var Handle[VrmlMaterial]; aShininess: cfloat) {.
     importcpp: "SetShininessToMaterial", header: "VrmlAPI_Writer.hxx".}
 proc setAmbientColorToMaterial*(this: var VrmlAPI_Writer;
                                aMaterial: var Handle[VrmlMaterial];
@@ -109,8 +109,33 @@ proc getUnfreeBoundsMaterial*(this: VrmlAPI_Writer): Handle[VrmlMaterial] {.
     noSideEffect, importcpp: "GetUnfreeBoundsMaterial",
     header: "VrmlAPI_Writer.hxx".}
 proc write*(this: VrmlAPI_Writer; aShape: TopoDS_Shape; aFile: StandardCString;
-           aVersion: int = 2): bool {.noSideEffect, importcpp: "Write",
-                                 header: "VrmlAPI_Writer.hxx".}
+           aVersion: cint = 2): bool {.noSideEffect, importcpp: "Write",
+                                  header: "VrmlAPI_Writer.hxx".}
 proc writeDoc*(this: VrmlAPI_Writer; theDoc: Handle[TDocStdDocument];
-              theFile: StandardCString; theScale: float): bool {.noSideEffect,
+              theFile: StandardCString; theScale: cfloat): bool {.noSideEffect,
     importcpp: "WriteDoc", header: "VrmlAPI_Writer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

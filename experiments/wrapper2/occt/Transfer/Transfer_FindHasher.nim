@@ -28,9 +28,34 @@ type
                                                                        ## theUpperBound]
 
 
-proc hashCode*(theFinder: Handle[TransferFinder]; theUpperBound: int): int {.
+proc hashCode*(theFinder: Handle[TransferFinder]; theUpperBound: cint): cint {.
     importcpp: "Transfer_FindHasher::HashCode(@)",
     header: "Transfer_FindHasher.hxx".}
 proc isEqual*(k1: Handle[TransferFinder]; k2: Handle[TransferFinder]): bool {.
     importcpp: "Transfer_FindHasher::IsEqual(@)",
     header: "Transfer_FindHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

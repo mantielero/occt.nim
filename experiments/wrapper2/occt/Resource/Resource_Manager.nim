@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Resource_Manager"
 discard "forward decl of Resource_Manager"
 type
-  HandleResourceManager* = Handle[ResourceManager]
+  HandleC1C1* = Handle[ResourceManager]
 
 ## ! Defines a resource structure and its management methods.
 
@@ -64,20 +64,20 @@ proc find*(this: ResourceManager; aResource: StandardCString): bool {.noSideEffe
 proc find*(this: ResourceManager; theResource: TCollectionAsciiString;
           theValue: var TCollectionAsciiString): bool {.noSideEffect,
     importcpp: "Find", header: "Resource_Manager.hxx".}
-proc integer*(this: ResourceManager; aResourceName: StandardCString): int {.
+proc integer*(this: ResourceManager; aResourceName: StandardCString): cint {.
     noSideEffect, importcpp: "Integer", header: "Resource_Manager.hxx".}
-proc real*(this: ResourceManager; aResourceName: StandardCString): float {.
+proc real*(this: ResourceManager; aResourceName: StandardCString): cfloat {.
     noSideEffect, importcpp: "Real", header: "Resource_Manager.hxx".}
 proc value*(this: ResourceManager; aResourceName: StandardCString): StandardCString {.
     noSideEffect, importcpp: "Value", header: "Resource_Manager.hxx".}
 proc extValue*(this: var ResourceManager; aResourceName: StandardCString): StandardExtString {.
     importcpp: "ExtValue", header: "Resource_Manager.hxx".}
 proc setResource*(this: var ResourceManager; aResourceName: StandardCString;
-                 aValue: int) {.importcpp: "SetResource",
-                              header: "Resource_Manager.hxx".}
+                 aValue: cint) {.importcpp: "SetResource",
+                               header: "Resource_Manager.hxx".}
 proc setResource*(this: var ResourceManager; aResourceName: StandardCString;
-                 aValue: float) {.importcpp: "SetResource",
-                                header: "Resource_Manager.hxx".}
+                 aValue: cfloat) {.importcpp: "SetResource",
+                                 header: "Resource_Manager.hxx".}
 proc setResource*(this: var ResourceManager; aResourceName: StandardCString;
                  aValue: StandardCString) {.importcpp: "SetResource",
     header: "Resource_Manager.hxx".}
@@ -88,3 +88,28 @@ proc getResourcePath*(aPath: var TCollectionAsciiString; aName: StandardCString;
                      isUserDefaults: bool) {.
     importcpp: "Resource_Manager::GetResourcePath(@)",
     header: "Resource_Manager.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

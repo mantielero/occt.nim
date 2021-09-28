@@ -28,7 +28,7 @@ proc constructRWStepShapeRWGeometricallyBoundedSurfaceShapeRepresentation*(): RW
     constructor, importcpp: "RWStepShape_RWGeometricallyBoundedSurfaceShapeRepresentation(@)",
     header: "RWStepShape_RWGeometricallyBoundedSurfaceShapeRepresentation.hxx".}
 proc readStep*(this: RWStepShapeRWGeometricallyBoundedSurfaceShapeRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepShapeGeometricallyBoundedSurfaceShapeRepresentation]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -42,3 +42,28 @@ proc share*(this: RWStepShapeRWGeometricallyBoundedSurfaceShapeRepresentation; e
     StepShapeGeometricallyBoundedSurfaceShapeRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWGeometricallyBoundedSurfaceShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -57,25 +57,50 @@ type
 
 proc constructIntPatchALineToWLine*(theS1: Handle[Adaptor3dHSurface];
                                    theS2: Handle[Adaptor3dHSurface];
-                                   theNbPoints: int = 200): IntPatchALineToWLine {.
+                                   theNbPoints: cint = 200): IntPatchALineToWLine {.
     constructor, importcpp: "IntPatch_ALineToWLine(@)",
     header: "IntPatch_ALineToWLine.hxx".}
-proc setTolOpenDomain*(this: var IntPatchALineToWLine; aT: float) {.
+proc setTolOpenDomain*(this: var IntPatchALineToWLine; aT: cfloat) {.
     importcpp: "SetTolOpenDomain", header: "IntPatch_ALineToWLine.hxx".}
-proc tolOpenDomain*(this: IntPatchALineToWLine): float {.noSideEffect,
+proc tolOpenDomain*(this: IntPatchALineToWLine): cfloat {.noSideEffect,
     importcpp: "TolOpenDomain", header: "IntPatch_ALineToWLine.hxx".}
-proc setTolTransition*(this: var IntPatchALineToWLine; aT: float) {.
+proc setTolTransition*(this: var IntPatchALineToWLine; aT: cfloat) {.
     importcpp: "SetTolTransition", header: "IntPatch_ALineToWLine.hxx".}
-proc tolTransition*(this: IntPatchALineToWLine): float {.noSideEffect,
+proc tolTransition*(this: IntPatchALineToWLine): cfloat {.noSideEffect,
     importcpp: "TolTransition", header: "IntPatch_ALineToWLine.hxx".}
-proc setTol3D*(this: var IntPatchALineToWLine; aT: float) {.importcpp: "SetTol3D",
+proc setTol3D*(this: var IntPatchALineToWLine; aT: cfloat) {.importcpp: "SetTol3D",
     header: "IntPatch_ALineToWLine.hxx".}
-proc tol3D*(this: IntPatchALineToWLine): float {.noSideEffect, importcpp: "Tol3D",
+proc tol3D*(this: IntPatchALineToWLine): cfloat {.noSideEffect, importcpp: "Tol3D",
     header: "IntPatch_ALineToWLine.hxx".}
 proc makeWLine*(this: IntPatchALineToWLine; aline: Handle[IntPatchALine];
                theLines: var IntPatchSequenceOfLine) {.noSideEffect,
     importcpp: "MakeWLine", header: "IntPatch_ALineToWLine.hxx".}
 proc makeWLine*(this: IntPatchALineToWLine; aline: Handle[IntPatchALine];
-               paraminf: float; paramsup: float;
+               paraminf: cfloat; paramsup: cfloat;
                theLines: var IntPatchSequenceOfLine) {.noSideEffect,
     importcpp: "MakeWLine", header: "IntPatch_ALineToWLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

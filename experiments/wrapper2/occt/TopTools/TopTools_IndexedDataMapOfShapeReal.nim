@@ -14,5 +14,30 @@
 
 type
   TopToolsIndexedDataMapOfShapeReal* = NCollectionIndexedDataMap[TopoDS_Shape,
-      float, TopToolsShapeMapHasher]
+      cfloat, TopToolsShapeMapHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

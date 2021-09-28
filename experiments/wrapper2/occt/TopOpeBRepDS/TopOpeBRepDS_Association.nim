@@ -18,7 +18,7 @@ discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopOpeBRepDS_Association"
 discard "forward decl of TopOpeBRepDS_Association"
 type
-  HandleTopOpeBRepDS_Association* = Handle[TopOpeBRepDS_Association]
+  HandleC1C1* = Handle[TopOpeBRepDS_Association]
   TopOpeBRepDS_Association* {.importcpp: "TopOpeBRepDS_Association",
                              header: "TopOpeBRepDS_Association.hxx", bycopy.} = object of StandardTransient
 
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepDS_Association.hxx".}
 proc dynamicType*(this: TopOpeBRepDS_Association): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TopOpeBRepDS_Association.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

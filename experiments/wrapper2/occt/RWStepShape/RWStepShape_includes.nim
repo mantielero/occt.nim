@@ -94,3 +94,28 @@ include RWStepShape_RWVertex
 include RWStepShape_RWVertexLoop
 include RWStepShape_RWVertexPoint
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

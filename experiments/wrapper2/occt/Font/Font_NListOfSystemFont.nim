@@ -20,3 +20,28 @@ proc isEqual*(theFirstFont: Handle[FontSystemFont];
              theSecondFont: Handle[FontSystemFont]): bool =
   discard
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

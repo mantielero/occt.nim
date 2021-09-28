@@ -30,7 +30,7 @@ proc constructRWStepVisualRWExternallyDefinedCurveFont*(): RWStepVisualRWExterna
     constructor, importcpp: "RWStepVisual_RWExternallyDefinedCurveFont(@)",
     header: "RWStepVisual_RWExternallyDefinedCurveFont.hxx".}
 proc readStep*(this: RWStepVisualRWExternallyDefinedCurveFont;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualExternallyDefinedCurveFont]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWExternallyDefinedCurveFont.hxx".}
@@ -43,3 +43,28 @@ proc share*(this: RWStepVisualRWExternallyDefinedCurveFont;
            ent: Handle[StepVisualExternallyDefinedCurveFont];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWExternallyDefinedCurveFont.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

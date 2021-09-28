@@ -21,3 +21,28 @@ type
     StepGeomPscrCurve3d, StepGeomPscrPcurveS1, StepGeomPscrPcurveS2
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

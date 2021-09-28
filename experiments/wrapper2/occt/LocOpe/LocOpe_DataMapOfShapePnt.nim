@@ -20,3 +20,28 @@ type
   LocOpeDataMapIteratorOfDataMapOfShapePnt* = Iterator[TopoDS_Shape, Pnt,
       TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

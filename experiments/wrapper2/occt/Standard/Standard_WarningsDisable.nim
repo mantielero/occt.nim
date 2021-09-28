@@ -26,11 +26,12 @@
 ## ! #include <Standard_WarningsRestore.hxx>
 ## ! @endcode
 
-# when defined(clang):
-# elif defined(msc_Ver):
-#   discard
-# elif defined(gnuc) and (gnuc > 4 or (gnuc == 4 and gnuc_Minor >= 6)):
-#   ##  -Wall does not work here for GCC, so the only way is to list all most important warnings...
-#   when defined(gnuc) and (gnuc > 4 or (gnuc == 4 and gnuc_Minor >= 8)):
-#     discard
+# # # when defined(clang):
+# # # elif defined(msc_Ver):
+# # #   discard
+# # # elif defined(gnuc) and (gnuc > 4 or (gnuc == 4 and gnuc_Minor >= 6)):
+# # #   ##  -Wall does not work here for GCC, so the only way is to list all most important warnings...
+# # #   when defined(gnuc) and (gnuc > 4 or (gnuc == 4 and gnuc_Minor >= 8)):
+# # #     discard
+
 

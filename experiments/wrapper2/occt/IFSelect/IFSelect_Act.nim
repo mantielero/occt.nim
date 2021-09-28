@@ -19,7 +19,7 @@ discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IFSelect_Act"
 discard "forward decl of IFSelect_Act"
 type
-  HandleIFSelectAct* = Handle[IFSelectAct]
+  HandleC1C1* = Handle[IFSelectAct]
 
 ## ! Act gives a simple way to define and add functions to be ran
 ## ! from a SessionPilot, as follows :
@@ -69,9 +69,9 @@ type
 proc constructIFSelectAct*(name: StandardCString; help: StandardCString;
                           `func`: IFSelectActFunc): IFSelectAct {.constructor,
     importcpp: "IFSelect_Act(@)", header: "IFSelect_Act.hxx".}
-proc `do`*(this: var IFSelectAct; number: int; pilot: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
+proc `do`*(this: var IFSelectAct; number: cint; pilot: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
     importcpp: "Do", header: "IFSelect_Act.hxx".}
-proc help*(this: IFSelectAct; number: int): StandardCString {.noSideEffect,
+proc help*(this: IFSelectAct; number: cint): StandardCString {.noSideEffect,
     importcpp: "Help", header: "IFSelect_Act.hxx".}
 proc setGroup*(group: StandardCString; file: StandardCString = "") {.
     importcpp: "IFSelect_Act::SetGroup(@)", header: "IFSelect_Act.hxx".}
@@ -88,3 +88,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "IFSelect_Act::get_type_descriptor(@)", header: "IFSelect_Act.hxx".}
 proc dynamicType*(this: IFSelectAct): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Act.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDefs_AssociativityDef"
 discard "forward decl of IGESDefs_AssociativityDef"
 type
-  HandleIGESDefsAssociativityDef* = Handle[IGESDefsAssociativityDef]
+  HandleC1C1* = Handle[IGESDefsAssociativityDef]
 
 ## ! defines IGES Associativity Definition Entity, Type <302>
 ## ! Form <5001 - 9999> in package IGESDefs.
@@ -42,24 +42,24 @@ proc init*(this: var IGESDefsAssociativityDef;
           numItems: Handle[TColStdHArray1OfInteger];
           items: Handle[IGESBasicHArray1OfHArray1OfInteger]) {.importcpp: "Init",
     header: "IGESDefs_AssociativityDef.hxx".}
-proc setFormNumber*(this: var IGESDefsAssociativityDef; form: int) {.
+proc setFormNumber*(this: var IGESDefsAssociativityDef; form: cint) {.
     importcpp: "SetFormNumber", header: "IGESDefs_AssociativityDef.hxx".}
-proc nbClassDefs*(this: IGESDefsAssociativityDef): int {.noSideEffect,
+proc nbClassDefs*(this: IGESDefsAssociativityDef): cint {.noSideEffect,
     importcpp: "NbClassDefs", header: "IGESDefs_AssociativityDef.hxx".}
-proc isBackPointerReq*(this: IGESDefsAssociativityDef; classNum: int): bool {.
+proc isBackPointerReq*(this: IGESDefsAssociativityDef; classNum: cint): bool {.
     noSideEffect, importcpp: "IsBackPointerReq",
     header: "IGESDefs_AssociativityDef.hxx".}
-proc backPointerReq*(this: IGESDefsAssociativityDef; classNum: int): int {.
+proc backPointerReq*(this: IGESDefsAssociativityDef; classNum: cint): cint {.
     noSideEffect, importcpp: "BackPointerReq",
     header: "IGESDefs_AssociativityDef.hxx".}
-proc isOrdered*(this: IGESDefsAssociativityDef; classNum: int): bool {.noSideEffect,
+proc isOrdered*(this: IGESDefsAssociativityDef; classNum: cint): bool {.noSideEffect,
     importcpp: "IsOrdered", header: "IGESDefs_AssociativityDef.hxx".}
-proc classOrder*(this: IGESDefsAssociativityDef; classNum: int): int {.noSideEffect,
+proc classOrder*(this: IGESDefsAssociativityDef; classNum: cint): cint {.noSideEffect,
     importcpp: "ClassOrder", header: "IGESDefs_AssociativityDef.hxx".}
-proc nbItemsPerClass*(this: IGESDefsAssociativityDef; classNum: int): int {.
+proc nbItemsPerClass*(this: IGESDefsAssociativityDef; classNum: cint): cint {.
     noSideEffect, importcpp: "NbItemsPerClass",
     header: "IGESDefs_AssociativityDef.hxx".}
-proc item*(this: IGESDefsAssociativityDef; classNum: int; itemNum: int): int {.
+proc item*(this: IGESDefsAssociativityDef; classNum: cint; itemNum: cint): cint {.
     noSideEffect, importcpp: "Item", header: "IGESDefs_AssociativityDef.hxx".}
 type
   IGESDefsAssociativityDefbaseType* = IGESDataIGESEntity
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDefs_AssociativityDef.hxx".}
 proc dynamicType*(this: IGESDefsAssociativityDef): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDefs_AssociativityDef.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

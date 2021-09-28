@@ -40,3 +40,28 @@ proc more*(this: TCollectionBasicMapIterator): bool {.noSideEffect,
     importcpp: "More", header: "TCollection_BasicMapIterator.hxx".}
 proc next*(this: var TCollectionBasicMapIterator) {.importcpp: "Next",
     header: "TCollection_BasicMapIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

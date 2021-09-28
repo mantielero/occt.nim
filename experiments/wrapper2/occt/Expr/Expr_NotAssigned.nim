@@ -17,13 +17,54 @@
 ## !!!Ignored construct:  # _Expr_NotAssigned_HeaderFile [NewLine] # _Expr_NotAssigned_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Expr_ExprFailure . hxx > [NewLine] class Expr_NotAssigned ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Expr_NotAssigned"
-type
-  HandleExprNotAssignedExprNotAssigned* = Handle[ExprNotAssigned]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Expr_NotAssigned , Expr_ExprFailure ) # ! defined No_Exception && ! defined No_Expr_NotAssigned [NewLine] # Expr_NotAssigned_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Expr_NotAssigned ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Expr_NotAssigned [NewLine] # if ( CONDITION ) throw Expr_NotAssigned ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Expr_NotAssigned_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_NotAssigned , Expr_ExprFailure ) #  _Expr_NotAssigned_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_NotAssigned , Expr_ExprFailure ) #  _Expr_NotAssigned_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

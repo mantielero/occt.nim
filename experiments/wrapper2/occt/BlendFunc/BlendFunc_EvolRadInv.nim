@@ -33,14 +33,14 @@ proc constructBlendFuncEvolRadInv*(s1: Handle[Adaptor3dHSurface];
 proc set*(this: var BlendFuncEvolRadInv; onFirst: bool;
          cOnSurf: Handle[Adaptor2dHCurve2d]) {.importcpp: "Set",
     header: "BlendFunc_EvolRadInv.hxx".}
-proc getTolerance*(this: BlendFuncEvolRadInv; tolerance: var MathVector; tol: float) {.
+proc getTolerance*(this: BlendFuncEvolRadInv; tolerance: var MathVector; tol: cfloat) {.
     noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_EvolRadInv.hxx".}
 proc getBounds*(this: BlendFuncEvolRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
                                         header: "BlendFunc_EvolRadInv.hxx".}
-proc isSolution*(this: var BlendFuncEvolRadInv; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendFuncEvolRadInv; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BlendFunc_EvolRadInv.hxx".}
-proc nbEquations*(this: BlendFuncEvolRadInv): int {.noSideEffect,
+proc nbEquations*(this: BlendFuncEvolRadInv): cint {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_EvolRadInv.hxx".}
 proc value*(this: var BlendFuncEvolRadInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_EvolRadInv.hxx".}
@@ -49,5 +49,30 @@ proc derivatives*(this: var BlendFuncEvolRadInv; x: MathVector; d: var MathMatri
 proc values*(this: var BlendFuncEvolRadInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.importcpp: "Values",
                                    header: "BlendFunc_EvolRadInv.hxx".}
-proc set*(this: var BlendFuncEvolRadInv; choix: int) {.importcpp: "Set",
+proc set*(this: var BlendFuncEvolRadInv; choix: cint) {.importcpp: "Set",
     header: "BlendFunc_EvolRadInv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

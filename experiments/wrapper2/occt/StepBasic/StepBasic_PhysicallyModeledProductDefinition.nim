@@ -17,8 +17,7 @@
 discard "forward decl of StepBasic_PhysicallyModeledProductDefinition"
 discard "forward decl of StepBasic_PhysicallyModeledProductDefinition"
 type
-  HandleStepBasicPhysicallyModeledProductDefinition* = Handle[
-      StepBasicPhysicallyModeledProductDefinition]
+  HandleC1C1* = Handle[StepBasicPhysicallyModeledProductDefinition]
   StepBasicPhysicallyModeledProductDefinition* {.
       importcpp: "StepBasic_PhysicallyModeledProductDefinition",
       header: "StepBasic_PhysicallyModeledProductDefinition.hxx", bycopy.} = object of StepBasicProductDefinition
@@ -36,3 +35,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_Physical
 proc dynamicType*(this: StepBasicPhysicallyModeledProductDefinition): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepBasic_PhysicallyModeledProductDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,11 +25,30 @@ type
                                   bycopy.} = object
 
 
+proc `new`*(this: var GeomFillSweepSectionGenerator; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_SweepSectionGenerator::operator new",
+    header: "GeomFill_SweepSectionGenerator.hxx".}
+proc `delete`*(this: var GeomFillSweepSectionGenerator; theAddress: pointer) {.
+    importcpp: "GeomFill_SweepSectionGenerator::operator delete",
+    header: "GeomFill_SweepSectionGenerator.hxx".}
+proc `new[]`*(this: var GeomFillSweepSectionGenerator; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_SweepSectionGenerator::operator new[]",
+    header: "GeomFill_SweepSectionGenerator.hxx".}
+proc `delete[]`*(this: var GeomFillSweepSectionGenerator; theAddress: pointer) {.
+    importcpp: "GeomFill_SweepSectionGenerator::operator delete[]",
+    header: "GeomFill_SweepSectionGenerator.hxx".}
+proc `new`*(this: var GeomFillSweepSectionGenerator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_SweepSectionGenerator::operator new",
+    header: "GeomFill_SweepSectionGenerator.hxx".}
+proc `delete`*(this: var GeomFillSweepSectionGenerator; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_SweepSectionGenerator::operator delete",
+    header: "GeomFill_SweepSectionGenerator.hxx".}
 proc constructGeomFillSweepSectionGenerator*(): GeomFillSweepSectionGenerator {.
     constructor, importcpp: "GeomFill_SweepSectionGenerator(@)",
     header: "GeomFill_SweepSectionGenerator.hxx".}
-proc constructGeomFillSweepSectionGenerator*(path: Handle[GeomCurve]; radius: float): GeomFillSweepSectionGenerator {.
-    constructor, importcpp: "GeomFill_SweepSectionGenerator(@)",
+proc constructGeomFillSweepSectionGenerator*(path: Handle[GeomCurve];
+    radius: StandardReal): GeomFillSweepSectionGenerator {.constructor,
+    importcpp: "GeomFill_SweepSectionGenerator(@)",
     header: "GeomFill_SweepSectionGenerator.hxx".}
 proc constructGeomFillSweepSectionGenerator*(path: Handle[GeomCurve];
     firstSect: Handle[GeomCurve]): GeomFillSweepSectionGenerator {.constructor,
@@ -40,30 +59,32 @@ proc constructGeomFillSweepSectionGenerator*(path: Handle[GeomCurve];
     constructor, importcpp: "GeomFill_SweepSectionGenerator(@)",
     header: "GeomFill_SweepSectionGenerator.hxx".}
 proc constructGeomFillSweepSectionGenerator*(path: Handle[GeomCurve];
-    curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]; radius: float): GeomFillSweepSectionGenerator {.
+    curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]; radius: StandardReal): GeomFillSweepSectionGenerator {.
     constructor, importcpp: "GeomFill_SweepSectionGenerator(@)",
     header: "GeomFill_SweepSectionGenerator.hxx".}
 proc constructGeomFillSweepSectionGenerator*(path: Handle[Adaptor3dHCurve];
-    curve1: Handle[Adaptor3dHCurve]; curve2: Handle[Adaptor3dHCurve]; radius: float): GeomFillSweepSectionGenerator {.
-    constructor, importcpp: "GeomFill_SweepSectionGenerator(@)",
+    curve1: Handle[Adaptor3dHCurve]; curve2: Handle[Adaptor3dHCurve];
+    radius: StandardReal): GeomFillSweepSectionGenerator {.constructor,
+    importcpp: "GeomFill_SweepSectionGenerator(@)",
     header: "GeomFill_SweepSectionGenerator.hxx".}
 proc init*(this: var GeomFillSweepSectionGenerator; path: Handle[GeomCurve];
-          radius: float) {.importcpp: "Init",
-                         header: "GeomFill_SweepSectionGenerator.hxx".}
+          radius: StandardReal) {.importcpp: "Init",
+                                header: "GeomFill_SweepSectionGenerator.hxx".}
 proc init*(this: var GeomFillSweepSectionGenerator; path: Handle[GeomCurve];
           firstSect: Handle[GeomCurve]) {.importcpp: "Init", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc init*(this: var GeomFillSweepSectionGenerator; path: Handle[GeomCurve];
           firstSect: Handle[GeomCurve]; lastSect: Handle[GeomCurve]) {.
     importcpp: "Init", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc init*(this: var GeomFillSweepSectionGenerator; path: Handle[GeomCurve];
-          curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]; radius: float) {.
+          curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]; radius: StandardReal) {.
     importcpp: "Init", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc init*(this: var GeomFillSweepSectionGenerator; path: Handle[Adaptor3dHCurve];
           curve1: Handle[Adaptor3dHCurve]; curve2: Handle[Adaptor3dHCurve];
-          radius: float) {.importcpp: "Init",
-                         header: "GeomFill_SweepSectionGenerator.hxx".}
-proc perform*(this: var GeomFillSweepSectionGenerator; polynomial: bool = false) {.
-    importcpp: "Perform", header: "GeomFill_SweepSectionGenerator.hxx".}
+          radius: StandardReal) {.importcpp: "Init",
+                                header: "GeomFill_SweepSectionGenerator.hxx".}
+proc perform*(this: var GeomFillSweepSectionGenerator;
+             polynomial: StandardBoolean = false) {.importcpp: "Perform",
+    header: "GeomFill_SweepSectionGenerator.hxx".}
 proc getShape*(this: GeomFillSweepSectionGenerator; nbPoles: var int;
               nbKnots: var int; degree: var int; nbPoles2d: var int) {.noSideEffect,
     importcpp: "GetShape", header: "GeomFill_SweepSectionGenerator.hxx".}
@@ -76,7 +97,7 @@ proc nbSections*(this: GeomFillSweepSectionGenerator): int {.noSideEffect,
 proc section*(this: GeomFillSweepSectionGenerator; p: int;
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
              poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
-             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
+             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): StandardBoolean {.
     noSideEffect, importcpp: "Section",
     header: "GeomFill_SweepSectionGenerator.hxx".}
 proc section*(this: GeomFillSweepSectionGenerator; p: int;
@@ -86,5 +107,6 @@ proc section*(this: GeomFillSweepSectionGenerator; p: int;
 proc transformation*(this: GeomFillSweepSectionGenerator; index: int): Trsf {.
     noSideEffect, importcpp: "Transformation",
     header: "GeomFill_SweepSectionGenerator.hxx".}
-proc parameter*(this: GeomFillSweepSectionGenerator; p: int): float {.noSideEffect,
-    importcpp: "Parameter", header: "GeomFill_SweepSectionGenerator.hxx".}
+proc parameter*(this: GeomFillSweepSectionGenerator; p: int): StandardReal {.
+    noSideEffect, importcpp: "Parameter",
+    header: "GeomFill_SweepSectionGenerator.hxx".}

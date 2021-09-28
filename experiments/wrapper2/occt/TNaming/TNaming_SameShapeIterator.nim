@@ -34,3 +34,28 @@ proc next*(this: var TNamingSameShapeIterator) {.importcpp: "Next",
     header: "TNaming_SameShapeIterator.hxx".}
 proc label*(this: TNamingSameShapeIterator): TDF_Label {.noSideEffect,
     importcpp: "Label", header: "TNaming_SameShapeIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

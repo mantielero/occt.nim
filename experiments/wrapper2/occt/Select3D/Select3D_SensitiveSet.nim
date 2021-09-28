@@ -191,13 +191,13 @@ proc setDefaultBVHBuilder*(theBuilder: Handle[Select3D_BVHBuilder3d]) {.
 proc constructSelect3D_SensitiveSet*(theOwnerId: Handle[SelectMgrEntityOwner]): Select3D_SensitiveSet {.
     constructor, importcpp: "Select3D_SensitiveSet(@)",
     header: "Select3D_SensitiveSet.hxx".}
-proc size*(this: Select3D_SensitiveSet): int {.noSideEffect, importcpp: "Size",
+proc size*(this: Select3D_SensitiveSet): cint {.noSideEffect, importcpp: "Size",
     header: "Select3D_SensitiveSet.hxx".}
-proc box*(this: Select3D_SensitiveSet; theIdx: int): Select3D_BndBox3d {.noSideEffect,
-    importcpp: "Box", header: "Select3D_SensitiveSet.hxx".}
-proc center*(this: Select3D_SensitiveSet; theIdx: int; theAxis: int): float {.
+proc box*(this: Select3D_SensitiveSet; theIdx: cint): Select3D_BndBox3d {.
+    noSideEffect, importcpp: "Box", header: "Select3D_SensitiveSet.hxx".}
+proc center*(this: Select3D_SensitiveSet; theIdx: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center", header: "Select3D_SensitiveSet.hxx".}
-proc swap*(this: var Select3D_SensitiveSet; theIdx1: int; theIdx2: int) {.
+proc swap*(this: var Select3D_SensitiveSet; theIdx1: cint; theIdx2: cint) {.
     importcpp: "Swap", header: "Select3D_SensitiveSet.hxx".}
 proc matches*(this: var Select3D_SensitiveSet;
              theMgr: var SelectBasicsSelectingVolumeManager;
@@ -218,12 +218,37 @@ proc centerOfGeometry*(this: Select3D_SensitiveSet): Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveSet.hxx".}
 proc clear*(this: var Select3D_SensitiveSet) {.importcpp: "Clear",
     header: "Select3D_SensitiveSet.hxx".}
-proc getLeafNodeSize*(this: Select3D_SensitiveSet): int {.noSideEffect,
+proc getLeafNodeSize*(this: Select3D_SensitiveSet): cint {.noSideEffect,
     importcpp: "GetLeafNodeSize", header: "Select3D_SensitiveSet.hxx".}
 proc dumpJson*(this: Select3D_SensitiveSet; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Select3D_SensitiveSet.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Select3D_SensitiveSet.hxx".}
 discard "forward decl of Select3D_SensitiveSet"
 type
-  HandleSelect3D_SensitiveSet* = Handle[Select3D_SensitiveSet]
+  HandleC1C1* = Handle[Select3D_SensitiveSet]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

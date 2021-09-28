@@ -45,3 +45,28 @@ proc curves*(this: LocOpePrism; sCurves: var TColGeomSequenceOfCurve) {.noSideEf
     importcpp: "Curves", header: "LocOpe_Prism.hxx".}
 proc barycCurve*(this: LocOpePrism): Handle[GeomCurve] {.noSideEffect,
     importcpp: "BarycCurve", header: "LocOpe_Prism.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

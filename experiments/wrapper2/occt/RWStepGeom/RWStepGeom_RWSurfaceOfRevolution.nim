@@ -28,7 +28,7 @@ proc constructRWStepGeomRWSurfaceOfRevolution*(): RWStepGeomRWSurfaceOfRevolutio
     constructor, importcpp: "RWStepGeom_RWSurfaceOfRevolution(@)",
     header: "RWStepGeom_RWSurfaceOfRevolution.hxx".}
 proc readStep*(this: RWStepGeomRWSurfaceOfRevolution;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomSurfaceOfRevolution]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWSurfaceOfRevolution.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepGeomRWSurfaceOfRevolution;
            ent: Handle[StepGeomSurfaceOfRevolution];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWSurfaceOfRevolution.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

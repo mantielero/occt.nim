@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_ElementarySurface"
 discard "forward decl of StepGeom_ElementarySurface"
 type
-  HandleStepGeomElementarySurface* = Handle[StepGeomElementarySurface]
+  HandleC1C1* = Handle[StepGeomElementarySurface]
   StepGeomElementarySurface* {.importcpp: "StepGeom_ElementarySurface",
                               header: "StepGeom_ElementarySurface.hxx", bycopy.} = object of StepGeomSurface ##
                                                                                                       ## !
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomElementarySurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_ElementarySurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

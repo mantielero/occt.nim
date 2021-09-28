@@ -22,9 +22,34 @@ type
 
 proc constructHLRTopoBRepVData*(): HLRTopoBRepVData {.constructor,
     importcpp: "HLRTopoBRep_VData(@)", header: "HLRTopoBRep_VData.hxx".}
-proc constructHLRTopoBRepVData*(p: float; v: TopoDS_Shape): HLRTopoBRepVData {.
+proc constructHLRTopoBRepVData*(p: cfloat; v: TopoDS_Shape): HLRTopoBRepVData {.
     constructor, importcpp: "HLRTopoBRep_VData(@)", header: "HLRTopoBRep_VData.hxx".}
-proc parameter*(this: HLRTopoBRepVData): float {.noSideEffect,
+proc parameter*(this: HLRTopoBRepVData): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "HLRTopoBRep_VData.hxx".}
 proc vertex*(this: HLRTopoBRepVData): TopoDS_Shape {.noSideEffect,
     importcpp: "Vertex", header: "HLRTopoBRep_VData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,8 +32,9 @@ proc dynamicType*(this: AdvApp2VarPatch): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AdvApp2Var_Patch.hxx".}
 proc constructAdvApp2VarPatch*(): AdvApp2VarPatch {.constructor,
     importcpp: "AdvApp2Var_Patch(@)", header: "AdvApp2Var_Patch.hxx".}
-proc constructAdvApp2VarPatch*(u0: float; u1: float; v0: float; v1: float; iu: int; iv: int): AdvApp2VarPatch {.
-    constructor, importcpp: "AdvApp2Var_Patch(@)", header: "AdvApp2Var_Patch.hxx".}
+proc constructAdvApp2VarPatch*(u0: cfloat; u1: cfloat; v0: cfloat; v1: cfloat; iu: cint;
+                              iv: cint): AdvApp2VarPatch {.constructor,
+    importcpp: "AdvApp2Var_Patch(@)", header: "AdvApp2Var_Patch.hxx".}
 proc isDiscretised*(this: AdvApp2VarPatch): bool {.noSideEffect,
     importcpp: "IsDiscretised", header: "AdvApp2Var_Patch.hxx".}
 proc discretise*(this: var AdvApp2VarPatch; conditions: AdvApp2VarContext;
@@ -45,45 +46,45 @@ proc isApproximated*(this: AdvApp2VarPatch): bool {.noSideEffect,
 proc hasResult*(this: AdvApp2VarPatch): bool {.noSideEffect, importcpp: "HasResult",
     header: "AdvApp2Var_Patch.hxx".}
 proc makeApprox*(this: var AdvApp2VarPatch; conditions: AdvApp2VarContext;
-                constraints: AdvApp2VarFramework; numDec: int) {.
+                constraints: AdvApp2VarFramework; numDec: cint) {.
     importcpp: "MakeApprox", header: "AdvApp2Var_Patch.hxx".}
 proc addConstraints*(this: var AdvApp2VarPatch; conditions: AdvApp2VarContext;
                     constraints: AdvApp2VarFramework) {.
     importcpp: "AddConstraints", header: "AdvApp2Var_Patch.hxx".}
 proc addErrors*(this: var AdvApp2VarPatch; constraints: AdvApp2VarFramework) {.
     importcpp: "AddErrors", header: "AdvApp2Var_Patch.hxx".}
-proc changeDomain*(this: var AdvApp2VarPatch; a: float; b: float; c: float; d: float) {.
+proc changeDomain*(this: var AdvApp2VarPatch; a: cfloat; b: cfloat; c: cfloat; d: cfloat) {.
     importcpp: "ChangeDomain", header: "AdvApp2Var_Patch.hxx".}
 proc resetApprox*(this: var AdvApp2VarPatch) {.importcpp: "ResetApprox",
     header: "AdvApp2Var_Patch.hxx".}
 proc overwriteApprox*(this: var AdvApp2VarPatch) {.importcpp: "OverwriteApprox",
     header: "AdvApp2Var_Patch.hxx".}
-proc u0*(this: AdvApp2VarPatch): float {.noSideEffect, importcpp: "U0",
-                                     header: "AdvApp2Var_Patch.hxx".}
-proc u1*(this: AdvApp2VarPatch): float {.noSideEffect, importcpp: "U1",
-                                     header: "AdvApp2Var_Patch.hxx".}
-proc v0*(this: AdvApp2VarPatch): float {.noSideEffect, importcpp: "V0",
-                                     header: "AdvApp2Var_Patch.hxx".}
-proc v1*(this: AdvApp2VarPatch): float {.noSideEffect, importcpp: "V1",
-                                     header: "AdvApp2Var_Patch.hxx".}
-proc uOrder*(this: AdvApp2VarPatch): int {.noSideEffect, importcpp: "UOrder",
-                                       header: "AdvApp2Var_Patch.hxx".}
-proc vOrder*(this: AdvApp2VarPatch): int {.noSideEffect, importcpp: "VOrder",
-                                       header: "AdvApp2Var_Patch.hxx".}
-proc cutSense*(this: AdvApp2VarPatch): int {.noSideEffect, importcpp: "CutSense",
+proc u0*(this: AdvApp2VarPatch): cfloat {.noSideEffect, importcpp: "U0",
+                                      header: "AdvApp2Var_Patch.hxx".}
+proc u1*(this: AdvApp2VarPatch): cfloat {.noSideEffect, importcpp: "U1",
+                                      header: "AdvApp2Var_Patch.hxx".}
+proc v0*(this: AdvApp2VarPatch): cfloat {.noSideEffect, importcpp: "V0",
+                                      header: "AdvApp2Var_Patch.hxx".}
+proc v1*(this: AdvApp2VarPatch): cfloat {.noSideEffect, importcpp: "V1",
+                                      header: "AdvApp2Var_Patch.hxx".}
+proc uOrder*(this: AdvApp2VarPatch): cint {.noSideEffect, importcpp: "UOrder",
+                                        header: "AdvApp2Var_Patch.hxx".}
+proc vOrder*(this: AdvApp2VarPatch): cint {.noSideEffect, importcpp: "VOrder",
+                                        header: "AdvApp2Var_Patch.hxx".}
+proc cutSense*(this: AdvApp2VarPatch): cint {.noSideEffect, importcpp: "CutSense",
     header: "AdvApp2Var_Patch.hxx".}
-proc cutSense*(this: AdvApp2VarPatch; crit: AdvApp2VarCriterion; numDec: int): int {.
+proc cutSense*(this: AdvApp2VarPatch; crit: AdvApp2VarCriterion; numDec: cint): cint {.
     noSideEffect, importcpp: "CutSense", header: "AdvApp2Var_Patch.hxx".}
-proc nbCoeffInU*(this: AdvApp2VarPatch): int {.noSideEffect, importcpp: "NbCoeffInU",
-    header: "AdvApp2Var_Patch.hxx".}
-proc nbCoeffInV*(this: AdvApp2VarPatch): int {.noSideEffect, importcpp: "NbCoeffInV",
-    header: "AdvApp2Var_Patch.hxx".}
-proc changeNbCoeff*(this: var AdvApp2VarPatch; nbCoeffU: int; nbCoeffV: int) {.
+proc nbCoeffInU*(this: AdvApp2VarPatch): cint {.noSideEffect,
+    importcpp: "NbCoeffInU", header: "AdvApp2Var_Patch.hxx".}
+proc nbCoeffInV*(this: AdvApp2VarPatch): cint {.noSideEffect,
+    importcpp: "NbCoeffInV", header: "AdvApp2Var_Patch.hxx".}
+proc changeNbCoeff*(this: var AdvApp2VarPatch; nbCoeffU: cint; nbCoeffV: cint) {.
     importcpp: "ChangeNbCoeff", header: "AdvApp2Var_Patch.hxx".}
-proc poles*(this: AdvApp2VarPatch; sSPIndex: int; conditions: AdvApp2VarContext): Handle[
+proc poles*(this: AdvApp2VarPatch; sSPIndex: cint; conditions: AdvApp2VarContext): Handle[
     TColgpHArray2OfPnt] {.noSideEffect, importcpp: "Poles",
                          header: "AdvApp2Var_Patch.hxx".}
-proc coefficients*(this: AdvApp2VarPatch; sSPIndex: int;
+proc coefficients*(this: AdvApp2VarPatch; sSPIndex: cint;
                   conditions: AdvApp2VarContext): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "Coefficients", header: "AdvApp2Var_Patch.hxx".}
 proc maxErrors*(this: AdvApp2VarPatch): Handle[TColStdHArray1OfReal] {.noSideEffect,
@@ -92,7 +93,32 @@ proc averageErrors*(this: AdvApp2VarPatch): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "AverageErrors", header: "AdvApp2Var_Patch.hxx".}
 proc isoErrors*(this: AdvApp2VarPatch): Handle[TColStdHArray2OfReal] {.noSideEffect,
     importcpp: "IsoErrors", header: "AdvApp2Var_Patch.hxx".}
-proc critValue*(this: AdvApp2VarPatch): float {.noSideEffect, importcpp: "CritValue",
-    header: "AdvApp2Var_Patch.hxx".}
-proc setCritValue*(this: var AdvApp2VarPatch; dist: float) {.
+proc critValue*(this: AdvApp2VarPatch): cfloat {.noSideEffect,
+    importcpp: "CritValue", header: "AdvApp2Var_Patch.hxx".}
+proc setCritValue*(this: var AdvApp2VarPatch; dist: cfloat) {.
     importcpp: "SetCritValue", header: "AdvApp2Var_Patch.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

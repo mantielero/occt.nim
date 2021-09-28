@@ -15,3 +15,28 @@ type
   StepElementArray1OfCurveElementEndReleasePacket* = NCollectionArray1[
       Handle[StepElementCurveElementEndReleasePacket]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

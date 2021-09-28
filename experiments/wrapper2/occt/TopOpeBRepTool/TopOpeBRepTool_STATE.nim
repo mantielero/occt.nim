@@ -29,7 +29,7 @@ when defined(OCCT_DEBUG):
       header: "TopOpeBRepTool_STATE.hxx".}
   proc set*(this: var TopOpeBRepToolSTATE; s: TopAbsState; b: bool) {.importcpp: "Set",
       header: "TopOpeBRepTool_STATE.hxx".}
-  proc set*(this: var TopOpeBRepToolSTATE; b: bool; n: int; a: cstringArray) {.
+  proc set*(this: var TopOpeBRepToolSTATE; b: bool; n: cint; a: cstringArray) {.
       importcpp: "Set", header: "TopOpeBRepTool_STATE.hxx".}
   proc get*(this: var TopOpeBRepToolSTATE; s: TopAbsState): bool {.importcpp: "Get",
       header: "TopOpeBRepTool_STATE.hxx".}
@@ -37,3 +37,28 @@ when defined(OCCT_DEBUG):
       header: "TopOpeBRepTool_STATE.hxx".}
   proc print*(this: var TopOpeBRepToolSTATE) {.importcpp: "Print",
       header: "TopOpeBRepTool_STATE.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

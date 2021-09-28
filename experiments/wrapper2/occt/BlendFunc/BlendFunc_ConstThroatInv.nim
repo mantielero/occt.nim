@@ -26,7 +26,7 @@ proc constructBlendFuncConstThroatInv*(s1: Handle[Adaptor3dHSurface];
                                       c: Handle[Adaptor3dHCurve]): BlendFuncConstThroatInv {.
     constructor, importcpp: "BlendFunc_ConstThroatInv(@)",
     header: "BlendFunc_ConstThroatInv.hxx".}
-proc isSolution*(this: var BlendFuncConstThroatInv; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendFuncConstThroatInv; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BlendFunc_ConstThroatInv.hxx".}
 proc value*(this: var BlendFuncConstThroatInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_ConstThroatInv.hxx".}
@@ -34,5 +34,30 @@ proc derivatives*(this: var BlendFuncConstThroatInv; x: MathVector; d: var MathM
     importcpp: "Derivatives", header: "BlendFunc_ConstThroatInv.hxx".}
 ## using statement
 
-proc set*(this: var BlendFuncConstThroatInv; theThroat: float; a3: float; choix: int) {.
+proc set*(this: var BlendFuncConstThroatInv; theThroat: cfloat; a3: cfloat; choix: cint) {.
     importcpp: "Set", header: "BlendFunc_ConstThroatInv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

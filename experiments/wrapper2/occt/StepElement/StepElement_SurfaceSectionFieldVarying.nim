@@ -16,8 +16,7 @@
 discard "forward decl of StepElement_SurfaceSectionFieldVarying"
 discard "forward decl of StepElement_SurfaceSectionFieldVarying"
 type
-  HandleStepElementSurfaceSectionFieldVarying* = Handle[
-      StepElementSurfaceSectionFieldVarying]
+  HandleC1C1* = Handle[StepElementSurfaceSectionFieldVarying]
 
 ## ! Representation of STEP entity SurfaceSectionFieldVarying
 
@@ -59,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Surfac
 proc dynamicType*(this: StepElementSurfaceSectionFieldVarying): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

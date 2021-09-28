@@ -29,7 +29,7 @@ proc constructRWStepReprRWStructuralResponseProperty*(): RWStepReprRWStructuralR
     constructor, importcpp: "RWStepRepr_RWStructuralResponseProperty(@)",
     header: "RWStepRepr_RWStructuralResponseProperty.hxx".}
 proc readStep*(this: RWStepReprRWStructuralResponseProperty;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprStructuralResponseProperty]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWStructuralResponseProperty.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepReprRWStructuralResponseProperty;
            ent: Handle[StepReprStructuralResponseProperty];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWStructuralResponseProperty.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

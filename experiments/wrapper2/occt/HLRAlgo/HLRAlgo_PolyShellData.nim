@@ -17,7 +17,7 @@
 discard "forward decl of HLRAlgo_PolyShellData"
 discard "forward decl of HLRAlgo_PolyShellData"
 type
-  HandleHLRAlgoPolyShellData* = Handle[HLRAlgoPolyShellData]
+  HandleC1C1* = Handle[HLRAlgoPolyShellData]
 
 ## ! All the PolyData of a Shell
 
@@ -27,16 +27,16 @@ type
 
   HLRAlgoPolyShellDataShellIndices* {.importcpp: "HLRAlgo_PolyShellData::ShellIndices",
                                      header: "HLRAlgo_PolyShellData.hxx", bycopy.} = object
-    min* {.importc: "Min".}: int
-    max* {.importc: "Max".}: int
+    min* {.importc: "Min".}: cint
+    max* {.importc: "Max".}: cint
 
 
-proc constructHLRAlgoPolyShellData*(nbFace: int): HLRAlgoPolyShellData {.
+proc constructHLRAlgoPolyShellData*(nbFace: cint): HLRAlgoPolyShellData {.
     constructor, importcpp: "HLRAlgo_PolyShellData(@)",
     header: "HLRAlgo_PolyShellData.hxx".}
 proc updateGlobalMinMax*(this: var HLRAlgoPolyShellData; theBox: var Box) {.
     importcpp: "UpdateGlobalMinMax", header: "HLRAlgo_PolyShellData.hxx".}
-proc updateHiding*(this: var HLRAlgoPolyShellData; nbHiding: int) {.
+proc updateHiding*(this: var HLRAlgoPolyShellData; nbHiding: cint) {.
     importcpp: "UpdateHiding", header: "HLRAlgo_PolyShellData.hxx".}
 proc hiding*(this: HLRAlgoPolyShellData): bool {.noSideEffect, importcpp: "Hiding",
     header: "HLRAlgo_PolyShellData.hxx".}
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRAlgo_PolyShellData.hxx".}
 proc dynamicType*(this: HLRAlgoPolyShellData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRAlgo_PolyShellData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

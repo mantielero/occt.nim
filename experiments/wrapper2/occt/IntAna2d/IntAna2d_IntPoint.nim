@@ -23,21 +23,46 @@ type
                                                                    ## ! on the first element, U2 the parameter on the second one.
 
 
-proc constructIntAna2dIntPoint*(x: float; y: float; u1: float; u2: float): IntAna2dIntPoint {.
+proc constructIntAna2dIntPoint*(x: cfloat; y: cfloat; u1: cfloat; u2: cfloat): IntAna2dIntPoint {.
     constructor, importcpp: "IntAna2d_IntPoint(@)", header: "IntAna2d_IntPoint.hxx".}
-proc constructIntAna2dIntPoint*(x: float; y: float; u1: float): IntAna2dIntPoint {.
+proc constructIntAna2dIntPoint*(x: cfloat; y: cfloat; u1: cfloat): IntAna2dIntPoint {.
     constructor, importcpp: "IntAna2d_IntPoint(@)", header: "IntAna2d_IntPoint.hxx".}
 proc constructIntAna2dIntPoint*(): IntAna2dIntPoint {.constructor,
     importcpp: "IntAna2d_IntPoint(@)", header: "IntAna2d_IntPoint.hxx".}
-proc setValue*(this: var IntAna2dIntPoint; x: float; y: float; u1: float; u2: float) {.
+proc setValue*(this: var IntAna2dIntPoint; x: cfloat; y: cfloat; u1: cfloat; u2: cfloat) {.
     importcpp: "SetValue", header: "IntAna2d_IntPoint.hxx".}
-proc setValue*(this: var IntAna2dIntPoint; x: float; y: float; u1: float) {.
+proc setValue*(this: var IntAna2dIntPoint; x: cfloat; y: cfloat; u1: cfloat) {.
     importcpp: "SetValue", header: "IntAna2d_IntPoint.hxx".}
 proc value*(this: IntAna2dIntPoint): Pnt2d {.noSideEffect, importcpp: "Value",
     header: "IntAna2d_IntPoint.hxx".}
 proc secondIsImplicit*(this: IntAna2dIntPoint): bool {.noSideEffect,
     importcpp: "SecondIsImplicit", header: "IntAna2d_IntPoint.hxx".}
-proc paramOnFirst*(this: IntAna2dIntPoint): float {.noSideEffect,
+proc paramOnFirst*(this: IntAna2dIntPoint): cfloat {.noSideEffect,
     importcpp: "ParamOnFirst", header: "IntAna2d_IntPoint.hxx".}
-proc paramOnSecond*(this: IntAna2dIntPoint): float {.noSideEffect,
+proc paramOnSecond*(this: IntAna2dIntPoint): cfloat {.noSideEffect,
     importcpp: "ParamOnSecond", header: "IntAna2d_IntPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

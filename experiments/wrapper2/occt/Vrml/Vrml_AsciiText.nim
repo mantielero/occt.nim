@@ -17,7 +17,7 @@
 discard "forward decl of Vrml_AsciiText"
 discard "forward decl of Vrml_AsciiText"
 type
-  HandleVrmlAsciiText* = Handle[VrmlAsciiText]
+  HandleC1C1* = Handle[VrmlAsciiText]
 
 ## ! defines a AsciiText node of VRML specifying geometry shapes.
 ## ! This  node  represents  strings  of  text  characters  from  ASCII  coded
@@ -37,28 +37,28 @@ type
 proc constructVrmlAsciiText*(): VrmlAsciiText {.constructor,
     importcpp: "Vrml_AsciiText(@)", header: "Vrml_AsciiText.hxx".}
 proc constructVrmlAsciiText*(aString: Handle[TColStdHArray1OfAsciiString];
-                            aSpacing: float;
+                            aSpacing: cfloat;
                             aJustification: VrmlAsciiTextJustification;
-                            aWidth: float): VrmlAsciiText {.constructor,
+                            aWidth: cfloat): VrmlAsciiText {.constructor,
     importcpp: "Vrml_AsciiText(@)", header: "Vrml_AsciiText.hxx".}
 proc setString*(this: var VrmlAsciiText;
                aString: Handle[TColStdHArray1OfAsciiString]) {.
     importcpp: "SetString", header: "Vrml_AsciiText.hxx".}
 proc string*(this: VrmlAsciiText): Handle[TColStdHArray1OfAsciiString] {.
     noSideEffect, importcpp: "String", header: "Vrml_AsciiText.hxx".}
-proc setSpacing*(this: var VrmlAsciiText; aSpacing: float) {.importcpp: "SetSpacing",
+proc setSpacing*(this: var VrmlAsciiText; aSpacing: cfloat) {.importcpp: "SetSpacing",
     header: "Vrml_AsciiText.hxx".}
-proc spacing*(this: VrmlAsciiText): float {.noSideEffect, importcpp: "Spacing",
-                                        header: "Vrml_AsciiText.hxx".}
+proc spacing*(this: VrmlAsciiText): cfloat {.noSideEffect, importcpp: "Spacing",
+    header: "Vrml_AsciiText.hxx".}
 proc setJustification*(this: var VrmlAsciiText;
                       aJustification: VrmlAsciiTextJustification) {.
     importcpp: "SetJustification", header: "Vrml_AsciiText.hxx".}
 proc justification*(this: VrmlAsciiText): VrmlAsciiTextJustification {.noSideEffect,
     importcpp: "Justification", header: "Vrml_AsciiText.hxx".}
-proc setWidth*(this: var VrmlAsciiText; aWidth: float) {.importcpp: "SetWidth",
+proc setWidth*(this: var VrmlAsciiText; aWidth: cfloat) {.importcpp: "SetWidth",
     header: "Vrml_AsciiText.hxx".}
-proc width*(this: VrmlAsciiText): float {.noSideEffect, importcpp: "Width",
-                                      header: "Vrml_AsciiText.hxx".}
+proc width*(this: VrmlAsciiText): cfloat {.noSideEffect, importcpp: "Width",
+                                       header: "Vrml_AsciiText.hxx".}
 proc print*(this: VrmlAsciiText; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_AsciiText.hxx".}
 type
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Vrml_AsciiText.hxx".}
 proc dynamicType*(this: VrmlAsciiText): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_AsciiText.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

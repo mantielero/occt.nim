@@ -32,26 +32,51 @@ proc constructIntPatchImpPrmIntersection*(): IntPatchImpPrmIntersection {.
     header: "IntPatch_ImpPrmIntersection.hxx".}
 proc constructIntPatchImpPrmIntersection*(surf1: Handle[Adaptor3dHSurface];
     d1: Handle[Adaptor3dTopolTool]; surf2: Handle[Adaptor3dHSurface];
-    d2: Handle[Adaptor3dTopolTool]; tolArc: float; tolTang: float; fleche: float;
-    pas: float): IntPatchImpPrmIntersection {.constructor,
+    d2: Handle[Adaptor3dTopolTool]; tolArc: cfloat; tolTang: cfloat; fleche: cfloat;
+    pas: cfloat): IntPatchImpPrmIntersection {.constructor,
     importcpp: "IntPatch_ImpPrmIntersection(@)",
     header: "IntPatch_ImpPrmIntersection.hxx".}
-proc setStartPoint*(this: var IntPatchImpPrmIntersection; u: float; v: float) {.
+proc setStartPoint*(this: var IntPatchImpPrmIntersection; u: cfloat; v: cfloat) {.
     importcpp: "SetStartPoint", header: "IntPatch_ImpPrmIntersection.hxx".}
 proc perform*(this: var IntPatchImpPrmIntersection;
              surf1: Handle[Adaptor3dHSurface]; d1: Handle[Adaptor3dTopolTool];
              surf2: Handle[Adaptor3dHSurface]; d2: Handle[Adaptor3dTopolTool];
-             tolArc: float; tolTang: float; fleche: float; pas: float) {.
+             tolArc: cfloat; tolTang: cfloat; fleche: cfloat; pas: cfloat) {.
     importcpp: "Perform", header: "IntPatch_ImpPrmIntersection.hxx".}
 proc isDone*(this: IntPatchImpPrmIntersection): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntPatch_ImpPrmIntersection.hxx".}
 proc isEmpty*(this: IntPatchImpPrmIntersection): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "IntPatch_ImpPrmIntersection.hxx".}
-proc nbPnts*(this: IntPatchImpPrmIntersection): int {.noSideEffect,
+proc nbPnts*(this: IntPatchImpPrmIntersection): cint {.noSideEffect,
     importcpp: "NbPnts", header: "IntPatch_ImpPrmIntersection.hxx".}
-proc point*(this: IntPatchImpPrmIntersection; index: int): IntPatchPoint {.
+proc point*(this: IntPatchImpPrmIntersection; index: cint): IntPatchPoint {.
     noSideEffect, importcpp: "Point", header: "IntPatch_ImpPrmIntersection.hxx".}
-proc nbLines*(this: IntPatchImpPrmIntersection): int {.noSideEffect,
+proc nbLines*(this: IntPatchImpPrmIntersection): cint {.noSideEffect,
     importcpp: "NbLines", header: "IntPatch_ImpPrmIntersection.hxx".}
-proc line*(this: IntPatchImpPrmIntersection; index: int): Handle[IntPatchLine] {.
+proc line*(this: IntPatchImpPrmIntersection; index: cint): Handle[IntPatchLine] {.
     noSideEffect, importcpp: "Line", header: "IntPatch_ImpPrmIntersection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -47,7 +47,7 @@ proc clear*(this: var IGESDataSpecificLib) {.importcpp: "Clear",
 proc setComplete*(this: var IGESDataSpecificLib) {.importcpp: "SetComplete",
     header: "IGESData_SpecificLib.hxx".}
 proc select*(this: IGESDataSpecificLib; obj: Handle[IGESDataIGESEntity];
-            module: var Handle[IGESDataSpecificModule]; cn: var int): bool {.
+            module: var Handle[IGESDataSpecificModule]; cn: var cint): bool {.
     noSideEffect, importcpp: "Select", header: "IGESData_SpecificLib.hxx".}
 proc start*(this: var IGESDataSpecificLib) {.importcpp: "Start",
     header: "IGESData_SpecificLib.hxx".}
@@ -59,3 +59,28 @@ proc module*(this: IGESDataSpecificLib): Handle[IGESDataSpecificModule] {.
     noSideEffect, importcpp: "Module", header: "IGESData_SpecificLib.hxx".}
 proc protocol*(this: IGESDataSpecificLib): Handle[IGESDataProtocol] {.noSideEffect,
     importcpp: "Protocol", header: "IGESData_SpecificLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

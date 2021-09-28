@@ -87,3 +87,28 @@ proc paste*(this: XmlMDF_DerivedDriver; theSource: Handle[TDF_Attribute];
            theTarget: var XmlObjMgtPersistent;
            theRelocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMDF_DerivedDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

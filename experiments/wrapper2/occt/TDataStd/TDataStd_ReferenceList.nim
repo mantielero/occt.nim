@@ -21,7 +21,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataStd_ReferenceList"
 discard "forward decl of TDataStd_ReferenceList"
 type
-  HandleTDataStdReferenceList* = Handle[TDataStdReferenceList]
+  HandleC1C1* = Handle[TDataStdReferenceList]
 
 ## ! Contains a list of references.
 
@@ -60,7 +60,7 @@ proc constructTDataStdReferenceList*(): TDataStdReferenceList {.constructor,
     importcpp: "TDataStd_ReferenceList(@)", header: "TDataStd_ReferenceList.hxx".}
 proc isEmpty*(this: TDataStdReferenceList): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "TDataStd_ReferenceList.hxx".}
-proc extent*(this: TDataStdReferenceList): int {.noSideEffect, importcpp: "Extent",
+proc extent*(this: TDataStdReferenceList): cint {.noSideEffect, importcpp: "Extent",
     header: "TDataStd_ReferenceList.hxx".}
 proc prepend*(this: var TDataStdReferenceList; value: TDF_Label) {.
     importcpp: "Prepend", header: "TDataStd_ReferenceList.hxx".}
@@ -73,16 +73,17 @@ proc setID*(this: var TDataStdReferenceList) {.importcpp: "SetID",
 proc insertBefore*(this: var TDataStdReferenceList; value: TDF_Label;
                   beforeValue: TDF_Label): bool {.importcpp: "InsertBefore",
     header: "TDataStd_ReferenceList.hxx".}
-proc insertBefore*(this: var TDataStdReferenceList; index: int; beforeValue: TDF_Label): bool {.
-    importcpp: "InsertBefore", header: "TDataStd_ReferenceList.hxx".}
+proc insertBefore*(this: var TDataStdReferenceList; index: cint;
+                  beforeValue: TDF_Label): bool {.importcpp: "InsertBefore",
+    header: "TDataStd_ReferenceList.hxx".}
 proc insertAfter*(this: var TDataStdReferenceList; value: TDF_Label;
                  afterValue: TDF_Label): bool {.importcpp: "InsertAfter",
     header: "TDataStd_ReferenceList.hxx".}
-proc insertAfter*(this: var TDataStdReferenceList; index: int; afterValue: TDF_Label): bool {.
+proc insertAfter*(this: var TDataStdReferenceList; index: cint; afterValue: TDF_Label): bool {.
     importcpp: "InsertAfter", header: "TDataStd_ReferenceList.hxx".}
 proc remove*(this: var TDataStdReferenceList; value: TDF_Label): bool {.
     importcpp: "Remove", header: "TDataStd_ReferenceList.hxx".}
-proc remove*(this: var TDataStdReferenceList; index: int): bool {.importcpp: "Remove",
+proc remove*(this: var TDataStdReferenceList; index: cint): bool {.importcpp: "Remove",
     header: "TDataStd_ReferenceList.hxx".}
 proc clear*(this: var TDataStdReferenceList) {.importcpp: "Clear",
     header: "TDataStd_ReferenceList.hxx".}
@@ -106,8 +107,8 @@ proc references*(this: TDataStdReferenceList; ds: Handle[TDF_DataSet]) {.
 proc dump*(this: TDataStdReferenceList; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_ReferenceList.hxx".}
 proc dumpJson*(this: TDataStdReferenceList; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_ReferenceList.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_ReferenceList.hxx".}
 type
   TDataStdReferenceListbaseType* = TDF_Attribute
 
@@ -118,3 +119,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_ReferenceList.hxx".}
 proc dynamicType*(this: TDataStdReferenceList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_ReferenceList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

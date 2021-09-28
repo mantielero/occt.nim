@@ -39,25 +39,25 @@ proc buildPCurveForEdgeOnFace*(aE: TopoDS_Edge; aF: TopoDS_Face; theContext: Han
     IntToolsContext] = handle[IntToolsContext]()) {.
     importcpp: "BOPTools_AlgoTools2D::BuildPCurveForEdgeOnFace(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
-proc edgeTangent*(anE: TopoDS_Edge; aT: float; tau: var Vec): bool {.
+proc edgeTangent*(anE: TopoDS_Edge; aT: cfloat; tau: var Vec): bool {.
     importcpp: "BOPTools_AlgoTools2D::EdgeTangent(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
-proc pointOnSurface*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: float; u: var float;
-                    v: var float; theContext: Handle[IntToolsContext] = handle[
+proc pointOnSurface*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: cfloat; u: var cfloat;
+                    v: var cfloat; theContext: Handle[IntToolsContext] = handle[
     IntToolsContext]()) {.importcpp: "BOPTools_AlgoTools2D::PointOnSurface(@)",
                          header: "BOPTools_AlgoTools2D.hxx".}
 proc curveOnSurface*(aE: TopoDS_Edge; aF: TopoDS_Face; aC: var Handle[Geom2dCurve];
-                    aToler: var float; theContext: Handle[IntToolsContext] = handle[
+                    aToler: var cfloat; theContext: Handle[IntToolsContext] = handle[
     IntToolsContext]()) {.importcpp: "BOPTools_AlgoTools2D::CurveOnSurface(@)",
                          header: "BOPTools_AlgoTools2D.hxx".}
 proc curveOnSurface*(aE: TopoDS_Edge; aF: TopoDS_Face; aC: var Handle[Geom2dCurve];
-                    aFirst: var float; aLast: var float; aToler: var float; theContext: Handle[
+                    aFirst: var cfloat; aLast: var cfloat; aToler: var cfloat; theContext: Handle[
     IntToolsContext] = handle[IntToolsContext]()) {.
     importcpp: "BOPTools_AlgoTools2D::CurveOnSurface(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
 proc hasCurveOnSurface*(aE: TopoDS_Edge; aF: TopoDS_Face;
-                       aC: var Handle[Geom2dCurve]; aFirst: var float;
-                       aLast: var float; aToler: var float): bool {.
+                       aC: var Handle[Geom2dCurve]; aFirst: var cfloat;
+                       aLast: var cfloat; aToler: var cfloat): bool {.
     importcpp: "BOPTools_AlgoTools2D::HasCurveOnSurface(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
 proc hasCurveOnSurface*(aE: TopoDS_Edge; aF: TopoDS_Face): bool {.
@@ -69,41 +69,66 @@ proc adjustPCurveOnFace*(theF: TopoDS_Face; theC3D: Handle[GeomCurve];
     IntToolsContext] = handle[IntToolsContext]()) {.
     importcpp: "BOPTools_AlgoTools2D::AdjustPCurveOnFace(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
-proc adjustPCurveOnFace*(theF: TopoDS_Face; theFirst: float; theLast: float;
+proc adjustPCurveOnFace*(theF: TopoDS_Face; theFirst: cfloat; theLast: cfloat;
                         theC2D: Handle[Geom2dCurve];
                         theC2DA: var Handle[Geom2dCurve]; theContext: Handle[
     IntToolsContext] = handle[IntToolsContext]()) {.
     importcpp: "BOPTools_AlgoTools2D::AdjustPCurveOnFace(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
-proc adjustPCurveOnSurf*(aF: BRepAdaptorSurface; aT1: float; aT2: float;
+proc adjustPCurveOnSurf*(aF: BRepAdaptorSurface; aT1: cfloat; aT2: cfloat;
                         aC2D: Handle[Geom2dCurve]; aC2DA: var Handle[Geom2dCurve]) {.
     importcpp: "BOPTools_AlgoTools2D::AdjustPCurveOnSurf(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
-proc intermediatePoint*(aFirst: float; aLast: float): float {.
+proc intermediatePoint*(aFirst: cfloat; aLast: cfloat): cfloat {.
     importcpp: "BOPTools_AlgoTools2D::IntermediatePoint(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
-proc intermediatePoint*(anE: TopoDS_Edge): float {.
+proc intermediatePoint*(anE: TopoDS_Edge): cfloat {.
     importcpp: "BOPTools_AlgoTools2D::IntermediatePoint(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
 proc make2D*(aE: TopoDS_Edge; aF: TopoDS_Face; aC: var Handle[Geom2dCurve];
-            aFirst: var float; aLast: var float; aToler: var float;
+            aFirst: var cfloat; aLast: var cfloat; aToler: var cfloat;
             theContext: Handle[IntToolsContext] = handle[IntToolsContext]()) {.
     importcpp: "BOPTools_AlgoTools2D::Make2D(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
 proc makePCurveOnFace*(aF: TopoDS_Face; c3d: Handle[GeomCurve];
-                      aC: var Handle[Geom2dCurve]; aToler: var float; theContext: Handle[
+                      aC: var Handle[Geom2dCurve]; aToler: var cfloat; theContext: Handle[
     IntToolsContext] = handle[IntToolsContext]()) {.
     importcpp: "BOPTools_AlgoTools2D::MakePCurveOnFace(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
-proc makePCurveOnFace*(aF: TopoDS_Face; c3d: Handle[GeomCurve]; aT1: float; aT2: float;
-                      aC: var Handle[Geom2dCurve]; aToler: var float; theContext: Handle[
-    IntToolsContext] = handle[IntToolsContext]()) {.
+proc makePCurveOnFace*(aF: TopoDS_Face; c3d: Handle[GeomCurve]; aT1: cfloat;
+                      aT2: cfloat; aC: var Handle[Geom2dCurve]; aToler: var cfloat;
+    theContext: Handle[IntToolsContext] = handle[IntToolsContext]()) {.
     importcpp: "BOPTools_AlgoTools2D::MakePCurveOnFace(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
 proc attachExistingPCurve*(aEold: TopoDS_Edge; aEnew: TopoDS_Edge; aF: TopoDS_Face;
-                          aCtx: Handle[IntToolsContext]): int {.
+                          aCtx: Handle[IntToolsContext]): cint {.
     importcpp: "BOPTools_AlgoTools2D::AttachExistingPCurve(@)",
     header: "BOPTools_AlgoTools2D.hxx".}
 proc isEdgeIsoline*(theE: TopoDS_Edge; theF: TopoDS_Face; isTheUIso: var bool;
                    isTheVIso: var bool) {.importcpp: "BOPTools_AlgoTools2D::IsEdgeIsoline(@)",
                                        header: "BOPTools_AlgoTools2D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

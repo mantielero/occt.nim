@@ -16,3 +16,28 @@
 type
   IntToolsArray1OfRange* = NCollectionArray1[IntToolsRange]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -132,16 +132,16 @@ type
 
 
 proc constructAppDefResConstraintOfMyGradientbisOfBSplineCompute*(
-    ssp: AppDefMultiLine; sCurv: var AppParCurvesMultiCurve; firstPoint: int;
-    lastPoint: int; constraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    bern: MathMatrix; derivativeBern: MathMatrix; tolerance: float = 1.0e-10): AppDefResConstraintOfMyGradientbisOfBSplineCompute {.
+    ssp: AppDefMultiLine; sCurv: var AppParCurvesMultiCurve; firstPoint: cint;
+    lastPoint: cint; constraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+    bern: MathMatrix; derivativeBern: MathMatrix; tolerance: cfloat = 1.0e-10): AppDefResConstraintOfMyGradientbisOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_ResConstraintOfMyGradientbisOfBSplineCompute(@)",
     header: "AppDef_ResConstraintOfMyGradientbisOfBSplineCompute.hxx".}
 proc isDone*(this: AppDefResConstraintOfMyGradientbisOfBSplineCompute): bool {.
     noSideEffect, importcpp: "IsDone",
     header: "AppDef_ResConstraintOfMyGradientbisOfBSplineCompute.hxx".}
-proc error*(this: AppDefResConstraintOfMyGradientbisOfBSplineCompute): float {.
+proc error*(this: AppDefResConstraintOfMyGradientbisOfBSplineCompute): cfloat {.
     noSideEffect, importcpp: "Error",
     header: "AppDef_ResConstraintOfMyGradientbisOfBSplineCompute.hxx".}
 proc constraintMatrix*(this: AppDefResConstraintOfMyGradientbisOfBSplineCompute): MathMatrix {.
@@ -151,10 +151,35 @@ proc duale*(this: AppDefResConstraintOfMyGradientbisOfBSplineCompute): MathVecto
     noSideEffect, importcpp: "Duale",
     header: "AppDef_ResConstraintOfMyGradientbisOfBSplineCompute.hxx".}
 proc constraintDerivative*(this: var AppDefResConstraintOfMyGradientbisOfBSplineCompute;
-                          ssp: AppDefMultiLine; parameters: MathVector; deg: int;
+                          ssp: AppDefMultiLine; parameters: MathVector; deg: cint;
                           da: MathMatrix): MathMatrix {.
     importcpp: "ConstraintDerivative",
     header: "AppDef_ResConstraintOfMyGradientbisOfBSplineCompute.hxx".}
 proc inverseMatrix*(this: AppDefResConstraintOfMyGradientbisOfBSplineCompute): MathMatrix {.
     noSideEffect, importcpp: "InverseMatrix",
     header: "AppDef_ResConstraintOfMyGradientbisOfBSplineCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

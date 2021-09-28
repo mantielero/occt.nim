@@ -24,7 +24,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_Editor"
 discard "forward decl of IFSelect_Editor"
 type
-  HandleIFSelectEditor* = Handle[IFSelectEditor]
+  HandleC1C1* = Handle[IFSelectEditor]
 
 ## ! An Editor defines a set of values and a way to edit them, on
 ## ! an entity or on the model (e.g. on its header)
@@ -42,32 +42,32 @@ type
                                                      ## ! to initialize with a "maximum reservation" then cut the extra
 
 
-proc setValue*(this: var IFSelectEditor; num: int;
+proc setValue*(this: var IFSelectEditor; num: cint;
               typval: Handle[InterfaceTypedValue];
               shortname: StandardCString = "";
               accessmode: IFSelectEditValue = iFSelectEditable) {.
     importcpp: "SetValue", header: "IFSelect_Editor.hxx".}
-proc setList*(this: var IFSelectEditor; num: int; max: int = 0) {.importcpp: "SetList",
+proc setList*(this: var IFSelectEditor; num: cint; max: cint = 0) {.importcpp: "SetList",
     header: "IFSelect_Editor.hxx".}
-proc nbValues*(this: IFSelectEditor): int {.noSideEffect, importcpp: "NbValues",
-                                        header: "IFSelect_Editor.hxx".}
-proc typedValue*(this: IFSelectEditor; num: int): Handle[InterfaceTypedValue] {.
+proc nbValues*(this: IFSelectEditor): cint {.noSideEffect, importcpp: "NbValues",
+    header: "IFSelect_Editor.hxx".}
+proc typedValue*(this: IFSelectEditor; num: cint): Handle[InterfaceTypedValue] {.
     noSideEffect, importcpp: "TypedValue", header: "IFSelect_Editor.hxx".}
-proc isList*(this: IFSelectEditor; num: int): bool {.noSideEffect, importcpp: "IsList",
-    header: "IFSelect_Editor.hxx".}
-proc maxList*(this: IFSelectEditor; num: int): int {.noSideEffect,
+proc isList*(this: IFSelectEditor; num: cint): bool {.noSideEffect,
+    importcpp: "IsList", header: "IFSelect_Editor.hxx".}
+proc maxList*(this: IFSelectEditor; num: cint): cint {.noSideEffect,
     importcpp: "MaxList", header: "IFSelect_Editor.hxx".}
-proc name*(this: IFSelectEditor; num: int; isshort: bool = false): StandardCString {.
+proc name*(this: IFSelectEditor; num: cint; isshort: bool = false): StandardCString {.
     noSideEffect, importcpp: "Name", header: "IFSelect_Editor.hxx".}
-proc editMode*(this: IFSelectEditor; num: int): IFSelectEditValue {.noSideEffect,
+proc editMode*(this: IFSelectEditor; num: cint): IFSelectEditValue {.noSideEffect,
     importcpp: "EditMode", header: "IFSelect_Editor.hxx".}
-proc nameNumber*(this: IFSelectEditor; name: StandardCString): int {.noSideEffect,
+proc nameNumber*(this: IFSelectEditor; name: StandardCString): cint {.noSideEffect,
     importcpp: "NameNumber", header: "IFSelect_Editor.hxx".}
 proc printNames*(this: IFSelectEditor; s: var StandardOStream) {.noSideEffect,
     importcpp: "PrintNames", header: "IFSelect_Editor.hxx".}
 proc printDefs*(this: IFSelectEditor; s: var StandardOStream; labels: bool = false) {.
     noSideEffect, importcpp: "PrintDefs", header: "IFSelect_Editor.hxx".}
-proc maxNameLength*(this: IFSelectEditor; what: int): int {.noSideEffect,
+proc maxNameLength*(this: IFSelectEditor; what: cint): cint {.noSideEffect,
     importcpp: "MaxNameLength", header: "IFSelect_Editor.hxx".}
 proc label*(this: IFSelectEditor): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_Editor.hxx".}
@@ -76,21 +76,21 @@ proc form*(this: IFSelectEditor; readonly: bool; undoable: bool = true): Handle[
                        header: "IFSelect_Editor.hxx".}
 proc recognize*(this: IFSelectEditor; form: Handle[IFSelectEditForm]): bool {.
     noSideEffect, importcpp: "Recognize", header: "IFSelect_Editor.hxx".}
-proc stringValue*(this: IFSelectEditor; form: Handle[IFSelectEditForm]; num: int): Handle[
+proc stringValue*(this: IFSelectEditor; form: Handle[IFSelectEditForm]; num: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "StringValue",
                               header: "IFSelect_Editor.hxx".}
-proc listEditor*(this: IFSelectEditor; num: int): Handle[IFSelectListEditor] {.
+proc listEditor*(this: IFSelectEditor; num: cint): Handle[IFSelectListEditor] {.
     noSideEffect, importcpp: "ListEditor", header: "IFSelect_Editor.hxx".}
-proc listValue*(this: IFSelectEditor; form: Handle[IFSelectEditForm]; num: int): Handle[
+proc listValue*(this: IFSelectEditor; form: Handle[IFSelectEditForm]; num: cint): Handle[
     TColStdHSequenceOfHAsciiString] {.noSideEffect, importcpp: "ListValue",
                                      header: "IFSelect_Editor.hxx".}
 proc load*(this: IFSelectEditor; form: Handle[IFSelectEditForm];
           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Load", header: "IFSelect_Editor.hxx".}
-proc update*(this: IFSelectEditor; form: Handle[IFSelectEditForm]; num: int;
+proc update*(this: IFSelectEditor; form: Handle[IFSelectEditForm]; num: cint;
             newval: Handle[TCollectionHAsciiString]; enforce: bool): bool {.
     noSideEffect, importcpp: "Update", header: "IFSelect_Editor.hxx".}
-proc updateList*(this: IFSelectEditor; form: Handle[IFSelectEditForm]; num: int;
+proc updateList*(this: IFSelectEditor; form: Handle[IFSelectEditForm]; num: cint;
                 newlist: Handle[TColStdHSequenceOfHAsciiString]; enforce: bool): bool {.
     noSideEffect, importcpp: "UpdateList", header: "IFSelect_Editor.hxx".}
 proc apply*(this: IFSelectEditor; form: Handle[IFSelectEditForm];
@@ -106,3 +106,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_Editor.hxx".}
 proc dynamicType*(this: IFSelectEditor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Editor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

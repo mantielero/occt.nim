@@ -40,3 +40,28 @@ proc select*(this: var TNamingBuilder; aShape: TopoDS_Shape; inShape: TopoDS_Sha
     importcpp: "Select", header: "TNaming_Builder.hxx".}
 proc namedShape*(this: TNamingBuilder): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "NamedShape", header: "TNaming_Builder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

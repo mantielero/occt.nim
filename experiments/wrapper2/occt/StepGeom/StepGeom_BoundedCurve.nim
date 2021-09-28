@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_BoundedCurve"
 discard "forward decl of StepGeom_BoundedCurve"
 type
-  HandleStepGeomBoundedCurve* = Handle[StepGeomBoundedCurve]
+  HandleC1C1* = Handle[StepGeomBoundedCurve]
   StepGeomBoundedCurve* {.importcpp: "StepGeom_BoundedCurve",
                          header: "StepGeom_BoundedCurve.hxx", bycopy.} = object of StepGeomCurve ##
                                                                                           ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_BoundedCurve.hxx".}
 proc dynamicType*(this: StepGeomBoundedCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_BoundedCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

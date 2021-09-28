@@ -43,3 +43,28 @@ proc pCurveOnS1*(this: BOPAlgoSectionAttribute): bool {.noSideEffect,
     importcpp: "PCurveOnS1", header: "BOPAlgo_SectionAttribute.hxx".}
 proc pCurveOnS2*(this: BOPAlgoSectionAttribute): bool {.noSideEffect,
     importcpp: "PCurveOnS2", header: "BOPAlgo_SectionAttribute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

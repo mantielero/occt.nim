@@ -20,7 +20,7 @@ discard "forward decl of StepGeom_Surface"
 discard "forward decl of StepShape_BoxedHalfSpace"
 discard "forward decl of StepShape_BoxedHalfSpace"
 type
-  HandleStepShapeBoxedHalfSpace* = Handle[StepShapeBoxedHalfSpace]
+  HandleC1C1* = Handle[StepShapeBoxedHalfSpace]
   StepShapeBoxedHalfSpace* {.importcpp: "StepShape_BoxedHalfSpace",
                             header: "StepShape_BoxedHalfSpace.hxx", bycopy.} = object of StepShapeHalfSpaceSolid ##
                                                                                                           ## !
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_BoxedHalfSpace.hxx".}
 proc dynamicType*(this: StepShapeBoxedHalfSpace): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_BoxedHalfSpace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

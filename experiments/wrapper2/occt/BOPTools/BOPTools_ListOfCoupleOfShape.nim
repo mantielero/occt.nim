@@ -16,3 +16,28 @@ type
   BOPToolsListOfCoupleOfShape* = NCollectionList[BOPToolsCoupleOfShape]
   BOPToolsListIteratorOfListOfCoupleOfShape* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

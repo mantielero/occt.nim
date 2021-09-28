@@ -18,8 +18,7 @@ discard "forward decl of StepVisual_StyleContextSelect"
 discard "forward decl of StepVisual_PresentationStyleByContext"
 discard "forward decl of StepVisual_PresentationStyleByContext"
 type
-  HandleStepVisualPresentationStyleByContext* = Handle[
-      StepVisualPresentationStyleByContext]
+  HandleC1C1* = Handle[StepVisualPresentationStyleByContext]
   StepVisualPresentationStyleByContext* {.
       importcpp: "StepVisual_PresentationStyleByContext",
       header: "StepVisual_PresentationStyleByContext.hxx", bycopy.} = object of StepVisualPresentationStyleAssignment ##
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualPresentationStyleByContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationStyleByContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

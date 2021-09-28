@@ -21,7 +21,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_BoundWithSurf"
 discard "forward decl of GeomFill_BoundWithSurf"
 type
-  HandleGeomFillBoundWithSurf* = Handle[GeomFillBoundWithSurf]
+  HandleC1C1* = Handle[GeomFillBoundWithSurf]
 
 ## ! Defines a 3d curve as a boundary for a
 ## ! GeomFill_ConstrainedFilling algorithm.
@@ -293,25 +293,28 @@ type
 
 
 proc constructGeomFillBoundWithSurf*(curveOnSurf: Adaptor3dCurveOnSurface;
-                                    tol3d: float; tolang: float): GeomFillBoundWithSurf {.
+                                    tol3d: StandardReal; tolang: StandardReal): GeomFillBoundWithSurf {.
     constructor, importcpp: "GeomFill_BoundWithSurf(@)",
     header: "GeomFill_BoundWithSurf.hxx".}
-proc value*(this: GeomFillBoundWithSurf; u: float): Pnt {.noSideEffect,
+proc value*(this: GeomFillBoundWithSurf; u: StandardReal): Pnt {.noSideEffect,
     importcpp: "Value", header: "GeomFill_BoundWithSurf.hxx".}
-proc d1*(this: GeomFillBoundWithSurf; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
-    importcpp: "D1", header: "GeomFill_BoundWithSurf.hxx".}
-proc hasNormals*(this: GeomFillBoundWithSurf): bool {.noSideEffect,
+proc d1*(this: GeomFillBoundWithSurf; u: StandardReal; p: var Pnt; v: var Vec) {.
+    noSideEffect, importcpp: "D1", header: "GeomFill_BoundWithSurf.hxx".}
+proc hasNormals*(this: GeomFillBoundWithSurf): StandardBoolean {.noSideEffect,
     importcpp: "HasNormals", header: "GeomFill_BoundWithSurf.hxx".}
-proc norm*(this: GeomFillBoundWithSurf; u: float): Vec {.noSideEffect,
+proc norm*(this: GeomFillBoundWithSurf; u: StandardReal): Vec {.noSideEffect,
     importcpp: "Norm", header: "GeomFill_BoundWithSurf.hxx".}
-proc d1Norm*(this: GeomFillBoundWithSurf; u: float; n: var Vec; dn: var Vec) {.
+proc d1Norm*(this: GeomFillBoundWithSurf; u: StandardReal; n: var Vec; dn: var Vec) {.
     noSideEffect, importcpp: "D1Norm", header: "GeomFill_BoundWithSurf.hxx".}
-proc reparametrize*(this: var GeomFillBoundWithSurf; first: float; last: float;
-                   hasDF: bool; hasDL: bool; df: float; dl: float; rev: bool) {.
-    importcpp: "Reparametrize", header: "GeomFill_BoundWithSurf.hxx".}
-proc bounds*(this: GeomFillBoundWithSurf; first: var float; last: var float) {.
-    noSideEffect, importcpp: "Bounds", header: "GeomFill_BoundWithSurf.hxx".}
-proc isDegenerated*(this: GeomFillBoundWithSurf): bool {.noSideEffect,
+proc reparametrize*(this: var GeomFillBoundWithSurf; first: StandardReal;
+                   last: StandardReal; hasDF: StandardBoolean;
+                   hasDL: StandardBoolean; df: StandardReal; dl: StandardReal;
+                   rev: StandardBoolean) {.importcpp: "Reparametrize",
+    header: "GeomFill_BoundWithSurf.hxx".}
+proc bounds*(this: GeomFillBoundWithSurf; first: var StandardReal;
+            last: var StandardReal) {.noSideEffect, importcpp: "Bounds",
+                                   header: "GeomFill_BoundWithSurf.hxx".}
+proc isDegenerated*(this: GeomFillBoundWithSurf): StandardBoolean {.noSideEffect,
     importcpp: "IsDegenerated", header: "GeomFill_BoundWithSurf.hxx".}
 type
   GeomFillBoundWithSurfbaseType* = GeomFillBoundary

@@ -31,7 +31,7 @@ proc constructRWStepBasicRWActionMethod*(): RWStepBasicRWActionMethod {.
     constructor, importcpp: "RWStepBasic_RWActionMethod(@)",
     header: "RWStepBasic_RWActionMethod.hxx".}
 proc readStep*(this: RWStepBasicRWActionMethod;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicActionMethod]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWActionMethod.hxx".}
 proc writeStep*(this: RWStepBasicRWActionMethod; sw: var StepDataStepWriter;
@@ -40,3 +40,28 @@ proc writeStep*(this: RWStepBasicRWActionMethod; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWActionMethod; ent: Handle[StepBasicActionMethod];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWActionMethod.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

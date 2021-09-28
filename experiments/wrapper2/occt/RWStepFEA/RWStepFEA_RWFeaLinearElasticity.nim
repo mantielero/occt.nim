@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWFeaLinearElasticity*(): RWStepFEA_RWFeaLinearElasticit
     constructor, importcpp: "RWStepFEA_RWFeaLinearElasticity(@)",
     header: "RWStepFEA_RWFeaLinearElasticity.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaLinearElasticity;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaLinearElasticity]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaLinearElasticity.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepFEA_RWFeaLinearElasticity;
            ent: Handle[StepFEA_FeaLinearElasticity];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaLinearElasticity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

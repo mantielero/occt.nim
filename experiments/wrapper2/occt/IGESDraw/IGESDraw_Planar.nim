@@ -20,7 +20,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESDraw_Planar"
 discard "forward decl of IGESDraw_Planar"
 type
-  HandleIGESDrawPlanar* = Handle[IGESDrawPlanar]
+  HandleC1C1* = Handle[IGESDrawPlanar]
 
 ## ! defines IGESPlanar, Type <402> Form <16>
 ## ! in package IGESDraw
@@ -35,19 +35,19 @@ type
 
 proc constructIGESDrawPlanar*(): IGESDrawPlanar {.constructor,
     importcpp: "IGESDraw_Planar(@)", header: "IGESDraw_Planar.hxx".}
-proc init*(this: var IGESDrawPlanar; nbMats: int;
+proc init*(this: var IGESDrawPlanar; nbMats: cint;
           aTransformationMatrix: Handle[IGESGeomTransformationMatrix];
           allEntities: Handle[IGESDataHArray1OfIGESEntity]) {.importcpp: "Init",
     header: "IGESDraw_Planar.hxx".}
-proc nbMatrices*(this: IGESDrawPlanar): int {.noSideEffect, importcpp: "NbMatrices",
+proc nbMatrices*(this: IGESDrawPlanar): cint {.noSideEffect, importcpp: "NbMatrices",
     header: "IGESDraw_Planar.hxx".}
-proc nbEntities*(this: IGESDrawPlanar): int {.noSideEffect, importcpp: "NbEntities",
+proc nbEntities*(this: IGESDrawPlanar): cint {.noSideEffect, importcpp: "NbEntities",
     header: "IGESDraw_Planar.hxx".}
 proc isIdentityMatrix*(this: IGESDrawPlanar): bool {.noSideEffect,
     importcpp: "IsIdentityMatrix", header: "IGESDraw_Planar.hxx".}
 proc transformMatrix*(this: IGESDrawPlanar): Handle[IGESGeomTransformationMatrix] {.
     noSideEffect, importcpp: "TransformMatrix", header: "IGESDraw_Planar.hxx".}
-proc entity*(this: IGESDrawPlanar; entityIndex: int): Handle[IGESDataIGESEntity] {.
+proc entity*(this: IGESDrawPlanar; entityIndex: cint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Entity", header: "IGESDraw_Planar.hxx".}
 type
   IGESDrawPlanarbaseType* = IGESDataIGESEntity
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDraw_Planar.hxx".}
 proc dynamicType*(this: IGESDrawPlanar): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDraw_Planar.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

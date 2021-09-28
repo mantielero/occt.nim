@@ -33,3 +33,24 @@ proc value*(this: GC_MakeTranslation): Handle[GeomTransformation] {.noSideEffect
 converter `constopencascade`*(this: GC_MakeTranslation): Handle[GeomTransformation] {.
     noSideEffect, importcpp: "GC_MakeTranslation::operator constopencascade",
     header: "GC_MakeTranslation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

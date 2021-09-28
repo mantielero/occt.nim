@@ -30,27 +30,52 @@ proc count*(this: var STEPSelectionsCounter; graph: InterfaceGraph;
     header: "STEPSelections_Counter.hxx".}
 proc clear*(this: var STEPSelectionsCounter) {.importcpp: "Clear",
     header: "STEPSelections_Counter.hxx".}
-proc nbInstancesOfFaces*(this: STEPSelectionsCounter): int {.noSideEffect,
+proc nbInstancesOfFaces*(this: STEPSelectionsCounter): cint {.noSideEffect,
     importcpp: "NbInstancesOfFaces", header: "STEPSelections_Counter.hxx".}
-proc pop*(this: STEPSelectionsCounter): int {.noSideEffect, importcpp: "POP",
+proc pop*(this: STEPSelectionsCounter): cint {.noSideEffect, importcpp: "POP",
     header: "STEPSelections_Counter.hxx".}
-proc pop2*(this: STEPSelectionsCounter): int {.noSideEffect, importcpp: "POP2",
+proc pop2*(this: STEPSelectionsCounter): cint {.noSideEffect, importcpp: "POP2",
     header: "STEPSelections_Counter.hxx".}
-proc nbInstancesOfShells*(this: STEPSelectionsCounter): int {.noSideEffect,
+proc nbInstancesOfShells*(this: STEPSelectionsCounter): cint {.noSideEffect,
     importcpp: "NbInstancesOfShells", header: "STEPSelections_Counter.hxx".}
-proc nbInstancesOfSolids*(this: STEPSelectionsCounter): int {.noSideEffect,
+proc nbInstancesOfSolids*(this: STEPSelectionsCounter): cint {.noSideEffect,
     importcpp: "NbInstancesOfSolids", header: "STEPSelections_Counter.hxx".}
-proc nbInstancesOfEdges*(this: STEPSelectionsCounter): int {.noSideEffect,
+proc nbInstancesOfEdges*(this: STEPSelectionsCounter): cint {.noSideEffect,
     importcpp: "NbInstancesOfEdges", header: "STEPSelections_Counter.hxx".}
-proc nbInstancesOfWires*(this: STEPSelectionsCounter): int {.noSideEffect,
+proc nbInstancesOfWires*(this: STEPSelectionsCounter): cint {.noSideEffect,
     importcpp: "NbInstancesOfWires", header: "STEPSelections_Counter.hxx".}
-proc nbSourceFaces*(this: STEPSelectionsCounter): int {.noSideEffect,
+proc nbSourceFaces*(this: STEPSelectionsCounter): cint {.noSideEffect,
     importcpp: "NbSourceFaces", header: "STEPSelections_Counter.hxx".}
-proc nbSourceShells*(this: STEPSelectionsCounter): int {.noSideEffect,
+proc nbSourceShells*(this: STEPSelectionsCounter): cint {.noSideEffect,
     importcpp: "NbSourceShells", header: "STEPSelections_Counter.hxx".}
-proc nbSourceSolids*(this: STEPSelectionsCounter): int {.noSideEffect,
+proc nbSourceSolids*(this: STEPSelectionsCounter): cint {.noSideEffect,
     importcpp: "NbSourceSolids", header: "STEPSelections_Counter.hxx".}
-proc nbSourceEdges*(this: STEPSelectionsCounter): int {.noSideEffect,
+proc nbSourceEdges*(this: STEPSelectionsCounter): cint {.noSideEffect,
     importcpp: "NbSourceEdges", header: "STEPSelections_Counter.hxx".}
-proc nbSourceWires*(this: STEPSelectionsCounter): int {.noSideEffect,
+proc nbSourceWires*(this: STEPSelectionsCounter): cint {.noSideEffect,
     importcpp: "NbSourceWires", header: "STEPSelections_Counter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

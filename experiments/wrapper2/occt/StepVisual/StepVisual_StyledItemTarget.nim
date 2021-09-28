@@ -32,7 +32,7 @@ type
 proc constructStepVisualStyledItemTarget*(): StepVisualStyledItemTarget {.
     constructor, importcpp: "StepVisual_StyledItemTarget(@)",
     header: "StepVisual_StyledItemTarget.hxx".}
-proc caseNum*(this: StepVisualStyledItemTarget; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualStyledItemTarget; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_StyledItemTarget.hxx".}
 proc geometricRepresentationItem*(this: StepVisualStyledItemTarget): Handle[
     StepGeomGeometricRepresentationItem] {.noSideEffect,
@@ -48,3 +48,28 @@ proc topologicalRepresentationItem*(this: StepVisualStyledItemTarget): Handle[
     StepShapeTopologicalRepresentationItem] {.noSideEffect,
     importcpp: "TopologicalRepresentationItem",
     header: "StepVisual_StyledItemTarget.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

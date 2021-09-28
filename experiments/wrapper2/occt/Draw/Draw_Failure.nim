@@ -17,13 +17,54 @@
 ## !!!Ignored construct:  # _Draw_Failure_HeaderFile [NewLine] # _Draw_Failure_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Draw_Failure ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Draw_Failure"
-type
-  HandleDrawFailureDrawFailure* = Handle[DrawFailure]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Draw_Failure , Standard_Failure ) # ! defined No_Exception && ! defined No_Draw_Failure [NewLine] # Draw_Failure_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Draw_Failure ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Draw_Failure [NewLine] # if ( CONDITION ) throw Draw_Failure ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Draw_Failure_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Draw_Failure , Standard_Failure ) #  _Draw_Failure_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Draw_Failure , Standard_Failure ) #  _Draw_Failure_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

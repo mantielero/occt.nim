@@ -66,38 +66,64 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Aspect_RectangularGrid.hxx".}
 proc dynamicType*(this: AspectRectangularGrid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_RectangularGrid.hxx".}
-proc constructAspectRectangularGrid*(aXStep: float; aYStep: float;
-                                    anXOrigin: float = 0; anYOrigin: float = 0;
-                                    aFirstAngle: float = 0; aSecondAngle: float = 0;
-                                    aRotationAngle: float = 0): AspectRectangularGrid {.
+proc constructAspectRectangularGrid*(aXStep: cfloat; aYStep: cfloat;
+                                    anXOrigin: cfloat = 0; anYOrigin: cfloat = 0;
+                                    aFirstAngle: cfloat = 0;
+                                    aSecondAngle: cfloat = 0;
+                                    aRotationAngle: cfloat = 0): AspectRectangularGrid {.
     constructor, importcpp: "Aspect_RectangularGrid(@)",
     header: "Aspect_RectangularGrid.hxx".}
-proc setXStep*(this: var AspectRectangularGrid; aStep: float) {.importcpp: "SetXStep",
-    header: "Aspect_RectangularGrid.hxx".}
-proc setYStep*(this: var AspectRectangularGrid; aStep: float) {.importcpp: "SetYStep",
-    header: "Aspect_RectangularGrid.hxx".}
-proc setAngle*(this: var AspectRectangularGrid; anAngle1: float; anAngle2: float) {.
+proc setXStep*(this: var AspectRectangularGrid; aStep: cfloat) {.
+    importcpp: "SetXStep", header: "Aspect_RectangularGrid.hxx".}
+proc setYStep*(this: var AspectRectangularGrid; aStep: cfloat) {.
+    importcpp: "SetYStep", header: "Aspect_RectangularGrid.hxx".}
+proc setAngle*(this: var AspectRectangularGrid; anAngle1: cfloat; anAngle2: cfloat) {.
     importcpp: "SetAngle", header: "Aspect_RectangularGrid.hxx".}
-proc setGridValues*(this: var AspectRectangularGrid; xOrigin: float; yOrigin: float;
-                   xStep: float; yStep: float; rotationAngle: float) {.
+proc setGridValues*(this: var AspectRectangularGrid; xOrigin: cfloat; yOrigin: cfloat;
+                   xStep: cfloat; yStep: cfloat; rotationAngle: cfloat) {.
     importcpp: "SetGridValues", header: "Aspect_RectangularGrid.hxx".}
-proc compute*(this: AspectRectangularGrid; x: float; y: float; gridX: var float;
-             gridY: var float) {.noSideEffect, importcpp: "Compute",
-                              header: "Aspect_RectangularGrid.hxx".}
-proc xStep*(this: AspectRectangularGrid): float {.noSideEffect, importcpp: "XStep",
+proc compute*(this: AspectRectangularGrid; x: cfloat; y: cfloat; gridX: var cfloat;
+             gridY: var cfloat) {.noSideEffect, importcpp: "Compute",
+                               header: "Aspect_RectangularGrid.hxx".}
+proc xStep*(this: AspectRectangularGrid): cfloat {.noSideEffect, importcpp: "XStep",
     header: "Aspect_RectangularGrid.hxx".}
-proc yStep*(this: AspectRectangularGrid): float {.noSideEffect, importcpp: "YStep",
+proc yStep*(this: AspectRectangularGrid): cfloat {.noSideEffect, importcpp: "YStep",
     header: "Aspect_RectangularGrid.hxx".}
-proc firstAngle*(this: AspectRectangularGrid): float {.noSideEffect,
+proc firstAngle*(this: AspectRectangularGrid): cfloat {.noSideEffect,
     importcpp: "FirstAngle", header: "Aspect_RectangularGrid.hxx".}
-proc secondAngle*(this: AspectRectangularGrid): float {.noSideEffect,
+proc secondAngle*(this: AspectRectangularGrid): cfloat {.noSideEffect,
     importcpp: "SecondAngle", header: "Aspect_RectangularGrid.hxx".}
 proc init*(this: var AspectRectangularGrid) {.importcpp: "Init",
     header: "Aspect_RectangularGrid.hxx".}
 proc dumpJson*(this: AspectRectangularGrid; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Aspect_RectangularGrid.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Aspect_RectangularGrid.hxx".}
 discard "forward decl of Aspect_RectangularGrid"
 type
-  HandleAspectRectangularGrid* = Handle[AspectRectangularGrid]
+  HandleC1C1* = Handle[AspectRectangularGrid]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

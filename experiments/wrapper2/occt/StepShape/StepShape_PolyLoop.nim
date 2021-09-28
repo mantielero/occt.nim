@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepShape_PolyLoop"
 discard "forward decl of StepShape_PolyLoop"
 type
-  HandleStepShapePolyLoop* = Handle[StepShapePolyLoop]
+  HandleC1C1* = Handle[StepShapePolyLoop]
   StepShapePolyLoop* {.importcpp: "StepShape_PolyLoop",
                       header: "StepShape_PolyLoop.hxx", bycopy.} = object of StepShapeLoop ##
                                                                                     ## !
@@ -38,10 +38,10 @@ proc setPolygon*(this: var StepShapePolyLoop;
     importcpp: "SetPolygon", header: "StepShape_PolyLoop.hxx".}
 proc polygon*(this: StepShapePolyLoop): Handle[StepGeomHArray1OfCartesianPoint] {.
     noSideEffect, importcpp: "Polygon", header: "StepShape_PolyLoop.hxx".}
-proc polygonValue*(this: StepShapePolyLoop; num: int): Handle[StepGeomCartesianPoint] {.
+proc polygonValue*(this: StepShapePolyLoop; num: cint): Handle[StepGeomCartesianPoint] {.
     noSideEffect, importcpp: "PolygonValue", header: "StepShape_PolyLoop.hxx".}
-proc nbPolygon*(this: StepShapePolyLoop): int {.noSideEffect, importcpp: "NbPolygon",
-    header: "StepShape_PolyLoop.hxx".}
+proc nbPolygon*(this: StepShapePolyLoop): cint {.noSideEffect,
+    importcpp: "NbPolygon", header: "StepShape_PolyLoop.hxx".}
 type
   StepShapePolyLoopbaseType* = StepShapeLoop
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_PolyLoop.hxx".}
 proc dynamicType*(this: StepShapePolyLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_PolyLoop.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

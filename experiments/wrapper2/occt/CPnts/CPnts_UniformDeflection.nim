@@ -32,36 +32,36 @@ type
 
 proc constructCPntsUniformDeflection*(): CPntsUniformDeflection {.constructor,
     importcpp: "CPnts_UniformDeflection(@)", header: "CPnts_UniformDeflection.hxx".}
-proc constructCPntsUniformDeflection*(c: Adaptor3dCurve; deflection: float;
-                                     resolution: float; withControl: bool): CPntsUniformDeflection {.
+proc constructCPntsUniformDeflection*(c: Adaptor3dCurve; deflection: cfloat;
+                                     resolution: cfloat; withControl: bool): CPntsUniformDeflection {.
     constructor, importcpp: "CPnts_UniformDeflection(@)",
     header: "CPnts_UniformDeflection.hxx".}
-proc constructCPntsUniformDeflection*(c: Adaptor2dCurve2d; deflection: float;
-                                     resolution: float; withControl: bool): CPntsUniformDeflection {.
+proc constructCPntsUniformDeflection*(c: Adaptor2dCurve2d; deflection: cfloat;
+                                     resolution: cfloat; withControl: bool): CPntsUniformDeflection {.
     constructor, importcpp: "CPnts_UniformDeflection(@)",
     header: "CPnts_UniformDeflection.hxx".}
-proc constructCPntsUniformDeflection*(c: Adaptor3dCurve; deflection: float;
-                                     u1: float; u2: float; resolution: float;
+proc constructCPntsUniformDeflection*(c: Adaptor3dCurve; deflection: cfloat;
+                                     u1: cfloat; u2: cfloat; resolution: cfloat;
                                      withControl: bool): CPntsUniformDeflection {.
     constructor, importcpp: "CPnts_UniformDeflection(@)",
     header: "CPnts_UniformDeflection.hxx".}
-proc constructCPntsUniformDeflection*(c: Adaptor2dCurve2d; deflection: float;
-                                     u1: float; u2: float; resolution: float;
+proc constructCPntsUniformDeflection*(c: Adaptor2dCurve2d; deflection: cfloat;
+                                     u1: cfloat; u2: cfloat; resolution: cfloat;
                                      withControl: bool): CPntsUniformDeflection {.
     constructor, importcpp: "CPnts_UniformDeflection(@)",
     header: "CPnts_UniformDeflection.hxx".}
 proc initialize*(this: var CPntsUniformDeflection; c: Adaptor3dCurve;
-                deflection: float; resolution: float; withControl: bool) {.
+                deflection: cfloat; resolution: cfloat; withControl: bool) {.
     importcpp: "Initialize", header: "CPnts_UniformDeflection.hxx".}
 proc initialize*(this: var CPntsUniformDeflection; c: Adaptor2dCurve2d;
-                deflection: float; resolution: float; withControl: bool) {.
+                deflection: cfloat; resolution: cfloat; withControl: bool) {.
     importcpp: "Initialize", header: "CPnts_UniformDeflection.hxx".}
 proc initialize*(this: var CPntsUniformDeflection; c: Adaptor3dCurve;
-                deflection: float; u1: float; u2: float; resolution: float;
+                deflection: cfloat; u1: cfloat; u2: cfloat; resolution: cfloat;
                 withControl: bool) {.importcpp: "Initialize",
                                    header: "CPnts_UniformDeflection.hxx".}
 proc initialize*(this: var CPntsUniformDeflection; c: Adaptor2dCurve2d;
-                deflection: float; u1: float; u2: float; resolution: float;
+                deflection: cfloat; u1: cfloat; u2: cfloat; resolution: cfloat;
                 withControl: bool) {.importcpp: "Initialize",
                                    header: "CPnts_UniformDeflection.hxx".}
 proc isAllDone*(this: CPntsUniformDeflection): bool {.noSideEffect,
@@ -70,7 +70,32 @@ proc next*(this: var CPntsUniformDeflection) {.importcpp: "Next",
     header: "CPnts_UniformDeflection.hxx".}
 proc more*(this: var CPntsUniformDeflection): bool {.importcpp: "More",
     header: "CPnts_UniformDeflection.hxx".}
-proc value*(this: CPntsUniformDeflection): float {.noSideEffect, importcpp: "Value",
+proc value*(this: CPntsUniformDeflection): cfloat {.noSideEffect, importcpp: "Value",
     header: "CPnts_UniformDeflection.hxx".}
 proc point*(this: CPntsUniformDeflection): Pnt {.noSideEffect, importcpp: "Point",
     header: "CPnts_UniformDeflection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

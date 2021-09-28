@@ -19,14 +19,27 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Geom_BSplineCurve"
 type
   GeomFillBSplineCurves* {.importcpp: "GeomFill_BSplineCurves",
-                          header: "GeomFill_BSplineCurves.hxx", bycopy.} = object ## !
-                                                                             ## Constructs a
-                                                                             ## default
-                                                                             ## BSpline
-                                                                             ## surface
-                                                                             ## framework.
+                          header: "GeomFill_BSplineCurves.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomFillBSplineCurves; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_BSplineCurves::operator new",
+    header: "GeomFill_BSplineCurves.hxx".}
+proc `delete`*(this: var GeomFillBSplineCurves; theAddress: pointer) {.
+    importcpp: "GeomFill_BSplineCurves::operator delete",
+    header: "GeomFill_BSplineCurves.hxx".}
+proc `new[]`*(this: var GeomFillBSplineCurves; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_BSplineCurves::operator new[]",
+    header: "GeomFill_BSplineCurves.hxx".}
+proc `delete[]`*(this: var GeomFillBSplineCurves; theAddress: pointer) {.
+    importcpp: "GeomFill_BSplineCurves::operator delete[]",
+    header: "GeomFill_BSplineCurves.hxx".}
+proc `new`*(this: var GeomFillBSplineCurves; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_BSplineCurves::operator new",
+    header: "GeomFill_BSplineCurves.hxx".}
+proc `delete`*(this: var GeomFillBSplineCurves; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_BSplineCurves::operator delete",
+    header: "GeomFill_BSplineCurves.hxx".}
 proc constructGeomFillBSplineCurves*(): GeomFillBSplineCurves {.constructor,
     importcpp: "GeomFill_BSplineCurves(@)", header: "GeomFill_BSplineCurves.hxx".}
 proc constructGeomFillBSplineCurves*(c1: Handle[GeomBSplineCurve];

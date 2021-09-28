@@ -24,3 +24,28 @@ type
 
 proc constructAspectXRPoseActionData*(): AspectXRPoseActionData {.constructor,
     importcpp: "Aspect_XRPoseActionData(@)", header: "Aspect_XRPoseActionData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

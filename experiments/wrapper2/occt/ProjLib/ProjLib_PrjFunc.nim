@@ -22,12 +22,12 @@ type
                    bycopy.} = object of MathFunctionSetWithDerivatives
 
 
-proc constructProjLibPrjFunc*(c: Adaptor3dCurvePtr; fixVal: float;
-                             s: Adaptor3dSurfacePtr; fix: int): ProjLibPrjFunc {.
+proc constructProjLibPrjFunc*(c: Adaptor3dCurvePtr; fixVal: cfloat;
+                             s: Adaptor3dSurfacePtr; fix: cint): ProjLibPrjFunc {.
     constructor, importcpp: "ProjLib_PrjFunc(@)", header: "ProjLib_PrjFunc.hxx".}
-proc nbVariables*(this: ProjLibPrjFunc): int {.noSideEffect,
+proc nbVariables*(this: ProjLibPrjFunc): cint {.noSideEffect,
     importcpp: "NbVariables", header: "ProjLib_PrjFunc.hxx".}
-proc nbEquations*(this: ProjLibPrjFunc): int {.noSideEffect,
+proc nbEquations*(this: ProjLibPrjFunc): cint {.noSideEffect,
     importcpp: "NbEquations", header: "ProjLib_PrjFunc.hxx".}
 proc value*(this: var ProjLibPrjFunc; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "ProjLib_PrjFunc.hxx".}
@@ -38,3 +38,28 @@ proc values*(this: var ProjLibPrjFunc; x: MathVector; f: var MathVector;
                                    header: "ProjLib_PrjFunc.hxx".}
 proc solution*(this: ProjLibPrjFunc): Pnt2d {.noSideEffect, importcpp: "Solution",
     header: "ProjLib_PrjFunc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

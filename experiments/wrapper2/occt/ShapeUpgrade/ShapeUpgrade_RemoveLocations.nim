@@ -17,7 +17,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeUpgrade_RemoveLocations"
 discard "forward decl of ShapeUpgrade_RemoveLocations"
 type
-  HandleShapeUpgradeRemoveLocations* = Handle[ShapeUpgradeRemoveLocations]
+  HandleC1C1* = Handle[ShapeUpgradeRemoveLocations]
 
 ## ! Removes all locations sub-shapes of specified shape
 
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeRemoveLocations): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_RemoveLocations.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

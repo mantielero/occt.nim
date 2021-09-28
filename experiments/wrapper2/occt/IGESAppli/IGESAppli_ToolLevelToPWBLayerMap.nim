@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESAppliToolLevelToPWBLayerMap;
     header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
 proc ownDump*(this: IGESAppliToolLevelToPWBLayerMap;
              ent: Handle[IGESAppliLevelToPWBLayerMap]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESAppli_ToolLevelToPWBLayerMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

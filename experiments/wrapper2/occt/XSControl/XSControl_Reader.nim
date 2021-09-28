@@ -53,14 +53,15 @@ proc giveList*(this: var XSControlReader; first: StandardCString = "";
 proc giveList*(this: var XSControlReader; first: StandardCString;
               ent: Handle[StandardTransient]): Handle[TColStdHSequenceOfTransient] {.
     importcpp: "GiveList", header: "XSControl_Reader.hxx".}
-proc nbRootsForTransfer*(this: var XSControlReader): int {.
+proc nbRootsForTransfer*(this: var XSControlReader): cint {.
     importcpp: "NbRootsForTransfer", header: "XSControl_Reader.hxx".}
-proc rootForTransfer*(this: var XSControlReader; num: int = 1): Handle[StandardTransient] {.
-    importcpp: "RootForTransfer", header: "XSControl_Reader.hxx".}
-proc transferOneRoot*(this: var XSControlReader; num: int = 1;
+proc rootForTransfer*(this: var XSControlReader; num: cint = 1): Handle[
+    StandardTransient] {.importcpp: "RootForTransfer",
+                        header: "XSControl_Reader.hxx".}
+proc transferOneRoot*(this: var XSControlReader; num: cint = 1;
                      theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "TransferOneRoot", header: "XSControl_Reader.hxx".}
-proc transferOne*(this: var XSControlReader; num: int;
+proc transferOne*(this: var XSControlReader; num: cint;
                  theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "TransferOne", header: "XSControl_Reader.hxx".}
 proc transferEntity*(this: var XSControlReader; start: Handle[StandardTransient];
@@ -68,16 +69,16 @@ proc transferEntity*(this: var XSControlReader; start: Handle[StandardTransient]
     importcpp: "TransferEntity", header: "XSControl_Reader.hxx".}
 proc transferList*(this: var XSControlReader;
                   list: Handle[TColStdHSequenceOfTransient];
-                  theProgress: MessageProgressRange = messageProgressRange()): int {.
+                  theProgress: MessageProgressRange = messageProgressRange()): cint {.
     importcpp: "TransferList", header: "XSControl_Reader.hxx".}
 proc transferRoots*(this: var XSControlReader;
-                   theProgress: MessageProgressRange = messageProgressRange()): int {.
+                   theProgress: MessageProgressRange = messageProgressRange()): cint {.
     importcpp: "TransferRoots", header: "XSControl_Reader.hxx".}
 proc clearShapes*(this: var XSControlReader) {.importcpp: "ClearShapes",
     header: "XSControl_Reader.hxx".}
-proc nbShapes*(this: XSControlReader): int {.noSideEffect, importcpp: "NbShapes",
+proc nbShapes*(this: XSControlReader): cint {.noSideEffect, importcpp: "NbShapes",
     header: "XSControl_Reader.hxx".}
-proc shape*(this: XSControlReader; num: int = 1): TopoDS_Shape {.noSideEffect,
+proc shape*(this: XSControlReader; num: cint = 1): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "XSControl_Reader.hxx".}
 proc oneShape*(this: XSControlReader): TopoDS_Shape {.noSideEffect,
     importcpp: "OneShape", header: "XSControl_Reader.hxx".}
@@ -92,12 +93,37 @@ proc printCheckTransfer*(this: XSControlReader; failsonly: bool;
 proc printCheckTransfer*(this: XSControlReader; theStream: var StandardOStream;
                         failsonly: bool; mode: IFSelectPrintCount) {.noSideEffect,
     importcpp: "PrintCheckTransfer", header: "XSControl_Reader.hxx".}
-proc printStatsTransfer*(this: XSControlReader; what: int; mode: int = 0) {.noSideEffect,
-    importcpp: "PrintStatsTransfer", header: "XSControl_Reader.hxx".}
+proc printStatsTransfer*(this: XSControlReader; what: cint; mode: cint = 0) {.
+    noSideEffect, importcpp: "PrintStatsTransfer", header: "XSControl_Reader.hxx".}
 proc printStatsTransfer*(this: XSControlReader; theStream: var StandardOStream;
-                        what: int; mode: int = 0) {.noSideEffect,
+                        what: cint; mode: cint = 0) {.noSideEffect,
     importcpp: "PrintStatsTransfer", header: "XSControl_Reader.hxx".}
 proc getStatsTransfer*(this: XSControlReader;
                       list: Handle[TColStdHSequenceOfTransient];
-                      nbMapped: var int; nbWithResult: var int; nbWithFail: var int) {.
+                      nbMapped: var cint; nbWithResult: var cint; nbWithFail: var cint) {.
     noSideEffect, importcpp: "GetStatsTransfer", header: "XSControl_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

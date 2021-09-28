@@ -22,4 +22,3 @@ type
                    header: "GeomAbs_IsoType.hxx".} = enum
     GeomAbsIsoU, GeomAbsIsoV, GeomAbsNoneIso
 
-

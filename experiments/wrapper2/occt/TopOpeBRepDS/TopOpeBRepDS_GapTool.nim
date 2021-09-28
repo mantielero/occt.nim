@@ -21,7 +21,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepDS_GapTool"
 discard "forward decl of TopOpeBRepDS_GapTool"
 type
-  HandleTopOpeBRepDS_GapTool* = Handle[TopOpeBRepDS_GapTool]
+  HandleC1C1* = Handle[TopOpeBRepDS_GapTool]
   TopOpeBRepDS_GapTool* {.importcpp: "TopOpeBRepDS_GapTool",
                          header: "TopOpeBRepDS_GapTool.hxx", bycopy.} = object of StandardTransient
 
@@ -33,7 +33,7 @@ proc constructTopOpeBRepDS_GapTool*(hds: Handle[TopOpeBRepDS_HDataStructure]): T
     header: "TopOpeBRepDS_GapTool.hxx".}
 proc init*(this: var TopOpeBRepDS_GapTool; hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "Init", header: "TopOpeBRepDS_GapTool.hxx".}
-proc interferences*(this: TopOpeBRepDS_GapTool; indexPoint: int): TopOpeBRepDS_ListOfInterference {.
+proc interferences*(this: TopOpeBRepDS_GapTool; indexPoint: cint): TopOpeBRepDS_ListOfInterference {.
     noSideEffect, importcpp: "Interferences", header: "TopOpeBRepDS_GapTool.hxx".}
 proc sameInterferences*(this: TopOpeBRepDS_GapTool;
                        i: Handle[TopOpeBRepDS_Interference]): TopOpeBRepDS_ListOfInterference {.
@@ -54,16 +54,16 @@ proc facesSupport*(this: TopOpeBRepDS_GapTool;
     importcpp: "FacesSupport", header: "TopOpeBRepDS_GapTool.hxx".}
 proc parameterOnEdge*(this: TopOpeBRepDS_GapTool;
                      i: Handle[TopOpeBRepDS_Interference]; e: TopoDS_Shape;
-                     u: var float): bool {.noSideEffect,
-                                       importcpp: "ParameterOnEdge",
-                                       header: "TopOpeBRepDS_GapTool.hxx".}
+                     u: var cfloat): bool {.noSideEffect,
+                                        importcpp: "ParameterOnEdge",
+                                        header: "TopOpeBRepDS_GapTool.hxx".}
 proc setPoint*(this: var TopOpeBRepDS_GapTool; i: Handle[TopOpeBRepDS_Interference];
-              indexPoint: int) {.importcpp: "SetPoint",
-                               header: "TopOpeBRepDS_GapTool.hxx".}
+              indexPoint: cint) {.importcpp: "SetPoint",
+                                header: "TopOpeBRepDS_GapTool.hxx".}
 proc setParameterOnEdge*(this: var TopOpeBRepDS_GapTool;
                         i: Handle[TopOpeBRepDS_Interference]; e: TopoDS_Shape;
-                        u: float) {.importcpp: "SetParameterOnEdge",
-                                  header: "TopOpeBRepDS_GapTool.hxx".}
+                        u: cfloat) {.importcpp: "SetParameterOnEdge",
+                                   header: "TopOpeBRepDS_GapTool.hxx".}
 type
   TopOpeBRepDS_GapToolbaseType* = StandardTransient
 
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepDS_GapTool.hxx".}
 proc dynamicType*(this: TopOpeBRepDS_GapTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRepDS_GapTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

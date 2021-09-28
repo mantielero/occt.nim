@@ -23,10 +23,35 @@ type
 proc constructIntToolsBaseRangeSample*(): IntToolsBaseRangeSample {.constructor,
     importcpp: "IntTools_BaseRangeSample(@)",
     header: "IntTools_BaseRangeSample.hxx".}
-proc constructIntToolsBaseRangeSample*(theDepth: int): IntToolsBaseRangeSample {.
+proc constructIntToolsBaseRangeSample*(theDepth: cint): IntToolsBaseRangeSample {.
     constructor, importcpp: "IntTools_BaseRangeSample(@)",
     header: "IntTools_BaseRangeSample.hxx".}
-proc setDepth*(this: var IntToolsBaseRangeSample; theDepth: int) {.
+proc setDepth*(this: var IntToolsBaseRangeSample; theDepth: cint) {.
     importcpp: "SetDepth", header: "IntTools_BaseRangeSample.hxx".}
-proc getDepth*(this: IntToolsBaseRangeSample): int {.noSideEffect,
+proc getDepth*(this: IntToolsBaseRangeSample): cint {.noSideEffect,
     importcpp: "GetDepth", header: "IntTools_BaseRangeSample.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

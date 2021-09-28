@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_DimTol"
 discard "forward decl of XCAFDoc_DimTol"
 type
-  HandleXCAFDocDimTol* = Handle[XCAFDocDimTol]
+  HandleC1C1* = Handle[XCAFDocDimTol]
 
 ## ! attribute to store dimension and tolerance
 
@@ -33,16 +33,16 @@ proc constructXCAFDocDimTol*(): XCAFDocDimTol {.constructor,
     importcpp: "XCAFDoc_DimTol(@)", header: "XCAFDoc_DimTol.hxx".}
 proc getID*(): StandardGUID {.importcpp: "XCAFDoc_DimTol::GetID(@)",
                            header: "XCAFDoc_DimTol.hxx".}
-proc set*(label: TDF_Label; kind: int; aVal: Handle[TColStdHArray1OfReal];
+proc set*(label: TDF_Label; kind: cint; aVal: Handle[TColStdHArray1OfReal];
          aName: Handle[TCollectionHAsciiString];
          aDescription: Handle[TCollectionHAsciiString]): Handle[XCAFDocDimTol] {.
     importcpp: "XCAFDoc_DimTol::Set(@)", header: "XCAFDoc_DimTol.hxx".}
-proc set*(this: var XCAFDocDimTol; kind: int; aVal: Handle[TColStdHArray1OfReal];
+proc set*(this: var XCAFDocDimTol; kind: cint; aVal: Handle[TColStdHArray1OfReal];
          aName: Handle[TCollectionHAsciiString];
          aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Set",
     header: "XCAFDoc_DimTol.hxx".}
-proc getKind*(this: XCAFDocDimTol): int {.noSideEffect, importcpp: "GetKind",
-                                      header: "XCAFDoc_DimTol.hxx".}
+proc getKind*(this: XCAFDocDimTol): cint {.noSideEffect, importcpp: "GetKind",
+                                       header: "XCAFDoc_DimTol.hxx".}
 proc getVal*(this: XCAFDocDimTol): Handle[TColStdHArray1OfReal] {.noSideEffect,
     importcpp: "GetVal", header: "XCAFDoc_DimTol.hxx".}
 proc getName*(this: XCAFDocDimTol): Handle[TCollectionHAsciiString] {.noSideEffect,
@@ -59,8 +59,8 @@ proc paste*(this: XCAFDocDimTol; into: Handle[TDF_Attribute];
            rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_DimTol.hxx".}
 proc dumpJson*(this: XCAFDocDimTol; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "XCAFDoc_DimTol.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFDoc_DimTol.hxx".}
 type
   XCAFDocDimTolbaseType* = TDF_Attribute
 
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XCAFDoc_DimTol.hxx".}
 proc dynamicType*(this: XCAFDocDimTol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_DimTol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,8 @@ type
                                                                                                              ## ! Constructor - prohibited
                                                                                                              ## ! Copy constructor - prohibited
                                                                                                              ##  Declaration of CASCADE RTTI
-
+type
+  HandleNCollectionHeapAllocator* = Handle[NCollectionHeapAllocator]
 
 proc allocate*(this: var NCollectionHeapAllocator; theSize: StandardSize): pointer {.
     importcpp: "Allocate", header: "NCollection_HeapAllocator.hxx".}
@@ -35,16 +36,14 @@ proc globalHeapAllocator*(): Handle[NCollectionHeapAllocator] {.
 type
   NCollectionHeapAllocatorbaseType* = NCollectionBaseAllocator
 
-proc getTypeName*(): cstring {.importcpp: "NCollection_HeapAllocator::get_type_name(@)",
-                            header: "NCollection_HeapAllocator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+#[ proc getTypeName*(): cstring {.importcpp: "NCollection_HeapAllocator::get_type_name(@)",
+                            header: "NCollection_HeapAllocator.hxx".} ]#
+#[ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "NCollection_HeapAllocator::get_type_descriptor(@)",
-    header: "NCollection_HeapAllocator.hxx".}
-proc dynamicType*(this: NCollectionHeapAllocator): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "NCollection_HeapAllocator.hxx".}
+    header: "NCollection_HeapAllocator.hxx".} ]#
+#[ proc dynamicType*(this: NCollectionHeapAllocator): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType", header: "NCollection_HeapAllocator.hxx".} ]#
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of NCollection_HeapAllocator"
-type
-  HandleNCollectionHeapAllocator* = Handle[NCollectionHeapAllocator]
 

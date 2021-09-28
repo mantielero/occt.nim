@@ -28,10 +28,35 @@ proc constructRWStepBasicRWProductCategory*(): RWStepBasicRWProductCategory {.
     constructor, importcpp: "RWStepBasic_RWProductCategory(@)",
     header: "RWStepBasic_RWProductCategory.hxx".}
 proc readStep*(this: RWStepBasicRWProductCategory;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicProductCategory]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWProductCategory.hxx".}
 proc writeStep*(this: RWStepBasicRWProductCategory; sw: var StepDataStepWriter;
                ent: Handle[StepBasicProductCategory]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWProductCategory.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

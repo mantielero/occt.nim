@@ -19,4 +19,3 @@ type
                         header: "GeomFill_ApproxStyle.hxx".} = enum
     GeomFillSection, GeomFillLocation
 
-

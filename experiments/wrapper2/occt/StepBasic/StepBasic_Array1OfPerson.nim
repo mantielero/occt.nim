@@ -17,3 +17,28 @@
 type
   StepBasicArray1OfPerson* = NCollectionArray1[Handle[StepBasicPerson]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

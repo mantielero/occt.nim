@@ -21,7 +21,7 @@ discard "forward decl of VrmlConverter_PointAspect"
 discard "forward decl of VrmlConverter_Drawer"
 discard "forward decl of VrmlConverter_Drawer"
 type
-  HandleVrmlConverterDrawer* = Handle[VrmlConverterDrawer]
+  HandleC1C1* = Handle[VrmlConverterDrawer]
 
 ## ! qualifies the aspect properties for
 ## ! the VRML conversation of a specific kind of object.
@@ -40,21 +40,21 @@ proc setTypeOfDeflection*(this: var VrmlConverterDrawer;
 proc typeOfDeflection*(this: VrmlConverterDrawer): AspectTypeOfDeflection {.
     noSideEffect, importcpp: "TypeOfDeflection", header: "VrmlConverter_Drawer.hxx".}
 proc setMaximalChordialDeviation*(this: var VrmlConverterDrawer;
-                                 aChordialDeviation: float) {.
+                                 aChordialDeviation: cfloat) {.
     importcpp: "SetMaximalChordialDeviation", header: "VrmlConverter_Drawer.hxx".}
-proc maximalChordialDeviation*(this: VrmlConverterDrawer): float {.noSideEffect,
+proc maximalChordialDeviation*(this: VrmlConverterDrawer): cfloat {.noSideEffect,
     importcpp: "MaximalChordialDeviation", header: "VrmlConverter_Drawer.hxx".}
-proc setDeviationCoefficient*(this: var VrmlConverterDrawer; aCoefficient: float) {.
+proc setDeviationCoefficient*(this: var VrmlConverterDrawer; aCoefficient: cfloat) {.
     importcpp: "SetDeviationCoefficient", header: "VrmlConverter_Drawer.hxx".}
-proc deviationCoefficient*(this: VrmlConverterDrawer): float {.noSideEffect,
+proc deviationCoefficient*(this: VrmlConverterDrawer): cfloat {.noSideEffect,
     importcpp: "DeviationCoefficient", header: "VrmlConverter_Drawer.hxx".}
-proc setDiscretisation*(this: var VrmlConverterDrawer; d: int) {.
+proc setDiscretisation*(this: var VrmlConverterDrawer; d: cint) {.
     importcpp: "SetDiscretisation", header: "VrmlConverter_Drawer.hxx".}
-proc discretisation*(this: VrmlConverterDrawer): int {.noSideEffect,
+proc discretisation*(this: VrmlConverterDrawer): cint {.noSideEffect,
     importcpp: "Discretisation", header: "VrmlConverter_Drawer.hxx".}
-proc setMaximalParameterValue*(this: var VrmlConverterDrawer; value: float) {.
+proc setMaximalParameterValue*(this: var VrmlConverterDrawer; value: cfloat) {.
     importcpp: "SetMaximalParameterValue", header: "VrmlConverter_Drawer.hxx".}
-proc maximalParameterValue*(this: VrmlConverterDrawer): float {.noSideEffect,
+proc maximalParameterValue*(this: VrmlConverterDrawer): cfloat {.noSideEffect,
     importcpp: "MaximalParameterValue", header: "VrmlConverter_Drawer.hxx".}
 proc setIsoOnPlane*(this: var VrmlConverterDrawer; onOff: bool) {.
     importcpp: "SetIsoOnPlane", header: "VrmlConverter_Drawer.hxx".}
@@ -142,3 +142,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "VrmlConverter_Drawer.hxx".}
 proc dynamicType*(this: VrmlConverterDrawer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "VrmlConverter_Drawer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

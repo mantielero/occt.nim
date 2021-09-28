@@ -17,7 +17,7 @@ discard "forward decl of TFunction_Logbook"
 discard "forward decl of DNaming_PointDriver"
 discard "forward decl of DNaming_PointDriver"
 type
-  HandleDNamingPointDriver* = Handle[DNamingPointDriver]
+  HandleC1C1* = Handle[DNamingPointDriver]
 
 ## ! Driver for PointXYZ  and  RelativePoint
 
@@ -40,7 +40,7 @@ proc validate*(this: DNamingPointDriver; theLog: var Handle[TFunctionLogbook]) {
     noSideEffect, importcpp: "Validate", header: "DNaming_PointDriver.hxx".}
 proc mustExecute*(this: DNamingPointDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_PointDriver.hxx".}
-proc execute*(this: DNamingPointDriver; theLog: var Handle[TFunctionLogbook]): int {.
+proc execute*(this: DNamingPointDriver; theLog: var Handle[TFunctionLogbook]): cint {.
     noSideEffect, importcpp: "Execute", header: "DNaming_PointDriver.hxx".}
 type
   DNamingPointDriverbaseType* = TFunctionDriver
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DNaming_PointDriver.hxx".}
 proc dynamicType*(this: DNamingPointDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_PointDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

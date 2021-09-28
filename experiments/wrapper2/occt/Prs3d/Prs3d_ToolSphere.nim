@@ -31,8 +31,34 @@ type
     ## !< sphere radius
 
 
-proc create*(theRadius: float; theNbSlices: int; theNbStacks: int; theTrsf: Trsf): Handle[
+proc create*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: Trsf): Handle[
     Graphic3dArrayOfTriangles] {.importcpp: "Prs3d_ToolSphere::Create(@)",
                                 header: "Prs3d_ToolSphere.hxx".}
-proc constructPrs3dToolSphere*(theRadius: float; theNbSlices: int; theNbStacks: int): Prs3dToolSphere {.
-    constructor, importcpp: "Prs3d_ToolSphere(@)", header: "Prs3d_ToolSphere.hxx".}
+proc constructPrs3dToolSphere*(theRadius: cfloat; theNbSlices: cint;
+                              theNbStacks: cint): Prs3dToolSphere {.constructor,
+    importcpp: "Prs3d_ToolSphere(@)", header: "Prs3d_ToolSphere.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

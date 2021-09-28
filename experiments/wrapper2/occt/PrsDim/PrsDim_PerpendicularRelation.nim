@@ -16,7 +16,7 @@
 
 discard "forward decl of PrsDim_PerpendicularRelation"
 type
-  HandlePrsDimPerpendicularRelation* = Handle[PrsDimPerpendicularRelation]
+  HandleC1C1* = Handle[PrsDimPerpendicularRelation]
 
 ## ! A framework to display constraints of perpendicularity
 ## ! between two or more interactive datums. These
@@ -109,3 +109,28 @@ proc constructPrsDimPerpendicularRelation*(aFShape: TopoDS_Shape;
     aSShape: TopoDS_Shape): PrsDimPerpendicularRelation {.constructor,
     importcpp: "PrsDim_PerpendicularRelation(@)",
     header: "PrsDim_PerpendicularRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_Polygon3D"
 discard "forward decl of BRep_Polygon3D"
 type
-  HandleBRepPolygon3D* = Handle[BRepPolygon3D]
+  HandleC1C1* = Handle[BRepPolygon3D]
 
 ## ! Representation by a 3D polygon.
 
@@ -40,8 +40,8 @@ proc polygon3D*(this: var BRepPolygon3D; p: Handle[PolyPolygon3D]) {.
 proc copy*(this: BRepPolygon3D): Handle[BRepCurveRepresentation] {.noSideEffect,
     importcpp: "Copy", header: "BRep_Polygon3D.hxx".}
 proc dumpJson*(this: BRepPolygon3D; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "BRep_Polygon3D.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "BRep_Polygon3D.hxx".}
 type
   BRepPolygon3DbaseType* = BRepCurveRepresentation
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_Polygon3D.hxx".}
 proc dynamicType*(this: BRepPolygon3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_Polygon3D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -68,3 +68,28 @@ include RWStepRepr_RWStructuralResponsePropertyDefinitionRepresentation
 include RWStepRepr_RWTangent
 include RWStepRepr_RWValueRepresentationItem
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

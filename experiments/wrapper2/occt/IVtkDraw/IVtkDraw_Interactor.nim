@@ -15,8 +15,8 @@
 
 # when defined windows:
 #   discard
-# else:
-#   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # else:
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
 ##  prevent disabling some MSVC warning messages by VTK headers
 
 discard "forward decl of vtkWin32RenderWindowInteractor"
@@ -24,6 +24,7 @@ type
   PSelector* = VtkSmartPointer[IVtkToolsShapePicker]
   IVtkDrawInteractor* {.importcpp: "IVtkDraw_Interactor",
                        header: "IVtkDraw_Interactor.hxx", bycopy.} = object of VtkRenderWindowInteractor ##  copying is prohibited
+    aspectWindow* {.importc: "Aspect_Window".}: Handle
 #     when defined windows:
 #       discard
 #     when defined windows:
@@ -49,13 +50,15 @@ proc selector*(this: IVtkDrawInteractor): PSelector {.noSideEffect,
     importcpp: "Selector", header: "IVtkDraw_Interactor.hxx".}
 proc setShapePicker*(this: var IVtkDrawInteractor; theSelector: PSelector) {.
     importcpp: "SetShapePicker", header: "IVtkDraw_Interactor.hxx".}
-proc setPipelines*(this: var IVtkDrawInteractor;
-                  thePipelines: Handle[ShapePipelineMap]) {.
-    importcpp: "SetPipelines", header: "IVtkDraw_Interactor.hxx".}
-proc setOCCWindow*(this: var IVtkDrawInteractor; theWindow: Handle[AspectWindow]) {.
-    importcpp: "SetOCCWindow", header: "IVtkDraw_Interactor.hxx".}
-proc getOCCWindow*(this: IVtkDrawInteractor): Handle[AspectWindow] {.noSideEffect,
-    importcpp: "GetOCCWindow", header: "IVtkDraw_Interactor.hxx".}
+## !!!Ignored construct:  void SetPipelines ( const Handle ( ShapePipelineMap ) & thePipelines ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void SetOCCWindow ( const Handle ( Aspect_Window ) & theWindow ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  & GetOCCWindow ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc moveTo*(this: var IVtkDrawInteractor; theX: int; theY: int) {.importcpp: "MoveTo",
     header: "IVtkDraw_Interactor.hxx".}
 proc onSelection*(this: var IVtkDrawInteractor) {.importcpp: "OnSelection",
@@ -69,4 +72,106 @@ when not defined windows:
   proc viewerMainLoop*(this: var IVtkDrawInteractor; theArgNum: int;
                       theArgs: cstringArray): int {.importcpp: "ViewerMainLoop",
       header: "IVtkDraw_Interactor.hxx".}
+## !!!Ignored construct:  myPipelines ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  myWindow ;
+## Error: identifier expected, but got: ;!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

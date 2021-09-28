@@ -20,7 +20,7 @@ discard "forward decl of Interface_Check"
 discard "forward decl of StepData_PDescr"
 discard "forward decl of StepData_PDescr"
 type
-  HandleStepDataPDescr* = Handle[StepDataPDescr]
+  HandleC1C1* = Handle[StepDataPDescr]
 
 ## ! This class is intended to describe the authorized form for a
 ## ! parameter, as a type or a value for a field
@@ -63,9 +63,9 @@ proc setType*(this: var StepDataPDescr; atype: Handle[StandardType]) {.
     importcpp: "SetType", header: "StepData_PDescr.hxx".}
 proc setDescr*(this: var StepDataPDescr; dscnam: StandardCString) {.
     importcpp: "SetDescr", header: "StepData_PDescr.hxx".}
-proc addArity*(this: var StepDataPDescr; arity: int = 1) {.importcpp: "AddArity",
+proc addArity*(this: var StepDataPDescr; arity: cint = 1) {.importcpp: "AddArity",
     header: "StepData_PDescr.hxx".}
-proc setArity*(this: var StepDataPDescr; arity: int = 1) {.importcpp: "SetArity",
+proc setArity*(this: var StepDataPDescr; arity: cint = 1) {.importcpp: "SetArity",
     header: "StepData_PDescr.hxx".}
 proc setFrom*(this: var StepDataPDescr; other: Handle[StepDataPDescr]) {.
     importcpp: "SetFrom", header: "StepData_PDescr.hxx".}
@@ -73,7 +73,7 @@ proc setOptional*(this: var StepDataPDescr; opt: bool = true) {.
     importcpp: "SetOptional", header: "StepData_PDescr.hxx".}
 proc setDerived*(this: var StepDataPDescr; der: bool = true) {.importcpp: "SetDerived",
     header: "StepData_PDescr.hxx".}
-proc setField*(this: var StepDataPDescr; name: StandardCString; rank: int) {.
+proc setField*(this: var StepDataPDescr; name: StandardCString; rank: cint) {.
     importcpp: "SetField", header: "StepData_PDescr.hxx".}
 proc isSelect*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsSelect",
     header: "StepData_PDescr.hxx".}
@@ -91,11 +91,11 @@ proc isLogical*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsLogica
     header: "StepData_PDescr.hxx".}
 proc isEnum*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsEnum",
                                        header: "StepData_PDescr.hxx".}
-proc enumMax*(this: StepDataPDescr): int {.noSideEffect, importcpp: "EnumMax",
-                                       header: "StepData_PDescr.hxx".}
-proc enumValue*(this: StepDataPDescr; name: StandardCString): int {.noSideEffect,
+proc enumMax*(this: StepDataPDescr): cint {.noSideEffect, importcpp: "EnumMax",
+                                        header: "StepData_PDescr.hxx".}
+proc enumValue*(this: StepDataPDescr; name: StandardCString): cint {.noSideEffect,
     importcpp: "EnumValue", header: "StepData_PDescr.hxx".}
-proc enumText*(this: StepDataPDescr; val: int): StandardCString {.noSideEffect,
+proc enumText*(this: StepDataPDescr; val: cint): StandardCString {.noSideEffect,
     importcpp: "EnumText", header: "StepData_PDescr.hxx".}
 proc isEntity*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsEntity",
     header: "StepData_PDescr.hxx".}
@@ -107,8 +107,8 @@ proc isDescr*(this: StepDataPDescr; descr: Handle[StepDataEDescr]): bool {.
     noSideEffect, importcpp: "IsDescr", header: "StepData_PDescr.hxx".}
 proc descrName*(this: StepDataPDescr): StandardCString {.noSideEffect,
     importcpp: "DescrName", header: "StepData_PDescr.hxx".}
-proc arity*(this: StepDataPDescr): int {.noSideEffect, importcpp: "Arity",
-                                     header: "StepData_PDescr.hxx".}
+proc arity*(this: StepDataPDescr): cint {.noSideEffect, importcpp: "Arity",
+                                      header: "StepData_PDescr.hxx".}
 proc simple*(this: StepDataPDescr): Handle[StepDataPDescr] {.noSideEffect,
     importcpp: "Simple", header: "StepData_PDescr.hxx".}
 proc isOptional*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsOptional",
@@ -119,7 +119,7 @@ proc isField*(this: StepDataPDescr): bool {.noSideEffect, importcpp: "IsField",
                                         header: "StepData_PDescr.hxx".}
 proc fieldName*(this: StepDataPDescr): StandardCString {.noSideEffect,
     importcpp: "FieldName", header: "StepData_PDescr.hxx".}
-proc fieldRank*(this: StepDataPDescr): int {.noSideEffect, importcpp: "FieldRank",
+proc fieldRank*(this: StepDataPDescr): cint {.noSideEffect, importcpp: "FieldRank",
     header: "StepData_PDescr.hxx".}
 proc check*(this: StepDataPDescr; afild: StepDataField;
            ach: var Handle[InterfaceCheck]) {.noSideEffect, importcpp: "Check",
@@ -134,3 +134,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_PDescr.hxx".}
 proc dynamicType*(this: StepDataPDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_PDescr.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

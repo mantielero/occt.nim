@@ -33,7 +33,7 @@ type
 
 proc constructStepShapeCsgPrimitive*(): StepShapeCsgPrimitive {.constructor,
     importcpp: "StepShape_CsgPrimitive(@)", header: "StepShape_CsgPrimitive.hxx".}
-proc caseNum*(this: StepShapeCsgPrimitive; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepShapeCsgPrimitive; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_CsgPrimitive.hxx".}
 proc sphere*(this: StepShapeCsgPrimitive): Handle[StepShapeSphere] {.noSideEffect,
     importcpp: "Sphere", header: "StepShape_CsgPrimitive.hxx".}
@@ -51,3 +51,28 @@ proc rightCircularCylinder*(this: StepShapeCsgPrimitive): Handle[
     StepShapeRightCircularCylinder] {.noSideEffect,
                                      importcpp: "RightCircularCylinder",
                                      header: "StepShape_CsgPrimitive.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

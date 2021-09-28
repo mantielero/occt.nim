@@ -23,15 +23,15 @@ type
   BRepFillDraft* {.importcpp: "BRepFill_Draft", header: "BRepFill_Draft.hxx", bycopy.} = object
 
 
-proc constructBRepFillDraft*(shape: TopoDS_Shape; dir: Dir; angle: float): BRepFillDraft {.
+proc constructBRepFillDraft*(shape: TopoDS_Shape; dir: Dir; angle: cfloat): BRepFillDraft {.
     constructor, importcpp: "BRepFill_Draft(@)", header: "BRepFill_Draft.hxx".}
 proc setOptions*(this: var BRepFillDraft;
                 style: BRepFillTransitionStyle = bRepFillRight;
-                angleMin: float = 0.01; angleMax: float = 3.0) {.
+                angleMin: cfloat = 0.01; angleMax: cfloat = 3.0) {.
     importcpp: "SetOptions", header: "BRepFill_Draft.hxx".}
 proc setDraft*(this: var BRepFillDraft; isInternal: bool = false) {.
     importcpp: "SetDraft", header: "BRepFill_Draft.hxx".}
-proc perform*(this: var BRepFillDraft; lengthMax: float) {.importcpp: "Perform",
+proc perform*(this: var BRepFillDraft; lengthMax: cfloat) {.importcpp: "Perform",
     header: "BRepFill_Draft.hxx".}
 proc perform*(this: var BRepFillDraft; surface: Handle[GeomSurface];
              keepInsideSurface: bool = true) {.importcpp: "Perform",
@@ -47,3 +47,28 @@ proc generated*(this: var BRepFillDraft; s: TopoDS_Shape): TopToolsListOfShape {
     importcpp: "Generated", header: "BRepFill_Draft.hxx".}
 proc shape*(this: BRepFillDraft): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BRepFill_Draft.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_TreeNodeDriver"
 discard "forward decl of BinMDataStd_TreeNodeDriver"
 type
-  HandleBinMDataStdTreeNodeDriver* = Handle[BinMDataStdTreeNodeDriver]
+  HandleC1C1* = Handle[BinMDataStdTreeNodeDriver]
 
 ## ! Attribute Driver.
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdTreeNodeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_TreeNodeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

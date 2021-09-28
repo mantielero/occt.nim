@@ -24,22 +24,23 @@ type
 proc constructBRepExtremaSolutionElem*(): BRepExtremaSolutionElem {.constructor,
     importcpp: "BRepExtrema_SolutionElem(@)",
     header: "BRepExtrema_SolutionElem.hxx".}
-proc constructBRepExtremaSolutionElem*(theDist: float; thePoint: Pnt;
+proc constructBRepExtremaSolutionElem*(theDist: cfloat; thePoint: Pnt;
                                       theSolType: BRepExtremaSupportType;
                                       theVertex: TopoDS_Vertex): BRepExtremaSolutionElem {.
     constructor, importcpp: "BRepExtrema_SolutionElem(@)",
     header: "BRepExtrema_SolutionElem.hxx".}
-proc constructBRepExtremaSolutionElem*(theDist: float; thePoint: Pnt;
+proc constructBRepExtremaSolutionElem*(theDist: cfloat; thePoint: Pnt;
                                       theSolType: BRepExtremaSupportType;
-                                      theEdge: TopoDS_Edge; theParam: float): BRepExtremaSolutionElem {.
+                                      theEdge: TopoDS_Edge; theParam: cfloat): BRepExtremaSolutionElem {.
     constructor, importcpp: "BRepExtrema_SolutionElem(@)",
     header: "BRepExtrema_SolutionElem.hxx".}
-proc constructBRepExtremaSolutionElem*(theDist: float; thePoint: Pnt;
+proc constructBRepExtremaSolutionElem*(theDist: cfloat; thePoint: Pnt;
                                       theSolType: BRepExtremaSupportType;
-                                      theFace: TopoDS_Face; theU: float; theV: float): BRepExtremaSolutionElem {.
+                                      theFace: TopoDS_Face; theU: cfloat;
+                                      theV: cfloat): BRepExtremaSolutionElem {.
     constructor, importcpp: "BRepExtrema_SolutionElem(@)",
     header: "BRepExtrema_SolutionElem.hxx".}
-proc dist*(this: BRepExtremaSolutionElem): float {.noSideEffect, importcpp: "Dist",
+proc dist*(this: BRepExtremaSolutionElem): cfloat {.noSideEffect, importcpp: "Dist",
     header: "BRepExtrema_SolutionElem.hxx".}
 proc point*(this: BRepExtremaSolutionElem): Pnt {.noSideEffect, importcpp: "Point",
     header: "BRepExtrema_SolutionElem.hxx".}
@@ -51,9 +52,34 @@ proc edge*(this: BRepExtremaSolutionElem): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "BRepExtrema_SolutionElem.hxx".}
 proc face*(this: BRepExtremaSolutionElem): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BRepExtrema_SolutionElem.hxx".}
-proc edgeParameter*(this: BRepExtremaSolutionElem; theParam: var float) {.
+proc edgeParameter*(this: BRepExtremaSolutionElem; theParam: var cfloat) {.
     noSideEffect, importcpp: "EdgeParameter",
     header: "BRepExtrema_SolutionElem.hxx".}
-proc faceParameter*(this: BRepExtremaSolutionElem; theU: var float; theV: var float) {.
+proc faceParameter*(this: BRepExtremaSolutionElem; theU: var cfloat; theV: var cfloat) {.
     noSideEffect, importcpp: "FaceParameter",
     header: "BRepExtrema_SolutionElem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

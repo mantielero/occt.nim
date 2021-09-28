@@ -48,71 +48,71 @@ proc modifyOffsetCurveMode*(this: var ShapeAnalysisShapeContents): var bool {.
     importcpp: "ModifyOffsetCurveMode", header: "ShapeAnalysis_ShapeContents.hxx".}
 proc modifyTrimmed2dMode*(this: var ShapeAnalysisShapeContents): var bool {.
     importcpp: "ModifyTrimmed2dMode", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSolids*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbSolids*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbSolids", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbShells*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbShells*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbShells", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbFaces*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbFaces*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbFaces", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbWires*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbWires*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbWires", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbEdges*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbEdges*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbEdges", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbVertices*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbVertices*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbVertices", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSolidsWithVoids*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbSolidsWithVoids*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbSolidsWithVoids", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbBigSplines*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbBigSplines*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbBigSplines", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbC0Surfaces*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbC0Surfaces*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbC0Surfaces", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbC0Curves*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbC0Curves*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbC0Curves", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbOffsetSurf*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbOffsetSurf*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbOffsetSurf", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbIndirectSurf*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbIndirectSurf*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbIndirectSurf", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbOffsetCurves*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbOffsetCurves*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbOffsetCurves", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbTrimmedCurve2d*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbTrimmedCurve2d*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbTrimmedCurve2d", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbTrimmedCurve3d*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbTrimmedCurve3d*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbTrimmedCurve3d", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbBSplibeSurf*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbBSplibeSurf*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbBSplibeSurf", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbBezierSurf*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbBezierSurf*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbBezierSurf", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbTrimSurf*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbTrimSurf*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbTrimSurf", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbWireWitnSeam*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbWireWitnSeam*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbWireWitnSeam", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbWireWithSevSeams*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbWireWithSevSeams*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbWireWithSevSeams", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbFaceWithSevWires*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbFaceWithSevWires*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbFaceWithSevWires", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbNoPCurve*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbNoPCurve*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbNoPCurve", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbFreeFaces*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbFreeFaces*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbFreeFaces", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbFreeWires*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbFreeWires*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbFreeWires", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbFreeEdges*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbFreeEdges*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbFreeEdges", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedSolids*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbSharedSolids*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbSharedSolids", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedShells*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbSharedShells*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbSharedShells", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedFaces*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbSharedFaces*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbSharedFaces", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedWires*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbSharedWires*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbSharedWires", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedFreeWires*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbSharedFreeWires*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbSharedFreeWires", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedFreeEdges*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbSharedFreeEdges*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbSharedFreeEdges", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedEdges*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbSharedEdges*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbSharedEdges", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedVertices*(this: ShapeAnalysisShapeContents): int {.noSideEffect,
+proc nbSharedVertices*(this: ShapeAnalysisShapeContents): cint {.noSideEffect,
     importcpp: "NbSharedVertices", header: "ShapeAnalysis_ShapeContents.hxx".}
 proc bigSplineSec*(this: ShapeAnalysisShapeContents): Handle[
     TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "BigSplineSec",
@@ -132,3 +132,28 @@ proc offsetCurveSec*(this: ShapeAnalysisShapeContents): Handle[
 proc trimmed2dSec*(this: ShapeAnalysisShapeContents): Handle[
     TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "Trimmed2dSec",
                                header: "ShapeAnalysis_ShapeContents.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

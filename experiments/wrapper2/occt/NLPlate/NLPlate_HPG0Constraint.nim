@@ -19,7 +19,7 @@ discard "forward decl of gp_XYZ"
 discard "forward decl of NLPlate_HPG0Constraint"
 discard "forward decl of NLPlate_HPG0Constraint"
 type
-  HandleNLPlateHPG0Constraint* = Handle[NLPlateHPG0Constraint]
+  HandleC1C1* = Handle[NLPlateHPG0Constraint]
 
 ## ! define a PinPoint G0  Constraint  used to load a Non Linear
 ## ! Plate
@@ -40,7 +40,7 @@ proc uVFreeSliding*(this: NLPlateHPG0Constraint): bool {.noSideEffect,
     importcpp: "UVFreeSliding", header: "NLPlate_HPG0Constraint.hxx".}
 proc incrementalLoadAllowed*(this: NLPlateHPG0Constraint): bool {.noSideEffect,
     importcpp: "IncrementalLoadAllowed", header: "NLPlate_HPG0Constraint.hxx".}
-proc activeOrder*(this: NLPlateHPG0Constraint): int {.noSideEffect,
+proc activeOrder*(this: NLPlateHPG0Constraint): cint {.noSideEffect,
     importcpp: "ActiveOrder", header: "NLPlate_HPG0Constraint.hxx".}
 proc isG0*(this: NLPlateHPG0Constraint): bool {.noSideEffect, importcpp: "IsG0",
     header: "NLPlate_HPG0Constraint.hxx".}
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "NLPlate_HPG0Constraint.hxx".}
 proc dynamicType*(this: NLPlateHPG0Constraint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "NLPlate_HPG0Constraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

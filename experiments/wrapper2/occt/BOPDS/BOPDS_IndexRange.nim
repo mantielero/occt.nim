@@ -22,19 +22,44 @@ type
 
 proc constructBOPDS_IndexRange*(): BOPDS_IndexRange {.constructor,
     importcpp: "BOPDS_IndexRange(@)", header: "BOPDS_IndexRange.hxx".}
-proc setFirst*(this: var BOPDS_IndexRange; theI1: int) {.importcpp: "SetFirst",
+proc setFirst*(this: var BOPDS_IndexRange; theI1: cint) {.importcpp: "SetFirst",
     header: "BOPDS_IndexRange.hxx".}
-proc setLast*(this: var BOPDS_IndexRange; theI2: int) {.importcpp: "SetLast",
+proc setLast*(this: var BOPDS_IndexRange; theI2: cint) {.importcpp: "SetLast",
     header: "BOPDS_IndexRange.hxx".}
-proc first*(this: BOPDS_IndexRange): int {.noSideEffect, importcpp: "First",
+proc first*(this: BOPDS_IndexRange): cint {.noSideEffect, importcpp: "First",
+                                        header: "BOPDS_IndexRange.hxx".}
+proc last*(this: BOPDS_IndexRange): cint {.noSideEffect, importcpp: "Last",
                                        header: "BOPDS_IndexRange.hxx".}
-proc last*(this: BOPDS_IndexRange): int {.noSideEffect, importcpp: "Last",
-                                      header: "BOPDS_IndexRange.hxx".}
-proc setIndices*(this: var BOPDS_IndexRange; theI1: int; theI2: int) {.
+proc setIndices*(this: var BOPDS_IndexRange; theI1: cint; theI2: cint) {.
     importcpp: "SetIndices", header: "BOPDS_IndexRange.hxx".}
-proc indices*(this: BOPDS_IndexRange; theI1: var int; theI2: var int) {.noSideEffect,
+proc indices*(this: BOPDS_IndexRange; theI1: var cint; theI2: var cint) {.noSideEffect,
     importcpp: "Indices", header: "BOPDS_IndexRange.hxx".}
-proc contains*(this: BOPDS_IndexRange; theIndex: int): bool {.noSideEffect,
+proc contains*(this: BOPDS_IndexRange; theIndex: cint): bool {.noSideEffect,
     importcpp: "Contains", header: "BOPDS_IndexRange.hxx".}
 proc dump*(this: BOPDS_IndexRange) {.noSideEffect, importcpp: "Dump",
                                   header: "BOPDS_IndexRange.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

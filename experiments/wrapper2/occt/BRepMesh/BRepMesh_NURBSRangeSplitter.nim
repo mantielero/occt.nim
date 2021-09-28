@@ -60,3 +60,28 @@ proc generateSurfaceNodes*(this: BRepMeshNURBSRangeSplitter;
                           theParameters: IMeshToolsParameters): Handle[ListOfPnt2d] {.
     noSideEffect, importcpp: "GenerateSurfaceNodes",
     header: "BRepMesh_NURBSRangeSplitter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

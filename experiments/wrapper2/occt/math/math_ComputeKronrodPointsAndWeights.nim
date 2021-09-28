@@ -18,7 +18,7 @@ type
                                        bycopy.} = object
 
 
-proc constructMathComputeKronrodPointsAndWeights*(number: int): MathComputeKronrodPointsAndWeights {.
+proc constructMathComputeKronrodPointsAndWeights*(number: cint): MathComputeKronrodPointsAndWeights {.
     constructor, importcpp: "math_ComputeKronrodPointsAndWeights(@)",
     header: "math_ComputeKronrodPointsAndWeights.hxx".}
 proc isDone*(this: MathComputeKronrodPointsAndWeights): bool {.noSideEffect,
@@ -27,3 +27,28 @@ proc points*(this: MathComputeKronrodPointsAndWeights): MathVector {.noSideEffec
     importcpp: "Points", header: "math_ComputeKronrodPointsAndWeights.hxx".}
 proc weights*(this: MathComputeKronrodPointsAndWeights): MathVector {.noSideEffect,
     importcpp: "Weights", header: "math_ComputeKronrodPointsAndWeights.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

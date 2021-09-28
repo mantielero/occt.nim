@@ -25,11 +25,11 @@ type
 proc constructStepElementCurveElementPurpose*(): StepElementCurveElementPurpose {.
     constructor, importcpp: "StepElement_CurveElementPurpose(@)",
     header: "StepElement_CurveElementPurpose.hxx".}
-proc caseNum*(this: StepElementCurveElementPurpose; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepElementCurveElementPurpose; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepElement_CurveElementPurpose.hxx".}
 proc caseMem*(this: StepElementCurveElementPurpose;
-             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
+             ent: Handle[StepDataSelectMember]): cint {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_CurveElementPurpose.hxx".}
 proc newMember*(this: StepElementCurveElementPurpose): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember",
@@ -49,3 +49,28 @@ proc applicationDefinedElementPurpose*(this: StepElementCurveElementPurpose): Ha
     TCollectionHAsciiString] {.noSideEffect,
                               importcpp: "ApplicationDefinedElementPurpose",
                               header: "StepElement_CurveElementPurpose.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

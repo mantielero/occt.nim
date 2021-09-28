@@ -33,11 +33,11 @@ type
 proc constructBRepFeatMakePipe*(): BRepFeatMakePipe {.constructor,
     importcpp: "BRepFeat_MakePipe(@)", header: "BRepFeat_MakePipe.hxx".}
 proc constructBRepFeatMakePipe*(sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-                               skface: TopoDS_Face; spine: TopoDS_Wire; fuse: int;
+                               skface: TopoDS_Face; spine: TopoDS_Wire; fuse: cint;
                                modify: bool): BRepFeatMakePipe {.constructor,
     importcpp: "BRepFeat_MakePipe(@)", header: "BRepFeat_MakePipe.hxx".}
 proc init*(this: var BRepFeatMakePipe; sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-          skface: TopoDS_Face; spine: TopoDS_Wire; fuse: int; modify: bool) {.
+          skface: TopoDS_Face; spine: TopoDS_Wire; fuse: cint; modify: bool) {.
     importcpp: "Init", header: "BRepFeat_MakePipe.hxx".}
 proc add*(this: var BRepFeatMakePipe; e: TopoDS_Edge; onFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakePipe.hxx".}
@@ -51,3 +51,28 @@ proc curves*(this: var BRepFeatMakePipe; s: var TColGeomSequenceOfCurve) {.
     importcpp: "Curves", header: "BRepFeat_MakePipe.hxx".}
 proc barycCurve*(this: var BRepFeatMakePipe): Handle[GeomCurve] {.
     importcpp: "BarycCurve", header: "BRepFeat_MakePipe.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

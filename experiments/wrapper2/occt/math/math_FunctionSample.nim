@@ -20,12 +20,37 @@ type
                        header: "math_FunctionSample.hxx", bycopy.} = object
 
 
-proc constructMathFunctionSample*(a: float; b: float; n: int): MathFunctionSample {.
+proc constructMathFunctionSample*(a: cfloat; b: cfloat; n: cint): MathFunctionSample {.
     constructor, importcpp: "math_FunctionSample(@)",
     header: "math_FunctionSample.hxx".}
-proc bounds*(this: MathFunctionSample; a: var float; b: var float) {.noSideEffect,
+proc bounds*(this: MathFunctionSample; a: var cfloat; b: var cfloat) {.noSideEffect,
     importcpp: "Bounds", header: "math_FunctionSample.hxx".}
-proc nbPoints*(this: MathFunctionSample): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: MathFunctionSample): cint {.noSideEffect, importcpp: "NbPoints",
     header: "math_FunctionSample.hxx".}
-proc getParameter*(this: MathFunctionSample; index: int): float {.noSideEffect,
+proc getParameter*(this: MathFunctionSample; index: cint): cfloat {.noSideEffect,
     importcpp: "GetParameter", header: "math_FunctionSample.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

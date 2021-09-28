@@ -13,8 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# discard "forward decl of Poly_CoherentTriangle"
-# when defined(_MSC_VER):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # discard "forward decl of Poly_CoherentTriangle"
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(_MSC_VER):
 ## *
 ##  Implementation of both list node for Poly_CoherentTriangle type and
 ##  round double-linked list of these nodes.
@@ -68,19 +68,186 @@ proc next*(this: PolyCoherentTriPtr): var PolyCoherentTriPtr {.noSideEffect,
     importcpp: "Next", header: "Poly_CoherentTriPtr.hxx".}
 proc previous*(this: PolyCoherentTriPtr): var PolyCoherentTriPtr {.noSideEffect,
     importcpp: "Previous", header: "Poly_CoherentTriPtr.hxx".}
-proc append*(this: var PolyCoherentTriPtr; pTri: ptr PolyCoherentTriangle;
-            theA: Handle[NCollectionBaseAllocator]) {.importcpp: "Append",
-    header: "Poly_CoherentTriPtr.hxx".}
-proc prepend*(this: var PolyCoherentTriPtr; pTri: ptr PolyCoherentTriangle;
-             theA: Handle[NCollectionBaseAllocator]) {.importcpp: "Prepend",
-    header: "Poly_CoherentTriPtr.hxx".}
-proc remove*(thePtr: ptr PolyCoherentTriPtr; theA: Handle[NCollectionBaseAllocator]) {.
-    importcpp: "Poly_CoherentTriPtr::Remove(@)", header: "Poly_CoherentTriPtr.hxx".}
-proc removeList*(thePtr: ptr PolyCoherentTriPtr;
-                a2: Handle[NCollectionBaseAllocator]) {.
-    importcpp: "Poly_CoherentTriPtr::RemoveList(@)",
-    header: "Poly_CoherentTriPtr.hxx".}
+## !!!Ignored construct:  *
+##  Append a pointer to triangle into the list after the current instance.
+##  @param pTri
+##    Triangle that is to be included in the list after this one.
+##  @param theA
+##    Allocator where the new pointer instance is created.
+##  void Append ( const Poly_CoherentTriangle * pTri , const Handle ( NCollection_BaseAllocator ) & theA ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  *
+##  Prepend a pointer to triangle into the list before the current instance.
+##  @param pTri
+##    Triangle that is to be included in the list before this one.
+##  @param theA
+##    Allocator where the new pointer instance is created.
+##  void Prepend ( const Poly_CoherentTriangle * pTri , const Handle ( NCollection_BaseAllocator ) & theA ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  *
+##  Remove a pointer to triangle from its list.
+##  @param thePtr
+##    This class instance that should be removed from its list.
+##  @param theA
+##    Allocator where the current pointer instance was created.
+##  static void Remove ( Poly_CoherentTriPtr * thePtr , const Handle ( NCollection_BaseAllocator ) & theA ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  *
+##  Remove the list containing the given pointer to triangle.
+##  static void RemoveList ( Poly_CoherentTriPtr * thePtr , const Handle ( NCollection_BaseAllocator ) & ) ;
+## Error: token expected: ) but got: &!!!
+
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

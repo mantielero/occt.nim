@@ -23,7 +23,7 @@ discard "forward decl of Bnd_Box"
 discard "forward decl of ShapeAnalysis_Surface"
 discard "forward decl of ShapeAnalysis_Surface"
 type
-  HandleShapeAnalysisSurface* = Handle[ShapeAnalysisSurface]
+  HandleC1C1* = Handle[ShapeAnalysisSurface]
 
 ## ! Complements standard tool Geom_Surface by providing additional
 ## ! functionality for detection surface singularities, checking
@@ -202,68 +202,69 @@ proc init*(this: var ShapeAnalysisSurface; s: Handle[GeomSurface]) {.
     importcpp: "Init", header: "ShapeAnalysis_Surface.hxx".}
 proc init*(this: var ShapeAnalysisSurface; other: Handle[ShapeAnalysisSurface]) {.
     importcpp: "Init", header: "ShapeAnalysis_Surface.hxx".}
-proc setDomain*(this: var ShapeAnalysisSurface; u1: float; u2: float; v1: float; v2: float) {.
-    importcpp: "SetDomain", header: "ShapeAnalysis_Surface.hxx".}
+proc setDomain*(this: var ShapeAnalysisSurface; u1: cfloat; u2: cfloat; v1: cfloat;
+               v2: cfloat) {.importcpp: "SetDomain",
+                           header: "ShapeAnalysis_Surface.hxx".}
 proc surface*(this: ShapeAnalysisSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "ShapeAnalysis_Surface.hxx".}
 proc adaptor3d*(this: var ShapeAnalysisSurface): Handle[GeomAdaptorHSurface] {.
     importcpp: "Adaptor3d", header: "ShapeAnalysis_Surface.hxx".}
 proc trueAdaptor3d*(this: ShapeAnalysisSurface): Handle[GeomAdaptorHSurface] {.
     noSideEffect, importcpp: "TrueAdaptor3d", header: "ShapeAnalysis_Surface.hxx".}
-proc gap*(this: ShapeAnalysisSurface): float {.noSideEffect, importcpp: "Gap",
+proc gap*(this: ShapeAnalysisSurface): cfloat {.noSideEffect, importcpp: "Gap",
     header: "ShapeAnalysis_Surface.hxx".}
-proc value*(this: var ShapeAnalysisSurface; u: float; v: float): Pnt {.
+proc value*(this: var ShapeAnalysisSurface; u: cfloat; v: cfloat): Pnt {.
     importcpp: "Value", header: "ShapeAnalysis_Surface.hxx".}
 proc value*(this: var ShapeAnalysisSurface; p2d: Pnt2d): Pnt {.importcpp: "Value",
     header: "ShapeAnalysis_Surface.hxx".}
-proc hasSingularities*(this: var ShapeAnalysisSurface; preci: float): bool {.
+proc hasSingularities*(this: var ShapeAnalysisSurface; preci: cfloat): bool {.
     importcpp: "HasSingularities", header: "ShapeAnalysis_Surface.hxx".}
-proc nbSingularities*(this: var ShapeAnalysisSurface; preci: float): int {.
+proc nbSingularities*(this: var ShapeAnalysisSurface; preci: cfloat): cint {.
     importcpp: "NbSingularities", header: "ShapeAnalysis_Surface.hxx".}
-proc singularity*(this: var ShapeAnalysisSurface; num: int; preci: var float;
+proc singularity*(this: var ShapeAnalysisSurface; num: cint; preci: var cfloat;
                  p3d: var Pnt; firstP2d: var Pnt2d; lastP2d: var Pnt2d;
-                 firstpar: var float; lastpar: var float; uisodeg: var bool): bool {.
+                 firstpar: var cfloat; lastpar: var cfloat; uisodeg: var bool): bool {.
     importcpp: "Singularity", header: "ShapeAnalysis_Surface.hxx".}
-proc isDegenerated*(this: var ShapeAnalysisSurface; p3d: Pnt; preci: float): bool {.
+proc isDegenerated*(this: var ShapeAnalysisSurface; p3d: Pnt; preci: cfloat): bool {.
     importcpp: "IsDegenerated", header: "ShapeAnalysis_Surface.hxx".}
-proc degeneratedValues*(this: var ShapeAnalysisSurface; p3d: Pnt; preci: float;
-                       firstP2d: var Pnt2d; lastP2d: var Pnt2d; firstpar: var float;
-                       lastpar: var float; forward: bool = true): bool {.
+proc degeneratedValues*(this: var ShapeAnalysisSurface; p3d: Pnt; preci: cfloat;
+                       firstP2d: var Pnt2d; lastP2d: var Pnt2d; firstpar: var cfloat;
+                       lastpar: var cfloat; forward: bool = true): bool {.
     importcpp: "DegeneratedValues", header: "ShapeAnalysis_Surface.hxx".}
-proc projectDegenerated*(this: var ShapeAnalysisSurface; p3d: Pnt; preci: float;
+proc projectDegenerated*(this: var ShapeAnalysisSurface; p3d: Pnt; preci: cfloat;
                         neighbour: Pnt2d; result: var Pnt2d): bool {.
     importcpp: "ProjectDegenerated", header: "ShapeAnalysis_Surface.hxx".}
-proc projectDegenerated*(this: var ShapeAnalysisSurface; nbrPnt: int;
+proc projectDegenerated*(this: var ShapeAnalysisSurface; nbrPnt: cint;
                         points: TColgpSequenceOfPnt;
-                        pnt2d: var TColgpSequenceOfPnt2d; preci: float; direct: bool): bool {.
+                        pnt2d: var TColgpSequenceOfPnt2d; preci: cfloat; direct: bool): bool {.
     importcpp: "ProjectDegenerated", header: "ShapeAnalysis_Surface.hxx".}
 proc isDegenerated*(this: var ShapeAnalysisSurface; p2d1: Pnt2d; p2d2: Pnt2d;
-                   tol: float; ratio: float): bool {.importcpp: "IsDegenerated",
+                   tol: cfloat; ratio: cfloat): bool {.importcpp: "IsDegenerated",
     header: "ShapeAnalysis_Surface.hxx".}
-proc bounds*(this: ShapeAnalysisSurface; ufirst: var float; ulast: var float;
-            vfirst: var float; vlast: var float) {.noSideEffect, importcpp: "Bounds",
+proc bounds*(this: ShapeAnalysisSurface; ufirst: var cfloat; ulast: var cfloat;
+            vfirst: var cfloat; vlast: var cfloat) {.noSideEffect, importcpp: "Bounds",
     header: "ShapeAnalysis_Surface.hxx".}
 proc computeBoundIsos*(this: var ShapeAnalysisSurface) {.
     importcpp: "ComputeBoundIsos", header: "ShapeAnalysis_Surface.hxx".}
-proc uIso*(this: var ShapeAnalysisSurface; u: float): Handle[GeomCurve] {.
+proc uIso*(this: var ShapeAnalysisSurface; u: cfloat): Handle[GeomCurve] {.
     importcpp: "UIso", header: "ShapeAnalysis_Surface.hxx".}
-proc vIso*(this: var ShapeAnalysisSurface; v: float): Handle[GeomCurve] {.
+proc vIso*(this: var ShapeAnalysisSurface; v: cfloat): Handle[GeomCurve] {.
     importcpp: "VIso", header: "ShapeAnalysis_Surface.hxx".}
-proc isUClosed*(this: var ShapeAnalysisSurface; preci: float = -1): bool {.
+proc isUClosed*(this: var ShapeAnalysisSurface; preci: cfloat = -1): bool {.
     importcpp: "IsUClosed", header: "ShapeAnalysis_Surface.hxx".}
-proc isVClosed*(this: var ShapeAnalysisSurface; preci: float = -1): bool {.
+proc isVClosed*(this: var ShapeAnalysisSurface; preci: cfloat = -1): bool {.
     importcpp: "IsVClosed", header: "ShapeAnalysis_Surface.hxx".}
-proc valueOfUV*(this: var ShapeAnalysisSurface; p3d: Pnt; preci: float): Pnt2d {.
+proc valueOfUV*(this: var ShapeAnalysisSurface; p3d: Pnt; preci: cfloat): Pnt2d {.
     importcpp: "ValueOfUV", header: "ShapeAnalysis_Surface.hxx".}
 proc nextValueOfUV*(this: var ShapeAnalysisSurface; p2dPrev: Pnt2d; p3d: Pnt;
-                   preci: float; maxpreci: float = -1.0): Pnt2d {.
+                   preci: cfloat; maxpreci: cfloat = -1.0): Pnt2d {.
     importcpp: "NextValueOfUV", header: "ShapeAnalysis_Surface.hxx".}
-proc uVFromIso*(this: var ShapeAnalysisSurface; p3d: Pnt; preci: float; u: var float;
-               v: var float): float {.importcpp: "UVFromIso",
-                                  header: "ShapeAnalysis_Surface.hxx".}
-proc uCloseVal*(this: ShapeAnalysisSurface): float {.noSideEffect,
+proc uVFromIso*(this: var ShapeAnalysisSurface; p3d: Pnt; preci: cfloat; u: var cfloat;
+               v: var cfloat): cfloat {.importcpp: "UVFromIso",
+                                    header: "ShapeAnalysis_Surface.hxx".}
+proc uCloseVal*(this: ShapeAnalysisSurface): cfloat {.noSideEffect,
     importcpp: "UCloseVal", header: "ShapeAnalysis_Surface.hxx".}
-proc vCloseVal*(this: ShapeAnalysisSurface): float {.noSideEffect,
+proc vCloseVal*(this: ShapeAnalysisSurface): cfloat {.noSideEffect,
     importcpp: "VCloseVal", header: "ShapeAnalysis_Surface.hxx".}
 proc getBoxUF*(this: var ShapeAnalysisSurface): BndBox {.importcpp: "GetBoxUF",
     header: "ShapeAnalysis_Surface.hxx".}
@@ -283,3 +284,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeAnalysis_Surface.hxx".}
 proc dynamicType*(this: ShapeAnalysisSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeAnalysis_Surface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

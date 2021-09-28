@@ -28,7 +28,7 @@ proc constructRWStepVisualRWPlanarBox*(): RWStepVisualRWPlanarBox {.constructor,
     importcpp: "RWStepVisual_RWPlanarBox(@)",
     header: "RWStepVisual_RWPlanarBox.hxx".}
 proc readStep*(this: RWStepVisualRWPlanarBox; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualPlanarBox]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPlanarBox.hxx".}
 proc writeStep*(this: RWStepVisualRWPlanarBox; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepVisualRWPlanarBox; sw: var StepDataStepWriter;
 proc share*(this: RWStepVisualRWPlanarBox; ent: Handle[StepVisualPlanarBox];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWPlanarBox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

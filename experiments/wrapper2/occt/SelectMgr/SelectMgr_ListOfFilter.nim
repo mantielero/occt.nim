@@ -18,3 +18,28 @@ type
   SelectMgrListOfFilter* = NCollectionList[Handle[SelectMgrFilter]]
   SelectMgrListIteratorOfListOfFilter* = Iterator[Handle[SelectMgrFilter]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

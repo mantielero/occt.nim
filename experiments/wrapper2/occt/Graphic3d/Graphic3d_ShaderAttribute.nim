@@ -49,5 +49,30 @@ proc dynamicType*(this: Graphic3dShaderAttribute): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_ShaderAttribute.hxx".}
 discard "forward decl of Graphic3d_ShaderAttribute"
 type
-  HandleGraphic3dShaderAttribute* = Handle[Graphic3dShaderAttribute]
+  HandleC1C1* = Handle[Graphic3dShaderAttribute]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

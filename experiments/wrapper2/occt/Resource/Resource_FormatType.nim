@@ -56,3 +56,28 @@ type
     ResourceANSI = resourceFormatTypeANSI, ResourceGB = resourceFormatTypeGB
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

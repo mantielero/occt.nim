@@ -18,7 +18,7 @@ discard "forward decl of Storage_Schema"
 discard "forward decl of Storage_InternalData"
 discard "forward decl of Storage_InternalData"
 type
-  HandleStorageInternalData* = Handle[StorageInternalData]
+  HandleC1C1* = Handle[StorageInternalData]
   StorageInternalData* {.importcpp: "Storage_InternalData",
                         header: "Storage_InternalData.hxx", bycopy.} = object of StandardTransient
 
@@ -39,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Storage_InternalData.hxx".}
 proc dynamicType*(this: StorageInternalData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_InternalData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

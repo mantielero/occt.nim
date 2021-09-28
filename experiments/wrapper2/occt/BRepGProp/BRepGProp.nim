@@ -163,23 +163,48 @@ proc linearProperties*(s: TopoDS_Shape; lProps: var GPropGProps;
 proc surfaceProperties*(s: TopoDS_Shape; sProps: var GPropGProps;
                        skipShared: bool = false; useTriangulation: bool = false) {.
     importcpp: "BRepGProp::SurfaceProperties(@)", header: "BRepGProp.hxx".}
-proc surfaceProperties*(s: TopoDS_Shape; sProps: var GPropGProps; eps: float;
-                       skipShared: bool = false): float {.
+proc surfaceProperties*(s: TopoDS_Shape; sProps: var GPropGProps; eps: cfloat;
+                       skipShared: bool = false): cfloat {.
     importcpp: "BRepGProp::SurfaceProperties(@)", header: "BRepGProp.hxx".}
 proc volumeProperties*(s: TopoDS_Shape; vProps: var GPropGProps;
                       onlyClosed: bool = false; skipShared: bool = false;
                       useTriangulation: bool = false) {.
     importcpp: "BRepGProp::VolumeProperties(@)", header: "BRepGProp.hxx".}
-proc volumeProperties*(s: TopoDS_Shape; vProps: var GPropGProps; eps: float;
-                      onlyClosed: bool = false; skipShared: bool = false): float {.
+proc volumeProperties*(s: TopoDS_Shape; vProps: var GPropGProps; eps: cfloat;
+                      onlyClosed: bool = false; skipShared: bool = false): cfloat {.
     importcpp: "BRepGProp::VolumeProperties(@)", header: "BRepGProp.hxx".}
-proc volumePropertiesGK*(s: TopoDS_Shape; vProps: var GPropGProps; eps: float = 0.001;
-                        onlyClosed: bool = false; isUseSpan: bool = false;
-                        cGFlag: bool = false; iFlag: bool = false;
-                        skipShared: bool = false): float {.
+proc volumePropertiesGK*(s: TopoDS_Shape; vProps: var GPropGProps;
+                        eps: cfloat = 0.001; onlyClosed: bool = false;
+                        isUseSpan: bool = false; cGFlag: bool = false;
+                        iFlag: bool = false; skipShared: bool = false): cfloat {.
     importcpp: "BRepGProp::VolumePropertiesGK(@)", header: "BRepGProp.hxx".}
 proc volumePropertiesGK*(s: TopoDS_Shape; vProps: var GPropGProps; thePln: Pln;
-                        eps: float = 0.001; onlyClosed: bool = false;
+                        eps: cfloat = 0.001; onlyClosed: bool = false;
                         isUseSpan: bool = false; cGFlag: bool = false;
-                        iFlag: bool = false; skipShared: bool = false): float {.
+                        iFlag: bool = false; skipShared: bool = false): cfloat {.
     importcpp: "BRepGProp::VolumePropertiesGK(@)", header: "BRepGProp.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

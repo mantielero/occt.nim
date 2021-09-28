@@ -15,3 +15,28 @@
 type
   TColStdArray1OfListOfInteger* = NCollectionArray1[TColStdListOfInteger]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

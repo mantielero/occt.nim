@@ -19,7 +19,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGeom_Line"
 discard "forward decl of IGESGeom_Line"
 type
-  HandleIGESGeomLine* = Handle[IGESGeomLine]
+  HandleC1C1* = Handle[IGESGeomLine]
 
 ## ! defines IGESLine, Type <110> Form <0>
 ## ! in package IGESGeom
@@ -40,9 +40,9 @@ proc constructIGESGeomLine*(): IGESGeomLine {.constructor,
     importcpp: "IGESGeom_Line(@)", header: "IGESGeom_Line.hxx".}
 proc init*(this: var IGESGeomLine; aStart: Xyz; anEnd: Xyz) {.importcpp: "Init",
     header: "IGESGeom_Line.hxx".}
-proc infinite*(this: IGESGeomLine): int {.noSideEffect, importcpp: "Infinite",
-                                      header: "IGESGeom_Line.hxx".}
-proc setInfinite*(this: var IGESGeomLine; status: int) {.importcpp: "SetInfinite",
+proc infinite*(this: IGESGeomLine): cint {.noSideEffect, importcpp: "Infinite",
+                                       header: "IGESGeom_Line.hxx".}
+proc setInfinite*(this: var IGESGeomLine; status: cint) {.importcpp: "SetInfinite",
     header: "IGESGeom_Line.hxx".}
 proc startPoint*(this: IGESGeomLine): Pnt {.noSideEffect, importcpp: "StartPoint",
                                         header: "IGESGeom_Line.hxx".}
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_Line.hxx".}
 proc dynamicType*(this: IGESGeomLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Line.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

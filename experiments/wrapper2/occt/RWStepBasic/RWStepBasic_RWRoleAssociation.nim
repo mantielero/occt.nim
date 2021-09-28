@@ -28,7 +28,7 @@ proc constructRWStepBasicRWRoleAssociation*(): RWStepBasicRWRoleAssociation {.
     constructor, importcpp: "RWStepBasic_RWRoleAssociation(@)",
     header: "RWStepBasic_RWRoleAssociation.hxx".}
 proc readStep*(this: RWStepBasicRWRoleAssociation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicRoleAssociation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWRoleAssociation.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepBasicRWRoleAssociation;
            ent: Handle[StepBasicRoleAssociation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWRoleAssociation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

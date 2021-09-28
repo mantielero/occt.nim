@@ -46,47 +46,72 @@ type
                                                                  ## ! infinite real numbers, or two positive infinite real numbers.
 
 
-proc add*(L: Lin; p1: float; p2: float; tol: float; b: var BndBox) {.
+proc add*(L: Lin; p1: cfloat; p2: cfloat; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(L: Lin2d; p1: float; p2: float; tol: float; b: var BndBox2d) {.
+proc add*(L: Lin2d; p1: cfloat; p2: cfloat; tol: cfloat; b: var BndBox2d) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(c: Circ; tol: float; b: var BndBox) {.importcpp: "BndLib::Add(@)",
-                                        header: "BndLib.hxx".}
-proc add*(c: Circ; p1: float; p2: float; tol: float; b: var BndBox) {.
-    importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(c: Circ2d; tol: float; b: var BndBox2d) {.importcpp: "BndLib::Add(@)",
+proc add*(c: Circ; tol: cfloat; b: var BndBox) {.importcpp: "BndLib::Add(@)",
     header: "BndLib.hxx".}
-proc add*(c: Circ2d; p1: float; p2: float; tol: float; b: var BndBox2d) {.
+proc add*(c: Circ; p1: cfloat; p2: cfloat; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(c: Elips; tol: float; b: var BndBox) {.importcpp: "BndLib::Add(@)",
+proc add*(c: Circ2d; tol: cfloat; b: var BndBox2d) {.importcpp: "BndLib::Add(@)",
     header: "BndLib.hxx".}
-proc add*(c: Elips; p1: float; p2: float; tol: float; b: var BndBox) {.
+proc add*(c: Circ2d; p1: cfloat; p2: cfloat; tol: cfloat; b: var BndBox2d) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(c: Elips2d; tol: float; b: var BndBox2d) {.importcpp: "BndLib::Add(@)",
+proc add*(c: Elips; tol: cfloat; b: var BndBox) {.importcpp: "BndLib::Add(@)",
     header: "BndLib.hxx".}
-proc add*(c: Elips2d; p1: float; p2: float; tol: float; b: var BndBox2d) {.
+proc add*(c: Elips; p1: cfloat; p2: cfloat; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(p: Parab; p1: float; p2: float; tol: float; b: var BndBox) {.
+proc add*(c: Elips2d; tol: cfloat; b: var BndBox2d) {.importcpp: "BndLib::Add(@)",
+    header: "BndLib.hxx".}
+proc add*(c: Elips2d; p1: cfloat; p2: cfloat; tol: cfloat; b: var BndBox2d) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(p: Parab2d; p1: float; p2: float; tol: float; b: var BndBox2d) {.
+proc add*(p: Parab; p1: cfloat; p2: cfloat; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(h: Hypr; p1: float; p2: float; tol: float; b: var BndBox) {.
+proc add*(p: Parab2d; p1: cfloat; p2: cfloat; tol: cfloat; b: var BndBox2d) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(h: Hypr2d; p1: float; p2: float; tol: float; b: var BndBox2d) {.
+proc add*(h: Hypr; p1: cfloat; p2: cfloat; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(s: Cylinder; uMin: float; uMax: float; vMin: float; vMax: float; tol: float;
+proc add*(h: Hypr2d; p1: cfloat; p2: cfloat; tol: cfloat; b: var BndBox2d) {.
+    importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
+proc add*(s: Cylinder; uMin: cfloat; uMax: cfloat; vMin: cfloat; vMax: cfloat; tol: cfloat;
          b: var BndBox) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(s: Cylinder; vMin: float; vMax: float; tol: float; b: var BndBox) {.
+proc add*(s: Cylinder; vMin: cfloat; vMax: cfloat; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(s: Cone; uMin: float; uMax: float; vMin: float; vMax: float; tol: float;
+proc add*(s: Cone; uMin: cfloat; uMax: cfloat; vMin: cfloat; vMax: cfloat; tol: cfloat;
          b: var BndBox) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(s: Cone; vMin: float; vMax: float; tol: float; b: var BndBox) {.
+proc add*(s: Cone; vMin: cfloat; vMax: cfloat; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(s: Sphere; tol: float; b: var BndBox) {.importcpp: "BndLib::Add(@)",
+proc add*(s: Sphere; tol: cfloat; b: var BndBox) {.importcpp: "BndLib::Add(@)",
     header: "BndLib.hxx".}
-proc add*(s: Sphere; uMin: float; uMax: float; vMin: float; vMax: float; tol: float;
+proc add*(s: Sphere; uMin: cfloat; uMax: cfloat; vMin: cfloat; vMax: cfloat; tol: cfloat;
          b: var BndBox) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
-proc add*(p: Torus; tol: float; b: var BndBox) {.importcpp: "BndLib::Add(@)",
+proc add*(p: Torus; tol: cfloat; b: var BndBox) {.importcpp: "BndLib::Add(@)",
     header: "BndLib.hxx".}
-proc add*(p: Torus; uMin: float; uMax: float; vMin: float; vMax: float; tol: float;
+proc add*(p: Torus; uMin: cfloat; uMax: cfloat; vMin: cfloat; vMax: cfloat; tol: cfloat;
          b: var BndBox) {.importcpp: "BndLib::Add(@)", header: "BndLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

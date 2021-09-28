@@ -35,12 +35,12 @@ proc init*(this: var BRepAlgoNormalProjection; s: TopoDS_Shape) {.importcpp: "In
     header: "BRepAlgo_NormalProjection.hxx".}
 proc add*(this: var BRepAlgoNormalProjection; toProj: TopoDS_Shape) {.
     importcpp: "Add", header: "BRepAlgo_NormalProjection.hxx".}
-proc setParams*(this: var BRepAlgoNormalProjection; tol3D: float; tol2D: float;
-               internalContinuity: GeomAbsShape; maxDegree: int; maxSeg: int) {.
+proc setParams*(this: var BRepAlgoNormalProjection; tol3D: cfloat; tol2D: cfloat;
+               internalContinuity: GeomAbsShape; maxDegree: cint; maxSeg: cint) {.
     importcpp: "SetParams", header: "BRepAlgo_NormalProjection.hxx".}
 proc setDefaultParams*(this: var BRepAlgoNormalProjection) {.
     importcpp: "SetDefaultParams", header: "BRepAlgo_NormalProjection.hxx".}
-proc setMaxDistance*(this: var BRepAlgoNormalProjection; maxDist: float) {.
+proc setMaxDistance*(this: var BRepAlgoNormalProjection; maxDist: cfloat) {.
     importcpp: "SetMaxDistance", header: "BRepAlgo_NormalProjection.hxx".}
 proc compute3d*(this: var BRepAlgoNormalProjection; with3d: bool = true) {.
     importcpp: "Compute3d", header: "BRepAlgo_NormalProjection.hxx".}
@@ -63,3 +63,28 @@ proc isElementary*(this: BRepAlgoNormalProjection; c: Adaptor3dCurve): bool {.
     header: "BRepAlgo_NormalProjection.hxx".}
 proc buildWire*(this: BRepAlgoNormalProjection; liste: var TopToolsListOfShape): bool {.
     noSideEffect, importcpp: "BuildWire", header: "BRepAlgo_NormalProjection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

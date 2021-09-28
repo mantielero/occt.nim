@@ -18,3 +18,28 @@ type
   IGESAppliArray1OfFiniteElement* = NCollectionArray1[
       Handle[IGESAppliFiniteElement]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

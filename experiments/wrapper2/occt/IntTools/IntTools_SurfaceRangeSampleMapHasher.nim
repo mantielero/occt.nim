@@ -22,9 +22,34 @@ type
                                                        ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 
-proc hashCode*(theKey: IntToolsSurfaceRangeSample; theUpperBound: int): int {.
+proc hashCode*(theKey: IntToolsSurfaceRangeSample; theUpperBound: cint): cint {.
     importcpp: "IntTools_SurfaceRangeSampleMapHasher::HashCode(@)",
     header: "IntTools_SurfaceRangeSampleMapHasher.hxx".}
 proc isEqual*(s1: IntToolsSurfaceRangeSample; s2: IntToolsSurfaceRangeSample): bool {.
     importcpp: "IntTools_SurfaceRangeSampleMapHasher::IsEqual(@)",
     header: "IntTools_SurfaceRangeSampleMapHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

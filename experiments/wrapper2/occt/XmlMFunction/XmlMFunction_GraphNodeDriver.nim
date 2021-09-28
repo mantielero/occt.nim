@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMFunction_GraphNodeDriver"
 discard "forward decl of XmlMFunction_GraphNodeDriver"
 type
-  HandleXmlMFunctionGraphNodeDriver* = Handle[XmlMFunctionGraphNodeDriver]
+  HandleC1C1* = Handle[XmlMFunctionGraphNodeDriver]
 
 ## ! XML persistence driver for dependencies of a function.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMFunctionGraphNodeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMFunction_GraphNodeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

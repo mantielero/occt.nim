@@ -20,7 +20,7 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of ShapeUpgrade_EdgeDivide"
 discard "forward decl of ShapeUpgrade_EdgeDivide"
 type
-  HandleShapeUpgradeEdgeDivide* = Handle[ShapeUpgradeEdgeDivide]
+  HandleC1C1* = Handle[ShapeUpgradeEdgeDivide]
   ShapeUpgradeEdgeDivide* {.importcpp: "ShapeUpgrade_EdgeDivide",
                            header: "ShapeUpgrade_EdgeDivide.hxx", bycopy.} = object of ShapeUpgradeTool ##
                                                                                                  ## !
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeUpgrade_EdgeDivide.hxx".}
 proc dynamicType*(this: ShapeUpgradeEdgeDivide): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_EdgeDivide.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,16 +22,41 @@ type
                        header: "IntCurve_PConicTool.hxx", bycopy.} = object
 
 
-proc epsX*(c: IntCurvePConic): float {.importcpp: "IntCurve_PConicTool::EpsX(@)",
-                                   header: "IntCurve_PConicTool.hxx".}
-proc nbSamples*(c: IntCurvePConic): int {.importcpp: "IntCurve_PConicTool::NbSamples(@)",
-                                      header: "IntCurve_PConicTool.hxx".}
-proc nbSamples*(c: IntCurvePConic; u0: float; u1: float): int {.
+proc epsX*(c: IntCurvePConic): cfloat {.importcpp: "IntCurve_PConicTool::EpsX(@)",
+                                    header: "IntCurve_PConicTool.hxx".}
+proc nbSamples*(c: IntCurvePConic): cint {.importcpp: "IntCurve_PConicTool::NbSamples(@)",
+                                       header: "IntCurve_PConicTool.hxx".}
+proc nbSamples*(c: IntCurvePConic; u0: cfloat; u1: cfloat): cint {.
     importcpp: "IntCurve_PConicTool::NbSamples(@)",
     header: "IntCurve_PConicTool.hxx".}
-proc value*(c: IntCurvePConic; x: float): Pnt2d {.
+proc value*(c: IntCurvePConic; x: cfloat): Pnt2d {.
     importcpp: "IntCurve_PConicTool::Value(@)", header: "IntCurve_PConicTool.hxx".}
-proc d1*(c: IntCurvePConic; u: float; p: var Pnt2d; t: var Vec2d) {.
+proc d1*(c: IntCurvePConic; u: cfloat; p: var Pnt2d; t: var Vec2d) {.
     importcpp: "IntCurve_PConicTool::D1(@)", header: "IntCurve_PConicTool.hxx".}
-proc d2*(c: IntCurvePConic; u: float; p: var Pnt2d; t: var Vec2d; n: var Vec2d) {.
+proc d2*(c: IntCurvePConic; u: cfloat; p: var Pnt2d; t: var Vec2d; n: var Vec2d) {.
     importcpp: "IntCurve_PConicTool::D2(@)", header: "IntCurve_PConicTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

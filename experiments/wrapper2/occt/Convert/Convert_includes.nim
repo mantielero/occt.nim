@@ -22,3 +22,28 @@ include Convert_SequenceOfArray1OfPoles2d
 include Convert_SphereToBSplineSurface
 include Convert_TorusToBSplineSurface
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

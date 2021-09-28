@@ -14,17 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_ImmutableObject_HeaderFile [NewLine] # _Standard_ImmutableObject_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_ImmutableObject ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_ImmutableObject"
 discard "forward decl of Standard_ImmutableObject"
 type
-  HandleStandardImmutableObjectStandardImmutableObject* = Handle[
-      StandardImmutableObject]
+  StandardImmutableObject* {.importcpp: "Standard_ImmutableObject",
+                            header: "Standard_ImmutableObject.hxx", bycopy.} = object of StandardDomainError
+type
+  HandleStandardImmutableObject* = Handle[StandardImmutableObject]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_ImmutableObject [NewLine] # if ( CONDITION ) throw Standard_ImmutableObject ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardImmutableObject):
+  template standardImmutableObjectRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardImmutableObject*(a1: Message): Throw {.
+          importcpp: "Standard_ImmutableObject(@)",
+          header: "Standard_ImmutableObject.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_ImmutableObject , Standard_DomainError ) #  _Standard_ImmutableObject_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

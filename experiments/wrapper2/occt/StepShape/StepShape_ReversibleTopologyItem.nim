@@ -31,7 +31,7 @@ type
 proc constructStepShapeReversibleTopologyItem*(): StepShapeReversibleTopologyItem {.
     constructor, importcpp: "StepShape_ReversibleTopologyItem(@)",
     header: "StepShape_ReversibleTopologyItem.hxx".}
-proc caseNum*(this: StepShapeReversibleTopologyItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepShapeReversibleTopologyItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepShape_ReversibleTopologyItem.hxx".}
 proc edge*(this: StepShapeReversibleTopologyItem): Handle[StepShapeEdge] {.
@@ -49,3 +49,28 @@ proc closedShell*(this: StepShapeReversibleTopologyItem): Handle[
 proc openShell*(this: StepShapeReversibleTopologyItem): Handle[StepShapeOpenShell] {.
     noSideEffect, importcpp: "OpenShell",
     header: "StepShape_ReversibleTopologyItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

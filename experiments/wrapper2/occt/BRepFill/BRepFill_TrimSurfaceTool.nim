@@ -37,9 +37,34 @@ proc intersectWith*(this: BRepFillTrimSurfaceTool; edgeOnF1: TopoDS_Edge;
     header: "BRepFill_TrimSurfaceTool.hxx".}
 proc isOnFace*(this: BRepFillTrimSurfaceTool; point: Pnt2d): bool {.noSideEffect,
     importcpp: "IsOnFace", header: "BRepFill_TrimSurfaceTool.hxx".}
-proc projOn*(this: BRepFillTrimSurfaceTool; point: Pnt2d; edge: TopoDS_Edge): float {.
+proc projOn*(this: BRepFillTrimSurfaceTool; point: Pnt2d; edge: TopoDS_Edge): cfloat {.
     noSideEffect, importcpp: "ProjOn", header: "BRepFill_TrimSurfaceTool.hxx".}
-proc project*(this: BRepFillTrimSurfaceTool; u1: float; u2: float;
+proc project*(this: BRepFillTrimSurfaceTool; u1: cfloat; u2: cfloat;
              curve: var Handle[GeomCurve]; pCurve1: var Handle[Geom2dCurve];
              pCurve2: var Handle[Geom2dCurve]; myCont: var GeomAbsShape) {.
     noSideEffect, importcpp: "Project", header: "BRepFill_TrimSurfaceTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

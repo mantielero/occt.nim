@@ -33,7 +33,7 @@ proc constructStepVisualPresentationSizeAssignmentSelect*(): StepVisualPresentat
     constructor, importcpp: "StepVisual_PresentationSizeAssignmentSelect(@)",
     header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
 proc caseNum*(this: StepVisualPresentationSizeAssignmentSelect;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
 proc presentationView*(this: StepVisualPresentationSizeAssignmentSelect): Handle[
@@ -42,3 +42,28 @@ proc presentationArea*(this: StepVisualPresentationSizeAssignmentSelect): Handle
     StepVisualPresentationArea] {.noSideEffect, importcpp: "PresentationArea", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
 proc areaInSet*(this: StepVisualPresentationSizeAssignmentSelect): Handle[
     StepVisualAreaInSet] {.noSideEffect, importcpp: "AreaInSet", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,21 +28,21 @@ proc constructPolyCoherentNode*(): PolyCoherentNode {.constructor,
     importcpp: "Poly_CoherentNode(@)", header: "Poly_CoherentNode.hxx".}
 proc constructPolyCoherentNode*(thePnt: Xyz): PolyCoherentNode {.constructor,
     importcpp: "Poly_CoherentNode(@)", header: "Poly_CoherentNode.hxx".}
-proc setUV*(this: var PolyCoherentNode; theU: float; theV: float) {.importcpp: "SetUV",
+proc setUV*(this: var PolyCoherentNode; theU: cfloat; theV: cfloat) {.
+    importcpp: "SetUV", header: "Poly_CoherentNode.hxx".}
+proc getU*(this: PolyCoherentNode): cfloat {.noSideEffect, importcpp: "GetU",
     header: "Poly_CoherentNode.hxx".}
-proc getU*(this: PolyCoherentNode): float {.noSideEffect, importcpp: "GetU",
-                                        header: "Poly_CoherentNode.hxx".}
-proc getV*(this: PolyCoherentNode): float {.noSideEffect, importcpp: "GetV",
-                                        header: "Poly_CoherentNode.hxx".}
+proc getV*(this: PolyCoherentNode): cfloat {.noSideEffect, importcpp: "GetV",
+    header: "Poly_CoherentNode.hxx".}
 proc setNormal*(this: var PolyCoherentNode; theVector: Xyz) {.importcpp: "SetNormal",
     header: "Poly_CoherentNode.hxx".}
 proc hasNormal*(this: PolyCoherentNode): bool {.noSideEffect, importcpp: "HasNormal",
     header: "Poly_CoherentNode.hxx".}
 proc getNormal*(this: PolyCoherentNode): Xyz {.noSideEffect, importcpp: "GetNormal",
     header: "Poly_CoherentNode.hxx".}
-proc setIndex*(this: var PolyCoherentNode; theIndex: int) {.importcpp: "SetIndex",
+proc setIndex*(this: var PolyCoherentNode; theIndex: cint) {.importcpp: "SetIndex",
     header: "Poly_CoherentNode.hxx".}
-proc getIndex*(this: PolyCoherentNode): int {.noSideEffect, importcpp: "GetIndex",
+proc getIndex*(this: PolyCoherentNode): cint {.noSideEffect, importcpp: "GetIndex",
     header: "Poly_CoherentNode.hxx".}
 proc isFreeNode*(this: PolyCoherentNode): bool {.noSideEffect,
     importcpp: "IsFreeNode", header: "Poly_CoherentNode.hxx".}
@@ -58,3 +58,28 @@ proc triangleIterator*(this: PolyCoherentNode): Iterator {.noSideEffect,
     importcpp: "TriangleIterator", header: "Poly_CoherentNode.hxx".}
 proc dump*(this: PolyCoherentNode; theStream: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "Poly_CoherentNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

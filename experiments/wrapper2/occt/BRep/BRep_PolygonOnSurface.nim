@@ -22,7 +22,7 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_PolygonOnSurface"
 discard "forward decl of BRep_PolygonOnSurface"
 type
-  HandleBRepPolygonOnSurface* = Handle[BRepPolygonOnSurface]
+  HandleC1C1* = Handle[BRepPolygonOnSurface]
 
 ## ! Representation of a 2D polygon in the parametric
 ## ! space of a surface.
@@ -50,8 +50,8 @@ proc polygon*(this: var BRepPolygonOnSurface; p: Handle[PolyPolygon2D]) {.
 proc copy*(this: BRepPolygonOnSurface): Handle[BRepCurveRepresentation] {.
     noSideEffect, importcpp: "Copy", header: "BRep_PolygonOnSurface.hxx".}
 proc dumpJson*(this: BRepPolygonOnSurface; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "BRep_PolygonOnSurface.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "BRep_PolygonOnSurface.hxx".}
 type
   BRepPolygonOnSurfacebaseType* = BRepCurveRepresentation
 
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_PolygonOnSurface.hxx".}
 proc dynamicType*(this: BRepPolygonOnSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_PolygonOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

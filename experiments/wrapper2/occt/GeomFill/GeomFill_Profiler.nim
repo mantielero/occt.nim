@@ -22,17 +22,33 @@ type
                      header: "GeomFill_Profiler.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomFillProfiler; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Profiler::operator new", header: "GeomFill_Profiler.hxx".}
+proc `delete`*(this: var GeomFillProfiler; theAddress: pointer) {.
+    importcpp: "GeomFill_Profiler::operator delete",
+    header: "GeomFill_Profiler.hxx".}
+proc `new[]`*(this: var GeomFillProfiler; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Profiler::operator new[]",
+    header: "GeomFill_Profiler.hxx".}
+proc `delete[]`*(this: var GeomFillProfiler; theAddress: pointer) {.
+    importcpp: "GeomFill_Profiler::operator delete[]",
+    header: "GeomFill_Profiler.hxx".}
+proc `new`*(this: var GeomFillProfiler; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_Profiler::operator new", header: "GeomFill_Profiler.hxx".}
+proc `delete`*(this: var GeomFillProfiler; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_Profiler::operator delete",
+    header: "GeomFill_Profiler.hxx".}
 proc constructGeomFillProfiler*(): GeomFillProfiler {.constructor,
     importcpp: "GeomFill_Profiler(@)", header: "GeomFill_Profiler.hxx".}
 proc destroyGeomFillProfiler*(this: var GeomFillProfiler) {.
     importcpp: "#.~GeomFill_Profiler()", header: "GeomFill_Profiler.hxx".}
 proc addCurve*(this: var GeomFillProfiler; curve: Handle[GeomCurve]) {.
     importcpp: "AddCurve", header: "GeomFill_Profiler.hxx".}
-proc perform*(this: var GeomFillProfiler; pTol: float) {.importcpp: "Perform",
+proc perform*(this: var GeomFillProfiler; pTol: StandardReal) {.importcpp: "Perform",
     header: "GeomFill_Profiler.hxx".}
 proc degree*(this: GeomFillProfiler): int {.noSideEffect, importcpp: "Degree",
                                         header: "GeomFill_Profiler.hxx".}
-proc isPeriodic*(this: GeomFillProfiler): bool {.noSideEffect,
+proc isPeriodic*(this: GeomFillProfiler): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "GeomFill_Profiler.hxx".}
 proc nbPoles*(this: GeomFillProfiler): int {.noSideEffect, importcpp: "NbPoles",
     header: "GeomFill_Profiler.hxx".}

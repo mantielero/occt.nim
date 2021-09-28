@@ -18,21 +18,21 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of Bisector_Curve"
 discard "forward decl of Bisector_Curve"
 type
-  HandleBisectorCurve* = Handle[BisectorCurve]
+  HandleC1C1* = Handle[BisectorCurve]
   BisectorCurve* {.importcpp: "Bisector_Curve", header: "Bisector_Curve.hxx", bycopy.} = object of Geom2dCurve
 
 
-proc parameter*(this: BisectorCurve; p: Pnt2d): float {.noSideEffect,
+proc parameter*(this: BisectorCurve; p: Pnt2d): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "Bisector_Curve.hxx".}
 proc isExtendAtStart*(this: BisectorCurve): bool {.noSideEffect,
     importcpp: "IsExtendAtStart", header: "Bisector_Curve.hxx".}
 proc isExtendAtEnd*(this: BisectorCurve): bool {.noSideEffect,
     importcpp: "IsExtendAtEnd", header: "Bisector_Curve.hxx".}
-proc nbIntervals*(this: BisectorCurve): int {.noSideEffect, importcpp: "NbIntervals",
-    header: "Bisector_Curve.hxx".}
-proc intervalFirst*(this: BisectorCurve; index: int): float {.noSideEffect,
+proc nbIntervals*(this: BisectorCurve): cint {.noSideEffect,
+    importcpp: "NbIntervals", header: "Bisector_Curve.hxx".}
+proc intervalFirst*(this: BisectorCurve; index: cint): cfloat {.noSideEffect,
     importcpp: "IntervalFirst", header: "Bisector_Curve.hxx".}
-proc intervalLast*(this: BisectorCurve; index: int): float {.noSideEffect,
+proc intervalLast*(this: BisectorCurve; index: cint): cfloat {.noSideEffect,
     importcpp: "IntervalLast", header: "Bisector_Curve.hxx".}
 type
   BisectorCurvebaseType* = Geom2dCurve
@@ -44,3 +44,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Bisector_Curve.hxx".}
 proc dynamicType*(this: BisectorCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Bisector_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

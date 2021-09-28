@@ -28,32 +28,32 @@ proc constructProjLibComputeApproxOnPolarSurface*(): ProjLibComputeApproxOnPolar
     constructor, importcpp: "ProjLib_ComputeApproxOnPolarSurface(@)",
     header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
 proc constructProjLibComputeApproxOnPolarSurface*(c: Handle[Adaptor3dHCurve];
-    s: Handle[Adaptor3dHSurface]; tol: float = 1.0e-4): ProjLibComputeApproxOnPolarSurface {.
+    s: Handle[Adaptor3dHSurface]; tol: cfloat = 1.0e-4): ProjLibComputeApproxOnPolarSurface {.
     constructor, importcpp: "ProjLib_ComputeApproxOnPolarSurface(@)",
     header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
 proc constructProjLibComputeApproxOnPolarSurface*(
     initCurve2d: Handle[Adaptor2dHCurve2d]; c: Handle[Adaptor3dHCurve];
-    s: Handle[Adaptor3dHSurface]; tol: float): ProjLibComputeApproxOnPolarSurface {.
+    s: Handle[Adaptor3dHSurface]; tol: cfloat): ProjLibComputeApproxOnPolarSurface {.
     constructor, importcpp: "ProjLib_ComputeApproxOnPolarSurface(@)",
     header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
 proc constructProjLibComputeApproxOnPolarSurface*(
     initCurve2d: Handle[Adaptor2dHCurve2d];
     initCurve2dBis: Handle[Adaptor2dHCurve2d]; c: Handle[Adaptor3dHCurve];
-    s: Handle[Adaptor3dHSurface]; tol: float): ProjLibComputeApproxOnPolarSurface {.
+    s: Handle[Adaptor3dHSurface]; tol: cfloat): ProjLibComputeApproxOnPolarSurface {.
     constructor, importcpp: "ProjLib_ComputeApproxOnPolarSurface(@)",
     header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
-proc setDegree*(this: var ProjLibComputeApproxOnPolarSurface; theDegMin: int;
-               theDegMax: int) {.importcpp: "SetDegree", header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
+proc setDegree*(this: var ProjLibComputeApproxOnPolarSurface; theDegMin: cint;
+               theDegMax: cint) {.importcpp: "SetDegree", header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
 proc setMaxSegments*(this: var ProjLibComputeApproxOnPolarSurface;
-                    theMaxSegments: int) {.importcpp: "SetMaxSegments",
+                    theMaxSegments: cint) {.importcpp: "SetMaxSegments",
     header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
 proc setBndPnt*(this: var ProjLibComputeApproxOnPolarSurface;
                theBndPnt: AppParCurvesConstraint) {.importcpp: "SetBndPnt",
     header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
-proc setMaxDist*(this: var ProjLibComputeApproxOnPolarSurface; theMaxDist: float) {.
+proc setMaxDist*(this: var ProjLibComputeApproxOnPolarSurface; theMaxDist: cfloat) {.
     importcpp: "SetMaxDist", header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
-proc setTolerance*(this: var ProjLibComputeApproxOnPolarSurface; theTolerance: float) {.
-    importcpp: "SetTolerance", header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
+proc setTolerance*(this: var ProjLibComputeApproxOnPolarSurface;
+                  theTolerance: cfloat) {.importcpp: "SetTolerance", header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
 proc perform*(this: var ProjLibComputeApproxOnPolarSurface;
              c: Handle[Adaptor3dHCurve]; s: Handle[Adaptor3dHSurface]) {.
     importcpp: "Perform", header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
@@ -80,5 +80,30 @@ proc curve2d*(this: ProjLibComputeApproxOnPolarSurface): Handle[Geom2dCurve] {.
     header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
 proc isDone*(this: ProjLibComputeApproxOnPolarSurface): bool {.noSideEffect,
     importcpp: "IsDone", header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
-proc tolerance*(this: ProjLibComputeApproxOnPolarSurface): float {.noSideEffect,
+proc tolerance*(this: ProjLibComputeApproxOnPolarSurface): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "ProjLib_ComputeApproxOnPolarSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

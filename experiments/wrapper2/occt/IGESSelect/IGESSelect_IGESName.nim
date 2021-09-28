@@ -19,7 +19,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IGESSelect_IGESName"
 discard "forward decl of IGESSelect_IGESName"
 type
-  HandleIGESSelectIGESName* = Handle[IGESSelectIGESName]
+  HandleC1C1* = Handle[IGESSelectIGESName]
 
 ## ! IGESName is a Signature specific to IGESNorm :
 ## ! it considers the Name of an IGESEntity as being its ShortLabel
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_IGESName.hxx".}
 proc dynamicType*(this: IGESSelectIGESName): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_IGESName.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

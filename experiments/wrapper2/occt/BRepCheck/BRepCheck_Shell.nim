@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Shell"
 discard "forward decl of BRepCheck_Shell"
 type
-  HandleBRepCheckShell* = Handle[BRepCheckShell]
+  HandleC1C1* = Handle[BRepCheckShell]
   BRepCheckShell* {.importcpp: "BRepCheck_Shell", header: "BRepCheck_Shell.hxx",
                    bycopy.} = object of BRepCheckResult
 
@@ -40,7 +40,7 @@ proc setUnorientable*(this: var BRepCheckShell) {.importcpp: "SetUnorientable",
     header: "BRepCheck_Shell.hxx".}
 proc isUnorientable*(this: BRepCheckShell): bool {.noSideEffect,
     importcpp: "IsUnorientable", header: "BRepCheck_Shell.hxx".}
-proc nbConnectedSet*(this: var BRepCheckShell; theSets: var TopToolsListOfShape): int {.
+proc nbConnectedSet*(this: var BRepCheckShell; theSets: var TopToolsListOfShape): cint {.
     importcpp: "NbConnectedSet", header: "BRepCheck_Shell.hxx".}
 type
   BRepCheckShellbaseType* = BRepCheckResult
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Shell.hxx".}
 proc dynamicType*(this: BRepCheckShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Shell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

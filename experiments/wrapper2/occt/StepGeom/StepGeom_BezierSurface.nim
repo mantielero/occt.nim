@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_BezierSurface"
 discard "forward decl of StepGeom_BezierSurface"
 type
-  HandleStepGeomBezierSurface* = Handle[StepGeomBezierSurface]
+  HandleC1C1* = Handle[StepGeomBezierSurface]
   StepGeomBezierSurface* {.importcpp: "StepGeom_BezierSurface",
                           header: "StepGeom_BezierSurface.hxx", bycopy.} = object of StepGeomBSplineSurface ##
                                                                                                      ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_BezierSurface.hxx".}
 proc dynamicType*(this: StepGeomBezierSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_BezierSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

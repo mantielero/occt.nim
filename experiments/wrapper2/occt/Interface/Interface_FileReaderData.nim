@@ -23,7 +23,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_FileReaderData"
 discard "forward decl of Interface_FileReaderData"
 type
-  HandleInterfaceFileReaderData* = Handle[InterfaceFileReaderData]
+  HandleC1C1* = Handle[InterfaceFileReaderData]
 
 ## ! This class defines services which permit to access Data issued
 ## ! from a File, in a form which does not depend of physical
@@ -180,51 +180,52 @@ type
                                                                                                     ## data
 
 
-proc nbRecords*(this: InterfaceFileReaderData): int {.noSideEffect,
+proc nbRecords*(this: InterfaceFileReaderData): cint {.noSideEffect,
     importcpp: "NbRecords", header: "Interface_FileReaderData.hxx".}
-proc nbEntities*(this: InterfaceFileReaderData): int {.noSideEffect,
+proc nbEntities*(this: InterfaceFileReaderData): cint {.noSideEffect,
     importcpp: "NbEntities", header: "Interface_FileReaderData.hxx".}
-proc findNextRecord*(this: InterfaceFileReaderData; num: int): int {.noSideEffect,
+proc findNextRecord*(this: InterfaceFileReaderData; num: cint): cint {.noSideEffect,
     importcpp: "FindNextRecord", header: "Interface_FileReaderData.hxx".}
-proc initParams*(this: var InterfaceFileReaderData; num: int) {.
+proc initParams*(this: var InterfaceFileReaderData; num: cint) {.
     importcpp: "InitParams", header: "Interface_FileReaderData.hxx".}
-proc addParam*(this: var InterfaceFileReaderData; num: int; aval: StandardCString;
-              atype: InterfaceParamType; nument: int = 0) {.importcpp: "AddParam",
+proc addParam*(this: var InterfaceFileReaderData; num: cint; aval: StandardCString;
+              atype: InterfaceParamType; nument: cint = 0) {.importcpp: "AddParam",
     header: "Interface_FileReaderData.hxx".}
-proc addParam*(this: var InterfaceFileReaderData; num: int;
+proc addParam*(this: var InterfaceFileReaderData; num: cint;
               aval: TCollectionAsciiString; atype: InterfaceParamType;
-              nument: int = 0) {.importcpp: "AddParam",
-                             header: "Interface_FileReaderData.hxx".}
-proc addParam*(this: var InterfaceFileReaderData; num: int; fp: InterfaceFileParameter) {.
-    importcpp: "AddParam", header: "Interface_FileReaderData.hxx".}
-proc setParam*(this: var InterfaceFileReaderData; num: int; nump: int;
+              nument: cint = 0) {.importcpp: "AddParam",
+                              header: "Interface_FileReaderData.hxx".}
+proc addParam*(this: var InterfaceFileReaderData; num: cint;
+              fp: InterfaceFileParameter) {.importcpp: "AddParam",
+    header: "Interface_FileReaderData.hxx".}
+proc setParam*(this: var InterfaceFileReaderData; num: cint; nump: cint;
               fp: InterfaceFileParameter) {.importcpp: "SetParam",
     header: "Interface_FileReaderData.hxx".}
-proc nbParams*(this: InterfaceFileReaderData; num: int): int {.noSideEffect,
+proc nbParams*(this: InterfaceFileReaderData; num: cint): cint {.noSideEffect,
     importcpp: "NbParams", header: "Interface_FileReaderData.hxx".}
-proc params*(this: InterfaceFileReaderData; num: int): Handle[InterfaceParamList] {.
+proc params*(this: InterfaceFileReaderData; num: cint): Handle[InterfaceParamList] {.
     noSideEffect, importcpp: "Params", header: "Interface_FileReaderData.hxx".}
-proc param*(this: InterfaceFileReaderData; num: int; nump: int): InterfaceFileParameter {.
+proc param*(this: InterfaceFileReaderData; num: cint; nump: cint): InterfaceFileParameter {.
     noSideEffect, importcpp: "Param", header: "Interface_FileReaderData.hxx".}
-proc changeParam*(this: var InterfaceFileReaderData; num: int; nump: int): var InterfaceFileParameter {.
+proc changeParam*(this: var InterfaceFileReaderData; num: cint; nump: cint): var InterfaceFileParameter {.
     importcpp: "ChangeParam", header: "Interface_FileReaderData.hxx".}
-proc paramType*(this: InterfaceFileReaderData; num: int; nump: int): InterfaceParamType {.
+proc paramType*(this: InterfaceFileReaderData; num: cint; nump: cint): InterfaceParamType {.
     noSideEffect, importcpp: "ParamType", header: "Interface_FileReaderData.hxx".}
-proc paramCValue*(this: InterfaceFileReaderData; num: int; nump: int): StandardCString {.
+proc paramCValue*(this: InterfaceFileReaderData; num: cint; nump: cint): StandardCString {.
     noSideEffect, importcpp: "ParamCValue", header: "Interface_FileReaderData.hxx".}
-proc isParamDefined*(this: InterfaceFileReaderData; num: int; nump: int): bool {.
+proc isParamDefined*(this: InterfaceFileReaderData; num: cint; nump: cint): bool {.
     noSideEffect, importcpp: "IsParamDefined",
     header: "Interface_FileReaderData.hxx".}
-proc paramNumber*(this: InterfaceFileReaderData; num: int; nump: int): int {.
+proc paramNumber*(this: InterfaceFileReaderData; num: cint; nump: cint): cint {.
     noSideEffect, importcpp: "ParamNumber", header: "Interface_FileReaderData.hxx".}
-proc paramEntity*(this: InterfaceFileReaderData; num: int; nump: int): Handle[
+proc paramEntity*(this: InterfaceFileReaderData; num: cint; nump: cint): Handle[
     StandardTransient] {.noSideEffect, importcpp: "ParamEntity",
                         header: "Interface_FileReaderData.hxx".}
-proc paramFirstRank*(this: InterfaceFileReaderData; num: int): int {.noSideEffect,
+proc paramFirstRank*(this: InterfaceFileReaderData; num: cint): cint {.noSideEffect,
     importcpp: "ParamFirstRank", header: "Interface_FileReaderData.hxx".}
-proc boundEntity*(this: InterfaceFileReaderData; num: int): Handle[StandardTransient] {.
+proc boundEntity*(this: InterfaceFileReaderData; num: cint): Handle[StandardTransient] {.
     noSideEffect, importcpp: "BoundEntity", header: "Interface_FileReaderData.hxx".}
-proc bindEntity*(this: var InterfaceFileReaderData; num: int;
+proc bindEntity*(this: var InterfaceFileReaderData; num: cint;
                 ent: Handle[StandardTransient]) {.importcpp: "BindEntity",
     header: "Interface_FileReaderData.hxx".}
 proc setErrorLoad*(this: var InterfaceFileReaderData; val: bool) {.
@@ -238,8 +239,9 @@ proc destroy*(this: var InterfaceFileReaderData) {.importcpp: "Destroy",
 proc destroyInterfaceFileReaderData*(this: var InterfaceFileReaderData) {.
     importcpp: "#.~Interface_FileReaderData()",
     header: "Interface_FileReaderData.hxx".}
-proc fastof*(str: StandardCString): float {.importcpp: "Interface_FileReaderData::Fastof(@)",
-                                        header: "Interface_FileReaderData.hxx".}
+proc fastof*(str: StandardCString): cfloat {.
+    importcpp: "Interface_FileReaderData::Fastof(@)",
+    header: "Interface_FileReaderData.hxx".}
 type
   InterfaceFileReaderDatabaseType* = StandardTransient
 
@@ -250,3 +252,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_FileReaderData.hxx".}
 proc dynamicType*(this: InterfaceFileReaderData): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Interface_FileReaderData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

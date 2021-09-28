@@ -26,43 +26,43 @@ type
                      header: "HLRBRep_CurveTool.hxx", bycopy.} = object
 
 
-proc firstParameter*(c: StandardAddress): float {.
+proc firstParameter*(c: StandardAddress): cfloat {.
     importcpp: "HLRBRep_CurveTool::FirstParameter(@)",
     header: "HLRBRep_CurveTool.hxx".}
-proc lastParameter*(c: StandardAddress): float {.
+proc lastParameter*(c: StandardAddress): cfloat {.
     importcpp: "HLRBRep_CurveTool::LastParameter(@)",
     header: "HLRBRep_CurveTool.hxx".}
 proc continuity*(c: StandardAddress): GeomAbsShape {.
     importcpp: "HLRBRep_CurveTool::Continuity(@)", header: "HLRBRep_CurveTool.hxx".}
-proc nbIntervals*(c: StandardAddress): int {.
+proc nbIntervals*(c: StandardAddress): cint {.
     importcpp: "HLRBRep_CurveTool::NbIntervals(@)",
     header: "HLRBRep_CurveTool.hxx".}
 proc intervals*(c: StandardAddress; t: var TColStdArray1OfReal) {.
     importcpp: "HLRBRep_CurveTool::Intervals(@)", header: "HLRBRep_CurveTool.hxx".}
-proc getInterval*(c: StandardAddress; index: int; tab: TColStdArray1OfReal;
-                 u1: var float; u2: var float) {.
+proc getInterval*(c: StandardAddress; index: cint; tab: TColStdArray1OfReal;
+                 u1: var cfloat; u2: var cfloat) {.
     importcpp: "HLRBRep_CurveTool::GetInterval(@)",
     header: "HLRBRep_CurveTool.hxx".}
 proc isClosed*(c: StandardAddress): bool {.importcpp: "HLRBRep_CurveTool::IsClosed(@)",
                                        header: "HLRBRep_CurveTool.hxx".}
 proc isPeriodic*(c: StandardAddress): bool {.
     importcpp: "HLRBRep_CurveTool::IsPeriodic(@)", header: "HLRBRep_CurveTool.hxx".}
-proc period*(c: StandardAddress): float {.importcpp: "HLRBRep_CurveTool::Period(@)",
-                                      header: "HLRBRep_CurveTool.hxx".}
-proc value*(c: StandardAddress; u: float): Pnt2d {.
+proc period*(c: StandardAddress): cfloat {.importcpp: "HLRBRep_CurveTool::Period(@)",
+                                       header: "HLRBRep_CurveTool.hxx".}
+proc value*(c: StandardAddress; u: cfloat): Pnt2d {.
     importcpp: "HLRBRep_CurveTool::Value(@)", header: "HLRBRep_CurveTool.hxx".}
-proc d0*(c: StandardAddress; u: float; p: var Pnt2d) {.
+proc d0*(c: StandardAddress; u: cfloat; p: var Pnt2d) {.
     importcpp: "HLRBRep_CurveTool::D0(@)", header: "HLRBRep_CurveTool.hxx".}
-proc d1*(c: StandardAddress; u: float; p: var Pnt2d; v: var Vec2d) {.
+proc d1*(c: StandardAddress; u: cfloat; p: var Pnt2d; v: var Vec2d) {.
     importcpp: "HLRBRep_CurveTool::D1(@)", header: "HLRBRep_CurveTool.hxx".}
-proc d2*(c: StandardAddress; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc d2*(c: StandardAddress; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     importcpp: "HLRBRep_CurveTool::D2(@)", header: "HLRBRep_CurveTool.hxx".}
-proc d3*(c: StandardAddress; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
+proc d3*(c: StandardAddress; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
         v3: var Vec2d) {.importcpp: "HLRBRep_CurveTool::D3(@)",
                       header: "HLRBRep_CurveTool.hxx".}
-proc dn*(c: StandardAddress; u: float; n: int): Vec2d {.
+proc dn*(c: StandardAddress; u: cfloat; n: cint): Vec2d {.
     importcpp: "HLRBRep_CurveTool::DN(@)", header: "HLRBRep_CurveTool.hxx".}
-proc resolution*(c: StandardAddress; r3d: float): float {.
+proc resolution*(c: StandardAddress; r3d: cfloat): cfloat {.
     importcpp: "HLRBRep_CurveTool::Resolution(@)", header: "HLRBRep_CurveTool.hxx".}
 proc getType*(c: StandardAddress): GeomAbsCurveType {.
     importcpp: "HLRBRep_CurveTool::GetType(@)", header: "HLRBRep_CurveTool.hxx".}
@@ -82,11 +82,36 @@ proc bezier*(c: StandardAddress): Handle[Geom2dBezierCurve] {.
     importcpp: "HLRBRep_CurveTool::Bezier(@)", header: "HLRBRep_CurveTool.hxx".}
 proc bSpline*(c: StandardAddress): Handle[Geom2dBSplineCurve] {.
     importcpp: "HLRBRep_CurveTool::BSpline(@)", header: "HLRBRep_CurveTool.hxx".}
-proc epsX*(c: StandardAddress): float {.importcpp: "HLRBRep_CurveTool::EpsX(@)",
-                                    header: "HLRBRep_CurveTool.hxx".}
-proc nbSamples*(c: StandardAddress; u0: float; u1: float): int {.
+proc epsX*(c: StandardAddress): cfloat {.importcpp: "HLRBRep_CurveTool::EpsX(@)",
+                                     header: "HLRBRep_CurveTool.hxx".}
+proc nbSamples*(c: StandardAddress; u0: cfloat; u1: cfloat): cint {.
     importcpp: "HLRBRep_CurveTool::NbSamples(@)", header: "HLRBRep_CurveTool.hxx".}
-proc nbSamples*(c: StandardAddress): int {.importcpp: "HLRBRep_CurveTool::NbSamples(@)",
-                                       header: "HLRBRep_CurveTool.hxx".}
-proc degree*(c: StandardAddress): int {.importcpp: "HLRBRep_CurveTool::Degree(@)",
-                                    header: "HLRBRep_CurveTool.hxx".}
+proc nbSamples*(c: StandardAddress): cint {.importcpp: "HLRBRep_CurveTool::NbSamples(@)",
+                                        header: "HLRBRep_CurveTool.hxx".}
+proc degree*(c: StandardAddress): cint {.importcpp: "HLRBRep_CurveTool::Degree(@)",
+                                     header: "HLRBRep_CurveTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

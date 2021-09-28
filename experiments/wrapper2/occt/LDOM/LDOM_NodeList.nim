@@ -27,7 +27,32 @@ proc destroyLDOM_NodeList*(this: var LDOM_NodeList) {.
     importcpp: "#.~LDOM_NodeList()", header: "LDOM_NodeList.hxx".}
 proc `==`*(this: LDOM_NodeList; a2: ptr LDOM_NullPtr): bool {.noSideEffect,
     importcpp: "(# == #)", header: "LDOM_NodeList.hxx".}
-proc item*(this: LDOM_NodeList; a2: int): LDOM_Node {.noSideEffect, importcpp: "item",
+proc item*(this: LDOM_NodeList; a2: cint): LDOM_Node {.noSideEffect, importcpp: "item",
     header: "LDOM_NodeList.hxx".}
-proc getLength*(this: LDOM_NodeList): int {.noSideEffect, importcpp: "getLength",
-                                        header: "LDOM_NodeList.hxx".}
+proc getLength*(this: LDOM_NodeList): cint {.noSideEffect, importcpp: "getLength",
+    header: "LDOM_NodeList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

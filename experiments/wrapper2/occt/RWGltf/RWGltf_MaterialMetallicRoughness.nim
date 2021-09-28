@@ -36,3 +36,28 @@ type
 proc constructRWGltfMaterialMetallicRoughness*(): RWGltfMaterialMetallicRoughness {.
     constructor, importcpp: "RWGltf_MaterialMetallicRoughness(@)",
     header: "RWGltf_MaterialMetallicRoughness.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

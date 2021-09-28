@@ -14,17 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_MultiplyDefined_HeaderFile [NewLine] # _Standard_MultiplyDefined_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_MultiplyDefined ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_MultiplyDefined"
 discard "forward decl of Standard_MultiplyDefined"
 type
-  HandleStandardMultiplyDefinedStandardMultiplyDefined* = Handle[
-      StandardMultiplyDefined]
+  StandardMultiplyDefined* {.importcpp: "Standard_MultiplyDefined",
+                            header: "Standard_MultiplyDefined.hxx", bycopy.} = object of StandardDomainError
+type
+  HandleStandardMultiplyDefined* = Handle[StandardMultiplyDefined]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_MultiplyDefined [NewLine] # if ( CONDITION ) throw Standard_MultiplyDefined ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardMultiplyDefined):
+  template standardMultiplyDefinedRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardMultiplyDefined*(a1: Message): Throw {.
+          importcpp: "Standard_MultiplyDefined(@)",
+          header: "Standard_MultiplyDefined.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_MultiplyDefined , Standard_DomainError ) #  _Standard_MultiplyDefined_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

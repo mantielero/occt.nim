@@ -26,9 +26,34 @@ type
 proc add*(aCurve: Adaptor3dCurve; aDrawer: Handle[VrmlConverterDrawer];
          anOStream: var StandardOStream) {.importcpp: "VrmlConverter_Curve::Add(@)",
                                         header: "VrmlConverter_Curve.hxx".}
-proc add*(aCurve: Adaptor3dCurve; u1: float; u2: float;
+proc add*(aCurve: Adaptor3dCurve; u1: cfloat; u2: cfloat;
          aDrawer: Handle[VrmlConverterDrawer]; anOStream: var StandardOStream) {.
     importcpp: "VrmlConverter_Curve::Add(@)", header: "VrmlConverter_Curve.hxx".}
-proc add*(aCurve: Adaptor3dCurve; u1: float; u2: float; anOStream: var StandardOStream;
-         aNbPoints: int) {.importcpp: "VrmlConverter_Curve::Add(@)",
-                         header: "VrmlConverter_Curve.hxx".}
+proc add*(aCurve: Adaptor3dCurve; u1: cfloat; u2: cfloat;
+         anOStream: var StandardOStream; aNbPoints: cint) {.
+    importcpp: "VrmlConverter_Curve::Add(@)", header: "VrmlConverter_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

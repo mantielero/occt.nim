@@ -18,3 +18,28 @@ type
   IntAnaListOfCurve* = NCollectionList[IntAnaCurve]
   IntAnaListIteratorOfListOfCurve* = Iterator[IntAnaCurve]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

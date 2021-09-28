@@ -23,7 +23,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TDataStd_NamedData"
 discard "forward decl of TDataStd_NamedData"
 type
-  HandleTDataStdNamedData* = Handle[TDataStdNamedData]
+  HandleC1C1* = Handle[TDataStdNamedData]
 
 ## ! Contains a named data.
 
@@ -290,11 +290,11 @@ proc hasIntegers*(this: TDataStdNamedData): bool {.noSideEffect,
     importcpp: "HasIntegers", header: "TDataStd_NamedData.hxx".}
 proc hasInteger*(this: TDataStdNamedData; theName: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "HasInteger", header: "TDataStd_NamedData.hxx".}
-proc getInteger*(this: var TDataStdNamedData; theName: TCollectionExtendedString): int {.
+proc getInteger*(this: var TDataStdNamedData; theName: TCollectionExtendedString): cint {.
     importcpp: "GetInteger", header: "TDataStd_NamedData.hxx".}
 proc setInteger*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
-                theInteger: int) {.importcpp: "SetInteger",
-                                 header: "TDataStd_NamedData.hxx".}
+                theInteger: cint) {.importcpp: "SetInteger",
+                                  header: "TDataStd_NamedData.hxx".}
 proc getIntegersContainer*(this: var TDataStdNamedData): TColStdDataMapOfStringInteger {.
     importcpp: "GetIntegersContainer", header: "TDataStd_NamedData.hxx".}
 proc changeIntegers*(this: var TDataStdNamedData;
@@ -304,11 +304,11 @@ proc hasReals*(this: TDataStdNamedData): bool {.noSideEffect, importcpp: "HasRea
     header: "TDataStd_NamedData.hxx".}
 proc hasReal*(this: TDataStdNamedData; theName: TCollectionExtendedString): bool {.
     noSideEffect, importcpp: "HasReal", header: "TDataStd_NamedData.hxx".}
-proc getReal*(this: var TDataStdNamedData; theName: TCollectionExtendedString): float {.
+proc getReal*(this: var TDataStdNamedData; theName: TCollectionExtendedString): cfloat {.
     importcpp: "GetReal", header: "TDataStd_NamedData.hxx".}
 proc setReal*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
-             theReal: float) {.importcpp: "SetReal",
-                             header: "TDataStd_NamedData.hxx".}
+             theReal: cfloat) {.importcpp: "SetReal",
+                              header: "TDataStd_NamedData.hxx".}
 proc getRealsContainer*(this: var TDataStdNamedData): TDataStdDataMapOfStringReal {.
     importcpp: "GetRealsContainer", header: "TDataStd_NamedData.hxx".}
 proc changeReals*(this: var TDataStdNamedData; theReals: TDataStdDataMapOfStringReal) {.
@@ -385,11 +385,11 @@ proc unloadDeferredData*(this: var TDataStdNamedData): bool {.
 proc clear*(this: var TDataStdNamedData) {.importcpp: "clear",
                                        header: "TDataStd_NamedData.hxx".}
 proc setInteger*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
-                theInteger: int) {.importcpp: "setInteger",
-                                 header: "TDataStd_NamedData.hxx".}
+                theInteger: cint) {.importcpp: "setInteger",
+                                  header: "TDataStd_NamedData.hxx".}
 proc setReal*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
-             theReal: float) {.importcpp: "setReal",
-                             header: "TDataStd_NamedData.hxx".}
+             theReal: cfloat) {.importcpp: "setReal",
+                              header: "TDataStd_NamedData.hxx".}
 proc setString*(this: var TDataStdNamedData; theName: TCollectionExtendedString;
                theString: TCollectionExtendedString) {.importcpp: "setString",
     header: "TDataStd_NamedData.hxx".}
@@ -416,8 +416,8 @@ proc paste*(this: TDataStdNamedData; into: Handle[TDF_Attribute];
 proc dump*(this: TDataStdNamedData; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_NamedData.hxx".}
 proc dumpJson*(this: TDataStdNamedData; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_NamedData.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_NamedData.hxx".}
 type
   TDataStdNamedDatabaseType* = TDF_Attribute
 
@@ -428,3 +428,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_NamedData.hxx".}
 proc dynamicType*(this: TDataStdNamedData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_NamedData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

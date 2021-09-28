@@ -18,3 +18,28 @@ type
   BRepFillListOfOffsetWire* = NCollectionList[BRepFillOffsetWire]
   BRepFillListIteratorOfListOfOffsetWire* = Iterator[BRepFillOffsetWire]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

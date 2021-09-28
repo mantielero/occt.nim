@@ -17,7 +17,7 @@
 discard "forward decl of TCollection_SeqNode"
 discard "forward decl of TCollection_SeqNode"
 type
-  HandleTCollectionSeqNode* = Handle[TCollectionSeqNode]
+  HandleC1C1* = Handle[TCollectionSeqNode]
   TCollectionSeqNode* {.importcpp: "TCollection_SeqNode",
                        header: "TCollection_SeqNode.hxx", bycopy.} = object of StandardTransient
 
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TCollection_SeqNode.hxx".}
 proc dynamicType*(this: TCollectionSeqNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TCollection_SeqNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

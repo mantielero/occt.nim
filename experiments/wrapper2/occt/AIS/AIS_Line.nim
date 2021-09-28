@@ -37,8 +37,8 @@ proc constructAIS_Line*(aLine: Handle[GeomLine]): AIS_Line {.constructor,
 proc constructAIS_Line*(aStartPoint: Handle[GeomPoint];
                        aEndPoint: Handle[GeomPoint]): AIS_Line {.constructor,
     importcpp: "AIS_Line(@)", header: "AIS_Line.hxx".}
-proc signature*(this: AIS_Line): int {.noSideEffect, importcpp: "Signature",
-                                   header: "AIS_Line.hxx".}
+proc signature*(this: AIS_Line): cint {.noSideEffect, importcpp: "Signature",
+                                    header: "AIS_Line.hxx".}
 proc `type`*(this: AIS_Line): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_Line.hxx".}
 proc line*(this: AIS_Line): Handle[GeomLine] {.noSideEffect, importcpp: "Line",
@@ -53,11 +53,36 @@ proc setPoints*(this: var AIS_Line; thePStart: Handle[GeomPoint];
     header: "AIS_Line.hxx".}
 proc setColor*(this: var AIS_Line; aColor: QuantityColor) {.importcpp: "SetColor",
     header: "AIS_Line.hxx".}
-proc setWidth*(this: var AIS_Line; aValue: float) {.importcpp: "SetWidth",
+proc setWidth*(this: var AIS_Line; aValue: cfloat) {.importcpp: "SetWidth",
     header: "AIS_Line.hxx".}
 proc unsetColor*(this: var AIS_Line) {.importcpp: "UnsetColor", header: "AIS_Line.hxx".}
 proc unsetWidth*(this: var AIS_Line) {.importcpp: "UnsetWidth", header: "AIS_Line.hxx".}
 discard "forward decl of AIS_Line"
 type
-  HandleAIS_Line* = Handle[AIS_Line]
+  HandleC1C1* = Handle[AIS_Line]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

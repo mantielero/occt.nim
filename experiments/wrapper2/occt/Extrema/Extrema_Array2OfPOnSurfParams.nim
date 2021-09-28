@@ -17,3 +17,28 @@
 type
   ExtremaArray2OfPOnSurfParams* = NCollectionArray2[ExtremaPOnSurfParams]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

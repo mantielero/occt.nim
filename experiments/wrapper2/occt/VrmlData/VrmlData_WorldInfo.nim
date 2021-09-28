@@ -65,5 +65,30 @@ proc dynamicType*(this: VrmlDataWorldInfo): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of VrmlData_WorldInfo"
 type
-  HandleVrmlDataWorldInfo* = Handle[VrmlDataWorldInfo]
+  HandleC1C1* = Handle[VrmlDataWorldInfo]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

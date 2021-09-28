@@ -18,7 +18,7 @@ discard "forward decl of Message_Messenger"
 discard "forward decl of Message_Report"
 discard "forward decl of Message_Report"
 type
-  HandleMessageReport* = Handle[MessageReport]
+  HandleC1C1* = Handle[MessageReport]
 
 ## ! Container for alert messages, sorted according to their gravity.
 ## !
@@ -136,9 +136,9 @@ proc setActiveMetric*(this: var MessageReport; theMetricType: MessageMetricType;
                                         header: "Message_Report.hxx".}
 proc clearMetrics*(this: var MessageReport) {.importcpp: "ClearMetrics",
     header: "Message_Report.hxx".}
-proc limit*(this: MessageReport): int {.noSideEffect, importcpp: "Limit",
-                                    header: "Message_Report.hxx".}
-proc setLimit*(this: var MessageReport; theLimit: int) {.importcpp: "SetLimit",
+proc limit*(this: MessageReport): cint {.noSideEffect, importcpp: "Limit",
+                                     header: "Message_Report.hxx".}
+proc setLimit*(this: var MessageReport; theLimit: cint) {.importcpp: "SetLimit",
     header: "Message_Report.hxx".}
 proc dump*(this: var MessageReport; theOS: var StandardOStream) {.importcpp: "Dump",
     header: "Message_Report.hxx".}
@@ -156,8 +156,8 @@ proc merge*(this: var MessageReport; theOther: Handle[MessageReport];
            theGravity: MessageGravity) {.importcpp: "Merge",
                                        header: "Message_Report.hxx".}
 proc dumpJson*(this: MessageReport; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Message_Report.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Message_Report.hxx".}
 type
   MessageReportbaseType* = StandardTransient
 
@@ -168,3 +168,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Message_Report.hxx".}
 proc dynamicType*(this: MessageReport): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Message_Report.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

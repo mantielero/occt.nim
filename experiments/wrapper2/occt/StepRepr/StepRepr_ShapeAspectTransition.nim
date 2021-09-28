@@ -16,7 +16,7 @@
 discard "forward decl of StepRepr_ShapeAspectTransition"
 discard "forward decl of StepRepr_ShapeAspectTransition"
 type
-  HandleStepReprShapeAspectTransition* = Handle[StepReprShapeAspectTransition]
+  HandleC1C1* = Handle[StepReprShapeAspectTransition]
 
 ## ! Representation of STEP entity ShapeAspectTransition
 
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprShapeAspectTransition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ShapeAspectTransition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

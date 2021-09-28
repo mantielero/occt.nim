@@ -54,9 +54,34 @@ proc changeTechnoVertices*(this: var BOPDS_Curve): var TColStdListOfInteger {.
     importcpp: "ChangeTechnoVertices", header: "BOPDS_Curve.hxx".}
 proc hasEdge*(this: BOPDS_Curve): bool {.noSideEffect, importcpp: "HasEdge",
                                      header: "BOPDS_Curve.hxx".}
-proc setTolerance*(this: var BOPDS_Curve; theTol: float) {.importcpp: "SetTolerance",
+proc setTolerance*(this: var BOPDS_Curve; theTol: cfloat) {.importcpp: "SetTolerance",
     header: "BOPDS_Curve.hxx".}
-proc tolerance*(this: BOPDS_Curve): float {.noSideEffect, importcpp: "Tolerance",
-                                        header: "BOPDS_Curve.hxx".}
-proc tangentialTolerance*(this: BOPDS_Curve): float {.noSideEffect,
+proc tolerance*(this: BOPDS_Curve): cfloat {.noSideEffect, importcpp: "Tolerance",
+    header: "BOPDS_Curve.hxx".}
+proc tangentialTolerance*(this: BOPDS_Curve): cfloat {.noSideEffect,
     importcpp: "TangentialTolerance", header: "BOPDS_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

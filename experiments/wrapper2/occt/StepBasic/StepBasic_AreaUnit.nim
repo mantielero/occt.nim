@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_AreaUnit"
 discard "forward decl of StepBasic_AreaUnit"
 type
-  HandleStepBasicAreaUnit* = Handle[StepBasicAreaUnit]
+  HandleC1C1* = Handle[StepBasicAreaUnit]
   StepBasicAreaUnit* {.importcpp: "StepBasic_AreaUnit",
                       header: "StepBasic_AreaUnit.hxx", bycopy.} = object of StepBasicNamedUnit
 
@@ -34,3 +34,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_AreaUnit.hxx".}
 proc dynamicType*(this: StepBasicAreaUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_AreaUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -42,3 +42,28 @@ proc nextBrother*(this: var TDataStdChildNodeIterator) {.importcpp: "NextBrother
     header: "TDataStd_ChildNodeIterator.hxx".}
 proc value*(this: TDataStdChildNodeIterator): Handle[TDataStdTreeNode] {.
     noSideEffect, importcpp: "Value", header: "TDataStd_ChildNodeIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

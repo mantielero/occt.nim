@@ -25,7 +25,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDocStd_XLink"
 discard "forward decl of TDocStd_XLink"
 type
-  HandleTDocStdXLink* = Handle[TDocStdXLink]
+  HandleC1C1* = Handle[TDocStdXLink]
 
 ## ! An attribute to store the path and the entry of
 ## ! external links.
@@ -105,3 +105,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDocStd_XLink.hxx".}
 proc dynamicType*(this: TDocStdXLink): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_XLink.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

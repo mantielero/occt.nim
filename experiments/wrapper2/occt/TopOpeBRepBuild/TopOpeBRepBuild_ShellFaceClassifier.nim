@@ -76,3 +76,28 @@ proc compareElement*(this: var TopOpeBRepBuildShellFaceClassifier; f: TopoDS_Sha
     importcpp: "CompareElement", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildShellFaceClassifier): TopAbsState {.
     importcpp: "State", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

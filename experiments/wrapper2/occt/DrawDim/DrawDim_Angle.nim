@@ -19,7 +19,7 @@ discard "forward decl of Draw_Display"
 discard "forward decl of DrawDim_Angle"
 discard "forward decl of DrawDim_Angle"
 type
-  HandleDrawDimAngle* = Handle[DrawDimAngle]
+  HandleC1C1* = Handle[DrawDimAngle]
   DrawDimAngle* {.importcpp: "DrawDim_Angle", header: "DrawDim_Angle.hxx", bycopy.} = object of DrawDimDimension
 
 
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawDim_Angle.hxx".}
 proc dynamicType*(this: DrawDimAngle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawDim_Angle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

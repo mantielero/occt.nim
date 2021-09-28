@@ -17,3 +17,28 @@
 type
   TColGeom2dArray1OfBezierCurve* = NCollectionArray1[Handle[Geom2dBezierCurve]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,8 +20,7 @@ discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepRepr_SpecifiedHigherUsageOccurrence"
 discard "forward decl of StepRepr_SpecifiedHigherUsageOccurrence"
 type
-  HandleStepReprSpecifiedHigherUsageOccurrence* = Handle[
-      StepReprSpecifiedHigherUsageOccurrence]
+  HandleC1C1* = Handle[StepReprSpecifiedHigherUsageOccurrence]
 
 ## ! Representation of STEP entity SpecifiedHigherUsageOccurrence
 
@@ -84,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_Specified
 proc dynamicType*(this: StepReprSpecifiedHigherUsageOccurrence): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_SpecifiedHigherUsageOccurrence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

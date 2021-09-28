@@ -43,9 +43,34 @@ proc more*(this: BOPDS_SubIterator): bool {.noSideEffect, importcpp: "More",
                                         header: "BOPDS_SubIterator.hxx".}
 proc next*(this: var BOPDS_SubIterator) {.importcpp: "Next",
                                       header: "BOPDS_SubIterator.hxx".}
-proc value*(this: BOPDS_SubIterator; theIndex1: var int; theIndex2: var int) {.
+proc value*(this: BOPDS_SubIterator; theIndex1: var cint; theIndex2: var cint) {.
     noSideEffect, importcpp: "Value", header: "BOPDS_SubIterator.hxx".}
 proc prepare*(this: var BOPDS_SubIterator) {.importcpp: "Prepare",
     header: "BOPDS_SubIterator.hxx".}
-proc expectedLength*(this: BOPDS_SubIterator): int {.noSideEffect,
+proc expectedLength*(this: BOPDS_SubIterator): cint {.noSideEffect,
     importcpp: "ExpectedLength", header: "BOPDS_SubIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

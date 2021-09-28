@@ -27,9 +27,34 @@ proc constructRWStepBasicRWOrganization*(): RWStepBasicRWOrganization {.
     constructor, importcpp: "RWStepBasic_RWOrganization(@)",
     header: "RWStepBasic_RWOrganization.hxx".}
 proc readStep*(this: RWStepBasicRWOrganization;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicOrganization]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWOrganization.hxx".}
 proc writeStep*(this: RWStepBasicRWOrganization; sw: var StepDataStepWriter;
                ent: Handle[StepBasicOrganization]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWOrganization.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

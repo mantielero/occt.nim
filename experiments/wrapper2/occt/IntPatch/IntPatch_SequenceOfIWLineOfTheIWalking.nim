@@ -18,3 +18,28 @@ type
   IntPatchSequenceOfIWLineOfTheIWalking* = NCollectionSequence[
       Handle[IntPatchTheIWLineOfTheIWalking]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

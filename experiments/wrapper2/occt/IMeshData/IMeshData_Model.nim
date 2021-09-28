@@ -30,7 +30,7 @@ type
 
 proc destroyIMeshDataModel*(this: var IMeshDataModel) {.
     importcpp: "#.~IMeshData_Model()", header: "IMeshData_Model.hxx".}
-proc getMaxSize*(this: IMeshDataModel): float {.noSideEffect,
+proc getMaxSize*(this: IMeshDataModel): cfloat {.noSideEffect,
     importcpp: "GetMaxSize", header: "IMeshData_Model.hxx".}
 type
   IMeshDataModelbaseType* = IMeshDataShape
@@ -42,15 +42,40 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IMeshData_Model.hxx".}
 proc dynamicType*(this: IMeshDataModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshData_Model.hxx".}
-proc facesNb*(this: IMeshDataModel): int {.noSideEffect, importcpp: "FacesNb",
-                                       header: "IMeshData_Model.hxx".}
+proc facesNb*(this: IMeshDataModel): cint {.noSideEffect, importcpp: "FacesNb",
+                                        header: "IMeshData_Model.hxx".}
 proc addFace*(this: var IMeshDataModel; theFace: TopoDS_Face): IFaceHandle {.
     importcpp: "AddFace", header: "IMeshData_Model.hxx".}
-proc getFace*(this: IMeshDataModel; theIndex: int): IFaceHandle {.noSideEffect,
+proc getFace*(this: IMeshDataModel; theIndex: cint): IFaceHandle {.noSideEffect,
     importcpp: "GetFace", header: "IMeshData_Model.hxx".}
-proc edgesNb*(this: IMeshDataModel): int {.noSideEffect, importcpp: "EdgesNb",
-                                       header: "IMeshData_Model.hxx".}
+proc edgesNb*(this: IMeshDataModel): cint {.noSideEffect, importcpp: "EdgesNb",
+                                        header: "IMeshData_Model.hxx".}
 proc addEdge*(this: var IMeshDataModel; theEdge: TopoDS_Edge): IEdgeHandle {.
     importcpp: "AddEdge", header: "IMeshData_Model.hxx".}
-proc getEdge*(this: IMeshDataModel; theIndex: int): IEdgeHandle {.noSideEffect,
+proc getEdge*(this: IMeshDataModel; theIndex: cint): IEdgeHandle {.noSideEffect,
     importcpp: "GetEdge", header: "IMeshData_Model.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

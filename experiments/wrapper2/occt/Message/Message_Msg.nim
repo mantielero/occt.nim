@@ -55,13 +55,13 @@ proc arg*(this: var MessageMsg; theString: Handle[TCollectionHExtendedString]): 
     importcpp: "Arg", header: "Message_Msg.hxx".}
 proc `<<`*(this: var MessageMsg; theString: Handle[TCollectionHExtendedString]): var MessageMsg {.
     importcpp: "(# << #)", header: "Message_Msg.hxx".}
-proc arg*(this: var MessageMsg; theInt: int): var MessageMsg {.importcpp: "Arg",
+proc arg*(this: var MessageMsg; theInt: cint): var MessageMsg {.importcpp: "Arg",
     header: "Message_Msg.hxx".}
-proc `<<`*(this: var MessageMsg; theInt: int): var MessageMsg {.importcpp: "(# << #)",
+proc `<<`*(this: var MessageMsg; theInt: cint): var MessageMsg {.importcpp: "(# << #)",
     header: "Message_Msg.hxx".}
-proc arg*(this: var MessageMsg; theReal: float): var MessageMsg {.importcpp: "Arg",
+proc arg*(this: var MessageMsg; theReal: cfloat): var MessageMsg {.importcpp: "Arg",
     header: "Message_Msg.hxx".}
-proc `<<`*(this: var MessageMsg; theReal: float): var MessageMsg {.
+proc `<<`*(this: var MessageMsg; theReal: cfloat): var MessageMsg {.
     importcpp: "(# << #)", header: "Message_Msg.hxx".}
 proc original*(this: MessageMsg): TCollectionExtendedString {.noSideEffect,
     importcpp: "Original", header: "Message_Msg.hxx".}
@@ -74,3 +74,28 @@ proc get*(this: var MessageMsg): TCollectionExtendedString {.importcpp: "Get",
 converter `constTCollectionExtendedString&`*(this: var MessageMsg): TCollectionExtendedString {.
     importcpp: "Message_Msg::operator constTCollection_ExtendedString&",
     header: "Message_Msg.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

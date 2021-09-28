@@ -25,7 +25,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeCustom_ConvertToRevolution"
 discard "forward decl of ShapeCustom_ConvertToRevolution"
 type
-  HandleShapeCustomConvertToRevolution* = Handle[ShapeCustomConvertToRevolution]
+  HandleC1C1* = Handle[ShapeCustomConvertToRevolution]
 
 ## ! implements a modification for the BRepTools
 ## ! Modifier algortihm. Converts all elementary
@@ -40,21 +40,20 @@ proc constructShapeCustomConvertToRevolution*(): ShapeCustomConvertToRevolution 
     constructor, importcpp: "ShapeCustom_ConvertToRevolution(@)",
     header: "ShapeCustom_ConvertToRevolution.hxx".}
 proc newSurface*(this: var ShapeCustomConvertToRevolution; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
+                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var cfloat;
                 revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
     header: "ShapeCustom_ConvertToRevolution.hxx".}
 proc newCurve*(this: var ShapeCustomConvertToRevolution; e: TopoDS_Edge;
-              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var float): bool {.
+              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var cfloat): bool {.
     importcpp: "NewCurve", header: "ShapeCustom_ConvertToRevolution.hxx".}
 proc newPoint*(this: var ShapeCustomConvertToRevolution; v: TopoDS_Vertex; p: var Pnt;
-              tol: var float): bool {.importcpp: "NewPoint",
-                                  header: "ShapeCustom_ConvertToRevolution.hxx".}
+              tol: var cfloat): bool {.importcpp: "NewPoint", header: "ShapeCustom_ConvertToRevolution.hxx".}
 proc newCurve2d*(this: var ShapeCustomConvertToRevolution; e: TopoDS_Edge;
                 f: TopoDS_Face; newE: TopoDS_Edge; newF: TopoDS_Face;
-                c: var Handle[Geom2dCurve]; tol: var float): bool {.
+                c: var Handle[Geom2dCurve]; tol: var cfloat): bool {.
     importcpp: "NewCurve2d", header: "ShapeCustom_ConvertToRevolution.hxx".}
 proc newParameter*(this: var ShapeCustomConvertToRevolution; v: TopoDS_Vertex;
-                  e: TopoDS_Edge; p: var float; tol: var float): bool {.
+                  e: TopoDS_Edge; p: var cfloat; tol: var cfloat): bool {.
     importcpp: "NewParameter", header: "ShapeCustom_ConvertToRevolution.hxx".}
 proc continuity*(this: var ShapeCustomConvertToRevolution; e: TopoDS_Edge;
                 f1: TopoDS_Face; f2: TopoDS_Face; newE: TopoDS_Edge;
@@ -71,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeCustomConvertToRevolution): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeCustom_ConvertToRevolution.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

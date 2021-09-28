@@ -30,9 +30,9 @@ proc constructTopOpeBRepVPointInter*(): TopOpeBRepVPointInter {.constructor,
     importcpp: "TopOpeBRep_VPointInter(@)", header: "TopOpeBRep_VPointInter.hxx".}
 proc setPoint*(this: var TopOpeBRepVPointInter; p: IntPatchPoint) {.
     importcpp: "SetPoint", header: "TopOpeBRep_VPointInter.hxx".}
-proc setShapes*(this: var TopOpeBRepVPointInter; i1: int; i2: int) {.
+proc setShapes*(this: var TopOpeBRepVPointInter; i1: cint; i2: cint) {.
     importcpp: "SetShapes", header: "TopOpeBRep_VPointInter.hxx".}
-proc getShapes*(this: TopOpeBRepVPointInter; i1: var int; i2: var int) {.noSideEffect,
+proc getShapes*(this: TopOpeBRepVPointInter; i1: var cint; i2: var cint) {.noSideEffect,
     importcpp: "GetShapes", header: "TopOpeBRep_VPointInter.hxx".}
 proc transitionOnS1*(this: TopOpeBRepVPointInter): IntSurfTransition {.noSideEffect,
     importcpp: "TransitionOnS1", header: "TopOpeBRep_VPointInter.hxx".}
@@ -48,27 +48,27 @@ proc isOnDomS1*(this: TopOpeBRepVPointInter): bool {.noSideEffect,
     importcpp: "IsOnDomS1", header: "TopOpeBRep_VPointInter.hxx".}
 proc isOnDomS2*(this: TopOpeBRepVPointInter): bool {.noSideEffect,
     importcpp: "IsOnDomS2", header: "TopOpeBRep_VPointInter.hxx".}
-proc parametersOnS1*(this: TopOpeBRepVPointInter; u: var float; v: var float) {.
+proc parametersOnS1*(this: TopOpeBRepVPointInter; u: var cfloat; v: var cfloat) {.
     noSideEffect, importcpp: "ParametersOnS1", header: "TopOpeBRep_VPointInter.hxx".}
-proc parametersOnS2*(this: TopOpeBRepVPointInter; u: var float; v: var float) {.
+proc parametersOnS2*(this: TopOpeBRepVPointInter; u: var cfloat; v: var cfloat) {.
     noSideEffect, importcpp: "ParametersOnS2", header: "TopOpeBRep_VPointInter.hxx".}
 proc value*(this: TopOpeBRepVPointInter): Pnt {.noSideEffect, importcpp: "Value",
     header: "TopOpeBRep_VPointInter.hxx".}
-proc tolerance*(this: TopOpeBRepVPointInter): float {.noSideEffect,
+proc tolerance*(this: TopOpeBRepVPointInter): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "TopOpeBRep_VPointInter.hxx".}
 proc arcOnS1*(this: TopOpeBRepVPointInter): TopoDS_Shape {.noSideEffect,
     importcpp: "ArcOnS1", header: "TopOpeBRep_VPointInter.hxx".}
 proc arcOnS2*(this: TopOpeBRepVPointInter): TopoDS_Shape {.noSideEffect,
     importcpp: "ArcOnS2", header: "TopOpeBRep_VPointInter.hxx".}
-proc parameterOnLine*(this: TopOpeBRepVPointInter): float {.noSideEffect,
+proc parameterOnLine*(this: TopOpeBRepVPointInter): cfloat {.noSideEffect,
     importcpp: "ParameterOnLine", header: "TopOpeBRep_VPointInter.hxx".}
-proc parameterOnArc1*(this: TopOpeBRepVPointInter): float {.noSideEffect,
+proc parameterOnArc1*(this: TopOpeBRepVPointInter): cfloat {.noSideEffect,
     importcpp: "ParameterOnArc1", header: "TopOpeBRep_VPointInter.hxx".}
 proc isVertexOnS1*(this: TopOpeBRepVPointInter): bool {.noSideEffect,
     importcpp: "IsVertexOnS1", header: "TopOpeBRep_VPointInter.hxx".}
 proc vertexOnS1*(this: TopOpeBRepVPointInter): TopoDS_Shape {.noSideEffect,
     importcpp: "VertexOnS1", header: "TopOpeBRep_VPointInter.hxx".}
-proc parameterOnArc2*(this: TopOpeBRepVPointInter): float {.noSideEffect,
+proc parameterOnArc2*(this: TopOpeBRepVPointInter): cfloat {.noSideEffect,
     importcpp: "ParameterOnArc2", header: "TopOpeBRep_VPointInter.hxx".}
 proc isVertexOnS2*(this: TopOpeBRepVPointInter): bool {.noSideEffect,
     importcpp: "IsVertexOnS2", header: "TopOpeBRep_VPointInter.hxx".}
@@ -78,29 +78,29 @@ proc isInternal*(this: TopOpeBRepVPointInter): bool {.noSideEffect,
     importcpp: "IsInternal", header: "TopOpeBRep_VPointInter.hxx".}
 proc isMultiple*(this: TopOpeBRepVPointInter): bool {.noSideEffect,
     importcpp: "IsMultiple", header: "TopOpeBRep_VPointInter.hxx".}
-proc state*(this: TopOpeBRepVPointInter; i: int): TopAbsState {.noSideEffect,
+proc state*(this: TopOpeBRepVPointInter; i: cint): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRep_VPointInter.hxx".}
-proc state*(this: var TopOpeBRepVPointInter; s: TopAbsState; i: int) {.
+proc state*(this: var TopOpeBRepVPointInter; s: TopAbsState; i: cint) {.
     importcpp: "State", header: "TopOpeBRep_VPointInter.hxx".}
-proc edgeON*(this: var TopOpeBRepVPointInter; eon: TopoDS_Shape; par: float; i: int) {.
+proc edgeON*(this: var TopOpeBRepVPointInter; eon: TopoDS_Shape; par: cfloat; i: cint) {.
     importcpp: "EdgeON", header: "TopOpeBRep_VPointInter.hxx".}
-proc edgeON*(this: TopOpeBRepVPointInter; i: int): TopoDS_Shape {.noSideEffect,
+proc edgeON*(this: TopOpeBRepVPointInter; i: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "EdgeON", header: "TopOpeBRep_VPointInter.hxx".}
-proc edgeONParameter*(this: TopOpeBRepVPointInter; i: int): float {.noSideEffect,
+proc edgeONParameter*(this: TopOpeBRepVPointInter; i: cint): cfloat {.noSideEffect,
     importcpp: "EdgeONParameter", header: "TopOpeBRep_VPointInter.hxx".}
-proc shapeIndex*(this: TopOpeBRepVPointInter): int {.noSideEffect,
+proc shapeIndex*(this: TopOpeBRepVPointInter): cint {.noSideEffect,
     importcpp: "ShapeIndex", header: "TopOpeBRep_VPointInter.hxx".}
-proc shapeIndex*(this: var TopOpeBRepVPointInter; i: int) {.importcpp: "ShapeIndex",
+proc shapeIndex*(this: var TopOpeBRepVPointInter; i: cint) {.importcpp: "ShapeIndex",
     header: "TopOpeBRep_VPointInter.hxx".}
-proc edge*(this: TopOpeBRepVPointInter; i: int): TopoDS_Shape {.noSideEffect,
+proc edge*(this: TopOpeBRepVPointInter; i: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "Edge", header: "TopOpeBRep_VPointInter.hxx".}
-proc edgeParameter*(this: TopOpeBRepVPointInter; i: int): float {.noSideEffect,
+proc edgeParameter*(this: TopOpeBRepVPointInter; i: cint): cfloat {.noSideEffect,
     importcpp: "EdgeParameter", header: "TopOpeBRep_VPointInter.hxx".}
-proc surfaceParameters*(this: TopOpeBRepVPointInter; i: int): Pnt2d {.noSideEffect,
+proc surfaceParameters*(this: TopOpeBRepVPointInter; i: cint): Pnt2d {.noSideEffect,
     importcpp: "SurfaceParameters", header: "TopOpeBRep_VPointInter.hxx".}
-proc isVertex*(this: TopOpeBRepVPointInter; i: int): bool {.noSideEffect,
+proc isVertex*(this: TopOpeBRepVPointInter; i: cint): bool {.noSideEffect,
     importcpp: "IsVertex", header: "TopOpeBRep_VPointInter.hxx".}
-proc vertex*(this: TopOpeBRepVPointInter; i: int): TopoDS_Shape {.noSideEffect,
+proc vertex*(this: TopOpeBRepVPointInter; i: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRep_VPointInter.hxx".}
 proc updateKeep*(this: var TopOpeBRepVPointInter) {.importcpp: "UpdateKeep",
     header: "TopOpeBRep_VPointInter.hxx".}
@@ -110,17 +110,43 @@ proc changeKeep*(this: var TopOpeBRepVPointInter; keep: bool) {.
     importcpp: "ChangeKeep", header: "TopOpeBRep_VPointInter.hxx".}
 proc equalpP*(this: TopOpeBRepVPointInter; vp: TopOpeBRepVPointInter): bool {.
     noSideEffect, importcpp: "EqualpP", header: "TopOpeBRep_VPointInter.hxx".}
-proc paronE*(this: TopOpeBRepVPointInter; e: TopoDS_Edge; par: var float): bool {.
+proc paronE*(this: TopOpeBRepVPointInter; e: TopoDS_Edge; par: var cfloat): bool {.
     noSideEffect, importcpp: "ParonE", header: "TopOpeBRep_VPointInter.hxx".}
-proc index*(this: var TopOpeBRepVPointInter; i: int) {.importcpp: "Index",
+proc index*(this: var TopOpeBRepVPointInter; i: cint) {.importcpp: "Index",
     header: "TopOpeBRep_VPointInter.hxx".}
-proc index*(this: TopOpeBRepVPointInter): int {.noSideEffect, importcpp: "Index",
+proc index*(this: TopOpeBRepVPointInter): cint {.noSideEffect, importcpp: "Index",
     header: "TopOpeBRep_VPointInter.hxx".}
-proc dump*(this: TopOpeBRepVPointInter; i: int; f: TopoDS_Face; os: var StandardOStream): var StandardOStream {.
-    noSideEffect, importcpp: "Dump", header: "TopOpeBRep_VPointInter.hxx".}
+proc dump*(this: TopOpeBRepVPointInter; i: cint; f: TopoDS_Face;
+          os: var StandardOStream): var StandardOStream {.noSideEffect,
+    importcpp: "Dump", header: "TopOpeBRep_VPointInter.hxx".}
 proc dump*(this: TopOpeBRepVPointInter; f1: TopoDS_Face; f2: TopoDS_Face;
           os: var StandardOStream): var StandardOStream {.noSideEffect,
     importcpp: "Dump", header: "TopOpeBRep_VPointInter.hxx".}
 proc pThePointOfIntersectionDummy*(this: TopOpeBRepVPointInter): TopOpeBRepPThePointOfIntersection {.
     noSideEffect, importcpp: "PThePointOfIntersectionDummy",
     header: "TopOpeBRep_VPointInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

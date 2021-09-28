@@ -103,3 +103,28 @@ proc add*(this: var OSD_Protection; aProt: var OSD_SingleProtection;
 proc sub*(this: var OSD_Protection; aProt: var OSD_SingleProtection;
          aRight: OSD_SingleProtection) {.importcpp: "Sub",
                                        header: "OSD_Protection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

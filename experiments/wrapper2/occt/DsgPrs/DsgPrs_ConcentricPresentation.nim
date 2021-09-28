@@ -29,6 +29,31 @@ type
 
 
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         aCenter: Pnt; aRadius: float; aNorm: Dir; aPoint: Pnt) {.
+         aCenter: Pnt; aRadius: cfloat; aNorm: Dir; aPoint: Pnt) {.
     importcpp: "DsgPrs_ConcentricPresentation::Add(@)",
     header: "DsgPrs_ConcentricPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

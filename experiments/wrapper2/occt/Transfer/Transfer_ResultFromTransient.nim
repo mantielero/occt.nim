@@ -21,7 +21,7 @@ discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Transfer_ResultFromTransient"
 discard "forward decl of Transfer_ResultFromTransient"
 type
-  HandleTransferResultFromTransient* = Handle[TransferResultFromTransient]
+  HandleC1C1* = Handle[TransferResultFromTransient]
 
 ## ! This class, in conjunction with ResultFromModel, allows to
 ## ! record the result of a transfer initially stored in a
@@ -67,9 +67,9 @@ proc clearSubs*(this: var TransferResultFromTransient) {.importcpp: "ClearSubs",
 proc addSubResult*(this: var TransferResultFromTransient;
                   sub: Handle[TransferResultFromTransient]) {.
     importcpp: "AddSubResult", header: "Transfer_ResultFromTransient.hxx".}
-proc nbSubResults*(this: TransferResultFromTransient): int {.noSideEffect,
+proc nbSubResults*(this: TransferResultFromTransient): cint {.noSideEffect,
     importcpp: "NbSubResults", header: "Transfer_ResultFromTransient.hxx".}
-proc subResult*(this: TransferResultFromTransient; num: int): Handle[
+proc subResult*(this: TransferResultFromTransient; num: cint): Handle[
     TransferResultFromTransient] {.noSideEffect, importcpp: "SubResult",
                                   header: "Transfer_ResultFromTransient.hxx".}
 proc resultFromKey*(this: TransferResultFromTransient;
@@ -98,3 +98,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TransferResultFromTransient): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_ResultFromTransient.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

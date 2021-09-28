@@ -15,3 +15,28 @@ type
   StepFEA_Array1OfNodeRepresentation* = NCollectionArray1[
       Handle[StepFEA_NodeRepresentation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

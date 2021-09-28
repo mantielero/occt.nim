@@ -18,3 +18,28 @@ type
   IFSelectSequenceOfGeneralModifier* = NCollectionSequence[
       Handle[IFSelectGeneralModifier]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

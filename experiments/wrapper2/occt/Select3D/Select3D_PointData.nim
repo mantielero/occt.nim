@@ -19,18 +19,43 @@ type
                                                                       ##  by number of points theNbPoints
 
 
-proc constructSelect3D_PointData*(theNbPoints: int): Select3D_PointData {.
+proc constructSelect3D_PointData*(theNbPoints: cint): Select3D_PointData {.
     constructor, importcpp: "Select3D_PointData(@)",
     header: "Select3D_PointData.hxx".}
 proc destroySelect3D_PointData*(this: var Select3D_PointData) {.
     importcpp: "#.~Select3D_PointData()", header: "Select3D_PointData.hxx".}
-proc setPnt*(this: var Select3D_PointData; theIndex: int; theValue: Select3D_Pnt) {.
+proc setPnt*(this: var Select3D_PointData; theIndex: cint; theValue: Select3D_Pnt) {.
     importcpp: "SetPnt", header: "Select3D_PointData.hxx".}
-proc setPnt*(this: var Select3D_PointData; theIndex: int; theValue: Pnt) {.
+proc setPnt*(this: var Select3D_PointData; theIndex: cint; theValue: Pnt) {.
     importcpp: "SetPnt", header: "Select3D_PointData.hxx".}
-proc pnt*(this: Select3D_PointData; theIndex: int): Select3D_Pnt {.noSideEffect,
+proc pnt*(this: Select3D_PointData; theIndex: cint): Select3D_Pnt {.noSideEffect,
     importcpp: "Pnt", header: "Select3D_PointData.hxx".}
-proc pnt3d*(this: Select3D_PointData; theIndex: int): Pnt {.noSideEffect,
+proc pnt3d*(this: Select3D_PointData; theIndex: cint): Pnt {.noSideEffect,
     importcpp: "Pnt3d", header: "Select3D_PointData.hxx".}
-proc size*(this: Select3D_PointData): int {.noSideEffect, importcpp: "Size",
-                                        header: "Select3D_PointData.hxx".}
+proc size*(this: Select3D_PointData): cint {.noSideEffect, importcpp: "Size",
+    header: "Select3D_PointData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

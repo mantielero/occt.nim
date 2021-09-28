@@ -16,3 +16,28 @@
 type
   PrsMgrListOfPresentations* = NCollectionList[Handle[Prs3dPresentation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

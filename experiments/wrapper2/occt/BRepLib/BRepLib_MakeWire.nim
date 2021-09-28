@@ -55,3 +55,28 @@ proc edge*(this: BRepLibMakeWire): TopoDS_Edge {.noSideEffect, importcpp: "Edge"
     header: "BRepLib_MakeWire.hxx".}
 proc vertex*(this: BRepLibMakeWire): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepLib_MakeWire.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

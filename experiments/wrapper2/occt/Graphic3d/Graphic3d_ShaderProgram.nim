@@ -118,13 +118,13 @@ proc setHeader*(this: var Graphic3dShaderProgram; theHeader: TCollectionAsciiStr
 proc appendToHeader*(this: var Graphic3dShaderProgram;
                     theHeaderLine: TCollectionAsciiString) {.
     importcpp: "AppendToHeader", header: "Graphic3d_ShaderProgram.hxx".}
-proc nbLightsMax*(this: Graphic3dShaderProgram): int {.noSideEffect,
+proc nbLightsMax*(this: Graphic3dShaderProgram): cint {.noSideEffect,
     importcpp: "NbLightsMax", header: "Graphic3d_ShaderProgram.hxx".}
-proc setNbLightsMax*(this: var Graphic3dShaderProgram; theNbLights: int) {.
+proc setNbLightsMax*(this: var Graphic3dShaderProgram; theNbLights: cint) {.
     importcpp: "SetNbLightsMax", header: "Graphic3d_ShaderProgram.hxx".}
-proc nbClipPlanesMax*(this: Graphic3dShaderProgram): int {.noSideEffect,
+proc nbClipPlanesMax*(this: Graphic3dShaderProgram): cint {.noSideEffect,
     importcpp: "NbClipPlanesMax", header: "Graphic3d_ShaderProgram.hxx".}
-proc setNbClipPlanesMax*(this: var Graphic3dShaderProgram; theNbPlanes: int) {.
+proc setNbClipPlanesMax*(this: var Graphic3dShaderProgram; theNbPlanes: cint) {.
     importcpp: "SetNbClipPlanesMax", header: "Graphic3d_ShaderProgram.hxx".}
 proc attachShader*(this: var Graphic3dShaderProgram;
                   theShader: Handle[Graphic3dShaderObject]): bool {.
@@ -142,9 +142,9 @@ proc vertexAttributes*(this: Graphic3dShaderProgram): Graphic3dShaderAttributeLi
 proc setVertexAttributes*(this: var Graphic3dShaderProgram;
                          theAttributes: Graphic3dShaderAttributeList) {.
     importcpp: "SetVertexAttributes", header: "Graphic3d_ShaderProgram.hxx".}
-proc nbFragmentOutputs*(this: Graphic3dShaderProgram): int {.noSideEffect,
+proc nbFragmentOutputs*(this: Graphic3dShaderProgram): cint {.noSideEffect,
     importcpp: "NbFragmentOutputs", header: "Graphic3d_ShaderProgram.hxx".}
-proc setNbFragmentOutputs*(this: var Graphic3dShaderProgram; theNbOutputs: int) {.
+proc setNbFragmentOutputs*(this: var Graphic3dShaderProgram; theNbOutputs: cint) {.
     importcpp: "SetNbFragmentOutputs", header: "Graphic3d_ShaderProgram.hxx".}
 proc hasAlphaTest*(this: Graphic3dShaderProgram): bool {.noSideEffect,
     importcpp: "HasAlphaTest", header: "Graphic3d_ShaderProgram.hxx".}
@@ -162,9 +162,9 @@ proc isPBR*(this: Graphic3dShaderProgram): bool {.noSideEffect, importcpp: "IsPB
     header: "Graphic3d_ShaderProgram.hxx".}
 proc setPBR*(this: var Graphic3dShaderProgram; theIsPBR: bool) {.importcpp: "SetPBR",
     header: "Graphic3d_ShaderProgram.hxx".}
-proc textureSetBits*(this: Graphic3dShaderProgram): int {.noSideEffect,
+proc textureSetBits*(this: Graphic3dShaderProgram): cint {.noSideEffect,
     importcpp: "TextureSetBits", header: "Graphic3d_ShaderProgram.hxx".}
-proc setTextureSetBits*(this: var Graphic3dShaderProgram; theBits: int) {.
+proc setTextureSetBits*(this: var Graphic3dShaderProgram; theBits: cint) {.
     importcpp: "SetTextureSetBits", header: "Graphic3d_ShaderProgram.hxx".}
 proc pushVariable*[T](this: var Graphic3dShaderProgram;
                      theName: TCollectionAsciiString; theValue: T): bool {.
@@ -200,7 +200,7 @@ proc shadersFolder*(): TCollectionAsciiString {.
     header: "Graphic3d_ShaderProgram.hxx".}
 discard "forward decl of Graphic3d_ShaderProgram"
 type
-  HandleGraphic3dShaderProgram* = Handle[Graphic3dShaderProgram]
+  HandleC1C1* = Handle[Graphic3dShaderProgram]
 
 ##  =======================================================================
 ##  function : PushVariable
@@ -210,3 +210,28 @@ type
 proc pushVariable*(this: var Graphic3dShaderProgram;
                   theName: TCollectionAsciiString; theValue: T): bool {.
     importcpp: "PushVariable", header: "Graphic3d_ShaderProgram.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

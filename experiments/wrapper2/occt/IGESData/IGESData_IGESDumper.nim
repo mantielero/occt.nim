@@ -42,8 +42,33 @@ proc printShort*(this: IGESDataIGESDumper; ent: Handle[IGESDataIGESEntity];
                 s: var StandardOStream) {.noSideEffect, importcpp: "PrintShort",
                                        header: "IGESData_IGESDumper.hxx".}
 proc dump*(this: IGESDataIGESDumper; ent: Handle[IGESDataIGESEntity];
-          s: var StandardOStream; own: int; attached: int = -1) {.noSideEffect,
+          s: var StandardOStream; own: cint; attached: cint = -1) {.noSideEffect,
     importcpp: "Dump", header: "IGESData_IGESDumper.hxx".}
 proc ownDump*(this: IGESDataIGESDumper; ent: Handle[IGESDataIGESEntity];
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESData_IGESDumper.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

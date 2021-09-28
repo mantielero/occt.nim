@@ -17,8 +17,7 @@
 discard "forward decl of StepRepr_SuppliedPartRelationship"
 discard "forward decl of StepRepr_SuppliedPartRelationship"
 type
-  HandleStepReprSuppliedPartRelationship* = Handle[
-      StepReprSuppliedPartRelationship]
+  HandleC1C1* = Handle[StepReprSuppliedPartRelationship]
   StepReprSuppliedPartRelationship* {.importcpp: "StepRepr_SuppliedPartRelationship", header: "StepRepr_SuppliedPartRelationship.hxx",
                                      bycopy.} = object of StepBasicProductDefinitionRelationship
 
@@ -37,3 +36,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprSuppliedPartRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_SuppliedPartRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

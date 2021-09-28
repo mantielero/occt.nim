@@ -18,3 +18,28 @@ type
   TNamingListOfMapOfShape* = NCollectionList[TopToolsMapOfShape]
   TNamingListIteratorOfListOfMapOfShape* = Iterator[TopToolsMapOfShape]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

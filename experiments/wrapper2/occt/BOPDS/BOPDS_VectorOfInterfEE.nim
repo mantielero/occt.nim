@@ -15,3 +15,28 @@
 type
   BOPDS_VectorOfInterfEE* = NCollectionVector[BOPDS_InterfEE]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

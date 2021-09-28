@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESDrawToolRectArraySubfigure;
     header: "IGESDraw_ToolRectArraySubfigure.hxx".}
 proc ownDump*(this: IGESDrawToolRectArraySubfigure;
              ent: Handle[IGESDrawRectArraySubfigure]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESDraw_ToolRectArraySubfigure.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,3 +16,28 @@
 type
   IntPolyhArrayOfTangentZones* = IntPolyhArray[IntPolyhStartPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -139,11 +139,37 @@ type
     ## !< End   angle in counter clockwise order
 
 
-proc create*(theInnerRadius: float; theOuterRadius: float; theNbSlices: int;
-            theNbStacks: int; theTrsf: Trsf): Handle[Graphic3dArrayOfTriangles] {.
+proc create*(theInnerRadius: cfloat; theOuterRadius: cfloat; theNbSlices: cint;
+            theNbStacks: cint; theTrsf: Trsf): Handle[Graphic3dArrayOfTriangles] {.
     importcpp: "Prs3d_ToolDisk::Create(@)", header: "Prs3d_ToolDisk.hxx".}
-proc constructPrs3dToolDisk*(theInnerRadius: float; theOuterRadius: float;
-                            theNbSlices: int; theNbStacks: int): Prs3dToolDisk {.
+proc constructPrs3dToolDisk*(theInnerRadius: cfloat; theOuterRadius: cfloat;
+                            theNbSlices: cint; theNbStacks: cint): Prs3dToolDisk {.
     constructor, importcpp: "Prs3d_ToolDisk(@)", header: "Prs3d_ToolDisk.hxx".}
-proc setAngleRange*(this: var Prs3dToolDisk; theStartAngle: float; theEndAngle: float) {.
-    importcpp: "SetAngleRange", header: "Prs3d_ToolDisk.hxx".}
+proc setAngleRange*(this: var Prs3dToolDisk; theStartAngle: cfloat;
+                   theEndAngle: cfloat) {.importcpp: "SetAngleRange",
+                                        header: "Prs3d_ToolDisk.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

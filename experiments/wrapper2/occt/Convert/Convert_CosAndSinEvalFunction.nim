@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  ConvertCosAndSinEvalFunction* = proc (a1: float; a2: int; a3: TColgpArray1OfPnt2d;
+  ConvertCosAndSinEvalFunction* = proc (a1: cfloat; a2: cint; a3: TColgpArray1OfPnt2d;
                                      a4: TColStdArray1OfReal;
                                      a5: ptr TColStdArray1OfInteger;
-                                     result: array[2, float]): void
+                                     result: array[2, cfloat]): void
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

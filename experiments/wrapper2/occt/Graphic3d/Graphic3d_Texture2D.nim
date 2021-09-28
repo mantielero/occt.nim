@@ -57,9 +57,9 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Graphic3d_Texture2D.hxx".}
 proc dynamicType*(this: Graphic3dTexture2D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_Texture2D.hxx".}
-proc numberOfTextures*(): int {.importcpp: "Graphic3d_Texture2D::NumberOfTextures(@)",
-                             header: "Graphic3d_Texture2D.hxx".}
-proc textureName*(theRank: int): TCollectionAsciiString {.
+proc numberOfTextures*(): cint {.importcpp: "Graphic3d_Texture2D::NumberOfTextures(@)",
+                              header: "Graphic3d_Texture2D.hxx".}
+proc textureName*(theRank: cint): TCollectionAsciiString {.
     importcpp: "Graphic3d_Texture2D::TextureName(@)",
     header: "Graphic3d_Texture2D.hxx".}
 proc name*(this: Graphic3dTexture2D): Graphic3dNameOfTexture2D {.noSideEffect,
@@ -72,5 +72,30 @@ proc setMipMaps*(this: var Graphic3dTexture2D; theToUse: bool) {.
     importcpp: "SetMipMaps", header: "Graphic3d_Texture2D.hxx".}
 discard "forward decl of Graphic3d_Texture2D"
 type
-  HandleGraphic3dTexture2D* = Handle[Graphic3dTexture2D]
+  HandleC1C1* = Handle[Graphic3dTexture2D]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

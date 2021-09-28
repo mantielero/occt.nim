@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepGeom_Ellipse"
 discard "forward decl of StepGeom_Ellipse"
 type
-  HandleStepGeomEllipse* = Handle[StepGeomEllipse]
+  HandleC1C1* = Handle[StepGeomEllipse]
   StepGeomEllipse* {.importcpp: "StepGeom_Ellipse", header: "StepGeom_Ellipse.hxx",
                     bycopy.} = object of StepGeomConic ## ! Returns a Ellipse
 
@@ -27,16 +27,16 @@ type
 proc constructStepGeomEllipse*(): StepGeomEllipse {.constructor,
     importcpp: "StepGeom_Ellipse(@)", header: "StepGeom_Ellipse.hxx".}
 proc init*(this: var StepGeomEllipse; aName: Handle[TCollectionHAsciiString];
-          aPosition: StepGeomAxis2Placement; aSemiAxis1: float; aSemiAxis2: float) {.
+          aPosition: StepGeomAxis2Placement; aSemiAxis1: cfloat; aSemiAxis2: cfloat) {.
     importcpp: "Init", header: "StepGeom_Ellipse.hxx".}
-proc setSemiAxis1*(this: var StepGeomEllipse; aSemiAxis1: float) {.
+proc setSemiAxis1*(this: var StepGeomEllipse; aSemiAxis1: cfloat) {.
     importcpp: "SetSemiAxis1", header: "StepGeom_Ellipse.hxx".}
-proc semiAxis1*(this: StepGeomEllipse): float {.noSideEffect, importcpp: "SemiAxis1",
-    header: "StepGeom_Ellipse.hxx".}
-proc setSemiAxis2*(this: var StepGeomEllipse; aSemiAxis2: float) {.
+proc semiAxis1*(this: StepGeomEllipse): cfloat {.noSideEffect,
+    importcpp: "SemiAxis1", header: "StepGeom_Ellipse.hxx".}
+proc setSemiAxis2*(this: var StepGeomEllipse; aSemiAxis2: cfloat) {.
     importcpp: "SetSemiAxis2", header: "StepGeom_Ellipse.hxx".}
-proc semiAxis2*(this: StepGeomEllipse): float {.noSideEffect, importcpp: "SemiAxis2",
-    header: "StepGeom_Ellipse.hxx".}
+proc semiAxis2*(this: StepGeomEllipse): cfloat {.noSideEffect,
+    importcpp: "SemiAxis2", header: "StepGeom_Ellipse.hxx".}
 type
   StepGeomEllipsebaseType* = StepGeomConic
 
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Ellipse.hxx".}
 proc dynamicType*(this: StepGeomEllipse): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Ellipse.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

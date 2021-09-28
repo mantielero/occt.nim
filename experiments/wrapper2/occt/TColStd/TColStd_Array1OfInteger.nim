@@ -13,5 +13,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdArray1OfInteger* = NCollectionArray1[int]
+  TColStdArray1OfInteger* = NCollectionArray1[cint]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

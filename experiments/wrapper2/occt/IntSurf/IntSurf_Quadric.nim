@@ -48,11 +48,11 @@ proc setValue*(this: var IntSurfQuadric; c: Cone) {.importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
 proc setValue*(this: var IntSurfQuadric; t: Torus) {.importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
-proc distance*(this: IntSurfQuadric; p: Pnt): float {.noSideEffect,
+proc distance*(this: IntSurfQuadric; p: Pnt): cfloat {.noSideEffect,
     importcpp: "Distance", header: "IntSurf_Quadric.hxx".}
 proc gradient*(this: IntSurfQuadric; p: Pnt): Vec {.noSideEffect,
     importcpp: "Gradient", header: "IntSurf_Quadric.hxx".}
-proc valAndGrad*(this: IntSurfQuadric; p: Pnt; dist: var float; grad: var Vec) {.
+proc valAndGrad*(this: IntSurfQuadric; p: Pnt; dist: var cfloat; grad: var Vec) {.
     noSideEffect, importcpp: "ValAndGrad", header: "IntSurf_Quadric.hxx".}
 proc typeQuadric*(this: IntSurfQuadric): GeomAbsSurfaceType {.noSideEffect,
     importcpp: "TypeQuadric", header: "IntSurf_Quadric.hxx".}
@@ -66,15 +66,40 @@ proc cone*(this: IntSurfQuadric): Cone {.noSideEffect, importcpp: "Cone",
                                      header: "IntSurf_Quadric.hxx".}
 proc torus*(this: IntSurfQuadric): Torus {.noSideEffect, importcpp: "Torus",
                                        header: "IntSurf_Quadric.hxx".}
-proc value*(this: IntSurfQuadric; u: float; v: float): Pnt {.noSideEffect,
+proc value*(this: IntSurfQuadric; u: cfloat; v: cfloat): Pnt {.noSideEffect,
     importcpp: "Value", header: "IntSurf_Quadric.hxx".}
-proc d1*(this: IntSurfQuadric; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
+proc d1*(this: IntSurfQuadric; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
     noSideEffect, importcpp: "D1", header: "IntSurf_Quadric.hxx".}
-proc dn*(this: IntSurfQuadric; u: float; v: float; nu: int; nv: int): Vec {.noSideEffect,
-    importcpp: "DN", header: "IntSurf_Quadric.hxx".}
-proc normale*(this: IntSurfQuadric; u: float; v: float): Vec {.noSideEffect,
+proc dn*(this: IntSurfQuadric; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
+    noSideEffect, importcpp: "DN", header: "IntSurf_Quadric.hxx".}
+proc normale*(this: IntSurfQuadric; u: cfloat; v: cfloat): Vec {.noSideEffect,
     importcpp: "Normale", header: "IntSurf_Quadric.hxx".}
-proc parameters*(this: IntSurfQuadric; p: Pnt; u: var float; v: var float) {.noSideEffect,
-    importcpp: "Parameters", header: "IntSurf_Quadric.hxx".}
+proc parameters*(this: IntSurfQuadric; p: Pnt; u: var cfloat; v: var cfloat) {.
+    noSideEffect, importcpp: "Parameters", header: "IntSurf_Quadric.hxx".}
 proc normale*(this: IntSurfQuadric; p: Pnt): Vec {.noSideEffect, importcpp: "Normale",
     header: "IntSurf_Quadric.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

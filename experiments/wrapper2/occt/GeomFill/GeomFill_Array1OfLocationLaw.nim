@@ -16,4 +16,3 @@
 
 type
   GeomFillArray1OfLocationLaw* = NCollectionArray1[Handle[GeomFillLocationLaw]]
-

@@ -24,3 +24,28 @@ proc constructLDOM_CDATASection*(): LDOM_CDATASection {.constructor,
     importcpp: "LDOM_CDATASection(@)", header: "LDOM_CDATASection.hxx".}
 proc constructLDOM_CDATASection*(theOther: LDOM_CDATASection): LDOM_CDATASection {.
     constructor, importcpp: "LDOM_CDATASection(@)", header: "LDOM_CDATASection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -63,32 +63,32 @@ proc trsf*(this: BRepAdaptorSurface): Trsf {.noSideEffect, importcpp: "Trsf",
     header: "BRepAdaptor_Surface.hxx".}
 proc face*(this: BRepAdaptorSurface): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "BRepAdaptor_Surface.hxx".}
-proc tolerance*(this: BRepAdaptorSurface): float {.noSideEffect,
+proc tolerance*(this: BRepAdaptorSurface): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "BRepAdaptor_Surface.hxx".}
-proc firstUParameter*(this: BRepAdaptorSurface): float {.noSideEffect,
+proc firstUParameter*(this: BRepAdaptorSurface): cfloat {.noSideEffect,
     importcpp: "FirstUParameter", header: "BRepAdaptor_Surface.hxx".}
-proc lastUParameter*(this: BRepAdaptorSurface): float {.noSideEffect,
+proc lastUParameter*(this: BRepAdaptorSurface): cfloat {.noSideEffect,
     importcpp: "LastUParameter", header: "BRepAdaptor_Surface.hxx".}
-proc firstVParameter*(this: BRepAdaptorSurface): float {.noSideEffect,
+proc firstVParameter*(this: BRepAdaptorSurface): cfloat {.noSideEffect,
     importcpp: "FirstVParameter", header: "BRepAdaptor_Surface.hxx".}
-proc lastVParameter*(this: BRepAdaptorSurface): float {.noSideEffect,
+proc lastVParameter*(this: BRepAdaptorSurface): cfloat {.noSideEffect,
     importcpp: "LastVParameter", header: "BRepAdaptor_Surface.hxx".}
 proc uContinuity*(this: BRepAdaptorSurface): GeomAbsShape {.noSideEffect,
     importcpp: "UContinuity", header: "BRepAdaptor_Surface.hxx".}
 proc vContinuity*(this: BRepAdaptorSurface): GeomAbsShape {.noSideEffect,
     importcpp: "VContinuity", header: "BRepAdaptor_Surface.hxx".}
-proc nbUIntervals*(this: BRepAdaptorSurface; s: GeomAbsShape): int {.noSideEffect,
+proc nbUIntervals*(this: BRepAdaptorSurface; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbUIntervals", header: "BRepAdaptor_Surface.hxx".}
-proc nbVIntervals*(this: BRepAdaptorSurface; s: GeomAbsShape): int {.noSideEffect,
+proc nbVIntervals*(this: BRepAdaptorSurface; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbVIntervals", header: "BRepAdaptor_Surface.hxx".}
 proc uIntervals*(this: BRepAdaptorSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "UIntervals", header: "BRepAdaptor_Surface.hxx".}
 proc vIntervals*(this: BRepAdaptorSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "VIntervals", header: "BRepAdaptor_Surface.hxx".}
-proc uTrim*(this: BRepAdaptorSurface; first: float; last: float; tol: float): Handle[
+proc uTrim*(this: BRepAdaptorSurface; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHSurface] {.noSideEffect, importcpp: "UTrim",
                         header: "BRepAdaptor_Surface.hxx".}
-proc vTrim*(this: BRepAdaptorSurface; first: float; last: float; tol: float): Handle[
+proc vTrim*(this: BRepAdaptorSurface; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHSurface] {.noSideEffect, importcpp: "VTrim",
                         header: "BRepAdaptor_Surface.hxx".}
 proc isUClosed*(this: BRepAdaptorSurface): bool {.noSideEffect,
@@ -97,30 +97,31 @@ proc isVClosed*(this: BRepAdaptorSurface): bool {.noSideEffect,
     importcpp: "IsVClosed", header: "BRepAdaptor_Surface.hxx".}
 proc isUPeriodic*(this: BRepAdaptorSurface): bool {.noSideEffect,
     importcpp: "IsUPeriodic", header: "BRepAdaptor_Surface.hxx".}
-proc uPeriod*(this: BRepAdaptorSurface): float {.noSideEffect, importcpp: "UPeriod",
+proc uPeriod*(this: BRepAdaptorSurface): cfloat {.noSideEffect, importcpp: "UPeriod",
     header: "BRepAdaptor_Surface.hxx".}
 proc isVPeriodic*(this: BRepAdaptorSurface): bool {.noSideEffect,
     importcpp: "IsVPeriodic", header: "BRepAdaptor_Surface.hxx".}
-proc vPeriod*(this: BRepAdaptorSurface): float {.noSideEffect, importcpp: "VPeriod",
+proc vPeriod*(this: BRepAdaptorSurface): cfloat {.noSideEffect, importcpp: "VPeriod",
     header: "BRepAdaptor_Surface.hxx".}
-proc value*(this: BRepAdaptorSurface; u: float; v: float): Pnt {.noSideEffect,
+proc value*(this: BRepAdaptorSurface; u: cfloat; v: cfloat): Pnt {.noSideEffect,
     importcpp: "Value", header: "BRepAdaptor_Surface.hxx".}
-proc d0*(this: BRepAdaptorSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
+proc d0*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect,
     importcpp: "D0", header: "BRepAdaptor_Surface.hxx".}
-proc d1*(this: BRepAdaptorSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
-    noSideEffect, importcpp: "D1", header: "BRepAdaptor_Surface.hxx".}
-proc d2*(this: BRepAdaptorSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+proc d1*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
+        d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                     header: "BRepAdaptor_Surface.hxx".}
+proc d2*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
     importcpp: "D2", header: "BRepAdaptor_Surface.hxx".}
-proc d3*(this: BRepAdaptorSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
+proc d3*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
         d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
                                     header: "BRepAdaptor_Surface.hxx".}
-proc dn*(this: BRepAdaptorSurface; u: float; v: float; nu: int; nv: int): Vec {.
+proc dn*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
     noSideEffect, importcpp: "DN", header: "BRepAdaptor_Surface.hxx".}
-proc uResolution*(this: BRepAdaptorSurface; r3d: float): float {.noSideEffect,
+proc uResolution*(this: BRepAdaptorSurface; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "UResolution", header: "BRepAdaptor_Surface.hxx".}
-proc vResolution*(this: BRepAdaptorSurface; r3d: float): float {.noSideEffect,
+proc vResolution*(this: BRepAdaptorSurface; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "VResolution", header: "BRepAdaptor_Surface.hxx".}
 proc getType*(this: BRepAdaptorSurface): GeomAbsSurfaceType {.noSideEffect,
     importcpp: "GetType", header: "BRepAdaptor_Surface.hxx".}
@@ -134,17 +135,17 @@ proc sphere*(this: BRepAdaptorSurface): Sphere {.noSideEffect, importcpp: "Spher
     header: "BRepAdaptor_Surface.hxx".}
 proc torus*(this: BRepAdaptorSurface): Torus {.noSideEffect, importcpp: "Torus",
     header: "BRepAdaptor_Surface.hxx".}
-proc uDegree*(this: BRepAdaptorSurface): int {.noSideEffect, importcpp: "UDegree",
+proc uDegree*(this: BRepAdaptorSurface): cint {.noSideEffect, importcpp: "UDegree",
     header: "BRepAdaptor_Surface.hxx".}
-proc nbUPoles*(this: BRepAdaptorSurface): int {.noSideEffect, importcpp: "NbUPoles",
+proc nbUPoles*(this: BRepAdaptorSurface): cint {.noSideEffect, importcpp: "NbUPoles",
     header: "BRepAdaptor_Surface.hxx".}
-proc vDegree*(this: BRepAdaptorSurface): int {.noSideEffect, importcpp: "VDegree",
+proc vDegree*(this: BRepAdaptorSurface): cint {.noSideEffect, importcpp: "VDegree",
     header: "BRepAdaptor_Surface.hxx".}
-proc nbVPoles*(this: BRepAdaptorSurface): int {.noSideEffect, importcpp: "NbVPoles",
+proc nbVPoles*(this: BRepAdaptorSurface): cint {.noSideEffect, importcpp: "NbVPoles",
     header: "BRepAdaptor_Surface.hxx".}
-proc nbUKnots*(this: BRepAdaptorSurface): int {.noSideEffect, importcpp: "NbUKnots",
+proc nbUKnots*(this: BRepAdaptorSurface): cint {.noSideEffect, importcpp: "NbUKnots",
     header: "BRepAdaptor_Surface.hxx".}
-proc nbVKnots*(this: BRepAdaptorSurface): int {.noSideEffect, importcpp: "NbVKnots",
+proc nbVKnots*(this: BRepAdaptorSurface): cint {.noSideEffect, importcpp: "NbVKnots",
     header: "BRepAdaptor_Surface.hxx".}
 proc isURational*(this: BRepAdaptorSurface): bool {.noSideEffect,
     importcpp: "IsURational", header: "BRepAdaptor_Surface.hxx".}
@@ -162,5 +163,30 @@ proc basisCurve*(this: BRepAdaptorSurface): Handle[Adaptor3dHCurve] {.noSideEffe
     importcpp: "BasisCurve", header: "BRepAdaptor_Surface.hxx".}
 proc basisSurface*(this: BRepAdaptorSurface): Handle[Adaptor3dHSurface] {.
     noSideEffect, importcpp: "BasisSurface", header: "BRepAdaptor_Surface.hxx".}
-proc offsetValue*(this: BRepAdaptorSurface): float {.noSideEffect,
+proc offsetValue*(this: BRepAdaptorSurface): cfloat {.noSideEffect,
     importcpp: "OffsetValue", header: "BRepAdaptor_Surface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

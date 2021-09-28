@@ -35,13 +35,38 @@ type
 
 
 proc constructStepDataStepDumper*(amodel: Handle[StepDataStepModel];
-                                 protocol: Handle[StepDataProtocol]; mode: int = 0): StepDataStepDumper {.
-    constructor, importcpp: "StepData_StepDumper(@)",
-    header: "StepData_StepDumper.hxx".}
+                                 protocol: Handle[StepDataProtocol];
+                                 mode: cint = 0): StepDataStepDumper {.constructor,
+    importcpp: "StepData_StepDumper(@)", header: "StepData_StepDumper.hxx".}
 proc stepWriter*(this: var StepDataStepDumper): var StepDataStepWriter {.
     importcpp: "StepWriter", header: "StepData_StepDumper.hxx".}
 proc dump*(this: var StepDataStepDumper; s: var StandardOStream;
-          ent: Handle[StandardTransient]; level: int): bool {.importcpp: "Dump",
+          ent: Handle[StandardTransient]; level: cint): bool {.importcpp: "Dump",
     header: "StepData_StepDumper.hxx".}
-proc dump*(this: var StepDataStepDumper; s: var StandardOStream; num: int; level: int): bool {.
+proc dump*(this: var StepDataStepDumper; s: var StandardOStream; num: cint; level: cint): bool {.
     importcpp: "Dump", header: "StepData_StepDumper.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

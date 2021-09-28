@@ -56,45 +56,70 @@ type
     NoIntersection, Cross, EndPointTouch, PointOnSegment, Glued, Same
 
 
-proc constructBRepMeshGeomTool*(theCurve: BRepAdaptorCurve; theFirstParam: float;
-                               theLastParam: float; theLinDeflection: float;
-                               theAngDeflection: float; theMinPointsNb: int = 2;
-                               theMinSize: float = confusion()): BRepMeshGeomTool {.
+proc constructBRepMeshGeomTool*(theCurve: BRepAdaptorCurve; theFirstParam: cfloat;
+                               theLastParam: cfloat; theLinDeflection: cfloat;
+                               theAngDeflection: cfloat; theMinPointsNb: cint = 2;
+                               theMinSize: cfloat = confusion()): BRepMeshGeomTool {.
     constructor, importcpp: "BRepMesh_GeomTool(@)", header: "BRepMesh_GeomTool.hxx".}
 proc constructBRepMeshGeomTool*(theSurface: Handle[BRepAdaptorHSurface];
-                               theIsoType: GeomAbsIsoType; theParamIso: float;
-                               theFirstParam: float; theLastParam: float;
-                               theLinDeflection: float; theAngDeflection: float;
-                               theMinPointsNb: int = 2;
-                               theMinSize: float = confusion()): BRepMeshGeomTool {.
+                               theIsoType: GeomAbsIsoType; theParamIso: cfloat;
+                               theFirstParam: cfloat; theLastParam: cfloat;
+                               theLinDeflection: cfloat; theAngDeflection: cfloat;
+                               theMinPointsNb: cint = 2;
+                               theMinSize: cfloat = confusion()): BRepMeshGeomTool {.
     constructor, importcpp: "BRepMesh_GeomTool(@)", header: "BRepMesh_GeomTool.hxx".}
-proc addPoint*(this: var BRepMeshGeomTool; thePoint: Pnt; theParam: float;
-              theIsReplace: bool = true): int {.importcpp: "AddPoint",
+proc addPoint*(this: var BRepMeshGeomTool; thePoint: Pnt; theParam: cfloat;
+              theIsReplace: bool = true): cint {.importcpp: "AddPoint",
     header: "BRepMesh_GeomTool.hxx".}
-proc nbPoints*(this: BRepMeshGeomTool): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: BRepMeshGeomTool): cint {.noSideEffect, importcpp: "NbPoints",
     header: "BRepMesh_GeomTool.hxx".}
-proc value*(this: BRepMeshGeomTool; theIndex: int; theIsoParam: float;
-           theParam: var float; thePoint: var Pnt; theUV: var Pnt2d): bool {.noSideEffect,
-    importcpp: "Value", header: "BRepMesh_GeomTool.hxx".}
-proc value*(this: BRepMeshGeomTool; theIndex: int;
-           theSurface: Handle[BRepAdaptorHSurface]; theParam: var float;
+proc value*(this: BRepMeshGeomTool; theIndex: cint; theIsoParam: cfloat;
+           theParam: var cfloat; thePoint: var Pnt; theUV: var Pnt2d): bool {.
+    noSideEffect, importcpp: "Value", header: "BRepMesh_GeomTool.hxx".}
+proc value*(this: BRepMeshGeomTool; theIndex: cint;
+           theSurface: Handle[BRepAdaptorHSurface]; theParam: var cfloat;
            thePoint: var Pnt; theUV: var Pnt2d): bool {.noSideEffect,
     importcpp: "Value", header: "BRepMesh_GeomTool.hxx".}
-proc normal*(theSurface: Handle[BRepAdaptorHSurface]; theParamU: float;
-            theParamV: float; thePoint: var Pnt; theNormal: var Dir): bool {.
+proc normal*(theSurface: Handle[BRepAdaptorHSurface]; theParamU: cfloat;
+            theParamV: cfloat; thePoint: var Pnt; theNormal: var Dir): bool {.
     importcpp: "BRepMesh_GeomTool::Normal(@)", header: "BRepMesh_GeomTool.hxx".}
 proc intLinLin*(theStartPnt1: Xy; theEndPnt1: Xy; theStartPnt2: Xy; theEndPnt2: Xy;
-               theIntPnt: var Xy; theParamOnSegment: array[2, float]): BRepMeshGeomToolIntFlag {.
+               theIntPnt: var Xy; theParamOnSegment: array[2, cfloat]): BRepMeshGeomToolIntFlag {.
     importcpp: "BRepMesh_GeomTool::IntLinLin(@)", header: "BRepMesh_GeomTool.hxx".}
 proc intSegSeg*(theStartPnt1: Xy; theEndPnt1: Xy; theStartPnt2: Xy; theEndPnt2: Xy;
                isConsiderEndPointTouch: bool; isConsiderPointOnSegment: bool;
                theIntPnt: var Pnt2d): BRepMeshGeomToolIntFlag {.
     importcpp: "BRepMesh_GeomTool::IntSegSeg(@)", header: "BRepMesh_GeomTool.hxx".}
 proc squareDeflectionOfSegment*(theFirstPoint: Pnt; theLastPoint: Pnt;
-                               theMidPoint: Pnt): float {.
+                               theMidPoint: Pnt): cfloat {.
     importcpp: "BRepMesh_GeomTool::SquareDeflectionOfSegment(@)",
     header: "BRepMesh_GeomTool.hxx".}
-proc cellsCount*(theSurface: Handle[Adaptor3dHSurface]; theVerticesNb: int;
-                theDeflection: float;
-                theRangeSplitter: ptr BRepMeshDefaultRangeSplitter): Pair[int, int] {.
+proc cellsCount*(theSurface: Handle[Adaptor3dHSurface]; theVerticesNb: cint;
+                theDeflection: cfloat;
+                theRangeSplitter: ptr BRepMeshDefaultRangeSplitter): Pair[cint, cint] {.
     importcpp: "BRepMesh_GeomTool::CellsCount(@)", header: "BRepMesh_GeomTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

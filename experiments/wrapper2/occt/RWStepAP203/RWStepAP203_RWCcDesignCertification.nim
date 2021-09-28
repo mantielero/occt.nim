@@ -28,7 +28,7 @@ proc constructRWStepAP203RWCcDesignCertification*(): RWStepAP203RWCcDesignCertif
     constructor, importcpp: "RWStepAP203_RWCcDesignCertification(@)",
     header: "RWStepAP203_RWCcDesignCertification.hxx".}
 proc readStep*(this: RWStepAP203RWCcDesignCertification;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP203CcDesignCertification]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP203_RWCcDesignCertification.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepAP203RWCcDesignCertification;
            ent: Handle[StepAP203CcDesignCertification];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignCertification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

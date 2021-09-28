@@ -45,33 +45,33 @@ type
                                                 ## ! TrueIntervals[2] = {-1, 1}
 
 
-proc constructConvertCompPolynomialToPoles*(numCurves: int; continuity: int;
-    dimension: int; maxDegree: int;
+proc constructConvertCompPolynomialToPoles*(numCurves: cint; continuity: cint;
+    dimension: cint; maxDegree: cint;
     numCoeffPerCurve: Handle[TColStdHArray1OfInteger];
     coefficients: Handle[TColStdHArray1OfReal];
     polynomialIntervals: Handle[TColStdHArray2OfReal];
     trueIntervals: Handle[TColStdHArray1OfReal]): ConvertCompPolynomialToPoles {.
     constructor, importcpp: "Convert_CompPolynomialToPoles(@)",
     header: "Convert_CompPolynomialToPoles.hxx".}
-proc constructConvertCompPolynomialToPoles*(numCurves: int; dimension: int;
-    maxDegree: int; continuity: TColStdArray1OfInteger;
+proc constructConvertCompPolynomialToPoles*(numCurves: cint; dimension: cint;
+    maxDegree: cint; continuity: TColStdArray1OfInteger;
     numCoeffPerCurve: TColStdArray1OfInteger; coefficients: TColStdArray1OfReal;
     polynomialIntervals: TColStdArray2OfReal; trueIntervals: TColStdArray1OfReal): ConvertCompPolynomialToPoles {.
     constructor, importcpp: "Convert_CompPolynomialToPoles(@)",
     header: "Convert_CompPolynomialToPoles.hxx".}
-proc constructConvertCompPolynomialToPoles*(dimension: int; maxDegree: int;
-    degree: int; coefficients: TColStdArray1OfReal;
+proc constructConvertCompPolynomialToPoles*(dimension: cint; maxDegree: cint;
+    degree: cint; coefficients: TColStdArray1OfReal;
     polynomialIntervals: TColStdArray1OfReal; trueIntervals: TColStdArray1OfReal): ConvertCompPolynomialToPoles {.
     constructor, importcpp: "Convert_CompPolynomialToPoles(@)",
     header: "Convert_CompPolynomialToPoles.hxx".}
-proc nbPoles*(this: ConvertCompPolynomialToPoles): int {.noSideEffect,
+proc nbPoles*(this: ConvertCompPolynomialToPoles): cint {.noSideEffect,
     importcpp: "NbPoles", header: "Convert_CompPolynomialToPoles.hxx".}
 proc poles*(this: ConvertCompPolynomialToPoles;
            poles: var Handle[TColStdHArray2OfReal]) {.noSideEffect,
     importcpp: "Poles", header: "Convert_CompPolynomialToPoles.hxx".}
-proc degree*(this: ConvertCompPolynomialToPoles): int {.noSideEffect,
+proc degree*(this: ConvertCompPolynomialToPoles): cint {.noSideEffect,
     importcpp: "Degree", header: "Convert_CompPolynomialToPoles.hxx".}
-proc nbKnots*(this: ConvertCompPolynomialToPoles): int {.noSideEffect,
+proc nbKnots*(this: ConvertCompPolynomialToPoles): cint {.noSideEffect,
     importcpp: "NbKnots", header: "Convert_CompPolynomialToPoles.hxx".}
 proc knots*(this: ConvertCompPolynomialToPoles; k: var Handle[TColStdHArray1OfReal]) {.
     noSideEffect, importcpp: "Knots", header: "Convert_CompPolynomialToPoles.hxx".}
@@ -80,3 +80,28 @@ proc multiplicities*(this: ConvertCompPolynomialToPoles;
     importcpp: "Multiplicities", header: "Convert_CompPolynomialToPoles.hxx".}
 proc isDone*(this: ConvertCompPolynomialToPoles): bool {.noSideEffect,
     importcpp: "IsDone", header: "Convert_CompPolynomialToPoles.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

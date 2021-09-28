@@ -16,7 +16,7 @@
 discard "forward decl of Poly_Triangulation"
 discard "forward decl of AIS_Triangulation"
 type
-  HandleAIS_Triangulation* = Handle[AIS_Triangulation]
+  HandleC1C1* = Handle[AIS_Triangulation]
 
 ## ! Interactive object that draws data from  Poly_Triangulation, optionally with colors associated
 ## ! with each triangulation vertex. For maximum efficiency colors are represented as 32-bit integers
@@ -55,7 +55,32 @@ proc setTriangulation*(this: var AIS_Triangulation;
     importcpp: "SetTriangulation", header: "AIS_Triangulation.hxx".}
 proc getTriangulation*(this: AIS_Triangulation): Handle[PolyTriangulation] {.
     noSideEffect, importcpp: "GetTriangulation", header: "AIS_Triangulation.hxx".}
-proc setTransparency*(this: var AIS_Triangulation; aValue: float = 0.6) {.
+proc setTransparency*(this: var AIS_Triangulation; aValue: cfloat = 0.6) {.
     importcpp: "SetTransparency", header: "AIS_Triangulation.hxx".}
 proc unsetTransparency*(this: var AIS_Triangulation) {.
     importcpp: "UnsetTransparency", header: "AIS_Triangulation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

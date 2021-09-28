@@ -50,32 +50,32 @@ proc lastVertex*(this: ShapeFixWireSegment): TopoDS_Vertex {.noSideEffect,
     importcpp: "LastVertex", header: "ShapeFix_WireSegment.hxx".}
 proc isClosed*(this: ShapeFixWireSegment): bool {.noSideEffect,
     importcpp: "IsClosed", header: "ShapeFix_WireSegment.hxx".}
-proc nbEdges*(this: ShapeFixWireSegment): int {.noSideEffect, importcpp: "NbEdges",
+proc nbEdges*(this: ShapeFixWireSegment): cint {.noSideEffect, importcpp: "NbEdges",
     header: "ShapeFix_WireSegment.hxx".}
-proc edge*(this: ShapeFixWireSegment; i: int): TopoDS_Edge {.noSideEffect,
+proc edge*(this: ShapeFixWireSegment; i: cint): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "ShapeFix_WireSegment.hxx".}
-proc setEdge*(this: var ShapeFixWireSegment; i: int; edge: TopoDS_Edge) {.
+proc setEdge*(this: var ShapeFixWireSegment; i: cint; edge: TopoDS_Edge) {.
     importcpp: "SetEdge", header: "ShapeFix_WireSegment.hxx".}
-proc addEdge*(this: var ShapeFixWireSegment; i: int; edge: TopoDS_Edge) {.
+proc addEdge*(this: var ShapeFixWireSegment; i: cint; edge: TopoDS_Edge) {.
     importcpp: "AddEdge", header: "ShapeFix_WireSegment.hxx".}
-proc addEdge*(this: var ShapeFixWireSegment; i: int; edge: TopoDS_Edge; iumin: int;
-             iumax: int; ivmin: int; ivmax: int) {.importcpp: "AddEdge",
+proc addEdge*(this: var ShapeFixWireSegment; i: cint; edge: TopoDS_Edge; iumin: cint;
+             iumax: cint; ivmin: cint; ivmax: cint) {.importcpp: "AddEdge",
     header: "ShapeFix_WireSegment.hxx".}
-proc setPatchIndex*(this: var ShapeFixWireSegment; i: int; iumin: int; iumax: int;
-                   ivmin: int; ivmax: int) {.importcpp: "SetPatchIndex",
+proc setPatchIndex*(this: var ShapeFixWireSegment; i: cint; iumin: cint; iumax: cint;
+                   ivmin: cint; ivmax: cint) {.importcpp: "SetPatchIndex",
     header: "ShapeFix_WireSegment.hxx".}
-proc defineIUMin*(this: var ShapeFixWireSegment; i: int; iumin: int) {.
+proc defineIUMin*(this: var ShapeFixWireSegment; i: cint; iumin: cint) {.
     importcpp: "DefineIUMin", header: "ShapeFix_WireSegment.hxx".}
-proc defineIUMax*(this: var ShapeFixWireSegment; i: int; iumax: int) {.
+proc defineIUMax*(this: var ShapeFixWireSegment; i: cint; iumax: cint) {.
     importcpp: "DefineIUMax", header: "ShapeFix_WireSegment.hxx".}
-proc defineIVMin*(this: var ShapeFixWireSegment; i: int; ivmin: int) {.
+proc defineIVMin*(this: var ShapeFixWireSegment; i: cint; ivmin: cint) {.
     importcpp: "DefineIVMin", header: "ShapeFix_WireSegment.hxx".}
-proc defineIVMax*(this: var ShapeFixWireSegment; i: int; ivmax: int) {.
+proc defineIVMax*(this: var ShapeFixWireSegment; i: cint; ivmax: cint) {.
     importcpp: "DefineIVMax", header: "ShapeFix_WireSegment.hxx".}
-proc getPatchIndex*(this: ShapeFixWireSegment; i: int; iumin: var int; iumax: var int;
-                   ivmin: var int; ivmax: var int) {.noSideEffect,
+proc getPatchIndex*(this: ShapeFixWireSegment; i: cint; iumin: var cint;
+                   iumax: var cint; ivmin: var cint; ivmax: var cint) {.noSideEffect,
     importcpp: "GetPatchIndex", header: "ShapeFix_WireSegment.hxx".}
-proc checkPatchIndex*(this: ShapeFixWireSegment; i: int): bool {.noSideEffect,
+proc checkPatchIndex*(this: ShapeFixWireSegment; i: cint): bool {.noSideEffect,
     importcpp: "CheckPatchIndex", header: "ShapeFix_WireSegment.hxx".}
 proc setVertex*(this: var ShapeFixWireSegment; theVertex: TopoDS_Vertex) {.
     importcpp: "SetVertex", header: "ShapeFix_WireSegment.hxx".}
@@ -83,3 +83,28 @@ proc getVertex*(this: ShapeFixWireSegment): TopoDS_Vertex {.noSideEffect,
     importcpp: "GetVertex", header: "ShapeFix_WireSegment.hxx".}
 proc isVertex*(this: ShapeFixWireSegment): bool {.noSideEffect,
     importcpp: "IsVertex", header: "ShapeFix_WireSegment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

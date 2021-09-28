@@ -28,7 +28,7 @@ proc constructRWStepBasicRWCertificationType*(): RWStepBasicRWCertificationType 
     constructor, importcpp: "RWStepBasic_RWCertificationType(@)",
     header: "RWStepBasic_RWCertificationType.hxx".}
 proc readStep*(this: RWStepBasicRWCertificationType;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicCertificationType]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWCertificationType.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepBasicRWCertificationType;
            ent: Handle[StepBasicCertificationType];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWCertificationType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   StepBasicArray1OfApproval* = NCollectionArray1[Handle[StepBasicApproval]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

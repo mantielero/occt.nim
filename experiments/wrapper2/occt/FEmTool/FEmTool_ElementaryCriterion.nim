@@ -20,7 +20,7 @@ discard "forward decl of math_Matrix"
 discard "forward decl of FEmTool_ElementaryCriterion"
 discard "forward decl of FEmTool_ElementaryCriterion"
 type
-  HandleFEmToolElementaryCriterion* = Handle[FEmToolElementaryCriterion]
+  HandleC1C1* = Handle[FEmToolElementaryCriterion]
 
 ## ! defined J Criteria to used in minimisation
 
@@ -37,17 +37,17 @@ proc constructFEmToolElementaryCriterion*(): FEmToolElementaryCriterion {.
     header: "FEmTool_ElementaryCriterion.hxx".}
 proc set*(this: var FEmToolElementaryCriterion; coeff: Handle[TColStdHArray2OfReal]) {.
     importcpp: "Set", header: "FEmTool_ElementaryCriterion.hxx".}
-proc set*(this: var FEmToolElementaryCriterion; firstKnot: float; lastKnot: float) {.
+proc set*(this: var FEmToolElementaryCriterion; firstKnot: cfloat; lastKnot: cfloat) {.
     importcpp: "Set", header: "FEmTool_ElementaryCriterion.hxx".}
 proc dependenceTable*(this: FEmToolElementaryCriterion): Handle[
     TColStdHArray2OfInteger] {.noSideEffect, importcpp: "DependenceTable",
                               header: "FEmTool_ElementaryCriterion.hxx".}
-proc value*(this: var FEmToolElementaryCriterion): float {.importcpp: "Value",
+proc value*(this: var FEmToolElementaryCriterion): cfloat {.importcpp: "Value",
     header: "FEmTool_ElementaryCriterion.hxx".}
-proc hessian*(this: var FEmToolElementaryCriterion; dim1: int; dim2: int;
+proc hessian*(this: var FEmToolElementaryCriterion; dim1: cint; dim2: cint;
              h: var MathMatrix) {.importcpp: "Hessian",
                                header: "FEmTool_ElementaryCriterion.hxx".}
-proc gradient*(this: var FEmToolElementaryCriterion; dim: int; g: var MathVector) {.
+proc gradient*(this: var FEmToolElementaryCriterion; dim: cint; g: var MathVector) {.
     importcpp: "Gradient", header: "FEmTool_ElementaryCriterion.hxx".}
 type
   FEmToolElementaryCriterionbaseType* = StandardTransient
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: FEmToolElementaryCriterion): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "FEmTool_ElementaryCriterion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

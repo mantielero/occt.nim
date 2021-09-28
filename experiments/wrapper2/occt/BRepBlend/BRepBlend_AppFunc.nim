@@ -22,7 +22,7 @@ discard "forward decl of Blend_Point"
 discard "forward decl of BRepBlend_AppFunc"
 discard "forward decl of BRepBlend_AppFunc"
 type
-  HandleBRepBlendAppFunc* = Handle[BRepBlendAppFunc]
+  HandleC1C1* = Handle[BRepBlendAppFunc]
 
 ## ! Function to approximate by AppSurface
 ## ! for Surface/Surface contact.
@@ -33,9 +33,10 @@ type
 
 
 proc constructBRepBlendAppFunc*(line: var Handle[BRepBlendLine];
-                               `func`: var BlendFunction; tol3d: float; tol2d: float): BRepBlendAppFunc {.
-    constructor, importcpp: "BRepBlend_AppFunc(@)", header: "BRepBlend_AppFunc.hxx".}
-proc point*(this: BRepBlendAppFunc; `func`: BlendAppFunction; param: float;
+                               `func`: var BlendFunction; tol3d: cfloat;
+                               tol2d: cfloat): BRepBlendAppFunc {.constructor,
+    importcpp: "BRepBlend_AppFunc(@)", header: "BRepBlend_AppFunc.hxx".}
+proc point*(this: BRepBlendAppFunc; `func`: BlendAppFunction; param: cfloat;
            sol: MathVector; pnt: var BlendPoint) {.noSideEffect, importcpp: "Point",
     header: "BRepBlend_AppFunc.hxx".}
 proc vec*(this: BRepBlendAppFunc; sol: var MathVector; pnt: BlendPoint) {.noSideEffect,
@@ -50,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepBlend_AppFunc.hxx".}
 proc dynamicType*(this: BRepBlendAppFunc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepBlend_AppFunc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

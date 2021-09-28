@@ -20,7 +20,7 @@ discard "forward decl of StepVisual_FontSelect"
 discard "forward decl of StepVisual_TextLiteral"
 discard "forward decl of StepVisual_TextLiteral"
 type
-  HandleStepVisualTextLiteral* = Handle[StepVisualTextLiteral]
+  HandleC1C1* = Handle[StepVisualTextLiteral]
   StepVisualTextLiteral* {.importcpp: "StepVisual_TextLiteral",
                           header: "StepVisual_TextLiteral.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                                   ## !
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_TextLiteral.hxx".}
 proc dynamicType*(this: StepVisualTextLiteral): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_TextLiteral.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

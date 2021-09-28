@@ -18,3 +18,28 @@ type
   ContapSequenceOfPathPointOfTheSearch* = NCollectionSequence[
       ContapThePathPointOfTheSearch]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

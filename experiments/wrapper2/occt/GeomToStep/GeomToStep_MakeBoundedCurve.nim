@@ -23,6 +23,24 @@ type
                                header: "GeomToStep_MakeBoundedCurve.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeBoundedCurve; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeBoundedCurve::operator new",
+    header: "GeomToStep_MakeBoundedCurve.hxx".}
+proc `delete`*(this: var GeomToStepMakeBoundedCurve; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeBoundedCurve::operator delete",
+    header: "GeomToStep_MakeBoundedCurve.hxx".}
+proc `new[]`*(this: var GeomToStepMakeBoundedCurve; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeBoundedCurve::operator new[]",
+    header: "GeomToStep_MakeBoundedCurve.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeBoundedCurve; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeBoundedCurve::operator delete[]",
+    header: "GeomToStep_MakeBoundedCurve.hxx".}
+proc `new`*(this: var GeomToStepMakeBoundedCurve; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeBoundedCurve::operator new",
+    header: "GeomToStep_MakeBoundedCurve.hxx".}
+proc `delete`*(this: var GeomToStepMakeBoundedCurve; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeBoundedCurve::operator delete",
+    header: "GeomToStep_MakeBoundedCurve.hxx".}
 proc constructGeomToStepMakeBoundedCurve*(c: Handle[GeomBoundedCurve]): GeomToStepMakeBoundedCurve {.
     constructor, importcpp: "GeomToStep_MakeBoundedCurve(@)",
     header: "GeomToStep_MakeBoundedCurve.hxx".}

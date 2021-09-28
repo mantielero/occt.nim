@@ -31,7 +31,7 @@ proc systemId*(this: OSD_Host): OSD_SysType {.noSideEffect, importcpp: "SystemId
     header: "OSD_Host.hxx".}
 proc hostName*(this: var OSD_Host): TCollectionAsciiString {.importcpp: "HostName",
     header: "OSD_Host.hxx".}
-proc availableMemory*(this: var OSD_Host): int {.importcpp: "AvailableMemory",
+proc availableMemory*(this: var OSD_Host): cint {.importcpp: "AvailableMemory",
     header: "OSD_Host.hxx".}
 proc internetAddress*(this: var OSD_Host): TCollectionAsciiString {.
     importcpp: "InternetAddress", header: "OSD_Host.hxx".}
@@ -41,5 +41,30 @@ proc failed*(this: OSD_Host): bool {.noSideEffect, importcpp: "Failed",
                                  header: "OSD_Host.hxx".}
 proc reset*(this: var OSD_Host) {.importcpp: "Reset", header: "OSD_Host.hxx".}
 proc perror*(this: var OSD_Host) {.importcpp: "Perror", header: "OSD_Host.hxx".}
-proc error*(this: OSD_Host): int {.noSideEffect, importcpp: "Error",
-                               header: "OSD_Host.hxx".}
+proc error*(this: OSD_Host): cint {.noSideEffect, importcpp: "Error",
+                                header: "OSD_Host.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

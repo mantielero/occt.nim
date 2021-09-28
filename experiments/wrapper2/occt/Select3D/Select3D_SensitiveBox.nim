@@ -53,11 +53,12 @@ proc constructSelect3D_SensitiveBox*(theOwnerId: Handle[SelectMgrEntityOwner];
     constructor, importcpp: "Select3D_SensitiveBox(@)",
     header: "Select3D_SensitiveBox.hxx".}
 proc constructSelect3D_SensitiveBox*(theOwnerId: Handle[SelectMgrEntityOwner];
-                                    theXMin: float; theYMin: float; theZMin: float;
-                                    theXMax: float; theYMax: float; theZMax: float): Select3D_SensitiveBox {.
+                                    theXMin: cfloat; theYMin: cfloat;
+                                    theZMin: cfloat; theXMax: cfloat;
+                                    theYMax: cfloat; theZMax: cfloat): Select3D_SensitiveBox {.
     constructor, importcpp: "Select3D_SensitiveBox(@)",
     header: "Select3D_SensitiveBox.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveBox): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitiveBox): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitiveBox.hxx".}
 proc getConnected*(this: var Select3D_SensitiveBox): Handle[Select3D_SensitiveEntity] {.
     importcpp: "GetConnected", header: "Select3D_SensitiveBox.hxx".}
@@ -74,9 +75,34 @@ proc boundingBox*(this: var Select3D_SensitiveBox): Select3D_BndBox3d {.
 proc toBuildBVH*(this: Select3D_SensitiveBox): bool {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveBox.hxx".}
 proc dumpJson*(this: Select3D_SensitiveBox; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Select3D_SensitiveBox.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Select3D_SensitiveBox.hxx".}
 discard "forward decl of Select3D_SensitiveBox"
 type
-  HandleSelect3D_SensitiveBox* = Handle[Select3D_SensitiveBox]
+  HandleC1C1* = Handle[Select3D_SensitiveBox]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -19,8 +19,7 @@ discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepElement_AnalysisItemWithinRepresentation"
 discard "forward decl of StepElement_AnalysisItemWithinRepresentation"
 type
-  HandleStepElementAnalysisItemWithinRepresentation* = Handle[
-      StepElementAnalysisItemWithinRepresentation]
+  HandleC1C1* = Handle[StepElementAnalysisItemWithinRepresentation]
 
 ## ! Representation of STEP entity AnalysisItemWithinRepresentation
 
@@ -72,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Analys
 proc dynamicType*(this: StepElementAnalysisItemWithinRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepElement_AnalysisItemWithinRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

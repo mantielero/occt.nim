@@ -59,15 +59,40 @@ proc addDefinition*(this: var StepDataEnumTool; term: StandardCString) {.
     importcpp: "AddDefinition", header: "StepData_EnumTool.hxx".}
 proc isSet*(this: StepDataEnumTool): bool {.noSideEffect, importcpp: "IsSet",
                                         header: "StepData_EnumTool.hxx".}
-proc maxValue*(this: StepDataEnumTool): int {.noSideEffect, importcpp: "MaxValue",
+proc maxValue*(this: StepDataEnumTool): cint {.noSideEffect, importcpp: "MaxValue",
     header: "StepData_EnumTool.hxx".}
 proc optional*(this: var StepDataEnumTool; mode: bool) {.importcpp: "Optional",
     header: "StepData_EnumTool.hxx".}
-proc nullValue*(this: StepDataEnumTool): int {.noSideEffect, importcpp: "NullValue",
+proc nullValue*(this: StepDataEnumTool): cint {.noSideEffect, importcpp: "NullValue",
     header: "StepData_EnumTool.hxx".}
-proc text*(this: StepDataEnumTool; num: int): TCollectionAsciiString {.noSideEffect,
+proc text*(this: StepDataEnumTool; num: cint): TCollectionAsciiString {.noSideEffect,
     importcpp: "Text", header: "StepData_EnumTool.hxx".}
-proc value*(this: StepDataEnumTool; txt: StandardCString): int {.noSideEffect,
+proc value*(this: StepDataEnumTool; txt: StandardCString): cint {.noSideEffect,
     importcpp: "Value", header: "StepData_EnumTool.hxx".}
-proc value*(this: StepDataEnumTool; txt: TCollectionAsciiString): int {.noSideEffect,
+proc value*(this: StepDataEnumTool; txt: TCollectionAsciiString): cint {.noSideEffect,
     importcpp: "Value", header: "StepData_EnumTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

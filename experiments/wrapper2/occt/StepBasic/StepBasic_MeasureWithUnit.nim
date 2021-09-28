@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_Unit"
 discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepBasic_MeasureWithUnit"
 type
-  HandleStepBasicMeasureWithUnit* = Handle[StepBasicMeasureWithUnit]
+  HandleC1C1* = Handle[StepBasicMeasureWithUnit]
   StepBasicMeasureWithUnit* {.importcpp: "StepBasic_MeasureWithUnit",
                              header: "StepBasic_MeasureWithUnit.hxx", bycopy.} = object of StandardTransient ##
                                                                                                       ## !
@@ -35,9 +35,9 @@ proc init*(this: var StepBasicMeasureWithUnit;
           aValueComponent: Handle[StepBasicMeasureValueMember];
           aUnitComponent: StepBasicUnit) {.importcpp: "Init",
     header: "StepBasic_MeasureWithUnit.hxx".}
-proc setValueComponent*(this: var StepBasicMeasureWithUnit; aValueComponent: float) {.
+proc setValueComponent*(this: var StepBasicMeasureWithUnit; aValueComponent: cfloat) {.
     importcpp: "SetValueComponent", header: "StepBasic_MeasureWithUnit.hxx".}
-proc valueComponent*(this: StepBasicMeasureWithUnit): float {.noSideEffect,
+proc valueComponent*(this: StepBasicMeasureWithUnit): cfloat {.noSideEffect,
     importcpp: "ValueComponent", header: "StepBasic_MeasureWithUnit.hxx".}
 proc valueComponentMember*(this: StepBasicMeasureWithUnit): Handle[
     StepBasicMeasureValueMember] {.noSideEffect,
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_MeasureWithUnit.hxx".}
 proc dynamicType*(this: StepBasicMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_MeasureWithUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

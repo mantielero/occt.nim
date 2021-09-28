@@ -28,11 +28,36 @@ type
                                                                                           ## Fields
 
 
-proc constructStepDataFieldListN*(nb: int): StepDataFieldListN {.constructor,
+proc constructStepDataFieldListN*(nb: cint): StepDataFieldListN {.constructor,
     importcpp: "StepData_FieldListN(@)", header: "StepData_FieldListN.hxx".}
-proc nbFields*(this: StepDataFieldListN): int {.noSideEffect, importcpp: "NbFields",
+proc nbFields*(this: StepDataFieldListN): cint {.noSideEffect, importcpp: "NbFields",
     header: "StepData_FieldListN.hxx".}
-proc field*(this: StepDataFieldListN; num: int): StepDataField {.noSideEffect,
+proc field*(this: StepDataFieldListN; num: cint): StepDataField {.noSideEffect,
     importcpp: "Field", header: "StepData_FieldListN.hxx".}
-proc cField*(this: var StepDataFieldListN; num: int): var StepDataField {.
+proc cField*(this: var StepDataFieldListN; num: cint): var StepDataField {.
     importcpp: "CField", header: "StepData_FieldListN.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

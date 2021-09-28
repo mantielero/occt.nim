@@ -28,7 +28,7 @@ proc constructRWStepBasicRWSecurityClassificationLevel*(): RWStepBasicRWSecurity
     constructor, importcpp: "RWStepBasic_RWSecurityClassificationLevel(@)",
     header: "RWStepBasic_RWSecurityClassificationLevel.hxx".}
 proc readStep*(this: RWStepBasicRWSecurityClassificationLevel;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicSecurityClassificationLevel]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSecurityClassificationLevel.hxx".}
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepBasicRWSecurityClassificationLevel;
                ent: Handle[StepBasicSecurityClassificationLevel]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepBasic_RWSecurityClassificationLevel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

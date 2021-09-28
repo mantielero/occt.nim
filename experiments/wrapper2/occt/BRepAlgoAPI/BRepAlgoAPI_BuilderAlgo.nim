@@ -550,7 +550,7 @@ proc checkInverted*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect,
 proc build*(this: var BRepAlgoAPI_BuilderAlgo) {.importcpp: "Build",
     header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc simplifyResult*(this: var BRepAlgoAPI_BuilderAlgo; theUnifyEdges: bool = true;
-                    theUnifyFaces: bool = true; theAngularTol: float = angular()) {.
+                    theUnifyFaces: bool = true; theAngularTol: cfloat = angular()) {.
     importcpp: "SimplifyResult", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc modified*(this: var BRepAlgoAPI_BuilderAlgo; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
@@ -576,3 +576,28 @@ proc builder*(this: BRepAlgoAPI_BuilderAlgo): BOPAlgoPBuilder {.noSideEffect,
     importcpp: "Builder", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc history*(this: BRepAlgoAPI_BuilderAlgo): Handle[BRepToolsHistory] {.
     noSideEffect, importcpp: "History", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,3 +19,28 @@ type
     StepToTopoDS_TranslateFaceDone, StepToTopoDS_TranslateFaceOther
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

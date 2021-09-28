@@ -42,11 +42,11 @@ type
                                                                                           ## Alpha2.
 
 
-proc constructGCE2dMakeArcOfParabola*(parab: Parab2d; alpha1: float; alpha2: float;
+proc constructGCE2dMakeArcOfParabola*(parab: Parab2d; alpha1: cfloat; alpha2: cfloat;
                                      sense: bool = true): GCE2dMakeArcOfParabola {.
     constructor, importcpp: "GCE2d_MakeArcOfParabola(@)",
     header: "GCE2d_MakeArcOfParabola.hxx".}
-proc constructGCE2dMakeArcOfParabola*(parab: Parab2d; p: Pnt2d; alpha: float;
+proc constructGCE2dMakeArcOfParabola*(parab: Parab2d; p: Pnt2d; alpha: cfloat;
                                      sense: bool = true): GCE2dMakeArcOfParabola {.
     constructor, importcpp: "GCE2d_MakeArcOfParabola(@)",
     header: "GCE2d_MakeArcOfParabola.hxx".}
@@ -59,3 +59,28 @@ proc value*(this: GCE2dMakeArcOfParabola): Handle[Geom2dTrimmedCurve] {.
 converter `constopencascade`*(this: GCE2dMakeArcOfParabola): Handle[
     Geom2dTrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfParabola::operator constopencascade",
                          header: "GCE2d_MakeArcOfParabola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

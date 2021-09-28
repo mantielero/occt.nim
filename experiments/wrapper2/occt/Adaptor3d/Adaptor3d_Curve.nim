@@ -33,38 +33,38 @@ type
                    bycopy.} = object
 
 
-proc firstParameter*(this: Adaptor3dCurve): float {.noSideEffect,
+proc firstParameter*(this: Adaptor3dCurve): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "Adaptor3d_Curve.hxx".}
-proc lastParameter*(this: Adaptor3dCurve): float {.noSideEffect,
+proc lastParameter*(this: Adaptor3dCurve): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "Adaptor3d_Curve.hxx".}
 proc continuity*(this: Adaptor3dCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor3d_Curve.hxx".}
-proc nbIntervals*(this: Adaptor3dCurve; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: Adaptor3dCurve; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Adaptor3d_Curve.hxx".}
 proc intervals*(this: Adaptor3dCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Adaptor3d_Curve.hxx".}
-proc trim*(this: Adaptor3dCurve; first: float; last: float; tol: float): Handle[
+proc trim*(this: Adaptor3dCurve; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHCurve] {.noSideEffect, importcpp: "Trim",
                       header: "Adaptor3d_Curve.hxx".}
 proc isClosed*(this: Adaptor3dCurve): bool {.noSideEffect, importcpp: "IsClosed",
     header: "Adaptor3d_Curve.hxx".}
 proc isPeriodic*(this: Adaptor3dCurve): bool {.noSideEffect, importcpp: "IsPeriodic",
     header: "Adaptor3d_Curve.hxx".}
-proc period*(this: Adaptor3dCurve): float {.noSideEffect, importcpp: "Period",
-                                        header: "Adaptor3d_Curve.hxx".}
-proc value*(this: Adaptor3dCurve; u: float): Pnt {.noSideEffect, importcpp: "Value",
+proc period*(this: Adaptor3dCurve): cfloat {.noSideEffect, importcpp: "Period",
     header: "Adaptor3d_Curve.hxx".}
-proc d0*(this: Adaptor3dCurve; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
+proc value*(this: Adaptor3dCurve; u: cfloat): Pnt {.noSideEffect, importcpp: "Value",
     header: "Adaptor3d_Curve.hxx".}
-proc d1*(this: Adaptor3dCurve; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
+proc d0*(this: Adaptor3dCurve; u: cfloat; p: var Pnt) {.noSideEffect, importcpp: "D0",
+    header: "Adaptor3d_Curve.hxx".}
+proc d1*(this: Adaptor3dCurve; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect,
     importcpp: "D1", header: "Adaptor3d_Curve.hxx".}
-proc d2*(this: Adaptor3dCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    importcpp: "D2", header: "Adaptor3d_Curve.hxx".}
-proc d3*(this: Adaptor3dCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d2*(this: Adaptor3dCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Adaptor3d_Curve.hxx".}
+proc d3*(this: Adaptor3dCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
     noSideEffect, importcpp: "D3", header: "Adaptor3d_Curve.hxx".}
-proc dn*(this: Adaptor3dCurve; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
+proc dn*(this: Adaptor3dCurve; u: cfloat; n: cint): Vec {.noSideEffect, importcpp: "DN",
     header: "Adaptor3d_Curve.hxx".}
-proc resolution*(this: Adaptor3dCurve; r3d: float): float {.noSideEffect,
+proc resolution*(this: Adaptor3dCurve; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "Resolution", header: "Adaptor3d_Curve.hxx".}
 proc getType*(this: Adaptor3dCurve): GeomAbsCurveType {.noSideEffect,
     importcpp: "GetType", header: "Adaptor3d_Curve.hxx".}
@@ -78,14 +78,14 @@ proc hyperbola*(this: Adaptor3dCurve): Hypr {.noSideEffect, importcpp: "Hyperbol
     header: "Adaptor3d_Curve.hxx".}
 proc parabola*(this: Adaptor3dCurve): Parab {.noSideEffect, importcpp: "Parabola",
     header: "Adaptor3d_Curve.hxx".}
-proc degree*(this: Adaptor3dCurve): int {.noSideEffect, importcpp: "Degree",
-                                      header: "Adaptor3d_Curve.hxx".}
+proc degree*(this: Adaptor3dCurve): cint {.noSideEffect, importcpp: "Degree",
+                                       header: "Adaptor3d_Curve.hxx".}
 proc isRational*(this: Adaptor3dCurve): bool {.noSideEffect, importcpp: "IsRational",
     header: "Adaptor3d_Curve.hxx".}
-proc nbPoles*(this: Adaptor3dCurve): int {.noSideEffect, importcpp: "NbPoles",
-                                       header: "Adaptor3d_Curve.hxx".}
-proc nbKnots*(this: Adaptor3dCurve): int {.noSideEffect, importcpp: "NbKnots",
-                                       header: "Adaptor3d_Curve.hxx".}
+proc nbPoles*(this: Adaptor3dCurve): cint {.noSideEffect, importcpp: "NbPoles",
+                                        header: "Adaptor3d_Curve.hxx".}
+proc nbKnots*(this: Adaptor3dCurve): cint {.noSideEffect, importcpp: "NbKnots",
+                                        header: "Adaptor3d_Curve.hxx".}
 proc bezier*(this: Adaptor3dCurve): Handle[GeomBezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "Adaptor3d_Curve.hxx".}
 proc bSpline*(this: Adaptor3dCurve): Handle[GeomBSplineCurve] {.noSideEffect,
@@ -94,3 +94,28 @@ proc offsetCurve*(this: Adaptor3dCurve): Handle[GeomOffsetCurve] {.noSideEffect,
     importcpp: "OffsetCurve", header: "Adaptor3d_Curve.hxx".}
 proc destroyAdaptor3dCurve*(this: var Adaptor3dCurve) {.
     importcpp: "#.~Adaptor3d_Curve()", header: "Adaptor3d_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

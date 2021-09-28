@@ -65,5 +65,30 @@ proc ownCopy*(this: IGESDrawToolDrawingWithRotation;
     header: "IGESDraw_ToolDrawingWithRotation.hxx".}
 proc ownDump*(this: IGESDrawToolDrawingWithRotation;
              ent: Handle[IGESDrawDrawingWithRotation]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESDraw_ToolDrawingWithRotation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

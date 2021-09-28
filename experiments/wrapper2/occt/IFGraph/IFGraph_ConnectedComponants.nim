@@ -56,3 +56,28 @@ proc constructIFGraphConnectedComponants*(agraph: InterfaceGraph; whole: bool): 
     header: "IFGraph_ConnectedComponants.hxx".}
 proc evaluate*(this: var IFGraphConnectedComponants) {.importcpp: "Evaluate",
     header: "IFGraph_ConnectedComponants.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

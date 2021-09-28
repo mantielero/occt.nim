@@ -28,7 +28,7 @@ proc constructRWStepGeomRWBSplineSurface*(): RWStepGeomRWBSplineSurface {.
     constructor, importcpp: "RWStepGeom_RWBSplineSurface(@)",
     header: "RWStepGeom_RWBSplineSurface.hxx".}
 proc readStep*(this: RWStepGeomRWBSplineSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomBSplineSurface]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWBSplineSurface.hxx".}
 proc writeStep*(this: RWStepGeomRWBSplineSurface; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepGeomRWBSplineSurface; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWBSplineSurface; ent: Handle[StepGeomBSplineSurface];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWBSplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

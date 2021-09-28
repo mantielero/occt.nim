@@ -17,41 +17,27 @@
 discard "forward decl of Geom2d_Curve"
 type
   Geom2dLPropCurAndInf2d* {.importcpp: "Geom2dLProp_CurAndInf2d",
-                           header: "Geom2dLProp_CurAndInf2d.hxx", bycopy.} = object of LPropCurAndInf ##
-                                                                                               ## !
-                                                                                               ## Initializes
-                                                                                               ## the
-                                                                                               ## framework.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Note:
-                                                                                               ## The
-                                                                                               ## curve
-                                                                                               ## on
-                                                                                               ## which
-                                                                                               ## the
-                                                                                               ## local
-                                                                                               ## properties
-                                                                                               ## are
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## computed
-                                                                                               ## is
-                                                                                               ## defined
-                                                                                               ## using
-                                                                                               ## one
-                                                                                               ## of
-                                                                                               ## the
-                                                                                               ## following
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## functions:
-                                                                                               ## Perform,
-                                                                                               ## PerformCurExt
-                                                                                               ## or
-                                                                                               ## PerformInf.
+                           header: "Geom2dLProp_CurAndInf2d.hxx", bycopy.} = object of LPropCurAndInf
 
 
+proc `new`*(this: var Geom2dLPropCurAndInf2d; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_CurAndInf2d::operator new",
+    header: "Geom2dLProp_CurAndInf2d.hxx".}
+proc `delete`*(this: var Geom2dLPropCurAndInf2d; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_CurAndInf2d::operator delete",
+    header: "Geom2dLProp_CurAndInf2d.hxx".}
+proc `new[]`*(this: var Geom2dLPropCurAndInf2d; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_CurAndInf2d::operator new[]",
+    header: "Geom2dLProp_CurAndInf2d.hxx".}
+proc `delete[]`*(this: var Geom2dLPropCurAndInf2d; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_CurAndInf2d::operator delete[]",
+    header: "Geom2dLProp_CurAndInf2d.hxx".}
+proc `new`*(this: var Geom2dLPropCurAndInf2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dLProp_CurAndInf2d::operator new",
+    header: "Geom2dLProp_CurAndInf2d.hxx".}
+proc `delete`*(this: var Geom2dLPropCurAndInf2d; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dLProp_CurAndInf2d::operator delete",
+    header: "Geom2dLProp_CurAndInf2d.hxx".}
 proc constructGeom2dLPropCurAndInf2d*(): Geom2dLPropCurAndInf2d {.constructor,
     importcpp: "Geom2dLProp_CurAndInf2d(@)", header: "Geom2dLProp_CurAndInf2d.hxx".}
 proc perform*(this: var Geom2dLPropCurAndInf2d; c: Handle[Geom2dCurve]) {.
@@ -60,5 +46,5 @@ proc performCurExt*(this: var Geom2dLPropCurAndInf2d; c: Handle[Geom2dCurve]) {.
     importcpp: "PerformCurExt", header: "Geom2dLProp_CurAndInf2d.hxx".}
 proc performInf*(this: var Geom2dLPropCurAndInf2d; c: Handle[Geom2dCurve]) {.
     importcpp: "PerformInf", header: "Geom2dLProp_CurAndInf2d.hxx".}
-proc isDone*(this: Geom2dLPropCurAndInf2d): bool {.noSideEffect, importcpp: "IsDone",
-    header: "Geom2dLProp_CurAndInf2d.hxx".}
+proc isDone*(this: Geom2dLPropCurAndInf2d): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "Geom2dLProp_CurAndInf2d.hxx".}

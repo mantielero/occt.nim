@@ -163,11 +163,11 @@ type
 
 
 proc constructBRepOffsetAPI_ThruSections*(isSolid: bool = false; ruled: bool = false;
-    pres3d: float = 1.0e-06): BRepOffsetAPI_ThruSections {.constructor,
+    pres3d: cfloat = 1.0e-06): BRepOffsetAPI_ThruSections {.constructor,
     importcpp: "BRepOffsetAPI_ThruSections(@)",
     header: "BRepOffsetAPI_ThruSections.hxx".}
 proc init*(this: var BRepOffsetAPI_ThruSections; isSolid: bool = false;
-          ruled: bool = false; pres3d: float = 1.0e-06) {.importcpp: "Init",
+          ruled: bool = false; pres3d: cfloat = 1.0e-06) {.importcpp: "Init",
     header: "BRepOffsetAPI_ThruSections.hxx".}
 proc addWire*(this: var BRepOffsetAPI_ThruSections; wire: TopoDS_Wire) {.
     importcpp: "AddWire", header: "BRepOffsetAPI_ThruSections.hxx".}
@@ -182,22 +182,22 @@ proc setParType*(this: var BRepOffsetAPI_ThruSections;
     header: "BRepOffsetAPI_ThruSections.hxx".}
 proc setContinuity*(this: var BRepOffsetAPI_ThruSections; c: GeomAbsShape) {.
     importcpp: "SetContinuity", header: "BRepOffsetAPI_ThruSections.hxx".}
-proc setCriteriumWeight*(this: var BRepOffsetAPI_ThruSections; w1: float; w2: float;
-                        w3: float) {.importcpp: "SetCriteriumWeight",
-                                   header: "BRepOffsetAPI_ThruSections.hxx".}
-proc setMaxDegree*(this: var BRepOffsetAPI_ThruSections; maxDeg: int) {.
+proc setCriteriumWeight*(this: var BRepOffsetAPI_ThruSections; w1: cfloat; w2: cfloat;
+                        w3: cfloat) {.importcpp: "SetCriteriumWeight",
+                                    header: "BRepOffsetAPI_ThruSections.hxx".}
+proc setMaxDegree*(this: var BRepOffsetAPI_ThruSections; maxDeg: cint) {.
     importcpp: "SetMaxDegree", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc parType*(this: BRepOffsetAPI_ThruSections): ApproxParametrizationType {.
     noSideEffect, importcpp: "ParType", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc continuity*(this: BRepOffsetAPI_ThruSections): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "BRepOffsetAPI_ThruSections.hxx".}
-proc maxDegree*(this: BRepOffsetAPI_ThruSections): int {.noSideEffect,
+proc maxDegree*(this: BRepOffsetAPI_ThruSections): cint {.noSideEffect,
     importcpp: "MaxDegree", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc useSmoothing*(this: BRepOffsetAPI_ThruSections): bool {.noSideEffect,
     importcpp: "UseSmoothing", header: "BRepOffsetAPI_ThruSections.hxx".}
-proc criteriumWeight*(this: BRepOffsetAPI_ThruSections; w1: var float; w2: var float;
-                     w3: var float) {.noSideEffect, importcpp: "CriteriumWeight",
-                                   header: "BRepOffsetAPI_ThruSections.hxx".}
+proc criteriumWeight*(this: BRepOffsetAPI_ThruSections; w1: var cfloat;
+                     w2: var cfloat; w3: var cfloat) {.noSideEffect,
+    importcpp: "CriteriumWeight", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc build*(this: var BRepOffsetAPI_ThruSections) {.importcpp: "Build",
     header: "BRepOffsetAPI_ThruSections.hxx".}
 proc firstShape*(this: BRepOffsetAPI_ThruSections): TopoDS_Shape {.noSideEffect,
@@ -211,3 +211,28 @@ proc generated*(this: var BRepOffsetAPI_ThruSections; s: TopoDS_Shape): TopTools
     importcpp: "Generated", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc wires*(this: BRepOffsetAPI_ThruSections): TopToolsListOfShape {.noSideEffect,
     importcpp: "Wires", header: "BRepOffsetAPI_ThruSections.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

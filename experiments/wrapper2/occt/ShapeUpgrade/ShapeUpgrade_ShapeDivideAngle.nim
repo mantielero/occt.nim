@@ -22,15 +22,40 @@ type
                                                                          ## constructor.
 
 
-proc constructShapeUpgradeShapeDivideAngle*(maxAngle: float): ShapeUpgradeShapeDivideAngle {.
+proc constructShapeUpgradeShapeDivideAngle*(maxAngle: cfloat): ShapeUpgradeShapeDivideAngle {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideAngle(@)",
     header: "ShapeUpgrade_ShapeDivideAngle.hxx".}
-proc constructShapeUpgradeShapeDivideAngle*(maxAngle: float; s: TopoDS_Shape): ShapeUpgradeShapeDivideAngle {.
+proc constructShapeUpgradeShapeDivideAngle*(maxAngle: cfloat; s: TopoDS_Shape): ShapeUpgradeShapeDivideAngle {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideAngle(@)",
     header: "ShapeUpgrade_ShapeDivideAngle.hxx".}
-proc initTool*(this: var ShapeUpgradeShapeDivideAngle; maxAngle: float) {.
+proc initTool*(this: var ShapeUpgradeShapeDivideAngle; maxAngle: cfloat) {.
     importcpp: "InitTool", header: "ShapeUpgrade_ShapeDivideAngle.hxx".}
-proc setMaxAngle*(this: var ShapeUpgradeShapeDivideAngle; maxAngle: float) {.
+proc setMaxAngle*(this: var ShapeUpgradeShapeDivideAngle; maxAngle: cfloat) {.
     importcpp: "SetMaxAngle", header: "ShapeUpgrade_ShapeDivideAngle.hxx".}
-proc maxAngle*(this: ShapeUpgradeShapeDivideAngle): float {.noSideEffect,
+proc maxAngle*(this: ShapeUpgradeShapeDivideAngle): cfloat {.noSideEffect,
     importcpp: "MaxAngle", header: "ShapeUpgrade_ShapeDivideAngle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

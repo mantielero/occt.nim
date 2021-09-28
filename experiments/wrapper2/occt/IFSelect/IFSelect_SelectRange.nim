@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectRange"
 discard "forward decl of IFSelect_SelectRange"
 type
-  HandleIFSelectSelectRange* = Handle[IFSelectSelectRange]
+  HandleC1C1* = Handle[IFSelectSelectRange]
 
 ## ! A SelectRange keeps or rejects a sub-set of the input set,
 ## ! that is the Entities of which rank in the iteration list
@@ -59,15 +59,15 @@ proc hasLower*(this: IFSelectSelectRange): bool {.noSideEffect,
     importcpp: "HasLower", header: "IFSelect_SelectRange.hxx".}
 proc lower*(this: IFSelectSelectRange): Handle[IFSelectIntParam] {.noSideEffect,
     importcpp: "Lower", header: "IFSelect_SelectRange.hxx".}
-proc lowerValue*(this: IFSelectSelectRange): int {.noSideEffect,
+proc lowerValue*(this: IFSelectSelectRange): cint {.noSideEffect,
     importcpp: "LowerValue", header: "IFSelect_SelectRange.hxx".}
 proc hasUpper*(this: IFSelectSelectRange): bool {.noSideEffect,
     importcpp: "HasUpper", header: "IFSelect_SelectRange.hxx".}
 proc upper*(this: IFSelectSelectRange): Handle[IFSelectIntParam] {.noSideEffect,
     importcpp: "Upper", header: "IFSelect_SelectRange.hxx".}
-proc upperValue*(this: IFSelectSelectRange): int {.noSideEffect,
+proc upperValue*(this: IFSelectSelectRange): cint {.noSideEffect,
     importcpp: "UpperValue", header: "IFSelect_SelectRange.hxx".}
-proc sort*(this: IFSelectSelectRange; rank: int; ent: Handle[StandardTransient];
+proc sort*(this: IFSelectSelectRange; rank: cint; ent: Handle[StandardTransient];
           model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
     importcpp: "Sort", header: "IFSelect_SelectRange.hxx".}
 proc extractLabel*(this: IFSelectSelectRange): TCollectionAsciiString {.
@@ -82,3 +82,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectRange.hxx".}
 proc dynamicType*(this: IFSelectSelectRange): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectRange.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of Vrml_TextureCoordinate2"
 discard "forward decl of Vrml_TextureCoordinate2"
 type
-  HandleVrmlTextureCoordinate2* = Handle[VrmlTextureCoordinate2]
+  HandleC1C1* = Handle[VrmlTextureCoordinate2]
 
 ## ! defines a TextureCoordinate2 node of VRML specifying properties of geometry
 ## ! and its appearance.
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Vrml_TextureCoordinate2.hxx".}
 proc dynamicType*(this: VrmlTextureCoordinate2): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Vrml_TextureCoordinate2.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

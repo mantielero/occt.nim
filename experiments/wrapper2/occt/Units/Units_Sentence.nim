@@ -53,3 +53,28 @@ proc isDone*(this: UnitsSentence): bool {.noSideEffect, importcpp: "IsDone",
                                       header: "Units_Sentence.hxx".}
 proc dump*(this: UnitsSentence) {.noSideEffect, importcpp: "Dump",
                                header: "Units_Sentence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

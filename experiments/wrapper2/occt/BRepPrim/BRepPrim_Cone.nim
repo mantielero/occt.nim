@@ -97,20 +97,45 @@ type
                                                                                                          ## Height
 
 
-proc constructBRepPrimCone*(angle: float; position: Ax2; height: float;
-                           radius: float = 0): BRepPrimCone {.constructor,
+proc constructBRepPrimCone*(angle: cfloat; position: Ax2; height: cfloat;
+                           radius: cfloat = 0): BRepPrimCone {.constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(angle: float): BRepPrimCone {.constructor,
+proc constructBRepPrimCone*(angle: cfloat): BRepPrimCone {.constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(angle: float; apex: Pnt): BRepPrimCone {.constructor,
+proc constructBRepPrimCone*(angle: cfloat; apex: Pnt): BRepPrimCone {.constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(angle: float; axes: Ax2): BRepPrimCone {.constructor,
+proc constructBRepPrimCone*(angle: cfloat; axes: Ax2): BRepPrimCone {.constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(r1: float; r2: float; h: float): BRepPrimCone {.constructor,
-    importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(center: Pnt; r1: float; r2: float; h: float): BRepPrimCone {.
+proc constructBRepPrimCone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.
     constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(axes: Ax2; r1: float; r2: float; h: float): BRepPrimCone {.
+proc constructBRepPrimCone*(center: Pnt; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.
+    constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
+proc constructBRepPrimCone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.
     constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimCone): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Cone.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

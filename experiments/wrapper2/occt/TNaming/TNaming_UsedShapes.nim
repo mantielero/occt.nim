@@ -25,7 +25,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TNaming_UsedShapes"
 discard "forward decl of TNaming_UsedShapes"
 type
-  HandleTNamingUsedShapes* = Handle[TNamingUsedShapes]
+  HandleC1C1* = Handle[TNamingUsedShapes]
 
 ## ! Global attribute located under root label to store all
 ## ! the shapes handled by the framework
@@ -71,8 +71,8 @@ proc references*(this: TNamingUsedShapes; aDataSet: Handle[TDF_DataSet]) {.
 proc dump*(this: TNamingUsedShapes; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TNaming_UsedShapes.hxx".}
 proc dumpJson*(this: TNamingUsedShapes; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TNaming_UsedShapes.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TNaming_UsedShapes.hxx".}
 type
   TNamingUsedShapesbaseType* = TDF_Attribute
 
@@ -83,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TNaming_UsedShapes.hxx".}
 proc dynamicType*(this: TNamingUsedShapes): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TNaming_UsedShapes.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

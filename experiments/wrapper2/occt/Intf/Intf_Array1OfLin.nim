@@ -19,3 +19,28 @@
 type
   IntfArray1OfLin* = NCollectionArray1[Lin]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of IGESGraph_DrawingSize"
 discard "forward decl of IGESGraph_DrawingSize"
 type
-  HandleIGESGraphDrawingSize* = Handle[IGESGraphDrawingSize]
+  HandleC1C1* = Handle[IGESGraphDrawingSize]
 
 ## ! defines IGESDrawingSize, Type <406> Form <16>
 ## ! in package IGESGraph
@@ -33,13 +33,13 @@ type
 
 proc constructIGESGraphDrawingSize*(): IGESGraphDrawingSize {.constructor,
     importcpp: "IGESGraph_DrawingSize(@)", header: "IGESGraph_DrawingSize.hxx".}
-proc init*(this: var IGESGraphDrawingSize; nbProps: int; aXSize: float; aYSize: float) {.
+proc init*(this: var IGESGraphDrawingSize; nbProps: cint; aXSize: cfloat; aYSize: cfloat) {.
     importcpp: "Init", header: "IGESGraph_DrawingSize.hxx".}
-proc nbPropertyValues*(this: IGESGraphDrawingSize): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESGraphDrawingSize): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESGraph_DrawingSize.hxx".}
-proc xSize*(this: IGESGraphDrawingSize): float {.noSideEffect, importcpp: "XSize",
+proc xSize*(this: IGESGraphDrawingSize): cfloat {.noSideEffect, importcpp: "XSize",
     header: "IGESGraph_DrawingSize.hxx".}
-proc ySize*(this: IGESGraphDrawingSize): float {.noSideEffect, importcpp: "YSize",
+proc ySize*(this: IGESGraphDrawingSize): cfloat {.noSideEffect, importcpp: "YSize",
     header: "IGESGraph_DrawingSize.hxx".}
 type
   IGESGraphDrawingSizebaseType* = IGESDataIGESEntity
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGraph_DrawingSize.hxx".}
 proc dynamicType*(this: IGESGraphDrawingSize): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGraph_DrawingSize.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

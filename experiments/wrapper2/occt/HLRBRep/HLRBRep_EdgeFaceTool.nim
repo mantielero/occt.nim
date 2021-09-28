@@ -20,9 +20,34 @@ type
                         header: "HLRBRep_EdgeFaceTool.hxx", bycopy.} = object
 
 
-proc curvatureValue*(f: StandardAddress; u: float; v: float; tg: Dir): float {.
+proc curvatureValue*(f: StandardAddress; u: cfloat; v: cfloat; tg: Dir): cfloat {.
     importcpp: "HLRBRep_EdgeFaceTool::CurvatureValue(@)",
     header: "HLRBRep_EdgeFaceTool.hxx".}
-proc uVPoint*(par: float; e: StandardAddress; f: StandardAddress; u: var float;
-             v: var float): bool {.importcpp: "HLRBRep_EdgeFaceTool::UVPoint(@)",
-                               header: "HLRBRep_EdgeFaceTool.hxx".}
+proc uVPoint*(par: cfloat; e: StandardAddress; f: StandardAddress; u: var cfloat;
+             v: var cfloat): bool {.importcpp: "HLRBRep_EdgeFaceTool::UVPoint(@)",
+                                header: "HLRBRep_EdgeFaceTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

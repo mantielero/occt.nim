@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepFill_EdgeOnSurfLaw"
 discard "forward decl of BRepFill_EdgeOnSurfLaw"
 type
-  HandleBRepFillEdgeOnSurfLaw* = Handle[BRepFillEdgeOnSurfLaw]
+  HandleC1C1* = Handle[BRepFillEdgeOnSurfLaw]
 
 ## ! Build Location Law, with a Wire and a  Surface.
 
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_EdgeOnSurfLaw.hxx".}
 proc dynamicType*(this: BRepFillEdgeOnSurfLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_EdgeOnSurfLaw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

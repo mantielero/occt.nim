@@ -51,10 +51,10 @@ type
 
   OpenGlFontRectI* {.importcpp: "OpenGl_Font::RectI", header: "OpenGl_Font.hxx",
                     bycopy.} = object
-    left* {.importc: "Left".}: int
-    right* {.importc: "Right".}: int
-    top* {.importc: "Top".}: int
-    bottom* {.importc: "Bottom".}: int
+    left* {.importc: "Left".}: cint
+    right* {.importc: "Right".}: cint
+    top* {.importc: "Top".}: cint
+    bottom* {.importc: "Bottom".}: cint
 
 
 proc constructOpenGlFont*(theFont: Handle[FontFTFont];
@@ -94,5 +94,30 @@ proc dynamicType*(this: OpenGlFont): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_Font.hxx".}
 discard "forward decl of OpenGl_Font"
 type
-  HandleOpenGlFont* = Handle[OpenGlFont]
+  HandleC1C1* = Handle[OpenGlFont]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

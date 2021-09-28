@@ -20,7 +20,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGeom_Point"
 discard "forward decl of IGESGeom_Point"
 type
-  HandleIGESGeomPoint* = Handle[IGESGeomPoint]
+  HandleC1C1* = Handle[IGESGeomPoint]
 
 ## ! defines IGESPoint, Type <116> Form <0>
 ## ! in package IGESGeom
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_Point.hxx".}
 proc dynamicType*(this: IGESGeomPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Point.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

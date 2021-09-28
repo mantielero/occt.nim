@@ -19,8 +19,7 @@ discard "forward decl of StepVisual_PresentationRepresentationSelect"
 discard "forward decl of StepVisual_PresentedItemRepresentation"
 discard "forward decl of StepVisual_PresentedItemRepresentation"
 type
-  HandleStepVisualPresentedItemRepresentation* = Handle[
-      StepVisualPresentedItemRepresentation]
+  HandleC1C1* = Handle[StepVisualPresentedItemRepresentation]
 
 ## ! Added from StepVisual Rev2 to Rev4
 
@@ -58,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Present
 proc dynamicType*(this: StepVisualPresentedItemRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentedItemRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

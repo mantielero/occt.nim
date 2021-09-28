@@ -31,3 +31,28 @@ proc multiply*[ElemT](this: var AspectFrustumLRBT[ElemT]; theScale: ElemT) {.
     importcpp: "Multiply", header: "Aspect_FrustumLRBT.hxx".}
 proc multiplied*[ElemT](this: var AspectFrustumLRBT[ElemT]; theScale: ElemT): AspectFrustumLRBT[
     ElemT] {.importcpp: "Multiplied", header: "Aspect_FrustumLRBT.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_DimensionalExponents"
 type
-  HandleStepBasicDimensionalExponents* = Handle[StepBasicDimensionalExponents]
+  HandleC1C1* = Handle[StepBasicDimensionalExponents]
   StepBasicDimensionalExponents* {.importcpp: "StepBasic_DimensionalExponents",
                                   header: "StepBasic_DimensionalExponents.hxx",
                                   bycopy.} = object of StandardTransient ## ! Returns a
@@ -27,52 +27,52 @@ type
 proc constructStepBasicDimensionalExponents*(): StepBasicDimensionalExponents {.
     constructor, importcpp: "StepBasic_DimensionalExponents(@)",
     header: "StepBasic_DimensionalExponents.hxx".}
-proc init*(this: var StepBasicDimensionalExponents; aLengthExponent: float;
-          aMassExponent: float; aTimeExponent: float;
-          aElectricCurrentExponent: float;
-          aThermodynamicTemperatureExponent: float;
-          aAmountOfSubstanceExponent: float; aLuminousIntensityExponent: float) {.
+proc init*(this: var StepBasicDimensionalExponents; aLengthExponent: cfloat;
+          aMassExponent: cfloat; aTimeExponent: cfloat;
+          aElectricCurrentExponent: cfloat;
+          aThermodynamicTemperatureExponent: cfloat;
+          aAmountOfSubstanceExponent: cfloat; aLuminousIntensityExponent: cfloat) {.
     importcpp: "Init", header: "StepBasic_DimensionalExponents.hxx".}
 proc setLengthExponent*(this: var StepBasicDimensionalExponents;
-                       aLengthExponent: float) {.importcpp: "SetLengthExponent",
+                       aLengthExponent: cfloat) {.importcpp: "SetLengthExponent",
     header: "StepBasic_DimensionalExponents.hxx".}
-proc lengthExponent*(this: StepBasicDimensionalExponents): float {.noSideEffect,
+proc lengthExponent*(this: StepBasicDimensionalExponents): cfloat {.noSideEffect,
     importcpp: "LengthExponent", header: "StepBasic_DimensionalExponents.hxx".}
-proc setMassExponent*(this: var StepBasicDimensionalExponents; aMassExponent: float) {.
+proc setMassExponent*(this: var StepBasicDimensionalExponents; aMassExponent: cfloat) {.
     importcpp: "SetMassExponent", header: "StepBasic_DimensionalExponents.hxx".}
-proc massExponent*(this: StepBasicDimensionalExponents): float {.noSideEffect,
+proc massExponent*(this: StepBasicDimensionalExponents): cfloat {.noSideEffect,
     importcpp: "MassExponent", header: "StepBasic_DimensionalExponents.hxx".}
-proc setTimeExponent*(this: var StepBasicDimensionalExponents; aTimeExponent: float) {.
+proc setTimeExponent*(this: var StepBasicDimensionalExponents; aTimeExponent: cfloat) {.
     importcpp: "SetTimeExponent", header: "StepBasic_DimensionalExponents.hxx".}
-proc timeExponent*(this: StepBasicDimensionalExponents): float {.noSideEffect,
+proc timeExponent*(this: StepBasicDimensionalExponents): cfloat {.noSideEffect,
     importcpp: "TimeExponent", header: "StepBasic_DimensionalExponents.hxx".}
 proc setElectricCurrentExponent*(this: var StepBasicDimensionalExponents;
-                                aElectricCurrentExponent: float) {.
+                                aElectricCurrentExponent: cfloat) {.
     importcpp: "SetElectricCurrentExponent",
     header: "StepBasic_DimensionalExponents.hxx".}
-proc electricCurrentExponent*(this: StepBasicDimensionalExponents): float {.
+proc electricCurrentExponent*(this: StepBasicDimensionalExponents): cfloat {.
     noSideEffect, importcpp: "ElectricCurrentExponent",
     header: "StepBasic_DimensionalExponents.hxx".}
 proc setThermodynamicTemperatureExponent*(
     this: var StepBasicDimensionalExponents;
-    aThermodynamicTemperatureExponent: float) {.
+    aThermodynamicTemperatureExponent: cfloat) {.
     importcpp: "SetThermodynamicTemperatureExponent",
     header: "StepBasic_DimensionalExponents.hxx".}
-proc thermodynamicTemperatureExponent*(this: StepBasicDimensionalExponents): float {.
+proc thermodynamicTemperatureExponent*(this: StepBasicDimensionalExponents): cfloat {.
     noSideEffect, importcpp: "ThermodynamicTemperatureExponent",
     header: "StepBasic_DimensionalExponents.hxx".}
 proc setAmountOfSubstanceExponent*(this: var StepBasicDimensionalExponents;
-                                  aAmountOfSubstanceExponent: float) {.
+                                  aAmountOfSubstanceExponent: cfloat) {.
     importcpp: "SetAmountOfSubstanceExponent",
     header: "StepBasic_DimensionalExponents.hxx".}
-proc amountOfSubstanceExponent*(this: StepBasicDimensionalExponents): float {.
+proc amountOfSubstanceExponent*(this: StepBasicDimensionalExponents): cfloat {.
     noSideEffect, importcpp: "AmountOfSubstanceExponent",
     header: "StepBasic_DimensionalExponents.hxx".}
 proc setLuminousIntensityExponent*(this: var StepBasicDimensionalExponents;
-                                  aLuminousIntensityExponent: float) {.
+                                  aLuminousIntensityExponent: cfloat) {.
     importcpp: "SetLuminousIntensityExponent",
     header: "StepBasic_DimensionalExponents.hxx".}
-proc luminousIntensityExponent*(this: StepBasicDimensionalExponents): float {.
+proc luminousIntensityExponent*(this: StepBasicDimensionalExponents): cfloat {.
     noSideEffect, importcpp: "LuminousIntensityExponent",
     header: "StepBasic_DimensionalExponents.hxx".}
 type
@@ -86,3 +86,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicDimensionalExponents): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DimensionalExponents.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

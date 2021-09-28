@@ -22,7 +22,7 @@ discard "forward decl of IGESGraph_TextDisplayTemplate"
 discard "forward decl of IGESAppli_PipingFlow"
 discard "forward decl of IGESAppli_PipingFlow"
 type
-  HandleIGESAppliPipingFlow* = Handle[IGESAppliPipingFlow]
+  HandleC1C1* = Handle[IGESAppliPipingFlow]
 
 ## ! defines PipingFlow, Type <402> Form <20>
 ## ! in package IGESAppli
@@ -35,7 +35,7 @@ type
 
 proc constructIGESAppliPipingFlow*(): IGESAppliPipingFlow {.constructor,
     importcpp: "IGESAppli_PipingFlow(@)", header: "IGESAppli_PipingFlow.hxx".}
-proc init*(this: var IGESAppliPipingFlow; nbContextFlags: int; aFlowType: int;
+proc init*(this: var IGESAppliPipingFlow; nbContextFlags: cint; aFlowType: cint;
           allFlowAssocs: Handle[IGESDataHArray1OfIGESEntity];
           allConnectPoints: Handle[IGESDrawHArray1OfConnectPoint];
           allJoins: Handle[IGESDataHArray1OfIGESEntity];
@@ -45,37 +45,38 @@ proc init*(this: var IGESAppliPipingFlow; nbContextFlags: int; aFlowType: int;
     importcpp: "Init", header: "IGESAppli_PipingFlow.hxx".}
 proc ownCorrect*(this: var IGESAppliPipingFlow): bool {.importcpp: "OwnCorrect",
     header: "IGESAppli_PipingFlow.hxx".}
-proc nbContextFlags*(this: IGESAppliPipingFlow): int {.noSideEffect,
+proc nbContextFlags*(this: IGESAppliPipingFlow): cint {.noSideEffect,
     importcpp: "NbContextFlags", header: "IGESAppli_PipingFlow.hxx".}
-proc nbFlowAssociativities*(this: IGESAppliPipingFlow): int {.noSideEffect,
+proc nbFlowAssociativities*(this: IGESAppliPipingFlow): cint {.noSideEffect,
     importcpp: "NbFlowAssociativities", header: "IGESAppli_PipingFlow.hxx".}
-proc nbConnectPoints*(this: IGESAppliPipingFlow): int {.noSideEffect,
+proc nbConnectPoints*(this: IGESAppliPipingFlow): cint {.noSideEffect,
     importcpp: "NbConnectPoints", header: "IGESAppli_PipingFlow.hxx".}
-proc nbJoins*(this: IGESAppliPipingFlow): int {.noSideEffect, importcpp: "NbJoins",
+proc nbJoins*(this: IGESAppliPipingFlow): cint {.noSideEffect, importcpp: "NbJoins",
     header: "IGESAppli_PipingFlow.hxx".}
-proc nbFlowNames*(this: IGESAppliPipingFlow): int {.noSideEffect,
+proc nbFlowNames*(this: IGESAppliPipingFlow): cint {.noSideEffect,
     importcpp: "NbFlowNames", header: "IGESAppli_PipingFlow.hxx".}
-proc nbTextDisplayTemplates*(this: IGESAppliPipingFlow): int {.noSideEffect,
+proc nbTextDisplayTemplates*(this: IGESAppliPipingFlow): cint {.noSideEffect,
     importcpp: "NbTextDisplayTemplates", header: "IGESAppli_PipingFlow.hxx".}
-proc nbContFlowAssociativities*(this: IGESAppliPipingFlow): int {.noSideEffect,
+proc nbContFlowAssociativities*(this: IGESAppliPipingFlow): cint {.noSideEffect,
     importcpp: "NbContFlowAssociativities", header: "IGESAppli_PipingFlow.hxx".}
-proc typeOfFlow*(this: IGESAppliPipingFlow): int {.noSideEffect,
+proc typeOfFlow*(this: IGESAppliPipingFlow): cint {.noSideEffect,
     importcpp: "TypeOfFlow", header: "IGESAppli_PipingFlow.hxx".}
-proc flowAssociativity*(this: IGESAppliPipingFlow; index: int): Handle[
+proc flowAssociativity*(this: IGESAppliPipingFlow; index: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "FlowAssociativity",
                          header: "IGESAppli_PipingFlow.hxx".}
-proc connectPoint*(this: IGESAppliPipingFlow; index: int): Handle[
+proc connectPoint*(this: IGESAppliPipingFlow; index: cint): Handle[
     IGESDrawConnectPoint] {.noSideEffect, importcpp: "ConnectPoint",
                            header: "IGESAppli_PipingFlow.hxx".}
-proc join*(this: IGESAppliPipingFlow; index: int): Handle[IGESDataIGESEntity] {.
+proc join*(this: IGESAppliPipingFlow; index: cint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Join", header: "IGESAppli_PipingFlow.hxx".}
-proc flowName*(this: IGESAppliPipingFlow; index: int): Handle[TCollectionHAsciiString] {.
-    noSideEffect, importcpp: "FlowName", header: "IGESAppli_PipingFlow.hxx".}
-proc textDisplayTemplate*(this: IGESAppliPipingFlow; index: int): Handle[
+proc flowName*(this: IGESAppliPipingFlow; index: cint): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "FlowName",
+                              header: "IGESAppli_PipingFlow.hxx".}
+proc textDisplayTemplate*(this: IGESAppliPipingFlow; index: cint): Handle[
     IGESGraphTextDisplayTemplate] {.noSideEffect,
                                    importcpp: "TextDisplayTemplate",
                                    header: "IGESAppli_PipingFlow.hxx".}
-proc contFlowAssociativity*(this: IGESAppliPipingFlow; index: int): Handle[
+proc contFlowAssociativity*(this: IGESAppliPipingFlow; index: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "ContFlowAssociativity",
                          header: "IGESAppli_PipingFlow.hxx".}
 type
@@ -88,3 +89,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_PipingFlow.hxx".}
 proc dynamicType*(this: IGESAppliPipingFlow): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESAppli_PipingFlow.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

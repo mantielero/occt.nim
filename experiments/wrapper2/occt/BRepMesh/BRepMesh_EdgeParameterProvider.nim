@@ -41,8 +41,33 @@ proc init*[ParametersCollection](this: var BRepMeshEdgeParameterProvider[
                                 theParameters: ParametersCollection) {.
     importcpp: "Init", header: "BRepMesh_EdgeParameterProvider.hxx".}
 proc parameter*[ParametersCollection](this: BRepMeshEdgeParameterProvider[
-    ParametersCollection]; theIndex: int; thePoint3d: Pnt): float {.noSideEffect,
+    ParametersCollection]; theIndex: cint; thePoint3d: Pnt): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "BRepMesh_EdgeParameterProvider.hxx".}
 proc getPCurve*[ParametersCollection](this: BRepMeshEdgeParameterProvider[
     ParametersCollection]): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "GetPCurve", header: "BRepMesh_EdgeParameterProvider.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

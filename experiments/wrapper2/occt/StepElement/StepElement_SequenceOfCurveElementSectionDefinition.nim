@@ -15,3 +15,28 @@ type
   StepElementSequenceOfCurveElementSectionDefinition* = NCollectionSequence[
       Handle[StepElementCurveElementSectionDefinition]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

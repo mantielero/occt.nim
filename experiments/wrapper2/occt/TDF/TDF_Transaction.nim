@@ -32,8 +32,8 @@ proc constructTDF_Transaction*(aDF: Handle[TDF_Data];
     constructor, importcpp: "TDF_Transaction(@)", header: "TDF_Transaction.hxx".}
 proc initialize*(this: var TDF_Transaction; aDF: Handle[TDF_Data]) {.
     importcpp: "Initialize", header: "TDF_Transaction.hxx".}
-proc open*(this: var TDF_Transaction): int {.importcpp: "Open",
-                                        header: "TDF_Transaction.hxx".}
+proc open*(this: var TDF_Transaction): cint {.importcpp: "Open",
+    header: "TDF_Transaction.hxx".}
 proc commit*(this: var TDF_Transaction; withDelta: bool = false): Handle[TDF_Delta] {.
     importcpp: "Commit", header: "TDF_Transaction.hxx".}
 proc abort*(this: var TDF_Transaction) {.importcpp: "Abort",
@@ -42,12 +42,37 @@ proc destroyTDF_Transaction*(this: var TDF_Transaction) {.
     importcpp: "#.~TDF_Transaction()", header: "TDF_Transaction.hxx".}
 proc data*(this: TDF_Transaction): Handle[TDF_Data] {.noSideEffect,
     importcpp: "Data", header: "TDF_Transaction.hxx".}
-proc transaction*(this: TDF_Transaction): int {.noSideEffect,
+proc transaction*(this: TDF_Transaction): cint {.noSideEffect,
     importcpp: "Transaction", header: "TDF_Transaction.hxx".}
 proc name*(this: TDF_Transaction): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "TDF_Transaction.hxx".}
 proc isOpen*(this: TDF_Transaction): bool {.noSideEffect, importcpp: "IsOpen",
                                         header: "TDF_Transaction.hxx".}
 proc dumpJson*(this: TDF_Transaction; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDF_Transaction.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDF_Transaction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

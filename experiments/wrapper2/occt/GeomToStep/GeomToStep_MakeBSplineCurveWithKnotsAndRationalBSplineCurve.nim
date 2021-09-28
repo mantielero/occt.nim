@@ -24,6 +24,19 @@ type
       bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve;
+           theSize: csize_t): pointer {.importcpp: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve::operator new", header: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
+proc `delete`*(this: var GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve;
+              theAddress: pointer) {.importcpp: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve::operator delete", header: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
+proc `new[]`*(this: var GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve;
+             theSize: csize_t): pointer {.importcpp: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve::operator new[]", header: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve;
+                theAddress: pointer) {.importcpp: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve::operator delete[]", header: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
+proc `new`*(this: var GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve::operator new",
+    header: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
+proc `delete`*(this: var GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve;
+              a2: pointer; a3: pointer) {.importcpp: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve::operator delete", header: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 proc constructGeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve*(
     bsplin: Handle[GeomBSplineCurve]): GeomToStepMakeBSplineCurveWithKnotsAndRationalBSplineCurve {.
     constructor, importcpp: "GeomToStep_MakeBSplineCurveWithKnotsAndRationalBSplineCurve(@)",

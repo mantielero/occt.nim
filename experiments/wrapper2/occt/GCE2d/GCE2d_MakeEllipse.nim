@@ -34,10 +34,10 @@ type
 
 proc constructGCE2dMakeEllipse*(e: Elips2d): GCE2dMakeEllipse {.constructor,
     importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
-proc constructGCE2dMakeEllipse*(majorAxis: Ax2d; majorRadius: float;
-                               minorRadius: float; sense: bool = true): GCE2dMakeEllipse {.
+proc constructGCE2dMakeEllipse*(majorAxis: Ax2d; majorRadius: cfloat;
+                               minorRadius: cfloat; sense: bool = true): GCE2dMakeEllipse {.
     constructor, importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
-proc constructGCE2dMakeEllipse*(axis: Ax22d; majorRadius: float; minorRadius: float): GCE2dMakeEllipse {.
+proc constructGCE2dMakeEllipse*(axis: Ax22d; majorRadius: cfloat; minorRadius: cfloat): GCE2dMakeEllipse {.
     constructor, importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
 proc constructGCE2dMakeEllipse*(s1: Pnt2d; s2: Pnt2d; center: Pnt2d): GCE2dMakeEllipse {.
     constructor, importcpp: "GCE2d_MakeEllipse(@)", header: "GCE2d_MakeEllipse.hxx".}
@@ -46,3 +46,28 @@ proc value*(this: GCE2dMakeEllipse): Handle[Geom2dEllipse] {.noSideEffect,
 converter `constopencascade`*(this: GCE2dMakeEllipse): Handle[Geom2dEllipse] {.
     noSideEffect, importcpp: "GCE2d_MakeEllipse::operator constopencascade",
     header: "GCE2d_MakeEllipse.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

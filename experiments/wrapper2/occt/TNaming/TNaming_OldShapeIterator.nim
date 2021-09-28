@@ -29,7 +29,7 @@ type
                             header: "TNaming_OldShapeIterator.hxx", bycopy.} = object
 
 
-proc constructTNamingOldShapeIterator*(aShape: TopoDS_Shape; transaction: int;
+proc constructTNamingOldShapeIterator*(aShape: TopoDS_Shape; transaction: cint;
                                       access: TDF_Label): TNamingOldShapeIterator {.
     constructor, importcpp: "TNaming_OldShapeIterator(@)",
     header: "TNaming_OldShapeIterator.hxx".}
@@ -54,3 +54,28 @@ proc shape*(this: TNamingOldShapeIterator): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TNaming_OldShapeIterator.hxx".}
 proc isModification*(this: TNamingOldShapeIterator): bool {.noSideEffect,
     importcpp: "IsModification", header: "TNaming_OldShapeIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

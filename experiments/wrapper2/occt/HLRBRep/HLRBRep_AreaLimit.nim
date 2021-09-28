@@ -18,7 +18,7 @@ discard "forward decl of HLRAlgo_Intersection"
 discard "forward decl of HLRBRep_AreaLimit"
 discard "forward decl of HLRBRep_AreaLimit"
 type
-  HandleHLRBRepAreaLimit* = Handle[HLRBRepAreaLimit]
+  HandleC1C1* = Handle[HLRBRepAreaLimit]
 
 ## ! The  private  nested class AreaLimit represents   a --
 ## ! vertex on  the Edge with the  state on the left and --
@@ -86,3 +86,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRBRep_AreaLimit.hxx".}
 proc dynamicType*(this: HLRBRepAreaLimit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRBRep_AreaLimit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

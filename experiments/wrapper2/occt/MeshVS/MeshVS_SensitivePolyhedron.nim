@@ -44,7 +44,7 @@ proc matches*(this: var MeshVS_SensitivePolyhedron;
              theMgr: var SelectBasicsSelectingVolumeManager;
              thePickResult: var SelectBasicsPickResult): bool {.
     importcpp: "Matches", header: "MeshVS_SensitivePolyhedron.hxx".}
-proc nbSubElements*(this: MeshVS_SensitivePolyhedron): int {.noSideEffect,
+proc nbSubElements*(this: MeshVS_SensitivePolyhedron): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "MeshVS_SensitivePolyhedron.hxx".}
 proc boundingBox*(this: var MeshVS_SensitivePolyhedron): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "MeshVS_SensitivePolyhedron.hxx".}
@@ -63,5 +63,30 @@ proc dynamicType*(this: MeshVS_SensitivePolyhedron): Handle[StandardType] {.
     header: "MeshVS_SensitivePolyhedron.hxx".}
 discard "forward decl of MeshVS_SensitivePolyhedron"
 type
-  HandleMeshVS_SensitivePolyhedron* = Handle[MeshVS_SensitivePolyhedron]
+  HandleC1C1* = Handle[MeshVS_SensitivePolyhedron]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

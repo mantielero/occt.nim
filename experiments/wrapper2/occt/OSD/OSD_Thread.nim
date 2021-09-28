@@ -32,19 +32,44 @@ proc assign*(this: var OSD_Thread; other: OSD_Thread) {.importcpp: "Assign",
     header: "OSD_Thread.hxx".}
 proc destroyOSD_Thread*(this: var OSD_Thread) {.importcpp: "#.~OSD_Thread()",
     header: "OSD_Thread.hxx".}
-proc setPriority*(this: var OSD_Thread; thePriority: int) {.importcpp: "SetPriority",
+proc setPriority*(this: var OSD_Thread; thePriority: cint) {.importcpp: "SetPriority",
     header: "OSD_Thread.hxx".}
 proc setFunction*(this: var OSD_Thread; `func`: OSD_ThreadFunction) {.
     importcpp: "SetFunction", header: "OSD_Thread.hxx".}
-proc run*(this: var OSD_Thread; data: StandardAddress = 0; wNTStackSize: int = 0): bool {.
+proc run*(this: var OSD_Thread; data: StandardAddress = 0; wNTStackSize: cint = 0): bool {.
     importcpp: "Run", header: "OSD_Thread.hxx".}
 proc detach*(this: var OSD_Thread) {.importcpp: "Detach", header: "OSD_Thread.hxx".}
 proc wait*(this: var OSD_Thread): bool {.importcpp: "Wait", header: "OSD_Thread.hxx".}
 proc wait*(this: var OSD_Thread; theResult: var StandardAddress): bool {.
     importcpp: "Wait", header: "OSD_Thread.hxx".}
-proc wait*(this: var OSD_Thread; time: int; theResult: var StandardAddress): bool {.
+proc wait*(this: var OSD_Thread; time: cint; theResult: var StandardAddress): bool {.
     importcpp: "Wait", header: "OSD_Thread.hxx".}
 proc getId*(this: OSD_Thread): StandardThreadId {.noSideEffect, importcpp: "GetId",
     header: "OSD_Thread.hxx".}
 proc current*(): StandardThreadId {.importcpp: "OSD_Thread::Current(@)",
                                  header: "OSD_Thread.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

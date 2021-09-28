@@ -39,3 +39,28 @@ proc value*(this: TopoDSToStepMakeStepWire): Handle[
     header: "TopoDSToStep_MakeStepWire.hxx".}
 proc error*(this: TopoDSToStepMakeStepWire): TopoDSToStepMakeWireError {.
     noSideEffect, importcpp: "Error", header: "TopoDSToStep_MakeStepWire.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

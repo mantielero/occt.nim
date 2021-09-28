@@ -66,21 +66,46 @@ proc doResize*(this: var AspectNeutralWindow): AspectTypeOfResize {.
     importcpp: "DoResize", header: "Aspect_NeutralWindow.hxx".}
 proc doMapping*(this: AspectNeutralWindow): bool {.noSideEffect,
     importcpp: "DoMapping", header: "Aspect_NeutralWindow.hxx".}
-proc ratio*(this: AspectNeutralWindow): float {.noSideEffect, importcpp: "Ratio",
+proc ratio*(this: AspectNeutralWindow): cfloat {.noSideEffect, importcpp: "Ratio",
     header: "Aspect_NeutralWindow.hxx".}
-proc position*(this: AspectNeutralWindow; theX1: var int; theY1: var int; theX2: var int;
-              theY2: var int) {.noSideEffect, importcpp: "Position",
-                             header: "Aspect_NeutralWindow.hxx".}
-proc setPosition*(this: var AspectNeutralWindow; theX1: int; theY1: int): bool {.
+proc position*(this: AspectNeutralWindow; theX1: var cint; theY1: var cint;
+              theX2: var cint; theY2: var cint) {.noSideEffect, importcpp: "Position",
+    header: "Aspect_NeutralWindow.hxx".}
+proc setPosition*(this: var AspectNeutralWindow; theX1: cint; theY1: cint): bool {.
     importcpp: "SetPosition", header: "Aspect_NeutralWindow.hxx".}
-proc setPosition*(this: var AspectNeutralWindow; theX1: int; theY1: int; theX2: int;
-                 theY2: int): bool {.importcpp: "SetPosition",
-                                  header: "Aspect_NeutralWindow.hxx".}
-proc size*(this: AspectNeutralWindow; theWidth: var int; theHeight: var int) {.
+proc setPosition*(this: var AspectNeutralWindow; theX1: cint; theY1: cint; theX2: cint;
+                 theY2: cint): bool {.importcpp: "SetPosition",
+                                   header: "Aspect_NeutralWindow.hxx".}
+proc size*(this: AspectNeutralWindow; theWidth: var cint; theHeight: var cint) {.
     noSideEffect, importcpp: "Size", header: "Aspect_NeutralWindow.hxx".}
-proc setSize*(this: var AspectNeutralWindow; theWidth: int; theHeight: int): bool {.
+proc setSize*(this: var AspectNeutralWindow; theWidth: cint; theHeight: cint): bool {.
     importcpp: "SetSize", header: "Aspect_NeutralWindow.hxx".}
 discard "forward decl of Aspect_NeutralWindow"
 type
-  HandleAspectNeutralWindow* = Handle[AspectNeutralWindow]
+  HandleC1C1* = Handle[AspectNeutralWindow]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -28,7 +28,7 @@ proc constructRWStepBasicRWLengthUnit*(): RWStepBasicRWLengthUnit {.constructor,
     importcpp: "RWStepBasic_RWLengthUnit(@)",
     header: "RWStepBasic_RWLengthUnit.hxx".}
 proc readStep*(this: RWStepBasicRWLengthUnit; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicLengthUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWLengthUnit.hxx".}
 proc writeStep*(this: RWStepBasicRWLengthUnit; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepBasicRWLengthUnit; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWLengthUnit; ent: Handle[StepBasicLengthUnit];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWLengthUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of StepShape_Vertex"
 discard "forward decl of StepShape_EdgeCurve"
 discard "forward decl of StepShape_EdgeCurve"
 type
-  HandleStepShapeEdgeCurve* = Handle[StepShapeEdgeCurve]
+  HandleC1C1* = Handle[StepShapeEdgeCurve]
   StepShapeEdgeCurve* {.importcpp: "StepShape_EdgeCurve",
                        header: "StepShape_EdgeCurve.hxx", bycopy.} = object of StepShapeEdge ##
                                                                                       ## !
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_EdgeCurve.hxx".}
 proc dynamicType*(this: StepShapeEdgeCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_EdgeCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

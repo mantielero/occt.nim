@@ -17,7 +17,7 @@ discard "forward decl of Graphic3d_Camera"
 discard "forward decl of Graphic3d_DataStructureManager"
 discard "forward decl of Graphic3d_DataStructureManager"
 type
-  HandleGraphic3dDataStructureManager* = Handle[Graphic3dDataStructureManager]
+  HandleC1C1* = Handle[Graphic3dDataStructureManager]
 
 ## ! This class allows the definition of a manager to
 ## ! which the graphic objects are associated.
@@ -39,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Graphic3dDataStructureManager): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_DataStructureManager.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

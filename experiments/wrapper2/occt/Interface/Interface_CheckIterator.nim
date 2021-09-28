@@ -50,14 +50,14 @@ proc clear*(this: var InterfaceCheckIterator) {.importcpp: "Clear",
     header: "Interface_CheckIterator.hxx".}
 proc merge*(this: var InterfaceCheckIterator; other: var InterfaceCheckIterator) {.
     importcpp: "Merge", header: "Interface_CheckIterator.hxx".}
-proc add*(this: var InterfaceCheckIterator; ach: Handle[InterfaceCheck]; num: int = 0) {.
+proc add*(this: var InterfaceCheckIterator; ach: Handle[InterfaceCheck]; num: cint = 0) {.
     importcpp: "Add", header: "Interface_CheckIterator.hxx".}
-proc check*(this: InterfaceCheckIterator; num: int): Handle[InterfaceCheck] {.
+proc check*(this: InterfaceCheckIterator; num: cint): Handle[InterfaceCheck] {.
     noSideEffect, importcpp: "Check", header: "Interface_CheckIterator.hxx".}
 proc check*(this: InterfaceCheckIterator; ent: Handle[StandardTransient]): Handle[
     InterfaceCheck] {.noSideEffect, importcpp: "Check",
                      header: "Interface_CheckIterator.hxx".}
-proc cCheck*(this: var InterfaceCheckIterator; num: int): var Handle[InterfaceCheck] {.
+proc cCheck*(this: var InterfaceCheckIterator; num: cint): var Handle[InterfaceCheck] {.
     importcpp: "CCheck", header: "Interface_CheckIterator.hxx".}
 proc cCheck*(this: var InterfaceCheckIterator; ent: Handle[StandardTransient]): var Handle[
     InterfaceCheck] {.importcpp: "CCheck", header: "Interface_CheckIterator.hxx".}
@@ -69,10 +69,10 @@ proc complies*(this: InterfaceCheckIterator; status: InterfaceCheckStatus): bool
     noSideEffect, importcpp: "Complies", header: "Interface_CheckIterator.hxx".}
 proc extract*(this: InterfaceCheckIterator; status: InterfaceCheckStatus): InterfaceCheckIterator {.
     noSideEffect, importcpp: "Extract", header: "Interface_CheckIterator.hxx".}
-proc extract*(this: InterfaceCheckIterator; mess: StandardCString; incl: int;
+proc extract*(this: InterfaceCheckIterator; mess: StandardCString; incl: cint;
              status: InterfaceCheckStatus): InterfaceCheckIterator {.noSideEffect,
     importcpp: "Extract", header: "Interface_CheckIterator.hxx".}
-proc remove*(this: var InterfaceCheckIterator; mess: StandardCString; incl: int;
+proc remove*(this: var InterfaceCheckIterator; mess: StandardCString; incl: cint;
             status: InterfaceCheckStatus): bool {.importcpp: "Remove",
     header: "Interface_CheckIterator.hxx".}
 proc checkeds*(this: InterfaceCheckIterator; failsonly: bool; global: bool): Handle[
@@ -86,16 +86,41 @@ proc next*(this: InterfaceCheckIterator) {.noSideEffect, importcpp: "Next",
                                         header: "Interface_CheckIterator.hxx".}
 proc value*(this: InterfaceCheckIterator): Handle[InterfaceCheck] {.noSideEffect,
     importcpp: "Value", header: "Interface_CheckIterator.hxx".}
-proc number*(this: InterfaceCheckIterator): int {.noSideEffect, importcpp: "Number",
+proc number*(this: InterfaceCheckIterator): cint {.noSideEffect, importcpp: "Number",
     header: "Interface_CheckIterator.hxx".}
 proc print*(this: InterfaceCheckIterator; s: var StandardOStream; failsonly: bool;
-           final: int = 0) {.noSideEffect, importcpp: "Print",
-                         header: "Interface_CheckIterator.hxx".}
+           final: cint = 0) {.noSideEffect, importcpp: "Print",
+                          header: "Interface_CheckIterator.hxx".}
 proc print*(this: InterfaceCheckIterator; s: var StandardOStream;
-           model: Handle[InterfaceInterfaceModel]; failsonly: bool; final: int = 0) {.
+           model: Handle[InterfaceInterfaceModel]; failsonly: bool; final: cint = 0) {.
     noSideEffect, importcpp: "Print", header: "Interface_CheckIterator.hxx".}
 proc destroy*(this: var InterfaceCheckIterator) {.importcpp: "Destroy",
     header: "Interface_CheckIterator.hxx".}
 proc destroyInterfaceCheckIterator*(this: var InterfaceCheckIterator) {.
     importcpp: "#.~Interface_CheckIterator()",
     header: "Interface_CheckIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

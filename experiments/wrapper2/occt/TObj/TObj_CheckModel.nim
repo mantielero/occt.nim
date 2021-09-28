@@ -58,7 +58,32 @@ proc dynamicType*(this: TObjCheckModel): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of TObj_CheckModel"
 type
-  HandleTObjCheckModel* = Handle[TObjCheckModel]
+  HandleC1C1* = Handle[TObjCheckModel]
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

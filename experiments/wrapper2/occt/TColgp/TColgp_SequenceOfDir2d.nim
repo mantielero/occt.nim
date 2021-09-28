@@ -17,3 +17,28 @@
 type
   TColgpSequenceOfDir2d* = NCollectionSequence[Dir2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

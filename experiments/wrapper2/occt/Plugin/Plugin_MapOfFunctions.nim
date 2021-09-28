@@ -20,3 +20,28 @@ type
   PluginDataMapIteratorOfMapOfFunctions* = Iterator[TCollectionAsciiString,
       OSD_Function, TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

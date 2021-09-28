@@ -98,7 +98,7 @@ type
                                                                                               ## 0.0
 
 
-proc constructGceMakeParab*(a2: Ax2; focal: float): GceMakeParab {.constructor,
+proc constructGceMakeParab*(a2: Ax2; focal: cfloat): GceMakeParab {.constructor,
     importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
 proc constructGceMakeParab*(d: Ax1; f: Pnt): GceMakeParab {.constructor,
     importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
@@ -108,3 +108,28 @@ proc operator*(this: GceMakeParab): Parab {.noSideEffect, importcpp: "Operator",
                                         header: "gce_MakeParab.hxx".}
 converter `parab`*(this: GceMakeParab): Parab {.noSideEffect,
     importcpp: "gce_MakeParab::operator gp_Parab", header: "gce_MakeParab.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

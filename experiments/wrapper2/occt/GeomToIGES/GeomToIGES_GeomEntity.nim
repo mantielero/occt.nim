@@ -17,11 +17,27 @@
 discard "forward decl of IGESData_IGESModel"
 type
   GeomToIGES_GeomEntity* {.importcpp: "GeomToIGES_GeomEntity",
-                          header: "GeomToIGES_GeomEntity.hxx", bycopy.} = object ## !
-                                                                            ## Creates a tool
-                                                                            ## GeomEntity
+                          header: "GeomToIGES_GeomEntity.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomToIGES_GeomEntity; theSize: csize_t): pointer {.
+    importcpp: "GeomToIGES_GeomEntity::operator new",
+    header: "GeomToIGES_GeomEntity.hxx".}
+proc `delete`*(this: var GeomToIGES_GeomEntity; theAddress: pointer) {.
+    importcpp: "GeomToIGES_GeomEntity::operator delete",
+    header: "GeomToIGES_GeomEntity.hxx".}
+proc `new[]`*(this: var GeomToIGES_GeomEntity; theSize: csize_t): pointer {.
+    importcpp: "GeomToIGES_GeomEntity::operator new[]",
+    header: "GeomToIGES_GeomEntity.hxx".}
+proc `delete[]`*(this: var GeomToIGES_GeomEntity; theAddress: pointer) {.
+    importcpp: "GeomToIGES_GeomEntity::operator delete[]",
+    header: "GeomToIGES_GeomEntity.hxx".}
+proc `new`*(this: var GeomToIGES_GeomEntity; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToIGES_GeomEntity::operator new",
+    header: "GeomToIGES_GeomEntity.hxx".}
+proc `delete`*(this: var GeomToIGES_GeomEntity; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToIGES_GeomEntity::operator delete",
+    header: "GeomToIGES_GeomEntity.hxx".}
 proc constructGeomToIGES_GeomEntity*(): GeomToIGES_GeomEntity {.constructor,
     importcpp: "GeomToIGES_GeomEntity(@)", header: "GeomToIGES_GeomEntity.hxx".}
 proc constructGeomToIGES_GeomEntity*(ge: GeomToIGES_GeomEntity): GeomToIGES_GeomEntity {.
@@ -31,7 +47,7 @@ proc setModel*(this: var GeomToIGES_GeomEntity; model: Handle[IGESDataIGESModel]
     importcpp: "SetModel", header: "GeomToIGES_GeomEntity.hxx".}
 proc getModel*(this: GeomToIGES_GeomEntity): Handle[IGESDataIGESModel] {.
     noSideEffect, importcpp: "GetModel", header: "GeomToIGES_GeomEntity.hxx".}
-proc setUnit*(this: var GeomToIGES_GeomEntity; unit: float) {.importcpp: "SetUnit",
-    header: "GeomToIGES_GeomEntity.hxx".}
-proc getUnit*(this: GeomToIGES_GeomEntity): float {.noSideEffect,
+proc setUnit*(this: var GeomToIGES_GeomEntity; unit: StandardReal) {.
+    importcpp: "SetUnit", header: "GeomToIGES_GeomEntity.hxx".}
+proc getUnit*(this: GeomToIGES_GeomEntity): StandardReal {.noSideEffect,
     importcpp: "GetUnit", header: "GeomToIGES_GeomEntity.hxx".}

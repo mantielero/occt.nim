@@ -21,7 +21,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_CoonsAlgPatch"
 discard "forward decl of GeomFill_CoonsAlgPatch"
 type
-  HandleGeomFillCoonsAlgPatch* = Handle[GeomFillCoonsAlgPatch]
+  HandleC1C1* = Handle[GeomFillCoonsAlgPatch]
 
 ## ! Provides  evaluation   methods on an   algorithmic
 ## ! patch (based on 4 Curves) defined by  its   boundaries and  blending
@@ -81,14 +81,14 @@ proc `func`*(this: GeomFillCoonsAlgPatch; f1: var Handle[LawFunction];
 proc setFunc*(this: var GeomFillCoonsAlgPatch; f1: Handle[LawFunction];
              f2: Handle[LawFunction]) {.importcpp: "SetFunc",
                                       header: "GeomFill_CoonsAlgPatch.hxx".}
-proc value*(this: GeomFillCoonsAlgPatch; u: float; v: float): Pnt {.noSideEffect,
-    importcpp: "Value", header: "GeomFill_CoonsAlgPatch.hxx".}
-proc d1u*(this: GeomFillCoonsAlgPatch; u: float; v: float): Vec {.noSideEffect,
-    importcpp: "D1U", header: "GeomFill_CoonsAlgPatch.hxx".}
-proc d1v*(this: GeomFillCoonsAlgPatch; u: float; v: float): Vec {.noSideEffect,
-    importcpp: "D1V", header: "GeomFill_CoonsAlgPatch.hxx".}
-proc duv*(this: GeomFillCoonsAlgPatch; u: float; v: float): Vec {.noSideEffect,
-    importcpp: "DUV", header: "GeomFill_CoonsAlgPatch.hxx".}
+proc value*(this: GeomFillCoonsAlgPatch; u: StandardReal; v: StandardReal): Pnt {.
+    noSideEffect, importcpp: "Value", header: "GeomFill_CoonsAlgPatch.hxx".}
+proc d1u*(this: GeomFillCoonsAlgPatch; u: StandardReal; v: StandardReal): Vec {.
+    noSideEffect, importcpp: "D1U", header: "GeomFill_CoonsAlgPatch.hxx".}
+proc d1v*(this: GeomFillCoonsAlgPatch; u: StandardReal; v: StandardReal): Vec {.
+    noSideEffect, importcpp: "D1V", header: "GeomFill_CoonsAlgPatch.hxx".}
+proc duv*(this: GeomFillCoonsAlgPatch; u: StandardReal; v: StandardReal): Vec {.
+    noSideEffect, importcpp: "DUV", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc corner*(this: GeomFillCoonsAlgPatch; i: int): Pnt {.noSideEffect,
     importcpp: "Corner", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc bound*(this: GeomFillCoonsAlgPatch; i: int): Handle[GeomFillBoundary] {.

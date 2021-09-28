@@ -31,7 +31,7 @@ proc constructRWStepAP214RWExternallyDefinedGeneralProperty*(): RWStepAP214RWExt
     constructor, importcpp: "RWStepAP214_RWExternallyDefinedGeneralProperty(@)",
     header: "RWStepAP214_RWExternallyDefinedGeneralProperty.hxx".}
 proc readStep*(this: RWStepAP214RWExternallyDefinedGeneralProperty;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214ExternallyDefinedGeneralProperty]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepAP214RWExternallyDefinedGeneralProperty;
            ent: Handle[StepAP214ExternallyDefinedGeneralProperty];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWExternallyDefinedGeneralProperty.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

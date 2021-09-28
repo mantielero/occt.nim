@@ -46,3 +46,28 @@ type
 proc rWGltfGltfRootElementName*(theElem: RWGltfGltfRootElement): cstring =
   discard
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

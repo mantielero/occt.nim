@@ -52,7 +52,7 @@ proc getACstatus*(this: var STEPConstructContextTool): Handle[
 proc getACschemaName*(this: var STEPConstructContextTool): Handle[
     TCollectionHAsciiString] {.importcpp: "GetACschemaName",
                               header: "STEPConstruct_ContextTool.hxx".}
-proc getACyear*(this: var STEPConstructContextTool): int {.importcpp: "GetACyear",
+proc getACyear*(this: var STEPConstructContextTool): cint {.importcpp: "GetACyear",
     header: "STEPConstruct_ContextTool.hxx".}
 proc getACname*(this: var STEPConstructContextTool): Handle[TCollectionHAsciiString] {.
     importcpp: "GetACname", header: "STEPConstruct_ContextTool.hxx".}
@@ -62,7 +62,7 @@ proc setACstatus*(this: var STEPConstructContextTool;
 proc setACschemaName*(this: var STEPConstructContextTool;
                      schemaName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetACschemaName", header: "STEPConstruct_ContextTool.hxx".}
-proc setACyear*(this: var STEPConstructContextTool; year: int) {.
+proc setACyear*(this: var STEPConstructContextTool; year: cint) {.
     importcpp: "SetACyear", header: "STEPConstruct_ContextTool.hxx".}
 proc setACname*(this: var STEPConstructContextTool;
                name: Handle[TCollectionHAsciiString]) {.importcpp: "SetACname",
@@ -72,21 +72,21 @@ proc getDefaultAxis*(this: var STEPConstructContextTool): Handle[
                                header: "STEPConstruct_ContextTool.hxx".}
 proc aP203Context*(this: var STEPConstructContextTool): var STEPConstructAP203Context {.
     importcpp: "AP203Context", header: "STEPConstruct_ContextTool.hxx".}
-proc level*(this: STEPConstructContextTool): int {.noSideEffect, importcpp: "Level",
+proc level*(this: STEPConstructContextTool): cint {.noSideEffect, importcpp: "Level",
     header: "STEPConstruct_ContextTool.hxx".}
 proc nextLevel*(this: var STEPConstructContextTool) {.importcpp: "NextLevel",
     header: "STEPConstruct_ContextTool.hxx".}
 proc prevLevel*(this: var STEPConstructContextTool) {.importcpp: "PrevLevel",
     header: "STEPConstruct_ContextTool.hxx".}
-proc setLevel*(this: var STEPConstructContextTool; lev: int) {.importcpp: "SetLevel",
+proc setLevel*(this: var STEPConstructContextTool; lev: cint) {.importcpp: "SetLevel",
     header: "STEPConstruct_ContextTool.hxx".}
-proc index*(this: STEPConstructContextTool): int {.noSideEffect, importcpp: "Index",
+proc index*(this: STEPConstructContextTool): cint {.noSideEffect, importcpp: "Index",
     header: "STEPConstruct_ContextTool.hxx".}
 proc nextIndex*(this: var STEPConstructContextTool) {.importcpp: "NextIndex",
     header: "STEPConstruct_ContextTool.hxx".}
 proc prevIndex*(this: var STEPConstructContextTool) {.importcpp: "PrevIndex",
     header: "STEPConstruct_ContextTool.hxx".}
-proc setIndex*(this: var STEPConstructContextTool; ind: int) {.importcpp: "SetIndex",
+proc setIndex*(this: var STEPConstructContextTool; ind: cint) {.importcpp: "SetIndex",
     header: "STEPConstruct_ContextTool.hxx".}
 proc getProductName*(this: STEPConstructContextTool): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "GetProductName",
@@ -98,3 +98,28 @@ proc getRootsForAssemblyLink*(this: var STEPConstructContextTool;
                              assembly: STEPConstructAssembly): Handle[
     TColStdHSequenceOfTransient] {.importcpp: "GetRootsForAssemblyLink",
                                   header: "STEPConstruct_ContextTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

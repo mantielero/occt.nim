@@ -17,7 +17,7 @@ discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DefaultDeltaOnRemoval"
 discard "forward decl of TDF_DefaultDeltaOnRemoval"
 type
-  HandleTDF_DefaultDeltaOnRemoval* = Handle[TDF_DefaultDeltaOnRemoval]
+  HandleC1C1* = Handle[TDF_DefaultDeltaOnRemoval]
 
 ## ! This class provides a default implementation of a
 ## ! TDF_DeltaOnRemoval.
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDF_DefaultDeltaOnRemoval.hxx".}
 proc dynamicType*(this: TDF_DefaultDeltaOnRemoval): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TDF_DefaultDeltaOnRemoval.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

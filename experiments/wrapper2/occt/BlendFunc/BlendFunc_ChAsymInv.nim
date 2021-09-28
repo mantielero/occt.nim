@@ -31,16 +31,16 @@ proc constructBlendFuncChAsymInv*(s1: Handle[Adaptor3dHSurface];
 proc set*(this: var BlendFuncChAsymInv; onFirst: bool;
          cOnSurf: Handle[Adaptor2dHCurve2d]) {.importcpp: "Set",
     header: "BlendFunc_ChAsymInv.hxx".}
-proc getTolerance*(this: BlendFuncChAsymInv; tolerance: var MathVector; tol: float) {.
+proc getTolerance*(this: BlendFuncChAsymInv; tolerance: var MathVector; tol: cfloat) {.
     noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_ChAsymInv.hxx".}
 proc getBounds*(this: BlendFuncChAsymInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
                                         header: "BlendFunc_ChAsymInv.hxx".}
-proc isSolution*(this: var BlendFuncChAsymInv; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendFuncChAsymInv; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BlendFunc_ChAsymInv.hxx".}
-proc nbEquations*(this: BlendFuncChAsymInv): int {.noSideEffect,
+proc nbEquations*(this: BlendFuncChAsymInv): cint {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_ChAsymInv.hxx".}
-proc computeValues*(this: var BlendFuncChAsymInv; x: MathVector; degF: int; degL: int): bool {.
+proc computeValues*(this: var BlendFuncChAsymInv; x: MathVector; degF: cint; degL: cint): bool {.
     importcpp: "ComputeValues", header: "BlendFunc_ChAsymInv.hxx".}
 proc value*(this: var BlendFuncChAsymInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_ChAsymInv.hxx".}
@@ -49,5 +49,30 @@ proc derivatives*(this: var BlendFuncChAsymInv; x: MathVector; d: var MathMatrix
 proc values*(this: var BlendFuncChAsymInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.importcpp: "Values",
                                    header: "BlendFunc_ChAsymInv.hxx".}
-proc set*(this: var BlendFuncChAsymInv; dist1: float; angle: float; choix: int) {.
+proc set*(this: var BlendFuncChAsymInv; dist1: cfloat; angle: cfloat; choix: cint) {.
     importcpp: "Set", header: "BlendFunc_ChAsymInv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

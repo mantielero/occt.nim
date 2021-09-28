@@ -27,3 +27,28 @@ proc setAlgoContainer*(aContainer: Handle[XSAlgoAlgoContainer]) {.
     importcpp: "XSAlgo::SetAlgoContainer(@)", header: "XSAlgo.hxx".}
 proc algoContainer*(): Handle[XSAlgoAlgoContainer] {.
     importcpp: "XSAlgo::AlgoContainer(@)", header: "XSAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

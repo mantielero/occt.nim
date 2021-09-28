@@ -18,3 +18,28 @@ type
   IntPatchSequenceOfPathPointOfTheSOnBounds* = NCollectionSequence[
       IntPatchThePathPointOfTheSOnBounds]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

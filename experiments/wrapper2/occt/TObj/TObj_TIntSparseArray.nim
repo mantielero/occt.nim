@@ -15,8 +15,8 @@
 ##  The original implementation Copyright: (C) RINA S.p.A
 
 type
-  TObjTIntSparseArrayVecOfData* = NCollectionSparseArray[int]
-  TObjTIntSparseArrayMapOfData* = NCollectionSparseArray[int]
+  TObjTIntSparseArrayVecOfData* = NCollectionSparseArray[cint]
+  TObjTIntSparseArrayMapOfData* = NCollectionSparseArray[cint]
 
 discard "forward decl of Standard_GUID"
 type
@@ -137,9 +137,9 @@ proc getIterator*(this: TObjTIntSparseArray): TObjTIntSparseArrayIterator {.
     noSideEffect, importcpp: "GetIterator", header: "TObj_TIntSparseArray.hxx".}
 proc hasValue*(this: TObjTIntSparseArray; theId: StandardSize): bool {.noSideEffect,
     importcpp: "HasValue", header: "TObj_TIntSparseArray.hxx".}
-proc value*(this: TObjTIntSparseArray; theId: StandardSize): int {.noSideEffect,
+proc value*(this: TObjTIntSparseArray; theId: StandardSize): cint {.noSideEffect,
     importcpp: "Value", header: "TObj_TIntSparseArray.hxx".}
-proc setValue*(this: var TObjTIntSparseArray; theId: StandardSize; theValue: int) {.
+proc setValue*(this: var TObjTIntSparseArray; theId: StandardSize; theValue: cint) {.
     importcpp: "SetValue", header: "TObj_TIntSparseArray.hxx".}
 proc unsetValue*(this: var TObjTIntSparseArray; theId: StandardSize) {.
     importcpp: "UnsetValue", header: "TObj_TIntSparseArray.hxx".}
@@ -180,7 +180,32 @@ proc dynamicType*(this: TObjTIntSparseArray): Handle[StandardType] {.noSideEffec
 
 discard "forward decl of TObj_TIntSparseArray"
 type
-  HandleTObjTIntSparseArray* = Handle[TObjTIntSparseArray]
+  HandleC1C1* = Handle[TObjTIntSparseArray]
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

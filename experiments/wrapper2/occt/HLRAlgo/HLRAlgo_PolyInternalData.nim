@@ -17,7 +17,7 @@
 discard "forward decl of HLRAlgo_PolyInternalData"
 discard "forward decl of HLRAlgo_PolyInternalData"
 type
-  HandleHLRAlgoPolyInternalData* = Handle[HLRAlgoPolyInternalData]
+  HandleC1C1* = Handle[HLRAlgoPolyInternalData]
 
 ## ! to Update OutLines.
 
@@ -26,7 +26,7 @@ type
                             header: "HLRAlgo_PolyInternalData.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructHLRAlgoPolyInternalData*(nbNod: int; nbTri: int): HLRAlgoPolyInternalData {.
+proc constructHLRAlgoPolyInternalData*(nbNod: cint; nbTri: cint): HLRAlgoPolyInternalData {.
     constructor, importcpp: "HLRAlgo_PolyInternalData(@)",
     header: "HLRAlgo_PolyInternalData.hxx".}
 proc updateLinks*(this: var HLRAlgoPolyInternalData;
@@ -35,10 +35,10 @@ proc updateLinks*(this: var HLRAlgoPolyInternalData;
     header: "HLRAlgo_PolyInternalData.hxx".}
 proc addNode*(this: var HLRAlgoPolyInternalData; nod1RValues: var NodeData;
              nod2RValues: var NodeData; pINod1: ptr HLRAlgoArray1OfPINod;
-             pINod2: ptr HLRAlgoArray1OfPINod; coef1: float; x3: float; y3: float;
-             z3: float): int {.importcpp: "AddNode",
-                            header: "HLRAlgo_PolyInternalData.hxx".}
-proc updateLinks*(this: var HLRAlgoPolyInternalData; ip1: int; ip2: int; ip3: int;
+             pINod2: ptr HLRAlgoArray1OfPINod; coef1: cfloat; x3: cfloat; y3: cfloat;
+             z3: cfloat): cint {.importcpp: "AddNode",
+                              header: "HLRAlgo_PolyInternalData.hxx".}
+proc updateLinks*(this: var HLRAlgoPolyInternalData; ip1: cint; ip2: cint; ip3: cint;
                  tData1: ptr HLRAlgoArray1OfTData;
                  tData2: ptr HLRAlgoArray1OfTData;
                  pISeg1: ptr HLRAlgoArray1OfPISeg;
@@ -62,11 +62,11 @@ proc decPISeg*(this: var HLRAlgoPolyInternalData) {.importcpp: "DecPISeg",
     header: "HLRAlgo_PolyInternalData.hxx".}
 proc decPINod*(this: var HLRAlgoPolyInternalData) {.importcpp: "DecPINod",
     header: "HLRAlgo_PolyInternalData.hxx".}
-proc nbTData*(this: HLRAlgoPolyInternalData): int {.noSideEffect,
+proc nbTData*(this: HLRAlgoPolyInternalData): cint {.noSideEffect,
     importcpp: "NbTData", header: "HLRAlgo_PolyInternalData.hxx".}
-proc nbPISeg*(this: HLRAlgoPolyInternalData): int {.noSideEffect,
+proc nbPISeg*(this: HLRAlgoPolyInternalData): cint {.noSideEffect,
     importcpp: "NbPISeg", header: "HLRAlgo_PolyInternalData.hxx".}
-proc nbPINod*(this: HLRAlgoPolyInternalData): int {.noSideEffect,
+proc nbPINod*(this: HLRAlgoPolyInternalData): cint {.noSideEffect,
     importcpp: "NbPINod", header: "HLRAlgo_PolyInternalData.hxx".}
 proc planar*(this: HLRAlgoPolyInternalData): bool {.noSideEffect,
     importcpp: "Planar", header: "HLRAlgo_PolyInternalData.hxx".}
@@ -92,3 +92,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRAlgo_PolyInternalData.hxx".}
 proc dynamicType*(this: HLRAlgoPolyInternalData): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "HLRAlgo_PolyInternalData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

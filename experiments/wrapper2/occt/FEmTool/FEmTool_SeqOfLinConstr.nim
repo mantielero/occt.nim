@@ -19,3 +19,28 @@
 type
   FEmToolSeqOfLinConstr* = NCollectionSequence[FEmToolListOfVectors]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

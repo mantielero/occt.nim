@@ -31,7 +31,7 @@ type
 
 proc constructStepAP214DateItem*(): StepAP214DateItem {.constructor,
     importcpp: "StepAP214_DateItem(@)", header: "StepAP214_DateItem.hxx".}
-proc caseNum*(this: StepAP214DateItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP214DateItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_DateItem.hxx".}
 proc approvalPersonOrganization*(this: StepAP214DateItem): Handle[
     StepBasicApprovalPersonOrganization] {.noSideEffect,
@@ -47,3 +47,28 @@ proc appliedSecurityClassificationAssignment*(this: StepAP214DateItem): Handle[
     StepAP214AppliedSecurityClassificationAssignment] {.noSideEffect,
     importcpp: "AppliedSecurityClassificationAssignment",
     header: "StepAP214_DateItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

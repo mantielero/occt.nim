@@ -55,3 +55,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
          aText: TCollectionExtendedString; offsetPoint: Pnt) {.
     importcpp: "DsgPrs_SymbPresentation::Add(@)",
     header: "DsgPrs_SymbPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,7 +30,7 @@ proc constructBRepFillTrimEdgeTool*(): BRepFillTrimEdgeTool {.constructor,
     importcpp: "BRepFill_TrimEdgeTool(@)", header: "BRepFill_TrimEdgeTool.hxx".}
 proc constructBRepFillTrimEdgeTool*(bisec: BisectorBisec;
                                    s1: Handle[Geom2dGeometry];
-                                   s2: Handle[Geom2dGeometry]; offset: float): BRepFillTrimEdgeTool {.
+                                   s2: Handle[Geom2dGeometry]; offset: cfloat): BRepFillTrimEdgeTool {.
     constructor, importcpp: "BRepFill_TrimEdgeTool(@)",
     header: "BRepFill_TrimEdgeTool.hxx".}
 proc intersectWith*(this: var BRepFillTrimEdgeTool; edge1: TopoDS_Edge;
@@ -44,3 +44,28 @@ proc addOrConfuse*(this: BRepFillTrimEdgeTool; start: bool; edge1: TopoDS_Edge;
     noSideEffect, importcpp: "AddOrConfuse", header: "BRepFill_TrimEdgeTool.hxx".}
 proc isInside*(this: BRepFillTrimEdgeTool; p: Pnt2d): bool {.noSideEffect,
     importcpp: "IsInside", header: "BRepFill_TrimEdgeTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

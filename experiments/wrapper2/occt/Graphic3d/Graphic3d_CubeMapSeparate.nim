@@ -86,5 +86,30 @@ proc destroyGraphic3dCubeMapSeparate*(this: var Graphic3dCubeMapSeparate) {.
     header: "Graphic3d_CubeMapSeparate.hxx".}
 discard "forward decl of Graphic3d_CubeMapSeparate"
 type
-  HandleGraphic3dCubeMapSeparate* = Handle[Graphic3dCubeMapSeparate]
+  HandleC1C1* = Handle[Graphic3dCubeMapSeparate]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

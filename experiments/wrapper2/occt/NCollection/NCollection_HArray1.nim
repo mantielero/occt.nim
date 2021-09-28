@@ -15,28 +15,5 @@
 
 ##       Declaration of Array1 class managed by Handle
 
-template ncollection_Harray1*(hClassName, `type`: untyped): void =
-  type
-    HClassName* {.importcpp: "HClassName", header: "NCollection_HArray1.hxx", bycopy.} = object of NCollectionArray1[
-        Type]
-
-  proc constructHClassName*(theLower: int; theUpper: int): HClassName {.constructor,
-      importcpp: "HClassName(@)", header: "NCollection_HArray1.hxx".}
-  proc constructHClassName*(theLower: int; theUpper: int; theValue: ValueType[Type]): HClassName {.
-      constructor, importcpp: "HClassName(@)", header: "NCollection_HArray1.hxx".}
-  proc constructHClassName*(theOther: NCollectionArray1[Type]): HClassName {.
-      constructor, importcpp: "HClassName(@)", header: "NCollection_HArray1.hxx".}
-  proc array1*(this: HClassName): NCollectionArray1[Type] {.noSideEffect,
-      importcpp: "Array1", header: "NCollection_HArray1.hxx".}
-  proc changeArray1*(this: var HClassName): var NCollectionArray1[Type] {.
-      importcpp: "ChangeArray1", header: "NCollection_HArray1.hxx".}
-  type
-    HClassNamebaseType* = MMgtTShared
-  proc getTypeName*(): cstring {.importcpp: "HClassName::get_type_name(@)",
-                              header: "NCollection_HArray1.hxx".}
-  proc getTypeDescriptor*(): Handle[StandardType] {.
-      importcpp: "HClassName::get_type_descriptor(@)",
-      header: "NCollection_HArray1.hxx".}
-  proc dynamicType*(this: HClassName): Handle[StandardType] {.noSideEffect,
-      importcpp: "DynamicType", header: "NCollection_HArray1.hxx".}
-  
+template ncollection_Harray1*(hClassName, `type`: untyped): untyped =
+  define_Harray1(hClassName, nCollectionArray1[Type])

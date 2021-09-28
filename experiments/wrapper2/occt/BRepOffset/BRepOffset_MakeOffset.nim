@@ -43,7 +43,7 @@ type
 
 proc constructBRepOffsetMakeOffset*(): BRepOffsetMakeOffset {.constructor,
     importcpp: "BRepOffset_MakeOffset(@)", header: "BRepOffset_MakeOffset.hxx".}
-proc constructBRepOffsetMakeOffset*(s: TopoDS_Shape; offset: float; tol: float;
+proc constructBRepOffsetMakeOffset*(s: TopoDS_Shape; offset: cfloat; tol: cfloat;
                                    mode: BRepOffsetMode = bRepOffsetSkin;
                                    intersection: bool = false;
                                    selfInter: bool = false;
@@ -52,8 +52,8 @@ proc constructBRepOffsetMakeOffset*(s: TopoDS_Shape; offset: float; tol: float;
                                    removeIntEdges: bool = false): BRepOffsetMakeOffset {.
     constructor, importcpp: "BRepOffset_MakeOffset(@)",
     header: "BRepOffset_MakeOffset.hxx".}
-proc initialize*(this: var BRepOffsetMakeOffset; s: TopoDS_Shape; offset: float;
-                tol: float; mode: BRepOffsetMode = bRepOffsetSkin;
+proc initialize*(this: var BRepOffsetMakeOffset; s: TopoDS_Shape; offset: cfloat;
+                tol: cfloat; mode: BRepOffsetMode = bRepOffsetSkin;
                 intersection: bool = false; selfInter: bool = false;
                 join: GeomAbsJoinType = geomAbsArc; thickening: bool = false;
                 removeIntEdges: bool = false) {.importcpp: "Initialize",
@@ -64,7 +64,7 @@ proc allowLinearization*(this: var BRepOffsetMakeOffset; theIsAllowed: bool) {.
     importcpp: "AllowLinearization", header: "BRepOffset_MakeOffset.hxx".}
 proc addFace*(this: var BRepOffsetMakeOffset; f: TopoDS_Face) {.importcpp: "AddFace",
     header: "BRepOffset_MakeOffset.hxx".}
-proc setOffsetOnFace*(this: var BRepOffsetMakeOffset; f: TopoDS_Face; off: float) {.
+proc setOffsetOnFace*(this: var BRepOffsetMakeOffset; f: TopoDS_Face; off: cfloat) {.
     importcpp: "SetOffsetOnFace", header: "BRepOffset_MakeOffset.hxx".}
 proc makeOffsetShape*(this: var BRepOffsetMakeOffset) {.
     importcpp: "MakeOffsetShape", header: "BRepOffset_MakeOffset.hxx".}
@@ -100,3 +100,28 @@ proc modified*(this: var BRepOffsetMakeOffset; theS: TopoDS_Shape): TopToolsList
     importcpp: "Modified", header: "BRepOffset_MakeOffset.hxx".}
 proc isDeleted*(this: var BRepOffsetMakeOffset; s: TopoDS_Shape): bool {.
     importcpp: "IsDeleted", header: "BRepOffset_MakeOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

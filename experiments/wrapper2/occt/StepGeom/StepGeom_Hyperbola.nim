@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepGeom_Hyperbola"
 discard "forward decl of StepGeom_Hyperbola"
 type
-  HandleStepGeomHyperbola* = Handle[StepGeomHyperbola]
+  HandleC1C1* = Handle[StepGeomHyperbola]
   StepGeomHyperbola* {.importcpp: "StepGeom_Hyperbola",
                       header: "StepGeom_Hyperbola.hxx", bycopy.} = object of StepGeomConic ##
                                                                                     ## !
@@ -31,15 +31,16 @@ type
 proc constructStepGeomHyperbola*(): StepGeomHyperbola {.constructor,
     importcpp: "StepGeom_Hyperbola(@)", header: "StepGeom_Hyperbola.hxx".}
 proc init*(this: var StepGeomHyperbola; aName: Handle[TCollectionHAsciiString];
-          aPosition: StepGeomAxis2Placement; aSemiAxis: float; aSemiImagAxis: float) {.
-    importcpp: "Init", header: "StepGeom_Hyperbola.hxx".}
-proc setSemiAxis*(this: var StepGeomHyperbola; aSemiAxis: float) {.
+          aPosition: StepGeomAxis2Placement; aSemiAxis: cfloat;
+          aSemiImagAxis: cfloat) {.importcpp: "Init",
+                                 header: "StepGeom_Hyperbola.hxx".}
+proc setSemiAxis*(this: var StepGeomHyperbola; aSemiAxis: cfloat) {.
     importcpp: "SetSemiAxis", header: "StepGeom_Hyperbola.hxx".}
-proc semiAxis*(this: StepGeomHyperbola): float {.noSideEffect, importcpp: "SemiAxis",
-    header: "StepGeom_Hyperbola.hxx".}
-proc setSemiImagAxis*(this: var StepGeomHyperbola; aSemiImagAxis: float) {.
+proc semiAxis*(this: StepGeomHyperbola): cfloat {.noSideEffect,
+    importcpp: "SemiAxis", header: "StepGeom_Hyperbola.hxx".}
+proc setSemiImagAxis*(this: var StepGeomHyperbola; aSemiImagAxis: cfloat) {.
     importcpp: "SetSemiImagAxis", header: "StepGeom_Hyperbola.hxx".}
-proc semiImagAxis*(this: StepGeomHyperbola): float {.noSideEffect,
+proc semiImagAxis*(this: StepGeomHyperbola): cfloat {.noSideEffect,
     importcpp: "SemiImagAxis", header: "StepGeom_Hyperbola.hxx".}
 type
   StepGeomHyperbolabaseType* = StepGeomConic
@@ -51,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Hyperbola.hxx".}
 proc dynamicType*(this: StepGeomHyperbola): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Hyperbola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

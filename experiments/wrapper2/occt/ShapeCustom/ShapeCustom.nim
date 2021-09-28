@@ -54,11 +54,12 @@ proc applyModifier*(s: TopoDS_Shape; m: Handle[BRepToolsModification];
     importcpp: "ShapeCustom::ApplyModifier(@)", header: "ShapeCustom.hxx".}
 proc directFaces*(s: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "ShapeCustom::DirectFaces(@)", header: "ShapeCustom.hxx".}
-proc scaleShape*(s: TopoDS_Shape; scale: float): TopoDS_Shape {.
+proc scaleShape*(s: TopoDS_Shape; scale: cfloat): TopoDS_Shape {.
     importcpp: "ShapeCustom::ScaleShape(@)", header: "ShapeCustom.hxx".}
-proc bSplineRestriction*(s: TopoDS_Shape; tol3d: float; tol2d: float; maxDegree: int;
-                        maxNbSegment: int; continuity3d: GeomAbsShape;
-                        continuity2d: GeomAbsShape; degree: bool; rational: bool;
+proc bSplineRestriction*(s: TopoDS_Shape; tol3d: cfloat; tol2d: cfloat;
+                        maxDegree: cint; maxNbSegment: cint;
+                        continuity3d: GeomAbsShape; continuity2d: GeomAbsShape;
+                        degree: bool; rational: bool;
                         aParameters: Handle[ShapeCustomRestrictionParameters]): TopoDS_Shape {.
     importcpp: "ShapeCustom::BSplineRestriction(@)", header: "ShapeCustom.hxx".}
 proc convertToRevolution*(s: TopoDS_Shape): TopoDS_Shape {.
@@ -68,3 +69,28 @@ proc sweptToElementary*(s: TopoDS_Shape): TopoDS_Shape {.
 proc convertToBSpline*(s: TopoDS_Shape; extrMode: bool; revolMode: bool;
                       offsetMode: bool; planeMode: bool = false): TopoDS_Shape {.
     importcpp: "ShapeCustom::ConvertToBSpline(@)", header: "ShapeCustom.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -251,3 +251,28 @@ proc perform*[Functor](this: var OSD_ThreadPoolLauncher; theBegin: cint; theEnd:
     header: "OSD_ThreadPool.hxx".}
 proc release*(this: var OSD_ThreadPoolLauncher) {.importcpp: "Release",
     header: "OSD_ThreadPool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,3 +19,28 @@ type
   TDF_DoubleMapIteratorOfAttributeDoubleMap* = Iterator[Handle[TDF_Attribute],
       Handle[TDF_Attribute], TColStdMapTransientHasher, TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -50,5 +50,30 @@ proc nextVertex*(this: var TopOpeBRepBuildEdgeBuilder) {.importcpp: "NextVertex"
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc vertex*(this: TopOpeBRepBuildEdgeBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc parameter*(this: TopOpeBRepBuildEdgeBuilder): float {.noSideEffect,
+proc parameter*(this: TopOpeBRepBuildEdgeBuilder): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

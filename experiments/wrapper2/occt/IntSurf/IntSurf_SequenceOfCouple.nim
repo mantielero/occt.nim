@@ -17,3 +17,28 @@
 type
   IntSurfSequenceOfCouple* = NCollectionSequence[IntSurfCouple]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

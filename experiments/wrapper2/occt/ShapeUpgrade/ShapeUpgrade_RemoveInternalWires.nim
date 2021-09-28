@@ -20,7 +20,7 @@
 discard "forward decl of ShapeUpgrade_RemoveInternalWires"
 discard "forward decl of ShapeUpgrade_RemoveInternalWires"
 type
-  HandleShapeUpgradeRemoveInternalWires* = Handle[ShapeUpgradeRemoveInternalWires]
+  HandleC1C1* = Handle[ShapeUpgradeRemoveInternalWires]
 
 ## ! Removes all internal wires having area less than specified min area
 
@@ -47,7 +47,7 @@ proc perform*(this: var ShapeUpgradeRemoveInternalWires;
     header: "ShapeUpgrade_RemoveInternalWires.hxx".}
 proc getResult*(this: ShapeUpgradeRemoveInternalWires): TopoDS_Shape {.noSideEffect,
     importcpp: "GetResult", header: "ShapeUpgrade_RemoveInternalWires.hxx".}
-proc minArea*(this: var ShapeUpgradeRemoveInternalWires): var float {.
+proc minArea*(this: var ShapeUpgradeRemoveInternalWires): var cfloat {.
     importcpp: "MinArea", header: "ShapeUpgrade_RemoveInternalWires.hxx".}
 proc removeFaceMode*(this: var ShapeUpgradeRemoveInternalWires): var bool {.
     importcpp: "RemoveFaceMode", header: "ShapeUpgrade_RemoveInternalWires.hxx".}
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeRemoveInternalWires): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_RemoveInternalWires.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

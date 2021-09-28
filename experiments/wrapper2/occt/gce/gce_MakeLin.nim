@@ -46,3 +46,28 @@ proc operator*(this: GceMakeLin): Lin {.noSideEffect, importcpp: "Operator",
                                     header: "gce_MakeLin.hxx".}
 converter `lin`*(this: GceMakeLin): Lin {.noSideEffect, importcpp: "gce_MakeLin::operator gp_Lin",
                                       header: "gce_MakeLin.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

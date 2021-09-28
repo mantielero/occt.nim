@@ -17,7 +17,7 @@
 discard "forward decl of Law_S"
 discard "forward decl of Law_S"
 type
-  HandleLawS* = Handle[LawS]
+  HandleC1C1* = Handle[LawS]
 
 ## ! Describes an "S" evolution law.
 
@@ -28,10 +28,10 @@ type
 
 
 proc constructLawS*(): LawS {.constructor, importcpp: "Law_S(@)", header: "Law_S.hxx".}
-proc set*(this: var LawS; pdeb: float; valdeb: float; pfin: float; valfin: float) {.
+proc set*(this: var LawS; pdeb: cfloat; valdeb: cfloat; pfin: cfloat; valfin: cfloat) {.
     importcpp: "Set", header: "Law_S.hxx".}
-proc set*(this: var LawS; pdeb: float; valdeb: float; ddeb: float; pfin: float;
-         valfin: float; dfin: float) {.importcpp: "Set", header: "Law_S.hxx".}
+proc set*(this: var LawS; pdeb: cfloat; valdeb: cfloat; ddeb: cfloat; pfin: cfloat;
+         valfin: cfloat; dfin: cfloat) {.importcpp: "Set", header: "Law_S.hxx".}
 type
   LawSbaseType* = LawBSpFunc
 
@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Law_S::get_type_descriptor(@)", header: "Law_S.hxx".}
 proc dynamicType*(this: LawS): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_S.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

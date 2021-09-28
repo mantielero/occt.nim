@@ -56,3 +56,28 @@ proc getTrimmedCurveFromShape*(this: TopoDSToStepWireframeBuilder; s: TopoDS_Sha
                               L: var Handle[TColStdHSequenceOfTransient]): bool {.
     noSideEffect, importcpp: "GetTrimmedCurveFromShape",
     header: "TopoDSToStep_WireframeBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

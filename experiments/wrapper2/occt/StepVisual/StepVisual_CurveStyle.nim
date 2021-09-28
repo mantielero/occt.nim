@@ -21,7 +21,7 @@ discard "forward decl of StepBasic_SizeSelect"
 discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_CurveStyle"
 type
-  HandleStepVisualCurveStyle* = Handle[StepVisualCurveStyle]
+  HandleC1C1* = Handle[StepVisualCurveStyle]
   StepVisualCurveStyle* {.importcpp: "StepVisual_CurveStyle",
                          header: "StepVisual_CurveStyle.hxx", bycopy.} = object of StandardTransient ##
                                                                                               ## !
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_CurveStyle.hxx".}
 proc dynamicType*(this: StepVisualCurveStyle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_CurveStyle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

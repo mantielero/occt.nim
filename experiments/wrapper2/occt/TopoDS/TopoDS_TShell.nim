@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TShell"
 discard "forward decl of TopoDS_TShell"
 type
-  HandleTopoDS_TShell* = Handle[TopoDS_TShell]
+  HandleC1C1* = Handle[TopoDS_TShell]
 
 ## ! A set of faces connected by their edges.
 
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopoDS_TShell.hxx".}
 proc dynamicType*(this: TopoDS_TShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

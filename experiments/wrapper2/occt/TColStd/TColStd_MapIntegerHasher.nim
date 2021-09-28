@@ -13,5 +13,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdMapIntegerHasher* = NCollectionDefaultHasher[int]
+  TColStdMapIntegerHasher* = NCollectionDefaultHasher[cint]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

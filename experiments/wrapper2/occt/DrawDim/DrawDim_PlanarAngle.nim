@@ -20,7 +20,7 @@ discard "forward decl of Draw_Display"
 discard "forward decl of DrawDim_PlanarAngle"
 discard "forward decl of DrawDim_PlanarAngle"
 type
-  HandleDrawDimPlanarAngle* = Handle[DrawDimPlanarAngle]
+  HandleC1C1* = Handle[DrawDimPlanarAngle]
   DrawDimPlanarAngle* {.importcpp: "DrawDim_PlanarAngle",
                        header: "DrawDim_PlanarAngle.hxx", bycopy.} = object of DrawDimPlanarDimension
 
@@ -34,7 +34,7 @@ proc constructDrawDimPlanarAngle*(line1: TopoDS_Shape; line2: TopoDS_Shape): Dra
     header: "DrawDim_PlanarAngle.hxx".}
 proc sector*(this: var DrawDimPlanarAngle; inverted: bool; reversed: bool) {.
     importcpp: "Sector", header: "DrawDim_PlanarAngle.hxx".}
-proc position*(this: var DrawDimPlanarAngle; value: float) {.importcpp: "Position",
+proc position*(this: var DrawDimPlanarAngle; value: cfloat) {.importcpp: "Position",
     header: "DrawDim_PlanarAngle.hxx".}
 proc drawOn*(this: DrawDimPlanarAngle; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawDim_PlanarAngle.hxx".}
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawDim_PlanarAngle.hxx".}
 proc dynamicType*(this: DrawDimPlanarAngle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawDim_PlanarAngle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

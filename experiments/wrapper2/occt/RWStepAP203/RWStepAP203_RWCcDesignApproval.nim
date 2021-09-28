@@ -29,7 +29,7 @@ proc constructRWStepAP203RWCcDesignApproval*(): RWStepAP203RWCcDesignApproval {.
     constructor, importcpp: "RWStepAP203_RWCcDesignApproval(@)",
     header: "RWStepAP203_RWCcDesignApproval.hxx".}
 proc readStep*(this: RWStepAP203RWCcDesignApproval;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP203CcDesignApproval]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP203_RWCcDesignApproval.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepAP203RWCcDesignApproval;
            ent: Handle[StepAP203CcDesignApproval];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignApproval.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

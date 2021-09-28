@@ -14,32 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESAppliHArray1OfFlow* {.importcpp: "IGESAppli_HArray1OfFlow",
-                           header: "IGESAppli_HArray1OfFlow.hxx", bycopy.} = object of IGESAppliArray1OfFlow
+## !!!Ignored construct:  # IGESAppli_HArray1OfFlow_HeaderFile [NewLine] # IGESAppli_HArray1OfFlow_HeaderFile [NewLine] # < IGESAppli_Flow . hxx > [NewLine] # < IGESAppli_Array1OfFlow . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESAppli_HArray1OfFlow , IGESAppli_Array1OfFlow ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESAppliHArray1OfFlow*(theLower: int; theUpper: int): IGESAppliHArray1OfFlow {.
-    constructor, importcpp: "IGESAppli_HArray1OfFlow(@)",
-    header: "IGESAppli_HArray1OfFlow.hxx".}
-proc constructIGESAppliHArray1OfFlow*(theLower: int; theUpper: int;
-                                     theValue: ValueType): IGESAppliHArray1OfFlow {.
-    constructor, importcpp: "IGESAppli_HArray1OfFlow(@)",
-    header: "IGESAppli_HArray1OfFlow.hxx".}
-proc constructIGESAppliHArray1OfFlow*(theOther: IGESAppliArray1OfFlow): IGESAppliHArray1OfFlow {.
-    constructor, importcpp: "IGESAppli_HArray1OfFlow(@)",
-    header: "IGESAppli_HArray1OfFlow.hxx".}
-proc array1*(this: IGESAppliHArray1OfFlow): IGESAppliArray1OfFlow {.noSideEffect,
-    importcpp: "Array1", header: "IGESAppli_HArray1OfFlow.hxx".}
-proc changeArray1*(this: var IGESAppliHArray1OfFlow): var IGESAppliArray1OfFlow {.
-    importcpp: "ChangeArray1", header: "IGESAppli_HArray1OfFlow.hxx".}
-type
-  IGESAppliHArray1OfFlowbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_HArray1OfFlow::get_type_name(@)",
-                            header: "IGESAppli_HArray1OfFlow.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESAppli_HArray1OfFlow::get_type_descriptor(@)",
-    header: "IGESAppli_HArray1OfFlow.hxx".}
-proc dynamicType*(this: IGESAppliHArray1OfFlow): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESAppli_HArray1OfFlow.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

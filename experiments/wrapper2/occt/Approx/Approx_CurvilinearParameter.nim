@@ -33,19 +33,19 @@ type
                                                                                        ## curve
 
 
-proc constructApproxCurvilinearParameter*(c3d: Handle[Adaptor3dHCurve]; tol: float;
-    order: GeomAbsShape; maxDegree: int; maxSegments: int): ApproxCurvilinearParameter {.
+proc constructApproxCurvilinearParameter*(c3d: Handle[Adaptor3dHCurve];
+    tol: cfloat; order: GeomAbsShape; maxDegree: cint; maxSegments: cint): ApproxCurvilinearParameter {.
     constructor, importcpp: "Approx_CurvilinearParameter(@)",
     header: "Approx_CurvilinearParameter.hxx".}
 proc constructApproxCurvilinearParameter*(c2d: Handle[Adaptor2dHCurve2d];
-    surf: Handle[Adaptor3dHSurface]; tol: float; order: GeomAbsShape; maxDegree: int;
-    maxSegments: int): ApproxCurvilinearParameter {.constructor,
+    surf: Handle[Adaptor3dHSurface]; tol: cfloat; order: GeomAbsShape;
+    maxDegree: cint; maxSegments: cint): ApproxCurvilinearParameter {.constructor,
     importcpp: "Approx_CurvilinearParameter(@)",
     header: "Approx_CurvilinearParameter.hxx".}
 proc constructApproxCurvilinearParameter*(c2d1: Handle[Adaptor2dHCurve2d];
     surf1: Handle[Adaptor3dHSurface]; c2d2: Handle[Adaptor2dHCurve2d];
-    surf2: Handle[Adaptor3dHSurface]; tol: float; order: GeomAbsShape; maxDegree: int;
-    maxSegments: int): ApproxCurvilinearParameter {.constructor,
+    surf2: Handle[Adaptor3dHSurface]; tol: cfloat; order: GeomAbsShape;
+    maxDegree: cint; maxSegments: cint): ApproxCurvilinearParameter {.constructor,
     importcpp: "Approx_CurvilinearParameter(@)",
     header: "Approx_CurvilinearParameter.hxx".}
 proc isDone*(this: ApproxCurvilinearParameter): bool {.noSideEffect,
@@ -54,15 +54,40 @@ proc hasResult*(this: ApproxCurvilinearParameter): bool {.noSideEffect,
     importcpp: "HasResult", header: "Approx_CurvilinearParameter.hxx".}
 proc curve3d*(this: ApproxCurvilinearParameter): Handle[GeomBSplineCurve] {.
     noSideEffect, importcpp: "Curve3d", header: "Approx_CurvilinearParameter.hxx".}
-proc maxError3d*(this: ApproxCurvilinearParameter): float {.noSideEffect,
+proc maxError3d*(this: ApproxCurvilinearParameter): cfloat {.noSideEffect,
     importcpp: "MaxError3d", header: "Approx_CurvilinearParameter.hxx".}
 proc curve2d1*(this: ApproxCurvilinearParameter): Handle[Geom2dBSplineCurve] {.
     noSideEffect, importcpp: "Curve2d1", header: "Approx_CurvilinearParameter.hxx".}
-proc maxError2d1*(this: ApproxCurvilinearParameter): float {.noSideEffect,
+proc maxError2d1*(this: ApproxCurvilinearParameter): cfloat {.noSideEffect,
     importcpp: "MaxError2d1", header: "Approx_CurvilinearParameter.hxx".}
 proc curve2d2*(this: ApproxCurvilinearParameter): Handle[Geom2dBSplineCurve] {.
     noSideEffect, importcpp: "Curve2d2", header: "Approx_CurvilinearParameter.hxx".}
-proc maxError2d2*(this: ApproxCurvilinearParameter): float {.noSideEffect,
+proc maxError2d2*(this: ApproxCurvilinearParameter): cfloat {.noSideEffect,
     importcpp: "MaxError2d2", header: "Approx_CurvilinearParameter.hxx".}
 proc dump*(this: ApproxCurvilinearParameter; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "Approx_CurvilinearParameter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

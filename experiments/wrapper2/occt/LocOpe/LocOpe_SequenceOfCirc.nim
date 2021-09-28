@@ -17,3 +17,28 @@
 type
   LocOpeSequenceOfCirc* = NCollectionSequence[Circ]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

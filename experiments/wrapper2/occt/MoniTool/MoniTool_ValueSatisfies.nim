@@ -16,3 +16,28 @@
 type
   MoniToolValueSatisfies* = proc (val: Handle[TCollectionHAsciiString]): bool
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

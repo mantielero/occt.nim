@@ -14,32 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESSolidHArray1OfLoop* {.importcpp: "IGESSolid_HArray1OfLoop",
-                           header: "IGESSolid_HArray1OfLoop.hxx", bycopy.} = object of IGESSolidArray1OfLoop
+## !!!Ignored construct:  # IGESSolid_HArray1OfLoop_HeaderFile [NewLine] # IGESSolid_HArray1OfLoop_HeaderFile [NewLine] # < IGESSolid_Loop . hxx > [NewLine] # < IGESSolid_Array1OfLoop . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESSolid_HArray1OfLoop , IGESSolid_Array1OfLoop ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESSolidHArray1OfLoop*(theLower: int; theUpper: int): IGESSolidHArray1OfLoop {.
-    constructor, importcpp: "IGESSolid_HArray1OfLoop(@)",
-    header: "IGESSolid_HArray1OfLoop.hxx".}
-proc constructIGESSolidHArray1OfLoop*(theLower: int; theUpper: int;
-                                     theValue: ValueType): IGESSolidHArray1OfLoop {.
-    constructor, importcpp: "IGESSolid_HArray1OfLoop(@)",
-    header: "IGESSolid_HArray1OfLoop.hxx".}
-proc constructIGESSolidHArray1OfLoop*(theOther: IGESSolidArray1OfLoop): IGESSolidHArray1OfLoop {.
-    constructor, importcpp: "IGESSolid_HArray1OfLoop(@)",
-    header: "IGESSolid_HArray1OfLoop.hxx".}
-proc array1*(this: IGESSolidHArray1OfLoop): IGESSolidArray1OfLoop {.noSideEffect,
-    importcpp: "Array1", header: "IGESSolid_HArray1OfLoop.hxx".}
-proc changeArray1*(this: var IGESSolidHArray1OfLoop): var IGESSolidArray1OfLoop {.
-    importcpp: "ChangeArray1", header: "IGESSolid_HArray1OfLoop.hxx".}
-type
-  IGESSolidHArray1OfLoopbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_HArray1OfLoop::get_type_name(@)",
-                            header: "IGESSolid_HArray1OfLoop.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESSolid_HArray1OfLoop::get_type_descriptor(@)",
-    header: "IGESSolid_HArray1OfLoop.hxx".}
-proc dynamicType*(this: IGESSolidHArray1OfLoop): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESSolid_HArray1OfLoop.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

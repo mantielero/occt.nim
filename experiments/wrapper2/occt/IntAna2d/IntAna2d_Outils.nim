@@ -20,24 +20,50 @@ type
                             header: "IntAna2d_Outils.hxx", bycopy.} = object
 
 
-proc constructMyDirectPolynomialRoots*(a4: float; a3: float; a2: float; a1: float;
-                                      a0: float): MyDirectPolynomialRoots {.
+proc constructMyDirectPolynomialRoots*(a4: cfloat; a3: cfloat; a2: cfloat; a1: cfloat;
+                                      a0: cfloat): MyDirectPolynomialRoots {.
     constructor, importcpp: "MyDirectPolynomialRoots(@)",
     header: "IntAna2d_Outils.hxx".}
-proc constructMyDirectPolynomialRoots*(a2: float; a1: float; a0: float): MyDirectPolynomialRoots {.
+proc constructMyDirectPolynomialRoots*(a2: cfloat; a1: cfloat; a0: cfloat): MyDirectPolynomialRoots {.
     constructor, importcpp: "MyDirectPolynomialRoots(@)",
     header: "IntAna2d_Outils.hxx".}
-proc nbSolutions*(this: MyDirectPolynomialRoots): int {.noSideEffect,
+proc nbSolutions*(this: MyDirectPolynomialRoots): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "IntAna2d_Outils.hxx".}
-proc value*(this: MyDirectPolynomialRoots; i: int): float {.noSideEffect,
+proc value*(this: MyDirectPolynomialRoots; i: cint): cfloat {.noSideEffect,
     importcpp: "Value", header: "IntAna2d_Outils.hxx".}
-proc isDone*(this: MyDirectPolynomialRoots): float {.noSideEffect,
+proc isDone*(this: MyDirectPolynomialRoots): cfloat {.noSideEffect,
     importcpp: "IsDone", header: "IntAna2d_Outils.hxx".}
 proc infiniteRoots*(this: MyDirectPolynomialRoots): bool {.noSideEffect,
     importcpp: "InfiniteRoots", header: "IntAna2d_Outils.hxx".}
-proc pointsConfondus*(xa: float; ya: float; xb: float; yb: float): bool {.
+proc pointsConfondus*(xa: cfloat; ya: cfloat; xb: cfloat; yb: cfloat): bool {.
     importcpp: "Points_Confondus(@)", header: "IntAna2d_Outils.hxx".}
-proc traitementPointsConfondus*(nbPts: var int; pts: ptr IntAna2dIntPoint) {.
+proc traitementPointsConfondus*(nbPts: var cint; pts: ptr IntAna2dIntPoint) {.
     importcpp: "Traitement_Points_Confondus(@)", header: "IntAna2d_Outils.hxx".}
-proc coordAncienRepere*(ancienX: var float; ancienY: var float; axeNouveauRepere: Ax2d) {.
+proc coordAncienRepere*(ancienX: var cfloat; ancienY: var cfloat;
+                       axeNouveauRepere: Ax2d) {.
     importcpp: "Coord_Ancien_Repere(@)", header: "IntAna2d_Outils.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

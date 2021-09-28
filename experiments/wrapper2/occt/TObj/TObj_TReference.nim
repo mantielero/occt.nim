@@ -87,7 +87,32 @@ proc dynamicType*(this: TObjTReference): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of TObj_TReference"
 type
-  HandleTObjTReference* = Handle[TObjTReference]
+  HandleC1C1* = Handle[TObjTReference]
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

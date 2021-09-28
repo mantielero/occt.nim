@@ -25,17 +25,42 @@ proc constructChFiDS_StripeMap*(): ChFiDS_StripeMap {.constructor,
     importcpp: "ChFiDS_StripeMap(@)", header: "ChFiDS_StripeMap.hxx".}
 proc add*(this: var ChFiDS_StripeMap; v: TopoDS_Vertex; f: Handle[ChFiDS_Stripe]) {.
     importcpp: "Add", header: "ChFiDS_StripeMap.hxx".}
-proc extent*(this: ChFiDS_StripeMap): int {.noSideEffect, importcpp: "Extent",
-                                        header: "ChFiDS_StripeMap.hxx".}
+proc extent*(this: ChFiDS_StripeMap): cint {.noSideEffect, importcpp: "Extent",
+    header: "ChFiDS_StripeMap.hxx".}
 proc findFromKey*(this: ChFiDS_StripeMap; v: TopoDS_Vertex): ChFiDS_ListOfStripe {.
     noSideEffect, importcpp: "FindFromKey", header: "ChFiDS_StripeMap.hxx".}
 proc `()`*(this: ChFiDS_StripeMap; v: TopoDS_Vertex): ChFiDS_ListOfStripe {.
     noSideEffect, importcpp: "#(@)", header: "ChFiDS_StripeMap.hxx".}
-proc findFromIndex*(this: ChFiDS_StripeMap; i: int): ChFiDS_ListOfStripe {.
+proc findFromIndex*(this: ChFiDS_StripeMap; i: cint): ChFiDS_ListOfStripe {.
     noSideEffect, importcpp: "FindFromIndex", header: "ChFiDS_StripeMap.hxx".}
-proc `()`*(this: ChFiDS_StripeMap; i: int): ChFiDS_ListOfStripe {.noSideEffect,
+proc `()`*(this: ChFiDS_StripeMap; i: cint): ChFiDS_ListOfStripe {.noSideEffect,
     importcpp: "#(@)", header: "ChFiDS_StripeMap.hxx".}
-proc findKey*(this: ChFiDS_StripeMap; i: int): TopoDS_Vertex {.noSideEffect,
+proc findKey*(this: ChFiDS_StripeMap; i: cint): TopoDS_Vertex {.noSideEffect,
     importcpp: "FindKey", header: "ChFiDS_StripeMap.hxx".}
 proc clear*(this: var ChFiDS_StripeMap) {.importcpp: "Clear",
                                       header: "ChFiDS_StripeMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

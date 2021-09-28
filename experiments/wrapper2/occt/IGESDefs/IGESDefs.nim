@@ -42,3 +42,28 @@ type
 proc init*() {.importcpp: "IGESDefs::Init(@)", header: "IGESDefs.hxx".}
 proc protocol*(): Handle[IGESDefsProtocol] {.importcpp: "IGESDefs::Protocol(@)",
     header: "IGESDefs.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

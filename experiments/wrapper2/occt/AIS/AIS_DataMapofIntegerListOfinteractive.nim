@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  AIS_DataMapofIntegerListOfinteractive* = NCollectionDataMap[int,
+  AIS_DataMapofIntegerListOfinteractive* = NCollectionDataMap[cint,
       AIS_ListOfInteractive, TColStdMapIntegerHasher]
-  AIS_DataMapIteratorOfDataMapofIntegerListOfinteractive* = Iterator[int,
+  AIS_DataMapIteratorOfDataMapofIntegerListOfinteractive* = Iterator[cint,
       AIS_ListOfInteractive, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

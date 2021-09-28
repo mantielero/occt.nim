@@ -31,3 +31,28 @@ proc addWire*(this: var TopOpeBRepBuildWireToFace; w: TopoDS_Wire) {.
 proc makeFaces*(this: var TopOpeBRepBuildWireToFace; f: TopoDS_Face;
                lf: var TopToolsListOfShape) {.importcpp: "MakeFaces",
     header: "TopOpeBRepBuild_WireToFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

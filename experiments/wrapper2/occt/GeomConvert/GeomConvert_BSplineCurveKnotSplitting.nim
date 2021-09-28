@@ -19,34 +19,26 @@ discard "forward decl of Geom_BSplineCurve"
 type
   GeomConvertBSplineCurveKnotSplitting* {.
       importcpp: "GeomConvert_BSplineCurveKnotSplitting",
-      header: "GeomConvert_BSplineCurveKnotSplitting.hxx", bycopy.} = object ## !
-                                                                        ## Determines points at which the BSpline curve
-                                                                        ## !
-                                                                        ## BasisCurve should be split in order to obtain arcs
-                                                                        ## ! with a degree of
-                                                                        ## continuity equal to
-                                                                        ## ContinuityRange.
-                                                                        ## ! These points are knot values of
-                                                                        ## BasisCurve. They
-                                                                        ## ! are
-                                                                        ## identified by indices in the knots table of
-                                                                        ## BasisCurve.
-                                                                        ## ! Use the
-                                                                        ## available
-                                                                        ## interrogation
-                                                                        ## functions to access
-                                                                        ## ! computed values, followed by the global function
-                                                                        ## !
-                                                                        ## SplitBSplineCurve
-                                                                        ## (provided by the package
-                                                                        ## GeomConvert) to split the curve.
-                                                                        ## !
-                                                                        ## Exceptions
-                                                                        ## !
-                                                                        ## Standard_RangeError if
-                                                                        ## ContinuityRange is less than zero.
+      header: "GeomConvert_BSplineCurveKnotSplitting.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomConvertBSplineCurveKnotSplitting; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert_BSplineCurveKnotSplitting::operator new",
+    header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
+proc `delete`*(this: var GeomConvertBSplineCurveKnotSplitting; theAddress: pointer) {.
+    importcpp: "GeomConvert_BSplineCurveKnotSplitting::operator delete",
+    header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
+proc `new[]`*(this: var GeomConvertBSplineCurveKnotSplitting; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert_BSplineCurveKnotSplitting::operator new[]",
+    header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
+proc `delete[]`*(this: var GeomConvertBSplineCurveKnotSplitting; theAddress: pointer) {.
+    importcpp: "GeomConvert_BSplineCurveKnotSplitting::operator delete[]",
+    header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
+proc `new`*(this: var GeomConvertBSplineCurveKnotSplitting; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "GeomConvert_BSplineCurveKnotSplitting::operator new", header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
+proc `delete`*(this: var GeomConvertBSplineCurveKnotSplitting; a2: pointer;
+              a3: pointer) {.importcpp: "GeomConvert_BSplineCurveKnotSplitting::operator delete",
+                           header: "GeomConvert_BSplineCurveKnotSplitting.hxx".}
 proc constructGeomConvertBSplineCurveKnotSplitting*(
     basisCurve: Handle[GeomBSplineCurve]; continuityRange: int): GeomConvertBSplineCurveKnotSplitting {.
     constructor, importcpp: "GeomConvert_BSplineCurveKnotSplitting(@)",

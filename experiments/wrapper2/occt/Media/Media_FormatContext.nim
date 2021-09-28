@@ -97,3 +97,28 @@ proc seekStream*(this: var MediaFormatContext; theStreamId: cuint;
     importcpp: "SeekStream", header: "Media_FormatContext.hxx".}
 proc seek*(this: var MediaFormatContext; theSeekPts: cdouble; toSeekBack: bool): bool {.
     importcpp: "Seek", header: "Media_FormatContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

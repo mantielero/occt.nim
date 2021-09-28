@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_VersionedActionRequest"
 discard "forward decl of StepBasic_ActionRequestSolution"
 discard "forward decl of StepBasic_ActionRequestSolution"
 type
-  HandleStepBasicActionRequestSolution* = Handle[StepBasicActionRequestSolution]
+  HandleC1C1* = Handle[StepBasicActionRequestSolution]
 
 ## ! Representation of STEP entity ActionRequestSolution
 
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicActionRequestSolution): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ActionRequestSolution.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

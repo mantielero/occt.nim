@@ -121,9 +121,10 @@ proc set*(this: var OpenGlLightSourceState;
     header: "OpenGl_ShaderStates.hxx".}
 proc lightSources*(this: OpenGlLightSourceState): Handle[Graphic3dLightSet] {.
     noSideEffect, importcpp: "LightSources", header: "OpenGl_ShaderStates.hxx".}
-proc specIBLMapLevels*(this: OpenGlLightSourceState): int {.noSideEffect,
+proc specIBLMapLevels*(this: OpenGlLightSourceState): cint {.noSideEffect,
     importcpp: "SpecIBLMapLevels", header: "OpenGl_ShaderStates.hxx".}
-proc setSpecIBLMapLevels*(this: var OpenGlLightSourceState; theSpecIBLMapLevels: int) {.
+proc setSpecIBLMapLevels*(this: var OpenGlLightSourceState;
+                         theSpecIBLMapLevels: cint) {.
     importcpp: "SetSpecIBLMapLevels", header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines generic state of OCCT clipping state.
 
@@ -165,3 +166,28 @@ proc toEnableWrite*(this: OpenGlOitState): bool {.noSideEffect,
     importcpp: "ToEnableWrite", header: "OpenGl_ShaderStates.hxx".}
 proc depthFactor*(this: OpenGlOitState): cfloat {.noSideEffect,
     importcpp: "DepthFactor", header: "OpenGl_ShaderStates.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

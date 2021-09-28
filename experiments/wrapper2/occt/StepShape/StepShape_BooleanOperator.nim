@@ -21,3 +21,28 @@ type
     StepShapeBoDifference, StepShapeBoIntersection, StepShapeBoUnion
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

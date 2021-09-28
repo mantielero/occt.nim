@@ -26,10 +26,35 @@ type
 proc constructStepDimTolDatumOrCommonDatum*(): StepDimTolDatumOrCommonDatum {.
     constructor, importcpp: "StepDimTol_DatumOrCommonDatum(@)",
     header: "StepDimTol_DatumOrCommonDatum.hxx".}
-proc caseNum*(this: StepDimTolDatumOrCommonDatum; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepDimTolDatumOrCommonDatum; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepDimTol_DatumOrCommonDatum.hxx".}
 proc datum*(this: StepDimTolDatumOrCommonDatum): Handle[StepDimTolDatum] {.
     noSideEffect, importcpp: "Datum", header: "StepDimTol_DatumOrCommonDatum.hxx".}
 proc commonDatumList*(this: StepDimTolDatumOrCommonDatum): Handle[
     StepDimTolHArray1OfDatumReferenceElement] {.noSideEffect,
     importcpp: "CommonDatumList", header: "StepDimTol_DatumOrCommonDatum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ type
 proc constructRWStepGeomRWPlane*(): RWStepGeomRWPlane {.constructor,
     importcpp: "RWStepGeom_RWPlane(@)", header: "RWStepGeom_RWPlane.hxx".}
 proc readStep*(this: RWStepGeomRWPlane; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPlane]) {.
+              num: cint; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPlane]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWPlane.hxx".}
 proc writeStep*(this: RWStepGeomRWPlane; sw: var StepDataStepWriter;
                ent: Handle[StepGeomPlane]) {.noSideEffect, importcpp: "WriteStep",
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepGeomRWPlane; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWPlane; ent: Handle[StepGeomPlane];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWPlane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

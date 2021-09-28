@@ -27,9 +27,34 @@ proc constructRWStepGeomRWCartesianPoint*(): RWStepGeomRWCartesianPoint {.
     constructor, importcpp: "RWStepGeom_RWCartesianPoint(@)",
     header: "RWStepGeom_RWCartesianPoint.hxx".}
 proc readStep*(this: RWStepGeomRWCartesianPoint;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomCartesianPoint]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWCartesianPoint.hxx".}
 proc writeStep*(this: RWStepGeomRWCartesianPoint; sw: var StepDataStepWriter;
                ent: Handle[StepGeomCartesianPoint]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWCartesianPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

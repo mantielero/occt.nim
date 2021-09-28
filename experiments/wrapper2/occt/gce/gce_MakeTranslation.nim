@@ -36,3 +36,28 @@ proc operator*(this: GceMakeTranslation): Trsf {.noSideEffect, importcpp: "Opera
 converter `trsf`*(this: GceMakeTranslation): Trsf {.noSideEffect,
     importcpp: "gce_MakeTranslation::operator gp_Trsf",
     header: "gce_MakeTranslation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

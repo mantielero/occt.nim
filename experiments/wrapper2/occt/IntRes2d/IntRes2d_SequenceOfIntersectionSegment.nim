@@ -18,3 +18,28 @@ type
   IntRes2dSequenceOfIntersectionSegment* = NCollectionSequence[
       IntRes2dIntersectionSegment]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

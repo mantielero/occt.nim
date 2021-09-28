@@ -15,3 +15,28 @@ type
   StepElementSequenceOfSurfaceElementPurposeMember* = NCollectionSequence[
       Handle[StepElementSurfaceElementPurposeMember]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

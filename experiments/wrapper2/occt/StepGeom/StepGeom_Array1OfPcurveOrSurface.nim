@@ -17,3 +17,28 @@
 type
   StepGeomArray1OfPcurveOrSurface* = NCollectionArray1[StepGeomPcurveOrSurface]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -79,27 +79,27 @@ proc reset*(this: var InterfaceGraph) {.importcpp: "Reset",
                                     header: "Interface_Graph.hxx".}
 proc resetStatus*(this: var InterfaceGraph) {.importcpp: "ResetStatus",
     header: "Interface_Graph.hxx".}
-proc size*(this: InterfaceGraph): int {.noSideEffect, importcpp: "Size",
-                                    header: "Interface_Graph.hxx".}
-proc nbStatuses*(this: InterfaceGraph): int {.noSideEffect, importcpp: "NbStatuses",
+proc size*(this: InterfaceGraph): cint {.noSideEffect, importcpp: "Size",
+                                     header: "Interface_Graph.hxx".}
+proc nbStatuses*(this: InterfaceGraph): cint {.noSideEffect, importcpp: "NbStatuses",
     header: "Interface_Graph.hxx".}
-proc entityNumber*(this: InterfaceGraph; ent: Handle[StandardTransient]): int {.
+proc entityNumber*(this: InterfaceGraph; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "EntityNumber", header: "Interface_Graph.hxx".}
-proc isPresent*(this: InterfaceGraph; num: int): bool {.noSideEffect,
+proc isPresent*(this: InterfaceGraph; num: cint): bool {.noSideEffect,
     importcpp: "IsPresent", header: "Interface_Graph.hxx".}
 proc isPresent*(this: InterfaceGraph; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsPresent", header: "Interface_Graph.hxx".}
-proc entity*(this: InterfaceGraph; num: int): Handle[StandardTransient] {.
+proc entity*(this: InterfaceGraph; num: cint): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Entity", header: "Interface_Graph.hxx".}
-proc status*(this: InterfaceGraph; num: int): int {.noSideEffect, importcpp: "Status",
+proc status*(this: InterfaceGraph; num: cint): cint {.noSideEffect,
+    importcpp: "Status", header: "Interface_Graph.hxx".}
+proc setStatus*(this: var InterfaceGraph; num: cint; stat: cint) {.
+    importcpp: "SetStatus", header: "Interface_Graph.hxx".}
+proc removeItem*(this: var InterfaceGraph; num: cint) {.importcpp: "RemoveItem",
     header: "Interface_Graph.hxx".}
-proc setStatus*(this: var InterfaceGraph; num: int; stat: int) {.importcpp: "SetStatus",
-    header: "Interface_Graph.hxx".}
-proc removeItem*(this: var InterfaceGraph; num: int) {.importcpp: "RemoveItem",
-    header: "Interface_Graph.hxx".}
-proc changeStatus*(this: var InterfaceGraph; oldstat: int; newstat: int) {.
+proc changeStatus*(this: var InterfaceGraph; oldstat: cint; newstat: cint) {.
     importcpp: "ChangeStatus", header: "Interface_Graph.hxx".}
-proc removeStatus*(this: var InterfaceGraph; stat: int) {.importcpp: "RemoveStatus",
+proc removeStatus*(this: var InterfaceGraph; stat: cint) {.importcpp: "RemoveStatus",
     header: "Interface_Graph.hxx".}
 proc bitMap*(this: InterfaceGraph): InterfaceBitMap {.noSideEffect,
     importcpp: "BitMap", header: "Interface_Graph.hxx".}
@@ -110,20 +110,20 @@ proc model*(this: InterfaceGraph): Handle[InterfaceInterfaceModel] {.noSideEffec
 proc getFromModel*(this: var InterfaceGraph) {.importcpp: "GetFromModel",
     header: "Interface_Graph.hxx".}
 proc getFromEntity*(this: var InterfaceGraph; ent: Handle[StandardTransient];
-                   shared: bool; newstat: int = 0) {.importcpp: "GetFromEntity",
+                   shared: bool; newstat: cint = 0) {.importcpp: "GetFromEntity",
     header: "Interface_Graph.hxx".}
 proc getFromEntity*(this: var InterfaceGraph; ent: Handle[StandardTransient];
-                   shared: bool; newstat: int; overlapstat: int; cumul: bool) {.
+                   shared: bool; newstat: cint; overlapstat: cint; cumul: bool) {.
     importcpp: "GetFromEntity", header: "Interface_Graph.hxx".}
 proc getFromIter*(this: var InterfaceGraph; iter: InterfaceEntityIterator;
-                 newstat: int) {.importcpp: "GetFromIter",
-                               header: "Interface_Graph.hxx".}
+                 newstat: cint) {.importcpp: "GetFromIter",
+                                header: "Interface_Graph.hxx".}
 proc getFromIter*(this: var InterfaceGraph; iter: InterfaceEntityIterator;
-                 newstat: int; overlapstat: int; cumul: bool) {.
+                 newstat: cint; overlapstat: cint; cumul: bool) {.
     importcpp: "GetFromIter", header: "Interface_Graph.hxx".}
 proc getFromGraph*(this: var InterfaceGraph; agraph: InterfaceGraph) {.
     importcpp: "GetFromGraph", header: "Interface_Graph.hxx".}
-proc getFromGraph*(this: var InterfaceGraph; agraph: InterfaceGraph; stat: int) {.
+proc getFromGraph*(this: var InterfaceGraph; agraph: InterfaceGraph; stat: cint) {.
     importcpp: "GetFromGraph", header: "Interface_Graph.hxx".}
 proc hasShareErrors*(this: InterfaceGraph; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "HasShareErrors", header: "Interface_Graph.hxx".}
@@ -149,3 +149,28 @@ proc sharingTable*(this: InterfaceGraph): Handle[TColStdHArray1OfListOfInteger] 
     noSideEffect, importcpp: "SharingTable", header: "Interface_Graph.hxx".}
 proc modeStat*(this: InterfaceGraph): bool {.noSideEffect, importcpp: "ModeStat",
     header: "Interface_Graph.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

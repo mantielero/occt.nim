@@ -24,11 +24,11 @@ type
                     bycopy.} = object ## ! Constructs a rotation through angle Angle about the axis defined by the line Line.
 
 
-proc constructGceMakeRotation*(line: Lin; angle: float): GceMakeRotation {.
+proc constructGceMakeRotation*(line: Lin; angle: cfloat): GceMakeRotation {.
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc constructGceMakeRotation*(axis: Ax1; angle: float): GceMakeRotation {.
+proc constructGceMakeRotation*(axis: Ax1; angle: cfloat): GceMakeRotation {.
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc constructGceMakeRotation*(point: Pnt; direc: Dir; angle: float): GceMakeRotation {.
+proc constructGceMakeRotation*(point: Pnt; direc: Dir; angle: cfloat): GceMakeRotation {.
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
 proc value*(this: GceMakeRotation): Trsf {.noSideEffect, importcpp: "Value",
                                        header: "gce_MakeRotation.hxx".}
@@ -37,3 +37,28 @@ proc operator*(this: GceMakeRotation): Trsf {.noSideEffect, importcpp: "Operator
 converter `trsf`*(this: GceMakeRotation): Trsf {.noSideEffect,
     importcpp: "gce_MakeRotation::operator gp_Trsf",
     header: "gce_MakeRotation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

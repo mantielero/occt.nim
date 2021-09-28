@@ -42,8 +42,8 @@ type
 
 
 proc constructBRepApproxTheComputeLineOfApprox*(
-    line: BRepApproxTheMultiLineOfApprox; degreemin: int = 4; degreemax: int = 8;
-    tolerance3d: float = 1.0e-3; tolerance2d: float = 1.0e-6; nbIterations: int = 5;
+    line: BRepApproxTheMultiLineOfApprox; degreemin: cint = 4; degreemax: cint = 8;
+    tolerance3d: cfloat = 1.0e-3; tolerance2d: cfloat = 1.0e-6; nbIterations: cint = 5;
     cutting: bool = true;
     parametrization: ApproxParametrizationType = approxChordLength;
     squares: bool = false): BRepApproxTheComputeLineOfApprox {.constructor,
@@ -51,20 +51,20 @@ proc constructBRepApproxTheComputeLineOfApprox*(
     header: "BRepApprox_TheComputeLineOfApprox.hxx".}
 proc constructBRepApproxTheComputeLineOfApprox*(
     line: BRepApproxTheMultiLineOfApprox; parameters: MathVector;
-    degreemin: int = 4; degreemax: int = 8; tolerance3d: float = 1.0e-03;
-    tolerance2d: float = 1.0e-06; nbIterations: int = 5; cutting: bool = true;
+    degreemin: cint = 4; degreemax: cint = 8; tolerance3d: cfloat = 1.0e-03;
+    tolerance2d: cfloat = 1.0e-06; nbIterations: cint = 5; cutting: bool = true;
     squares: bool = false): BRepApproxTheComputeLineOfApprox {.constructor,
     importcpp: "BRepApprox_TheComputeLineOfApprox(@)",
     header: "BRepApprox_TheComputeLineOfApprox.hxx".}
 proc constructBRepApproxTheComputeLineOfApprox*(parameters: MathVector;
-    degreemin: int = 4; degreemax: int = 8; tolerance3d: float = 1.0e-03;
-    tolerance2d: float = 1.0e-06; nbIterations: int = 5; cutting: bool = true;
+    degreemin: cint = 4; degreemax: cint = 8; tolerance3d: cfloat = 1.0e-03;
+    tolerance2d: cfloat = 1.0e-06; nbIterations: cint = 5; cutting: bool = true;
     squares: bool = false): BRepApproxTheComputeLineOfApprox {.constructor,
     importcpp: "BRepApprox_TheComputeLineOfApprox(@)",
     header: "BRepApprox_TheComputeLineOfApprox.hxx".}
-proc constructBRepApproxTheComputeLineOfApprox*(degreemin: int = 4;
-    degreemax: int = 8; tolerance3d: float = 1.0e-03; tolerance2d: float = 1.0e-06;
-    nbIterations: int = 5; cutting: bool = true;
+proc constructBRepApproxTheComputeLineOfApprox*(degreemin: cint = 4;
+    degreemax: cint = 8; tolerance3d: cfloat = 1.0e-03; tolerance2d: cfloat = 1.0e-06;
+    nbIterations: cint = 5; cutting: bool = true;
     parametrization: ApproxParametrizationType = approxChordLength;
     squares: bool = false): BRepApproxTheComputeLineOfApprox {.constructor,
     importcpp: "BRepApprox_TheComputeLineOfApprox(@)",
@@ -72,9 +72,9 @@ proc constructBRepApproxTheComputeLineOfApprox*(degreemin: int = 4;
 proc interpol*(this: var BRepApproxTheComputeLineOfApprox;
               line: BRepApproxTheMultiLineOfApprox) {.importcpp: "Interpol",
     header: "BRepApprox_TheComputeLineOfApprox.hxx".}
-proc init*(this: var BRepApproxTheComputeLineOfApprox; degreemin: int = 4;
-          degreemax: int = 8; tolerance3d: float = 1.0e-03;
-          tolerance2d: float = 1.0e-06; nbIterations: int = 5; cutting: bool = true;
+proc init*(this: var BRepApproxTheComputeLineOfApprox; degreemin: cint = 4;
+          degreemax: cint = 8; tolerance3d: cfloat = 1.0e-03;
+          tolerance2d: cfloat = 1.0e-06; nbIterations: cint = 5; cutting: bool = true;
           parametrization: ApproxParametrizationType = approxChordLength;
           squares: bool = false) {.importcpp: "Init",
                                header: "BRepApprox_TheComputeLineOfApprox.hxx".}
@@ -91,12 +91,11 @@ proc setKnotsAndMultiplicities*(this: var BRepApproxTheComputeLineOfApprox;
                                mults: TColStdArray1OfInteger) {.
     importcpp: "SetKnotsAndMultiplicities",
     header: "BRepApprox_TheComputeLineOfApprox.hxx".}
-proc setDegrees*(this: var BRepApproxTheComputeLineOfApprox; degreemin: int;
-                degreemax: int) {.importcpp: "SetDegrees",
-                                header: "BRepApprox_TheComputeLineOfApprox.hxx".}
-proc setTolerances*(this: var BRepApproxTheComputeLineOfApprox; tolerance3d: float;
-                   tolerance2d: float) {.importcpp: "SetTolerances", header: "BRepApprox_TheComputeLineOfApprox.hxx".}
-proc setContinuity*(this: var BRepApproxTheComputeLineOfApprox; c: int) {.
+proc setDegrees*(this: var BRepApproxTheComputeLineOfApprox; degreemin: cint;
+                degreemax: cint) {.importcpp: "SetDegrees", header: "BRepApprox_TheComputeLineOfApprox.hxx".}
+proc setTolerances*(this: var BRepApproxTheComputeLineOfApprox; tolerance3d: cfloat;
+                   tolerance2d: cfloat) {.importcpp: "SetTolerances", header: "BRepApprox_TheComputeLineOfApprox.hxx".}
+proc setContinuity*(this: var BRepApproxTheComputeLineOfApprox; c: cint) {.
     importcpp: "SetContinuity", header: "BRepApprox_TheComputeLineOfApprox.hxx".}
 proc setConstraints*(this: var BRepApproxTheComputeLineOfApprox;
                     firstC: AppParCurvesConstraint; lastC: AppParCurvesConstraint) {.
@@ -109,9 +108,9 @@ proc isAllApproximated*(this: BRepApproxTheComputeLineOfApprox): bool {.
 proc isToleranceReached*(this: BRepApproxTheComputeLineOfApprox): bool {.
     noSideEffect, importcpp: "IsToleranceReached",
     header: "BRepApprox_TheComputeLineOfApprox.hxx".}
-proc error*(this: BRepApproxTheComputeLineOfApprox; tol3d: var float; tol2d: var float) {.
-    noSideEffect, importcpp: "Error",
-    header: "BRepApprox_TheComputeLineOfApprox.hxx".}
+proc error*(this: BRepApproxTheComputeLineOfApprox; tol3d: var cfloat;
+           tol2d: var cfloat) {.noSideEffect, importcpp: "Error",
+                             header: "BRepApprox_TheComputeLineOfApprox.hxx".}
 proc value*(this: BRepApproxTheComputeLineOfApprox): AppParCurvesMultiBSpCurve {.
     noSideEffect, importcpp: "Value",
     header: "BRepApprox_TheComputeLineOfApprox.hxx".}
@@ -120,3 +119,28 @@ proc changeValue*(this: var BRepApproxTheComputeLineOfApprox): var AppParCurvesM
 proc parameters*(this: BRepApproxTheComputeLineOfApprox): TColStdArray1OfReal {.
     noSideEffect, importcpp: "Parameters",
     header: "BRepApprox_TheComputeLineOfApprox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

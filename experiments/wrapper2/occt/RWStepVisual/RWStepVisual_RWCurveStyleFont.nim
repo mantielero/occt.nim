@@ -29,7 +29,7 @@ proc constructRWStepVisualRWCurveStyleFont*(): RWStepVisualRWCurveStyleFont {.
     constructor, importcpp: "RWStepVisual_RWCurveStyleFont(@)",
     header: "RWStepVisual_RWCurveStyleFont.hxx".}
 proc readStep*(this: RWStepVisualRWCurveStyleFont;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualCurveStyleFont]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWCurveStyleFont.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepVisualRWCurveStyleFont;
            ent: Handle[StepVisualCurveStyleFont];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWCurveStyleFont.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

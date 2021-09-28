@@ -47,3 +47,28 @@ proc resetData*(this: var IFGraphAllShared) {.importcpp: "ResetData",
     header: "IFGraph_AllShared.hxx".}
 proc evaluate*(this: var IFGraphAllShared) {.importcpp: "Evaluate",
     header: "IFGraph_AllShared.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

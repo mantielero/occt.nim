@@ -21,8 +21,7 @@ discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndRatioUnit"
 discard "forward decl of StepBasic_ConversionBasedUnitAndRatioUnit"
 type
-  HandleStepBasicConversionBasedUnitAndRatioUnit* = Handle[
-      StepBasicConversionBasedUnitAndRatioUnit]
+  HandleC1C1* = Handle[StepBasicConversionBasedUnitAndRatioUnit]
   StepBasicConversionBasedUnitAndRatioUnit* {.
       importcpp: "StepBasic_ConversionBasedUnitAndRatioUnit",
       header: "StepBasic_ConversionBasedUnitAndRatioUnit.hxx", bycopy.} = object of StepBasicConversionBasedUnit ##
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_Conversi
 proc dynamicType*(this: StepBasicConversionBasedUnitAndRatioUnit): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepBasic_ConversionBasedUnitAndRatioUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

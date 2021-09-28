@@ -18,3 +18,28 @@ type
   IGESGeomArray1OfCurveOnSurface* = NCollectionArray1[
       Handle[IGESGeomCurveOnSurface]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

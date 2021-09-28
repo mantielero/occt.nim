@@ -31,7 +31,7 @@ proc constructRWStepBasicRWContractType*(): RWStepBasicRWContractType {.
     constructor, importcpp: "RWStepBasic_RWContractType(@)",
     header: "RWStepBasic_RWContractType.hxx".}
 proc readStep*(this: RWStepBasicRWContractType;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicContractType]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWContractType.hxx".}
 proc writeStep*(this: RWStepBasicRWContractType; sw: var StepDataStepWriter;
@@ -40,3 +40,28 @@ proc writeStep*(this: RWStepBasicRWContractType; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWContractType; ent: Handle[StepBasicContractType];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWContractType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   StepBasicArray1OfProductDefinition* = NCollectionArray1[
       Handle[StepBasicProductDefinition]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

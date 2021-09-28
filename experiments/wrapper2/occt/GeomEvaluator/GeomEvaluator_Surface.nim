@@ -12,7 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
+## !!!Ignored construct:  # _GeomEvaluator_Surface_HeaderFile [NewLine] # _GeomEvaluator_Surface_HeaderFile [NewLine] # < Standard_Transient . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] class gp_Pnt ;
+## Error: expected ';'!!!
+
 discard "forward decl of gp_Vec"
 type
   GeomEvaluatorSurface* {.importcpp: "GeomEvaluator_Surface",
@@ -41,12 +43,54 @@ type
 
 proc getTypeName*(): cstring {.importcpp: "GeomEvaluator_Surface::get_type_name(@)",
                             header: "GeomEvaluator_Surface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "GeomEvaluator_Surface::get_type_descriptor(@)",
-    header: "GeomEvaluator_Surface.hxx".}
-proc dynamicType*(this: GeomEvaluatorSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "GeomEvaluator_Surface.hxx".}
-discard "forward decl of GeomEvaluator_Surface"
-type
-  HandleGeomEvaluatorSurface* = Handle[GeomEvaluatorSurface]
+## !!!Ignored construct:  & get_type_descriptor ( ) { return Standard_Type :: Instance < GeomEvaluator_Surface > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } }
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( GeomEvaluator_Surface , Standard_Transient ) #  _GeomEvaluator_Surface_HeaderFile
+## Error: expected ';'!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

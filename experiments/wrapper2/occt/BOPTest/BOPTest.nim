@@ -54,3 +54,28 @@ proc mkConnectedCommands*(aDI: var DrawInterpretor) {.
     importcpp: "BOPTest::MkConnectedCommands(@)", header: "BOPTest.hxx".}
 proc reportAlerts*(theReport: Handle[MessageReport]) {.
     importcpp: "BOPTest::ReportAlerts(@)", header: "BOPTest.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

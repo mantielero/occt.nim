@@ -26,7 +26,7 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of ShapeFix_Face"
 discard "forward decl of ShapeFix_Face"
 type
-  HandleShapeFixFace* = Handle[ShapeFixFace]
+  HandleC1C1* = Handle[ShapeFixFace]
 
 ## ! This operator allows to perform various fixes on face
 ## ! and its wires: fixes provided by ShapeFix_Wire,
@@ -51,40 +51,40 @@ proc clearModes*(this: var ShapeFixFace) {.importcpp: "ClearModes",
                                        header: "ShapeFix_Face.hxx".}
 proc init*(this: var ShapeFixFace; face: TopoDS_Face) {.importcpp: "Init",
     header: "ShapeFix_Face.hxx".}
-proc init*(this: var ShapeFixFace; surf: Handle[GeomSurface]; preci: float;
+proc init*(this: var ShapeFixFace; surf: Handle[GeomSurface]; preci: cfloat;
           fwd: bool = true) {.importcpp: "Init", header: "ShapeFix_Face.hxx".}
-proc init*(this: var ShapeFixFace; surf: Handle[ShapeAnalysisSurface]; preci: float;
+proc init*(this: var ShapeFixFace; surf: Handle[ShapeAnalysisSurface]; preci: cfloat;
           fwd: bool = true) {.importcpp: "Init", header: "ShapeFix_Face.hxx".}
 proc setMsgRegistrator*(this: var ShapeFixFace;
                        msgreg: Handle[ShapeExtendBasicMsgRegistrator]) {.
     importcpp: "SetMsgRegistrator", header: "ShapeFix_Face.hxx".}
-proc setPrecision*(this: var ShapeFixFace; preci: float) {.importcpp: "SetPrecision",
+proc setPrecision*(this: var ShapeFixFace; preci: cfloat) {.importcpp: "SetPrecision",
     header: "ShapeFix_Face.hxx".}
-proc setMinTolerance*(this: var ShapeFixFace; mintol: float) {.
+proc setMinTolerance*(this: var ShapeFixFace; mintol: cfloat) {.
     importcpp: "SetMinTolerance", header: "ShapeFix_Face.hxx".}
-proc setMaxTolerance*(this: var ShapeFixFace; maxtol: float) {.
+proc setMaxTolerance*(this: var ShapeFixFace; maxtol: cfloat) {.
     importcpp: "SetMaxTolerance", header: "ShapeFix_Face.hxx".}
-proc fixWireMode*(this: var ShapeFixFace): var int {.importcpp: "FixWireMode",
+proc fixWireMode*(this: var ShapeFixFace): var cint {.importcpp: "FixWireMode",
     header: "ShapeFix_Face.hxx".}
-proc fixOrientationMode*(this: var ShapeFixFace): var int {.
+proc fixOrientationMode*(this: var ShapeFixFace): var cint {.
     importcpp: "FixOrientationMode", header: "ShapeFix_Face.hxx".}
-proc fixAddNaturalBoundMode*(this: var ShapeFixFace): var int {.
+proc fixAddNaturalBoundMode*(this: var ShapeFixFace): var cint {.
     importcpp: "FixAddNaturalBoundMode", header: "ShapeFix_Face.hxx".}
-proc fixMissingSeamMode*(this: var ShapeFixFace): var int {.
+proc fixMissingSeamMode*(this: var ShapeFixFace): var cint {.
     importcpp: "FixMissingSeamMode", header: "ShapeFix_Face.hxx".}
-proc fixSmallAreaWireMode*(this: var ShapeFixFace): var int {.
+proc fixSmallAreaWireMode*(this: var ShapeFixFace): var cint {.
     importcpp: "FixSmallAreaWireMode", header: "ShapeFix_Face.hxx".}
-proc removeSmallAreaFaceMode*(this: var ShapeFixFace): var int {.
+proc removeSmallAreaFaceMode*(this: var ShapeFixFace): var cint {.
     importcpp: "RemoveSmallAreaFaceMode", header: "ShapeFix_Face.hxx".}
-proc fixIntersectingWiresMode*(this: var ShapeFixFace): var int {.
+proc fixIntersectingWiresMode*(this: var ShapeFixFace): var cint {.
     importcpp: "FixIntersectingWiresMode", header: "ShapeFix_Face.hxx".}
-proc fixLoopWiresMode*(this: var ShapeFixFace): var int {.
+proc fixLoopWiresMode*(this: var ShapeFixFace): var cint {.
     importcpp: "FixLoopWiresMode", header: "ShapeFix_Face.hxx".}
-proc fixSplitFaceMode*(this: var ShapeFixFace): var int {.
+proc fixSplitFaceMode*(this: var ShapeFixFace): var cint {.
     importcpp: "FixSplitFaceMode", header: "ShapeFix_Face.hxx".}
-proc autoCorrectPrecisionMode*(this: var ShapeFixFace): var int {.
+proc autoCorrectPrecisionMode*(this: var ShapeFixFace): var cint {.
     importcpp: "AutoCorrectPrecisionMode", header: "ShapeFix_Face.hxx".}
-proc fixPeriodicDegeneratedMode*(this: var ShapeFixFace): var int {.
+proc fixPeriodicDegeneratedMode*(this: var ShapeFixFace): var cint {.
     importcpp: "FixPeriodicDegeneratedMode", header: "ShapeFix_Face.hxx".}
 proc face*(this: ShapeFixFace): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "ShapeFix_Face.hxx".}
@@ -130,3 +130,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_Face.hxx".}
 proc dynamicType*(this: ShapeFixFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Face.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGeom_SplineCurve"
 discard "forward decl of IGESGeom_SplineCurve"
 type
-  HandleIGESGeomSplineCurve* = Handle[IGESGeomSplineCurve]
+  HandleC1C1* = Handle[IGESGeomSplineCurve]
 
 ## ! Defines IGESSplineCurve, Type <112> Form <0>
 ## ! in package IGESGeom
@@ -37,8 +37,8 @@ type
 
 proc constructIGESGeomSplineCurve*(): IGESGeomSplineCurve {.constructor,
     importcpp: "IGESGeom_SplineCurve(@)", header: "IGESGeom_SplineCurve.hxx".}
-proc init*(this: var IGESGeomSplineCurve; aType: int; aDegree: int; nbDimensions: int;
-          allBreakPoints: Handle[TColStdHArray1OfReal];
+proc init*(this: var IGESGeomSplineCurve; aType: cint; aDegree: cint;
+          nbDimensions: cint; allBreakPoints: Handle[TColStdHArray1OfReal];
           allXPolynomials: Handle[TColStdHArray2OfReal];
           allYPolynomials: Handle[TColStdHArray2OfReal];
           allZPolynomials: Handle[TColStdHArray2OfReal];
@@ -46,33 +46,33 @@ proc init*(this: var IGESGeomSplineCurve; aType: int; aDegree: int; nbDimensions
           allYvalues: Handle[TColStdHArray1OfReal];
           allZvalues: Handle[TColStdHArray1OfReal]) {.importcpp: "Init",
     header: "IGESGeom_SplineCurve.hxx".}
-proc splineType*(this: IGESGeomSplineCurve): int {.noSideEffect,
+proc splineType*(this: IGESGeomSplineCurve): cint {.noSideEffect,
     importcpp: "SplineType", header: "IGESGeom_SplineCurve.hxx".}
-proc degree*(this: IGESGeomSplineCurve): int {.noSideEffect, importcpp: "Degree",
+proc degree*(this: IGESGeomSplineCurve): cint {.noSideEffect, importcpp: "Degree",
     header: "IGESGeom_SplineCurve.hxx".}
-proc nbDimensions*(this: IGESGeomSplineCurve): int {.noSideEffect,
+proc nbDimensions*(this: IGESGeomSplineCurve): cint {.noSideEffect,
     importcpp: "NbDimensions", header: "IGESGeom_SplineCurve.hxx".}
-proc nbSegments*(this: IGESGeomSplineCurve): int {.noSideEffect,
+proc nbSegments*(this: IGESGeomSplineCurve): cint {.noSideEffect,
     importcpp: "NbSegments", header: "IGESGeom_SplineCurve.hxx".}
-proc breakPoint*(this: IGESGeomSplineCurve; index: int): float {.noSideEffect,
+proc breakPoint*(this: IGESGeomSplineCurve; index: cint): cfloat {.noSideEffect,
     importcpp: "BreakPoint", header: "IGESGeom_SplineCurve.hxx".}
-proc xCoordPolynomial*(this: IGESGeomSplineCurve; index: int; ax: var float;
-                      bx: var float; cx: var float; dx: var float) {.noSideEffect,
+proc xCoordPolynomial*(this: IGESGeomSplineCurve; index: cint; ax: var cfloat;
+                      bx: var cfloat; cx: var cfloat; dx: var cfloat) {.noSideEffect,
     importcpp: "XCoordPolynomial", header: "IGESGeom_SplineCurve.hxx".}
-proc yCoordPolynomial*(this: IGESGeomSplineCurve; index: int; ay: var float;
-                      by: var float; cy: var float; dy: var float) {.noSideEffect,
+proc yCoordPolynomial*(this: IGESGeomSplineCurve; index: cint; ay: var cfloat;
+                      by: var cfloat; cy: var cfloat; dy: var cfloat) {.noSideEffect,
     importcpp: "YCoordPolynomial", header: "IGESGeom_SplineCurve.hxx".}
-proc zCoordPolynomial*(this: IGESGeomSplineCurve; index: int; az: var float;
-                      bz: var float; cz: var float; dz: var float) {.noSideEffect,
+proc zCoordPolynomial*(this: IGESGeomSplineCurve; index: cint; az: var cfloat;
+                      bz: var cfloat; cz: var cfloat; dz: var cfloat) {.noSideEffect,
     importcpp: "ZCoordPolynomial", header: "IGESGeom_SplineCurve.hxx".}
-proc xValues*(this: IGESGeomSplineCurve; tpx0: var float; tpx1: var float;
-             tpx2: var float; tpx3: var float) {.noSideEffect, importcpp: "XValues",
+proc xValues*(this: IGESGeomSplineCurve; tpx0: var cfloat; tpx1: var cfloat;
+             tpx2: var cfloat; tpx3: var cfloat) {.noSideEffect, importcpp: "XValues",
     header: "IGESGeom_SplineCurve.hxx".}
-proc yValues*(this: IGESGeomSplineCurve; tpy0: var float; tpy1: var float;
-             tpy2: var float; tpy3: var float) {.noSideEffect, importcpp: "YValues",
+proc yValues*(this: IGESGeomSplineCurve; tpy0: var cfloat; tpy1: var cfloat;
+             tpy2: var cfloat; tpy3: var cfloat) {.noSideEffect, importcpp: "YValues",
     header: "IGESGeom_SplineCurve.hxx".}
-proc zValues*(this: IGESGeomSplineCurve; tpz0: var float; tpz1: var float;
-             tpz2: var float; tpz3: var float) {.noSideEffect, importcpp: "ZValues",
+proc zValues*(this: IGESGeomSplineCurve; tpz0: var cfloat; tpz1: var cfloat;
+             tpz2: var cfloat; tpz3: var cfloat) {.noSideEffect, importcpp: "ZValues",
     header: "IGESGeom_SplineCurve.hxx".}
 type
   IGESGeomSplineCurvebaseType* = IGESDataIGESEntity
@@ -84,3 +84,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_SplineCurve.hxx".}
 proc dynamicType*(this: IGESGeomSplineCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_SplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

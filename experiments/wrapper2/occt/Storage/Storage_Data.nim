@@ -26,7 +26,7 @@ discard "forward decl of Storage_Root"
 discard "forward decl of Storage_Data"
 discard "forward decl of Storage_Data"
 type
-  HandleStorageData* = Handle[StorageData]
+  HandleC1C1* = Handle[StorageData]
 
 ## ! A picture memorizing the data stored in a
 ## ! container (for example, in a file).
@@ -196,9 +196,9 @@ proc addToComments*(this: var StorageData; aComment: TCollectionExtendedString) 
     importcpp: "AddToComments", header: "Storage_Data.hxx".}
 proc comments*(this: StorageData): TColStdSequenceOfExtendedString {.noSideEffect,
     importcpp: "Comments", header: "Storage_Data.hxx".}
-proc numberOfObjects*(this: StorageData): int {.noSideEffect,
+proc numberOfObjects*(this: StorageData): cint {.noSideEffect,
     importcpp: "NumberOfObjects", header: "Storage_Data.hxx".}
-proc numberOfRoots*(this: StorageData): int {.noSideEffect,
+proc numberOfRoots*(this: StorageData): cint {.noSideEffect,
     importcpp: "NumberOfRoots", header: "Storage_Data.hxx".}
 proc addRoot*(this: StorageData; anObject: Handle[StandardPersistent]) {.
     noSideEffect, importcpp: "AddRoot", header: "Storage_Data.hxx".}
@@ -213,7 +213,7 @@ proc find*(this: StorageData; aName: TCollectionAsciiString): Handle[StorageRoot
     noSideEffect, importcpp: "Find", header: "Storage_Data.hxx".}
 proc isRoot*(this: StorageData; aName: TCollectionAsciiString): bool {.noSideEffect,
     importcpp: "IsRoot", header: "Storage_Data.hxx".}
-proc numberOfTypes*(this: StorageData): int {.noSideEffect,
+proc numberOfTypes*(this: StorageData): cint {.noSideEffect,
     importcpp: "NumberOfTypes", header: "Storage_Data.hxx".}
 proc isType*(this: StorageData; aName: TCollectionAsciiString): bool {.noSideEffect,
     importcpp: "IsType", header: "Storage_Data.hxx".}
@@ -238,3 +238,28 @@ proc internalData*(this: StorageData): Handle[StorageInternalData] {.noSideEffec
     importcpp: "InternalData", header: "Storage_Data.hxx".}
 proc clear*(this: StorageData) {.noSideEffect, importcpp: "Clear",
                               header: "Storage_Data.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

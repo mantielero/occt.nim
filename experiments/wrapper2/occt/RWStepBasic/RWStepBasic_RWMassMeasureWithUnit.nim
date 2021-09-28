@@ -27,7 +27,7 @@ proc constructRWStepBasicRWMassMeasureWithUnit*(): RWStepBasicRWMassMeasureWithU
     constructor, importcpp: "RWStepBasic_RWMassMeasureWithUnit(@)",
     header: "RWStepBasic_RWMassMeasureWithUnit.hxx".}
 proc readStep*(this: RWStepBasicRWMassMeasureWithUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicMassMeasureWithUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWMassMeasureWithUnit.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepBasicRWMassMeasureWithUnit;
            ent: Handle[StepBasicMassMeasureWithUnit];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWMassMeasureWithUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

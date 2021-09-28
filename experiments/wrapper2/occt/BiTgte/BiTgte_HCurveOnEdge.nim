@@ -15,48 +15,63 @@
 ##  commercial license or contractual agreement.
 
 ## !!!Ignored construct:  # _BiTgte_HCurveOnEdge_HeaderFile [NewLine] # _BiTgte_HCurveOnEdge_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < BiTgte_CurveOnEdge . hxx > [NewLine] # < Adaptor3d_HCurve . hxx > [NewLine] class Standard_OutOfRange ;
-## Error: did not expect <!!!
+## Error: expected ';'!!!
 
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of BiTgte_CurveOnEdge"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of BiTgte_HCurveOnEdge"
-discard "forward decl of BiTgte_HCurveOnEdge"
-type
-  HandleBiTgteHCurveOnEdgeBiTgteHCurveOnEdge* = Handle[BiTgteHCurveOnEdge]
-  BiTgteHCurveOnEdge* {.importcpp: "BiTgte_HCurveOnEdge",
-                       header: "BiTgte_HCurveOnEdge.hxx", bycopy.} = object of Adaptor3dHCurve ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## an
-                                                                                        ## empty
-                                                                                        ## GenHCurve.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( BiTgte_HCurveOnEdge , Adaptor3d_HCurve ) class BiTgte_HCurveOnEdge : public Adaptor3d_HCurve { public : ! Creates an empty GenHCurve. BiTgte_HCurveOnEdge ( ) ; ! Creates a GenHCurve from a Curve BiTgte_HCurveOnEdge ( const BiTgte_CurveOnEdge & C ) ; ! Sets the field of the GenHCurve. void Set ( const BiTgte_CurveOnEdge & C ) ; ! Returns the curve used to create the GenHCurve.
+## ! This is redefined from HCurve, cannot be inline. const Adaptor3d_Curve & Curve ( ) const ; ! Returns the curve used to create the GenHCurve.
+## ! This is redefined from HCurve, cannot be inline. Adaptor3d_Curve & GetCurve ( ) ; ! Returns the curve used to create the GenHCurve. BiTgte_CurveOnEdge & ChangeCurve ( ) ; public : typedef Adaptor3d_HCurve base_type ; static const char * get_type_name ( ) { return BiTgte_HCurveOnEdge ; ( BiTgte_HCurveOnEdge , Adaptor3d_HCurve ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < BiTgte_HCurveOnEdge > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : BiTgte_CurveOnEdge myCurve ; private : } ;
+## Error: expected ';'!!!
 
-
-proc constructBiTgteHCurveOnEdge*(): BiTgteHCurveOnEdge {.constructor,
-    importcpp: "BiTgte_HCurveOnEdge(@)", header: "BiTgte_HCurveOnEdge.hxx".}
-proc constructBiTgteHCurveOnEdge*(c: BiTgteCurveOnEdge): BiTgteHCurveOnEdge {.
-    constructor, importcpp: "BiTgte_HCurveOnEdge(@)",
-    header: "BiTgte_HCurveOnEdge.hxx".}
-proc set*(this: var BiTgteHCurveOnEdge; c: BiTgteCurveOnEdge) {.importcpp: "Set",
-    header: "BiTgte_HCurveOnEdge.hxx".}
-proc curve*(this: BiTgteHCurveOnEdge): Adaptor3dCurve {.noSideEffect,
-    importcpp: "Curve", header: "BiTgte_HCurveOnEdge.hxx".}
-proc getCurve*(this: var BiTgteHCurveOnEdge): var Adaptor3dCurve {.
-    importcpp: "GetCurve", header: "BiTgte_HCurveOnEdge.hxx".}
-proc changeCurve*(this: var BiTgteHCurveOnEdge): var BiTgteCurveOnEdge {.
-    importcpp: "ChangeCurve", header: "BiTgte_HCurveOnEdge.hxx".}
-type
-  BiTgteHCurveOnEdgebaseType* = Adaptor3dHCurve
-
-proc getTypeName*(): cstring {.importcpp: "BiTgte_HCurveOnEdge::get_type_name(@)",
-                            header: "BiTgte_HCurveOnEdge.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "BiTgte_HCurveOnEdge::get_type_descriptor(@)",
-    header: "BiTgte_HCurveOnEdge.hxx".}
-proc dynamicType*(this: BiTgteHCurveOnEdge): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BiTgte_HCurveOnEdge.hxx".}
-## !!!Ignored construct:  # TheCurve BiTgte_CurveOnEdge [NewLine] # TheCurve_hxx < BiTgte_CurveOnEdge . hxx > [NewLine] # Adaptor3d_GenHCurve BiTgte_HCurveOnEdge [NewLine] # Adaptor3d_GenHCurve_hxx < BiTgte_HCurveOnEdge . hxx > [NewLine] # Handle_Adaptor3d_GenHCurve opencascade :: handle < BiTgte_HCurveOnEdge > [end of template] [NewLine] # < Adaptor3d_GenHCurve . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor3d_GenHCurve [NewLine] # Adaptor3d_GenHCurve_hxx [NewLine] # Handle_Adaptor3d_GenHCurve [NewLine] #  _BiTgte_HCurveOnEdge_HeaderFile
+## !!!Ignored construct:  # TheCurve BiTgte_CurveOnEdge [NewLine] # TheCurve_hxx < BiTgte_CurveOnEdge . hxx > [NewLine] # Adaptor3d_GenHCurve BiTgte_HCurveOnEdge [NewLine] # Adaptor3d_GenHCurve_hxx < BiTgte_HCurveOnEdge . hxx > [NewLine] # Handle_Adaptor3d_GenHCurve Handle ( BiTgte_HCurveOnEdge ) [NewLine] # < Adaptor3d_GenHCurve . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor3d_GenHCurve [NewLine] # Adaptor3d_GenHCurve_hxx [NewLine] # Handle_Adaptor3d_GenHCurve [NewLine] #  _BiTgte_HCurveOnEdge_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

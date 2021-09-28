@@ -14,4 +14,3 @@
 
 type
   StandardIStream* = ref object   # should be: Istream
-

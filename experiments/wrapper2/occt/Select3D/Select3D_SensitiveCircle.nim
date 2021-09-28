@@ -95,13 +95,13 @@ proc dynamicType*(this: Select3D_SensitiveCircle): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveCircle.hxx".}
 proc constructSelect3D_SensitiveCircle*(theOwnerId: Handle[SelectMgrEntityOwner];
                                        theCircle: Circ; theIsFilled: bool = false;
-                                       theNbPnts: int = 12): Select3D_SensitiveCircle {.
+                                       theNbPnts: cint = 12): Select3D_SensitiveCircle {.
     constructor, importcpp: "Select3D_SensitiveCircle(@)",
     header: "Select3D_SensitiveCircle.hxx".}
 proc constructSelect3D_SensitiveCircle*(theOwnerId: Handle[SelectMgrEntityOwner];
-                                       theCircle: Circ; theU1: float; theU2: float;
-                                       theIsFilled: bool = false;
-                                       theNbPnts: int = 12): Select3D_SensitiveCircle {.
+                                       theCircle: Circ; theU1: cfloat;
+                                       theU2: cfloat; theIsFilled: bool = false;
+                                       theNbPnts: cint = 12): Select3D_SensitiveCircle {.
     constructor, importcpp: "Select3D_SensitiveCircle(@)",
     header: "Select3D_SensitiveCircle.hxx".}
 proc constructSelect3D_SensitiveCircle*(theOwnerId: Handle[SelectMgrEntityOwner];
@@ -129,5 +129,30 @@ proc toBuildBVH*(this: Select3D_SensitiveCircle): bool {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveCircle.hxx".}
 discard "forward decl of Select3D_SensitiveCircle"
 type
-  HandleSelect3D_SensitiveCircle* = Handle[Select3D_SensitiveCircle]
+  HandleC1C1* = Handle[Select3D_SensitiveCircle]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

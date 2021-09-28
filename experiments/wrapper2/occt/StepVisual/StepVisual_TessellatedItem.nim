@@ -16,7 +16,7 @@
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_TessellatedItem"
 type
-  HandleStepVisualTessellatedItem* = Handle[StepVisualTessellatedItem]
+  HandleC1C1* = Handle[StepVisualTessellatedItem]
   StepVisualTessellatedItem* {.importcpp: "StepVisual_TessellatedItem",
                               header: "StepVisual_TessellatedItem.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                                           ## !
@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualTessellatedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_TessellatedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of StepVisual_PreDefinedTextFont"
 discard "forward decl of StepVisual_PreDefinedTextFont"
 type
-  HandleStepVisualPreDefinedTextFont* = Handle[StepVisualPreDefinedTextFont]
+  HandleC1C1* = Handle[StepVisualPreDefinedTextFont]
   StepVisualPreDefinedTextFont* {.importcpp: "StepVisual_PreDefinedTextFont",
                                  header: "StepVisual_PreDefinedTextFont.hxx",
                                  bycopy.} = object of StepVisualPreDefinedItem ## !
@@ -39,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualPreDefinedTextFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PreDefinedTextFont.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

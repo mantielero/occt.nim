@@ -17,3 +17,28 @@
 type
   TopOpeBRepSequenceOfPoint2d* = NCollectionSequence[TopOpeBRepPoint2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

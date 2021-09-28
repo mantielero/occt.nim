@@ -19,7 +19,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DDF_Data"
 discard "forward decl of DDF_Data"
 type
-  HandleDDF_Data* = Handle[DDF_Data]
+  HandleC1C1* = Handle[DDF_Data]
 
 ## ! Encapsulates a data framework from TDF in a drawable object
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DDF_Data::get_type_descriptor(@)", header: "DDF_Data.hxx".}
 proc dynamicType*(this: DDF_Data): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DDF_Data.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

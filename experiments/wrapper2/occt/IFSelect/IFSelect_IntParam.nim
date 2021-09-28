@@ -17,7 +17,7 @@
 discard "forward decl of IFSelect_IntParam"
 discard "forward decl of IFSelect_IntParam"
 type
-  HandleIFSelectIntParam* = Handle[IFSelectIntParam]
+  HandleC1C1* = Handle[IFSelectIntParam]
 
 ## ! This class simply allows to access an Integer value through a
 ## ! Handle, as a String can be (by using HString).
@@ -55,9 +55,9 @@ proc setStaticName*(this: var IFSelectIntParam; statname: StandardCString) {.
     importcpp: "SetStaticName", header: "IFSelect_IntParam.hxx".}
 proc staticName*(this: IFSelectIntParam): StandardCString {.noSideEffect,
     importcpp: "StaticName", header: "IFSelect_IntParam.hxx".}
-proc value*(this: IFSelectIntParam): int {.noSideEffect, importcpp: "Value",
-                                       header: "IFSelect_IntParam.hxx".}
-proc setValue*(this: var IFSelectIntParam; val: int) {.importcpp: "SetValue",
+proc value*(this: IFSelectIntParam): cint {.noSideEffect, importcpp: "Value",
+                                        header: "IFSelect_IntParam.hxx".}
+proc setValue*(this: var IFSelectIntParam; val: cint) {.importcpp: "SetValue",
     header: "IFSelect_IntParam.hxx".}
 type
   IFSelectIntParambaseType* = StandardTransient
@@ -69,3 +69,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_IntParam.hxx".}
 proc dynamicType*(this: IFSelectIntParam): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_IntParam.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

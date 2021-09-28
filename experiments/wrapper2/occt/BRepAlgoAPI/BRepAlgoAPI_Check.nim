@@ -187,3 +187,28 @@ proc isValid*(this: var BRepAlgoAPI_Check): bool {.importcpp: "IsValid",
     header: "BRepAlgoAPI_Check.hxx".}
 proc result*(this: var BRepAlgoAPI_Check): BOPAlgoListOfCheckResult {.
     importcpp: "Result", header: "BRepAlgoAPI_Check.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

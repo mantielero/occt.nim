@@ -17,3 +17,28 @@ type
   StepDimTolArray1OfDatumSystemOrReference* = NCollectionArray1[
       StepDimTolDatumSystemOrReference]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,5 +38,30 @@ proc dynamicType*(this: V3dPositionLight): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of V3d_PositionLight"
 type
-  HandleV3dPositionLight* = Handle[V3dPositionLight]
+  HandleC1C1* = Handle[V3dPositionLight]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

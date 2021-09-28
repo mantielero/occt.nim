@@ -29,7 +29,7 @@ proc constructStepVisualDraughtingCalloutElement*(): StepVisualDraughtingCallout
     constructor, importcpp: "StepVisual_DraughtingCalloutElement(@)",
     header: "StepVisual_DraughtingCalloutElement.hxx".}
 proc caseNum*(this: StepVisualDraughtingCalloutElement;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_DraughtingCalloutElement.hxx".}
 proc annotationCurveOccurrence*(this: StepVisualDraughtingCalloutElement): Handle[
     StepVisualAnnotationCurveOccurrence] {.noSideEffect,
@@ -47,3 +47,28 @@ proc annotationFillAreaOccurrence*(this: StepVisualDraughtingCalloutElement): Ha
     StepVisualAnnotationFillAreaOccurrence] {.noSideEffect,
     importcpp: "AnnotationFillAreaOccurrence",
     header: "StepVisual_DraughtingCalloutElement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

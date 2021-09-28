@@ -19,7 +19,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SignValidity"
 discard "forward decl of IFSelect_SignValidity"
 type
-  HandleIFSelectSignValidity* = Handle[IFSelectSignValidity]
+  HandleC1C1* = Handle[IFSelectSignValidity]
 
 ## ! This Signature returns the Validity Status of an entity, as
 ## ! deducted from data in the model : it can be
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SignValidity.hxx".}
 proc dynamicType*(this: IFSelectSignValidity): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SignValidity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

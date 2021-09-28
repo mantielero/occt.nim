@@ -48,3 +48,28 @@ proc center*(this: VrmlTransform): Vec {.noSideEffect, importcpp: "Center",
                                      header: "Vrml_Transform.hxx".}
 proc print*(this: VrmlTransform; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Transform.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

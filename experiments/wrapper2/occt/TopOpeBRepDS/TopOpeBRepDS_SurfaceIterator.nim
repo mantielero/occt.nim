@@ -40,8 +40,33 @@ type
 proc constructTopOpeBRepDS_SurfaceIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_SurfaceIterator {.
     constructor, importcpp: "TopOpeBRepDS_SurfaceIterator(@)",
     header: "TopOpeBRepDS_SurfaceIterator.hxx".}
-proc current*(this: TopOpeBRepDS_SurfaceIterator): int {.noSideEffect,
+proc current*(this: TopOpeBRepDS_SurfaceIterator): cint {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_SurfaceIterator.hxx".}
 proc orientation*(this: TopOpeBRepDS_SurfaceIterator; s: TopAbsState): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation",
     header: "TopOpeBRepDS_SurfaceIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

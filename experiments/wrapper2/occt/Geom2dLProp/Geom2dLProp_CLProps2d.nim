@@ -25,49 +25,39 @@ discard "forward decl of gp_Dir2d"
 discard "forward decl of Geom2dLProp_Curve2dTool"
 type
   Geom2dLPropCLProps2d* {.importcpp: "Geom2dLProp_CLProps2d",
-                         header: "Geom2dLProp_CLProps2d.hxx", bycopy.} = object ## !
-                                                                           ## Initializes the local
-                                                                           ## properties of the curve <C>
-                                                                           ## ! The
-                                                                           ## current point and the
-                                                                           ## derivatives are
-                                                                           ## !
-                                                                           ## computed at the same time, which
-                                                                           ## allows an
-                                                                           ## !
-                                                                           ## optimization of the
-                                                                           ## computation time.
-                                                                           ## ! <N>
-                                                                           ## indicates the
-                                                                           ## maximum
-                                                                           ## number of
-                                                                           ## derivations to
-                                                                           ## ! be done (0, 1, 2 or 3). For
-                                                                           ## example, to
-                                                                           ## compute
-                                                                           ## ! only the
-                                                                           ## tangent, N
-                                                                           ## should be equal to 1.
-                                                                           ## !
-                                                                           ## <Resolution> is the
-                                                                           ## linear
-                                                                           ## tolerance (it is used to test
-                                                                           ## ! if a
-                                                                           ## vector is
-                                                                           ## null).
+                         header: "Geom2dLProp_CLProps2d.hxx", bycopy.} = object
 
 
-proc constructGeom2dLPropCLProps2d*(c: Handle[Geom2dCurve]; n: int; resolution: float): Geom2dLPropCLProps2d {.
+proc `new`*(this: var Geom2dLPropCLProps2d; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_CLProps2d::operator new",
+    header: "Geom2dLProp_CLProps2d.hxx".}
+proc `delete`*(this: var Geom2dLPropCLProps2d; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_CLProps2d::operator delete",
+    header: "Geom2dLProp_CLProps2d.hxx".}
+proc `new[]`*(this: var Geom2dLPropCLProps2d; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_CLProps2d::operator new[]",
+    header: "Geom2dLProp_CLProps2d.hxx".}
+proc `delete[]`*(this: var Geom2dLPropCLProps2d; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_CLProps2d::operator delete[]",
+    header: "Geom2dLProp_CLProps2d.hxx".}
+proc `new`*(this: var Geom2dLPropCLProps2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dLProp_CLProps2d::operator new",
+    header: "Geom2dLProp_CLProps2d.hxx".}
+proc `delete`*(this: var Geom2dLPropCLProps2d; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dLProp_CLProps2d::operator delete",
+    header: "Geom2dLProp_CLProps2d.hxx".}
+proc constructGeom2dLPropCLProps2d*(c: Handle[Geom2dCurve]; n: int;
+                                   resolution: StandardReal): Geom2dLPropCLProps2d {.
     constructor, importcpp: "Geom2dLProp_CLProps2d(@)",
     header: "Geom2dLProp_CLProps2d.hxx".}
-proc constructGeom2dLPropCLProps2d*(c: Handle[Geom2dCurve]; u: float; n: int;
-                                   resolution: float): Geom2dLPropCLProps2d {.
+proc constructGeom2dLPropCLProps2d*(c: Handle[Geom2dCurve]; u: StandardReal; n: int;
+                                   resolution: StandardReal): Geom2dLPropCLProps2d {.
     constructor, importcpp: "Geom2dLProp_CLProps2d(@)",
     header: "Geom2dLProp_CLProps2d.hxx".}
-proc constructGeom2dLPropCLProps2d*(n: int; resolution: float): Geom2dLPropCLProps2d {.
+proc constructGeom2dLPropCLProps2d*(n: int; resolution: StandardReal): Geom2dLPropCLProps2d {.
     constructor, importcpp: "Geom2dLProp_CLProps2d(@)",
     header: "Geom2dLProp_CLProps2d.hxx".}
-proc setParameter*(this: var Geom2dLPropCLProps2d; u: float) {.
+proc setParameter*(this: var Geom2dLPropCLProps2d; u: StandardReal) {.
     importcpp: "SetParameter", header: "Geom2dLProp_CLProps2d.hxx".}
 proc setCurve*(this: var Geom2dLPropCLProps2d; c: Handle[Geom2dCurve]) {.
     importcpp: "SetCurve", header: "Geom2dLProp_CLProps2d.hxx".}
@@ -79,12 +69,12 @@ proc d2*(this: var Geom2dLPropCLProps2d): Vec2d {.importcpp: "D2",
     header: "Geom2dLProp_CLProps2d.hxx".}
 proc d3*(this: var Geom2dLPropCLProps2d): Vec2d {.importcpp: "D3",
     header: "Geom2dLProp_CLProps2d.hxx".}
-proc isTangentDefined*(this: var Geom2dLPropCLProps2d): bool {.
+proc isTangentDefined*(this: var Geom2dLPropCLProps2d): StandardBoolean {.
     importcpp: "IsTangentDefined", header: "Geom2dLProp_CLProps2d.hxx".}
 proc tangent*(this: var Geom2dLPropCLProps2d; d: var Dir2d) {.importcpp: "Tangent",
     header: "Geom2dLProp_CLProps2d.hxx".}
-proc curvature*(this: var Geom2dLPropCLProps2d): float {.importcpp: "Curvature",
-    header: "Geom2dLProp_CLProps2d.hxx".}
+proc curvature*(this: var Geom2dLPropCLProps2d): StandardReal {.
+    importcpp: "Curvature", header: "Geom2dLProp_CLProps2d.hxx".}
 proc normal*(this: var Geom2dLPropCLProps2d; n: var Dir2d) {.importcpp: "Normal",
     header: "Geom2dLProp_CLProps2d.hxx".}
 proc centreOfCurvature*(this: var Geom2dLPropCLProps2d; p: var Pnt2d) {.

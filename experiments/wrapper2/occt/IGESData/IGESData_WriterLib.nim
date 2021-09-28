@@ -44,7 +44,7 @@ proc clear*(this: var IGESDataWriterLib) {.importcpp: "Clear",
 proc setComplete*(this: var IGESDataWriterLib) {.importcpp: "SetComplete",
     header: "IGESData_WriterLib.hxx".}
 proc select*(this: IGESDataWriterLib; obj: Handle[IGESDataIGESEntity];
-            module: var Handle[IGESDataReadWriteModule]; cn: var int): bool {.
+            module: var Handle[IGESDataReadWriteModule]; cn: var cint): bool {.
     noSideEffect, importcpp: "Select", header: "IGESData_WriterLib.hxx".}
 proc start*(this: var IGESDataWriterLib) {.importcpp: "Start",
                                        header: "IGESData_WriterLib.hxx".}
@@ -56,3 +56,28 @@ proc module*(this: IGESDataWriterLib): Handle[IGESDataReadWriteModule] {.
     noSideEffect, importcpp: "Module", header: "IGESData_WriterLib.hxx".}
 proc protocol*(this: IGESDataWriterLib): Handle[IGESDataProtocol] {.noSideEffect,
     importcpp: "Protocol", header: "IGESData_WriterLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

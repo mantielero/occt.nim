@@ -22,10 +22,31 @@
 ## ! all classes of gce which report error.
 
 type
-  GC_Root* {.importcpp: "GC_Root", header: "GC_Root.hxx", bycopy.} = object of RootObj ## ! Returns true if the construction is successful.
+  GC_Root* {.importcpp: "GC_Root", header: "GC_Root.hxx", bycopy.} = object of RootObj## ! Returns true if the construction is successful.
 
 
 proc isDone*(this: GC_Root): bool {.noSideEffect, importcpp: "IsDone",
                                 header: "GC_Root.hxx".}
 proc status*(this: GC_Root): GceErrorType {.noSideEffect, importcpp: "Status",
                                         header: "GC_Root.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

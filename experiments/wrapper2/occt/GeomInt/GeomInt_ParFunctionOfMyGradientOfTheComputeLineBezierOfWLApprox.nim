@@ -21,12 +21,22 @@ discard "forward decl of GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezier
 discard "forward decl of AppParCurves_MultiCurve"
 type
   GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox* {.importcpp: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx",
-      bycopy.} = object of MathMultipleVarFunctionWithGradient ## ! initializes the fields of the function. The approximating
-                                                          ## ! curve has the desired degree Deg.
-                                                          ## ! this method is used each time Value or Gradient is
+      bycopy.} = object of MathMultipleVarFunctionWithGradient ## ! this method is used each time Value or Gradient is
                                                           ## ! needed.
 
 
+proc `new`*(this: var GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
+           theSize: csize_t): pointer {.importcpp: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox::operator new", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
+              theAddress: pointer) {.importcpp: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox::operator delete", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `new[]`*(this: var GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
+             theSize: csize_t): pointer {.importcpp: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox::operator new[]", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `delete[]`*(this: var GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
+                theAddress: pointer) {.importcpp: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox::operator delete[]", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `new`*(this: var GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox::operator new", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
+              a2: pointer; a3: pointer) {.importcpp: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox::operator delete", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc constructGeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox*(
     ssp: GeomIntTheMultiLineOfWLApprox; firstPoint: int; lastPoint: int;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
@@ -35,20 +45,23 @@ proc constructGeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox*(
 proc nbVariables*(this: GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox): int {.
     noSideEffect, importcpp: "NbVariables", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc value*(this: var GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
-           x: MathVector; f: var float): bool {.importcpp: "Value", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+           x: MathVector; f: var StandardReal): StandardBoolean {.importcpp: "Value", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc gradient*(this: var GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
-              x: MathVector; g: var MathVector): bool {.importcpp: "Gradient", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+              x: MathVector; g: var MathVector): StandardBoolean {.
+    importcpp: "Gradient", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc values*(this: var GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
-            x: MathVector; f: var float; g: var MathVector): bool {.importcpp: "Values", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+            x: MathVector; f: var StandardReal; g: var MathVector): StandardBoolean {.
+    importcpp: "Values", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc newParameters*(this: GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox): MathVector {.
     noSideEffect, importcpp: "NewParameters", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc curveValue*(this: var GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox): AppParCurvesMultiCurve {.
     importcpp: "CurveValue", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc error*(this: GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
-           iPoint: int; curveIndex: int): float {.noSideEffect, importcpp: "Error", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc maxError3d*(this: GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox): float {.
+           iPoint: int; curveIndex: int): StandardReal {.noSideEffect,
+    importcpp: "Error", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc maxError3d*(this: GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox): StandardReal {.
     noSideEffect, importcpp: "MaxError3d", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc maxError2d*(this: GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox): float {.
+proc maxError2d*(this: GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox): StandardReal {.
     noSideEffect, importcpp: "MaxError2d", header: "GeomInt_ParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc firstConstraint*(this: GeomIntParFunctionOfMyGradientOfTheComputeLineBezierOfWLApprox;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; firstPoint: int): AppParCurvesConstraint {.

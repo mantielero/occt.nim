@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESGeomToolSurfaceOfRevolution;
     header: "IGESGeom_ToolSurfaceOfRevolution.hxx".}
 proc ownDump*(this: IGESGeomToolSurfaceOfRevolution;
              ent: Handle[IGESGeomSurfaceOfRevolution]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESGeom_ToolSurfaceOfRevolution.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

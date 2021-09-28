@@ -42,5 +42,30 @@ proc bisector*(this: MAT2dMat2d): Handle[MAT_Bisector] {.noSideEffect,
     importcpp: "Bisector", header: "MAT2d_Mat2d.hxx".}
 proc semiInfinite*(this: MAT2dMat2d): bool {.noSideEffect, importcpp: "SemiInfinite",
     header: "MAT2d_Mat2d.hxx".}
-proc numberOfBisectors*(this: MAT2dMat2d): int {.noSideEffect,
+proc numberOfBisectors*(this: MAT2dMat2d): cint {.noSideEffect,
     importcpp: "NumberOfBisectors", header: "MAT2d_Mat2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

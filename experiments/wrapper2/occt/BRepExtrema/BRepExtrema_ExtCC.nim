@@ -29,22 +29,47 @@ proc perform*(this: var BRepExtremaExtCC; e1: TopoDS_Edge) {.importcpp: "Perform
     header: "BRepExtrema_ExtCC.hxx".}
 proc isDone*(this: BRepExtremaExtCC): bool {.noSideEffect, importcpp: "IsDone",
     header: "BRepExtrema_ExtCC.hxx".}
-proc nbExt*(this: BRepExtremaExtCC): int {.noSideEffect, importcpp: "NbExt",
-                                       header: "BRepExtrema_ExtCC.hxx".}
+proc nbExt*(this: BRepExtremaExtCC): cint {.noSideEffect, importcpp: "NbExt",
+                                        header: "BRepExtrema_ExtCC.hxx".}
 proc isParallel*(this: BRepExtremaExtCC): bool {.noSideEffect,
     importcpp: "IsParallel", header: "BRepExtrema_ExtCC.hxx".}
-proc squareDistance*(this: BRepExtremaExtCC; n: int): float {.noSideEffect,
+proc squareDistance*(this: BRepExtremaExtCC; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "BRepExtrema_ExtCC.hxx".}
-proc parameterOnE1*(this: BRepExtremaExtCC; n: int): float {.noSideEffect,
+proc parameterOnE1*(this: BRepExtremaExtCC; n: cint): cfloat {.noSideEffect,
     importcpp: "ParameterOnE1", header: "BRepExtrema_ExtCC.hxx".}
-proc pointOnE1*(this: BRepExtremaExtCC; n: int): Pnt {.noSideEffect,
+proc pointOnE1*(this: BRepExtremaExtCC; n: cint): Pnt {.noSideEffect,
     importcpp: "PointOnE1", header: "BRepExtrema_ExtCC.hxx".}
-proc parameterOnE2*(this: BRepExtremaExtCC; n: int): float {.noSideEffect,
+proc parameterOnE2*(this: BRepExtremaExtCC; n: cint): cfloat {.noSideEffect,
     importcpp: "ParameterOnE2", header: "BRepExtrema_ExtCC.hxx".}
-proc pointOnE2*(this: BRepExtremaExtCC; n: int): Pnt {.noSideEffect,
+proc pointOnE2*(this: BRepExtremaExtCC; n: cint): Pnt {.noSideEffect,
     importcpp: "PointOnE2", header: "BRepExtrema_ExtCC.hxx".}
-proc trimmedSquareDistances*(this: BRepExtremaExtCC; dist11: var float;
-                            distP12: var float; distP21: var float;
-                            distP22: var float; p11: var Pnt; p12: var Pnt; p21: var Pnt;
-                            p22: var Pnt) {.noSideEffect,
+proc trimmedSquareDistances*(this: BRepExtremaExtCC; dist11: var cfloat;
+                            distP12: var cfloat; distP21: var cfloat;
+                            distP22: var cfloat; p11: var Pnt; p12: var Pnt;
+                            p21: var Pnt; p22: var Pnt) {.noSideEffect,
     importcpp: "TrimmedSquareDistances", header: "BRepExtrema_ExtCC.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

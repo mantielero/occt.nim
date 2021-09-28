@@ -40,3 +40,28 @@ proc addDrivers*(aDriverTable: Handle[XmlMDF_ADriverTable];
     importcpp: "XmlTObjDrivers::AddDrivers(@)", header: "XmlTObjDrivers.hxx".}
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

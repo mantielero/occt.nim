@@ -30,7 +30,7 @@ type
 
 proc constructStepGeomCurveOnSurface*(): StepGeomCurveOnSurface {.constructor,
     importcpp: "StepGeom_CurveOnSurface(@)", header: "StepGeom_CurveOnSurface.hxx".}
-proc caseNum*(this: StepGeomCurveOnSurface; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepGeomCurveOnSurface; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_CurveOnSurface.hxx".}
 proc pcurve*(this: StepGeomCurveOnSurface): Handle[StepGeomPcurve] {.noSideEffect,
     importcpp: "Pcurve", header: "StepGeom_CurveOnSurface.hxx".}
@@ -40,3 +40,28 @@ proc compositeCurveOnSurface*(this: StepGeomCurveOnSurface): Handle[
     StepGeomCompositeCurveOnSurface] {.noSideEffect,
                                       importcpp: "CompositeCurveOnSurface",
                                       header: "StepGeom_CurveOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,3 +28,28 @@ proc addInterference*(il: var HLRAlgoInterferenceList; i: HLRAlgoInterference;
 proc processComplex*(il: var HLRAlgoInterferenceList; t: HLRBRepEdgeInterferenceTool) {.
     importcpp: "HLRBRep_EdgeIList::ProcessComplex(@)",
     header: "HLRBRep_EdgeIList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

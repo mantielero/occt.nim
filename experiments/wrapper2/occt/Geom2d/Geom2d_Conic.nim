@@ -17,7 +17,7 @@
 discard "forward decl of Geom2d_Conic"
 discard "forward decl of Geom2d_Conic"
 type
-  HandleGeom2dConic* = Handle[Geom2dConic]
+  HandleC1C1* = Handle[Geom2dConic]
 
 ## ! The abstract class Conic describes the common
 ## ! behavior of conic curves in 2D space and, in
@@ -69,7 +69,7 @@ proc xAxis*(this: Geom2dConic): Ax2d {.noSideEffect, importcpp: "XAxis",
                                    header: "Geom2d_Conic.hxx".}
 proc yAxis*(this: Geom2dConic): Ax2d {.noSideEffect, importcpp: "YAxis",
                                    header: "Geom2d_Conic.hxx".}
-proc eccentricity*(this: Geom2dConic): float {.noSideEffect,
+proc eccentricity*(this: Geom2dConic): StandardReal {.noSideEffect,
     importcpp: "Eccentricity", header: "Geom2d_Conic.hxx".}
 proc location*(this: Geom2dConic): Pnt2d {.noSideEffect, importcpp: "Location",
                                        header: "Geom2d_Conic.hxx".}
@@ -77,12 +77,12 @@ proc position*(this: Geom2dConic): Ax22d {.noSideEffect, importcpp: "Position",
                                        header: "Geom2d_Conic.hxx".}
 proc reverse*(this: var Geom2dConic) {.importcpp: "Reverse",
                                    header: "Geom2d_Conic.hxx".}
-proc reversedParameter*(this: Geom2dConic; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom2d_Conic.hxx".}
+proc reversedParameter*(this: Geom2dConic; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_Conic.hxx".}
 proc continuity*(this: Geom2dConic): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom2d_Conic.hxx".}
-proc isCN*(this: Geom2dConic; n: int): bool {.noSideEffect, importcpp: "IsCN",
-                                        header: "Geom2d_Conic.hxx".}
+proc isCN*(this: Geom2dConic; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom2d_Conic.hxx".}
 proc dumpJson*(this: Geom2dConic; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom2d_Conic.hxx".}
 type

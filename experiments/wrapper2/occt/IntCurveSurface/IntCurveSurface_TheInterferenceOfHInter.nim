@@ -123,3 +123,28 @@ proc interference*(this: var IntCurveSurfaceTheInterferenceOfHInter;
                   thePolyh: IntCurveSurfaceThePolyhedronOfHInter) {.
     importcpp: "Interference",
     header: "IntCurveSurface_TheInterferenceOfHInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

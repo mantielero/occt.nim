@@ -49,3 +49,28 @@ proc modified*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsLis
     importcpp: "Modified", header: "BRepBuilderAPI_MakeShape.hxx".}
 proc isDeleted*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): bool {.
     importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

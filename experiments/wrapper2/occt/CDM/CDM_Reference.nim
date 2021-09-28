@@ -20,7 +20,7 @@ discard "forward decl of CDM_MetaData"
 discard "forward decl of CDM_Reference"
 discard "forward decl of CDM_Reference"
 type
-  HandleCDM_Reference* = Handle[CDM_Reference]
+  HandleC1C1* = Handle[CDM_Reference]
   CDM_Reference* {.importcpp: "CDM_Reference", header: "CDM_Reference.hxx", bycopy.} = object of StandardTransient
 
 
@@ -28,15 +28,15 @@ proc fromDocument*(this: var CDM_Reference): Handle[CDM_Document] {.
     importcpp: "FromDocument", header: "CDM_Reference.hxx".}
 proc toDocument*(this: var CDM_Reference): Handle[CDM_Document] {.
     importcpp: "ToDocument", header: "CDM_Reference.hxx".}
-proc referenceIdentifier*(this: var CDM_Reference): int {.
+proc referenceIdentifier*(this: var CDM_Reference): cint {.
     importcpp: "ReferenceIdentifier", header: "CDM_Reference.hxx".}
-proc documentVersion*(this: CDM_Reference): int {.noSideEffect,
+proc documentVersion*(this: CDM_Reference): cint {.noSideEffect,
     importcpp: "DocumentVersion", header: "CDM_Reference.hxx".}
 proc isReadOnly*(this: CDM_Reference): bool {.noSideEffect, importcpp: "IsReadOnly",
     header: "CDM_Reference.hxx".}
 proc dumpJson*(this: CDM_Reference; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "CDM_Reference.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "CDM_Reference.hxx".}
 type
   CDM_ReferencebaseType* = StandardTransient
 
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "CDM_Reference.hxx".}
 proc dynamicType*(this: CDM_Reference): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDM_Reference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

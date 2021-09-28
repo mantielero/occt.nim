@@ -59,3 +59,28 @@ proc pName*(this: StdPersistentPPrsStdAISPresentation1): StandardCString {.
 proc `import`*(this: StdPersistentPPrsStdAISPresentation1;
               theAttribute: Handle[TDataXtdPresentation]) {.noSideEffect,
     importcpp: "Import", header: "StdPersistent_PPrsStd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

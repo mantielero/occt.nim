@@ -19,7 +19,7 @@ discard "forward decl of StepVisual_SurfaceStyleElementSelect"
 discard "forward decl of StepVisual_SurfaceSideStyle"
 discard "forward decl of StepVisual_SurfaceSideStyle"
 type
-  HandleStepVisualSurfaceSideStyle* = Handle[StepVisualSurfaceSideStyle]
+  HandleC1C1* = Handle[StepVisualSurfaceSideStyle]
   StepVisualSurfaceSideStyle* {.importcpp: "StepVisual_SurfaceSideStyle",
                                header: "StepVisual_SurfaceSideStyle.hxx", bycopy.} = object of StandardTransient ##
                                                                                                           ## !
@@ -46,10 +46,10 @@ proc setStyles*(this: var StepVisualSurfaceSideStyle;
 proc styles*(this: StepVisualSurfaceSideStyle): Handle[
     StepVisualHArray1OfSurfaceStyleElementSelect] {.noSideEffect,
     importcpp: "Styles", header: "StepVisual_SurfaceSideStyle.hxx".}
-proc stylesValue*(this: StepVisualSurfaceSideStyle; num: int): StepVisualSurfaceStyleElementSelect {.
+proc stylesValue*(this: StepVisualSurfaceSideStyle; num: cint): StepVisualSurfaceStyleElementSelect {.
     noSideEffect, importcpp: "StylesValue",
     header: "StepVisual_SurfaceSideStyle.hxx".}
-proc nbStyles*(this: StepVisualSurfaceSideStyle): int {.noSideEffect,
+proc nbStyles*(this: StepVisualSurfaceSideStyle): cint {.noSideEffect,
     importcpp: "NbStyles", header: "StepVisual_SurfaceSideStyle.hxx".}
 type
   StepVisualSurfaceSideStylebaseType* = StandardTransient
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualSurfaceSideStyle): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceSideStyle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

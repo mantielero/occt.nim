@@ -20,7 +20,7 @@ discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerOne"
 discard "forward decl of IFSelect_DispPerOne"
 type
-  HandleIFSelectDispPerOne* = Handle[IFSelectDispPerOne]
+  HandleC1C1* = Handle[IFSelectDispPerOne]
 
 ## ! A DispPerOne gathers all the input Entities into as many
 ## ! Packets as there Root Entities from the Final Selection,
@@ -39,7 +39,7 @@ proc constructIFSelectDispPerOne*(): IFSelectDispPerOne {.constructor,
     importcpp: "IFSelect_DispPerOne(@)", header: "IFSelect_DispPerOne.hxx".}
 proc label*(this: IFSelectDispPerOne): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_DispPerOne.hxx".}
-proc limitedMax*(this: IFSelectDispPerOne; nbent: int; max: var int): bool {.
+proc limitedMax*(this: IFSelectDispPerOne; nbent: cint; max: var cint): bool {.
     noSideEffect, importcpp: "LimitedMax", header: "IFSelect_DispPerOne.hxx".}
 proc packets*(this: IFSelectDispPerOne; g: InterfaceGraph;
              packs: var IFGraphSubPartsIterator) {.noSideEffect,
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_DispPerOne.hxx".}
 proc dynamicType*(this: IFSelectDispPerOne): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_DispPerOne.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

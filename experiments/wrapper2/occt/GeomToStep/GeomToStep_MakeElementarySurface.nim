@@ -22,6 +22,23 @@ type
                                     bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeElementarySurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeElementarySurface::operator new",
+    header: "GeomToStep_MakeElementarySurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeElementarySurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeElementarySurface::operator delete",
+    header: "GeomToStep_MakeElementarySurface.hxx".}
+proc `new[]`*(this: var GeomToStepMakeElementarySurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeElementarySurface::operator new[]",
+    header: "GeomToStep_MakeElementarySurface.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeElementarySurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeElementarySurface::operator delete[]",
+    header: "GeomToStep_MakeElementarySurface.hxx".}
+proc `new`*(this: var GeomToStepMakeElementarySurface; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "GeomToStep_MakeElementarySurface::operator new", header: "GeomToStep_MakeElementarySurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeElementarySurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeElementarySurface::operator delete",
+    header: "GeomToStep_MakeElementarySurface.hxx".}
 proc constructGeomToStepMakeElementarySurface*(s: Handle[GeomElementarySurface]): GeomToStepMakeElementarySurface {.
     constructor, importcpp: "GeomToStep_MakeElementarySurface(@)",
     header: "GeomToStep_MakeElementarySurface.hxx".}

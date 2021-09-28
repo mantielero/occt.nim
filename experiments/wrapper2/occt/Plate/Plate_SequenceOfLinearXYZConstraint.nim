@@ -18,3 +18,28 @@ type
   PlateSequenceOfLinearXYZConstraint* = NCollectionSequence[
       PlateLinearXYZConstraint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

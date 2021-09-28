@@ -27,7 +27,7 @@ type
                                                                                         ## node.
 
 
-proc perform*(this: var BVH_BuildTool; theNode: int) {.importcpp: "Perform",
+proc perform*(this: var BVH_BuildTool; theNode: cint) {.importcpp: "Perform",
     header: "BVH_BuildThread.hxx".}
 ## ! Wrapper for BVH build thread.
 
@@ -58,5 +58,30 @@ proc dynamicType*(this: BVH_BuildThread): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BVH_BuildThread.hxx".}
 discard "forward decl of BVH_BuildThread"
 type
-  HandleBVH_BuildThread* = Handle[BVH_BuildThread]
+  HandleC1C1* = Handle[BVH_BuildThread]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

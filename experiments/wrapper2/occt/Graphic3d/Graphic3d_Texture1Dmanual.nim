@@ -18,7 +18,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture1Dmanual"
 discard "forward decl of Graphic3d_Texture1Dmanual"
 type
-  HandleGraphic3dTexture1Dmanual* = Handle[Graphic3dTexture1Dmanual]
+  HandleC1C1* = Handle[Graphic3dTexture1Dmanual]
 
 ## ! This class provides the implementation of a manual 1D texture.
 ## ! you MUST provides texture coordinates on your facets if you want to see your texture.
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Graphic3d_Texture1Dmanual.hxx".}
 proc dynamicType*(this: Graphic3dTexture1Dmanual): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_Texture1Dmanual.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

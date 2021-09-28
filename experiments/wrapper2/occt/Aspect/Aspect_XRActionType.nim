@@ -23,3 +23,28 @@ type
     AspectXRActionTypeOutputHaptic ## !< haptic output (vibration)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

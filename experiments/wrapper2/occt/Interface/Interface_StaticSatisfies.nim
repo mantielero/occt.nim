@@ -14,3 +14,28 @@
 type
   InterfaceStaticSatisfies* = proc (val: Handle[TCollectionHAsciiString]): bool
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

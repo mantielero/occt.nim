@@ -19,6 +19,31 @@ type
 proc add*[AnyPoint; PointTool](thePrs: Handle[Prs3dPresentation];
                              thePoint: AnyPoint; theDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "Prs3d_Point::Add(@)", header: "Prs3d_Point.hxx".}
-proc match*[AnyPoint; PointTool](thePoint: AnyPoint; theX: float; theY: float;
-                               theZ: float; theDistance: float): bool {.
+proc match*[AnyPoint; PointTool](thePoint: AnyPoint; theX: cfloat; theY: cfloat;
+                               theZ: cfloat; theDistance: cfloat): bool {.
     importcpp: "Prs3d_Point::Match(@)", header: "Prs3d_Point.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

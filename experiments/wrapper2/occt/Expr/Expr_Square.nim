@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Square"
 discard "forward decl of Expr_Square"
 type
-  HandleExprSquare* = Handle[ExprSquare]
+  HandleC1C1* = Handle[ExprSquare]
   ExprSquare* {.importcpp: "Expr_Square", header: "Expr_Square.hxx", bycopy.} = object of ExprUnaryExpression ##
                                                                                                     ## !
                                                                                                     ## Creates
@@ -46,7 +46,7 @@ proc derivative*(this: ExprSquare; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_Square.hxx".}
 proc evaluate*(this: ExprSquare; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Square.hxx".}
 proc string*(this: ExprSquare): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Square.hxx".}
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_Square::get_type_descriptor(@)", header: "Expr_Square.hxx".}
 proc dynamicType*(this: ExprSquare): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Square.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

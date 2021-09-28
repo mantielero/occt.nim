@@ -28,7 +28,7 @@ proc constructRWStepShapeRWBooleanResult*(): RWStepShapeRWBooleanResult {.
     constructor, importcpp: "RWStepShape_RWBooleanResult(@)",
     header: "RWStepShape_RWBooleanResult.hxx".}
 proc readStep*(this: RWStepShapeRWBooleanResult;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeBooleanResult]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWBooleanResult.hxx".}
 proc writeStep*(this: RWStepShapeRWBooleanResult; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepShapeRWBooleanResult; sw: var StepDataStepWriter;
 proc share*(this: RWStepShapeRWBooleanResult; ent: Handle[StepShapeBooleanResult];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWBooleanResult.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

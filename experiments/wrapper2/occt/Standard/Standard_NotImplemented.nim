@@ -14,17 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_NotImplemented_HeaderFile [NewLine] # _Standard_NotImplemented_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_ProgramError . hxx > [NewLine] class Standard_NotImplemented ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_NotImplemented"
 discard "forward decl of Standard_NotImplemented"
 type
-  HandleStandardNotImplementedStandardNotImplemented* = Handle[
-      StandardNotImplemented]
+  StandardNotImplemented* {.importcpp: "Standard_NotImplemented",
+                           header: "Standard_NotImplemented.hxx", bycopy.} = object of StandardProgramError
+type
+  HandleStandardNotImplemented* = Handle[StandardNotImplemented]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_NotImplemented [NewLine] # if ( CONDITION ) throw Standard_NotImplemented ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardNotImplemented):
+  template standardNotImplementedRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardNotImplemented*(a1: Message): Throw {.
+          importcpp: "Standard_NotImplemented(@)",
+          header: "Standard_NotImplemented.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NotImplemented , Standard_ProgramError ) #  _Standard_NotImplemented_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

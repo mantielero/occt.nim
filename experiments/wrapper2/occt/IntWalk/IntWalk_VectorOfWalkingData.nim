@@ -18,10 +18,35 @@
 type
   IntWalkWalkingData* {.importcpp: "IntWalk_WalkingData",
                        header: "IntWalk_VectorOfWalkingData.hxx", bycopy.} = object
-    ustart* {.importc: "ustart".}: float
-    vstart* {.importc: "vstart".}: float
-    etat* {.importc: "etat".}: int
+    ustart* {.importc: "ustart".}: cfloat
+    vstart* {.importc: "vstart".}: cfloat
+    etat* {.importc: "etat".}: cint
 
   IntWalkVectorOfWalkingData* = Vector[IntWalkWalkingData, NCollectionStdAllocator[
       IntWalkWalkingData]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

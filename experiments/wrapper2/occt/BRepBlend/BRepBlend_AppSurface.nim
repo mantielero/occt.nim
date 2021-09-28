@@ -77,25 +77,26 @@ type
 
 
 proc constructBRepBlendAppSurface*(funct: Handle[ApproxSweepFunction];
-                                  first: float; last: float; tol3d: float;
-                                  tol2d: float; tolAngular: float;
+                                  first: cfloat; last: cfloat; tol3d: cfloat;
+                                  tol2d: cfloat; tolAngular: cfloat;
                                   continuity: GeomAbsShape = geomAbsC0;
-                                  degmax: int = 11; segmax: int = 50): BRepBlendAppSurface {.
+                                  degmax: cint = 11; segmax: cint = 50): BRepBlendAppSurface {.
     constructor, importcpp: "BRepBlend_AppSurface(@)",
     header: "BRepBlend_AppSurface.hxx".}
 proc isDone*(this: BRepBlendAppSurface): bool {.noSideEffect, importcpp: "IsDone",
     header: "BRepBlend_AppSurface.hxx".}
-proc surfShape*(this: BRepBlendAppSurface; uDegree: var int; vDegree: var int;
-               nbUPoles: var int; nbVPoles: var int; nbUKnots: var int; nbVKnots: var int) {.
-    noSideEffect, importcpp: "SurfShape", header: "BRepBlend_AppSurface.hxx".}
+proc surfShape*(this: BRepBlendAppSurface; uDegree: var cint; vDegree: var cint;
+               nbUPoles: var cint; nbVPoles: var cint; nbUKnots: var cint;
+               nbVKnots: var cint) {.noSideEffect, importcpp: "SurfShape",
+                                  header: "BRepBlend_AppSurface.hxx".}
 proc surface*(this: BRepBlendAppSurface; tPoles: var TColgpArray2OfPnt;
              tWeights: var TColStdArray2OfReal; tUKnots: var TColStdArray1OfReal;
              tVKnots: var TColStdArray1OfReal; tUMults: var TColStdArray1OfInteger;
              tVMults: var TColStdArray1OfInteger) {.noSideEffect,
     importcpp: "Surface", header: "BRepBlend_AppSurface.hxx".}
-proc uDegree*(this: BRepBlendAppSurface): int {.noSideEffect, importcpp: "UDegree",
+proc uDegree*(this: BRepBlendAppSurface): cint {.noSideEffect, importcpp: "UDegree",
     header: "BRepBlend_AppSurface.hxx".}
-proc vDegree*(this: BRepBlendAppSurface): int {.noSideEffect, importcpp: "VDegree",
+proc vDegree*(this: BRepBlendAppSurface): cint {.noSideEffect, importcpp: "VDegree",
     header: "BRepBlend_AppSurface.hxx".}
 proc surfPoles*(this: BRepBlendAppSurface): TColgpArray2OfPnt {.noSideEffect,
     importcpp: "SurfPoles", header: "BRepBlend_AppSurface.hxx".}
@@ -109,29 +110,55 @@ proc surfUMults*(this: BRepBlendAppSurface): TColStdArray1OfInteger {.noSideEffe
     importcpp: "SurfUMults", header: "BRepBlend_AppSurface.hxx".}
 proc surfVMults*(this: BRepBlendAppSurface): TColStdArray1OfInteger {.noSideEffect,
     importcpp: "SurfVMults", header: "BRepBlend_AppSurface.hxx".}
-proc maxErrorOnSurf*(this: BRepBlendAppSurface): float {.noSideEffect,
+proc maxErrorOnSurf*(this: BRepBlendAppSurface): cfloat {.noSideEffect,
     importcpp: "MaxErrorOnSurf", header: "BRepBlend_AppSurface.hxx".}
-proc nbCurves2d*(this: BRepBlendAppSurface): int {.noSideEffect,
+proc nbCurves2d*(this: BRepBlendAppSurface): cint {.noSideEffect,
     importcpp: "NbCurves2d", header: "BRepBlend_AppSurface.hxx".}
-proc curves2dShape*(this: BRepBlendAppSurface; degree: var int; nbPoles: var int;
-                   nbKnots: var int) {.noSideEffect, importcpp: "Curves2dShape",
-                                    header: "BRepBlend_AppSurface.hxx".}
-proc curve2d*(this: BRepBlendAppSurface; index: int; tPoles: var TColgpArray1OfPnt2d;
-             tKnots: var TColStdArray1OfReal; tMults: var TColStdArray1OfInteger) {.
-    noSideEffect, importcpp: "Curve2d", header: "BRepBlend_AppSurface.hxx".}
-proc curves2dDegree*(this: BRepBlendAppSurface): int {.noSideEffect,
+proc curves2dShape*(this: BRepBlendAppSurface; degree: var cint; nbPoles: var cint;
+                   nbKnots: var cint) {.noSideEffect, importcpp: "Curves2dShape",
+                                     header: "BRepBlend_AppSurface.hxx".}
+proc curve2d*(this: BRepBlendAppSurface; index: cint;
+             tPoles: var TColgpArray1OfPnt2d; tKnots: var TColStdArray1OfReal;
+             tMults: var TColStdArray1OfInteger) {.noSideEffect,
+    importcpp: "Curve2d", header: "BRepBlend_AppSurface.hxx".}
+proc curves2dDegree*(this: BRepBlendAppSurface): cint {.noSideEffect,
     importcpp: "Curves2dDegree", header: "BRepBlend_AppSurface.hxx".}
-proc curve2dPoles*(this: BRepBlendAppSurface; index: int): TColgpArray1OfPnt2d {.
+proc curve2dPoles*(this: BRepBlendAppSurface; index: cint): TColgpArray1OfPnt2d {.
     noSideEffect, importcpp: "Curve2dPoles", header: "BRepBlend_AppSurface.hxx".}
 proc curves2dKnots*(this: BRepBlendAppSurface): TColStdArray1OfReal {.noSideEffect,
     importcpp: "Curves2dKnots", header: "BRepBlend_AppSurface.hxx".}
 proc curves2dMults*(this: BRepBlendAppSurface): TColStdArray1OfInteger {.
     noSideEffect, importcpp: "Curves2dMults", header: "BRepBlend_AppSurface.hxx".}
-proc tolReached*(this: BRepBlendAppSurface; tol3d: var float; tol2d: var float) {.
+proc tolReached*(this: BRepBlendAppSurface; tol3d: var cfloat; tol2d: var cfloat) {.
     noSideEffect, importcpp: "TolReached", header: "BRepBlend_AppSurface.hxx".}
-proc max2dError*(this: BRepBlendAppSurface; index: int): float {.noSideEffect,
+proc max2dError*(this: BRepBlendAppSurface; index: cint): cfloat {.noSideEffect,
     importcpp: "Max2dError", header: "BRepBlend_AppSurface.hxx".}
-proc tolCurveOnSurf*(this: BRepBlendAppSurface; index: int): float {.noSideEffect,
+proc tolCurveOnSurf*(this: BRepBlendAppSurface; index: cint): cfloat {.noSideEffect,
     importcpp: "TolCurveOnSurf", header: "BRepBlend_AppSurface.hxx".}
 proc dump*(this: BRepBlendAppSurface; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "BRepBlend_AppSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

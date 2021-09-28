@@ -16,8 +16,7 @@
 discard "forward decl of StepAP242_DraughtingModelItemAssociation"
 discard "forward decl of StepAP242_DraughtingModelItemAssociation"
 type
-  HandleStepAP242DraughtingModelItemAssociation* = Handle[
-      StepAP242DraughtingModelItemAssociation]
+  HandleC1C1* = Handle[StepAP242DraughtingModelItemAssociation]
 
 ## ! Added for Dimensional Tolerances
 
@@ -39,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP242_Draughti
 proc dynamicType*(this: StepAP242DraughtingModelItemAssociation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP242_DraughtingModelItemAssociation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

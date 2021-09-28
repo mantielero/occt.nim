@@ -15,5 +15,4 @@
 ## ! Defines Standard_SStream as typedef to C++ string stream.
 
 type
-  StandardSStream* = stringstream
-
+  StandardSStream* {.importcpp:"std::stringstream".} = object

@@ -137,6 +137,7 @@ type
                                                                               ## uniform
                                                                               ## shader
                                                                               ## variable.
+    standardType* {.importc: "Standard_Type".}: Handle
     ## ! The generic value of shader variable.
 
 
@@ -158,13 +159,57 @@ type
 
 proc getTypeName*(): cstring {.importcpp: "Graphic3d_ShaderVariable::get_type_name(@)",
                             header: "Graphic3d_ShaderVariable.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Graphic3d_ShaderVariable::get_type_descriptor(@)",
-    header: "Graphic3d_ShaderVariable.hxx".}
-proc dynamicType*(this: Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable): Handle[
-    StandardType] {.noSideEffect, importcpp: "DynamicType",
-                   header: "Graphic3d_ShaderVariable.hxx".}
-discard "forward decl of Graphic3d_ShaderVariable"
-type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDHandleGraphic3dShaderVariable* = Handle[Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable]
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Graphic3d_ShaderVariable , Standard_Transient ) # < Graphic3d_ShaderVariable . lxx > [NewLine] #  _Graphic3d_ShaderVariable_HeaderFile
+## Error: expected ';'!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

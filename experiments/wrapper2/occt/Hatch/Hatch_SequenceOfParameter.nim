@@ -17,3 +17,28 @@
 type
   HatchSequenceOfParameter* = NCollectionSequence[HatchParameter]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

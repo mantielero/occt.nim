@@ -43,10 +43,23 @@ discard "forward decl of GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezier
 discard "forward decl of GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox"
 discard "forward decl of GeomInt_TheComputeLineBezierOfWLApprox"
 type
-  GeomInt* {.importcpp: "GeomInt", header: "GeomInt.hxx", bycopy.} = object ## ! Adjusts the parameter <thePar> to the range [theParMin,  theParMax]
+  GeomInt* {.importcpp: "GeomInt", header: "GeomInt.hxx", bycopy.} = object
 
 
-proc adjustPeriodic*(thePar: float; theParMin: float; theParMax: float;
-                    thePeriod: float; theNewPar: var float; theOffset: var float;
-                    theEps: float = 0.0): bool {.
+proc `new`*(this: var GeomInt; theSize: csize_t): pointer {.
+    importcpp: "GeomInt::operator new", header: "GeomInt.hxx".}
+proc `delete`*(this: var GeomInt; theAddress: pointer) {.
+    importcpp: "GeomInt::operator delete", header: "GeomInt.hxx".}
+proc `new[]`*(this: var GeomInt; theSize: csize_t): pointer {.
+    importcpp: "GeomInt::operator new[]", header: "GeomInt.hxx".}
+proc `delete[]`*(this: var GeomInt; theAddress: pointer) {.
+    importcpp: "GeomInt::operator delete[]", header: "GeomInt.hxx".}
+proc `new`*(this: var GeomInt; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomInt::operator new", header: "GeomInt.hxx".}
+proc `delete`*(this: var GeomInt; a2: pointer; a3: pointer) {.
+    importcpp: "GeomInt::operator delete", header: "GeomInt.hxx".}
+proc adjustPeriodic*(thePar: StandardReal; theParMin: StandardReal;
+                    theParMax: StandardReal; thePeriod: StandardReal;
+                    theNewPar: var StandardReal; theOffset: var StandardReal;
+                    theEps: StandardReal = 0.0): StandardBoolean {.
     importcpp: "GeomInt::AdjustPeriodic(@)", header: "GeomInt.hxx".}

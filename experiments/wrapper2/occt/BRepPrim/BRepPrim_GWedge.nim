@@ -33,37 +33,38 @@ type
 
 proc constructBRepPrimGWedge*(): BRepPrimGWedge {.constructor,
     importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
-proc constructBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; dx: float; dy: float;
-                             dz: float): BRepPrimGWedge {.constructor,
+proc constructBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; dx: cfloat; dy: cfloat;
+                             dz: cfloat): BRepPrimGWedge {.constructor,
     importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
-proc constructBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; dx: float; dy: float;
-                             dz: float; ltx: float): BRepPrimGWedge {.constructor,
+proc constructBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; dx: cfloat; dy: cfloat;
+                             dz: cfloat; ltx: cfloat): BRepPrimGWedge {.constructor,
     importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
-proc constructBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; xmin: float; ymin: float;
-                             zmin: float; z2min: float; x2min: float; xmax: float;
-                             ymax: float; zmax: float; z2max: float; x2max: float): BRepPrimGWedge {.
-    constructor, importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
+proc constructBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; xmin: cfloat;
+                             ymin: cfloat; zmin: cfloat; z2min: cfloat; x2min: cfloat;
+                             xmax: cfloat; ymax: cfloat; zmax: cfloat; z2max: cfloat;
+                             x2max: cfloat): BRepPrimGWedge {.constructor,
+    importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
 proc axes*(this: BRepPrimGWedge): Ax2 {.noSideEffect, importcpp: "Axes",
                                     header: "BRepPrim_GWedge.hxx".}
-proc getXMin*(this: BRepPrimGWedge): float {.noSideEffect, importcpp: "GetXMin",
+proc getXMin*(this: BRepPrimGWedge): cfloat {.noSideEffect, importcpp: "GetXMin",
     header: "BRepPrim_GWedge.hxx".}
-proc getYMin*(this: BRepPrimGWedge): float {.noSideEffect, importcpp: "GetYMin",
+proc getYMin*(this: BRepPrimGWedge): cfloat {.noSideEffect, importcpp: "GetYMin",
     header: "BRepPrim_GWedge.hxx".}
-proc getZMin*(this: BRepPrimGWedge): float {.noSideEffect, importcpp: "GetZMin",
+proc getZMin*(this: BRepPrimGWedge): cfloat {.noSideEffect, importcpp: "GetZMin",
     header: "BRepPrim_GWedge.hxx".}
-proc getZ2Min*(this: BRepPrimGWedge): float {.noSideEffect, importcpp: "GetZ2Min",
+proc getZ2Min*(this: BRepPrimGWedge): cfloat {.noSideEffect, importcpp: "GetZ2Min",
     header: "BRepPrim_GWedge.hxx".}
-proc getX2Min*(this: BRepPrimGWedge): float {.noSideEffect, importcpp: "GetX2Min",
+proc getX2Min*(this: BRepPrimGWedge): cfloat {.noSideEffect, importcpp: "GetX2Min",
     header: "BRepPrim_GWedge.hxx".}
-proc getXMax*(this: BRepPrimGWedge): float {.noSideEffect, importcpp: "GetXMax",
+proc getXMax*(this: BRepPrimGWedge): cfloat {.noSideEffect, importcpp: "GetXMax",
     header: "BRepPrim_GWedge.hxx".}
-proc getYMax*(this: BRepPrimGWedge): float {.noSideEffect, importcpp: "GetYMax",
+proc getYMax*(this: BRepPrimGWedge): cfloat {.noSideEffect, importcpp: "GetYMax",
     header: "BRepPrim_GWedge.hxx".}
-proc getZMax*(this: BRepPrimGWedge): float {.noSideEffect, importcpp: "GetZMax",
+proc getZMax*(this: BRepPrimGWedge): cfloat {.noSideEffect, importcpp: "GetZMax",
     header: "BRepPrim_GWedge.hxx".}
-proc getZ2Max*(this: BRepPrimGWedge): float {.noSideEffect, importcpp: "GetZ2Max",
+proc getZ2Max*(this: BRepPrimGWedge): cfloat {.noSideEffect, importcpp: "GetZ2Max",
     header: "BRepPrim_GWedge.hxx".}
-proc getX2Max*(this: BRepPrimGWedge): float {.noSideEffect, importcpp: "GetX2Max",
+proc getX2Max*(this: BRepPrimGWedge): cfloat {.noSideEffect, importcpp: "GetX2Max",
     header: "BRepPrim_GWedge.hxx".}
 proc open*(this: var BRepPrimGWedge; d1: BRepPrimDirection) {.importcpp: "Open",
     header: "BRepPrim_GWedge.hxx".}
@@ -100,3 +101,28 @@ proc point*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirecti
                                       header: "BRepPrim_GWedge.hxx".}
 proc isDegeneratedShape*(this: var BRepPrimGWedge): bool {.
     importcpp: "IsDegeneratedShape", header: "BRepPrim_GWedge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

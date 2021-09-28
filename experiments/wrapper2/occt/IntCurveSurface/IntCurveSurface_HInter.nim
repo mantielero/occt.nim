@@ -80,3 +80,28 @@ proc perform*(this: var IntCurveSurfaceHInter; curve: Handle[Adaptor3dHCurve];
              surface: Handle[Adaptor3dHSurface];
              polyhedron: IntCurveSurfaceThePolyhedronOfHInter) {.
     importcpp: "Perform", header: "IntCurveSurface_HInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

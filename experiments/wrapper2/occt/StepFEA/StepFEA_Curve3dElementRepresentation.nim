@@ -22,8 +22,7 @@ discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepFEA_Curve3dElementRepresentation"
 discard "forward decl of StepFEA_Curve3dElementRepresentation"
 type
-  HandleStepFEA_Curve3dElementRepresentation* = Handle[
-      StepFEA_Curve3dElementRepresentation]
+  HandleC1C1* = Handle[StepFEA_Curve3dElementRepresentation]
 
 ## ! Representation of STEP entity Curve3dElementRepresentation
 
@@ -84,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_Curve3dElementRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_Curve3dElementRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

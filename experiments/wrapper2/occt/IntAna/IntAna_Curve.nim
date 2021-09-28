@@ -32,30 +32,30 @@ type
 
 proc constructIntAnaCurve*(): IntAnaCurve {.constructor,
     importcpp: "IntAna_Curve(@)", header: "IntAna_Curve.hxx".}
-proc setCylinderQuadValues*(this: var IntAnaCurve; cylinder: Cylinder; qxx: float;
-                           qyy: float; qzz: float; qxy: float; qxz: float; qyz: float;
-                           qx: float; qy: float; qz: float; q1: float; tol: float;
-                           domInf: float; domSup: float; twoZForATheta: bool;
-                           zIsPositive: bool) {.
+proc setCylinderQuadValues*(this: var IntAnaCurve; cylinder: Cylinder; qxx: cfloat;
+                           qyy: cfloat; qzz: cfloat; qxy: cfloat; qxz: cfloat;
+                           qyz: cfloat; qx: cfloat; qy: cfloat; qz: cfloat; q1: cfloat;
+                           tol: cfloat; domInf: cfloat; domSup: cfloat;
+                           twoZForATheta: bool; zIsPositive: bool) {.
     importcpp: "SetCylinderQuadValues", header: "IntAna_Curve.hxx".}
-proc setConeQuadValues*(this: var IntAnaCurve; cone: Cone; qxx: float; qyy: float;
-                       qzz: float; qxy: float; qxz: float; qyz: float; qx: float;
-                       qy: float; qz: float; q1: float; tol: float; domInf: float;
-                       domSup: float; twoZForATheta: bool; zIsPositive: bool) {.
+proc setConeQuadValues*(this: var IntAnaCurve; cone: Cone; qxx: cfloat; qyy: cfloat;
+                       qzz: cfloat; qxy: cfloat; qxz: cfloat; qyz: cfloat; qx: cfloat;
+                       qy: cfloat; qz: cfloat; q1: cfloat; tol: cfloat; domInf: cfloat;
+                       domSup: cfloat; twoZForATheta: bool; zIsPositive: bool) {.
     importcpp: "SetConeQuadValues", header: "IntAna_Curve.hxx".}
 proc isOpen*(this: IntAnaCurve): bool {.noSideEffect, importcpp: "IsOpen",
                                     header: "IntAna_Curve.hxx".}
-proc domain*(this: IntAnaCurve; theFirst: var float; theLast: var float) {.noSideEffect,
-    importcpp: "Domain", header: "IntAna_Curve.hxx".}
+proc domain*(this: IntAnaCurve; theFirst: var cfloat; theLast: var cfloat) {.
+    noSideEffect, importcpp: "Domain", header: "IntAna_Curve.hxx".}
 proc isConstant*(this: IntAnaCurve): bool {.noSideEffect, importcpp: "IsConstant",
                                         header: "IntAna_Curve.hxx".}
 proc isFirstOpen*(this: IntAnaCurve): bool {.noSideEffect, importcpp: "IsFirstOpen",
     header: "IntAna_Curve.hxx".}
 proc isLastOpen*(this: IntAnaCurve): bool {.noSideEffect, importcpp: "IsLastOpen",
                                         header: "IntAna_Curve.hxx".}
-proc value*(this: var IntAnaCurve; theta: float): Pnt {.importcpp: "Value",
+proc value*(this: var IntAnaCurve; theta: cfloat): Pnt {.importcpp: "Value",
     header: "IntAna_Curve.hxx".}
-proc d1u*(this: var IntAnaCurve; theta: float; p: var Pnt; v: var Vec): bool {.
+proc d1u*(this: var IntAnaCurve; theta: cfloat; p: var Pnt; v: var Vec): bool {.
     importcpp: "D1u", header: "IntAna_Curve.hxx".}
 proc findParameter*(this: IntAnaCurve; p: Pnt; theParams: var TColStdListOfReal) {.
     noSideEffect, importcpp: "FindParameter", header: "IntAna_Curve.hxx".}
@@ -63,5 +63,30 @@ proc setIsFirstOpen*(this: var IntAnaCurve; flag: bool) {.importcpp: "SetIsFirst
     header: "IntAna_Curve.hxx".}
 proc setIsLastOpen*(this: var IntAnaCurve; flag: bool) {.importcpp: "SetIsLastOpen",
     header: "IntAna_Curve.hxx".}
-proc setDomain*(this: var IntAnaCurve; theFirst: float; theLast: float) {.
+proc setDomain*(this: var IntAnaCurve; theFirst: cfloat; theLast: cfloat) {.
     importcpp: "SetDomain", header: "IntAna_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESDraw_ViewsVisibleWithAttr"
 discard "forward decl of IGESDraw_ViewsVisibleWithAttr"
 type
-  HandleIGESDrawViewsVisibleWithAttr* = Handle[IGESDrawViewsVisibleWithAttr]
+  HandleC1C1* = Handle[IGESDrawViewsVisibleWithAttr]
 
 ## ! defines IGESViewsVisibleWithAttr, Type <402>, Form <4>
 ## ! in package IGESDraw
@@ -56,34 +56,35 @@ proc initImplied*(this: var IGESDrawViewsVisibleWithAttr;
     importcpp: "InitImplied", header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
 proc isSingle*(this: IGESDrawViewsVisibleWithAttr): bool {.noSideEffect,
     importcpp: "IsSingle", header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc nbViews*(this: IGESDrawViewsVisibleWithAttr): int {.noSideEffect,
+proc nbViews*(this: IGESDrawViewsVisibleWithAttr): cint {.noSideEffect,
     importcpp: "NbViews", header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc nbDisplayedEntities*(this: IGESDrawViewsVisibleWithAttr): int {.noSideEffect,
+proc nbDisplayedEntities*(this: IGESDrawViewsVisibleWithAttr): cint {.noSideEffect,
     importcpp: "NbDisplayedEntities", header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc viewItem*(this: IGESDrawViewsVisibleWithAttr; index: int): Handle[
+proc viewItem*(this: IGESDrawViewsVisibleWithAttr; index: cint): Handle[
     IGESDataViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
                              header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc lineFontValue*(this: IGESDrawViewsVisibleWithAttr; index: int): int {.
+proc lineFontValue*(this: IGESDrawViewsVisibleWithAttr; index: cint): cint {.
     noSideEffect, importcpp: "LineFontValue",
     header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc isFontDefinition*(this: IGESDrawViewsVisibleWithAttr; index: int): bool {.
+proc isFontDefinition*(this: IGESDrawViewsVisibleWithAttr; index: cint): bool {.
     noSideEffect, importcpp: "IsFontDefinition",
     header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc fontDefinition*(this: IGESDrawViewsVisibleWithAttr; index: int): Handle[
+proc fontDefinition*(this: IGESDrawViewsVisibleWithAttr; index: cint): Handle[
     IGESDataLineFontEntity] {.noSideEffect, importcpp: "FontDefinition",
                              header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc colorValue*(this: IGESDrawViewsVisibleWithAttr; index: int): int {.noSideEffect,
-    importcpp: "ColorValue", header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc isColorDefinition*(this: IGESDrawViewsVisibleWithAttr; index: int): bool {.
+proc colorValue*(this: IGESDrawViewsVisibleWithAttr; index: cint): cint {.
+    noSideEffect, importcpp: "ColorValue",
+    header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
+proc isColorDefinition*(this: IGESDrawViewsVisibleWithAttr; index: cint): bool {.
     noSideEffect, importcpp: "IsColorDefinition",
     header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc colorDefinition*(this: IGESDrawViewsVisibleWithAttr; index: int): Handle[
+proc colorDefinition*(this: IGESDrawViewsVisibleWithAttr; index: cint): Handle[
     IGESGraphColor] {.noSideEffect, importcpp: "ColorDefinition",
                      header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc lineWeightItem*(this: IGESDrawViewsVisibleWithAttr; index: int): int {.
+proc lineWeightItem*(this: IGESDrawViewsVisibleWithAttr; index: cint): cint {.
     noSideEffect, importcpp: "LineWeightItem",
     header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
-proc displayedEntity*(this: IGESDrawViewsVisibleWithAttr; index: int): Handle[
+proc displayedEntity*(this: IGESDrawViewsVisibleWithAttr; index: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "DisplayedEntity",
                          header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
 type
@@ -97,3 +98,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDrawViewsVisibleWithAttr): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDraw_ViewsVisibleWithAttr.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

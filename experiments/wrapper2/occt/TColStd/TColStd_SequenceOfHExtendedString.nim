@@ -16,3 +16,28 @@ type
   TColStdSequenceOfHExtendedString* = NCollectionSequence[
       Handle[TCollectionHExtendedString]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

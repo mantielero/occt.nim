@@ -16,7 +16,7 @@
 discard "forward decl of XmlMXCAFDoc_NoteBinDataDriver"
 discard "forward decl of XmlMXCAFDoc_NoteBinDataDriver"
 type
-  HandleXmlMXCAFDocNoteBinDataDriver* = Handle[XmlMXCAFDocNoteBinDataDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocNoteBinDataDriver]
 
 ## ! Attribute Driver.
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMXCAFDocNoteBinDataDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMXCAFDoc_NoteBinDataDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

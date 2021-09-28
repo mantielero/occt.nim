@@ -17,3 +17,28 @@
 type
   TopTransArray2OfOrientation* = NCollectionArray2[TopAbsOrientation]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

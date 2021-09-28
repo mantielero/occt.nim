@@ -22,7 +22,7 @@ discard "forward decl of Graphic3d_AspectFillArea3d"
 discard "forward decl of Graphic3d_AspectLine3d"
 discard "forward decl of MeshVS_MeshPrsBuilder"
 type
-  HandleMeshVS_MeshPrsBuilder* = Handle[MeshVS_MeshPrsBuilder]
+  HandleC1C1* = Handle[MeshVS_MeshPrsBuilder]
 
 ## ! This class provides methods to compute base mesh presentation
 
@@ -57,34 +57,34 @@ type
 
 proc constructMeshVS_MeshPrsBuilder*(parent: Handle[MeshVS_Mesh]; flags: MeshVS_DisplayModeFlags = meshVS_DMF_OCCMask;
                                     ds: Handle[MeshVS_DataSource] = 0;
-                                    id: int = -1; priority: MeshVS_BuilderPriority = meshVS_BP_Mesh): MeshVS_MeshPrsBuilder {.
+                                    id: cint = -1; priority: MeshVS_BuilderPriority = meshVS_BP_Mesh): MeshVS_MeshPrsBuilder {.
     constructor, importcpp: "MeshVS_MeshPrsBuilder(@)",
     header: "MeshVS_MeshPrsBuilder.hxx".}
 proc build*(this: MeshVS_MeshPrsBuilder; prs: Handle[Prs3dPresentation];
            iDs: TColStdPackedMapOfInteger;
            iDsToExclude: var TColStdPackedMapOfInteger; isElement: bool;
-           displayMode: int) {.noSideEffect, importcpp: "Build",
-                             header: "MeshVS_MeshPrsBuilder.hxx".}
+           displayMode: cint) {.noSideEffect, importcpp: "Build",
+                              header: "MeshVS_MeshPrsBuilder.hxx".}
 proc buildNodes*(this: MeshVS_MeshPrsBuilder; prs: Handle[Prs3dPresentation];
                 iDs: TColStdPackedMapOfInteger;
-                iDsToExclude: var TColStdPackedMapOfInteger; displayMode: int) {.
+                iDsToExclude: var TColStdPackedMapOfInteger; displayMode: cint) {.
     noSideEffect, importcpp: "BuildNodes", header: "MeshVS_MeshPrsBuilder.hxx".}
 proc buildElements*(this: MeshVS_MeshPrsBuilder; prs: Handle[Prs3dPresentation];
                    iDs: TColStdPackedMapOfInteger;
-                   iDsToExclude: var TColStdPackedMapOfInteger; displayMode: int) {.
+                   iDsToExclude: var TColStdPackedMapOfInteger; displayMode: cint) {.
     noSideEffect, importcpp: "BuildElements", header: "MeshVS_MeshPrsBuilder.hxx".}
 proc buildHilightPrs*(this: MeshVS_MeshPrsBuilder; prs: Handle[Prs3dPresentation];
                      iDs: TColStdPackedMapOfInteger; isElement: bool) {.
     noSideEffect, importcpp: "BuildHilightPrs", header: "MeshVS_MeshPrsBuilder.hxx".}
 proc addVolumePrs*(topo: Handle[MeshVS_HArray1OfSequenceOfInteger];
-                  nodes: TColStdArray1OfReal; nbNodes: int;
+                  nodes: TColStdArray1OfReal; nbNodes: cint;
                   array: Handle[Graphic3dArrayOfPrimitives]; isReflected: bool;
-                  isShrinked: bool; isSelect: bool; shrinkCoef: float) {.
+                  isShrinked: bool; isSelect: bool; shrinkCoef: cfloat) {.
     importcpp: "MeshVS_MeshPrsBuilder::AddVolumePrs(@)",
     header: "MeshVS_MeshPrsBuilder.hxx".}
 proc howManyPrimitives*(topo: Handle[MeshVS_HArray1OfSequenceOfInteger];
-                       asPolygons: bool; isSelect: bool; nbNodes: int;
-                       vertices: var int; bounds: var int) {.
+                       asPolygons: bool; isSelect: bool; nbNodes: cint;
+                       vertices: var cint; bounds: var cint) {.
     importcpp: "MeshVS_MeshPrsBuilder::HowManyPrimitives(@)",
     header: "MeshVS_MeshPrsBuilder.hxx".}
 type
@@ -97,3 +97,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MeshVS_MeshPrsBuilder.hxx".}
 proc dynamicType*(this: MeshVS_MeshPrsBuilder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_MeshPrsBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

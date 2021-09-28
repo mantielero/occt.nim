@@ -108,7 +108,7 @@ proc computeOthers*(aConst: Handle[TDataXtdConstraint];
                    anAIS: var Handle[AIS_InteractiveObject]) {.
     importcpp: "TPrsStd_ConstraintTools::ComputeOthers(@)",
     header: "TPrsStd_ConstraintTools.hxx".}
-proc computeTextAndValue*(aConst: Handle[TDataXtdConstraint]; aValue: var float;
+proc computeTextAndValue*(aConst: Handle[TDataXtdConstraint]; aValue: var cfloat;
                          aText: var TCollectionExtendedString; anIsAngle: bool) {.
     importcpp: "TPrsStd_ConstraintTools::ComputeTextAndValue(@)",
     header: "TPrsStd_ConstraintTools.hxx".}
@@ -116,3 +116,28 @@ proc computeAngleForOneFace*(aConst: Handle[TDataXtdConstraint];
                             anAIS: var Handle[AIS_InteractiveObject]) {.
     importcpp: "TPrsStd_ConstraintTools::ComputeAngleForOneFace(@)",
     header: "TPrsStd_ConstraintTools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

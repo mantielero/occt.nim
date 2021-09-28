@@ -20,3 +20,28 @@ type
     FilletSurfIsOk, FilletSurfIsNotOk, FilletSurfIsPartial
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

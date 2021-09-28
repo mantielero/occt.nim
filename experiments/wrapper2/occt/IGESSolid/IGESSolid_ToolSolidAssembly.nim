@@ -67,5 +67,30 @@ proc ownCopy*(this: IGESSolidToolSolidAssembly;
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolSolidAssembly.hxx".}
 proc ownDump*(this: IGESSolidToolSolidAssembly;
              ent: Handle[IGESSolidSolidAssembly]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESSolid_ToolSolidAssembly.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

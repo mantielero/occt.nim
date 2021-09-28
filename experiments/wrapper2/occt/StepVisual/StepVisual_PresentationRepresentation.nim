@@ -17,8 +17,7 @@
 discard "forward decl of StepVisual_PresentationRepresentation"
 discard "forward decl of StepVisual_PresentationRepresentation"
 type
-  HandleStepVisualPresentationRepresentation* = Handle[
-      StepVisualPresentationRepresentation]
+  HandleC1C1* = Handle[StepVisualPresentationRepresentation]
   StepVisualPresentationRepresentation* {.
       importcpp: "StepVisual_PresentationRepresentation",
       header: "StepVisual_PresentationRepresentation.hxx", bycopy.} = object of StepReprRepresentation ##
@@ -42,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualPresentationRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

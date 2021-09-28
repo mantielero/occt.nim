@@ -20,8 +20,7 @@ discard "forward decl of StepAP214_AutoDesignReferencingItem"
 discard "forward decl of StepAP214_AutoDesignDocumentReference"
 discard "forward decl of StepAP214_AutoDesignDocumentReference"
 type
-  HandleStepAP214AutoDesignDocumentReference* = Handle[
-      StepAP214AutoDesignDocumentReference]
+  HandleC1C1* = Handle[StepAP214AutoDesignDocumentReference]
   StepAP214AutoDesignDocumentReference* {.
       importcpp: "StepAP214_AutoDesignDocumentReference",
       header: "StepAP214_AutoDesignDocumentReference.hxx", bycopy.} = object of StepBasicDocumentReference
@@ -41,10 +40,10 @@ proc items*(this: StepAP214AutoDesignDocumentReference): Handle[
 proc setItems*(this: var StepAP214AutoDesignDocumentReference;
               aItems: Handle[StepAP214HArray1OfAutoDesignReferencingItem]) {.
     importcpp: "SetItems", header: "StepAP214_AutoDesignDocumentReference.hxx".}
-proc itemsValue*(this: StepAP214AutoDesignDocumentReference; num: int): StepAP214AutoDesignReferencingItem {.
+proc itemsValue*(this: StepAP214AutoDesignDocumentReference; num: cint): StepAP214AutoDesignReferencingItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignDocumentReference.hxx".}
-proc nbItems*(this: StepAP214AutoDesignDocumentReference): int {.noSideEffect,
+proc nbItems*(this: StepAP214AutoDesignDocumentReference): cint {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AutoDesignDocumentReference.hxx".}
 type
   StepAP214AutoDesignDocumentReferencebaseType* = StepBasicDocumentReference
@@ -57,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214AutoDesignDocumentReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AutoDesignDocumentReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

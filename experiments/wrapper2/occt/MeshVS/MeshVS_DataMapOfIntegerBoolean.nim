@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MeshVS_DataMapOfIntegerBoolean* = NCollectionDataMap[int, bool,
+  MeshVS_DataMapOfIntegerBoolean* = NCollectionDataMap[cint, bool,
       TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerBoolean* = Iterator[int, bool,
+  MeshVS_DataMapIteratorOfDataMapOfIntegerBoolean* = Iterator[cint, bool,
       TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

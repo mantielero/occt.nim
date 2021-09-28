@@ -20,8 +20,7 @@ discard "forward decl of StepAP214_AutoDesignGeneralOrgItem"
 discard "forward decl of StepAP214_AutoDesignOrganizationAssignment"
 discard "forward decl of StepAP214_AutoDesignOrganizationAssignment"
 type
-  HandleStepAP214AutoDesignOrganizationAssignment* = Handle[
-      StepAP214AutoDesignOrganizationAssignment]
+  HandleC1C1* = Handle[StepAP214AutoDesignOrganizationAssignment]
   StepAP214AutoDesignOrganizationAssignment* {.
       importcpp: "StepAP214_AutoDesignOrganizationAssignment",
       header: "StepAP214_AutoDesignOrganizationAssignment.hxx", bycopy.} = object of StepBasicOrganizationAssignment ##
@@ -46,10 +45,10 @@ proc setItems*(this: var StepAP214AutoDesignOrganizationAssignment;
 proc items*(this: StepAP214AutoDesignOrganizationAssignment): Handle[
     StepAP214HArray1OfAutoDesignGeneralOrgItem] {.noSideEffect,
     importcpp: "Items", header: "StepAP214_AutoDesignOrganizationAssignment.hxx".}
-proc itemsValue*(this: StepAP214AutoDesignOrganizationAssignment; num: int): StepAP214AutoDesignGeneralOrgItem {.
+proc itemsValue*(this: StepAP214AutoDesignOrganizationAssignment; num: cint): StepAP214AutoDesignGeneralOrgItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignOrganizationAssignment.hxx".}
-proc nbItems*(this: StepAP214AutoDesignOrganizationAssignment): int {.noSideEffect,
+proc nbItems*(this: StepAP214AutoDesignOrganizationAssignment): cint {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AutoDesignOrganizationAssignment.hxx".}
 type
   StepAP214AutoDesignOrganizationAssignmentbaseType* = StepBasicOrganizationAssignment
@@ -60,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AutoDesi
 proc dynamicType*(this: StepAP214AutoDesignOrganizationAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP214_AutoDesignOrganizationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

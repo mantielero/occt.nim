@@ -23,8 +23,7 @@ discard "forward decl of StepBasic_UncertaintyMeasureWithUnit"
 discard "forward decl of StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx"
 discard "forward decl of StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx"
 type
-  HandleStepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx* = Handle[
-      StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx]
+  HandleC1C1* = Handle[StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx]
   StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx* {.importcpp: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx",
       bycopy.} = object of StepReprRepresentationContext
 
@@ -41,7 +40,7 @@ proc init*(this: var StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAs
 proc init*(this: var StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx;
           aContextIdentifier: Handle[TCollectionHAsciiString];
           aContextType: Handle[TCollectionHAsciiString];
-          aCoordinateSpaceDimension: int;
+          aCoordinateSpaceDimension: cint;
           aUnits: Handle[StepBasicHArray1OfNamedUnit];
           anUncertainty: Handle[StepBasicHArray1OfUncertaintyMeasureWithUnit]) {.
     importcpp: "Init", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
@@ -67,9 +66,9 @@ proc globalUncertaintyAssignedContext*(this: StepGeomGeomRepContextAndGlobUnitAs
     StepReprGlobalUncertaintyAssignedContext] {.noSideEffect,
     importcpp: "GlobalUncertaintyAssignedContext", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
 proc setCoordinateSpaceDimension*(this: var StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx;
-                                 aCoordinateSpaceDimension: int) {.
+                                 aCoordinateSpaceDimension: cint) {.
     importcpp: "SetCoordinateSpaceDimension", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
-proc coordinateSpaceDimension*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx): int {.
+proc coordinateSpaceDimension*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx): cint {.
     noSideEffect, importcpp: "CoordinateSpaceDimension", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
 proc setUnits*(this: var StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx;
               aUnits: Handle[StepBasicHArray1OfNamedUnit]) {.
@@ -77,9 +76,9 @@ proc setUnits*(this: var StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertain
 proc units*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx): Handle[
     StepBasicHArray1OfNamedUnit] {.noSideEffect, importcpp: "Units", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
 proc unitsValue*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx;
-                num: int): Handle[StepBasicNamedUnit] {.noSideEffect,
+                num: cint): Handle[StepBasicNamedUnit] {.noSideEffect,
     importcpp: "UnitsValue", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
-proc nbUnits*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx): int {.
+proc nbUnits*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx): cint {.
     noSideEffect, importcpp: "NbUnits", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
 proc setUncertainty*(this: var StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx;
     aUncertainty: Handle[StepBasicHArray1OfUncertaintyMeasureWithUnit]) {.
@@ -88,9 +87,9 @@ proc uncertainty*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaint
     StepBasicHArray1OfUncertaintyMeasureWithUnit] {.noSideEffect,
     importcpp: "Uncertainty", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
 proc uncertaintyValue*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx;
-                      num: int): Handle[StepBasicUncertaintyMeasureWithUnit] {.
+                      num: cint): Handle[StepBasicUncertaintyMeasureWithUnit] {.
     noSideEffect, importcpp: "UncertaintyValue", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
-proc nbUncertainty*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx): int {.
+proc nbUncertainty*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx): cint {.
     noSideEffect, importcpp: "NbUncertainty", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
 type
   StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtxbaseType* = StepReprRepresentationContext
@@ -99,3 +98,28 @@ proc getTypeName*(): cstring {.importcpp: "StepGeom_GeomRepContextAndGlobUnitAss
 proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx::get_type_descriptor(@)", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
 proc dynamicType*(this: StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

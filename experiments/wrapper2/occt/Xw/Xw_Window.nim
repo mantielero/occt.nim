@@ -73,8 +73,8 @@ when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
   proc virtualKeyFromNative*(theKey: culong): AspectVKey {.
       importcpp: "Xw_Window::VirtualKeyFromNative(@)", header: "Xw_Window.hxx".}
   proc constructXwWindow*(theXDisplay: Handle[AspectDisplayConnection];
-                         theTitle: StandardCString; thePxLeft: int; thePxTop: int;
-                         thePxWidth: int; thePxHeight: int;
+                         theTitle: StandardCString; thePxLeft: cint; thePxTop: cint;
+                         thePxWidth: cint; thePxHeight: cint;
                          theFBConfig: AspectFBConfig = nil): XwWindow {.constructor,
       importcpp: "Xw_Window(@)", header: "Xw_Window.hxx".}
   proc constructXwWindow*(theXDisplay: Handle[AspectDisplayConnection];
@@ -91,11 +91,11 @@ when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
                                       header: "Xw_Window.hxx".}
   proc isMapped*(this: XwWindow): bool {.noSideEffect, importcpp: "IsMapped",
                                      header: "Xw_Window.hxx".}
-  proc ratio*(this: XwWindow): float {.noSideEffect, importcpp: "Ratio",
-                                   header: "Xw_Window.hxx".}
-  proc position*(this: XwWindow; x1: var int; y1: var int; x2: var int; y2: var int) {.
+  proc ratio*(this: XwWindow): cfloat {.noSideEffect, importcpp: "Ratio",
+                                    header: "Xw_Window.hxx".}
+  proc position*(this: XwWindow; x1: var cint; y1: var cint; x2: var cint; y2: var cint) {.
       noSideEffect, importcpp: "Position", header: "Xw_Window.hxx".}
-  proc size*(this: XwWindow; theWidth: var int; theHeight: var int) {.noSideEffect,
+  proc size*(this: XwWindow; theWidth: var cint; theHeight: var cint) {.noSideEffect,
       importcpp: "Size", header: "Xw_Window.hxx".}
   proc xWindow*(this: XwWindow): Window {.noSideEffect, importcpp: "XWindow",
                                       header: "Xw_Window.hxx".}
@@ -122,4 +122,29 @@ when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
       importcpp: "DynamicType", header: "Xw_Window.hxx".}
   discard "forward decl of Xw_Window"
   type
-    HandleXwWindow* = Handle[XwWindow]
+    HandleC1C1* = Handle[XwWindow]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -94,5 +94,30 @@ proc toUpdateParameters*(this: OpenGlSampler): bool {.noSideEffect,
     importcpp: "ToUpdateParameters", header: "OpenGl_Sampler.hxx".}
 discard "forward decl of OpenGl_Sampler"
 type
-  HandleOpenGlSampler* = Handle[OpenGlSampler]
+  HandleC1C1* = Handle[OpenGlSampler]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

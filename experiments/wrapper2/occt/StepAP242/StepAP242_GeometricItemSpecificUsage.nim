@@ -16,8 +16,7 @@
 discard "forward decl of StepAP242_GeometricItemSpecificUsage"
 discard "forward decl of StepAP242_GeometricItemSpecificUsage"
 type
-  HandleStepAP242GeometricItemSpecificUsage* = Handle[
-      StepAP242GeometricItemSpecificUsage]
+  HandleC1C1* = Handle[StepAP242GeometricItemSpecificUsage]
 
 ## ! Added for Dimensional Tolerances
 
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP242GeometricItemSpecificUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP242_GeometricItemSpecificUsage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

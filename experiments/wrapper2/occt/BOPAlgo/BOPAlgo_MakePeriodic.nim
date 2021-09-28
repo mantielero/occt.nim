@@ -860,12 +860,12 @@ type
       header: "BOPAlgo_MakePeriodic.hxx", bycopy.} = object
     myPeriodic* {.importc: "myPeriodic".}: array[3, bool] ## !< Array of flags defining whether the shape should be
                                                      ## ! periodic in XYZ directions
-    myPeriod* {.importc: "myPeriod".}: array[3, float] ## !< Array of XYZ period values. Defining the period for any
-                                                  ## ! direction the corresponding flag for that direction in
-                                                  ## ! myPeriodic should be set to true
+    myPeriod* {.importc: "myPeriod".}: array[3, cfloat] ## !< Array of XYZ period values. Defining the period for any
+                                                   ## ! direction the corresponding flag for that direction in
+                                                   ## ! myPeriodic should be set to true
     myIsTrimmed* {.importc: "myIsTrimmed".}: array[3, bool] ## !< Array of flags defining whether the input shape has to be
                                                        ## ! trimmed to fit the required period in the required direction
-    myPeriodFirst* {.importc: "myPeriodFirst".}: array[3, float] ## !< Array of start parameters of the XYZ periods: required for trimming
+    myPeriodFirst* {.importc: "myPeriodFirst".}: array[3, cfloat] ## !< Array of start parameters of the XYZ periods: required for trimming
 
 
 proc constructBOPAlgoMakePeriodicPeriodicityParams*(): BOPAlgoMakePeriodicPeriodicityParams {.
@@ -879,71 +879,71 @@ proc setPeriodicityParameters*(this: var BOPAlgoMakePeriodic;
 proc periodicityParameters*(this: BOPAlgoMakePeriodic): BOPAlgoMakePeriodicPeriodicityParams {.
     noSideEffect, importcpp: "PeriodicityParameters",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc makePeriodic*(this: var BOPAlgoMakePeriodic; theDirectionID: int;
-                  theIsPeriodic: bool; thePeriod: float = 0.0) {.
+proc makePeriodic*(this: var BOPAlgoMakePeriodic; theDirectionID: cint;
+                  theIsPeriodic: bool; thePeriod: cfloat = 0.0) {.
     importcpp: "MakePeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
-proc isPeriodic*(this: BOPAlgoMakePeriodic; theDirectionID: int): bool {.noSideEffect,
-    importcpp: "IsPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
-proc period*(this: BOPAlgoMakePeriodic; theDirectionID: int): float {.noSideEffect,
+proc isPeriodic*(this: BOPAlgoMakePeriodic; theDirectionID: cint): bool {.
+    noSideEffect, importcpp: "IsPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
+proc period*(this: BOPAlgoMakePeriodic; theDirectionID: cint): cfloat {.noSideEffect,
     importcpp: "Period", header: "BOPAlgo_MakePeriodic.hxx".}
 proc makeXPeriodic*(this: var BOPAlgoMakePeriodic; theIsPeriodic: bool;
-                   thePeriod: float = 0.0) {.importcpp: "MakeXPeriodic",
+                   thePeriod: cfloat = 0.0) {.importcpp: "MakeXPeriodic",
     header: "BOPAlgo_MakePeriodic.hxx".}
 proc isXPeriodic*(this: BOPAlgoMakePeriodic): bool {.noSideEffect,
     importcpp: "IsXPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
-proc xPeriod*(this: BOPAlgoMakePeriodic): float {.noSideEffect, importcpp: "XPeriod",
-    header: "BOPAlgo_MakePeriodic.hxx".}
+proc xPeriod*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect,
+    importcpp: "XPeriod", header: "BOPAlgo_MakePeriodic.hxx".}
 proc makeYPeriodic*(this: var BOPAlgoMakePeriodic; theIsPeriodic: bool;
-                   thePeriod: float = 0.0) {.importcpp: "MakeYPeriodic",
+                   thePeriod: cfloat = 0.0) {.importcpp: "MakeYPeriodic",
     header: "BOPAlgo_MakePeriodic.hxx".}
 proc isYPeriodic*(this: BOPAlgoMakePeriodic): bool {.noSideEffect,
     importcpp: "IsYPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
-proc yPeriod*(this: BOPAlgoMakePeriodic): float {.noSideEffect, importcpp: "YPeriod",
-    header: "BOPAlgo_MakePeriodic.hxx".}
+proc yPeriod*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect,
+    importcpp: "YPeriod", header: "BOPAlgo_MakePeriodic.hxx".}
 proc makeZPeriodic*(this: var BOPAlgoMakePeriodic; theIsPeriodic: bool;
-                   thePeriod: float = 0.0) {.importcpp: "MakeZPeriodic",
+                   thePeriod: cfloat = 0.0) {.importcpp: "MakeZPeriodic",
     header: "BOPAlgo_MakePeriodic.hxx".}
 proc isZPeriodic*(this: BOPAlgoMakePeriodic): bool {.noSideEffect,
     importcpp: "IsZPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
-proc zPeriod*(this: BOPAlgoMakePeriodic): float {.noSideEffect, importcpp: "ZPeriod",
+proc zPeriod*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect,
+    importcpp: "ZPeriod", header: "BOPAlgo_MakePeriodic.hxx".}
+proc setTrimmed*(this: var BOPAlgoMakePeriodic; theDirectionID: cint;
+                theIsTrimmed: bool; theFirst: cfloat = 0.0) {.importcpp: "SetTrimmed",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc setTrimmed*(this: var BOPAlgoMakePeriodic; theDirectionID: int;
-                theIsTrimmed: bool; theFirst: float = 0.0) {.importcpp: "SetTrimmed",
-    header: "BOPAlgo_MakePeriodic.hxx".}
-proc isInputTrimmed*(this: BOPAlgoMakePeriodic; theDirectionID: int): bool {.
+proc isInputTrimmed*(this: BOPAlgoMakePeriodic; theDirectionID: cint): bool {.
     noSideEffect, importcpp: "IsInputTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
-proc periodFirst*(this: BOPAlgoMakePeriodic; theDirectionID: int): float {.
+proc periodFirst*(this: BOPAlgoMakePeriodic; theDirectionID: cint): cfloat {.
     noSideEffect, importcpp: "PeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
 proc setXTrimmed*(this: var BOPAlgoMakePeriodic; theIsTrimmed: bool;
                  theFirst: bool = 0.0) {.importcpp: "SetXTrimmed",
                                      header: "BOPAlgo_MakePeriodic.hxx".}
 proc isInputXTrimmed*(this: BOPAlgoMakePeriodic): bool {.noSideEffect,
     importcpp: "IsInputXTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
-proc xPeriodFirst*(this: BOPAlgoMakePeriodic): float {.noSideEffect,
+proc xPeriodFirst*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect,
     importcpp: "XPeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
 proc setYTrimmed*(this: var BOPAlgoMakePeriodic; theIsTrimmed: bool;
                  theFirst: bool = 0.0) {.importcpp: "SetYTrimmed",
                                      header: "BOPAlgo_MakePeriodic.hxx".}
 proc isInputYTrimmed*(this: BOPAlgoMakePeriodic): bool {.noSideEffect,
     importcpp: "IsInputYTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
-proc yPeriodFirst*(this: BOPAlgoMakePeriodic): float {.noSideEffect,
+proc yPeriodFirst*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect,
     importcpp: "YPeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
 proc setZTrimmed*(this: var BOPAlgoMakePeriodic; theIsTrimmed: bool;
                  theFirst: bool = 0.0) {.importcpp: "SetZTrimmed",
                                      header: "BOPAlgo_MakePeriodic.hxx".}
 proc isInputZTrimmed*(this: BOPAlgoMakePeriodic): bool {.noSideEffect,
     importcpp: "IsInputZTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
-proc zPeriodFirst*(this: BOPAlgoMakePeriodic): float {.noSideEffect,
+proc zPeriodFirst*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect,
     importcpp: "ZPeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
 proc perform*(this: var BOPAlgoMakePeriodic) {.importcpp: "Perform",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc repeatShape*(this: var BOPAlgoMakePeriodic; theDirectionID: int; theTimes: int): TopoDS_Shape {.
+proc repeatShape*(this: var BOPAlgoMakePeriodic; theDirectionID: cint; theTimes: cint): TopoDS_Shape {.
     importcpp: "RepeatShape", header: "BOPAlgo_MakePeriodic.hxx".}
-proc xRepeat*(this: var BOPAlgoMakePeriodic; theTimes: int): TopoDS_Shape {.
+proc xRepeat*(this: var BOPAlgoMakePeriodic; theTimes: cint): TopoDS_Shape {.
     importcpp: "XRepeat", header: "BOPAlgo_MakePeriodic.hxx".}
-proc yRepeat*(this: var BOPAlgoMakePeriodic; theTimes: int): TopoDS_Shape {.
+proc yRepeat*(this: var BOPAlgoMakePeriodic; theTimes: cint): TopoDS_Shape {.
     importcpp: "YRepeat", header: "BOPAlgo_MakePeriodic.hxx".}
-proc zRepeat*(this: var BOPAlgoMakePeriodic; theTimes: int): TopoDS_Shape {.
+proc zRepeat*(this: var BOPAlgoMakePeriodic; theTimes: cint): TopoDS_Shape {.
     importcpp: "ZRepeat", header: "BOPAlgo_MakePeriodic.hxx".}
 proc repeatedShape*(this: BOPAlgoMakePeriodic): TopoDS_Shape {.noSideEffect,
     importcpp: "RepeatedShape", header: "BOPAlgo_MakePeriodic.hxx".}
@@ -957,6 +957,31 @@ proc history*(this: BOPAlgoMakePeriodic): Handle[BRepToolsHistory] {.noSideEffec
     importcpp: "History", header: "BOPAlgo_MakePeriodic.hxx".}
 proc clear*(this: var BOPAlgoMakePeriodic) {.importcpp: "Clear",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc toDirectionID*(theDirectionID: int): int {.
+proc toDirectionID*(theDirectionID: cint): cint {.
     importcpp: "BOPAlgo_MakePeriodic::ToDirectionID(@)",
     header: "BOPAlgo_MakePeriodic.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

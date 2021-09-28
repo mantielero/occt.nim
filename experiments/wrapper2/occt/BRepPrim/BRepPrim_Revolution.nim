@@ -72,16 +72,41 @@ type
                                                                                         ## classes.
 
 
-proc constructBRepPrimRevolution*(a: Ax2; vMin: float; vMax: float;
+proc constructBRepPrimRevolution*(a: Ax2; vMin: cfloat; vMax: cfloat;
                                  m: Handle[GeomCurve]; pm: Handle[Geom2dCurve]): BRepPrimRevolution {.
     constructor, importcpp: "BRepPrim_Revolution(@)",
     header: "BRepPrim_Revolution.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimRevolution): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Revolution.hxx".}
-proc makeEmptyMeridianEdge*(this: BRepPrimRevolution; ang: float): TopoDS_Edge {.
+proc makeEmptyMeridianEdge*(this: BRepPrimRevolution; ang: cfloat): TopoDS_Edge {.
     noSideEffect, importcpp: "MakeEmptyMeridianEdge",
     header: "BRepPrim_Revolution.hxx".}
-proc meridianValue*(this: BRepPrimRevolution; v: float): Pnt2d {.noSideEffect,
+proc meridianValue*(this: BRepPrimRevolution; v: cfloat): Pnt2d {.noSideEffect,
     importcpp: "MeridianValue", header: "BRepPrim_Revolution.hxx".}
 proc setMeridianPCurve*(this: BRepPrimRevolution; e: var TopoDS_Edge; f: TopoDS_Face) {.
     noSideEffect, importcpp: "SetMeridianPCurve", header: "BRepPrim_Revolution.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

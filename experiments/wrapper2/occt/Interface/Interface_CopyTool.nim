@@ -70,9 +70,9 @@ proc search*(this: InterfaceCopyTool; ent: Handle[StandardTransient];
     importcpp: "Search", header: "Interface_CopyTool.hxx".}
 proc clearLastFlags*(this: var InterfaceCopyTool) {.importcpp: "ClearLastFlags",
     header: "Interface_CopyTool.hxx".}
-proc lastCopiedAfter*(this: InterfaceCopyTool; numfrom: int;
+proc lastCopiedAfter*(this: InterfaceCopyTool; numfrom: cint;
                      ent: var Handle[StandardTransient];
-                     res: var Handle[StandardTransient]): int {.noSideEffect,
+                     res: var Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "LastCopiedAfter", header: "Interface_CopyTool.hxx".}
 proc transferEntity*(this: var InterfaceCopyTool; ent: Handle[StandardTransient]) {.
     importcpp: "TransferEntity", header: "Interface_CopyTool.hxx".}
@@ -86,3 +86,28 @@ proc rootResult*(this: InterfaceCopyTool; withreports: bool = false): InterfaceE
     noSideEffect, importcpp: "RootResult", header: "Interface_CopyTool.hxx".}
 proc destroyInterfaceCopyTool*(this: var InterfaceCopyTool) {.
     importcpp: "#.~Interface_CopyTool()", header: "Interface_CopyTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

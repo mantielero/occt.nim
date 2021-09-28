@@ -19,7 +19,7 @@ discard "forward decl of StepShape_Edge"
 discard "forward decl of StepShape_SeamEdge"
 discard "forward decl of StepShape_SeamEdge"
 type
-  HandleStepShapeSeamEdge* = Handle[StepShapeSeamEdge]
+  HandleC1C1* = Handle[StepShapeSeamEdge]
 
 ## ! Representation of STEP entity SeamEdge
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_SeamEdge.hxx".}
 proc dynamicType*(this: StepShapeSeamEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_SeamEdge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

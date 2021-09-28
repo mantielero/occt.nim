@@ -21,3 +21,28 @@ type
   StorageDataMapIteratorOfMapOfPers* = Iterator[TCollectionAsciiString,
       Handle[StorageRoot], TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

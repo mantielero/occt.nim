@@ -143,5 +143,30 @@ proc generated*(this: var BRepOffsetAPI_MakePipe; s: TopoDS_Shape): TopToolsList
 proc generated*(this: var BRepOffsetAPI_MakePipe; sSpine: TopoDS_Shape;
                sProfile: TopoDS_Shape): TopoDS_Shape {.importcpp: "Generated",
     header: "BRepOffsetAPI_MakePipe.hxx".}
-proc errorOnSurface*(this: BRepOffsetAPI_MakePipe): float {.noSideEffect,
+proc errorOnSurface*(this: BRepOffsetAPI_MakePipe): cfloat {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "BRepOffsetAPI_MakePipe.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

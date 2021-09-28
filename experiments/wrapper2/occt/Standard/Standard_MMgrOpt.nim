@@ -75,7 +75,8 @@ type
     ## !< Mutex to protect small block pools data
 
 
-proc constructStandardMMgrOpt*(aClear: bool = true; aMMap: bool = true;
+proc constructStandardMMgrOpt*(aClear: StandardBoolean = true;
+                              aMMap: StandardBoolean = true;
                               aCellSize: StandardSize = 200; aNbPages: int = 10000;
                               aThreshold: StandardSize = 40000): StandardMMgrOpt {.
     constructor, importcpp: "Standard_MMgrOpt(@)", header: "Standard_MMgrOpt.hxx".}
@@ -88,10 +89,10 @@ proc reallocate*(this: var StandardMMgrOpt; thePtr: StandardAddress;
     header: "Standard_MMgrOpt.hxx".}
 proc free*(this: var StandardMMgrOpt; thePtr: StandardAddress) {.importcpp: "Free",
     header: "Standard_MMgrOpt.hxx".}
-proc purge*(this: var StandardMMgrOpt; isDestroyed: bool): int {.importcpp: "Purge",
-    header: "Standard_MMgrOpt.hxx".}
+proc purge*(this: var StandardMMgrOpt; isDestroyed: StandardBoolean): int {.
+    importcpp: "Purge", header: "Standard_MMgrOpt.hxx".}
 type
-  StandardMMgrOptTPCallBackFunc* = proc (theIsAlloc: bool;
+  StandardMMgrOptTPCallBackFunc* = proc (theIsAlloc: StandardBoolean;
                                       theStorage: StandardAddress;
                                       theRoundSize: StandardSize;
                                       theSize: StandardSize)

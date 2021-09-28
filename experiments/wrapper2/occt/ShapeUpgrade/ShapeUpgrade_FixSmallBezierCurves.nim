@@ -18,8 +18,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeUpgrade_FixSmallBezierCurves"
 discard "forward decl of ShapeUpgrade_FixSmallBezierCurves"
 type
-  HandleShapeUpgradeFixSmallBezierCurves* = Handle[
-      ShapeUpgradeFixSmallBezierCurves]
+  HandleC1C1* = Handle[ShapeUpgradeFixSmallBezierCurves]
   ShapeUpgradeFixSmallBezierCurves* {.importcpp: "ShapeUpgrade_FixSmallBezierCurves", header: "ShapeUpgrade_FixSmallBezierCurves.hxx",
                                      bycopy.} = object of ShapeUpgradeFixSmallCurves
 
@@ -29,7 +28,7 @@ proc constructShapeUpgradeFixSmallBezierCurves*(): ShapeUpgradeFixSmallBezierCur
     header: "ShapeUpgrade_FixSmallBezierCurves.hxx".}
 proc approx*(this: var ShapeUpgradeFixSmallBezierCurves;
             curve3d: var Handle[GeomCurve]; curve2d: var Handle[Geom2dCurve];
-            curve2dR: var Handle[Geom2dCurve]; first: var float; last: var float): bool {.
+            curve2dR: var Handle[Geom2dCurve]; first: var cfloat; last: var cfloat): bool {.
     importcpp: "Approx", header: "ShapeUpgrade_FixSmallBezierCurves.hxx".}
 type
   ShapeUpgradeFixSmallBezierCurvesbaseType* = ShapeUpgradeFixSmallCurves
@@ -42,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeFixSmallBezierCurves): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_FixSmallBezierCurves.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

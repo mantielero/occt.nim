@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_ColourSpecification"
 discard "forward decl of StepVisual_ColourSpecification"
 type
-  HandleStepVisualColourSpecification* = Handle[StepVisualColourSpecification]
+  HandleC1C1* = Handle[StepVisualColourSpecification]
   StepVisualColourSpecification* {.importcpp: "StepVisual_ColourSpecification",
                                   header: "StepVisual_ColourSpecification.hxx",
                                   bycopy.} = object of StepVisualColour ## ! Returns a
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualColourSpecification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_ColourSpecification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

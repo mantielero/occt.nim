@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Different"
 discard "forward decl of Expr_Different"
 type
-  HandleExprDifferent* = Handle[ExprDifferent]
+  HandleC1C1* = Handle[ExprDifferent]
   ExprDifferent* {.importcpp: "Expr_Different", header: "Expr_Different.hxx", bycopy.} = object of ExprSingleRelation ##
                                                                                                             ## !
                                                                                                             ## Creates
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_Different.hxx".}
 proc dynamicType*(this: ExprDifferent): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Different.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

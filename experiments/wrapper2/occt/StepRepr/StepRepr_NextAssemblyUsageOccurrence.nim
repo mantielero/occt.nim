@@ -16,8 +16,7 @@
 discard "forward decl of StepRepr_NextAssemblyUsageOccurrence"
 discard "forward decl of StepRepr_NextAssemblyUsageOccurrence"
 type
-  HandleStepReprNextAssemblyUsageOccurrence* = Handle[
-      StepReprNextAssemblyUsageOccurrence]
+  HandleC1C1* = Handle[StepReprNextAssemblyUsageOccurrence]
 
 ## ! Representation of STEP entity NextAssemblyUsageOccurrence
 
@@ -43,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprNextAssemblyUsageOccurrence): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_NextAssemblyUsageOccurrence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

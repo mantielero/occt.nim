@@ -26,3 +26,28 @@ proc isDone*(this: BRepLibCommand): bool {.noSideEffect, importcpp: "IsDone",
                                        header: "BRepLib_Command.hxx".}
 proc check*(this: BRepLibCommand) {.noSideEffect, importcpp: "Check",
                                  header: "BRepLib_Command.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

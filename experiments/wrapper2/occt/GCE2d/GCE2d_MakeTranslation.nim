@@ -36,3 +36,28 @@ proc value*(this: GCE2dMakeTranslation): Handle[Geom2dTransformation] {.
 converter `constopencascade`*(this: GCE2dMakeTranslation): Handle[
     Geom2dTransformation] {.noSideEffect, importcpp: "GCE2d_MakeTranslation::operator constopencascade",
                            header: "GCE2d_MakeTranslation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

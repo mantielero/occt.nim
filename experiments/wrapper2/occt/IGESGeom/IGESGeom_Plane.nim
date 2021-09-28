@@ -20,7 +20,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGeom_Plane"
 discard "forward decl of IGESGeom_Plane"
 type
-  HandleIGESGeomPlane* = Handle[IGESGeomPlane]
+  HandleC1C1* = Handle[IGESGeomPlane]
 
 ## ! defines IGESPlane, Type <108> Form <-1,0,1>
 ## ! in package IGESGeom
@@ -36,17 +36,17 @@ type
 
 proc constructIGESGeomPlane*(): IGESGeomPlane {.constructor,
     importcpp: "IGESGeom_Plane(@)", header: "IGESGeom_Plane.hxx".}
-proc init*(this: var IGESGeomPlane; a: float; b: float; c: float; d: float;
-          aCurve: Handle[IGESDataIGESEntity]; attach: Xyz; aSize: float) {.
+proc init*(this: var IGESGeomPlane; a: cfloat; b: cfloat; c: cfloat; d: cfloat;
+          aCurve: Handle[IGESDataIGESEntity]; attach: Xyz; aSize: cfloat) {.
     importcpp: "Init", header: "IGESGeom_Plane.hxx".}
-proc setFormNumber*(this: var IGESGeomPlane; form: int) {.importcpp: "SetFormNumber",
+proc setFormNumber*(this: var IGESGeomPlane; form: cint) {.importcpp: "SetFormNumber",
     header: "IGESGeom_Plane.hxx".}
-proc equation*(this: IGESGeomPlane; a: var float; b: var float; c: var float; d: var float) {.
-    noSideEffect, importcpp: "Equation", header: "IGESGeom_Plane.hxx".}
-proc transformedEquation*(this: IGESGeomPlane; a: var float; b: var float; c: var float;
-                         d: var float) {.noSideEffect,
-                                      importcpp: "TransformedEquation",
-                                      header: "IGESGeom_Plane.hxx".}
+proc equation*(this: IGESGeomPlane; a: var cfloat; b: var cfloat; c: var cfloat;
+              d: var cfloat) {.noSideEffect, importcpp: "Equation",
+                            header: "IGESGeom_Plane.hxx".}
+proc transformedEquation*(this: IGESGeomPlane; a: var cfloat; b: var cfloat;
+                         c: var cfloat; d: var cfloat) {.noSideEffect,
+    importcpp: "TransformedEquation", header: "IGESGeom_Plane.hxx".}
 proc hasBoundingCurve*(this: IGESGeomPlane): bool {.noSideEffect,
     importcpp: "HasBoundingCurve", header: "IGESGeom_Plane.hxx".}
 proc hasBoundingCurveHole*(this: IGESGeomPlane): bool {.noSideEffect,
@@ -59,8 +59,8 @@ proc symbolAttach*(this: IGESGeomPlane): Pnt {.noSideEffect,
     importcpp: "SymbolAttach", header: "IGESGeom_Plane.hxx".}
 proc transformedSymbolAttach*(this: IGESGeomPlane): Pnt {.noSideEffect,
     importcpp: "TransformedSymbolAttach", header: "IGESGeom_Plane.hxx".}
-proc symbolSize*(this: IGESGeomPlane): float {.noSideEffect, importcpp: "SymbolSize",
-    header: "IGESGeom_Plane.hxx".}
+proc symbolSize*(this: IGESGeomPlane): cfloat {.noSideEffect,
+    importcpp: "SymbolSize", header: "IGESGeom_Plane.hxx".}
 type
   IGESGeomPlanebaseType* = IGESDataIGESEntity
 
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_Plane.hxx".}
 proc dynamicType*(this: IGESGeomPlane): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Plane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

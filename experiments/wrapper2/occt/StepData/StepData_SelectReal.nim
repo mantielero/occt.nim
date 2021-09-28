@@ -17,7 +17,7 @@
 discard "forward decl of StepData_SelectReal"
 discard "forward decl of StepData_SelectReal"
 type
-  HandleStepDataSelectReal* = Handle[StepDataSelectReal]
+  HandleC1C1* = Handle[StepDataSelectReal]
 
 ## ! A SelectReal is a SelectMember specialised for a basic real
 ## ! type in a select which also accepts entities : this one has
@@ -31,11 +31,11 @@ type
 
 proc constructStepDataSelectReal*(): StepDataSelectReal {.constructor,
     importcpp: "StepData_SelectReal(@)", header: "StepData_SelectReal.hxx".}
-proc kind*(this: StepDataSelectReal): int {.noSideEffect, importcpp: "Kind",
-                                        header: "StepData_SelectReal.hxx".}
-proc real*(this: StepDataSelectReal): float {.noSideEffect, importcpp: "Real",
+proc kind*(this: StepDataSelectReal): cint {.noSideEffect, importcpp: "Kind",
     header: "StepData_SelectReal.hxx".}
-proc setReal*(this: var StepDataSelectReal; val: float) {.importcpp: "SetReal",
+proc real*(this: StepDataSelectReal): cfloat {.noSideEffect, importcpp: "Real",
+    header: "StepData_SelectReal.hxx".}
+proc setReal*(this: var StepDataSelectReal; val: cfloat) {.importcpp: "SetReal",
     header: "StepData_SelectReal.hxx".}
 type
   StepDataSelectRealbaseType* = StepDataSelectMember
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_SelectReal.hxx".}
 proc dynamicType*(this: StepDataSelectReal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_SelectReal.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

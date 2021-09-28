@@ -26,3 +26,28 @@ else:
   type
     AspectDrawable* = culong
   ##  Window or Pixmap under UNIX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

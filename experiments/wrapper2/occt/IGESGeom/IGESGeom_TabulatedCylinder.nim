@@ -20,7 +20,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGeom_TabulatedCylinder"
 discard "forward decl of IGESGeom_TabulatedCylinder"
 type
-  HandleIGESGeomTabulatedCylinder* = Handle[IGESGeomTabulatedCylinder]
+  HandleC1C1* = Handle[IGESGeomTabulatedCylinder]
 
 ## ! defines IGESTabulatedCylinder, Type <122> Form <0>
 ## ! in package IGESGeom
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESGeomTabulatedCylinder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGeom_TabulatedCylinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

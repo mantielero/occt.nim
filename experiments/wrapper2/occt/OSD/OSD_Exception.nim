@@ -15,13 +15,54 @@
 ## !!!Ignored construct:  # _OSD_Exception_HeaderFile [NewLine] # _OSD_Exception_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class OSD_Exception ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_Exception"
-type
-  HandleOSD_ExceptionOSD_Exception* = Handle[OSD_Exception]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_Exception , Standard_Failure ) # ! defined No_Exception && ! defined No_OSD_Exception [NewLine] # OSD_Exception_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_Exception ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception [NewLine] # if ( CONDITION ) throw OSD_Exception ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_Exception_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception , Standard_Failure ) #  _OSD_Exception_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception , Standard_Failure ) #  _OSD_Exception_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

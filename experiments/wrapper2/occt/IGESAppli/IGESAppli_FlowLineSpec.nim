@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESAppli_FlowLineSpec"
 discard "forward decl of IGESAppli_FlowLineSpec"
 type
-  HandleIGESAppliFlowLineSpec* = Handle[IGESAppliFlowLineSpec]
+  HandleC1C1* = Handle[IGESAppliFlowLineSpec]
 
 ## ! defines FlowLineSpec, Type <406> Form <14>
 ## ! in package IGESAppli
@@ -36,11 +36,11 @@ proc constructIGESAppliFlowLineSpec*(): IGESAppliFlowLineSpec {.constructor,
 proc init*(this: var IGESAppliFlowLineSpec;
           allProperties: Handle[InterfaceHArray1OfHAsciiString]) {.
     importcpp: "Init", header: "IGESAppli_FlowLineSpec.hxx".}
-proc nbPropertyValues*(this: IGESAppliFlowLineSpec): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESAppliFlowLineSpec): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_FlowLineSpec.hxx".}
 proc flowLineName*(this: IGESAppliFlowLineSpec): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "FlowLineName", header: "IGESAppli_FlowLineSpec.hxx".}
-proc modifier*(this: IGESAppliFlowLineSpec; index: int): Handle[
+proc modifier*(this: IGESAppliFlowLineSpec; index: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "Modifier",
                               header: "IGESAppli_FlowLineSpec.hxx".}
 type
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_FlowLineSpec.hxx".}
 proc dynamicType*(this: IGESAppliFlowLineSpec): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESAppli_FlowLineSpec.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

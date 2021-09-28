@@ -18,3 +18,28 @@ type
   TColStdMapIteratorOfMapOfAsciiString* = Iterator[TCollectionAsciiString,
       TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

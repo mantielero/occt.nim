@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_RemoveCurves"
 discard "forward decl of IGESSelect_RemoveCurves"
 type
-  HandleIGESSelectRemoveCurves* = Handle[IGESSelectRemoveCurves]
+  HandleC1C1* = Handle[IGESSelectRemoveCurves]
 
 ## ! Removes Curves UV or 3D (not both !) from Faces, those
 ## ! designated by the Selection. No Selection means all the file
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_RemoveCurves.hxx".}
 proc dynamicType*(this: IGESSelectRemoveCurves): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_RemoveCurves.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

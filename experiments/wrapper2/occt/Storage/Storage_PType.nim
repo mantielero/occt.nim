@@ -15,6 +15,31 @@
 ##  commercial license or contractual agreement.
 
 type
-  StoragePType* = NCollectionIndexedDataMap[TCollectionAsciiString, int,
+  StoragePType* = NCollectionIndexedDataMap[TCollectionAsciiString, cint,
       TCollectionAsciiString]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

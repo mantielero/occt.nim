@@ -17,7 +17,7 @@ discard "forward decl of StepBasic_Group"
 discard "forward decl of StepBasic_GroupAssignment"
 discard "forward decl of StepBasic_GroupAssignment"
 type
-  HandleStepBasicGroupAssignment* = Handle[StepBasicGroupAssignment]
+  HandleC1C1* = Handle[StepBasicGroupAssignment]
 
 ## ! Representation of STEP entity GroupAssignment
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_GroupAssignment.hxx".}
 proc dynamicType*(this: StepBasicGroupAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_GroupAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

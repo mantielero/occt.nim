@@ -39,19 +39,20 @@ type
                                                                          ## overpass Max Size)
 
 
-proc constructInterfaceLineBuffer*(size: int = 10): InterfaceLineBuffer {.constructor,
-    importcpp: "Interface_LineBuffer(@)", header: "Interface_LineBuffer.hxx".}
-proc setMax*(this: var InterfaceLineBuffer; max: int) {.importcpp: "SetMax",
+proc constructInterfaceLineBuffer*(size: cint = 10): InterfaceLineBuffer {.
+    constructor, importcpp: "Interface_LineBuffer(@)",
     header: "Interface_LineBuffer.hxx".}
-proc setInitial*(this: var InterfaceLineBuffer; initial: int) {.
+proc setMax*(this: var InterfaceLineBuffer; max: cint) {.importcpp: "SetMax",
+    header: "Interface_LineBuffer.hxx".}
+proc setInitial*(this: var InterfaceLineBuffer; initial: cint) {.
     importcpp: "SetInitial", header: "Interface_LineBuffer.hxx".}
 proc setKeep*(this: var InterfaceLineBuffer) {.importcpp: "SetKeep",
     header: "Interface_LineBuffer.hxx".}
-proc canGet*(this: var InterfaceLineBuffer; more: int): bool {.importcpp: "CanGet",
+proc canGet*(this: var InterfaceLineBuffer; more: cint): bool {.importcpp: "CanGet",
     header: "Interface_LineBuffer.hxx".}
 proc content*(this: InterfaceLineBuffer): StandardCString {.noSideEffect,
     importcpp: "Content", header: "Interface_LineBuffer.hxx".}
-proc length*(this: InterfaceLineBuffer): int {.noSideEffect, importcpp: "Length",
+proc length*(this: InterfaceLineBuffer): cint {.noSideEffect, importcpp: "Length",
     header: "Interface_LineBuffer.hxx".}
 proc clear*(this: var InterfaceLineBuffer) {.importcpp: "Clear",
     header: "Interface_LineBuffer.hxx".}
@@ -65,9 +66,34 @@ proc moved*(this: var InterfaceLineBuffer): Handle[TCollectionHAsciiString] {.
     importcpp: "Moved", header: "Interface_LineBuffer.hxx".}
 proc add*(this: var InterfaceLineBuffer; text: StandardCString) {.importcpp: "Add",
     header: "Interface_LineBuffer.hxx".}
-proc add*(this: var InterfaceLineBuffer; text: StandardCString; lntext: int) {.
+proc add*(this: var InterfaceLineBuffer; text: StandardCString; lntext: cint) {.
     importcpp: "Add", header: "Interface_LineBuffer.hxx".}
 proc add*(this: var InterfaceLineBuffer; text: TCollectionAsciiString) {.
     importcpp: "Add", header: "Interface_LineBuffer.hxx".}
 proc add*(this: var InterfaceLineBuffer; text: StandardCharacter) {.importcpp: "Add",
     header: "Interface_LineBuffer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

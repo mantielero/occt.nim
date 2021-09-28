@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_Direction"
 discard "forward decl of StepGeom_Direction"
 type
-  HandleStepGeomDirection* = Handle[StepGeomDirection]
+  HandleC1C1* = Handle[StepGeomDirection]
   StepGeomDirection* {.importcpp: "StepGeom_Direction",
                       header: "StepGeom_Direction.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                           ## !
@@ -37,9 +37,9 @@ proc setDirectionRatios*(this: var StepGeomDirection;
     importcpp: "SetDirectionRatios", header: "StepGeom_Direction.hxx".}
 proc directionRatios*(this: StepGeomDirection): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "DirectionRatios", header: "StepGeom_Direction.hxx".}
-proc directionRatiosValue*(this: StepGeomDirection; num: int): float {.noSideEffect,
+proc directionRatiosValue*(this: StepGeomDirection; num: cint): cfloat {.noSideEffect,
     importcpp: "DirectionRatiosValue", header: "StepGeom_Direction.hxx".}
-proc nbDirectionRatios*(this: StepGeomDirection): int {.noSideEffect,
+proc nbDirectionRatios*(this: StepGeomDirection): cint {.noSideEffect,
     importcpp: "NbDirectionRatios", header: "StepGeom_Direction.hxx".}
 type
   StepGeomDirectionbaseType* = StepGeomGeometricRepresentationItem
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Direction.hxx".}
 proc dynamicType*(this: StepGeomDirection): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Direction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

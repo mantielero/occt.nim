@@ -22,9 +22,34 @@ type
 
 proc constructIntSurfCouple*(): IntSurfCouple {.constructor,
     importcpp: "IntSurf_Couple(@)", header: "IntSurf_Couple.hxx".}
-proc constructIntSurfCouple*(index1: int; index2: int): IntSurfCouple {.constructor,
+proc constructIntSurfCouple*(index1: cint; index2: cint): IntSurfCouple {.constructor,
     importcpp: "IntSurf_Couple(@)", header: "IntSurf_Couple.hxx".}
-proc first*(this: IntSurfCouple): int {.noSideEffect, importcpp: "First",
-                                    header: "IntSurf_Couple.hxx".}
-proc second*(this: IntSurfCouple): int {.noSideEffect, importcpp: "Second",
+proc first*(this: IntSurfCouple): cint {.noSideEffect, importcpp: "First",
                                      header: "IntSurf_Couple.hxx".}
+proc second*(this: IntSurfCouple): cint {.noSideEffect, importcpp: "Second",
+                                      header: "IntSurf_Couple.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

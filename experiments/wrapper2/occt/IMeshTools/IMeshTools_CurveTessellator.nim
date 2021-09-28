@@ -27,10 +27,11 @@ type
 proc destroyIMeshToolsCurveTessellator*(this: var IMeshToolsCurveTessellator) {.
     importcpp: "#.~IMeshTools_CurveTessellator()",
     header: "IMeshTools_CurveTessellator.hxx".}
-proc pointsNb*(this: IMeshToolsCurveTessellator): int {.noSideEffect,
+proc pointsNb*(this: IMeshToolsCurveTessellator): cint {.noSideEffect,
     importcpp: "PointsNb", header: "IMeshTools_CurveTessellator.hxx".}
-proc value*(this: IMeshToolsCurveTessellator; theIndex: int; thePoint: var Pnt;
-           theParameter: var float): bool {.noSideEffect, importcpp: "Value", header: "IMeshTools_CurveTessellator.hxx".}
+proc value*(this: IMeshToolsCurveTessellator; theIndex: cint; thePoint: var Pnt;
+           theParameter: var cfloat): bool {.noSideEffect, importcpp: "Value",
+    header: "IMeshTools_CurveTessellator.hxx".}
 type
   IMeshToolsCurveTessellatorbaseType* = StandardTransient
 
@@ -42,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IMeshToolsCurveTessellator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IMeshTools_CurveTessellator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,30 +18,55 @@
 type
   BSplCLibCacheParams* {.importcpp: "BSplCLib_CacheParams",
                         header: "BSplCLib_CacheParams.hxx", bycopy.} = object ##  copying is prohibited
-    degree* {.importc: "Degree".}: int ## /< degree of Bezier/B-spline
+    degree* {.importc: "Degree".}: cint ## /< degree of Bezier/B-spline
     isPeriodic* {.importc: "IsPeriodic".}: bool ## /< true of the B-spline is periodic
-    firstParameter* {.importc: "FirstParameter".}: float ## /< first valid parameter
-    lastParameter* {.importc: "LastParameter".}: float ## /< last valid parameter
-    spanIndexMin* {.importc: "SpanIndexMin".}: int ## /< minimal index of span
-    spanIndexMax* {.importc: "SpanIndexMax".}: int ## /< maximal index of span
-    spanStart* {.importc: "SpanStart".}: float ## /< parameter for the frst point of the span
-    spanLength* {.importc: "SpanLength".}: float ## /< length of the span
-    spanIndex* {.importc: "SpanIndex".}: int ## /< index of the span
-                                         ## ! Constructor, prepares data structures for caching.
-                                         ## ! \param theDegree     degree of the B-spline (or Bezier)
-                                         ## ! \param thePeriodic   identify whether the B-spline is periodic
-                                         ## ! \param theFlatKnots  knots of Bezier / B-spline parameterization
+    firstParameter* {.importc: "FirstParameter".}: cfloat ## /< first valid parameter
+    lastParameter* {.importc: "LastParameter".}: cfloat ## /< last valid parameter
+    spanIndexMin* {.importc: "SpanIndexMin".}: cint ## /< minimal index of span
+    spanIndexMax* {.importc: "SpanIndexMax".}: cint ## /< maximal index of span
+    spanStart* {.importc: "SpanStart".}: cfloat ## /< parameter for the frst point of the span
+    spanLength* {.importc: "SpanLength".}: cfloat ## /< length of the span
+    spanIndex* {.importc: "SpanIndex".}: cint ## /< index of the span
+                                          ## ! Constructor, prepares data structures for caching.
+                                          ## ! \param theDegree     degree of the B-spline (or Bezier)
+                                          ## ! \param thePeriodic   identify whether the B-spline is periodic
+                                          ## ! \param theFlatKnots  knots of Bezier / B-spline parameterization
 
 
-proc constructBSplCLibCacheParams*(theDegree: int; thePeriodic: bool;
+proc constructBSplCLibCacheParams*(theDegree: cint; thePeriodic: bool;
                                   theFlatKnots: TColStdArray1OfReal): BSplCLibCacheParams {.
     constructor, importcpp: "BSplCLib_CacheParams(@)",
     header: "BSplCLib_CacheParams.hxx".}
-proc periodicNormalization*(this: BSplCLibCacheParams; theParameter: float): float {.
+proc periodicNormalization*(this: BSplCLibCacheParams; theParameter: cfloat): cfloat {.
     noSideEffect, importcpp: "PeriodicNormalization",
     header: "BSplCLib_CacheParams.hxx".}
-proc isCacheValid*(this: BSplCLibCacheParams; theParameter: float): bool {.
+proc isCacheValid*(this: BSplCLibCacheParams; theParameter: cfloat): bool {.
     noSideEffect, importcpp: "IsCacheValid", header: "BSplCLib_CacheParams.hxx".}
-proc locateParameter*(this: var BSplCLibCacheParams; theParameter: var float;
+proc locateParameter*(this: var BSplCLibCacheParams; theParameter: var cfloat;
                      theFlatKnots: TColStdArray1OfReal) {.
     importcpp: "LocateParameter", header: "BSplCLib_CacheParams.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

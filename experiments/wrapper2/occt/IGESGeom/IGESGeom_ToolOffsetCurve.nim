@@ -63,5 +63,30 @@ proc ownCopy*(this: IGESGeomToolOffsetCurve; entfrom: Handle[IGESGeomOffsetCurve
              entto: Handle[IGESGeomOffsetCurve]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolOffsetCurve.hxx".}
 proc ownDump*(this: IGESGeomToolOffsetCurve; ent: Handle[IGESGeomOffsetCurve];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolOffsetCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

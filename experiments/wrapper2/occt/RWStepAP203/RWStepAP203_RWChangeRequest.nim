@@ -31,7 +31,7 @@ proc constructRWStepAP203RWChangeRequest*(): RWStepAP203RWChangeRequest {.
     constructor, importcpp: "RWStepAP203_RWChangeRequest(@)",
     header: "RWStepAP203_RWChangeRequest.hxx".}
 proc readStep*(this: RWStepAP203RWChangeRequest;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepAP203ChangeRequest]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepAP203_RWChangeRequest.hxx".}
 proc writeStep*(this: RWStepAP203RWChangeRequest; sw: var StepDataStepWriter;
@@ -40,3 +40,28 @@ proc writeStep*(this: RWStepAP203RWChangeRequest; sw: var StepDataStepWriter;
 proc share*(this: RWStepAP203RWChangeRequest; ent: Handle[StepAP203ChangeRequest];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWChangeRequest.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

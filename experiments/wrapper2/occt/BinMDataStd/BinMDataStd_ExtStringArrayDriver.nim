@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_ExtStringArrayDriver"
 discard "forward decl of BinMDataStd_ExtStringArrayDriver"
 type
-  HandleBinMDataStdExtStringArrayDriver* = Handle[BinMDataStdExtStringArrayDriver]
+  HandleC1C1* = Handle[BinMDataStdExtStringArrayDriver]
 
 ## ! Array of extended string attribute Driver.
 
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdExtStringArrayDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_ExtStringArrayDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

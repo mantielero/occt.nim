@@ -17,3 +17,28 @@
 type
   IFSelectTSeqOfSelection* = NCollectionSequence[Handle[IFSelectSelection]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

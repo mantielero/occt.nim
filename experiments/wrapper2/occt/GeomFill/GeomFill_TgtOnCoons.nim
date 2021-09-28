@@ -19,7 +19,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_TgtOnCoons"
 discard "forward decl of GeomFill_TgtOnCoons"
 type
-  HandleGeomFillTgtOnCoons* = Handle[GeomFillTgtOnCoons]
+  HandleC1C1* = Handle[GeomFillTgtOnCoons]
 
 ## ! Defines   an   algorithmic  tangents  field   on a
 ## ! boundary of a CoonsAlgPatch.
@@ -32,12 +32,12 @@ type
 proc constructGeomFillTgtOnCoons*(k: Handle[GeomFillCoonsAlgPatch]; i: int): GeomFillTgtOnCoons {.
     constructor, importcpp: "GeomFill_TgtOnCoons(@)",
     header: "GeomFill_TgtOnCoons.hxx".}
-proc value*(this: GeomFillTgtOnCoons; w: float): Vec {.noSideEffect,
+proc value*(this: GeomFillTgtOnCoons; w: StandardReal): Vec {.noSideEffect,
     importcpp: "Value", header: "GeomFill_TgtOnCoons.hxx".}
-proc d1*(this: GeomFillTgtOnCoons; w: float): Vec {.noSideEffect, importcpp: "D1",
-    header: "GeomFill_TgtOnCoons.hxx".}
-proc d1*(this: GeomFillTgtOnCoons; w: float; t: var Vec; dt: var Vec) {.noSideEffect,
+proc d1*(this: GeomFillTgtOnCoons; w: StandardReal): Vec {.noSideEffect,
     importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
+proc d1*(this: GeomFillTgtOnCoons; w: StandardReal; t: var Vec; dt: var Vec) {.
+    noSideEffect, importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
 type
   GeomFillTgtOnCoonsbaseType* = GeomFillTgtField
 

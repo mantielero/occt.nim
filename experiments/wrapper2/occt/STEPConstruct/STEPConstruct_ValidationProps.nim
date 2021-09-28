@@ -45,11 +45,12 @@ proc addProp*(this: var STEPConstructValidationProps;
              context: Handle[StepReprRepresentationContext];
              prop: Handle[StepReprRepresentationItem]; descr: StandardCString): bool {.
     importcpp: "AddProp", header: "STEPConstruct_ValidationProps.hxx".}
-proc addArea*(this: var STEPConstructValidationProps; shape: TopoDS_Shape; area: float): bool {.
-    importcpp: "AddArea", header: "STEPConstruct_ValidationProps.hxx".}
-proc addVolume*(this: var STEPConstructValidationProps; shape: TopoDS_Shape;
-               vol: float): bool {.importcpp: "AddVolume",
+proc addArea*(this: var STEPConstructValidationProps; shape: TopoDS_Shape;
+             area: cfloat): bool {.importcpp: "AddArea",
                                 header: "STEPConstruct_ValidationProps.hxx".}
+proc addVolume*(this: var STEPConstructValidationProps; shape: TopoDS_Shape;
+               vol: cfloat): bool {.importcpp: "AddVolume",
+                                 header: "STEPConstruct_ValidationProps.hxx".}
 proc addCentroid*(this: var STEPConstructValidationProps; shape: TopoDS_Shape;
                  pnt: Pnt; instance: bool = false): bool {.importcpp: "AddCentroid",
     header: "STEPConstruct_ValidationProps.hxx".}
@@ -78,7 +79,7 @@ proc getPropShape*(this: STEPConstructValidationProps;
     noSideEffect, importcpp: "GetPropShape",
     header: "STEPConstruct_ValidationProps.hxx".}
 proc getPropReal*(this: STEPConstructValidationProps;
-                 item: Handle[StepReprRepresentationItem]; val: var float;
+                 item: Handle[StepReprRepresentationItem]; val: var cfloat;
                  isArea: var bool): bool {.noSideEffect, importcpp: "GetPropReal", header: "STEPConstruct_ValidationProps.hxx".}
 proc getPropPnt*(this: STEPConstructValidationProps;
                 item: Handle[StepReprRepresentationItem];
@@ -87,3 +88,28 @@ proc getPropPnt*(this: STEPConstructValidationProps;
     header: "STEPConstruct_ValidationProps.hxx".}
 proc setAssemblyShape*(this: var STEPConstructValidationProps; shape: TopoDS_Shape) {.
     importcpp: "SetAssemblyShape", header: "STEPConstruct_ValidationProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

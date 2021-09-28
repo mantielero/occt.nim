@@ -25,4 +25,3 @@ type
                          header: "GeomFill_FillingStyle.hxx".} = enum
     GeomFillStretchStyle, GeomFillCoonsStyle, GeomFillCurvedStyle
 
-

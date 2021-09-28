@@ -40,5 +40,30 @@ proc setObject*(this: var MessageAttributeObject;
                theObject: Handle[StandardTransient]) {.importcpp: "SetObject",
     header: "Message_AttributeObject.hxx".}
 proc dumpJson*(this: MessageAttributeObject; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Message_AttributeObject.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Message_AttributeObject.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

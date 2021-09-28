@@ -64,6 +64,31 @@ proc ownCopy*(this: IGESGeomToolTransformationMatrix;
              tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolTransformationMatrix.hxx".}
 proc ownDump*(this: IGESGeomToolTransformationMatrix;
              ent: Handle[IGESGeomTransformationMatrix];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump",
     header: "IGESGeom_ToolTransformationMatrix.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

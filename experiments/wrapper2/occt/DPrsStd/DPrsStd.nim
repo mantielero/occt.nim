@@ -34,3 +34,28 @@ proc basicCommands*(i: var DrawInterpretor) {.
     importcpp: "DPrsStd::BasicCommands(@)", header: "DPrsStd.hxx".}
 proc factory*(theDI: var DrawInterpretor) {.importcpp: "DPrsStd::Factory(@)",
                                         header: "DPrsStd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

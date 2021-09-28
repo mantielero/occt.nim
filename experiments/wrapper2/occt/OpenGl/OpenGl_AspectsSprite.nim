@@ -44,3 +44,28 @@ proc updateRediness*(this: var OpenGlAspectsSprite;
     importcpp: "UpdateRediness", header: "OpenGl_AspectsSprite.hxx".}
 proc release*(this: var OpenGlAspectsSprite; theCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_AspectsSprite.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

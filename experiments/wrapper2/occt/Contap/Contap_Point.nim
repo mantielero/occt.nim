@@ -28,15 +28,15 @@ type
 
 proc constructContapPoint*(): ContapPoint {.constructor,
     importcpp: "Contap_Point(@)", header: "Contap_Point.hxx".}
-proc constructContapPoint*(pt: Pnt; u: float; v: float): ContapPoint {.constructor,
+proc constructContapPoint*(pt: Pnt; u: cfloat; v: cfloat): ContapPoint {.constructor,
     importcpp: "Contap_Point(@)", header: "Contap_Point.hxx".}
-proc setValue*(this: var ContapPoint; pt: Pnt; u: float; v: float) {.
+proc setValue*(this: var ContapPoint; pt: Pnt; u: cfloat; v: cfloat) {.
     importcpp: "SetValue", header: "Contap_Point.hxx".}
-proc setParameter*(this: var ContapPoint; para: float) {.importcpp: "SetParameter",
+proc setParameter*(this: var ContapPoint; para: cfloat) {.importcpp: "SetParameter",
     header: "Contap_Point.hxx".}
 proc setVertex*(this: var ContapPoint; v: Handle[Adaptor3dHVertex]) {.
     importcpp: "SetVertex", header: "Contap_Point.hxx".}
-proc setArc*(this: var ContapPoint; a: Handle[Adaptor2dHCurve2d]; param: float;
+proc setArc*(this: var ContapPoint; a: Handle[Adaptor2dHCurve2d]; param: cfloat;
             tLine: IntSurfTransition; tArc: IntSurfTransition) {.
     importcpp: "SetArc", header: "Contap_Point.hxx".}
 proc setMultiple*(this: var ContapPoint) {.importcpp: "SetMultiple",
@@ -45,15 +45,15 @@ proc setInternal*(this: var ContapPoint) {.importcpp: "SetInternal",
                                        header: "Contap_Point.hxx".}
 proc value*(this: ContapPoint): Pnt {.noSideEffect, importcpp: "Value",
                                   header: "Contap_Point.hxx".}
-proc parameterOnLine*(this: ContapPoint): float {.noSideEffect,
+proc parameterOnLine*(this: ContapPoint): cfloat {.noSideEffect,
     importcpp: "ParameterOnLine", header: "Contap_Point.hxx".}
-proc parameters*(this: ContapPoint; u1: var float; v1: var float) {.noSideEffect,
+proc parameters*(this: ContapPoint; u1: var cfloat; v1: var cfloat) {.noSideEffect,
     importcpp: "Parameters", header: "Contap_Point.hxx".}
 proc isOnArc*(this: ContapPoint): bool {.noSideEffect, importcpp: "IsOnArc",
                                      header: "Contap_Point.hxx".}
 proc arc*(this: ContapPoint): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "Arc", header: "Contap_Point.hxx".}
-proc parameterOnArc*(this: ContapPoint): float {.noSideEffect,
+proc parameterOnArc*(this: ContapPoint): cfloat {.noSideEffect,
     importcpp: "ParameterOnArc", header: "Contap_Point.hxx".}
 proc transitionOnLine*(this: ContapPoint): IntSurfTransition {.noSideEffect,
     importcpp: "TransitionOnLine", header: "Contap_Point.hxx".}
@@ -67,3 +67,28 @@ proc isMultiple*(this: ContapPoint): bool {.noSideEffect, importcpp: "IsMultiple
                                         header: "Contap_Point.hxx".}
 proc isInternal*(this: ContapPoint): bool {.noSideEffect, importcpp: "IsInternal",
                                         header: "Contap_Point.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

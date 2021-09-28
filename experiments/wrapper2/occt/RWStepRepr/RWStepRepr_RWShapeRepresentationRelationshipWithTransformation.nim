@@ -27,7 +27,7 @@ type
 proc constructRWStepReprRWShapeRepresentationRelationshipWithTransformation*(): RWStepReprRWShapeRepresentationRelationshipWithTransformation {.
     constructor, importcpp: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation(@)", header: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation.hxx".}
 proc readStep*(this: RWStepReprRWShapeRepresentationRelationshipWithTransformation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepReprShapeRepresentationRelationshipWithTransformation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation.hxx".}
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepReprRWShapeRepresentationRelationshipWithTransformat
 proc share*(this: RWStepReprRWShapeRepresentationRelationshipWithTransformation;
     ent: Handle[StepReprShapeRepresentationRelationshipWithTransformation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepRepr_RWShapeRepresentationRelationshipWithTransformation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

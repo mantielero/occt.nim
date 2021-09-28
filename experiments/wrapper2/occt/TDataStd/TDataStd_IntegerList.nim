@@ -20,7 +20,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_IntegerList"
 discard "forward decl of TDataStd_IntegerList"
 type
-  HandleTDataStdIntegerList* = Handle[TDataStdIntegerList]
+  HandleC1C1* = Handle[TDataStdIntegerList]
 
 ## ! Contains a list of integers.
 
@@ -56,33 +56,34 @@ proc constructTDataStdIntegerList*(): TDataStdIntegerList {.constructor,
     importcpp: "TDataStd_IntegerList(@)", header: "TDataStd_IntegerList.hxx".}
 proc isEmpty*(this: TDataStdIntegerList): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "TDataStd_IntegerList.hxx".}
-proc extent*(this: TDataStdIntegerList): int {.noSideEffect, importcpp: "Extent",
+proc extent*(this: TDataStdIntegerList): cint {.noSideEffect, importcpp: "Extent",
     header: "TDataStd_IntegerList.hxx".}
-proc prepend*(this: var TDataStdIntegerList; value: int) {.importcpp: "Prepend",
+proc prepend*(this: var TDataStdIntegerList; value: cint) {.importcpp: "Prepend",
     header: "TDataStd_IntegerList.hxx".}
-proc append*(this: var TDataStdIntegerList; value: int) {.importcpp: "Append",
+proc append*(this: var TDataStdIntegerList; value: cint) {.importcpp: "Append",
     header: "TDataStd_IntegerList.hxx".}
 proc setID*(this: var TDataStdIntegerList; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_IntegerList.hxx".}
 proc setID*(this: var TDataStdIntegerList) {.importcpp: "SetID",
     header: "TDataStd_IntegerList.hxx".}
-proc insertBefore*(this: var TDataStdIntegerList; value: int; beforeValue: int): bool {.
+proc insertBefore*(this: var TDataStdIntegerList; value: cint; beforeValue: cint): bool {.
     importcpp: "InsertBefore", header: "TDataStd_IntegerList.hxx".}
-proc insertBeforeByIndex*(this: var TDataStdIntegerList; index: int; beforeValue: int): bool {.
+proc insertBeforeByIndex*(this: var TDataStdIntegerList; index: cint;
+                         beforeValue: cint): bool {.
     importcpp: "InsertBeforeByIndex", header: "TDataStd_IntegerList.hxx".}
-proc insertAfter*(this: var TDataStdIntegerList; value: int; afterValue: int): bool {.
+proc insertAfter*(this: var TDataStdIntegerList; value: cint; afterValue: cint): bool {.
     importcpp: "InsertAfter", header: "TDataStd_IntegerList.hxx".}
-proc insertAfterByIndex*(this: var TDataStdIntegerList; index: int; afterValue: int): bool {.
+proc insertAfterByIndex*(this: var TDataStdIntegerList; index: cint; afterValue: cint): bool {.
     importcpp: "InsertAfterByIndex", header: "TDataStd_IntegerList.hxx".}
-proc remove*(this: var TDataStdIntegerList; value: int): bool {.importcpp: "Remove",
+proc remove*(this: var TDataStdIntegerList; value: cint): bool {.importcpp: "Remove",
     header: "TDataStd_IntegerList.hxx".}
-proc removeByIndex*(this: var TDataStdIntegerList; index: int): bool {.
+proc removeByIndex*(this: var TDataStdIntegerList; index: cint): bool {.
     importcpp: "RemoveByIndex", header: "TDataStd_IntegerList.hxx".}
 proc clear*(this: var TDataStdIntegerList) {.importcpp: "Clear",
     header: "TDataStd_IntegerList.hxx".}
-proc first*(this: TDataStdIntegerList): int {.noSideEffect, importcpp: "First",
+proc first*(this: TDataStdIntegerList): cint {.noSideEffect, importcpp: "First",
     header: "TDataStd_IntegerList.hxx".}
-proc last*(this: TDataStdIntegerList): int {.noSideEffect, importcpp: "Last",
+proc last*(this: TDataStdIntegerList): cint {.noSideEffect, importcpp: "Last",
     header: "TDataStd_IntegerList.hxx".}
 proc list*(this: TDataStdIntegerList): TColStdListOfInteger {.noSideEffect,
     importcpp: "List", header: "TDataStd_IntegerList.hxx".}
@@ -98,8 +99,8 @@ proc paste*(this: TDataStdIntegerList; into: Handle[TDF_Attribute];
 proc dump*(this: TDataStdIntegerList; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_IntegerList.hxx".}
 proc dumpJson*(this: TDataStdIntegerList; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_IntegerList.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_IntegerList.hxx".}
 type
   TDataStdIntegerListbaseType* = TDF_Attribute
 
@@ -110,3 +111,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_IntegerList.hxx".}
 proc dynamicType*(this: TDataStdIntegerList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_IntegerList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

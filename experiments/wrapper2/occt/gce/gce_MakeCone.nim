@@ -104,11 +104,11 @@ type
                                                                                            ## Resolution.
 
 
-proc constructGceMakeCone*(a2: Ax2; ang: float; radius: float): GceMakeCone {.
+proc constructGceMakeCone*(a2: Ax2; ang: cfloat; radius: cfloat): GceMakeCone {.
     constructor, importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
 proc constructGceMakeCone*(cone: Cone; point: Pnt): GceMakeCone {.constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc constructGceMakeCone*(cone: Cone; dist: float): GceMakeCone {.constructor,
+proc constructGceMakeCone*(cone: Cone; dist: cfloat): GceMakeCone {.constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
 proc constructGceMakeCone*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): GceMakeCone {.constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
@@ -116,7 +116,7 @@ proc constructGceMakeCone*(axis: Ax1; p1: Pnt; p2: Pnt): GceMakeCone {.construct
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
 proc constructGceMakeCone*(axis: Lin; p1: Pnt; p2: Pnt): GceMakeCone {.constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc constructGceMakeCone*(p1: Pnt; p2: Pnt; r1: float; r2: float): GceMakeCone {.
+proc constructGceMakeCone*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): GceMakeCone {.
     constructor, importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
 proc value*(this: GceMakeCone): Cone {.noSideEffect, importcpp: "Value",
                                    header: "gce_MakeCone.hxx".}
@@ -124,3 +124,28 @@ proc operator*(this: GceMakeCone): Cone {.noSideEffect, importcpp: "Operator",
                                       header: "gce_MakeCone.hxx".}
 converter `cone`*(this: GceMakeCone): Cone {.noSideEffect,
     importcpp: "gce_MakeCone::operator gp_Cone", header: "gce_MakeCone.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

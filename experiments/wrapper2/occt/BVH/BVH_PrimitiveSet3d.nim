@@ -12,5 +12,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  BVH_PrimitiveSet3d* = BVH_PrimitiveSet[float, 3]
+  BVH_PrimitiveSet3d* = BVH_PrimitiveSet[cfloat, 3]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

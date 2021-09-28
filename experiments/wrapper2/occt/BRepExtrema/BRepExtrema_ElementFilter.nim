@@ -34,7 +34,30 @@ type
 proc destroyBRepExtremaElementFilter*(this: var BRepExtremaElementFilter) {.
     importcpp: "#.~BRepExtrema_ElementFilter()",
     header: "BRepExtrema_ElementFilter.hxx".}
-proc preCheckElements*(this: var BRepExtremaElementFilter; a2: int; ## theIndex1
-                      a3: int): BRepExtremaElementFilterFilterResult {.
+proc preCheckElements*(this: var BRepExtremaElementFilter; a2: cint; a3: cint): BRepExtremaElementFilterFilterResult {.
     importcpp: "PreCheckElements", header: "BRepExtrema_ElementFilter.hxx".}
-  ## theIndex2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

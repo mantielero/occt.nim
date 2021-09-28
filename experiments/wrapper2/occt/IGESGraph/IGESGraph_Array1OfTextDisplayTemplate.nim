@@ -18,3 +18,28 @@ type
   IGESGraphArray1OfTextDisplayTemplate* = NCollectionArray1[
       Handle[IGESGraphTextDisplayTemplate]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

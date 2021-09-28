@@ -18,8 +18,7 @@ discard "forward decl of StepShape_DimensionalCharacteristic"
 discard "forward decl of StepShape_DimensionalCharacteristicRepresentation"
 discard "forward decl of StepShape_DimensionalCharacteristicRepresentation"
 type
-  HandleStepShapeDimensionalCharacteristicRepresentation* = Handle[
-      StepShapeDimensionalCharacteristicRepresentation]
+  HandleC1C1* = Handle[StepShapeDimensionalCharacteristicRepresentation]
 
 ## ! Representation of STEP entity DimensionalCharacteristicRepresentation
 
@@ -64,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_Dimensio
     header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
 proc dynamicType*(this: StepShapeDimensionalCharacteristicRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_DimensionalCharacteristicRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

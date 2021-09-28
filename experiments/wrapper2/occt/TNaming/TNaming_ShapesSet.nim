@@ -41,9 +41,34 @@ proc remove*(this: var TNamingShapesSet; shapes: TNamingShapesSet) {.
     importcpp: "Remove", header: "TNaming_ShapesSet.hxx".}
 proc isEmpty*(this: TNamingShapesSet): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "TNaming_ShapesSet.hxx".}
-proc nbShapes*(this: TNamingShapesSet): int {.noSideEffect, importcpp: "NbShapes",
+proc nbShapes*(this: TNamingShapesSet): cint {.noSideEffect, importcpp: "NbShapes",
     header: "TNaming_ShapesSet.hxx".}
 proc changeMap*(this: var TNamingShapesSet): var TopToolsMapOfShape {.
     importcpp: "ChangeMap", header: "TNaming_ShapesSet.hxx".}
 proc map*(this: TNamingShapesSet): TopToolsMapOfShape {.noSideEffect,
     importcpp: "Map", header: "TNaming_ShapesSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

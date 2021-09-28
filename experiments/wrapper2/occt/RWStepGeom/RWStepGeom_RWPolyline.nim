@@ -27,7 +27,7 @@ type
 proc constructRWStepGeomRWPolyline*(): RWStepGeomRWPolyline {.constructor,
     importcpp: "RWStepGeom_RWPolyline(@)", header: "RWStepGeom_RWPolyline.hxx".}
 proc readStep*(this: RWStepGeomRWPolyline; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomPolyline]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepGeom_RWPolyline.hxx".}
 proc writeStep*(this: RWStepGeomRWPolyline; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepGeomRWPolyline; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWPolyline; ent: Handle[StepGeomPolyline];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWPolyline.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

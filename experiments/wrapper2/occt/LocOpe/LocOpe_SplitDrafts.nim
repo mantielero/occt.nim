@@ -36,12 +36,12 @@ proc constructLocOpeSplitDrafts*(s: TopoDS_Shape): LocOpeSplitDrafts {.construct
 proc init*(this: var LocOpeSplitDrafts; s: TopoDS_Shape) {.importcpp: "Init",
     header: "LocOpe_SplitDrafts.hxx".}
 proc perform*(this: var LocOpeSplitDrafts; f: TopoDS_Face; w: TopoDS_Wire;
-             extractg: Dir; nPlg: Pln; angleg: float; extractd: Dir; nPld: Pln;
-             angled: float; modifyLeft: bool = true; modifyRight: bool = true) {.
+             extractg: Dir; nPlg: Pln; angleg: cfloat; extractd: Dir; nPld: Pln;
+             angled: cfloat; modifyLeft: bool = true; modifyRight: bool = true) {.
     importcpp: "Perform", header: "LocOpe_SplitDrafts.hxx".}
 proc perform*(this: var LocOpeSplitDrafts; f: TopoDS_Face; w: TopoDS_Wire; extract: Dir;
-             nPl: Pln; angle: float) {.importcpp: "Perform",
-                                   header: "LocOpe_SplitDrafts.hxx".}
+             nPl: Pln; angle: cfloat) {.importcpp: "Perform",
+                                    header: "LocOpe_SplitDrafts.hxx".}
 proc isDone*(this: LocOpeSplitDrafts): bool {.noSideEffect, importcpp: "IsDone",
     header: "LocOpe_SplitDrafts.hxx".}
 proc originalShape*(this: LocOpeSplitDrafts): TopoDS_Shape {.noSideEffect,
@@ -50,3 +50,28 @@ proc shape*(this: LocOpeSplitDrafts): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "LocOpe_SplitDrafts.hxx".}
 proc shapesFromShape*(this: LocOpeSplitDrafts; s: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "ShapesFromShape", header: "LocOpe_SplitDrafts.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

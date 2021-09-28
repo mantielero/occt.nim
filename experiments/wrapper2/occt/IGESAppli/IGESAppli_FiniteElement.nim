@@ -20,7 +20,7 @@ discard "forward decl of IGESAppli_Node"
 discard "forward decl of IGESAppli_FiniteElement"
 discard "forward decl of IGESAppli_FiniteElement"
 type
-  HandleIGESAppliFiniteElement* = Handle[IGESAppliFiniteElement]
+  HandleC1C1* = Handle[IGESAppliFiniteElement]
 
 ## ! defines FiniteElement, Type <136> Form <0>
 ## ! in package IGESAppli
@@ -34,15 +34,15 @@ type
 
 proc constructIGESAppliFiniteElement*(): IGESAppliFiniteElement {.constructor,
     importcpp: "IGESAppli_FiniteElement(@)", header: "IGESAppli_FiniteElement.hxx".}
-proc init*(this: var IGESAppliFiniteElement; aType: int;
+proc init*(this: var IGESAppliFiniteElement; aType: cint;
           allNodes: Handle[IGESAppliHArray1OfNode];
           aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESAppli_FiniteElement.hxx".}
-proc topology*(this: IGESAppliFiniteElement): int {.noSideEffect,
+proc topology*(this: IGESAppliFiniteElement): cint {.noSideEffect,
     importcpp: "Topology", header: "IGESAppli_FiniteElement.hxx".}
-proc nbNodes*(this: IGESAppliFiniteElement): int {.noSideEffect,
+proc nbNodes*(this: IGESAppliFiniteElement): cint {.noSideEffect,
     importcpp: "NbNodes", header: "IGESAppli_FiniteElement.hxx".}
-proc node*(this: IGESAppliFiniteElement; index: int): Handle[IGESAppliNode] {.
+proc node*(this: IGESAppliFiniteElement; index: cint): Handle[IGESAppliNode] {.
     noSideEffect, importcpp: "Node", header: "IGESAppli_FiniteElement.hxx".}
 proc name*(this: IGESAppliFiniteElement): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "IGESAppli_FiniteElement.hxx".}
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_FiniteElement.hxx".}
 proc dynamicType*(this: IGESAppliFiniteElement): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_FiniteElement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

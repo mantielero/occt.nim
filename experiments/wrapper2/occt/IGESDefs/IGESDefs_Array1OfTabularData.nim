@@ -17,3 +17,28 @@
 type
   IGESDefsArray1OfTabularData* = NCollectionArray1[Handle[IGESDefsTabularData]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESBasic_ExternalReferenceFile"
 discard "forward decl of IGESBasic_ExternalReferenceFile"
 type
-  HandleIGESBasicExternalReferenceFile* = Handle[IGESBasicExternalReferenceFile]
+  HandleC1C1* = Handle[IGESBasicExternalReferenceFile]
 
 ## ! defines ExternalReferenceFile, Type <406> Form <12>
 ## ! in package IGESBasic
@@ -36,9 +36,9 @@ proc constructIGESBasicExternalReferenceFile*(): IGESBasicExternalReferenceFile 
 proc init*(this: var IGESBasicExternalReferenceFile;
           aNameArray: Handle[InterfaceHArray1OfHAsciiString]) {.importcpp: "Init",
     header: "IGESBasic_ExternalReferenceFile.hxx".}
-proc nbListEntries*(this: IGESBasicExternalReferenceFile): int {.noSideEffect,
+proc nbListEntries*(this: IGESBasicExternalReferenceFile): cint {.noSideEffect,
     importcpp: "NbListEntries", header: "IGESBasic_ExternalReferenceFile.hxx".}
-proc name*(this: IGESBasicExternalReferenceFile; index: int): Handle[
+proc name*(this: IGESBasicExternalReferenceFile; index: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "Name",
                               header: "IGESBasic_ExternalReferenceFile.hxx".}
 type
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESBasicExternalReferenceFile): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESBasic_ExternalReferenceFile.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

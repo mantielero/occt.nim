@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepRepr_RepresentationItem"
 type
-  HandleStepReprRepresentationItem* = Handle[StepReprRepresentationItem]
+  HandleC1C1* = Handle[StepReprRepresentationItem]
   StepReprRepresentationItem* {.importcpp: "StepRepr_RepresentationItem",
                                header: "StepRepr_RepresentationItem.hxx", bycopy.} = object of StandardTransient ##
                                                                                                           ## !
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_RepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

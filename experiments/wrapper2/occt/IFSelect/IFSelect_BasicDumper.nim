@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_BasicDumper"
 discard "forward decl of IFSelect_BasicDumper"
 type
-  HandleIFSelectBasicDumper* = Handle[IFSelectBasicDumper]
+  HandleC1C1* = Handle[IFSelectBasicDumper]
 
 ## ! BasicDumper takes into account, for SessionFile, all the
 ## ! classes defined in the package IFSelect : Selections,
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_BasicDumper.hxx".}
 proc dynamicType*(this: IFSelectBasicDumper): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_BasicDumper.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

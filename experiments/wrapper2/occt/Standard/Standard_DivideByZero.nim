@@ -14,16 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_DivideByZero_HeaderFile [NewLine] # _Standard_DivideByZero_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_NumericError . hxx > [NewLine] class Standard_DivideByZero ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_DivideByZero"
 discard "forward decl of Standard_DivideByZero"
 type
-  HandleStandardDivideByZeroStandardDivideByZero* = Handle[StandardDivideByZero]
+  StandardDivideByZero* {.importcpp: "Standard_DivideByZero",
+                         header: "Standard_DivideByZero.hxx", bycopy.} = object #of StandardNumericError
+  HandleStandardDivideByZero* = Handle[StandardDivideByZero]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_DivideByZero [NewLine] # if ( CONDITION ) throw Standard_DivideByZero ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardDivideByZero):
+  template standardDivideByZeroRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardDivideByZero*(a1: Message): Throw {.
+          importcpp: "Standard_DivideByZero(@)",
+          header: "Standard_DivideByZero.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_DivideByZero , Standard_NumericError ) #  _Standard_DivideByZero_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

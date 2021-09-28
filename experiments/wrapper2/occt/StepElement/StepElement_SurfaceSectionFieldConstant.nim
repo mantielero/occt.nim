@@ -17,8 +17,7 @@ discard "forward decl of StepElement_SurfaceSection"
 discard "forward decl of StepElement_SurfaceSectionFieldConstant"
 discard "forward decl of StepElement_SurfaceSectionFieldConstant"
 type
-  HandleStepElementSurfaceSectionFieldConstant* = Handle[
-      StepElementSurfaceSectionFieldConstant]
+  HandleC1C1* = Handle[StepElementSurfaceSectionFieldConstant]
 
 ## ! Representation of STEP entity SurfaceSectionFieldConstant
 
@@ -52,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Surfac
 proc dynamicType*(this: StepElementSurfaceSectionFieldConstant): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepElement_SurfaceSectionFieldConstant.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

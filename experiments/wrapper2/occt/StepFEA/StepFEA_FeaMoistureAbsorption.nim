@@ -18,7 +18,7 @@ discard "forward decl of StepFEA_SymmetricTensor23d"
 discard "forward decl of StepFEA_FeaMoistureAbsorption"
 discard "forward decl of StepFEA_FeaMoistureAbsorption"
 type
-  HandleStepFEA_FeaMoistureAbsorption* = Handle[StepFEA_FeaMoistureAbsorption]
+  HandleC1C1* = Handle[StepFEA_FeaMoistureAbsorption]
 
 ## ! Representation of STEP entity FeaMoistureAbsorption
 
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_FeaMoistureAbsorption): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaMoistureAbsorption.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

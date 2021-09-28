@@ -28,7 +28,7 @@ proc constructRWStepShapeRWToleranceValue*(): RWStepShapeRWToleranceValue {.
     constructor, importcpp: "RWStepShape_RWToleranceValue(@)",
     header: "RWStepShape_RWToleranceValue.hxx".}
 proc readStep*(this: RWStepShapeRWToleranceValue;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeToleranceValue]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWToleranceValue.hxx".}
 proc writeStep*(this: RWStepShapeRWToleranceValue; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepShapeRWToleranceValue; sw: var StepDataStepWriter;
 proc share*(this: RWStepShapeRWToleranceValue;
            ent: Handle[StepShapeToleranceValue]; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "Share", header: "RWStepShape_RWToleranceValue.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

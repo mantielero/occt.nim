@@ -27,7 +27,7 @@ proc constructRWStepAP214RWExternallyDefinedClass*(): RWStepAP214RWExternallyDef
     constructor, importcpp: "RWStepAP214_RWExternallyDefinedClass(@)",
     header: "RWStepAP214_RWExternallyDefinedClass.hxx".}
 proc readStep*(this: RWStepAP214RWExternallyDefinedClass;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214ExternallyDefinedClass]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWExternallyDefinedClass.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepAP214RWExternallyDefinedClass;
            ent: Handle[StepAP214ExternallyDefinedClass];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWExternallyDefinedClass.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

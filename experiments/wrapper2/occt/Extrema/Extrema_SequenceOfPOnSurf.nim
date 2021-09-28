@@ -17,3 +17,28 @@
 type
   ExtremaSequenceOfPOnSurf* = NCollectionSequence[ExtremaPOnSurf]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

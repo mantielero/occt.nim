@@ -15,13 +15,54 @@
 ## !!!Ignored construct:  # _OSD_SIGSEGV_HeaderFile [NewLine] # _OSD_SIGSEGV_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Signal . hxx > [NewLine] class OSD_SIGSEGV ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_SIGSEGV"
-type
-  HandleOSD_SIGSEGVOSD_SIGSEGV* = Handle[Osd_Sigsegv]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_SIGSEGV , OSD_Signal ) # ! defined No_Exception && ! defined No_OSD_SIGSEGV [NewLine] # OSD_SIGSEGV_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_SIGSEGV ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_SIGSEGV [NewLine] # if ( CONDITION ) throw OSD_SIGSEGV ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_SIGSEGV_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGSEGV , OSD_Signal ) #  _OSD_SIGSEGV_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGSEGV , OSD_Signal ) #  _OSD_SIGSEGV_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

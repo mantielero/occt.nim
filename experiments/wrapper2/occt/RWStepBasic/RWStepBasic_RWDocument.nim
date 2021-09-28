@@ -28,7 +28,7 @@ type
 proc constructRWStepBasicRWDocument*(): RWStepBasicRWDocument {.constructor,
     importcpp: "RWStepBasic_RWDocument(@)", header: "RWStepBasic_RWDocument.hxx".}
 proc readStep*(this: RWStepBasicRWDocument; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicDocument]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDocument.hxx".}
 proc writeStep*(this: RWStepBasicRWDocument; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepBasicRWDocument; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWDocument; ent: Handle[StepBasicDocument];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWDocument.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

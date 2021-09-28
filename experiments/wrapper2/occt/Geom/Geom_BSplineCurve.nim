@@ -28,6 +28,34 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_BSplineCurve"
 type
+  GeomBSplineCurve* {.importcpp: "Geom_BSplineCurve",
+                     header: "Geom_BSplineCurve.hxx", bycopy.} = object of GeomBoundedCurve ##
+                                                                                     ## !
+                                                                                     ## Creates
+                                                                                     ## a
+                                                                                     ## non-rational
+                                                                                     ## B_spline
+                                                                                     ## curve
+                                                                                     ## on
+                                                                                     ## the
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## basis
+                                                                                     ## <Knots,
+                                                                                     ## Multiplicities>
+                                                                                     ## of
+                                                                                     ## degree
+                                                                                     ## <Degree>.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Recompute
+                                                                                     ## the
+                                                                                     ## flatknots,
+                                                                                     ## the
+                                                                                     ## knotsdistribution,
+                                                                                     ## the
+                                                                                     ## continuity.
+type
   HandleGeomBSplineCurve* = Handle[GeomBSplineCurve]
 
 ## ! Definition of the B_spline curve.
@@ -117,48 +145,21 @@ type
 ## ! . Curves and Surfaces for Computer Aided Geometric Design,
 ## ! a practical guide Gerald Farin
 
-type
-  GeomBSplineCurve* {.importcpp: "Geom_BSplineCurve",
-                     header: "Geom_BSplineCurve.hxx", bycopy.} = object of GeomBoundedCurve ##
-                                                                                     ## !
-                                                                                     ## Creates
-                                                                                     ## a
-                                                                                     ## non-rational
-                                                                                     ## B_spline
-                                                                                     ## curve
-                                                                                     ## on
-                                                                                     ## the
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## basis
-                                                                                     ## <Knots,
-                                                                                     ## Multiplicities>
-                                                                                     ## of
-                                                                                     ## degree
-                                                                                     ## <Degree>.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Recompute
-                                                                                     ## the
-                                                                                     ## flatknots,
-                                                                                     ## the
-                                                                                     ## knotsdistribution,
-                                                                                     ## the
-                                                                                     ## continuity.
 
 
-proc constructGeomBSplineCurve*(poles: TColgpArray1OfPnt;
+
+#[ proc constructGeomBSplineCurve*(poles: TColgpArray1OfPnt;
                                knots: TColStdArray1OfReal;
                                multiplicities: TColStdArray1OfInteger;
-                               degree: int; periodic: bool = false): GeomBSplineCurve {.
-    constructor, importcpp: "Geom_BSplineCurve(@)", header: "Geom_BSplineCurve.hxx".}
-proc constructGeomBSplineCurve*(poles: TColgpArray1OfPnt;
+                               degree: int; periodic: StandardBoolean = false): GeomBSplineCurve {.
+    constructor, importcpp: "Geom_BSplineCurve(@)", header: "Geom_BSplineCurve.hxx".} ]#
+#[ proc constructGeomBSplineCurve*(poles: TColgpArray1OfPnt;
                                weights: TColStdArray1OfReal;
                                knots: TColStdArray1OfReal;
                                multiplicities: TColStdArray1OfInteger;
-                               degree: int; periodic: bool = false;
-                               checkRational: bool = true): GeomBSplineCurve {.
-    constructor, importcpp: "Geom_BSplineCurve(@)", header: "Geom_BSplineCurve.hxx".}
+                               degree: int; periodic: StandardBoolean = false;
+                               checkRational: StandardBoolean = true): GeomBSplineCurve {.
+    constructor, importcpp: "Geom_BSplineCurve(@)", header: "Geom_BSplineCurve.hxx".} ]#
 proc increaseDegree*(this: var GeomBSplineCurve; degree: int) {.
     importcpp: "IncreaseDegree", header: "Geom_BSplineCurve.hxx".}
 proc increaseMultiplicity*(this: var GeomBSplineCurve; index: int; m: int) {.
@@ -167,160 +168,166 @@ proc increaseMultiplicity*(this: var GeomBSplineCurve; i1: int; i2: int; m: int)
     importcpp: "IncreaseMultiplicity", header: "Geom_BSplineCurve.hxx".}
 proc incrementMultiplicity*(this: var GeomBSplineCurve; i1: int; i2: int; m: int) {.
     importcpp: "IncrementMultiplicity", header: "Geom_BSplineCurve.hxx".}
-proc insertKnot*(this: var GeomBSplineCurve; u: float; m: int = 1;
-                parametricTolerance: float = 0.0; add: bool = true) {.
+proc insertKnot*(this: var GeomBSplineCurve; u: StandardReal; m: int = 1;
+                parametricTolerance: StandardReal = 0.0; add: StandardBoolean = true) {.
     importcpp: "InsertKnot", header: "Geom_BSplineCurve.hxx".}
-proc insertKnots*(this: var GeomBSplineCurve; knots: TColStdArray1OfReal;
-                 mults: TColStdArray1OfInteger; parametricTolerance: float = 0.0;
-                 add: bool = false) {.importcpp: "InsertKnots",
-                                  header: "Geom_BSplineCurve.hxx".}
-proc removeKnot*(this: var GeomBSplineCurve; index: int; m: int; tolerance: float): bool {.
+#[ proc insertKnots*(this: var GeomBSplineCurve; knots: TColStdArray1OfReal;
+                 mults: TColStdArray1OfInteger;
+                 parametricTolerance: StandardReal = 0.0;
+                 add: StandardBoolean = false) {.importcpp: "InsertKnots",
+    header: "Geom_BSplineCurve.hxx".} ]#
+proc removeKnot*(this: var GeomBSplineCurve; index: int; m: int; tolerance: StandardReal): StandardBoolean {.
     importcpp: "RemoveKnot", header: "Geom_BSplineCurve.hxx".}
 proc reverse*(this: var GeomBSplineCurve) {.importcpp: "Reverse",
                                         header: "Geom_BSplineCurve.hxx".}
-proc reversedParameter*(this: GeomBSplineCurve; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom_BSplineCurve.hxx".}
-proc segment*(this: var GeomBSplineCurve; u1: float; u2: float;
-             theTolerance: float = pConfusion()) {.importcpp: "Segment",
-    header: "Geom_BSplineCurve.hxx".}
-proc setKnot*(this: var GeomBSplineCurve; index: int; k: float) {.importcpp: "SetKnot",
-    header: "Geom_BSplineCurve.hxx".}
-proc setKnots*(this: var GeomBSplineCurve; k: TColStdArray1OfReal) {.
-    importcpp: "SetKnots", header: "Geom_BSplineCurve.hxx".}
-proc setKnot*(this: var GeomBSplineCurve; index: int; k: float; m: int) {.
+proc reversedParameter*(this: GeomBSplineCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_BSplineCurve.hxx".}
+#[ proc segment*(this: var GeomBSplineCurve; u1: StandardReal; u2: StandardReal;
+             theTolerance: StandardReal = pConfusion()) {.importcpp: "Segment",
+    header: "Geom_BSplineCurve.hxx".} ]#
+proc setKnot*(this: var GeomBSplineCurve; index: int; k: StandardReal) {.
     importcpp: "SetKnot", header: "Geom_BSplineCurve.hxx".}
-proc periodicNormalization*(this: GeomBSplineCurve; u: var float) {.noSideEffect,
-    importcpp: "PeriodicNormalization", header: "Geom_BSplineCurve.hxx".}
+#[ proc setKnots*(this: var GeomBSplineCurve; k: TColStdArray1OfReal) {.
+    importcpp: "SetKnots", header: "Geom_BSplineCurve.hxx".} ]#
+proc setKnot*(this: var GeomBSplineCurve; index: int; k: StandardReal; m: int) {.
+    importcpp: "SetKnot", header: "Geom_BSplineCurve.hxx".}
+proc periodicNormalization*(this: GeomBSplineCurve; u: var StandardReal) {.
+    noSideEffect, importcpp: "PeriodicNormalization",
+    header: "Geom_BSplineCurve.hxx".}
 proc setPeriodic*(this: var GeomBSplineCurve) {.importcpp: "SetPeriodic",
     header: "Geom_BSplineCurve.hxx".}
 proc setOrigin*(this: var GeomBSplineCurve; index: int) {.importcpp: "SetOrigin",
     header: "Geom_BSplineCurve.hxx".}
-proc setOrigin*(this: var GeomBSplineCurve; u: float; tol: float) {.
+proc setOrigin*(this: var GeomBSplineCurve; u: StandardReal; tol: StandardReal) {.
     importcpp: "SetOrigin", header: "Geom_BSplineCurve.hxx".}
 proc setNotPeriodic*(this: var GeomBSplineCurve) {.importcpp: "SetNotPeriodic",
     header: "Geom_BSplineCurve.hxx".}
 proc setPole*(this: var GeomBSplineCurve; index: int; p: Pnt) {.importcpp: "SetPole",
     header: "Geom_BSplineCurve.hxx".}
-proc setPole*(this: var GeomBSplineCurve; index: int; p: Pnt; weight: float) {.
+proc setPole*(this: var GeomBSplineCurve; index: int; p: Pnt; weight: StandardReal) {.
     importcpp: "SetPole", header: "Geom_BSplineCurve.hxx".}
-proc setWeight*(this: var GeomBSplineCurve; index: int; weight: float) {.
+proc setWeight*(this: var GeomBSplineCurve; index: int; weight: StandardReal) {.
     importcpp: "SetWeight", header: "Geom_BSplineCurve.hxx".}
-proc movePoint*(this: var GeomBSplineCurve; u: float; p: Pnt; index1: int; index2: int;
-               firstModifiedPole: var int; lastModifiedPole: var int) {.
+proc movePoint*(this: var GeomBSplineCurve; u: StandardReal; p: Pnt; index1: int;
+               index2: int; firstModifiedPole: var int; lastModifiedPole: var int) {.
     importcpp: "MovePoint", header: "Geom_BSplineCurve.hxx".}
-proc movePointAndTangent*(this: var GeomBSplineCurve; u: float; p: Pnt; tangent: Vec;
-                         tolerance: float; startingCondition: int;
-                         endingCondition: int; errorStatus: var int) {.
-    importcpp: "MovePointAndTangent", header: "Geom_BSplineCurve.hxx".}
-proc isCN*(this: GeomBSplineCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
+proc movePointAndTangent*(this: var GeomBSplineCurve; u: StandardReal; p: Pnt;
+                         tangent: Vec; tolerance: StandardReal;
+                         startingCondition: int; endingCondition: int;
+                         errorStatus: var int) {.importcpp: "MovePointAndTangent",
     header: "Geom_BSplineCurve.hxx".}
-proc isG1*(this: GeomBSplineCurve; theTf: float; theTl: float; theAngTol: float): bool {.
-    noSideEffect, importcpp: "IsG1", header: "Geom_BSplineCurve.hxx".}
-proc isClosed*(this: GeomBSplineCurve): bool {.noSideEffect, importcpp: "IsClosed",
-    header: "Geom_BSplineCurve.hxx".}
-proc isPeriodic*(this: GeomBSplineCurve): bool {.noSideEffect,
+proc isCN*(this: GeomBSplineCurve; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom_BSplineCurve.hxx".}
+proc isG1*(this: GeomBSplineCurve; theTf: StandardReal; theTl: StandardReal;
+          theAngTol: StandardReal): StandardBoolean {.noSideEffect,
+    importcpp: "IsG1", header: "Geom_BSplineCurve.hxx".}
+proc isClosed*(this: GeomBSplineCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom_BSplineCurve.hxx".}
+proc isPeriodic*(this: GeomBSplineCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom_BSplineCurve.hxx".}
-proc isRational*(this: GeomBSplineCurve): bool {.noSideEffect,
+proc isRational*(this: GeomBSplineCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsRational", header: "Geom_BSplineCurve.hxx".}
-proc continuity*(this: GeomBSplineCurve): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_BSplineCurve.hxx".}
+#[ proc continuity*(this: GeomBSplineCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_BSplineCurve.hxx".} ]#
 proc degree*(this: GeomBSplineCurve): int {.noSideEffect, importcpp: "Degree",
                                         header: "Geom_BSplineCurve.hxx".}
-proc d0*(this: GeomBSplineCurve; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
-    header: "Geom_BSplineCurve.hxx".}
-proc d1*(this: GeomBSplineCurve; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+proc d0*(this: GeomBSplineCurve; u: StandardReal; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_BSplineCurve.hxx".}
+proc d1*(this: GeomBSplineCurve; u: StandardReal; p: var Pnt; v1: var Vec) {.noSideEffect,
     importcpp: "D1", header: "Geom_BSplineCurve.hxx".}
-proc d2*(this: GeomBSplineCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: GeomBSplineCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
     noSideEffect, importcpp: "D2", header: "Geom_BSplineCurve.hxx".}
-proc d3*(this: GeomBSplineCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, importcpp: "D3", header: "Geom_BSplineCurve.hxx".}
-proc dn*(this: GeomBSplineCurve; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
-    header: "Geom_BSplineCurve.hxx".}
-proc localValue*(this: GeomBSplineCurve; u: float; fromK1: int; toK2: int): Pnt {.
+proc d3*(this: GeomBSplineCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec;
+        v3: var Vec) {.noSideEffect, importcpp: "D3", header: "Geom_BSplineCurve.hxx".}
+proc dn*(this: GeomBSplineCurve; u: StandardReal; n: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "Geom_BSplineCurve.hxx".}
+proc localValue*(this: GeomBSplineCurve; u: StandardReal; fromK1: int; toK2: int): Pnt {.
     noSideEffect, importcpp: "LocalValue", header: "Geom_BSplineCurve.hxx".}
-proc localD0*(this: GeomBSplineCurve; u: float; fromK1: int; toK2: int; p: var Pnt) {.
+proc localD0*(this: GeomBSplineCurve; u: StandardReal; fromK1: int; toK2: int; p: var Pnt) {.
     noSideEffect, importcpp: "LocalD0", header: "Geom_BSplineCurve.hxx".}
-proc localD1*(this: GeomBSplineCurve; u: float; fromK1: int; toK2: int; p: var Pnt;
-             v1: var Vec) {.noSideEffect, importcpp: "LocalD1",
-                         header: "Geom_BSplineCurve.hxx".}
-proc localD2*(this: GeomBSplineCurve; u: float; fromK1: int; toK2: int; p: var Pnt;
-             v1: var Vec; v2: var Vec) {.noSideEffect, importcpp: "LocalD2",
-                                   header: "Geom_BSplineCurve.hxx".}
-proc localD3*(this: GeomBSplineCurve; u: float; fromK1: int; toK2: int; p: var Pnt;
-             v1: var Vec; v2: var Vec; v3: var Vec) {.noSideEffect, importcpp: "LocalD3",
+proc localD1*(this: GeomBSplineCurve; u: StandardReal; fromK1: int; toK2: int;
+             p: var Pnt; v1: var Vec) {.noSideEffect, importcpp: "LocalD1",
+                                  header: "Geom_BSplineCurve.hxx".}
+proc localD2*(this: GeomBSplineCurve; u: StandardReal; fromK1: int; toK2: int;
+             p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect, importcpp: "LocalD2",
     header: "Geom_BSplineCurve.hxx".}
-proc localDN*(this: GeomBSplineCurve; u: float; fromK1: int; toK2: int; n: int): Vec {.
+proc localD3*(this: GeomBSplineCurve; u: StandardReal; fromK1: int; toK2: int;
+             p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.noSideEffect,
+    importcpp: "LocalD3", header: "Geom_BSplineCurve.hxx".}
+proc localDN*(this: GeomBSplineCurve; u: StandardReal; fromK1: int; toK2: int; n: int): Vec {.
     noSideEffect, importcpp: "LocalDN", header: "Geom_BSplineCurve.hxx".}
 proc endPoint*(this: GeomBSplineCurve): Pnt {.noSideEffect, importcpp: "EndPoint",
     header: "Geom_BSplineCurve.hxx".}
 proc firstUKnotIndex*(this: GeomBSplineCurve): int {.noSideEffect,
     importcpp: "FirstUKnotIndex", header: "Geom_BSplineCurve.hxx".}
-proc firstParameter*(this: GeomBSplineCurve): float {.noSideEffect,
+proc firstParameter*(this: GeomBSplineCurve): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_BSplineCurve.hxx".}
-proc knot*(this: GeomBSplineCurve; index: int): float {.noSideEffect,
+proc knot*(this: GeomBSplineCurve; index: int): StandardReal {.noSideEffect,
     importcpp: "Knot", header: "Geom_BSplineCurve.hxx".}
-proc knots*(this: GeomBSplineCurve; k: var TColStdArray1OfReal) {.noSideEffect,
-    importcpp: "Knots", header: "Geom_BSplineCurve.hxx".}
-proc knots*(this: GeomBSplineCurve): TColStdArray1OfReal {.noSideEffect,
-    importcpp: "Knots", header: "Geom_BSplineCurve.hxx".}
-proc knotSequence*(this: GeomBSplineCurve; k: var TColStdArray1OfReal) {.noSideEffect,
-    importcpp: "KnotSequence", header: "Geom_BSplineCurve.hxx".}
-proc knotSequence*(this: GeomBSplineCurve): TColStdArray1OfReal {.noSideEffect,
-    importcpp: "KnotSequence", header: "Geom_BSplineCurve.hxx".}
-proc knotDistribution*(this: GeomBSplineCurve): GeomAbsBSplKnotDistribution {.
-    noSideEffect, importcpp: "KnotDistribution", header: "Geom_BSplineCurve.hxx".}
+#[ proc knots*(this: GeomBSplineCurve; k: var TColStdArray1OfReal) {.noSideEffect,
+    importcpp: "Knots", header: "Geom_BSplineCurve.hxx".} ]#
+#[ proc knots*(this: GeomBSplineCurve): TColStdArray1OfReal {.noSideEffect,
+    importcpp: "Knots", header: "Geom_BSplineCurve.hxx".} ]#
+#[ proc knotSequence*(this: GeomBSplineCurve; k: var TColStdArray1OfReal) {.noSideEffect,
+    importcpp: "KnotSequence", header: "Geom_BSplineCurve.hxx".} ]#
+#[ proc knotSequence*(this: GeomBSplineCurve): TColStdArray1OfReal {.noSideEffect,
+    importcpp: "KnotSequence", header: "Geom_BSplineCurve.hxx".} ]#
+#[ proc knotDistribution*(this: GeomBSplineCurve): GeomAbsBSplKnotDistribution {.
+    noSideEffect, importcpp: "KnotDistribution", header: "Geom_BSplineCurve.hxx".} ]#
 proc lastUKnotIndex*(this: GeomBSplineCurve): int {.noSideEffect,
     importcpp: "LastUKnotIndex", header: "Geom_BSplineCurve.hxx".}
-proc lastParameter*(this: GeomBSplineCurve): float {.noSideEffect,
+proc lastParameter*(this: GeomBSplineCurve): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_BSplineCurve.hxx".}
-proc locateU*(this: GeomBSplineCurve; u: float; parametricTolerance: float;
-             i1: var int; i2: var int; withKnotRepetition: bool = false) {.noSideEffect,
+proc locateU*(this: GeomBSplineCurve; u: StandardReal;
+             parametricTolerance: StandardReal; i1: var int; i2: var int;
+             withKnotRepetition: StandardBoolean = false) {.noSideEffect,
     importcpp: "LocateU", header: "Geom_BSplineCurve.hxx".}
 proc multiplicity*(this: GeomBSplineCurve; index: int): int {.noSideEffect,
     importcpp: "Multiplicity", header: "Geom_BSplineCurve.hxx".}
-proc multiplicities*(this: GeomBSplineCurve; m: var TColStdArray1OfInteger) {.
-    noSideEffect, importcpp: "Multiplicities", header: "Geom_BSplineCurve.hxx".}
-proc multiplicities*(this: GeomBSplineCurve): TColStdArray1OfInteger {.noSideEffect,
-    importcpp: "Multiplicities", header: "Geom_BSplineCurve.hxx".}
+#[ proc multiplicities*(this: GeomBSplineCurve; m: var TColStdArray1OfInteger) {.
+    noSideEffect, importcpp: "Multiplicities", header: "Geom_BSplineCurve.hxx".} ]#
+#[ proc multiplicities*(this: GeomBSplineCurve): TColStdArray1OfInteger {.noSideEffect,
+    importcpp: "Multiplicities", header: "Geom_BSplineCurve.hxx".} ]#
 proc nbKnots*(this: GeomBSplineCurve): int {.noSideEffect, importcpp: "NbKnots",
     header: "Geom_BSplineCurve.hxx".}
 proc nbPoles*(this: GeomBSplineCurve): int {.noSideEffect, importcpp: "NbPoles",
     header: "Geom_BSplineCurve.hxx".}
 proc pole*(this: GeomBSplineCurve; index: int): Pnt {.noSideEffect, importcpp: "Pole",
     header: "Geom_BSplineCurve.hxx".}
-proc poles*(this: GeomBSplineCurve; p: var TColgpArray1OfPnt) {.noSideEffect,
-    importcpp: "Poles", header: "Geom_BSplineCurve.hxx".}
-proc poles*(this: GeomBSplineCurve): TColgpArray1OfPnt {.noSideEffect,
-    importcpp: "Poles", header: "Geom_BSplineCurve.hxx".}
+#[ proc poles*(this: GeomBSplineCurve; p: var TColgpArray1OfPnt) {.noSideEffect,
+    importcpp: "Poles", header: "Geom_BSplineCurve.hxx".} ]#
+#[ proc poles*(this: GeomBSplineCurve): TColgpArray1OfPnt {.noSideEffect,
+    importcpp: "Poles", header: "Geom_BSplineCurve.hxx".} ]#
 proc startPoint*(this: GeomBSplineCurve): Pnt {.noSideEffect,
     importcpp: "StartPoint", header: "Geom_BSplineCurve.hxx".}
-proc weight*(this: GeomBSplineCurve; index: int): float {.noSideEffect,
+proc weight*(this: GeomBSplineCurve; index: int): StandardReal {.noSideEffect,
     importcpp: "Weight", header: "Geom_BSplineCurve.hxx".}
-proc weights*(this: GeomBSplineCurve; w: var TColStdArray1OfReal) {.noSideEffect,
-    importcpp: "Weights", header: "Geom_BSplineCurve.hxx".}
-proc weights*(this: GeomBSplineCurve): ptr TColStdArray1OfReal {.noSideEffect,
-    importcpp: "Weights", header: "Geom_BSplineCurve.hxx".}
+#[ proc weights*(this: GeomBSplineCurve; w: var TColStdArray1OfReal) {.noSideEffect,
+    importcpp: "Weights", header: "Geom_BSplineCurve.hxx".} ]#
+#[ proc weights*(this: GeomBSplineCurve): ptr TColStdArray1OfReal {.noSideEffect,
+    importcpp: "Weights", header: "Geom_BSplineCurve.hxx".} ]#
 proc transform*(this: var GeomBSplineCurve; t: Trsf) {.importcpp: "Transform",
     header: "Geom_BSplineCurve.hxx".}
 proc maxDegree*(): int {.importcpp: "Geom_BSplineCurve::MaxDegree(@)",
                       header: "Geom_BSplineCurve.hxx".}
-proc resolution*(this: var GeomBSplineCurve; tolerance3D: float; uTolerance: var float) {.
-    importcpp: "Resolution", header: "Geom_BSplineCurve.hxx".}
+proc resolution*(this: var GeomBSplineCurve; tolerance3D: StandardReal;
+                uTolerance: var StandardReal) {.importcpp: "Resolution",
+    header: "Geom_BSplineCurve.hxx".}
 proc copy*(this: GeomBSplineCurve): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_BSplineCurve.hxx".}
 proc isEqual*(this: GeomBSplineCurve; theOther: Handle[GeomBSplineCurve];
-             thePreci: float): bool {.noSideEffect, importcpp: "IsEqual",
-                                   header: "Geom_BSplineCurve.hxx".}
+             thePreci: StandardReal): StandardBoolean {.noSideEffect,
+    importcpp: "IsEqual", header: "Geom_BSplineCurve.hxx".}
 proc dumpJson*(this: GeomBSplineCurve; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_BSplineCurve.hxx".}
 type
   GeomBSplineCurvebaseType* = GeomBoundedCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom_BSplineCurve::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_BSplineCurve::get_type_name(@)",
                             header: "Geom_BSplineCurve.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_BSplineCurve::get_type_descriptor(@)",
     header: "Geom_BSplineCurve.hxx".}
 proc dynamicType*(this: GeomBSplineCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_BSplineCurve.hxx".}
+    importcpp: "DynamicType", header: "Geom_BSplineCurve.hxx".} ]#

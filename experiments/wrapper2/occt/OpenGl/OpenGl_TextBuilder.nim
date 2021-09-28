@@ -29,3 +29,28 @@ proc perform*(this: var OpenGlTextBuilder; theFormatter: Handle[FontTextFormatte
     Handle[OpenGlVertexBuffer]]; theTCrdsPerTexture: var NCollectionVector[
     Handle[OpenGlVertexBuffer]]) {.importcpp: "Perform",
                                   header: "OpenGl_TextBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

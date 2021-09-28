@@ -39,11 +39,36 @@ proc constructTopOpeBRepBuildPaveClassifier*(e: TopoDS_Shape): TopOpeBRepBuildPa
 proc compare*(this: var TopOpeBRepBuildPaveClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
     importcpp: "Compare", header: "TopOpeBRepBuild_PaveClassifier.hxx".}
-proc setFirstParameter*(this: var TopOpeBRepBuildPaveClassifier; p: float) {.
+proc setFirstParameter*(this: var TopOpeBRepBuildPaveClassifier; p: cfloat) {.
     importcpp: "SetFirstParameter", header: "TopOpeBRepBuild_PaveClassifier.hxx".}
 proc closedVertices*(this: var TopOpeBRepBuildPaveClassifier; b: bool) {.
     importcpp: "ClosedVertices", header: "TopOpeBRepBuild_PaveClassifier.hxx".}
-proc adjustCase*(p1: float; o: TopAbsOrientation; first: float; period: float;
-                tol: float; cas: var int): float {.
+proc adjustCase*(p1: cfloat; o: TopAbsOrientation; first: cfloat; period: cfloat;
+                tol: cfloat; cas: var cint): cfloat {.
     importcpp: "TopOpeBRepBuild_PaveClassifier::AdjustCase(@)",
     header: "TopOpeBRepBuild_PaveClassifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ discard "forward decl of StepBasic_SourceItem"
 discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of StepBasic_ExternalSource"
 type
-  HandleStepBasicExternalSource* = Handle[StepBasicExternalSource]
+  HandleC1C1* = Handle[StepBasicExternalSource]
 
 ## ! Representation of STEP entity ExternalSource
 
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_ExternalSource.hxx".}
 proc dynamicType*(this: StepBasicExternalSource): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_ExternalSource.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -53,29 +53,54 @@ type
                                                                            ## "%<chars>f","%<chars>%E"
 
 
-proc constructInterfaceFloatWriter*(chars: int = 0): InterfaceFloatWriter {.
+proc constructInterfaceFloatWriter*(chars: cint = 0): InterfaceFloatWriter {.
     constructor, importcpp: "Interface_FloatWriter(@)",
     header: "Interface_FloatWriter.hxx".}
 proc setFormat*(this: var InterfaceFloatWriter; form: StandardCString;
                reset: bool = true) {.importcpp: "SetFormat",
                                  header: "Interface_FloatWriter.hxx".}
 proc setFormatForRange*(this: var InterfaceFloatWriter; form: StandardCString;
-                       r1: float; r2: float) {.importcpp: "SetFormatForRange",
+                       r1: cfloat; r2: cfloat) {.importcpp: "SetFormatForRange",
     header: "Interface_FloatWriter.hxx".}
 proc setZeroSuppress*(this: var InterfaceFloatWriter; mode: bool) {.
     importcpp: "SetZeroSuppress", header: "Interface_FloatWriter.hxx".}
-proc setDefaults*(this: var InterfaceFloatWriter; chars: int = 0) {.
+proc setDefaults*(this: var InterfaceFloatWriter; chars: cint = 0) {.
     importcpp: "SetDefaults", header: "Interface_FloatWriter.hxx".}
 proc options*(this: InterfaceFloatWriter; zerosup: var bool; range: var bool;
-             r1: var float; r2: var float) {.noSideEffect, importcpp: "Options",
-                                       header: "Interface_FloatWriter.hxx".}
+             r1: var cfloat; r2: var cfloat) {.noSideEffect, importcpp: "Options",
+    header: "Interface_FloatWriter.hxx".}
 proc mainFormat*(this: InterfaceFloatWriter): StandardCString {.noSideEffect,
     importcpp: "MainFormat", header: "Interface_FloatWriter.hxx".}
 proc formatForRange*(this: InterfaceFloatWriter): StandardCString {.noSideEffect,
     importcpp: "FormatForRange", header: "Interface_FloatWriter.hxx".}
-proc write*(this: InterfaceFloatWriter; val: float; text: StandardCString): int {.
+proc write*(this: InterfaceFloatWriter; val: cfloat; text: StandardCString): cint {.
     noSideEffect, importcpp: "Write", header: "Interface_FloatWriter.hxx".}
-proc convert*(val: float; text: StandardCString; zerosup: bool; range1: float;
-             range2: float; mainform: StandardCString; rangeform: StandardCString): int {.
+proc convert*(val: cfloat; text: StandardCString; zerosup: bool; range1: cfloat;
+             range2: cfloat; mainform: StandardCString; rangeform: StandardCString): cint {.
     importcpp: "Interface_FloatWriter::Convert(@)",
     header: "Interface_FloatWriter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

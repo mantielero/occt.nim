@@ -54,8 +54,8 @@ proc isSelected*(this: AIS_Selection; theObject: Handle[SelectMgrEntityOwner]): 
     noSideEffect, importcpp: "IsSelected", header: "AIS_Selection.hxx".}
 proc objects*(this: AIS_Selection): AIS_NListOfEntityOwner {.noSideEffect,
     importcpp: "Objects", header: "AIS_Selection.hxx".}
-proc extent*(this: AIS_Selection): int {.noSideEffect, importcpp: "Extent",
-                                     header: "AIS_Selection.hxx".}
+proc extent*(this: AIS_Selection): cint {.noSideEffect, importcpp: "Extent",
+                                      header: "AIS_Selection.hxx".}
 proc isEmpty*(this: AIS_Selection): bool {.noSideEffect, importcpp: "IsEmpty",
                                        header: "AIS_Selection.hxx".}
 proc init*(this: var AIS_Selection) {.importcpp: "Init", header: "AIS_Selection.hxx".}
@@ -66,5 +66,30 @@ proc value*(this: AIS_Selection): Handle[SelectMgrEntityOwner] {.noSideEffect,
     importcpp: "Value", header: "AIS_Selection.hxx".}
 discard "forward decl of AIS_Selection"
 type
-  HandleAIS_Selection* = Handle[AIS_Selection]
+  HandleC1C1* = Handle[AIS_Selection]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

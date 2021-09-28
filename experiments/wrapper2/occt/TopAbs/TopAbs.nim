@@ -79,3 +79,28 @@ proc shapeOrientationFromString*(theOrientationString: StandardCString): TopAbsO
 proc shapeOrientationFromString*(theOrientationString: StandardCString;
                                 theOrientation: var TopAbsOrientation): bool {.
     importcpp: "TopAbs::ShapeOrientationFromString(@)", header: "TopAbs.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

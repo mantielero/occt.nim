@@ -56,7 +56,7 @@ proc print*(this: InterfaceCheckTool; ach: Handle[InterfaceCheck];
 proc print*(this: InterfaceCheckTool; list: InterfaceCheckIterator;
            s: var StandardOStream) {.noSideEffect, importcpp: "Print",
                                   header: "Interface_CheckTool.hxx".}
-proc check*(this: var InterfaceCheckTool; num: int): Handle[InterfaceCheck] {.
+proc check*(this: var InterfaceCheckTool; num: cint): Handle[InterfaceCheck] {.
     importcpp: "Check", header: "Interface_CheckTool.hxx".}
 proc checkSuccess*(this: var InterfaceCheckTool; reset: bool = false) {.
     importcpp: "CheckSuccess", header: "Interface_CheckTool.hxx".}
@@ -72,3 +72,28 @@ proc warningCheckList*(this: var InterfaceCheckTool): InterfaceCheckIterator {.
     importcpp: "WarningCheckList", header: "Interface_CheckTool.hxx".}
 proc unknownEntities*(this: var InterfaceCheckTool): InterfaceEntityIterator {.
     importcpp: "UnknownEntities", header: "Interface_CheckTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

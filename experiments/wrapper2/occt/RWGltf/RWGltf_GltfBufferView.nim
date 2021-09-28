@@ -26,3 +26,28 @@ type
 
 proc constructRWGltfGltfBufferView*(): RWGltfGltfBufferView {.constructor,
     importcpp: "RWGltf_GltfBufferView(@)", header: "RWGltf_GltfBufferView.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

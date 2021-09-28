@@ -25,13 +25,13 @@ type
 
 proc constructBRepBlendPointOnRst*(): BRepBlendPointOnRst {.constructor,
     importcpp: "BRepBlend_PointOnRst(@)", header: "BRepBlend_PointOnRst.hxx".}
-proc constructBRepBlendPointOnRst*(a: Handle[Adaptor2dHCurve2d]; param: float;
+proc constructBRepBlendPointOnRst*(a: Handle[Adaptor2dHCurve2d]; param: cfloat;
                                   tLine: IntSurfTransition;
                                   tArc: IntSurfTransition): BRepBlendPointOnRst {.
     constructor, importcpp: "BRepBlend_PointOnRst(@)",
     header: "BRepBlend_PointOnRst.hxx".}
 proc setArc*(this: var BRepBlendPointOnRst; a: Handle[Adaptor2dHCurve2d];
-            param: float; tLine: IntSurfTransition; tArc: IntSurfTransition) {.
+            param: cfloat; tLine: IntSurfTransition; tArc: IntSurfTransition) {.
     importcpp: "SetArc", header: "BRepBlend_PointOnRst.hxx".}
 proc arc*(this: BRepBlendPointOnRst): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "Arc", header: "BRepBlend_PointOnRst.hxx".}
@@ -39,5 +39,30 @@ proc transitionOnLine*(this: BRepBlendPointOnRst): IntSurfTransition {.noSideEff
     importcpp: "TransitionOnLine", header: "BRepBlend_PointOnRst.hxx".}
 proc transitionOnArc*(this: BRepBlendPointOnRst): IntSurfTransition {.noSideEffect,
     importcpp: "TransitionOnArc", header: "BRepBlend_PointOnRst.hxx".}
-proc parameterOnArc*(this: BRepBlendPointOnRst): float {.noSideEffect,
+proc parameterOnArc*(this: BRepBlendPointOnRst): cfloat {.noSideEffect,
     importcpp: "ParameterOnArc", header: "BRepBlend_PointOnRst.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,16 +17,16 @@
 type
   AIS_AnimationProgress* {.importcpp: "AIS_AnimationProgress",
                           header: "AIS_Animation.hxx", bycopy.} = object
-    pts* {.importc: "Pts".}: float ## !< global presentation timestamp
-    localPts* {.importc: "LocalPts".}: float ## !< presentation within current animation
-    localNormalized* {.importc: "LocalNormalized".}: float ## !< normalized position within current animation within 0..1 range
+    pts* {.importc: "Pts".}: cfloat ## !< global presentation timestamp
+    localPts* {.importc: "LocalPts".}: cfloat ## !< presentation within current animation
+    localNormalized* {.importc: "LocalNormalized".}: cfloat ## !< normalized position within current animation within 0..1 range
 
 
 proc constructAIS_AnimationProgress*(): AIS_AnimationProgress {.constructor,
     importcpp: "AIS_AnimationProgress(@)", header: "AIS_Animation.hxx".}
 discard "forward decl of AIS_Animation"
 type
-  HandleAIS_Animation* = Handle[AIS_Animation]
+  HandleC1C1* = Handle[AIS_Animation]
 
 ## ! Class represents a basic animation class.
 ## ! AIS_Animation can be used as:
@@ -280,19 +280,19 @@ proc destroyAIS_Animation*(this: var AIS_Animation) {.
     importcpp: "#.~AIS_Animation()", header: "AIS_Animation.hxx".}
 proc name*(this: AIS_Animation): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "AIS_Animation.hxx".}
-proc startPts*(this: AIS_Animation): float {.noSideEffect, importcpp: "StartPts",
+proc startPts*(this: AIS_Animation): cfloat {.noSideEffect, importcpp: "StartPts",
     header: "AIS_Animation.hxx".}
-proc setStartPts*(this: var AIS_Animation; thePtsStart: float) {.
+proc setStartPts*(this: var AIS_Animation; thePtsStart: cfloat) {.
     importcpp: "SetStartPts", header: "AIS_Animation.hxx".}
-proc duration*(this: AIS_Animation): float {.noSideEffect, importcpp: "Duration",
+proc duration*(this: AIS_Animation): cfloat {.noSideEffect, importcpp: "Duration",
     header: "AIS_Animation.hxx".}
 proc updateTotalDuration*(this: var AIS_Animation) {.
     importcpp: "UpdateTotalDuration", header: "AIS_Animation.hxx".}
 proc hasOwnDuration*(this: AIS_Animation): bool {.noSideEffect,
     importcpp: "HasOwnDuration", header: "AIS_Animation.hxx".}
-proc ownDuration*(this: AIS_Animation): float {.noSideEffect,
+proc ownDuration*(this: AIS_Animation): cfloat {.noSideEffect,
     importcpp: "OwnDuration", header: "AIS_Animation.hxx".}
-proc setOwnDuration*(this: var AIS_Animation; theDuration: float) {.
+proc setOwnDuration*(this: var AIS_Animation; theDuration: cfloat) {.
     importcpp: "SetOwnDuration", header: "AIS_Animation.hxx".}
 proc add*(this: var AIS_Animation; theAnimation: Handle[AIS_Animation]) {.
     importcpp: "Add", header: "AIS_Animation.hxx".}
@@ -308,12 +308,12 @@ proc copyFrom*(this: var AIS_Animation; theOther: Handle[AIS_Animation]) {.
     importcpp: "CopyFrom", header: "AIS_Animation.hxx".}
 proc children*(this: AIS_Animation): NCollectionSequence[Handle[AIS_Animation]] {.
     noSideEffect, importcpp: "Children", header: "AIS_Animation.hxx".}
-proc startTimer*(this: var AIS_Animation; theStartPts: float; thePlaySpeed: float;
+proc startTimer*(this: var AIS_Animation; theStartPts: cfloat; thePlaySpeed: cfloat;
                 theToUpdate: bool; theToStopTimer: bool = false) {.
     importcpp: "StartTimer", header: "AIS_Animation.hxx".}
-proc updateTimer*(this: var AIS_Animation): float {.importcpp: "UpdateTimer",
+proc updateTimer*(this: var AIS_Animation): cfloat {.importcpp: "UpdateTimer",
     header: "AIS_Animation.hxx".}
-proc elapsedTime*(this: AIS_Animation): float {.noSideEffect,
+proc elapsedTime*(this: AIS_Animation): cfloat {.noSideEffect,
     importcpp: "ElapsedTime", header: "AIS_Animation.hxx".}
 proc start*(this: var AIS_Animation; theToUpdate: bool) {.importcpp: "Start",
     header: "AIS_Animation.hxx".}
@@ -321,5 +321,30 @@ proc pause*(this: var AIS_Animation) {.importcpp: "Pause", header: "AIS_Animatio
 proc stop*(this: var AIS_Animation) {.importcpp: "Stop", header: "AIS_Animation.hxx".}
 proc isStopped*(this: var AIS_Animation): bool {.importcpp: "IsStopped",
     header: "AIS_Animation.hxx".}
-proc update*(this: var AIS_Animation; thePts: float): bool {.importcpp: "Update",
+proc update*(this: var AIS_Animation; thePts: cfloat): bool {.importcpp: "Update",
     header: "AIS_Animation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

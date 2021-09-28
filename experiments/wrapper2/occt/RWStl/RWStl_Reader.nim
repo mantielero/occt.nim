@@ -135,7 +135,32 @@ proc readAscii*(this: var RWStlReader; theStream: var StandardIStream;
                theBuffer: var StandardReadLineBuffer; theUntilPos: Streampos;
                theProgress: MessageProgressRange): bool {.importcpp: "ReadAscii",
     header: "RWStl_Reader.hxx".}
-proc addNode*(this: var RWStlReader; thePnt: Xyz): int {.importcpp: "AddNode",
+proc addNode*(this: var RWStlReader; thePnt: Xyz): cint {.importcpp: "AddNode",
     header: "RWStl_Reader.hxx".}
-proc addTriangle*(this: var RWStlReader; theN1: int; theN2: int; theN3: int) {.
+proc addTriangle*(this: var RWStlReader; theN1: cint; theN2: cint; theN3: cint) {.
     importcpp: "AddTriangle", header: "RWStl_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

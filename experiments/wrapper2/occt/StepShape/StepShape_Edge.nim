@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Edge"
 discard "forward decl of StepShape_Edge"
 type
-  HandleStepShapeEdge* = Handle[StepShapeEdge]
+  HandleC1C1* = Handle[StepShapeEdge]
   StepShapeEdge* {.importcpp: "StepShape_Edge", header: "StepShape_Edge.hxx", bycopy.} = object of StepShapeTopologicalRepresentationItem ##
                                                                                                                                 ## !
                                                                                                                                 ## Returns
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Edge.hxx".}
 proc dynamicType*(this: StepShapeEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Edge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

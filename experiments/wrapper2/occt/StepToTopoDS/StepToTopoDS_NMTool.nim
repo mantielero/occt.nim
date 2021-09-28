@@ -59,3 +59,28 @@ proc setIDEASCase*(this: var StepToTopoDS_NMTool; iDEASCase: bool) {.
     importcpp: "SetIDEASCase", header: "StepToTopoDS_NMTool.hxx".}
 proc isIDEASCase*(this: var StepToTopoDS_NMTool): bool {.importcpp: "IsIDEASCase",
     header: "StepToTopoDS_NMTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

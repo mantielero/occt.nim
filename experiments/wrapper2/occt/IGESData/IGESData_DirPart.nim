@@ -22,16 +22,42 @@ type
 
 proc constructIGESDataDirPart*(): IGESDataDirPart {.constructor,
     importcpp: "IGESData_DirPart(@)", header: "IGESData_DirPart.hxx".}
-proc init*(this: var IGESDataDirPart; i1: int; i2: int; i3: int; i4: int; i5: int; i6: int;
-          i7: int; i8: int; i9: int; i19: int; i11: int; i12: int; i13: int; i14: int; i15: int;
-          i16: int; i17: int; res1: StandardCString; res2: StandardCString;
-          label: StandardCString; subscript: StandardCString) {.importcpp: "Init",
-    header: "IGESData_DirPart.hxx".}
-proc values*(this: IGESDataDirPart; i1: var int; i2: var int; i3: var int; i4: var int;
-            i5: var int; i6: var int; i7: var int; i8: var int; i9: var int; i19: var int;
-            i11: var int; i12: var int; i13: var int; i14: var int; i15: var int; i16: var int;
-            i17: var int; res1: StandardCString; res2: StandardCString;
-            label: StandardCString; subscript: StandardCString) {.noSideEffect,
-    importcpp: "Values", header: "IGESData_DirPart.hxx".}
+proc init*(this: var IGESDataDirPart; i1: cint; i2: cint; i3: cint; i4: cint; i5: cint;
+          i6: cint; i7: cint; i8: cint; i9: cint; i19: cint; i11: cint; i12: cint; i13: cint;
+          i14: cint; i15: cint; i16: cint; i17: cint; res1: StandardCString;
+          res2: StandardCString; label: StandardCString; subscript: StandardCString) {.
+    importcpp: "Init", header: "IGESData_DirPart.hxx".}
+proc values*(this: IGESDataDirPart; i1: var cint; i2: var cint; i3: var cint; i4: var cint;
+            i5: var cint; i6: var cint; i7: var cint; i8: var cint; i9: var cint;
+            i19: var cint; i11: var cint; i12: var cint; i13: var cint; i14: var cint;
+            i15: var cint; i16: var cint; i17: var cint; res1: StandardCString;
+            res2: StandardCString; label: StandardCString;
+            subscript: StandardCString) {.noSideEffect, importcpp: "Values",
+                                        header: "IGESData_DirPart.hxx".}
 proc `type`*(this: IGESDataDirPart): IGESDataIGESType {.noSideEffect,
     importcpp: "Type", header: "IGESData_DirPart.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

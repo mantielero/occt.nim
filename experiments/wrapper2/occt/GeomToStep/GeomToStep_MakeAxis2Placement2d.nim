@@ -23,6 +23,24 @@ type
                                    bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeAxis2Placement2d; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeAxis2Placement2d::operator new",
+    header: "GeomToStep_MakeAxis2Placement2d.hxx".}
+proc `delete`*(this: var GeomToStepMakeAxis2Placement2d; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeAxis2Placement2d::operator delete",
+    header: "GeomToStep_MakeAxis2Placement2d.hxx".}
+proc `new[]`*(this: var GeomToStepMakeAxis2Placement2d; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeAxis2Placement2d::operator new[]",
+    header: "GeomToStep_MakeAxis2Placement2d.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeAxis2Placement2d; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeAxis2Placement2d::operator delete[]",
+    header: "GeomToStep_MakeAxis2Placement2d.hxx".}
+proc `new`*(this: var GeomToStepMakeAxis2Placement2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeAxis2Placement2d::operator new",
+    header: "GeomToStep_MakeAxis2Placement2d.hxx".}
+proc `delete`*(this: var GeomToStepMakeAxis2Placement2d; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeAxis2Placement2d::operator delete",
+    header: "GeomToStep_MakeAxis2Placement2d.hxx".}
 proc constructGeomToStepMakeAxis2Placement2d*(a: Ax2): GeomToStepMakeAxis2Placement2d {.
     constructor, importcpp: "GeomToStep_MakeAxis2Placement2d(@)",
     header: "GeomToStep_MakeAxis2Placement2d.hxx".}

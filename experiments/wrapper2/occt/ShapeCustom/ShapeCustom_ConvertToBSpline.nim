@@ -25,7 +25,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeCustom_ConvertToBSpline"
 discard "forward decl of ShapeCustom_ConvertToBSpline"
 type
-  HandleShapeCustomConvertToBSpline* = Handle[ShapeCustomConvertToBSpline]
+  HandleC1C1* = Handle[ShapeCustomConvertToBSpline]
 
 ## ! implement a modification for BRepTools
 ## ! Modifier algortihm. Converts Surface of
@@ -50,21 +50,21 @@ proc setOffsetMode*(this: var ShapeCustomConvertToBSpline; offsetMode: bool) {.
 proc setPlaneMode*(this: var ShapeCustomConvertToBSpline; planeMode: bool) {.
     importcpp: "SetPlaneMode", header: "ShapeCustom_ConvertToBSpline.hxx".}
 proc newSurface*(this: var ShapeCustomConvertToBSpline; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
+                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var cfloat;
                 revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
     header: "ShapeCustom_ConvertToBSpline.hxx".}
 proc newCurve*(this: var ShapeCustomConvertToBSpline; e: TopoDS_Edge;
-              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var float): bool {.
+              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var cfloat): bool {.
     importcpp: "NewCurve", header: "ShapeCustom_ConvertToBSpline.hxx".}
 proc newPoint*(this: var ShapeCustomConvertToBSpline; v: TopoDS_Vertex; p: var Pnt;
-              tol: var float): bool {.importcpp: "NewPoint",
-                                  header: "ShapeCustom_ConvertToBSpline.hxx".}
+              tol: var cfloat): bool {.importcpp: "NewPoint",
+                                   header: "ShapeCustom_ConvertToBSpline.hxx".}
 proc newCurve2d*(this: var ShapeCustomConvertToBSpline; e: TopoDS_Edge;
                 f: TopoDS_Face; newE: TopoDS_Edge; newF: TopoDS_Face;
-                c: var Handle[Geom2dCurve]; tol: var float): bool {.
+                c: var Handle[Geom2dCurve]; tol: var cfloat): bool {.
     importcpp: "NewCurve2d", header: "ShapeCustom_ConvertToBSpline.hxx".}
 proc newParameter*(this: var ShapeCustomConvertToBSpline; v: TopoDS_Vertex;
-                  e: TopoDS_Edge; p: var float; tol: var float): bool {.
+                  e: TopoDS_Edge; p: var cfloat; tol: var cfloat): bool {.
     importcpp: "NewParameter", header: "ShapeCustom_ConvertToBSpline.hxx".}
 proc continuity*(this: var ShapeCustomConvertToBSpline; e: TopoDS_Edge;
                 f1: TopoDS_Face; f2: TopoDS_Face; newE: TopoDS_Edge;
@@ -81,3 +81,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeCustomConvertToBSpline): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeCustom_ConvertToBSpline.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

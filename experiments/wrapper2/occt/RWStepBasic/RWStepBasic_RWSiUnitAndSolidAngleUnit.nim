@@ -28,7 +28,7 @@ proc constructRWStepBasicRWSiUnitAndSolidAngleUnit*(): RWStepBasicRWSiUnitAndSol
     constructor, importcpp: "RWStepBasic_RWSiUnitAndSolidAngleUnit(@)",
     header: "RWStepBasic_RWSiUnitAndSolidAngleUnit.hxx".}
 proc readStep*(this: RWStepBasicRWSiUnitAndSolidAngleUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicSiUnitAndSolidAngleUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSiUnitAndSolidAngleUnit.hxx".}
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepBasicRWSiUnitAndSolidAngleUnit;
                sw: var StepDataStepWriter;
                ent: Handle[StepBasicSiUnitAndSolidAngleUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnitAndSolidAngleUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

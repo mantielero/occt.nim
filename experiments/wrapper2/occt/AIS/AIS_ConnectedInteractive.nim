@@ -145,7 +145,7 @@ proc constructAIS_ConnectedInteractive*(aTypeOfPresentation3d: PrsMgrTypeOfPrese
     header: "AIS_ConnectedInteractive.hxx".}
 proc `type`*(this: AIS_ConnectedInteractive): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_ConnectedInteractive.hxx".}
-proc signature*(this: AIS_ConnectedInteractive): int {.noSideEffect,
+proc signature*(this: AIS_ConnectedInteractive): cint {.noSideEffect,
     importcpp: "Signature", header: "AIS_ConnectedInteractive.hxx".}
 proc connect*(this: var AIS_ConnectedInteractive;
              theAnotherObj: Handle[AIS_InteractiveObject]) {.importcpp: "Connect",
@@ -165,10 +165,35 @@ proc disconnect*(this: var AIS_ConnectedInteractive) {.importcpp: "Disconnect",
     header: "AIS_ConnectedInteractive.hxx".}
 proc acceptShapeDecomposition*(this: AIS_ConnectedInteractive): bool {.noSideEffect,
     importcpp: "AcceptShapeDecomposition", header: "AIS_ConnectedInteractive.hxx".}
-proc acceptDisplayMode*(this: AIS_ConnectedInteractive; theMode: int): bool {.
+proc acceptDisplayMode*(this: AIS_ConnectedInteractive; theMode: cint): bool {.
     noSideEffect, importcpp: "AcceptDisplayMode",
     header: "AIS_ConnectedInteractive.hxx".}
 discard "forward decl of AIS_ConnectedInteractive"
 type
-  HandleAIS_ConnectedInteractive* = Handle[AIS_ConnectedInteractive]
+  HandleC1C1* = Handle[AIS_ConnectedInteractive]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

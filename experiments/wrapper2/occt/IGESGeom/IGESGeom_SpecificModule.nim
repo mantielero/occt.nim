@@ -19,7 +19,7 @@ discard "forward decl of IGESData_IGESDumper"
 discard "forward decl of IGESGeom_SpecificModule"
 discard "forward decl of IGESGeom_SpecificModule"
 type
-  HandleIGESGeomSpecificModule* = Handle[IGESGeomSpecificModule]
+  HandleC1C1* = Handle[IGESGeomSpecificModule]
 
 ## ! Defines Services attached to IGES Entities :
 ## ! Dump & OwnCorrect, for IGESGeom
@@ -42,10 +42,11 @@ type
 
 proc constructIGESGeomSpecificModule*(): IGESGeomSpecificModule {.constructor,
     importcpp: "IGESGeom_SpecificModule(@)", header: "IGESGeom_SpecificModule.hxx".}
-proc ownDump*(this: IGESGeomSpecificModule; cn: int; ent: Handle[IGESDataIGESEntity];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESGeom_SpecificModule.hxx".}
-proc ownCorrect*(this: IGESGeomSpecificModule; cn: int;
+proc ownDump*(this: IGESGeomSpecificModule; cn: cint;
+             ent: Handle[IGESDataIGESEntity]; dumper: IGESDataIGESDumper;
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
+    header: "IGESGeom_SpecificModule.hxx".}
+proc ownCorrect*(this: IGESGeomSpecificModule; cn: cint;
                 ent: Handle[IGESDataIGESEntity]): bool {.noSideEffect,
     importcpp: "OwnCorrect", header: "IGESGeom_SpecificModule.hxx".}
 type
@@ -58,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_SpecificModule.hxx".}
 proc dynamicType*(this: IGESGeomSpecificModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGeom_SpecificModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

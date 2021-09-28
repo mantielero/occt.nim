@@ -28,10 +28,10 @@ proc constructHLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter*(
     constructor,
     importcpp: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter(@)",
     header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx".}
-proc nbVariables*(this: HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter): int {.
+proc nbVariables*(this: HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter): cint {.
     noSideEffect, importcpp: "NbVariables",
     header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx".}
-proc nbEquations*(this: HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter): int {.
+proc nbEquations*(this: HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter): cint {.
     noSideEffect, importcpp: "NbEquations",
     header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx".}
 proc value*(this: var HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter;
@@ -44,3 +44,28 @@ proc values*(this: var HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter;
             x: MathVector; f: var MathVector; d: var MathMatrix): bool {.
     importcpp: "Values",
     header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

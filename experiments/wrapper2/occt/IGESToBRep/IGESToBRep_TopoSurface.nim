@@ -66,7 +66,7 @@ proc constructIGESToBRepTopoSurface*(): IGESToBRepTopoSurface {.constructor,
 proc constructIGESToBRepTopoSurface*(cs: IGESToBRepCurveAndSurface): IGESToBRepTopoSurface {.
     constructor, importcpp: "IGESToBRep_TopoSurface(@)",
     header: "IGESToBRep_TopoSurface.hxx".}
-proc constructIGESToBRepTopoSurface*(eps: float; epsGeom: float; epsCoeff: float;
+proc constructIGESToBRepTopoSurface*(eps: cfloat; epsGeom: cfloat; epsCoeff: cfloat;
                                     mode: bool; modeapprox: bool; optimized: bool): IGESToBRepTopoSurface {.
     constructor, importcpp: "IGESToBRep_TopoSurface(@)",
     header: "IGESToBRep_TopoSurface.hxx".}
@@ -104,5 +104,30 @@ proc transferPerforate*(this: var IGESToBRepTopoSurface;
     importcpp: "TransferPerforate", header: "IGESToBRep_TopoSurface.hxx".}
 proc paramSurface*(this: var IGESToBRepTopoSurface;
                   start: Handle[IGESDataIGESEntity]; trans: var Trsf2d;
-                  uFact: var float): TopoDS_Shape {.importcpp: "ParamSurface",
+                  uFact: var cfloat): TopoDS_Shape {.importcpp: "ParamSurface",
     header: "IGESToBRep_TopoSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

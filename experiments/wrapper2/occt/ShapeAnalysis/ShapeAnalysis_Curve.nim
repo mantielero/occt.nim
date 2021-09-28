@@ -37,50 +37,50 @@ type
                                                                        ## ! computed one.
 
 
-proc project*(this: ShapeAnalysisCurve; c3d: Handle[GeomCurve]; p3d: Pnt; preci: float;
-             proj: var Pnt; param: var float; adjustToEnds: bool = true): float {.
+proc project*(this: ShapeAnalysisCurve; c3d: Handle[GeomCurve]; p3d: Pnt;
+             preci: cfloat; proj: var Pnt; param: var cfloat; adjustToEnds: bool = true): cfloat {.
     noSideEffect, importcpp: "Project", header: "ShapeAnalysis_Curve.hxx".}
-proc project*(this: ShapeAnalysisCurve; c3d: Adaptor3dCurve; p3d: Pnt; preci: float;
-             proj: var Pnt; param: var float; adjustToEnds: bool = true): float {.
+proc project*(this: ShapeAnalysisCurve; c3d: Adaptor3dCurve; p3d: Pnt; preci: cfloat;
+             proj: var Pnt; param: var cfloat; adjustToEnds: bool = true): cfloat {.
     noSideEffect, importcpp: "Project", header: "ShapeAnalysis_Curve.hxx".}
-proc project*(this: ShapeAnalysisCurve; c3d: Handle[GeomCurve]; p3d: Pnt; preci: float;
-             proj: var Pnt; param: var float; cf: float; cl: float;
-             adjustToEnds: bool = true): float {.noSideEffect, importcpp: "Project",
+proc project*(this: ShapeAnalysisCurve; c3d: Handle[GeomCurve]; p3d: Pnt;
+             preci: cfloat; proj: var Pnt; param: var cfloat; cf: cfloat; cl: cfloat;
+             adjustToEnds: bool = true): cfloat {.noSideEffect, importcpp: "Project",
     header: "ShapeAnalysis_Curve.hxx".}
-proc projectAct*(this: ShapeAnalysisCurve; c3d: Adaptor3dCurve; p3d: Pnt; preci: float;
-                proj: var Pnt; param: var float): float {.noSideEffect,
+proc projectAct*(this: ShapeAnalysisCurve; c3d: Adaptor3dCurve; p3d: Pnt;
+                preci: cfloat; proj: var Pnt; param: var cfloat): cfloat {.noSideEffect,
     importcpp: "ProjectAct", header: "ShapeAnalysis_Curve.hxx".}
-proc nextProject*(this: ShapeAnalysisCurve; paramPrev: float; c3d: Handle[GeomCurve];
-                 p3d: Pnt; preci: float; proj: var Pnt; param: var float; cf: float;
-                 cl: float; adjustToEnds: bool = true): float {.noSideEffect,
-    importcpp: "NextProject", header: "ShapeAnalysis_Curve.hxx".}
-proc nextProject*(this: ShapeAnalysisCurve; paramPrev: float; c3d: Adaptor3dCurve;
-                 p3d: Pnt; preci: float; proj: var Pnt; param: var float): float {.
+proc nextProject*(this: ShapeAnalysisCurve; paramPrev: cfloat;
+                 c3d: Handle[GeomCurve]; p3d: Pnt; preci: cfloat; proj: var Pnt;
+                 param: var cfloat; cf: cfloat; cl: cfloat; adjustToEnds: bool = true): cfloat {.
+    noSideEffect, importcpp: "NextProject", header: "ShapeAnalysis_Curve.hxx".}
+proc nextProject*(this: ShapeAnalysisCurve; paramPrev: cfloat; c3d: Adaptor3dCurve;
+                 p3d: Pnt; preci: cfloat; proj: var Pnt; param: var cfloat): cfloat {.
     noSideEffect, importcpp: "NextProject", header: "ShapeAnalysis_Curve.hxx".}
 proc validateRange*(this: ShapeAnalysisCurve; crv: Handle[GeomCurve];
-                   first: var float; last: var float; prec: float): bool {.noSideEffect,
-    importcpp: "ValidateRange", header: "ShapeAnalysis_Curve.hxx".}
-proc fillBndBox*(this: ShapeAnalysisCurve; c2d: Handle[Geom2dCurve]; first: float;
-                last: float; nPoints: int; exact: bool; box: var BndBox2d) {.
+                   first: var cfloat; last: var cfloat; prec: cfloat): bool {.
+    noSideEffect, importcpp: "ValidateRange", header: "ShapeAnalysis_Curve.hxx".}
+proc fillBndBox*(this: ShapeAnalysisCurve; c2d: Handle[Geom2dCurve]; first: cfloat;
+                last: cfloat; nPoints: cint; exact: bool; box: var BndBox2d) {.
     noSideEffect, importcpp: "FillBndBox", header: "ShapeAnalysis_Curve.hxx".}
 proc selectForwardSeam*(this: ShapeAnalysisCurve; c1: Handle[Geom2dCurve];
-                       c2: Handle[Geom2dCurve]): int {.noSideEffect,
+                       c2: Handle[Geom2dCurve]): cint {.noSideEffect,
     importcpp: "SelectForwardSeam", header: "ShapeAnalysis_Curve.hxx".}
-proc isPlanar*(pnts: TColgpArray1OfPnt; normal: var Xyz; preci: float = 0): bool {.
+proc isPlanar*(pnts: TColgpArray1OfPnt; normal: var Xyz; preci: cfloat = 0): bool {.
     importcpp: "ShapeAnalysis_Curve::IsPlanar(@)",
     header: "ShapeAnalysis_Curve.hxx".}
-proc isPlanar*(curve: Handle[GeomCurve]; normal: var Xyz; preci: float = 0): bool {.
+proc isPlanar*(curve: Handle[GeomCurve]; normal: var Xyz; preci: cfloat = 0): bool {.
     importcpp: "ShapeAnalysis_Curve::IsPlanar(@)",
     header: "ShapeAnalysis_Curve.hxx".}
-proc getSamplePoints*(curve: Handle[Geom2dCurve]; first: float; last: float;
+proc getSamplePoints*(curve: Handle[Geom2dCurve]; first: cfloat; last: cfloat;
                      seq: var TColgpSequenceOfPnt2d): bool {.
     importcpp: "ShapeAnalysis_Curve::GetSamplePoints(@)",
     header: "ShapeAnalysis_Curve.hxx".}
-proc getSamplePoints*(curve: Handle[GeomCurve]; first: float; last: float;
+proc getSamplePoints*(curve: Handle[GeomCurve]; first: cfloat; last: cfloat;
                      seq: var TColgpSequenceOfPnt): bool {.
     importcpp: "ShapeAnalysis_Curve::GetSamplePoints(@)",
     header: "ShapeAnalysis_Curve.hxx".}
-proc isClosed*(curve: Handle[GeomCurve]; preci: float = -1): bool {.
+proc isClosed*(curve: Handle[GeomCurve]; preci: cfloat = -1): bool {.
     importcpp: "ShapeAnalysis_Curve::IsClosed(@)",
     header: "ShapeAnalysis_Curve.hxx".}
 proc isPeriodic*(curve: Handle[GeomCurve]): bool {.
@@ -89,3 +89,28 @@ proc isPeriodic*(curve: Handle[GeomCurve]): bool {.
 proc isPeriodic*(curve: Handle[Geom2dCurve]): bool {.
     importcpp: "ShapeAnalysis_Curve::IsPeriodic(@)",
     header: "ShapeAnalysis_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

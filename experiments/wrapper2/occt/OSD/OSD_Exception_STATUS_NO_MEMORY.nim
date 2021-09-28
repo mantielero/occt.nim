@@ -15,14 +15,54 @@
 ## !!!Ignored construct:  # _OSD_Exception_STATUS_NO_MEMORY_HeaderFile [NewLine] # _OSD_Exception_STATUS_NO_MEMORY_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_STATUS_NO_MEMORY ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_Exception_STATUS_NO_MEMORY"
-type
-  HandleOSD_ExceptionSTATUS_NO_MEMORYOSD_ExceptionSTATUS_NO_MEMORY* = Handle[
-      OSD_ExceptionSTATUS_NO_MEMORY]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_Exception_STATUS_NO_MEMORY , OSD_Exception ) # ! defined No_Exception && ! defined No_OSD_Exception_STATUS_NO_MEMORY [NewLine] # OSD_Exception_STATUS_NO_MEMORY_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_Exception_STATUS_NO_MEMORY ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_STATUS_NO_MEMORY [NewLine] # if ( CONDITION ) throw OSD_Exception_STATUS_NO_MEMORY ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_Exception_STATUS_NO_MEMORY_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_STATUS_NO_MEMORY , OSD_Exception ) #  _OSD_Exception_STATUS_NO_MEMORY_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_STATUS_NO_MEMORY , OSD_Exception ) #  _OSD_Exception_STATUS_NO_MEMORY_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

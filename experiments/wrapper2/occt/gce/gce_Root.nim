@@ -31,3 +31,28 @@ proc isDone*(this: GceRoot): bool {.noSideEffect, importcpp: "IsDone",
                                 header: "gce_Root.hxx".}
 proc status*(this: GceRoot): GceErrorType {.noSideEffect, importcpp: "Status",
                                         header: "gce_Root.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_PlanarExtent"
 discard "forward decl of StepVisual_PlanarExtent"
 type
-  HandleStepVisualPlanarExtent* = Handle[StepVisualPlanarExtent]
+  HandleC1C1* = Handle[StepVisualPlanarExtent]
   StepVisualPlanarExtent* {.importcpp: "StepVisual_PlanarExtent",
                            header: "StepVisual_PlanarExtent.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                                     ## !
@@ -30,15 +30,15 @@ type
 proc constructStepVisualPlanarExtent*(): StepVisualPlanarExtent {.constructor,
     importcpp: "StepVisual_PlanarExtent(@)", header: "StepVisual_PlanarExtent.hxx".}
 proc init*(this: var StepVisualPlanarExtent; aName: Handle[TCollectionHAsciiString];
-          aSizeInX: float; aSizeInY: float) {.importcpp: "Init",
+          aSizeInX: cfloat; aSizeInY: cfloat) {.importcpp: "Init",
     header: "StepVisual_PlanarExtent.hxx".}
-proc setSizeInX*(this: var StepVisualPlanarExtent; aSizeInX: float) {.
+proc setSizeInX*(this: var StepVisualPlanarExtent; aSizeInX: cfloat) {.
     importcpp: "SetSizeInX", header: "StepVisual_PlanarExtent.hxx".}
-proc sizeInX*(this: StepVisualPlanarExtent): float {.noSideEffect,
+proc sizeInX*(this: StepVisualPlanarExtent): cfloat {.noSideEffect,
     importcpp: "SizeInX", header: "StepVisual_PlanarExtent.hxx".}
-proc setSizeInY*(this: var StepVisualPlanarExtent; aSizeInY: float) {.
+proc setSizeInY*(this: var StepVisualPlanarExtent; aSizeInY: cfloat) {.
     importcpp: "SetSizeInY", header: "StepVisual_PlanarExtent.hxx".}
-proc sizeInY*(this: StepVisualPlanarExtent): float {.noSideEffect,
+proc sizeInY*(this: StepVisualPlanarExtent): cfloat {.noSideEffect,
     importcpp: "SizeInY", header: "StepVisual_PlanarExtent.hxx".}
 type
   StepVisualPlanarExtentbaseType* = StepGeomGeometricRepresentationItem
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_PlanarExtent.hxx".}
 proc dynamicType*(this: StepVisualPlanarExtent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_PlanarExtent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

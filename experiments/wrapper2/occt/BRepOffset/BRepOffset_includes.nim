@@ -24,3 +24,28 @@ include BRepOffset_SimpleOffset
 include BRepOffset_Status
 include BRepOffset_Tool
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

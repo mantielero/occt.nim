@@ -27,3 +27,28 @@ proc string*(this: VrmlInfo): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Vrml_Info.hxx".}
 proc print*(this: VrmlInfo; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Info.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

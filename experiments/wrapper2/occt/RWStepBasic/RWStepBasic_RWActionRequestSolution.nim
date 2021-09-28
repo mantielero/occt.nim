@@ -28,7 +28,7 @@ proc constructRWStepBasicRWActionRequestSolution*(): RWStepBasicRWActionRequestS
     constructor, importcpp: "RWStepBasic_RWActionRequestSolution(@)",
     header: "RWStepBasic_RWActionRequestSolution.hxx".}
 proc readStep*(this: RWStepBasicRWActionRequestSolution;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicActionRequestSolution]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWActionRequestSolution.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepBasicRWActionRequestSolution;
            ent: Handle[StepBasicActionRequestSolution];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWActionRequestSolution.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

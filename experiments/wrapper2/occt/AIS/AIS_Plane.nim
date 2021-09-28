@@ -61,17 +61,17 @@ proc constructAIS_Plane*(aComponent: Handle[GeomPlane]; aCenter: Pnt; aPmin: Pnt
 proc constructAIS_Plane*(aComponent: Handle[GeomAxis2Placement];
                         aPlaneType: AIS_TypeOfPlane; aCurrentMode: bool = false): AIS_Plane {.
     constructor, importcpp: "AIS_Plane(@)", header: "AIS_Plane.hxx".}
-proc setSize*(this: var AIS_Plane; aValue: float) {.importcpp: "SetSize",
+proc setSize*(this: var AIS_Plane; aValue: cfloat) {.importcpp: "SetSize",
     header: "AIS_Plane.hxx".}
-proc setSize*(this: var AIS_Plane; xval: float; yVal: float) {.importcpp: "SetSize",
+proc setSize*(this: var AIS_Plane; xval: cfloat; yVal: cfloat) {.importcpp: "SetSize",
     header: "AIS_Plane.hxx".}
 proc unsetSize*(this: var AIS_Plane) {.importcpp: "UnsetSize", header: "AIS_Plane.hxx".}
-proc size*(this: AIS_Plane; x: var float; y: var float): bool {.noSideEffect,
+proc size*(this: AIS_Plane; x: var cfloat; y: var cfloat): bool {.noSideEffect,
     importcpp: "Size", header: "AIS_Plane.hxx".}
 proc hasOwnSize*(this: AIS_Plane): bool {.noSideEffect, importcpp: "HasOwnSize",
                                       header: "AIS_Plane.hxx".}
-proc signature*(this: AIS_Plane): int {.noSideEffect, importcpp: "Signature",
-                                    header: "AIS_Plane.hxx".}
+proc signature*(this: AIS_Plane): cint {.noSideEffect, importcpp: "Signature",
+                                     header: "AIS_Plane.hxx".}
 proc `type`*(this: AIS_Plane): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_Plane.hxx".}
 proc component*(this: var AIS_Plane): Handle[GeomPlane] {.importcpp: "Component",
@@ -101,7 +101,7 @@ proc currentMode*(this: var AIS_Plane): bool {.importcpp: "CurrentMode",
     header: "AIS_Plane.hxx".}
 proc setCurrentMode*(this: var AIS_Plane; theCurrentMode: bool) {.
     importcpp: "SetCurrentMode", header: "AIS_Plane.hxx".}
-proc acceptDisplayMode*(this: AIS_Plane; aMode: int): bool {.noSideEffect,
+proc acceptDisplayMode*(this: AIS_Plane; aMode: cint): bool {.noSideEffect,
     importcpp: "AcceptDisplayMode", header: "AIS_Plane.hxx".}
 proc setContext*(this: var AIS_Plane; aCtx: Handle[AIS_InteractiveContext]) {.
     importcpp: "SetContext", header: "AIS_Plane.hxx".}
@@ -111,7 +111,7 @@ proc setTypeOfSensitivity*(this: var AIS_Plane;
                           theTypeOfSensitivity: Select3D_TypeOfSensitivity) {.
     importcpp: "SetTypeOfSensitivity", header: "AIS_Plane.hxx".}
 proc computeSelection*(this: var AIS_Plane;
-                      theSelection: Handle[SelectMgrSelection]; theMode: int) {.
+                      theSelection: Handle[SelectMgrSelection]; theMode: cint) {.
     importcpp: "ComputeSelection", header: "AIS_Plane.hxx".}
 proc setColor*(this: var AIS_Plane; aColor: QuantityColor) {.importcpp: "SetColor",
     header: "AIS_Plane.hxx".}
@@ -119,5 +119,30 @@ proc unsetColor*(this: var AIS_Plane) {.importcpp: "UnsetColor",
                                     header: "AIS_Plane.hxx".}
 discard "forward decl of AIS_Plane"
 type
-  HandleAIS_Plane* = Handle[AIS_Plane]
+  HandleC1C1* = Handle[AIS_Plane]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -47,3 +47,28 @@ proc current*(this: BRepProjProjection): TopoDS_Wire {.noSideEffect,
     importcpp: "Current", header: "BRepProj_Projection.hxx".}
 proc shape*(this: BRepProjProjection): TopoDS_Compound {.noSideEffect,
     importcpp: "Shape", header: "BRepProj_Projection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

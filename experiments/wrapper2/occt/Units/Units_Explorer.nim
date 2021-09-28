@@ -63,3 +63,28 @@ proc unit*(this: UnitsExplorer): TCollectionAsciiString {.noSideEffect,
     importcpp: "Unit", header: "Units_Explorer.hxx".}
 proc isActive*(this: UnitsExplorer): bool {.noSideEffect, importcpp: "IsActive",
                                         header: "Units_Explorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

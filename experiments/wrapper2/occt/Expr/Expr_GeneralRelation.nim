@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_GeneralRelation"
 discard "forward decl of Expr_GeneralRelation"
 type
-  HandleExprGeneralRelation* = Handle[ExprGeneralRelation]
+  HandleC1C1* = Handle[ExprGeneralRelation]
 
 ## ! Defines the general purposes of any relation between
 ## ! expressions.
@@ -50,11 +50,11 @@ proc simplify*(this: var ExprGeneralRelation) {.importcpp: "Simplify",
     header: "Expr_GeneralRelation.hxx".}
 proc copy*(this: ExprGeneralRelation): Handle[ExprGeneralRelation] {.noSideEffect,
     importcpp: "Copy", header: "Expr_GeneralRelation.hxx".}
-proc nbOfSubRelations*(this: ExprGeneralRelation): int {.noSideEffect,
+proc nbOfSubRelations*(this: ExprGeneralRelation): cint {.noSideEffect,
     importcpp: "NbOfSubRelations", header: "Expr_GeneralRelation.hxx".}
-proc nbOfSingleRelations*(this: ExprGeneralRelation): int {.noSideEffect,
+proc nbOfSingleRelations*(this: ExprGeneralRelation): cint {.noSideEffect,
     importcpp: "NbOfSingleRelations", header: "Expr_GeneralRelation.hxx".}
-proc subRelation*(this: ExprGeneralRelation; index: int): Handle[ExprGeneralRelation] {.
+proc subRelation*(this: ExprGeneralRelation; index: cint): Handle[ExprGeneralRelation] {.
     noSideEffect, importcpp: "SubRelation", header: "Expr_GeneralRelation.hxx".}
 proc contains*(this: ExprGeneralRelation; exp: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "Contains", header: "Expr_GeneralRelation.hxx".}
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_GeneralRelation.hxx".}
 proc dynamicType*(this: ExprGeneralRelation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_GeneralRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

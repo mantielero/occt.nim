@@ -21,3 +21,28 @@ type
     StepToTopoDS_TranslateVertexLoopDone, StepToTopoDS_TranslateVertexLoopOther
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

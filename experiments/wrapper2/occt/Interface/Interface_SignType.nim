@@ -20,7 +20,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_SignType"
 discard "forward decl of Interface_SignType"
 type
-  HandleInterfaceSignType* = Handle[InterfaceSignType]
+  HandleC1C1* = Handle[InterfaceSignType]
 
 ## ! Provides the basic service to get a type name, according
 ## ! to a norm
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_SignType.hxx".}
 proc dynamicType*(this: InterfaceSignType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_SignType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

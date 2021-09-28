@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MAT2dDataMapOfIntegerBisec* = NCollectionDataMap[int, BisectorBisec,
+  MAT2dDataMapOfIntegerBisec* = NCollectionDataMap[cint, BisectorBisec,
       TColStdMapIntegerHasher]
-  MAT2dDataMapIteratorOfDataMapOfIntegerBisec* = Iterator[int, BisectorBisec,
+  MAT2dDataMapIteratorOfDataMapOfIntegerBisec* = Iterator[cint, BisectorBisec,
       TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

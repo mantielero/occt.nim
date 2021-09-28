@@ -52,10 +52,35 @@ proc init*(this: var ChFi2dFilletAPI; theWire: TopoDS_Wire; thePlane: Pln) {.
     importcpp: "Init", header: "ChFi2d_FilletAPI.hxx".}
 proc init*(this: var ChFi2dFilletAPI; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
           thePlane: Pln) {.importcpp: "Init", header: "ChFi2d_FilletAPI.hxx".}
-proc perform*(this: var ChFi2dFilletAPI; theRadius: float): bool {.
+proc perform*(this: var ChFi2dFilletAPI; theRadius: cfloat): bool {.
     importcpp: "Perform", header: "ChFi2d_FilletAPI.hxx".}
-proc nbResults*(this: var ChFi2dFilletAPI; thePoint: Pnt): int {.
+proc nbResults*(this: var ChFi2dFilletAPI; thePoint: Pnt): cint {.
     importcpp: "NbResults", header: "ChFi2d_FilletAPI.hxx".}
 proc result*(this: var ChFi2dFilletAPI; thePoint: Pnt; theEdge1: var TopoDS_Edge;
-            theEdge2: var TopoDS_Edge; iSolution: int = -1): TopoDS_Edge {.
+            theEdge2: var TopoDS_Edge; iSolution: cint = -1): TopoDS_Edge {.
     importcpp: "Result", header: "ChFi2d_FilletAPI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

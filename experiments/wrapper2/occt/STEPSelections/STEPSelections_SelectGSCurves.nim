@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of STEPSelections_SelectGSCurves"
 discard "forward decl of STEPSelections_SelectGSCurves"
 type
-  HandleSTEPSelectionsSelectGSCurves* = Handle[STEPSelectionsSelectGSCurves]
+  HandleC1C1* = Handle[STEPSelectionsSelectGSCurves]
 
 ## ! This selection returns "curves in the geometric_set (except composite curves)"
 
@@ -34,7 +34,7 @@ type
 proc constructSTEPSelectionsSelectGSCurves*(): STEPSelectionsSelectGSCurves {.
     constructor, importcpp: "STEPSelections_SelectGSCurves(@)",
     header: "STEPSelections_SelectGSCurves.hxx".}
-proc explore*(this: STEPSelectionsSelectGSCurves; level: int;
+proc explore*(this: STEPSelectionsSelectGSCurves; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "STEPSelections_SelectGSCurves.hxx".}
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectGSCurves): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectGSCurves.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

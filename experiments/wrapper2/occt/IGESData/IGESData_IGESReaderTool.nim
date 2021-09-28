@@ -56,13 +56,13 @@ proc constructIGESDataIGESReaderTool*(reader: Handle[IGESDataIGESReaderData];
     header: "IGESData_IGESReaderTool.hxx".}
 proc prepare*(this: var IGESDataIGESReaderTool; reco: Handle[IGESDataFileRecognizer]) {.
     importcpp: "Prepare", header: "IGESData_IGESReaderTool.hxx".}
-proc recognize*(this: var IGESDataIGESReaderTool; num: int;
+proc recognize*(this: var IGESDataIGESReaderTool; num: cint;
                ach: var Handle[InterfaceCheck]; ent: var Handle[StandardTransient]): bool {.
     importcpp: "Recognize", header: "IGESData_IGESReaderTool.hxx".}
 proc beginRead*(this: var IGESDataIGESReaderTool;
                amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "BeginRead",
     header: "IGESData_IGESReaderTool.hxx".}
-proc analyseRecord*(this: var IGESDataIGESReaderTool; num: int;
+proc analyseRecord*(this: var IGESDataIGESReaderTool; num: cint;
                    anent: Handle[StandardTransient];
                    acheck: var Handle[InterfaceCheck]): bool {.
     importcpp: "AnalyseRecord", header: "IGESData_IGESReaderTool.hxx".}
@@ -82,3 +82,28 @@ proc readProps*(this: IGESDataIGESReaderTool; ent: Handle[IGESDataIGESEntity];
 proc readAssocs*(this: IGESDataIGESReaderTool; ent: Handle[IGESDataIGESEntity];
                 ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
     noSideEffect, importcpp: "ReadAssocs", header: "IGESData_IGESReaderTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

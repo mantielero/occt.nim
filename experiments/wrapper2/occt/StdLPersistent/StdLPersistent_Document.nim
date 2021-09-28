@@ -36,3 +36,28 @@ proc pName*(this: StdLPersistentDocument): StandardCString {.noSideEffect,
 proc importDocument*(this: StdLPersistentDocument;
                     theDocument: Handle[TDocStdDocument]) {.noSideEffect,
     importcpp: "ImportDocument", header: "StdLPersistent_Document.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

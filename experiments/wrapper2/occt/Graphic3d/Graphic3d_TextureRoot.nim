@@ -123,5 +123,30 @@ proc isTopDown*(this: Graphic3dTextureRoot): bool {.noSideEffect,
     importcpp: "IsTopDown", header: "Graphic3d_TextureRoot.hxx".}
 discard "forward decl of Graphic3d_TextureRoot"
 type
-  HandleGraphic3dTextureRoot* = Handle[Graphic3dTextureRoot]
+  HandleC1C1* = Handle[Graphic3dTextureRoot]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

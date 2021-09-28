@@ -69,3 +69,28 @@ proc barycCurve*(this: var BRepFeatForm): Handle[GeomCurve] {.
     importcpp: "BarycCurve", header: "BRepFeat_Form.hxx".}
 proc currentStatusError*(this: BRepFeatForm): BRepFeatStatusError {.noSideEffect,
     importcpp: "CurrentStatusError", header: "BRepFeat_Form.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

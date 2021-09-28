@@ -27,20 +27,20 @@ type
                     bycopy.} = object
 
 
-proc firstParameter*(c: Lin): float {.importcpp: "HLRBRep_LineTool::FirstParameter(@)",
+proc firstParameter*(c: Lin): cfloat {.importcpp: "HLRBRep_LineTool::FirstParameter(@)",
+                                   header: "HLRBRep_LineTool.hxx".}
+proc lastParameter*(c: Lin): cfloat {.importcpp: "HLRBRep_LineTool::LastParameter(@)",
                                   header: "HLRBRep_LineTool.hxx".}
-proc lastParameter*(c: Lin): float {.importcpp: "HLRBRep_LineTool::LastParameter(@)",
-                                 header: "HLRBRep_LineTool.hxx".}
 proc continuity*(c: Lin): GeomAbsShape {.importcpp: "HLRBRep_LineTool::Continuity(@)",
                                      header: "HLRBRep_LineTool.hxx".}
-proc nbIntervals*(c: Lin; s: GeomAbsShape): int {.
+proc nbIntervals*(c: Lin; s: GeomAbsShape): cint {.
     importcpp: "HLRBRep_LineTool::NbIntervals(@)", header: "HLRBRep_LineTool.hxx".}
 proc intervals*(c: Lin; t: var TColStdArray1OfReal; sh: GeomAbsShape) {.
     importcpp: "HLRBRep_LineTool::Intervals(@)", header: "HLRBRep_LineTool.hxx".}
-proc intervalFirst*(c: Lin): float {.importcpp: "HLRBRep_LineTool::IntervalFirst(@)",
+proc intervalFirst*(c: Lin): cfloat {.importcpp: "HLRBRep_LineTool::IntervalFirst(@)",
+                                  header: "HLRBRep_LineTool.hxx".}
+proc intervalLast*(c: Lin): cfloat {.importcpp: "HLRBRep_LineTool::IntervalLast(@)",
                                  header: "HLRBRep_LineTool.hxx".}
-proc intervalLast*(c: Lin): float {.importcpp: "HLRBRep_LineTool::IntervalLast(@)",
-                                header: "HLRBRep_LineTool.hxx".}
 proc intervalContinuity*(c: Lin): GeomAbsShape {.
     importcpp: "HLRBRep_LineTool::IntervalContinuity(@)",
     header: "HLRBRep_LineTool.hxx".}
@@ -48,22 +48,22 @@ proc isClosed*(c: Lin): bool {.importcpp: "HLRBRep_LineTool::IsClosed(@)",
                            header: "HLRBRep_LineTool.hxx".}
 proc isPeriodic*(c: Lin): bool {.importcpp: "HLRBRep_LineTool::IsPeriodic(@)",
                              header: "HLRBRep_LineTool.hxx".}
-proc period*(c: Lin): float {.importcpp: "HLRBRep_LineTool::Period(@)",
-                          header: "HLRBRep_LineTool.hxx".}
-proc value*(c: Lin; u: float): Pnt {.importcpp: "HLRBRep_LineTool::Value(@)",
-                               header: "HLRBRep_LineTool.hxx".}
-proc d0*(c: Lin; u: float; p: var Pnt) {.importcpp: "HLRBRep_LineTool::D0(@)",
-                                 header: "HLRBRep_LineTool.hxx".}
-proc d1*(c: Lin; u: float; p: var Pnt; v: var Vec) {.importcpp: "HLRBRep_LineTool::D1(@)",
-    header: "HLRBRep_LineTool.hxx".}
-proc d2*(c: Lin; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    importcpp: "HLRBRep_LineTool::D2(@)", header: "HLRBRep_LineTool.hxx".}
-proc d3*(c: Lin; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    importcpp: "HLRBRep_LineTool::D3(@)", header: "HLRBRep_LineTool.hxx".}
-proc dn*(c: Lin; u: float; n: int): Vec {.importcpp: "HLRBRep_LineTool::DN(@)",
+proc period*(c: Lin): cfloat {.importcpp: "HLRBRep_LineTool::Period(@)",
+                           header: "HLRBRep_LineTool.hxx".}
+proc value*(c: Lin; u: cfloat): Pnt {.importcpp: "HLRBRep_LineTool::Value(@)",
+                                header: "HLRBRep_LineTool.hxx".}
+proc d0*(c: Lin; u: cfloat; p: var Pnt) {.importcpp: "HLRBRep_LineTool::D0(@)",
                                   header: "HLRBRep_LineTool.hxx".}
-proc resolution*(c: Lin; r3d: float): float {.importcpp: "HLRBRep_LineTool::Resolution(@)",
-                                        header: "HLRBRep_LineTool.hxx".}
+proc d1*(c: Lin; u: cfloat; p: var Pnt; v: var Vec) {.importcpp: "HLRBRep_LineTool::D1(@)",
+    header: "HLRBRep_LineTool.hxx".}
+proc d2*(c: Lin; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    importcpp: "HLRBRep_LineTool::D2(@)", header: "HLRBRep_LineTool.hxx".}
+proc d3*(c: Lin; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    importcpp: "HLRBRep_LineTool::D3(@)", header: "HLRBRep_LineTool.hxx".}
+proc dn*(c: Lin; u: cfloat; n: cint): Vec {.importcpp: "HLRBRep_LineTool::DN(@)",
+                                    header: "HLRBRep_LineTool.hxx".}
+proc resolution*(c: Lin; r3d: cfloat): cfloat {.
+    importcpp: "HLRBRep_LineTool::Resolution(@)", header: "HLRBRep_LineTool.hxx".}
 proc getType*(c: Lin): GeomAbsCurveType {.importcpp: "HLRBRep_LineTool::GetType(@)",
                                       header: "HLRBRep_LineTool.hxx".}
 proc line*(c: Lin): Lin {.importcpp: "HLRBRep_LineTool::Line(@)",
@@ -80,10 +80,10 @@ proc bezier*(c: Lin): Handle[GeomBezierCurve] {.
     importcpp: "HLRBRep_LineTool::Bezier(@)", header: "HLRBRep_LineTool.hxx".}
 proc bSpline*(c: Lin): Handle[GeomBSplineCurve] {.
     importcpp: "HLRBRep_LineTool::BSpline(@)", header: "HLRBRep_LineTool.hxx".}
-proc degree*(c: Lin): int {.importcpp: "HLRBRep_LineTool::Degree(@)",
-                        header: "HLRBRep_LineTool.hxx".}
-proc nbPoles*(c: Lin): int {.importcpp: "HLRBRep_LineTool::NbPoles(@)",
+proc degree*(c: Lin): cint {.importcpp: "HLRBRep_LineTool::Degree(@)",
                          header: "HLRBRep_LineTool.hxx".}
+proc nbPoles*(c: Lin): cint {.importcpp: "HLRBRep_LineTool::NbPoles(@)",
+                          header: "HLRBRep_LineTool.hxx".}
 proc poles*(c: Lin; tp: var TColgpArray1OfPnt) {.
     importcpp: "HLRBRep_LineTool::Poles(@)", header: "HLRBRep_LineTool.hxx".}
 proc isRational*(c: Lin): bool {.importcpp: "HLRBRep_LineTool::IsRational(@)",
@@ -91,14 +91,39 @@ proc isRational*(c: Lin): bool {.importcpp: "HLRBRep_LineTool::IsRational(@)",
 proc polesAndWeights*(c: Lin; tp: var TColgpArray1OfPnt; tw: var TColStdArray1OfReal) {.
     importcpp: "HLRBRep_LineTool::PolesAndWeights(@)",
     header: "HLRBRep_LineTool.hxx".}
-proc nbKnots*(c: Lin): int {.importcpp: "HLRBRep_LineTool::NbKnots(@)",
-                         header: "HLRBRep_LineTool.hxx".}
+proc nbKnots*(c: Lin): cint {.importcpp: "HLRBRep_LineTool::NbKnots(@)",
+                          header: "HLRBRep_LineTool.hxx".}
 proc knotsAndMultiplicities*(c: Lin; tk: var TColStdArray1OfReal;
                             tm: var TColStdArray1OfInteger) {.
     importcpp: "HLRBRep_LineTool::KnotsAndMultiplicities(@)",
     header: "HLRBRep_LineTool.hxx".}
-proc nbSamples*(c: Lin; u0: float; u1: float): int {.
+proc nbSamples*(c: Lin; u0: cfloat; u1: cfloat): cint {.
     importcpp: "HLRBRep_LineTool::NbSamples(@)", header: "HLRBRep_LineTool.hxx".}
-proc samplePars*(c: Lin; u0: float; u1: float; defl: float; nbMin: int;
+proc samplePars*(c: Lin; u0: cfloat; u1: cfloat; defl: cfloat; nbMin: cint;
                 pars: var Handle[TColStdHArray1OfReal]) {.
     importcpp: "HLRBRep_LineTool::SamplePars(@)", header: "HLRBRep_LineTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

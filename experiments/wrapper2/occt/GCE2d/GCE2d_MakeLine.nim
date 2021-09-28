@@ -56,7 +56,7 @@ proc constructGCE2dMakeLine*(p: Pnt2d; v: Dir2d): GCE2dMakeLine {.constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
 proc constructGCE2dMakeLine*(lin: Lin2d; point: Pnt2d): GCE2dMakeLine {.constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
-proc constructGCE2dMakeLine*(lin: Lin2d; dist: float): GCE2dMakeLine {.constructor,
+proc constructGCE2dMakeLine*(lin: Lin2d; dist: cfloat): GCE2dMakeLine {.constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
 proc constructGCE2dMakeLine*(p1: Pnt2d; p2: Pnt2d): GCE2dMakeLine {.constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
@@ -65,3 +65,28 @@ proc value*(this: GCE2dMakeLine): Handle[Geom2dLine] {.noSideEffect,
 converter `constopencascade`*(this: GCE2dMakeLine): Handle[Geom2dLine] {.
     noSideEffect, importcpp: "GCE2d_MakeLine::operator constopencascade",
     header: "GCE2d_MakeLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

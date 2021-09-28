@@ -17,3 +17,28 @@ type
   VrmlDataDataMapOfShapeAppearance* = NCollectionDataMap[Handle[TopoDS_TShape],
       Handle[VrmlDataAppearance]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

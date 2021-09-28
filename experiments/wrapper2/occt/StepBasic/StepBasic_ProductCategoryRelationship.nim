@@ -19,8 +19,7 @@ discard "forward decl of StepBasic_ProductCategory"
 discard "forward decl of StepBasic_ProductCategoryRelationship"
 discard "forward decl of StepBasic_ProductCategoryRelationship"
 type
-  HandleStepBasicProductCategoryRelationship* = Handle[
-      StepBasicProductCategoryRelationship]
+  HandleC1C1* = Handle[StepBasicProductCategoryRelationship]
 
 ## ! Representation of STEP entity ProductCategoryRelationship
 
@@ -78,3 +77,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicProductCategoryRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ProductCategoryRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

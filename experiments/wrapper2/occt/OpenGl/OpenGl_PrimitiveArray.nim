@@ -140,5 +140,30 @@ proc indexVbo*(this: OpenGlPrimitiveArray): Handle[OpenGlVertexBuffer] {.
 proc attributesVbo*(this: OpenGlPrimitiveArray): Handle[OpenGlVertexBuffer] {.
     noSideEffect, importcpp: "AttributesVbo", header: "OpenGl_PrimitiveArray.hxx".}
 proc dumpJson*(this: OpenGlPrimitiveArray; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_PrimitiveArray.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_PrimitiveArray.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

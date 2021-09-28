@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of STEPSelections_SelectDerived"
 discard "forward decl of STEPSelections_SelectDerived"
 type
-  HandleSTEPSelectionsSelectDerived* = Handle[STEPSelectionsSelectDerived]
+  HandleC1C1* = Handle[STEPSelectionsSelectDerived]
   STEPSelectionsSelectDerived* {.importcpp: "STEPSelections_SelectDerived",
                                 header: "STEPSelections_SelectDerived.hxx", bycopy.} = object of StepSelectStepType
 
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectDerived): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectDerived.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

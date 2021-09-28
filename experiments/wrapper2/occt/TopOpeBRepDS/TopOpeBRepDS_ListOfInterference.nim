@@ -20,3 +20,28 @@ type
   TopOpeBRepDS_ListIteratorOfListOfInterference* = Iterator[
       Handle[TopOpeBRepDS_Interference]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

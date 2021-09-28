@@ -43,7 +43,7 @@ proc clear*(this: var StepDataWriterLib) {.importcpp: "Clear",
 proc setComplete*(this: var StepDataWriterLib) {.importcpp: "SetComplete",
     header: "StepData_WriterLib.hxx".}
 proc select*(this: StepDataWriterLib; obj: Handle[StandardTransient];
-            module: var Handle[StepDataReadWriteModule]; cn: var int): bool {.
+            module: var Handle[StepDataReadWriteModule]; cn: var cint): bool {.
     noSideEffect, importcpp: "Select", header: "StepData_WriterLib.hxx".}
 proc start*(this: var StepDataWriterLib) {.importcpp: "Start",
                                        header: "StepData_WriterLib.hxx".}
@@ -55,3 +55,28 @@ proc module*(this: StepDataWriterLib): Handle[StepDataReadWriteModule] {.
     noSideEffect, importcpp: "Module", header: "StepData_WriterLib.hxx".}
 proc protocol*(this: StepDataWriterLib): Handle[StepDataProtocol] {.noSideEffect,
     importcpp: "Protocol", header: "StepData_WriterLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

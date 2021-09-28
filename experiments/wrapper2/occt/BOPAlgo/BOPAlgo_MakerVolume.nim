@@ -50,3 +50,28 @@ proc isAvoidInternalShapes*(this: BOPAlgoMakerVolume): bool {.noSideEffect,
     importcpp: "IsAvoidInternalShapes", header: "BOPAlgo_MakerVolume.hxx".}
 proc perform*(this: var BOPAlgoMakerVolume) {.importcpp: "Perform",
     header: "BOPAlgo_MakerVolume.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

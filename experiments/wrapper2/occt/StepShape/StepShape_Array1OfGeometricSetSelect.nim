@@ -18,3 +18,28 @@ type
   StepShapeArray1OfGeometricSetSelect* = NCollectionArray1[
       StepShapeGeometricSetSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

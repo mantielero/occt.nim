@@ -27,7 +27,7 @@ type
 proc constructRWStepShapeRWOpenShell*(): RWStepShapeRWOpenShell {.constructor,
     importcpp: "RWStepShape_RWOpenShell(@)", header: "RWStepShape_RWOpenShell.hxx".}
 proc readStep*(this: RWStepShapeRWOpenShell; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeOpenShell]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWOpenShell.hxx".}
 proc writeStep*(this: RWStepShapeRWOpenShell; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepShapeRWOpenShell; sw: var StepDataStepWriter;
 proc share*(this: RWStepShapeRWOpenShell; ent: Handle[StepShapeOpenShell];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWOpenShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

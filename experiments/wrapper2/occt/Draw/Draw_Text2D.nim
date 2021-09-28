@@ -20,14 +20,14 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Text2D"
 discard "forward decl of Draw_Text2D"
 type
-  HandleDrawText2D* = Handle[DrawText2D]
+  HandleC1C1* = Handle[DrawText2D]
   DrawText2D* {.importcpp: "Draw_Text2D", header: "Draw_Text2D.hxx", bycopy.} = object of DrawDrawable2D
 
 
 proc constructDrawText2D*(p: Pnt2d; t: StandardCString; col: DrawColor): DrawText2D {.
     constructor, importcpp: "Draw_Text2D(@)", header: "Draw_Text2D.hxx".}
-proc constructDrawText2D*(p: Pnt2d; t: StandardCString; col: DrawColor; moveX: int;
-                         moveY: int): DrawText2D {.constructor,
+proc constructDrawText2D*(p: Pnt2d; t: StandardCString; col: DrawColor; moveX: cint;
+                         moveY: cint): DrawText2D {.constructor,
     importcpp: "Draw_Text2D(@)", header: "Draw_Text2D.hxx".}
 proc setPnt2d*(this: var DrawText2D; p: Pnt2d) {.importcpp: "SetPnt2d",
     header: "Draw_Text2D.hxx".}
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Text2D::get_type_descriptor(@)", header: "Draw_Text2D.hxx".}
 proc dynamicType*(this: DrawText2D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Text2D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

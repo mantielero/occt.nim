@@ -11,37 +11,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## ! Bounds buffer.
+## !!!Ignored construct:  # _Graphic3d_BoundBuffer_HeaderFile [NewLine] # _Graphic3d_BoundBuffer_HeaderFile [NewLine] # < Graphic3d_Buffer . hxx > [NewLine] ! Bounds buffer. class Graphic3d_BoundBuffer : public NCollection_Buffer { public : typedef NCollection_Buffer base_type ; static const char * get_type_name ( ) { return Graphic3d_BoundBuffer ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; public : ! Empty constructor. Graphic3d_BoundBuffer ( const Handle ( NCollection_BaseAllocator ) & theAlloc ) : NCollection_Buffer ( theAlloc ) , Colors ( NULL ) , Bounds ( NULL ) , NbBounds ( 0 ) , NbMaxBounds ( 0 ) { } ! Allocates new empty array bool Init ( const Standard_Integer theNbBounds , const Standard_Boolean theHasColors ) { Colors = NULL ; Bounds = NULL ; NbBounds = 0 ; NbMaxBounds = 0 ; Free ( ) ; if ( theNbBounds < 1 ) { return false ; } const size_t aBoundsSize = sizeof ( Standard_Integer ) * theNbBounds ; const size_t aColorsSize = theHasColors ? sizeof ( Graphic3d_Vec4 ) * theNbBounds : 0 ; if ( ! Allocate ( aColorsSize + aBoundsSize ) ) { Free ( ) ; return false ; } NbBounds = theNbBounds ; NbMaxBounds = theNbBounds ; Colors = theHasColors ? reinterpret_cast < Graphic3d_Vec4 * > ( myData ) : NULL ; Bounds = reinterpret_cast < Standard_Integer * > ( theHasColors ? ( myData + aColorsSize ) : myData ) ; return true ; } ! Dumps the content of me into the stream virtual void DumpJson ( Standard_OStream & theOStream , Standard_Integer theDepth = - 1 ) const { OCCT_DUMP_TRANSIENT_CLASS_BEGIN ( theOStream ) OCCT_DUMP_BASE_CLASS ( theOStream , theDepth , NCollection_Buffer ) OCCT_DUMP_FIELD_VALUE_POINTER ( theOStream , Colors ) OCCT_DUMP_FIELD_VALUE_POINTER ( theOStream , Bounds ) OCCT_DUMP_FIELD_VALUE_NUMERICAL ( theOStream , NbBounds ) OCCT_DUMP_FIELD_VALUE_NUMERICAL ( theOStream , NbMaxBounds ) } public : Graphic3d_Vec4 * Colors ; !< pointer to facet color values Standard_Integer * Bounds ; !< pointer to bounds array Standard_Integer NbBounds ; !< number of bounds Standard_Integer NbMaxBounds ; !< number of allocated bounds } ;
+## Error: expected ';'!!!
 
-type
-  Graphic3dBoundBuffer* {.importcpp: "Graphic3d_BoundBuffer",
-                         header: "Graphic3d_BoundBuffer.hxx", bycopy.} = object of NCollectionBuffer ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor.
-    colors* {.importc: "Colors".}: ptr Graphic3dVec4 ## !< pointer to facet color values
-    bounds* {.importc: "Bounds".}: ptr int ## !< pointer to bounds array
-    nbBounds* {.importc: "NbBounds".}: int ## !< number of bounds
-    nbMaxBounds* {.importc: "NbMaxBounds".}: int ## !< number of allocated bounds
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Graphic3d_BoundBuffer , NCollection_Buffer ) #  _Graphic3d_BoundBuffer_HeaderFile
+## Error: expected ';'!!!
 
-  Graphic3dBoundBufferbaseType* = NCollectionBuffer
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_BoundBuffer::get_type_name(@)",
-                            header: "Graphic3d_BoundBuffer.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Graphic3d_BoundBuffer::get_type_descriptor(@)",
-    header: "Graphic3d_BoundBuffer.hxx".}
-proc dynamicType*(this: Graphic3dBoundBuffer): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Graphic3d_BoundBuffer.hxx".}
-proc constructGraphic3dBoundBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dBoundBuffer {.
-    constructor, importcpp: "Graphic3d_BoundBuffer(@)",
-    header: "Graphic3d_BoundBuffer.hxx".}
-proc init*(this: var Graphic3dBoundBuffer; theNbBounds: int; theHasColors: bool): bool {.
-    importcpp: "Init", header: "Graphic3d_BoundBuffer.hxx".}
-proc dumpJson*(this: Graphic3dBoundBuffer; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_BoundBuffer.hxx".}
-discard "forward decl of Graphic3d_BoundBuffer"
-type
-  HandleGraphic3dBoundBuffer* = Handle[Graphic3dBoundBuffer]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

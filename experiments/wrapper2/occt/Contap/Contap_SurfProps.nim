@@ -23,11 +23,36 @@ type
                                    ## ! <S> at parameters U,V.
 
 
-proc normale*(s: Handle[Adaptor3dHSurface]; u: float; v: float; p: var Pnt; n: var Vec) {.
+proc normale*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt; n: var Vec) {.
     importcpp: "Contap_SurfProps::Normale(@)", header: "Contap_SurfProps.hxx".}
-proc derivAndNorm*(s: Handle[Adaptor3dHSurface]; u: float; v: float; p: var Pnt;
+proc derivAndNorm*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt;
                   d1u: var Vec; d1v: var Vec; n: var Vec) {.
     importcpp: "Contap_SurfProps::DerivAndNorm(@)", header: "Contap_SurfProps.hxx".}
-proc normAndDn*(s: Handle[Adaptor3dHSurface]; u: float; v: float; p: var Pnt; n: var Vec;
-               dnu: var Vec; dnv: var Vec) {.importcpp: "Contap_SurfProps::NormAndDn(@)",
-                                       header: "Contap_SurfProps.hxx".}
+proc normAndDn*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt;
+               n: var Vec; dnu: var Vec; dnv: var Vec) {.
+    importcpp: "Contap_SurfProps::NormAndDn(@)", header: "Contap_SurfProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

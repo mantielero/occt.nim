@@ -17,3 +17,28 @@
 type
   V3dTypeOfShadingModel* = Graphic3dTypeOfShadingModel
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

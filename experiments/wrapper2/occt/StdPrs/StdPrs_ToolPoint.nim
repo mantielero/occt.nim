@@ -20,5 +20,30 @@ type
                     bycopy.} = object
 
 
-proc coord*(aPoint: Handle[GeomPoint]; x: var float; y: var float; z: var float) {.
+proc coord*(aPoint: Handle[GeomPoint]; x: var cfloat; y: var cfloat; z: var cfloat) {.
     importcpp: "StdPrs_ToolPoint::Coord(@)", header: "StdPrs_ToolPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

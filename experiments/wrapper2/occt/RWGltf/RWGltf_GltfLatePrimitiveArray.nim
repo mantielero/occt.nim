@@ -81,3 +81,28 @@ proc boundingBox*(this: RWGltfGltfLatePrimitiveArray): BndBox {.noSideEffect,
     importcpp: "BoundingBox", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
 proc setBoundingBox*(this: var RWGltfGltfLatePrimitiveArray; theBox: BndBox) {.
     importcpp: "SetBoundingBox", header: "RWGltf_GltfLatePrimitiveArray.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@ type
       Handle[StandardTransient], Handle[StandardTransient],
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

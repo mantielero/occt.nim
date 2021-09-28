@@ -27,7 +27,7 @@ type
 proc constructRWStepBasicRWApproval*(): RWStepBasicRWApproval {.constructor,
     importcpp: "RWStepBasic_RWApproval(@)", header: "RWStepBasic_RWApproval.hxx".}
 proc readStep*(this: RWStepBasicRWApproval; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicApproval]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWApproval.hxx".}
 proc writeStep*(this: RWStepBasicRWApproval; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepBasicRWApproval; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWApproval; ent: Handle[StepBasicApproval];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWApproval.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

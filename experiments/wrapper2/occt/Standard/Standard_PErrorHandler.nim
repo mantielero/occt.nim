@@ -17,4 +17,3 @@
 discard "forward decl of Standard_ErrorHandler"
 type
   StandardPErrorHandler* = ptr StandardErrorHandler
-

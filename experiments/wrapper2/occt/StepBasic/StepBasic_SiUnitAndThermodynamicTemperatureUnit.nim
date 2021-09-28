@@ -18,8 +18,7 @@ discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_SiUnitAndThermodynamicTemperatureUnit"
 discard "forward decl of StepBasic_SiUnitAndThermodynamicTemperatureUnit"
 type
-  HandleStepBasicSiUnitAndThermodynamicTemperatureUnit* = Handle[
-      StepBasicSiUnitAndThermodynamicTemperatureUnit]
+  HandleC1C1* = Handle[StepBasicSiUnitAndThermodynamicTemperatureUnit]
   StepBasicSiUnitAndThermodynamicTemperatureUnit* {.
       importcpp: "StepBasic_SiUnitAndThermodynamicTemperatureUnit",
       header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx", bycopy.} = object of StepBasicSiUnit ##
@@ -52,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_SiUnitAn
     header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
 proc dynamicType*(this: StepBasicSiUnitAndThermodynamicTemperatureUnit): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

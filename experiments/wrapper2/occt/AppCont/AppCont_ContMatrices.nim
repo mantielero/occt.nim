@@ -17,13 +17,38 @@
 ##  pour IBPMatrix (contraintes de passage aux extremites)
 ##  et IBTMatrix (contraintes de tangence aux extremites).
 
-proc invMMatrix*(classe: int; m: var MathMatrix) {.importcpp: "InvMMatrix(@)",
+proc invMMatrix*(classe: cint; m: var MathMatrix) {.importcpp: "InvMMatrix(@)",
     header: "AppCont_ContMatrices.hxx".}
-proc mMatrix*(classe: int; m: var MathMatrix) {.importcpp: "MMatrix(@)",
+proc mMatrix*(classe: cint; m: var MathMatrix) {.importcpp: "MMatrix(@)",
     header: "AppCont_ContMatrices.hxx".}
-proc iBPMatrix*(classe: int; m: var MathMatrix) {.importcpp: "IBPMatrix(@)",
+proc iBPMatrix*(classe: cint; m: var MathMatrix) {.importcpp: "IBPMatrix(@)",
     header: "AppCont_ContMatrices.hxx".}
-proc iBTMatrix*(classe: int; m: var MathMatrix) {.importcpp: "IBTMatrix(@)",
+proc iBTMatrix*(classe: cint; m: var MathMatrix) {.importcpp: "IBTMatrix(@)",
     header: "AppCont_ContMatrices.hxx".}
-proc vBernstein*(classe: int; nbpoints: int; m: var MathMatrix) {.
+proc vBernstein*(classe: cint; nbpoints: cint; m: var MathMatrix) {.
     importcpp: "VBernstein(@)", header: "AppCont_ContMatrices.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

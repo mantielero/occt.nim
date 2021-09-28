@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_BSplineSurfaceWithKnots"
 discard "forward decl of StepGeom_BSplineSurfaceWithKnots"
 type
-  HandleStepGeomBSplineSurfaceWithKnots* = Handle[StepGeomBSplineSurfaceWithKnots]
+  HandleC1C1* = Handle[StepGeomBSplineSurfaceWithKnots]
   StepGeomBSplineSurfaceWithKnots* {.importcpp: "StepGeom_BSplineSurfaceWithKnots", header: "StepGeom_BSplineSurfaceWithKnots.hxx",
                                     bycopy.} = object of StepGeomBSplineSurface ## !
                                                                            ## Returns a
@@ -29,7 +29,7 @@ proc constructStepGeomBSplineSurfaceWithKnots*(): StepGeomBSplineSurfaceWithKnot
     constructor, importcpp: "StepGeom_BSplineSurfaceWithKnots(@)",
     header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
 proc init*(this: var StepGeomBSplineSurfaceWithKnots;
-          aName: Handle[TCollectionHAsciiString]; aUDegree: int; aVDegree: int;
+          aName: Handle[TCollectionHAsciiString]; aUDegree: cint; aVDegree: cint;
           aControlPointsList: Handle[StepGeomHArray2OfCartesianPoint];
           aSurfaceForm: StepGeomBSplineSurfaceForm; aUClosed: StepDataLogical;
           aVClosed: StepDataLogical; aSelfIntersect: StepDataLogical;
@@ -45,10 +45,10 @@ proc setUMultiplicities*(this: var StepGeomBSplineSurfaceWithKnots;
 proc uMultiplicities*(this: StepGeomBSplineSurfaceWithKnots): Handle[
     TColStdHArray1OfInteger] {.noSideEffect, importcpp: "UMultiplicities",
                               header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
-proc uMultiplicitiesValue*(this: StepGeomBSplineSurfaceWithKnots; num: int): int {.
+proc uMultiplicitiesValue*(this: StepGeomBSplineSurfaceWithKnots; num: cint): cint {.
     noSideEffect, importcpp: "UMultiplicitiesValue",
     header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
-proc nbUMultiplicities*(this: StepGeomBSplineSurfaceWithKnots): int {.noSideEffect,
+proc nbUMultiplicities*(this: StepGeomBSplineSurfaceWithKnots): cint {.noSideEffect,
     importcpp: "NbUMultiplicities", header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
 proc setVMultiplicities*(this: var StepGeomBSplineSurfaceWithKnots;
                         aVMultiplicities: Handle[TColStdHArray1OfInteger]) {.
@@ -57,10 +57,10 @@ proc setVMultiplicities*(this: var StepGeomBSplineSurfaceWithKnots;
 proc vMultiplicities*(this: StepGeomBSplineSurfaceWithKnots): Handle[
     TColStdHArray1OfInteger] {.noSideEffect, importcpp: "VMultiplicities",
                               header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
-proc vMultiplicitiesValue*(this: StepGeomBSplineSurfaceWithKnots; num: int): int {.
+proc vMultiplicitiesValue*(this: StepGeomBSplineSurfaceWithKnots; num: cint): cint {.
     noSideEffect, importcpp: "VMultiplicitiesValue",
     header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
-proc nbVMultiplicities*(this: StepGeomBSplineSurfaceWithKnots): int {.noSideEffect,
+proc nbVMultiplicities*(this: StepGeomBSplineSurfaceWithKnots): cint {.noSideEffect,
     importcpp: "NbVMultiplicities", header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
 proc setUKnots*(this: var StepGeomBSplineSurfaceWithKnots;
                aUKnots: Handle[TColStdHArray1OfReal]) {.importcpp: "SetUKnots",
@@ -68,10 +68,10 @@ proc setUKnots*(this: var StepGeomBSplineSurfaceWithKnots;
 proc uKnots*(this: StepGeomBSplineSurfaceWithKnots): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "UKnots",
     header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
-proc uKnotsValue*(this: StepGeomBSplineSurfaceWithKnots; num: int): float {.
+proc uKnotsValue*(this: StepGeomBSplineSurfaceWithKnots; num: cint): cfloat {.
     noSideEffect, importcpp: "UKnotsValue",
     header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
-proc nbUKnots*(this: StepGeomBSplineSurfaceWithKnots): int {.noSideEffect,
+proc nbUKnots*(this: StepGeomBSplineSurfaceWithKnots): cint {.noSideEffect,
     importcpp: "NbUKnots", header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
 proc setVKnots*(this: var StepGeomBSplineSurfaceWithKnots;
                aVKnots: Handle[TColStdHArray1OfReal]) {.importcpp: "SetVKnots",
@@ -79,10 +79,10 @@ proc setVKnots*(this: var StepGeomBSplineSurfaceWithKnots;
 proc vKnots*(this: StepGeomBSplineSurfaceWithKnots): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "VKnots",
     header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
-proc vKnotsValue*(this: StepGeomBSplineSurfaceWithKnots; num: int): float {.
+proc vKnotsValue*(this: StepGeomBSplineSurfaceWithKnots; num: cint): cfloat {.
     noSideEffect, importcpp: "VKnotsValue",
     header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
-proc nbVKnots*(this: StepGeomBSplineSurfaceWithKnots): int {.noSideEffect,
+proc nbVKnots*(this: StepGeomBSplineSurfaceWithKnots): cint {.noSideEffect,
     importcpp: "NbVKnots", header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
 proc setKnotSpec*(this: var StepGeomBSplineSurfaceWithKnots;
                  aKnotSpec: StepGeomKnotType) {.importcpp: "SetKnotSpec",
@@ -101,3 +101,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomBSplineSurfaceWithKnots): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_BSplineSurfaceWithKnots.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

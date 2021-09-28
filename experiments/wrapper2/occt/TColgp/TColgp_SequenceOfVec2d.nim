@@ -17,3 +17,28 @@
 type
   TColgpSequenceOfVec2d* = NCollectionSequence[Vec2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

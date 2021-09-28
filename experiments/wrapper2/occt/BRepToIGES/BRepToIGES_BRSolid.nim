@@ -46,3 +46,28 @@ proc transferCompound*(this: var BRepToIGES_BRSolid; start: TopoDS_Compound;
     theProgress: MessageProgressRange = messageProgressRange()): Handle[
     IGESDataIGESEntity] {.importcpp: "TransferCompound",
                          header: "BRepToIGES_BRSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

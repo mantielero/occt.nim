@@ -16,3 +16,28 @@
 type
   BinMDF_StringIdMap* = TColStdDataMapOfAsciiStringInteger
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

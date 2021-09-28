@@ -23,10 +23,35 @@ type
                                   ## ! -   Scale as the scale factor.
 
 
-proc constructGCE2dMakeScale*(point: Pnt2d; scale: float): GCE2dMakeScale {.
+proc constructGCE2dMakeScale*(point: Pnt2d; scale: cfloat): GCE2dMakeScale {.
     constructor, importcpp: "GCE2d_MakeScale(@)", header: "GCE2d_MakeScale.hxx".}
 proc value*(this: GCE2dMakeScale): Handle[Geom2dTransformation] {.noSideEffect,
     importcpp: "Value", header: "GCE2d_MakeScale.hxx".}
 converter `constopencascade`*(this: GCE2dMakeScale): Handle[Geom2dTransformation] {.
     noSideEffect, importcpp: "GCE2d_MakeScale::operator constopencascade",
     header: "GCE2d_MakeScale.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

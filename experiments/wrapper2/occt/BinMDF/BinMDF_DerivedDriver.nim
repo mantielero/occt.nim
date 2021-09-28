@@ -85,3 +85,28 @@ proc paste*(this: BinMDF_DerivedDriver; theSource: Handle[TDF_Attribute];
            theTarget: var BinObjMgtPersistent;
            theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDF_DerivedDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

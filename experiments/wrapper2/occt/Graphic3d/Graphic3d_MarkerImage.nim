@@ -37,10 +37,10 @@ proc constructGraphic3dMarkerImage*(theImage: Handle[ImagePixMap]): Graphic3dMar
     constructor, importcpp: "Graphic3d_MarkerImage(@)",
     header: "Graphic3d_MarkerImage.hxx".}
 proc constructGraphic3dMarkerImage*(theBitMap: Handle[TColStdHArray1OfByte];
-                                   theWidth: int; theHeight: int): Graphic3dMarkerImage {.
+                                   theWidth: cint; theHeight: cint): Graphic3dMarkerImage {.
     constructor, importcpp: "Graphic3d_MarkerImage(@)",
     header: "Graphic3d_MarkerImage.hxx".}
-proc getBitMapArray*(this: Graphic3dMarkerImage; theAlphaValue: float = 0.5): Handle[
+proc getBitMapArray*(this: Graphic3dMarkerImage; theAlphaValue: cfloat = 0.5): Handle[
     TColStdHArray1OfByte] {.noSideEffect, importcpp: "GetBitMapArray",
                            header: "Graphic3d_MarkerImage.hxx".}
 proc getImage*(this: var Graphic3dMarkerImage): Handle[ImagePixMap] {.
@@ -51,8 +51,10 @@ proc getImageId*(this: Graphic3dMarkerImage): TCollectionAsciiString {.noSideEff
     importcpp: "GetImageId", header: "Graphic3d_MarkerImage.hxx".}
 proc getImageAlphaId*(this: Graphic3dMarkerImage): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetImageAlphaId", header: "Graphic3d_MarkerImage.hxx".}
-proc getTextureSize*(this: Graphic3dMarkerImage; theWidth: var int; theHeight: var int) {.
-    noSideEffect, importcpp: "GetTextureSize", header: "Graphic3d_MarkerImage.hxx".}
+proc getTextureSize*(this: Graphic3dMarkerImage; theWidth: var cint;
+                    theHeight: var cint) {.noSideEffect,
+                                        importcpp: "GetTextureSize",
+                                        header: "Graphic3d_MarkerImage.hxx".}
 type
   Graphic3dMarkerImagebaseType* = StandardTransient
 
@@ -65,5 +67,30 @@ proc dynamicType*(this: Graphic3dMarkerImage): Handle[StandardType] {.noSideEffe
     importcpp: "DynamicType", header: "Graphic3d_MarkerImage.hxx".}
 discard "forward decl of Graphic3d_MarkerImage"
 type
-  HandleGraphic3dMarkerImage* = Handle[Graphic3dMarkerImage]
+  HandleC1C1* = Handle[Graphic3dMarkerImage]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

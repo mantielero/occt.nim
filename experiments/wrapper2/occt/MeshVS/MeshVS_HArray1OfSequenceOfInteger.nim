@@ -13,35 +13,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  MeshVS_HArray1OfSequenceOfInteger* {.importcpp: "MeshVS_HArray1OfSequenceOfInteger", header: "MeshVS_HArray1OfSequenceOfInteger.hxx",
-                                      bycopy.} = object of MeshVS_Array1OfSequenceOfInteger
+## !!!Ignored construct:  # MeshVS_HArray1OfSequenceOfInteger_HeaderFile [NewLine] # MeshVS_HArray1OfSequenceOfInteger_HeaderFile [NewLine] # < TColStd_SequenceOfInteger . hxx > [NewLine] # < MeshVS_Array1OfSequenceOfInteger . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( MeshVS_HArray1OfSequenceOfInteger , MeshVS_Array1OfSequenceOfInteger ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructMeshVS_HArray1OfSequenceOfInteger*(theLower: int; theUpper: int): MeshVS_HArray1OfSequenceOfInteger {.
-    constructor, importcpp: "MeshVS_HArray1OfSequenceOfInteger(@)",
-    header: "MeshVS_HArray1OfSequenceOfInteger.hxx".}
-proc constructMeshVS_HArray1OfSequenceOfInteger*(theLower: int; theUpper: int;
-    theValue: ValueType): MeshVS_HArray1OfSequenceOfInteger {.constructor,
-    importcpp: "MeshVS_HArray1OfSequenceOfInteger(@)",
-    header: "MeshVS_HArray1OfSequenceOfInteger.hxx".}
-proc constructMeshVS_HArray1OfSequenceOfInteger*(
-    theOther: MeshVS_Array1OfSequenceOfInteger): MeshVS_HArray1OfSequenceOfInteger {.
-    constructor, importcpp: "MeshVS_HArray1OfSequenceOfInteger(@)",
-    header: "MeshVS_HArray1OfSequenceOfInteger.hxx".}
-proc array1*(this: MeshVS_HArray1OfSequenceOfInteger): MeshVS_Array1OfSequenceOfInteger {.
-    noSideEffect, importcpp: "Array1",
-    header: "MeshVS_HArray1OfSequenceOfInteger.hxx".}
-proc changeArray1*(this: var MeshVS_HArray1OfSequenceOfInteger): var MeshVS_Array1OfSequenceOfInteger {.
-    importcpp: "ChangeArray1", header: "MeshVS_HArray1OfSequenceOfInteger.hxx".}
-type
-  MeshVS_HArray1OfSequenceOfIntegerbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "MeshVS_HArray1OfSequenceOfInteger::get_type_name(@)",
-                            header: "MeshVS_HArray1OfSequenceOfInteger.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "MeshVS_HArray1OfSequenceOfInteger::get_type_descriptor(@)",
-    header: "MeshVS_HArray1OfSequenceOfInteger.hxx".}
-proc dynamicType*(this: MeshVS_HArray1OfSequenceOfInteger): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "MeshVS_HArray1OfSequenceOfInteger.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,7 +24,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of IGESData_IGESModel"
 type
-  HandleIGESDataIGESModel* = Handle[IGESDataIGESModel]
+  HandleC1C1* = Handle[IGESDataIGESModel]
 
 ## ! Defines the file header and
 ## ! entities for IGES files. These headers and entities result from
@@ -49,13 +49,13 @@ proc constructIGESDataIGESModel*(): IGESDataIGESModel {.constructor,
     importcpp: "IGESData_IGESModel(@)", header: "IGESData_IGESModel.hxx".}
 proc clearHeader*(this: var IGESDataIGESModel) {.importcpp: "ClearHeader",
     header: "IGESData_IGESModel.hxx".}
-proc dumpHeader*(this: IGESDataIGESModel; s: var StandardOStream; level: int = 0) {.
+proc dumpHeader*(this: IGESDataIGESModel; s: var StandardOStream; level: cint = 0) {.
     noSideEffect, importcpp: "DumpHeader", header: "IGESData_IGESModel.hxx".}
 proc startSection*(this: IGESDataIGESModel): Handle[TColStdHSequenceOfHAsciiString] {.
     noSideEffect, importcpp: "StartSection", header: "IGESData_IGESModel.hxx".}
-proc nbStartLines*(this: IGESDataIGESModel): int {.noSideEffect,
+proc nbStartLines*(this: IGESDataIGESModel): cint {.noSideEffect,
     importcpp: "NbStartLines", header: "IGESData_IGESModel.hxx".}
-proc startLine*(this: IGESDataIGESModel; num: int): StandardCString {.noSideEffect,
+proc startLine*(this: IGESDataIGESModel; num: cint): StandardCString {.noSideEffect,
     importcpp: "StartLine", header: "IGESData_IGESModel.hxx".}
 proc clearStartSection*(this: var IGESDataIGESModel) {.
     importcpp: "ClearStartSection", header: "IGESData_IGESModel.hxx".}
@@ -63,7 +63,7 @@ proc setStartSection*(this: var IGESDataIGESModel;
                      list: Handle[TColStdHSequenceOfHAsciiString];
                      copy: bool = true) {.importcpp: "SetStartSection",
                                       header: "IGESData_IGESModel.hxx".}
-proc addStartLine*(this: var IGESDataIGESModel; line: StandardCString; atnum: int = 0) {.
+proc addStartLine*(this: var IGESDataIGESModel; line: StandardCString; atnum: cint = 0) {.
     importcpp: "AddStartLine", header: "IGESData_IGESModel.hxx".}
 proc globalSection*(this: IGESDataIGESModel): IGESDataGlobalSection {.noSideEffect,
     importcpp: "GlobalSection", header: "IGESData_IGESModel.hxx".}
@@ -71,9 +71,9 @@ proc setGlobalSection*(this: var IGESDataIGESModel; header: IGESDataGlobalSectio
     importcpp: "SetGlobalSection", header: "IGESData_IGESModel.hxx".}
 proc applyStatic*(this: var IGESDataIGESModel; param: StandardCString = ""): bool {.
     importcpp: "ApplyStatic", header: "IGESData_IGESModel.hxx".}
-proc entity*(this: IGESDataIGESModel; num: int): Handle[IGESDataIGESEntity] {.
+proc entity*(this: IGESDataIGESModel; num: cint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Entity", header: "IGESData_IGESModel.hxx".}
-proc dNum*(this: IGESDataIGESModel; ent: Handle[IGESDataIGESEntity]): int {.
+proc dNum*(this: IGESDataIGESModel; ent: Handle[IGESDataIGESEntity]): cint {.
     noSideEffect, importcpp: "DNum", header: "IGESData_IGESModel.hxx".}
 proc getFromAnother*(this: var IGESDataIGESModel;
                     other: Handle[InterfaceInterfaceModel]) {.
@@ -82,7 +82,7 @@ proc newEmptyModel*(this: IGESDataIGESModel): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "NewEmptyModel", header: "IGESData_IGESModel.hxx".}
 proc verifyCheck*(this: IGESDataIGESModel; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "VerifyCheck", header: "IGESData_IGESModel.hxx".}
-proc setLineWeights*(this: var IGESDataIGESModel; defw: float) {.
+proc setLineWeights*(this: var IGESDataIGESModel; defw: cfloat) {.
     importcpp: "SetLineWeights", header: "IGESData_IGESModel.hxx".}
 proc clearLabels*(this: var IGESDataIGESModel) {.importcpp: "ClearLabels",
     header: "IGESData_IGESModel.hxx".}
@@ -108,3 +108,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_IGESModel.hxx".}
 proc dynamicType*(this: IGESDataIGESModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_IGESModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

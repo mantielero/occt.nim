@@ -18,7 +18,7 @@ discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of StepSelect_Activator"
 discard "forward decl of StepSelect_Activator"
 type
-  HandleStepSelectActivator* = Handle[StepSelectActivator]
+  HandleC1C1* = Handle[StepSelectActivator]
 
 ## ! Performs Actions specific to StepSelect, i.e. creation of
 ## ! Step Selections and Counters, plus dumping specific to Step
@@ -30,10 +30,10 @@ type
 
 proc constructStepSelectActivator*(): StepSelectActivator {.constructor,
     importcpp: "StepSelect_Activator(@)", header: "StepSelect_Activator.hxx".}
-proc `do`*(this: var StepSelectActivator; number: int;
+proc `do`*(this: var StepSelectActivator; number: cint;
           pilot: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
     importcpp: "Do", header: "StepSelect_Activator.hxx".}
-proc help*(this: StepSelectActivator; number: int): StandardCString {.noSideEffect,
+proc help*(this: StepSelectActivator; number: cint): StandardCString {.noSideEffect,
     importcpp: "Help", header: "StepSelect_Activator.hxx".}
 type
   StepSelectActivatorbaseType* = IFSelectActivator
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepSelect_Activator.hxx".}
 proc dynamicType*(this: StepSelectActivator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepSelect_Activator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,3 +20,28 @@ type
   AIS_MapIteratorOfMapOfInteractive* = Iterator[Handle[AIS_InteractiveObject],
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

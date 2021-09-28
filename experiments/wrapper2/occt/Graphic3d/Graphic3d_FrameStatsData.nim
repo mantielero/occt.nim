@@ -60,22 +60,22 @@ type
     ## !< CPU FPS meter for immediate redraws
 
 
-proc frameRate*(this: Graphic3dFrameStatsData): float {.noSideEffect,
+proc frameRate*(this: Graphic3dFrameStatsData): cfloat {.noSideEffect,
     importcpp: "FrameRate", header: "Graphic3d_FrameStatsData.hxx".}
-proc frameRateCpu*(this: Graphic3dFrameStatsData): float {.noSideEffect,
+proc frameRateCpu*(this: Graphic3dFrameStatsData): cfloat {.noSideEffect,
     importcpp: "FrameRateCpu", header: "Graphic3d_FrameStatsData.hxx".}
-proc immediateFrameRate*(this: Graphic3dFrameStatsData): float {.noSideEffect,
+proc immediateFrameRate*(this: Graphic3dFrameStatsData): cfloat {.noSideEffect,
     importcpp: "ImmediateFrameRate", header: "Graphic3d_FrameStatsData.hxx".}
-proc immediateFrameRateCpu*(this: Graphic3dFrameStatsData): float {.noSideEffect,
+proc immediateFrameRateCpu*(this: Graphic3dFrameStatsData): cfloat {.noSideEffect,
     importcpp: "ImmediateFrameRateCpu", header: "Graphic3d_FrameStatsData.hxx".}
 proc counterValue*(this: Graphic3dFrameStatsData;
                   theIndex: Graphic3dFrameStatsCounter): StandardSize {.
     noSideEffect, importcpp: "CounterValue", header: "Graphic3d_FrameStatsData.hxx".}
 proc `[]`*(this: Graphic3dFrameStatsData; theIndex: Graphic3dFrameStatsCounter): StandardSize {.
     noSideEffect, importcpp: "#[@]", header: "Graphic3d_FrameStatsData.hxx".}
-proc timerValue*(this: Graphic3dFrameStatsData; theIndex: Graphic3dFrameStatsTimer): float {.
+proc timerValue*(this: Graphic3dFrameStatsData; theIndex: Graphic3dFrameStatsTimer): cfloat {.
     noSideEffect, importcpp: "TimerValue", header: "Graphic3d_FrameStatsData.hxx".}
-proc `[]`*(this: Graphic3dFrameStatsData; theIndex: Graphic3dFrameStatsTimer): float {.
+proc `[]`*(this: Graphic3dFrameStatsData; theIndex: Graphic3dFrameStatsTimer): cfloat {.
     noSideEffect, importcpp: "#[@]", header: "Graphic3d_FrameStatsData.hxx".}
 proc constructGraphic3dFrameStatsData*(): Graphic3dFrameStatsData {.constructor,
     importcpp: "Graphic3d_FrameStatsData(@)",
@@ -104,13 +104,13 @@ proc flushTimers*(this: var Graphic3dFrameStatsDataTmp; theNbFrames: StandardSiz
                                    header: "Graphic3d_FrameStatsData.hxx".}
 proc reset*(this: var Graphic3dFrameStatsDataTmp) {.importcpp: "Reset",
     header: "Graphic3d_FrameStatsData.hxx".}
-proc changeFrameRate*(this: var Graphic3dFrameStatsDataTmp): var float {.
+proc changeFrameRate*(this: var Graphic3dFrameStatsDataTmp): var cfloat {.
     importcpp: "ChangeFrameRate", header: "Graphic3d_FrameStatsData.hxx".}
-proc changeFrameRateCpu*(this: var Graphic3dFrameStatsDataTmp): var float {.
+proc changeFrameRateCpu*(this: var Graphic3dFrameStatsDataTmp): var cfloat {.
     importcpp: "ChangeFrameRateCpu", header: "Graphic3d_FrameStatsData.hxx".}
-proc changeImmediateFrameRate*(this: var Graphic3dFrameStatsDataTmp): var float {.
+proc changeImmediateFrameRate*(this: var Graphic3dFrameStatsDataTmp): var cfloat {.
     importcpp: "ChangeImmediateFrameRate", header: "Graphic3d_FrameStatsData.hxx".}
-proc changeImmediateFrameRateCpu*(this: var Graphic3dFrameStatsDataTmp): var float {.
+proc changeImmediateFrameRateCpu*(this: var Graphic3dFrameStatsDataTmp): var cfloat {.
     importcpp: "ChangeImmediateFrameRateCpu",
     header: "Graphic3d_FrameStatsData.hxx".}
 proc changeTimer*(this: var Graphic3dFrameStatsDataTmp;
@@ -123,7 +123,32 @@ proc `[]`*(this: var Graphic3dFrameStatsDataTmp;
           theIndex: Graphic3dFrameStatsCounter): var StandardSize {.
     importcpp: "#[@]", header: "Graphic3d_FrameStatsData.hxx".}
 proc changeTimerValue*(this: var Graphic3dFrameStatsDataTmp;
-                      theIndex: Graphic3dFrameStatsTimer): var float {.
+                      theIndex: Graphic3dFrameStatsTimer): var cfloat {.
     importcpp: "ChangeTimerValue", header: "Graphic3d_FrameStatsData.hxx".}
-proc `[]`*(this: var Graphic3dFrameStatsDataTmp; theIndex: Graphic3dFrameStatsTimer): var float {.
+proc `[]`*(this: var Graphic3dFrameStatsDataTmp; theIndex: Graphic3dFrameStatsTimer): var cfloat {.
     importcpp: "#[@]", header: "Graphic3d_FrameStatsData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

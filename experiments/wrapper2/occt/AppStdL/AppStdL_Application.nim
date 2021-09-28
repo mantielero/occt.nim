@@ -16,7 +16,7 @@
 discard "forward decl of AppStdL_Application"
 discard "forward decl of AppStdL_Application"
 type
-  HandleAppStdL_Application* = Handle[AppStdL_Application]
+  HandleC1C1* = Handle[AppStdL_Application]
 
 ## ! Legacy class defining resources name for lite OCAF documents
 
@@ -39,8 +39,8 @@ type
 proc resourcesName*(this: var AppStdL_Application): StandardCString {.
     importcpp: "ResourcesName", header: "AppStdL_Application.hxx".}
 proc dumpJson*(this: AppStdL_Application; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "AppStdL_Application.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "AppStdL_Application.hxx".}
 type
   AppStdL_ApplicationbaseType* = TDocStdApplication
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "AppStdL_Application.hxx".}
 proc dynamicType*(this: AppStdL_Application): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AppStdL_Application.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

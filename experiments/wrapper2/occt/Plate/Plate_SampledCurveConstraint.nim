@@ -22,8 +22,33 @@ type
 
 
 proc constructPlateSampledCurveConstraint*(
-    soppc: PlateSequenceOfPinpointConstraint; n: int): PlateSampledCurveConstraint {.
+    soppc: PlateSequenceOfPinpointConstraint; n: cint): PlateSampledCurveConstraint {.
     constructor, importcpp: "Plate_SampledCurveConstraint(@)",
     header: "Plate_SampledCurveConstraint.hxx".}
 proc lxyzc*(this: PlateSampledCurveConstraint): PlateLinearXYZConstraint {.
     noSideEffect, importcpp: "LXYZC", header: "Plate_SampledCurveConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,8 +17,7 @@
 discard "forward decl of Transfer_BinderOfTransientInteger"
 discard "forward decl of Transfer_BinderOfTransientInteger"
 type
-  HandleTransferBinderOfTransientInteger* = Handle[
-      TransferBinderOfTransientInteger]
+  HandleC1C1* = Handle[TransferBinderOfTransientInteger]
 
 ## ! This type of Binder allows to attach as result, besides a
 ## ! Transient Object, an Integer Value, which can be an Index
@@ -50,9 +49,9 @@ type
 proc constructTransferBinderOfTransientInteger*(): TransferBinderOfTransientInteger {.
     constructor, importcpp: "Transfer_BinderOfTransientInteger(@)",
     header: "Transfer_BinderOfTransientInteger.hxx".}
-proc setInteger*(this: var TransferBinderOfTransientInteger; value: int) {.
+proc setInteger*(this: var TransferBinderOfTransientInteger; value: cint) {.
     importcpp: "SetInteger", header: "Transfer_BinderOfTransientInteger.hxx".}
-proc integer*(this: TransferBinderOfTransientInteger): int {.noSideEffect,
+proc integer*(this: TransferBinderOfTransientInteger): cint {.noSideEffect,
     importcpp: "Integer", header: "Transfer_BinderOfTransientInteger.hxx".}
 type
   TransferBinderOfTransientIntegerbaseType* = TransferSimpleBinderOfTransient
@@ -65,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TransferBinderOfTransientInteger): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_BinderOfTransientInteger.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,3 +29,28 @@ proc scaleFactor*(this: VrmlScale): Vec {.noSideEffect, importcpp: "ScaleFactor"
                                       header: "Vrml_Scale.hxx".}
 proc print*(this: VrmlScale; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Scale.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

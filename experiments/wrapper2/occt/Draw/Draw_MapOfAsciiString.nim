@@ -18,3 +18,28 @@ type
   DrawMapOfAsciiString* = NCollectionIndexedMap[TCollectionAsciiString,
       TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

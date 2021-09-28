@@ -29,7 +29,7 @@ proc constructRWStepGeomRWRationalBSplineSurface*(): RWStepGeomRWRationalBSpline
     constructor, importcpp: "RWStepGeom_RWRationalBSplineSurface(@)",
     header: "RWStepGeom_RWRationalBSplineSurface.hxx".}
 proc readStep*(this: RWStepGeomRWRationalBSplineSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomRationalBSplineSurface]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWRationalBSplineSurface.hxx".}
@@ -46,3 +46,28 @@ proc check*(this: RWStepGeomRWRationalBSplineSurface;
            shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "Check",
     header: "RWStepGeom_RWRationalBSplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

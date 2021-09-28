@@ -26,3 +26,28 @@ type
     BRepOffsetGood, BRepOffsetReversed, BRepOffsetDegenerated, BRepOffsetUnknown
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

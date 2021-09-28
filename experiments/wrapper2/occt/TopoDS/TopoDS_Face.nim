@@ -31,3 +31,28 @@ type
 
 proc constructTopoDS_Face*(): TopoDS_Face {.constructor,
     importcpp: "TopoDS_Face(@)", header: "TopoDS_Face.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

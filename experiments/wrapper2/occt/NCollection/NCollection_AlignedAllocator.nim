@@ -16,6 +16,7 @@
 ## ! NCollection allocator with managed memory alignment capabilities.
 
 type
+  HandleNCollectionAlignedAllocator* = Handle[NCollectionAlignedAllocator]    
   NCollectionAlignedAllocator* {.importcpp: "NCollection_AlignedAllocator",
                                 header: "NCollection_AlignedAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##
                                                                                                                    ## !
@@ -52,7 +53,7 @@ proc free*(this: var NCollectionAlignedAllocator; thePtr: pointer) {.
     importcpp: "Free", header: "NCollection_AlignedAllocator.hxx".}
 type
   NCollectionAlignedAllocatorbaseType* = NCollectionBaseAllocator
-
+#[
 proc getTypeName*(): cstring {.importcpp: "NCollection_AlignedAllocator::get_type_name(@)",
                             header: "NCollection_AlignedAllocator.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
@@ -64,6 +65,5 @@ proc dynamicType*(this: NCollectionAlignedAllocator): Handle[StandardType] {.
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of NCollection_AlignedAllocator"
-type
-  HandleNCollectionAlignedAllocator* = Handle[NCollectionAlignedAllocator]
 
+]#

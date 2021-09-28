@@ -54,3 +54,28 @@ proc situation*(this: IntRes2dTransition): IntRes2dSituation {.noSideEffect,
     importcpp: "Situation", header: "IntRes2d_Transition.hxx".}
 proc isOpposite*(this: IntRes2dTransition): bool {.noSideEffect,
     importcpp: "IsOpposite", header: "IntRes2d_Transition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

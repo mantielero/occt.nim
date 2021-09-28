@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWFeaModelDefinition*(): RWStepFEA_RWFeaModelDefinition 
     constructor, importcpp: "RWStepFEA_RWFeaModelDefinition(@)",
     header: "RWStepFEA_RWFeaModelDefinition.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaModelDefinition;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaModelDefinition]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaModelDefinition.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepFEA_RWFeaModelDefinition;
            ent: Handle[StepFEA_FeaModelDefinition];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaModelDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

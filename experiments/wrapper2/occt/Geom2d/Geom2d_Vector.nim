@@ -20,7 +20,7 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Vector"
 discard "forward decl of Geom2d_Vector"
 type
-  HandleGeom2dVector* = Handle[Geom2dVector]
+  HandleC1C1* = Handle[Geom2dVector]
 
 ## ! The abstract class Vector describes the common
 ## ! behavior of vectors in 2D space.
@@ -41,22 +41,22 @@ proc reverse*(this: var Geom2dVector) {.importcpp: "Reverse",
                                     header: "Geom2d_Vector.hxx".}
 proc reversed*(this: Geom2dVector): Handle[Geom2dVector] {.noSideEffect,
     importcpp: "Reversed", header: "Geom2d_Vector.hxx".}
-proc angle*(this: Geom2dVector; other: Handle[Geom2dVector]): float {.noSideEffect,
-    importcpp: "Angle", header: "Geom2d_Vector.hxx".}
-proc coord*(this: Geom2dVector; x: var float; y: var float) {.noSideEffect,
+proc angle*(this: Geom2dVector; other: Handle[Geom2dVector]): StandardReal {.
+    noSideEffect, importcpp: "Angle", header: "Geom2d_Vector.hxx".}
+proc coord*(this: Geom2dVector; x: var StandardReal; y: var StandardReal) {.noSideEffect,
     importcpp: "Coord", header: "Geom2d_Vector.hxx".}
-proc magnitude*(this: Geom2dVector): float {.noSideEffect, importcpp: "Magnitude",
-    header: "Geom2d_Vector.hxx".}
-proc squareMagnitude*(this: Geom2dVector): float {.noSideEffect,
+proc magnitude*(this: Geom2dVector): StandardReal {.noSideEffect,
+    importcpp: "Magnitude", header: "Geom2d_Vector.hxx".}
+proc squareMagnitude*(this: Geom2dVector): StandardReal {.noSideEffect,
     importcpp: "SquareMagnitude", header: "Geom2d_Vector.hxx".}
-proc x*(this: Geom2dVector): float {.noSideEffect, importcpp: "X",
-                                 header: "Geom2d_Vector.hxx".}
-proc y*(this: Geom2dVector): float {.noSideEffect, importcpp: "Y",
-                                 header: "Geom2d_Vector.hxx".}
-proc crossed*(this: Geom2dVector; other: Handle[Geom2dVector]): float {.noSideEffect,
-    importcpp: "Crossed", header: "Geom2d_Vector.hxx".}
-proc dot*(this: Geom2dVector; other: Handle[Geom2dVector]): float {.noSideEffect,
-    importcpp: "Dot", header: "Geom2d_Vector.hxx".}
+proc x*(this: Geom2dVector): StandardReal {.noSideEffect, importcpp: "X",
+                                        header: "Geom2d_Vector.hxx".}
+proc y*(this: Geom2dVector): StandardReal {.noSideEffect, importcpp: "Y",
+                                        header: "Geom2d_Vector.hxx".}
+proc crossed*(this: Geom2dVector; other: Handle[Geom2dVector]): StandardReal {.
+    noSideEffect, importcpp: "Crossed", header: "Geom2d_Vector.hxx".}
+proc dot*(this: Geom2dVector; other: Handle[Geom2dVector]): StandardReal {.
+    noSideEffect, importcpp: "Dot", header: "Geom2d_Vector.hxx".}
 proc vec2d*(this: Geom2dVector): Vec2d {.noSideEffect, importcpp: "Vec2d",
                                      header: "Geom2d_Vector.hxx".}
 type

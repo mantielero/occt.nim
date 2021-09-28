@@ -25,35 +25,46 @@ discard "forward decl of gp_Pnt2d"
 type
   Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter* {.
       importcpp: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter",
-      header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx", bycopy.} = object of IntRes2dIntersection ##
-                                                                                                           ## !
-                                                                                                           ## Empty
-                                                                                                           ## constructor.
+      header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx", bycopy.} = object of IntRes2dIntersection
 
 
+proc `new`*(this: var Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter;
+           theSize: csize_t): pointer {.importcpp: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter::operator new", header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+proc `delete`*(this: var Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter;
+              theAddress: pointer) {.importcpp: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter::operator delete", header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+proc `new[]`*(this: var Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter;
+             theSize: csize_t): pointer {.importcpp: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter::operator new[]", header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+proc `delete[]`*(this: var Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter;
+                theAddress: pointer) {.importcpp: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter::operator delete[]", header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+proc `new`*(this: var Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter::operator new",
+    header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+proc `delete`*(this: var Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter;
+              a2: pointer; a3: pointer) {.importcpp: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter::operator delete", header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
 proc constructGeom2dIntTheIntersectorOfTheIntConicCurveOfGInter*(): Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter {.
     constructor,
     importcpp: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter(@)",
     header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
 proc constructGeom2dIntTheIntersectorOfTheIntConicCurveOfGInter*(
     iTool: IntCurveIConicTool; dom1: IntRes2dDomain; pCurve: Adaptor2dCurve2d;
-    dom2: IntRes2dDomain; tolConf: float; tol: float): Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter {.
+    dom2: IntRes2dDomain; tolConf: StandardReal; tol: StandardReal): Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter {.
     constructor,
     importcpp: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter(@)",
     header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
 proc perform*(this: var Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter;
              iTool: IntCurveIConicTool; dom1: IntRes2dDomain;
-             pCurve: Adaptor2dCurve2d; dom2: IntRes2dDomain; tolConf: float;
-             tol: float) {.importcpp: "Perform", header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+             pCurve: Adaptor2dCurve2d; dom2: IntRes2dDomain; tolConf: StandardReal;
+             tol: StandardReal) {.importcpp: "Perform", header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
 proc findU*(this: Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter;
-           parameter: float; point: var Pnt2d; theParCurev: Adaptor2dCurve2d;
-           theImpTool: IntCurveIConicTool): float {.noSideEffect,
+           parameter: StandardReal; point: var Pnt2d; theParCurev: Adaptor2dCurve2d;
+           theImpTool: IntCurveIConicTool): StandardReal {.noSideEffect,
     importcpp: "FindU",
     header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
 proc findV*(this: Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter;
-           parameter: float; point: var Pnt2d; theImpTool: IntCurveIConicTool;
-           parCurve: Adaptor2dCurve2d; theParCurveDomain: IntRes2dDomain; v0: float;
-           v1: float; tolerance: float): float {.noSideEffect, importcpp: "FindV",
+           parameter: StandardReal; point: var Pnt2d; theImpTool: IntCurveIConicTool;
+           parCurve: Adaptor2dCurve2d; theParCurveDomain: IntRes2dDomain;
+           v0: StandardReal; v1: StandardReal; tolerance: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "FindV",
     header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}
 proc andDomaineObjet1Intersections*(this: Geom2dIntTheIntersectorOfTheIntConicCurveOfGInter;
                                    theImpTool: IntCurveIConicTool;
@@ -65,6 +76,6 @@ proc andDomaineObjet1Intersections*(this: Geom2dIntTheIntersectorOfTheIntConicCu
                                    inter1: var TColStdArray1OfReal;
                                    resultat1: var TColStdArray1OfReal;
                                    resultat2: var TColStdArray1OfReal;
-                                   epsNul: float) {.noSideEffect,
+                                   epsNul: StandardReal) {.noSideEffect,
     importcpp: "And_Domaine_Objet1_Intersections",
     header: "Geom2dInt_TheIntersectorOfTheIntConicCurveOfGInter.hxx".}

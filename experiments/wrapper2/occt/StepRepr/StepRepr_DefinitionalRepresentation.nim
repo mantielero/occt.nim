@@ -17,8 +17,7 @@
 discard "forward decl of StepRepr_DefinitionalRepresentation"
 discard "forward decl of StepRepr_DefinitionalRepresentation"
 type
-  HandleStepReprDefinitionalRepresentation* = Handle[
-      StepReprDefinitionalRepresentation]
+  HandleC1C1* = Handle[StepReprDefinitionalRepresentation]
   StepReprDefinitionalRepresentation* {.importcpp: "StepRepr_DefinitionalRepresentation", header: "StepRepr_DefinitionalRepresentation.hxx",
                                        bycopy.} = object of StepReprRepresentation ## !
                                                                               ## Returns a
@@ -39,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprDefinitionalRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_DefinitionalRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -44,7 +44,7 @@ proc init*(this: var StepToTopoDS_TranslateEdge; e: Handle[StepShapeEdge];
     importcpp: "Init", header: "StepToTopoDS_TranslateEdge.hxx".}
 proc makeFromCurve3D*(this: var StepToTopoDS_TranslateEdge;
                      c3d: Handle[StepGeomCurve]; ec: Handle[StepShapeEdgeCurve];
-                     vend: Handle[StepShapeVertex]; preci: float;
+                     vend: Handle[StepShapeVertex]; preci: cfloat;
                      e: var TopoDS_Edge; v1: var TopoDS_Vertex; v2: var TopoDS_Vertex;
                      t: var StepToTopoDS_Tool) {.importcpp: "MakeFromCurve3D",
     header: "StepToTopoDS_TranslateEdge.hxx".}
@@ -55,3 +55,28 @@ proc value*(this: StepToTopoDS_TranslateEdge): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateEdge.hxx".}
 proc error*(this: StepToTopoDS_TranslateEdge): StepToTopoDS_TranslateEdgeError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateEdge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

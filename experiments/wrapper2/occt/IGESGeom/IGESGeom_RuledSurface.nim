@@ -18,7 +18,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESGeom_RuledSurface"
 discard "forward decl of IGESGeom_RuledSurface"
 type
-  HandleIGESGeomRuledSurface* = Handle[IGESGeomRuledSurface]
+  HandleC1C1* = Handle[IGESGeomRuledSurface]
 
 ## ! defines IGESRuledSurface, Type <118> Form <0-1>
 ## ! in package IGESGeom
@@ -38,7 +38,7 @@ type
 proc constructIGESGeomRuledSurface*(): IGESGeomRuledSurface {.constructor,
     importcpp: "IGESGeom_RuledSurface(@)", header: "IGESGeom_RuledSurface.hxx".}
 proc init*(this: var IGESGeomRuledSurface; aCurve: Handle[IGESDataIGESEntity];
-          anotherCurve: Handle[IGESDataIGESEntity]; aDirFlag: int; aDevFlag: int) {.
+          anotherCurve: Handle[IGESDataIGESEntity]; aDirFlag: cint; aDevFlag: cint) {.
     importcpp: "Init", header: "IGESGeom_RuledSurface.hxx".}
 proc setRuledByParameter*(this: var IGESGeomRuledSurface; mode: bool) {.
     importcpp: "SetRuledByParameter", header: "IGESGeom_RuledSurface.hxx".}
@@ -48,7 +48,7 @@ proc firstCurve*(this: IGESGeomRuledSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "FirstCurve", header: "IGESGeom_RuledSurface.hxx".}
 proc secondCurve*(this: IGESGeomRuledSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "SecondCurve", header: "IGESGeom_RuledSurface.hxx".}
-proc directionFlag*(this: IGESGeomRuledSurface): int {.noSideEffect,
+proc directionFlag*(this: IGESGeomRuledSurface): cint {.noSideEffect,
     importcpp: "DirectionFlag", header: "IGESGeom_RuledSurface.hxx".}
 proc isDevelopable*(this: IGESGeomRuledSurface): bool {.noSideEffect,
     importcpp: "IsDevelopable", header: "IGESGeom_RuledSurface.hxx".}
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_RuledSurface.hxx".}
 proc dynamicType*(this: IGESGeomRuledSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_RuledSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

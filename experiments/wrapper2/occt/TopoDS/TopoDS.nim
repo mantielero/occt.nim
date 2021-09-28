@@ -84,3 +84,28 @@ proc compound*(s: TopoDS_Shape): TopoDS_Compound {.importcpp: "TopoDS::Compound(
     header: "TopoDS.hxx".}
 proc compound*(a1: var TopoDS_Shape): var TopoDS_Compound {.
     importcpp: "TopoDS::Compound(@)", header: "TopoDS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

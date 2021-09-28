@@ -17,13 +17,54 @@
 ## !!!Ignored construct:  # _Expr_InvalidAssignment_HeaderFile [NewLine] # _Expr_InvalidAssignment_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Expr_ExprFailure . hxx > [NewLine] class Expr_InvalidAssignment ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Expr_InvalidAssignment"
-type
-  HandleExprInvalidAssignmentExprInvalidAssignment* = Handle[ExprInvalidAssignment]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Expr_InvalidAssignment , Expr_ExprFailure ) # ! defined No_Exception && ! defined No_Expr_InvalidAssignment [NewLine] # Expr_InvalidAssignment_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Expr_InvalidAssignment ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Expr_InvalidAssignment [NewLine] # if ( CONDITION ) throw Expr_InvalidAssignment ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Expr_InvalidAssignment_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_InvalidAssignment , Expr_ExprFailure ) #  _Expr_InvalidAssignment_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_InvalidAssignment , Expr_ExprFailure ) #  _Expr_InvalidAssignment_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

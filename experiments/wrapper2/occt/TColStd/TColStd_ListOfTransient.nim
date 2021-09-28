@@ -16,3 +16,28 @@ type
   TColStdListOfTransient* = NCollectionList[Handle[StandardTransient]]
   TColStdListIteratorOfListOfTransient* = Iterator[Handle[StandardTransient]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

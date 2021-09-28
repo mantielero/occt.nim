@@ -18,3 +18,28 @@ type
   ShapeProcessOperFunc* = proc (context: Handle[ShapeProcessContext];
                              theProgress: MessageProgressRange): bool
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

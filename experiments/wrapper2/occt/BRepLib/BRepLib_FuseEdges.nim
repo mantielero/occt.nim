@@ -41,7 +41,32 @@ proc faces*(this: var BRepLibFuseEdges; theMapFac: var TopToolsDataMapOfShapeSha
     importcpp: "Faces", header: "BRepLib_FuseEdges.hxx".}
 proc shape*(this: var BRepLibFuseEdges): var TopoDS_Shape {.importcpp: "Shape",
     header: "BRepLib_FuseEdges.hxx".}
-proc nbVertices*(this: var BRepLibFuseEdges): int {.importcpp: "NbVertices",
+proc nbVertices*(this: var BRepLibFuseEdges): cint {.importcpp: "NbVertices",
     header: "BRepLib_FuseEdges.hxx".}
 proc perform*(this: var BRepLibFuseEdges) {.importcpp: "Perform",
                                         header: "BRepLib_FuseEdges.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

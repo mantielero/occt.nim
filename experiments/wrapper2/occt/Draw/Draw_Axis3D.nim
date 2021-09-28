@@ -21,15 +21,15 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Axis3D"
 discard "forward decl of Draw_Axis3D"
 type
-  HandleDrawAxis3D* = Handle[DrawAxis3D]
+  HandleC1C1* = Handle[DrawAxis3D]
   DrawAxis3D* {.importcpp: "Draw_Axis3D", header: "Draw_Axis3D.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructDrawAxis3D*(col: DrawColor; size: int = 5): DrawAxis3D {.constructor,
+proc constructDrawAxis3D*(col: DrawColor; size: cint = 5): DrawAxis3D {.constructor,
     importcpp: "Draw_Axis3D(@)", header: "Draw_Axis3D.hxx".}
-proc constructDrawAxis3D*(p: Pnt; col: DrawColor; size: int = 5): DrawAxis3D {.
+proc constructDrawAxis3D*(p: Pnt; col: DrawColor; size: cint = 5): DrawAxis3D {.
     constructor, importcpp: "Draw_Axis3D(@)", header: "Draw_Axis3D.hxx".}
-proc constructDrawAxis3D*(a: Ax3; col: DrawColor; size: int = 5): DrawAxis3D {.
+proc constructDrawAxis3D*(a: Ax3; col: DrawColor; size: cint = 5): DrawAxis3D {.
     constructor, importcpp: "Draw_Axis3D(@)", header: "Draw_Axis3D.hxx".}
 proc drawOn*(this: DrawAxis3D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Axis3D.hxx".}
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Axis3D::get_type_descriptor(@)", header: "Draw_Axis3D.hxx".}
 proc dynamicType*(this: DrawAxis3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Axis3D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

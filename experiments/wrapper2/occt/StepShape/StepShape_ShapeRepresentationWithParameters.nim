@@ -16,8 +16,7 @@
 discard "forward decl of StepShape_ShapeRepresentationWithParameters"
 discard "forward decl of StepShape_ShapeRepresentationWithParameters"
 type
-  HandleStepShapeShapeRepresentationWithParameters* = Handle[
-      StepShapeShapeRepresentationWithParameters]
+  HandleC1C1* = Handle[StepShapeShapeRepresentationWithParameters]
 
 ## ! Representation of STEP entity ShapeRepresentationWithParameters
 
@@ -42,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_ShapeRep
 proc dynamicType*(this: StepShapeShapeRepresentationWithParameters): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepShape_ShapeRepresentationWithParameters.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

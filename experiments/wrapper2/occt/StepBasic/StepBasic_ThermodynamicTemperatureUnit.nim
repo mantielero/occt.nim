@@ -16,8 +16,7 @@
 discard "forward decl of StepBasic_ThermodynamicTemperatureUnit"
 discard "forward decl of StepBasic_ThermodynamicTemperatureUnit"
 type
-  HandleStepBasicThermodynamicTemperatureUnit* = Handle[
-      StepBasicThermodynamicTemperatureUnit]
+  HandleC1C1* = Handle[StepBasicThermodynamicTemperatureUnit]
 
 ## ! Representation of STEP entity ThermodynamicTemperatureUnit
 
@@ -42,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_Thermody
 proc dynamicType*(this: StepBasicThermodynamicTemperatureUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ThermodynamicTemperatureUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

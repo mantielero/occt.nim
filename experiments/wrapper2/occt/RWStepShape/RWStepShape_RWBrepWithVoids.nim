@@ -29,7 +29,7 @@ proc constructRWStepShapeRWBrepWithVoids*(): RWStepShapeRWBrepWithVoids {.
     constructor, importcpp: "RWStepShape_RWBrepWithVoids(@)",
     header: "RWStepShape_RWBrepWithVoids.hxx".}
 proc readStep*(this: RWStepShapeRWBrepWithVoids;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeBrepWithVoids]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWBrepWithVoids.hxx".}
 proc writeStep*(this: RWStepShapeRWBrepWithVoids; sw: var StepDataStepWriter;
@@ -41,3 +41,28 @@ proc share*(this: RWStepShapeRWBrepWithVoids; ent: Handle[StepShapeBrepWithVoids
 proc check*(this: RWStepShapeRWBrepWithVoids; ent: Handle[StepShapeBrepWithVoids];
            shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "Check", header: "RWStepShape_RWBrepWithVoids.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

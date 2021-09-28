@@ -20,7 +20,7 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of BinMXCAFDoc_LocationDriver"
 discard "forward decl of BinMXCAFDoc_LocationDriver"
 type
-  HandleBinMXCAFDocLocationDriver* = Handle[BinMXCAFDocLocationDriver]
+  HandleC1C1* = Handle[BinMXCAFDocLocationDriver]
   BinMXCAFDocLocationDriver* {.importcpp: "BinMXCAFDoc_LocationDriver",
                               header: "BinMXCAFDoc_LocationDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMXCAFDocLocationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMXCAFDoc_LocationDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

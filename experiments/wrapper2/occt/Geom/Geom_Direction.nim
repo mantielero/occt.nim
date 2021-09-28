@@ -22,7 +22,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Direction"
 discard "forward decl of Geom_Direction"
 type
-  HandleGeomDirection* = Handle[GeomDirection]
+  HandleC1C1* = Handle[GeomDirection]
 
 ## ! The class Direction specifies a vector that is never null.
 ## ! It is a unit vector.
@@ -57,25 +57,25 @@ type
                                                                                                     ## gp.
 
 
-proc constructGeomDirection*(x: float; y: float; z: float): GeomDirection {.constructor,
-    importcpp: "Geom_Direction(@)", header: "Geom_Direction.hxx".}
+proc constructGeomDirection*(x: StandardReal; y: StandardReal; z: StandardReal): GeomDirection {.
+    constructor, importcpp: "Geom_Direction(@)", header: "Geom_Direction.hxx".}
 proc constructGeomDirection*(v: Dir): GeomDirection {.constructor,
     importcpp: "Geom_Direction(@)", header: "Geom_Direction.hxx".}
-proc setCoord*(this: var GeomDirection; x: float; y: float; z: float) {.
-    importcpp: "SetCoord", header: "Geom_Direction.hxx".}
+proc setCoord*(this: var GeomDirection; x: StandardReal; y: StandardReal;
+              z: StandardReal) {.importcpp: "SetCoord", header: "Geom_Direction.hxx".}
 proc setDir*(this: var GeomDirection; v: Dir) {.importcpp: "SetDir",
     header: "Geom_Direction.hxx".}
-proc setX*(this: var GeomDirection; x: float) {.importcpp: "SetX",
+proc setX*(this: var GeomDirection; x: StandardReal) {.importcpp: "SetX",
     header: "Geom_Direction.hxx".}
-proc setY*(this: var GeomDirection; y: float) {.importcpp: "SetY",
+proc setY*(this: var GeomDirection; y: StandardReal) {.importcpp: "SetY",
     header: "Geom_Direction.hxx".}
-proc setZ*(this: var GeomDirection; z: float) {.importcpp: "SetZ",
+proc setZ*(this: var GeomDirection; z: StandardReal) {.importcpp: "SetZ",
     header: "Geom_Direction.hxx".}
 proc dir*(this: GeomDirection): Dir {.noSideEffect, importcpp: "Dir",
                                   header: "Geom_Direction.hxx".}
-proc magnitude*(this: GeomDirection): float {.noSideEffect, importcpp: "Magnitude",
-    header: "Geom_Direction.hxx".}
-proc squareMagnitude*(this: GeomDirection): float {.noSideEffect,
+proc magnitude*(this: GeomDirection): StandardReal {.noSideEffect,
+    importcpp: "Magnitude", header: "Geom_Direction.hxx".}
+proc squareMagnitude*(this: GeomDirection): StandardReal {.noSideEffect,
     importcpp: "SquareMagnitude", header: "Geom_Direction.hxx".}
 proc cross*(this: var GeomDirection; other: Handle[GeomVector]) {.importcpp: "Cross",
     header: "Geom_Direction.hxx".}

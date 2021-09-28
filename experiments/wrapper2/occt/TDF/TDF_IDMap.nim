@@ -17,3 +17,28 @@ type
   TDF_IDMap* = NCollectionMap[StandardGUID, StandardGUID]
   TDF_MapIteratorOfIDMap* = Iterator[StandardGUID, StandardGUID]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

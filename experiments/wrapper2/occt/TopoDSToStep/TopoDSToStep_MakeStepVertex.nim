@@ -39,3 +39,28 @@ proc value*(this: TopoDSToStepMakeStepVertex): Handle[
     header: "TopoDSToStep_MakeStepVertex.hxx".}
 proc error*(this: TopoDSToStepMakeStepVertex): TopoDSToStepMakeVertexError {.
     noSideEffect, importcpp: "Error", header: "TopoDSToStep_MakeStepVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,22 +32,22 @@ type
     transparencyMethod* {.importc: "TransparencyMethod".}: Graphic3dRenderTransparentMethod ## !< specifies rendering method for transparent graphics
     lineFeather* {.importc: "LineFeather".}: StandardShortReal ## !< line feater width in pixels (> 0.0), 1.0 by default;
                                                            ## !  high values produce blurred results, small values produce sharp (aliased) edges
-    pbrEnvPow2Size* {.importc: "PbrEnvPow2Size".}: int ## !< size of IBL maps side can be calculated as 2^PbrEnvPow2Size (> 0), 9 by default
-    pbrEnvSpecMapNbLevels* {.importc: "PbrEnvSpecMapNbLevels".}: int ## !< number of levels used in specular IBL map (> 1), 6 by default
-    pbrEnvBakingDiffNbSamples* {.importc: "PbrEnvBakingDiffNbSamples".}: int ## !< number of samples used in Monte-Carlo integration during diffuse IBL map's
-                                                                         ## !  spherical harmonics coefficients generation (> 0), 1024 by default
-    pbrEnvBakingSpecNbSamples* {.importc: "PbrEnvBakingSpecNbSamples".}: int ## !< number of samples used in Monte-Carlo integration during specular IBL map's generation (> 0), 256 by default
+    pbrEnvPow2Size* {.importc: "PbrEnvPow2Size".}: cint ## !< size of IBL maps side can be calculated as 2^PbrEnvPow2Size (> 0), 9 by default
+    pbrEnvSpecMapNbLevels* {.importc: "PbrEnvSpecMapNbLevels".}: cint ## !< number of levels used in specular IBL map (> 1), 6 by default
+    pbrEnvBakingDiffNbSamples* {.importc: "PbrEnvBakingDiffNbSamples".}: cint ## !< number of samples used in Monte-Carlo integration during diffuse IBL map's
+                                                                          ## !  spherical harmonics coefficients generation (> 0), 1024 by default
+    pbrEnvBakingSpecNbSamples* {.importc: "PbrEnvBakingSpecNbSamples".}: cint ## !< number of samples used in Monte-Carlo integration during specular IBL map's generation (> 0), 256 by default
     pbrEnvBakingProbability* {.importc: "PbrEnvBakingProbability".}: StandardShortReal ## !< controls strength of samples reducing strategy during specular IBL map's generation
                                                                                    ## !  (see 'SpecIBLMapSamplesFactor' function for detail explanation) [0.0, 1.0], 0.99 by default
     oitDepthFactor* {.importc: "OitDepthFactor".}: StandardShortReal ## !< scalar factor [0-1] controlling influence of depth of a fragment to its final coverage
-    nbMsaaSamples* {.importc: "NbMsaaSamples".}: int ## !< number of MSAA samples (should be within 0..GL_MAX_SAMPLES, power-of-two number), 0 by default
+    nbMsaaSamples* {.importc: "NbMsaaSamples".}: cint ## !< number of MSAA samples (should be within 0..GL_MAX_SAMPLES, power-of-two number), 0 by default
     renderResolutionScale* {.importc: "RenderResolutionScale".}: StandardShortReal ## !< rendering resolution scale factor, 1 by default;
                                                                                ## !  incompatible with MSAA (e.g. NbMsaaSamples should be set to 0)
     toEnableDepthPrepass* {.importc: "ToEnableDepthPrepass".}: bool ## !< enables/disables depth pre-pass, False by default
     toEnableAlphaToCoverage* {.importc: "ToEnableAlphaToCoverage".}: bool ## !< enables/disables alpha to coverage, True by default
     isGlobalIlluminationEnabled* {.importc: "IsGlobalIlluminationEnabled".}: bool ## !< enables/disables global illumination effects (path tracing)
-    samplesPerPixel* {.importc: "SamplesPerPixel".}: int ## !< number of samples per pixel (SPP)
-    raytracingDepth* {.importc: "RaytracingDepth".}: int ## !< maximum ray-tracing depth, 3 by default
+    samplesPerPixel* {.importc: "SamplesPerPixel".}: cint ## !< number of samples per pixel (SPP)
+    raytracingDepth* {.importc: "RaytracingDepth".}: cint ## !< maximum ray-tracing depth, 3 by default
     isShadowEnabled* {.importc: "IsShadowEnabled".}: bool ## !< enables/disables shadows rendering, True by default
     isReflectionEnabled* {.importc: "IsReflectionEnabled".}: bool ## !< enables/disables specular reflections, False by default
     isAntialiasingEnabled* {.importc: "IsAntialiasingEnabled".}: bool ## !< enables/disables adaptive anti-aliasing, False by default
@@ -61,10 +61,10 @@ type
     twoSidedBsdfModels* {.importc: "TwoSidedBsdfModels".}: bool ## !< forces path tracing to use two-sided versions of original one-sided scattering models
     radianceClampingValue* {.importc: "RadianceClampingValue".}: StandardShortReal ## !< maximum radiance value used for clamping radiance estimation.
     rebuildRayTracingShaders* {.importc: "RebuildRayTracingShaders".}: bool ## !< forces rebuilding ray tracing shaders at the next frame
-    rayTracingTileSize* {.importc: "RayTracingTileSize".}: int ## !< screen tile size, 32 by default (adaptive sampling mode of path tracing);
-    nbRayTracingTiles* {.importc: "NbRayTracingTiles".}: int ## !< maximum number of screen tiles per frame, 256 by default (adaptive sampling mode of path tracing);
-                                                         ## !  this parameter limits the number of tiles to be rendered per redraw, increasing Viewer interactivity,
-                                                         ## !  but also increasing the time for achieving a good quality; -1 means no limit
+    rayTracingTileSize* {.importc: "RayTracingTileSize".}: cint ## !< screen tile size, 32 by default (adaptive sampling mode of path tracing);
+    nbRayTracingTiles* {.importc: "NbRayTracingTiles".}: cint ## !< maximum number of screen tiles per frame, 256 by default (adaptive sampling mode of path tracing);
+                                                          ## !  this parameter limits the number of tiles to be rendered per redraw, increasing Viewer interactivity,
+                                                          ## !  but also increasing the time for achieving a good quality; -1 means no limit
     cameraApertureRadius* {.importc: "CameraApertureRadius".}: StandardShortReal ## !< aperture radius of perspective camera used for depth-of-field, 0.0 by default (no DOF) (path tracing only)
     cameraFocalPlaneDist* {.importc: "CameraFocalPlaneDist".}: StandardShortReal ## !< focal  distance of perspective camera used for depth-of field, 1.0 by default (path tracing only)
     frustumCullingState* {.importc: "FrustumCullingState".}: Graphic3dRenderingParamsFrustumCulling ## !< state of frustum culling optimization; FrustumCulling_On by default
@@ -86,8 +86,8 @@ type
                                                                            ## !  too often updates might impact performance and will smear text within widgets
                                                                            ## !  (especially framerate, which is better averaging);
                                                                            ## !  0.0 interval will force updating on each frame
-    statsTextHeight* {.importc: "StatsTextHeight".}: int ## !< stats text size; 16 by default
-    statsNbFrames* {.importc: "StatsNbFrames".}: int ## !< number of data frames to collect history; 1 by default
+    statsTextHeight* {.importc: "StatsTextHeight".}: cint ## !< stats text size; 16 by default
+    statsNbFrames* {.importc: "StatsNbFrames".}: cint ## !< number of data frames to collect history; 1 by default
     statsMaxChartTime* {.importc: "StatsMaxChartTime".}: StandardShortReal ## !< upper time limit within frame chart in seconds; 0.1 seconds by default (100 ms or 10 FPS)
     collectedStats* {.importc: "CollectedStats".}: Graphic3dRenderingParamsPerfCounters ## !< performance counters to collect, PerfCounters_Basic by default;
                                                                                     ## !  too verbose options might impact rendering performance,
@@ -160,5 +160,30 @@ proc resolutionRatio*(this: Graphic3dRenderingParams): StandardShortReal {.
     noSideEffect, importcpp: "ResolutionRatio",
     header: "Graphic3d_RenderingParams.hxx".}
 proc dumpJson*(this: Graphic3dRenderingParams; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_RenderingParams.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_RenderingParams.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

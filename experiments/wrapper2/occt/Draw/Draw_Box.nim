@@ -19,7 +19,7 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Box"
 discard "forward decl of Draw_Box"
 type
-  HandleDrawBox* = Handle[DrawBox]
+  HandleC1C1* = Handle[DrawBox]
 
 ## ! a 3d box
 
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Box::get_type_descriptor(@)", header: "Draw_Box.hxx".}
 proc dynamicType*(this: DrawBox): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Box.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -128,17 +128,17 @@ type
 
 
 proc constructBRepFeatMakeDPrism*(sbase: TopoDS_Shape; pbase: TopoDS_Face;
-                                 skface: TopoDS_Face; angle: float; fuse: int;
+                                 skface: TopoDS_Face; angle: cfloat; fuse: cint;
                                  modify: bool): BRepFeatMakeDPrism {.constructor,
     importcpp: "BRepFeat_MakeDPrism(@)", header: "BRepFeat_MakeDPrism.hxx".}
 proc constructBRepFeatMakeDPrism*(): BRepFeatMakeDPrism {.constructor,
     importcpp: "BRepFeat_MakeDPrism(@)", header: "BRepFeat_MakeDPrism.hxx".}
 proc init*(this: var BRepFeatMakeDPrism; sbase: TopoDS_Shape; pbase: TopoDS_Face;
-          skface: TopoDS_Face; angle: float; fuse: int; modify: bool) {.
+          skface: TopoDS_Face; angle: cfloat; fuse: cint; modify: bool) {.
     importcpp: "Init", header: "BRepFeat_MakeDPrism.hxx".}
 proc add*(this: var BRepFeatMakeDPrism; e: TopoDS_Edge; onFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakeDPrism.hxx".}
-proc perform*(this: var BRepFeatMakeDPrism; height: float) {.importcpp: "Perform",
+proc perform*(this: var BRepFeatMakeDPrism; height: cfloat) {.importcpp: "Perform",
     header: "BRepFeat_MakeDPrism.hxx".}
 proc perform*(this: var BRepFeatMakeDPrism; until: TopoDS_Shape) {.
     importcpp: "Perform", header: "BRepFeat_MakeDPrism.hxx".}
@@ -151,15 +151,40 @@ proc performFromEnd*(this: var BRepFeatMakeDPrism; fUntil: TopoDS_Shape) {.
 proc performThruAll*(this: var BRepFeatMakeDPrism) {.importcpp: "PerformThruAll",
     header: "BRepFeat_MakeDPrism.hxx".}
 proc performUntilHeight*(this: var BRepFeatMakeDPrism; until: TopoDS_Shape;
-                        height: float) {.importcpp: "PerformUntilHeight",
-                                       header: "BRepFeat_MakeDPrism.hxx".}
+                        height: cfloat) {.importcpp: "PerformUntilHeight",
+                                        header: "BRepFeat_MakeDPrism.hxx".}
 proc curves*(this: var BRepFeatMakeDPrism; s: var TColGeomSequenceOfCurve) {.
     importcpp: "Curves", header: "BRepFeat_MakeDPrism.hxx".}
 proc barycCurve*(this: var BRepFeatMakeDPrism): Handle[GeomCurve] {.
     importcpp: "BarycCurve", header: "BRepFeat_MakeDPrism.hxx".}
-proc bossEdges*(this: var BRepFeatMakeDPrism; sig: int) {.importcpp: "BossEdges",
+proc bossEdges*(this: var BRepFeatMakeDPrism; sig: cint) {.importcpp: "BossEdges",
     header: "BRepFeat_MakeDPrism.hxx".}
 proc topEdges*(this: var BRepFeatMakeDPrism): TopToolsListOfShape {.
     importcpp: "TopEdges", header: "BRepFeat_MakeDPrism.hxx".}
 proc latEdges*(this: var BRepFeatMakeDPrism): TopToolsListOfShape {.
     importcpp: "LatEdges", header: "BRepFeat_MakeDPrism.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

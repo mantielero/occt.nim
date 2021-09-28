@@ -30,7 +30,7 @@ proc constructRWStepFEA_RWVolume3dElementRepresentation*(): RWStepFEA_RWVolume3d
     constructor, importcpp: "RWStepFEA_RWVolume3dElementRepresentation(@)",
     header: "RWStepFEA_RWVolume3dElementRepresentation.hxx".}
 proc readStep*(this: RWStepFEA_RWVolume3dElementRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_Volume3dElementRepresentation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWVolume3dElementRepresentation.hxx".}
@@ -43,3 +43,28 @@ proc share*(this: RWStepFEA_RWVolume3dElementRepresentation;
            ent: Handle[StepFEA_Volume3dElementRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWVolume3dElementRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

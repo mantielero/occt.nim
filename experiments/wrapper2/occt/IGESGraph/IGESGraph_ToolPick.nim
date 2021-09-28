@@ -52,5 +52,30 @@ proc ownCopy*(this: IGESGraphToolPick; entfrom: Handle[IGESGraphPick];
              entto: Handle[IGESGraphPick]; tc: var InterfaceCopyTool) {.noSideEffect,
     importcpp: "OwnCopy", header: "IGESGraph_ToolPick.hxx".}
 proc ownDump*(this: IGESGraphToolPick; ent: Handle[IGESGraphPick];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolPick.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

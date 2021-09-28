@@ -199,11 +199,11 @@ proc polygonOffset*(this: Graphic3dAspects): Graphic3dPolygonOffset {.noSideEffe
     importcpp: "PolygonOffset", header: "Graphic3d_Aspects.hxx".}
 proc setPolygonOffset*(this: var Graphic3dAspects; theOffset: Graphic3dPolygonOffset) {.
     importcpp: "SetPolygonOffset", header: "Graphic3d_Aspects.hxx".}
-proc polygonOffsets*(this: Graphic3dAspects; theMode: var int;
+proc polygonOffsets*(this: Graphic3dAspects; theMode: var cint;
                     theFactor: var StandardShortReal;
                     theUnits: var StandardShortReal) {.noSideEffect,
     importcpp: "PolygonOffsets", header: "Graphic3d_Aspects.hxx".}
-proc setPolygonOffsets*(this: var Graphic3dAspects; theMode: int;
+proc setPolygonOffsets*(this: var Graphic3dAspects; theMode: cint;
                        theFactor: StandardShortReal = 1.0f;
                        theUnits: StandardShortReal = 0.0f) {.
     importcpp: "SetPolygonOffsets", header: "Graphic3d_Aspects.hxx".}
@@ -300,7 +300,7 @@ proc setEdgeLineType*(this: var Graphic3dAspects; theType: AspectTypeOfLine) {.
     importcpp: "SetEdgeLineType", header: "Graphic3d_Aspects.hxx".}
 proc edgeWidth*(this: Graphic3dAspects): StandardShortReal {.noSideEffect,
     importcpp: "EdgeWidth", header: "Graphic3d_Aspects.hxx".}
-proc setEdgeWidth*(this: var Graphic3dAspects; theWidth: float) {.
+proc setEdgeWidth*(this: var Graphic3dAspects; theWidth: cfloat) {.
     importcpp: "SetEdgeWidth", header: "Graphic3d_Aspects.hxx".}
 proc toSkipFirstEdge*(this: Graphic3dAspects): bool {.noSideEffect,
     importcpp: "ToSkipFirstEdge", header: "Graphic3d_Aspects.hxx".}
@@ -320,9 +320,34 @@ proc setHatchStyle*(this: var Graphic3dAspects; theStyle: AspectHatchStyle) {.
 proc isEqual*(this: var Graphic3dAspects; theOther: Graphic3dAspects): bool {.
     importcpp: "IsEqual", header: "Graphic3d_Aspects.hxx".}
 proc dumpJson*(this: Graphic3dAspects; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_Aspects.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_Aspects.hxx".}
 discard "forward decl of Graphic3d_Aspects"
 type
-  HandleGraphic3dAspects* = Handle[Graphic3dAspects]
+  HandleC1C1* = Handle[Graphic3dAspects]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

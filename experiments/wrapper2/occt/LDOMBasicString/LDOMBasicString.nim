@@ -36,7 +36,7 @@ proc destroyLDOMBasicString*(this: var LDOMBasicString) {.
     importcpp: "#.~LDOMBasicString()", header: "LDOMBasicString.hxx".}
 proc `type`*(this: LDOMBasicString): LDOMBasicStringStringType {.noSideEffect,
     importcpp: "Type", header: "LDOMBasicString.hxx".}
-proc getInteger*(this: LDOMBasicString; aResult: var int): bool {.noSideEffect,
+proc getInteger*(this: LDOMBasicString; aResult: var cint): bool {.noSideEffect,
     importcpp: "GetInteger", header: "LDOMBasicString.hxx".}
 proc getString*(this: LDOMBasicString): cstring {.noSideEffect,
     importcpp: "GetString", header: "LDOMBasicString.hxx".}
@@ -57,12 +57,37 @@ proc constructLDOMBasicString*(): LDOMBasicString {.constructor,
     importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
 proc constructLDOMBasicString*(anOther: LDOMBasicString): LDOMBasicString {.
     constructor, importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
-proc constructLDOMBasicString*(aValue: int): LDOMBasicString {.constructor,
+proc constructLDOMBasicString*(aValue: cint): LDOMBasicString {.constructor,
     importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
 proc constructLDOMBasicString*(aValue: cstring): LDOMBasicString {.constructor,
     importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
 proc constructLDOMBasicString*(aValue: cstring; aDoc: Handle[LDOM_MemManager]): LDOMBasicString {.
     constructor, importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
-proc constructLDOMBasicString*(aValue: cstring; aLen: int;
+proc constructLDOMBasicString*(aValue: cstring; aLen: cint;
                               aDoc: Handle[LDOM_MemManager]): LDOMBasicString {.
     constructor, importcpp: "LDOMBasicString(@)", header: "LDOMBasicString.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

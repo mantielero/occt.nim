@@ -24,14 +24,14 @@ type
   VrmlFontStyle* {.importcpp: "Vrml_FontStyle", header: "Vrml_FontStyle.hxx", bycopy.} = object
 
 
-proc constructVrmlFontStyle*(aSize: float = 10;
+proc constructVrmlFontStyle*(aSize: cfloat = 10;
                             aFamily: VrmlFontStyleFamily = vrmlSERIF;
                             aStyle: VrmlFontStyleStyle = vrmlNONE): VrmlFontStyle {.
     constructor, importcpp: "Vrml_FontStyle(@)", header: "Vrml_FontStyle.hxx".}
-proc setSize*(this: var VrmlFontStyle; aSize: float) {.importcpp: "SetSize",
+proc setSize*(this: var VrmlFontStyle; aSize: cfloat) {.importcpp: "SetSize",
     header: "Vrml_FontStyle.hxx".}
-proc size*(this: VrmlFontStyle): float {.noSideEffect, importcpp: "Size",
-                                     header: "Vrml_FontStyle.hxx".}
+proc size*(this: VrmlFontStyle): cfloat {.noSideEffect, importcpp: "Size",
+                                      header: "Vrml_FontStyle.hxx".}
 proc setFamily*(this: var VrmlFontStyle; aFamily: VrmlFontStyleFamily) {.
     importcpp: "SetFamily", header: "Vrml_FontStyle.hxx".}
 proc family*(this: VrmlFontStyle): VrmlFontStyleFamily {.noSideEffect,
@@ -42,3 +42,28 @@ proc style*(this: VrmlFontStyle): VrmlFontStyleStyle {.noSideEffect,
     importcpp: "Style", header: "Vrml_FontStyle.hxx".}
 proc print*(this: VrmlFontStyle; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_FontStyle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

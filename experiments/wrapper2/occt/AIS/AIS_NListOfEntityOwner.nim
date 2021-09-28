@@ -16,3 +16,28 @@
 type
   AIS_NListOfEntityOwner* = NCollectionList[Handle[SelectMgrEntityOwner]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

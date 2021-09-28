@@ -29,15 +29,40 @@ type
                                                                                            ## function.
 
 
-proc nbVariables*(this: MathMultipleVarFunctionWithHessian): int {.noSideEffect,
+proc nbVariables*(this: MathMultipleVarFunctionWithHessian): cint {.noSideEffect,
     importcpp: "NbVariables", header: "math_MultipleVarFunctionWithHessian.hxx".}
-proc value*(this: var MathMultipleVarFunctionWithHessian; x: MathVector; f: var float): bool {.
+proc value*(this: var MathMultipleVarFunctionWithHessian; x: MathVector; f: var cfloat): bool {.
     importcpp: "Value", header: "math_MultipleVarFunctionWithHessian.hxx".}
 proc gradient*(this: var MathMultipleVarFunctionWithHessian; x: MathVector;
               g: var MathVector): bool {.importcpp: "Gradient", header: "math_MultipleVarFunctionWithHessian.hxx".}
 proc values*(this: var MathMultipleVarFunctionWithHessian; x: MathVector;
-            f: var float; g: var MathVector): bool {.importcpp: "Values",
+            f: var cfloat; g: var MathVector): bool {.importcpp: "Values",
     header: "math_MultipleVarFunctionWithHessian.hxx".}
 proc values*(this: var MathMultipleVarFunctionWithHessian; x: MathVector;
-            f: var float; g: var MathVector; h: var MathMatrix): bool {.
+            f: var cfloat; g: var MathVector; h: var MathMatrix): bool {.
     importcpp: "Values", header: "math_MultipleVarFunctionWithHessian.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

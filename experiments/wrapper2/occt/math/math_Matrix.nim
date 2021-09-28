@@ -113,52 +113,53 @@ type
                                                                                ## <LowerRow>
 
 
-proc constructMathMatrix*(lowerRow: int; upperRow: int; lowerCol: int; upperCol: int): MathMatrix {.
-    constructor, importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
-proc constructMathMatrix*(lowerRow: int; upperRow: int; lowerCol: int; upperCol: int;
-                         initialValue: float): MathMatrix {.constructor,
+proc constructMathMatrix*(lowerRow: cint; upperRow: cint; lowerCol: cint;
+                         upperCol: cint): MathMatrix {.constructor,
     importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
-proc constructMathMatrix*(tab: StandardAddress; lowerRow: int; upperRow: int;
-                         lowerCol: int; upperCol: int): MathMatrix {.constructor,
+proc constructMathMatrix*(lowerRow: cint; upperRow: cint; lowerCol: cint;
+                         upperCol: cint; initialValue: cfloat): MathMatrix {.
+    constructor, importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
+proc constructMathMatrix*(tab: StandardAddress; lowerRow: cint; upperRow: cint;
+                         lowerCol: cint; upperCol: cint): MathMatrix {.constructor,
     importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
 proc constructMathMatrix*(other: MathMatrix): MathMatrix {.constructor,
     importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
-proc init*(this: var MathMatrix; initialValue: float) {.importcpp: "Init",
+proc init*(this: var MathMatrix; initialValue: cfloat) {.importcpp: "Init",
     header: "math_Matrix.hxx".}
-proc rowNumber*(this: MathMatrix): int {.noSideEffect, importcpp: "RowNumber",
+proc rowNumber*(this: MathMatrix): cint {.noSideEffect, importcpp: "RowNumber",
+                                      header: "math_Matrix.hxx".}
+proc colNumber*(this: MathMatrix): cint {.noSideEffect, importcpp: "ColNumber",
+                                      header: "math_Matrix.hxx".}
+proc lowerRow*(this: MathMatrix): cint {.noSideEffect, importcpp: "LowerRow",
                                      header: "math_Matrix.hxx".}
-proc colNumber*(this: MathMatrix): int {.noSideEffect, importcpp: "ColNumber",
+proc upperRow*(this: MathMatrix): cint {.noSideEffect, importcpp: "UpperRow",
                                      header: "math_Matrix.hxx".}
-proc lowerRow*(this: MathMatrix): int {.noSideEffect, importcpp: "LowerRow",
-                                    header: "math_Matrix.hxx".}
-proc upperRow*(this: MathMatrix): int {.noSideEffect, importcpp: "UpperRow",
-                                    header: "math_Matrix.hxx".}
-proc lowerCol*(this: MathMatrix): int {.noSideEffect, importcpp: "LowerCol",
-                                    header: "math_Matrix.hxx".}
-proc upperCol*(this: MathMatrix): int {.noSideEffect, importcpp: "UpperCol",
-                                    header: "math_Matrix.hxx".}
-proc determinant*(this: MathMatrix): float {.noSideEffect, importcpp: "Determinant",
+proc lowerCol*(this: MathMatrix): cint {.noSideEffect, importcpp: "LowerCol",
+                                     header: "math_Matrix.hxx".}
+proc upperCol*(this: MathMatrix): cint {.noSideEffect, importcpp: "UpperCol",
+                                     header: "math_Matrix.hxx".}
+proc determinant*(this: MathMatrix): cfloat {.noSideEffect, importcpp: "Determinant",
     header: "math_Matrix.hxx".}
 proc transpose*(this: var MathMatrix) {.importcpp: "Transpose",
                                     header: "math_Matrix.hxx".}
 proc invert*(this: var MathMatrix) {.importcpp: "Invert", header: "math_Matrix.hxx".}
-proc multiply*(this: var MathMatrix; right: float) {.importcpp: "Multiply",
+proc multiply*(this: var MathMatrix; right: cfloat) {.importcpp: "Multiply",
     header: "math_Matrix.hxx".}
-proc `*=`*(this: var MathMatrix; right: float) {.importcpp: "(# *= #)",
+proc `*=`*(this: var MathMatrix; right: cfloat) {.importcpp: "(# *= #)",
     header: "math_Matrix.hxx".}
-proc multiplied*(this: MathMatrix; right: float): MathMatrix {.noSideEffect,
+proc multiplied*(this: MathMatrix; right: cfloat): MathMatrix {.noSideEffect,
     importcpp: "Multiplied", header: "math_Matrix.hxx".}
-proc `*`*(this: MathMatrix; right: float): MathMatrix {.noSideEffect,
+proc `*`*(this: MathMatrix; right: cfloat): MathMatrix {.noSideEffect,
     importcpp: "(# * #)", header: "math_Matrix.hxx".}
-proc tMultiplied*(this: MathMatrix; right: float): MathMatrix {.noSideEffect,
+proc tMultiplied*(this: MathMatrix; right: cfloat): MathMatrix {.noSideEffect,
     importcpp: "TMultiplied", header: "math_Matrix.hxx".}
-proc divide*(this: var MathMatrix; right: float) {.importcpp: "Divide",
+proc divide*(this: var MathMatrix; right: cfloat) {.importcpp: "Divide",
     header: "math_Matrix.hxx".}
-proc `/=`*(this: var MathMatrix; right: float) {.importcpp: "(# /= #)",
+proc `/=`*(this: var MathMatrix; right: cfloat) {.importcpp: "(# /= #)",
     header: "math_Matrix.hxx".}
-proc divided*(this: MathMatrix; right: float): MathMatrix {.noSideEffect,
+proc divided*(this: MathMatrix; right: cfloat): MathMatrix {.noSideEffect,
     importcpp: "Divided", header: "math_Matrix.hxx".}
-proc `/`*(this: MathMatrix; right: float): MathMatrix {.noSideEffect,
+proc `/`*(this: MathMatrix; right: cfloat): MathMatrix {.noSideEffect,
     importcpp: "(# / #)", header: "math_Matrix.hxx".}
 proc add*(this: var MathMatrix; right: MathMatrix) {.importcpp: "Add",
     header: "math_Matrix.hxx".}
@@ -178,21 +179,21 @@ proc subtracted*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect
     importcpp: "Subtracted", header: "math_Matrix.hxx".}
 proc `-`*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect,
     importcpp: "(# - #)", header: "math_Matrix.hxx".}
-proc set*(this: var MathMatrix; i1: int; i2: int; j1: int; j2: int; m: MathMatrix) {.
+proc set*(this: var MathMatrix; i1: cint; i2: cint; j1: cint; j2: cint; m: MathMatrix) {.
     importcpp: "Set", header: "math_Matrix.hxx".}
-proc setRow*(this: var MathMatrix; row: int; v: MathVector) {.importcpp: "SetRow",
+proc setRow*(this: var MathMatrix; row: cint; v: MathVector) {.importcpp: "SetRow",
     header: "math_Matrix.hxx".}
-proc setCol*(this: var MathMatrix; col: int; v: MathVector) {.importcpp: "SetCol",
+proc setCol*(this: var MathMatrix; col: cint; v: MathVector) {.importcpp: "SetCol",
     header: "math_Matrix.hxx".}
-proc setDiag*(this: var MathMatrix; value: float) {.importcpp: "SetDiag",
+proc setDiag*(this: var MathMatrix; value: cfloat) {.importcpp: "SetDiag",
     header: "math_Matrix.hxx".}
-proc row*(this: MathMatrix; row: int): MathVector {.noSideEffect, importcpp: "Row",
+proc row*(this: MathMatrix; row: cint): MathVector {.noSideEffect, importcpp: "Row",
     header: "math_Matrix.hxx".}
-proc col*(this: MathMatrix; col: int): MathVector {.noSideEffect, importcpp: "Col",
+proc col*(this: MathMatrix; col: cint): MathVector {.noSideEffect, importcpp: "Col",
     header: "math_Matrix.hxx".}
-proc swapRow*(this: var MathMatrix; row1: int; row2: int) {.importcpp: "SwapRow",
+proc swapRow*(this: var MathMatrix; row1: cint; row2: cint) {.importcpp: "SwapRow",
     header: "math_Matrix.hxx".}
-proc swapCol*(this: var MathMatrix; col1: int; col2: int) {.importcpp: "SwapCol",
+proc swapCol*(this: var MathMatrix; col1: cint; col2: cint) {.importcpp: "SwapCol",
     header: "math_Matrix.hxx".}
 proc transposed*(this: MathMatrix): MathMatrix {.noSideEffect,
     importcpp: "Transposed", header: "math_Matrix.hxx".}
@@ -208,9 +209,9 @@ proc tMultiply*(this: var MathMatrix; tLeft: MathMatrix; right: MathMatrix) {.
     importcpp: "TMultiply", header: "math_Matrix.hxx".}
 proc subtract*(this: var MathMatrix; left: MathMatrix; right: MathMatrix) {.
     importcpp: "Subtract", header: "math_Matrix.hxx".}
-proc value*(this: MathMatrix; row: int; col: int): var float {.noSideEffect,
+proc value*(this: MathMatrix; row: cint; col: cint): var cfloat {.noSideEffect,
     importcpp: "Value", header: "math_Matrix.hxx".}
-proc `()`*(this: MathMatrix; row: int; col: int): var float {.noSideEffect,
+proc `()`*(this: MathMatrix; row: cint; col: cint): var cfloat {.noSideEffect,
     importcpp: "#(@)", header: "math_Matrix.hxx".}
 proc initialized*(this: var MathMatrix; other: MathMatrix): var MathMatrix {.
     importcpp: "Initialized", header: "math_Matrix.hxx".}
@@ -232,3 +233,28 @@ proc `-`*(this: var MathMatrix): MathMatrix {.importcpp: "(- #)",
     header: "math_Matrix.hxx".}
 proc dump*(this: MathMatrix; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "math_Matrix.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

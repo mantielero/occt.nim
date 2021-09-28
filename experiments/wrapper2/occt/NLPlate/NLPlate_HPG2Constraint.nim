@@ -20,7 +20,7 @@ discard "forward decl of Plate_D2"
 discard "forward decl of NLPlate_HPG2Constraint"
 discard "forward decl of NLPlate_HPG2Constraint"
 type
-  HandleNLPlateHPG2Constraint* = Handle[NLPlateHPG2Constraint]
+  HandleC1C1* = Handle[NLPlateHPG2Constraint]
 
 ## ! define a PinPoint (no G0)  G2 Constraint used to load a Non
 ## ! Linear Plate
@@ -33,7 +33,7 @@ type
 proc constructNLPlateHPG2Constraint*(uv: Xy; d1t: PlateD1; d2t: PlateD2): NLPlateHPG2Constraint {.
     constructor, importcpp: "NLPlate_HPG2Constraint(@)",
     header: "NLPlate_HPG2Constraint.hxx".}
-proc activeOrder*(this: NLPlateHPG2Constraint): int {.noSideEffect,
+proc activeOrder*(this: NLPlateHPG2Constraint): cint {.noSideEffect,
     importcpp: "ActiveOrder", header: "NLPlate_HPG2Constraint.hxx".}
 proc g2Target*(this: NLPlateHPG2Constraint): PlateD2 {.noSideEffect,
     importcpp: "G2Target", header: "NLPlate_HPG2Constraint.hxx".}
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "NLPlate_HPG2Constraint.hxx".}
 proc dynamicType*(this: NLPlateHPG2Constraint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "NLPlate_HPG2Constraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

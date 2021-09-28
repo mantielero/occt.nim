@@ -14,37 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IGESBasic_HArray1OfHArray1OfXYZ"
-discard "forward decl of IGESBasic_HArray1OfHArray1OfXYZ"
-type
-  HandleIGESBasicHArray1OfHArray1OfXYZ* = Handle[IGESBasicHArray1OfHArray1OfXYZ]
-  IGESBasicHArray1OfHArray1OfXYZ* {.importcpp: "IGESBasic_HArray1OfHArray1OfXYZ", header: "IGESBasic_HArray1OfHArray1OfXYZ.hxx",
-                                   bycopy.} = object of StandardTransient
+## !!!Ignored construct:  # _IGESBasic_HArray1OfHArray1OfXYZ_HeaderFile [NewLine] # _IGESBasic_HArray1OfHArray1OfXYZ_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < TColStd_Array1OfTransient . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < TColgp_HArray1OfXYZ . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] class IGESBasic_HArray1OfHArray1OfXYZ ;
+## Error: expected ';'!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( IGESBasic_HArray1OfHArray1OfXYZ , Standard_Transient ) class IGESBasic_HArray1OfHArray1OfXYZ : public Standard_Transient { public : IGESBasic_HArray1OfHArray1OfXYZ ( const Standard_Integer low , const Standard_Integer up ) ; Standard_Integer Lower ( ) const ; Standard_Integer Upper ( ) const ; Standard_Integer Length ( ) const ; void SetValue ( const Standard_Integer num , const Handle ( TColgp_HArray1OfXYZ ) & val ) ; Handle ( TColgp_HArray1OfXYZ ) Value ( const Standard_Integer num ) const ; public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return IGESBasic_HArray1OfHArray1OfXYZ ; ( IGESBasic_HArray1OfHArray1OfXYZ , Standard_Transient ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < IGESBasic_HArray1OfHArray1OfXYZ > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : private : TColStd_Array1OfTransient thelist ; } ;
+## Error: expected ';'!!!
 
 
-proc constructIGESBasicHArray1OfHArray1OfXYZ*(low: int; up: int): IGESBasicHArray1OfHArray1OfXYZ {.
-    constructor, importcpp: "IGESBasic_HArray1OfHArray1OfXYZ(@)",
-    header: "IGESBasic_HArray1OfHArray1OfXYZ.hxx".}
-proc lower*(this: IGESBasicHArray1OfHArray1OfXYZ): int {.noSideEffect,
-    importcpp: "Lower", header: "IGESBasic_HArray1OfHArray1OfXYZ.hxx".}
-proc upper*(this: IGESBasicHArray1OfHArray1OfXYZ): int {.noSideEffect,
-    importcpp: "Upper", header: "IGESBasic_HArray1OfHArray1OfXYZ.hxx".}
-proc length*(this: IGESBasicHArray1OfHArray1OfXYZ): int {.noSideEffect,
-    importcpp: "Length", header: "IGESBasic_HArray1OfHArray1OfXYZ.hxx".}
-proc setValue*(this: var IGESBasicHArray1OfHArray1OfXYZ; num: int;
-              val: Handle[TColgpHArray1OfXYZ]) {.importcpp: "SetValue",
-    header: "IGESBasic_HArray1OfHArray1OfXYZ.hxx".}
-proc value*(this: IGESBasicHArray1OfHArray1OfXYZ; num: int): Handle[
-    TColgpHArray1OfXYZ] {.noSideEffect, importcpp: "Value",
-                         header: "IGESBasic_HArray1OfHArray1OfXYZ.hxx".}
-type
-  IGESBasicHArray1OfHArray1OfXYZbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "IGESBasic_HArray1OfHArray1OfXYZ::get_type_name(@)",
-                            header: "IGESBasic_HArray1OfHArray1OfXYZ.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESBasic_HArray1OfHArray1OfXYZ::get_type_descriptor(@)",
-    header: "IGESBasic_HArray1OfHArray1OfXYZ.hxx".}
-proc dynamicType*(this: IGESBasicHArray1OfHArray1OfXYZ): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESBasic_HArray1OfHArray1OfXYZ.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

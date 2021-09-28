@@ -22,7 +22,7 @@ discard "forward decl of TopOpeBRepBuild_Builder"
 discard "forward decl of TopOpeBRepBuild_HBuilder"
 discard "forward decl of TopOpeBRepBuild_HBuilder"
 type
-  HandleTopOpeBRepBuildHBuilder* = Handle[TopOpeBRepBuildHBuilder]
+  HandleC1C1* = Handle[TopOpeBRepBuildHBuilder]
 
 ## ! The HBuilder  algorithm    constructs   topological
 ## ! objects  from   an    existing  topology  and  new
@@ -72,19 +72,19 @@ proc isMerged*(this: TopOpeBRepBuildHBuilder; s: TopoDS_Shape; toBuild: TopAbsSt
     noSideEffect, importcpp: "IsMerged", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc merged*(this: TopOpeBRepBuildHBuilder; s: TopoDS_Shape; toBuild: TopAbsState): TopToolsListOfShape {.
     noSideEffect, importcpp: "Merged", header: "TopOpeBRepBuild_HBuilder.hxx".}
-proc newVertex*(this: TopOpeBRepBuildHBuilder; i: int): TopoDS_Shape {.noSideEffect,
+proc newVertex*(this: TopOpeBRepBuildHBuilder; i: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "NewVertex", header: "TopOpeBRepBuild_HBuilder.hxx".}
-proc newEdges*(this: TopOpeBRepBuildHBuilder; i: int): TopToolsListOfShape {.
+proc newEdges*(this: TopOpeBRepBuildHBuilder; i: cint): TopToolsListOfShape {.
     noSideEffect, importcpp: "NewEdges", header: "TopOpeBRepBuild_HBuilder.hxx".}
-proc changeNewEdges*(this: var TopOpeBRepBuildHBuilder; i: int): var TopToolsListOfShape {.
+proc changeNewEdges*(this: var TopOpeBRepBuildHBuilder; i: cint): var TopToolsListOfShape {.
     importcpp: "ChangeNewEdges", header: "TopOpeBRepBuild_HBuilder.hxx".}
-proc newFaces*(this: TopOpeBRepBuildHBuilder; i: int): TopToolsListOfShape {.
+proc newFaces*(this: TopOpeBRepBuildHBuilder; i: cint): TopToolsListOfShape {.
     noSideEffect, importcpp: "NewFaces", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc section*(this: var TopOpeBRepBuildHBuilder): TopToolsListOfShape {.
     importcpp: "Section", header: "TopOpeBRepBuild_HBuilder.hxx".}
-proc initExtendedSectionDS*(this: var TopOpeBRepBuildHBuilder; k: int = 3) {.
+proc initExtendedSectionDS*(this: var TopOpeBRepBuildHBuilder; k: cint = 3) {.
     importcpp: "InitExtendedSectionDS", header: "TopOpeBRepBuild_HBuilder.hxx".}
-proc initSection*(this: var TopOpeBRepBuildHBuilder; k: int = 3) {.
+proc initSection*(this: var TopOpeBRepBuildHBuilder; k: cint = 3) {.
     importcpp: "InitSection", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc moreSection*(this: TopOpeBRepBuildHBuilder): bool {.noSideEffect,
     importcpp: "MoreSection", header: "TopOpeBRepBuild_HBuilder.hxx".}
@@ -93,20 +93,22 @@ proc nextSection*(this: var TopOpeBRepBuildHBuilder) {.importcpp: "NextSection",
 proc currentSection*(this: TopOpeBRepBuildHBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "CurrentSection", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc getDSEdgeFromSectEdge*(this: var TopOpeBRepBuildHBuilder; e: TopoDS_Shape;
-                           rank: int): int {.importcpp: "GetDSEdgeFromSectEdge",
+                           rank: cint): cint {.importcpp: "GetDSEdgeFromSectEdge",
     header: "TopOpeBRepBuild_HBuilder.hxx".}
-proc getDSFaceFromDSEdge*(this: var TopOpeBRepBuildHBuilder; indexEdg: int; rank: int): var TColStdListOfInteger {.
+proc getDSFaceFromDSEdge*(this: var TopOpeBRepBuildHBuilder; indexEdg: cint;
+                         rank: cint): var TColStdListOfInteger {.
     importcpp: "GetDSFaceFromDSEdge", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc getDSCurveFromSectEdge*(this: var TopOpeBRepBuildHBuilder;
-                            sectEdge: TopoDS_Shape): int {.
+                            sectEdge: TopoDS_Shape): cint {.
     importcpp: "GetDSCurveFromSectEdge", header: "TopOpeBRepBuild_HBuilder.hxx".}
-proc getDSFaceFromDSCurve*(this: var TopOpeBRepBuildHBuilder; indexCur: int; rank: int): int {.
-    importcpp: "GetDSFaceFromDSCurve", header: "TopOpeBRepBuild_HBuilder.hxx".}
+proc getDSFaceFromDSCurve*(this: var TopOpeBRepBuildHBuilder; indexCur: cint;
+                          rank: cint): cint {.importcpp: "GetDSFaceFromDSCurve",
+    header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc getDSPointFromNewVertex*(this: var TopOpeBRepBuildHBuilder;
-                             newVert: TopoDS_Shape): int {.
+                             newVert: TopoDS_Shape): cint {.
     importcpp: "GetDSPointFromNewVertex", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc edgeCurveAncestors*(this: var TopOpeBRepBuildHBuilder; e: TopoDS_Shape;
-                        f1: var TopoDS_Shape; f2: var TopoDS_Shape; ic: var int): bool {.
+                        f1: var TopoDS_Shape; f2: var TopoDS_Shape; ic: var cint): bool {.
     importcpp: "EdgeCurveAncestors", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc edgeSectionAncestors*(this: var TopOpeBRepBuildHBuilder; e: TopoDS_Shape;
                           lf1: var TopToolsListOfShape;
@@ -114,7 +116,7 @@ proc edgeSectionAncestors*(this: var TopOpeBRepBuildHBuilder; e: TopoDS_Shape;
                           le1: var TopToolsListOfShape;
                           le2: var TopToolsListOfShape): bool {.
     importcpp: "EdgeSectionAncestors", header: "TopOpeBRepBuild_HBuilder.hxx".}
-proc isKPart*(this: var TopOpeBRepBuildHBuilder): int {.importcpp: "IsKPart",
+proc isKPart*(this: var TopOpeBRepBuildHBuilder): cint {.importcpp: "IsKPart",
     header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc mergeKPart*(this: var TopOpeBRepBuildHBuilder; tb1: TopAbsState; tb2: TopAbsState) {.
     importcpp: "MergeKPart", header: "TopOpeBRepBuild_HBuilder.hxx".}
@@ -130,3 +132,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc dynamicType*(this: TopOpeBRepBuildHBuilder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TopOpeBRepBuild_HBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

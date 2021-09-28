@@ -36,16 +36,17 @@ type
                                   ## ! if a vector is null).
 
 
-proc constructLProp3dSLProps*(s: Handle[Adaptor3dHSurface]; u: float; v: float; n: int;
-                             resolution: float): LProp3dSLProps {.constructor,
-    importcpp: "LProp3d_SLProps(@)", header: "LProp3d_SLProps.hxx".}
-proc constructLProp3dSLProps*(s: Handle[Adaptor3dHSurface]; n: int; resolution: float): LProp3dSLProps {.
+proc constructLProp3dSLProps*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat;
+                             n: cint; resolution: cfloat): LProp3dSLProps {.
     constructor, importcpp: "LProp3d_SLProps(@)", header: "LProp3d_SLProps.hxx".}
-proc constructLProp3dSLProps*(n: int; resolution: float): LProp3dSLProps {.
+proc constructLProp3dSLProps*(s: Handle[Adaptor3dHSurface]; n: cint;
+                             resolution: cfloat): LProp3dSLProps {.constructor,
+    importcpp: "LProp3d_SLProps(@)", header: "LProp3d_SLProps.hxx".}
+proc constructLProp3dSLProps*(n: cint; resolution: cfloat): LProp3dSLProps {.
     constructor, importcpp: "LProp3d_SLProps(@)", header: "LProp3d_SLProps.hxx".}
 proc setSurface*(this: var LProp3dSLProps; s: Handle[Adaptor3dHSurface]) {.
     importcpp: "SetSurface", header: "LProp3d_SLProps.hxx".}
-proc setParameters*(this: var LProp3dSLProps; u: float; v: float) {.
+proc setParameters*(this: var LProp3dSLProps; u: cfloat; v: cfloat) {.
     importcpp: "SetParameters", header: "LProp3d_SLProps.hxx".}
 proc value*(this: LProp3dSLProps): Pnt {.noSideEffect, importcpp: "Value",
                                      header: "LProp3d_SLProps.hxx".}
@@ -75,13 +76,38 @@ proc isCurvatureDefined*(this: var LProp3dSLProps): bool {.
     importcpp: "IsCurvatureDefined", header: "LProp3d_SLProps.hxx".}
 proc isUmbilic*(this: var LProp3dSLProps): bool {.importcpp: "IsUmbilic",
     header: "LProp3d_SLProps.hxx".}
-proc maxCurvature*(this: var LProp3dSLProps): float {.importcpp: "MaxCurvature",
+proc maxCurvature*(this: var LProp3dSLProps): cfloat {.importcpp: "MaxCurvature",
     header: "LProp3d_SLProps.hxx".}
-proc minCurvature*(this: var LProp3dSLProps): float {.importcpp: "MinCurvature",
+proc minCurvature*(this: var LProp3dSLProps): cfloat {.importcpp: "MinCurvature",
     header: "LProp3d_SLProps.hxx".}
 proc curvatureDirections*(this: var LProp3dSLProps; maxD: var Dir; minD: var Dir) {.
     importcpp: "CurvatureDirections", header: "LProp3d_SLProps.hxx".}
-proc meanCurvature*(this: var LProp3dSLProps): float {.importcpp: "MeanCurvature",
+proc meanCurvature*(this: var LProp3dSLProps): cfloat {.importcpp: "MeanCurvature",
     header: "LProp3d_SLProps.hxx".}
-proc gaussianCurvature*(this: var LProp3dSLProps): float {.
+proc gaussianCurvature*(this: var LProp3dSLProps): cfloat {.
     importcpp: "GaussianCurvature", header: "LProp3d_SLProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

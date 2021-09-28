@@ -17,7 +17,7 @@
 ##  Macro TYPENAME - either C++ keyword typename, or empty on
 ##  platforms that do not support it
 
-when defined(sunpro_Cc) and (sunpro_Cc <= 0x530):
+#[ when defined(sunpro_Cc) and (sunpro_Cc <= 0x530):
   ##  work-around against obsolete SUN WorkShop 5.3 compiler
 else:
-  discard
+  discard ]#

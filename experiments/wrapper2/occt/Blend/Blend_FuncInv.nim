@@ -23,9 +23,9 @@ type
                                                                                                                      ## 4.
 
 
-proc nbVariables*(this: BlendFuncInv): int {.noSideEffect, importcpp: "NbVariables",
+proc nbVariables*(this: BlendFuncInv): cint {.noSideEffect, importcpp: "NbVariables",
     header: "Blend_FuncInv.hxx".}
-proc nbEquations*(this: BlendFuncInv): int {.noSideEffect, importcpp: "NbEquations",
+proc nbEquations*(this: BlendFuncInv): cint {.noSideEffect, importcpp: "NbEquations",
     header: "Blend_FuncInv.hxx".}
 proc value*(this: var BlendFuncInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "Blend_FuncInv.hxx".}
@@ -35,9 +35,34 @@ proc values*(this: var BlendFuncInv; x: MathVector; f: var MathVector; d: var Ma
     importcpp: "Values", header: "Blend_FuncInv.hxx".}
 proc set*(this: var BlendFuncInv; onFirst: bool; cOnSurf: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "Set", header: "Blend_FuncInv.hxx".}
-proc getTolerance*(this: BlendFuncInv; tolerance: var MathVector; tol: float) {.
+proc getTolerance*(this: BlendFuncInv; tolerance: var MathVector; tol: cfloat) {.
     noSideEffect, importcpp: "GetTolerance", header: "Blend_FuncInv.hxx".}
 proc getBounds*(this: BlendFuncInv; infBound: var MathVector; supBound: var MathVector) {.
     noSideEffect, importcpp: "GetBounds", header: "Blend_FuncInv.hxx".}
-proc isSolution*(this: var BlendFuncInv; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendFuncInv; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "Blend_FuncInv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

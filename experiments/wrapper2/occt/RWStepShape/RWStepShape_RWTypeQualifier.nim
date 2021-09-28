@@ -27,9 +27,34 @@ proc constructRWStepShapeRWTypeQualifier*(): RWStepShapeRWTypeQualifier {.
     constructor, importcpp: "RWStepShape_RWTypeQualifier(@)",
     header: "RWStepShape_RWTypeQualifier.hxx".}
 proc readStep*(this: RWStepShapeRWTypeQualifier;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeTypeQualifier]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWTypeQualifier.hxx".}
 proc writeStep*(this: RWStepShapeRWTypeQualifier; sw: var StepDataStepWriter;
                ent: Handle[StepShapeTypeQualifier]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWTypeQualifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

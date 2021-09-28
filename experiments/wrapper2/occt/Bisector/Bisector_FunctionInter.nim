@@ -31,9 +31,34 @@ proc constructBisectorFunctionInter*(c: Handle[Geom2dCurve];
 proc perform*(this: var BisectorFunctionInter; c: Handle[Geom2dCurve];
              bis1: Handle[BisectorCurve]; bis2: Handle[BisectorCurve]) {.
     importcpp: "Perform", header: "Bisector_FunctionInter.hxx".}
-proc value*(this: var BisectorFunctionInter; x: float; f: var float): bool {.
+proc value*(this: var BisectorFunctionInter; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "Bisector_FunctionInter.hxx".}
-proc derivative*(this: var BisectorFunctionInter; x: float; d: var float): bool {.
+proc derivative*(this: var BisectorFunctionInter; x: cfloat; d: var cfloat): bool {.
     importcpp: "Derivative", header: "Bisector_FunctionInter.hxx".}
-proc values*(this: var BisectorFunctionInter; x: float; f: var float; d: var float): bool {.
+proc values*(this: var BisectorFunctionInter; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     importcpp: "Values", header: "Bisector_FunctionInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

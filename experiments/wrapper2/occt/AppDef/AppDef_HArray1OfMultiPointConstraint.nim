@@ -14,35 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  AppDefHArray1OfMultiPointConstraint* {.importcpp: "AppDef_HArray1OfMultiPointConstraint", header: "AppDef_HArray1OfMultiPointConstraint.hxx",
-                                        bycopy.} = object of AppDefArray1OfMultiPointConstraint
+## !!!Ignored construct:  # AppDef_HArray1OfMultiPointConstraint_HeaderFile [NewLine] # AppDef_HArray1OfMultiPointConstraint_HeaderFile [NewLine] # < AppDef_MultiPointConstraint . hxx > [NewLine] # < AppDef_Array1OfMultiPointConstraint . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( AppDef_HArray1OfMultiPointConstraint , AppDef_Array1OfMultiPointConstraint ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructAppDefHArray1OfMultiPointConstraint*(theLower: int; theUpper: int): AppDefHArray1OfMultiPointConstraint {.
-    constructor, importcpp: "AppDef_HArray1OfMultiPointConstraint(@)",
-    header: "AppDef_HArray1OfMultiPointConstraint.hxx".}
-proc constructAppDefHArray1OfMultiPointConstraint*(theLower: int; theUpper: int;
-    theValue: ValueType): AppDefHArray1OfMultiPointConstraint {.constructor,
-    importcpp: "AppDef_HArray1OfMultiPointConstraint(@)",
-    header: "AppDef_HArray1OfMultiPointConstraint.hxx".}
-proc constructAppDefHArray1OfMultiPointConstraint*(
-    theOther: AppDefArray1OfMultiPointConstraint): AppDefHArray1OfMultiPointConstraint {.
-    constructor, importcpp: "AppDef_HArray1OfMultiPointConstraint(@)",
-    header: "AppDef_HArray1OfMultiPointConstraint.hxx".}
-proc array1*(this: AppDefHArray1OfMultiPointConstraint): AppDefArray1OfMultiPointConstraint {.
-    noSideEffect, importcpp: "Array1",
-    header: "AppDef_HArray1OfMultiPointConstraint.hxx".}
-proc changeArray1*(this: var AppDefHArray1OfMultiPointConstraint): var AppDefArray1OfMultiPointConstraint {.
-    importcpp: "ChangeArray1", header: "AppDef_HArray1OfMultiPointConstraint.hxx".}
-type
-  AppDefHArray1OfMultiPointConstraintbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "AppDef_HArray1OfMultiPointConstraint::get_type_name(@)",
-                            header: "AppDef_HArray1OfMultiPointConstraint.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "AppDef_HArray1OfMultiPointConstraint::get_type_descriptor(@)",
-    header: "AppDef_HArray1OfMultiPointConstraint.hxx".}
-proc dynamicType*(this: AppDefHArray1OfMultiPointConstraint): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "AppDef_HArray1OfMultiPointConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   StepVisualArray1OfSurfaceStyleElementSelect* = NCollectionArray1[
       StepVisualSurfaceStyleElementSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

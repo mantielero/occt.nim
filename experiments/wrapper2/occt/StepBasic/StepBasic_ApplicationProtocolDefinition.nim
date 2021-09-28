@@ -21,8 +21,7 @@ discard "forward decl of StepBasic_ApplicationContext"
 discard "forward decl of StepBasic_ApplicationProtocolDefinition"
 discard "forward decl of StepBasic_ApplicationProtocolDefinition"
 type
-  HandleStepBasicApplicationProtocolDefinition* = Handle[
-      StepBasicApplicationProtocolDefinition]
+  HandleC1C1* = Handle[StepBasicApplicationProtocolDefinition]
   StepBasicApplicationProtocolDefinition* {.
       importcpp: "StepBasic_ApplicationProtocolDefinition",
       header: "StepBasic_ApplicationProtocolDefinition.hxx", bycopy.} = object of StandardTransient ##
@@ -38,7 +37,7 @@ proc constructStepBasicApplicationProtocolDefinition*(): StepBasicApplicationPro
 proc init*(this: var StepBasicApplicationProtocolDefinition;
           aStatus: Handle[TCollectionHAsciiString];
     aApplicationInterpretedModelSchemaName: Handle[TCollectionHAsciiString];
-          aApplicationProtocolYear: int;
+          aApplicationProtocolYear: cint;
           aApplication: Handle[StepBasicApplicationContext]) {.importcpp: "Init",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
 proc setStatus*(this: var StepBasicApplicationProtocolDefinition;
@@ -56,10 +55,10 @@ proc applicationInterpretedModelSchemaName*(
     noSideEffect, importcpp: "ApplicationInterpretedModelSchemaName",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
 proc setApplicationProtocolYear*(this: var StepBasicApplicationProtocolDefinition;
-                                aApplicationProtocolYear: int) {.
+                                aApplicationProtocolYear: cint) {.
     importcpp: "SetApplicationProtocolYear",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc applicationProtocolYear*(this: StepBasicApplicationProtocolDefinition): int {.
+proc applicationProtocolYear*(this: StepBasicApplicationProtocolDefinition): cint {.
     noSideEffect, importcpp: "ApplicationProtocolYear",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
 proc setApplication*(this: var StepBasicApplicationProtocolDefinition;
@@ -77,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_Applicat
 proc dynamicType*(this: StepBasicApplicationProtocolDefinition): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepBasic_ApplicationProtocolDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

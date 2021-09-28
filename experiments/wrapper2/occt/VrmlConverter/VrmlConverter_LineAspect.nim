@@ -18,7 +18,7 @@ discard "forward decl of Vrml_Material"
 discard "forward decl of VrmlConverter_LineAspect"
 discard "forward decl of VrmlConverter_LineAspect"
 type
-  HandleVrmlConverterLineAspect* = Handle[VrmlConverterLineAspect]
+  HandleC1C1* = Handle[VrmlConverterLineAspect]
 
 ## ! qualifies the aspect properties for
 ## ! the VRML conversation of a Curve and  a  DeflectionCurve .
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "VrmlConverter_LineAspect.hxx".}
 proc dynamicType*(this: VrmlConverterLineAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "VrmlConverter_LineAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

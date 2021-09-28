@@ -21,3 +21,28 @@ type
       Handle[SelectMgrSelectableObject], Handle[AIS_LocalStatus],
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

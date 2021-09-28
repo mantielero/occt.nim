@@ -43,3 +43,28 @@ proc addShape*(this: var BOPAlgoWireEdgeSet; sS: TopoDS_Shape) {.
     importcpp: "AddShape", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc shapes*(this: BOPAlgoWireEdgeSet): TopToolsListOfShape {.noSideEffect,
     importcpp: "Shapes", header: "BOPAlgo_WireEdgeSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

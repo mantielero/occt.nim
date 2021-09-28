@@ -16,7 +16,7 @@
 discard "forward decl of XSDRAWSTLVRML_DataSource3D"
 discard "forward decl of XSDRAWSTLVRML_DataSource3D"
 type
-  HandleXSDRAWSTLVRML_DataSource3D* = Handle[XSDRAWSTLVRML_DataSource3D]
+  HandleC1C1* = Handle[XSDRAWSTLVRML_DataSource3D]
 
 ## ! The sample DataSource3D for working with STLMesh_Mesh
 
@@ -30,20 +30,20 @@ type
 proc constructXSDRAWSTLVRML_DataSource3D*(): XSDRAWSTLVRML_DataSource3D {.
     constructor, importcpp: "XSDRAWSTLVRML_DataSource3D(@)",
     header: "XSDRAWSTLVRML_DataSource3D.hxx".}
-proc getGeom*(this: XSDRAWSTLVRML_DataSource3D; theID: int; theIsElement: bool;
-             theCoords: var TColStdArray1OfReal; theNbNodes: var int;
+proc getGeom*(this: XSDRAWSTLVRML_DataSource3D; theID: cint; theIsElement: bool;
+             theCoords: var TColStdArray1OfReal; theNbNodes: var cint;
              theType: var MeshVS_EntityType): bool {.noSideEffect,
     importcpp: "GetGeom", header: "XSDRAWSTLVRML_DataSource3D.hxx".}
-proc get3DGeom*(this: XSDRAWSTLVRML_DataSource3D; theID: int; theNbNodes: var int;
+proc get3DGeom*(this: XSDRAWSTLVRML_DataSource3D; theID: cint; theNbNodes: var cint;
                theData: var Handle[MeshVS_HArray1OfSequenceOfInteger]): bool {.
     noSideEffect, importcpp: "Get3DGeom", header: "XSDRAWSTLVRML_DataSource3D.hxx".}
-proc getGeomType*(this: XSDRAWSTLVRML_DataSource3D; theID: int; theIsElement: bool;
+proc getGeomType*(this: XSDRAWSTLVRML_DataSource3D; theID: cint; theIsElement: bool;
                  theType: var MeshVS_EntityType): bool {.noSideEffect,
     importcpp: "GetGeomType", header: "XSDRAWSTLVRML_DataSource3D.hxx".}
-proc getAddr*(this: XSDRAWSTLVRML_DataSource3D; theID: int; theIsElement: bool): StandardAddress {.
+proc getAddr*(this: XSDRAWSTLVRML_DataSource3D; theID: cint; theIsElement: bool): StandardAddress {.
     noSideEffect, importcpp: "GetAddr", header: "XSDRAWSTLVRML_DataSource3D.hxx".}
-proc getNodesByElement*(this: XSDRAWSTLVRML_DataSource3D; theID: int;
-                       theNodeIDs: var TColStdArray1OfInteger; theNbNodes: var int): bool {.
+proc getNodesByElement*(this: XSDRAWSTLVRML_DataSource3D; theID: cint;
+                       theNodeIDs: var TColStdArray1OfInteger; theNbNodes: var cint): bool {.
     noSideEffect, importcpp: "GetNodesByElement",
     header: "XSDRAWSTLVRML_DataSource3D.hxx".}
 proc getAllNodes*(this: XSDRAWSTLVRML_DataSource3D): TColStdPackedMapOfInteger {.
@@ -52,9 +52,9 @@ proc getAllNodes*(this: XSDRAWSTLVRML_DataSource3D): TColStdPackedMapOfInteger {
 proc getAllElements*(this: XSDRAWSTLVRML_DataSource3D): TColStdPackedMapOfInteger {.
     noSideEffect, importcpp: "GetAllElements",
     header: "XSDRAWSTLVRML_DataSource3D.hxx".}
-proc getNormal*(this: XSDRAWSTLVRML_DataSource3D; theID: int; theMax: int;
-               theNx: var float; theNy: var float; theNz: var float): bool {.noSideEffect,
-    importcpp: "GetNormal", header: "XSDRAWSTLVRML_DataSource3D.hxx".}
+proc getNormal*(this: XSDRAWSTLVRML_DataSource3D; theID: cint; theMax: cint;
+               theNx: var cfloat; theNy: var cfloat; theNz: var cfloat): bool {.
+    noSideEffect, importcpp: "GetNormal", header: "XSDRAWSTLVRML_DataSource3D.hxx".}
 type
   XSDRAWSTLVRML_DataSource3DbaseType* = MeshVS_DataSource
 
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XSDRAWSTLVRML_DataSource3D): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XSDRAWSTLVRML_DataSource3D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -51,5 +51,30 @@ proc ownCopy*(this: IGESGraphToolColor; entfrom: Handle[IGESGraphColor];
              entto: Handle[IGESGraphColor]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolColor.hxx".}
 proc ownDump*(this: IGESGraphToolColor; ent: Handle[IGESGraphColor];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolColor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

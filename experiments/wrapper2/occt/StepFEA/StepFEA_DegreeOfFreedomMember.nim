@@ -16,7 +16,7 @@
 discard "forward decl of StepFEA_DegreeOfFreedomMember"
 discard "forward decl of StepFEA_DegreeOfFreedomMember"
 type
-  HandleStepFEA_DegreeOfFreedomMember* = Handle[StepFEA_DegreeOfFreedomMember]
+  HandleC1C1* = Handle[StepFEA_DegreeOfFreedomMember]
 
 ## ! Representation of member for  STEP SELECT type CurveElementFreedom
 
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_DegreeOfFreedomMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_DegreeOfFreedomMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

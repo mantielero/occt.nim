@@ -14,17 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_AbortiveTransaction_HeaderFile [NewLine] # _Standard_AbortiveTransaction_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Standard_AbortiveTransaction ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_AbortiveTransaction"
 discard "forward decl of Standard_AbortiveTransaction"
 type
-  HandleStandardAbortiveTransactionStandardAbortiveTransaction* = Handle[
-      StandardAbortiveTransaction]
+  HandleC1C1* = Handle[StandardAbortiveTransaction]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_AbortiveTransaction [NewLine] # if ( CONDITION ) throw Standard_AbortiveTransaction ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardAbortiveTransaction):
+  template standardAbortiveTransactionRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardAbortiveTransaction*(a1: Message): Throw {.
+          importcpp: "Standard_AbortiveTransaction(@)",
+          header: "Standard_AbortiveTransaction.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_AbortiveTransaction , Standard_Failure ) #  _Standard_AbortiveTransaction_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+type
+  StandardAbortiveTransaction* {.importcpp: "Standard_AbortiveTransaction",
+                                header: "Standard_AbortiveTransaction.hxx", bycopy.} = object of StandardFailure
+
+
+
+
+
+
 

@@ -28,7 +28,7 @@ proc constructRWStepGeomRWPointReplica*(): RWStepGeomRWPointReplica {.constructo
     importcpp: "RWStepGeom_RWPointReplica(@)",
     header: "RWStepGeom_RWPointReplica.hxx".}
 proc readStep*(this: RWStepGeomRWPointReplica;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPointReplica]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWPointReplica.hxx".}
 proc writeStep*(this: RWStepGeomRWPointReplica; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepGeomRWPointReplica; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWPointReplica; ent: Handle[StepGeomPointReplica];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWPointReplica.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

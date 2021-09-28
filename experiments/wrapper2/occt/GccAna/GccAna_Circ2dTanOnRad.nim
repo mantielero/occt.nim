@@ -64,43 +64,68 @@ type
 
 
 proc constructGccAnaCirc2dTanOnRad*(qualified1: GccEntQualifiedCirc; onLine: Lin2d;
-                                   radius: float; tolerance: float): GccAnaCirc2dTanOnRad {.
+                                   radius: cfloat; tolerance: cfloat): GccAnaCirc2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
 proc constructGccAnaCirc2dTanOnRad*(qualified1: GccEntQualifiedLin; onLine: Lin2d;
-                                   radius: float; tolerance: float): GccAnaCirc2dTanOnRad {.
+                                   radius: cfloat; tolerance: cfloat): GccAnaCirc2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
-proc constructGccAnaCirc2dTanOnRad*(point1: Pnt2d; onLine: Lin2d; radius: float;
-                                   tolerance: float): GccAnaCirc2dTanOnRad {.
+proc constructGccAnaCirc2dTanOnRad*(point1: Pnt2d; onLine: Lin2d; radius: cfloat;
+                                   tolerance: cfloat): GccAnaCirc2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
 proc constructGccAnaCirc2dTanOnRad*(qualified1: GccEntQualifiedCirc;
-                                   onCirc: Circ2d; radius: float; tolerance: float): GccAnaCirc2dTanOnRad {.
+                                   onCirc: Circ2d; radius: cfloat; tolerance: cfloat): GccAnaCirc2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
 proc constructGccAnaCirc2dTanOnRad*(qualified1: GccEntQualifiedLin; onCirc: Circ2d;
-                                   radius: float; tolerance: float): GccAnaCirc2dTanOnRad {.
+                                   radius: cfloat; tolerance: cfloat): GccAnaCirc2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
-proc constructGccAnaCirc2dTanOnRad*(point1: Pnt2d; onCirc: Circ2d; radius: float;
-                                   tolerance: float): GccAnaCirc2dTanOnRad {.
+proc constructGccAnaCirc2dTanOnRad*(point1: Pnt2d; onCirc: Circ2d; radius: cfloat;
+                                   tolerance: cfloat): GccAnaCirc2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
 proc isDone*(this: GccAnaCirc2dTanOnRad): bool {.noSideEffect, importcpp: "IsDone",
     header: "GccAna_Circ2dTanOnRad.hxx".}
-proc nbSolutions*(this: GccAnaCirc2dTanOnRad): int {.noSideEffect,
+proc nbSolutions*(this: GccAnaCirc2dTanOnRad): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Circ2dTanOnRad.hxx".}
-proc thisSolution*(this: GccAnaCirc2dTanOnRad; index: int): Circ2d {.noSideEffect,
+proc thisSolution*(this: GccAnaCirc2dTanOnRad; index: cint): Circ2d {.noSideEffect,
     importcpp: "ThisSolution", header: "GccAna_Circ2dTanOnRad.hxx".}
-proc whichQualifier*(this: GccAnaCirc2dTanOnRad; index: int;
+proc whichQualifier*(this: GccAnaCirc2dTanOnRad; index: cint;
                     qualif1: var GccEntPosition) {.noSideEffect,
     importcpp: "WhichQualifier", header: "GccAna_Circ2dTanOnRad.hxx".}
-proc tangency1*(this: GccAnaCirc2dTanOnRad; index: int; parSol: var float;
-               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+proc tangency1*(this: GccAnaCirc2dTanOnRad; index: cint; parSol: var cfloat;
+               parArg: var cfloat; pntSol: var Pnt2d) {.noSideEffect,
     importcpp: "Tangency1", header: "GccAna_Circ2dTanOnRad.hxx".}
-proc centerOn3*(this: GccAnaCirc2dTanOnRad; index: int; parArg: var float;
+proc centerOn3*(this: GccAnaCirc2dTanOnRad; index: cint; parArg: var cfloat;
                pntSol: var Pnt2d) {.noSideEffect, importcpp: "CenterOn3",
                                  header: "GccAna_Circ2dTanOnRad.hxx".}
-proc isTheSame1*(this: GccAnaCirc2dTanOnRad; index: int): bool {.noSideEffect,
+proc isTheSame1*(this: GccAnaCirc2dTanOnRad; index: cint): bool {.noSideEffect,
     importcpp: "IsTheSame1", header: "GccAna_Circ2dTanOnRad.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

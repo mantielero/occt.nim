@@ -25,3 +25,28 @@ const
   AIS_NavigationModeLOWER* = 0
   AIS_NavigationModeUPPER* = aIS_NavigationModeFirstPersonWalk
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

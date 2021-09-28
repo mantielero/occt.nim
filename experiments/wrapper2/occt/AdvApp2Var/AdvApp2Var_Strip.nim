@@ -19,3 +19,28 @@
 type
   AdvApp2VarStrip* = NCollectionSequence[Handle[AdvApp2VarIso]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

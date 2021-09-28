@@ -49,5 +49,30 @@ proc dynamicType*(this: FontFTLibrary): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Font_FTLibrary.hxx".}
 discard "forward decl of Font_FTLibrary"
 type
-  HandleFontFTLibrary* = Handle[FontFTLibrary]
+  HandleC1C1* = Handle[FontFTLibrary]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

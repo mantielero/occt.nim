@@ -29,7 +29,7 @@ proc constructRWStepGeomRWRectangularTrimmedSurface*(): RWStepGeomRWRectangularT
     constructor, importcpp: "RWStepGeom_RWRectangularTrimmedSurface(@)",
     header: "RWStepGeom_RWRectangularTrimmedSurface.hxx".}
 proc readStep*(this: RWStepGeomRWRectangularTrimmedSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomRectangularTrimmedSurface]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWRectangularTrimmedSurface.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepGeomRWRectangularTrimmedSurface;
            ent: Handle[StepGeomRectangularTrimmedSurface];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWRectangularTrimmedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -96,9 +96,9 @@ proc toFillIncompleteDocument*(this: RWMeshCafReader): bool {.noSideEffect,
     importcpp: "ToFillIncompleteDocument", header: "RWMesh_CafReader.hxx".}
 proc setFillIncompleteDocument*(this: var RWMeshCafReader; theToFillIncomplete: bool) {.
     importcpp: "SetFillIncompleteDocument", header: "RWMesh_CafReader.hxx".}
-proc memoryLimitMiB*(this: RWMeshCafReader): int {.noSideEffect,
+proc memoryLimitMiB*(this: RWMeshCafReader): cint {.noSideEffect,
     importcpp: "MemoryLimitMiB", header: "RWMesh_CafReader.hxx".}
-proc setMemoryLimitMiB*(this: var RWMeshCafReader; theLimitMiB: int) {.
+proc setMemoryLimitMiB*(this: var RWMeshCafReader; theLimitMiB: cint) {.
     importcpp: "SetMemoryLimitMiB", header: "RWMesh_CafReader.hxx".}
 proc coordinateSystemConverter*(this: RWMeshCafReader): RWMeshCoordinateSystemConverter {.
     noSideEffect, importcpp: "CoordinateSystemConverter",
@@ -106,9 +106,9 @@ proc coordinateSystemConverter*(this: RWMeshCafReader): RWMeshCoordinateSystemCo
 proc setCoordinateSystemConverter*(this: var RWMeshCafReader;
                                   theConverter: RWMeshCoordinateSystemConverter) {.
     importcpp: "SetCoordinateSystemConverter", header: "RWMesh_CafReader.hxx".}
-proc systemLengthUnit*(this: RWMeshCafReader): float {.noSideEffect,
+proc systemLengthUnit*(this: RWMeshCafReader): cfloat {.noSideEffect,
     importcpp: "SystemLengthUnit", header: "RWMesh_CafReader.hxx".}
-proc setSystemLengthUnit*(this: var RWMeshCafReader; theUnits: float) {.
+proc setSystemLengthUnit*(this: var RWMeshCafReader; theUnits: cfloat) {.
     importcpp: "SetSystemLengthUnit", header: "RWMesh_CafReader.hxx".}
 proc hasSystemCoordinateSystem*(this: RWMeshCafReader): bool {.noSideEffect,
     importcpp: "HasSystemCoordinateSystem", header: "RWMesh_CafReader.hxx".}
@@ -119,9 +119,9 @@ proc setSystemCoordinateSystem*(this: var RWMeshCafReader; theCS: Ax3) {.
 proc setSystemCoordinateSystem*(this: var RWMeshCafReader;
                                theCS: RWMeshCoordinateSystem) {.
     importcpp: "SetSystemCoordinateSystem", header: "RWMesh_CafReader.hxx".}
-proc fileLengthUnit*(this: RWMeshCafReader): float {.noSideEffect,
+proc fileLengthUnit*(this: RWMeshCafReader): cfloat {.noSideEffect,
     importcpp: "FileLengthUnit", header: "RWMesh_CafReader.hxx".}
-proc setFileLengthUnit*(this: var RWMeshCafReader; theUnits: float) {.
+proc setFileLengthUnit*(this: var RWMeshCafReader; theUnits: cfloat) {.
     importcpp: "SetFileLengthUnit", header: "RWMesh_CafReader.hxx".}
 proc hasFileCoordinateSystem*(this: RWMeshCafReader): bool {.noSideEffect,
     importcpp: "HasFileCoordinateSystem", header: "RWMesh_CafReader.hxx".}
@@ -135,7 +135,7 @@ proc setFileCoordinateSystem*(this: var RWMeshCafReader;
 proc perform*(this: var RWMeshCafReader; theFile: TCollectionAsciiString;
              theProgress: MessageProgressRange): bool {.importcpp: "Perform",
     header: "RWMesh_CafReader.hxx".}
-proc extraStatus*(this: RWMeshCafReader): int {.noSideEffect,
+proc extraStatus*(this: RWMeshCafReader): cint {.noSideEffect,
     importcpp: "ExtraStatus", header: "RWMesh_CafReader.hxx".}
 proc singleShape*(this: RWMeshCafReader): TopoDS_Shape {.noSideEffect,
     importcpp: "SingleShape", header: "RWMesh_CafReader.hxx".}
@@ -147,3 +147,28 @@ proc metadata*(this: RWMeshCafReader): TColStdIndexedDataMapOfStringString {.
 proc probeHeader*(this: var RWMeshCafReader; theFile: TCollectionAsciiString;
                  theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "ProbeHeader", header: "RWMesh_CafReader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

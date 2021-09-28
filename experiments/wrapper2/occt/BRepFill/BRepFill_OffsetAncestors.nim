@@ -37,3 +37,28 @@ proc hasAncestor*(this: BRepFillOffsetAncestors; s1: TopoDS_Edge): bool {.
     noSideEffect, importcpp: "HasAncestor", header: "BRepFill_OffsetAncestors.hxx".}
 proc ancestor*(this: BRepFillOffsetAncestors; s1: TopoDS_Edge): TopoDS_Shape {.
     noSideEffect, importcpp: "Ancestor", header: "BRepFill_OffsetAncestors.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

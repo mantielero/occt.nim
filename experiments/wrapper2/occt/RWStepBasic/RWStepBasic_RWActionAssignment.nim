@@ -29,7 +29,7 @@ proc constructRWStepBasicRWActionAssignment*(): RWStepBasicRWActionAssignment {.
     constructor, importcpp: "RWStepBasic_RWActionAssignment(@)",
     header: "RWStepBasic_RWActionAssignment.hxx".}
 proc readStep*(this: RWStepBasicRWActionAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicActionAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWActionAssignment.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepBasicRWActionAssignment;
            ent: Handle[StepBasicActionAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWActionAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

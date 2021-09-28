@@ -24,18 +24,19 @@ type
 
 proc isDone*(this: AppBlendApprox): bool {.noSideEffect, importcpp: "IsDone",
                                        header: "AppBlend_Approx.hxx".}
-proc surfShape*(this: AppBlendApprox; uDegree: var int; vDegree: var int;
-               nbUPoles: var int; nbVPoles: var int; nbUKnots: var int; nbVKnots: var int) {.
-    noSideEffect, importcpp: "SurfShape", header: "AppBlend_Approx.hxx".}
+proc surfShape*(this: AppBlendApprox; uDegree: var cint; vDegree: var cint;
+               nbUPoles: var cint; nbVPoles: var cint; nbUKnots: var cint;
+               nbVKnots: var cint) {.noSideEffect, importcpp: "SurfShape",
+                                  header: "AppBlend_Approx.hxx".}
 proc surface*(this: AppBlendApprox; tPoles: var TColgpArray2OfPnt;
              tWeights: var TColStdArray2OfReal; tUKnots: var TColStdArray1OfReal;
              tVKnots: var TColStdArray1OfReal; tUMults: var TColStdArray1OfInteger;
              tVMults: var TColStdArray1OfInteger) {.noSideEffect,
     importcpp: "Surface", header: "AppBlend_Approx.hxx".}
-proc uDegree*(this: AppBlendApprox): int {.noSideEffect, importcpp: "UDegree",
-                                       header: "AppBlend_Approx.hxx".}
-proc vDegree*(this: AppBlendApprox): int {.noSideEffect, importcpp: "VDegree",
-                                       header: "AppBlend_Approx.hxx".}
+proc uDegree*(this: AppBlendApprox): cint {.noSideEffect, importcpp: "UDegree",
+                                        header: "AppBlend_Approx.hxx".}
+proc vDegree*(this: AppBlendApprox): cint {.noSideEffect, importcpp: "VDegree",
+                                        header: "AppBlend_Approx.hxx".}
 proc surfPoles*(this: AppBlendApprox): TColgpArray2OfPnt {.noSideEffect,
     importcpp: "SurfPoles", header: "AppBlend_Approx.hxx".}
 proc surfWeights*(this: AppBlendApprox): TColStdArray2OfReal {.noSideEffect,
@@ -48,25 +49,50 @@ proc surfUMults*(this: AppBlendApprox): TColStdArray1OfInteger {.noSideEffect,
     importcpp: "SurfUMults", header: "AppBlend_Approx.hxx".}
 proc surfVMults*(this: AppBlendApprox): TColStdArray1OfInteger {.noSideEffect,
     importcpp: "SurfVMults", header: "AppBlend_Approx.hxx".}
-proc nbCurves2d*(this: AppBlendApprox): int {.noSideEffect, importcpp: "NbCurves2d",
+proc nbCurves2d*(this: AppBlendApprox): cint {.noSideEffect, importcpp: "NbCurves2d",
     header: "AppBlend_Approx.hxx".}
-proc curves2dShape*(this: AppBlendApprox; degree: var int; nbPoles: var int;
-                   nbKnots: var int) {.noSideEffect, importcpp: "Curves2dShape",
-                                    header: "AppBlend_Approx.hxx".}
-proc curve2d*(this: AppBlendApprox; index: int; tPoles: var TColgpArray1OfPnt2d;
+proc curves2dShape*(this: AppBlendApprox; degree: var cint; nbPoles: var cint;
+                   nbKnots: var cint) {.noSideEffect, importcpp: "Curves2dShape",
+                                     header: "AppBlend_Approx.hxx".}
+proc curve2d*(this: AppBlendApprox; index: cint; tPoles: var TColgpArray1OfPnt2d;
              tKnots: var TColStdArray1OfReal; tMults: var TColStdArray1OfInteger) {.
     noSideEffect, importcpp: "Curve2d", header: "AppBlend_Approx.hxx".}
-proc curves2dDegree*(this: AppBlendApprox): int {.noSideEffect,
+proc curves2dDegree*(this: AppBlendApprox): cint {.noSideEffect,
     importcpp: "Curves2dDegree", header: "AppBlend_Approx.hxx".}
-proc curve2dPoles*(this: AppBlendApprox; index: int): TColgpArray1OfPnt2d {.
+proc curve2dPoles*(this: AppBlendApprox; index: cint): TColgpArray1OfPnt2d {.
     noSideEffect, importcpp: "Curve2dPoles", header: "AppBlend_Approx.hxx".}
 proc curves2dKnots*(this: AppBlendApprox): TColStdArray1OfReal {.noSideEffect,
     importcpp: "Curves2dKnots", header: "AppBlend_Approx.hxx".}
 proc curves2dMults*(this: AppBlendApprox): TColStdArray1OfInteger {.noSideEffect,
     importcpp: "Curves2dMults", header: "AppBlend_Approx.hxx".}
-proc tolReached*(this: AppBlendApprox; tol3d: var float; tol2d: var float) {.
+proc tolReached*(this: AppBlendApprox; tol3d: var cfloat; tol2d: var cfloat) {.
     noSideEffect, importcpp: "TolReached", header: "AppBlend_Approx.hxx".}
-proc tolCurveOnSurf*(this: AppBlendApprox; index: int): float {.noSideEffect,
+proc tolCurveOnSurf*(this: AppBlendApprox; index: cint): cfloat {.noSideEffect,
     importcpp: "TolCurveOnSurf", header: "AppBlend_Approx.hxx".}
 proc destroyAppBlendApprox*(this: var AppBlendApprox) {.
     importcpp: "#.~AppBlend_Approx()", header: "AppBlend_Approx.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

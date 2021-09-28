@@ -27,10 +27,35 @@ proc constructRWStepBasicRWApplicationContext*(): RWStepBasicRWApplicationContex
     constructor, importcpp: "RWStepBasic_RWApplicationContext(@)",
     header: "RWStepBasic_RWApplicationContext.hxx".}
 proc readStep*(this: RWStepBasicRWApplicationContext;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicApplicationContext]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWApplicationContext.hxx".}
 proc writeStep*(this: RWStepBasicRWApplicationContext; sw: var StepDataStepWriter;
                ent: Handle[StepBasicApplicationContext]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWApplicationContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

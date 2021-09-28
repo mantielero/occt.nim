@@ -18,7 +18,7 @@ discard "forward decl of Vrml_Material"
 discard "forward decl of VrmlConverter_IsoAspect"
 discard "forward decl of VrmlConverter_IsoAspect"
 type
-  HandleVrmlConverterIsoAspect* = Handle[VrmlConverterIsoAspect]
+  HandleC1C1* = Handle[VrmlConverterIsoAspect]
 
 ## ! qualifies the aspect properties for
 ## ! the VRML conversation of iso curves .
@@ -43,12 +43,12 @@ type
 proc constructVrmlConverterIsoAspect*(): VrmlConverterIsoAspect {.constructor,
     importcpp: "VrmlConverter_IsoAspect(@)", header: "VrmlConverter_IsoAspect.hxx".}
 proc constructVrmlConverterIsoAspect*(aMaterial: Handle[VrmlMaterial]; onOff: bool;
-                                     aNumber: int): VrmlConverterIsoAspect {.
+                                     aNumber: cint): VrmlConverterIsoAspect {.
     constructor, importcpp: "VrmlConverter_IsoAspect(@)",
     header: "VrmlConverter_IsoAspect.hxx".}
-proc setNumber*(this: var VrmlConverterIsoAspect; aNumber: int) {.
+proc setNumber*(this: var VrmlConverterIsoAspect; aNumber: cint) {.
     importcpp: "SetNumber", header: "VrmlConverter_IsoAspect.hxx".}
-proc number*(this: VrmlConverterIsoAspect): int {.noSideEffect, importcpp: "Number",
+proc number*(this: VrmlConverterIsoAspect): cint {.noSideEffect, importcpp: "Number",
     header: "VrmlConverter_IsoAspect.hxx".}
 type
   VrmlConverterIsoAspectbaseType* = VrmlConverterLineAspect
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "VrmlConverter_IsoAspect.hxx".}
 proc dynamicType*(this: VrmlConverterIsoAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "VrmlConverter_IsoAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

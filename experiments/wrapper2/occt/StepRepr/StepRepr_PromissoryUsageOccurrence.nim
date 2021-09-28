@@ -17,8 +17,7 @@
 discard "forward decl of StepRepr_PromissoryUsageOccurrence"
 discard "forward decl of StepRepr_PromissoryUsageOccurrence"
 type
-  HandleStepReprPromissoryUsageOccurrence* = Handle[
-      StepReprPromissoryUsageOccurrence]
+  HandleC1C1* = Handle[StepReprPromissoryUsageOccurrence]
   StepReprPromissoryUsageOccurrence* {.importcpp: "StepRepr_PromissoryUsageOccurrence", header: "StepRepr_PromissoryUsageOccurrence.hxx",
                                       bycopy.} = object of StepReprAssemblyComponentUsage
 
@@ -37,3 +36,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprPromissoryUsageOccurrence): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_PromissoryUsageOccurrence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

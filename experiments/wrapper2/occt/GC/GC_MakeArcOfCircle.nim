@@ -43,10 +43,10 @@ type
                                                                                ## radiians.
 
 
-proc constructGC_MakeArcOfCircle*(circ: Circ; alpha1: float; alpha2: float; sense: bool): GC_MakeArcOfCircle {.
-    constructor, importcpp: "GC_MakeArcOfCircle(@)",
-    header: "GC_MakeArcOfCircle.hxx".}
-proc constructGC_MakeArcOfCircle*(circ: Circ; p: Pnt; alpha: float; sense: bool): GC_MakeArcOfCircle {.
+proc constructGC_MakeArcOfCircle*(circ: Circ; alpha1: cfloat; alpha2: cfloat;
+                                 sense: bool): GC_MakeArcOfCircle {.constructor,
+    importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
+proc constructGC_MakeArcOfCircle*(circ: Circ; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfCircle {.
     constructor, importcpp: "GC_MakeArcOfCircle(@)",
     header: "GC_MakeArcOfCircle.hxx".}
 proc constructGC_MakeArcOfCircle*(circ: Circ; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfCircle {.
@@ -63,3 +63,24 @@ proc value*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.noSideEffect,
 converter `constopencascade`*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeArcOfCircle::operator constopencascade",
     header: "GC_MakeArcOfCircle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

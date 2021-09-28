@@ -18,7 +18,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESGeom_CurveOnSurface"
 discard "forward decl of IGESGeom_CurveOnSurface"
 type
-  HandleIGESGeomCurveOnSurface* = Handle[IGESGeomCurveOnSurface]
+  HandleC1C1* = Handle[IGESGeomCurveOnSurface]
 
 ## ! defines IGESCurveOnSurface, Type <142> Form <0>
 ## ! in package IGESGeom
@@ -33,12 +33,12 @@ type
 
 proc constructIGESGeomCurveOnSurface*(): IGESGeomCurveOnSurface {.constructor,
     importcpp: "IGESGeom_CurveOnSurface(@)", header: "IGESGeom_CurveOnSurface.hxx".}
-proc init*(this: var IGESGeomCurveOnSurface; aMode: int;
+proc init*(this: var IGESGeomCurveOnSurface; aMode: cint;
           aSurface: Handle[IGESDataIGESEntity];
           aCurveUV: Handle[IGESDataIGESEntity];
-          aCurve3D: Handle[IGESDataIGESEntity]; aPreference: int) {.
+          aCurve3D: Handle[IGESDataIGESEntity]; aPreference: cint) {.
     importcpp: "Init", header: "IGESGeom_CurveOnSurface.hxx".}
-proc creationMode*(this: IGESGeomCurveOnSurface): int {.noSideEffect,
+proc creationMode*(this: IGESGeomCurveOnSurface): cint {.noSideEffect,
     importcpp: "CreationMode", header: "IGESGeom_CurveOnSurface.hxx".}
 proc surface*(this: IGESGeomCurveOnSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Surface", header: "IGESGeom_CurveOnSurface.hxx".}
@@ -46,7 +46,7 @@ proc curveUV*(this: IGESGeomCurveOnSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "CurveUV", header: "IGESGeom_CurveOnSurface.hxx".}
 proc curve3D*(this: IGESGeomCurveOnSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Curve3D", header: "IGESGeom_CurveOnSurface.hxx".}
-proc preferenceMode*(this: IGESGeomCurveOnSurface): int {.noSideEffect,
+proc preferenceMode*(this: IGESGeomCurveOnSurface): cint {.noSideEffect,
     importcpp: "PreferenceMode", header: "IGESGeom_CurveOnSurface.hxx".}
 type
   IGESGeomCurveOnSurfacebaseType* = IGESDataIGESEntity
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_CurveOnSurface.hxx".}
 proc dynamicType*(this: IGESGeomCurveOnSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGeom_CurveOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

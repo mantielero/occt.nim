@@ -17,3 +17,28 @@
 type
   TColGeom2dSequenceOfCurve* = NCollectionSequence[Handle[Geom2dCurve]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

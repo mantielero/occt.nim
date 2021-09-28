@@ -27,7 +27,7 @@ proc constructRWStepReprRWContinuosShapeAspect*(): RWStepReprRWContinuosShapeAsp
     constructor, importcpp: "RWStepRepr_RWContinuosShapeAspect(@)",
     header: "RWStepRepr_RWContinuosShapeAspect.hxx".}
 proc readStep*(this: RWStepReprRWContinuosShapeAspect;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprContinuosShapeAspect]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWContinuosShapeAspect.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepReprRWContinuosShapeAspect;
            ent: Handle[StepReprContinuosShapeAspect];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWContinuosShapeAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

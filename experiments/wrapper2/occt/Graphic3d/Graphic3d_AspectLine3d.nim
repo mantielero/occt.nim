@@ -65,7 +65,7 @@ proc dynamicType*(this: Graphic3dAspectLine3d): Handle[StandardType] {.noSideEff
 proc constructGraphic3dAspectLine3d*(): Graphic3dAspectLine3d {.constructor,
     importcpp: "Graphic3d_AspectLine3d(@)", header: "Graphic3d_AspectLine3d.hxx".}
 proc constructGraphic3dAspectLine3d*(theColor: QuantityColor;
-                                    theType: AspectTypeOfLine; theWidth: float): Graphic3dAspectLine3d {.
+                                    theType: AspectTypeOfLine; theWidth: cfloat): Graphic3dAspectLine3d {.
     constructor, importcpp: "Graphic3d_AspectLine3d(@)",
     header: "Graphic3d_AspectLine3d.hxx".}
 proc `type`*(this: Graphic3dAspectLine3d): AspectTypeOfLine {.noSideEffect,
@@ -74,11 +74,36 @@ proc setType*(this: var Graphic3dAspectLine3d; theType: AspectTypeOfLine) {.
     importcpp: "SetType", header: "Graphic3d_AspectLine3d.hxx".}
 proc width*(this: Graphic3dAspectLine3d): StandardShortReal {.noSideEffect,
     importcpp: "Width", header: "Graphic3d_AspectLine3d.hxx".}
-proc setWidth*(this: var Graphic3dAspectLine3d; theWidth: float) {.
+proc setWidth*(this: var Graphic3dAspectLine3d; theWidth: cfloat) {.
     importcpp: "SetWidth", header: "Graphic3d_AspectLine3d.hxx".}
 proc setWidth*(this: var Graphic3dAspectLine3d; theWidth: StandardShortReal) {.
     importcpp: "SetWidth", header: "Graphic3d_AspectLine3d.hxx".}
 discard "forward decl of Graphic3d_AspectLine3d"
 type
-  HandleGraphic3dAspectLine3d* = Handle[Graphic3dAspectLine3d]
+  HandleC1C1* = Handle[Graphic3dAspectLine3d]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

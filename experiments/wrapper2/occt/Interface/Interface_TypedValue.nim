@@ -20,7 +20,7 @@ discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_TypedValue"
 discard "forward decl of Interface_TypedValue"
 type
-  HandleInterfaceTypedValue* = Handle[InterfaceTypedValue]
+  HandleC1C1* = Handle[InterfaceTypedValue]
 
 ## ! Now strictly equivalent to TypedValue from MoniTool,
 ## ! except for ParamType which remains for compatibility reasons
@@ -140,3 +140,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_TypedValue.hxx".}
 proc dynamicType*(this: InterfaceTypedValue): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_TypedValue.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

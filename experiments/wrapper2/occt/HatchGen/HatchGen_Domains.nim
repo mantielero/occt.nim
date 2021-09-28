@@ -17,3 +17,28 @@
 type
   HatchGenDomains* = NCollectionSequence[HatchGenDomain]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

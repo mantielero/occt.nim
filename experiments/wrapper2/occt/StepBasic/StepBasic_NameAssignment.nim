@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_NameAssignment"
 discard "forward decl of StepBasic_NameAssignment"
 type
-  HandleStepBasicNameAssignment* = Handle[StepBasicNameAssignment]
+  HandleC1C1* = Handle[StepBasicNameAssignment]
 
 ## ! Representation of STEP entity NameAssignment
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_NameAssignment.hxx".}
 proc dynamicType*(this: StepBasicNameAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_NameAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

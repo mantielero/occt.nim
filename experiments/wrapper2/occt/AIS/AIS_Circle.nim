@@ -43,26 +43,26 @@ proc dynamicType*(this: AIS_Circle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Circle.hxx".}
 proc constructAIS_Circle*(aCircle: Handle[GeomCircle]): AIS_Circle {.constructor,
     importcpp: "AIS_Circle(@)", header: "AIS_Circle.hxx".}
-proc constructAIS_Circle*(theCircle: Handle[GeomCircle]; theUStart: float;
-                         theUEnd: float; theIsFilledCircleSens: bool = false): AIS_Circle {.
+proc constructAIS_Circle*(theCircle: Handle[GeomCircle]; theUStart: cfloat;
+                         theUEnd: cfloat; theIsFilledCircleSens: bool = false): AIS_Circle {.
     constructor, importcpp: "AIS_Circle(@)", header: "AIS_Circle.hxx".}
-proc signature*(this: AIS_Circle): int {.noSideEffect, importcpp: "Signature",
-                                     header: "AIS_Circle.hxx".}
+proc signature*(this: AIS_Circle): cint {.noSideEffect, importcpp: "Signature",
+                                      header: "AIS_Circle.hxx".}
 proc `type`*(this: AIS_Circle): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_Circle.hxx".}
 proc circle*(this: AIS_Circle): Handle[GeomCircle] {.noSideEffect,
     importcpp: "Circle", header: "AIS_Circle.hxx".}
-proc parameters*(this: AIS_Circle; theU1: var float; theU2: var float) {.noSideEffect,
+proc parameters*(this: AIS_Circle; theU1: var cfloat; theU2: var cfloat) {.noSideEffect,
     importcpp: "Parameters", header: "AIS_Circle.hxx".}
 proc setCircle*(this: var AIS_Circle; theCircle: Handle[GeomCircle]) {.
     importcpp: "SetCircle", header: "AIS_Circle.hxx".}
-proc setFirstParam*(this: var AIS_Circle; theU: float) {.importcpp: "SetFirstParam",
+proc setFirstParam*(this: var AIS_Circle; theU: cfloat) {.importcpp: "SetFirstParam",
     header: "AIS_Circle.hxx".}
-proc setLastParam*(this: var AIS_Circle; theU: float) {.importcpp: "SetLastParam",
+proc setLastParam*(this: var AIS_Circle; theU: cfloat) {.importcpp: "SetLastParam",
     header: "AIS_Circle.hxx".}
 proc setColor*(this: var AIS_Circle; aColor: QuantityColor) {.importcpp: "SetColor",
     header: "AIS_Circle.hxx".}
-proc setWidth*(this: var AIS_Circle; aValue: float) {.importcpp: "SetWidth",
+proc setWidth*(this: var AIS_Circle; aValue: cfloat) {.importcpp: "SetWidth",
     header: "AIS_Circle.hxx".}
 proc unsetColor*(this: var AIS_Circle) {.importcpp: "UnsetColor",
                                      header: "AIS_Circle.hxx".}
@@ -74,5 +74,30 @@ proc setFilledCircleSens*(this: var AIS_Circle; theIsFilledCircleSens: bool) {.
     importcpp: "SetFilledCircleSens", header: "AIS_Circle.hxx".}
 discard "forward decl of AIS_Circle"
 type
-  HandleAIS_Circle* = Handle[AIS_Circle]
+  HandleC1C1* = Handle[AIS_Circle]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -32,3 +32,28 @@ type
 
 proc constructRWGltfMaterialCommon*(): RWGltfMaterialCommon {.constructor,
     importcpp: "RWGltf_MaterialCommon(@)", header: "RWGltf_MaterialCommon.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

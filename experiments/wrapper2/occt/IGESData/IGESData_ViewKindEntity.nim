@@ -18,7 +18,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_ViewKindEntity"
 discard "forward decl of IGESData_ViewKindEntity"
 type
-  HandleIGESDataViewKindEntity* = Handle[IGESDataViewKindEntity]
+  HandleC1C1* = Handle[IGESDataViewKindEntity]
 
 ## ! defines required type for ViewKind in directory part
 ## ! that is, Single view or Multiple view
@@ -48,10 +48,11 @@ type
 
 proc isSingle*(this: IGESDataViewKindEntity): bool {.noSideEffect,
     importcpp: "IsSingle", header: "IGESData_ViewKindEntity.hxx".}
-proc nbViews*(this: IGESDataViewKindEntity): int {.noSideEffect,
+proc nbViews*(this: IGESDataViewKindEntity): cint {.noSideEffect,
     importcpp: "NbViews", header: "IGESData_ViewKindEntity.hxx".}
-proc viewItem*(this: IGESDataViewKindEntity; num: int): Handle[IGESDataViewKindEntity] {.
-    noSideEffect, importcpp: "ViewItem", header: "IGESData_ViewKindEntity.hxx".}
+proc viewItem*(this: IGESDataViewKindEntity; num: cint): Handle[
+    IGESDataViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
+                             header: "IGESData_ViewKindEntity.hxx".}
 type
   IGESDataViewKindEntitybaseType* = IGESDataIGESEntity
 
@@ -62,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_ViewKindEntity.hxx".}
 proc dynamicType*(this: IGESDataViewKindEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_ViewKindEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

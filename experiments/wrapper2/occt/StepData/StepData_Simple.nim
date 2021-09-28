@@ -23,7 +23,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepData_Simple"
 discard "forward decl of StepData_Simple"
 type
-  HandleStepDataSimple* = Handle[StepDataSimple]
+  HandleC1C1* = Handle[StepDataSimple]
 
 ## ! A Simple Entity is defined by a type (which can heve super
 ## ! types) and a list of parameters
@@ -51,11 +51,11 @@ proc field*(this: StepDataSimple; name: StandardCString): StepDataField {.
     noSideEffect, importcpp: "Field", header: "StepData_Simple.hxx".}
 proc cField*(this: var StepDataSimple; name: StandardCString): var StepDataField {.
     importcpp: "CField", header: "StepData_Simple.hxx".}
-proc nbFields*(this: StepDataSimple): int {.noSideEffect, importcpp: "NbFields",
-                                        header: "StepData_Simple.hxx".}
-proc fieldNum*(this: StepDataSimple; num: int): StepDataField {.noSideEffect,
+proc nbFields*(this: StepDataSimple): cint {.noSideEffect, importcpp: "NbFields",
+    header: "StepData_Simple.hxx".}
+proc fieldNum*(this: StepDataSimple; num: cint): StepDataField {.noSideEffect,
     importcpp: "FieldNum", header: "StepData_Simple.hxx".}
-proc cFieldNum*(this: var StepDataSimple; num: int): var StepDataField {.
+proc cFieldNum*(this: var StepDataSimple; num: cint): var StepDataField {.
     importcpp: "CFieldNum", header: "StepData_Simple.hxx".}
 proc fields*(this: StepDataSimple): StepDataFieldListN {.noSideEffect,
     importcpp: "Fields", header: "StepData_Simple.hxx".}
@@ -75,3 +75,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_Simple.hxx".}
 proc dynamicType*(this: StepDataSimple): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_Simple.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

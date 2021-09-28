@@ -17,3 +17,28 @@
 type
   MAT_SequenceOfBasicElt* = NCollectionSequence[Handle[MAT_BasicElt]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,3 +20,28 @@ type
   TDocStdDataMapIteratorOfLabelIDMapDataMap* = Iterator[TDF_Label, TDF_IDMap,
       TDF_LabelMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

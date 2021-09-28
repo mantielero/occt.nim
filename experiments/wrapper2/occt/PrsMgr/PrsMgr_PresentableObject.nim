@@ -14,7 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PrsMgr_PresentationManager"
+## !!!Ignored construct:  # _PrsMgr_PresentableObject_HeaderFile [NewLine] # _PrsMgr_PresentableObject_HeaderFile [NewLine] # < Aspect_TypeOfFacingModel . hxx > [NewLine] # < gp_GTrsf . hxx > [NewLine] # < Graphic3d_ClipPlane . hxx > [NewLine] # < Graphic3d_SequenceOfHClipPlane . hxx > [NewLine] # < Graphic3d_TransformPers . hxx > [NewLine] # < Graphic3d_TransModeFlags . hxx > [NewLine] # < Graphic3d_ZLayerId . hxx > [NewLine] # < Prs3d_Drawer . hxx > [NewLine] # < PrsMgr_ListOfPresentableObjects . hxx > [NewLine] # < PrsMgr_Presentation . hxx > [NewLine] # < PrsMgr_Presentations . hxx > [NewLine] # < PrsMgr_TypeOfPresentation3d . hxx > [NewLine] # < TColStd_ListOfInteger . hxx > [NewLine] class PrsMgr_PresentationManager ;
+## Error: expected ';'!!!
+
 type
   PrsMgrPresentationManager3d* = PrsMgrPresentationManager
 
@@ -207,16 +209,13 @@ type
                                                                                                     ## of
                                                                                                     ## the
                                                                                                     ## object.
+    standardType* {.importc: "Standard_Type".}: Handle
+    prs3dDrawer* {.importc: "Prs3d_Drawer".}: Handle
+    graphic3dTransformPers* {.importc: "Graphic3d_TransformPers".}: Handle
+    topLocDatum3D* {.importc: "TopLoc_Datum3D".}: Handle
+    graphic3dSequenceOfHClipPlane* {.importc: "Graphic3d_SequenceOfHClipPlane".}: Handle
     ## !< pointer to the parent object
     ## !< list of presentations
-    ## !< sequence of object-specific clipping planes
-    ## !< main presentation attributes
-    ## !< (optional) custom presentation attributes for highlighting selected object
-    ## !< (optional) custom presentation attributes for highlighting detected object
-    ## !< transformation persistence
-    ## !< local transformation relative to parent object
-    ## !< absolute transformation of this object (combined parents + local transformations)
-    ## !< transformation of parent object (combined for all parents)
     ## !< list of children
     ## !< inversion of absolute transformation (combined parents + local transformations)
     ## !< presentation type
@@ -233,11 +232,12 @@ type
 
 proc getTypeName*(): cstring {.importcpp: "PrsMgr_PresentableObject::get_type_name(@)",
                             header: "PrsMgr_PresentableObject.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "PrsMgr_PresentableObject::get_type_descriptor(@)",
-    header: "PrsMgr_PresentableObject.hxx".}
-proc dynamicType*(this: PrsMgrPresentableObject): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "PrsMgr_PresentableObject.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc presentations*(this: var PrsMgrPresentableObject): var PrsMgrPresentations {.
     importcpp: "Presentations", header: "PrsMgr_PresentableObject.hxx".}
 proc zLayer*(this: PrsMgrPresentableObject): Graphic3dZLayerId {.noSideEffect,
@@ -285,93 +285,111 @@ proc typeOfPresentation3d*(this: PrsMgrPresentableObject): PrsMgrTypeOfPresentat
 proc setTypeOfPresentation*(this: var PrsMgrPresentableObject;
                            theType: PrsMgrTypeOfPresentation3d) {.
     importcpp: "SetTypeOfPresentation", header: "PrsMgr_PresentableObject.hxx".}
-proc attributes*(this: PrsMgrPresentableObject): Handle[Prs3dDrawer] {.noSideEffect,
-    importcpp: "Attributes", header: "PrsMgr_PresentableObject.hxx".}
-proc setAttributes*(this: var PrsMgrPresentableObject;
-                   theDrawer: Handle[Prs3dDrawer]) {.importcpp: "SetAttributes",
-    header: "PrsMgr_PresentableObject.hxx".}
-proc hilightAttributes*(this: PrsMgrPresentableObject): Handle[Prs3dDrawer] {.
-    noSideEffect, importcpp: "HilightAttributes",
-    header: "PrsMgr_PresentableObject.hxx".}
-proc setHilightAttributes*(this: var PrsMgrPresentableObject;
-                          theDrawer: Handle[Prs3dDrawer]) {.
-    importcpp: "SetHilightAttributes", header: "PrsMgr_PresentableObject.hxx".}
-proc dynamicHilightAttributes*(this: PrsMgrPresentableObject): Handle[Prs3dDrawer] {.
-    noSideEffect, importcpp: "DynamicHilightAttributes",
-    header: "PrsMgr_PresentableObject.hxx".}
-proc setDynamicHilightAttributes*(this: var PrsMgrPresentableObject;
-                                 theDrawer: Handle[Prs3dDrawer]) {.
-    importcpp: "SetDynamicHilightAttributes",
-    header: "PrsMgr_PresentableObject.hxx".}
-proc unsetHilightAttributes*(this: var PrsMgrPresentableObject) {.
-    importcpp: "UnsetHilightAttributes", header: "PrsMgr_PresentableObject.hxx".}
-proc synchronizeAspects*(this: var PrsMgrPresentableObject) {.
-    importcpp: "SynchronizeAspects", header: "PrsMgr_PresentableObject.hxx".}
-proc transformPersistence*(this: PrsMgrPresentableObject): Handle[
-    Graphic3dTransformPers] {.noSideEffect, importcpp: "TransformPersistence",
-                             header: "PrsMgr_PresentableObject.hxx".}
-proc setTransformPersistence*(this: var PrsMgrPresentableObject;
-                             theTrsfPers: Handle[Graphic3dTransformPers]) {.
-    importcpp: "SetTransformPersistence", header: "PrsMgr_PresentableObject.hxx".}
-proc localTransformationGeom*(this: PrsMgrPresentableObject): Handle[TopLocDatum3D] {.
-    noSideEffect, importcpp: "LocalTransformationGeom",
-    header: "PrsMgr_PresentableObject.hxx".}
-proc setLocalTransformation*(this: var PrsMgrPresentableObject; theTrsf: Trsf) {.
-    importcpp: "SetLocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc setLocalTransformation*(this: var PrsMgrPresentableObject;
-                            theTrsf: Handle[TopLocDatum3D]) {.
-    importcpp: "SetLocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc hasTransformation*(this: PrsMgrPresentableObject): bool {.noSideEffect,
-    importcpp: "HasTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc transformationGeom*(this: PrsMgrPresentableObject): Handle[TopLocDatum3D] {.
-    noSideEffect, importcpp: "TransformationGeom",
-    header: "PrsMgr_PresentableObject.hxx".}
-proc localTransformation*(this: PrsMgrPresentableObject): Trsf {.noSideEffect,
-    importcpp: "LocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc transformation*(this: PrsMgrPresentableObject): Trsf {.noSideEffect,
-    importcpp: "Transformation", header: "PrsMgr_PresentableObject.hxx".}
-proc inversedTransformation*(this: PrsMgrPresentableObject): GTrsf {.noSideEffect,
-    importcpp: "InversedTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc combinedParentTransformation*(this: PrsMgrPresentableObject): Handle[
-    TopLocDatum3D] {.noSideEffect, importcpp: "CombinedParentTransformation",
-                    header: "PrsMgr_PresentableObject.hxx".}
-proc resetTransformation*(this: var PrsMgrPresentableObject) {.
-    importcpp: "ResetTransformation", header: "PrsMgr_PresentableObject.hxx".}
+## !!!Ignored construct:  & Attributes ( ) const { return myDrawer ; } ! Initializes the drawing tool theDrawer. virtual void SetAttributes ( const Handle ( Prs3d_Drawer ) & theDrawer ) { myDrawer = theDrawer ; } ! Returns the hilight attributes settings.
+## ! When not NULL, overrides both Prs3d_TypeOfHighlight_LocalSelected and Prs3d_TypeOfHighlight_Selected defined within AIS_InteractiveContext. const Handle ( Prs3d_Drawer ) & HilightAttributes ( ) const { return myHilightDrawer ; } ! Initializes the hilight drawing tool theDrawer. virtual void SetHilightAttributes ( const Handle ( Prs3d_Drawer ) & theDrawer ) { myHilightDrawer = theDrawer ; } ! Returns the hilight attributes settings.
+## ! When not NULL, overrides both Prs3d_TypeOfHighlight_LocalDynamic and Prs3d_TypeOfHighlight_Dynamic defined within AIS_InteractiveContext. const Handle ( Prs3d_Drawer ) & DynamicHilightAttributes ( ) const { return myDynHilightDrawer ; } ! Initializes the dynamic hilight drawing tool. virtual void SetDynamicHilightAttributes ( const Handle ( Prs3d_Drawer ) & theDrawer ) { myDynHilightDrawer = theDrawer ; } ! Clears settings provided by the hilight drawing tool theDrawer. virtual void UnsetHilightAttributes ( ) { myHilightDrawer . Nullify ( ) ; } ! Synchronize presentation aspects after their modification.
+## !
+## ! This method should be called after modifying primitive aspect properties (material, texture, shader)
+## ! so that modifications will take effect on already computed presentation groups (thus avoiding re-displaying the object). void SynchronizeAspects ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & TransformPersistence ( ) const { return myTransformPersistence ; } ! Sets up Transform Persistence defining a special Local Coordinate system where this object should be located.
+## ! Note that management of Transform Persistence object is more expensive than of the normal one,
+## ! because it requires its position being recomputed basing on camera position within each draw call / traverse.
+## ! @sa Graphic3d_TransformPers class description virtual void SetTransformPersistence ( const Handle ( Graphic3d_TransformPers ) & theTrsfPers ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & LocalTransformationGeom ( ) const { return myLocalTransformation ; } ! Sets local transformation to theTransformation.
+## ! Note that the local transformation of the object having Transformation Persistence
+## ! is applied within Local Coordinate system defined by this Persistence. void SetLocalTransformation ( const gp_Trsf & theTrsf ) { setLocalTransformation ( new TopLoc_Datum3D ( theTrsf ) ) ; } ! Sets local transformation to theTransformation.
+## ! Note that the local transformation of the object having Transformation Persistence
+## ! is applied within Local Coordinate system defined by this Persistence. void SetLocalTransformation ( const Handle ( TopLoc_Datum3D ) & theTrsf ) { setLocalTransformation ( theTrsf ) ; } ! Returns true if object has a transformation that is different from the identity. Standard_Boolean HasTransformation ( ) const { return ! myTransformation . IsNull ( ) && myTransformation -> Form ( ) != gp_Identity ; } ! Return the transformation taking into account transformation of parent object(s).
+## ! Note that the local transformation of the object having Transformation Persistence
+## ! is applied within Local Coordinate system defined by this Persistence. const Handle ( TopLoc_Datum3D ) & TransformationGeom ( ) const { return myTransformation ; } ! Return the local transformation.
+## ! Note that the local transformation of the object having Transformation Persistence
+## ! is applied within Local Coordinate system defined by this Persistence. const gp_Trsf & LocalTransformation ( ) const { return ! myLocalTransformation . IsNull ( ) ? myLocalTransformation -> Trsf ( ) : getIdentityTrsf ( ) ; } ! Return the transformation taking into account transformation of parent object(s).
+## ! Note that the local transformation of the object having Transformation Persistence
+## ! is applied within Local Coordinate system defined by this Persistence. const gp_Trsf & Transformation ( ) const { return ! myTransformation . IsNull ( ) ? myTransformation -> Trsf ( ) : getIdentityTrsf ( ) ; } ! Return inversed transformation. const gp_GTrsf & InversedTransformation ( ) const { return myInvTransformation ; } ! Return combined parent transformation. const Handle ( TopLoc_Datum3D ) & CombinedParentTransformation ( ) const { return myCombinedParentTransform ; } ! resets local transformation to identity. virtual void ResetTransformation ( ) ;
+## Error: identifier expected, but got: &!!!
+
 proc updateTransformation*(this: var PrsMgrPresentableObject) {.
     importcpp: "UpdateTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc clipPlanes*(this: PrsMgrPresentableObject): Handle[
-    Graphic3dSequenceOfHClipPlane] {.noSideEffect, importcpp: "ClipPlanes",
-                                    header: "PrsMgr_PresentableObject.hxx".}
-proc setClipPlanes*(this: var PrsMgrPresentableObject;
-                   thePlanes: Handle[Graphic3dSequenceOfHClipPlane]) {.
-    importcpp: "SetClipPlanes", header: "PrsMgr_PresentableObject.hxx".}
-proc addClipPlane*(this: var PrsMgrPresentableObject;
-                  thePlane: Handle[Graphic3dClipPlane]) {.
-    importcpp: "AddClipPlane", header: "PrsMgr_PresentableObject.hxx".}
-proc removeClipPlane*(this: var PrsMgrPresentableObject;
-                     thePlane: Handle[Graphic3dClipPlane]) {.
-    importcpp: "RemoveClipPlane", header: "PrsMgr_PresentableObject.hxx".}
+## !!!Ignored construct:  & ClipPlanes ( ) const { return myClipPlanes ; } ! Set clip planes for graphical clipping for all display mode presentations.
+## ! The composition of clip planes truncates the rendering space to convex volume.
+## ! Please be aware that number of supported clip plane is limited.
+## ! The planes which exceed the limit are ignored.
+## ! Besides of this, some planes can be already set in view where the object is shown:
+## ! the number of these planes should be subtracted from limit to predict the maximum
+## ! possible number of object clipping planes. virtual void SetClipPlanes ( const Handle ( Graphic3d_SequenceOfHClipPlane ) & thePlanes ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  ! Adds clip plane for graphical clipping for all display mode
+## ! presentations. The composition of clip planes truncates the rendering
+## ! space to convex volume. Please be aware that number of supported
+## ! clip plane is limited. The planes which exceed the limit are ignored.
+## ! Besides of this, some planes can be already set in view where the object
+## ! is shown: the number of these planes should be subtracted from limit
+## ! to predict the maximum possible number of object clipping planes.
+## ! @param thePlane [in] the clip plane to be appended to map of clip planes. virtual void AddClipPlane ( const Handle ( Graphic3d_ClipPlane ) & thePlane ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Removes previously added clip plane.
+## ! @param thePlane [in] the clip plane to be removed from map of clip planes. virtual void RemoveClipPlane ( const Handle ( Graphic3d_ClipPlane ) & thePlane ) ;
+## Error: token expected: ) but got: &!!!
+
 proc parent*(this: PrsMgrPresentableObject): ptr PrsMgrPresentableObject {.
     noSideEffect, importcpp: "Parent", header: "PrsMgr_PresentableObject.hxx".}
 proc children*(this: PrsMgrPresentableObject): PrsMgrListOfPresentableObjects {.
     noSideEffect, importcpp: "Children", header: "PrsMgr_PresentableObject.hxx".}
-proc addChild*(this: var PrsMgrPresentableObject;
-              theObject: Handle[PrsMgrPresentableObject]) {.importcpp: "AddChild",
-    header: "PrsMgr_PresentableObject.hxx".}
-proc addChildWithCurrentTransformation*(this: var PrsMgrPresentableObject; theObject: Handle[
-    PrsMgrPresentableObject]) {.importcpp: "AddChildWithCurrentTransformation",
-                               header: "PrsMgr_PresentableObject.hxx".}
-proc removeChild*(this: var PrsMgrPresentableObject;
-                 theObject: Handle[PrsMgrPresentableObject]) {.
-    importcpp: "RemoveChild", header: "PrsMgr_PresentableObject.hxx".}
-proc removeChildWithRestoreTransformation*(this: var PrsMgrPresentableObject;
-    theObject: Handle[PrsMgrPresentableObject]) {.
-    importcpp: "RemoveChildWithRestoreTransformation",
-    header: "PrsMgr_PresentableObject.hxx".}
+## !!!Ignored construct:  ! Makes theObject child of current object in scene hierarchy. virtual void AddChild ( const Handle ( PrsMgr_PresentableObject ) & theObject ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Makes theObject child of current object in scene hierarchy with keeping the current global transformation
+## ! So the object keeps the same position/orientation in the global CS. void AddChildWithCurrentTransformation ( const Handle ( PrsMgr_PresentableObject ) & theObject ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Removes theObject from children of current object in scene hierarchy. virtual void RemoveChild ( const Handle ( PrsMgr_PresentableObject ) & theObject ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Removes theObject from children of current object in scene hierarchy with keeping the current global transformation.
+## ! So the object keeps the same position/orientation in the global CS. void RemoveChildWithRestoreTransformation ( const Handle ( PrsMgr_PresentableObject ) & theObject ) ;
+## Error: token expected: ) but got: &!!!
+
 proc hasOwnPresentations*(this: PrsMgrPresentableObject): bool {.noSideEffect,
     importcpp: "HasOwnPresentations", header: "PrsMgr_PresentableObject.hxx".}
 proc boundingBox*(this: var PrsMgrPresentableObject; theBndBox: var BndBox) {.
     importcpp: "BoundingBox", header: "PrsMgr_PresentableObject.hxx".}
+## !!!Ignored construct:  ! Fills the given 3D view presentation for specified display mode using Compute() method.
+## ! In addition, configures other properties of presentation (transformation, clipping planes).
+## ! @param thePrsMgr presentation manager where presentation has been created
+## ! @param thePrs    presentation to fill
+## ! @param theMode   display mode to compute; can be any number accepted by AcceptDisplayMode() method virtual void Fill ( const Handle ( PrsMgr_PresentationManager ) & thePrsMgr , const Handle ( PrsMgr_Presentation ) & thePrs , const Standard_Integer theMode ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Calculates the 3D view presentation for specified display mode.
+## ! This is a key interface for implementing Presentable Object interface.
+## ! @param thePrsMgr presentation manager where presentation has been created
+## ! @param thePrs    presentation to fill
+## ! @param theMode   display mode to compute; can be any number accepted by AcceptDisplayMode() method
+## ! @sa AcceptDisplayMode() virtual void Compute ( const Handle ( PrsMgr_PresentationManager ) & thePrsMgr , const Handle ( Prs3d_Presentation ) & thePrs , const Standard_Integer theMode ) = 0 ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Calculates hidden line removal presentation for specific camera position.
+## ! Each of the views in the viewer and every modification such as rotation, for example, entails recalculation.
+## ! Default implementation throws Standard_NotImplemented exception
+## ! Warning! The transformation must be applied to the object before computation.
+## ! @param theProjector [in] view orientation
+## ! @param theTrsf [in] additional transformation, or NULL if undefined
+## ! @param thePrs  [in] presentation to fill virtual void computeHLR ( const Handle ( Graphic3d_Camera ) & theProjector , const Handle ( TopLoc_Datum3D ) & theTrsf , const Handle ( Prs3d_Presentation ) & thePrs ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Sets myCombinedParentTransform to theTransformation. Thus object receives transformation
+## ! from parent node and able to derive its own. virtual void SetCombinedParentTransform ( const Handle ( TopLoc_Datum3D ) & theTrsf ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Sets local transformation to theTransformation. virtual void setLocalTransformation ( const Handle ( TopLoc_Datum3D ) & theTransformation ) ;
+## Error: token expected: ) but got: &!!!
+
 proc setIsoOnTriangulation*(this: var PrsMgrPresentableObject; theIsEnabled: bool) {.
     importcpp: "SetIsoOnTriangulation", header: "PrsMgr_PresentableObject.hxx".}
 proc currentFacingModel*(this: PrsMgrPresentableObject): AspectTypeOfFacingModel {.
@@ -429,7 +447,7 @@ proc dumpJson*(this: PrsMgrPresentableObject; theOStream: var StandardOStream;
 ## !!!Ignored construct:  public : ! @name deprecated methods ! gives the list of modes which are flagged "to be updated". Standard_DEPRECATED ( This method is deprecated - UpdatePresentations() should be called instead ) void ToBeUpdated ( TColStd_ListOfInteger & ListOfMode ) const ;
 ## Error: identifier expected, but got: This method is deprecated - UpdatePresentations() should be called instead!!!
 
-## !!!Ignored construct:  Standard_DEPRECATED ( This method is deprecated - overload taking Handle should be used instead ) void SetClipPlanes ( const Graphic3d_SequenceOfHClipPlane & thePlanes ) { opencascade :: handle < Graphic3d_SequenceOfHClipPlane > [end of template] aPlanes = new Graphic3d_SequenceOfHClipPlane ( thePlanes ) ; SetClipPlanes ( aPlanes ) ; } ! Sets up Transform Persistence Mode for this object.
+## !!!Ignored construct:  Standard_DEPRECATED ( This method is deprecated - overload taking Handle should be used instead ) void SetClipPlanes ( const Graphic3d_SequenceOfHClipPlane & thePlanes ) { Handle ( Graphic3d_SequenceOfHClipPlane ) aPlanes = new Graphic3d_SequenceOfHClipPlane ( thePlanes ) ; SetClipPlanes ( aPlanes ) ; } ! Sets up Transform Persistence Mode for this object.
 ## ! This function used to lock in object position, rotation and / or zooming relative to camera position.
 ## ! Object will be drawn in the origin setted by thePoint parameter (except Graphic3d_TMF_TriedronPers flag
 ## ! - see description later). theMode should be:
@@ -457,7 +475,75 @@ proc setPropagateVisualState*(this: var PrsMgrPresentableObject; theFlag: bool) 
 ## ! @param theToClearOther when TRUE, other presentations (display modes) will be removed Standard_DEPRECATED ( This method is deprecated - SetToUpdate() + UpdatePresentations() should be called instead ) void Update ( Standard_Integer theMode , Standard_Boolean theToClearOther ) ;
 ## Error: identifier expected, but got: This method is deprecated - SetToUpdate() + UpdatePresentations() should be called instead!!!
 
-discard "forward decl of PrsMgr_PresentableObject"
-type
-  HandlePrsMgrPresentableObject* = Handle[PrsMgrPresentableObject]
+## !!!Ignored construct:  myClipPlanes ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  myDrawer ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  myHilightDrawer ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  myDynHilightDrawer ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  myTransformPersistence ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  myLocalTransformation ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  myTransformation ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  myCombinedParentTransform ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( PrsMgr_PresentableObject , Standard_Transient ) #  _PrsMgr_PresentableObject_HeaderFile
+## Error: expected ';'!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

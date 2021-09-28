@@ -20,12 +20,13 @@ type
                                    bycopy.} = object
 
 
-proc constructIntToolsCurveRangeLocalizeData*(theNbSample: int; theMinRange: float): IntToolsCurveRangeLocalizeData {.
-    constructor, importcpp: "IntTools_CurveRangeLocalizeData(@)",
+proc constructIntToolsCurveRangeLocalizeData*(theNbSample: cint;
+    theMinRange: cfloat): IntToolsCurveRangeLocalizeData {.constructor,
+    importcpp: "IntTools_CurveRangeLocalizeData(@)",
     header: "IntTools_CurveRangeLocalizeData.hxx".}
-proc getNbSample*(this: IntToolsCurveRangeLocalizeData): int {.noSideEffect,
+proc getNbSample*(this: IntToolsCurveRangeLocalizeData): cint {.noSideEffect,
     importcpp: "GetNbSample", header: "IntTools_CurveRangeLocalizeData.hxx".}
-proc getMinRange*(this: IntToolsCurveRangeLocalizeData): float {.noSideEffect,
+proc getMinRange*(this: IntToolsCurveRangeLocalizeData): cfloat {.noSideEffect,
     importcpp: "GetMinRange", header: "IntTools_CurveRangeLocalizeData.hxx".}
 proc addOutRange*(this: var IntToolsCurveRangeLocalizeData;
                  theRange: IntToolsCurveRangeSample) {.importcpp: "AddOutRange",
@@ -43,3 +44,28 @@ proc isRangeOut*(this: IntToolsCurveRangeLocalizeData;
 proc listRangeOut*(this: IntToolsCurveRangeLocalizeData;
                   theList: var IntToolsListOfCurveRangeSample) {.noSideEffect,
     importcpp: "ListRangeOut", header: "IntTools_CurveRangeLocalizeData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -51,9 +51,34 @@ proc hasDescendants*(this: BRepLibMakeShape; f: TopoDS_Face): bool {.noSideEffec
     importcpp: "HasDescendants", header: "BRepLib_MakeShape.hxx".}
 proc descendantFaces*(this: var BRepLibMakeShape; f: TopoDS_Face): TopToolsListOfShape {.
     importcpp: "DescendantFaces", header: "BRepLib_MakeShape.hxx".}
-proc nbSurfaces*(this: BRepLibMakeShape): int {.noSideEffect,
+proc nbSurfaces*(this: BRepLibMakeShape): cint {.noSideEffect,
     importcpp: "NbSurfaces", header: "BRepLib_MakeShape.hxx".}
-proc newFaces*(this: var BRepLibMakeShape; i: int): TopToolsListOfShape {.
+proc newFaces*(this: var BRepLibMakeShape; i: cint): TopToolsListOfShape {.
     importcpp: "NewFaces", header: "BRepLib_MakeShape.hxx".}
 proc facesFromEdges*(this: var BRepLibMakeShape; e: TopoDS_Edge): TopToolsListOfShape {.
     importcpp: "FacesFromEdges", header: "BRepLib_MakeShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

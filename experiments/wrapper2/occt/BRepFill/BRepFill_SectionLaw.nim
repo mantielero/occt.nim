@@ -22,7 +22,7 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of BRepFill_SectionLaw"
 discard "forward decl of BRepFill_SectionLaw"
 type
-  HandleBRepFillSectionLaw* = Handle[BRepFillSectionLaw]
+  HandleC1C1* = Handle[BRepFillSectionLaw]
 
 ## ! Build Section Law, with an Vertex, or an Wire
 
@@ -31,12 +31,12 @@ type
                        header: "BRepFill_SectionLaw.hxx", bycopy.} = object of StandardTransient
 
 
-proc nbLaw*(this: BRepFillSectionLaw): int {.noSideEffect, importcpp: "NbLaw",
+proc nbLaw*(this: BRepFillSectionLaw): cint {.noSideEffect, importcpp: "NbLaw",
     header: "BRepFill_SectionLaw.hxx".}
-proc law*(this: BRepFillSectionLaw; index: int): Handle[GeomFillSectionLaw] {.
+proc law*(this: BRepFillSectionLaw; index: cint): Handle[GeomFillSectionLaw] {.
     noSideEffect, importcpp: "Law", header: "BRepFill_SectionLaw.hxx".}
-proc indexOfEdge*(this: BRepFillSectionLaw; anEdge: TopoDS_Shape): int {.noSideEffect,
-    importcpp: "IndexOfEdge", header: "BRepFill_SectionLaw.hxx".}
+proc indexOfEdge*(this: BRepFillSectionLaw; anEdge: TopoDS_Shape): cint {.
+    noSideEffect, importcpp: "IndexOfEdge", header: "BRepFill_SectionLaw.hxx".}
 proc isConstant*(this: BRepFillSectionLaw): bool {.noSideEffect,
     importcpp: "IsConstant", header: "BRepFill_SectionLaw.hxx".}
 proc isUClosed*(this: BRepFillSectionLaw): bool {.noSideEffect,
@@ -49,13 +49,13 @@ proc isVertex*(this: BRepFillSectionLaw): bool {.noSideEffect, importcpp: "IsVer
     header: "BRepFill_SectionLaw.hxx".}
 proc concatenedLaw*(this: BRepFillSectionLaw): Handle[GeomFillSectionLaw] {.
     noSideEffect, importcpp: "ConcatenedLaw", header: "BRepFill_SectionLaw.hxx".}
-proc continuity*(this: BRepFillSectionLaw; index: int; tolAngular: float): GeomAbsShape {.
+proc continuity*(this: BRepFillSectionLaw; index: cint; tolAngular: cfloat): GeomAbsShape {.
     noSideEffect, importcpp: "Continuity", header: "BRepFill_SectionLaw.hxx".}
-proc vertexTol*(this: BRepFillSectionLaw; index: int; param: float): float {.
+proc vertexTol*(this: BRepFillSectionLaw; index: cint; param: cfloat): cfloat {.
     noSideEffect, importcpp: "VertexTol", header: "BRepFill_SectionLaw.hxx".}
-proc vertex*(this: BRepFillSectionLaw; index: int; param: float): TopoDS_Vertex {.
+proc vertex*(this: BRepFillSectionLaw; index: cint; param: cfloat): TopoDS_Vertex {.
     noSideEffect, importcpp: "Vertex", header: "BRepFill_SectionLaw.hxx".}
-proc d0*(this: var BRepFillSectionLaw; u: float; s: var TopoDS_Shape) {.importcpp: "D0",
+proc d0*(this: var BRepFillSectionLaw; u: cfloat; s: var TopoDS_Shape) {.importcpp: "D0",
     header: "BRepFill_SectionLaw.hxx".}
 proc init*(this: var BRepFillSectionLaw; w: TopoDS_Wire) {.importcpp: "Init",
     header: "BRepFill_SectionLaw.hxx".}
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_SectionLaw.hxx".}
 proc dynamicType*(this: BRepFillSectionLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_SectionLaw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

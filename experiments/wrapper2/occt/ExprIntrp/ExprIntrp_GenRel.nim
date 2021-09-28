@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of ExprIntrp_GenRel"
 discard "forward decl of ExprIntrp_GenRel"
 type
-  HandleExprIntrpGenRel* = Handle[ExprIntrpGenRel]
+  HandleC1C1* = Handle[ExprIntrpGenRel]
 
 ## ! Implements an interpreter for equations or system
 ## ! of equations made of expressions of package Expr.
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ExprIntrp_GenRel.hxx".}
 proc dynamicType*(this: ExprIntrpGenRel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ExprIntrp_GenRel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

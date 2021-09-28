@@ -68,7 +68,32 @@ proc faces*(this: var TopOpeBRepToolFuseEdges;
     header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc shape*(this: var TopOpeBRepToolFuseEdges): var TopoDS_Shape {.importcpp: "Shape",
     header: "TopOpeBRepTool_FuseEdges.hxx".}
-proc nbVertices*(this: var TopOpeBRepToolFuseEdges): int {.importcpp: "NbVertices",
+proc nbVertices*(this: var TopOpeBRepToolFuseEdges): cint {.importcpp: "NbVertices",
     header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc perform*(this: var TopOpeBRepToolFuseEdges) {.importcpp: "Perform",
     header: "TopOpeBRepTool_FuseEdges.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

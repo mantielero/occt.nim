@@ -25,11 +25,36 @@ type
 
 proc isDone*(this: StepToTopoDS_Root): bool {.noSideEffect, importcpp: "IsDone",
     header: "StepToTopoDS_Root.hxx".}
-proc precision*(this: StepToTopoDS_Root): float {.noSideEffect,
+proc precision*(this: StepToTopoDS_Root): cfloat {.noSideEffect,
     importcpp: "Precision", header: "StepToTopoDS_Root.hxx".}
-proc setPrecision*(this: var StepToTopoDS_Root; preci: float) {.
+proc setPrecision*(this: var StepToTopoDS_Root; preci: cfloat) {.
     importcpp: "SetPrecision", header: "StepToTopoDS_Root.hxx".}
-proc maxTol*(this: StepToTopoDS_Root): float {.noSideEffect, importcpp: "MaxTol",
+proc maxTol*(this: StepToTopoDS_Root): cfloat {.noSideEffect, importcpp: "MaxTol",
     header: "StepToTopoDS_Root.hxx".}
-proc setMaxTol*(this: var StepToTopoDS_Root; maxpreci: float) {.
+proc setMaxTol*(this: var StepToTopoDS_Root; maxpreci: cfloat) {.
     importcpp: "SetMaxTol", header: "StepToTopoDS_Root.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

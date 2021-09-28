@@ -32,12 +32,12 @@ type
                                                                          ## compiler)
 
 
-proc constructIGESDataParamCursor*(num: int): IGESDataParamCursor {.constructor,
+proc constructIGESDataParamCursor*(num: cint): IGESDataParamCursor {.constructor,
     importcpp: "IGESData_ParamCursor(@)", header: "IGESData_ParamCursor.hxx".}
-proc constructIGESDataParamCursor*(num: int; nb: int; size: int = 1): IGESDataParamCursor {.
+proc constructIGESDataParamCursor*(num: cint; nb: cint; size: cint = 1): IGESDataParamCursor {.
     constructor, importcpp: "IGESData_ParamCursor(@)",
     header: "IGESData_ParamCursor.hxx".}
-proc setTerm*(this: var IGESDataParamCursor; size: int; autoadv: bool = true) {.
+proc setTerm*(this: var IGESDataParamCursor; size: cint; autoadv: bool = true) {.
     importcpp: "SetTerm", header: "IGESData_ParamCursor.hxx".}
 proc setOne*(this: var IGESDataParamCursor; autoadv: bool = true) {.importcpp: "SetOne",
     header: "IGESData_ParamCursor.hxx".}
@@ -47,17 +47,42 @@ proc setXYZ*(this: var IGESDataParamCursor; autoadv: bool = true) {.importcpp: "
     header: "IGESData_ParamCursor.hxx".}
 proc setAdvance*(this: var IGESDataParamCursor; advance: bool) {.
     importcpp: "SetAdvance", header: "IGESData_ParamCursor.hxx".}
-proc start*(this: IGESDataParamCursor): int {.noSideEffect, importcpp: "Start",
+proc start*(this: IGESDataParamCursor): cint {.noSideEffect, importcpp: "Start",
     header: "IGESData_ParamCursor.hxx".}
-proc limit*(this: IGESDataParamCursor): int {.noSideEffect, importcpp: "Limit",
+proc limit*(this: IGESDataParamCursor): cint {.noSideEffect, importcpp: "Limit",
     header: "IGESData_ParamCursor.hxx".}
-proc count*(this: IGESDataParamCursor): int {.noSideEffect, importcpp: "Count",
+proc count*(this: IGESDataParamCursor): cint {.noSideEffect, importcpp: "Count",
     header: "IGESData_ParamCursor.hxx".}
-proc itemSize*(this: IGESDataParamCursor): int {.noSideEffect, importcpp: "ItemSize",
-    header: "IGESData_ParamCursor.hxx".}
-proc termSize*(this: IGESDataParamCursor): int {.noSideEffect, importcpp: "TermSize",
-    header: "IGESData_ParamCursor.hxx".}
-proc offset*(this: IGESDataParamCursor): int {.noSideEffect, importcpp: "Offset",
+proc itemSize*(this: IGESDataParamCursor): cint {.noSideEffect,
+    importcpp: "ItemSize", header: "IGESData_ParamCursor.hxx".}
+proc termSize*(this: IGESDataParamCursor): cint {.noSideEffect,
+    importcpp: "TermSize", header: "IGESData_ParamCursor.hxx".}
+proc offset*(this: IGESDataParamCursor): cint {.noSideEffect, importcpp: "Offset",
     header: "IGESData_ParamCursor.hxx".}
 proc advance*(this: IGESDataParamCursor): bool {.noSideEffect, importcpp: "Advance",
     header: "IGESData_ParamCursor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

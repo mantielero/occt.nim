@@ -14,17 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_DimensionMismatch_HeaderFile [NewLine] # _Standard_DimensionMismatch_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DimensionError . hxx > [NewLine] class Standard_DimensionMismatch ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_DimensionMismatch"
 type
-  HandleStandardDimensionMismatchStandardDimensionMismatch* = Handle[
-      StandardDimensionMismatch]
+  StandardDimensionMismatch* {.importcpp: "Standard_DimensionMismatch",
+                              header: "Standard_DimensionMismatch.hxx", bycopy.} = object of StandardDimensionError
+  HandleStandardDimensionMismatch* = Handle[StandardDimensionMismatch]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_DimensionMismatch [NewLine] # if ( CONDITION ) throw Standard_DimensionMismatch ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardDimensionMismatch):
+  template standardDimensionMismatchRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardDimensionMismatch*(a1: Message): Throw {.
+          importcpp: "Standard_DimensionMismatch(@)",
+          header: "Standard_DimensionMismatch.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_DimensionMismatch , Standard_DimensionError ) #  _Standard_DimensionMismatch_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

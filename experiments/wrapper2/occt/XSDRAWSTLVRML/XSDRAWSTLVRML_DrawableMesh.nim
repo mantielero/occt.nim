@@ -18,7 +18,7 @@ discard "forward decl of Draw_Display"
 discard "forward decl of XSDRAWSTLVRML_DrawableMesh"
 discard "forward decl of XSDRAWSTLVRML_DrawableMesh"
 type
-  HandleXSDRAWSTLVRML_DrawableMesh* = Handle[XSDRAWSTLVRML_DrawableMesh]
+  HandleC1C1* = Handle[XSDRAWSTLVRML_DrawableMesh]
   XSDRAWSTLVRML_DrawableMesh* {.importcpp: "XSDRAWSTLVRML_DrawableMesh",
                                header: "XSDRAWSTLVRML_DrawableMesh.hxx", bycopy.} = object of DrawDrawable3D
 
@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XSDRAWSTLVRML_DrawableMesh): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XSDRAWSTLVRML_DrawableMesh.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

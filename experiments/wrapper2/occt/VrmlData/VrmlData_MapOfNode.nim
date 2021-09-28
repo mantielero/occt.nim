@@ -20,3 +20,28 @@
 type
   VrmlDataMapOfNode* = NCollectionMap[Handle[VrmlDataNode]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

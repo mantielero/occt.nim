@@ -26,9 +26,9 @@ type
 proc constructStepElementElementAspect*(): StepElementElementAspect {.constructor,
     importcpp: "StepElement_ElementAspect(@)",
     header: "StepElement_ElementAspect.hxx".}
-proc caseNum*(this: StepElementElementAspect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepElementElementAspect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepElement_ElementAspect.hxx".}
-proc caseMem*(this: StepElementElementAspect; ent: Handle[StepDataSelectMember]): int {.
+proc caseMem*(this: StepElementElementAspect; ent: Handle[StepDataSelectMember]): cint {.
     noSideEffect, importcpp: "CaseMem", header: "StepElement_ElementAspect.hxx".}
 proc newMember*(this: StepElementElementAspect): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepElement_ElementAspect.hxx".}
@@ -38,39 +38,64 @@ proc setElementVolume*(this: var StepElementElementAspect;
 proc elementVolume*(this: StepElementElementAspect): StepElementElementVolume {.
     noSideEffect, importcpp: "ElementVolume",
     header: "StepElement_ElementAspect.hxx".}
-proc setVolume3dFace*(this: var StepElementElementAspect; aVal: int) {.
+proc setVolume3dFace*(this: var StepElementElementAspect; aVal: cint) {.
     importcpp: "SetVolume3dFace", header: "StepElement_ElementAspect.hxx".}
-proc volume3dFace*(this: StepElementElementAspect): int {.noSideEffect,
+proc volume3dFace*(this: StepElementElementAspect): cint {.noSideEffect,
     importcpp: "Volume3dFace", header: "StepElement_ElementAspect.hxx".}
-proc setVolume2dFace*(this: var StepElementElementAspect; aVal: int) {.
+proc setVolume2dFace*(this: var StepElementElementAspect; aVal: cint) {.
     importcpp: "SetVolume2dFace", header: "StepElement_ElementAspect.hxx".}
-proc volume2dFace*(this: StepElementElementAspect): int {.noSideEffect,
+proc volume2dFace*(this: StepElementElementAspect): cint {.noSideEffect,
     importcpp: "Volume2dFace", header: "StepElement_ElementAspect.hxx".}
-proc setVolume3dEdge*(this: var StepElementElementAspect; aVal: int) {.
+proc setVolume3dEdge*(this: var StepElementElementAspect; aVal: cint) {.
     importcpp: "SetVolume3dEdge", header: "StepElement_ElementAspect.hxx".}
-proc volume3dEdge*(this: StepElementElementAspect): int {.noSideEffect,
+proc volume3dEdge*(this: StepElementElementAspect): cint {.noSideEffect,
     importcpp: "Volume3dEdge", header: "StepElement_ElementAspect.hxx".}
-proc setVolume2dEdge*(this: var StepElementElementAspect; aVal: int) {.
+proc setVolume2dEdge*(this: var StepElementElementAspect; aVal: cint) {.
     importcpp: "SetVolume2dEdge", header: "StepElement_ElementAspect.hxx".}
-proc volume2dEdge*(this: StepElementElementAspect): int {.noSideEffect,
+proc volume2dEdge*(this: StepElementElementAspect): cint {.noSideEffect,
     importcpp: "Volume2dEdge", header: "StepElement_ElementAspect.hxx".}
-proc setSurface3dFace*(this: var StepElementElementAspect; aVal: int) {.
+proc setSurface3dFace*(this: var StepElementElementAspect; aVal: cint) {.
     importcpp: "SetSurface3dFace", header: "StepElement_ElementAspect.hxx".}
-proc surface3dFace*(this: StepElementElementAspect): int {.noSideEffect,
+proc surface3dFace*(this: StepElementElementAspect): cint {.noSideEffect,
     importcpp: "Surface3dFace", header: "StepElement_ElementAspect.hxx".}
-proc setSurface2dFace*(this: var StepElementElementAspect; aVal: int) {.
+proc setSurface2dFace*(this: var StepElementElementAspect; aVal: cint) {.
     importcpp: "SetSurface2dFace", header: "StepElement_ElementAspect.hxx".}
-proc surface2dFace*(this: StepElementElementAspect): int {.noSideEffect,
+proc surface2dFace*(this: StepElementElementAspect): cint {.noSideEffect,
     importcpp: "Surface2dFace", header: "StepElement_ElementAspect.hxx".}
-proc setSurface3dEdge*(this: var StepElementElementAspect; aVal: int) {.
+proc setSurface3dEdge*(this: var StepElementElementAspect; aVal: cint) {.
     importcpp: "SetSurface3dEdge", header: "StepElement_ElementAspect.hxx".}
-proc surface3dEdge*(this: StepElementElementAspect): int {.noSideEffect,
+proc surface3dEdge*(this: StepElementElementAspect): cint {.noSideEffect,
     importcpp: "Surface3dEdge", header: "StepElement_ElementAspect.hxx".}
-proc setSurface2dEdge*(this: var StepElementElementAspect; aVal: int) {.
+proc setSurface2dEdge*(this: var StepElementElementAspect; aVal: cint) {.
     importcpp: "SetSurface2dEdge", header: "StepElement_ElementAspect.hxx".}
-proc surface2dEdge*(this: StepElementElementAspect): int {.noSideEffect,
+proc surface2dEdge*(this: StepElementElementAspect): cint {.noSideEffect,
     importcpp: "Surface2dEdge", header: "StepElement_ElementAspect.hxx".}
 proc setCurveEdge*(this: var StepElementElementAspect; aVal: StepElementCurveEdge) {.
     importcpp: "SetCurveEdge", header: "StepElement_ElementAspect.hxx".}
 proc curveEdge*(this: StepElementElementAspect): StepElementCurveEdge {.
     noSideEffect, importcpp: "CurveEdge", header: "StepElement_ElementAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -33,21 +33,47 @@ type
                                                               ## ! reason why the computation has failed.
 
 
-proc normal*(d1u: Vec; d1v: Vec; sinTol: float; theStatus: var CSLibDerivativeStatus;
+proc normal*(d1u: Vec; d1v: Vec; sinTol: cfloat; theStatus: var CSLibDerivativeStatus;
             normal: var Dir) {.importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
-proc normal*(d1u: Vec; d1v: Vec; d2u: Vec; d2v: Vec; d2uv: Vec; sinTol: float;
+proc normal*(d1u: Vec; d1v: Vec; d2u: Vec; d2v: Vec; d2uv: Vec; sinTol: cfloat;
             done: var bool; theStatus: var CSLibNormalStatus; normal: var Dir) {.
     importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
-proc normal*(d1u: Vec; d1v: Vec; magTol: float; theStatus: var CSLibNormalStatus;
+proc normal*(d1u: Vec; d1v: Vec; magTol: cfloat; theStatus: var CSLibNormalStatus;
             normal: var Dir) {.importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
-proc normal*(maxOrder: int; derNUV: TColgpArray2OfVec; magTol: float; u: float; v: float;
-            umin: float; umax: float; vmin: float; vmax: float;
-            theStatus: var CSLibNormalStatus; normal: var Dir; orderU: var int;
-            orderV: var int) {.importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
-proc dnnuv*(nu: int; nv: int; derSurf: TColgpArray2OfVec): Vec {.
+proc normal*(maxOrder: cint; derNUV: TColgpArray2OfVec; magTol: cfloat; u: cfloat;
+            v: cfloat; umin: cfloat; umax: cfloat; vmin: cfloat; vmax: cfloat;
+            theStatus: var CSLibNormalStatus; normal: var Dir; orderU: var cint;
+            orderV: var cint) {.importcpp: "CSLib::Normal(@)", header: "CSLib.hxx".}
+proc dnnuv*(nu: cint; nv: cint; derSurf: TColgpArray2OfVec): Vec {.
     importcpp: "CSLib::DNNUV(@)", header: "CSLib.hxx".}
-proc dnnuv*(nu: int; nv: int; derSurf1: TColgpArray2OfVec; derSurf2: TColgpArray2OfVec): Vec {.
-    importcpp: "CSLib::DNNUV(@)", header: "CSLib.hxx".}
-proc dNNormal*(nu: int; nv: int; derNUV: TColgpArray2OfVec; iduref: int = 0;
-              idvref: int = 0): Vec {.importcpp: "CSLib::DNNormal(@)",
-                                 header: "CSLib.hxx".}
+proc dnnuv*(nu: cint; nv: cint; derSurf1: TColgpArray2OfVec;
+           derSurf2: TColgpArray2OfVec): Vec {.importcpp: "CSLib::DNNUV(@)",
+    header: "CSLib.hxx".}
+proc dNNormal*(nu: cint; nv: cint; derNUV: TColgpArray2OfVec; iduref: cint = 0;
+              idvref: cint = 0): Vec {.importcpp: "CSLib::DNNormal(@)",
+                                  header: "CSLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

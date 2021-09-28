@@ -23,9 +23,34 @@ type
                                                  ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 
-proc hashCode*(theAsciiString: TCollectionAsciiString; theUpperBound: int): int {.
+proc hashCode*(theAsciiString: TCollectionAsciiString; theUpperBound: cint): cint {.
     importcpp: "Interface_MapAsciiStringHasher::HashCode(@)",
     header: "Interface_MapAsciiStringHasher.hxx".}
 proc isEqual*(k1: TCollectionAsciiString; k2: TCollectionAsciiString): bool {.
     importcpp: "Interface_MapAsciiStringHasher::IsEqual(@)",
     header: "Interface_MapAsciiStringHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

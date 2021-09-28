@@ -19,3 +19,28 @@ type
   BinMDF_DataMapIteratorOfTypeADriverMap* = Iterator[Handle[StandardType],
       Handle[BinMDF_ADriver], TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

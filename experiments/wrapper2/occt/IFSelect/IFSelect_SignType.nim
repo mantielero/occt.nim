@@ -19,7 +19,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SignType"
 discard "forward decl of IFSelect_SignType"
 type
-  HandleIFSelectSignType* = Handle[IFSelectSignType]
+  HandleC1C1* = Handle[IFSelectSignType]
 
 ## ! This Signature returns the cdl Type of an entity, under two
 ## ! forms :
@@ -76,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SignType.hxx".}
 proc dynamicType*(this: IFSelectSignType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SignType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

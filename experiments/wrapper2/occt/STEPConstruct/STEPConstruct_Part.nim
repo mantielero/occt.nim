@@ -132,3 +132,28 @@ proc setPRPCname*(this: var STEPConstructPart;
 proc setPRPCdescription*(this: var STEPConstructPart;
                         text: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPRPCdescription", header: "STEPConstruct_Part.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

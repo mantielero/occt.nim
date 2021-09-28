@@ -30,9 +30,9 @@ proc init*(this: var BRepFeatBuilder; theShape: TopoDS_Shape) {.importcpp: "Init
     header: "BRepFeat_Builder.hxx".}
 proc init*(this: var BRepFeatBuilder; theShape: TopoDS_Shape; theTool: TopoDS_Shape) {.
     importcpp: "Init", header: "BRepFeat_Builder.hxx".}
-proc setOperation*(this: var BRepFeatBuilder; theFuse: int) {.
+proc setOperation*(this: var BRepFeatBuilder; theFuse: cint) {.
     importcpp: "SetOperation", header: "BRepFeat_Builder.hxx".}
-proc setOperation*(this: var BRepFeatBuilder; theFuse: int; theFlag: bool) {.
+proc setOperation*(this: var BRepFeatBuilder; theFuse: cint; theFlag: bool) {.
     importcpp: "SetOperation", header: "BRepFeat_Builder.hxx".}
 proc partsOfTool*(this: var BRepFeatBuilder; theLT: var TopToolsListOfShape) {.
     importcpp: "PartsOfTool", header: "BRepFeat_Builder.hxx".}
@@ -54,3 +54,28 @@ proc fillRemoved*(this: var BRepFeatBuilder) {.importcpp: "FillRemoved",
 proc fillRemoved*(this: var BRepFeatBuilder; theS: TopoDS_Shape;
                  theM: var TopToolsMapOfShape) {.importcpp: "FillRemoved",
     header: "BRepFeat_Builder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESBasic_Name"
 discard "forward decl of IGESBasic_Name"
 type
-  HandleIGESBasicName* = Handle[IGESBasicName]
+  HandleC1C1* = Handle[IGESBasicName]
 
 ## ! defines Name, Type <406> Form <15>
 ## ! in package IGESBasic
@@ -30,10 +30,10 @@ type
 
 proc constructIGESBasicName*(): IGESBasicName {.constructor,
     importcpp: "IGESBasic_Name(@)", header: "IGESBasic_Name.hxx".}
-proc init*(this: var IGESBasicName; nbPropVal: int;
+proc init*(this: var IGESBasicName; nbPropVal: cint;
           aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESBasic_Name.hxx".}
-proc nbPropertyValues*(this: IGESBasicName): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESBasicName): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESBasic_Name.hxx".}
 proc value*(this: IGESBasicName): Handle[TCollectionHAsciiString] {.noSideEffect,
     importcpp: "Value", header: "IGESBasic_Name.hxx".}
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESBasic_Name.hxx".}
 proc dynamicType*(this: IGESBasicName): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESBasic_Name.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,3 +31,28 @@ proc `>>`*(theReadData: var StdObjMgtReadData; theShape: var StdObjectShape): va
 
 proc `<<`*(theWriteData: var StdObjMgtWriteData; theShape: StdObjectShape): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_Shape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   StepGeomArray1OfCartesianPoint* = NCollectionArray1[
       Handle[StepGeomCartesianPoint]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

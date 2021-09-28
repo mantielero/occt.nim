@@ -31,3 +31,28 @@ proc constructTopoDSToStepMakeBrepWithVoids*(s: TopoDS_Solid;
     header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
 proc value*(this: TopoDSToStepMakeBrepWithVoids): Handle[StepShapeBrepWithVoids] {.
     noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

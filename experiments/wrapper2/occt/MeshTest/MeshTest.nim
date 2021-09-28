@@ -24,3 +24,28 @@ proc commands*(di: var DrawInterpretor) {.importcpp: "MeshTest::Commands(@)",
                                       header: "MeshTest.hxx".}
 proc pluginCommands*(di: var DrawInterpretor) {.
     importcpp: "MeshTest::PluginCommands(@)", header: "MeshTest.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

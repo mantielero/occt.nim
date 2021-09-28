@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_Axis2Placement3d"
 discard "forward decl of StepGeom_ToroidalSurface"
 discard "forward decl of StepGeom_ToroidalSurface"
 type
-  HandleStepGeomToroidalSurface* = Handle[StepGeomToroidalSurface]
+  HandleC1C1* = Handle[StepGeomToroidalSurface]
   StepGeomToroidalSurface* {.importcpp: "StepGeom_ToroidalSurface",
                             header: "StepGeom_ToroidalSurface.hxx", bycopy.} = object of StepGeomElementarySurface ##
                                                                                                             ## !
@@ -33,16 +33,16 @@ proc constructStepGeomToroidalSurface*(): StepGeomToroidalSurface {.constructor,
     header: "StepGeom_ToroidalSurface.hxx".}
 proc init*(this: var StepGeomToroidalSurface;
           aName: Handle[TCollectionHAsciiString];
-          aPosition: Handle[StepGeomAxis2Placement3d]; aMajorRadius: float;
-          aMinorRadius: float) {.importcpp: "Init",
-                               header: "StepGeom_ToroidalSurface.hxx".}
-proc setMajorRadius*(this: var StepGeomToroidalSurface; aMajorRadius: float) {.
+          aPosition: Handle[StepGeomAxis2Placement3d]; aMajorRadius: cfloat;
+          aMinorRadius: cfloat) {.importcpp: "Init",
+                                header: "StepGeom_ToroidalSurface.hxx".}
+proc setMajorRadius*(this: var StepGeomToroidalSurface; aMajorRadius: cfloat) {.
     importcpp: "SetMajorRadius", header: "StepGeom_ToroidalSurface.hxx".}
-proc majorRadius*(this: StepGeomToroidalSurface): float {.noSideEffect,
+proc majorRadius*(this: StepGeomToroidalSurface): cfloat {.noSideEffect,
     importcpp: "MajorRadius", header: "StepGeom_ToroidalSurface.hxx".}
-proc setMinorRadius*(this: var StepGeomToroidalSurface; aMinorRadius: float) {.
+proc setMinorRadius*(this: var StepGeomToroidalSurface; aMinorRadius: cfloat) {.
     importcpp: "SetMinorRadius", header: "StepGeom_ToroidalSurface.hxx".}
-proc minorRadius*(this: StepGeomToroidalSurface): float {.noSideEffect,
+proc minorRadius*(this: StepGeomToroidalSurface): cfloat {.noSideEffect,
     importcpp: "MinorRadius", header: "StepGeom_ToroidalSurface.hxx".}
 type
   StepGeomToroidalSurfacebaseType* = StepGeomElementarySurface
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_ToroidalSurface.hxx".}
 proc dynamicType*(this: StepGeomToroidalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_ToroidalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

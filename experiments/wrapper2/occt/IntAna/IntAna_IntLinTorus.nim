@@ -32,11 +32,37 @@ proc perform*(this: var IntAnaIntLinTorus; L: Lin; t: Torus) {.importcpp: "Perfo
     header: "IntAna_IntLinTorus.hxx".}
 proc isDone*(this: IntAnaIntLinTorus): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntAna_IntLinTorus.hxx".}
-proc nbPoints*(this: IntAnaIntLinTorus): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: IntAnaIntLinTorus): cint {.noSideEffect, importcpp: "NbPoints",
     header: "IntAna_IntLinTorus.hxx".}
-proc value*(this: IntAnaIntLinTorus; index: int): Pnt {.noSideEffect,
+proc value*(this: IntAnaIntLinTorus; index: cint): Pnt {.noSideEffect,
     importcpp: "Value", header: "IntAna_IntLinTorus.hxx".}
-proc paramOnLine*(this: IntAnaIntLinTorus; index: int): float {.noSideEffect,
+proc paramOnLine*(this: IntAnaIntLinTorus; index: cint): cfloat {.noSideEffect,
     importcpp: "ParamOnLine", header: "IntAna_IntLinTorus.hxx".}
-proc paramOnTorus*(this: IntAnaIntLinTorus; index: int; fi: var float; theta: var float) {.
-    noSideEffect, importcpp: "ParamOnTorus", header: "IntAna_IntLinTorus.hxx".}
+proc paramOnTorus*(this: IntAnaIntLinTorus; index: cint; fi: var cfloat;
+                  theta: var cfloat) {.noSideEffect, importcpp: "ParamOnTorus",
+                                    header: "IntAna_IntLinTorus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,3 +23,28 @@ proc fBOX_GetHBoxTool*(): Handle[TopOpeBRepToolHBoxTool] {.
     importcpp: "FBOX_GetHBoxTool(@)", header: "TopOpeBRepTool_box.hxx".}
 proc fBOX_Box*(s: TopoDS_Shape): var BndBox {.importcpp: "FBOX_Box(@)",
     header: "TopOpeBRepTool_box.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

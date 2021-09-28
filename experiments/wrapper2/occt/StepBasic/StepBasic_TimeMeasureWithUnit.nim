@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_TimeMeasureWithUnit"
 discard "forward decl of StepBasic_TimeMeasureWithUnit"
 type
-  HandleStepBasicTimeMeasureWithUnit* = Handle[StepBasicTimeMeasureWithUnit]
+  HandleC1C1* = Handle[StepBasicTimeMeasureWithUnit]
   StepBasicTimeMeasureWithUnit* {.importcpp: "StepBasic_TimeMeasureWithUnit",
                                  header: "StepBasic_TimeMeasureWithUnit.hxx",
                                  bycopy.} = object of StepBasicMeasureWithUnit ## !
@@ -39,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicTimeMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_TimeMeasureWithUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

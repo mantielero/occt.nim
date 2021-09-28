@@ -48,3 +48,28 @@ type
 
 proc planeXOY*(): Handle[GeomPlane] {.importcpp: "ShapeBuild::PlaneXOY(@)",
                                    header: "ShapeBuild.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

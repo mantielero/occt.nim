@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMNaming_NamingDriver"
 discard "forward decl of BinMNaming_NamingDriver"
 type
-  HandleBinMNamingNamingDriver* = Handle[BinMNamingNamingDriver]
+  HandleC1C1* = Handle[BinMNamingNamingDriver]
 
 ## ! Naming  Attribute Driver.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BinMNaming_NamingDriver.hxx".}
 proc dynamicType*(this: BinMNamingNamingDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMNaming_NamingDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

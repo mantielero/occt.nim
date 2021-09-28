@@ -27,3 +27,28 @@ type
 proc constructAspectXRDigitalActionData*(): AspectXRDigitalActionData {.
     constructor, importcpp: "Aspect_XRDigitalActionData(@)",
     header: "Aspect_XRDigitalActionData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

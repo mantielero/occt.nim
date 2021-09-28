@@ -28,7 +28,7 @@ proc constructRWStepShapeRWMeasureQualification*(): RWStepShapeRWMeasureQualific
     constructor, importcpp: "RWStepShape_RWMeasureQualification(@)",
     header: "RWStepShape_RWMeasureQualification.hxx".}
 proc readStep*(this: RWStepShapeRWMeasureQualification;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeMeasureQualification]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWMeasureQualification.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepShapeRWMeasureQualification;
            ent: Handle[StepShapeMeasureQualification];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWMeasureQualification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

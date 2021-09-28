@@ -29,7 +29,7 @@ proc constructRWStepGeomRWSurfaceOfLinearExtrusion*(): RWStepGeomRWSurfaceOfLine
     constructor, importcpp: "RWStepGeom_RWSurfaceOfLinearExtrusion(@)",
     header: "RWStepGeom_RWSurfaceOfLinearExtrusion.hxx".}
 proc readStep*(this: RWStepGeomRWSurfaceOfLinearExtrusion;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomSurfaceOfLinearExtrusion]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWSurfaceOfLinearExtrusion.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepGeomRWSurfaceOfLinearExtrusion;
            ent: Handle[StepGeomSurfaceOfLinearExtrusion];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWSurfaceOfLinearExtrusion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

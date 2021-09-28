@@ -25,16 +25,16 @@ proc constructIntToolsShrunkRange*(): IntToolsShrunkRange {.constructor,
     importcpp: "IntTools_ShrunkRange(@)", header: "IntTools_ShrunkRange.hxx".}
 proc destroyIntToolsShrunkRange*(this: var IntToolsShrunkRange) {.
     importcpp: "#.~IntTools_ShrunkRange()", header: "IntTools_ShrunkRange.hxx".}
-proc setData*(this: var IntToolsShrunkRange; aE: TopoDS_Edge; aT1: float; aT2: float;
+proc setData*(this: var IntToolsShrunkRange; aE: TopoDS_Edge; aT1: cfloat; aT2: cfloat;
              aV1: TopoDS_Vertex; aV2: TopoDS_Vertex) {.importcpp: "SetData",
     header: "IntTools_ShrunkRange.hxx".}
 proc setContext*(this: var IntToolsShrunkRange; aCtx: Handle[IntToolsContext]) {.
     importcpp: "SetContext", header: "IntTools_ShrunkRange.hxx".}
 proc context*(this: IntToolsShrunkRange): Handle[IntToolsContext] {.noSideEffect,
     importcpp: "Context", header: "IntTools_ShrunkRange.hxx".}
-proc setShrunkRange*(this: var IntToolsShrunkRange; aT1: float; aT2: float) {.
+proc setShrunkRange*(this: var IntToolsShrunkRange; aT1: cfloat; aT2: cfloat) {.
     importcpp: "SetShrunkRange", header: "IntTools_ShrunkRange.hxx".}
-proc shrunkRange*(this: IntToolsShrunkRange; aT1: var float; aT2: var float) {.
+proc shrunkRange*(this: IntToolsShrunkRange; aT1: var cfloat; aT2: var cfloat) {.
     noSideEffect, importcpp: "ShrunkRange", header: "IntTools_ShrunkRange.hxx".}
 proc bndBox*(this: IntToolsShrunkRange): BndBox {.noSideEffect, importcpp: "BndBox",
     header: "IntTools_ShrunkRange.hxx".}
@@ -46,5 +46,30 @@ proc isDone*(this: IntToolsShrunkRange): bool {.noSideEffect, importcpp: "IsDone
     header: "IntTools_ShrunkRange.hxx".}
 proc isSplittable*(this: IntToolsShrunkRange): bool {.noSideEffect,
     importcpp: "IsSplittable", header: "IntTools_ShrunkRange.hxx".}
-proc length*(this: IntToolsShrunkRange): float {.noSideEffect, importcpp: "Length",
+proc length*(this: IntToolsShrunkRange): cfloat {.noSideEffect, importcpp: "Length",
     header: "IntTools_ShrunkRange.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

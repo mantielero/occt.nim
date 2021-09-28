@@ -40,17 +40,18 @@ proc attribute*(this: MoniToolAttrList; name: StandardCString): Handle[
                         header: "MoniTool_AttrList.hxx".}
 proc attributeType*(this: MoniToolAttrList; name: StandardCString): MoniToolValueType {.
     noSideEffect, importcpp: "AttributeType", header: "MoniTool_AttrList.hxx".}
-proc setIntegerAttribute*(this: var MoniToolAttrList; name: StandardCString; val: int) {.
+proc setIntegerAttribute*(this: var MoniToolAttrList; name: StandardCString; val: cint) {.
     importcpp: "SetIntegerAttribute", header: "MoniTool_AttrList.hxx".}
-proc getIntegerAttribute*(this: MoniToolAttrList; name: StandardCString; val: var int): bool {.
-    noSideEffect, importcpp: "GetIntegerAttribute", header: "MoniTool_AttrList.hxx".}
-proc integerAttribute*(this: MoniToolAttrList; name: StandardCString): int {.
+proc getIntegerAttribute*(this: MoniToolAttrList; name: StandardCString;
+                         val: var cint): bool {.noSideEffect,
+    importcpp: "GetIntegerAttribute", header: "MoniTool_AttrList.hxx".}
+proc integerAttribute*(this: MoniToolAttrList; name: StandardCString): cint {.
     noSideEffect, importcpp: "IntegerAttribute", header: "MoniTool_AttrList.hxx".}
-proc setRealAttribute*(this: var MoniToolAttrList; name: StandardCString; val: float) {.
+proc setRealAttribute*(this: var MoniToolAttrList; name: StandardCString; val: cfloat) {.
     importcpp: "SetRealAttribute", header: "MoniTool_AttrList.hxx".}
-proc getRealAttribute*(this: MoniToolAttrList; name: StandardCString; val: var float): bool {.
+proc getRealAttribute*(this: MoniToolAttrList; name: StandardCString; val: var cfloat): bool {.
     noSideEffect, importcpp: "GetRealAttribute", header: "MoniTool_AttrList.hxx".}
-proc realAttribute*(this: MoniToolAttrList; name: StandardCString): float {.
+proc realAttribute*(this: MoniToolAttrList; name: StandardCString): cfloat {.
     noSideEffect, importcpp: "RealAttribute", header: "MoniTool_AttrList.hxx".}
 proc setStringAttribute*(this: var MoniToolAttrList; name: StandardCString;
                         val: StandardCString) {.importcpp: "SetStringAttribute",
@@ -68,3 +69,28 @@ proc sameAttributes*(this: var MoniToolAttrList; other: MoniToolAttrList) {.
 proc getAttributes*(this: var MoniToolAttrList; other: MoniToolAttrList;
                    fromname: StandardCString = ""; copied: bool = true) {.
     importcpp: "GetAttributes", header: "MoniTool_AttrList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of StepSelect_WorkLibrary"
 discard "forward decl of StepSelect_WorkLibrary"
 type
-  HandleStepSelectWorkLibrary* = Handle[StepSelectWorkLibrary]
+  HandleC1C1* = Handle[StepSelectWorkLibrary]
 
 ## ! Performs Read and Write a STEP File with a STEP Model
 ## ! Following the protocols, Copy may be implemented or not
@@ -50,16 +50,16 @@ type
 proc constructStepSelectWorkLibrary*(copymode: bool = true): StepSelectWorkLibrary {.
     constructor, importcpp: "StepSelect_WorkLibrary(@)",
     header: "StepSelect_WorkLibrary.hxx".}
-proc setDumpLabel*(this: var StepSelectWorkLibrary; mode: int) {.
+proc setDumpLabel*(this: var StepSelectWorkLibrary; mode: cint) {.
     importcpp: "SetDumpLabel", header: "StepSelect_WorkLibrary.hxx".}
 proc readFile*(this: StepSelectWorkLibrary; name: StandardCString;
               model: var Handle[InterfaceInterfaceModel];
-              protocol: Handle[InterfaceProtocol]): int {.noSideEffect,
+              protocol: Handle[InterfaceProtocol]): cint {.noSideEffect,
     importcpp: "ReadFile", header: "StepSelect_WorkLibrary.hxx".}
 proc readStream*(this: StepSelectWorkLibrary; theName: StandardCString;
                 theIStream: var Istream;
                 model: var Handle[InterfaceInterfaceModel];
-                protocol: Handle[InterfaceProtocol]): int {.noSideEffect,
+                protocol: Handle[InterfaceProtocol]): cint {.noSideEffect,
     importcpp: "ReadStream", header: "StepSelect_WorkLibrary.hxx".}
 proc writeFile*(this: StepSelectWorkLibrary; ctx: var IFSelectContextWrite): bool {.
     noSideEffect, importcpp: "WriteFile", header: "StepSelect_WorkLibrary.hxx".}
@@ -71,8 +71,9 @@ proc copyModel*(this: StepSelectWorkLibrary;
 proc dumpEntity*(this: StepSelectWorkLibrary;
                 model: Handle[InterfaceInterfaceModel];
                 protocol: Handle[InterfaceProtocol];
-                entity: Handle[StandardTransient]; s: var StandardOStream; level: int) {.
-    noSideEffect, importcpp: "DumpEntity", header: "StepSelect_WorkLibrary.hxx".}
+                entity: Handle[StandardTransient]; s: var StandardOStream;
+                level: cint) {.noSideEffect, importcpp: "DumpEntity",
+                             header: "StepSelect_WorkLibrary.hxx".}
 type
   StepSelectWorkLibrarybaseType* = IFSelectWorkLibrary
 
@@ -83,3 +84,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepSelect_WorkLibrary.hxx".}
 proc dynamicType*(this: StepSelectWorkLibrary): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepSelect_WorkLibrary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataXtd_Geometry"
 discard "forward decl of TDataXtd_Geometry"
 type
-  HandleTDataXtdGeometry* = Handle[TDataXtdGeometry]
+  HandleC1C1* = Handle[TDataXtdGeometry]
 
 ## ! This class is used to model construction geometry.
 ## ! The specific geometric construction of the
@@ -158,3 +158,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataXtd_Geometry.hxx".}
 proc dynamicType*(this: TDataXtdGeometry): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataXtd_Geometry.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

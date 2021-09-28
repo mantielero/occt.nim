@@ -19,7 +19,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IntPatch_Line"
 discard "forward decl of IntPatch_Line"
 type
-  HandleIntPatchLine* = Handle[IntPatchLine]
+  HandleC1C1* = Handle[IntPatchLine]
 
 ## ! Definition of an intersection line between two
 ## ! surfaces.
@@ -95,3 +95,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IntPatch_Line.hxx".}
 proc dynamicType*(this: IntPatchLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_Line.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

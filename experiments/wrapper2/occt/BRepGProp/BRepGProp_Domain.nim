@@ -35,3 +35,28 @@ proc value*(this: var BRepGPropDomain): TopoDS_Edge {.importcpp: "Value",
     header: "BRepGProp_Domain.hxx".}
 proc next*(this: var BRepGPropDomain) {.importcpp: "Next",
                                     header: "BRepGProp_Domain.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

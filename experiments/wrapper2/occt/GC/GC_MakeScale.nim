@@ -45,10 +45,31 @@ type
                                                                                    ## factor.
 
 
-proc constructGC_MakeScale*(point: Pnt; scale: float): GC_MakeScale {.constructor,
+proc constructGC_MakeScale*(point: Pnt; scale: cfloat): GC_MakeScale {.constructor,
     importcpp: "GC_MakeScale(@)", header: "GC_MakeScale.hxx".}
 proc value*(this: GC_MakeScale): Handle[GeomTransformation] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeScale.hxx".}
 converter `constopencascade`*(this: GC_MakeScale): Handle[GeomTransformation] {.
     noSideEffect, importcpp: "GC_MakeScale::operator constopencascade",
     header: "GC_MakeScale.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

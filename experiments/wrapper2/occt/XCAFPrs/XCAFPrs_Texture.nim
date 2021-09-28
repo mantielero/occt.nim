@@ -39,3 +39,28 @@ proc getImage*(this: var XCAFPrsTexture; theSupported: Handle[ImageSupportedForm
     ImagePixMap] {.importcpp: "GetImage", header: "XCAFPrs_Texture.hxx".}
 proc getImageSource*(this: XCAFPrsTexture): ImageTexture {.noSideEffect,
     importcpp: "GetImageSource", header: "XCAFPrs_Texture.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

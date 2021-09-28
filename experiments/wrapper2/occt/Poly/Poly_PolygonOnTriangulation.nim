@@ -16,7 +16,7 @@
 
 discard "forward decl of Poly_PolygonOnTriangulation"
 type
-  HandlePolyPolygonOnTriangulation* = Handle[PolyPolygonOnTriangulation]
+  HandleC1C1* = Handle[PolyPolygonOnTriangulation]
 
 ## ! This class provides a polygon in 3D space, based on the triangulation
 ## ! of a surface. It may be the approximate representation of a
@@ -52,7 +52,7 @@ type
                                                                                                           ## nodes.
 
 
-proc constructPolyPolygonOnTriangulation*(theNbNodes: int; theHasParams: bool): PolyPolygonOnTriangulation {.
+proc constructPolyPolygonOnTriangulation*(theNbNodes: cint; theHasParams: bool): PolyPolygonOnTriangulation {.
     constructor, importcpp: "Poly_PolygonOnTriangulation(@)",
     header: "Poly_PolygonOnTriangulation.hxx".}
 proc constructPolyPolygonOnTriangulation*(nodes: TColStdArray1OfInteger): PolyPolygonOnTriangulation {.
@@ -64,11 +64,11 @@ proc constructPolyPolygonOnTriangulation*(nodes: TColStdArray1OfInteger;
     header: "Poly_PolygonOnTriangulation.hxx".}
 proc copy*(this: PolyPolygonOnTriangulation): Handle[PolyPolygonOnTriangulation] {.
     noSideEffect, importcpp: "Copy", header: "Poly_PolygonOnTriangulation.hxx".}
-proc deflection*(this: PolyPolygonOnTriangulation): float {.noSideEffect,
+proc deflection*(this: PolyPolygonOnTriangulation): cfloat {.noSideEffect,
     importcpp: "Deflection", header: "Poly_PolygonOnTriangulation.hxx".}
-proc deflection*(this: var PolyPolygonOnTriangulation; theDefl: float) {.
+proc deflection*(this: var PolyPolygonOnTriangulation; theDefl: cfloat) {.
     importcpp: "Deflection", header: "Poly_PolygonOnTriangulation.hxx".}
-proc nbNodes*(this: PolyPolygonOnTriangulation): int {.noSideEffect,
+proc nbNodes*(this: PolyPolygonOnTriangulation): cint {.noSideEffect,
     importcpp: "NbNodes", header: "Poly_PolygonOnTriangulation.hxx".}
 proc nodes*(this: PolyPolygonOnTriangulation): TColStdArray1OfInteger {.
     noSideEffect, importcpp: "Nodes", header: "Poly_PolygonOnTriangulation.hxx".}
@@ -85,8 +85,8 @@ proc setParameters*(this: var PolyPolygonOnTriangulation;
                    theParameters: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetParameters", header: "Poly_PolygonOnTriangulation.hxx".}
 proc dumpJson*(this: PolyPolygonOnTriangulation; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Poly_PolygonOnTriangulation.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Poly_PolygonOnTriangulation.hxx".}
 type
   PolyPolygonOnTriangulationbaseType* = StandardTransient
 
@@ -98,3 +98,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: PolyPolygonOnTriangulation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Poly_PolygonOnTriangulation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

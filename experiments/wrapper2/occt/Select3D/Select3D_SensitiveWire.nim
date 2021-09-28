@@ -59,7 +59,7 @@ proc constructSelect3D_SensitiveWire*(theOwnerId: Handle[SelectMgrEntityOwner]):
 proc add*(this: var Select3D_SensitiveWire;
          theSensitive: Handle[Select3D_SensitiveEntity]) {.importcpp: "Add",
     header: "Select3D_SensitiveWire.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveWire): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitiveWire): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitiveWire.hxx".}
 proc getConnected*(this: var Select3D_SensitiveWire): Handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
@@ -76,17 +76,17 @@ proc boundingBox*(this: var Select3D_SensitiveWire): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveWire.hxx".}
 proc centerOfGeometry*(this: Select3D_SensitiveWire): Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveWire.hxx".}
-proc size*(this: Select3D_SensitiveWire): int {.noSideEffect, importcpp: "Size",
+proc size*(this: Select3D_SensitiveWire): cint {.noSideEffect, importcpp: "Size",
     header: "Select3D_SensitiveWire.hxx".}
-proc box*(this: Select3D_SensitiveWire; theIdx: int): Select3D_BndBox3d {.
+proc box*(this: Select3D_SensitiveWire; theIdx: cint): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "Select3D_SensitiveWire.hxx".}
-proc center*(this: Select3D_SensitiveWire; theIdx: int; theAxis: int): float {.
+proc center*(this: Select3D_SensitiveWire; theIdx: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center", header: "Select3D_SensitiveWire.hxx".}
-proc swap*(this: var Select3D_SensitiveWire; theIdx1: int; theIdx2: int) {.
+proc swap*(this: var Select3D_SensitiveWire; theIdx1: cint; theIdx2: cint) {.
     importcpp: "Swap", header: "Select3D_SensitiveWire.hxx".}
 proc dumpJson*(this: Select3D_SensitiveWire; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Select3D_SensitiveWire.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Select3D_SensitiveWire.hxx".}
 type
   Select3D_SensitiveWirebaseType* = Select3D_SensitiveSet
 
@@ -99,5 +99,30 @@ proc dynamicType*(this: Select3D_SensitiveWire): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveWire.hxx".}
 discard "forward decl of Select3D_SensitiveWire"
 type
-  HandleSelect3D_SensitiveWire* = Handle[Select3D_SensitiveWire]
+  HandleC1C1* = Handle[Select3D_SensitiveWire]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

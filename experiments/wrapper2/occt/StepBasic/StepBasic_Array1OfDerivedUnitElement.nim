@@ -18,3 +18,28 @@ type
   StepBasicArray1OfDerivedUnitElement* = NCollectionArray1[
       Handle[StepBasicDerivedUnitElement]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

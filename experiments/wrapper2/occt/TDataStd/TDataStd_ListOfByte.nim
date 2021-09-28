@@ -18,3 +18,28 @@ type
   TDataStdListOfByte* = NCollectionList[StandardByte]
   TDataStdListIteratorOfListOfByte* = Iterator[StandardByte]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

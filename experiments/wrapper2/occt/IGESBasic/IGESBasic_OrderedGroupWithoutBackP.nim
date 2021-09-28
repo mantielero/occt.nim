@@ -18,8 +18,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESBasic_OrderedGroupWithoutBackP"
 discard "forward decl of IGESBasic_OrderedGroupWithoutBackP"
 type
-  HandleIGESBasicOrderedGroupWithoutBackP* = Handle[
-      IGESBasicOrderedGroupWithoutBackP]
+  HandleC1C1* = Handle[IGESBasicOrderedGroupWithoutBackP]
 
 ## ! defines OrderedGroupWithoutBackP, Type <402> Form <15>
 ## ! in package IGESBasic
@@ -47,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESBasicOrderedGroupWithoutBackP): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESBasic_OrderedGroupWithoutBackP.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -43,3 +43,28 @@ proc operator*(this: GceMakeMirror): Trsf {.noSideEffect, importcpp: "Operator",
                                         header: "gce_MakeMirror.hxx".}
 converter `trsf`*(this: GceMakeMirror): Trsf {.noSideEffect,
     importcpp: "gce_MakeMirror::operator gp_Trsf", header: "gce_MakeMirror.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

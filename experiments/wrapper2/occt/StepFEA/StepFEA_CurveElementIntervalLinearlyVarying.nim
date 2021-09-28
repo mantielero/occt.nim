@@ -18,8 +18,7 @@ discard "forward decl of StepBasic_EulerAngles"
 discard "forward decl of StepFEA_CurveElementIntervalLinearlyVarying"
 discard "forward decl of StepFEA_CurveElementIntervalLinearlyVarying"
 type
-  HandleStepFEA_CurveElementIntervalLinearlyVarying* = Handle[
-      StepFEA_CurveElementIntervalLinearlyVarying]
+  HandleC1C1* = Handle[StepFEA_CurveElementIntervalLinearlyVarying]
 
 ## ! Representation of STEP entity CurveElementIntervalLinearlyVarying
 
@@ -57,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_CurveEleme
 proc dynamicType*(this: StepFEA_CurveElementIntervalLinearlyVarying): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepFEA_CurveElementIntervalLinearlyVarying.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

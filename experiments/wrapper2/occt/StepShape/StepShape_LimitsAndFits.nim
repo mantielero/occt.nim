@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_LimitsAndFits"
 discard "forward decl of StepShape_LimitsAndFits"
 type
-  HandleStepShapeLimitsAndFits* = Handle[StepShapeLimitsAndFits]
+  HandleC1C1* = Handle[StepShapeLimitsAndFits]
 
 ## ! Added for Dimensional Tolerances
 
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_LimitsAndFits.hxx".}
 proc dynamicType*(this: StepShapeLimitsAndFits): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_LimitsAndFits.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectName"
 discard "forward decl of IGESSelect_SelectName"
 type
-  HandleIGESSelectSelectName* = Handle[IGESSelectSelectName]
+  HandleC1C1* = Handle[IGESSelectSelectName]
 
 ## ! Selects Entities which have a given name.
 ## ! Consider Property Name if present, else Short Label, but
@@ -52,7 +52,7 @@ type
 
 proc constructIGESSelectSelectName*(): IGESSelectSelectName {.constructor,
     importcpp: "IGESSelect_SelectName(@)", header: "IGESSelect_SelectName.hxx".}
-proc sort*(this: IGESSelectSelectName; rank: int; ent: Handle[StandardTransient];
+proc sort*(this: IGESSelectSelectName; rank: cint; ent: Handle[StandardTransient];
           model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
     importcpp: "Sort", header: "IGESSelect_SelectName.hxx".}
 proc setName*(this: var IGESSelectSelectName; name: Handle[TCollectionHAsciiString]) {.
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_SelectName.hxx".}
 proc dynamicType*(this: IGESSelectSelectName): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_SelectName.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

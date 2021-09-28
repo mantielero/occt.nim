@@ -19,7 +19,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SignCategory"
 discard "forward decl of IFSelect_SignCategory"
 type
-  HandleIFSelectSignCategory* = Handle[IFSelectSignCategory]
+  HandleC1C1* = Handle[IFSelectSignCategory]
 
 ## ! This Signature returns the Category of an entity, as recorded
 ## ! in the model
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SignCategory.hxx".}
 proc dynamicType*(this: IFSelectSignCategory): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SignCategory.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,3 +61,28 @@ proc value*(this: MathGaussSetIntegration): MathVector {.noSideEffect,
     importcpp: "Value", header: "math_GaussSetIntegration.hxx".}
 proc dump*(this: MathGaussSetIntegration; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_GaussSetIntegration.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

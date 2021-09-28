@@ -31,7 +31,7 @@ proc constructRWStepShapeRWShapeRepresentationWithParameters*(): RWStepShapeRWSh
     constructor, importcpp: "RWStepShape_RWShapeRepresentationWithParameters(@)",
     header: "RWStepShape_RWShapeRepresentationWithParameters.hxx".}
 proc readStep*(this: RWStepShapeRWShapeRepresentationWithParameters;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeShapeRepresentationWithParameters]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepShapeRWShapeRepresentationWithParameters;
            ent: Handle[StepShapeShapeRepresentationWithParameters];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWShapeRepresentationWithParameters.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

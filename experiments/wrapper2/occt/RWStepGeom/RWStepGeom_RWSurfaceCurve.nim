@@ -28,7 +28,7 @@ proc constructRWStepGeomRWSurfaceCurve*(): RWStepGeomRWSurfaceCurve {.constructo
     importcpp: "RWStepGeom_RWSurfaceCurve(@)",
     header: "RWStepGeom_RWSurfaceCurve.hxx".}
 proc readStep*(this: RWStepGeomRWSurfaceCurve;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomSurfaceCurve]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWSurfaceCurve.hxx".}
 proc writeStep*(this: RWStepGeomRWSurfaceCurve; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepGeomRWSurfaceCurve; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWSurfaceCurve; ent: Handle[StepGeomSurfaceCurve];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWSurfaceCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

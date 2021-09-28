@@ -41,7 +41,7 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Prs3dLineAspect): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Prs3d_LineAspect.hxx".}
 proc constructPrs3dLineAspect*(theColor: QuantityColor; theType: AspectTypeOfLine;
-                              theWidth: float): Prs3dLineAspect {.constructor,
+                              theWidth: cfloat): Prs3dLineAspect {.constructor,
     importcpp: "Prs3d_LineAspect(@)", header: "Prs3d_LineAspect.hxx".}
 proc constructPrs3dLineAspect*(theAspect: Handle[Graphic3dAspectLine3d]): Prs3dLineAspect {.
     constructor, importcpp: "Prs3d_LineAspect(@)", header: "Prs3d_LineAspect.hxx".}
@@ -49,16 +49,41 @@ proc setColor*(this: var Prs3dLineAspect; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "Prs3d_LineAspect.hxx".}
 proc setTypeOfLine*(this: var Prs3dLineAspect; theType: AspectTypeOfLine) {.
     importcpp: "SetTypeOfLine", header: "Prs3d_LineAspect.hxx".}
-proc setWidth*(this: var Prs3dLineAspect; theWidth: float) {.importcpp: "SetWidth",
+proc setWidth*(this: var Prs3dLineAspect; theWidth: cfloat) {.importcpp: "SetWidth",
     header: "Prs3d_LineAspect.hxx".}
 proc aspect*(this: Prs3dLineAspect): Handle[Graphic3dAspectLine3d] {.noSideEffect,
     importcpp: "Aspect", header: "Prs3d_LineAspect.hxx".}
 proc setAspect*(this: var Prs3dLineAspect; theAspect: Handle[Graphic3dAspectLine3d]) {.
     importcpp: "SetAspect", header: "Prs3d_LineAspect.hxx".}
 proc dumpJson*(this: Prs3dLineAspect; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Prs3d_LineAspect.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Prs3d_LineAspect.hxx".}
 discard "forward decl of Prs3d_LineAspect"
 type
-  HandlePrs3dLineAspect* = Handle[Prs3dLineAspect]
+  HandleC1C1* = Handle[Prs3dLineAspect]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

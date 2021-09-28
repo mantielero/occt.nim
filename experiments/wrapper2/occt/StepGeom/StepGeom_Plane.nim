@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_Plane"
 discard "forward decl of StepGeom_Plane"
 type
-  HandleStepGeomPlane* = Handle[StepGeomPlane]
+  HandleC1C1* = Handle[StepGeomPlane]
   StepGeomPlane* {.importcpp: "StepGeom_Plane", header: "StepGeom_Plane.hxx", bycopy.} = object of StepGeomElementarySurface ##
                                                                                                                    ## !
                                                                                                                    ## Returns
@@ -37,3 +37,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Plane.hxx".}
 proc dynamicType*(this: StepGeomPlane): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Plane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

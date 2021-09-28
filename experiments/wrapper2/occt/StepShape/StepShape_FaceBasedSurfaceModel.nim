@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_FaceBasedSurfaceModel"
 discard "forward decl of StepShape_FaceBasedSurfaceModel"
 type
-  HandleStepShapeFaceBasedSurfaceModel* = Handle[StepShapeFaceBasedSurfaceModel]
+  HandleC1C1* = Handle[StepShapeFaceBasedSurfaceModel]
 
 ## ! Representation of STEP entity FaceBasedSurfaceModel
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeFaceBasedSurfaceModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_FaceBasedSurfaceModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

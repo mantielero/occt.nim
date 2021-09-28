@@ -28,20 +28,47 @@ proc constructGPropPrincipalProps*(): GPropPrincipalProps {.constructor,
     importcpp: "GProp_PrincipalProps(@)", header: "GProp_PrincipalProps.hxx".}
 proc hasSymmetryAxis*(this: GPropPrincipalProps): bool {.noSideEffect,
     importcpp: "HasSymmetryAxis", header: "GProp_PrincipalProps.hxx".}
-proc hasSymmetryAxis*(this: GPropPrincipalProps; aTol: float): bool {.noSideEffect,
+proc hasSymmetryAxis*(this: GPropPrincipalProps; aTol: cfloat): bool {.noSideEffect,
     importcpp: "HasSymmetryAxis", header: "GProp_PrincipalProps.hxx".}
 proc hasSymmetryPoint*(this: GPropPrincipalProps): bool {.noSideEffect,
     importcpp: "HasSymmetryPoint", header: "GProp_PrincipalProps.hxx".}
-proc hasSymmetryPoint*(this: GPropPrincipalProps; aTol: float): bool {.noSideEffect,
+proc hasSymmetryPoint*(this: GPropPrincipalProps; aTol: cfloat): bool {.noSideEffect,
     importcpp: "HasSymmetryPoint", header: "GProp_PrincipalProps.hxx".}
-proc moments*(this: GPropPrincipalProps; ixx: var float; iyy: var float; izz: var float) {.
-    noSideEffect, importcpp: "Moments", header: "GProp_PrincipalProps.hxx".}
+proc moments*(this: GPropPrincipalProps; ixx: var cfloat; iyy: var cfloat;
+             izz: var cfloat) {.noSideEffect, importcpp: "Moments",
+                             header: "GProp_PrincipalProps.hxx".}
 proc firstAxisOfInertia*(this: GPropPrincipalProps): Vec {.noSideEffect,
     importcpp: "FirstAxisOfInertia", header: "GProp_PrincipalProps.hxx".}
 proc secondAxisOfInertia*(this: GPropPrincipalProps): Vec {.noSideEffect,
     importcpp: "SecondAxisOfInertia", header: "GProp_PrincipalProps.hxx".}
 proc thirdAxisOfInertia*(this: GPropPrincipalProps): Vec {.noSideEffect,
     importcpp: "ThirdAxisOfInertia", header: "GProp_PrincipalProps.hxx".}
-proc radiusOfGyration*(this: GPropPrincipalProps; rxx: var float; ryy: var float;
-                      rzz: var float) {.noSideEffect, importcpp: "RadiusOfGyration",
-                                     header: "GProp_PrincipalProps.hxx".}
+proc radiusOfGyration*(this: GPropPrincipalProps; rxx: var cfloat; ryy: var cfloat;
+                      rzz: var cfloat) {.noSideEffect,
+                                      importcpp: "RadiusOfGyration",
+                                      header: "GProp_PrincipalProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDocStd_XLinkDriver"
 discard "forward decl of XmlMDocStd_XLinkDriver"
 type
-  HandleXmlMDocStdXLinkDriver* = Handle[XmlMDocStdXLinkDriver]
+  HandleC1C1* = Handle[XmlMDocStdXLinkDriver]
 
 ## ! Attribute Driver.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XmlMDocStd_XLinkDriver.hxx".}
 proc dynamicType*(this: XmlMDocStdXLinkDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XmlMDocStd_XLinkDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

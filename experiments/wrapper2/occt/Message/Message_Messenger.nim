@@ -19,7 +19,7 @@ discard "forward decl of Message_Printer"
 discard "forward decl of Message_Messenger"
 discard "forward decl of Message_Messenger"
 type
-  HandleMessageMessenger* = Handle[MessageMessenger]
+  HandleC1C1* = Handle[MessageMessenger]
 
 ## ! Messenger is API class providing general-purpose interface for
 ## ! libraries that may issue text messages without knowledge
@@ -196,7 +196,7 @@ proc addPrinter*(this: var MessageMessenger; thePrinter: Handle[MessagePrinter])
     importcpp: "AddPrinter", header: "Message_Messenger.hxx".}
 proc removePrinter*(this: var MessageMessenger; thePrinter: Handle[MessagePrinter]): bool {.
     importcpp: "RemovePrinter", header: "Message_Messenger.hxx".}
-proc removePrinters*(this: var MessageMessenger; theType: Handle[StandardType]): int {.
+proc removePrinters*(this: var MessageMessenger; theType: Handle[StandardType]): cint {.
     importcpp: "RemovePrinters", header: "Message_Messenger.hxx".}
 proc printers*(this: MessageMessenger): MessageSequenceOfPrinters {.noSideEffect,
     importcpp: "Printers", header: "Message_Messenger.hxx".}
@@ -240,5 +240,30 @@ proc sendInfo*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {
 proc sendTrace*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
     importcpp: "SendTrace", header: "Message_Messenger.hxx".}
 proc dumpJson*(this: MessageMessenger; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Message_Messenger.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Message_Messenger.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

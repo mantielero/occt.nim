@@ -29,3 +29,28 @@ type
 
 proc initCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "SWDRAW_ShapeFix::InitCommands(@)", header: "SWDRAW_ShapeFix.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

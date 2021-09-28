@@ -18,7 +18,7 @@ discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepRepr_AssemblyComponentUsage"
 discard "forward decl of StepRepr_AssemblyComponentUsage"
 type
-  HandleStepReprAssemblyComponentUsage* = Handle[StepReprAssemblyComponentUsage]
+  HandleC1C1* = Handle[StepReprAssemblyComponentUsage]
 
 ## ! Representation of STEP entity AssemblyComponentUsage
 
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprAssemblyComponentUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_AssemblyComponentUsage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

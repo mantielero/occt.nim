@@ -13,7 +13,7 @@
 
 discard "forward decl of PrsDim_LengthDimension"
 type
-  HandlePrsDimLengthDimension* = Handle[PrsDimLengthDimension]
+  HandleC1C1* = Handle[PrsDimLengthDimension]
 
 ## ! Length dimension. Can be constructued:
 ## ! - Between two generic points.
@@ -239,3 +239,28 @@ proc getTextPosition*(this: PrsDimLengthDimension): Pnt {.noSideEffect,
 proc setDirection*(this: var PrsDimLengthDimension; theDirection: Dir;
                   theUseDirection: bool = true) {.importcpp: "SetDirection",
     header: "PrsDim_LengthDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

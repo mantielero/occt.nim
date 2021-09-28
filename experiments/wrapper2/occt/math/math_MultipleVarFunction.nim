@@ -30,12 +30,37 @@ type
                                                                                  ## function
 
 
-proc nbVariables*(this: MathMultipleVarFunction): int {.noSideEffect,
+proc nbVariables*(this: MathMultipleVarFunction): cint {.noSideEffect,
     importcpp: "NbVariables", header: "math_MultipleVarFunction.hxx".}
-proc value*(this: var MathMultipleVarFunction; x: MathVector; f: var float): bool {.
+proc value*(this: var MathMultipleVarFunction; x: MathVector; f: var cfloat): bool {.
     importcpp: "Value", header: "math_MultipleVarFunction.hxx".}
-proc getStateNumber*(this: var MathMultipleVarFunction): int {.
+proc getStateNumber*(this: var MathMultipleVarFunction): cint {.
     importcpp: "GetStateNumber", header: "math_MultipleVarFunction.hxx".}
 proc destroyMathMultipleVarFunction*(this: var MathMultipleVarFunction) {.
     importcpp: "#.~math_MultipleVarFunction()",
     header: "math_MultipleVarFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

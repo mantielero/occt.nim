@@ -37,3 +37,28 @@ type
 const
   ImageFormatNB* = imageFormatBGRAF + 1
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,7 +30,7 @@ proc constructRWStepElementRWSurface3dElementDescriptor*(): RWStepElementRWSurfa
     constructor, importcpp: "RWStepElement_RWSurface3dElementDescriptor(@)",
     header: "RWStepElement_RWSurface3dElementDescriptor.hxx".}
 proc readStep*(this: RWStepElementRWSurface3dElementDescriptor;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepElementSurface3dElementDescriptor]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepElementRWSurface3dElementDescriptor;
            ent: Handle[StepElementSurface3dElementDescriptor];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWSurface3dElementDescriptor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

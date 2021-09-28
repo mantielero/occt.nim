@@ -22,7 +22,7 @@ discard "forward decl of gp_XYZ"
 discard "forward decl of IGESDraw_View"
 discard "forward decl of IGESDraw_View"
 type
-  HandleIGESDrawView* = Handle[IGESDrawView]
+  HandleC1C1* = Handle[IGESDrawView]
 
 ## ! defines IGES View Entity, Type <410> Form <0>
 ## ! in package IGESDraw
@@ -39,20 +39,20 @@ type
 
 proc constructIGESDrawView*(): IGESDrawView {.constructor,
     importcpp: "IGESDraw_View(@)", header: "IGESDraw_View.hxx".}
-proc init*(this: var IGESDrawView; aViewNum: int; aScale: float;
+proc init*(this: var IGESDrawView; aViewNum: cint; aScale: cfloat;
           aLeftPlane: Handle[IGESGeomPlane]; aTopPlane: Handle[IGESGeomPlane];
           aRightPlane: Handle[IGESGeomPlane]; aBottomPlane: Handle[IGESGeomPlane];
           aBackPlane: Handle[IGESGeomPlane]; aFrontPlane: Handle[IGESGeomPlane]) {.
     importcpp: "Init", header: "IGESDraw_View.hxx".}
 proc isSingle*(this: IGESDrawView): bool {.noSideEffect, importcpp: "IsSingle",
                                        header: "IGESDraw_View.hxx".}
-proc nbViews*(this: IGESDrawView): int {.noSideEffect, importcpp: "NbViews",
-                                     header: "IGESDraw_View.hxx".}
-proc viewItem*(this: IGESDrawView; num: int): Handle[IGESDataViewKindEntity] {.
+proc nbViews*(this: IGESDrawView): cint {.noSideEffect, importcpp: "NbViews",
+                                      header: "IGESDraw_View.hxx".}
+proc viewItem*(this: IGESDrawView; num: cint): Handle[IGESDataViewKindEntity] {.
     noSideEffect, importcpp: "ViewItem", header: "IGESDraw_View.hxx".}
-proc viewNumber*(this: IGESDrawView): int {.noSideEffect, importcpp: "ViewNumber",
-                                        header: "IGESDraw_View.hxx".}
-proc scaleFactor*(this: IGESDrawView): float {.noSideEffect,
+proc viewNumber*(this: IGESDrawView): cint {.noSideEffect, importcpp: "ViewNumber",
+    header: "IGESDraw_View.hxx".}
+proc scaleFactor*(this: IGESDrawView): cfloat {.noSideEffect,
     importcpp: "ScaleFactor", header: "IGESDraw_View.hxx".}
 proc hasLeftPlane*(this: IGESDrawView): bool {.noSideEffect,
     importcpp: "HasLeftPlane", header: "IGESDraw_View.hxx".}
@@ -92,3 +92,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDraw_View.hxx".}
 proc dynamicType*(this: IGESDrawView): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDraw_View.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

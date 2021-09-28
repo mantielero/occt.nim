@@ -17,7 +17,7 @@
 discard "forward decl of TopoDS_TEdge"
 discard "forward decl of TopoDS_TEdge"
 type
-  HandleTopoDS_TEdge* = Handle[TopoDS_TEdge]
+  HandleC1C1* = Handle[TopoDS_TEdge]
 
 ## ! A topological part  of a  curve  in 2D or 3D,  the
 ## ! boundary    is   a   set  of oriented    Vertices.
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TEdge::get_type_descriptor(@)", header: "TopoDS_TEdge.hxx".}
 proc dynamicType*(this: TopoDS_TEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TEdge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

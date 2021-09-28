@@ -17,7 +17,7 @@
 discard "forward decl of HLRAlgo_PolyInternalNode"
 discard "forward decl of HLRAlgo_PolyInternalNode"
 type
-  HandleHLRAlgoPolyInternalNode* = Handle[HLRAlgoPolyInternalNode]
+  HandleC1C1* = Handle[HLRAlgoPolyInternalNode]
 
 ## ! to Update OutLines.
 
@@ -28,19 +28,19 @@ type
   HLRAlgoPolyInternalNodeNodeIndices* {.importcpp: "HLRAlgo_PolyInternalNode::NodeIndices",
                                        header: "HLRAlgo_PolyInternalNode.hxx",
                                        bycopy.} = object
-    ndSg* {.importc: "NdSg".}: int
-    flag* {.importc: "Flag".}: int
-    edg1* {.importc: "Edg1".}: int
-    edg2* {.importc: "Edg2".}: int
+    ndSg* {.importc: "NdSg".}: cint
+    flag* {.importc: "Flag".}: cint
+    edg1* {.importc: "Edg1".}: cint
+    edg2* {.importc: "Edg2".}: cint
 
   HLRAlgoPolyInternalNodeNodeData* {.importcpp: "HLRAlgo_PolyInternalNode::NodeData",
                                     header: "HLRAlgo_PolyInternalNode.hxx", bycopy.} = object
     point* {.importc: "Point".}: Xyz
     normal* {.importc: "Normal".}: Xyz
     uv* {.importc: "UV".}: Xy
-    pCu1* {.importc: "PCu1".}: float
-    pCu2* {.importc: "PCu2".}: float
-    scal* {.importc: "Scal".}: float
+    pCu1* {.importc: "PCu1".}: cfloat
+    pCu2* {.importc: "PCu2".}: cfloat
+    scal* {.importc: "Scal".}: cfloat
 
 
 proc constructHLRAlgoPolyInternalNodeNodeData*(): HLRAlgoPolyInternalNodeNodeData {.
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRAlgo_PolyInternalNode.hxx".}
 proc dynamicType*(this: HLRAlgoPolyInternalNode): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "HLRAlgo_PolyInternalNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

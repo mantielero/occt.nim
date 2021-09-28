@@ -30,3 +30,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StdDriversDocumentRetrievalDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StdDrivers_DocumentRetrievalDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -72,9 +72,9 @@ proc appliedModifiers*(this: IFSelectContextWrite): Handle[IFSelectAppliedModifi
     header: "IFSelect_ContextWrite.hxx".}
 proc graph*(this: var IFSelectContextWrite): InterfaceGraph {.importcpp: "Graph",
     header: "IFSelect_ContextWrite.hxx".}
-proc nbModifiers*(this: IFSelectContextWrite): int {.noSideEffect,
+proc nbModifiers*(this: IFSelectContextWrite): cint {.noSideEffect,
     importcpp: "NbModifiers", header: "IFSelect_ContextWrite.hxx".}
-proc setModifier*(this: var IFSelectContextWrite; numod: int): bool {.
+proc setModifier*(this: var IFSelectContextWrite; numod: cint): bool {.
     importcpp: "SetModifier", header: "IFSelect_ContextWrite.hxx".}
 proc fileModifier*(this: IFSelectContextWrite): Handle[IFSelectGeneralModifier] {.
     noSideEffect, importcpp: "FileModifier", header: "IFSelect_ContextWrite.hxx".}
@@ -82,7 +82,7 @@ proc isForNone*(this: IFSelectContextWrite): bool {.noSideEffect,
     importcpp: "IsForNone", header: "IFSelect_ContextWrite.hxx".}
 proc isForAll*(this: IFSelectContextWrite): bool {.noSideEffect,
     importcpp: "IsForAll", header: "IFSelect_ContextWrite.hxx".}
-proc nbEntities*(this: IFSelectContextWrite): int {.noSideEffect,
+proc nbEntities*(this: IFSelectContextWrite): cint {.noSideEffect,
     importcpp: "NbEntities", header: "IFSelect_ContextWrite.hxx".}
 proc start*(this: var IFSelectContextWrite) {.importcpp: "Start",
     header: "IFSelect_ContextWrite.hxx".}
@@ -100,9 +100,34 @@ proc addWarning*(this: var IFSelectContextWrite; start: Handle[StandardTransient
 proc addFail*(this: var IFSelectContextWrite; start: Handle[StandardTransient];
              mess: StandardCString; orig: StandardCString = "") {.
     importcpp: "AddFail", header: "IFSelect_ContextWrite.hxx".}
-proc cCheck*(this: var IFSelectContextWrite; num: int = 0): Handle[InterfaceCheck] {.
+proc cCheck*(this: var IFSelectContextWrite; num: cint = 0): Handle[InterfaceCheck] {.
     importcpp: "CCheck", header: "IFSelect_ContextWrite.hxx".}
 proc cCheck*(this: var IFSelectContextWrite; start: Handle[StandardTransient]): Handle[
     InterfaceCheck] {.importcpp: "CCheck", header: "IFSelect_ContextWrite.hxx".}
 proc checkList*(this: IFSelectContextWrite): InterfaceCheckIterator {.noSideEffect,
     importcpp: "CheckList", header: "IFSelect_ContextWrite.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

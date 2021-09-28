@@ -36,19 +36,44 @@ proc bounding*(thePolyh: IntPatchPolyhedron): BndBox {.
 proc componentsBounding*(thePolyh: IntPatchPolyhedron): Handle[BndHArray1OfBox] {.
     importcpp: "IntPatch_PolyhedronTool::ComponentsBounding(@)",
     header: "IntPatch_PolyhedronTool.hxx".}
-proc deflectionOverEstimation*(thePolyh: IntPatchPolyhedron): float {.
+proc deflectionOverEstimation*(thePolyh: IntPatchPolyhedron): cfloat {.
     importcpp: "IntPatch_PolyhedronTool::DeflectionOverEstimation(@)",
     header: "IntPatch_PolyhedronTool.hxx".}
-proc nbTriangles*(thePolyh: IntPatchPolyhedron): int {.
+proc nbTriangles*(thePolyh: IntPatchPolyhedron): cint {.
     importcpp: "IntPatch_PolyhedronTool::NbTriangles(@)",
     header: "IntPatch_PolyhedronTool.hxx".}
-proc triangle*(thePolyh: IntPatchPolyhedron; index: int; p1: var int; p2: var int;
-              p3: var int) {.importcpp: "IntPatch_PolyhedronTool::Triangle(@)",
-                          header: "IntPatch_PolyhedronTool.hxx".}
-proc point*(thePolyh: IntPatchPolyhedron; index: int): Pnt {.
+proc triangle*(thePolyh: IntPatchPolyhedron; index: cint; p1: var cint; p2: var cint;
+              p3: var cint) {.importcpp: "IntPatch_PolyhedronTool::Triangle(@)",
+                           header: "IntPatch_PolyhedronTool.hxx".}
+proc point*(thePolyh: IntPatchPolyhedron; index: cint): Pnt {.
     importcpp: "IntPatch_PolyhedronTool::Point(@)",
     header: "IntPatch_PolyhedronTool.hxx".}
-proc triConnex*(thePolyh: IntPatchPolyhedron; triang: int; pivot: int; pedge: int;
-               triCon: var int; otherP: var int): int {.
+proc triConnex*(thePolyh: IntPatchPolyhedron; triang: cint; pivot: cint; pedge: cint;
+               triCon: var cint; otherP: var cint): cint {.
     importcpp: "IntPatch_PolyhedronTool::TriConnex(@)",
     header: "IntPatch_PolyhedronTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

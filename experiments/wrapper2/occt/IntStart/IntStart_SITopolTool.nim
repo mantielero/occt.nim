@@ -18,7 +18,7 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of IntStart_SITopolTool"
 discard "forward decl of IntStart_SITopolTool"
 type
-  HandleIntStartSITopolTool* = Handle[IntStartSITopolTool]
+  HandleC1C1* = Handle[IntStartSITopolTool]
 
 ## ! template class for a topological tool.
 ## ! This tool is linked with the surface on which
@@ -29,7 +29,7 @@ type
                         header: "IntStart_SITopolTool.hxx", bycopy.} = object of StandardTransient
 
 
-proc classify*(this: var IntStartSITopolTool; p: Pnt2d; tol: float): TopAbsState {.
+proc classify*(this: var IntStartSITopolTool; p: Pnt2d; tol: cfloat): TopAbsState {.
     importcpp: "Classify", header: "IntStart_SITopolTool.hxx".}
 type
   IntStartSITopolToolbaseType* = StandardTransient
@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IntStart_SITopolTool.hxx".}
 proc dynamicType*(this: IntStartSITopolTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntStart_SITopolTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

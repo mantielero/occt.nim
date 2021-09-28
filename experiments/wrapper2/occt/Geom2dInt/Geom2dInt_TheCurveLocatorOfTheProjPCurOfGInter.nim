@@ -21,34 +21,28 @@ discard "forward decl of gp_Pnt2d"
 type
   Geom2dIntTheCurveLocatorOfTheProjPCurOfGInter* {.
       importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter",
-      header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Among
-                                                                                 ## a
-                                                                                 ## set
-                                                                                 ## of
-                                                                                 ## points
-                                                                                 ## {C(ui),i=1,NbU},
-                                                                                 ## locate
-                                                                                 ## the
-                                                                                 ## point
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## P=C(uj)
-                                                                                 ## such
-                                                                                 ## that:
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## distance(P,C)
-                                                                                 ## =
-                                                                                 ## Min{distance(P,C(ui))}
+      header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dIntTheCurveLocatorOfTheProjPCurOfGInter;
+           theSize: csize_t): pointer {.importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::operator new", header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
+proc `delete`*(this: var Geom2dIntTheCurveLocatorOfTheProjPCurOfGInter;
+              theAddress: pointer) {.importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::operator delete", header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
+proc `new[]`*(this: var Geom2dIntTheCurveLocatorOfTheProjPCurOfGInter;
+             theSize: csize_t): pointer {.importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::operator new[]", header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
+proc `delete[]`*(this: var Geom2dIntTheCurveLocatorOfTheProjPCurOfGInter;
+                theAddress: pointer) {.importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::operator delete[]", header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
+proc `new`*(this: var Geom2dIntTheCurveLocatorOfTheProjPCurOfGInter; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::operator new", header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
+proc `delete`*(this: var Geom2dIntTheCurveLocatorOfTheProjPCurOfGInter; a2: pointer;
+              a3: pointer) {.importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::operator delete", header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
 proc locate*(p: Pnt2d; c: Adaptor2dCurve2d; nbU: int; papp: var ExtremaPOnCurv2d) {.
     importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::Locate(@)",
     header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
-proc locate*(p: Pnt2d; c: Adaptor2dCurve2d; nbU: int; umin: float; usup: float;
-            papp: var ExtremaPOnCurv2d) {.importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::Locate(@)", header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
+proc locate*(p: Pnt2d; c: Adaptor2dCurve2d; nbU: int; umin: StandardReal;
+            usup: StandardReal; papp: var ExtremaPOnCurv2d) {.
+    importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::Locate(@)",
+    header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
 proc locate*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d; nbU: int; nbV: int;
             papp1: var ExtremaPOnCurv2d; papp2: var ExtremaPOnCurv2d) {.
     importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::Locate(@)",

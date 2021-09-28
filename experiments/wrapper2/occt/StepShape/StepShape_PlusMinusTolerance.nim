@@ -18,7 +18,7 @@ discard "forward decl of StepShape_DimensionalCharacteristic"
 discard "forward decl of StepShape_PlusMinusTolerance"
 discard "forward decl of StepShape_PlusMinusTolerance"
 type
-  HandleStepShapePlusMinusTolerance* = Handle[StepShapePlusMinusTolerance]
+  HandleC1C1* = Handle[StepShapePlusMinusTolerance]
 
 ## ! Added for Dimensional Tolerances
 
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapePlusMinusTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_PlusMinusTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

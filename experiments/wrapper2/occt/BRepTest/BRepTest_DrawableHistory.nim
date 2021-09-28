@@ -49,5 +49,30 @@ proc whatis*(this: BRepTestDrawableHistory; theDI: var DrawInterpretor) {.
     noSideEffect, importcpp: "Whatis", header: "BRepTest_DrawableHistory.hxx".}
 discard "forward decl of BRepTest_DrawableHistory"
 type
-  HandleBRepTestDrawableHistory* = Handle[BRepTestDrawableHistory]
+  HandleC1C1* = Handle[BRepTestDrawableHistory]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

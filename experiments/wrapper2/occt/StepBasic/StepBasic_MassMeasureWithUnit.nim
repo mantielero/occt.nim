@@ -16,7 +16,7 @@
 discard "forward decl of StepBasic_MassMeasureWithUnit"
 discard "forward decl of StepBasic_MassMeasureWithUnit"
 type
-  HandleStepBasicMassMeasureWithUnit* = Handle[StepBasicMassMeasureWithUnit]
+  HandleC1C1* = Handle[StepBasicMassMeasureWithUnit]
   StepBasicMassMeasureWithUnit* {.importcpp: "StepBasic_MassMeasureWithUnit",
                                  header: "StepBasic_MassMeasureWithUnit.hxx",
                                  bycopy.} = object of StepBasicMeasureWithUnit ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicMassMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_MassMeasureWithUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

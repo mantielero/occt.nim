@@ -17,7 +17,7 @@
 discard "forward decl of IGESGraph_LineFontPredefined"
 discard "forward decl of IGESGraph_LineFontPredefined"
 type
-  HandleIGESGraphLineFontPredefined* = Handle[IGESGraphLineFontPredefined]
+  HandleC1C1* = Handle[IGESGraphLineFontPredefined]
 
 ## ! defines IGESLineFontPredefined, Type <406> Form <19>
 ## ! in package IGESGraph
@@ -34,12 +34,11 @@ type
 proc constructIGESGraphLineFontPredefined*(): IGESGraphLineFontPredefined {.
     constructor, importcpp: "IGESGraph_LineFontPredefined(@)",
     header: "IGESGraph_LineFontPredefined.hxx".}
-proc init*(this: var IGESGraphLineFontPredefined; nbProps: int;
-          aLineFontPatternCode: int) {.importcpp: "Init",
-                                     header: "IGESGraph_LineFontPredefined.hxx".}
-proc nbPropertyValues*(this: IGESGraphLineFontPredefined): int {.noSideEffect,
+proc init*(this: var IGESGraphLineFontPredefined; nbProps: cint;
+          aLineFontPatternCode: cint) {.importcpp: "Init", header: "IGESGraph_LineFontPredefined.hxx".}
+proc nbPropertyValues*(this: IGESGraphLineFontPredefined): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESGraph_LineFontPredefined.hxx".}
-proc lineFontPatternCode*(this: IGESGraphLineFontPredefined): int {.noSideEffect,
+proc lineFontPatternCode*(this: IGESGraphLineFontPredefined): cint {.noSideEffect,
     importcpp: "LineFontPatternCode", header: "IGESGraph_LineFontPredefined.hxx".}
 type
   IGESGraphLineFontPredefinedbaseType* = IGESDataIGESEntity
@@ -52,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESGraphLineFontPredefined): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGraph_LineFontPredefined.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

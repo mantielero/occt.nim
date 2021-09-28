@@ -53,30 +53,55 @@ type
                                                                                      ## MarginCoef*(ULast-UFirst)
 
 
-proc constructHLRBRepTheExactInterCSurf*(u: float; v: float; w: float;
+proc constructHLRBRepTheExactInterCSurf*(u: cfloat; v: cfloat; w: cfloat;
                                         f: HLRBRepTheCSFunctionOfInterCSurf;
-                                        tolTangency: float;
-                                        marginCoef: float = 0.0): HLRBRepTheExactInterCSurf {.
+                                        tolTangency: cfloat;
+                                        marginCoef: cfloat = 0.0): HLRBRepTheExactInterCSurf {.
     constructor, importcpp: "HLRBRep_TheExactInterCSurf(@)",
     header: "HLRBRep_TheExactInterCSurf.hxx".}
 proc constructHLRBRepTheExactInterCSurf*(f: HLRBRepTheCSFunctionOfInterCSurf;
-                                        tolTangency: float): HLRBRepTheExactInterCSurf {.
+                                        tolTangency: cfloat): HLRBRepTheExactInterCSurf {.
     constructor, importcpp: "HLRBRep_TheExactInterCSurf(@)",
     header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc perform*(this: var HLRBRepTheExactInterCSurf; u: float; v: float; w: float;
-             rsnld: var MathFunctionSetRoot; u0: float; v0: float; u1: float; v1: float;
-             w0: float; w1: float) {.importcpp: "Perform",
-                                 header: "HLRBRep_TheExactInterCSurf.hxx".}
+proc perform*(this: var HLRBRepTheExactInterCSurf; u: cfloat; v: cfloat; w: cfloat;
+             rsnld: var MathFunctionSetRoot; u0: cfloat; v0: cfloat; u1: cfloat;
+             v1: cfloat; w0: cfloat; w1: cfloat) {.importcpp: "Perform",
+    header: "HLRBRep_TheExactInterCSurf.hxx".}
 proc isDone*(this: HLRBRepTheExactInterCSurf): bool {.noSideEffect,
     importcpp: "IsDone", header: "HLRBRep_TheExactInterCSurf.hxx".}
 proc isEmpty*(this: HLRBRepTheExactInterCSurf): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "HLRBRep_TheExactInterCSurf.hxx".}
 proc point*(this: HLRBRepTheExactInterCSurf): Pnt {.noSideEffect, importcpp: "Point",
     header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc parameterOnCurve*(this: HLRBRepTheExactInterCSurf): float {.noSideEffect,
+proc parameterOnCurve*(this: HLRBRepTheExactInterCSurf): cfloat {.noSideEffect,
     importcpp: "ParameterOnCurve", header: "HLRBRep_TheExactInterCSurf.hxx".}
-proc parameterOnSurface*(this: HLRBRepTheExactInterCSurf; u: var float; v: var float) {.
+proc parameterOnSurface*(this: HLRBRepTheExactInterCSurf; u: var cfloat; v: var cfloat) {.
     noSideEffect, importcpp: "ParameterOnSurface",
     header: "HLRBRep_TheExactInterCSurf.hxx".}
 proc function*(this: var HLRBRepTheExactInterCSurf): var HLRBRepTheCSFunctionOfInterCSurf {.
     importcpp: "Function", header: "HLRBRep_TheExactInterCSurf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

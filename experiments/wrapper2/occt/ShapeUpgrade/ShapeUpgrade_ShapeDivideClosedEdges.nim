@@ -29,6 +29,31 @@ type
 proc constructShapeUpgradeShapeDivideClosedEdges*(s: TopoDS_Shape): ShapeUpgradeShapeDivideClosedEdges {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideClosedEdges(@)",
     header: "ShapeUpgrade_ShapeDivideClosedEdges.hxx".}
-proc setNbSplitPoints*(this: var ShapeUpgradeShapeDivideClosedEdges; num: int) {.
+proc setNbSplitPoints*(this: var ShapeUpgradeShapeDivideClosedEdges; num: cint) {.
     importcpp: "SetNbSplitPoints",
     header: "ShapeUpgrade_ShapeDivideClosedEdges.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

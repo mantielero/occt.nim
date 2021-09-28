@@ -14,16 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_NumericError_HeaderFile [NewLine] # _Standard_NumericError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Standard_NumericError ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_NumericError"
 discard "forward decl of Standard_NumericError"
 type
-  HandleStandardNumericErrorStandardNumericError* = Handle[StandardNumericError]
+  StandardNumericError* {.importcpp: "Standard_NumericError",
+                         header: "Standard_NumericError.hxx", bycopy.} = object of StandardFailure
+type
+  HandleStandardNumericError* = Handle[StandardNumericError]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_NumericError [NewLine] # if ( CONDITION ) throw Standard_NumericError ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardNumericError):
+  template standardNumericErrorRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardNumericError*(a1: Message): Throw {.
+          importcpp: "Standard_NumericError(@)",
+          header: "Standard_NumericError.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NumericError , Standard_Failure ) #  _Standard_NumericError_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

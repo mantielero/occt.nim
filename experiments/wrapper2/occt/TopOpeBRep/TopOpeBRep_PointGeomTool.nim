@@ -39,3 +39,28 @@ proc makePoint*(s: TopoDS_Shape): TopOpeBRepDS_Point {.
 proc isEqual*(dsp1: TopOpeBRepDS_Point; dsp2: TopOpeBRepDS_Point): bool {.
     importcpp: "TopOpeBRep_PointGeomTool::IsEqual(@)",
     header: "TopOpeBRep_PointGeomTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -77,3 +77,28 @@ type
 type
   OpenGlGlCore15Fwd* = OpenGlTmplCore15[OpenGlGlCore14Fwd]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

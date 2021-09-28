@@ -19,7 +19,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESGeom_CompositeCurve"
 discard "forward decl of IGESGeom_CompositeCurve"
 type
-  HandleIGESGeomCompositeCurve* = Handle[IGESGeomCompositeCurve]
+  HandleC1C1* = Handle[IGESGeomCompositeCurve]
 
 ## ! defines IGESCompositeCurve, Type <102> Form <0>
 ## ! in package IGESGeom
@@ -37,9 +37,9 @@ proc constructIGESGeomCompositeCurve*(): IGESGeomCompositeCurve {.constructor,
 proc init*(this: var IGESGeomCompositeCurve;
           allEntities: Handle[IGESDataHArray1OfIGESEntity]) {.importcpp: "Init",
     header: "IGESGeom_CompositeCurve.hxx".}
-proc nbCurves*(this: IGESGeomCompositeCurve): int {.noSideEffect,
+proc nbCurves*(this: IGESGeomCompositeCurve): cint {.noSideEffect,
     importcpp: "NbCurves", header: "IGESGeom_CompositeCurve.hxx".}
-proc curve*(this: IGESGeomCompositeCurve; index: int): Handle[IGESDataIGESEntity] {.
+proc curve*(this: IGESGeomCompositeCurve; index: cint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Curve", header: "IGESGeom_CompositeCurve.hxx".}
 type
   IGESGeomCompositeCurvebaseType* = IGESDataIGESEntity
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_CompositeCurve.hxx".}
 proc dynamicType*(this: IGESGeomCompositeCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGeom_CompositeCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

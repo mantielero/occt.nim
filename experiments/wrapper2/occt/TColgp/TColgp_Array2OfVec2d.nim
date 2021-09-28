@@ -17,3 +17,28 @@
 type
   TColgpArray2OfVec2d* = NCollectionArray2[Vec2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

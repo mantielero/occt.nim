@@ -20,7 +20,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of DNaming_PrismDriver"
 discard "forward decl of DNaming_PrismDriver"
 type
-  HandleDNamingPrismDriver* = Handle[DNamingPrismDriver]
+  HandleC1C1* = Handle[DNamingPrismDriver]
   DNamingPrismDriver* {.importcpp: "DNaming_PrismDriver",
                        header: "DNaming_PrismDriver.hxx", bycopy.} = object of TFunctionDriver ##
                                                                                         ## !
@@ -39,7 +39,7 @@ proc validate*(this: DNamingPrismDriver; theLog: var Handle[TFunctionLogbook]) {
     noSideEffect, importcpp: "Validate", header: "DNaming_PrismDriver.hxx".}
 proc mustExecute*(this: DNamingPrismDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_PrismDriver.hxx".}
-proc execute*(this: DNamingPrismDriver; theLog: var Handle[TFunctionLogbook]): int {.
+proc execute*(this: DNamingPrismDriver; theLog: var Handle[TFunctionLogbook]): cint {.
     noSideEffect, importcpp: "Execute", header: "DNaming_PrismDriver.hxx".}
 type
   DNamingPrismDriverbaseType* = TFunctionDriver
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DNaming_PrismDriver.hxx".}
 proc dynamicType*(this: DNamingPrismDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_PrismDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

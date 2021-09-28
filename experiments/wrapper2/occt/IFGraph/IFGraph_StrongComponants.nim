@@ -56,3 +56,28 @@ proc constructIFGraphStrongComponants*(agraph: InterfaceGraph; whole: bool): IFG
     header: "IFGraph_StrongComponants.hxx".}
 proc evaluate*(this: var IFGraphStrongComponants) {.importcpp: "Evaluate",
     header: "IFGraph_StrongComponants.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

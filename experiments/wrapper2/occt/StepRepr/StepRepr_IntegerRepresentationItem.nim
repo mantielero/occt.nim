@@ -17,8 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_IntegerRepresentationItem"
 discard "forward decl of StepRepr_IntegerRepresentationItem"
 type
-  HandleStepReprIntegerRepresentationItem* = Handle[
-      StepReprIntegerRepresentationItem]
+  HandleC1C1* = Handle[StepReprIntegerRepresentationItem]
   StepReprIntegerRepresentationItem* {.importcpp: "StepRepr_IntegerRepresentationItem", header: "StepRepr_IntegerRepresentationItem.hxx",
                                       bycopy.} = object of StepReprRepresentationItem ##
                                                                                  ## !
@@ -31,11 +30,11 @@ proc constructStepReprIntegerRepresentationItem*(): StepReprIntegerRepresentatio
     constructor, importcpp: "StepRepr_IntegerRepresentationItem(@)",
     header: "StepRepr_IntegerRepresentationItem.hxx".}
 proc init*(this: var StepReprIntegerRepresentationItem;
-          theName: Handle[TCollectionHAsciiString]; theValue: int) {.
+          theName: Handle[TCollectionHAsciiString]; theValue: cint) {.
     importcpp: "Init", header: "StepRepr_IntegerRepresentationItem.hxx".}
-proc setValue*(this: var StepReprIntegerRepresentationItem; theValue: int) {.
+proc setValue*(this: var StepReprIntegerRepresentationItem; theValue: cint) {.
     importcpp: "SetValue", header: "StepRepr_IntegerRepresentationItem.hxx".}
-proc value*(this: StepReprIntegerRepresentationItem): int {.noSideEffect,
+proc value*(this: StepReprIntegerRepresentationItem): cint {.noSideEffect,
     importcpp: "Value", header: "StepRepr_IntegerRepresentationItem.hxx".}
 type
   StepReprIntegerRepresentationItembaseType* = StepReprRepresentationItem
@@ -48,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprIntegerRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_IntegerRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

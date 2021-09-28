@@ -28,16 +28,41 @@ type
 
 
 proc constructExtremaGenLocateExtPS*(theS: Adaptor3dSurface;
-                                    theTolU: float = pConfusion();
-                                    theTolV: float = pConfusion()): ExtremaGenLocateExtPS {.
+                                    theTolU: cfloat = pConfusion();
+                                    theTolV: cfloat = pConfusion()): ExtremaGenLocateExtPS {.
     constructor, importcpp: "Extrema_GenLocateExtPS(@)",
     header: "Extrema_GenLocateExtPS.hxx".}
-proc perform*(this: var ExtremaGenLocateExtPS; theP: Pnt; theU0: float; theV0: float;
+proc perform*(this: var ExtremaGenLocateExtPS; theP: Pnt; theU0: cfloat; theV0: cfloat;
              isDistanceCriteria: bool = false) {.importcpp: "Perform",
     header: "Extrema_GenLocateExtPS.hxx".}
 proc isDone*(this: ExtremaGenLocateExtPS): bool {.noSideEffect, importcpp: "IsDone",
     header: "Extrema_GenLocateExtPS.hxx".}
-proc squareDistance*(this: ExtremaGenLocateExtPS): float {.noSideEffect,
+proc squareDistance*(this: ExtremaGenLocateExtPS): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_GenLocateExtPS.hxx".}
 proc point*(this: ExtremaGenLocateExtPS): ExtremaPOnSurf {.noSideEffect,
     importcpp: "Point", header: "Extrema_GenLocateExtPS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

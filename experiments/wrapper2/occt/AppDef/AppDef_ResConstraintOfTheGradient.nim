@@ -35,14 +35,14 @@ type
 
 
 proc constructAppDefResConstraintOfTheGradient*(ssp: AppDefMultiLine;
-    sCurv: var AppParCurvesMultiCurve; firstPoint: int; lastPoint: int;
+    sCurv: var AppParCurvesMultiCurve; firstPoint: cint; lastPoint: cint;
     constraints: Handle[AppParCurvesHArray1OfConstraintCouple]; bern: MathMatrix;
-    derivativeBern: MathMatrix; tolerance: float = 1.0e-10): AppDefResConstraintOfTheGradient {.
+    derivativeBern: MathMatrix; tolerance: cfloat = 1.0e-10): AppDefResConstraintOfTheGradient {.
     constructor, importcpp: "AppDef_ResConstraintOfTheGradient(@)",
     header: "AppDef_ResConstraintOfTheGradient.hxx".}
 proc isDone*(this: AppDefResConstraintOfTheGradient): bool {.noSideEffect,
     importcpp: "IsDone", header: "AppDef_ResConstraintOfTheGradient.hxx".}
-proc error*(this: AppDefResConstraintOfTheGradient): float {.noSideEffect,
+proc error*(this: AppDefResConstraintOfTheGradient): cfloat {.noSideEffect,
     importcpp: "Error", header: "AppDef_ResConstraintOfTheGradient.hxx".}
 proc constraintMatrix*(this: AppDefResConstraintOfTheGradient): MathMatrix {.
     noSideEffect, importcpp: "ConstraintMatrix",
@@ -50,10 +50,35 @@ proc constraintMatrix*(this: AppDefResConstraintOfTheGradient): MathMatrix {.
 proc duale*(this: AppDefResConstraintOfTheGradient): MathVector {.noSideEffect,
     importcpp: "Duale", header: "AppDef_ResConstraintOfTheGradient.hxx".}
 proc constraintDerivative*(this: var AppDefResConstraintOfTheGradient;
-                          ssp: AppDefMultiLine; parameters: MathVector; deg: int;
+                          ssp: AppDefMultiLine; parameters: MathVector; deg: cint;
                           da: MathMatrix): MathMatrix {.
     importcpp: "ConstraintDerivative",
     header: "AppDef_ResConstraintOfTheGradient.hxx".}
 proc inverseMatrix*(this: AppDefResConstraintOfTheGradient): MathMatrix {.
     noSideEffect, importcpp: "InverseMatrix",
     header: "AppDef_ResConstraintOfTheGradient.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ActionMethod"
 discard "forward decl of StepBasic_ActionMethod"
 type
-  HandleStepBasicActionMethod* = Handle[StepBasicActionMethod]
+  HandleC1C1* = Handle[StepBasicActionMethod]
 
 ## ! Representation of STEP entity ActionMethod
 
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_ActionMethod.hxx".}
 proc dynamicType*(this: StepBasicActionMethod): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_ActionMethod.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,9 +28,35 @@ proc destroyBVH_Sorter*[T; N: static[cint]](this: var BVH_Sorter[T, N]) {.
 proc perform*[T; N: static[cint]](this: var BVH_Sorter[T, N]; theSet: ptr BVH_Set[T, N]) {.
     importcpp: "Perform", header: "BVH_Sorter.hxx".}
 proc perform*[T; N: static[cint]](this: var BVH_Sorter[T, N];
-                               theSet: ptr BVH_Set[T, N]; theStart: int; theFinal: int) {.
-    importcpp: "Perform", header: "BVH_Sorter.hxx".}
+                               theSet: ptr BVH_Set[T, N]; theStart: cint;
+                               theFinal: cint) {.importcpp: "Perform",
+    header: "BVH_Sorter.hxx".}
 proc isParallel*[T; N: static[cint]](this: BVH_Sorter[T, N]): bool {.noSideEffect,
     importcpp: "IsParallel", header: "BVH_Sorter.hxx".}
 proc setParallel*[T; N: static[cint]](this: var BVH_Sorter[T, N]; isParallel: bool) {.
     importcpp: "SetParallel", header: "BVH_Sorter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

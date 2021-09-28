@@ -19,8 +19,7 @@ discard "forward decl of Message_Messenger"
 discard "forward decl of XmlXCAFDrivers_DocumentStorageDriver"
 discard "forward decl of XmlXCAFDrivers_DocumentStorageDriver"
 type
-  HandleXmlXCAFDriversDocumentStorageDriver* = Handle[
-      XmlXCAFDriversDocumentStorageDriver]
+  HandleC1C1* = Handle[XmlXCAFDriversDocumentStorageDriver]
 
 ## ! storage driver of a  XS document
 
@@ -48,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlXCAFDriversDocumentStorageDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlXCAFDrivers_DocumentStorageDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

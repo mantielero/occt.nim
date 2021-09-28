@@ -40,11 +40,11 @@ proc bindModel*(theModel: Handle[TObjModel]) {.
     importcpp: "TObj_Assistant::BindModel(@)", header: "TObj_Assistant.hxx".}
 proc clearModelMap*() {.importcpp: "TObj_Assistant::ClearModelMap(@)",
                       header: "TObj_Assistant.hxx".}
-proc findType*(theTypeIndex: int): Handle[StandardType] {.
+proc findType*(theTypeIndex: cint): Handle[StandardType] {.
     importcpp: "TObj_Assistant::FindType(@)", header: "TObj_Assistant.hxx".}
-proc findTypeIndex*(theType: Handle[StandardType]): int {.
+proc findTypeIndex*(theType: Handle[StandardType]): cint {.
     importcpp: "TObj_Assistant::FindTypeIndex(@)", header: "TObj_Assistant.hxx".}
-proc bindType*(theType: Handle[StandardType]): int {.
+proc bindType*(theType: Handle[StandardType]): cint {.
     importcpp: "TObj_Assistant::BindType(@)", header: "TObj_Assistant.hxx".}
 proc clearTypeMap*() {.importcpp: "TObj_Assistant::ClearTypeMap(@)",
                      header: "TObj_Assistant.hxx".}
@@ -54,7 +54,32 @@ proc getCurrentModel*(): Handle[TObjModel] {.
     importcpp: "TObj_Assistant::GetCurrentModel(@)", header: "TObj_Assistant.hxx".}
 proc unSetCurrentModel*() {.importcpp: "TObj_Assistant::UnSetCurrentModel(@)",
                           header: "TObj_Assistant.hxx".}
-proc getAppVersion*(): int {.importcpp: "TObj_Assistant::GetAppVersion(@)",
-                          header: "TObj_Assistant.hxx".}
+proc getAppVersion*(): cint {.importcpp: "TObj_Assistant::GetAppVersion(@)",
+                           header: "TObj_Assistant.hxx".}
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

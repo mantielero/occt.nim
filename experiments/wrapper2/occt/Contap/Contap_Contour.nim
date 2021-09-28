@@ -31,7 +31,7 @@ proc constructContapContour*(): ContapContour {.constructor,
     importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
 proc constructContapContour*(direction: Vec): ContapContour {.constructor,
     importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
-proc constructContapContour*(direction: Vec; angle: float): ContapContour {.
+proc constructContapContour*(direction: Vec; angle: cfloat): ContapContour {.
     constructor, importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
 proc constructContapContour*(eye: Pnt): ContapContour {.constructor,
     importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
@@ -40,7 +40,7 @@ proc constructContapContour*(surf: Handle[Adaptor3dHSurface];
     constructor, importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
 proc constructContapContour*(surf: Handle[Adaptor3dHSurface];
                             domain: Handle[Adaptor3dTopolTool]; direction: Vec;
-                            angle: float): ContapContour {.constructor,
+                            angle: cfloat): ContapContour {.constructor,
     importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
 proc constructContapContour*(surf: Handle[Adaptor3dHSurface];
                             domain: Handle[Adaptor3dTopolTool]; eye: Pnt): ContapContour {.
@@ -52,14 +52,14 @@ proc perform*(this: var ContapContour; surf: Handle[Adaptor3dHSurface];
              domain: Handle[Adaptor3dTopolTool]; direction: Vec) {.
     importcpp: "Perform", header: "Contap_Contour.hxx".}
 proc perform*(this: var ContapContour; surf: Handle[Adaptor3dHSurface];
-             domain: Handle[Adaptor3dTopolTool]; direction: Vec; angle: float) {.
+             domain: Handle[Adaptor3dTopolTool]; direction: Vec; angle: cfloat) {.
     importcpp: "Perform", header: "Contap_Contour.hxx".}
 proc perform*(this: var ContapContour; surf: Handle[Adaptor3dHSurface];
              domain: Handle[Adaptor3dTopolTool]; eye: Pnt) {.importcpp: "Perform",
     header: "Contap_Contour.hxx".}
 proc init*(this: var ContapContour; direction: Vec) {.importcpp: "Init",
     header: "Contap_Contour.hxx".}
-proc init*(this: var ContapContour; direction: Vec; angle: float) {.importcpp: "Init",
+proc init*(this: var ContapContour; direction: Vec; angle: cfloat) {.importcpp: "Init",
     header: "Contap_Contour.hxx".}
 proc init*(this: var ContapContour; eye: Pnt) {.importcpp: "Init",
     header: "Contap_Contour.hxx".}
@@ -67,9 +67,34 @@ proc isDone*(this: ContapContour): bool {.noSideEffect, importcpp: "IsDone",
                                       header: "Contap_Contour.hxx".}
 proc isEmpty*(this: ContapContour): bool {.noSideEffect, importcpp: "IsEmpty",
                                        header: "Contap_Contour.hxx".}
-proc nbLines*(this: ContapContour): int {.noSideEffect, importcpp: "NbLines",
-                                      header: "Contap_Contour.hxx".}
-proc line*(this: ContapContour; index: int): ContapLine {.noSideEffect,
+proc nbLines*(this: ContapContour): cint {.noSideEffect, importcpp: "NbLines",
+                                       header: "Contap_Contour.hxx".}
+proc line*(this: ContapContour; index: cint): ContapLine {.noSideEffect,
     importcpp: "Line", header: "Contap_Contour.hxx".}
 proc surfaceFunction*(this: var ContapContour): var ContapSurfFunction {.
     importcpp: "SurfaceFunction", header: "Contap_Contour.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

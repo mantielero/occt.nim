@@ -17,14 +17,54 @@
 ## !!!Ignored construct:  # _Quantity_DateDefinitionError_HeaderFile [NewLine] # _Quantity_DateDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Quantity_DateDefinitionError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Quantity_DateDefinitionError"
-type
-  HandleQuantityDateDefinitionErrorQuantityDateDefinitionError* = Handle[
-      QuantityDateDefinitionError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Quantity_DateDefinitionError , Standard_DomainError ) # ! defined No_Exception && ! defined No_Quantity_DateDefinitionError [NewLine] # Quantity_DateDefinitionError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Quantity_DateDefinitionError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Quantity_DateDefinitionError [NewLine] # if ( CONDITION ) throw Quantity_DateDefinitionError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Quantity_DateDefinitionError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Quantity_DateDefinitionError , Standard_DomainError ) #  _Quantity_DateDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Quantity_DateDefinitionError , Standard_DomainError ) #  _Quantity_DateDefinitionError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

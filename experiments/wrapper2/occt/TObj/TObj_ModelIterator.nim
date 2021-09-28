@@ -64,7 +64,32 @@ proc dynamicType*(this: TObjModelIterator): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of TObj_ModelIterator"
 type
-  HandleTObjModelIterator* = Handle[TObjModelIterator]
+  HandleC1C1* = Handle[TObjModelIterator]
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

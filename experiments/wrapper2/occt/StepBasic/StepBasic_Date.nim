@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_Date"
 discard "forward decl of StepBasic_Date"
 type
-  HandleStepBasicDate* = Handle[StepBasicDate]
+  HandleC1C1* = Handle[StepBasicDate]
   StepBasicDate* {.importcpp: "StepBasic_Date", header: "StepBasic_Date.hxx", bycopy.} = object of StandardTransient ##
                                                                                                            ## !
                                                                                                            ## Returns
@@ -27,11 +27,11 @@ type
 
 proc constructStepBasicDate*(): StepBasicDate {.constructor,
     importcpp: "StepBasic_Date(@)", header: "StepBasic_Date.hxx".}
-proc init*(this: var StepBasicDate; aYearComponent: int) {.importcpp: "Init",
+proc init*(this: var StepBasicDate; aYearComponent: cint) {.importcpp: "Init",
     header: "StepBasic_Date.hxx".}
-proc setYearComponent*(this: var StepBasicDate; aYearComponent: int) {.
+proc setYearComponent*(this: var StepBasicDate; aYearComponent: cint) {.
     importcpp: "SetYearComponent", header: "StepBasic_Date.hxx".}
-proc yearComponent*(this: StepBasicDate): int {.noSideEffect,
+proc yearComponent*(this: StepBasicDate): cint {.noSideEffect,
     importcpp: "YearComponent", header: "StepBasic_Date.hxx".}
 type
   StepBasicDatebaseType* = StandardTransient
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Date.hxx".}
 proc dynamicType*(this: StepBasicDate): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Date.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

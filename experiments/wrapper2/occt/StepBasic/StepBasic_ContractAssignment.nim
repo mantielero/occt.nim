@@ -18,7 +18,7 @@ discard "forward decl of StepBasic_Contract"
 discard "forward decl of StepBasic_ContractAssignment"
 discard "forward decl of StepBasic_ContractAssignment"
 type
-  HandleStepBasicContractAssignment* = Handle[StepBasicContractAssignment]
+  HandleC1C1* = Handle[StepBasicContractAssignment]
 
 ## ! Representation of STEP entity ContractAssignment
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicContractAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ContractAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

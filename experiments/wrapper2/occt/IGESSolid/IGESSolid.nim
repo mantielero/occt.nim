@@ -80,3 +80,28 @@ type
 proc init*() {.importcpp: "IGESSolid::Init(@)", header: "IGESSolid.hxx".}
 proc protocol*(): Handle[IGESSolidProtocol] {.importcpp: "IGESSolid::Protocol(@)",
     header: "IGESSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

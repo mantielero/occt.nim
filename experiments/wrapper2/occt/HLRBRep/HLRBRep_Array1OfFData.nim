@@ -17,3 +17,28 @@
 type
   HLRBRepArray1OfFData* = NCollectionArray1[HLRBRepFaceData]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

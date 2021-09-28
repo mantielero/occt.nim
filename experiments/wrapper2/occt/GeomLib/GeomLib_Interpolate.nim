@@ -22,13 +22,31 @@ type
                        header: "GeomLib_Interpolate.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomLibInterpolate; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_Interpolate::operator new",
+    header: "GeomLib_Interpolate.hxx".}
+proc `delete`*(this: var GeomLibInterpolate; theAddress: pointer) {.
+    importcpp: "GeomLib_Interpolate::operator delete",
+    header: "GeomLib_Interpolate.hxx".}
+proc `new[]`*(this: var GeomLibInterpolate; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_Interpolate::operator new[]",
+    header: "GeomLib_Interpolate.hxx".}
+proc `delete[]`*(this: var GeomLibInterpolate; theAddress: pointer) {.
+    importcpp: "GeomLib_Interpolate::operator delete[]",
+    header: "GeomLib_Interpolate.hxx".}
+proc `new`*(this: var GeomLibInterpolate; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLib_Interpolate::operator new",
+    header: "GeomLib_Interpolate.hxx".}
+proc `delete`*(this: var GeomLibInterpolate; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLib_Interpolate::operator delete",
+    header: "GeomLib_Interpolate.hxx".}
 proc constructGeomLibInterpolate*(degree: int; numPoints: int;
                                  points: TColgpArray1OfPnt;
                                  parameters: TColStdArray1OfReal): GeomLibInterpolate {.
     constructor, importcpp: "GeomLib_Interpolate(@)",
     header: "GeomLib_Interpolate.hxx".}
-proc isDone*(this: GeomLibInterpolate): bool {.noSideEffect, importcpp: "IsDone",
-    header: "GeomLib_Interpolate.hxx".}
+proc isDone*(this: GeomLibInterpolate): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "GeomLib_Interpolate.hxx".}
 proc error*(this: GeomLibInterpolate): GeomLibInterpolationErrors {.noSideEffect,
     importcpp: "Error", header: "GeomLib_Interpolate.hxx".}
 proc curve*(this: GeomLibInterpolate): Handle[GeomBSplineCurve] {.noSideEffect,

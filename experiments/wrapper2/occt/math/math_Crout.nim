@@ -55,7 +55,7 @@ type
                                                                             ## matrix.
 
 
-proc constructMathCrout*(a: MathMatrix; minPivot: float = 1.0e-20): MathCrout {.
+proc constructMathCrout*(a: MathMatrix; minPivot: cfloat = 1.0e-20): MathCrout {.
     constructor, importcpp: "math_Crout(@)", header: "math_Crout.hxx".}
 proc isDone*(this: MathCrout): bool {.noSideEffect, importcpp: "IsDone",
                                   header: "math_Crout.hxx".}
@@ -65,7 +65,32 @@ proc inverse*(this: MathCrout): MathMatrix {.noSideEffect, importcpp: "Inverse",
     header: "math_Crout.hxx".}
 proc invert*(this: MathCrout; inv: var MathMatrix) {.noSideEffect, importcpp: "Invert",
     header: "math_Crout.hxx".}
-proc determinant*(this: MathCrout): float {.noSideEffect, importcpp: "Determinant",
-                                        header: "math_Crout.hxx".}
+proc determinant*(this: MathCrout): cfloat {.noSideEffect, importcpp: "Determinant",
+    header: "math_Crout.hxx".}
 proc dump*(this: MathCrout; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "math_Crout.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

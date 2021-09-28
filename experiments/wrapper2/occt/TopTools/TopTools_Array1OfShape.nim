@@ -17,3 +17,28 @@
 type
   TopToolsArray1OfShape* = NCollectionArray1[TopoDS_Shape]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

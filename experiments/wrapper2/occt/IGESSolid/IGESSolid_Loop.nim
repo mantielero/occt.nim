@@ -22,7 +22,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESSolid_Loop"
 discard "forward decl of IGESSolid_Loop"
 type
-  HandleIGESSolidLoop* = Handle[IGESSolidLoop]
+  HandleC1C1* = Handle[IGESSolidLoop]
 
 ## ! defines Loop, Type <508> Form Number <1>
 ## ! in package IGESSolid
@@ -51,22 +51,22 @@ proc isBound*(this: IGESSolidLoop): bool {.noSideEffect, importcpp: "IsBound",
                                        header: "IGESSolid_Loop.hxx".}
 proc setBound*(this: var IGESSolidLoop; bound: bool) {.importcpp: "SetBound",
     header: "IGESSolid_Loop.hxx".}
-proc nbEdges*(this: IGESSolidLoop): int {.noSideEffect, importcpp: "NbEdges",
-                                      header: "IGESSolid_Loop.hxx".}
-proc edgeType*(this: IGESSolidLoop; index: int): int {.noSideEffect,
+proc nbEdges*(this: IGESSolidLoop): cint {.noSideEffect, importcpp: "NbEdges",
+                                       header: "IGESSolid_Loop.hxx".}
+proc edgeType*(this: IGESSolidLoop; index: cint): cint {.noSideEffect,
     importcpp: "EdgeType", header: "IGESSolid_Loop.hxx".}
-proc edge*(this: IGESSolidLoop; index: int): Handle[IGESDataIGESEntity] {.
+proc edge*(this: IGESSolidLoop; index: cint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Edge", header: "IGESSolid_Loop.hxx".}
-proc orientation*(this: IGESSolidLoop; index: int): bool {.noSideEffect,
+proc orientation*(this: IGESSolidLoop; index: cint): bool {.noSideEffect,
     importcpp: "Orientation", header: "IGESSolid_Loop.hxx".}
-proc nbParameterCurves*(this: IGESSolidLoop; index: int): int {.noSideEffect,
+proc nbParameterCurves*(this: IGESSolidLoop; index: cint): cint {.noSideEffect,
     importcpp: "NbParameterCurves", header: "IGESSolid_Loop.hxx".}
-proc isIsoparametric*(this: IGESSolidLoop; edgeIndex: int; curveIndex: int): bool {.
+proc isIsoparametric*(this: IGESSolidLoop; edgeIndex: cint; curveIndex: cint): bool {.
     noSideEffect, importcpp: "IsIsoparametric", header: "IGESSolid_Loop.hxx".}
-proc parametricCurve*(this: IGESSolidLoop; edgeIndex: int; curveIndex: int): Handle[
+proc parametricCurve*(this: IGESSolidLoop; edgeIndex: cint; curveIndex: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "ParametricCurve",
                          header: "IGESSolid_Loop.hxx".}
-proc listIndex*(this: IGESSolidLoop; num: int): int {.noSideEffect,
+proc listIndex*(this: IGESSolidLoop; num: cint): cint {.noSideEffect,
     importcpp: "ListIndex", header: "IGESSolid_Loop.hxx".}
 type
   IGESSolidLoopbaseType* = IGESDataIGESEntity
@@ -78,3 +78,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_Loop.hxx".}
 proc dynamicType*(this: IGESSolidLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Loop.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -40,3 +40,28 @@ proc value*(this: VrmlMaterialBinding): VrmlMaterialBindingAndNormalBinding {.
     noSideEffect, importcpp: "Value", header: "Vrml_MaterialBinding.hxx".}
 proc print*(this: VrmlMaterialBinding; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_MaterialBinding.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

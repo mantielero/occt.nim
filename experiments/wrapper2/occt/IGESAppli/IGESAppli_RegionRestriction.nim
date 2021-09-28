@@ -17,7 +17,7 @@
 discard "forward decl of IGESAppli_RegionRestriction"
 discard "forward decl of IGESAppli_RegionRestriction"
 type
-  HandleIGESAppliRegionRestriction* = Handle[IGESAppliRegionRestriction]
+  HandleC1C1* = Handle[IGESAppliRegionRestriction]
 
 ## ! defines RegionRestriction, Type <406> Form <2>
 ## ! in package IGESAppli
@@ -32,17 +32,18 @@ type
 proc constructIGESAppliRegionRestriction*(): IGESAppliRegionRestriction {.
     constructor, importcpp: "IGESAppli_RegionRestriction(@)",
     header: "IGESAppli_RegionRestriction.hxx".}
-proc init*(this: var IGESAppliRegionRestriction; nbPropVal: int; aViasRest: int;
-          aCompoRest: int; aCktRest: int) {.importcpp: "Init", header: "IGESAppli_RegionRestriction.hxx".}
-proc nbPropertyValues*(this: IGESAppliRegionRestriction): int {.noSideEffect,
+proc init*(this: var IGESAppliRegionRestriction; nbPropVal: cint; aViasRest: cint;
+          aCompoRest: cint; aCktRest: cint) {.importcpp: "Init",
+    header: "IGESAppli_RegionRestriction.hxx".}
+proc nbPropertyValues*(this: IGESAppliRegionRestriction): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_RegionRestriction.hxx".}
-proc electricalViasRestriction*(this: IGESAppliRegionRestriction): int {.
+proc electricalViasRestriction*(this: IGESAppliRegionRestriction): cint {.
     noSideEffect, importcpp: "ElectricalViasRestriction",
     header: "IGESAppli_RegionRestriction.hxx".}
-proc electricalComponentRestriction*(this: IGESAppliRegionRestriction): int {.
+proc electricalComponentRestriction*(this: IGESAppliRegionRestriction): cint {.
     noSideEffect, importcpp: "ElectricalComponentRestriction",
     header: "IGESAppli_RegionRestriction.hxx".}
-proc electricalCktRestriction*(this: IGESAppliRegionRestriction): int {.
+proc electricalCktRestriction*(this: IGESAppliRegionRestriction): cint {.
     noSideEffect, importcpp: "ElectricalCktRestriction",
     header: "IGESAppli_RegionRestriction.hxx".}
 type
@@ -56,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESAppliRegionRestriction): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESAppli_RegionRestriction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

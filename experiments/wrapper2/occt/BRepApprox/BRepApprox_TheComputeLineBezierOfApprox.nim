@@ -51,8 +51,8 @@ type
 
 
 proc constructBRepApproxTheComputeLineBezierOfApprox*(
-    line: BRepApproxTheMultiLineOfApprox; degreemin: int = 4; degreemax: int = 8;
-    tolerance3d: float = 1.0e-3; tolerance2d: float = 1.0e-6; nbIterations: int = 5;
+    line: BRepApproxTheMultiLineOfApprox; degreemin: cint = 4; degreemax: cint = 8;
+    tolerance3d: cfloat = 1.0e-3; tolerance2d: cfloat = 1.0e-6; nbIterations: cint = 5;
     cutting: bool = true;
     parametrization: ApproxParametrizationType = approxChordLength;
     squares: bool = false): BRepApproxTheComputeLineBezierOfApprox {.constructor,
@@ -60,36 +60,36 @@ proc constructBRepApproxTheComputeLineBezierOfApprox*(
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
 proc constructBRepApproxTheComputeLineBezierOfApprox*(
     line: BRepApproxTheMultiLineOfApprox; parameters: MathVector;
-    degreemin: int = 4; degreemax: int = 8; tolerance3d: float = 1.0e-03;
-    tolerance2d: float = 1.0e-06; nbIterations: int = 5; cutting: bool = true;
+    degreemin: cint = 4; degreemax: cint = 8; tolerance3d: cfloat = 1.0e-03;
+    tolerance2d: cfloat = 1.0e-06; nbIterations: cint = 5; cutting: bool = true;
     squares: bool = false): BRepApproxTheComputeLineBezierOfApprox {.constructor,
     importcpp: "BRepApprox_TheComputeLineBezierOfApprox(@)",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
 proc constructBRepApproxTheComputeLineBezierOfApprox*(parameters: MathVector;
-    degreemin: int = 4; degreemax: int = 8; tolerance3d: float = 1.0e-03;
-    tolerance2d: float = 1.0e-06; nbIterations: int = 5; cutting: bool = true;
+    degreemin: cint = 4; degreemax: cint = 8; tolerance3d: cfloat = 1.0e-03;
+    tolerance2d: cfloat = 1.0e-06; nbIterations: cint = 5; cutting: bool = true;
     squares: bool = false): BRepApproxTheComputeLineBezierOfApprox {.constructor,
     importcpp: "BRepApprox_TheComputeLineBezierOfApprox(@)",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
-proc constructBRepApproxTheComputeLineBezierOfApprox*(degreemin: int = 4;
-    degreemax: int = 8; tolerance3d: float = 1.0e-03; tolerance2d: float = 1.0e-06;
-    nbIterations: int = 5; cutting: bool = true;
+proc constructBRepApproxTheComputeLineBezierOfApprox*(degreemin: cint = 4;
+    degreemax: cint = 8; tolerance3d: cfloat = 1.0e-03; tolerance2d: cfloat = 1.0e-06;
+    nbIterations: cint = 5; cutting: bool = true;
     parametrization: ApproxParametrizationType = approxChordLength;
     squares: bool = false): BRepApproxTheComputeLineBezierOfApprox {.constructor,
     importcpp: "BRepApprox_TheComputeLineBezierOfApprox(@)",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
-proc init*(this: var BRepApproxTheComputeLineBezierOfApprox; degreemin: int = 4;
-          degreemax: int = 8; tolerance3d: float = 1.0e-03;
-          tolerance2d: float = 1.0e-06; nbIterations: int = 5; cutting: bool = true;
+proc init*(this: var BRepApproxTheComputeLineBezierOfApprox; degreemin: cint = 4;
+          degreemax: cint = 8; tolerance3d: cfloat = 1.0e-03;
+          tolerance2d: cfloat = 1.0e-06; nbIterations: cint = 5; cutting: bool = true;
           parametrization: ApproxParametrizationType = approxChordLength;
           squares: bool = false) {.importcpp: "Init", header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
 proc perform*(this: var BRepApproxTheComputeLineBezierOfApprox;
              line: BRepApproxTheMultiLineOfApprox) {.importcpp: "Perform",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
-proc setDegrees*(this: var BRepApproxTheComputeLineBezierOfApprox; degreemin: int;
-                degreemax: int) {.importcpp: "SetDegrees", header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
+proc setDegrees*(this: var BRepApproxTheComputeLineBezierOfApprox; degreemin: cint;
+                degreemax: cint) {.importcpp: "SetDegrees", header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
 proc setTolerances*(this: var BRepApproxTheComputeLineBezierOfApprox;
-                   tolerance3d: float; tolerance2d: float) {.
+                   tolerance3d: cfloat; tolerance2d: cfloat) {.
     importcpp: "SetTolerances",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
 proc setConstraints*(this: var BRepApproxTheComputeLineBezierOfApprox;
@@ -102,16 +102,16 @@ proc isAllApproximated*(this: BRepApproxTheComputeLineBezierOfApprox): bool {.
 proc isToleranceReached*(this: BRepApproxTheComputeLineBezierOfApprox): bool {.
     noSideEffect, importcpp: "IsToleranceReached",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
-proc error*(this: BRepApproxTheComputeLineBezierOfApprox; index: int;
-           tol3d: var float; tol2d: var float) {.noSideEffect, importcpp: "Error",
+proc error*(this: BRepApproxTheComputeLineBezierOfApprox; index: cint;
+           tol3d: var cfloat; tol2d: var cfloat) {.noSideEffect, importcpp: "Error",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
-proc nbMultiCurves*(this: BRepApproxTheComputeLineBezierOfApprox): int {.
+proc nbMultiCurves*(this: BRepApproxTheComputeLineBezierOfApprox): cint {.
     noSideEffect, importcpp: "NbMultiCurves",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
-proc value*(this: BRepApproxTheComputeLineBezierOfApprox; index: int = 1): AppParCurvesMultiCurve {.
+proc value*(this: BRepApproxTheComputeLineBezierOfApprox; index: cint = 1): AppParCurvesMultiCurve {.
     noSideEffect, importcpp: "Value",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
-proc changeValue*(this: var BRepApproxTheComputeLineBezierOfApprox; index: int = 1): var AppParCurvesMultiCurve {.
+proc changeValue*(this: var BRepApproxTheComputeLineBezierOfApprox; index: cint = 1): var AppParCurvesMultiCurve {.
     importcpp: "ChangeValue",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
 proc splineValue*(this: var BRepApproxTheComputeLineBezierOfApprox): AppParCurvesMultiBSpCurve {.
@@ -120,6 +120,31 @@ proc splineValue*(this: var BRepApproxTheComputeLineBezierOfApprox): AppParCurve
 proc parametrization*(this: BRepApproxTheComputeLineBezierOfApprox): ApproxParametrizationType {.
     noSideEffect, importcpp: "Parametrization",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
-proc parameters*(this: BRepApproxTheComputeLineBezierOfApprox; index: int = 1): TColStdArray1OfReal {.
+proc parameters*(this: BRepApproxTheComputeLineBezierOfApprox; index: cint = 1): TColStdArray1OfReal {.
     noSideEffect, importcpp: "Parameters",
     header: "BRepApprox_TheComputeLineBezierOfApprox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

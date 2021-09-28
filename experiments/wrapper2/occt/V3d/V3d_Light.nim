@@ -18,3 +18,28 @@ type
   V3dLight* = Graphic3dCLight
   HandleV3dLight* = HandleGraphic3dCLight
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

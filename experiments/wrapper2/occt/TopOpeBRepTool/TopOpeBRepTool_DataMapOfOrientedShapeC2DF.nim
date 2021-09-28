@@ -20,3 +20,28 @@ type
   TopOpeBRepToolDataMapIteratorOfDataMapOfOrientedShapeC2DF* = Iterator[
       TopoDS_Shape, TopOpeBRepToolC2DF, TopToolsOrientedShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,17 +26,42 @@ type
 proc constructAppParCurvesConstraintCouple*(): AppParCurvesConstraintCouple {.
     constructor, importcpp: "AppParCurves_ConstraintCouple(@)",
     header: "AppParCurves_ConstraintCouple.hxx".}
-proc constructAppParCurvesConstraintCouple*(theIndex: int;
+proc constructAppParCurvesConstraintCouple*(theIndex: cint;
     cons: AppParCurvesConstraint): AppParCurvesConstraintCouple {.constructor,
     importcpp: "AppParCurves_ConstraintCouple(@)",
     header: "AppParCurves_ConstraintCouple.hxx".}
-proc index*(this: AppParCurvesConstraintCouple): int {.noSideEffect,
+proc index*(this: AppParCurvesConstraintCouple): cint {.noSideEffect,
     importcpp: "Index", header: "AppParCurves_ConstraintCouple.hxx".}
 proc constraint*(this: AppParCurvesConstraintCouple): AppParCurvesConstraint {.
     noSideEffect, importcpp: "Constraint",
     header: "AppParCurves_ConstraintCouple.hxx".}
-proc setIndex*(this: var AppParCurvesConstraintCouple; theIndex: int) {.
+proc setIndex*(this: var AppParCurvesConstraintCouple; theIndex: cint) {.
     importcpp: "SetIndex", header: "AppParCurves_ConstraintCouple.hxx".}
 proc setConstraint*(this: var AppParCurvesConstraintCouple;
                    cons: AppParCurvesConstraint) {.importcpp: "SetConstraint",
     header: "AppParCurves_ConstraintCouple.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

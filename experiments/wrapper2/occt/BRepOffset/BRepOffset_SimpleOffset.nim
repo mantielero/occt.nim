@@ -13,12 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of BRepOffset_SimpleOffset"
-discard "forward decl of BRepOffset_SimpleOffset"
-type
-  HandleBRepOffsetSimpleOffset* = Handle[BRepOffsetSimpleOffset]
+## !!!Ignored construct:  # _BRepOffset_SimpleOffset_HeaderFile [NewLine] # _BRepOffset_SimpleOffset_HeaderFile [NewLine] # < BRepTools_Modification . hxx > [NewLine] # < GeomAbs_Shape . hxx > [NewLine] # < Geom2d_Curve . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Macro . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < TopoDS_Shape . hxx > [NewLine] # < TopTools_IndexedDataMapOfShapeListOfShape . hxx > [NewLine] # < NCollection_DataMap . hxx > [NewLine] class BRepOffset_SimpleOffset ;
+## Error: expected ';'!!!
 
-## ! This class represents mechanism of simple offset algorithm i. e.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( BRepOffset_SimpleOffset , BRepTools_Modification ) ! This class represents mechanism of simple offset algorithm i. e.
 ## ! topology-preserve offset construction without intersection.
 ## !
 ## ! The list below shows mapping scheme:
@@ -26,57 +24,87 @@ type
 ## ! - For each edge, pcurves are mapped to the same pcurves on offset surfaces.
 ## ! - For each edge, 3d curve is constructed by re-approximation of pcurve on the first offset face.
 ## ! - Position of each vertex in a result shell is computed as average point of all ends of edges shared by that vertex.
-## ! - Tolerances are updated according to the resulting geometry.
+## ! - Tolerances are updated according to the resulting geometry. class BRepOffset_SimpleOffset : public BRepTools_Modification { public : public : typedef BRepTools_Modification base_type ; static const char * get_type_name ( ) { return BRepOffset_SimpleOffset ; ( BRepOffset_SimpleOffset , BRepTools_Modification ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < BRepOffset_SimpleOffset > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } ! Constructor.
+## ! @param theInputShape shape to be offset
+## ! @param theOffsetValue offset distance (signed)
+## ! @param theTolerance tolerance for handling singular points BRepOffset_SimpleOffset ( const TopoDS_Shape & theInputShape , const Standard_Real theOffsetValue , const Standard_Real theTolerance ) ; ! Returns Standard_True  if  the face  <F> has  been
+## ! modified.  In this  case, <S> is the new geometric
+## ! support of  the  face, <L> the  new location,<Tol>
+## ! the new  tolerance.<RevWires> has  to  be set   to
+## ! Standard_True   when the modification reverses the
+## ! normal of  the   surface.(the wires   have  to  be
+## ! reversed).   <RevFace>   has   to   be   set    to
+## ! Standard_True if  the orientation  of the modified
+## ! face changes in the  shells which contain  it.  --
+## ! Here, <RevFace>  will  return Standard_True if the
+## ! -- gp_Trsf is negative. Standard_Boolean NewSurface ( const TopoDS_Face & F , Handle ( Geom_Surface ) & S , TopLoc_Location & L , Standard_Real & Tol , Standard_Boolean & RevWires , Standard_Boolean & RevFace ) ; ! Returns Standard_True  if  the edge  <E> has  been
+## ! modified.  In this case,  <C> is the new geometric
+## ! support of the  edge, <L> the  new location, <Tol>
+## ! the         new    tolerance.   Otherwise, returns
+## ! Standard_False,    and  <C>,  <L>,   <Tol> are not
+## ! significant. Standard_Boolean NewCurve ( const TopoDS_Edge & E , Handle ( Geom_Curve ) & C , TopLoc_Location & L , Standard_Real & Tol ) ; ! Returns  Standard_True if the  vertex <V> has been
+## ! modified.  In this  case, <P> is the new geometric
+## ! support of the vertex,   <Tol> the new  tolerance.
+## ! Otherwise, returns Standard_False, and <P>,  <Tol>
+## ! are not significant. Standard_Boolean NewPoint ( const TopoDS_Vertex & V , gp_Pnt & P , Standard_Real & Tol ) ; ! Returns Standard_True if  the edge  <E> has a  new
+## ! curve on surface on the face <F>.In this case, <C>
+## ! is the new geometric support of  the edge, <L> the
+## ! new location, <Tol> the new tolerance.
+## ! Otherwise, returns  Standard_False, and <C>,  <L>,
+## ! <Tol> are not significant. Standard_Boolean NewCurve2d ( const TopoDS_Edge & E , const TopoDS_Face & F , const TopoDS_Edge & NewE , const TopoDS_Face & NewF , Handle ( Geom2d_Curve ) & C , Standard_Real & Tol ) ; ! Returns Standard_True if the Vertex  <V> has a new
+## ! parameter on the  edge <E>. In  this case,  <P> is
+## ! the parameter,    <Tol>  the     new    tolerance.
+## ! Otherwise, returns Standard_False, and <P>,  <Tol>
+## ! are not significant. Standard_Boolean NewParameter ( const TopoDS_Vertex & V , const TopoDS_Edge & E , Standard_Real & P , Standard_Real & Tol ) ; ! Returns the  continuity of  <NewE> between <NewF1>
+## ! and <NewF2>.
+## !
+## ! <NewE> is the new  edge created from <E>.  <NewF1>
+## ! (resp. <NewF2>) is the new  face created from <F1>
+## ! (resp. <F2>). GeomAbs_Shape Continuity ( const TopoDS_Edge & E , const TopoDS_Face & F1 , const TopoDS_Face & F2 , const TopoDS_Edge & NewE , const TopoDS_Face & NewF1 , const TopoDS_Face & NewF2 ) ; private : ! Method to fill new face data for single face. void FillFaceData ( const TopoDS_Face & theFace ) ; ! Method to fill new edge data for single edge. void FillEdgeData ( const TopoDS_Edge & theEdge , const TopTools_IndexedDataMapOfShapeListOfShape & theEdgeFaceMap , const Standard_Integer theIdx ) ; ! Method to fill new vertex data for single vertex. void FillVertexData ( const TopoDS_Vertex & theVertex , const TopTools_IndexedDataMapOfShapeListOfShape & theVertexEdgeMap , const Standard_Integer theIdx ) ; struct NewFaceData { Handle ( Geom_Surface ) myOffsetS ; TopLoc_Location myL ; Standard_Real myTol ; Standard_Boolean myRevWires ; Standard_Boolean myRevFace ; } ; struct NewEdgeData { Handle ( Geom_Curve ) myOffsetC ;  Resulting curve. TopLoc_Location myL ; Standard_Real myTol ; } ; struct NewVertexData { gp_Pnt myP ; Standard_Real myTol ; } ; ! Fills offset data. void FillOffsetData ( const TopoDS_Shape & theInputShape ) ; ! Copy-assignment constructor and copy constructor are not allowed. void operator = ( const BRepOffset_SimpleOffset & ) ; BRepOffset_SimpleOffset ( const BRepOffset_SimpleOffset & ) ; ! Map of faces to new faces information. NCollection_DataMap < TopoDS_Face , NewFaceData > myFaceInfo ; ! Map of edges to new edges information. NCollection_DataMap < TopoDS_Edge , NewEdgeData > myEdgeInfo ; ! Map of vertices to new vertices information. NCollection_DataMap < TopoDS_Vertex , NewVertexData > myVertexInfo ; ! Offset value. Standard_Real myOffsetValue ; ! Tolerance. Standard_Real myTolerance ; } ;
+## Error: expected ';'!!!
 
-type
-  BRepOffsetSimpleOffset* {.importcpp: "BRepOffset_SimpleOffset",
-                           header: "BRepOffset_SimpleOffset.hxx", bycopy.} = object of BRepToolsModification ##
-                                                                                                      ## !
-                                                                                                      ## Method
-                                                                                                      ## to
-                                                                                                      ## fill
-                                                                                                      ## new
-                                                                                                      ## face
-                                                                                                      ## data
-                                                                                                      ## for
-                                                                                                      ## single
-                                                                                                      ## face.
-    ## ! Map of edges to new edges information.
-    ## ! Map of vertices to new vertices information.
-    ## ! Offset value.
-    ## ! Tolerance.
 
-  BRepOffsetSimpleOffsetbaseType* = BRepToolsModification
 
-proc getTypeName*(): cstring {.importcpp: "BRepOffset_SimpleOffset::get_type_name(@)",
-                            header: "BRepOffset_SimpleOffset.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "BRepOffset_SimpleOffset::get_type_descriptor(@)",
-    header: "BRepOffset_SimpleOffset.hxx".}
-proc dynamicType*(this: BRepOffsetSimpleOffset): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "BRepOffset_SimpleOffset.hxx".}
-proc constructBRepOffsetSimpleOffset*(theInputShape: TopoDS_Shape;
-                                     theOffsetValue: float; theTolerance: float): BRepOffsetSimpleOffset {.
-    constructor, importcpp: "BRepOffset_SimpleOffset(@)",
-    header: "BRepOffset_SimpleOffset.hxx".}
-proc newSurface*(this: var BRepOffsetSimpleOffset; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
-                revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
-    header: "BRepOffset_SimpleOffset.hxx".}
-proc newCurve*(this: var BRepOffsetSimpleOffset; e: TopoDS_Edge;
-              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var float): bool {.
-    importcpp: "NewCurve", header: "BRepOffset_SimpleOffset.hxx".}
-proc newPoint*(this: var BRepOffsetSimpleOffset; v: TopoDS_Vertex; p: var Pnt;
-              tol: var float): bool {.importcpp: "NewPoint",
-                                  header: "BRepOffset_SimpleOffset.hxx".}
-proc newCurve2d*(this: var BRepOffsetSimpleOffset; e: TopoDS_Edge; f: TopoDS_Face;
-                newE: TopoDS_Edge; newF: TopoDS_Face; c: var Handle[Geom2dCurve];
-                tol: var float): bool {.importcpp: "NewCurve2d",
-                                    header: "BRepOffset_SimpleOffset.hxx".}
-proc newParameter*(this: var BRepOffsetSimpleOffset; v: TopoDS_Vertex; e: TopoDS_Edge;
-                  p: var float; tol: var float): bool {.importcpp: "NewParameter",
-    header: "BRepOffset_SimpleOffset.hxx".}
-proc continuity*(this: var BRepOffsetSimpleOffset; e: TopoDS_Edge; f1: TopoDS_Face;
-                f2: TopoDS_Face; newE: TopoDS_Edge; newF1: TopoDS_Face;
-                newF2: TopoDS_Face): GeomAbsShape {.importcpp: "Continuity",
-    header: "BRepOffset_SimpleOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

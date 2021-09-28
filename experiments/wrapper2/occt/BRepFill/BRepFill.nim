@@ -61,9 +61,34 @@ proc face*(edge1: TopoDS_Edge; edge2: TopoDS_Edge): TopoDS_Face {.
 proc shell*(wire1: TopoDS_Wire; wire2: TopoDS_Wire): TopoDS_Shell {.
     importcpp: "BRepFill::Shell(@)", header: "BRepFill.hxx".}
 proc axe*(spine: TopoDS_Shape; profile: TopoDS_Wire; axeProf: var Ax3;
-         profOnSpine: var bool; tol: float) {.importcpp: "BRepFill::Axe(@)",
+         profOnSpine: var bool; tol: cfloat) {.importcpp: "BRepFill::Axe(@)",
     header: "BRepFill.hxx".}
 proc computeACR*(wire: TopoDS_Wire; acr: var TColStdArray1OfReal) {.
     importcpp: "BRepFill::ComputeACR(@)", header: "BRepFill.hxx".}
-proc insertACR*(wire: TopoDS_Wire; aCRcuts: TColStdArray1OfReal; prec: float): TopoDS_Wire {.
+proc insertACR*(wire: TopoDS_Wire; aCRcuts: TColStdArray1OfReal; prec: cfloat): TopoDS_Wire {.
     importcpp: "BRepFill::InsertACR(@)", header: "BRepFill.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

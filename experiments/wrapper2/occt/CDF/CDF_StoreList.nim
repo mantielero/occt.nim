@@ -21,7 +21,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of CDF_StoreList"
 discard "forward decl of CDF_StoreList"
 type
-  HandleCDF_StoreList* = Handle[CDF_StoreList]
+  HandleC1C1* = Handle[CDF_StoreList]
   CDF_StoreList* {.importcpp: "CDF_StoreList", header: "CDF_StoreList.hxx", bycopy.} = object of StandardTransient
 
 
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "CDF_StoreList.hxx".}
 proc dynamicType*(this: CDF_StoreList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDF_StoreList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

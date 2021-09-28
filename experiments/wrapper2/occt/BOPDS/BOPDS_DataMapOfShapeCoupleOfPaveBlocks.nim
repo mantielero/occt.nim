@@ -17,3 +17,28 @@ type
       BOPDS_CoupleOfPaveBlocks, TopToolsShapeMapHasher]
   BOPDS_DataMapIteratorOfDataMapOfShapeCoupleOfPaveBlocks* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

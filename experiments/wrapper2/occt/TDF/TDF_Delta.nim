@@ -20,7 +20,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TDF_Delta"
 discard "forward decl of TDF_Delta"
 type
-  HandleTDF_Delta* = Handle[TDF_Delta]
+  HandleC1C1* = Handle[TDF_Delta]
 
 ## ! A set of AttributeDelta for a given transaction
 ## ! number and reference time number.
@@ -72,12 +72,12 @@ proc constructTDF_Delta*(): TDF_Delta {.constructor, importcpp: "TDF_Delta(@)",
                                      header: "TDF_Delta.hxx".}
 proc isEmpty*(this: TDF_Delta): bool {.noSideEffect, importcpp: "IsEmpty",
                                    header: "TDF_Delta.hxx".}
-proc isApplicable*(this: TDF_Delta; aCurrentTime: int): bool {.noSideEffect,
+proc isApplicable*(this: TDF_Delta; aCurrentTime: cint): bool {.noSideEffect,
     importcpp: "IsApplicable", header: "TDF_Delta.hxx".}
-proc beginTime*(this: TDF_Delta): int {.noSideEffect, importcpp: "BeginTime",
-                                    header: "TDF_Delta.hxx".}
-proc endTime*(this: TDF_Delta): int {.noSideEffect, importcpp: "EndTime",
-                                  header: "TDF_Delta.hxx".}
+proc beginTime*(this: TDF_Delta): cint {.noSideEffect, importcpp: "BeginTime",
+                                     header: "TDF_Delta.hxx".}
+proc endTime*(this: TDF_Delta): cint {.noSideEffect, importcpp: "EndTime",
+                                   header: "TDF_Delta.hxx".}
 proc labels*(this: TDF_Delta; aLabelList: var TDF_LabelList) {.noSideEffect,
     importcpp: "Labels", header: "TDF_Delta.hxx".}
 proc attributeDeltas*(this: TDF_Delta): TDF_AttributeDeltaList {.noSideEffect,
@@ -88,7 +88,7 @@ proc setName*(this: var TDF_Delta; theName: TCollectionExtendedString) {.
     importcpp: "SetName", header: "TDF_Delta.hxx".}
 proc dump*(this: TDF_Delta; os: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "TDF_Delta.hxx".}
-proc dumpJson*(this: TDF_Delta; theOStream: var StandardOStream; theDepth: int = -1) {.
+proc dumpJson*(this: TDF_Delta; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "TDF_Delta.hxx".}
 type
   TDF_DeltabaseType* = StandardTransient
@@ -99,3 +99,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_Delta::get_type_descriptor(@)", header: "TDF_Delta.hxx".}
 proc dynamicType*(this: TDF_Delta): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_Delta.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

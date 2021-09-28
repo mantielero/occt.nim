@@ -43,12 +43,12 @@ type
 
 proc constructShapeAnalysisWireOrder*(): ShapeAnalysisWireOrder {.constructor,
     importcpp: "ShapeAnalysis_WireOrder(@)", header: "ShapeAnalysis_WireOrder.hxx".}
-proc constructShapeAnalysisWireOrder*(mode3d: bool; tol: float): ShapeAnalysisWireOrder {.
+proc constructShapeAnalysisWireOrder*(mode3d: bool; tol: cfloat): ShapeAnalysisWireOrder {.
     constructor, importcpp: "ShapeAnalysis_WireOrder(@)",
     header: "ShapeAnalysis_WireOrder.hxx".}
-proc setMode*(this: var ShapeAnalysisWireOrder; mode3d: bool; tol: float) {.
+proc setMode*(this: var ShapeAnalysisWireOrder; mode3d: bool; tol: cfloat) {.
     importcpp: "SetMode", header: "ShapeAnalysis_WireOrder.hxx".}
-proc tolerance*(this: ShapeAnalysisWireOrder): float {.noSideEffect,
+proc tolerance*(this: ShapeAnalysisWireOrder): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "ShapeAnalysis_WireOrder.hxx".}
 proc clear*(this: var ShapeAnalysisWireOrder) {.importcpp: "Clear",
     header: "ShapeAnalysis_WireOrder.hxx".}
@@ -56,7 +56,7 @@ proc add*(this: var ShapeAnalysisWireOrder; start3d: Xyz; end3d: Xyz) {.
     importcpp: "Add", header: "ShapeAnalysis_WireOrder.hxx".}
 proc add*(this: var ShapeAnalysisWireOrder; start2d: Xy; end2d: Xy) {.importcpp: "Add",
     header: "ShapeAnalysis_WireOrder.hxx".}
-proc nbEdges*(this: ShapeAnalysisWireOrder): int {.noSideEffect,
+proc nbEdges*(this: ShapeAnalysisWireOrder): cint {.noSideEffect,
     importcpp: "NbEdges", header: "ShapeAnalysis_WireOrder.hxx".}
 proc keepLoopsMode*(this: var ShapeAnalysisWireOrder): var bool {.
     importcpp: "KeepLoopsMode", header: "ShapeAnalysis_WireOrder.hxx".}
@@ -64,25 +64,50 @@ proc perform*(this: var ShapeAnalysisWireOrder; closed: bool = true) {.
     importcpp: "Perform", header: "ShapeAnalysis_WireOrder.hxx".}
 proc isDone*(this: ShapeAnalysisWireOrder): bool {.noSideEffect, importcpp: "IsDone",
     header: "ShapeAnalysis_WireOrder.hxx".}
-proc status*(this: ShapeAnalysisWireOrder): int {.noSideEffect, importcpp: "Status",
+proc status*(this: ShapeAnalysisWireOrder): cint {.noSideEffect, importcpp: "Status",
     header: "ShapeAnalysis_WireOrder.hxx".}
-proc ordered*(this: ShapeAnalysisWireOrder; n: int): int {.noSideEffect,
+proc ordered*(this: ShapeAnalysisWireOrder; n: cint): cint {.noSideEffect,
     importcpp: "Ordered", header: "ShapeAnalysis_WireOrder.hxx".}
-proc xyz*(this: ShapeAnalysisWireOrder; num: int; start3d: var Xyz; end3d: var Xyz) {.
+proc xyz*(this: ShapeAnalysisWireOrder; num: cint; start3d: var Xyz; end3d: var Xyz) {.
     noSideEffect, importcpp: "XYZ", header: "ShapeAnalysis_WireOrder.hxx".}
-proc xy*(this: ShapeAnalysisWireOrder; num: int; start2d: var Xy; end2d: var Xy) {.
+proc xy*(this: ShapeAnalysisWireOrder; num: cint; start2d: var Xy; end2d: var Xy) {.
     noSideEffect, importcpp: "XY", header: "ShapeAnalysis_WireOrder.hxx".}
-proc gap*(this: ShapeAnalysisWireOrder; num: int = 0): float {.noSideEffect,
+proc gap*(this: ShapeAnalysisWireOrder; num: cint = 0): cfloat {.noSideEffect,
     importcpp: "Gap", header: "ShapeAnalysis_WireOrder.hxx".}
-proc setChains*(this: var ShapeAnalysisWireOrder; gap: float) {.
+proc setChains*(this: var ShapeAnalysisWireOrder; gap: cfloat) {.
     importcpp: "SetChains", header: "ShapeAnalysis_WireOrder.hxx".}
-proc nbChains*(this: ShapeAnalysisWireOrder): int {.noSideEffect,
+proc nbChains*(this: ShapeAnalysisWireOrder): cint {.noSideEffect,
     importcpp: "NbChains", header: "ShapeAnalysis_WireOrder.hxx".}
-proc chain*(this: ShapeAnalysisWireOrder; num: int; n1: var int; n2: var int) {.
+proc chain*(this: ShapeAnalysisWireOrder; num: cint; n1: var cint; n2: var cint) {.
     noSideEffect, importcpp: "Chain", header: "ShapeAnalysis_WireOrder.hxx".}
-proc setCouples*(this: var ShapeAnalysisWireOrder; gap: float) {.
+proc setCouples*(this: var ShapeAnalysisWireOrder; gap: cfloat) {.
     importcpp: "SetCouples", header: "ShapeAnalysis_WireOrder.hxx".}
-proc nbCouples*(this: ShapeAnalysisWireOrder): int {.noSideEffect,
+proc nbCouples*(this: ShapeAnalysisWireOrder): cint {.noSideEffect,
     importcpp: "NbCouples", header: "ShapeAnalysis_WireOrder.hxx".}
-proc couple*(this: ShapeAnalysisWireOrder; num: int; n1: var int; n2: var int) {.
+proc couple*(this: ShapeAnalysisWireOrder; num: cint; n1: var cint; n2: var cint) {.
     noSideEffect, importcpp: "Couple", header: "ShapeAnalysis_WireOrder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

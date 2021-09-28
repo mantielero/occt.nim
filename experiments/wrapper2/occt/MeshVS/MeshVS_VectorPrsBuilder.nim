@@ -21,7 +21,7 @@ discard "forward decl of Graphic3d_ArrayOfPrimitives"
 discard "forward decl of gp_Vec"
 discard "forward decl of MeshVS_VectorPrsBuilder"
 type
-  HandleMeshVS_VectorPrsBuilder* = Handle[MeshVS_VectorPrsBuilder]
+  HandleC1C1* = Handle[MeshVS_VectorPrsBuilder]
 
 ## ! This class provides methods to create vector data presentation.
 ## ! It store map of vectors assigned with nodes or elements.
@@ -33,25 +33,25 @@ type
 
 
 proc constructMeshVS_VectorPrsBuilder*(parent: Handle[MeshVS_Mesh];
-                                      maxLength: float;
+                                      maxLength: cfloat;
                                       vectorColor: QuantityColor; flags: MeshVS_DisplayModeFlags = meshVS_DMF_VectorDataPrs;
                                       ds: Handle[MeshVS_DataSource] = 0;
-                                      id: int = -1; priority: MeshVS_BuilderPriority = meshVS_BP_Vector;
+                                      id: cint = -1; priority: MeshVS_BuilderPriority = meshVS_BP_Vector;
                                       isSimplePrs: bool = false): MeshVS_VectorPrsBuilder {.
     constructor, importcpp: "MeshVS_VectorPrsBuilder(@)",
     header: "MeshVS_VectorPrsBuilder.hxx".}
 proc build*(this: MeshVS_VectorPrsBuilder; prs: Handle[Prs3dPresentation];
            iDs: TColStdPackedMapOfInteger;
            iDsToExclude: var TColStdPackedMapOfInteger; isElement: bool;
-           theDisplayMode: int) {.noSideEffect, importcpp: "Build",
-                                header: "MeshVS_VectorPrsBuilder.hxx".}
-proc drawVector*(this: MeshVS_VectorPrsBuilder; theTrsf: Trsf; length: float;
-                maxLength: float; arrowPoints: TColgpArray1OfPnt;
+           theDisplayMode: cint) {.noSideEffect, importcpp: "Build",
+                                 header: "MeshVS_VectorPrsBuilder.hxx".}
+proc drawVector*(this: MeshVS_VectorPrsBuilder; theTrsf: Trsf; length: cfloat;
+                maxLength: cfloat; arrowPoints: TColgpArray1OfPnt;
                 lines: Handle[Graphic3dArrayOfPrimitives];
                 arrowLines: Handle[Graphic3dArrayOfPrimitives];
                 triangles: Handle[Graphic3dArrayOfPrimitives]) {.noSideEffect,
     importcpp: "DrawVector", header: "MeshVS_VectorPrsBuilder.hxx".}
-proc calculateArrow*(points: var TColgpArray1OfPnt; length: float; arrowPart: float): float {.
+proc calculateArrow*(points: var TColgpArray1OfPnt; length: cfloat; arrowPart: cfloat): cfloat {.
     importcpp: "MeshVS_VectorPrsBuilder::calculateArrow(@)",
     header: "MeshVS_VectorPrsBuilder.hxx".}
 proc getVectors*(this: MeshVS_VectorPrsBuilder; isElement: bool): MeshVS_DataMapOfIntegerVector {.
@@ -61,18 +61,18 @@ proc setVectors*(this: var MeshVS_VectorPrsBuilder; isElement: bool;
     header: "MeshVS_VectorPrsBuilder.hxx".}
 proc hasVectors*(this: MeshVS_VectorPrsBuilder; isElement: bool): bool {.noSideEffect,
     importcpp: "HasVectors", header: "MeshVS_VectorPrsBuilder.hxx".}
-proc getVector*(this: MeshVS_VectorPrsBuilder; isElement: bool; id: int; vect: var Vec): bool {.
+proc getVector*(this: MeshVS_VectorPrsBuilder; isElement: bool; id: cint; vect: var Vec): bool {.
     noSideEffect, importcpp: "GetVector", header: "MeshVS_VectorPrsBuilder.hxx".}
-proc setVector*(this: var MeshVS_VectorPrsBuilder; isElement: bool; id: int; vect: Vec) {.
+proc setVector*(this: var MeshVS_VectorPrsBuilder; isElement: bool; id: cint; vect: Vec) {.
     importcpp: "SetVector", header: "MeshVS_VectorPrsBuilder.hxx".}
 proc getMinMaxVectorValue*(this: MeshVS_VectorPrsBuilder; isElement: bool;
-                          minValue: var float; maxValue: var float) {.noSideEffect,
+                          minValue: var cfloat; maxValue: var cfloat) {.noSideEffect,
     importcpp: "GetMinMaxVectorValue", header: "MeshVS_VectorPrsBuilder.hxx".}
 proc setSimplePrsMode*(this: var MeshVS_VectorPrsBuilder; isSimpleArrow: bool) {.
     importcpp: "SetSimplePrsMode", header: "MeshVS_VectorPrsBuilder.hxx".}
 proc setSimplePrsParams*(this: var MeshVS_VectorPrsBuilder;
-                        theLineWidthParam: float; theStartParam: float;
-                        theEndParam: float) {.importcpp: "SetSimplePrsParams",
+                        theLineWidthParam: cfloat; theStartParam: cfloat;
+                        theEndParam: cfloat) {.importcpp: "SetSimplePrsParams",
     header: "MeshVS_VectorPrsBuilder.hxx".}
 type
   MeshVS_VectorPrsBuilderbaseType* = MeshVS_PrsBuilder
@@ -84,3 +84,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MeshVS_VectorPrsBuilder.hxx".}
 proc dynamicType*(this: MeshVS_VectorPrsBuilder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "MeshVS_VectorPrsBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

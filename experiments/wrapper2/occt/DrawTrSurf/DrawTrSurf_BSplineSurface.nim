@@ -21,7 +21,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_BSplineSurface"
 discard "forward decl of DrawTrSurf_BSplineSurface"
 type
-  HandleDrawTrSurfBSplineSurface* = Handle[DrawTrSurfBSplineSurface]
+  HandleC1C1* = Handle[DrawTrSurfBSplineSurface]
 
 ## ! This class defines a drawable BSplineSurface.
 ## ! With this class you can draw the control points and the knots
@@ -98,21 +98,21 @@ proc constructDrawTrSurfBSplineSurface*(s: Handle[GeomBSplineSurface];
                                        polesColor: DrawColor;
                                        knotsColor: DrawColor;
                                        knotsShape: DrawMarkerShape;
-                                       knotsSize: int; showPoles: bool;
-                                       showKnots: bool; discret: int;
-                                       deflection: float; drawMode: int): DrawTrSurfBSplineSurface {.
+                                       knotsSize: cint; showPoles: bool;
+                                       showKnots: bool; discret: cint;
+                                       deflection: cfloat; drawMode: cint): DrawTrSurfBSplineSurface {.
     constructor, importcpp: "DrawTrSurf_BSplineSurface(@)",
     header: "DrawTrSurf_BSplineSurface.hxx".}
 proc constructDrawTrSurfBSplineSurface*(s: Handle[GeomBSplineSurface];
-                                       nbUIsos: int; nbVIsos: int;
+                                       nbUIsos: cint; nbVIsos: cint;
                                        boundsColor: DrawColor;
                                        isosColor: DrawColor;
                                        polesColor: DrawColor;
                                        knotsColor: DrawColor;
                                        knotsShape: DrawMarkerShape;
-                                       knotsSize: int; showPoles: bool;
-                                       showKnots: bool; discret: int;
-                                       deflection: float; drawMode: int): DrawTrSurfBSplineSurface {.
+                                       knotsSize: cint; showPoles: bool;
+                                       showKnots: bool; discret: cint;
+                                       deflection: cfloat; drawMode: cint): DrawTrSurfBSplineSurface {.
     constructor, importcpp: "DrawTrSurf_BSplineSurface(@)",
     header: "DrawTrSurf_BSplineSurface.hxx".}
 proc drawOn*(this: DrawTrSurfBSplineSurface; dis: var DrawDisplay) {.noSideEffect,
@@ -121,7 +121,7 @@ proc showPoles*(this: var DrawTrSurfBSplineSurface) {.importcpp: "ShowPoles",
     header: "DrawTrSurf_BSplineSurface.hxx".}
 proc showKnots*(this: var DrawTrSurfBSplineSurface) {.importcpp: "ShowKnots",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc showIsos*(this: var DrawTrSurfBSplineSurface; nu: int; nv: int) {.
+proc showIsos*(this: var DrawTrSurfBSplineSurface; nu: cint; nv: cint) {.
     importcpp: "ShowIsos", header: "DrawTrSurf_BSplineSurface.hxx".}
 proc showKnotsIsos*(this: var DrawTrSurfBSplineSurface) {.
     importcpp: "ShowKnotsIsos", header: "DrawTrSurf_BSplineSurface.hxx".}
@@ -131,14 +131,14 @@ proc clearPoles*(this: var DrawTrSurfBSplineSurface) {.importcpp: "ClearPoles",
     header: "DrawTrSurf_BSplineSurface.hxx".}
 proc clearKnots*(this: var DrawTrSurfBSplineSurface) {.importcpp: "ClearKnots",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc findPole*(this: DrawTrSurfBSplineSurface; x: float; y: float; d: DrawDisplay;
-              prec: float; uIndex: var int; vIndex: var int) {.noSideEffect,
+proc findPole*(this: DrawTrSurfBSplineSurface; x: cfloat; y: cfloat; d: DrawDisplay;
+              prec: cfloat; uIndex: var cint; vIndex: var cint) {.noSideEffect,
     importcpp: "FindPole", header: "DrawTrSurf_BSplineSurface.hxx".}
-proc findUKnot*(this: DrawTrSurfBSplineSurface; x: float; y: float; d: DrawDisplay;
-               prec: float; uIndex: var int) {.noSideEffect, importcpp: "FindUKnot",
+proc findUKnot*(this: DrawTrSurfBSplineSurface; x: cfloat; y: cfloat; d: DrawDisplay;
+               prec: cfloat; uIndex: var cint) {.noSideEffect, importcpp: "FindUKnot",
     header: "DrawTrSurf_BSplineSurface.hxx".}
-proc findVKnot*(this: DrawTrSurfBSplineSurface; x: float; y: float; d: DrawDisplay;
-               prec: float; vIndex: var int) {.noSideEffect, importcpp: "FindVKnot",
+proc findVKnot*(this: DrawTrSurfBSplineSurface; x: cfloat; y: cfloat; d: DrawDisplay;
+               prec: cfloat; vIndex: var cint) {.noSideEffect, importcpp: "FindVKnot",
     header: "DrawTrSurf_BSplineSurface.hxx".}
 proc setPolesColor*(this: var DrawTrSurfBSplineSurface; aColor: DrawColor) {.
     importcpp: "SetPolesColor", header: "DrawTrSurf_BSplineSurface.hxx".}
@@ -164,3 +164,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_BSplineSurface.hxx".}
 proc dynamicType*(this: DrawTrSurfBSplineSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DrawTrSurf_BSplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

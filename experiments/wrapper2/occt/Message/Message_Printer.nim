@@ -18,7 +18,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Message_Printer"
 discard "forward decl of Message_Printer"
 type
-  HandleMessagePrinter* = Handle[MessagePrinter]
+  HandleC1C1* = Handle[MessagePrinter]
 
 ## ! Abstract interface class defining printer as output context for text messages
 ## !
@@ -59,3 +59,28 @@ proc sendStringStream*(this: MessagePrinter; theStream: StandardSStream;
 proc sendObject*(this: MessagePrinter; theObject: Handle[StandardTransient];
                 theGravity: MessageGravity) {.noSideEffect,
     importcpp: "SendObject", header: "Message_Printer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

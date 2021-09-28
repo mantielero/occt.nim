@@ -17,7 +17,7 @@
 discard "forward decl of StepVisual_CameraUsage"
 discard "forward decl of StepVisual_CameraUsage"
 type
-  HandleStepVisualCameraUsage* = Handle[StepVisualCameraUsage]
+  HandleC1C1* = Handle[StepVisualCameraUsage]
   StepVisualCameraUsage* {.importcpp: "StepVisual_CameraUsage",
                           header: "StepVisual_CameraUsage.hxx", bycopy.} = object of StepReprRepresentationMap ##
                                                                                                         ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_CameraUsage.hxx".}
 proc dynamicType*(this: StepVisualCameraUsage): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_CameraUsage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,3 +32,54 @@ proc destroyBRepMeshDelaunayDeflectionControlMeshAlgo*[RangeSplitter; BaseAlgo](
     this: var BRepMeshDelaunayDeflectionControlMeshAlgo[RangeSplitter, BaseAlgo]) {.
     importcpp: "#.~BRepMesh_DelaunayDeflectionControlMeshAlgo()",
     header: "BRepMesh_DelaunayDeflectionControlMeshAlgo.hxx".}
+## !!!Ignored construct:  Handle ( IMeshData :: MapOfOrientedEdges ) myCouplesMap ;
+## Error: token expected: ) but got: ::!!!
+
+## !!!Ignored construct:  Handle ( IMeshData :: ListOfPnt2d ) myControlNodes ;
+## Error: token expected: ) but got: ::!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

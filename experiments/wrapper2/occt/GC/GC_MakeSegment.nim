@@ -47,9 +47,9 @@ type
 
 proc constructGC_MakeSegment*(p1: Pnt; p2: Pnt): GC_MakeSegment {.constructor,
     importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc constructGC_MakeSegment*(line: Lin; u1: float; u2: float): GC_MakeSegment {.
+proc constructGC_MakeSegment*(line: Lin; u1: cfloat; u2: cfloat): GC_MakeSegment {.
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc constructGC_MakeSegment*(line: Lin; point: Pnt; ulast: float): GC_MakeSegment {.
+proc constructGC_MakeSegment*(line: Lin; point: Pnt; ulast: cfloat): GC_MakeSegment {.
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 proc constructGC_MakeSegment*(line: Lin; p1: Pnt; p2: Pnt): GC_MakeSegment {.
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
@@ -58,3 +58,24 @@ proc value*(this: GC_MakeSegment): Handle[GeomTrimmedCurve] {.noSideEffect,
 converter `constopencascade`*(this: GC_MakeSegment): Handle[GeomTrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeSegment::operator constopencascade",
     header: "GC_MakeSegment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

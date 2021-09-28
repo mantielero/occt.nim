@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_Person"
 discard "forward decl of StepBasic_Person"
 type
-  HandleStepBasicPerson* = Handle[StepBasicPerson]
+  HandleC1C1* = Handle[StepBasicPerson]
   StepBasicPerson* {.importcpp: "StepBasic_Person", header: "StepBasic_Person.hxx",
                     bycopy.} = object of StandardTransient ## ! Returns a Person
 
@@ -66,10 +66,10 @@ proc middleNames*(this: StepBasicPerson): Handle[InterfaceHArray1OfHAsciiString]
     noSideEffect, importcpp: "MiddleNames", header: "StepBasic_Person.hxx".}
 proc hasMiddleNames*(this: StepBasicPerson): bool {.noSideEffect,
     importcpp: "HasMiddleNames", header: "StepBasic_Person.hxx".}
-proc middleNamesValue*(this: StepBasicPerson; num: int): Handle[
+proc middleNamesValue*(this: StepBasicPerson; num: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "MiddleNamesValue",
                               header: "StepBasic_Person.hxx".}
-proc nbMiddleNames*(this: StepBasicPerson): int {.noSideEffect,
+proc nbMiddleNames*(this: StepBasicPerson): cint {.noSideEffect,
     importcpp: "NbMiddleNames", header: "StepBasic_Person.hxx".}
 proc setPrefixTitles*(this: var StepBasicPerson;
                      aPrefixTitles: Handle[InterfaceHArray1OfHAsciiString]) {.
@@ -80,10 +80,10 @@ proc prefixTitles*(this: StepBasicPerson): Handle[InterfaceHArray1OfHAsciiString
     noSideEffect, importcpp: "PrefixTitles", header: "StepBasic_Person.hxx".}
 proc hasPrefixTitles*(this: StepBasicPerson): bool {.noSideEffect,
     importcpp: "HasPrefixTitles", header: "StepBasic_Person.hxx".}
-proc prefixTitlesValue*(this: StepBasicPerson; num: int): Handle[
+proc prefixTitlesValue*(this: StepBasicPerson; num: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "PrefixTitlesValue",
                               header: "StepBasic_Person.hxx".}
-proc nbPrefixTitles*(this: StepBasicPerson): int {.noSideEffect,
+proc nbPrefixTitles*(this: StepBasicPerson): cint {.noSideEffect,
     importcpp: "NbPrefixTitles", header: "StepBasic_Person.hxx".}
 proc setSuffixTitles*(this: var StepBasicPerson;
                      aSuffixTitles: Handle[InterfaceHArray1OfHAsciiString]) {.
@@ -94,10 +94,10 @@ proc suffixTitles*(this: StepBasicPerson): Handle[InterfaceHArray1OfHAsciiString
     noSideEffect, importcpp: "SuffixTitles", header: "StepBasic_Person.hxx".}
 proc hasSuffixTitles*(this: StepBasicPerson): bool {.noSideEffect,
     importcpp: "HasSuffixTitles", header: "StepBasic_Person.hxx".}
-proc suffixTitlesValue*(this: StepBasicPerson; num: int): Handle[
+proc suffixTitlesValue*(this: StepBasicPerson; num: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "SuffixTitlesValue",
                               header: "StepBasic_Person.hxx".}
-proc nbSuffixTitles*(this: StepBasicPerson): int {.noSideEffect,
+proc nbSuffixTitles*(this: StepBasicPerson): cint {.noSideEffect,
     importcpp: "NbSuffixTitles", header: "StepBasic_Person.hxx".}
 type
   StepBasicPersonbaseType* = StandardTransient
@@ -109,3 +109,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Person.hxx".}
 proc dynamicType*(this: StepBasicPerson): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Person.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

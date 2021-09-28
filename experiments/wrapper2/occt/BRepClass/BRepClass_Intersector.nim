@@ -24,9 +24,34 @@ type
 
 proc constructBRepClassIntersector*(): BRepClassIntersector {.constructor,
     importcpp: "BRepClass_Intersector(@)", header: "BRepClass_Intersector.hxx".}
-proc perform*(this: var BRepClassIntersector; L: Lin2d; p: float; tol: float;
+proc perform*(this: var BRepClassIntersector; L: Lin2d; p: cfloat; tol: cfloat;
              e: BRepClassEdge) {.importcpp: "Perform",
                                header: "BRepClass_Intersector.hxx".}
-proc localGeometry*(this: BRepClassIntersector; e: BRepClassEdge; u: float;
-                   t: var Dir2d; n: var Dir2d; c: var float) {.noSideEffect,
+proc localGeometry*(this: BRepClassIntersector; e: BRepClassEdge; u: cfloat;
+                   t: var Dir2d; n: var Dir2d; c: var cfloat) {.noSideEffect,
     importcpp: "LocalGeometry", header: "BRepClass_Intersector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

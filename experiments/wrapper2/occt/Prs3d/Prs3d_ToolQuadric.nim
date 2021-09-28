@@ -29,6 +29,8 @@ type
                                                                    ## ! @param theTrsf [in] optional
                                                                    ## transformation to apply
                                                                    ## ! Return number of triangles in generated presentation.
+    graphic3dArrayOfTriangles* {.importc: "Graphic3d_ArrayOfTriangles".}: Handle
+    polyTriangulation* {.importc: "Poly_Triangulation".}: Handle
     ## !< number of slices within U parameter
     ## !< number of stacks within V parameter
 
@@ -38,18 +40,68 @@ proc trianglesNb*(theSlicesNb: int; theStacksNb: int): int {.
     header: "Prs3d_ToolQuadric.hxx".}
 proc verticesNb*(theSlicesNb: int; theStacksNb: int; theIsIndexed: bool = true): int {.
     importcpp: "Prs3d_ToolQuadric::VerticesNb(@)", header: "Prs3d_ToolQuadric.hxx".}
-proc createTriangulation*(this: Prs3dToolQuadric; theTrsf: Trsf): Handle[
-    Graphic3dArrayOfTriangles] {.noSideEffect, importcpp: "CreateTriangulation",
-                                header: "Prs3d_ToolQuadric.hxx".}
-proc createPolyTriangulation*(this: Prs3dToolQuadric; theTrsf: Trsf): Handle[
-    PolyTriangulation] {.noSideEffect, importcpp: "CreatePolyTriangulation",
-                        header: "Prs3d_ToolQuadric.hxx".}
-proc fillArray*(this: Prs3dToolQuadric;
-               theArray: var Handle[Graphic3dArrayOfTriangles]; theTrsf: Trsf) {.
-    noSideEffect, importcpp: "FillArray", header: "Prs3d_ToolQuadric.hxx".}
+## !!!Ignored construct:  CreateTriangulation ( const gp_Trsf & theTrsf ) const ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  CreatePolyTriangulation ( const gp_Trsf & theTrsf ) const ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  ! Generate primitives for 3D quadric surface and fill the given array.
+## ! @param theArray [in][out] the array of vertices;
+## !                           when NULL, function will create an indexed array;
+## !                           when not NULL, triangles will be appended to the end of array
+## !                           (will raise an exception if reserved array size is not large enough)
+## ! @param theTrsf [in] optional transformation to apply void FillArray ( Handle ( Graphic3d_ArrayOfTriangles ) & theArray , const gp_Trsf & theTrsf ) const ;
+## Error: token expected: ) but got: &!!!
+
 ## !!!Ignored construct:  public : ! Generate primitives for 3D quadric surface presentation.
 ## ! @param theArray [out] generated array of triangles
 ## ! @param theTriangulation [out] generated triangulation
-## ! @param theTrsf [in] optional transformation to apply Standard_DEPRECATED ( Deprecated method, CreateTriangulation() and CreatePolyTriangulation() should be used instead ) void FillArray ( opencascade :: handle < Graphic3d_ArrayOfTriangles > [end of template] & theArray , opencascade :: handle < Poly_Triangulation > [end of template] & theTriangulation , const gp_Trsf & theTrsf ) const ;
+## ! @param theTrsf [in] optional transformation to apply Standard_DEPRECATED ( Deprecated method, CreateTriangulation() and CreatePolyTriangulation() should be used instead ) void FillArray ( Handle ( Graphic3d_ArrayOfTriangles ) & theArray , Handle ( Poly_Triangulation ) & theTriangulation , const gp_Trsf & theTrsf ) const ;
 ## Error: identifier expected, but got: Deprecated method, CreateTriangulation() and CreatePolyTriangulation() should be used instead!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

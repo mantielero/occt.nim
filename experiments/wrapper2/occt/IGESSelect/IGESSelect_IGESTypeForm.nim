@@ -21,7 +21,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IGESSelect_IGESTypeForm"
 discard "forward decl of IGESSelect_IGESTypeForm"
 type
-  HandleIGESSelectIGESTypeForm* = Handle[IGESSelectIGESTypeForm]
+  HandleC1C1* = Handle[IGESSelectIGESTypeForm]
 
 ## ! IGESTypeForm is a Signature specific to the IGES Norm :
 ## ! it gives the signature under two possible forms :
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_IGESTypeForm.hxx".}
 proc dynamicType*(this: IGESSelectIGESTypeForm): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_IGESTypeForm.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

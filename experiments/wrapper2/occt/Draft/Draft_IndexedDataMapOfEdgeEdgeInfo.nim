@@ -18,3 +18,28 @@ type
   DraftIndexedDataMapOfEdgeEdgeInfo* = NCollectionIndexedDataMap[TopoDS_Edge,
       DraftEdgeInfo, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

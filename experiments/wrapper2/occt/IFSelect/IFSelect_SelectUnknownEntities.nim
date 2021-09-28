@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectUnknownEntities"
 discard "forward decl of IFSelect_SelectUnknownEntities"
 type
-  HandleIFSelectSelectUnknownEntities* = Handle[IFSelectSelectUnknownEntities]
+  HandleC1C1* = Handle[IFSelectSelectUnknownEntities]
 
 ## ! A SelectUnknownEntities sorts the Entities which are qualified
 ## ! as "Unknown" (their Type has not been recognized)
@@ -35,7 +35,7 @@ type
 proc constructIFSelectSelectUnknownEntities*(): IFSelectSelectUnknownEntities {.
     constructor, importcpp: "IFSelect_SelectUnknownEntities(@)",
     header: "IFSelect_SelectUnknownEntities.hxx".}
-proc sort*(this: IFSelectSelectUnknownEntities; rank: int;
+proc sort*(this: IFSelectSelectUnknownEntities; rank: cint;
           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Sort", header: "IFSelect_SelectUnknownEntities.hxx".}
 proc extractLabel*(this: IFSelectSelectUnknownEntities): TCollectionAsciiString {.
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IFSelectSelectUnknownEntities): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectUnknownEntities.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ discard "forward decl of math_Matrix"
 discard "forward decl of AppDef_LinearCriteria"
 discard "forward decl of AppDef_LinearCriteria"
 type
-  HandleAppDefLinearCriteria* = Handle[AppDefLinearCriteria]
+  HandleC1C1* = Handle[AppDefLinearCriteria]
 
 ## ! defined an Linear Criteria to used in variational
 ## ! Smoothing of points.
@@ -33,8 +33,8 @@ type
                          header: "AppDef_LinearCriteria.hxx", bycopy.} = object of AppDefSmoothCriterion
 
 
-proc constructAppDefLinearCriteria*(ssp: AppDefMultiLine; firstPoint: int;
-                                   lastPoint: int): AppDefLinearCriteria {.
+proc constructAppDefLinearCriteria*(ssp: AppDefMultiLine; firstPoint: cint;
+                                   lastPoint: cint): AppDefLinearCriteria {.
     constructor, importcpp: "AppDef_LinearCriteria(@)",
     header: "AppDef_LinearCriteria.hxx".}
 proc setParameters*(this: var AppDefLinearCriteria;
@@ -44,39 +44,39 @@ proc setCurve*(this: var AppDefLinearCriteria; c: Handle[FEmToolCurve]) {.
     importcpp: "SetCurve", header: "AppDef_LinearCriteria.hxx".}
 proc getCurve*(this: AppDefLinearCriteria; c: var Handle[FEmToolCurve]) {.
     noSideEffect, importcpp: "GetCurve", header: "AppDef_LinearCriteria.hxx".}
-proc setEstimation*(this: var AppDefLinearCriteria; e1: float; e2: float; e3: float) {.
+proc setEstimation*(this: var AppDefLinearCriteria; e1: cfloat; e2: cfloat; e3: cfloat) {.
     importcpp: "SetEstimation", header: "AppDef_LinearCriteria.hxx".}
-proc estLength*(this: var AppDefLinearCriteria): var float {.importcpp: "EstLength",
+proc estLength*(this: var AppDefLinearCriteria): var cfloat {.importcpp: "EstLength",
     header: "AppDef_LinearCriteria.hxx".}
-proc getEstimation*(this: AppDefLinearCriteria; e1: var float; e2: var float;
-                   e3: var float) {.noSideEffect, importcpp: "GetEstimation",
-                                 header: "AppDef_LinearCriteria.hxx".}
+proc getEstimation*(this: AppDefLinearCriteria; e1: var cfloat; e2: var cfloat;
+                   e3: var cfloat) {.noSideEffect, importcpp: "GetEstimation",
+                                  header: "AppDef_LinearCriteria.hxx".}
 proc assemblyTable*(this: AppDefLinearCriteria): Handle[FEmToolHAssemblyTable] {.
     noSideEffect, importcpp: "AssemblyTable", header: "AppDef_LinearCriteria.hxx".}
 proc dependenceTable*(this: AppDefLinearCriteria): Handle[TColStdHArray2OfInteger] {.
     noSideEffect, importcpp: "DependenceTable", header: "AppDef_LinearCriteria.hxx".}
-proc qualityValues*(this: var AppDefLinearCriteria; j1min: float; j2min: float;
-                   j3min: float; j1: var float; j2: var float; j3: var float): int {.
+proc qualityValues*(this: var AppDefLinearCriteria; j1min: cfloat; j2min: cfloat;
+                   j3min: cfloat; j1: var cfloat; j2: var cfloat; j3: var cfloat): cint {.
     importcpp: "QualityValues", header: "AppDef_LinearCriteria.hxx".}
-proc errorValues*(this: var AppDefLinearCriteria; maxError: var float;
-                 quadraticError: var float; averageError: var float) {.
+proc errorValues*(this: var AppDefLinearCriteria; maxError: var cfloat;
+                 quadraticError: var cfloat; averageError: var cfloat) {.
     importcpp: "ErrorValues", header: "AppDef_LinearCriteria.hxx".}
-proc hessian*(this: var AppDefLinearCriteria; element: int; dimension1: int;
-             dimension2: int; h: var MathMatrix) {.importcpp: "Hessian",
+proc hessian*(this: var AppDefLinearCriteria; element: cint; dimension1: cint;
+             dimension2: cint; h: var MathMatrix) {.importcpp: "Hessian",
     header: "AppDef_LinearCriteria.hxx".}
-proc gradient*(this: var AppDefLinearCriteria; element: int; dimension: int;
+proc gradient*(this: var AppDefLinearCriteria; element: cint; dimension: cint;
               g: var MathVector) {.importcpp: "Gradient",
                                 header: "AppDef_LinearCriteria.hxx".}
 proc inputVector*(this: var AppDefLinearCriteria; x: MathVector;
                  assTable: Handle[FEmToolHAssemblyTable]) {.
     importcpp: "InputVector", header: "AppDef_LinearCriteria.hxx".}
-proc setWeight*(this: var AppDefLinearCriteria; quadraticWeight: float;
-               qualityWeight: float; percentJ1: float; percentJ2: float;
-               percentJ3: float) {.importcpp: "SetWeight",
-                                 header: "AppDef_LinearCriteria.hxx".}
-proc getWeight*(this: AppDefLinearCriteria; quadraticWeight: var float;
-               qualityWeight: var float) {.noSideEffect, importcpp: "GetWeight",
-                                        header: "AppDef_LinearCriteria.hxx".}
+proc setWeight*(this: var AppDefLinearCriteria; quadraticWeight: cfloat;
+               qualityWeight: cfloat; percentJ1: cfloat; percentJ2: cfloat;
+               percentJ3: cfloat) {.importcpp: "SetWeight",
+                                  header: "AppDef_LinearCriteria.hxx".}
+proc getWeight*(this: AppDefLinearCriteria; quadraticWeight: var cfloat;
+               qualityWeight: var cfloat) {.noSideEffect, importcpp: "GetWeight",
+    header: "AppDef_LinearCriteria.hxx".}
 proc setWeight*(this: var AppDefLinearCriteria; weight: TColStdArray1OfReal) {.
     importcpp: "SetWeight", header: "AppDef_LinearCriteria.hxx".}
 type
@@ -89,3 +89,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "AppDef_LinearCriteria.hxx".}
 proc dynamicType*(this: AppDefLinearCriteria): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AppDef_LinearCriteria.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

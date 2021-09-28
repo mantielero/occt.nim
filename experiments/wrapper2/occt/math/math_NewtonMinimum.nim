@@ -30,9 +30,9 @@ type
 
 
 proc constructMathNewtonMinimum*(theFunction: MathMultipleVarFunctionWithHessian;
-                                theTolerance: float = confusion();
-                                theNbIterations: int = 40;
-                                theConvexity: float = 1.0e-6;
+                                theTolerance: cfloat = confusion();
+                                theNbIterations: cint = 40;
+                                theConvexity: cfloat = 1.0e-6;
                                 theWithSingularity: bool = true): MathNewtonMinimum {.
     constructor, importcpp: "math_NewtonMinimum(@)",
     header: "math_NewtonMinimum.hxx".}
@@ -55,15 +55,40 @@ proc location*(this: MathNewtonMinimum; loc: var MathVector) {.noSideEffect,
 proc setBoundary*(this: var MathNewtonMinimum; theLeftBorder: MathVector;
                  theRightBorder: MathVector) {.importcpp: "SetBoundary",
     header: "math_NewtonMinimum.hxx".}
-proc minimum*(this: MathNewtonMinimum): float {.noSideEffect, importcpp: "Minimum",
+proc minimum*(this: MathNewtonMinimum): cfloat {.noSideEffect, importcpp: "Minimum",
     header: "math_NewtonMinimum.hxx".}
 proc gradient*(this: MathNewtonMinimum): MathVector {.noSideEffect,
     importcpp: "Gradient", header: "math_NewtonMinimum.hxx".}
 proc gradient*(this: MathNewtonMinimum; grad: var MathVector) {.noSideEffect,
     importcpp: "Gradient", header: "math_NewtonMinimum.hxx".}
-proc nbIterations*(this: MathNewtonMinimum): int {.noSideEffect,
+proc nbIterations*(this: MathNewtonMinimum): cint {.noSideEffect,
     importcpp: "NbIterations", header: "math_NewtonMinimum.hxx".}
 proc getStatus*(this: MathNewtonMinimum): MathStatus {.noSideEffect,
     importcpp: "GetStatus", header: "math_NewtonMinimum.hxx".}
 proc dump*(this: MathNewtonMinimum; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_NewtonMinimum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

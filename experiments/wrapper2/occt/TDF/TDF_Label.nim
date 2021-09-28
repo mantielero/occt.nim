@@ -38,8 +38,8 @@ proc constructTDF_Label*(): TDF_Label {.constructor, importcpp: "TDF_Label(@)",
 proc nullify*(this: var TDF_Label) {.importcpp: "Nullify", header: "TDF_Label.hxx".}
 proc data*(this: TDF_Label): Handle[TDF_Data] {.noSideEffect, importcpp: "Data",
     header: "TDF_Label.hxx".}
-proc tag*(this: TDF_Label): int {.noSideEffect, importcpp: "Tag",
-                              header: "TDF_Label.hxx".}
+proc tag*(this: TDF_Label): cint {.noSideEffect, importcpp: "Tag",
+                               header: "TDF_Label.hxx".}
 proc father*(this: TDF_Label): TDF_Label {.noSideEffect, importcpp: "Father",
                                        header: "TDF_Label.hxx".}
 proc isNull*(this: TDF_Label): bool {.noSideEffect, importcpp: "IsNull",
@@ -74,7 +74,7 @@ proc findAttribute*(this: TDF_Label; anID: StandardGUID;
     importcpp: "FindAttribute", header: "TDF_Label.hxx".}
 proc findAttribute*[T](this: TDF_Label; theID: StandardGUID; theAttr: var Handle[T]): bool {.
     noSideEffect, importcpp: "FindAttribute", header: "TDF_Label.hxx".}
-proc findAttribute*(this: TDF_Label; anID: StandardGUID; aTransaction: int;
+proc findAttribute*(this: TDF_Label; anID: StandardGUID; aTransaction: cint;
                    anAttribute: var Handle[TDF_Attribute]): bool {.noSideEffect,
     importcpp: "FindAttribute", header: "TDF_Label.hxx".}
 proc mayBeModified*(this: TDF_Label): bool {.noSideEffect,
@@ -83,24 +83,24 @@ proc attributesModified*(this: TDF_Label): bool {.noSideEffect,
     importcpp: "AttributesModified", header: "TDF_Label.hxx".}
 proc hasAttribute*(this: TDF_Label): bool {.noSideEffect, importcpp: "HasAttribute",
                                         header: "TDF_Label.hxx".}
-proc nbAttributes*(this: TDF_Label): int {.noSideEffect, importcpp: "NbAttributes",
-                                       header: "TDF_Label.hxx".}
-proc depth*(this: TDF_Label): int {.noSideEffect, importcpp: "Depth",
-                                header: "TDF_Label.hxx".}
+proc nbAttributes*(this: TDF_Label): cint {.noSideEffect, importcpp: "NbAttributes",
+                                        header: "TDF_Label.hxx".}
+proc depth*(this: TDF_Label): cint {.noSideEffect, importcpp: "Depth",
+                                 header: "TDF_Label.hxx".}
 proc isDescendant*(this: TDF_Label; aLabel: TDF_Label): bool {.noSideEffect,
     importcpp: "IsDescendant", header: "TDF_Label.hxx".}
 proc root*(this: TDF_Label): TDF_Label {.noSideEffect, importcpp: "Root",
                                      header: "TDF_Label.hxx".}
 proc hasChild*(this: TDF_Label): bool {.noSideEffect, importcpp: "HasChild",
                                     header: "TDF_Label.hxx".}
-proc nbChildren*(this: TDF_Label): int {.noSideEffect, importcpp: "NbChildren",
-                                     header: "TDF_Label.hxx".}
-proc findChild*(this: TDF_Label; aTag: int; create: bool = true): TDF_Label {.
+proc nbChildren*(this: TDF_Label): cint {.noSideEffect, importcpp: "NbChildren",
+                                      header: "TDF_Label.hxx".}
+proc findChild*(this: TDF_Label; aTag: cint; create: bool = true): TDF_Label {.
     noSideEffect, importcpp: "FindChild", header: "TDF_Label.hxx".}
 proc newChild*(this: TDF_Label): TDF_Label {.noSideEffect, importcpp: "NewChild",
     header: "TDF_Label.hxx".}
-proc transaction*(this: TDF_Label): int {.noSideEffect, importcpp: "Transaction",
-                                      header: "TDF_Label.hxx".}
+proc transaction*(this: TDF_Label): cint {.noSideEffect, importcpp: "Transaction",
+                                       header: "TDF_Label.hxx".}
 proc hasLowerNode*(this: TDF_Label; otherLabel: TDF_Label): bool {.noSideEffect,
     importcpp: "HasLowerNode", header: "TDF_Label.hxx".}
 proc hasGreaterNode*(this: TDF_Label; otherLabel: TDF_Label): bool {.noSideEffect,
@@ -114,3 +114,28 @@ proc extendedDump*(this: TDF_Label; anOS: var StandardOStream; aFilter: TDF_IDFi
     importcpp: "ExtendedDump", header: "TDF_Label.hxx".}
 proc entryDump*(this: TDF_Label; anOS: var StandardOStream) {.noSideEffect,
     importcpp: "EntryDump", header: "TDF_Label.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc loadFile*(theFName: StandardCString): bool {.
 proc loadFromEnv*(theEnvName: StandardCString; theFileName: StandardCString;
                  theLangExt: StandardCString = ""): bool {.
     importcpp: "Message_MsgFile::LoadFromEnv(@)", header: "Message_MsgFile.hxx".}
-proc loadFromString*(theContent: StandardCString; theLength: int = -1): bool {.
+proc loadFromString*(theContent: StandardCString; theLength: cint = -1): bool {.
     importcpp: "Message_MsgFile::LoadFromString(@)", header: "Message_MsgFile.hxx".}
 proc addMsg*(key: TCollectionAsciiString; text: TCollectionExtendedString): bool {.
     importcpp: "Message_MsgFile::AddMsg(@)", header: "Message_MsgFile.hxx".}
@@ -38,3 +38,28 @@ proc msg*(key: StandardCString): TCollectionExtendedString {.
     importcpp: "Message_MsgFile::Msg(@)", header: "Message_MsgFile.hxx".}
 proc msg*(key: TCollectionAsciiString): TCollectionExtendedString {.
     importcpp: "Message_MsgFile::Msg(@)", header: "Message_MsgFile.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

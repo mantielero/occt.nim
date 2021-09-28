@@ -17,3 +17,28 @@
 type
   CDM_NamesDirectory* = TColStdDataMapOfStringInteger
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

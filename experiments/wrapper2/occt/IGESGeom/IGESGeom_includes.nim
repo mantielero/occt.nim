@@ -60,3 +60,28 @@ include IGESGeom_ToolTrimmedSurface
 include IGESGeom_TransformationMatrix
 include IGESGeom_TrimmedSurface
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

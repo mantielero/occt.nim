@@ -25,12 +25,13 @@ type
   IntWalkTheFunctionOfTheInt2S* {.importcpp: "IntWalk_TheFunctionOfTheInt2S",
                                  header: "IntWalk_TheFunctionOfTheInt2S.hxx",
                                  bycopy.} = object of MathFunctionSetWithDerivatives
+    adaptor3dHSurface* {.importc: "Adaptor3d_HSurface".}: Handle
+    adaptor3dHSurface* {.importc: "Adaptor3d_HSurface".}: Handle
 
 
-proc constructIntWalkTheFunctionOfTheInt2S*(s1: Handle[Adaptor3dHSurface];
-    s2: Handle[Adaptor3dHSurface]): IntWalkTheFunctionOfTheInt2S {.constructor,
-    importcpp: "IntWalk_TheFunctionOfTheInt2S(@)",
-    header: "IntWalk_TheFunctionOfTheInt2S.hxx".}
+## !!!Ignored construct:  public : IntWalk_TheFunctionOfTheInt2S ( const Handle ( Adaptor3d_HSurface ) & S1 , const Handle ( Adaptor3d_HSurface ) & S2 ) ;
+## Error: token expected: ) but got: &!!!
+
 proc nbVariables*(this: IntWalkTheFunctionOfTheInt2S): int {.noSideEffect,
     importcpp: "NbVariables", header: "IntWalk_TheFunctionOfTheInt2S.hxx".}
 proc nbEquations*(this: IntWalkTheFunctionOfTheInt2S): int {.noSideEffect,
@@ -62,12 +63,57 @@ proc directionOnS1*(this: IntWalkTheFunctionOfTheInt2S): Dir2d {.noSideEffect,
     importcpp: "DirectionOnS1", header: "IntWalk_TheFunctionOfTheInt2S.hxx".}
 proc directionOnS2*(this: IntWalkTheFunctionOfTheInt2S): Dir2d {.noSideEffect,
     importcpp: "DirectionOnS2", header: "IntWalk_TheFunctionOfTheInt2S.hxx".}
-proc auxillarSurface1*(this: IntWalkTheFunctionOfTheInt2S): Handle[
-    Adaptor3dHSurface] {.noSideEffect, importcpp: "AuxillarSurface1",
-                        header: "IntWalk_TheFunctionOfTheInt2S.hxx".}
-proc auxillarSurface2*(this: IntWalkTheFunctionOfTheInt2S): Handle[
-    Adaptor3dHSurface] {.noSideEffect, importcpp: "AuxillarSurface2",
-                        header: "IntWalk_TheFunctionOfTheInt2S.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_ZerParFunc IntWalk_TheFunctionOfTheInt2S [NewLine] # IntImp_ZerParFunc_hxx < IntWalk_TheFunctionOfTheInt2S . hxx > [NewLine] # < IntImp_ZerParFunc . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_ZerParFunc [NewLine] # IntImp_ZerParFunc_hxx [NewLine] #  _IntWalk_TheFunctionOfTheInt2S_HeaderFile
+## !!!Ignored construct:  & AuxillarSurface1 ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & AuxillarSurface2 ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  # ThePSurface Handle ( Adaptor3d_HSurface ) [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_ZerParFunc IntWalk_TheFunctionOfTheInt2S [NewLine] # IntImp_ZerParFunc_hxx < IntWalk_TheFunctionOfTheInt2S . hxx > [NewLine] # < IntImp_ZerParFunc . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_ZerParFunc [NewLine] # IntImp_ZerParFunc_hxx [NewLine] #  _IntWalk_TheFunctionOfTheInt2S_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

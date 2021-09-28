@@ -20,7 +20,7 @@ discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepDimTol_GeometricTolerance"
 discard "forward decl of StepDimTol_GeometricTolerance"
 type
-  HandleStepDimTolGeometricTolerance* = Handle[StepDimTolGeometricTolerance]
+  HandleC1C1* = Handle[StepDimTolGeometricTolerance]
 
 ## ! Representation of STEP entity GeometricTolerance
 
@@ -84,3 +84,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolGeometricTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_GeometricTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

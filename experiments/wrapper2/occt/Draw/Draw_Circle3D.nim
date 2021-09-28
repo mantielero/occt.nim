@@ -20,11 +20,11 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Circle3D"
 discard "forward decl of Draw_Circle3D"
 type
-  HandleDrawCircle3D* = Handle[DrawCircle3D]
+  HandleC1C1* = Handle[DrawCircle3D]
   DrawCircle3D* {.importcpp: "Draw_Circle3D", header: "Draw_Circle3D.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructDrawCircle3D*(c: Circ; a1: float; a2: float; col: DrawColor): DrawCircle3D {.
+proc constructDrawCircle3D*(c: Circ; a1: cfloat; a2: cfloat; col: DrawColor): DrawCircle3D {.
     constructor, importcpp: "Draw_Circle3D(@)", header: "Draw_Circle3D.hxx".}
 proc drawOn*(this: DrawCircle3D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Circle3D.hxx".}
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Draw_Circle3D.hxx".}
 proc dynamicType*(this: DrawCircle3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Circle3D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

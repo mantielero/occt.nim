@@ -17,3 +17,28 @@
 type
   IGESDataArray1OfIGESEntity* = NCollectionArray1[Handle[IGESDataIGESEntity]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

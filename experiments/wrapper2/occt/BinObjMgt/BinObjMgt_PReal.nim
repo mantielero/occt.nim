@@ -14,5 +14,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  BinObjMgtPReal* = ptr float
+  BinObjMgtPReal* = ptr cfloat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

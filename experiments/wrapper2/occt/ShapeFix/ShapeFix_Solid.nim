@@ -24,7 +24,7 @@ discard "forward decl of ShapeExtend_BasicMsgRegistrator"
 discard "forward decl of ShapeFix_Solid"
 discard "forward decl of ShapeFix_Solid"
 type
-  HandleShapeFixSolid* = Handle[ShapeFixSolid]
+  HandleC1C1* = Handle[ShapeFixSolid]
 
 ## ! Provides method to build a solid from a shells and
 ## ! orients them in order to have a valid solid with finite volume
@@ -56,15 +56,15 @@ proc fixShellTool*(this: ShapeFixSolid): Handle[ShapeFixShell] {.noSideEffect,
 proc setMsgRegistrator*(this: var ShapeFixSolid;
                        msgreg: Handle[ShapeExtendBasicMsgRegistrator]) {.
     importcpp: "SetMsgRegistrator", header: "ShapeFix_Solid.hxx".}
-proc setPrecision*(this: var ShapeFixSolid; preci: float) {.importcpp: "SetPrecision",
-    header: "ShapeFix_Solid.hxx".}
-proc setMinTolerance*(this: var ShapeFixSolid; mintol: float) {.
+proc setPrecision*(this: var ShapeFixSolid; preci: cfloat) {.
+    importcpp: "SetPrecision", header: "ShapeFix_Solid.hxx".}
+proc setMinTolerance*(this: var ShapeFixSolid; mintol: cfloat) {.
     importcpp: "SetMinTolerance", header: "ShapeFix_Solid.hxx".}
-proc setMaxTolerance*(this: var ShapeFixSolid; maxtol: float) {.
+proc setMaxTolerance*(this: var ShapeFixSolid; maxtol: cfloat) {.
     importcpp: "SetMaxTolerance", header: "ShapeFix_Solid.hxx".}
-proc fixShellMode*(this: var ShapeFixSolid): var int {.importcpp: "FixShellMode",
+proc fixShellMode*(this: var ShapeFixSolid): var cint {.importcpp: "FixShellMode",
     header: "ShapeFix_Solid.hxx".}
-proc fixShellOrientationMode*(this: var ShapeFixSolid): var int {.
+proc fixShellOrientationMode*(this: var ShapeFixSolid): var cint {.
     importcpp: "FixShellOrientationMode", header: "ShapeFix_Solid.hxx".}
 proc createOpenSolidMode*(this: var ShapeFixSolid): var bool {.
     importcpp: "CreateOpenSolidMode", header: "ShapeFix_Solid.hxx".}
@@ -80,3 +80,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_Solid.hxx".}
 proc dynamicType*(this: ShapeFixSolid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Solid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

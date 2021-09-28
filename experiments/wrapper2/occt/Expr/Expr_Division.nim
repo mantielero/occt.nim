@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Division"
 discard "forward decl of Expr_Division"
 type
-  HandleExprDivision* = Handle[ExprDivision]
+  HandleC1C1* = Handle[ExprDivision]
   ExprDivision* {.importcpp: "Expr_Division", header: "Expr_Division.hxx", bycopy.} = object of ExprBinaryExpression ##
                                                                                                            ## !
                                                                                                            ## Creates
@@ -46,7 +46,7 @@ proc derivative*(this: ExprDivision; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_Division.hxx".}
 proc evaluate*(this: ExprDivision; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Division.hxx".}
 proc string*(this: ExprDivision): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Division.hxx".}
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_Division.hxx".}
 proc dynamicType*(this: ExprDivision): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Division.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

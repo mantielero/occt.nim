@@ -34,7 +34,7 @@ type
 proc constructStepAP203PersonOrganizationItem*(): StepAP203PersonOrganizationItem {.
     constructor, importcpp: "StepAP203_PersonOrganizationItem(@)",
     header: "StepAP203_PersonOrganizationItem.hxx".}
-proc caseNum*(this: StepAP203PersonOrganizationItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP203PersonOrganizationItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepAP203_PersonOrganizationItem.hxx".}
 proc change*(this: StepAP203PersonOrganizationItem): Handle[StepAP203Change] {.
@@ -68,3 +68,28 @@ proc contract*(this: StepAP203PersonOrganizationItem): Handle[StepBasicContract]
 proc securityClassification*(this: StepAP203PersonOrganizationItem): Handle[
     StepBasicSecurityClassification] {.noSideEffect,
                                       importcpp: "SecurityClassification", header: "StepAP203_PersonOrganizationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

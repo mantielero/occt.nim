@@ -74,3 +74,28 @@ proc value*(this: StepToTopoDS_Builder): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_Builder.hxx".}
 proc error*(this: StepToTopoDS_Builder): StepToTopoDS_BuilderError {.noSideEffect,
     importcpp: "Error", header: "StepToTopoDS_Builder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of StepBasic_SourceItem"
 discard "forward decl of StepBasic_ExternallyDefinedItem"
 discard "forward decl of StepBasic_ExternallyDefinedItem"
 type
-  HandleStepBasicExternallyDefinedItem* = Handle[StepBasicExternallyDefinedItem]
+  HandleC1C1* = Handle[StepBasicExternallyDefinedItem]
 
 ## ! Representation of STEP entity ExternallyDefinedItem
 
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicExternallyDefinedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ExternallyDefinedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepVisualRWFillAreaStyleColour*(): RWStepVisualRWFillAreaStyleC
     constructor, importcpp: "RWStepVisual_RWFillAreaStyleColour(@)",
     header: "RWStepVisual_RWFillAreaStyleColour.hxx".}
 proc readStep*(this: RWStepVisualRWFillAreaStyleColour;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualFillAreaStyleColour]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWFillAreaStyleColour.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepVisualRWFillAreaStyleColour;
            ent: Handle[StepVisualFillAreaStyleColour];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWFillAreaStyleColour.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,8 +23,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeConstruct_ProjectCurveOnSurface"
 discard "forward decl of ShapeConstruct_ProjectCurveOnSurface"
 type
-  HandleShapeConstructProjectCurveOnSurface* = Handle[
-      ShapeConstructProjectCurveOnSurface]
+  HandleC1C1* = Handle[ShapeConstructProjectCurveOnSurface]
 
 ## ! This tool provides a method for computing pcurve by projecting
 ## ! 3d curve onto a surface.
@@ -70,10 +69,10 @@ proc constructShapeConstructProjectCurveOnSurface*(): ShapeConstructProjectCurve
     constructor, importcpp: "ShapeConstruct_ProjectCurveOnSurface(@)",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
 proc init*(this: var ShapeConstructProjectCurveOnSurface; surf: Handle[GeomSurface];
-          preci: float) {.importcpp: "Init",
-                        header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
+          preci: cfloat) {.importcpp: "Init",
+                         header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
 proc init*(this: var ShapeConstructProjectCurveOnSurface;
-          surf: Handle[ShapeAnalysisSurface]; preci: float) {.importcpp: "Init",
+          surf: Handle[ShapeAnalysisSurface]; preci: cfloat) {.importcpp: "Init",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
 proc setSurface*(this: var ShapeConstructProjectCurveOnSurface;
                 surf: Handle[GeomSurface]) {.importcpp: "SetSurface",
@@ -81,26 +80,26 @@ proc setSurface*(this: var ShapeConstructProjectCurveOnSurface;
 proc setSurface*(this: var ShapeConstructProjectCurveOnSurface;
                 surf: Handle[ShapeAnalysisSurface]) {.importcpp: "SetSurface",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc setPrecision*(this: var ShapeConstructProjectCurveOnSurface; preci: float) {.
+proc setPrecision*(this: var ShapeConstructProjectCurveOnSurface; preci: cfloat) {.
     importcpp: "SetPrecision", header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
 proc buildCurveMode*(this: var ShapeConstructProjectCurveOnSurface): var bool {.
     importcpp: "BuildCurveMode",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc adjustOverDegenMode*(this: var ShapeConstructProjectCurveOnSurface): var int {.
+proc adjustOverDegenMode*(this: var ShapeConstructProjectCurveOnSurface): var cint {.
     importcpp: "AdjustOverDegenMode",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
 proc status*(this: ShapeConstructProjectCurveOnSurface;
             theStatus: ShapeExtendStatus): bool {.noSideEffect, importcpp: "Status",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
 proc perform*(this: var ShapeConstructProjectCurveOnSurface;
-             c3d: var Handle[GeomCurve]; first: float; last: float;
-             c2d: var Handle[Geom2dCurve]; tolFirst: float = -1; tolLast: float = -1): bool {.
+             c3d: var Handle[GeomCurve]; first: cfloat; last: cfloat;
+             c2d: var Handle[Geom2dCurve]; tolFirst: cfloat = -1; tolLast: cfloat = -1): bool {.
     importcpp: "Perform", header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
 proc performByProjLib*(this: var ShapeConstructProjectCurveOnSurface;
-                      c3d: var Handle[GeomCurve]; first: float; last: float;
+                      c3d: var Handle[GeomCurve]; first: cfloat; last: cfloat;
                       c2d: var Handle[Geom2dCurve];
-                      continuity: GeomAbsShape = geomAbsC1; maxdeg: int = 12;
-                      nbinterval: int = -1): bool {.importcpp: "PerformByProjLib",
+                      continuity: GeomAbsShape = geomAbsC1; maxdeg: cint = 12;
+                      nbinterval: cint = -1): bool {.importcpp: "PerformByProjLib",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
 type
   ShapeConstructProjectCurveOnSurfacebaseType* = StandardTransient
@@ -113,3 +112,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeConstructProjectCurveOnSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,21 +22,69 @@ type
                                                                                                  ##
                                                                                                  ## !
                                                                                                  ## Constructor.
+    iMeshDataModel* {.importc: "IMeshData_Model".}: Handle
+    standardType* {.importc: "Standard_Type".}: Handle
 
 
 proc destroyIMeshToolsModelBuilder*(this: var IMeshToolsModelBuilder) {.
     importcpp: "#.~IMeshTools_ModelBuilder()",
     header: "IMeshTools_ModelBuilder.hxx".}
-proc perform*(this: var IMeshToolsModelBuilder; theShape: TopoDS_Shape;
-             theParameters: IMeshToolsParameters): Handle[IMeshDataModel] {.
-    importcpp: "Perform", header: "IMeshTools_ModelBuilder.hxx".}
-type
-  IMeshToolsModelBuilderbaseType* = MessageAlgorithm
+## !!!Ignored construct:  Perform ( const TopoDS_Shape & theShape , const IMeshTools_Parameters & theParameters ) { ClearStatus ( ) ; try { OCC_CATCH_SIGNALS return performInternal ( theShape , theParameters ) ; } catch ( Standard_Failure const & ) { SetStatus ( Message_Fail2 ) ; return NULL ; } } public : typedef Message_Algorithm base_type ;
+## Error: token expected: ) but got: [identifier]!!!
 
 proc getTypeName*(): cstring {.importcpp: "IMeshTools_ModelBuilder::get_type_name(@)",
                             header: "IMeshTools_ModelBuilder.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IMeshTools_ModelBuilder::get_type_descriptor(@)",
-    header: "IMeshTools_ModelBuilder.hxx".}
-proc dynamicType*(this: IMeshToolsModelBuilder): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "IMeshTools_ModelBuilder.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  performInternal ( const TopoDS_Shape & theShape , const IMeshTools_Parameters & theParameters ) = 0 ;
+## Error: token expected: ) but got: [identifier]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

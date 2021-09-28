@@ -24,4 +24,3 @@ type
                                 header: "GeomAbs_BSplKnotDistribution.hxx".} = enum
     GeomAbsNonUniform, GeomAbsUniform, GeomAbsQuasiUniform, GeomAbsPiecewiseBezier
 
-

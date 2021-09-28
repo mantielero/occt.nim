@@ -19,7 +19,7 @@ discard "forward decl of Draw_Color"
 discard "forward decl of DBRep_Edge"
 discard "forward decl of DBRep_Edge"
 type
-  HandleDBRepEdge* = Handle[DBRepEdge]
+  HandleC1C1* = Handle[DBRepEdge]
 
 ## ! Display of an edge. Edge + color.
 
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DBRep_Edge::get_type_descriptor(@)", header: "DBRep_Edge.hxx".}
 proc dynamicType*(this: DBRepEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DBRep_Edge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

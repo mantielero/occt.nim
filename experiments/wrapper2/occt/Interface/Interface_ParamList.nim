@@ -20,7 +20,7 @@ discard "forward decl of Interface_FileParameter"
 discard "forward decl of Interface_ParamList"
 discard "forward decl of Interface_ParamList"
 type
-  HandleInterfaceParamList* = Handle[InterfaceParamList]
+  HandleC1C1* = Handle[InterfaceParamList]
   InterfaceParamList* {.importcpp: "Interface_ParamList",
                        header: "Interface_ParamList.hxx", bycopy.} = object of StandardTransient ##
                                                                                           ## !
@@ -37,24 +37,25 @@ type
                                                                                           ## theIncrement
 
 
-proc constructInterfaceParamList*(theIncrement: int = 256): InterfaceParamList {.
+proc constructInterfaceParamList*(theIncrement: cint = 256): InterfaceParamList {.
     constructor, importcpp: "Interface_ParamList(@)",
     header: "Interface_ParamList.hxx".}
-proc length*(this: InterfaceParamList): int {.noSideEffect, importcpp: "Length",
+proc length*(this: InterfaceParamList): cint {.noSideEffect, importcpp: "Length",
     header: "Interface_ParamList.hxx".}
-proc lower*(this: InterfaceParamList): int {.noSideEffect, importcpp: "Lower",
+proc lower*(this: InterfaceParamList): cint {.noSideEffect, importcpp: "Lower",
     header: "Interface_ParamList.hxx".}
-proc upper*(this: InterfaceParamList): int {.noSideEffect, importcpp: "Upper",
+proc upper*(this: InterfaceParamList): cint {.noSideEffect, importcpp: "Upper",
     header: "Interface_ParamList.hxx".}
-proc setValue*(this: var InterfaceParamList; index: int; value: InterfaceFileParameter) {.
-    importcpp: "SetValue", header: "Interface_ParamList.hxx".}
-proc value*(this: InterfaceParamList; index: int): InterfaceFileParameter {.
+proc setValue*(this: var InterfaceParamList; index: cint;
+              value: InterfaceFileParameter) {.importcpp: "SetValue",
+    header: "Interface_ParamList.hxx".}
+proc value*(this: InterfaceParamList; index: cint): InterfaceFileParameter {.
     noSideEffect, importcpp: "Value", header: "Interface_ParamList.hxx".}
-proc `()`*(this: InterfaceParamList; index: int): InterfaceFileParameter {.
+proc `()`*(this: InterfaceParamList; index: cint): InterfaceFileParameter {.
     noSideEffect, importcpp: "#(@)", header: "Interface_ParamList.hxx".}
-proc changeValue*(this: var InterfaceParamList; index: int): var InterfaceFileParameter {.
+proc changeValue*(this: var InterfaceParamList; index: cint): var InterfaceFileParameter {.
     importcpp: "ChangeValue", header: "Interface_ParamList.hxx".}
-proc `()`*(this: var InterfaceParamList; index: int): var InterfaceFileParameter {.
+proc `()`*(this: var InterfaceParamList; index: cint): var InterfaceFileParameter {.
     importcpp: "#(@)", header: "Interface_ParamList.hxx".}
 proc clear*(this: var InterfaceParamList) {.importcpp: "Clear",
                                         header: "Interface_ParamList.hxx".}
@@ -68,3 +69,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_ParamList.hxx".}
 proc dynamicType*(this: InterfaceParamList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_ParamList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

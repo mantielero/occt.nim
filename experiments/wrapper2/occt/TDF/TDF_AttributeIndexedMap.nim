@@ -18,3 +18,28 @@ type
   TDF_AttributeIndexedMap* = NCollectionIndexedMap[Handle[TDF_Attribute],
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

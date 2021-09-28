@@ -95,34 +95,59 @@ proc constructSelect3D_SensitivePoly*(theOwnerId: Handle[SelectMgrEntityOwner];
     constructor, importcpp: "Select3D_SensitivePoly(@)",
     header: "Select3D_SensitivePoly.hxx".}
 proc constructSelect3D_SensitivePoly*(theOwnerId: Handle[SelectMgrEntityOwner];
-                                     theIsBVHEnabled: bool; theNbPnts: int = 6): Select3D_SensitivePoly {.
+                                     theIsBVHEnabled: bool; theNbPnts: cint = 6): Select3D_SensitivePoly {.
     constructor, importcpp: "Select3D_SensitivePoly(@)",
     header: "Select3D_SensitivePoly.hxx".}
-proc nbSubElements*(this: Select3D_SensitivePoly): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitivePoly): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitivePoly.hxx".}
 proc points3D*(this: var Select3D_SensitivePoly;
               theHArrayOfPnt: var Handle[TColgpHArray1OfPnt]) {.
     importcpp: "Points3D", header: "Select3D_SensitivePoly.hxx".}
-proc arrayBounds*(this: Select3D_SensitivePoly; theLow: var int; theUp: var int) {.
+proc arrayBounds*(this: Select3D_SensitivePoly; theLow: var cint; theUp: var cint) {.
     noSideEffect, importcpp: "ArrayBounds", header: "Select3D_SensitivePoly.hxx".}
-proc getPoint3d*(this: Select3D_SensitivePoly; thePntIdx: int): Pnt {.noSideEffect,
+proc getPoint3d*(this: Select3D_SensitivePoly; thePntIdx: cint): Pnt {.noSideEffect,
     importcpp: "GetPoint3d", header: "Select3D_SensitivePoly.hxx".}
 proc boundingBox*(this: var Select3D_SensitivePoly): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitivePoly.hxx".}
 proc centerOfGeometry*(this: Select3D_SensitivePoly): Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitivePoly.hxx".}
-proc size*(this: Select3D_SensitivePoly): int {.noSideEffect, importcpp: "Size",
+proc size*(this: Select3D_SensitivePoly): cint {.noSideEffect, importcpp: "Size",
     header: "Select3D_SensitivePoly.hxx".}
-proc box*(this: Select3D_SensitivePoly; theIdx: int): Select3D_BndBox3d {.
+proc box*(this: Select3D_SensitivePoly; theIdx: cint): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "Select3D_SensitivePoly.hxx".}
-proc center*(this: Select3D_SensitivePoly; theIdx: int; theAxis: int): float {.
+proc center*(this: Select3D_SensitivePoly; theIdx: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center", header: "Select3D_SensitivePoly.hxx".}
-proc swap*(this: var Select3D_SensitivePoly; theIdx1: int; theIdx2: int) {.
+proc swap*(this: var Select3D_SensitivePoly; theIdx1: cint; theIdx2: cint) {.
     importcpp: "Swap", header: "Select3D_SensitivePoly.hxx".}
 proc dumpJson*(this: Select3D_SensitivePoly; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Select3D_SensitivePoly.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Select3D_SensitivePoly.hxx".}
 discard "forward decl of Select3D_SensitivePoly"
 type
-  HandleSelect3D_SensitivePoly* = Handle[Select3D_SensitivePoly]
+  HandleC1C1* = Handle[Select3D_SensitivePoly]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

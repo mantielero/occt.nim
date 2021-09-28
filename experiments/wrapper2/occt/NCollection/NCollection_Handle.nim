@@ -23,8 +23,7 @@
 
 type
   NCollectionHandle*[T] {.importcpp: "NCollection_Handle<\'0>",
-                         header: "NCollection_Handle.hxx", bycopy.} = object of Handle[
-      StandardTransient] ## ! Internal adaptor class wrapping actual type
+                         header: "NCollection_Handle.hxx", bycopy.} = object #of Handle[StandardTransient] ## ! Internal adaptor class wrapping actual type
                         ## ! and enhancing it by reference counter inherited from
                         ## ! Standard_Transient
 

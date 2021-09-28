@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectIntersection"
 discard "forward decl of IFSelect_SelectIntersection"
 type
-  HandleIFSelectSelectIntersection* = Handle[IFSelectSelectIntersection]
+  HandleC1C1* = Handle[IFSelectSelectIntersection]
 
 ## ! A SelectIntersection filters the Entities issued from several
 ## ! other Selections as Intersection of results : "AND" operator
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IFSelectSelectIntersection): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectIntersection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

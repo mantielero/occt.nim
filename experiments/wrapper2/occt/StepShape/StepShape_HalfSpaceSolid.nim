@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_HalfSpaceSolid"
 discard "forward decl of StepShape_HalfSpaceSolid"
 type
-  HandleStepShapeHalfSpaceSolid* = Handle[StepShapeHalfSpaceSolid]
+  HandleC1C1* = Handle[StepShapeHalfSpaceSolid]
   StepShapeHalfSpaceSolid* {.importcpp: "StepShape_HalfSpaceSolid",
                             header: "StepShape_HalfSpaceSolid.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                                       ## !
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_HalfSpaceSolid.hxx".}
 proc dynamicType*(this: StepShapeHalfSpaceSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_HalfSpaceSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

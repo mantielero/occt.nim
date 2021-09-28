@@ -17,7 +17,7 @@
 discard "forward decl of Geom_ElementarySurface"
 discard "forward decl of Geom_ElementarySurface"
 type
-  HandleGeomElementarySurface* = Handle[GeomElementarySurface]
+  HandleC1C1* = Handle[GeomElementarySurface]
 
 ## ! Describes the common behavior of surfaces which
 ## ! have a simple parametric equation in a local
@@ -110,17 +110,19 @@ proc position*(this: GeomElementarySurface): Ax3 {.noSideEffect,
     importcpp: "Position", header: "Geom_ElementarySurface.hxx".}
 proc uReverse*(this: var GeomElementarySurface) {.importcpp: "UReverse",
     header: "Geom_ElementarySurface.hxx".}
-proc uReversedParameter*(this: GeomElementarySurface; u: float): float {.noSideEffect,
-    importcpp: "UReversedParameter", header: "Geom_ElementarySurface.hxx".}
+proc uReversedParameter*(this: GeomElementarySurface; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter",
+    header: "Geom_ElementarySurface.hxx".}
 proc vReverse*(this: var GeomElementarySurface) {.importcpp: "VReverse",
     header: "Geom_ElementarySurface.hxx".}
-proc vReversedParameter*(this: GeomElementarySurface; v: float): float {.noSideEffect,
-    importcpp: "VReversedParameter", header: "Geom_ElementarySurface.hxx".}
+proc vReversedParameter*(this: GeomElementarySurface; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter",
+    header: "Geom_ElementarySurface.hxx".}
 proc continuity*(this: GeomElementarySurface): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_ElementarySurface.hxx".}
-proc isCNu*(this: GeomElementarySurface; n: int): bool {.noSideEffect,
+proc isCNu*(this: GeomElementarySurface; n: int): StandardBoolean {.noSideEffect,
     importcpp: "IsCNu", header: "Geom_ElementarySurface.hxx".}
-proc isCNv*(this: GeomElementarySurface; n: int): bool {.noSideEffect,
+proc isCNv*(this: GeomElementarySurface; n: int): StandardBoolean {.noSideEffect,
     importcpp: "IsCNv", header: "Geom_ElementarySurface.hxx".}
 proc dumpJson*(this: GeomElementarySurface; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",

@@ -53,13 +53,38 @@ proc constructSTEPControlReader*(ws: Handle[XSControlWorkSession];
     header: "STEPControl_Reader.hxx".}
 proc stepModel*(this: STEPControlReader): Handle[StepDataStepModel] {.noSideEffect,
     importcpp: "StepModel", header: "STEPControl_Reader.hxx".}
-proc transferRoot*(this: var STEPControlReader; num: int = 1;
+proc transferRoot*(this: var STEPControlReader; num: cint = 1;
                   theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "TransferRoot", header: "STEPControl_Reader.hxx".}
-proc nbRootsForTransfer*(this: var STEPControlReader): int {.
+proc nbRootsForTransfer*(this: var STEPControlReader): cint {.
     importcpp: "NbRootsForTransfer", header: "STEPControl_Reader.hxx".}
 proc fileUnits*(this: var STEPControlReader;
                theUnitLengthNames: var TColStdSequenceOfAsciiString;
                theUnitAngleNames: var TColStdSequenceOfAsciiString;
                theUnitSolidAngleNames: var TColStdSequenceOfAsciiString) {.
     importcpp: "FileUnits", header: "STEPControl_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,7 +24,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESBasic_GeneralModule"
 discard "forward decl of IGESBasic_GeneralModule"
 type
-  HandleIGESBasicGeneralModule* = Handle[IGESBasicGeneralModule]
+  HandleC1C1* = Handle[IGESBasicGeneralModule]
 
 ## ! Definition of General Services for IGESBasic (specific part)
 ## ! This Services comprise : Shared & Implied Lists, Copy, Check
@@ -47,26 +47,26 @@ type
 
 proc constructIGESBasicGeneralModule*(): IGESBasicGeneralModule {.constructor,
     importcpp: "IGESBasic_GeneralModule(@)", header: "IGESBasic_GeneralModule.hxx".}
-proc ownSharedCase*(this: IGESBasicGeneralModule; cn: int;
+proc ownSharedCase*(this: IGESBasicGeneralModule; cn: cint;
                    ent: Handle[IGESDataIGESEntity];
                    iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnSharedCase", header: "IGESBasic_GeneralModule.hxx".}
-proc dirChecker*(this: IGESBasicGeneralModule; cn: int;
+proc dirChecker*(this: IGESBasicGeneralModule; cn: cint;
                 ent: Handle[IGESDataIGESEntity]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESBasic_GeneralModule.hxx".}
-proc ownCheckCase*(this: IGESBasicGeneralModule; cn: int;
+proc ownCheckCase*(this: IGESBasicGeneralModule; cn: cint;
                   ent: Handle[IGESDataIGESEntity]; shares: InterfaceShareTool;
                   ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheckCase", header: "IGESBasic_GeneralModule.hxx".}
-proc newVoid*(this: IGESBasicGeneralModule; cn: int;
+proc newVoid*(this: IGESBasicGeneralModule; cn: cint;
              entto: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "NewVoid", header: "IGESBasic_GeneralModule.hxx".}
-proc ownCopyCase*(this: IGESBasicGeneralModule; cn: int;
+proc ownCopyCase*(this: IGESBasicGeneralModule; cn: cint;
                  entfrom: Handle[IGESDataIGESEntity];
                  entto: Handle[IGESDataIGESEntity]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopyCase", header: "IGESBasic_GeneralModule.hxx".}
-proc categoryNumber*(this: IGESBasicGeneralModule; cn: int;
-                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): int {.
+proc categoryNumber*(this: IGESBasicGeneralModule; cn: cint;
+                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): cint {.
     noSideEffect, importcpp: "CategoryNumber",
     header: "IGESBasic_GeneralModule.hxx".}
 type
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESBasic_GeneralModule.hxx".}
 proc dynamicType*(this: IGESBasicGeneralModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESBasic_GeneralModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

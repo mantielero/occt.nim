@@ -17,7 +17,7 @@
 discard "forward decl of GeomFill_Line"
 discard "forward decl of GeomFill_Line"
 type
-  HandleGeomFillLine* = Handle[GeomFillLine]
+  HandleC1C1* = Handle[GeomFillLine]
 
 ## ! class for instantiation of AppBlend
 

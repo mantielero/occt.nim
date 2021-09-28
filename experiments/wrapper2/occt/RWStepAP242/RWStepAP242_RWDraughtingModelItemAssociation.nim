@@ -28,7 +28,7 @@ proc constructRWStepAP242RWDraughtingModelItemAssociation*(): RWStepAP242RWDraug
     constructor, importcpp: "RWStepAP242_RWDraughtingModelItemAssociation(@)",
     header: "RWStepAP242_RWDraughtingModelItemAssociation.hxx".}
 proc readStep*(this: RWStepAP242RWDraughtingModelItemAssociation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP242DraughtingModelItemAssociation]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -42,3 +42,28 @@ proc share*(this: RWStepAP242RWDraughtingModelItemAssociation;
            ent: Handle[StepAP242DraughtingModelItemAssociation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP242_RWDraughtingModelItemAssociation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

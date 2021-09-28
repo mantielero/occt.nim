@@ -20,3 +20,28 @@ type
   TNamingMapIteratorOfMapOfNamedShape* = Iterator[Handle[TNamingNamedShape],
       TNamingNamedShapeHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

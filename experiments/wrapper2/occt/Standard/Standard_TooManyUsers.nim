@@ -14,16 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_TooManyUsers_HeaderFile [NewLine] # _Standard_TooManyUsers_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_LicenseError . hxx > [NewLine] class Standard_TooManyUsers ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_TooManyUsers"
 discard "forward decl of Standard_TooManyUsers"
 type
-  HandleStandardTooManyUsersStandardTooManyUsers* = Handle[StandardTooManyUsers]
+  StandardTooManyUsers* {.importcpp: "Standard_TooManyUsers",
+                         header: "Standard_TooManyUsers.hxx", bycopy.} = object of StandardLicenseError
+type
+  HandleStandardTooManyUsers* = Handle[StandardTooManyUsers]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_TooManyUsers [NewLine] # if ( CONDITION ) throw Standard_TooManyUsers ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardTooManyUsers):
+  template standardTooManyUsersRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardTooManyUsers*(a1: Message): Throw {.
+          importcpp: "Standard_TooManyUsers(@)",
+          header: "Standard_TooManyUsers.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_TooManyUsers , Standard_LicenseError ) #  _Standard_TooManyUsers_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

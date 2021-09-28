@@ -17,7 +17,7 @@
 discard "forward decl of DrawFairCurve_MinimalVariation"
 discard "forward decl of DrawFairCurve_MinimalVariation"
 type
-  HandleDrawFairCurveMinimalVariation* = Handle[DrawFairCurveMinimalVariation]
+  HandleC1C1* = Handle[DrawFairCurveMinimalVariation]
 
 ## ! Interactive Draw object of type "MVC"
 
@@ -30,16 +30,16 @@ type
 proc constructDrawFairCurveMinimalVariation*(theMVC: StandardAddress): DrawFairCurveMinimalVariation {.
     constructor, importcpp: "DrawFairCurve_MinimalVariation(@)",
     header: "DrawFairCurve_MinimalVariation.hxx".}
-proc setCurvature*(this: var DrawFairCurveMinimalVariation; side: int; rho: float) {.
+proc setCurvature*(this: var DrawFairCurveMinimalVariation; side: cint; rho: cfloat) {.
     importcpp: "SetCurvature", header: "DrawFairCurve_MinimalVariation.hxx".}
-proc setPhysicalRatio*(this: var DrawFairCurveMinimalVariation; ratio: float) {.
+proc setPhysicalRatio*(this: var DrawFairCurveMinimalVariation; ratio: cfloat) {.
     importcpp: "SetPhysicalRatio", header: "DrawFairCurve_MinimalVariation.hxx".}
-proc getCurvature*(this: DrawFairCurveMinimalVariation; side: int): float {.
+proc getCurvature*(this: DrawFairCurveMinimalVariation; side: cint): cfloat {.
     noSideEffect, importcpp: "GetCurvature",
     header: "DrawFairCurve_MinimalVariation.hxx".}
-proc getPhysicalRatio*(this: DrawFairCurveMinimalVariation): float {.noSideEffect,
+proc getPhysicalRatio*(this: DrawFairCurveMinimalVariation): cfloat {.noSideEffect,
     importcpp: "GetPhysicalRatio", header: "DrawFairCurve_MinimalVariation.hxx".}
-proc freeCurvature*(this: var DrawFairCurveMinimalVariation; side: int) {.
+proc freeCurvature*(this: var DrawFairCurveMinimalVariation; side: cint) {.
     importcpp: "FreeCurvature", header: "DrawFairCurve_MinimalVariation.hxx".}
 type
   DrawFairCurveMinimalVariationbaseType* = DrawFairCurveBatten
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: DrawFairCurveMinimalVariation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "DrawFairCurve_MinimalVariation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

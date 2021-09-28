@@ -18,20 +18,34 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
   Geom2dEvaluator* {.importcpp: "Geom2dEvaluator", header: "Geom2dEvaluator.hxx",
-                    bycopy.} = object ## ! Recalculate D1 values of base curve into D0 value of offset curve
+                    bycopy.} = object
 
 
-proc calculateD0*(theValue: var Pnt2d; theD1: Vec2d; theOffset: float) {.
+proc `new`*(this: var Geom2dEvaluator; theSize: csize_t): pointer {.
+    importcpp: "Geom2dEvaluator::operator new", header: "Geom2dEvaluator.hxx".}
+proc `delete`*(this: var Geom2dEvaluator; theAddress: pointer) {.
+    importcpp: "Geom2dEvaluator::operator delete", header: "Geom2dEvaluator.hxx".}
+proc `new[]`*(this: var Geom2dEvaluator; theSize: csize_t): pointer {.
+    importcpp: "Geom2dEvaluator::operator new[]", header: "Geom2dEvaluator.hxx".}
+proc `delete[]`*(this: var Geom2dEvaluator; theAddress: pointer) {.
+    importcpp: "Geom2dEvaluator::operator delete[]", header: "Geom2dEvaluator.hxx".}
+proc `new`*(this: var Geom2dEvaluator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dEvaluator::operator new", header: "Geom2dEvaluator.hxx".}
+proc `delete`*(this: var Geom2dEvaluator; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dEvaluator::operator delete", header: "Geom2dEvaluator.hxx".}
+proc calculateD0*(theValue: var Pnt2d; theD1: Vec2d; theOffset: StandardReal) {.
     importcpp: "Geom2dEvaluator::CalculateD0(@)", header: "Geom2dEvaluator.hxx".}
-proc calculateD1*(theValue: var Pnt2d; theD1: var Vec2d; theD2: Vec2d; theOffset: float) {.
+proc calculateD1*(theValue: var Pnt2d; theD1: var Vec2d; theD2: Vec2d;
+                 theOffset: StandardReal) {.
     importcpp: "Geom2dEvaluator::CalculateD1(@)", header: "Geom2dEvaluator.hxx".}
 proc calculateD2*(theValue: var Pnt2d; theD1: var Vec2d; theD2: var Vec2d; theD3: Vec2d;
-                 theIsDirChange: bool; theOffset: float) {.
+                 theIsDirChange: StandardBoolean; theOffset: StandardReal) {.
     importcpp: "Geom2dEvaluator::CalculateD2(@)", header: "Geom2dEvaluator.hxx".}
 proc calculateD3*(theValue: var Pnt2d; theD1: var Vec2d; theD2: var Vec2d;
-                 theD3: var Vec2d; theD4: Vec2d; theIsDirChange: bool; theOffset: float) {.
+                 theD3: var Vec2d; theD4: Vec2d; theIsDirChange: StandardBoolean;
+                 theOffset: StandardReal) {.
     importcpp: "Geom2dEvaluator::CalculateD3(@)", header: "Geom2dEvaluator.hxx".}
-proc adjustDerivative*(theMaxDerivative: int; theU: float; theD1: var Vec2d;
-                      theD2: var Vec2d; theD3: var Vec2d; theD4: var Vec2d): bool {.
+proc adjustDerivative*(theMaxDerivative: int; theU: StandardReal; theD1: var Vec2d;
+                      theD2: var Vec2d; theD3: var Vec2d; theD4: var Vec2d): StandardBoolean {.
     importcpp: "Geom2dEvaluator::AdjustDerivative(@)",
     header: "Geom2dEvaluator.hxx".}

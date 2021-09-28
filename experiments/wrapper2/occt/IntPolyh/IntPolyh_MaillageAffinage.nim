@@ -30,104 +30,105 @@ type
     ##  sequentially analyzed, thus we might use the list.
 
 
-proc constructIntPolyhMaillageAffinage*(s1: Handle[Adaptor3dHSurface]; nbSU1: int;
-                                       nbSV1: int; s2: Handle[Adaptor3dHSurface];
-                                       nbSU2: int; nbSV2: int; print: int): IntPolyhMaillageAffinage {.
+proc constructIntPolyhMaillageAffinage*(s1: Handle[Adaptor3dHSurface]; nbSU1: cint;
+                                       nbSV1: cint; s2: Handle[Adaptor3dHSurface];
+                                       nbSU2: cint; nbSV2: cint; print: cint): IntPolyhMaillageAffinage {.
     constructor, importcpp: "IntPolyh_MaillageAffinage(@)",
     header: "IntPolyh_MaillageAffinage.hxx".}
 proc constructIntPolyhMaillageAffinage*(s1: Handle[Adaptor3dHSurface];
-                                       s2: Handle[Adaptor3dHSurface]; print: int): IntPolyhMaillageAffinage {.
+                                       s2: Handle[Adaptor3dHSurface]; print: cint): IntPolyhMaillageAffinage {.
     constructor, importcpp: "IntPolyh_MaillageAffinage(@)",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc makeSampling*(this: var IntPolyhMaillageAffinage; surfID: int;
+proc makeSampling*(this: var IntPolyhMaillageAffinage; surfID: cint;
                   theUPars: var TColStdArray1OfReal;
                   theVPars: var TColStdArray1OfReal) {.importcpp: "MakeSampling",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: int) {.
+proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: cint) {.
     importcpp: "FillArrayOfPnt", header: "IntPolyh_MaillageAffinage.hxx".}
-proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: int; isShiftFwd: bool) {.
-    importcpp: "FillArrayOfPnt", header: "IntPolyh_MaillageAffinage.hxx".}
-proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: int;
+proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: cint;
+                    isShiftFwd: bool) {.importcpp: "FillArrayOfPnt",
+                                      header: "IntPolyh_MaillageAffinage.hxx".}
+proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: cint;
                     upars: TColStdArray1OfReal; vpars: TColStdArray1OfReal;
-                    theDeflTol: ptr float = nil) {.importcpp: "FillArrayOfPnt",
+                    theDeflTol: ptr cfloat = nil) {.importcpp: "FillArrayOfPnt",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: int;
+proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: cint;
                     isShiftFwd: bool; upars: TColStdArray1OfReal;
-                    vpars: TColStdArray1OfReal; theDeflTol: ptr float = nil) {.
+                    vpars: TColStdArray1OfReal; theDeflTol: ptr cfloat = nil) {.
     importcpp: "FillArrayOfPnt", header: "IntPolyh_MaillageAffinage.hxx".}
-proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: int;
+proc fillArrayOfPnt*(this: var IntPolyhMaillageAffinage; surfID: cint;
                     isShiftFwd: bool; thePoints: IntPolyhArrayOfPointNormal;
                     theUPars: TColStdArray1OfReal; theVPars: TColStdArray1OfReal;
-                    theDeflTol: float) {.importcpp: "FillArrayOfPnt",
-                                       header: "IntPolyh_MaillageAffinage.hxx".}
+                    theDeflTol: cfloat) {.importcpp: "FillArrayOfPnt",
+                                        header: "IntPolyh_MaillageAffinage.hxx".}
 proc commonBox*(this: var IntPolyhMaillageAffinage) {.importcpp: "CommonBox",
     header: "IntPolyh_MaillageAffinage.hxx".}
 proc commonBox*(this: var IntPolyhMaillageAffinage; b1: BndBox; b2: BndBox;
-               xMin: var float; yMin: var float; zMin: var float; xMax: var float;
-               yMax: var float; zMax: var float) {.importcpp: "CommonBox",
+               xMin: var cfloat; yMin: var cfloat; zMin: var cfloat; xMax: var cfloat;
+               yMax: var cfloat; zMax: var cfloat) {.importcpp: "CommonBox",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc fillArrayOfEdges*(this: var IntPolyhMaillageAffinage; surfID: int) {.
+proc fillArrayOfEdges*(this: var IntPolyhMaillageAffinage; surfID: cint) {.
     importcpp: "FillArrayOfEdges", header: "IntPolyh_MaillageAffinage.hxx".}
-proc fillArrayOfTriangles*(this: var IntPolyhMaillageAffinage; surfID: int) {.
+proc fillArrayOfTriangles*(this: var IntPolyhMaillageAffinage; surfID: cint) {.
     importcpp: "FillArrayOfTriangles", header: "IntPolyh_MaillageAffinage.hxx".}
 proc commonPartRefinement*(this: var IntPolyhMaillageAffinage) {.
     importcpp: "CommonPartRefinement", header: "IntPolyh_MaillageAffinage.hxx".}
-proc localSurfaceRefinement*(this: var IntPolyhMaillageAffinage; surfId: int) {.
+proc localSurfaceRefinement*(this: var IntPolyhMaillageAffinage; surfId: cint) {.
     importcpp: "LocalSurfaceRefinement", header: "IntPolyh_MaillageAffinage.hxx".}
-proc computeDeflections*(this: var IntPolyhMaillageAffinage; surfID: int) {.
+proc computeDeflections*(this: var IntPolyhMaillageAffinage; surfID: cint) {.
     importcpp: "ComputeDeflections", header: "IntPolyh_MaillageAffinage.hxx".}
 proc trianglesDeflectionsRefinementBSB*(this: var IntPolyhMaillageAffinage) {.
     importcpp: "TrianglesDeflectionsRefinementBSB",
     header: "IntPolyh_MaillageAffinage.hxx".}
 proc triContact*(this: IntPolyhMaillageAffinage; p1: IntPolyhPoint;
                 p2: IntPolyhPoint; p3: IntPolyhPoint; q1: IntPolyhPoint;
-                q2: IntPolyhPoint; q3: IntPolyhPoint; angle: var float): int {.
+                q2: IntPolyhPoint; q3: IntPolyhPoint; angle: var cfloat): cint {.
     noSideEffect, importcpp: "TriContact", header: "IntPolyh_MaillageAffinage.hxx".}
-proc triangleEdgeContact*(this: IntPolyhMaillageAffinage; triSurfID: int;
-                         edgeIndice: int; tri1: IntPolyhTriangle;
+proc triangleEdgeContact*(this: IntPolyhMaillageAffinage; triSurfID: cint;
+                         edgeIndice: cint; tri1: IntPolyhTriangle;
                          tri2: IntPolyhTriangle; p1: IntPolyhPoint;
                          p2: IntPolyhPoint; p3: IntPolyhPoint; c1: IntPolyhPoint;
                          c2: IntPolyhPoint; c3: IntPolyhPoint; pe1: IntPolyhPoint;
                          pe2: IntPolyhPoint; e: IntPolyhPoint; n: IntPolyhPoint;
-                         sp1: var IntPolyhStartPoint; sp2: var IntPolyhStartPoint): int {.
+                         sp1: var IntPolyhStartPoint; sp2: var IntPolyhStartPoint): cint {.
     noSideEffect, importcpp: "TriangleEdgeContact",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc startingPointsResearch*(this: IntPolyhMaillageAffinage; t1: int; t2: int;
+proc startingPointsResearch*(this: IntPolyhMaillageAffinage; t1: cint; t2: cint;
                             sp1: var IntPolyhStartPoint;
-                            sp2: var IntPolyhStartPoint): int {.noSideEffect,
+                            sp2: var IntPolyhStartPoint): cint {.noSideEffect,
     importcpp: "StartingPointsResearch", header: "IntPolyh_MaillageAffinage.hxx".}
-proc nextStartingPointsResearch*(this: IntPolyhMaillageAffinage; t1: int; t2: int;
+proc nextStartingPointsResearch*(this: IntPolyhMaillageAffinage; t1: cint; t2: cint;
                                 sPInit: IntPolyhStartPoint;
-                                sPNext: var IntPolyhStartPoint): int {.noSideEffect,
-    importcpp: "NextStartingPointsResearch",
+                                sPNext: var IntPolyhStartPoint): cint {.
+    noSideEffect, importcpp: "NextStartingPointsResearch",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc triangleCompare*(this: var IntPolyhMaillageAffinage): int {.
+proc triangleCompare*(this: var IntPolyhMaillageAffinage): cint {.
     importcpp: "TriangleCompare", header: "IntPolyh_MaillageAffinage.hxx".}
 proc startPointsChain*(this: var IntPolyhMaillageAffinage;
                       tSectionLines: var IntPolyhArrayOfSectionLines;
-                      tTangentZones: var IntPolyhArrayOfTangentZones): int {.
+                      tTangentZones: var IntPolyhArrayOfTangentZones): cint {.
     importcpp: "StartPointsChain", header: "IntPolyh_MaillageAffinage.hxx".}
 proc getNextChainStartPoint*(this: var IntPolyhMaillageAffinage;
                             sPInit: IntPolyhStartPoint;
                             sPNext: var IntPolyhStartPoint;
                             mySectionLine: var IntPolyhSectionLine;
                             tTangentZones: var IntPolyhArrayOfTangentZones;
-                            prepend: bool = false): int {.
+                            prepend: bool = false): cint {.
     importcpp: "GetNextChainStartPoint", header: "IntPolyh_MaillageAffinage.hxx".}
-proc getArrayOfPoints*(this: IntPolyhMaillageAffinage; surfID: int): IntPolyhArrayOfPoints {.
+proc getArrayOfPoints*(this: IntPolyhMaillageAffinage; surfID: cint): IntPolyhArrayOfPoints {.
     noSideEffect, importcpp: "GetArrayOfPoints",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc getArrayOfEdges*(this: IntPolyhMaillageAffinage; surfID: int): IntPolyhArrayOfEdges {.
+proc getArrayOfEdges*(this: IntPolyhMaillageAffinage; surfID: cint): IntPolyhArrayOfEdges {.
     noSideEffect, importcpp: "GetArrayOfEdges",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc getArrayOfTriangles*(this: IntPolyhMaillageAffinage; surfID: int): IntPolyhArrayOfTriangles {.
+proc getArrayOfTriangles*(this: IntPolyhMaillageAffinage; surfID: cint): IntPolyhArrayOfTriangles {.
     noSideEffect, importcpp: "GetArrayOfTriangles",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc getFinTE*(this: IntPolyhMaillageAffinage; surfID: int): int {.noSideEffect,
+proc getFinTE*(this: IntPolyhMaillageAffinage; surfID: cint): cint {.noSideEffect,
     importcpp: "GetFinTE", header: "IntPolyh_MaillageAffinage.hxx".}
-proc getFinTT*(this: IntPolyhMaillageAffinage; surfID: int): int {.noSideEffect,
+proc getFinTT*(this: IntPolyhMaillageAffinage; surfID: cint): cint {.noSideEffect,
     importcpp: "GetFinTT", header: "IntPolyh_MaillageAffinage.hxx".}
-proc getBox*(this: IntPolyhMaillageAffinage; surfID: int): BndBox {.noSideEffect,
+proc getBox*(this: IntPolyhMaillageAffinage; surfID: cint): BndBox {.noSideEffect,
     importcpp: "GetBox", header: "IntPolyh_MaillageAffinage.hxx".}
 proc getCouples*(this: var IntPolyhMaillageAffinage): var IntPolyhListOfCouples {.
     importcpp: "GetCouples", header: "IntPolyh_MaillageAffinage.hxx".}
@@ -135,9 +136,34 @@ proc setEnlargeZone*(this: var IntPolyhMaillageAffinage; enlargeZone: bool) {.
     importcpp: "SetEnlargeZone", header: "IntPolyh_MaillageAffinage.hxx".}
 proc getEnlargeZone*(this: IntPolyhMaillageAffinage): bool {.noSideEffect,
     importcpp: "GetEnlargeZone", header: "IntPolyh_MaillageAffinage.hxx".}
-proc getMinDeflection*(this: IntPolyhMaillageAffinage; surfID: int): float {.
+proc getMinDeflection*(this: IntPolyhMaillageAffinage; surfID: cint): cfloat {.
     noSideEffect, importcpp: "GetMinDeflection",
     header: "IntPolyh_MaillageAffinage.hxx".}
-proc getMaxDeflection*(this: IntPolyhMaillageAffinage; surfID: int): float {.
+proc getMaxDeflection*(this: IntPolyhMaillageAffinage; surfID: cint): cfloat {.
     noSideEffect, importcpp: "GetMaxDeflection",
     header: "IntPolyh_MaillageAffinage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

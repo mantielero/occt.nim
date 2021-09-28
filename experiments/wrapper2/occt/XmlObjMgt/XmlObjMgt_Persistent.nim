@@ -31,9 +31,9 @@ proc constructXmlObjMgtPersistent*(theElement: XmlObjMgtElement;
     constructor, importcpp: "XmlObjMgt_Persistent(@)",
     header: "XmlObjMgt_Persistent.hxx".}
 proc createElement*(this: var XmlObjMgtPersistent; theParent: var XmlObjMgtElement;
-                   theType: XmlObjMgtDOMString; theID: int) {.
+                   theType: XmlObjMgtDOMString; theID: cint) {.
     importcpp: "CreateElement", header: "XmlObjMgt_Persistent.hxx".}
-proc setId*(this: var XmlObjMgtPersistent; theId: int) {.importcpp: "SetId",
+proc setId*(this: var XmlObjMgtPersistent; theId: cint) {.importcpp: "SetId",
     header: "XmlObjMgt_Persistent.hxx".}
 proc element*(this: XmlObjMgtPersistent): XmlObjMgtElement {.noSideEffect,
     importcpp: "Element", header: "XmlObjMgt_Persistent.hxx".}
@@ -46,5 +46,30 @@ proc element*(this: var XmlObjMgtPersistent): var XmlObjMgtElement {.
 converter `xmlObjMgtElement&`*(this: var XmlObjMgtPersistent): var XmlObjMgtElement {.
     importcpp: "XmlObjMgt_Persistent::operator XmlObjMgt_Element&",
     header: "XmlObjMgt_Persistent.hxx".}
-proc id*(this: XmlObjMgtPersistent): int {.noSideEffect, importcpp: "Id",
-                                       header: "XmlObjMgt_Persistent.hxx".}
+proc id*(this: XmlObjMgtPersistent): cint {.noSideEffect, importcpp: "Id",
+                                        header: "XmlObjMgt_Persistent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

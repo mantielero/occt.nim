@@ -16,7 +16,7 @@
 discard "forward decl of StepDimTol_RunoutZoneOrientation"
 discard "forward decl of StepDimTol_RunoutZoneOrientation"
 type
-  HandleStepDimTolRunoutZoneOrientation* = Handle[StepDimTolRunoutZoneOrientation]
+  HandleC1C1* = Handle[StepDimTolRunoutZoneOrientation]
 
 ## ! Added for Dimensional Tolerances
 
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolRunoutZoneOrientation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_RunoutZoneOrientation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

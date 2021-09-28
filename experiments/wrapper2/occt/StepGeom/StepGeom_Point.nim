@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_Point"
 discard "forward decl of StepGeom_Point"
 type
-  HandleStepGeomPoint* = Handle[StepGeomPoint]
+  HandleC1C1* = Handle[StepGeomPoint]
   StepGeomPoint* {.importcpp: "StepGeom_Point", header: "StepGeom_Point.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                                              ## !
                                                                                                                              ## Returns
@@ -37,3 +37,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Point.hxx".}
 proc dynamicType*(this: StepGeomPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Point.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

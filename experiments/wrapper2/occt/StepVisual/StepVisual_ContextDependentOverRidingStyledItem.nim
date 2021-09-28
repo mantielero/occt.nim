@@ -21,8 +21,7 @@ discard "forward decl of StepVisual_StyleContextSelect"
 discard "forward decl of StepVisual_ContextDependentOverRidingStyledItem"
 discard "forward decl of StepVisual_ContextDependentOverRidingStyledItem"
 type
-  HandleStepVisualContextDependentOverRidingStyledItem* = Handle[
-      StepVisualContextDependentOverRidingStyledItem]
+  HandleC1C1* = Handle[StepVisualContextDependentOverRidingStyledItem]
   StepVisualContextDependentOverRidingStyledItem* {.
       importcpp: "StepVisual_ContextDependentOverRidingStyledItem",
       header: "StepVisual_ContextDependentOverRidingStyledItem.hxx", bycopy.} = object of StepVisualOverRidingStyledItem ##
@@ -52,10 +51,10 @@ proc styleContext*(this: StepVisualContextDependentOverRidingStyledItem): Handle
     importcpp: "StyleContext",
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
 proc styleContextValue*(this: StepVisualContextDependentOverRidingStyledItem;
-                       num: int): StepVisualStyleContextSelect {.noSideEffect,
+                       num: cint): StepVisualStyleContextSelect {.noSideEffect,
     importcpp: "StyleContextValue",
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
-proc nbStyleContext*(this: StepVisualContextDependentOverRidingStyledItem): int {.
+proc nbStyleContext*(this: StepVisualContextDependentOverRidingStyledItem): cint {.
     noSideEffect, importcpp: "NbStyleContext",
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
 type
@@ -66,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Context
     header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
 proc dynamicType*(this: StepVisualContextDependentOverRidingStyledItem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_ContextDependentOverRidingStyledItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

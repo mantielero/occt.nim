@@ -16,7 +16,7 @@
 discard "forward decl of BinMXCAFDoc_NoteBinDataDriver"
 discard "forward decl of BinMXCAFDoc_NoteBinDataDriver"
 type
-  HandleBinMXCAFDocNoteBinDataDriver* = Handle[BinMXCAFDocNoteBinDataDriver]
+  HandleC1C1* = Handle[BinMXCAFDocNoteBinDataDriver]
   BinMXCAFDocNoteBinDataDriver* {.importcpp: "BinMXCAFDoc_NoteBinDataDriver",
                                  header: "BinMXCAFDoc_NoteBinDataDriver.hxx",
                                  bycopy.} = object of BinMXCAFDocNoteDriver
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMXCAFDocNoteBinDataDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMXCAFDoc_NoteBinDataDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

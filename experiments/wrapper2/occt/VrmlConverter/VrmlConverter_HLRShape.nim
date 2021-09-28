@@ -27,3 +27,28 @@ proc add*(anOStream: var StandardOStream; aShape: TopoDS_Shape;
          aProjector: Handle[VrmlConverterProjector]) {.
     importcpp: "VrmlConverter_HLRShape::Add(@)",
     header: "VrmlConverter_HLRShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

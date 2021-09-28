@@ -17,3 +17,28 @@ type
   TDF_LabelMap* = NCollectionMap[TDF_Label, TDF_LabelMapHasher]
   TDF_MapIteratorOfLabelMap* = Iterator[TDF_Label, TDF_LabelMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

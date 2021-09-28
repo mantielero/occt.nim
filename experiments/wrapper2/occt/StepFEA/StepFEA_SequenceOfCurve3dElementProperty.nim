@@ -15,3 +15,28 @@ type
   StepFEA_SequenceOfCurve3dElementProperty* = NCollectionSequence[
       Handle[StepFEA_Curve3dElementProperty]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

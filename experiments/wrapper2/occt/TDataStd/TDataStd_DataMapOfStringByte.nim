@@ -20,3 +20,28 @@ type
   TDataStdDataMapIteratorOfDataMapOfStringByte* = Iterator[
       TCollectionExtendedString, StandardByte, TCollectionExtendedString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

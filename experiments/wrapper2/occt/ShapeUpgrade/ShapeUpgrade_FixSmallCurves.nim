@@ -22,7 +22,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeUpgrade_FixSmallCurves"
 discard "forward decl of ShapeUpgrade_FixSmallCurves"
 type
-  HandleShapeUpgradeFixSmallCurves* = Handle[ShapeUpgradeFixSmallCurves]
+  HandleC1C1* = Handle[ShapeUpgradeFixSmallCurves]
   ShapeUpgradeFixSmallCurves* {.importcpp: "ShapeUpgrade_FixSmallCurves",
                                header: "ShapeUpgrade_FixSmallCurves.hxx", bycopy.} = object of ShapeUpgradeTool
 
@@ -35,7 +35,7 @@ proc init*(this: var ShapeUpgradeFixSmallCurves; theEdge: TopoDS_Edge;
                                 header: "ShapeUpgrade_FixSmallCurves.hxx".}
 proc approx*(this: var ShapeUpgradeFixSmallCurves; curve3d: var Handle[GeomCurve];
             curve2d: var Handle[Geom2dCurve]; curve2dR: var Handle[Geom2dCurve];
-            first: var float; last: var float): bool {.importcpp: "Approx",
+            first: var cfloat; last: var cfloat): bool {.importcpp: "Approx",
     header: "ShapeUpgrade_FixSmallCurves.hxx".}
 proc setSplitCurve3dTool*(this: var ShapeUpgradeFixSmallCurves;
                          splitCurve3dTool: Handle[ShapeUpgradeSplitCurve3d]) {.
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeFixSmallCurves): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_FixSmallCurves.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

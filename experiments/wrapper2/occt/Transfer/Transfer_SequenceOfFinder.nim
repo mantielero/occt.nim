@@ -17,3 +17,28 @@
 type
   TransferSequenceOfFinder* = NCollectionSequence[Handle[TransferFinder]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

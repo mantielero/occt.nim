@@ -31,7 +31,7 @@ type
 proc constructStepBasicDateTimeSelect*(): StepBasicDateTimeSelect {.constructor,
     importcpp: "StepBasic_DateTimeSelect(@)",
     header: "StepBasic_DateTimeSelect.hxx".}
-proc caseNum*(this: StepBasicDateTimeSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepBasicDateTimeSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_DateTimeSelect.hxx".}
 proc date*(this: StepBasicDateTimeSelect): Handle[StepBasicDate] {.noSideEffect,
     importcpp: "Date", header: "StepBasic_DateTimeSelect.hxx".}
@@ -39,3 +39,28 @@ proc localTime*(this: StepBasicDateTimeSelect): Handle[StepBasicLocalTime] {.
     noSideEffect, importcpp: "LocalTime", header: "StepBasic_DateTimeSelect.hxx".}
 proc dateAndTime*(this: StepBasicDateTimeSelect): Handle[StepBasicDateAndTime] {.
     noSideEffect, importcpp: "DateAndTime", header: "StepBasic_DateTimeSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

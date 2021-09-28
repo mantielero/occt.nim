@@ -22,17 +22,29 @@ type
                    bycopy.} = object
 
 
+proc `new`*(this: var GeomFillTensor; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Tensor::operator new", header: "GeomFill_Tensor.hxx".}
+proc `delete`*(this: var GeomFillTensor; theAddress: pointer) {.
+    importcpp: "GeomFill_Tensor::operator delete", header: "GeomFill_Tensor.hxx".}
+proc `new[]`*(this: var GeomFillTensor; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Tensor::operator new[]", header: "GeomFill_Tensor.hxx".}
+proc `delete[]`*(this: var GeomFillTensor; theAddress: pointer) {.
+    importcpp: "GeomFill_Tensor::operator delete[]", header: "GeomFill_Tensor.hxx".}
+proc `new`*(this: var GeomFillTensor; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_Tensor::operator new", header: "GeomFill_Tensor.hxx".}
+proc `delete`*(this: var GeomFillTensor; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_Tensor::operator delete", header: "GeomFill_Tensor.hxx".}
 proc constructGeomFillTensor*(nbRow: int; nbCol: int; nbMat: int): GeomFillTensor {.
     constructor, importcpp: "GeomFill_Tensor(@)", header: "GeomFill_Tensor.hxx".}
-proc init*(this: var GeomFillTensor; initialValue: float) {.importcpp: "Init",
+proc init*(this: var GeomFillTensor; initialValue: StandardReal) {.importcpp: "Init",
     header: "GeomFill_Tensor.hxx".}
-proc value*(this: GeomFillTensor; row: int; col: int; mat: int): float {.noSideEffect,
-    importcpp: "Value", header: "GeomFill_Tensor.hxx".}
-proc `()`*(this: GeomFillTensor; row: int; col: int; mat: int): float {.noSideEffect,
-    importcpp: "#(@)", header: "GeomFill_Tensor.hxx".}
-proc changeValue*(this: var GeomFillTensor; row: int; col: int; mat: int): var float {.
+proc value*(this: GeomFillTensor; row: int; col: int; mat: int): StandardReal {.
+    noSideEffect, importcpp: "Value", header: "GeomFill_Tensor.hxx".}
+proc `()`*(this: GeomFillTensor; row: int; col: int; mat: int): StandardReal {.
+    noSideEffect, importcpp: "#(@)", header: "GeomFill_Tensor.hxx".}
+proc changeValue*(this: var GeomFillTensor; row: int; col: int; mat: int): var StandardReal {.
     importcpp: "ChangeValue", header: "GeomFill_Tensor.hxx".}
-proc `()`*(this: var GeomFillTensor; row: int; col: int; mat: int): var float {.
+proc `()`*(this: var GeomFillTensor; row: int; col: int; mat: int): var StandardReal {.
     importcpp: "#(@)", header: "GeomFill_Tensor.hxx".}
 proc multiply*(this: GeomFillTensor; right: MathVector; product: var MathMatrix) {.
     noSideEffect, importcpp: "Multiply", header: "GeomFill_Tensor.hxx".}

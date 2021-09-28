@@ -29,16 +29,41 @@ type
 
 proc constructStepGeomTrimmingSelect*(): StepGeomTrimmingSelect {.constructor,
     importcpp: "StepGeom_TrimmingSelect(@)", header: "StepGeom_TrimmingSelect.hxx".}
-proc caseNum*(this: StepGeomTrimmingSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepGeomTrimmingSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_TrimmingSelect.hxx".}
 proc newMember*(this: StepGeomTrimmingSelect): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepGeom_TrimmingSelect.hxx".}
-proc caseMem*(this: StepGeomTrimmingSelect; ent: Handle[StepDataSelectMember]): int {.
+proc caseMem*(this: StepGeomTrimmingSelect; ent: Handle[StepDataSelectMember]): cint {.
     noSideEffect, importcpp: "CaseMem", header: "StepGeom_TrimmingSelect.hxx".}
 proc cartesianPoint*(this: StepGeomTrimmingSelect): Handle[StepGeomCartesianPoint] {.
     noSideEffect, importcpp: "CartesianPoint",
     header: "StepGeom_TrimmingSelect.hxx".}
-proc setParameterValue*(this: var StepGeomTrimmingSelect; aParameterValue: float) {.
+proc setParameterValue*(this: var StepGeomTrimmingSelect; aParameterValue: cfloat) {.
     importcpp: "SetParameterValue", header: "StepGeom_TrimmingSelect.hxx".}
-proc parameterValue*(this: StepGeomTrimmingSelect): float {.noSideEffect,
+proc parameterValue*(this: StepGeomTrimmingSelect): cfloat {.noSideEffect,
     importcpp: "ParameterValue", header: "StepGeom_TrimmingSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

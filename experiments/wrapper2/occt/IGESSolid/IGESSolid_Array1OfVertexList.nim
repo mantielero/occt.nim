@@ -17,3 +17,28 @@
 type
   IGESSolidArray1OfVertexList* = NCollectionArray1[Handle[IGESSolidVertexList]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

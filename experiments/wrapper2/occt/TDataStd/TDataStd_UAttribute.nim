@@ -22,7 +22,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataStd_UAttribute"
 discard "forward decl of TDataStd_UAttribute"
 type
-  HandleTDataStdUAttribute* = Handle[TDataStdUAttribute]
+  HandleC1C1* = Handle[TDataStdUAttribute]
   TDataStdUAttribute* {.importcpp: "TDataStd_UAttribute",
                        header: "TDataStd_UAttribute.hxx", bycopy.} = object of TDF_Attribute ##
                                                                                       ## !
@@ -81,8 +81,8 @@ proc references*(this: TDataStdUAttribute; ds: Handle[TDF_DataSet]) {.noSideEffe
 proc dump*(this: TDataStdUAttribute; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_UAttribute.hxx".}
 proc dumpJson*(this: TDataStdUAttribute; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_UAttribute.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_UAttribute.hxx".}
 type
   TDataStdUAttributebaseType* = TDF_Attribute
 
@@ -93,3 +93,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_UAttribute.hxx".}
 proc dynamicType*(this: TDataStdUAttribute): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_UAttribute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

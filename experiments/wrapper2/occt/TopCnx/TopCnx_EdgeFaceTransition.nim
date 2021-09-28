@@ -28,12 +28,12 @@ type
 proc constructTopCnxEdgeFaceTransition*(): TopCnxEdgeFaceTransition {.constructor,
     importcpp: "TopCnx_EdgeFaceTransition(@)",
     header: "TopCnx_EdgeFaceTransition.hxx".}
-proc reset*(this: var TopCnxEdgeFaceTransition; tgt: Dir; norm: Dir; curv: float) {.
+proc reset*(this: var TopCnxEdgeFaceTransition; tgt: Dir; norm: Dir; curv: cfloat) {.
     importcpp: "Reset", header: "TopCnx_EdgeFaceTransition.hxx".}
 proc reset*(this: var TopCnxEdgeFaceTransition; tgt: Dir) {.importcpp: "Reset",
     header: "TopCnx_EdgeFaceTransition.hxx".}
-proc addInterference*(this: var TopCnxEdgeFaceTransition; tole: float; tang: Dir;
-                     norm: Dir; curv: float; `or`: TopAbsOrientation;
+proc addInterference*(this: var TopCnxEdgeFaceTransition; tole: cfloat; tang: Dir;
+                     norm: Dir; curv: cfloat; `or`: TopAbsOrientation;
                      tr: TopAbsOrientation; bTr: TopAbsOrientation) {.
     importcpp: "AddInterference", header: "TopCnx_EdgeFaceTransition.hxx".}
 proc transition*(this: TopCnxEdgeFaceTransition): TopAbsOrientation {.noSideEffect,
@@ -41,3 +41,28 @@ proc transition*(this: TopCnxEdgeFaceTransition): TopAbsOrientation {.noSideEffe
 proc boundaryTransition*(this: TopCnxEdgeFaceTransition): TopAbsOrientation {.
     noSideEffect, importcpp: "BoundaryTransition",
     header: "TopCnx_EdgeFaceTransition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -52,5 +52,30 @@ proc ownCopy*(this: IGESGeomToolFlash; entfrom: Handle[IGESGeomFlash];
              entto: Handle[IGESGeomFlash]; tc: var InterfaceCopyTool) {.noSideEffect,
     importcpp: "OwnCopy", header: "IGESGeom_ToolFlash.hxx".}
 proc ownDump*(this: IGESGeomToolFlash; ent: Handle[IGESGeomFlash];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolFlash.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

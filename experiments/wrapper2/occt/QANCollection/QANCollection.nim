@@ -29,3 +29,28 @@ proc commandsStl*(di: var DrawInterpretor) {.
     importcpp: "QANCollection::CommandsStl(@)", header: "QANCollection.hxx".}
 proc commandsHandle*(di: var DrawInterpretor) {.
     importcpp: "QANCollection::CommandsHandle(@)", header: "QANCollection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

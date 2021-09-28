@@ -15,7 +15,7 @@
 
 discard "forward decl of Message_ProgressIndicator"
 type
-  HandleMessageProgressIndicator* = Handle[MessageProgressIndicator]
+  HandleC1C1* = Handle[MessageProgressIndicator]
 
 discard "forward decl of Message_ProgressRange"
 discard "forward decl of Message_ProgressScope"
@@ -62,7 +62,7 @@ proc start*(this: var MessageProgressIndicator): MessageProgressRange {.
 proc start*(theProgress: Handle[MessageProgressIndicator]): MessageProgressRange {.
     importcpp: "Message_ProgressIndicator::Start(@)",
     header: "Message_ProgressIndicator.hxx".}
-proc getPosition*(this: MessageProgressIndicator): float {.noSideEffect,
+proc getPosition*(this: MessageProgressIndicator): cfloat {.noSideEffect,
     importcpp: "GetPosition", header: "Message_ProgressIndicator.hxx".}
 proc destroyMessageProgressIndicator*(this: var MessageProgressIndicator) {.
     importcpp: "#.~Message_ProgressIndicator()",
@@ -72,6 +72,31 @@ proc destroyMessageProgressIndicator*(this: var MessageProgressIndicator) {.
 ## purpose  :
 ## =======================================================================
 
-proc increment*(this: var MessageProgressIndicator; theStep: float;
+proc increment*(this: var MessageProgressIndicator; theStep: cfloat;
                theScope: MessageProgressScope) {.importcpp: "Increment",
     header: "Message_ProgressIndicator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

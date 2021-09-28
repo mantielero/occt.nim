@@ -18,9 +18,27 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_Curve"
 type
   GeomToolsCurveSet* {.importcpp: "GeomTools_CurveSet",
-                      header: "GeomTools_CurveSet.hxx", bycopy.} = object ## ! Returns an empty set of Curves.
+                      header: "GeomTools_CurveSet.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomToolsCurveSet; theSize: csize_t): pointer {.
+    importcpp: "GeomTools_CurveSet::operator new",
+    header: "GeomTools_CurveSet.hxx".}
+proc `delete`*(this: var GeomToolsCurveSet; theAddress: pointer) {.
+    importcpp: "GeomTools_CurveSet::operator delete",
+    header: "GeomTools_CurveSet.hxx".}
+proc `new[]`*(this: var GeomToolsCurveSet; theSize: csize_t): pointer {.
+    importcpp: "GeomTools_CurveSet::operator new[]",
+    header: "GeomTools_CurveSet.hxx".}
+proc `delete[]`*(this: var GeomToolsCurveSet; theAddress: pointer) {.
+    importcpp: "GeomTools_CurveSet::operator delete[]",
+    header: "GeomTools_CurveSet.hxx".}
+proc `new`*(this: var GeomToolsCurveSet; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomTools_CurveSet::operator new",
+    header: "GeomTools_CurveSet.hxx".}
+proc `delete`*(this: var GeomToolsCurveSet; a2: pointer; a3: pointer) {.
+    importcpp: "GeomTools_CurveSet::operator delete",
+    header: "GeomTools_CurveSet.hxx".}
 proc constructGeomToolsCurveSet*(): GeomToolsCurveSet {.constructor,
     importcpp: "GeomTools_CurveSet(@)", header: "GeomTools_CurveSet.hxx".}
 proc clear*(this: var GeomToolsCurveSet) {.importcpp: "Clear",
@@ -39,7 +57,8 @@ proc write*(this: GeomToolsCurveSet; os: var StandardOStream;
 proc read*(this: var GeomToolsCurveSet; `is`: var StandardIStream;
           theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "GeomTools_CurveSet.hxx".}
-proc printCurve*(c: Handle[GeomCurve]; os: var StandardOStream; compact: bool = false) {.
+proc printCurve*(c: Handle[GeomCurve]; os: var StandardOStream;
+                compact: StandardBoolean = false) {.
     importcpp: "GeomTools_CurveSet::PrintCurve(@)",
     header: "GeomTools_CurveSet.hxx".}
 proc readCurve*(`is`: var StandardIStream): Handle[GeomCurve] {.

@@ -44,7 +44,7 @@ type
 proc constructStepAP214DocumentReferenceItem*(): StepAP214DocumentReferenceItem {.
     constructor, importcpp: "StepAP214_DocumentReferenceItem(@)",
     header: "StepAP214_DocumentReferenceItem.hxx".}
-proc caseNum*(this: StepAP214DocumentReferenceItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP214DocumentReferenceItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepAP214_DocumentReferenceItem.hxx".}
 proc approval*(this: StepAP214DocumentReferenceItem): Handle[StepBasicApproval] {.
@@ -110,3 +110,28 @@ proc productDefinitionContext*(this: StepAP214DocumentReferenceItem): Handle[
 proc representationItem*(this: StepAP214DocumentReferenceItem): Handle[
     StepReprRepresentationItem] {.noSideEffect, importcpp: "RepresentationItem",
                                  header: "StepAP214_DocumentReferenceItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

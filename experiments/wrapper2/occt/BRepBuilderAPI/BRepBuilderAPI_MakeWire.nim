@@ -134,3 +134,28 @@ proc edge*(this: BRepBuilderAPI_MakeWire): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "BRepBuilderAPI_MakeWire.hxx".}
 proc vertex*(this: BRepBuilderAPI_MakeWire): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepBuilderAPI_MakeWire.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

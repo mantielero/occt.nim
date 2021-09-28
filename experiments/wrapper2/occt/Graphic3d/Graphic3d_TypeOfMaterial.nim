@@ -24,3 +24,28 @@ type
     Graphic3dMATERIAL_PHYSIC  ## !< physical material definition with fixed color (like gold)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

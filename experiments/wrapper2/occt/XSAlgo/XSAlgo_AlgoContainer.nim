@@ -23,7 +23,7 @@ discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of XSAlgo_AlgoContainer"
 discard "forward decl of XSAlgo_AlgoContainer"
 type
-  HandleXSAlgoAlgoContainer* = Handle[XSAlgoAlgoContainer]
+  HandleC1C1* = Handle[XSAlgoAlgoContainer]
   XSAlgoAlgoContainer* {.importcpp: "XSAlgo_AlgoContainer",
                         header: "XSAlgo_AlgoContainer.hxx", bycopy.} = object of StandardTransient ##
                                                                                             ## !
@@ -40,18 +40,18 @@ proc toolContainer*(this: XSAlgoAlgoContainer): Handle[XSAlgoToolContainer] {.
     noSideEffect, importcpp: "ToolContainer", header: "XSAlgo_AlgoContainer.hxx".}
 proc prepareForTransfer*(this: XSAlgoAlgoContainer) {.noSideEffect,
     importcpp: "PrepareForTransfer", header: "XSAlgo_AlgoContainer.hxx".}
-proc processShape*(this: XSAlgoAlgoContainer; shape: TopoDS_Shape; prec: float;
-                  maxTol: float; rscfile: StandardCString; seq: StandardCString;
+proc processShape*(this: XSAlgoAlgoContainer; shape: TopoDS_Shape; prec: cfloat;
+                  maxTol: cfloat; rscfile: StandardCString; seq: StandardCString;
                   info: var Handle[StandardTransient];
                   theProgress: MessageProgressRange = messageProgressRange();
                   nonManifold: bool = false): TopoDS_Shape {.noSideEffect,
     importcpp: "ProcessShape", header: "XSAlgo_AlgoContainer.hxx".}
 proc checkPCurve*(this: XSAlgoAlgoContainer; edge: TopoDS_Edge; face: TopoDS_Face;
-                 preci: float; isSeam: bool): bool {.noSideEffect,
+                 preci: cfloat; isSeam: bool): bool {.noSideEffect,
     importcpp: "CheckPCurve", header: "XSAlgo_AlgoContainer.hxx".}
 proc mergeTransferInfo*(this: XSAlgoAlgoContainer;
                        tp: Handle[TransferTransientProcess];
-                       info: Handle[StandardTransient]; startTPitem: int = 1) {.
+                       info: Handle[StandardTransient]; startTPitem: cint = 1) {.
     noSideEffect, importcpp: "MergeTransferInfo",
     header: "XSAlgo_AlgoContainer.hxx".}
 proc mergeTransferInfo*(this: XSAlgoAlgoContainer;
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XSAlgo_AlgoContainer.hxx".}
 proc dynamicType*(this: XSAlgoAlgoContainer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XSAlgo_AlgoContainer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

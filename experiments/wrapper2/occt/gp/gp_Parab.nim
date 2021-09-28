@@ -19,17 +19,29 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  Parab* {.importcpp: "gp_Parab", header: "gp_Parab.hxx", bycopy.} = object ## ! Creates an indefinite Parabola.
+  Parab* {.importcpp: "gp_Parab", header: "gp_Parab.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Parab; theSize: csize_t): pointer {.
+    importcpp: "gp_Parab::operator new", header: "gp_Parab.hxx".}
+proc `delete`*(this: var Parab; theAddress: pointer) {.
+    importcpp: "gp_Parab::operator delete", header: "gp_Parab.hxx".}
+proc `new[]`*(this: var Parab; theSize: csize_t): pointer {.
+    importcpp: "gp_Parab::operator new[]", header: "gp_Parab.hxx".}
+proc `delete[]`*(this: var Parab; theAddress: pointer) {.
+    importcpp: "gp_Parab::operator delete[]", header: "gp_Parab.hxx".}
+proc `new`*(this: var Parab; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Parab::operator new", header: "gp_Parab.hxx".}
+proc `delete`*(this: var Parab; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Parab::operator delete", header: "gp_Parab.hxx".}
 proc constructParab*(): Parab {.constructor, importcpp: "gp_Parab(@)",
                              header: "gp_Parab.hxx".}
-proc constructParab*(a2: Ax2; focal: float): Parab {.constructor,
+proc constructParab*(a2: Ax2; focal: StandardReal): Parab {.constructor,
     importcpp: "gp_Parab(@)", header: "gp_Parab.hxx".}
 proc constructParab*(d: Ax1; f: Pnt): Parab {.constructor, importcpp: "gp_Parab(@)",
                                         header: "gp_Parab.hxx".}
 proc setAxis*(this: var Parab; a1: Ax1) {.importcpp: "SetAxis", header: "gp_Parab.hxx".}
-proc setFocal*(this: var Parab; focal: float) {.importcpp: "SetFocal",
+proc setFocal*(this: var Parab; focal: StandardReal) {.importcpp: "SetFocal",
     header: "gp_Parab.hxx".}
 proc setLocation*(this: var Parab; p: Pnt) {.importcpp: "SetLocation",
                                        header: "gp_Parab.hxx".}
@@ -38,14 +50,14 @@ proc setPosition*(this: var Parab; a2: Ax2) {.importcpp: "SetPosition",
 proc axis*(this: Parab): Ax1 {.noSideEffect, importcpp: "Axis", header: "gp_Parab.hxx".}
 proc directrix*(this: Parab): Ax1 {.noSideEffect, importcpp: "Directrix",
                                 header: "gp_Parab.hxx".}
-proc focal*(this: Parab): float {.noSideEffect, importcpp: "Focal",
-                              header: "gp_Parab.hxx".}
+proc focal*(this: Parab): StandardReal {.noSideEffect, importcpp: "Focal",
+                                     header: "gp_Parab.hxx".}
 proc focus*(this: Parab): Pnt {.noSideEffect, importcpp: "Focus",
                             header: "gp_Parab.hxx".}
 proc location*(this: Parab): Pnt {.noSideEffect, importcpp: "Location",
                                header: "gp_Parab.hxx".}
-proc parameter*(this: Parab): float {.noSideEffect, importcpp: "Parameter",
-                                  header: "gp_Parab.hxx".}
+proc parameter*(this: Parab): StandardReal {.noSideEffect, importcpp: "Parameter",
+    header: "gp_Parab.hxx".}
 proc position*(this: Parab): Ax2 {.noSideEffect, importcpp: "Position",
                                header: "gp_Parab.hxx".}
 proc xAxis*(this: Parab): Ax1 {.noSideEffect, importcpp: "XAxis",
@@ -61,14 +73,14 @@ proc mirrored*(this: Parab; a1: Ax1): Parab {.noSideEffect, importcpp: "Mirrored
 proc mirror*(this: var Parab; a2: Ax2) {.importcpp: "Mirror", header: "gp_Parab.hxx".}
 proc mirrored*(this: Parab; a2: Ax2): Parab {.noSideEffect, importcpp: "Mirrored",
                                         header: "gp_Parab.hxx".}
-proc rotate*(this: var Parab; a1: Ax1; ang: float) {.importcpp: "Rotate",
+proc rotate*(this: var Parab; a1: Ax1; ang: StandardReal) {.importcpp: "Rotate",
     header: "gp_Parab.hxx".}
-proc rotated*(this: Parab; a1: Ax1; ang: float): Parab {.noSideEffect,
+proc rotated*(this: Parab; a1: Ax1; ang: StandardReal): Parab {.noSideEffect,
     importcpp: "Rotated", header: "gp_Parab.hxx".}
-proc scale*(this: var Parab; p: Pnt; s: float) {.importcpp: "Scale",
+proc scale*(this: var Parab; p: Pnt; s: StandardReal) {.importcpp: "Scale",
     header: "gp_Parab.hxx".}
-proc scaled*(this: Parab; p: Pnt; s: float): Parab {.noSideEffect, importcpp: "Scaled",
-    header: "gp_Parab.hxx".}
+proc scaled*(this: Parab; p: Pnt; s: StandardReal): Parab {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Parab.hxx".}
 proc transform*(this: var Parab; t: Trsf) {.importcpp: "Transform",
                                       header: "gp_Parab.hxx".}
 proc transformed*(this: Parab; t: Trsf): Parab {.noSideEffect,

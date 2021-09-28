@@ -14,47 +14,61 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IGESData_GlobalNodeOfSpecificLib"
+## !!!Ignored construct:  # _IGESData_NodeOfSpecificLib_HeaderFile [NewLine] # _IGESData_NodeOfSpecificLib_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] class IGESData_GlobalNodeOfSpecificLib ;
+## Error: expected ';'!!!
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_SpecificModule"
 discard "forward decl of IGESData_Protocol"
 discard "forward decl of IGESData_SpecificLib"
 discard "forward decl of IGESData_NodeOfSpecificLib"
-discard "forward decl of IGESData_NodeOfSpecificLib"
-type
-  HandleIGESDataNodeOfSpecificLib* = Handle[IGESDataNodeOfSpecificLib]
-  IGESDataNodeOfSpecificLib* {.importcpp: "IGESData_NodeOfSpecificLib",
-                              header: "IGESData_NodeOfSpecificLib.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## an
-                                                                                                        ## empty
-                                                                                                        ## Node,
-                                                                                                        ## with
-                                                                                                        ## no
-                                                                                                        ## Next
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( IGESData_NodeOfSpecificLib , Standard_Transient ) class IGESData_NodeOfSpecificLib : public Standard_Transient { public : ! Creates an empty Node, with no Next IGESData_NodeOfSpecificLib ( ) ; ! Adds a couple (Module,Protocol), that is, stores it into
+## ! itself if not yet done, else creates a Next Node to do it void AddNode ( const Handle ( IGESData_GlobalNodeOfSpecificLib ) & anode ) ; ! Returns the Module designated by a precise Node const Handle ( IGESData_SpecificModule ) & Module ( ) const ; ! Returns the Protocol designated by a precise Node const Handle ( IGESData_Protocol ) & Protocol ( ) const ; ! Returns the Next Node. If none was defined, returned value
+## ! is a Null Handle const Handle ( IGESData_NodeOfSpecificLib ) & Next ( ) const ; public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return IGESData_NodeOfSpecificLib ; ( IGESData_NodeOfSpecificLib , Standard_Transient ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < IGESData_NodeOfSpecificLib > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : private : Handle ( IGESData_GlobalNodeOfSpecificLib ) thenode ; Handle ( IGESData_NodeOfSpecificLib ) thenext ; } ;
+## Error: expected ';'!!!
 
 
-proc constructIGESDataNodeOfSpecificLib*(): IGESDataNodeOfSpecificLib {.
-    constructor, importcpp: "IGESData_NodeOfSpecificLib(@)",
-    header: "IGESData_NodeOfSpecificLib.hxx".}
-proc addNode*(this: var IGESDataNodeOfSpecificLib;
-             anode: Handle[IGESDataGlobalNodeOfSpecificLib]) {.
-    importcpp: "AddNode", header: "IGESData_NodeOfSpecificLib.hxx".}
-proc module*(this: IGESDataNodeOfSpecificLib): Handle[IGESDataSpecificModule] {.
-    noSideEffect, importcpp: "Module", header: "IGESData_NodeOfSpecificLib.hxx".}
-proc protocol*(this: IGESDataNodeOfSpecificLib): Handle[IGESDataProtocol] {.
-    noSideEffect, importcpp: "Protocol", header: "IGESData_NodeOfSpecificLib.hxx".}
-proc next*(this: IGESDataNodeOfSpecificLib): Handle[IGESDataNodeOfSpecificLib] {.
-    noSideEffect, importcpp: "Next", header: "IGESData_NodeOfSpecificLib.hxx".}
-type
-  IGESDataNodeOfSpecificLibbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_NodeOfSpecificLib::get_type_name(@)",
-                            header: "IGESData_NodeOfSpecificLib.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESData_NodeOfSpecificLib::get_type_descriptor(@)",
-    header: "IGESData_NodeOfSpecificLib.hxx".}
-proc dynamicType*(this: IGESDataNodeOfSpecificLib): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESData_NodeOfSpecificLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

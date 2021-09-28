@@ -23,3 +23,28 @@ proc createDocument*(aNamespaceURI: LDOMString; aQualifiedName: LDOMString;
                     aDocType: LDOM_DocumentType): LDOM_Document {.
     importcpp: "LDOM_LDOMImplementation::createDocument(@)",
     header: "LDOM_LDOMImplementation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

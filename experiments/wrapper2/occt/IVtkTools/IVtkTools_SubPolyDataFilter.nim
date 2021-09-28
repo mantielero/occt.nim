@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# when defined(_MSC_VER):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(_MSC_VER):
 ## ! @class IVtkTools_SubPolyDataFilter
 ## ! @brief Cells filter according to the given set of cells ids.
 
@@ -78,6 +78,102 @@ proc setIdsArrayName*(this: var IVtkToolsSubPolyDataFilter; theArrayName: cstrin
     importcpp: "SetIdsArrayName", header: "IVtkTools_SubPolyDataFilter.hxx".}
 proc setDoFiltering*(this: var IVtkToolsSubPolyDataFilter; theDoFiltering: bool) {.
     importcpp: "SetDoFiltering", header: "IVtkTools_SubPolyDataFilter.hxx".}
-# # when defined(_MSC_VER):
-#   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(_MSC_VER):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

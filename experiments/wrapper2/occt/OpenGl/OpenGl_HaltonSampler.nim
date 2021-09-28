@@ -41,3 +41,28 @@ proc sample*(this: OpenGlHaltonSampler; theDimension: cuint; theIndex: cuint): c
     noSideEffect, importcpp: "sample", header: "OpenGl_HaltonSampler.hxx".}
 proc initFaure*(this: var OpenGlHaltonSampler) {.importcpp: "initFaure",
     header: "OpenGl_HaltonSampler.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

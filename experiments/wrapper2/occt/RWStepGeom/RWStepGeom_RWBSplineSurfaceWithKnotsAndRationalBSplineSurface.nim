@@ -29,7 +29,7 @@ proc constructRWStepGeomRWBSplineSurfaceWithKnotsAndRationalBSplineSurface*(): R
     constructor, importcpp: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface(@)",
     header: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
 proc readStep*(this: RWStepGeomRWBSplineSurfaceWithKnotsAndRationalBSplineSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -48,3 +48,28 @@ proc check*(this: RWStepGeomRWBSplineSurfaceWithKnotsAndRationalBSplineSurface; 
            shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "Check",
     header: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

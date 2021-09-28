@@ -18,7 +18,7 @@ discard "forward decl of StepVisual_FillAreaStyle"
 discard "forward decl of StepVisual_SurfaceStyleFillArea"
 discard "forward decl of StepVisual_SurfaceStyleFillArea"
 type
-  HandleStepVisualSurfaceStyleFillArea* = Handle[StepVisualSurfaceStyleFillArea]
+  HandleC1C1* = Handle[StepVisualSurfaceStyleFillArea]
   StepVisualSurfaceStyleFillArea* {.importcpp: "StepVisual_SurfaceStyleFillArea", header: "StepVisual_SurfaceStyleFillArea.hxx",
                                    bycopy.} = object of StandardTransient ## ! Returns a
                                                                      ## SurfaceStyleFillArea
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualSurfaceStyleFillArea): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleFillArea.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

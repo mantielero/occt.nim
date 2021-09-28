@@ -22,7 +22,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of StepData_DefaultGeneral"
 discard "forward decl of StepData_DefaultGeneral"
 type
-  HandleStepDataDefaultGeneral* = Handle[StepDataDefaultGeneral]
+  HandleC1C1* = Handle[StepDataDefaultGeneral]
 
 ## ! DefaultGeneral defines a GeneralModule which processes
 ## ! Unknown Entity from StepData  only
@@ -40,18 +40,18 @@ type
 
 proc constructStepDataDefaultGeneral*(): StepDataDefaultGeneral {.constructor,
     importcpp: "StepData_DefaultGeneral(@)", header: "StepData_DefaultGeneral.hxx".}
-proc fillSharedCase*(this: StepDataDefaultGeneral; casenum: int;
+proc fillSharedCase*(this: StepDataDefaultGeneral; casenum: cint;
                     ent: Handle[StandardTransient];
                     iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillSharedCase", header: "StepData_DefaultGeneral.hxx".}
-proc checkCase*(this: StepDataDefaultGeneral; casenum: int;
+proc checkCase*(this: StepDataDefaultGeneral; casenum: cint;
                ent: Handle[StandardTransient]; shares: InterfaceShareTool;
                ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "CheckCase", header: "StepData_DefaultGeneral.hxx".}
-proc newVoid*(this: StepDataDefaultGeneral; cn: int;
+proc newVoid*(this: StepDataDefaultGeneral; cn: cint;
              entto: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "NewVoid", header: "StepData_DefaultGeneral.hxx".}
-proc copyCase*(this: StepDataDefaultGeneral; casenum: int;
+proc copyCase*(this: StepDataDefaultGeneral; casenum: cint;
               entfrom: Handle[StandardTransient];
               entto: Handle[StandardTransient]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "CopyCase", header: "StepData_DefaultGeneral.hxx".}
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_DefaultGeneral.hxx".}
 proc dynamicType*(this: StepDataDefaultGeneral): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_DefaultGeneral.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

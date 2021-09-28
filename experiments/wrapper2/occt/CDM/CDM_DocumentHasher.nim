@@ -17,3 +17,28 @@
 type
   CDM_DocumentHasher* = NCollectionDefaultHasher[Handle[CDM_Document]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

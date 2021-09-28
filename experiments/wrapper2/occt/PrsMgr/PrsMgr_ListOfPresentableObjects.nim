@@ -19,3 +19,28 @@ type
       Handle[PrsMgrPresentableObject]]
   PrsMgrListOfPresentableObjectsIter* = Iterator[Handle[PrsMgrPresentableObject]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_SolidAngleUnit"
 discard "forward decl of StepBasic_SolidAngleUnit"
 type
-  HandleStepBasicSolidAngleUnit* = Handle[StepBasicSolidAngleUnit]
+  HandleC1C1* = Handle[StepBasicSolidAngleUnit]
   StepBasicSolidAngleUnit* {.importcpp: "StepBasic_SolidAngleUnit",
                             header: "StepBasic_SolidAngleUnit.hxx", bycopy.} = object of StepBasicNamedUnit ##
                                                                                                      ## !
@@ -39,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_SolidAngleUnit.hxx".}
 proc dynamicType*(this: StepBasicSolidAngleUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_SolidAngleUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

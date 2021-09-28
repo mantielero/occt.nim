@@ -33,5 +33,30 @@ proc constructShapeUpgradeShapeDivideArea*(): ShapeUpgradeShapeDivideArea {.
 proc constructShapeUpgradeShapeDivideArea*(s: TopoDS_Shape): ShapeUpgradeShapeDivideArea {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideArea(@)",
     header: "ShapeUpgrade_ShapeDivideArea.hxx".}
-proc maxArea*(this: var ShapeUpgradeShapeDivideArea): var float {.
+proc maxArea*(this: var ShapeUpgradeShapeDivideArea): var cfloat {.
     importcpp: "MaxArea", header: "ShapeUpgrade_ShapeDivideArea.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

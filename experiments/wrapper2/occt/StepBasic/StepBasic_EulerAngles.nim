@@ -16,7 +16,7 @@
 discard "forward decl of StepBasic_EulerAngles"
 discard "forward decl of StepBasic_EulerAngles"
 type
-  HandleStepBasicEulerAngles* = Handle[StepBasicEulerAngles]
+  HandleC1C1* = Handle[StepBasicEulerAngles]
 
 ## ! Representation of STEP entity EulerAngles
 
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_EulerAngles.hxx".}
 proc dynamicType*(this: StepBasicEulerAngles): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_EulerAngles.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

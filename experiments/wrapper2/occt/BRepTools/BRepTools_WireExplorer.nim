@@ -45,8 +45,8 @@ proc init*(this: var BRepToolsWireExplorer; w: TopoDS_Wire) {.importcpp: "Init",
     header: "BRepTools_WireExplorer.hxx".}
 proc init*(this: var BRepToolsWireExplorer; w: TopoDS_Wire; f: TopoDS_Face) {.
     importcpp: "Init", header: "BRepTools_WireExplorer.hxx".}
-proc init*(this: var BRepToolsWireExplorer; w: TopoDS_Wire; f: TopoDS_Face; uMin: float;
-          uMax: float; vMin: float; vMax: float) {.importcpp: "Init",
+proc init*(this: var BRepToolsWireExplorer; w: TopoDS_Wire; f: TopoDS_Face;
+          uMin: cfloat; uMax: cfloat; vMin: cfloat; vMax: cfloat) {.importcpp: "Init",
     header: "BRepTools_WireExplorer.hxx".}
 proc more*(this: BRepToolsWireExplorer): bool {.noSideEffect, importcpp: "More",
     header: "BRepTools_WireExplorer.hxx".}
@@ -60,3 +60,28 @@ proc currentVertex*(this: BRepToolsWireExplorer): TopoDS_Vertex {.noSideEffect,
     importcpp: "CurrentVertex", header: "BRepTools_WireExplorer.hxx".}
 proc clear*(this: var BRepToolsWireExplorer) {.importcpp: "Clear",
     header: "BRepTools_WireExplorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

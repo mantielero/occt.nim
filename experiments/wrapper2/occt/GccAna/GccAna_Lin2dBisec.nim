@@ -27,13 +27,38 @@ proc constructGccAnaLin2dBisec*(lin1: Lin2d; lin2: Lin2d): GccAnaLin2dBisec {.
     constructor, importcpp: "GccAna_Lin2dBisec(@)", header: "GccAna_Lin2dBisec.hxx".}
 proc isDone*(this: GccAnaLin2dBisec): bool {.noSideEffect, importcpp: "IsDone",
     header: "GccAna_Lin2dBisec.hxx".}
-proc nbSolutions*(this: GccAnaLin2dBisec): int {.noSideEffect,
+proc nbSolutions*(this: GccAnaLin2dBisec): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Lin2dBisec.hxx".}
-proc thisSolution*(this: GccAnaLin2dBisec; index: int): Lin2d {.noSideEffect,
+proc thisSolution*(this: GccAnaLin2dBisec; index: cint): Lin2d {.noSideEffect,
     importcpp: "ThisSolution", header: "GccAna_Lin2dBisec.hxx".}
-proc intersection1*(this: GccAnaLin2dBisec; index: int; parSol: var float;
-                   parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+proc intersection1*(this: GccAnaLin2dBisec; index: cint; parSol: var cfloat;
+                   parArg: var cfloat; pntSol: var Pnt2d) {.noSideEffect,
     importcpp: "Intersection1", header: "GccAna_Lin2dBisec.hxx".}
-proc intersection2*(this: GccAnaLin2dBisec; index: int; parSol: var float;
-                   parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+proc intersection2*(this: GccAnaLin2dBisec; index: cint; parSol: var cfloat;
+                   parArg: var cfloat; pntSol: var Pnt2d) {.noSideEffect,
     importcpp: "Intersection2", header: "GccAna_Lin2dBisec.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

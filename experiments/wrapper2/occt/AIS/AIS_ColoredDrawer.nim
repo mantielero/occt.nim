@@ -64,17 +64,40 @@ proc hasOwnTransparency*(this: AIS_ColoredDrawer): bool {.noSideEffect,
     importcpp: "HasOwnTransparency", header: "AIS_ColoredDrawer.hxx".}
 proc unsetOwnTransparency*(this: var AIS_ColoredDrawer) {.
     importcpp: "UnsetOwnTransparency", header: "AIS_ColoredDrawer.hxx".}
-proc setOwnTransparency*(this: var AIS_ColoredDrawer; a2: float) {.
+proc setOwnTransparency*(this: var AIS_ColoredDrawer; a2: cfloat) {.
     importcpp: "SetOwnTransparency", header: "AIS_ColoredDrawer.hxx".}
-  ## theTransp
 proc hasOwnWidth*(this: AIS_ColoredDrawer): bool {.noSideEffect,
     importcpp: "HasOwnWidth", header: "AIS_ColoredDrawer.hxx".}
 proc unsetOwnWidth*(this: var AIS_ColoredDrawer) {.importcpp: "UnsetOwnWidth",
     header: "AIS_ColoredDrawer.hxx".}
-proc setOwnWidth*(this: var AIS_ColoredDrawer; a2: float) {.importcpp: "SetOwnWidth",
+proc setOwnWidth*(this: var AIS_ColoredDrawer; a2: cfloat) {.importcpp: "SetOwnWidth",
     header: "AIS_ColoredDrawer.hxx".}
-  ## theWidth
 discard "forward decl of AIS_ColoredDrawer"
 type
-  HandleAIS_ColoredDrawer* = Handle[AIS_ColoredDrawer]
+  HandleC1C1* = Handle[AIS_ColoredDrawer]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

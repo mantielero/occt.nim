@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_AddFileComment"
 discard "forward decl of IGESSelect_AddFileComment"
 type
-  HandleIGESSelectAddFileComment* = Handle[IGESSelectAddFileComment]
+  HandleC1C1* = Handle[IGESSelectAddFileComment]
 
 ## ! This class allows to add comment lines on writing an IGES File
 ## ! These lines are added to Start Section, instead of the only
@@ -52,9 +52,9 @@ proc addLine*(this: var IGESSelectAddFileComment; line: StandardCString) {.
 proc addLines*(this: var IGESSelectAddFileComment;
               lines: Handle[TColStdHSequenceOfHAsciiString]) {.
     importcpp: "AddLines", header: "IGESSelect_AddFileComment.hxx".}
-proc nbLines*(this: IGESSelectAddFileComment): int {.noSideEffect,
+proc nbLines*(this: IGESSelectAddFileComment): cint {.noSideEffect,
     importcpp: "NbLines", header: "IGESSelect_AddFileComment.hxx".}
-proc line*(this: IGESSelectAddFileComment; num: int): StandardCString {.noSideEffect,
+proc line*(this: IGESSelectAddFileComment; num: cint): StandardCString {.noSideEffect,
     importcpp: "Line", header: "IGESSelect_AddFileComment.hxx".}
 proc lines*(this: IGESSelectAddFileComment): Handle[TColStdHSequenceOfHAsciiString] {.
     noSideEffect, importcpp: "Lines", header: "IGESSelect_AddFileComment.hxx".}
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_AddFileComment.hxx".}
 proc dynamicType*(this: IGESSelectAddFileComment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_AddFileComment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

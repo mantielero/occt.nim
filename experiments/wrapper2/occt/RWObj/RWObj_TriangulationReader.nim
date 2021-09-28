@@ -99,3 +99,28 @@ proc getTriangulation*(this: var RWObjTriangulationReader): Handle[PolyTriangula
     importcpp: "GetTriangulation", header: "RWObj_TriangulationReader.hxx".}
 proc resultShape*(this: var RWObjTriangulationReader): TopoDS_Shape {.
     importcpp: "ResultShape", header: "RWObj_TriangulationReader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

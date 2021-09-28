@@ -28,10 +28,35 @@ proc constructRWStepVisualRWTessellatedItem*(): RWStepVisualRWTessellatedItem {.
     constructor, importcpp: "RWStepVisual_RWTessellatedItem(@)",
     header: "RWStepVisual_RWTessellatedItem.hxx".}
 proc readStep*(this: RWStepVisualRWTessellatedItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualTessellatedItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWTessellatedItem.hxx".}
 proc writeStep*(this: RWStepVisualRWTessellatedItem; sw: var StepDataStepWriter;
                ent: Handle[StepVisualTessellatedItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWTessellatedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

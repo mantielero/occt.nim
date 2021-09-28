@@ -54,7 +54,7 @@ proc profile*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect, importcpp: "Prof
     header: "BRepFill_Pipe.hxx".}
 proc shape*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BRepFill_Pipe.hxx".}
-proc errorOnSurface*(this: BRepFillPipe): float {.noSideEffect,
+proc errorOnSurface*(this: BRepFillPipe): cfloat {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "BRepFill_Pipe.hxx".}
 proc firstShape*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "BRepFill_Pipe.hxx".}
@@ -70,3 +70,28 @@ proc section*(this: BRepFillPipe; vSpine: TopoDS_Vertex): TopoDS_Shape {.noSideE
     importcpp: "Section", header: "BRepFill_Pipe.hxx".}
 proc pipeLine*(this: var BRepFillPipe; point: Pnt): TopoDS_Wire {.
     importcpp: "PipeLine", header: "BRepFill_Pipe.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

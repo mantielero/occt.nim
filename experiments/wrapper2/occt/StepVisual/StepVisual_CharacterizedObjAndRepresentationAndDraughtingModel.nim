@@ -16,8 +16,7 @@
 discard "forward decl of StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel"
 discard "forward decl of StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel"
 type
-  HandleStepVisualCharacterizedObjAndRepresentationAndDraughtingModel* = Handle[
-      StepVisualCharacterizedObjAndRepresentationAndDraughtingModel]
+  HandleC1C1* = Handle[StepVisualCharacterizedObjAndRepresentationAndDraughtingModel]
 
 ## ! Added for Dimensional Tolerances
 ## ! Complex STEP entity Characterized_Object & Characterized_Representation & Draughting_Model & Representation
@@ -36,3 +35,28 @@ proc getTypeName*(): cstring {.importcpp: "StepVisual_CharacterizedObjAndReprese
 proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel::get_type_descriptor(@)", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
 proc dynamicType*(this: StepVisualCharacterizedObjAndRepresentationAndDraughtingModel): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

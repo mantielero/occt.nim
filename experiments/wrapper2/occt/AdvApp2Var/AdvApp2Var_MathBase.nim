@@ -179,3 +179,28 @@ proc powDi*(x: ptr Doublereal; n: ptr integer): Doublereal {.
 proc mzsnorm*(ndimen: ptr integer; vecteu: ptr Doublereal): Doublereal {.
     importcpp: "AdvApp2Var_MathBase::mzsnorm_(@)",
     header: "AdvApp2Var_MathBase.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of STEPSelections_SelectInstances"
 discard "forward decl of STEPSelections_SelectInstances"
 type
-  HandleSTEPSelectionsSelectInstances* = Handle[STEPSelectionsSelectInstances]
+  HandleC1C1* = Handle[STEPSelectionsSelectInstances]
   STEPSelectionsSelectInstances* {.importcpp: "STEPSelections_SelectInstances",
                                   header: "STEPSelections_SelectInstances.hxx",
                                   bycopy.} = object of IFSelectSelectExplore
@@ -33,7 +33,7 @@ proc constructSTEPSelectionsSelectInstances*(): STEPSelectionsSelectInstances {.
 proc rootResult*(this: STEPSelectionsSelectInstances; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult",
     header: "STEPSelections_SelectInstances.hxx".}
-proc explore*(this: STEPSelectionsSelectInstances; level: int;
+proc explore*(this: STEPSelectionsSelectInstances; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "STEPSelections_SelectInstances.hxx".}
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectInstances): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectInstances.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepShapeRWOrientedFace*(): RWStepShapeRWOrientedFace {.
     constructor, importcpp: "RWStepShape_RWOrientedFace(@)",
     header: "RWStepShape_RWOrientedFace.hxx".}
 proc readStep*(this: RWStepShapeRWOrientedFace;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeOrientedFace]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWOrientedFace.hxx".}
 proc writeStep*(this: RWStepShapeRWOrientedFace; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepShapeRWOrientedFace; sw: var StepDataStepWriter;
 proc share*(this: RWStepShapeRWOrientedFace; ent: Handle[StepShapeOrientedFace];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWOrientedFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

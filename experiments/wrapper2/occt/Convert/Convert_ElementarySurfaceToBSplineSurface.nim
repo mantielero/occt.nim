@@ -22,17 +22,17 @@ type
       header: "Convert_ElementarySurfaceToBSplineSurface.hxx", bycopy.} = object
 
 
-proc uDegree*(this: ConvertElementarySurfaceToBSplineSurface): int {.noSideEffect,
+proc uDegree*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
     importcpp: "UDegree", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc vDegree*(this: ConvertElementarySurfaceToBSplineSurface): int {.noSideEffect,
+proc vDegree*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
     importcpp: "VDegree", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc nbUPoles*(this: ConvertElementarySurfaceToBSplineSurface): int {.noSideEffect,
+proc nbUPoles*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
     importcpp: "NbUPoles", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc nbVPoles*(this: ConvertElementarySurfaceToBSplineSurface): int {.noSideEffect,
+proc nbVPoles*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
     importcpp: "NbVPoles", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc nbUKnots*(this: ConvertElementarySurfaceToBSplineSurface): int {.noSideEffect,
+proc nbUKnots*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
     importcpp: "NbUKnots", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc nbVKnots*(this: ConvertElementarySurfaceToBSplineSurface): int {.noSideEffect,
+proc nbVKnots*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
     importcpp: "NbVKnots", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc isUPeriodic*(this: ConvertElementarySurfaceToBSplineSurface): bool {.
     noSideEffect, importcpp: "IsUPeriodic",
@@ -40,21 +40,45 @@ proc isUPeriodic*(this: ConvertElementarySurfaceToBSplineSurface): bool {.
 proc isVPeriodic*(this: ConvertElementarySurfaceToBSplineSurface): bool {.
     noSideEffect, importcpp: "IsVPeriodic",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc pole*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: int; vIndex: int): Pnt {.
+proc pole*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint; vIndex: cint): Pnt {.
     noSideEffect, importcpp: "Pole",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc weight*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: int; vIndex: int): float {.
-    noSideEffect, importcpp: "Weight",
-    header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc uKnot*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: int): float {.
+proc weight*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint;
+            vIndex: cint): cfloat {.noSideEffect, importcpp: "Weight", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
+proc uKnot*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint): cfloat {.
     noSideEffect, importcpp: "UKnot",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc vKnot*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: int): float {.
+proc vKnot*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint): cfloat {.
     noSideEffect, importcpp: "VKnot",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc uMultiplicity*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: int): int {.
+proc uMultiplicity*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint): cint {.
     noSideEffect, importcpp: "UMultiplicity",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc vMultiplicity*(this: ConvertElementarySurfaceToBSplineSurface; vIndex: int): int {.
+proc vMultiplicity*(this: ConvertElementarySurfaceToBSplineSurface; vIndex: cint): cint {.
     noSideEffect, importcpp: "VMultiplicity",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

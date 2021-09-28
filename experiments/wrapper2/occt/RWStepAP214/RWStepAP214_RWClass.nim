@@ -27,7 +27,7 @@ type
 proc constructRWStepAP214RWClass*(): RWStepAP214RWClass {.constructor,
     importcpp: "RWStepAP214_RWClass(@)", header: "RWStepAP214_RWClass.hxx".}
 proc readStep*(this: RWStepAP214RWClass; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepAP214Class]) {.
+              num: cint; ach: var Handle[InterfaceCheck]; ent: Handle[StepAP214Class]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepAP214_RWClass.hxx".}
 proc writeStep*(this: RWStepAP214RWClass; sw: var StepDataStepWriter;
                ent: Handle[StepAP214Class]) {.noSideEffect, importcpp: "WriteStep",
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepAP214RWClass; sw: var StepDataStepWriter;
 proc share*(this: RWStepAP214RWClass; ent: Handle[StepAP214Class];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWClass.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

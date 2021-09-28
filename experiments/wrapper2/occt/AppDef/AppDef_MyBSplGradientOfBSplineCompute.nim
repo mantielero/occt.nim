@@ -45,19 +45,19 @@ type
 
 
 proc constructAppDefMyBSplGradientOfBSplineCompute*(ssp: AppDefMultiLine;
-    firstPoint: int; lastPoint: int;
+    firstPoint: cint; lastPoint: cint;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
     parameters: var MathVector; knots: TColStdArray1OfReal;
-    mults: TColStdArray1OfInteger; deg: int; tol3d: float; tol2d: float;
-    nbIterations: int = 1): AppDefMyBSplGradientOfBSplineCompute {.constructor,
+    mults: TColStdArray1OfInteger; deg: cint; tol3d: cfloat; tol2d: cfloat;
+    nbIterations: cint = 1): AppDefMyBSplGradientOfBSplineCompute {.constructor,
     importcpp: "AppDef_MyBSplGradientOfBSplineCompute(@)",
     header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
 proc constructAppDefMyBSplGradientOfBSplineCompute*(ssp: AppDefMultiLine;
-    firstPoint: int; lastPoint: int;
+    firstPoint: cint; lastPoint: cint;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
     parameters: var MathVector; knots: TColStdArray1OfReal;
-    mults: TColStdArray1OfInteger; deg: int; tol3d: float; tol2d: float;
-    nbIterations: int; lambda1: float; lambda2: float): AppDefMyBSplGradientOfBSplineCompute {.
+    mults: TColStdArray1OfInteger; deg: cint; tol3d: cfloat; tol2d: cfloat;
+    nbIterations: cint; lambda1: cfloat; lambda2: cfloat): AppDefMyBSplGradientOfBSplineCompute {.
     constructor, importcpp: "AppDef_MyBSplGradientOfBSplineCompute(@)",
     header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
 proc isDone*(this: AppDefMyBSplGradientOfBSplineCompute): bool {.noSideEffect,
@@ -65,13 +65,38 @@ proc isDone*(this: AppDefMyBSplGradientOfBSplineCompute): bool {.noSideEffect,
 proc value*(this: AppDefMyBSplGradientOfBSplineCompute): AppParCurvesMultiBSpCurve {.
     noSideEffect, importcpp: "Value",
     header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc error*(this: AppDefMyBSplGradientOfBSplineCompute; index: int): float {.
+proc error*(this: AppDefMyBSplGradientOfBSplineCompute; index: cint): cfloat {.
     noSideEffect, importcpp: "Error",
     header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc maxError3d*(this: AppDefMyBSplGradientOfBSplineCompute): float {.noSideEffect,
+proc maxError3d*(this: AppDefMyBSplGradientOfBSplineCompute): cfloat {.noSideEffect,
     importcpp: "MaxError3d", header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc maxError2d*(this: AppDefMyBSplGradientOfBSplineCompute): float {.noSideEffect,
+proc maxError2d*(this: AppDefMyBSplGradientOfBSplineCompute): cfloat {.noSideEffect,
     importcpp: "MaxError2d", header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
-proc averageError*(this: AppDefMyBSplGradientOfBSplineCompute): float {.
+proc averageError*(this: AppDefMyBSplGradientOfBSplineCompute): cfloat {.
     noSideEffect, importcpp: "AverageError",
     header: "AppDef_MyBSplGradientOfBSplineCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

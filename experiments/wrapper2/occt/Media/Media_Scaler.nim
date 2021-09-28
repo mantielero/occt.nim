@@ -46,3 +46,28 @@ proc convert*(this: var MediaScaler; theSrc: Handle[MediaFrame];
     header: "Media_Scaler.hxx".}
 proc isValid*(this: MediaScaler): bool {.noSideEffect, importcpp: "IsValid",
                                      header: "Media_Scaler.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

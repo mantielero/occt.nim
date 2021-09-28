@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDF_ReferenceDriver"
 discard "forward decl of BinMDF_ReferenceDriver"
 type
-  HandleBinMDF_ReferenceDriver* = Handle[BinMDF_ReferenceDriver]
+  HandleC1C1* = Handle[BinMDF_ReferenceDriver]
 
 ## ! Reference attribute Driver.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BinMDF_ReferenceDriver.hxx".}
 proc dynamicType*(this: BinMDF_ReferenceDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMDF_ReferenceDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

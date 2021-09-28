@@ -168,10 +168,10 @@ proc setCustomColor*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
                     theColor: QuantityColor) {.importcpp: "SetCustomColor",
     header: "AIS_ColoredShape.hxx".}
 proc setCustomTransparency*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
-                           theTransparency: float) {.
+                           theTransparency: cfloat) {.
     importcpp: "SetCustomTransparency", header: "AIS_ColoredShape.hxx".}
 proc setCustomWidth*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
-                    theLineWidth: float) {.importcpp: "SetCustomWidth",
+                    theLineWidth: cfloat) {.importcpp: "SetCustomWidth",
     header: "AIS_ColoredShape.hxx".}
 proc customAspectsMap*(this: AIS_ColoredShape): AIS_DataMapOfShapeDrawer {.
     noSideEffect, importcpp: "CustomAspectsMap", header: "AIS_ColoredShape.hxx".}
@@ -179,9 +179,9 @@ proc changeCustomAspectsMap*(this: var AIS_ColoredShape): var AIS_DataMapOfShape
     importcpp: "ChangeCustomAspectsMap", header: "AIS_ColoredShape.hxx".}
 proc setColor*(this: var AIS_ColoredShape; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "AIS_ColoredShape.hxx".}
-proc setWidth*(this: var AIS_ColoredShape; theLineWidth: float) {.
+proc setWidth*(this: var AIS_ColoredShape; theLineWidth: cfloat) {.
     importcpp: "SetWidth", header: "AIS_ColoredShape.hxx".}
-proc setTransparency*(this: var AIS_ColoredShape; theValue: float) {.
+proc setTransparency*(this: var AIS_ColoredShape; theValue: cfloat) {.
     importcpp: "SetTransparency", header: "AIS_ColoredShape.hxx".}
 proc setMaterial*(this: var AIS_ColoredShape; theAspect: Graphic3dMaterialAspect) {.
     importcpp: "SetMaterial", header: "AIS_ColoredShape.hxx".}
@@ -201,5 +201,30 @@ proc dynamicType*(this: AIS_ColoredShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_ColoredShape.hxx".}
 discard "forward decl of AIS_ColoredShape"
 type
-  HandleAIS_ColoredShape* = Handle[AIS_ColoredShape]
+  HandleC1C1* = Handle[AIS_ColoredShape]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

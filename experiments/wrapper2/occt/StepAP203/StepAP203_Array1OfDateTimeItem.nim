@@ -17,3 +17,28 @@
 type
   StepAP203Array1OfDateTimeItem* = NCollectionArray1[StepAP203DateTimeItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

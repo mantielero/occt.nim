@@ -25,3 +25,28 @@ type
     LPropInflection, LPropMinCur, LPropMaxCur
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

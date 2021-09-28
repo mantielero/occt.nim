@@ -46,3 +46,28 @@ proc left*(this: LocOpeSpliter): TopToolsListOfShape {.noSideEffect,
     importcpp: "Left", header: "LocOpe_Spliter.hxx".}
 proc descendantShapes*(this: var LocOpeSpliter; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "DescendantShapes", header: "LocOpe_Spliter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

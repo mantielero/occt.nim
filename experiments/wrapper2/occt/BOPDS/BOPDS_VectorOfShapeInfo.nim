@@ -15,3 +15,28 @@
 type
   BOPDS_VectorOfShapeInfo* = NCollectionVector[BOPDS_ShapeInfo]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

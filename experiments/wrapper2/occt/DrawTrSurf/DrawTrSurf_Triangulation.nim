@@ -20,7 +20,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_Triangulation"
 discard "forward decl of DrawTrSurf_Triangulation"
 type
-  HandleDrawTrSurfTriangulation* = Handle[DrawTrSurfTriangulation]
+  HandleC1C1* = Handle[DrawTrSurfTriangulation]
 
 ## ! Used to display a triangulation.
 ## !
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_Triangulation.hxx".}
 proc dynamicType*(this: DrawTrSurfTriangulation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DrawTrSurf_Triangulation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

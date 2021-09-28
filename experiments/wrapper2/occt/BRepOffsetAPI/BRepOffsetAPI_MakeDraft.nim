@@ -80,15 +80,15 @@ type
                                                                                                           ## boundaries.
 
 
-proc constructBRepOffsetAPI_MakeDraft*(shape: TopoDS_Shape; dir: Dir; angle: float): BRepOffsetAPI_MakeDraft {.
+proc constructBRepOffsetAPI_MakeDraft*(shape: TopoDS_Shape; dir: Dir; angle: cfloat): BRepOffsetAPI_MakeDraft {.
     constructor, importcpp: "BRepOffsetAPI_MakeDraft(@)",
     header: "BRepOffsetAPI_MakeDraft.hxx".}
 proc setOptions*(this: var BRepOffsetAPI_MakeDraft; style: BRepBuilderAPI_TransitionMode = bRepBuilderAPI_RightCorner;
-                angleMin: float = 0.01; angleMax: float = 3.0) {.
+                angleMin: cfloat = 0.01; angleMax: cfloat = 3.0) {.
     importcpp: "SetOptions", header: "BRepOffsetAPI_MakeDraft.hxx".}
 proc setDraft*(this: var BRepOffsetAPI_MakeDraft; isInternal: bool = false) {.
     importcpp: "SetDraft", header: "BRepOffsetAPI_MakeDraft.hxx".}
-proc perform*(this: var BRepOffsetAPI_MakeDraft; lengthMax: float) {.
+proc perform*(this: var BRepOffsetAPI_MakeDraft; lengthMax: cfloat) {.
     importcpp: "Perform", header: "BRepOffsetAPI_MakeDraft.hxx".}
 proc perform*(this: var BRepOffsetAPI_MakeDraft; surface: Handle[GeomSurface];
              keepInsideSurface: bool = true) {.importcpp: "Perform",
@@ -100,3 +100,28 @@ proc shell*(this: BRepOffsetAPI_MakeDraft): TopoDS_Shell {.noSideEffect,
     importcpp: "Shell", header: "BRepOffsetAPI_MakeDraft.hxx".}
 proc generated*(this: var BRepOffsetAPI_MakeDraft; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_MakeDraft.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

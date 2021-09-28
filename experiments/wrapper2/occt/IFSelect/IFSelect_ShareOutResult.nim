@@ -71,7 +71,7 @@ proc evaluate*(this: var IFSelectShareOutResult) {.importcpp: "Evaluate",
 proc packets*(this: var IFSelectShareOutResult; complete: bool = true): Handle[
     IFSelectPacketList] {.importcpp: "Packets",
                          header: "IFSelect_ShareOutResult.hxx".}
-proc nbPackets*(this: var IFSelectShareOutResult): int {.importcpp: "NbPackets",
+proc nbPackets*(this: var IFSelectShareOutResult): cint {.importcpp: "NbPackets",
     header: "IFSelect_ShareOutResult.hxx".}
 proc prepare*(this: var IFSelectShareOutResult) {.importcpp: "Prepare",
     header: "IFSelect_ShareOutResult.hxx".}
@@ -83,15 +83,39 @@ proc nextDispatch*(this: var IFSelectShareOutResult) {.importcpp: "NextDispatch"
     header: "IFSelect_ShareOutResult.hxx".}
 proc dispatch*(this: IFSelectShareOutResult): Handle[IFSelectDispatch] {.
     noSideEffect, importcpp: "Dispatch", header: "IFSelect_ShareOutResult.hxx".}
-proc dispatchRank*(this: IFSelectShareOutResult): int {.noSideEffect,
+proc dispatchRank*(this: IFSelectShareOutResult): cint {.noSideEffect,
     importcpp: "DispatchRank", header: "IFSelect_ShareOutResult.hxx".}
-proc packetsInDispatch*(this: IFSelectShareOutResult; numpack: var int;
-                       nbpacks: var int) {.noSideEffect,
-                                        importcpp: "PacketsInDispatch",
-                                        header: "IFSelect_ShareOutResult.hxx".}
+proc packetsInDispatch*(this: IFSelectShareOutResult; numpack: var cint;
+                       nbpacks: var cint) {.noSideEffect,
+    importcpp: "PacketsInDispatch", header: "IFSelect_ShareOutResult.hxx".}
 proc packetRoot*(this: var IFSelectShareOutResult): InterfaceEntityIterator {.
     importcpp: "PacketRoot", header: "IFSelect_ShareOutResult.hxx".}
 proc packetContent*(this: var IFSelectShareOutResult): InterfaceEntityIterator {.
     importcpp: "PacketContent", header: "IFSelect_ShareOutResult.hxx".}
 proc fileName*(this: IFSelectShareOutResult): TCollectionAsciiString {.noSideEffect,
     importcpp: "FileName", header: "IFSelect_ShareOutResult.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,3 +12,28 @@ include BinObjMgt_Persistent
 include BinObjMgt_RRelocationTable
 include BinObjMgt_SRelocationTable
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

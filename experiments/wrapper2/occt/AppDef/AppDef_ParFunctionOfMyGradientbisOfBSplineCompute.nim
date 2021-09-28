@@ -58,23 +58,23 @@ type
 
 
 proc constructAppDefParFunctionOfMyGradientbisOfBSplineCompute*(
-    ssp: AppDefMultiLine; firstPoint: int; lastPoint: int;
+    ssp: AppDefMultiLine; firstPoint: cint; lastPoint: cint;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: MathVector; deg: int): AppDefParFunctionOfMyGradientbisOfBSplineCompute {.
+    parameters: MathVector; deg: cint): AppDefParFunctionOfMyGradientbisOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute(@)",
     header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
-proc nbVariables*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute): int {.
+proc nbVariables*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute): cint {.
     noSideEffect, importcpp: "NbVariables",
     header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
 proc value*(this: var AppDefParFunctionOfMyGradientbisOfBSplineCompute;
-           x: MathVector; f: var float): bool {.importcpp: "Value",
+           x: MathVector; f: var cfloat): bool {.importcpp: "Value",
     header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
 proc gradient*(this: var AppDefParFunctionOfMyGradientbisOfBSplineCompute;
               x: MathVector; g: var MathVector): bool {.importcpp: "Gradient",
     header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
 proc values*(this: var AppDefParFunctionOfMyGradientbisOfBSplineCompute;
-            x: MathVector; f: var float; g: var MathVector): bool {.importcpp: "Values",
+            x: MathVector; f: var cfloat; g: var MathVector): bool {.importcpp: "Values",
     header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
 proc newParameters*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute): MathVector {.
     noSideEffect, importcpp: "NewParameters",
@@ -82,19 +82,45 @@ proc newParameters*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute): Mat
 proc curveValue*(this: var AppDefParFunctionOfMyGradientbisOfBSplineCompute): AppParCurvesMultiCurve {.
     importcpp: "CurveValue",
     header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
-proc error*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute; iPoint: int;
-           curveIndex: int): float {.noSideEffect, importcpp: "Error", header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
-proc maxError3d*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute): float {.
+proc error*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute; iPoint: cint;
+           curveIndex: cint): cfloat {.noSideEffect, importcpp: "Error", header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
+proc maxError3d*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute): cfloat {.
     noSideEffect, importcpp: "MaxError3d",
     header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
-proc maxError2d*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute): float {.
+proc maxError2d*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute): cfloat {.
     noSideEffect, importcpp: "MaxError2d",
     header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
 proc firstConstraint*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; firstPoint: int): AppParCurvesConstraint {.
-    noSideEffect, importcpp: "FirstConstraint",
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+                     firstPoint: cint): AppParCurvesConstraint {.noSideEffect,
+    importcpp: "FirstConstraint",
     header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
 proc lastConstraint*(this: AppDefParFunctionOfMyGradientbisOfBSplineCompute;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; lastPoint: int): AppParCurvesConstraint {.
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; lastPoint: cint): AppParCurvesConstraint {.
     noSideEffect, importcpp: "LastConstraint",
     header: "AppDef_ParFunctionOfMyGradientbisOfBSplineCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,7 +24,7 @@ type
 proc constructTopOpeBRepDS_Edge3dInterferenceTool*(): TopOpeBRepDS_Edge3dInterferenceTool {.
     constructor, importcpp: "TopOpeBRepDS_Edge3dInterferenceTool(@)",
     header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
-proc initPointVertex*(this: var TopOpeBRepDS_Edge3dInterferenceTool; isVertex: int;
+proc initPointVertex*(this: var TopOpeBRepDS_Edge3dInterferenceTool; isVertex: cint;
                      vonOO: TopoDS_Shape) {.importcpp: "InitPointVertex",
     header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
 proc init*(this: var TopOpeBRepDS_Edge3dInterferenceTool; eref: TopoDS_Shape;
@@ -36,3 +36,28 @@ proc add*(this: var TopOpeBRepDS_Edge3dInterferenceTool; eref: TopoDS_Shape;
 proc transition*(this: TopOpeBRepDS_Edge3dInterferenceTool;
                 i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect,
     importcpp: "Transition", header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

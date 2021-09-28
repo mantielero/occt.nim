@@ -29,11 +29,11 @@ type
 
 proc constructAIS_TextLabel*(): AIS_TextLabel {.constructor,
     importcpp: "AIS_TextLabel(@)", header: "AIS_TextLabel.hxx".}
-proc acceptDisplayMode*(this: AIS_TextLabel; theMode: int): bool {.noSideEffect,
+proc acceptDisplayMode*(this: AIS_TextLabel; theMode: cint): bool {.noSideEffect,
     importcpp: "AcceptDisplayMode", header: "AIS_TextLabel.hxx".}
 proc setColor*(this: var AIS_TextLabel; theColor: QuantityColor) {.
     importcpp: "SetColor", header: "AIS_TextLabel.hxx".}
-proc setTransparency*(this: var AIS_TextLabel; theValue: float) {.
+proc setTransparency*(this: var AIS_TextLabel; theValue: cfloat) {.
     importcpp: "SetTransparency", header: "AIS_TextLabel.hxx".}
 proc unsetTransparency*(this: var AIS_TextLabel) {.importcpp: "UnsetTransparency",
     header: "AIS_TextLabel.hxx".}
@@ -49,11 +49,11 @@ proc setHJustification*(this: var AIS_TextLabel;
 proc setVJustification*(this: var AIS_TextLabel;
                        theVJust: Graphic3dVerticalTextAlignment) {.
     importcpp: "SetVJustification", header: "AIS_TextLabel.hxx".}
-proc setAngle*(this: var AIS_TextLabel; theAngle: float) {.importcpp: "SetAngle",
+proc setAngle*(this: var AIS_TextLabel; theAngle: cfloat) {.importcpp: "SetAngle",
     header: "AIS_TextLabel.hxx".}
 proc setZoomable*(this: var AIS_TextLabel; theIsZoomable: bool) {.
     importcpp: "SetZoomable", header: "AIS_TextLabel.hxx".}
-proc setHeight*(this: var AIS_TextLabel; theHeight: float) {.importcpp: "SetHeight",
+proc setHeight*(this: var AIS_TextLabel; theHeight: cfloat) {.importcpp: "SetHeight",
     header: "AIS_TextLabel.hxx".}
 proc setFontAspect*(this: var AIS_TextLabel; theFontAspect: FontFontAspect) {.
     importcpp: "SetFontAspect", header: "AIS_TextLabel.hxx".}
@@ -105,5 +105,30 @@ proc dynamicType*(this: AIS_TextLabel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_TextLabel.hxx".}
 discard "forward decl of AIS_TextLabel"
 type
-  HandleAIS_TextLabel* = Handle[AIS_TextLabel]
+  HandleC1C1* = Handle[AIS_TextLabel]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -57,17 +57,22 @@ discard "forward decl of gp_Elips2d"
 discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Parab2d"
 type
-  Gp* {.importcpp: "gp", header: "gp.hxx", bycopy.} = object ## ! Method of package gp
-                                                     ## !
-                                                     ## ! In geometric computations, defines the tolerance criterion
-                                                     ## ! used to determine when two numbers can be considered equal.
-                                                     ## ! Many class functions use this tolerance criterion, for
-                                                     ## ! example, to avoid division by zero in geometric
-                                                     ## ! computations. In the documentation, tolerance criterion is
-                                                     ## ! always referred to as gp::Resolution().
+  Gp* {.importcpp: "gp", header: "gp.hxx", bycopy.} = object
 
 
-proc resolution*(): float {.importcpp: "gp::Resolution(@)", header: "gp.hxx".}
+proc `new`*(this: var Gp; theSize: csize_t): pointer {.importcpp: "gp::operator new",
+    header: "gp.hxx".}
+proc `delete`*(this: var Gp; theAddress: pointer) {.importcpp: "gp::operator delete",
+    header: "gp.hxx".}
+proc `new[]`*(this: var Gp; theSize: csize_t): pointer {.
+    importcpp: "gp::operator new[]", header: "gp.hxx".}
+proc `delete[]`*(this: var Gp; theAddress: pointer) {.
+    importcpp: "gp::operator delete[]", header: "gp.hxx".}
+proc `new`*(this: var Gp; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp::operator new", header: "gp.hxx".}
+proc `delete`*(this: var Gp; a2: pointer; a3: pointer) {.
+    importcpp: "gp::operator delete", header: "gp.hxx".}
+proc resolution*(): StandardReal {.importcpp: "gp::Resolution(@)", header: "gp.hxx".}
 proc origin*(): Pnt {.importcpp: "gp::Origin(@)", header: "gp.hxx".}
 proc dx*(): Dir {.importcpp: "gp::DX(@)", header: "gp.hxx".}
 proc dy*(): Dir {.importcpp: "gp::DY(@)", header: "gp.hxx".}

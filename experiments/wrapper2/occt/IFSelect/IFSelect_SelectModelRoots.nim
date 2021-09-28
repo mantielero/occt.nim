@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectModelRoots"
 discard "forward decl of IFSelect_SelectModelRoots"
 type
-  HandleIFSelectSelectModelRoots* = Handle[IFSelectSelectModelRoots]
+  HandleC1C1* = Handle[IFSelectSelectModelRoots]
 
 ## ! A SelectModelRoots gets all the Root Entities of an
 ## ! InterfaceModel. Remember that a "Root Entity" is defined as
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectModelRoots.hxx".}
 proc dynamicType*(this: IFSelectSelectModelRoots): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectModelRoots.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

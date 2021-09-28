@@ -62,3 +62,24 @@ proc value*(this: GC_MakeLine): Handle[GeomLine] {.noSideEffect, importcpp: "Val
     header: "GC_MakeLine.hxx".}
 converter `constopencascade`*(this: GC_MakeLine): Handle[GeomLine] {.noSideEffect,
     importcpp: "GC_MakeLine::operator constopencascade", header: "GC_MakeLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

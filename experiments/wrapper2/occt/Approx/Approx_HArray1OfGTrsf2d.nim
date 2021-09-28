@@ -14,32 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ApproxHArray1OfGTrsf2d* {.importcpp: "Approx_HArray1OfGTrsf2d",
-                           header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
+## !!!Ignored construct:  # Approx_HArray1OfGTrsf2d_HeaderFile [NewLine] # Approx_HArray1OfGTrsf2d_HeaderFile [NewLine] # < gp_GTrsf2d . hxx > [NewLine] # < Approx_Array1OfGTrsf2d . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( Approx_HArray1OfGTrsf2d , Approx_Array1OfGTrsf2d ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructApproxHArray1OfGTrsf2d*(theLower: int; theUpper: int): ApproxHArray1OfGTrsf2d {.
-    constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)",
-    header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc constructApproxHArray1OfGTrsf2d*(theLower: int; theUpper: int;
-                                     theValue: ValueType): ApproxHArray1OfGTrsf2d {.
-    constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)",
-    header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc constructApproxHArray1OfGTrsf2d*(theOther: ApproxArray1OfGTrsf2d): ApproxHArray1OfGTrsf2d {.
-    constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)",
-    header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc array1*(this: ApproxHArray1OfGTrsf2d): ApproxArray1OfGTrsf2d {.noSideEffect,
-    importcpp: "Array1", header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc changeArray1*(this: var ApproxHArray1OfGTrsf2d): var ApproxArray1OfGTrsf2d {.
-    importcpp: "ChangeArray1", header: "Approx_HArray1OfGTrsf2d.hxx".}
-type
-  ApproxHArray1OfGTrsf2dbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "Approx_HArray1OfGTrsf2d::get_type_name(@)",
-                            header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Approx_HArray1OfGTrsf2d::get_type_descriptor(@)",
-    header: "Approx_HArray1OfGTrsf2d.hxx".}
-proc dynamicType*(this: ApproxHArray1OfGTrsf2d): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "Approx_HArray1OfGTrsf2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

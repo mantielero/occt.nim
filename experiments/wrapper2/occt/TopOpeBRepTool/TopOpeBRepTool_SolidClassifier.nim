@@ -35,10 +35,35 @@ proc destroyTopOpeBRepToolSolidClassifier*(
 proc loadSolid*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid) {.
     importcpp: "LoadSolid", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid; p: Pnt;
-              tol: float): TopAbsState {.importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
+              tol: cfloat): TopAbsState {.importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc loadShell*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell) {.
     importcpp: "LoadShell", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell; p: Pnt;
-              tol: float): TopAbsState {.importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
+              tol: cfloat): TopAbsState {.importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc state*(this: TopOpeBRepToolSolidClassifier): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRepTool_SolidClassifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -100,25 +100,50 @@ type
                                                                                 ## Handle.
 
 
-proc curve2d*(c: Handle[GeomCurve]; first: float; last: float; s: Handle[GeomSurface];
-             uFirst: float; uLast: float; vFirst: float; vLast: float;
-             tolerance: var float): Handle[Geom2dCurve] {.
+proc curve2d*(c: Handle[GeomCurve]; first: cfloat; last: cfloat;
+             s: Handle[GeomSurface]; uFirst: cfloat; uLast: cfloat; vFirst: cfloat;
+             vLast: cfloat; tolerance: var cfloat): Handle[Geom2dCurve] {.
     importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
-proc curve2d*(c: Handle[GeomCurve]; first: float; last: float; s: Handle[GeomSurface];
-             tolerance: var float): Handle[Geom2dCurve] {.
+proc curve2d*(c: Handle[GeomCurve]; first: cfloat; last: cfloat;
+             s: Handle[GeomSurface]; tolerance: var cfloat): Handle[Geom2dCurve] {.
     importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
-proc curve2d*(c: Handle[GeomCurve]; first: float; last: float; s: Handle[GeomSurface]): Handle[
+proc curve2d*(c: Handle[GeomCurve]; first: cfloat; last: cfloat; s: Handle[GeomSurface]): Handle[
     Geom2dCurve] {.importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
 proc curve2d*(c: Handle[GeomCurve]; s: Handle[GeomSurface]): Handle[Geom2dCurve] {.
     importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
-proc curve2d*(c: Handle[GeomCurve]; s: Handle[GeomSurface]; uDeb: float; uFin: float;
-             vDeb: float; vFin: float): Handle[Geom2dCurve] {.
+proc curve2d*(c: Handle[GeomCurve]; s: Handle[GeomSurface]; uDeb: cfloat; uFin: cfloat;
+             vDeb: cfloat; vFin: cfloat): Handle[Geom2dCurve] {.
     importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
-proc curve2d*(c: Handle[GeomCurve]; s: Handle[GeomSurface]; uDeb: float; uFin: float;
-             vDeb: float; vFin: float; tolerance: var float): Handle[Geom2dCurve] {.
+proc curve2d*(c: Handle[GeomCurve]; s: Handle[GeomSurface]; uDeb: cfloat; uFin: cfloat;
+             vDeb: cfloat; vFin: cfloat; tolerance: var cfloat): Handle[Geom2dCurve] {.
     importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
 proc project*(c: Handle[GeomCurve]; s: Handle[GeomSurface]): Handle[GeomCurve] {.
     importcpp: "GeomProjLib::Project(@)", header: "GeomProjLib.hxx".}
 proc projectOnPlane*(curve: Handle[GeomCurve]; plane: Handle[GeomPlane]; dir: Dir;
                     keepParametrization: bool): Handle[GeomCurve] {.
     importcpp: "GeomProjLib::ProjectOnPlane(@)", header: "GeomProjLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

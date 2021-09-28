@@ -20,7 +20,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of DNaming_FilletDriver"
 discard "forward decl of DNaming_FilletDriver"
 type
-  HandleDNamingFilletDriver* = Handle[DNamingFilletDriver]
+  HandleC1C1* = Handle[DNamingFilletDriver]
   DNamingFilletDriver* {.importcpp: "DNaming_FilletDriver",
                         header: "DNaming_FilletDriver.hxx", bycopy.} = object of TFunctionDriver ##
                                                                                           ## !
@@ -39,7 +39,7 @@ proc validate*(this: DNamingFilletDriver; theLog: var Handle[TFunctionLogbook]) 
     noSideEffect, importcpp: "Validate", header: "DNaming_FilletDriver.hxx".}
 proc mustExecute*(this: DNamingFilletDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_FilletDriver.hxx".}
-proc execute*(this: DNamingFilletDriver; theLog: var Handle[TFunctionLogbook]): int {.
+proc execute*(this: DNamingFilletDriver; theLog: var Handle[TFunctionLogbook]): cint {.
     noSideEffect, importcpp: "Execute", header: "DNaming_FilletDriver.hxx".}
 type
   DNamingFilletDriverbaseType* = TFunctionDriver
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DNaming_FilletDriver.hxx".}
 proc dynamicType*(this: DNamingFilletDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_FilletDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

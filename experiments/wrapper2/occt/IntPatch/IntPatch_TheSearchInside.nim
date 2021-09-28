@@ -32,25 +32,66 @@ type
 proc constructIntPatchTheSearchInside*(): IntPatchTheSearchInside {.constructor,
     importcpp: "IntPatch_TheSearchInside(@)",
     header: "IntPatch_TheSearchInside.hxx".}
-proc constructIntPatchTheSearchInside*(f: var IntPatchTheSurfFunction;
-                                      surf: Handle[Adaptor3dHSurface];
-                                      t: Handle[Adaptor3dTopolTool];
-                                      epsilon: float): IntPatchTheSearchInside {.
-    constructor, importcpp: "IntPatch_TheSearchInside(@)",
-    header: "IntPatch_TheSearchInside.hxx".}
-proc perform*(this: var IntPatchTheSearchInside; f: var IntPatchTheSurfFunction;
-             surf: Handle[Adaptor3dHSurface]; t: Handle[Adaptor3dTopolTool];
-             epsilon: float) {.importcpp: "Perform",
-                             header: "IntPatch_TheSearchInside.hxx".}
-proc perform*(this: var IntPatchTheSearchInside; f: var IntPatchTheSurfFunction;
-             surf: Handle[Adaptor3dHSurface]; uStart: float; vStart: float) {.
-    importcpp: "Perform", header: "IntPatch_TheSearchInside.hxx".}
+## !!!Ignored construct:  IntPatch_TheSearchInside ( IntPatch_TheSurfFunction & F , const Handle ( Adaptor3d_HSurface ) & Surf , const Handle ( Adaptor3d_TopolTool ) & T , const Standard_Real Epsilon ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void Perform ( IntPatch_TheSurfFunction & F , const Handle ( Adaptor3d_HSurface ) & Surf , const Handle ( Adaptor3d_TopolTool ) & T , const Standard_Real Epsilon ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void Perform ( IntPatch_TheSurfFunction & F , const Handle ( Adaptor3d_HSurface ) & Surf , const Standard_Real UStart , const Standard_Real VStart ) ;
+## Error: token expected: ) but got: &!!!
+
 proc isDone*(this: IntPatchTheSearchInside): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntPatch_TheSearchInside.hxx".}
 proc nbPoints*(this: IntPatchTheSearchInside): int {.noSideEffect,
     importcpp: "NbPoints", header: "IntPatch_TheSearchInside.hxx".}
 proc value*(this: IntPatchTheSearchInside; index: int): IntSurfInteriorPoint {.
     noSideEffect, importcpp: "Value", header: "IntPatch_TheSearchInside.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # Handle_TheTopolTool opencascade :: handle < Adaptor3d_TopolTool > [end of template] [NewLine] # TheTopolTool Adaptor3d_TopolTool [NewLine] # TheTopolTool_hxx < Adaptor3d_TopolTool . hxx > [NewLine] # TheSITool IntPatch_HInterTool [NewLine] # TheSITool_hxx < IntPatch_HInterTool . hxx > [NewLine] # TheFunction IntPatch_TheSurfFunction [NewLine] # TheFunction_hxx < IntPatch_TheSurfFunction . hxx > [NewLine] # IntStart_SearchInside IntPatch_TheSearchInside [NewLine] # IntStart_SearchInside_hxx < IntPatch_TheSearchInside . hxx > [NewLine] # < IntStart_SearchInside . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # Handle_TheTopolTool [NewLine] # TheTopolTool [NewLine] # TheTopolTool_hxx [NewLine] # TheSITool [NewLine] # TheSITool_hxx [NewLine] # TheFunction [NewLine] # TheFunction_hxx [NewLine] # IntStart_SearchInside [NewLine] # IntStart_SearchInside_hxx [NewLine] #  _IntPatch_TheSearchInside_HeaderFile
+## !!!Ignored construct:  # ThePSurface Handle ( Adaptor3d_HSurface ) [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # Handle_TheTopolTool Handle ( Adaptor3d_TopolTool ) [NewLine] # TheTopolTool Adaptor3d_TopolTool [NewLine] # TheTopolTool_hxx < Adaptor3d_TopolTool . hxx > [NewLine] # TheSITool IntPatch_HInterTool [NewLine] # TheSITool_hxx < IntPatch_HInterTool . hxx > [NewLine] # TheFunction IntPatch_TheSurfFunction [NewLine] # TheFunction_hxx < IntPatch_TheSurfFunction . hxx > [NewLine] # IntStart_SearchInside IntPatch_TheSearchInside [NewLine] # IntStart_SearchInside_hxx < IntPatch_TheSearchInside . hxx > [NewLine] # < IntStart_SearchInside . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # Handle_TheTopolTool [NewLine] # TheTopolTool [NewLine] # TheTopolTool_hxx [NewLine] # TheSITool [NewLine] # TheSITool_hxx [NewLine] # TheFunction [NewLine] # TheFunction_hxx [NewLine] # IntStart_SearchInside [NewLine] # IntStart_SearchInside_hxx [NewLine] #  _IntPatch_TheSearchInside_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

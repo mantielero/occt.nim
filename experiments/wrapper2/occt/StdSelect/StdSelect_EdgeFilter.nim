@@ -18,7 +18,7 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of StdSelect_EdgeFilter"
 discard "forward decl of StdSelect_EdgeFilter"
 type
-  HandleStdSelectEdgeFilter* = Handle[StdSelectEdgeFilter]
+  HandleC1C1* = Handle[StdSelectEdgeFilter]
 
 ## ! A framework to define a filter to select a specific type of edge.
 ## ! The types available include:
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StdSelect_EdgeFilter.hxx".}
 proc dynamicType*(this: StdSelectEdgeFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdSelect_EdgeFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_Address"
 discard "forward decl of StepBasic_Address"
 type
-  HandleStepBasicAddress* = Handle[StepBasicAddress]
+  HandleC1C1* = Handle[StepBasicAddress]
   StepBasicAddress* {.importcpp: "StepBasic_Address",
                      header: "StepBasic_Address.hxx", bycopy.} = object of StandardTransient ##
                                                                                       ## !
@@ -161,3 +161,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Address.hxx".}
 proc dynamicType*(this: StepBasicAddress): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Address.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

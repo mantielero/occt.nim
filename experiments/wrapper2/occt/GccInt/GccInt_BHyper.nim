@@ -18,7 +18,7 @@ discard "forward decl of gp_Hypr2d"
 discard "forward decl of GccInt_BHyper"
 discard "forward decl of GccInt_BHyper"
 type
-  HandleGccIntBHyper* = Handle[GccIntBHyper]
+  HandleC1C1* = Handle[GccIntBHyper]
 
 ## ! Describes a hyperbola as a bisecting curve between two
 ## ! 2D geometric objects (such as circles or points).
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "GccInt_BHyper.hxx".}
 proc dynamicType*(this: GccIntBHyper): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BHyper.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

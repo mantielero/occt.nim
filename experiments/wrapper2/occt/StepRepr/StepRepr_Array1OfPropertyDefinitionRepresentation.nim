@@ -18,3 +18,28 @@ type
   StepReprArray1OfPropertyDefinitionRepresentation* = NCollectionArray1[
       Handle[StepReprPropertyDefinitionRepresentation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

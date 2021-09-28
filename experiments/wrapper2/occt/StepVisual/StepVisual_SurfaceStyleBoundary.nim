@@ -18,7 +18,7 @@ discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_SurfaceStyleBoundary"
 discard "forward decl of StepVisual_SurfaceStyleBoundary"
 type
-  HandleStepVisualSurfaceStyleBoundary* = Handle[StepVisualSurfaceStyleBoundary]
+  HandleC1C1* = Handle[StepVisualSurfaceStyleBoundary]
   StepVisualSurfaceStyleBoundary* {.importcpp: "StepVisual_SurfaceStyleBoundary", header: "StepVisual_SurfaceStyleBoundary.hxx",
                                    bycopy.} = object of StandardTransient ## ! Returns a
                                                                      ## SurfaceStyleBoundary
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualSurfaceStyleBoundary): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleBoundary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

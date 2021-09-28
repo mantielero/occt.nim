@@ -30,9 +30,34 @@ type
                                                                          ## theUpperBound]
 
 
-proc hashCode*(theKey: MAT2dBiInt; theUpperBound: int): int {.
+proc hashCode*(theKey: MAT2dBiInt; theUpperBound: cint): cint {.
     importcpp: "MAT2d_MapBiIntHasher::HashCode(@)",
     header: "MAT2d_MapBiIntHasher.hxx".}
 proc isEqual*(key1: MAT2dBiInt; key2: MAT2dBiInt): bool {.
     importcpp: "MAT2d_MapBiIntHasher::IsEqual(@)",
     header: "MAT2d_MapBiIntHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

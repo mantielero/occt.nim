@@ -35,3 +35,28 @@ proc nextBrother*(this: var TDF_ChildIterator) {.importcpp: "NextBrother",
     header: "TDF_ChildIterator.hxx".}
 proc value*(this: TDF_ChildIterator): TDF_Label {.noSideEffect, importcpp: "Value",
     header: "TDF_ChildIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

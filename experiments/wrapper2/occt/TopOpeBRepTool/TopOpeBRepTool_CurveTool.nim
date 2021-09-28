@@ -38,11 +38,11 @@ proc getGeomTool*(this: TopOpeBRepToolCurveTool): TopOpeBRepToolGeomTool {.
     noSideEffect, importcpp: "GetGeomTool", header: "TopOpeBRepTool_CurveTool.hxx".}
 proc setGeomTool*(this: var TopOpeBRepToolCurveTool; gt: TopOpeBRepToolGeomTool) {.
     importcpp: "SetGeomTool", header: "TopOpeBRepTool_CurveTool.hxx".}
-proc makeCurves*(this: TopOpeBRepToolCurveTool; min: float; max: float;
+proc makeCurves*(this: TopOpeBRepToolCurveTool; min: cfloat; max: cfloat;
                 c3d: Handle[GeomCurve]; pc1: Handle[Geom2dCurve];
                 pc2: Handle[Geom2dCurve]; s1: TopoDS_Shape; s2: TopoDS_Shape;
                 c3dn: var Handle[GeomCurve]; pc1n: var Handle[Geom2dCurve];
-                pc2n: var Handle[Geom2dCurve]; tol3d: var float; tol2d: var float): bool {.
+                pc2n: var Handle[Geom2dCurve]; tol3d: var cfloat; tol2d: var cfloat): bool {.
     noSideEffect, importcpp: "MakeCurves", header: "TopOpeBRepTool_CurveTool.hxx".}
 proc makeBSpline1fromPnt*(p: TColgpArray1OfPnt): Handle[GeomCurve] {.
     importcpp: "TopOpeBRepTool_CurveTool::MakeBSpline1fromPnt(@)",
@@ -54,6 +54,31 @@ proc isProjectable*(s: TopoDS_Shape; c: Handle[GeomCurve]): bool {.
     importcpp: "TopOpeBRepTool_CurveTool::IsProjectable(@)",
     header: "TopOpeBRepTool_CurveTool.hxx".}
 proc makePCurveOnFace*(s: TopoDS_Shape; c: Handle[GeomCurve];
-                      tolReached2d: var float; first: float = 0.0; last: float = 0.0): Handle[
+                      tolReached2d: var cfloat; first: cfloat = 0.0; last: cfloat = 0.0): Handle[
     Geom2dCurve] {.importcpp: "TopOpeBRepTool_CurveTool::MakePCurveOnFace(@)",
                   header: "TopOpeBRepTool_CurveTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

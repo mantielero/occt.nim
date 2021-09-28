@@ -26,8 +26,33 @@ type
 proc constructRWStepGeomRWPoint*(): RWStepGeomRWPoint {.constructor,
     importcpp: "RWStepGeom_RWPoint(@)", header: "RWStepGeom_RWPoint.hxx".}
 proc readStep*(this: RWStepGeomRWPoint; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPoint]) {.
+              num: cint; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPoint]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWPoint.hxx".}
 proc writeStep*(this: RWStepGeomRWPoint; sw: var StepDataStepWriter;
                ent: Handle[StepGeomPoint]) {.noSideEffect, importcpp: "WriteStep",
     header: "RWStepGeom_RWPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

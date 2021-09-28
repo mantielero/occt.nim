@@ -23,7 +23,7 @@ discard "forward decl of Storage_Schema"
 discard "forward decl of PCDM_StorageDriver"
 discard "forward decl of PCDM_StorageDriver"
 type
-  HandlePCDM_StorageDriver* = Handle[PCDM_StorageDriver]
+  HandleC1C1* = Handle[PCDM_StorageDriver]
 
 ## ! persistent implemention of storage.
 ## !
@@ -83,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "PCDM_StorageDriver.hxx".}
 proc dynamicType*(this: PCDM_StorageDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_StorageDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

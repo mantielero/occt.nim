@@ -18,7 +18,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Function"
 discard "forward decl of Law_Function"
 type
-  HandleLawFunction* = Handle[LawFunction]
+  HandleC1C1* = Handle[LawFunction]
 
 ## ! Root class for evolution laws.
 
@@ -28,19 +28,19 @@ type
 
 proc continuity*(this: LawFunction): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Law_Function.hxx".}
-proc nbIntervals*(this: LawFunction; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: LawFunction; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Law_Function.hxx".}
 proc intervals*(this: LawFunction; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Law_Function.hxx".}
-proc value*(this: var LawFunction; x: float): float {.importcpp: "Value",
+proc value*(this: var LawFunction; x: cfloat): cfloat {.importcpp: "Value",
     header: "Law_Function.hxx".}
-proc d1*(this: var LawFunction; x: float; f: var float; d: var float) {.importcpp: "D1",
+proc d1*(this: var LawFunction; x: cfloat; f: var cfloat; d: var cfloat) {.importcpp: "D1",
     header: "Law_Function.hxx".}
-proc d2*(this: var LawFunction; x: float; f: var float; d: var float; d2: var float) {.
+proc d2*(this: var LawFunction; x: cfloat; f: var cfloat; d: var cfloat; d2: var cfloat) {.
     importcpp: "D2", header: "Law_Function.hxx".}
-proc trim*(this: LawFunction; pFirst: float; pLast: float; tol: float): Handle[
+proc trim*(this: LawFunction; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handle[
     LawFunction] {.noSideEffect, importcpp: "Trim", header: "Law_Function.hxx".}
-proc bounds*(this: var LawFunction; pFirst: var float; pLast: var float) {.
+proc bounds*(this: var LawFunction; pFirst: var cfloat; pLast: var cfloat) {.
     importcpp: "Bounds", header: "Law_Function.hxx".}
 type
   LawFunctionbaseType* = StandardTransient
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Law_Function::get_type_descriptor(@)", header: "Law_Function.hxx".}
 proc dynamicType*(this: LawFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_Function.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

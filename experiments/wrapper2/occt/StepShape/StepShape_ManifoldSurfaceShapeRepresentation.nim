@@ -17,8 +17,7 @@
 discard "forward decl of StepShape_ManifoldSurfaceShapeRepresentation"
 discard "forward decl of StepShape_ManifoldSurfaceShapeRepresentation"
 type
-  HandleStepShapeManifoldSurfaceShapeRepresentation* = Handle[
-      StepShapeManifoldSurfaceShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeManifoldSurfaceShapeRepresentation]
   StepShapeManifoldSurfaceShapeRepresentation* {.
       importcpp: "StepShape_ManifoldSurfaceShapeRepresentation",
       header: "StepShape_ManifoldSurfaceShapeRepresentation.hxx", bycopy.} = object of StepShapeShapeRepresentation ##
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_Manifold
 proc dynamicType*(this: StepShapeManifoldSurfaceShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepShape_ManifoldSurfaceShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

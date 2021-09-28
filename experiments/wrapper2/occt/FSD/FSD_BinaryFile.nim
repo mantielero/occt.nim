@@ -31,7 +31,7 @@ when not defined(OCCT_BINARY_FILE_DO_INVERSE):
       OCCT_BINARY_FILE_DO_INVERSE* = 0
 discard "forward decl of FSD_BinaryFile"
 type
-  HandleFSD_BinaryFile* = Handle[FSD_BinaryFile]
+  HandleC1C1* = Handle[FSD_BinaryFile]
   FSD_BinaryFile* {.importcpp: "FSD_BinaryFile", header: "FSD_BinaryFile.hxx", bycopy.} = object of StorageBaseDriver ## !@name Own methods
                                                                                                             ## /Inverse bytes in integer value
                                                                                                             ## ! read <rsize> character from the current position.
@@ -58,16 +58,16 @@ proc isGoodFileType*(aName: TCollectionAsciiString): StorageError {.
     importcpp: "FSD_BinaryFile::IsGoodFileType(@)", header: "FSD_BinaryFile.hxx".}
 proc beginWriteInfoSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "BeginWriteInfoSection", header: "FSD_BinaryFile.hxx".}
-proc writeInfo*(theOStream: var StandardOStream; nbObj: int;
+proc writeInfo*(theOStream: var StandardOStream; nbObj: cint;
                dbVersion: TCollectionAsciiString; date: TCollectionAsciiString;
                schemaName: TCollectionAsciiString;
                schemaVersion: TCollectionAsciiString;
                appName: TCollectionExtendedString;
                appVersion: TCollectionAsciiString;
                objectType: TCollectionExtendedString;
-               userInfo: TColStdSequenceOfAsciiString; theOnlyCount: bool = false): int {.
+               userInfo: TColStdSequenceOfAsciiString; theOnlyCount: bool = false): cint {.
     importcpp: "FSD_BinaryFile::WriteInfo(@)", header: "FSD_BinaryFile.hxx".}
-proc writeInfo*(this: var FSD_BinaryFile; nbObj: int;
+proc writeInfo*(this: var FSD_BinaryFile; nbObj: cint;
                dbVersion: TCollectionAsciiString; date: TCollectionAsciiString;
                schemaName: TCollectionAsciiString;
                schemaVersion: TCollectionAsciiString;
@@ -82,7 +82,7 @@ proc endWriteInfoSection*(this: var FSD_BinaryFile; theOStream: var StandardOStr
     importcpp: "EndWriteInfoSection", header: "FSD_BinaryFile.hxx".}
 proc beginReadInfoSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "BeginReadInfoSection", header: "FSD_BinaryFile.hxx".}
-proc readInfo*(this: var FSD_BinaryFile; nbObj: var int;
+proc readInfo*(this: var FSD_BinaryFile; nbObj: var cint;
               dbVersion: var TCollectionAsciiString;
               date: var TCollectionAsciiString;
               schemaName: var TCollectionAsciiString;
@@ -107,7 +107,7 @@ proc writeComment*(this: var FSD_BinaryFile;
     importcpp: "WriteComment", header: "FSD_BinaryFile.hxx".}
 proc writeComment*(theOStream: var StandardOStream;
                   theComments: TColStdSequenceOfExtendedString;
-                  theOnlyCount: bool = false): int {.
+                  theOnlyCount: bool = false): cint {.
     importcpp: "FSD_BinaryFile::WriteComment(@)", header: "FSD_BinaryFile.hxx".}
 proc endWriteCommentSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "EndWriteCommentSection", header: "FSD_BinaryFile.hxx".}
@@ -126,23 +126,23 @@ proc endReadCommentSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "EndReadCommentSection", header: "FSD_BinaryFile.hxx".}
 proc beginWriteTypeSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "BeginWriteTypeSection", header: "FSD_BinaryFile.hxx".}
-proc setTypeSectionSize*(this: var FSD_BinaryFile; aSize: int) {.
+proc setTypeSectionSize*(this: var FSD_BinaryFile; aSize: cint) {.
     importcpp: "SetTypeSectionSize", header: "FSD_BinaryFile.hxx".}
-proc writeTypeInformations*(this: var FSD_BinaryFile; typeNum: int;
+proc writeTypeInformations*(this: var FSD_BinaryFile; typeNum: cint;
                            typeName: TCollectionAsciiString) {.
     importcpp: "WriteTypeInformations", header: "FSD_BinaryFile.hxx".}
 proc endWriteTypeSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "EndWriteTypeSection", header: "FSD_BinaryFile.hxx".}
 proc beginReadTypeSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "BeginReadTypeSection", header: "FSD_BinaryFile.hxx".}
-proc typeSectionSize*(this: var FSD_BinaryFile): int {.importcpp: "TypeSectionSize",
+proc typeSectionSize*(this: var FSD_BinaryFile): cint {.importcpp: "TypeSectionSize",
     header: "FSD_BinaryFile.hxx".}
-proc typeSectionSize*(theIStream: var StandardIStream): int {.
+proc typeSectionSize*(theIStream: var StandardIStream): cint {.
     importcpp: "FSD_BinaryFile::TypeSectionSize(@)", header: "FSD_BinaryFile.hxx".}
-proc readTypeInformations*(this: var FSD_BinaryFile; typeNum: var int;
+proc readTypeInformations*(this: var FSD_BinaryFile; typeNum: var cint;
                           typeName: var TCollectionAsciiString) {.
     importcpp: "ReadTypeInformations", header: "FSD_BinaryFile.hxx".}
-proc readTypeInformations*(theIStream: var StandardIStream; typeNum: var int;
+proc readTypeInformations*(theIStream: var StandardIStream; typeNum: var cint;
                           typeName: var TCollectionAsciiString) {.
     importcpp: "FSD_BinaryFile::ReadTypeInformations(@)",
     header: "FSD_BinaryFile.hxx".}
@@ -150,52 +150,54 @@ proc endReadTypeSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "EndReadTypeSection", header: "FSD_BinaryFile.hxx".}
 proc beginWriteRootSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "BeginWriteRootSection", header: "FSD_BinaryFile.hxx".}
-proc setRootSectionSize*(this: var FSD_BinaryFile; aSize: int) {.
+proc setRootSectionSize*(this: var FSD_BinaryFile; aSize: cint) {.
     importcpp: "SetRootSectionSize", header: "FSD_BinaryFile.hxx".}
-proc writeRoot*(this: var FSD_BinaryFile; rootName: TCollectionAsciiString; aRef: int;
-               aType: TCollectionAsciiString) {.importcpp: "WriteRoot",
+proc writeRoot*(this: var FSD_BinaryFile; rootName: TCollectionAsciiString;
+               aRef: cint; aType: TCollectionAsciiString) {.importcpp: "WriteRoot",
     header: "FSD_BinaryFile.hxx".}
 proc endWriteRootSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "EndWriteRootSection", header: "FSD_BinaryFile.hxx".}
 proc beginReadRootSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "BeginReadRootSection", header: "FSD_BinaryFile.hxx".}
-proc rootSectionSize*(this: var FSD_BinaryFile): int {.importcpp: "RootSectionSize",
+proc rootSectionSize*(this: var FSD_BinaryFile): cint {.importcpp: "RootSectionSize",
     header: "FSD_BinaryFile.hxx".}
-proc rootSectionSize*(theIStream: var StandardIStream): int {.
+proc rootSectionSize*(theIStream: var StandardIStream): cint {.
     importcpp: "FSD_BinaryFile::RootSectionSize(@)", header: "FSD_BinaryFile.hxx".}
 proc readRoot*(this: var FSD_BinaryFile; rootName: var TCollectionAsciiString;
-              aRef: var int; aType: var TCollectionAsciiString) {.
+              aRef: var cint; aType: var TCollectionAsciiString) {.
     importcpp: "ReadRoot", header: "FSD_BinaryFile.hxx".}
 proc readRoot*(theIStream: var StandardIStream;
-              rootName: var TCollectionAsciiString; aRef: var int;
+              rootName: var TCollectionAsciiString; aRef: var cint;
               aType: var TCollectionAsciiString) {.
     importcpp: "FSD_BinaryFile::ReadRoot(@)", header: "FSD_BinaryFile.hxx".}
 proc endReadRootSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "EndReadRootSection", header: "FSD_BinaryFile.hxx".}
 proc beginWriteRefSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "BeginWriteRefSection", header: "FSD_BinaryFile.hxx".}
-proc setRefSectionSize*(this: var FSD_BinaryFile; aSize: int) {.
+proc setRefSectionSize*(this: var FSD_BinaryFile; aSize: cint) {.
     importcpp: "SetRefSectionSize", header: "FSD_BinaryFile.hxx".}
-proc writeReferenceType*(this: var FSD_BinaryFile; reference: int; typeNum: int) {.
+proc writeReferenceType*(this: var FSD_BinaryFile; reference: cint; typeNum: cint) {.
     importcpp: "WriteReferenceType", header: "FSD_BinaryFile.hxx".}
 proc endWriteRefSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "EndWriteRefSection", header: "FSD_BinaryFile.hxx".}
 proc beginReadRefSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "BeginReadRefSection", header: "FSD_BinaryFile.hxx".}
-proc refSectionSize*(this: var FSD_BinaryFile): int {.importcpp: "RefSectionSize",
+proc refSectionSize*(this: var FSD_BinaryFile): cint {.importcpp: "RefSectionSize",
     header: "FSD_BinaryFile.hxx".}
-proc refSectionSize*(theIStream: var StandardIStream): int {.
+proc refSectionSize*(theIStream: var StandardIStream): cint {.
     importcpp: "FSD_BinaryFile::RefSectionSize(@)", header: "FSD_BinaryFile.hxx".}
-proc readReferenceType*(this: var FSD_BinaryFile; reference: var int; typeNum: var int) {.
-    importcpp: "ReadReferenceType", header: "FSD_BinaryFile.hxx".}
-proc readReferenceType*(theIStream: var StandardIStream; reference: var int;
-                       typeNum: var int) {.importcpp: "FSD_BinaryFile::ReadReferenceType(@)",
-                                        header: "FSD_BinaryFile.hxx".}
+proc readReferenceType*(this: var FSD_BinaryFile; reference: var cint;
+                       typeNum: var cint) {.importcpp: "ReadReferenceType",
+    header: "FSD_BinaryFile.hxx".}
+proc readReferenceType*(theIStream: var StandardIStream; reference: var cint;
+                       typeNum: var cint) {.
+    importcpp: "FSD_BinaryFile::ReadReferenceType(@)",
+    header: "FSD_BinaryFile.hxx".}
 proc endReadRefSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "EndReadRefSection", header: "FSD_BinaryFile.hxx".}
 proc beginWriteDataSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "BeginWriteDataSection", header: "FSD_BinaryFile.hxx".}
-proc writePersistentObjectHeader*(this: var FSD_BinaryFile; aRef: int; aType: int) {.
+proc writePersistentObjectHeader*(this: var FSD_BinaryFile; aRef: cint; aType: cint) {.
     importcpp: "WritePersistentObjectHeader", header: "FSD_BinaryFile.hxx".}
 proc beginWritePersistentObjectData*(this: var FSD_BinaryFile) {.
     importcpp: "BeginWritePersistentObjectData", header: "FSD_BinaryFile.hxx".}
@@ -209,8 +211,8 @@ proc endWriteDataSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "EndWriteDataSection", header: "FSD_BinaryFile.hxx".}
 proc beginReadDataSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "BeginReadDataSection", header: "FSD_BinaryFile.hxx".}
-proc readPersistentObjectHeader*(this: var FSD_BinaryFile; aRef: var int;
-                                aType: var int) {.
+proc readPersistentObjectHeader*(this: var FSD_BinaryFile; aRef: var cint;
+                                aType: var cint) {.
     importcpp: "ReadPersistentObjectHeader", header: "FSD_BinaryFile.hxx".}
 proc beginReadPersistentObjectData*(this: var FSD_BinaryFile) {.
     importcpp: "BeginReadPersistentObjectData", header: "FSD_BinaryFile.hxx".}
@@ -224,38 +226,38 @@ proc endReadDataSection*(this: var FSD_BinaryFile): StorageError {.
     importcpp: "EndReadDataSection", header: "FSD_BinaryFile.hxx".}
 proc skipObject*(this: var FSD_BinaryFile) {.importcpp: "SkipObject",
     header: "FSD_BinaryFile.hxx".}
-proc putReference*(this: var FSD_BinaryFile; aValue: int): var StorageBaseDriver {.
+proc putReference*(this: var FSD_BinaryFile; aValue: cint): var StorageBaseDriver {.
     importcpp: "PutReference", header: "FSD_BinaryFile.hxx".}
 proc putCharacter*(this: var FSD_BinaryFile; aValue: StandardCharacter): var StorageBaseDriver {.
     importcpp: "PutCharacter", header: "FSD_BinaryFile.hxx".}
 proc putExtCharacter*(this: var FSD_BinaryFile; aValue: StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "PutExtCharacter", header: "FSD_BinaryFile.hxx".}
-proc putInteger*(theOStream: var StandardOStream; aValue: int;
-                theOnlyCount: bool = false): int {.
+proc putInteger*(theOStream: var StandardOStream; aValue: cint;
+                theOnlyCount: bool = false): cint {.
     importcpp: "FSD_BinaryFile::PutInteger(@)", header: "FSD_BinaryFile.hxx".}
-proc putInteger*(this: var FSD_BinaryFile; aValue: int): var StorageBaseDriver {.
+proc putInteger*(this: var FSD_BinaryFile; aValue: cint): var StorageBaseDriver {.
     importcpp: "PutInteger", header: "FSD_BinaryFile.hxx".}
 proc putBoolean*(this: var FSD_BinaryFile; aValue: bool): var StorageBaseDriver {.
     importcpp: "PutBoolean", header: "FSD_BinaryFile.hxx".}
-proc putReal*(this: var FSD_BinaryFile; aValue: float): var StorageBaseDriver {.
+proc putReal*(this: var FSD_BinaryFile; aValue: cfloat): var StorageBaseDriver {.
     importcpp: "PutReal", header: "FSD_BinaryFile.hxx".}
 proc putShortReal*(this: var FSD_BinaryFile; aValue: StandardShortReal): var StorageBaseDriver {.
     importcpp: "PutShortReal", header: "FSD_BinaryFile.hxx".}
-proc getReference*(this: var FSD_BinaryFile; aValue: var int): var StorageBaseDriver {.
+proc getReference*(this: var FSD_BinaryFile; aValue: var cint): var StorageBaseDriver {.
     importcpp: "GetReference", header: "FSD_BinaryFile.hxx".}
 proc getCharacter*(this: var FSD_BinaryFile; aValue: var StandardCharacter): var StorageBaseDriver {.
     importcpp: "GetCharacter", header: "FSD_BinaryFile.hxx".}
-proc getReference*(theIStream: var StandardIStream; aValue: var int) {.
+proc getReference*(theIStream: var StandardIStream; aValue: var cint) {.
     importcpp: "FSD_BinaryFile::GetReference(@)", header: "FSD_BinaryFile.hxx".}
 proc getExtCharacter*(this: var FSD_BinaryFile; aValue: var StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "GetExtCharacter", header: "FSD_BinaryFile.hxx".}
-proc getInteger*(this: var FSD_BinaryFile; aValue: var int): var StorageBaseDriver {.
+proc getInteger*(this: var FSD_BinaryFile; aValue: var cint): var StorageBaseDriver {.
     importcpp: "GetInteger", header: "FSD_BinaryFile.hxx".}
-proc getInteger*(theIStream: var StandardIStream; aValue: var int) {.
+proc getInteger*(theIStream: var StandardIStream; aValue: var cint) {.
     importcpp: "FSD_BinaryFile::GetInteger(@)", header: "FSD_BinaryFile.hxx".}
 proc getBoolean*(this: var FSD_BinaryFile; aValue: var bool): var StorageBaseDriver {.
     importcpp: "GetBoolean", header: "FSD_BinaryFile.hxx".}
-proc getReal*(this: var FSD_BinaryFile; aValue: var float): var StorageBaseDriver {.
+proc getReal*(this: var FSD_BinaryFile; aValue: var cfloat): var StorageBaseDriver {.
     importcpp: "GetReal", header: "FSD_BinaryFile.hxx".}
 proc getShortReal*(this: var FSD_BinaryFile; aValue: var StandardShortReal): var StorageBaseDriver {.
     importcpp: "GetShortReal", header: "FSD_BinaryFile.hxx".}
@@ -265,12 +267,12 @@ proc destroy*(this: var FSD_BinaryFile) {.importcpp: "Destroy",
                                       header: "FSD_BinaryFile.hxx".}
 proc destroyFSD_BinaryFile*(this: var FSD_BinaryFile) {.
     importcpp: "#.~FSD_BinaryFile()", header: "FSD_BinaryFile.hxx".}
-proc inverseInt*(theValue: int): int {.importcpp: "FSD_BinaryFile::InverseInt(@)",
-                                   header: "FSD_BinaryFile.hxx".}
+proc inverseInt*(theValue: cint): cint {.importcpp: "FSD_BinaryFile::InverseInt(@)",
+                                     header: "FSD_BinaryFile.hxx".}
 proc inverseExtChar*(theValue: StandardExtCharacter): StandardExtCharacter {.
     importcpp: "FSD_BinaryFile::InverseExtChar(@)", header: "FSD_BinaryFile.hxx".}
-proc inverseReal*(theValue: float): float {.importcpp: "FSD_BinaryFile::InverseReal(@)",
-                                        header: "FSD_BinaryFile.hxx".}
+proc inverseReal*(theValue: cfloat): cfloat {.
+    importcpp: "FSD_BinaryFile::InverseReal(@)", header: "FSD_BinaryFile.hxx".}
 proc inverseShortReal*(theValue: StandardShortReal): StandardShortReal {.
     importcpp: "FSD_BinaryFile::InverseShortReal(@)", header: "FSD_BinaryFile.hxx".}
 proc inverseSize*(theValue: StandardSize): StandardSize {.
@@ -289,7 +291,32 @@ proc readExtendedString*(theIStream: var StandardIStream;
     importcpp: "FSD_BinaryFile::ReadExtendedString(@)",
     header: "FSD_BinaryFile.hxx".}
 proc writeHeader*(theOStream: var StandardOStream; theHeader: FSD_FileHeader;
-                 theOnlyCount: bool = false): int {.
+                 theOnlyCount: bool = false): cint {.
     importcpp: "FSD_BinaryFile::WriteHeader(@)", header: "FSD_BinaryFile.hxx".}
 proc magicNumber*(): StandardCString {.importcpp: "FSD_BinaryFile::MagicNumber(@)",
                                     header: "FSD_BinaryFile.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

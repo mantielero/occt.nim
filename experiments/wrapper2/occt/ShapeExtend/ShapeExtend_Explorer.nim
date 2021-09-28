@@ -53,3 +53,28 @@ proc dispatchList*(this: ShapeExtendExplorer;
                   compsols: var Handle[TopToolsHSequenceOfShape];
                   compounds: var Handle[TopToolsHSequenceOfShape]) {.noSideEffect,
     importcpp: "DispatchList", header: "ShapeExtend_Explorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

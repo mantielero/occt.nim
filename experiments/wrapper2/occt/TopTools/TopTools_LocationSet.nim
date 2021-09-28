@@ -26,11 +26,11 @@ proc constructTopToolsLocationSet*(): TopToolsLocationSet {.constructor,
     importcpp: "TopTools_LocationSet(@)", header: "TopTools_LocationSet.hxx".}
 proc clear*(this: var TopToolsLocationSet) {.importcpp: "Clear",
     header: "TopTools_LocationSet.hxx".}
-proc add*(this: var TopToolsLocationSet; L: TopLocLocation): int {.importcpp: "Add",
+proc add*(this: var TopToolsLocationSet; L: TopLocLocation): cint {.importcpp: "Add",
     header: "TopTools_LocationSet.hxx".}
-proc location*(this: TopToolsLocationSet; i: int): TopLocLocation {.noSideEffect,
+proc location*(this: TopToolsLocationSet; i: cint): TopLocLocation {.noSideEffect,
     importcpp: "Location", header: "TopTools_LocationSet.hxx".}
-proc index*(this: TopToolsLocationSet; L: TopLocLocation): int {.noSideEffect,
+proc index*(this: TopToolsLocationSet; L: TopLocLocation): cint {.noSideEffect,
     importcpp: "Index", header: "TopTools_LocationSet.hxx".}
 proc dump*(this: TopToolsLocationSet; os: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "TopTools_LocationSet.hxx".}
@@ -40,3 +40,28 @@ proc write*(this: TopToolsLocationSet; os: var StandardOStream;
 proc read*(this: var TopToolsLocationSet; `is`: var StandardIStream;
           theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "TopTools_LocationSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

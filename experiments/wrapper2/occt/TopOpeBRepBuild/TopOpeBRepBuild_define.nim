@@ -36,3 +36,28 @@ const
   MTBslos* = topOpeBRepBuildShapeListOfShape
   MTBhb* = handle[TopOpeBRepBuildHBuilder]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

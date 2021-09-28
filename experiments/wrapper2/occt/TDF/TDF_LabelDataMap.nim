@@ -18,3 +18,28 @@ type
   TDF_DataMapIteratorOfLabelDataMap* = Iterator[TDF_Label, TDF_Label,
       TDF_LabelMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

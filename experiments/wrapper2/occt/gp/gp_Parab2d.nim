@@ -19,22 +19,32 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of gp_Vec2d"
 type
-  Parab2d* {.importcpp: "gp_Parab2d", header: "gp_Parab2d.hxx", bycopy.} = object ## !
-                                                                          ## Creates an
-                                                                          ## indefinite
-                                                                          ## parabola.
+  Parab2d* {.importcpp: "gp_Parab2d", header: "gp_Parab2d.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Parab2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Parab2d::operator new", header: "gp_Parab2d.hxx".}
+proc `delete`*(this: var Parab2d; theAddress: pointer) {.
+    importcpp: "gp_Parab2d::operator delete", header: "gp_Parab2d.hxx".}
+proc `new[]`*(this: var Parab2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Parab2d::operator new[]", header: "gp_Parab2d.hxx".}
+proc `delete[]`*(this: var Parab2d; theAddress: pointer) {.
+    importcpp: "gp_Parab2d::operator delete[]", header: "gp_Parab2d.hxx".}
+proc `new`*(this: var Parab2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Parab2d::operator new", header: "gp_Parab2d.hxx".}
+proc `delete`*(this: var Parab2d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Parab2d::operator delete", header: "gp_Parab2d.hxx".}
 proc constructParab2d*(): Parab2d {.constructor, importcpp: "gp_Parab2d(@)",
                                  header: "gp_Parab2d.hxx".}
-proc constructParab2d*(theMirrorAxis: Ax2d; theFocalLength: float;
-                      theSense: bool = true): Parab2d {.constructor,
+proc constructParab2d*(theMirrorAxis: Ax2d; theFocalLength: StandardReal;
+                      theSense: StandardBoolean = true): Parab2d {.constructor,
     importcpp: "gp_Parab2d(@)", header: "gp_Parab2d.hxx".}
-proc constructParab2d*(theAxes: Ax22d; theFocalLength: float): Parab2d {.constructor,
-    importcpp: "gp_Parab2d(@)", header: "gp_Parab2d.hxx".}
-proc constructParab2d*(theDirectrix: Ax2d; theFocus: Pnt2d; theSense: bool = true): Parab2d {.
+proc constructParab2d*(theAxes: Ax22d; theFocalLength: StandardReal): Parab2d {.
     constructor, importcpp: "gp_Parab2d(@)", header: "gp_Parab2d.hxx".}
-proc setFocal*(this: var Parab2d; focal: float) {.importcpp: "SetFocal",
+proc constructParab2d*(theDirectrix: Ax2d; theFocus: Pnt2d;
+                      theSense: StandardBoolean = true): Parab2d {.constructor,
+    importcpp: "gp_Parab2d(@)", header: "gp_Parab2d.hxx".}
+proc setFocal*(this: var Parab2d; focal: StandardReal) {.importcpp: "SetFocal",
     header: "gp_Parab2d.hxx".}
 proc setLocation*(this: var Parab2d; p: Pnt2d) {.importcpp: "SetLocation",
     header: "gp_Parab2d.hxx".}
@@ -42,13 +52,14 @@ proc setMirrorAxis*(this: var Parab2d; a: Ax2d) {.importcpp: "SetMirrorAxis",
     header: "gp_Parab2d.hxx".}
 proc setAxis*(this: var Parab2d; a: Ax22d) {.importcpp: "SetAxis",
                                        header: "gp_Parab2d.hxx".}
-proc coefficients*(this: Parab2d; a: var float; b: var float; c: var float; d: var float;
-                  e: var float; f: var float) {.noSideEffect,
-    importcpp: "Coefficients", header: "gp_Parab2d.hxx".}
+proc coefficients*(this: Parab2d; a: var StandardReal; b: var StandardReal;
+                  c: var StandardReal; d: var StandardReal; e: var StandardReal;
+                  f: var StandardReal) {.noSideEffect, importcpp: "Coefficients",
+                                      header: "gp_Parab2d.hxx".}
 proc directrix*(this: Parab2d): Ax2d {.noSideEffect, importcpp: "Directrix",
                                    header: "gp_Parab2d.hxx".}
-proc focal*(this: Parab2d): float {.noSideEffect, importcpp: "Focal",
-                                header: "gp_Parab2d.hxx".}
+proc focal*(this: Parab2d): StandardReal {.noSideEffect, importcpp: "Focal",
+                                       header: "gp_Parab2d.hxx".}
 proc focus*(this: Parab2d): Pnt2d {.noSideEffect, importcpp: "Focus",
                                 header: "gp_Parab2d.hxx".}
 proc location*(this: Parab2d): Pnt2d {.noSideEffect, importcpp: "Location",
@@ -57,13 +68,13 @@ proc mirrorAxis*(this: Parab2d): Ax2d {.noSideEffect, importcpp: "MirrorAxis",
                                     header: "gp_Parab2d.hxx".}
 proc axis*(this: Parab2d): Ax22d {.noSideEffect, importcpp: "Axis",
                                header: "gp_Parab2d.hxx".}
-proc parameter*(this: Parab2d): float {.noSideEffect, importcpp: "Parameter",
-                                    header: "gp_Parab2d.hxx".}
+proc parameter*(this: Parab2d): StandardReal {.noSideEffect, importcpp: "Parameter",
+    header: "gp_Parab2d.hxx".}
 proc reverse*(this: var Parab2d) {.importcpp: "Reverse", header: "gp_Parab2d.hxx".}
 proc reversed*(this: Parab2d): Parab2d {.noSideEffect, importcpp: "Reversed",
                                      header: "gp_Parab2d.hxx".}
-proc isDirect*(this: Parab2d): bool {.noSideEffect, importcpp: "IsDirect",
-                                  header: "gp_Parab2d.hxx".}
+proc isDirect*(this: Parab2d): StandardBoolean {.noSideEffect, importcpp: "IsDirect",
+    header: "gp_Parab2d.hxx".}
 proc mirror*(this: var Parab2d; p: Pnt2d) {.importcpp: "Mirror",
                                       header: "gp_Parab2d.hxx".}
 proc mirrored*(this: Parab2d; p: Pnt2d): Parab2d {.noSideEffect, importcpp: "Mirrored",
@@ -71,13 +82,13 @@ proc mirrored*(this: Parab2d; p: Pnt2d): Parab2d {.noSideEffect, importcpp: "Mir
 proc mirror*(this: var Parab2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Parab2d.hxx".}
 proc mirrored*(this: Parab2d; a: Ax2d): Parab2d {.noSideEffect, importcpp: "Mirrored",
     header: "gp_Parab2d.hxx".}
-proc rotate*(this: var Parab2d; p: Pnt2d; ang: float) {.importcpp: "Rotate",
+proc rotate*(this: var Parab2d; p: Pnt2d; ang: StandardReal) {.importcpp: "Rotate",
     header: "gp_Parab2d.hxx".}
-proc rotated*(this: Parab2d; p: Pnt2d; ang: float): Parab2d {.noSideEffect,
+proc rotated*(this: Parab2d; p: Pnt2d; ang: StandardReal): Parab2d {.noSideEffect,
     importcpp: "Rotated", header: "gp_Parab2d.hxx".}
-proc scale*(this: var Parab2d; p: Pnt2d; s: float) {.importcpp: "Scale",
+proc scale*(this: var Parab2d; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
     header: "gp_Parab2d.hxx".}
-proc scaled*(this: Parab2d; p: Pnt2d; s: float): Parab2d {.noSideEffect,
+proc scaled*(this: Parab2d; p: Pnt2d; s: StandardReal): Parab2d {.noSideEffect,
     importcpp: "Scaled", header: "gp_Parab2d.hxx".}
 proc transform*(this: var Parab2d; t: Trsf2d) {.importcpp: "Transform",
     header: "gp_Parab2d.hxx".}

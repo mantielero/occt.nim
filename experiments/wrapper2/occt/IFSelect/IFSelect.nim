@@ -107,3 +107,28 @@ proc saveSession*(ws: Handle[IFSelectWorkSession]; file: StandardCString): bool 
     importcpp: "IFSelect::SaveSession(@)", header: "IFSelect.hxx".}
 proc restoreSession*(ws: Handle[IFSelectWorkSession]; file: StandardCString): bool {.
     importcpp: "IFSelect::RestoreSession(@)", header: "IFSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

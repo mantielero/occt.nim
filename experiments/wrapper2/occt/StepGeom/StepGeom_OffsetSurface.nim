@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_OffsetSurface"
 discard "forward decl of StepGeom_OffsetSurface"
 type
-  HandleStepGeomOffsetSurface* = Handle[StepGeomOffsetSurface]
+  HandleC1C1* = Handle[StepGeomOffsetSurface]
   StepGeomOffsetSurface* {.importcpp: "StepGeom_OffsetSurface",
                           header: "StepGeom_OffsetSurface.hxx", bycopy.} = object of StepGeomSurface ##
                                                                                               ## !
@@ -31,7 +31,7 @@ type
 proc constructStepGeomOffsetSurface*(): StepGeomOffsetSurface {.constructor,
     importcpp: "StepGeom_OffsetSurface(@)", header: "StepGeom_OffsetSurface.hxx".}
 proc init*(this: var StepGeomOffsetSurface; aName: Handle[TCollectionHAsciiString];
-          aBasisSurface: Handle[StepGeomSurface]; aDistance: float;
+          aBasisSurface: Handle[StepGeomSurface]; aDistance: cfloat;
           aSelfIntersect: StepDataLogical) {.importcpp: "Init",
     header: "StepGeom_OffsetSurface.hxx".}
 proc setBasisSurface*(this: var StepGeomOffsetSurface;
@@ -39,9 +39,9 @@ proc setBasisSurface*(this: var StepGeomOffsetSurface;
     importcpp: "SetBasisSurface", header: "StepGeom_OffsetSurface.hxx".}
 proc basisSurface*(this: StepGeomOffsetSurface): Handle[StepGeomSurface] {.
     noSideEffect, importcpp: "BasisSurface", header: "StepGeom_OffsetSurface.hxx".}
-proc setDistance*(this: var StepGeomOffsetSurface; aDistance: float) {.
+proc setDistance*(this: var StepGeomOffsetSurface; aDistance: cfloat) {.
     importcpp: "SetDistance", header: "StepGeom_OffsetSurface.hxx".}
-proc distance*(this: StepGeomOffsetSurface): float {.noSideEffect,
+proc distance*(this: StepGeomOffsetSurface): cfloat {.noSideEffect,
     importcpp: "Distance", header: "StepGeom_OffsetSurface.hxx".}
 proc setSelfIntersect*(this: var StepGeomOffsetSurface;
                       aSelfIntersect: StepDataLogical) {.
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_OffsetSurface.hxx".}
 proc dynamicType*(this: StepGeomOffsetSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_OffsetSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

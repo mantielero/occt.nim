@@ -35,7 +35,7 @@ type
 proc constructStepAP214AutoDesignGroupedItem*(): StepAP214AutoDesignGroupedItem {.
     constructor, importcpp: "StepAP214_AutoDesignGroupedItem(@)",
     header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc caseNum*(this: StepAP214AutoDesignGroupedItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP214AutoDesignGroupedItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepAP214_AutoDesignGroupedItem.hxx".}
 proc advancedBrepShapeRepresentation*(this: StepAP214AutoDesignGroupedItem): Handle[
@@ -78,3 +78,28 @@ proc shapeRepresentation*(this: StepAP214AutoDesignGroupedItem): Handle[
 proc templateInstance*(this: StepAP214AutoDesignGroupedItem): Handle[
     StepVisualTemplateInstance] {.noSideEffect, importcpp: "TemplateInstance",
                                  header: "StepAP214_AutoDesignGroupedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

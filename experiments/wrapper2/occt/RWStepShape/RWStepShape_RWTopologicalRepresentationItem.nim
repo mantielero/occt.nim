@@ -28,7 +28,7 @@ proc constructRWStepShapeRWTopologicalRepresentationItem*(): RWStepShapeRWTopolo
     constructor, importcpp: "RWStepShape_RWTopologicalRepresentationItem(@)",
     header: "RWStepShape_RWTopologicalRepresentationItem.hxx".}
 proc readStep*(this: RWStepShapeRWTopologicalRepresentationItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeTopologicalRepresentationItem]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepShapeRWTopologicalRepresentationItem;
                ent: Handle[StepShapeTopologicalRepresentationItem]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepShape_RWTopologicalRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

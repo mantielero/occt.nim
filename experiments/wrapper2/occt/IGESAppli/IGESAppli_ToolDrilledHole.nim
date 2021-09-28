@@ -64,5 +64,30 @@ proc ownCopy*(this: IGESAppliToolDrilledHole;
              entto: Handle[IGESAppliDrilledHole]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolDrilledHole.hxx".}
 proc ownDump*(this: IGESAppliToolDrilledHole; ent: Handle[IGESAppliDrilledHole];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolDrilledHole.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

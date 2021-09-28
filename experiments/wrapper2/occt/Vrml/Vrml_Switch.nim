@@ -28,11 +28,36 @@ type
   VrmlSwitch* {.importcpp: "Vrml_Switch", header: "Vrml_Switch.hxx", bycopy.} = object
 
 
-proc constructVrmlSwitch*(aWhichChild: int = -1): VrmlSwitch {.constructor,
+proc constructVrmlSwitch*(aWhichChild: cint = -1): VrmlSwitch {.constructor,
     importcpp: "Vrml_Switch(@)", header: "Vrml_Switch.hxx".}
-proc setWhichChild*(this: var VrmlSwitch; aWhichChild: int) {.
+proc setWhichChild*(this: var VrmlSwitch; aWhichChild: cint) {.
     importcpp: "SetWhichChild", header: "Vrml_Switch.hxx".}
-proc whichChild*(this: VrmlSwitch): int {.noSideEffect, importcpp: "WhichChild",
-                                      header: "Vrml_Switch.hxx".}
+proc whichChild*(this: VrmlSwitch): cint {.noSideEffect, importcpp: "WhichChild",
+                                       header: "Vrml_Switch.hxx".}
 proc print*(this: VrmlSwitch; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Switch.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

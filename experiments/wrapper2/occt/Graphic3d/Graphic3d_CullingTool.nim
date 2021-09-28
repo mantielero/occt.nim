@@ -68,9 +68,9 @@ type
 
   Graphic3dCullingToolCullingContext* {.importcpp: "Graphic3d_CullingTool::CullingContext",
                                        header: "Graphic3d_CullingTool.hxx", bycopy.} = object
-    distCull* {.importc: "DistCull".}: float ## !< culling distance
-    sizeCull2* {.importc: "SizeCull2".}: float ## !< squared culling size
-                                           ## ! Empty constructor.
+    distCull* {.importc: "DistCull".}: cfloat ## !< culling distance
+    sizeCull2* {.importc: "SizeCull2".}: cfloat ## !< squared culling size
+                                            ## ! Empty constructor.
 
 
 proc constructGraphic3dCullingToolCullingContext*(): Graphic3dCullingToolCullingContext {.
@@ -100,15 +100,15 @@ proc setViewVolume*(this: var Graphic3dCullingTool;
                    theCamera: Handle[Graphic3dCamera];
                    theModelWorld: Graphic3dMat4d = graphic3dMat4d()) {.
     importcpp: "SetViewVolume", header: "Graphic3d_CullingTool.hxx".}
-proc setViewportSize*(this: var Graphic3dCullingTool; theViewportWidth: int;
-                     theViewportHeight: int; theResolutionRatio: float) {.
+proc setViewportSize*(this: var Graphic3dCullingTool; theViewportWidth: cint;
+                     theViewportHeight: cint; theResolutionRatio: cfloat) {.
     importcpp: "SetViewportSize", header: "Graphic3d_CullingTool.hxx".}
 proc setCullingDistance*(this: Graphic3dCullingTool;
                         theCtx: var Graphic3dCullingToolCullingContext;
-                        theDistance: float) {.noSideEffect,
+                        theDistance: cfloat) {.noSideEffect,
     importcpp: "SetCullingDistance", header: "Graphic3d_CullingTool.hxx".}
 proc setCullingSize*(this: Graphic3dCullingTool;
-                    theCtx: var Graphic3dCullingToolCullingContext; theSize: float) {.
+                    theCtx: var Graphic3dCullingToolCullingContext; theSize: cfloat) {.
     noSideEffect, importcpp: "SetCullingSize", header: "Graphic3d_CullingTool.hxx".}
 proc cacheClipPtsProjections*(this: var Graphic3dCullingTool) {.
     importcpp: "CacheClipPtsProjections", header: "Graphic3d_CullingTool.hxx".}
@@ -123,9 +123,9 @@ proc projectionMatrix*(this: Graphic3dCullingTool): Graphic3dMat4d {.noSideEffec
     importcpp: "ProjectionMatrix", header: "Graphic3d_CullingTool.hxx".}
 proc worldViewMatrix*(this: Graphic3dCullingTool): Graphic3dMat4d {.noSideEffect,
     importcpp: "WorldViewMatrix", header: "Graphic3d_CullingTool.hxx".}
-proc viewportWidth*(this: Graphic3dCullingTool): int {.noSideEffect,
+proc viewportWidth*(this: Graphic3dCullingTool): cint {.noSideEffect,
     importcpp: "ViewportWidth", header: "Graphic3d_CullingTool.hxx".}
-proc viewportHeight*(this: Graphic3dCullingTool): int {.noSideEffect,
+proc viewportHeight*(this: Graphic3dCullingTool): cint {.noSideEffect,
     importcpp: "ViewportHeight", header: "Graphic3d_CullingTool.hxx".}
 proc worldViewProjState*(this: Graphic3dCullingTool): Graphic3dWorldViewProjState {.
     noSideEffect, importcpp: "WorldViewProjState",
@@ -135,7 +135,7 @@ proc cameraEye*(this: Graphic3dCullingTool): Graphic3dVec3d {.noSideEffect,
 proc cameraDirection*(this: Graphic3dCullingTool): Graphic3dVec3d {.noSideEffect,
     importcpp: "CameraDirection", header: "Graphic3d_CullingTool.hxx".}
 proc signedPlanePointDistance*(this: var Graphic3dCullingTool;
-                              theNormal: Graphic3dVec4d; thePnt: Graphic3dVec4d): float {.
+                              theNormal: Graphic3dVec4d; thePnt: Graphic3dVec4d): cfloat {.
     importcpp: "SignedPlanePointDistance", header: "Graphic3d_CullingTool.hxx".}
 proc isOutFrustum*(this: Graphic3dCullingTool; theMinPnt: Graphic3dVec3d;
                   theMaxPnt: Graphic3dVec3d; theIsInside: ptr bool = nil): bool {.
@@ -149,3 +149,28 @@ proc isTooSmall*(this: Graphic3dCullingTool;
                 theCtx: Graphic3dCullingToolCullingContext;
                 theMinPnt: Graphic3dVec3d; theMaxPnt: Graphic3dVec3d): bool {.
     noSideEffect, importcpp: "IsTooSmall", header: "Graphic3d_CullingTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,3 +23,28 @@ type
     IntrvOverlappingAtEnd, IntrvJustAfter, IntrvAfter
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

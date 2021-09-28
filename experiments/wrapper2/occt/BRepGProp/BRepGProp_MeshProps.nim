@@ -76,9 +76,34 @@ proc perform*(this: var BRepGPropMeshProps; theNodes: TColgpArray1OfPnt;
              theTriangles: PolyArray1OfTriangle; theOri: TopAbsOrientation) {.
     importcpp: "Perform", header: "BRepGProp_MeshProps.hxx".}
 proc calculateProps*(p1: Pnt; p2: Pnt; p3: Pnt; apex: Pnt; isVolume: bool;
-                    gProps: array[10, float]; nbGaussPoints: int;
-                    gaussPnts: ptr float) {.
+                    gProps: array[10, cfloat]; nbGaussPoints: cint;
+                    gaussPnts: ptr cfloat) {.
     importcpp: "BRepGProp_MeshProps::CalculateProps(@)",
     header: "BRepGProp_MeshProps.hxx".}
 proc getMeshObjType*(this: BRepGPropMeshProps): BRepGPropMeshPropsBRepGPropMeshObjType {.
     noSideEffect, importcpp: "GetMeshObjType", header: "BRepGProp_MeshProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

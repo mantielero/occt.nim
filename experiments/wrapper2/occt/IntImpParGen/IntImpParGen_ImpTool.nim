@@ -21,15 +21,40 @@ type
                         header: "IntImpParGen_ImpTool.hxx", bycopy.} = object
 
 
-proc value*(this: IntImpParGenImpTool; u: float): Pnt2d {.noSideEffect,
+proc value*(this: IntImpParGenImpTool; u: cfloat): Pnt2d {.noSideEffect,
     importcpp: "Value", header: "IntImpParGen_ImpTool.hxx".}
-proc d1*(this: IntImpParGenImpTool; u: float; p: var Pnt2d; t: var Vec2d) {.noSideEffect,
+proc d1*(this: IntImpParGenImpTool; u: cfloat; p: var Pnt2d; t: var Vec2d) {.noSideEffect,
     importcpp: "D1", header: "IntImpParGen_ImpTool.hxx".}
-proc d2*(this: IntImpParGenImpTool; u: float; p: var Pnt2d; t: var Vec2d; n: var Vec2d) {.
+proc d2*(this: IntImpParGenImpTool; u: cfloat; p: var Pnt2d; t: var Vec2d; n: var Vec2d) {.
     noSideEffect, importcpp: "D2", header: "IntImpParGen_ImpTool.hxx".}
-proc distance*(this: IntImpParGenImpTool; p: Pnt2d): float {.noSideEffect,
+proc distance*(this: IntImpParGenImpTool; p: Pnt2d): cfloat {.noSideEffect,
     importcpp: "Distance", header: "IntImpParGen_ImpTool.hxx".}
 proc gradDistance*(this: IntImpParGenImpTool; p: Pnt2d): Vec2d {.noSideEffect,
     importcpp: "GradDistance", header: "IntImpParGen_ImpTool.hxx".}
-proc findParameter*(this: IntImpParGenImpTool; p: Pnt2d): float {.noSideEffect,
+proc findParameter*(this: IntImpParGenImpTool; p: Pnt2d): cfloat {.noSideEffect,
     importcpp: "FindParameter", header: "IntImpParGen_ImpTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

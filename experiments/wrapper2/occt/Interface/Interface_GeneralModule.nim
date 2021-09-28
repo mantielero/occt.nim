@@ -24,7 +24,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Interface_GeneralModule"
 discard "forward decl of Interface_GeneralModule"
 type
-  HandleInterfaceGeneralModule* = Handle[InterfaceGeneralModule]
+  HandleC1C1* = Handle[InterfaceGeneralModule]
 
 ## ! This class defines general services, which must be provided
 ## ! for each type of Entity (i.e. of Transient Object processed
@@ -95,10 +95,10 @@ type
 
 
 proc fillShared*(this: InterfaceGeneralModule;
-                model: Handle[InterfaceInterfaceModel]; cn: int;
+                model: Handle[InterfaceInterfaceModel]; cn: cint;
                 ent: Handle[StandardTransient]; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "FillShared", header: "Interface_GeneralModule.hxx".}
-proc fillSharedCase*(this: InterfaceGeneralModule; cn: int;
+proc fillSharedCase*(this: InterfaceGeneralModule; cn: cint;
                     ent: Handle[StandardTransient];
                     iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillSharedCase", header: "Interface_GeneralModule.hxx".}
@@ -106,48 +106,48 @@ proc share*(this: InterfaceGeneralModule; iter: var InterfaceEntityIterator;
            shared: Handle[StandardTransient]) {.noSideEffect, importcpp: "Share",
     header: "Interface_GeneralModule.hxx".}
 proc listImplied*(this: InterfaceGeneralModule;
-                 model: Handle[InterfaceInterfaceModel]; cn: int;
+                 model: Handle[InterfaceInterfaceModel]; cn: cint;
                  ent: Handle[StandardTransient]; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "ListImplied", header: "Interface_GeneralModule.hxx".}
-proc listImpliedCase*(this: InterfaceGeneralModule; cn: int;
+proc listImpliedCase*(this: InterfaceGeneralModule; cn: cint;
                      ent: Handle[StandardTransient];
                      iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "ListImpliedCase", header: "Interface_GeneralModule.hxx".}
-proc checkCase*(this: InterfaceGeneralModule; cn: int;
+proc checkCase*(this: InterfaceGeneralModule; cn: cint;
                ent: Handle[StandardTransient]; shares: InterfaceShareTool;
                ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "CheckCase", header: "Interface_GeneralModule.hxx".}
-proc canCopy*(this: InterfaceGeneralModule; cn: int; ent: Handle[StandardTransient]): bool {.
+proc canCopy*(this: InterfaceGeneralModule; cn: cint; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "CanCopy", header: "Interface_GeneralModule.hxx".}
-proc dispatch*(this: InterfaceGeneralModule; cn: int;
+proc dispatch*(this: InterfaceGeneralModule; cn: cint;
               entfrom: Handle[StandardTransient];
               entto: var Handle[StandardTransient]; tc: var InterfaceCopyTool): bool {.
     noSideEffect, importcpp: "Dispatch", header: "Interface_GeneralModule.hxx".}
-proc newVoid*(this: InterfaceGeneralModule; cn: int;
+proc newVoid*(this: InterfaceGeneralModule; cn: cint;
              entto: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "NewVoid", header: "Interface_GeneralModule.hxx".}
-proc copyCase*(this: InterfaceGeneralModule; cn: int;
+proc copyCase*(this: InterfaceGeneralModule; cn: cint;
               entfrom: Handle[StandardTransient];
               entto: Handle[StandardTransient]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "CopyCase", header: "Interface_GeneralModule.hxx".}
-proc newCopiedCase*(this: InterfaceGeneralModule; cn: int;
+proc newCopiedCase*(this: InterfaceGeneralModule; cn: cint;
                    entfrom: Handle[StandardTransient];
                    entto: var Handle[StandardTransient]; tc: var InterfaceCopyTool): bool {.
     noSideEffect, importcpp: "NewCopiedCase", header: "Interface_GeneralModule.hxx".}
-proc renewImpliedCase*(this: InterfaceGeneralModule; cn: int;
+proc renewImpliedCase*(this: InterfaceGeneralModule; cn: cint;
                       entfrom: Handle[StandardTransient];
                       entto: Handle[StandardTransient]; tc: InterfaceCopyTool) {.
     noSideEffect, importcpp: "RenewImpliedCase",
     header: "Interface_GeneralModule.hxx".}
-proc whenDeleteCase*(this: InterfaceGeneralModule; cn: int;
+proc whenDeleteCase*(this: InterfaceGeneralModule; cn: cint;
                     ent: Handle[StandardTransient]; dispatched: bool) {.
     noSideEffect, importcpp: "WhenDeleteCase",
     header: "Interface_GeneralModule.hxx".}
-proc categoryNumber*(this: InterfaceGeneralModule; cn: int;
-                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): int {.
+proc categoryNumber*(this: InterfaceGeneralModule; cn: cint;
+                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): cint {.
     noSideEffect, importcpp: "CategoryNumber",
     header: "Interface_GeneralModule.hxx".}
-proc name*(this: InterfaceGeneralModule; cn: int; ent: Handle[StandardTransient];
+proc name*(this: InterfaceGeneralModule; cn: cint; ent: Handle[StandardTransient];
           shares: InterfaceShareTool): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "Interface_GeneralModule.hxx".}
 type
@@ -160,3 +160,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_GeneralModule.hxx".}
 proc dynamicType*(this: InterfaceGeneralModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Interface_GeneralModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

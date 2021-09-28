@@ -20,7 +20,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESSolid_SphericalSurface"
 discard "forward decl of IGESSolid_SphericalSurface"
 type
-  HandleIGESSolidSphericalSurface* = Handle[IGESSolidSphericalSurface]
+  HandleC1C1* = Handle[IGESSolidSphericalSurface]
 
 ## ! defines SphericalSurface, Type <196> Form Number <0,1>
 ## ! in package IGESSolid
@@ -37,14 +37,14 @@ proc constructIGESSolidSphericalSurface*(): IGESSolidSphericalSurface {.
     constructor, importcpp: "IGESSolid_SphericalSurface(@)",
     header: "IGESSolid_SphericalSurface.hxx".}
 proc init*(this: var IGESSolidSphericalSurface; aCenter: Handle[IGESGeomPoint];
-          aRadius: float; anAxis: Handle[IGESGeomDirection];
+          aRadius: cfloat; anAxis: Handle[IGESGeomDirection];
           aRefdir: Handle[IGESGeomDirection]) {.importcpp: "Init",
     header: "IGESSolid_SphericalSurface.hxx".}
 proc center*(this: IGESSolidSphericalSurface): Handle[IGESGeomPoint] {.noSideEffect,
     importcpp: "Center", header: "IGESSolid_SphericalSurface.hxx".}
 proc transformedCenter*(this: IGESSolidSphericalSurface): Pnt {.noSideEffect,
     importcpp: "TransformedCenter", header: "IGESSolid_SphericalSurface.hxx".}
-proc radius*(this: IGESSolidSphericalSurface): float {.noSideEffect,
+proc radius*(this: IGESSolidSphericalSurface): cfloat {.noSideEffect,
     importcpp: "Radius", header: "IGESSolid_SphericalSurface.hxx".}
 proc axis*(this: IGESSolidSphericalSurface): Handle[IGESGeomDirection] {.
     noSideEffect, importcpp: "Axis", header: "IGESSolid_SphericalSurface.hxx".}
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSolidSphericalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_SphericalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

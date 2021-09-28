@@ -23,7 +23,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_VectorWithMagnitude"
 discard "forward decl of Geom2d_VectorWithMagnitude"
 type
-  HandleGeom2dVectorWithMagnitude* = Handle[Geom2dVectorWithMagnitude]
+  HandleC1C1* = Handle[Geom2dVectorWithMagnitude]
 
 ## ! Defines a vector with magnitude.
 ## ! A vector with magnitude can have a zero length.
@@ -43,23 +43,23 @@ type
 proc constructGeom2dVectorWithMagnitude*(v: Vec2d): Geom2dVectorWithMagnitude {.
     constructor, importcpp: "Geom2d_VectorWithMagnitude(@)",
     header: "Geom2d_VectorWithMagnitude.hxx".}
-proc constructGeom2dVectorWithMagnitude*(x: float; y: float): Geom2dVectorWithMagnitude {.
+proc constructGeom2dVectorWithMagnitude*(x: StandardReal; y: StandardReal): Geom2dVectorWithMagnitude {.
     constructor, importcpp: "Geom2d_VectorWithMagnitude(@)",
     header: "Geom2d_VectorWithMagnitude.hxx".}
 proc constructGeom2dVectorWithMagnitude*(p1: Pnt2d; p2: Pnt2d): Geom2dVectorWithMagnitude {.
     constructor, importcpp: "Geom2d_VectorWithMagnitude(@)",
     header: "Geom2d_VectorWithMagnitude.hxx".}
-proc setCoord*(this: var Geom2dVectorWithMagnitude; x: float; y: float) {.
+proc setCoord*(this: var Geom2dVectorWithMagnitude; x: StandardReal; y: StandardReal) {.
     importcpp: "SetCoord", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc setVec2d*(this: var Geom2dVectorWithMagnitude; v: Vec2d) {.importcpp: "SetVec2d",
     header: "Geom2d_VectorWithMagnitude.hxx".}
-proc setX*(this: var Geom2dVectorWithMagnitude; x: float) {.importcpp: "SetX",
+proc setX*(this: var Geom2dVectorWithMagnitude; x: StandardReal) {.importcpp: "SetX",
     header: "Geom2d_VectorWithMagnitude.hxx".}
-proc setY*(this: var Geom2dVectorWithMagnitude; y: float) {.importcpp: "SetY",
+proc setY*(this: var Geom2dVectorWithMagnitude; y: StandardReal) {.importcpp: "SetY",
     header: "Geom2d_VectorWithMagnitude.hxx".}
-proc magnitude*(this: Geom2dVectorWithMagnitude): float {.noSideEffect,
+proc magnitude*(this: Geom2dVectorWithMagnitude): StandardReal {.noSideEffect,
     importcpp: "Magnitude", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc squareMagnitude*(this: Geom2dVectorWithMagnitude): float {.noSideEffect,
+proc squareMagnitude*(this: Geom2dVectorWithMagnitude): StandardReal {.noSideEffect,
     importcpp: "SquareMagnitude", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc add*(this: var Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]) {.
     importcpp: "Add", header: "Geom2d_VectorWithMagnitude.hxx".}
@@ -71,26 +71,26 @@ proc added*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): Handl
 proc `+`*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): Handle[
     Geom2dVectorWithMagnitude] {.noSideEffect, importcpp: "(# + #)",
                                 header: "Geom2d_VectorWithMagnitude.hxx".}
-proc crossed*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): float {.
+proc crossed*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): StandardReal {.
     noSideEffect, importcpp: "Crossed", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc `^`*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): float {.
+proc `^`*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): StandardReal {.
     noSideEffect, importcpp: "(# ^ #)", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc divide*(this: var Geom2dVectorWithMagnitude; scalar: float) {.
+proc divide*(this: var Geom2dVectorWithMagnitude; scalar: StandardReal) {.
     importcpp: "Divide", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc `/=`*(this: var Geom2dVectorWithMagnitude; scalar: float) {.
+proc `/=`*(this: var Geom2dVectorWithMagnitude; scalar: StandardReal) {.
     importcpp: "(# /= #)", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc divided*(this: Geom2dVectorWithMagnitude; scalar: float): Handle[
+proc divided*(this: Geom2dVectorWithMagnitude; scalar: StandardReal): Handle[
     Geom2dVectorWithMagnitude] {.noSideEffect, importcpp: "Divided",
                                 header: "Geom2d_VectorWithMagnitude.hxx".}
-proc `/`*(this: Geom2dVectorWithMagnitude; scalar: float): Handle[
+proc `/`*(this: Geom2dVectorWithMagnitude; scalar: StandardReal): Handle[
     Geom2dVectorWithMagnitude] {.noSideEffect, importcpp: "(# / #)",
                                 header: "Geom2d_VectorWithMagnitude.hxx".}
-proc multiplied*(this: Geom2dVectorWithMagnitude; scalar: float): Handle[
+proc multiplied*(this: Geom2dVectorWithMagnitude; scalar: StandardReal): Handle[
     Geom2dVectorWithMagnitude] {.noSideEffect, importcpp: "Multiplied",
                                 header: "Geom2d_VectorWithMagnitude.hxx".}
-proc multiply*(this: var Geom2dVectorWithMagnitude; scalar: float) {.
+proc multiply*(this: var Geom2dVectorWithMagnitude; scalar: StandardReal) {.
     importcpp: "Multiply", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc `*=`*(this: var Geom2dVectorWithMagnitude; scalar: float) {.
+proc `*=`*(this: var Geom2dVectorWithMagnitude; scalar: StandardReal) {.
     importcpp: "(# *= #)", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc normalize*(this: var Geom2dVectorWithMagnitude) {.importcpp: "Normalize",
     header: "Geom2d_VectorWithMagnitude.hxx".}

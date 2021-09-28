@@ -20,7 +20,7 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of XmlMXCAFDoc_LocationDriver"
 discard "forward decl of XmlMXCAFDoc_LocationDriver"
 type
-  HandleXmlMXCAFDocLocationDriver* = Handle[XmlMXCAFDocLocationDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocLocationDriver]
 
 ## ! Attribute Driver.
 
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMXCAFDocLocationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMXCAFDoc_LocationDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

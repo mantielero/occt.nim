@@ -27,10 +27,35 @@ type
 
 
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         thevalue: float; aText: TCollectionExtendedString; aPosition: Pnt;
+         thevalue: cfloat; aText: TCollectionExtendedString; aPosition: Pnt;
          aNormalDir: Dir; aBasePnt: Pnt; aFirstPoint: Pnt; aSecondPoint: Pnt;
          aCenter: Pnt; arrowPrs: DsgPrsArrowSide; drawRevers: bool;
          drawPosition: var Pnt; endOfArrow: var Pnt;
          trimCurve: var Handle[GeomTrimmedCurve]; hasCircle: var bool) {.
     importcpp: "DsgPrs_FilletRadiusPresentation::Add(@)",
     header: "DsgPrs_FilletRadiusPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

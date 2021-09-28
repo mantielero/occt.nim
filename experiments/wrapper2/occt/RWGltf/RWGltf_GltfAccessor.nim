@@ -29,3 +29,28 @@ type
 
 proc constructRWGltfGltfAccessor*(): RWGltfGltfAccessor {.constructor,
     importcpp: "RWGltf_GltfAccessor(@)", header: "RWGltf_GltfAccessor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

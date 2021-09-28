@@ -23,11 +23,11 @@ proc constructTopOpeBRepBuildFuseFace*(): TopOpeBRepBuildFuseFace {.constructor,
     importcpp: "TopOpeBRepBuild_FuseFace(@)",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc constructTopOpeBRepBuildFuseFace*(lif: TopToolsListOfShape;
-                                      lrf: TopToolsListOfShape; cxm: int): TopOpeBRepBuildFuseFace {.
+                                      lrf: TopToolsListOfShape; cxm: cint): TopOpeBRepBuildFuseFace {.
     constructor, importcpp: "TopOpeBRepBuild_FuseFace(@)",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc init*(this: var TopOpeBRepBuildFuseFace; lif: TopToolsListOfShape;
-          lrf: TopToolsListOfShape; cxm: int) {.importcpp: "Init",
+          lrf: TopToolsListOfShape; cxm: cint) {.importcpp: "Init",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc performFace*(this: var TopOpeBRepBuildFuseFace) {.importcpp: "PerformFace",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
@@ -57,3 +57,28 @@ proc lExternVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lModifVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     noSideEffect, importcpp: "LModifVertex", header: "TopOpeBRepBuild_FuseFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,81 +15,58 @@
 ##  commercial license or contractual agreement.
 
 ## !!!Ignored construct:  # _MAT_ListOfBisector_HeaderFile [NewLine] # _MAT_ListOfBisector_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] class MAT_TListNodeOfListOfBisector ;
-## Error: did not expect <!!!
+## Error: expected ';'!!!
 
 discard "forward decl of MAT_Bisector"
 discard "forward decl of MAT_ListOfBisector"
-discard "forward decl of MAT_ListOfBisector"
-type
-  HandleMAT_ListOfBisectorMAT_ListOfBisector* = Handle[MAT_ListOfBisector]
-  MAT_ListOfBisector* {.importcpp: "MAT_ListOfBisector",
-                       header: "MAT_ListOfBisector.hxx", bycopy.} = object of StandardTransient
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( MAT_ListOfBisector , Standard_Transient ) class MAT_ListOfBisector : public Standard_Transient { public : MAT_ListOfBisector ( ) ; ~ MAT_ListOfBisector ( ) ; void First ( ) ; void Last ( ) ; void Init ( const Handle ( MAT_Bisector ) & aniten ) ; void Next ( ) ; void Previous ( ) ; Standard_Boolean More ( ) const ; Handle ( MAT_Bisector ) Current ( ) const ; void Current ( const Handle ( MAT_Bisector ) & anitem ) const ; Handle ( MAT_Bisector ) FirstItem ( ) const ; Handle ( MAT_Bisector ) LastItem ( ) const ; Handle ( MAT_Bisector ) PreviousItem ( ) const ; Handle ( MAT_Bisector ) NextItem ( ) const ; Standard_Integer Number ( ) const ; Standard_Integer Index ( ) const ; Handle ( MAT_Bisector ) Brackets ( const Standard_Integer anindex ) ; Handle ( MAT_Bisector ) operator ( ) ( const Standard_Integer anindex ) { return Brackets ( anindex ) ; } void Unlink ( ) ; void LinkBefore ( const Handle ( MAT_Bisector ) & anitem ) ; void LinkAfter ( const Handle ( MAT_Bisector ) & anitem ) ; void FrontAdd ( const Handle ( MAT_Bisector ) & anitem ) ; void BackAdd ( const Handle ( MAT_Bisector ) & anitem ) ; void Permute ( ) ; void Loop ( ) const ; Standard_Boolean IsEmpty ( ) const ; void Dump ( const Standard_Integer ashift , const Standard_Integer alevel ) ; public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return MAT_ListOfBisector ; ( MAT_ListOfBisector , Standard_Transient ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < MAT_ListOfBisector > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : private : Handle ( MAT_TListNodeOfListOfBisector ) thefirstnode ; Handle ( MAT_TListNodeOfListOfBisector ) thelastnode ; Handle ( MAT_TListNodeOfListOfBisector ) thecurrentnode ; Standard_Integer thecurrentindex ; Standard_Integer thenumberofitems ; } ;
+## Error: expected ';'!!!
 
-
-proc constructMAT_ListOfBisector*(): MAT_ListOfBisector {.constructor,
-    importcpp: "MAT_ListOfBisector(@)", header: "MAT_ListOfBisector.hxx".}
-proc destroyMAT_ListOfBisector*(this: var MAT_ListOfBisector) {.
-    importcpp: "#.~MAT_ListOfBisector()", header: "MAT_ListOfBisector.hxx".}
-proc first*(this: var MAT_ListOfBisector) {.importcpp: "First",
-                                        header: "MAT_ListOfBisector.hxx".}
-proc last*(this: var MAT_ListOfBisector) {.importcpp: "Last",
-                                       header: "MAT_ListOfBisector.hxx".}
-proc init*(this: var MAT_ListOfBisector; aniten: Handle[MAT_Bisector]) {.
-    importcpp: "Init", header: "MAT_ListOfBisector.hxx".}
-proc next*(this: var MAT_ListOfBisector) {.importcpp: "Next",
-                                       header: "MAT_ListOfBisector.hxx".}
-proc previous*(this: var MAT_ListOfBisector) {.importcpp: "Previous",
-    header: "MAT_ListOfBisector.hxx".}
-proc more*(this: MAT_ListOfBisector): bool {.noSideEffect, importcpp: "More",
-    header: "MAT_ListOfBisector.hxx".}
-proc current*(this: MAT_ListOfBisector): Handle[MAT_Bisector] {.noSideEffect,
-    importcpp: "Current", header: "MAT_ListOfBisector.hxx".}
-proc current*(this: MAT_ListOfBisector; anitem: Handle[MAT_Bisector]) {.noSideEffect,
-    importcpp: "Current", header: "MAT_ListOfBisector.hxx".}
-proc firstItem*(this: MAT_ListOfBisector): Handle[MAT_Bisector] {.noSideEffect,
-    importcpp: "FirstItem", header: "MAT_ListOfBisector.hxx".}
-proc lastItem*(this: MAT_ListOfBisector): Handle[MAT_Bisector] {.noSideEffect,
-    importcpp: "LastItem", header: "MAT_ListOfBisector.hxx".}
-proc previousItem*(this: MAT_ListOfBisector): Handle[MAT_Bisector] {.noSideEffect,
-    importcpp: "PreviousItem", header: "MAT_ListOfBisector.hxx".}
-proc nextItem*(this: MAT_ListOfBisector): Handle[MAT_Bisector] {.noSideEffect,
-    importcpp: "NextItem", header: "MAT_ListOfBisector.hxx".}
-proc number*(this: MAT_ListOfBisector): int {.noSideEffect, importcpp: "Number",
-    header: "MAT_ListOfBisector.hxx".}
-proc index*(this: MAT_ListOfBisector): int {.noSideEffect, importcpp: "Index",
-    header: "MAT_ListOfBisector.hxx".}
-proc brackets*(this: var MAT_ListOfBisector; anindex: int): Handle[MAT_Bisector] {.
-    importcpp: "Brackets", header: "MAT_ListOfBisector.hxx".}
-proc `()`*(this: var MAT_ListOfBisector; anindex: int): Handle[MAT_Bisector] {.
-    importcpp: "#(@)", header: "MAT_ListOfBisector.hxx".}
-proc unlink*(this: var MAT_ListOfBisector) {.importcpp: "Unlink",
-    header: "MAT_ListOfBisector.hxx".}
-proc linkBefore*(this: var MAT_ListOfBisector; anitem: Handle[MAT_Bisector]) {.
-    importcpp: "LinkBefore", header: "MAT_ListOfBisector.hxx".}
-proc linkAfter*(this: var MAT_ListOfBisector; anitem: Handle[MAT_Bisector]) {.
-    importcpp: "LinkAfter", header: "MAT_ListOfBisector.hxx".}
-proc frontAdd*(this: var MAT_ListOfBisector; anitem: Handle[MAT_Bisector]) {.
-    importcpp: "FrontAdd", header: "MAT_ListOfBisector.hxx".}
-proc backAdd*(this: var MAT_ListOfBisector; anitem: Handle[MAT_Bisector]) {.
-    importcpp: "BackAdd", header: "MAT_ListOfBisector.hxx".}
-proc permute*(this: var MAT_ListOfBisector) {.importcpp: "Permute",
-    header: "MAT_ListOfBisector.hxx".}
-proc loop*(this: MAT_ListOfBisector) {.noSideEffect, importcpp: "Loop",
-                                    header: "MAT_ListOfBisector.hxx".}
-proc isEmpty*(this: MAT_ListOfBisector): bool {.noSideEffect, importcpp: "IsEmpty",
-    header: "MAT_ListOfBisector.hxx".}
-proc dump*(this: var MAT_ListOfBisector; ashift: int; alevel: int) {.importcpp: "Dump",
-    header: "MAT_ListOfBisector.hxx".}
-type
-  MAT_ListOfBisectorbaseType* = StandardTransient
-
-proc getTypeName*(): cstring {.importcpp: "MAT_ListOfBisector::get_type_name(@)",
-                            header: "MAT_ListOfBisector.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "MAT_ListOfBisector::get_type_descriptor(@)",
-    header: "MAT_ListOfBisector.hxx".}
-proc dynamicType*(this: MAT_ListOfBisector): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "MAT_ListOfBisector.hxx".}
-## !!!Ignored construct:  # Item opencascade :: handle < MAT_Bisector > [end of template] [NewLine] # Item_hxx < MAT_Bisector . hxx > [NewLine] # MAT_TListNode MAT_TListNodeOfListOfBisector [NewLine] # MAT_TListNode_hxx < MAT_TListNodeOfListOfBisector . hxx > [NewLine] # Handle_MAT_TListNode opencascade :: handle < MAT_TListNodeOfListOfBisector > [end of template] [NewLine] # MAT_TList MAT_ListOfBisector [NewLine] # MAT_TList_hxx < MAT_ListOfBisector . hxx > [NewLine] # Handle_MAT_TList opencascade :: handle < MAT_ListOfBisector > [end of template] [NewLine] # < MAT_TList . lxx > [NewLine] # Item [NewLine] # Item_hxx [NewLine] # MAT_TListNode [NewLine] # MAT_TListNode_hxx [NewLine] # Handle_MAT_TListNode [NewLine] # MAT_TList [NewLine] # MAT_TList_hxx [NewLine] # Handle_MAT_TList [NewLine] #  _MAT_ListOfBisector_HeaderFile
+## !!!Ignored construct:  # Item Handle ( MAT_Bisector ) [NewLine] # Item_hxx < MAT_Bisector . hxx > [NewLine] # MAT_TListNode MAT_TListNodeOfListOfBisector [NewLine] # MAT_TListNode_hxx < MAT_TListNodeOfListOfBisector . hxx > [NewLine] # Handle_MAT_TListNode Handle ( MAT_TListNodeOfListOfBisector ) [NewLine] # MAT_TList MAT_ListOfBisector [NewLine] # MAT_TList_hxx < MAT_ListOfBisector . hxx > [NewLine] # Handle_MAT_TList Handle ( MAT_ListOfBisector ) [NewLine] # < MAT_TList . lxx > [NewLine] # Item [NewLine] # Item_hxx [NewLine] # MAT_TListNode [NewLine] # MAT_TListNode_hxx [NewLine] # Handle_MAT_TListNode [NewLine] # MAT_TList [NewLine] # MAT_TList_hxx [NewLine] # Handle_MAT_TList [NewLine] #  _MAT_ListOfBisector_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

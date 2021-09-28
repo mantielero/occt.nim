@@ -27,7 +27,7 @@ proc constructRWStepDimTolRWGeoTolAndGeoTolWthDatRefAndModGeoTolAndPosTol*(): RW
     constructor, importcpp: "RWStepDimTol_RWGeoTolAndGeoTolWthDatRefAndModGeoTolAndPosTol(@)",
     header: "RWStepDimTol_RWGeoTolAndGeoTolWthDatRefAndModGeoTolAndPosTol.hxx".}
 proc readStep*(this: RWStepDimTolRWGeoTolAndGeoTolWthDatRefAndModGeoTolAndPosTol;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepDimTolGeoTolAndGeoTolWthDatRefAndModGeoTolAndPosTol]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -41,3 +41,28 @@ proc share*(this: RWStepDimTolRWGeoTolAndGeoTolWthDatRefAndModGeoTolAndPosTol; e
     StepDimTolGeoTolAndGeoTolWthDatRefAndModGeoTolAndPosTol];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWGeoTolAndGeoTolWthDatRefAndModGeoTolAndPosTol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,3 +15,28 @@
 type
   TColStdSequenceOfExtendedString* = NCollectionSequence[TCollectionExtendedString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

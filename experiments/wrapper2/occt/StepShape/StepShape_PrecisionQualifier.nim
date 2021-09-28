@@ -16,7 +16,7 @@
 discard "forward decl of StepShape_PrecisionQualifier"
 discard "forward decl of StepShape_PrecisionQualifier"
 type
-  HandleStepShapePrecisionQualifier* = Handle[StepShapePrecisionQualifier]
+  HandleC1C1* = Handle[StepShapePrecisionQualifier]
 
 ## ! Added for Dimensional Tolerances
 
@@ -28,11 +28,11 @@ type
 proc constructStepShapePrecisionQualifier*(): StepShapePrecisionQualifier {.
     constructor, importcpp: "StepShape_PrecisionQualifier(@)",
     header: "StepShape_PrecisionQualifier.hxx".}
-proc init*(this: var StepShapePrecisionQualifier; precisionValue: int) {.
+proc init*(this: var StepShapePrecisionQualifier; precisionValue: cint) {.
     importcpp: "Init", header: "StepShape_PrecisionQualifier.hxx".}
-proc precisionValue*(this: StepShapePrecisionQualifier): int {.noSideEffect,
+proc precisionValue*(this: StepShapePrecisionQualifier): cint {.noSideEffect,
     importcpp: "PrecisionValue", header: "StepShape_PrecisionQualifier.hxx".}
-proc setPrecisionValue*(this: var StepShapePrecisionQualifier; precisionValue: int) {.
+proc setPrecisionValue*(this: var StepShapePrecisionQualifier; precisionValue: cint) {.
     importcpp: "SetPrecisionValue", header: "StepShape_PrecisionQualifier.hxx".}
 type
   StepShapePrecisionQualifierbaseType* = StandardTransient
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapePrecisionQualifier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_PrecisionQualifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

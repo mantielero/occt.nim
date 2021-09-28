@@ -44,3 +44,28 @@ proc wrapT*(this: VrmlTexture2): VrmlTexture2Wrap {.noSideEffect, importcpp: "Wr
     header: "Vrml_Texture2.hxx".}
 proc print*(this: VrmlTexture2; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Texture2.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -33,5 +33,30 @@ proc value*(this: OpenGlClippingIterator): Handle[Graphic3dClipPlane] {.
     noSideEffect, importcpp: "Value", header: "OpenGl_ClippingIterator.hxx".}
 proc isGlobal*(this: OpenGlClippingIterator): bool {.noSideEffect,
     importcpp: "IsGlobal", header: "OpenGl_ClippingIterator.hxx".}
-proc planeIndex*(this: OpenGlClippingIterator): int {.noSideEffect,
+proc planeIndex*(this: OpenGlClippingIterator): cint {.noSideEffect,
     importcpp: "PlaneIndex", header: "OpenGl_ClippingIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

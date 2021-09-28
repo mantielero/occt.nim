@@ -18,7 +18,7 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_TypeFilter"
 discard "forward decl of AIS_TypeFilter"
 type
-  HandleAIS_TypeFilter* = Handle[AIS_TypeFilter]
+  HandleC1C1* = Handle[AIS_TypeFilter]
 
 ## ! Selects Interactive Objects through their types. The
 ## ! filter questions each Interactive Object in local context
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "AIS_TypeFilter.hxx".}
 proc dynamicType*(this: AIS_TypeFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_TypeFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

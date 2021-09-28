@@ -83,3 +83,28 @@ proc destroyBVH_Object*[T; N: static[cint]](this: var BVH_Object[T, N]) {.
     importcpp: "#.~BVH_Object()", header: "BVH_Object.hxx".}
 proc box*[T; N: static[cint]](this: BVH_Object[T, N]): BVH_Box[T, N] {.noSideEffect,
     importcpp: "Box", header: "BVH_Object.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

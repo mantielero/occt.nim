@@ -36,3 +36,28 @@ proc newSelectPlacedItem*(): Handle[IFSelectSelectSignature] {.
     importcpp: "STEPEdit::NewSelectPlacedItem(@)", header: "STEPEdit.hxx".}
 proc newSelectShapeRepr*(): Handle[IFSelectSelectSignature] {.
     importcpp: "STEPEdit::NewSelectShapeRepr(@)", header: "STEPEdit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,7 +24,7 @@ discard "forward decl of TDocStd_CompoundDelta"
 discard "forward decl of TDocStd_Document"
 discard "forward decl of TDocStd_Document"
 type
-  HandleTDocStdDocument* = Handle[TDocStdDocument]
+  HandleC1C1* = Handle[TDocStdDocument]
 
 ## ! The contents of a TDocStd_Application, a
 ## ! document is a container for a data framework
@@ -58,9 +58,9 @@ proc isChanged*(this: TDocStdDocument): bool {.noSideEffect, importcpp: "IsChang
     header: "TDocStd_Document.hxx".}
 proc setSaved*(this: var TDocStdDocument) {.importcpp: "SetSaved",
                                         header: "TDocStd_Document.hxx".}
-proc setSavedTime*(this: var TDocStdDocument; theTime: int) {.
+proc setSavedTime*(this: var TDocStdDocument; theTime: cint) {.
     importcpp: "SetSavedTime", header: "TDocStd_Document.hxx".}
-proc getSavedTime*(this: TDocStdDocument): int {.noSideEffect,
+proc getSavedTime*(this: TDocStdDocument): cint {.noSideEffect,
     importcpp: "GetSavedTime", header: "TDocStd_Document.hxx".}
 proc getName*(this: TDocStdDocument): TCollectionExtendedString {.noSideEffect,
     importcpp: "GetName", header: "TDocStd_Document.hxx".}
@@ -92,19 +92,19 @@ proc commitCommand*(this: var TDocStdDocument): bool {.importcpp: "CommitCommand
     header: "TDocStd_Document.hxx".}
 proc abortCommand*(this: var TDocStdDocument) {.importcpp: "AbortCommand",
     header: "TDocStd_Document.hxx".}
-proc getUndoLimit*(this: TDocStdDocument): int {.noSideEffect,
+proc getUndoLimit*(this: TDocStdDocument): cint {.noSideEffect,
     importcpp: "GetUndoLimit", header: "TDocStd_Document.hxx".}
-proc setUndoLimit*(this: var TDocStdDocument; L: int) {.importcpp: "SetUndoLimit",
+proc setUndoLimit*(this: var TDocStdDocument; L: cint) {.importcpp: "SetUndoLimit",
     header: "TDocStd_Document.hxx".}
 proc clearUndos*(this: var TDocStdDocument) {.importcpp: "ClearUndos",
     header: "TDocStd_Document.hxx".}
 proc clearRedos*(this: var TDocStdDocument) {.importcpp: "ClearRedos",
     header: "TDocStd_Document.hxx".}
-proc getAvailableUndos*(this: TDocStdDocument): int {.noSideEffect,
+proc getAvailableUndos*(this: TDocStdDocument): cint {.noSideEffect,
     importcpp: "GetAvailableUndos", header: "TDocStd_Document.hxx".}
 proc undo*(this: var TDocStdDocument): bool {.importcpp: "Undo",
     header: "TDocStd_Document.hxx".}
-proc getAvailableRedos*(this: TDocStdDocument): int {.noSideEffect,
+proc getAvailableRedos*(this: TDocStdDocument): cint {.noSideEffect,
     importcpp: "GetAvailableRedos", header: "TDocStd_Document.hxx".}
 proc redo*(this: var TDocStdDocument): bool {.importcpp: "Redo",
     header: "TDocStd_Document.hxx".}
@@ -123,7 +123,7 @@ proc updateReferences*(this: var TDocStdDocument; aDocEntry: TCollectionAsciiStr
 proc recompute*(this: var TDocStdDocument) {.importcpp: "Recompute",
     header: "TDocStd_Document.hxx".}
 proc update*(this: var TDocStdDocument; aToDocument: Handle[CDM_Document];
-            aReferenceIdentifier: int; aModifContext: StandardAddress) {.
+            aReferenceIdentifier: cint; aModifContext: StandardAddress) {.
     importcpp: "Update", header: "TDocStd_Document.hxx".}
 proc storageFormat*(this: TDocStdDocument): TCollectionExtendedString {.
     noSideEffect, importcpp: "StorageFormat", header: "TDocStd_Document.hxx".}
@@ -145,8 +145,8 @@ proc modificationMode*(this: TDocStdDocument): bool {.noSideEffect,
 proc beforeClose*(this: var TDocStdDocument) {.importcpp: "BeforeClose",
     header: "TDocStd_Document.hxx".}
 proc dumpJson*(this: TDocStdDocument; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDocStd_Document.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDocStd_Document.hxx".}
 type
   TDocStdDocumentbaseType* = CDM_Document
 
@@ -157,3 +157,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDocStd_Document.hxx".}
 proc dynamicType*(this: TDocStdDocument): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_Document.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

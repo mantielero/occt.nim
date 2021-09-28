@@ -21,7 +21,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Edge"
 discard "forward decl of BRepCheck_Edge"
 type
-  HandleBRepCheckEdge* = Handle[BRepCheckEdge]
+  HandleC1C1* = Handle[BRepCheckEdge]
   BRepCheckEdge* {.importcpp: "BRepCheck_Edge", header: "BRepCheck_Edge.hxx", bycopy.} = object of BRepCheckResult
 
 
@@ -37,7 +37,7 @@ proc geometricControls*(this: BRepCheckEdge): bool {.noSideEffect,
     importcpp: "GeometricControls", header: "BRepCheck_Edge.hxx".}
 proc geometricControls*(this: var BRepCheckEdge; b: bool) {.
     importcpp: "GeometricControls", header: "BRepCheck_Edge.hxx".}
-proc tolerance*(this: var BRepCheckEdge): float {.importcpp: "Tolerance",
+proc tolerance*(this: var BRepCheckEdge): cfloat {.importcpp: "Tolerance",
     header: "BRepCheck_Edge.hxx".}
 proc setStatus*(this: var BRepCheckEdge; theStatus: BRepCheckStatus) {.
     importcpp: "SetStatus", header: "BRepCheck_Edge.hxx".}
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Edge.hxx".}
 proc dynamicType*(this: BRepCheckEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Edge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

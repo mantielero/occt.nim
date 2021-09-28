@@ -28,7 +28,7 @@ proc constructRWStepVisualRWPointStyle*(): RWStepVisualRWPointStyle {.constructo
     importcpp: "RWStepVisual_RWPointStyle(@)",
     header: "RWStepVisual_RWPointStyle.hxx".}
 proc readStep*(this: RWStepVisualRWPointStyle;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualPointStyle]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWPointStyle.hxx".}
 proc writeStep*(this: RWStepVisualRWPointStyle; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepVisualRWPointStyle; sw: var StepDataStepWriter;
 proc share*(this: RWStepVisualRWPointStyle; ent: Handle[StepVisualPointStyle];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWPointStyle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

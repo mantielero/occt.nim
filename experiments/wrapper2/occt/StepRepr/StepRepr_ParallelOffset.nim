@@ -19,7 +19,7 @@ discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepRepr_ParallelOffset"
 discard "forward decl of StepRepr_ParallelOffset"
 type
-  HandleStepReprParallelOffset* = Handle[StepReprParallelOffset]
+  HandleC1C1* = Handle[StepReprParallelOffset]
 
 ## ! Added for Dimensional Tolerances
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_ParallelOffset.hxx".}
 proc dynamicType*(this: StepReprParallelOffset): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_ParallelOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

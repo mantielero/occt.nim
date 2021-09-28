@@ -61,25 +61,25 @@ proc constructSelect3D_InteriorSensitivePointSet*(
 proc getPoints*(this: var Select3D_InteriorSensitivePointSet;
                theHArrayOfPnt: var Handle[TColgpHArray1OfPnt]) {.
     importcpp: "GetPoints", header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc size*(this: Select3D_InteriorSensitivePointSet): int {.noSideEffect,
+proc size*(this: Select3D_InteriorSensitivePointSet): cint {.noSideEffect,
     importcpp: "Size", header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc box*(this: Select3D_InteriorSensitivePointSet; theIdx: int): Select3D_BndBox3d {.
+proc box*(this: Select3D_InteriorSensitivePointSet; theIdx: cint): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box",
     header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc center*(this: Select3D_InteriorSensitivePointSet; theIdx: int; theAxis: int): float {.
+proc center*(this: Select3D_InteriorSensitivePointSet; theIdx: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center",
     header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc swap*(this: var Select3D_InteriorSensitivePointSet; theIdx1: int; theIdx2: int) {.
+proc swap*(this: var Select3D_InteriorSensitivePointSet; theIdx1: cint; theIdx2: cint) {.
     importcpp: "Swap", header: "Select3D_InteriorSensitivePointSet.hxx".}
 proc boundingBox*(this: var Select3D_InteriorSensitivePointSet): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_InteriorSensitivePointSet.hxx".}
 proc centerOfGeometry*(this: Select3D_InteriorSensitivePointSet): Pnt {.
     noSideEffect, importcpp: "CenterOfGeometry",
     header: "Select3D_InteriorSensitivePointSet.hxx".}
-proc nbSubElements*(this: Select3D_InteriorSensitivePointSet): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_InteriorSensitivePointSet): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_InteriorSensitivePointSet.hxx".}
 proc dumpJson*(this: Select3D_InteriorSensitivePointSet;
-              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+              theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     importcpp: "DumpJson", header: "Select3D_InteriorSensitivePointSet.hxx".}
 type
   Select3D_InteriorSensitivePointSetbaseType* = Select3D_SensitiveSet
@@ -94,6 +94,30 @@ proc dynamicType*(this: Select3D_InteriorSensitivePointSet): Handle[StandardType
     header: "Select3D_InteriorSensitivePointSet.hxx".}
 discard "forward decl of Select3D_InteriorSensitivePointSet"
 type
-  HandleSelect3D_InteriorSensitivePointSet* = Handle[
-      Select3D_InteriorSensitivePointSet]
+  HandleC1C1* = Handle[Select3D_InteriorSensitivePointSet]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

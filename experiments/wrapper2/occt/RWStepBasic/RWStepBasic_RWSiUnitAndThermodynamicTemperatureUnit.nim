@@ -28,7 +28,7 @@ proc constructRWStepBasicRWSiUnitAndThermodynamicTemperatureUnit*(): RWStepBasic
     importcpp: "RWStepBasic_RWSiUnitAndThermodynamicTemperatureUnit(@)",
     header: "RWStepBasic_RWSiUnitAndThermodynamicTemperatureUnit.hxx".}
 proc readStep*(this: RWStepBasicRWSiUnitAndThermodynamicTemperatureUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicSiUnitAndThermodynamicTemperatureUnit]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepBasicRWSiUnitAndThermodynamicTemperatureUnit;
                ent: Handle[StepBasicSiUnitAndThermodynamicTemperatureUnit]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepBasic_RWSiUnitAndThermodynamicTemperatureUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

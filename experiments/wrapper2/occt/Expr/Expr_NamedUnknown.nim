@@ -25,7 +25,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_NamedUnknown"
 type
-  HandleExprNamedUnknown* = Handle[ExprNamedUnknown]
+  HandleC1C1* = Handle[ExprNamedUnknown]
 
 ## ! This class describes any variable of an expression.
 ## ! Assignment is treated directly in this class.
@@ -45,9 +45,9 @@ proc assign*(this: var ExprNamedUnknown; exp: Handle[ExprGeneralExpression]) {.
     importcpp: "Assign", header: "Expr_NamedUnknown.hxx".}
 proc deassign*(this: var ExprNamedUnknown) {.importcpp: "Deassign",
     header: "Expr_NamedUnknown.hxx".}
-proc nbSubExpressions*(this: ExprNamedUnknown): int {.noSideEffect,
+proc nbSubExpressions*(this: ExprNamedUnknown): cint {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_NamedUnknown.hxx".}
-proc subExpression*(this: ExprNamedUnknown; i: int): Handle[ExprGeneralExpression] {.
+proc subExpression*(this: ExprNamedUnknown; i: cint): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "SubExpression", header: "Expr_NamedUnknown.hxx".}
 proc simplified*(this: ExprNamedUnknown): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "Simplified", header: "Expr_NamedUnknown.hxx".}
@@ -68,7 +68,7 @@ proc replace*(this: var ExprNamedUnknown; `var`: Handle[ExprNamedUnknown];
              with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
     header: "Expr_NamedUnknown.hxx".}
 proc evaluate*(this: ExprNamedUnknown; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_NamedUnknown.hxx".}
 type
   ExprNamedUnknownbaseType* = ExprNamedExpression
@@ -80,3 +80,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_NamedUnknown.hxx".}
 proc dynamicType*(this: ExprNamedUnknown): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_NamedUnknown.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,15 +34,15 @@ proc set*(this: var ContapSurfFunction; eye: Pnt) {.importcpp: "Set",
     header: "Contap_SurfFunction.hxx".}
 proc set*(this: var ContapSurfFunction; dir: Dir) {.importcpp: "Set",
     header: "Contap_SurfFunction.hxx".}
-proc set*(this: var ContapSurfFunction; dir: Dir; angle: float) {.importcpp: "Set",
+proc set*(this: var ContapSurfFunction; dir: Dir; angle: cfloat) {.importcpp: "Set",
     header: "Contap_SurfFunction.hxx".}
-proc set*(this: var ContapSurfFunction; eye: Pnt; angle: float) {.importcpp: "Set",
+proc set*(this: var ContapSurfFunction; eye: Pnt; angle: cfloat) {.importcpp: "Set",
     header: "Contap_SurfFunction.hxx".}
-proc set*(this: var ContapSurfFunction; tolerance: float) {.importcpp: "Set",
+proc set*(this: var ContapSurfFunction; tolerance: cfloat) {.importcpp: "Set",
     header: "Contap_SurfFunction.hxx".}
-proc nbVariables*(this: ContapSurfFunction): int {.noSideEffect,
+proc nbVariables*(this: ContapSurfFunction): cint {.noSideEffect,
     importcpp: "NbVariables", header: "Contap_SurfFunction.hxx".}
-proc nbEquations*(this: ContapSurfFunction): int {.noSideEffect,
+proc nbEquations*(this: ContapSurfFunction): cint {.noSideEffect,
     importcpp: "NbEquations", header: "Contap_SurfFunction.hxx".}
 proc value*(this: var ContapSurfFunction; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "Contap_SurfFunction.hxx".}
@@ -51,9 +51,9 @@ proc derivatives*(this: var ContapSurfFunction; x: MathVector; d: var MathMatrix
 proc values*(this: var ContapSurfFunction; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.importcpp: "Values",
                                    header: "Contap_SurfFunction.hxx".}
-proc root*(this: ContapSurfFunction): float {.noSideEffect, importcpp: "Root",
+proc root*(this: ContapSurfFunction): cfloat {.noSideEffect, importcpp: "Root",
     header: "Contap_SurfFunction.hxx".}
-proc tolerance*(this: ContapSurfFunction): float {.noSideEffect,
+proc tolerance*(this: ContapSurfFunction): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "Contap_SurfFunction.hxx".}
 proc point*(this: ContapSurfFunction): Pnt {.noSideEffect, importcpp: "Point",
     header: "Contap_SurfFunction.hxx".}
@@ -69,9 +69,34 @@ proc eye*(this: ContapSurfFunction): Pnt {.noSideEffect, importcpp: "Eye",
                                        header: "Contap_SurfFunction.hxx".}
 proc direction*(this: ContapSurfFunction): Dir {.noSideEffect,
     importcpp: "Direction", header: "Contap_SurfFunction.hxx".}
-proc angle*(this: ContapSurfFunction): float {.noSideEffect, importcpp: "Angle",
+proc angle*(this: ContapSurfFunction): cfloat {.noSideEffect, importcpp: "Angle",
     header: "Contap_SurfFunction.hxx".}
 proc surface*(this: ContapSurfFunction): Handle[Adaptor3dHSurface] {.noSideEffect,
     importcpp: "Surface", header: "Contap_SurfFunction.hxx".}
 proc pSurface*(this: ContapSurfFunction): Handle[Adaptor3dHSurface] {.noSideEffect,
     importcpp: "PSurface", header: "Contap_SurfFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

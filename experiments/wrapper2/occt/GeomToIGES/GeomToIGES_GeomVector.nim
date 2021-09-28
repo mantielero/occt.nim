@@ -24,6 +24,24 @@ type
                           header: "GeomToIGES_GeomVector.hxx", bycopy.} = object of GeomToIGES_GeomEntity
 
 
+proc `new`*(this: var GeomToIGES_GeomVector; theSize: csize_t): pointer {.
+    importcpp: "GeomToIGES_GeomVector::operator new",
+    header: "GeomToIGES_GeomVector.hxx".}
+proc `delete`*(this: var GeomToIGES_GeomVector; theAddress: pointer) {.
+    importcpp: "GeomToIGES_GeomVector::operator delete",
+    header: "GeomToIGES_GeomVector.hxx".}
+proc `new[]`*(this: var GeomToIGES_GeomVector; theSize: csize_t): pointer {.
+    importcpp: "GeomToIGES_GeomVector::operator new[]",
+    header: "GeomToIGES_GeomVector.hxx".}
+proc `delete[]`*(this: var GeomToIGES_GeomVector; theAddress: pointer) {.
+    importcpp: "GeomToIGES_GeomVector::operator delete[]",
+    header: "GeomToIGES_GeomVector.hxx".}
+proc `new`*(this: var GeomToIGES_GeomVector; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToIGES_GeomVector::operator new",
+    header: "GeomToIGES_GeomVector.hxx".}
+proc `delete`*(this: var GeomToIGES_GeomVector; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToIGES_GeomVector::operator delete",
+    header: "GeomToIGES_GeomVector.hxx".}
 proc constructGeomToIGES_GeomVector*(): GeomToIGES_GeomVector {.constructor,
     importcpp: "GeomToIGES_GeomVector(@)", header: "GeomToIGES_GeomVector.hxx".}
 proc constructGeomToIGES_GeomVector*(ge: GeomToIGES_GeomEntity): GeomToIGES_GeomVector {.

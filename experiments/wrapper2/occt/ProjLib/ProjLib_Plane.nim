@@ -54,3 +54,28 @@ proc project*(this: var ProjLibPlane; p: Parab) {.importcpp: "Project",
     header: "ProjLib_Plane.hxx".}
 proc project*(this: var ProjLibPlane; h: Hypr) {.importcpp: "Project",
     header: "ProjLib_Plane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

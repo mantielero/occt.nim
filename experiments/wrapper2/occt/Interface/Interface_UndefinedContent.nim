@@ -25,7 +25,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of Interface_UndefinedContent"
 discard "forward decl of Interface_UndefinedContent"
 type
-  HandleInterfaceUndefinedContent* = Handle[InterfaceUndefinedContent]
+  HandleC1C1* = Handle[InterfaceUndefinedContent]
 
 ## ! Defines resources for an "Undefined Entity" : such an Entity
 ## ! is used to describe an Entity which complies with the Norm,
@@ -63,25 +63,25 @@ type
 proc constructInterfaceUndefinedContent*(): InterfaceUndefinedContent {.
     constructor, importcpp: "Interface_UndefinedContent(@)",
     header: "Interface_UndefinedContent.hxx".}
-proc nbParams*(this: InterfaceUndefinedContent): int {.noSideEffect,
+proc nbParams*(this: InterfaceUndefinedContent): cint {.noSideEffect,
     importcpp: "NbParams", header: "Interface_UndefinedContent.hxx".}
-proc nbLiterals*(this: InterfaceUndefinedContent): int {.noSideEffect,
+proc nbLiterals*(this: InterfaceUndefinedContent): cint {.noSideEffect,
     importcpp: "NbLiterals", header: "Interface_UndefinedContent.hxx".}
-proc paramData*(this: InterfaceUndefinedContent; num: int;
+proc paramData*(this: InterfaceUndefinedContent; num: cint;
                ptype: var InterfaceParamType; ent: var Handle[StandardTransient];
                val: var Handle[TCollectionHAsciiString]): bool {.noSideEffect,
     importcpp: "ParamData", header: "Interface_UndefinedContent.hxx".}
-proc paramType*(this: InterfaceUndefinedContent; num: int): InterfaceParamType {.
+proc paramType*(this: InterfaceUndefinedContent; num: cint): InterfaceParamType {.
     noSideEffect, importcpp: "ParamType", header: "Interface_UndefinedContent.hxx".}
-proc isParamEntity*(this: InterfaceUndefinedContent; num: int): bool {.noSideEffect,
+proc isParamEntity*(this: InterfaceUndefinedContent; num: cint): bool {.noSideEffect,
     importcpp: "IsParamEntity", header: "Interface_UndefinedContent.hxx".}
-proc paramEntity*(this: InterfaceUndefinedContent; num: int): Handle[
+proc paramEntity*(this: InterfaceUndefinedContent; num: cint): Handle[
     StandardTransient] {.noSideEffect, importcpp: "ParamEntity",
                         header: "Interface_UndefinedContent.hxx".}
-proc paramValue*(this: InterfaceUndefinedContent; num: int): Handle[
+proc paramValue*(this: InterfaceUndefinedContent; num: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "ParamValue",
                               header: "Interface_UndefinedContent.hxx".}
-proc reservate*(this: var InterfaceUndefinedContent; nb: int; nblit: int) {.
+proc reservate*(this: var InterfaceUndefinedContent; nb: cint; nblit: cint) {.
     importcpp: "Reservate", header: "Interface_UndefinedContent.hxx".}
 proc addLiteral*(this: var InterfaceUndefinedContent; ptype: InterfaceParamType;
                 val: Handle[TCollectionHAsciiString]) {.importcpp: "AddLiteral",
@@ -89,15 +89,15 @@ proc addLiteral*(this: var InterfaceUndefinedContent; ptype: InterfaceParamType;
 proc addEntity*(this: var InterfaceUndefinedContent; ptype: InterfaceParamType;
                ent: Handle[StandardTransient]) {.importcpp: "AddEntity",
     header: "Interface_UndefinedContent.hxx".}
-proc removeParam*(this: var InterfaceUndefinedContent; num: int) {.
+proc removeParam*(this: var InterfaceUndefinedContent; num: cint) {.
     importcpp: "RemoveParam", header: "Interface_UndefinedContent.hxx".}
-proc setLiteral*(this: var InterfaceUndefinedContent; num: int;
+proc setLiteral*(this: var InterfaceUndefinedContent; num: cint;
                 ptype: InterfaceParamType; val: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetLiteral", header: "Interface_UndefinedContent.hxx".}
-proc setEntity*(this: var InterfaceUndefinedContent; num: int;
+proc setEntity*(this: var InterfaceUndefinedContent; num: cint;
                ptype: InterfaceParamType; ent: Handle[StandardTransient]) {.
     importcpp: "SetEntity", header: "Interface_UndefinedContent.hxx".}
-proc setEntity*(this: var InterfaceUndefinedContent; num: int;
+proc setEntity*(this: var InterfaceUndefinedContent; num: cint;
                ent: Handle[StandardTransient]) {.importcpp: "SetEntity",
     header: "Interface_UndefinedContent.hxx".}
 proc entityList*(this: InterfaceUndefinedContent): InterfaceEntityList {.
@@ -117,3 +117,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: InterfaceUndefinedContent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Interface_UndefinedContent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

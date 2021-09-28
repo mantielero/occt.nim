@@ -30,5 +30,30 @@ proc getData*(this: LDOM_CharacterData): LDOMString {.noSideEffect,
     importcpp: "getData", header: "LDOM_CharacterData.hxx".}
 proc setData*(this: var LDOM_CharacterData; aValue: LDOMString) {.
     importcpp: "setData", header: "LDOM_CharacterData.hxx".}
-proc getLength*(this: LDOM_CharacterData): int {.noSideEffect,
+proc getLength*(this: LDOM_CharacterData): cint {.noSideEffect,
     importcpp: "getLength", header: "LDOM_CharacterData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

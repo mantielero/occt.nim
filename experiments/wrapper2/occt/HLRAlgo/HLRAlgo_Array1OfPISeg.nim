@@ -17,3 +17,28 @@
 type
   HLRAlgoArray1OfPISeg* = NCollectionArray1[HLRAlgoPolyInternalSegment]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

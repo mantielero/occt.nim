@@ -26,7 +26,7 @@ proc constructRWStepDimTolRWRunoutZoneOrientation*(): RWStepDimTolRWRunoutZoneOr
     constructor, importcpp: "RWStepDimTol_RWRunoutZoneOrientation(@)",
     header: "RWStepDimTol_RWRunoutZoneOrientation.hxx".}
 proc readStep*(this: RWStepDimTolRWRunoutZoneOrientation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolRunoutZoneOrientation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWRunoutZoneOrientation.hxx".}
@@ -34,3 +34,28 @@ proc writeStep*(this: RWStepDimTolRWRunoutZoneOrientation;
                sw: var StepDataStepWriter;
                ent: Handle[StepDimTolRunoutZoneOrientation]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWRunoutZoneOrientation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

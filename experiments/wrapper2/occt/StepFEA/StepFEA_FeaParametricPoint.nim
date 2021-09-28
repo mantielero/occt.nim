@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_FeaParametricPoint"
 discard "forward decl of StepFEA_FeaParametricPoint"
 type
-  HandleStepFEA_FeaParametricPoint* = Handle[StepFEA_FeaParametricPoint]
+  HandleC1C1* = Handle[StepFEA_FeaParametricPoint]
 
 ## ! Representation of STEP entity FeaParametricPoint
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_FeaParametricPoint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaParametricPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

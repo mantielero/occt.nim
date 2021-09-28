@@ -60,3 +60,28 @@ proc nextinBlock*(this: var TopOpeBRepToolREGUS): bool {.importcpp: "NextinBlock
 proc nearestF*(this: TopOpeBRepToolREGUS; e: TopoDS_Edge; lof: TopToolsListOfShape;
               ffound: var TopoDS_Face): bool {.noSideEffect, importcpp: "NearestF",
     header: "TopOpeBRepTool_REGUS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

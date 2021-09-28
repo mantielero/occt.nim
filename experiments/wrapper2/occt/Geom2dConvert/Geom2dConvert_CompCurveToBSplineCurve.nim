@@ -19,15 +19,27 @@ discard "forward decl of Geom2d_BoundedCurve"
 type
   Geom2dConvertCompCurveToBSplineCurve* {.
       importcpp: "Geom2dConvert_CompCurveToBSplineCurve",
-      header: "Geom2dConvert_CompCurveToBSplineCurve.hxx", bycopy.} = object ## !
-                                                                        ## Initialize the
-                                                                        ## algorithme
-                                                                        ## ! -
-                                                                        ## Parameterisation is used to convert
-                                                                        ## ! Concat two
+      header: "Geom2dConvert_CompCurveToBSplineCurve.hxx", bycopy.} = object ## ! Concat two
                                                                         ## BSplineCurves.
 
 
+proc `new`*(this: var Geom2dConvertCompCurveToBSplineCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dConvert_CompCurveToBSplineCurve::operator new",
+    header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
+proc `delete`*(this: var Geom2dConvertCompCurveToBSplineCurve; theAddress: pointer) {.
+    importcpp: "Geom2dConvert_CompCurveToBSplineCurve::operator delete",
+    header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
+proc `new[]`*(this: var Geom2dConvertCompCurveToBSplineCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dConvert_CompCurveToBSplineCurve::operator new[]",
+    header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
+proc `delete[]`*(this: var Geom2dConvertCompCurveToBSplineCurve; theAddress: pointer) {.
+    importcpp: "Geom2dConvert_CompCurveToBSplineCurve::operator delete[]",
+    header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
+proc `new`*(this: var Geom2dConvertCompCurveToBSplineCurve; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "Geom2dConvert_CompCurveToBSplineCurve::operator new", header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
+proc `delete`*(this: var Geom2dConvertCompCurveToBSplineCurve; a2: pointer;
+              a3: pointer) {.importcpp: "Geom2dConvert_CompCurveToBSplineCurve::operator delete",
+                           header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
 proc constructGeom2dConvertCompCurveToBSplineCurve*(
     parameterisation: ConvertParameterisationType = convertTgtThetaOver2): Geom2dConvertCompCurveToBSplineCurve {.
     constructor, importcpp: "Geom2dConvert_CompCurveToBSplineCurve(@)",
@@ -38,8 +50,9 @@ proc constructGeom2dConvertCompCurveToBSplineCurve*(
     constructor, importcpp: "Geom2dConvert_CompCurveToBSplineCurve(@)",
     header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
 proc add*(this: var Geom2dConvertCompCurveToBSplineCurve;
-         newCurve: Handle[Geom2dBoundedCurve]; tolerance: float; after: bool = false): bool {.
-    importcpp: "Add", header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
+         newCurve: Handle[Geom2dBoundedCurve]; tolerance: StandardReal;
+         after: StandardBoolean = false): StandardBoolean {.importcpp: "Add",
+    header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}
 proc bSplineCurve*(this: Geom2dConvertCompCurveToBSplineCurve): Handle[
     Geom2dBSplineCurve] {.noSideEffect, importcpp: "BSplineCurve",
                          header: "Geom2dConvert_CompCurveToBSplineCurve.hxx".}

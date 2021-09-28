@@ -13,4 +13,3 @@
 
 type
   StandardPByte* = ptr StandardByte
-

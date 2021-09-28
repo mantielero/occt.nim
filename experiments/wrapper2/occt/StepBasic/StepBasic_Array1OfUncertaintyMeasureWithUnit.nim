@@ -18,3 +18,28 @@ type
   StepBasicArray1OfUncertaintyMeasureWithUnit* = NCollectionArray1[
       Handle[StepBasicUncertaintyMeasureWithUnit]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of Standard_GUID"
 discard "forward decl of TDF_AttributeDelta"
 discard "forward decl of TDF_AttributeDelta"
 type
-  HandleTDF_AttributeDelta* = Handle[TDF_AttributeDelta]
+  HandleC1C1* = Handle[TDF_AttributeDelta]
 
 ## ! This class discribes the services we need to
 ## ! implement Delta and Undo/Redo services.
@@ -59,8 +59,8 @@ proc dump*(this: TDF_AttributeDelta; os: var StandardOStream): var StandardOStre
 proc `<<`*(this: TDF_AttributeDelta; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "(# << #)", header: "TDF_AttributeDelta.hxx".}
 proc dumpJson*(this: TDF_AttributeDelta; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDF_AttributeDelta.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDF_AttributeDelta.hxx".}
 type
   TDF_AttributeDeltabaseType* = StandardTransient
 
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDF_AttributeDelta.hxx".}
 proc dynamicType*(this: TDF_AttributeDelta): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_AttributeDelta.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ type
 
 proc constructVrmlDirectionalLight*(): VrmlDirectionalLight {.constructor,
     importcpp: "Vrml_DirectionalLight(@)", header: "Vrml_DirectionalLight.hxx".}
-proc constructVrmlDirectionalLight*(aOnOff: bool; aIntensity: float;
+proc constructVrmlDirectionalLight*(aOnOff: bool; aIntensity: cfloat;
                                    aColor: QuantityColor; aDirection: Vec): VrmlDirectionalLight {.
     constructor, importcpp: "Vrml_DirectionalLight(@)",
     header: "Vrml_DirectionalLight.hxx".}
@@ -31,9 +31,9 @@ proc setOnOff*(this: var VrmlDirectionalLight; aOnOff: bool) {.importcpp: "SetOn
     header: "Vrml_DirectionalLight.hxx".}
 proc onOff*(this: VrmlDirectionalLight): bool {.noSideEffect, importcpp: "OnOff",
     header: "Vrml_DirectionalLight.hxx".}
-proc setIntensity*(this: var VrmlDirectionalLight; aIntensity: float) {.
+proc setIntensity*(this: var VrmlDirectionalLight; aIntensity: cfloat) {.
     importcpp: "SetIntensity", header: "Vrml_DirectionalLight.hxx".}
-proc intensity*(this: VrmlDirectionalLight): float {.noSideEffect,
+proc intensity*(this: VrmlDirectionalLight): cfloat {.noSideEffect,
     importcpp: "Intensity", header: "Vrml_DirectionalLight.hxx".}
 proc setColor*(this: var VrmlDirectionalLight; aColor: QuantityColor) {.
     importcpp: "SetColor", header: "Vrml_DirectionalLight.hxx".}
@@ -45,3 +45,28 @@ proc direction*(this: VrmlDirectionalLight): Vec {.noSideEffect,
     importcpp: "Direction", header: "Vrml_DirectionalLight.hxx".}
 proc print*(this: VrmlDirectionalLight; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_DirectionalLight.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

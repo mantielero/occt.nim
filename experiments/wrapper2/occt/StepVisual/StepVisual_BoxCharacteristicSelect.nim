@@ -22,12 +22,37 @@ type
 proc constructStepVisualBoxCharacteristicSelect*(): StepVisualBoxCharacteristicSelect {.
     constructor, importcpp: "StepVisual_BoxCharacteristicSelect(@)",
     header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc typeOfContent*(this: StepVisualBoxCharacteristicSelect): int {.noSideEffect,
+proc typeOfContent*(this: StepVisualBoxCharacteristicSelect): cint {.noSideEffect,
     importcpp: "TypeOfContent", header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc setTypeOfContent*(this: var StepVisualBoxCharacteristicSelect; aType: int) {.
+proc setTypeOfContent*(this: var StepVisualBoxCharacteristicSelect; aType: cint) {.
     importcpp: "SetTypeOfContent",
     header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc realValue*(this: StepVisualBoxCharacteristicSelect): float {.noSideEffect,
+proc realValue*(this: StepVisualBoxCharacteristicSelect): cfloat {.noSideEffect,
     importcpp: "RealValue", header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc setRealValue*(this: var StepVisualBoxCharacteristicSelect; aValue: float) {.
+proc setRealValue*(this: var StepVisualBoxCharacteristicSelect; aValue: cfloat) {.
     importcpp: "SetRealValue", header: "StepVisual_BoxCharacteristicSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

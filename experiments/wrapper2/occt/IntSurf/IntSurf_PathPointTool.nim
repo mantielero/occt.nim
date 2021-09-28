@@ -29,7 +29,7 @@ type
 proc value3d*(pStart: IntSurfPathPoint): Pnt {.
     importcpp: "IntSurf_PathPointTool::Value3d(@)",
     header: "IntSurf_PathPointTool.hxx".}
-proc value2d*(pStart: IntSurfPathPoint; u: var float; v: var float) {.
+proc value2d*(pStart: IntSurfPathPoint; u: var cfloat; v: var cfloat) {.
     importcpp: "IntSurf_PathPointTool::Value2d(@)",
     header: "IntSurf_PathPointTool.hxx".}
 proc isPassingPnt*(pStart: IntSurfPathPoint): bool {.
@@ -44,9 +44,34 @@ proc direction3d*(pStart: IntSurfPathPoint): Vec {.
 proc direction2d*(pStart: IntSurfPathPoint): Dir2d {.
     importcpp: "IntSurf_PathPointTool::Direction2d(@)",
     header: "IntSurf_PathPointTool.hxx".}
-proc multiplicity*(pStart: IntSurfPathPoint): int {.
+proc multiplicity*(pStart: IntSurfPathPoint): cint {.
     importcpp: "IntSurf_PathPointTool::Multiplicity(@)",
     header: "IntSurf_PathPointTool.hxx".}
-proc parameters*(pStart: IntSurfPathPoint; mult: int; u: var float; v: var float) {.
+proc parameters*(pStart: IntSurfPathPoint; mult: cint; u: var cfloat; v: var cfloat) {.
     importcpp: "IntSurf_PathPointTool::Parameters(@)",
     header: "IntSurf_PathPointTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

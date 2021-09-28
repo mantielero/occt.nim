@@ -17,3 +17,28 @@ type
   IntToolsListOfBox* = NCollectionList[BndBox]
   IntToolsListIteratorOfListOfBox* = Iterator[BndBox]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

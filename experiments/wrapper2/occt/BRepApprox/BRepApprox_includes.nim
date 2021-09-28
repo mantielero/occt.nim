@@ -29,3 +29,28 @@ include BRepApprox_TheMultiLineToolOfApprox
 include BRepApprox_ThePrmPrmSvSurfacesOfApprox
 include BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

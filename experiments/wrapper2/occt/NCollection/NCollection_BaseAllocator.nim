@@ -43,6 +43,8 @@ type
                                                                                                       ## ! Copy constructor - prohibited
                                                                                                       ##  ---------- CasCade RunTime Type Information
 
+  HandleNCollectionBaseAllocator* = Handle[NCollectionBaseAllocator]
+
 
 proc allocate*(this: var NCollectionBaseAllocator; size: csize_t): pointer {.
     importcpp: "Allocate", header: "NCollection_BaseAllocator.hxx".}
@@ -51,7 +53,7 @@ proc free*(this: var NCollectionBaseAllocator; anAddress: pointer) {.
 proc commonBaseAllocator*(): Handle[NCollectionBaseAllocator] {.
     importcpp: "NCollection_BaseAllocator::CommonBaseAllocator(@)",
     header: "NCollection_BaseAllocator.hxx".}
-proc standardCallBack*(theIsAlloc: bool; theStorage: StandardAddress;
+proc standardCallBack*(theIsAlloc: StandardBoolean; theStorage: StandardAddress;
                       theRoundSize: StandardSize; theSize: StandardSize) {.
     importcpp: "NCollection_BaseAllocator::StandardCallBack(@)",
     header: "NCollection_BaseAllocator.hxx".}
@@ -60,14 +62,11 @@ proc printMemUsageStatistics*() {.importcpp: "NCollection_BaseAllocator::PrintMe
 type
   NCollectionBaseAllocatorbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "NCollection_BaseAllocator::get_type_name(@)",
-                            header: "NCollection_BaseAllocator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+#[ proc getTypeName*(): cstring {.importcpp: "NCollection_BaseAllocator::get_type_name(@)",
+                            header: "NCollection_BaseAllocator.hxx".} ]#
+#[ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "NCollection_BaseAllocator::get_type_descriptor(@)",
-    header: "NCollection_BaseAllocator.hxx".}
-proc dynamicType*(this: NCollectionBaseAllocator): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "NCollection_BaseAllocator.hxx".}
+    header: "NCollection_BaseAllocator.hxx".} ]#
+#[ proc dynamicType*(this: NCollectionBaseAllocator): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType", header: "NCollection_BaseAllocator.hxx".} ]#
 discard "forward decl of NCollection_BaseAllocator"
-type
-  HandleNCollectionBaseAllocator* = Handle[NCollectionBaseAllocator]
-

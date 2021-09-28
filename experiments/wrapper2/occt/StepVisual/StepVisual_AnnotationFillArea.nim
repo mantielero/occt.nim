@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_AnnotationFillArea"
 discard "forward decl of StepVisual_AnnotationFillArea"
 type
-  HandleStepVisualAnnotationFillArea* = Handle[StepVisualAnnotationFillArea]
+  HandleC1C1* = Handle[StepVisualAnnotationFillArea]
   StepVisualAnnotationFillArea* {.importcpp: "StepVisual_AnnotationFillArea",
                                  header: "StepVisual_AnnotationFillArea.hxx",
                                  bycopy.} = object of StepShapeGeometricCurveSet ## !
@@ -39,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualAnnotationFillArea): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_AnnotationFillArea.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

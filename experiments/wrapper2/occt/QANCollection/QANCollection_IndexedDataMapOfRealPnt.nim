@@ -14,6 +14,31 @@
 ##  commercial license or contractual agreement.
 
 type
-  QANCollectionIndexedDataMapOfRealPnt* = NCollectionIndexedDataMap[float, Pnt,
+  QANCollectionIndexedDataMapOfRealPnt* = NCollectionIndexedDataMap[cfloat, Pnt,
       TColStdMapRealHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

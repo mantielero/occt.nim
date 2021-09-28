@@ -118,21 +118,46 @@ proc initialize*(this: var BOPDS_Iterator; theType1: TopAbsShapeEnum;
 proc more*(this: BOPDS_Iterator): bool {.noSideEffect, importcpp: "More",
                                      header: "BOPDS_Iterator.hxx".}
 proc next*(this: var BOPDS_Iterator) {.importcpp: "Next", header: "BOPDS_Iterator.hxx".}
-proc value*(this: BOPDS_Iterator; theIndex1: var int; theIndex2: var int) {.noSideEffect,
-    importcpp: "Value", header: "BOPDS_Iterator.hxx".}
+proc value*(this: BOPDS_Iterator; theIndex1: var cint; theIndex2: var cint) {.
+    noSideEffect, importcpp: "Value", header: "BOPDS_Iterator.hxx".}
 proc prepare*(this: var BOPDS_Iterator;
              theCtx: Handle[IntToolsContext] = handle[IntToolsContext]();
-             theCheckOBB: bool = false; theFuzzyValue: float = confusion()) {.
+             theCheckOBB: bool = false; theFuzzyValue: cfloat = confusion()) {.
     importcpp: "Prepare", header: "BOPDS_Iterator.hxx".}
 proc intersectExt*(this: var BOPDS_Iterator; theIndicies: TColStdMapOfInteger) {.
     importcpp: "IntersectExt", header: "BOPDS_Iterator.hxx".}
-proc expectedLength*(this: BOPDS_Iterator): int {.noSideEffect,
+proc expectedLength*(this: BOPDS_Iterator): cint {.noSideEffect,
     importcpp: "ExpectedLength", header: "BOPDS_Iterator.hxx".}
-proc blockLength*(this: BOPDS_Iterator): int {.noSideEffect,
+proc blockLength*(this: BOPDS_Iterator): cint {.noSideEffect,
     importcpp: "BlockLength", header: "BOPDS_Iterator.hxx".}
 proc setRunParallel*(this: var BOPDS_Iterator; theFlag: bool) {.
     importcpp: "SetRunParallel", header: "BOPDS_Iterator.hxx".}
 proc runParallel*(this: BOPDS_Iterator): bool {.noSideEffect,
     importcpp: "RunParallel", header: "BOPDS_Iterator.hxx".}
-proc nbExtInterfs*(): int {.importcpp: "BOPDS_Iterator::NbExtInterfs(@)",
-                         header: "BOPDS_Iterator.hxx".}
+proc nbExtInterfs*(): cint {.importcpp: "BOPDS_Iterator::NbExtInterfs(@)",
+                          header: "BOPDS_Iterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

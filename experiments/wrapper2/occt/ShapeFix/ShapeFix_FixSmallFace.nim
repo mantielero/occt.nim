@@ -21,7 +21,7 @@ discard "forward decl of TopoDS_Compound"
 discard "forward decl of ShapeFix_FixSmallFace"
 discard "forward decl of ShapeFix_FixSmallFace"
 type
-  HandleShapeFixFixSmallFace* = Handle[ShapeFixFixSmallFace]
+  HandleC1C1* = Handle[ShapeFixFixSmallFace]
 
 ## ! Fixing face with small size
 
@@ -39,7 +39,7 @@ proc perform*(this: var ShapeFixFixSmallFace) {.importcpp: "Perform",
 proc fixSpotFace*(this: var ShapeFixFixSmallFace): TopoDS_Shape {.
     importcpp: "FixSpotFace", header: "ShapeFix_FixSmallFace.hxx".}
 proc replaceVerticesInCaseOfSpot*(this: ShapeFixFixSmallFace; f: var TopoDS_Face;
-                                 tol: float): bool {.noSideEffect,
+                                 tol: cfloat): bool {.noSideEffect,
     importcpp: "ReplaceVerticesInCaseOfSpot", header: "ShapeFix_FixSmallFace.hxx".}
 proc removeFacesInCaseOfSpot*(this: ShapeFixFixSmallFace; f: TopoDS_Face): bool {.
     noSideEffect, importcpp: "RemoveFacesInCaseOfSpot",
@@ -47,7 +47,7 @@ proc removeFacesInCaseOfSpot*(this: ShapeFixFixSmallFace; f: TopoDS_Face): bool 
 proc fixStripFace*(this: var ShapeFixFixSmallFace; wasdone: bool = false): TopoDS_Shape {.
     importcpp: "FixStripFace", header: "ShapeFix_FixSmallFace.hxx".}
 proc replaceInCaseOfStrip*(this: ShapeFixFixSmallFace; f: var TopoDS_Face;
-                          e1: var TopoDS_Edge; e2: var TopoDS_Edge; tol: float): bool {.
+                          e1: var TopoDS_Edge; e2: var TopoDS_Edge; tol: cfloat): bool {.
     noSideEffect, importcpp: "ReplaceInCaseOfStrip",
     header: "ShapeFix_FixSmallFace.hxx".}
 proc removeFacesInCaseOfStrip*(this: ShapeFixFixSmallFace; f: TopoDS_Face): bool {.
@@ -55,7 +55,7 @@ proc removeFacesInCaseOfStrip*(this: ShapeFixFixSmallFace; f: TopoDS_Face): bool
     header: "ShapeFix_FixSmallFace.hxx".}
 proc computeSharedEdgeForStripFace*(this: ShapeFixFixSmallFace; f: TopoDS_Face;
                                    e1: TopoDS_Edge; e2: TopoDS_Edge;
-                                   f1: TopoDS_Face; tol: float): TopoDS_Edge {.
+                                   f1: TopoDS_Face; tol: cfloat): TopoDS_Edge {.
     noSideEffect, importcpp: "ComputeSharedEdgeForStripFace",
     header: "ShapeFix_FixSmallFace.hxx".}
 proc fixSplitFace*(this: var ShapeFixFixSmallFace; s: TopoDS_Shape): TopoDS_Shape {.
@@ -81,3 +81,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_FixSmallFace.hxx".}
 proc dynamicType*(this: ShapeFixFixSmallFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_FixSmallFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

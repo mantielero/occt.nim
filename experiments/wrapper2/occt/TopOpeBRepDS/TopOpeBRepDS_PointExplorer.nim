@@ -37,13 +37,38 @@ proc next*(this: var TopOpeBRepDS_PointExplorer) {.importcpp: "Next",
     header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc point*(this: TopOpeBRepDS_PointExplorer): TopOpeBRepDS_Point {.noSideEffect,
     importcpp: "Point", header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc isPoint*(this: TopOpeBRepDS_PointExplorer; i: int): bool {.noSideEffect,
+proc isPoint*(this: TopOpeBRepDS_PointExplorer; i: cint): bool {.noSideEffect,
     importcpp: "IsPoint", header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc isPointKeep*(this: TopOpeBRepDS_PointExplorer; i: int): bool {.noSideEffect,
+proc isPointKeep*(this: TopOpeBRepDS_PointExplorer; i: cint): bool {.noSideEffect,
     importcpp: "IsPointKeep", header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc point*(this: TopOpeBRepDS_PointExplorer; i: int): TopOpeBRepDS_Point {.
+proc point*(this: TopOpeBRepDS_PointExplorer; i: cint): TopOpeBRepDS_Point {.
     noSideEffect, importcpp: "Point", header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc nbPoint*(this: var TopOpeBRepDS_PointExplorer): int {.importcpp: "NbPoint",
+proc nbPoint*(this: var TopOpeBRepDS_PointExplorer): cint {.importcpp: "NbPoint",
     header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc index*(this: TopOpeBRepDS_PointExplorer): int {.noSideEffect,
+proc index*(this: TopOpeBRepDS_PointExplorer): cint {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRepDS_PointExplorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

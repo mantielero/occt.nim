@@ -17,7 +17,7 @@ discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DeltaOnRemoval"
 discard "forward decl of TDF_DeltaOnRemoval"
 type
-  HandleTDF_DeltaOnRemoval* = Handle[TDF_DeltaOnRemoval]
+  HandleC1C1* = Handle[TDF_DeltaOnRemoval]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on a REMOVAL action.
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDF_DeltaOnRemoval.hxx".}
 proc dynamicType*(this: TDF_DeltaOnRemoval): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_DeltaOnRemoval.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

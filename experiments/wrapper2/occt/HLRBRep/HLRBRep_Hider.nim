@@ -46,7 +46,32 @@ type
 
 proc constructHLRBRepHider*(ds: Handle[HLRBRepData]): HLRBRepHider {.constructor,
     importcpp: "HLRBRep_Hider(@)", header: "HLRBRep_Hider.hxx".}
-proc ownHiding*(this: var HLRBRepHider; fi: int) {.importcpp: "OwnHiding",
+proc ownHiding*(this: var HLRBRepHider; fi: cint) {.importcpp: "OwnHiding",
     header: "HLRBRep_Hider.hxx".}
-proc hide*(this: var HLRBRepHider; fi: int; mst: var BRepTopAdaptorMapOfShapeTool) {.
+proc hide*(this: var HLRBRepHider; fi: cint; mst: var BRepTopAdaptorMapOfShapeTool) {.
     importcpp: "Hide", header: "HLRBRep_Hider.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

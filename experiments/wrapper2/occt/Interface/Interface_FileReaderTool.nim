@@ -63,9 +63,9 @@ proc setMessenger*(this: var InterfaceFileReaderTool;
     importcpp: "SetMessenger", header: "Interface_FileReaderTool.hxx".}
 proc messenger*(this: InterfaceFileReaderTool): Handle[MessageMessenger] {.
     noSideEffect, importcpp: "Messenger", header: "Interface_FileReaderTool.hxx".}
-proc setTraceLevel*(this: var InterfaceFileReaderTool; tracelev: int) {.
+proc setTraceLevel*(this: var InterfaceFileReaderTool; tracelev: cint) {.
     importcpp: "SetTraceLevel", header: "Interface_FileReaderTool.hxx".}
-proc traceLevel*(this: InterfaceFileReaderTool): int {.noSideEffect,
+proc traceLevel*(this: InterfaceFileReaderTool): cint {.noSideEffect,
     importcpp: "TraceLevel", header: "Interface_FileReaderTool.hxx".}
 proc setErrorHandle*(this: var InterfaceFileReaderTool; err: bool) {.
     importcpp: "SetErrorHandle", header: "Interface_FileReaderTool.hxx".}
@@ -73,10 +73,10 @@ proc errorHandle*(this: InterfaceFileReaderTool): bool {.noSideEffect,
     importcpp: "ErrorHandle", header: "Interface_FileReaderTool.hxx".}
 proc setEntities*(this: var InterfaceFileReaderTool) {.importcpp: "SetEntities",
     header: "Interface_FileReaderTool.hxx".}
-proc recognize*(this: var InterfaceFileReaderTool; num: int;
+proc recognize*(this: var InterfaceFileReaderTool; num: cint;
                ach: var Handle[InterfaceCheck]; ent: var Handle[StandardTransient]): bool {.
     importcpp: "Recognize", header: "Interface_FileReaderTool.hxx".}
-proc recognizeByLib*(this: InterfaceFileReaderTool; num: int;
+proc recognizeByLib*(this: InterfaceFileReaderTool; num: cint;
                     glib: var InterfaceGeneralLib; rlib: var InterfaceReaderLib;
                     ach: var Handle[InterfaceCheck];
                     ent: var Handle[StandardTransient]): bool {.noSideEffect,
@@ -89,13 +89,13 @@ proc newModel*(this: InterfaceFileReaderTool): Handle[InterfaceInterfaceModel] {
 proc loadModel*(this: var InterfaceFileReaderTool;
                amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "LoadModel",
     header: "Interface_FileReaderTool.hxx".}
-proc loadedEntity*(this: var InterfaceFileReaderTool; num: int): Handle[
+proc loadedEntity*(this: var InterfaceFileReaderTool; num: cint): Handle[
     StandardTransient] {.importcpp: "LoadedEntity",
                         header: "Interface_FileReaderTool.hxx".}
 proc beginRead*(this: var InterfaceFileReaderTool;
                amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "BeginRead",
     header: "Interface_FileReaderTool.hxx".}
-proc analyseRecord*(this: var InterfaceFileReaderTool; num: int;
+proc analyseRecord*(this: var InterfaceFileReaderTool; num: cint;
                    anent: Handle[StandardTransient];
                    acheck: var Handle[InterfaceCheck]): bool {.
     importcpp: "AnalyseRecord", header: "Interface_FileReaderTool.hxx".}
@@ -107,3 +107,28 @@ proc endRead*(this: var InterfaceFileReaderTool;
     header: "Interface_FileReaderTool.hxx".}
 proc clear*(this: var InterfaceFileReaderTool) {.importcpp: "Clear",
     header: "Interface_FileReaderTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,3 +29,28 @@ proc init*(di: var DrawInterpretor) {.importcpp: "XDEDRAW::Init(@)",
                                   header: "XDEDRAW.hxx".}
 proc factory*(theDI: var DrawInterpretor) {.importcpp: "XDEDRAW::Factory(@)",
                                         header: "XDEDRAW.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

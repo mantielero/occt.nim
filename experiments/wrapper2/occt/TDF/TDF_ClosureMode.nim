@@ -30,3 +30,28 @@ proc references*(this: var TDF_ClosureMode; aStatus: bool) {.importcpp: "Referen
     header: "TDF_ClosureMode.hxx".}
 proc references*(this: TDF_ClosureMode): bool {.noSideEffect,
     importcpp: "References", header: "TDF_ClosureMode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

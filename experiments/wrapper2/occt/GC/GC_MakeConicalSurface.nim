@@ -168,7 +168,7 @@ type
                                                                                      ## Resolution
 
 
-proc constructGC_MakeConicalSurface*(a2: Ax2; ang: float; radius: float): GC_MakeConicalSurface {.
+proc constructGC_MakeConicalSurface*(a2: Ax2; ang: cfloat; radius: cfloat): GC_MakeConicalSurface {.
     constructor, importcpp: "GC_MakeConicalSurface(@)",
     header: "GC_MakeConicalSurface.hxx".}
 proc constructGC_MakeConicalSurface*(c: Cone): GC_MakeConicalSurface {.constructor,
@@ -176,7 +176,7 @@ proc constructGC_MakeConicalSurface*(c: Cone): GC_MakeConicalSurface {.construct
 proc constructGC_MakeConicalSurface*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): GC_MakeConicalSurface {.
     constructor, importcpp: "GC_MakeConicalSurface(@)",
     header: "GC_MakeConicalSurface.hxx".}
-proc constructGC_MakeConicalSurface*(p1: Pnt; p2: Pnt; r1: float; r2: float): GC_MakeConicalSurface {.
+proc constructGC_MakeConicalSurface*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): GC_MakeConicalSurface {.
     constructor, importcpp: "GC_MakeConicalSurface(@)",
     header: "GC_MakeConicalSurface.hxx".}
 proc value*(this: GC_MakeConicalSurface): Handle[GeomConicalSurface] {.noSideEffect,
@@ -184,3 +184,24 @@ proc value*(this: GC_MakeConicalSurface): Handle[GeomConicalSurface] {.noSideEff
 converter `constopencascade`*(this: GC_MakeConicalSurface): Handle[
     GeomConicalSurface] {.noSideEffect, importcpp: "GC_MakeConicalSurface::operator constopencascade",
                          header: "GC_MakeConicalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

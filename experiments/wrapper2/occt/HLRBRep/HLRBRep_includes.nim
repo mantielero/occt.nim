@@ -67,3 +67,28 @@ include HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf
 include HLRBRep_TypeOfResultingEdge
 include HLRBRep_VertexList
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

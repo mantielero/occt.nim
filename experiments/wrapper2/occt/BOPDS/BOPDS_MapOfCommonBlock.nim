@@ -17,3 +17,28 @@ type
       TColStdMapTransientHasher]
   BOPDS_MapIteratorOfMapOfCommonBlock* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

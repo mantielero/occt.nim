@@ -21,13 +21,38 @@ type
 
 proc constructBRepMeshCircle*(): BRepMeshCircle {.constructor,
     importcpp: "BRepMesh_Circle(@)", header: "BRepMesh_Circle.hxx".}
-proc constructBRepMeshCircle*(theLocation: Xy; theRadius: float): BRepMeshCircle {.
+proc constructBRepMeshCircle*(theLocation: Xy; theRadius: cfloat): BRepMeshCircle {.
     constructor, importcpp: "BRepMesh_Circle(@)", header: "BRepMesh_Circle.hxx".}
 proc setLocation*(this: var BRepMeshCircle; theLocation: Xy) {.
     importcpp: "SetLocation", header: "BRepMesh_Circle.hxx".}
-proc setRadius*(this: var BRepMeshCircle; theRadius: float) {.importcpp: "SetRadius",
+proc setRadius*(this: var BRepMeshCircle; theRadius: cfloat) {.importcpp: "SetRadius",
     header: "BRepMesh_Circle.hxx".}
 proc location*(this: BRepMeshCircle): Xy {.noSideEffect, importcpp: "Location",
                                        header: "BRepMesh_Circle.hxx".}
-proc radius*(this: BRepMeshCircle): float {.noSideEffect, importcpp: "Radius",
-                                        header: "BRepMesh_Circle.hxx".}
+proc radius*(this: BRepMeshCircle): cfloat {.noSideEffect, importcpp: "Radius",
+    header: "BRepMesh_Circle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

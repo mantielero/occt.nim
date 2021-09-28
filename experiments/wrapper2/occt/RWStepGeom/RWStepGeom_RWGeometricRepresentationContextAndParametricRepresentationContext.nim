@@ -27,7 +27,7 @@ type
 proc constructRWStepGeomRWGeometricRepresentationContextAndParametricRepresentationContext*(): RWStepGeomRWGeometricRepresentationContextAndParametricRepresentationContext {.
     constructor, importcpp: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext(@)", header: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext.hxx".}
 proc readStep*(this: RWStepGeomRWGeometricRepresentationContextAndParametricRepresentationContext;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepGeomGeometricRepresentationContextAndParametricRepresentationContext]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext.hxx".}
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepGeomRWGeometricRepresentationContextAndParametricRep
 proc share*(this: RWStepGeomRWGeometricRepresentationContextAndParametricRepresentationContext;
     ent: Handle[StepGeomGeometricRepresentationContextAndParametricRepresentationContext];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepGeom_RWGeometricRepresentationContextAndParametricRepresentationContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

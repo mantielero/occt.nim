@@ -88,4 +88,29 @@ type
 
 
 proc add*(prs: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         shape: TopoDS_Shape; mode: int) {.importcpp: "DsgPrs_ShapeDirPresentation::Add(@)", header: "DsgPrs_ShapeDirPresentation.hxx".}
+         shape: TopoDS_Shape; mode: cint) {.importcpp: "DsgPrs_ShapeDirPresentation::Add(@)", header: "DsgPrs_ShapeDirPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

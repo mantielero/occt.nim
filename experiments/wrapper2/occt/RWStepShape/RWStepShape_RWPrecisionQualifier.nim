@@ -27,10 +27,35 @@ proc constructRWStepShapeRWPrecisionQualifier*(): RWStepShapeRWPrecisionQualifie
     constructor, importcpp: "RWStepShape_RWPrecisionQualifier(@)",
     header: "RWStepShape_RWPrecisionQualifier.hxx".}
 proc readStep*(this: RWStepShapeRWPrecisionQualifier;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapePrecisionQualifier]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWPrecisionQualifier.hxx".}
 proc writeStep*(this: RWStepShapeRWPrecisionQualifier; sw: var StepDataStepWriter;
                ent: Handle[StepShapePrecisionQualifier]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWPrecisionQualifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

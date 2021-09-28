@@ -16,8 +16,7 @@
 discard "forward decl of StepRepr_ConstructiveGeometryRepresentation"
 discard "forward decl of StepRepr_ConstructiveGeometryRepresentation"
 type
-  HandleStepReprConstructiveGeometryRepresentation* = Handle[
-      StepReprConstructiveGeometryRepresentation]
+  HandleC1C1* = Handle[StepReprConstructiveGeometryRepresentation]
   StepReprConstructiveGeometryRepresentation* {.
       importcpp: "StepRepr_ConstructiveGeometryRepresentation",
       header: "StepRepr_ConstructiveGeometryRepresentation.hxx", bycopy.} = object of StepReprRepresentation ##
@@ -39,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_Construct
 proc dynamicType*(this: StepReprConstructiveGeometryRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_ConstructiveGeometryRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

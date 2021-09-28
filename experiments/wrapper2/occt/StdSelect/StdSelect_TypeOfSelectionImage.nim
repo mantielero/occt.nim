@@ -27,3 +27,28 @@ type
     StdSelectTypeOfSelectionImageColoredSelectionMode ## !< color of selection mode
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

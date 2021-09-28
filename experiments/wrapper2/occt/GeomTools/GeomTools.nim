@@ -23,13 +23,21 @@ discard "forward decl of GeomTools_SurfaceSet"
 discard "forward decl of GeomTools_CurveSet"
 discard "forward decl of GeomTools_Curve2dSet"
 type
-  GeomTools* {.importcpp: "GeomTools", header: "GeomTools.hxx", bycopy.} = object ## ! A set of Curves from
-                                                                          ## Geom2d.
-                                                                          ## ! Dumps the
-                                                                          ## surface on the
-                                                                          ## stream.
+  GeomTools* {.importcpp: "GeomTools", header: "GeomTools.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomTools; theSize: csize_t): pointer {.
+    importcpp: "GeomTools::operator new", header: "GeomTools.hxx".}
+proc `delete`*(this: var GeomTools; theAddress: pointer) {.
+    importcpp: "GeomTools::operator delete", header: "GeomTools.hxx".}
+proc `new[]`*(this: var GeomTools; theSize: csize_t): pointer {.
+    importcpp: "GeomTools::operator new[]", header: "GeomTools.hxx".}
+proc `delete[]`*(this: var GeomTools; theAddress: pointer) {.
+    importcpp: "GeomTools::operator delete[]", header: "GeomTools.hxx".}
+proc `new`*(this: var GeomTools; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomTools::operator new", header: "GeomTools.hxx".}
+proc `delete`*(this: var GeomTools; a2: pointer; a3: pointer) {.
+    importcpp: "GeomTools::operator delete", header: "GeomTools.hxx".}
 proc dump*(s: Handle[GeomSurface]; os: var StandardOStream) {.
     importcpp: "GeomTools::Dump(@)", header: "GeomTools.hxx".}
 proc write*(s: Handle[GeomSurface]; os: var StandardOStream) {.
@@ -52,5 +60,5 @@ proc setUndefinedTypeHandler*(aHandler: Handle[GeomToolsUndefinedTypeHandler]) {
     importcpp: "GeomTools::SetUndefinedTypeHandler(@)", header: "GeomTools.hxx".}
 proc getUndefinedTypeHandler*(): Handle[GeomToolsUndefinedTypeHandler] {.
     importcpp: "GeomTools::GetUndefinedTypeHandler(@)", header: "GeomTools.hxx".}
-proc getReal*(`is`: var StandardIStream; theValue: var float) {.
+proc getReal*(`is`: var StandardIStream; theValue: var StandardReal) {.
     importcpp: "GeomTools::GetReal(@)", header: "GeomTools.hxx".}

@@ -14,3 +14,28 @@
 type
   StdSelectViewerSelector3d* = SelectMgrViewerSelector3d
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

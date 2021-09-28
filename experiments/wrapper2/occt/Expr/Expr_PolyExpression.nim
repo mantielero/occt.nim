@@ -22,7 +22,7 @@ discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_PolyExpression"
 discard "forward decl of Expr_PolyExpression"
 type
-  HandleExprPolyExpression* = Handle[ExprPolyExpression]
+  HandleC1C1* = Handle[ExprPolyExpression]
   ExprPolyExpression* {.importcpp: "Expr_PolyExpression",
                        header: "Expr_PolyExpression.hxx", bycopy.} = object of ExprGeneralExpression ##
                                                                                               ## !
@@ -44,16 +44,16 @@ type
                                                                                               ## operands.
 
 
-proc nbOperands*(this: ExprPolyExpression): int {.noSideEffect,
+proc nbOperands*(this: ExprPolyExpression): cint {.noSideEffect,
     importcpp: "NbOperands", header: "Expr_PolyExpression.hxx".}
-proc operand*(this: ExprPolyExpression; index: int): Handle[ExprGeneralExpression] {.
+proc operand*(this: ExprPolyExpression; index: cint): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "Operand", header: "Expr_PolyExpression.hxx".}
 proc setOperand*(this: var ExprPolyExpression; exp: Handle[ExprGeneralExpression];
-                index: int) {.importcpp: "SetOperand",
-                            header: "Expr_PolyExpression.hxx".}
-proc nbSubExpressions*(this: ExprPolyExpression): int {.noSideEffect,
+                index: cint) {.importcpp: "SetOperand",
+                             header: "Expr_PolyExpression.hxx".}
+proc nbSubExpressions*(this: ExprPolyExpression): cint {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_PolyExpression.hxx".}
-proc subExpression*(this: ExprPolyExpression; i: int): Handle[ExprGeneralExpression] {.
+proc subExpression*(this: ExprPolyExpression; i: cint): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "SubExpression", header: "Expr_PolyExpression.hxx".}
 proc containsUnknowns*(this: ExprPolyExpression): bool {.noSideEffect,
     importcpp: "ContainsUnknowns", header: "Expr_PolyExpression.hxx".}
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_PolyExpression.hxx".}
 proc dynamicType*(this: ExprPolyExpression): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_PolyExpression.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

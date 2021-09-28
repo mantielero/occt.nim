@@ -19,7 +19,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Composite"
 discard "forward decl of Law_Composite"
 type
-  HandleLawComposite* = Handle[LawComposite]
+  HandleC1C1* = Handle[LawComposite]
 
 ## ! Loi  composite constituee  d une liste  de lois de
 ## ! ranges consecutifs.
@@ -48,25 +48,25 @@ type
 
 proc constructLawComposite*(): LawComposite {.constructor,
     importcpp: "Law_Composite(@)", header: "Law_Composite.hxx".}
-proc constructLawComposite*(first: float; last: float; tol: float): LawComposite {.
+proc constructLawComposite*(first: cfloat; last: cfloat; tol: cfloat): LawComposite {.
     constructor, importcpp: "Law_Composite(@)", header: "Law_Composite.hxx".}
 proc continuity*(this: LawComposite): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Law_Composite.hxx".}
-proc nbIntervals*(this: LawComposite; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: LawComposite; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Law_Composite.hxx".}
 proc intervals*(this: LawComposite; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Law_Composite.hxx".}
-proc value*(this: var LawComposite; x: float): float {.importcpp: "Value",
+proc value*(this: var LawComposite; x: cfloat): cfloat {.importcpp: "Value",
     header: "Law_Composite.hxx".}
-proc d1*(this: var LawComposite; x: float; f: var float; d: var float) {.importcpp: "D1",
+proc d1*(this: var LawComposite; x: cfloat; f: var cfloat; d: var cfloat) {.importcpp: "D1",
     header: "Law_Composite.hxx".}
-proc d2*(this: var LawComposite; x: float; f: var float; d: var float; d2: var float) {.
+proc d2*(this: var LawComposite; x: cfloat; f: var cfloat; d: var cfloat; d2: var cfloat) {.
     importcpp: "D2", header: "Law_Composite.hxx".}
-proc trim*(this: LawComposite; pFirst: float; pLast: float; tol: float): Handle[
+proc trim*(this: LawComposite; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handle[
     LawFunction] {.noSideEffect, importcpp: "Trim", header: "Law_Composite.hxx".}
-proc bounds*(this: var LawComposite; pFirst: var float; pLast: var float) {.
+proc bounds*(this: var LawComposite; pFirst: var cfloat; pLast: var cfloat) {.
     importcpp: "Bounds", header: "Law_Composite.hxx".}
-proc changeElementaryLaw*(this: var LawComposite; w: float): var Handle[LawFunction] {.
+proc changeElementaryLaw*(this: var LawComposite; w: cfloat): var Handle[LawFunction] {.
     importcpp: "ChangeElementaryLaw", header: "Law_Composite.hxx".}
 proc changeLaws*(this: var LawComposite): var LawLaws {.importcpp: "ChangeLaws",
     header: "Law_Composite.hxx".}
@@ -84,3 +84,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Law_Composite.hxx".}
 proc dynamicType*(this: LawComposite): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_Composite.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

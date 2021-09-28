@@ -22,7 +22,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of IGESSelect_WorkLibrary"
 discard "forward decl of IGESSelect_WorkLibrary"
 type
-  HandleIGESSelectWorkLibrary* = Handle[IGESSelectWorkLibrary]
+  HandleC1C1* = Handle[IGESSelectWorkLibrary]
 
 ## ! Performs Read and Write an IGES File with an IGES Model
 
@@ -54,7 +54,7 @@ proc constructIGESSelectWorkLibrary*(modefnes: bool = false): IGESSelectWorkLibr
     header: "IGESSelect_WorkLibrary.hxx".}
 proc readFile*(this: IGESSelectWorkLibrary; name: StandardCString;
               model: var Handle[InterfaceInterfaceModel];
-              protocol: Handle[InterfaceProtocol]): int {.noSideEffect,
+              protocol: Handle[InterfaceProtocol]): cint {.noSideEffect,
     importcpp: "ReadFile", header: "IGESSelect_WorkLibrary.hxx".}
 proc writeFile*(this: IGESSelectWorkLibrary; ctx: var IFSelectContextWrite): bool {.
     noSideEffect, importcpp: "WriteFile", header: "IGESSelect_WorkLibrary.hxx".}
@@ -64,8 +64,9 @@ proc defineProtocol*(): Handle[IGESDataProtocol] {.
 proc dumpEntity*(this: IGESSelectWorkLibrary;
                 model: Handle[InterfaceInterfaceModel];
                 protocol: Handle[InterfaceProtocol];
-                entity: Handle[StandardTransient]; s: var StandardOStream; level: int) {.
-    noSideEffect, importcpp: "DumpEntity", header: "IGESSelect_WorkLibrary.hxx".}
+                entity: Handle[StandardTransient]; s: var StandardOStream;
+                level: cint) {.noSideEffect, importcpp: "DumpEntity",
+                             header: "IGESSelect_WorkLibrary.hxx".}
 type
   IGESSelectWorkLibrarybaseType* = IFSelectWorkLibrary
 
@@ -76,3 +77,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_WorkLibrary.hxx".}
 proc dynamicType*(this: IGESSelectWorkLibrary): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_WorkLibrary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

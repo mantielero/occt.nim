@@ -17,7 +17,7 @@
 discard "forward decl of PLib_Base"
 discard "forward decl of PLib_Base"
 type
-  HandlePLibBase* = Handle[PLibBase]
+  HandleC1C1* = Handle[PLibBase]
 
 ## ! To work with different polynomial's Bases
 
@@ -34,24 +34,24 @@ type
                                                                                             ## base.
 
 
-proc toCoefficients*(this: PLibBase; dimension: int; degree: int;
+proc toCoefficients*(this: PLibBase; dimension: cint; degree: cint;
                     coeffinBase: TColStdArray1OfReal;
                     coefficients: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "ToCoefficients", header: "PLib_Base.hxx".}
-proc d0*(this: var PLibBase; u: float; basisValue: var TColStdArray1OfReal) {.
+proc d0*(this: var PLibBase; u: cfloat; basisValue: var TColStdArray1OfReal) {.
     importcpp: "D0", header: "PLib_Base.hxx".}
-proc d1*(this: var PLibBase; u: float; basisValue: var TColStdArray1OfReal;
+proc d1*(this: var PLibBase; u: cfloat; basisValue: var TColStdArray1OfReal;
         basisD1: var TColStdArray1OfReal) {.importcpp: "D1", header: "PLib_Base.hxx".}
-proc d2*(this: var PLibBase; u: float; basisValue: var TColStdArray1OfReal;
+proc d2*(this: var PLibBase; u: cfloat; basisValue: var TColStdArray1OfReal;
         basisD1: var TColStdArray1OfReal; basisD2: var TColStdArray1OfReal) {.
     importcpp: "D2", header: "PLib_Base.hxx".}
-proc d3*(this: var PLibBase; u: float; basisValue: var TColStdArray1OfReal;
+proc d3*(this: var PLibBase; u: cfloat; basisValue: var TColStdArray1OfReal;
         basisD1: var TColStdArray1OfReal; basisD2: var TColStdArray1OfReal;
         basisD3: var TColStdArray1OfReal) {.importcpp: "D3", header: "PLib_Base.hxx".}
-proc workDegree*(this: PLibBase): int {.noSideEffect, importcpp: "WorkDegree",
-                                    header: "PLib_Base.hxx".}
-proc reduceDegree*(this: PLibBase; dimension: int; maxDegree: int; tol: float;
-                  baseCoeff: var float; newDegree: var int; maxError: var float) {.
+proc workDegree*(this: PLibBase): cint {.noSideEffect, importcpp: "WorkDegree",
+                                     header: "PLib_Base.hxx".}
+proc reduceDegree*(this: PLibBase; dimension: cint; maxDegree: cint; tol: cfloat;
+                  baseCoeff: var cfloat; newDegree: var cint; maxError: var cfloat) {.
     noSideEffect, importcpp: "ReduceDegree", header: "PLib_Base.hxx".}
 type
   PLibBasebaseType* = StandardTransient
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PLib_Base::get_type_descriptor(@)", header: "PLib_Base.hxx".}
 proc dynamicType*(this: PLibBase): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PLib_Base.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

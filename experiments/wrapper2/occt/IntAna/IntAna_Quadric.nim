@@ -42,14 +42,39 @@ proc setQuadric*(this: var IntAnaQuadric; con: Cone) {.importcpp: "SetQuadric",
     header: "IntAna_Quadric.hxx".}
 proc setQuadric*(this: var IntAnaQuadric; cyl: Cylinder) {.importcpp: "SetQuadric",
     header: "IntAna_Quadric.hxx".}
-proc coefficients*(this: IntAnaQuadric; xCXX: var float; xCYY: var float;
-                  xCZZ: var float; xCXY: var float; xCXZ: var float; xCYZ: var float;
-                  xCX: var float; xCY: var float; xCZ: var float; xCCte: var float) {.
+proc coefficients*(this: IntAnaQuadric; xCXX: var cfloat; xCYY: var cfloat;
+                  xCZZ: var cfloat; xCXY: var cfloat; xCXZ: var cfloat; xCYZ: var cfloat;
+                  xCX: var cfloat; xCY: var cfloat; xCZ: var cfloat; xCCte: var cfloat) {.
     noSideEffect, importcpp: "Coefficients", header: "IntAna_Quadric.hxx".}
-proc newCoefficients*(this: IntAnaQuadric; xCXX: var float; xCYY: var float;
-                     xCZZ: var float; xCXY: var float; xCXZ: var float; xCYZ: var float;
-                     xCX: var float; xCY: var float; xCZ: var float; xCCte: var float;
-                     axis: Ax3) {.noSideEffect, importcpp: "NewCoefficients",
-                                header: "IntAna_Quadric.hxx".}
+proc newCoefficients*(this: IntAnaQuadric; xCXX: var cfloat; xCYY: var cfloat;
+                     xCZZ: var cfloat; xCXY: var cfloat; xCXZ: var cfloat;
+                     xCYZ: var cfloat; xCX: var cfloat; xCY: var cfloat; xCZ: var cfloat;
+                     xCCte: var cfloat; axis: Ax3) {.noSideEffect,
+    importcpp: "NewCoefficients", header: "IntAna_Quadric.hxx".}
 proc specialPoints*(this: IntAnaQuadric): NCollectionList[Pnt] {.noSideEffect,
     importcpp: "SpecialPoints", header: "IntAna_Quadric.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

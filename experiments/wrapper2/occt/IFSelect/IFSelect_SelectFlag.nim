@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectFlag"
 discard "forward decl of IFSelect_SelectFlag"
 type
-  HandleIFSelectSelectFlag* = Handle[IFSelectSelectFlag]
+  HandleC1C1* = Handle[IFSelectSelectFlag]
 
 ## ! A SelectFlag queries a flag noted in the bitmap of the Graph.
 ## ! The Flag is designated by its Name. Flag Names are defined
@@ -56,7 +56,7 @@ proc flagName*(this: IFSelectSelectFlag): StandardCString {.noSideEffect,
     importcpp: "FlagName", header: "IFSelect_SelectFlag.hxx".}
 proc rootResult*(this: IFSelectSelectFlag; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectFlag.hxx".}
-proc sort*(this: IFSelectSelectFlag; rank: int; ent: Handle[StandardTransient];
+proc sort*(this: IFSelectSelectFlag; rank: cint; ent: Handle[StandardTransient];
           model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
     importcpp: "Sort", header: "IFSelect_SelectFlag.hxx".}
 proc extractLabel*(this: IFSelectSelectFlag): TCollectionAsciiString {.noSideEffect,
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectFlag.hxx".}
 proc dynamicType*(this: IFSelectSelectFlag): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectFlag.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

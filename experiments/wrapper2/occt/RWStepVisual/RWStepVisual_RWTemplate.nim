@@ -27,7 +27,7 @@ type
 proc constructRWStepVisualRWTemplate*(): RWStepVisualRWTemplate {.constructor,
     importcpp: "RWStepVisual_RWTemplate(@)", header: "RWStepVisual_RWTemplate.hxx".}
 proc readStep*(this: RWStepVisualRWTemplate; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualTemplate]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWTemplate.hxx".}
 proc writeStep*(this: RWStepVisualRWTemplate; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepVisualRWTemplate; sw: var StepDataStepWriter;
 proc share*(this: RWStepVisualRWTemplate; ent: Handle[StepVisualTemplate];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWTemplate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

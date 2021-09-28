@@ -74,5 +74,30 @@ proc setDirection*(this: var V3dDirectionalLight; theDirection: V3dTypeOfOrienta
 
 discard "forward decl of V3d_DirectionalLight"
 type
-  HandleV3dDirectionalLight* = Handle[V3dDirectionalLight]
+  HandleC1C1* = Handle[V3dDirectionalLight]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -19,7 +19,7 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_C0RegularityFilter"
 discard "forward decl of AIS_C0RegularityFilter"
 type
-  HandleAIS_C0RegularityFilter* = Handle[AIS_C0RegularityFilter]
+  HandleC1C1* = Handle[AIS_C0RegularityFilter]
   AIS_C0RegularityFilter* {.importcpp: "AIS_C0RegularityFilter",
                            header: "AIS_C0RegularityFilter.hxx", bycopy.} = object of SelectMgrFilter
 
@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "AIS_C0RegularityFilter.hxx".}
 proc dynamicType*(this: AIS_C0RegularityFilter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "AIS_C0RegularityFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

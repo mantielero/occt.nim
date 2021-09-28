@@ -22,3 +22,28 @@ type
       TCollectionExtendedString, Handle[TColStdHArray1OfReal],
       TCollectionExtendedString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

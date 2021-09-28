@@ -21,3 +21,28 @@ type
       TCollectionExtendedString, TCollectionExtendedString,
       TCollectionExtendedString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

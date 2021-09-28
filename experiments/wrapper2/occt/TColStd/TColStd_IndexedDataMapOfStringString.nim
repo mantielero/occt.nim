@@ -15,3 +15,28 @@ type
   TColStdIndexedDataMapOfStringString* = NCollectionIndexedDataMap[
       TCollectionAsciiString, TCollectionAsciiString, TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SignMultiple"
 discard "forward decl of IFSelect_SignMultiple"
 type
-  HandleIFSelectSignMultiple* = Handle[IFSelectSignMultiple]
+  HandleC1C1* = Handle[IFSelectSignMultiple]
 
 ## ! Multiple Signature : ordered list of other Signatures
 ## ! It concatenates on a same line the result of its sub-items
@@ -56,8 +56,8 @@ proc constructIFSelectSignMultiple*(name: StandardCString): IFSelectSignMultiple
     constructor, importcpp: "IFSelect_SignMultiple(@)",
     header: "IFSelect_SignMultiple.hxx".}
 proc add*(this: var IFSelectSignMultiple; subsign: Handle[IFSelectSignature];
-         width: int = 0; maxi: bool = false) {.importcpp: "Add",
-                                       header: "IFSelect_SignMultiple.hxx".}
+         width: cint = 0; maxi: bool = false) {.importcpp: "Add",
+                                        header: "IFSelect_SignMultiple.hxx".}
 proc value*(this: IFSelectSignMultiple; ent: Handle[StandardTransient];
            model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
     importcpp: "Value", header: "IFSelect_SignMultiple.hxx".}
@@ -75,3 +75,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SignMultiple.hxx".}
 proc dynamicType*(this: IFSelectSignMultiple): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SignMultiple.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

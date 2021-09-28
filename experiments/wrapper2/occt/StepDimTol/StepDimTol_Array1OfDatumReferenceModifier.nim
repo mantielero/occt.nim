@@ -17,3 +17,28 @@ type
   StepDimTolArray1OfDatumReferenceModifier* = NCollectionArray1[
       StepDimTolDatumReferenceModifier]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

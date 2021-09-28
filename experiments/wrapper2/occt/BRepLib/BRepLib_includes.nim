@@ -22,3 +22,28 @@ include BRepLib_ShapeModification
 include BRepLib_ShellError
 include BRepLib_WireError
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

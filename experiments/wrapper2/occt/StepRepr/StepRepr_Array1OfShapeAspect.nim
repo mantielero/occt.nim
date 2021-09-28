@@ -16,3 +16,28 @@
 type
   StepReprArray1OfShapeAspect* = NCollectionArray1[Handle[StepReprShapeAspect]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

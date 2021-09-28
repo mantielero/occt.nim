@@ -21,7 +21,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_DispatchControl"
 discard "forward decl of Transfer_DispatchControl"
 type
-  HandleTransferDispatchControl* = Handle[TransferDispatchControl]
+  HandleC1C1* = Handle[TransferDispatchControl]
 
 ## ! This is an auxiliary class for TransferDispatch, which allows
 ## ! to record simple copies, as CopyControl from Interface, but
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Transfer_DispatchControl.hxx".}
 proc dynamicType*(this: TransferDispatchControl): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Transfer_DispatchControl.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

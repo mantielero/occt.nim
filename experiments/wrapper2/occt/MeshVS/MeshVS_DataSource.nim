@@ -20,7 +20,7 @@ discard "forward decl of Bnd_Box2d"
 discard "forward decl of MeshVS_DataSource"
 discard "forward decl of MeshVS_DataSource"
 type
-  HandleMeshVS_DataSource* = Handle[MeshVS_DataSource]
+  HandleC1C1* = Handle[MeshVS_DataSource]
 
 ## ! The deferred class using for the following tasks:
 ## ! 1) Receiving geometry data about single element of node by its number;
@@ -181,59 +181,60 @@ type
                                                                                        ## node.
 
 
-proc getGeom*(this: MeshVS_DataSource; id: int; isElement: bool;
-             coords: var TColStdArray1OfReal; nbNodes: var int;
+proc getGeom*(this: MeshVS_DataSource; id: cint; isElement: bool;
+             coords: var TColStdArray1OfReal; nbNodes: var cint;
              `type`: var MeshVS_EntityType): bool {.noSideEffect,
     importcpp: "GetGeom", header: "MeshVS_DataSource.hxx".}
-proc getGeomType*(this: MeshVS_DataSource; id: int; isElement: bool;
+proc getGeomType*(this: MeshVS_DataSource; id: cint; isElement: bool;
                  `type`: var MeshVS_EntityType): bool {.noSideEffect,
     importcpp: "GetGeomType", header: "MeshVS_DataSource.hxx".}
-proc get3DGeom*(this: MeshVS_DataSource; id: int; nbNodes: var int;
+proc get3DGeom*(this: MeshVS_DataSource; id: cint; nbNodes: var cint;
                data: var Handle[MeshVS_HArray1OfSequenceOfInteger]): bool {.
     noSideEffect, importcpp: "Get3DGeom", header: "MeshVS_DataSource.hxx".}
-proc getAddr*(this: MeshVS_DataSource; id: int; isElement: bool): StandardAddress {.
+proc getAddr*(this: MeshVS_DataSource; id: cint; isElement: bool): StandardAddress {.
     noSideEffect, importcpp: "GetAddr", header: "MeshVS_DataSource.hxx".}
-proc getNodesByElement*(this: MeshVS_DataSource; id: int;
-                       nodeIDs: var TColStdArray1OfInteger; nbNodes: var int): bool {.
+proc getNodesByElement*(this: MeshVS_DataSource; id: cint;
+                       nodeIDs: var TColStdArray1OfInteger; nbNodes: var cint): bool {.
     noSideEffect, importcpp: "GetNodesByElement", header: "MeshVS_DataSource.hxx".}
 proc getAllNodes*(this: MeshVS_DataSource): TColStdPackedMapOfInteger {.
     noSideEffect, importcpp: "GetAllNodes", header: "MeshVS_DataSource.hxx".}
 proc getAllElements*(this: MeshVS_DataSource): TColStdPackedMapOfInteger {.
     noSideEffect, importcpp: "GetAllElements", header: "MeshVS_DataSource.hxx".}
-proc getNormal*(this: MeshVS_DataSource; id: int; max: int; nx: var float; ny: var float;
-               nz: var float): bool {.noSideEffect, importcpp: "GetNormal",
-                                  header: "MeshVS_DataSource.hxx".}
-proc getNodeNormal*(this: MeshVS_DataSource; ranknode: int; elementId: int;
-                   nx: var float; ny: var float; nz: var float): bool {.noSideEffect,
+proc getNormal*(this: MeshVS_DataSource; id: cint; max: cint; nx: var cfloat;
+               ny: var cfloat; nz: var cfloat): bool {.noSideEffect,
+    importcpp: "GetNormal", header: "MeshVS_DataSource.hxx".}
+proc getNodeNormal*(this: MeshVS_DataSource; ranknode: cint; elementId: cint;
+                   nx: var cfloat; ny: var cfloat; nz: var cfloat): bool {.noSideEffect,
     importcpp: "GetNodeNormal", header: "MeshVS_DataSource.hxx".}
-proc getNormalsByElement*(this: MeshVS_DataSource; id: int; isNodal: bool;
-                         maxNodes: int; normals: var Handle[TColStdHArray1OfReal]): bool {.
+proc getNormalsByElement*(this: MeshVS_DataSource; id: cint; isNodal: bool;
+                         maxNodes: cint; normals: var Handle[TColStdHArray1OfReal]): bool {.
     noSideEffect, importcpp: "GetNormalsByElement", header: "MeshVS_DataSource.hxx".}
 proc getAllGroups*(this: MeshVS_DataSource; ids: var TColStdPackedMapOfInteger) {.
     noSideEffect, importcpp: "GetAllGroups", header: "MeshVS_DataSource.hxx".}
-proc getGroup*(this: MeshVS_DataSource; id: int; `type`: var MeshVS_EntityType;
+proc getGroup*(this: MeshVS_DataSource; id: cint; `type`: var MeshVS_EntityType;
               ids: var TColStdPackedMapOfInteger): bool {.noSideEffect,
     importcpp: "GetGroup", header: "MeshVS_DataSource.hxx".}
-proc getGroupAddr*(this: MeshVS_DataSource; id: int): StandardAddress {.noSideEffect,
+proc getGroupAddr*(this: MeshVS_DataSource; id: cint): StandardAddress {.noSideEffect,
     importcpp: "GetGroupAddr", header: "MeshVS_DataSource.hxx".}
 proc isAdvancedSelectionEnabled*(this: MeshVS_DataSource): bool {.noSideEffect,
     importcpp: "IsAdvancedSelectionEnabled", header: "MeshVS_DataSource.hxx".}
 proc getBoundingBox*(this: MeshVS_DataSource): BndBox {.noSideEffect,
     importcpp: "GetBoundingBox", header: "MeshVS_DataSource.hxx".}
 proc getDetectedEntities*(this: var MeshVS_DataSource; prs: Handle[MeshVS_Mesh];
-                         x: float; y: float; aTol: float;
+                         x: cfloat; y: cfloat; aTol: cfloat;
                          nodes: var Handle[TColStdHPackedMapOfInteger];
                          elements: var Handle[TColStdHPackedMapOfInteger];
-                         dMin: var float): bool {.importcpp: "GetDetectedEntities",
+                         dMin: var cfloat): bool {.importcpp: "GetDetectedEntities",
     header: "MeshVS_DataSource.hxx".}
 proc getDetectedEntities*(this: var MeshVS_DataSource; prs: Handle[MeshVS_Mesh];
-                         xMin: float; yMin: float; xMax: float; yMax: float;
-                         aTol: float;
+                         xMin: cfloat; yMin: cfloat; xMax: cfloat; yMax: cfloat;
+                         aTol: cfloat;
                          nodes: var Handle[TColStdHPackedMapOfInteger];
                          elements: var Handle[TColStdHPackedMapOfInteger]): bool {.
     importcpp: "GetDetectedEntities", header: "MeshVS_DataSource.hxx".}
 proc getDetectedEntities*(this: var MeshVS_DataSource; prs: Handle[MeshVS_Mesh];
-                         polyline: TColgpArray1OfPnt2d; aBox: BndBox2d; aTol: float;
+                         polyline: TColgpArray1OfPnt2d; aBox: BndBox2d;
+                         aTol: cfloat;
                          nodes: var Handle[TColStdHPackedMapOfInteger];
                          elements: var Handle[TColStdHPackedMapOfInteger]): bool {.
     importcpp: "GetDetectedEntities", header: "MeshVS_DataSource.hxx".}
@@ -251,3 +252,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MeshVS_DataSource.hxx".}
 proc dynamicType*(this: MeshVS_DataSource): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_DataSource.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

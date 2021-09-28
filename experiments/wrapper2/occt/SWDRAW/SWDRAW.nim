@@ -31,3 +31,28 @@ type
 
 proc init*(theCommands: var DrawInterpretor) {.importcpp: "SWDRAW::Init(@)",
     header: "SWDRAW.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

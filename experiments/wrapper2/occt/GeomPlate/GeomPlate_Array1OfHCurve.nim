@@ -16,4 +16,3 @@
 
 type
   GeomPlateArray1OfHCurve* = NCollectionArray1[Handle[Adaptor3dHCurve]]
-

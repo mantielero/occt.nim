@@ -29,7 +29,7 @@ type
 
 proc constructStepGeomAxis2Placement*(): StepGeomAxis2Placement {.constructor,
     importcpp: "StepGeom_Axis2Placement(@)", header: "StepGeom_Axis2Placement.hxx".}
-proc caseNum*(this: StepGeomAxis2Placement; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepGeomAxis2Placement; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_Axis2Placement.hxx".}
 proc axis2Placement2d*(this: StepGeomAxis2Placement): Handle[
     StepGeomAxis2Placement2d] {.noSideEffect, importcpp: "Axis2Placement2d",
@@ -37,3 +37,28 @@ proc axis2Placement2d*(this: StepGeomAxis2Placement): Handle[
 proc axis2Placement3d*(this: StepGeomAxis2Placement): Handle[
     StepGeomAxis2Placement3d] {.noSideEffect, importcpp: "Axis2Placement3d",
                                header: "StepGeom_Axis2Placement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

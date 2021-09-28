@@ -78,5 +78,30 @@ type
 
 proc run*() {.importcpp: "IGESSelect::Run(@)", header: "IGESSelect.hxx".}
 proc whatIges*(ent: Handle[IGESDataIGESEntity]; g: InterfaceGraph;
-              sup: var Handle[IGESDataIGESEntity]; index: var int): int {.
+              sup: var Handle[IGESDataIGESEntity]; index: var cint): cint {.
     importcpp: "IGESSelect::WhatIges(@)", header: "IGESSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

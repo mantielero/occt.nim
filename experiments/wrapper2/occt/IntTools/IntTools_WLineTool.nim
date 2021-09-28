@@ -22,7 +22,7 @@ type
 
 
 proc notUseSurfacesForApprox*(aF1: TopoDS_Face; aF2: TopoDS_Face;
-                             wl: Handle[IntPatchWLine]; ifprm: int; ilprm: int): bool {.
+                             wl: Handle[IntPatchWLine]; ifprm: cint; ilprm: cint): bool {.
     importcpp: "IntTools_WLineTool::NotUseSurfacesForApprox(@)",
     header: "IntTools_WLineTool.hxx".}
 proc decompositionOfWLine*(theWLine: Handle[IntPatchWLine];
@@ -30,8 +30,33 @@ proc decompositionOfWLine*(theWLine: Handle[IntPatchWLine];
                           theSurface2: Handle[GeomAdaptorHSurface];
                           theFace1: TopoDS_Face; theFace2: TopoDS_Face;
                           theLConstructor: GeomIntLineConstructor;
-                          theAvoidLConstructor: bool; theTol: float;
+                          theAvoidLConstructor: bool; theTol: cfloat;
                           theNewLines: var IntPatchSequenceOfLine;
-                          theReachedTol3d: var float; a11: Handle[IntToolsContext]): bool {.
+                          theReachedTol3d: var cfloat; a11: Handle[IntToolsContext]): bool {.
     importcpp: "IntTools_WLineTool::DecompositionOfWLine(@)",
     header: "IntTools_WLineTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

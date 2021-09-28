@@ -18,3 +18,28 @@ type
   StepShapeArray1OfConnectedFaceSet* = NCollectionArray1[
       Handle[StepShapeConnectedFaceSet]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

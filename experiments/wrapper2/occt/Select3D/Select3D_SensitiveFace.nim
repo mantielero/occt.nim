@@ -98,12 +98,37 @@ proc bvh*(this: var Select3D_SensitiveFace) {.importcpp: "BVH",
     header: "Select3D_SensitiveFace.hxx".}
 proc toBuildBVH*(this: Select3D_SensitiveFace): bool {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveFace.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveFace): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitiveFace): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitiveFace.hxx".}
 proc dumpJson*(this: Select3D_SensitiveFace; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Select3D_SensitiveFace.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Select3D_SensitiveFace.hxx".}
 discard "forward decl of Select3D_SensitiveFace"
 type
-  HandleSelect3D_SensitiveFace* = Handle[Select3D_SensitiveFace]
+  HandleC1C1* = Handle[Select3D_SensitiveFace]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

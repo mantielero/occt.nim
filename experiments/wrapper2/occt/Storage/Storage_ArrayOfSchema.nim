@@ -18,3 +18,28 @@ discard "forward decl of Storage_Schema"
 type
   StorageArrayOfSchema* = NCollectionArray1[Handle[StorageSchema]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

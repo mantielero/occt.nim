@@ -15,3 +15,28 @@
 type
   FSD_FStream* = ref object # Fstream
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

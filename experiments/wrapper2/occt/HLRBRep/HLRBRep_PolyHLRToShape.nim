@@ -74,3 +74,28 @@ proc outLineHCompound*(this: var HLRBRepPolyHLRToShape): TopoDS_Shape {.
     importcpp: "OutLineHCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
 proc outLineHCompound*(this: var HLRBRepPolyHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "OutLineHCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

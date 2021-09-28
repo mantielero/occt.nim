@@ -21,7 +21,7 @@ discard "forward decl of Message_Msg"
 discard "forward decl of ShapeFix_Root"
 discard "forward decl of ShapeFix_Root"
 type
-  HandleShapeFixRoot* = Handle[ShapeFixRoot]
+  HandleC1C1* = Handle[ShapeFixRoot]
 
 ## ! Root class for fixing operations
 ## ! Provides context for recording changes (optional),
@@ -68,19 +68,19 @@ proc setMsgRegistrator*(this: var ShapeFixRoot;
     importcpp: "SetMsgRegistrator", header: "ShapeFix_Root.hxx".}
 proc msgRegistrator*(this: ShapeFixRoot): Handle[ShapeExtendBasicMsgRegistrator] {.
     noSideEffect, importcpp: "MsgRegistrator", header: "ShapeFix_Root.hxx".}
-proc setPrecision*(this: var ShapeFixRoot; preci: float) {.importcpp: "SetPrecision",
+proc setPrecision*(this: var ShapeFixRoot; preci: cfloat) {.importcpp: "SetPrecision",
     header: "ShapeFix_Root.hxx".}
-proc precision*(this: ShapeFixRoot): float {.noSideEffect, importcpp: "Precision",
+proc precision*(this: ShapeFixRoot): cfloat {.noSideEffect, importcpp: "Precision",
     header: "ShapeFix_Root.hxx".}
-proc setMinTolerance*(this: var ShapeFixRoot; mintol: float) {.
+proc setMinTolerance*(this: var ShapeFixRoot; mintol: cfloat) {.
     importcpp: "SetMinTolerance", header: "ShapeFix_Root.hxx".}
-proc minTolerance*(this: ShapeFixRoot): float {.noSideEffect,
+proc minTolerance*(this: ShapeFixRoot): cfloat {.noSideEffect,
     importcpp: "MinTolerance", header: "ShapeFix_Root.hxx".}
-proc setMaxTolerance*(this: var ShapeFixRoot; maxtol: float) {.
+proc setMaxTolerance*(this: var ShapeFixRoot; maxtol: cfloat) {.
     importcpp: "SetMaxTolerance", header: "ShapeFix_Root.hxx".}
-proc maxTolerance*(this: ShapeFixRoot): float {.noSideEffect,
+proc maxTolerance*(this: ShapeFixRoot): cfloat {.noSideEffect,
     importcpp: "MaxTolerance", header: "ShapeFix_Root.hxx".}
-proc limitTolerance*(this: ShapeFixRoot; toler: float): float {.noSideEffect,
+proc limitTolerance*(this: ShapeFixRoot; toler: cfloat): cfloat {.noSideEffect,
     importcpp: "LimitTolerance", header: "ShapeFix_Root.hxx".}
 proc sendMsg*(this: ShapeFixRoot; shape: TopoDS_Shape; message: MessageMsg;
              gravity: MessageGravity = messageInfo) {.noSideEffect,
@@ -106,3 +106,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_Root.hxx".}
 proc dynamicType*(this: ShapeFixRoot): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Root.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

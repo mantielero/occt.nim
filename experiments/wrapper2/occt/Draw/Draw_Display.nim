@@ -27,8 +27,8 @@ proc constructDrawDisplay*(): DrawDisplay {.constructor,
     importcpp: "Draw_Display(@)", header: "Draw_Display.hxx".}
 proc setColor*(this: DrawDisplay; col: DrawColor) {.noSideEffect,
     importcpp: "SetColor", header: "Draw_Display.hxx".}
-proc setMode*(this: DrawDisplay; m: int) {.noSideEffect, importcpp: "SetMode",
-                                      header: "Draw_Display.hxx".}
+proc setMode*(this: DrawDisplay; m: cint) {.noSideEffect, importcpp: "SetMode",
+                                       header: "Draw_Display.hxx".}
 proc flush*(this: DrawDisplay) {.noSideEffect, importcpp: "Flush",
                               header: "Draw_Display.hxx".}
 proc moveTo*(this: var DrawDisplay; pt: Pnt) {.importcpp: "MoveTo",
@@ -43,33 +43,58 @@ proc draw*(this: var DrawDisplay; p1: Pnt; p2: Pnt) {.importcpp: "Draw",
     header: "Draw_Display.hxx".}
 proc draw*(this: var DrawDisplay; p1: Pnt2d; p2: Pnt2d) {.importcpp: "Draw",
     header: "Draw_Display.hxx".}
-proc draw*(this: var DrawDisplay; c: Circ; a1: float; a2: float;
+proc draw*(this: var DrawDisplay; c: Circ; a1: cfloat; a2: cfloat;
           modifyWithZoom: bool = true) {.importcpp: "Draw", header: "Draw_Display.hxx".}
-proc draw*(this: var DrawDisplay; c: Circ2d; a1: float; a2: float;
+proc draw*(this: var DrawDisplay; c: Circ2d; a1: cfloat; a2: cfloat;
           modifyWithZoom: bool = true) {.importcpp: "Draw", header: "Draw_Display.hxx".}
-proc drawMarker*(this: var DrawDisplay; pt: Pnt; s: DrawMarkerShape; size: int = 5) {.
+proc drawMarker*(this: var DrawDisplay; pt: Pnt; s: DrawMarkerShape; size: cint = 5) {.
     importcpp: "DrawMarker", header: "Draw_Display.hxx".}
-proc drawMarker*(this: var DrawDisplay; pt: Pnt2d; s: DrawMarkerShape; size: int = 5) {.
+proc drawMarker*(this: var DrawDisplay; pt: Pnt2d; s: DrawMarkerShape; size: cint = 5) {.
     importcpp: "DrawMarker", header: "Draw_Display.hxx".}
-proc drawMarker*(this: var DrawDisplay; pt: Pnt; s: DrawMarkerShape; size: float) {.
+proc drawMarker*(this: var DrawDisplay; pt: Pnt; s: DrawMarkerShape; size: cfloat) {.
     importcpp: "DrawMarker", header: "Draw_Display.hxx".}
-proc drawMarker*(this: var DrawDisplay; pt: Pnt2d; s: DrawMarkerShape; size: float) {.
+proc drawMarker*(this: var DrawDisplay; pt: Pnt2d; s: DrawMarkerShape; size: cfloat) {.
     importcpp: "DrawMarker", header: "Draw_Display.hxx".}
 proc drawString*(this: var DrawDisplay; pt: Pnt; s: StandardCString) {.
     importcpp: "DrawString", header: "Draw_Display.hxx".}
 proc drawString*(this: var DrawDisplay; pt: Pnt2d; s: StandardCString) {.
     importcpp: "DrawString", header: "Draw_Display.hxx".}
-proc drawString*(this: var DrawDisplay; pt: Pnt; s: StandardCString; moveX: float;
-                moveY: float) {.importcpp: "DrawString", header: "Draw_Display.hxx".}
-proc drawString*(this: var DrawDisplay; pt: Pnt2d; s: StandardCString; moveX: float;
-                moveY: float) {.importcpp: "DrawString", header: "Draw_Display.hxx".}
+proc drawString*(this: var DrawDisplay; pt: Pnt; s: StandardCString; moveX: cfloat;
+                moveY: cfloat) {.importcpp: "DrawString", header: "Draw_Display.hxx".}
+proc drawString*(this: var DrawDisplay; pt: Pnt2d; s: StandardCString; moveX: cfloat;
+                moveY: cfloat) {.importcpp: "DrawString", header: "Draw_Display.hxx".}
 proc project*(this: DrawDisplay; pt: Pnt): Pnt2d {.noSideEffect, importcpp: "Project",
     header: "Draw_Display.hxx".}
 proc project*(this: DrawDisplay; pt: Pnt; pt2d: var Pnt2d) {.noSideEffect,
     importcpp: "Project", header: "Draw_Display.hxx".}
-proc zoom*(this: DrawDisplay): float {.noSideEffect, importcpp: "Zoom",
-                                   header: "Draw_Display.hxx".}
-proc viewId*(this: DrawDisplay): int {.noSideEffect, importcpp: "ViewId",
-                                   header: "Draw_Display.hxx".}
+proc zoom*(this: DrawDisplay): cfloat {.noSideEffect, importcpp: "Zoom",
+                                    header: "Draw_Display.hxx".}
+proc viewId*(this: DrawDisplay): cint {.noSideEffect, importcpp: "ViewId",
+                                    header: "Draw_Display.hxx".}
 proc hasPicked*(this: DrawDisplay): bool {.noSideEffect, importcpp: "HasPicked",
                                        header: "Draw_Display.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

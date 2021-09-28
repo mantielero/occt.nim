@@ -16,7 +16,7 @@
 discard "forward decl of StepDimTol_DatumFeature"
 discard "forward decl of StepDimTol_DatumFeature"
 type
-  HandleStepDimTolDatumFeature* = Handle[StepDimTolDatumFeature]
+  HandleC1C1* = Handle[StepDimTolDatumFeature]
 
 ## ! Representation of STEP entity DatumFeature
 
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepDimTol_DatumFeature.hxx".}
 proc dynamicType*(this: StepDimTolDatumFeature): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepDimTol_DatumFeature.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

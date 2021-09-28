@@ -35,10 +35,10 @@ type
 
 type
   AIS_WalkPart* {.importcpp: "AIS_WalkPart", header: "AIS_WalkDelta.hxx", bycopy.} = object
-    value* {.importc: "Value".}: float ## !< value
-    pressure* {.importc: "Pressure".}: float ## !< key pressure
-    duration* {.importc: "Duration".}: float ## !< duration
-                                         ## ! Return TRUE if delta is empty.
+    value* {.importc: "Value".}: cfloat ## !< value
+    pressure* {.importc: "Pressure".}: cfloat ## !< key pressure
+    duration* {.importc: "Duration".}: cfloat ## !< duration
+                                          ## ! Return TRUE if delta is empty.
 
 
 proc isEmpty*(this: AIS_WalkPart): bool {.noSideEffect, importcpp: "IsEmpty",
@@ -82,3 +82,28 @@ proc toMove*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "ToMove",
                                       header: "AIS_WalkDelta.hxx".}
 proc toRotate*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "ToRotate",
                                         header: "AIS_WalkDelta.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

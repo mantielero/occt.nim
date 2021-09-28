@@ -18,7 +18,7 @@ discard "forward decl of gp_Lin2d"
 discard "forward decl of GccInt_BLine"
 discard "forward decl of GccInt_BLine"
 type
-  HandleGccIntBLine* = Handle[GccIntBLine]
+  HandleC1C1* = Handle[GccIntBLine]
 
 ## ! Describes a line as a bisecting curve between two 2D
 ## ! geometric objects (such as lines, circles or points).
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GccInt_BLine::get_type_descriptor(@)", header: "GccInt_BLine.hxx".}
 proc dynamicType*(this: GccIntBLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

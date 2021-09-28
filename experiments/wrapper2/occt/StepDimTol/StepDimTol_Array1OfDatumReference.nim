@@ -17,3 +17,28 @@ type
   StepDimTolArray1OfDatumReference* = NCollectionArray1[
       Handle[StepDimTolDatumReference]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

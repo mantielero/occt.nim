@@ -30,7 +30,7 @@ proc constructStepVisualPresentationStyleSelect*(): StepVisualPresentationStyleS
     constructor, importcpp: "StepVisual_PresentationStyleSelect(@)",
     header: "StepVisual_PresentationStyleSelect.hxx".}
 proc caseNum*(this: StepVisualPresentationStyleSelect;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_PresentationStyleSelect.hxx".}
 proc pointStyle*(this: StepVisualPresentationStyleSelect): Handle[
     StepVisualPointStyle] {.noSideEffect, importcpp: "PointStyle",
@@ -42,3 +42,28 @@ proc nullStyle*(this: StepVisualPresentationStyleSelect): Handle[
     StepVisualNullStyleMember] {.noSideEffect, importcpp: "NullStyle", header: "StepVisual_PresentationStyleSelect.hxx".}
 proc surfaceStyleUsage*(this: StepVisualPresentationStyleSelect): Handle[
     StepVisualSurfaceStyleUsage] {.noSideEffect, importcpp: "SurfaceStyleUsage", header: "StepVisual_PresentationStyleSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

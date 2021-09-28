@@ -20,7 +20,7 @@ discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_Static"
 discard "forward decl of Interface_Static"
 type
-  HandleInterfaceStatic* = Handle[InterfaceStatic]
+  HandleC1C1* = Handle[InterfaceStatic]
 
 ## ! This class gives a way to manage meaningfull static variables,
 ## ! used as "global" parameters in various procedures.
@@ -92,27 +92,27 @@ proc isPresent*(name: StandardCString): bool {.
     importcpp: "Interface_Static::IsPresent(@)", header: "Interface_Static.hxx".}
 proc cDef*(name: StandardCString; part: StandardCString): StandardCString {.
     importcpp: "Interface_Static::CDef(@)", header: "Interface_Static.hxx".}
-proc iDef*(name: StandardCString; part: StandardCString): int {.
+proc iDef*(name: StandardCString; part: StandardCString): cint {.
     importcpp: "Interface_Static::IDef(@)", header: "Interface_Static.hxx".}
 proc isSet*(name: StandardCString; proper: bool = true): bool {.
     importcpp: "Interface_Static::IsSet(@)", header: "Interface_Static.hxx".}
 proc cVal*(name: StandardCString): StandardCString {.
     importcpp: "Interface_Static::CVal(@)", header: "Interface_Static.hxx".}
-proc iVal*(name: StandardCString): int {.importcpp: "Interface_Static::IVal(@)",
-                                     header: "Interface_Static.hxx".}
-proc rVal*(name: StandardCString): float {.importcpp: "Interface_Static::RVal(@)",
-                                       header: "Interface_Static.hxx".}
+proc iVal*(name: StandardCString): cint {.importcpp: "Interface_Static::IVal(@)",
+                                      header: "Interface_Static.hxx".}
+proc rVal*(name: StandardCString): cfloat {.importcpp: "Interface_Static::RVal(@)",
+                                        header: "Interface_Static.hxx".}
 proc setCVal*(name: StandardCString; val: StandardCString): bool {.
     importcpp: "Interface_Static::SetCVal(@)", header: "Interface_Static.hxx".}
-proc setIVal*(name: StandardCString; val: int): bool {.
+proc setIVal*(name: StandardCString; val: cint): bool {.
     importcpp: "Interface_Static::SetIVal(@)", header: "Interface_Static.hxx".}
-proc setRVal*(name: StandardCString; val: float): bool {.
+proc setRVal*(name: StandardCString; val: cfloat): bool {.
     importcpp: "Interface_Static::SetRVal(@)", header: "Interface_Static.hxx".}
 proc update*(name: StandardCString): bool {.importcpp: "Interface_Static::Update(@)",
                                         header: "Interface_Static.hxx".}
 proc isUpdated*(name: StandardCString): bool {.
     importcpp: "Interface_Static::IsUpdated(@)", header: "Interface_Static.hxx".}
-proc items*(mode: int = 0; criter: StandardCString = ""): Handle[
+proc items*(mode: cint = 0; criter: StandardCString = ""): Handle[
     TColStdHSequenceOfHAsciiString] {.importcpp: "Interface_Static::Items(@)",
                                      header: "Interface_Static.hxx".}
 proc standards*() {.importcpp: "Interface_Static::Standards(@)",
@@ -127,3 +127,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_Static.hxx".}
 proc dynamicType*(this: InterfaceStatic): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_Static.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

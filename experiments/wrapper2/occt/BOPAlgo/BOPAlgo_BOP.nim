@@ -33,3 +33,28 @@ proc setOperation*(this: var BOPAlgoBOP; theOperation: BOPAlgoOperation) {.
 proc operation*(this: BOPAlgoBOP): BOPAlgoOperation {.noSideEffect,
     importcpp: "Operation", header: "BOPAlgo_BOP.hxx".}
 proc perform*(this: var BOPAlgoBOP) {.importcpp: "Perform", header: "BOPAlgo_BOP.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

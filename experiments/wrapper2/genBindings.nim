@@ -5,7 +5,8 @@ import system
 const
   lib = "/usr/include/opencascade/"
   dest = "occt"
-  c2nimFile = "occt.c2nim"
+  #c2nimFile = "Standard.c2nim"
+  c2nimFile = "occt.c2nim"  
   newHeadersDir = "headers"
 
 # 0. Create folder with modified headers
@@ -73,36 +74,50 @@ groups &= group
 
 #echo groups
 # 2. Process the files
+#let filter = @["gp_", "GC_", "Geom_", "Standard_", "NCollection_"]
+#let filter = @["gp"]
+let filter = @["Geom"]
+#let filter = @["Standard"]
+#let filter = @["NCollection"]
+var errorFiles = newSeq[string]()
 for group in groups:
-
-#for i in 0..<3:#groups.len:
-#  let group = groups[i]
-  var baseName = ""
-  var includeFiles = newSeq[string]()  
-  if group.len > 0:
-    let (dir, name, ext) = group[0].splitFile()
-    var base = name.split("_")[0]
-    baseName = base
-    var outDir = &"{dest}/{base}"
-    createDir(outDir)
-    
-    for file in group:
-      let (dir, name, ext) = file.splitFile()
-      let data = &"c2nim --cpp --nep1 --header --out:{outDir}/{name}.nim {c2nimFile} {file}"
-      # --nep1
-      echo data
-      let result = execCmdEx(data)
-      includeFiles &= name
-    
-    # Create files such as: occt/gp/gp_includes.nim
-    var data = &"""{{.passC:"-I{lib}" .}}
+  var flag = false
+  #var flag = true
+  for i in filter:
+    if len(group) > 1:
+      if group[0].startsWith("/usr/include/opencascade/" & i) or group[1].startsWith("/usr/include/opencascade/" & i):
+        flag = true
+  if flag:
+    var baseName = ""
+    var includeFiles = newSeq[string]()  
+    if group.len > 0:
+      let (dir, name, ext) = group[0].splitFile()
+      var base = name.split("_")[0]
+      baseName = base
+      var outDir = &"{dest}/{base}"
+      createDir(outDir)
+      
+      for file in group:
+        let (dir, name, ext) = file.splitFile()
+        let data = &"c2nim --cpp --nep1 --header --strict --out:{outDir}/{name}.nim {c2nimFile} {file}"
+        # --nep1
+        echo data
+        let errCode = execCmd(data)
+        if errCode > 0:
+          errorFiles &= file
+          includeFiles &= &"#include {name}"
+        else:
+          includeFiles &= &"include {name}"
+      
+      # Create files such as: occt/gp/gp_includes.nim
+      var data = &"""{{.passC:"-I{lib}" .}}
 {{.experimental: "codeReordering".}}
 {{.experimental: "callOperator".}}
 
 """
-    for file in includeFiles:
-      data &= &"include {file}\n"
-    writeFile(&"occt/{baseName}/{baseName}_includes.nim", data)
+      for includeFile in includeFiles:
+        data &= &"{includeFile}\n"
+      writeFile(&"occt/{baseName}/{baseName}_includes.nim", data)
 
     # var includes = ""
     # for file in group:
@@ -111,7 +126,10 @@ for group in groups:
     # echo data
     # let result = execCmdEx(data)
   
-    
+var tmp = ""
+for i in errorFiles:
+  tmp &= i & "\n"
+writeFile("errorFiles.txt", tmp)    
 
 
 # 3. Create big file with all the includes
@@ -309,24 +327,16 @@ proc globCommentWhens(glb:string) =
     fname.commentWhens
 
 
-"occt/gp/gp_includes.nim".append(3, """
-# TODO: what would be better
-type
-  StandardOStream* = object
-  StandardSStream* = object
-  NCollectionMat4*[T] = object
-  TColStdArray1OfReal* = object
-  NCollectionLerp*[T] = object    
-  """)
-"occt/gp/gp_QuaternionSLerp.nim".comment(31,3)
-#"occt/gp/gp_Vec.nim".comment(31,3)
-"occt/gp/gp_VectorWithNullMagnitude.nim".comment(21,3)  # Hay que importar el Handle
 
-"occt/GC/GC_Root.nim".fileReplace("  GC_Root* {.importcpp: \"GC_Root\", header: \"GC_Root.hxx\", bycopy.} = object",
-    "  GC_Root* {.importcpp: \"GC_Root\", header: \"GC_Root.hxx\", bycopy.} = object of RootObj")
-"occt/GC/GC_includes.nim".append(4, """
-import ../gp/gp_includes
-""")
+#"occt/gp/gp_QuaternionSLerp.nim".comment(31,3)
+#"occt/gp/gp_Vec.nim".comment(31,3)
+#"occt/gp/gp_VectorWithNullMagnitude.nim".comment(21,3)  # Hay que importar el Handle
+
+#"occt/GC/GC_Root.nim".fileReplace("  GC_Root* {.importcpp: \"GC_Root\", header: \"GC_Root.hxx\", bycopy.} = object",
+#    "  GC_Root* {.importcpp: \"GC_Root\", header: \"GC_Root.hxx\", bycopy.} = object of RootObj")
+#"occt/GC/GC_includes.nim".append(4, """
+#import ../gp/gp_includes
+#""")
 #----------------------------------------------
 
 "occt/AdvApp2Var/AdvApp2Var_Data_f2c.nim".comment("when not defined(Skip_f2c_Undefs):")

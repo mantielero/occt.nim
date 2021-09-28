@@ -17,3 +17,28 @@ type
   StdObjMgtTransientPersistentMap* = NCollectionDataMap[Handle[StandardTransient],
       Handle[StdObjMgtPersistent]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -62,3 +62,28 @@ proc copy*(aSourceDataSet: Handle[TDF_DataSet];
           aPrivilegeFilter: TDF_IDFilter; aRefFilter: TDF_IDFilter;
           setSelfContained: bool) {.importcpp: "TDF_CopyTool::Copy(@)",
                                   header: "TDF_CopyTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

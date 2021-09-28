@@ -33,3 +33,28 @@ type
 proc rWGltfGltfParseAttribType*(theType: cstring): RWGltfGltfArrayType =
   discard
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ proc constructRWStepReprRWRepresentationContext*(): RWStepReprRWRepresentationCo
     constructor, importcpp: "RWStepRepr_RWRepresentationContext(@)",
     header: "RWStepRepr_RWRepresentationContext.hxx".}
 proc readStep*(this: RWStepReprRWRepresentationContext;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprRepresentationContext]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWRepresentationContext.hxx".}
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepReprRWRepresentationContext;
                sw: var StepDataStepWriter;
                ent: Handle[StepReprRepresentationContext]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWRepresentationContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

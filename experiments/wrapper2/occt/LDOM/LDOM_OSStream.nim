@@ -65,7 +65,6 @@ type
     ##  full length of contained data
     ##  the head of the sequence
     ##  current element of the sequence
-    ## allocator for chunks
 
 
 proc constructLDOM_SBuffer*(theMaxBuf: int): LDOM_SBuffer {.constructor,
@@ -83,6 +82,9 @@ proc xsputn*(this: var LDOM_SBuffer; s: cstring; n: Streamsize): Streamsize {.
     importcpp: "xsputn", header: "LDOM_OSStream.hxx".}
 proc destroyLDOM_SBuffer*(this: var LDOM_SBuffer) {.importcpp: "#.~LDOM_SBuffer()",
     header: "LDOM_OSStream.hxx".}
+## !!!Ignored construct:  myAlloc ;
+## Error: identifier expected, but got: ;!!!
+
 ## ! Subclass if std::ostream allowing to increase performance
 ## ! of outputting data into a string avoiding reallocation of buffer.
 ## ! Class LDOM_OSStream implements output into a sequence of
@@ -122,5 +124,50 @@ type
                          header: "LDOM_OSStream.hxx".} = enum
     BOM_UNDEFINED, BOM_UTF8, BOM_UTF16BE, BOM_UTF16LE, BOM_UTF32BE, BOM_UTF32LE,
     BOM_UTF7, BOM_UTF1, BOM_UTFEBCDIC, BOM_SCSU, BOM_BOCU1, BOM_GB18030
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

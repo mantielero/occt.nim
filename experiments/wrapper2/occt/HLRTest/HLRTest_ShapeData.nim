@@ -18,7 +18,7 @@ discard "forward decl of Draw_Color"
 discard "forward decl of HLRTest_ShapeData"
 discard "forward decl of HLRTest_ShapeData"
 type
-  HandleHLRTestShapeData* = Handle[HLRTestShapeData]
+  HandleC1C1* = Handle[HLRTestShapeData]
 
 ## ! Contains the colors of a shape.
 
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRTest_ShapeData.hxx".}
 proc dynamicType*(this: HLRTestShapeData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRTest_ShapeData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

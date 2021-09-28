@@ -29,7 +29,7 @@ proc constructRWStepVisualRWTextStyleWithBoxCharacteristics*(): RWStepVisualRWTe
     constructor, importcpp: "RWStepVisual_RWTextStyleWithBoxCharacteristics(@)",
     header: "RWStepVisual_RWTextStyleWithBoxCharacteristics.hxx".}
 proc readStep*(this: RWStepVisualRWTextStyleWithBoxCharacteristics;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualTextStyleWithBoxCharacteristics]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepVisualRWTextStyleWithBoxCharacteristics;
            ent: Handle[StepVisualTextStyleWithBoxCharacteristics];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWTextStyleWithBoxCharacteristics.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

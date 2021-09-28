@@ -37,13 +37,38 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Prs3dIsoAspect): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Prs3d_IsoAspect.hxx".}
 proc constructPrs3dIsoAspect*(theColor: QuantityColor; theType: AspectTypeOfLine;
-                             theWidth: float; theNumber: int): Prs3dIsoAspect {.
+                             theWidth: cfloat; theNumber: cint): Prs3dIsoAspect {.
     constructor, importcpp: "Prs3d_IsoAspect(@)", header: "Prs3d_IsoAspect.hxx".}
-proc setNumber*(this: var Prs3dIsoAspect; theNumber: int) {.importcpp: "SetNumber",
+proc setNumber*(this: var Prs3dIsoAspect; theNumber: cint) {.importcpp: "SetNumber",
     header: "Prs3d_IsoAspect.hxx".}
-proc number*(this: Prs3dIsoAspect): int {.noSideEffect, importcpp: "Number",
-                                      header: "Prs3d_IsoAspect.hxx".}
+proc number*(this: Prs3dIsoAspect): cint {.noSideEffect, importcpp: "Number",
+                                       header: "Prs3d_IsoAspect.hxx".}
 discard "forward decl of Prs3d_IsoAspect"
 type
-  HandlePrs3dIsoAspect* = Handle[Prs3dIsoAspect]
+  HandleC1C1* = Handle[Prs3dIsoAspect]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

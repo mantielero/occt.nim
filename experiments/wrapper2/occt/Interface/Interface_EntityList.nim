@@ -34,20 +34,46 @@ proc add*(this: var InterfaceEntityList; ent: Handle[StandardTransient]) {.
     importcpp: "Add", header: "Interface_EntityList.hxx".}
 proc remove*(this: var InterfaceEntityList; ent: Handle[StandardTransient]) {.
     importcpp: "Remove", header: "Interface_EntityList.hxx".}
-proc remove*(this: var InterfaceEntityList; num: int) {.importcpp: "Remove",
+proc remove*(this: var InterfaceEntityList; num: cint) {.importcpp: "Remove",
     header: "Interface_EntityList.hxx".}
 proc isEmpty*(this: InterfaceEntityList): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "Interface_EntityList.hxx".}
-proc nbEntities*(this: InterfaceEntityList): int {.noSideEffect,
+proc nbEntities*(this: InterfaceEntityList): cint {.noSideEffect,
     importcpp: "NbEntities", header: "Interface_EntityList.hxx".}
-proc value*(this: InterfaceEntityList; num: int): Handle[StandardTransient] {.
+proc value*(this: InterfaceEntityList; num: cint): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Value", header: "Interface_EntityList.hxx".}
-proc setValue*(this: var InterfaceEntityList; num: int; ent: Handle[StandardTransient]) {.
-    importcpp: "SetValue", header: "Interface_EntityList.hxx".}
+proc setValue*(this: var InterfaceEntityList; num: cint;
+              ent: Handle[StandardTransient]) {.importcpp: "SetValue",
+    header: "Interface_EntityList.hxx".}
 proc fillIterator*(this: InterfaceEntityList; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "FillIterator", header: "Interface_EntityList.hxx".}
-proc nbTypedEntities*(this: InterfaceEntityList; atype: Handle[StandardType]): int {.
+proc nbTypedEntities*(this: InterfaceEntityList; atype: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "NbTypedEntities", header: "Interface_EntityList.hxx".}
 proc typedEntity*(this: InterfaceEntityList; atype: Handle[StandardType];
-                 num: int = 0): Handle[StandardTransient] {.noSideEffect,
+                 num: cint = 0): Handle[StandardTransient] {.noSideEffect,
     importcpp: "TypedEntity", header: "Interface_EntityList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ type
 proc constructRWStepGeomRWCircle*(): RWStepGeomRWCircle {.constructor,
     importcpp: "RWStepGeom_RWCircle(@)", header: "RWStepGeom_RWCircle.hxx".}
 proc readStep*(this: RWStepGeomRWCircle; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomCircle]) {.
+              num: cint; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomCircle]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWCircle.hxx".}
 proc writeStep*(this: RWStepGeomRWCircle; sw: var StepDataStepWriter;
                ent: Handle[StepGeomCircle]) {.noSideEffect, importcpp: "WriteStep",
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepGeomRWCircle; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWCircle; ent: Handle[StepGeomCircle];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWCircle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

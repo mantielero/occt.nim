@@ -87,3 +87,28 @@ proc getBSplineMode*(this: ShapeUpgradeShapeConvertToBezier): bool {.noSideEffec
     importcpp: "GetBSplineMode", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
 proc perform*(this: var ShapeUpgradeShapeConvertToBezier; newContext: bool = true): bool {.
     importcpp: "Perform", header: "ShapeUpgrade_ShapeConvertToBezier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

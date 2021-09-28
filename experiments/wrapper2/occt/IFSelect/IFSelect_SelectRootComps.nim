@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectRootComps"
 discard "forward decl of IFSelect_SelectRootComps"
 type
-  HandleIFSelectSelectRootComps* = Handle[IFSelectSelectRootComps]
+  HandleC1C1* = Handle[IFSelectSelectRootComps]
 
 ## ! A SelectRootComps sorts the Entities which are part of Strong
 ## ! Componants, local roots of a set of Entities : they can be
@@ -55,7 +55,7 @@ proc constructIFSelectSelectRootComps*(): IFSelectSelectRootComps {.constructor,
     header: "IFSelect_SelectRootComps.hxx".}
 proc rootResult*(this: IFSelectSelectRootComps; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectRootComps.hxx".}
-proc sort*(this: IFSelectSelectRootComps; rank: int; ent: Handle[StandardTransient];
+proc sort*(this: IFSelectSelectRootComps; rank: cint; ent: Handle[StandardTransient];
           model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
     importcpp: "Sort", header: "IFSelect_SelectRootComps.hxx".}
 proc extractLabel*(this: IFSelectSelectRootComps): TCollectionAsciiString {.
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectRootComps.hxx".}
 proc dynamicType*(this: IFSelectSelectRootComps): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectRootComps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

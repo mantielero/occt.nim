@@ -18,3 +18,28 @@ type
   StepVisualArray1OfStyleContextSelect* = NCollectionArray1[
       StepVisualStyleContextSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

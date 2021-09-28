@@ -14,32 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HLRAlgoHArray1OfTData* {.importcpp: "HLRAlgo_HArray1OfTData",
-                          header: "HLRAlgo_HArray1OfTData.hxx", bycopy.} = object of HLRAlgoArray1OfTData
+## !!!Ignored construct:  # HLRAlgo_HArray1OfTData_HeaderFile [NewLine] # HLRAlgo_HArray1OfTData_HeaderFile [NewLine] # < HLRAlgo_TriangleData . hxx > [NewLine] # < HLRAlgo_Array1OfTData . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( HLRAlgo_HArray1OfTData , HLRAlgo_Array1OfTData ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructHLRAlgoHArray1OfTData*(theLower: int; theUpper: int): HLRAlgoHArray1OfTData {.
-    constructor, importcpp: "HLRAlgo_HArray1OfTData(@)",
-    header: "HLRAlgo_HArray1OfTData.hxx".}
-proc constructHLRAlgoHArray1OfTData*(theLower: int; theUpper: int;
-                                    theValue: ValueType): HLRAlgoHArray1OfTData {.
-    constructor, importcpp: "HLRAlgo_HArray1OfTData(@)",
-    header: "HLRAlgo_HArray1OfTData.hxx".}
-proc constructHLRAlgoHArray1OfTData*(theOther: HLRAlgoArray1OfTData): HLRAlgoHArray1OfTData {.
-    constructor, importcpp: "HLRAlgo_HArray1OfTData(@)",
-    header: "HLRAlgo_HArray1OfTData.hxx".}
-proc array1*(this: HLRAlgoHArray1OfTData): HLRAlgoArray1OfTData {.noSideEffect,
-    importcpp: "Array1", header: "HLRAlgo_HArray1OfTData.hxx".}
-proc changeArray1*(this: var HLRAlgoHArray1OfTData): var HLRAlgoArray1OfTData {.
-    importcpp: "ChangeArray1", header: "HLRAlgo_HArray1OfTData.hxx".}
-type
-  HLRAlgoHArray1OfTDatabaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "HLRAlgo_HArray1OfTData::get_type_name(@)",
-                            header: "HLRAlgo_HArray1OfTData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "HLRAlgo_HArray1OfTData::get_type_descriptor(@)",
-    header: "HLRAlgo_HArray1OfTData.hxx".}
-proc dynamicType*(this: HLRAlgoHArray1OfTData): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "HLRAlgo_HArray1OfTData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

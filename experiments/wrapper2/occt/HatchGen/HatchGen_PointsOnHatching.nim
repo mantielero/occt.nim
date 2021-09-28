@@ -17,3 +17,28 @@
 type
   HatchGenPointsOnHatching* = NCollectionSequence[HatchGenPointOnHatching]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

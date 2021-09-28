@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MeshVS_DataMapOfIntegerOwner* = NCollectionDataMap[int,
+  MeshVS_DataMapOfIntegerOwner* = NCollectionDataMap[cint,
       Handle[SelectMgrEntityOwner], TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerOwner* = Iterator[int,
+  MeshVS_DataMapIteratorOfDataMapOfIntegerOwner* = Iterator[cint,
       Handle[SelectMgrEntityOwner], TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

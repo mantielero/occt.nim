@@ -14,32 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  PolyHArray1OfTriangle* {.importcpp: "Poly_HArray1OfTriangle",
-                          header: "Poly_HArray1OfTriangle.hxx", bycopy.} = object of PolyArray1OfTriangle
+## !!!Ignored construct:  # Poly_HArray1OfTriangle_HeaderFile [NewLine] # Poly_HArray1OfTriangle_HeaderFile [NewLine] # < Poly_Triangle . hxx > [NewLine] # < Poly_Array1OfTriangle . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( Poly_HArray1OfTriangle , Poly_Array1OfTriangle ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructPolyHArray1OfTriangle*(theLower: int; theUpper: int): PolyHArray1OfTriangle {.
-    constructor, importcpp: "Poly_HArray1OfTriangle(@)",
-    header: "Poly_HArray1OfTriangle.hxx".}
-proc constructPolyHArray1OfTriangle*(theLower: int; theUpper: int;
-                                    theValue: ValueType): PolyHArray1OfTriangle {.
-    constructor, importcpp: "Poly_HArray1OfTriangle(@)",
-    header: "Poly_HArray1OfTriangle.hxx".}
-proc constructPolyHArray1OfTriangle*(theOther: PolyArray1OfTriangle): PolyHArray1OfTriangle {.
-    constructor, importcpp: "Poly_HArray1OfTriangle(@)",
-    header: "Poly_HArray1OfTriangle.hxx".}
-proc array1*(this: PolyHArray1OfTriangle): PolyArray1OfTriangle {.noSideEffect,
-    importcpp: "Array1", header: "Poly_HArray1OfTriangle.hxx".}
-proc changeArray1*(this: var PolyHArray1OfTriangle): var PolyArray1OfTriangle {.
-    importcpp: "ChangeArray1", header: "Poly_HArray1OfTriangle.hxx".}
-type
-  PolyHArray1OfTrianglebaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "Poly_HArray1OfTriangle::get_type_name(@)",
-                            header: "Poly_HArray1OfTriangle.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Poly_HArray1OfTriangle::get_type_descriptor(@)",
-    header: "Poly_HArray1OfTriangle.hxx".}
-proc dynamicType*(this: PolyHArray1OfTriangle): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Poly_HArray1OfTriangle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -35,7 +35,32 @@ proc addVIso*(anOStream: var StandardOStream; aFace: Handle[BRepAdaptorHSurface]
     importcpp: "VrmlConverter_WFRestrictedFace::AddVIso(@)",
     header: "VrmlConverter_WFRestrictedFace.hxx".}
 proc add*(anOStream: var StandardOStream; aFace: Handle[BRepAdaptorHSurface];
-         drawUIso: bool; drawVIso: bool; nBUiso: int; nBViso: int;
+         drawUIso: bool; drawVIso: bool; nBUiso: cint; nBViso: cint;
          aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_WFRestrictedFace::Add(@)",
     header: "VrmlConverter_WFRestrictedFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

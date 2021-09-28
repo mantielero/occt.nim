@@ -19,7 +19,7 @@ discard "forward decl of TNaming_NamedShape"
 discard "forward decl of TNaming_DeltaOnRemoval"
 discard "forward decl of TNaming_DeltaOnRemoval"
 type
-  HandleTNamingDeltaOnRemoval* = Handle[TNamingDeltaOnRemoval]
+  HandleC1C1* = Handle[TNamingDeltaOnRemoval]
   TNamingDeltaOnRemoval* {.importcpp: "TNaming_DeltaOnRemoval",
                           header: "TNaming_DeltaOnRemoval.hxx", bycopy.} = object of TDF_DeltaOnRemoval ##
                                                                                                  ## !
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TNaming_DeltaOnRemoval.hxx".}
 proc dynamicType*(this: TNamingDeltaOnRemoval): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TNaming_DeltaOnRemoval.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

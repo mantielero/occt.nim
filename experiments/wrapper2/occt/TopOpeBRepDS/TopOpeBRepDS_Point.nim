@@ -23,8 +23,9 @@ type
 
 proc constructTopOpeBRepDS_Point*(): TopOpeBRepDS_Point {.constructor,
     importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
-proc constructTopOpeBRepDS_Point*(p: Pnt; t: float): TopOpeBRepDS_Point {.constructor,
-    importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
+proc constructTopOpeBRepDS_Point*(p: Pnt; t: cfloat): TopOpeBRepDS_Point {.
+    constructor, importcpp: "TopOpeBRepDS_Point(@)",
+    header: "TopOpeBRepDS_Point.hxx".}
 proc constructTopOpeBRepDS_Point*(s: TopoDS_Shape): TopOpeBRepDS_Point {.
     constructor, importcpp: "TopOpeBRepDS_Point(@)",
     header: "TopOpeBRepDS_Point.hxx".}
@@ -34,11 +35,36 @@ proc point*(this: TopOpeBRepDS_Point): Pnt {.noSideEffect, importcpp: "Point",
     header: "TopOpeBRepDS_Point.hxx".}
 proc changePoint*(this: var TopOpeBRepDS_Point): var Pnt {.importcpp: "ChangePoint",
     header: "TopOpeBRepDS_Point.hxx".}
-proc tolerance*(this: TopOpeBRepDS_Point): float {.noSideEffect,
+proc tolerance*(this: TopOpeBRepDS_Point): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "TopOpeBRepDS_Point.hxx".}
-proc tolerance*(this: var TopOpeBRepDS_Point; tol: float) {.importcpp: "Tolerance",
+proc tolerance*(this: var TopOpeBRepDS_Point; tol: cfloat) {.importcpp: "Tolerance",
     header: "TopOpeBRepDS_Point.hxx".}
 proc keep*(this: TopOpeBRepDS_Point): bool {.noSideEffect, importcpp: "Keep",
     header: "TopOpeBRepDS_Point.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_Point; b: bool) {.importcpp: "ChangeKeep",
     header: "TopOpeBRepDS_Point.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

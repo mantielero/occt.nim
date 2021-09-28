@@ -16,7 +16,7 @@
 
 discard "forward decl of AIS_GlobalStatus"
 type
-  HandleAIS_GlobalStatus* = Handle[AIS_GlobalStatus]
+  HandleC1C1* = Handle[AIS_GlobalStatus]
 
 ## ! Stores  information  about objects in graphic context:
 ## ! - Status Of Display : in the main viewer
@@ -41,19 +41,19 @@ proc dynamicType*(this: AIS_GlobalStatus): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_GlobalStatus.hxx".}
 proc constructAIS_GlobalStatus*(): AIS_GlobalStatus {.constructor,
     importcpp: "AIS_GlobalStatus(@)", header: "AIS_GlobalStatus.hxx".}
-proc constructAIS_GlobalStatus*(aStat: AIS_DisplayStatus; aDispMode: int;
-                               aSelMode: int; ishilighted: bool = false;
-                               aLayerIndex: int = 0): AIS_GlobalStatus {.constructor,
-    importcpp: "AIS_GlobalStatus(@)", header: "AIS_GlobalStatus.hxx".}
+proc constructAIS_GlobalStatus*(aStat: AIS_DisplayStatus; aDispMode: cint;
+                               aSelMode: cint; ishilighted: bool = false;
+                               aLayerIndex: cint = 0): AIS_GlobalStatus {.
+    constructor, importcpp: "AIS_GlobalStatus(@)", header: "AIS_GlobalStatus.hxx".}
 proc setGraphicStatus*(this: var AIS_GlobalStatus; theStatus: AIS_DisplayStatus) {.
     importcpp: "SetGraphicStatus", header: "AIS_GlobalStatus.hxx".}
-proc addSelectionMode*(this: var AIS_GlobalStatus; theMode: int) {.
+proc addSelectionMode*(this: var AIS_GlobalStatus; theMode: cint) {.
     importcpp: "AddSelectionMode", header: "AIS_GlobalStatus.hxx".}
-proc setDisplayMode*(this: var AIS_GlobalStatus; theMode: int) {.
+proc setDisplayMode*(this: var AIS_GlobalStatus; theMode: cint) {.
     importcpp: "SetDisplayMode", header: "AIS_GlobalStatus.hxx".}
-proc displayMode*(this: AIS_GlobalStatus): int {.noSideEffect,
+proc displayMode*(this: AIS_GlobalStatus): cint {.noSideEffect,
     importcpp: "DisplayMode", header: "AIS_GlobalStatus.hxx".}
-proc setLayerIndex*(this: var AIS_GlobalStatus; theIndex: int) {.
+proc setLayerIndex*(this: var AIS_GlobalStatus; theIndex: cint) {.
     importcpp: "SetLayerIndex", header: "AIS_GlobalStatus.hxx".}
 proc setHilightStatus*(this: var AIS_GlobalStatus; theStatus: bool) {.
     importcpp: "SetHilightStatus", header: "AIS_GlobalStatus.hxx".}
@@ -67,7 +67,7 @@ proc subIntensityOn*(this: var AIS_GlobalStatus) {.importcpp: "SubIntensityOn",
     header: "AIS_GlobalStatus.hxx".}
 proc subIntensityOff*(this: var AIS_GlobalStatus) {.importcpp: "SubIntensityOff",
     header: "AIS_GlobalStatus.hxx".}
-proc removeSelectionMode*(this: var AIS_GlobalStatus; aMode: int) {.
+proc removeSelectionMode*(this: var AIS_GlobalStatus; aMode: cint) {.
     importcpp: "RemoveSelectionMode", header: "AIS_GlobalStatus.hxx".}
 proc clearSelectionModes*(this: var AIS_GlobalStatus) {.
     importcpp: "ClearSelectionModes", header: "AIS_GlobalStatus.hxx".}
@@ -77,7 +77,32 @@ proc selectionModes*(this: AIS_GlobalStatus): TColStdListOfInteger {.noSideEffec
     importcpp: "SelectionModes", header: "AIS_GlobalStatus.hxx".}
 proc isHilighted*(this: AIS_GlobalStatus): bool {.noSideEffect,
     importcpp: "IsHilighted", header: "AIS_GlobalStatus.hxx".}
-proc isSModeIn*(this: AIS_GlobalStatus; aMode: int): bool {.noSideEffect,
+proc isSModeIn*(this: AIS_GlobalStatus; aMode: cint): bool {.noSideEffect,
     importcpp: "IsSModeIn", header: "AIS_GlobalStatus.hxx".}
-proc getLayerIndex*(this: AIS_GlobalStatus): int {.noSideEffect,
+proc getLayerIndex*(this: AIS_GlobalStatus): cint {.noSideEffect,
     importcpp: "GetLayerIndex", header: "AIS_GlobalStatus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

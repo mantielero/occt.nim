@@ -20,7 +20,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESSolid_ManifoldSolid"
 discard "forward decl of IGESSolid_ManifoldSolid"
 type
-  HandleIGESSolidManifoldSolid* = Handle[IGESSolidManifoldSolid]
+  HandleC1C1* = Handle[IGESSolidManifoldSolid]
 
 ## ! defines ManifoldSolid, Type <186> Form Number <0>
 ## ! in package IGESSolid
@@ -42,11 +42,11 @@ proc shell*(this: IGESSolidManifoldSolid): Handle[IGESSolidShell] {.noSideEffect
     importcpp: "Shell", header: "IGESSolid_ManifoldSolid.hxx".}
 proc orientationFlag*(this: IGESSolidManifoldSolid): bool {.noSideEffect,
     importcpp: "OrientationFlag", header: "IGESSolid_ManifoldSolid.hxx".}
-proc nbVoidShells*(this: IGESSolidManifoldSolid): int {.noSideEffect,
+proc nbVoidShells*(this: IGESSolidManifoldSolid): cint {.noSideEffect,
     importcpp: "NbVoidShells", header: "IGESSolid_ManifoldSolid.hxx".}
-proc voidShell*(this: IGESSolidManifoldSolid; index: int): Handle[IGESSolidShell] {.
+proc voidShell*(this: IGESSolidManifoldSolid; index: cint): Handle[IGESSolidShell] {.
     noSideEffect, importcpp: "VoidShell", header: "IGESSolid_ManifoldSolid.hxx".}
-proc voidOrientationFlag*(this: IGESSolidManifoldSolid; index: int): bool {.
+proc voidOrientationFlag*(this: IGESSolidManifoldSolid; index: cint): bool {.
     noSideEffect, importcpp: "VoidOrientationFlag",
     header: "IGESSolid_ManifoldSolid.hxx".}
 type
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_ManifoldSolid.hxx".}
 proc dynamicType*(this: IGESSolidManifoldSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_ManifoldSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

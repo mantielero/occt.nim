@@ -14,16 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Geom2dGcc_IsParallel_HeaderFile [NewLine] # _Geom2dGcc_IsParallel_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Geom2dGcc_IsParallel ;
-## Error: expected ';'!!!
-
+discard "forward decl of Geom2dGcc_IsParallel"
 discard "forward decl of Geom2dGcc_IsParallel"
 type
-  HandleGeom2dGccIsParallelGeom2dGccIsParallel* = Handle[Geom2dGccIsParallel]
+  HandleC1C1* = Handle[Geom2dGccIsParallel]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Geom2dGcc_IsParallel [NewLine] # if ( CONDITION ) throw Geom2dGcc_IsParallel ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noGeom2dGccIsParallel):
+  template geom2dGccIsParallelRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc geom2dGccIsParallel*(a1: Message): Throw {.
+          importcpp: "Geom2dGcc_IsParallel(@)", header: "Geom2dGcc_IsParallel.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Geom2dGcc_IsParallel , Standard_DomainError ) #  _Geom2dGcc_IsParallel_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+type
+  Geom2dGccIsParallel* {.importcpp: "Geom2dGcc_IsParallel",
+                        header: "Geom2dGcc_IsParallel.hxx", bycopy.} = object of StandardDomainError
 

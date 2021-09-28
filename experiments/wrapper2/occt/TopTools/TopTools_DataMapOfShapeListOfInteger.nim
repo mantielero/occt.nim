@@ -20,3 +20,28 @@ type
   TopToolsDataMapIteratorOfDataMapOfShapeListOfInteger* = Iterator[TopoDS_Shape,
       TColStdListOfInteger, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

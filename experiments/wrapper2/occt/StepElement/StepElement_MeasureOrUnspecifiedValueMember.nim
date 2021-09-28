@@ -16,8 +16,7 @@
 discard "forward decl of StepElement_MeasureOrUnspecifiedValueMember"
 discard "forward decl of StepElement_MeasureOrUnspecifiedValueMember"
 type
-  HandleStepElementMeasureOrUnspecifiedValueMember* = Handle[
-      StepElementMeasureOrUnspecifiedValueMember]
+  HandleC1C1* = Handle[StepElementMeasureOrUnspecifiedValueMember]
 
 ## ! Representation of member for  STEP SELECT type MeasureOrUnspecifiedValue
 
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Measur
 proc dynamicType*(this: StepElementMeasureOrUnspecifiedValueMember): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

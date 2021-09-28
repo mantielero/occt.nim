@@ -26,10 +26,23 @@ type
       bycopy.} = object of MathBFGS
 
 
+proc `new`*(this: var GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox;
+           theSize: csize_t): pointer {.importcpp: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox::operator new", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox;
+              theAddress: pointer) {.importcpp: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox::operator delete", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `new[]`*(this: var GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox;
+             theSize: csize_t): pointer {.importcpp: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox::operator new[]", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `delete[]`*(this: var GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox;
+                theAddress: pointer) {.importcpp: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox::operator delete[]", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `new`*(this: var GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox::operator new", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox;
+              a2: pointer; a3: pointer) {.importcpp: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox::operator delete", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc constructGeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox*(
     f: var MathMultipleVarFunctionWithGradient; startingPoint: MathVector;
-    tolerance3d: float; tolerance2d: float; eps: float; nbIterations: int = 200): GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox {.
+    tolerance3d: StandardReal; tolerance2d: StandardReal; eps: StandardReal;
+    nbIterations: int = 200): GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox {.
     constructor, importcpp: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox(@)", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc isSolutionReached*(this: GeomIntGradientBFGSOfMyGradientOfTheComputeLineBezierOfWLApprox;
-                       f: var MathMultipleVarFunctionWithGradient): bool {.
+                       f: var MathMultipleVarFunctionWithGradient): StandardBoolean {.
     noSideEffect, importcpp: "IsSolutionReached", header: "GeomInt_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}

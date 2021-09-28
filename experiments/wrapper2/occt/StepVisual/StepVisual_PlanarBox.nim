@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepVisual_PlanarBox"
 discard "forward decl of StepVisual_PlanarBox"
 type
-  HandleStepVisualPlanarBox* = Handle[StepVisualPlanarBox]
+  HandleC1C1* = Handle[StepVisualPlanarBox]
   StepVisualPlanarBox* {.importcpp: "StepVisual_PlanarBox",
                         header: "StepVisual_PlanarBox.hxx", bycopy.} = object of StepVisualPlanarExtent ##
                                                                                                  ## !
@@ -31,7 +31,7 @@ type
 proc constructStepVisualPlanarBox*(): StepVisualPlanarBox {.constructor,
     importcpp: "StepVisual_PlanarBox(@)", header: "StepVisual_PlanarBox.hxx".}
 proc init*(this: var StepVisualPlanarBox; aName: Handle[TCollectionHAsciiString];
-          aSizeInX: float; aSizeInY: float; aPlacement: StepGeomAxis2Placement) {.
+          aSizeInX: cfloat; aSizeInY: cfloat; aPlacement: StepGeomAxis2Placement) {.
     importcpp: "Init", header: "StepVisual_PlanarBox.hxx".}
 proc setPlacement*(this: var StepVisualPlanarBox; aPlacement: StepGeomAxis2Placement) {.
     importcpp: "SetPlacement", header: "StepVisual_PlanarBox.hxx".}
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_PlanarBox.hxx".}
 proc dynamicType*(this: StepVisualPlanarBox): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_PlanarBox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

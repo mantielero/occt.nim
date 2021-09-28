@@ -18,3 +18,28 @@ type
   IFSelectSequenceOfAppliedModifiers* = NCollectionSequence[
       Handle[IFSelectAppliedModifiers]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,10 +18,27 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_Surface"
 type
   GeomToolsSurfaceSet* {.importcpp: "GeomTools_SurfaceSet",
-                        header: "GeomTools_SurfaceSet.hxx", bycopy.} = object ## ! Returns an empty set of
-                                                                         ## Surfaces.
+                        header: "GeomTools_SurfaceSet.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomToolsSurfaceSet; theSize: csize_t): pointer {.
+    importcpp: "GeomTools_SurfaceSet::operator new",
+    header: "GeomTools_SurfaceSet.hxx".}
+proc `delete`*(this: var GeomToolsSurfaceSet; theAddress: pointer) {.
+    importcpp: "GeomTools_SurfaceSet::operator delete",
+    header: "GeomTools_SurfaceSet.hxx".}
+proc `new[]`*(this: var GeomToolsSurfaceSet; theSize: csize_t): pointer {.
+    importcpp: "GeomTools_SurfaceSet::operator new[]",
+    header: "GeomTools_SurfaceSet.hxx".}
+proc `delete[]`*(this: var GeomToolsSurfaceSet; theAddress: pointer) {.
+    importcpp: "GeomTools_SurfaceSet::operator delete[]",
+    header: "GeomTools_SurfaceSet.hxx".}
+proc `new`*(this: var GeomToolsSurfaceSet; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomTools_SurfaceSet::operator new",
+    header: "GeomTools_SurfaceSet.hxx".}
+proc `delete`*(this: var GeomToolsSurfaceSet; a2: pointer; a3: pointer) {.
+    importcpp: "GeomTools_SurfaceSet::operator delete",
+    header: "GeomTools_SurfaceSet.hxx".}
 proc constructGeomToolsSurfaceSet*(): GeomToolsSurfaceSet {.constructor,
     importcpp: "GeomTools_SurfaceSet(@)", header: "GeomTools_SurfaceSet.hxx".}
 proc clear*(this: var GeomToolsSurfaceSet) {.importcpp: "Clear",
@@ -41,8 +58,9 @@ proc read*(this: var GeomToolsSurfaceSet; `is`: var StandardIStream;
           theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "GeomTools_SurfaceSet.hxx".}
 proc printSurface*(s: Handle[GeomSurface]; os: var StandardOStream;
-                  compact: bool = false) {.importcpp: "GeomTools_SurfaceSet::PrintSurface(@)",
-                                       header: "GeomTools_SurfaceSet.hxx".}
+                  compact: StandardBoolean = false) {.
+    importcpp: "GeomTools_SurfaceSet::PrintSurface(@)",
+    header: "GeomTools_SurfaceSet.hxx".}
 proc readSurface*(`is`: var StandardIStream): Handle[GeomSurface] {.
     importcpp: "GeomTools_SurfaceSet::ReadSurface(@)",
     header: "GeomTools_SurfaceSet.hxx".}

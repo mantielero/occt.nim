@@ -26,10 +26,35 @@ proc constructTopOpeBRepVPointInterClassifier*(): TopOpeBRepVPointInterClassifie
     constructor, importcpp: "TopOpeBRep_VPointInterClassifier(@)",
     header: "TopOpeBRep_VPointInterClassifier.hxx".}
 proc vPointPosition*(this: var TopOpeBRepVPointInterClassifier; f: TopoDS_Shape;
-                    vp: var TopOpeBRepVPointInter; shapeIndex: int;
-                    pc: var TopOpeBRepPointClassifier; assumeINON: bool; tol: float): TopAbsState {.
+                    vp: var TopOpeBRepVPointInter; shapeIndex: cint;
+                    pc: var TopOpeBRepPointClassifier; assumeINON: bool; tol: cfloat): TopAbsState {.
     importcpp: "VPointPosition", header: "TopOpeBRep_VPointInterClassifier.hxx".}
 proc edge*(this: TopOpeBRepVPointInterClassifier): TopoDS_Shape {.noSideEffect,
     importcpp: "Edge", header: "TopOpeBRep_VPointInterClassifier.hxx".}
-proc edgeParameter*(this: TopOpeBRepVPointInterClassifier): float {.noSideEffect,
+proc edgeParameter*(this: TopOpeBRepVPointInterClassifier): cfloat {.noSideEffect,
     importcpp: "EdgeParameter", header: "TopOpeBRep_VPointInterClassifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

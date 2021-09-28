@@ -43,15 +43,15 @@ type
 proc constructStepDataStepWriter*(amodel: Handle[StepDataStepModel]): StepDataStepWriter {.
     constructor, importcpp: "StepData_StepWriter(@)",
     header: "StepData_StepWriter.hxx".}
-proc labelMode*(this: var StepDataStepWriter): var int {.importcpp: "LabelMode",
+proc labelMode*(this: var StepDataStepWriter): var cint {.importcpp: "LabelMode",
     header: "StepData_StepWriter.hxx".}
-proc typeMode*(this: var StepDataStepWriter): var int {.importcpp: "TypeMode",
+proc typeMode*(this: var StepDataStepWriter): var cint {.importcpp: "TypeMode",
     header: "StepData_StepWriter.hxx".}
 proc floatWriter*(this: var StepDataStepWriter): var InterfaceFloatWriter {.
     importcpp: "FloatWriter", header: "StepData_StepWriter.hxx".}
-proc setScope*(this: var StepDataStepWriter; numscope: int; numin: int) {.
+proc setScope*(this: var StepDataStepWriter; numscope: cint; numin: cint) {.
     importcpp: "SetScope", header: "StepData_StepWriter.hxx".}
-proc isInScope*(this: StepDataStepWriter; num: int): bool {.noSideEffect,
+proc isInScope*(this: StepDataStepWriter; num: cint): bool {.noSideEffect,
     importcpp: "IsInScope", header: "StepData_StepWriter.hxx".}
 proc sendModel*(this: var StepDataStepWriter; protocol: Handle[StepDataProtocol];
                headeronly: bool = false) {.importcpp: "SendModel",
@@ -60,7 +60,7 @@ proc sendHeader*(this: var StepDataStepWriter) {.importcpp: "SendHeader",
     header: "StepData_StepWriter.hxx".}
 proc sendData*(this: var StepDataStepWriter) {.importcpp: "SendData",
     header: "StepData_StepWriter.hxx".}
-proc sendEntity*(this: var StepDataStepWriter; nument: int; lib: StepDataWriterLib) {.
+proc sendEntity*(this: var StepDataStepWriter; nument: cint; lib: StepDataWriterLib) {.
     importcpp: "SendEntity", header: "StepData_StepWriter.hxx".}
 proc endSec*(this: var StepDataStepWriter) {.importcpp: "EndSec",
     header: "StepData_StepWriter.hxx".}
@@ -72,7 +72,7 @@ proc joinLast*(this: var StepDataStepWriter; newline: bool) {.importcpp: "JoinLa
     header: "StepData_StepWriter.hxx".}
 proc indent*(this: var StepDataStepWriter; onent: bool) {.importcpp: "Indent",
     header: "StepData_StepWriter.hxx".}
-proc sendIdent*(this: var StepDataStepWriter; ident: int) {.importcpp: "SendIdent",
+proc sendIdent*(this: var StepDataStepWriter; ident: cint) {.importcpp: "SendIdent",
     header: "StepData_StepWriter.hxx".}
 proc sendScope*(this: var StepDataStepWriter) {.importcpp: "SendScope",
     header: "StepData_StepWriter.hxx".}
@@ -108,9 +108,9 @@ proc closeSub*(this: var StepDataStepWriter) {.importcpp: "CloseSub",
     header: "StepData_StepWriter.hxx".}
 proc addParam*(this: var StepDataStepWriter) {.importcpp: "AddParam",
     header: "StepData_StepWriter.hxx".}
-proc send*(this: var StepDataStepWriter; val: int) {.importcpp: "Send",
+proc send*(this: var StepDataStepWriter; val: cint) {.importcpp: "Send",
     header: "StepData_StepWriter.hxx".}
-proc send*(this: var StepDataStepWriter; val: float) {.importcpp: "Send",
+proc send*(this: var StepDataStepWriter; val: cfloat) {.importcpp: "Send",
     header: "StepData_StepWriter.hxx".}
 proc send*(this: var StepDataStepWriter; val: TCollectionAsciiString) {.
     importcpp: "Send", header: "StepData_StepWriter.hxx".}
@@ -138,9 +138,34 @@ proc endEntity*(this: var StepDataStepWriter) {.importcpp: "EndEntity",
     header: "StepData_StepWriter.hxx".}
 proc checkList*(this: StepDataStepWriter): InterfaceCheckIterator {.noSideEffect,
     importcpp: "CheckList", header: "StepData_StepWriter.hxx".}
-proc nbLines*(this: StepDataStepWriter): int {.noSideEffect, importcpp: "NbLines",
+proc nbLines*(this: StepDataStepWriter): cint {.noSideEffect, importcpp: "NbLines",
     header: "StepData_StepWriter.hxx".}
-proc line*(this: StepDataStepWriter; num: int): Handle[TCollectionHAsciiString] {.
+proc line*(this: StepDataStepWriter; num: cint): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Line", header: "StepData_StepWriter.hxx".}
 proc print*(this: var StepDataStepWriter; s: var StandardOStream): bool {.
     importcpp: "Print", header: "StepData_StepWriter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

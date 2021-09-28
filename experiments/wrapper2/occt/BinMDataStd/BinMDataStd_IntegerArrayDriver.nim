@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_IntegerArrayDriver"
 discard "forward decl of BinMDataStd_IntegerArrayDriver"
 type
-  HandleBinMDataStdIntegerArrayDriver* = Handle[BinMDataStdIntegerArrayDriver]
+  HandleC1C1* = Handle[BinMDataStdIntegerArrayDriver]
 
 ## ! Array of Integer attribute Driver.
 
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdIntegerArrayDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_IntegerArrayDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

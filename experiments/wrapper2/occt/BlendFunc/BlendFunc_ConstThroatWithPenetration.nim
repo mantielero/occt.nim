@@ -34,7 +34,7 @@ proc value*(this: var BlendFuncConstThroatWithPenetration; x: MathVector;
 proc derivatives*(this: var BlendFuncConstThroatWithPenetration; x: MathVector;
                  d: var MathMatrix): bool {.importcpp: "Derivatives", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc isSolution*(this: var BlendFuncConstThroatWithPenetration; sol: MathVector;
-                tol: float): bool {.importcpp: "IsSolution", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
+                tol: cfloat): bool {.importcpp: "IsSolution", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc tangentOnS1*(this: BlendFuncConstThroatWithPenetration): Vec {.noSideEffect,
     importcpp: "TangentOnS1", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc tangent2dOnS1*(this: BlendFuncConstThroatWithPenetration): Vec2d {.
@@ -45,6 +45,31 @@ proc tangentOnS2*(this: BlendFuncConstThroatWithPenetration): Vec {.noSideEffect
 proc tangent2dOnS2*(this: BlendFuncConstThroatWithPenetration): Vec2d {.
     noSideEffect, importcpp: "Tangent2dOnS2",
     header: "BlendFunc_ConstThroatWithPenetration.hxx".}
-proc getSectionSize*(this: BlendFuncConstThroatWithPenetration): float {.
+proc getSectionSize*(this: BlendFuncConstThroatWithPenetration): cfloat {.
     noSideEffect, importcpp: "GetSectionSize",
     header: "BlendFunc_ConstThroatWithPenetration.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

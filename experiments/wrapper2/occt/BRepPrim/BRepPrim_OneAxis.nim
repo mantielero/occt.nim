@@ -35,34 +35,34 @@ type
                                    ## ! the Topology. The angle defaults to 2*PI.
 
 
-proc setMeridianOffset*(this: var BRepPrimOneAxis; meridianOffset: float = 0) {.
+proc setMeridianOffset*(this: var BRepPrimOneAxis; meridianOffset: cfloat = 0) {.
     importcpp: "SetMeridianOffset", header: "BRepPrim_OneAxis.hxx".}
 proc axes*(this: BRepPrimOneAxis): Ax2 {.noSideEffect, importcpp: "Axes",
                                      header: "BRepPrim_OneAxis.hxx".}
 proc axes*(this: var BRepPrimOneAxis; a: Ax2) {.importcpp: "Axes",
     header: "BRepPrim_OneAxis.hxx".}
-proc angle*(this: BRepPrimOneAxis): float {.noSideEffect, importcpp: "Angle",
+proc angle*(this: BRepPrimOneAxis): cfloat {.noSideEffect, importcpp: "Angle",
+    header: "BRepPrim_OneAxis.hxx".}
+proc angle*(this: var BRepPrimOneAxis; a: cfloat) {.importcpp: "Angle",
+    header: "BRepPrim_OneAxis.hxx".}
+proc vMin*(this: BRepPrimOneAxis): cfloat {.noSideEffect, importcpp: "VMin",
                                         header: "BRepPrim_OneAxis.hxx".}
-proc angle*(this: var BRepPrimOneAxis; a: float) {.importcpp: "Angle",
+proc vMin*(this: var BRepPrimOneAxis; v: cfloat) {.importcpp: "VMin",
     header: "BRepPrim_OneAxis.hxx".}
-proc vMin*(this: BRepPrimOneAxis): float {.noSideEffect, importcpp: "VMin",
-                                       header: "BRepPrim_OneAxis.hxx".}
-proc vMin*(this: var BRepPrimOneAxis; v: float) {.importcpp: "VMin",
-    header: "BRepPrim_OneAxis.hxx".}
-proc vMax*(this: BRepPrimOneAxis): float {.noSideEffect, importcpp: "VMax",
-                                       header: "BRepPrim_OneAxis.hxx".}
-proc vMax*(this: var BRepPrimOneAxis; v: float) {.importcpp: "VMax",
+proc vMax*(this: BRepPrimOneAxis): cfloat {.noSideEffect, importcpp: "VMax",
+                                        header: "BRepPrim_OneAxis.hxx".}
+proc vMax*(this: var BRepPrimOneAxis; v: cfloat) {.importcpp: "VMax",
     header: "BRepPrim_OneAxis.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimOneAxis): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_OneAxis.hxx".}
-proc makeEmptyMeridianEdge*(this: BRepPrimOneAxis; ang: float): TopoDS_Edge {.
+proc makeEmptyMeridianEdge*(this: BRepPrimOneAxis; ang: cfloat): TopoDS_Edge {.
     noSideEffect, importcpp: "MakeEmptyMeridianEdge",
     header: "BRepPrim_OneAxis.hxx".}
 proc setMeridianPCurve*(this: BRepPrimOneAxis; e: var TopoDS_Edge; f: TopoDS_Face) {.
     noSideEffect, importcpp: "SetMeridianPCurve", header: "BRepPrim_OneAxis.hxx".}
-proc meridianValue*(this: BRepPrimOneAxis; v: float): Pnt2d {.noSideEffect,
+proc meridianValue*(this: BRepPrimOneAxis; v: cfloat): Pnt2d {.noSideEffect,
     importcpp: "MeridianValue", header: "BRepPrim_OneAxis.hxx".}
-proc meridianOnAxis*(this: BRepPrimOneAxis; v: float): bool {.noSideEffect,
+proc meridianOnAxis*(this: BRepPrimOneAxis; v: cfloat): bool {.noSideEffect,
     importcpp: "MeridianOnAxis", header: "BRepPrim_OneAxis.hxx".}
 proc meridianClosed*(this: BRepPrimOneAxis): bool {.noSideEffect,
     importcpp: "MeridianClosed", header: "BRepPrim_OneAxis.hxx".}
@@ -138,3 +138,28 @@ proc bottomEndVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.
     importcpp: "BottomEndVertex", header: "BRepPrim_OneAxis.hxx".}
 proc destroyBRepPrimOneAxis*(this: var BRepPrimOneAxis) {.
     importcpp: "#.~BRepPrim_OneAxis()", header: "BRepPrim_OneAxis.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

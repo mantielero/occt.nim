@@ -89,9 +89,34 @@ proc nextVertex*(this: var HLRTopoBRepData) {.importcpp: "NextVertex",
     header: "HLRTopoBRep_Data.hxx".}
 proc vertex*(this: HLRTopoBRepData): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "HLRTopoBRep_Data.hxx".}
-proc parameter*(this: HLRTopoBRepData): float {.noSideEffect, importcpp: "Parameter",
-    header: "HLRTopoBRep_Data.hxx".}
-proc insertBefore*(this: var HLRTopoBRepData; v: TopoDS_Vertex; p: float) {.
+proc parameter*(this: HLRTopoBRepData): cfloat {.noSideEffect,
+    importcpp: "Parameter", header: "HLRTopoBRep_Data.hxx".}
+proc insertBefore*(this: var HLRTopoBRepData; v: TopoDS_Vertex; p: cfloat) {.
     importcpp: "InsertBefore", header: "HLRTopoBRep_Data.hxx".}
-proc append*(this: var HLRTopoBRepData; v: TopoDS_Vertex; p: float) {.
+proc append*(this: var HLRTopoBRepData; v: TopoDS_Vertex; p: cfloat) {.
     importcpp: "Append", header: "HLRTopoBRep_Data.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

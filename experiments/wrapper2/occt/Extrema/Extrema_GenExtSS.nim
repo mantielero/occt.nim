@@ -26,32 +26,57 @@ type
 
 proc constructExtremaGenExtSS*(): ExtremaGenExtSS {.constructor,
     importcpp: "Extrema_GenExtSS(@)", header: "Extrema_GenExtSS.hxx".}
-proc constructExtremaGenExtSS*(s1: Adaptor3dSurface; s2: Adaptor3dSurface; nbU: int;
-                              nbV: int; tol1: float; tol2: float): ExtremaGenExtSS {.
+proc constructExtremaGenExtSS*(s1: Adaptor3dSurface; s2: Adaptor3dSurface; nbU: cint;
+                              nbV: cint; tol1: cfloat; tol2: cfloat): ExtremaGenExtSS {.
     constructor, importcpp: "Extrema_GenExtSS(@)", header: "Extrema_GenExtSS.hxx".}
-proc constructExtremaGenExtSS*(s1: Adaptor3dSurface; s2: Adaptor3dSurface; nbU: int;
-                              nbV: int; u1min: float; u1sup: float; v1min: float;
-                              v1sup: float; u2min: float; u2sup: float; v2min: float;
-                              v2sup: float; tol1: float; tol2: float): ExtremaGenExtSS {.
+proc constructExtremaGenExtSS*(s1: Adaptor3dSurface; s2: Adaptor3dSurface; nbU: cint;
+                              nbV: cint; u1min: cfloat; u1sup: cfloat; v1min: cfloat;
+                              v1sup: cfloat; u2min: cfloat; u2sup: cfloat;
+                              v2min: cfloat; v2sup: cfloat; tol1: cfloat; tol2: cfloat): ExtremaGenExtSS {.
     constructor, importcpp: "Extrema_GenExtSS(@)", header: "Extrema_GenExtSS.hxx".}
-proc initialize*(this: var ExtremaGenExtSS; s2: Adaptor3dSurface; nbU: int; nbV: int;
-                tol2: float) {.importcpp: "Initialize",
-                             header: "Extrema_GenExtSS.hxx".}
-proc initialize*(this: var ExtremaGenExtSS; s2: Adaptor3dSurface; nbU: int; nbV: int;
-                u2min: float; u2sup: float; v2min: float; v2sup: float; tol2: float) {.
+proc initialize*(this: var ExtremaGenExtSS; s2: Adaptor3dSurface; nbU: cint; nbV: cint;
+                tol2: cfloat) {.importcpp: "Initialize",
+                              header: "Extrema_GenExtSS.hxx".}
+proc initialize*(this: var ExtremaGenExtSS; s2: Adaptor3dSurface; nbU: cint; nbV: cint;
+                u2min: cfloat; u2sup: cfloat; v2min: cfloat; v2sup: cfloat; tol2: cfloat) {.
     importcpp: "Initialize", header: "Extrema_GenExtSS.hxx".}
-proc perform*(this: var ExtremaGenExtSS; s1: Adaptor3dSurface; tol1: float) {.
+proc perform*(this: var ExtremaGenExtSS; s1: Adaptor3dSurface; tol1: cfloat) {.
     importcpp: "Perform", header: "Extrema_GenExtSS.hxx".}
-proc perform*(this: var ExtremaGenExtSS; s1: Adaptor3dSurface; u1min: float;
-             u1sup: float; v1min: float; v1sup: float; tol1: float) {.
+proc perform*(this: var ExtremaGenExtSS; s1: Adaptor3dSurface; u1min: cfloat;
+             u1sup: cfloat; v1min: cfloat; v1sup: cfloat; tol1: cfloat) {.
     importcpp: "Perform", header: "Extrema_GenExtSS.hxx".}
 proc isDone*(this: ExtremaGenExtSS): bool {.noSideEffect, importcpp: "IsDone",
                                         header: "Extrema_GenExtSS.hxx".}
-proc nbExt*(this: ExtremaGenExtSS): int {.noSideEffect, importcpp: "NbExt",
-                                      header: "Extrema_GenExtSS.hxx".}
-proc squareDistance*(this: ExtremaGenExtSS; n: int): float {.noSideEffect,
+proc nbExt*(this: ExtremaGenExtSS): cint {.noSideEffect, importcpp: "NbExt",
+                                       header: "Extrema_GenExtSS.hxx".}
+proc squareDistance*(this: ExtremaGenExtSS; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_GenExtSS.hxx".}
-proc pointOnS1*(this: ExtremaGenExtSS; n: int): ExtremaPOnSurf {.noSideEffect,
+proc pointOnS1*(this: ExtremaGenExtSS; n: cint): ExtremaPOnSurf {.noSideEffect,
     importcpp: "PointOnS1", header: "Extrema_GenExtSS.hxx".}
-proc pointOnS2*(this: ExtremaGenExtSS; n: int): ExtremaPOnSurf {.noSideEffect,
+proc pointOnS2*(this: ExtremaGenExtSS; n: cint): ExtremaPOnSurf {.noSideEffect,
     importcpp: "PointOnS2", header: "Extrema_GenExtSS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

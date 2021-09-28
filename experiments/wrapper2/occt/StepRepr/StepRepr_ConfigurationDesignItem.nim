@@ -26,7 +26,7 @@ type
 proc constructStepReprConfigurationDesignItem*(): StepReprConfigurationDesignItem {.
     constructor, importcpp: "StepRepr_ConfigurationDesignItem(@)",
     header: "StepRepr_ConfigurationDesignItem.hxx".}
-proc caseNum*(this: StepReprConfigurationDesignItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepReprConfigurationDesignItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepRepr_ConfigurationDesignItem.hxx".}
 proc productDefinition*(this: StepReprConfigurationDesignItem): Handle[
@@ -36,3 +36,28 @@ proc productDefinitionFormation*(this: StepReprConfigurationDesignItem): Handle[
     StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepRepr_ConfigurationDesignItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

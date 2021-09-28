@@ -27,7 +27,7 @@ type
 proc constructRWStepGeomRWGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx*(): RWStepGeomRWGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx {.
     constructor, importcpp: "RWStepGeom_RWGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx(@)", header: "RWStepGeom_RWGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
 proc readStep*(this: RWStepGeomRWGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepGeomRWGeomRepContextAndGlobUnitAssCtxAndGlobUncertai
 proc share*(this: RWStepGeomRWGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx;
     ent: Handle[StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepGeom_RWGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

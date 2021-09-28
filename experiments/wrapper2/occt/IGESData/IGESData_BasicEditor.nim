@@ -39,9 +39,9 @@ proc init*(this: var IGESDataBasicEditor; model: Handle[IGESDataIGESModel];
     header: "IGESData_BasicEditor.hxx".}
 proc model*(this: IGESDataBasicEditor): Handle[IGESDataIGESModel] {.noSideEffect,
     importcpp: "Model", header: "IGESData_BasicEditor.hxx".}
-proc setUnitFlag*(this: var IGESDataBasicEditor; flag: int): bool {.
+proc setUnitFlag*(this: var IGESDataBasicEditor; flag: cint): bool {.
     importcpp: "SetUnitFlag", header: "IGESData_BasicEditor.hxx".}
-proc setUnitValue*(this: var IGESDataBasicEditor; val: float): bool {.
+proc setUnitValue*(this: var IGESDataBasicEditor; val: cfloat): bool {.
     importcpp: "SetUnitValue", header: "IGESData_BasicEditor.hxx".}
 proc setUnitName*(this: var IGESDataBasicEditor; name: StandardCString): bool {.
     importcpp: "SetUnitName", header: "IGESData_BasicEditor.hxx".}
@@ -51,23 +51,48 @@ proc computeStatus*(this: var IGESDataBasicEditor) {.importcpp: "ComputeStatus",
     header: "IGESData_BasicEditor.hxx".}
 proc autoCorrect*(this: var IGESDataBasicEditor; ent: Handle[IGESDataIGESEntity]): bool {.
     importcpp: "AutoCorrect", header: "IGESData_BasicEditor.hxx".}
-proc autoCorrectModel*(this: var IGESDataBasicEditor): int {.
+proc autoCorrectModel*(this: var IGESDataBasicEditor): cint {.
     importcpp: "AutoCorrectModel", header: "IGESData_BasicEditor.hxx".}
-proc unitNameFlag*(name: StandardCString): int {.
+proc unitNameFlag*(name: StandardCString): cint {.
     importcpp: "IGESData_BasicEditor::UnitNameFlag(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc unitFlagValue*(flag: int): float {.importcpp: "IGESData_BasicEditor::UnitFlagValue(@)",
-                                    header: "IGESData_BasicEditor.hxx".}
-proc unitFlagName*(flag: int): StandardCString {.
+proc unitFlagValue*(flag: cint): cfloat {.importcpp: "IGESData_BasicEditor::UnitFlagValue(@)",
+                                      header: "IGESData_BasicEditor.hxx".}
+proc unitFlagName*(flag: cint): StandardCString {.
     importcpp: "IGESData_BasicEditor::UnitFlagName(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc iGESVersionName*(flag: int): StandardCString {.
+proc iGESVersionName*(flag: cint): StandardCString {.
     importcpp: "IGESData_BasicEditor::IGESVersionName(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc iGESVersionMax*(): int {.importcpp: "IGESData_BasicEditor::IGESVersionMax(@)",
-                           header: "IGESData_BasicEditor.hxx".}
-proc draftingName*(flag: int): StandardCString {.
+proc iGESVersionMax*(): cint {.importcpp: "IGESData_BasicEditor::IGESVersionMax(@)",
+                            header: "IGESData_BasicEditor.hxx".}
+proc draftingName*(flag: cint): StandardCString {.
     importcpp: "IGESData_BasicEditor::DraftingName(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc draftingMax*(): int {.importcpp: "IGESData_BasicEditor::DraftingMax(@)",
-                        header: "IGESData_BasicEditor.hxx".}
+proc draftingMax*(): cint {.importcpp: "IGESData_BasicEditor::DraftingMax(@)",
+                         header: "IGESData_BasicEditor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

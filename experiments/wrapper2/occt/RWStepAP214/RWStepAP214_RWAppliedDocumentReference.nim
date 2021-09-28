@@ -29,7 +29,7 @@ proc constructRWStepAP214RWAppliedDocumentReference*(): RWStepAP214RWAppliedDocu
     constructor, importcpp: "RWStepAP214_RWAppliedDocumentReference(@)",
     header: "RWStepAP214_RWAppliedDocumentReference.hxx".}
 proc readStep*(this: RWStepAP214RWAppliedDocumentReference;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AppliedDocumentReference]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAppliedDocumentReference.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepAP214RWAppliedDocumentReference;
            ent: Handle[StepAP214AppliedDocumentReference];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedDocumentReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

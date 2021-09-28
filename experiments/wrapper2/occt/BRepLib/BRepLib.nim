@@ -44,10 +44,12 @@ type
 
 proc precision*(p: float) {.importcpp: "BRepLib::Precision(@)", header: "BRepLib.hxx".}
 proc precision*(): float {.importcpp: "BRepLib::Precision(@)", header: "BRepLib.hxx".}
-proc plane*(p: Handle[GeomPlane]) {.importcpp: "BRepLib::Plane(@)",
-                                 header: "BRepLib.hxx".}
-proc plane*(): Handle[GeomPlane] {.importcpp: "BRepLib::Plane(@)",
-                                header: "BRepLib.hxx".}
+## !!!Ignored construct:  ! Sets the current plane to P. static void Plane ( const Handle ( Geom_Plane ) & P ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  & Plane ( ) ;
+## Error: identifier expected, but got: &!!!
+
 proc checkSameRange*(e: TopoDS_Edge; confusion: float = 1.0e-12): bool {.
     importcpp: "BRepLib::CheckSameRange(@)", header: "BRepLib.hxx".}
 proc sameRange*(e: TopoDS_Edge; tolerance: float = 1.0e-5) {.
@@ -64,9 +66,10 @@ proc buildCurves3d*(s: TopoDS_Shape): bool {.importcpp: "BRepLib::BuildCurves3d(
     header: "BRepLib.hxx".}
 proc buildPCurveForEdgeOnPlane*(theE: TopoDS_Edge; theF: TopoDS_Face) {.
     importcpp: "BRepLib::BuildPCurveForEdgeOnPlane(@)", header: "BRepLib.hxx".}
-proc buildPCurveForEdgeOnPlane*(theE: TopoDS_Edge; theF: TopoDS_Face;
-                               aC2D: var Handle[Geom2dCurve]; bToUpdate: var bool) {.
-    importcpp: "BRepLib::BuildPCurveForEdgeOnPlane(@)", header: "BRepLib.hxx".}
+## !!!Ignored construct:  ! Builds pcurve of edge on face if the surface is plane, but does not update the edge.
+## ! The output are the pcurve and the flag telling that pcurve was built. static void BuildPCurveForEdgeOnPlane ( const TopoDS_Edge & theE , const TopoDS_Face & theF , Handle ( Geom2d_Curve ) & aC2D , Standard_Boolean & bToUpdate ) ;
+## Error: token expected: ) but got: &!!!
+
 proc buildPCurveForEdgesOnPlane*[TCont](theLE: TCont; theF: TopoDS_Face) {.
     importcpp: "BRepLib::BuildPCurveForEdgesOnPlane(@)", header: "BRepLib.hxx".}
 proc updateEdgeTol*(e: TopoDS_Edge; minToleranceRequest: float;
@@ -122,3 +125,48 @@ proc extendFace*(theF: TopoDS_Face; theExtVal: float; theExtUMin: bool;
                 theExtUMax: bool; theExtVMin: bool; theExtVMax: bool;
                 theFExtended: var TopoDS_Face) {.
     importcpp: "BRepLib::ExtendFace(@)", header: "BRepLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

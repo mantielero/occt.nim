@@ -17,23 +17,29 @@
 type
   BOPToolsBoxSelector*[Dimension: static[cint]] {.
       importcpp: "BOPTools_BoxSelector<\'0>", header: "BOPTools_BoxSelector.hxx",
-      bycopy.} = object of BVH_Traverse[float, Dimension,
-                                    BVH_BoxSet[float, Dimension, int], bool] ## ! @name
-                                                                         ## Constructor
-                                                                         ## ! Empty
-                                                                         ## constructor
-                                                                         ## ! @name public
-                                                                         ## interfaces
-                                                                         ## ! Clears the indices
-                                                                         ## ! @name
-                                                                         ## Rejection/Acceptance rules
-                                                                         ## ! Checks if the box should be
-                                                                         ## rejected
-                                                                         ## ! @name Fields
+      bycopy.} = object of BVH_Traverse[cfloat, Dimension,
+                                    BVH_BoxSet[cfloat, Dimension, cint], bool] ## ! @name
+                                                                           ## Constructor
+                                                                           ## ! Empty
+                                                                           ## constructor
+                                                                           ## ! @name
+                                                                           ## public
+                                                                           ## interfaces
+                                                                           ## !
+                                                                           ## Clears the
+                                                                           ## indices
+                                                                           ## ! @name
+                                                                           ## Rejection/Acceptance rules
+                                                                           ## !
+                                                                           ## Checks if the box
+                                                                           ## should be
+                                                                           ## rejected
+                                                                           ## ! @name
+                                                                           ## Fields
     ## !< Selection box
     ## !< Selected indices
 
-  BOPToolsBoxSelectorBVH_VecNd*[Dimension] = Type[float, Dimension]
+  BOPToolsBoxSelectorBVH_VecNd*[Dimension] = Type[cfloat, Dimension]
 
 proc constructBOPToolsBoxSelector*[Dimension: static[cint]](): BOPToolsBoxSelector[
     Dimension] {.constructor, importcpp: "BOPTools_BoxSelector<\'*0>(@)",
@@ -41,7 +47,7 @@ proc constructBOPToolsBoxSelector*[Dimension: static[cint]](): BOPToolsBoxSelect
 proc clear*[Dimension: static[cint]](this: var BOPToolsBoxSelector[Dimension]) {.
     importcpp: "Clear", header: "BOPTools_BoxSelector.hxx".}
 proc setBox*[Dimension: static[cint]](this: var BOPToolsBoxSelector[Dimension];
-                                    theBox: BVH_Box[float, Dimension]) {.
+                                    theBox: BVH_Box[cfloat, Dimension]) {.
     importcpp: "SetBox", header: "BOPTools_BoxSelector.hxx".}
 proc indices*[Dimension: static[cint]](this: BOPToolsBoxSelector[Dimension]): TColStdListOfInteger {.
     noSideEffect, importcpp: "Indices", header: "BOPTools_BoxSelector.hxx".}
@@ -51,11 +57,36 @@ proc rejectNode*[Dimension: static[cint]](this: BOPToolsBoxSelector[Dimension];
                                         theIsInside: var bool): bool {.noSideEffect,
     importcpp: "RejectNode", header: "BOPTools_BoxSelector.hxx".}
 proc rejectElement*[Dimension: static[cint]](
-    this: var BOPToolsBoxSelector[Dimension]; theIndex: int): bool {.
+    this: var BOPToolsBoxSelector[Dimension]; theIndex: cint): bool {.
     importcpp: "RejectElement", header: "BOPTools_BoxSelector.hxx".}
 proc acceptMetric*[Dimension: static[cint]](this: BOPToolsBoxSelector[Dimension];
     theIsInside: bool): bool {.noSideEffect, importcpp: "AcceptMetric",
                             header: "BOPTools_BoxSelector.hxx".}
 proc accept*[Dimension: static[cint]](this: var BOPToolsBoxSelector[Dimension];
-                                    theIndex: int; theIsInside: bool): bool {.
+                                    theIndex: cint; theIsInside: bool): bool {.
     importcpp: "Accept", header: "BOPTools_BoxSelector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

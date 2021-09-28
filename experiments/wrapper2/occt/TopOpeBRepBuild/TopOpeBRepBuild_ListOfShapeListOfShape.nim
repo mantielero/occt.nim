@@ -20,3 +20,28 @@ type
   TopOpeBRepBuildListIteratorOfListOfShapeListOfShape* = Iterator[
       TopOpeBRepBuildShapeListOfShape]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

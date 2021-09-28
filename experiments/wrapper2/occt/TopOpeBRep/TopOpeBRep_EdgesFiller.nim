@@ -32,7 +32,32 @@ proc insert*(this: var TopOpeBRepEdgesFiller; e1: TopoDS_Shape; e2: TopoDS_Shape
             ei: var TopOpeBRepEdgesIntersector;
             hds: Handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Insert",
     header: "TopOpeBRep_EdgesFiller.hxx".}
-proc face*(this: var TopOpeBRepEdgesFiller; i: int; f: TopoDS_Shape) {.
+proc face*(this: var TopOpeBRepEdgesFiller; i: cint; f: TopoDS_Shape) {.
     importcpp: "Face", header: "TopOpeBRep_EdgesFiller.hxx".}
-proc face*(this: TopOpeBRepEdgesFiller; i: int): TopoDS_Shape {.noSideEffect,
+proc face*(this: TopOpeBRepEdgesFiller; i: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "Face", header: "TopOpeBRep_EdgesFiller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

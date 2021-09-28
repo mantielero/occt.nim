@@ -22,7 +22,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESSelect_SelectBasicGeom"
 discard "forward decl of IGESSelect_SelectBasicGeom"
 type
-  HandleIGESSelectSelectBasicGeom* = Handle[IGESSelectSelectBasicGeom]
+  HandleC1C1* = Handle[IGESSelectSelectBasicGeom]
 
 ## ! This selection returns the basic geometric elements
 ## ! contained in an IGES Entity
@@ -103,12 +103,12 @@ type
                                                                                                             ## both
 
 
-proc constructIGESSelectSelectBasicGeom*(mode: int): IGESSelectSelectBasicGeom {.
+proc constructIGESSelectSelectBasicGeom*(mode: cint): IGESSelectSelectBasicGeom {.
     constructor, importcpp: "IGESSelect_SelectBasicGeom(@)",
     header: "IGESSelect_SelectBasicGeom.hxx".}
 proc curvesOnly*(this: IGESSelectSelectBasicGeom): bool {.noSideEffect,
     importcpp: "CurvesOnly", header: "IGESSelect_SelectBasicGeom.hxx".}
-proc explore*(this: IGESSelectSelectBasicGeom; level: int;
+proc explore*(this: IGESSelectSelectBasicGeom; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "IGESSelect_SelectBasicGeom.hxx".}
@@ -130,3 +130,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSelectBasicGeom): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectBasicGeom.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

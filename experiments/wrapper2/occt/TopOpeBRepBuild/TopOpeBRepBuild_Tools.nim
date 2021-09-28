@@ -107,15 +107,40 @@ proc correctFace2d*(oldFace: TopoDS_Shape; corrFace: var TopoDS_Shape;
                    aMapOfCorrect2dEdges: var TopToolsIndexedDataMapOfShapeShape) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectFace2d(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc correctTolerances*(`aS`: TopoDS_Shape; aTolMax: float = 0.0001) {.
+proc correctTolerances*(`aS`: TopoDS_Shape; aTolMax: cfloat = 0.0001) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectTolerances(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc correctCurveOnSurface*(`aS`: TopoDS_Shape; aTolMax: float = 0.0001) {.
+proc correctCurveOnSurface*(`aS`: TopoDS_Shape; aTolMax: cfloat = 0.0001) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectCurveOnSurface(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc correctPointOnCurve*(`aS`: TopoDS_Shape; aTolMax: float = 0.0001) {.
+proc correctPointOnCurve*(`aS`: TopoDS_Shape; aTolMax: cfloat = 0.0001) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectPointOnCurve(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
 proc checkFaceClosed2d*(theFace: TopoDS_Face): bool {.
     importcpp: "TopOpeBRepBuild_Tools::CheckFaceClosed2d(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

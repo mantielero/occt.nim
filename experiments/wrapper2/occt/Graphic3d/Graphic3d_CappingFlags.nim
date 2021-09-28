@@ -25,3 +25,28 @@ type
         graphic3dCappingFlagsObjectTexture or graphic3dCappingFlagsObjectShader
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

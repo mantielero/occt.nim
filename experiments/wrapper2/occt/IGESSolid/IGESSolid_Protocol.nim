@@ -18,7 +18,7 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of IGESSolid_Protocol"
 discard "forward decl of IGESSolid_Protocol"
 type
-  HandleIGESSolidProtocol* = Handle[IGESSolidProtocol]
+  HandleC1C1* = Handle[IGESSolidProtocol]
 
 ## ! Description of Protocol for IGESSolid
 
@@ -29,11 +29,11 @@ type
 
 proc constructIGESSolidProtocol*(): IGESSolidProtocol {.constructor,
     importcpp: "IGESSolid_Protocol(@)", header: "IGESSolid_Protocol.hxx".}
-proc nbResources*(this: IGESSolidProtocol): int {.noSideEffect,
+proc nbResources*(this: IGESSolidProtocol): cint {.noSideEffect,
     importcpp: "NbResources", header: "IGESSolid_Protocol.hxx".}
-proc resource*(this: IGESSolidProtocol; num: int): Handle[InterfaceProtocol] {.
+proc resource*(this: IGESSolidProtocol; num: cint): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Resource", header: "IGESSolid_Protocol.hxx".}
-proc typeNumber*(this: IGESSolidProtocol; atype: Handle[StandardType]): int {.
+proc typeNumber*(this: IGESSolidProtocol; atype: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "TypeNumber", header: "IGESSolid_Protocol.hxx".}
 type
   IGESSolidProtocolbaseType* = IGESDataProtocol
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_Protocol.hxx".}
 proc dynamicType*(this: IGESSolidProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Protocol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

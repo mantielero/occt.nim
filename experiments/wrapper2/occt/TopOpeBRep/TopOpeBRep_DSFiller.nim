@@ -86,3 +86,28 @@ proc checker*(this: TopOpeBRepDSFiller; hds: Handle[TopOpeBRepDS_HDataStructure]
 proc completeDS2d*(this: TopOpeBRepDSFiller;
                   hds: Handle[TopOpeBRepDS_HDataStructure]) {.noSideEffect,
     importcpp: "CompleteDS2d", header: "TopOpeBRep_DSFiller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

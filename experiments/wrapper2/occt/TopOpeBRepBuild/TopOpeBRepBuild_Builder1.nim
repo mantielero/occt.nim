@@ -108,12 +108,37 @@ proc performPieceOn2D*(this: var TopOpeBRepBuildBuilder1; aPieceObj: TopoDS_Shap
                       aFaceObj: TopoDS_Shape; aEdgeObj: TopoDS_Shape;
                       aListOfPieces: var TopToolsListOfShape;
                       aListOfFaces: var TopToolsListOfShape;
-                      aListOfPiecesOut2d: var TopToolsListOfShape): int {.
+                      aListOfPiecesOut2d: var TopToolsListOfShape): cint {.
     importcpp: "PerformPieceOn2D", header: "TopOpeBRepBuild_Builder1.hxx".}
 proc twoPiecesON*(this: var TopOpeBRepBuildBuilder1; aSeq: TopToolsSequenceOfShape;
                  aListOfPieces: var TopToolsListOfShape;
                  aListOfFaces: var TopToolsListOfShape;
-                 aListOfPiecesOut2d: var TopToolsListOfShape): int {.
+                 aListOfPiecesOut2d: var TopToolsListOfShape): cint {.
     importcpp: "TwoPiecesON", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc correctResult2d*(this: var TopOpeBRepBuildBuilder1; aResult: var TopoDS_Shape): int {.
+proc correctResult2d*(this: var TopOpeBRepBuildBuilder1; aResult: var TopoDS_Shape): cint {.
     importcpp: "CorrectResult2d", header: "TopOpeBRepBuild_Builder1.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

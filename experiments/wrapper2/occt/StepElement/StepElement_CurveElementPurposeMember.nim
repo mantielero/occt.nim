@@ -16,8 +16,7 @@
 discard "forward decl of StepElement_CurveElementPurposeMember"
 discard "forward decl of StepElement_CurveElementPurposeMember"
 type
-  HandleStepElementCurveElementPurposeMember* = Handle[
-      StepElementCurveElementPurposeMember]
+  HandleC1C1* = Handle[StepElementCurveElementPurposeMember]
 
 ## ! Representation of member for  STEP SELECT type CurveElementPurpose
 
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementCurveElementPurposeMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_CurveElementPurposeMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,8 +16,7 @@
 discard "forward decl of StepVisual_ExternallyDefinedCurveFont"
 discard "forward decl of StepVisual_ExternallyDefinedCurveFont"
 type
-  HandleStepVisualExternallyDefinedCurveFont* = Handle[
-      StepVisualExternallyDefinedCurveFont]
+  HandleC1C1* = Handle[StepVisualExternallyDefinedCurveFont]
 
 ## ! Representation of STEP entity ExternallyDefinedCurveFont
 
@@ -44,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualExternallyDefinedCurveFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_ExternallyDefinedCurveFont.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

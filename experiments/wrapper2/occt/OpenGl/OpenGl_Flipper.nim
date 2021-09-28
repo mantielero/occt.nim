@@ -53,5 +53,30 @@ proc render*(this: OpenGlFlipper; theWorkspace: Handle[OpenGlWorkspace]) {.
 proc release*(this: var OpenGlFlipper; theCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_Flipper.hxx".}
 proc dumpJson*(this: OpenGlFlipper; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_Flipper.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_Flipper.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

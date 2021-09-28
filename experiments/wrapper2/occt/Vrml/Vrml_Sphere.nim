@@ -22,11 +22,36 @@ type
   VrmlSphere* {.importcpp: "Vrml_Sphere", header: "Vrml_Sphere.hxx", bycopy.} = object
 
 
-proc constructVrmlSphere*(aRadius: float = 1): VrmlSphere {.constructor,
+proc constructVrmlSphere*(aRadius: cfloat = 1): VrmlSphere {.constructor,
     importcpp: "Vrml_Sphere(@)", header: "Vrml_Sphere.hxx".}
-proc setRadius*(this: var VrmlSphere; aRadius: float) {.importcpp: "SetRadius",
+proc setRadius*(this: var VrmlSphere; aRadius: cfloat) {.importcpp: "SetRadius",
     header: "Vrml_Sphere.hxx".}
-proc radius*(this: VrmlSphere): float {.noSideEffect, importcpp: "Radius",
-                                    header: "Vrml_Sphere.hxx".}
+proc radius*(this: VrmlSphere): cfloat {.noSideEffect, importcpp: "Radius",
+                                     header: "Vrml_Sphere.hxx".}
 proc print*(this: VrmlSphere; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Sphere.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

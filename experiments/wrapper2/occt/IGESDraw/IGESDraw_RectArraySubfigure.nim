@@ -21,7 +21,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDraw_RectArraySubfigure"
 discard "forward decl of IGESDraw_RectArraySubfigure"
 type
-  HandleIGESDrawRectArraySubfigure* = Handle[IGESDrawRectArraySubfigure]
+  HandleC1C1* = Handle[IGESDrawRectArraySubfigure]
 
 ## ! Defines IGES Rectangular Array Subfigure Instance Entity,
 ## ! Type <412> Form Number <0> in package IGESDraw
@@ -37,40 +37,41 @@ proc constructIGESDrawRectArraySubfigure*(): IGESDrawRectArraySubfigure {.
     constructor, importcpp: "IGESDraw_RectArraySubfigure(@)",
     header: "IGESDraw_RectArraySubfigure.hxx".}
 proc init*(this: var IGESDrawRectArraySubfigure; aBase: Handle[IGESDataIGESEntity];
-          aScale: float; aCorner: Xyz; nbCols: int; nbRows: int; hDisp: float;
-          vtDisp: float; rotationAngle: float; doDont: int;
+          aScale: cfloat; aCorner: Xyz; nbCols: cint; nbRows: cint; hDisp: cfloat;
+          vtDisp: cfloat; rotationAngle: cfloat; doDont: cint;
           allNumPos: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
     header: "IGESDraw_RectArraySubfigure.hxx".}
 proc baseEntity*(this: IGESDrawRectArraySubfigure): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "BaseEntity",
     header: "IGESDraw_RectArraySubfigure.hxx".}
-proc scaleFactor*(this: IGESDrawRectArraySubfigure): float {.noSideEffect,
+proc scaleFactor*(this: IGESDrawRectArraySubfigure): cfloat {.noSideEffect,
     importcpp: "ScaleFactor", header: "IGESDraw_RectArraySubfigure.hxx".}
 proc lowerLeftCorner*(this: IGESDrawRectArraySubfigure): Pnt {.noSideEffect,
     importcpp: "LowerLeftCorner", header: "IGESDraw_RectArraySubfigure.hxx".}
 proc transformedLowerLeftCorner*(this: IGESDrawRectArraySubfigure): Pnt {.
     noSideEffect, importcpp: "TransformedLowerLeftCorner",
     header: "IGESDraw_RectArraySubfigure.hxx".}
-proc nbColumns*(this: IGESDrawRectArraySubfigure): int {.noSideEffect,
+proc nbColumns*(this: IGESDrawRectArraySubfigure): cint {.noSideEffect,
     importcpp: "NbColumns", header: "IGESDraw_RectArraySubfigure.hxx".}
-proc nbRows*(this: IGESDrawRectArraySubfigure): int {.noSideEffect,
+proc nbRows*(this: IGESDrawRectArraySubfigure): cint {.noSideEffect,
     importcpp: "NbRows", header: "IGESDraw_RectArraySubfigure.hxx".}
-proc columnSeparation*(this: IGESDrawRectArraySubfigure): float {.noSideEffect,
+proc columnSeparation*(this: IGESDrawRectArraySubfigure): cfloat {.noSideEffect,
     importcpp: "ColumnSeparation", header: "IGESDraw_RectArraySubfigure.hxx".}
-proc rowSeparation*(this: IGESDrawRectArraySubfigure): float {.noSideEffect,
+proc rowSeparation*(this: IGESDrawRectArraySubfigure): cfloat {.noSideEffect,
     importcpp: "RowSeparation", header: "IGESDraw_RectArraySubfigure.hxx".}
-proc rotationAngle*(this: IGESDrawRectArraySubfigure): float {.noSideEffect,
+proc rotationAngle*(this: IGESDrawRectArraySubfigure): cfloat {.noSideEffect,
     importcpp: "RotationAngle", header: "IGESDraw_RectArraySubfigure.hxx".}
 proc displayFlag*(this: IGESDrawRectArraySubfigure): bool {.noSideEffect,
     importcpp: "DisplayFlag", header: "IGESDraw_RectArraySubfigure.hxx".}
-proc listCount*(this: IGESDrawRectArraySubfigure): int {.noSideEffect,
+proc listCount*(this: IGESDrawRectArraySubfigure): cint {.noSideEffect,
     importcpp: "ListCount", header: "IGESDraw_RectArraySubfigure.hxx".}
 proc doDontFlag*(this: IGESDrawRectArraySubfigure): bool {.noSideEffect,
     importcpp: "DoDontFlag", header: "IGESDraw_RectArraySubfigure.hxx".}
-proc positionNum*(this: IGESDrawRectArraySubfigure; index: int): bool {.noSideEffect,
+proc positionNum*(this: IGESDrawRectArraySubfigure; index: cint): bool {.noSideEffect,
     importcpp: "PositionNum", header: "IGESDraw_RectArraySubfigure.hxx".}
-proc listPosition*(this: IGESDrawRectArraySubfigure; index: int): int {.noSideEffect,
-    importcpp: "ListPosition", header: "IGESDraw_RectArraySubfigure.hxx".}
+proc listPosition*(this: IGESDrawRectArraySubfigure; index: cint): cint {.
+    noSideEffect, importcpp: "ListPosition",
+    header: "IGESDraw_RectArraySubfigure.hxx".}
 type
   IGESDrawRectArraySubfigurebaseType* = IGESDataIGESEntity
 
@@ -82,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDrawRectArraySubfigure): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDraw_RectArraySubfigure.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -35,37 +35,63 @@ proc constructHLRBRepIntConicCurveOfCInter*(): HLRBRepIntConicCurveOfCInter {.
     constructor, importcpp: "HLRBRep_IntConicCurveOfCInter(@)",
     header: "HLRBRep_IntConicCurveOfCInter.hxx".}
 proc constructHLRBRepIntConicCurveOfCInter*(L: Lin2d; d1: IntRes2dDomain;
-    pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: float; tol: float): HLRBRepIntConicCurveOfCInter {.
+    pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): HLRBRepIntConicCurveOfCInter {.
     constructor, importcpp: "HLRBRep_IntConicCurveOfCInter(@)",
     header: "HLRBRep_IntConicCurveOfCInter.hxx".}
 proc constructHLRBRepIntConicCurveOfCInter*(c: Circ2d; d1: IntRes2dDomain;
-    pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: float; tol: float): HLRBRepIntConicCurveOfCInter {.
+    pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): HLRBRepIntConicCurveOfCInter {.
     constructor, importcpp: "HLRBRep_IntConicCurveOfCInter(@)",
     header: "HLRBRep_IntConicCurveOfCInter.hxx".}
 proc constructHLRBRepIntConicCurveOfCInter*(e: Elips2d; d1: IntRes2dDomain;
-    pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: float; tol: float): HLRBRepIntConicCurveOfCInter {.
+    pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): HLRBRepIntConicCurveOfCInter {.
     constructor, importcpp: "HLRBRep_IntConicCurveOfCInter(@)",
     header: "HLRBRep_IntConicCurveOfCInter.hxx".}
 proc constructHLRBRepIntConicCurveOfCInter*(prb: Parab2d; d1: IntRes2dDomain;
-    pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: float; tol: float): HLRBRepIntConicCurveOfCInter {.
+    pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): HLRBRepIntConicCurveOfCInter {.
     constructor, importcpp: "HLRBRep_IntConicCurveOfCInter(@)",
     header: "HLRBRep_IntConicCurveOfCInter.hxx".}
 proc constructHLRBRepIntConicCurveOfCInter*(h: Hypr2d; d1: IntRes2dDomain;
-    pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: float; tol: float): HLRBRepIntConicCurveOfCInter {.
+    pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): HLRBRepIntConicCurveOfCInter {.
     constructor, importcpp: "HLRBRep_IntConicCurveOfCInter(@)",
     header: "HLRBRep_IntConicCurveOfCInter.hxx".}
 proc perform*(this: var HLRBRepIntConicCurveOfCInter; L: Lin2d; d1: IntRes2dDomain;
-             pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+             pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "HLRBRep_IntConicCurveOfCInter.hxx".}
 proc perform*(this: var HLRBRepIntConicCurveOfCInter; c: Circ2d; d1: IntRes2dDomain;
-             pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+             pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "HLRBRep_IntConicCurveOfCInter.hxx".}
 proc perform*(this: var HLRBRepIntConicCurveOfCInter; e: Elips2d; d1: IntRes2dDomain;
-             pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+             pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "HLRBRep_IntConicCurveOfCInter.hxx".}
 proc perform*(this: var HLRBRepIntConicCurveOfCInter; prb: Parab2d;
              d1: IntRes2dDomain; pCurve: StandardAddress; d2: IntRes2dDomain;
-             tolConf: float; tol: float) {.importcpp: "Perform", header: "HLRBRep_IntConicCurveOfCInter.hxx".}
+             tolConf: cfloat; tol: cfloat) {.importcpp: "Perform",
+    header: "HLRBRep_IntConicCurveOfCInter.hxx".}
 proc perform*(this: var HLRBRepIntConicCurveOfCInter; h: Hypr2d; d1: IntRes2dDomain;
-             pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+             pCurve: StandardAddress; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "HLRBRep_IntConicCurveOfCInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

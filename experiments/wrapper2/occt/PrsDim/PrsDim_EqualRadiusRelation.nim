@@ -17,7 +17,7 @@
 discard "forward decl of Geom_Plane"
 discard "forward decl of PrsDim_EqualRadiusRelation"
 type
-  HandlePrsDimEqualRadiusRelation* = Handle[PrsDimEqualRadiusRelation]
+  HandleC1C1* = Handle[PrsDimEqualRadiusRelation]
   PrsDimEqualRadiusRelation* {.importcpp: "PrsDim_EqualRadiusRelation",
                               header: "PrsDim_EqualRadiusRelation.hxx", bycopy.} = object of PrsDimRelation ##
                                                                                                      ## !
@@ -66,3 +66,28 @@ proc constructPrsDimEqualRadiusRelation*(aFirstEdge: TopoDS_Edge;
                                         aPlane: Handle[GeomPlane]): PrsDimEqualRadiusRelation {.
     constructor, importcpp: "PrsDim_EqualRadiusRelation(@)",
     header: "PrsDim_EqualRadiusRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

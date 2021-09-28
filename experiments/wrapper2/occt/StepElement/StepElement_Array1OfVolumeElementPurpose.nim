@@ -15,3 +15,28 @@ type
   StepElementArray1OfVolumeElementPurpose* = NCollectionArray1[
       StepElementVolumeElementPurpose]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

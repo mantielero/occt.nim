@@ -40,6 +40,24 @@ type
     ## /< auxiliary trihedron according to the curve position
 
 
+proc `new`*(this: var GeomAdaptorSurfaceOfRevolution; theSize: csize_t): pointer {.
+    importcpp: "GeomAdaptor_SurfaceOfRevolution::operator new",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc `delete`*(this: var GeomAdaptorSurfaceOfRevolution; theAddress: pointer) {.
+    importcpp: "GeomAdaptor_SurfaceOfRevolution::operator delete",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc `new[]`*(this: var GeomAdaptorSurfaceOfRevolution; theSize: csize_t): pointer {.
+    importcpp: "GeomAdaptor_SurfaceOfRevolution::operator new[]",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc `delete[]`*(this: var GeomAdaptorSurfaceOfRevolution; theAddress: pointer) {.
+    importcpp: "GeomAdaptor_SurfaceOfRevolution::operator delete[]",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc `new`*(this: var GeomAdaptorSurfaceOfRevolution; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomAdaptor_SurfaceOfRevolution::operator new",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc `delete`*(this: var GeomAdaptorSurfaceOfRevolution; a2: pointer; a3: pointer) {.
+    importcpp: "GeomAdaptor_SurfaceOfRevolution::operator delete",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc constructGeomAdaptorSurfaceOfRevolution*(): GeomAdaptorSurfaceOfRevolution {.
     constructor, importcpp: "GeomAdaptor_SurfaceOfRevolution(@)",
     header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
@@ -55,14 +73,18 @@ proc load*(this: var GeomAdaptorSurfaceOfRevolution; v: Ax1) {.importcpp: "Load"
     header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc axeOfRevolution*(this: GeomAdaptorSurfaceOfRevolution): Ax1 {.noSideEffect,
     importcpp: "AxeOfRevolution", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc firstUParameter*(this: GeomAdaptorSurfaceOfRevolution): float {.noSideEffect,
-    importcpp: "FirstUParameter", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc lastUParameter*(this: GeomAdaptorSurfaceOfRevolution): float {.noSideEffect,
-    importcpp: "LastUParameter", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc firstVParameter*(this: GeomAdaptorSurfaceOfRevolution): float {.noSideEffect,
-    importcpp: "FirstVParameter", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc lastVParameter*(this: GeomAdaptorSurfaceOfRevolution): float {.noSideEffect,
-    importcpp: "LastVParameter", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc firstUParameter*(this: GeomAdaptorSurfaceOfRevolution): StandardReal {.
+    noSideEffect, importcpp: "FirstUParameter",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc lastUParameter*(this: GeomAdaptorSurfaceOfRevolution): StandardReal {.
+    noSideEffect, importcpp: "LastUParameter",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc firstVParameter*(this: GeomAdaptorSurfaceOfRevolution): StandardReal {.
+    noSideEffect, importcpp: "FirstVParameter",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc lastVParameter*(this: GeomAdaptorSurfaceOfRevolution): StandardReal {.
+    noSideEffect, importcpp: "LastVParameter",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc uContinuity*(this: GeomAdaptorSurfaceOfRevolution): GeomAbsShape {.
     noSideEffect, importcpp: "UContinuity",
     header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
@@ -81,28 +103,32 @@ proc uIntervals*(this: GeomAdaptorSurfaceOfRevolution; t: var TColStdArray1OfRea
 proc vIntervals*(this: GeomAdaptorSurfaceOfRevolution; t: var TColStdArray1OfReal;
                 s: GeomAbsShape) {.noSideEffect, importcpp: "VIntervals",
                                  header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc uTrim*(this: GeomAdaptorSurfaceOfRevolution; first: float; last: float; tol: float): Handle[
-    Adaptor3dHSurface] {.noSideEffect, importcpp: "UTrim",
-                        header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc vTrim*(this: GeomAdaptorSurfaceOfRevolution; first: float; last: float; tol: float): Handle[
-    Adaptor3dHSurface] {.noSideEffect, importcpp: "VTrim",
-                        header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc isUClosed*(this: GeomAdaptorSurfaceOfRevolution): bool {.noSideEffect,
-    importcpp: "IsUClosed", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc isVClosed*(this: GeomAdaptorSurfaceOfRevolution): bool {.noSideEffect,
-    importcpp: "IsVClosed", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc isUPeriodic*(this: GeomAdaptorSurfaceOfRevolution): bool {.noSideEffect,
-    importcpp: "IsUPeriodic", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc uPeriod*(this: GeomAdaptorSurfaceOfRevolution): float {.noSideEffect,
+proc uTrim*(this: GeomAdaptorSurfaceOfRevolution; first: StandardReal;
+           last: StandardReal; tol: StandardReal): Handle[Adaptor3dHSurface] {.
+    noSideEffect, importcpp: "UTrim", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc vTrim*(this: GeomAdaptorSurfaceOfRevolution; first: StandardReal;
+           last: StandardReal; tol: StandardReal): Handle[Adaptor3dHSurface] {.
+    noSideEffect, importcpp: "VTrim", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc isUClosed*(this: GeomAdaptorSurfaceOfRevolution): StandardBoolean {.
+    noSideEffect, importcpp: "IsUClosed",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc isVClosed*(this: GeomAdaptorSurfaceOfRevolution): StandardBoolean {.
+    noSideEffect, importcpp: "IsVClosed",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc isUPeriodic*(this: GeomAdaptorSurfaceOfRevolution): StandardBoolean {.
+    noSideEffect, importcpp: "IsUPeriodic",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc uPeriod*(this: GeomAdaptorSurfaceOfRevolution): StandardReal {.noSideEffect,
     importcpp: "UPeriod", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc isVPeriodic*(this: GeomAdaptorSurfaceOfRevolution): bool {.noSideEffect,
-    importcpp: "IsVPeriodic", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc vPeriod*(this: GeomAdaptorSurfaceOfRevolution): float {.noSideEffect,
+proc isVPeriodic*(this: GeomAdaptorSurfaceOfRevolution): StandardBoolean {.
+    noSideEffect, importcpp: "IsVPeriodic",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc vPeriod*(this: GeomAdaptorSurfaceOfRevolution): StandardReal {.noSideEffect,
     importcpp: "VPeriod", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc uResolution*(this: GeomAdaptorSurfaceOfRevolution; r3d: float): float {.
+proc uResolution*(this: GeomAdaptorSurfaceOfRevolution; r3d: StandardReal): StandardReal {.
     noSideEffect, importcpp: "UResolution",
     header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc vResolution*(this: GeomAdaptorSurfaceOfRevolution; r3d: float): float {.
+proc vResolution*(this: GeomAdaptorSurfaceOfRevolution; r3d: StandardReal): StandardReal {.
     noSideEffect, importcpp: "VResolution",
     header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc getType*(this: GeomAdaptorSurfaceOfRevolution): GeomAbsSurfaceType {.
@@ -124,10 +150,12 @@ proc nbVPoles*(this: GeomAdaptorSurfaceOfRevolution): int {.noSideEffect,
     importcpp: "NbVPoles", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc nbVKnots*(this: GeomAdaptorSurfaceOfRevolution): int {.noSideEffect,
     importcpp: "NbVKnots", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc isURational*(this: GeomAdaptorSurfaceOfRevolution): bool {.noSideEffect,
-    importcpp: "IsURational", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
-proc isVRational*(this: GeomAdaptorSurfaceOfRevolution): bool {.noSideEffect,
-    importcpp: "IsVRational", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc isURational*(this: GeomAdaptorSurfaceOfRevolution): StandardBoolean {.
+    noSideEffect, importcpp: "IsURational",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+proc isVRational*(this: GeomAdaptorSurfaceOfRevolution): StandardBoolean {.
+    noSideEffect, importcpp: "IsVRational",
+    header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc bezier*(this: GeomAdaptorSurfaceOfRevolution): Handle[GeomBezierSurface] {.
     noSideEffect, importcpp: "Bezier",
     header: "GeomAdaptor_SurfaceOfRevolution.hxx".}

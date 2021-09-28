@@ -34,23 +34,24 @@ proc constructGeomEvaluatorSurfaceOfExtrusion*(theBase: Handle[Adaptor3dHCurve];
     header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
 proc setDirection*(this: var GeomEvaluatorSurfaceOfExtrusion; theDirection: Dir) {.
     importcpp: "SetDirection", header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
-proc d0*(this: GeomEvaluatorSurfaceOfExtrusion; theU: float; theV: float;
-        theValue: var Pnt) {.noSideEffect, importcpp: "D0",
-                          header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
-proc d1*(this: GeomEvaluatorSurfaceOfExtrusion; theU: float; theV: float;
-        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec) {.noSideEffect,
-    importcpp: "D1", header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
-proc d2*(this: GeomEvaluatorSurfaceOfExtrusion; theU: float; theV: float;
-        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec; theD2U: var Vec;
-        theD2V: var Vec; theD2UV: var Vec) {.noSideEffect, importcpp: "D2", header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
-proc d3*(this: GeomEvaluatorSurfaceOfExtrusion; theU: float; theV: float;
-        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec; theD2U: var Vec;
-        theD2V: var Vec; theD2UV: var Vec; theD3U: var Vec; theD3V: var Vec;
-        theD3UUV: var Vec; theD3UVV: var Vec) {.noSideEffect, importcpp: "D3",
+proc d0*(this: GeomEvaluatorSurfaceOfExtrusion; theU: StandardReal;
+        theV: StandardReal; theValue: var Pnt) {.noSideEffect, importcpp: "D0",
     header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
-proc dn*(this: GeomEvaluatorSurfaceOfExtrusion; theU: float; theV: float; theDerU: int;
-        theDerV: int): Vec {.noSideEffect, importcpp: "DN",
-                          header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
+proc d1*(this: GeomEvaluatorSurfaceOfExtrusion; theU: StandardReal;
+        theV: StandardReal; theValue: var Pnt; theD1U: var Vec; theD1V: var Vec) {.
+    noSideEffect, importcpp: "D1", header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
+proc d2*(this: GeomEvaluatorSurfaceOfExtrusion; theU: StandardReal;
+        theV: StandardReal; theValue: var Pnt; theD1U: var Vec; theD1V: var Vec;
+        theD2U: var Vec; theD2V: var Vec; theD2UV: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
+proc d3*(this: GeomEvaluatorSurfaceOfExtrusion; theU: StandardReal;
+        theV: StandardReal; theValue: var Pnt; theD1U: var Vec; theD1V: var Vec;
+        theD2U: var Vec; theD2V: var Vec; theD2UV: var Vec; theD3U: var Vec;
+        theD3V: var Vec; theD3UUV: var Vec; theD3UVV: var Vec) {.noSideEffect,
+    importcpp: "D3", header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
+proc dn*(this: GeomEvaluatorSurfaceOfExtrusion; theU: StandardReal;
+        theV: StandardReal; theDerU: int; theDerV: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
 type
   GeomEvaluatorSurfaceOfExtrusionbaseType* = GeomEvaluatorSurface
 
@@ -64,5 +65,4 @@ proc dynamicType*(this: GeomEvaluatorSurfaceOfExtrusion): Handle[StandardType] {
     header: "GeomEvaluator_SurfaceOfExtrusion.hxx".}
 discard "forward decl of GeomEvaluator_SurfaceOfExtrusion"
 type
-  HandleGeomEvaluatorSurfaceOfExtrusion* = Handle[GeomEvaluatorSurfaceOfExtrusion]
-
+  HandleC1C1* = Handle[GeomEvaluatorSurfaceOfExtrusion]

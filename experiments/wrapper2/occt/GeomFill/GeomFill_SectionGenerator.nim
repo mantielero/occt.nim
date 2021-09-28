@@ -23,6 +23,24 @@ type
                              header: "GeomFill_SectionGenerator.hxx", bycopy.} = object of GeomFillProfiler
 
 
+proc `new`*(this: var GeomFillSectionGenerator; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_SectionGenerator::operator new",
+    header: "GeomFill_SectionGenerator.hxx".}
+proc `delete`*(this: var GeomFillSectionGenerator; theAddress: pointer) {.
+    importcpp: "GeomFill_SectionGenerator::operator delete",
+    header: "GeomFill_SectionGenerator.hxx".}
+proc `new[]`*(this: var GeomFillSectionGenerator; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_SectionGenerator::operator new[]",
+    header: "GeomFill_SectionGenerator.hxx".}
+proc `delete[]`*(this: var GeomFillSectionGenerator; theAddress: pointer) {.
+    importcpp: "GeomFill_SectionGenerator::operator delete[]",
+    header: "GeomFill_SectionGenerator.hxx".}
+proc `new`*(this: var GeomFillSectionGenerator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_SectionGenerator::operator new",
+    header: "GeomFill_SectionGenerator.hxx".}
+proc `delete`*(this: var GeomFillSectionGenerator; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_SectionGenerator::operator delete",
+    header: "GeomFill_SectionGenerator.hxx".}
 proc constructGeomFillSectionGenerator*(): GeomFillSectionGenerator {.constructor,
     importcpp: "GeomFill_SectionGenerator(@)",
     header: "GeomFill_SectionGenerator.hxx".}
@@ -39,10 +57,10 @@ proc mults*(this: GeomFillSectionGenerator; tMults: var TColStdArray1OfInteger) 
 proc section*(this: GeomFillSectionGenerator; p: int; poles: var TColgpArray1OfPnt;
              dPoles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
              dPoles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
-             dWeigths: var TColStdArray1OfReal): bool {.noSideEffect,
+             dWeigths: var TColStdArray1OfReal): StandardBoolean {.noSideEffect,
     importcpp: "Section", header: "GeomFill_SectionGenerator.hxx".}
 proc section*(this: GeomFillSectionGenerator; p: int; poles: var TColgpArray1OfPnt;
              poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "Section", header: "GeomFill_SectionGenerator.hxx".}
-proc parameter*(this: GeomFillSectionGenerator; p: int): float {.noSideEffect,
+proc parameter*(this: GeomFillSectionGenerator; p: int): StandardReal {.noSideEffect,
     importcpp: "Parameter", header: "GeomFill_SectionGenerator.hxx".}

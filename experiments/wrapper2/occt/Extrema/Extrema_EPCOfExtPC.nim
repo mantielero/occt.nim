@@ -30,33 +30,58 @@ type
 
 proc constructExtremaEPCOfExtPC*(): ExtremaEPCOfExtPC {.constructor,
     importcpp: "Extrema_EPCOfExtPC(@)", header: "Extrema_EPCOfExtPC.hxx".}
-proc constructExtremaEPCOfExtPC*(p: Pnt; c: Adaptor3dCurve; nbU: int; tolU: float;
-                                tolF: float): ExtremaEPCOfExtPC {.constructor,
+proc constructExtremaEPCOfExtPC*(p: Pnt; c: Adaptor3dCurve; nbU: cint; tolU: cfloat;
+                                tolF: cfloat): ExtremaEPCOfExtPC {.constructor,
     importcpp: "Extrema_EPCOfExtPC(@)", header: "Extrema_EPCOfExtPC.hxx".}
-proc constructExtremaEPCOfExtPC*(p: Pnt; c: Adaptor3dCurve; nbU: int; umin: float;
-                                usup: float; tolU: float; tolF: float): ExtremaEPCOfExtPC {.
+proc constructExtremaEPCOfExtPC*(p: Pnt; c: Adaptor3dCurve; nbU: cint; umin: cfloat;
+                                usup: cfloat; tolU: cfloat; tolF: cfloat): ExtremaEPCOfExtPC {.
     constructor, importcpp: "Extrema_EPCOfExtPC(@)",
     header: "Extrema_EPCOfExtPC.hxx".}
-proc initialize*(this: var ExtremaEPCOfExtPC; c: Adaptor3dCurve; nbU: int; tolU: float;
-                tolF: float) {.importcpp: "Initialize",
-                             header: "Extrema_EPCOfExtPC.hxx".}
-proc initialize*(this: var ExtremaEPCOfExtPC; c: Adaptor3dCurve; nbU: int; umin: float;
-                usup: float; tolU: float; tolF: float) {.importcpp: "Initialize",
+proc initialize*(this: var ExtremaEPCOfExtPC; c: Adaptor3dCurve; nbU: cint;
+                tolU: cfloat; tolF: cfloat) {.importcpp: "Initialize",
     header: "Extrema_EPCOfExtPC.hxx".}
+proc initialize*(this: var ExtremaEPCOfExtPC; c: Adaptor3dCurve; nbU: cint;
+                umin: cfloat; usup: cfloat; tolU: cfloat; tolF: cfloat) {.
+    importcpp: "Initialize", header: "Extrema_EPCOfExtPC.hxx".}
 proc initialize*(this: var ExtremaEPCOfExtPC; c: Adaptor3dCurve) {.
     importcpp: "Initialize", header: "Extrema_EPCOfExtPC.hxx".}
-proc initialize*(this: var ExtremaEPCOfExtPC; nbU: int; umin: float; usup: float;
-                tolU: float; tolF: float) {.importcpp: "Initialize",
-                                        header: "Extrema_EPCOfExtPC.hxx".}
+proc initialize*(this: var ExtremaEPCOfExtPC; nbU: cint; umin: cfloat; usup: cfloat;
+                tolU: cfloat; tolF: cfloat) {.importcpp: "Initialize",
+    header: "Extrema_EPCOfExtPC.hxx".}
 proc perform*(this: var ExtremaEPCOfExtPC; p: Pnt) {.importcpp: "Perform",
     header: "Extrema_EPCOfExtPC.hxx".}
 proc isDone*(this: ExtremaEPCOfExtPC): bool {.noSideEffect, importcpp: "IsDone",
     header: "Extrema_EPCOfExtPC.hxx".}
-proc nbExt*(this: ExtremaEPCOfExtPC): int {.noSideEffect, importcpp: "NbExt",
-                                        header: "Extrema_EPCOfExtPC.hxx".}
-proc squareDistance*(this: ExtremaEPCOfExtPC; n: int): float {.noSideEffect,
-    importcpp: "SquareDistance", header: "Extrema_EPCOfExtPC.hxx".}
-proc isMin*(this: ExtremaEPCOfExtPC; n: int): bool {.noSideEffect, importcpp: "IsMin",
+proc nbExt*(this: ExtremaEPCOfExtPC): cint {.noSideEffect, importcpp: "NbExt",
     header: "Extrema_EPCOfExtPC.hxx".}
-proc point*(this: ExtremaEPCOfExtPC; n: int): ExtremaPOnCurv {.noSideEffect,
+proc squareDistance*(this: ExtremaEPCOfExtPC; n: cint): cfloat {.noSideEffect,
+    importcpp: "SquareDistance", header: "Extrema_EPCOfExtPC.hxx".}
+proc isMin*(this: ExtremaEPCOfExtPC; n: cint): bool {.noSideEffect, importcpp: "IsMin",
+    header: "Extrema_EPCOfExtPC.hxx".}
+proc point*(this: ExtremaEPCOfExtPC; n: cint): ExtremaPOnCurv {.noSideEffect,
     importcpp: "Point", header: "Extrema_EPCOfExtPC.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

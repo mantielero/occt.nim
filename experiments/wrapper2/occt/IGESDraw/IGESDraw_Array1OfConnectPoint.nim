@@ -17,3 +17,28 @@
 type
   IGESDrawArray1OfConnectPoint* = NCollectionArray1[Handle[IGESDrawConnectPoint]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

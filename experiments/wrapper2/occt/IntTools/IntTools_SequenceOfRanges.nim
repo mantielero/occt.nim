@@ -16,3 +16,28 @@
 type
   IntToolsSequenceOfRanges* = NCollectionSequence[IntToolsRange]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ type
 proc constructRWStepGeomRWConic*(): RWStepGeomRWConic {.constructor,
     importcpp: "RWStepGeom_RWConic(@)", header: "RWStepGeom_RWConic.hxx".}
 proc readStep*(this: RWStepGeomRWConic; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomConic]) {.
+              num: cint; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomConic]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWConic.hxx".}
 proc writeStep*(this: RWStepGeomRWConic; sw: var StepDataStepWriter;
                ent: Handle[StepGeomConic]) {.noSideEffect, importcpp: "WriteStep",
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepGeomRWConic; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWConic; ent: Handle[StepGeomConic];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWConic.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,32 @@
 proc chFiKPartMakeFillet*(dStr: var TopOpeBRepDS_DataStructure;
                          data: Handle[ChFiDS_SurfData]; pl1: Pln; pl2: Pln;
                          or1: TopAbsOrientation; or2: TopAbsOrientation;
-                         radius: float; spine: Lin; first: float;
+                         radius: cfloat; spine: Lin; first: cfloat;
                          of1: TopAbsOrientation): bool {.
     importcpp: "ChFiKPart_MakeFillet(@)",
     header: "ChFiKPart_ComputeData_FilPlnPln.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

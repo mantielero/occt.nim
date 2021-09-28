@@ -19,7 +19,7 @@ discard "forward decl of StepData_Described"
 discard "forward decl of StepData_ECDescr"
 discard "forward decl of StepData_ECDescr"
 type
-  HandleStepDataECDescr* = Handle[StepDataECDescr]
+  HandleC1C1* = Handle[StepDataECDescr]
 
 ## ! Describes a Complex Entity (Plex) as a list of Simple ones
 
@@ -32,10 +32,10 @@ proc constructStepDataECDescr*(): StepDataECDescr {.constructor,
     importcpp: "StepData_ECDescr(@)", header: "StepData_ECDescr.hxx".}
 proc add*(this: var StepDataECDescr; member: Handle[StepDataESDescr]) {.
     importcpp: "Add", header: "StepData_ECDescr.hxx".}
-proc nbMembers*(this: StepDataECDescr): int {.noSideEffect, importcpp: "NbMembers",
+proc nbMembers*(this: StepDataECDescr): cint {.noSideEffect, importcpp: "NbMembers",
     header: "StepData_ECDescr.hxx".}
-proc member*(this: StepDataECDescr; num: int): Handle[StepDataESDescr] {.noSideEffect,
-    importcpp: "Member", header: "StepData_ECDescr.hxx".}
+proc member*(this: StepDataECDescr; num: cint): Handle[StepDataESDescr] {.
+    noSideEffect, importcpp: "Member", header: "StepData_ECDescr.hxx".}
 proc typeList*(this: StepDataECDescr): Handle[TColStdHSequenceOfAsciiString] {.
     noSideEffect, importcpp: "TypeList", header: "StepData_ECDescr.hxx".}
 proc matches*(this: StepDataECDescr; steptype: StandardCString): bool {.noSideEffect,
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_ECDescr.hxx".}
 proc dynamicType*(this: StepDataECDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_ECDescr.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

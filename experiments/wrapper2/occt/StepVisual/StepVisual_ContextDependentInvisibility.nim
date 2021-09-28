@@ -18,8 +18,7 @@ discard "forward decl of StepVisual_InvisibilityContext"
 discard "forward decl of StepVisual_ContextDependentInvisibility"
 discard "forward decl of StepVisual_ContextDependentInvisibility"
 type
-  HandleStepVisualContextDependentInvisibility* = Handle[
-      StepVisualContextDependentInvisibility]
+  HandleC1C1* = Handle[StepVisualContextDependentInvisibility]
   StepVisualContextDependentInvisibility* {.
       importcpp: "StepVisual_ContextDependentInvisibility",
       header: "StepVisual_ContextDependentInvisibility.hxx", bycopy.} = object of StepVisualInvisibility ##
@@ -52,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Context
 proc dynamicType*(this: StepVisualContextDependentInvisibility): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_ContextDependentInvisibility.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

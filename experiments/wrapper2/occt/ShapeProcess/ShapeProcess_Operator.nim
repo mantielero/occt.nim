@@ -17,7 +17,7 @@ discard "forward decl of ShapeProcess_Context"
 discard "forward decl of ShapeProcess_Operator"
 discard "forward decl of ShapeProcess_Operator"
 type
-  HandleShapeProcessOperator* = Handle[ShapeProcessOperator]
+  HandleC1C1* = Handle[ShapeProcessOperator]
 
 ## ! Abstract Operator class providing a tool to
 ## ! perform an operation on Context
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeProcess_Operator.hxx".}
 proc dynamicType*(this: ShapeProcessOperator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeProcess_Operator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

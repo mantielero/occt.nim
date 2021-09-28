@@ -54,5 +54,30 @@ proc ownCopy*(this: IGESSolidToolEdgeList; entfrom: Handle[IGESSolidEdgeList];
              entto: Handle[IGESSolidEdgeList]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolEdgeList.hxx".}
 proc ownDump*(this: IGESSolidToolEdgeList; ent: Handle[IGESSolidEdgeList];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolEdgeList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

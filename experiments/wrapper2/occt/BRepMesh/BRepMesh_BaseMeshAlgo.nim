@@ -96,3 +96,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_BaseMeshAlgo.hxx".}
 proc dynamicType*(this: BRepMeshBaseMeshAlgo): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_BaseMeshAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepDimTol_ToleranceZone"
 discard "forward decl of StepDimTol_ToleranceZone"
 type
-  HandleStepDimTolToleranceZone* = Handle[StepDimTolToleranceZone]
+  HandleC1C1* = Handle[StepDimTolToleranceZone]
 
 ## ! Representation of STEP entity ToleranceZone
 
@@ -50,12 +50,12 @@ proc definingTolerance*(this: StepDimTolToleranceZone): Handle[
 proc setDefiningTolerance*(this: var StepDimTolToleranceZone; theDefiningTolerance: Handle[
     StepDimTolHArray1OfToleranceZoneTarget]) {.importcpp: "SetDefiningTolerance",
     header: "StepDimTol_ToleranceZone.hxx".}
-proc nbDefiningTolerances*(this: StepDimTolToleranceZone): int {.noSideEffect,
+proc nbDefiningTolerances*(this: StepDimTolToleranceZone): cint {.noSideEffect,
     importcpp: "NbDefiningTolerances", header: "StepDimTol_ToleranceZone.hxx".}
-proc definingToleranceValue*(this: StepDimTolToleranceZone; theNum: int): StepDimTolToleranceZoneTarget {.
+proc definingToleranceValue*(this: StepDimTolToleranceZone; theNum: cint): StepDimTolToleranceZoneTarget {.
     noSideEffect, importcpp: "DefiningToleranceValue",
     header: "StepDimTol_ToleranceZone.hxx".}
-proc setDefiningToleranceValue*(this: var StepDimTolToleranceZone; theNum: int;
+proc setDefiningToleranceValue*(this: var StepDimTolToleranceZone; theNum: cint;
                                theItem: StepDimTolToleranceZoneTarget) {.
     importcpp: "SetDefiningToleranceValue", header: "StepDimTol_ToleranceZone.hxx".}
 proc form*(this: var StepDimTolToleranceZone): Handle[StepDimTolToleranceZoneForm] {.
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepDimTol_ToleranceZone.hxx".}
 proc dynamicType*(this: StepDimTolToleranceZone): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepDimTol_ToleranceZone.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

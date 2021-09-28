@@ -47,7 +47,7 @@ type
   StdObjMgtAttributeSingleInt*[Transient] {.
       importcpp: "StdObjMgt_Attribute<\'0>::SingleInt",
       header: "StdObjMgt_Attribute.hxx", bycopy.} = object of StdObjMgtAttributeSimple[
-      int]
+      cint]
 
   StdObjMgtAttributeSingleRef*[Transient] {.
       importcpp: "StdObjMgt_Attribute<\'0>::SingleRef",
@@ -58,3 +58,28 @@ type
 proc instantiate*[Transient; Persistent](): Handle[StdObjMgtPersistent] {.
     importcpp: "StdObjMgt_Attribute::Instantiate(@)",
     header: "StdObjMgt_Attribute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

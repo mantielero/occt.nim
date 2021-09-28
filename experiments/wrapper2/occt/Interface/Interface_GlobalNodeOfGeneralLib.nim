@@ -14,43 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_GeneralModule"
+## !!!Ignored construct:  # _Interface_GlobalNodeOfGeneralLib_HeaderFile [NewLine] # _Interface_GlobalNodeOfGeneralLib_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] class Interface_GeneralModule ;
+## Error: expected ';'!!!
+
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_GeneralLib"
 discard "forward decl of Interface_NodeOfGeneralLib"
 discard "forward decl of Interface_GlobalNodeOfGeneralLib"
-discard "forward decl of Interface_GlobalNodeOfGeneralLib"
-type
-  HandleInterfaceGlobalNodeOfGeneralLib* = Handle[InterfaceGlobalNodeOfGeneralLib]
-  InterfaceGlobalNodeOfGeneralLib* {.importcpp: "Interface_GlobalNodeOfGeneralLib", header: "Interface_GlobalNodeOfGeneralLib.hxx",
-                                    bycopy.} = object of StandardTransient ## ! Creates an empty
-                                                                      ## GlobalNode, with no Next
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Interface_GlobalNodeOfGeneralLib , Standard_Transient ) class Interface_GlobalNodeOfGeneralLib : public Standard_Transient { public : ! Creates an empty GlobalNode, with no Next Interface_GlobalNodeOfGeneralLib ( ) ; ! Adds a Module bound with a Protocol to the list : does
+## ! nothing if already in the list, THAT IS, Same Type (exact
+## ! match) and Same State (that is, IsEqual is not required)
+## ! Once added, stores its attached Protocol in correspondance void Add ( const Handle ( Interface_GeneralModule ) & amodule , const Handle ( Interface_Protocol ) & aprotocol ) ; ! Returns the Module stored in a given GlobalNode const Handle ( Interface_GeneralModule ) & Module ( ) const ; ! Returns the attached Protocol stored in a given GlobalNode const Handle ( Interface_Protocol ) & Protocol ( ) const ; ! Returns the Next GlobalNode. If none is defined, returned
+## ! value is a Null Handle const Handle ( Interface_GlobalNodeOfGeneralLib ) & Next ( ) const ; public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return Interface_GlobalNodeOfGeneralLib ; ( Interface_GlobalNodeOfGeneralLib , Standard_Transient ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < Interface_GlobalNodeOfGeneralLib > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : private : Handle ( Interface_GeneralModule ) themod ; Handle ( Interface_Protocol ) theprot ; Handle ( Interface_GlobalNodeOfGeneralLib ) thenext ; } ;
+## Error: expected ';'!!!
 
 
-proc constructInterfaceGlobalNodeOfGeneralLib*(): InterfaceGlobalNodeOfGeneralLib {.
-    constructor, importcpp: "Interface_GlobalNodeOfGeneralLib(@)",
-    header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc add*(this: var InterfaceGlobalNodeOfGeneralLib;
-         amodule: Handle[InterfaceGeneralModule];
-         aprotocol: Handle[InterfaceProtocol]) {.importcpp: "Add",
-    header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc module*(this: InterfaceGlobalNodeOfGeneralLib): Handle[InterfaceGeneralModule] {.
-    noSideEffect, importcpp: "Module",
-    header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc protocol*(this: InterfaceGlobalNodeOfGeneralLib): Handle[InterfaceProtocol] {.
-    noSideEffect, importcpp: "Protocol",
-    header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc next*(this: InterfaceGlobalNodeOfGeneralLib): Handle[
-    InterfaceGlobalNodeOfGeneralLib] {.noSideEffect, importcpp: "Next", header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-type
-  InterfaceGlobalNodeOfGeneralLibbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Interface_GlobalNodeOfGeneralLib::get_type_name(@)",
-                            header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Interface_GlobalNodeOfGeneralLib::get_type_descriptor(@)",
-    header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc dynamicType*(this: InterfaceGlobalNodeOfGeneralLib): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "Interface_GlobalNodeOfGeneralLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

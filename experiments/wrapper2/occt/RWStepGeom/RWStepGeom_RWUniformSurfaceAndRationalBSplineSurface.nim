@@ -30,7 +30,7 @@ proc constructRWStepGeomRWUniformSurfaceAndRationalBSplineSurface*(): RWStepGeom
     importcpp: "RWStepGeom_RWUniformSurfaceAndRationalBSplineSurface(@)",
     header: "RWStepGeom_RWUniformSurfaceAndRationalBSplineSurface.hxx".}
 proc readStep*(this: RWStepGeomRWUniformSurfaceAndRationalBSplineSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomUniformSurfaceAndRationalBSplineSurface]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepGeomRWUniformSurfaceAndRationalBSplineSurface;
            ent: Handle[StepGeomUniformSurfaceAndRationalBSplineSurface];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWUniformSurfaceAndRationalBSplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

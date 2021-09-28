@@ -66,3 +66,28 @@ proc compareElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shap
     importcpp: "CompareElement", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildWireEdgeClassifier): TopAbsState {.
     importcpp: "State", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

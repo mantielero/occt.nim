@@ -16,3 +16,28 @@ type
   BOPDS_MapOfPave* = NCollectionMap[BOPDS_Pave, BOPDS_PaveMapHasher]
   BOPDS_MapIteratorOfMapOfPave* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

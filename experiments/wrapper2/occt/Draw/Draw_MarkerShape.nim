@@ -23,3 +23,28 @@ type
     DrawSquare, DrawLosange, DrawX, DrawPlus, DrawCircle, DrawCircleZoom
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

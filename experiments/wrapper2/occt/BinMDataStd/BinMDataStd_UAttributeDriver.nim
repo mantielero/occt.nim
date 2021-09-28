@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_UAttributeDriver"
 discard "forward decl of BinMDataStd_UAttributeDriver"
 type
-  HandleBinMDataStdUAttributeDriver* = Handle[BinMDataStdUAttributeDriver]
+  HandleC1C1* = Handle[BinMDataStdUAttributeDriver]
 
 ## ! Attribute Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdUAttributeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_UAttributeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

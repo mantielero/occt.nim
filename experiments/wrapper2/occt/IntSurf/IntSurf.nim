@@ -35,5 +35,30 @@ proc makeTransition*(tgFirst: Vec; tgSecond: Vec; normal: Dir;
     importcpp: "IntSurf::MakeTransition(@)", header: "IntSurf.hxx".}
 proc setPeriod*(theFirstSurf: Handle[Adaptor3dHSurface];
                theSecondSurf: Handle[Adaptor3dHSurface];
-               theArrOfPeriod: array[4, float]) {.
+               theArrOfPeriod: array[4, cfloat]) {.
     importcpp: "IntSurf::SetPeriod(@)", header: "IntSurf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,32 @@
 
 type
   InterfaceDataMapOfTransientInteger* = NCollectionDataMap[
-      Handle[StandardTransient], int, TColStdMapTransientHasher]
+      Handle[StandardTransient], cint, TColStdMapTransientHasher]
   InterfaceDataMapIteratorOfDataMapOfTransientInteger* = Iterator[
-      Handle[StandardTransient], int, TColStdMapTransientHasher]
+      Handle[StandardTransient], cint, TColStdMapTransientHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

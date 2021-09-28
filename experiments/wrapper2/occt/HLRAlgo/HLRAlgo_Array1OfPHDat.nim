@@ -17,3 +17,28 @@
 type
   HLRAlgoArray1OfPHDat* = NCollectionArray1[HLRAlgoPolyHidingData]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

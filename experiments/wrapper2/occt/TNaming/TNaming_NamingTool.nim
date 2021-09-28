@@ -33,3 +33,28 @@ proc currentShapeFromShape*(valid: TDF_LabelMap; forbiden: TDF_LabelMap;
 proc buildDescendants*(ns: Handle[TNamingNamedShape]; labels: var TDF_LabelMap) {.
     importcpp: "TNaming_NamingTool::BuildDescendants(@)",
     header: "TNaming_NamingTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

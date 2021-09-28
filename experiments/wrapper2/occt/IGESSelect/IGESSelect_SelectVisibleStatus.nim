@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectVisibleStatus"
 discard "forward decl of IGESSelect_SelectVisibleStatus"
 type
-  HandleIGESSelectSelectVisibleStatus* = Handle[IGESSelectSelectVisibleStatus]
+  HandleC1C1* = Handle[IGESSelectSelectVisibleStatus]
 
 ## ! This selection looks at Blank Status of IGES Entities
 ## ! Direct  selection keeps Visible Entities (Blank = 0),
@@ -36,7 +36,7 @@ type
 proc constructIGESSelectSelectVisibleStatus*(): IGESSelectSelectVisibleStatus {.
     constructor, importcpp: "IGESSelect_SelectVisibleStatus(@)",
     header: "IGESSelect_SelectVisibleStatus.hxx".}
-proc sort*(this: IGESSelectSelectVisibleStatus; rank: int;
+proc sort*(this: IGESSelectSelectVisibleStatus; rank: cint;
           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Sort", header: "IGESSelect_SelectVisibleStatus.hxx".}
 proc extractLabel*(this: IGESSelectSelectVisibleStatus): TCollectionAsciiString {.
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSelectVisibleStatus): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectVisibleStatus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

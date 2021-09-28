@@ -25,15 +25,40 @@ type
 
 proc constructIntToolsRange*(): IntToolsRange {.constructor,
     importcpp: "IntTools_Range(@)", header: "IntTools_Range.hxx".}
-proc constructIntToolsRange*(aFirst: float; aLast: float): IntToolsRange {.
+proc constructIntToolsRange*(aFirst: cfloat; aLast: cfloat): IntToolsRange {.
     constructor, importcpp: "IntTools_Range(@)", header: "IntTools_Range.hxx".}
-proc setFirst*(this: var IntToolsRange; aFirst: float) {.importcpp: "SetFirst",
+proc setFirst*(this: var IntToolsRange; aFirst: cfloat) {.importcpp: "SetFirst",
     header: "IntTools_Range.hxx".}
-proc setLast*(this: var IntToolsRange; aLast: float) {.importcpp: "SetLast",
+proc setLast*(this: var IntToolsRange; aLast: cfloat) {.importcpp: "SetLast",
     header: "IntTools_Range.hxx".}
-proc first*(this: IntToolsRange): float {.noSideEffect, importcpp: "First",
+proc first*(this: IntToolsRange): cfloat {.noSideEffect, importcpp: "First",
+                                       header: "IntTools_Range.hxx".}
+proc last*(this: IntToolsRange): cfloat {.noSideEffect, importcpp: "Last",
                                       header: "IntTools_Range.hxx".}
-proc last*(this: IntToolsRange): float {.noSideEffect, importcpp: "Last",
-                                     header: "IntTools_Range.hxx".}
-proc range*(this: IntToolsRange; aFirst: var float; aLast: var float) {.noSideEffect,
+proc range*(this: IntToolsRange; aFirst: var cfloat; aLast: var cfloat) {.noSideEffect,
     importcpp: "Range", header: "IntTools_Range.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

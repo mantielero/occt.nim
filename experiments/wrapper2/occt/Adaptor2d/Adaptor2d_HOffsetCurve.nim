@@ -15,46 +15,62 @@
 ##  commercial license or contractual agreement.
 
 ## !!!Ignored construct:  # _Adaptor2d_HOffsetCurve_HeaderFile [NewLine] # _Adaptor2d_HOffsetCurve_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Adaptor2d_OffsetCurve . hxx > [NewLine] # < Adaptor2d_HCurve2d . hxx > [NewLine] class Standard_OutOfRange ;
-## Error: did not expect <!!!
+## Error: expected ';'!!!
 
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Adaptor2d_OffsetCurve"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Adaptor2d_HOffsetCurve"
-discard "forward decl of Adaptor2d_HOffsetCurve"
-type
-  HandleAdaptor2dHOffsetCurveAdaptor2dHOffsetCurve* = Handle[Adaptor2dHOffsetCurve]
-  Adaptor2dHOffsetCurve* {.importcpp: "Adaptor2d_HOffsetCurve",
-                          header: "Adaptor2d_HOffsetCurve.hxx", bycopy.} = object of Adaptor2dHCurve2d ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## an
-                                                                                                ## empty
-                                                                                                ## GenHCurve2d.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Adaptor2d_HOffsetCurve , Adaptor2d_HCurve2d ) class Adaptor2d_HOffsetCurve : public Adaptor2d_HCurve2d { public : ! Creates an empty GenHCurve2d. Adaptor2d_HOffsetCurve ( ) ; ! Creates a GenHCurve2d from a Curve Adaptor2d_HOffsetCurve ( const Adaptor2d_OffsetCurve & C ) ; ! Sets the field of the GenHCurve2d. void Set ( const Adaptor2d_OffsetCurve & C ) ; ! Returns the curve used to create the GenHCurve2d.
+## ! This is redefined from HCurve2d, cannot be inline. const Adaptor2d_Curve2d & Curve2d ( ) const ; ! Returns the curve used to create the GenHCurve. Adaptor2d_OffsetCurve & ChangeCurve2d ( ) ; public : typedef Adaptor2d_HCurve2d base_type ; static const char * get_type_name ( ) { return Adaptor2d_HOffsetCurve ; ( Adaptor2d_HOffsetCurve , Adaptor2d_HCurve2d ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < Adaptor2d_HOffsetCurve > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : Adaptor2d_OffsetCurve myCurve ; private : } ;
+## Error: expected ';'!!!
 
-
-proc constructAdaptor2dHOffsetCurve*(): Adaptor2dHOffsetCurve {.constructor,
-    importcpp: "Adaptor2d_HOffsetCurve(@)", header: "Adaptor2d_HOffsetCurve.hxx".}
-proc constructAdaptor2dHOffsetCurve*(c: Adaptor2dOffsetCurve): Adaptor2dHOffsetCurve {.
-    constructor, importcpp: "Adaptor2d_HOffsetCurve(@)",
-    header: "Adaptor2d_HOffsetCurve.hxx".}
-proc set*(this: var Adaptor2dHOffsetCurve; c: Adaptor2dOffsetCurve) {.
-    importcpp: "Set", header: "Adaptor2d_HOffsetCurve.hxx".}
-proc curve2d*(this: Adaptor2dHOffsetCurve): Adaptor2dCurve2d {.noSideEffect,
-    importcpp: "Curve2d", header: "Adaptor2d_HOffsetCurve.hxx".}
-proc changeCurve2d*(this: var Adaptor2dHOffsetCurve): var Adaptor2dOffsetCurve {.
-    importcpp: "ChangeCurve2d", header: "Adaptor2d_HOffsetCurve.hxx".}
-type
-  Adaptor2dHOffsetCurvebaseType* = Adaptor2dHCurve2d
-
-proc getTypeName*(): cstring {.importcpp: "Adaptor2d_HOffsetCurve::get_type_name(@)",
-                            header: "Adaptor2d_HOffsetCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Adaptor2d_HOffsetCurve::get_type_descriptor(@)",
-    header: "Adaptor2d_HOffsetCurve.hxx".}
-proc dynamicType*(this: Adaptor2dHOffsetCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Adaptor2d_HOffsetCurve.hxx".}
-## !!!Ignored construct:  # TheCurve Adaptor2d_OffsetCurve [NewLine] # TheCurve_hxx < Adaptor2d_OffsetCurve . hxx > [NewLine] # Adaptor2d_GenHCurve2d Adaptor2d_HOffsetCurve [NewLine] # Adaptor2d_GenHCurve2d_hxx < Adaptor2d_HOffsetCurve . hxx > [NewLine] # Handle_Adaptor2d_GenHCurve2d opencascade :: handle < Adaptor2d_HOffsetCurve > [end of template] [NewLine] # < Adaptor2d_GenHCurve2d . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor2d_GenHCurve2d [NewLine] # Adaptor2d_GenHCurve2d_hxx [NewLine] # Handle_Adaptor2d_GenHCurve2d [NewLine] #  _Adaptor2d_HOffsetCurve_HeaderFile
+## !!!Ignored construct:  # TheCurve Adaptor2d_OffsetCurve [NewLine] # TheCurve_hxx < Adaptor2d_OffsetCurve . hxx > [NewLine] # Adaptor2d_GenHCurve2d Adaptor2d_HOffsetCurve [NewLine] # Adaptor2d_GenHCurve2d_hxx < Adaptor2d_HOffsetCurve . hxx > [NewLine] # Handle_Adaptor2d_GenHCurve2d Handle ( Adaptor2d_HOffsetCurve ) [NewLine] # < Adaptor2d_GenHCurve2d . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor2d_GenHCurve2d [NewLine] # Adaptor2d_GenHCurve2d_hxx [NewLine] # Handle_Adaptor2d_GenHCurve2d [NewLine] #  _Adaptor2d_HOffsetCurve_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

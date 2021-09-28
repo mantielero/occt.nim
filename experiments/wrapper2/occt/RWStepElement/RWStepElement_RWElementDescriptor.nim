@@ -27,7 +27,7 @@ proc constructRWStepElementRWElementDescriptor*(): RWStepElementRWElementDescrip
     constructor, importcpp: "RWStepElement_RWElementDescriptor(@)",
     header: "RWStepElement_RWElementDescriptor.hxx".}
 proc readStep*(this: RWStepElementRWElementDescriptor;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepElementElementDescriptor]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepElement_RWElementDescriptor.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepElementRWElementDescriptor;
            ent: Handle[StepElementElementDescriptor];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWElementDescriptor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

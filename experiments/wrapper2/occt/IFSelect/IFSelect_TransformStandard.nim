@@ -27,7 +27,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_TransformStandard"
 discard "forward decl of IFSelect_TransformStandard"
 type
-  HandleIFSelectTransformStandard* = Handle[IFSelectTransformStandard]
+  HandleC1C1* = Handle[IFSelectTransformStandard]
 
 ## ! This class runs transformations made by Modifiers, as
 ## ! the ModelCopier does when it produces files (the same set
@@ -80,20 +80,20 @@ proc setSelection*(this: var IFSelectTransformStandard;
     header: "IFSelect_TransformStandard.hxx".}
 proc selection*(this: IFSelectTransformStandard): Handle[IFSelectSelection] {.
     noSideEffect, importcpp: "Selection", header: "IFSelect_TransformStandard.hxx".}
-proc nbModifiers*(this: IFSelectTransformStandard): int {.noSideEffect,
+proc nbModifiers*(this: IFSelectTransformStandard): cint {.noSideEffect,
     importcpp: "NbModifiers", header: "IFSelect_TransformStandard.hxx".}
-proc modifier*(this: IFSelectTransformStandard; num: int): Handle[IFSelectModifier] {.
+proc modifier*(this: IFSelectTransformStandard; num: cint): Handle[IFSelectModifier] {.
     noSideEffect, importcpp: "Modifier", header: "IFSelect_TransformStandard.hxx".}
-proc modifierRank*(this: IFSelectTransformStandard; modif: Handle[IFSelectModifier]): int {.
+proc modifierRank*(this: IFSelectTransformStandard; modif: Handle[IFSelectModifier]): cint {.
     noSideEffect, importcpp: "ModifierRank",
     header: "IFSelect_TransformStandard.hxx".}
 proc addModifier*(this: var IFSelectTransformStandard;
-                 modif: Handle[IFSelectModifier]; atnum: int = 0): bool {.
+                 modif: Handle[IFSelectModifier]; atnum: cint = 0): bool {.
     importcpp: "AddModifier", header: "IFSelect_TransformStandard.hxx".}
 proc removeModifier*(this: var IFSelectTransformStandard;
                     modif: Handle[IFSelectModifier]): bool {.
     importcpp: "RemoveModifier", header: "IFSelect_TransformStandard.hxx".}
-proc removeModifier*(this: var IFSelectTransformStandard; num: int): bool {.
+proc removeModifier*(this: var IFSelectTransformStandard; num: cint): bool {.
     importcpp: "RemoveModifier", header: "IFSelect_TransformStandard.hxx".}
 proc perform*(this: var IFSelectTransformStandard; g: InterfaceGraph;
              protocol: Handle[InterfaceProtocol];
@@ -133,3 +133,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IFSelectTransformStandard): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_TransformStandard.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

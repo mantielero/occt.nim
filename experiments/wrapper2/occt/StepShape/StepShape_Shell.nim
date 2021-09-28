@@ -24,9 +24,34 @@ type
 
 proc constructStepShapeShell*(): StepShapeShell {.constructor,
     importcpp: "StepShape_Shell(@)", header: "StepShape_Shell.hxx".}
-proc caseNum*(this: StepShapeShell; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepShapeShell; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_Shell.hxx".}
 proc openShell*(this: StepShapeShell): Handle[StepShapeOpenShell] {.noSideEffect,
     importcpp: "OpenShell", header: "StepShape_Shell.hxx".}
 proc closedShell*(this: StepShapeShell): Handle[StepShapeClosedShell] {.
     noSideEffect, importcpp: "ClosedShell", header: "StepShape_Shell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

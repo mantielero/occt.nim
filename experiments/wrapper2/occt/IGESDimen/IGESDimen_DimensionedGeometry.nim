@@ -19,7 +19,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDimen_DimensionedGeometry"
 discard "forward decl of IGESDimen_DimensionedGeometry"
 type
-  HandleIGESDimenDimensionedGeometry* = Handle[IGESDimenDimensionedGeometry]
+  HandleC1C1* = Handle[IGESDimenDimensionedGeometry]
 
 ## ! Defines IGES Dimensioned Geometry, Type <402> Form <13>,
 ## ! in package IGESDimen
@@ -36,18 +36,18 @@ type
 proc constructIGESDimenDimensionedGeometry*(): IGESDimenDimensionedGeometry {.
     constructor, importcpp: "IGESDimen_DimensionedGeometry(@)",
     header: "IGESDimen_DimensionedGeometry.hxx".}
-proc init*(this: var IGESDimenDimensionedGeometry; nbDims: int;
+proc init*(this: var IGESDimenDimensionedGeometry; nbDims: cint;
           aDimension: Handle[IGESDataIGESEntity];
           entities: Handle[IGESDataHArray1OfIGESEntity]) {.importcpp: "Init",
     header: "IGESDimen_DimensionedGeometry.hxx".}
-proc nbDimensions*(this: IGESDimenDimensionedGeometry): int {.noSideEffect,
+proc nbDimensions*(this: IGESDimenDimensionedGeometry): cint {.noSideEffect,
     importcpp: "NbDimensions", header: "IGESDimen_DimensionedGeometry.hxx".}
-proc nbGeometryEntities*(this: IGESDimenDimensionedGeometry): int {.noSideEffect,
+proc nbGeometryEntities*(this: IGESDimenDimensionedGeometry): cint {.noSideEffect,
     importcpp: "NbGeometryEntities", header: "IGESDimen_DimensionedGeometry.hxx".}
 proc dimensionEntity*(this: IGESDimenDimensionedGeometry): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "DimensionEntity",
                          header: "IGESDimen_DimensionedGeometry.hxx".}
-proc geometryEntity*(this: IGESDimenDimensionedGeometry; index: int): Handle[
+proc geometryEntity*(this: IGESDimenDimensionedGeometry; index: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "GeometryEntity",
                          header: "IGESDimen_DimensionedGeometry.hxx".}
 type
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDimenDimensionedGeometry): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_DimensionedGeometry.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

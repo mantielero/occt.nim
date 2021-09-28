@@ -44,3 +44,28 @@ proc toUseMeshNameAsFallback*(this: var RWGltfCafReader): bool {.
     importcpp: "ToUseMeshNameAsFallback", header: "RWGltf_CafReader.hxx".}
 proc setMeshNameAsFallback*(this: var RWGltfCafReader; theToFallback: bool) {.
     importcpp: "SetMeshNameAsFallback", header: "RWGltf_CafReader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

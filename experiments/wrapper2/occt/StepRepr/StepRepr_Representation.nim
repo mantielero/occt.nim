@@ -20,7 +20,7 @@ discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_Representation"
 type
-  HandleStepReprRepresentation* = Handle[StepReprRepresentation]
+  HandleC1C1* = Handle[StepReprRepresentation]
   StepReprRepresentation* {.importcpp: "StepRepr_Representation",
                            header: "StepRepr_Representation.hxx", bycopy.} = object of StandardTransient ##
                                                                                                   ## !
@@ -46,10 +46,10 @@ proc setItems*(this: var StepReprRepresentation;
 proc items*(this: StepReprRepresentation): Handle[
     StepReprHArray1OfRepresentationItem] {.noSideEffect, importcpp: "Items",
     header: "StepRepr_Representation.hxx".}
-proc itemsValue*(this: StepReprRepresentation; num: int): Handle[
+proc itemsValue*(this: StepReprRepresentation; num: cint): Handle[
     StepReprRepresentationItem] {.noSideEffect, importcpp: "ItemsValue",
                                  header: "StepRepr_Representation.hxx".}
-proc nbItems*(this: StepReprRepresentation): int {.noSideEffect,
+proc nbItems*(this: StepReprRepresentation): cint {.noSideEffect,
     importcpp: "NbItems", header: "StepRepr_Representation.hxx".}
 proc setContextOfItems*(this: var StepReprRepresentation;
                        aContextOfItems: Handle[StepReprRepresentationContext]) {.
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_Representation.hxx".}
 proc dynamicType*(this: StepReprRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_Representation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

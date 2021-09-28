@@ -22,17 +22,43 @@ type
 proc constructStepVisualDirectionCountSelect*(): StepVisualDirectionCountSelect {.
     constructor, importcpp: "StepVisual_DirectionCountSelect(@)",
     header: "StepVisual_DirectionCountSelect.hxx".}
-proc setTypeOfContent*(this: var StepVisualDirectionCountSelect; aTypeOfContent: int) {.
-    importcpp: "SetTypeOfContent", header: "StepVisual_DirectionCountSelect.hxx".}
-proc typeOfContent*(this: StepVisualDirectionCountSelect): int {.noSideEffect,
+proc setTypeOfContent*(this: var StepVisualDirectionCountSelect;
+                      aTypeOfContent: cint) {.importcpp: "SetTypeOfContent",
+    header: "StepVisual_DirectionCountSelect.hxx".}
+proc typeOfContent*(this: StepVisualDirectionCountSelect): cint {.noSideEffect,
     importcpp: "TypeOfContent", header: "StepVisual_DirectionCountSelect.hxx".}
-proc uDirectionCount*(this: StepVisualDirectionCountSelect): int {.noSideEffect,
+proc uDirectionCount*(this: StepVisualDirectionCountSelect): cint {.noSideEffect,
     importcpp: "UDirectionCount", header: "StepVisual_DirectionCountSelect.hxx".}
 proc setUDirectionCount*(this: var StepVisualDirectionCountSelect;
-                        aUDirectionCount: int) {.importcpp: "SetUDirectionCount",
+                        aUDirectionCount: cint) {.importcpp: "SetUDirectionCount",
     header: "StepVisual_DirectionCountSelect.hxx".}
-proc vDirectionCount*(this: StepVisualDirectionCountSelect): int {.noSideEffect,
+proc vDirectionCount*(this: StepVisualDirectionCountSelect): cint {.noSideEffect,
     importcpp: "VDirectionCount", header: "StepVisual_DirectionCountSelect.hxx".}
 proc setVDirectionCount*(this: var StepVisualDirectionCountSelect;
-                        aUDirectionCount: int) {.importcpp: "SetVDirectionCount",
+                        aUDirectionCount: cint) {.importcpp: "SetVDirectionCount",
     header: "StepVisual_DirectionCountSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

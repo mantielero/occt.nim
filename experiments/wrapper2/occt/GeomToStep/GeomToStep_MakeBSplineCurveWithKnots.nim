@@ -23,6 +23,23 @@ type
                                         bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeBSplineCurveWithKnots; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeBSplineCurveWithKnots::operator new",
+    header: "GeomToStep_MakeBSplineCurveWithKnots.hxx".}
+proc `delete`*(this: var GeomToStepMakeBSplineCurveWithKnots; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeBSplineCurveWithKnots::operator delete",
+    header: "GeomToStep_MakeBSplineCurveWithKnots.hxx".}
+proc `new[]`*(this: var GeomToStepMakeBSplineCurveWithKnots; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeBSplineCurveWithKnots::operator new[]",
+    header: "GeomToStep_MakeBSplineCurveWithKnots.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeBSplineCurveWithKnots; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeBSplineCurveWithKnots::operator delete[]",
+    header: "GeomToStep_MakeBSplineCurveWithKnots.hxx".}
+proc `new`*(this: var GeomToStepMakeBSplineCurveWithKnots; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "GeomToStep_MakeBSplineCurveWithKnots::operator new", header: "GeomToStep_MakeBSplineCurveWithKnots.hxx".}
+proc `delete`*(this: var GeomToStepMakeBSplineCurveWithKnots; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeBSplineCurveWithKnots::operator delete",
+    header: "GeomToStep_MakeBSplineCurveWithKnots.hxx".}
 proc constructGeomToStepMakeBSplineCurveWithKnots*(
     bsplin: Handle[GeomBSplineCurve]): GeomToStepMakeBSplineCurveWithKnots {.
     constructor, importcpp: "GeomToStep_MakeBSplineCurveWithKnots(@)",

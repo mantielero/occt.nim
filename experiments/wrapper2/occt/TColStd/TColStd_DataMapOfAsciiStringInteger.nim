@@ -14,7 +14,32 @@
 
 type
   TColStdDataMapOfAsciiStringInteger* = NCollectionDataMap[TCollectionAsciiString,
-      int, TCollectionAsciiString]
+      cint, TCollectionAsciiString]
   TColStdDataMapIteratorOfDataMapOfAsciiStringInteger* = Iterator[
-      TCollectionAsciiString, int, TCollectionAsciiString]
+      TCollectionAsciiString, cint, TCollectionAsciiString]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

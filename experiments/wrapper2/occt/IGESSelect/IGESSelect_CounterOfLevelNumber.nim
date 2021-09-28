@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESSelect_CounterOfLevelNumber"
 discard "forward decl of IGESSelect_CounterOfLevelNumber"
 type
-  HandleIGESSelectCounterOfLevelNumber* = Handle[IGESSelectCounterOfLevelNumber]
+  HandleC1C1* = Handle[IGESSelectCounterOfLevelNumber]
 
 ## ! This class gives information about Level Number. It counts
 ## ! entities according level number, considering also the
@@ -50,11 +50,11 @@ proc addSign*(this: var IGESSelectCounterOfLevelNumber;
              model: Handle[InterfaceInterfaceModel]) {.importcpp: "AddSign",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
 proc addLevel*(this: var IGESSelectCounterOfLevelNumber;
-              ent: Handle[StandardTransient]; level: int) {.importcpp: "AddLevel",
+              ent: Handle[StandardTransient]; level: cint) {.importcpp: "AddLevel",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc highestLevel*(this: IGESSelectCounterOfLevelNumber): int {.noSideEffect,
+proc highestLevel*(this: IGESSelectCounterOfLevelNumber): cint {.noSideEffect,
     importcpp: "HighestLevel", header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc nbTimesLevel*(this: IGESSelectCounterOfLevelNumber; level: int): int {.
+proc nbTimesLevel*(this: IGESSelectCounterOfLevelNumber; level: cint): cint {.
     noSideEffect, importcpp: "NbTimesLevel",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
 proc levels*(this: IGESSelectCounterOfLevelNumber): Handle[
@@ -77,3 +77,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectCounterOfLevelNumber): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

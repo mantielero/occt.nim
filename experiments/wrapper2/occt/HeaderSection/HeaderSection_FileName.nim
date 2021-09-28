@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of HeaderSection_FileName"
 discard "forward decl of HeaderSection_FileName"
 type
-  HandleHeaderSectionFileName* = Handle[HeaderSectionFileName]
+  HandleC1C1* = Handle[HeaderSectionFileName]
   HeaderSectionFileName* {.importcpp: "HeaderSection_FileName",
                           header: "HeaderSection_FileName.hxx", bycopy.} = object of StandardTransient ##
                                                                                                 ## !
@@ -52,10 +52,10 @@ proc setAuthor*(this: var HeaderSectionFileName;
     importcpp: "SetAuthor", header: "HeaderSection_FileName.hxx".}
 proc author*(this: HeaderSectionFileName): Handle[InterfaceHArray1OfHAsciiString] {.
     noSideEffect, importcpp: "Author", header: "HeaderSection_FileName.hxx".}
-proc authorValue*(this: HeaderSectionFileName; num: int): Handle[
+proc authorValue*(this: HeaderSectionFileName; num: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "AuthorValue",
                               header: "HeaderSection_FileName.hxx".}
-proc nbAuthor*(this: HeaderSectionFileName): int {.noSideEffect,
+proc nbAuthor*(this: HeaderSectionFileName): cint {.noSideEffect,
     importcpp: "NbAuthor", header: "HeaderSection_FileName.hxx".}
 proc setOrganization*(this: var HeaderSectionFileName;
                      aOrganization: Handle[InterfaceHArray1OfHAsciiString]) {.
@@ -63,10 +63,10 @@ proc setOrganization*(this: var HeaderSectionFileName;
 proc organization*(this: HeaderSectionFileName): Handle[
     InterfaceHArray1OfHAsciiString] {.noSideEffect, importcpp: "Organization",
                                      header: "HeaderSection_FileName.hxx".}
-proc organizationValue*(this: HeaderSectionFileName; num: int): Handle[
+proc organizationValue*(this: HeaderSectionFileName; num: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "OrganizationValue",
                               header: "HeaderSection_FileName.hxx".}
-proc nbOrganization*(this: HeaderSectionFileName): int {.noSideEffect,
+proc nbOrganization*(this: HeaderSectionFileName): cint {.noSideEffect,
     importcpp: "NbOrganization", header: "HeaderSection_FileName.hxx".}
 proc setPreprocessorVersion*(this: var HeaderSectionFileName; aPreprocessorVersion: Handle[
     TCollectionHAsciiString]) {.importcpp: "SetPreprocessorVersion",
@@ -95,3 +95,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HeaderSection_FileName.hxx".}
 proc dynamicType*(this: HeaderSectionFileName): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HeaderSection_FileName.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

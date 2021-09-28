@@ -59,16 +59,41 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Graphic3d_ArrayOfPoints.hxx".}
 proc dynamicType*(this: Graphic3dArrayOfPoints): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_ArrayOfPoints.hxx".}
-proc constructGraphic3dArrayOfPoints*(theMaxVertexs: int;
+proc constructGraphic3dArrayOfPoints*(theMaxVertexs: cint;
                                      theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfPoints {.
     constructor, importcpp: "Graphic3d_ArrayOfPoints(@)",
     header: "Graphic3d_ArrayOfPoints.hxx".}
-proc constructGraphic3dArrayOfPoints*(theMaxVertexs: int;
+proc constructGraphic3dArrayOfPoints*(theMaxVertexs: cint;
                                      theHasVColors: bool = false;
                                      theHasVNormals: bool = false): Graphic3dArrayOfPoints {.
     constructor, importcpp: "Graphic3d_ArrayOfPoints(@)",
     header: "Graphic3d_ArrayOfPoints.hxx".}
 discard "forward decl of Graphic3d_ArrayOfPoints"
 type
-  HandleGraphic3dArrayOfPoints* = Handle[Graphic3dArrayOfPoints]
+  HandleC1C1* = Handle[Graphic3dArrayOfPoints]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

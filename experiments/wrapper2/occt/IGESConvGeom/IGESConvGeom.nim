@@ -165,22 +165,48 @@ type
                                                                                    ## produced)
 
 
-proc splineCurveFromIGES*(igesent: Handle[IGESGeomSplineCurve]; epscoef: float;
-                         epsgeom: float; result: var Handle[GeomBSplineCurve]): int {.
+proc splineCurveFromIGES*(igesent: Handle[IGESGeomSplineCurve]; epscoef: cfloat;
+                         epsgeom: cfloat; result: var Handle[GeomBSplineCurve]): cint {.
     importcpp: "IGESConvGeom::SplineCurveFromIGES(@)", header: "IGESConvGeom.hxx".}
-proc increaseCurveContinuity*(curve: Handle[GeomBSplineCurve]; epsgeom: float;
-                             continuity: int = 2): int {.
+proc increaseCurveContinuity*(curve: Handle[GeomBSplineCurve]; epsgeom: cfloat;
+                             continuity: cint = 2): cint {.
     importcpp: "IGESConvGeom::IncreaseCurveContinuity(@)",
     header: "IGESConvGeom.hxx".}
-proc increaseCurveContinuity*(curve: Handle[Geom2dBSplineCurve]; epsgeom: float;
-                             continuity: int = 2): int {.
+proc increaseCurveContinuity*(curve: Handle[Geom2dBSplineCurve]; epsgeom: cfloat;
+                             continuity: cint = 2): cint {.
     importcpp: "IGESConvGeom::IncreaseCurveContinuity(@)",
     header: "IGESConvGeom.hxx".}
-proc splineSurfaceFromIGES*(igesent: Handle[IGESGeomSplineSurface]; epscoef: float;
-                           epsgeom: float; result: var Handle[GeomBSplineSurface]): int {.
+proc splineSurfaceFromIGES*(igesent: Handle[IGESGeomSplineSurface];
+                           epscoef: cfloat; epsgeom: cfloat;
+                           result: var Handle[GeomBSplineSurface]): cint {.
     importcpp: "IGESConvGeom::SplineSurfaceFromIGES(@)",
     header: "IGESConvGeom.hxx".}
 proc increaseSurfaceContinuity*(surface: Handle[GeomBSplineSurface];
-                               epsgeom: float; continuity: int = 2): int {.
+                               epsgeom: cfloat; continuity: cint = 2): cint {.
     importcpp: "IGESConvGeom::IncreaseSurfaceContinuity(@)",
     header: "IGESConvGeom.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

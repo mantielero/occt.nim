@@ -62,3 +62,28 @@ proc isDeleted*(this: var BRepFeatSplitShape; s: TopoDS_Shape): bool {.
     importcpp: "IsDeleted", header: "BRepFeat_SplitShape.hxx".}
 proc modified*(this: var BRepFeatSplitShape; f: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepFeat_SplitShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -33,8 +33,8 @@ type
                                                                                         ## Tol3D.
 
 
-proc constructApproxCurve3d*(curve: Handle[Adaptor3dHCurve]; tol3d: float;
-                            order: GeomAbsShape; maxSegments: int; maxDegree: int): ApproxCurve3d {.
+proc constructApproxCurve3d*(curve: Handle[Adaptor3dHCurve]; tol3d: cfloat;
+                            order: GeomAbsShape; maxSegments: cint; maxDegree: cint): ApproxCurve3d {.
     constructor, importcpp: "Approx_Curve3d(@)", header: "Approx_Curve3d.hxx".}
 proc curve*(this: ApproxCurve3d): Handle[GeomBSplineCurve] {.noSideEffect,
     importcpp: "Curve", header: "Approx_Curve3d.hxx".}
@@ -42,7 +42,32 @@ proc isDone*(this: ApproxCurve3d): bool {.noSideEffect, importcpp: "IsDone",
                                       header: "Approx_Curve3d.hxx".}
 proc hasResult*(this: ApproxCurve3d): bool {.noSideEffect, importcpp: "HasResult",
     header: "Approx_Curve3d.hxx".}
-proc maxError*(this: ApproxCurve3d): float {.noSideEffect, importcpp: "MaxError",
+proc maxError*(this: ApproxCurve3d): cfloat {.noSideEffect, importcpp: "MaxError",
     header: "Approx_Curve3d.hxx".}
 proc dump*(this: ApproxCurve3d; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "Approx_Curve3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

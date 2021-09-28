@@ -18,7 +18,7 @@ discard "forward decl of StepVisual_AreaOrView"
 discard "forward decl of StepVisual_BackgroundColour"
 discard "forward decl of StepVisual_BackgroundColour"
 type
-  HandleStepVisualBackgroundColour* = Handle[StepVisualBackgroundColour]
+  HandleC1C1* = Handle[StepVisualBackgroundColour]
   StepVisualBackgroundColour* {.importcpp: "StepVisual_BackgroundColour",
                                header: "StepVisual_BackgroundColour.hxx", bycopy.} = object of StepVisualColour ##
                                                                                                          ## !
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualBackgroundColour): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_BackgroundColour.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

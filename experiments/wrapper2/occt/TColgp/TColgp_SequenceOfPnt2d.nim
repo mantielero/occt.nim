@@ -17,3 +17,28 @@
 type
   TColgpSequenceOfPnt2d* = NCollectionSequence[Pnt2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

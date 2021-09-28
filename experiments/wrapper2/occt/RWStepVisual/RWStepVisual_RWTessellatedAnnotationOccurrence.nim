@@ -28,7 +28,7 @@ proc constructRWStepVisualRWTessellatedAnnotationOccurrence*(): RWStepVisualRWTe
     constructor, importcpp: "RWStepVisual_RWTessellatedAnnotationOccurrence(@)",
     header: "RWStepVisual_RWTessellatedAnnotationOccurrence.hxx".}
 proc readStep*(this: RWStepVisualRWTessellatedAnnotationOccurrence;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualTessellatedAnnotationOccurrence]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -42,3 +42,28 @@ proc share*(this: RWStepVisualRWTessellatedAnnotationOccurrence;
            ent: Handle[StepVisualTessellatedAnnotationOccurrence];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWTessellatedAnnotationOccurrence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

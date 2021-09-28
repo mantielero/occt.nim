@@ -16,3 +16,28 @@
 type
   Prs3dNListIteratorOfListOfSequenceOfPnt* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

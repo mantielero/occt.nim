@@ -17,3 +17,28 @@
 type
   LPropSequenceOfCIType* = NCollectionSequence[LPropCIType]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

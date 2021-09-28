@@ -15,3 +15,28 @@
 type
   TColStdSequenceOfAsciiString* = NCollectionSequence[TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

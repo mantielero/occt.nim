@@ -30,7 +30,7 @@ proc constructRWStepBasicRWExternalSource*(): RWStepBasicRWExternalSource {.
     constructor, importcpp: "RWStepBasic_RWExternalSource(@)",
     header: "RWStepBasic_RWExternalSource.hxx".}
 proc readStep*(this: RWStepBasicRWExternalSource;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicExternalSource]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWExternalSource.hxx".}
 proc writeStep*(this: RWStepBasicRWExternalSource; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepBasicRWExternalSource; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWExternalSource;
            ent: Handle[StepBasicExternalSource]; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "Share", header: "RWStepBasic_RWExternalSource.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

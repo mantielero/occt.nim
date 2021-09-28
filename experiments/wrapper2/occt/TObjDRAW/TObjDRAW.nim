@@ -24,3 +24,28 @@ proc init*(di: var DrawInterpretor) {.importcpp: "TObjDRAW::Init(@)",
                                   header: "TObjDRAW.hxx".}
 proc factory*(theDI: var DrawInterpretor) {.importcpp: "TObjDRAW::Factory(@)",
                                         header: "TObjDRAW.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

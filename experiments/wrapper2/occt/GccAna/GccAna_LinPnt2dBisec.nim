@@ -33,3 +33,28 @@ proc isDone*(this: GccAnaLinPnt2dBisec): bool {.noSideEffect, importcpp: "IsDone
     header: "GccAna_LinPnt2dBisec.hxx".}
 proc thisSolution*(this: GccAnaLinPnt2dBisec): Handle[GccIntBisec] {.noSideEffect,
     importcpp: "ThisSolution", header: "GccAna_LinPnt2dBisec.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

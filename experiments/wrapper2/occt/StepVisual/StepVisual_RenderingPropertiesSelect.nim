@@ -27,7 +27,7 @@ proc constructStepVisualRenderingPropertiesSelect*(): StepVisualRenderingPropert
     constructor, importcpp: "StepVisual_RenderingPropertiesSelect(@)",
     header: "StepVisual_RenderingPropertiesSelect.hxx".}
 proc caseNum*(this: StepVisualRenderingPropertiesSelect;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_RenderingPropertiesSelect.hxx".}
 proc surfaceStyleReflectanceAmbient*(this: StepVisualRenderingPropertiesSelect): Handle[
     StepVisualSurfaceStyleReflectanceAmbient] {.noSideEffect,
@@ -36,3 +36,28 @@ proc surfaceStyleReflectanceAmbient*(this: StepVisualRenderingPropertiesSelect):
 proc surfaceStyleTransparent*(this: StepVisualRenderingPropertiesSelect): Handle[
     StepVisualSurfaceStyleTransparent] {.noSideEffect,
                                         importcpp: "SurfaceStyleTransparent", header: "StepVisual_RenderingPropertiesSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

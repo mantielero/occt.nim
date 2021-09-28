@@ -22,103 +22,6 @@ type
   GeomConvertApproxSurface* {.importcpp: "GeomConvert_ApproxSurface",
                              header: "GeomConvert_ApproxSurface.hxx", bycopy.} = object ##
                                                                                    ## !
-                                                                                   ## Constructs
-                                                                                   ## a
-                                                                                   ## surface
-                                                                                   ## approximation
-                                                                                   ## framework
-                                                                                   ## defined
-                                                                                   ## by
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## conic
-                                                                                   ## Surf
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## tolerance
-                                                                                   ## value
-                                                                                   ## Tol3d
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## degree
-                                                                                   ## of
-                                                                                   ## continuity
-                                                                                   ## UContinuity,
-                                                                                   ## VContinuity
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## directions
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## U
-                                                                                   ## and
-                                                                                   ## V
-                                                                                   ## parameters
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## highest
-                                                                                   ## degree
-                                                                                   ## MaxDegU,
-                                                                                   ## MaxDegV
-                                                                                   ## which
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## the
-                                                                                   ## polynomial
-                                                                                   ## defining
-                                                                                   ## the
-                                                                                   ## BSpline
-                                                                                   ## curve
-                                                                                   ## may
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## have
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## directions
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## U
-                                                                                   ## and
-                                                                                   ## V
-                                                                                   ## parameters
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## maximum
-                                                                                   ## number
-                                                                                   ## of
-                                                                                   ## segments
-                                                                                   ## MaxSegments
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## allowed
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## resulting
-                                                                                   ## BSpline
-                                                                                   ## curve
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## index
-                                                                                   ## of
-                                                                                   ## precision
-                                                                                   ## PrecisCode.
-                                                                                   ##
-                                                                                   ## !
                                                                                    ## Converts
                                                                                    ## a
                                                                                    ## surface
@@ -126,7 +29,26 @@ type
                                                                                    ## B-spline
 
 
-proc constructGeomConvertApproxSurface*(surf: Handle[GeomSurface]; tol3d: float;
+proc `new`*(this: var GeomConvertApproxSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert_ApproxSurface::operator new",
+    header: "GeomConvert_ApproxSurface.hxx".}
+proc `delete`*(this: var GeomConvertApproxSurface; theAddress: pointer) {.
+    importcpp: "GeomConvert_ApproxSurface::operator delete",
+    header: "GeomConvert_ApproxSurface.hxx".}
+proc `new[]`*(this: var GeomConvertApproxSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert_ApproxSurface::operator new[]",
+    header: "GeomConvert_ApproxSurface.hxx".}
+proc `delete[]`*(this: var GeomConvertApproxSurface; theAddress: pointer) {.
+    importcpp: "GeomConvert_ApproxSurface::operator delete[]",
+    header: "GeomConvert_ApproxSurface.hxx".}
+proc `new`*(this: var GeomConvertApproxSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomConvert_ApproxSurface::operator new",
+    header: "GeomConvert_ApproxSurface.hxx".}
+proc `delete`*(this: var GeomConvertApproxSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomConvert_ApproxSurface::operator delete",
+    header: "GeomConvert_ApproxSurface.hxx".}
+proc constructGeomConvertApproxSurface*(surf: Handle[GeomSurface];
+                                       tol3d: StandardReal;
                                        uContinuity: GeomAbsShape;
                                        vContinuity: GeomAbsShape; maxDegU: int;
                                        maxDegV: int; maxSegments: int;
@@ -134,7 +56,8 @@ proc constructGeomConvertApproxSurface*(surf: Handle[GeomSurface]; tol3d: float;
     constructor, importcpp: "GeomConvert_ApproxSurface(@)",
     header: "GeomConvert_ApproxSurface.hxx".}
 proc constructGeomConvertApproxSurface*(surf: Handle[Adaptor3dHSurface];
-                                       tol3d: float; uContinuity: GeomAbsShape;
+                                       tol3d: StandardReal;
+                                       uContinuity: GeomAbsShape;
                                        vContinuity: GeomAbsShape; maxDegU: int;
                                        maxDegV: int; maxSegments: int;
                                        precisCode: int): GeomConvertApproxSurface {.
@@ -142,11 +65,11 @@ proc constructGeomConvertApproxSurface*(surf: Handle[Adaptor3dHSurface];
     header: "GeomConvert_ApproxSurface.hxx".}
 proc surface*(this: GeomConvertApproxSurface): Handle[GeomBSplineSurface] {.
     noSideEffect, importcpp: "Surface", header: "GeomConvert_ApproxSurface.hxx".}
-proc isDone*(this: GeomConvertApproxSurface): bool {.noSideEffect,
+proc isDone*(this: GeomConvertApproxSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomConvert_ApproxSurface.hxx".}
-proc hasResult*(this: GeomConvertApproxSurface): bool {.noSideEffect,
+proc hasResult*(this: GeomConvertApproxSurface): StandardBoolean {.noSideEffect,
     importcpp: "HasResult", header: "GeomConvert_ApproxSurface.hxx".}
-proc maxError*(this: GeomConvertApproxSurface): float {.noSideEffect,
+proc maxError*(this: GeomConvertApproxSurface): StandardReal {.noSideEffect,
     importcpp: "MaxError", header: "GeomConvert_ApproxSurface.hxx".}
 proc dump*(this: GeomConvertApproxSurface; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "GeomConvert_ApproxSurface.hxx".}

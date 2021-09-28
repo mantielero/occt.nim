@@ -49,3 +49,28 @@ proc setClosePlayer*(this: var AIS_MediaPlayer) {.importcpp: "SetClosePlayer",
     header: "AIS_MediaPlayer.hxx".}
 proc duration*(this: AIS_MediaPlayer): cdouble {.noSideEffect, importcpp: "Duration",
     header: "AIS_MediaPlayer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

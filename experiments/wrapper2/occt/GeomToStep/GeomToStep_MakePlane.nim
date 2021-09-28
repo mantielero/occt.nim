@@ -23,6 +23,24 @@ type
                         header: "GeomToStep_MakePlane.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakePlane; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakePlane::operator new",
+    header: "GeomToStep_MakePlane.hxx".}
+proc `delete`*(this: var GeomToStepMakePlane; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakePlane::operator delete",
+    header: "GeomToStep_MakePlane.hxx".}
+proc `new[]`*(this: var GeomToStepMakePlane; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakePlane::operator new[]",
+    header: "GeomToStep_MakePlane.hxx".}
+proc `delete[]`*(this: var GeomToStepMakePlane; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakePlane::operator delete[]",
+    header: "GeomToStep_MakePlane.hxx".}
+proc `new`*(this: var GeomToStepMakePlane; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakePlane::operator new",
+    header: "GeomToStep_MakePlane.hxx".}
+proc `delete`*(this: var GeomToStepMakePlane; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakePlane::operator delete",
+    header: "GeomToStep_MakePlane.hxx".}
 proc constructGeomToStepMakePlane*(p: Pln): GeomToStepMakePlane {.constructor,
     importcpp: "GeomToStep_MakePlane(@)", header: "GeomToStep_MakePlane.hxx".}
 proc constructGeomToStepMakePlane*(p: Handle[GeomPlane]): GeomToStepMakePlane {.

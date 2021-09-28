@@ -70,7 +70,7 @@ proc constructSelect3D_SensitiveTriangulation*(
     theCOG: Pnt; theIsInterior: bool): Select3D_SensitiveTriangulation {.constructor,
     importcpp: "Select3D_SensitiveTriangulation(@)",
     header: "Select3D_SensitiveTriangulation.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveTriangulation): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitiveTriangulation): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitiveTriangulation.hxx".}
 proc getConnected*(this: var Select3D_SensitiveTriangulation): Handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
@@ -78,14 +78,14 @@ proc getConnected*(this: var Select3D_SensitiveTriangulation): Handle[
 proc triangulation*(this: Select3D_SensitiveTriangulation): Handle[
     PolyTriangulation] {.noSideEffect, importcpp: "Triangulation",
                         header: "Select3D_SensitiveTriangulation.hxx".}
-proc size*(this: Select3D_SensitiveTriangulation): int {.noSideEffect,
+proc size*(this: Select3D_SensitiveTriangulation): cint {.noSideEffect,
     importcpp: "Size", header: "Select3D_SensitiveTriangulation.hxx".}
-proc box*(this: Select3D_SensitiveTriangulation; theIdx: int): Select3D_BndBox3d {.
+proc box*(this: Select3D_SensitiveTriangulation; theIdx: cint): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "Select3D_SensitiveTriangulation.hxx".}
-proc center*(this: Select3D_SensitiveTriangulation; theIdx: int; theAxis: int): float {.
+proc center*(this: Select3D_SensitiveTriangulation; theIdx: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center",
     header: "Select3D_SensitiveTriangulation.hxx".}
-proc swap*(this: var Select3D_SensitiveTriangulation; theIdx1: int; theIdx2: int) {.
+proc swap*(this: var Select3D_SensitiveTriangulation; theIdx1: cint; theIdx2: cint) {.
     importcpp: "Swap", header: "Select3D_SensitiveTriangulation.hxx".}
 proc boundingBox*(this: var Select3D_SensitiveTriangulation): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveTriangulation.hxx".}
@@ -99,9 +99,34 @@ proc getInitLocation*(this: Select3D_SensitiveTriangulation): TopLocLocation {.
     noSideEffect, importcpp: "GetInitLocation",
     header: "Select3D_SensitiveTriangulation.hxx".}
 proc dumpJson*(this: Select3D_SensitiveTriangulation;
-              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+              theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     importcpp: "DumpJson", header: "Select3D_SensitiveTriangulation.hxx".}
 discard "forward decl of Select3D_SensitiveTriangulation"
 type
-  HandleSelect3D_SensitiveTriangulation* = Handle[Select3D_SensitiveTriangulation]
+  HandleC1C1* = Handle[Select3D_SensitiveTriangulation]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

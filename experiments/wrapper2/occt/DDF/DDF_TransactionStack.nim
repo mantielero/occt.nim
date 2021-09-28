@@ -17,3 +17,28 @@ type
   DDF_TransactionStack* = NCollectionList[Handle[DDF_Transaction]]
   DDF_ListIteratorOfTransactionStack* = Iterator[Handle[DDF_Transaction]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

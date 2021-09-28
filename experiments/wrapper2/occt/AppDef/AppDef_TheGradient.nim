@@ -36,21 +36,47 @@ type
                                                                      ## ! The desired degree of the resulting curve is Deg.
 
 
-proc constructAppDefTheGradient*(ssp: AppDefMultiLine; firstPoint: int;
-                                lastPoint: int; theConstraints: Handle[
-    AppParCurvesHArray1OfConstraintCouple]; parameters: var MathVector; deg: int;
-                                tol3d: float; tol2d: float; nbIterations: int = 200): AppDefTheGradient {.
+proc constructAppDefTheGradient*(ssp: AppDefMultiLine; firstPoint: cint;
+                                lastPoint: cint; theConstraints: Handle[
+    AppParCurvesHArray1OfConstraintCouple]; parameters: var MathVector; deg: cint;
+                                tol3d: cfloat; tol2d: cfloat;
+                                nbIterations: cint = 200): AppDefTheGradient {.
     constructor, importcpp: "AppDef_TheGradient(@)",
     header: "AppDef_TheGradient.hxx".}
 proc isDone*(this: AppDefTheGradient): bool {.noSideEffect, importcpp: "IsDone",
     header: "AppDef_TheGradient.hxx".}
 proc value*(this: AppDefTheGradient): AppParCurvesMultiCurve {.noSideEffect,
     importcpp: "Value", header: "AppDef_TheGradient.hxx".}
-proc error*(this: AppDefTheGradient; index: int): float {.noSideEffect,
+proc error*(this: AppDefTheGradient; index: cint): cfloat {.noSideEffect,
     importcpp: "Error", header: "AppDef_TheGradient.hxx".}
-proc maxError3d*(this: AppDefTheGradient): float {.noSideEffect,
+proc maxError3d*(this: AppDefTheGradient): cfloat {.noSideEffect,
     importcpp: "MaxError3d", header: "AppDef_TheGradient.hxx".}
-proc maxError2d*(this: AppDefTheGradient): float {.noSideEffect,
+proc maxError2d*(this: AppDefTheGradient): cfloat {.noSideEffect,
     importcpp: "MaxError2d", header: "AppDef_TheGradient.hxx".}
-proc averageError*(this: AppDefTheGradient): float {.noSideEffect,
+proc averageError*(this: AppDefTheGradient): cfloat {.noSideEffect,
     importcpp: "AverageError", header: "AppDef_TheGradient.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

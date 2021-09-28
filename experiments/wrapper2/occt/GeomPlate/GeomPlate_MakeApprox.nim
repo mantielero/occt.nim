@@ -19,39 +19,44 @@ discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of AdvApp2Var_Criterion"
 type
   GeomPlateMakeApprox* {.importcpp: "GeomPlate_MakeApprox",
-                        header: "GeomPlate_MakeApprox.hxx", bycopy.} = object ## !
-                                                                         ## Converts
-                                                                         ## SurfPlate into a
-                                                                         ## Geom_BSplineSurface with
-                                                                         ## ! n Bezier pieces
-                                                                         ## (n<=Nbmax) of degree <= dgmax
-                                                                         ## ! and an
-                                                                         ## approximation error < Tol3d if
-                                                                         ## possible
-                                                                         ## ! the
-                                                                         ## criterion
-                                                                         ## CritPlate is
-                                                                         ## satisfied if
-                                                                         ## possible
+                        header: "GeomPlate_MakeApprox.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomPlateMakeApprox; theSize: csize_t): pointer {.
+    importcpp: "GeomPlate_MakeApprox::operator new",
+    header: "GeomPlate_MakeApprox.hxx".}
+proc `delete`*(this: var GeomPlateMakeApprox; theAddress: pointer) {.
+    importcpp: "GeomPlate_MakeApprox::operator delete",
+    header: "GeomPlate_MakeApprox.hxx".}
+proc `new[]`*(this: var GeomPlateMakeApprox; theSize: csize_t): pointer {.
+    importcpp: "GeomPlate_MakeApprox::operator new[]",
+    header: "GeomPlate_MakeApprox.hxx".}
+proc `delete[]`*(this: var GeomPlateMakeApprox; theAddress: pointer) {.
+    importcpp: "GeomPlate_MakeApprox::operator delete[]",
+    header: "GeomPlate_MakeApprox.hxx".}
+proc `new`*(this: var GeomPlateMakeApprox; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomPlate_MakeApprox::operator new",
+    header: "GeomPlate_MakeApprox.hxx".}
+proc `delete`*(this: var GeomPlateMakeApprox; a2: pointer; a3: pointer) {.
+    importcpp: "GeomPlate_MakeApprox::operator delete",
+    header: "GeomPlate_MakeApprox.hxx".}
 proc constructGeomPlateMakeApprox*(surfPlate: Handle[GeomPlateSurface];
-                                  plateCrit: AdvApp2VarCriterion; tol3d: float;
-                                  nbmax: int; dgmax: int;
+                                  plateCrit: AdvApp2VarCriterion;
+                                  tol3d: StandardReal; nbmax: int; dgmax: int;
                                   continuity: GeomAbsShape = geomAbsC1;
-                                  enlargeCoeff: float = 1.1): GeomPlateMakeApprox {.
+                                  enlargeCoeff: StandardReal = 1.1): GeomPlateMakeApprox {.
     constructor, importcpp: "GeomPlate_MakeApprox(@)",
     header: "GeomPlate_MakeApprox.hxx".}
 proc constructGeomPlateMakeApprox*(surfPlate: Handle[GeomPlateSurface];
-                                  tol3d: float; nbmax: int; dgmax: int; dmax: float;
-                                  critOrder: int = 0;
+                                  tol3d: StandardReal; nbmax: int; dgmax: int;
+                                  dmax: StandardReal; critOrder: int = 0;
                                   continuity: GeomAbsShape = geomAbsC1;
-                                  enlargeCoeff: float = 1.1): GeomPlateMakeApprox {.
+                                  enlargeCoeff: StandardReal = 1.1): GeomPlateMakeApprox {.
     constructor, importcpp: "GeomPlate_MakeApprox(@)",
     header: "GeomPlate_MakeApprox.hxx".}
 proc surface*(this: GeomPlateMakeApprox): Handle[GeomBSplineSurface] {.noSideEffect,
     importcpp: "Surface", header: "GeomPlate_MakeApprox.hxx".}
-proc approxError*(this: GeomPlateMakeApprox): float {.noSideEffect,
+proc approxError*(this: GeomPlateMakeApprox): StandardReal {.noSideEffect,
     importcpp: "ApproxError", header: "GeomPlate_MakeApprox.hxx".}
-proc criterionError*(this: GeomPlateMakeApprox): float {.noSideEffect,
+proc criterionError*(this: GeomPlateMakeApprox): StandardReal {.noSideEffect,
     importcpp: "CriterionError", header: "GeomPlate_MakeApprox.hxx".}

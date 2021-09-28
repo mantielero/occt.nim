@@ -44,3 +44,28 @@ proc expand*(doc: TDF_Label; shape: TDF_Label; recursively: bool = true): bool {
     importcpp: "XCAFDoc_Editor::Expand(@)", header: "XCAFDoc_Editor.hxx".}
 proc expand*(doc: TDF_Label; recursively: bool = true): bool {.
     importcpp: "XCAFDoc_Editor::Expand(@)", header: "XCAFDoc_Editor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

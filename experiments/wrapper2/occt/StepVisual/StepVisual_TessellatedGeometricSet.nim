@@ -22,8 +22,7 @@ type
 
 discard "forward decl of StepVisual_TessellatedGeometricSet"
 type
-  HandleStepVisualTessellatedGeometricSet* = Handle[
-      StepVisualTessellatedGeometricSet]
+  HandleC1C1* = Handle[StepVisualTessellatedGeometricSet]
   StepVisualTessellatedGeometricSet* {.importcpp: "StepVisual_TessellatedGeometricSet", header: "StepVisual_TessellatedGeometricSet.hxx",
                                       bycopy.} = object of StepVisualTessellatedItem ##
                                                                                 ## !
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualTessellatedGeometricSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_TessellatedGeometricSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

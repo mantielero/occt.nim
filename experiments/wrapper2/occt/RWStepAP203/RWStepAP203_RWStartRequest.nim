@@ -31,7 +31,7 @@ proc constructRWStepAP203RWStartRequest*(): RWStepAP203RWStartRequest {.
     constructor, importcpp: "RWStepAP203_RWStartRequest(@)",
     header: "RWStepAP203_RWStartRequest.hxx".}
 proc readStep*(this: RWStepAP203RWStartRequest;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepAP203StartRequest]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepAP203_RWStartRequest.hxx".}
 proc writeStep*(this: RWStepAP203RWStartRequest; sw: var StepDataStepWriter;
@@ -40,3 +40,28 @@ proc writeStep*(this: RWStepAP203RWStartRequest; sw: var StepDataStepWriter;
 proc share*(this: RWStepAP203RWStartRequest; ent: Handle[StepAP203StartRequest];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWStartRequest.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

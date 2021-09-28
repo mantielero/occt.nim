@@ -16,8 +16,7 @@
 discard "forward decl of StepDimTol_ProjectedZoneDefinition"
 discard "forward decl of StepDimTol_ProjectedZoneDefinition"
 type
-  HandleStepDimTolProjectedZoneDefinition* = Handle[
-      StepDimTolProjectedZoneDefinition]
+  HandleC1C1* = Handle[StepDimTolProjectedZoneDefinition]
 
 ## ! Representation of STEP entity ProjectedZoneDefinition
 
@@ -62,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolProjectedZoneDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_ProjectedZoneDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -122,5 +122,30 @@ proc constructAIS_AnimationObject*(theAnimationName: TCollectionAsciiString;
     header: "AIS_AnimationObject.hxx".}
 discard "forward decl of AIS_AnimationObject"
 type
-  HandleAIS_AnimationObject* = Handle[AIS_AnimationObject]
+  HandleC1C1* = Handle[AIS_AnimationObject]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

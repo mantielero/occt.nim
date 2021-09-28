@@ -46,3 +46,28 @@ proc resetData*(this: var IFGraphAllConnected) {.importcpp: "ResetData",
     header: "IFGraph_AllConnected.hxx".}
 proc evaluate*(this: var IFGraphAllConnected) {.importcpp: "Evaluate",
     header: "IFGraph_AllConnected.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

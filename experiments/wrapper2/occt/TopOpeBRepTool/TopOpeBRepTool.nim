@@ -169,3 +169,28 @@ proc regularizeShells*(aSolid: TopoDS_Solid;
     importcpp: "TopOpeBRepTool::RegularizeShells(@)", header: "TopOpeBRepTool.hxx".}
 proc print*(oct: TopOpeBRepToolOutCurveType; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepTool::Print(@)", header: "TopOpeBRepTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

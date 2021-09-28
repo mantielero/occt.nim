@@ -64,14 +64,14 @@ type
 type
   PolyMakeLoopsLink* {.importcpp: "Poly_MakeLoops::Link",
                       header: "Poly_MakeLoops.hxx", bycopy.} = object
-    node1* {.importc: "node1".}: int
-    node2* {.importc: "node2".}: int
-    flags* {.importc: "flags".}: int
+    node1* {.importc: "node1".}: cint
+    node2* {.importc: "node2".}: cint
+    flags* {.importc: "flags".}: cint
 
 
 proc constructPolyMakeLoopsLink*(): PolyMakeLoopsLink {.constructor,
     importcpp: "Poly_MakeLoops::Link(@)", header: "Poly_MakeLoops.hxx".}
-proc constructPolyMakeLoopsLink*(theNode1: int; theNode2: int): PolyMakeLoopsLink {.
+proc constructPolyMakeLoopsLink*(theNode1: cint; theNode2: cint): PolyMakeLoopsLink {.
     constructor, importcpp: "Poly_MakeLoops::Link(@)", header: "Poly_MakeLoops.hxx".}
 proc reverse*(this: var PolyMakeLoopsLink) {.importcpp: "Reverse",
     header: "Poly_MakeLoops.hxx".}
@@ -88,29 +88,28 @@ type
                         header: "Poly_MakeLoops.hxx", bycopy.} = object ## ! returns the links adjacent to the given node
 
 
-proc getAdjacentLinks*(this: PolyMakeLoopsHelper; theNode: int): PolyMakeLoopsListOfLink {.
+proc getAdjacentLinks*(this: PolyMakeLoopsHelper; theNode: cint): PolyMakeLoopsListOfLink {.
     noSideEffect, importcpp: "GetAdjacentLinks", header: "Poly_MakeLoops.hxx".}
-proc onAddLink*(this: PolyMakeLoopsHelper; a2: int; ## theNum
-               a3: PolyMakeLoopsLink) {.noSideEffect, importcpp: "OnAddLink",
-                                      header: "Poly_MakeLoops.hxx".}
+proc onAddLink*(this: PolyMakeLoopsHelper; a2: cint; a3: PolyMakeLoopsLink) {.
+    noSideEffect, importcpp: "OnAddLink", header: "Poly_MakeLoops.hxx".}
   ## theLink
 type
   PolyMakeLoopsHeapOfInteger* {.importcpp: "Poly_MakeLoops::HeapOfInteger",
                                header: "Poly_MakeLoops.hxx", bycopy.} = object
 
 
-proc constructPolyMakeLoopsHeapOfInteger*(theNbPreAllocated: int = 1): PolyMakeLoopsHeapOfInteger {.
+proc constructPolyMakeLoopsHeapOfInteger*(theNbPreAllocated: cint = 1): PolyMakeLoopsHeapOfInteger {.
     constructor, importcpp: "Poly_MakeLoops::HeapOfInteger(@)",
     header: "Poly_MakeLoops.hxx".}
 proc clear*(this: var PolyMakeLoopsHeapOfInteger) {.importcpp: "Clear",
     header: "Poly_MakeLoops.hxx".}
-proc add*(this: var PolyMakeLoopsHeapOfInteger; theValue: int) {.importcpp: "Add",
+proc add*(this: var PolyMakeLoopsHeapOfInteger; theValue: cint) {.importcpp: "Add",
     header: "Poly_MakeLoops.hxx".}
-proc top*(this: var PolyMakeLoopsHeapOfInteger): int {.importcpp: "Top",
+proc top*(this: var PolyMakeLoopsHeapOfInteger): cint {.importcpp: "Top",
     header: "Poly_MakeLoops.hxx".}
-proc contains*(this: PolyMakeLoopsHeapOfInteger; theValue: int): bool {.noSideEffect,
+proc contains*(this: PolyMakeLoopsHeapOfInteger; theValue: cint): bool {.noSideEffect,
     importcpp: "Contains", header: "Poly_MakeLoops.hxx".}
-proc remove*(this: var PolyMakeLoopsHeapOfInteger; theValue: int) {.
+proc remove*(this: var PolyMakeLoopsHeapOfInteger; theValue: cint) {.
     importcpp: "Remove", header: "Poly_MakeLoops.hxx".}
 proc isEmpty*(this: var PolyMakeLoopsHeapOfInteger): bool {.importcpp: "IsEmpty",
     header: "Poly_MakeLoops.hxx".}
@@ -137,13 +136,13 @@ type
     RC_LoopsDone = 1, RC_HangingLinks = 2, RC_Failure = 4
 
 
-proc perform*(this: var PolyMakeLoops): int {.importcpp: "Perform",
+proc perform*(this: var PolyMakeLoops): cint {.importcpp: "Perform",
     header: "Poly_MakeLoops.hxx".}
-proc getNbLoops*(this: PolyMakeLoops): int {.noSideEffect, importcpp: "GetNbLoops",
+proc getNbLoops*(this: PolyMakeLoops): cint {.noSideEffect, importcpp: "GetNbLoops",
     header: "Poly_MakeLoops.hxx".}
-proc getLoop*(this: PolyMakeLoops; theIndex: int): PolyMakeLoopsLoop {.noSideEffect,
+proc getLoop*(this: PolyMakeLoops; theIndex: cint): PolyMakeLoopsLoop {.noSideEffect,
     importcpp: "GetLoop", header: "Poly_MakeLoops.hxx".}
-proc getNbHanging*(this: PolyMakeLoops): int {.noSideEffect,
+proc getNbHanging*(this: PolyMakeLoops): cint {.noSideEffect,
     importcpp: "GetNbHanging", header: "Poly_MakeLoops.hxx".}
 proc getHangingLinks*(this: PolyMakeLoops; theLinks: var PolyMakeLoopsListOfLink) {.
     noSideEffect, importcpp: "GetHangingLinks", header: "Poly_MakeLoops.hxx".}
@@ -152,7 +151,7 @@ proc getHangingLinks*(this: PolyMakeLoops; theLinks: var PolyMakeLoopsListOfLink
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theLink: PolyMakeLoopsLink; theUpperBound: int): int =
+proc hashCode*(theLink: PolyMakeLoopsLink; theUpperBound: cint): cint =
   discard
 
 ## *
@@ -181,7 +180,7 @@ proc getFirstTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var Di
     noSideEffect, importcpp: "GetFirstTangent", header: "Poly_MakeLoops.hxx".}
 proc getLastTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var Dir): bool {.
     noSideEffect, importcpp: "GetLastTangent", header: "Poly_MakeLoops.hxx".}
-proc getNormal*(this: PolyMakeLoops3DHelper; theNode: int; theDir: var Dir): bool {.
+proc getNormal*(this: PolyMakeLoops3DHelper; theNode: cint; theDir: var Dir): bool {.
     noSideEffect, importcpp: "GetNormal", header: "Poly_MakeLoops.hxx".}
 proc constructPolyMakeLoops3D*(theHelper: ptr PolyMakeLoops3DHelper;
                               theAlloc: Handle[NCollectionBaseAllocator]): PolyMakeLoops3D {.
@@ -210,3 +209,28 @@ proc constructPolyMakeLoops2D*(theLeftWay: bool;
                               theHelper: ptr PolyMakeLoops2DHelper;
                               theAlloc: Handle[NCollectionBaseAllocator]): PolyMakeLoops2D {.
     constructor, importcpp: "Poly_MakeLoops2D(@)", header: "Poly_MakeLoops.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

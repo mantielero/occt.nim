@@ -17,3 +17,28 @@
 type
   ExprSequenceOfGeneralRelation* = NCollectionSequence[Handle[ExprGeneralRelation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of HLRBRep_EdgeData"
 discard "forward decl of HLRTest_DrawableEdgeTool"
 discard "forward decl of HLRTest_DrawableEdgeTool"
 type
-  HandleHLRTestDrawableEdgeTool* = Handle[HLRTestDrawableEdgeTool]
+  HandleC1C1* = Handle[HLRTestDrawableEdgeTool]
 
 ## ! Used to display the results.
 
@@ -32,7 +32,7 @@ type
 
 proc constructHLRTestDrawableEdgeTool*(alg: Handle[HLRBRepAlgo]; visible: bool;
                                       isoLine: bool; rg1Line: bool; rgNLine: bool;
-                                      viewId: int): HLRTestDrawableEdgeTool {.
+                                      viewId: cint): HLRTestDrawableEdgeTool {.
     constructor, importcpp: "HLRTest_DrawableEdgeTool(@)",
     header: "HLRTest_DrawableEdgeTool.hxx".}
 proc drawOn*(this: HLRTestDrawableEdgeTool; d: var DrawDisplay) {.noSideEffect,
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRTest_DrawableEdgeTool.hxx".}
 proc dynamicType*(this: HLRTestDrawableEdgeTool): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "HLRTest_DrawableEdgeTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

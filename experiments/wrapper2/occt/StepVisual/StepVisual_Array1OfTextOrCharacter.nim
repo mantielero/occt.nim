@@ -17,3 +17,28 @@
 type
   StepVisualArray1OfTextOrCharacter* = NCollectionArray1[StepVisualTextOrCharacter]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

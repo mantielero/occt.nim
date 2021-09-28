@@ -11,4 +11,3 @@ include GeomConvert_BSplineSurfaceKnotSplitting
 include GeomConvert_BSplineSurfaceToBezierSurface
 include GeomConvert_CompBezierSurfacesToBSplineSurface
 include GeomConvert_CompCurveToBSplineCurve
-

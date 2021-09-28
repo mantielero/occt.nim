@@ -23,3 +23,28 @@ proc constructLDOM_Comment*(): LDOM_Comment {.constructor,
     importcpp: "LDOM_Comment(@)", header: "LDOM_Comment.hxx".}
 proc constructLDOM_Comment*(theOther: LDOM_Comment): LDOM_Comment {.constructor,
     importcpp: "LDOM_Comment(@)", header: "LDOM_Comment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of StepShape_CsgSelect"
 discard "forward decl of StepShape_CsgSolid"
 discard "forward decl of StepShape_CsgSolid"
 type
-  HandleStepShapeCsgSolid* = Handle[StepShapeCsgSolid]
+  HandleC1C1* = Handle[StepShapeCsgSolid]
   StepShapeCsgSolid* {.importcpp: "StepShape_CsgSolid",
                       header: "StepShape_CsgSolid.hxx", bycopy.} = object of StepShapeSolidModel ##
                                                                                           ## !
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_CsgSolid.hxx".}
 proc dynamicType*(this: StepShapeCsgSolid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_CsgSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

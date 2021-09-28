@@ -18,7 +18,7 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_AttributeFilter"
 discard "forward decl of AIS_AttributeFilter"
 type
-  HandleAIS_AttributeFilter* = Handle[AIS_AttributeFilter]
+  HandleC1C1* = Handle[AIS_AttributeFilter]
 
 ## ! Selects Interactive Objects, which have the desired width or color.
 ## ! The filter questions each Interactive Object in local
@@ -64,7 +64,7 @@ proc constructAIS_AttributeFilter*(): AIS_AttributeFilter {.constructor,
 proc constructAIS_AttributeFilter*(aCol: QuantityNameOfColor): AIS_AttributeFilter {.
     constructor, importcpp: "AIS_AttributeFilter(@)",
     header: "AIS_AttributeFilter.hxx".}
-proc constructAIS_AttributeFilter*(aWidth: float): AIS_AttributeFilter {.
+proc constructAIS_AttributeFilter*(aWidth: cfloat): AIS_AttributeFilter {.
     constructor, importcpp: "AIS_AttributeFilter(@)",
     header: "AIS_AttributeFilter.hxx".}
 proc hasColor*(this: AIS_AttributeFilter): bool {.noSideEffect,
@@ -73,7 +73,7 @@ proc hasWidth*(this: AIS_AttributeFilter): bool {.noSideEffect,
     importcpp: "HasWidth", header: "AIS_AttributeFilter.hxx".}
 proc setColor*(this: var AIS_AttributeFilter; aCol: QuantityNameOfColor) {.
     importcpp: "SetColor", header: "AIS_AttributeFilter.hxx".}
-proc setWidth*(this: var AIS_AttributeFilter; aWidth: float) {.importcpp: "SetWidth",
+proc setWidth*(this: var AIS_AttributeFilter; aWidth: cfloat) {.importcpp: "SetWidth",
     header: "AIS_AttributeFilter.hxx".}
 proc unsetColor*(this: var AIS_AttributeFilter) {.importcpp: "UnsetColor",
     header: "AIS_AttributeFilter.hxx".}
@@ -91,3 +91,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "AIS_AttributeFilter.hxx".}
 proc dynamicType*(this: AIS_AttributeFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_AttributeFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

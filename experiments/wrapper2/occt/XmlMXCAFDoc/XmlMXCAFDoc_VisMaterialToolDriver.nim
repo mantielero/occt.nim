@@ -13,8 +13,7 @@
 
 discard "forward decl of XmlMXCAFDoc_VisMaterialToolDriver"
 type
-  HandleXmlMXCAFDocVisMaterialToolDriver* = Handle[
-      XmlMXCAFDocVisMaterialToolDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocVisMaterialToolDriver]
 
 ## ! XML persistence driver for XCAFDoc_VisMaterialTool.
 
@@ -47,3 +46,28 @@ proc paste*(this: XmlMXCAFDocVisMaterialToolDriver;
            theSource: Handle[TDF_Attribute]; theTarget: var XmlObjMgtPersistent;
            theRelocTable: var XmlObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "XmlMXCAFDoc_VisMaterialToolDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

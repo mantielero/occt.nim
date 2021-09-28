@@ -20,3 +20,28 @@ type
   TopOpeBRepToolDataMapIteratorOfDataMapOfShapeface* = Iterator[TopoDS_Shape,
       TopOpeBRepToolFace, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

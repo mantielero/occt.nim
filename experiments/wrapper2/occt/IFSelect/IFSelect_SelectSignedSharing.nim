@@ -22,7 +22,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_SelectSignedSharing"
 discard "forward decl of IFSelect_SelectSignedSharing"
 type
-  HandleIFSelectSelectSignedSharing* = Handle[IFSelectSelectSignedSharing]
+  HandleC1C1* = Handle[IFSelectSelectSignedSharing]
 
 ## ! In the graph, explore the sharings of the input entities,
 ## ! until it encounters some which match a given Signature
@@ -53,7 +53,7 @@ type
 
 
 proc constructIFSelectSelectSignedSharing*(matcher: Handle[IFSelectSignature];
-    signtext: StandardCString; exact: bool = true; level: int = 0): IFSelectSelectSignedSharing {.
+    signtext: StandardCString; exact: bool = true; level: cint = 0): IFSelectSelectSignedSharing {.
     constructor, importcpp: "IFSelect_SelectSignedSharing(@)",
     header: "IFSelect_SelectSignedSharing.hxx".}
 proc signature*(this: IFSelectSelectSignedSharing): Handle[IFSelectSignature] {.
@@ -64,7 +64,7 @@ proc signatureText*(this: IFSelectSelectSignedSharing): TCollectionAsciiString {
     header: "IFSelect_SelectSignedSharing.hxx".}
 proc isExact*(this: IFSelectSelectSignedSharing): bool {.noSideEffect,
     importcpp: "IsExact", header: "IFSelect_SelectSignedSharing.hxx".}
-proc explore*(this: IFSelectSelectSignedSharing; level: int;
+proc explore*(this: IFSelectSelectSignedSharing; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "IFSelect_SelectSignedSharing.hxx".}
@@ -82,3 +82,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IFSelectSelectSignedSharing): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectSignedSharing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

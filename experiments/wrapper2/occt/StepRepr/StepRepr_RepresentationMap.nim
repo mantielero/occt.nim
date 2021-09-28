@@ -19,7 +19,7 @@ discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_RepresentationMap"
 discard "forward decl of StepRepr_RepresentationMap"
 type
-  HandleStepReprRepresentationMap* = Handle[StepReprRepresentationMap]
+  HandleC1C1* = Handle[StepReprRepresentationMap]
   StepReprRepresentationMap* {.importcpp: "StepRepr_RepresentationMap",
                               header: "StepRepr_RepresentationMap.hxx", bycopy.} = object of StandardTransient ##
                                                                                                         ## !
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprRepresentationMap): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_RepresentationMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

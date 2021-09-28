@@ -41,3 +41,28 @@ type
     gceBadAngle, gceInvertRadius, gceNullFocusLength, gceNullVector, gceBadEquation
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

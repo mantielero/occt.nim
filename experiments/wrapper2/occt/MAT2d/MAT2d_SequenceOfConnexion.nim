@@ -17,3 +17,28 @@
 type
   MAT2dSequenceOfConnexion* = NCollectionSequence[Handle[MAT2dConnexion]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

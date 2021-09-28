@@ -31,13 +31,38 @@ proc setclE*(this: var TopOpeBRepToolMkTondgE; clE: TopoDS_Edge): bool {.
     importcpp: "SetclE", header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc isT2d*(this: TopOpeBRepToolMkTondgE): bool {.noSideEffect, importcpp: "IsT2d",
     header: "TopOpeBRepTool_mkTondgE.hxx".}
-proc setRest*(this: var TopOpeBRepToolMkTondgE; pari: float; ei: TopoDS_Edge): bool {.
+proc setRest*(this: var TopOpeBRepToolMkTondgE; pari: cfloat; ei: TopoDS_Edge): bool {.
     importcpp: "SetRest", header: "TopOpeBRepTool_mkTondgE.hxx".}
-proc getAllRest*(this: var TopOpeBRepToolMkTondgE; lEi: var TopToolsListOfShape): int {.
+proc getAllRest*(this: var TopOpeBRepToolMkTondgE; lEi: var TopToolsListOfShape): cint {.
     importcpp: "GetAllRest", header: "TopOpeBRepTool_mkTondgE.hxx".}
-proc mkTonE*(this: var TopOpeBRepToolMkTondgE; mkT: var int; par1: var float;
-            par2: var float): bool {.importcpp: "MkTonE",
-                                 header: "TopOpeBRepTool_mkTondgE.hxx".}
-proc mkTonE*(this: var TopOpeBRepToolMkTondgE; ei: TopoDS_Edge; mkT: var int;
-            par1: var float; par2: var float): bool {.importcpp: "MkTonE",
+proc mkTonE*(this: var TopOpeBRepToolMkTondgE; mkT: var cint; par1: var cfloat;
+            par2: var cfloat): bool {.importcpp: "MkTonE",
+                                  header: "TopOpeBRepTool_mkTondgE.hxx".}
+proc mkTonE*(this: var TopOpeBRepToolMkTondgE; ei: TopoDS_Edge; mkT: var cint;
+            par1: var cfloat; par2: var cfloat): bool {.importcpp: "MkTonE",
     header: "TopOpeBRepTool_mkTondgE.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -63,6 +63,31 @@ proc ownCopy*(this: IGESSolidToolSolidOfLinearExtrusion;
              tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
 proc ownDump*(this: IGESSolidToolSolidOfLinearExtrusion;
              ent: Handle[IGESSolidSolidOfLinearExtrusion];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump",
     header: "IGESSolid_ToolSolidOfLinearExtrusion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

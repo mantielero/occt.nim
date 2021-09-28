@@ -23,6 +23,24 @@ type
                         header: "GeomToStep_MakeCurve.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeCurve; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeCurve::operator new",
+    header: "GeomToStep_MakeCurve.hxx".}
+proc `delete`*(this: var GeomToStepMakeCurve; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeCurve::operator delete",
+    header: "GeomToStep_MakeCurve.hxx".}
+proc `new[]`*(this: var GeomToStepMakeCurve; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeCurve::operator new[]",
+    header: "GeomToStep_MakeCurve.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeCurve; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeCurve::operator delete[]",
+    header: "GeomToStep_MakeCurve.hxx".}
+proc `new`*(this: var GeomToStepMakeCurve; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeCurve::operator new",
+    header: "GeomToStep_MakeCurve.hxx".}
+proc `delete`*(this: var GeomToStepMakeCurve; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeCurve::operator delete",
+    header: "GeomToStep_MakeCurve.hxx".}
 proc constructGeomToStepMakeCurve*(c: Handle[GeomCurve]): GeomToStepMakeCurve {.
     constructor, importcpp: "GeomToStep_MakeCurve(@)",
     header: "GeomToStep_MakeCurve.hxx".}

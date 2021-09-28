@@ -46,3 +46,28 @@ proc replaceElement*(this: var LDOM_Element; anOther: LDOM_Element) {.
     importcpp: "ReplaceElement", header: "LDOM_Element.hxx".}
 proc getAttributesList*(this: LDOM_Element): LDOM_NodeList {.noSideEffect,
     importcpp: "GetAttributesList", header: "LDOM_Element.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

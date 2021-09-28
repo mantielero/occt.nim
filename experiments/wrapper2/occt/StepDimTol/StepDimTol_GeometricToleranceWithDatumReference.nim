@@ -20,8 +20,7 @@ discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepDimTol_GeometricToleranceWithDatumReference"
 discard "forward decl of StepDimTol_GeometricToleranceWithDatumReference"
 type
-  HandleStepDimTolGeometricToleranceWithDatumReference* = Handle[
-      StepDimTolGeometricToleranceWithDatumReference]
+  HandleC1C1* = Handle[StepDimTolGeometricToleranceWithDatumReference]
 
 ## ! Representation of STEP entity GeometricToleranceWithDatumReference
 
@@ -75,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_Geometr
     header: "StepDimTol_GeometricToleranceWithDatumReference.hxx".}
 proc dynamicType*(this: StepDimTolGeometricToleranceWithDatumReference): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepDimTol_GeometricToleranceWithDatumReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

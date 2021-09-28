@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TransferBRep_BinderOfShape"
 discard "forward decl of TransferBRep_BinderOfShape"
 type
-  HandleTransferBRepBinderOfShape* = Handle[TransferBRepBinderOfShape]
+  HandleC1C1* = Handle[TransferBRepBinderOfShape]
 
 ## ! Allows direct binding between a starting Object and the Result
 ## ! of its transfer when it is Unique.
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TransferBRepBinderOfShape): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TransferBRep_BinderOfShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

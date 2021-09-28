@@ -55,5 +55,30 @@ proc dump*(this: XCAFDocNoteComment; theOS: var StandardOStream): var StandardOS
     noSideEffect, importcpp: "Dump", header: "XCAFDoc_NoteComment.hxx".}
 discard "forward decl of XCAFDoc_NoteComment"
 type
-  HandleXCAFDocNoteComment* = Handle[XCAFDocNoteComment]
+  HandleC1C1* = Handle[XCAFDocNoteComment]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

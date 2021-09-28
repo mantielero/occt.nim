@@ -48,12 +48,38 @@ type
                                                                                                      ## otherwise.
 
 
-proc value*(this: var MathFunctionWithDerivative; x: float; f: var float): bool {.
+proc value*(this: var MathFunctionWithDerivative; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "math_FunctionWithDerivative.hxx".}
-proc derivative*(this: var MathFunctionWithDerivative; x: float; d: var float): bool {.
+proc derivative*(this: var MathFunctionWithDerivative; x: cfloat; d: var cfloat): bool {.
     importcpp: "Derivative", header: "math_FunctionWithDerivative.hxx".}
-proc values*(this: var MathFunctionWithDerivative; x: float; f: var float; d: var float): bool {.
-    importcpp: "Values", header: "math_FunctionWithDerivative.hxx".}
+proc values*(this: var MathFunctionWithDerivative; x: cfloat; f: var cfloat;
+            d: var cfloat): bool {.importcpp: "Values",
+                               header: "math_FunctionWithDerivative.hxx".}
 proc destroyMathFunctionWithDerivative*(this: var MathFunctionWithDerivative) {.
     importcpp: "#.~math_FunctionWithDerivative()",
     header: "math_FunctionWithDerivative.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

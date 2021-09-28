@@ -30,67 +30,92 @@ type
 
 proc constructGCPntsUniformAbscissa*(): GCPntsUniformAbscissa {.constructor,
     importcpp: "GCPnts_UniformAbscissa(@)", header: "GCPnts_UniformAbscissa.hxx".}
-proc constructGCPntsUniformAbscissa*(c: Adaptor3dCurve; abscissa: float;
-                                    toler: float = -1): GCPntsUniformAbscissa {.
+proc constructGCPntsUniformAbscissa*(c: Adaptor3dCurve; abscissa: cfloat;
+                                    toler: cfloat = -1): GCPntsUniformAbscissa {.
     constructor, importcpp: "GCPnts_UniformAbscissa(@)",
     header: "GCPnts_UniformAbscissa.hxx".}
-proc constructGCPntsUniformAbscissa*(c: Adaptor3dCurve; abscissa: float; u1: float;
-                                    u2: float; toler: float = -1): GCPntsUniformAbscissa {.
+proc constructGCPntsUniformAbscissa*(c: Adaptor3dCurve; abscissa: cfloat; u1: cfloat;
+                                    u2: cfloat; toler: cfloat = -1): GCPntsUniformAbscissa {.
     constructor, importcpp: "GCPnts_UniformAbscissa(@)",
     header: "GCPnts_UniformAbscissa.hxx".}
-proc constructGCPntsUniformAbscissa*(c: Adaptor3dCurve; nbPoints: int;
-                                    toler: float = -1): GCPntsUniformAbscissa {.
+proc constructGCPntsUniformAbscissa*(c: Adaptor3dCurve; nbPoints: cint;
+                                    toler: cfloat = -1): GCPntsUniformAbscissa {.
     constructor, importcpp: "GCPnts_UniformAbscissa(@)",
     header: "GCPnts_UniformAbscissa.hxx".}
-proc constructGCPntsUniformAbscissa*(c: Adaptor3dCurve; nbPoints: int; u1: float;
-                                    u2: float; toler: float = -1): GCPntsUniformAbscissa {.
+proc constructGCPntsUniformAbscissa*(c: Adaptor3dCurve; nbPoints: cint; u1: cfloat;
+                                    u2: cfloat; toler: cfloat = -1): GCPntsUniformAbscissa {.
     constructor, importcpp: "GCPnts_UniformAbscissa(@)",
     header: "GCPnts_UniformAbscissa.hxx".}
-proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor3dCurve; abscissa: float;
-                toler: float = -1) {.importcpp: "Initialize",
-                                 header: "GCPnts_UniformAbscissa.hxx".}
-proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor3dCurve; abscissa: float;
-                u1: float; u2: float; toler: float = -1) {.importcpp: "Initialize",
+proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor3dCurve; abscissa: cfloat;
+                toler: cfloat = -1) {.importcpp: "Initialize",
+                                  header: "GCPnts_UniformAbscissa.hxx".}
+proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor3dCurve; abscissa: cfloat;
+                u1: cfloat; u2: cfloat; toler: cfloat = -1) {.importcpp: "Initialize",
     header: "GCPnts_UniformAbscissa.hxx".}
-proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor3dCurve; nbPoints: int;
-                toler: float = -1) {.importcpp: "Initialize",
-                                 header: "GCPnts_UniformAbscissa.hxx".}
-proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor3dCurve; nbPoints: int;
-                u1: float; u2: float; toler: float = -1) {.importcpp: "Initialize",
+proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor3dCurve; nbPoints: cint;
+                toler: cfloat = -1) {.importcpp: "Initialize",
+                                  header: "GCPnts_UniformAbscissa.hxx".}
+proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor3dCurve; nbPoints: cint;
+                u1: cfloat; u2: cfloat; toler: cfloat = -1) {.importcpp: "Initialize",
     header: "GCPnts_UniformAbscissa.hxx".}
-proc constructGCPntsUniformAbscissa*(c: Adaptor2dCurve2d; abscissa: float;
-                                    toler: float = -1): GCPntsUniformAbscissa {.
+proc constructGCPntsUniformAbscissa*(c: Adaptor2dCurve2d; abscissa: cfloat;
+                                    toler: cfloat = -1): GCPntsUniformAbscissa {.
     constructor, importcpp: "GCPnts_UniformAbscissa(@)",
     header: "GCPnts_UniformAbscissa.hxx".}
-proc constructGCPntsUniformAbscissa*(c: Adaptor2dCurve2d; abscissa: float; u1: float;
-                                    u2: float; toler: float = -1): GCPntsUniformAbscissa {.
+proc constructGCPntsUniformAbscissa*(c: Adaptor2dCurve2d; abscissa: cfloat;
+                                    u1: cfloat; u2: cfloat; toler: cfloat = -1): GCPntsUniformAbscissa {.
     constructor, importcpp: "GCPnts_UniformAbscissa(@)",
     header: "GCPnts_UniformAbscissa.hxx".}
-proc constructGCPntsUniformAbscissa*(c: Adaptor2dCurve2d; nbPoints: int;
-                                    toler: float = -1): GCPntsUniformAbscissa {.
+proc constructGCPntsUniformAbscissa*(c: Adaptor2dCurve2d; nbPoints: cint;
+                                    toler: cfloat = -1): GCPntsUniformAbscissa {.
     constructor, importcpp: "GCPnts_UniformAbscissa(@)",
     header: "GCPnts_UniformAbscissa.hxx".}
-proc constructGCPntsUniformAbscissa*(c: Adaptor2dCurve2d; nbPoints: int; u1: float;
-                                    u2: float; toler: float = -1): GCPntsUniformAbscissa {.
+proc constructGCPntsUniformAbscissa*(c: Adaptor2dCurve2d; nbPoints: cint; u1: cfloat;
+                                    u2: cfloat; toler: cfloat = -1): GCPntsUniformAbscissa {.
     constructor, importcpp: "GCPnts_UniformAbscissa(@)",
     header: "GCPnts_UniformAbscissa.hxx".}
 proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor2dCurve2d;
-                abscissa: float; toler: float = -1) {.importcpp: "Initialize",
+                abscissa: cfloat; toler: cfloat = -1) {.importcpp: "Initialize",
     header: "GCPnts_UniformAbscissa.hxx".}
 proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor2dCurve2d;
-                abscissa: float; u1: float; u2: float; toler: float = -1) {.
+                abscissa: cfloat; u1: cfloat; u2: cfloat; toler: cfloat = -1) {.
     importcpp: "Initialize", header: "GCPnts_UniformAbscissa.hxx".}
-proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor2dCurve2d; nbPoints: int;
-                toler: float = -1) {.importcpp: "Initialize",
-                                 header: "GCPnts_UniformAbscissa.hxx".}
-proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor2dCurve2d; nbPoints: int;
-                u1: float; u2: float; toler: float = -1) {.importcpp: "Initialize",
+proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor2dCurve2d; nbPoints: cint;
+                toler: cfloat = -1) {.importcpp: "Initialize",
+                                  header: "GCPnts_UniformAbscissa.hxx".}
+proc initialize*(this: var GCPntsUniformAbscissa; c: Adaptor2dCurve2d; nbPoints: cint;
+                u1: cfloat; u2: cfloat; toler: cfloat = -1) {.importcpp: "Initialize",
     header: "GCPnts_UniformAbscissa.hxx".}
 proc isDone*(this: GCPntsUniformAbscissa): bool {.noSideEffect, importcpp: "IsDone",
     header: "GCPnts_UniformAbscissa.hxx".}
-proc nbPoints*(this: GCPntsUniformAbscissa): int {.noSideEffect,
+proc nbPoints*(this: GCPntsUniformAbscissa): cint {.noSideEffect,
     importcpp: "NbPoints", header: "GCPnts_UniformAbscissa.hxx".}
-proc parameter*(this: GCPntsUniformAbscissa; index: int): float {.noSideEffect,
+proc parameter*(this: GCPntsUniformAbscissa; index: cint): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "GCPnts_UniformAbscissa.hxx".}
-proc abscissa*(this: GCPntsUniformAbscissa): float {.noSideEffect,
+proc abscissa*(this: GCPntsUniformAbscissa): cfloat {.noSideEffect,
     importcpp: "Abscissa", header: "GCPnts_UniformAbscissa.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

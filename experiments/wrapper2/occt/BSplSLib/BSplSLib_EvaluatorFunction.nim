@@ -14,12 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# when not defined(_Standard_Integer_HeaderFile):
-#   discard
-# when not defined(_Standard_Real_HeaderFile):
-#   discard
-# when not defined(_Standard_PrimitiveTypes_HeaderFile):
-#   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Integer_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Real_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_PrimitiveTypes_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
 ##  Histroy - C function pointer converted to a virtual class
 ##  in order to get rid of usage of static functions and static data
 
@@ -47,12 +47,67 @@ proc constructBSplSLibEvaluatorFunction*(): BSplSLibEvaluatorFunction {.
 proc destroyBSplSLibEvaluatorFunction*(this: var BSplSLibEvaluatorFunction) {.
     importcpp: "#.~BSplSLib_EvaluatorFunction()",
     header: "BSplSLib_EvaluatorFunction.hxx".}
-proc evaluate*(this: BSplSLibEvaluatorFunction; theDerivativeRequest: int;
-              theUParameter: float; theVParameter: float; theResult: var float;
-              theErrorCode: var int) {.noSideEffect, importcpp: "Evaluate",
-                                    header: "BSplSLib_EvaluatorFunction.hxx".}
-proc `()`*(this: BSplSLibEvaluatorFunction; theDerivativeRequest: int;
-          theUParameter: float; theVParameter: float; theResult: var float;
-          theErrorCode: var int) {.noSideEffect, importcpp: "#(@)",
-                                header: "BSplSLib_EvaluatorFunction.hxx".}
+proc evaluate*(this: BSplSLibEvaluatorFunction; theDerivativeRequest: cint;
+              theUParameter: cfloat; theVParameter: cfloat; theResult: var cfloat;
+              theErrorCode: var cint) {.noSideEffect, importcpp: "Evaluate",
+                                     header: "BSplSLib_EvaluatorFunction.hxx".}
+proc `()`*(this: BSplSLibEvaluatorFunction; theDerivativeRequest: cint;
+          theUParameter: cfloat; theVParameter: cfloat; theResult: var cfloat;
+          theErrorCode: var cint) {.noSideEffect, importcpp: "#(@)",
+                                 header: "BSplSLib_EvaluatorFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

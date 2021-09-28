@@ -17,7 +17,7 @@
 discard "forward decl of IGESData_LineFontEntity"
 discard "forward decl of IGESData_LineFontEntity"
 type
-  HandleIGESDataLineFontEntity* = Handle[IGESDataLineFontEntity]
+  HandleC1C1* = Handle[IGESDataLineFontEntity]
 
 ## ! defines required type for LineFont in directory part
 ## ! an effective LineFont entity must inherits it
@@ -35,3 +35,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_LineFontEntity.hxx".}
 proc dynamicType*(this: IGESDataLineFontEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_LineFontEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

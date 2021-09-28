@@ -22,3 +22,28 @@ type
       Handle[TopOpeBRepDS_Interference], TopOpeBRepDS_ListOfInterference,
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

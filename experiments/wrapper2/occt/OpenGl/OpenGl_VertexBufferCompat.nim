@@ -103,5 +103,30 @@ proc dynamicType*(this: OpenGlVertexBufferCompat): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "OpenGl_VertexBufferCompat.hxx".}
 discard "forward decl of OpenGl_VertexBufferCompat"
 type
-  HandleOpenGlVertexBufferCompat* = Handle[OpenGlVertexBufferCompat]
+  HandleC1C1* = Handle[OpenGlVertexBufferCompat]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

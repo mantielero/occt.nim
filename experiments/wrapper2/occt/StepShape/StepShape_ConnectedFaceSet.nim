@@ -19,7 +19,7 @@ discard "forward decl of StepShape_Face"
 discard "forward decl of StepShape_ConnectedFaceSet"
 discard "forward decl of StepShape_ConnectedFaceSet"
 type
-  HandleStepShapeConnectedFaceSet* = Handle[StepShapeConnectedFaceSet]
+  HandleC1C1* = Handle[StepShapeConnectedFaceSet]
   StepShapeConnectedFaceSet* {.importcpp: "StepShape_ConnectedFaceSet",
                               header: "StepShape_ConnectedFaceSet.hxx", bycopy.} = object of StepShapeTopologicalRepresentationItem ##
                                                                                                                              ## !
@@ -40,10 +40,10 @@ proc setCfsFaces*(this: var StepShapeConnectedFaceSet;
     importcpp: "SetCfsFaces", header: "StepShape_ConnectedFaceSet.hxx".}
 proc cfsFaces*(this: StepShapeConnectedFaceSet): Handle[StepShapeHArray1OfFace] {.
     noSideEffect, importcpp: "CfsFaces", header: "StepShape_ConnectedFaceSet.hxx".}
-proc cfsFacesValue*(this: StepShapeConnectedFaceSet; num: int): Handle[StepShapeFace] {.
+proc cfsFacesValue*(this: StepShapeConnectedFaceSet; num: cint): Handle[StepShapeFace] {.
     noSideEffect, importcpp: "CfsFacesValue",
     header: "StepShape_ConnectedFaceSet.hxx".}
-proc nbCfsFaces*(this: StepShapeConnectedFaceSet): int {.noSideEffect,
+proc nbCfsFaces*(this: StepShapeConnectedFaceSet): cint {.noSideEffect,
     importcpp: "NbCfsFaces", header: "StepShape_ConnectedFaceSet.hxx".}
 type
   StepShapeConnectedFaceSetbaseType* = StepShapeTopologicalRepresentationItem
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeConnectedFaceSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ConnectedFaceSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

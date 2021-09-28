@@ -47,41 +47,68 @@ type
 proc constructGCPntsUniformDeflection*(): GCPntsUniformDeflection {.constructor,
     importcpp: "GCPnts_UniformDeflection(@)",
     header: "GCPnts_UniformDeflection.hxx".}
-proc constructGCPntsUniformDeflection*(c: Adaptor3dCurve; deflection: float;
+proc constructGCPntsUniformDeflection*(c: Adaptor3dCurve; deflection: cfloat;
                                       withControl: bool = true): GCPntsUniformDeflection {.
     constructor, importcpp: "GCPnts_UniformDeflection(@)",
     header: "GCPnts_UniformDeflection.hxx".}
-proc constructGCPntsUniformDeflection*(c: Adaptor2dCurve2d; deflection: float;
+proc constructGCPntsUniformDeflection*(c: Adaptor2dCurve2d; deflection: cfloat;
                                       withControl: bool = true): GCPntsUniformDeflection {.
     constructor, importcpp: "GCPnts_UniformDeflection(@)",
     header: "GCPnts_UniformDeflection.hxx".}
-proc constructGCPntsUniformDeflection*(c: Adaptor3dCurve; deflection: float;
-                                      u1: float; u2: float; withControl: bool = true): GCPntsUniformDeflection {.
+proc constructGCPntsUniformDeflection*(c: Adaptor3dCurve; deflection: cfloat;
+                                      u1: cfloat; u2: cfloat;
+                                      withControl: bool = true): GCPntsUniformDeflection {.
     constructor, importcpp: "GCPnts_UniformDeflection(@)",
     header: "GCPnts_UniformDeflection.hxx".}
-proc constructGCPntsUniformDeflection*(c: Adaptor2dCurve2d; deflection: float;
-                                      u1: float; u2: float; withControl: bool = true): GCPntsUniformDeflection {.
+proc constructGCPntsUniformDeflection*(c: Adaptor2dCurve2d; deflection: cfloat;
+                                      u1: cfloat; u2: cfloat;
+                                      withControl: bool = true): GCPntsUniformDeflection {.
     constructor, importcpp: "GCPnts_UniformDeflection(@)",
     header: "GCPnts_UniformDeflection.hxx".}
 proc initialize*(this: var GCPntsUniformDeflection; c: Adaptor3dCurve;
-                deflection: float; withControl: bool = true) {.
+                deflection: cfloat; withControl: bool = true) {.
     importcpp: "Initialize", header: "GCPnts_UniformDeflection.hxx".}
 proc initialize*(this: var GCPntsUniformDeflection; c: Adaptor2dCurve2d;
-                deflection: float; withControl: bool = true) {.
+                deflection: cfloat; withControl: bool = true) {.
     importcpp: "Initialize", header: "GCPnts_UniformDeflection.hxx".}
 proc initialize*(this: var GCPntsUniformDeflection; c: Adaptor3dCurve;
-                deflection: float; u1: float; u2: float; withControl: bool = true) {.
+                deflection: cfloat; u1: cfloat; u2: cfloat; withControl: bool = true) {.
     importcpp: "Initialize", header: "GCPnts_UniformDeflection.hxx".}
 proc initialize*(this: var GCPntsUniformDeflection; c: Adaptor2dCurve2d;
-                deflection: float; u1: float; u2: float; withControl: bool = true) {.
+                deflection: cfloat; u1: cfloat; u2: cfloat; withControl: bool = true) {.
     importcpp: "Initialize", header: "GCPnts_UniformDeflection.hxx".}
 proc isDone*(this: GCPntsUniformDeflection): bool {.noSideEffect,
     importcpp: "IsDone", header: "GCPnts_UniformDeflection.hxx".}
-proc nbPoints*(this: GCPntsUniformDeflection): int {.noSideEffect,
+proc nbPoints*(this: GCPntsUniformDeflection): cint {.noSideEffect,
     importcpp: "NbPoints", header: "GCPnts_UniformDeflection.hxx".}
-proc parameter*(this: GCPntsUniformDeflection; index: int): float {.noSideEffect,
+proc parameter*(this: GCPntsUniformDeflection; index: cint): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "GCPnts_UniformDeflection.hxx".}
-proc value*(this: GCPntsUniformDeflection; index: int): Pnt {.noSideEffect,
+proc value*(this: GCPntsUniformDeflection; index: cint): Pnt {.noSideEffect,
     importcpp: "Value", header: "GCPnts_UniformDeflection.hxx".}
-proc deflection*(this: GCPntsUniformDeflection): float {.noSideEffect,
+proc deflection*(this: GCPntsUniformDeflection): cfloat {.noSideEffect,
     importcpp: "Deflection", header: "GCPnts_UniformDeflection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

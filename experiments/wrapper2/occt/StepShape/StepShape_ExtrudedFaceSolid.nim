@@ -20,7 +20,7 @@ discard "forward decl of StepShape_FaceSurface"
 discard "forward decl of StepShape_ExtrudedFaceSolid"
 discard "forward decl of StepShape_ExtrudedFaceSolid"
 type
-  HandleStepShapeExtrudedFaceSolid* = Handle[StepShapeExtrudedFaceSolid]
+  HandleC1C1* = Handle[StepShapeExtrudedFaceSolid]
   StepShapeExtrudedFaceSolid* {.importcpp: "StepShape_ExtrudedFaceSolid",
                                header: "StepShape_ExtrudedFaceSolid.hxx", bycopy.} = object of StepShapeSweptFaceSolid ##
                                                                                                                 ## !
@@ -35,7 +35,7 @@ proc constructStepShapeExtrudedFaceSolid*(): StepShapeExtrudedFaceSolid {.
 proc init*(this: var StepShapeExtrudedFaceSolid;
           aName: Handle[TCollectionHAsciiString];
           aSweptArea: Handle[StepShapeFaceSurface];
-          aExtrudedDirection: Handle[StepGeomDirection]; aDepth: float) {.
+          aExtrudedDirection: Handle[StepGeomDirection]; aDepth: cfloat) {.
     importcpp: "Init", header: "StepShape_ExtrudedFaceSolid.hxx".}
 proc setExtrudedDirection*(this: var StepShapeExtrudedFaceSolid;
                           aExtrudedDirection: Handle[StepGeomDirection]) {.
@@ -43,9 +43,9 @@ proc setExtrudedDirection*(this: var StepShapeExtrudedFaceSolid;
 proc extrudedDirection*(this: StepShapeExtrudedFaceSolid): Handle[StepGeomDirection] {.
     noSideEffect, importcpp: "ExtrudedDirection",
     header: "StepShape_ExtrudedFaceSolid.hxx".}
-proc setDepth*(this: var StepShapeExtrudedFaceSolid; aDepth: float) {.
+proc setDepth*(this: var StepShapeExtrudedFaceSolid; aDepth: cfloat) {.
     importcpp: "SetDepth", header: "StepShape_ExtrudedFaceSolid.hxx".}
-proc depth*(this: StepShapeExtrudedFaceSolid): float {.noSideEffect,
+proc depth*(this: StepShapeExtrudedFaceSolid): cfloat {.noSideEffect,
     importcpp: "Depth", header: "StepShape_ExtrudedFaceSolid.hxx".}
 type
   StepShapeExtrudedFaceSolidbaseType* = StepShapeSweptFaceSolid
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeExtrudedFaceSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ExtrudedFaceSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

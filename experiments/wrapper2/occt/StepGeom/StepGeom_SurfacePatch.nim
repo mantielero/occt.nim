@@ -18,7 +18,7 @@ discard "forward decl of StepGeom_BoundedSurface"
 discard "forward decl of StepGeom_SurfacePatch"
 discard "forward decl of StepGeom_SurfacePatch"
 type
-  HandleStepGeomSurfacePatch* = Handle[StepGeomSurfacePatch]
+  HandleC1C1* = Handle[StepGeomSurfacePatch]
   StepGeomSurfacePatch* {.importcpp: "StepGeom_SurfacePatch",
                          header: "StepGeom_SurfacePatch.hxx", bycopy.} = object of StandardTransient ##
                                                                                               ## !
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_SurfacePatch.hxx".}
 proc dynamicType*(this: StepGeomSurfacePatch): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_SurfacePatch.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

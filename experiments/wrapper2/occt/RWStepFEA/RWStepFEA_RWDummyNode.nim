@@ -28,7 +28,7 @@ type
 proc constructRWStepFEA_RWDummyNode*(): RWStepFEA_RWDummyNode {.constructor,
     importcpp: "RWStepFEA_RWDummyNode(@)", header: "RWStepFEA_RWDummyNode.hxx".}
 proc readStep*(this: RWStepFEA_RWDummyNode; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_DummyNode]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWDummyNode.hxx".}
 proc writeStep*(this: RWStepFEA_RWDummyNode; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepFEA_RWDummyNode; sw: var StepDataStepWriter;
 proc share*(this: RWStepFEA_RWDummyNode; ent: Handle[StepFEA_DummyNode];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWDummyNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

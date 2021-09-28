@@ -28,7 +28,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 type
-  HandleGeom2dBSplineCurve* = Handle[Geom2dBSplineCurve]
+  HandleC1C1* = Handle[Geom2dBSplineCurve]
 
 ## ! Describes a BSpline curve.
 ## ! A BSpline curve can be:
@@ -296,14 +296,14 @@ type
 proc constructGeom2dBSplineCurve*(poles: TColgpArray1OfPnt2d;
                                  knots: TColStdArray1OfReal;
                                  multiplicities: TColStdArray1OfInteger;
-                                 degree: int; periodic: bool = false): Geom2dBSplineCurve {.
+                                 degree: int; periodic: StandardBoolean = false): Geom2dBSplineCurve {.
     constructor, importcpp: "Geom2d_BSplineCurve(@)",
     header: "Geom2d_BSplineCurve.hxx".}
 proc constructGeom2dBSplineCurve*(poles: TColgpArray1OfPnt2d;
                                  weights: TColStdArray1OfReal;
                                  knots: TColStdArray1OfReal;
                                  multiplicities: TColStdArray1OfInteger;
-                                 degree: int; periodic: bool = false): Geom2dBSplineCurve {.
+                                 degree: int; periodic: StandardBoolean = false): Geom2dBSplineCurve {.
     constructor, importcpp: "Geom2d_BSplineCurve(@)",
     header: "Geom2d_BSplineCurve.hxx".}
 proc increaseDegree*(this: var Geom2dBSplineCurve; degree: int) {.
@@ -314,38 +314,41 @@ proc increaseMultiplicity*(this: var Geom2dBSplineCurve; i1: int; i2: int; m: in
     importcpp: "IncreaseMultiplicity", header: "Geom2d_BSplineCurve.hxx".}
 proc incrementMultiplicity*(this: var Geom2dBSplineCurve; i1: int; i2: int; m: int) {.
     importcpp: "IncrementMultiplicity", header: "Geom2d_BSplineCurve.hxx".}
-proc insertKnot*(this: var Geom2dBSplineCurve; u: float; m: int = 1;
-                parametricTolerance: float = 0.0) {.importcpp: "InsertKnot",
+proc insertKnot*(this: var Geom2dBSplineCurve; u: StandardReal; m: int = 1;
+                parametricTolerance: StandardReal = 0.0) {.importcpp: "InsertKnot",
     header: "Geom2d_BSplineCurve.hxx".}
 proc insertKnots*(this: var Geom2dBSplineCurve; knots: TColStdArray1OfReal;
-                 mults: TColStdArray1OfInteger; parametricTolerance: float = 0.0;
-                 add: bool = false) {.importcpp: "InsertKnots",
-                                  header: "Geom2d_BSplineCurve.hxx".}
-proc removeKnot*(this: var Geom2dBSplineCurve; index: int; m: int; tolerance: float): bool {.
+                 mults: TColStdArray1OfInteger;
+                 parametricTolerance: StandardReal = 0.0;
+                 add: StandardBoolean = false) {.importcpp: "InsertKnots",
+    header: "Geom2d_BSplineCurve.hxx".}
+proc removeKnot*(this: var Geom2dBSplineCurve; index: int; m: int;
+                tolerance: StandardReal): StandardBoolean {.
     importcpp: "RemoveKnot", header: "Geom2d_BSplineCurve.hxx".}
 proc insertPoleAfter*(this: var Geom2dBSplineCurve; index: int; p: Pnt2d;
-                     weight: float = 1.0) {.importcpp: "InsertPoleAfter",
-                                        header: "Geom2d_BSplineCurve.hxx".}
+                     weight: StandardReal = 1.0) {.importcpp: "InsertPoleAfter",
+    header: "Geom2d_BSplineCurve.hxx".}
 proc insertPoleBefore*(this: var Geom2dBSplineCurve; index: int; p: Pnt2d;
-                      weight: float = 1.0) {.importcpp: "InsertPoleBefore",
+                      weight: StandardReal = 1.0) {.importcpp: "InsertPoleBefore",
     header: "Geom2d_BSplineCurve.hxx".}
 proc removePole*(this: var Geom2dBSplineCurve; index: int) {.importcpp: "RemovePole",
     header: "Geom2d_BSplineCurve.hxx".}
 proc reverse*(this: var Geom2dBSplineCurve) {.importcpp: "Reverse",
     header: "Geom2d_BSplineCurve.hxx".}
-proc reversedParameter*(this: Geom2dBSplineCurve; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom2d_BSplineCurve.hxx".}
-proc segment*(this: var Geom2dBSplineCurve; u1: float; u2: float;
-             theTolerance: float = pConfusion()) {.importcpp: "Segment",
+proc reversedParameter*(this: Geom2dBSplineCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_BSplineCurve.hxx".}
+proc segment*(this: var Geom2dBSplineCurve; u1: StandardReal; u2: StandardReal;
+             theTolerance: StandardReal = pConfusion()) {.importcpp: "Segment",
     header: "Geom2d_BSplineCurve.hxx".}
-proc setKnot*(this: var Geom2dBSplineCurve; index: int; k: float) {.
+proc setKnot*(this: var Geom2dBSplineCurve; index: int; k: StandardReal) {.
     importcpp: "SetKnot", header: "Geom2d_BSplineCurve.hxx".}
 proc setKnots*(this: var Geom2dBSplineCurve; k: TColStdArray1OfReal) {.
     importcpp: "SetKnots", header: "Geom2d_BSplineCurve.hxx".}
-proc setKnot*(this: var Geom2dBSplineCurve; index: int; k: float; m: int) {.
+proc setKnot*(this: var Geom2dBSplineCurve; index: int; k: StandardReal; m: int) {.
     importcpp: "SetKnot", header: "Geom2d_BSplineCurve.hxx".}
-proc periodicNormalization*(this: Geom2dBSplineCurve; u: var float) {.noSideEffect,
-    importcpp: "PeriodicNormalization", header: "Geom2d_BSplineCurve.hxx".}
+proc periodicNormalization*(this: Geom2dBSplineCurve; u: var StandardReal) {.
+    noSideEffect, importcpp: "PeriodicNormalization",
+    header: "Geom2d_BSplineCurve.hxx".}
 proc setPeriodic*(this: var Geom2dBSplineCurve) {.importcpp: "SetPeriodic",
     header: "Geom2d_BSplineCurve.hxx".}
 proc setOrigin*(this: var Geom2dBSplineCurve; index: int) {.importcpp: "SetOrigin",
@@ -354,64 +357,68 @@ proc setNotPeriodic*(this: var Geom2dBSplineCurve) {.importcpp: "SetNotPeriodic"
     header: "Geom2d_BSplineCurve.hxx".}
 proc setPole*(this: var Geom2dBSplineCurve; index: int; p: Pnt2d) {.
     importcpp: "SetPole", header: "Geom2d_BSplineCurve.hxx".}
-proc setPole*(this: var Geom2dBSplineCurve; index: int; p: Pnt2d; weight: float) {.
+proc setPole*(this: var Geom2dBSplineCurve; index: int; p: Pnt2d; weight: StandardReal) {.
     importcpp: "SetPole", header: "Geom2d_BSplineCurve.hxx".}
-proc setWeight*(this: var Geom2dBSplineCurve; index: int; weight: float) {.
+proc setWeight*(this: var Geom2dBSplineCurve; index: int; weight: StandardReal) {.
     importcpp: "SetWeight", header: "Geom2d_BSplineCurve.hxx".}
-proc movePoint*(this: var Geom2dBSplineCurve; u: float; p: Pnt2d; index1: int;
+proc movePoint*(this: var Geom2dBSplineCurve; u: StandardReal; p: Pnt2d; index1: int;
                index2: int; firstModifiedPole: var int; lastModifiedPole: var int) {.
     importcpp: "MovePoint", header: "Geom2d_BSplineCurve.hxx".}
-proc movePointAndTangent*(this: var Geom2dBSplineCurve; u: float; p: Pnt2d;
-                         tangent: Vec2d; tolerance: float; startingCondition: int;
-                         endingCondition: int; errorStatus: var int) {.
-    importcpp: "MovePointAndTangent", header: "Geom2d_BSplineCurve.hxx".}
-proc isCN*(this: Geom2dBSplineCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
+proc movePointAndTangent*(this: var Geom2dBSplineCurve; u: StandardReal; p: Pnt2d;
+                         tangent: Vec2d; tolerance: StandardReal;
+                         startingCondition: int; endingCondition: int;
+                         errorStatus: var int) {.importcpp: "MovePointAndTangent",
     header: "Geom2d_BSplineCurve.hxx".}
-proc isG1*(this: Geom2dBSplineCurve; theTf: float; theTl: float; theAngTol: float): bool {.
-    noSideEffect, importcpp: "IsG1", header: "Geom2d_BSplineCurve.hxx".}
-proc isClosed*(this: Geom2dBSplineCurve): bool {.noSideEffect, importcpp: "IsClosed",
-    header: "Geom2d_BSplineCurve.hxx".}
-proc isPeriodic*(this: Geom2dBSplineCurve): bool {.noSideEffect,
+proc isCN*(this: Geom2dBSplineCurve; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom2d_BSplineCurve.hxx".}
+proc isG1*(this: Geom2dBSplineCurve; theTf: StandardReal; theTl: StandardReal;
+          theAngTol: StandardReal): StandardBoolean {.noSideEffect,
+    importcpp: "IsG1", header: "Geom2d_BSplineCurve.hxx".}
+proc isClosed*(this: Geom2dBSplineCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom2d_BSplineCurve.hxx".}
+proc isPeriodic*(this: Geom2dBSplineCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom2d_BSplineCurve.hxx".}
-proc isRational*(this: Geom2dBSplineCurve): bool {.noSideEffect,
+proc isRational*(this: Geom2dBSplineCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsRational", header: "Geom2d_BSplineCurve.hxx".}
 proc continuity*(this: Geom2dBSplineCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom2d_BSplineCurve.hxx".}
 proc degree*(this: Geom2dBSplineCurve): int {.noSideEffect, importcpp: "Degree",
     header: "Geom2d_BSplineCurve.hxx".}
-proc d0*(this: Geom2dBSplineCurve; u: float; p: var Pnt2d) {.noSideEffect,
+proc d0*(this: Geom2dBSplineCurve; u: StandardReal; p: var Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Geom2d_BSplineCurve.hxx".}
-proc d1*(this: Geom2dBSplineCurve; u: float; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
-    importcpp: "D1", header: "Geom2d_BSplineCurve.hxx".}
-proc d2*(this: Geom2dBSplineCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, importcpp: "D2", header: "Geom2d_BSplineCurve.hxx".}
-proc d3*(this: Geom2dBSplineCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+proc d1*(this: Geom2dBSplineCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d) {.
+    noSideEffect, importcpp: "D1", header: "Geom2d_BSplineCurve.hxx".}
+proc d2*(this: Geom2dBSplineCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d) {.noSideEffect, importcpp: "D2",
                       header: "Geom2d_BSplineCurve.hxx".}
-proc dn*(this: Geom2dBSplineCurve; u: float; n: int): Vec2d {.noSideEffect,
+proc d3*(this: Geom2dBSplineCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d; v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+                                  header: "Geom2d_BSplineCurve.hxx".}
+proc dn*(this: Geom2dBSplineCurve; u: StandardReal; n: int): Vec2d {.noSideEffect,
     importcpp: "DN", header: "Geom2d_BSplineCurve.hxx".}
-proc localValue*(this: Geom2dBSplineCurve; u: float; fromK1: int; toK2: int): Pnt2d {.
+proc localValue*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: int; toK2: int): Pnt2d {.
     noSideEffect, importcpp: "LocalValue", header: "Geom2d_BSplineCurve.hxx".}
-proc localD0*(this: Geom2dBSplineCurve; u: float; fromK1: int; toK2: int; p: var Pnt2d) {.
-    noSideEffect, importcpp: "LocalD0", header: "Geom2d_BSplineCurve.hxx".}
-proc localD1*(this: Geom2dBSplineCurve; u: float; fromK1: int; toK2: int; p: var Pnt2d;
-             v1: var Vec2d) {.noSideEffect, importcpp: "LocalD1",
-                           header: "Geom2d_BSplineCurve.hxx".}
-proc localD2*(this: Geom2dBSplineCurve; u: float; fromK1: int; toK2: int; p: var Pnt2d;
-             v1: var Vec2d; v2: var Vec2d) {.noSideEffect, importcpp: "LocalD2",
-                                       header: "Geom2d_BSplineCurve.hxx".}
-proc localD3*(this: Geom2dBSplineCurve; u: float; fromK1: int; toK2: int; p: var Pnt2d;
-             v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.noSideEffect,
+proc localD0*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: int; toK2: int;
+             p: var Pnt2d) {.noSideEffect, importcpp: "LocalD0",
+                          header: "Geom2d_BSplineCurve.hxx".}
+proc localD1*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: int; toK2: int;
+             p: var Pnt2d; v1: var Vec2d) {.noSideEffect, importcpp: "LocalD1",
+                                      header: "Geom2d_BSplineCurve.hxx".}
+proc localD2*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: int; toK2: int;
+             p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.noSideEffect,
+    importcpp: "LocalD2", header: "Geom2d_BSplineCurve.hxx".}
+proc localD3*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: int; toK2: int;
+             p: var Pnt2d; v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.noSideEffect,
     importcpp: "LocalD3", header: "Geom2d_BSplineCurve.hxx".}
-proc localDN*(this: Geom2dBSplineCurve; u: float; fromK1: int; toK2: int; n: int): Vec2d {.
+proc localDN*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: int; toK2: int; n: int): Vec2d {.
     noSideEffect, importcpp: "LocalDN", header: "Geom2d_BSplineCurve.hxx".}
 proc endPoint*(this: Geom2dBSplineCurve): Pnt2d {.noSideEffect,
     importcpp: "EndPoint", header: "Geom2d_BSplineCurve.hxx".}
 proc firstUKnotIndex*(this: Geom2dBSplineCurve): int {.noSideEffect,
     importcpp: "FirstUKnotIndex", header: "Geom2d_BSplineCurve.hxx".}
-proc firstParameter*(this: Geom2dBSplineCurve): float {.noSideEffect,
+proc firstParameter*(this: Geom2dBSplineCurve): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_BSplineCurve.hxx".}
-proc knot*(this: Geom2dBSplineCurve; index: int): float {.noSideEffect,
+proc knot*(this: Geom2dBSplineCurve; index: int): StandardReal {.noSideEffect,
     importcpp: "Knot", header: "Geom2d_BSplineCurve.hxx".}
 proc knots*(this: Geom2dBSplineCurve; k: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "Knots", header: "Geom2d_BSplineCurve.hxx".}
@@ -425,10 +432,11 @@ proc knotDistribution*(this: Geom2dBSplineCurve): GeomAbsBSplKnotDistribution {.
     noSideEffect, importcpp: "KnotDistribution", header: "Geom2d_BSplineCurve.hxx".}
 proc lastUKnotIndex*(this: Geom2dBSplineCurve): int {.noSideEffect,
     importcpp: "LastUKnotIndex", header: "Geom2d_BSplineCurve.hxx".}
-proc lastParameter*(this: Geom2dBSplineCurve): float {.noSideEffect,
+proc lastParameter*(this: Geom2dBSplineCurve): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_BSplineCurve.hxx".}
-proc locateU*(this: Geom2dBSplineCurve; u: float; parametricTolerance: float;
-             i1: var int; i2: var int; withKnotRepetition: bool = false) {.noSideEffect,
+proc locateU*(this: Geom2dBSplineCurve; u: StandardReal;
+             parametricTolerance: StandardReal; i1: var int; i2: var int;
+             withKnotRepetition: StandardBoolean = false) {.noSideEffect,
     importcpp: "LocateU", header: "Geom2d_BSplineCurve.hxx".}
 proc multiplicity*(this: Geom2dBSplineCurve; index: int): int {.noSideEffect,
     importcpp: "Multiplicity", header: "Geom2d_BSplineCurve.hxx".}
@@ -448,7 +456,7 @@ proc poles*(this: Geom2dBSplineCurve): TColgpArray1OfPnt2d {.noSideEffect,
     importcpp: "Poles", header: "Geom2d_BSplineCurve.hxx".}
 proc startPoint*(this: Geom2dBSplineCurve): Pnt2d {.noSideEffect,
     importcpp: "StartPoint", header: "Geom2d_BSplineCurve.hxx".}
-proc weight*(this: Geom2dBSplineCurve; index: int): float {.noSideEffect,
+proc weight*(this: Geom2dBSplineCurve; index: int): StandardReal {.noSideEffect,
     importcpp: "Weight", header: "Geom2d_BSplineCurve.hxx".}
 proc weights*(this: Geom2dBSplineCurve; w: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "Weights", header: "Geom2d_BSplineCurve.hxx".}
@@ -458,9 +466,9 @@ proc transform*(this: var Geom2dBSplineCurve; t: Trsf2d) {.importcpp: "Transform
     header: "Geom2d_BSplineCurve.hxx".}
 proc maxDegree*(): int {.importcpp: "Geom2d_BSplineCurve::MaxDegree(@)",
                       header: "Geom2d_BSplineCurve.hxx".}
-proc resolution*(this: var Geom2dBSplineCurve; toleranceUV: float;
-                uTolerance: var float) {.importcpp: "Resolution",
-                                      header: "Geom2d_BSplineCurve.hxx".}
+proc resolution*(this: var Geom2dBSplineCurve; toleranceUV: StandardReal;
+                uTolerance: var StandardReal) {.importcpp: "Resolution",
+    header: "Geom2d_BSplineCurve.hxx".}
 proc copy*(this: Geom2dBSplineCurve): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_BSplineCurve.hxx".}
 proc dumpJson*(this: Geom2dBSplineCurve; theOStream: var StandardOStream;

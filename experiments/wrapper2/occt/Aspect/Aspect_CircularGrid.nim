@@ -44,31 +44,56 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Aspect_CircularGrid.hxx".}
 proc dynamicType*(this: AspectCircularGrid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_CircularGrid.hxx".}
-proc constructAspectCircularGrid*(aRadiusStep: float; aDivisionNumber: int;
-                                 xOrigin: float = 0; anYOrigin: float = 0;
-                                 aRotationAngle: float = 0): AspectCircularGrid {.
+proc constructAspectCircularGrid*(aRadiusStep: cfloat; aDivisionNumber: cint;
+                                 xOrigin: cfloat = 0; anYOrigin: cfloat = 0;
+                                 aRotationAngle: cfloat = 0): AspectCircularGrid {.
     constructor, importcpp: "Aspect_CircularGrid(@)",
     header: "Aspect_CircularGrid.hxx".}
-proc setRadiusStep*(this: var AspectCircularGrid; aStep: float) {.
+proc setRadiusStep*(this: var AspectCircularGrid; aStep: cfloat) {.
     importcpp: "SetRadiusStep", header: "Aspect_CircularGrid.hxx".}
-proc setDivisionNumber*(this: var AspectCircularGrid; aNumber: int) {.
+proc setDivisionNumber*(this: var AspectCircularGrid; aNumber: cint) {.
     importcpp: "SetDivisionNumber", header: "Aspect_CircularGrid.hxx".}
-proc setGridValues*(this: var AspectCircularGrid; xOrigin: float; yOrigin: float;
-                   radiusStep: float; divisionNumber: int; rotationAngle: float) {.
+proc setGridValues*(this: var AspectCircularGrid; xOrigin: cfloat; yOrigin: cfloat;
+                   radiusStep: cfloat; divisionNumber: cint; rotationAngle: cfloat) {.
     importcpp: "SetGridValues", header: "Aspect_CircularGrid.hxx".}
-proc compute*(this: AspectCircularGrid; x: float; y: float; gridX: var float;
-             gridY: var float) {.noSideEffect, importcpp: "Compute",
-                              header: "Aspect_CircularGrid.hxx".}
-proc radiusStep*(this: AspectCircularGrid): float {.noSideEffect,
+proc compute*(this: AspectCircularGrid; x: cfloat; y: cfloat; gridX: var cfloat;
+             gridY: var cfloat) {.noSideEffect, importcpp: "Compute",
+                               header: "Aspect_CircularGrid.hxx".}
+proc radiusStep*(this: AspectCircularGrid): cfloat {.noSideEffect,
     importcpp: "RadiusStep", header: "Aspect_CircularGrid.hxx".}
-proc divisionNumber*(this: AspectCircularGrid): int {.noSideEffect,
+proc divisionNumber*(this: AspectCircularGrid): cint {.noSideEffect,
     importcpp: "DivisionNumber", header: "Aspect_CircularGrid.hxx".}
 proc init*(this: var AspectCircularGrid) {.importcpp: "Init",
                                        header: "Aspect_CircularGrid.hxx".}
 proc dumpJson*(this: AspectCircularGrid; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Aspect_CircularGrid.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Aspect_CircularGrid.hxx".}
 discard "forward decl of Aspect_CircularGrid"
 type
-  HandleAspectCircularGrid* = Handle[AspectCircularGrid]
+  HandleC1C1* = Handle[AspectCircularGrid]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

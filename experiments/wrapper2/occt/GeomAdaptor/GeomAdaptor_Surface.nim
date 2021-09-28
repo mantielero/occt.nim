@@ -40,30 +40,50 @@ type
     ## /< Calculates values of nested complex surfaces (offset surface, surface of extrusion or revolution)
 
 
+proc `new`*(this: var GeomAdaptorSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomAdaptor_Surface::operator new",
+    header: "GeomAdaptor_Surface.hxx".}
+proc `delete`*(this: var GeomAdaptorSurface; theAddress: pointer) {.
+    importcpp: "GeomAdaptor_Surface::operator delete",
+    header: "GeomAdaptor_Surface.hxx".}
+proc `new[]`*(this: var GeomAdaptorSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomAdaptor_Surface::operator new[]",
+    header: "GeomAdaptor_Surface.hxx".}
+proc `delete[]`*(this: var GeomAdaptorSurface; theAddress: pointer) {.
+    importcpp: "GeomAdaptor_Surface::operator delete[]",
+    header: "GeomAdaptor_Surface.hxx".}
+proc `new`*(this: var GeomAdaptorSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomAdaptor_Surface::operator new",
+    header: "GeomAdaptor_Surface.hxx".}
+proc `delete`*(this: var GeomAdaptorSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomAdaptor_Surface::operator delete",
+    header: "GeomAdaptor_Surface.hxx".}
 proc constructGeomAdaptorSurface*(): GeomAdaptorSurface {.constructor,
     importcpp: "GeomAdaptor_Surface(@)", header: "GeomAdaptor_Surface.hxx".}
 proc constructGeomAdaptorSurface*(s: Handle[GeomSurface]): GeomAdaptorSurface {.
     constructor, importcpp: "GeomAdaptor_Surface(@)",
     header: "GeomAdaptor_Surface.hxx".}
-proc constructGeomAdaptorSurface*(s: Handle[GeomSurface]; uFirst: float;
-                                 uLast: float; vFirst: float; vLast: float;
-                                 tolU: float = 0.0; tolV: float = 0.0): GeomAdaptorSurface {.
+proc constructGeomAdaptorSurface*(s: Handle[GeomSurface]; uFirst: StandardReal;
+                                 uLast: StandardReal; vFirst: StandardReal;
+                                 vLast: StandardReal; tolU: StandardReal = 0.0;
+                                 tolV: StandardReal = 0.0): GeomAdaptorSurface {.
     constructor, importcpp: "GeomAdaptor_Surface(@)",
     header: "GeomAdaptor_Surface.hxx".}
 proc load*(this: var GeomAdaptorSurface; s: Handle[GeomSurface]) {.importcpp: "Load",
     header: "GeomAdaptor_Surface.hxx".}
-proc load*(this: var GeomAdaptorSurface; s: Handle[GeomSurface]; uFirst: float;
-          uLast: float; vFirst: float; vLast: float; tolU: float = 0.0; tolV: float = 0.0) {.
-    importcpp: "Load", header: "GeomAdaptor_Surface.hxx".}
+proc load*(this: var GeomAdaptorSurface; s: Handle[GeomSurface]; uFirst: StandardReal;
+          uLast: StandardReal; vFirst: StandardReal; vLast: StandardReal;
+          tolU: StandardReal = 0.0; tolV: StandardReal = 0.0) {.importcpp: "Load",
+    header: "GeomAdaptor_Surface.hxx".}
 proc surface*(this: GeomAdaptorSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "GeomAdaptor_Surface.hxx".}
-proc firstUParameter*(this: GeomAdaptorSurface): float {.noSideEffect,
+proc firstUParameter*(this: GeomAdaptorSurface): StandardReal {.noSideEffect,
     importcpp: "FirstUParameter", header: "GeomAdaptor_Surface.hxx".}
-proc lastUParameter*(this: GeomAdaptorSurface): float {.noSideEffect,
+proc lastUParameter*(this: GeomAdaptorSurface): StandardReal {.noSideEffect,
     importcpp: "LastUParameter", header: "GeomAdaptor_Surface.hxx".}
-proc firstVParameter*(this: GeomAdaptorSurface): float {.noSideEffect,
+proc firstVParameter*(this: GeomAdaptorSurface): StandardReal {.noSideEffect,
     importcpp: "FirstVParameter", header: "GeomAdaptor_Surface.hxx".}
-proc lastVParameter*(this: GeomAdaptorSurface): float {.noSideEffect,
+proc lastVParameter*(this: GeomAdaptorSurface): StandardReal {.noSideEffect,
     importcpp: "LastVParameter", header: "GeomAdaptor_Surface.hxx".}
 proc uContinuity*(this: GeomAdaptorSurface): GeomAbsShape {.noSideEffect,
     importcpp: "UContinuity", header: "GeomAdaptor_Surface.hxx".}
@@ -77,43 +97,44 @@ proc uIntervals*(this: GeomAdaptorSurface; t: var TColStdArray1OfReal; s: GeomAb
     noSideEffect, importcpp: "UIntervals", header: "GeomAdaptor_Surface.hxx".}
 proc vIntervals*(this: GeomAdaptorSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "VIntervals", header: "GeomAdaptor_Surface.hxx".}
-proc uTrim*(this: GeomAdaptorSurface; first: float; last: float; tol: float): Handle[
-    Adaptor3dHSurface] {.noSideEffect, importcpp: "UTrim",
-                        header: "GeomAdaptor_Surface.hxx".}
-proc vTrim*(this: GeomAdaptorSurface; first: float; last: float; tol: float): Handle[
-    Adaptor3dHSurface] {.noSideEffect, importcpp: "VTrim",
-                        header: "GeomAdaptor_Surface.hxx".}
-proc isUClosed*(this: GeomAdaptorSurface): bool {.noSideEffect,
+proc uTrim*(this: GeomAdaptorSurface; first: StandardReal; last: StandardReal;
+           tol: StandardReal): Handle[Adaptor3dHSurface] {.noSideEffect,
+    importcpp: "UTrim", header: "GeomAdaptor_Surface.hxx".}
+proc vTrim*(this: GeomAdaptorSurface; first: StandardReal; last: StandardReal;
+           tol: StandardReal): Handle[Adaptor3dHSurface] {.noSideEffect,
+    importcpp: "VTrim", header: "GeomAdaptor_Surface.hxx".}
+proc isUClosed*(this: GeomAdaptorSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsUClosed", header: "GeomAdaptor_Surface.hxx".}
-proc isVClosed*(this: GeomAdaptorSurface): bool {.noSideEffect,
+proc isVClosed*(this: GeomAdaptorSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVClosed", header: "GeomAdaptor_Surface.hxx".}
-proc isUPeriodic*(this: GeomAdaptorSurface): bool {.noSideEffect,
+proc isUPeriodic*(this: GeomAdaptorSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsUPeriodic", header: "GeomAdaptor_Surface.hxx".}
-proc uPeriod*(this: GeomAdaptorSurface): float {.noSideEffect, importcpp: "UPeriod",
-    header: "GeomAdaptor_Surface.hxx".}
-proc isVPeriodic*(this: GeomAdaptorSurface): bool {.noSideEffect,
+proc uPeriod*(this: GeomAdaptorSurface): StandardReal {.noSideEffect,
+    importcpp: "UPeriod", header: "GeomAdaptor_Surface.hxx".}
+proc isVPeriodic*(this: GeomAdaptorSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVPeriodic", header: "GeomAdaptor_Surface.hxx".}
-proc vPeriod*(this: GeomAdaptorSurface): float {.noSideEffect, importcpp: "VPeriod",
-    header: "GeomAdaptor_Surface.hxx".}
-proc value*(this: GeomAdaptorSurface; u: float; v: float): Pnt {.noSideEffect,
-    importcpp: "Value", header: "GeomAdaptor_Surface.hxx".}
-proc d0*(this: GeomAdaptorSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
-    importcpp: "D0", header: "GeomAdaptor_Surface.hxx".}
-proc d1*(this: GeomAdaptorSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
-    noSideEffect, importcpp: "D1", header: "GeomAdaptor_Surface.hxx".}
-proc d2*(this: GeomAdaptorSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+proc vPeriod*(this: GeomAdaptorSurface): StandardReal {.noSideEffect,
+    importcpp: "VPeriod", header: "GeomAdaptor_Surface.hxx".}
+proc value*(this: GeomAdaptorSurface; u: StandardReal; v: StandardReal): Pnt {.
+    noSideEffect, importcpp: "Value", header: "GeomAdaptor_Surface.hxx".}
+proc d0*(this: GeomAdaptorSurface; u: StandardReal; v: StandardReal; p: var Pnt) {.
+    noSideEffect, importcpp: "D0", header: "GeomAdaptor_Surface.hxx".}
+proc d1*(this: GeomAdaptorSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                                header: "GeomAdaptor_Surface.hxx".}
+proc d2*(this: GeomAdaptorSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
     importcpp: "D2", header: "GeomAdaptor_Surface.hxx".}
-proc d3*(this: GeomAdaptorSurface; u: float; v: float; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
-        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
-                                    header: "GeomAdaptor_Surface.hxx".}
-proc dn*(this: GeomAdaptorSurface; u: float; v: float; nu: int; nv: int): Vec {.
+proc d3*(this: GeomAdaptorSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
+        d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+    header: "GeomAdaptor_Surface.hxx".}
+proc dn*(this: GeomAdaptorSurface; u: StandardReal; v: StandardReal; nu: int; nv: int): Vec {.
     noSideEffect, importcpp: "DN", header: "GeomAdaptor_Surface.hxx".}
-proc uResolution*(this: GeomAdaptorSurface; r3d: float): float {.noSideEffect,
-    importcpp: "UResolution", header: "GeomAdaptor_Surface.hxx".}
-proc vResolution*(this: GeomAdaptorSurface; r3d: float): float {.noSideEffect,
-    importcpp: "VResolution", header: "GeomAdaptor_Surface.hxx".}
+proc uResolution*(this: GeomAdaptorSurface; r3d: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UResolution", header: "GeomAdaptor_Surface.hxx".}
+proc vResolution*(this: GeomAdaptorSurface; r3d: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VResolution", header: "GeomAdaptor_Surface.hxx".}
 proc getType*(this: GeomAdaptorSurface): GeomAbsSurfaceType {.noSideEffect,
     importcpp: "GetType", header: "GeomAdaptor_Surface.hxx".}
 proc plane*(this: GeomAdaptorSurface): Pln {.noSideEffect, importcpp: "Plane",
@@ -138,9 +159,9 @@ proc nbUKnots*(this: GeomAdaptorSurface): int {.noSideEffect, importcpp: "NbUKno
     header: "GeomAdaptor_Surface.hxx".}
 proc nbVKnots*(this: GeomAdaptorSurface): int {.noSideEffect, importcpp: "NbVKnots",
     header: "GeomAdaptor_Surface.hxx".}
-proc isURational*(this: GeomAdaptorSurface): bool {.noSideEffect,
+proc isURational*(this: GeomAdaptorSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsURational", header: "GeomAdaptor_Surface.hxx".}
-proc isVRational*(this: GeomAdaptorSurface): bool {.noSideEffect,
+proc isVRational*(this: GeomAdaptorSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsVRational", header: "GeomAdaptor_Surface.hxx".}
 proc bezier*(this: GeomAdaptorSurface): Handle[GeomBezierSurface] {.noSideEffect,
     importcpp: "Bezier", header: "GeomAdaptor_Surface.hxx".}
@@ -154,5 +175,5 @@ proc basisCurve*(this: GeomAdaptorSurface): Handle[Adaptor3dHCurve] {.noSideEffe
     importcpp: "BasisCurve", header: "GeomAdaptor_Surface.hxx".}
 proc basisSurface*(this: GeomAdaptorSurface): Handle[Adaptor3dHSurface] {.
     noSideEffect, importcpp: "BasisSurface", header: "GeomAdaptor_Surface.hxx".}
-proc offsetValue*(this: GeomAdaptorSurface): float {.noSideEffect,
+proc offsetValue*(this: GeomAdaptorSurface): StandardReal {.noSideEffect,
     importcpp: "OffsetValue", header: "GeomAdaptor_Surface.hxx".}

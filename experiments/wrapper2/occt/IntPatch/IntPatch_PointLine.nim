@@ -22,7 +22,7 @@ discard "forward decl of IntPatch_Point"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of IntPatch_PointLine"
 type
-  HandleIntPatchPointLine* = Handle[IntPatchPointLine]
+  HandleC1C1* = Handle[IntPatchPointLine]
 
 ## ! Definition of an intersection line between two
 ## ! surfaces.
@@ -88,19 +88,19 @@ type
 proc addVertex*(this: var IntPatchPointLine; pnt: IntPatchPoint;
                theIsPrepend: bool = false) {.importcpp: "AddVertex",
     header: "IntPatch_PointLine.hxx".}
-proc nbPnts*(this: IntPatchPointLine): int {.noSideEffect, importcpp: "NbPnts",
+proc nbPnts*(this: IntPatchPointLine): cint {.noSideEffect, importcpp: "NbPnts",
     header: "IntPatch_PointLine.hxx".}
-proc nbVertex*(this: IntPatchPointLine): int {.noSideEffect, importcpp: "NbVertex",
+proc nbVertex*(this: IntPatchPointLine): cint {.noSideEffect, importcpp: "NbVertex",
     header: "IntPatch_PointLine.hxx".}
-proc point*(this: IntPatchPointLine; index: int): IntSurfPntOn2S {.noSideEffect,
+proc point*(this: IntPatchPointLine; index: cint): IntSurfPntOn2S {.noSideEffect,
     importcpp: "Point", header: "IntPatch_PointLine.hxx".}
-proc vertex*(this: IntPatchPointLine; index: int): IntPatchPoint {.noSideEffect,
+proc vertex*(this: IntPatchPointLine; index: cint): IntPatchPoint {.noSideEffect,
     importcpp: "Vertex", header: "IntPatch_PointLine.hxx".}
-proc changeVertex*(this: var IntPatchPointLine; index: int): var IntPatchPoint {.
+proc changeVertex*(this: var IntPatchPointLine; index: cint): var IntPatchPoint {.
     importcpp: "ChangeVertex", header: "IntPatch_PointLine.hxx".}
 proc clearVertexes*(this: var IntPatchPointLine) {.importcpp: "ClearVertexes",
     header: "IntPatch_PointLine.hxx".}
-proc removeVertex*(this: var IntPatchPointLine; theIndex: int) {.
+proc removeVertex*(this: var IntPatchPointLine; theIndex: cint) {.
     importcpp: "RemoveVertex", header: "IntPatch_PointLine.hxx".}
 proc curve*(this: IntPatchPointLine): Handle[IntSurfLineOn2S] {.noSideEffect,
     importcpp: "Curve", header: "IntPatch_PointLine.hxx".}
@@ -112,7 +112,7 @@ proc isOutBox*(this: IntPatchPointLine; p: Pnt): bool {.noSideEffect,
     importcpp: "IsOutBox", header: "IntPatch_PointLine.hxx".}
 proc curvatureRadiusOfIntersLine*(theS1: Handle[Adaptor3dHSurface];
                                  theS2: Handle[Adaptor3dHSurface];
-                                 theUVPoint: IntSurfPntOn2S): float {.
+                                 theUVPoint: IntSurfPntOn2S): cfloat {.
     importcpp: "IntPatch_PointLine::CurvatureRadiusOfIntersLine(@)",
     header: "IntPatch_PointLine.hxx".}
 type
@@ -125,3 +125,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IntPatch_PointLine.hxx".}
 proc dynamicType*(this: IntPatchPointLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_PointLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

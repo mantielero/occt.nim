@@ -17,8 +17,7 @@
 discard "forward decl of StepVisual_CameraImage3dWithScale"
 discard "forward decl of StepVisual_CameraImage3dWithScale"
 type
-  HandleStepVisualCameraImage3dWithScale* = Handle[
-      StepVisualCameraImage3dWithScale]
+  HandleC1C1* = Handle[StepVisualCameraImage3dWithScale]
   StepVisualCameraImage3dWithScale* {.importcpp: "StepVisual_CameraImage3dWithScale", header: "StepVisual_CameraImage3dWithScale.hxx",
                                      bycopy.} = object of StepVisualCameraImage
 
@@ -37,3 +36,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualCameraImage3dWithScale): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_CameraImage3dWithScale.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

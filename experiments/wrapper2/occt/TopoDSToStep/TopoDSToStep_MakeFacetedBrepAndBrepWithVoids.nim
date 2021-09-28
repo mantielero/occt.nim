@@ -32,3 +32,28 @@ proc constructTopoDSToStepMakeFacetedBrepAndBrepWithVoids*(s: TopoDS_Solid;
 proc value*(this: TopoDSToStepMakeFacetedBrepAndBrepWithVoids): Handle[
     StepShapeFacetedBrepAndBrepWithVoids] {.noSideEffect, importcpp: "Value",
     header: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -133,15 +133,15 @@ proc constructOpenGlTriangleSet*(theArrayID: StandardSize; theBuilder: Handle[
     importcpp: "OpenGl_TriangleSet(@)", header: "OpenGl_SceneGeometry.hxx".}
 proc associatedPArrayID*(this: OpenGlTriangleSet): StandardSize {.noSideEffect,
     importcpp: "AssociatedPArrayID", header: "OpenGl_SceneGeometry.hxx".}
-proc materialIndex*(this: OpenGlTriangleSet): int {.noSideEffect,
+proc materialIndex*(this: OpenGlTriangleSet): cint {.noSideEffect,
     importcpp: "MaterialIndex", header: "OpenGl_SceneGeometry.hxx".}
-proc setMaterialIndex*(this: var OpenGlTriangleSet; theMatID: int) {.
+proc setMaterialIndex*(this: var OpenGlTriangleSet; theMatID: cint) {.
     importcpp: "SetMaterialIndex", header: "OpenGl_SceneGeometry.hxx".}
 proc box*(this: OpenGlTriangleSet): BVH_BoxNt {.noSideEffect, importcpp: "Box",
     header: "OpenGl_SceneGeometry.hxx".}
 ## using statement
 
-proc center*(this: OpenGlTriangleSet; theIndex: int; theAxis: int): StandardShortReal {.
+proc center*(this: OpenGlTriangleSet; theIndex: cint; theAxis: cint): StandardShortReal {.
     noSideEffect, importcpp: "Center", header: "OpenGl_SceneGeometry.hxx".}
 proc quadBVH*(this: var OpenGlTriangleSet): QuadBvhHandle {.importcpp: "QuadBVH",
     header: "OpenGl_SceneGeometry.hxx".}
@@ -181,19 +181,19 @@ proc clear*(this: var OpenGlRaytraceGeometry) {.importcpp: "Clear",
     header: "OpenGl_SceneGeometry.hxx".}
 proc processAcceleration*(this: var OpenGlRaytraceGeometry): bool {.
     importcpp: "ProcessAcceleration", header: "OpenGl_SceneGeometry.hxx".}
-proc accelerationOffset*(this: var OpenGlRaytraceGeometry; theNodeIdx: int): int {.
+proc accelerationOffset*(this: var OpenGlRaytraceGeometry; theNodeIdx: cint): cint {.
     importcpp: "AccelerationOffset", header: "OpenGl_SceneGeometry.hxx".}
-proc verticesOffset*(this: var OpenGlRaytraceGeometry; theNodeIdx: int): int {.
+proc verticesOffset*(this: var OpenGlRaytraceGeometry; theNodeIdx: cint): cint {.
     importcpp: "VerticesOffset", header: "OpenGl_SceneGeometry.hxx".}
-proc elementsOffset*(this: var OpenGlRaytraceGeometry; theNodeIdx: int): int {.
+proc elementsOffset*(this: var OpenGlRaytraceGeometry; theNodeIdx: cint): cint {.
     importcpp: "ElementsOffset", header: "OpenGl_SceneGeometry.hxx".}
-proc triangleSet*(this: var OpenGlRaytraceGeometry; theNodeIdx: int): ptr OpenGlTriangleSet {.
+proc triangleSet*(this: var OpenGlRaytraceGeometry; theNodeIdx: cint): ptr OpenGlTriangleSet {.
     importcpp: "TriangleSet", header: "OpenGl_SceneGeometry.hxx".}
 proc quadBVH*(this: var OpenGlRaytraceGeometry): QuadBvhHandle {.
     importcpp: "QuadBVH", header: "OpenGl_SceneGeometry.hxx".}
 proc hasTextures*(this: OpenGlRaytraceGeometry): bool {.noSideEffect,
     importcpp: "HasTextures", header: "OpenGl_SceneGeometry.hxx".}
-proc addTexture*(this: var OpenGlRaytraceGeometry; theTexture: Handle[OpenGlTexture]): int {.
+proc addTexture*(this: var OpenGlRaytraceGeometry; theTexture: Handle[OpenGlTexture]): cint {.
     importcpp: "AddTexture", header: "OpenGl_SceneGeometry.hxx".}
 proc updateTextureHandles*(this: var OpenGlRaytraceGeometry;
                           theContext: Handle[OpenGlContext]): bool {.
@@ -208,7 +208,32 @@ proc textureHandles*(this: OpenGlRaytraceGeometry): Vector[GLuint64] {.noSideEff
     importcpp: "TextureHandles", header: "OpenGl_SceneGeometry.hxx".}
 proc releaseResources*(this: var OpenGlRaytraceGeometry; a2: Handle[OpenGlContext]) {.
     importcpp: "ReleaseResources", header: "OpenGl_SceneGeometry.hxx".}
-proc topLevelTreeDepth*(this: OpenGlRaytraceGeometry): int {.noSideEffect,
+proc topLevelTreeDepth*(this: OpenGlRaytraceGeometry): cint {.noSideEffect,
     importcpp: "TopLevelTreeDepth", header: "OpenGl_SceneGeometry.hxx".}
-proc botLevelTreeDepth*(this: OpenGlRaytraceGeometry): int {.noSideEffect,
+proc botLevelTreeDepth*(this: OpenGlRaytraceGeometry): cint {.noSideEffect,
     importcpp: "BotLevelTreeDepth", header: "OpenGl_SceneGeometry.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

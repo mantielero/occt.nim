@@ -69,7 +69,7 @@ proc constructGraphic3dAspectText3d*(): Graphic3dAspectText3d {.constructor,
     importcpp: "Graphic3d_AspectText3d(@)", header: "Graphic3d_AspectText3d.hxx".}
 proc constructGraphic3dAspectText3d*(theColor: QuantityColor;
                                     theFont: StandardCString;
-                                    theExpansionFactor: float; theSpace: float;
+                                    theExpansionFactor: cfloat; theSpace: cfloat;
     theStyle: AspectTypeOfStyleText = aspectTOST_NORMAL; theDisplayType: AspectTypeOfDisplayText = aspectTODT_NORMAL): Graphic3dAspectText3d {.
     constructor, importcpp: "Graphic3d_AspectText3d(@)",
     header: "Graphic3d_AspectText3d.hxx".}
@@ -100,14 +100,39 @@ proc getTextZoomable*(this: Graphic3dAspectText3d): bool {.noSideEffect,
     importcpp: "GetTextZoomable", header: "Graphic3d_AspectText3d.hxx".}
 proc getTextAngle*(this: Graphic3dAspectText3d): StandardShortReal {.noSideEffect,
     importcpp: "GetTextAngle", header: "Graphic3d_AspectText3d.hxx".}
-proc setTextAngle*(this: var Graphic3dAspectText3d; theAngle: float) {.
+proc setTextAngle*(this: var Graphic3dAspectText3d; theAngle: cfloat) {.
     importcpp: "SetTextAngle", header: "Graphic3d_AspectText3d.hxx".}
 proc getTextFontAspect*(this: Graphic3dAspectText3d): FontFontAspect {.noSideEffect,
     importcpp: "GetTextFontAspect", header: "Graphic3d_AspectText3d.hxx".}
 proc dumpJson*(this: Graphic3dAspectText3d; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_AspectText3d.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_AspectText3d.hxx".}
 discard "forward decl of Graphic3d_AspectText3d"
 type
-  HandleGraphic3dAspectText3d* = Handle[Graphic3dAspectText3d]
+  HandleC1C1* = Handle[Graphic3dAspectText3d]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

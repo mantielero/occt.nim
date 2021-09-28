@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_VolumeUnit"
 discard "forward decl of StepBasic_VolumeUnit"
 type
-  HandleStepBasicVolumeUnit* = Handle[StepBasicVolumeUnit]
+  HandleC1C1* = Handle[StepBasicVolumeUnit]
   StepBasicVolumeUnit* {.importcpp: "StepBasic_VolumeUnit",
                         header: "StepBasic_VolumeUnit.hxx", bycopy.} = object of StepBasicNamedUnit
 
@@ -34,3 +34,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_VolumeUnit.hxx".}
 proc dynamicType*(this: StepBasicVolumeUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_VolumeUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

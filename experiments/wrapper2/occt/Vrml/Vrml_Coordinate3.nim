@@ -17,7 +17,7 @@
 discard "forward decl of Vrml_Coordinate3"
 discard "forward decl of Vrml_Coordinate3"
 type
-  HandleVrmlCoordinate3* = Handle[VrmlCoordinate3]
+  HandleC1C1* = Handle[VrmlCoordinate3]
 
 ## ! defines a Coordinate3 node of VRML specifying
 ## ! properties of geometry and its appearance.
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Vrml_Coordinate3.hxx".}
 proc dynamicType*(this: VrmlCoordinate3): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_Coordinate3.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

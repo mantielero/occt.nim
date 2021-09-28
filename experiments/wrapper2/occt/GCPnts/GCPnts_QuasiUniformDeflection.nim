@@ -31,43 +31,69 @@ type
 proc constructGCPntsQuasiUniformDeflection*(): GCPntsQuasiUniformDeflection {.
     constructor, importcpp: "GCPnts_QuasiUniformDeflection(@)",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc constructGCPntsQuasiUniformDeflection*(c: Adaptor3dCurve; deflection: float;
+proc constructGCPntsQuasiUniformDeflection*(c: Adaptor3dCurve; deflection: cfloat;
     continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
     constructor, importcpp: "GCPnts_QuasiUniformDeflection(@)",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc constructGCPntsQuasiUniformDeflection*(c: Adaptor2dCurve2d; deflection: float;
-    continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
+proc constructGCPntsQuasiUniformDeflection*(c: Adaptor2dCurve2d;
+    deflection: cfloat; continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
     constructor, importcpp: "GCPnts_QuasiUniformDeflection(@)",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc constructGCPntsQuasiUniformDeflection*(c: Adaptor3dCurve; deflection: float;
-    u1: float; u2: float; continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
+proc constructGCPntsQuasiUniformDeflection*(c: Adaptor3dCurve; deflection: cfloat;
+    u1: cfloat; u2: cfloat; continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
     constructor, importcpp: "GCPnts_QuasiUniformDeflection(@)",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc constructGCPntsQuasiUniformDeflection*(c: Adaptor2dCurve2d; deflection: float;
-    u1: float; u2: float; continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
+proc constructGCPntsQuasiUniformDeflection*(c: Adaptor2dCurve2d;
+    deflection: cfloat; u1: cfloat; u2: cfloat; continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
     constructor, importcpp: "GCPnts_QuasiUniformDeflection(@)",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
 proc initialize*(this: var GCPntsQuasiUniformDeflection; c: Adaptor3dCurve;
-                deflection: float; continuity: GeomAbsShape = geomAbsC1) {.
+                deflection: cfloat; continuity: GeomAbsShape = geomAbsC1) {.
     importcpp: "Initialize", header: "GCPnts_QuasiUniformDeflection.hxx".}
 proc initialize*(this: var GCPntsQuasiUniformDeflection; c: Adaptor2dCurve2d;
-                deflection: float; continuity: GeomAbsShape = geomAbsC1) {.
+                deflection: cfloat; continuity: GeomAbsShape = geomAbsC1) {.
     importcpp: "Initialize", header: "GCPnts_QuasiUniformDeflection.hxx".}
 proc initialize*(this: var GCPntsQuasiUniformDeflection; c: Adaptor3dCurve;
-                deflection: float; u1: float; u2: float;
+                deflection: cfloat; u1: cfloat; u2: cfloat;
                 continuity: GeomAbsShape = geomAbsC1) {.importcpp: "Initialize",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
 proc initialize*(this: var GCPntsQuasiUniformDeflection; c: Adaptor2dCurve2d;
-                deflection: float; u1: float; u2: float;
+                deflection: cfloat; u1: cfloat; u2: cfloat;
                 continuity: GeomAbsShape = geomAbsC1) {.importcpp: "Initialize",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
 proc isDone*(this: GCPntsQuasiUniformDeflection): bool {.noSideEffect,
     importcpp: "IsDone", header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc nbPoints*(this: GCPntsQuasiUniformDeflection): int {.noSideEffect,
+proc nbPoints*(this: GCPntsQuasiUniformDeflection): cint {.noSideEffect,
     importcpp: "NbPoints", header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc parameter*(this: GCPntsQuasiUniformDeflection; index: int): float {.noSideEffect,
-    importcpp: "Parameter", header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc value*(this: GCPntsQuasiUniformDeflection; index: int): Pnt {.noSideEffect,
+proc parameter*(this: GCPntsQuasiUniformDeflection; index: cint): cfloat {.
+    noSideEffect, importcpp: "Parameter",
+    header: "GCPnts_QuasiUniformDeflection.hxx".}
+proc value*(this: GCPntsQuasiUniformDeflection; index: cint): Pnt {.noSideEffect,
     importcpp: "Value", header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc deflection*(this: GCPntsQuasiUniformDeflection): float {.noSideEffect,
+proc deflection*(this: GCPntsQuasiUniformDeflection): cfloat {.noSideEffect,
     importcpp: "Deflection", header: "GCPnts_QuasiUniformDeflection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

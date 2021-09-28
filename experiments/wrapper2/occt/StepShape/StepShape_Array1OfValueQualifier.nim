@@ -17,3 +17,28 @@
 type
   StepShapeArray1OfValueQualifier* = NCollectionArray1[StepShapeValueQualifier]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

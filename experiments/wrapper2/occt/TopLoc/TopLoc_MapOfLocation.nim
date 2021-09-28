@@ -19,3 +19,28 @@ type
   TopLocMapIteratorOfMapOfLocation* = Iterator[TopLocLocation,
       TopLocMapLocationHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

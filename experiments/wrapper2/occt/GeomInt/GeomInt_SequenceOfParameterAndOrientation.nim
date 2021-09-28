@@ -17,4 +17,3 @@
 type
   GeomIntSequenceOfParameterAndOrientation* = NCollectionSequence[
       GeomIntParameterAndOrientation]
-

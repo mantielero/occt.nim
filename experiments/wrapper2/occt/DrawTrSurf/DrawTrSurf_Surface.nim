@@ -21,7 +21,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_Surface"
 discard "forward decl of DrawTrSurf_Surface"
 type
-  HandleDrawTrSurfSurface* = Handle[DrawTrSurfSurface]
+  HandleC1C1* = Handle[DrawTrSurfSurface]
 
 ## ! This class defines a drawable surface.
 ## ! With this class you can draw a general surface from
@@ -74,9 +74,9 @@ type
 proc constructDrawTrSurfSurface*(s: Handle[GeomSurface]): DrawTrSurfSurface {.
     constructor, importcpp: "DrawTrSurf_Surface(@)",
     header: "DrawTrSurf_Surface.hxx".}
-proc constructDrawTrSurfSurface*(s: Handle[GeomSurface]; nu: int; nv: int;
+proc constructDrawTrSurfSurface*(s: Handle[GeomSurface]; nu: cint; nv: cint;
                                 boundsColor: DrawColor; isosColor: DrawColor;
-                                discret: int; deflection: float; drawMode: int): DrawTrSurfSurface {.
+                                discret: cint; deflection: cfloat; drawMode: cint): DrawTrSurfSurface {.
     constructor, importcpp: "DrawTrSurf_Surface(@)",
     header: "DrawTrSurf_Surface.hxx".}
 proc boundsColor*(this: DrawTrSurfSurface): DrawColor {.noSideEffect,
@@ -91,13 +91,13 @@ proc getSurface*(this: DrawTrSurfSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "GetSurface", header: "DrawTrSurf_Surface.hxx".}
 proc isosColor*(this: DrawTrSurfSurface): DrawColor {.noSideEffect,
     importcpp: "IsosColor", header: "DrawTrSurf_Surface.hxx".}
-proc nbIsos*(this: DrawTrSurfSurface; nu: var int; nb: var int) {.noSideEffect,
+proc nbIsos*(this: DrawTrSurfSurface; nu: var cint; nb: var cint) {.noSideEffect,
     importcpp: "NbIsos", header: "DrawTrSurf_Surface.hxx".}
 proc setBoundsColor*(this: var DrawTrSurfSurface; aColor: DrawColor) {.
     importcpp: "SetBoundsColor", header: "DrawTrSurf_Surface.hxx".}
 proc setIsosColor*(this: var DrawTrSurfSurface; aColor: DrawColor) {.
     importcpp: "SetIsosColor", header: "DrawTrSurf_Surface.hxx".}
-proc showIsos*(this: var DrawTrSurfSurface; nu: int; nv: int) {.importcpp: "ShowIsos",
+proc showIsos*(this: var DrawTrSurfSurface; nu: cint; nv: cint) {.importcpp: "ShowIsos",
     header: "DrawTrSurf_Surface.hxx".}
 proc copy*(this: DrawTrSurfSurface): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_Surface.hxx".}
@@ -115,3 +115,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_Surface.hxx".}
 proc dynamicType*(this: DrawTrSurfSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_Surface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

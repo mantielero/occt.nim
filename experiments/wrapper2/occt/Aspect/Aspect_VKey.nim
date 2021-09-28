@@ -103,3 +103,28 @@ const
 proc aspectVKey2Modifier*(theKey: AspectVKey): AspectVKeyFlags =
   discard
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

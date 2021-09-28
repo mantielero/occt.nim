@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_ExpressionDriver"
 discard "forward decl of BinMDataStd_ExpressionDriver"
 type
-  HandleBinMDataStdExpressionDriver* = Handle[BinMDataStdExpressionDriver]
+  HandleC1C1* = Handle[BinMDataStdExpressionDriver]
 
 ## ! Attribute Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdExpressionDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_ExpressionDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

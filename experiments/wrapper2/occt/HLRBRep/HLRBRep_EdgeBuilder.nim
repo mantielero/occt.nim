@@ -75,3 +75,28 @@ proc destroy*(this: var HLRBRepEdgeBuilder) {.importcpp: "Destroy",
     header: "HLRBRep_EdgeBuilder.hxx".}
 proc destroyHLRBRepEdgeBuilder*(this: var HLRBRepEdgeBuilder) {.
     importcpp: "#.~HLRBRep_EdgeBuilder()", header: "HLRBRep_EdgeBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

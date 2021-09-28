@@ -29,18 +29,15 @@ type
                                                                         ## deflection of isoline
                                                                         ## ! of given
                                                                         ## parameter on Surface.
+    bndHArray1OfBox* {.importc: "Bnd_HArray1OfBox".}: Handle
 
 
-proc constructIntCurveSurfaceThePolyhedronOfHInter*(
-    surface: Handle[Adaptor3dHSurface]; nbdU: int; nbdV: int; u1: float; v1: float;
-    u2: float; v2: float): IntCurveSurfaceThePolyhedronOfHInter {.constructor,
-    importcpp: "IntCurveSurface_ThePolyhedronOfHInter(@)",
-    header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc constructIntCurveSurfaceThePolyhedronOfHInter*(
-    surface: Handle[Adaptor3dHSurface]; upars: TColStdArray1OfReal;
-    vpars: TColStdArray1OfReal): IntCurveSurfaceThePolyhedronOfHInter {.
-    constructor, importcpp: "IntCurveSurface_ThePolyhedronOfHInter(@)",
-    header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+## !!!Ignored construct:  public : IntCurveSurface_ThePolyhedronOfHInter ( const Handle ( Adaptor3d_HSurface ) & Surface , const Standard_Integer nbdU , const Standard_Integer nbdV , const Standard_Real U1 , const Standard_Real V1 , const Standard_Real U2 , const Standard_Real V2 ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  IntCurveSurface_ThePolyhedronOfHInter ( const Handle ( Adaptor3d_HSurface ) & Surface , const TColStd_Array1OfReal & Upars , const TColStd_Array1OfReal & Vpars ) ;
+## Error: token expected: ) but got: &!!!
+
 proc destroy*(this: var IntCurveSurfaceThePolyhedronOfHInter) {.
     importcpp: "Destroy", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
 proc destroyIntCurveSurfaceThePolyhedronOfHInter*(
@@ -51,10 +48,9 @@ proc deflectionOverEstimation*(this: var IntCurveSurfaceThePolyhedronOfHInter;
                               flec: float) {.
     importcpp: "DeflectionOverEstimation",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc deflectionOnTriangle*(this: IntCurveSurfaceThePolyhedronOfHInter;
-                          surface: Handle[Adaptor3dHSurface]; index: int): float {.
-    noSideEffect, importcpp: "DeflectionOnTriangle",
-    header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+## !!!Ignored construct:  Standard_Real DeflectionOnTriangle ( const Handle ( Adaptor3d_HSurface ) & Surface , const Standard_Integer Index ) const ;
+## Error: token expected: ) but got: &!!!
+
 proc uMinSingularity*(this: var IntCurveSurfaceThePolyhedronOfHInter; sing: bool) {.
     importcpp: "UMinSingularity",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
@@ -94,9 +90,9 @@ proc bounding*(this: IntCurveSurfaceThePolyhedronOfHInter): BndBox {.noSideEffec
     importcpp: "Bounding", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
 proc fillBounding*(this: var IntCurveSurfaceThePolyhedronOfHInter) {.
     importcpp: "FillBounding", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-proc componentsBounding*(this: IntCurveSurfaceThePolyhedronOfHInter): Handle[
-    BndHArray1OfBox] {.noSideEffect, importcpp: "ComponentsBounding",
-                      header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
+## !!!Ignored construct:  & ComponentsBounding ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc deflectionOverEstimation*(this: IntCurveSurfaceThePolyhedronOfHInter): float {.
     noSideEffect, importcpp: "DeflectionOverEstimation",
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
@@ -129,6 +125,64 @@ proc getBorderDeflection*(this: IntCurveSurfaceThePolyhedronOfHInter): float {.
     header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
 proc dump*(this: IntCurveSurfaceThePolyhedronOfHInter) {.noSideEffect,
     importcpp: "Dump", header: "IntCurveSurface_ThePolyhedronOfHInter.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntCurveSurface_Polyhedron IntCurveSurface_ThePolyhedronOfHInter [NewLine] # IntCurveSurface_Polyhedron_hxx < IntCurveSurface_ThePolyhedronOfHInter . hxx > [NewLine] # < IntCurveSurface_Polyhedron . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntCurveSurface_Polyhedron [NewLine] # IntCurveSurface_Polyhedron_hxx [NewLine] #  _IntCurveSurface_ThePolyhedronOfHInter_HeaderFile
+## !!!Ignored construct:  protected : void Init ( const Handle ( Adaptor3d_HSurface ) & Surface , const Standard_Real U1 , const Standard_Real V1 , const Standard_Real U2 , const Standard_Real V2 ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void Init ( const Handle ( Adaptor3d_HSurface ) & Surface , const TColStd_Array1OfReal & Upars , const TColStd_Array1OfReal & Vpars ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  private : ! This method computes and returns a deflection of isoline
+## ! of given parameter on Surface. Standard_Real ComputeBorderDeflection ( const Handle ( Adaptor3d_HSurface ) & Surface , const Standard_Real Parameter , const Standard_Real PMin , const Standard_Real PMax , const Standard_Boolean isUIso ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  TheComponentsBnd ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  # ThePSurface Handle ( Adaptor3d_HSurface ) [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntCurveSurface_Polyhedron IntCurveSurface_ThePolyhedronOfHInter [NewLine] # IntCurveSurface_Polyhedron_hxx < IntCurveSurface_ThePolyhedronOfHInter . hxx > [NewLine] # < IntCurveSurface_Polyhedron . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntCurveSurface_Polyhedron [NewLine] # IntCurveSurface_Polyhedron_hxx [NewLine] #  _IntCurveSurface_ThePolyhedronOfHInter_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

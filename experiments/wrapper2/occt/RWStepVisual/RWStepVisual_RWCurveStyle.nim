@@ -28,7 +28,7 @@ proc constructRWStepVisualRWCurveStyle*(): RWStepVisualRWCurveStyle {.constructo
     importcpp: "RWStepVisual_RWCurveStyle(@)",
     header: "RWStepVisual_RWCurveStyle.hxx".}
 proc readStep*(this: RWStepVisualRWCurveStyle;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualCurveStyle]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWCurveStyle.hxx".}
 proc writeStep*(this: RWStepVisualRWCurveStyle; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepVisualRWCurveStyle; sw: var StepDataStepWriter;
 proc share*(this: RWStepVisualRWCurveStyle; ent: Handle[StepVisualCurveStyle];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWCurveStyle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

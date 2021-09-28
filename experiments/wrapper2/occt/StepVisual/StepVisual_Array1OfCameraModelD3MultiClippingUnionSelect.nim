@@ -17,3 +17,28 @@ type
   StepVisualArray1OfCameraModelD3MultiClippingUnionSelect* = NCollectionArray1[
       StepVisualCameraModelD3MultiClippingUnionSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

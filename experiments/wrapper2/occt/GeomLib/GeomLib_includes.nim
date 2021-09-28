@@ -16,4 +16,3 @@ include GeomLib_LogSample
 include GeomLib_MakeCurvefromApprox
 include GeomLib_PolyFunc
 include GeomLib_Tool
-

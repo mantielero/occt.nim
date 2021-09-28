@@ -66,11 +66,36 @@ proc isDone*(this: MathJacobi): bool {.noSideEffect, importcpp: "IsDone",
                                    header: "math_Jacobi.hxx".}
 proc values*(this: MathJacobi): MathVector {.noSideEffect, importcpp: "Values",
     header: "math_Jacobi.hxx".}
-proc value*(this: MathJacobi; num: int): float {.noSideEffect, importcpp: "Value",
+proc value*(this: MathJacobi; num: cint): cfloat {.noSideEffect, importcpp: "Value",
     header: "math_Jacobi.hxx".}
 proc vectors*(this: MathJacobi): MathMatrix {.noSideEffect, importcpp: "Vectors",
     header: "math_Jacobi.hxx".}
-proc vector*(this: MathJacobi; num: int; v: var MathVector) {.noSideEffect,
+proc vector*(this: MathJacobi; num: cint; v: var MathVector) {.noSideEffect,
     importcpp: "Vector", header: "math_Jacobi.hxx".}
 proc dump*(this: MathJacobi; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "math_Jacobi.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

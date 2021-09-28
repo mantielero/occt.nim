@@ -44,13 +44,13 @@ proc subShapes*(this: BOPDS_ShapeInfo): TColStdListOfInteger {.noSideEffect,
     importcpp: "SubShapes", header: "BOPDS_ShapeInfo.hxx".}
 proc changeSubShapes*(this: var BOPDS_ShapeInfo): var TColStdListOfInteger {.
     importcpp: "ChangeSubShapes", header: "BOPDS_ShapeInfo.hxx".}
-proc hasSubShape*(this: BOPDS_ShapeInfo; theI: int): bool {.noSideEffect,
+proc hasSubShape*(this: BOPDS_ShapeInfo; theI: cint): bool {.noSideEffect,
     importcpp: "HasSubShape", header: "BOPDS_ShapeInfo.hxx".}
 proc hasReference*(this: BOPDS_ShapeInfo): bool {.noSideEffect,
     importcpp: "HasReference", header: "BOPDS_ShapeInfo.hxx".}
-proc setReference*(this: var BOPDS_ShapeInfo; theI: int) {.importcpp: "SetReference",
+proc setReference*(this: var BOPDS_ShapeInfo; theI: cint) {.importcpp: "SetReference",
     header: "BOPDS_ShapeInfo.hxx".}
-proc reference*(this: BOPDS_ShapeInfo): int {.noSideEffect, importcpp: "Reference",
+proc reference*(this: BOPDS_ShapeInfo): cint {.noSideEffect, importcpp: "Reference",
     header: "BOPDS_ShapeInfo.hxx".}
 proc hasBRep*(this: BOPDS_ShapeInfo): bool {.noSideEffect, importcpp: "HasBRep",
     header: "BOPDS_ShapeInfo.hxx".}
@@ -58,11 +58,36 @@ proc isInterfering*(this: BOPDS_ShapeInfo): bool {.noSideEffect,
     importcpp: "IsInterfering", header: "BOPDS_ShapeInfo.hxx".}
 proc hasFlag*(this: BOPDS_ShapeInfo): bool {.noSideEffect, importcpp: "HasFlag",
     header: "BOPDS_ShapeInfo.hxx".}
-proc hasFlag*(this: BOPDS_ShapeInfo; theFlag: var int): bool {.noSideEffect,
+proc hasFlag*(this: BOPDS_ShapeInfo; theFlag: var cint): bool {.noSideEffect,
     importcpp: "HasFlag", header: "BOPDS_ShapeInfo.hxx".}
-proc setFlag*(this: var BOPDS_ShapeInfo; theI: int) {.importcpp: "SetFlag",
+proc setFlag*(this: var BOPDS_ShapeInfo; theI: cint) {.importcpp: "SetFlag",
     header: "BOPDS_ShapeInfo.hxx".}
-proc flag*(this: BOPDS_ShapeInfo): int {.noSideEffect, importcpp: "Flag",
-                                     header: "BOPDS_ShapeInfo.hxx".}
+proc flag*(this: BOPDS_ShapeInfo): cint {.noSideEffect, importcpp: "Flag",
+                                      header: "BOPDS_ShapeInfo.hxx".}
 proc dump*(this: BOPDS_ShapeInfo) {.noSideEffect, importcpp: "Dump",
                                  header: "BOPDS_ShapeInfo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   TransferTransferMapOfProcessForTransient* = NCollectionIndexedDataMap[
       Handle[StandardTransient], Handle[TransferBinder], TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

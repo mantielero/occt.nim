@@ -15,14 +15,54 @@
 ## !!!Ignored construct:  # _OSD_Exception_IN_PAGE_ERROR_HeaderFile [NewLine] # _OSD_Exception_IN_PAGE_ERROR_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_IN_PAGE_ERROR ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_Exception_IN_PAGE_ERROR"
-type
-  HandleOSD_ExceptionIN_PAGE_ERROROSD_ExceptionIN_PAGE_ERROR* = Handle[
-      OSD_ExceptionIN_PAGE_ERROR]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_Exception_IN_PAGE_ERROR , OSD_Exception ) # ! defined No_Exception && ! defined No_OSD_Exception_IN_PAGE_ERROR [NewLine] # OSD_Exception_IN_PAGE_ERROR_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_Exception_IN_PAGE_ERROR ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_IN_PAGE_ERROR [NewLine] # if ( CONDITION ) throw OSD_Exception_IN_PAGE_ERROR ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_Exception_IN_PAGE_ERROR_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_IN_PAGE_ERROR , OSD_Exception ) #  _OSD_Exception_IN_PAGE_ERROR_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_IN_PAGE_ERROR , OSD_Exception ) #  _OSD_Exception_IN_PAGE_ERROR_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

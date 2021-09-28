@@ -17,7 +17,7 @@
 discard "forward decl of TopOpeBRepDS_Marker"
 discard "forward decl of TopOpeBRepDS_Marker"
 type
-  HandleTopOpeBRepDS_Marker* = Handle[TopOpeBRepDS_Marker]
+  HandleC1C1* = Handle[TopOpeBRepDS_Marker]
   TopOpeBRepDS_Marker* {.importcpp: "TopOpeBRepDS_Marker",
                         header: "TopOpeBRepDS_Marker.hxx", bycopy.} = object of StandardTransient
 
@@ -26,13 +26,13 @@ proc constructTopOpeBRepDS_Marker*(): TopOpeBRepDS_Marker {.constructor,
     importcpp: "TopOpeBRepDS_Marker(@)", header: "TopOpeBRepDS_Marker.hxx".}
 proc reset*(this: var TopOpeBRepDS_Marker) {.importcpp: "Reset",
     header: "TopOpeBRepDS_Marker.hxx".}
-proc set*(this: var TopOpeBRepDS_Marker; i: int; b: bool) {.importcpp: "Set",
+proc set*(this: var TopOpeBRepDS_Marker; i: cint; b: bool) {.importcpp: "Set",
     header: "TopOpeBRepDS_Marker.hxx".}
-proc set*(this: var TopOpeBRepDS_Marker; b: bool; n: int; a: StandardAddress) {.
+proc set*(this: var TopOpeBRepDS_Marker; b: bool; n: cint; a: StandardAddress) {.
     importcpp: "Set", header: "TopOpeBRepDS_Marker.hxx".}
-proc getI*(this: TopOpeBRepDS_Marker; i: int): bool {.noSideEffect, importcpp: "GetI",
+proc getI*(this: TopOpeBRepDS_Marker; i: cint): bool {.noSideEffect, importcpp: "GetI",
     header: "TopOpeBRepDS_Marker.hxx".}
-proc allocate*(this: var TopOpeBRepDS_Marker; n: int) {.importcpp: "Allocate",
+proc allocate*(this: var TopOpeBRepDS_Marker; n: cint) {.importcpp: "Allocate",
     header: "TopOpeBRepDS_Marker.hxx".}
 type
   TopOpeBRepDS_MarkerbaseType* = StandardTransient
@@ -44,3 +44,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepDS_Marker.hxx".}
 proc dynamicType*(this: TopOpeBRepDS_Marker): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRepDS_Marker.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

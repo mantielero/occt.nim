@@ -47,6 +47,31 @@ type
 
 
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         aPntAttach: Pnt; aPntEnd: Pnt; aNormPln: Dir; aSymbSize: float) {.
+         aPntAttach: Pnt; aPntEnd: Pnt; aNormPln: Dir; aSymbSize: cfloat) {.
     importcpp: "DsgPrs_FixPresentation::Add(@)",
     header: "DsgPrs_FixPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

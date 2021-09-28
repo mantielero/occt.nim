@@ -15,47 +15,62 @@
 ##  commercial license or contractual agreement.
 
 ## !!!Ignored construct:  # _GeomAdaptor_HSurfaceOfRevolution_HeaderFile [NewLine] # _GeomAdaptor_HSurfaceOfRevolution_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < GeomAdaptor_SurfaceOfRevolution . hxx > [NewLine] # < Adaptor3d_HSurface . hxx > [NewLine] class Standard_OutOfRange ;
-## Error: did not expect <!!!
+## Error: expected ';'!!!
 
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of GeomAdaptor_SurfaceOfRevolution"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of GeomAdaptor_HSurfaceOfRevolution"
-discard "forward decl of GeomAdaptor_HSurfaceOfRevolution"
-type
-  HandleGeomAdaptorHSurfaceOfRevolutionGeomAdaptorHSurfaceOfRevolution* = Handle[
-      GeomAdaptorHSurfaceOfRevolution]
-  GeomAdaptorHSurfaceOfRevolution* {.importcpp: "GeomAdaptor_HSurfaceOfRevolution", header: "GeomAdaptor_HSurfaceOfRevolution.hxx",
-                                    bycopy.} = object of Adaptor3dHSurface ## ! Creates an empty
-                                                                      ## GenHSurface.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( GeomAdaptor_HSurfaceOfRevolution , Adaptor3d_HSurface ) class GeomAdaptor_HSurfaceOfRevolution : public Adaptor3d_HSurface { public : ! Creates an empty GenHSurface. GeomAdaptor_HSurfaceOfRevolution ( ) ; ! Creates a GenHSurface from a Surface. GeomAdaptor_HSurfaceOfRevolution ( const GeomAdaptor_SurfaceOfRevolution & S ) ; ! Sets the field of the GenHSurface. void Set ( const GeomAdaptor_SurfaceOfRevolution & S ) ; ! Returns a reference to the Surface inside the HSurface.
+## ! This is redefined from HSurface, cannot be inline. const Adaptor3d_Surface & Surface ( ) const ; ! Returns the surface used to create the GenHSurface. GeomAdaptor_SurfaceOfRevolution & ChangeSurface ( ) ; public : typedef Adaptor3d_HSurface base_type ; static const char * get_type_name ( ) { return GeomAdaptor_HSurfaceOfRevolution ; ( GeomAdaptor_HSurfaceOfRevolution , Adaptor3d_HSurface ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < GeomAdaptor_HSurfaceOfRevolution > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : GeomAdaptor_SurfaceOfRevolution mySurf ; private : } ;
+## Error: expected ';'!!!
 
-
-proc constructGeomAdaptorHSurfaceOfRevolution*(): GeomAdaptorHSurfaceOfRevolution {.
-    constructor, importcpp: "GeomAdaptor_HSurfaceOfRevolution(@)",
-    header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
-proc constructGeomAdaptorHSurfaceOfRevolution*(s: GeomAdaptorSurfaceOfRevolution): GeomAdaptorHSurfaceOfRevolution {.
-    constructor, importcpp: "GeomAdaptor_HSurfaceOfRevolution(@)",
-    header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
-proc set*(this: var GeomAdaptorHSurfaceOfRevolution;
-         s: GeomAdaptorSurfaceOfRevolution) {.importcpp: "Set",
-    header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
-proc surface*(this: GeomAdaptorHSurfaceOfRevolution): Adaptor3dSurface {.
-    noSideEffect, importcpp: "Surface",
-    header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
-proc changeSurface*(this: var GeomAdaptorHSurfaceOfRevolution): var GeomAdaptorSurfaceOfRevolution {.
-    importcpp: "ChangeSurface", header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
-type
-  GeomAdaptorHSurfaceOfRevolutionbaseType* = Adaptor3dHSurface
-
-proc getTypeName*(): cstring {.importcpp: "GeomAdaptor_HSurfaceOfRevolution::get_type_name(@)",
-                            header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "GeomAdaptor_HSurfaceOfRevolution::get_type_descriptor(@)",
-    header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
-proc dynamicType*(this: GeomAdaptorHSurfaceOfRevolution): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
-## !!!Ignored construct:  # TheSurface GeomAdaptor_SurfaceOfRevolution [NewLine] # TheSurface_hxx < GeomAdaptor_SurfaceOfRevolution . hxx > [NewLine] # Adaptor3d_GenHSurface GeomAdaptor_HSurfaceOfRevolution [NewLine] # Adaptor3d_GenHSurface_hxx < GeomAdaptor_HSurfaceOfRevolution . hxx > [NewLine] # Handle_Adaptor3d_GenHSurface opencascade :: handle < GeomAdaptor_HSurfaceOfRevolution > [end of template] [NewLine] # < Adaptor3d_GenHSurface . lxx > [NewLine] # TheSurface [NewLine] # TheSurface_hxx [NewLine] # Adaptor3d_GenHSurface [NewLine] # Adaptor3d_GenHSurface_hxx [NewLine] # Handle_Adaptor3d_GenHSurface [NewLine] #  _GeomAdaptor_HSurfaceOfRevolution_HeaderFile
+## !!!Ignored construct:  # TheSurface GeomAdaptor_SurfaceOfRevolution [NewLine] # TheSurface_hxx < GeomAdaptor_SurfaceOfRevolution . hxx > [NewLine] # Adaptor3d_GenHSurface GeomAdaptor_HSurfaceOfRevolution [NewLine] # Adaptor3d_GenHSurface_hxx < GeomAdaptor_HSurfaceOfRevolution . hxx > [NewLine] # Handle_Adaptor3d_GenHSurface Handle ( GeomAdaptor_HSurfaceOfRevolution ) [NewLine] # < Adaptor3d_GenHSurface . lxx > [NewLine] # TheSurface [NewLine] # TheSurface_hxx [NewLine] # Adaptor3d_GenHSurface [NewLine] # Adaptor3d_GenHSurface_hxx [NewLine] # Handle_Adaptor3d_GenHSurface [NewLine] #  _GeomAdaptor_HSurfaceOfRevolution_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

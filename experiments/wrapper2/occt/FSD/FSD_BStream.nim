@@ -15,3 +15,28 @@
 type
   FSD_BStream* = ptr File
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

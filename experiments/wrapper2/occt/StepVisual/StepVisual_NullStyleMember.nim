@@ -16,7 +16,7 @@
 discard "forward decl of StepVisual_NullStyleMember"
 discard "forward decl of StepVisual_NullStyleMember"
 type
-  HandleStepVisualNullStyleMember* = Handle[StepVisualNullStyleMember]
+  HandleC1C1* = Handle[StepVisualNullStyleMember]
 
 ## ! Defines NullStyle as unique member of PresentationStyleSelect
 ## ! Works with an EnumTool
@@ -36,11 +36,11 @@ proc name*(this: StepVisualNullStyleMember): StandardCString {.noSideEffect,
 proc setName*(this: var StepVisualNullStyleMember; a2: StandardCString): bool {.
     importcpp: "SetName", header: "StepVisual_NullStyleMember.hxx".}
   ## theName
-proc kind*(this: StepVisualNullStyleMember): int {.noSideEffect, importcpp: "Kind",
+proc kind*(this: StepVisualNullStyleMember): cint {.noSideEffect, importcpp: "Kind",
     header: "StepVisual_NullStyleMember.hxx".}
 proc enumText*(this: StepVisualNullStyleMember): StandardCString {.noSideEffect,
     importcpp: "EnumText", header: "StepVisual_NullStyleMember.hxx".}
-proc setEnumText*(this: var StepVisualNullStyleMember; theValue: int;
+proc setEnumText*(this: var StepVisualNullStyleMember; theValue: cint;
                  theText: StandardCString) {.importcpp: "SetEnumText",
     header: "StepVisual_NullStyleMember.hxx".}
 proc setValue*(this: var StepVisualNullStyleMember; theValue: StepVisualNullStyle) {.
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualNullStyleMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_NullStyleMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ discard "forward decl of IGESToBRep_IGESBoundary"
 discard "forward decl of IGESControl_ToolContainer"
 discard "forward decl of IGESControl_ToolContainer"
 type
-  HandleIGESControlToolContainer* = Handle[IGESControlToolContainer]
+  HandleC1C1* = Handle[IGESControlToolContainer]
   IGESControlToolContainer* {.importcpp: "IGESControl_ToolContainer",
                              header: "IGESControl_ToolContainer.hxx", bycopy.} = object of IGESToBRepToolContainer ##
                                                                                                             ## !
@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESControl_ToolContainer.hxx".}
 proc dynamicType*(this: IGESControlToolContainer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESControl_ToolContainer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -35,5 +35,30 @@ proc destroyBOPAlgoCheckerSI*(this: var BOPAlgoCheckerSI) {.
     importcpp: "#.~BOPAlgo_CheckerSI()", header: "BOPAlgo_CheckerSI.hxx".}
 proc perform*(this: var BOPAlgoCheckerSI) {.importcpp: "Perform",
                                         header: "BOPAlgo_CheckerSI.hxx".}
-proc setLevelOfCheck*(this: var BOPAlgoCheckerSI; theLevel: int) {.
+proc setLevelOfCheck*(this: var BOPAlgoCheckerSI; theLevel: cint) {.
     importcpp: "SetLevelOfCheck", header: "BOPAlgo_CheckerSI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   StepAP214Array1OfAutoDesignReferencingItem* = NCollectionArray1[
       StepAP214AutoDesignReferencingItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

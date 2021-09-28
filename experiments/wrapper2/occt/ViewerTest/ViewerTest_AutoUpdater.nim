@@ -41,3 +41,28 @@ proc invalidate*(this: var ViewerTestAutoUpdater) {.importcpp: "Invalidate",
     header: "ViewerTest_AutoUpdater.hxx".}
 proc update*(this: var ViewerTestAutoUpdater) {.importcpp: "Update",
     header: "ViewerTest_AutoUpdater.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

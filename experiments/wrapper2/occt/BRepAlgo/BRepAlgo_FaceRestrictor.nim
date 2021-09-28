@@ -50,3 +50,28 @@ proc next*(this: var BRepAlgoFaceRestrictor) {.importcpp: "Next",
     header: "BRepAlgo_FaceRestrictor.hxx".}
 proc current*(this: BRepAlgoFaceRestrictor): TopoDS_Face {.noSideEffect,
     importcpp: "Current", header: "BRepAlgo_FaceRestrictor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

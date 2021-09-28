@@ -17,3 +17,28 @@
 type
   IGESSolidArray1OfShell* = NCollectionArray1[Handle[IGESSolidShell]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

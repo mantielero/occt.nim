@@ -19,7 +19,7 @@ discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_Driver"
 discard "forward decl of TPrsStd_Driver"
 type
-  HandleTPrsStdDriver* = Handle[TPrsStdDriver]
+  HandleC1C1* = Handle[TPrsStdDriver]
 
 ## ! Driver for AIS
 ## ! ==============
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_Driver.hxx".}
 proc dynamicType*(this: TPrsStdDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_Driver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

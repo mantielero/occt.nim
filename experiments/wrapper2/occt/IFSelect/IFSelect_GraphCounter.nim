@@ -19,7 +19,7 @@ discard "forward decl of Interface_Graph"
 discard "forward decl of IFSelect_GraphCounter"
 discard "forward decl of IFSelect_GraphCounter"
 type
-  HandleIFSelectGraphCounter* = Handle[IFSelectGraphCounter]
+  HandleC1C1* = Handle[IFSelectGraphCounter]
 
 ## ! A GraphCounter computes values to be sorted with the help of
 ## ! a Graph. I.E. not from a Signature
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_GraphCounter.hxx".}
 proc dynamicType*(this: IFSelectGraphCounter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_GraphCounter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,3 +15,28 @@ type
   AIS_DataMapOfShapeDrawer* = NCollectionDataMap[TopoDS_Shape,
       Handle[AIS_ColoredDrawer], TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

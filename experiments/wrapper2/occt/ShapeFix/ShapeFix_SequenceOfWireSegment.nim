@@ -17,3 +17,28 @@
 type
   ShapeFixSequenceOfWireSegment* = NCollectionSequence[ShapeFixWireSegment]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,3 +23,28 @@ type
     RWGltfGltfBufferViewTargetELEMENT_ARRAY_BUFFER = 34963 ## !< GL_ELEMENT_ARRAY_BUFFER
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

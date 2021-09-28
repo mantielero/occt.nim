@@ -14,7 +14,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  ShapeAnalysisBoxBndTree* = NCollectionUBTree[int, BndBox]
+  ShapeAnalysisBoxBndTree* = NCollectionUBTree[cint, BndBox]
   ShapeAnalysisBoxBndTreeSelector* {.importcpp: "ShapeAnalysis_BoxBndTreeSelector",
                                     header: "ShapeAnalysis_BoxBndTree.hxx", bycopy.} = object of Selector
 
@@ -31,22 +31,47 @@ proc defineVertexes*(this: var ShapeAnalysisBoxBndTreeSelector;
     importcpp: "DefineVertexes", header: "ShapeAnalysis_BoxBndTree.hxx".}
 proc definePnt*(this: var ShapeAnalysisBoxBndTreeSelector; theFPnt: Pnt; theLPnt: Pnt) {.
     importcpp: "DefinePnt", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc getNb*(this: var ShapeAnalysisBoxBndTreeSelector): int {.importcpp: "GetNb",
+proc getNb*(this: var ShapeAnalysisBoxBndTreeSelector): cint {.importcpp: "GetNb",
     header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc setNb*(this: var ShapeAnalysisBoxBndTreeSelector; theNb: int) {.
+proc setNb*(this: var ShapeAnalysisBoxBndTreeSelector; theNb: cint) {.
     importcpp: "SetNb", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc loadList*(this: var ShapeAnalysisBoxBndTreeSelector; elem: int) {.
+proc loadList*(this: var ShapeAnalysisBoxBndTreeSelector; elem: cint) {.
     importcpp: "LoadList", header: "ShapeAnalysis_BoxBndTree.hxx".}
 proc setStop*(this: var ShapeAnalysisBoxBndTreeSelector) {.importcpp: "SetStop",
     header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc setTolerance*(this: var ShapeAnalysisBoxBndTreeSelector; theTol: float) {.
+proc setTolerance*(this: var ShapeAnalysisBoxBndTreeSelector; theTol: cfloat) {.
     importcpp: "SetTolerance", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc contWire*(this: var ShapeAnalysisBoxBndTreeSelector; nbWire: int): bool {.
+proc contWire*(this: var ShapeAnalysisBoxBndTreeSelector; nbWire: cint): bool {.
     importcpp: "ContWire", header: "ShapeAnalysis_BoxBndTree.hxx".}
 proc lastCheckStatus*(this: ShapeAnalysisBoxBndTreeSelector;
                      theStatus: ShapeExtendStatus): bool {.noSideEffect,
     importcpp: "LastCheckStatus", header: "ShapeAnalysis_BoxBndTree.hxx".}
 proc reject*(this: ShapeAnalysisBoxBndTreeSelector; theBnd: BndBox): bool {.
     noSideEffect, importcpp: "Reject", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc accept*(this: var ShapeAnalysisBoxBndTreeSelector; a2: int): bool {.
+proc accept*(this: var ShapeAnalysisBoxBndTreeSelector; a2: cint): bool {.
     importcpp: "Accept", header: "ShapeAnalysis_BoxBndTree.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

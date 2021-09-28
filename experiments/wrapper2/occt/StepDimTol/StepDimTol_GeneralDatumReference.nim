@@ -16,7 +16,7 @@
 discard "forward decl of StepDimTol_GeneralDatumReference"
 discard "forward decl of StepDimTol_GeneralDatumReference"
 type
-  HandleStepDimTolGeneralDatumReference* = Handle[StepDimTolGeneralDatumReference]
+  HandleC1C1* = Handle[StepDimTolGeneralDatumReference]
 
 ## ! Representation of STEP entity GeneralDatumReference
 
@@ -50,12 +50,12 @@ proc modifiers*(this: var StepDimTolGeneralDatumReference): Handle[
 proc setModifiers*(this: var StepDimTolGeneralDatumReference; theModifiers: Handle[
     StepDimTolHArray1OfDatumReferenceModifier]) {.importcpp: "SetModifiers",
     header: "StepDimTol_GeneralDatumReference.hxx".}
-proc nbModifiers*(this: StepDimTolGeneralDatumReference): int {.noSideEffect,
+proc nbModifiers*(this: StepDimTolGeneralDatumReference): cint {.noSideEffect,
     importcpp: "NbModifiers", header: "StepDimTol_GeneralDatumReference.hxx".}
-proc modifiersValue*(this: StepDimTolGeneralDatumReference; theNum: int): StepDimTolDatumReferenceModifier {.
+proc modifiersValue*(this: StepDimTolGeneralDatumReference; theNum: cint): StepDimTolDatumReferenceModifier {.
     noSideEffect, importcpp: "ModifiersValue",
     header: "StepDimTol_GeneralDatumReference.hxx".}
-proc modifiersValue*(this: var StepDimTolGeneralDatumReference; theNum: int;
+proc modifiersValue*(this: var StepDimTolGeneralDatumReference; theNum: cint;
                     theItem: StepDimTolDatumReferenceModifier) {.
     importcpp: "ModifiersValue", header: "StepDimTol_GeneralDatumReference.hxx".}
 type
@@ -69,3 +69,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolGeneralDatumReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_GeneralDatumReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

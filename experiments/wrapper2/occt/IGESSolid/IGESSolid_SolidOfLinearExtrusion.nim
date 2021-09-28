@@ -20,7 +20,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_SolidOfLinearExtrusion"
 discard "forward decl of IGESSolid_SolidOfLinearExtrusion"
 type
-  HandleIGESSolidSolidOfLinearExtrusion* = Handle[IGESSolidSolidOfLinearExtrusion]
+  HandleC1C1* = Handle[IGESSolidSolidOfLinearExtrusion]
 
 ## ! defines SolidOfLinearExtrusion, Type <164> Form Number <0>
 ## ! in package IGESSolid
@@ -36,12 +36,12 @@ proc constructIGESSolidSolidOfLinearExtrusion*(): IGESSolidSolidOfLinearExtrusio
     constructor, importcpp: "IGESSolid_SolidOfLinearExtrusion(@)",
     header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
 proc init*(this: var IGESSolidSolidOfLinearExtrusion;
-          aCurve: Handle[IGESDataIGESEntity]; aLength: float; aDirection: Xyz) {.
+          aCurve: Handle[IGESDataIGESEntity]; aLength: cfloat; aDirection: Xyz) {.
     importcpp: "Init", header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
 proc curve*(this: IGESSolidSolidOfLinearExtrusion): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Curve",
     header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
-proc extrusionLength*(this: IGESSolidSolidOfLinearExtrusion): float {.noSideEffect,
+proc extrusionLength*(this: IGESSolidSolidOfLinearExtrusion): cfloat {.noSideEffect,
     importcpp: "ExtrusionLength", header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
 proc extrusionDirection*(this: IGESSolidSolidOfLinearExtrusion): Dir {.noSideEffect,
     importcpp: "ExtrusionDirection",
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSolidSolidOfLinearExtrusion): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

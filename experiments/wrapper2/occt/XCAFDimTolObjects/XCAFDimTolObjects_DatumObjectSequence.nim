@@ -18,3 +18,28 @@ type
   XCAFDimTolObjectsDatumObjectSequence* = NCollectionSequence[
       Handle[XCAFDimTolObjectsDatumObject]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

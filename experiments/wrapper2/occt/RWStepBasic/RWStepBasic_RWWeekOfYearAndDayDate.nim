@@ -27,7 +27,7 @@ proc constructRWStepBasicRWWeekOfYearAndDayDate*(): RWStepBasicRWWeekOfYearAndDa
     constructor, importcpp: "RWStepBasic_RWWeekOfYearAndDayDate(@)",
     header: "RWStepBasic_RWWeekOfYearAndDayDate.hxx".}
 proc readStep*(this: RWStepBasicRWWeekOfYearAndDayDate;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicWeekOfYearAndDayDate]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWWeekOfYearAndDayDate.hxx".}
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepBasicRWWeekOfYearAndDayDate;
                sw: var StepDataStepWriter;
                ent: Handle[StepBasicWeekOfYearAndDayDate]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWWeekOfYearAndDayDate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ type
 proc constructRWStepBasicRWGroup*(): RWStepBasicRWGroup {.constructor,
     importcpp: "RWStepBasic_RWGroup(@)", header: "RWStepBasic_RWGroup.hxx".}
 proc readStep*(this: RWStepBasicRWGroup; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicGroup]) {.
+              num: cint; ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicGroup]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWGroup.hxx".}
 proc writeStep*(this: RWStepBasicRWGroup; sw: var StepDataStepWriter;
                ent: Handle[StepBasicGroup]) {.noSideEffect, importcpp: "WriteStep",
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepBasicRWGroup; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWGroup; ent: Handle[StepBasicGroup];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWGroup.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

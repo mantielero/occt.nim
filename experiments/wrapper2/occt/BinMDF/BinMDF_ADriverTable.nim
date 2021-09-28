@@ -17,7 +17,7 @@ discard "forward decl of BinMDF_ADriver"
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of BinMDF_ADriverTable"
 type
-  HandleBinMDF_ADriverTable* = Handle[BinMDF_ADriverTable]
+  HandleC1C1* = Handle[BinMDF_ADriverTable]
 
 ## ! A driver table is an object building links between
 ## ! object types and object drivers. In the
@@ -60,9 +60,9 @@ proc assignIds*(this: var BinMDF_ADriverTable;
                theTypeNames: TColStdSequenceOfAsciiString) {.
     importcpp: "AssignIds", header: "BinMDF_ADriverTable.hxx".}
 proc getDriver*(this: var BinMDF_ADriverTable; theType: Handle[StandardType];
-               theDriver: var Handle[BinMDF_ADriver]): int {.importcpp: "GetDriver",
-    header: "BinMDF_ADriverTable.hxx".}
-proc getDriver*(this: var BinMDF_ADriverTable; theTypeId: int): Handle[BinMDF_ADriver] {.
+               theDriver: var Handle[BinMDF_ADriver]): cint {.
+    importcpp: "GetDriver", header: "BinMDF_ADriverTable.hxx".}
+proc getDriver*(this: var BinMDF_ADriverTable; theTypeId: cint): Handle[BinMDF_ADriver] {.
     importcpp: "GetDriver", header: "BinMDF_ADriverTable.hxx".}
 type
   BinMDF_ADriverTablebaseType* = StandardTransient
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BinMDF_ADriverTable.hxx".}
 proc dynamicType*(this: BinMDF_ADriverTable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BinMDF_ADriverTable.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,8 +19,7 @@ discard "forward decl of StepElement_ElementAspect"
 discard "forward decl of StepFEA_ElementGeometricRelationship"
 discard "forward decl of StepFEA_ElementGeometricRelationship"
 type
-  HandleStepFEA_ElementGeometricRelationship* = Handle[
-      StepFEA_ElementGeometricRelationship]
+  HandleC1C1* = Handle[StepFEA_ElementGeometricRelationship]
 
 ## ! Representation of STEP entity ElementGeometricRelationship
 
@@ -70,3 +69,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_ElementGeometricRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_ElementGeometricRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   TDataStdListOfExtendedString* = NCollectionList[TCollectionExtendedString]
   TDataStdListIteratorOfListOfExtendedString* = Iterator[TCollectionExtendedString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

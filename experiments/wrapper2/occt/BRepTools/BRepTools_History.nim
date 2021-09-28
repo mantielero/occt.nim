@@ -16,7 +16,7 @@
 discard "forward decl of BRepTools_History"
 discard "forward decl of BRepTools_History"
 type
-  HandleBRepToolsHistory* = Handle[BRepToolsHistory]
+  HandleC1C1* = Handle[BRepToolsHistory]
 
 ## ! The history keeps the following relations between the input shapes
 ## ! (S1, ..., Sm) and output shapes (T1, ..., Tn):
@@ -379,3 +379,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepTools_History.hxx".}
 proc dynamicType*(this: BRepToolsHistory): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepTools_History.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

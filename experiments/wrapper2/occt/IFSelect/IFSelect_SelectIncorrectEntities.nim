@@ -17,7 +17,7 @@
 discard "forward decl of IFSelect_SelectIncorrectEntities"
 discard "forward decl of IFSelect_SelectIncorrectEntities"
 type
-  HandleIFSelectSelectIncorrectEntities* = Handle[IFSelectSelectIncorrectEntities]
+  HandleC1C1* = Handle[IFSelectSelectIncorrectEntities]
 
 ## ! A SelectIncorrectEntities sorts the Entities which have been
 ## ! noted as Incorrect in the Graph of the Session
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IFSelectSelectIncorrectEntities): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectIncorrectEntities.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

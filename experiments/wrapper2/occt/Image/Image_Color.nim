@@ -35,8 +35,8 @@ type
 
   ImageColorRGBComponentTypeT* = StandardByte
 
-proc length*(): int {.importcpp: "Image_ColorRGB::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorRGB::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorRGB): StandardByte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorRGB): StandardByte {.noSideEffect, importcpp: "g",
@@ -60,8 +60,8 @@ type
 
   ImageColorRGB32ComponentTypeT* = StandardByte
 
-proc length*(): int {.importcpp: "Image_ColorRGB32::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorRGB32::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorRGB32): StandardByte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorRGB32): StandardByte {.noSideEffect, importcpp: "g",
@@ -89,8 +89,8 @@ type
 
   ImageColorRGBAComponentTypeT* = StandardByte
 
-proc length*(): int {.importcpp: "Image_ColorRGBA::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorRGBA::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorRGBA): StandardByte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorRGBA): StandardByte {.noSideEffect, importcpp: "g",
@@ -118,8 +118,8 @@ type
 
   ImageColorBGRComponentTypeT* = StandardByte
 
-proc length*(): int {.importcpp: "Image_ColorBGR::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorBGR::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorBGR): StandardByte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorBGR): StandardByte {.noSideEffect, importcpp: "g",
@@ -143,8 +143,8 @@ type
 
   ImageColorBGR32ComponentTypeT* = StandardByte
 
-proc length*(): int {.importcpp: "Image_ColorBGR32::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorBGR32::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorBGR32): StandardByte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorBGR32): StandardByte {.noSideEffect, importcpp: "g",
@@ -172,8 +172,8 @@ type
 
   ImageColorBGRAComponentTypeT* = StandardByte
 
-proc length*(): int {.importcpp: "Image_ColorBGRA::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorBGRA::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorBGRA): StandardByte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorBGRA): StandardByte {.noSideEffect, importcpp: "g",
@@ -201,8 +201,8 @@ type
 
   ImageColorRGFComponentTypeT* = StandardShortReal
 
-proc length*(): int {.importcpp: "Image_ColorRGF::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorRGF::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorRGF): StandardShortReal {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorRGF): StandardShortReal {.noSideEffect, importcpp: "g",
@@ -222,8 +222,8 @@ type
 
   ImageColorRGBFComponentTypeT* = StandardShortReal
 
-proc length*(): int {.importcpp: "Image_ColorRGBF::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorRGBF::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorRGBF): StandardShortReal {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorRGBF): StandardShortReal {.noSideEffect, importcpp: "g",
@@ -247,8 +247,8 @@ type
 
   ImageColorBGRFComponentTypeT* = StandardShortReal
 
-proc length*(): int {.importcpp: "Image_ColorBGRF::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorBGRF::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorBGRF): StandardShortReal {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorBGRF): StandardShortReal {.noSideEffect, importcpp: "g",
@@ -272,8 +272,8 @@ type
 
   ImageColorRGBAFComponentTypeT* = StandardShortReal
 
-proc length*(): int {.importcpp: "Image_ColorRGBAF::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorRGBAF::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorRGBAF): StandardShortReal {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorRGBAF): StandardShortReal {.noSideEffect, importcpp: "g",
@@ -301,8 +301,8 @@ type
 
   ImageColorBGRAFComponentTypeT* = StandardShortReal
 
-proc length*(): int {.importcpp: "Image_ColorBGRAF::Length(@)",
-                   header: "Image_Color.hxx".}
+proc length*(): cint {.importcpp: "Image_ColorBGRAF::Length(@)",
+                    header: "Image_Color.hxx".}
 proc r*(this: ImageColorBGRAF): StandardShortReal {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
 proc g*(this: ImageColorBGRAF): StandardShortReal {.noSideEffect, importcpp: "g",
@@ -319,3 +319,28 @@ proc b*(this: var ImageColorBGRAF): var StandardShortReal {.importcpp: "b",
     header: "Image_Color.hxx".}
 proc a*(this: var ImageColorBGRAF): var StandardShortReal {.importcpp: "a",
     header: "Image_Color.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

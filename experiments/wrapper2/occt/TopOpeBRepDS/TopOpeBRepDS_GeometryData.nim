@@ -36,3 +36,28 @@ proc changeInterferences*(this: var TopOpeBRepDS_GeometryData): var TopOpeBRepDS
 proc addInterference*(this: var TopOpeBRepDS_GeometryData;
                      i: Handle[TopOpeBRepDS_Interference]) {.
     importcpp: "AddInterference", header: "TopOpeBRepDS_GeometryData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

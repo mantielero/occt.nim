@@ -32,3 +32,28 @@ proc constructBRepAlgoAPI_Cut*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_
 proc constructBRepAlgoAPI_Cut*(s1: TopoDS_Shape; s2: TopoDS_Shape;
                               aDSF: BOPAlgoPaveFiller; bFWD: bool = true): BRepAlgoAPI_Cut {.
     constructor, importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

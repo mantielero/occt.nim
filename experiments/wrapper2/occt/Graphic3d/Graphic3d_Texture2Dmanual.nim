@@ -59,5 +59,30 @@ proc constructGraphic3dTexture2Dmanual*(thePixMap: Handle[ImagePixMap]): Graphic
     header: "Graphic3d_Texture2Dmanual.hxx".}
 discard "forward decl of Graphic3d_Texture2Dmanual"
 type
-  HandleGraphic3dTexture2Dmanual* = Handle[Graphic3dTexture2Dmanual]
+  HandleC1C1* = Handle[Graphic3dTexture2Dmanual]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

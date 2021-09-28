@@ -16,3 +16,28 @@
 type
   Graphic3dMapIteratorOfMapOfStructure* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,9 +28,9 @@ proc constructBRepBlendSurfPointConstRadInv*(s: Handle[Adaptor3dHSurface];
     c: Handle[Adaptor3dHCurve]): BRepBlendSurfPointConstRadInv {.constructor,
     importcpp: "BRepBlend_SurfPointConstRadInv(@)",
     header: "BRepBlend_SurfPointConstRadInv.hxx".}
-proc set*(this: var BRepBlendSurfPointConstRadInv; r: float; choix: int) {.
+proc set*(this: var BRepBlendSurfPointConstRadInv; r: cfloat; choix: cint) {.
     importcpp: "Set", header: "BRepBlend_SurfPointConstRadInv.hxx".}
-proc nbEquations*(this: BRepBlendSurfPointConstRadInv): int {.noSideEffect,
+proc nbEquations*(this: BRepBlendSurfPointConstRadInv): cint {.noSideEffect,
     importcpp: "NbEquations", header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc value*(this: var BRepBlendSurfPointConstRadInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BRepBlend_SurfPointConstRadInv.hxx".}
@@ -42,9 +42,34 @@ proc values*(this: var BRepBlendSurfPointConstRadInv; x: MathVector;
 proc set*(this: var BRepBlendSurfPointConstRadInv; p: Pnt) {.importcpp: "Set",
     header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc getTolerance*(this: BRepBlendSurfPointConstRadInv; tolerance: var MathVector;
-                  tol: float) {.noSideEffect, importcpp: "GetTolerance",
-                              header: "BRepBlend_SurfPointConstRadInv.hxx".}
+                  tol: cfloat) {.noSideEffect, importcpp: "GetTolerance",
+                               header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc getBounds*(this: BRepBlendSurfPointConstRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds", header: "BRepBlend_SurfPointConstRadInv.hxx".}
-proc isSolution*(this: var BRepBlendSurfPointConstRadInv; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BRepBlendSurfPointConstRadInv; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BRepBlend_SurfPointConstRadInv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

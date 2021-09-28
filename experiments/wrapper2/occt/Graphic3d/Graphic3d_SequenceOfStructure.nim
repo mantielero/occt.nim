@@ -17,3 +17,28 @@
 type
   Graphic3dSequenceOfStructure* = NCollectionSequence[Handle[Graphic3dStructure]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

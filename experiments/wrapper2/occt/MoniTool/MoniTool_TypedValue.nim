@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of MoniTool_TypedValue"
 discard "forward decl of MoniTool_TypedValue"
 type
-  HandleMoniToolTypedValue* = Handle[MoniToolTypedValue]
+  HandleC1C1* = Handle[MoniToolTypedValue]
 
 ## ! This class allows to dynamically manage .. typed values, i.e.
 ## ! values which have an alphanumeric expression, but with
@@ -135,7 +135,7 @@ proc constructMoniToolTypedValue*(other: Handle[MoniToolTypedValue]): MoniToolTy
     header: "MoniTool_TypedValue.hxx".}
 proc internals*(this: MoniToolTypedValue; interp: var MoniToolValueInterpret;
                satisf: var MoniToolValueSatisfies; satisname: var StandardCString;
-               enums: var NCollectionDataMap[TCollectionAsciiString, int]) {.
+               enums: var NCollectionDataMap[TCollectionAsciiString, cint]) {.
     noSideEffect, importcpp: "Internals", header: "MoniTool_TypedValue.hxx".}
 proc name*(this: MoniToolTypedValue): StandardCString {.noSideEffect,
     importcpp: "Name", header: "MoniTool_TypedValue.hxx".}
@@ -155,23 +155,23 @@ proc setLabel*(this: var MoniToolTypedValue; label: StandardCString) {.
     importcpp: "SetLabel", header: "MoniTool_TypedValue.hxx".}
 proc label*(this: MoniToolTypedValue): StandardCString {.noSideEffect,
     importcpp: "Label", header: "MoniTool_TypedValue.hxx".}
-proc setMaxLength*(this: var MoniToolTypedValue; max: int) {.
+proc setMaxLength*(this: var MoniToolTypedValue; max: cint) {.
     importcpp: "SetMaxLength", header: "MoniTool_TypedValue.hxx".}
-proc maxLength*(this: MoniToolTypedValue): int {.noSideEffect,
+proc maxLength*(this: MoniToolTypedValue): cint {.noSideEffect,
     importcpp: "MaxLength", header: "MoniTool_TypedValue.hxx".}
-proc setIntegerLimit*(this: var MoniToolTypedValue; max: bool; val: int) {.
+proc setIntegerLimit*(this: var MoniToolTypedValue; max: bool; val: cint) {.
     importcpp: "SetIntegerLimit", header: "MoniTool_TypedValue.hxx".}
-proc integerLimit*(this: MoniToolTypedValue; max: bool; val: var int): bool {.
+proc integerLimit*(this: MoniToolTypedValue; max: bool; val: var cint): bool {.
     noSideEffect, importcpp: "IntegerLimit", header: "MoniTool_TypedValue.hxx".}
-proc setRealLimit*(this: var MoniToolTypedValue; max: bool; val: float) {.
+proc setRealLimit*(this: var MoniToolTypedValue; max: bool; val: cfloat) {.
     importcpp: "SetRealLimit", header: "MoniTool_TypedValue.hxx".}
-proc realLimit*(this: MoniToolTypedValue; max: bool; val: var float): bool {.
+proc realLimit*(this: MoniToolTypedValue; max: bool; val: var cfloat): bool {.
     noSideEffect, importcpp: "RealLimit", header: "MoniTool_TypedValue.hxx".}
 proc setUnitDef*(this: var MoniToolTypedValue; def: StandardCString) {.
     importcpp: "SetUnitDef", header: "MoniTool_TypedValue.hxx".}
 proc unitDef*(this: MoniToolTypedValue): StandardCString {.noSideEffect,
     importcpp: "UnitDef", header: "MoniTool_TypedValue.hxx".}
-proc startEnum*(this: var MoniToolTypedValue; start: int = 0; match: bool = true) {.
+proc startEnum*(this: var MoniToolTypedValue; start: cint = 0; match: bool = true) {.
     importcpp: "StartEnum", header: "MoniTool_TypedValue.hxx".}
 proc addEnum*(this: var MoniToolTypedValue; v1: StandardCString = "";
              v2: StandardCString = ""; v3: StandardCString = "";
@@ -180,14 +180,14 @@ proc addEnum*(this: var MoniToolTypedValue; v1: StandardCString = "";
              v8: StandardCString = ""; v9: StandardCString = "";
              v10: StandardCString = "") {.importcpp: "AddEnum",
                                       header: "MoniTool_TypedValue.hxx".}
-proc addEnumValue*(this: var MoniToolTypedValue; val: StandardCString; num: int) {.
+proc addEnumValue*(this: var MoniToolTypedValue; val: StandardCString; num: cint) {.
     importcpp: "AddEnumValue", header: "MoniTool_TypedValue.hxx".}
-proc enumDef*(this: MoniToolTypedValue; startcase: var int; endcase: var int;
+proc enumDef*(this: MoniToolTypedValue; startcase: var cint; endcase: var cint;
              match: var bool): bool {.noSideEffect, importcpp: "EnumDef",
                                   header: "MoniTool_TypedValue.hxx".}
-proc enumVal*(this: MoniToolTypedValue; num: int): StandardCString {.noSideEffect,
+proc enumVal*(this: MoniToolTypedValue; num: cint): StandardCString {.noSideEffect,
     importcpp: "EnumVal", header: "MoniTool_TypedValue.hxx".}
-proc enumCase*(this: MoniToolTypedValue; val: StandardCString): int {.noSideEffect,
+proc enumCase*(this: MoniToolTypedValue; val: StandardCString): cint {.noSideEffect,
     importcpp: "EnumCase", header: "MoniTool_TypedValue.hxx".}
 proc setObjectType*(this: var MoniToolTypedValue; typ: Handle[StandardType]) {.
     importcpp: "SetObjectType", header: "MoniTool_TypedValue.hxx".}
@@ -220,13 +220,13 @@ proc setCStringValue*(this: var MoniToolTypedValue; val: StandardCString): bool 
 proc setHStringValue*(this: var MoniToolTypedValue;
                      hval: Handle[TCollectionHAsciiString]): bool {.
     importcpp: "SetHStringValue", header: "MoniTool_TypedValue.hxx".}
-proc integerValue*(this: MoniToolTypedValue): int {.noSideEffect,
+proc integerValue*(this: MoniToolTypedValue): cint {.noSideEffect,
     importcpp: "IntegerValue", header: "MoniTool_TypedValue.hxx".}
-proc setIntegerValue*(this: var MoniToolTypedValue; ival: int): bool {.
+proc setIntegerValue*(this: var MoniToolTypedValue; ival: cint): bool {.
     importcpp: "SetIntegerValue", header: "MoniTool_TypedValue.hxx".}
-proc realValue*(this: MoniToolTypedValue): float {.noSideEffect,
+proc realValue*(this: MoniToolTypedValue): cfloat {.noSideEffect,
     importcpp: "RealValue", header: "MoniTool_TypedValue.hxx".}
-proc setRealValue*(this: var MoniToolTypedValue; rval: float): bool {.
+proc setRealValue*(this: var MoniToolTypedValue; rval: cfloat): bool {.
     importcpp: "SetRealValue", header: "MoniTool_TypedValue.hxx".}
 proc objectValue*(this: MoniToolTypedValue): Handle[StandardTransient] {.
     noSideEffect, importcpp: "ObjectValue", header: "MoniTool_TypedValue.hxx".}
@@ -259,3 +259,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MoniTool_TypedValue.hxx".}
 proc dynamicType*(this: MoniToolTypedValue): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_TypedValue.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

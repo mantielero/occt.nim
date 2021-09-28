@@ -18,3 +18,28 @@ discard "forward decl of CDM_Document"
 type
   CDM_DocumentPointer* = ptr CDM_Document
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

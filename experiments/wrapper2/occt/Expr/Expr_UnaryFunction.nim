@@ -24,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_UnaryFunction"
 discard "forward decl of Expr_UnaryFunction"
 type
-  HandleExprUnaryFunction* = Handle[ExprUnaryFunction]
+  HandleC1C1* = Handle[ExprUnaryFunction]
 
 ## ! Defines the use of an unary function in an expression
 ## ! with a given argument.
@@ -66,7 +66,7 @@ proc derivative*(this: ExprUnaryFunction; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_UnaryFunction.hxx".}
 proc evaluate*(this: ExprUnaryFunction; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_UnaryFunction.hxx".}
 proc string*(this: ExprUnaryFunction): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_UnaryFunction.hxx".}
@@ -80,3 +80,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_UnaryFunction.hxx".}
 proc dynamicType*(this: ExprUnaryFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_UnaryFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,3 +20,28 @@ type
   MoniToolDataMapIteratorOfDataMapOfShapeTransient* = Iterator[TopoDS_Shape,
       Handle[StandardTransient], TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,3 +9,28 @@ include BRepMeshData_Model
 include BRepMeshData_PCurve
 include BRepMeshData_Wire
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

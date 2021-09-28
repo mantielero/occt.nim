@@ -22,17 +22,42 @@ type
                     bycopy.} = object
 
 
-proc constructBlendFuncTensor*(nbRow: int; nbCol: int; nbMat: int): BlendFuncTensor {.
+proc constructBlendFuncTensor*(nbRow: cint; nbCol: cint; nbMat: cint): BlendFuncTensor {.
     constructor, importcpp: "BlendFunc_Tensor(@)", header: "BlendFunc_Tensor.hxx".}
-proc init*(this: var BlendFuncTensor; initialValue: float) {.importcpp: "Init",
+proc init*(this: var BlendFuncTensor; initialValue: cfloat) {.importcpp: "Init",
     header: "BlendFunc_Tensor.hxx".}
-proc value*(this: BlendFuncTensor; row: int; col: int; mat: int): float {.noSideEffect,
-    importcpp: "Value", header: "BlendFunc_Tensor.hxx".}
-proc `()`*(this: BlendFuncTensor; row: int; col: int; mat: int): float {.noSideEffect,
+proc value*(this: BlendFuncTensor; row: cint; col: cint; mat: cint): cfloat {.
+    noSideEffect, importcpp: "Value", header: "BlendFunc_Tensor.hxx".}
+proc `()`*(this: BlendFuncTensor; row: cint; col: cint; mat: cint): cfloat {.noSideEffect,
     importcpp: "#(@)", header: "BlendFunc_Tensor.hxx".}
-proc changeValue*(this: var BlendFuncTensor; row: int; col: int; mat: int): var float {.
+proc changeValue*(this: var BlendFuncTensor; row: cint; col: cint; mat: cint): var cfloat {.
     importcpp: "ChangeValue", header: "BlendFunc_Tensor.hxx".}
-proc `()`*(this: var BlendFuncTensor; row: int; col: int; mat: int): var float {.
+proc `()`*(this: var BlendFuncTensor; row: cint; col: cint; mat: cint): var cfloat {.
     importcpp: "#(@)", header: "BlendFunc_Tensor.hxx".}
 proc multiply*(this: BlendFuncTensor; right: MathVector; product: var MathMatrix) {.
     noSideEffect, importcpp: "Multiply", header: "BlendFunc_Tensor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

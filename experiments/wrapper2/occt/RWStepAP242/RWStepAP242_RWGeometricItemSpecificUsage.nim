@@ -28,7 +28,7 @@ proc constructRWStepAP242RWGeometricItemSpecificUsage*(): RWStepAP242RWGeometric
     constructor, importcpp: "RWStepAP242_RWGeometricItemSpecificUsage(@)",
     header: "RWStepAP242_RWGeometricItemSpecificUsage.hxx".}
 proc readStep*(this: RWStepAP242RWGeometricItemSpecificUsage;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP242GeometricItemSpecificUsage]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP242_RWGeometricItemSpecificUsage.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepAP242RWGeometricItemSpecificUsage;
            ent: Handle[StepAP242GeometricItemSpecificUsage];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP242_RWGeometricItemSpecificUsage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

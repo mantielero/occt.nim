@@ -15,7 +15,7 @@
 
 discard "forward decl of AIS_ManipulatorOwner"
 type
-  HandleAIS_ManipulatorOwner* = Handle[AIS_ManipulatorOwner]
+  HandleC1C1* = Handle[AIS_ManipulatorOwner]
 
 ## ! Entity owner for selection management of AIS_Manipulator object.
 
@@ -35,21 +35,46 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: AIS_ManipulatorOwner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_ManipulatorOwner.hxx".}
 proc constructAIS_ManipulatorOwner*(theSelObject: Handle[SelectMgrSelectableObject];
-                                   theIndex: int; theMode: AIS_ManipulatorMode;
-                                   thePriority: int = 0): AIS_ManipulatorOwner {.
+                                   theIndex: cint; theMode: AIS_ManipulatorMode;
+                                   thePriority: cint = 0): AIS_ManipulatorOwner {.
     constructor, importcpp: "AIS_ManipulatorOwner(@)",
     header: "AIS_ManipulatorOwner.hxx".}
 proc hilightWithColor*(this: var AIS_ManipulatorOwner;
                       thePM: Handle[PrsMgrPresentationManager3d];
-                      theStyle: Handle[Prs3dDrawer]; theMode: int) {.
+                      theStyle: Handle[Prs3dDrawer]; theMode: cint) {.
     importcpp: "HilightWithColor", header: "AIS_ManipulatorOwner.hxx".}
 proc isHilighted*(this: AIS_ManipulatorOwner;
-                 thePM: Handle[PrsMgrPresentationManager]; theMode: int): bool {.
+                 thePM: Handle[PrsMgrPresentationManager]; theMode: cint): bool {.
     noSideEffect, importcpp: "IsHilighted", header: "AIS_ManipulatorOwner.hxx".}
 proc unhilight*(this: var AIS_ManipulatorOwner;
-               thePM: Handle[PrsMgrPresentationManager]; theMode: int) {.
+               thePM: Handle[PrsMgrPresentationManager]; theMode: cint) {.
     importcpp: "Unhilight", header: "AIS_ManipulatorOwner.hxx".}
 proc mode*(this: AIS_ManipulatorOwner): AIS_ManipulatorMode {.noSideEffect,
     importcpp: "Mode", header: "AIS_ManipulatorOwner.hxx".}
-proc index*(this: AIS_ManipulatorOwner): int {.noSideEffect, importcpp: "Index",
+proc index*(this: AIS_ManipulatorOwner): cint {.noSideEffect, importcpp: "Index",
     header: "AIS_ManipulatorOwner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

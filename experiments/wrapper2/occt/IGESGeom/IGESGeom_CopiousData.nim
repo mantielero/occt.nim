@@ -20,7 +20,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of IGESGeom_CopiousData"
 discard "forward decl of IGESGeom_CopiousData"
 type
-  HandleIGESGeomCopiousData* = Handle[IGESGeomCopiousData]
+  HandleC1C1* = Handle[IGESGeomCopiousData]
 
 ## ! defines IGESCopiousData, Type <106> Form <1-3,11-13,63>
 ## ! in package IGESGeom
@@ -35,7 +35,7 @@ type
 
 proc constructIGESGeomCopiousData*(): IGESGeomCopiousData {.constructor,
     importcpp: "IGESGeom_CopiousData(@)", header: "IGESGeom_CopiousData.hxx".}
-proc init*(this: var IGESGeomCopiousData; aDataType: int; aZPlane: float;
+proc init*(this: var IGESGeomCopiousData; aDataType: cint; aZPlane: cfloat;
           allData: Handle[TColStdHArray1OfReal]) {.importcpp: "Init",
     header: "IGESGeom_CopiousData.hxx".}
 proc setPolyline*(this: var IGESGeomCopiousData; mode: bool) {.
@@ -48,21 +48,21 @@ proc isPolyline*(this: IGESGeomCopiousData): bool {.noSideEffect,
     importcpp: "IsPolyline", header: "IGESGeom_CopiousData.hxx".}
 proc isClosedPath2D*(this: IGESGeomCopiousData): bool {.noSideEffect,
     importcpp: "IsClosedPath2D", header: "IGESGeom_CopiousData.hxx".}
-proc dataType*(this: IGESGeomCopiousData): int {.noSideEffect, importcpp: "DataType",
-    header: "IGESGeom_CopiousData.hxx".}
-proc nbPoints*(this: IGESGeomCopiousData): int {.noSideEffect, importcpp: "NbPoints",
-    header: "IGESGeom_CopiousData.hxx".}
-proc data*(this: IGESGeomCopiousData; numPoint: int; numData: int): float {.
+proc dataType*(this: IGESGeomCopiousData): cint {.noSideEffect,
+    importcpp: "DataType", header: "IGESGeom_CopiousData.hxx".}
+proc nbPoints*(this: IGESGeomCopiousData): cint {.noSideEffect,
+    importcpp: "NbPoints", header: "IGESGeom_CopiousData.hxx".}
+proc data*(this: IGESGeomCopiousData; numPoint: cint; numData: cint): cfloat {.
     noSideEffect, importcpp: "Data", header: "IGESGeom_CopiousData.hxx".}
-proc zPlane*(this: IGESGeomCopiousData): float {.noSideEffect, importcpp: "ZPlane",
+proc zPlane*(this: IGESGeomCopiousData): cfloat {.noSideEffect, importcpp: "ZPlane",
     header: "IGESGeom_CopiousData.hxx".}
-proc point*(this: IGESGeomCopiousData; anIndex: int): Pnt {.noSideEffect,
+proc point*(this: IGESGeomCopiousData; anIndex: cint): Pnt {.noSideEffect,
     importcpp: "Point", header: "IGESGeom_CopiousData.hxx".}
-proc transformedPoint*(this: IGESGeomCopiousData; anIndex: int): Pnt {.noSideEffect,
+proc transformedPoint*(this: IGESGeomCopiousData; anIndex: cint): Pnt {.noSideEffect,
     importcpp: "TransformedPoint", header: "IGESGeom_CopiousData.hxx".}
-proc vector*(this: IGESGeomCopiousData; anIndex: int): Vec {.noSideEffect,
+proc vector*(this: IGESGeomCopiousData; anIndex: cint): Vec {.noSideEffect,
     importcpp: "Vector", header: "IGESGeom_CopiousData.hxx".}
-proc transformedVector*(this: IGESGeomCopiousData; anIndex: int): Vec {.noSideEffect,
+proc transformedVector*(this: IGESGeomCopiousData; anIndex: cint): Vec {.noSideEffect,
     importcpp: "TransformedVector", header: "IGESGeom_CopiousData.hxx".}
 type
   IGESGeomCopiousDatabaseType* = IGESDataIGESEntity
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_CopiousData.hxx".}
 proc dynamicType*(this: IGESGeomCopiousData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_CopiousData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

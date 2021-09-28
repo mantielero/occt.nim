@@ -18,7 +18,7 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of PLib_JacobiPolynomial"
 discard "forward decl of PLib_JacobiPolynomial"
 type
-  HandlePLibJacobiPolynomial* = Handle[PLibJacobiPolynomial]
+  HandleC1C1* = Handle[PLibJacobiPolynomial]
 
 ## ! This class provides method  to work with Jacobi  Polynomials
 ## ! relativly to   an order of constraint
@@ -95,47 +95,48 @@ type
                                                                                      ## u
 
 
-proc constructPLibJacobiPolynomial*(workDegree: int; constraintOrder: GeomAbsShape): PLibJacobiPolynomial {.
+proc constructPLibJacobiPolynomial*(workDegree: cint; constraintOrder: GeomAbsShape): PLibJacobiPolynomial {.
     constructor, importcpp: "PLib_JacobiPolynomial(@)",
     header: "PLib_JacobiPolynomial.hxx".}
-proc points*(this: PLibJacobiPolynomial; nbGaussPoints: int;
+proc points*(this: PLibJacobiPolynomial; nbGaussPoints: cint;
             tabPoints: var TColStdArray1OfReal) {.noSideEffect, importcpp: "Points",
     header: "PLib_JacobiPolynomial.hxx".}
-proc weights*(this: PLibJacobiPolynomial; nbGaussPoints: int;
+proc weights*(this: PLibJacobiPolynomial; nbGaussPoints: cint;
              tabWeights: var TColStdArray2OfReal) {.noSideEffect,
     importcpp: "Weights", header: "PLib_JacobiPolynomial.hxx".}
 proc maxValue*(this: PLibJacobiPolynomial; tabMax: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "MaxValue", header: "PLib_JacobiPolynomial.hxx".}
-proc maxError*(this: PLibJacobiPolynomial; dimension: int; jacCoeff: var float;
-              newDegree: int): float {.noSideEffect, importcpp: "MaxError",
-                                    header: "PLib_JacobiPolynomial.hxx".}
-proc reduceDegree*(this: PLibJacobiPolynomial; dimension: int; maxDegree: int;
-                  tol: float; jacCoeff: var float; newDegree: var int;
-                  maxError: var float) {.noSideEffect, importcpp: "ReduceDegree",
+proc maxError*(this: PLibJacobiPolynomial; dimension: cint; jacCoeff: var cfloat;
+              newDegree: cint): cfloat {.noSideEffect, importcpp: "MaxError",
                                       header: "PLib_JacobiPolynomial.hxx".}
-proc averageError*(this: PLibJacobiPolynomial; dimension: int; jacCoeff: var float;
-                  newDegree: int): float {.noSideEffect, importcpp: "AverageError",
-                                        header: "PLib_JacobiPolynomial.hxx".}
-proc toCoefficients*(this: PLibJacobiPolynomial; dimension: int; degree: int;
+proc reduceDegree*(this: PLibJacobiPolynomial; dimension: cint; maxDegree: cint;
+                  tol: cfloat; jacCoeff: var cfloat; newDegree: var cint;
+                  maxError: var cfloat) {.noSideEffect, importcpp: "ReduceDegree",
+                                       header: "PLib_JacobiPolynomial.hxx".}
+proc averageError*(this: PLibJacobiPolynomial; dimension: cint; jacCoeff: var cfloat;
+                  newDegree: cint): cfloat {.noSideEffect,
+    importcpp: "AverageError", header: "PLib_JacobiPolynomial.hxx".}
+proc toCoefficients*(this: PLibJacobiPolynomial; dimension: cint; degree: cint;
                     jacCoeff: TColStdArray1OfReal;
                     coefficients: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "ToCoefficients", header: "PLib_JacobiPolynomial.hxx".}
-proc d0*(this: var PLibJacobiPolynomial; u: float; basisValue: var TColStdArray1OfReal) {.
-    importcpp: "D0", header: "PLib_JacobiPolynomial.hxx".}
-proc d1*(this: var PLibJacobiPolynomial; u: float;
+proc d0*(this: var PLibJacobiPolynomial; u: cfloat;
+        basisValue: var TColStdArray1OfReal) {.importcpp: "D0",
+    header: "PLib_JacobiPolynomial.hxx".}
+proc d1*(this: var PLibJacobiPolynomial; u: cfloat;
         basisValue: var TColStdArray1OfReal; basisD1: var TColStdArray1OfReal) {.
     importcpp: "D1", header: "PLib_JacobiPolynomial.hxx".}
-proc d2*(this: var PLibJacobiPolynomial; u: float;
+proc d2*(this: var PLibJacobiPolynomial; u: cfloat;
         basisValue: var TColStdArray1OfReal; basisD1: var TColStdArray1OfReal;
         basisD2: var TColStdArray1OfReal) {.importcpp: "D2",
     header: "PLib_JacobiPolynomial.hxx".}
-proc d3*(this: var PLibJacobiPolynomial; u: float;
+proc d3*(this: var PLibJacobiPolynomial; u: cfloat;
         basisValue: var TColStdArray1OfReal; basisD1: var TColStdArray1OfReal;
         basisD2: var TColStdArray1OfReal; basisD3: var TColStdArray1OfReal) {.
     importcpp: "D3", header: "PLib_JacobiPolynomial.hxx".}
-proc workDegree*(this: PLibJacobiPolynomial): int {.noSideEffect,
+proc workDegree*(this: PLibJacobiPolynomial): cint {.noSideEffect,
     importcpp: "WorkDegree", header: "PLib_JacobiPolynomial.hxx".}
-proc nivConstr*(this: PLibJacobiPolynomial): int {.noSideEffect,
+proc nivConstr*(this: PLibJacobiPolynomial): cint {.noSideEffect,
     importcpp: "NivConstr", header: "PLib_JacobiPolynomial.hxx".}
 type
   PLibJacobiPolynomialbaseType* = PLibBase
@@ -147,3 +148,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "PLib_JacobiPolynomial.hxx".}
 proc dynamicType*(this: PLibJacobiPolynomial): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PLib_JacobiPolynomial.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

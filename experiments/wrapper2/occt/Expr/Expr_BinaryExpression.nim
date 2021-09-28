@@ -22,7 +22,7 @@ discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_BinaryExpression"
 discard "forward decl of Expr_BinaryExpression"
 type
-  HandleExprBinaryExpression* = Handle[ExprBinaryExpression]
+  HandleC1C1* = Handle[ExprBinaryExpression]
 
 ## ! Defines all binary expressions. The order of the two
 ## ! operands is significant.
@@ -48,10 +48,11 @@ proc setFirstOperand*(this: var ExprBinaryExpression;
 proc setSecondOperand*(this: var ExprBinaryExpression;
                       exp: Handle[ExprGeneralExpression]) {.
     importcpp: "SetSecondOperand", header: "Expr_BinaryExpression.hxx".}
-proc nbSubExpressions*(this: ExprBinaryExpression): int {.noSideEffect,
+proc nbSubExpressions*(this: ExprBinaryExpression): cint {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_BinaryExpression.hxx".}
-proc subExpression*(this: ExprBinaryExpression; i: int): Handle[ExprGeneralExpression] {.
-    noSideEffect, importcpp: "SubExpression", header: "Expr_BinaryExpression.hxx".}
+proc subExpression*(this: ExprBinaryExpression; i: cint): Handle[
+    ExprGeneralExpression] {.noSideEffect, importcpp: "SubExpression",
+                            header: "Expr_BinaryExpression.hxx".}
 proc containsUnknowns*(this: ExprBinaryExpression): bool {.noSideEffect,
     importcpp: "ContainsUnknowns", header: "Expr_BinaryExpression.hxx".}
 proc contains*(this: ExprBinaryExpression; exp: Handle[ExprGeneralExpression]): bool {.
@@ -71,3 +72,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_BinaryExpression.hxx".}
 proc dynamicType*(this: ExprBinaryExpression): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_BinaryExpression.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

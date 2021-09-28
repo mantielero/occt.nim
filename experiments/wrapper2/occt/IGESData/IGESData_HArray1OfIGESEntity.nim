@@ -14,33 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESDataHArray1OfIGESEntity* {.importcpp: "IGESData_HArray1OfIGESEntity",
-                                header: "IGESData_HArray1OfIGESEntity.hxx", bycopy.} = object of IGESDataArray1OfIGESEntity
+## !!!Ignored construct:  # IGESData_HArray1OfIGESEntity_HeaderFile [NewLine] # IGESData_HArray1OfIGESEntity_HeaderFile [NewLine] # < IGESData_IGESEntity . hxx > [NewLine] # < IGESData_Array1OfIGESEntity . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESData_HArray1OfIGESEntity , IGESData_Array1OfIGESEntity ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESDataHArray1OfIGESEntity*(theLower: int; theUpper: int): IGESDataHArray1OfIGESEntity {.
-    constructor, importcpp: "IGESData_HArray1OfIGESEntity(@)",
-    header: "IGESData_HArray1OfIGESEntity.hxx".}
-proc constructIGESDataHArray1OfIGESEntity*(theLower: int; theUpper: int;
-    theValue: ValueType): IGESDataHArray1OfIGESEntity {.constructor,
-    importcpp: "IGESData_HArray1OfIGESEntity(@)",
-    header: "IGESData_HArray1OfIGESEntity.hxx".}
-proc constructIGESDataHArray1OfIGESEntity*(theOther: IGESDataArray1OfIGESEntity): IGESDataHArray1OfIGESEntity {.
-    constructor, importcpp: "IGESData_HArray1OfIGESEntity(@)",
-    header: "IGESData_HArray1OfIGESEntity.hxx".}
-proc array1*(this: IGESDataHArray1OfIGESEntity): IGESDataArray1OfIGESEntity {.
-    noSideEffect, importcpp: "Array1", header: "IGESData_HArray1OfIGESEntity.hxx".}
-proc changeArray1*(this: var IGESDataHArray1OfIGESEntity): var IGESDataArray1OfIGESEntity {.
-    importcpp: "ChangeArray1", header: "IGESData_HArray1OfIGESEntity.hxx".}
-type
-  IGESDataHArray1OfIGESEntitybaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_HArray1OfIGESEntity::get_type_name(@)",
-                            header: "IGESData_HArray1OfIGESEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESData_HArray1OfIGESEntity::get_type_descriptor(@)",
-    header: "IGESData_HArray1OfIGESEntity.hxx".}
-proc dynamicType*(this: IGESDataHArray1OfIGESEntity): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESData_HArray1OfIGESEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

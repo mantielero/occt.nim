@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of AIS_BadEdgeFilter"
 discard "forward decl of AIS_BadEdgeFilter"
 type
-  HandleAIS_BadEdgeFilter* = Handle[AIS_BadEdgeFilter]
+  HandleC1C1* = Handle[AIS_BadEdgeFilter]
 
 ## ! A Class
 
@@ -43,12 +43,12 @@ proc actsOn*(this: AIS_BadEdgeFilter; aType: TopAbsShapeEnum): bool {.noSideEffe
     importcpp: "ActsOn", header: "AIS_BadEdgeFilter.hxx".}
 proc isOk*(this: AIS_BadEdgeFilter; eo: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, importcpp: "IsOk", header: "AIS_BadEdgeFilter.hxx".}
-proc setContour*(this: var AIS_BadEdgeFilter; index: int) {.importcpp: "SetContour",
+proc setContour*(this: var AIS_BadEdgeFilter; index: cint) {.importcpp: "SetContour",
     header: "AIS_BadEdgeFilter.hxx".}
-proc addEdge*(this: var AIS_BadEdgeFilter; anEdge: TopoDS_Edge; index: int) {.
+proc addEdge*(this: var AIS_BadEdgeFilter; anEdge: TopoDS_Edge; index: cint) {.
     importcpp: "AddEdge", header: "AIS_BadEdgeFilter.hxx".}
-proc removeEdges*(this: var AIS_BadEdgeFilter; index: int) {.importcpp: "RemoveEdges",
-    header: "AIS_BadEdgeFilter.hxx".}
+proc removeEdges*(this: var AIS_BadEdgeFilter; index: cint) {.
+    importcpp: "RemoveEdges", header: "AIS_BadEdgeFilter.hxx".}
 type
   AIS_BadEdgeFilterbaseType* = SelectMgrFilter
 
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "AIS_BadEdgeFilter.hxx".}
 proc dynamicType*(this: AIS_BadEdgeFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_BadEdgeFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

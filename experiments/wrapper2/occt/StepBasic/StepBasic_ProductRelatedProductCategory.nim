@@ -19,8 +19,7 @@ discard "forward decl of StepBasic_Product"
 discard "forward decl of StepBasic_ProductRelatedProductCategory"
 discard "forward decl of StepBasic_ProductRelatedProductCategory"
 type
-  HandleStepBasicProductRelatedProductCategory* = Handle[
-      StepBasicProductRelatedProductCategory]
+  HandleC1C1* = Handle[StepBasicProductRelatedProductCategory]
   StepBasicProductRelatedProductCategory* {.
       importcpp: "StepBasic_ProductRelatedProductCategory",
       header: "StepBasic_ProductRelatedProductCategory.hxx", bycopy.} = object of StepBasicProductCategory ##
@@ -44,10 +43,10 @@ proc setProducts*(this: var StepBasicProductRelatedProductCategory;
     header: "StepBasic_ProductRelatedProductCategory.hxx".}
 proc products*(this: StepBasicProductRelatedProductCategory): Handle[
     StepBasicHArray1OfProduct] {.noSideEffect, importcpp: "Products", header: "StepBasic_ProductRelatedProductCategory.hxx".}
-proc productsValue*(this: StepBasicProductRelatedProductCategory; num: int): Handle[
+proc productsValue*(this: StepBasicProductRelatedProductCategory; num: cint): Handle[
     StepBasicProduct] {.noSideEffect, importcpp: "ProductsValue",
                        header: "StepBasic_ProductRelatedProductCategory.hxx".}
-proc nbProducts*(this: StepBasicProductRelatedProductCategory): int {.noSideEffect,
+proc nbProducts*(this: StepBasicProductRelatedProductCategory): cint {.noSideEffect,
     importcpp: "NbProducts", header: "StepBasic_ProductRelatedProductCategory.hxx".}
 type
   StepBasicProductRelatedProductCategorybaseType* = StepBasicProductCategory
@@ -58,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ProductR
 proc dynamicType*(this: StepBasicProductRelatedProductCategory): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepBasic_ProductRelatedProductCategory.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

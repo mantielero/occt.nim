@@ -18,3 +18,28 @@ type
   InterfaceIndexedMapOfAsciiString* = NCollectionIndexedMap[
       TCollectionAsciiString, InterfaceMapAsciiStringHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

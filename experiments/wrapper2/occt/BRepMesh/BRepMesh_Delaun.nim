@@ -20,7 +20,7 @@ type
 
 
 proc constructBRepMeshDelaun*(theOldMesh: Handle[BRepMeshDataStructureOfDelaun];
-                             theCellsCountU: int; theCellsCountV: int;
+                             theCellsCountU: cint; theCellsCountV: cint;
                              isFillCircles: bool): BRepMeshDelaun {.constructor,
     importcpp: "BRepMesh_Delaun(@)", header: "BRepMesh_Delaun.hxx".}
 proc constructBRepMeshDelaun*(theVertices: var Array1OfVertexOfDelaun): BRepMeshDelaun {.
@@ -33,19 +33,19 @@ proc constructBRepMeshDelaun*(theOldMesh: Handle[BRepMeshDataStructureOfDelaun];
     constructor, importcpp: "BRepMesh_Delaun(@)", header: "BRepMesh_Delaun.hxx".}
 proc constructBRepMeshDelaun*(theOldMesh: Handle[BRepMeshDataStructureOfDelaun];
                              theVertexIndices: var VectorOfInteger;
-                             theCellsCountU: int; theCellsCountV: int): BRepMeshDelaun {.
+                             theCellsCountU: cint; theCellsCountV: cint): BRepMeshDelaun {.
     constructor, importcpp: "BRepMesh_Delaun(@)", header: "BRepMesh_Delaun.hxx".}
 proc init*(this: var BRepMeshDelaun; theVertices: var Array1OfVertexOfDelaun) {.
     importcpp: "Init", header: "BRepMesh_Delaun.hxx".}
-proc initCirclesTool*(this: var BRepMeshDelaun; theCellsCountU: int;
-                     theCellsCountV: int) {.importcpp: "InitCirclesTool",
+proc initCirclesTool*(this: var BRepMeshDelaun; theCellsCountU: cint;
+                     theCellsCountV: cint) {.importcpp: "InitCirclesTool",
     header: "BRepMesh_Delaun.hxx".}
 proc removeVertex*(this: var BRepMeshDelaun; theVertex: BRepMeshVertex) {.
     importcpp: "RemoveVertex", header: "BRepMesh_Delaun.hxx".}
 proc addVertices*(this: var BRepMeshDelaun; theVerticesIndices: var VectorOfInteger;
                  theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "AddVertices", header: "BRepMesh_Delaun.hxx".}
-proc useEdge*(this: var BRepMeshDelaun; theEdge: int): bool {.importcpp: "UseEdge",
+proc useEdge*(this: var BRepMeshDelaun; theEdge: cint): bool {.importcpp: "UseEdge",
     header: "BRepMesh_Delaun.hxx".}
 proc result*(this: BRepMeshDelaun): Handle[BRepMeshDataStructureOfDelaun] {.
     noSideEffect, importcpp: "Result", header: "BRepMesh_Delaun.hxx".}
@@ -57,18 +57,43 @@ proc internalEdges*(this: BRepMeshDelaun): Handle[MapOfInteger] {.noSideEffect,
     importcpp: "InternalEdges", header: "BRepMesh_Delaun.hxx".}
 proc freeEdges*(this: BRepMeshDelaun): Handle[MapOfInteger] {.noSideEffect,
     importcpp: "FreeEdges", header: "BRepMesh_Delaun.hxx".}
-proc getVertex*(this: BRepMeshDelaun; theIndex: int): BRepMeshVertex {.noSideEffect,
+proc getVertex*(this: BRepMeshDelaun; theIndex: cint): BRepMeshVertex {.noSideEffect,
     importcpp: "GetVertex", header: "BRepMesh_Delaun.hxx".}
-proc getEdge*(this: BRepMeshDelaun; theIndex: int): BRepMeshEdge {.noSideEffect,
+proc getEdge*(this: BRepMeshDelaun; theIndex: cint): BRepMeshEdge {.noSideEffect,
     importcpp: "GetEdge", header: "BRepMesh_Delaun.hxx".}
-proc getTriangle*(this: BRepMeshDelaun; theIndex: int): BRepMeshTriangle {.
+proc getTriangle*(this: BRepMeshDelaun; theIndex: cint): BRepMeshTriangle {.
     noSideEffect, importcpp: "GetTriangle", header: "BRepMesh_Delaun.hxx".}
 proc circles*(this: BRepMeshDelaun): BRepMeshCircleTool {.noSideEffect,
     importcpp: "Circles", header: "BRepMesh_Delaun.hxx".}
-proc contains*(this: BRepMeshDelaun; theTriangleId: int; theVertex: BRepMeshVertex;
-              theSqTolerance: float; theEdgeOn: var int): bool {.noSideEffect,
+proc contains*(this: BRepMeshDelaun; theTriangleId: cint; theVertex: BRepMeshVertex;
+              theSqTolerance: cfloat; theEdgeOn: var cint): bool {.noSideEffect,
     importcpp: "Contains", header: "BRepMesh_Delaun.hxx".}
 proc setAuxVertices*(this: var BRepMeshDelaun; theSupVert: VectorOfInteger) {.
     importcpp: "SetAuxVertices", header: "BRepMesh_Delaun.hxx".}
 proc removeAuxElements*(this: var BRepMeshDelaun) {.importcpp: "RemoveAuxElements",
     header: "BRepMesh_Delaun.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

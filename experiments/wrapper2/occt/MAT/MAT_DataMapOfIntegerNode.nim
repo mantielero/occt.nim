@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MAT_DataMapOfIntegerNode* = NCollectionDataMap[int, Handle[MAT_Node],
+  MAT_DataMapOfIntegerNode* = NCollectionDataMap[cint, Handle[MAT_Node],
       TColStdMapIntegerHasher]
-  MAT_DataMapIteratorOfDataMapOfIntegerNode* = Iterator[int, Handle[MAT_Node],
+  MAT_DataMapIteratorOfDataMapOfIntegerNode* = Iterator[cint, Handle[MAT_Node],
       TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

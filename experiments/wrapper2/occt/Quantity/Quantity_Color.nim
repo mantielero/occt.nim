@@ -139,7 +139,7 @@ proc constructQuantityColor*(): QuantityColor {.constructor,
     importcpp: "Quantity_Color(@)", header: "Quantity_Color.hxx".}
 proc constructQuantityColor*(theName: QuantityNameOfColor): QuantityColor {.
     constructor, importcpp: "Quantity_Color(@)", header: "Quantity_Color.hxx".}
-proc constructQuantityColor*(theC1: float; theC2: float; theC3: float;
+proc constructQuantityColor*(theC1: cfloat; theC2: cfloat; theC3: cfloat;
                             theType: QuantityTypeOfColor): QuantityColor {.
     constructor, importcpp: "Quantity_Color(@)", header: "Quantity_Color.hxx".}
 proc constructQuantityColor*(theRgb: NCollectionVec3[cfloat]): QuantityColor {.
@@ -153,27 +153,27 @@ proc rgb*(this: QuantityColor): NCollectionVec3[cfloat] {.noSideEffect,
 converter `constNCollectionVec3`*(this: QuantityColor): NCollectionVec3[cfloat] {.
     noSideEffect, importcpp: "Quantity_Color::operator constNCollection_Vec3",
     header: "Quantity_Color.hxx".}
-proc values*(this: QuantityColor; theC1: var float; theC2: var float; theC3: var float;
-            theType: QuantityTypeOfColor) {.noSideEffect, importcpp: "Values",
-    header: "Quantity_Color.hxx".}
-proc setValues*(this: var QuantityColor; theC1: float; theC2: float; theC3: float;
+proc values*(this: QuantityColor; theC1: var cfloat; theC2: var cfloat;
+            theC3: var cfloat; theType: QuantityTypeOfColor) {.noSideEffect,
+    importcpp: "Values", header: "Quantity_Color.hxx".}
+proc setValues*(this: var QuantityColor; theC1: cfloat; theC2: cfloat; theC3: cfloat;
                theType: QuantityTypeOfColor) {.importcpp: "SetValues",
     header: "Quantity_Color.hxx".}
-proc red*(this: QuantityColor): float {.noSideEffect, importcpp: "Red",
-                                    header: "Quantity_Color.hxx".}
-proc green*(this: QuantityColor): float {.noSideEffect, importcpp: "Green",
-                                      header: "Quantity_Color.hxx".}
-proc blue*(this: QuantityColor): float {.noSideEffect, importcpp: "Blue",
+proc red*(this: QuantityColor): cfloat {.noSideEffect, importcpp: "Red",
                                      header: "Quantity_Color.hxx".}
-proc hue*(this: QuantityColor): float {.noSideEffect, importcpp: "Hue",
-                                    header: "Quantity_Color.hxx".}
-proc light*(this: QuantityColor): float {.noSideEffect, importcpp: "Light",
+proc green*(this: QuantityColor): cfloat {.noSideEffect, importcpp: "Green",
+                                       header: "Quantity_Color.hxx".}
+proc blue*(this: QuantityColor): cfloat {.noSideEffect, importcpp: "Blue",
                                       header: "Quantity_Color.hxx".}
-proc changeIntensity*(this: var QuantityColor; theDelta: float) {.
+proc hue*(this: QuantityColor): cfloat {.noSideEffect, importcpp: "Hue",
+                                     header: "Quantity_Color.hxx".}
+proc light*(this: QuantityColor): cfloat {.noSideEffect, importcpp: "Light",
+                                       header: "Quantity_Color.hxx".}
+proc changeIntensity*(this: var QuantityColor; theDelta: cfloat) {.
     importcpp: "ChangeIntensity", header: "Quantity_Color.hxx".}
-proc saturation*(this: QuantityColor): float {.noSideEffect, importcpp: "Saturation",
-    header: "Quantity_Color.hxx".}
-proc changeContrast*(this: var QuantityColor; theDelta: float) {.
+proc saturation*(this: QuantityColor): cfloat {.noSideEffect,
+    importcpp: "Saturation", header: "Quantity_Color.hxx".}
+proc changeContrast*(this: var QuantityColor; theDelta: cfloat) {.
     importcpp: "ChangeContrast", header: "Quantity_Color.hxx".}
 proc isDifferent*(this: QuantityColor; theOther: QuantityColor): bool {.noSideEffect,
     importcpp: "IsDifferent", header: "Quantity_Color.hxx".}
@@ -181,15 +181,15 @@ proc isEqual*(this: QuantityColor; theOther: QuantityColor): bool {.noSideEffect
     importcpp: "IsEqual", header: "Quantity_Color.hxx".}
 proc `==`*(this: QuantityColor; theOther: QuantityColor): bool {.noSideEffect,
     importcpp: "(# == #)", header: "Quantity_Color.hxx".}
-proc distance*(this: QuantityColor; theColor: QuantityColor): float {.noSideEffect,
+proc distance*(this: QuantityColor; theColor: QuantityColor): cfloat {.noSideEffect,
     importcpp: "Distance", header: "Quantity_Color.hxx".}
-proc squareDistance*(this: QuantityColor; theColor: QuantityColor): float {.
+proc squareDistance*(this: QuantityColor; theColor: QuantityColor): cfloat {.
     noSideEffect, importcpp: "SquareDistance", header: "Quantity_Color.hxx".}
-proc delta*(this: QuantityColor; theColor: QuantityColor; dc: var float; di: var float) {.
+proc delta*(this: QuantityColor; theColor: QuantityColor; dc: var cfloat; di: var cfloat) {.
     noSideEffect, importcpp: "Delta", header: "Quantity_Color.hxx".}
-proc deltaE2000*(this: QuantityColor; theOther: QuantityColor): float {.noSideEffect,
+proc deltaE2000*(this: QuantityColor; theOther: QuantityColor): cfloat {.noSideEffect,
     importcpp: "DeltaE2000", header: "Quantity_Color.hxx".}
-proc name*(theR: float; theG: float; theB: float): QuantityNameOfColor {.
+proc name*(theR: cfloat; theG: cfloat; theB: cfloat): QuantityNameOfColor {.
     importcpp: "Quantity_Color::Name(@)", header: "Quantity_Color.hxx".}
 proc stringName*(theColor: QuantityNameOfColor): StandardCString {.
     importcpp: "Quantity_Color::StringName(@)", header: "Quantity_Color.hxx".}
@@ -226,17 +226,17 @@ proc convertLabToLinearRGB*(theLab: NCollectionVec3[cfloat]): NCollectionVec3[
 proc convertLchToLab*(theLch: NCollectionVec3[cfloat]): NCollectionVec3[cfloat] {.
     importcpp: "Quantity_Color::Convert_Lch_To_Lab(@)",
     header: "Quantity_Color.hxx".}
-proc color2argb*(theColor: QuantityColor; theARGB: var int) {.
+proc color2argb*(theColor: QuantityColor; theARGB: var cint) {.
     importcpp: "Quantity_Color::Color2argb(@)", header: "Quantity_Color.hxx".}
-proc argb2color*(theARGB: int; theColor: var QuantityColor) {.
+proc argb2color*(theARGB: cint; theColor: var QuantityColor) {.
     importcpp: "Quantity_Color::Argb2color(@)", header: "Quantity_Color.hxx".}
-proc convertLinearRGB_ToSRGB*(theLinearValue: float): float {.
+proc convertLinearRGB_ToSRGB*(theLinearValue: cfloat): cfloat {.
     importcpp: "Quantity_Color::Convert_LinearRGB_To_sRGB(@)",
     header: "Quantity_Color.hxx".}
 proc convertLinearRGB_ToSRGB*(theLinearValue: cfloat): cfloat {.
     importcpp: "Quantity_Color::Convert_LinearRGB_To_sRGB(@)",
     header: "Quantity_Color.hxx".}
-proc convertSRGB_ToLinearRGB*(thesRGBValue: float): float {.
+proc convertSRGB_ToLinearRGB*(thesRGBValue: cfloat): cfloat {.
     importcpp: "Quantity_Color::Convert_sRGB_To_LinearRGB(@)",
     header: "Quantity_Color.hxx".}
 proc convertSRGB_ToLinearRGB*(thesRGBValue: cfloat): cfloat {.
@@ -260,19 +260,44 @@ proc convertLinearRGB_ToSRGB_approx22*(theRGB: NCollectionVec3[cfloat]): NCollec
 proc convertSRGB_ToLinearRGB_approx22*(theRGB: NCollectionVec3[cfloat]): NCollectionVec3[
     cfloat] {.importcpp: "Quantity_Color::Convert_sRGB_To_LinearRGB_approx22(@)",
              header: "Quantity_Color.hxx".}
-proc hlsRgb*(theH: float; theL: float; theS: float; theR: var float; theG: var float;
-            theB: var float) {.importcpp: "Quantity_Color::HlsRgb(@)",
-                            header: "Quantity_Color.hxx".}
-proc rgbHls*(theR: float; theG: float; theB: float; theH: var float; theL: var float;
-            theS: var float) {.importcpp: "Quantity_Color::RgbHls(@)",
-                            header: "Quantity_Color.hxx".}
-proc epsilon*(): float {.importcpp: "Quantity_Color::Epsilon(@)",
-                      header: "Quantity_Color.hxx".}
-proc setEpsilon*(theEpsilon: float) {.importcpp: "Quantity_Color::SetEpsilon(@)",
-                                   header: "Quantity_Color.hxx".}
+proc hlsRgb*(theH: cfloat; theL: cfloat; theS: cfloat; theR: var cfloat; theG: var cfloat;
+            theB: var cfloat) {.importcpp: "Quantity_Color::HlsRgb(@)",
+                             header: "Quantity_Color.hxx".}
+proc rgbHls*(theR: cfloat; theG: cfloat; theB: cfloat; theH: var cfloat; theL: var cfloat;
+            theS: var cfloat) {.importcpp: "Quantity_Color::RgbHls(@)",
+                             header: "Quantity_Color.hxx".}
+proc epsilon*(): cfloat {.importcpp: "Quantity_Color::Epsilon(@)",
+                       header: "Quantity_Color.hxx".}
+proc setEpsilon*(theEpsilon: cfloat) {.importcpp: "Quantity_Color::SetEpsilon(@)",
+                                    header: "Quantity_Color.hxx".}
 proc dumpJson*(this: QuantityColor; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Quantity_Color.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Quantity_Color.hxx".}
 proc initFromJson*(this: var QuantityColor; theSStream: StandardSStream;
-                  theStreamPos: var int): bool {.importcpp: "InitFromJson",
+                  theStreamPos: var cint): bool {.importcpp: "InitFromJson",
     header: "Quantity_Color.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

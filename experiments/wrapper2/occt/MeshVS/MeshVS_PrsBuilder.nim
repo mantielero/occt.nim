@@ -20,7 +20,7 @@ discard "forward decl of Select3D_SensitiveEntity"
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of MeshVS_PrsBuilder"
 type
-  HandleMeshVS_PrsBuilder* = Handle[MeshVS_PrsBuilder]
+  HandleC1C1* = Handle[MeshVS_PrsBuilder]
 
 ## ! This class is parent for all builders using in MeshVS_Mesh.
 ## ! It provides base fields and methods all buildes need.
@@ -203,23 +203,23 @@ type
 proc build*(this: MeshVS_PrsBuilder; prs: Handle[Prs3dPresentation];
            iDs: TColStdPackedMapOfInteger;
            iDsToExclude: var TColStdPackedMapOfInteger; isElement: bool;
-           displayMode: int) {.noSideEffect, importcpp: "Build",
-                             header: "MeshVS_PrsBuilder.hxx".}
+           displayMode: cint) {.noSideEffect, importcpp: "Build",
+                              header: "MeshVS_PrsBuilder.hxx".}
 proc customBuild*(this: MeshVS_PrsBuilder; prs: Handle[Prs3dPresentation];
                  iDs: TColStdPackedMapOfInteger;
-                 iDsToExclude: var TColStdPackedMapOfInteger; displayMode: int) {.
+                 iDsToExclude: var TColStdPackedMapOfInteger; displayMode: cint) {.
     noSideEffect, importcpp: "CustomBuild", header: "MeshVS_PrsBuilder.hxx".}
 proc customSensitiveEntity*(this: MeshVS_PrsBuilder;
-                           owner: Handle[SelectMgrEntityOwner]; selectMode: int): Handle[
+                           owner: Handle[SelectMgrEntityOwner]; selectMode: cint): Handle[
     Select3D_SensitiveEntity] {.noSideEffect, importcpp: "CustomSensitiveEntity",
                                header: "MeshVS_PrsBuilder.hxx".}
-proc getFlags*(this: MeshVS_PrsBuilder): int {.noSideEffect, importcpp: "GetFlags",
+proc getFlags*(this: MeshVS_PrsBuilder): cint {.noSideEffect, importcpp: "GetFlags",
     header: "MeshVS_PrsBuilder.hxx".}
-proc testFlags*(this: MeshVS_PrsBuilder; displayMode: int): bool {.noSideEffect,
+proc testFlags*(this: MeshVS_PrsBuilder; displayMode: cint): bool {.noSideEffect,
     importcpp: "TestFlags", header: "MeshVS_PrsBuilder.hxx".}
-proc getId*(this: MeshVS_PrsBuilder): int {.noSideEffect, importcpp: "GetId",
-                                        header: "MeshVS_PrsBuilder.hxx".}
-proc getPriority*(this: MeshVS_PrsBuilder): int {.noSideEffect,
+proc getId*(this: MeshVS_PrsBuilder): cint {.noSideEffect, importcpp: "GetId",
+    header: "MeshVS_PrsBuilder.hxx".}
+proc getPriority*(this: MeshVS_PrsBuilder): cint {.noSideEffect,
     importcpp: "GetPriority", header: "MeshVS_PrsBuilder.hxx".}
 proc getDataSource*(this: MeshVS_PrsBuilder): Handle[MeshVS_DataSource] {.
     noSideEffect, importcpp: "GetDataSource", header: "MeshVS_PrsBuilder.hxx".}
@@ -250,3 +250,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MeshVS_PrsBuilder.hxx".}
 proc dynamicType*(this: MeshVS_PrsBuilder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_PrsBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

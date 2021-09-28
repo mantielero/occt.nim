@@ -20,7 +20,7 @@ discard "forward decl of StepShape_FaceBound"
 discard "forward decl of StepShape_OrientedFace"
 discard "forward decl of StepShape_OrientedFace"
 type
-  HandleStepShapeOrientedFace* = Handle[StepShapeOrientedFace]
+  HandleC1C1* = Handle[StepShapeOrientedFace]
   StepShapeOrientedFace* {.importcpp: "StepShape_OrientedFace",
                           header: "StepShape_OrientedFace.hxx", bycopy.} = object of StepShapeFace ##
                                                                                             ## !
@@ -48,9 +48,9 @@ proc setBounds*(this: var StepShapeOrientedFace;
     importcpp: "SetBounds", header: "StepShape_OrientedFace.hxx".}
 proc bounds*(this: StepShapeOrientedFace): Handle[StepShapeHArray1OfFaceBound] {.
     noSideEffect, importcpp: "Bounds", header: "StepShape_OrientedFace.hxx".}
-proc boundsValue*(this: StepShapeOrientedFace; num: int): Handle[StepShapeFaceBound] {.
+proc boundsValue*(this: StepShapeOrientedFace; num: cint): Handle[StepShapeFaceBound] {.
     noSideEffect, importcpp: "BoundsValue", header: "StepShape_OrientedFace.hxx".}
-proc nbBounds*(this: StepShapeOrientedFace): int {.noSideEffect,
+proc nbBounds*(this: StepShapeOrientedFace): cint {.noSideEffect,
     importcpp: "NbBounds", header: "StepShape_OrientedFace.hxx".}
 type
   StepShapeOrientedFacebaseType* = StepShapeFace
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_OrientedFace.hxx".}
 proc dynamicType*(this: StepShapeOrientedFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_OrientedFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

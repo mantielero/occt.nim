@@ -17,3 +17,28 @@
 type
   ConvertSequenceOfArray1OfPoles* = NCollectionSequence[Handle[TColgpHArray1OfPnt]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

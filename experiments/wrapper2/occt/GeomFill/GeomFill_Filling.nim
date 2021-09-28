@@ -20,6 +20,19 @@ type
                     bycopy.} = object
 
 
+proc `new`*(this: var GeomFillFilling; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Filling::operator new", header: "GeomFill_Filling.hxx".}
+proc `delete`*(this: var GeomFillFilling; theAddress: pointer) {.
+    importcpp: "GeomFill_Filling::operator delete", header: "GeomFill_Filling.hxx".}
+proc `new[]`*(this: var GeomFillFilling; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Filling::operator new[]", header: "GeomFill_Filling.hxx".}
+proc `delete[]`*(this: var GeomFillFilling; theAddress: pointer) {.
+    importcpp: "GeomFill_Filling::operator delete[]",
+    header: "GeomFill_Filling.hxx".}
+proc `new`*(this: var GeomFillFilling; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_Filling::operator new", header: "GeomFill_Filling.hxx".}
+proc `delete`*(this: var GeomFillFilling; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_Filling::operator delete", header: "GeomFill_Filling.hxx".}
 proc constructGeomFillFilling*(): GeomFillFilling {.constructor,
     importcpp: "GeomFill_Filling(@)", header: "GeomFill_Filling.hxx".}
 proc nbUPoles*(this: GeomFillFilling): int {.noSideEffect, importcpp: "NbUPoles",
@@ -28,7 +41,7 @@ proc nbVPoles*(this: GeomFillFilling): int {.noSideEffect, importcpp: "NbVPoles"
     header: "GeomFill_Filling.hxx".}
 proc poles*(this: GeomFillFilling; poles: var TColgpArray2OfPnt) {.noSideEffect,
     importcpp: "Poles", header: "GeomFill_Filling.hxx".}
-proc isRational*(this: GeomFillFilling): bool {.noSideEffect,
+proc isRational*(this: GeomFillFilling): StandardBoolean {.noSideEffect,
     importcpp: "isRational", header: "GeomFill_Filling.hxx".}
 proc weights*(this: GeomFillFilling; weights: var TColStdArray2OfReal) {.noSideEffect,
     importcpp: "Weights", header: "GeomFill_Filling.hxx".}

@@ -14,32 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESGraphHArray1OfColor* {.importcpp: "IGESGraph_HArray1OfColor",
-                            header: "IGESGraph_HArray1OfColor.hxx", bycopy.} = object of IGESGraphArray1OfColor
+## !!!Ignored construct:  # IGESGraph_HArray1OfColor_HeaderFile [NewLine] # IGESGraph_HArray1OfColor_HeaderFile [NewLine] # < IGESGraph_Color . hxx > [NewLine] # < IGESGraph_Array1OfColor . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESGraph_HArray1OfColor , IGESGraph_Array1OfColor ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESGraphHArray1OfColor*(theLower: int; theUpper: int): IGESGraphHArray1OfColor {.
-    constructor, importcpp: "IGESGraph_HArray1OfColor(@)",
-    header: "IGESGraph_HArray1OfColor.hxx".}
-proc constructIGESGraphHArray1OfColor*(theLower: int; theUpper: int;
-                                      theValue: ValueType): IGESGraphHArray1OfColor {.
-    constructor, importcpp: "IGESGraph_HArray1OfColor(@)",
-    header: "IGESGraph_HArray1OfColor.hxx".}
-proc constructIGESGraphHArray1OfColor*(theOther: IGESGraphArray1OfColor): IGESGraphHArray1OfColor {.
-    constructor, importcpp: "IGESGraph_HArray1OfColor(@)",
-    header: "IGESGraph_HArray1OfColor.hxx".}
-proc array1*(this: IGESGraphHArray1OfColor): IGESGraphArray1OfColor {.noSideEffect,
-    importcpp: "Array1", header: "IGESGraph_HArray1OfColor.hxx".}
-proc changeArray1*(this: var IGESGraphHArray1OfColor): var IGESGraphArray1OfColor {.
-    importcpp: "ChangeArray1", header: "IGESGraph_HArray1OfColor.hxx".}
-type
-  IGESGraphHArray1OfColorbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESGraph_HArray1OfColor::get_type_name(@)",
-                            header: "IGESGraph_HArray1OfColor.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESGraph_HArray1OfColor::get_type_descriptor(@)",
-    header: "IGESGraph_HArray1OfColor.hxx".}
-proc dynamicType*(this: IGESGraphHArray1OfColor): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESGraph_HArray1OfColor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

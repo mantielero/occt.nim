@@ -16,7 +16,7 @@
 
 discard "forward decl of Poly_Polygon3D"
 type
-  HandlePolyPolygon3D* = Handle[PolyPolygon3D]
+  HandleC1C1* = Handle[PolyPolygon3D]
 
 ## ! This class Provides a polygon in 3D space. It is generally an approximate representation of a curve.
 ## ! A Polygon3D is defined by a table of nodes. Each node is
@@ -40,7 +40,7 @@ type
                                                                                                            ## nodes.
 
 
-proc constructPolyPolygon3D*(theNbNodes: int; theHasParams: bool): PolyPolygon3D {.
+proc constructPolyPolygon3D*(theNbNodes: cint; theHasParams: bool): PolyPolygon3D {.
     constructor, importcpp: "Poly_Polygon3D(@)", header: "Poly_Polygon3D.hxx".}
 proc constructPolyPolygon3D*(nodes: TColgpArray1OfPnt): PolyPolygon3D {.constructor,
     importcpp: "Poly_Polygon3D(@)", header: "Poly_Polygon3D.hxx".}
@@ -49,12 +49,12 @@ proc constructPolyPolygon3D*(nodes: TColgpArray1OfPnt;
     constructor, importcpp: "Poly_Polygon3D(@)", header: "Poly_Polygon3D.hxx".}
 proc copy*(this: PolyPolygon3D): Handle[PolyPolygon3D] {.noSideEffect,
     importcpp: "Copy", header: "Poly_Polygon3D.hxx".}
-proc deflection*(this: PolyPolygon3D): float {.noSideEffect, importcpp: "Deflection",
+proc deflection*(this: PolyPolygon3D): cfloat {.noSideEffect,
+    importcpp: "Deflection", header: "Poly_Polygon3D.hxx".}
+proc deflection*(this: var PolyPolygon3D; theDefl: cfloat) {.importcpp: "Deflection",
     header: "Poly_Polygon3D.hxx".}
-proc deflection*(this: var PolyPolygon3D; theDefl: float) {.importcpp: "Deflection",
-    header: "Poly_Polygon3D.hxx".}
-proc nbNodes*(this: PolyPolygon3D): int {.noSideEffect, importcpp: "NbNodes",
-                                      header: "Poly_Polygon3D.hxx".}
+proc nbNodes*(this: PolyPolygon3D): cint {.noSideEffect, importcpp: "NbNodes",
+                                       header: "Poly_Polygon3D.hxx".}
 proc nodes*(this: PolyPolygon3D): TColgpArray1OfPnt {.noSideEffect,
     importcpp: "Nodes", header: "Poly_Polygon3D.hxx".}
 proc changeNodes*(this: var PolyPolygon3D): var TColgpArray1OfPnt {.
@@ -66,8 +66,8 @@ proc parameters*(this: PolyPolygon3D): TColStdArray1OfReal {.noSideEffect,
 proc changeParameters*(this: PolyPolygon3D): var TColStdArray1OfReal {.noSideEffect,
     importcpp: "ChangeParameters", header: "Poly_Polygon3D.hxx".}
 proc dumpJson*(this: PolyPolygon3D; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Poly_Polygon3D.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Poly_Polygon3D.hxx".}
 type
   PolyPolygon3DbaseType* = StandardTransient
 
@@ -78,3 +78,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Poly_Polygon3D.hxx".}
 proc dynamicType*(this: PolyPolygon3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Poly_Polygon3D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

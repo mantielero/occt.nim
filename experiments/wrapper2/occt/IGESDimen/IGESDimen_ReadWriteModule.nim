@@ -22,7 +22,7 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESDimen_ReadWriteModule"
 discard "forward decl of IGESDimen_ReadWriteModule"
 type
-  HandleIGESDimenReadWriteModule* = Handle[IGESDimenReadWriteModule]
+  HandleC1C1* = Handle[IGESDimenReadWriteModule]
 
 ## ! Defines Dimen File Access Module for IGESDimen (specific parts)
 ## ! Specific actions concern : Read and Write Own Parameters of
@@ -47,14 +47,14 @@ type
 proc constructIGESDimenReadWriteModule*(): IGESDimenReadWriteModule {.constructor,
     importcpp: "IGESDimen_ReadWriteModule(@)",
     header: "IGESDimen_ReadWriteModule.hxx".}
-proc caseIGES*(this: IGESDimenReadWriteModule; typenum: int; formnum: int): int {.
+proc caseIGES*(this: IGESDimenReadWriteModule; typenum: cint; formnum: cint): cint {.
     noSideEffect, importcpp: "CaseIGES", header: "IGESDimen_ReadWriteModule.hxx".}
-proc readOwnParams*(this: IGESDimenReadWriteModule; cn: int;
+proc readOwnParams*(this: IGESDimenReadWriteModule; cn: cint;
                    ent: Handle[IGESDataIGESEntity];
                    ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
     noSideEffect, importcpp: "ReadOwnParams",
     header: "IGESDimen_ReadWriteModule.hxx".}
-proc writeOwnParams*(this: IGESDimenReadWriteModule; cn: int;
+proc writeOwnParams*(this: IGESDimenReadWriteModule; cn: cint;
                     ent: Handle[IGESDataIGESEntity]; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESDimen_ReadWriteModule.hxx".}
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_ReadWriteModule.hxx".}
 proc dynamicType*(this: IGESDimenReadWriteModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_ReadWriteModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

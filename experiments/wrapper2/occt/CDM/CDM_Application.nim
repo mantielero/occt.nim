@@ -22,7 +22,7 @@ discard "forward decl of Message_Messenger"
 discard "forward decl of CDM_Application"
 discard "forward decl of CDM_Application"
 type
-  HandleCDM_Application* = Handle[CDM_Application]
+  HandleC1C1* = Handle[CDM_Application]
   CDM_Application* {.importcpp: "CDM_Application", header: "CDM_Application.hxx",
                     bycopy.} = object of StandardTransient ## ! The manager returned by  this virtual  method will be
                                                       ## ! used to search for Format.Retrieval  resource items.
@@ -46,8 +46,8 @@ proc version*(this: CDM_Application): TCollectionAsciiString {.noSideEffect,
 proc metaDataLookUpTable*(this: var CDM_Application): var CDM_MetaDataLookUpTable {.
     importcpp: "MetaDataLookUpTable", header: "CDM_Application.hxx".}
 proc dumpJson*(this: CDM_Application; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "CDM_Application.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "CDM_Application.hxx".}
 type
   CDM_ApplicationbaseType* = StandardTransient
 
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "CDM_Application.hxx".}
 proc dynamicType*(this: CDM_Application): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDM_Application.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

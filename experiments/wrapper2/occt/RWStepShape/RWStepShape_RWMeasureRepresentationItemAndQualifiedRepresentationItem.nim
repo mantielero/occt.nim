@@ -27,7 +27,7 @@ type
 proc constructRWStepShapeRWMeasureRepresentationItemAndQualifiedRepresentationItem*(): RWStepShapeRWMeasureRepresentationItemAndQualifiedRepresentationItem {.
     constructor, importcpp: "RWStepShape_RWMeasureRepresentationItemAndQualifiedRepresentationItem(@)", header: "RWStepShape_RWMeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc readStep*(this: RWStepShapeRWMeasureRepresentationItemAndQualifiedRepresentationItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWMeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepShapeRWMeasureRepresentationItemAndQualifiedRepresen
 proc share*(this: RWStepShapeRWMeasureRepresentationItemAndQualifiedRepresentationItem;
     ent: Handle[StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepShape_RWMeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,5 +16,30 @@
 ##  Defines a dynamic vector of integer.
 
 type
-  IntWalkVectorOfInteger* = Vector[int, NCollectionStdAllocator[int]]
+  IntWalkVectorOfInteger* = Vector[cint, NCollectionStdAllocator[cint]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -16,3 +16,28 @@ type
                                 val: Handle[TCollectionHAsciiString]; native: bool): Handle[
       TCollectionHAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

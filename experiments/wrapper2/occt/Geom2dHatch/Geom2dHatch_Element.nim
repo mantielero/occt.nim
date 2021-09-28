@@ -20,6 +20,24 @@ type
                        header: "Geom2dHatch_Element.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dHatchElement; theSize: csize_t): pointer {.
+    importcpp: "Geom2dHatch_Element::operator new",
+    header: "Geom2dHatch_Element.hxx".}
+proc `delete`*(this: var Geom2dHatchElement; theAddress: pointer) {.
+    importcpp: "Geom2dHatch_Element::operator delete",
+    header: "Geom2dHatch_Element.hxx".}
+proc `new[]`*(this: var Geom2dHatchElement; theSize: csize_t): pointer {.
+    importcpp: "Geom2dHatch_Element::operator new[]",
+    header: "Geom2dHatch_Element.hxx".}
+proc `delete[]`*(this: var Geom2dHatchElement; theAddress: pointer) {.
+    importcpp: "Geom2dHatch_Element::operator delete[]",
+    header: "Geom2dHatch_Element.hxx".}
+proc `new`*(this: var Geom2dHatchElement; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dHatch_Element::operator new",
+    header: "Geom2dHatch_Element.hxx".}
+proc `delete`*(this: var Geom2dHatchElement; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dHatch_Element::operator delete",
+    header: "Geom2dHatch_Element.hxx".}
 proc constructGeom2dHatchElement*(): Geom2dHatchElement {.constructor,
     importcpp: "Geom2dHatch_Element(@)", header: "Geom2dHatch_Element.hxx".}
 proc constructGeom2dHatchElement*(curve: Geom2dAdaptorCurve;

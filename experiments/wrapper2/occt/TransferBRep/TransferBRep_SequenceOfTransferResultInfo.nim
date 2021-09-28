@@ -18,3 +18,28 @@ type
   TransferBRepSequenceOfTransferResultInfo* = NCollectionSequence[
       Handle[TransferBRepTransferResultInfo]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

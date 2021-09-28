@@ -32,7 +32,7 @@ proc constructRWStepFEA_RWFeaMaterialPropertyRepresentationItem*(): RWStepFEA_RW
     importcpp: "RWStepFEA_RWFeaMaterialPropertyRepresentationItem(@)",
     header: "RWStepFEA_RWFeaMaterialPropertyRepresentationItem.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaMaterialPropertyRepresentationItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaMaterialPropertyRepresentationItem]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -46,3 +46,28 @@ proc share*(this: RWStepFEA_RWFeaMaterialPropertyRepresentationItem;
            ent: Handle[StepFEA_FeaMaterialPropertyRepresentationItem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaMaterialPropertyRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

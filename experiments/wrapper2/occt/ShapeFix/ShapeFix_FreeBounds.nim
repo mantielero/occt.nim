@@ -24,12 +24,12 @@ type
 
 proc constructShapeFixFreeBounds*(): ShapeFixFreeBounds {.constructor,
     importcpp: "ShapeFix_FreeBounds(@)", header: "ShapeFix_FreeBounds.hxx".}
-proc constructShapeFixFreeBounds*(shape: TopoDS_Shape; sewtoler: float;
-                                 closetoler: float; splitclosed: bool;
+proc constructShapeFixFreeBounds*(shape: TopoDS_Shape; sewtoler: cfloat;
+                                 closetoler: cfloat; splitclosed: bool;
                                  splitopen: bool): ShapeFixFreeBounds {.
     constructor, importcpp: "ShapeFix_FreeBounds(@)",
     header: "ShapeFix_FreeBounds.hxx".}
-proc constructShapeFixFreeBounds*(shape: TopoDS_Shape; closetoler: float;
+proc constructShapeFixFreeBounds*(shape: TopoDS_Shape; closetoler: cfloat;
                                  splitclosed: bool; splitopen: bool): ShapeFixFreeBounds {.
     constructor, importcpp: "ShapeFix_FreeBounds(@)",
     header: "ShapeFix_FreeBounds.hxx".}
@@ -39,3 +39,28 @@ proc getOpenWires*(this: ShapeFixFreeBounds): TopoDS_Compound {.noSideEffect,
     importcpp: "GetOpenWires", header: "ShapeFix_FreeBounds.hxx".}
 proc getShape*(this: ShapeFixFreeBounds): TopoDS_Shape {.noSideEffect,
     importcpp: "GetShape", header: "ShapeFix_FreeBounds.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

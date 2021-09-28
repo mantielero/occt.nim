@@ -27,7 +27,7 @@ type
 proc constructStepAP214PresentedItemSelect*(): StepAP214PresentedItemSelect {.
     constructor, importcpp: "StepAP214_PresentedItemSelect(@)",
     header: "StepAP214_PresentedItemSelect.hxx".}
-proc caseNum*(this: StepAP214PresentedItemSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP214PresentedItemSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_PresentedItemSelect.hxx".}
 proc productDefinitionRelationship*(this: StepAP214PresentedItemSelect): Handle[
     StepBasicProductDefinitionRelationship] {.noSideEffect,
@@ -36,3 +36,28 @@ proc productDefinitionRelationship*(this: StepAP214PresentedItemSelect): Handle[
 proc productDefinition*(this: StepAP214PresentedItemSelect): Handle[
     StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
                                  header: "StepAP214_PresentedItemSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_TrimmedCurve"
 discard "forward decl of Geom2d_TrimmedCurve"
 type
-  HandleGeom2dTrimmedCurve* = Handle[Geom2dTrimmedCurve]
+  HandleC1C1* = Handle[Geom2dTrimmedCurve]
 
 ## ! Defines a portion of a curve limited by two values of
 ## ! parameters inside the parametric domain of the curve.
@@ -370,54 +370,57 @@ type
                                                                                            ## U2.
 
 
-proc constructGeom2dTrimmedCurve*(c: Handle[Geom2dCurve]; u1: float; u2: float;
-                                 sense: bool = true; theAdjustPeriodic: bool = true): Geom2dTrimmedCurve {.
+proc constructGeom2dTrimmedCurve*(c: Handle[Geom2dCurve]; u1: StandardReal;
+                                 u2: StandardReal; sense: StandardBoolean = true;
+                                 theAdjustPeriodic: StandardBoolean = true): Geom2dTrimmedCurve {.
     constructor, importcpp: "Geom2d_TrimmedCurve(@)",
     header: "Geom2d_TrimmedCurve.hxx".}
 proc reverse*(this: var Geom2dTrimmedCurve) {.importcpp: "Reverse",
     header: "Geom2d_TrimmedCurve.hxx".}
-proc reversedParameter*(this: Geom2dTrimmedCurve; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom2d_TrimmedCurve.hxx".}
-proc setTrim*(this: var Geom2dTrimmedCurve; u1: float; u2: float; sense: bool = true;
-             theAdjustPeriodic: bool = true) {.importcpp: "SetTrim",
+proc reversedParameter*(this: Geom2dTrimmedCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_TrimmedCurve.hxx".}
+proc setTrim*(this: var Geom2dTrimmedCurve; u1: StandardReal; u2: StandardReal;
+             sense: StandardBoolean = true;
+             theAdjustPeriodic: StandardBoolean = true) {.importcpp: "SetTrim",
     header: "Geom2d_TrimmedCurve.hxx".}
 proc basisCurve*(this: Geom2dTrimmedCurve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "Geom2d_TrimmedCurve.hxx".}
 proc continuity*(this: Geom2dTrimmedCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom2d_TrimmedCurve.hxx".}
-proc isCN*(this: Geom2dTrimmedCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
-    header: "Geom2d_TrimmedCurve.hxx".}
+proc isCN*(this: Geom2dTrimmedCurve; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom2d_TrimmedCurve.hxx".}
 proc endPoint*(this: Geom2dTrimmedCurve): Pnt2d {.noSideEffect,
     importcpp: "EndPoint", header: "Geom2d_TrimmedCurve.hxx".}
-proc firstParameter*(this: Geom2dTrimmedCurve): float {.noSideEffect,
+proc firstParameter*(this: Geom2dTrimmedCurve): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_TrimmedCurve.hxx".}
-proc isClosed*(this: Geom2dTrimmedCurve): bool {.noSideEffect, importcpp: "IsClosed",
-    header: "Geom2d_TrimmedCurve.hxx".}
-proc isPeriodic*(this: Geom2dTrimmedCurve): bool {.noSideEffect,
+proc isClosed*(this: Geom2dTrimmedCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom2d_TrimmedCurve.hxx".}
+proc isPeriodic*(this: Geom2dTrimmedCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom2d_TrimmedCurve.hxx".}
-proc period*(this: Geom2dTrimmedCurve): float {.noSideEffect, importcpp: "Period",
-    header: "Geom2d_TrimmedCurve.hxx".}
-proc lastParameter*(this: Geom2dTrimmedCurve): float {.noSideEffect,
+proc period*(this: Geom2dTrimmedCurve): StandardReal {.noSideEffect,
+    importcpp: "Period", header: "Geom2d_TrimmedCurve.hxx".}
+proc lastParameter*(this: Geom2dTrimmedCurve): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_TrimmedCurve.hxx".}
 proc startPoint*(this: Geom2dTrimmedCurve): Pnt2d {.noSideEffect,
     importcpp: "StartPoint", header: "Geom2d_TrimmedCurve.hxx".}
-proc d0*(this: Geom2dTrimmedCurve; u: float; p: var Pnt2d) {.noSideEffect,
+proc d0*(this: Geom2dTrimmedCurve; u: StandardReal; p: var Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Geom2d_TrimmedCurve.hxx".}
-proc d1*(this: Geom2dTrimmedCurve; u: float; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
-    importcpp: "D1", header: "Geom2d_TrimmedCurve.hxx".}
-proc d2*(this: Geom2dTrimmedCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, importcpp: "D2", header: "Geom2d_TrimmedCurve.hxx".}
-proc d3*(this: Geom2dTrimmedCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+proc d1*(this: Geom2dTrimmedCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d) {.
+    noSideEffect, importcpp: "D1", header: "Geom2d_TrimmedCurve.hxx".}
+proc d2*(this: Geom2dTrimmedCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d) {.noSideEffect, importcpp: "D2",
                       header: "Geom2d_TrimmedCurve.hxx".}
-proc dn*(this: Geom2dTrimmedCurve; u: float; n: int): Vec2d {.noSideEffect,
+proc d3*(this: Geom2dTrimmedCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d; v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+                                  header: "Geom2d_TrimmedCurve.hxx".}
+proc dn*(this: Geom2dTrimmedCurve; u: StandardReal; n: int): Vec2d {.noSideEffect,
     importcpp: "DN", header: "Geom2d_TrimmedCurve.hxx".}
 proc transform*(this: var Geom2dTrimmedCurve; t: Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_TrimmedCurve.hxx".}
-proc transformedParameter*(this: Geom2dTrimmedCurve; u: float; t: Trsf2d): float {.
+proc transformedParameter*(this: Geom2dTrimmedCurve; u: StandardReal; t: Trsf2d): StandardReal {.
     noSideEffect, importcpp: "TransformedParameter",
     header: "Geom2d_TrimmedCurve.hxx".}
-proc parametricTransformation*(this: Geom2dTrimmedCurve; t: Trsf2d): float {.
+proc parametricTransformation*(this: Geom2dTrimmedCurve; t: Trsf2d): StandardReal {.
     noSideEffect, importcpp: "ParametricTransformation",
     header: "Geom2d_TrimmedCurve.hxx".}
 proc copy*(this: Geom2dTrimmedCurve): Handle[Geom2dGeometry] {.noSideEffect,

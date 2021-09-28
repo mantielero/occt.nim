@@ -33,16 +33,41 @@ proc constructStdSelectShape*(theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDra
                                     header: "StdSelect_Shape.hxx".}
 proc compute*(this: var StdSelectShape;
              aPresentationManager: Handle[PrsMgrPresentationManager3d];
-             aPresentation: Handle[Prs3dPresentation]; aMode: int = 0) {.
+             aPresentation: Handle[Prs3dPresentation]; aMode: cint = 0) {.
     importcpp: "Compute", header: "StdSelect_Shape.hxx".}
 proc shape*(this: StdSelectShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "StdSelect_Shape.hxx".}
 proc shape*(this: var StdSelectShape; theShape: TopoDS_Shape) {.importcpp: "Shape",
     header: "StdSelect_Shape.hxx".}
 proc dumpJson*(this: StdSelectShape; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "StdSelect_Shape.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "StdSelect_Shape.hxx".}
 discard "forward decl of StdSelect_Shape"
 type
-  HandleStdSelectShape* = Handle[StdSelectShape]
+  HandleC1C1* = Handle[StdSelectShape]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

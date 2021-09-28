@@ -29,7 +29,7 @@ proc constructRWStepShapeRWAdvancedBrepShapeRepresentation*(): RWStepShapeRWAdva
     constructor, importcpp: "RWStepShape_RWAdvancedBrepShapeRepresentation(@)",
     header: "RWStepShape_RWAdvancedBrepShapeRepresentation.hxx".}
 proc readStep*(this: RWStepShapeRWAdvancedBrepShapeRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeAdvancedBrepShapeRepresentation]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepShapeRWAdvancedBrepShapeRepresentation;
            ent: Handle[StepShapeAdvancedBrepShapeRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWAdvancedBrepShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,22 +32,22 @@ proc constructHLRBRepTheLocateExtPCOfTheProjPCurOfCInter*(): HLRBRepTheLocateExt
     constructor, importcpp: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter(@)",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
 proc constructHLRBRepTheLocateExtPCOfTheProjPCurOfCInter*(p: Pnt2d;
-    c: StandardAddress; u0: float; tolU: float): HLRBRepTheLocateExtPCOfTheProjPCurOfCInter {.
+    c: StandardAddress; u0: cfloat; tolU: cfloat): HLRBRepTheLocateExtPCOfTheProjPCurOfCInter {.
     constructor, importcpp: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter(@)",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
 proc constructHLRBRepTheLocateExtPCOfTheProjPCurOfCInter*(p: Pnt2d;
-    c: StandardAddress; u0: float; umin: float; usup: float; tolU: float): HLRBRepTheLocateExtPCOfTheProjPCurOfCInter {.
+    c: StandardAddress; u0: cfloat; umin: cfloat; usup: cfloat; tolU: cfloat): HLRBRepTheLocateExtPCOfTheProjPCurOfCInter {.
     constructor, importcpp: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter(@)",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
 proc initialize*(this: var HLRBRepTheLocateExtPCOfTheProjPCurOfCInter;
-                c: StandardAddress; umin: float; usup: float; tolU: float) {.
+                c: StandardAddress; umin: cfloat; usup: cfloat; tolU: cfloat) {.
     importcpp: "Initialize",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
 proc perform*(this: var HLRBRepTheLocateExtPCOfTheProjPCurOfCInter; p: Pnt2d;
-             u0: float) {.importcpp: "Perform", header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
+             u0: cfloat) {.importcpp: "Perform", header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
 proc isDone*(this: HLRBRepTheLocateExtPCOfTheProjPCurOfCInter): bool {.noSideEffect,
     importcpp: "IsDone", header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc squareDistance*(this: HLRBRepTheLocateExtPCOfTheProjPCurOfCInter): float {.
+proc squareDistance*(this: HLRBRepTheLocateExtPCOfTheProjPCurOfCInter): cfloat {.
     noSideEffect, importcpp: "SquareDistance",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
 proc isMin*(this: HLRBRepTheLocateExtPCOfTheProjPCurOfCInter): bool {.noSideEffect,
@@ -55,3 +55,28 @@ proc isMin*(this: HLRBRepTheLocateExtPCOfTheProjPCurOfCInter): bool {.noSideEffe
 proc point*(this: HLRBRepTheLocateExtPCOfTheProjPCurOfCInter): ExtremaPOnCurv2d {.
     noSideEffect, importcpp: "Point",
     header: "HLRBRep_TheLocateExtPCOfTheProjPCurOfCInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -106,22 +106,22 @@ type
 
 
 proc constructLocalAnalysisSurfaceContinuity*(surf1: Handle[GeomSurface];
-    u1: float; v1: float; surf2: Handle[GeomSurface]; u2: float; v2: float;
-    order: GeomAbsShape; epsNul: float = 0.001; epsC0: float = 0.001;
-    epsC1: float = 0.001; epsC2: float = 0.001; epsG1: float = 0.001; percent: float = 0.01;
-    maxlen: float = 10000): LocalAnalysisSurfaceContinuity {.constructor,
-    importcpp: "LocalAnalysis_SurfaceContinuity(@)",
-    header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc constructLocalAnalysisSurfaceContinuity*(curv1: Handle[Geom2dCurve];
-    curv2: Handle[Geom2dCurve]; u: float; surf1: Handle[GeomSurface];
-    surf2: Handle[GeomSurface]; order: GeomAbsShape; epsNul: float = 0.001;
-    epsC0: float = 0.001; epsC1: float = 0.001; epsC2: float = 0.001; epsG1: float = 0.001;
-    percent: float = 0.01; maxlen: float = 10000): LocalAnalysisSurfaceContinuity {.
+    u1: cfloat; v1: cfloat; surf2: Handle[GeomSurface]; u2: cfloat; v2: cfloat;
+    order: GeomAbsShape; epsNul: cfloat = 0.001; epsC0: cfloat = 0.001;
+    epsC1: cfloat = 0.001; epsC2: cfloat = 0.001; epsG1: cfloat = 0.001;
+    percent: cfloat = 0.01; maxlen: cfloat = 10000): LocalAnalysisSurfaceContinuity {.
     constructor, importcpp: "LocalAnalysis_SurfaceContinuity(@)",
     header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc constructLocalAnalysisSurfaceContinuity*(epsNul: float = 0.001;
-    epsC0: float = 0.001; epsC1: float = 0.001; epsC2: float = 0.001; epsG1: float = 0.001;
-    percent: float = 0.01; maxlen: float = 10000): LocalAnalysisSurfaceContinuity {.
+proc constructLocalAnalysisSurfaceContinuity*(curv1: Handle[Geom2dCurve];
+    curv2: Handle[Geom2dCurve]; u: cfloat; surf1: Handle[GeomSurface];
+    surf2: Handle[GeomSurface]; order: GeomAbsShape; epsNul: cfloat = 0.001;
+    epsC0: cfloat = 0.001; epsC1: cfloat = 0.001; epsC2: cfloat = 0.001;
+    epsG1: cfloat = 0.001; percent: cfloat = 0.01; maxlen: cfloat = 10000): LocalAnalysisSurfaceContinuity {.
+    constructor, importcpp: "LocalAnalysis_SurfaceContinuity(@)",
+    header: "LocalAnalysis_SurfaceContinuity.hxx".}
+proc constructLocalAnalysisSurfaceContinuity*(epsNul: cfloat = 0.001;
+    epsC0: cfloat = 0.001; epsC1: cfloat = 0.001; epsC2: cfloat = 0.001;
+    epsG1: cfloat = 0.001; percent: cfloat = 0.01; maxlen: cfloat = 10000): LocalAnalysisSurfaceContinuity {.
     constructor, importcpp: "LocalAnalysis_SurfaceContinuity(@)",
     header: "LocalAnalysis_SurfaceContinuity.hxx".}
 proc computeAnalysis*(this: var LocalAnalysisSurfaceContinuity;
@@ -136,27 +136,27 @@ proc continuityStatus*(this: LocalAnalysisSurfaceContinuity): GeomAbsShape {.
 proc statusError*(this: LocalAnalysisSurfaceContinuity): LocalAnalysisStatusErrorType {.
     noSideEffect, importcpp: "StatusError",
     header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc c0Value*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc c0Value*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "C0Value", header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc c1UAngle*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc c1UAngle*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "C1UAngle", header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc c1URatio*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc c1URatio*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "C1URatio", header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc c1VAngle*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc c1VAngle*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "C1VAngle", header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc c1VRatio*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc c1VRatio*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "C1VRatio", header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc c2UAngle*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc c2UAngle*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "C2UAngle", header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc c2URatio*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc c2URatio*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "C2URatio", header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc c2VAngle*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc c2VAngle*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "C2VAngle", header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc c2VRatio*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc c2VRatio*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "C2VRatio", header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc g1Angle*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc g1Angle*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "G1Angle", header: "LocalAnalysis_SurfaceContinuity.hxx".}
-proc g2CurvatureGap*(this: LocalAnalysisSurfaceContinuity): float {.noSideEffect,
+proc g2CurvatureGap*(this: LocalAnalysisSurfaceContinuity): cfloat {.noSideEffect,
     importcpp: "G2CurvatureGap", header: "LocalAnalysis_SurfaceContinuity.hxx".}
 proc isC0*(this: LocalAnalysisSurfaceContinuity): bool {.noSideEffect,
     importcpp: "IsC0", header: "LocalAnalysis_SurfaceContinuity.hxx".}
@@ -168,3 +168,28 @@ proc isG1*(this: LocalAnalysisSurfaceContinuity): bool {.noSideEffect,
     importcpp: "IsG1", header: "LocalAnalysis_SurfaceContinuity.hxx".}
 proc isG2*(this: LocalAnalysisSurfaceContinuity): bool {.noSideEffect,
     importcpp: "IsG2", header: "LocalAnalysis_SurfaceContinuity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

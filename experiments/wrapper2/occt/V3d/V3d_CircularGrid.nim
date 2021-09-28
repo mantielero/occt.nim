@@ -43,14 +43,39 @@ proc erase*(this: V3dCircularGrid) {.noSideEffect, importcpp: "Erase",
                                   header: "V3d_CircularGrid.hxx".}
 proc isDisplayed*(this: V3dCircularGrid): bool {.noSideEffect,
     importcpp: "IsDisplayed", header: "V3d_CircularGrid.hxx".}
-proc graphicValues*(this: V3dCircularGrid; radius: var float; offSet: var float) {.
+proc graphicValues*(this: V3dCircularGrid; radius: var cfloat; offSet: var cfloat) {.
     noSideEffect, importcpp: "GraphicValues", header: "V3d_CircularGrid.hxx".}
-proc setGraphicValues*(this: var V3dCircularGrid; radius: float; offSet: float) {.
+proc setGraphicValues*(this: var V3dCircularGrid; radius: cfloat; offSet: cfloat) {.
     importcpp: "SetGraphicValues", header: "V3d_CircularGrid.hxx".}
 proc dumpJson*(this: V3dCircularGrid; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "V3d_CircularGrid.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "V3d_CircularGrid.hxx".}
 discard "forward decl of V3d_CircularGrid"
 type
-  HandleV3dCircularGrid* = Handle[V3dCircularGrid]
+  HandleC1C1* = Handle[V3dCircularGrid]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

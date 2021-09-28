@@ -22,7 +22,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IGESSelect_EditDirPart"
 discard "forward decl of IGESSelect_EditDirPart"
 type
-  HandleIGESSelectEditDirPart* = Handle[IGESSelectEditDirPart]
+  HandleC1C1* = Handle[IGESSelectEditDirPart]
 
 ## ! This class is aimed to display and edit the Directory Part of
 ## ! an IGESEntity
@@ -39,12 +39,12 @@ proc label*(this: IGESSelectEditDirPart): TCollectionAsciiString {.noSideEffect,
 proc recognize*(this: IGESSelectEditDirPart; form: Handle[IFSelectEditForm]): bool {.
     noSideEffect, importcpp: "Recognize", header: "IGESSelect_EditDirPart.hxx".}
 proc stringValue*(this: IGESSelectEditDirPart; form: Handle[IFSelectEditForm];
-                 num: int): Handle[TCollectionHAsciiString] {.noSideEffect,
+                 num: cint): Handle[TCollectionHAsciiString] {.noSideEffect,
     importcpp: "StringValue", header: "IGESSelect_EditDirPart.hxx".}
 proc load*(this: IGESSelectEditDirPart; form: Handle[IFSelectEditForm];
           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Load", header: "IGESSelect_EditDirPart.hxx".}
-proc update*(this: IGESSelectEditDirPart; form: Handle[IFSelectEditForm]; num: int;
+proc update*(this: IGESSelectEditDirPart; form: Handle[IFSelectEditForm]; num: cint;
             newval: Handle[TCollectionHAsciiString]; enforce: bool): bool {.
     noSideEffect, importcpp: "Update", header: "IGESSelect_EditDirPart.hxx".}
 proc apply*(this: IGESSelectEditDirPart; form: Handle[IFSelectEditForm];
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_EditDirPart.hxx".}
 proc dynamicType*(this: IGESSelectEditDirPart): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_EditDirPart.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

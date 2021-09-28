@@ -25,7 +25,7 @@ type
 
 proc constructAppDefMultiLine*(): AppDefMultiLine {.constructor,
     importcpp: "AppDef_MultiLine(@)", header: "AppDef_MultiLine.hxx".}
-proc constructAppDefMultiLine*(nbMult: int): AppDefMultiLine {.constructor,
+proc constructAppDefMultiLine*(nbMult: cint): AppDefMultiLine {.constructor,
     importcpp: "AppDef_MultiLine(@)", header: "AppDef_MultiLine.hxx".}
 proc constructAppDefMultiLine*(tabMultiP: AppDefArray1OfMultiPointConstraint): AppDefMultiLine {.
     constructor, importcpp: "AppDef_MultiLine(@)", header: "AppDef_MultiLine.hxx".}
@@ -33,16 +33,41 @@ proc constructAppDefMultiLine*(tabP3d: TColgpArray1OfPnt): AppDefMultiLine {.
     constructor, importcpp: "AppDef_MultiLine(@)", header: "AppDef_MultiLine.hxx".}
 proc constructAppDefMultiLine*(tabP2d: TColgpArray1OfPnt2d): AppDefMultiLine {.
     constructor, importcpp: "AppDef_MultiLine(@)", header: "AppDef_MultiLine.hxx".}
-proc nbMultiPoints*(this: AppDefMultiLine): int {.noSideEffect,
+proc nbMultiPoints*(this: AppDefMultiLine): cint {.noSideEffect,
     importcpp: "NbMultiPoints", header: "AppDef_MultiLine.hxx".}
-proc nbPoints*(this: AppDefMultiLine): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: AppDefMultiLine): cint {.noSideEffect, importcpp: "NbPoints",
     header: "AppDef_MultiLine.hxx".}
-proc setParameter*(this: var AppDefMultiLine; index: int; u: float) {.
+proc setParameter*(this: var AppDefMultiLine; index: cint; u: cfloat) {.
     importcpp: "SetParameter", header: "AppDef_MultiLine.hxx".}
-proc setValue*(this: var AppDefMultiLine; index: int;
+proc setValue*(this: var AppDefMultiLine; index: cint;
               mPoint: AppDefMultiPointConstraint) {.importcpp: "SetValue",
     header: "AppDef_MultiLine.hxx".}
-proc value*(this: AppDefMultiLine; index: int): AppDefMultiPointConstraint {.
+proc value*(this: AppDefMultiLine; index: cint): AppDefMultiPointConstraint {.
     noSideEffect, importcpp: "Value", header: "AppDef_MultiLine.hxx".}
 proc dump*(this: AppDefMultiLine; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "AppDef_MultiLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

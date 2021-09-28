@@ -32,7 +32,7 @@ proc constructRWStepGeomRWBSplineCurveWithKnotsAndRationalBSplineCurve*(): RWSte
     importcpp: "RWStepGeom_RWBSplineCurveWithKnotsAndRationalBSplineCurve(@)",
     header: "RWStepGeom_RWBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 proc readStep*(this: RWStepGeomRWBSplineCurveWithKnotsAndRationalBSplineCurve;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -51,3 +51,28 @@ proc check*(this: RWStepGeomRWBSplineCurveWithKnotsAndRationalBSplineCurve;
            shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "Check",
     header: "RWStepGeom_RWBSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

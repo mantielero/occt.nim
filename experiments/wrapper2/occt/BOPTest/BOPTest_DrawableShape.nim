@@ -21,15 +21,15 @@ discard "forward decl of Draw_Display"
 discard "forward decl of BOPTest_DrawableShape"
 discard "forward decl of BOPTest_DrawableShape"
 type
-  HandleBOPTestDrawableShape* = Handle[BOPTestDrawableShape]
+  HandleC1C1* = Handle[BOPTestDrawableShape]
   BOPTestDrawableShape* {.importcpp: "BOPTest_DrawableShape",
                          header: "BOPTest_DrawableShape.hxx", bycopy.} = object of DBRepDrawableShape
 
 
 proc constructBOPTestDrawableShape*(s: TopoDS_Shape; freeCol: DrawColor;
                                    connCol: DrawColor; edgeCol: DrawColor;
-                                   isosCol: DrawColor; size: float; nbisos: int;
-                                   discret: int; text: StandardCString;
+                                   isosCol: DrawColor; size: cfloat; nbisos: cint;
+                                   discret: cint; text: StandardCString;
                                    textColor: DrawColor): BOPTestDrawableShape {.
     constructor, importcpp: "BOPTest_DrawableShape(@)",
     header: "BOPTest_DrawableShape.hxx".}
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BOPTest_DrawableShape.hxx".}
 proc dynamicType*(this: BOPTestDrawableShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BOPTest_DrawableShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

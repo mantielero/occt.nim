@@ -19,11 +19,36 @@
 type
   HLRAlgoPolyInternalSegment* {.importcpp: "HLRAlgo_PolyInternalSegment",
                                header: "HLRAlgo_PolyInternalSegment.hxx", bycopy.} = object
-    lstSg1* {.importc: "LstSg1".}: int
-    lstSg2* {.importc: "LstSg2".}: int
-    nxtSg1* {.importc: "NxtSg1".}: int
-    nxtSg2* {.importc: "NxtSg2".}: int
-    conex1* {.importc: "Conex1".}: int
-    conex2* {.importc: "Conex2".}: int
+    lstSg1* {.importc: "LstSg1".}: cint
+    lstSg2* {.importc: "LstSg2".}: cint
+    nxtSg1* {.importc: "NxtSg1".}: cint
+    nxtSg2* {.importc: "NxtSg2".}: cint
+    conex1* {.importc: "Conex1".}: cint
+    conex2* {.importc: "Conex2".}: cint
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

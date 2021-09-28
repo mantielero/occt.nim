@@ -15,6 +15,31 @@
 ##  commercial license or contractual agreement.
 
 type
-  StdStorageMapOfTypes* = NCollectionIndexedDataMap[TCollectionAsciiString, int,
+  StdStorageMapOfTypes* = NCollectionIndexedDataMap[TCollectionAsciiString, cint,
       TCollectionAsciiString]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

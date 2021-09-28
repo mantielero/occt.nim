@@ -28,31 +28,57 @@ type
 
 
 proc constructBRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox*(
-    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: cint; lastPoint: cint;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: MathVector; deg: int): BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox {.
+    parameters: MathVector; deg: cint): BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox {.
     constructor, importcpp: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox(@)", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc nbVariables*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): int {.
+proc nbVariables*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): cint {.
     noSideEffect, importcpp: "NbVariables", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
 proc value*(this: var BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-           x: MathVector; f: var float): bool {.importcpp: "Value", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+           x: MathVector; f: var cfloat): bool {.importcpp: "Value", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
 proc gradient*(this: var BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
               x: MathVector; g: var MathVector): bool {.importcpp: "Gradient", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
 proc values*(this: var BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-            x: MathVector; f: var float; g: var MathVector): bool {.importcpp: "Values", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+            x: MathVector; f: var cfloat; g: var MathVector): bool {.importcpp: "Values", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
 proc newParameters*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): MathVector {.
     noSideEffect, importcpp: "NewParameters", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
 proc curveValue*(this: var BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): AppParCurvesMultiCurve {.
     importcpp: "CurveValue", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
 proc error*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-           iPoint: int; curveIndex: int): float {.noSideEffect, importcpp: "Error", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc maxError3d*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): float {.
+           iPoint: cint; curveIndex: cint): cfloat {.noSideEffect, importcpp: "Error", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+proc maxError3d*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): cfloat {.
     noSideEffect, importcpp: "MaxError3d", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc maxError2d*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): float {.
+proc maxError2d*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): cfloat {.
     noSideEffect, importcpp: "MaxError2d", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
 proc firstConstraint*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; firstPoint: int): AppParCurvesConstraint {.
-    noSideEffect, importcpp: "FirstConstraint", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+                     firstPoint: cint): AppParCurvesConstraint {.noSideEffect,
+    importcpp: "FirstConstraint", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
 proc lastConstraint*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; lastPoint: int): AppParCurvesConstraint {.
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; lastPoint: cint): AppParCurvesConstraint {.
     noSideEffect, importcpp: "LastConstraint", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

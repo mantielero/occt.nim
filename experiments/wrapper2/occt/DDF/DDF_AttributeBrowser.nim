@@ -38,3 +38,28 @@ proc next*(this: var DDF_AttributeBrowser): ptr DDF_AttributeBrowser {.
 proc findBrowser*(anAtt: Handle[TDF_Attribute]): ptr DDF_AttributeBrowser {.
     importcpp: "DDF_AttributeBrowser::FindBrowser(@)",
     header: "DDF_AttributeBrowser.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

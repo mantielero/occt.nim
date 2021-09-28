@@ -44,9 +44,9 @@ proc constructGCE2dMakeSegment*(p1: Pnt2d; p2: Pnt2d): GCE2dMakeSegment {.constr
     importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
 proc constructGCE2dMakeSegment*(p1: Pnt2d; v: Dir2d; p2: Pnt2d): GCE2dMakeSegment {.
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc constructGCE2dMakeSegment*(line: Lin2d; u1: float; u2: float): GCE2dMakeSegment {.
+proc constructGCE2dMakeSegment*(line: Lin2d; u1: cfloat; u2: cfloat): GCE2dMakeSegment {.
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
-proc constructGCE2dMakeSegment*(line: Lin2d; point: Pnt2d; ulast: float): GCE2dMakeSegment {.
+proc constructGCE2dMakeSegment*(line: Lin2d; point: Pnt2d; ulast: cfloat): GCE2dMakeSegment {.
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
 proc constructGCE2dMakeSegment*(line: Lin2d; p1: Pnt2d; p2: Pnt2d): GCE2dMakeSegment {.
     constructor, importcpp: "GCE2d_MakeSegment(@)", header: "GCE2d_MakeSegment.hxx".}
@@ -55,3 +55,28 @@ proc value*(this: GCE2dMakeSegment): Handle[Geom2dTrimmedCurve] {.noSideEffect,
 converter `constopencascade`*(this: GCE2dMakeSegment): Handle[Geom2dTrimmedCurve] {.
     noSideEffect, importcpp: "GCE2d_MakeSegment::operator constopencascade",
     header: "GCE2d_MakeSegment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

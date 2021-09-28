@@ -18,3 +18,28 @@ type
   HLRAlgoListOfBPoint* = NCollectionList[HLRAlgoBiPoint]
   HLRAlgoListIteratorOfListOfBPoint* = Iterator[HLRAlgoBiPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

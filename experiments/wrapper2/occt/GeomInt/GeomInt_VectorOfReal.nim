@@ -14,5 +14,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  GeomIntVectorOfReal* = NCollectionVector[float]
-
+  GeomIntVectorOfReal* = NCollectionVector[StandardReal]

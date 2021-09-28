@@ -22,17 +22,37 @@ type
                                header: "GeomLib_Check2dBSplineCurve.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomLibCheck2dBSplineCurve; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_Check2dBSplineCurve::operator new",
+    header: "GeomLib_Check2dBSplineCurve.hxx".}
+proc `delete`*(this: var GeomLibCheck2dBSplineCurve; theAddress: pointer) {.
+    importcpp: "GeomLib_Check2dBSplineCurve::operator delete",
+    header: "GeomLib_Check2dBSplineCurve.hxx".}
+proc `new[]`*(this: var GeomLibCheck2dBSplineCurve; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_Check2dBSplineCurve::operator new[]",
+    header: "GeomLib_Check2dBSplineCurve.hxx".}
+proc `delete[]`*(this: var GeomLibCheck2dBSplineCurve; theAddress: pointer) {.
+    importcpp: "GeomLib_Check2dBSplineCurve::operator delete[]",
+    header: "GeomLib_Check2dBSplineCurve.hxx".}
+proc `new`*(this: var GeomLibCheck2dBSplineCurve; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLib_Check2dBSplineCurve::operator new",
+    header: "GeomLib_Check2dBSplineCurve.hxx".}
+proc `delete`*(this: var GeomLibCheck2dBSplineCurve; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLib_Check2dBSplineCurve::operator delete",
+    header: "GeomLib_Check2dBSplineCurve.hxx".}
 proc constructGeomLibCheck2dBSplineCurve*(curve: Handle[Geom2dBSplineCurve];
-    tolerance: float; angularTolerance: float): GeomLibCheck2dBSplineCurve {.
+    tolerance: StandardReal; angularTolerance: StandardReal): GeomLibCheck2dBSplineCurve {.
     constructor, importcpp: "GeomLib_Check2dBSplineCurve(@)",
     header: "GeomLib_Check2dBSplineCurve.hxx".}
-proc isDone*(this: GeomLibCheck2dBSplineCurve): bool {.noSideEffect,
+proc isDone*(this: GeomLibCheck2dBSplineCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomLib_Check2dBSplineCurve.hxx".}
-proc needTangentFix*(this: GeomLibCheck2dBSplineCurve; firstFlag: var bool;
-                    secondFlag: var bool) {.noSideEffect,
-    importcpp: "NeedTangentFix", header: "GeomLib_Check2dBSplineCurve.hxx".}
-proc fixTangent*(this: var GeomLibCheck2dBSplineCurve; firstFlag: bool; lastFlag: bool) {.
-    importcpp: "FixTangent", header: "GeomLib_Check2dBSplineCurve.hxx".}
-proc fixedTangent*(this: var GeomLibCheck2dBSplineCurve; firstFlag: bool;
-                  lastFlag: bool): Handle[Geom2dBSplineCurve] {.
+proc needTangentFix*(this: GeomLibCheck2dBSplineCurve;
+                    firstFlag: var StandardBoolean; secondFlag: var StandardBoolean) {.
+    noSideEffect, importcpp: "NeedTangentFix",
+    header: "GeomLib_Check2dBSplineCurve.hxx".}
+proc fixTangent*(this: var GeomLibCheck2dBSplineCurve; firstFlag: StandardBoolean;
+                lastFlag: StandardBoolean) {.importcpp: "FixTangent",
+    header: "GeomLib_Check2dBSplineCurve.hxx".}
+proc fixedTangent*(this: var GeomLibCheck2dBSplineCurve; firstFlag: StandardBoolean;
+                  lastFlag: StandardBoolean): Handle[Geom2dBSplineCurve] {.
     importcpp: "FixedTangent", header: "GeomLib_Check2dBSplineCurve.hxx".}

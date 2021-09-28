@@ -29,7 +29,7 @@ proc constructRWStepVisualRWTextStyleForDefinedFont*(): RWStepVisualRWTextStyleF
     constructor, importcpp: "RWStepVisual_RWTextStyleForDefinedFont(@)",
     header: "RWStepVisual_RWTextStyleForDefinedFont.hxx".}
 proc readStep*(this: RWStepVisualRWTextStyleForDefinedFont;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualTextStyleForDefinedFont]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWTextStyleForDefinedFont.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepVisualRWTextStyleForDefinedFont;
            ent: Handle[StepVisualTextStyleForDefinedFont];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWTextStyleForDefinedFont.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

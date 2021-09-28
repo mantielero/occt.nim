@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMXCAFDoc_ColorDriver"
 discard "forward decl of XmlMXCAFDoc_ColorDriver"
 type
-  HandleXmlMXCAFDocColorDriver* = Handle[XmlMXCAFDocColorDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocColorDriver]
 
 ## ! Attribute Driver.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XmlMXCAFDoc_ColorDriver.hxx".}
 proc dynamicType*(this: XmlMXCAFDocColorDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XmlMXCAFDoc_ColorDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

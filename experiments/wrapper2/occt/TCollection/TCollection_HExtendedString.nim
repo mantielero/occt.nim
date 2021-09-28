@@ -23,7 +23,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of TCollection_HExtendedString"
 discard "forward decl of TCollection_HExtendedString"
 type
-  HandleTCollectionHExtendedString* = Handle[TCollectionHExtendedString]
+  HandleC1C1* = Handle[TCollectionHExtendedString]
 
 ## ! A variable-length sequence of "extended"
 ## ! (UNICODE) characters (16-bit character
@@ -68,8 +68,9 @@ proc constructTCollectionHExtendedString*(message: StandardExtString): TCollecti
 proc constructTCollectionHExtendedString*(aChar: StandardExtCharacter): TCollectionHExtendedString {.
     constructor, importcpp: "TCollection_HExtendedString(@)",
     header: "TCollection_HExtendedString.hxx".}
-proc constructTCollectionHExtendedString*(length: int; filler: StandardExtCharacter): TCollectionHExtendedString {.
-    constructor, importcpp: "TCollection_HExtendedString(@)",
+proc constructTCollectionHExtendedString*(length: cint;
+    filler: StandardExtCharacter): TCollectionHExtendedString {.constructor,
+    importcpp: "TCollection_HExtendedString(@)",
     header: "TCollection_HExtendedString.hxx".}
 proc constructTCollectionHExtendedString*(aString: TCollectionExtendedString): TCollectionHExtendedString {.
     constructor, importcpp: "TCollection_HExtendedString(@)",
@@ -96,9 +97,9 @@ proc clear*(this: var TCollectionHExtendedString) {.importcpp: "Clear",
     header: "TCollection_HExtendedString.hxx".}
 proc isEmpty*(this: TCollectionHExtendedString): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "TCollection_HExtendedString.hxx".}
-proc insert*(this: var TCollectionHExtendedString; where: int;
+proc insert*(this: var TCollectionHExtendedString; where: cint;
             what: StandardExtCharacter) {.importcpp: "Insert", header: "TCollection_HExtendedString.hxx".}
-proc insert*(this: var TCollectionHExtendedString; where: int;
+proc insert*(this: var TCollectionHExtendedString; where: cint;
             what: Handle[TCollectionHExtendedString]) {.importcpp: "Insert",
     header: "TCollection_HExtendedString.hxx".}
 proc isLess*(this: TCollectionHExtendedString;
@@ -109,36 +110,36 @@ proc isGreater*(this: TCollectionHExtendedString;
     importcpp: "IsGreater", header: "TCollection_HExtendedString.hxx".}
 proc isAscii*(this: TCollectionHExtendedString): bool {.noSideEffect,
     importcpp: "IsAscii", header: "TCollection_HExtendedString.hxx".}
-proc length*(this: TCollectionHExtendedString): int {.noSideEffect,
+proc length*(this: TCollectionHExtendedString): cint {.noSideEffect,
     importcpp: "Length", header: "TCollection_HExtendedString.hxx".}
-proc remove*(this: var TCollectionHExtendedString; where: int; ahowmany: int = 1) {.
+proc remove*(this: var TCollectionHExtendedString; where: cint; ahowmany: cint = 1) {.
     importcpp: "Remove", header: "TCollection_HExtendedString.hxx".}
 proc removeAll*(this: var TCollectionHExtendedString; what: StandardExtCharacter) {.
     importcpp: "RemoveAll", header: "TCollection_HExtendedString.hxx".}
-proc setValue*(this: var TCollectionHExtendedString; where: int;
+proc setValue*(this: var TCollectionHExtendedString; where: cint;
               what: StandardExtCharacter) {.importcpp: "SetValue",
     header: "TCollection_HExtendedString.hxx".}
-proc setValue*(this: var TCollectionHExtendedString; where: int;
+proc setValue*(this: var TCollectionHExtendedString; where: cint;
               what: Handle[TCollectionHExtendedString]) {.importcpp: "SetValue",
     header: "TCollection_HExtendedString.hxx".}
-proc split*(this: var TCollectionHExtendedString; where: int): Handle[
+proc split*(this: var TCollectionHExtendedString; where: cint): Handle[
     TCollectionHExtendedString] {.importcpp: "Split",
                                  header: "TCollection_HExtendedString.hxx".}
 proc search*(this: TCollectionHExtendedString;
-            what: Handle[TCollectionHExtendedString]): int {.noSideEffect,
+            what: Handle[TCollectionHExtendedString]): cint {.noSideEffect,
     importcpp: "Search", header: "TCollection_HExtendedString.hxx".}
 proc searchFromEnd*(this: TCollectionHExtendedString;
-                   what: Handle[TCollectionHExtendedString]): int {.noSideEffect,
+                   what: Handle[TCollectionHExtendedString]): cint {.noSideEffect,
     importcpp: "SearchFromEnd", header: "TCollection_HExtendedString.hxx".}
 proc toExtString*(this: TCollectionHExtendedString): StandardExtString {.
     noSideEffect, importcpp: "ToExtString",
     header: "TCollection_HExtendedString.hxx".}
 proc token*(this: TCollectionHExtendedString; separators: StandardExtString;
-           whichone: int = 1): Handle[TCollectionHExtendedString] {.noSideEffect,
+           whichone: cint = 1): Handle[TCollectionHExtendedString] {.noSideEffect,
     importcpp: "Token", header: "TCollection_HExtendedString.hxx".}
-proc trunc*(this: var TCollectionHExtendedString; ahowmany: int) {.importcpp: "Trunc",
-    header: "TCollection_HExtendedString.hxx".}
-proc value*(this: TCollectionHExtendedString; where: int): StandardExtCharacter {.
+proc trunc*(this: var TCollectionHExtendedString; ahowmany: cint) {.
+    importcpp: "Trunc", header: "TCollection_HExtendedString.hxx".}
+proc value*(this: TCollectionHExtendedString; where: cint): StandardExtCharacter {.
     noSideEffect, importcpp: "Value", header: "TCollection_HExtendedString.hxx".}
 proc string*(this: TCollectionHExtendedString): TCollectionExtendedString {.
     noSideEffect, importcpp: "String", header: "TCollection_HExtendedString.hxx".}
@@ -158,3 +159,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TCollectionHExtendedString): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TCollection_HExtendedString.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

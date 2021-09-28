@@ -36,5 +36,30 @@ proc setStatus*(this: var IMeshDataStatusOwner; theValue: IMeshDataStatus) {.
     importcpp: "SetStatus", header: "IMeshData_StatusOwner.hxx".}
 proc unsetStatus*(this: var IMeshDataStatusOwner; theValue: IMeshDataStatus) {.
     importcpp: "UnsetStatus", header: "IMeshData_StatusOwner.hxx".}
-proc getStatusMask*(this: IMeshDataStatusOwner): int {.noSideEffect,
+proc getStatusMask*(this: IMeshDataStatusOwner): cint {.noSideEffect,
     importcpp: "GetStatusMask", header: "IMeshData_StatusOwner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

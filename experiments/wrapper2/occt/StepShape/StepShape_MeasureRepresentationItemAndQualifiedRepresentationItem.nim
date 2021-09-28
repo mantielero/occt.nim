@@ -21,8 +21,7 @@ discard "forward decl of StepShape_ValueQualifier"
 discard "forward decl of StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem"
 discard "forward decl of StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem"
 type
-  HandleStepShapeMeasureRepresentationItemAndQualifiedRepresentationItem* = Handle[
-      StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem]
+  HandleC1C1* = Handle[StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem]
 
 ## ! Added for Dimensional Tolerances
 ## ! Complex Type between MeasureRepresentationItem and
@@ -48,16 +47,16 @@ proc measure*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentation
     StepBasicMeasureWithUnit] {.noSideEffect, importcpp: "Measure", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc qualifiers*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): Handle[
     StepShapeHArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc nbQualifiers*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): int {.
+proc nbQualifiers*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): cint {.
     noSideEffect, importcpp: "NbQualifiers", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc setQualifiers*(this: var StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
                    qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "SetQualifiers", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc qualifiersValue*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
-                     num: int): StepShapeValueQualifier {.noSideEffect,
+                     num: cint): StepShapeValueQualifier {.noSideEffect,
     importcpp: "QualifiersValue", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc setQualifiersValue*(this: var StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
-                        num: int; aqualifier: StepShapeValueQualifier) {.
+                        num: cint; aqualifier: StepShapeValueQualifier) {.
     importcpp: "SetQualifiersValue", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 type
   StepShapeMeasureRepresentationItemAndQualifiedRepresentationItembaseType* = StepReprRepresentationItem
@@ -66,3 +65,28 @@ proc getTypeName*(): cstring {.importcpp: "StepShape_MeasureRepresentationItemAn
 proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem::get_type_descriptor(@)", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc dynamicType*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

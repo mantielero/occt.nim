@@ -21,20 +21,20 @@ type
 
 
 proc bRepMeshDataWire*(this: var BRepMeshDataWire; theWire: TopoDS_Wire;
-                      theEdgeNb: int;
+                      theEdgeNb: cint;
                       theAllocator: Handle[NCollectionIncAllocator]): Define_Inc_Alloc {.
     importcpp: "BRepMeshData_Wire", header: "BRepMeshData_Wire.hxx".}
   ## ! Constructor.
 proc destroyBRepMeshDataWire*(this: var BRepMeshDataWire) {.
     importcpp: "#.~BRepMeshData_Wire()", header: "BRepMeshData_Wire.hxx".}
-proc edgesNb*(this: BRepMeshDataWire): int {.noSideEffect, importcpp: "EdgesNb",
+proc edgesNb*(this: BRepMeshDataWire): cint {.noSideEffect, importcpp: "EdgesNb",
     header: "BRepMeshData_Wire.hxx".}
 proc addEdge*(this: var BRepMeshDataWire; theDEdge: IEdgePtr;
-             theOrientation: TopAbsOrientation): int {.importcpp: "AddEdge",
+             theOrientation: TopAbsOrientation): cint {.importcpp: "AddEdge",
     header: "BRepMeshData_Wire.hxx".}
-proc getEdge*(this: BRepMeshDataWire; theIndex: int): IEdgePtr {.noSideEffect,
+proc getEdge*(this: BRepMeshDataWire; theIndex: cint): IEdgePtr {.noSideEffect,
     importcpp: "GetEdge", header: "BRepMeshData_Wire.hxx".}
-proc getEdgeOrientation*(this: BRepMeshDataWire; theIndex: int): TopAbsOrientation {.
+proc getEdgeOrientation*(this: BRepMeshDataWire; theIndex: cint): TopAbsOrientation {.
     noSideEffect, importcpp: "GetEdgeOrientation", header: "BRepMeshData_Wire.hxx".}
 type
   BRepMeshDataWirebaseType* = IMeshDataWire
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMeshData_Wire.hxx".}
 proc dynamicType*(this: BRepMeshDataWire): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_Wire.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

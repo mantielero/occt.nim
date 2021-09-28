@@ -49,3 +49,28 @@ proc gComDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {
     header: "TopOpeBRepBuild_GTool.hxx".}
 proc dump*(os: var StandardOStream) {.importcpp: "TopOpeBRepBuild_GTool::Dump(@)",
                                   header: "TopOpeBRepBuild_GTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

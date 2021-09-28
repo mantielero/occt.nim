@@ -27,35 +27,57 @@ type
                              header: "GeomFill_SectionPlacement.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomFillSectionPlacement; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_SectionPlacement::operator new",
+    header: "GeomFill_SectionPlacement.hxx".}
+proc `delete`*(this: var GeomFillSectionPlacement; theAddress: pointer) {.
+    importcpp: "GeomFill_SectionPlacement::operator delete",
+    header: "GeomFill_SectionPlacement.hxx".}
+proc `new[]`*(this: var GeomFillSectionPlacement; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_SectionPlacement::operator new[]",
+    header: "GeomFill_SectionPlacement.hxx".}
+proc `delete[]`*(this: var GeomFillSectionPlacement; theAddress: pointer) {.
+    importcpp: "GeomFill_SectionPlacement::operator delete[]",
+    header: "GeomFill_SectionPlacement.hxx".}
+proc `new`*(this: var GeomFillSectionPlacement; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_SectionPlacement::operator new",
+    header: "GeomFill_SectionPlacement.hxx".}
+proc `delete`*(this: var GeomFillSectionPlacement; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_SectionPlacement::operator delete",
+    header: "GeomFill_SectionPlacement.hxx".}
 proc constructGeomFillSectionPlacement*(L: Handle[GeomFillLocationLaw];
                                        section: Handle[GeomGeometry]): GeomFillSectionPlacement {.
     constructor, importcpp: "GeomFill_SectionPlacement(@)",
     header: "GeomFill_SectionPlacement.hxx".}
 proc setLocation*(this: var GeomFillSectionPlacement; L: Handle[GeomFillLocationLaw]) {.
     importcpp: "SetLocation", header: "GeomFill_SectionPlacement.hxx".}
-proc perform*(this: var GeomFillSectionPlacement; tol: float) {.importcpp: "Perform",
-    header: "GeomFill_SectionPlacement.hxx".}
-proc perform*(this: var GeomFillSectionPlacement; path: Handle[Adaptor3dHCurve];
-             tol: float) {.importcpp: "Perform",
-                         header: "GeomFill_SectionPlacement.hxx".}
-proc perform*(this: var GeomFillSectionPlacement; paramOnPath: float; tol: float) {.
+proc perform*(this: var GeomFillSectionPlacement; tol: StandardReal) {.
     importcpp: "Perform", header: "GeomFill_SectionPlacement.hxx".}
-proc isDone*(this: GeomFillSectionPlacement): bool {.noSideEffect,
+proc perform*(this: var GeomFillSectionPlacement; path: Handle[Adaptor3dHCurve];
+             tol: StandardReal) {.importcpp: "Perform",
+                                header: "GeomFill_SectionPlacement.hxx".}
+proc perform*(this: var GeomFillSectionPlacement; paramOnPath: StandardReal;
+             tol: StandardReal) {.importcpp: "Perform",
+                                header: "GeomFill_SectionPlacement.hxx".}
+proc isDone*(this: GeomFillSectionPlacement): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomFill_SectionPlacement.hxx".}
-proc parameterOnPath*(this: GeomFillSectionPlacement): float {.noSideEffect,
+proc parameterOnPath*(this: GeomFillSectionPlacement): StandardReal {.noSideEffect,
     importcpp: "ParameterOnPath", header: "GeomFill_SectionPlacement.hxx".}
-proc parameterOnSection*(this: GeomFillSectionPlacement): float {.noSideEffect,
-    importcpp: "ParameterOnSection", header: "GeomFill_SectionPlacement.hxx".}
-proc distance*(this: GeomFillSectionPlacement): float {.noSideEffect,
+proc parameterOnSection*(this: GeomFillSectionPlacement): StandardReal {.
+    noSideEffect, importcpp: "ParameterOnSection",
+    header: "GeomFill_SectionPlacement.hxx".}
+proc distance*(this: GeomFillSectionPlacement): StandardReal {.noSideEffect,
     importcpp: "Distance", header: "GeomFill_SectionPlacement.hxx".}
-proc angle*(this: GeomFillSectionPlacement): float {.noSideEffect,
+proc angle*(this: GeomFillSectionPlacement): StandardReal {.noSideEffect,
     importcpp: "Angle", header: "GeomFill_SectionPlacement.hxx".}
-proc transformation*(this: GeomFillSectionPlacement; withTranslation: bool;
-                    withCorrection: bool = false): Trsf {.noSideEffect,
+proc transformation*(this: GeomFillSectionPlacement;
+                    withTranslation: StandardBoolean;
+                    withCorrection: StandardBoolean = false): Trsf {.noSideEffect,
     importcpp: "Transformation", header: "GeomFill_SectionPlacement.hxx".}
-proc section*(this: GeomFillSectionPlacement; withTranslation: bool): Handle[
+proc section*(this: GeomFillSectionPlacement; withTranslation: StandardBoolean): Handle[
     GeomCurve] {.noSideEffect, importcpp: "Section",
                 header: "GeomFill_SectionPlacement.hxx".}
-proc modifiedSection*(this: GeomFillSectionPlacement; withTranslation: bool): Handle[
-    GeomCurve] {.noSideEffect, importcpp: "ModifiedSection",
-                header: "GeomFill_SectionPlacement.hxx".}
+proc modifiedSection*(this: GeomFillSectionPlacement;
+                     withTranslation: StandardBoolean): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "ModifiedSection",
+    header: "GeomFill_SectionPlacement.hxx".}

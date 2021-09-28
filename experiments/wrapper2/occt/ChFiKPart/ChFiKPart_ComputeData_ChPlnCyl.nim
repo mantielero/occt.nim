@@ -17,9 +17,9 @@
 proc chFiKPartMakeChamfer*(dStr: var TopOpeBRepDS_DataStructure;
                           data: Handle[ChFiDS_SurfData];
                           theMode: ChFiDS_ChamfMode; pln: Pln; cyl: Cylinder;
-                          fu: float; lu: float; or1: TopAbsOrientation;
-                          or2: TopAbsOrientation; dis1: float; dis2: float;
-                          spine: Circ; first: float; ofpl: TopAbsOrientation;
+                          fu: cfloat; lu: cfloat; or1: TopAbsOrientation;
+                          or2: TopAbsOrientation; dis1: cfloat; dis2: cfloat;
+                          spine: Circ; first: cfloat; ofpl: TopAbsOrientation;
                           plandab: bool): bool {.
     importcpp: "ChFiKPart_MakeChamfer(@)",
     header: "ChFiKPart_ComputeData_ChPlnCyl.hxx".}
@@ -31,9 +31,34 @@ proc chFiKPartMakeChamfer*(dStr: var TopOpeBRepDS_DataStructure;
 proc chFiKPartMakeChamfer*(dStr: var TopOpeBRepDS_DataStructure;
                           data: Handle[ChFiDS_SurfData];
                           theMode: ChFiDS_ChamfMode; pln: Pln; cyl: Cylinder;
-                          fu: float; lu: float; or1: TopAbsOrientation;
-                          or2: TopAbsOrientation; dis1: float; dis2: float;
-                          spine: Lin; first: float; ofpl: TopAbsOrientation;
+                          fu: cfloat; lu: cfloat; or1: TopAbsOrientation;
+                          or2: TopAbsOrientation; dis1: cfloat; dis2: cfloat;
+                          spine: Lin; first: cfloat; ofpl: TopAbsOrientation;
                           plandab: bool): bool {.
     importcpp: "ChFiKPart_MakeChamfer(@)",
     header: "ChFiKPart_ComputeData_ChPlnCyl.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -64,5 +64,30 @@ proc ownCopy*(this: IGESGeomToolSplineSurface;
              entto: Handle[IGESGeomSplineSurface]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolSplineSurface.hxx".}
 proc ownDump*(this: IGESGeomToolSplineSurface; ent: Handle[IGESGeomSplineSurface];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolSplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

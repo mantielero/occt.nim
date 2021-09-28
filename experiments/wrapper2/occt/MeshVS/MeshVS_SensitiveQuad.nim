@@ -44,7 +44,7 @@ proc constructMeshVS_SensitiveQuad*(theOwner: Handle[SelectMgrEntityOwner];
                                    thePnt4: Pnt): MeshVS_SensitiveQuad {.
     constructor, importcpp: "MeshVS_SensitiveQuad(@)",
     header: "MeshVS_SensitiveQuad.hxx".}
-proc nbSubElements*(this: MeshVS_SensitiveQuad): int {.noSideEffect,
+proc nbSubElements*(this: MeshVS_SensitiveQuad): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "MeshVS_SensitiveQuad.hxx".}
   ## ! Returns a copy of this sensitive quadrangle
 proc getConnected*(this: var MeshVS_SensitiveQuad): Handle[Select3D_SensitiveEntity] {.
@@ -69,5 +69,30 @@ proc dynamicType*(this: MeshVS_SensitiveQuad): Handle[StandardType] {.noSideEffe
     importcpp: "DynamicType", header: "MeshVS_SensitiveQuad.hxx".}
 discard "forward decl of MeshVS_SensitiveQuad"
 type
-  HandleMeshVS_SensitiveQuad* = Handle[MeshVS_SensitiveQuad]
+  HandleC1C1* = Handle[MeshVS_SensitiveQuad]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

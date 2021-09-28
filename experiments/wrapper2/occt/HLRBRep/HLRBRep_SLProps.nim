@@ -36,16 +36,16 @@ type
                                   ## ! if a vector is null).
 
 
-proc constructHLRBRepSLProps*(s: StandardAddress; u: float; v: float; n: int;
-                             resolution: float): HLRBRepSLProps {.constructor,
+proc constructHLRBRepSLProps*(s: StandardAddress; u: cfloat; v: cfloat; n: cint;
+                             resolution: cfloat): HLRBRepSLProps {.constructor,
     importcpp: "HLRBRep_SLProps(@)", header: "HLRBRep_SLProps.hxx".}
-proc constructHLRBRepSLProps*(s: StandardAddress; n: int; resolution: float): HLRBRepSLProps {.
+proc constructHLRBRepSLProps*(s: StandardAddress; n: cint; resolution: cfloat): HLRBRepSLProps {.
     constructor, importcpp: "HLRBRep_SLProps(@)", header: "HLRBRep_SLProps.hxx".}
-proc constructHLRBRepSLProps*(n: int; resolution: float): HLRBRepSLProps {.
+proc constructHLRBRepSLProps*(n: cint; resolution: cfloat): HLRBRepSLProps {.
     constructor, importcpp: "HLRBRep_SLProps(@)", header: "HLRBRep_SLProps.hxx".}
 proc setSurface*(this: var HLRBRepSLProps; s: StandardAddress) {.
     importcpp: "SetSurface", header: "HLRBRep_SLProps.hxx".}
-proc setParameters*(this: var HLRBRepSLProps; u: float; v: float) {.
+proc setParameters*(this: var HLRBRepSLProps; u: cfloat; v: cfloat) {.
     importcpp: "SetParameters", header: "HLRBRep_SLProps.hxx".}
 proc value*(this: HLRBRepSLProps): Pnt {.noSideEffect, importcpp: "Value",
                                      header: "HLRBRep_SLProps.hxx".}
@@ -75,13 +75,38 @@ proc isCurvatureDefined*(this: var HLRBRepSLProps): bool {.
     importcpp: "IsCurvatureDefined", header: "HLRBRep_SLProps.hxx".}
 proc isUmbilic*(this: var HLRBRepSLProps): bool {.importcpp: "IsUmbilic",
     header: "HLRBRep_SLProps.hxx".}
-proc maxCurvature*(this: var HLRBRepSLProps): float {.importcpp: "MaxCurvature",
+proc maxCurvature*(this: var HLRBRepSLProps): cfloat {.importcpp: "MaxCurvature",
     header: "HLRBRep_SLProps.hxx".}
-proc minCurvature*(this: var HLRBRepSLProps): float {.importcpp: "MinCurvature",
+proc minCurvature*(this: var HLRBRepSLProps): cfloat {.importcpp: "MinCurvature",
     header: "HLRBRep_SLProps.hxx".}
 proc curvatureDirections*(this: var HLRBRepSLProps; maxD: var Dir; minD: var Dir) {.
     importcpp: "CurvatureDirections", header: "HLRBRep_SLProps.hxx".}
-proc meanCurvature*(this: var HLRBRepSLProps): float {.importcpp: "MeanCurvature",
+proc meanCurvature*(this: var HLRBRepSLProps): cfloat {.importcpp: "MeanCurvature",
     header: "HLRBRep_SLProps.hxx".}
-proc gaussianCurvature*(this: var HLRBRepSLProps): float {.
+proc gaussianCurvature*(this: var HLRBRepSLProps): cfloat {.
     importcpp: "GaussianCurvature", header: "HLRBRep_SLProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

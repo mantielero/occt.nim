@@ -20,3 +20,28 @@ type
   StorageDataMapIteratorOfMapOfCallBack* = Iterator[TCollectionAsciiString,
       Handle[StorageTypedCallBack], TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

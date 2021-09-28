@@ -21,18 +21,43 @@ type
                    bycopy.} = object of IntfPolygon2d
 
 
-proc error*(this: IntPatchPolygo): float {.noSideEffect, importcpp: "Error",
-                                       header: "IntPatch_Polygo.hxx".}
-proc nbPoints*(this: IntPatchPolygo): int {.noSideEffect, importcpp: "NbPoints",
+proc error*(this: IntPatchPolygo): cfloat {.noSideEffect, importcpp: "Error",
                                         header: "IntPatch_Polygo.hxx".}
-proc point*(this: IntPatchPolygo; index: int): Pnt2d {.noSideEffect,
-    importcpp: "Point", header: "IntPatch_Polygo.hxx".}
-proc deflectionOverEstimation*(this: IntPatchPolygo): float {.noSideEffect,
-    importcpp: "DeflectionOverEstimation", header: "IntPatch_Polygo.hxx".}
-proc nbSegments*(this: IntPatchPolygo): int {.noSideEffect, importcpp: "NbSegments",
+proc nbPoints*(this: IntPatchPolygo): cint {.noSideEffect, importcpp: "NbPoints",
     header: "IntPatch_Polygo.hxx".}
-proc segment*(this: IntPatchPolygo; theIndex: int; theBegin: var Pnt2d;
+proc point*(this: IntPatchPolygo; index: cint): Pnt2d {.noSideEffect,
+    importcpp: "Point", header: "IntPatch_Polygo.hxx".}
+proc deflectionOverEstimation*(this: IntPatchPolygo): cfloat {.noSideEffect,
+    importcpp: "DeflectionOverEstimation", header: "IntPatch_Polygo.hxx".}
+proc nbSegments*(this: IntPatchPolygo): cint {.noSideEffect, importcpp: "NbSegments",
+    header: "IntPatch_Polygo.hxx".}
+proc segment*(this: IntPatchPolygo; theIndex: cint; theBegin: var Pnt2d;
              theEnd: var Pnt2d) {.noSideEffect, importcpp: "Segment",
                                header: "IntPatch_Polygo.hxx".}
 proc dump*(this: IntPatchPolygo) {.noSideEffect, importcpp: "Dump",
                                 header: "IntPatch_Polygo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

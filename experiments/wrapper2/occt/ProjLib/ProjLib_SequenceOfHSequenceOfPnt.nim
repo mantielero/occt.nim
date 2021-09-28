@@ -18,3 +18,28 @@ type
   ProjLibSequenceOfHSequenceOfPnt* = NCollectionSequence[
       Handle[TColgpHSequenceOfPnt]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

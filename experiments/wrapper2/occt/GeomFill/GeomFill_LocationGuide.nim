@@ -28,7 +28,7 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of GeomFill_LocationGuide"
 discard "forward decl of GeomFill_LocationGuide"
 type
-  HandleGeomFillLocationGuide* = Handle[GeomFillLocationGuide]
+  HandleC1C1* = Handle[GeomFillLocationGuide]
   GeomFillLocationGuide* {.importcpp: "GeomFill_LocationGuide",
                           header: "GeomFill_LocationGuide.hxx", bycopy.} = object of GeomFillLocationLaw
 
@@ -37,9 +37,9 @@ proc constructGeomFillLocationGuide*(triedre: Handle[GeomFillTrihedronWithGuide]
     constructor, importcpp: "GeomFill_LocationGuide(@)",
     header: "GeomFill_LocationGuide.hxx".}
 proc set*(this: var GeomFillLocationGuide; section: Handle[GeomFillSectionLaw];
-         rotat: bool; sFirst: float; sLast: float; precAngle: float;
-         lastAngle: var float) {.importcpp: "Set",
-                              header: "GeomFill_LocationGuide.hxx".}
+         rotat: StandardBoolean; sFirst: StandardReal; sLast: StandardReal;
+         precAngle: StandardReal; lastAngle: var StandardReal) {.importcpp: "Set",
+    header: "GeomFill_LocationGuide.hxx".}
 proc eraseRotation*(this: var GeomFillLocationGuide) {.importcpp: "EraseRotation",
     header: "GeomFill_LocationGuide.hxx".}
 proc setCurve*(this: var GeomFillLocationGuide; c: Handle[Adaptor3dHCurve]) {.
@@ -50,23 +50,26 @@ proc setTrsf*(this: var GeomFillLocationGuide; transfo: Mat) {.importcpp: "SetTr
     header: "GeomFill_LocationGuide.hxx".}
 proc copy*(this: GeomFillLocationGuide): Handle[GeomFillLocationLaw] {.noSideEffect,
     importcpp: "Copy", header: "GeomFill_LocationGuide.hxx".}
-proc d0*(this: var GeomFillLocationGuide; param: float; m: var Mat; v: var Vec): bool {.
+proc d0*(this: var GeomFillLocationGuide; param: StandardReal; m: var Mat; v: var Vec): StandardBoolean {.
     importcpp: "D0", header: "GeomFill_LocationGuide.hxx".}
-proc d0*(this: var GeomFillLocationGuide; param: float; m: var Mat; v: var Vec;
-        poles2d: var TColgpArray1OfPnt2d): bool {.importcpp: "D0",
+proc d0*(this: var GeomFillLocationGuide; param: StandardReal; m: var Mat; v: var Vec;
+        poles2d: var TColgpArray1OfPnt2d): StandardBoolean {.importcpp: "D0",
     header: "GeomFill_LocationGuide.hxx".}
-proc d1*(this: var GeomFillLocationGuide; param: float; m: var Mat; v: var Vec; dm: var Mat;
-        dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
-        dPoles2d: var TColgpArray1OfVec2d): bool {.importcpp: "D1",
+proc d1*(this: var GeomFillLocationGuide; param: StandardReal; m: var Mat; v: var Vec;
+        dm: var Mat; dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
+        dPoles2d: var TColgpArray1OfVec2d): StandardBoolean {.importcpp: "D1",
     header: "GeomFill_LocationGuide.hxx".}
-proc d2*(this: var GeomFillLocationGuide; param: float; m: var Mat; v: var Vec; dm: var Mat;
-        dv: var Vec; d2m: var Mat; d2v: var Vec; poles2d: var TColgpArray1OfPnt2d;
-        dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d): bool {.
-    importcpp: "D2", header: "GeomFill_LocationGuide.hxx".}
-proc hasFirstRestriction*(this: GeomFillLocationGuide): bool {.noSideEffect,
-    importcpp: "HasFirstRestriction", header: "GeomFill_LocationGuide.hxx".}
-proc hasLastRestriction*(this: GeomFillLocationGuide): bool {.noSideEffect,
-    importcpp: "HasLastRestriction", header: "GeomFill_LocationGuide.hxx".}
+proc d2*(this: var GeomFillLocationGuide; param: StandardReal; m: var Mat; v: var Vec;
+        dm: var Mat; dv: var Vec; d2m: var Mat; d2v: var Vec;
+        poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
+        d2Poles2d: var TColgpArray1OfVec2d): StandardBoolean {.importcpp: "D2",
+    header: "GeomFill_LocationGuide.hxx".}
+proc hasFirstRestriction*(this: GeomFillLocationGuide): StandardBoolean {.
+    noSideEffect, importcpp: "HasFirstRestriction",
+    header: "GeomFill_LocationGuide.hxx".}
+proc hasLastRestriction*(this: GeomFillLocationGuide): StandardBoolean {.
+    noSideEffect, importcpp: "HasLastRestriction",
+    header: "GeomFill_LocationGuide.hxx".}
 proc traceNumber*(this: GeomFillLocationGuide): int {.noSideEffect,
     importcpp: "TraceNumber", header: "GeomFill_LocationGuide.hxx".}
 proc errorStatus*(this: GeomFillLocationGuide): GeomFillPipeError {.noSideEffect,
@@ -76,33 +79,38 @@ proc nbIntervals*(this: GeomFillLocationGuide; s: GeomAbsShape): int {.noSideEff
 proc intervals*(this: GeomFillLocationGuide; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
                                 header: "GeomFill_LocationGuide.hxx".}
-proc setInterval*(this: var GeomFillLocationGuide; first: float; last: float) {.
-    importcpp: "SetInterval", header: "GeomFill_LocationGuide.hxx".}
-proc getInterval*(this: GeomFillLocationGuide; first: var float; last: var float) {.
-    noSideEffect, importcpp: "GetInterval", header: "GeomFill_LocationGuide.hxx".}
-proc getDomain*(this: GeomFillLocationGuide; first: var float; last: var float) {.
-    noSideEffect, importcpp: "GetDomain", header: "GeomFill_LocationGuide.hxx".}
-proc setTolerance*(this: var GeomFillLocationGuide; tol3d: float; tol2d: float) {.
-    importcpp: "SetTolerance", header: "GeomFill_LocationGuide.hxx".}
-proc resolution*(this: GeomFillLocationGuide; index: int; tol: float; tolU: var float;
-                tolV: var float) {.noSideEffect, importcpp: "Resolution",
-                                header: "GeomFill_LocationGuide.hxx".}
-proc getMaximalNorm*(this: var GeomFillLocationGuide): float {.
+proc setInterval*(this: var GeomFillLocationGuide; first: StandardReal;
+                 last: StandardReal) {.importcpp: "SetInterval",
+                                     header: "GeomFill_LocationGuide.hxx".}
+proc getInterval*(this: GeomFillLocationGuide; first: var StandardReal;
+                 last: var StandardReal) {.noSideEffect, importcpp: "GetInterval",
+                                        header: "GeomFill_LocationGuide.hxx".}
+proc getDomain*(this: GeomFillLocationGuide; first: var StandardReal;
+               last: var StandardReal) {.noSideEffect, importcpp: "GetDomain",
+                                      header: "GeomFill_LocationGuide.hxx".}
+proc setTolerance*(this: var GeomFillLocationGuide; tol3d: StandardReal;
+                  tol2d: StandardReal) {.importcpp: "SetTolerance",
+                                       header: "GeomFill_LocationGuide.hxx".}
+proc resolution*(this: GeomFillLocationGuide; index: int; tol: StandardReal;
+                tolU: var StandardReal; tolV: var StandardReal) {.noSideEffect,
+    importcpp: "Resolution", header: "GeomFill_LocationGuide.hxx".}
+proc getMaximalNorm*(this: var GeomFillLocationGuide): StandardReal {.
     importcpp: "GetMaximalNorm", header: "GeomFill_LocationGuide.hxx".}
 proc getAverageLaw*(this: var GeomFillLocationGuide; am: var Mat; av: var Vec) {.
     importcpp: "GetAverageLaw", header: "GeomFill_LocationGuide.hxx".}
-proc isTranslation*(this: GeomFillLocationGuide; error: var float): bool {.
+proc isTranslation*(this: GeomFillLocationGuide; error: var StandardReal): StandardBoolean {.
     noSideEffect, importcpp: "IsTranslation", header: "GeomFill_LocationGuide.hxx".}
-proc isRotation*(this: GeomFillLocationGuide; error: var float): bool {.noSideEffect,
-    importcpp: "IsRotation", header: "GeomFill_LocationGuide.hxx".}
+proc isRotation*(this: GeomFillLocationGuide; error: var StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsRotation", header: "GeomFill_LocationGuide.hxx".}
 proc rotation*(this: GeomFillLocationGuide; center: var Pnt) {.noSideEffect,
     importcpp: "Rotation", header: "GeomFill_LocationGuide.hxx".}
 proc section*(this: GeomFillLocationGuide): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Section", header: "GeomFill_LocationGuide.hxx".}
 proc guide*(this: GeomFillLocationGuide): Handle[Adaptor3dHCurve] {.noSideEffect,
     importcpp: "Guide", header: "GeomFill_LocationGuide.hxx".}
-proc setOrigine*(this: var GeomFillLocationGuide; param1: float; param2: float) {.
-    importcpp: "SetOrigine", header: "GeomFill_LocationGuide.hxx".}
+proc setOrigine*(this: var GeomFillLocationGuide; param1: StandardReal;
+                param2: StandardReal) {.importcpp: "SetOrigine",
+                                      header: "GeomFill_LocationGuide.hxx".}
 proc computeAutomaticLaw*(this: GeomFillLocationGuide;
                          parAndRad: var Handle[TColgpHArray1OfPnt2d]): GeomFillPipeError {.
     noSideEffect, importcpp: "ComputeAutomaticLaw",

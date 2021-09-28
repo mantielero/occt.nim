@@ -17,3 +17,28 @@
 type
   BRepBlendSequenceOfLine* = NCollectionSequence[Handle[BRepBlendLine]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   BndArray1OfSphere* = NCollectionArray1[BndSphere]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,20 +61,21 @@ proc setWorldViewProjState*(this: var SelectMgrFrustumBuilder;
 proc worldViewProjState*(this: SelectMgrFrustumBuilder): Graphic3dWorldViewProjState {.
     noSideEffect, importcpp: "WorldViewProjState",
     header: "SelectMgr_FrustumBuilder.hxx".}
-proc setWindowSize*(this: var SelectMgrFrustumBuilder; theWidth: int; theHeight: int) {.
+proc setWindowSize*(this: var SelectMgrFrustumBuilder; theWidth: cint; theHeight: cint) {.
     importcpp: "SetWindowSize", header: "SelectMgr_FrustumBuilder.hxx".}
-proc setViewport*(this: var SelectMgrFrustumBuilder; theX: float; theY: float;
-                 theWidth: float; theHeight: float) {.importcpp: "SetViewport",
+proc setViewport*(this: var SelectMgrFrustumBuilder; theX: cfloat; theY: cfloat;
+                 theWidth: cfloat; theHeight: cfloat) {.importcpp: "SetViewport",
     header: "SelectMgr_FrustumBuilder.hxx".}
 proc invalidateViewport*(this: var SelectMgrFrustumBuilder) {.
     importcpp: "InvalidateViewport", header: "SelectMgr_FrustumBuilder.hxx".}
-proc windowSize*(this: SelectMgrFrustumBuilder; theWidth: var int; theHeight: var int) {.
-    noSideEffect, importcpp: "WindowSize", header: "SelectMgr_FrustumBuilder.hxx".}
+proc windowSize*(this: SelectMgrFrustumBuilder; theWidth: var cint;
+                theHeight: var cint) {.noSideEffect, importcpp: "WindowSize",
+                                    header: "SelectMgr_FrustumBuilder.hxx".}
 proc signedPlanePntDist*(this: SelectMgrFrustumBuilder; theEq: SelectMgrVec3;
-                        thePnt: SelectMgrVec3): float {.noSideEffect,
+                        thePnt: SelectMgrVec3): cfloat {.noSideEffect,
     importcpp: "SignedPlanePntDist", header: "SelectMgr_FrustumBuilder.hxx".}
-proc projectPntOnViewPlane*(this: SelectMgrFrustumBuilder; theX: float; theY: float;
-                           theZ: float): Pnt {.noSideEffect,
+proc projectPntOnViewPlane*(this: SelectMgrFrustumBuilder; theX: cfloat;
+                           theY: cfloat; theZ: cfloat): Pnt {.noSideEffect,
     importcpp: "ProjectPntOnViewPlane", header: "SelectMgr_FrustumBuilder.hxx".}
 type
   SelectMgrFrustumBuilderbaseType* = StandardTransient
@@ -88,5 +89,30 @@ proc dynamicType*(this: SelectMgrFrustumBuilder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "SelectMgr_FrustumBuilder.hxx".}
 discard "forward decl of SelectMgr_FrustumBuilder"
 type
-  HandleSelectMgrFrustumBuilder* = Handle[SelectMgrFrustumBuilder]
+  HandleC1C1* = Handle[SelectMgrFrustumBuilder]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

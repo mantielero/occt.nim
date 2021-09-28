@@ -18,8 +18,7 @@ discard "forward decl of StepFEA_SymmetricTensor42d"
 discard "forward decl of StepFEA_FeaShellBendingStiffness"
 discard "forward decl of StepFEA_FeaShellBendingStiffness"
 type
-  HandleStepFEA_FeaShellBendingStiffness* = Handle[
-      StepFEA_FeaShellBendingStiffness]
+  HandleC1C1* = Handle[StepFEA_FeaShellBendingStiffness]
 
 ## ! Representation of STEP entity FeaShellBendingStiffness
 
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_FeaShellBendingStiffness): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaShellBendingStiffness.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

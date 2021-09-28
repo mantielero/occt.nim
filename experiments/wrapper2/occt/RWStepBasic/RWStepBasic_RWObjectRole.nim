@@ -30,7 +30,7 @@ proc constructRWStepBasicRWObjectRole*(): RWStepBasicRWObjectRole {.constructor,
     importcpp: "RWStepBasic_RWObjectRole(@)",
     header: "RWStepBasic_RWObjectRole.hxx".}
 proc readStep*(this: RWStepBasicRWObjectRole; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicObjectRole]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWObjectRole.hxx".}
 proc writeStep*(this: RWStepBasicRWObjectRole; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepBasicRWObjectRole; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWObjectRole; ent: Handle[StepBasicObjectRole];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWObjectRole.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

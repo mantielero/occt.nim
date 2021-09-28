@@ -35,7 +35,7 @@ proc destroySelectMgrTriangularFrustum*(this: var SelectMgrTriangularFrustum) {.
 proc build*(this: var SelectMgrTriangularFrustum; theP1: Pnt2d; theP2: Pnt2d;
            theP3: Pnt2d) {.importcpp: "Build",
                          header: "SelectMgr_TriangularFrustum.hxx".}
-proc scaleAndTransform*(this: SelectMgrTriangularFrustum; theScale: int;
+proc scaleAndTransform*(this: SelectMgrTriangularFrustum; theScale: cint;
                        theTrsf: GTrsf): Handle[SelectMgrBaseFrustum] {.
     noSideEffect, importcpp: "ScaleAndTransform",
     header: "SelectMgr_TriangularFrustum.hxx".}
@@ -70,8 +70,8 @@ proc getPlanes*(this: SelectMgrTriangularFrustum;
                thePlaneEquations: var NCollectionVector[SelectMgrVec4]) {.
     noSideEffect, importcpp: "GetPlanes", header: "SelectMgr_TriangularFrustum.hxx".}
 proc dumpJson*(this: SelectMgrTriangularFrustum; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "SelectMgr_TriangularFrustum.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "SelectMgr_TriangularFrustum.hxx".}
 type
   SelectMgrTriangularFrustumbaseType* = SelectMgrFrustum[3]
 
@@ -83,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: SelectMgrTriangularFrustum): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "SelectMgr_TriangularFrustum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of ShapeUpgrade_WireDivide"
 discard "forward decl of ShapeUpgrade_WireDivide"
 type
-  HandleShapeUpgradeWireDivide* = Handle[ShapeUpgradeWireDivide]
+  HandleC1C1* = Handle[ShapeUpgradeWireDivide]
 
 ## ! Divides edges in the wire lying on the face or free wires or
 ## ! free edges with a criterion.
@@ -99,7 +99,7 @@ proc getEdgeDivideTool*(this: ShapeUpgradeWireDivide): Handle[
 proc getTransferParamTool*(this: var ShapeUpgradeWireDivide): Handle[
     ShapeAnalysisTransferParameters] {.importcpp: "GetTransferParamTool",
                                       header: "ShapeUpgrade_WireDivide.hxx".}
-proc setEdgeMode*(this: var ShapeUpgradeWireDivide; edgeMode: int) {.
+proc setEdgeMode*(this: var ShapeUpgradeWireDivide; edgeMode: cint) {.
     importcpp: "SetEdgeMode", header: "ShapeUpgrade_WireDivide.hxx".}
 proc setFixSmallCurveTool*(this: var ShapeUpgradeWireDivide; fixSmallCurvesTool: Handle[
     ShapeUpgradeFixSmallCurves]) {.importcpp: "SetFixSmallCurveTool",
@@ -117,3 +117,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeUpgrade_WireDivide.hxx".}
 proc dynamicType*(this: ShapeUpgradeWireDivide): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_WireDivide.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

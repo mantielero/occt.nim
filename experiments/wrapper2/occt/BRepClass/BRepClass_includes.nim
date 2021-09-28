@@ -10,3 +10,28 @@ include BRepClass_FaceExplorer
 include BRepClass_FacePassiveClassifier
 include BRepClass_Intersector
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

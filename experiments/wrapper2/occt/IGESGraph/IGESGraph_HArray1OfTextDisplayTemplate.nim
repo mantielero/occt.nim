@@ -14,35 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESGraphHArray1OfTextDisplayTemplate* {.
-      importcpp: "IGESGraph_HArray1OfTextDisplayTemplate",
-      header: "IGESGraph_HArray1OfTextDisplayTemplate.hxx", bycopy.} = object of IGESGraphArray1OfTextDisplayTemplate
+## !!!Ignored construct:  # IGESGraph_HArray1OfTextDisplayTemplate_HeaderFile [NewLine] # IGESGraph_HArray1OfTextDisplayTemplate_HeaderFile [NewLine] # < IGESGraph_TextDisplayTemplate . hxx > [NewLine] # < IGESGraph_Array1OfTextDisplayTemplate . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESGraph_HArray1OfTextDisplayTemplate , IGESGraph_Array1OfTextDisplayTemplate ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESGraphHArray1OfTextDisplayTemplate*(theLower: int; theUpper: int): IGESGraphHArray1OfTextDisplayTemplate {.
-    constructor, importcpp: "IGESGraph_HArray1OfTextDisplayTemplate(@)",
-    header: "IGESGraph_HArray1OfTextDisplayTemplate.hxx".}
-proc constructIGESGraphHArray1OfTextDisplayTemplate*(theLower: int; theUpper: int;
-    theValue: ValueType): IGESGraphHArray1OfTextDisplayTemplate {.constructor,
-    importcpp: "IGESGraph_HArray1OfTextDisplayTemplate(@)",
-    header: "IGESGraph_HArray1OfTextDisplayTemplate.hxx".}
-proc constructIGESGraphHArray1OfTextDisplayTemplate*(
-    theOther: IGESGraphArray1OfTextDisplayTemplate): IGESGraphHArray1OfTextDisplayTemplate {.
-    constructor, importcpp: "IGESGraph_HArray1OfTextDisplayTemplate(@)",
-    header: "IGESGraph_HArray1OfTextDisplayTemplate.hxx".}
-proc array1*(this: IGESGraphHArray1OfTextDisplayTemplate): IGESGraphArray1OfTextDisplayTemplate {.
-    noSideEffect, importcpp: "Array1",
-    header: "IGESGraph_HArray1OfTextDisplayTemplate.hxx".}
-proc changeArray1*(this: var IGESGraphHArray1OfTextDisplayTemplate): var IGESGraphArray1OfTextDisplayTemplate {.
-    importcpp: "ChangeArray1",
-    header: "IGESGraph_HArray1OfTextDisplayTemplate.hxx".}
-type
-  IGESGraphHArray1OfTextDisplayTemplatebaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESGraph_HArray1OfTextDisplayTemplate::get_type_name(@)", header: "IGESGraph_HArray1OfTextDisplayTemplate.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "IGESGraph_HArray1OfTextDisplayTemplate::get_type_descriptor(@)",
-    header: "IGESGraph_HArray1OfTextDisplayTemplate.hxx".}
-proc dynamicType*(this: IGESGraphHArray1OfTextDisplayTemplate): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESGraph_HArray1OfTextDisplayTemplate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

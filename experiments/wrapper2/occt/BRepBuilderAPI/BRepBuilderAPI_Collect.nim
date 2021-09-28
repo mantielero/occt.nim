@@ -37,3 +37,28 @@ proc modification*(this: BRepBuilderAPI_Collect): TopToolsDataMapOfShapeListOfSh
     noSideEffect, importcpp: "Modification", header: "BRepBuilderAPI_Collect.hxx".}
 proc generated*(this: BRepBuilderAPI_Collect): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, importcpp: "Generated", header: "BRepBuilderAPI_Collect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

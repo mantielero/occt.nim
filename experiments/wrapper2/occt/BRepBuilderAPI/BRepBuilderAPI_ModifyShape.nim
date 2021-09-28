@@ -45,3 +45,28 @@ proc modified*(this: var BRepBuilderAPI_ModifyShape; s: TopoDS_Shape): TopToolsL
 proc modifiedShape*(this: BRepBuilderAPI_ModifyShape; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepBuilderAPI_ModifyShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

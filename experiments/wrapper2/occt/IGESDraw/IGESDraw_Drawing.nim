@@ -24,7 +24,7 @@ discard "forward decl of gp_XYZ"
 discard "forward decl of IGESDraw_Drawing"
 discard "forward decl of IGESDraw_Drawing"
 type
-  HandleIGESDrawDrawing* = Handle[IGESDrawDrawing]
+  HandleC1C1* = Handle[IGESDrawDrawing]
 
 ## ! defines IGESDrawing, Type <404> Form <0>
 ## ! in package IGESDraw
@@ -45,23 +45,23 @@ proc init*(this: var IGESDrawDrawing;
           allViewOrigins: Handle[TColgpHArray1OfXY];
           allAnnotations: Handle[IGESDataHArray1OfIGESEntity]) {.
     importcpp: "Init", header: "IGESDraw_Drawing.hxx".}
-proc nbViews*(this: IGESDrawDrawing): int {.noSideEffect, importcpp: "NbViews",
-                                        header: "IGESDraw_Drawing.hxx".}
-proc viewItem*(this: IGESDrawDrawing; viewIndex: int): Handle[IGESDataViewKindEntity] {.
+proc nbViews*(this: IGESDrawDrawing): cint {.noSideEffect, importcpp: "NbViews",
+    header: "IGESDraw_Drawing.hxx".}
+proc viewItem*(this: IGESDrawDrawing; viewIndex: cint): Handle[IGESDataViewKindEntity] {.
     noSideEffect, importcpp: "ViewItem", header: "IGESDraw_Drawing.hxx".}
-proc viewOrigin*(this: IGESDrawDrawing; tViewIndex: int): Pnt2d {.noSideEffect,
+proc viewOrigin*(this: IGESDrawDrawing; tViewIndex: cint): Pnt2d {.noSideEffect,
     importcpp: "ViewOrigin", header: "IGESDraw_Drawing.hxx".}
-proc nbAnnotations*(this: IGESDrawDrawing): int {.noSideEffect,
+proc nbAnnotations*(this: IGESDrawDrawing): cint {.noSideEffect,
     importcpp: "NbAnnotations", header: "IGESDraw_Drawing.hxx".}
-proc annotation*(this: IGESDrawDrawing; annotationIndex: int): Handle[
+proc annotation*(this: IGESDrawDrawing; annotationIndex: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "Annotation",
                          header: "IGESDraw_Drawing.hxx".}
-proc viewToDrawing*(this: IGESDrawDrawing; numView: int; viewCoords: Xyz): Xy {.
+proc viewToDrawing*(this: IGESDrawDrawing; numView: cint; viewCoords: Xyz): Xy {.
     noSideEffect, importcpp: "ViewToDrawing", header: "IGESDraw_Drawing.hxx".}
-proc drawingUnit*(this: IGESDrawDrawing; value: var float): bool {.noSideEffect,
+proc drawingUnit*(this: IGESDrawDrawing; value: var cfloat): bool {.noSideEffect,
     importcpp: "DrawingUnit", header: "IGESDraw_Drawing.hxx".}
-proc drawingSize*(this: IGESDrawDrawing; x: var float; y: var float): bool {.noSideEffect,
-    importcpp: "DrawingSize", header: "IGESDraw_Drawing.hxx".}
+proc drawingSize*(this: IGESDrawDrawing; x: var cfloat; y: var cfloat): bool {.
+    noSideEffect, importcpp: "DrawingSize", header: "IGESDraw_Drawing.hxx".}
 type
   IGESDrawDrawingbaseType* = IGESDataIGESEntity
 
@@ -72,3 +72,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDraw_Drawing.hxx".}
 proc dynamicType*(this: IGESDrawDrawing): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDraw_Drawing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

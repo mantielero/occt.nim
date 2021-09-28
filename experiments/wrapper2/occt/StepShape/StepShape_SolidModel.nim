@@ -17,7 +17,7 @@
 discard "forward decl of StepShape_SolidModel"
 discard "forward decl of StepShape_SolidModel"
 type
-  HandleStepShapeSolidModel* = Handle[StepShapeSolidModel]
+  HandleC1C1* = Handle[StepShapeSolidModel]
   StepShapeSolidModel* {.importcpp: "StepShape_SolidModel",
                         header: "StepShape_SolidModel.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                               ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_SolidModel.hxx".}
 proc dynamicType*(this: StepShapeSolidModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_SolidModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   InterfaceArray1OfFileParameter* = NCollectionArray1[InterfaceFileParameter]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

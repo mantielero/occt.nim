@@ -21,5 +21,30 @@ type
                                                                     ## ! to the file identified by aFileName using default parameters.
 
 
-proc write*(aShape: TopoDS_Shape; aFileName: StandardCString; aVersion: int = 2): bool {.
+proc write*(aShape: TopoDS_Shape; aFileName: StandardCString; aVersion: cint = 2): bool {.
     importcpp: "VrmlAPI::Write(@)", header: "VrmlAPI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

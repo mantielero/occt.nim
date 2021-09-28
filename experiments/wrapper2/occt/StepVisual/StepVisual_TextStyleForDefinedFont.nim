@@ -18,8 +18,7 @@ discard "forward decl of StepVisual_Colour"
 discard "forward decl of StepVisual_TextStyleForDefinedFont"
 discard "forward decl of StepVisual_TextStyleForDefinedFont"
 type
-  HandleStepVisualTextStyleForDefinedFont* = Handle[
-      StepVisualTextStyleForDefinedFont]
+  HandleC1C1* = Handle[StepVisualTextStyleForDefinedFont]
   StepVisualTextStyleForDefinedFont* {.importcpp: "StepVisual_TextStyleForDefinedFont", header: "StepVisual_TextStyleForDefinedFont.hxx",
                                       bycopy.} = object of StandardTransient ## ! Returns a
                                                                         ## TextStyleForDefinedFont
@@ -48,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualTextStyleForDefinedFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_TextStyleForDefinedFont.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

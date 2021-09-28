@@ -20,11 +20,30 @@ type
                        header: "Standard_Persistent.hxx", bycopy.} = object of StandardTransient
 
 
+proc `new`*(this: var StandardPersistent; theSize: csize_t): pointer {.
+    importcpp: "Standard_Persistent::operator new",
+    header: "Standard_Persistent.hxx".}
+proc `delete`*(this: var StandardPersistent; theAddress: pointer) {.
+    importcpp: "Standard_Persistent::operator delete",
+    header: "Standard_Persistent.hxx".}
+proc `new[]`*(this: var StandardPersistent; theSize: csize_t): pointer {.
+    importcpp: "Standard_Persistent::operator new[]",
+    header: "Standard_Persistent.hxx".}
+proc `delete[]`*(this: var StandardPersistent; theAddress: pointer) {.
+    importcpp: "Standard_Persistent::operator delete[]",
+    header: "Standard_Persistent.hxx".}
+proc `new`*(this: var StandardPersistent; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Standard_Persistent::operator new",
+    header: "Standard_Persistent.hxx".}
+proc `delete`*(this: var StandardPersistent; a2: pointer; a3: pointer) {.
+    importcpp: "Standard_Persistent::operator delete",
+    header: "Standard_Persistent.hxx".}
 proc constructStandardPersistent*(): StandardPersistent {.constructor,
     importcpp: "Standard_Persistent(@)", header: "Standard_Persistent.hxx".}
 type
   StandardPersistentbaseType* = StandardTransient
 
+#[
 proc getTypeName*(): cstring {.importcpp: "Standard_Persistent::get_type_name(@)",
                             header: "Standard_Persistent.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
@@ -34,3 +53,4 @@ proc dynamicType*(this: StandardPersistent): Handle[StandardType] {.noSideEffect
     importcpp: "DynamicType", header: "Standard_Persistent.hxx".}
 proc typeNum*(this: var StandardPersistent): var int {.importcpp: "TypeNum",
     header: "Standard_Persistent.hxx".}
+]#

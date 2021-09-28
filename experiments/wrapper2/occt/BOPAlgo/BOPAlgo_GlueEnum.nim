@@ -57,3 +57,28 @@ type
     BOPAlgoGlueOff, BOPAlgoGlueShift, BOPAlgoGlueFull
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

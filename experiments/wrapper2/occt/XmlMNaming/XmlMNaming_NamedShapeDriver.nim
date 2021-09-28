@@ -20,7 +20,7 @@ discard "forward decl of TopTools_LocationSet"
 discard "forward decl of XmlMNaming_NamedShapeDriver"
 discard "forward decl of XmlMNaming_NamedShapeDriver"
 type
-  HandleXmlMNamingNamedShapeDriver* = Handle[XmlMNamingNamedShapeDriver]
+  HandleC1C1* = Handle[XmlMNamingNamedShapeDriver]
   XmlMNamingNamedShapeDriver* {.importcpp: "XmlMNaming_NamedShapeDriver",
                                header: "XmlMNaming_NamedShapeDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMNamingNamedShapeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMNaming_NamedShapeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

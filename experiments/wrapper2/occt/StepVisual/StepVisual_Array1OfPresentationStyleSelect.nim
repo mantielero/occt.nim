@@ -18,3 +18,28 @@ type
   StepVisualArray1OfPresentationStyleSelect* = NCollectionArray1[
       StepVisualPresentationStyleSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

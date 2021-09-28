@@ -27,13 +27,13 @@ type
 
 proc constructPolyCoherentLink*(): PolyCoherentLink {.constructor,
     importcpp: "Poly_CoherentLink(@)", header: "Poly_CoherentLink.hxx".}
-proc constructPolyCoherentLink*(iNode0: int; iNode1: int): PolyCoherentLink {.
+proc constructPolyCoherentLink*(iNode0: cint; iNode1: cint): PolyCoherentLink {.
     constructor, importcpp: "Poly_CoherentLink(@)", header: "Poly_CoherentLink.hxx".}
-proc constructPolyCoherentLink*(theTri: PolyCoherentTriangle; iSide: int): PolyCoherentLink {.
+proc constructPolyCoherentLink*(theTri: PolyCoherentTriangle; iSide: cint): PolyCoherentLink {.
     constructor, importcpp: "Poly_CoherentLink(@)", header: "Poly_CoherentLink.hxx".}
-proc node*(this: PolyCoherentLink; ind: int): int {.noSideEffect, importcpp: "Node",
+proc node*(this: PolyCoherentLink; ind: cint): cint {.noSideEffect, importcpp: "Node",
     header: "Poly_CoherentLink.hxx".}
-proc oppositeNode*(this: PolyCoherentLink; ind: int): int {.noSideEffect,
+proc oppositeNode*(this: PolyCoherentLink; ind: cint): cint {.noSideEffect,
     importcpp: "OppositeNode", header: "Poly_CoherentLink.hxx".}
 proc getAttribute*(this: PolyCoherentLink): StandardAddress {.noSideEffect,
     importcpp: "GetAttribute", header: "Poly_CoherentLink.hxx".}
@@ -43,3 +43,28 @@ proc isEmpty*(this: PolyCoherentLink): bool {.noSideEffect, importcpp: "IsEmpty"
     header: "Poly_CoherentLink.hxx".}
 proc nullify*(this: var PolyCoherentLink) {.importcpp: "Nullify",
                                         header: "Poly_CoherentLink.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,17 +26,42 @@ type
                                                                        ## intersection line <L> lying on shapes <S1,S2>. <min,max> = <L> bounds
 
 
-proc makeCurves*(min: float; max: float; L: TopOpeBRepLineInter; s1: TopoDS_Shape;
+proc makeCurves*(min: cfloat; max: cfloat; L: TopOpeBRepLineInter; s1: TopoDS_Shape;
                 s2: TopoDS_Shape; c: var TopOpeBRepDS_Curve;
                 pc1: var Handle[Geom2dCurve]; pc2: var Handle[Geom2dCurve]) {.
     importcpp: "TopOpeBRep_GeomTool::MakeCurves(@)",
     header: "TopOpeBRep_GeomTool.hxx".}
-proc makeCurve*(min: float; max: float; L: TopOpeBRepLineInter;
+proc makeCurve*(min: cfloat; max: cfloat; L: TopOpeBRepLineInter;
                c: var Handle[GeomCurve]) {.importcpp: "TopOpeBRep_GeomTool::MakeCurve(@)",
                                         header: "TopOpeBRep_GeomTool.hxx".}
 proc makeBSpline1fromWALKING3d*(L: TopOpeBRepLineInter): Handle[GeomCurve] {.
     importcpp: "TopOpeBRep_GeomTool::MakeBSpline1fromWALKING3d(@)",
     header: "TopOpeBRep_GeomTool.hxx".}
-proc makeBSpline1fromWALKING2d*(L: TopOpeBRepLineInter; si: int): Handle[Geom2dCurve] {.
+proc makeBSpline1fromWALKING2d*(L: TopOpeBRepLineInter; si: cint): Handle[Geom2dCurve] {.
     importcpp: "TopOpeBRep_GeomTool::MakeBSpline1fromWALKING2d(@)",
     header: "TopOpeBRep_GeomTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

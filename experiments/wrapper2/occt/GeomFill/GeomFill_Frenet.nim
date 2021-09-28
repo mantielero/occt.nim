@@ -22,7 +22,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_Frenet"
 discard "forward decl of GeomFill_Frenet"
 type
-  HandleGeomFillFrenet* = Handle[GeomFillFrenet]
+  HandleC1C1* = Handle[GeomFillFrenet]
 
 ## ! Defined Frenet Trihedron  Law
 
@@ -39,14 +39,16 @@ proc init*(this: var GeomFillFrenet) {.importcpp: "Init",
                                    header: "GeomFill_Frenet.hxx".}
 proc setCurve*(this: var GeomFillFrenet; c: Handle[Adaptor3dHCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_Frenet.hxx".}
-proc d0*(this: var GeomFillFrenet; param: float; tangent: var Vec; normal: var Vec;
-        biNormal: var Vec): bool {.importcpp: "D0", header: "GeomFill_Frenet.hxx".}
-proc d1*(this: var GeomFillFrenet; param: float; tangent: var Vec; dTangent: var Vec;
-        normal: var Vec; dNormal: var Vec; biNormal: var Vec; dBiNormal: var Vec): bool {.
-    importcpp: "D1", header: "GeomFill_Frenet.hxx".}
-proc d2*(this: var GeomFillFrenet; param: float; tangent: var Vec; dTangent: var Vec;
-        d2Tangent: var Vec; normal: var Vec; dNormal: var Vec; d2Normal: var Vec;
-        biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
+proc d0*(this: var GeomFillFrenet; param: StandardReal; tangent: var Vec;
+        normal: var Vec; biNormal: var Vec): StandardBoolean {.importcpp: "D0",
+    header: "GeomFill_Frenet.hxx".}
+proc d1*(this: var GeomFillFrenet; param: StandardReal; tangent: var Vec;
+        dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
+        dBiNormal: var Vec): StandardBoolean {.importcpp: "D1",
+    header: "GeomFill_Frenet.hxx".}
+proc d2*(this: var GeomFillFrenet; param: StandardReal; tangent: var Vec;
+        dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
+        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): StandardBoolean {.
     importcpp: "D2", header: "GeomFill_Frenet.hxx".}
 proc nbIntervals*(this: GeomFillFrenet; s: GeomAbsShape): int {.noSideEffect,
     importcpp: "NbIntervals", header: "GeomFill_Frenet.hxx".}
@@ -55,9 +57,9 @@ proc intervals*(this: GeomFillFrenet; t: var TColStdArray1OfReal; s: GeomAbsShap
 proc getAverageLaw*(this: var GeomFillFrenet; aTangent: var Vec; aNormal: var Vec;
                    aBiNormal: var Vec) {.importcpp: "GetAverageLaw",
                                       header: "GeomFill_Frenet.hxx".}
-proc isConstant*(this: GeomFillFrenet): bool {.noSideEffect, importcpp: "IsConstant",
-    header: "GeomFill_Frenet.hxx".}
-proc isOnlyBy3dCurve*(this: GeomFillFrenet): bool {.noSideEffect,
+proc isConstant*(this: GeomFillFrenet): StandardBoolean {.noSideEffect,
+    importcpp: "IsConstant", header: "GeomFill_Frenet.hxx".}
+proc isOnlyBy3dCurve*(this: GeomFillFrenet): StandardBoolean {.noSideEffect,
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_Frenet.hxx".}
 type
   GeomFillFrenetbaseType* = GeomFillTrihedronLaw

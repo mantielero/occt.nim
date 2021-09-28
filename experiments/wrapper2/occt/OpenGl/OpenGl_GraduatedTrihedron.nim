@@ -110,5 +110,30 @@ proc setMinMax*(this: var OpenGlGraduatedTrihedron; theMin: OpenGlVec3;
                theMax: OpenGlVec3) {.importcpp: "SetMinMax",
                                    header: "OpenGl_GraduatedTrihedron.hxx".}
 proc dumpJson*(this: OpenGlGraduatedTrihedron; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_GraduatedTrihedron.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_GraduatedTrihedron.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

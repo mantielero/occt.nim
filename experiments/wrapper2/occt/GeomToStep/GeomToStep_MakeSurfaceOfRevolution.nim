@@ -22,6 +22,23 @@ type
                                       bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeSurfaceOfRevolution; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeSurfaceOfRevolution::operator new",
+    header: "GeomToStep_MakeSurfaceOfRevolution.hxx".}
+proc `delete`*(this: var GeomToStepMakeSurfaceOfRevolution; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeSurfaceOfRevolution::operator delete",
+    header: "GeomToStep_MakeSurfaceOfRevolution.hxx".}
+proc `new[]`*(this: var GeomToStepMakeSurfaceOfRevolution; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeSurfaceOfRevolution::operator new[]",
+    header: "GeomToStep_MakeSurfaceOfRevolution.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeSurfaceOfRevolution; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeSurfaceOfRevolution::operator delete[]",
+    header: "GeomToStep_MakeSurfaceOfRevolution.hxx".}
+proc `new`*(this: var GeomToStepMakeSurfaceOfRevolution; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "GeomToStep_MakeSurfaceOfRevolution::operator new", header: "GeomToStep_MakeSurfaceOfRevolution.hxx".}
+proc `delete`*(this: var GeomToStepMakeSurfaceOfRevolution; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeSurfaceOfRevolution::operator delete",
+    header: "GeomToStep_MakeSurfaceOfRevolution.hxx".}
 proc constructGeomToStepMakeSurfaceOfRevolution*(
     revSurf: Handle[GeomSurfaceOfRevolution]): GeomToStepMakeSurfaceOfRevolution {.
     constructor, importcpp: "GeomToStep_MakeSurfaceOfRevolution(@)",

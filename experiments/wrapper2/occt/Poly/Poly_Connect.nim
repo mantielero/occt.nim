@@ -168,16 +168,41 @@ proc load*(this: var PolyConnect; theTriangulation: Handle[PolyTriangulation]) {
     importcpp: "Load", header: "Poly_Connect.hxx".}
 proc triangulation*(this: PolyConnect): Handle[PolyTriangulation] {.noSideEffect,
     importcpp: "Triangulation", header: "Poly_Connect.hxx".}
-proc triangle*(this: PolyConnect; n: int): int {.noSideEffect, importcpp: "Triangle",
+proc triangle*(this: PolyConnect; n: cint): cint {.noSideEffect, importcpp: "Triangle",
     header: "Poly_Connect.hxx".}
-proc triangles*(this: PolyConnect; t: int; t1: var int; t2: var int; t3: var int) {.
+proc triangles*(this: PolyConnect; t: cint; t1: var cint; t2: var cint; t3: var cint) {.
     noSideEffect, importcpp: "Triangles", header: "Poly_Connect.hxx".}
-proc nodes*(this: PolyConnect; t: int; n1: var int; n2: var int; n3: var int) {.noSideEffect,
-    importcpp: "Nodes", header: "Poly_Connect.hxx".}
-proc initialize*(this: var PolyConnect; n: int) {.importcpp: "Initialize",
+proc nodes*(this: PolyConnect; t: cint; n1: var cint; n2: var cint; n3: var cint) {.
+    noSideEffect, importcpp: "Nodes", header: "Poly_Connect.hxx".}
+proc initialize*(this: var PolyConnect; n: cint) {.importcpp: "Initialize",
     header: "Poly_Connect.hxx".}
 proc more*(this: PolyConnect): bool {.noSideEffect, importcpp: "More",
                                   header: "Poly_Connect.hxx".}
 proc next*(this: var PolyConnect) {.importcpp: "Next", header: "Poly_Connect.hxx".}
-proc value*(this: PolyConnect): int {.noSideEffect, importcpp: "Value",
-                                  header: "Poly_Connect.hxx".}
+proc value*(this: PolyConnect): cint {.noSideEffect, importcpp: "Value",
+                                   header: "Poly_Connect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

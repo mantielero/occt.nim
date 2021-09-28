@@ -17,7 +17,7 @@
 discard "forward decl of Law_Interpol"
 discard "forward decl of Law_Interpol"
 type
-  HandleLawInterpol* = Handle[LawInterpol]
+  HandleC1C1* = Handle[LawInterpol]
 
 ## ! Provides an evolution law that interpolates a set
 ## ! of parameter and value pairs (wi, radi)
@@ -48,13 +48,13 @@ proc constructLawInterpol*(): LawInterpol {.constructor,
     importcpp: "Law_Interpol(@)", header: "Law_Interpol.hxx".}
 proc set*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d;
          periodic: bool = false) {.importcpp: "Set", header: "Law_Interpol.hxx".}
-proc setInRelative*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; ud: float;
-                   uf: float; periodic: bool = false) {.importcpp: "SetInRelative",
+proc setInRelative*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; ud: cfloat;
+                   uf: cfloat; periodic: bool = false) {.importcpp: "SetInRelative",
     header: "Law_Interpol.hxx".}
-proc set*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; dd: float; df: float;
+proc set*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; dd: cfloat; df: cfloat;
          periodic: bool = false) {.importcpp: "Set", header: "Law_Interpol.hxx".}
-proc setInRelative*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; ud: float;
-                   uf: float; dd: float; df: float; periodic: bool = false) {.
+proc setInRelative*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; ud: cfloat;
+                   uf: cfloat; dd: cfloat; df: cfloat; periodic: bool = false) {.
     importcpp: "SetInRelative", header: "Law_Interpol.hxx".}
 type
   LawInterpolbaseType* = LawBSpFunc
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Law_Interpol::get_type_descriptor(@)", header: "Law_Interpol.hxx".}
 proc dynamicType*(this: LawInterpol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_Interpol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

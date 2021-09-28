@@ -28,7 +28,7 @@ type
 proc constructStepAP214AutoDesignDatedItem*(): StepAP214AutoDesignDatedItem {.
     constructor, importcpp: "StepAP214_AutoDesignDatedItem(@)",
     header: "StepAP214_AutoDesignDatedItem.hxx".}
-proc caseNum*(this: StepAP214AutoDesignDatedItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP214AutoDesignDatedItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_AutoDesignDatedItem.hxx".}
 proc approvalPersonOrganization*(this: StepAP214AutoDesignDatedItem): Handle[
     StepBasicApprovalPersonOrganization] {.noSideEffect,
@@ -42,3 +42,28 @@ proc productDefinitionEffectivity*(this: StepAP214AutoDesignDatedItem): Handle[
     StepBasicProductDefinitionEffectivity] {.noSideEffect,
     importcpp: "ProductDefinitionEffectivity",
     header: "StepAP214_AutoDesignDatedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

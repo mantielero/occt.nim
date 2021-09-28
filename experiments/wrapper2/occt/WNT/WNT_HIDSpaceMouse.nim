@@ -115,3 +115,28 @@ proc keyState*(this: WNT_HIDSpaceMouse): uint32T {.noSideEffect,
     importcpp: "KeyState", header: "WNT_HIDSpaceMouse.hxx".}
 proc hidToSpaceKey*(this: WNT_HIDSpaceMouse; theKeyBit: cushort): AspectVKey {.
     noSideEffect, importcpp: "HidToSpaceKey", header: "WNT_HIDSpaceMouse.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

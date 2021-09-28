@@ -38,3 +38,28 @@ proc nextDocument*(this: var CDF_DirectoryIterator) {.importcpp: "NextDocument",
     header: "CDF_DirectoryIterator.hxx".}
 proc document*(this: var CDF_DirectoryIterator): Handle[CDM_Document] {.
     importcpp: "Document", header: "CDF_DirectoryIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

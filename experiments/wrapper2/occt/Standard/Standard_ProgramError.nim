@@ -14,16 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_ProgramError_HeaderFile [NewLine] # _Standard_ProgramError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Standard_ProgramError ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_ProgramError"
 discard "forward decl of Standard_ProgramError"
 type
-  HandleStandardProgramErrorStandardProgramError* = Handle[StandardProgramError]
+  HandleC1C1* = Handle[StandardProgramError]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_ProgramError [NewLine] # if ( CONDITION ) throw Standard_ProgramError ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardProgramError):
+  template standardProgramErrorRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardProgramError*(a1: Message): Throw {.
+          importcpp: "Standard_ProgramError(@)",
+          header: "Standard_ProgramError.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_ProgramError , Standard_Failure ) #  _Standard_ProgramError_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+type
+  StandardProgramError* {.importcpp: "Standard_ProgramError",
+                         header: "Standard_ProgramError.hxx", bycopy.} = object of StandardFailure
 

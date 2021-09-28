@@ -20,3 +20,28 @@ type
     OSD_ReadOnly, OSD_WriteOnly, OSD_ReadWrite
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

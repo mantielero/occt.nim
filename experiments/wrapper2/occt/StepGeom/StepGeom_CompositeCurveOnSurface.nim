@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_CompositeCurveOnSurface"
 discard "forward decl of StepGeom_CompositeCurveOnSurface"
 type
-  HandleStepGeomCompositeCurveOnSurface* = Handle[StepGeomCompositeCurveOnSurface]
+  HandleC1C1* = Handle[StepGeomCompositeCurveOnSurface]
   StepGeomCompositeCurveOnSurface* {.importcpp: "StepGeom_CompositeCurveOnSurface", header: "StepGeom_CompositeCurveOnSurface.hxx",
                                     bycopy.} = object of StepGeomCompositeCurve ## !
                                                                            ## Returns a
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomCompositeCurveOnSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_CompositeCurveOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,123 +14,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IGESData_IGESWriter"
+## !!!Ignored construct:  # _IGESSelect_FileModifier_HeaderFile [NewLine] # _IGESSelect_FileModifier_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < IFSelect_GeneralModifier . hxx > [NewLine] class IGESData_IGESWriter ;
+## Error: expected ';'!!!
+
 discard "forward decl of IFSelect_ContextWrite"
 discard "forward decl of IGESSelect_FileModifier"
-discard "forward decl of IGESSelect_FileModifier"
-type
-  HandleIGESSelectFileModifier* = Handle[IGESSelectFileModifier]
-  IGESSelectFileModifier* {.importcpp: "IGESSelect_FileModifier",
-                           header: "IGESSelect_FileModifier.hxx", bycopy.} = object of IFSelectGeneralModifier ##
-                                                                                                        ## !
-                                                                                                        ## Perform
-                                                                                                        ## the
-                                                                                                        ## action
-                                                                                                        ## specific
-                                                                                                        ## to
-                                                                                                        ## each
-                                                                                                        ## class
-                                                                                                        ## of
-                                                                                                        ## File
-                                                                                                        ## Modifier
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## <ctx>
-                                                                                                        ## is
-                                                                                                        ## the
-                                                                                                        ## ContextWrite,
-                                                                                                        ## which
-                                                                                                        ## brings
-                                                                                                        ## :
-                                                                                                        ## the
-                                                                                                        ## model,
-                                                                                                        ## the
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## protocol,
-                                                                                                        ## the
-                                                                                                        ## file
-                                                                                                        ## name,
-                                                                                                        ## plus
-                                                                                                        ## the
-                                                                                                        ## object
-                                                                                                        ## AppliedModifiers
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## (not
-                                                                                                        ## used
-                                                                                                        ## here)
-                                                                                                        ## and
-                                                                                                        ## the
-                                                                                                        ## CheckList
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Remark
-                                                                                                        ## that
-                                                                                                        ## the
-                                                                                                        ## model
-                                                                                                        ## has
-                                                                                                        ## to
-                                                                                                        ## be
-                                                                                                        ## casted
-                                                                                                        ## for
-                                                                                                        ## specific
-                                                                                                        ## access
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## <writer>
-                                                                                                        ## is
-                                                                                                        ## the
-                                                                                                        ## Writer
-                                                                                                        ## and
-                                                                                                        ## is
-                                                                                                        ## specific
-                                                                                                        ## to
-                                                                                                        ## each
-                                                                                                        ## norm,
-                                                                                                        ## on
-                                                                                                        ## which
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## to
-                                                                                                        ## act
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Sets
-                                                                                                        ## a
-                                                                                                        ## File
-                                                                                                        ## Modifier
-                                                                                                        ## to
-                                                                                                        ## keep
-                                                                                                        ## the
-                                                                                                        ## graph
-                                                                                                        ## of
-                                                                                                        ## dependences
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## unchanges
-                                                                                                        ## (because
-                                                                                                        ## it
-                                                                                                        ## works
-                                                                                                        ## on
-                                                                                                        ## the
-                                                                                                        ## model
-                                                                                                        ## already
-                                                                                                        ## produced)
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( IGESSelect_FileModifier , IFSelect_GeneralModifier ) class IGESSelect_FileModifier : public IFSelect_GeneralModifier { public : ! Perform the action specific to each class of File Modifier
+## ! <ctx> is the ContextWrite, which brings : the model, the
+## ! protocol, the file name, plus the object AppliedModifiers
+## ! (not used here) and the CheckList
+## ! Remark that the model has to be casted for specific access
+## !
+## ! <writer> is the Writer and is specific to each norm, on which
+## ! to act virtual void Perform ( IFSelect_ContextWrite & ctx , IGESData_IGESWriter & writer ) const = 0 ; public : typedef IFSelect_GeneralModifier base_type ; static const char * get_type_name ( ) { return IGESSelect_FileModifier ; ( IGESSelect_FileModifier , IFSelect_GeneralModifier ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < IGESSelect_FileModifier > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : ! Sets a File Modifier to keep the graph of dependences
+## ! unchanges (because it works on the model already produced) IGESSelect_FileModifier ( ) ; private : } ;
+## Error: expected ';'!!!
 
 
-proc perform*(this: IGESSelectFileModifier; ctx: var IFSelectContextWrite;
-             writer: var IGESDataIGESWriter) {.noSideEffect, importcpp: "Perform",
-    header: "IGESSelect_FileModifier.hxx".}
-type
-  IGESSelectFileModifierbaseType* = IFSelectGeneralModifier
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_FileModifier::get_type_name(@)",
-                            header: "IGESSelect_FileModifier.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESSelect_FileModifier::get_type_descriptor(@)",
-    header: "IGESSelect_FileModifier.hxx".}
-proc dynamicType*(this: IGESSelectFileModifier): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESSelect_FileModifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESDefs_AttributeTable"
 discard "forward decl of IGESDefs_AttributeTable"
 type
-  HandleIGESDefsAttributeTable* = Handle[IGESDefsAttributeTable]
+  HandleC1C1* = Handle[IGESDefsAttributeTable]
 
 ## ! defines IGES Attribute Table, Type <422> Form <0, 1>
 ## ! in package IGESDefs
@@ -46,33 +46,32 @@ proc setDefinition*(this: var IGESDefsAttributeTable;
     importcpp: "SetDefinition", header: "IGESDefs_AttributeTable.hxx".}
 proc definition*(this: IGESDefsAttributeTable): Handle[IGESDefsAttributeDef] {.
     noSideEffect, importcpp: "Definition", header: "IGESDefs_AttributeTable.hxx".}
-proc nbRows*(this: IGESDefsAttributeTable): int {.noSideEffect, importcpp: "NbRows",
+proc nbRows*(this: IGESDefsAttributeTable): cint {.noSideEffect, importcpp: "NbRows",
     header: "IGESDefs_AttributeTable.hxx".}
-proc nbAttributes*(this: IGESDefsAttributeTable): int {.noSideEffect,
+proc nbAttributes*(this: IGESDefsAttributeTable): cint {.noSideEffect,
     importcpp: "NbAttributes", header: "IGESDefs_AttributeTable.hxx".}
-proc dataType*(this: IGESDefsAttributeTable; atnum: int): int {.noSideEffect,
+proc dataType*(this: IGESDefsAttributeTable; atnum: cint): cint {.noSideEffect,
     importcpp: "DataType", header: "IGESDefs_AttributeTable.hxx".}
-proc valueCount*(this: IGESDefsAttributeTable; atnum: int): int {.noSideEffect,
+proc valueCount*(this: IGESDefsAttributeTable; atnum: cint): cint {.noSideEffect,
     importcpp: "ValueCount", header: "IGESDefs_AttributeTable.hxx".}
-proc attributeList*(this: IGESDefsAttributeTable; attribnum: int; rownum: int): Handle[
+proc attributeList*(this: IGESDefsAttributeTable; attribnum: cint; rownum: cint): Handle[
     StandardTransient] {.noSideEffect, importcpp: "AttributeList",
                         header: "IGESDefs_AttributeTable.hxx".}
-proc attributeAsInteger*(this: IGESDefsAttributeTable; atNum: int; rownum: int;
-                        valNum: int): int {.noSideEffect,
+proc attributeAsInteger*(this: IGESDefsAttributeTable; atNum: cint; rownum: cint;
+                        valNum: cint): cint {.noSideEffect,
     importcpp: "AttributeAsInteger", header: "IGESDefs_AttributeTable.hxx".}
-proc attributeAsReal*(this: IGESDefsAttributeTable; atNum: int; rownum: int;
-                     valNum: int): float {.noSideEffect,
-                                        importcpp: "AttributeAsReal",
-                                        header: "IGESDefs_AttributeTable.hxx".}
-proc attributeAsString*(this: IGESDefsAttributeTable; atNum: int; rownum: int;
-                       valNum: int): Handle[TCollectionHAsciiString] {.
+proc attributeAsReal*(this: IGESDefsAttributeTable; atNum: cint; rownum: cint;
+                     valNum: cint): cfloat {.noSideEffect,
+    importcpp: "AttributeAsReal", header: "IGESDefs_AttributeTable.hxx".}
+proc attributeAsString*(this: IGESDefsAttributeTable; atNum: cint; rownum: cint;
+                       valNum: cint): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "AttributeAsString",
     header: "IGESDefs_AttributeTable.hxx".}
-proc attributeAsEntity*(this: IGESDefsAttributeTable; atNum: int; rownum: int;
-                       valNum: int): Handle[IGESDataIGESEntity] {.noSideEffect,
+proc attributeAsEntity*(this: IGESDefsAttributeTable; atNum: cint; rownum: cint;
+                       valNum: cint): Handle[IGESDataIGESEntity] {.noSideEffect,
     importcpp: "AttributeAsEntity", header: "IGESDefs_AttributeTable.hxx".}
-proc attributeAsLogical*(this: IGESDefsAttributeTable; atNum: int; rownum: int;
-                        valNum: int): bool {.noSideEffect,
+proc attributeAsLogical*(this: IGESDefsAttributeTable; atNum: cint; rownum: cint;
+                        valNum: cint): bool {.noSideEffect,
     importcpp: "AttributeAsLogical", header: "IGESDefs_AttributeTable.hxx".}
 type
   IGESDefsAttributeTablebaseType* = IGESDataIGESEntity
@@ -84,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDefs_AttributeTable.hxx".}
 proc dynamicType*(this: IGESDefsAttributeTable): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDefs_AttributeTable.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

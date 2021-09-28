@@ -16,3 +16,28 @@
 type
   MessageListOfAlert* = NCollectionList[Handle[MessageAlert]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

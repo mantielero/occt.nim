@@ -15,18 +15,43 @@
 
 type
   FSD_FileHeader* {.importcpp: "FSD_FileHeader", header: "FSD_FileHeader.hxx", bycopy.} = object
-    testindian* {.importc: "testindian".}: int
-    binfo* {.importc: "binfo".}: int
-    einfo* {.importc: "einfo".}: int
-    bcomment* {.importc: "bcomment".}: int
-    ecomment* {.importc: "ecomment".}: int
-    btype* {.importc: "btype".}: int
-    etype* {.importc: "etype".}: int
-    broot* {.importc: "broot".}: int
-    eroot* {.importc: "eroot".}: int
-    bref* {.importc: "bref".}: int
-    eref* {.importc: "eref".}: int
-    bdata* {.importc: "bdata".}: int
-    edata* {.importc: "edata".}: int
+    testindian* {.importc: "testindian".}: cint
+    binfo* {.importc: "binfo".}: cint
+    einfo* {.importc: "einfo".}: cint
+    bcomment* {.importc: "bcomment".}: cint
+    ecomment* {.importc: "ecomment".}: cint
+    btype* {.importc: "btype".}: cint
+    etype* {.importc: "etype".}: cint
+    broot* {.importc: "broot".}: cint
+    eroot* {.importc: "eroot".}: cint
+    bref* {.importc: "bref".}: cint
+    eref* {.importc: "eref".}: cint
+    bdata* {.importc: "bdata".}: cint
+    edata* {.importc: "edata".}: cint
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -19,7 +19,7 @@ discard "forward decl of StepVisual_PresentationSet"
 discard "forward decl of StepVisual_AreaInSet"
 discard "forward decl of StepVisual_AreaInSet"
 type
-  HandleStepVisualAreaInSet* = Handle[StepVisualAreaInSet]
+  HandleC1C1* = Handle[StepVisualAreaInSet]
   StepVisualAreaInSet* {.importcpp: "StepVisual_AreaInSet",
                         header: "StepVisual_AreaInSet.hxx", bycopy.} = object of StandardTransient ##
                                                                                             ## !
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_AreaInSet.hxx".}
 proc dynamicType*(this: StepVisualAreaInSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_AreaInSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

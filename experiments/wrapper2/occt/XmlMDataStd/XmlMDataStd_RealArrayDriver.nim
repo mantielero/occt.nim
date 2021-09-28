@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_RealArrayDriver"
 discard "forward decl of XmlMDataStd_RealArrayDriver"
 type
-  HandleXmlMDataStdRealArrayDriver* = Handle[XmlMDataStdRealArrayDriver]
+  HandleC1C1* = Handle[XmlMDataStdRealArrayDriver]
 
 ## ! Attribute Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataStdRealArrayDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_RealArrayDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

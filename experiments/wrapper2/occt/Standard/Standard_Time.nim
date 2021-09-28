@@ -16,10 +16,11 @@
 ##     - IsEqual
 ##  ===============================================
 
+#[
 when not defined(QNX):      ##  same as Standard_Size
   ##  ------------------------------------------------------------------
   ##  IsEqual : Returns Standard_True if two time values are equal
   ##  ------------------------------------------------------------------
-  proc isEqual*(theOne: StandardTime; theTwo: StandardTime): bool =
+  proc isEqual*(theOne: StandardTime; theTwo: StandardTime): StandardBoolean =
     discard
-  
+]#

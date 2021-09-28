@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MAT_DataMapOfIntegerBasicElt* = NCollectionDataMap[int, Handle[MAT_BasicElt],
+  MAT_DataMapOfIntegerBasicElt* = NCollectionDataMap[cint, Handle[MAT_BasicElt],
       TColStdMapIntegerHasher]
-  MAT_DataMapIteratorOfDataMapOfIntegerBasicElt* = Iterator[int,
+  MAT_DataMapIteratorOfDataMapOfIntegerBasicElt* = Iterator[cint,
       Handle[MAT_BasicElt], TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_VersionedActionRequest"
 discard "forward decl of StepBasic_VersionedActionRequest"
 type
-  HandleStepBasicVersionedActionRequest* = Handle[StepBasicVersionedActionRequest]
+  HandleC1C1* = Handle[StepBasicVersionedActionRequest]
 
 ## ! Representation of STEP entity VersionedActionRequest
 
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicVersionedActionRequest): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_VersionedActionRequest.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   IntPolyhSeqOfStartPoints* = NCollectionSequence[IntPolyhStartPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

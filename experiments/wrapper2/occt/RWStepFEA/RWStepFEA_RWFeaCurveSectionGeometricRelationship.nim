@@ -32,7 +32,7 @@ proc constructRWStepFEA_RWFeaCurveSectionGeometricRelationship*(): RWStepFEA_RWF
     importcpp: "RWStepFEA_RWFeaCurveSectionGeometricRelationship(@)",
     header: "RWStepFEA_RWFeaCurveSectionGeometricRelationship.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaCurveSectionGeometricRelationship;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaCurveSectionGeometricRelationship]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -46,3 +46,28 @@ proc share*(this: RWStepFEA_RWFeaCurveSectionGeometricRelationship;
            ent: Handle[StepFEA_FeaCurveSectionGeometricRelationship];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaCurveSectionGeometricRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

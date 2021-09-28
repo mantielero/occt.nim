@@ -59,3 +59,28 @@ proc aDD_LISTOFLoopTO_LISTOFLoop*(this: TopOpeBRepBuildArea1dBuilder;
 proc dumpList*(L: TopOpeBRepBuildListOfLoop) {.
     importcpp: "TopOpeBRepBuild_Area1dBuilder::DumpList(@)",
     header: "TopOpeBRepBuild_Area1dBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

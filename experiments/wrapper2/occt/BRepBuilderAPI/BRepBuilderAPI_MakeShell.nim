@@ -68,13 +68,13 @@ proc constructBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface];
                                        segment: bool = false): BRepBuilderAPI_MakeShell {.
     constructor, importcpp: "BRepBuilderAPI_MakeShell(@)",
     header: "BRepBuilderAPI_MakeShell.hxx".}
-proc constructBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; uMin: float;
-                                       uMax: float; vMin: float; vMax: float;
+proc constructBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; uMin: cfloat;
+                                       uMax: cfloat; vMin: cfloat; vMax: cfloat;
                                        segment: bool = false): BRepBuilderAPI_MakeShell {.
     constructor, importcpp: "BRepBuilderAPI_MakeShell(@)",
     header: "BRepBuilderAPI_MakeShell.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeShell; s: Handle[GeomSurface]; uMin: float;
-          uMax: float; vMin: float; vMax: float; segment: bool = false) {.
+proc init*(this: var BRepBuilderAPI_MakeShell; s: Handle[GeomSurface]; uMin: cfloat;
+          uMax: cfloat; vMin: cfloat; vMax: cfloat; segment: bool = false) {.
     importcpp: "Init", header: "BRepBuilderAPI_MakeShell.hxx".}
 proc isDone*(this: BRepBuilderAPI_MakeShell): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepBuilderAPI_MakeShell.hxx".}
@@ -85,3 +85,28 @@ proc shell*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.noSideEffect,
 converter `topoDS_Shell`*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.
     noSideEffect, importcpp: "BRepBuilderAPI_MakeShell::operator TopoDS_Shell",
     header: "BRepBuilderAPI_MakeShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

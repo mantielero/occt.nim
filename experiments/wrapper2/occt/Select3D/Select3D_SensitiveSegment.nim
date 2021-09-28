@@ -70,7 +70,7 @@ proc startPoint*(this: Select3D_SensitiveSegment): Pnt {.noSideEffect,
     importcpp: "StartPoint", header: "Select3D_SensitiveSegment.hxx".}
 proc endPoint*(this: Select3D_SensitiveSegment): Pnt {.noSideEffect,
     importcpp: "EndPoint", header: "Select3D_SensitiveSegment.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveSegment): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitiveSegment): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitiveSegment.hxx".}
 proc getConnected*(this: var Select3D_SensitiveSegment): Handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
@@ -90,9 +90,34 @@ proc startPoint*(this: var Select3D_SensitiveSegment; thePnt: Pnt) {.
 proc endPoint*(this: var Select3D_SensitiveSegment; thePnt: Pnt) {.
     importcpp: "EndPoint", header: "Select3D_SensitiveSegment.hxx".}
 proc dumpJson*(this: Select3D_SensitiveSegment; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Select3D_SensitiveSegment.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Select3D_SensitiveSegment.hxx".}
 discard "forward decl of Select3D_SensitiveSegment"
 type
-  HandleSelect3D_SensitiveSegment* = Handle[Select3D_SensitiveSegment]
+  HandleC1C1* = Handle[Select3D_SensitiveSegment]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -31,11 +31,36 @@ proc destroyBVH_Set*[T; N: static[cint]](this: var BVH_Set[T, N]) {.
     importcpp: "#.~BVH_Set()", header: "BVH_Set.hxx".}
 proc box*[T; N: static[cint]](this: BVH_Set[T, N]): BVH_Box[T, N] {.noSideEffect,
     importcpp: "Box", header: "BVH_Set.hxx".}
-proc size*[T; N: static[cint]](this: BVH_Set[T, N]): int {.noSideEffect,
+proc size*[T; N: static[cint]](this: BVH_Set[T, N]): cint {.noSideEffect,
     importcpp: "Size", header: "BVH_Set.hxx".}
-proc box*[T; N: static[cint]](this: BVH_Set[T, N]; theIndex: int): BVH_Box[T, N] {.
+proc box*[T; N: static[cint]](this: BVH_Set[T, N]; theIndex: cint): BVH_Box[T, N] {.
     noSideEffect, importcpp: "Box", header: "BVH_Set.hxx".}
-proc center*[T; N: static[cint]](this: BVH_Set[T, N]; theIndex: int; theAxis: int): T {.
+proc center*[T; N: static[cint]](this: BVH_Set[T, N]; theIndex: cint; theAxis: cint): T {.
     noSideEffect, importcpp: "Center", header: "BVH_Set.hxx".}
-proc swap*[T; N: static[cint]](this: var BVH_Set[T, N]; theIndex1: int; theIndex2: int) {.
+proc swap*[T; N: static[cint]](this: var BVH_Set[T, N]; theIndex1: cint; theIndex2: cint) {.
     importcpp: "Swap", header: "BVH_Set.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

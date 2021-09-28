@@ -30,23 +30,23 @@ proc isWithTriangles*(this: BinToolsShapeSet): bool {.noSideEffect,
     importcpp: "IsWithTriangles", header: "BinTools_ShapeSet.hxx".}
 proc setWithTriangles*(this: var BinToolsShapeSet; isWithTriangles: bool) {.
     importcpp: "SetWithTriangles", header: "BinTools_ShapeSet.hxx".}
-proc setFormatNb*(this: var BinToolsShapeSet; theFormatNb: int) {.
+proc setFormatNb*(this: var BinToolsShapeSet; theFormatNb: cint) {.
     importcpp: "SetFormatNb", header: "BinTools_ShapeSet.hxx".}
-proc formatNb*(this: BinToolsShapeSet): int {.noSideEffect, importcpp: "FormatNb",
+proc formatNb*(this: BinToolsShapeSet): cint {.noSideEffect, importcpp: "FormatNb",
     header: "BinTools_ShapeSet.hxx".}
 proc clear*(this: var BinToolsShapeSet) {.importcpp: "Clear",
                                       header: "BinTools_ShapeSet.hxx".}
-proc add*(this: var BinToolsShapeSet; s: TopoDS_Shape): int {.importcpp: "Add",
+proc add*(this: var BinToolsShapeSet; s: TopoDS_Shape): cint {.importcpp: "Add",
     header: "BinTools_ShapeSet.hxx".}
-proc shape*(this: BinToolsShapeSet; i: int): TopoDS_Shape {.noSideEffect,
+proc shape*(this: BinToolsShapeSet; i: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BinTools_ShapeSet.hxx".}
-proc index*(this: BinToolsShapeSet; s: TopoDS_Shape): int {.noSideEffect,
+proc index*(this: BinToolsShapeSet; s: TopoDS_Shape): cint {.noSideEffect,
     importcpp: "Index", header: "BinTools_ShapeSet.hxx".}
 proc locations*(this: BinToolsShapeSet): BinToolsLocationSet {.noSideEffect,
     importcpp: "Locations", header: "BinTools_ShapeSet.hxx".}
 proc changeLocations*(this: var BinToolsShapeSet): var BinToolsLocationSet {.
     importcpp: "ChangeLocations", header: "BinTools_ShapeSet.hxx".}
-proc nbShapes*(this: BinToolsShapeSet): int {.noSideEffect, importcpp: "NbShapes",
+proc nbShapes*(this: BinToolsShapeSet): cint {.noSideEffect, importcpp: "NbShapes",
     header: "BinTools_ShapeSet.hxx".}
 proc write*(this: BinToolsShapeSet; os: var StandardOStream;
            theRange: MessageProgressRange = messageProgressRange()) {.noSideEffect,
@@ -63,8 +63,8 @@ proc readGeometry*(this: var BinToolsShapeSet; `is`: var StandardIStream;
                   theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "ReadGeometry", header: "BinTools_ShapeSet.hxx".}
 proc read*(this: BinToolsShapeSet; s: var TopoDS_Shape; `is`: var StandardIStream;
-          nbShapes: int) {.noSideEffect, importcpp: "Read",
-                         header: "BinTools_ShapeSet.hxx".}
+          nbShapes: cint) {.noSideEffect, importcpp: "Read",
+                          header: "BinTools_ShapeSet.hxx".}
 proc writeGeometry*(this: BinToolsShapeSet; s: TopoDS_Shape; os: var StandardOStream) {.
     noSideEffect, importcpp: "WriteGeometry", header: "BinTools_ShapeSet.hxx".}
 proc readGeometry*(this: var BinToolsShapeSet; t: TopAbsShapeEnum;
@@ -92,3 +92,28 @@ proc readPolygonOnTriangulation*(this: var BinToolsShapeSet;
 proc writePolygonOnTriangulation*(this: BinToolsShapeSet; os: var StandardOStream;
     theRange: MessageProgressRange = messageProgressRange()) {.noSideEffect,
     importcpp: "WritePolygonOnTriangulation", header: "BinTools_ShapeSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

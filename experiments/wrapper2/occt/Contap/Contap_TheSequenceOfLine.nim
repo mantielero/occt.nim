@@ -17,3 +17,28 @@
 type
   ContapTheSequenceOfLine* = NCollectionSequence[ContapLine]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

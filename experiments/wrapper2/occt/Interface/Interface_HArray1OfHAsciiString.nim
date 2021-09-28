@@ -14,35 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  InterfaceHArray1OfHAsciiString* {.importcpp: "Interface_HArray1OfHAsciiString", header: "Interface_HArray1OfHAsciiString.hxx",
-                                   bycopy.} = object of InterfaceArray1OfHAsciiString
+## !!!Ignored construct:  # Interface_HArray1OfHAsciiString_HeaderFile [NewLine] # Interface_HArray1OfHAsciiString_HeaderFile [NewLine] # < TCollection_HAsciiString . hxx > [NewLine] # < Interface_Array1OfHAsciiString . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( Interface_HArray1OfHAsciiString , Interface_Array1OfHAsciiString ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructInterfaceHArray1OfHAsciiString*(theLower: int; theUpper: int): InterfaceHArray1OfHAsciiString {.
-    constructor, importcpp: "Interface_HArray1OfHAsciiString(@)",
-    header: "Interface_HArray1OfHAsciiString.hxx".}
-proc constructInterfaceHArray1OfHAsciiString*(theLower: int; theUpper: int;
-    theValue: ValueType): InterfaceHArray1OfHAsciiString {.constructor,
-    importcpp: "Interface_HArray1OfHAsciiString(@)",
-    header: "Interface_HArray1OfHAsciiString.hxx".}
-proc constructInterfaceHArray1OfHAsciiString*(
-    theOther: InterfaceArray1OfHAsciiString): InterfaceHArray1OfHAsciiString {.
-    constructor, importcpp: "Interface_HArray1OfHAsciiString(@)",
-    header: "Interface_HArray1OfHAsciiString.hxx".}
-proc array1*(this: InterfaceHArray1OfHAsciiString): InterfaceArray1OfHAsciiString {.
-    noSideEffect, importcpp: "Array1",
-    header: "Interface_HArray1OfHAsciiString.hxx".}
-proc changeArray1*(this: var InterfaceHArray1OfHAsciiString): var InterfaceArray1OfHAsciiString {.
-    importcpp: "ChangeArray1", header: "Interface_HArray1OfHAsciiString.hxx".}
-type
-  InterfaceHArray1OfHAsciiStringbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "Interface_HArray1OfHAsciiString::get_type_name(@)",
-                            header: "Interface_HArray1OfHAsciiString.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Interface_HArray1OfHAsciiString::get_type_descriptor(@)",
-    header: "Interface_HArray1OfHAsciiString.hxx".}
-proc dynamicType*(this: InterfaceHArray1OfHAsciiString): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "Interface_HArray1OfHAsciiString.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

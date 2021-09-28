@@ -53,5 +53,30 @@ proc ownCopy*(this: IGESDrawToolPlanar; entfrom: Handle[IGESDrawPlanar];
              entto: Handle[IGESDrawPlanar]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolPlanar.hxx".}
 proc ownDump*(this: IGESDrawToolPlanar; ent: Handle[IGESDrawPlanar];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolPlanar.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

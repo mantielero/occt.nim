@@ -27,7 +27,7 @@ type
 proc constructRWStepShapeRWSubedge*(): RWStepShapeRWSubedge {.constructor,
     importcpp: "RWStepShape_RWSubedge(@)", header: "RWStepShape_RWSubedge.hxx".}
 proc readStep*(this: RWStepShapeRWSubedge; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeSubedge]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepShape_RWSubedge.hxx".}
 proc writeStep*(this: RWStepShapeRWSubedge; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepShapeRWSubedge; sw: var StepDataStepWriter;
 proc share*(this: RWStepShapeRWSubedge; ent: Handle[StepShapeSubedge];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWSubedge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

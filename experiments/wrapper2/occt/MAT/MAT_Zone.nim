@@ -20,7 +20,7 @@ discard "forward decl of MAT_Node"
 discard "forward decl of MAT_Zone"
 discard "forward decl of MAT_Zone"
 type
-  HandleMAT_Zone* = Handle[MAT_Zone]
+  HandleC1C1* = Handle[MAT_Zone]
 
 ## ! Definition of Zone of Proximity of a BasicElt :
 ## ! ----------------------------------------------
@@ -37,9 +37,9 @@ proc constructMAT_Zone*(aBasicElt: Handle[MAT_BasicElt]): MAT_Zone {.constructor
     importcpp: "MAT_Zone(@)", header: "MAT_Zone.hxx".}
 proc perform*(this: var MAT_Zone; aBasicElt: Handle[MAT_BasicElt]) {.
     importcpp: "Perform", header: "MAT_Zone.hxx".}
-proc numberOfArcs*(this: MAT_Zone): int {.noSideEffect, importcpp: "NumberOfArcs",
-                                      header: "MAT_Zone.hxx".}
-proc arcOnFrontier*(this: MAT_Zone; index: int): Handle[MAT_Arc] {.noSideEffect,
+proc numberOfArcs*(this: MAT_Zone): cint {.noSideEffect, importcpp: "NumberOfArcs",
+                                       header: "MAT_Zone.hxx".}
+proc arcOnFrontier*(this: MAT_Zone; index: cint): Handle[MAT_Arc] {.noSideEffect,
     importcpp: "ArcOnFrontier", header: "MAT_Zone.hxx".}
 proc noEmptyZone*(this: MAT_Zone): bool {.noSideEffect, importcpp: "NoEmptyZone",
                                       header: "MAT_Zone.hxx".}
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MAT_Zone::get_type_descriptor(@)", header: "MAT_Zone.hxx".}
 proc dynamicType*(this: MAT_Zone): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Zone.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

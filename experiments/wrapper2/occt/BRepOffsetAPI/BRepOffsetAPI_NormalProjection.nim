@@ -47,10 +47,11 @@ proc init*(this: var BRepOffsetAPI_NormalProjection; s: TopoDS_Shape) {.
     importcpp: "Init", header: "BRepOffsetAPI_NormalProjection.hxx".}
 proc add*(this: var BRepOffsetAPI_NormalProjection; toProj: TopoDS_Shape) {.
     importcpp: "Add", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc setParams*(this: var BRepOffsetAPI_NormalProjection; tol3D: float; tol2D: float;
-               internalContinuity: GeomAbsShape; maxDegree: int; maxSeg: int) {.
-    importcpp: "SetParams", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc setMaxDistance*(this: var BRepOffsetAPI_NormalProjection; maxDist: float) {.
+proc setParams*(this: var BRepOffsetAPI_NormalProjection; tol3D: cfloat;
+               tol2D: cfloat; internalContinuity: GeomAbsShape; maxDegree: cint;
+               maxSeg: cint) {.importcpp: "SetParams",
+                             header: "BRepOffsetAPI_NormalProjection.hxx".}
+proc setMaxDistance*(this: var BRepOffsetAPI_NormalProjection; maxDist: cfloat) {.
     importcpp: "SetMaxDistance", header: "BRepOffsetAPI_NormalProjection.hxx".}
 proc setLimit*(this: var BRepOffsetAPI_NormalProjection; faceBoundaries: bool = true) {.
     importcpp: "SetLimit", header: "BRepOffsetAPI_NormalProjection.hxx".}
@@ -72,3 +73,28 @@ proc ancestor*(this: BRepOffsetAPI_NormalProjection; e: TopoDS_Edge): TopoDS_Sha
 proc buildWire*(this: BRepOffsetAPI_NormalProjection;
                liste: var TopToolsListOfShape): bool {.noSideEffect,
     importcpp: "BuildWire", header: "BRepOffsetAPI_NormalProjection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

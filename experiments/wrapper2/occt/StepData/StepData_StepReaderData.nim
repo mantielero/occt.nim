@@ -28,7 +28,7 @@ discard "forward decl of StepData_EnumTool"
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of StepData_StepReaderData"
 type
-  HandleStepDataStepReaderData* = Handle[StepDataStepReaderData]
+  HandleC1C1* = Handle[StepDataStepReaderData]
 
 ## ! Specific FileReaderData for Step
 ## ! Contains litteral description of entities (for each one : type
@@ -111,133 +111,137 @@ type
                                                                                                         ## Zero.
 
 
-proc constructStepDataStepReaderData*(nbheader: int; nbtotal: int; nbpar: int;
+proc constructStepDataStepReaderData*(nbheader: cint; nbtotal: cint; nbpar: cint;
     theSourceCodePage: ResourceFormatType = resourceFormatTypeUTF8): StepDataStepReaderData {.
     constructor, importcpp: "StepData_StepReaderData(@)",
     header: "StepData_StepReaderData.hxx".}
-proc setRecord*(this: var StepDataStepReaderData; num: int; ident: StandardCString;
-               `type`: StandardCString; nbpar: int) {.importcpp: "SetRecord",
+proc setRecord*(this: var StepDataStepReaderData; num: cint; ident: StandardCString;
+               `type`: StandardCString; nbpar: cint) {.importcpp: "SetRecord",
     header: "StepData_StepReaderData.hxx".}
-proc addStepParam*(this: var StepDataStepReaderData; num: int; aval: StandardCString;
-                  atype: InterfaceParamType; nument: int = 0) {.
+proc addStepParam*(this: var StepDataStepReaderData; num: cint; aval: StandardCString;
+                  atype: InterfaceParamType; nument: cint = 0) {.
     importcpp: "AddStepParam", header: "StepData_StepReaderData.hxx".}
-proc recordType*(this: StepDataStepReaderData; num: int): TCollectionAsciiString {.
+proc recordType*(this: StepDataStepReaderData; num: cint): TCollectionAsciiString {.
     noSideEffect, importcpp: "RecordType", header: "StepData_StepReaderData.hxx".}
-proc cType*(this: StepDataStepReaderData; num: int): StandardCString {.noSideEffect,
+proc cType*(this: StepDataStepReaderData; num: cint): StandardCString {.noSideEffect,
     importcpp: "CType", header: "StepData_StepReaderData.hxx".}
-proc recordIdent*(this: StepDataStepReaderData; num: int): int {.noSideEffect,
+proc recordIdent*(this: StepDataStepReaderData; num: cint): cint {.noSideEffect,
     importcpp: "RecordIdent", header: "StepData_StepReaderData.hxx".}
-proc subListNumber*(this: StepDataStepReaderData; num: int; nump: int; aslast: bool): int {.
+proc subListNumber*(this: StepDataStepReaderData; num: cint; nump: cint; aslast: bool): cint {.
     noSideEffect, importcpp: "SubListNumber", header: "StepData_StepReaderData.hxx".}
-proc isComplex*(this: StepDataStepReaderData; num: int): bool {.noSideEffect,
+proc isComplex*(this: StepDataStepReaderData; num: cint): bool {.noSideEffect,
     importcpp: "IsComplex", header: "StepData_StepReaderData.hxx".}
-proc complexType*(this: StepDataStepReaderData; num: int;
+proc complexType*(this: StepDataStepReaderData; num: cint;
                  types: var TColStdSequenceOfAsciiString) {.noSideEffect,
     importcpp: "ComplexType", header: "StepData_StepReaderData.hxx".}
-proc nextForComplex*(this: StepDataStepReaderData; num: int): int {.noSideEffect,
+proc nextForComplex*(this: StepDataStepReaderData; num: cint): cint {.noSideEffect,
     importcpp: "NextForComplex", header: "StepData_StepReaderData.hxx".}
-proc namedForComplex*(this: StepDataStepReaderData; name: StandardCString; num0: int;
-                     num: var int; ach: var Handle[InterfaceCheck]): bool {.
+proc namedForComplex*(this: StepDataStepReaderData; name: StandardCString;
+                     num0: cint; num: var cint; ach: var Handle[InterfaceCheck]): bool {.
     noSideEffect, importcpp: "NamedForComplex",
     header: "StepData_StepReaderData.hxx".}
 proc namedForComplex*(this: StepDataStepReaderData; theName: StandardCString;
-                     theShortName: StandardCString; num0: int; num: var int;
+                     theShortName: StandardCString; num0: cint; num: var cint;
                      ach: var Handle[InterfaceCheck]): bool {.noSideEffect,
     importcpp: "NamedForComplex", header: "StepData_StepReaderData.hxx".}
-proc checkNbParams*(this: StepDataStepReaderData; num: int; nbreq: int;
+proc checkNbParams*(this: StepDataStepReaderData; num: cint; nbreq: cint;
                    ach: var Handle[InterfaceCheck]; mess: StandardCString = ""): bool {.
     noSideEffect, importcpp: "CheckNbParams", header: "StepData_StepReaderData.hxx".}
-proc readSubList*(this: StepDataStepReaderData; num: int; nump: int;
+proc readSubList*(this: StepDataStepReaderData; num: cint; nump: cint;
                  mess: StandardCString; ach: var Handle[InterfaceCheck];
-                 numsub: var int; optional: bool = false; lenmin: int = 0; lenmax: int = 0): bool {.
-    noSideEffect, importcpp: "ReadSubList", header: "StepData_StepReaderData.hxx".}
-proc readSub*(this: StepDataStepReaderData; numsub: int; mess: StandardCString;
+                 numsub: var cint; optional: bool = false; lenmin: cint = 0;
+                 lenmax: cint = 0): bool {.noSideEffect, importcpp: "ReadSubList",
+                                      header: "StepData_StepReaderData.hxx".}
+proc readSub*(this: StepDataStepReaderData; numsub: cint; mess: StandardCString;
              ach: var Handle[InterfaceCheck]; descr: Handle[StepDataPDescr];
-             val: var Handle[StandardTransient]): int {.noSideEffect,
+             val: var Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "ReadSub", header: "StepData_StepReaderData.hxx".}
-proc readMember*(this: StepDataStepReaderData; num: int; nump: int;
+proc readMember*(this: StepDataStepReaderData; num: cint; nump: cint;
                 mess: StandardCString; ach: var Handle[InterfaceCheck];
                 val: var Handle[StepDataSelectMember]): bool {.noSideEffect,
     importcpp: "ReadMember", header: "StepData_StepReaderData.hxx".}
-proc readMember*[T](this: StepDataStepReaderData; num: int; nump: int;
+proc readMember*[T](this: StepDataStepReaderData; num: cint; nump: cint;
                    mess: StandardCString; ach: var Handle[InterfaceCheck];
                    val: var Handle[T]): bool {.noSideEffect, importcpp: "ReadMember",
     header: "StepData_StepReaderData.hxx".}
-proc readField*(this: StepDataStepReaderData; num: int; nump: int;
+proc readField*(this: StepDataStepReaderData; num: cint; nump: cint;
                mess: StandardCString; ach: var Handle[InterfaceCheck];
                descr: Handle[StepDataPDescr]; fild: var StepDataField): bool {.
     noSideEffect, importcpp: "ReadField", header: "StepData_StepReaderData.hxx".}
-proc readList*(this: StepDataStepReaderData; num: int;
+proc readList*(this: StepDataStepReaderData; num: cint;
               ach: var Handle[InterfaceCheck]; descr: Handle[StepDataESDescr];
               list: var StepDataFieldList): bool {.noSideEffect,
     importcpp: "ReadList", header: "StepData_StepReaderData.hxx".}
-proc readAny*(this: StepDataStepReaderData; num: int; nump: int; mess: StandardCString;
-             ach: var Handle[InterfaceCheck]; descr: Handle[StepDataPDescr];
-             val: var Handle[StandardTransient]): bool {.noSideEffect,
-    importcpp: "ReadAny", header: "StepData_StepReaderData.hxx".}
-proc readXY*(this: StepDataStepReaderData; num: int; nump: int; mess: StandardCString;
-            ach: var Handle[InterfaceCheck]; x: var float; y: var float): bool {.
-    noSideEffect, importcpp: "ReadXY", header: "StepData_StepReaderData.hxx".}
-proc readXYZ*(this: StepDataStepReaderData; num: int; nump: int; mess: StandardCString;
-             ach: var Handle[InterfaceCheck]; x: var float; y: var float; z: var float): bool {.
-    noSideEffect, importcpp: "ReadXYZ", header: "StepData_StepReaderData.hxx".}
-proc readReal*(this: StepDataStepReaderData; num: int; nump: int;
-              mess: StandardCString; ach: var Handle[InterfaceCheck]; val: var float): bool {.
+proc readAny*(this: StepDataStepReaderData; num: cint; nump: cint;
+             mess: StandardCString; ach: var Handle[InterfaceCheck];
+             descr: Handle[StepDataPDescr]; val: var Handle[StandardTransient]): bool {.
+    noSideEffect, importcpp: "ReadAny", header: "StepData_StepReaderData.hxx".}
+proc readXY*(this: StepDataStepReaderData; num: cint; nump: cint;
+            mess: StandardCString; ach: var Handle[InterfaceCheck]; x: var cfloat;
+            y: var cfloat): bool {.noSideEffect, importcpp: "ReadXY",
+                               header: "StepData_StepReaderData.hxx".}
+proc readXYZ*(this: StepDataStepReaderData; num: cint; nump: cint;
+             mess: StandardCString; ach: var Handle[InterfaceCheck]; x: var cfloat;
+             y: var cfloat; z: var cfloat): bool {.noSideEffect, importcpp: "ReadXYZ",
+    header: "StepData_StepReaderData.hxx".}
+proc readReal*(this: StepDataStepReaderData; num: cint; nump: cint;
+              mess: StandardCString; ach: var Handle[InterfaceCheck]; val: var cfloat): bool {.
     noSideEffect, importcpp: "ReadReal", header: "StepData_StepReaderData.hxx".}
-proc readEntity*(this: StepDataStepReaderData; num: int; nump: int;
+proc readEntity*(this: StepDataStepReaderData; num: cint; nump: cint;
                 mess: StandardCString; ach: var Handle[InterfaceCheck];
                 atype: Handle[StandardType]; ent: var Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "ReadEntity", header: "StepData_StepReaderData.hxx".}
-proc readEntity*[T](this: StepDataStepReaderData; num: int; nump: int;
+proc readEntity*[T](this: StepDataStepReaderData; num: cint; nump: cint;
                    mess: StandardCString; ach: var Handle[InterfaceCheck];
                    atype: Handle[StandardType]; ent: var Handle[T]): bool {.
     noSideEffect, importcpp: "ReadEntity", header: "StepData_StepReaderData.hxx".}
-proc readEntity*(this: StepDataStepReaderData; num: int; nump: int;
+proc readEntity*(this: StepDataStepReaderData; num: cint; nump: cint;
                 mess: StandardCString; ach: var Handle[InterfaceCheck];
                 sel: var StepDataSelectType): bool {.noSideEffect,
     importcpp: "ReadEntity", header: "StepData_StepReaderData.hxx".}
-proc readInteger*(this: StepDataStepReaderData; num: int; nump: int;
-                 mess: StandardCString; ach: var Handle[InterfaceCheck]; val: var int): bool {.
-    noSideEffect, importcpp: "ReadInteger", header: "StepData_StepReaderData.hxx".}
-proc readBoolean*(this: StepDataStepReaderData; num: int; nump: int;
+proc readInteger*(this: StepDataStepReaderData; num: cint; nump: cint;
+                 mess: StandardCString; ach: var Handle[InterfaceCheck];
+                 val: var cint): bool {.noSideEffect, importcpp: "ReadInteger",
+                                    header: "StepData_StepReaderData.hxx".}
+proc readBoolean*(this: StepDataStepReaderData; num: cint; nump: cint;
                  mess: StandardCString; ach: var Handle[InterfaceCheck];
                  flag: var bool): bool {.noSideEffect, importcpp: "ReadBoolean",
                                      header: "StepData_StepReaderData.hxx".}
-proc readLogical*(this: StepDataStepReaderData; num: int; nump: int;
+proc readLogical*(this: StepDataStepReaderData; num: cint; nump: cint;
                  mess: StandardCString; ach: var Handle[InterfaceCheck];
                  flag: var StepDataLogical): bool {.noSideEffect,
     importcpp: "ReadLogical", header: "StepData_StepReaderData.hxx".}
-proc readString*(this: StepDataStepReaderData; num: int; nump: int;
+proc readString*(this: StepDataStepReaderData; num: cint; nump: cint;
                 mess: StandardCString; ach: var Handle[InterfaceCheck];
                 val: var Handle[TCollectionHAsciiString]): bool {.noSideEffect,
     importcpp: "ReadString", header: "StepData_StepReaderData.hxx".}
-proc readEnumParam*(this: StepDataStepReaderData; num: int; nump: int;
+proc readEnumParam*(this: StepDataStepReaderData; num: cint; nump: cint;
                    mess: StandardCString; ach: var Handle[InterfaceCheck];
                    text: var StandardCString): bool {.noSideEffect,
     importcpp: "ReadEnumParam", header: "StepData_StepReaderData.hxx".}
-proc failEnumValue*(this: StepDataStepReaderData; num: int; nump: int;
+proc failEnumValue*(this: StepDataStepReaderData; num: cint; nump: cint;
                    mess: StandardCString; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "FailEnumValue", header: "StepData_StepReaderData.hxx".}
-proc readEnum*(this: StepDataStepReaderData; num: int; nump: int;
+proc readEnum*(this: StepDataStepReaderData; num: cint; nump: cint;
               mess: StandardCString; ach: var Handle[InterfaceCheck];
-              enumtool: StepDataEnumTool; val: var int): bool {.noSideEffect,
+              enumtool: StepDataEnumTool; val: var cint): bool {.noSideEffect,
     importcpp: "ReadEnum", header: "StepData_StepReaderData.hxx".}
-proc readTypedParam*(this: StepDataStepReaderData; num: int; nump: int;
+proc readTypedParam*(this: StepDataStepReaderData; num: cint; nump: cint;
                     mustbetyped: bool; mess: StandardCString;
-                    ach: var Handle[InterfaceCheck]; numr: var int; numrp: var int;
+                    ach: var Handle[InterfaceCheck]; numr: var cint; numrp: var cint;
                     typ: var TCollectionAsciiString): bool {.noSideEffect,
     importcpp: "ReadTypedParam", header: "StepData_StepReaderData.hxx".}
-proc checkDerived*(this: StepDataStepReaderData; num: int; nump: int;
+proc checkDerived*(this: StepDataStepReaderData; num: cint; nump: cint;
                   mess: StandardCString; ach: var Handle[InterfaceCheck];
                   errstat: bool = false): bool {.noSideEffect,
     importcpp: "CheckDerived", header: "StepData_StepReaderData.hxx".}
-proc nbEntities*(this: StepDataStepReaderData): int {.noSideEffect,
+proc nbEntities*(this: StepDataStepReaderData): cint {.noSideEffect,
     importcpp: "NbEntities", header: "StepData_StepReaderData.hxx".}
-proc findNextRecord*(this: StepDataStepReaderData; num: int): int {.noSideEffect,
+proc findNextRecord*(this: StepDataStepReaderData; num: cint): cint {.noSideEffect,
     importcpp: "FindNextRecord", header: "StepData_StepReaderData.hxx".}
 proc setEntityNumbers*(this: var StepDataStepReaderData; withmap: bool = true) {.
     importcpp: "SetEntityNumbers", header: "StepData_StepReaderData.hxx".}
-proc findNextHeaderRecord*(this: StepDataStepReaderData; num: int): int {.
+proc findNextHeaderRecord*(this: StepDataStepReaderData; num: cint): cint {.
     noSideEffect, importcpp: "FindNextHeaderRecord",
     header: "StepData_StepReaderData.hxx".}
 proc prepareHeader*(this: var StepDataStepReaderData) {.importcpp: "PrepareHeader",
@@ -254,3 +258,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_StepReaderData.hxx".}
 proc dynamicType*(this: StepDataStepReaderData): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_StepReaderData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

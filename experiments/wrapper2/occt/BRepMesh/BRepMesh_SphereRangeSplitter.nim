@@ -41,3 +41,28 @@ proc generateSurfaceNodes*(this: BRepMeshSphereRangeSplitter;
                           theParameters: IMeshToolsParameters): Handle[ListOfPnt2d] {.
     noSideEffect, importcpp: "GenerateSurfaceNodes",
     header: "BRepMesh_SphereRangeSplitter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

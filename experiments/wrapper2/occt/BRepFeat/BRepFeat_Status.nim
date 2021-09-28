@@ -20,3 +20,28 @@ type
     BRepFeatNoError, BRepFeatInvalidPlacement, BRepFeatHoleTooLong
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ discard "forward decl of Expr_NamedUnknown"
 type
   ExprArray1OfNamedUnknown* = NCollectionArray1[Handle[ExprNamedUnknown]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

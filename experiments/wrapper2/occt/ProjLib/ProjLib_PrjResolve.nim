@@ -25,13 +25,38 @@ type
                       header: "ProjLib_PrjResolve.hxx", bycopy.} = object
 
 
-proc constructProjLibPrjResolve*(c: Adaptor3dCurve; s: Adaptor3dSurface; fix: int): ProjLibPrjResolve {.
+proc constructProjLibPrjResolve*(c: Adaptor3dCurve; s: Adaptor3dSurface; fix: cint): ProjLibPrjResolve {.
     constructor, importcpp: "ProjLib_PrjResolve(@)",
     header: "ProjLib_PrjResolve.hxx".}
-proc perform*(this: var ProjLibPrjResolve; t: float; u: float; v: float; tol: Pnt2d;
-             inf: Pnt2d; sup: Pnt2d; fTol: float = -1; strictInside: bool = false) {.
+proc perform*(this: var ProjLibPrjResolve; t: cfloat; u: cfloat; v: cfloat; tol: Pnt2d;
+             inf: Pnt2d; sup: Pnt2d; fTol: cfloat = -1; strictInside: bool = false) {.
     importcpp: "Perform", header: "ProjLib_PrjResolve.hxx".}
 proc isDone*(this: ProjLibPrjResolve): bool {.noSideEffect, importcpp: "IsDone",
     header: "ProjLib_PrjResolve.hxx".}
 proc solution*(this: ProjLibPrjResolve): Pnt2d {.noSideEffect, importcpp: "Solution",
     header: "ProjLib_PrjResolve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

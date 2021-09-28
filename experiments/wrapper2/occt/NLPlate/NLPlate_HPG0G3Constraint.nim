@@ -22,7 +22,7 @@ discard "forward decl of Plate_D3"
 discard "forward decl of NLPlate_HPG0G3Constraint"
 discard "forward decl of NLPlate_HPG0G3Constraint"
 type
-  HandleNLPlateHPG0G3Constraint* = Handle[NLPlateHPG0G3Constraint]
+  HandleC1C1* = Handle[NLPlateHPG0G3Constraint]
 
 ## ! define a PinPoint G0+G3  Constraint  used to load a Non Linear
 ## ! Plate
@@ -36,7 +36,7 @@ proc constructNLPlateHPG0G3Constraint*(uv: Xy; value: Xyz; d1t: PlateD1; d2t: Pl
                                       d3t: PlateD3): NLPlateHPG0G3Constraint {.
     constructor, importcpp: "NLPlate_HPG0G3Constraint(@)",
     header: "NLPlate_HPG0G3Constraint.hxx".}
-proc activeOrder*(this: NLPlateHPG0G3Constraint): int {.noSideEffect,
+proc activeOrder*(this: NLPlateHPG0G3Constraint): cint {.noSideEffect,
     importcpp: "ActiveOrder", header: "NLPlate_HPG0G3Constraint.hxx".}
 proc g3Target*(this: NLPlateHPG0G3Constraint): PlateD3 {.noSideEffect,
     importcpp: "G3Target", header: "NLPlate_HPG0G3Constraint.hxx".}
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "NLPlate_HPG0G3Constraint.hxx".}
 proc dynamicType*(this: NLPlateHPG0G3Constraint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "NLPlate_HPG0G3Constraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

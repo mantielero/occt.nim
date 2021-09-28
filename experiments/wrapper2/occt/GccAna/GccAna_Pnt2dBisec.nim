@@ -30,3 +30,28 @@ proc hasSolution*(this: GccAnaPnt2dBisec): bool {.noSideEffect,
     importcpp: "HasSolution", header: "GccAna_Pnt2dBisec.hxx".}
 proc thisSolution*(this: GccAnaPnt2dBisec): Lin2d {.noSideEffect,
     importcpp: "ThisSolution", header: "GccAna_Pnt2dBisec.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

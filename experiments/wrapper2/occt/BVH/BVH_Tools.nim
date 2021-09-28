@@ -74,3 +74,28 @@ proc rayBoxIntersection*[T; N: static[cint]](theRayOrigin: BVH_ToolsBVH_VecNt;
     theRayDirection: BVH_ToolsBVH_VecNt; theBoxCMin: BVH_ToolsBVH_VecNt;
     theBoxCMax: BVH_ToolsBVH_VecNt; theTimeEnter: var T; theTimeLeave: var T): bool {.
     importcpp: "BVH_Tools::RayBoxIntersection(@)", header: "BVH_Tools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -48,5 +48,30 @@ proc reset*(this: var OSD_Environment) {.importcpp: "Reset",
                                      header: "OSD_Environment.hxx".}
 proc perror*(this: var OSD_Environment) {.importcpp: "Perror",
                                       header: "OSD_Environment.hxx".}
-proc error*(this: OSD_Environment): int {.noSideEffect, importcpp: "Error",
-                                      header: "OSD_Environment.hxx".}
+proc error*(this: OSD_Environment): cint {.noSideEffect, importcpp: "Error",
+                                       header: "OSD_Environment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -55,5 +55,30 @@ proc ownCopy*(this: IGESSolidToolEllipsoid; entfrom: Handle[IGESSolidEllipsoid];
              entto: Handle[IGESSolidEllipsoid]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolEllipsoid.hxx".}
 proc ownDump*(this: IGESSolidToolEllipsoid; ent: Handle[IGESSolidEllipsoid];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolEllipsoid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

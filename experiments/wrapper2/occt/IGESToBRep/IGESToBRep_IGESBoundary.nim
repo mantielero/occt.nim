@@ -22,7 +22,7 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of IGESToBRep_IGESBoundary"
 discard "forward decl of IGESToBRep_IGESBoundary"
 type
-  HandleIGESToBRepIGESBoundary* = Handle[IGESToBRepIGESBoundary]
+  HandleC1C1* = Handle[IGESToBRepIGESBoundary]
 
 ## ! This class is intended to translate IGES boundary entity
 ## ! (142-CurveOnSurface, 141-Boundary or 508-Loop) into the wire.
@@ -53,7 +53,7 @@ proc constructIGESToBRepIGESBoundary*(cs: IGESToBRepCurveAndSurface): IGESToBRep
     header: "IGESToBRep_IGESBoundary.hxx".}
 proc init*(this: var IGESToBRepIGESBoundary; cs: IGESToBRepCurveAndSurface;
           entity: Handle[IGESDataIGESEntity]; face: TopoDS_Face; trans: Trsf2d;
-          uFact: float; filepreference: int) {.importcpp: "Init",
+          uFact: cfloat; filepreference: cint) {.importcpp: "Init",
     header: "IGESToBRep_IGESBoundary.hxx".}
 proc wireData*(this: IGESToBRepIGESBoundary): Handle[ShapeExtendWireData] {.
     noSideEffect, importcpp: "WireData", header: "IGESToBRep_IGESBoundary.hxx".}
@@ -64,13 +64,13 @@ proc wireData2d*(this: IGESToBRepIGESBoundary): Handle[ShapeExtendWireData] {.
 proc transfer*(this: var IGESToBRepIGESBoundary; okCurve: var bool;
               okCurve3d: var bool; okCurve2d: var bool;
               curve3d: Handle[IGESDataIGESEntity]; toreverse3d: bool;
-              curves2d: Handle[IGESDataHArray1OfIGESEntity]; number: int): bool {.
+              curves2d: Handle[IGESDataHArray1OfIGESEntity]; number: cint): bool {.
     importcpp: "Transfer", header: "IGESToBRep_IGESBoundary.hxx".}
 proc transfer*(this: var IGESToBRepIGESBoundary; okCurve: var bool;
               okCurve3d: var bool; okCurve2d: var bool;
               curve3d: Handle[ShapeExtendWireData];
               curves2d: Handle[IGESDataHArray1OfIGESEntity]; toreverse2d: bool;
-              number: int; lsewd: var Handle[ShapeExtendWireData]): bool {.
+              number: cint; lsewd: var Handle[ShapeExtendWireData]): bool {.
     importcpp: "Transfer", header: "IGESToBRep_IGESBoundary.hxx".}
 proc check*(this: var IGESToBRepIGESBoundary; result: bool; checkclosure: bool;
            okCurve3d: bool; okCurve2d: bool) {.importcpp: "Check",
@@ -85,3 +85,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESToBRep_IGESBoundary.hxx".}
 proc dynamicType*(this: IGESToBRepIGESBoundary): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESToBRep_IGESBoundary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

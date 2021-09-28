@@ -14,5 +14,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  BinObjMgtPInteger* = ptr int
+  BinObjMgtPInteger* = ptr cint
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

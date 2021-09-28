@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SignStatus"
 discard "forward decl of IGESSelect_SignStatus"
 type
-  HandleIGESSelectSignStatus* = Handle[IGESSelectSignStatus]
+  HandleC1C1* = Handle[IGESSelectSignStatus]
 
 ## ! Gives D.E. Status under the form i,j,k,l (4 figures)
 ## ! i for BlankStatus
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_SignStatus.hxx".}
 proc dynamicType*(this: IGESSelectSignStatus): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_SignStatus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

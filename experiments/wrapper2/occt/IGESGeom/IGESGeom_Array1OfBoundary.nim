@@ -17,3 +17,28 @@
 type
   IGESGeomArray1OfBoundary* = NCollectionArray1[Handle[IGESGeomBoundary]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

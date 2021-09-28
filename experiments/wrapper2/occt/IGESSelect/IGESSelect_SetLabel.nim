@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SetLabel"
 discard "forward decl of IGESSelect_SetLabel"
 type
-  HandleIGESSelectSetLabel* = Handle[IGESSelectSetLabel]
+  HandleC1C1* = Handle[IGESSelectSetLabel]
 
 ## ! Sets/Clears Short Label of Entities, those designated by the
 ## ! Selection. No Selection means all the file
@@ -50,7 +50,7 @@ type
                                                                                                 ## class
 
 
-proc constructIGESSelectSetLabel*(mode: int; enforce: bool): IGESSelectSetLabel {.
+proc constructIGESSelectSetLabel*(mode: cint; enforce: bool): IGESSelectSetLabel {.
     constructor, importcpp: "IGESSelect_SetLabel(@)",
     header: "IGESSelect_SetLabel.hxx".}
 proc performing*(this: IGESSelectSetLabel; ctx: var IFSelectContextModif;
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_SetLabel.hxx".}
 proc dynamicType*(this: IGESSelectSetLabel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_SetLabel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

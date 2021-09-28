@@ -16,7 +16,7 @@
 discard "forward decl of XCAFDimTolObjects_DatumObject"
 discard "forward decl of XCAFDimTolObjects_DatumObject"
 type
-  HandleXCAFDimTolObjectsDatumObject* = Handle[XCAFDimTolObjectsDatumObject]
+  HandleC1C1* = Handle[XCAFDimTolObjectsDatumObject]
 
 ## ! Access object to store datum
 
@@ -51,11 +51,11 @@ proc setModifiers*(this: var XCAFDimTolObjectsDatumObject;
                   theModifiers: XCAFDimTolObjectsDatumModifiersSequence) {.
     importcpp: "SetModifiers", header: "XCAFDimTolObjects_DatumObject.hxx".}
 proc getModifierWithValue*(this: XCAFDimTolObjectsDatumObject; theModifier: var XCAFDimTolObjectsDatumModifWithValue;
-                          theValue: var float) {.noSideEffect,
+                          theValue: var cfloat) {.noSideEffect,
     importcpp: "GetModifierWithValue", header: "XCAFDimTolObjects_DatumObject.hxx".}
 proc setModifierWithValue*(this: var XCAFDimTolObjectsDatumObject;
                           theModifier: XCAFDimTolObjectsDatumModifWithValue;
-                          theValue: float) {.importcpp: "SetModifierWithValue",
+                          theValue: cfloat) {.importcpp: "SetModifierWithValue",
     header: "XCAFDimTolObjects_DatumObject.hxx".}
 proc addModifier*(this: var XCAFDimTolObjectsDatumObject;
                  theModifier: XCAFDimTolObjectsDatumSingleModif) {.
@@ -65,9 +65,9 @@ proc getDatumTarget*(this: XCAFDimTolObjectsDatumObject): TopoDS_Shape {.
     header: "XCAFDimTolObjects_DatumObject.hxx".}
 proc setDatumTarget*(this: var XCAFDimTolObjectsDatumObject; theShape: TopoDS_Shape) {.
     importcpp: "SetDatumTarget", header: "XCAFDimTolObjects_DatumObject.hxx".}
-proc getPosition*(this: XCAFDimTolObjectsDatumObject): int {.noSideEffect,
+proc getPosition*(this: XCAFDimTolObjectsDatumObject): cint {.noSideEffect,
     importcpp: "GetPosition", header: "XCAFDimTolObjects_DatumObject.hxx".}
-proc setPosition*(this: var XCAFDimTolObjectsDatumObject; thePosition: int) {.
+proc setPosition*(this: var XCAFDimTolObjectsDatumObject; thePosition: cint) {.
     importcpp: "SetPosition", header: "XCAFDimTolObjects_DatumObject.hxx".}
 proc isDatumTarget*(this: XCAFDimTolObjectsDatumObject): bool {.noSideEffect,
     importcpp: "IsDatumTarget", header: "XCAFDimTolObjects_DatumObject.hxx".}
@@ -83,18 +83,19 @@ proc getDatumTargetAxis*(this: XCAFDimTolObjectsDatumObject): Ax2 {.noSideEffect
     importcpp: "GetDatumTargetAxis", header: "XCAFDimTolObjects_DatumObject.hxx".}
 proc setDatumTargetAxis*(this: var XCAFDimTolObjectsDatumObject; theAxis: Ax2) {.
     importcpp: "SetDatumTargetAxis", header: "XCAFDimTolObjects_DatumObject.hxx".}
-proc getDatumTargetLength*(this: XCAFDimTolObjectsDatumObject): float {.
+proc getDatumTargetLength*(this: XCAFDimTolObjectsDatumObject): cfloat {.
     noSideEffect, importcpp: "GetDatumTargetLength",
     header: "XCAFDimTolObjects_DatumObject.hxx".}
-proc setDatumTargetLength*(this: var XCAFDimTolObjectsDatumObject; theLength: float) {.
+proc setDatumTargetLength*(this: var XCAFDimTolObjectsDatumObject; theLength: cfloat) {.
     importcpp: "SetDatumTargetLength", header: "XCAFDimTolObjects_DatumObject.hxx".}
-proc getDatumTargetWidth*(this: XCAFDimTolObjectsDatumObject): float {.noSideEffect,
-    importcpp: "GetDatumTargetWidth", header: "XCAFDimTolObjects_DatumObject.hxx".}
-proc setDatumTargetWidth*(this: var XCAFDimTolObjectsDatumObject; theWidth: float) {.
+proc getDatumTargetWidth*(this: XCAFDimTolObjectsDatumObject): cfloat {.
+    noSideEffect, importcpp: "GetDatumTargetWidth",
+    header: "XCAFDimTolObjects_DatumObject.hxx".}
+proc setDatumTargetWidth*(this: var XCAFDimTolObjectsDatumObject; theWidth: cfloat) {.
     importcpp: "SetDatumTargetWidth", header: "XCAFDimTolObjects_DatumObject.hxx".}
-proc getDatumTargetNumber*(this: XCAFDimTolObjectsDatumObject): int {.noSideEffect,
+proc getDatumTargetNumber*(this: XCAFDimTolObjectsDatumObject): cint {.noSideEffect,
     importcpp: "GetDatumTargetNumber", header: "XCAFDimTolObjects_DatumObject.hxx".}
-proc setDatumTargetNumber*(this: var XCAFDimTolObjectsDatumObject; theNumber: int) {.
+proc setDatumTargetNumber*(this: var XCAFDimTolObjectsDatumObject; theNumber: cint) {.
     importcpp: "SetDatumTargetNumber", header: "XCAFDimTolObjects_DatumObject.hxx".}
 proc setPlane*(this: var XCAFDimTolObjectsDatumObject; thePlane: Ax2) {.
     importcpp: "SetPlane", header: "XCAFDimTolObjects_DatumObject.hxx".}
@@ -137,3 +138,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XCAFDimTolObjectsDatumObject): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XCAFDimTolObjects_DatumObject.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

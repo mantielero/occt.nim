@@ -27,3 +27,28 @@ proc `>>`*(theReadData: var StdObjMgtReadData; theTrsf: var Trsf): var StdObjMgt
     importcpp: "(# >> #)", header: "StdObject_gp_Trsfs.hxx".}
 proc `<<`*(theWriteData: var StdObjMgtWriteData; theTrsf: Trsf): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Trsfs.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

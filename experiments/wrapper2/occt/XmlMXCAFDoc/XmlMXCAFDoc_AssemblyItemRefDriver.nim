@@ -19,8 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMXCAFDoc_AssemblyItemRefDriver"
 discard "forward decl of XmlMXCAFDoc_AssemblyItemRefDriver"
 type
-  HandleXmlMXCAFDocAssemblyItemRefDriver* = Handle[
-      XmlMXCAFDocAssemblyItemRefDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocAssemblyItemRefDriver]
 
 ## ! Attribute Driver.
 
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMXCAFDocAssemblyItemRefDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMXCAFDoc_AssemblyItemRefDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -47,17 +47,17 @@ proc isoAspect*(this: Prs3dPlaneAspect): Handle[Prs3dLineAspect] {.noSideEffect,
     importcpp: "IsoAspect", header: "Prs3d_PlaneAspect.hxx".}
 proc arrowAspect*(this: Prs3dPlaneAspect): Handle[Prs3dLineAspect] {.noSideEffect,
     importcpp: "ArrowAspect", header: "Prs3d_PlaneAspect.hxx".}
-proc setArrowsLength*(this: var Prs3dPlaneAspect; theLength: float) {.
+proc setArrowsLength*(this: var Prs3dPlaneAspect; theLength: cfloat) {.
     importcpp: "SetArrowsLength", header: "Prs3d_PlaneAspect.hxx".}
-proc arrowsLength*(this: Prs3dPlaneAspect): float {.noSideEffect,
+proc arrowsLength*(this: Prs3dPlaneAspect): cfloat {.noSideEffect,
     importcpp: "ArrowsLength", header: "Prs3d_PlaneAspect.hxx".}
-proc setArrowsSize*(this: var Prs3dPlaneAspect; theSize: float) {.
+proc setArrowsSize*(this: var Prs3dPlaneAspect; theSize: cfloat) {.
     importcpp: "SetArrowsSize", header: "Prs3d_PlaneAspect.hxx".}
-proc arrowsSize*(this: Prs3dPlaneAspect): float {.noSideEffect,
+proc arrowsSize*(this: Prs3dPlaneAspect): cfloat {.noSideEffect,
     importcpp: "ArrowsSize", header: "Prs3d_PlaneAspect.hxx".}
-proc setArrowsAngle*(this: var Prs3dPlaneAspect; theAngle: float) {.
+proc setArrowsAngle*(this: var Prs3dPlaneAspect; theAngle: cfloat) {.
     importcpp: "SetArrowsAngle", header: "Prs3d_PlaneAspect.hxx".}
-proc arrowsAngle*(this: Prs3dPlaneAspect): float {.noSideEffect,
+proc arrowsAngle*(this: Prs3dPlaneAspect): cfloat {.noSideEffect,
     importcpp: "ArrowsAngle", header: "Prs3d_PlaneAspect.hxx".}
 proc setDisplayCenterArrow*(this: var Prs3dPlaneAspect; theToDraw: bool) {.
     importcpp: "SetDisplayCenterArrow", header: "Prs3d_PlaneAspect.hxx".}
@@ -75,20 +75,45 @@ proc setDisplayIso*(this: var Prs3dPlaneAspect; theToDraw: bool) {.
     importcpp: "SetDisplayIso", header: "Prs3d_PlaneAspect.hxx".}
 proc displayIso*(this: Prs3dPlaneAspect): bool {.noSideEffect,
     importcpp: "DisplayIso", header: "Prs3d_PlaneAspect.hxx".}
-proc setPlaneLength*(this: var Prs3dPlaneAspect; theLX: float; theLY: float) {.
+proc setPlaneLength*(this: var Prs3dPlaneAspect; theLX: cfloat; theLY: cfloat) {.
     importcpp: "SetPlaneLength", header: "Prs3d_PlaneAspect.hxx".}
-proc planeXLength*(this: Prs3dPlaneAspect): float {.noSideEffect,
+proc planeXLength*(this: Prs3dPlaneAspect): cfloat {.noSideEffect,
     importcpp: "PlaneXLength", header: "Prs3d_PlaneAspect.hxx".}
-proc planeYLength*(this: Prs3dPlaneAspect): float {.noSideEffect,
+proc planeYLength*(this: Prs3dPlaneAspect): cfloat {.noSideEffect,
     importcpp: "PlaneYLength", header: "Prs3d_PlaneAspect.hxx".}
-proc setIsoDistance*(this: var Prs3dPlaneAspect; theL: float) {.
+proc setIsoDistance*(this: var Prs3dPlaneAspect; theL: cfloat) {.
     importcpp: "SetIsoDistance", header: "Prs3d_PlaneAspect.hxx".}
-proc isoDistance*(this: Prs3dPlaneAspect): float {.noSideEffect,
+proc isoDistance*(this: Prs3dPlaneAspect): cfloat {.noSideEffect,
     importcpp: "IsoDistance", header: "Prs3d_PlaneAspect.hxx".}
 proc dumpJson*(this: Prs3dPlaneAspect; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Prs3d_PlaneAspect.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Prs3d_PlaneAspect.hxx".}
 discard "forward decl of Prs3d_PlaneAspect"
 type
-  HandlePrs3dPlaneAspect* = Handle[Prs3dPlaneAspect]
+  HandleC1C1* = Handle[Prs3dPlaneAspect]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

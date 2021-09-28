@@ -20,7 +20,7 @@ discard "forward decl of Units_Token"
 discard "forward decl of Units_Unit"
 discard "forward decl of Units_Unit"
 type
-  HandleUnitsUnit* = Handle[UnitsUnit]
+  HandleC1C1* = Handle[UnitsUnit]
 
 ## ! This class defines an elementary word contained in
 ## ! a physical quantity.
@@ -70,7 +70,7 @@ type
 
 
 proc constructUnitsUnit*(aname: StandardCString; asymbol: StandardCString;
-                        avalue: float; aquantity: Handle[UnitsQuantity]): UnitsUnit {.
+                        avalue: cfloat; aquantity: Handle[UnitsQuantity]): UnitsUnit {.
     constructor, importcpp: "Units_Unit(@)", header: "Units_Unit.hxx".}
 proc constructUnitsUnit*(aname: StandardCString; asymbol: StandardCString): UnitsUnit {.
     constructor, importcpp: "Units_Unit(@)", header: "Units_Unit.hxx".}
@@ -80,13 +80,13 @@ proc name*(this: UnitsUnit): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "Units_Unit.hxx".}
 proc symbol*(this: var UnitsUnit; asymbol: StandardCString) {.importcpp: "Symbol",
     header: "Units_Unit.hxx".}
-proc value*(this: UnitsUnit): float {.noSideEffect, importcpp: "Value",
-                                  header: "Units_Unit.hxx".}
+proc value*(this: UnitsUnit): cfloat {.noSideEffect, importcpp: "Value",
+                                   header: "Units_Unit.hxx".}
 proc quantity*(this: UnitsUnit): Handle[UnitsQuantity] {.noSideEffect,
     importcpp: "Quantity", header: "Units_Unit.hxx".}
 proc symbolsSequence*(this: UnitsUnit): Handle[TColStdHSequenceOfHAsciiString] {.
     noSideEffect, importcpp: "SymbolsSequence", header: "Units_Unit.hxx".}
-proc value*(this: var UnitsUnit; avalue: float) {.importcpp: "Value",
+proc value*(this: var UnitsUnit; avalue: cfloat) {.importcpp: "Value",
     header: "Units_Unit.hxx".}
 proc quantity*(this: var UnitsUnit; aquantity: Handle[UnitsQuantity]) {.
     importcpp: "Quantity", header: "Units_Unit.hxx".}
@@ -94,8 +94,8 @@ proc token*(this: UnitsUnit): Handle[UnitsToken] {.noSideEffect, importcpp: "Tok
     header: "Units_Unit.hxx".}
 proc isEqual*(this: UnitsUnit; astring: StandardCString): bool {.noSideEffect,
     importcpp: "IsEqual", header: "Units_Unit.hxx".}
-proc dump*(this: UnitsUnit; ashift: int; alevel: int) {.noSideEffect, importcpp: "Dump",
-    header: "Units_Unit.hxx".}
+proc dump*(this: UnitsUnit; ashift: cint; alevel: cint) {.noSideEffect,
+    importcpp: "Dump", header: "Units_Unit.hxx".}
 type
   UnitsUnitbaseType* = StandardTransient
 
@@ -105,3 +105,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Units_Unit::get_type_descriptor(@)", header: "Units_Unit.hxx".}
 proc dynamicType*(this: UnitsUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_Unit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

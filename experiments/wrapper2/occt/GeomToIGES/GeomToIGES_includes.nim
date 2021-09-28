@@ -7,4 +7,3 @@ include GeomToIGES_GeomEntity
 include GeomToIGES_GeomPoint
 include GeomToIGES_GeomSurface
 include GeomToIGES_GeomVector
-

@@ -35,16 +35,16 @@ type
 
 
 proc project*(p: Pnt2d; s: Handle[Adaptor3dHSurface]; c: Handle[Adaptor2dHCurve2d];
-             paramproj: var float; dist: var float): bool {.
+             paramproj: var cfloat; dist: var cfloat): bool {.
     importcpp: "BRepBlend_BlendTool::Project(@)",
     header: "BRepBlend_BlendTool.hxx".}
 proc inters*(p1: Pnt2d; p2: Pnt2d; s: Handle[Adaptor3dHSurface];
-            c: Handle[Adaptor2dHCurve2d]; param: var float; dist: var float): bool {.
+            c: Handle[Adaptor2dHCurve2d]; param: var cfloat; dist: var cfloat): bool {.
     importcpp: "BRepBlend_BlendTool::Inters(@)", header: "BRepBlend_BlendTool.hxx".}
-proc parameter*(v: Handle[Adaptor3dHVertex]; a: Handle[Adaptor2dHCurve2d]): float {.
+proc parameter*(v: Handle[Adaptor3dHVertex]; a: Handle[Adaptor2dHCurve2d]): cfloat {.
     importcpp: "BRepBlend_BlendTool::Parameter(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc tolerance*(v: Handle[Adaptor3dHVertex]; a: Handle[Adaptor2dHCurve2d]): float {.
+proc tolerance*(v: Handle[Adaptor3dHVertex]; a: Handle[Adaptor2dHCurve2d]): cfloat {.
     importcpp: "BRepBlend_BlendTool::Tolerance(@)",
     header: "BRepBlend_BlendTool.hxx".}
 proc singularOnUMin*(s: Handle[Adaptor3dHSurface]): bool {.
@@ -59,14 +59,39 @@ proc singularOnVMin*(s: Handle[Adaptor3dHSurface]): bool {.
 proc singularOnVMax*(s: Handle[Adaptor3dHSurface]): bool {.
     importcpp: "BRepBlend_BlendTool::SingularOnVMax(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc nbSamplesU*(s: Handle[Adaptor3dHSurface]; u1: float; u2: float): int {.
+proc nbSamplesU*(s: Handle[Adaptor3dHSurface]; u1: cfloat; u2: cfloat): cint {.
     importcpp: "BRepBlend_BlendTool::NbSamplesU(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc nbSamplesV*(s: Handle[Adaptor3dHSurface]; v1: float; v2: float): int {.
+proc nbSamplesV*(s: Handle[Adaptor3dHSurface]; v1: cfloat; v2: cfloat): cint {.
     importcpp: "BRepBlend_BlendTool::NbSamplesV(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc bounds*(c: Handle[Adaptor2dHCurve2d]; ufirst: var float; ulast: var float) {.
+proc bounds*(c: Handle[Adaptor2dHCurve2d]; ufirst: var cfloat; ulast: var cfloat) {.
     importcpp: "BRepBlend_BlendTool::Bounds(@)", header: "BRepBlend_BlendTool.hxx".}
 proc curveOnSurf*(c: Handle[Adaptor2dHCurve2d]; s: Handle[Adaptor3dHSurface]): Handle[
     Adaptor2dHCurve2d] {.importcpp: "BRepBlend_BlendTool::CurveOnSurf(@)",
                         header: "BRepBlend_BlendTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

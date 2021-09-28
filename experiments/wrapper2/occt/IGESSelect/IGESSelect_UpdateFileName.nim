@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_UpdateFileName"
 discard "forward decl of IGESSelect_UpdateFileName"
 type
-  HandleIGESSelectUpdateFileName* = Handle[IGESSelectUpdateFileName]
+  HandleC1C1* = Handle[IGESSelectUpdateFileName]
 
 ## ! Sets the File Name in Header to be the actual name of the file
 ## ! If new file name is unknown, the former one is kept
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_UpdateFileName.hxx".}
 proc dynamicType*(this: IGESSelectUpdateFileName): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_UpdateFileName.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,12 +20,31 @@ type
                           header: "Geom2dLProp_FuncCurNul.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
+proc `new`*(this: var Geom2dLPropFuncCurNul; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_FuncCurNul::operator new",
+    header: "Geom2dLProp_FuncCurNul.hxx".}
+proc `delete`*(this: var Geom2dLPropFuncCurNul; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_FuncCurNul::operator delete",
+    header: "Geom2dLProp_FuncCurNul.hxx".}
+proc `new[]`*(this: var Geom2dLPropFuncCurNul; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_FuncCurNul::operator new[]",
+    header: "Geom2dLProp_FuncCurNul.hxx".}
+proc `delete[]`*(this: var Geom2dLPropFuncCurNul; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_FuncCurNul::operator delete[]",
+    header: "Geom2dLProp_FuncCurNul.hxx".}
+proc `new`*(this: var Geom2dLPropFuncCurNul; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dLProp_FuncCurNul::operator new",
+    header: "Geom2dLProp_FuncCurNul.hxx".}
+proc `delete`*(this: var Geom2dLPropFuncCurNul; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dLProp_FuncCurNul::operator delete",
+    header: "Geom2dLProp_FuncCurNul.hxx".}
 proc constructGeom2dLPropFuncCurNul*(c: Handle[Geom2dCurve]): Geom2dLPropFuncCurNul {.
     constructor, importcpp: "Geom2dLProp_FuncCurNul(@)",
     header: "Geom2dLProp_FuncCurNul.hxx".}
-proc value*(this: var Geom2dLPropFuncCurNul; x: float; f: var float): bool {.
+proc value*(this: var Geom2dLPropFuncCurNul; x: StandardReal; f: var StandardReal): StandardBoolean {.
     importcpp: "Value", header: "Geom2dLProp_FuncCurNul.hxx".}
-proc derivative*(this: var Geom2dLPropFuncCurNul; x: float; d: var float): bool {.
+proc derivative*(this: var Geom2dLPropFuncCurNul; x: StandardReal; d: var StandardReal): StandardBoolean {.
     importcpp: "Derivative", header: "Geom2dLProp_FuncCurNul.hxx".}
-proc values*(this: var Geom2dLPropFuncCurNul; x: float; f: var float; d: var float): bool {.
-    importcpp: "Values", header: "Geom2dLProp_FuncCurNul.hxx".}
+proc values*(this: var Geom2dLPropFuncCurNul; x: StandardReal; f: var StandardReal;
+            d: var StandardReal): StandardBoolean {.importcpp: "Values",
+    header: "Geom2dLProp_FuncCurNul.hxx".}

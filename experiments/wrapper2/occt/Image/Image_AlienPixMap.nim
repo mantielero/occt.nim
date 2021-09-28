@@ -73,9 +73,34 @@ proc initCopy*(this: var ImageAlienPixMap; theCopy: ImagePixMap): bool {.
     importcpp: "InitCopy", header: "Image_AlienPixMap.hxx".}
 proc clear*(this: var ImageAlienPixMap) {.importcpp: "Clear",
                                       header: "Image_AlienPixMap.hxx".}
-proc adjustGamma*(this: var ImageAlienPixMap; theGammaCorr: float): bool {.
+proc adjustGamma*(this: var ImageAlienPixMap; theGammaCorr: cfloat): bool {.
     importcpp: "AdjustGamma", header: "Image_AlienPixMap.hxx".}
 discard "forward decl of Image_AlienPixMap"
 type
-  HandleImageAlienPixMap* = Handle[ImageAlienPixMap]
+  HandleC1C1* = Handle[ImageAlienPixMap]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

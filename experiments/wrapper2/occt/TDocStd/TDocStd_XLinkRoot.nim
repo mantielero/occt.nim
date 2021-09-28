@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDocStd_XLinkRoot"
 discard "forward decl of TDocStd_XLinkRoot"
 type
-  HandleTDocStdXLinkRoot* = Handle[TDocStdXLinkRoot]
+  HandleC1C1* = Handle[TDocStdXLinkRoot]
 
 ## ! This attribute is the root of all external
 ## ! references contained in a Data from TDF. Only one
@@ -75,3 +75,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDocStd_XLinkRoot.hxx".}
 proc dynamicType*(this: TDocStdXLinkRoot): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_XLinkRoot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

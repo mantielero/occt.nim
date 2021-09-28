@@ -24,7 +24,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of XSControl_Vars"
 discard "forward decl of XSControl_Vars"
 type
-  HandleXSControlVars* = Handle[XSControlVars]
+  HandleC1C1* = Handle[XSControlVars]
 
 ## ! Defines a receptacle for externally defined variables, each
 ## ! one has a name
@@ -78,3 +78,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XSControl_Vars.hxx".}
 proc dynamicType*(this: XSControlVars): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XSControl_Vars.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

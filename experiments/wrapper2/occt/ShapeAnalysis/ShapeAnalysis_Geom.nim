@@ -24,9 +24,34 @@ type
                                                                      ## ! plane and given points
 
 
-proc nearestPlane*(pnts: TColgpArray1OfPnt; aPln: var Pln; dmax: var float): bool {.
+proc nearestPlane*(pnts: TColgpArray1OfPnt; aPln: var Pln; dmax: var cfloat): bool {.
     importcpp: "ShapeAnalysis_Geom::NearestPlane(@)",
     header: "ShapeAnalysis_Geom.hxx".}
-proc positionTrsf*(coefs: Handle[TColStdHArray2OfReal]; trsf: var Trsf; unit: float;
-                  prec: float): bool {.importcpp: "ShapeAnalysis_Geom::PositionTrsf(@)",
-                                    header: "ShapeAnalysis_Geom.hxx".}
+proc positionTrsf*(coefs: Handle[TColStdHArray2OfReal]; trsf: var Trsf; unit: cfloat;
+                  prec: cfloat): bool {.importcpp: "ShapeAnalysis_Geom::PositionTrsf(@)",
+                                     header: "ShapeAnalysis_Geom.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

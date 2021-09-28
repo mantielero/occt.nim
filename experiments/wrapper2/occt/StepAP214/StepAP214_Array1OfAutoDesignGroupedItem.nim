@@ -18,3 +18,28 @@ type
   StepAP214Array1OfAutoDesignGroupedItem* = NCollectionArray1[
       StepAP214AutoDesignGroupedItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

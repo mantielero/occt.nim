@@ -31,17 +31,17 @@ proc set*(this: var IntPatchArcFunction; a: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "Set", header: "IntPatch_ArcFunction.hxx".}
 proc set*(this: var IntPatchArcFunction; s: Handle[Adaptor3dHSurface]) {.
     importcpp: "Set", header: "IntPatch_ArcFunction.hxx".}
-proc value*(this: var IntPatchArcFunction; x: float; f: var float): bool {.
+proc value*(this: var IntPatchArcFunction; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "IntPatch_ArcFunction.hxx".}
-proc derivative*(this: var IntPatchArcFunction; x: float; d: var float): bool {.
+proc derivative*(this: var IntPatchArcFunction; x: cfloat; d: var cfloat): bool {.
     importcpp: "Derivative", header: "IntPatch_ArcFunction.hxx".}
-proc values*(this: var IntPatchArcFunction; x: float; f: var float; d: var float): bool {.
+proc values*(this: var IntPatchArcFunction; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     importcpp: "Values", header: "IntPatch_ArcFunction.hxx".}
-proc nbSamples*(this: IntPatchArcFunction): int {.noSideEffect,
+proc nbSamples*(this: IntPatchArcFunction): cint {.noSideEffect,
     importcpp: "NbSamples", header: "IntPatch_ArcFunction.hxx".}
-proc getStateNumber*(this: var IntPatchArcFunction): int {.
+proc getStateNumber*(this: var IntPatchArcFunction): cint {.
     importcpp: "GetStateNumber", header: "IntPatch_ArcFunction.hxx".}
-proc valpoint*(this: IntPatchArcFunction; index: int): Pnt {.noSideEffect,
+proc valpoint*(this: IntPatchArcFunction; index: cint): Pnt {.noSideEffect,
     importcpp: "Valpoint", header: "IntPatch_ArcFunction.hxx".}
 proc quadric*(this: IntPatchArcFunction): IntSurfQuadric {.noSideEffect,
     importcpp: "Quadric", header: "IntPatch_ArcFunction.hxx".}
@@ -51,3 +51,28 @@ proc surface*(this: IntPatchArcFunction): Handle[Adaptor3dHSurface] {.noSideEffe
     importcpp: "Surface", header: "IntPatch_ArcFunction.hxx".}
 proc lastComputedPoint*(this: IntPatchArcFunction): Pnt {.noSideEffect,
     importcpp: "LastComputedPoint", header: "IntPatch_ArcFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

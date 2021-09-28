@@ -23,7 +23,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_EvolvedSection"
 discard "forward decl of GeomFill_EvolvedSection"
 type
-  HandleGeomFillEvolvedSection* = Handle[GeomFillEvolvedSection]
+  HandleC1C1* = Handle[GeomFillEvolvedSection]
 
 ## ! Define an Constant Section Law
 
@@ -46,18 +46,18 @@ type
 proc constructGeomFillEvolvedSection*(c: Handle[GeomCurve]; L: Handle[LawFunction]): GeomFillEvolvedSection {.
     constructor, importcpp: "GeomFill_EvolvedSection(@)",
     header: "GeomFill_EvolvedSection.hxx".}
-proc d0*(this: var GeomFillEvolvedSection; param: float; poles: var TColgpArray1OfPnt;
-        weigths: var TColStdArray1OfReal): bool {.importcpp: "D0",
-    header: "GeomFill_EvolvedSection.hxx".}
-proc d1*(this: var GeomFillEvolvedSection; param: float; poles: var TColgpArray1OfPnt;
-        dPoles: var TColgpArray1OfVec; weigths: var TColStdArray1OfReal;
-        dWeigths: var TColStdArray1OfReal): bool {.importcpp: "D1",
-    header: "GeomFill_EvolvedSection.hxx".}
-proc d2*(this: var GeomFillEvolvedSection; param: float; poles: var TColgpArray1OfPnt;
-        dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
-        weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
-        d2Weigths: var TColStdArray1OfReal): bool {.importcpp: "D2",
-    header: "GeomFill_EvolvedSection.hxx".}
+proc d0*(this: var GeomFillEvolvedSection; param: StandardReal;
+        poles: var TColgpArray1OfPnt; weigths: var TColStdArray1OfReal): StandardBoolean {.
+    importcpp: "D0", header: "GeomFill_EvolvedSection.hxx".}
+proc d1*(this: var GeomFillEvolvedSection; param: StandardReal;
+        poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+        weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): StandardBoolean {.
+    importcpp: "D1", header: "GeomFill_EvolvedSection.hxx".}
+proc d2*(this: var GeomFillEvolvedSection; param: StandardReal;
+        poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+        d2Poles: var TColgpArray1OfVec; weigths: var TColStdArray1OfReal;
+        dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): StandardBoolean {.
+    importcpp: "D2", header: "GeomFill_EvolvedSection.hxx".}
 proc bSplineSurface*(this: GeomFillEvolvedSection): Handle[GeomBSplineSurface] {.
     noSideEffect, importcpp: "BSplineSurface",
     header: "GeomFill_EvolvedSection.hxx".}
@@ -68,35 +68,39 @@ proc knots*(this: GeomFillEvolvedSection; tKnots: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "Knots", header: "GeomFill_EvolvedSection.hxx".}
 proc mults*(this: GeomFillEvolvedSection; tMults: var TColStdArray1OfInteger) {.
     noSideEffect, importcpp: "Mults", header: "GeomFill_EvolvedSection.hxx".}
-proc isRational*(this: GeomFillEvolvedSection): bool {.noSideEffect,
+proc isRational*(this: GeomFillEvolvedSection): StandardBoolean {.noSideEffect,
     importcpp: "IsRational", header: "GeomFill_EvolvedSection.hxx".}
-proc isUPeriodic*(this: GeomFillEvolvedSection): bool {.noSideEffect,
+proc isUPeriodic*(this: GeomFillEvolvedSection): StandardBoolean {.noSideEffect,
     importcpp: "IsUPeriodic", header: "GeomFill_EvolvedSection.hxx".}
-proc isVPeriodic*(this: GeomFillEvolvedSection): bool {.noSideEffect,
+proc isVPeriodic*(this: GeomFillEvolvedSection): StandardBoolean {.noSideEffect,
     importcpp: "IsVPeriodic", header: "GeomFill_EvolvedSection.hxx".}
 proc nbIntervals*(this: GeomFillEvolvedSection; s: GeomAbsShape): int {.noSideEffect,
     importcpp: "NbIntervals", header: "GeomFill_EvolvedSection.hxx".}
 proc intervals*(this: GeomFillEvolvedSection; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
                                 header: "GeomFill_EvolvedSection.hxx".}
-proc setInterval*(this: var GeomFillEvolvedSection; first: float; last: float) {.
-    importcpp: "SetInterval", header: "GeomFill_EvolvedSection.hxx".}
-proc getInterval*(this: GeomFillEvolvedSection; first: var float; last: var float) {.
-    noSideEffect, importcpp: "GetInterval", header: "GeomFill_EvolvedSection.hxx".}
-proc getDomain*(this: GeomFillEvolvedSection; first: var float; last: var float) {.
-    noSideEffect, importcpp: "GetDomain", header: "GeomFill_EvolvedSection.hxx".}
-proc getTolerance*(this: GeomFillEvolvedSection; boundTol: float; surfTol: float;
-                  angleTol: float; tol3d: var TColStdArray1OfReal) {.noSideEffect,
+proc setInterval*(this: var GeomFillEvolvedSection; first: StandardReal;
+                 last: StandardReal) {.importcpp: "SetInterval",
+                                     header: "GeomFill_EvolvedSection.hxx".}
+proc getInterval*(this: GeomFillEvolvedSection; first: var StandardReal;
+                 last: var StandardReal) {.noSideEffect, importcpp: "GetInterval",
+                                        header: "GeomFill_EvolvedSection.hxx".}
+proc getDomain*(this: GeomFillEvolvedSection; first: var StandardReal;
+               last: var StandardReal) {.noSideEffect, importcpp: "GetDomain",
+                                      header: "GeomFill_EvolvedSection.hxx".}
+proc getTolerance*(this: GeomFillEvolvedSection; boundTol: StandardReal;
+                  surfTol: StandardReal; angleTol: StandardReal;
+                  tol3d: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "GetTolerance", header: "GeomFill_EvolvedSection.hxx".}
 proc barycentreOfSurf*(this: GeomFillEvolvedSection): Pnt {.noSideEffect,
     importcpp: "BarycentreOfSurf", header: "GeomFill_EvolvedSection.hxx".}
-proc maximalSection*(this: GeomFillEvolvedSection): float {.noSideEffect,
+proc maximalSection*(this: GeomFillEvolvedSection): StandardReal {.noSideEffect,
     importcpp: "MaximalSection", header: "GeomFill_EvolvedSection.hxx".}
 proc getMinimalWeight*(this: GeomFillEvolvedSection;
                       weigths: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "GetMinimalWeight", header: "GeomFill_EvolvedSection.hxx".}
-proc isConstant*(this: GeomFillEvolvedSection; error: var float): bool {.noSideEffect,
-    importcpp: "IsConstant", header: "GeomFill_EvolvedSection.hxx".}
+proc isConstant*(this: GeomFillEvolvedSection; error: var StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsConstant", header: "GeomFill_EvolvedSection.hxx".}
 proc constantSection*(this: GeomFillEvolvedSection): Handle[GeomCurve] {.
     noSideEffect, importcpp: "ConstantSection",
     header: "GeomFill_EvolvedSection.hxx".}

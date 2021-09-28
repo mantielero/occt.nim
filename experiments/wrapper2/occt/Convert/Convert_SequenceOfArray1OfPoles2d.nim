@@ -17,3 +17,28 @@
 type
   ConvertSequenceOfArray1OfPoles2d* = TColgpSequenceOfArray1OfPnt2d
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

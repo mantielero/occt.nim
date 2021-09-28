@@ -18,8 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_GeometricRepresentationItem"
 discard "forward decl of StepVisual_CameraModelD3MultiClippingIntersection"
 type
-  HandleStepVisualCameraModelD3MultiClippingIntersection* = Handle[
-      StepVisualCameraModelD3MultiClippingIntersection]
+  HandleC1C1* = Handle[StepVisualCameraModelD3MultiClippingIntersection]
   StepVisualCameraModelD3MultiClippingIntersection* {.
       importcpp: "StepVisual_CameraModelD3MultiClippingIntersection",
       header: "StepVisual_CameraModelD3MultiClippingIntersection.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_CameraM
     header: "StepVisual_CameraModelD3MultiClippingIntersection.hxx".}
 proc dynamicType*(this: StepVisualCameraModelD3MultiClippingIntersection): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_CameraModelD3MultiClippingIntersection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

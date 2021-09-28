@@ -359,27 +359,27 @@ proc translate*(theFace: TopoDS_Face; theMap: var StdObjMgtTransientPersistentMa
                theTriangleMode: ShapePersistentTriangleMode): Handle[PTObjectT] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc translate*(theParam: float; theCurve: Handle[GeomCurve]; theLoc: TopLocLocation;
-               theMap: var StdObjMgtTransientPersistentMap): Handle[
+proc translate*(theParam: cfloat; theCurve: Handle[GeomCurve];
+               theLoc: TopLocLocation; theMap: var StdObjMgtTransientPersistentMap): Handle[
     ShapePersistentBRepPointOnCurve] {.importcpp: "ShapePersistent_BRep::Translate(@)",
                                       header: "ShapePersistent_BRep.hxx".}
-proc translate*(theParam: float; theCurve: Handle[Geom2dCurve];
+proc translate*(theParam: cfloat; theCurve: Handle[Geom2dCurve];
                theSurf: Handle[GeomSurface]; theLoc: TopLocLocation;
                theMap: var StdObjMgtTransientPersistentMap): Handle[
     ShapePersistentBRepPointOnCurveOnSurface] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc translate*(theParam: float; theParam2: float; theSurf: Handle[GeomSurface];
+proc translate*(theParam: cfloat; theParam2: cfloat; theSurf: Handle[GeomSurface];
                theLoc: TopLocLocation; theMap: var StdObjMgtTransientPersistentMap): Handle[
     ShapePersistentBRepPointOnSurface] {.importcpp: "ShapePersistent_BRep::Translate(@)",
                                         header: "ShapePersistent_BRep.hxx".}
-proc translate*(theCurve: Handle[Geom2dCurve]; theFirstParam: float;
-               theLastParam: float; theSurf: Handle[GeomSurface];
+proc translate*(theCurve: Handle[Geom2dCurve]; theFirstParam: cfloat;
+               theLastParam: cfloat; theSurf: Handle[GeomSurface];
                theLoc: TopLocLocation; theMap: var StdObjMgtTransientPersistentMap): Handle[
     ShapePersistentBRepCurveOnSurface] {.importcpp: "ShapePersistent_BRep::Translate(@)",
                                         header: "ShapePersistent_BRep.hxx".}
 proc translate*(theCurve: Handle[Geom2dCurve]; theCurve2: Handle[Geom2dCurve];
-               theFirstParam: float; theLastParam: float;
+               theFirstParam: cfloat; theLastParam: cfloat;
                theSurf: Handle[GeomSurface]; theLoc: TopLocLocation;
                theContinuity: GeomAbsShape;
                theMap: var StdObjMgtTransientPersistentMap): Handle[
@@ -393,8 +393,8 @@ proc translate*(theSurf: Handle[GeomSurface]; theSurf2: Handle[GeomSurface];
     ShapePersistentBRepCurveOn2Surfaces] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
-proc translate*(theCurve: Handle[GeomCurve]; theFirstParam: float;
-               theLastParam: float; theLoc: TopLocLocation;
+proc translate*(theCurve: Handle[GeomCurve]; theFirstParam: cfloat;
+               theLastParam: cfloat; theLoc: TopLocLocation;
                theMap: var StdObjMgtTransientPersistentMap): Handle[
     ShapePersistentBRepCurve3D] {.importcpp: "ShapePersistent_BRep::Translate(@)",
                                  header: "ShapePersistent_BRep.hxx".}
@@ -426,3 +426,28 @@ proc translate*(thePolyOnTriang: Handle[PolyPolygonOnTriangulation];
     ShapePersistentBRepPolygonOnTriangulation] {.
     importcpp: "ShapePersistent_BRep::Translate(@)",
     header: "ShapePersistent_BRep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

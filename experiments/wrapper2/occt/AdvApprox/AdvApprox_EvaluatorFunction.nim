@@ -43,13 +43,38 @@ proc constructAdvApproxEvaluatorFunction*(): AdvApproxEvaluatorFunction {.
 proc destroyAdvApproxEvaluatorFunction*(this: var AdvApproxEvaluatorFunction) {.
     importcpp: "#.~AdvApprox_EvaluatorFunction()",
     header: "AdvApprox_EvaluatorFunction.hxx".}
-proc evaluate*(this: var AdvApproxEvaluatorFunction; dimension: ptr int;
-              startEnd: array[2, float]; parameter: ptr float;
-              derivativeRequest: ptr int; result: ptr float; errorCode: ptr int) {.
+proc evaluate*(this: var AdvApproxEvaluatorFunction; dimension: ptr cint;
+              startEnd: array[2, cfloat]; parameter: ptr cfloat;
+              derivativeRequest: ptr cint; result: ptr cfloat; errorCode: ptr cint) {.
     importcpp: "Evaluate", header: "AdvApprox_EvaluatorFunction.hxx".}
   ##  [Dimension]
-proc `()`*(this: var AdvApproxEvaluatorFunction; dimension: ptr int;
-          startEnd: array[2, float]; parameter: ptr float; derivativeRequest: ptr int;
-          result: ptr float; errorCode: ptr int) {.importcpp: "#(@)",
-    header: "AdvApprox_EvaluatorFunction.hxx".}
+proc `()`*(this: var AdvApproxEvaluatorFunction; dimension: ptr cint;
+          startEnd: array[2, cfloat]; parameter: ptr cfloat;
+          derivativeRequest: ptr cint; result: ptr cfloat; errorCode: ptr cint) {.
+    importcpp: "#(@)", header: "AdvApprox_EvaluatorFunction.hxx".}
   ##  [Dimension]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

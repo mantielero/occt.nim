@@ -19,7 +19,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IGESSelect_SignLevelNumber"
 discard "forward decl of IGESSelect_SignLevelNumber"
 type
-  HandleIGESSelectSignLevelNumber* = Handle[IGESSelectSignLevelNumber]
+  HandleC1C1* = Handle[IGESSelectSignLevelNumber]
 
 ## ! Gives D.E. Level Number under two possible forms :
 ## ! * for counter : "LEVEL nnnnnnn", " NO LEVEL", " LEVEL LIST"
@@ -85,3 +85,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSignLevelNumber): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SignLevelNumber.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

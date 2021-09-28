@@ -90,13 +90,13 @@ proc setArrowAspect*(this: var Prs3dDimensionAspect;
     importcpp: "SetArrowAspect", header: "Prs3d_DimensionAspect.hxx".}
 proc setCommonColor*(this: var Prs3dDimensionAspect; theColor: QuantityColor) {.
     importcpp: "SetCommonColor", header: "Prs3d_DimensionAspect.hxx".}
-proc setExtensionSize*(this: var Prs3dDimensionAspect; theSize: float) {.
+proc setExtensionSize*(this: var Prs3dDimensionAspect; theSize: cfloat) {.
     importcpp: "SetExtensionSize", header: "Prs3d_DimensionAspect.hxx".}
-proc extensionSize*(this: Prs3dDimensionAspect): float {.noSideEffect,
+proc extensionSize*(this: Prs3dDimensionAspect): cfloat {.noSideEffect,
     importcpp: "ExtensionSize", header: "Prs3d_DimensionAspect.hxx".}
-proc setArrowTailSize*(this: var Prs3dDimensionAspect; theSize: float) {.
+proc setArrowTailSize*(this: var Prs3dDimensionAspect; theSize: cfloat) {.
     importcpp: "SetArrowTailSize", header: "Prs3d_DimensionAspect.hxx".}
-proc arrowTailSize*(this: Prs3dDimensionAspect): float {.noSideEffect,
+proc arrowTailSize*(this: Prs3dDimensionAspect): cfloat {.noSideEffect,
     importcpp: "ArrowTailSize", header: "Prs3d_DimensionAspect.hxx".}
 proc setValueStringFormat*(this: var Prs3dDimensionAspect;
                           theFormat: TCollectionAsciiString) {.
@@ -105,9 +105,34 @@ proc valueStringFormat*(this: Prs3dDimensionAspect): TCollectionAsciiString {.
     noSideEffect, importcpp: "ValueStringFormat",
     header: "Prs3d_DimensionAspect.hxx".}
 proc dumpJson*(this: Prs3dDimensionAspect; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Prs3d_DimensionAspect.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Prs3d_DimensionAspect.hxx".}
 discard "forward decl of Prs3d_DimensionAspect"
 type
-  HandlePrs3dDimensionAspect* = Handle[Prs3dDimensionAspect]
+  HandleC1C1* = Handle[Prs3dDimensionAspect]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

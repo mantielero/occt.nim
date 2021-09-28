@@ -49,5 +49,30 @@ proc hasSecondPoint*(this: HatchGenDomain): bool {.noSideEffect,
     importcpp: "HasSecondPoint", header: "HatchGen_Domain.hxx".}
 proc secondPoint*(this: HatchGenDomain): HatchGenPointOnHatching {.noSideEffect,
     importcpp: "SecondPoint", header: "HatchGen_Domain.hxx".}
-proc dump*(this: HatchGenDomain; index: int = 0) {.noSideEffect, importcpp: "Dump",
+proc dump*(this: HatchGenDomain; index: cint = 0) {.noSideEffect, importcpp: "Dump",
     header: "HatchGen_Domain.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

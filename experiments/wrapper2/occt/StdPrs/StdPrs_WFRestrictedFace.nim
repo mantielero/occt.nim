@@ -24,7 +24,7 @@ type
 
 proc add*(thePresentation: Handle[Prs3dPresentation];
          theFace: Handle[BRepAdaptorHSurface]; theDrawUIso: bool; theDrawVIso: bool;
-         theNbUIso: int; theNbVIso: int; theDrawer: Handle[Prs3dDrawer];
+         theNbUIso: cint; theNbVIso: cint; theDrawer: Handle[Prs3dDrawer];
          theCurves: var Prs3dNListOfSequenceOfPnt) {.
     importcpp: "StdPrs_WFRestrictedFace::Add(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
@@ -32,22 +32,22 @@ proc add*(thePresentation: Handle[Prs3dPresentation];
          theFace: Handle[BRepAdaptorHSurface]; theDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdPrs_WFRestrictedFace::Add(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc match*(theX: float; theY: float; theZ: float; theDistance: float;
+proc match*(theX: cfloat; theY: cfloat; theZ: cfloat; theDistance: cfloat;
            theFace: Handle[BRepAdaptorHSurface]; theDrawUIso: bool;
-           theDrawVIso: bool; theDeflection: float; theNbUIso: int; theNbVIso: int;
+           theDrawVIso: bool; theDeflection: cfloat; theNbUIso: cint; theNbVIso: cint;
            theDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFRestrictedFace::Match(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc match*(theX: float; theY: float; theZ: float; theDistance: float;
+proc match*(theX: cfloat; theY: cfloat; theZ: cfloat; theDistance: cfloat;
            theFace: Handle[BRepAdaptorHSurface]; theDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFRestrictedFace::Match(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc matchUIso*(theX: float; theY: float; theZ: float; theDistance: float;
+proc matchUIso*(theX: cfloat; theY: cfloat; theZ: cfloat; theDistance: cfloat;
                theFace: Handle[BRepAdaptorHSurface];
                theDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFRestrictedFace::MatchUIso(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
-proc matchVIso*(theX: float; theY: float; theZ: float; theDistance: float;
+proc matchVIso*(theX: cfloat; theY: cfloat; theZ: cfloat; theDistance: cfloat;
                theFace: Handle[BRepAdaptorHSurface];
                theDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_WFRestrictedFace::MatchVIso(@)",
@@ -60,3 +60,28 @@ proc addVIso*(thePresentation: Handle[Prs3dPresentation];
              theFace: Handle[BRepAdaptorHSurface]; theDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdPrs_WFRestrictedFace::AddVIso(@)",
     header: "StdPrs_WFRestrictedFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

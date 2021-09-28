@@ -25,22 +25,47 @@ type
                                                                      ## ! to the end point.
 
 
-proc firstParameter*(c: BRepAdaptorCurve): float {.
+proc firstParameter*(c: BRepAdaptorCurve): cfloat {.
     importcpp: "BRepGProp_EdgeTool::FirstParameter(@)",
     header: "BRepGProp_EdgeTool.hxx".}
-proc lastParameter*(c: BRepAdaptorCurve): float {.
+proc lastParameter*(c: BRepAdaptorCurve): cfloat {.
     importcpp: "BRepGProp_EdgeTool::LastParameter(@)",
     header: "BRepGProp_EdgeTool.hxx".}
-proc integrationOrder*(c: BRepAdaptorCurve): int {.
+proc integrationOrder*(c: BRepAdaptorCurve): cint {.
     importcpp: "BRepGProp_EdgeTool::IntegrationOrder(@)",
     header: "BRepGProp_EdgeTool.hxx".}
-proc value*(c: BRepAdaptorCurve; u: float): Pnt {.
+proc value*(c: BRepAdaptorCurve; u: cfloat): Pnt {.
     importcpp: "BRepGProp_EdgeTool::Value(@)", header: "BRepGProp_EdgeTool.hxx".}
-proc d1*(c: BRepAdaptorCurve; u: float; p: var Pnt; v1: var Vec) {.
+proc d1*(c: BRepAdaptorCurve; u: cfloat; p: var Pnt; v1: var Vec) {.
     importcpp: "BRepGProp_EdgeTool::D1(@)", header: "BRepGProp_EdgeTool.hxx".}
-proc nbIntervals*(c: BRepAdaptorCurve; s: GeomAbsShape): int {.
+proc nbIntervals*(c: BRepAdaptorCurve; s: GeomAbsShape): cint {.
     importcpp: "BRepGProp_EdgeTool::NbIntervals(@)",
     header: "BRepGProp_EdgeTool.hxx".}
 proc intervals*(c: BRepAdaptorCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     importcpp: "BRepGProp_EdgeTool::Intervals(@)",
     header: "BRepGProp_EdgeTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

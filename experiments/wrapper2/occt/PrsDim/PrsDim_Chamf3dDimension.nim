@@ -16,7 +16,7 @@
 
 discard "forward decl of PrsDim_Chamf3dDimension"
 type
-  HandlePrsDimChamf3dDimension* = Handle[PrsDimChamf3dDimension]
+  HandleC1C1* = Handle[PrsDimChamf3dDimension]
 
 ## ! A framework to define display of 3D chamfers.
 ## ! A chamfer is displayed with arrows and text. The text
@@ -63,14 +63,14 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "PrsDim_Chamf3dDimension.hxx".}
 proc dynamicType*(this: PrsDimChamf3dDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_Chamf3dDimension.hxx".}
-proc constructPrsDimChamf3dDimension*(aFShape: TopoDS_Shape; aVal: float;
+proc constructPrsDimChamf3dDimension*(aFShape: TopoDS_Shape; aVal: cfloat;
                                      aText: TCollectionExtendedString): PrsDimChamf3dDimension {.
     constructor, importcpp: "PrsDim_Chamf3dDimension(@)",
     header: "PrsDim_Chamf3dDimension.hxx".}
-proc constructPrsDimChamf3dDimension*(aFShape: TopoDS_Shape; aVal: float;
+proc constructPrsDimChamf3dDimension*(aFShape: TopoDS_Shape; aVal: cfloat;
                                      aText: TCollectionExtendedString;
                                      aPosition: Pnt; aSymbolPrs: DsgPrsArrowSide;
-                                     anArrowSize: float = 0.0): PrsDimChamf3dDimension {.
+                                     anArrowSize: cfloat = 0.0): PrsDimChamf3dDimension {.
     constructor, importcpp: "PrsDim_Chamf3dDimension(@)",
     header: "PrsDim_Chamf3dDimension.hxx".}
 proc kindOfDimension*(this: PrsDimChamf3dDimension): PrsDimKindOfDimension {.
@@ -78,3 +78,28 @@ proc kindOfDimension*(this: PrsDimChamf3dDimension): PrsDimKindOfDimension {.
     header: "PrsDim_Chamf3dDimension.hxx".}
 proc isMovable*(this: PrsDimChamf3dDimension): bool {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_Chamf3dDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

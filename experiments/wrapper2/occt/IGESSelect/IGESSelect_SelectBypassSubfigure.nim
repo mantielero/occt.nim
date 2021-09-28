@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectBypassSubfigure"
 discard "forward decl of IGESSelect_SelectBypassSubfigure"
 type
-  HandleIGESSelectSelectBypassSubfigure* = Handle[IGESSelectSelectBypassSubfigure]
+  HandleC1C1* = Handle[IGESSelectSelectBypassSubfigure]
 
 ## ! Selects a list built as follows :
 ## ! Subfigures correspond to
@@ -49,10 +49,10 @@ type
                                                                           ## explores at first level)
 
 
-proc constructIGESSelectSelectBypassSubfigure*(level: int = 0): IGESSelectSelectBypassSubfigure {.
+proc constructIGESSelectSelectBypassSubfigure*(level: cint = 0): IGESSelectSelectBypassSubfigure {.
     constructor, importcpp: "IGESSelect_SelectBypassSubfigure(@)",
     header: "IGESSelect_SelectBypassSubfigure.hxx".}
-proc explore*(this: IGESSelectSelectBypassSubfigure; level: int;
+proc explore*(this: IGESSelectSelectBypassSubfigure; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "IGESSelect_SelectBypassSubfigure.hxx".}
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSelectBypassSubfigure): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectBypassSubfigure.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

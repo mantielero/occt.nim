@@ -23,14 +23,14 @@ type
   HLRAlgoPolyHidingDataTriangleIndices* {.
       importcpp: "HLRAlgo_PolyHidingData::TriangleIndices",
       header: "HLRAlgo_PolyHidingData.hxx", bycopy.} = object
-    index* {.importc: "Index".}: int
-    min* {.importc: "Min".}: int
-    max* {.importc: "Max".}: int
+    index* {.importc: "Index".}: cint
+    min* {.importc: "Min".}: cint
+    max* {.importc: "Max".}: cint
 
   HLRAlgoPolyHidingDataPlaneT* {.importcpp: "HLRAlgo_PolyHidingData::PlaneT",
                                 header: "HLRAlgo_PolyHidingData.hxx", bycopy.} = object
     normal* {.importc: "Normal".}: Xyz
-    d* {.importc: "D".}: float
+    d* {.importc: "D".}: cfloat
 
 
 proc constructHLRAlgoPolyHidingDataPlaneT*(): HLRAlgoPolyHidingDataPlaneT {.
@@ -38,10 +38,35 @@ proc constructHLRAlgoPolyHidingDataPlaneT*(): HLRAlgoPolyHidingDataPlaneT {.
     header: "HLRAlgo_PolyHidingData.hxx".}
 proc constructHLRAlgoPolyHidingData*(): HLRAlgoPolyHidingData {.constructor,
     importcpp: "HLRAlgo_PolyHidingData(@)", header: "HLRAlgo_PolyHidingData.hxx".}
-proc set*(this: var HLRAlgoPolyHidingData; index: int; minim: int; maxim: int; a: float;
-         b: float; c: float; d: float) {.importcpp: "Set",
-                                   header: "HLRAlgo_PolyHidingData.hxx".}
+proc set*(this: var HLRAlgoPolyHidingData; index: cint; minim: cint; maxim: cint;
+         a: cfloat; b: cfloat; c: cfloat; d: cfloat) {.importcpp: "Set",
+    header: "HLRAlgo_PolyHidingData.hxx".}
 proc indices*(this: var HLRAlgoPolyHidingData): var HLRAlgoPolyHidingDataTriangleIndices {.
     importcpp: "Indices", header: "HLRAlgo_PolyHidingData.hxx".}
 proc plane*(this: var HLRAlgoPolyHidingData): var HLRAlgoPolyHidingDataPlaneT {.
     importcpp: "Plane", header: "HLRAlgo_PolyHidingData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,7 +30,7 @@ proc constructRWStepBasicRWEulerAngles*(): RWStepBasicRWEulerAngles {.constructo
     importcpp: "RWStepBasic_RWEulerAngles(@)",
     header: "RWStepBasic_RWEulerAngles.hxx".}
 proc readStep*(this: RWStepBasicRWEulerAngles;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicEulerAngles]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWEulerAngles.hxx".}
 proc writeStep*(this: RWStepBasicRWEulerAngles; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepBasicRWEulerAngles; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWEulerAngles; ent: Handle[StepBasicEulerAngles];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWEulerAngles.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

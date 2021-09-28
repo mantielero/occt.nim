@@ -22,7 +22,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of TFunction_Logbook"
 type
-  HandleTFunctionLogbook* = Handle[TFunctionLogbook]
+  HandleC1C1* = Handle[TFunctionLogbook]
 
 ## ! This class contains information which is written and
 ## ! read during the solving process. Information is divided
@@ -99,3 +99,28 @@ proc newEmpty*(this: TFunctionLogbook): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "TFunction_Logbook.hxx".}
 proc dump*(this: TFunctionLogbook; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TFunction_Logbook.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,8 +16,7 @@
 discard "forward decl of StepVisual_TessellatedAnnotationOccurrence"
 discard "forward decl of StepVisual_TessellatedAnnotationOccurrence"
 type
-  HandleStepVisualTessellatedAnnotationOccurrence* = Handle[
-      StepVisualTessellatedAnnotationOccurrence]
+  HandleC1C1* = Handle[StepVisualTessellatedAnnotationOccurrence]
   StepVisualTessellatedAnnotationOccurrence* {.
       importcpp: "StepVisual_TessellatedAnnotationOccurrence",
       header: "StepVisual_TessellatedAnnotationOccurrence.hxx", bycopy.} = object of StepVisualStyledItem ##
@@ -39,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Tessell
 proc dynamicType*(this: StepVisualTessellatedAnnotationOccurrence): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_TessellatedAnnotationOccurrence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

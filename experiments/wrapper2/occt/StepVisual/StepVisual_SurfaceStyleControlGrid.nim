@@ -18,8 +18,7 @@ discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_SurfaceStyleControlGrid"
 discard "forward decl of StepVisual_SurfaceStyleControlGrid"
 type
-  HandleStepVisualSurfaceStyleControlGrid* = Handle[
-      StepVisualSurfaceStyleControlGrid]
+  HandleC1C1* = Handle[StepVisualSurfaceStyleControlGrid]
   StepVisualSurfaceStyleControlGrid* {.importcpp: "StepVisual_SurfaceStyleControlGrid", header: "StepVisual_SurfaceStyleControlGrid.hxx",
                                       bycopy.} = object of StandardTransient ## ! Returns a
                                                                         ## SurfaceStyleControlGrid
@@ -49,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualSurfaceStyleControlGrid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleControlGrid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

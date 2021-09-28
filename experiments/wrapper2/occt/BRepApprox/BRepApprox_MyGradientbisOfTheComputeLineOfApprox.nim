@@ -93,10 +93,10 @@ type
 
 
 proc constructBRepApproxMyGradientbisOfTheComputeLineOfApprox*(
-    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: cint; lastPoint: cint;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: var MathVector; deg: int; tol3d: float; tol2d: float;
-    nbIterations: int = 200): BRepApproxMyGradientbisOfTheComputeLineOfApprox {.
+    parameters: var MathVector; deg: cint; tol3d: cfloat; tol2d: cfloat;
+    nbIterations: cint = 200): BRepApproxMyGradientbisOfTheComputeLineOfApprox {.
     constructor,
     importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox(@)",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
@@ -106,15 +106,40 @@ proc isDone*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): bool {.
 proc value*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): AppParCurvesMultiCurve {.
     noSideEffect, importcpp: "Value",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc error*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox; index: int): float {.
+proc error*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox; index: cint): cfloat {.
     noSideEffect, importcpp: "Error",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc maxError3d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): float {.
+proc maxError3d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): cfloat {.
     noSideEffect, importcpp: "MaxError3d",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc maxError2d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): float {.
+proc maxError2d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): cfloat {.
     noSideEffect, importcpp: "MaxError2d",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc averageError*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): float {.
+proc averageError*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): cfloat {.
     noSideEffect, importcpp: "AverageError",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

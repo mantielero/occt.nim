@@ -20,7 +20,7 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of LocOpe_GeneratedShape"
 discard "forward decl of LocOpe_GeneratedShape"
 type
-  HandleLocOpeGeneratedShape* = Handle[LocOpeGeneratedShape]
+  HandleC1C1* = Handle[LocOpeGeneratedShape]
   LocOpeGeneratedShape* {.importcpp: "LocOpe_GeneratedShape",
                          header: "LocOpe_GeneratedShape.hxx", bycopy.} = object of StandardTransient
 
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "LocOpe_GeneratedShape.hxx".}
 proc dynamicType*(this: LocOpeGeneratedShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "LocOpe_GeneratedShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

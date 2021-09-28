@@ -18,7 +18,7 @@ discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataXtd_TriangulationDriver"
 type
-  HandleBinMDataXtdTriangulationDriver* = Handle[BinMDataXtdTriangulationDriver]
+  HandleC1C1* = Handle[BinMDataXtdTriangulationDriver]
 
 ## ! TDataXtd_Triangulation attribute bin Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataXtdTriangulationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataXtd_TriangulationDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

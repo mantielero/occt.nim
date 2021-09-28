@@ -19,3 +19,28 @@ type
       Handle[SelectMgrEntityOwner], SelectMgrSortCriterion,
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

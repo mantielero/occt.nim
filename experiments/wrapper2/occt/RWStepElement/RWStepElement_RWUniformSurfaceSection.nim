@@ -29,7 +29,7 @@ proc constructRWStepElementRWUniformSurfaceSection*(): RWStepElementRWUniformSur
     constructor, importcpp: "RWStepElement_RWUniformSurfaceSection(@)",
     header: "RWStepElement_RWUniformSurfaceSection.hxx".}
 proc readStep*(this: RWStepElementRWUniformSurfaceSection;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepElementUniformSurfaceSection]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepElement_RWUniformSurfaceSection.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepElementRWUniformSurfaceSection;
            ent: Handle[StepElementUniformSurfaceSection];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWUniformSurfaceSection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

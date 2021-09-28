@@ -52,3 +52,28 @@ proc tgtFaces*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face): bool {.
     importcpp: "LocOpe::TgtFaces(@)", header: "LocOpe.hxx".}
 proc sampleEdges*(s: TopoDS_Shape; pt: var TColgpSequenceOfPnt) {.
     importcpp: "LocOpe::SampleEdges(@)", header: "LocOpe.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

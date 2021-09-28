@@ -17,7 +17,7 @@
 discard "forward decl of StepShape_Vertex"
 discard "forward decl of StepShape_Vertex"
 type
-  HandleStepShapeVertex* = Handle[StepShapeVertex]
+  HandleC1C1* = Handle[StepShapeVertex]
   StepShapeVertex* {.importcpp: "StepShape_Vertex", header: "StepShape_Vertex.hxx",
                     bycopy.} = object of StepShapeTopologicalRepresentationItem ## !
                                                                            ## Returns a
@@ -36,3 +36,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Vertex.hxx".}
 proc dynamicType*(this: StepShapeVertex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Vertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

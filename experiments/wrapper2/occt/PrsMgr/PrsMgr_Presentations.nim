@@ -18,3 +18,28 @@ discard "forward decl of PrsMgr_Presentation"
 type
   PrsMgrPresentations* = NCollectionSequence[Handle[PrsMgrPresentation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

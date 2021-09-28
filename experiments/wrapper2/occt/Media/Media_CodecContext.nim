@@ -66,3 +66,28 @@ proc sendPacket*(this: var MediaCodecContext; thePacket: Handle[MediaPacket]): b
     importcpp: "SendPacket", header: "Media_CodecContext.hxx".}
 proc receiveFrame*(this: var MediaCodecContext; theFrame: Handle[MediaFrame]): bool {.
     importcpp: "ReceiveFrame", header: "Media_CodecContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

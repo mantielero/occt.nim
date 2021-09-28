@@ -21,7 +21,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_BezierSurface"
 discard "forward decl of DrawTrSurf_BezierSurface"
 type
-  HandleDrawTrSurfBezierSurface* = Handle[DrawTrSurfBezierSurface]
+  HandleC1C1* = Handle[DrawTrSurfBezierSurface]
   DrawTrSurfBezierSurface* {.importcpp: "DrawTrSurf_BezierSurface",
                             header: "DrawTrSurf_BezierSurface.hxx", bycopy.} = object of DrawTrSurfSurface ##
                                                                                                     ## !
@@ -44,11 +44,11 @@ type
 proc constructDrawTrSurfBezierSurface*(s: Handle[GeomBezierSurface]): DrawTrSurfBezierSurface {.
     constructor, importcpp: "DrawTrSurf_BezierSurface(@)",
     header: "DrawTrSurf_BezierSurface.hxx".}
-proc constructDrawTrSurfBezierSurface*(s: Handle[GeomBezierSurface]; nbUIsos: int;
-                                      nbVIsos: int; boundsColor: DrawColor;
+proc constructDrawTrSurfBezierSurface*(s: Handle[GeomBezierSurface]; nbUIsos: cint;
+                                      nbVIsos: cint; boundsColor: DrawColor;
                                       isosColor: DrawColor; polesColor: DrawColor;
-                                      showPoles: bool; discret: int;
-                                      deflection: float; drawMode: int): DrawTrSurfBezierSurface {.
+                                      showPoles: bool; discret: cint;
+                                      deflection: cfloat; drawMode: cint): DrawTrSurfBezierSurface {.
     constructor, importcpp: "DrawTrSurf_BezierSurface(@)",
     header: "DrawTrSurf_BezierSurface.hxx".}
 proc drawOn*(this: DrawTrSurfBezierSurface; dis: var DrawDisplay) {.noSideEffect,
@@ -57,8 +57,8 @@ proc showPoles*(this: var DrawTrSurfBezierSurface) {.importcpp: "ShowPoles",
     header: "DrawTrSurf_BezierSurface.hxx".}
 proc clearPoles*(this: var DrawTrSurfBezierSurface) {.importcpp: "ClearPoles",
     header: "DrawTrSurf_BezierSurface.hxx".}
-proc findPole*(this: DrawTrSurfBezierSurface; x: float; y: float; d: DrawDisplay;
-              prec: float; uIndex: var int; vIndex: var int) {.noSideEffect,
+proc findPole*(this: DrawTrSurfBezierSurface; x: cfloat; y: cfloat; d: DrawDisplay;
+              prec: cfloat; uIndex: var cint; vIndex: var cint) {.noSideEffect,
     importcpp: "FindPole", header: "DrawTrSurf_BezierSurface.hxx".}
 proc setPolesColor*(this: var DrawTrSurfBezierSurface; aColor: DrawColor) {.
     importcpp: "SetPolesColor", header: "DrawTrSurf_BezierSurface.hxx".}
@@ -76,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_BezierSurface.hxx".}
 proc dynamicType*(this: DrawTrSurfBezierSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DrawTrSurf_BezierSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

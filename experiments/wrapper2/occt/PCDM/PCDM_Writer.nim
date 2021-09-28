@@ -20,7 +20,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of PCDM_Writer"
 discard "forward decl of PCDM_Writer"
 type
-  HandlePCDM_Writer* = Handle[PCDM_Writer]
+  HandleC1C1* = Handle[PCDM_Writer]
   PCDM_Writer* {.importcpp: "PCDM_Writer", header: "PCDM_Writer.hxx", bycopy.} = object of StandardTransient
 
 
@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PCDM_Writer::get_type_descriptor(@)", header: "PCDM_Writer.hxx".}
 proc dynamicType*(this: PCDM_Writer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_Writer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

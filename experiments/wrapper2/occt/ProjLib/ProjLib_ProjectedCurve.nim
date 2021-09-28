@@ -57,63 +57,63 @@ proc constructProjLibProjectedCurve*(s: Handle[Adaptor3dHSurface];
     constructor, importcpp: "ProjLib_ProjectedCurve(@)",
     header: "ProjLib_ProjectedCurve.hxx".}
 proc constructProjLibProjectedCurve*(s: Handle[Adaptor3dHSurface];
-                                    c: Handle[Adaptor3dHCurve]; tol: float): ProjLibProjectedCurve {.
+                                    c: Handle[Adaptor3dHCurve]; tol: cfloat): ProjLibProjectedCurve {.
     constructor, importcpp: "ProjLib_ProjectedCurve(@)",
     header: "ProjLib_ProjectedCurve.hxx".}
-proc load*(this: var ProjLibProjectedCurve; tolerance: float) {.importcpp: "Load",
+proc load*(this: var ProjLibProjectedCurve; tolerance: cfloat) {.importcpp: "Load",
     header: "ProjLib_ProjectedCurve.hxx".}
 proc load*(this: var ProjLibProjectedCurve; s: Handle[Adaptor3dHSurface]) {.
     importcpp: "Load", header: "ProjLib_ProjectedCurve.hxx".}
 proc perform*(this: var ProjLibProjectedCurve; c: Handle[Adaptor3dHCurve]) {.
     importcpp: "Perform", header: "ProjLib_ProjectedCurve.hxx".}
-proc setDegree*(this: var ProjLibProjectedCurve; theDegMin: int; theDegMax: int) {.
+proc setDegree*(this: var ProjLibProjectedCurve; theDegMin: cint; theDegMax: cint) {.
     importcpp: "SetDegree", header: "ProjLib_ProjectedCurve.hxx".}
-proc setMaxSegments*(this: var ProjLibProjectedCurve; theMaxSegments: int) {.
+proc setMaxSegments*(this: var ProjLibProjectedCurve; theMaxSegments: cint) {.
     importcpp: "SetMaxSegments", header: "ProjLib_ProjectedCurve.hxx".}
 proc setBndPnt*(this: var ProjLibProjectedCurve; theBndPnt: AppParCurvesConstraint) {.
     importcpp: "SetBndPnt", header: "ProjLib_ProjectedCurve.hxx".}
-proc setMaxDist*(this: var ProjLibProjectedCurve; theMaxDist: float) {.
+proc setMaxDist*(this: var ProjLibProjectedCurve; theMaxDist: cfloat) {.
     importcpp: "SetMaxDist", header: "ProjLib_ProjectedCurve.hxx".}
 proc getSurface*(this: ProjLibProjectedCurve): Handle[Adaptor3dHSurface] {.
     noSideEffect, importcpp: "GetSurface", header: "ProjLib_ProjectedCurve.hxx".}
 proc getCurve*(this: ProjLibProjectedCurve): Handle[Adaptor3dHCurve] {.noSideEffect,
     importcpp: "GetCurve", header: "ProjLib_ProjectedCurve.hxx".}
-proc getTolerance*(this: ProjLibProjectedCurve): float {.noSideEffect,
+proc getTolerance*(this: ProjLibProjectedCurve): cfloat {.noSideEffect,
     importcpp: "GetTolerance", header: "ProjLib_ProjectedCurve.hxx".}
-proc firstParameter*(this: ProjLibProjectedCurve): float {.noSideEffect,
+proc firstParameter*(this: ProjLibProjectedCurve): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "ProjLib_ProjectedCurve.hxx".}
-proc lastParameter*(this: ProjLibProjectedCurve): float {.noSideEffect,
+proc lastParameter*(this: ProjLibProjectedCurve): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "ProjLib_ProjectedCurve.hxx".}
 proc continuity*(this: ProjLibProjectedCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "ProjLib_ProjectedCurve.hxx".}
-proc nbIntervals*(this: ProjLibProjectedCurve; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: ProjLibProjectedCurve; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "ProjLib_ProjectedCurve.hxx".}
 proc intervals*(this: ProjLibProjectedCurve; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
                                 header: "ProjLib_ProjectedCurve.hxx".}
-proc trim*(this: ProjLibProjectedCurve; first: float; last: float; tol: float): Handle[
+proc trim*(this: ProjLibProjectedCurve; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor2dHCurve2d] {.noSideEffect, importcpp: "Trim",
                         header: "ProjLib_ProjectedCurve.hxx".}
 proc isClosed*(this: ProjLibProjectedCurve): bool {.noSideEffect,
     importcpp: "IsClosed", header: "ProjLib_ProjectedCurve.hxx".}
 proc isPeriodic*(this: ProjLibProjectedCurve): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "ProjLib_ProjectedCurve.hxx".}
-proc period*(this: ProjLibProjectedCurve): float {.noSideEffect, importcpp: "Period",
-    header: "ProjLib_ProjectedCurve.hxx".}
-proc value*(this: ProjLibProjectedCurve; u: float): Pnt2d {.noSideEffect,
+proc period*(this: ProjLibProjectedCurve): cfloat {.noSideEffect,
+    importcpp: "Period", header: "ProjLib_ProjectedCurve.hxx".}
+proc value*(this: ProjLibProjectedCurve; u: cfloat): Pnt2d {.noSideEffect,
     importcpp: "Value", header: "ProjLib_ProjectedCurve.hxx".}
-proc d0*(this: ProjLibProjectedCurve; u: float; p: var Pnt2d) {.noSideEffect,
+proc d0*(this: ProjLibProjectedCurve; u: cfloat; p: var Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "ProjLib_ProjectedCurve.hxx".}
-proc d1*(this: ProjLibProjectedCurve; u: float; p: var Pnt2d; v: var Vec2d) {.noSideEffect,
-    importcpp: "D1", header: "ProjLib_ProjectedCurve.hxx".}
-proc d2*(this: ProjLibProjectedCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc d1*(this: ProjLibProjectedCurve; u: cfloat; p: var Pnt2d; v: var Vec2d) {.
+    noSideEffect, importcpp: "D1", header: "ProjLib_ProjectedCurve.hxx".}
+proc d2*(this: ProjLibProjectedCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     noSideEffect, importcpp: "D2", header: "ProjLib_ProjectedCurve.hxx".}
-proc d3*(this: ProjLibProjectedCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, importcpp: "D3",
-                      header: "ProjLib_ProjectedCurve.hxx".}
-proc dn*(this: ProjLibProjectedCurve; u: float; n: int): Vec2d {.noSideEffect,
+proc d3*(this: ProjLibProjectedCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d; v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+                                  header: "ProjLib_ProjectedCurve.hxx".}
+proc dn*(this: ProjLibProjectedCurve; u: cfloat; n: cint): Vec2d {.noSideEffect,
     importcpp: "DN", header: "ProjLib_ProjectedCurve.hxx".}
-proc resolution*(this: ProjLibProjectedCurve; r3d: float): float {.noSideEffect,
+proc resolution*(this: ProjLibProjectedCurve; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "Resolution", header: "ProjLib_ProjectedCurve.hxx".}
 proc getType*(this: ProjLibProjectedCurve): GeomAbsCurveType {.noSideEffect,
     importcpp: "GetType", header: "ProjLib_ProjectedCurve.hxx".}
@@ -127,15 +127,40 @@ proc hyperbola*(this: ProjLibProjectedCurve): Hypr2d {.noSideEffect,
     importcpp: "Hyperbola", header: "ProjLib_ProjectedCurve.hxx".}
 proc parabola*(this: ProjLibProjectedCurve): Parab2d {.noSideEffect,
     importcpp: "Parabola", header: "ProjLib_ProjectedCurve.hxx".}
-proc degree*(this: ProjLibProjectedCurve): int {.noSideEffect, importcpp: "Degree",
+proc degree*(this: ProjLibProjectedCurve): cint {.noSideEffect, importcpp: "Degree",
     header: "ProjLib_ProjectedCurve.hxx".}
 proc isRational*(this: ProjLibProjectedCurve): bool {.noSideEffect,
     importcpp: "IsRational", header: "ProjLib_ProjectedCurve.hxx".}
-proc nbPoles*(this: ProjLibProjectedCurve): int {.noSideEffect, importcpp: "NbPoles",
-    header: "ProjLib_ProjectedCurve.hxx".}
-proc nbKnots*(this: ProjLibProjectedCurve): int {.noSideEffect, importcpp: "NbKnots",
-    header: "ProjLib_ProjectedCurve.hxx".}
+proc nbPoles*(this: ProjLibProjectedCurve): cint {.noSideEffect,
+    importcpp: "NbPoles", header: "ProjLib_ProjectedCurve.hxx".}
+proc nbKnots*(this: ProjLibProjectedCurve): cint {.noSideEffect,
+    importcpp: "NbKnots", header: "ProjLib_ProjectedCurve.hxx".}
 proc bezier*(this: ProjLibProjectedCurve): Handle[Geom2dBezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "ProjLib_ProjectedCurve.hxx".}
 proc bSpline*(this: ProjLibProjectedCurve): Handle[Geom2dBSplineCurve] {.
     noSideEffect, importcpp: "BSpline", header: "ProjLib_ProjectedCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

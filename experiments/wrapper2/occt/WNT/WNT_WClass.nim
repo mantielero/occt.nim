@@ -57,7 +57,7 @@ when defined(win32) and not defined(occt_Uwp):
       importcpp: "DynamicType", header: "WNT_WClass.hxx".}
   proc constructWNT_WClass*(theClassName: TCollectionAsciiString;
                            theWndProc: StandardAddress; theStyle: cuint;
-                           theClassExtra: int = 0; theWindowExtra: int = 0;
+                           theClassExtra: cint = 0; theWindowExtra: cint = 0;
                            theCursor: AspectHandle = nil;
                            theIcon: AspectHandle = nil; theMenuName: TCollectionAsciiString = tCollectionAsciiString()): WNT_WClass {.
       constructor, importcpp: "WNT_WClass(@)", header: "WNT_WClass.hxx".}
@@ -71,4 +71,29 @@ when defined(win32) and not defined(occt_Uwp):
       importcpp: "Instance", header: "WNT_WClass.hxx".}
   discard "forward decl of WNT_WClass"
   type
-    HandleWNT_WClass* = Handle[WNT_WClass]
+    HandleC1C1* = Handle[WNT_WClass]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

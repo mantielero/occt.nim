@@ -24,38 +24,63 @@ type
 
 proc constructIntRes2dDomain*(): IntRes2dDomain {.constructor,
     importcpp: "IntRes2d_Domain(@)", header: "IntRes2d_Domain.hxx".}
-proc constructIntRes2dDomain*(pnt1: Pnt2d; par1: float; tol1: float; pnt2: Pnt2d;
-                             par2: float; tol2: float): IntRes2dDomain {.constructor,
-    importcpp: "IntRes2d_Domain(@)", header: "IntRes2d_Domain.hxx".}
-proc constructIntRes2dDomain*(pnt: Pnt2d; par: float; tol: float; first: bool): IntRes2dDomain {.
+proc constructIntRes2dDomain*(pnt1: Pnt2d; par1: cfloat; tol1: cfloat; pnt2: Pnt2d;
+                             par2: cfloat; tol2: cfloat): IntRes2dDomain {.
     constructor, importcpp: "IntRes2d_Domain(@)", header: "IntRes2d_Domain.hxx".}
-proc setValues*(this: var IntRes2dDomain; pnt1: Pnt2d; par1: float; tol1: float;
-               pnt2: Pnt2d; par2: float; tol2: float) {.importcpp: "SetValues",
+proc constructIntRes2dDomain*(pnt: Pnt2d; par: cfloat; tol: cfloat; first: bool): IntRes2dDomain {.
+    constructor, importcpp: "IntRes2d_Domain(@)", header: "IntRes2d_Domain.hxx".}
+proc setValues*(this: var IntRes2dDomain; pnt1: Pnt2d; par1: cfloat; tol1: cfloat;
+               pnt2: Pnt2d; par2: cfloat; tol2: cfloat) {.importcpp: "SetValues",
     header: "IntRes2d_Domain.hxx".}
 proc setValues*(this: var IntRes2dDomain) {.importcpp: "SetValues",
                                         header: "IntRes2d_Domain.hxx".}
-proc setValues*(this: var IntRes2dDomain; pnt: Pnt2d; par: float; tol: float; first: bool) {.
-    importcpp: "SetValues", header: "IntRes2d_Domain.hxx".}
-proc setEquivalentParameters*(this: var IntRes2dDomain; zero: float; period: float) {.
+proc setValues*(this: var IntRes2dDomain; pnt: Pnt2d; par: cfloat; tol: cfloat;
+               first: bool) {.importcpp: "SetValues", header: "IntRes2d_Domain.hxx".}
+proc setEquivalentParameters*(this: var IntRes2dDomain; zero: cfloat; period: cfloat) {.
     importcpp: "SetEquivalentParameters", header: "IntRes2d_Domain.hxx".}
 proc hasFirstPoint*(this: IntRes2dDomain): bool {.noSideEffect,
     importcpp: "HasFirstPoint", header: "IntRes2d_Domain.hxx".}
-proc firstParameter*(this: IntRes2dDomain): float {.noSideEffect,
+proc firstParameter*(this: IntRes2dDomain): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "IntRes2d_Domain.hxx".}
 proc firstPoint*(this: IntRes2dDomain): Pnt2d {.noSideEffect,
     importcpp: "FirstPoint", header: "IntRes2d_Domain.hxx".}
-proc firstTolerance*(this: IntRes2dDomain): float {.noSideEffect,
+proc firstTolerance*(this: IntRes2dDomain): cfloat {.noSideEffect,
     importcpp: "FirstTolerance", header: "IntRes2d_Domain.hxx".}
 proc hasLastPoint*(this: IntRes2dDomain): bool {.noSideEffect,
     importcpp: "HasLastPoint", header: "IntRes2d_Domain.hxx".}
-proc lastParameter*(this: IntRes2dDomain): float {.noSideEffect,
+proc lastParameter*(this: IntRes2dDomain): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "IntRes2d_Domain.hxx".}
 proc lastPoint*(this: IntRes2dDomain): Pnt2d {.noSideEffect, importcpp: "LastPoint",
     header: "IntRes2d_Domain.hxx".}
-proc lastTolerance*(this: IntRes2dDomain): float {.noSideEffect,
+proc lastTolerance*(this: IntRes2dDomain): cfloat {.noSideEffect,
     importcpp: "LastTolerance", header: "IntRes2d_Domain.hxx".}
 proc isClosed*(this: IntRes2dDomain): bool {.noSideEffect, importcpp: "IsClosed",
     header: "IntRes2d_Domain.hxx".}
-proc equivalentParameters*(this: IntRes2dDomain; zero: var float;
-                          zeroplusperiod: var float) {.noSideEffect,
+proc equivalentParameters*(this: IntRes2dDomain; zero: var cfloat;
+                          zeroplusperiod: var cfloat) {.noSideEffect,
     importcpp: "EquivalentParameters", header: "IntRes2d_Domain.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

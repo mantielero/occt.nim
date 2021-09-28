@@ -19,7 +19,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Units_Lexicon"
 discard "forward decl of Units_Lexicon"
 type
-  HandleUnitsLexicon* = Handle[UnitsLexicon]
+  HandleC1C1* = Handle[UnitsLexicon]
 
 ## ! This class defines a lexicon useful to analyse and
 ## ! recognize the  different key words  included  in a
@@ -44,7 +44,7 @@ proc creates*(this: var UnitsLexicon) {.importcpp: "Creates",
 proc sequence*(this: UnitsLexicon): Handle[UnitsTokensSequence] {.noSideEffect,
     importcpp: "Sequence", header: "Units_Lexicon.hxx".}
 proc addToken*(this: var UnitsLexicon; aword: StandardCString; amean: StandardCString;
-              avalue: float) {.importcpp: "AddToken", header: "Units_Lexicon.hxx".}
+              avalue: cfloat) {.importcpp: "AddToken", header: "Units_Lexicon.hxx".}
 proc dump*(this: UnitsLexicon) {.noSideEffect, importcpp: "Dump",
                               header: "Units_Lexicon.hxx".}
 type
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Units_Lexicon.hxx".}
 proc dynamicType*(this: UnitsLexicon): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_Lexicon.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

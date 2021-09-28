@@ -19,7 +19,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of Draw_Number"
 discard "forward decl of Draw_Number"
 type
-  HandleDrawNumber* = Handle[DrawNumber]
+  HandleC1C1* = Handle[DrawNumber]
 
 ## ! To store nummbers in variables.
 
@@ -27,12 +27,12 @@ type
   DrawNumber* {.importcpp: "Draw_Number", header: "Draw_Number.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructDrawNumber*(v: float): DrawNumber {.constructor,
+proc constructDrawNumber*(v: cfloat): DrawNumber {.constructor,
     importcpp: "Draw_Number(@)", header: "Draw_Number.hxx".}
-proc value*(this: DrawNumber): float {.noSideEffect, importcpp: "Value",
-                                   header: "Draw_Number.hxx".}
-proc value*(this: var DrawNumber; v: float) {.importcpp: "Value",
-                                        header: "Draw_Number.hxx".}
+proc value*(this: DrawNumber): cfloat {.noSideEffect, importcpp: "Value",
+                                    header: "Draw_Number.hxx".}
+proc value*(this: var DrawNumber; v: cfloat) {.importcpp: "Value",
+    header: "Draw_Number.hxx".}
 proc drawOn*(this: DrawNumber; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Number.hxx".}
 proc copy*(this: DrawNumber): Handle[DrawDrawable3D] {.noSideEffect,
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Number::get_type_descriptor(@)", header: "Draw_Number.hxx".}
 proc dynamicType*(this: DrawNumber): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Number.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

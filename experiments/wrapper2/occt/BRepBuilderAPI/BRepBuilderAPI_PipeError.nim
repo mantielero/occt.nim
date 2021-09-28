@@ -24,3 +24,28 @@ type
     BRepBuilderAPI_PlaneNotIntersectGuide, BRepBuilderAPI_ImpossibleContact
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

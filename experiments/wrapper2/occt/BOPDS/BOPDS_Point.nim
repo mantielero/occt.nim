@@ -37,7 +37,32 @@ proc setPnt2D2*(this: var BOPDS_Point; thePnt: Pnt2d) {.importcpp: "SetPnt2D2",
     header: "BOPDS_Point.hxx".}
 proc pnt2D2*(this: BOPDS_Point): Pnt2d {.noSideEffect, importcpp: "Pnt2D2",
                                      header: "BOPDS_Point.hxx".}
-proc setIndex*(this: var BOPDS_Point; theIndex: int) {.importcpp: "SetIndex",
+proc setIndex*(this: var BOPDS_Point; theIndex: cint) {.importcpp: "SetIndex",
     header: "BOPDS_Point.hxx".}
-proc index*(this: BOPDS_Point): int {.noSideEffect, importcpp: "Index",
-                                  header: "BOPDS_Point.hxx".}
+proc index*(this: BOPDS_Point): cint {.noSideEffect, importcpp: "Index",
+                                   header: "BOPDS_Point.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

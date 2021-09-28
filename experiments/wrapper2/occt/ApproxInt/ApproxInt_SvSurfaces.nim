@@ -25,22 +25,48 @@ type
                                                                          ## computed.
 
 
-proc compute*(this: var ApproxIntSvSurfaces; u1: var float; v1: var float; u2: var float;
-             v2: var float; pt: var Pnt; tg: var Vec; tguv1: var Vec2d; tguv2: var Vec2d): bool {.
-    importcpp: "Compute", header: "ApproxInt_SvSurfaces.hxx".}
-proc pnt*(this: var ApproxIntSvSurfaces; u1: float; v1: float; u2: float; v2: float;
+proc compute*(this: var ApproxIntSvSurfaces; u1: var cfloat; v1: var cfloat;
+             u2: var cfloat; v2: var cfloat; pt: var Pnt; tg: var Vec; tguv1: var Vec2d;
+             tguv2: var Vec2d): bool {.importcpp: "Compute",
+                                   header: "ApproxInt_SvSurfaces.hxx".}
+proc pnt*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
          p: var Pnt) {.importcpp: "Pnt", header: "ApproxInt_SvSurfaces.hxx".}
-proc seekPoint*(this: var ApproxIntSvSurfaces; u1: float; v1: float; u2: float; v2: float;
-               point: var IntSurfPntOn2S): bool {.importcpp: "SeekPoint",
+proc seekPoint*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat;
+               v2: cfloat; point: var IntSurfPntOn2S): bool {.importcpp: "SeekPoint",
     header: "ApproxInt_SvSurfaces.hxx".}
-proc tangency*(this: var ApproxIntSvSurfaces; u1: float; v1: float; u2: float; v2: float;
-              tg: var Vec): bool {.importcpp: "Tangency",
-                               header: "ApproxInt_SvSurfaces.hxx".}
-proc tangencyOnSurf1*(this: var ApproxIntSvSurfaces; u1: float; v1: float; u2: float;
-                     v2: float; tg: var Vec2d): bool {.importcpp: "TangencyOnSurf1",
+proc tangency*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat;
+              v2: cfloat; tg: var Vec): bool {.importcpp: "Tangency",
     header: "ApproxInt_SvSurfaces.hxx".}
-proc tangencyOnSurf2*(this: var ApproxIntSvSurfaces; u1: float; v1: float; u2: float;
-                     v2: float; tg: var Vec2d): bool {.importcpp: "TangencyOnSurf2",
+proc tangencyOnSurf1*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat;
+                     v2: cfloat; tg: var Vec2d): bool {.importcpp: "TangencyOnSurf1",
+    header: "ApproxInt_SvSurfaces.hxx".}
+proc tangencyOnSurf2*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat;
+                     v2: cfloat; tg: var Vec2d): bool {.importcpp: "TangencyOnSurf2",
     header: "ApproxInt_SvSurfaces.hxx".}
 proc destroyApproxIntSvSurfaces*(this: var ApproxIntSvSurfaces) {.
     importcpp: "#.~ApproxInt_SvSurfaces()", header: "ApproxInt_SvSurfaces.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

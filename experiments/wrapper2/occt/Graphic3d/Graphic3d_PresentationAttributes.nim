@@ -67,9 +67,9 @@ proc zLayer*(this: Graphic3dPresentationAttributes): Graphic3dZLayerId {.
 proc setZLayer*(this: var Graphic3dPresentationAttributes;
                theLayer: Graphic3dZLayerId) {.importcpp: "SetZLayer",
     header: "Graphic3d_PresentationAttributes.hxx".}
-proc displayMode*(this: Graphic3dPresentationAttributes): int {.noSideEffect,
+proc displayMode*(this: Graphic3dPresentationAttributes): cint {.noSideEffect,
     importcpp: "DisplayMode", header: "Graphic3d_PresentationAttributes.hxx".}
-proc setDisplayMode*(this: var Graphic3dPresentationAttributes; theMode: int) {.
+proc setDisplayMode*(this: var Graphic3dPresentationAttributes; theMode: cint) {.
     importcpp: "SetDisplayMode", header: "Graphic3d_PresentationAttributes.hxx".}
 proc basicFillAreaAspect*(this: Graphic3dPresentationAttributes): Handle[
     Graphic3dAspectFillArea3d] {.noSideEffect, importcpp: "BasicFillAreaAspect",
@@ -79,9 +79,34 @@ proc setBasicFillAreaAspect*(this: var Graphic3dPresentationAttributes;
     importcpp: "SetBasicFillAreaAspect",
     header: "Graphic3d_PresentationAttributes.hxx".}
 proc dumpJson*(this: Graphic3dPresentationAttributes;
-              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+              theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     importcpp: "DumpJson", header: "Graphic3d_PresentationAttributes.hxx".}
 discard "forward decl of Graphic3d_PresentationAttributes"
 type
-  HandleGraphic3dPresentationAttributes* = Handle[Graphic3dPresentationAttributes]
+  HandleC1C1* = Handle[Graphic3dPresentationAttributes]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -18,3 +18,28 @@ type
   MoniToolIndexedDataMapOfShapeTransient* = NCollectionIndexedDataMap[
       TopoDS_Shape, Handle[StandardTransient], TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

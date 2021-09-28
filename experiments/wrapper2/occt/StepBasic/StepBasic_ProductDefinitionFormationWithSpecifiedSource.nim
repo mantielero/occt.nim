@@ -19,8 +19,7 @@ discard "forward decl of StepBasic_Product"
 discard "forward decl of StepBasic_ProductDefinitionFormationWithSpecifiedSource"
 discard "forward decl of StepBasic_ProductDefinitionFormationWithSpecifiedSource"
 type
-  HandleStepBasicProductDefinitionFormationWithSpecifiedSource* = Handle[
-      StepBasicProductDefinitionFormationWithSpecifiedSource]
+  HandleC1C1* = Handle[StepBasicProductDefinitionFormationWithSpecifiedSource]
   StepBasicProductDefinitionFormationWithSpecifiedSource* {.
       importcpp: "StepBasic_ProductDefinitionFormationWithSpecifiedSource",
       header: "StepBasic_ProductDefinitionFormationWithSpecifiedSource.hxx",
@@ -52,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ProductD
     header: "StepBasic_ProductDefinitionFormationWithSpecifiedSource.hxx".}
 proc dynamicType*(this: StepBasicProductDefinitionFormationWithSpecifiedSource): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_ProductDefinitionFormationWithSpecifiedSource.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

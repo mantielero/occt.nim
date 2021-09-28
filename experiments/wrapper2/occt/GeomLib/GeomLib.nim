@@ -41,25 +41,35 @@ discard "forward decl of GeomLib_Tool"
 discard "forward decl of GeomLib_PolyFunc"
 discard "forward decl of GeomLib_LogSample"
 type
-  GeomLib* {.importcpp: "GeomLib", header: "GeomLib.hxx", bycopy.} = object ## ! Computes     the  curve  3d    from  package  Geom
-                                                                    ## !
-                                                                    ## corresponding to curve 2d  from package Geom2d, on
-                                                                    ## ! the plan defined with the local coordinate system
-                                                                    ## ! Position.
+  GeomLib* {.importcpp: "GeomLib", header: "GeomLib.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomLib; theSize: csize_t): pointer {.
+    importcpp: "GeomLib::operator new", header: "GeomLib.hxx".}
+proc `delete`*(this: var GeomLib; theAddress: pointer) {.
+    importcpp: "GeomLib::operator delete", header: "GeomLib.hxx".}
+proc `new[]`*(this: var GeomLib; theSize: csize_t): pointer {.
+    importcpp: "GeomLib::operator new[]", header: "GeomLib.hxx".}
+proc `delete[]`*(this: var GeomLib; theAddress: pointer) {.
+    importcpp: "GeomLib::operator delete[]", header: "GeomLib.hxx".}
+proc `new`*(this: var GeomLib; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLib::operator new", header: "GeomLib.hxx".}
+proc `delete`*(this: var GeomLib; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLib::operator delete", header: "GeomLib.hxx".}
 proc to3d*(position: Ax2; curve2d: Handle[Geom2dCurve]): Handle[GeomCurve] {.
     importcpp: "GeomLib::To3d(@)", header: "GeomLib.hxx".}
 proc gTransform*(curve: Handle[Geom2dCurve]; gTrsf: GTrsf2d): Handle[Geom2dCurve] {.
     importcpp: "GeomLib::GTransform(@)", header: "GeomLib.hxx".}
-proc sameRange*(tolerance: float; curve2dPtr: Handle[Geom2dCurve]; first: float;
-               last: float; requestedFirst: float; requestedLast: float;
+proc sameRange*(tolerance: StandardReal; curve2dPtr: Handle[Geom2dCurve];
+               first: StandardReal; last: StandardReal;
+               requestedFirst: StandardReal; requestedLast: StandardReal;
                newCurve2dPtr: var Handle[Geom2dCurve]) {.
     importcpp: "GeomLib::SameRange(@)", header: "GeomLib.hxx".}
-proc buildCurve3d*(tolerance: float; curvePtr: var Adaptor3dCurveOnSurface;
-                  firstParameter: float; lastParameter: float;
-                  newCurvePtr: var Handle[GeomCurve]; maxDeviation: var float;
-                  averageDeviation: var float;
+proc buildCurve3d*(tolerance: StandardReal; curvePtr: var Adaptor3dCurveOnSurface;
+                  firstParameter: StandardReal; lastParameter: StandardReal;
+                  newCurvePtr: var Handle[GeomCurve];
+                  maxDeviation: var StandardReal;
+                  averageDeviation: var StandardReal;
                   continuity: GeomAbsShape = geomAbsC1; maxDegree: int = 14;
                   maxSegment: int = 30) {.importcpp: "GeomLib::BuildCurve3d(@)",
                                       header: "GeomLib.hxx".}
@@ -67,16 +77,16 @@ proc adjustExtremity*(curve: var Handle[GeomBoundedCurve]; p1: Pnt; p2: Pnt; t1:
                      t2: Vec) {.importcpp: "GeomLib::AdjustExtremity(@)",
                               header: "GeomLib.hxx".}
 proc extendCurveToPoint*(curve: var Handle[GeomBoundedCurve]; point: Pnt; cont: int;
-                        after: bool) {.importcpp: "GeomLib::ExtendCurveToPoint(@)",
-                                     header: "GeomLib.hxx".}
-proc extendSurfByLength*(surf: var Handle[GeomBoundedSurface]; length: float;
-                        cont: int; inU: bool; after: bool) {.
+                        after: StandardBoolean) {.
+    importcpp: "GeomLib::ExtendCurveToPoint(@)", header: "GeomLib.hxx".}
+proc extendSurfByLength*(surf: var Handle[GeomBoundedSurface]; length: StandardReal;
+                        cont: int; inU: StandardBoolean; after: StandardBoolean) {.
     importcpp: "GeomLib::ExtendSurfByLength(@)", header: "GeomLib.hxx".}
-proc axeOfInertia*(points: TColgpArray1OfPnt; axe: var Ax2; isSingular: var bool;
-                  tol: float = 1.0e-7) {.importcpp: "GeomLib::AxeOfInertia(@)",
-                                     header: "GeomLib.hxx".}
+proc axeOfInertia*(points: TColgpArray1OfPnt; axe: var Ax2;
+                  isSingular: var StandardBoolean; tol: StandardReal = 1.0e-7) {.
+    importcpp: "GeomLib::AxeOfInertia(@)", header: "GeomLib.hxx".}
 proc inertia*(points: TColgpArray1OfPnt; bary: var Pnt; xDir: var Dir; yDir: var Dir;
-             xgap: var float; yGap: var float; zGap: var float) {.
+             xgap: var StandardReal; yGap: var StandardReal; zGap: var StandardReal) {.
     importcpp: "GeomLib::Inertia(@)", header: "GeomLib.hxx".}
 proc removePointsFromArray*(numPoints: int; inParameters: TColStdArray1OfReal;
                            outParameters: var Handle[TColStdHArray1OfReal]) {.
@@ -85,40 +95,48 @@ proc densifyArray1OfReal*(minNumPoints: int; inParameters: TColStdArray1OfReal;
                          outParameters: var Handle[TColStdHArray1OfReal]) {.
     importcpp: "GeomLib::DensifyArray1OfReal(@)", header: "GeomLib.hxx".}
 proc fuseIntervals*(interval1: TColStdArray1OfReal; interval2: TColStdArray1OfReal;
-                   fusion: var TColStdSequenceOfReal; confusion: float = 1.0e-9) {.
+                   fusion: var TColStdSequenceOfReal;
+                   confusion: StandardReal = 1.0e-9) {.
     importcpp: "GeomLib::FuseIntervals(@)", header: "GeomLib.hxx".}
 proc evalMaxParametricDistance*(curve: Adaptor3dCurve;
-                               aReferenceCurve: Adaptor3dCurve; tolerance: float;
+                               aReferenceCurve: Adaptor3dCurve;
+                               tolerance: StandardReal;
                                parameters: TColStdArray1OfReal;
-                               maxDistance: var float) {.
+                               maxDistance: var StandardReal) {.
     importcpp: "GeomLib::EvalMaxParametricDistance(@)", header: "GeomLib.hxx".}
 proc evalMaxDistanceAlongParameter*(curve: Adaptor3dCurve;
                                    aReferenceCurve: Adaptor3dCurve;
-                                   tolerance: float;
+                                   tolerance: StandardReal;
                                    parameters: TColStdArray1OfReal;
-                                   maxDistance: var float) {.
+                                   maxDistance: var StandardReal) {.
     importcpp: "GeomLib::EvalMaxDistanceAlongParameter(@)", header: "GeomLib.hxx".}
 proc cancelDenominatorDerivative*(bSurf: var Handle[GeomBSplineSurface];
-                                 uDirection: bool; vDirection: bool) {.
+                                 uDirection: StandardBoolean;
+                                 vDirection: StandardBoolean) {.
     importcpp: "GeomLib::CancelDenominatorDerivative(@)", header: "GeomLib.hxx".}
-proc normEstim*(s: Handle[GeomSurface]; uv: Pnt2d; tol: float; n: var Dir): int {.
+proc normEstim*(s: Handle[GeomSurface]; uv: Pnt2d; tol: StandardReal; n: var Dir): int {.
     importcpp: "GeomLib::NormEstim(@)", header: "GeomLib.hxx".}
-proc isClosed*(s: Handle[GeomSurface]; tol: float; isUClosed: var bool;
-              isVClosed: var bool) {.importcpp: "GeomLib::IsClosed(@)",
-                                  header: "GeomLib.hxx".}
-proc isBSplUClosed*(s: Handle[GeomBSplineSurface]; u1: float; u2: float; tol: float): bool {.
+proc isClosed*(s: Handle[GeomSurface]; tol: StandardReal;
+              isUClosed: var StandardBoolean; isVClosed: var StandardBoolean) {.
+    importcpp: "GeomLib::IsClosed(@)", header: "GeomLib.hxx".}
+proc isBSplUClosed*(s: Handle[GeomBSplineSurface]; u1: StandardReal;
+                   u2: StandardReal; tol: StandardReal): StandardBoolean {.
     importcpp: "GeomLib::IsBSplUClosed(@)", header: "GeomLib.hxx".}
-proc isBSplVClosed*(s: Handle[GeomBSplineSurface]; v1: float; v2: float; tol: float): bool {.
+proc isBSplVClosed*(s: Handle[GeomBSplineSurface]; v1: StandardReal;
+                   v2: StandardReal; tol: StandardReal): StandardBoolean {.
     importcpp: "GeomLib::IsBSplVClosed(@)", header: "GeomLib.hxx".}
-proc isBzUClosed*(s: Handle[GeomBezierSurface]; u1: float; u2: float; tol: float): bool {.
+proc isBzUClosed*(s: Handle[GeomBezierSurface]; u1: StandardReal; u2: StandardReal;
+                 tol: StandardReal): StandardBoolean {.
     importcpp: "GeomLib::IsBzUClosed(@)", header: "GeomLib.hxx".}
-proc isBzVClosed*(s: Handle[GeomBezierSurface]; v1: float; v2: float; tol: float): bool {.
+proc isBzVClosed*(s: Handle[GeomBezierSurface]; v1: StandardReal; v2: StandardReal;
+                 tol: StandardReal): StandardBoolean {.
     importcpp: "GeomLib::IsBzVClosed(@)", header: "GeomLib.hxx".}
-proc isIsoLine*(theC2D: Handle[Adaptor2dHCurve2d]; theIsU: var bool;
-               theParam: var float; theIsForward: var bool): bool {.
+proc isIsoLine*(theC2D: Handle[Adaptor2dHCurve2d]; theIsU: var StandardBoolean;
+               theParam: var StandardReal; theIsForward: var StandardBoolean): StandardBoolean {.
     importcpp: "GeomLib::isIsoLine(@)", header: "GeomLib.hxx".}
 proc buildC3dOnIsoLine*(theC2D: Handle[Adaptor2dHCurve2d];
-                       theSurf: Handle[Adaptor3dHSurface]; theFirst: float;
-                       theLast: float; theTolerance: float; theIsU: bool;
-                       theParam: float; theIsForward: bool): Handle[GeomCurve] {.
+                       theSurf: Handle[Adaptor3dHSurface]; theFirst: StandardReal;
+                       theLast: StandardReal; theTolerance: StandardReal;
+                       theIsU: StandardBoolean; theParam: StandardReal;
+                       theIsForward: StandardBoolean): Handle[GeomCurve] {.
     importcpp: "GeomLib::buildC3dOnIsoLine(@)", header: "GeomLib.hxx".}

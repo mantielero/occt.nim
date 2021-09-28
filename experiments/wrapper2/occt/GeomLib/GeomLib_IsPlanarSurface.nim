@@ -22,10 +22,29 @@ type
                            header: "GeomLib_IsPlanarSurface.hxx", bycopy.} = object
 
 
-proc constructGeomLibIsPlanarSurface*(s: Handle[GeomSurface]; tol: float = 1.0e-7): GeomLibIsPlanarSurface {.
+proc `new`*(this: var GeomLibIsPlanarSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_IsPlanarSurface::operator new",
+    header: "GeomLib_IsPlanarSurface.hxx".}
+proc `delete`*(this: var GeomLibIsPlanarSurface; theAddress: pointer) {.
+    importcpp: "GeomLib_IsPlanarSurface::operator delete",
+    header: "GeomLib_IsPlanarSurface.hxx".}
+proc `new[]`*(this: var GeomLibIsPlanarSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_IsPlanarSurface::operator new[]",
+    header: "GeomLib_IsPlanarSurface.hxx".}
+proc `delete[]`*(this: var GeomLibIsPlanarSurface; theAddress: pointer) {.
+    importcpp: "GeomLib_IsPlanarSurface::operator delete[]",
+    header: "GeomLib_IsPlanarSurface.hxx".}
+proc `new`*(this: var GeomLibIsPlanarSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLib_IsPlanarSurface::operator new",
+    header: "GeomLib_IsPlanarSurface.hxx".}
+proc `delete`*(this: var GeomLibIsPlanarSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLib_IsPlanarSurface::operator delete",
+    header: "GeomLib_IsPlanarSurface.hxx".}
+proc constructGeomLibIsPlanarSurface*(s: Handle[GeomSurface];
+                                     tol: StandardReal = 1.0e-7): GeomLibIsPlanarSurface {.
     constructor, importcpp: "GeomLib_IsPlanarSurface(@)",
     header: "GeomLib_IsPlanarSurface.hxx".}
-proc isPlanar*(this: GeomLibIsPlanarSurface): bool {.noSideEffect,
+proc isPlanar*(this: GeomLibIsPlanarSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsPlanar", header: "GeomLib_IsPlanarSurface.hxx".}
 proc plan*(this: GeomLibIsPlanarSurface): Pln {.noSideEffect, importcpp: "Plan",
     header: "GeomLib_IsPlanarSurface.hxx".}

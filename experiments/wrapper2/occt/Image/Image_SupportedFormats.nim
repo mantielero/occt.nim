@@ -45,3 +45,28 @@ proc add*(this: var ImageSupportedFormats; theFormat: ImageCompressedFormat) {.
     importcpp: "Add", header: "Image_SupportedFormats.hxx".}
 proc clear*(this: var ImageSupportedFormats) {.importcpp: "Clear",
     header: "Image_SupportedFormats.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

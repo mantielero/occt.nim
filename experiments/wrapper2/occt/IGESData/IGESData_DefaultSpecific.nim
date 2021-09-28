@@ -19,7 +19,7 @@ discard "forward decl of IGESData_IGESDumper"
 discard "forward decl of IGESData_DefaultSpecific"
 discard "forward decl of IGESData_DefaultSpecific"
 type
-  HandleIGESDataDefaultSpecific* = Handle[IGESDataDefaultSpecific]
+  HandleC1C1* = Handle[IGESDataDefaultSpecific]
 
 ## ! Specific IGES Services for UndefinedEntity, FreeFormatEntity
 
@@ -40,9 +40,9 @@ type
 proc constructIGESDataDefaultSpecific*(): IGESDataDefaultSpecific {.constructor,
     importcpp: "IGESData_DefaultSpecific(@)",
     header: "IGESData_DefaultSpecific.hxx".}
-proc ownDump*(this: IGESDataDefaultSpecific; cn: int;
+proc ownDump*(this: IGESDataDefaultSpecific; cn: cint;
              ent: Handle[IGESDataIGESEntity]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESData_DefaultSpecific.hxx".}
 type
   IGESDataDefaultSpecificbaseType* = IGESDataSpecificModule
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_DefaultSpecific.hxx".}
 proc dynamicType*(this: IGESDataDefaultSpecific): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_DefaultSpecific.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

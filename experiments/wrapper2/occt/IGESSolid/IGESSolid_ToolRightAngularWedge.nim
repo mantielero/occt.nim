@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESSolidToolRightAngularWedge;
     header: "IGESSolid_ToolRightAngularWedge.hxx".}
 proc ownDump*(this: IGESSolidToolRightAngularWedge;
              ent: Handle[IGESSolidRightAngularWedge]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESSolid_ToolRightAngularWedge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

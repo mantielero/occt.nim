@@ -14,35 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESGraphHArray1OfTextFontDef* {.importcpp: "IGESGraph_HArray1OfTextFontDef",
-                                  header: "IGESGraph_HArray1OfTextFontDef.hxx",
-                                  bycopy.} = object of IGESGraphArray1OfTextFontDef
+## !!!Ignored construct:  # IGESGraph_HArray1OfTextFontDef_HeaderFile [NewLine] # IGESGraph_HArray1OfTextFontDef_HeaderFile [NewLine] # < IGESGraph_TextFontDef . hxx > [NewLine] # < IGESGraph_Array1OfTextFontDef . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESGraph_HArray1OfTextFontDef , IGESGraph_Array1OfTextFontDef ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESGraphHArray1OfTextFontDef*(theLower: int; theUpper: int): IGESGraphHArray1OfTextFontDef {.
-    constructor, importcpp: "IGESGraph_HArray1OfTextFontDef(@)",
-    header: "IGESGraph_HArray1OfTextFontDef.hxx".}
-proc constructIGESGraphHArray1OfTextFontDef*(theLower: int; theUpper: int;
-    theValue: ValueType): IGESGraphHArray1OfTextFontDef {.constructor,
-    importcpp: "IGESGraph_HArray1OfTextFontDef(@)",
-    header: "IGESGraph_HArray1OfTextFontDef.hxx".}
-proc constructIGESGraphHArray1OfTextFontDef*(
-    theOther: IGESGraphArray1OfTextFontDef): IGESGraphHArray1OfTextFontDef {.
-    constructor, importcpp: "IGESGraph_HArray1OfTextFontDef(@)",
-    header: "IGESGraph_HArray1OfTextFontDef.hxx".}
-proc array1*(this: IGESGraphHArray1OfTextFontDef): IGESGraphArray1OfTextFontDef {.
-    noSideEffect, importcpp: "Array1", header: "IGESGraph_HArray1OfTextFontDef.hxx".}
-proc changeArray1*(this: var IGESGraphHArray1OfTextFontDef): var IGESGraphArray1OfTextFontDef {.
-    importcpp: "ChangeArray1", header: "IGESGraph_HArray1OfTextFontDef.hxx".}
-type
-  IGESGraphHArray1OfTextFontDefbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESGraph_HArray1OfTextFontDef::get_type_name(@)",
-                            header: "IGESGraph_HArray1OfTextFontDef.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESGraph_HArray1OfTextFontDef::get_type_descriptor(@)",
-    header: "IGESGraph_HArray1OfTextFontDef.hxx".}
-proc dynamicType*(this: IGESGraphHArray1OfTextFontDef): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESGraph_HArray1OfTextFontDef.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

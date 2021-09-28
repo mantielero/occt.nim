@@ -28,7 +28,7 @@ proc constructRWStepBasicRWMechanicalContext*(): RWStepBasicRWMechanicalContext 
     constructor, importcpp: "RWStepBasic_RWMechanicalContext(@)",
     header: "RWStepBasic_RWMechanicalContext.hxx".}
 proc readStep*(this: RWStepBasicRWMechanicalContext;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicMechanicalContext]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWMechanicalContext.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepBasicRWMechanicalContext;
            ent: Handle[StepBasicMechanicalContext];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWMechanicalContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

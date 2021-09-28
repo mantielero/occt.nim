@@ -32,37 +32,37 @@ proc constructIntPatchIntersection*(): IntPatchIntersection {.constructor,
 proc constructIntPatchIntersection*(s1: Handle[Adaptor3dHSurface];
                                    d1: Handle[Adaptor3dTopolTool];
                                    s2: Handle[Adaptor3dHSurface];
-                                   d2: Handle[Adaptor3dTopolTool]; tolArc: float;
-                                   tolTang: float): IntPatchIntersection {.
+                                   d2: Handle[Adaptor3dTopolTool]; tolArc: cfloat;
+                                   tolTang: cfloat): IntPatchIntersection {.
     constructor, importcpp: "IntPatch_Intersection(@)",
     header: "IntPatch_Intersection.hxx".}
 proc constructIntPatchIntersection*(s1: Handle[Adaptor3dHSurface];
-                                   d1: Handle[Adaptor3dTopolTool]; tolArc: float;
-                                   tolTang: float): IntPatchIntersection {.
+                                   d1: Handle[Adaptor3dTopolTool]; tolArc: cfloat;
+                                   tolTang: cfloat): IntPatchIntersection {.
     constructor, importcpp: "IntPatch_Intersection(@)",
     header: "IntPatch_Intersection.hxx".}
-proc setTolerances*(this: var IntPatchIntersection; tolArc: float; tolTang: float;
-                   uVMaxStep: float; fleche: float) {.importcpp: "SetTolerances",
+proc setTolerances*(this: var IntPatchIntersection; tolArc: cfloat; tolTang: cfloat;
+                   uVMaxStep: cfloat; fleche: cfloat) {.importcpp: "SetTolerances",
     header: "IntPatch_Intersection.hxx".}
 proc perform*(this: var IntPatchIntersection; s1: Handle[Adaptor3dHSurface];
              d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
-             d2: Handle[Adaptor3dTopolTool]; tolArc: float; tolTang: float;
+             d2: Handle[Adaptor3dTopolTool]; tolArc: cfloat; tolTang: cfloat;
              isGeomInt: bool = true; theIsReqToKeepRLine: bool = false;
              theIsReqToPostWLProc: bool = true) {.importcpp: "Perform",
     header: "IntPatch_Intersection.hxx".}
 proc perform*(this: var IntPatchIntersection; s1: Handle[Adaptor3dHSurface];
              d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
-             d2: Handle[Adaptor3dTopolTool]; tolArc: float; tolTang: float;
+             d2: Handle[Adaptor3dTopolTool]; tolArc: cfloat; tolTang: cfloat;
              lOfPnts: var IntSurfListOfPntOn2S; isGeomInt: bool = true;
              theIsReqToKeepRLine: bool = false; theIsReqToPostWLProc: bool = true) {.
     importcpp: "Perform", header: "IntPatch_Intersection.hxx".}
 proc perform*(this: var IntPatchIntersection; s1: Handle[Adaptor3dHSurface];
              d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
-             d2: Handle[Adaptor3dTopolTool]; u1: float; v1: float; u2: float; v2: float;
-             tolArc: float; tolTang: float) {.importcpp: "Perform",
+             d2: Handle[Adaptor3dTopolTool]; u1: cfloat; v1: cfloat; u2: cfloat;
+             v2: cfloat; tolArc: cfloat; tolTang: cfloat) {.importcpp: "Perform",
     header: "IntPatch_Intersection.hxx".}
 proc perform*(this: var IntPatchIntersection; s1: Handle[Adaptor3dHSurface];
-             d1: Handle[Adaptor3dTopolTool]; tolArc: float; tolTang: float) {.
+             d1: Handle[Adaptor3dTopolTool]; tolArc: cfloat; tolTang: cfloat) {.
     importcpp: "Perform", header: "IntPatch_Intersection.hxx".}
 proc isDone*(this: IntPatchIntersection): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntPatch_Intersection.hxx".}
@@ -72,17 +72,42 @@ proc tangentFaces*(this: IntPatchIntersection): bool {.noSideEffect,
     importcpp: "TangentFaces", header: "IntPatch_Intersection.hxx".}
 proc oppositeFaces*(this: IntPatchIntersection): bool {.noSideEffect,
     importcpp: "OppositeFaces", header: "IntPatch_Intersection.hxx".}
-proc nbPnts*(this: IntPatchIntersection): int {.noSideEffect, importcpp: "NbPnts",
+proc nbPnts*(this: IntPatchIntersection): cint {.noSideEffect, importcpp: "NbPnts",
     header: "IntPatch_Intersection.hxx".}
-proc point*(this: IntPatchIntersection; index: int): IntPatchPoint {.noSideEffect,
+proc point*(this: IntPatchIntersection; index: cint): IntPatchPoint {.noSideEffect,
     importcpp: "Point", header: "IntPatch_Intersection.hxx".}
-proc nbLines*(this: IntPatchIntersection): int {.noSideEffect, importcpp: "NbLines",
+proc nbLines*(this: IntPatchIntersection): cint {.noSideEffect, importcpp: "NbLines",
     header: "IntPatch_Intersection.hxx".}
-proc line*(this: IntPatchIntersection; index: int): Handle[IntPatchLine] {.
+proc line*(this: IntPatchIntersection; index: cint): Handle[IntPatchLine] {.
     noSideEffect, importcpp: "Line", header: "IntPatch_Intersection.hxx".}
 proc sequenceOfLine*(this: IntPatchIntersection): IntPatchSequenceOfLine {.
     noSideEffect, importcpp: "SequenceOfLine", header: "IntPatch_Intersection.hxx".}
-proc dump*(this: IntPatchIntersection; mode: int; s1: Handle[Adaptor3dHSurface];
+proc dump*(this: IntPatchIntersection; mode: cint; s1: Handle[Adaptor3dHSurface];
           d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
           d2: Handle[Adaptor3dTopolTool]) {.noSideEffect, importcpp: "Dump",
     header: "IntPatch_Intersection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

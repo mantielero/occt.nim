@@ -62,3 +62,28 @@ proc projectionCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::ProjectionCommands(@)", header: "BRepTest.hxx".}
 proc historyCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::HistoryCommands(@)", header: "BRepTest.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ type
 proc constructRWStepGeomRWDirection*(): RWStepGeomRWDirection {.constructor,
     importcpp: "RWStepGeom_RWDirection(@)", header: "RWStepGeom_RWDirection.hxx".}
 proc readStep*(this: RWStepGeomRWDirection; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomDirection]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWDirection.hxx".}
 proc writeStep*(this: RWStepGeomRWDirection; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepGeomRWDirection; sw: var StepDataStepWriter;
 proc check*(this: RWStepGeomRWDirection; ent: Handle[StepGeomDirection];
            shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "Check", header: "RWStepGeom_RWDirection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

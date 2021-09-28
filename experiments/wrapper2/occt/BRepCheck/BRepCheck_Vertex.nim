@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Vertex"
 discard "forward decl of BRepCheck_Vertex"
 type
-  HandleBRepCheckVertex* = Handle[BRepCheckVertex]
+  HandleC1C1* = Handle[BRepCheckVertex]
   BRepCheckVertex* {.importcpp: "BRepCheck_Vertex", header: "BRepCheck_Vertex.hxx",
                     bycopy.} = object of BRepCheckResult
 
@@ -32,7 +32,7 @@ proc minimum*(this: var BRepCheckVertex) {.importcpp: "Minimum",
                                        header: "BRepCheck_Vertex.hxx".}
 proc blind*(this: var BRepCheckVertex) {.importcpp: "Blind",
                                      header: "BRepCheck_Vertex.hxx".}
-proc tolerance*(this: var BRepCheckVertex): float {.importcpp: "Tolerance",
+proc tolerance*(this: var BRepCheckVertex): cfloat {.importcpp: "Tolerance",
     header: "BRepCheck_Vertex.hxx".}
 type
   BRepCheckVertexbaseType* = BRepCheckResult
@@ -44,3 +44,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Vertex.hxx".}
 proc dynamicType*(this: BRepCheckVertex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Vertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -81,5 +81,30 @@ proc unsetColor*(this: var AIS_CameraFrustum) {.importcpp: "UnsetColor",
     header: "AIS_CameraFrustum.hxx".}
 proc unsetTransparency*(this: var AIS_CameraFrustum) {.
     importcpp: "UnsetTransparency", header: "AIS_CameraFrustum.hxx".}
-proc acceptDisplayMode*(this: AIS_CameraFrustum; theMode: int): bool {.noSideEffect,
+proc acceptDisplayMode*(this: AIS_CameraFrustum; theMode: cint): bool {.noSideEffect,
     importcpp: "AcceptDisplayMode", header: "AIS_CameraFrustum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

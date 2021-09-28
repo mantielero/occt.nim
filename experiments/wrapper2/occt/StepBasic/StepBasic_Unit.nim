@@ -27,9 +27,34 @@ type
 
 proc constructStepBasicUnit*(): StepBasicUnit {.constructor,
     importcpp: "StepBasic_Unit(@)", header: "StepBasic_Unit.hxx".}
-proc caseNum*(this: StepBasicUnit; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepBasicUnit; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_Unit.hxx".}
 proc namedUnit*(this: StepBasicUnit): Handle[StepBasicNamedUnit] {.noSideEffect,
     importcpp: "NamedUnit", header: "StepBasic_Unit.hxx".}
 proc derivedUnit*(this: StepBasicUnit): Handle[StepBasicDerivedUnit] {.noSideEffect,
     importcpp: "DerivedUnit", header: "StepBasic_Unit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

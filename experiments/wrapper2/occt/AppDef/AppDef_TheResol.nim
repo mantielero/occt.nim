@@ -35,22 +35,47 @@ type
 
 
 proc constructAppDefTheResol*(ssp: AppDefMultiLine;
-                             sCurv: var AppParCurvesMultiCurve; firstPoint: int;
-                             lastPoint: int; constraints: Handle[
+                             sCurv: var AppParCurvesMultiCurve; firstPoint: cint;
+                             lastPoint: cint; constraints: Handle[
     AppParCurvesHArray1OfConstraintCouple]; bern: MathMatrix;
                              derivativeBern: MathMatrix;
-                             tolerance: float = 1.0e-10): AppDefTheResol {.
+                             tolerance: cfloat = 1.0e-10): AppDefTheResol {.
     constructor, importcpp: "AppDef_TheResol(@)", header: "AppDef_TheResol.hxx".}
 proc isDone*(this: AppDefTheResol): bool {.noSideEffect, importcpp: "IsDone",
                                        header: "AppDef_TheResol.hxx".}
-proc error*(this: AppDefTheResol): float {.noSideEffect, importcpp: "Error",
-                                       header: "AppDef_TheResol.hxx".}
+proc error*(this: AppDefTheResol): cfloat {.noSideEffect, importcpp: "Error",
+                                        header: "AppDef_TheResol.hxx".}
 proc constraintMatrix*(this: AppDefTheResol): MathMatrix {.noSideEffect,
     importcpp: "ConstraintMatrix", header: "AppDef_TheResol.hxx".}
 proc duale*(this: AppDefTheResol): MathVector {.noSideEffect, importcpp: "Duale",
     header: "AppDef_TheResol.hxx".}
 proc constraintDerivative*(this: var AppDefTheResol; ssp: AppDefMultiLine;
-                          parameters: MathVector; deg: int; da: MathMatrix): MathMatrix {.
+                          parameters: MathVector; deg: cint; da: MathMatrix): MathMatrix {.
     importcpp: "ConstraintDerivative", header: "AppDef_TheResol.hxx".}
 proc inverseMatrix*(this: AppDefTheResol): MathMatrix {.noSideEffect,
     importcpp: "InverseMatrix", header: "AppDef_TheResol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

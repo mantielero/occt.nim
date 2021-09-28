@@ -25,12 +25,12 @@
 ## ! Levels using should be only through using OCCT_ADD_MESSAGE_LEVEL_SENTRY only. No other code is required outside. class Message_Level { public : ! Constructor.
 ## ! One string key is used for all alert meters.
 ## ! The perf meter is not started automatically, it will be done in AddAlert() method Message_Level ( const TCollection_AsciiString & theName = TCollection_AsciiString ( ) ) ; ! Assures stopping upon destruction ~ Message_Level ( ) ; ! Returns root alert of the level
-## ! @return alert instance or NULL const opencascade :: handle < Message_AlertExtended > [end of template] & RootAlert ( ) const { return myRootAlert ; } ! Sets the root alert. Starts collects alert metrics if active.
-## ! @param theAlert an alert void SetRootAlert ( const opencascade :: handle < Message_AlertExtended > [end of template] & theAlert , const Standard_Boolean isRequiredToStart ) ; ! Adds new alert on the level. Stops the last alert metric, appends the alert and starts the alert metrics collecting.
+## ! @return alert instance or NULL const Handle ( Message_AlertExtended ) & RootAlert ( ) const { return myRootAlert ; } ! Sets the root alert. Starts collects alert metrics if active.
+## ! @param theAlert an alert void SetRootAlert ( const Handle ( Message_AlertExtended ) & theAlert , const Standard_Boolean isRequiredToStart ) ; ! Adds new alert on the level. Stops the last alert metric, appends the alert and starts the alert metrics collecting.
 ## ! Sets root alert beforehand this method using, if the root is NULL, it does nothing.
 ## ! @param theGravity an alert gravity
 ## ! @param theAlert an alert
-## ! @return true if alert is added Standard_Boolean AddAlert ( const Message_Gravity theGravity , const opencascade :: handle < Message_Alert > [end of template] & theAlert ) ; private : ! Remove the current level from the report. It stops metric collecting for the last and the root alerts. void remove ( ) ; private : opencascade :: handle < Message_AlertExtended > [end of template] myRootAlert ; !< root alert opencascade :: handle < Message_AlertExtended > [end of template] myLastAlert ; !< last added alert on the root alert } ;
+## ! @return true if alert is added Standard_Boolean AddAlert ( const Message_Gravity theGravity , const Handle ( Message_Alert ) & theAlert ) ; private : ! Remove the current level from the report. It stops metric collecting for the last and the root alerts. void remove ( ) ; private : Handle ( Message_AlertExtended ) myRootAlert ; !< root alert Handle ( Message_AlertExtended ) myLastAlert ; !< last added alert on the root alert } ;
 ## Error: did not expect [NewLine]!!!
 
 ## ! @def MESSAGE_NEW_LEVEL
@@ -42,4 +42,49 @@ template occt_Add_Message_Level_Sentry*(theMessage: untyped): untyped =
 aLevel(theMessage)
 ## !!!Ignored construct:  [NewLine] #  _Message_Level_HeaderFile
 ## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

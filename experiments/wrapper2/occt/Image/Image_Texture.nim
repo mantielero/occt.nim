@@ -91,5 +91,30 @@ proc hashCode*(theTexture: Handle[ImageTexture]; theUpper: cint): cint {.
 proc isEqual*(theTex1: Handle[ImageTexture]; theTex2: Handle[ImageTexture]): bool {.
     importcpp: "Image_Texture::IsEqual(@)", header: "Image_Texture.hxx".}
 proc dumpJson*(this: ImageTexture; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Image_Texture.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Image_Texture.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

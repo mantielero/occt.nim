@@ -17,8 +17,7 @@
 discard "forward decl of StepVisual_MechanicalDesignGeometricPresentationArea"
 discard "forward decl of StepVisual_MechanicalDesignGeometricPresentationArea"
 type
-  HandleStepVisualMechanicalDesignGeometricPresentationArea* = Handle[
-      StepVisualMechanicalDesignGeometricPresentationArea]
+  HandleC1C1* = Handle[StepVisualMechanicalDesignGeometricPresentationArea]
   StepVisualMechanicalDesignGeometricPresentationArea* {.
       importcpp: "StepVisual_MechanicalDesignGeometricPresentationArea",
       header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx", bycopy.} = object of StepVisualPresentationArea ##
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Mechani
     header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx".}
 proc dynamicType*(this: StepVisualMechanicalDesignGeometricPresentationArea): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

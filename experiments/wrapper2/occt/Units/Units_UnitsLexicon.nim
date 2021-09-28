@@ -19,7 +19,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Units_UnitsLexicon"
 discard "forward decl of Units_UnitsLexicon"
 type
-  HandleUnitsUnitsLexicon* = Handle[UnitsUnitsLexicon]
+  HandleC1C1* = Handle[UnitsUnitsLexicon]
 
 ## ! This class defines a lexicon useful to analyse and
 ## ! recognize the different key  words  included  in a
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Units_UnitsLexicon.hxx".}
 proc dynamicType*(this: UnitsUnitsLexicon): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_UnitsLexicon.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

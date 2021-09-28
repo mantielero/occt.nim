@@ -13,3 +13,28 @@ include BRepAdaptor_HCurve2d
 include BRepAdaptor_HSurface
 include BRepAdaptor_Surface
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

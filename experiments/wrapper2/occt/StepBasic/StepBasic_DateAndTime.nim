@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_LocalTime"
 discard "forward decl of StepBasic_DateAndTime"
 discard "forward decl of StepBasic_DateAndTime"
 type
-  HandleStepBasicDateAndTime* = Handle[StepBasicDateAndTime]
+  HandleC1C1* = Handle[StepBasicDateAndTime]
   StepBasicDateAndTime* {.importcpp: "StepBasic_DateAndTime",
                          header: "StepBasic_DateAndTime.hxx", bycopy.} = object of StandardTransient ##
                                                                                               ## !
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DateAndTime.hxx".}
 proc dynamicType*(this: StepBasicDateAndTime): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_DateAndTime.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

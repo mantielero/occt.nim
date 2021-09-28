@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMXCAFDoc_CentroidDriver"
 discard "forward decl of BinMXCAFDoc_CentroidDriver"
 type
-  HandleBinMXCAFDocCentroidDriver* = Handle[BinMXCAFDocCentroidDriver]
+  HandleC1C1* = Handle[BinMXCAFDocCentroidDriver]
   BinMXCAFDocCentroidDriver* {.importcpp: "BinMXCAFDoc_CentroidDriver",
                               header: "BinMXCAFDoc_CentroidDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMXCAFDocCentroidDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMXCAFDoc_CentroidDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -51,15 +51,40 @@ proc getDFace*(this: BRepMeshDefaultRangeSplitter): IFaceHandle {.noSideEffect,
 proc getSurface*(this: BRepMeshDefaultRangeSplitter): Handle[BRepAdaptorHSurface] {.
     noSideEffect, importcpp: "GetSurface",
     header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc getRangeU*(this: BRepMeshDefaultRangeSplitter): Pair[float, float] {.
+proc getRangeU*(this: BRepMeshDefaultRangeSplitter): Pair[cfloat, cfloat] {.
     noSideEffect, importcpp: "GetRangeU",
     header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc getRangeV*(this: BRepMeshDefaultRangeSplitter): Pair[float, float] {.
+proc getRangeV*(this: BRepMeshDefaultRangeSplitter): Pair[cfloat, cfloat] {.
     noSideEffect, importcpp: "GetRangeV",
     header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc getDelta*(this: BRepMeshDefaultRangeSplitter): Pair[float, float] {.
+proc getDelta*(this: BRepMeshDefaultRangeSplitter): Pair[cfloat, cfloat] {.
     noSideEffect, importcpp: "GetDelta",
     header: "BRepMesh_DefaultRangeSplitter.hxx".}
-proc getToleranceUV*(this: BRepMeshDefaultRangeSplitter): Pair[float, float] {.
+proc getToleranceUV*(this: BRepMeshDefaultRangeSplitter): Pair[cfloat, cfloat] {.
     noSideEffect, importcpp: "GetToleranceUV",
     header: "BRepMesh_DefaultRangeSplitter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

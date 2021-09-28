@@ -28,3 +28,28 @@ proc destroyRWObjMtlReader*(this: var RWObjMtlReader) {.
 proc read*(this: var RWObjMtlReader; theFolder: TCollectionAsciiString;
           theFile: TCollectionAsciiString): bool {.importcpp: "Read",
     header: "RWObj_MtlReader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

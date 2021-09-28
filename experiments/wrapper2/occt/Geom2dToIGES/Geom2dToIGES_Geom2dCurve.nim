@@ -22,6 +22,24 @@ type
                              header: "Geom2dToIGES_Geom2dCurve.hxx", bycopy.} = object of Geom2dToIGES_Geom2dEntity
 
 
+proc `new`*(this: var Geom2dToIGES_Geom2dCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dToIGES_Geom2dCurve::operator new",
+    header: "Geom2dToIGES_Geom2dCurve.hxx".}
+proc `delete`*(this: var Geom2dToIGES_Geom2dCurve; theAddress: pointer) {.
+    importcpp: "Geom2dToIGES_Geom2dCurve::operator delete",
+    header: "Geom2dToIGES_Geom2dCurve.hxx".}
+proc `new[]`*(this: var Geom2dToIGES_Geom2dCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dToIGES_Geom2dCurve::operator new[]",
+    header: "Geom2dToIGES_Geom2dCurve.hxx".}
+proc `delete[]`*(this: var Geom2dToIGES_Geom2dCurve; theAddress: pointer) {.
+    importcpp: "Geom2dToIGES_Geom2dCurve::operator delete[]",
+    header: "Geom2dToIGES_Geom2dCurve.hxx".}
+proc `new`*(this: var Geom2dToIGES_Geom2dCurve; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dToIGES_Geom2dCurve::operator new",
+    header: "Geom2dToIGES_Geom2dCurve.hxx".}
+proc `delete`*(this: var Geom2dToIGES_Geom2dCurve; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dToIGES_Geom2dCurve::operator delete",
+    header: "Geom2dToIGES_Geom2dCurve.hxx".}
 proc constructGeom2dToIGES_Geom2dCurve*(): Geom2dToIGES_Geom2dCurve {.constructor,
     importcpp: "Geom2dToIGES_Geom2dCurve(@)",
     header: "Geom2dToIGES_Geom2dCurve.hxx".}
@@ -29,6 +47,6 @@ proc constructGeom2dToIGES_Geom2dCurve*(g2dE: Geom2dToIGES_Geom2dEntity): Geom2d
     constructor, importcpp: "Geom2dToIGES_Geom2dCurve(@)",
     header: "Geom2dToIGES_Geom2dCurve.hxx".}
 proc transfer2dCurve*(this: var Geom2dToIGES_Geom2dCurve;
-                     start: Handle[Geom2dCurve]; udeb: float; ufin: float): Handle[
-    IGESDataIGESEntity] {.importcpp: "Transfer2dCurve",
-                         header: "Geom2dToIGES_Geom2dCurve.hxx".}
+                     start: Handle[Geom2dCurve]; udeb: StandardReal;
+                     ufin: StandardReal): Handle[IGESDataIGESEntity] {.
+    importcpp: "Transfer2dCurve", header: "Geom2dToIGES_Geom2dCurve.hxx".}

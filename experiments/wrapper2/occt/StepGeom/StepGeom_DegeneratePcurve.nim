@@ -20,7 +20,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_DegeneratePcurve"
 discard "forward decl of StepGeom_DegeneratePcurve"
 type
-  HandleStepGeomDegeneratePcurve* = Handle[StepGeomDegeneratePcurve]
+  HandleC1C1* = Handle[StepGeomDegeneratePcurve]
   StepGeomDegeneratePcurve* {.importcpp: "StepGeom_DegeneratePcurve",
                              header: "StepGeom_DegeneratePcurve.hxx", bycopy.} = object of StepGeomPoint ##
                                                                                                   ## !
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_DegeneratePcurve.hxx".}
 proc dynamicType*(this: StepGeomDegeneratePcurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_DegeneratePcurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

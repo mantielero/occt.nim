@@ -14,35 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESDimenHArray1OfLeaderArrow* {.importcpp: "IGESDimen_HArray1OfLeaderArrow",
-                                  header: "IGESDimen_HArray1OfLeaderArrow.hxx",
-                                  bycopy.} = object of IGESDimenArray1OfLeaderArrow
+## !!!Ignored construct:  # IGESDimen_HArray1OfLeaderArrow_HeaderFile [NewLine] # IGESDimen_HArray1OfLeaderArrow_HeaderFile [NewLine] # < IGESDimen_LeaderArrow . hxx > [NewLine] # < IGESDimen_Array1OfLeaderArrow . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESDimen_HArray1OfLeaderArrow , IGESDimen_Array1OfLeaderArrow ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESDimenHArray1OfLeaderArrow*(theLower: int; theUpper: int): IGESDimenHArray1OfLeaderArrow {.
-    constructor, importcpp: "IGESDimen_HArray1OfLeaderArrow(@)",
-    header: "IGESDimen_HArray1OfLeaderArrow.hxx".}
-proc constructIGESDimenHArray1OfLeaderArrow*(theLower: int; theUpper: int;
-    theValue: ValueType): IGESDimenHArray1OfLeaderArrow {.constructor,
-    importcpp: "IGESDimen_HArray1OfLeaderArrow(@)",
-    header: "IGESDimen_HArray1OfLeaderArrow.hxx".}
-proc constructIGESDimenHArray1OfLeaderArrow*(
-    theOther: IGESDimenArray1OfLeaderArrow): IGESDimenHArray1OfLeaderArrow {.
-    constructor, importcpp: "IGESDimen_HArray1OfLeaderArrow(@)",
-    header: "IGESDimen_HArray1OfLeaderArrow.hxx".}
-proc array1*(this: IGESDimenHArray1OfLeaderArrow): IGESDimenArray1OfLeaderArrow {.
-    noSideEffect, importcpp: "Array1", header: "IGESDimen_HArray1OfLeaderArrow.hxx".}
-proc changeArray1*(this: var IGESDimenHArray1OfLeaderArrow): var IGESDimenArray1OfLeaderArrow {.
-    importcpp: "ChangeArray1", header: "IGESDimen_HArray1OfLeaderArrow.hxx".}
-type
-  IGESDimenHArray1OfLeaderArrowbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_HArray1OfLeaderArrow::get_type_name(@)",
-                            header: "IGESDimen_HArray1OfLeaderArrow.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESDimen_HArray1OfLeaderArrow::get_type_descriptor(@)",
-    header: "IGESDimen_HArray1OfLeaderArrow.hxx".}
-proc dynamicType*(this: IGESDimenHArray1OfLeaderArrow): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESDimen_HArray1OfLeaderArrow.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

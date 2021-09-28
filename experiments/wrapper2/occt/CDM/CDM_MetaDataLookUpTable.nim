@@ -21,3 +21,28 @@ type
   CDM_DataMapIteratorOfMetaDataLookUpTable* = Iterator[TCollectionExtendedString,
       Handle[CDM_MetaData], TCollectionExtendedString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

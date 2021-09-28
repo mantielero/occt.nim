@@ -14,7 +14,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  MeshVS_BuilderPriority* = int
+  MeshVS_BuilderPriority* = cint
 
 const
   MeshVS_BP_Mesh* = 5
@@ -24,4 +24,29 @@ const
   MeshVS_BP_Vector* = 25
   MeshVS_BP_User* = 30
   MeshVS_BP_Default* = MeshVS_BP_User
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

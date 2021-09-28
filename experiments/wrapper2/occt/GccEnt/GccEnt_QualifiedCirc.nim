@@ -66,3 +66,28 @@ proc isEnclosed*(this: GccEntQualifiedCirc): bool {.noSideEffect,
     importcpp: "IsEnclosed", header: "GccEnt_QualifiedCirc.hxx".}
 proc isOutside*(this: GccEntQualifiedCirc): bool {.noSideEffect,
     importcpp: "IsOutside", header: "GccEnt_QualifiedCirc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

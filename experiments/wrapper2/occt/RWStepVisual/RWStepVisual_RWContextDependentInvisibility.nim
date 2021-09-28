@@ -29,7 +29,7 @@ proc constructRWStepVisualRWContextDependentInvisibility*(): RWStepVisualRWConte
     constructor, importcpp: "RWStepVisual_RWContextDependentInvisibility(@)",
     header: "RWStepVisual_RWContextDependentInvisibility.hxx".}
 proc readStep*(this: RWStepVisualRWContextDependentInvisibility;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualContextDependentInvisibility]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepVisualRWContextDependentInvisibility;
            ent: Handle[StepVisualContextDependentInvisibility];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWContextDependentInvisibility.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

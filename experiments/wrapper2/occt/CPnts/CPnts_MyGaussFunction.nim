@@ -25,5 +25,30 @@ proc constructCPntsMyGaussFunction*(): CPntsMyGaussFunction {.constructor,
     importcpp: "CPnts_MyGaussFunction(@)", header: "CPnts_MyGaussFunction.hxx".}
 proc init*(this: var CPntsMyGaussFunction; f: CPntsRealFunction; d: StandardAddress) {.
     importcpp: "Init", header: "CPnts_MyGaussFunction.hxx".}
-proc value*(this: var CPntsMyGaussFunction; x: float; f: var float): bool {.
+proc value*(this: var CPntsMyGaussFunction; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "CPnts_MyGaussFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@ proc constructStepVisualSurfaceStyleElementSelect*(): StepVisualSurfaceStyleElem
     constructor, importcpp: "StepVisual_SurfaceStyleElementSelect(@)",
     header: "StepVisual_SurfaceStyleElementSelect.hxx".}
 proc caseNum*(this: StepVisualSurfaceStyleElementSelect;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
 proc surfaceStyleFillArea*(this: StepVisualSurfaceStyleElementSelect): Handle[
     StepVisualSurfaceStyleFillArea] {.noSideEffect,
@@ -46,3 +46,28 @@ proc surfaceStyleParameterLine*(this: StepVisualSurfaceStyleElementSelect): Hand
 proc surfaceStyleRendering*(this: StepVisualSurfaceStyleElementSelect): Handle[
     StepVisualSurfaceStyleRendering] {.noSideEffect,
                                       importcpp: "SurfaceStyleRendering", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

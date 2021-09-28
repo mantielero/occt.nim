@@ -122,7 +122,32 @@ proc dynamicType*(this: TObjTXYZ): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of TObj_TXYZ"
 type
-  HandleTObjTXYZ* = Handle[TObjTXYZ]
+  HandleC1C1* = Handle[TObjTXYZ]
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

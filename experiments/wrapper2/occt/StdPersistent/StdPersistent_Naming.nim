@@ -133,3 +133,28 @@ proc importAttribute*(this: var StdPersistentNamingNaming1) {.
 type
   StdPersistentNamingNaming2* = StdPersistentNamingNaming
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

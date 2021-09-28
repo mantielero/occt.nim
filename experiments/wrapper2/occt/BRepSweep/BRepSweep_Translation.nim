@@ -128,3 +128,28 @@ proc isInvariant*(this: BRepSweepTranslation; aGenS: TopoDS_Shape): bool {.
     noSideEffect, importcpp: "IsInvariant", header: "BRepSweep_Translation.hxx".}
 proc vec*(this: BRepSweepTranslation): Vec {.noSideEffect, importcpp: "Vec",
     header: "BRepSweep_Translation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

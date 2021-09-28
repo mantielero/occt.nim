@@ -14,16 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_NoSuchObject_HeaderFile [NewLine] # _Standard_NoSuchObject_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_NoSuchObject ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_NoSuchObject"
 type
-  HandleStandardNoSuchObjectStandardNoSuchObject* = Handle[StandardNoSuchObject]
+  StandardNoSuchObject* {.importcpp: "Standard_NoSuchObject",
+                         header: "Standard_NoSuchObject.hxx", bycopy.} = object of StandardDomainError
+type
+  HandleStandardNoSuchObject* = Handle[StandardNoSuchObject]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_NoSuchObject [NewLine] # if ( CONDITION ) throw Standard_NoSuchObject ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardNoSuchObject):
+  template standardNoSuchObjectRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardNoSuchObject*(a1: Message): Throw {.
+          importcpp: "Standard_NoSuchObject(@)",
+          header: "Standard_NoSuchObject.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NoSuchObject , Standard_DomainError ) #  _Standard_NoSuchObject_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

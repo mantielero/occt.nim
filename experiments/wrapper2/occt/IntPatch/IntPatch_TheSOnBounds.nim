@@ -35,10 +35,13 @@ type
 
 proc constructIntPatchTheSOnBounds*(): IntPatchTheSOnBounds {.constructor,
     importcpp: "IntPatch_TheSOnBounds(@)", header: "IntPatch_TheSOnBounds.hxx".}
-proc perform*(this: var IntPatchTheSOnBounds; f: var IntPatchArcFunction;
-             domain: Handle[Adaptor3dTopolTool]; tolBoundary: float;
-             tolTangency: float; recheckOnRegularity: bool = false) {.
-    importcpp: "Perform", header: "IntPatch_TheSOnBounds.hxx".}
+## !!!Ignored construct:  ! Algorithm to find the points and parts of curves of Domain
+## ! (domain of of restriction of a surface) which verify
+## ! F = 0.
+## ! TolBoundary defines if a curve is on Q.
+## ! TolTangency defines if a point is on Q. void Perform ( IntPatch_ArcFunction & F , const Handle ( Adaptor3d_TopolTool ) & Domain , const Standard_Real TolBoundary , const Standard_Real TolTangency , const Standard_Boolean RecheckOnRegularity = Standard_False ) ;
+## Error: token expected: ) but got: &!!!
+
 proc isDone*(this: IntPatchTheSOnBounds): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntPatch_TheSOnBounds.hxx".}
 proc allArcSolution*(this: IntPatchTheSOnBounds): bool {.noSideEffect,
@@ -51,6 +54,51 @@ proc nbSegments*(this: IntPatchTheSOnBounds): int {.noSideEffect,
     importcpp: "NbSegments", header: "IntPatch_TheSOnBounds.hxx".}
 proc segment*(this: IntPatchTheSOnBounds; index: int): IntPatchTheSegmentOfTheSOnBounds {.
     noSideEffect, importcpp: "Segment", header: "IntPatch_TheSOnBounds.hxx".}
-## !!!Ignored construct:  # TheVertex opencascade :: handle < Adaptor3d_HVertex > [end of template] [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc opencascade :: handle < Adaptor2d_HCurve2d > [end of template] [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # TheArcTool IntPatch_HCurve2dTool [NewLine] # TheArcTool_hxx < IntPatch_HCurve2dTool . hxx > [NewLine] # TheSOBTool IntPatch_HInterTool [NewLine] # TheSOBTool_hxx < IntPatch_HInterTool . hxx > [NewLine] # Handle_TheTopolTool opencascade :: handle < Adaptor3d_TopolTool > [end of template] [NewLine] # TheTopolTool Adaptor3d_TopolTool [NewLine] # TheTopolTool_hxx < Adaptor3d_TopolTool . hxx > [NewLine] # TheFunction IntPatch_ArcFunction [NewLine] # TheFunction_hxx < IntPatch_ArcFunction . hxx > [NewLine] # IntStart_ThePathPoint IntPatch_ThePathPointOfTheSOnBounds [NewLine] # IntStart_ThePathPoint_hxx < IntPatch_ThePathPointOfTheSOnBounds . hxx > [NewLine] # IntStart_SequenceOfPathPoint IntPatch_SequenceOfPathPointOfTheSOnBounds [NewLine] # IntStart_SequenceOfPathPoint_hxx < IntPatch_SequenceOfPathPointOfTheSOnBounds . hxx > [NewLine] # IntStart_TheSegment IntPatch_TheSegmentOfTheSOnBounds [NewLine] # IntStart_TheSegment_hxx < IntPatch_TheSegmentOfTheSOnBounds . hxx > [NewLine] # IntStart_SequenceOfSegment IntPatch_SequenceOfSegmentOfTheSOnBounds [NewLine] # IntStart_SequenceOfSegment_hxx < IntPatch_SequenceOfSegmentOfTheSOnBounds . hxx > [NewLine] # IntStart_SearchOnBoundaries IntPatch_TheSOnBounds [NewLine] # IntStart_SearchOnBoundaries_hxx < IntPatch_TheSOnBounds . hxx > [NewLine] # < IntStart_SearchOnBoundaries . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # TheArcTool [NewLine] # TheArcTool_hxx [NewLine] # TheSOBTool [NewLine] # TheSOBTool_hxx [NewLine] # Handle_TheTopolTool [NewLine] # TheTopolTool [NewLine] # TheTopolTool_hxx [NewLine] # TheFunction [NewLine] # TheFunction_hxx [NewLine] # IntStart_ThePathPoint [NewLine] # IntStart_ThePathPoint_hxx [NewLine] # IntStart_SequenceOfPathPoint [NewLine] # IntStart_SequenceOfPathPoint_hxx [NewLine] # IntStart_TheSegment [NewLine] # IntStart_TheSegment_hxx [NewLine] # IntStart_SequenceOfSegment [NewLine] # IntStart_SequenceOfSegment_hxx [NewLine] # IntStart_SearchOnBoundaries [NewLine] # IntStart_SearchOnBoundaries_hxx [NewLine] #  _IntPatch_TheSOnBounds_HeaderFile
+## !!!Ignored construct:  # TheVertex Handle ( Adaptor3d_HVertex ) [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc Handle ( Adaptor2d_HCurve2d ) [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # TheArcTool IntPatch_HCurve2dTool [NewLine] # TheArcTool_hxx < IntPatch_HCurve2dTool . hxx > [NewLine] # TheSOBTool IntPatch_HInterTool [NewLine] # TheSOBTool_hxx < IntPatch_HInterTool . hxx > [NewLine] # Handle_TheTopolTool Handle ( Adaptor3d_TopolTool ) [NewLine] # TheTopolTool Adaptor3d_TopolTool [NewLine] # TheTopolTool_hxx < Adaptor3d_TopolTool . hxx > [NewLine] # TheFunction IntPatch_ArcFunction [NewLine] # TheFunction_hxx < IntPatch_ArcFunction . hxx > [NewLine] # IntStart_ThePathPoint IntPatch_ThePathPointOfTheSOnBounds [NewLine] # IntStart_ThePathPoint_hxx < IntPatch_ThePathPointOfTheSOnBounds . hxx > [NewLine] # IntStart_SequenceOfPathPoint IntPatch_SequenceOfPathPointOfTheSOnBounds [NewLine] # IntStart_SequenceOfPathPoint_hxx < IntPatch_SequenceOfPathPointOfTheSOnBounds . hxx > [NewLine] # IntStart_TheSegment IntPatch_TheSegmentOfTheSOnBounds [NewLine] # IntStart_TheSegment_hxx < IntPatch_TheSegmentOfTheSOnBounds . hxx > [NewLine] # IntStart_SequenceOfSegment IntPatch_SequenceOfSegmentOfTheSOnBounds [NewLine] # IntStart_SequenceOfSegment_hxx < IntPatch_SequenceOfSegmentOfTheSOnBounds . hxx > [NewLine] # IntStart_SearchOnBoundaries IntPatch_TheSOnBounds [NewLine] # IntStart_SearchOnBoundaries_hxx < IntPatch_TheSOnBounds . hxx > [NewLine] # < IntStart_SearchOnBoundaries . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # TheArcTool [NewLine] # TheArcTool_hxx [NewLine] # TheSOBTool [NewLine] # TheSOBTool_hxx [NewLine] # Handle_TheTopolTool [NewLine] # TheTopolTool [NewLine] # TheTopolTool_hxx [NewLine] # TheFunction [NewLine] # TheFunction_hxx [NewLine] # IntStart_ThePathPoint [NewLine] # IntStart_ThePathPoint_hxx [NewLine] # IntStart_SequenceOfPathPoint [NewLine] # IntStart_SequenceOfPathPoint_hxx [NewLine] # IntStart_TheSegment [NewLine] # IntStart_TheSegment_hxx [NewLine] # IntStart_SequenceOfSegment [NewLine] # IntStart_SequenceOfSegment_hxx [NewLine] # IntStart_SearchOnBoundaries [NewLine] # IntStart_SearchOnBoundaries_hxx [NewLine] #  _IntPatch_TheSOnBounds_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

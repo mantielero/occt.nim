@@ -18,3 +18,28 @@ discard "forward decl of TopoDS_Iterator"
 type
   TopExpStack* = ptr TopoDS_Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

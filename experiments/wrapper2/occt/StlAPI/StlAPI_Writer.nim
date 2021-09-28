@@ -35,3 +35,28 @@ proc write*(this: var StlAPI_Writer; theShape: TopoDS_Shape;
            theFileName: StandardCString;
            theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Write", header: "StlAPI_Writer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

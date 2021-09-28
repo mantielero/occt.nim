@@ -17,7 +17,7 @@ discard "forward decl of StepBasic_MeasureWithUnit"
 discard "forward decl of StepShape_ToleranceValue"
 discard "forward decl of StepShape_ToleranceValue"
 type
-  HandleStepShapeToleranceValue* = Handle[StepShapeToleranceValue]
+  HandleC1C1* = Handle[StepShapeToleranceValue]
 
 ## ! Added for Dimensional Tolerances
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_ToleranceValue.hxx".}
 proc dynamicType*(this: StepShapeToleranceValue): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_ToleranceValue.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

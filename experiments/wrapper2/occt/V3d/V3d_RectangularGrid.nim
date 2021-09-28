@@ -48,16 +48,41 @@ proc erase*(this: V3dRectangularGrid) {.noSideEffect, importcpp: "Erase",
                                      header: "V3d_RectangularGrid.hxx".}
 proc isDisplayed*(this: V3dRectangularGrid): bool {.noSideEffect,
     importcpp: "IsDisplayed", header: "V3d_RectangularGrid.hxx".}
-proc graphicValues*(this: V3dRectangularGrid; xSize: var float; ySize: var float;
-                   offSet: var float) {.noSideEffect, importcpp: "GraphicValues",
-                                     header: "V3d_RectangularGrid.hxx".}
-proc setGraphicValues*(this: var V3dRectangularGrid; xSize: float; ySize: float;
-                      offSet: float) {.importcpp: "SetGraphicValues",
-                                     header: "V3d_RectangularGrid.hxx".}
+proc graphicValues*(this: V3dRectangularGrid; xSize: var cfloat; ySize: var cfloat;
+                   offSet: var cfloat) {.noSideEffect, importcpp: "GraphicValues",
+                                      header: "V3d_RectangularGrid.hxx".}
+proc setGraphicValues*(this: var V3dRectangularGrid; xSize: cfloat; ySize: cfloat;
+                      offSet: cfloat) {.importcpp: "SetGraphicValues",
+                                      header: "V3d_RectangularGrid.hxx".}
 proc dumpJson*(this: V3dRectangularGrid; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "V3d_RectangularGrid.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "V3d_RectangularGrid.hxx".}
 discard "forward decl of V3d_RectangularGrid"
 type
-  HandleV3dRectangularGrid* = Handle[V3dRectangularGrid]
+  HandleC1C1* = Handle[V3dRectangularGrid]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

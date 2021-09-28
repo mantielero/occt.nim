@@ -43,3 +43,28 @@ type
 proc read*(this: var StlAPI_Reader; theShape: var TopoDS_Shape;
           theFileName: StandardCString): bool {.importcpp: "Read",
     header: "StlAPI_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

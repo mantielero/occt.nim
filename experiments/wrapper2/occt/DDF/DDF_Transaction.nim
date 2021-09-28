@@ -20,7 +20,7 @@ discard "forward decl of TDF_Delta"
 discard "forward decl of DDF_Transaction"
 discard "forward decl of DDF_Transaction"
 type
-  HandleDDF_Transaction* = Handle[DDF_Transaction]
+  HandleC1C1* = Handle[DDF_Transaction]
 
 ## ! This class encapsulates TDF_Transaction.
 
@@ -34,8 +34,8 @@ proc constructDDF_Transaction*(): DDF_Transaction {.constructor,
     importcpp: "DDF_Transaction(@)", header: "DDF_Transaction.hxx".}
 proc constructDDF_Transaction*(aDF: Handle[TDF_Data]): DDF_Transaction {.
     constructor, importcpp: "DDF_Transaction(@)", header: "DDF_Transaction.hxx".}
-proc open*(this: var DDF_Transaction): int {.importcpp: "Open",
-                                        header: "DDF_Transaction.hxx".}
+proc open*(this: var DDF_Transaction): cint {.importcpp: "Open",
+    header: "DDF_Transaction.hxx".}
 proc commit*(this: var DDF_Transaction; withDelta: bool = false): Handle[TDF_Delta] {.
     importcpp: "Commit", header: "DDF_Transaction.hxx".}
 proc abort*(this: var DDF_Transaction) {.importcpp: "Abort",
@@ -44,7 +44,7 @@ proc destroyDDF_Transaction*(this: var DDF_Transaction) {.
     importcpp: "#.~DDF_Transaction()", header: "DDF_Transaction.hxx".}
 proc data*(this: DDF_Transaction): Handle[TDF_Data] {.noSideEffect,
     importcpp: "Data", header: "DDF_Transaction.hxx".}
-proc transaction*(this: DDF_Transaction): int {.noSideEffect,
+proc transaction*(this: DDF_Transaction): cint {.noSideEffect,
     importcpp: "Transaction", header: "DDF_Transaction.hxx".}
 proc isOpen*(this: DDF_Transaction): bool {.noSideEffect, importcpp: "IsOpen",
                                         header: "DDF_Transaction.hxx".}
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DDF_Transaction.hxx".}
 proc dynamicType*(this: DDF_Transaction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DDF_Transaction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

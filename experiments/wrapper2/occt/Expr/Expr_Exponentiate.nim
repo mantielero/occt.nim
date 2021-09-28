@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Exponentiate"
 discard "forward decl of Expr_Exponentiate"
 type
-  HandleExprExponentiate* = Handle[ExprExponentiate]
+  HandleC1C1* = Handle[ExprExponentiate]
   ExprExponentiate* {.importcpp: "Expr_Exponentiate",
                      header: "Expr_Exponentiate.hxx", bycopy.} = object of ExprBinaryExpression ##
                                                                                          ## !
@@ -49,7 +49,7 @@ proc derivative*(this: ExprExponentiate; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_Exponentiate.hxx".}
 proc evaluate*(this: ExprExponentiate; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Exponentiate.hxx".}
 proc string*(this: ExprExponentiate): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Exponentiate.hxx".}
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_Exponentiate.hxx".}
 proc dynamicType*(this: ExprExponentiate): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Exponentiate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ discard "forward decl of TFunction_Logbook"
 discard "forward decl of DNaming_SelectionDriver"
 discard "forward decl of DNaming_SelectionDriver"
 type
-  HandleDNamingSelectionDriver* = Handle[DNamingSelectionDriver]
+  HandleC1C1* = Handle[DNamingSelectionDriver]
   DNamingSelectionDriver* {.importcpp: "DNaming_SelectionDriver",
                            header: "DNaming_SelectionDriver.hxx", bycopy.} = object of TFunctionDriver ##
                                                                                                 ## !
@@ -36,7 +36,7 @@ proc validate*(this: DNamingSelectionDriver; theLog: var Handle[TFunctionLogbook
     noSideEffect, importcpp: "Validate", header: "DNaming_SelectionDriver.hxx".}
 proc mustExecute*(this: DNamingSelectionDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_SelectionDriver.hxx".}
-proc execute*(this: DNamingSelectionDriver; theLog: var Handle[TFunctionLogbook]): int {.
+proc execute*(this: DNamingSelectionDriver; theLog: var Handle[TFunctionLogbook]): cint {.
     noSideEffect, importcpp: "Execute", header: "DNaming_SelectionDriver.hxx".}
 type
   DNamingSelectionDriverbaseType* = TFunctionDriver
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DNaming_SelectionDriver.hxx".}
 proc dynamicType*(this: DNamingSelectionDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DNaming_SelectionDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

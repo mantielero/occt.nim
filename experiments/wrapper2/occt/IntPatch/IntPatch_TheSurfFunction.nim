@@ -28,20 +28,21 @@ discard "forward decl of gp_Dir2d"
 type
   IntPatchTheSurfFunction* {.importcpp: "IntPatch_TheSurfFunction",
                             header: "IntPatch_TheSurfFunction.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
+    adaptor3dHSurface* {.importc: "Adaptor3d_HSurface".}: Handle
 
 
 proc constructIntPatchTheSurfFunction*(): IntPatchTheSurfFunction {.constructor,
     importcpp: "IntPatch_TheSurfFunction(@)",
     header: "IntPatch_TheSurfFunction.hxx".}
-proc constructIntPatchTheSurfFunction*(ps: Handle[Adaptor3dHSurface];
-                                      `is`: IntSurfQuadric): IntPatchTheSurfFunction {.
-    constructor, importcpp: "IntPatch_TheSurfFunction(@)",
-    header: "IntPatch_TheSurfFunction.hxx".}
+## !!!Ignored construct:  IntPatch_TheSurfFunction ( const Handle ( Adaptor3d_HSurface ) & PS , const IntSurf_Quadric & IS ) ;
+## Error: token expected: ) but got: &!!!
+
 proc constructIntPatchTheSurfFunction*(`is`: IntSurfQuadric): IntPatchTheSurfFunction {.
     constructor, importcpp: "IntPatch_TheSurfFunction(@)",
     header: "IntPatch_TheSurfFunction.hxx".}
-proc set*(this: var IntPatchTheSurfFunction; ps: Handle[Adaptor3dHSurface]) {.
-    importcpp: "Set", header: "IntPatch_TheSurfFunction.hxx".}
+## !!!Ignored construct:  void Set ( const Handle ( Adaptor3d_HSurface ) & PS ) ;
+## Error: token expected: ) but got: &!!!
+
 proc setImplicitSurface*(this: var IntPatchTheSurfFunction; `is`: IntSurfQuadric) {.
     importcpp: "SetImplicitSurface", header: "IntPatch_TheSurfFunction.hxx".}
 proc set*(this: var IntPatchTheSurfFunction; tolerance: float) {.importcpp: "Set",
@@ -69,10 +70,56 @@ proc direction3d*(this: var IntPatchTheSurfFunction): Vec {.importcpp: "Directio
     header: "IntPatch_TheSurfFunction.hxx".}
 proc direction2d*(this: var IntPatchTheSurfFunction): Dir2d {.
     importcpp: "Direction2d", header: "IntPatch_TheSurfFunction.hxx".}
-proc pSurface*(this: IntPatchTheSurfFunction): Handle[Adaptor3dHSurface] {.
-    noSideEffect, importcpp: "PSurface", header: "IntPatch_TheSurfFunction.hxx".}
+## !!!Ignored construct:  & PSurface ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc iSurface*(this: IntPatchTheSurfFunction): IntSurfQuadric {.noSideEffect,
     importcpp: "ISurface", header: "IntPatch_TheSurfFunction.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # TheISurface IntSurf_Quadric [NewLine] # TheISurface_hxx < IntSurf_Quadric . hxx > [NewLine] # TheISurfaceTool IntSurf_QuadricTool [NewLine] # TheISurfaceTool_hxx < IntSurf_QuadricTool . hxx > [NewLine] # IntImp_ZerImpFunc IntPatch_TheSurfFunction [NewLine] # IntImp_ZerImpFunc_hxx < IntPatch_TheSurfFunction . hxx > [NewLine] # < IntImp_ZerImpFunc . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # TheISurface [NewLine] # TheISurface_hxx [NewLine] # TheISurfaceTool [NewLine] # TheISurfaceTool_hxx [NewLine] # IntImp_ZerImpFunc [NewLine] # IntImp_ZerImpFunc_hxx [NewLine] #  _IntPatch_TheSurfFunction_HeaderFile
+## !!!Ignored construct:  # ThePSurface Handle ( Adaptor3d_HSurface ) [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # TheISurface IntSurf_Quadric [NewLine] # TheISurface_hxx < IntSurf_Quadric . hxx > [NewLine] # TheISurfaceTool IntSurf_QuadricTool [NewLine] # TheISurfaceTool_hxx < IntSurf_QuadricTool . hxx > [NewLine] # IntImp_ZerImpFunc IntPatch_TheSurfFunction [NewLine] # IntImp_ZerImpFunc_hxx < IntPatch_TheSurfFunction . hxx > [NewLine] # < IntImp_ZerImpFunc . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # TheISurface [NewLine] # TheISurface_hxx [NewLine] # TheISurfaceTool [NewLine] # TheISurfaceTool_hxx [NewLine] # IntImp_ZerImpFunc [NewLine] # IntImp_ZerImpFunc_hxx [NewLine] #  _IntPatch_TheSurfFunction_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

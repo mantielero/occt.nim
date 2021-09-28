@@ -16,3 +16,28 @@ type
   TColStdSequenceOfHAsciiString* = NCollectionSequence[
       Handle[TCollectionHAsciiString]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

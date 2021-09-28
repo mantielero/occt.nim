@@ -60,5 +60,30 @@ proc constructSelectMgrFrustum*[N: static[cint]](): SelectMgrFrustum[N] {.
     constructor, importcpp: "SelectMgr_Frustum<\'*0>(@)",
     header: "SelectMgr_Frustum.hxx".}
 proc dumpJson*[N: static[cint]](this: SelectMgrFrustum[N];
-                              theOStream: var StandardOStream; theDepth: int = -1) {.
+                              theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "SelectMgr_Frustum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

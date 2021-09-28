@@ -44,11 +44,36 @@ proc constructBSplCLibEvaluatorFunction*(): BSplCLibEvaluatorFunction {.
 proc destroyBSplCLibEvaluatorFunction*(this: var BSplCLibEvaluatorFunction) {.
     importcpp: "#.~BSplCLib_EvaluatorFunction()",
     header: "BSplCLib_EvaluatorFunction.hxx".}
-proc evaluate*(this: BSplCLibEvaluatorFunction; theDerivativeRequest: int;
-              theStartEnd: ptr float; theParameter: float; theResult: var float;
-              theErrorCode: var int) {.noSideEffect, importcpp: "Evaluate",
-                                    header: "BSplCLib_EvaluatorFunction.hxx".}
-proc `()`*(this: BSplCLibEvaluatorFunction; theDerivativeRequest: int;
-          theStartEnd: ptr float; theParameter: float; theResult: var float;
-          theErrorCode: var int) {.noSideEffect, importcpp: "#(@)",
-                                header: "BSplCLib_EvaluatorFunction.hxx".}
+proc evaluate*(this: BSplCLibEvaluatorFunction; theDerivativeRequest: cint;
+              theStartEnd: ptr cfloat; theParameter: cfloat; theResult: var cfloat;
+              theErrorCode: var cint) {.noSideEffect, importcpp: "Evaluate",
+                                     header: "BSplCLib_EvaluatorFunction.hxx".}
+proc `()`*(this: BSplCLibEvaluatorFunction; theDerivativeRequest: cint;
+          theStartEnd: ptr cfloat; theParameter: cfloat; theResult: var cfloat;
+          theErrorCode: var cint) {.noSideEffect, importcpp: "#(@)",
+                                 header: "BSplCLib_EvaluatorFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

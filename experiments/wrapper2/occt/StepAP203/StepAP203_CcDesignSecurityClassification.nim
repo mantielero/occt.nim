@@ -18,8 +18,7 @@ discard "forward decl of StepBasic_SecurityClassification"
 discard "forward decl of StepAP203_CcDesignSecurityClassification"
 discard "forward decl of StepAP203_CcDesignSecurityClassification"
 type
-  HandleStepAP203CcDesignSecurityClassification* = Handle[
-      StepAP203CcDesignSecurityClassification]
+  HandleC1C1* = Handle[StepAP203CcDesignSecurityClassification]
 
 ## ! Representation of STEP entity CcDesignSecurityClassification
 
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP203_CcDesign
 proc dynamicType*(this: StepAP203CcDesignSecurityClassification): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP203_CcDesignSecurityClassification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

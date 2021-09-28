@@ -25,3 +25,28 @@ type
     AspectTOR_BOTTOM_AND_LEFT_BORDER, AspectTOR_LEFT_AND_TOP_BORDER
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

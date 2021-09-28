@@ -28,7 +28,7 @@ proc constructRWStepBasicRWContractAssignment*(): RWStepBasicRWContractAssignmen
     constructor, importcpp: "RWStepBasic_RWContractAssignment(@)",
     header: "RWStepBasic_RWContractAssignment.hxx".}
 proc readStep*(this: RWStepBasicRWContractAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicContractAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWContractAssignment.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepBasicRWContractAssignment;
            ent: Handle[StepBasicContractAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWContractAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

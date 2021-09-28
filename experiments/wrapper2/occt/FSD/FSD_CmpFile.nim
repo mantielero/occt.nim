@@ -19,7 +19,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of Storage_BaseDriver"
 discard "forward decl of FSD_CmpFile"
 type
-  HandleFSD_CmpFile* = Handle[FSD_CmpFile]
+  HandleC1C1* = Handle[FSD_CmpFile]
   FSD_CmpFile* {.importcpp: "FSD_CmpFile", header: "FSD_CmpFile.hxx", bycopy.} = object of FSD_File ##
                                                                                           ## !
                                                                                           ## read
@@ -35,10 +35,10 @@ type
 
   FSD_CmpFilebaseType* = FSD_File
 
-# proc getTypeName*(): cstring {.importcpp: "FSD_CmpFile::get_type_name(@)",
-#                             header: "FSD_CmpFile.hxx".}
-# proc getTypeDescriptor*(): Handle[StandardType] {.
-#     importcpp: "FSD_CmpFile::get_type_descriptor(@)", header: "FSD_CmpFile.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeName*(): cstring {.importcpp: "FSD_CmpFile::get_type_name(@)",
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                             header: "FSD_CmpFile.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeDescriptor*(): Handle[StandardType] {.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_CmpFile::get_type_descriptor(@)", header: "FSD_CmpFile.hxx".}
 proc dynamicType*(this: FSD_CmpFile): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "FSD_CmpFile.hxx".}
 proc constructFSD_CmpFile*(): FSD_CmpFile {.constructor,
@@ -46,13 +46,13 @@ proc constructFSD_CmpFile*(): FSD_CmpFile {.constructor,
 proc open*(this: var FSD_CmpFile; aName: TCollectionAsciiString;
           aMode: StorageOpenMode): StorageError {.importcpp: "Open",
     header: "FSD_CmpFile.hxx".}
-# proc isGoodFileType*(aName: TCollectionAsciiString): StorageError {.
-#     importcpp: "FSD_CmpFile::IsGoodFileType(@)", header: "FSD_CmpFile.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc isGoodFileType*(aName: TCollectionAsciiString): StorageError {.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_CmpFile::IsGoodFileType(@)", header: "FSD_CmpFile.hxx".}
 proc beginWriteInfoSection*(this: var FSD_CmpFile): StorageError {.
     importcpp: "BeginWriteInfoSection", header: "FSD_CmpFile.hxx".}
 proc beginReadInfoSection*(this: var FSD_CmpFile): StorageError {.
     importcpp: "BeginReadInfoSection", header: "FSD_CmpFile.hxx".}
-proc writePersistentObjectHeader*(this: var FSD_CmpFile; aRef: int; aType: int) {.
+proc writePersistentObjectHeader*(this: var FSD_CmpFile; aRef: cint; aType: cint) {.
     importcpp: "WritePersistentObjectHeader", header: "FSD_CmpFile.hxx".}
 proc beginWritePersistentObjectData*(this: var FSD_CmpFile) {.
     importcpp: "BeginWritePersistentObjectData", header: "FSD_CmpFile.hxx".}
@@ -62,7 +62,7 @@ proc endWriteObjectData*(this: var FSD_CmpFile) {.importcpp: "EndWriteObjectData
     header: "FSD_CmpFile.hxx".}
 proc endWritePersistentObjectData*(this: var FSD_CmpFile) {.
     importcpp: "EndWritePersistentObjectData", header: "FSD_CmpFile.hxx".}
-proc readPersistentObjectHeader*(this: var FSD_CmpFile; aRef: var int; aType: var int) {.
+proc readPersistentObjectHeader*(this: var FSD_CmpFile; aRef: var cint; aType: var cint) {.
     importcpp: "ReadPersistentObjectHeader", header: "FSD_CmpFile.hxx".}
 proc beginReadPersistentObjectData*(this: var FSD_CmpFile) {.
     importcpp: "BeginReadPersistentObjectData", header: "FSD_CmpFile.hxx".}
@@ -77,6 +77,121 @@ proc destroyFSD_CmpFile*(this: var FSD_CmpFile) {.importcpp: "#.~FSD_CmpFile()",
     header: "FSD_CmpFile.hxx".}
 proc magicNumber*(): StandardCString {.importcpp: "FSD_CmpFile::MagicNumber(@)",
                                     header: "FSD_CmpFile.hxx".}
-# 
-# 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

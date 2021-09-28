@@ -21,7 +21,7 @@ discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of IGESToBRep_Actor"
 discard "forward decl of IGESToBRep_Actor"
 type
-  HandleIGESToBRepActor* = Handle[IGESToBRepActor]
+  HandleC1C1* = Handle[IGESToBRepActor]
 
 ## ! This class performs the transfer of an Entity from
 ## ! IGESToBRep
@@ -38,9 +38,9 @@ proc constructIGESToBRepActor*(): IGESToBRepActor {.constructor,
     importcpp: "IGESToBRep_Actor(@)", header: "IGESToBRep_Actor.hxx".}
 proc setModel*(this: var IGESToBRepActor; model: Handle[InterfaceInterfaceModel]) {.
     importcpp: "SetModel", header: "IGESToBRep_Actor.hxx".}
-proc setContinuity*(this: var IGESToBRepActor; continuity: int = 0) {.
+proc setContinuity*(this: var IGESToBRepActor; continuity: cint = 0) {.
     importcpp: "SetContinuity", header: "IGESToBRep_Actor.hxx".}
-proc getContinuity*(this: IGESToBRepActor): int {.noSideEffect,
+proc getContinuity*(this: IGESToBRepActor): cint {.noSideEffect,
     importcpp: "GetContinuity", header: "IGESToBRep_Actor.hxx".}
 proc recognize*(this: var IGESToBRepActor; start: Handle[StandardTransient]): bool {.
     importcpp: "Recognize", header: "IGESToBRep_Actor.hxx".}
@@ -48,7 +48,7 @@ proc transfer*(this: var IGESToBRepActor; start: Handle[StandardTransient];
               tp: Handle[TransferTransientProcess];
               theProgress: MessageProgressRange = messageProgressRange()): Handle[
     TransferBinder] {.importcpp: "Transfer", header: "IGESToBRep_Actor.hxx".}
-proc usedTolerance*(this: IGESToBRepActor): float {.noSideEffect,
+proc usedTolerance*(this: IGESToBRepActor): cfloat {.noSideEffect,
     importcpp: "UsedTolerance", header: "IGESToBRep_Actor.hxx".}
 type
   IGESToBRepActorbaseType* = TransferActorOfTransientProcess
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESToBRep_Actor.hxx".}
 proc dynamicType*(this: IGESToBRepActor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESToBRep_Actor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

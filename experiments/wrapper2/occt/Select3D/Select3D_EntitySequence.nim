@@ -16,3 +16,28 @@ type
   Select3D_EntitySequence* = NCollectionSequence[Handle[Select3D_SensitiveEntity]]
   Select3D_EntitySequenceIter* = Iterator[Handle[Select3D_SensitiveEntity]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

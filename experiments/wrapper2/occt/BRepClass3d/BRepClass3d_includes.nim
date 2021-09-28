@@ -12,3 +12,28 @@ include BRepClass3d_SolidClassifier
 include BRepClass3d_SolidExplorer
 include BRepClass3d_SolidPassiveClassifier
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -35,7 +35,7 @@ type
 
 proc constructStepBasicRoleSelect*(): StepBasicRoleSelect {.constructor,
     importcpp: "StepBasic_RoleSelect(@)", header: "StepBasic_RoleSelect.hxx".}
-proc caseNum*(this: StepBasicRoleSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepBasicRoleSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_RoleSelect.hxx".}
 proc actionAssignment*(this: StepBasicRoleSelect): Handle[StepBasicActionAssignment] {.
     noSideEffect, importcpp: "ActionAssignment", header: "StepBasic_RoleSelect.hxx".}
@@ -70,3 +70,28 @@ proc securityClassificationAssignment*(this: StepBasicRoleSelect): Handle[
     StepBasicSecurityClassificationAssignment] {.noSideEffect,
     importcpp: "SecurityClassificationAssignment",
     header: "StepBasic_RoleSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,6 +22,23 @@ type
                                      bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeCylindricalSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeCylindricalSurface::operator new",
+    header: "GeomToStep_MakeCylindricalSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeCylindricalSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeCylindricalSurface::operator delete",
+    header: "GeomToStep_MakeCylindricalSurface.hxx".}
+proc `new[]`*(this: var GeomToStepMakeCylindricalSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeCylindricalSurface::operator new[]",
+    header: "GeomToStep_MakeCylindricalSurface.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeCylindricalSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeCylindricalSurface::operator delete[]",
+    header: "GeomToStep_MakeCylindricalSurface.hxx".}
+proc `new`*(this: var GeomToStepMakeCylindricalSurface; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "GeomToStep_MakeCylindricalSurface::operator new", header: "GeomToStep_MakeCylindricalSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeCylindricalSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeCylindricalSurface::operator delete",
+    header: "GeomToStep_MakeCylindricalSurface.hxx".}
 proc constructGeomToStepMakeCylindricalSurface*(
     cSurf: Handle[GeomCylindricalSurface]): GeomToStepMakeCylindricalSurface {.
     constructor, importcpp: "GeomToStep_MakeCylindricalSurface(@)",

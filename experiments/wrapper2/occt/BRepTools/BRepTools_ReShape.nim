@@ -14,16 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
+## !!!Ignored construct:  # _BRepTools_ReShape_HeaderFile [NewLine] # _BRepTools_ReShape_HeaderFile [NewLine] # < BRepTools_History . hxx > [NewLine] # < TopTools_DataMapOfShapeShape . hxx > [NewLine] # < TopTools_MapOfShape . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < TopAbs_ShapeEnum . hxx > [NewLine] class TopoDS_Shape ;
+## Error: expected ';'!!!
+
 discard "forward decl of TopoDS_Vertex"
 # when defined(Status):
 #   discard
 discard "forward decl of BRepTools_ReShape"
-discard "forward decl of BRepTools_ReShape"
-type
-  HandleBRepToolsReShape* = Handle[BRepToolsReShape]
-
-## ! Rebuilds a Shape by making pre-defined substitutions on some
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( BRepTools_ReShape , Standard_Transient ) ! Rebuilds a Shape by making pre-defined substitutions on some
 ## ! of its components
 ## !
 ## ! In a first phase, it records requests to replace or remove
@@ -36,105 +34,91 @@ type
 ## ! Then, these requests may be applied to any shape which may
 ## ! contain one or more of these individual shapes
 ## !
-## ! Supports the 'BRepTools_History' history by method 'History'.
-
-type
-  BRepToolsReShape* {.importcpp: "BRepTools_ReShape",
-                     header: "BRepTools_ReShape.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## Reshape
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## kinds
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## replacements.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## 'true'
-                                                                                      ## if
-                                                                                      ## the
-                                                                                      ## kind
-                                                                                      ## of
-                                                                                      ## a
-                                                                                      ## replacement
-                                                                                      ## is
-                                                                                      ## an
-                                                                                      ## ordinary
-                                                                                      ## merging.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Maps
-                                                                                      ## each
-                                                                                      ## shape
-                                                                                      ## to
-                                                                                      ## its
-                                                                                      ## replacement.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## If
-                                                                                      ## a
-                                                                                      ## shape
-                                                                                      ## is
-                                                                                      ## not
-                                                                                      ## bound
-                                                                                      ## to
-                                                                                      ## the
-                                                                                      ## map
-                                                                                      ## then
-                                                                                      ## the
-                                                                                      ## shape
-                                                                                      ## is
-                                                                                      ## replaced
-                                                                                      ## by
-                                                                                      ## itself.
+## ! Supports the 'BRepTools_History' history by method 'History'. class BRepTools_ReShape : public Standard_Transient { public : ! Returns an empty Reshape BRepTools_ReShape ( ) ; ! Clears all substitutions requests virtual void Clear ( ) ; ! Sets a request to Remove a Shape whatever the orientation virtual void Remove ( const TopoDS_Shape & shape ) ; ! Sets a request to Replace a Shape by a new one. virtual void Replace ( const TopoDS_Shape & shape , const TopoDS_Shape & newshape ) { replace ( shape , newshape , TReplacementKind_Modify ) ; } ! Merges the parts to the single product.
+## ! The first part is replaced by the product.
+## ! The other parts are removed.
+## ! The history of the merged shapes is presented by equal ways. template < typename TCollection > void Merge ( const TCollection & theParts , const TopoDS_Shape & theProduct ) { typename TCollection :: Iterator aPIt ( theParts ) ; if ( aPIt . More ( ) ) { replace ( aPIt . Value ( ) , theProduct , TReplacementKind_Merge_Main ) ; aPIt . Next ( ) ; } const TReplacementKind aKind = TReplacementKind_Merge_Ordinary ; for ( ; aPIt . More ( ) ; aPIt . Next ( ) ) { replace ( aPIt . Value ( ) , theProduct , aKind ) ; } } ! Tells if a shape is recorded for Replace/Remove virtual Standard_Boolean IsRecorded ( const TopoDS_Shape & shape ) const ; ! Returns the new value for an individual shape
+## ! If not recorded, returns the original shape itself
+## ! If to be Removed, returns a Null Shape
+## ! Else, returns the replacing item virtual TopoDS_Shape Value ( const TopoDS_Shape & shape ) const ; ! Returns a complete substitution status for a shape
+## ! 0  : not recorded,   <newsh> = original <shape>
+## ! < 0: to be removed,  <newsh> is NULL
+## ! > 0: to be replaced, <newsh> is a new item
+## ! If <last> is False, returns status and new shape recorded in
+## ! the map directly for the shape, if True and status > 0 then
+## ! recursively searches for the last status and new shape. virtual Standard_Integer Status ( const TopoDS_Shape & shape , TopoDS_Shape & newsh , const Standard_Boolean last = Standard_False ) ; ! Applies the substitutions requests to a shape.
+## !
+## ! <until> gives the level of type until which requests are taken
+## ! into account. For subshapes of the type <until> no rebuild
+## ! and futher exploring are done.
+## !
+## ! NOTE: each subshape can be replaced by shape of the same type
+## ! or by shape containing only shapes of that type (for
+## ! example, TopoDS_Edge can be replaced by TopoDS_Edge,
+## ! TopoDS_Wire or TopoDS_Compound containing TopoDS_Edges).
+## ! If incompatible shape type is encountered, it is ignored
+## ! and flag FAIL1 is set in Status. virtual TopoDS_Shape Apply ( const TopoDS_Shape & shape , const TopAbs_ShapeEnum until = TopAbs_SHAPE ) ; ! Returns (modifiable) the flag which defines whether Location of shape take into account
+## ! during replacing shapes. virtual Standard_Boolean & ModeConsiderLocation ( ) { return myConsiderLocation ; } ! Returns modified copy of vertex if original one is not recorded or returns modified original vertex otherwise.
+## @param theV - original vertex.
+## @param theTol - new tolerance of vertex, optional. TopoDS_Vertex CopyVertex ( const TopoDS_Vertex & theV , const Standard_Real theTol = - 1.0 ) ; ! Returns modified copy of vertex if original one is not recorded or returns modified original vertex otherwise.
+## @param theV - original vertex.
+## @param theNewPos - new position for vertex copy.
+## @param theTol - new tolerance of vertex. TopoDS_Vertex CopyVertex ( const TopoDS_Vertex & theV , const gp_Pnt & theNewPos , const Standard_Real aTol ) ; ! Checks if shape has been recorded by reshaper as a value
+## @param theShape is the given shape Standard_Boolean IsNewShape ( const TopoDS_Shape & theShape ) const ; ! Returns the history of the substituted shapes. Handle ( BRepTools_History ) History ( ) const ; public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return BRepTools_ReShape ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; protected : ! The kinds of the replacements. enum TReplacementKind { TReplacementKind_Remove = 1 , TReplacementKind_Modify = 2 , TReplacementKind_Merge_Main = 4 , TReplacementKind_Merge_Ordinary = 8 } ; ! Replaces the first shape by the second one
+## ! after the following reorientation.
+## !
+## ! If the first shape has the reversed orientation
+## ! then the both shapes are reversed.
+## ! If the first shape has the internal or external orientation then: <br>
+## ! - the second shape is oriented forward (reversed) if it's orientation
+## !   is equal (not equal) to the orientation of the first shape; <br>
+## ! - the first shape is oriented forward. virtual void replace ( const TopoDS_Shape & shape , const TopoDS_Shape & newshape , const TReplacementKind theKind ) ; private : ! Returns 'true' if the kind of a replacement is an ordinary merging. static Standard_Boolean isOrdinaryMerged ( const TReplacementKind theKind ) { return ( theKind == TReplacementKind_Merge_Ordinary ) ; } ! A replacement of an initial shape. struct TReplacement { public : ! The default constructor. TReplacement ( ) : myKind ( TReplacementKind_Remove ) { } ! The initializing constructor. TReplacement ( const TopoDS_Shape & theResult , const TReplacementKind theKind ) : myResult ( theResult ) , myKind ( theKind ) { } ! Returns the result of the replacement. TopoDS_Shape Result ( ) const { return ( myKind != TReplacementKind_Merge_Ordinary ) ? myResult : TopoDS_Shape ( ) ; } ! Returns the result of the relation. const TopoDS_Shape & RelationResult ( ) const { return myResult ; } ! Returns the kind of the relation
+## ! between an initial shape and the result of the replacement. BRepTools_History :: TRelationType RelationKind ( ) const { return ( myKind == TReplacementKind_Remove ) ? BRepTools_History :: TRelationType_Removed : BRepTools_History :: TRelationType_Modified ; } private : TopoDS_Shape myResult ; !< The result of the replacement. TReplacementKind myKind ; !< The kind of the replacement. } ; typedef NCollection_DataMap < TopoDS_Shape , TReplacement , TopTools_ShapeMapHasher > TShapeToReplacement ; private : ! Maps each shape to its replacement.
+## ! If a shape is not bound to the map then the shape is replaced by itself. TShapeToReplacement myShapeToReplacement ; protected : TopTools_MapOfShape myNewShapes ; Standard_Integer myStatus ; private : Standard_Boolean myConsiderLocation ; } ;
+## Error: expected ';'!!!
 
 
-proc constructBRepToolsReShape*(): BRepToolsReShape {.constructor,
-    importcpp: "BRepTools_ReShape(@)", header: "BRepTools_ReShape.hxx".}
-proc clear*(this: var BRepToolsReShape) {.importcpp: "Clear",
-                                      header: "BRepTools_ReShape.hxx".}
-proc remove*(this: var BRepToolsReShape; shape: TopoDS_Shape) {.importcpp: "Remove",
-    header: "BRepTools_ReShape.hxx".}
-proc replace*(this: var BRepToolsReShape; shape: TopoDS_Shape; newshape: TopoDS_Shape) {.
-    importcpp: "Replace", header: "BRepTools_ReShape.hxx".}
-proc merge*[TCollection](this: var BRepToolsReShape; theParts: TCollection;
-                        theProduct: TopoDS_Shape) {.importcpp: "Merge",
-    header: "BRepTools_ReShape.hxx".}
-proc isRecorded*(this: BRepToolsReShape; shape: TopoDS_Shape): bool {.noSideEffect,
-    importcpp: "IsRecorded", header: "BRepTools_ReShape.hxx".}
-proc value*(this: BRepToolsReShape; shape: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
-    importcpp: "Value", header: "BRepTools_ReShape.hxx".}
-proc status*(this: var BRepToolsReShape; shape: TopoDS_Shape; newsh: var TopoDS_Shape;
-            last: bool = false): int {.importcpp: "Status",
-                                  header: "BRepTools_ReShape.hxx".}
-proc apply*(this: var BRepToolsReShape; shape: TopoDS_Shape;
-           until: TopAbsShapeEnum = topAbsSHAPE): TopoDS_Shape {.importcpp: "Apply",
-    header: "BRepTools_ReShape.hxx".}
-proc modeConsiderLocation*(this: var BRepToolsReShape): var bool {.
-    importcpp: "ModeConsiderLocation", header: "BRepTools_ReShape.hxx".}
-proc copyVertex*(this: var BRepToolsReShape; theV: TopoDS_Vertex;
-                theTol: float = -1.0): TopoDS_Vertex {.importcpp: "CopyVertex",
-    header: "BRepTools_ReShape.hxx".}
-proc copyVertex*(this: var BRepToolsReShape; theV: TopoDS_Vertex; theNewPos: Pnt;
-                aTol: float): TopoDS_Vertex {.importcpp: "CopyVertex",
-    header: "BRepTools_ReShape.hxx".}
-proc isNewShape*(this: BRepToolsReShape; theShape: TopoDS_Shape): bool {.noSideEffect,
-    importcpp: "IsNewShape", header: "BRepTools_ReShape.hxx".}
-proc history*(this: BRepToolsReShape): Handle[BRepToolsHistory] {.noSideEffect,
-    importcpp: "History", header: "BRepTools_ReShape.hxx".}
-type
-  BRepToolsReShapebaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "BRepTools_ReShape::get_type_name(@)",
-                            header: "BRepTools_ReShape.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "BRepTools_ReShape::get_type_descriptor(@)",
-    header: "BRepTools_ReShape.hxx".}
-proc dynamicType*(this: BRepToolsReShape): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRepTools_ReShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

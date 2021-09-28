@@ -29,7 +29,7 @@ proc constructRWStepVisualRWPresentationStyleByContext*(): RWStepVisualRWPresent
     constructor, importcpp: "RWStepVisual_RWPresentationStyleByContext(@)",
     header: "RWStepVisual_RWPresentationStyleByContext.hxx".}
 proc readStep*(this: RWStepVisualRWPresentationStyleByContext;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualPresentationStyleByContext]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPresentationStyleByContext.hxx".}
@@ -42,3 +42,28 @@ proc share*(this: RWStepVisualRWPresentationStyleByContext;
            ent: Handle[StepVisualPresentationStyleByContext];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWPresentationStyleByContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -41,7 +41,7 @@ proc constructStepAP214AutoDesignReferencingItem*(): StepAP214AutoDesignReferenc
     constructor, importcpp: "StepAP214_AutoDesignReferencingItem(@)",
     header: "StepAP214_AutoDesignReferencingItem.hxx".}
 proc caseNum*(this: StepAP214AutoDesignReferencingItem;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignReferencingItem.hxx".}
 proc approval*(this: StepAP214AutoDesignReferencingItem): Handle[StepBasicApproval] {.
     noSideEffect, importcpp: "Approval",
@@ -82,3 +82,28 @@ proc representationRelationship*(this: StepAP214AutoDesignReferencingItem): Hand
 proc shapeAspect*(this: StepAP214AutoDesignReferencingItem): Handle[
     StepReprShapeAspect] {.noSideEffect, importcpp: "ShapeAspect",
                           header: "StepAP214_AutoDesignReferencingItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -54,10 +54,10 @@ proc setRunParallel*(theFlag: bool) {.importcpp: "BOPTest_Objects::SetRunParalle
                                    header: "BOPTest_Objects.hxx".}
 proc runParallel*(): bool {.importcpp: "BOPTest_Objects::RunParallel(@)",
                          header: "BOPTest_Objects.hxx".}
-proc setFuzzyValue*(theValue: float) {.importcpp: "BOPTest_Objects::SetFuzzyValue(@)",
-                                    header: "BOPTest_Objects.hxx".}
-proc fuzzyValue*(): float {.importcpp: "BOPTest_Objects::FuzzyValue(@)",
-                         header: "BOPTest_Objects.hxx".}
+proc setFuzzyValue*(theValue: cfloat) {.importcpp: "BOPTest_Objects::SetFuzzyValue(@)",
+                                     header: "BOPTest_Objects.hxx".}
+proc fuzzyValue*(): cfloat {.importcpp: "BOPTest_Objects::FuzzyValue(@)",
+                          header: "BOPTest_Objects.hxx".}
 proc setNonDestructive*(theFlag: bool) {.importcpp: "BOPTest_Objects::SetNonDestructive(@)",
                                       header: "BOPTest_Objects.hxx".}
 proc nonDestructive*(): bool {.importcpp: "BOPTest_Objects::NonDestructive(@)",
@@ -86,7 +86,32 @@ proc setUnifyFaces*(bUF: bool) {.importcpp: "BOPTest_Objects::SetUnifyFaces(@)",
                               header: "BOPTest_Objects.hxx".}
 proc unifyFaces*(): bool {.importcpp: "BOPTest_Objects::UnifyFaces(@)",
                         header: "BOPTest_Objects.hxx".}
-proc setAngular*(bAngTol: float) {.importcpp: "BOPTest_Objects::SetAngular(@)",
-                                header: "BOPTest_Objects.hxx".}
-proc angular*(): float {.importcpp: "BOPTest_Objects::Angular(@)",
-                      header: "BOPTest_Objects.hxx".}
+proc setAngular*(bAngTol: cfloat) {.importcpp: "BOPTest_Objects::SetAngular(@)",
+                                 header: "BOPTest_Objects.hxx".}
+proc angular*(): cfloat {.importcpp: "BOPTest_Objects::Angular(@)",
+                       header: "BOPTest_Objects.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

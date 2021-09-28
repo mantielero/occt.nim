@@ -37,7 +37,32 @@ type
                                                                                          ## color
 
 
-proc decodeColor*(col: int): QuantityColor {.
+proc decodeColor*(col: cint): QuantityColor {.
     importcpp: "IGESCAFControl::DecodeColor(@)", header: "IGESCAFControl.hxx".}
-proc encodeColor*(col: QuantityColor): int {.
+proc encodeColor*(col: QuantityColor): cint {.
     importcpp: "IGESCAFControl::EncodeColor(@)", header: "IGESCAFControl.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

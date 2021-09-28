@@ -34,3 +34,28 @@ proc setShape2*(this: var BOPToolsCoupleOfShape; theShape: TopoDS_Shape) {.
     importcpp: "SetShape2", header: "BOPTools_CoupleOfShape.hxx".}
 proc shape2*(this: BOPToolsCoupleOfShape): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape2", header: "BOPTools_CoupleOfShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

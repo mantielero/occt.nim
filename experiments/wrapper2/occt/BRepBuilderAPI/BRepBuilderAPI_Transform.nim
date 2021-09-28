@@ -62,3 +62,28 @@ proc modifiedShape*(this: BRepBuilderAPI_Transform; s: TopoDS_Shape): TopoDS_Sha
     header: "BRepBuilderAPI_Transform.hxx".}
 proc modified*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepBuilderAPI_Transform.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,17 +25,42 @@ proc constructBisectorPolyBis*(): BisectorPolyBis {.constructor,
     importcpp: "Bisector_PolyBis(@)", header: "Bisector_PolyBis.hxx".}
 proc append*(this: var BisectorPolyBis; point: BisectorPointOnBis) {.
     importcpp: "Append", header: "Bisector_PolyBis.hxx".}
-proc length*(this: BisectorPolyBis): int {.noSideEffect, importcpp: "Length",
-                                       header: "Bisector_PolyBis.hxx".}
+proc length*(this: BisectorPolyBis): cint {.noSideEffect, importcpp: "Length",
+                                        header: "Bisector_PolyBis.hxx".}
 proc isEmpty*(this: BisectorPolyBis): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "Bisector_PolyBis.hxx".}
-proc value*(this: BisectorPolyBis; index: int): BisectorPointOnBis {.noSideEffect,
+proc value*(this: BisectorPolyBis; index: cint): BisectorPointOnBis {.noSideEffect,
     importcpp: "Value", header: "Bisector_PolyBis.hxx".}
 proc first*(this: BisectorPolyBis): BisectorPointOnBis {.noSideEffect,
     importcpp: "First", header: "Bisector_PolyBis.hxx".}
 proc last*(this: BisectorPolyBis): BisectorPointOnBis {.noSideEffect,
     importcpp: "Last", header: "Bisector_PolyBis.hxx".}
-proc interval*(this: BisectorPolyBis; u: float): int {.noSideEffect,
+proc interval*(this: BisectorPolyBis; u: cfloat): cint {.noSideEffect,
     importcpp: "Interval", header: "Bisector_PolyBis.hxx".}
 proc transform*(this: var BisectorPolyBis; t: Trsf2d) {.importcpp: "Transform",
     header: "Bisector_PolyBis.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

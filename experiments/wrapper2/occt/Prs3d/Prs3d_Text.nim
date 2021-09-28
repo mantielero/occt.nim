@@ -50,13 +50,57 @@ type
                                                                             ## compatibility.
 
 
-proc draw*(theGroup: Handle[Graphic3dGroup]; theAspect: Handle[Prs3dTextAspect];
-          theText: TCollectionExtendedString; theAttachmentPoint: Pnt): Handle[
-    Graphic3dText] {.importcpp: "Prs3d_Text::Draw(@)", header: "Prs3d_Text.hxx".}
-proc draw*(theGroup: Handle[Graphic3dGroup]; theAspect: Handle[Prs3dTextAspect];
-          theText: TCollectionExtendedString; theOrientation: Ax2;
-          theHasOwnAnchor: bool = true): Handle[Graphic3dText] {.
-    importcpp: "Prs3d_Text::Draw(@)", header: "Prs3d_Text.hxx".}
-## !!!Ignored construct:  public : ! Alias to another method Draw() for backward compatibility. Standard_DEPRECATED ( Prs3d_Text::Draw() taking Graphic3d_Group should be used instead ) static void Draw ( const opencascade :: handle < Prs3d_Presentation > [end of template] & thePrs , const opencascade :: handle < Prs3d_Drawer > [end of template] & theDrawer , const TCollection_ExtendedString & theText , const gp_Pnt & theAttachmentPoint ) { Draw ( thePrs -> CurrentGroup ( ) , theDrawer -> TextAspect ( ) , theText , theAttachmentPoint ) ; } ! Alias to another method Draw() for backward compatibility. Standard_DEPRECATED ( Prs3d_Text::Draw() taking Graphic3d_Group should be used instead ) static void Draw ( const opencascade :: handle < Prs3d_Presentation > [end of template] & thePrs , const opencascade :: handle < Prs3d_TextAspect > [end of template] & theAspect , const TCollection_ExtendedString & theText , const gp_Ax2 & theOrientation , const Standard_Boolean theHasOwnAnchor = Standard_True ) { Draw ( thePrs -> CurrentGroup ( ) , theAspect , theText , theOrientation , theHasOwnAnchor ) ; } ! Alias to another method Draw() for backward compatibility. Standard_DEPRECATED ( Prs3d_Text::Draw() taking Graphic3d_Group should be used instead ) static void Draw ( const opencascade :: handle < Prs3d_Presentation > [end of template] & thePrs , const opencascade :: handle < Prs3d_TextAspect > [end of template] & theAspect , const TCollection_ExtendedString & theText , const gp_Pnt & theAttachmentPoint ) { Draw ( thePrs -> CurrentGroup ( ) , theAspect , theText , theAttachmentPoint ) ; } }
+## !!!Ignored construct:  Draw ( const Handle ( Graphic3d_Group ) & theGroup , const Handle ( Prs3d_TextAspect ) & theAspect , const TCollection_ExtendedString & theText , const gp_Pnt & theAttachmentPoint ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Draw ( const Handle ( Graphic3d_Group ) & theGroup , const Handle ( Prs3d_TextAspect ) & theAspect , const TCollection_ExtendedString & theText , const gp_Ax2 & theOrientation , const Standard_Boolean theHasOwnAnchor = Standard_True ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  public : ! Alias to another method Draw() for backward compatibility. Standard_DEPRECATED ( Prs3d_Text::Draw() taking Graphic3d_Group should be used instead ) static void Draw ( const Handle ( Prs3d_Presentation ) & thePrs , const Handle ( Prs3d_Drawer ) & theDrawer , const TCollection_ExtendedString & theText , const gp_Pnt & theAttachmentPoint ) { Draw ( thePrs -> CurrentGroup ( ) , theDrawer -> TextAspect ( ) , theText , theAttachmentPoint ) ; } ! Alias to another method Draw() for backward compatibility. Standard_DEPRECATED ( Prs3d_Text::Draw() taking Graphic3d_Group should be used instead ) static void Draw ( const Handle ( Prs3d_Presentation ) & thePrs , const Handle ( Prs3d_TextAspect ) & theAspect , const TCollection_ExtendedString & theText , const gp_Ax2 & theOrientation , const Standard_Boolean theHasOwnAnchor = Standard_True ) { Draw ( thePrs -> CurrentGroup ( ) , theAspect , theText , theOrientation , theHasOwnAnchor ) ; } ! Alias to another method Draw() for backward compatibility. Standard_DEPRECATED ( Prs3d_Text::Draw() taking Graphic3d_Group should be used instead ) static void Draw ( const Handle ( Prs3d_Presentation ) & thePrs , const Handle ( Prs3d_TextAspect ) & theAspect , const TCollection_ExtendedString & theText , const gp_Pnt & theAttachmentPoint ) { Draw ( thePrs -> CurrentGroup ( ) , theAspect , theText , theAttachmentPoint ) ; } }
 ## Error: identifier expected, but got: Prs3d_Text::Draw() taking Graphic3d_Group should be used instead!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

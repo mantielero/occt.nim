@@ -23,11 +23,36 @@ type
 
 proc constructChFiDS_CircSection*(): ChFiDS_CircSection {.constructor,
     importcpp: "ChFiDS_CircSection(@)", header: "ChFiDS_CircSection.hxx".}
-proc set*(this: var ChFiDS_CircSection; c: Circ; f: float; L: float) {.importcpp: "Set",
+proc set*(this: var ChFiDS_CircSection; c: Circ; f: cfloat; L: cfloat) {.importcpp: "Set",
     header: "ChFiDS_CircSection.hxx".}
-proc set*(this: var ChFiDS_CircSection; c: Lin; f: float; L: float) {.importcpp: "Set",
+proc set*(this: var ChFiDS_CircSection; c: Lin; f: cfloat; L: cfloat) {.importcpp: "Set",
     header: "ChFiDS_CircSection.hxx".}
-proc get*(this: ChFiDS_CircSection; c: var Circ; f: var float; L: var float) {.noSideEffect,
-    importcpp: "Get", header: "ChFiDS_CircSection.hxx".}
-proc get*(this: ChFiDS_CircSection; c: var Lin; f: var float; L: var float) {.noSideEffect,
-    importcpp: "Get", header: "ChFiDS_CircSection.hxx".}
+proc get*(this: ChFiDS_CircSection; c: var Circ; f: var cfloat; L: var cfloat) {.
+    noSideEffect, importcpp: "Get", header: "ChFiDS_CircSection.hxx".}
+proc get*(this: ChFiDS_CircSection; c: var Lin; f: var cfloat; L: var cfloat) {.
+    noSideEffect, importcpp: "Get", header: "ChFiDS_CircSection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

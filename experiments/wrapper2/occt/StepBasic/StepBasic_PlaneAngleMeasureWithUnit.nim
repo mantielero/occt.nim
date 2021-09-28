@@ -17,8 +17,7 @@
 discard "forward decl of StepBasic_PlaneAngleMeasureWithUnit"
 discard "forward decl of StepBasic_PlaneAngleMeasureWithUnit"
 type
-  HandleStepBasicPlaneAngleMeasureWithUnit* = Handle[
-      StepBasicPlaneAngleMeasureWithUnit]
+  HandleC1C1* = Handle[StepBasicPlaneAngleMeasureWithUnit]
   StepBasicPlaneAngleMeasureWithUnit* {.importcpp: "StepBasic_PlaneAngleMeasureWithUnit", header: "StepBasic_PlaneAngleMeasureWithUnit.hxx",
                                        bycopy.} = object of StepBasicMeasureWithUnit ##
                                                                                 ## !
@@ -41,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicPlaneAngleMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_PlaneAngleMeasureWithUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,3 +26,28 @@ proc def*(this: VrmlInstancing; anOStream: var StandardOStream): var StandardOSt
     noSideEffect, importcpp: "DEF", header: "Vrml_Instancing.hxx".}
 proc use*(this: VrmlInstancing; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "USE", header: "Vrml_Instancing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

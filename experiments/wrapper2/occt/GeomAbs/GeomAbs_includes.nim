@@ -8,4 +8,3 @@ include GeomAbs_IsoType
 include GeomAbs_JoinType
 include GeomAbs_Shape
 include GeomAbs_SurfaceType
-

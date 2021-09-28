@@ -17,4 +17,3 @@
 type
   GeomPlateSequenceOfPointConstraint* = NCollectionSequence[
       Handle[GeomPlatePointConstraint]]
-

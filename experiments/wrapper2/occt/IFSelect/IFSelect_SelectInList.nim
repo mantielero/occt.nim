@@ -20,7 +20,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_SelectInList"
 discard "forward decl of IFSelect_SelectInList"
 type
-  HandleIFSelectSelectInList* = Handle[IFSelectSelectInList]
+  HandleC1C1* = Handle[IFSelectSelectInList]
 
 ## ! A SelectInList kind Selection selects a List of an Entity,
 ## ! which is composed of single Entities
@@ -48,10 +48,10 @@ type
                                                                                                   ## list
 
 
-proc listedEntity*(this: IFSelectSelectInList; num: int;
+proc listedEntity*(this: IFSelectSelectInList; num: cint;
                   ent: Handle[StandardTransient]): Handle[StandardTransient] {.
     noSideEffect, importcpp: "ListedEntity", header: "IFSelect_SelectInList.hxx".}
-proc fillResult*(this: IFSelectSelectInList; n1: int; n2: int;
+proc fillResult*(this: IFSelectSelectInList; n1: cint; n2: cint;
                 ent: Handle[StandardTransient];
                 result: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillResult", header: "IFSelect_SelectInList.hxx".}
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectInList.hxx".}
 proc dynamicType*(this: IFSelectSelectInList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectInList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

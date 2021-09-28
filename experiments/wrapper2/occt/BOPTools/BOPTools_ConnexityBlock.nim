@@ -39,3 +39,28 @@ proc loops*(this: BOPToolsConnexityBlock): TopToolsListOfShape {.noSideEffect,
     importcpp: "Loops", header: "BOPTools_ConnexityBlock.hxx".}
 proc changeLoops*(this: var BOPToolsConnexityBlock): var TopToolsListOfShape {.
     importcpp: "ChangeLoops", header: "BOPTools_ConnexityBlock.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

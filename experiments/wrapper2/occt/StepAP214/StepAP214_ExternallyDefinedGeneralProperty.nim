@@ -20,8 +20,7 @@ discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of StepAP214_ExternallyDefinedGeneralProperty"
 discard "forward decl of StepAP214_ExternallyDefinedGeneralProperty"
 type
-  HandleStepAP214ExternallyDefinedGeneralProperty* = Handle[
-      StepAP214ExternallyDefinedGeneralProperty]
+  HandleC1C1* = Handle[StepAP214ExternallyDefinedGeneralProperty]
 
 ## ! Representation of STEP entity ExternallyDefinedGeneralProperty
 
@@ -61,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_External
 proc dynamicType*(this: StepAP214ExternallyDefinedGeneralProperty): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP214_ExternallyDefinedGeneralProperty.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESGraphToolLineFontDefPattern;
     header: "IGESGraph_ToolLineFontDefPattern.hxx".}
 proc ownDump*(this: IGESGraphToolLineFontDefPattern;
              ent: Handle[IGESGraphLineFontDefPattern]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESGraph_ToolLineFontDefPattern.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

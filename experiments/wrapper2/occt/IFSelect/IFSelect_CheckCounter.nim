@@ -20,7 +20,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_CheckCounter"
 discard "forward decl of IFSelect_CheckCounter"
 type
-  HandleIFSelectCheckCounter* = Handle[IFSelectCheckCounter]
+  HandleC1C1* = Handle[IFSelectCheckCounter]
 
 ## ! A CheckCounter allows to see a CheckList (i.e. CheckIterator)
 ## ! not per entity, its messages, but per message, the entities
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_CheckCounter.hxx".}
 proc dynamicType*(this: IFSelectCheckCounter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_CheckCounter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

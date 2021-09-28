@@ -23,6 +23,20 @@ type
       header: "GeomToStep_MakeRectangularTrimmedSurface.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeRectangularTrimmedSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeRectangularTrimmedSurface::operator new",
+    header: "GeomToStep_MakeRectangularTrimmedSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeRectangularTrimmedSurface;
+              theAddress: pointer) {.importcpp: "GeomToStep_MakeRectangularTrimmedSurface::operator delete", header: "GeomToStep_MakeRectangularTrimmedSurface.hxx".}
+proc `new[]`*(this: var GeomToStepMakeRectangularTrimmedSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeRectangularTrimmedSurface::operator new[]",
+    header: "GeomToStep_MakeRectangularTrimmedSurface.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeRectangularTrimmedSurface;
+                theAddress: pointer) {.importcpp: "GeomToStep_MakeRectangularTrimmedSurface::operator delete[]", header: "GeomToStep_MakeRectangularTrimmedSurface.hxx".}
+proc `new`*(this: var GeomToStepMakeRectangularTrimmedSurface; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "GeomToStep_MakeRectangularTrimmedSurface::operator new", header: "GeomToStep_MakeRectangularTrimmedSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeRectangularTrimmedSurface; a2: pointer;
+              a3: pointer) {.importcpp: "GeomToStep_MakeRectangularTrimmedSurface::operator delete", header: "GeomToStep_MakeRectangularTrimmedSurface.hxx".}
 proc constructGeomToStepMakeRectangularTrimmedSurface*(
     rTSurf: Handle[GeomRectangularTrimmedSurface]): GeomToStepMakeRectangularTrimmedSurface {.
     constructor, importcpp: "GeomToStep_MakeRectangularTrimmedSurface(@)",

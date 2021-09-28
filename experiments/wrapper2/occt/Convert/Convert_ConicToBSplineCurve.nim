@@ -39,35 +39,61 @@ type
                                                                                        ## framework.
 
 
-proc degree*(this: ConvertConicToBSplineCurve): int {.noSideEffect,
+proc degree*(this: ConvertConicToBSplineCurve): cint {.noSideEffect,
     importcpp: "Degree", header: "Convert_ConicToBSplineCurve.hxx".}
-proc nbPoles*(this: ConvertConicToBSplineCurve): int {.noSideEffect,
+proc nbPoles*(this: ConvertConicToBSplineCurve): cint {.noSideEffect,
     importcpp: "NbPoles", header: "Convert_ConicToBSplineCurve.hxx".}
-proc nbKnots*(this: ConvertConicToBSplineCurve): int {.noSideEffect,
+proc nbKnots*(this: ConvertConicToBSplineCurve): cint {.noSideEffect,
     importcpp: "NbKnots", header: "Convert_ConicToBSplineCurve.hxx".}
 proc isPeriodic*(this: ConvertConicToBSplineCurve): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "Convert_ConicToBSplineCurve.hxx".}
-proc pole*(this: ConvertConicToBSplineCurve; index: int): Pnt2d {.noSideEffect,
+proc pole*(this: ConvertConicToBSplineCurve; index: cint): Pnt2d {.noSideEffect,
     importcpp: "Pole", header: "Convert_ConicToBSplineCurve.hxx".}
-proc weight*(this: ConvertConicToBSplineCurve; index: int): float {.noSideEffect,
+proc weight*(this: ConvertConicToBSplineCurve; index: cint): cfloat {.noSideEffect,
     importcpp: "Weight", header: "Convert_ConicToBSplineCurve.hxx".}
-proc knot*(this: ConvertConicToBSplineCurve; index: int): float {.noSideEffect,
+proc knot*(this: ConvertConicToBSplineCurve; index: cint): cfloat {.noSideEffect,
     importcpp: "Knot", header: "Convert_ConicToBSplineCurve.hxx".}
-proc multiplicity*(this: ConvertConicToBSplineCurve; index: int): int {.noSideEffect,
-    importcpp: "Multiplicity", header: "Convert_ConicToBSplineCurve.hxx".}
+proc multiplicity*(this: ConvertConicToBSplineCurve; index: cint): cint {.
+    noSideEffect, importcpp: "Multiplicity",
+    header: "Convert_ConicToBSplineCurve.hxx".}
 proc buildCosAndSin*(this: ConvertConicToBSplineCurve;
                     parametrisation: ConvertParameterisationType;
                     cosNumerator: var Handle[TColStdHArray1OfReal];
                     sinNumerator: var Handle[TColStdHArray1OfReal];
-                    denominator: var Handle[TColStdHArray1OfReal]; degree: var int;
-                    knots: var Handle[TColStdHArray1OfReal];
+                    denominator: var Handle[TColStdHArray1OfReal];
+                    degree: var cint; knots: var Handle[TColStdHArray1OfReal];
                     mults: var Handle[TColStdHArray1OfInteger]) {.noSideEffect,
     importcpp: "BuildCosAndSin", header: "Convert_ConicToBSplineCurve.hxx".}
 proc buildCosAndSin*(this: ConvertConicToBSplineCurve;
-                    parametrisation: ConvertParameterisationType; uFirst: float;
-                    uLast: float; cosNumerator: var Handle[TColStdHArray1OfReal];
+                    parametrisation: ConvertParameterisationType; uFirst: cfloat;
+                    uLast: cfloat; cosNumerator: var Handle[TColStdHArray1OfReal];
                     sinNumerator: var Handle[TColStdHArray1OfReal];
-                    denominator: var Handle[TColStdHArray1OfReal]; degree: var int;
-                    knots: var Handle[TColStdHArray1OfReal];
+                    denominator: var Handle[TColStdHArray1OfReal];
+                    degree: var cint; knots: var Handle[TColStdHArray1OfReal];
                     mults: var Handle[TColStdHArray1OfInteger]) {.noSideEffect,
     importcpp: "BuildCosAndSin", header: "Convert_ConicToBSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

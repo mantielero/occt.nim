@@ -65,21 +65,21 @@ type
                                                                                            ## 0.0
 
 
-proc constructGceMakeCirc*(a2: Ax2; radius: float): GceMakeCirc {.constructor,
+proc constructGceMakeCirc*(a2: Ax2; radius: cfloat): GceMakeCirc {.constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc constructGceMakeCirc*(circ: Circ; dist: float): GceMakeCirc {.constructor,
+proc constructGceMakeCirc*(circ: Circ; dist: cfloat): GceMakeCirc {.constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
 proc constructGceMakeCirc*(circ: Circ; point: Pnt): GceMakeCirc {.constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
 proc constructGceMakeCirc*(p1: Pnt; p2: Pnt; p3: Pnt): GceMakeCirc {.constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc constructGceMakeCirc*(center: Pnt; norm: Dir; radius: float): GceMakeCirc {.
+proc constructGceMakeCirc*(center: Pnt; norm: Dir; radius: cfloat): GceMakeCirc {.
     constructor, importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc constructGceMakeCirc*(center: Pnt; plane: Pln; radius: float): GceMakeCirc {.
+proc constructGceMakeCirc*(center: Pnt; plane: Pln; radius: cfloat): GceMakeCirc {.
     constructor, importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc constructGceMakeCirc*(center: Pnt; ptaxis: Pnt; radius: float): GceMakeCirc {.
+proc constructGceMakeCirc*(center: Pnt; ptaxis: Pnt; radius: cfloat): GceMakeCirc {.
     constructor, importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
-proc constructGceMakeCirc*(axis: Ax1; radius: float): GceMakeCirc {.constructor,
+proc constructGceMakeCirc*(axis: Ax1; radius: cfloat): GceMakeCirc {.constructor,
     importcpp: "gce_MakeCirc(@)", header: "gce_MakeCirc.hxx".}
 proc value*(this: GceMakeCirc): Circ {.noSideEffect, importcpp: "Value",
                                    header: "gce_MakeCirc.hxx".}
@@ -87,3 +87,28 @@ proc operator*(this: GceMakeCirc): Circ {.noSideEffect, importcpp: "Operator",
                                       header: "gce_MakeCirc.hxx".}
 converter `circ`*(this: GceMakeCirc): Circ {.noSideEffect,
     importcpp: "gce_MakeCirc::operator gp_Circ", header: "gce_MakeCirc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,25 +13,50 @@
 
 ## ! Auxiliary functions for DCU <-> Pixels conversions.
 
-proc round*(theValue: float): int =
+proc round*(theValue: cfloat): cint =
   discard
 
-proc convertCoordinates*(theParentPxSizeX: int; theParentPxSizeY: int;
-                        theQCenterX: float; theQCenterY: float; theQSizeX: float;
-                        theQSizeY: float; thePxLeft: var int; thePxTop: var int;
-                        thePxSizeX: var int; thePxSizeY: var int) =
+proc convertCoordinates*(theParentPxSizeX: cint; theParentPxSizeY: cint;
+                        theQCenterX: cfloat; theQCenterY: cfloat; theQSizeX: cfloat;
+                        theQSizeY: cfloat; thePxLeft: var cint; thePxTop: var cint;
+                        thePxSizeX: var cint; thePxSizeY: var cint) =
   discard
 
-proc convertCoordinates*(theParentPxSizeX: int; theParentPxSizeY: int;
-                        thePxLeft: int; thePxTop: int; thePxSizeX: int;
-                        thePxSizeY: int; theQCenterX: var float;
-                        theQCenterY: var float; theQSizeX: var float;
-                        theQSizeY: var float) =
+proc convertCoordinates*(theParentPxSizeX: cint; theParentPxSizeY: cint;
+                        thePxLeft: cint; thePxTop: cint; thePxSizeX: cint;
+                        thePxSizeY: cint; theQCenterX: var cfloat;
+                        theQCenterY: var cfloat; theQSizeX: var cfloat;
+                        theQSizeY: var cfloat) =
   discard
 
-proc fitIn*(theParentPxSizeX: int; theParentPxSizeY: int; thePxLeft: var int;
-           thePxTop: var int; thePxSizeX: var int; thePxSizeY: var int) =
+proc fitIn*(theParentPxSizeX: cint; theParentPxSizeY: cint; thePxLeft: var cint;
+           thePxTop: var cint; thePxSizeX: var cint; thePxSizeY: var cint) =
   discard
 
 ##  namespace Aspect_Convert
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

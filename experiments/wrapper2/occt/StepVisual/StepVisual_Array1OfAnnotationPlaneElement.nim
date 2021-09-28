@@ -17,3 +17,28 @@ type
   StepVisualArray1OfAnnotationPlaneElement* = NCollectionArray1[
       StepVisualAnnotationPlaneElement]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

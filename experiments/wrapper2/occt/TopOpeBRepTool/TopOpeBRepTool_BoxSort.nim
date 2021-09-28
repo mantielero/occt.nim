@@ -44,7 +44,7 @@ proc hab*(this: TopOpeBRepToolBoxSort): Handle[BndHArray1OfBox] {.noSideEffect,
 proc makeHABCOB*(hab: Handle[BndHArray1OfBox]; cob: var BndBox) {.
     importcpp: "TopOpeBRepTool_BoxSort::MakeHABCOB(@)",
     header: "TopOpeBRepTool_BoxSort.hxx".}
-proc hABShape*(this: TopOpeBRepToolBoxSort; i: int): TopoDS_Shape {.noSideEffect,
+proc hABShape*(this: TopOpeBRepToolBoxSort; i: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "HABShape", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc makeCOB*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape; ts: TopAbsShapeEnum;
              ta: TopAbsShapeEnum = topAbsSHAPE) {.importcpp: "MakeCOB",
@@ -61,3 +61,28 @@ proc box*(this: TopOpeBRepToolBoxSort; s: TopoDS_Shape): BndBox {.noSideEffect,
     importcpp: "Box", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc destroyTopOpeBRepToolBoxSort*(this: var TopOpeBRepToolBoxSort) {.
     importcpp: "#.~TopOpeBRepTool_BoxSort()", header: "TopOpeBRepTool_BoxSort.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

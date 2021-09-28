@@ -29,7 +29,7 @@ proc constructRWStepBasicRWApplicationProtocolDefinition*(): RWStepBasicRWApplic
     constructor, importcpp: "RWStepBasic_RWApplicationProtocolDefinition(@)",
     header: "RWStepBasic_RWApplicationProtocolDefinition.hxx".}
 proc readStep*(this: RWStepBasicRWApplicationProtocolDefinition;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicApplicationProtocolDefinition]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepBasicRWApplicationProtocolDefinition;
            ent: Handle[StepBasicApplicationProtocolDefinition];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWApplicationProtocolDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

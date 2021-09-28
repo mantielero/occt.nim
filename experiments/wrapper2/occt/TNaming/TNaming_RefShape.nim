@@ -39,5 +39,30 @@ proc label*(this: TNamingRefShape): TDF_Label {.noSideEffect, importcpp: "Label"
 proc namedShape*(this: TNamingRefShape): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "NamedShape", header: "TNaming_RefShape.hxx".}
 proc dumpJson*(this: TNamingRefShape; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TNaming_RefShape.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TNaming_RefShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

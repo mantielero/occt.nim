@@ -21,7 +21,7 @@ type
                       header: "GCE2d_MakeRotation.hxx", bycopy.} = object ## ! Constructs a rotation through angle Angle about the center Point.
 
 
-proc constructGCE2dMakeRotation*(point: Pnt2d; angle: float): GCE2dMakeRotation {.
+proc constructGCE2dMakeRotation*(point: Pnt2d; angle: cfloat): GCE2dMakeRotation {.
     constructor, importcpp: "GCE2d_MakeRotation(@)",
     header: "GCE2d_MakeRotation.hxx".}
 proc value*(this: GCE2dMakeRotation): Handle[Geom2dTransformation] {.noSideEffect,
@@ -29,3 +29,28 @@ proc value*(this: GCE2dMakeRotation): Handle[Geom2dTransformation] {.noSideEffec
 converter `constopencascade`*(this: GCE2dMakeRotation): Handle[Geom2dTransformation] {.
     noSideEffect, importcpp: "GCE2d_MakeRotation::operator constopencascade",
     header: "GCE2d_MakeRotation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

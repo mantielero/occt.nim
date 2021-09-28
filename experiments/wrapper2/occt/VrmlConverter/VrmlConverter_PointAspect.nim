@@ -18,7 +18,7 @@ discard "forward decl of Vrml_Material"
 discard "forward decl of VrmlConverter_PointAspect"
 discard "forward decl of VrmlConverter_PointAspect"
 type
-  HandleVrmlConverterPointAspect* = Handle[VrmlConverterPointAspect]
+  HandleC1C1* = Handle[VrmlConverterPointAspect]
 
 ## ! qualifies the aspect properties for
 ## ! the VRML conversation of a Point Set.
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "VrmlConverter_PointAspect.hxx".}
 proc dynamicType*(this: VrmlConverterPointAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "VrmlConverter_PointAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

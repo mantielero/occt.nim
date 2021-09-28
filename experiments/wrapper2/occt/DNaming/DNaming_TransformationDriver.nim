@@ -20,7 +20,7 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of DNaming_TransformationDriver"
 discard "forward decl of DNaming_TransformationDriver"
 type
-  HandleDNamingTransformationDriver* = Handle[DNamingTransformationDriver]
+  HandleC1C1* = Handle[DNamingTransformationDriver]
   DNamingTransformationDriver* {.importcpp: "DNaming_TransformationDriver",
                                 header: "DNaming_TransformationDriver.hxx", bycopy.} = object of TFunctionDriver ##
                                                                                                           ## !
@@ -43,7 +43,7 @@ proc mustExecute*(this: DNamingTransformationDriver;
                  theLog: Handle[TFunctionLogbook]): bool {.noSideEffect,
     importcpp: "MustExecute", header: "DNaming_TransformationDriver.hxx".}
 proc execute*(this: DNamingTransformationDriver;
-             theLog: var Handle[TFunctionLogbook]): int {.noSideEffect,
+             theLog: var Handle[TFunctionLogbook]): cint {.noSideEffect,
     importcpp: "Execute", header: "DNaming_TransformationDriver.hxx".}
 type
   DNamingTransformationDriverbaseType* = TFunctionDriver
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: DNamingTransformationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "DNaming_TransformationDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

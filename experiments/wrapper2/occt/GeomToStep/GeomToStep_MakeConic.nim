@@ -23,6 +23,24 @@ type
                         header: "GeomToStep_MakeConic.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeConic; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeConic::operator new",
+    header: "GeomToStep_MakeConic.hxx".}
+proc `delete`*(this: var GeomToStepMakeConic; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeConic::operator delete",
+    header: "GeomToStep_MakeConic.hxx".}
+proc `new[]`*(this: var GeomToStepMakeConic; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeConic::operator new[]",
+    header: "GeomToStep_MakeConic.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeConic; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeConic::operator delete[]",
+    header: "GeomToStep_MakeConic.hxx".}
+proc `new`*(this: var GeomToStepMakeConic; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeConic::operator new",
+    header: "GeomToStep_MakeConic.hxx".}
+proc `delete`*(this: var GeomToStepMakeConic; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeConic::operator delete",
+    header: "GeomToStep_MakeConic.hxx".}
 proc constructGeomToStepMakeConic*(c: Handle[GeomConic]): GeomToStepMakeConic {.
     constructor, importcpp: "GeomToStep_MakeConic(@)",
     header: "GeomToStep_MakeConic.hxx".}

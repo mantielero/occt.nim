@@ -32,3 +32,28 @@ type
     BRepFeatSelectionSh, BRepFeatSelectionShU
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

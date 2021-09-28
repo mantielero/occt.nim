@@ -30,7 +30,7 @@ proc constructRWStepFEA_RWFeaSecantCoefficientOfLinearThermalExpansion*(): RWSte
     importcpp: "RWStepFEA_RWFeaSecantCoefficientOfLinearThermalExpansion(@)",
     header: "RWStepFEA_RWFeaSecantCoefficientOfLinearThermalExpansion.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaSecantCoefficientOfLinearThermalExpansion;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaSecantCoefficientOfLinearThermalExpansion]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepFEA_RWFeaSecantCoefficientOfLinearThermalExpansion;
            ent: Handle[StepFEA_FeaSecantCoefficientOfLinearThermalExpansion];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaSecantCoefficientOfLinearThermalExpansion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

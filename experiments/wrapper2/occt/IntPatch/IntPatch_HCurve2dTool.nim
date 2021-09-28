@@ -27,16 +27,16 @@ type
                          header: "IntPatch_HCurve2dTool.hxx", bycopy.} = object
 
 
-proc firstParameter*(c: Handle[Adaptor2dHCurve2d]): float {.
+proc firstParameter*(c: Handle[Adaptor2dHCurve2d]): cfloat {.
     importcpp: "IntPatch_HCurve2dTool::FirstParameter(@)",
     header: "IntPatch_HCurve2dTool.hxx".}
-proc lastParameter*(c: Handle[Adaptor2dHCurve2d]): float {.
+proc lastParameter*(c: Handle[Adaptor2dHCurve2d]): cfloat {.
     importcpp: "IntPatch_HCurve2dTool::LastParameter(@)",
     header: "IntPatch_HCurve2dTool.hxx".}
 proc continuity*(c: Handle[Adaptor2dHCurve2d]): GeomAbsShape {.
     importcpp: "IntPatch_HCurve2dTool::Continuity(@)",
     header: "IntPatch_HCurve2dTool.hxx".}
-proc nbIntervals*(c: Handle[Adaptor2dHCurve2d]; s: GeomAbsShape): int {.
+proc nbIntervals*(c: Handle[Adaptor2dHCurve2d]; s: GeomAbsShape): cint {.
     importcpp: "IntPatch_HCurve2dTool::NbIntervals(@)",
     header: "IntPatch_HCurve2dTool.hxx".}
 proc intervals*(c: Handle[Adaptor2dHCurve2d]; t: var TColStdArray1OfReal;
@@ -48,24 +48,25 @@ proc isClosed*(c: Handle[Adaptor2dHCurve2d]): bool {.
 proc isPeriodic*(c: Handle[Adaptor2dHCurve2d]): bool {.
     importcpp: "IntPatch_HCurve2dTool::IsPeriodic(@)",
     header: "IntPatch_HCurve2dTool.hxx".}
-proc period*(c: Handle[Adaptor2dHCurve2d]): float {.
+proc period*(c: Handle[Adaptor2dHCurve2d]): cfloat {.
     importcpp: "IntPatch_HCurve2dTool::Period(@)",
     header: "IntPatch_HCurve2dTool.hxx".}
-proc value*(c: Handle[Adaptor2dHCurve2d]; u: float): Pnt2d {.
+proc value*(c: Handle[Adaptor2dHCurve2d]; u: cfloat): Pnt2d {.
     importcpp: "IntPatch_HCurve2dTool::Value(@)",
     header: "IntPatch_HCurve2dTool.hxx".}
-proc d0*(c: Handle[Adaptor2dHCurve2d]; u: float; p: var Pnt2d) {.
+proc d0*(c: Handle[Adaptor2dHCurve2d]; u: cfloat; p: var Pnt2d) {.
     importcpp: "IntPatch_HCurve2dTool::D0(@)", header: "IntPatch_HCurve2dTool.hxx".}
-proc d1*(c: Handle[Adaptor2dHCurve2d]; u: float; p: var Pnt2d; v: var Vec2d) {.
+proc d1*(c: Handle[Adaptor2dHCurve2d]; u: cfloat; p: var Pnt2d; v: var Vec2d) {.
     importcpp: "IntPatch_HCurve2dTool::D1(@)", header: "IntPatch_HCurve2dTool.hxx".}
-proc d2*(c: Handle[Adaptor2dHCurve2d]; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    importcpp: "IntPatch_HCurve2dTool::D2(@)", header: "IntPatch_HCurve2dTool.hxx".}
-proc d3*(c: Handle[Adaptor2dHCurve2d]; u: float; p: var Pnt2d; v1: var Vec2d;
+proc d2*(c: Handle[Adaptor2dHCurve2d]; u: cfloat; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d) {.importcpp: "IntPatch_HCurve2dTool::D2(@)",
+                      header: "IntPatch_HCurve2dTool.hxx".}
+proc d3*(c: Handle[Adaptor2dHCurve2d]; u: cfloat; p: var Pnt2d; v1: var Vec2d;
         v2: var Vec2d; v3: var Vec2d) {.importcpp: "IntPatch_HCurve2dTool::D3(@)",
                                   header: "IntPatch_HCurve2dTool.hxx".}
-proc dn*(c: Handle[Adaptor2dHCurve2d]; u: float; n: int): Vec2d {.
+proc dn*(c: Handle[Adaptor2dHCurve2d]; u: cfloat; n: cint): Vec2d {.
     importcpp: "IntPatch_HCurve2dTool::DN(@)", header: "IntPatch_HCurve2dTool.hxx".}
-proc resolution*(c: Handle[Adaptor2dHCurve2d]; r3d: float): float {.
+proc resolution*(c: Handle[Adaptor2dHCurve2d]; r3d: cfloat): cfloat {.
     importcpp: "IntPatch_HCurve2dTool::Resolution(@)",
     header: "IntPatch_HCurve2dTool.hxx".}
 proc getType*(c: Handle[Adaptor2dHCurve2d]): GeomAbsCurveType {.
@@ -92,6 +93,31 @@ proc bezier*(c: Handle[Adaptor2dHCurve2d]): Handle[Geom2dBezierCurve] {.
 proc bSpline*(c: Handle[Adaptor2dHCurve2d]): Handle[Geom2dBSplineCurve] {.
     importcpp: "IntPatch_HCurve2dTool::BSpline(@)",
     header: "IntPatch_HCurve2dTool.hxx".}
-proc nbSamples*(c: Handle[Adaptor2dHCurve2d]; u0: float; u1: float): int {.
+proc nbSamples*(c: Handle[Adaptor2dHCurve2d]; u0: cfloat; u1: cfloat): cint {.
     importcpp: "IntPatch_HCurve2dTool::NbSamples(@)",
     header: "IntPatch_HCurve2dTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

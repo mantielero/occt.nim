@@ -21,7 +21,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Vector"
 discard "forward decl of Geom_Vector"
 type
-  HandleGeomVector* = Handle[GeomVector]
+  HandleC1C1* = Handle[GeomVector]
 
 ## ! The abstract class Vector describes the common
 ## ! behavior of vectors in 3D space.
@@ -40,23 +40,24 @@ type
 proc reverse*(this: var GeomVector) {.importcpp: "Reverse", header: "Geom_Vector.hxx".}
 proc reversed*(this: GeomVector): Handle[GeomVector] {.noSideEffect,
     importcpp: "Reversed", header: "Geom_Vector.hxx".}
-proc angle*(this: GeomVector; other: Handle[GeomVector]): float {.noSideEffect,
+proc angle*(this: GeomVector; other: Handle[GeomVector]): StandardReal {.noSideEffect,
     importcpp: "Angle", header: "Geom_Vector.hxx".}
 proc angleWithRef*(this: GeomVector; other: Handle[GeomVector];
-                  vRef: Handle[GeomVector]): float {.noSideEffect,
+                  vRef: Handle[GeomVector]): StandardReal {.noSideEffect,
     importcpp: "AngleWithRef", header: "Geom_Vector.hxx".}
-proc coord*(this: GeomVector; x: var float; y: var float; z: var float) {.noSideEffect,
-    importcpp: "Coord", header: "Geom_Vector.hxx".}
-proc magnitude*(this: GeomVector): float {.noSideEffect, importcpp: "Magnitude",
-                                       header: "Geom_Vector.hxx".}
-proc squareMagnitude*(this: GeomVector): float {.noSideEffect,
+proc coord*(this: GeomVector; x: var StandardReal; y: var StandardReal;
+           z: var StandardReal) {.noSideEffect, importcpp: "Coord",
+                               header: "Geom_Vector.hxx".}
+proc magnitude*(this: GeomVector): StandardReal {.noSideEffect,
+    importcpp: "Magnitude", header: "Geom_Vector.hxx".}
+proc squareMagnitude*(this: GeomVector): StandardReal {.noSideEffect,
     importcpp: "SquareMagnitude", header: "Geom_Vector.hxx".}
-proc x*(this: GeomVector): float {.noSideEffect, importcpp: "X",
-                               header: "Geom_Vector.hxx".}
-proc y*(this: GeomVector): float {.noSideEffect, importcpp: "Y",
-                               header: "Geom_Vector.hxx".}
-proc z*(this: GeomVector): float {.noSideEffect, importcpp: "Z",
-                               header: "Geom_Vector.hxx".}
+proc x*(this: GeomVector): StandardReal {.noSideEffect, importcpp: "X",
+                                      header: "Geom_Vector.hxx".}
+proc y*(this: GeomVector): StandardReal {.noSideEffect, importcpp: "Y",
+                                      header: "Geom_Vector.hxx".}
+proc z*(this: GeomVector): StandardReal {.noSideEffect, importcpp: "Z",
+                                      header: "Geom_Vector.hxx".}
 proc cross*(this: var GeomVector; other: Handle[GeomVector]) {.importcpp: "Cross",
     header: "Geom_Vector.hxx".}
 proc crossed*(this: GeomVector; other: Handle[GeomVector]): Handle[GeomVector] {.
@@ -65,9 +66,9 @@ proc crossCross*(this: var GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVe
     importcpp: "CrossCross", header: "Geom_Vector.hxx".}
 proc crossCrossed*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]): Handle[
     GeomVector] {.noSideEffect, importcpp: "CrossCrossed", header: "Geom_Vector.hxx".}
-proc dot*(this: GeomVector; other: Handle[GeomVector]): float {.noSideEffect,
+proc dot*(this: GeomVector; other: Handle[GeomVector]): StandardReal {.noSideEffect,
     importcpp: "Dot", header: "Geom_Vector.hxx".}
-proc dotCross*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]): float {.
+proc dotCross*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]): StandardReal {.
     noSideEffect, importcpp: "DotCross", header: "Geom_Vector.hxx".}
 proc vec*(this: GeomVector): Vec {.noSideEffect, importcpp: "Vec",
                                header: "Geom_Vector.hxx".}

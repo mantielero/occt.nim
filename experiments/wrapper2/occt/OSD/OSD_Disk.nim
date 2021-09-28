@@ -33,11 +33,38 @@ proc name*(this: OSD_Disk): OSD_Path {.noSideEffect, importcpp: "Name",
                                    header: "OSD_Disk.hxx".}
 proc setName*(this: var OSD_Disk; name: OSD_Path) {.importcpp: "SetName",
     header: "OSD_Disk.hxx".}
-proc diskSize*(this: var OSD_Disk): int {.importcpp: "DiskSize", header: "OSD_Disk.hxx".}
-proc diskFree*(this: var OSD_Disk): int {.importcpp: "DiskFree", header: "OSD_Disk.hxx".}
+proc diskSize*(this: var OSD_Disk): cint {.importcpp: "DiskSize",
+                                      header: "OSD_Disk.hxx".}
+proc diskFree*(this: var OSD_Disk): cint {.importcpp: "DiskFree",
+                                      header: "OSD_Disk.hxx".}
 proc failed*(this: OSD_Disk): bool {.noSideEffect, importcpp: "Failed",
                                  header: "OSD_Disk.hxx".}
 proc reset*(this: var OSD_Disk) {.importcpp: "Reset", header: "OSD_Disk.hxx".}
 proc perror*(this: var OSD_Disk) {.importcpp: "Perror", header: "OSD_Disk.hxx".}
-proc error*(this: OSD_Disk): int {.noSideEffect, importcpp: "Error",
-                               header: "OSD_Disk.hxx".}
+proc error*(this: OSD_Disk): cint {.noSideEffect, importcpp: "Error",
+                                header: "OSD_Disk.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDimen_LinearDimension"
 discard "forward decl of IGESDimen_LinearDimension"
 type
-  HandleIGESDimenLinearDimension* = Handle[IGESDimenLinearDimension]
+  HandleC1C1* = Handle[IGESDimenLinearDimension]
 
 ## ! defines LinearDimension, Type <216> Form <0>
 ## ! in package IGESDimen
@@ -41,7 +41,7 @@ proc init*(this: var IGESDimenLinearDimension; aNote: Handle[IGESDimenGeneralNot
           aWitness: Handle[IGESDimenWitnessLine];
           anotherWitness: Handle[IGESDimenWitnessLine]) {.importcpp: "Init",
     header: "IGESDimen_LinearDimension.hxx".}
-proc setFormNumber*(this: var IGESDimenLinearDimension; form: int) {.
+proc setFormNumber*(this: var IGESDimenLinearDimension; form: cint) {.
     importcpp: "SetFormNumber", header: "IGESDimen_LinearDimension.hxx".}
 proc note*(this: IGESDimenLinearDimension): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_LinearDimension.hxx".}
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_LinearDimension.hxx".}
 proc dynamicType*(this: IGESDimenLinearDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_LinearDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

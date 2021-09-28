@@ -23,7 +23,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepData_StepModel"
 discard "forward decl of StepData_StepModel"
 type
-  HandleStepDataStepModel* = Handle[StepDataStepModel]
+  HandleC1C1* = Handle[StepDataStepModel]
 
 ## ! Gives access to
 ## ! - entities in a STEP file,
@@ -46,7 +46,7 @@ type
 
 proc constructStepDataStepModel*(): StepDataStepModel {.constructor,
     importcpp: "StepData_StepModel(@)", header: "StepData_StepModel.hxx".}
-proc entity*(this: StepDataStepModel; num: int): Handle[StandardTransient] {.
+proc entity*(this: StepDataStepModel; num: cint): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Entity", header: "StepData_StepModel.hxx".}
 proc getFromAnother*(this: var StepDataStepModel;
                     other: Handle[InterfaceInterfaceModel]) {.
@@ -66,14 +66,14 @@ proc addHeaderEntity*(this: var StepDataStepModel; ent: Handle[StandardTransient
     importcpp: "AddHeaderEntity", header: "StepData_StepModel.hxx".}
 proc verifyCheck*(this: StepDataStepModel; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "VerifyCheck", header: "StepData_StepModel.hxx".}
-proc dumpHeader*(this: StepDataStepModel; s: var StandardOStream; level: int = 0) {.
+proc dumpHeader*(this: StepDataStepModel; s: var StandardOStream; level: cint = 0) {.
     noSideEffect, importcpp: "DumpHeader", header: "StepData_StepModel.hxx".}
 proc clearLabels*(this: var StepDataStepModel) {.importcpp: "ClearLabels",
     header: "StepData_StepModel.hxx".}
 proc setIdentLabel*(this: var StepDataStepModel; ent: Handle[StandardTransient];
-                   ident: int) {.importcpp: "SetIdentLabel",
-                               header: "StepData_StepModel.hxx".}
-proc identLabel*(this: StepDataStepModel; ent: Handle[StandardTransient]): int {.
+                   ident: cint) {.importcpp: "SetIdentLabel",
+                                header: "StepData_StepModel.hxx".}
+proc identLabel*(this: StepDataStepModel; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "IdentLabel", header: "StepData_StepModel.hxx".}
 proc printLabel*(this: StepDataStepModel; ent: Handle[StandardTransient];
                 s: var StandardOStream) {.noSideEffect, importcpp: "PrintLabel",
@@ -95,3 +95,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_StepModel.hxx".}
 proc dynamicType*(this: StepDataStepModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_StepModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

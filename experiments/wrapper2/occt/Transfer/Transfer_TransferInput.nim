@@ -49,3 +49,28 @@ proc fillModel*(this: TransferTransferInput; `proc`: Handle[TransferFinderProces
                amodel: Handle[InterfaceInterfaceModel];
                proto: Handle[InterfaceProtocol]; roots: bool = true) {.noSideEffect,
     importcpp: "FillModel", header: "Transfer_TransferInput.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

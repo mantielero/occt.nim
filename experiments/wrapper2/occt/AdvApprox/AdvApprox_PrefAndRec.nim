@@ -22,8 +22,33 @@ type
 
 proc constructAdvApproxPrefAndRec*(recomendedCut: TColStdArray1OfReal;
                                   prefferedCut: TColStdArray1OfReal;
-                                  weight: float = 5): AdvApproxPrefAndRec {.
+                                  weight: cfloat = 5): AdvApproxPrefAndRec {.
     constructor, importcpp: "AdvApprox_PrefAndRec(@)",
     header: "AdvApprox_PrefAndRec.hxx".}
-proc value*(this: AdvApproxPrefAndRec; a: float; b: float; cuttingvalue: var float): bool {.
+proc value*(this: AdvApproxPrefAndRec; a: cfloat; b: cfloat; cuttingvalue: var cfloat): bool {.
     noSideEffect, importcpp: "Value", header: "AdvApprox_PrefAndRec.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

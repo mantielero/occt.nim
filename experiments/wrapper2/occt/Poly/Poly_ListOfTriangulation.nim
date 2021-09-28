@@ -20,3 +20,28 @@
 type
   PolyListOfTriangulation* = NCollectionList[Handle[PolyTriangulation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -44,3 +44,28 @@ proc `==`*(this: LDOM_Document; a2: ptr LDOM_NullPtr): bool {.noSideEffect,
     importcpp: "(# == #)", header: "LDOM_Document.hxx".}
 proc isNull*(this: LDOM_Document): bool {.noSideEffect, importcpp: "isNull",
                                       header: "LDOM_Document.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

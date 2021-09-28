@@ -14,7 +14,7 @@
 
 discard "forward decl of PrsDim_AngleDimension"
 type
-  HandlePrsDimAngleDimension* = Handle[PrsDimAngleDimension]
+  HandleC1C1* = Handle[PrsDimAngleDimension]
 
 ## ! Angle dimension. Can be constructed:
 ## ! - on two intersected edges.
@@ -267,3 +267,28 @@ proc setArrowsVisibility*(this: var PrsDimAngleDimension;
 proc getArrowsVisibility*(this: PrsDimAngleDimension): PrsDimTypeOfAngleArrowVisibility {.
     noSideEffect, importcpp: "GetArrowsVisibility",
     header: "PrsDim_AngleDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

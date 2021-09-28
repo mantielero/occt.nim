@@ -62,14 +62,14 @@ proc computeGeometry*(theFirstEdge: TopoDS_Edge; theSecondEdge: TopoDS_Edge;
                      theIsinfinite2: var bool): bool {.
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
 proc computeGeometry*(theFirstEdge: TopoDS_Edge; theSecondEdge: TopoDS_Edge;
-                     theExtIndex: var int; theFirstCurve: var Handle[GeomCurve];
+                     theExtIndex: var cint; theFirstCurve: var Handle[GeomCurve];
                      theSecondCurve: var Handle[GeomCurve]; theFirstPnt1: var Pnt;
                      theLastPnt1: var Pnt; theFirstPnt2: var Pnt;
                      theLastPnt2: var Pnt; theExtCurve: var Handle[GeomCurve];
                      theIsinfinite1: var bool; theIsinfinite2: var bool;
                      thePlane: Handle[GeomPlane]): bool {.
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
-proc computeGeomCurve*(aCurve: var Handle[GeomCurve]; first1: float; last1: float;
+proc computeGeomCurve*(aCurve: var Handle[GeomCurve]; first1: cfloat; last1: cfloat;
                       firstPnt1: var Pnt; lastPnt1: var Pnt;
                       aPlane: Handle[GeomPlane]; isOnPlane: var bool): bool {.
     importcpp: "PrsDim::ComputeGeomCurve(@)", header: "PrsDim.hxx".}
@@ -78,11 +78,11 @@ proc computeGeometry*(aVertex: TopoDS_Vertex; point: var Pnt;
     importcpp: "PrsDim::ComputeGeometry(@)", header: "PrsDim.hxx".}
 proc getPlaneFromFace*(aFace: TopoDS_Face; aPlane: var Pln;
                       aSurf: var Handle[GeomSurface];
-                      aSurfType: var PrsDimKindOfSurface; offset: var float): bool {.
+                      aSurfType: var PrsDimKindOfSurface; offset: var cfloat): bool {.
     importcpp: "PrsDim::GetPlaneFromFace(@)", header: "PrsDim.hxx".}
 proc initFaceLength*(aFace: TopoDS_Face; aPlane: var Pln;
                     aSurface: var Handle[GeomSurface];
-                    aSurfaceType: var PrsDimKindOfSurface; anOffset: var float) {.
+                    aSurfaceType: var PrsDimKindOfSurface; anOffset: var cfloat) {.
     importcpp: "PrsDim::InitFaceLength(@)", header: "PrsDim.hxx".}
 proc initLengthBetweenCurvilinearFaces*(theFirstFace: TopoDS_Face;
                                        theSecondFace: TopoDS_Face;
@@ -112,25 +112,50 @@ proc projectPointOnLine*(aPoint: Pnt; aLine: Lin): Pnt {.
     importcpp: "PrsDim::ProjectPointOnLine(@)", header: "PrsDim.hxx".}
 proc translatePointToBound*(aPoint: Pnt; aDir: Dir; aBndBox: BndBox): Pnt {.
     importcpp: "PrsDim::TranslatePointToBound(@)", header: "PrsDim.hxx".}
-proc inDomain*(aFirstPar: float; aLastPar: float; anAttachPar: float): bool {.
+proc inDomain*(aFirstPar: cfloat; aLastPar: cfloat; anAttachPar: cfloat): bool {.
     importcpp: "PrsDim::InDomain(@)", header: "PrsDim.hxx".}
-proc nearestApex*(elips: Elips; pApex: Pnt; nApex: Pnt; fpara: float; lpara: float;
+proc nearestApex*(elips: Elips; pApex: Pnt; nApex: Pnt; fpara: cfloat; lpara: cfloat;
                  isInDomain: var bool): Pnt {.importcpp: "PrsDim::NearestApex(@)",
     header: "PrsDim.hxx".}
-proc distanceFromApex*(elips: Elips; apex: Pnt; par: float): float {.
+proc distanceFromApex*(elips: Elips; apex: Pnt; par: cfloat): cfloat {.
     importcpp: "PrsDim::DistanceFromApex(@)", header: "PrsDim.hxx".}
 proc computeProjEdgePresentation*(aPres: Handle[Prs3dPresentation];
                                  aDrawer: Handle[Prs3dDrawer];
                                  anEdge: TopoDS_Edge;
                                  projCurve: Handle[GeomCurve]; firstP: Pnt;
                                  lastP: Pnt; aColor: QuantityNameOfColor = quantityNOC_PURPLE;
-                                 aWidth: float = 2;
+                                 aWidth: cfloat = 2;
                                  aProjTOL: AspectTypeOfLine = aspectTOL_DASH;
                                  aCallTOL: AspectTypeOfLine = aspectTOL_DOT) {.
     importcpp: "PrsDim::ComputeProjEdgePresentation(@)", header: "PrsDim.hxx".}
 proc computeProjVertexPresentation*(aPres: Handle[Prs3dPresentation];
                                    aDrawer: Handle[Prs3dDrawer];
                                    aVertex: TopoDS_Vertex; projPoint: Pnt; aColor: QuantityNameOfColor = quantityNOC_PURPLE;
-                                   aWidth: float = 2; aProjTOM: AspectTypeOfMarker = aspectTOM_PLUS;
+                                   aWidth: cfloat = 2; aProjTOM: AspectTypeOfMarker = aspectTOM_PLUS;
                                    aCallTOL: AspectTypeOfLine = aspectTOL_DOT) {.
     importcpp: "PrsDim::ComputeProjVertexPresentation(@)", header: "PrsDim.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,6 +22,16 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Axis1Placement"
 discard "forward decl of Geom_Axis1Placement"
 type
+  GeomAxis1Placement* {.importcpp: "Geom_Axis1Placement",
+                       header: "Geom_Axis1Placement.hxx", bycopy.} = object of GeomAxisPlacement ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## transient
+                                                                                          ## copy
+                                                                                          ## of
+                                                                                          ## A1.
+type
   HandleGeomAxis1Placement* = Handle[GeomAxis1Placement]
 
 ## ! Describes an axis in 3D space.
@@ -38,16 +48,7 @@ type
 ## ! where they can be shared by several objects
 ## ! contained inside a common data structure.
 
-type
-  GeomAxis1Placement* {.importcpp: "Geom_Axis1Placement",
-                       header: "Geom_Axis1Placement.hxx", bycopy.} = object of GeomAxisPlacement ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## a
-                                                                                          ## transient
-                                                                                          ## copy
-                                                                                          ## of
-                                                                                          ## A1.
+
 
 
 proc constructGeomAxis1Placement*(a1: Ax1): GeomAxis1Placement {.constructor,
@@ -69,10 +70,10 @@ proc copy*(this: GeomAxis1Placement): Handle[GeomGeometry] {.noSideEffect,
 type
   GeomAxis1PlacementbaseType* = GeomAxisPlacement
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Axis1Placement::get_type_name(@)",
-                            header: "Geom_Axis1Placement.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Axis1Placement::get_type_name(@)",
+                            header: "Geom_Axis1Placement.hxx".} ]#
+#[ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Axis1Placement::get_type_descriptor(@)",
-    header: "Geom_Axis1Placement.hxx".}
-proc dynamicType*(this: GeomAxis1Placement): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Axis1Placement.hxx".}
+    header: "Geom_Axis1Placement.hxx".} ]#
+#[ proc dynamicType*(this: GeomAxis1Placement): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_Axis1Placement.hxx".} ]#

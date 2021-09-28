@@ -29,9 +29,34 @@ type
                                                                          ## theUpperBound]
 
 
-proc hashCode*(theColor: QuantityColor; theUpperBound: int): int {.
+proc hashCode*(theColor: QuantityColor; theUpperBound: cint): cint {.
     importcpp: "Quantity_ColorHasher::HashCode(@)",
     header: "Quantity_ColorHasher.hxx".}
 proc isEqual*(theColor1: QuantityColor; theColor2: QuantityColor): bool {.
     importcpp: "Quantity_ColorHasher::IsEqual(@)",
     header: "Quantity_ColorHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,20 +28,45 @@ type
                                                                      ## ! abs(F-K) <= EpsNull within this range.
 
 
-proc constructMathFunctionRoots*(f: var MathFunctionWithDerivative; a: float;
-                                b: float; nbSample: int; epsX: float = 0.0;
-                                epsF: float = 0.0; epsNull: float = 0.0; k: float = 0.0): MathFunctionRoots {.
-    constructor, importcpp: "math_FunctionRoots(@)",
-    header: "math_FunctionRoots.hxx".}
+proc constructMathFunctionRoots*(f: var MathFunctionWithDerivative; a: cfloat;
+                                b: cfloat; nbSample: cint; epsX: cfloat = 0.0;
+                                epsF: cfloat = 0.0; epsNull: cfloat = 0.0;
+                                k: cfloat = 0.0): MathFunctionRoots {.constructor,
+    importcpp: "math_FunctionRoots(@)", header: "math_FunctionRoots.hxx".}
 proc isDone*(this: MathFunctionRoots): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_FunctionRoots.hxx".}
 proc isAllNull*(this: MathFunctionRoots): bool {.noSideEffect,
     importcpp: "IsAllNull", header: "math_FunctionRoots.hxx".}
-proc nbSolutions*(this: MathFunctionRoots): int {.noSideEffect,
+proc nbSolutions*(this: MathFunctionRoots): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "math_FunctionRoots.hxx".}
-proc value*(this: MathFunctionRoots; nieme: int): float {.noSideEffect,
+proc value*(this: MathFunctionRoots; nieme: cint): cfloat {.noSideEffect,
     importcpp: "Value", header: "math_FunctionRoots.hxx".}
-proc stateNumber*(this: MathFunctionRoots; nieme: int): int {.noSideEffect,
+proc stateNumber*(this: MathFunctionRoots; nieme: cint): cint {.noSideEffect,
     importcpp: "StateNumber", header: "math_FunctionRoots.hxx".}
 proc dump*(this: MathFunctionRoots; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_FunctionRoots.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

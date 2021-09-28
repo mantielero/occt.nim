@@ -35,15 +35,40 @@ proc constructIntAna2dConic*(c: Hypr2d): IntAna2dConic {.constructor,
     importcpp: "IntAna2d_Conic(@)", header: "IntAna2d_Conic.hxx".}
 proc constructIntAna2dConic*(c: Elips2d): IntAna2dConic {.constructor,
     importcpp: "IntAna2d_Conic(@)", header: "IntAna2d_Conic.hxx".}
-proc value*(this: IntAna2dConic; x: float; y: float): float {.noSideEffect,
+proc value*(this: IntAna2dConic; x: cfloat; y: cfloat): cfloat {.noSideEffect,
     importcpp: "Value", header: "IntAna2d_Conic.hxx".}
-proc grad*(this: IntAna2dConic; x: float; y: float): Xy {.noSideEffect,
+proc grad*(this: IntAna2dConic; x: cfloat; y: cfloat): Xy {.noSideEffect,
     importcpp: "Grad", header: "IntAna2d_Conic.hxx".}
-proc valAndGrad*(this: IntAna2dConic; x: float; y: float; val: var float; grd: var Xy) {.
+proc valAndGrad*(this: IntAna2dConic; x: cfloat; y: cfloat; val: var cfloat; grd: var Xy) {.
     noSideEffect, importcpp: "ValAndGrad", header: "IntAna2d_Conic.hxx".}
-proc coefficients*(this: IntAna2dConic; a: var float; b: var float; c: var float;
-                  d: var float; e: var float; f: var float) {.noSideEffect,
+proc coefficients*(this: IntAna2dConic; a: var cfloat; b: var cfloat; c: var cfloat;
+                  d: var cfloat; e: var cfloat; f: var cfloat) {.noSideEffect,
     importcpp: "Coefficients", header: "IntAna2d_Conic.hxx".}
-proc newCoefficients*(this: IntAna2dConic; a: var float; b: var float; c: var float;
-                     d: var float; e: var float; f: var float; axis: Ax2d) {.noSideEffect,
-    importcpp: "NewCoefficients", header: "IntAna2d_Conic.hxx".}
+proc newCoefficients*(this: IntAna2dConic; a: var cfloat; b: var cfloat; c: var cfloat;
+                     d: var cfloat; e: var cfloat; f: var cfloat; axis: Ax2d) {.
+    noSideEffect, importcpp: "NewCoefficients", header: "IntAna2d_Conic.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

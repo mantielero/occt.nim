@@ -18,3 +18,28 @@ type
   IFSelectSequenceOfInterfaceModel* = NCollectionSequence[
       Handle[InterfaceInterfaceModel]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

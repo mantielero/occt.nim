@@ -20,7 +20,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_MultipleBinder"
 discard "forward decl of Transfer_MultipleBinder"
 type
-  HandleTransferMultipleBinder* = Handle[TransferMultipleBinder]
+  HandleC1C1* = Handle[TransferMultipleBinder]
 
 ## ! Allows direct binding between a starting Object and the Result
 ## ! of its transfer, when it can be made of several Transient
@@ -64,9 +64,9 @@ proc resultTypeName*(this: TransferMultipleBinder): StandardCString {.noSideEffe
     importcpp: "ResultTypeName", header: "Transfer_MultipleBinder.hxx".}
 proc addResult*(this: var TransferMultipleBinder; res: Handle[StandardTransient]) {.
     importcpp: "AddResult", header: "Transfer_MultipleBinder.hxx".}
-proc nbResults*(this: TransferMultipleBinder): int {.noSideEffect,
+proc nbResults*(this: TransferMultipleBinder): cint {.noSideEffect,
     importcpp: "NbResults", header: "Transfer_MultipleBinder.hxx".}
-proc resultValue*(this: TransferMultipleBinder; num: int): Handle[StandardTransient] {.
+proc resultValue*(this: TransferMultipleBinder; num: cint): Handle[StandardTransient] {.
     noSideEffect, importcpp: "ResultValue", header: "Transfer_MultipleBinder.hxx".}
 proc multipleResult*(this: TransferMultipleBinder): Handle[
     TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "MultipleResult",
@@ -84,3 +84,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Transfer_MultipleBinder.hxx".}
 proc dynamicType*(this: TransferMultipleBinder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Transfer_MultipleBinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

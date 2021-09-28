@@ -24,3 +24,28 @@ proc constructDrawColor*(c: DrawColorKind): DrawColor {.constructor,
     importcpp: "Draw_Color(@)", header: "Draw_Color.hxx".}
 proc id*(this: DrawColor): DrawColorKind {.noSideEffect, importcpp: "ID",
                                        header: "Draw_Color.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

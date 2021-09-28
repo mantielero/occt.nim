@@ -36,15 +36,40 @@ type
 proc constructExtremaGlobOptFuncCS*(c: ptr Adaptor3dCurve; s: ptr Adaptor3dSurface): ExtremaGlobOptFuncCS {.
     constructor, importcpp: "Extrema_GlobOptFuncCS(@)",
     header: "Extrema_GlobOptFuncCS.hxx".}
-proc nbVariables*(this: ExtremaGlobOptFuncCS): int {.noSideEffect,
+proc nbVariables*(this: ExtremaGlobOptFuncCS): cint {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_GlobOptFuncCS.hxx".}
-proc value*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var float): bool {.
+proc value*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var cfloat): bool {.
     importcpp: "Value", header: "Extrema_GlobOptFuncCS.hxx".}
 proc gradient*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theG: var MathVector): bool {.
     importcpp: "Gradient", header: "Extrema_GlobOptFuncCS.hxx".}
-proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var float;
+proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var cfloat;
             theG: var MathVector): bool {.importcpp: "Values",
                                       header: "Extrema_GlobOptFuncCS.hxx".}
-proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var float;
+proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var cfloat;
             theG: var MathVector; theH: var MathMatrix): bool {.importcpp: "Values",
     header: "Extrema_GlobOptFuncCS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

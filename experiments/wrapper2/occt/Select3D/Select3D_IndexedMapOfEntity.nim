@@ -16,3 +16,28 @@ type
   Select3D_IndexedMapOfEntity* = NCollectionIndexedMap[
       Handle[Select3D_SensitiveEntity]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

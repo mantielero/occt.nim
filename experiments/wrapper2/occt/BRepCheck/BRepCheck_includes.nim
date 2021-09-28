@@ -19,3 +19,28 @@ include BRepCheck_Status
 include BRepCheck_Vertex
 include BRepCheck_Wire
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

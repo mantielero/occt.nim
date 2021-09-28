@@ -14,7 +14,7 @@
 ## ! Bitmask for primitive array creation.
 
 type
-  Graphic3dArrayFlags* = int
+  Graphic3dArrayFlags* = cint
 
 ## ! Graphic3d_ArrayFlags bitmask values.
 
@@ -27,4 +27,29 @@ const
   Graphic3dArrayFlagsAttribsMutable* = 0x20 ## !< mutable array, which can be invalidated during lifetime without re-creation
   Graphic3dArrayFlagsAttribsDeinterleaved* = 0x40 ## !< non-interleaved vertex attributes packed into single array
   Graphic3dArrayFlagsIndexesMutable* = 0x80 ## !< mutable index array, which can be invalidated during lifetime without re-creation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

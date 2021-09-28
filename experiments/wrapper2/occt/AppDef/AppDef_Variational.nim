@@ -51,13 +51,13 @@ type
                                                                      ## ! only one Line ( Dimension 2 or 3).
 
 
-proc constructAppDefVariational*(ssp: AppDefMultiLine; firstPoint: int;
-                                lastPoint: int; theConstraints: Handle[
-    AppParCurvesHArray1OfConstraintCouple]; maxDegree: int = 14;
-                                maxSegment: int = 100;
+proc constructAppDefVariational*(ssp: AppDefMultiLine; firstPoint: cint;
+                                lastPoint: cint; theConstraints: Handle[
+    AppParCurvesHArray1OfConstraintCouple]; maxDegree: cint = 14;
+                                maxSegment: cint = 100;
                                 continuity: GeomAbsShape = geomAbsC2;
                                 withMinMax: bool = false; withCutting: bool = true;
-                                tolerance: float = 1.0; nbIterations: int = 2): AppDefVariational {.
+                                tolerance: cfloat = 1.0; nbIterations: cint = 2): AppDefVariational {.
     constructor, importcpp: "AppDef_Variational(@)",
     header: "AppDef_Variational.hxx".}
 proc approximate*(this: var AppDefVariational) {.importcpp: "Approximate",
@@ -70,29 +70,29 @@ proc isOverConstrained*(this: AppDefVariational): bool {.noSideEffect,
     importcpp: "IsOverConstrained", header: "AppDef_Variational.hxx".}
 proc value*(this: AppDefVariational): AppParCurvesMultiBSpCurve {.noSideEffect,
     importcpp: "Value", header: "AppDef_Variational.hxx".}
-proc maxError*(this: AppDefVariational): float {.noSideEffect, importcpp: "MaxError",
-    header: "AppDef_Variational.hxx".}
-proc maxErrorIndex*(this: AppDefVariational): int {.noSideEffect,
+proc maxError*(this: AppDefVariational): cfloat {.noSideEffect,
+    importcpp: "MaxError", header: "AppDef_Variational.hxx".}
+proc maxErrorIndex*(this: AppDefVariational): cint {.noSideEffect,
     importcpp: "MaxErrorIndex", header: "AppDef_Variational.hxx".}
-proc quadraticError*(this: AppDefVariational): float {.noSideEffect,
+proc quadraticError*(this: AppDefVariational): cfloat {.noSideEffect,
     importcpp: "QuadraticError", header: "AppDef_Variational.hxx".}
 proc distance*(this: var AppDefVariational; mat: var MathMatrix) {.
     importcpp: "Distance", header: "AppDef_Variational.hxx".}
-proc averageError*(this: AppDefVariational): float {.noSideEffect,
+proc averageError*(this: AppDefVariational): cfloat {.noSideEffect,
     importcpp: "AverageError", header: "AppDef_Variational.hxx".}
 proc parameters*(this: AppDefVariational): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "Parameters", header: "AppDef_Variational.hxx".}
 proc knots*(this: AppDefVariational): Handle[TColStdHArray1OfReal] {.noSideEffect,
     importcpp: "Knots", header: "AppDef_Variational.hxx".}
-proc criterium*(this: AppDefVariational; vFirstOrder: var float;
-               vSecondOrder: var float; vThirdOrder: var float) {.noSideEffect,
+proc criterium*(this: AppDefVariational; vFirstOrder: var cfloat;
+               vSecondOrder: var cfloat; vThirdOrder: var cfloat) {.noSideEffect,
     importcpp: "Criterium", header: "AppDef_Variational.hxx".}
-proc criteriumWeight*(this: AppDefVariational; percent1: var float;
-                     percent2: var float; percent3: var float) {.noSideEffect,
+proc criteriumWeight*(this: AppDefVariational; percent1: var cfloat;
+                     percent2: var cfloat; percent3: var cfloat) {.noSideEffect,
     importcpp: "CriteriumWeight", header: "AppDef_Variational.hxx".}
-proc maxDegree*(this: AppDefVariational): int {.noSideEffect, importcpp: "MaxDegree",
-    header: "AppDef_Variational.hxx".}
-proc maxSegment*(this: AppDefVariational): int {.noSideEffect,
+proc maxDegree*(this: AppDefVariational): cint {.noSideEffect,
+    importcpp: "MaxDegree", header: "AppDef_Variational.hxx".}
+proc maxSegment*(this: AppDefVariational): cint {.noSideEffect,
     importcpp: "MaxSegment", header: "AppDef_Variational.hxx".}
 proc continuity*(this: AppDefVariational): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "AppDef_Variational.hxx".}
@@ -100,9 +100,9 @@ proc withMinMax*(this: AppDefVariational): bool {.noSideEffect,
     importcpp: "WithMinMax", header: "AppDef_Variational.hxx".}
 proc withCutting*(this: AppDefVariational): bool {.noSideEffect,
     importcpp: "WithCutting", header: "AppDef_Variational.hxx".}
-proc tolerance*(this: AppDefVariational): float {.noSideEffect,
+proc tolerance*(this: AppDefVariational): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "AppDef_Variational.hxx".}
-proc nbIterations*(this: AppDefVariational): int {.noSideEffect,
+proc nbIterations*(this: AppDefVariational): cint {.noSideEffect,
     importcpp: "NbIterations", header: "AppDef_Variational.hxx".}
 proc dump*(this: AppDefVariational; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "AppDef_Variational.hxx".}
@@ -113,9 +113,9 @@ proc setParameters*(this: var AppDefVariational; param: Handle[TColStdHArray1OfR
     importcpp: "SetParameters", header: "AppDef_Variational.hxx".}
 proc setKnots*(this: var AppDefVariational; knots: Handle[TColStdHArray1OfReal]): bool {.
     importcpp: "SetKnots", header: "AppDef_Variational.hxx".}
-proc setMaxDegree*(this: var AppDefVariational; degree: int): bool {.
+proc setMaxDegree*(this: var AppDefVariational; degree: cint): bool {.
     importcpp: "SetMaxDegree", header: "AppDef_Variational.hxx".}
-proc setMaxSegment*(this: var AppDefVariational; nbSegment: int): bool {.
+proc setMaxSegment*(this: var AppDefVariational; nbSegment: cint): bool {.
     importcpp: "SetMaxSegment", header: "AppDef_Variational.hxx".}
 proc setContinuity*(this: var AppDefVariational; c: GeomAbsShape): bool {.
     importcpp: "SetContinuity", header: "AppDef_Variational.hxx".}
@@ -123,12 +123,37 @@ proc setWithMinMax*(this: var AppDefVariational; minMax: bool) {.
     importcpp: "SetWithMinMax", header: "AppDef_Variational.hxx".}
 proc setWithCutting*(this: var AppDefVariational; cutting: bool): bool {.
     importcpp: "SetWithCutting", header: "AppDef_Variational.hxx".}
-proc setCriteriumWeight*(this: var AppDefVariational; percent1: float;
-                        percent2: float; percent3: float) {.
+proc setCriteriumWeight*(this: var AppDefVariational; percent1: cfloat;
+                        percent2: cfloat; percent3: cfloat) {.
     importcpp: "SetCriteriumWeight", header: "AppDef_Variational.hxx".}
-proc setCriteriumWeight*(this: var AppDefVariational; order: int; percent: float) {.
+proc setCriteriumWeight*(this: var AppDefVariational; order: cint; percent: cfloat) {.
     importcpp: "SetCriteriumWeight", header: "AppDef_Variational.hxx".}
-proc setTolerance*(this: var AppDefVariational; tol: float) {.
+proc setTolerance*(this: var AppDefVariational; tol: cfloat) {.
     importcpp: "SetTolerance", header: "AppDef_Variational.hxx".}
-proc setNbIterations*(this: var AppDefVariational; iter: int) {.
+proc setNbIterations*(this: var AppDefVariational; iter: cint) {.
     importcpp: "SetNbIterations", header: "AppDef_Variational.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

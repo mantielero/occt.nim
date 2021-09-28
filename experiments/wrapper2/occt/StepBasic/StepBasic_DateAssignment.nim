@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_DateRole"
 discard "forward decl of StepBasic_DateAssignment"
 discard "forward decl of StepBasic_DateAssignment"
 type
-  HandleStepBasicDateAssignment* = Handle[StepBasicDateAssignment]
+  HandleC1C1* = Handle[StepBasicDateAssignment]
   StepBasicDateAssignment* {.importcpp: "StepBasic_DateAssignment",
                             header: "StepBasic_DateAssignment.hxx", bycopy.} = object of StandardTransient
 
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DateAssignment.hxx".}
 proc dynamicType*(this: StepBasicDateAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_DateAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

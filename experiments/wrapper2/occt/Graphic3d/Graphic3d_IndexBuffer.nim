@@ -11,39 +11,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## ! Index buffer.
+## !!!Ignored construct:  # _Graphic3d_IndexBuffer_HeaderFile [NewLine] # _Graphic3d_IndexBuffer_HeaderFile [NewLine] # < Graphic3d_Buffer . hxx > [NewLine] ! Index buffer. class Graphic3d_IndexBuffer : public Graphic3d_Buffer { public : typedef Graphic3d_Buffer base_type ; static const char * get_type_name ( ) { return Graphic3d_IndexBuffer ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; public : ! Empty constructor. Graphic3d_IndexBuffer ( const Handle ( NCollection_BaseAllocator ) & theAlloc ) : Graphic3d_Buffer ( theAlloc ) { } ! Allocates new empty index array template < typename IndexType_t > bool Init ( const Standard_Integer theNbElems ) { release ( ) ; Stride = sizeof ( IndexType_t ) ; if ( Stride != sizeof ( unsigned short ) && Stride != sizeof ( unsigned int ) ) { return false ; } NbElements = theNbElems ; NbAttributes = 0 ; if ( NbElements != 0 && ! Allocate ( size_t ( Stride ) * size_t ( NbElements ) ) ) { release ( ) ; return false ; } return true ; } ! Allocates new empty index array bool InitInt32 ( const Standard_Integer theNbElems ) { return Init < int > ( theNbElems ) ; } ! Access index at specified position Standard_Integer Index ( const Standard_Integer theIndex ) const { return Stride == sizeof ( unsigned short ) ? Standard_Integer ( Value < unsigned short > ( theIndex ) ) : Standard_Integer ( Value < unsigned int > ( theIndex ) ) ; } ! Change index at specified position void SetIndex ( const Standard_Integer theIndex , const Standard_Integer theValue ) { if ( Stride == sizeof ( unsigned short ) ) { ChangeValue < unsigned short > ( theIndex ) = ( unsigned short ) theValue ; } else { ChangeValue < unsigned int > ( theIndex ) = ( unsigned int ) theValue ; } } ! Dumps the content of me into the stream virtual void DumpJson ( Standard_OStream & theOStream , Standard_Integer theDepth = - 1 ) const { OCCT_DUMP_TRANSIENT_CLASS_BEGIN ( theOStream ) OCCT_DUMP_BASE_CLASS ( theOStream , theDepth , Graphic3d_Buffer ) } } ;
+## Error: expected ';'!!!
 
-type
-  Graphic3dIndexBuffer* {.importcpp: "Graphic3d_IndexBuffer",
-                         header: "Graphic3d_IndexBuffer.hxx", bycopy.} = object of Graphic3dBuffer ##
-                                                                                            ## !
-                                                                                            ## Empty
-                                                                                            ## constructor.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Graphic3d_IndexBuffer , Graphic3d_Buffer ) #  _Graphic3d_IndexBuffer_HeaderFile
+## Error: expected ';'!!!
 
-  Graphic3dIndexBufferbaseType* = Graphic3dBuffer
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_IndexBuffer::get_type_name(@)",
-                            header: "Graphic3d_IndexBuffer.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Graphic3d_IndexBuffer::get_type_descriptor(@)",
-    header: "Graphic3d_IndexBuffer.hxx".}
-proc dynamicType*(this: Graphic3dIndexBuffer): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Graphic3d_IndexBuffer.hxx".}
-proc constructGraphic3dIndexBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dIndexBuffer {.
-    constructor, importcpp: "Graphic3d_IndexBuffer(@)",
-    header: "Graphic3d_IndexBuffer.hxx".}
-proc init*[IndexTypeT](this: var Graphic3dIndexBuffer; theNbElems: int): bool {.
-    importcpp: "Init", header: "Graphic3d_IndexBuffer.hxx".}
-proc initInt32*(this: var Graphic3dIndexBuffer; theNbElems: int): bool {.
-    importcpp: "InitInt32", header: "Graphic3d_IndexBuffer.hxx".}
-proc index*(this: Graphic3dIndexBuffer; theIndex: int): int {.noSideEffect,
-    importcpp: "Index", header: "Graphic3d_IndexBuffer.hxx".}
-proc setIndex*(this: var Graphic3dIndexBuffer; theIndex: int; theValue: int) {.
-    importcpp: "SetIndex", header: "Graphic3d_IndexBuffer.hxx".}
-proc dumpJson*(this: Graphic3dIndexBuffer; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_IndexBuffer.hxx".}
-discard "forward decl of Graphic3d_IndexBuffer"
-type
-  HandleGraphic3dIndexBuffer* = Handle[Graphic3dIndexBuffer]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

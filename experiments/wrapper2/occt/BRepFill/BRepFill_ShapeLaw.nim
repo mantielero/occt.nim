@@ -23,7 +23,7 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of BRepFill_ShapeLaw"
 discard "forward decl of BRepFill_ShapeLaw"
 type
-  HandleBRepFillShapeLaw* = Handle[BRepFillShapeLaw]
+  HandleC1C1* = Handle[BRepFillShapeLaw]
 
 ## ! Build Section Law, with an Vertex, or an Wire
 
@@ -50,15 +50,15 @@ proc isConstant*(this: BRepFillShapeLaw): bool {.noSideEffect,
     importcpp: "IsConstant", header: "BRepFill_ShapeLaw.hxx".}
 proc concatenedLaw*(this: BRepFillShapeLaw): Handle[GeomFillSectionLaw] {.
     noSideEffect, importcpp: "ConcatenedLaw", header: "BRepFill_ShapeLaw.hxx".}
-proc continuity*(this: BRepFillShapeLaw; index: int; tolAngular: float): GeomAbsShape {.
+proc continuity*(this: BRepFillShapeLaw; index: cint; tolAngular: cfloat): GeomAbsShape {.
     noSideEffect, importcpp: "Continuity", header: "BRepFill_ShapeLaw.hxx".}
-proc vertexTol*(this: BRepFillShapeLaw; index: int; param: float): float {.noSideEffect,
-    importcpp: "VertexTol", header: "BRepFill_ShapeLaw.hxx".}
-proc vertex*(this: BRepFillShapeLaw; index: int; param: float): TopoDS_Vertex {.
+proc vertexTol*(this: BRepFillShapeLaw; index: cint; param: cfloat): cfloat {.
+    noSideEffect, importcpp: "VertexTol", header: "BRepFill_ShapeLaw.hxx".}
+proc vertex*(this: BRepFillShapeLaw; index: cint; param: cfloat): TopoDS_Vertex {.
     noSideEffect, importcpp: "Vertex", header: "BRepFill_ShapeLaw.hxx".}
-proc d0*(this: var BRepFillShapeLaw; param: float; s: var TopoDS_Shape) {.
+proc d0*(this: var BRepFillShapeLaw; param: cfloat; s: var TopoDS_Shape) {.
     importcpp: "D0", header: "BRepFill_ShapeLaw.hxx".}
-proc edge*(this: BRepFillShapeLaw; index: int): TopoDS_Edge {.noSideEffect,
+proc edge*(this: BRepFillShapeLaw; index: cint): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "BRepFill_ShapeLaw.hxx".}
 type
   BRepFillShapeLawbaseType* = BRepFillSectionLaw
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_ShapeLaw.hxx".}
 proc dynamicType*(this: BRepFillShapeLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_ShapeLaw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

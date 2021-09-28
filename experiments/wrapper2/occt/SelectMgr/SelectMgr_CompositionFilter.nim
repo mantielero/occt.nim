@@ -18,7 +18,7 @@ discard "forward decl of SelectMgr_Filter"
 discard "forward decl of SelectMgr_CompositionFilter"
 discard "forward decl of SelectMgr_CompositionFilter"
 type
-  HandleSelectMgrCompositionFilter* = Handle[SelectMgrCompositionFilter]
+  HandleC1C1* = Handle[SelectMgrCompositionFilter]
 
 ## ! A framework to define a compound filter composed of
 ## ! two or more simple filters.
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: SelectMgrCompositionFilter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "SelectMgr_CompositionFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

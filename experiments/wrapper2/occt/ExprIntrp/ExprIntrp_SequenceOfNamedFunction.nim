@@ -18,3 +18,28 @@ type
   ExprIntrpSequenceOfNamedFunction* = NCollectionSequence[
       Handle[ExprNamedFunction]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

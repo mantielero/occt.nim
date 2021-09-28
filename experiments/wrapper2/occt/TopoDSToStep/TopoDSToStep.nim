@@ -55,3 +55,28 @@ proc addResult*(fp: Handle[TransferFinderProcess]; shape: TopoDS_Shape;
     importcpp: "TopoDSToStep::AddResult(@)", header: "TopoDSToStep.hxx".}
 proc addResult*(fp: Handle[TransferFinderProcess]; tool: TopoDSToStepTool) {.
     importcpp: "TopoDSToStep::AddResult(@)", header: "TopoDSToStep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

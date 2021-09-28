@@ -16,4 +16,3 @@
 
 type
   GeomPlateArray1OfSequenceOfReal* = NCollectionArray1[TColStdSequenceOfReal]
-

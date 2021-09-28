@@ -24,6 +24,5 @@ proc hashCode*(thePointer: pointer; theUpperBound: int): int =
 ##  IsEqual : Returns Standard_True if two CString have the same value
 ## ============================================================================
 
-proc isEqual*(one: StandardAddress; two: StandardAddress): bool =
+proc isEqual*(one: StandardAddress; two: StandardAddress): StandardBoolean =
   discard
-

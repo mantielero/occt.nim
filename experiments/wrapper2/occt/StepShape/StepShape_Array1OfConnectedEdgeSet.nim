@@ -18,3 +18,28 @@ type
   StepShapeArray1OfConnectedEdgeSet* = NCollectionArray1[
       Handle[StepShapeConnectedEdgeSet]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

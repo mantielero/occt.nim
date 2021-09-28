@@ -55,3 +55,28 @@ proc getVerticesForSubstitute*(this: BRepAlgoLoop;
 proc verticesForSubstitute*(this: var BRepAlgoLoop;
                            verVerMap: var TopToolsDataMapOfShapeShape) {.
     importcpp: "VerticesForSubstitute", header: "BRepAlgo_Loop.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

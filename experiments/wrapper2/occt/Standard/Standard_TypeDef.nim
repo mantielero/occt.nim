@@ -14,19 +14,20 @@
 
 ##  VC9 does not have stdint.h
 
-# when (defined(msc_Ver) and (msc_Ver < 1600)):
-#   ##  old MSVC - hasn't stdint header
-#   type
-#     uint8T* = cu__int8
-#     uint16T* = cu__int16
-#     uint32T* = cu__int32
-#     uint64T* = cu__int64
-#     int8T* = c__int8
-#     int16T* = c__int16
-#     int32T* = c__int32
-#     int64T* = c__int64
-# else:
-#   discard
+# # # when (defined(msc_Ver) and (msc_Ver < 1600)):
+# # #   ##  old MSVC - hasn't stdint header
+# # #   type
+# # #     uint8T* = cu__int8
+# # #     uint16T* = cu__int16
+# # #     uint32T* = cu__int32
+# # #     uint64T* = cu__int64
+# # #     int8T* = c__int8
+# # #     int16T* = c__int16
+# # #     int32T* = c__int32
+# # #     int64T* = c__int64
+# # # else:
+# # #   discard
+#[
 when (defined(msc_Ver) and (msc_Ver < 1800)):
   ##  only Visual Studio 2013 (vc12) provides <cinttypes> header
   ##  we do not defined all macros here - only used by OCCT framework
@@ -47,23 +48,24 @@ when (defined(msc_Ver) and (msc_Ver < 1800)):
       PRIuPTR* = "u"
       SCNdPTR* = "d"
       SCNuPTR* = "u"
-else:
-  ##  should be just <cinttypes> since C++11
-  ##  however we use this code for compatibility with old C99 compilers
-const
-  false* = false
-  true* = true
+]#
+#else:
+##  should be just <cinttypes> since C++11
+##  however we use this code for compatibility with old C99 compilers
+#const
+#  false* = false
+#  true* = true
 
 type
-  int* = cint
-  float* = cdouble
-  bool* = bool
-  StandardShortReal* = cfloat
+  #int* = cint
+  StandardReal* = float    #cdouble
+  StandardBoolean* = bool
+  StandardShortReal* = float32 #cfloat
   StandardCharacter* = char
   StandardByte* = cuchar
   StandardAddress* = pointer
   StandardSize* = csize_t
-  StandardTime* = TimeT
+  #StandardTime* = TimeT
 
 ##  Unicode primitives, char16_t, char32_t
 
@@ -75,26 +77,24 @@ type
 type
   StandardUtf8UChar* = cuchar
 
-## !< unsigned UTF-8 char
-
-# when ((defined(gnuc) and not defined(clang) and
-#     ((gnuc == 4 and gnuc_Minor <= 3) or gnuc < 4)) or
-#     (defined(msc_Ver) and (msc_Ver < 1600))):
-#   ##  compatibility with old GCC and MSVC compilers
-#   type
-#     StandardExtCharacter* = uint16T
-#     StandardUtf16Char* = uint16T
-#     StandardUtf32Char* = uint32T
-# else:
-#   type
-#     StandardExtCharacter* = char16T
-#     StandardUtf16Char* = char16T
-#   ## !< UTF-16 char (always unsigned)
-#   type
-#     StandardUtf32Char* = char32T
-#   ## !< UTF-32 char (always unsigned)
-# type
-#   StandardWideChar* = WcharT
+# # ## !< unsigned UTF-8 char
+# # 
+# # # when ((defined(gnuc) and not defined(clang) and
+# # #     ((gnuc == 4 and gnuc_Minor <= 3) or gnuc < 4)) or
+# # #     (defined(msc_Ver) and (msc_Ver < 1600))):
+# # #   ##  compatibility with old GCC and MSVC compilers
+# # #   type
+# # #     StandardExtCharacter* = uint16T
+# # #     StandardUtf16Char* = uint16T
+# # #     StandardUtf32Char* = uint32T
+# # # else:
+# # #   type
+# # #     StandardExtCharacter* = char16T
+# # #     StandardUtf16Char* = char16T
+# # #   ## !< UTF-16 char (always unsigned)
+# # #   type
+# # #     StandardUtf32Char* = char32T
+# # #   ## !< UTF-32 char (always unsigned)
 type
   StandardExtCharacter* = char  # char16T
   StandardUtf16Char* = char     # char16T
@@ -104,6 +104,8 @@ type
 
   StandardWideChar* = char #  WcharT
 
+
+
   
 
 ## !< wide char (unsigned UTF-16 on Windows platform and signed UTF-32 on Linux)
@@ -112,6 +114,11 @@ type
 type
   StandardCString* = ptr StandardCharacter
   StandardExtString* = ptr StandardExtCharacter
+
+
+
+
+
 
 
 

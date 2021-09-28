@@ -29,7 +29,7 @@ proc constructRWStepVisualRWSurfaceStyleSegmentationCurve*(): RWStepVisualRWSurf
     constructor, importcpp: "RWStepVisual_RWSurfaceStyleSegmentationCurve(@)",
     header: "RWStepVisual_RWSurfaceStyleSegmentationCurve.hxx".}
 proc readStep*(this: RWStepVisualRWSurfaceStyleSegmentationCurve;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualSurfaceStyleSegmentationCurve]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepVisualRWSurfaceStyleSegmentationCurve;
            ent: Handle[StepVisualSurfaceStyleSegmentationCurve];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWSurfaceStyleSegmentationCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

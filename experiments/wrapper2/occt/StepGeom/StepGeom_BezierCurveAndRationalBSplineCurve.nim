@@ -20,8 +20,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_BezierCurveAndRationalBSplineCurve"
 discard "forward decl of StepGeom_BezierCurveAndRationalBSplineCurve"
 type
-  HandleStepGeomBezierCurveAndRationalBSplineCurve* = Handle[
-      StepGeomBezierCurveAndRationalBSplineCurve]
+  HandleC1C1* = Handle[StepGeomBezierCurveAndRationalBSplineCurve]
   StepGeomBezierCurveAndRationalBSplineCurve* {.
       importcpp: "StepGeom_BezierCurveAndRationalBSplineCurve",
       header: "StepGeom_BezierCurveAndRationalBSplineCurve.hxx", bycopy.} = object of StepGeomBSplineCurve ##
@@ -35,7 +34,7 @@ proc constructStepGeomBezierCurveAndRationalBSplineCurve*(): StepGeomBezierCurve
     constructor, importcpp: "StepGeom_BezierCurveAndRationalBSplineCurve(@)",
     header: "StepGeom_BezierCurveAndRationalBSplineCurve.hxx".}
 proc init*(this: var StepGeomBezierCurveAndRationalBSplineCurve;
-          aName: Handle[TCollectionHAsciiString]; aDegree: int;
+          aName: Handle[TCollectionHAsciiString]; aDegree: cint;
           aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
           aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
           aSelfIntersect: StepDataLogical;
@@ -43,7 +42,7 @@ proc init*(this: var StepGeomBezierCurveAndRationalBSplineCurve;
           aRationalBSplineCurve: Handle[StepGeomRationalBSplineCurve]) {.
     importcpp: "Init", header: "StepGeom_BezierCurveAndRationalBSplineCurve.hxx".}
 proc init*(this: var StepGeomBezierCurveAndRationalBSplineCurve;
-          aName: Handle[TCollectionHAsciiString]; aDegree: int;
+          aName: Handle[TCollectionHAsciiString]; aDegree: cint;
           aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
           aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
           aSelfIntersect: StepDataLogical;
@@ -68,10 +67,10 @@ proc setWeightsData*(this: var StepGeomBezierCurveAndRationalBSplineCurve;
     header: "StepGeom_BezierCurveAndRationalBSplineCurve.hxx".}
 proc weightsData*(this: StepGeomBezierCurveAndRationalBSplineCurve): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_BezierCurveAndRationalBSplineCurve.hxx".}
-proc weightsDataValue*(this: StepGeomBezierCurveAndRationalBSplineCurve; num: int): float {.
+proc weightsDataValue*(this: StepGeomBezierCurveAndRationalBSplineCurve; num: cint): cfloat {.
     noSideEffect, importcpp: "WeightsDataValue",
     header: "StepGeom_BezierCurveAndRationalBSplineCurve.hxx".}
-proc nbWeightsData*(this: StepGeomBezierCurveAndRationalBSplineCurve): int {.
+proc nbWeightsData*(this: StepGeomBezierCurveAndRationalBSplineCurve): cint {.
     noSideEffect, importcpp: "NbWeightsData",
     header: "StepGeom_BezierCurveAndRationalBSplineCurve.hxx".}
 type
@@ -83,3 +82,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_BezierCur
 proc dynamicType*(this: StepGeomBezierCurveAndRationalBSplineCurve): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepGeom_BezierCurveAndRationalBSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,9 +28,34 @@ proc constructMathSVD*(a: MathMatrix): MathSVD {.constructor,
     importcpp: "math_SVD(@)", header: "math_SVD.hxx".}
 proc isDone*(this: MathSVD): bool {.noSideEffect, importcpp: "IsDone",
                                 header: "math_SVD.hxx".}
-proc solve*(this: var MathSVD; b: MathVector; x: var MathVector; eps: float = 1.0e-6) {.
+proc solve*(this: var MathSVD; b: MathVector; x: var MathVector; eps: cfloat = 1.0e-6) {.
     importcpp: "Solve", header: "math_SVD.hxx".}
-proc pseudoInverse*(this: var MathSVD; inv: var MathMatrix; eps: float = 1.0e-6) {.
+proc pseudoInverse*(this: var MathSVD; inv: var MathMatrix; eps: cfloat = 1.0e-6) {.
     importcpp: "PseudoInverse", header: "math_SVD.hxx".}
 proc dump*(this: MathSVD; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "math_SVD.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

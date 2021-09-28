@@ -13,5 +13,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdSequenceOfReal* = NCollectionSequence[float]
+  TColStdSequenceOfReal* = NCollectionSequence[cfloat]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

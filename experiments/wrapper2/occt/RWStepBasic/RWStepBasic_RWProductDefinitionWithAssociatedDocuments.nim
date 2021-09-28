@@ -30,7 +30,7 @@ proc constructRWStepBasicRWProductDefinitionWithAssociatedDocuments*(): RWStepBa
     importcpp: "RWStepBasic_RWProductDefinitionWithAssociatedDocuments(@)",
     header: "RWStepBasic_RWProductDefinitionWithAssociatedDocuments.hxx".}
 proc readStep*(this: RWStepBasicRWProductDefinitionWithAssociatedDocuments;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicProductDefinitionWithAssociatedDocuments]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepBasicRWProductDefinitionWithAssociatedDocuments;
            ent: Handle[StepBasicProductDefinitionWithAssociatedDocuments];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWProductDefinitionWithAssociatedDocuments.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

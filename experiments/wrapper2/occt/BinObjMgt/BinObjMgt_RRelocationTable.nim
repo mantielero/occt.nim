@@ -46,3 +46,28 @@ proc setHeaderData*(this: var BinObjMgtRRelocationTable;
     importcpp: "SetHeaderData", header: "BinObjMgt_RRelocationTable.hxx".}
 proc clear*(this: var BinObjMgtRRelocationTable; doReleaseMemory: bool = true) {.
     importcpp: "Clear", header: "BinObjMgt_RRelocationTable.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

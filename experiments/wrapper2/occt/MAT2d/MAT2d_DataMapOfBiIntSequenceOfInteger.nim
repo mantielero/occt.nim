@@ -20,3 +20,28 @@ type
   MAT2dDataMapIteratorOfDataMapOfBiIntSequenceOfInteger* = Iterator[MAT2dBiInt,
       TColStdSequenceOfInteger, MAT2dMapBiIntHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

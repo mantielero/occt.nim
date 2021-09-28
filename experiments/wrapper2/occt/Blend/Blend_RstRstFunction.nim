@@ -33,9 +33,9 @@ type
                                                                                            ## redefined.
 
 
-proc nbVariables*(this: BlendRstRstFunction): int {.noSideEffect,
+proc nbVariables*(this: BlendRstRstFunction): cint {.noSideEffect,
     importcpp: "NbVariables", header: "Blend_RstRstFunction.hxx".}
-proc nbEquations*(this: BlendRstRstFunction): int {.noSideEffect,
+proc nbEquations*(this: BlendRstRstFunction): cint {.noSideEffect,
     importcpp: "NbEquations", header: "Blend_RstRstFunction.hxx".}
 proc value*(this: var BlendRstRstFunction; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "Blend_RstRstFunction.hxx".}
@@ -44,18 +44,18 @@ proc derivatives*(this: var BlendRstRstFunction; x: MathVector; d: var MathMatri
 proc values*(this: var BlendRstRstFunction; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.importcpp: "Values",
                                    header: "Blend_RstRstFunction.hxx".}
-proc set*(this: var BlendRstRstFunction; param: float) {.importcpp: "Set",
+proc set*(this: var BlendRstRstFunction; param: cfloat) {.importcpp: "Set",
     header: "Blend_RstRstFunction.hxx".}
-proc set*(this: var BlendRstRstFunction; first: float; last: float) {.importcpp: "Set",
-    header: "Blend_RstRstFunction.hxx".}
-proc getTolerance*(this: BlendRstRstFunction; tolerance: var MathVector; tol: float) {.
+proc set*(this: var BlendRstRstFunction; first: cfloat; last: cfloat) {.
+    importcpp: "Set", header: "Blend_RstRstFunction.hxx".}
+proc getTolerance*(this: BlendRstRstFunction; tolerance: var MathVector; tol: cfloat) {.
     noSideEffect, importcpp: "GetTolerance", header: "Blend_RstRstFunction.hxx".}
 proc getBounds*(this: BlendRstRstFunction; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
                                         header: "Blend_RstRstFunction.hxx".}
-proc isSolution*(this: var BlendRstRstFunction; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendRstRstFunction; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "Blend_RstRstFunction.hxx".}
-proc getMinimalDistance*(this: BlendRstRstFunction): float {.noSideEffect,
+proc getMinimalDistance*(this: BlendRstRstFunction): cfloat {.noSideEffect,
     importcpp: "GetMinimalDistance", header: "Blend_RstRstFunction.hxx".}
 proc pnt1*(this: BlendRstRstFunction): Pnt {.noSideEffect, importcpp: "Pnt1",
     header: "Blend_RstRstFunction.hxx".}
@@ -69,9 +69,9 @@ proc pnt2dOnRst1*(this: BlendRstRstFunction): Pnt2d {.noSideEffect,
     importcpp: "Pnt2dOnRst1", header: "Blend_RstRstFunction.hxx".}
 proc pnt2dOnRst2*(this: BlendRstRstFunction): Pnt2d {.noSideEffect,
     importcpp: "Pnt2dOnRst2", header: "Blend_RstRstFunction.hxx".}
-proc parameterOnRst1*(this: BlendRstRstFunction): float {.noSideEffect,
+proc parameterOnRst1*(this: BlendRstRstFunction): cfloat {.noSideEffect,
     importcpp: "ParameterOnRst1", header: "Blend_RstRstFunction.hxx".}
-proc parameterOnRst2*(this: BlendRstRstFunction): float {.noSideEffect,
+proc parameterOnRst2*(this: BlendRstRstFunction): cfloat {.noSideEffect,
     importcpp: "ParameterOnRst2", header: "Blend_RstRstFunction.hxx".}
 proc isTangencyPoint*(this: BlendRstRstFunction): bool {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "Blend_RstRstFunction.hxx".}
@@ -88,19 +88,19 @@ proc decroch*(this: BlendRstRstFunction; sol: MathVector; nRst1: var Vec;
     noSideEffect, importcpp: "Decroch", header: "Blend_RstRstFunction.hxx".}
 proc isRational*(this: BlendRstRstFunction): bool {.noSideEffect,
     importcpp: "IsRational", header: "Blend_RstRstFunction.hxx".}
-proc getSectionSize*(this: BlendRstRstFunction): float {.noSideEffect,
+proc getSectionSize*(this: BlendRstRstFunction): cfloat {.noSideEffect,
     importcpp: "GetSectionSize", header: "Blend_RstRstFunction.hxx".}
 proc getMinimalWeight*(this: BlendRstRstFunction; weigths: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "GetMinimalWeight", header: "Blend_RstRstFunction.hxx".}
-proc nbIntervals*(this: BlendRstRstFunction; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: BlendRstRstFunction; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Blend_RstRstFunction.hxx".}
 proc intervals*(this: BlendRstRstFunction; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Blend_RstRstFunction.hxx".}
-proc getShape*(this: var BlendRstRstFunction; nbPoles: var int; nbKnots: var int;
-              degree: var int; nbPoles2d: var int) {.importcpp: "GetShape",
+proc getShape*(this: var BlendRstRstFunction; nbPoles: var cint; nbKnots: var cint;
+              degree: var cint; nbPoles2d: var cint) {.importcpp: "GetShape",
     header: "Blend_RstRstFunction.hxx".}
-proc getTolerance*(this: BlendRstRstFunction; boundTol: float; surfTol: float;
-                  angleTol: float; tol3d: var MathVector; tol1D: var MathVector) {.
+proc getTolerance*(this: BlendRstRstFunction; boundTol: cfloat; surfTol: cfloat;
+                  angleTol: cfloat; tol3d: var MathVector; tol1D: var MathVector) {.
     noSideEffect, importcpp: "GetTolerance", header: "Blend_RstRstFunction.hxx".}
 proc knots*(this: var BlendRstRstFunction; tKnots: var TColStdArray1OfReal) {.
     importcpp: "Knots", header: "Blend_RstRstFunction.hxx".}
@@ -122,3 +122,28 @@ proc section*(this: var BlendRstRstFunction; p: BlendPoint;
              weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
              d2Weigths: var TColStdArray1OfReal): bool {.importcpp: "Section",
     header: "Blend_RstRstFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

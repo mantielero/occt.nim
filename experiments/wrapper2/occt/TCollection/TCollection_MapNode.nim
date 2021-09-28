@@ -17,7 +17,7 @@
 discard "forward decl of TCollection_MapNode"
 discard "forward decl of TCollection_MapNode"
 type
-  HandleTCollectionMapNode* = Handle[TCollectionMapNode]
+  HandleC1C1* = Handle[TCollectionMapNode]
 
 ## ! Basic class root of all the Maps.
 
@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TCollection_MapNode.hxx".}
 proc dynamicType*(this: TCollectionMapNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TCollection_MapNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

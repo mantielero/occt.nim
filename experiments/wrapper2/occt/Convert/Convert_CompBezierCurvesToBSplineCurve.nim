@@ -66,23 +66,48 @@ type
 
 
 proc constructConvertCompBezierCurvesToBSplineCurve*(
-    angularTolerance: float = 1.0e-4): ConvertCompBezierCurvesToBSplineCurve {.
+    angularTolerance: cfloat = 1.0e-4): ConvertCompBezierCurvesToBSplineCurve {.
     constructor, importcpp: "Convert_CompBezierCurvesToBSplineCurve(@)",
     header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc addCurve*(this: var ConvertCompBezierCurvesToBSplineCurve;
               poles: TColgpArray1OfPnt) {.importcpp: "AddCurve", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc perform*(this: var ConvertCompBezierCurvesToBSplineCurve) {.
     importcpp: "Perform", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
-proc degree*(this: ConvertCompBezierCurvesToBSplineCurve): int {.noSideEffect,
+proc degree*(this: ConvertCompBezierCurvesToBSplineCurve): cint {.noSideEffect,
     importcpp: "Degree", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
-proc nbPoles*(this: ConvertCompBezierCurvesToBSplineCurve): int {.noSideEffect,
+proc nbPoles*(this: ConvertCompBezierCurvesToBSplineCurve): cint {.noSideEffect,
     importcpp: "NbPoles", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc poles*(this: ConvertCompBezierCurvesToBSplineCurve;
            poles: var TColgpArray1OfPnt) {.noSideEffect, importcpp: "Poles", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
-proc nbKnots*(this: ConvertCompBezierCurvesToBSplineCurve): int {.noSideEffect,
+proc nbKnots*(this: ConvertCompBezierCurvesToBSplineCurve): cint {.noSideEffect,
     importcpp: "NbKnots", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc knotsAndMults*(this: ConvertCompBezierCurvesToBSplineCurve;
                    knots: var TColStdArray1OfReal;
                    mults: var TColStdArray1OfInteger) {.noSideEffect,
     importcpp: "KnotsAndMults",
     header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

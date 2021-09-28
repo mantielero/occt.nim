@@ -15,3 +15,28 @@
 type
   BOPDS_VectorOfInterfVF* = NCollectionVector[BOPDS_InterfVF]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

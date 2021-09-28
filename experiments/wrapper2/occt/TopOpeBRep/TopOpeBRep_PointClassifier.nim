@@ -30,7 +30,33 @@ proc init*(this: var TopOpeBRepPointClassifier) {.importcpp: "Init",
     header: "TopOpeBRep_PointClassifier.hxx".}
 proc load*(this: var TopOpeBRepPointClassifier; f: TopoDS_Face) {.importcpp: "Load",
     header: "TopOpeBRep_PointClassifier.hxx".}
-proc classify*(this: var TopOpeBRepPointClassifier; f: TopoDS_Face; p: Pnt2d; tol: float): TopAbsState {.
-    importcpp: "Classify", header: "TopOpeBRep_PointClassifier.hxx".}
+proc classify*(this: var TopOpeBRepPointClassifier; f: TopoDS_Face; p: Pnt2d;
+              tol: cfloat): TopAbsState {.importcpp: "Classify",
+                                       header: "TopOpeBRep_PointClassifier.hxx".}
 proc state*(this: TopOpeBRepPointClassifier): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRep_PointClassifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

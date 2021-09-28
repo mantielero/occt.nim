@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMXCAFDoc_CentroidDriver"
 discard "forward decl of XmlMXCAFDoc_CentroidDriver"
 type
-  HandleXmlMXCAFDocCentroidDriver* = Handle[XmlMXCAFDocCentroidDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocCentroidDriver]
 
 ## ! Attribute Driver.
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMXCAFDocCentroidDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMXCAFDoc_CentroidDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

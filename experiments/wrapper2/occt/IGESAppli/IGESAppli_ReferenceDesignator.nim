@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESAppli_ReferenceDesignator"
 discard "forward decl of IGESAppli_ReferenceDesignator"
 type
-  HandleIGESAppliReferenceDesignator* = Handle[IGESAppliReferenceDesignator]
+  HandleC1C1* = Handle[IGESAppliReferenceDesignator]
 
 ## ! defines ReferenceDesignator, Type <406> Form <7>
 ## ! in package IGESAppli
@@ -35,10 +35,10 @@ type
 proc constructIGESAppliReferenceDesignator*(): IGESAppliReferenceDesignator {.
     constructor, importcpp: "IGESAppli_ReferenceDesignator(@)",
     header: "IGESAppli_ReferenceDesignator.hxx".}
-proc init*(this: var IGESAppliReferenceDesignator; nbPropVal: int;
+proc init*(this: var IGESAppliReferenceDesignator; nbPropVal: cint;
           aText: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESAppli_ReferenceDesignator.hxx".}
-proc nbPropertyValues*(this: IGESAppliReferenceDesignator): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESAppliReferenceDesignator): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_ReferenceDesignator.hxx".}
 proc refDesignatorText*(this: IGESAppliReferenceDesignator): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "RefDesignatorText",
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESAppliReferenceDesignator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESAppli_ReferenceDesignator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

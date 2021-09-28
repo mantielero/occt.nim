@@ -15,14 +15,54 @@
 ## !!!Ignored construct:  # _OSD_Exception_FLT_DIVIDE_BY_ZERO_HeaderFile [NewLine] # _OSD_Exception_FLT_DIVIDE_BY_ZERO_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_FLT_DIVIDE_BY_ZERO ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_Exception_FLT_DIVIDE_BY_ZERO"
-type
-  HandleOSD_ExceptionFLT_DIVIDE_BY_ZEROOSD_ExceptionFLT_DIVIDE_BY_ZERO* = Handle[
-      OSD_ExceptionFLT_DIVIDE_BY_ZERO]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_Exception_FLT_DIVIDE_BY_ZERO , OSD_Exception ) # ! defined No_Exception && ! defined No_OSD_Exception_FLT_DIVIDE_BY_ZERO [NewLine] # OSD_Exception_FLT_DIVIDE_BY_ZERO_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_Exception_FLT_DIVIDE_BY_ZERO ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_FLT_DIVIDE_BY_ZERO [NewLine] # if ( CONDITION ) throw OSD_Exception_FLT_DIVIDE_BY_ZERO ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_Exception_FLT_DIVIDE_BY_ZERO_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_FLT_DIVIDE_BY_ZERO , OSD_Exception ) #  _OSD_Exception_FLT_DIVIDE_BY_ZERO_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_FLT_DIVIDE_BY_ZERO , OSD_Exception ) #  _OSD_Exception_FLT_DIVIDE_BY_ZERO_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

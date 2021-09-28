@@ -43,7 +43,32 @@ proc findItemWithNAUO*(this: STEPSelectionsAssemblyExplorer;
                       nauo: Handle[StepReprNextAssemblyUsageOccurrence]): Handle[
     StandardTransient] {.noSideEffect, importcpp: "FindItemWithNAUO",
                         header: "STEPSelections_AssemblyExplorer.hxx".}
-proc nbAssemblies*(this: STEPSelectionsAssemblyExplorer): int {.noSideEffect,
+proc nbAssemblies*(this: STEPSelectionsAssemblyExplorer): cint {.noSideEffect,
     importcpp: "NbAssemblies", header: "STEPSelections_AssemblyExplorer.hxx".}
-proc root*(this: STEPSelectionsAssemblyExplorer; rank: int = 1): Handle[
+proc root*(this: STEPSelectionsAssemblyExplorer; rank: cint = 1): Handle[
     STEPSelectionsAssemblyComponent] {.noSideEffect, importcpp: "Root", header: "STEPSelections_AssemblyExplorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

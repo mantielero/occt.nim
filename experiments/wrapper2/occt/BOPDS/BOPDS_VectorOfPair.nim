@@ -15,3 +15,28 @@
 type
   BOPDS_VectorOfPair* = NCollectionVector[BOPDS_Pair]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

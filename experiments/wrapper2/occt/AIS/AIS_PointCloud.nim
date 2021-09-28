@@ -131,7 +131,7 @@ proc unsetMaterial*(this: var AIS_PointCloud) {.importcpp: "UnsetMaterial",
     header: "AIS_PointCloud.hxx".}
 discard "forward decl of AIS_PointCloud"
 type
-  HandleAIS_PointCloud* = Handle[AIS_PointCloud]
+  HandleC1C1* = Handle[AIS_PointCloud]
 
 ## ! Custom owner for highlighting selected points.
 
@@ -165,11 +165,36 @@ proc isForcedHilight*(this: AIS_PointCloudOwner): bool {.noSideEffect,
     importcpp: "IsForcedHilight", header: "AIS_PointCloud.hxx".}
 proc hilightWithColor*(this: var AIS_PointCloudOwner;
                       thePrsMgr: Handle[PrsMgrPresentationManager3d];
-                      theStyle: Handle[Prs3dDrawer]; theMode: int) {.
+                      theStyle: Handle[Prs3dDrawer]; theMode: cint) {.
     importcpp: "HilightWithColor", header: "AIS_PointCloud.hxx".}
 proc unhilight*(this: var AIS_PointCloudOwner;
-               thePrsMgr: Handle[PrsMgrPresentationManager]; theMode: int) {.
+               thePrsMgr: Handle[PrsMgrPresentationManager]; theMode: cint) {.
     importcpp: "Unhilight", header: "AIS_PointCloud.hxx".}
 proc clear*(this: var AIS_PointCloudOwner;
-           thePrsMgr: Handle[PrsMgrPresentationManager]; theMode: int) {.
+           thePrsMgr: Handle[PrsMgrPresentationManager]; theMode: cint) {.
     importcpp: "Clear", header: "AIS_PointCloud.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

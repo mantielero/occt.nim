@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMXCAFDoc_GraphNodeDriver"
 discard "forward decl of XmlMXCAFDoc_GraphNodeDriver"
 type
-  HandleXmlMXCAFDocGraphNodeDriver* = Handle[XmlMXCAFDocGraphNodeDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocGraphNodeDriver]
 
 ## ! Attribute Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMXCAFDocGraphNodeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMXCAFDoc_GraphNodeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

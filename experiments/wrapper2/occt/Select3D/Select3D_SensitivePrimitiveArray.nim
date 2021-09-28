@@ -67,10 +67,10 @@ proc constructSelect3D_SensitivePrimitiveArray*(
     theOwnerId: Handle[SelectMgrEntityOwner]): Select3D_SensitivePrimitiveArray {.
     constructor, importcpp: "Select3D_SensitivePrimitiveArray(@)",
     header: "Select3D_SensitivePrimitiveArray.hxx".}
-proc patchSizeMax*(this: Select3D_SensitivePrimitiveArray): int {.noSideEffect,
+proc patchSizeMax*(this: Select3D_SensitivePrimitiveArray): cint {.noSideEffect,
     importcpp: "PatchSizeMax", header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc setPatchSizeMax*(this: var Select3D_SensitivePrimitiveArray;
-                     thePatchSizeMax: int) {.importcpp: "SetPatchSizeMax",
+                     thePatchSizeMax: cint) {.importcpp: "SetPatchSizeMax",
     header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc patchDistance*(this: Select3D_SensitivePrimitiveArray): cfloat {.noSideEffect,
     importcpp: "PatchDistance", header: "Select3D_SensitivePrimitiveArray.hxx".}
@@ -80,31 +80,32 @@ proc setPatchDistance*(this: var Select3D_SensitivePrimitiveArray;
 proc initTriangulation*(this: var Select3D_SensitivePrimitiveArray;
                        theVerts: Handle[Graphic3dBuffer];
                        theIndices: Handle[Graphic3dIndexBuffer];
-                       theInitLoc: TopLocLocation; theIndexLower: int;
-                       theIndexUpper: int; theToEvalMinMax: bool = true;
-                       theNbGroups: int = 1): bool {.importcpp: "InitTriangulation",
+                       theInitLoc: TopLocLocation; theIndexLower: cint;
+                       theIndexUpper: cint; theToEvalMinMax: bool = true;
+                       theNbGroups: cint = 1): bool {.importcpp: "InitTriangulation",
     header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc initTriangulation*(this: var Select3D_SensitivePrimitiveArray;
                        theVerts: Handle[Graphic3dBuffer];
                        theIndices: Handle[Graphic3dIndexBuffer];
                        theInitLoc: TopLocLocation; theToEvalMinMax: bool = true;
-                       theNbGroups: int = 1): bool {.importcpp: "InitTriangulation",
+                       theNbGroups: cint = 1): bool {.importcpp: "InitTriangulation",
     header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc initPoints*(this: var Select3D_SensitivePrimitiveArray;
                 theVerts: Handle[Graphic3dBuffer];
                 theIndices: Handle[Graphic3dIndexBuffer];
-                theInitLoc: TopLocLocation; theIndexLower: int; theIndexUpper: int;
-                theToEvalMinMax: bool = true; theNbGroups: int = 1): bool {.
-    importcpp: "InitPoints", header: "Select3D_SensitivePrimitiveArray.hxx".}
+                theInitLoc: TopLocLocation; theIndexLower: cint;
+                theIndexUpper: cint; theToEvalMinMax: bool = true;
+                theNbGroups: cint = 1): bool {.importcpp: "InitPoints",
+    header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc initPoints*(this: var Select3D_SensitivePrimitiveArray;
                 theVerts: Handle[Graphic3dBuffer];
                 theIndices: Handle[Graphic3dIndexBuffer];
                 theInitLoc: TopLocLocation; theToEvalMinMax: bool = true;
-                theNbGroups: int = 1): bool {.importcpp: "InitPoints",
+                theNbGroups: cint = 1): bool {.importcpp: "InitPoints",
     header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc initPoints*(this: var Select3D_SensitivePrimitiveArray;
                 theVerts: Handle[Graphic3dBuffer]; theInitLoc: TopLocLocation;
-                theToEvalMinMax: bool = true; theNbGroups: int = 1): bool {.
+                theToEvalMinMax: bool = true; theNbGroups: cint = 1): bool {.
     importcpp: "InitPoints", header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc setMinMax*(this: var Select3D_SensitivePrimitiveArray; theMinX: cdouble;
                theMinY: cdouble; theMinZ: cdouble; theMaxX: cdouble; theMaxY: cdouble;
@@ -133,26 +134,26 @@ proc toDetectEdges*(this: Select3D_SensitivePrimitiveArray): bool {.noSideEffect
     importcpp: "ToDetectEdges", header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc setDetectEdges*(this: var Select3D_SensitivePrimitiveArray; theToDetect: bool) {.
     importcpp: "SetDetectEdges", header: "Select3D_SensitivePrimitiveArray.hxx".}
-proc lastDetectedElement*(this: Select3D_SensitivePrimitiveArray): int {.
+proc lastDetectedElement*(this: Select3D_SensitivePrimitiveArray): cint {.
     noSideEffect, importcpp: "LastDetectedElement",
     header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc lastDetectedElementMap*(this: Select3D_SensitivePrimitiveArray): Handle[
     TColStdHPackedMapOfInteger] {.noSideEffect,
                                  importcpp: "LastDetectedElementMap",
                                  header: "Select3D_SensitivePrimitiveArray.hxx".}
-proc lastDetectedNode*(this: Select3D_SensitivePrimitiveArray): int {.noSideEffect,
+proc lastDetectedNode*(this: Select3D_SensitivePrimitiveArray): cint {.noSideEffect,
     importcpp: "LastDetectedNode", header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc lastDetectedNodeMap*(this: Select3D_SensitivePrimitiveArray): Handle[
     TColStdHPackedMapOfInteger] {.noSideEffect, importcpp: "LastDetectedNodeMap",
                                  header: "Select3D_SensitivePrimitiveArray.hxx".}
-proc lastDetectedEdgeNode1*(this: Select3D_SensitivePrimitiveArray): int {.
+proc lastDetectedEdgeNode1*(this: Select3D_SensitivePrimitiveArray): cint {.
     noSideEffect, importcpp: "LastDetectedEdgeNode1",
     header: "Select3D_SensitivePrimitiveArray.hxx".}
-proc lastDetectedEdgeNode2*(this: Select3D_SensitivePrimitiveArray): int {.
+proc lastDetectedEdgeNode2*(this: Select3D_SensitivePrimitiveArray): cint {.
     noSideEffect, importcpp: "LastDetectedEdgeNode2",
     header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc dumpJson*(this: Select3D_SensitivePrimitiveArray;
-              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+              theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     importcpp: "DumpJson", header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc matches*(this: var Select3D_SensitivePrimitiveArray;
              theMgr: var SelectBasicsSelectingVolumeManager;
@@ -161,16 +162,16 @@ proc matches*(this: var Select3D_SensitivePrimitiveArray;
 proc getConnected*(this: var Select3D_SensitivePrimitiveArray): Handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "Select3D_SensitivePrimitiveArray.hxx".}
-proc size*(this: Select3D_SensitivePrimitiveArray): int {.noSideEffect,
+proc size*(this: Select3D_SensitivePrimitiveArray): cint {.noSideEffect,
     importcpp: "Size", header: "Select3D_SensitivePrimitiveArray.hxx".}
-proc nbSubElements*(this: Select3D_SensitivePrimitiveArray): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitivePrimitiveArray): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitivePrimitiveArray.hxx".}
-proc box*(this: Select3D_SensitivePrimitiveArray; theIdx: int): Select3D_BndBox3d {.
+proc box*(this: Select3D_SensitivePrimitiveArray; theIdx: cint): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "Select3D_SensitivePrimitiveArray.hxx".}
-proc center*(this: Select3D_SensitivePrimitiveArray; theIdx: int; theAxis: int): float {.
+proc center*(this: Select3D_SensitivePrimitiveArray; theIdx: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center",
     header: "Select3D_SensitivePrimitiveArray.hxx".}
-proc swap*(this: var Select3D_SensitivePrimitiveArray; theIdx1: int; theIdx2: int) {.
+proc swap*(this: var Select3D_SensitivePrimitiveArray; theIdx1: cint; theIdx2: cint) {.
     importcpp: "Swap", header: "Select3D_SensitivePrimitiveArray.hxx".}
 proc boundingBox*(this: var Select3D_SensitivePrimitiveArray): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitivePrimitiveArray.hxx".}
@@ -198,6 +199,30 @@ proc dynamicType*(this: Select3D_SensitivePrimitiveArray): Handle[StandardType] 
     header: "Select3D_SensitivePrimitiveArray.hxx".}
 discard "forward decl of Select3D_SensitivePrimitiveArray"
 type
-  HandleSelect3D_SensitivePrimitiveArray* = Handle[
-      Select3D_SensitivePrimitiveArray]
+  HandleC1C1* = Handle[Select3D_SensitivePrimitiveArray]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

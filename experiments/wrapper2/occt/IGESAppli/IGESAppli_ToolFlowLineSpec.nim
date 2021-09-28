@@ -64,5 +64,30 @@ proc ownCopy*(this: IGESAppliToolFlowLineSpec;
              entto: Handle[IGESAppliFlowLineSpec]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolFlowLineSpec.hxx".}
 proc ownDump*(this: IGESAppliToolFlowLineSpec; ent: Handle[IGESAppliFlowLineSpec];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolFlowLineSpec.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

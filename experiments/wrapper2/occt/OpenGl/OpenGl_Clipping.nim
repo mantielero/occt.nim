@@ -60,7 +60,7 @@ proc isCappingOn*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "IsCappingOn", header: "OpenGl_Clipping.hxx".}
 proc isClippingOrCappingOn*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "IsClippingOrCappingOn", header: "OpenGl_Clipping.hxx".}
-proc nbClippingOrCappingOn*(this: OpenGlClipping): int {.noSideEffect,
+proc nbClippingOrCappingOn*(this: OpenGlClipping): cint {.noSideEffect,
     importcpp: "NbClippingOrCappingOn", header: "OpenGl_Clipping.hxx".}
 proc hasClippingChains*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "HasClippingChains", header: "OpenGl_Clipping.hxx".}
@@ -75,7 +75,7 @@ proc restoreDisabled*(this: var OpenGlClipping) {.importcpp: "RestoreDisabled",
     header: "OpenGl_Clipping.hxx".}
 proc cappedChain*(this: OpenGlClipping): Handle[Graphic3dClipPlane] {.noSideEffect,
     importcpp: "CappedChain", header: "OpenGl_Clipping.hxx".}
-proc cappedSubPlane*(this: OpenGlClipping): int {.noSideEffect,
+proc cappedSubPlane*(this: OpenGlClipping): cint {.noSideEffect,
     importcpp: "CappedSubPlane", header: "OpenGl_Clipping.hxx".}
 proc isCappingFilterOn*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "IsCappingFilterOn", header: "OpenGl_Clipping.hxx".}
@@ -84,10 +84,35 @@ proc isCappingDisableAllExcept*(this: OpenGlClipping): bool {.noSideEffect,
 proc isCappingEnableAllExcept*(this: OpenGlClipping): bool {.noSideEffect,
     importcpp: "IsCappingEnableAllExcept", header: "OpenGl_Clipping.hxx".}
 proc disableAllExcept*(this: var OpenGlClipping;
-                      theChain: Handle[Graphic3dClipPlane]; theSubPlaneIndex: int) {.
+                      theChain: Handle[Graphic3dClipPlane]; theSubPlaneIndex: cint) {.
     importcpp: "DisableAllExcept", header: "OpenGl_Clipping.hxx".}
 proc enableAllExcept*(this: var OpenGlClipping;
-                     theChain: Handle[Graphic3dClipPlane]; theSubPlaneIndex: int) {.
+                     theChain: Handle[Graphic3dClipPlane]; theSubPlaneIndex: cint) {.
     importcpp: "EnableAllExcept", header: "OpenGl_Clipping.hxx".}
 proc resetCappingFilter*(this: var OpenGlClipping) {.
     importcpp: "ResetCappingFilter", header: "OpenGl_Clipping.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

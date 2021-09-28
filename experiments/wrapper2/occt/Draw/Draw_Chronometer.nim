@@ -20,7 +20,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of Draw_Chronometer"
 discard "forward decl of Draw_Chronometer"
 type
-  HandleDrawChronometer* = Handle[DrawChronometer]
+  HandleC1C1* = Handle[DrawChronometer]
 
 ## ! Class to store chronometer variables.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Draw_Chronometer.hxx".}
 proc dynamicType*(this: DrawChronometer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Chronometer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESBasic_SingleParent"
 discard "forward decl of IGESBasic_SingleParent"
 type
-  HandleIGESBasicSingleParent* = Handle[IGESBasicSingleParent]
+  HandleC1C1* = Handle[IGESBasicSingleParent]
 
 ## ! defines SingleParent, Type <402> Form <9>
 ## ! in package IGESBasic
@@ -34,17 +34,17 @@ type
 
 proc constructIGESBasicSingleParent*(): IGESBasicSingleParent {.constructor,
     importcpp: "IGESBasic_SingleParent(@)", header: "IGESBasic_SingleParent.hxx".}
-proc init*(this: var IGESBasicSingleParent; nbParentEntities: int;
+proc init*(this: var IGESBasicSingleParent; nbParentEntities: cint;
           aParentEntity: Handle[IGESDataIGESEntity];
           allChildren: Handle[IGESDataHArray1OfIGESEntity]) {.importcpp: "Init",
     header: "IGESBasic_SingleParent.hxx".}
-proc nbParentEntities*(this: IGESBasicSingleParent): int {.noSideEffect,
+proc nbParentEntities*(this: IGESBasicSingleParent): cint {.noSideEffect,
     importcpp: "NbParentEntities", header: "IGESBasic_SingleParent.hxx".}
 proc singleParent*(this: IGESBasicSingleParent): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "SingleParent", header: "IGESBasic_SingleParent.hxx".}
-proc nbChildren*(this: IGESBasicSingleParent): int {.noSideEffect,
+proc nbChildren*(this: IGESBasicSingleParent): cint {.noSideEffect,
     importcpp: "NbChildren", header: "IGESBasic_SingleParent.hxx".}
-proc child*(this: IGESBasicSingleParent; index: int): Handle[IGESDataIGESEntity] {.
+proc child*(this: IGESBasicSingleParent; index: cint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Child", header: "IGESBasic_SingleParent.hxx".}
 type
   IGESBasicSingleParentbaseType* = IGESDataSingleParentEntity
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESBasic_SingleParent.hxx".}
 proc dynamicType*(this: IGESBasicSingleParent): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESBasic_SingleParent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,4 +17,3 @@
 
 template ncollection_Harray2*(hClassName, `type`: untyped): untyped =
   define_Harray2(hClassName, nCollectionArray2[Type])
-

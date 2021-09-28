@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_Integer"
 discard "forward decl of TDataStd_Integer"
 type
-  HandleTDataStdInteger* = Handle[TDataStdInteger]
+  HandleC1C1* = Handle[TDataStdInteger]
 
 ## ! The basis to define an integer attribute.
 
@@ -34,18 +34,18 @@ type
 
 proc getID*(): StandardGUID {.importcpp: "TDataStd_Integer::GetID(@)",
                            header: "TDataStd_Integer.hxx".}
-proc set*(label: TDF_Label; value: int): Handle[TDataStdInteger] {.
+proc set*(label: TDF_Label; value: cint): Handle[TDataStdInteger] {.
     importcpp: "TDataStd_Integer::Set(@)", header: "TDataStd_Integer.hxx".}
-proc set*(label: TDF_Label; guid: StandardGUID; value: int): Handle[TDataStdInteger] {.
+proc set*(label: TDF_Label; guid: StandardGUID; value: cint): Handle[TDataStdInteger] {.
     importcpp: "TDataStd_Integer::Set(@)", header: "TDataStd_Integer.hxx".}
-proc set*(this: var TDataStdInteger; v: int) {.importcpp: "Set",
+proc set*(this: var TDataStdInteger; v: cint) {.importcpp: "Set",
     header: "TDataStd_Integer.hxx".}
 proc setID*(this: var TDataStdInteger; guid: StandardGUID) {.importcpp: "SetID",
     header: "TDataStd_Integer.hxx".}
 proc setID*(this: var TDataStdInteger) {.importcpp: "SetID",
                                      header: "TDataStd_Integer.hxx".}
-proc get*(this: TDataStdInteger): int {.noSideEffect, importcpp: "Get",
-                                    header: "TDataStd_Integer.hxx".}
+proc get*(this: TDataStdInteger): cint {.noSideEffect, importcpp: "Get",
+                                     header: "TDataStd_Integer.hxx".}
 proc isCaptured*(this: TDataStdInteger): bool {.noSideEffect,
     importcpp: "IsCaptured", header: "TDataStd_Integer.hxx".}
 proc id*(this: TDataStdInteger): StandardGUID {.noSideEffect, importcpp: "ID",
@@ -62,8 +62,8 @@ proc dump*(this: TDataStdInteger; anOS: var StandardOStream): var StandardOStrea
 proc constructTDataStdInteger*(): TDataStdInteger {.constructor,
     importcpp: "TDataStd_Integer(@)", header: "TDataStd_Integer.hxx".}
 proc dumpJson*(this: TDataStdInteger; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_Integer.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_Integer.hxx".}
 type
   TDataStdIntegerbaseType* = TDF_Attribute
 
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_Integer.hxx".}
 proc dynamicType*(this: TDataStdInteger): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_Integer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of MAT_Arc"
 discard "forward decl of MAT_BasicElt"
 discard "forward decl of MAT_BasicElt"
 type
-  HandleMAT_BasicElt* = Handle[MAT_BasicElt]
+  HandleC1C1* = Handle[MAT_BasicElt]
 
 ## ! A    BasicELt  is  associated   to  each  elemtary
 ## ! constituant of  the figure.
@@ -35,23 +35,23 @@ type
                                                                                                       ## <me>.
 
 
-proc constructMAT_BasicElt*(anInteger: int): MAT_BasicElt {.constructor,
+proc constructMAT_BasicElt*(anInteger: cint): MAT_BasicElt {.constructor,
     importcpp: "MAT_BasicElt(@)", header: "MAT_BasicElt.hxx".}
 proc startArc*(this: MAT_BasicElt): Handle[MAT_Arc] {.noSideEffect,
     importcpp: "StartArc", header: "MAT_BasicElt.hxx".}
 proc endArc*(this: MAT_BasicElt): Handle[MAT_Arc] {.noSideEffect,
     importcpp: "EndArc", header: "MAT_BasicElt.hxx".}
-proc index*(this: MAT_BasicElt): int {.noSideEffect, importcpp: "Index",
-                                   header: "MAT_BasicElt.hxx".}
-proc geomIndex*(this: MAT_BasicElt): int {.noSideEffect, importcpp: "GeomIndex",
-                                       header: "MAT_BasicElt.hxx".}
+proc index*(this: MAT_BasicElt): cint {.noSideEffect, importcpp: "Index",
+                                    header: "MAT_BasicElt.hxx".}
+proc geomIndex*(this: MAT_BasicElt): cint {.noSideEffect, importcpp: "GeomIndex",
+                                        header: "MAT_BasicElt.hxx".}
 proc setStartArc*(this: var MAT_BasicElt; anArc: Handle[MAT_Arc]) {.
     importcpp: "SetStartArc", header: "MAT_BasicElt.hxx".}
 proc setEndArc*(this: var MAT_BasicElt; anArc: Handle[MAT_Arc]) {.
     importcpp: "SetEndArc", header: "MAT_BasicElt.hxx".}
-proc setIndex*(this: var MAT_BasicElt; anInteger: int) {.importcpp: "SetIndex",
+proc setIndex*(this: var MAT_BasicElt; anInteger: cint) {.importcpp: "SetIndex",
     header: "MAT_BasicElt.hxx".}
-proc setGeomIndex*(this: var MAT_BasicElt; anInteger: int) {.
+proc setGeomIndex*(this: var MAT_BasicElt; anInteger: cint) {.
     importcpp: "SetGeomIndex", header: "MAT_BasicElt.hxx".}
 type
   MAT_BasicEltbaseType* = StandardTransient
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MAT_BasicElt::get_type_descriptor(@)", header: "MAT_BasicElt.hxx".}
 proc dynamicType*(this: MAT_BasicElt): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_BasicElt.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

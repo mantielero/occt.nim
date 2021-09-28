@@ -22,3 +22,28 @@ type
     OSD_IBM, OSD_VAX, OSD_LIN, OSD_AIX
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

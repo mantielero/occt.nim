@@ -20,7 +20,7 @@ discard "forward decl of StepGeom_PcurveOrSurface"
 discard "forward decl of StepGeom_SurfaceCurve"
 discard "forward decl of StepGeom_SurfaceCurve"
 type
-  HandleStepGeomSurfaceCurve* = Handle[StepGeomSurfaceCurve]
+  HandleC1C1* = Handle[StepGeomSurfaceCurve]
   StepGeomSurfaceCurve* {.importcpp: "StepGeom_SurfaceCurve",
                          header: "StepGeom_SurfaceCurve.hxx", bycopy.} = object of StepGeomCurve ##
                                                                                           ## !
@@ -47,10 +47,10 @@ proc associatedGeometry*(this: StepGeomSurfaceCurve): Handle[
     StepGeomHArray1OfPcurveOrSurface] {.noSideEffect,
                                        importcpp: "AssociatedGeometry",
                                        header: "StepGeom_SurfaceCurve.hxx".}
-proc associatedGeometryValue*(this: StepGeomSurfaceCurve; num: int): StepGeomPcurveOrSurface {.
+proc associatedGeometryValue*(this: StepGeomSurfaceCurve; num: cint): StepGeomPcurveOrSurface {.
     noSideEffect, importcpp: "AssociatedGeometryValue",
     header: "StepGeom_SurfaceCurve.hxx".}
-proc nbAssociatedGeometry*(this: StepGeomSurfaceCurve): int {.noSideEffect,
+proc nbAssociatedGeometry*(this: StepGeomSurfaceCurve): cint {.noSideEffect,
     importcpp: "NbAssociatedGeometry", header: "StepGeom_SurfaceCurve.hxx".}
 proc setMasterRepresentation*(this: var StepGeomSurfaceCurve; aMasterRepresentation: StepGeomPreferredSurfaceCurveRepresentation) {.
     importcpp: "SetMasterRepresentation", header: "StepGeom_SurfaceCurve.hxx".}
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_SurfaceCurve.hxx".}
 proc dynamicType*(this: StepGeomSurfaceCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_SurfaceCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

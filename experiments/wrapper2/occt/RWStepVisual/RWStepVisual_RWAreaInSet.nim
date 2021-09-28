@@ -28,7 +28,7 @@ proc constructRWStepVisualRWAreaInSet*(): RWStepVisualRWAreaInSet {.constructor,
     importcpp: "RWStepVisual_RWAreaInSet(@)",
     header: "RWStepVisual_RWAreaInSet.hxx".}
 proc readStep*(this: RWStepVisualRWAreaInSet; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualAreaInSet]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWAreaInSet.hxx".}
 proc writeStep*(this: RWStepVisualRWAreaInSet; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepVisualRWAreaInSet; sw: var StepDataStepWriter;
 proc share*(this: RWStepVisualRWAreaInSet; ent: Handle[StepVisualAreaInSet];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWAreaInSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -33,9 +33,9 @@ proc constructShapeUpgradeShapeDivideContinuity*(): ShapeUpgradeShapeDivideConti
 proc constructShapeUpgradeShapeDivideContinuity*(s: TopoDS_Shape): ShapeUpgradeShapeDivideContinuity {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideContinuity(@)",
     header: "ShapeUpgrade_ShapeDivideContinuity.hxx".}
-proc setTolerance*(this: var ShapeUpgradeShapeDivideContinuity; tol: float) {.
+proc setTolerance*(this: var ShapeUpgradeShapeDivideContinuity; tol: cfloat) {.
     importcpp: "SetTolerance", header: "ShapeUpgrade_ShapeDivideContinuity.hxx".}
-proc setTolerance2d*(this: var ShapeUpgradeShapeDivideContinuity; tol: float) {.
+proc setTolerance2d*(this: var ShapeUpgradeShapeDivideContinuity; tol: cfloat) {.
     importcpp: "SetTolerance2d", header: "ShapeUpgrade_ShapeDivideContinuity.hxx".}
 proc setBoundaryCriterion*(this: var ShapeUpgradeShapeDivideContinuity;
                           criterion: GeomAbsShape = geomAbsC1) {.
@@ -49,3 +49,28 @@ proc setSurfaceCriterion*(this: var ShapeUpgradeShapeDivideContinuity;
                          criterion: GeomAbsShape = geomAbsC1) {.
     importcpp: "SetSurfaceCriterion",
     header: "ShapeUpgrade_ShapeDivideContinuity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

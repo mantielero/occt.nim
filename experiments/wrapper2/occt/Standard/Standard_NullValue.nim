@@ -14,16 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_NullValue_HeaderFile [NewLine] # _Standard_NullValue_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_RangeError . hxx > [NewLine] class Standard_NullValue ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_NullValue"
 discard "forward decl of Standard_NullValue"
 type
-  HandleStandardNullValueStandardNullValue* = Handle[StandardNullValue]
+  StandardNullValue* {.importcpp: "Standard_NullValue",
+                      header: "Standard_NullValue.hxx", bycopy.} = object #of StandardRangeError
+type
+  HandleStandardNullValue* = Handle[StandardNullValue]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_NullValue [NewLine] # if ( CONDITION ) throw Standard_NullValue ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardNullValue):
+  template standardNullValueRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardNullValue*(a1: Message): Throw {.
+          importcpp: "Standard_NullValue(@)", header: "Standard_NullValue.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_NullValue , Standard_RangeError ) #  _Standard_NullValue_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

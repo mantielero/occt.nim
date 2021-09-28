@@ -20,7 +20,7 @@ discard "forward decl of StdObjMgt_Persistent"
 discard "forward decl of StdStorage_RootData"
 discard "forward decl of StdStorage_RootData"
 type
-  HandleStdStorageRootData* = Handle[StdStorageRootData]
+  HandleC1C1* = Handle[StdStorageRootData]
 
 ## ! Storage root data section contains root persistent objects
 
@@ -41,7 +41,7 @@ proc read*(this: var StdStorageRootData; theDriver: Handle[StorageBaseDriver]): 
     importcpp: "Read", header: "StdStorage_RootData.hxx".}
 proc write*(this: var StdStorageRootData; theDriver: Handle[StorageBaseDriver]): bool {.
     importcpp: "Write", header: "StdStorage_RootData.hxx".}
-proc numberOfRoots*(this: StdStorageRootData): int {.noSideEffect,
+proc numberOfRoots*(this: StdStorageRootData): cint {.noSideEffect,
     importcpp: "NumberOfRoots", header: "StdStorage_RootData.hxx".}
 proc addRoot*(this: var StdStorageRootData; aRoot: Handle[StdStorageRoot]) {.
     importcpp: "AddRoot", header: "StdStorage_RootData.hxx".}
@@ -63,3 +63,28 @@ proc clearErrorStatus*(this: var StdStorageRootData) {.
     importcpp: "ClearErrorStatus", header: "StdStorage_RootData.hxx".}
 proc clear*(this: var StdStorageRootData) {.importcpp: "Clear",
                                         header: "StdStorage_RootData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

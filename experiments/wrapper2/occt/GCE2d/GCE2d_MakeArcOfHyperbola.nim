@@ -42,11 +42,11 @@ type
                                                                                             ## Alpha2.
 
 
-proc constructGCE2dMakeArcOfHyperbola*(hypr: Hypr2d; alpha1: float; alpha2: float;
+proc constructGCE2dMakeArcOfHyperbola*(hypr: Hypr2d; alpha1: cfloat; alpha2: cfloat;
                                       sense: bool = true): GCE2dMakeArcOfHyperbola {.
     constructor, importcpp: "GCE2d_MakeArcOfHyperbola(@)",
     header: "GCE2d_MakeArcOfHyperbola.hxx".}
-proc constructGCE2dMakeArcOfHyperbola*(hypr: Hypr2d; p: Pnt2d; alpha: float;
+proc constructGCE2dMakeArcOfHyperbola*(hypr: Hypr2d; p: Pnt2d; alpha: cfloat;
                                       sense: bool = true): GCE2dMakeArcOfHyperbola {.
     constructor, importcpp: "GCE2d_MakeArcOfHyperbola(@)",
     header: "GCE2d_MakeArcOfHyperbola.hxx".}
@@ -59,3 +59,28 @@ proc value*(this: GCE2dMakeArcOfHyperbola): Handle[Geom2dTrimmedCurve] {.
 converter `constopencascade`*(this: GCE2dMakeArcOfHyperbola): Handle[
     Geom2dTrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfHyperbola::operator constopencascade",
                          header: "GCE2d_MakeArcOfHyperbola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

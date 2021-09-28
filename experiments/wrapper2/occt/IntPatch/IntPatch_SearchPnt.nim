@@ -17,3 +17,28 @@
 type
   IntPatchSearchPnt* = IntfInterferencePolygon2d
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

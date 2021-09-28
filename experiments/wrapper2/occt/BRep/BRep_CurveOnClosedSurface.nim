@@ -22,7 +22,7 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_CurveOnClosedSurface"
 discard "forward decl of BRep_CurveOnClosedSurface"
 type
-  HandleBRepCurveOnClosedSurface* = Handle[BRepCurveOnClosedSurface]
+  HandleC1C1* = Handle[BRepCurveOnClosedSurface]
 
 ## ! Representation  of a    curve by two  pcurves   on
 ## ! a closed surface.
@@ -67,8 +67,8 @@ proc copy*(this: BRepCurveOnClosedSurface): Handle[BRepCurveRepresentation] {.
 proc update*(this: var BRepCurveOnClosedSurface) {.importcpp: "Update",
     header: "BRep_CurveOnClosedSurface.hxx".}
 proc dumpJson*(this: BRepCurveOnClosedSurface; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "BRep_CurveOnClosedSurface.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "BRep_CurveOnClosedSurface.hxx".}
 type
   BRepCurveOnClosedSurfacebaseType* = BRepCurveOnSurface
 
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_CurveOnClosedSurface.hxx".}
 proc dynamicType*(this: BRepCurveOnClosedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRep_CurveOnClosedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

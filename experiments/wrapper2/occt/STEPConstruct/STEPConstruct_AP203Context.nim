@@ -159,3 +159,28 @@ proc initSecurityRequisites*(this: var STEPConstructAP203Context) {.
     importcpp: "InitSecurityRequisites", header: "STEPConstruct_AP203Context.hxx".}
 proc initApprovalRequisites*(this: var STEPConstructAP203Context) {.
     importcpp: "InitApprovalRequisites", header: "STEPConstruct_AP203Context.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

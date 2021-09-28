@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectErrorEntities"
 discard "forward decl of IFSelect_SelectErrorEntities"
 type
-  HandleIFSelectSelectErrorEntities* = Handle[IFSelectSelectErrorEntities]
+  HandleC1C1* = Handle[IFSelectSelectErrorEntities]
 
 ## ! A SelectErrorEntities sorts the Entities which are qualified
 ## ! as "Error" (their Type has not been recognized) during reading
@@ -39,7 +39,7 @@ type
 proc constructIFSelectSelectErrorEntities*(): IFSelectSelectErrorEntities {.
     constructor, importcpp: "IFSelect_SelectErrorEntities(@)",
     header: "IFSelect_SelectErrorEntities.hxx".}
-proc sort*(this: IFSelectSelectErrorEntities; rank: int;
+proc sort*(this: IFSelectSelectErrorEntities; rank: cint;
           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Sort", header: "IFSelect_SelectErrorEntities.hxx".}
 proc extractLabel*(this: IFSelectSelectErrorEntities): TCollectionAsciiString {.
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IFSelectSelectErrorEntities): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectErrorEntities.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

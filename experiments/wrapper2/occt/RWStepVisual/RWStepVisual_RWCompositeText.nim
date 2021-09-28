@@ -28,7 +28,7 @@ proc constructRWStepVisualRWCompositeText*(): RWStepVisualRWCompositeText {.
     constructor, importcpp: "RWStepVisual_RWCompositeText(@)",
     header: "RWStepVisual_RWCompositeText.hxx".}
 proc readStep*(this: RWStepVisualRWCompositeText;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualCompositeText]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWCompositeText.hxx".}
 proc writeStep*(this: RWStepVisualRWCompositeText; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepVisualRWCompositeText; sw: var StepDataStepWriter;
 proc share*(this: RWStepVisualRWCompositeText;
            ent: Handle[StepVisualCompositeText]; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "Share", header: "RWStepVisual_RWCompositeText.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of IGESDimen_WitnessLine"
 discard "forward decl of IGESDimen_CurveDimension"
 discard "forward decl of IGESDimen_CurveDimension"
 type
-  HandleIGESDimenCurveDimension* = Handle[IGESDimenCurveDimension]
+  HandleC1C1* = Handle[IGESDimenCurveDimension]
 
 ## ! defines CurveDimension, Type <204> Form <0>
 ## ! in package IGESDimen
@@ -78,3 +78,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_CurveDimension.hxx".}
 proc dynamicType*(this: IGESDimenCurveDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_CurveDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

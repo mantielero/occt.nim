@@ -61,20 +61,45 @@ type
                                                                                                    ## height
 
 
-proc constructBRepPrimAPI_MakeCone*(r1: float; r2: float; h: float): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(r1: float; r2: float; h: float; angle: float): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(r1: cfloat; r2: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: float; r2: float; h: float): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: float; r2: float; h: float;
-                                   angle: float): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat;
+                                   angle: cfloat): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeCone): StandardAddress {.
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeCone.hxx".}
 proc cone*(this: var BRepPrimAPI_MakeCone): var BRepPrimCone {.importcpp: "Cone",
     header: "BRepPrimAPI_MakeCone.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

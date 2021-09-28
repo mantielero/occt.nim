@@ -23,3 +23,28 @@ type
     BRepOffsetCannotExtentEdge ## !< exception while extent edges
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

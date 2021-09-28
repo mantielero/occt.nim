@@ -17,13 +17,54 @@
 ## !!!Ignored construct:  # _LProp_NotDefined_HeaderFile [NewLine] # _LProp_NotDefined_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class LProp_NotDefined ;
 ## Error: expected ';'!!!
 
-discard "forward decl of LProp_NotDefined"
-type
-  HandleLPropNotDefinedLPropNotDefined* = Handle[LPropNotDefined]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( LProp_NotDefined , Standard_Failure ) # ! defined No_Exception && ! defined No_LProp_NotDefined [NewLine] # LProp_NotDefined_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw LProp_NotDefined ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_LProp_NotDefined [NewLine] # if ( CONDITION ) throw LProp_NotDefined ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # LProp_NotDefined_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( LProp_NotDefined , Standard_Failure ) #  _LProp_NotDefined_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( LProp_NotDefined , Standard_Failure ) #  _LProp_NotDefined_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

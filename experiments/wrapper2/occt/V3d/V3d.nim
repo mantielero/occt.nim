@@ -22,11 +22,11 @@ type
 
 proc getProjAxis*(theOrientation: V3dTypeOfOrientation): Dir {.
     importcpp: "V3d::GetProjAxis(@)", header: "V3d.hxx".}
-proc arrowOfRadius*(garrow: Handle[Graphic3dGroup]; x0: float; y0: float; z0: float;
-                   dx: float; dy: float; dz: float; alpha: float; lng: float) {.
+proc arrowOfRadius*(garrow: Handle[Graphic3dGroup]; x0: cfloat; y0: cfloat; z0: cfloat;
+                   dx: cfloat; dy: cfloat; dz: cfloat; alpha: cfloat; lng: cfloat) {.
     importcpp: "V3d::ArrowOfRadius(@)", header: "V3d.hxx".}
-proc circleInPlane*(gcircle: Handle[Graphic3dGroup]; x0: float; y0: float; z0: float;
-                   vx: float; vy: float; vz: float; radius: float) {.
+proc circleInPlane*(gcircle: Handle[Graphic3dGroup]; x0: cfloat; y0: cfloat;
+                   z0: cfloat; vx: cfloat; vy: cfloat; vz: cfloat; radius: cfloat) {.
     importcpp: "V3d::CircleInPlane(@)", header: "V3d.hxx".}
 proc switchViewsinWindow*(aPreviousView: Handle[V3dView];
                          aNextView: Handle[V3dView]) {.
@@ -38,3 +38,28 @@ proc typeOfOrientationFromString*(theTypeString: StandardCString): V3dTypeOfOrie
 proc typeOfOrientationFromString*(theTypeString: StandardCString;
                                  theType: var V3dTypeOfOrientation): bool {.
     importcpp: "V3d::TypeOfOrientationFromString(@)", header: "V3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,11 +32,11 @@ proc constructBRepFillSweep*(section: Handle[BRepFillSectionLaw];
 proc setBounds*(this: var BRepFillSweep; firstShape: TopoDS_Wire;
                lastShape: TopoDS_Wire) {.importcpp: "SetBounds",
                                        header: "BRepFill_Sweep.hxx".}
-proc setTolerance*(this: var BRepFillSweep; tol3d: float; boundTol: float = 1.0;
-                  tol2d: float = 1.0e-5; tolAngular: float = 1.0e-2) {.
+proc setTolerance*(this: var BRepFillSweep; tol3d: cfloat; boundTol: cfloat = 1.0;
+                  tol2d: cfloat = 1.0e-5; tolAngular: cfloat = 1.0e-2) {.
     importcpp: "SetTolerance", header: "BRepFill_Sweep.hxx".}
-proc setAngularControl*(this: var BRepFillSweep; angleMin: float = 0.01;
-                       angleMax: float = 6.0) {.importcpp: "SetAngularControl",
+proc setAngularControl*(this: var BRepFillSweep; angleMin: cfloat = 0.01;
+                       angleMax: cfloat = 6.0) {.importcpp: "SetAngularControl",
     header: "BRepFill_Sweep.hxx".}
 proc setForceApproxC1*(this: var BRepFillSweep; forceApproxC1: bool) {.
     importcpp: "SetForceApproxC1", header: "BRepFill_Sweep.hxx".}
@@ -45,13 +45,13 @@ proc build*(this: var BRepFillSweep; reversedEdges: var TopToolsMapOfShape;
            rails: var BRepFillDataMapOfShapeHArray2OfShape;
            transition: BRepFillTransitionStyle = bRepFillModified;
            continuity: GeomAbsShape = geomAbsC2;
-           approx: GeomFillApproxStyle = geomFillLocation; degmax: int = 11;
-           segmax: int = 30) {.importcpp: "Build", header: "BRepFill_Sweep.hxx".}
+           approx: GeomFillApproxStyle = geomFillLocation; degmax: cint = 11;
+           segmax: cint = 30) {.importcpp: "Build", header: "BRepFill_Sweep.hxx".}
 proc isDone*(this: BRepFillSweep): bool {.noSideEffect, importcpp: "IsDone",
                                       header: "BRepFill_Sweep.hxx".}
 proc shape*(this: BRepFillSweep): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BRepFill_Sweep.hxx".}
-proc errorOnSurface*(this: BRepFillSweep): float {.noSideEffect,
+proc errorOnSurface*(this: BRepFillSweep): cfloat {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "BRepFill_Sweep.hxx".}
 proc subShape*(this: BRepFillSweep): Handle[TopToolsHArray2OfShape] {.noSideEffect,
     importcpp: "SubShape", header: "BRepFill_Sweep.hxx".}
@@ -59,5 +59,30 @@ proc interFaces*(this: BRepFillSweep): Handle[TopToolsHArray2OfShape] {.
     noSideEffect, importcpp: "InterFaces", header: "BRepFill_Sweep.hxx".}
 proc sections*(this: BRepFillSweep): Handle[TopToolsHArray2OfShape] {.noSideEffect,
     importcpp: "Sections", header: "BRepFill_Sweep.hxx".}
-proc tape*(this: BRepFillSweep; index: int): TopoDS_Shape {.noSideEffect,
+proc tape*(this: BRepFillSweep; index: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "Tape", header: "BRepFill_Sweep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

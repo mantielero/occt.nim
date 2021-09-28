@@ -58,17 +58,42 @@ type
   Math* {.importcpp: "math", header: "math.hxx", bycopy.} = object
 
 
-proc gaussPointsMax*(): int {.importcpp: "math::GaussPointsMax(@)",
-                           header: "math.hxx".}
-proc gaussPoints*(index: int; points: var MathVector) {.
+proc gaussPointsMax*(): cint {.importcpp: "math::GaussPointsMax(@)",
+                            header: "math.hxx".}
+proc gaussPoints*(index: cint; points: var MathVector) {.
     importcpp: "math::GaussPoints(@)", header: "math.hxx".}
-proc gaussWeights*(index: int; weights: var MathVector) {.
+proc gaussWeights*(index: cint; weights: var MathVector) {.
     importcpp: "math::GaussWeights(@)", header: "math.hxx".}
-proc kronrodPointsMax*(): int {.importcpp: "math::KronrodPointsMax(@)",
-                             header: "math.hxx".}
-proc orderedGaussPointsAndWeights*(index: int; points: var MathVector;
+proc kronrodPointsMax*(): cint {.importcpp: "math::KronrodPointsMax(@)",
+                              header: "math.hxx".}
+proc orderedGaussPointsAndWeights*(index: cint; points: var MathVector;
                                   weights: var MathVector): bool {.
     importcpp: "math::OrderedGaussPointsAndWeights(@)", header: "math.hxx".}
-proc kronrodPointsAndWeights*(index: int; points: var MathVector;
+proc kronrodPointsAndWeights*(index: cint; points: var MathVector;
                              weights: var MathVector): bool {.
     importcpp: "math::KronrodPointsAndWeights(@)", header: "math.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

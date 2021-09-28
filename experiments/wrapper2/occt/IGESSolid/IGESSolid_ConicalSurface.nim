@@ -19,7 +19,7 @@ discard "forward decl of IGESGeom_Direction"
 discard "forward decl of IGESSolid_ConicalSurface"
 discard "forward decl of IGESSolid_ConicalSurface"
 type
-  HandleIGESSolidConicalSurface* = Handle[IGESSolidConicalSurface]
+  HandleC1C1* = Handle[IGESSolidConicalSurface]
 
 ## ! defines ConicalSurface, Type <194> Form Number <0,1>
 ## ! in package IGESSolid
@@ -37,7 +37,7 @@ proc constructIGESSolidConicalSurface*(): IGESSolidConicalSurface {.constructor,
     importcpp: "IGESSolid_ConicalSurface(@)",
     header: "IGESSolid_ConicalSurface.hxx".}
 proc init*(this: var IGESSolidConicalSurface; aLocation: Handle[IGESGeomPoint];
-          anAxis: Handle[IGESGeomDirection]; aRadius: float; anAngle: float;
+          anAxis: Handle[IGESGeomDirection]; aRadius: cfloat; anAngle: cfloat;
           aRefdir: Handle[IGESGeomDirection]) {.importcpp: "Init",
     header: "IGESSolid_ConicalSurface.hxx".}
 proc locationPoint*(this: IGESSolidConicalSurface): Handle[IGESGeomPoint] {.
@@ -45,9 +45,9 @@ proc locationPoint*(this: IGESSolidConicalSurface): Handle[IGESGeomPoint] {.
     header: "IGESSolid_ConicalSurface.hxx".}
 proc axis*(this: IGESSolidConicalSurface): Handle[IGESGeomDirection] {.noSideEffect,
     importcpp: "Axis", header: "IGESSolid_ConicalSurface.hxx".}
-proc radius*(this: IGESSolidConicalSurface): float {.noSideEffect,
+proc radius*(this: IGESSolidConicalSurface): cfloat {.noSideEffect,
     importcpp: "Radius", header: "IGESSolid_ConicalSurface.hxx".}
-proc semiAngle*(this: IGESSolidConicalSurface): float {.noSideEffect,
+proc semiAngle*(this: IGESSolidConicalSurface): cfloat {.noSideEffect,
     importcpp: "SemiAngle", header: "IGESSolid_ConicalSurface.hxx".}
 proc referenceDir*(this: IGESSolidConicalSurface): Handle[IGESGeomDirection] {.
     noSideEffect, importcpp: "ReferenceDir", header: "IGESSolid_ConicalSurface.hxx".}
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_ConicalSurface.hxx".}
 proc dynamicType*(this: IGESSolidConicalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_ConicalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

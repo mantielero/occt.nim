@@ -16,7 +16,7 @@
 discard "forward decl of V3d_Plane"
 discard "forward decl of V3d_Plane"
 type
-  HandleV3dPlane* = Handle[V3dPlane]
+  HandleC1C1* = Handle[V3dPlane]
 
 ## ! Obsolete clip plane presentation class.
 ## ! Ported on new core of Graphic3d_ClipPlane approach.
@@ -57,18 +57,18 @@ type
     ## !< clip plane implementation.
 
 
-proc constructV3dPlane*(theA: float = 0.0; theB: float = 0.0; theC: float = 1.0;
-                       theD: float = 0.0): V3dPlane {.constructor,
+proc constructV3dPlane*(theA: cfloat = 0.0; theB: cfloat = 0.0; theC: cfloat = 1.0;
+                       theD: cfloat = 0.0): V3dPlane {.constructor,
     importcpp: "V3d_Plane(@)", header: "V3d_Plane.hxx".}
-proc setPlane*(this: var V3dPlane; theA: float; theB: float; theC: float; theD: float) {.
+proc setPlane*(this: var V3dPlane; theA: cfloat; theB: cfloat; theC: cfloat; theD: cfloat) {.
     importcpp: "SetPlane", header: "V3d_Plane.hxx".}
 proc display*(this: var V3dPlane; theView: Handle[V3dView];
              theColor: QuantityColor = quantityNOC_GRAY) {.importcpp: "Display",
     header: "V3d_Plane.hxx".}
 proc erase*(this: var V3dPlane) {.importcpp: "Erase", header: "V3d_Plane.hxx".}
-proc plane*(this: V3dPlane; theA: var float; theB: var float; theC: var float;
-           theD: var float) {.noSideEffect, importcpp: "Plane",
-                           header: "V3d_Plane.hxx".}
+proc plane*(this: V3dPlane; theA: var cfloat; theB: var cfloat; theC: var cfloat;
+           theD: var cfloat) {.noSideEffect, importcpp: "Plane",
+                            header: "V3d_Plane.hxx".}
 proc isDisplayed*(this: V3dPlane): bool {.noSideEffect, importcpp: "IsDisplayed",
                                       header: "V3d_Plane.hxx".}
 proc clipPlane*(this: V3dPlane): Handle[Graphic3dClipPlane] {.noSideEffect,
@@ -82,3 +82,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "V3d_Plane::get_type_descriptor(@)", header: "V3d_Plane.hxx".}
 proc dynamicType*(this: V3dPlane): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "V3d_Plane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

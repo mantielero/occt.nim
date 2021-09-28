@@ -60,7 +60,7 @@ proc createEdgeTessellator*(theDEdge: IEdgeHandle;
 proc createEdgeTessellationExtractor*(theDEdge: IEdgeHandle; theDFace: IFaceHandle): Handle[
     IMeshToolsCurveTessellator] {.importcpp: "BRepMesh_EdgeDiscret::CreateEdgeTessellationExtractor(@)",
                                  header: "BRepMesh_EdgeDiscret.hxx".}
-proc `()`*(this: BRepMeshEdgeDiscret; theEdgeIndex: int) {.noSideEffect,
+proc `()`*(this: BRepMeshEdgeDiscret; theEdgeIndex: cint) {.noSideEffect,
     importcpp: "#(@)", header: "BRepMesh_EdgeDiscret.hxx".}
 proc tessellate3d*(theDEdge: IEdgeHandle;
                   theTessellator: Handle[IMeshToolsCurveTessellator];
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_EdgeDiscret.hxx".}
 proc dynamicType*(this: BRepMeshEdgeDiscret): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_EdgeDiscret.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

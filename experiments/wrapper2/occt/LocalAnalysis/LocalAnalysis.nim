@@ -62,3 +62,28 @@ proc dump*(surfconti: LocalAnalysisSurfaceContinuity; o: var StandardOStream) {.
     importcpp: "LocalAnalysis::Dump(@)", header: "LocalAnalysis.hxx".}
 proc dump*(curvconti: LocalAnalysisCurveContinuity; o: var StandardOStream) {.
     importcpp: "LocalAnalysis::Dump(@)", header: "LocalAnalysis.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

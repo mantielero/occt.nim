@@ -14,7 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Structure"
+## !!!Ignored construct:  # _Graphic3d_Group_HeaderFile [NewLine] # _Graphic3d_Group_HeaderFile [NewLine] # < Graphic3d_BndBox4f . hxx > [NewLine] # < Graphic3d_AspectLine3d . hxx > [NewLine] # < Graphic3d_AspectFillArea3d . hxx > [NewLine] # < Graphic3d_AspectText3d . hxx > [NewLine] # < Graphic3d_AspectMarker3d . hxx > [NewLine] # < Graphic3d_MapOfAspectsToAspects . hxx > [NewLine] # < Standard_CString . hxx > [NewLine] # < Graphic3d_Vertex . hxx > [NewLine] # < Graphic3d_TextPath . hxx > [NewLine] # < Graphic3d_HorizontalTextAlignment . hxx > [NewLine] # < Graphic3d_VerticalTextAlignment . hxx > [NewLine] # < Graphic3d_TypeOfPrimitiveArray . hxx > [NewLine] # < Graphic3d_IndexBuffer . hxx > [NewLine] # < Graphic3d_Buffer . hxx > [NewLine] # < Graphic3d_BoundBuffer . hxx > [NewLine] # < gp_Ax2 . hxx > [NewLine] # < TCollection_ExtendedString . hxx > [NewLine] class Graphic3d_Structure ;
+## Error: expected ';'!!!
+
 discard "forward decl of Graphic3d_ArrayOfPrimitives"
 discard "forward decl of Graphic3d_Text"
 type
@@ -39,6 +41,9 @@ type
                                                      ## ! AAngle  : Orientation of the text
                                                      ## ! (with respect to the horizontal).
                                                      ## ! Creates a group in the structure <AStructure>.
+    standardType* {.importc: "Standard_Type".}: Handle
+    graphic3dAspects* {.importc: "Graphic3d_Aspects".}: Handle
+    graphic3dStructure* {.importc: "Graphic3d_Structure".}: Handle
     ## !< pointer to the parent structure
     ## !< bounding box
     ## !< flag indicating closed volume
@@ -48,44 +53,41 @@ type
 
 proc getTypeName*(): cstring {.importcpp: "Graphic3d_Group::get_type_name(@)",
                             header: "Graphic3d_Group.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Graphic3d_Group::get_type_descriptor(@)",
-    header: "Graphic3d_Group.hxx".}
-proc dynamicType*(this: Graphic3dGroup): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Graphic3d_Group.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc clear*(this: var Graphic3dGroup; theUpdateStructureMgr: bool = true) {.
     importcpp: "Clear", header: "Graphic3d_Group.hxx".}
 proc destroyGraphic3dGroup*(this: var Graphic3dGroup) {.
     importcpp: "#.~Graphic3d_Group()", header: "Graphic3d_Group.hxx".}
 proc remove*(this: var Graphic3dGroup) {.importcpp: "Remove",
                                      header: "Graphic3d_Group.hxx".}
-proc aspects*(this: Graphic3dGroup): Handle[Graphic3dAspects] {.noSideEffect,
-    importcpp: "Aspects", header: "Graphic3d_Group.hxx".}
-proc setGroupPrimitivesAspect*(this: var Graphic3dGroup;
-                              theAspect: Handle[Graphic3dAspects]) {.
-    importcpp: "SetGroupPrimitivesAspect", header: "Graphic3d_Group.hxx".}
-proc setPrimitivesAspect*(this: var Graphic3dGroup;
-                         theAspect: Handle[Graphic3dAspects]) {.
-    importcpp: "SetPrimitivesAspect", header: "Graphic3d_Group.hxx".}
+## !!!Ignored construct:  Aspects ( ) const = 0 ;
+## Error: identifier expected, but got: )!!!
+
+## !!!Ignored construct:  ! Modifies the context for all the face primitives of the group. virtual void SetGroupPrimitivesAspect ( const Handle ( Graphic3d_Aspects ) & theAspect ) = 0 ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Modifies the current context of the group to give another aspect for all the primitives created after this call in the group. virtual void SetPrimitivesAspect ( const Handle ( Graphic3d_Aspects ) & theAspect ) = 0 ;
+## Error: token expected: ) but got: &!!!
+
 proc synchronizeAspects*(this: var Graphic3dGroup) {.
     importcpp: "SynchronizeAspects", header: "Graphic3d_Group.hxx".}
 proc replaceAspects*(this: var Graphic3dGroup;
                     theMap: Graphic3dMapOfAspectsToAspects) {.
     importcpp: "ReplaceAspects", header: "Graphic3d_Group.hxx".}
-proc addText*(this: var Graphic3dGroup; theTextParams: Handle[Graphic3dText];
-             theToEvalMinMax: bool = true) {.importcpp: "AddText",
-    header: "Graphic3d_Group.hxx".}
-proc addPrimitiveArray*(this: var Graphic3dGroup;
-                       theType: Graphic3dTypeOfPrimitiveArray;
-                       theIndices: Handle[Graphic3dIndexBuffer];
-                       theAttribs: Handle[Graphic3dBuffer];
-                       theBounds: Handle[Graphic3dBoundBuffer];
-                       theToEvalMinMax: bool = true) {.
-    importcpp: "AddPrimitiveArray", header: "Graphic3d_Group.hxx".}
-proc addPrimitiveArray*(this: var Graphic3dGroup;
-                       thePrim: Handle[Graphic3dArrayOfPrimitives];
-                       theToEvalMinMax: bool = true) {.
-    importcpp: "AddPrimitiveArray", header: "Graphic3d_Group.hxx".}
+## !!!Ignored construct:  ! Adds a text for display virtual void AddText ( const Handle ( Graphic3d_Text ) & theTextParams , const Standard_Boolean theToEvalMinMax = Standard_True ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Adds an array of primitives for display virtual void AddPrimitiveArray ( const Graphic3d_TypeOfPrimitiveArray theType , const Handle ( Graphic3d_IndexBuffer ) & theIndices , const Handle ( Graphic3d_Buffer ) & theAttribs , const Handle ( Graphic3d_BoundBuffer ) & theBounds , const Standard_Boolean theToEvalMinMax = Standard_True ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Adds an array of primitives for display void AddPrimitiveArray ( const Handle ( Graphic3d_ArrayOfPrimitives ) & thePrim , const Standard_Boolean theToEvalMinMax = Standard_True ) ;
+## Error: token expected: ) but got: &!!!
+
 proc marker*(this: var Graphic3dGroup; thePoint: Graphic3dVertex;
             theToEvalMinMax: bool = true) {.importcpp: "Marker",
                                         header: "Graphic3d_Group.hxx".}
@@ -111,8 +113,9 @@ proc boundingBox*(this: Graphic3dGroup): Graphic3dBndBox4f {.noSideEffect,
     importcpp: "BoundingBox", header: "Graphic3d_Group.hxx".}
 proc changeBoundingBox*(this: var Graphic3dGroup): var Graphic3dBndBox4f {.
     importcpp: "ChangeBoundingBox", header: "Graphic3d_Group.hxx".}
-proc structure*(this: Graphic3dGroup): Handle[Graphic3dStructure] {.noSideEffect,
-    importcpp: "Structure", header: "Graphic3d_Group.hxx".}
+## !!!Ignored construct:  Structure ( ) const ;
+## Error: identifier expected, but got: )!!!
+
 proc setClosed*(this: var Graphic3dGroup; theIsClosed: bool) {.importcpp: "SetClosed",
     header: "Graphic3d_Group.hxx".}
 proc isClosed*(this: Graphic3dGroup): bool {.noSideEffect, importcpp: "IsClosed",
@@ -180,7 +183,54 @@ proc isClosed*(this: Graphic3dGroup): bool {.noSideEffect, importcpp: "IsClosed"
 proc dumpJson*(this: Graphic3dGroup; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Graphic3d_Group.hxx".}
-discard "forward decl of Graphic3d_Group"
-type
-  HandleGraphic3dGroup* = Handle[Graphic3dGroup]
+## !!!Ignored construct:  protected : ! Creates a group in the structure <AStructure>. Graphic3d_Group ( const Handle ( Graphic3d_Structure ) & theStructure ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Graphic3d_Group , Standard_Transient ) #  _Graphic3d_Group_HeaderFile
+## Error: expected ';'!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

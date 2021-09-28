@@ -25,18 +25,43 @@ type
                                                                        ## ConstrOrder1(2) can be equal to 0, 1 or 2
 
 
-proc nbVariables*(this: FairCurveEnergy): int {.noSideEffect,
+proc nbVariables*(this: FairCurveEnergy): cint {.noSideEffect,
     importcpp: "NbVariables", header: "FairCurve_Energy.hxx".}
-proc value*(this: var FairCurveEnergy; x: MathVector; e: var float): bool {.
+proc value*(this: var FairCurveEnergy; x: MathVector; e: var cfloat): bool {.
     importcpp: "Value", header: "FairCurve_Energy.hxx".}
 proc gradient*(this: var FairCurveEnergy; x: MathVector; g: var MathVector): bool {.
     importcpp: "Gradient", header: "FairCurve_Energy.hxx".}
-proc values*(this: var FairCurveEnergy; x: MathVector; e: var float; g: var MathVector): bool {.
+proc values*(this: var FairCurveEnergy; x: MathVector; e: var cfloat; g: var MathVector): bool {.
     importcpp: "Values", header: "FairCurve_Energy.hxx".}
-proc values*(this: var FairCurveEnergy; x: MathVector; e: var float; g: var MathVector;
+proc values*(this: var FairCurveEnergy; x: MathVector; e: var cfloat; g: var MathVector;
             h: var MathMatrix): bool {.importcpp: "Values",
                                    header: "FairCurve_Energy.hxx".}
 proc variable*(this: FairCurveEnergy; x: var MathVector): bool {.noSideEffect,
     importcpp: "Variable", header: "FairCurve_Energy.hxx".}
 proc poles*(this: FairCurveEnergy): Handle[TColgpHArray1OfPnt2d] {.noSideEffect,
     importcpp: "Poles", header: "FairCurve_Energy.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   AdvApp2VarSequenceOfNode* = NCollectionSequence[Handle[AdvApp2VarNode]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

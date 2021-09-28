@@ -17,3 +17,28 @@
 type
   HLRBRepSeqOfShapeBounds* = NCollectionSequence[HLRBRepShapeBounds]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -55,3 +55,28 @@ type
 proc init*() {.importcpp: "IGESDraw::Init(@)", header: "IGESDraw.hxx".}
 proc protocol*(): Handle[IGESDrawProtocol] {.importcpp: "IGESDraw::Protocol(@)",
     header: "IGESDraw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

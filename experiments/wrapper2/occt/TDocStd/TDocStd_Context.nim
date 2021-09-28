@@ -25,3 +25,28 @@ proc setModifiedReferences*(this: var TDocStdContext; `mod`: bool) {.
     importcpp: "SetModifiedReferences", header: "TDocStd_Context.hxx".}
 proc modifiedReferences*(this: TDocStdContext): bool {.noSideEffect,
     importcpp: "ModifiedReferences", header: "TDocStd_Context.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

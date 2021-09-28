@@ -28,7 +28,7 @@ proc constructRWStepShapeRWPlusMinusTolerance*(): RWStepShapeRWPlusMinusToleranc
     constructor, importcpp: "RWStepShape_RWPlusMinusTolerance(@)",
     header: "RWStepShape_RWPlusMinusTolerance.hxx".}
 proc readStep*(this: RWStepShapeRWPlusMinusTolerance;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapePlusMinusTolerance]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWPlusMinusTolerance.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepShapeRWPlusMinusTolerance;
            ent: Handle[StepShapePlusMinusTolerance];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWPlusMinusTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

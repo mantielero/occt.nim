@@ -21,7 +21,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_Darboux"
 discard "forward decl of GeomFill_Darboux"
 type
-  HandleGeomFillDarboux* = Handle[GeomFillDarboux]
+  HandleC1C1* = Handle[GeomFillDarboux]
 
 ## ! Defines Darboux case of Frenet Trihedron Law
 
@@ -34,14 +34,16 @@ proc constructGeomFillDarboux*(): GeomFillDarboux {.constructor,
     importcpp: "GeomFill_Darboux(@)", header: "GeomFill_Darboux.hxx".}
 proc copy*(this: GeomFillDarboux): Handle[GeomFillTrihedronLaw] {.noSideEffect,
     importcpp: "Copy", header: "GeomFill_Darboux.hxx".}
-proc d0*(this: var GeomFillDarboux; param: float; tangent: var Vec; normal: var Vec;
-        biNormal: var Vec): bool {.importcpp: "D0", header: "GeomFill_Darboux.hxx".}
-proc d1*(this: var GeomFillDarboux; param: float; tangent: var Vec; dTangent: var Vec;
-        normal: var Vec; dNormal: var Vec; biNormal: var Vec; dBiNormal: var Vec): bool {.
-    importcpp: "D1", header: "GeomFill_Darboux.hxx".}
-proc d2*(this: var GeomFillDarboux; param: float; tangent: var Vec; dTangent: var Vec;
-        d2Tangent: var Vec; normal: var Vec; dNormal: var Vec; d2Normal: var Vec;
-        biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
+proc d0*(this: var GeomFillDarboux; param: StandardReal; tangent: var Vec;
+        normal: var Vec; biNormal: var Vec): StandardBoolean {.importcpp: "D0",
+    header: "GeomFill_Darboux.hxx".}
+proc d1*(this: var GeomFillDarboux; param: StandardReal; tangent: var Vec;
+        dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
+        dBiNormal: var Vec): StandardBoolean {.importcpp: "D1",
+    header: "GeomFill_Darboux.hxx".}
+proc d2*(this: var GeomFillDarboux; param: StandardReal; tangent: var Vec;
+        dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
+        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): StandardBoolean {.
     importcpp: "D2", header: "GeomFill_Darboux.hxx".}
 proc nbIntervals*(this: GeomFillDarboux; s: GeomAbsShape): int {.noSideEffect,
     importcpp: "NbIntervals", header: "GeomFill_Darboux.hxx".}
@@ -50,9 +52,9 @@ proc intervals*(this: GeomFillDarboux; t: var TColStdArray1OfReal; s: GeomAbsSha
 proc getAverageLaw*(this: var GeomFillDarboux; aTangent: var Vec; aNormal: var Vec;
                    aBiNormal: var Vec) {.importcpp: "GetAverageLaw",
                                       header: "GeomFill_Darboux.hxx".}
-proc isConstant*(this: GeomFillDarboux): bool {.noSideEffect,
+proc isConstant*(this: GeomFillDarboux): StandardBoolean {.noSideEffect,
     importcpp: "IsConstant", header: "GeomFill_Darboux.hxx".}
-proc isOnlyBy3dCurve*(this: GeomFillDarboux): bool {.noSideEffect,
+proc isOnlyBy3dCurve*(this: GeomFillDarboux): StandardBoolean {.noSideEffect,
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_Darboux.hxx".}
 type
   GeomFillDarbouxbaseType* = GeomFillTrihedronLaw

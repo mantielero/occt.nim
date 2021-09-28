@@ -17,13 +17,54 @@
 ## !!!Ignored construct:  # _ExprIntrp_SyntaxError_HeaderFile [NewLine] # _ExprIntrp_SyntaxError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class ExprIntrp_SyntaxError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of ExprIntrp_SyntaxError"
-type
-  HandleExprIntrpSyntaxErrorExprIntrpSyntaxError* = Handle[ExprIntrpSyntaxError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( ExprIntrp_SyntaxError , Standard_Failure ) # ! defined No_Exception && ! defined No_ExprIntrp_SyntaxError [NewLine] # ExprIntrp_SyntaxError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw ExprIntrp_SyntaxError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_ExprIntrp_SyntaxError [NewLine] # if ( CONDITION ) throw ExprIntrp_SyntaxError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # ExprIntrp_SyntaxError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( ExprIntrp_SyntaxError , Standard_Failure ) #  _ExprIntrp_SyntaxError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( ExprIntrp_SyntaxError , Standard_Failure ) #  _ExprIntrp_SyntaxError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

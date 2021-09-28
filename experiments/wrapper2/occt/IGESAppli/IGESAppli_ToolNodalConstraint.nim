@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESAppliToolNodalConstraint;
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolNodalConstraint.hxx".}
 proc ownDump*(this: IGESAppliToolNodalConstraint;
              ent: Handle[IGESAppliNodalConstraint]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESAppli_ToolNodalConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

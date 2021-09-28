@@ -43,9 +43,34 @@ proc hyprBox*(this: var IntfTool; theHypr: Hypr; bounding: BndBox; boxHypr: var 
     importcpp: "HyprBox", header: "Intf_Tool.hxx".}
 proc parabBox*(this: var IntfTool; theParab: Parab; bounding: BndBox;
               boxHypr: var BndBox) {.importcpp: "ParabBox", header: "Intf_Tool.hxx".}
-proc nbSegments*(this: IntfTool): int {.noSideEffect, importcpp: "NbSegments",
-                                    header: "Intf_Tool.hxx".}
-proc beginParam*(this: IntfTool; segmentNum: int): float {.noSideEffect,
+proc nbSegments*(this: IntfTool): cint {.noSideEffect, importcpp: "NbSegments",
+                                     header: "Intf_Tool.hxx".}
+proc beginParam*(this: IntfTool; segmentNum: cint): cfloat {.noSideEffect,
     importcpp: "BeginParam", header: "Intf_Tool.hxx".}
-proc endParam*(this: IntfTool; segmentNum: int): float {.noSideEffect,
+proc endParam*(this: IntfTool; segmentNum: cint): cfloat {.noSideEffect,
     importcpp: "EndParam", header: "Intf_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

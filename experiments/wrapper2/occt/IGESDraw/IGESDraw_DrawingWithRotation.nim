@@ -24,7 +24,7 @@ discard "forward decl of gp_XYZ"
 discard "forward decl of IGESDraw_DrawingWithRotation"
 discard "forward decl of IGESDraw_DrawingWithRotation"
 type
-  HandleIGESDrawDrawingWithRotation* = Handle[IGESDrawDrawingWithRotation]
+  HandleC1C1* = Handle[IGESDrawDrawingWithRotation]
 
 ## ! defines IGESDrawingWithRotation, Type <404> Form <1>
 ## ! in package IGESDraw
@@ -46,28 +46,29 @@ proc init*(this: var IGESDrawDrawingWithRotation;
           allOrientationAngles: Handle[TColStdHArray1OfReal];
           allAnnotations: Handle[IGESDataHArray1OfIGESEntity]) {.
     importcpp: "Init", header: "IGESDraw_DrawingWithRotation.hxx".}
-proc nbViews*(this: IGESDrawDrawingWithRotation): int {.noSideEffect,
+proc nbViews*(this: IGESDrawDrawingWithRotation): cint {.noSideEffect,
     importcpp: "NbViews", header: "IGESDraw_DrawingWithRotation.hxx".}
-proc viewItem*(this: IGESDrawDrawingWithRotation; index: int): Handle[
+proc viewItem*(this: IGESDrawDrawingWithRotation; index: cint): Handle[
     IGESDataViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
                              header: "IGESDraw_DrawingWithRotation.hxx".}
-proc viewOrigin*(this: IGESDrawDrawingWithRotation; index: int): Pnt2d {.noSideEffect,
-    importcpp: "ViewOrigin", header: "IGESDraw_DrawingWithRotation.hxx".}
-proc orientationAngle*(this: IGESDrawDrawingWithRotation; index: int): float {.
+proc viewOrigin*(this: IGESDrawDrawingWithRotation; index: cint): Pnt2d {.
+    noSideEffect, importcpp: "ViewOrigin",
+    header: "IGESDraw_DrawingWithRotation.hxx".}
+proc orientationAngle*(this: IGESDrawDrawingWithRotation; index: cint): cfloat {.
     noSideEffect, importcpp: "OrientationAngle",
     header: "IGESDraw_DrawingWithRotation.hxx".}
-proc nbAnnotations*(this: IGESDrawDrawingWithRotation): int {.noSideEffect,
+proc nbAnnotations*(this: IGESDrawDrawingWithRotation): cint {.noSideEffect,
     importcpp: "NbAnnotations", header: "IGESDraw_DrawingWithRotation.hxx".}
-proc annotation*(this: IGESDrawDrawingWithRotation; index: int): Handle[
+proc annotation*(this: IGESDrawDrawingWithRotation; index: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "Annotation",
                          header: "IGESDraw_DrawingWithRotation.hxx".}
-proc viewToDrawing*(this: IGESDrawDrawingWithRotation; numView: int; viewCoords: Xyz): Xy {.
+proc viewToDrawing*(this: IGESDrawDrawingWithRotation; numView: cint; viewCoords: Xyz): Xy {.
     noSideEffect, importcpp: "ViewToDrawing",
     header: "IGESDraw_DrawingWithRotation.hxx".}
-proc drawingUnit*(this: IGESDrawDrawingWithRotation; value: var float): bool {.
+proc drawingUnit*(this: IGESDrawDrawingWithRotation; value: var cfloat): bool {.
     noSideEffect, importcpp: "DrawingUnit",
     header: "IGESDraw_DrawingWithRotation.hxx".}
-proc drawingSize*(this: IGESDrawDrawingWithRotation; x: var float; y: var float): bool {.
+proc drawingSize*(this: IGESDrawDrawingWithRotation; x: var cfloat; y: var cfloat): bool {.
     noSideEffect, importcpp: "DrawingSize",
     header: "IGESDraw_DrawingWithRotation.hxx".}
 type
@@ -81,3 +82,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDrawDrawingWithRotation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDraw_DrawingWithRotation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

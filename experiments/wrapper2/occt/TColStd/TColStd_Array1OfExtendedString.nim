@@ -15,3 +15,28 @@
 type
   TColStdArray1OfExtendedString* = NCollectionArray1[TCollectionExtendedString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

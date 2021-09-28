@@ -29,7 +29,7 @@ proc constructRWStepDimTolRWToleranceZoneDefinition*(): RWStepDimTolRWToleranceZ
     constructor, importcpp: "RWStepDimTol_RWToleranceZoneDefinition(@)",
     header: "RWStepDimTol_RWToleranceZoneDefinition.hxx".}
 proc readStep*(this: RWStepDimTolRWToleranceZoneDefinition;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolToleranceZoneDefinition]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWToleranceZoneDefinition.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepDimTolRWToleranceZoneDefinition;
            ent: Handle[StepDimTolToleranceZoneDefinition];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWToleranceZoneDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

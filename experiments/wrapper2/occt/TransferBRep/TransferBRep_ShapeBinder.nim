@@ -27,7 +27,7 @@ discard "forward decl of TopoDS_Compound"
 discard "forward decl of TransferBRep_ShapeBinder"
 discard "forward decl of TransferBRep_ShapeBinder"
 type
-  HandleTransferBRepShapeBinder* = Handle[TransferBRepShapeBinder]
+  HandleC1C1* = Handle[TransferBRepShapeBinder]
 
 ## ! A ShapeBinder is a BinderOfShape with some additional services
 ## ! to cast the Result under various kinds of Shapes
@@ -76,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TransferBRep_ShapeBinder.hxx".}
 proc dynamicType*(this: TransferBRepShapeBinder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TransferBRep_ShapeBinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

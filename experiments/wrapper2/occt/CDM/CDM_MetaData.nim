@@ -22,7 +22,7 @@ discard "forward decl of CDM_Application"
 discard "forward decl of CDM_MetaData"
 discard "forward decl of CDM_MetaData"
 type
-  HandleCDM_MetaData* = Handle[CDM_MetaData]
+  HandleC1C1* = Handle[CDM_MetaData]
   CDM_MetaData* {.importcpp: "CDM_MetaData", header: "CDM_MetaData.hxx", bycopy.} = object of StandardTransient
 
 
@@ -67,8 +67,8 @@ proc setIsReadOnly*(this: var CDM_MetaData) {.importcpp: "SetIsReadOnly",
 proc unsetIsReadOnly*(this: var CDM_MetaData) {.importcpp: "UnsetIsReadOnly",
     header: "CDM_MetaData.hxx".}
 proc dumpJson*(this: CDM_MetaData; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "CDM_MetaData.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "CDM_MetaData.hxx".}
 type
   CDM_MetaDatabaseType* = StandardTransient
 
@@ -78,3 +78,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "CDM_MetaData::get_type_descriptor(@)", header: "CDM_MetaData.hxx".}
 proc dynamicType*(this: CDM_MetaData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDM_MetaData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

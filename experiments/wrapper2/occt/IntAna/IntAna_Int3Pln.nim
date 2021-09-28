@@ -34,3 +34,28 @@ proc isEmpty*(this: IntAnaInt3Pln): bool {.noSideEffect, importcpp: "IsEmpty",
                                        header: "IntAna_Int3Pln.hxx".}
 proc value*(this: IntAnaInt3Pln): Pnt {.noSideEffect, importcpp: "Value",
                                     header: "IntAna_Int3Pln.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

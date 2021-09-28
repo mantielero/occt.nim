@@ -18,7 +18,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectType"
 discard "forward decl of IFSelect_SelectType"
 type
-  HandleIFSelectSelectType* = Handle[IFSelectSelectType]
+  HandleC1C1* = Handle[IFSelectSelectType]
 
 ## ! A SelectType keeps or rejects Entities of which the Type
 ## ! is Kind of a given Cdl Type
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectType.hxx".}
 proc dynamicType*(this: IFSelectSelectType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

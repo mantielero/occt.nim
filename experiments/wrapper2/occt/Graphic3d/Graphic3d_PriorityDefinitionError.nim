@@ -17,14 +17,54 @@
 ## !!!Ignored construct:  # _Graphic3d_PriorityDefinitionError_HeaderFile [NewLine] # _Graphic3d_PriorityDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Graphic3d_PriorityDefinitionError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Graphic3d_PriorityDefinitionError"
-type
-  HandleGraphic3dPriorityDefinitionErrorGraphic3dPriorityDefinitionError* = Handle[
-      Graphic3dPriorityDefinitionError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Graphic3d_PriorityDefinitionError , Standard_OutOfRange ) # ! defined No_Exception && ! defined No_Graphic3d_PriorityDefinitionError [NewLine] # Graphic3d_PriorityDefinitionError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Graphic3d_PriorityDefinitionError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Graphic3d_PriorityDefinitionError [NewLine] # if ( CONDITION ) throw Graphic3d_PriorityDefinitionError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Graphic3d_PriorityDefinitionError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_PriorityDefinitionError , Standard_OutOfRange ) #  _Graphic3d_PriorityDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_PriorityDefinitionError , Standard_OutOfRange ) #  _Graphic3d_PriorityDefinitionError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

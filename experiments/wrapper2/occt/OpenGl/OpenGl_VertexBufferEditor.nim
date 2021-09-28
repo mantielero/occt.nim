@@ -37,11 +37,11 @@ type
     ## !< temporary array
 
 
-proc constructOpenGlVertexBufferEditor*[TheVecT](theTmpBufferLength: int = 0): OpenGlVertexBufferEditor[
+proc constructOpenGlVertexBufferEditor*[TheVecT](theTmpBufferLength: cint = 0): OpenGlVertexBufferEditor[
     TheVecT] {.constructor, importcpp: "OpenGl_VertexBufferEditor<\'*0>(@)",
               header: "OpenGl_VertexBufferEditor.hxx".}
 proc constructOpenGlVertexBufferEditor*[TheVecT](theTmpBuffer: ptr TheVecT;
-    theTmpBufferLength: int): OpenGlVertexBufferEditor[TheVecT] {.constructor,
+    theTmpBufferLength: cint): OpenGlVertexBufferEditor[TheVecT] {.constructor,
     importcpp: "OpenGl_VertexBufferEditor<\'*0>(@)",
     header: "OpenGl_VertexBufferEditor.hxx".}
 proc init*[TheVecT](this: var OpenGlVertexBufferEditor[TheVecT];
@@ -57,3 +57,28 @@ proc flush*[TheVecT](this: var OpenGlVertexBufferEditor[TheVecT]): bool {.
 proc getVBO*[TheVecT](this: OpenGlVertexBufferEditor[TheVecT]): Handle[
     OpenGlVertexBuffer] {.noSideEffect, importcpp: "GetVBO",
                          header: "OpenGl_VertexBufferEditor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

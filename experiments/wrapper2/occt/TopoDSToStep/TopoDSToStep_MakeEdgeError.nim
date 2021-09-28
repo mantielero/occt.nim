@@ -21,3 +21,28 @@ type
     TopoDSToStepEdgeDone, TopoDSToStepNonManifoldEdge, TopoDSToStepEdgeOther
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

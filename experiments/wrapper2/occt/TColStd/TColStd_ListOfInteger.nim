@@ -13,6 +13,31 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdListOfInteger* = NCollectionList[int]
-  TColStdListIteratorOfListOfInteger* = Iterator[int]
+  TColStdListOfInteger* = NCollectionList[cint]
+  TColStdListIteratorOfListOfInteger* = Iterator[cint]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -37,3 +37,28 @@ proc dataSet*(this: TDocStdXLinkTool): Handle[TDF_DataSet] {.noSideEffect,
     importcpp: "DataSet", header: "TDocStd_XLinkTool.hxx".}
 proc relocationTable*(this: TDocStdXLinkTool): Handle[TDF_RelocationTable] {.
     noSideEffect, importcpp: "RelocationTable", header: "TDocStd_XLinkTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,3 +27,28 @@ proc `>>`*(theReadData: var StdObjMgtReadData; theTorus: var Torus): var StdObjM
     importcpp: "(# >> #)", header: "StdObject_gp_Surfaces.hxx".}
 proc `<<`*(theWriteData: var StdObjMgtWriteData; theTorus: Torus): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Surfaces.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

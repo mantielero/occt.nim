@@ -46,15 +46,15 @@ proc continuity*(this: BRepBlendAppSurf): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "BRepBlend_AppSurf.hxx".}
 proc criteriumWeight*(this: BRepBlendAppSurf; w1: var float; w2: var float; w3: var float) {.
     noSideEffect, importcpp: "CriteriumWeight", header: "BRepBlend_AppSurf.hxx".}
-proc perform*(this: var BRepBlendAppSurf; lin: Handle[BRepBlendLine];
-             secGen: var BlendAppFunction; spApprox: bool = false) {.
-    importcpp: "Perform", header: "BRepBlend_AppSurf.hxx".}
-proc performSmoothing*(this: var BRepBlendAppSurf; lin: Handle[BRepBlendLine];
-                      secGen: var BlendAppFunction) {.
-    importcpp: "PerformSmoothing", header: "BRepBlend_AppSurf.hxx".}
-proc perform*(this: var BRepBlendAppSurf; lin: Handle[BRepBlendLine];
-             secGen: var BlendAppFunction; nbMaxP: int) {.importcpp: "Perform",
-    header: "BRepBlend_AppSurf.hxx".}
+## !!!Ignored construct:  void Perform ( const Handle ( BRepBlend_Line ) & Lin , Blend_AppFunction & SecGen , const Standard_Boolean SpApprox = Standard_False ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void PerformSmoothing ( const Handle ( BRepBlend_Line ) & Lin , Blend_AppFunction & SecGen ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void Perform ( const Handle ( BRepBlend_Line ) & Lin , Blend_AppFunction & SecGen , const Standard_Integer NbMaxP ) ;
+## Error: token expected: ) but got: &!!!
+
 proc isDone*(this: BRepBlendAppSurf): bool {.noSideEffect, importcpp: "IsDone",
     header: "BRepBlend_AppSurf.hxx".}
 proc surfShape*(this: BRepBlendAppSurf; uDegree: var int; vDegree: var int;
@@ -101,6 +101,72 @@ proc tolReached*(this: BRepBlendAppSurf; tol3d: var float; tol2d: var float) {.
     noSideEffect, importcpp: "TolReached", header: "BRepBlend_AppSurf.hxx".}
 proc tolCurveOnSurf*(this: BRepBlendAppSurf; index: int): float {.noSideEffect,
     importcpp: "TolCurveOnSurf", header: "BRepBlend_AppSurf.hxx".}
-## !!!Ignored construct:  # TheSectionGenerator Blend_AppFunction [NewLine] # TheSectionGenerator_hxx < Blend_AppFunction . hxx > [NewLine] # Handle_TheLine opencascade :: handle < BRepBlend_Line > [end of template] [NewLine] # TheLine BRepBlend_Line [NewLine] # TheLine_hxx < BRepBlend_Line . hxx > [NewLine] # AppBlend_AppSurf BRepBlend_AppSurf [NewLine] # AppBlend_AppSurf_hxx < BRepBlend_AppSurf . hxx > [NewLine] # < AppBlend_AppSurf . lxx > [NewLine] # TheSectionGenerator [NewLine] # TheSectionGenerator_hxx [NewLine] # Handle_TheLine [NewLine] # TheLine [NewLine] # TheLine_hxx [NewLine] # AppBlend_AppSurf [NewLine] # AppBlend_AppSurf_hxx [NewLine] #  _BRepBlend_AppSurf_HeaderFile
+## !!!Ignored construct:  protected : private : void InternalPerform ( const Handle ( BRepBlend_Line ) & Lin , Blend_AppFunction & SecGen , const Standard_Boolean SpApprox , const Standard_Boolean UseVariational ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  tabPoles ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  tabWeights ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  tabUKnots ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  tabVKnots ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  tabUMults ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  tabVMults ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  # TheSectionGenerator Blend_AppFunction [NewLine] # TheSectionGenerator_hxx < Blend_AppFunction . hxx > [NewLine] # Handle_TheLine Handle ( BRepBlend_Line ) [NewLine] # TheLine BRepBlend_Line [NewLine] # TheLine_hxx < BRepBlend_Line . hxx > [NewLine] # AppBlend_AppSurf BRepBlend_AppSurf [NewLine] # AppBlend_AppSurf_hxx < BRepBlend_AppSurf . hxx > [NewLine] # < AppBlend_AppSurf . lxx > [NewLine] # TheSectionGenerator [NewLine] # TheSectionGenerator_hxx [NewLine] # Handle_TheLine [NewLine] # TheLine [NewLine] # TheLine_hxx [NewLine] # AppBlend_AppSurf [NewLine] # AppBlend_AppSurf_hxx [NewLine] #  _BRepBlend_AppSurf_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

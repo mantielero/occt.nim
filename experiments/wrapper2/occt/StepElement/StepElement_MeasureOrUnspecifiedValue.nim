@@ -28,19 +28,19 @@ proc constructStepElementMeasureOrUnspecifiedValue*(): StepElementMeasureOrUnspe
     constructor, importcpp: "StepElement_MeasureOrUnspecifiedValue(@)",
     header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc caseNum*(this: StepElementMeasureOrUnspecifiedValue;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc caseMem*(this: StepElementMeasureOrUnspecifiedValue;
-             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
+             ent: Handle[StepDataSelectMember]): cint {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc newMember*(this: StepElementMeasureOrUnspecifiedValue): Handle[
     StepDataSelectMember] {.noSideEffect, importcpp: "NewMember",
                            header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc setContextDependentMeasure*(this: var StepElementMeasureOrUnspecifiedValue;
-                                aVal: float) {.
+                                aVal: cfloat) {.
     importcpp: "SetContextDependentMeasure",
     header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
-proc contextDependentMeasure*(this: StepElementMeasureOrUnspecifiedValue): float {.
+proc contextDependentMeasure*(this: StepElementMeasureOrUnspecifiedValue): cfloat {.
     noSideEffect, importcpp: "ContextDependentMeasure",
     header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc setUnspecifiedValue*(this: var StepElementMeasureOrUnspecifiedValue;
@@ -50,3 +50,28 @@ proc setUnspecifiedValue*(this: var StepElementMeasureOrUnspecifiedValue;
 proc unspecifiedValue*(this: StepElementMeasureOrUnspecifiedValue): StepElementUnspecifiedValue {.
     noSideEffect, importcpp: "UnspecifiedValue",
     header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

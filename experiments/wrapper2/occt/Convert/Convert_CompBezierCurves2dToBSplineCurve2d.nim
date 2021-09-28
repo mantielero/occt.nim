@@ -115,7 +115,7 @@ type
 
 
 proc constructConvertCompBezierCurves2dToBSplineCurve2d*(
-    angularTolerance: float = 1.0e-4): ConvertCompBezierCurves2dToBSplineCurve2d {.
+    angularTolerance: cfloat = 1.0e-4): ConvertCompBezierCurves2dToBSplineCurve2d {.
     constructor, importcpp: "Convert_CompBezierCurves2dToBSplineCurve2d(@)",
     header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
 proc addCurve*(this: var ConvertCompBezierCurves2dToBSplineCurve2d;
@@ -123,17 +123,42 @@ proc addCurve*(this: var ConvertCompBezierCurves2dToBSplineCurve2d;
     header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
 proc perform*(this: var ConvertCompBezierCurves2dToBSplineCurve2d) {.
     importcpp: "Perform", header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
-proc degree*(this: ConvertCompBezierCurves2dToBSplineCurve2d): int {.noSideEffect,
+proc degree*(this: ConvertCompBezierCurves2dToBSplineCurve2d): cint {.noSideEffect,
     importcpp: "Degree", header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
-proc nbPoles*(this: ConvertCompBezierCurves2dToBSplineCurve2d): int {.noSideEffect,
+proc nbPoles*(this: ConvertCompBezierCurves2dToBSplineCurve2d): cint {.noSideEffect,
     importcpp: "NbPoles", header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
 proc poles*(this: ConvertCompBezierCurves2dToBSplineCurve2d;
            poles: var TColgpArray1OfPnt2d) {.noSideEffect, importcpp: "Poles",
     header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
-proc nbKnots*(this: ConvertCompBezierCurves2dToBSplineCurve2d): int {.noSideEffect,
+proc nbKnots*(this: ConvertCompBezierCurves2dToBSplineCurve2d): cint {.noSideEffect,
     importcpp: "NbKnots", header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
 proc knotsAndMults*(this: ConvertCompBezierCurves2dToBSplineCurve2d;
                    knots: var TColStdArray1OfReal;
                    mults: var TColStdArray1OfInteger) {.noSideEffect,
     importcpp: "KnotsAndMults",
     header: "Convert_CompBezierCurves2dToBSplineCurve2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

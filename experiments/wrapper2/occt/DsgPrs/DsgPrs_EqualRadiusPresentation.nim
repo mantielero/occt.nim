@@ -33,3 +33,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
          firstCenter: Pnt; secondCenter: Pnt; firstPoint: Pnt; secondPoint: Pnt;
          plane: Handle[GeomPlane]) {.importcpp: "DsgPrs_EqualRadiusPresentation::Add(@)",
                                    header: "DsgPrs_EqualRadiusPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

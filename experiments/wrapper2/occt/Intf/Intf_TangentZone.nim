@@ -21,9 +21,9 @@ type
                     bycopy.} = object ## ! Returns number of SectionPoint in this TangentZone.
 
 
-proc numberOfPoints*(this: IntfTangentZone): int {.noSideEffect,
+proc numberOfPoints*(this: IntfTangentZone): cint {.noSideEffect,
     importcpp: "NumberOfPoints", header: "Intf_TangentZone.hxx".}
-proc getPoint*(this: IntfTangentZone; index: int): IntfSectionPoint {.noSideEffect,
+proc getPoint*(this: IntfTangentZone; index: cint): IntfSectionPoint {.noSideEffect,
     importcpp: "GetPoint", header: "Intf_TangentZone.hxx".}
 proc isEqual*(this: IntfTangentZone; other: IntfTangentZone): bool {.noSideEffect,
     importcpp: "IsEqual", header: "Intf_TangentZone.hxx".}
@@ -31,15 +31,15 @@ proc `==`*(this: IntfTangentZone; other: IntfTangentZone): bool {.noSideEffect,
     importcpp: "(# == #)", header: "Intf_TangentZone.hxx".}
 proc contains*(this: IntfTangentZone; thePI: IntfSectionPoint): bool {.noSideEffect,
     importcpp: "Contains", header: "Intf_TangentZone.hxx".}
-proc paramOnFirst*(this: IntfTangentZone; paraMin: var float; paraMax: var float) {.
+proc paramOnFirst*(this: IntfTangentZone; paraMin: var cfloat; paraMax: var cfloat) {.
     noSideEffect, importcpp: "ParamOnFirst", header: "Intf_TangentZone.hxx".}
-proc paramOnSecond*(this: IntfTangentZone; paraMin: var float; paraMax: var float) {.
+proc paramOnSecond*(this: IntfTangentZone; paraMin: var cfloat; paraMax: var cfloat) {.
     noSideEffect, importcpp: "ParamOnSecond", header: "Intf_TangentZone.hxx".}
-proc infoFirst*(this: IntfTangentZone; segMin: var int; paraMin: var float;
-               segMax: var int; paraMax: var float) {.noSideEffect,
+proc infoFirst*(this: IntfTangentZone; segMin: var cint; paraMin: var cfloat;
+               segMax: var cint; paraMax: var cfloat) {.noSideEffect,
     importcpp: "InfoFirst", header: "Intf_TangentZone.hxx".}
-proc infoSecond*(this: IntfTangentZone; segMin: var int; paraMin: var float;
-                segMax: var int; paraMax: var float) {.noSideEffect,
+proc infoSecond*(this: IntfTangentZone; segMin: var cint; paraMin: var cfloat;
+                segMax: var cint; paraMax: var cfloat) {.noSideEffect,
     importcpp: "InfoSecond", header: "Intf_TangentZone.hxx".}
 proc rangeContains*(this: IntfTangentZone; thePI: IntfSectionPoint): bool {.
     noSideEffect, importcpp: "RangeContains", header: "Intf_TangentZone.hxx".}
@@ -55,9 +55,34 @@ proc insert*(this: var IntfTangentZone; pi: IntfSectionPoint): bool {.
     importcpp: "Insert", header: "Intf_TangentZone.hxx".}
 proc polygonInsert*(this: var IntfTangentZone; pi: IntfSectionPoint) {.
     importcpp: "PolygonInsert", header: "Intf_TangentZone.hxx".}
-proc insertBefore*(this: var IntfTangentZone; index: int; pi: IntfSectionPoint) {.
+proc insertBefore*(this: var IntfTangentZone; index: cint; pi: IntfSectionPoint) {.
     importcpp: "InsertBefore", header: "Intf_TangentZone.hxx".}
-proc insertAfter*(this: var IntfTangentZone; index: int; pi: IntfSectionPoint) {.
+proc insertAfter*(this: var IntfTangentZone; index: cint; pi: IntfSectionPoint) {.
     importcpp: "InsertAfter", header: "Intf_TangentZone.hxx".}
-proc dump*(this: IntfTangentZone; indent: int) {.noSideEffect, importcpp: "Dump",
+proc dump*(this: IntfTangentZone; indent: cint) {.noSideEffect, importcpp: "Dump",
     header: "Intf_TangentZone.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

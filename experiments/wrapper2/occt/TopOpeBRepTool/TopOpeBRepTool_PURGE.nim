@@ -37,3 +37,28 @@ when defined(OCCT_DEBUG):
 ##  ----------------------------------------------------------------------
 ## Standard_IMPORT void FUN_tool_ttranslate(const gp_Vec2d& tvector, const TopoDS_Face& fF, TopoDS_Edge& fyE);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

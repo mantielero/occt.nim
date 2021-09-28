@@ -19,7 +19,7 @@ discard "forward decl of TDF_Label"
 discard "forward decl of STEPCAFControl_ExternFile"
 discard "forward decl of STEPCAFControl_ExternFile"
 type
-  HandleSTEPCAFControlExternFile* = Handle[STEPCAFControlExternFile]
+  HandleC1C1* = Handle[STEPCAFControlExternFile]
 
 ## ! Auxiliary class serving as container for data resulting
 ## ! from translation of external file
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPCAFControl_ExternFile.hxx".}
 proc dynamicType*(this: STEPCAFControlExternFile): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "STEPCAFControl_ExternFile.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,21 +27,21 @@ type
 proc constructIntRes2dIntersectionPoint*(): IntRes2dIntersectionPoint {.
     constructor, importcpp: "IntRes2d_IntersectionPoint(@)",
     header: "IntRes2d_IntersectionPoint.hxx".}
-proc constructIntRes2dIntersectionPoint*(p: Pnt2d; uc1: float; uc2: float;
+proc constructIntRes2dIntersectionPoint*(p: Pnt2d; uc1: cfloat; uc2: cfloat;
                                         trans1: IntRes2dTransition;
                                         trans2: IntRes2dTransition;
                                         reversedFlag: bool): IntRes2dIntersectionPoint {.
     constructor, importcpp: "IntRes2d_IntersectionPoint(@)",
     header: "IntRes2d_IntersectionPoint.hxx".}
-proc setValues*(this: var IntRes2dIntersectionPoint; p: Pnt2d; uc1: float; uc2: float;
+proc setValues*(this: var IntRes2dIntersectionPoint; p: Pnt2d; uc1: cfloat; uc2: cfloat;
                trans1: IntRes2dTransition; trans2: IntRes2dTransition;
                reversedFlag: bool) {.importcpp: "SetValues",
                                    header: "IntRes2d_IntersectionPoint.hxx".}
 proc value*(this: IntRes2dIntersectionPoint): Pnt2d {.noSideEffect,
     importcpp: "Value", header: "IntRes2d_IntersectionPoint.hxx".}
-proc paramOnFirst*(this: IntRes2dIntersectionPoint): float {.noSideEffect,
+proc paramOnFirst*(this: IntRes2dIntersectionPoint): cfloat {.noSideEffect,
     importcpp: "ParamOnFirst", header: "IntRes2d_IntersectionPoint.hxx".}
-proc paramOnSecond*(this: IntRes2dIntersectionPoint): float {.noSideEffect,
+proc paramOnSecond*(this: IntRes2dIntersectionPoint): cfloat {.noSideEffect,
     importcpp: "ParamOnSecond", header: "IntRes2d_IntersectionPoint.hxx".}
 proc transitionOfFirst*(this: IntRes2dIntersectionPoint): IntRes2dTransition {.
     noSideEffect, importcpp: "TransitionOfFirst",
@@ -49,3 +49,28 @@ proc transitionOfFirst*(this: IntRes2dIntersectionPoint): IntRes2dTransition {.
 proc transitionOfSecond*(this: IntRes2dIntersectionPoint): IntRes2dTransition {.
     noSideEffect, importcpp: "TransitionOfSecond",
     header: "IntRes2d_IntersectionPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

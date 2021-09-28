@@ -20,10 +20,35 @@ type
                                    bycopy.} = object of FairCurveDistributionOfEnergy
 
 
-proc constructFairCurveDistributionOfSagging*(bSplOrder: int;
+proc constructFairCurveDistributionOfSagging*(bSplOrder: cint;
     flatKnots: Handle[TColStdHArray1OfReal]; poles: Handle[TColgpHArray1OfPnt2d];
-    derivativeOrder: int; law: FairCurveBattenLaw; nbValAux: int = 0): FairCurveDistributionOfSagging {.
+    derivativeOrder: cint; law: FairCurveBattenLaw; nbValAux: cint = 0): FairCurveDistributionOfSagging {.
     constructor, importcpp: "FairCurve_DistributionOfSagging(@)",
     header: "FairCurve_DistributionOfSagging.hxx".}
 proc value*(this: var FairCurveDistributionOfSagging; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "FairCurve_DistributionOfSagging.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

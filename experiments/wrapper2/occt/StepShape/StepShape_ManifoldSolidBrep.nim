@@ -20,7 +20,7 @@ discard "forward decl of StepShape_ClosedShell"
 discard "forward decl of StepShape_ManifoldSolidBrep"
 discard "forward decl of StepShape_ManifoldSolidBrep"
 type
-  HandleStepShapeManifoldSolidBrep* = Handle[StepShapeManifoldSolidBrep]
+  HandleC1C1* = Handle[StepShapeManifoldSolidBrep]
   StepShapeManifoldSolidBrep* {.importcpp: "StepShape_ManifoldSolidBrep",
                                header: "StepShape_ManifoldSolidBrep.hxx", bycopy.} = object of StepShapeSolidModel ##
                                                                                                             ## !
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeManifoldSolidBrep): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ManifoldSolidBrep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

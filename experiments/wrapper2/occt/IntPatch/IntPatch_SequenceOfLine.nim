@@ -17,3 +17,28 @@
 type
   IntPatchSequenceOfLine* = NCollectionSequence[Handle[IntPatchLine]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

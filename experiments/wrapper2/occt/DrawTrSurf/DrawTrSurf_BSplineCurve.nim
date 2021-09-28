@@ -21,7 +21,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_BSplineCurve"
 discard "forward decl of DrawTrSurf_BSplineCurve"
 type
-  HandleDrawTrSurfBSplineCurve* = Handle[DrawTrSurfBSplineCurve]
+  HandleC1C1* = Handle[DrawTrSurfBSplineCurve]
   DrawTrSurfBSplineCurve* {.importcpp: "DrawTrSurf_BSplineCurve",
                            header: "DrawTrSurf_BSplineCurve.hxx", bycopy.} = object of DrawTrSurfCurve ##
                                                                                                 ## !
@@ -47,9 +47,10 @@ proc constructDrawTrSurfBSplineCurve*(c: Handle[GeomBSplineCurve]): DrawTrSurfBS
 proc constructDrawTrSurfBSplineCurve*(c: Handle[GeomBSplineCurve];
                                      curvColor: DrawColor; polesColor: DrawColor;
                                      knotsColor: DrawColor;
-                                     knotsShape: DrawMarkerShape; knotsSize: int;
-                                     showPoles: bool; showKnots: bool; discret: int;
-                                     deflection: float; drawMode: int): DrawTrSurfBSplineCurve {.
+                                     knotsShape: DrawMarkerShape; knotsSize: cint;
+                                     showPoles: bool; showKnots: bool;
+                                     discret: cint; deflection: cfloat;
+                                     drawMode: cint): DrawTrSurfBSplineCurve {.
     constructor, importcpp: "DrawTrSurf_BSplineCurve(@)",
     header: "DrawTrSurf_BSplineCurve.hxx".}
 proc drawOn*(this: DrawTrSurfBSplineCurve; dis: var DrawDisplay) {.noSideEffect,
@@ -57,8 +58,8 @@ proc drawOn*(this: DrawTrSurfBSplineCurve; dis: var DrawDisplay) {.noSideEffect,
 proc drawOn*(this: DrawTrSurfBSplineCurve; dis: var DrawDisplay; showPoles: bool;
             showKnots: bool) {.noSideEffect, importcpp: "DrawOn",
                              header: "DrawTrSurf_BSplineCurve.hxx".}
-proc drawOn*(this: DrawTrSurfBSplineCurve; dis: var DrawDisplay; u1: float; u2: float;
-            pindex: int; showPoles: bool = true; showKnots: bool = true) {.noSideEffect,
+proc drawOn*(this: DrawTrSurfBSplineCurve; dis: var DrawDisplay; u1: cfloat; u2: cfloat;
+            pindex: cint; showPoles: bool = true; showKnots: bool = true) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_BSplineCurve.hxx".}
 proc showPoles*(this: var DrawTrSurfBSplineCurve) {.importcpp: "ShowPoles",
     header: "DrawTrSurf_BSplineCurve.hxx".}
@@ -68,12 +69,12 @@ proc clearPoles*(this: var DrawTrSurfBSplineCurve) {.importcpp: "ClearPoles",
     header: "DrawTrSurf_BSplineCurve.hxx".}
 proc clearKnots*(this: var DrawTrSurfBSplineCurve) {.importcpp: "ClearKnots",
     header: "DrawTrSurf_BSplineCurve.hxx".}
-proc findPole*(this: DrawTrSurfBSplineCurve; x: float; y: float; d: DrawDisplay;
-              prec: float; index: var int) {.noSideEffect, importcpp: "FindPole",
-                                        header: "DrawTrSurf_BSplineCurve.hxx".}
-proc findKnot*(this: DrawTrSurfBSplineCurve; x: float; y: float; d: DrawDisplay;
-              prec: float; index: var int) {.noSideEffect, importcpp: "FindKnot",
-                                        header: "DrawTrSurf_BSplineCurve.hxx".}
+proc findPole*(this: DrawTrSurfBSplineCurve; x: cfloat; y: cfloat; d: DrawDisplay;
+              prec: cfloat; index: var cint) {.noSideEffect, importcpp: "FindPole",
+    header: "DrawTrSurf_BSplineCurve.hxx".}
+proc findKnot*(this: DrawTrSurfBSplineCurve; x: cfloat; y: cfloat; d: DrawDisplay;
+              prec: cfloat; index: var cint) {.noSideEffect, importcpp: "FindKnot",
+    header: "DrawTrSurf_BSplineCurve.hxx".}
 proc setPolesColor*(this: var DrawTrSurfBSplineCurve; aColor: DrawColor) {.
     importcpp: "SetPolesColor", header: "DrawTrSurf_BSplineCurve.hxx".}
 proc setKnotsColor*(this: var DrawTrSurfBSplineCurve; aColor: DrawColor) {.
@@ -98,3 +99,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_BSplineCurve.hxx".}
 proc dynamicType*(this: DrawTrSurfBSplineCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DrawTrSurf_BSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

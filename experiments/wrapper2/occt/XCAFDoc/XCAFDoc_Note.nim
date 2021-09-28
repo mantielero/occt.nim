@@ -51,9 +51,35 @@ proc paste*(this: XCAFDocNote; theAttrInto: Handle[TDF_Attribute];
     header: "XCAFDoc_Note.hxx".}
 proc dump*(this: XCAFDocNote; theOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "XCAFDoc_Note.hxx".}
-proc dumpJson*(this: XCAFDocNote; theOStream: var StandardOStream; theDepth: int = -1) {.
-    noSideEffect, importcpp: "DumpJson", header: "XCAFDoc_Note.hxx".}
+proc dumpJson*(this: XCAFDocNote; theOStream: var StandardOStream;
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFDoc_Note.hxx".}
 discard "forward decl of XCAFDoc_Note"
 type
-  HandleXCAFDocNote* = Handle[XCAFDocNote]
+  HandleC1C1* = Handle[XCAFDocNote]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

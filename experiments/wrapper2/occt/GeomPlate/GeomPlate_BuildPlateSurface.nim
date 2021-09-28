@@ -29,177 +29,6 @@ type
   GeomPlateBuildPlateSurface* {.importcpp: "GeomPlate_BuildPlateSurface",
                                header: "GeomPlate_BuildPlateSurface.hxx", bycopy.} = object ##
                                                                                        ## !
-                                                                                       ## Constructor
-                                                                                       ## compatible
-                                                                                       ## with
-                                                                                       ## the
-                                                                                       ## old
-                                                                                       ## version
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## with
-                                                                                       ## this
-                                                                                       ## constructor
-                                                                                       ## the
-                                                                                       ## constraint
-                                                                                       ## are
-                                                                                       ## given
-                                                                                       ## in
-                                                                                       ## a
-                                                                                       ## Array
-                                                                                       ## of
-                                                                                       ## Curve
-                                                                                       ## on
-                                                                                       ## Surface
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## The
-                                                                                       ## array
-                                                                                       ## NbPoints
-                                                                                       ## contains
-                                                                                       ## the
-                                                                                       ## number
-                                                                                       ## of
-                                                                                       ## points
-                                                                                       ## for
-                                                                                       ## each
-                                                                                       ## constraint.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## The
-                                                                                       ## Array
-                                                                                       ## Tang
-                                                                                       ## contains
-                                                                                       ## the
-                                                                                       ## order
-                                                                                       ## of
-                                                                                       ## constraint
-                                                                                       ## for
-                                                                                       ## each
-                                                                                       ## Constraint:
-                                                                                       ## The
-                                                                                       ## possible
-                                                                                       ## values
-                                                                                       ## for
-                                                                                       ## this
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## order
-                                                                                       ## has
-                                                                                       ## to
-                                                                                       ## be
-                                                                                       ## -1
-                                                                                       ## ,
-                                                                                       ## 0
-                                                                                       ## ,
-                                                                                       ## 1
-                                                                                       ## ,
-                                                                                       ## 2
-                                                                                       ## .
-                                                                                       ## Order
-                                                                                       ## i
-                                                                                       ## means
-                                                                                       ## constraint
-                                                                                       ## Gi.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## NbIter
-                                                                                       ## is
-                                                                                       ## the
-                                                                                       ## maximum
-                                                                                       ## number
-                                                                                       ## of
-                                                                                       ## iteration
-                                                                                       ## to
-                                                                                       ## optimise
-                                                                                       ## the
-                                                                                       ## number
-                                                                                       ## of
-                                                                                       ## points
-                                                                                       ## for
-                                                                                       ## resolution
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Degree
-                                                                                       ## is
-                                                                                       ## the
-                                                                                       ## degree
-                                                                                       ## of
-                                                                                       ## resolution
-                                                                                       ## for
-                                                                                       ## Plate
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Tol2d
-                                                                                       ## is
-                                                                                       ## the
-                                                                                       ## tolerance
-                                                                                       ## used
-                                                                                       ## to
-                                                                                       ## test
-                                                                                       ## if
-                                                                                       ## two
-                                                                                       ## points
-                                                                                       ## of
-                                                                                       ## different
-                                                                                       ## constraint
-                                                                                       ## are
-                                                                                       ## identical
-                                                                                       ## in
-                                                                                       ## the
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## parametric
-                                                                                       ## space
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## initial
-                                                                                       ## surface
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Tol3d
-                                                                                       ## is
-                                                                                       ## used
-                                                                                       ## to
-                                                                                       ## test
-                                                                                       ## if
-                                                                                       ## two
-                                                                                       ## identical
-                                                                                       ## points
-                                                                                       ## in
-                                                                                       ## the
-                                                                                       ## 2d
-                                                                                       ## space
-                                                                                       ## are
-                                                                                       ## identical
-                                                                                       ## in
-                                                                                       ## 3d
-                                                                                       ## space
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## TolAng
-                                                                                       ## is
-                                                                                       ## used
-                                                                                       ## to
-                                                                                       ## compare
-                                                                                       ## the
-                                                                                       ## angle
-                                                                                       ## between
-                                                                                       ## normal
-                                                                                       ## of
-                                                                                       ## two
-                                                                                       ## identical
-                                                                                       ## points
-                                                                                       ## in
-                                                                                       ## the
-                                                                                       ## 2d
-                                                                                       ## space
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Raises
-                                                                                       ## ConstructionError;
-                                                                                       ##
-                                                                                       ## !
                                                                                        ## Evaluates
                                                                                        ## the
                                                                                        ## distance,
@@ -235,24 +64,44 @@ type
                                                                                        ## c
 
 
+proc `new`*(this: var GeomPlateBuildPlateSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomPlate_BuildPlateSurface::operator new",
+    header: "GeomPlate_BuildPlateSurface.hxx".}
+proc `delete`*(this: var GeomPlateBuildPlateSurface; theAddress: pointer) {.
+    importcpp: "GeomPlate_BuildPlateSurface::operator delete",
+    header: "GeomPlate_BuildPlateSurface.hxx".}
+proc `new[]`*(this: var GeomPlateBuildPlateSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomPlate_BuildPlateSurface::operator new[]",
+    header: "GeomPlate_BuildPlateSurface.hxx".}
+proc `delete[]`*(this: var GeomPlateBuildPlateSurface; theAddress: pointer) {.
+    importcpp: "GeomPlate_BuildPlateSurface::operator delete[]",
+    header: "GeomPlate_BuildPlateSurface.hxx".}
+proc `new`*(this: var GeomPlateBuildPlateSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomPlate_BuildPlateSurface::operator new",
+    header: "GeomPlate_BuildPlateSurface.hxx".}
+proc `delete`*(this: var GeomPlateBuildPlateSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomPlate_BuildPlateSurface::operator delete",
+    header: "GeomPlate_BuildPlateSurface.hxx".}
 proc constructGeomPlateBuildPlateSurface*(
     nPoints: Handle[TColStdHArray1OfInteger];
     tabCurve: Handle[GeomPlateHArray1OfHCurve];
     tang: Handle[TColStdHArray1OfInteger]; degree: int; nbIter: int = 3;
-    tol2d: float = 0.00001; tol3d: float = 0.0001; tolAng: float = 0.01;
-    tolCurv: float = 0.1; anisotropie: bool = false): GeomPlateBuildPlateSurface {.
-    constructor, importcpp: "GeomPlate_BuildPlateSurface(@)",
-    header: "GeomPlate_BuildPlateSurface.hxx".}
-proc constructGeomPlateBuildPlateSurface*(surf: Handle[GeomSurface];
-    degree: int = 3; nbPtsOnCur: int = 10; nbIter: int = 3; tol2d: float = 0.00001;
-    tol3d: float = 0.0001; tolAng: float = 0.01; tolCurv: float = 0.1;
-    anisotropie: bool = false): GeomPlateBuildPlateSurface {.constructor,
+    tol2d: StandardReal = 0.00001; tol3d: StandardReal = 0.0001;
+    tolAng: StandardReal = 0.01; tolCurv: StandardReal = 0.1;
+    anisotropie: StandardBoolean = false): GeomPlateBuildPlateSurface {.constructor,
     importcpp: "GeomPlate_BuildPlateSurface(@)",
     header: "GeomPlate_BuildPlateSurface.hxx".}
-proc constructGeomPlateBuildPlateSurface*(degree: int = 3; nbPtsOnCur: int = 10;
-    nbIter: int = 3; tol2d: float = 0.00001; tol3d: float = 0.0001; tolAng: float = 0.01;
-    tolCurv: float = 0.1; anisotropie: bool = false): GeomPlateBuildPlateSurface {.
+proc constructGeomPlateBuildPlateSurface*(surf: Handle[GeomSurface];
+    degree: int = 3; nbPtsOnCur: int = 10; nbIter: int = 3; tol2d: StandardReal = 0.00001;
+    tol3d: StandardReal = 0.0001; tolAng: StandardReal = 0.01;
+    tolCurv: StandardReal = 0.1; anisotropie: StandardBoolean = false): GeomPlateBuildPlateSurface {.
     constructor, importcpp: "GeomPlate_BuildPlateSurface(@)",
+    header: "GeomPlate_BuildPlateSurface.hxx".}
+proc constructGeomPlateBuildPlateSurface*(degree: int = 3; nbPtsOnCur: int = 10;
+    nbIter: int = 3; tol2d: StandardReal = 0.00001; tol3d: StandardReal = 0.0001;
+    tolAng: StandardReal = 0.01; tolCurv: StandardReal = 0.1;
+    anisotropie: StandardBoolean = false): GeomPlateBuildPlateSurface {.constructor,
+    importcpp: "GeomPlate_BuildPlateSurface(@)",
     header: "GeomPlate_BuildPlateSurface.hxx".}
 proc init*(this: var GeomPlateBuildPlateSurface) {.importcpp: "Init",
     header: "GeomPlate_BuildPlateSurface.hxx".}
@@ -282,7 +131,7 @@ proc disc2dContour*(this: var GeomPlateBuildPlateSurface; nbp: int;
 proc disc3dContour*(this: var GeomPlateBuildPlateSurface; nbp: int; iordre: int;
                    seq3d: var TColgpSequenceOfXYZ) {.importcpp: "Disc3dContour",
     header: "GeomPlate_BuildPlateSurface.hxx".}
-proc isDone*(this: GeomPlateBuildPlateSurface): bool {.noSideEffect,
+proc isDone*(this: GeomPlateBuildPlateSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomPlate_BuildPlateSurface.hxx".}
 proc surface*(this: GeomPlateBuildPlateSurface): Handle[GeomPlateSurface] {.
     noSideEffect, importcpp: "Surface", header: "GeomPlate_BuildPlateSurface.hxx".}
@@ -294,15 +143,15 @@ proc curves2d*(this: GeomPlateBuildPlateSurface): Handle[TColGeom2dHArray1OfCurv
     noSideEffect, importcpp: "Curves2d", header: "GeomPlate_BuildPlateSurface.hxx".}
 proc order*(this: GeomPlateBuildPlateSurface): Handle[TColStdHArray1OfInteger] {.
     noSideEffect, importcpp: "Order", header: "GeomPlate_BuildPlateSurface.hxx".}
-proc g0Error*(this: GeomPlateBuildPlateSurface): float {.noSideEffect,
+proc g0Error*(this: GeomPlateBuildPlateSurface): StandardReal {.noSideEffect,
     importcpp: "G0Error", header: "GeomPlate_BuildPlateSurface.hxx".}
-proc g1Error*(this: GeomPlateBuildPlateSurface): float {.noSideEffect,
+proc g1Error*(this: GeomPlateBuildPlateSurface): StandardReal {.noSideEffect,
     importcpp: "G1Error", header: "GeomPlate_BuildPlateSurface.hxx".}
-proc g2Error*(this: GeomPlateBuildPlateSurface): float {.noSideEffect,
+proc g2Error*(this: GeomPlateBuildPlateSurface): StandardReal {.noSideEffect,
     importcpp: "G2Error", header: "GeomPlate_BuildPlateSurface.hxx".}
-proc g0Error*(this: var GeomPlateBuildPlateSurface; index: int): float {.
+proc g0Error*(this: var GeomPlateBuildPlateSurface; index: int): StandardReal {.
     importcpp: "G0Error", header: "GeomPlate_BuildPlateSurface.hxx".}
-proc g1Error*(this: var GeomPlateBuildPlateSurface; index: int): float {.
+proc g1Error*(this: var GeomPlateBuildPlateSurface; index: int): StandardReal {.
     importcpp: "G1Error", header: "GeomPlate_BuildPlateSurface.hxx".}
-proc g2Error*(this: var GeomPlateBuildPlateSurface; index: int): float {.
+proc g2Error*(this: var GeomPlateBuildPlateSurface; index: int): StandardReal {.
     importcpp: "G2Error", header: "GeomPlate_BuildPlateSurface.hxx".}

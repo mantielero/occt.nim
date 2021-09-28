@@ -25,7 +25,7 @@ type
 proc constructStepDimTolShapeToleranceSelect*(): StepDimTolShapeToleranceSelect {.
     constructor, importcpp: "StepDimTol_ShapeToleranceSelect(@)",
     header: "StepDimTol_ShapeToleranceSelect.hxx".}
-proc caseNum*(this: StepDimTolShapeToleranceSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepDimTolShapeToleranceSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepDimTol_ShapeToleranceSelect.hxx".}
 proc geometricTolerance*(this: StepDimTolShapeToleranceSelect): Handle[
@@ -33,3 +33,28 @@ proc geometricTolerance*(this: StepDimTolShapeToleranceSelect): Handle[
 proc plusMinusTolerance*(this: StepDimTolShapeToleranceSelect): Handle[
     StepShapePlusMinusTolerance] {.noSideEffect, importcpp: "PlusMinusTolerance",
                                   header: "StepDimTol_ShapeToleranceSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

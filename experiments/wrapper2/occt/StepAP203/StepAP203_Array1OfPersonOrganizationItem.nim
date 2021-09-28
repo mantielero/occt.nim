@@ -18,3 +18,28 @@ type
   StepAP203Array1OfPersonOrganizationItem* = NCollectionArray1[
       StepAP203PersonOrganizationItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

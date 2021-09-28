@@ -37,3 +37,28 @@ proc value*(this: ApproxMCurvesToBSpCurve): AppParCurvesMultiBSpCurve {.
     noSideEffect, importcpp: "Value", header: "Approx_MCurvesToBSpCurve.hxx".}
 proc changeValue*(this: var ApproxMCurvesToBSpCurve): AppParCurvesMultiBSpCurve {.
     importcpp: "ChangeValue", header: "Approx_MCurvesToBSpCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

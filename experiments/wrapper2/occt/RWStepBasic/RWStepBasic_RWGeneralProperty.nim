@@ -28,7 +28,7 @@ proc constructRWStepBasicRWGeneralProperty*(): RWStepBasicRWGeneralProperty {.
     constructor, importcpp: "RWStepBasic_RWGeneralProperty(@)",
     header: "RWStepBasic_RWGeneralProperty.hxx".}
 proc readStep*(this: RWStepBasicRWGeneralProperty;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicGeneralProperty]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWGeneralProperty.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepBasicRWGeneralProperty;
            ent: Handle[StepBasicGeneralProperty];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWGeneralProperty.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

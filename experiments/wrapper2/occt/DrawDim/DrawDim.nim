@@ -43,9 +43,34 @@ proc planarDimensionCommands*(i: var DrawInterpretor) {.
     importcpp: "DrawDim::PlanarDimensionCommands(@)", header: "DrawDim.hxx".}
 proc nearest*(aShape: TopoDS_Shape; apoint: Pnt): Pnt {.
     importcpp: "DrawDim::Nearest(@)", header: "DrawDim.hxx".}
-proc lin*(e: TopoDS_Edge; l: var Lin; infinite: var bool; first: var float; last: var float): bool {.
-    importcpp: "DrawDim::Lin(@)", header: "DrawDim.hxx".}
-proc circ*(e: TopoDS_Edge; l: var Circ; first: var float; last: var float): bool {.
+proc lin*(e: TopoDS_Edge; l: var Lin; infinite: var bool; first: var cfloat;
+         last: var cfloat): bool {.importcpp: "DrawDim::Lin(@)", header: "DrawDim.hxx".}
+proc circ*(e: TopoDS_Edge; l: var Circ; first: var cfloat; last: var cfloat): bool {.
     importcpp: "DrawDim::Circ(@)", header: "DrawDim.hxx".}
 proc pln*(f: TopoDS_Face; p: var Pln): bool {.importcpp: "DrawDim::Pln(@)",
                                        header: "DrawDim.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_OffsetCurve"
 discard "forward decl of Geom2d_OffsetCurve"
 type
-  HandleGeom2dOffsetCurve* = Handle[Geom2dOffsetCurve]
+  HandleC1C1* = Handle[Geom2dOffsetCurve]
 
 ## ! This class implements the basis services for the creation,
 ## ! edition, modification and evaluation of planar offset curve.
@@ -282,54 +282,55 @@ type
                                                                                   ## point.
 
 
-proc constructGeom2dOffsetCurve*(c: Handle[Geom2dCurve]; offset: float;
-                                isNotCheckC0: bool = false): Geom2dOffsetCurve {.
+proc constructGeom2dOffsetCurve*(c: Handle[Geom2dCurve]; offset: StandardReal;
+                                isNotCheckC0: StandardBoolean = false): Geom2dOffsetCurve {.
     constructor, importcpp: "Geom2d_OffsetCurve(@)",
     header: "Geom2d_OffsetCurve.hxx".}
 proc reverse*(this: var Geom2dOffsetCurve) {.importcpp: "Reverse",
     header: "Geom2d_OffsetCurve.hxx".}
-proc reversedParameter*(this: Geom2dOffsetCurve; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom2d_OffsetCurve.hxx".}
+proc reversedParameter*(this: Geom2dOffsetCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_OffsetCurve.hxx".}
 proc setBasisCurve*(this: var Geom2dOffsetCurve; c: Handle[Geom2dCurve];
-                   isNotCheckC0: bool = false) {.importcpp: "SetBasisCurve",
-    header: "Geom2d_OffsetCurve.hxx".}
-proc setOffsetValue*(this: var Geom2dOffsetCurve; d: float) {.
+                   isNotCheckC0: StandardBoolean = false) {.
+    importcpp: "SetBasisCurve", header: "Geom2d_OffsetCurve.hxx".}
+proc setOffsetValue*(this: var Geom2dOffsetCurve; d: StandardReal) {.
     importcpp: "SetOffsetValue", header: "Geom2d_OffsetCurve.hxx".}
 proc basisCurve*(this: Geom2dOffsetCurve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "Geom2d_OffsetCurve.hxx".}
 proc continuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom2d_OffsetCurve.hxx".}
-proc d0*(this: Geom2dOffsetCurve; u: float; p: var Pnt2d) {.noSideEffect,
+proc d0*(this: Geom2dOffsetCurve; u: StandardReal; p: var Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Geom2d_OffsetCurve.hxx".}
-proc d1*(this: Geom2dOffsetCurve; u: float; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
-    importcpp: "D1", header: "Geom2d_OffsetCurve.hxx".}
-proc d2*(this: Geom2dOffsetCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, importcpp: "D2", header: "Geom2d_OffsetCurve.hxx".}
-proc d3*(this: Geom2dOffsetCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+proc d1*(this: Geom2dOffsetCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d) {.
+    noSideEffect, importcpp: "D1", header: "Geom2d_OffsetCurve.hxx".}
+proc d2*(this: Geom2dOffsetCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d) {.noSideEffect, importcpp: "D2",
                       header: "Geom2d_OffsetCurve.hxx".}
-proc dn*(this: Geom2dOffsetCurve; u: float; n: int): Vec2d {.noSideEffect,
+proc d3*(this: Geom2dOffsetCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d; v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+                                  header: "Geom2d_OffsetCurve.hxx".}
+proc dn*(this: Geom2dOffsetCurve; u: StandardReal; n: int): Vec2d {.noSideEffect,
     importcpp: "DN", header: "Geom2d_OffsetCurve.hxx".}
-proc firstParameter*(this: Geom2dOffsetCurve): float {.noSideEffect,
+proc firstParameter*(this: Geom2dOffsetCurve): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_OffsetCurve.hxx".}
-proc lastParameter*(this: Geom2dOffsetCurve): float {.noSideEffect,
+proc lastParameter*(this: Geom2dOffsetCurve): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_OffsetCurve.hxx".}
-proc offset*(this: Geom2dOffsetCurve): float {.noSideEffect, importcpp: "Offset",
-    header: "Geom2d_OffsetCurve.hxx".}
-proc isClosed*(this: Geom2dOffsetCurve): bool {.noSideEffect, importcpp: "IsClosed",
-    header: "Geom2d_OffsetCurve.hxx".}
-proc isCN*(this: Geom2dOffsetCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
-    header: "Geom2d_OffsetCurve.hxx".}
-proc isPeriodic*(this: Geom2dOffsetCurve): bool {.noSideEffect,
+proc offset*(this: Geom2dOffsetCurve): StandardReal {.noSideEffect,
+    importcpp: "Offset", header: "Geom2d_OffsetCurve.hxx".}
+proc isClosed*(this: Geom2dOffsetCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom2d_OffsetCurve.hxx".}
+proc isCN*(this: Geom2dOffsetCurve; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom2d_OffsetCurve.hxx".}
+proc isPeriodic*(this: Geom2dOffsetCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom2d_OffsetCurve.hxx".}
-proc period*(this: Geom2dOffsetCurve): float {.noSideEffect, importcpp: "Period",
-    header: "Geom2d_OffsetCurve.hxx".}
+proc period*(this: Geom2dOffsetCurve): StandardReal {.noSideEffect,
+    importcpp: "Period", header: "Geom2d_OffsetCurve.hxx".}
 proc transform*(this: var Geom2dOffsetCurve; t: Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_OffsetCurve.hxx".}
-proc transformedParameter*(this: Geom2dOffsetCurve; u: float; t: Trsf2d): float {.
+proc transformedParameter*(this: Geom2dOffsetCurve; u: StandardReal; t: Trsf2d): StandardReal {.
     noSideEffect, importcpp: "TransformedParameter",
     header: "Geom2d_OffsetCurve.hxx".}
-proc parametricTransformation*(this: Geom2dOffsetCurve; t: Trsf2d): float {.
+proc parametricTransformation*(this: Geom2dOffsetCurve; t: Trsf2d): StandardReal {.
     noSideEffect, importcpp: "ParametricTransformation",
     header: "Geom2d_OffsetCurve.hxx".}
 proc copy*(this: Geom2dOffsetCurve): Handle[Geom2dGeometry] {.noSideEffect,

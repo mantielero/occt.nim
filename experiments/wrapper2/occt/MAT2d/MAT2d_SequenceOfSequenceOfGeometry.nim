@@ -18,3 +18,28 @@ type
   MAT2dSequenceOfSequenceOfGeometry* = NCollectionSequence[
       TColGeom2dSequenceOfGeometry]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

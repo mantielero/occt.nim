@@ -20,3 +20,28 @@ type
       TNamingMapOfShape]
   TNamingDataMapIteratorOfDataMapOfShapeMapOfShape* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

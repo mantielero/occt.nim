@@ -30,11 +30,36 @@ proc constructIntCurveSurfaceTheQuadCurvFuncOfTheQuadCurvExactHInter*(
     importcpp: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter(@)",
     header: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter.hxx".}
 proc value*(this: var IntCurveSurfaceTheQuadCurvFuncOfTheQuadCurvExactHInter;
-           param: float; f: var float): bool {.importcpp: "Value",
+           param: cfloat; f: var cfloat): bool {.importcpp: "Value",
     header: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter.hxx".}
 proc derivative*(this: var IntCurveSurfaceTheQuadCurvFuncOfTheQuadCurvExactHInter;
-                param: float; d: var float): bool {.importcpp: "Derivative",
+                param: cfloat; d: var cfloat): bool {.importcpp: "Derivative",
     header: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter.hxx".}
 proc values*(this: var IntCurveSurfaceTheQuadCurvFuncOfTheQuadCurvExactHInter;
-            param: float; f: var float; d: var float): bool {.importcpp: "Values",
+            param: cfloat; f: var cfloat; d: var cfloat): bool {.importcpp: "Values",
     header: "IntCurveSurface_TheQuadCurvFuncOfTheQuadCurvExactHInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

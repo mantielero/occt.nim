@@ -17,3 +17,28 @@ type
   StepDimTolArray1OfToleranceZoneTarget* = NCollectionArray1[
       StepDimTolToleranceZoneTarget]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

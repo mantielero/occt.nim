@@ -104,7 +104,7 @@ proc selectedOriginal*(this: IFSelectContextModif): InterfaceEntityIterator {.
     header: "IFSelect_ContextModif.hxx".}
 proc selectedResult*(this: IFSelectContextModif): InterfaceEntityIterator {.
     noSideEffect, importcpp: "SelectedResult", header: "IFSelect_ContextModif.hxx".}
-proc selectedCount*(this: IFSelectContextModif): int {.noSideEffect,
+proc selectedCount*(this: IFSelectContextModif): cint {.noSideEffect,
     importcpp: "SelectedCount", header: "IFSelect_ContextModif.hxx".}
 proc start*(this: var IFSelectContextModif) {.importcpp: "Start",
     header: "IFSelect_ContextModif.hxx".}
@@ -129,9 +129,34 @@ proc addWarning*(this: var IFSelectContextModif; start: Handle[StandardTransient
 proc addFail*(this: var IFSelectContextModif; start: Handle[StandardTransient];
              mess: StandardCString; orig: StandardCString = "") {.
     importcpp: "AddFail", header: "IFSelect_ContextModif.hxx".}
-proc cCheck*(this: var IFSelectContextModif; num: int = 0): Handle[InterfaceCheck] {.
+proc cCheck*(this: var IFSelectContextModif; num: cint = 0): Handle[InterfaceCheck] {.
     importcpp: "CCheck", header: "IFSelect_ContextModif.hxx".}
 proc cCheck*(this: var IFSelectContextModif; start: Handle[StandardTransient]): Handle[
     InterfaceCheck] {.importcpp: "CCheck", header: "IFSelect_ContextModif.hxx".}
 proc checkList*(this: IFSelectContextModif): InterfaceCheckIterator {.noSideEffect,
     importcpp: "CheckList", header: "IFSelect_ContextModif.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

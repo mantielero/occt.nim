@@ -19,7 +19,7 @@ discard "forward decl of TFunction_Driver"
 discard "forward decl of TFunction_DriverTable"
 discard "forward decl of TFunction_DriverTable"
 type
-  HandleTFunctionDriverTable* = Handle[TFunctionDriverTable]
+  HandleC1C1* = Handle[TFunctionDriverTable]
 
 ## ! A container for instances of drivers.
 ## ! You create a new instance of TFunction_Driver
@@ -49,19 +49,20 @@ proc get*(): Handle[TFunctionDriverTable] {.
 proc constructTFunctionDriverTable*(): TFunctionDriverTable {.constructor,
     importcpp: "TFunction_DriverTable(@)", header: "TFunction_DriverTable.hxx".}
 proc addDriver*(this: var TFunctionDriverTable; guid: StandardGUID;
-               driver: Handle[TFunctionDriver]; thread: int = 0): bool {.
+               driver: Handle[TFunctionDriver]; thread: cint = 0): bool {.
     importcpp: "AddDriver", header: "TFunction_DriverTable.hxx".}
-proc hasDriver*(this: TFunctionDriverTable; guid: StandardGUID; thread: int = 0): bool {.
+proc hasDriver*(this: TFunctionDriverTable; guid: StandardGUID; thread: cint = 0): bool {.
     noSideEffect, importcpp: "HasDriver", header: "TFunction_DriverTable.hxx".}
 proc findDriver*(this: TFunctionDriverTable; guid: StandardGUID;
-                driver: var Handle[TFunctionDriver]; thread: int = 0): bool {.
+                driver: var Handle[TFunctionDriver]; thread: cint = 0): bool {.
     noSideEffect, importcpp: "FindDriver", header: "TFunction_DriverTable.hxx".}
 proc dump*(this: TFunctionDriverTable; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TFunction_DriverTable.hxx".}
 proc `<<`*(this: TFunctionDriverTable; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "(# << #)", header: "TFunction_DriverTable.hxx".}
-proc removeDriver*(this: var TFunctionDriverTable; guid: StandardGUID; thread: int = 0): bool {.
-    importcpp: "RemoveDriver", header: "TFunction_DriverTable.hxx".}
+proc removeDriver*(this: var TFunctionDriverTable; guid: StandardGUID;
+                  thread: cint = 0): bool {.importcpp: "RemoveDriver",
+                                       header: "TFunction_DriverTable.hxx".}
 proc clear*(this: var TFunctionDriverTable) {.importcpp: "Clear",
     header: "TFunction_DriverTable.hxx".}
 type
@@ -74,3 +75,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TFunction_DriverTable.hxx".}
 proc dynamicType*(this: TFunctionDriverTable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TFunction_DriverTable.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

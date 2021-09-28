@@ -13,8 +13,7 @@
 
 discard "forward decl of BinMXCAFDoc_VisMaterialToolDriver"
 type
-  HandleBinMXCAFDocVisMaterialToolDriver* = Handle[
-      BinMXCAFDocVisMaterialToolDriver]
+  HandleC1C1* = Handle[BinMXCAFDocVisMaterialToolDriver]
 
 ## ! Binary persistence driver for XCAFDoc_VisMaterialTool attribute.
 
@@ -47,3 +46,28 @@ proc paste*(this: BinMXCAFDocVisMaterialToolDriver;
            theSource: Handle[TDF_Attribute]; theTarget: var BinObjMgtPersistent;
            theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMXCAFDoc_VisMaterialToolDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

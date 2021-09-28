@@ -17,3 +17,28 @@
 type
   StepVisualArray1OfFillStyleSelect* = NCollectionArray1[StepVisualFillStyleSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataStd_ReferenceArray"
 discard "forward decl of TDataStd_ReferenceArray"
 type
-  HandleTDataStdReferenceArray* = Handle[TDataStdReferenceArray]
+  HandleC1C1* = Handle[TDataStdReferenceArray]
 
 ## ! Contains an array of references to the labels.
 
@@ -50,29 +50,29 @@ type
 
 proc getID*(): StandardGUID {.importcpp: "TDataStd_ReferenceArray::GetID(@)",
                            header: "TDataStd_ReferenceArray.hxx".}
-proc set*(label: TDF_Label; lower: int; upper: int): Handle[TDataStdReferenceArray] {.
+proc set*(label: TDF_Label; lower: cint; upper: cint): Handle[TDataStdReferenceArray] {.
     importcpp: "TDataStd_ReferenceArray::Set(@)",
     header: "TDataStd_ReferenceArray.hxx".}
-proc set*(label: TDF_Label; theGuid: StandardGUID; lower: int; upper: int): Handle[
+proc set*(label: TDF_Label; theGuid: StandardGUID; lower: cint; upper: cint): Handle[
     TDataStdReferenceArray] {.importcpp: "TDataStd_ReferenceArray::Set(@)",
                              header: "TDataStd_ReferenceArray.hxx".}
-proc init*(this: var TDataStdReferenceArray; lower: int; upper: int) {.
+proc init*(this: var TDataStdReferenceArray; lower: cint; upper: cint) {.
     importcpp: "Init", header: "TDataStd_ReferenceArray.hxx".}
-proc setValue*(this: var TDataStdReferenceArray; index: int; value: TDF_Label) {.
+proc setValue*(this: var TDataStdReferenceArray; index: cint; value: TDF_Label) {.
     importcpp: "SetValue", header: "TDataStd_ReferenceArray.hxx".}
 proc setID*(this: var TDataStdReferenceArray; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_ReferenceArray.hxx".}
 proc setID*(this: var TDataStdReferenceArray) {.importcpp: "SetID",
     header: "TDataStd_ReferenceArray.hxx".}
-proc value*(this: TDataStdReferenceArray; index: int): TDF_Label {.noSideEffect,
+proc value*(this: TDataStdReferenceArray; index: cint): TDF_Label {.noSideEffect,
     importcpp: "Value", header: "TDataStd_ReferenceArray.hxx".}
-proc `()`*(this: TDataStdReferenceArray; index: int): TDF_Label {.noSideEffect,
+proc `()`*(this: TDataStdReferenceArray; index: cint): TDF_Label {.noSideEffect,
     importcpp: "#(@)", header: "TDataStd_ReferenceArray.hxx".}
-proc lower*(this: TDataStdReferenceArray): int {.noSideEffect, importcpp: "Lower",
+proc lower*(this: TDataStdReferenceArray): cint {.noSideEffect, importcpp: "Lower",
     header: "TDataStd_ReferenceArray.hxx".}
-proc upper*(this: TDataStdReferenceArray): int {.noSideEffect, importcpp: "Upper",
+proc upper*(this: TDataStdReferenceArray): cint {.noSideEffect, importcpp: "Upper",
     header: "TDataStd_ReferenceArray.hxx".}
-proc length*(this: TDataStdReferenceArray): int {.noSideEffect, importcpp: "Length",
+proc length*(this: TDataStdReferenceArray): cint {.noSideEffect, importcpp: "Length",
     header: "TDataStd_ReferenceArray.hxx".}
 proc internalArray*(this: TDataStdReferenceArray): Handle[TDataStdHLabelArray1] {.
     noSideEffect, importcpp: "InternalArray", header: "TDataStd_ReferenceArray.hxx".}
@@ -96,8 +96,8 @@ proc references*(this: TDataStdReferenceArray; ds: Handle[TDF_DataSet]) {.
 proc dump*(this: TDataStdReferenceArray; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_ReferenceArray.hxx".}
 proc dumpJson*(this: TDataStdReferenceArray; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_ReferenceArray.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_ReferenceArray.hxx".}
 type
   TDataStdReferenceArraybaseType* = TDF_Attribute
 
@@ -108,3 +108,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_ReferenceArray.hxx".}
 proc dynamicType*(this: TDataStdReferenceArray): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TDataStd_ReferenceArray.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

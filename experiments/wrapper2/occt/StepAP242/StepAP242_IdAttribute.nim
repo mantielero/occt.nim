@@ -18,7 +18,7 @@ discard "forward decl of StepAP242_IdAttributeSelect"
 discard "forward decl of StepAP242_IdAttribute"
 discard "forward decl of StepAP242_IdAttribute"
 type
-  HandleStepAP242IdAttribute* = Handle[StepAP242IdAttribute]
+  HandleC1C1* = Handle[StepAP242IdAttribute]
   StepAP242IdAttribute* {.importcpp: "StepAP242_IdAttribute",
                          header: "StepAP242_IdAttribute.hxx", bycopy.} = object of StandardTransient ##
                                                                                               ## !
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepAP242_IdAttribute.hxx".}
 proc dynamicType*(this: StepAP242IdAttribute): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP242_IdAttribute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

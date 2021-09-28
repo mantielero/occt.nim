@@ -16,7 +16,7 @@
 discard "forward decl of StepRepr_PerpendicularTo"
 discard "forward decl of StepRepr_PerpendicularTo"
 type
-  HandleStepReprPerpendicularTo* = Handle[StepReprPerpendicularTo]
+  HandleC1C1* = Handle[StepReprPerpendicularTo]
 
 ## ! Added for Dimensional Tolerances
 
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_PerpendicularTo.hxx".}
 proc dynamicType*(this: StepReprPerpendicularTo): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_PerpendicularTo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -37,7 +37,7 @@ proc doSplitSEAMOnFace*(theEOrigin: TopoDS_Edge; theESplit: TopoDS_Edge;
                        theFace: TopoDS_Face): bool {.
     importcpp: "BOPTools_AlgoTools3D::DoSplitSEAMOnFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc getNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: float; aD: var Dir;
+proc getNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: cfloat; aD: var Dir;
     theContext: Handle[IntToolsContext] = handle[IntToolsContext]()) {.
     importcpp: "BOPTools_AlgoTools3D::GetNormalToFaceOnEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
@@ -45,43 +45,43 @@ proc getNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aD: var Dir; theCo
     IntToolsContext] = handle[IntToolsContext]()) {.
     importcpp: "BOPTools_AlgoTools3D::GetNormalToFaceOnEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc senseFlag*(aNF1: Dir; aNF2: Dir): int {.importcpp: "BOPTools_AlgoTools3D::SenseFlag(@)",
-                                       header: "BOPTools_AlgoTools3D.hxx".}
-proc getNormalToSurface*(`aS`: Handle[GeomSurface]; u: float; v: float; aD: var Dir): bool {.
+proc senseFlag*(aNF1: Dir; aNF2: Dir): cint {.importcpp: "BOPTools_AlgoTools3D::SenseFlag(@)",
+                                        header: "BOPTools_AlgoTools3D.hxx".}
+proc getNormalToSurface*(`aS`: Handle[GeomSurface]; u: cfloat; v: cfloat; aD: var Dir): bool {.
     importcpp: "BOPTools_AlgoTools3D::GetNormalToSurface(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc getApproxNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: float;
+proc getApproxNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: cfloat;
                                  aPx: var Pnt; aD: var Dir;
                                  theContext: Handle[IntToolsContext]): bool {.
     importcpp: "BOPTools_AlgoTools3D::GetApproxNormalToFaceOnEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc getApproxNormalToFaceOnEdge*(theE: TopoDS_Edge; theF: TopoDS_Face; aT: float;
-                                 aP: var Pnt; aDNF: var Dir; aDt2D: float): bool {.
+proc getApproxNormalToFaceOnEdge*(theE: TopoDS_Edge; theF: TopoDS_Face; aT: cfloat;
+                                 aP: var Pnt; aDNF: var Dir; aDt2D: cfloat): bool {.
     importcpp: "BOPTools_AlgoTools3D::GetApproxNormalToFaceOnEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc getApproxNormalToFaceOnEdge*(theE: TopoDS_Edge; theF: TopoDS_Face; aT: float;
-                                 aDt2D: float; aP: var Pnt; aDNF: var Dir;
+proc getApproxNormalToFaceOnEdge*(theE: TopoDS_Edge; theF: TopoDS_Face; aT: cfloat;
+                                 aDt2D: cfloat; aP: var Pnt; aDNF: var Dir;
                                  theContext: Handle[IntToolsContext]): bool {.
     importcpp: "BOPTools_AlgoTools3D::GetApproxNormalToFaceOnEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: float; aDt2D: float;
-                   aP2D: var Pnt2d; aPx: var Pnt; theContext: Handle[IntToolsContext]): int {.
+proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: cfloat; aDt2D: cfloat;
+                   aP2D: var Pnt2d; aPx: var Pnt; theContext: Handle[IntToolsContext]): cint {.
     importcpp: "BOPTools_AlgoTools3D::PointNearEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: float; aDt2D: float;
-                   aP2D: var Pnt2d; aPx: var Pnt): int {.
+proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: cfloat; aDt2D: cfloat;
+                   aP2D: var Pnt2d; aPx: var Pnt): cint {.
     importcpp: "BOPTools_AlgoTools3D::PointNearEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: float; aP2D: var Pnt2d;
-                   aPx: var Pnt; theContext: Handle[IntToolsContext]): int {.
+proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: cfloat; aP2D: var Pnt2d;
+                   aPx: var Pnt; theContext: Handle[IntToolsContext]): cint {.
     importcpp: "BOPTools_AlgoTools3D::PointNearEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
 proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aP2D: var Pnt2d; aPx: var Pnt;
-                   theContext: Handle[IntToolsContext]): int {.
+                   theContext: Handle[IntToolsContext]): cint {.
     importcpp: "BOPTools_AlgoTools3D::PointNearEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc minStepIn2d*(): float {.importcpp: "BOPTools_AlgoTools3D::MinStepIn2d(@)",
-                          header: "BOPTools_AlgoTools3D.hxx".}
+proc minStepIn2d*(): cfloat {.importcpp: "BOPTools_AlgoTools3D::MinStepIn2d(@)",
+                           header: "BOPTools_AlgoTools3D.hxx".}
 proc isEmptyShape*(`aS`: TopoDS_Shape): bool {.
     importcpp: "BOPTools_AlgoTools3D::IsEmptyShape(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
@@ -89,15 +89,40 @@ proc orientEdgeOnFace*(aE: TopoDS_Edge; aF: TopoDS_Face; aER: var TopoDS_Edge) {
     importcpp: "BOPTools_AlgoTools3D::OrientEdgeOnFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
 proc pointInFace*(theF: TopoDS_Face; theP: var Pnt; theP2D: var Pnt2d;
-                 theContext: Handle[IntToolsContext]): int {.
+                 theContext: Handle[IntToolsContext]): cint {.
     importcpp: "BOPTools_AlgoTools3D::PointInFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointInFace*(theF: TopoDS_Face; theE: TopoDS_Edge; theT: float; theDt2D: float;
-                 theP: var Pnt; theP2D: var Pnt2d; theContext: Handle[IntToolsContext]): int {.
+proc pointInFace*(theF: TopoDS_Face; theE: TopoDS_Edge; theT: cfloat; theDt2D: cfloat;
+                 theP: var Pnt; theP2D: var Pnt2d; theContext: Handle[IntToolsContext]): cint {.
     importcpp: "BOPTools_AlgoTools3D::PointInFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
 proc pointInFace*(theF: TopoDS_Face; theL: Handle[Geom2dCurve]; theP: var Pnt;
                  theP2D: var Pnt2d; theContext: Handle[IntToolsContext];
-                 theDt2D: float = 0.0): int {.
+                 theDt2D: cfloat = 0.0): cint {.
     importcpp: "BOPTools_AlgoTools3D::PointInFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

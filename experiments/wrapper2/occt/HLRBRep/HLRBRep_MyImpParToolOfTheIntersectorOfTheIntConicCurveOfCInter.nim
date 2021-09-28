@@ -25,8 +25,33 @@ proc constructHLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter*(
     it: IntCurveIConicTool; pc: StandardAddress): HLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter {.
     constructor, importcpp: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter(@)", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
 proc value*(this: var HLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter;
-           param: float; f: var float): bool {.importcpp: "Value", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
+           param: cfloat; f: var cfloat): bool {.importcpp: "Value", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
 proc derivative*(this: var HLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter;
-                param: float; d: var float): bool {.importcpp: "Derivative", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
+                param: cfloat; d: var cfloat): bool {.importcpp: "Derivative", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
 proc values*(this: var HLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter;
-            param: float; f: var float; d: var float): bool {.importcpp: "Values", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
+            param: cfloat; f: var cfloat; d: var cfloat): bool {.importcpp: "Values", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

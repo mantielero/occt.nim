@@ -32,20 +32,45 @@ proc constructBRepPrimFaceBuilder*(b: BRepBuilder; s: Handle[GeomSurface]): BRep
     constructor, importcpp: "BRepPrim_FaceBuilder(@)",
     header: "BRepPrim_FaceBuilder.hxx".}
 proc constructBRepPrimFaceBuilder*(b: BRepBuilder; s: Handle[GeomSurface];
-                                  uMin: float; uMax: float; vMin: float; vMax: float): BRepPrimFaceBuilder {.
-    constructor, importcpp: "BRepPrim_FaceBuilder(@)",
-    header: "BRepPrim_FaceBuilder.hxx".}
+                                  uMin: cfloat; uMax: cfloat; vMin: cfloat;
+                                  vMax: cfloat): BRepPrimFaceBuilder {.constructor,
+    importcpp: "BRepPrim_FaceBuilder(@)", header: "BRepPrim_FaceBuilder.hxx".}
 proc init*(this: var BRepPrimFaceBuilder; b: BRepBuilder; s: Handle[GeomSurface]) {.
     importcpp: "Init", header: "BRepPrim_FaceBuilder.hxx".}
 proc init*(this: var BRepPrimFaceBuilder; b: BRepBuilder; s: Handle[GeomSurface];
-          uMin: float; uMax: float; vMin: float; vMax: float) {.importcpp: "Init",
+          uMin: cfloat; uMax: cfloat; vMin: cfloat; vMax: cfloat) {.importcpp: "Init",
     header: "BRepPrim_FaceBuilder.hxx".}
 proc face*(this: BRepPrimFaceBuilder): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "BRepPrim_FaceBuilder.hxx".}
 converter `topoDS_Face`*(this: var BRepPrimFaceBuilder): TopoDS_Face {.
     importcpp: "BRepPrim_FaceBuilder::operator TopoDS_Face",
     header: "BRepPrim_FaceBuilder.hxx".}
-proc edge*(this: BRepPrimFaceBuilder; i: int): TopoDS_Edge {.noSideEffect,
+proc edge*(this: BRepPrimFaceBuilder; i: cint): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "BRepPrim_FaceBuilder.hxx".}
-proc vertex*(this: BRepPrimFaceBuilder; i: int): TopoDS_Vertex {.noSideEffect,
+proc vertex*(this: BRepPrimFaceBuilder; i: cint): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepPrim_FaceBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

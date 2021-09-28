@@ -20,11 +20,11 @@
 type
   PSO_Particle* {.importcpp: "PSO_Particle", header: "math_PSOParticlesPool.hxx",
                  bycopy.} = object
-    position* {.importc: "Position".}: ptr float ##  Data for pointers allocated within PSOParticlesPool instance.
-    velocity* {.importc: "Velocity".}: ptr float ##  Not need to delete it manually.
-    bestPosition* {.importc: "BestPosition".}: ptr float
-    distance* {.importc: "Distance".}: float
-    bestDistance* {.importc: "BestDistance".}: float
+    position* {.importc: "Position".}: ptr cfloat ##  Data for pointers allocated within PSOParticlesPool instance.
+    velocity* {.importc: "Velocity".}: ptr cfloat ##  Not need to delete it manually.
+    bestPosition* {.importc: "BestPosition".}: ptr cfloat
+    distance* {.importc: "Distance".}: cfloat
+    bestDistance* {.importc: "BestDistance".}: cfloat
 
 
 proc constructPSO_Particle*(): PSO_Particle {.constructor,
@@ -40,10 +40,11 @@ type
     ##  Stores particles vector data.
 
 
-proc constructMathPSOParticlesPool*(theParticlesCount: int; theDimensionCount: int): MathPSOParticlesPool {.
+proc constructMathPSOParticlesPool*(theParticlesCount: cint;
+                                   theDimensionCount: cint): MathPSOParticlesPool {.
     constructor, importcpp: "math_PSOParticlesPool(@)",
     header: "math_PSOParticlesPool.hxx".}
-proc getParticle*(this: var MathPSOParticlesPool; theIdx: int): ptr PSO_Particle {.
+proc getParticle*(this: var MathPSOParticlesPool; theIdx: cint): ptr PSO_Particle {.
     importcpp: "GetParticle", header: "math_PSOParticlesPool.hxx".}
 proc getBestParticle*(this: var MathPSOParticlesPool): ptr PSO_Particle {.
     importcpp: "GetBestParticle", header: "math_PSOParticlesPool.hxx".}
@@ -51,3 +52,28 @@ proc getWorstParticle*(this: var MathPSOParticlesPool): ptr PSO_Particle {.
     importcpp: "GetWorstParticle", header: "math_PSOParticlesPool.hxx".}
 proc destroyMathPSOParticlesPool*(this: var MathPSOParticlesPool) {.
     importcpp: "#.~math_PSOParticlesPool()", header: "math_PSOParticlesPool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

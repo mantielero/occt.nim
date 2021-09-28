@@ -32,13 +32,38 @@ proc isDone*(this: IntRes2dIntersection): bool {.noSideEffect, importcpp: "IsDon
     header: "IntRes2d_Intersection.hxx".}
 proc isEmpty*(this: IntRes2dIntersection): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "IntRes2d_Intersection.hxx".}
-proc nbPoints*(this: IntRes2dIntersection): int {.noSideEffect,
+proc nbPoints*(this: IntRes2dIntersection): cint {.noSideEffect,
     importcpp: "NbPoints", header: "IntRes2d_Intersection.hxx".}
-proc point*(this: IntRes2dIntersection; n: int): IntRes2dIntersectionPoint {.
+proc point*(this: IntRes2dIntersection; n: cint): IntRes2dIntersectionPoint {.
     noSideEffect, importcpp: "Point", header: "IntRes2d_Intersection.hxx".}
-proc nbSegments*(this: IntRes2dIntersection): int {.noSideEffect,
+proc nbSegments*(this: IntRes2dIntersection): cint {.noSideEffect,
     importcpp: "NbSegments", header: "IntRes2d_Intersection.hxx".}
-proc segment*(this: IntRes2dIntersection; n: int): IntRes2dIntersectionSegment {.
+proc segment*(this: IntRes2dIntersection; n: cint): IntRes2dIntersectionSegment {.
     noSideEffect, importcpp: "Segment", header: "IntRes2d_Intersection.hxx".}
 proc setReversedParameters*(this: var IntRes2dIntersection; reverseflag: bool) {.
     importcpp: "SetReversedParameters", header: "IntRes2d_Intersection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

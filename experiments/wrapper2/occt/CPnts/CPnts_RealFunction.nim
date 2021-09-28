@@ -17,5 +17,30 @@
 ## ! A pointer on a function for MyGaussFunction
 
 type
-  CPntsRealFunction* = proc (a1: float; a2: StandardAddress): float
+  CPntsRealFunction* = proc (a1: cfloat; a2: StandardAddress): cfloat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

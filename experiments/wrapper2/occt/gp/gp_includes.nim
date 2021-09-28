@@ -1,13 +1,5 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
-# TODO: what would be better
-type
-  StandardOStream* = object
-  StandardSStream* = object
-  NCollectionMat4*[T] = object
-  TColStdArray1OfReal* = object
-  NCollectionLerp*[T] = object    
-  
 {.experimental: "callOperator".}
 
 include gp
@@ -46,11 +38,9 @@ include gp_Torus
 include gp_Trsf
 include gp_Trsf2d
 include gp_TrsfForm
-include gp_TrsfNLerp
+#include gp_TrsfNLerp
 include gp_Vec
 include gp_Vec2d
 include gp_VectorWithNullMagnitude
 include gp_XY
 include gp_XYZ
-
-

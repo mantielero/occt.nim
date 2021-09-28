@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDF_TagSourceDriver"
 discard "forward decl of XmlMDF_TagSourceDriver"
 type
-  HandleXmlMDF_TagSourceDriver* = Handle[XmlMDF_TagSourceDriver]
+  HandleC1C1* = Handle[XmlMDF_TagSourceDriver]
 
 ## ! Attribute Driver.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XmlMDF_TagSourceDriver.hxx".}
 proc dynamicType*(this: XmlMDF_TagSourceDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XmlMDF_TagSourceDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

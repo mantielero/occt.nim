@@ -17,3 +17,28 @@
 type
   V3dTypeOfLight* = Graphic3dTypeOfLightSource
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

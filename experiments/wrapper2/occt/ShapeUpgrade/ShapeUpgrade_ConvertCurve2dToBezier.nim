@@ -17,8 +17,7 @@
 discard "forward decl of ShapeUpgrade_ConvertCurve2dToBezier"
 discard "forward decl of ShapeUpgrade_ConvertCurve2dToBezier"
 type
-  HandleShapeUpgradeConvertCurve2dToBezier* = Handle[
-      ShapeUpgradeConvertCurve2dToBezier]
+  HandleC1C1* = Handle[ShapeUpgradeConvertCurve2dToBezier]
 
 ## ! converts/splits a 2d curve to a list of beziers
 
@@ -65,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeConvertCurve2dToBezier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_ConvertCurve2dToBezier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

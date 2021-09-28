@@ -23,12 +23,38 @@ type
           ## ! Axis used to arrange the primitives (X - 0, Y - 1, Z - 2).
 
 
-proc constructBVH_QuickSorter*[T; N: static[cint]](theAxis: int = 0): BVH_QuickSorter[
+proc constructBVH_QuickSorter*[T; N: static[cint]](theAxis: cint = 0): BVH_QuickSorter[
     T, N] {.constructor, importcpp: "BVH_QuickSorter<\'*0,\'*1>(@)",
           header: "BVH_QuickSorter.hxx".}
 proc perform*[T; N: static[cint]](this: var BVH_QuickSorter[T, N];
                                theSet: ptr BVH_Set[T, N]) {.importcpp: "Perform",
     header: "BVH_QuickSorter.hxx".}
 proc perform*[T; N: static[cint]](this: var BVH_QuickSorter[T, N];
-                               theSet: ptr BVH_Set[T, N]; theStart: int; theFinal: int) {.
-    importcpp: "Perform", header: "BVH_QuickSorter.hxx".}
+                               theSet: ptr BVH_Set[T, N]; theStart: cint;
+                               theFinal: cint) {.importcpp: "Perform",
+    header: "BVH_QuickSorter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

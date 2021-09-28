@@ -39,3 +39,28 @@ proc shells*(this: BOPAlgoShellSplitter): TopToolsListOfShape {.noSideEffect,
 proc splitBlock*(theCB: var BOPToolsConnexityBlock) {.
     importcpp: "BOPAlgo_ShellSplitter::SplitBlock(@)",
     header: "BOPAlgo_ShellSplitter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

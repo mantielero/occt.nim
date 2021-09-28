@@ -17,3 +17,28 @@
 type
   TColGeomArray2OfBezierSurface* = NCollectionArray2[Handle[GeomBezierSurface]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

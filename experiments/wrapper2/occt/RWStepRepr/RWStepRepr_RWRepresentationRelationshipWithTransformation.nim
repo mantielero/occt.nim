@@ -31,7 +31,7 @@ proc constructRWStepReprRWRepresentationRelationshipWithTransformation*(): RWSte
     importcpp: "RWStepRepr_RWRepresentationRelationshipWithTransformation(@)",
     header: "RWStepRepr_RWRepresentationRelationshipWithTransformation.hxx".}
 proc readStep*(this: RWStepReprRWRepresentationRelationshipWithTransformation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprRepresentationRelationshipWithTransformation]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepReprRWRepresentationRelationshipWithTransformation;
            ent: Handle[StepReprRepresentationRelationshipWithTransformation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWRepresentationRelationshipWithTransformation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

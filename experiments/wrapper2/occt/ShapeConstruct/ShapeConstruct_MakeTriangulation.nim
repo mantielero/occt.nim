@@ -21,13 +21,39 @@ type
 
 
 proc constructShapeConstructMakeTriangulation*(pnts: TColgpArray1OfPnt;
-    prec: float = 0.0): ShapeConstructMakeTriangulation {.constructor,
+    prec: cfloat = 0.0): ShapeConstructMakeTriangulation {.constructor,
     importcpp: "ShapeConstruct_MakeTriangulation(@)",
     header: "ShapeConstruct_MakeTriangulation.hxx".}
-proc constructShapeConstructMakeTriangulation*(wire: TopoDS_Wire; prec: float = 0.0): ShapeConstructMakeTriangulation {.
-    constructor, importcpp: "ShapeConstruct_MakeTriangulation(@)",
+proc constructShapeConstructMakeTriangulation*(wire: TopoDS_Wire;
+    prec: cfloat = 0.0): ShapeConstructMakeTriangulation {.constructor,
+    importcpp: "ShapeConstruct_MakeTriangulation(@)",
     header: "ShapeConstruct_MakeTriangulation.hxx".}
 proc build*(this: var ShapeConstructMakeTriangulation) {.importcpp: "Build",
     header: "ShapeConstruct_MakeTriangulation.hxx".}
 proc isDone*(this: ShapeConstructMakeTriangulation): bool {.noSideEffect,
     importcpp: "IsDone", header: "ShapeConstruct_MakeTriangulation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

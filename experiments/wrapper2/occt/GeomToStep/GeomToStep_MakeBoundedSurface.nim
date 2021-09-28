@@ -23,6 +23,24 @@ type
                                  bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeBoundedSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeBoundedSurface::operator new",
+    header: "GeomToStep_MakeBoundedSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeBoundedSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeBoundedSurface::operator delete",
+    header: "GeomToStep_MakeBoundedSurface.hxx".}
+proc `new[]`*(this: var GeomToStepMakeBoundedSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeBoundedSurface::operator new[]",
+    header: "GeomToStep_MakeBoundedSurface.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeBoundedSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeBoundedSurface::operator delete[]",
+    header: "GeomToStep_MakeBoundedSurface.hxx".}
+proc `new`*(this: var GeomToStepMakeBoundedSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeBoundedSurface::operator new",
+    header: "GeomToStep_MakeBoundedSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeBoundedSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeBoundedSurface::operator delete",
+    header: "GeomToStep_MakeBoundedSurface.hxx".}
 proc constructGeomToStepMakeBoundedSurface*(c: Handle[GeomBoundedSurface]): GeomToStepMakeBoundedSurface {.
     constructor, importcpp: "GeomToStep_MakeBoundedSurface(@)",
     header: "GeomToStep_MakeBoundedSurface.hxx".}

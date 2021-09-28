@@ -32,5 +32,5 @@ proc reallocate*(this: var StandardMMgrRoot; thePtr: StandardAddress;
     header: "Standard_MMgrRoot.hxx".}
 proc free*(this: var StandardMMgrRoot; thePtr: StandardAddress) {.importcpp: "Free",
     header: "Standard_MMgrRoot.hxx".}
-proc purge*(this: var StandardMMgrRoot; isDestroyed: bool = false): int {.
+proc purge*(this: var StandardMMgrRoot; isDestroyed: StandardBoolean = false): int {.
     importcpp: "Purge", header: "Standard_MMgrRoot.hxx".}

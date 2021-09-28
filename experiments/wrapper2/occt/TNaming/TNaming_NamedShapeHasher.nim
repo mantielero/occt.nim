@@ -17,3 +17,28 @@
 type
   TNamingNamedShapeHasher* = NCollectionDefaultHasher[Handle[TNamingNamedShape]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

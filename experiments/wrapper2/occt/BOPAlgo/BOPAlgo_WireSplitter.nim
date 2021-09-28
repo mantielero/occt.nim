@@ -44,3 +44,28 @@ proc splitBlock*(theF: TopoDS_Face; theCB: var BOPToolsConnexityBlock;
                 theContext: Handle[IntToolsContext]) {.
     importcpp: "BOPAlgo_WireSplitter::SplitBlock(@)",
     header: "BOPAlgo_WireSplitter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

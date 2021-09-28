@@ -15,3 +15,28 @@ type
   StepFEA_Array1OfCurveElementInterval* = NCollectionArray1[
       Handle[StepFEA_CurveElementInterval]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

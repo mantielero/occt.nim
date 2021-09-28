@@ -25,6 +25,7 @@ type
   HLRBRepThePolyhedronOfInterCSurf* {.importcpp: "HLRBRep_ThePolyhedronOfInterCSurf", header: "HLRBRep_ThePolyhedronOfInterCSurf.hxx",
                                      bycopy.} = object ## ! This method computes and returns a deflection of isoline
                                                     ## ! of given parameter on Surface.
+    bndHArray1OfBox* {.importc: "Bnd_HArray1OfBox".}: Handle
 
 
 proc constructHLRBRepThePolyhedronOfInterCSurf*(surface: StandardAddress;
@@ -84,9 +85,9 @@ proc bounding*(this: HLRBRepThePolyhedronOfInterCSurf): BndBox {.noSideEffect,
     importcpp: "Bounding", header: "HLRBRep_ThePolyhedronOfInterCSurf.hxx".}
 proc fillBounding*(this: var HLRBRepThePolyhedronOfInterCSurf) {.
     importcpp: "FillBounding", header: "HLRBRep_ThePolyhedronOfInterCSurf.hxx".}
-proc componentsBounding*(this: HLRBRepThePolyhedronOfInterCSurf): Handle[
-    BndHArray1OfBox] {.noSideEffect, importcpp: "ComponentsBounding",
-                      header: "HLRBRep_ThePolyhedronOfInterCSurf.hxx".}
+## !!!Ignored construct:  & ComponentsBounding ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc deflectionOverEstimation*(this: HLRBRepThePolyhedronOfInterCSurf): float {.
     noSideEffect, importcpp: "DeflectionOverEstimation",
     header: "HLRBRep_ThePolyhedronOfInterCSurf.hxx".}
@@ -119,6 +120,54 @@ proc getBorderDeflection*(this: HLRBRepThePolyhedronOfInterCSurf): float {.
     header: "HLRBRep_ThePolyhedronOfInterCSurf.hxx".}
 proc dump*(this: HLRBRepThePolyhedronOfInterCSurf) {.noSideEffect,
     importcpp: "Dump", header: "HLRBRep_ThePolyhedronOfInterCSurf.hxx".}
+## !!!Ignored construct:  TheComponentsBnd ;
+## Error: identifier expected, but got: ;!!!
+
 ## !!!Ignored construct:  # ThePSurface Standard_Address [NewLine] # ThePSurface_hxx < Standard_Address . hxx > [NewLine] # ThePSurfaceTool HLRBRep_SurfaceTool [NewLine] # ThePSurfaceTool_hxx < HLRBRep_SurfaceTool . hxx > [NewLine] # IntCurveSurface_Polyhedron HLRBRep_ThePolyhedronOfInterCSurf [NewLine] # IntCurveSurface_Polyhedron_hxx < HLRBRep_ThePolyhedronOfInterCSurf . hxx > [NewLine] # < IntCurveSurface_Polyhedron . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntCurveSurface_Polyhedron [NewLine] # IntCurveSurface_Polyhedron_hxx [NewLine] #  _HLRBRep_ThePolyhedronOfInterCSurf_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

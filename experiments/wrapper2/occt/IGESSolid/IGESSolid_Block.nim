@@ -20,7 +20,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_Block"
 discard "forward decl of IGESSolid_Block"
 type
-  HandleIGESSolidBlock* = Handle[IGESSolidBlock]
+  HandleC1C1* = Handle[IGESSolidBlock]
 
 ## ! defines Block, Type <150> Form Number <0>
 ## ! in package IGESSolid
@@ -39,11 +39,11 @@ proc init*(this: var IGESSolidBlock; aSize: Xyz; aCorner: Xyz; aXAxis: Xyz; aZAx
     importcpp: "Init", header: "IGESSolid_Block.hxx".}
 proc size*(this: IGESSolidBlock): Xyz {.noSideEffect, importcpp: "Size",
                                     header: "IGESSolid_Block.hxx".}
-proc xLength*(this: IGESSolidBlock): float {.noSideEffect, importcpp: "XLength",
+proc xLength*(this: IGESSolidBlock): cfloat {.noSideEffect, importcpp: "XLength",
     header: "IGESSolid_Block.hxx".}
-proc yLength*(this: IGESSolidBlock): float {.noSideEffect, importcpp: "YLength",
+proc yLength*(this: IGESSolidBlock): cfloat {.noSideEffect, importcpp: "YLength",
     header: "IGESSolid_Block.hxx".}
-proc zLength*(this: IGESSolidBlock): float {.noSideEffect, importcpp: "ZLength",
+proc zLength*(this: IGESSolidBlock): cfloat {.noSideEffect, importcpp: "ZLength",
     header: "IGESSolid_Block.hxx".}
 proc corner*(this: IGESSolidBlock): Pnt {.noSideEffect, importcpp: "Corner",
                                       header: "IGESSolid_Block.hxx".}
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_Block.hxx".}
 proc dynamicType*(this: IGESSolidBlock): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Block.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,3 +27,28 @@ type
     AspectIS_HOLLOW = aspectIS_EMPTY ## !< transparent surface interior
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

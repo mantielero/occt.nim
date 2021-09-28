@@ -27,10 +27,35 @@ proc constructRWHeaderSectionRWFileDescription*(): RWHeaderSectionRWFileDescript
     constructor, importcpp: "RWHeaderSection_RWFileDescription(@)",
     header: "RWHeaderSection_RWFileDescription.hxx".}
 proc readStep*(this: RWHeaderSectionRWFileDescription;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[HeaderSectionFileDescription]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWHeaderSection_RWFileDescription.hxx".}
 proc writeStep*(this: RWHeaderSectionRWFileDescription; sw: var StepDataStepWriter;
                ent: Handle[HeaderSectionFileDescription]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWHeaderSection_RWFileDescription.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

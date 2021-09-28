@@ -29,9 +29,9 @@ proc constructBRepBlendSurfPointEvolRadInv*(s: Handle[Adaptor3dHSurface];
     c: Handle[Adaptor3dHCurve]; evol: Handle[LawFunction]): BRepBlendSurfPointEvolRadInv {.
     constructor, importcpp: "BRepBlend_SurfPointEvolRadInv(@)",
     header: "BRepBlend_SurfPointEvolRadInv.hxx".}
-proc set*(this: var BRepBlendSurfPointEvolRadInv; choix: int) {.importcpp: "Set",
+proc set*(this: var BRepBlendSurfPointEvolRadInv; choix: cint) {.importcpp: "Set",
     header: "BRepBlend_SurfPointEvolRadInv.hxx".}
-proc nbEquations*(this: BRepBlendSurfPointEvolRadInv): int {.noSideEffect,
+proc nbEquations*(this: BRepBlendSurfPointEvolRadInv): cint {.noSideEffect,
     importcpp: "NbEquations", header: "BRepBlend_SurfPointEvolRadInv.hxx".}
 proc value*(this: var BRepBlendSurfPointEvolRadInv; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BRepBlend_SurfPointEvolRadInv.hxx".}
@@ -43,9 +43,34 @@ proc values*(this: var BRepBlendSurfPointEvolRadInv; x: MathVector; f: var MathV
 proc set*(this: var BRepBlendSurfPointEvolRadInv; p: Pnt) {.importcpp: "Set",
     header: "BRepBlend_SurfPointEvolRadInv.hxx".}
 proc getTolerance*(this: BRepBlendSurfPointEvolRadInv; tolerance: var MathVector;
-                  tol: float) {.noSideEffect, importcpp: "GetTolerance",
-                              header: "BRepBlend_SurfPointEvolRadInv.hxx".}
+                  tol: cfloat) {.noSideEffect, importcpp: "GetTolerance",
+                               header: "BRepBlend_SurfPointEvolRadInv.hxx".}
 proc getBounds*(this: BRepBlendSurfPointEvolRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds", header: "BRepBlend_SurfPointEvolRadInv.hxx".}
-proc isSolution*(this: var BRepBlendSurfPointEvolRadInv; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BRepBlendSurfPointEvolRadInv; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BRepBlend_SurfPointEvolRadInv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

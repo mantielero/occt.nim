@@ -33,7 +33,7 @@ proc constructStepVisualCameraModelD3MultiClippingUnionSelect*(): StepVisualCame
     importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect(@)",
     header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
 proc caseNum*(this: StepVisualCameraModelD3MultiClippingUnionSelect;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
 proc plane*(this: StepVisualCameraModelD3MultiClippingUnionSelect): Handle[
@@ -43,3 +43,28 @@ proc cameraModelD3MultiClippingIntersection*(
     StepVisualCameraModelD3MultiClippingIntersection] {.noSideEffect,
     importcpp: "CameraModelD3MultiClippingIntersection",
     header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

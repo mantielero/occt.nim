@@ -14,81 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## ! A framework to define the display of datums.
+## !!!Ignored construct:  # _Prs3d_DatumAspect_HeaderFile [NewLine] # _Prs3d_DatumAspect_HeaderFile [NewLine] # < NCollection_DataMap . hxx > [NewLine] # < Prs3d_ArrowAspect . hxx > [NewLine] # < Prs3d_DatumAttribute . hxx > [NewLine] # < Prs3d_DatumAxes . hxx > [NewLine] # < Prs3d_DatumMode . hxx > [NewLine] # < Prs3d_DatumParts . hxx > [NewLine] # < Prs3d_LineAspect . hxx > [NewLine] # < Prs3d_PointAspect . hxx > [NewLine] # < Prs3d_ShadingAspect . hxx > [NewLine] # < Prs3d_TextAspect . hxx > [NewLine] ! A framework to define the display of datums. class Prs3d_DatumAspect : public Prs3d_BasicAspect { public : typedef Prs3d_BasicAspect base_type ; static const char * get_type_name ( ) { return Prs3d_DatumAspect ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; public : ! An empty framework to define the display of datums. Prs3d_DatumAspect ( ) ; ! Returns the right-handed coordinate system set in SetComponent. Handle ( Prs3d_LineAspect ) LineAspect ( Prs3d_DatumParts thePart ) const ; ! Returns the right-handed coordinate system set in SetComponent. Handle ( Prs3d_ShadingAspect ) ShadingAspect ( Prs3d_DatumParts thePart ) const ; ! Returns the text attributes for rendering labels. const Handle ( Prs3d_TextAspect ) & TextAspect ( ) const { return myTextAspect ; } ! Sets text attributes for rendering labels. void SetTextAspect ( const Handle ( Prs3d_TextAspect ) & theTextAspect ) { myTextAspect = theTextAspect ; } ! Returns the point aspect of origin wireframe presentation const Handle ( Prs3d_PointAspect ) & PointAspect ( ) const { return myPointAspect ; } ! Returns the point aspect of origin wireframe presentation void SetPointAspect ( const Handle ( Prs3d_PointAspect ) & theAspect ) { myPointAspect = theAspect ; } ! Returns the arrow aspect of presentation const Handle ( Prs3d_ArrowAspect ) & ArrowAspect ( ) const { return myArrowAspect ; } ! Sets the arrow aspect of presentation void SetArrowAspect ( const Handle ( Prs3d_ArrowAspect ) & theAspect ) { myArrowAspect = theAspect ; } ! Returns the attributes for display of the first axis. Standard_DEPRECATED ( This method is deprecated - LineAspect() should be called instead ) const Handle ( Prs3d_LineAspect ) & FirstAxisAspect ( ) const { return myLineAspects . Find ( Prs3d_DP_XAxis ) ; } ! Returns the attributes for display of the second axis. Standard_DEPRECATED ( This method is deprecated - LineAspect() should be called instead ) const Handle ( Prs3d_LineAspect ) & SecondAxisAspect ( ) const { return myLineAspects . Find ( Prs3d_DP_YAxis ) ; } ! Returns the attributes for display of the third axis. Standard_DEPRECATED ( This method is deprecated - LineAspect() should be called instead ) const Handle ( Prs3d_LineAspect ) & ThirdAxisAspect ( ) const { return myLineAspects . Find ( Prs3d_DP_ZAxis ) ; } ! Sets the DrawFirstAndSecondAxis attributes to active. Standard_DEPRECATED ( This method is deprecated - SetDrawDatumAxes() should be called instead ) void SetDrawFirstAndSecondAxis ( Standard_Boolean theToDraw ) ; ! Returns true if the first and second axes can be drawn. Standard_DEPRECATED ( This method is deprecated - DatumAxes() should be called instead ) Standard_Boolean DrawFirstAndSecondAxis ( ) const { return ( myAxes & Prs3d_DA_XAxis ) != 0 && ( myAxes & Prs3d_DA_YAxis ) != 0 ; } ! Sets the DrawThirdAxis attributes to active. Standard_DEPRECATED ( This method is deprecated - SetDrawDatumAxes() should be called instead ) void SetDrawThirdAxis ( Standard_Boolean theToDraw ) ; ! Returns true if the third axis can be drawn. Standard_DEPRECATED ( This method is deprecated - DatumAxes() should be called instead ) Standard_Boolean DrawThirdAxis ( ) const { return ( myAxes & Prs3d_DA_ZAxis ) != 0 ; } ! Returns true if the given part is used in axes of aspect Standard_Boolean DrawDatumPart ( Prs3d_DatumParts thePart ) const ; ! Sets the axes used in the datum aspect void SetDrawDatumAxes ( Prs3d_DatumAxes theType ) { myAxes = theType ; } ! Returns axes used in the datum aspect Prs3d_DatumAxes DatumAxes ( ) const { return myAxes ; } ! Sets the attribute of the datum type void SetAttribute ( Prs3d_DatumAttribute theType , const Standard_Real & theValue ) { myAttributes . Bind ( theType , theValue ) ; } ! Returns the attribute of the datum type Standard_Real Attribute ( Prs3d_DatumAttribute theType ) const { return myAttributes . Find ( theType ) ; } ! Sets the lengths of the three axes. void SetAxisLength ( Standard_Real theL1 , Standard_Real theL2 , Standard_Real theL3 ) { myAttributes . Bind ( Prs3d_DA_XAxisLength , theL1 ) ; myAttributes . Bind ( Prs3d_DA_YAxisLength , theL2 ) ; myAttributes . Bind ( Prs3d_DA_ZAxisLength , theL3 ) ; } ! Returns the length of the displayed first axis. Standard_Real AxisLength ( Prs3d_DatumParts thePart ) const ; ! Returns the length of the displayed first axis. Standard_DEPRECATED ( This method is deprecated - AxisLength() should be called instead ) Standard_Real FirstAxisLength ( ) const { return myAttributes . Find ( Prs3d_DA_XAxisLength ) ; } ! Returns the length of the displayed second axis. Standard_DEPRECATED ( This method is deprecated - AxisLength() should be called instead ) Standard_Real SecondAxisLength ( ) const { return myAttributes . Find ( Prs3d_DA_YAxisLength ) ; } ! Returns the length of the displayed third axis. Standard_DEPRECATED ( This method is deprecated - AxisLength() should be called instead ) Standard_Real ThirdAxisLength ( ) const { return myAttributes . Find ( Prs3d_DA_ZAxisLength ) ; } ! @return true if axes labels are drawn; TRUE by default. Standard_Boolean ToDrawLabels ( ) const { return myToDrawLabels ; } ! Sets option to draw or not to draw text labels for axes void SetDrawLabels ( Standard_Boolean theToDraw ) { myToDrawLabels = theToDraw ; } void SetToDrawLabels ( Standard_Boolean theToDraw ) { myToDrawLabels = theToDraw ; } ! @return true if axes arrows are drawn; TRUE by default. Standard_Boolean ToDrawArrows ( ) const { return myToDrawArrows ; } ! Sets option to draw or not arrows for axes void SetDrawArrows ( Standard_Boolean theToDraw ) { myToDrawArrows = theToDraw ; } ! Returns type of arrow for a type of axis Prs3d_DatumParts ArrowPartForAxis ( Prs3d_DatumParts thePart ) const ; ! Dumps the content of me into the stream virtual void DumpJson ( Standard_OStream & theOStream , Standard_Integer theDepth = - 1 ) const ; private : Prs3d_DatumAxes myAxes ; Standard_Boolean myToDrawLabels ; Standard_Boolean myToDrawArrows ; NCollection_DataMap < Prs3d_DatumAttribute , Standard_Real > [end of template] myAttributes ; NCollection_DataMap < Prs3d_DatumParts , Handle ( Prs3d_ShadingAspect ) > [end of template] myShadedAspects ; NCollection_DataMap < Prs3d_DatumParts , Handle ( Prs3d_LineAspect ) > [end of template] myLineAspects ; Handle ( Prs3d_TextAspect ) myTextAspect ; Handle ( Prs3d_PointAspect ) myPointAspect ; Handle ( Prs3d_ArrowAspect ) myArrowAspect ; } ;
+## Error: expected ';'!!!
 
-type
-  Prs3dDatumAspect* {.importcpp: "Prs3d_DatumAspect",
-                     header: "Prs3d_DatumAspect.hxx", bycopy.} = object of Prs3dBasicAspect ##
-                                                                                     ## !
-                                                                                     ## An
-                                                                                     ## empty
-                                                                                     ## framework
-                                                                                     ## to
-                                                                                     ## define
-                                                                                     ## the
-                                                                                     ## display
-                                                                                     ## of
-                                                                                     ## datums.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Prs3d_DatumAspect , Prs3d_BasicAspect ) #  _Prs3d_DatumAspect_HeaderFile
+## Error: expected ';'!!!
 
-  Prs3dDatumAspectbaseType* = Prs3dBasicAspect
 
-proc getTypeName*(): cstring {.importcpp: "Prs3d_DatumAspect::get_type_name(@)",
-                            header: "Prs3d_DatumAspect.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Prs3d_DatumAspect::get_type_descriptor(@)",
-    header: "Prs3d_DatumAspect.hxx".}
-proc dynamicType*(this: Prs3dDatumAspect): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Prs3d_DatumAspect.hxx".}
-proc constructPrs3dDatumAspect*(): Prs3dDatumAspect {.constructor,
-    importcpp: "Prs3d_DatumAspect(@)", header: "Prs3d_DatumAspect.hxx".}
-proc lineAspect*(this: Prs3dDatumAspect; thePart: Prs3dDatumParts): Handle[
-    Prs3dLineAspect] {.noSideEffect, importcpp: "LineAspect",
-                      header: "Prs3d_DatumAspect.hxx".}
-proc shadingAspect*(this: Prs3dDatumAspect; thePart: Prs3dDatumParts): Handle[
-    Prs3dShadingAspect] {.noSideEffect, importcpp: "ShadingAspect",
-                         header: "Prs3d_DatumAspect.hxx".}
-proc textAspect*(this: Prs3dDatumAspect): Handle[Prs3dTextAspect] {.noSideEffect,
-    importcpp: "TextAspect", header: "Prs3d_DatumAspect.hxx".}
-proc setTextAspect*(this: var Prs3dDatumAspect;
-                   theTextAspect: Handle[Prs3dTextAspect]) {.
-    importcpp: "SetTextAspect", header: "Prs3d_DatumAspect.hxx".}
-proc pointAspect*(this: Prs3dDatumAspect): Handle[Prs3dPointAspect] {.noSideEffect,
-    importcpp: "PointAspect", header: "Prs3d_DatumAspect.hxx".}
-proc setPointAspect*(this: var Prs3dDatumAspect; theAspect: Handle[Prs3dPointAspect]) {.
-    importcpp: "SetPointAspect", header: "Prs3d_DatumAspect.hxx".}
-proc arrowAspect*(this: Prs3dDatumAspect): Handle[Prs3dArrowAspect] {.noSideEffect,
-    importcpp: "ArrowAspect", header: "Prs3d_DatumAspect.hxx".}
-proc setArrowAspect*(this: var Prs3dDatumAspect; theAspect: Handle[Prs3dArrowAspect]) {.
-    importcpp: "SetArrowAspect", header: "Prs3d_DatumAspect.hxx".}
-## !!!Ignored construct:  ! Returns the attributes for display of the first axis. Standard_DEPRECATED ( This method is deprecated - LineAspect() should be called instead ) const opencascade :: handle < Prs3d_LineAspect > [end of template] & FirstAxisAspect ( ) const { return myLineAspects . Find ( Prs3d_DP_XAxis ) ; } ! Returns the attributes for display of the second axis. Standard_DEPRECATED ( This method is deprecated - LineAspect() should be called instead ) const opencascade :: handle < Prs3d_LineAspect > [end of template] & SecondAxisAspect ( ) const { return myLineAspects . Find ( Prs3d_DP_YAxis ) ; } ! Returns the attributes for display of the third axis. Standard_DEPRECATED ( This method is deprecated - LineAspect() should be called instead ) const opencascade :: handle < Prs3d_LineAspect > [end of template] & ThirdAxisAspect ( ) const { return myLineAspects . Find ( Prs3d_DP_ZAxis ) ; } ! Sets the DrawFirstAndSecondAxis attributes to active. Standard_DEPRECATED ( This method is deprecated - SetDrawDatumAxes() should be called instead ) void SetDrawFirstAndSecondAxis ( Standard_Boolean theToDraw ) ;
-## Error: identifier expected, but got: This method is deprecated - LineAspect() should be called instead!!!
 
-## !!!Ignored construct:  ! Returns true if the first and second axes can be drawn. Standard_DEPRECATED ( This method is deprecated - DatumAxes() should be called instead ) Standard_Boolean DrawFirstAndSecondAxis ( ) const { return ( myAxes & Prs3d_DA_XAxis ) != 0 && ( myAxes & Prs3d_DA_YAxis ) != 0 ; } ! Sets the DrawThirdAxis attributes to active. Standard_DEPRECATED ( This method is deprecated - SetDrawDatumAxes() should be called instead ) void SetDrawThirdAxis ( Standard_Boolean theToDraw ) ;
-## Error: identifier expected, but got: This method is deprecated - DatumAxes() should be called instead!!!
 
-## !!!Ignored construct:  ! Returns true if the third axis can be drawn. Standard_DEPRECATED ( This method is deprecated - DatumAxes() should be called instead ) Standard_Boolean DrawThirdAxis ( ) const { return ( myAxes & Prs3d_DA_ZAxis ) != 0 ; } ! Returns true if the given part is used in axes of aspect Standard_Boolean DrawDatumPart ( Prs3d_DatumParts thePart ) const ;
-## Error: identifier expected, but got: This method is deprecated - DatumAxes() should be called instead!!!
 
-proc setDrawDatumAxes*(this: var Prs3dDatumAspect; theType: Prs3dDatumAxes) {.
-    importcpp: "SetDrawDatumAxes", header: "Prs3d_DatumAspect.hxx".}
-proc datumAxes*(this: Prs3dDatumAspect): Prs3dDatumAxes {.noSideEffect,
-    importcpp: "DatumAxes", header: "Prs3d_DatumAspect.hxx".}
-proc setAttribute*(this: var Prs3dDatumAspect; theType: Prs3dDatumAttribute;
-                  theValue: float) {.importcpp: "SetAttribute",
-                                   header: "Prs3d_DatumAspect.hxx".}
-proc attribute*(this: Prs3dDatumAspect; theType: Prs3dDatumAttribute): float {.
-    noSideEffect, importcpp: "Attribute", header: "Prs3d_DatumAspect.hxx".}
-proc setAxisLength*(this: var Prs3dDatumAspect; theL1: float; theL2: float; theL3: float) {.
-    importcpp: "SetAxisLength", header: "Prs3d_DatumAspect.hxx".}
-proc axisLength*(this: Prs3dDatumAspect; thePart: Prs3dDatumParts): float {.
-    noSideEffect, importcpp: "AxisLength", header: "Prs3d_DatumAspect.hxx".}
-## !!!Ignored construct:  ! Returns the length of the displayed first axis. Standard_DEPRECATED ( This method is deprecated - AxisLength() should be called instead ) Standard_Real FirstAxisLength ( ) const { return myAttributes . Find ( Prs3d_DA_XAxisLength ) ; } ! Returns the length of the displayed second axis. Standard_DEPRECATED ( This method is deprecated - AxisLength() should be called instead ) Standard_Real SecondAxisLength ( ) const { return myAttributes . Find ( Prs3d_DA_YAxisLength ) ; } ! Returns the length of the displayed third axis. Standard_DEPRECATED ( This method is deprecated - AxisLength() should be called instead ) Standard_Real ThirdAxisLength ( ) const { return myAttributes . Find ( Prs3d_DA_ZAxisLength ) ; } ! @return true if axes labels are drawn; TRUE by default. Standard_Boolean ToDrawLabels ( ) const { return myToDrawLabels ; } ! Sets option to draw or not to draw text labels for axes void SetDrawLabels ( Standard_Boolean theToDraw ) { myToDrawLabels = theToDraw ; } void SetToDrawLabels ( Standard_Boolean theToDraw ) { myToDrawLabels = theToDraw ; } ! @return true if axes arrows are drawn; TRUE by default. Standard_Boolean ToDrawArrows ( ) const { return myToDrawArrows ; } ! Sets option to draw or not arrows for axes void SetDrawArrows ( Standard_Boolean theToDraw ) { myToDrawArrows = theToDraw ; } ! Returns type of arrow for a type of axis Prs3d_DatumParts ArrowPartForAxis ( Prs3d_DatumParts thePart ) const ;
-## Error: identifier expected, but got: This method is deprecated - AxisLength() should be called instead!!!
 
-proc dumpJson*(this: Prs3dDatumAspect; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Prs3d_DatumAspect.hxx".}
-discard "forward decl of Prs3d_DatumAspect"
-type
-  HandlePrs3dDatumAspect* = Handle[Prs3dDatumAspect]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

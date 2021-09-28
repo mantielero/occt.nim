@@ -23,8 +23,8 @@ type
 
 proc constructHLRBRepBiPoint*(): HLRBRepBiPoint {.constructor,
     importcpp: "HLRBRep_BiPoint(@)", header: "HLRBRep_BiPoint.hxx".}
-proc constructHLRBRepBiPoint*(x1: float; y1: float; z1: float; x2: float; y2: float;
-                             z2: float; s: TopoDS_Shape; reg1: bool; regn: bool;
+proc constructHLRBRepBiPoint*(x1: cfloat; y1: cfloat; z1: cfloat; x2: cfloat; y2: cfloat;
+                             z2: cfloat; s: TopoDS_Shape; reg1: bool; regn: bool;
                              outl: bool; intl: bool): HLRBRepBiPoint {.constructor,
     importcpp: "HLRBRep_BiPoint(@)", header: "HLRBRep_BiPoint.hxx".}
 proc p1*(this: HLRBRepBiPoint): Pnt {.noSideEffect, importcpp: "P1",
@@ -51,3 +51,28 @@ proc intLine*(this: HLRBRepBiPoint): bool {.noSideEffect, importcpp: "IntLine",
                                         header: "HLRBRep_BiPoint.hxx".}
 proc intLine*(this: var HLRBRepBiPoint; b: bool) {.importcpp: "IntLine",
     header: "HLRBRep_BiPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   TDocStdSequenceOfApplicationDelta* = NCollectionSequence[
       Handle[TDocStdApplicationDelta]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -36,3 +36,28 @@ proc applyModifier*(s: TopoDS_Shape; context: Handle[ShapeProcessShapeContext];
                    theMutableInput: bool = false): TopoDS_Shape {.
     importcpp: "ShapeProcess_OperLibrary::ApplyModifier(@)",
     header: "ShapeProcess_OperLibrary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

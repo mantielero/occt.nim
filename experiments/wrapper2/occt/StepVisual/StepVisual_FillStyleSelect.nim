@@ -29,9 +29,34 @@ type
 proc constructStepVisualFillStyleSelect*(): StepVisualFillStyleSelect {.
     constructor, importcpp: "StepVisual_FillStyleSelect(@)",
     header: "StepVisual_FillStyleSelect.hxx".}
-proc caseNum*(this: StepVisualFillStyleSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualFillStyleSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_FillStyleSelect.hxx".}
 proc fillAreaStyleColour*(this: StepVisualFillStyleSelect): Handle[
     StepVisualFillAreaStyleColour] {.noSideEffect,
                                     importcpp: "FillAreaStyleColour",
                                     header: "StepVisual_FillStyleSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of StepBasic_Group"
 discard "forward decl of StepBasic_GroupRelationship"
 discard "forward decl of StepBasic_GroupRelationship"
 type
-  HandleStepBasicGroupRelationship* = Handle[StepBasicGroupRelationship]
+  HandleC1C1* = Handle[StepBasicGroupRelationship]
 
 ## ! Representation of STEP entity GroupRelationship
 
@@ -75,3 +75,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicGroupRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_GroupRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

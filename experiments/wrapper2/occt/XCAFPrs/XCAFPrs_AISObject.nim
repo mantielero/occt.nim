@@ -63,5 +63,30 @@ proc dynamicType*(this: XCAFPrsAISObject): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFPrs_AISObject.hxx".}
 discard "forward decl of XCAFPrs_AISObject"
 type
-  HandleXCAFPrsAISObject* = Handle[XCAFPrsAISObject]
+  HandleC1C1* = Handle[XCAFPrsAISObject]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

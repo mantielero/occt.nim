@@ -22,7 +22,7 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of Transfer_ResultFromModel"
 discard "forward decl of Transfer_ResultFromModel"
 type
-  HandleTransferResultFromModel* = Handle[TransferResultFromModel]
+  HandleC1C1* = Handle[TransferResultFromModel]
 
 ## ! ResultFromModel is used to store a final result stored in a
 ## ! TransientProcess, respectfully to its structuration in scopes
@@ -65,7 +65,7 @@ proc fileName*(this: TransferResultFromModel): StandardCString {.noSideEffect,
 proc fill*(this: var TransferResultFromModel; tp: Handle[TransferTransientProcess];
           ent: Handle[StandardTransient]): bool {.importcpp: "Fill",
     header: "Transfer_ResultFromModel.hxx".}
-proc strip*(this: var TransferResultFromModel; mode: int) {.importcpp: "Strip",
+proc strip*(this: var TransferResultFromModel; mode: cint) {.importcpp: "Strip",
     header: "Transfer_ResultFromModel.hxx".}
 proc fillBack*(this: TransferResultFromModel; tp: Handle[TransferTransientProcess]) {.
     noSideEffect, importcpp: "FillBack", header: "Transfer_ResultFromModel.hxx".}
@@ -78,21 +78,21 @@ proc setMainResult*(this: var TransferResultFromModel;
     importcpp: "SetMainResult", header: "Transfer_ResultFromModel.hxx".}
 proc mainLabel*(this: TransferResultFromModel): StandardCString {.noSideEffect,
     importcpp: "MainLabel", header: "Transfer_ResultFromModel.hxx".}
-proc mainNumber*(this: TransferResultFromModel): int {.noSideEffect,
+proc mainNumber*(this: TransferResultFromModel): cint {.noSideEffect,
     importcpp: "MainNumber", header: "Transfer_ResultFromModel.hxx".}
 proc resultFromKey*(this: TransferResultFromModel; start: Handle[StandardTransient]): Handle[
     TransferResultFromTransient] {.noSideEffect, importcpp: "ResultFromKey",
                                   header: "Transfer_ResultFromModel.hxx".}
-proc results*(this: TransferResultFromModel; level: int): Handle[
+proc results*(this: TransferResultFromModel; level: cint): Handle[
     TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "Results",
                                   header: "Transfer_ResultFromModel.hxx".}
-proc transferredList*(this: TransferResultFromModel; level: int = 2): Handle[
+proc transferredList*(this: TransferResultFromModel; level: cint = 2): Handle[
     TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "TransferredList",
                                   header: "Transfer_ResultFromModel.hxx".}
 proc checkedList*(this: TransferResultFromModel; check: InterfaceCheckStatus;
                  result: bool): Handle[TColStdHSequenceOfTransient] {.noSideEffect,
     importcpp: "CheckedList", header: "Transfer_ResultFromModel.hxx".}
-proc checkList*(this: TransferResultFromModel; erronly: bool; level: int = 2): InterfaceCheckIterator {.
+proc checkList*(this: TransferResultFromModel; erronly: bool; level: cint = 2): InterfaceCheckIterator {.
     noSideEffect, importcpp: "CheckList", header: "Transfer_ResultFromModel.hxx".}
 proc checkStatus*(this: TransferResultFromModel): InterfaceCheckStatus {.
     noSideEffect, importcpp: "CheckStatus", header: "Transfer_ResultFromModel.hxx".}
@@ -108,3 +108,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Transfer_ResultFromModel.hxx".}
 proc dynamicType*(this: TransferResultFromModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Transfer_ResultFromModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,3 +22,28 @@ type
     AIS_SelectionModesConcurrencyMultiple ## !< any combination of selection modes can be activated
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

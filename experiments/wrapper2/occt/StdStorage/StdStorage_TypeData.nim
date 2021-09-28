@@ -17,7 +17,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of StdStorage_TypeData"
 discard "forward decl of StdStorage_TypeData"
 type
-  HandleStdStorageTypeData* = Handle[StdStorageTypeData]
+  HandleC1C1* = Handle[StdStorageTypeData]
 
 ## ! Storage type data section keeps association between
 ## ! persistent textual types and their numbers
@@ -39,18 +39,18 @@ proc read*(this: var StdStorageTypeData; theDriver: Handle[StorageBaseDriver]): 
     importcpp: "Read", header: "StdStorage_TypeData.hxx".}
 proc write*(this: var StdStorageTypeData; theDriver: Handle[StorageBaseDriver]): bool {.
     importcpp: "Write", header: "StdStorage_TypeData.hxx".}
-proc numberOfTypes*(this: StdStorageTypeData): int {.noSideEffect,
+proc numberOfTypes*(this: StdStorageTypeData): cint {.noSideEffect,
     importcpp: "NumberOfTypes", header: "StdStorage_TypeData.hxx".}
 proc addType*(this: var StdStorageTypeData; aTypeName: TCollectionAsciiString;
-             aTypeNum: int) {.importcpp: "AddType",
-                            header: "StdStorage_TypeData.hxx".}
-proc addType*(this: var StdStorageTypeData; aPObj: Handle[StdObjMgtPersistent]): int {.
+             aTypeNum: cint) {.importcpp: "AddType",
+                             header: "StdStorage_TypeData.hxx".}
+proc addType*(this: var StdStorageTypeData; aPObj: Handle[StdObjMgtPersistent]): cint {.
     importcpp: "AddType", header: "StdStorage_TypeData.hxx".}
-proc `type`*(this: StdStorageTypeData; aTypeNum: int): TCollectionAsciiString {.
+proc `type`*(this: StdStorageTypeData; aTypeNum: cint): TCollectionAsciiString {.
     noSideEffect, importcpp: "Type", header: "StdStorage_TypeData.hxx".}
-proc `type`*(this: StdStorageTypeData; aTypeName: TCollectionAsciiString): int {.
+proc `type`*(this: StdStorageTypeData; aTypeName: TCollectionAsciiString): cint {.
     noSideEffect, importcpp: "Type", header: "StdStorage_TypeData.hxx".}
-proc instantiator*(this: StdStorageTypeData; aTypeNum: int): Instantiator {.
+proc instantiator*(this: StdStorageTypeData; aTypeNum: cint): Instantiator {.
     noSideEffect, importcpp: "Instantiator", header: "StdStorage_TypeData.hxx".}
 proc isType*(this: StdStorageTypeData; aName: TCollectionAsciiString): bool {.
     noSideEffect, importcpp: "IsType", header: "StdStorage_TypeData.hxx".}
@@ -65,3 +65,28 @@ proc clearErrorStatus*(this: var StdStorageTypeData) {.
     importcpp: "ClearErrorStatus", header: "StdStorage_TypeData.hxx".}
 proc clear*(this: var StdStorageTypeData) {.importcpp: "Clear",
                                         header: "StdStorage_TypeData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

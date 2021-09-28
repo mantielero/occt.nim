@@ -20,7 +20,7 @@ discard "forward decl of Storage_BaseDriver"
 discard "forward decl of Storage_DefaultCallBack"
 discard "forward decl of Storage_DefaultCallBack"
 type
-  HandleStorageDefaultCallBack* = Handle[StorageDefaultCallBack]
+  HandleC1C1* = Handle[StorageDefaultCallBack]
   StorageDefaultCallBack* {.importcpp: "Storage_DefaultCallBack",
                            header: "Storage_DefaultCallBack.hxx", bycopy.} = object of StorageCallBack
 
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Storage_DefaultCallBack.hxx".}
 proc dynamicType*(this: StorageDefaultCallBack): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Storage_DefaultCallBack.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -49,3 +49,28 @@ type
 type
   OpenGlGlCore21Fwd* = OpenGlTmplCore21[OpenGlGlCore20Fwd]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

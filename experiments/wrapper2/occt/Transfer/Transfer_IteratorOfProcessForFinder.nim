@@ -68,3 +68,28 @@ proc hasStarting*(this: TransferIteratorOfProcessForFinder): bool {.noSideEffect
 proc starting*(this: TransferIteratorOfProcessForFinder): Handle[TransferFinder] {.
     noSideEffect, importcpp: "Starting",
     header: "Transfer_IteratorOfProcessForFinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

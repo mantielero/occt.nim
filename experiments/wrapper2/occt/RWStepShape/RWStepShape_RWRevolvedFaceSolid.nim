@@ -28,7 +28,7 @@ proc constructRWStepShapeRWRevolvedFaceSolid*(): RWStepShapeRWRevolvedFaceSolid 
     constructor, importcpp: "RWStepShape_RWRevolvedFaceSolid(@)",
     header: "RWStepShape_RWRevolvedFaceSolid.hxx".}
 proc readStep*(this: RWStepShapeRWRevolvedFaceSolid;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeRevolvedFaceSolid]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWRevolvedFaceSolid.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepShapeRWRevolvedFaceSolid;
            ent: Handle[StepShapeRevolvedFaceSolid];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWRevolvedFaceSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

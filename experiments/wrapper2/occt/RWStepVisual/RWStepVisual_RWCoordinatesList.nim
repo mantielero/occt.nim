@@ -27,10 +27,35 @@ proc constructRWStepVisualRWCoordinatesList*(): RWStepVisualRWCoordinatesList {.
     constructor, importcpp: "RWStepVisual_RWCoordinatesList(@)",
     header: "RWStepVisual_RWCoordinatesList.hxx".}
 proc readStep*(this: RWStepVisualRWCoordinatesList;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualCoordinatesList]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWCoordinatesList.hxx".}
 proc writeStep*(this: RWStepVisualRWCoordinatesList; sw: var StepDataStepWriter;
                ent: Handle[StepVisualCoordinatesList]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWCoordinatesList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

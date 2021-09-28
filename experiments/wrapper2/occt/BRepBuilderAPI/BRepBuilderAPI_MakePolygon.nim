@@ -114,3 +114,28 @@ proc wire*(this: var BRepBuilderAPI_MakePolygon): TopoDS_Wire {.importcpp: "Wire
 converter `topoDS_Wire`*(this: var BRepBuilderAPI_MakePolygon): TopoDS_Wire {.
     importcpp: "BRepBuilderAPI_MakePolygon::operator TopoDS_Wire",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

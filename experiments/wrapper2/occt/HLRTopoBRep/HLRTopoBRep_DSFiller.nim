@@ -36,6 +36,31 @@ type
 
 
 proc insert*(s: TopoDS_Shape; fo: var ContapContour; ds: var HLRTopoBRepData;
-            mst: var BRepTopAdaptorMapOfShapeTool; nbIso: int) {.
+            mst: var BRepTopAdaptorMapOfShapeTool; nbIso: cint) {.
     importcpp: "HLRTopoBRep_DSFiller::Insert(@)",
     header: "HLRTopoBRep_DSFiller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,3 +16,28 @@
 type
   TDataXtdArray1OfTrsf* = NCollectionArray1[Trsf]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

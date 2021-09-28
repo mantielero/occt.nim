@@ -22,21 +22,21 @@ type
                           header: "AdvApprox_SimpleApprox.hxx", bycopy.} = object
 
 
-proc constructAdvApproxSimpleApprox*(totalDimension: int; totalNumSS: int;
-                                    continuity: GeomAbsShape; workDegree: int;
-                                    nbGaussPoints: int;
+proc constructAdvApproxSimpleApprox*(totalDimension: cint; totalNumSS: cint;
+                                    continuity: GeomAbsShape; workDegree: cint;
+                                    nbGaussPoints: cint;
                                     jacobiBase: Handle[PLibJacobiPolynomial];
                                     `func`: AdvApproxEvaluatorFunction): AdvApproxSimpleApprox {.
     constructor, importcpp: "AdvApprox_SimpleApprox(@)",
     header: "AdvApprox_SimpleApprox.hxx".}
 proc perform*(this: var AdvApproxSimpleApprox;
              localDimension: TColStdArray1OfInteger;
-             localTolerancesArray: TColStdArray1OfReal; first: float; last: float;
-             maxDegree: int) {.importcpp: "Perform",
-                             header: "AdvApprox_SimpleApprox.hxx".}
+             localTolerancesArray: TColStdArray1OfReal; first: cfloat; last: cfloat;
+             maxDegree: cint) {.importcpp: "Perform",
+                              header: "AdvApprox_SimpleApprox.hxx".}
 proc isDone*(this: AdvApproxSimpleApprox): bool {.noSideEffect, importcpp: "IsDone",
     header: "AdvApprox_SimpleApprox.hxx".}
-proc degree*(this: AdvApproxSimpleApprox): int {.noSideEffect, importcpp: "Degree",
+proc degree*(this: AdvApproxSimpleApprox): cint {.noSideEffect, importcpp: "Degree",
     header: "AdvApprox_SimpleApprox.hxx".}
 proc coefficients*(this: AdvApproxSimpleApprox): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "Coefficients", header: "AdvApprox_SimpleApprox.hxx".}
@@ -48,9 +48,34 @@ proc somTab*(this: AdvApproxSimpleApprox): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "SomTab", header: "AdvApprox_SimpleApprox.hxx".}
 proc difTab*(this: AdvApproxSimpleApprox): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "DifTab", header: "AdvApprox_SimpleApprox.hxx".}
-proc maxError*(this: AdvApproxSimpleApprox; index: int): float {.noSideEffect,
+proc maxError*(this: AdvApproxSimpleApprox; index: cint): cfloat {.noSideEffect,
     importcpp: "MaxError", header: "AdvApprox_SimpleApprox.hxx".}
-proc averageError*(this: AdvApproxSimpleApprox; index: int): float {.noSideEffect,
+proc averageError*(this: AdvApproxSimpleApprox; index: cint): cfloat {.noSideEffect,
     importcpp: "AverageError", header: "AdvApprox_SimpleApprox.hxx".}
 proc dump*(this: AdvApproxSimpleApprox; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "AdvApprox_SimpleApprox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

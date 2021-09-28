@@ -17,7 +17,7 @@ type
   AspectScrollDelta* {.importcpp: "Aspect_ScrollDelta",
                       header: "Aspect_ScrollDelta.hxx", bycopy.} = object
     point* {.importc: "Point".}: NCollectionVec2[cint] ## !< scale position
-    delta* {.importc: "Delta".}: float ## !< delta in pixels
+    delta* {.importc: "Delta".}: cfloat ## !< delta in pixels
     flags* {.importc: "Flags".}: AspectVKeyFlags ## !< key flags
                                              ## ! Return true if action has point defined.
 
@@ -28,11 +28,36 @@ proc resetPoint*(this: var AspectScrollDelta) {.importcpp: "ResetPoint",
     header: "Aspect_ScrollDelta.hxx".}
 proc constructAspectScrollDelta*(): AspectScrollDelta {.constructor,
     importcpp: "Aspect_ScrollDelta(@)", header: "Aspect_ScrollDelta.hxx".}
-proc constructAspectScrollDelta*(thePnt: NCollectionVec2[cint]; theValue: float;
+proc constructAspectScrollDelta*(thePnt: NCollectionVec2[cint]; theValue: cfloat;
                                 theFlags: AspectVKeyFlags = aspectVKeyFlagsNONE): AspectScrollDelta {.
     constructor, importcpp: "Aspect_ScrollDelta(@)",
     header: "Aspect_ScrollDelta.hxx".}
-proc constructAspectScrollDelta*(theValue: float;
+proc constructAspectScrollDelta*(theValue: cfloat;
                                 theFlags: AspectVKeyFlags = aspectVKeyFlagsNONE): AspectScrollDelta {.
     constructor, importcpp: "Aspect_ScrollDelta(@)",
     header: "Aspect_ScrollDelta.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

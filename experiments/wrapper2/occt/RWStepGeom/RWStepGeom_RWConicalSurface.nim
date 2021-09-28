@@ -28,7 +28,7 @@ proc constructRWStepGeomRWConicalSurface*(): RWStepGeomRWConicalSurface {.
     constructor, importcpp: "RWStepGeom_RWConicalSurface(@)",
     header: "RWStepGeom_RWConicalSurface.hxx".}
 proc readStep*(this: RWStepGeomRWConicalSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomConicalSurface]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWConicalSurface.hxx".}
 proc writeStep*(this: RWStepGeomRWConicalSurface; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepGeomRWConicalSurface; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWConicalSurface; ent: Handle[StepGeomConicalSurface];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWConicalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_AsciiStringDriver"
 discard "forward decl of XmlMDataStd_AsciiStringDriver"
 type
-  HandleXmlMDataStdAsciiStringDriver* = Handle[XmlMDataStdAsciiStringDriver]
+  HandleC1C1* = Handle[XmlMDataStdAsciiStringDriver]
 
 ## ! TDataStd_AsciiString attribute Driver.
 
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataStdAsciiStringDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_AsciiStringDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

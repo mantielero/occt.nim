@@ -25,8 +25,33 @@ proc constructShapeFixFaceConnect*(): ShapeFixFaceConnect {.constructor,
     importcpp: "ShapeFix_FaceConnect(@)", header: "ShapeFix_FaceConnect.hxx".}
 proc add*(this: var ShapeFixFaceConnect; aFirst: TopoDS_Face; aSecond: TopoDS_Face): bool {.
     importcpp: "Add", header: "ShapeFix_FaceConnect.hxx".}
-proc build*(this: var ShapeFixFaceConnect; shell: TopoDS_Shell; sewtoler: float;
-           fixtoler: float): TopoDS_Shell {.importcpp: "Build",
+proc build*(this: var ShapeFixFaceConnect; shell: TopoDS_Shell; sewtoler: cfloat;
+           fixtoler: cfloat): TopoDS_Shell {.importcpp: "Build",
     header: "ShapeFix_FaceConnect.hxx".}
 proc clear*(this: var ShapeFixFaceConnect) {.importcpp: "Clear",
     header: "ShapeFix_FaceConnect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

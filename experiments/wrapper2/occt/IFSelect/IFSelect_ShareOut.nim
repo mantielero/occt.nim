@@ -25,7 +25,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_ShareOut"
 discard "forward decl of IFSelect_ShareOut"
 type
-  HandleIFSelectShareOut* = Handle[IFSelectShareOut]
+  HandleC1C1* = Handle[IFSelectShareOut]
 
 ## ! This class gathers the informations required to produce one or
 ## ! several file(s) from the content of an InterfaceModel (passing
@@ -69,52 +69,54 @@ proc clearResult*(this: var IFSelectShareOut; alsoname: bool) {.
     importcpp: "ClearResult", header: "IFSelect_ShareOut.hxx".}
 proc removeItem*(this: var IFSelectShareOut; item: Handle[StandardTransient]): bool {.
     importcpp: "RemoveItem", header: "IFSelect_ShareOut.hxx".}
-proc lastRun*(this: IFSelectShareOut): int {.noSideEffect, importcpp: "LastRun",
+proc lastRun*(this: IFSelectShareOut): cint {.noSideEffect, importcpp: "LastRun",
     header: "IFSelect_ShareOut.hxx".}
-proc setLastRun*(this: var IFSelectShareOut; last: int) {.importcpp: "SetLastRun",
+proc setLastRun*(this: var IFSelectShareOut; last: cint) {.importcpp: "SetLastRun",
     header: "IFSelect_ShareOut.hxx".}
-proc nbDispatches*(this: IFSelectShareOut): int {.noSideEffect,
+proc nbDispatches*(this: IFSelectShareOut): cint {.noSideEffect,
     importcpp: "NbDispatches", header: "IFSelect_ShareOut.hxx".}
-proc dispatchRank*(this: IFSelectShareOut; disp: Handle[IFSelectDispatch]): int {.
+proc dispatchRank*(this: IFSelectShareOut; disp: Handle[IFSelectDispatch]): cint {.
     noSideEffect, importcpp: "DispatchRank", header: "IFSelect_ShareOut.hxx".}
-proc dispatch*(this: IFSelectShareOut; num: int): Handle[IFSelectDispatch] {.
+proc dispatch*(this: IFSelectShareOut; num: cint): Handle[IFSelectDispatch] {.
     noSideEffect, importcpp: "Dispatch", header: "IFSelect_ShareOut.hxx".}
 proc addDispatch*(this: var IFSelectShareOut; disp: Handle[IFSelectDispatch]) {.
     importcpp: "AddDispatch", header: "IFSelect_ShareOut.hxx".}
-proc removeDispatch*(this: var IFSelectShareOut; rank: int): bool {.
+proc removeDispatch*(this: var IFSelectShareOut; rank: cint): bool {.
     importcpp: "RemoveDispatch", header: "IFSelect_ShareOut.hxx".}
 proc addModifier*(this: var IFSelectShareOut;
-                 modifier: Handle[IFSelectGeneralModifier]; atnum: int) {.
+                 modifier: Handle[IFSelectGeneralModifier]; atnum: cint) {.
     importcpp: "AddModifier", header: "IFSelect_ShareOut.hxx".}
 proc addModifier*(this: var IFSelectShareOut;
-                 modifier: Handle[IFSelectGeneralModifier]; dispnum: int; atnum: int) {.
-    importcpp: "AddModifier", header: "IFSelect_ShareOut.hxx".}
+                 modifier: Handle[IFSelectGeneralModifier]; dispnum: cint;
+                 atnum: cint) {.importcpp: "AddModifier",
+                              header: "IFSelect_ShareOut.hxx".}
 proc addModif*(this: var IFSelectShareOut;
               modifier: Handle[IFSelectGeneralModifier]; formodel: bool;
-              atnum: int = 0) {.importcpp: "AddModif", header: "IFSelect_ShareOut.hxx".}
-proc nbModifiers*(this: IFSelectShareOut; formodel: bool): int {.noSideEffect,
+              atnum: cint = 0) {.importcpp: "AddModif",
+                             header: "IFSelect_ShareOut.hxx".}
+proc nbModifiers*(this: IFSelectShareOut; formodel: bool): cint {.noSideEffect,
     importcpp: "NbModifiers", header: "IFSelect_ShareOut.hxx".}
-proc generalModifier*(this: IFSelectShareOut; formodel: bool; num: int): Handle[
+proc generalModifier*(this: IFSelectShareOut; formodel: bool; num: cint): Handle[
     IFSelectGeneralModifier] {.noSideEffect, importcpp: "GeneralModifier",
                               header: "IFSelect_ShareOut.hxx".}
-proc modelModifier*(this: IFSelectShareOut; num: int): Handle[IFSelectModifier] {.
+proc modelModifier*(this: IFSelectShareOut; num: cint): Handle[IFSelectModifier] {.
     noSideEffect, importcpp: "ModelModifier", header: "IFSelect_ShareOut.hxx".}
 proc modifierRank*(this: IFSelectShareOut;
-                  modifier: Handle[IFSelectGeneralModifier]): int {.noSideEffect,
+                  modifier: Handle[IFSelectGeneralModifier]): cint {.noSideEffect,
     importcpp: "ModifierRank", header: "IFSelect_ShareOut.hxx".}
-proc removeModifier*(this: var IFSelectShareOut; formodel: bool; num: int): bool {.
+proc removeModifier*(this: var IFSelectShareOut; formodel: bool; num: cint): bool {.
     importcpp: "RemoveModifier", header: "IFSelect_ShareOut.hxx".}
-proc changeModifierRank*(this: var IFSelectShareOut; formodel: bool; befor: int;
-                        after: int): bool {.importcpp: "ChangeModifierRank",
+proc changeModifierRank*(this: var IFSelectShareOut; formodel: bool; befor: cint;
+                        after: cint): bool {.importcpp: "ChangeModifierRank",
     header: "IFSelect_ShareOut.hxx".}
-proc setRootName*(this: var IFSelectShareOut; num: int;
+proc setRootName*(this: var IFSelectShareOut; num: cint;
                  name: Handle[TCollectionHAsciiString]): bool {.
     importcpp: "SetRootName", header: "IFSelect_ShareOut.hxx".}
-proc hasRootName*(this: IFSelectShareOut; num: int): bool {.noSideEffect,
+proc hasRootName*(this: IFSelectShareOut; num: cint): bool {.noSideEffect,
     importcpp: "HasRootName", header: "IFSelect_ShareOut.hxx".}
-proc rootName*(this: IFSelectShareOut; num: int): Handle[TCollectionHAsciiString] {.
+proc rootName*(this: IFSelectShareOut; num: cint): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "RootName", header: "IFSelect_ShareOut.hxx".}
-proc rootNumber*(this: IFSelectShareOut; name: Handle[TCollectionHAsciiString]): int {.
+proc rootNumber*(this: IFSelectShareOut; name: Handle[TCollectionHAsciiString]): cint {.
     noSideEffect, importcpp: "RootNumber", header: "IFSelect_ShareOut.hxx".}
 proc setPrefix*(this: var IFSelectShareOut; pref: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPrefix", header: "IFSelect_ShareOut.hxx".}
@@ -129,7 +131,7 @@ proc defaultRootName*(this: IFSelectShareOut): Handle[TCollectionHAsciiString] {
     noSideEffect, importcpp: "DefaultRootName", header: "IFSelect_ShareOut.hxx".}
 proc extension*(this: IFSelectShareOut): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Extension", header: "IFSelect_ShareOut.hxx".}
-proc fileName*(this: var IFSelectShareOut; dnum: int; pnum: int; nbpack: int = 0): TCollectionAsciiString {.
+proc fileName*(this: var IFSelectShareOut; dnum: cint; pnum: cint; nbpack: cint = 0): TCollectionAsciiString {.
     importcpp: "FileName", header: "IFSelect_ShareOut.hxx".}
 type
   IFSelectShareOutbaseType* = StandardTransient
@@ -141,3 +143,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_ShareOut.hxx".}
 proc dynamicType*(this: IFSelectShareOut): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_ShareOut.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

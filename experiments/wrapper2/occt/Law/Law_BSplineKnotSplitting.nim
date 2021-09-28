@@ -59,13 +59,38 @@ type
 
 
 proc constructLawBSplineKnotSplitting*(basisLaw: Handle[LawBSpline];
-                                      continuityRange: int): LawBSplineKnotSplitting {.
+                                      continuityRange: cint): LawBSplineKnotSplitting {.
     constructor, importcpp: "Law_BSplineKnotSplitting(@)",
     header: "Law_BSplineKnotSplitting.hxx".}
-proc nbSplits*(this: LawBSplineKnotSplitting): int {.noSideEffect,
+proc nbSplits*(this: LawBSplineKnotSplitting): cint {.noSideEffect,
     importcpp: "NbSplits", header: "Law_BSplineKnotSplitting.hxx".}
 proc splitting*(this: LawBSplineKnotSplitting;
                splitValues: var TColStdArray1OfInteger) {.noSideEffect,
     importcpp: "Splitting", header: "Law_BSplineKnotSplitting.hxx".}
-proc splitValue*(this: LawBSplineKnotSplitting; index: int): int {.noSideEffect,
+proc splitValue*(this: LawBSplineKnotSplitting; index: cint): cint {.noSideEffect,
     importcpp: "SplitValue", header: "Law_BSplineKnotSplitting.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

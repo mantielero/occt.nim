@@ -16,7 +16,7 @@ discard "forward decl of TDocStd_Document"
 discard "forward decl of TDocStd_CompoundDelta"
 discard "forward decl of TDocStd_CompoundDelta"
 type
-  HandleTDocStdCompoundDelta* = Handle[TDocStdCompoundDelta]
+  HandleC1C1* = Handle[TDocStdCompoundDelta]
 
 ## ! A delta set is available at <aSourceTime>. If
 ## ! applied, it restores the TDF_Data in the state it
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDocStd_CompoundDelta.hxx".}
 proc dynamicType*(this: TDocStdCompoundDelta): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_CompoundDelta.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

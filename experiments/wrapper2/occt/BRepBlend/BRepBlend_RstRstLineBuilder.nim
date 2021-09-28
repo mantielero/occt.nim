@@ -39,23 +39,23 @@ proc constructBRepBlendRstRstLineBuilder*(surf1: Handle[Adaptor3dHSurface];
 proc perform*(this: var BRepBlendRstRstLineBuilder; `func`: var BlendRstRstFunction;
              finv1: var BlendSurfCurvFuncInv; finvP1: var BlendCurvPointFuncInv;
              finv2: var BlendSurfCurvFuncInv; finvP2: var BlendCurvPointFuncInv;
-             pdep: float; pmax: float; maxStep: float; tolGuide: float;
-             soldep: MathVector; tolesp: float; fleche: float; appro: bool = false) {.
+             pdep: cfloat; pmax: cfloat; maxStep: cfloat; tolGuide: cfloat;
+             soldep: MathVector; tolesp: cfloat; fleche: cfloat; appro: bool = false) {.
     importcpp: "Perform", header: "BRepBlend_RstRstLineBuilder.hxx".}
 proc performFirstSection*(this: var BRepBlendRstRstLineBuilder;
                          `func`: var BlendRstRstFunction;
                          finv1: var BlendSurfCurvFuncInv;
                          finvP1: var BlendCurvPointFuncInv;
                          finv2: var BlendSurfCurvFuncInv;
-                         finvP2: var BlendCurvPointFuncInv; pdep: float; pmax: float;
-                         soldep: MathVector; tolesp: float; tolGuide: float;
-                         recRst1: bool; recP1: bool; recRst2: bool; recP2: bool;
-                         psol: var float; parSol: var MathVector): bool {.
+                         finvP2: var BlendCurvPointFuncInv; pdep: cfloat;
+                         pmax: cfloat; soldep: MathVector; tolesp: cfloat;
+                         tolGuide: cfloat; recRst1: bool; recP1: bool; recRst2: bool;
+                         recP2: bool; psol: var cfloat; parSol: var MathVector): bool {.
     importcpp: "PerformFirstSection", header: "BRepBlend_RstRstLineBuilder.hxx".}
 proc complete*(this: var BRepBlendRstRstLineBuilder;
               `func`: var BlendRstRstFunction; finv1: var BlendSurfCurvFuncInv;
               finvP1: var BlendCurvPointFuncInv; finv2: var BlendSurfCurvFuncInv;
-              finvP2: var BlendCurvPointFuncInv; pmin: float): bool {.
+              finvP2: var BlendCurvPointFuncInv; pmin: cfloat): bool {.
     importcpp: "Complete", header: "BRepBlend_RstRstLineBuilder.hxx".}
 proc isDone*(this: BRepBlendRstRstLineBuilder): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepBlend_RstRstLineBuilder.hxx".}
@@ -69,3 +69,28 @@ proc decroch2Start*(this: BRepBlendRstRstLineBuilder): bool {.noSideEffect,
     importcpp: "Decroch2Start", header: "BRepBlend_RstRstLineBuilder.hxx".}
 proc decroch2End*(this: BRepBlendRstRstLineBuilder): bool {.noSideEffect,
     importcpp: "Decroch2End", header: "BRepBlend_RstRstLineBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

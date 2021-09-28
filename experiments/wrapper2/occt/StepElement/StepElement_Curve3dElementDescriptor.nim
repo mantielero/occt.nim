@@ -17,8 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepElement_Curve3dElementDescriptor"
 discard "forward decl of StepElement_Curve3dElementDescriptor"
 type
-  HandleStepElementCurve3dElementDescriptor* = Handle[
-      StepElementCurve3dElementDescriptor]
+  HandleC1C1* = Handle[StepElementCurve3dElementDescriptor]
 
 ## ! Representation of STEP entity Curve3dElementDescriptor
 
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementCurve3dElementDescriptor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_Curve3dElementDescriptor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

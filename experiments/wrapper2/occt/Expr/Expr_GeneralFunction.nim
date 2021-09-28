@@ -23,7 +23,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_GeneralFunction"
 discard "forward decl of Expr_GeneralFunction"
 type
-  HandleExprGeneralFunction* = Handle[ExprGeneralFunction]
+  HandleC1C1* = Handle[ExprGeneralFunction]
 
 ## ! Defines the general purposes of any function.
 
@@ -40,24 +40,24 @@ type
                                                                                             ## <me>.
 
 
-proc nbOfVariables*(this: ExprGeneralFunction): int {.noSideEffect,
+proc nbOfVariables*(this: ExprGeneralFunction): cint {.noSideEffect,
     importcpp: "NbOfVariables", header: "Expr_GeneralFunction.hxx".}
-proc variable*(this: ExprGeneralFunction; index: int): Handle[ExprNamedUnknown] {.
+proc variable*(this: ExprGeneralFunction; index: cint): Handle[ExprNamedUnknown] {.
     noSideEffect, importcpp: "Variable", header: "Expr_GeneralFunction.hxx".}
 proc copy*(this: ExprGeneralFunction): Handle[ExprGeneralFunction] {.noSideEffect,
     importcpp: "Copy", header: "Expr_GeneralFunction.hxx".}
 proc derivative*(this: ExprGeneralFunction; `var`: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralFunction] {.noSideEffect, importcpp: "Derivative",
                           header: "Expr_GeneralFunction.hxx".}
-proc derivative*(this: ExprGeneralFunction; `var`: Handle[ExprNamedUnknown]; deg: int): Handle[
-    ExprGeneralFunction] {.noSideEffect, importcpp: "Derivative",
-                          header: "Expr_GeneralFunction.hxx".}
+proc derivative*(this: ExprGeneralFunction; `var`: Handle[ExprNamedUnknown];
+                deg: cint): Handle[ExprGeneralFunction] {.noSideEffect,
+    importcpp: "Derivative", header: "Expr_GeneralFunction.hxx".}
 proc evaluate*(this: ExprGeneralFunction; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_GeneralFunction.hxx".}
 proc isIdentical*(this: ExprGeneralFunction; `func`: Handle[ExprGeneralFunction]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_GeneralFunction.hxx".}
-proc isLinearOnVariable*(this: ExprGeneralFunction; index: int): bool {.noSideEffect,
+proc isLinearOnVariable*(this: ExprGeneralFunction; index: cint): bool {.noSideEffect,
     importcpp: "IsLinearOnVariable", header: "Expr_GeneralFunction.hxx".}
 proc getStringName*(this: ExprGeneralFunction): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetStringName", header: "Expr_GeneralFunction.hxx".}
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_GeneralFunction.hxx".}
 proc dynamicType*(this: ExprGeneralFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_GeneralFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

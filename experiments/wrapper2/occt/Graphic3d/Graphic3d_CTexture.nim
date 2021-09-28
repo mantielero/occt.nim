@@ -20,3 +20,28 @@ type
 
 proc constructGraphic3dCTexture*(): Graphic3dCTexture {.constructor,
     importcpp: "Graphic3d_CTexture(@)", header: "Graphic3d_CTexture.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

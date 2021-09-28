@@ -42,9 +42,9 @@ proc constructSTEPConstructStyles*(ws: Handle[XSControlWorkSession]): STEPConstr
     header: "STEPConstruct_Styles.hxx".}
 proc init*(this: var STEPConstructStyles; ws: Handle[XSControlWorkSession]): bool {.
     importcpp: "Init", header: "STEPConstruct_Styles.hxx".}
-proc nbStyles*(this: STEPConstructStyles): int {.noSideEffect, importcpp: "NbStyles",
-    header: "STEPConstruct_Styles.hxx".}
-proc style*(this: STEPConstructStyles; i: int): Handle[StepVisualStyledItem] {.
+proc nbStyles*(this: STEPConstructStyles): cint {.noSideEffect,
+    importcpp: "NbStyles", header: "STEPConstruct_Styles.hxx".}
+proc style*(this: STEPConstructStyles; i: cint): Handle[StepVisualStyledItem] {.
     noSideEffect, importcpp: "Style", header: "STEPConstruct_Styles.hxx".}
 proc clearStyles*(this: var STEPConstructStyles) {.importcpp: "ClearStyles",
     header: "STEPConstruct_Styles.hxx".}
@@ -80,7 +80,7 @@ proc makeColorPSA*(this: STEPConstructStyles;
                   item: Handle[StepReprRepresentationItem];
                   surfCol: Handle[StepVisualColour];
                   curveCol: Handle[StepVisualColour];
-                  renderCol: Handle[StepVisualColour]; renderTransp: float;
+                  renderCol: Handle[StepVisualColour]; renderTransp: cfloat;
                   isForNAUO: bool = false): Handle[
     StepVisualPresentationStyleAssignment] {.noSideEffect,
     importcpp: "MakeColorPSA", header: "STEPConstruct_Styles.hxx".}
@@ -93,7 +93,7 @@ proc getColors*(this: STEPConstructStyles; style: Handle[StepVisualStyledItem];
                surfCol: var Handle[StepVisualColour];
                boundCol: var Handle[StepVisualColour];
                curveCol: var Handle[StepVisualColour];
-               renderCol: var Handle[StepVisualColour]; renderTransp: var float;
+               renderCol: var Handle[StepVisualColour]; renderTransp: var cfloat;
                isComponent: var bool): bool {.noSideEffect, importcpp: "GetColors",
     header: "STEPConstruct_Styles.hxx".}
 proc encodeColor*(col: QuantityColor): Handle[StepVisualColour] {.
@@ -107,3 +107,28 @@ proc encodeColor*(col: QuantityColor;
 proc decodeColor*(colour: Handle[StepVisualColour]; col: var QuantityColor): bool {.
     importcpp: "STEPConstruct_Styles::DecodeColor(@)",
     header: "STEPConstruct_Styles.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

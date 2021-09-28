@@ -25,7 +25,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Geom2d_BezierCurve"
 type
-  HandleGeom2dBezierCurve* = Handle[Geom2dBezierCurve]
+  HandleC1C1* = Handle[Geom2dBezierCurve]
 
 ## ! Describes a rational or non-rational Bezier curve
 ## ! - a non-rational Bezier curve is defined by a table
@@ -206,53 +206,54 @@ proc constructGeom2dBezierCurve*(curvePoles: TColgpArray1OfPnt2d;
 proc increase*(this: var Geom2dBezierCurve; degree: int) {.importcpp: "Increase",
     header: "Geom2d_BezierCurve.hxx".}
 proc insertPoleAfter*(this: var Geom2dBezierCurve; index: int; p: Pnt2d;
-                     weight: float = 1.0) {.importcpp: "InsertPoleAfter",
-                                        header: "Geom2d_BezierCurve.hxx".}
+                     weight: StandardReal = 1.0) {.importcpp: "InsertPoleAfter",
+    header: "Geom2d_BezierCurve.hxx".}
 proc insertPoleBefore*(this: var Geom2dBezierCurve; index: int; p: Pnt2d;
-                      weight: float = 1.0) {.importcpp: "InsertPoleBefore",
+                      weight: StandardReal = 1.0) {.importcpp: "InsertPoleBefore",
     header: "Geom2d_BezierCurve.hxx".}
 proc removePole*(this: var Geom2dBezierCurve; index: int) {.importcpp: "RemovePole",
     header: "Geom2d_BezierCurve.hxx".}
 proc reverse*(this: var Geom2dBezierCurve) {.importcpp: "Reverse",
     header: "Geom2d_BezierCurve.hxx".}
-proc reversedParameter*(this: Geom2dBezierCurve; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom2d_BezierCurve.hxx".}
-proc segment*(this: var Geom2dBezierCurve; u1: float; u2: float) {.importcpp: "Segment",
-    header: "Geom2d_BezierCurve.hxx".}
+proc reversedParameter*(this: Geom2dBezierCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_BezierCurve.hxx".}
+proc segment*(this: var Geom2dBezierCurve; u1: StandardReal; u2: StandardReal) {.
+    importcpp: "Segment", header: "Geom2d_BezierCurve.hxx".}
 proc setPole*(this: var Geom2dBezierCurve; index: int; p: Pnt2d) {.importcpp: "SetPole",
     header: "Geom2d_BezierCurve.hxx".}
-proc setPole*(this: var Geom2dBezierCurve; index: int; p: Pnt2d; weight: float) {.
+proc setPole*(this: var Geom2dBezierCurve; index: int; p: Pnt2d; weight: StandardReal) {.
     importcpp: "SetPole", header: "Geom2d_BezierCurve.hxx".}
-proc setWeight*(this: var Geom2dBezierCurve; index: int; weight: float) {.
+proc setWeight*(this: var Geom2dBezierCurve; index: int; weight: StandardReal) {.
     importcpp: "SetWeight", header: "Geom2d_BezierCurve.hxx".}
-proc isClosed*(this: Geom2dBezierCurve): bool {.noSideEffect, importcpp: "IsClosed",
-    header: "Geom2d_BezierCurve.hxx".}
-proc isCN*(this: Geom2dBezierCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
-    header: "Geom2d_BezierCurve.hxx".}
-proc isPeriodic*(this: Geom2dBezierCurve): bool {.noSideEffect,
+proc isClosed*(this: Geom2dBezierCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom2d_BezierCurve.hxx".}
+proc isCN*(this: Geom2dBezierCurve; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom2d_BezierCurve.hxx".}
+proc isPeriodic*(this: Geom2dBezierCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom2d_BezierCurve.hxx".}
-proc isRational*(this: Geom2dBezierCurve): bool {.noSideEffect,
+proc isRational*(this: Geom2dBezierCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsRational", header: "Geom2d_BezierCurve.hxx".}
 proc continuity*(this: Geom2dBezierCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom2d_BezierCurve.hxx".}
 proc degree*(this: Geom2dBezierCurve): int {.noSideEffect, importcpp: "Degree",
     header: "Geom2d_BezierCurve.hxx".}
-proc d0*(this: Geom2dBezierCurve; u: float; p: var Pnt2d) {.noSideEffect,
+proc d0*(this: Geom2dBezierCurve; u: StandardReal; p: var Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Geom2d_BezierCurve.hxx".}
-proc d1*(this: Geom2dBezierCurve; u: float; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
-    importcpp: "D1", header: "Geom2d_BezierCurve.hxx".}
-proc d2*(this: Geom2dBezierCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, importcpp: "D2", header: "Geom2d_BezierCurve.hxx".}
-proc d3*(this: Geom2dBezierCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+proc d1*(this: Geom2dBezierCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d) {.
+    noSideEffect, importcpp: "D1", header: "Geom2d_BezierCurve.hxx".}
+proc d2*(this: Geom2dBezierCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d) {.noSideEffect, importcpp: "D2",
                       header: "Geom2d_BezierCurve.hxx".}
-proc dn*(this: Geom2dBezierCurve; u: float; n: int): Vec2d {.noSideEffect,
+proc d3*(this: Geom2dBezierCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d; v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+                                  header: "Geom2d_BezierCurve.hxx".}
+proc dn*(this: Geom2dBezierCurve; u: StandardReal; n: int): Vec2d {.noSideEffect,
     importcpp: "DN", header: "Geom2d_BezierCurve.hxx".}
 proc endPoint*(this: Geom2dBezierCurve): Pnt2d {.noSideEffect, importcpp: "EndPoint",
     header: "Geom2d_BezierCurve.hxx".}
-proc firstParameter*(this: Geom2dBezierCurve): float {.noSideEffect,
+proc firstParameter*(this: Geom2dBezierCurve): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_BezierCurve.hxx".}
-proc lastParameter*(this: Geom2dBezierCurve): float {.noSideEffect,
+proc lastParameter*(this: Geom2dBezierCurve): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_BezierCurve.hxx".}
 proc nbPoles*(this: Geom2dBezierCurve): int {.noSideEffect, importcpp: "NbPoles",
     header: "Geom2d_BezierCurve.hxx".}
@@ -264,7 +265,7 @@ proc poles*(this: Geom2dBezierCurve): TColgpArray1OfPnt2d {.noSideEffect,
     importcpp: "Poles", header: "Geom2d_BezierCurve.hxx".}
 proc startPoint*(this: Geom2dBezierCurve): Pnt2d {.noSideEffect,
     importcpp: "StartPoint", header: "Geom2d_BezierCurve.hxx".}
-proc weight*(this: Geom2dBezierCurve; index: int): float {.noSideEffect,
+proc weight*(this: Geom2dBezierCurve; index: int): StandardReal {.noSideEffect,
     importcpp: "Weight", header: "Geom2d_BezierCurve.hxx".}
 proc weights*(this: Geom2dBezierCurve; w: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "Weights", header: "Geom2d_BezierCurve.hxx".}
@@ -274,9 +275,9 @@ proc transform*(this: var Geom2dBezierCurve; t: Trsf2d) {.importcpp: "Transform"
     header: "Geom2d_BezierCurve.hxx".}
 proc maxDegree*(): int {.importcpp: "Geom2d_BezierCurve::MaxDegree(@)",
                       header: "Geom2d_BezierCurve.hxx".}
-proc resolution*(this: var Geom2dBezierCurve; toleranceUV: float;
-                uTolerance: var float) {.importcpp: "Resolution",
-                                      header: "Geom2d_BezierCurve.hxx".}
+proc resolution*(this: var Geom2dBezierCurve; toleranceUV: StandardReal;
+                uTolerance: var StandardReal) {.importcpp: "Resolution",
+    header: "Geom2d_BezierCurve.hxx".}
 proc copy*(this: Geom2dBezierCurve): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_BezierCurve.hxx".}
 proc dumpJson*(this: Geom2dBezierCurve; theOStream: var StandardOStream;

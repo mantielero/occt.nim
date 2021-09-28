@@ -44,7 +44,7 @@ proc clear*(this: var InterfaceReaderLib) {.importcpp: "Clear",
 proc setComplete*(this: var InterfaceReaderLib) {.importcpp: "SetComplete",
     header: "Interface_ReaderLib.hxx".}
 proc select*(this: InterfaceReaderLib; obj: Handle[StandardTransient];
-            module: var Handle[InterfaceReaderModule]; cn: var int): bool {.
+            module: var Handle[InterfaceReaderModule]; cn: var cint): bool {.
     noSideEffect, importcpp: "Select", header: "Interface_ReaderLib.hxx".}
 proc start*(this: var InterfaceReaderLib) {.importcpp: "Start",
                                         header: "Interface_ReaderLib.hxx".}
@@ -56,3 +56,28 @@ proc module*(this: InterfaceReaderLib): Handle[InterfaceReaderModule] {.
     noSideEffect, importcpp: "Module", header: "Interface_ReaderLib.hxx".}
 proc protocol*(this: InterfaceReaderLib): Handle[InterfaceProtocol] {.noSideEffect,
     importcpp: "Protocol", header: "Interface_ReaderLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of StepBasic_DerivedUnitElement"
 discard "forward decl of StepBasic_DerivedUnit"
 discard "forward decl of StepBasic_DerivedUnit"
 type
-  HandleStepBasicDerivedUnit* = Handle[StepBasicDerivedUnit]
+  HandleC1C1* = Handle[StepBasicDerivedUnit]
 
 ## ! Added from StepBasic Rev2 to Rev4
 
@@ -38,9 +38,9 @@ proc setElements*(this: var StepBasicDerivedUnit;
 proc elements*(this: StepBasicDerivedUnit): Handle[
     StepBasicHArray1OfDerivedUnitElement] {.noSideEffect, importcpp: "Elements",
     header: "StepBasic_DerivedUnit.hxx".}
-proc nbElements*(this: StepBasicDerivedUnit): int {.noSideEffect,
+proc nbElements*(this: StepBasicDerivedUnit): cint {.noSideEffect,
     importcpp: "NbElements", header: "StepBasic_DerivedUnit.hxx".}
-proc elementsValue*(this: StepBasicDerivedUnit; num: int): Handle[
+proc elementsValue*(this: StepBasicDerivedUnit; num: cint): Handle[
     StepBasicDerivedUnitElement] {.noSideEffect, importcpp: "ElementsValue",
                                   header: "StepBasic_DerivedUnit.hxx".}
 type
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DerivedUnit.hxx".}
 proc dynamicType*(this: StepBasicDerivedUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_DerivedUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

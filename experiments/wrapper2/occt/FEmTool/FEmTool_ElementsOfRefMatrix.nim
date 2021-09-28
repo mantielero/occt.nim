@@ -21,12 +21,37 @@ type
                                header: "FEmTool_ElementsOfRefMatrix.hxx", bycopy.} = object of MathFunctionSet
 
 
-proc constructFEmToolElementsOfRefMatrix*(theBase: Handle[PLibBase]; derOrder: int): FEmToolElementsOfRefMatrix {.
+proc constructFEmToolElementsOfRefMatrix*(theBase: Handle[PLibBase]; derOrder: cint): FEmToolElementsOfRefMatrix {.
     constructor, importcpp: "FEmTool_ElementsOfRefMatrix(@)",
     header: "FEmTool_ElementsOfRefMatrix.hxx".}
-proc nbVariables*(this: FEmToolElementsOfRefMatrix): int {.noSideEffect,
+proc nbVariables*(this: FEmToolElementsOfRefMatrix): cint {.noSideEffect,
     importcpp: "NbVariables", header: "FEmTool_ElementsOfRefMatrix.hxx".}
-proc nbEquations*(this: FEmToolElementsOfRefMatrix): int {.noSideEffect,
+proc nbEquations*(this: FEmToolElementsOfRefMatrix): cint {.noSideEffect,
     importcpp: "NbEquations", header: "FEmTool_ElementsOfRefMatrix.hxx".}
 proc value*(this: var FEmToolElementsOfRefMatrix; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "FEmTool_ElementsOfRefMatrix.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

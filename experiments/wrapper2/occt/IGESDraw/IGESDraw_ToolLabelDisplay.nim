@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESDrawToolLabelDisplay;
              entto: Handle[IGESDrawLabelDisplay]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolLabelDisplay.hxx".}
 proc ownDump*(this: IGESDrawToolLabelDisplay; ent: Handle[IGESDrawLabelDisplay];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolLabelDisplay.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

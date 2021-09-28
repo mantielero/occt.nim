@@ -29,7 +29,7 @@ proc constructRWStepBasicRWApprovalDateTime*(): RWStepBasicRWApprovalDateTime {.
     constructor, importcpp: "RWStepBasic_RWApprovalDateTime(@)",
     header: "RWStepBasic_RWApprovalDateTime.hxx".}
 proc readStep*(this: RWStepBasicRWApprovalDateTime;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicApprovalDateTime]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWApprovalDateTime.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepBasicRWApprovalDateTime;
            ent: Handle[StepBasicApprovalDateTime];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWApprovalDateTime.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

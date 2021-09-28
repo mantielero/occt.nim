@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESBasic_AssocGroupType"
 discard "forward decl of IGESBasic_AssocGroupType"
 type
-  HandleIGESBasicAssocGroupType* = Handle[IGESBasicAssocGroupType]
+  HandleC1C1* = Handle[IGESBasicAssocGroupType]
 
 ## ! defines AssocGroupType, Type <406> Form <23>
 ## ! in package IGESBasic
@@ -33,12 +33,12 @@ type
 proc constructIGESBasicAssocGroupType*(): IGESBasicAssocGroupType {.constructor,
     importcpp: "IGESBasic_AssocGroupType(@)",
     header: "IGESBasic_AssocGroupType.hxx".}
-proc init*(this: var IGESBasicAssocGroupType; nbDataFields: int; aType: int;
+proc init*(this: var IGESBasicAssocGroupType; nbDataFields: cint; aType: cint;
           aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESBasic_AssocGroupType.hxx".}
-proc nbData*(this: IGESBasicAssocGroupType): int {.noSideEffect, importcpp: "NbData",
-    header: "IGESBasic_AssocGroupType.hxx".}
-proc assocType*(this: IGESBasicAssocGroupType): int {.noSideEffect,
+proc nbData*(this: IGESBasicAssocGroupType): cint {.noSideEffect,
+    importcpp: "NbData", header: "IGESBasic_AssocGroupType.hxx".}
+proc assocType*(this: IGESBasicAssocGroupType): cint {.noSideEffect,
     importcpp: "AssocType", header: "IGESBasic_AssocGroupType.hxx".}
 proc name*(this: IGESBasicAssocGroupType): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "IGESBasic_AssocGroupType.hxx".}
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESBasic_AssocGroupType.hxx".}
 proc dynamicType*(this: IGESBasicAssocGroupType): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESBasic_AssocGroupType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

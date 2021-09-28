@@ -77,3 +77,28 @@ proc compoundOfEdges*(this: var HLRBRepHLRToShape;
 proc compoundOfEdges*(this: var HLRBRepHLRToShape; s: TopoDS_Shape;
                      `type`: HLRBRepTypeOfResultingEdge; visible: bool; in3d: bool): TopoDS_Shape {.
     importcpp: "CompoundOfEdges", header: "HLRBRep_HLRToShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_FeaGroup"
 discard "forward decl of StepFEA_FeaGroup"
 type
-  HandleStepFEA_FeaGroup* = Handle[StepFEA_FeaGroup]
+  HandleC1C1* = Handle[StepFEA_FeaGroup]
 
 ## ! Representation of STEP entity FeaGroup
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepFEA_FeaGroup.hxx".}
 proc dynamicType*(this: StepFEA_FeaGroup): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepFEA_FeaGroup.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

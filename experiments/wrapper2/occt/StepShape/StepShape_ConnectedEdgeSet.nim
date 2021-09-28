@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_ConnectedEdgeSet"
 discard "forward decl of StepShape_ConnectedEdgeSet"
 type
-  HandleStepShapeConnectedEdgeSet* = Handle[StepShapeConnectedEdgeSet]
+  HandleC1C1* = Handle[StepShapeConnectedEdgeSet]
 
 ## ! Representation of STEP entity ConnectedEdgeSet
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeConnectedEdgeSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ConnectedEdgeSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

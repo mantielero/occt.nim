@@ -39,10 +39,35 @@ proc next*(this: var TopOpeBRepVPointInterIterator) {.importcpp: "Next",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
 proc currentVP*(this: var TopOpeBRepVPointInterIterator): TopOpeBRepVPointInter {.
     importcpp: "CurrentVP", header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc currentVPIndex*(this: TopOpeBRepVPointInterIterator): int {.noSideEffect,
+proc currentVPIndex*(this: TopOpeBRepVPointInterIterator): cint {.noSideEffect,
     importcpp: "CurrentVPIndex", header: "TopOpeBRep_VPointInterIterator.hxx".}
 proc changeCurrentVP*(this: var TopOpeBRepVPointInterIterator): var TopOpeBRepVPointInter {.
     importcpp: "ChangeCurrentVP", header: "TopOpeBRep_VPointInterIterator.hxx".}
 proc pLineInterDummy*(this: TopOpeBRepVPointInterIterator): TopOpeBRepPLineInter {.
     noSideEffect, importcpp: "PLineInterDummy",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepShapeRWConnectedEdgeSet*(): RWStepShapeRWConnectedEdgeSet {.
     constructor, importcpp: "RWStepShape_RWConnectedEdgeSet(@)",
     header: "RWStepShape_RWConnectedEdgeSet.hxx".}
 proc readStep*(this: RWStepShapeRWConnectedEdgeSet;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeConnectedEdgeSet]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWConnectedEdgeSet.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepShapeRWConnectedEdgeSet;
            ent: Handle[StepShapeConnectedEdgeSet];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWConnectedEdgeSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

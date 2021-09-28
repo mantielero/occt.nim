@@ -55,7 +55,7 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "SelectMgr_Selection.hxx".}
 proc dynamicType*(this: SelectMgrSelection): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "SelectMgr_Selection.hxx".}
-proc constructSelectMgrSelection*(theModeIdx: int = 0): SelectMgrSelection {.
+proc constructSelectMgrSelection*(theModeIdx: cint = 0): SelectMgrSelection {.
     constructor, importcpp: "SelectMgr_Selection(@)",
     header: "SelectMgr_Selection.hxx".}
 proc destroySelectMgrSelection*(this: var SelectMgrSelection) {.
@@ -69,8 +69,8 @@ proc clear*(this: var SelectMgrSelection) {.importcpp: "Clear",
                                         header: "SelectMgr_Selection.hxx".}
 proc isEmpty*(this: SelectMgrSelection): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "SelectMgr_Selection.hxx".}
-proc mode*(this: SelectMgrSelection): int {.noSideEffect, importcpp: "Mode",
-                                        header: "SelectMgr_Selection.hxx".}
+proc mode*(this: SelectMgrSelection): cint {.noSideEffect, importcpp: "Mode",
+    header: "SelectMgr_Selection.hxx".}
 proc entities*(this: SelectMgrSelection): NCollectionVector[
     Handle[SelectMgrSensitiveEntity]] {.noSideEffect, importcpp: "Entities",
                                        header: "SelectMgr_Selection.hxx".}
@@ -91,14 +91,39 @@ proc getSelectionState*(this: SelectMgrSelection): SelectMgrStateOfSelection {.
 proc setSelectionState*(this: SelectMgrSelection;
                        theState: SelectMgrStateOfSelection) {.noSideEffect,
     importcpp: "SetSelectionState", header: "SelectMgr_Selection.hxx".}
-proc sensitivity*(this: SelectMgrSelection): int {.noSideEffect,
+proc sensitivity*(this: SelectMgrSelection): cint {.noSideEffect,
     importcpp: "Sensitivity", header: "SelectMgr_Selection.hxx".}
-proc setSensitivity*(this: var SelectMgrSelection; theNewSens: int) {.
+proc setSensitivity*(this: var SelectMgrSelection; theNewSens: cint) {.
     importcpp: "SetSensitivity", header: "SelectMgr_Selection.hxx".}
 proc dumpJson*(this: SelectMgrSelection; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "SelectMgr_Selection.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "SelectMgr_Selection.hxx".}
 discard "forward decl of SelectMgr_Selection"
 type
-  HandleSelectMgrSelection* = Handle[SelectMgrSelection]
+  HandleC1C1* = Handle[SelectMgrSelection]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -18,7 +18,7 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_SignatureFilter"
 discard "forward decl of AIS_SignatureFilter"
 type
-  HandleAIS_SignatureFilter* = Handle[AIS_SignatureFilter]
+  HandleC1C1* = Handle[AIS_SignatureFilter]
 
 ## ! Selects Interactive Objects through their signatures
 ## ! and types. The signature provides an
@@ -75,7 +75,7 @@ type
 
 
 proc constructAIS_SignatureFilter*(aGivenKind: AIS_KindOfInteractive;
-                                  aGivenSignature: int): AIS_SignatureFilter {.
+                                  aGivenSignature: cint): AIS_SignatureFilter {.
     constructor, importcpp: "AIS_SignatureFilter(@)",
     header: "AIS_SignatureFilter.hxx".}
 proc isOk*(this: AIS_SignatureFilter; anobj: Handle[SelectMgrEntityOwner]): bool {.
@@ -90,3 +90,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "AIS_SignatureFilter.hxx".}
 proc dynamicType*(this: AIS_SignatureFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_SignatureFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

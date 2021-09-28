@@ -57,7 +57,32 @@ proc changeSecondPC*(this: var DraftEdgeInfo): var Handle[Geom2dCurve] {.
     importcpp: "ChangeSecondPC", header: "Draft_EdgeInfo.hxx".}
 proc rootFace*(this: DraftEdgeInfo): TopoDS_Face {.noSideEffect,
     importcpp: "RootFace", header: "Draft_EdgeInfo.hxx".}
-proc tolerance*(this: var DraftEdgeInfo; tol: float) {.importcpp: "Tolerance",
+proc tolerance*(this: var DraftEdgeInfo; tol: cfloat) {.importcpp: "Tolerance",
     header: "Draft_EdgeInfo.hxx".}
-proc tolerance*(this: DraftEdgeInfo): float {.noSideEffect, importcpp: "Tolerance",
+proc tolerance*(this: DraftEdgeInfo): cfloat {.noSideEffect, importcpp: "Tolerance",
     header: "Draft_EdgeInfo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

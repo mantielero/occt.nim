@@ -14,16 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_DomainError_HeaderFile [NewLine] # _Standard_DomainError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Standard_DomainError ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_DomainError"
 type
-  HandleStandardDomainErrorStandardDomainError* = Handle[StandardDomainError]
+  StandardDomainError* {.importcpp: "Standard_DomainError",
+                        header: "Standard_DomainError.hxx", bycopy.} = object of StandardFailure  
+type
+  HandleStandardDomainError* = Handle[StandardDomainError]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_DomainError [NewLine] # if ( CONDITION ) throw Standard_DomainError ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardDomainError):
+  template standardDomainErrorRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardDomainError*(a1: Message): Throw {.
+          importcpp: "Standard_DomainError(@)", header: "Standard_DomainError.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_DomainError , Standard_Failure ) #  _Standard_DomainError_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

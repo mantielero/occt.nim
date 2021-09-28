@@ -45,3 +45,28 @@ proc value*(this: BRepMAT2dLinkTopoBilo): Handle[MAT_BasicElt] {.noSideEffect,
 proc generatingShape*(this: BRepMAT2dLinkTopoBilo; aBE: Handle[MAT_BasicElt]): TopoDS_Shape {.
     noSideEffect, importcpp: "GeneratingShape",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

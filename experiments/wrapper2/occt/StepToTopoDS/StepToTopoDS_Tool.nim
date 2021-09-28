@@ -75,21 +75,46 @@ proc addContinuity*(this: var StepToTopoDS_Tool; geomCurve: Handle[GeomCurve]) {
     importcpp: "AddContinuity", header: "StepToTopoDS_Tool.hxx".}
 proc addContinuity*(this: var StepToTopoDS_Tool; geomCur2d: Handle[Geom2dCurve]) {.
     importcpp: "AddContinuity", header: "StepToTopoDS_Tool.hxx".}
-proc c0Surf*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C0Surf",
+proc c0Surf*(this: StepToTopoDS_Tool): cint {.noSideEffect, importcpp: "C0Surf",
     header: "StepToTopoDS_Tool.hxx".}
-proc c1Surf*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C1Surf",
+proc c1Surf*(this: StepToTopoDS_Tool): cint {.noSideEffect, importcpp: "C1Surf",
     header: "StepToTopoDS_Tool.hxx".}
-proc c2Surf*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C2Surf",
+proc c2Surf*(this: StepToTopoDS_Tool): cint {.noSideEffect, importcpp: "C2Surf",
     header: "StepToTopoDS_Tool.hxx".}
-proc c0Cur2*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C0Cur2",
+proc c0Cur2*(this: StepToTopoDS_Tool): cint {.noSideEffect, importcpp: "C0Cur2",
     header: "StepToTopoDS_Tool.hxx".}
-proc c1Cur2*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C1Cur2",
+proc c1Cur2*(this: StepToTopoDS_Tool): cint {.noSideEffect, importcpp: "C1Cur2",
     header: "StepToTopoDS_Tool.hxx".}
-proc c2Cur2*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C2Cur2",
+proc c2Cur2*(this: StepToTopoDS_Tool): cint {.noSideEffect, importcpp: "C2Cur2",
     header: "StepToTopoDS_Tool.hxx".}
-proc c0Cur3*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C0Cur3",
+proc c0Cur3*(this: StepToTopoDS_Tool): cint {.noSideEffect, importcpp: "C0Cur3",
     header: "StepToTopoDS_Tool.hxx".}
-proc c1Cur3*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C1Cur3",
+proc c1Cur3*(this: StepToTopoDS_Tool): cint {.noSideEffect, importcpp: "C1Cur3",
     header: "StepToTopoDS_Tool.hxx".}
-proc c2Cur3*(this: StepToTopoDS_Tool): int {.noSideEffect, importcpp: "C2Cur3",
+proc c2Cur3*(this: StepToTopoDS_Tool): cint {.noSideEffect, importcpp: "C2Cur3",
     header: "StepToTopoDS_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

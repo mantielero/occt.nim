@@ -15,48 +15,63 @@
 ##  commercial license or contractual agreement.
 
 ## !!!Ignored construct:  # _BRepAdaptor_HCompCurve_HeaderFile [NewLine] # _BRepAdaptor_HCompCurve_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < BRepAdaptor_CompCurve . hxx > [NewLine] # < Adaptor3d_HCurve . hxx > [NewLine] class Standard_OutOfRange ;
-## Error: did not expect <!!!
+## Error: expected ';'!!!
 
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of BRepAdaptor_CompCurve"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of BRepAdaptor_HCompCurve"
-discard "forward decl of BRepAdaptor_HCompCurve"
-type
-  HandleBRepAdaptorHCompCurveBRepAdaptorHCompCurve* = Handle[BRepAdaptorHCompCurve]
-  BRepAdaptorHCompCurve* {.importcpp: "BRepAdaptor_HCompCurve",
-                          header: "BRepAdaptor_HCompCurve.hxx", bycopy.} = object of Adaptor3dHCurve ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## GenHCurve.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( BRepAdaptor_HCompCurve , Adaptor3d_HCurve ) class BRepAdaptor_HCompCurve : public Adaptor3d_HCurve { public : ! Creates an empty GenHCurve. BRepAdaptor_HCompCurve ( ) ; ! Creates a GenHCurve from a Curve BRepAdaptor_HCompCurve ( const BRepAdaptor_CompCurve & C ) ; ! Sets the field of the GenHCurve. void Set ( const BRepAdaptor_CompCurve & C ) ; ! Returns the curve used to create the GenHCurve.
+## ! This is redefined from HCurve, cannot be inline. const Adaptor3d_Curve & Curve ( ) const ; ! Returns the curve used to create the GenHCurve.
+## ! This is redefined from HCurve, cannot be inline. Adaptor3d_Curve & GetCurve ( ) ; ! Returns the curve used to create the GenHCurve. BRepAdaptor_CompCurve & ChangeCurve ( ) ; public : typedef Adaptor3d_HCurve base_type ; static const char * get_type_name ( ) { return BRepAdaptor_HCompCurve ; ( BRepAdaptor_HCompCurve , Adaptor3d_HCurve ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < BRepAdaptor_HCompCurve > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : BRepAdaptor_CompCurve myCurve ; private : } ;
+## Error: expected ';'!!!
 
-
-proc constructBRepAdaptorHCompCurve*(): BRepAdaptorHCompCurve {.constructor,
-    importcpp: "BRepAdaptor_HCompCurve(@)", header: "BRepAdaptor_HCompCurve.hxx".}
-proc constructBRepAdaptorHCompCurve*(c: BRepAdaptorCompCurve): BRepAdaptorHCompCurve {.
-    constructor, importcpp: "BRepAdaptor_HCompCurve(@)",
-    header: "BRepAdaptor_HCompCurve.hxx".}
-proc set*(this: var BRepAdaptorHCompCurve; c: BRepAdaptorCompCurve) {.
-    importcpp: "Set", header: "BRepAdaptor_HCompCurve.hxx".}
-proc curve*(this: BRepAdaptorHCompCurve): Adaptor3dCurve {.noSideEffect,
-    importcpp: "Curve", header: "BRepAdaptor_HCompCurve.hxx".}
-proc getCurve*(this: var BRepAdaptorHCompCurve): var Adaptor3dCurve {.
-    importcpp: "GetCurve", header: "BRepAdaptor_HCompCurve.hxx".}
-proc changeCurve*(this: var BRepAdaptorHCompCurve): var BRepAdaptorCompCurve {.
-    importcpp: "ChangeCurve", header: "BRepAdaptor_HCompCurve.hxx".}
-type
-  BRepAdaptorHCompCurvebaseType* = Adaptor3dHCurve
-
-proc getTypeName*(): cstring {.importcpp: "BRepAdaptor_HCompCurve::get_type_name(@)",
-                            header: "BRepAdaptor_HCompCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "BRepAdaptor_HCompCurve::get_type_descriptor(@)",
-    header: "BRepAdaptor_HCompCurve.hxx".}
-proc dynamicType*(this: BRepAdaptorHCompCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRepAdaptor_HCompCurve.hxx".}
-## !!!Ignored construct:  # TheCurve BRepAdaptor_CompCurve [NewLine] # TheCurve_hxx < BRepAdaptor_CompCurve . hxx > [NewLine] # Adaptor3d_GenHCurve BRepAdaptor_HCompCurve [NewLine] # Adaptor3d_GenHCurve_hxx < BRepAdaptor_HCompCurve . hxx > [NewLine] # Handle_Adaptor3d_GenHCurve opencascade :: handle < BRepAdaptor_HCompCurve > [end of template] [NewLine] # < Adaptor3d_GenHCurve . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor3d_GenHCurve [NewLine] # Adaptor3d_GenHCurve_hxx [NewLine] # Handle_Adaptor3d_GenHCurve [NewLine] #  _BRepAdaptor_HCompCurve_HeaderFile
+## !!!Ignored construct:  # TheCurve BRepAdaptor_CompCurve [NewLine] # TheCurve_hxx < BRepAdaptor_CompCurve . hxx > [NewLine] # Adaptor3d_GenHCurve BRepAdaptor_HCompCurve [NewLine] # Adaptor3d_GenHCurve_hxx < BRepAdaptor_HCompCurve . hxx > [NewLine] # Handle_Adaptor3d_GenHCurve Handle ( BRepAdaptor_HCompCurve ) [NewLine] # < Adaptor3d_GenHCurve . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor3d_GenHCurve [NewLine] # Adaptor3d_GenHCurve_hxx [NewLine] # Handle_Adaptor3d_GenHCurve [NewLine] #  _BRepAdaptor_HCompCurve_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

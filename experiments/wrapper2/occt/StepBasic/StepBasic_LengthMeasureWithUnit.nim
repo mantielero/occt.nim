@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_LengthMeasureWithUnit"
 discard "forward decl of StepBasic_LengthMeasureWithUnit"
 type
-  HandleStepBasicLengthMeasureWithUnit* = Handle[StepBasicLengthMeasureWithUnit]
+  HandleC1C1* = Handle[StepBasicLengthMeasureWithUnit]
   StepBasicLengthMeasureWithUnit* {.importcpp: "StepBasic_LengthMeasureWithUnit", header: "StepBasic_LengthMeasureWithUnit.hxx",
                                    bycopy.} = object of StepBasicMeasureWithUnit ## !
                                                                             ## Returns a
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicLengthMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_LengthMeasureWithUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

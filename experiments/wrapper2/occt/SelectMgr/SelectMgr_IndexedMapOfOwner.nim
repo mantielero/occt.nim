@@ -18,3 +18,28 @@ type
   SelectMgrIndexedMapOfOwner* = NCollectionShared[
       NCollectionIndexedMap[Handle[SelectMgrEntityOwner]]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepReprRWShapeAspect*(): RWStepReprRWShapeAspect {.constructor,
     importcpp: "RWStepRepr_RWShapeAspect(@)",
     header: "RWStepRepr_RWShapeAspect.hxx".}
 proc readStep*(this: RWStepReprRWShapeAspect; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprShapeAspect]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWShapeAspect.hxx".}
 proc writeStep*(this: RWStepReprRWShapeAspect; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepReprRWShapeAspect; sw: var StepDataStepWriter;
 proc share*(this: RWStepReprRWShapeAspect; ent: Handle[StepReprShapeAspect];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWShapeAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

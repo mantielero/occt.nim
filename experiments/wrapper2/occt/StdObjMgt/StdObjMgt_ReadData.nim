@@ -31,15 +31,15 @@ proc destroyStdObjMgtReadDataObjectSentry*(
     this: var StdObjMgtReadDataObjectSentry) {.importcpp: "#.~ObjectSentry()",
     header: "StdObjMgt_ReadData.hxx".}
 proc constructStdObjMgtReadData*(theDriver: Handle[StorageBaseDriver];
-                                theNumberOfObjects: int): StdObjMgtReadData {.
+                                theNumberOfObjects: cint): StdObjMgtReadData {.
     constructor, importcpp: "StdObjMgt_ReadData(@)",
     header: "StdObjMgt_ReadData.hxx".}
-proc createPersistentObject*[Instantiator](this: var StdObjMgtReadData; theRef: int;
-    theInstantiator: Instantiator) {.importcpp: "CreatePersistentObject",
-                                   header: "StdObjMgt_ReadData.hxx".}
-proc readPersistentObject*(this: var StdObjMgtReadData; theRef: int) {.
+proc createPersistentObject*[Instantiator](this: var StdObjMgtReadData;
+    theRef: cint; theInstantiator: Instantiator) {.
+    importcpp: "CreatePersistentObject", header: "StdObjMgt_ReadData.hxx".}
+proc readPersistentObject*(this: var StdObjMgtReadData; theRef: cint) {.
     importcpp: "ReadPersistentObject", header: "StdObjMgt_ReadData.hxx".}
-proc persistentObject*(this: StdObjMgtReadData; theRef: int): Handle[
+proc persistentObject*(this: StdObjMgtReadData; theRef: cint): Handle[
     StdObjMgtPersistent] {.noSideEffect, importcpp: "PersistentObject",
                           header: "StdObjMgt_ReadData.hxx".}
 proc readReference*(this: var StdObjMgtReadData): Handle[StdObjMgtPersistent] {.
@@ -55,13 +55,38 @@ proc `>>`*(this: var StdObjMgtReadData; theValue: var StandardCharacter): var St
     importcpp: "(# >> #)", header: "StdObjMgt_ReadData.hxx".}
 proc `>>`*(this: var StdObjMgtReadData; theValue: var StandardExtCharacter): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObjMgt_ReadData.hxx".}
-proc `>>`*(this: var StdObjMgtReadData; theValue: var int): var StdObjMgtReadData {.
+proc `>>`*(this: var StdObjMgtReadData; theValue: var cint): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObjMgt_ReadData.hxx".}
 proc `>>`*(this: var StdObjMgtReadData; theValue: var bool): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObjMgt_ReadData.hxx".}
-proc `>>`*(this: var StdObjMgtReadData; theValue: var float): var StdObjMgtReadData {.
+proc `>>`*(this: var StdObjMgtReadData; theValue: var cfloat): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObjMgt_ReadData.hxx".}
 proc `>>`*(this: var StdObjMgtReadData; theValue: var StandardShortReal): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObjMgt_ReadData.hxx".}
 proc `>>`*(theReadData: var StdObjMgtReadData; theGUID: var StandardGUID): var StdObjMgtReadData {.
     importcpp: "(# >> #)", header: "StdObjMgt_ReadData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

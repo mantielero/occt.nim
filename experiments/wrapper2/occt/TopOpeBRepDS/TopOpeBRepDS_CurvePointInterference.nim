@@ -18,8 +18,7 @@ discard "forward decl of TopOpeBRepDS_Transition"
 discard "forward decl of TopOpeBRepDS_CurvePointInterference"
 discard "forward decl of TopOpeBRepDS_CurvePointInterference"
 type
-  HandleTopOpeBRepDS_CurvePointInterference* = Handle[
-      TopOpeBRepDS_CurvePointInterference]
+  HandleC1C1* = Handle[TopOpeBRepDS_CurvePointInterference]
 
 ## ! An interference with a parameter.
 
@@ -29,12 +28,12 @@ type
 
 
 proc constructTopOpeBRepDS_CurvePointInterference*(t: TopOpeBRepDS_Transition;
-    st: TopOpeBRepDS_Kind; s: int; gt: TopOpeBRepDS_Kind; g: int; p: float): TopOpeBRepDS_CurvePointInterference {.
+    st: TopOpeBRepDS_Kind; s: cint; gt: TopOpeBRepDS_Kind; g: cint; p: cfloat): TopOpeBRepDS_CurvePointInterference {.
     constructor, importcpp: "TopOpeBRepDS_CurvePointInterference(@)",
     header: "TopOpeBRepDS_CurvePointInterference.hxx".}
-proc parameter*(this: TopOpeBRepDS_CurvePointInterference): float {.noSideEffect,
+proc parameter*(this: TopOpeBRepDS_CurvePointInterference): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRepDS_CurvePointInterference.hxx".}
-proc parameter*(this: var TopOpeBRepDS_CurvePointInterference; p: float) {.
+proc parameter*(this: var TopOpeBRepDS_CurvePointInterference; p: cfloat) {.
     importcpp: "Parameter", header: "TopOpeBRepDS_CurvePointInterference.hxx".}
 type
   TopOpeBRepDS_CurvePointInterferencebaseType* = TopOpeBRepDS_Interference
@@ -47,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopOpeBRepDS_CurvePointInterference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRepDS_CurvePointInterference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

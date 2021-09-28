@@ -22,4 +22,3 @@
 template define_Doublemap*(className, baseCollection, theKey1Type, theKey2Type: untyped): void =
   type
     ClassName* = NCollectionDoubleMap[TheKey1Type, TheKey2Type]
-

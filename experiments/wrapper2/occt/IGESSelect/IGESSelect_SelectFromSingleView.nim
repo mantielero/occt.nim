@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectFromSingleView"
 discard "forward decl of IGESSelect_SelectFromSingleView"
 type
-  HandleIGESSelectSelectFromSingleView* = Handle[IGESSelectSelectFromSingleView]
+  HandleC1C1* = Handle[IGESSelectSelectFromSingleView]
 
 ## ! This selection gets in all the model, the entities which are
 ## ! attached to the views given as input. Only Single Views are
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSelectFromSingleView): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectFromSingleView.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

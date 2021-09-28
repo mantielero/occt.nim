@@ -9,3 +9,28 @@ include BSplCLib_EvaluatorFunction
 include BSplCLib_KnotDistribution
 include BSplCLib_MultDistribution
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

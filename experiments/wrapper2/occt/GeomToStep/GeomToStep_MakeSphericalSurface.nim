@@ -22,6 +22,24 @@ type
                                    bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeSphericalSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeSphericalSurface::operator new",
+    header: "GeomToStep_MakeSphericalSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeSphericalSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeSphericalSurface::operator delete",
+    header: "GeomToStep_MakeSphericalSurface.hxx".}
+proc `new[]`*(this: var GeomToStepMakeSphericalSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeSphericalSurface::operator new[]",
+    header: "GeomToStep_MakeSphericalSurface.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeSphericalSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeSphericalSurface::operator delete[]",
+    header: "GeomToStep_MakeSphericalSurface.hxx".}
+proc `new`*(this: var GeomToStepMakeSphericalSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeSphericalSurface::operator new",
+    header: "GeomToStep_MakeSphericalSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeSphericalSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeSphericalSurface::operator delete",
+    header: "GeomToStep_MakeSphericalSurface.hxx".}
 proc constructGeomToStepMakeSphericalSurface*(cSurf: Handle[GeomSphericalSurface]): GeomToStepMakeSphericalSurface {.
     constructor, importcpp: "GeomToStep_MakeSphericalSurface(@)",
     header: "GeomToStep_MakeSphericalSurface.hxx".}

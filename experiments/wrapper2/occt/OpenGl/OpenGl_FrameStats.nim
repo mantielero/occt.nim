@@ -99,5 +99,30 @@ proc isFrameUpdated*(this: OpenGlFrameStats; thePrev: var Handle[OpenGlFrameStat
     noSideEffect, importcpp: "IsFrameUpdated", header: "OpenGl_FrameStats.hxx".}
 discard "forward decl of OpenGl_FrameStats"
 type
-  HandleOpenGlFrameStats* = Handle[OpenGlFrameStats]
+  HandleC1C1* = Handle[OpenGlFrameStats]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -17,7 +17,7 @@ discard "forward decl of XmlMDF_ADriver"
 discard "forward decl of XmlMDF_ADriverTable"
 discard "forward decl of XmlMDF_ADriverTable"
 type
-  HandleXmlMDF_ADriverTable* = Handle[XmlMDF_ADriverTable]
+  HandleC1C1* = Handle[XmlMDF_ADriverTable]
 
 ## ! A driver table is an object building links between
 ## ! object types and object drivers. In the
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XmlMDF_ADriverTable.hxx".}
 proc dynamicType*(this: XmlMDF_ADriverTable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XmlMDF_ADriverTable.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

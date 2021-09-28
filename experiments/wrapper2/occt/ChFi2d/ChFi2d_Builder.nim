@@ -58,23 +58,23 @@ proc init*(this: var ChFi2dBuilder; f: TopoDS_Face) {.importcpp: "Init",
     header: "ChFi2d_Builder.hxx".}
 proc init*(this: var ChFi2dBuilder; refFace: TopoDS_Face; modFace: TopoDS_Face) {.
     importcpp: "Init", header: "ChFi2d_Builder.hxx".}
-proc addFillet*(this: var ChFi2dBuilder; v: TopoDS_Vertex; radius: float): TopoDS_Edge {.
+proc addFillet*(this: var ChFi2dBuilder; v: TopoDS_Vertex; radius: cfloat): TopoDS_Edge {.
     importcpp: "AddFillet", header: "ChFi2d_Builder.hxx".}
-proc modifyFillet*(this: var ChFi2dBuilder; fillet: TopoDS_Edge; radius: float): TopoDS_Edge {.
+proc modifyFillet*(this: var ChFi2dBuilder; fillet: TopoDS_Edge; radius: cfloat): TopoDS_Edge {.
     importcpp: "ModifyFillet", header: "ChFi2d_Builder.hxx".}
 proc removeFillet*(this: var ChFi2dBuilder; fillet: TopoDS_Edge): TopoDS_Vertex {.
     importcpp: "RemoveFillet", header: "ChFi2d_Builder.hxx".}
-proc addChamfer*(this: var ChFi2dBuilder; e1: TopoDS_Edge; e2: TopoDS_Edge; d1: float;
-                d2: float): TopoDS_Edge {.importcpp: "AddChamfer",
-                                       header: "ChFi2d_Builder.hxx".}
-proc addChamfer*(this: var ChFi2dBuilder; e: TopoDS_Edge; v: TopoDS_Vertex; d: float;
-                ang: float): TopoDS_Edge {.importcpp: "AddChamfer",
+proc addChamfer*(this: var ChFi2dBuilder; e1: TopoDS_Edge; e2: TopoDS_Edge; d1: cfloat;
+                d2: cfloat): TopoDS_Edge {.importcpp: "AddChamfer",
                                         header: "ChFi2d_Builder.hxx".}
+proc addChamfer*(this: var ChFi2dBuilder; e: TopoDS_Edge; v: TopoDS_Vertex; d: cfloat;
+                ang: cfloat): TopoDS_Edge {.importcpp: "AddChamfer",
+    header: "ChFi2d_Builder.hxx".}
 proc modifyChamfer*(this: var ChFi2dBuilder; chamfer: TopoDS_Edge; e1: TopoDS_Edge;
-                   e2: TopoDS_Edge; d1: float; d2: float): TopoDS_Edge {.
+                   e2: TopoDS_Edge; d1: cfloat; d2: cfloat): TopoDS_Edge {.
     importcpp: "ModifyChamfer", header: "ChFi2d_Builder.hxx".}
 proc modifyChamfer*(this: var ChFi2dBuilder; chamfer: TopoDS_Edge; e: TopoDS_Edge;
-                   d: float; ang: float): TopoDS_Edge {.importcpp: "ModifyChamfer",
+                   d: cfloat; ang: cfloat): TopoDS_Edge {.importcpp: "ModifyChamfer",
     header: "ChFi2d_Builder.hxx".}
 proc removeChamfer*(this: var ChFi2dBuilder; chamfer: TopoDS_Edge): TopoDS_Vertex {.
     importcpp: "RemoveChamfer", header: "ChFi2d_Builder.hxx".}
@@ -84,12 +84,12 @@ proc isModified*(this: ChFi2dBuilder; e: TopoDS_Edge): bool {.noSideEffect,
     importcpp: "IsModified", header: "ChFi2d_Builder.hxx".}
 proc filletEdges*(this: ChFi2dBuilder): TopToolsSequenceOfShape {.noSideEffect,
     importcpp: "FilletEdges", header: "ChFi2d_Builder.hxx".}
-proc nbFillet*(this: ChFi2dBuilder): int {.noSideEffect, importcpp: "NbFillet",
-                                       header: "ChFi2d_Builder.hxx".}
+proc nbFillet*(this: ChFi2dBuilder): cint {.noSideEffect, importcpp: "NbFillet",
+                                        header: "ChFi2d_Builder.hxx".}
 proc chamferEdges*(this: ChFi2dBuilder): TopToolsSequenceOfShape {.noSideEffect,
     importcpp: "ChamferEdges", header: "ChFi2d_Builder.hxx".}
-proc nbChamfer*(this: ChFi2dBuilder): int {.noSideEffect, importcpp: "NbChamfer",
-                                        header: "ChFi2d_Builder.hxx".}
+proc nbChamfer*(this: ChFi2dBuilder): cint {.noSideEffect, importcpp: "NbChamfer",
+    header: "ChFi2d_Builder.hxx".}
 proc hasDescendant*(this: ChFi2dBuilder; e: TopoDS_Edge): bool {.noSideEffect,
     importcpp: "HasDescendant", header: "ChFi2d_Builder.hxx".}
 proc descendantEdge*(this: ChFi2dBuilder; e: TopoDS_Edge): TopoDS_Edge {.noSideEffect,
@@ -98,3 +98,28 @@ proc basisEdge*(this: ChFi2dBuilder; e: TopoDS_Edge): TopoDS_Edge {.noSideEffect
     importcpp: "BasisEdge", header: "ChFi2d_Builder.hxx".}
 proc status*(this: ChFi2dBuilder): ChFi2dConstructionError {.noSideEffect,
     importcpp: "Status", header: "ChFi2d_Builder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

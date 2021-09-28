@@ -18,7 +18,7 @@ when defined(win32) and not defined(occt_Uwp):
   discard "forward decl of WNT_WClass"
   discard "forward decl of WNT_Window"
   type
-    HandleWNT_Window* = Handle[WNT_Window]
+    HandleC1C1* = Handle[WNT_Window]
   ## ! This class defines Windows NT window
   type
     WNT_Window* {.importcpp: "WNT_Window", header: "WNT_Window.hxx", bycopy.} = object of AspectWindow ##
@@ -71,7 +71,7 @@ when defined(win32) and not defined(occt_Uwp):
                                                                                              ## creation
                                                                                              ## failed.
 
-  proc virtualKeyFromNative*(theKey: int): AspectVKey {.
+  proc virtualKeyFromNative*(theKey: cint): AspectVKey {.
       importcpp: "WNT_Window::VirtualKeyFromNative(@)", header: "WNT_Window.hxx".}
   proc mouseKeyFlagsFromEvent*(theKeys: Wparam): AspectVKeyFlags {.
       importcpp: "WNT_Window::MouseKeyFlagsFromEvent(@)", header: "WNT_Window.hxx".}
@@ -83,8 +83,8 @@ when defined(win32) and not defined(occt_Uwp):
       importcpp: "WNT_Window::MouseButtonsAsync(@)", header: "WNT_Window.hxx".}
   proc constructWNT_Window*(theTitle: StandardCString;
                            theClass: Handle[WNT_WClass]; theStyle: WNT_Dword;
-                           thePxLeft: int; thePxTop: int; thePxWidth: int;
-                           thePxHeight: int; theBackColor: QuantityNameOfColor = quantityNOC_MATRAGRAY;
+                           thePxLeft: cint; thePxTop: cint; thePxWidth: cint;
+                           thePxHeight: cint; theBackColor: QuantityNameOfColor = quantityNOC_MATRAGRAY;
                            theParent: AspectHandle = 0; theMenu: AspectHandle = 0;
                            theClientStruct: StandardAddress = 0): WNT_Window {.
       constructor, importcpp: "WNT_Window(@)", header: "WNT_Window.hxx".}
@@ -96,7 +96,7 @@ when defined(win32) and not defined(occt_Uwp):
       importcpp: "SetCursor", header: "WNT_Window.hxx".}
   proc map*(this: WNT_Window) {.noSideEffect, importcpp: "Map",
                              header: "WNT_Window.hxx".}
-  proc map*(this: WNT_Window; aMapMode: int) {.noSideEffect, importcpp: "Map",
+  proc map*(this: WNT_Window; aMapMode: cint) {.noSideEffect, importcpp: "Map",
       header: "WNT_Window.hxx".}
   proc unmap*(this: WNT_Window) {.noSideEffect, importcpp: "Unmap",
                                header: "WNT_Window.hxx".}
@@ -104,15 +104,15 @@ when defined(win32) and not defined(occt_Uwp):
       header: "WNT_Window.hxx".}
   proc doMapping*(this: WNT_Window): bool {.noSideEffect, importcpp: "DoMapping",
                                         header: "WNT_Window.hxx".}
-  proc setPos*(this: var WNT_Window; x: int; y: int; x1: int; y1: int) {.
+  proc setPos*(this: var WNT_Window; x: cint; y: cint; x1: cint; y1: cint) {.
       importcpp: "SetPos", header: "WNT_Window.hxx".}
   proc isMapped*(this: WNT_Window): bool {.noSideEffect, importcpp: "IsMapped",
                                        header: "WNT_Window.hxx".}
-  proc ratio*(this: WNT_Window): float {.noSideEffect, importcpp: "Ratio",
-                                     header: "WNT_Window.hxx".}
-  proc position*(this: WNT_Window; x1: var int; y1: var int; x2: var int; y2: var int) {.
+  proc ratio*(this: WNT_Window): cfloat {.noSideEffect, importcpp: "Ratio",
+                                      header: "WNT_Window.hxx".}
+  proc position*(this: WNT_Window; x1: var cint; y1: var cint; x2: var cint; y2: var cint) {.
       noSideEffect, importcpp: "Position", header: "WNT_Window.hxx".}
-  proc size*(this: WNT_Window; width: var int; height: var int) {.noSideEffect,
+  proc size*(this: WNT_Window; width: var cint; height: var cint) {.noSideEffect,
       importcpp: "Size", header: "WNT_Window.hxx".}
   proc hWindow*(this: WNT_Window): AspectHandle {.noSideEffect, importcpp: "HWindow",
       header: "WNT_Window.hxx".}
@@ -145,3 +145,28 @@ when defined(win32) and not defined(occt_Uwp):
       importcpp: "WNT_Window::get_type_descriptor(@)", header: "WNT_Window.hxx".}
   proc dynamicType*(this: WNT_Window): Handle[StandardType] {.noSideEffect,
       importcpp: "DynamicType", header: "WNT_Window.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

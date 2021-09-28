@@ -20,7 +20,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESDefs_UnitsData"
 discard "forward decl of IGESDefs_UnitsData"
 type
-  HandleIGESDefsUnitsData* = Handle[IGESDefsUnitsData]
+  HandleC1C1* = Handle[IGESDefsUnitsData]
 
 ## ! defines IGES UnitsData Entity, Type <316> Form <0>
 ## ! in package IGESDefs
@@ -38,14 +38,15 @@ proc init*(this: var IGESDefsUnitsData;
           unitValues: Handle[InterfaceHArray1OfHAsciiString];
           unitScales: Handle[TColStdHArray1OfReal]) {.importcpp: "Init",
     header: "IGESDefs_UnitsData.hxx".}
-proc nbUnits*(this: IGESDefsUnitsData): int {.noSideEffect, importcpp: "NbUnits",
+proc nbUnits*(this: IGESDefsUnitsData): cint {.noSideEffect, importcpp: "NbUnits",
     header: "IGESDefs_UnitsData.hxx".}
-proc unitType*(this: IGESDefsUnitsData; unitNum: int): Handle[TCollectionHAsciiString] {.
-    noSideEffect, importcpp: "UnitType", header: "IGESDefs_UnitsData.hxx".}
-proc unitValue*(this: IGESDefsUnitsData; unitNum: int): Handle[
+proc unitType*(this: IGESDefsUnitsData; unitNum: cint): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "UnitType",
+                              header: "IGESDefs_UnitsData.hxx".}
+proc unitValue*(this: IGESDefsUnitsData; unitNum: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "UnitValue",
                               header: "IGESDefs_UnitsData.hxx".}
-proc scaleFactor*(this: IGESDefsUnitsData; unitNum: int): float {.noSideEffect,
+proc scaleFactor*(this: IGESDefsUnitsData; unitNum: cint): cfloat {.noSideEffect,
     importcpp: "ScaleFactor", header: "IGESDefs_UnitsData.hxx".}
 type
   IGESDefsUnitsDatabaseType* = IGESDataIGESEntity
@@ -57,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDefs_UnitsData.hxx".}
 proc dynamicType*(this: IGESDefsUnitsData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDefs_UnitsData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

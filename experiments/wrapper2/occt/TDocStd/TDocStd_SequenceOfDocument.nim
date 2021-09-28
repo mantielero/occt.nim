@@ -17,3 +17,28 @@
 type
   TDocStdSequenceOfDocument* = NCollectionSequence[Handle[TDocStdDocument]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

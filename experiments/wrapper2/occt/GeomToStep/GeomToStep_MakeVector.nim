@@ -25,6 +25,24 @@ type
                          header: "GeomToStep_MakeVector.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeVector; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeVector::operator new",
+    header: "GeomToStep_MakeVector.hxx".}
+proc `delete`*(this: var GeomToStepMakeVector; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeVector::operator delete",
+    header: "GeomToStep_MakeVector.hxx".}
+proc `new[]`*(this: var GeomToStepMakeVector; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeVector::operator new[]",
+    header: "GeomToStep_MakeVector.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeVector; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeVector::operator delete[]",
+    header: "GeomToStep_MakeVector.hxx".}
+proc `new`*(this: var GeomToStepMakeVector; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeVector::operator new",
+    header: "GeomToStep_MakeVector.hxx".}
+proc `delete`*(this: var GeomToStepMakeVector; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeVector::operator delete",
+    header: "GeomToStep_MakeVector.hxx".}
 proc constructGeomToStepMakeVector*(v: Vec): GeomToStepMakeVector {.constructor,
     importcpp: "GeomToStep_MakeVector(@)", header: "GeomToStep_MakeVector.hxx".}
 proc constructGeomToStepMakeVector*(v: Vec2d): GeomToStepMakeVector {.constructor,

@@ -148,47 +148,47 @@ type
     ##  for 2D-curves there is no z conponent, for non-rational curves there is no weight
 
 
-proc constructBSplCLibCache*(theDegree: int; thePeriodic: bool;
+proc constructBSplCLibCache*(theDegree: cint; thePeriodic: bool;
                             theFlatKnots: TColStdArray1OfReal;
                             thePoles2d: TColgpArray1OfPnt2d;
                             theWeights: ptr TColStdArray1OfReal = nil): BSplCLibCache {.
     constructor, importcpp: "BSplCLib_Cache(@)", header: "BSplCLib_Cache.hxx".}
-proc constructBSplCLibCache*(theDegree: int; thePeriodic: bool;
+proc constructBSplCLibCache*(theDegree: cint; thePeriodic: bool;
                             theFlatKnots: TColStdArray1OfReal;
                             thePoles: TColgpArray1OfPnt;
                             theWeights: ptr TColStdArray1OfReal = nil): BSplCLibCache {.
     constructor, importcpp: "BSplCLib_Cache(@)", header: "BSplCLib_Cache.hxx".}
-proc isCacheValid*(this: BSplCLibCache; theParameter: float): bool {.noSideEffect,
+proc isCacheValid*(this: BSplCLibCache; theParameter: cfloat): bool {.noSideEffect,
     importcpp: "IsCacheValid", header: "BSplCLib_Cache.hxx".}
-proc buildCache*(this: var BSplCLibCache; theParameter: float;
+proc buildCache*(this: var BSplCLibCache; theParameter: cfloat;
                 theFlatKnots: TColStdArray1OfReal;
                 thePoles2d: TColgpArray1OfPnt2d;
                 theWeights: ptr TColStdArray1OfReal) {.importcpp: "BuildCache",
     header: "BSplCLib_Cache.hxx".}
-proc buildCache*(this: var BSplCLibCache; theParameter: float;
+proc buildCache*(this: var BSplCLibCache; theParameter: cfloat;
                 theFlatKnots: TColStdArray1OfReal; thePoles: TColgpArray1OfPnt;
                 theWeights: ptr TColStdArray1OfReal = nil) {.importcpp: "BuildCache",
     header: "BSplCLib_Cache.hxx".}
-proc d0*(this: BSplCLibCache; theParameter: float; thePoint: var Pnt2d) {.noSideEffect,
+proc d0*(this: BSplCLibCache; theParameter: cfloat; thePoint: var Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "BSplCLib_Cache.hxx".}
-proc d0*(this: BSplCLibCache; theParameter: float; thePoint: var Pnt) {.noSideEffect,
+proc d0*(this: BSplCLibCache; theParameter: cfloat; thePoint: var Pnt) {.noSideEffect,
     importcpp: "D0", header: "BSplCLib_Cache.hxx".}
-proc d1*(this: BSplCLibCache; theParameter: float; thePoint: var Pnt2d;
+proc d1*(this: BSplCLibCache; theParameter: cfloat; thePoint: var Pnt2d;
         theTangent: var Vec2d) {.noSideEffect, importcpp: "D1",
                               header: "BSplCLib_Cache.hxx".}
-proc d1*(this: BSplCLibCache; theParameter: float; thePoint: var Pnt;
+proc d1*(this: BSplCLibCache; theParameter: cfloat; thePoint: var Pnt;
         theTangent: var Vec) {.noSideEffect, importcpp: "D1",
                             header: "BSplCLib_Cache.hxx".}
-proc d2*(this: BSplCLibCache; theParameter: float; thePoint: var Pnt2d;
+proc d2*(this: BSplCLibCache; theParameter: cfloat; thePoint: var Pnt2d;
         theTangent: var Vec2d; theCurvature: var Vec2d) {.noSideEffect,
     importcpp: "D2", header: "BSplCLib_Cache.hxx".}
-proc d2*(this: BSplCLibCache; theParameter: float; thePoint: var Pnt;
+proc d2*(this: BSplCLibCache; theParameter: cfloat; thePoint: var Pnt;
         theTangent: var Vec; theCurvature: var Vec) {.noSideEffect, importcpp: "D2",
     header: "BSplCLib_Cache.hxx".}
-proc d3*(this: BSplCLibCache; theParameter: float; thePoint: var Pnt2d;
+proc d3*(this: BSplCLibCache; theParameter: cfloat; thePoint: var Pnt2d;
         theTangent: var Vec2d; theCurvature: var Vec2d; theTorsion: var Vec2d) {.
     noSideEffect, importcpp: "D3", header: "BSplCLib_Cache.hxx".}
-proc d3*(this: BSplCLibCache; theParameter: float; thePoint: var Pnt;
+proc d3*(this: BSplCLibCache; theParameter: cfloat; thePoint: var Pnt;
         theTangent: var Vec; theCurvature: var Vec; theTorsion: var Vec) {.noSideEffect,
     importcpp: "D3", header: "BSplCLib_Cache.hxx".}
 type
@@ -203,5 +203,30 @@ proc dynamicType*(this: BSplCLibCache): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BSplCLib_Cache.hxx".}
 discard "forward decl of BSplCLib_Cache"
 type
-  HandleBSplCLibCache* = Handle[BSplCLibCache]
+  HandleC1C1* = Handle[BSplCLibCache]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

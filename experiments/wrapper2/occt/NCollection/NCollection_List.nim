@@ -20,89 +20,120 @@
 ##
 
 type
-  NCollectionList*[TheItemType] {.importcpp: "NCollection_List<\'0>",
-                                 header: "NCollection_List.hxx", bycopy.} = object of NCollectionBaseList ##
-                                                                                                   ## !
-                                                                                                   ## STL-compliant
-                                                                                                   ## typedef
-                                                                                                   ## for
-                                                                                                   ## value
-                                                                                                   ## type
-                                                                                                   ##
-                                                                                                   ## ----------
-                                                                                                   ## PUBLIC
-                                                                                                   ## METHODS
-                                                                                                   ## ------------
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor.
+  NCollection_List*[TheItemType] {.importcpp: "NCollection_List<\'0>",
+                                  header: "NCollection_List.hxx", bycopy.} = object of NCollection_BaseList ##
+                                                                                                     ## !
+                                                                                                     ## STL-compliant
+                                                                                                     ## typedef
+                                                                                                     ## for
+                                                                                                     ## value
+                                                                                                     ## type
+                                                                                                     ##
+                                                                                                     ## ----------
+                                                                                                     ## PUBLIC
+                                                                                                     ## METHODS
+                                                                                                     ## ------------
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Empty
+                                                                                                     ## constructor.
+                                                                                                     ##
+                                                                                                     ## -----------
+                                                                                                     ## PRIVATE
+                                                                                                     ## METHODS
+                                                                                                     ## -----------
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## append
+                                                                                                     ## the
+                                                                                                     ## list
+                                                                                                     ## headed
+                                                                                                     ## by
+                                                                                                     ## the
+                                                                                                     ## given
+                                                                                                     ## ListNode
 
-  NCollectionListvalueType*[TheItemType] = TheItemType
-  NCollectionListListNode* = NCollectionTListNode[TheItemType]
-  NCollectionListIterator* = NCollectionTListIterator[TheItemType]
-  NCollectionListiterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionListIterator, TheItemType, False]
-  NCollectionListconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionListIterator, TheItemType, True]
+  NCollection_Listvalue_type*[TheItemType] = TheItemType
+  NCollection_ListListNode* = NCollection_TListNode[TheItemType]
+  NCollection_ListIterator* = NCollection_TListIterator[TheItemType]
+  NCollection_Listiterator* = NCollection_StlIterator[forward_iterator_tag,
+      NCollection_ListIterator, TheItemType, false]
+  NCollection_Listconst_iterator* = NCollection_StlIterator[forward_iterator_tag,
+      NCollection_ListIterator, TheItemType, true]
 
-proc begin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListiterator {.
+proc begin*[TheItemType](this: NCollection_List[TheItemType]): NCollection_Listiterator {.
     noSideEffect, importcpp: "begin", header: "NCollection_List.hxx".}
-proc `end`*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListiterator {.
+proc `end`*[TheItemType](this: NCollection_List[TheItemType]): NCollection_Listiterator {.
     noSideEffect, importcpp: "end", header: "NCollection_List.hxx".}
-proc cbegin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListconstIterator {.
+proc cbegin*[TheItemType](this: NCollection_List[TheItemType]): NCollection_Listconst_iterator {.
     noSideEffect, importcpp: "cbegin", header: "NCollection_List.hxx".}
-proc cend*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListconstIterator {.
+proc cend*[TheItemType](this: NCollection_List[TheItemType]): NCollection_Listconst_iterator {.
     noSideEffect, importcpp: "cend", header: "NCollection_List.hxx".}
-proc constructNCollectionList*[TheItemType](): NCollectionList[TheItemType] {.
+proc constructNCollection_List*[TheItemType](): NCollection_List[TheItemType] {.
     constructor, importcpp: "NCollection_List<\'*0>(@)",
     header: "NCollection_List.hxx".}
-proc constructNCollectionList*[TheItemType](
-    theAllocator: Handle[NCollectionBaseAllocator]): NCollectionList[TheItemType] {.
+proc constructNCollection_List*[TheItemType](
+    theAllocator: handle[NCollection_BaseAllocator]): NCollection_List[TheItemType] {.
     constructor, importcpp: "NCollection_List<\'*0>(@)",
     header: "NCollection_List.hxx".}
-proc constructNCollectionList*[TheItemType](theOther: NCollectionList): NCollectionList[
+proc constructNCollection_List*[TheItemType](theOther: NCollection_List): NCollection_List[
     TheItemType] {.constructor, importcpp: "NCollection_List<\'*0>(@)",
                   header: "NCollection_List.hxx".}
-proc size*[TheItemType](this: NCollectionList[TheItemType]): int {.noSideEffect,
+proc Size*[TheItemType](this: NCollection_List[TheItemType]): int {.noSideEffect,
     importcpp: "Size", header: "NCollection_List.hxx".}
-proc assign*[TheItemType](this: var NCollectionList[TheItemType];
-                         theOther: NCollectionList): var NCollectionList {.
+proc Assign*[TheItemType](this: var NCollection_List[TheItemType];
+                         theOther: NCollection_List): var NCollection_List {.
     importcpp: "Assign", header: "NCollection_List.hxx".}
-proc clear*[TheItemType](this: var NCollectionList[TheItemType];
-                        theAllocator: Handle[NCollectionBaseAllocator] = 0'i64) {.
-    importcpp: "Clear", header: "NCollection_List.hxx".}
-proc first*[TheItemType](this: NCollectionList[TheItemType]): TheItemType {.
+proc Clear*[TheItemType](this: var NCollection_List[TheItemType]; theAllocator: handle[
+    NCollection_BaseAllocator] = 0L'i64) {.importcpp: "Clear",
+                                        header: "NCollection_List.hxx".}
+proc First*[TheItemType](this: NCollection_List[TheItemType]): TheItemType {.
     noSideEffect, importcpp: "First", header: "NCollection_List.hxx".}
-proc first*[TheItemType](this: var NCollectionList[TheItemType]): var TheItemType {.
+proc First*[TheItemType](this: var NCollection_List[TheItemType]): var TheItemType {.
     importcpp: "First", header: "NCollection_List.hxx".}
-proc last*[TheItemType](this: NCollectionList[TheItemType]): TheItemType {.
+proc Last*[TheItemType](this: NCollection_List[TheItemType]): TheItemType {.
     noSideEffect, importcpp: "Last", header: "NCollection_List.hxx".}
-proc last*[TheItemType](this: var NCollectionList[TheItemType]): var TheItemType {.
+proc Last*[TheItemType](this: var NCollection_List[TheItemType]): var TheItemType {.
     importcpp: "Last", header: "NCollection_List.hxx".}
-proc append*[TheItemType](this: var NCollectionList[TheItemType];
+proc Append*[TheItemType](this: var NCollection_List[TheItemType];
                          theItem: TheItemType): var TheItemType {.
     importcpp: "Append", header: "NCollection_List.hxx".}
-proc append*[TheItemType](this: var NCollectionList[TheItemType];
+proc Append*[TheItemType](this: var NCollection_List[TheItemType];
                          theItem: TheItemType;
-                         theIter: var NCollectionListIterator) {.
+                         theIter: var NCollection_ListIterator) {.
     importcpp: "Append", header: "NCollection_List.hxx".}
-proc append*[TheItemType](this: var NCollectionList[TheItemType];
-                         theOther: var NCollectionList) {.importcpp: "Append",
+proc Append*[TheItemType](this: var NCollection_List[TheItemType];
+                         theOther: var NCollection_List) {.importcpp: "Append",
     header: "NCollection_List.hxx".}
-proc prepend*[TheItemType](this: var NCollectionList[TheItemType];
+proc Prepend*[TheItemType](this: var NCollection_List[TheItemType];
                           theItem: TheItemType): var TheItemType {.
     importcpp: "Prepend", header: "NCollection_List.hxx".}
-proc prepend*[TheItemType](this: var NCollectionList[TheItemType];
-                          theOther: var NCollectionList) {.importcpp: "Prepend",
+proc Prepend*[TheItemType](this: var NCollection_List[TheItemType];
+                          theOther: var NCollection_List) {.importcpp: "Prepend",
     header: "NCollection_List.hxx".}
-proc removeFirst*[TheItemType](this: var NCollectionList[TheItemType]) {.
+proc RemoveFirst*[TheItemType](this: var NCollection_List[TheItemType]) {.
     importcpp: "RemoveFirst", header: "NCollection_List.hxx".}
-proc remove*[TheItemType](this: var NCollectionList[TheItemType];
-                         theIter: var NCollectionListIterator) {.
+proc Remove*[TheItemType](this: var NCollection_List[TheItemType];
+                         theIter: var NCollection_ListIterator) {.
     importcpp: "Remove", header: "NCollection_List.hxx".}
-## !!!Ignored construct:  ! Remove the first occurrence of the object. template < typename TheValueType > [end of template]  instantiate this method on first call only for types defining equality operator Standard_Boolean Remove ( const TheValueType & theObject ) { for ( Iterator anIter ( * this ) ; anIter . More ( ) ; anIter . Next ( ) ) { if ( anIter . Value ( ) == theObject ) { Remove ( anIter ) ; return Standard_True ; } } return Standard_False ; } ! InsertBefore TheItemType & InsertBefore ( const TheItemType & theItem , Iterator & theIter ) { ListNode * pNew = new ( this -> myAllocator ) ListNode ( theItem ) ; PInsertBefore ( pNew , theIter ) ; return pNew -> ChangeValue ( ) ; } ! InsertBefore void InsertBefore ( NCollection_List & theOther , Iterator & theIter ) { if ( this == & theOther ) return ; if ( this -> myAllocator == theOther . myAllocator ) {  Then we take the list and glue it to our head -
-##  deallocation will bring no problem PInsertBefore ( theOther , theIter ) ; } else {  No - this list has different memory scope prependList ( theOther . myFirst , theIter ) ; theOther . Clear ( ) ; } } ! InsertAfter TheItemType & InsertAfter ( const TheItemType & theItem , Iterator & theIter ) { ListNode * pNew = new ( this -> myAllocator ) ListNode ( theItem ) ; PInsertAfter ( pNew , theIter ) ; return pNew -> ChangeValue ( ) ; } ! InsertAfter void InsertAfter ( NCollection_List & theOther , Iterator & theIter ) { if ( ! theIter . More ( ) ) { Append ( theOther ) ; return ; } if ( this -> myAllocator == theOther . myAllocator ) {  Then we take the list and glue it to our head -
-##  deallocation will bring no problem PInsertAfter ( theOther , theIter ) ; } else {  No - this list has different memory scope Iterator anIter ; anIter . myPrevious = theIter . myCurrent ; anIter . myCurrent = theIter . myCurrent -> Next ( ) ; prependList ( theOther . PFirst ( ) , anIter ) ; theOther . Clear ( ) ; } } ! Reverse the list void Reverse ( ) { PReverse ( ) ; } ! Return true if object is stored in the list. template < typename TheValueType >  instantiate this method on first call only for types defining equality operator Standard_Boolean Contains ( const TheValueType & theObject ) const { for ( Iterator anIter ( * this ) ; anIter . More ( ) ; anIter . Next ( ) ) { if ( anIter . Value ( ) == theObject ) { return Standard_True ; } } return Standard_False ; } ! Destructor - clears the List virtual ~ NCollection_List ( void ) { Clear ( ) ; } private :  ----------- PRIVATE METHODS ----------- ! append the list headed by the given ListNode void appendList ( const NCollection_ListNode * pCur ) { while ( pCur ) { NCollection_ListNode * pNew = new ( this -> myAllocator ) ListNode ( ( ( const ListNode * ) ( pCur ) ) -> Value ( ) ) ; PAppend ( pNew ) ; pCur = pCur -> Next ( ) ; } } ! insert the list headed by the given ListNode before the given iterator void prependList ( const NCollection_ListNode * pCur , Iterator & theIter ) { while ( pCur ) { NCollection_ListNode * pNew = new ( this -> myAllocator ) ListNode ( ( ( const ListNode * ) ( pCur ) ) -> Value ( ) ) ; PInsertBefore ( pNew , theIter ) ; pCur = pCur -> Next ( ) ; } } }
-## Error: identifier expected, but got:  instantiate this method on first call only for types defining equality operator!!!
-
+proc InsertBefore*[TheItemType](this: var NCollection_List[TheItemType];
+                               theItem: TheItemType;
+                               theIter: var NCollection_ListIterator): var TheItemType {.
+    importcpp: "InsertBefore", header: "NCollection_List.hxx".}
+proc InsertBefore*[TheItemType](this: var NCollection_List[TheItemType];
+                               theOther: var NCollection_List;
+                               theIter: var NCollection_ListIterator) {.
+    importcpp: "InsertBefore", header: "NCollection_List.hxx".}
+proc InsertAfter*[TheItemType](this: var NCollection_List[TheItemType];
+                              theItem: TheItemType;
+                              theIter: var NCollection_ListIterator): var TheItemType {.
+    importcpp: "InsertAfter", header: "NCollection_List.hxx".}
+proc InsertAfter*[TheItemType](this: var NCollection_List[TheItemType];
+                              theOther: var NCollection_List;
+                              theIter: var NCollection_ListIterator) {.
+    importcpp: "InsertAfter", header: "NCollection_List.hxx".}
+proc Reverse*[TheItemType](this: var NCollection_List[TheItemType]) {.
+    importcpp: "Reverse", header: "NCollection_List.hxx".}
+proc destroyNCollection_List*[TheItemType](
+    this: var NCollection_List[TheItemType]) {.importcpp: "#.~NCollection_List()",
+    header: "NCollection_List.hxx".}

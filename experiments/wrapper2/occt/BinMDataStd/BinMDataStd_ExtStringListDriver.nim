@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_ExtStringListDriver"
 discard "forward decl of BinMDataStd_ExtStringListDriver"
 type
-  HandleBinMDataStdExtStringListDriver* = Handle[BinMDataStdExtStringListDriver]
+  HandleC1C1* = Handle[BinMDataStdExtStringListDriver]
   BinMDataStdExtStringListDriver* {.importcpp: "BinMDataStd_ExtStringListDriver", header: "BinMDataStd_ExtStringListDriver.hxx",
                                    bycopy.} = object of BinMDF_ADriver
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdExtStringListDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_ExtStringListDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

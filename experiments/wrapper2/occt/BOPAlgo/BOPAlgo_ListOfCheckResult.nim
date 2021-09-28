@@ -15,3 +15,28 @@ type
   BOPAlgoListOfCheckResult* = NCollectionList[BOPAlgoCheckResult]
   BOPAlgoListIteratorOfListOfCheckResult* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

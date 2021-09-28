@@ -22,83 +22,30 @@ discard "forward decl of Geom_BezierSurface"
 type
   GeomConvertBSplineSurfaceToBezierSurface* {.
       importcpp: "GeomConvert_BSplineSurfaceToBezierSurface",
-      header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx", bycopy.} = object ## !
-                                                                            ## Computes all the data
-                                                                            ## needed to
-                                                                            ## convert
-                                                                            ## ! -   the
-                                                                            ## BSpline
-                                                                            ## surface
-                                                                            ## BasisSurface into a
-                                                                            ## series of
-                                                                            ## adjacent
-                                                                            ## Bezier
-                                                                            ## surfaces.
-                                                                            ## ! The
-                                                                            ## result
-                                                                            ## consists of a grid of
-                                                                            ## BasisSurface
-                                                                            ## patches
-                                                                            ## !
-                                                                            ## limited by
-                                                                            ## isoparametric
-                                                                            ## curves
-                                                                            ## corresponding to knot
-                                                                            ## !
-                                                                            ## values, both in the u and v
-                                                                            ## parametric
-                                                                            ## directions of
-                                                                            ## ! the
-                                                                            ## surface. A row in the grid
-                                                                            ## corresponds to a
-                                                                            ## series
-                                                                            ## ! of
-                                                                            ## adjacent
-                                                                            ## patches, all
-                                                                            ## limited by the same two
-                                                                            ## !
-                                                                            ## u-isoparametric
-                                                                            ## curves. A
-                                                                            ## column in the grid
-                                                                            ## !
-                                                                            ## corresponds to a
-                                                                            ## series of
-                                                                            ## adjacent
-                                                                            ## patches, all
-                                                                            ## !
-                                                                            ## limited by the same two
-                                                                            ## v-isoparametric
-                                                                            ## curves.
-                                                                            ## ! Use the
-                                                                            ## available
-                                                                            ## interrogation
-                                                                            ## functions to
-                                                                            ## ascertain
-                                                                            ## ! the
-                                                                            ## number of
-                                                                            ## computed
-                                                                            ## Bezier
-                                                                            ## patches, and then to
-                                                                            ## !
-                                                                            ## construct each
-                                                                            ## individual
-                                                                            ## Bezier
-                                                                            ## surface (or all
-                                                                            ## Bezier
-                                                                            ## surfaces).
-                                                                            ## !
-                                                                            ## Note:
-                                                                            ## ParametricTolerance is not
-                                                                            ## used.
+      header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomConvertBSplineSurfaceToBezierSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert_BSplineSurfaceToBezierSurface::operator new",
+    header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
+proc `delete`*(this: var GeomConvertBSplineSurfaceToBezierSurface;
+              theAddress: pointer) {.importcpp: "GeomConvert_BSplineSurfaceToBezierSurface::operator delete", header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
+proc `new[]`*(this: var GeomConvertBSplineSurfaceToBezierSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert_BSplineSurfaceToBezierSurface::operator new[]",
+    header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
+proc `delete[]`*(this: var GeomConvertBSplineSurfaceToBezierSurface;
+                theAddress: pointer) {.importcpp: "GeomConvert_BSplineSurfaceToBezierSurface::operator delete[]", header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
+proc `new`*(this: var GeomConvertBSplineSurfaceToBezierSurface; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "GeomConvert_BSplineSurfaceToBezierSurface::operator new", header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
+proc `delete`*(this: var GeomConvertBSplineSurfaceToBezierSurface; a2: pointer;
+              a3: pointer) {.importcpp: "GeomConvert_BSplineSurfaceToBezierSurface::operator delete", header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
 proc constructGeomConvertBSplineSurfaceToBezierSurface*(
     basisSurface: Handle[GeomBSplineSurface]): GeomConvertBSplineSurfaceToBezierSurface {.
     constructor, importcpp: "GeomConvert_BSplineSurfaceToBezierSurface(@)",
     header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
 proc constructGeomConvertBSplineSurfaceToBezierSurface*(
-    basisSurface: Handle[GeomBSplineSurface]; u1: float; u2: float; v1: float;
-    v2: float; parametricTolerance: float): GeomConvertBSplineSurfaceToBezierSurface {.
+    basisSurface: Handle[GeomBSplineSurface]; u1: StandardReal; u2: StandardReal;
+    v1: StandardReal; v2: StandardReal; parametricTolerance: StandardReal): GeomConvertBSplineSurfaceToBezierSurface {.
     constructor, importcpp: "GeomConvert_BSplineSurfaceToBezierSurface(@)",
     header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
 proc patch*(this: var GeomConvertBSplineSurfaceToBezierSurface; uIndex: int;

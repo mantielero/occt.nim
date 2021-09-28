@@ -22,8 +22,7 @@ discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepFEA_Surface3dElementRepresentation"
 discard "forward decl of StepFEA_Surface3dElementRepresentation"
 type
-  HandleStepFEA_Surface3dElementRepresentation* = Handle[
-      StepFEA_Surface3dElementRepresentation]
+  HandleC1C1* = Handle[StepFEA_Surface3dElementRepresentation]
 
 ## ! Representation of STEP entity Surface3dElementRepresentation
 
@@ -82,3 +81,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_Surface3dE
 proc dynamicType*(this: StepFEA_Surface3dElementRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepFEA_Surface3dElementRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

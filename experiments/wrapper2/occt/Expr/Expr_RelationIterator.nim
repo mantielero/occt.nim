@@ -32,3 +32,28 @@ proc next*(this: var ExprRelationIterator) {.importcpp: "Next",
     header: "Expr_RelationIterator.hxx".}
 proc value*(this: ExprRelationIterator): Handle[ExprSingleRelation] {.noSideEffect,
     importcpp: "Value", header: "Expr_RelationIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

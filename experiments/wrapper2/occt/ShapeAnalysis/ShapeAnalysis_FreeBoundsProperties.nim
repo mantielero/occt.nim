@@ -26,7 +26,7 @@ proc constructShapeAnalysisFreeBoundsProperties*(): ShapeAnalysisFreeBoundsPrope
     constructor, importcpp: "ShapeAnalysis_FreeBoundsProperties(@)",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
 proc constructShapeAnalysisFreeBoundsProperties*(shape: TopoDS_Shape;
-    tolerance: float; splitclosed: bool = false; splitopen: bool = false): ShapeAnalysisFreeBoundsProperties {.
+    tolerance: cfloat; splitclosed: bool = false; splitopen: bool = false): ShapeAnalysisFreeBoundsProperties {.
     constructor, importcpp: "ShapeAnalysis_FreeBoundsProperties(@)",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
 proc constructShapeAnalysisFreeBoundsProperties*(shape: TopoDS_Shape;
@@ -34,7 +34,7 @@ proc constructShapeAnalysisFreeBoundsProperties*(shape: TopoDS_Shape;
     constructor, importcpp: "ShapeAnalysis_FreeBoundsProperties(@)",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
 proc init*(this: var ShapeAnalysisFreeBoundsProperties; shape: TopoDS_Shape;
-          tolerance: float; splitclosed: bool = false; splitopen: bool = false) {.
+          tolerance: cfloat; splitclosed: bool = false; splitopen: bool = false) {.
     importcpp: "Init", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
 proc init*(this: var ShapeAnalysisFreeBoundsProperties; shape: TopoDS_Shape;
           splitclosed: bool = false; splitopen: bool = false) {.importcpp: "Init",
@@ -45,15 +45,15 @@ proc isLoaded*(this: ShapeAnalysisFreeBoundsProperties): bool {.noSideEffect,
     importcpp: "IsLoaded", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
 proc shape*(this: ShapeAnalysisFreeBoundsProperties): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc tolerance*(this: ShapeAnalysisFreeBoundsProperties): float {.noSideEffect,
+proc tolerance*(this: ShapeAnalysisFreeBoundsProperties): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc nbFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): int {.noSideEffect,
+proc nbFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): cint {.noSideEffect,
     importcpp: "NbFreeBounds", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc nbClosedFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): int {.
+proc nbClosedFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): cint {.
     noSideEffect, importcpp: "NbClosedFreeBounds",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc nbOpenFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): int {.noSideEffect,
-    importcpp: "NbOpenFreeBounds",
+proc nbOpenFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): cint {.
+    noSideEffect, importcpp: "NbOpenFreeBounds",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
 proc closedFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): Handle[
     ShapeAnalysisHSequenceOfFreeBounds] {.noSideEffect,
@@ -62,24 +62,50 @@ proc closedFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): Handle[
 proc openFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): Handle[
     ShapeAnalysisHSequenceOfFreeBounds] {.noSideEffect,
     importcpp: "OpenFreeBounds", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc closedFreeBound*(this: ShapeAnalysisFreeBoundsProperties; index: int): Handle[
+proc closedFreeBound*(this: ShapeAnalysisFreeBoundsProperties; index: cint): Handle[
     ShapeAnalysisFreeBoundData] {.noSideEffect, importcpp: "ClosedFreeBound", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc openFreeBound*(this: ShapeAnalysisFreeBoundsProperties; index: int): Handle[
+proc openFreeBound*(this: ShapeAnalysisFreeBoundsProperties; index: cint): Handle[
     ShapeAnalysisFreeBoundData] {.noSideEffect, importcpp: "OpenFreeBound", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
 proc dispatchBounds*(this: var ShapeAnalysisFreeBoundsProperties): bool {.
     importcpp: "DispatchBounds", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc checkContours*(this: var ShapeAnalysisFreeBoundsProperties; prec: float = 0.0): bool {.
+proc checkContours*(this: var ShapeAnalysisFreeBoundsProperties; prec: cfloat = 0.0): bool {.
     importcpp: "CheckContours", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc checkNotches*(this: var ShapeAnalysisFreeBoundsProperties; prec: float = 0.0): bool {.
+proc checkNotches*(this: var ShapeAnalysisFreeBoundsProperties; prec: cfloat = 0.0): bool {.
     importcpp: "CheckNotches", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
 proc checkNotches*(this: var ShapeAnalysisFreeBoundsProperties;
-                  fbData: var Handle[ShapeAnalysisFreeBoundData]; prec: float = 0.0): bool {.
-    importcpp: "CheckNotches", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
+                  fbData: var Handle[ShapeAnalysisFreeBoundData];
+                  prec: cfloat = 0.0): bool {.importcpp: "CheckNotches",
+    header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
 proc checkNotches*(this: var ShapeAnalysisFreeBoundsProperties;
-                  freebound: TopoDS_Wire; num: int; notch: var TopoDS_Wire;
-                  distMax: var float; prec: float = 0.0): bool {.
+                  freebound: TopoDS_Wire; num: cint; notch: var TopoDS_Wire;
+                  distMax: var cfloat; prec: cfloat = 0.0): bool {.
     importcpp: "CheckNotches", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
 proc fillProperties*(this: var ShapeAnalysisFreeBoundsProperties;
                     fbData: var Handle[ShapeAnalysisFreeBoundData];
-                    prec: float = 0.0): bool {.importcpp: "FillProperties",
+                    prec: cfloat = 0.0): bool {.importcpp: "FillProperties",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

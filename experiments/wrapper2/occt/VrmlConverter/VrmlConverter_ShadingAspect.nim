@@ -19,7 +19,7 @@ discard "forward decl of Vrml_ShapeHints"
 discard "forward decl of VrmlConverter_ShadingAspect"
 discard "forward decl of VrmlConverter_ShadingAspect"
 type
-  HandleVrmlConverterShadingAspect* = Handle[VrmlConverterShadingAspect]
+  HandleC1C1* = Handle[VrmlConverterShadingAspect]
 
 ## ! qualifies the aspect properties for
 ## ! the VRML conversation of ShadedShape .
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: VrmlConverterShadingAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "VrmlConverter_ShadingAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

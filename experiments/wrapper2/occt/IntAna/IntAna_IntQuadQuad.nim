@@ -30,35 +30,60 @@ type
 
 proc constructIntAnaIntQuadQuad*(): IntAnaIntQuadQuad {.constructor,
     importcpp: "IntAna_IntQuadQuad(@)", header: "IntAna_IntQuadQuad.hxx".}
-proc constructIntAnaIntQuadQuad*(c: Cylinder; q: IntAnaQuadric; tol: float): IntAnaIntQuadQuad {.
+proc constructIntAnaIntQuadQuad*(c: Cylinder; q: IntAnaQuadric; tol: cfloat): IntAnaIntQuadQuad {.
     constructor, importcpp: "IntAna_IntQuadQuad(@)",
     header: "IntAna_IntQuadQuad.hxx".}
-proc constructIntAnaIntQuadQuad*(c: Cone; q: IntAnaQuadric; tol: float): IntAnaIntQuadQuad {.
+proc constructIntAnaIntQuadQuad*(c: Cone; q: IntAnaQuadric; tol: cfloat): IntAnaIntQuadQuad {.
     constructor, importcpp: "IntAna_IntQuadQuad(@)",
     header: "IntAna_IntQuadQuad.hxx".}
-proc perform*(this: var IntAnaIntQuadQuad; c: Cylinder; q: IntAnaQuadric; tol: float) {.
+proc perform*(this: var IntAnaIntQuadQuad; c: Cylinder; q: IntAnaQuadric; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_IntQuadQuad.hxx".}
-proc perform*(this: var IntAnaIntQuadQuad; c: Cone; q: IntAnaQuadric; tol: float) {.
+proc perform*(this: var IntAnaIntQuadQuad; c: Cone; q: IntAnaQuadric; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_IntQuadQuad.hxx".}
 proc isDone*(this: IntAnaIntQuadQuad): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntAna_IntQuadQuad.hxx".}
 proc identicalElements*(this: IntAnaIntQuadQuad): bool {.noSideEffect,
     importcpp: "IdenticalElements", header: "IntAna_IntQuadQuad.hxx".}
-proc nbCurve*(this: IntAnaIntQuadQuad): int {.noSideEffect, importcpp: "NbCurve",
+proc nbCurve*(this: IntAnaIntQuadQuad): cint {.noSideEffect, importcpp: "NbCurve",
     header: "IntAna_IntQuadQuad.hxx".}
-proc curve*(this: IntAnaIntQuadQuad; n: int): IntAnaCurve {.noSideEffect,
+proc curve*(this: IntAnaIntQuadQuad; n: cint): IntAnaCurve {.noSideEffect,
     importcpp: "Curve", header: "IntAna_IntQuadQuad.hxx".}
-proc nbPnt*(this: IntAnaIntQuadQuad): int {.noSideEffect, importcpp: "NbPnt",
-                                        header: "IntAna_IntQuadQuad.hxx".}
-proc point*(this: IntAnaIntQuadQuad; n: int): Pnt {.noSideEffect, importcpp: "Point",
+proc nbPnt*(this: IntAnaIntQuadQuad): cint {.noSideEffect, importcpp: "NbPnt",
     header: "IntAna_IntQuadQuad.hxx".}
-proc parameters*(this: IntAnaIntQuadQuad; n: int; u1: var float; u2: var float) {.
+proc point*(this: IntAnaIntQuadQuad; n: cint): Pnt {.noSideEffect, importcpp: "Point",
+    header: "IntAna_IntQuadQuad.hxx".}
+proc parameters*(this: IntAnaIntQuadQuad; n: cint; u1: var cfloat; u2: var cfloat) {.
     noSideEffect, importcpp: "Parameters", header: "IntAna_IntQuadQuad.hxx".}
-proc hasNextCurve*(this: IntAnaIntQuadQuad; i: int): bool {.noSideEffect,
+proc hasNextCurve*(this: IntAnaIntQuadQuad; i: cint): bool {.noSideEffect,
     importcpp: "HasNextCurve", header: "IntAna_IntQuadQuad.hxx".}
-proc nextCurve*(this: IntAnaIntQuadQuad; i: int; theOpposite: var bool): int {.
+proc nextCurve*(this: IntAnaIntQuadQuad; i: cint; theOpposite: var bool): cint {.
     noSideEffect, importcpp: "NextCurve", header: "IntAna_IntQuadQuad.hxx".}
-proc hasPreviousCurve*(this: IntAnaIntQuadQuad; i: int): bool {.noSideEffect,
+proc hasPreviousCurve*(this: IntAnaIntQuadQuad; i: cint): bool {.noSideEffect,
     importcpp: "HasPreviousCurve", header: "IntAna_IntQuadQuad.hxx".}
-proc previousCurve*(this: IntAnaIntQuadQuad; i: int; theOpposite: var bool): int {.
+proc previousCurve*(this: IntAnaIntQuadQuad; i: cint; theOpposite: var bool): cint {.
     noSideEffect, importcpp: "PreviousCurve", header: "IntAna_IntQuadQuad.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

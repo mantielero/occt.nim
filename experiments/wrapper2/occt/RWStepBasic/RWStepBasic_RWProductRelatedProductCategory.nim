@@ -29,7 +29,7 @@ proc constructRWStepBasicRWProductRelatedProductCategory*(): RWStepBasicRWProduc
     constructor, importcpp: "RWStepBasic_RWProductRelatedProductCategory(@)",
     header: "RWStepBasic_RWProductRelatedProductCategory.hxx".}
 proc readStep*(this: RWStepBasicRWProductRelatedProductCategory;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicProductRelatedProductCategory]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepBasicRWProductRelatedProductCategory;
            ent: Handle[StepBasicProductRelatedProductCategory];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWProductRelatedProductCategory.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

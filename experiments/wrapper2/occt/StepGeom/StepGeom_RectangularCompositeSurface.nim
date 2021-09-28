@@ -19,8 +19,7 @@ discard "forward decl of StepGeom_SurfacePatch"
 discard "forward decl of StepGeom_RectangularCompositeSurface"
 discard "forward decl of StepGeom_RectangularCompositeSurface"
 type
-  HandleStepGeomRectangularCompositeSurface* = Handle[
-      StepGeomRectangularCompositeSurface]
+  HandleC1C1* = Handle[StepGeomRectangularCompositeSurface]
   StepGeomRectangularCompositeSurface* {.importcpp: "StepGeom_RectangularCompositeSurface", header: "StepGeom_RectangularCompositeSurface.hxx",
                                         bycopy.} = object of StepGeomBoundedSurface ## !
                                                                                ## Returns a
@@ -39,12 +38,12 @@ proc setSegments*(this: var StepGeomRectangularCompositeSurface;
     importcpp: "SetSegments", header: "StepGeom_RectangularCompositeSurface.hxx".}
 proc segments*(this: StepGeomRectangularCompositeSurface): Handle[
     StepGeomHArray2OfSurfacePatch] {.noSideEffect, importcpp: "Segments", header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc segmentsValue*(this: StepGeomRectangularCompositeSurface; num1: int; num2: int): Handle[
+proc segmentsValue*(this: StepGeomRectangularCompositeSurface; num1: cint; num2: cint): Handle[
     StepGeomSurfacePatch] {.noSideEffect, importcpp: "SegmentsValue",
                            header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc nbSegmentsI*(this: StepGeomRectangularCompositeSurface): int {.noSideEffect,
+proc nbSegmentsI*(this: StepGeomRectangularCompositeSurface): cint {.noSideEffect,
     importcpp: "NbSegmentsI", header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc nbSegmentsJ*(this: StepGeomRectangularCompositeSurface): int {.noSideEffect,
+proc nbSegmentsJ*(this: StepGeomRectangularCompositeSurface): cint {.noSideEffect,
     importcpp: "NbSegmentsJ", header: "StepGeom_RectangularCompositeSurface.hxx".}
 type
   StepGeomRectangularCompositeSurfacebaseType* = StepGeomBoundedSurface
@@ -57,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomRectangularCompositeSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_RectangularCompositeSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

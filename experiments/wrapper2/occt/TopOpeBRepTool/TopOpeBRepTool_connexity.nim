@@ -30,24 +30,49 @@ proc setKey*(this: var TopOpeBRepToolConnexity; key: TopoDS_Shape) {.
     importcpp: "SetKey", header: "TopOpeBRepTool_connexity.hxx".}
 proc key*(this: TopOpeBRepToolConnexity): TopoDS_Shape {.noSideEffect,
     importcpp: "Key", header: "TopOpeBRepTool_connexity.hxx".}
-proc item*(this: TopOpeBRepToolConnexity; oriKey: int; item: var TopToolsListOfShape): int {.
+proc item*(this: TopOpeBRepToolConnexity; oriKey: cint; item: var TopToolsListOfShape): cint {.
     noSideEffect, importcpp: "Item", header: "TopOpeBRepTool_connexity.hxx".}
-proc allItems*(this: TopOpeBRepToolConnexity; item: var TopToolsListOfShape): int {.
+proc allItems*(this: TopOpeBRepToolConnexity; item: var TopToolsListOfShape): cint {.
     noSideEffect, importcpp: "AllItems", header: "TopOpeBRepTool_connexity.hxx".}
-proc addItem*(this: var TopOpeBRepToolConnexity; oriKey: int;
+proc addItem*(this: var TopOpeBRepToolConnexity; oriKey: cint;
              item: TopToolsListOfShape) {.importcpp: "AddItem",
                                         header: "TopOpeBRepTool_connexity.hxx".}
-proc addItem*(this: var TopOpeBRepToolConnexity; oriKey: int; item: TopoDS_Shape) {.
+proc addItem*(this: var TopOpeBRepToolConnexity; oriKey: cint; item: TopoDS_Shape) {.
     importcpp: "AddItem", header: "TopOpeBRepTool_connexity.hxx".}
-proc removeItem*(this: var TopOpeBRepToolConnexity; oriKey: int; item: TopoDS_Shape): bool {.
+proc removeItem*(this: var TopOpeBRepToolConnexity; oriKey: cint; item: TopoDS_Shape): bool {.
     importcpp: "RemoveItem", header: "TopOpeBRepTool_connexity.hxx".}
 proc removeItem*(this: var TopOpeBRepToolConnexity; item: TopoDS_Shape): bool {.
     importcpp: "RemoveItem", header: "TopOpeBRepTool_connexity.hxx".}
-proc changeItem*(this: var TopOpeBRepToolConnexity; oriKey: int): var TopToolsListOfShape {.
+proc changeItem*(this: var TopOpeBRepToolConnexity; oriKey: cint): var TopToolsListOfShape {.
     importcpp: "ChangeItem", header: "TopOpeBRepTool_connexity.hxx".}
 proc isMultiple*(this: TopOpeBRepToolConnexity): bool {.noSideEffect,
     importcpp: "IsMultiple", header: "TopOpeBRepTool_connexity.hxx".}
 proc isFaulty*(this: TopOpeBRepToolConnexity): bool {.noSideEffect,
     importcpp: "IsFaulty", header: "TopOpeBRepTool_connexity.hxx".}
-proc isInternal*(this: TopOpeBRepToolConnexity; item: var TopToolsListOfShape): int {.
+proc isInternal*(this: TopOpeBRepToolConnexity; item: var TopToolsListOfShape): cint {.
     noSideEffect, importcpp: "IsInternal", header: "TopOpeBRepTool_connexity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,31 +30,56 @@ type
 
 proc constructExtremaExtPElS*(): ExtremaExtPElS {.constructor,
     importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc constructExtremaExtPElS*(p: Pnt; s: Cylinder; tol: float): ExtremaExtPElS {.
+proc constructExtremaExtPElS*(p: Pnt; s: Cylinder; tol: cfloat): ExtremaExtPElS {.
     constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc perform*(this: var ExtremaExtPElS; p: Pnt; s: Cylinder; tol: float) {.
+proc perform*(this: var ExtremaExtPElS; p: Pnt; s: Cylinder; tol: cfloat) {.
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
-proc constructExtremaExtPElS*(p: Pnt; s: Pln; tol: float): ExtremaExtPElS {.constructor,
-    importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc perform*(this: var ExtremaExtPElS; p: Pnt; s: Pln; tol: float) {.
-    importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
-proc constructExtremaExtPElS*(p: Pnt; s: Cone; tol: float): ExtremaExtPElS {.
+proc constructExtremaExtPElS*(p: Pnt; s: Pln; tol: cfloat): ExtremaExtPElS {.
     constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc perform*(this: var ExtremaExtPElS; p: Pnt; s: Cone; tol: float) {.
+proc perform*(this: var ExtremaExtPElS; p: Pnt; s: Pln; tol: cfloat) {.
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
-proc constructExtremaExtPElS*(p: Pnt; s: Torus; tol: float): ExtremaExtPElS {.
+proc constructExtremaExtPElS*(p: Pnt; s: Cone; tol: cfloat): ExtremaExtPElS {.
     constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc perform*(this: var ExtremaExtPElS; p: Pnt; s: Torus; tol: float) {.
+proc perform*(this: var ExtremaExtPElS; p: Pnt; s: Cone; tol: cfloat) {.
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
-proc constructExtremaExtPElS*(p: Pnt; s: Sphere; tol: float): ExtremaExtPElS {.
+proc constructExtremaExtPElS*(p: Pnt; s: Torus; tol: cfloat): ExtremaExtPElS {.
     constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
-proc perform*(this: var ExtremaExtPElS; p: Pnt; s: Sphere; tol: float) {.
+proc perform*(this: var ExtremaExtPElS; p: Pnt; s: Torus; tol: cfloat) {.
+    importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
+proc constructExtremaExtPElS*(p: Pnt; s: Sphere; tol: cfloat): ExtremaExtPElS {.
+    constructor, importcpp: "Extrema_ExtPElS(@)", header: "Extrema_ExtPElS.hxx".}
+proc perform*(this: var ExtremaExtPElS; p: Pnt; s: Sphere; tol: cfloat) {.
     importcpp: "Perform", header: "Extrema_ExtPElS.hxx".}
 proc isDone*(this: ExtremaExtPElS): bool {.noSideEffect, importcpp: "IsDone",
                                        header: "Extrema_ExtPElS.hxx".}
-proc nbExt*(this: ExtremaExtPElS): int {.noSideEffect, importcpp: "NbExt",
-                                     header: "Extrema_ExtPElS.hxx".}
-proc squareDistance*(this: ExtremaExtPElS; n: int): float {.noSideEffect,
+proc nbExt*(this: ExtremaExtPElS): cint {.noSideEffect, importcpp: "NbExt",
+                                      header: "Extrema_ExtPElS.hxx".}
+proc squareDistance*(this: ExtremaExtPElS; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_ExtPElS.hxx".}
-proc point*(this: ExtremaExtPElS; n: int): ExtremaPOnSurf {.noSideEffect,
+proc point*(this: ExtremaExtPElS; n: cint): ExtremaPOnSurf {.noSideEffect,
     importcpp: "Point", header: "Extrema_ExtPElS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

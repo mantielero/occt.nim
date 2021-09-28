@@ -28,7 +28,7 @@ proc constructRWStepGeomRWCompositeCurveSegment*(): RWStepGeomRWCompositeCurveSe
     constructor, importcpp: "RWStepGeom_RWCompositeCurveSegment(@)",
     header: "RWStepGeom_RWCompositeCurveSegment.hxx".}
 proc readStep*(this: RWStepGeomRWCompositeCurveSegment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomCompositeCurveSegment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWCompositeCurveSegment.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepGeomRWCompositeCurveSegment;
            ent: Handle[StepGeomCompositeCurveSegment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWCompositeCurveSegment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

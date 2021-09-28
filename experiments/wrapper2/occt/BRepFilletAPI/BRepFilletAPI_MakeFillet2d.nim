@@ -152,24 +152,24 @@ proc init*(this: var BRepFilletAPI_MakeFillet2d; f: TopoDS_Face) {.importcpp: "I
 proc init*(this: var BRepFilletAPI_MakeFillet2d; refFace: TopoDS_Face;
           modFace: TopoDS_Face) {.importcpp: "Init",
                                 header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc addFillet*(this: var BRepFilletAPI_MakeFillet2d; v: TopoDS_Vertex; radius: float): TopoDS_Edge {.
+proc addFillet*(this: var BRepFilletAPI_MakeFillet2d; v: TopoDS_Vertex; radius: cfloat): TopoDS_Edge {.
     importcpp: "AddFillet", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc modifyFillet*(this: var BRepFilletAPI_MakeFillet2d; fillet: TopoDS_Edge;
-                  radius: float): TopoDS_Edge {.importcpp: "ModifyFillet",
+                  radius: cfloat): TopoDS_Edge {.importcpp: "ModifyFillet",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc removeFillet*(this: var BRepFilletAPI_MakeFillet2d; fillet: TopoDS_Edge): TopoDS_Vertex {.
     importcpp: "RemoveFillet", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc addChamfer*(this: var BRepFilletAPI_MakeFillet2d; e1: TopoDS_Edge;
-                e2: TopoDS_Edge; d1: float; d2: float): TopoDS_Edge {.
+                e2: TopoDS_Edge; d1: cfloat; d2: cfloat): TopoDS_Edge {.
     importcpp: "AddChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc addChamfer*(this: var BRepFilletAPI_MakeFillet2d; e: TopoDS_Edge;
-                v: TopoDS_Vertex; d: float; ang: float): TopoDS_Edge {.
+                v: TopoDS_Vertex; d: cfloat; ang: cfloat): TopoDS_Edge {.
     importcpp: "AddChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc modifyChamfer*(this: var BRepFilletAPI_MakeFillet2d; chamfer: TopoDS_Edge;
-                   e1: TopoDS_Edge; e2: TopoDS_Edge; d1: float; d2: float): TopoDS_Edge {.
+                   e1: TopoDS_Edge; e2: TopoDS_Edge; d1: cfloat; d2: cfloat): TopoDS_Edge {.
     importcpp: "ModifyChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc modifyChamfer*(this: var BRepFilletAPI_MakeFillet2d; chamfer: TopoDS_Edge;
-                   e: TopoDS_Edge; d: float; ang: float): TopoDS_Edge {.
+                   e: TopoDS_Edge; d: cfloat; ang: cfloat): TopoDS_Edge {.
     importcpp: "ModifyChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc removeChamfer*(this: var BRepFilletAPI_MakeFillet2d; chamfer: TopoDS_Edge): TopoDS_Vertex {.
     importcpp: "RemoveChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
@@ -178,18 +178,18 @@ proc isModified*(this: BRepFilletAPI_MakeFillet2d; e: TopoDS_Edge): bool {.
 proc filletEdges*(this: BRepFilletAPI_MakeFillet2d): TopToolsSequenceOfShape {.
     noSideEffect, importcpp: "FilletEdges",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc nbFillet*(this: BRepFilletAPI_MakeFillet2d): int {.noSideEffect,
+proc nbFillet*(this: BRepFilletAPI_MakeFillet2d): cint {.noSideEffect,
     importcpp: "NbFillet", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc chamferEdges*(this: BRepFilletAPI_MakeFillet2d): TopToolsSequenceOfShape {.
     noSideEffect, importcpp: "ChamferEdges",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc nbChamfer*(this: BRepFilletAPI_MakeFillet2d): int {.noSideEffect,
+proc nbChamfer*(this: BRepFilletAPI_MakeFillet2d): cint {.noSideEffect,
     importcpp: "NbChamfer", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc modified*(this: var BRepFilletAPI_MakeFillet2d; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc nbCurves*(this: BRepFilletAPI_MakeFillet2d): int {.noSideEffect,
+proc nbCurves*(this: BRepFilletAPI_MakeFillet2d): cint {.noSideEffect,
     importcpp: "NbCurves", header: "BRepFilletAPI_MakeFillet2d.hxx".}
-proc newEdges*(this: var BRepFilletAPI_MakeFillet2d; i: int): TopToolsListOfShape {.
+proc newEdges*(this: var BRepFilletAPI_MakeFillet2d; i: cint): TopToolsListOfShape {.
     importcpp: "NewEdges", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc hasDescendant*(this: BRepFilletAPI_MakeFillet2d; e: TopoDS_Edge): bool {.
     noSideEffect, importcpp: "HasDescendant",
@@ -203,3 +203,28 @@ proc status*(this: BRepFilletAPI_MakeFillet2d): ChFi2dConstructionError {.
     noSideEffect, importcpp: "Status", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc build*(this: var BRepFilletAPI_MakeFillet2d) {.importcpp: "Build",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

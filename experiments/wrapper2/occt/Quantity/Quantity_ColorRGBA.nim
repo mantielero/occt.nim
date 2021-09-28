@@ -83,8 +83,33 @@ proc convertSRGB_ToLinearRGB*(theRGB: NCollectionVec4[cfloat]): NCollectionVec4[
     cfloat] {.importcpp: "Quantity_ColorRGBA::Convert_sRGB_To_LinearRGB(@)",
              header: "Quantity_ColorRGBA.hxx".}
 proc dumpJson*(this: QuantityColorRGBA; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Quantity_ColorRGBA.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Quantity_ColorRGBA.hxx".}
 proc initFromJson*(this: var QuantityColorRGBA; theSStream: StandardSStream;
-                  theStreamPos: var int): bool {.importcpp: "InitFromJson",
+                  theStreamPos: var cint): bool {.importcpp: "InitFromJson",
     header: "Quantity_ColorRGBA.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

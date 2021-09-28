@@ -32,8 +32,8 @@ type
 proc constructBndOBB*(): BndOBB {.constructor, importcpp: "Bnd_OBB(@)",
                                header: "Bnd_OBB.hxx".}
 proc constructBndOBB*(theCenter: Pnt; theXDirection: Dir; theYDirection: Dir;
-                     theZDirection: Dir; theHXSize: float; theHYSize: float;
-                     theHZSize: float): BndOBB {.constructor,
+                     theZDirection: Dir; theHXSize: cfloat; theHYSize: cfloat;
+                     theHZSize: cfloat): BndOBB {.constructor,
     importcpp: "Bnd_OBB(@)", header: "Bnd_OBB.hxx".}
 proc constructBndOBB*(theBox: BndBox): BndOBB {.constructor, importcpp: "Bnd_OBB(@)",
     header: "Bnd_OBB.hxx".}
@@ -42,11 +42,11 @@ proc reBuild*(this: var BndOBB; theListOfPoints: TColgpArray1OfPnt;
              theIsOptimal: bool = false) {.importcpp: "ReBuild", header: "Bnd_OBB.hxx".}
 proc setCenter*(this: var BndOBB; theCenter: Pnt) {.importcpp: "SetCenter",
     header: "Bnd_OBB.hxx".}
-proc setXComponent*(this: var BndOBB; theXDirection: Dir; theHXSize: float) {.
+proc setXComponent*(this: var BndOBB; theXDirection: Dir; theHXSize: cfloat) {.
     importcpp: "SetXComponent", header: "Bnd_OBB.hxx".}
-proc setYComponent*(this: var BndOBB; theYDirection: Dir; theHYSize: float) {.
+proc setYComponent*(this: var BndOBB; theYDirection: Dir; theHYSize: cfloat) {.
     importcpp: "SetYComponent", header: "Bnd_OBB.hxx".}
-proc setZComponent*(this: var BndOBB; theZDirection: Dir; theHZSize: float) {.
+proc setZComponent*(this: var BndOBB; theZDirection: Dir; theHZSize: cfloat) {.
     importcpp: "SetZComponent", header: "Bnd_OBB.hxx".}
 proc position*(this: BndOBB): Ax3 {.noSideEffect, importcpp: "Position",
                                 header: "Bnd_OBB.hxx".}
@@ -58,12 +58,12 @@ proc yDirection*(this: BndOBB): Xyz {.noSideEffect, importcpp: "YDirection",
                                   header: "Bnd_OBB.hxx".}
 proc zDirection*(this: BndOBB): Xyz {.noSideEffect, importcpp: "ZDirection",
                                   header: "Bnd_OBB.hxx".}
-proc xHSize*(this: BndOBB): float {.noSideEffect, importcpp: "XHSize",
-                                header: "Bnd_OBB.hxx".}
-proc yHSize*(this: BndOBB): float {.noSideEffect, importcpp: "YHSize",
-                                header: "Bnd_OBB.hxx".}
-proc zHSize*(this: BndOBB): float {.noSideEffect, importcpp: "ZHSize",
-                                header: "Bnd_OBB.hxx".}
+proc xHSize*(this: BndOBB): cfloat {.noSideEffect, importcpp: "XHSize",
+                                 header: "Bnd_OBB.hxx".}
+proc yHSize*(this: BndOBB): cfloat {.noSideEffect, importcpp: "YHSize",
+                                 header: "Bnd_OBB.hxx".}
+proc zHSize*(this: BndOBB): cfloat {.noSideEffect, importcpp: "ZHSize",
+                                 header: "Bnd_OBB.hxx".}
 proc isVoid*(this: BndOBB): bool {.noSideEffect, importcpp: "IsVoid",
                                header: "Bnd_OBB.hxx".}
 proc setVoid*(this: var BndOBB) {.importcpp: "SetVoid", header: "Bnd_OBB.hxx".}
@@ -71,12 +71,12 @@ proc setAABox*(this: var BndOBB; theFlag: bool) {.importcpp: "SetAABox",
     header: "Bnd_OBB.hxx".}
 proc isAABox*(this: BndOBB): bool {.noSideEffect, importcpp: "IsAABox",
                                 header: "Bnd_OBB.hxx".}
-proc enlarge*(this: var BndOBB; theGapAdd: float) {.importcpp: "Enlarge",
+proc enlarge*(this: var BndOBB; theGapAdd: cfloat) {.importcpp: "Enlarge",
     header: "Bnd_OBB.hxx".}
 proc getVertex*(this: BndOBB; theP: array[8, Pnt]): bool {.noSideEffect,
     importcpp: "GetVertex", header: "Bnd_OBB.hxx".}
-proc squareExtent*(this: BndOBB): float {.noSideEffect, importcpp: "SquareExtent",
-                                      header: "Bnd_OBB.hxx".}
+proc squareExtent*(this: BndOBB): cfloat {.noSideEffect, importcpp: "SquareExtent",
+                                       header: "Bnd_OBB.hxx".}
 proc isOut*(this: BndOBB; theOther: BndOBB): bool {.noSideEffect, importcpp: "IsOut",
     header: "Bnd_OBB.hxx".}
 proc isOut*(this: BndOBB; theP: Pnt): bool {.noSideEffect, importcpp: "IsOut",
@@ -85,5 +85,30 @@ proc isCompletelyInside*(this: BndOBB; theOther: BndOBB): bool {.noSideEffect,
     importcpp: "IsCompletelyInside", header: "Bnd_OBB.hxx".}
 proc add*(this: var BndOBB; theOther: BndOBB) {.importcpp: "Add", header: "Bnd_OBB.hxx".}
 proc add*(this: var BndOBB; theP: Pnt) {.importcpp: "Add", header: "Bnd_OBB.hxx".}
-proc dumpJson*(this: BndOBB; theOStream: var StandardOStream; theDepth: int = -1) {.
+proc dumpJson*(this: BndOBB; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Bnd_OBB.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

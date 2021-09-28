@@ -31,3 +31,28 @@ proc computeNormal*(aFace: TopoDS_Face; pc: var PolyConnect;
                    nor: var TColgpArray1OfDir) {.
     importcpp: "VrmlConverter_ShadedShape::ComputeNormal(@)",
     header: "VrmlConverter_ShadedShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

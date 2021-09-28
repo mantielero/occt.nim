@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESAppliToolPWBArtworkStackup;
     header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
 proc ownDump*(this: IGESAppliToolPWBArtworkStackup;
              ent: Handle[IGESAppliPWBArtworkStackup]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESAppli_ToolPWBArtworkStackup.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

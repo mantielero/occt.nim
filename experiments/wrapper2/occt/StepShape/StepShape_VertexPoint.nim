@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_VertexPoint"
 discard "forward decl of StepShape_VertexPoint"
 type
-  HandleStepShapeVertexPoint* = Handle[StepShapeVertexPoint]
+  HandleC1C1* = Handle[StepShapeVertexPoint]
   StepShapeVertexPoint* {.importcpp: "StepShape_VertexPoint",
                          header: "StepShape_VertexPoint.hxx", bycopy.} = object of StepShapeVertex ##
                                                                                             ## !
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_VertexPoint.hxx".}
 proc dynamicType*(this: StepShapeVertexPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_VertexPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

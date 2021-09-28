@@ -13,6 +13,31 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdMapOfReal* = NCollectionMap[float, TColStdMapRealHasher]
-  TColStdMapIteratorOfMapOfReal* = Iterator[float, TColStdMapRealHasher]
+  TColStdMapOfReal* = NCollectionMap[cfloat, TColStdMapRealHasher]
+  TColStdMapIteratorOfMapOfReal* = Iterator[cfloat, TColStdMapRealHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

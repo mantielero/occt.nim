@@ -15,3 +15,28 @@ type
   StepFEA_Array1OfCurveElementEndOffset* = NCollectionArray1[
       Handle[StepFEA_CurveElementEndOffset]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

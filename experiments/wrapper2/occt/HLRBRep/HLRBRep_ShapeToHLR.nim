@@ -26,5 +26,30 @@ type
 
 
 proc load*(s: Handle[HLRTopoBRepOutLiner]; p: HLRAlgoProjector;
-          mst: var BRepTopAdaptorMapOfShapeTool; nbIso: int = 0): Handle[HLRBRepData] {.
+          mst: var BRepTopAdaptorMapOfShapeTool; nbIso: cint = 0): Handle[HLRBRepData] {.
     importcpp: "HLRBRep_ShapeToHLR::Load(@)", header: "HLRBRep_ShapeToHLR.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

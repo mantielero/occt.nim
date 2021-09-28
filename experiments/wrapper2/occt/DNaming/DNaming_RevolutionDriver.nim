@@ -20,7 +20,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of DNaming_RevolutionDriver"
 discard "forward decl of DNaming_RevolutionDriver"
 type
-  HandleDNamingRevolutionDriver* = Handle[DNamingRevolutionDriver]
+  HandleC1C1* = Handle[DNamingRevolutionDriver]
   DNamingRevolutionDriver* {.importcpp: "DNaming_RevolutionDriver",
                             header: "DNaming_RevolutionDriver.hxx", bycopy.} = object of TFunctionDriver ##
                                                                                                   ## !
@@ -40,7 +40,7 @@ proc validate*(this: DNamingRevolutionDriver; theLog: var Handle[TFunctionLogboo
     noSideEffect, importcpp: "Validate", header: "DNaming_RevolutionDriver.hxx".}
 proc mustExecute*(this: DNamingRevolutionDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_RevolutionDriver.hxx".}
-proc execute*(this: DNamingRevolutionDriver; theLog: var Handle[TFunctionLogbook]): int {.
+proc execute*(this: DNamingRevolutionDriver; theLog: var Handle[TFunctionLogbook]): cint {.
     noSideEffect, importcpp: "Execute", header: "DNaming_RevolutionDriver.hxx".}
 type
   DNamingRevolutionDriverbaseType* = TFunctionDriver
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DNaming_RevolutionDriver.hxx".}
 proc dynamicType*(this: DNamingRevolutionDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DNaming_RevolutionDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,3 +19,28 @@ type
     StepToTopoDS_TranslatePolyLoopDone, StepToTopoDS_TranslatePolyLoopOther
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

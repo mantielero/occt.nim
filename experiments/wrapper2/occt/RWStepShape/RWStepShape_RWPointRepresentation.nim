@@ -27,7 +27,7 @@ proc constructRWStepShapeRWPointRepresentation*(): RWStepShapeRWPointRepresentat
     constructor, importcpp: "RWStepShape_RWPointRepresentation(@)",
     header: "RWStepShape_RWPointRepresentation.hxx".}
 proc readStep*(this: RWStepShapeRWPointRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapePointRepresentation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWPointRepresentation.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepShapeRWPointRepresentation;
            ent: Handle[StepShapePointRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWPointRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESDimen_DimensionUnits"
 discard "forward decl of IGESDimen_DimensionUnits"
 type
-  HandleIGESDimenDimensionUnits* = Handle[IGESDimenDimensionUnits]
+  HandleC1C1* = Handle[IGESDimenDimensionUnits]
 
 ## ! defines Dimension Units, Type <406>, Form <28>
 ## ! in package IGESDimen
@@ -33,23 +33,23 @@ type
 proc constructIGESDimenDimensionUnits*(): IGESDimenDimensionUnits {.constructor,
     importcpp: "IGESDimen_DimensionUnits(@)",
     header: "IGESDimen_DimensionUnits.hxx".}
-proc init*(this: var IGESDimenDimensionUnits; nbPropVal: int; aSecondPos: int;
-          aUnitsInd: int; aCharSet: int; aFormat: Handle[TCollectionHAsciiString];
-          aFracFlag: int; aPrecision: int) {.importcpp: "Init",
+proc init*(this: var IGESDimenDimensionUnits; nbPropVal: cint; aSecondPos: cint;
+          aUnitsInd: cint; aCharSet: cint; aFormat: Handle[TCollectionHAsciiString];
+          aFracFlag: cint; aPrecision: cint) {.importcpp: "Init",
     header: "IGESDimen_DimensionUnits.hxx".}
-proc nbPropertyValues*(this: IGESDimenDimensionUnits): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESDimenDimensionUnits): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESDimen_DimensionUnits.hxx".}
-proc secondaryDimenPosition*(this: IGESDimenDimensionUnits): int {.noSideEffect,
+proc secondaryDimenPosition*(this: IGESDimenDimensionUnits): cint {.noSideEffect,
     importcpp: "SecondaryDimenPosition", header: "IGESDimen_DimensionUnits.hxx".}
-proc unitsIndicator*(this: IGESDimenDimensionUnits): int {.noSideEffect,
+proc unitsIndicator*(this: IGESDimenDimensionUnits): cint {.noSideEffect,
     importcpp: "UnitsIndicator", header: "IGESDimen_DimensionUnits.hxx".}
-proc characterSet*(this: IGESDimenDimensionUnits): int {.noSideEffect,
+proc characterSet*(this: IGESDimenDimensionUnits): cint {.noSideEffect,
     importcpp: "CharacterSet", header: "IGESDimen_DimensionUnits.hxx".}
 proc formatString*(this: IGESDimenDimensionUnits): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "FormatString", header: "IGESDimen_DimensionUnits.hxx".}
-proc fractionFlag*(this: IGESDimenDimensionUnits): int {.noSideEffect,
+proc fractionFlag*(this: IGESDimenDimensionUnits): cint {.noSideEffect,
     importcpp: "FractionFlag", header: "IGESDimen_DimensionUnits.hxx".}
-proc precisionOrDenominator*(this: IGESDimenDimensionUnits): int {.noSideEffect,
+proc precisionOrDenominator*(this: IGESDimenDimensionUnits): cint {.noSideEffect,
     importcpp: "PrecisionOrDenominator", header: "IGESDimen_DimensionUnits.hxx".}
 type
   IGESDimenDimensionUnitsbaseType* = IGESDataIGESEntity
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_DimensionUnits.hxx".}
 proc dynamicType*(this: IGESDimenDimensionUnits): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_DimensionUnits.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@ type
 proc constructStepVisualInvisibleItem*(): StepVisualInvisibleItem {.constructor,
     importcpp: "StepVisual_InvisibleItem(@)",
     header: "StepVisual_InvisibleItem.hxx".}
-proc caseNum*(this: StepVisualInvisibleItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualInvisibleItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_InvisibleItem.hxx".}
 proc styledItem*(this: StepVisualInvisibleItem): Handle[StepVisualStyledItem] {.
     noSideEffect, importcpp: "StyledItem", header: "StepVisual_InvisibleItem.hxx".}
@@ -43,3 +43,28 @@ proc presentationRepresentation*(this: StepVisualInvisibleItem): Handle[
     StepVisualPresentationRepresentation] {.noSideEffect,
     importcpp: "PresentationRepresentation",
     header: "StepVisual_InvisibleItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

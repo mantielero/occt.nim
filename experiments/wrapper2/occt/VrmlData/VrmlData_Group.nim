@@ -72,5 +72,30 @@ proc dynamicType*(this: VrmlDataGroup): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of VrmlData_Group"
 type
-  HandleVrmlDataGroup* = Handle[VrmlDataGroup]
+  HandleC1C1* = Handle[VrmlDataGroup]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

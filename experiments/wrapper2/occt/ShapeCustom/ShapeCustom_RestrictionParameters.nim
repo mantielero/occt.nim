@@ -16,8 +16,7 @@
 discard "forward decl of ShapeCustom_RestrictionParameters"
 discard "forward decl of ShapeCustom_RestrictionParameters"
 type
-  HandleShapeCustomRestrictionParameters* = Handle[
-      ShapeCustomRestrictionParameters]
+  HandleC1C1* = Handle[ShapeCustomRestrictionParameters]
 
 ## ! This class is axuluary tool which contains parameters for
 ## ! BSplineRestriction class.
@@ -31,9 +30,9 @@ type
 proc constructShapeCustomRestrictionParameters*(): ShapeCustomRestrictionParameters {.
     constructor, importcpp: "ShapeCustom_RestrictionParameters(@)",
     header: "ShapeCustom_RestrictionParameters.hxx".}
-proc gMaxDegree*(this: var ShapeCustomRestrictionParameters): var int {.
+proc gMaxDegree*(this: var ShapeCustomRestrictionParameters): var cint {.
     importcpp: "GMaxDegree", header: "ShapeCustom_RestrictionParameters.hxx".}
-proc gMaxSeg*(this: var ShapeCustomRestrictionParameters): var int {.
+proc gMaxSeg*(this: var ShapeCustomRestrictionParameters): var cint {.
     importcpp: "GMaxSeg", header: "ShapeCustom_RestrictionParameters.hxx".}
 proc convertPlane*(this: var ShapeCustomRestrictionParameters): var bool {.
     importcpp: "ConvertPlane", header: "ShapeCustom_RestrictionParameters.hxx".}
@@ -85,3 +84,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeCustomRestrictionParameters): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeCustom_RestrictionParameters.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

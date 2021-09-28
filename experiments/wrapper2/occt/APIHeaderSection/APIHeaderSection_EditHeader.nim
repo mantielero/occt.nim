@@ -22,7 +22,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of APIHeaderSection_EditHeader"
 discard "forward decl of APIHeaderSection_EditHeader"
 type
-  HandleAPIHeaderSectionEditHeader* = Handle[APIHeaderSectionEditHeader]
+  HandleC1C1* = Handle[APIHeaderSectionEditHeader]
   APIHeaderSectionEditHeader* {.importcpp: "APIHeaderSection_EditHeader",
                                header: "APIHeaderSection_EditHeader.hxx", bycopy.} = object of IFSelectEditor
 
@@ -35,7 +35,7 @@ proc label*(this: APIHeaderSectionEditHeader): TCollectionAsciiString {.
 proc recognize*(this: APIHeaderSectionEditHeader; form: Handle[IFSelectEditForm]): bool {.
     noSideEffect, importcpp: "Recognize", header: "APIHeaderSection_EditHeader.hxx".}
 proc stringValue*(this: APIHeaderSectionEditHeader; form: Handle[IFSelectEditForm];
-                 num: int): Handle[TCollectionHAsciiString] {.noSideEffect,
+                 num: cint): Handle[TCollectionHAsciiString] {.noSideEffect,
     importcpp: "StringValue", header: "APIHeaderSection_EditHeader.hxx".}
 proc apply*(this: APIHeaderSectionEditHeader; form: Handle[IFSelectEditForm];
            ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: APIHeaderSectionEditHeader): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "APIHeaderSection_EditHeader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

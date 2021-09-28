@@ -15,3 +15,28 @@
 type
   TColStdArray1OfTransient* = NCollectionArray1[Handle[StandardTransient]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

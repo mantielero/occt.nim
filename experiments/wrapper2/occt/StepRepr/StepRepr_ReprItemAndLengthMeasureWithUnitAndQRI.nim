@@ -17,8 +17,7 @@ discard "forward decl of StepBasic_LengthMeasureWithUnit"
 discard "forward decl of StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI"
 discard "forward decl of StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI"
 type
-  HandleStepReprReprItemAndLengthMeasureWithUnitAndQRI* = Handle[
-      StepReprReprItemAndLengthMeasureWithUnitAndQRI]
+  HandleC1C1* = Handle[StepReprReprItemAndLengthMeasureWithUnitAndQRI]
   StepReprReprItemAndLengthMeasureWithUnitAndQRI* {.
       importcpp: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI",
       header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx", bycopy.} = object of StepReprReprItemAndMeasureWithUnitAndQRI
@@ -42,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ReprItemA
     header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
 proc dynamicType*(this: StepReprReprItemAndLengthMeasureWithUnitAndQRI): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,4 +34,3 @@ include GeomToStep_MakeSweptSurface
 include GeomToStep_MakeToroidalSurface
 include GeomToStep_MakeVector
 include GeomToStep_Root
-

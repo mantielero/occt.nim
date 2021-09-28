@@ -40,11 +40,11 @@ proc constructGC_MakePlane*(pl: Pln): GC_MakePlane {.constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
 proc constructGC_MakePlane*(p: Pnt; v: Dir): GC_MakePlane {.constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc constructGC_MakePlane*(a: float; b: float; c: float; d: float): GC_MakePlane {.
+proc constructGC_MakePlane*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GC_MakePlane {.
     constructor, importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
 proc constructGC_MakePlane*(pln: Pln; point: Pnt): GC_MakePlane {.constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc constructGC_MakePlane*(pln: Pln; dist: float): GC_MakePlane {.constructor,
+proc constructGC_MakePlane*(pln: Pln; dist: cfloat): GC_MakePlane {.constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
 proc constructGC_MakePlane*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakePlane {.constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
@@ -55,3 +55,24 @@ proc value*(this: GC_MakePlane): Handle[GeomPlane] {.noSideEffect,
 converter `constopencascade`*(this: GC_MakePlane): Handle[GeomPlane] {.noSideEffect,
     importcpp: "GC_MakePlane::operator constopencascade",
     header: "GC_MakePlane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

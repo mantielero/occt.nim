@@ -19,7 +19,7 @@ discard "forward decl of AdvApp2Var_Context"
 type
   AdvApp2VarCriterion* {.importcpp: "AdvApp2Var_Criterion",
                         header: "AdvApp2Var_Criterion.hxx", bycopy.} = object
-# 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 proc destroyAdvApp2VarCriterion*(this: var AdvApp2VarCriterion) {.
     importcpp: "#.~AdvApp2Var_Criterion()", header: "AdvApp2Var_Criterion.hxx".}
@@ -27,10 +27,65 @@ proc value*(this: AdvApp2VarCriterion; p: var AdvApp2VarPatch; c: AdvApp2VarCont
     noSideEffect, importcpp: "Value", header: "AdvApp2Var_Criterion.hxx".}
 proc isSatisfied*(this: AdvApp2VarCriterion; p: AdvApp2VarPatch): bool {.noSideEffect,
     importcpp: "IsSatisfied", header: "AdvApp2Var_Criterion.hxx".}
-proc maxValue*(this: AdvApp2VarCriterion): float {.noSideEffect,
+proc maxValue*(this: AdvApp2VarCriterion): cfloat {.noSideEffect,
     importcpp: "MaxValue", header: "AdvApp2Var_Criterion.hxx".}
 proc `type`*(this: AdvApp2VarCriterion): AdvApp2VarCriterionType {.noSideEffect,
     importcpp: "Type", header: "AdvApp2Var_Criterion.hxx".}
 proc repartition*(this: AdvApp2VarCriterion): AdvApp2VarCriterionRepartition {.
     noSideEffect, importcpp: "Repartition", header: "AdvApp2Var_Criterion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

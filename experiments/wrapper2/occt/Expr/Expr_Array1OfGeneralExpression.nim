@@ -17,3 +17,28 @@
 type
   ExprArray1OfGeneralExpression* = NCollectionArray1[Handle[ExprGeneralExpression]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

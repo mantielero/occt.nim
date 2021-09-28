@@ -29,7 +29,7 @@ proc constructRWStepReprRWItemDefinedTransformation*(): RWStepReprRWItemDefinedT
     constructor, importcpp: "RWStepRepr_RWItemDefinedTransformation(@)",
     header: "RWStepRepr_RWItemDefinedTransformation.hxx".}
 proc readStep*(this: RWStepReprRWItemDefinedTransformation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprItemDefinedTransformation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWItemDefinedTransformation.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepReprRWItemDefinedTransformation;
            ent: Handle[StepReprItemDefinedTransformation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWItemDefinedTransformation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

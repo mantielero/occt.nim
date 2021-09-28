@@ -24,20 +24,45 @@ type
 
 proc constructShapeFixSplitTool*(): ShapeFixSplitTool {.constructor,
     importcpp: "ShapeFix_SplitTool(@)", header: "ShapeFix_SplitTool.hxx".}
-proc splitEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; param: float;
+proc splitEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; param: cfloat;
                vert: TopoDS_Vertex; face: TopoDS_Face; newE1: var TopoDS_Edge;
-               newE2: var TopoDS_Edge; tol3d: float; tol2d: float): bool {.noSideEffect,
-    importcpp: "SplitEdge", header: "ShapeFix_SplitTool.hxx".}
-proc splitEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; param1: float;
-               param2: float; vert: TopoDS_Vertex; face: TopoDS_Face;
-               newE1: var TopoDS_Edge; newE2: var TopoDS_Edge; tol3d: float;
-               tol2d: float): bool {.noSideEffect, importcpp: "SplitEdge",
-                                  header: "ShapeFix_SplitTool.hxx".}
-proc cutEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; pend: float; cut: float;
+               newE2: var TopoDS_Edge; tol3d: cfloat; tol2d: cfloat): bool {.
+    noSideEffect, importcpp: "SplitEdge", header: "ShapeFix_SplitTool.hxx".}
+proc splitEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; param1: cfloat;
+               param2: cfloat; vert: TopoDS_Vertex; face: TopoDS_Face;
+               newE1: var TopoDS_Edge; newE2: var TopoDS_Edge; tol3d: cfloat;
+               tol2d: cfloat): bool {.noSideEffect, importcpp: "SplitEdge",
+                                   header: "ShapeFix_SplitTool.hxx".}
+proc cutEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; pend: cfloat; cut: cfloat;
              face: TopoDS_Face; iscutline: var bool): bool {.noSideEffect,
     importcpp: "CutEdge", header: "ShapeFix_SplitTool.hxx".}
-proc splitEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; fp: float;
-               v1: TopoDS_Vertex; lp: float; v2: TopoDS_Vertex; face: TopoDS_Face;
-               seqE: var TopToolsSequenceOfShape; aNum: var int;
-               context: Handle[ShapeBuildReShape]; tol3d: float; tol2d: float): bool {.
+proc splitEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; fp: cfloat;
+               v1: TopoDS_Vertex; lp: cfloat; v2: TopoDS_Vertex; face: TopoDS_Face;
+               seqE: var TopToolsSequenceOfShape; aNum: var cint;
+               context: Handle[ShapeBuildReShape]; tol3d: cfloat; tol2d: cfloat): bool {.
     noSideEffect, importcpp: "SplitEdge", header: "ShapeFix_SplitTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

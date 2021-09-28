@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Product"
 discard "forward decl of Expr_Product"
 type
-  HandleExprProduct* = Handle[ExprProduct]
+  HandleC1C1* = Handle[ExprProduct]
   ExprProduct* {.importcpp: "Expr_Product", header: "Expr_Product.hxx", bycopy.} = object of ExprPolyExpression ##
                                                                                                       ## !
                                                                                                       ## Creates
@@ -53,7 +53,7 @@ proc derivative*(this: ExprProduct; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_Product.hxx".}
 proc evaluate*(this: ExprProduct; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Product.hxx".}
 proc string*(this: ExprProduct): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Product.hxx".}
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_Product::get_type_descriptor(@)", header: "Expr_Product.hxx".}
 proc dynamicType*(this: ExprProduct): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Product.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,8 +18,7 @@ discard "forward decl of TopOpeBRepDS_Transition"
 discard "forward decl of TopOpeBRepDS_FaceEdgeInterference"
 discard "forward decl of TopOpeBRepDS_FaceEdgeInterference"
 type
-  HandleTopOpeBRepDS_FaceEdgeInterference* = Handle[
-      TopOpeBRepDS_FaceEdgeInterference]
+  HandleC1C1* = Handle[TopOpeBRepDS_FaceEdgeInterference]
 
 ## ! ShapeShapeInterference
 
@@ -39,7 +38,7 @@ type
 
 
 proc constructTopOpeBRepDS_FaceEdgeInterference*(t: TopOpeBRepDS_Transition;
-    s: int; g: int; gIsBound: bool; c: TopOpeBRepDS_Config): TopOpeBRepDS_FaceEdgeInterference {.
+    s: cint; g: cint; gIsBound: bool; c: TopOpeBRepDS_Config): TopOpeBRepDS_FaceEdgeInterference {.
     constructor, importcpp: "TopOpeBRepDS_FaceEdgeInterference(@)",
     header: "TopOpeBRepDS_FaceEdgeInterference.hxx".}
 type
@@ -53,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopOpeBRepDS_FaceEdgeInterference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRepDS_FaceEdgeInterference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

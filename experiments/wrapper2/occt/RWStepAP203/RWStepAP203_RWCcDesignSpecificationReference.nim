@@ -31,7 +31,7 @@ proc constructRWStepAP203RWCcDesignSpecificationReference*(): RWStepAP203RWCcDes
     constructor, importcpp: "RWStepAP203_RWCcDesignSpecificationReference(@)",
     header: "RWStepAP203_RWCcDesignSpecificationReference.hxx".}
 proc readStep*(this: RWStepAP203RWCcDesignSpecificationReference;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP203CcDesignSpecificationReference]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepAP203RWCcDesignSpecificationReference;
            ent: Handle[StepAP203CcDesignSpecificationReference];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignSpecificationReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

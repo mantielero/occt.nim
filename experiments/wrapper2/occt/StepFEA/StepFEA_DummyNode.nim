@@ -16,7 +16,7 @@
 discard "forward decl of StepFEA_DummyNode"
 discard "forward decl of StepFEA_DummyNode"
 type
-  HandleStepFEA_DummyNode* = Handle[StepFEA_DummyNode]
+  HandleC1C1* = Handle[StepFEA_DummyNode]
 
 ## ! Representation of STEP entity DummyNode
 
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepFEA_DummyNode.hxx".}
 proc dynamicType*(this: StepFEA_DummyNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepFEA_DummyNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,3 +26,28 @@ type
     PrsDimKOD_OFFSET, PrsDimKOD_ELLIPSERADIUS
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

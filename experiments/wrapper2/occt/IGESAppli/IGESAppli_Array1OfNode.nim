@@ -17,3 +17,28 @@
 type
   IGESAppliArray1OfNode* = NCollectionArray1[Handle[IGESAppliNode]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

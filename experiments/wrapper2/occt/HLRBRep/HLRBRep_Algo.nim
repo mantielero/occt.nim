@@ -19,7 +19,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of HLRBRep_Algo"
 discard "forward decl of HLRBRep_Algo"
 type
-  HandleHLRBRepAlgo* = Handle[HLRBRepAlgo]
+  HandleC1C1* = Handle[HLRBRepAlgo]
 
 ## ! Inherited  from InternalAlgo  to  provide  methods with Shape from TopoDS.
 ## ! A framework to compute a shape as seen in a projection plane. This is done by
@@ -138,10 +138,10 @@ proc constructHLRBRepAlgo*(): HLRBRepAlgo {.constructor,
 proc constructHLRBRepAlgo*(a: Handle[HLRBRepAlgo]): HLRBRepAlgo {.constructor,
     importcpp: "HLRBRep_Algo(@)", header: "HLRBRep_Algo.hxx".}
 proc add*(this: var HLRBRepAlgo; s: TopoDS_Shape; sData: Handle[StandardTransient];
-         nbIso: int = 0) {.importcpp: "Add", header: "HLRBRep_Algo.hxx".}
-proc add*(this: var HLRBRepAlgo; s: TopoDS_Shape; nbIso: int = 0) {.importcpp: "Add",
+         nbIso: cint = 0) {.importcpp: "Add", header: "HLRBRep_Algo.hxx".}
+proc add*(this: var HLRBRepAlgo; s: TopoDS_Shape; nbIso: cint = 0) {.importcpp: "Add",
     header: "HLRBRep_Algo.hxx".}
-proc index*(this: var HLRBRepAlgo; s: TopoDS_Shape): int {.importcpp: "Index",
+proc index*(this: var HLRBRepAlgo; s: TopoDS_Shape): cint {.importcpp: "Index",
     header: "HLRBRep_Algo.hxx".}
 proc outLinedShapeNullify*(this: var HLRBRepAlgo) {.
     importcpp: "OutLinedShapeNullify", header: "HLRBRep_Algo.hxx".}
@@ -154,3 +154,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRBRep_Algo::get_type_descriptor(@)", header: "HLRBRep_Algo.hxx".}
 proc dynamicType*(this: HLRBRepAlgo): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRBRep_Algo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DeltaOnAddition"
 discard "forward decl of TDF_DeltaOnAddition"
 type
-  HandleTDF_DeltaOnAddition* = Handle[TDF_DeltaOnAddition]
+  HandleC1C1* = Handle[TDF_DeltaOnAddition]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on an ADDITION action.
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDF_DeltaOnAddition.hxx".}
 proc dynamicType*(this: TDF_DeltaOnAddition): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_DeltaOnAddition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

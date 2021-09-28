@@ -18,3 +18,28 @@ type
   IGESDrawArray1OfViewKindEntity* = NCollectionArray1[
       Handle[IGESDataViewKindEntity]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

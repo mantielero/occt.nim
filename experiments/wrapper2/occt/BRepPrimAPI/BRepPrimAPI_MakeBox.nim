@@ -33,26 +33,26 @@ type
 
 proc constructBRepPrimAPI_MakeBox*(): BRepPrimAPI_MakeBox {.constructor,
     importcpp: "BRepPrimAPI_MakeBox(@)", header: "BRepPrimAPI_MakeBox.hxx".}
-proc constructBRepPrimAPI_MakeBox*(dx: float; dy: float; dz: float): BRepPrimAPI_MakeBox {.
+proc constructBRepPrimAPI_MakeBox*(dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
     constructor, importcpp: "BRepPrimAPI_MakeBox(@)",
     header: "BRepPrimAPI_MakeBox.hxx".}
-proc constructBRepPrimAPI_MakeBox*(p: Pnt; dx: float; dy: float; dz: float): BRepPrimAPI_MakeBox {.
+proc constructBRepPrimAPI_MakeBox*(p: Pnt; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
     constructor, importcpp: "BRepPrimAPI_MakeBox(@)",
     header: "BRepPrimAPI_MakeBox.hxx".}
 proc constructBRepPrimAPI_MakeBox*(p1: Pnt; p2: Pnt): BRepPrimAPI_MakeBox {.
     constructor, importcpp: "BRepPrimAPI_MakeBox(@)",
     header: "BRepPrimAPI_MakeBox.hxx".}
-proc constructBRepPrimAPI_MakeBox*(axes: Ax2; dx: float; dy: float; dz: float): BRepPrimAPI_MakeBox {.
+proc constructBRepPrimAPI_MakeBox*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
     constructor, importcpp: "BRepPrimAPI_MakeBox(@)",
     header: "BRepPrimAPI_MakeBox.hxx".}
-proc init*(this: var BRepPrimAPI_MakeBox; theDX: float; theDY: float; theDZ: float) {.
+proc init*(this: var BRepPrimAPI_MakeBox; theDX: cfloat; theDY: cfloat; theDZ: cfloat) {.
     importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
-proc init*(this: var BRepPrimAPI_MakeBox; thePnt: Pnt; theDX: float; theDY: float;
-          theDZ: float) {.importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
+proc init*(this: var BRepPrimAPI_MakeBox; thePnt: Pnt; theDX: cfloat; theDY: cfloat;
+          theDZ: cfloat) {.importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
 proc init*(this: var BRepPrimAPI_MakeBox; thePnt1: Pnt; thePnt2: Pnt) {.
     importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
-proc init*(this: var BRepPrimAPI_MakeBox; theAxes: Ax2; theDX: float; theDY: float;
-          theDZ: float) {.importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
+proc init*(this: var BRepPrimAPI_MakeBox; theAxes: Ax2; theDX: cfloat; theDY: cfloat;
+          theDZ: cfloat) {.importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
 proc wedge*(this: var BRepPrimAPI_MakeBox): var BRepPrimWedge {.importcpp: "Wedge",
     header: "BRepPrimAPI_MakeBox.hxx".}
 proc build*(this: var BRepPrimAPI_MakeBox) {.importcpp: "Build",
@@ -79,3 +79,28 @@ proc rightFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.importcpp: "RightF
     header: "BRepPrimAPI_MakeBox.hxx".}
 proc topFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.importcpp: "TopFace",
     header: "BRepPrimAPI_MakeBox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

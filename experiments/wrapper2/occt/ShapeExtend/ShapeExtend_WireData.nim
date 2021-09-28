@@ -21,7 +21,7 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of ShapeExtend_WireData"
 discard "forward decl of ShapeExtend_WireData"
 type
-  HandleShapeExtendWireData* = Handle[ShapeExtendWireData]
+  HandleC1C1* = Handle[ShapeExtendWireData]
 
 ## ! This class provides a data structure necessary for work with the wire as with
 ## ! ordered list of edges, what is required for many algorithms. The advantage of
@@ -77,47 +77,47 @@ proc clear*(this: var ShapeExtendWireData) {.importcpp: "Clear",
     header: "ShapeExtend_WireData.hxx".}
 proc computeSeams*(this: var ShapeExtendWireData; enforce: bool = true) {.
     importcpp: "ComputeSeams", header: "ShapeExtend_WireData.hxx".}
-proc setLast*(this: var ShapeExtendWireData; num: int) {.importcpp: "SetLast",
+proc setLast*(this: var ShapeExtendWireData; num: cint) {.importcpp: "SetLast",
     header: "ShapeExtend_WireData.hxx".}
 proc setDegeneratedLast*(this: var ShapeExtendWireData) {.
     importcpp: "SetDegeneratedLast", header: "ShapeExtend_WireData.hxx".}
-proc add*(this: var ShapeExtendWireData; edge: TopoDS_Edge; atnum: int = 0) {.
+proc add*(this: var ShapeExtendWireData; edge: TopoDS_Edge; atnum: cint = 0) {.
     importcpp: "Add", header: "ShapeExtend_WireData.hxx".}
-proc add*(this: var ShapeExtendWireData; wire: TopoDS_Wire; atnum: int = 0) {.
+proc add*(this: var ShapeExtendWireData; wire: TopoDS_Wire; atnum: cint = 0) {.
     importcpp: "Add", header: "ShapeExtend_WireData.hxx".}
 proc add*(this: var ShapeExtendWireData; wire: Handle[ShapeExtendWireData];
-         atnum: int = 0) {.importcpp: "Add", header: "ShapeExtend_WireData.hxx".}
-proc add*(this: var ShapeExtendWireData; shape: TopoDS_Shape; atnum: int = 0) {.
+         atnum: cint = 0) {.importcpp: "Add", header: "ShapeExtend_WireData.hxx".}
+proc add*(this: var ShapeExtendWireData; shape: TopoDS_Shape; atnum: cint = 0) {.
     importcpp: "Add", header: "ShapeExtend_WireData.hxx".}
-proc addOriented*(this: var ShapeExtendWireData; edge: TopoDS_Edge; mode: int) {.
+proc addOriented*(this: var ShapeExtendWireData; edge: TopoDS_Edge; mode: cint) {.
     importcpp: "AddOriented", header: "ShapeExtend_WireData.hxx".}
-proc addOriented*(this: var ShapeExtendWireData; wire: TopoDS_Wire; mode: int) {.
+proc addOriented*(this: var ShapeExtendWireData; wire: TopoDS_Wire; mode: cint) {.
     importcpp: "AddOriented", header: "ShapeExtend_WireData.hxx".}
-proc addOriented*(this: var ShapeExtendWireData; shape: TopoDS_Shape; mode: int) {.
+proc addOriented*(this: var ShapeExtendWireData; shape: TopoDS_Shape; mode: cint) {.
     importcpp: "AddOriented", header: "ShapeExtend_WireData.hxx".}
-proc remove*(this: var ShapeExtendWireData; num: int = 0) {.importcpp: "Remove",
+proc remove*(this: var ShapeExtendWireData; num: cint = 0) {.importcpp: "Remove",
     header: "ShapeExtend_WireData.hxx".}
-proc set*(this: var ShapeExtendWireData; edge: TopoDS_Edge; num: int = 0) {.
+proc set*(this: var ShapeExtendWireData; edge: TopoDS_Edge; num: cint = 0) {.
     importcpp: "Set", header: "ShapeExtend_WireData.hxx".}
 proc reverse*(this: var ShapeExtendWireData) {.importcpp: "Reverse",
     header: "ShapeExtend_WireData.hxx".}
 proc reverse*(this: var ShapeExtendWireData; face: TopoDS_Face) {.
     importcpp: "Reverse", header: "ShapeExtend_WireData.hxx".}
-proc nbEdges*(this: ShapeExtendWireData): int {.noSideEffect, importcpp: "NbEdges",
+proc nbEdges*(this: ShapeExtendWireData): cint {.noSideEffect, importcpp: "NbEdges",
     header: "ShapeExtend_WireData.hxx".}
-proc nbNonManifoldEdges*(this: ShapeExtendWireData): int {.noSideEffect,
+proc nbNonManifoldEdges*(this: ShapeExtendWireData): cint {.noSideEffect,
     importcpp: "NbNonManifoldEdges", header: "ShapeExtend_WireData.hxx".}
-proc nonmanifoldEdge*(this: ShapeExtendWireData; num: int): TopoDS_Edge {.
+proc nonmanifoldEdge*(this: ShapeExtendWireData; num: cint): TopoDS_Edge {.
     noSideEffect, importcpp: "NonmanifoldEdge", header: "ShapeExtend_WireData.hxx".}
 proc nonmanifoldEdges*(this: ShapeExtendWireData): Handle[TopToolsHSequenceOfShape] {.
     noSideEffect, importcpp: "NonmanifoldEdges", header: "ShapeExtend_WireData.hxx".}
 proc manifoldMode*(this: var ShapeExtendWireData): var bool {.
     importcpp: "ManifoldMode", header: "ShapeExtend_WireData.hxx".}
-proc edge*(this: ShapeExtendWireData; num: int): TopoDS_Edge {.noSideEffect,
+proc edge*(this: ShapeExtendWireData; num: cint): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "ShapeExtend_WireData.hxx".}
-proc index*(this: var ShapeExtendWireData; edge: TopoDS_Edge): int {.
+proc index*(this: var ShapeExtendWireData; edge: TopoDS_Edge): cint {.
     importcpp: "Index", header: "ShapeExtend_WireData.hxx".}
-proc isSeam*(this: var ShapeExtendWireData; num: int): bool {.importcpp: "IsSeam",
+proc isSeam*(this: var ShapeExtendWireData; num: cint): bool {.importcpp: "IsSeam",
     header: "ShapeExtend_WireData.hxx".}
 proc wire*(this: ShapeExtendWireData): TopoDS_Wire {.noSideEffect, importcpp: "Wire",
     header: "ShapeExtend_WireData.hxx".}
@@ -133,3 +133,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeExtend_WireData.hxx".}
 proc dynamicType*(this: ShapeExtendWireData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeExtend_WireData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

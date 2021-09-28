@@ -18,3 +18,28 @@ type
   TColStdMapIteratorOfMapOfTransient* = Iterator[Handle[StandardTransient],
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

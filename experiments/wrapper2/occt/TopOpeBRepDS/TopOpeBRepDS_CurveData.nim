@@ -26,3 +26,28 @@ proc constructTopOpeBRepDS_CurveData*(): TopOpeBRepDS_CurveData {.constructor,
 proc constructTopOpeBRepDS_CurveData*(c: TopOpeBRepDS_Curve): TopOpeBRepDS_CurveData {.
     constructor, importcpp: "TopOpeBRepDS_CurveData(@)",
     header: "TopOpeBRepDS_CurveData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

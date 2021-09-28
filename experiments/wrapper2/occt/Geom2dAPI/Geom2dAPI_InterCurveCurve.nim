@@ -21,51 +21,45 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of Geom2dInt_GInter"
 type
   Geom2dAPI_InterCurveCurve* {.importcpp: "Geom2dAPI_InterCurveCurve",
-                              header: "Geom2dAPI_InterCurveCurve.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Create
-                                                                                    ## an
-                                                                                    ## empty
-                                                                                    ## intersector.
-                                                                                    ## Use
-                                                                                    ## the
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## function
-                                                                                    ## Init
-                                                                                    ## for
-                                                                                    ## further
-                                                                                    ## initialization
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## intersection
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## algorithm
-                                                                                    ## by
-                                                                                    ## curves
-                                                                                    ## or
-                                                                                    ## curve.
+                              header: "Geom2dAPI_InterCurveCurve.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dAPI_InterCurveCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dAPI_InterCurveCurve::operator new",
+    header: "Geom2dAPI_InterCurveCurve.hxx".}
+proc `delete`*(this: var Geom2dAPI_InterCurveCurve; theAddress: pointer) {.
+    importcpp: "Geom2dAPI_InterCurveCurve::operator delete",
+    header: "Geom2dAPI_InterCurveCurve.hxx".}
+proc `new[]`*(this: var Geom2dAPI_InterCurveCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dAPI_InterCurveCurve::operator new[]",
+    header: "Geom2dAPI_InterCurveCurve.hxx".}
+proc `delete[]`*(this: var Geom2dAPI_InterCurveCurve; theAddress: pointer) {.
+    importcpp: "Geom2dAPI_InterCurveCurve::operator delete[]",
+    header: "Geom2dAPI_InterCurveCurve.hxx".}
+proc `new`*(this: var Geom2dAPI_InterCurveCurve; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dAPI_InterCurveCurve::operator new",
+    header: "Geom2dAPI_InterCurveCurve.hxx".}
+proc `delete`*(this: var Geom2dAPI_InterCurveCurve; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dAPI_InterCurveCurve::operator delete",
+    header: "Geom2dAPI_InterCurveCurve.hxx".}
 proc constructGeom2dAPI_InterCurveCurve*(): Geom2dAPI_InterCurveCurve {.
     constructor, importcpp: "Geom2dAPI_InterCurveCurve(@)",
     header: "Geom2dAPI_InterCurveCurve.hxx".}
 proc constructGeom2dAPI_InterCurveCurve*(c1: Handle[Geom2dCurve];
                                         c2: Handle[Geom2dCurve];
-                                        tol: float = 1.0e-6): Geom2dAPI_InterCurveCurve {.
+                                        tol: StandardReal = 1.0e-6): Geom2dAPI_InterCurveCurve {.
     constructor, importcpp: "Geom2dAPI_InterCurveCurve(@)",
     header: "Geom2dAPI_InterCurveCurve.hxx".}
 proc constructGeom2dAPI_InterCurveCurve*(c1: Handle[Geom2dCurve];
-                                        tol: float = 1.0e-6): Geom2dAPI_InterCurveCurve {.
+                                        tol: StandardReal = 1.0e-6): Geom2dAPI_InterCurveCurve {.
     constructor, importcpp: "Geom2dAPI_InterCurveCurve(@)",
     header: "Geom2dAPI_InterCurveCurve.hxx".}
 proc init*(this: var Geom2dAPI_InterCurveCurve; c1: Handle[Geom2dCurve];
-          c2: Handle[Geom2dCurve]; tol: float = 1.0e-6) {.importcpp: "Init",
+          c2: Handle[Geom2dCurve]; tol: StandardReal = 1.0e-6) {.importcpp: "Init",
     header: "Geom2dAPI_InterCurveCurve.hxx".}
 proc init*(this: var Geom2dAPI_InterCurveCurve; c1: Handle[Geom2dCurve];
-          tol: float = 1.0e-6) {.importcpp: "Init",
-                             header: "Geom2dAPI_InterCurveCurve.hxx".}
+          tol: StandardReal = 1.0e-6) {.importcpp: "Init",
+                                    header: "Geom2dAPI_InterCurveCurve.hxx".}
 proc nbPoints*(this: Geom2dAPI_InterCurveCurve): int {.noSideEffect,
     importcpp: "NbPoints", header: "Geom2dAPI_InterCurveCurve.hxx".}
 proc point*(this: Geom2dAPI_InterCurveCurve; index: int): Pnt2d {.noSideEffect,

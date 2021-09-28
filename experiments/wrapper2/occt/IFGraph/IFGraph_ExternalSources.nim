@@ -42,3 +42,28 @@ proc evaluate*(this: var IFGraphExternalSources) {.importcpp: "Evaluate",
     header: "IFGraph_ExternalSources.hxx".}
 proc isEmpty*(this: var IFGraphExternalSources): bool {.importcpp: "IsEmpty",
     header: "IFGraph_ExternalSources.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

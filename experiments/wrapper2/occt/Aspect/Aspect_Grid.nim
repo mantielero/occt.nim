@@ -46,32 +46,32 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Aspect_Grid::get_type_descriptor(@)", header: "Aspect_Grid.hxx".}
 proc dynamicType*(this: AspectGrid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_Grid.hxx".}
-proc setXOrigin*(this: var AspectGrid; anOrigin: float) {.importcpp: "SetXOrigin",
+proc setXOrigin*(this: var AspectGrid; anOrigin: cfloat) {.importcpp: "SetXOrigin",
     header: "Aspect_Grid.hxx".}
-proc setYOrigin*(this: var AspectGrid; anOrigin: float) {.importcpp: "SetYOrigin",
+proc setYOrigin*(this: var AspectGrid; anOrigin: cfloat) {.importcpp: "SetYOrigin",
     header: "Aspect_Grid.hxx".}
-proc setRotationAngle*(this: var AspectGrid; anAngle: float) {.
+proc setRotationAngle*(this: var AspectGrid; anAngle: cfloat) {.
     importcpp: "SetRotationAngle", header: "Aspect_Grid.hxx".}
-proc rotate*(this: var AspectGrid; anAngle: float) {.importcpp: "Rotate",
+proc rotate*(this: var AspectGrid; anAngle: cfloat) {.importcpp: "Rotate",
     header: "Aspect_Grid.hxx".}
-proc translate*(this: var AspectGrid; aDx: float; aDy: float) {.importcpp: "Translate",
-    header: "Aspect_Grid.hxx".}
+proc translate*(this: var AspectGrid; aDx: cfloat; aDy: cfloat) {.
+    importcpp: "Translate", header: "Aspect_Grid.hxx".}
 proc setColors*(this: var AspectGrid; aColor: QuantityColor;
                aTenthColor: QuantityColor) {.importcpp: "SetColors",
     header: "Aspect_Grid.hxx".}
-proc hit*(this: AspectGrid; x: float; y: float; gridX: var float; gridY: var float) {.
+proc hit*(this: AspectGrid; x: cfloat; y: cfloat; gridX: var cfloat; gridY: var cfloat) {.
     noSideEffect, importcpp: "Hit", header: "Aspect_Grid.hxx".}
-proc compute*(this: AspectGrid; x: float; y: float; gridX: var float; gridY: var float) {.
+proc compute*(this: AspectGrid; x: cfloat; y: cfloat; gridX: var cfloat; gridY: var cfloat) {.
     noSideEffect, importcpp: "Compute", header: "Aspect_Grid.hxx".}
 proc activate*(this: var AspectGrid) {.importcpp: "Activate",
                                    header: "Aspect_Grid.hxx".}
 proc deactivate*(this: var AspectGrid) {.importcpp: "Deactivate",
                                      header: "Aspect_Grid.hxx".}
-proc xOrigin*(this: AspectGrid): float {.noSideEffect, importcpp: "XOrigin",
-                                     header: "Aspect_Grid.hxx".}
-proc yOrigin*(this: AspectGrid): float {.noSideEffect, importcpp: "YOrigin",
-                                     header: "Aspect_Grid.hxx".}
-proc rotationAngle*(this: AspectGrid): float {.noSideEffect,
+proc xOrigin*(this: AspectGrid): cfloat {.noSideEffect, importcpp: "XOrigin",
+                                      header: "Aspect_Grid.hxx".}
+proc yOrigin*(this: AspectGrid): cfloat {.noSideEffect, importcpp: "YOrigin",
+                                      header: "Aspect_Grid.hxx".}
+proc rotationAngle*(this: AspectGrid): cfloat {.noSideEffect,
     importcpp: "RotationAngle", header: "Aspect_Grid.hxx".}
 proc isActive*(this: AspectGrid): bool {.noSideEffect, importcpp: "IsActive",
                                      header: "Aspect_Grid.hxx".}
@@ -88,9 +88,34 @@ proc erase*(this: AspectGrid) {.noSideEffect, importcpp: "Erase",
 proc isDisplayed*(this: AspectGrid): bool {.noSideEffect, importcpp: "IsDisplayed",
                                         header: "Aspect_Grid.hxx".}
 proc init*(this: var AspectGrid) {.importcpp: "Init", header: "Aspect_Grid.hxx".}
-proc dumpJson*(this: AspectGrid; theOStream: var StandardOStream; theDepth: int = -1) {.
+proc dumpJson*(this: AspectGrid; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Aspect_Grid.hxx".}
 discard "forward decl of Aspect_Grid"
 type
-  HandleAspectGrid* = Handle[AspectGrid]
+  HandleC1C1* = Handle[AspectGrid]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

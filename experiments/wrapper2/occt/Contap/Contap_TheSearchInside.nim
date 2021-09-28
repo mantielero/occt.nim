@@ -31,24 +31,66 @@ type
 
 proc constructContapTheSearchInside*(): ContapTheSearchInside {.constructor,
     importcpp: "Contap_TheSearchInside(@)", header: "Contap_TheSearchInside.hxx".}
-proc constructContapTheSearchInside*(f: var ContapSurfFunction;
-                                    surf: Handle[Adaptor3dHSurface];
-                                    t: Handle[Adaptor3dTopolTool]; epsilon: float): ContapTheSearchInside {.
-    constructor, importcpp: "Contap_TheSearchInside(@)",
-    header: "Contap_TheSearchInside.hxx".}
-proc perform*(this: var ContapTheSearchInside; f: var ContapSurfFunction;
-             surf: Handle[Adaptor3dHSurface]; t: Handle[Adaptor3dTopolTool];
-             epsilon: float) {.importcpp: "Perform",
-                             header: "Contap_TheSearchInside.hxx".}
-proc perform*(this: var ContapTheSearchInside; f: var ContapSurfFunction;
-             surf: Handle[Adaptor3dHSurface]; uStart: float; vStart: float) {.
-    importcpp: "Perform", header: "Contap_TheSearchInside.hxx".}
+## !!!Ignored construct:  Contap_TheSearchInside ( Contap_SurfFunction & F , const Handle ( Adaptor3d_HSurface ) & Surf , const Handle ( Adaptor3d_TopolTool ) & T , const Standard_Real Epsilon ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void Perform ( Contap_SurfFunction & F , const Handle ( Adaptor3d_HSurface ) & Surf , const Handle ( Adaptor3d_TopolTool ) & T , const Standard_Real Epsilon ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void Perform ( Contap_SurfFunction & F , const Handle ( Adaptor3d_HSurface ) & Surf , const Standard_Real UStart , const Standard_Real VStart ) ;
+## Error: token expected: ) but got: &!!!
+
 proc isDone*(this: ContapTheSearchInside): bool {.noSideEffect, importcpp: "IsDone",
     header: "Contap_TheSearchInside.hxx".}
 proc nbPoints*(this: ContapTheSearchInside): int {.noSideEffect,
     importcpp: "NbPoints", header: "Contap_TheSearchInside.hxx".}
 proc value*(this: ContapTheSearchInside; index: int): IntSurfInteriorPoint {.
     noSideEffect, importcpp: "Value", header: "Contap_TheSearchInside.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # Handle_TheTopolTool opencascade :: handle < Adaptor3d_TopolTool > [end of template] [NewLine] # TheTopolTool Adaptor3d_TopolTool [NewLine] # TheTopolTool_hxx < Adaptor3d_TopolTool . hxx > [NewLine] # TheSITool Contap_HContTool [NewLine] # TheSITool_hxx < Contap_HContTool . hxx > [NewLine] # TheFunction Contap_SurfFunction [NewLine] # TheFunction_hxx < Contap_SurfFunction . hxx > [NewLine] # IntStart_SearchInside Contap_TheSearchInside [NewLine] # IntStart_SearchInside_hxx < Contap_TheSearchInside . hxx > [NewLine] # < IntStart_SearchInside . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # Handle_TheTopolTool [NewLine] # TheTopolTool [NewLine] # TheTopolTool_hxx [NewLine] # TheSITool [NewLine] # TheSITool_hxx [NewLine] # TheFunction [NewLine] # TheFunction_hxx [NewLine] # IntStart_SearchInside [NewLine] # IntStart_SearchInside_hxx [NewLine] #  _Contap_TheSearchInside_HeaderFile
+## !!!Ignored construct:  # ThePSurface Handle ( Adaptor3d_HSurface ) [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # Handle_TheTopolTool Handle ( Adaptor3d_TopolTool ) [NewLine] # TheTopolTool Adaptor3d_TopolTool [NewLine] # TheTopolTool_hxx < Adaptor3d_TopolTool . hxx > [NewLine] # TheSITool Contap_HContTool [NewLine] # TheSITool_hxx < Contap_HContTool . hxx > [NewLine] # TheFunction Contap_SurfFunction [NewLine] # TheFunction_hxx < Contap_SurfFunction . hxx > [NewLine] # IntStart_SearchInside Contap_TheSearchInside [NewLine] # IntStart_SearchInside_hxx < Contap_TheSearchInside . hxx > [NewLine] # < IntStart_SearchInside . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # Handle_TheTopolTool [NewLine] # TheTopolTool [NewLine] # TheTopolTool_hxx [NewLine] # TheSITool [NewLine] # TheSITool_hxx [NewLine] # TheFunction [NewLine] # TheFunction_hxx [NewLine] # IntStart_SearchInside [NewLine] # IntStart_SearchInside_hxx [NewLine] #  _Contap_TheSearchInside_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

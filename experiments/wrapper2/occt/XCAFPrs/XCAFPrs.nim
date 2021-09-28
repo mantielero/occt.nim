@@ -34,3 +34,28 @@ proc setViewNameMode*(viewNameMode: bool) {.
     importcpp: "XCAFPrs::SetViewNameMode(@)", header: "XCAFPrs.hxx".}
 proc getViewNameMode*(): bool {.importcpp: "XCAFPrs::GetViewNameMode(@)",
                              header: "XCAFPrs.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

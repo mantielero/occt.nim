@@ -36,8 +36,8 @@ proc destroyViewerTestContinuousRedrawer*(this: var ViewerTestContinuousRedrawer
 proc isStarted*(this: ViewerTestContinuousRedrawer): bool {.noSideEffect,
     importcpp: "IsStarted", header: "ViewerTest_ContinuousRedrawer.hxx".}
 proc start*(this: var ViewerTestContinuousRedrawer; theWindow: Handle[AspectWindow];
-           theTargetFps: float) {.importcpp: "Start",
-                                header: "ViewerTest_ContinuousRedrawer.hxx".}
+           theTargetFps: cfloat) {.importcpp: "Start",
+                                 header: "ViewerTest_ContinuousRedrawer.hxx".}
 proc stop*(this: var ViewerTestContinuousRedrawer;
           theWindow: Handle[AspectWindow] = nil) {.importcpp: "Stop",
     header: "ViewerTest_ContinuousRedrawer.hxx".}
@@ -45,3 +45,28 @@ proc isPaused*(this: ViewerTestContinuousRedrawer): bool {.noSideEffect,
     importcpp: "IsPaused", header: "ViewerTest_ContinuousRedrawer.hxx".}
 proc pause*(this: var ViewerTestContinuousRedrawer) {.importcpp: "Pause",
     header: "ViewerTest_ContinuousRedrawer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

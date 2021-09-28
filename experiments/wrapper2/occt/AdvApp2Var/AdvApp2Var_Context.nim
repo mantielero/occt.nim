@@ -24,8 +24,9 @@ type
 
 proc constructAdvApp2VarContext*(): AdvApp2VarContext {.constructor,
     importcpp: "AdvApp2Var_Context(@)", header: "AdvApp2Var_Context.hxx".}
-proc constructAdvApp2VarContext*(ifav: int; iu: int; iv: int; nlimu: int; nlimv: int;
-                                iprecis: int; nb1Dss: int; nb2Dss: int; nb3Dss: int;
+proc constructAdvApp2VarContext*(ifav: cint; iu: cint; iv: cint; nlimu: cint;
+                                nlimv: cint; iprecis: cint; nb1Dss: cint;
+                                nb2Dss: cint; nb3Dss: cint;
                                 tol1D: Handle[TColStdHArray1OfReal];
                                 tol2D: Handle[TColStdHArray1OfReal];
                                 tol3D: Handle[TColStdHArray1OfReal];
@@ -34,23 +35,23 @@ proc constructAdvApp2VarContext*(ifav: int; iu: int; iv: int; nlimu: int; nlimv:
                                 tof3D: Handle[TColStdHArray2OfReal]): AdvApp2VarContext {.
     constructor, importcpp: "AdvApp2Var_Context(@)",
     header: "AdvApp2Var_Context.hxx".}
-proc totalDimension*(this: AdvApp2VarContext): int {.noSideEffect,
+proc totalDimension*(this: AdvApp2VarContext): cint {.noSideEffect,
     importcpp: "TotalDimension", header: "AdvApp2Var_Context.hxx".}
-proc totalNumberSSP*(this: AdvApp2VarContext): int {.noSideEffect,
+proc totalNumberSSP*(this: AdvApp2VarContext): cint {.noSideEffect,
     importcpp: "TotalNumberSSP", header: "AdvApp2Var_Context.hxx".}
-proc favorIso*(this: AdvApp2VarContext): int {.noSideEffect, importcpp: "FavorIso",
+proc favorIso*(this: AdvApp2VarContext): cint {.noSideEffect, importcpp: "FavorIso",
     header: "AdvApp2Var_Context.hxx".}
-proc uOrder*(this: AdvApp2VarContext): int {.noSideEffect, importcpp: "UOrder",
+proc uOrder*(this: AdvApp2VarContext): cint {.noSideEffect, importcpp: "UOrder",
     header: "AdvApp2Var_Context.hxx".}
-proc vOrder*(this: AdvApp2VarContext): int {.noSideEffect, importcpp: "VOrder",
+proc vOrder*(this: AdvApp2VarContext): cint {.noSideEffect, importcpp: "VOrder",
     header: "AdvApp2Var_Context.hxx".}
-proc uLimit*(this: AdvApp2VarContext): int {.noSideEffect, importcpp: "ULimit",
+proc uLimit*(this: AdvApp2VarContext): cint {.noSideEffect, importcpp: "ULimit",
     header: "AdvApp2Var_Context.hxx".}
-proc vLimit*(this: AdvApp2VarContext): int {.noSideEffect, importcpp: "VLimit",
+proc vLimit*(this: AdvApp2VarContext): cint {.noSideEffect, importcpp: "VLimit",
     header: "AdvApp2Var_Context.hxx".}
-proc uJacDeg*(this: AdvApp2VarContext): int {.noSideEffect, importcpp: "UJacDeg",
+proc uJacDeg*(this: AdvApp2VarContext): cint {.noSideEffect, importcpp: "UJacDeg",
     header: "AdvApp2Var_Context.hxx".}
-proc vJacDeg*(this: AdvApp2VarContext): int {.noSideEffect, importcpp: "VJacDeg",
+proc vJacDeg*(this: AdvApp2VarContext): cint {.noSideEffect, importcpp: "VJacDeg",
     header: "AdvApp2Var_Context.hxx".}
 proc uJacMax*(this: AdvApp2VarContext): Handle[TColStdHArray1OfReal] {.noSideEffect,
     importcpp: "UJacMax", header: "AdvApp2Var_Context.hxx".}
@@ -70,3 +71,28 @@ proc fToler*(this: AdvApp2VarContext): Handle[TColStdHArray2OfReal] {.noSideEffe
     importcpp: "FToler", header: "AdvApp2Var_Context.hxx".}
 proc cToler*(this: AdvApp2VarContext): Handle[TColStdHArray2OfReal] {.noSideEffect,
     importcpp: "CToler", header: "AdvApp2Var_Context.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

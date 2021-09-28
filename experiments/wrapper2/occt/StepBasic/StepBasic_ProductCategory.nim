@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ProductCategory"
 discard "forward decl of StepBasic_ProductCategory"
 type
-  HandleStepBasicProductCategory* = Handle[StepBasicProductCategory]
+  HandleC1C1* = Handle[StepBasicProductCategory]
   StepBasicProductCategory* {.importcpp: "StepBasic_ProductCategory",
                              header: "StepBasic_ProductCategory.hxx", bycopy.} = object of StandardTransient ##
                                                                                                       ## !
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_ProductCategory.hxx".}
 proc dynamicType*(this: StepBasicProductCategory): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_ProductCategory.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

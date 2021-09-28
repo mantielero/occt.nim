@@ -18,3 +18,28 @@ type
   StepAP214Array1OfAutoDesignGeneralOrgItem* = NCollectionArray1[
       StepAP214AutoDesignGeneralOrgItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

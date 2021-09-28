@@ -26,10 +26,35 @@ proc constructTopOpeBRepDS_PointData*(): TopOpeBRepDS_PointData {.constructor,
 proc constructTopOpeBRepDS_PointData*(p: TopOpeBRepDS_Point): TopOpeBRepDS_PointData {.
     constructor, importcpp: "TopOpeBRepDS_PointData(@)",
     header: "TopOpeBRepDS_PointData.hxx".}
-proc constructTopOpeBRepDS_PointData*(p: TopOpeBRepDS_Point; i1: int; i2: int): TopOpeBRepDS_PointData {.
+proc constructTopOpeBRepDS_PointData*(p: TopOpeBRepDS_Point; i1: cint; i2: cint): TopOpeBRepDS_PointData {.
     constructor, importcpp: "TopOpeBRepDS_PointData(@)",
     header: "TopOpeBRepDS_PointData.hxx".}
-proc setShapes*(this: var TopOpeBRepDS_PointData; i1: int; i2: int) {.
+proc setShapes*(this: var TopOpeBRepDS_PointData; i1: cint; i2: cint) {.
     importcpp: "SetShapes", header: "TopOpeBRepDS_PointData.hxx".}
-proc getShapes*(this: TopOpeBRepDS_PointData; i1: var int; i2: var int) {.noSideEffect,
+proc getShapes*(this: TopOpeBRepDS_PointData; i1: var cint; i2: var cint) {.noSideEffect,
     importcpp: "GetShapes", header: "TopOpeBRepDS_PointData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

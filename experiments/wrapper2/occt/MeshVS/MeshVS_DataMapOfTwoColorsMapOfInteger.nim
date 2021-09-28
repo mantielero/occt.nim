@@ -19,3 +19,28 @@ type
   MeshVS_DataMapIteratorOfDataMapOfTwoColorsMapOfInteger* = Iterator[
       MeshVS_TwoColors, TColStdMapOfInteger, MeshVS_TwoColorsHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

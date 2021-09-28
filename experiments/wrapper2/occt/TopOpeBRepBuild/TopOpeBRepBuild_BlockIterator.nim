@@ -24,7 +24,7 @@ type
 proc constructTopOpeBRepBuildBlockIterator*(): TopOpeBRepBuildBlockIterator {.
     constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc constructTopOpeBRepBuildBlockIterator*(lower: int; upper: int): TopOpeBRepBuildBlockIterator {.
+proc constructTopOpeBRepBuildBlockIterator*(lower: cint; upper: cint): TopOpeBRepBuildBlockIterator {.
     constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc initialize*(this: var TopOpeBRepBuildBlockIterator) {.importcpp: "Initialize",
@@ -33,7 +33,32 @@ proc more*(this: TopOpeBRepBuildBlockIterator): bool {.noSideEffect,
     importcpp: "More", header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc next*(this: var TopOpeBRepBuildBlockIterator) {.importcpp: "Next",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc value*(this: TopOpeBRepBuildBlockIterator): int {.noSideEffect,
+proc value*(this: TopOpeBRepBuildBlockIterator): cint {.noSideEffect,
     importcpp: "Value", header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc extent*(this: TopOpeBRepBuildBlockIterator): int {.noSideEffect,
+proc extent*(this: TopOpeBRepBuildBlockIterator): cint {.noSideEffect,
     importcpp: "Extent", header: "TopOpeBRepBuild_BlockIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

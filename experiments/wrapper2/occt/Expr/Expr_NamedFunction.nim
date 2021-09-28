@@ -25,7 +25,7 @@ discard "forward decl of Expr_GeneralFunction"
 discard "forward decl of Expr_NamedFunction"
 discard "forward decl of Expr_NamedFunction"
 type
-  HandleExprNamedFunction* = Handle[ExprNamedFunction]
+  HandleC1C1* = Handle[ExprNamedFunction]
   ExprNamedFunction* {.importcpp: "Expr_NamedFunction",
                       header: "Expr_NamedFunction.hxx", bycopy.} = object of ExprGeneralFunction ##
                                                                                           ## !
@@ -57,24 +57,24 @@ proc setName*(this: var ExprNamedFunction; newname: TCollectionAsciiString) {.
     importcpp: "SetName", header: "Expr_NamedFunction.hxx".}
 proc getName*(this: ExprNamedFunction): TCollectionAsciiString {.noSideEffect,
     importcpp: "GetName", header: "Expr_NamedFunction.hxx".}
-proc nbOfVariables*(this: ExprNamedFunction): int {.noSideEffect,
+proc nbOfVariables*(this: ExprNamedFunction): cint {.noSideEffect,
     importcpp: "NbOfVariables", header: "Expr_NamedFunction.hxx".}
-proc variable*(this: ExprNamedFunction; index: int): Handle[ExprNamedUnknown] {.
+proc variable*(this: ExprNamedFunction; index: cint): Handle[ExprNamedUnknown] {.
     noSideEffect, importcpp: "Variable", header: "Expr_NamedFunction.hxx".}
 proc evaluate*(this: ExprNamedFunction; vars: ExprArray1OfNamedUnknown;
-              values: TColStdArray1OfReal): float {.noSideEffect,
+              values: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_NamedFunction.hxx".}
 proc copy*(this: ExprNamedFunction): Handle[ExprGeneralFunction] {.noSideEffect,
     importcpp: "Copy", header: "Expr_NamedFunction.hxx".}
 proc derivative*(this: ExprNamedFunction; `var`: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralFunction] {.noSideEffect, importcpp: "Derivative",
                           header: "Expr_NamedFunction.hxx".}
-proc derivative*(this: ExprNamedFunction; `var`: Handle[ExprNamedUnknown]; deg: int): Handle[
+proc derivative*(this: ExprNamedFunction; `var`: Handle[ExprNamedUnknown]; deg: cint): Handle[
     ExprGeneralFunction] {.noSideEffect, importcpp: "Derivative",
                           header: "Expr_NamedFunction.hxx".}
 proc isIdentical*(this: ExprNamedFunction; `func`: Handle[ExprGeneralFunction]): bool {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_NamedFunction.hxx".}
-proc isLinearOnVariable*(this: ExprNamedFunction; index: int): bool {.noSideEffect,
+proc isLinearOnVariable*(this: ExprNamedFunction; index: cint): bool {.noSideEffect,
     importcpp: "IsLinearOnVariable", header: "Expr_NamedFunction.hxx".}
 proc getStringName*(this: ExprNamedFunction): TCollectionAsciiString {.noSideEffect,
     importcpp: "GetStringName", header: "Expr_NamedFunction.hxx".}
@@ -92,3 +92,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_NamedFunction.hxx".}
 proc dynamicType*(this: ExprNamedFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_NamedFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

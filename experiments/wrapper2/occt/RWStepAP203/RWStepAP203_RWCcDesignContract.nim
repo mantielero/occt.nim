@@ -29,7 +29,7 @@ proc constructRWStepAP203RWCcDesignContract*(): RWStepAP203RWCcDesignContract {.
     constructor, importcpp: "RWStepAP203_RWCcDesignContract(@)",
     header: "RWStepAP203_RWCcDesignContract.hxx".}
 proc readStep*(this: RWStepAP203RWCcDesignContract;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP203CcDesignContract]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP203_RWCcDesignContract.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepAP203RWCcDesignContract;
            ent: Handle[StepAP203CcDesignContract];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignContract.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

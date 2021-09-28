@@ -49,8 +49,8 @@ proc getCurve*(this: StdPrsShapeTool): TopoDS_Edge {.noSideEffect,
     importcpp: "GetCurve", header: "StdPrs_ShapeTool.hxx".}
 proc curveBound*(this: StdPrsShapeTool): BndBox {.noSideEffect,
     importcpp: "CurveBound", header: "StdPrs_ShapeTool.hxx".}
-proc neighbours*(this: StdPrsShapeTool): int {.noSideEffect, importcpp: "Neighbours",
-    header: "StdPrs_ShapeTool.hxx".}
+proc neighbours*(this: StdPrsShapeTool): cint {.noSideEffect,
+    importcpp: "Neighbours", header: "StdPrs_ShapeTool.hxx".}
 proc facesOfEdge*(this: StdPrsShapeTool): Handle[TopToolsHSequenceOfShape] {.
     noSideEffect, importcpp: "FacesOfEdge", header: "StdPrs_ShapeTool.hxx".}
 proc initVertex*(this: var StdPrsShapeTool) {.importcpp: "InitVertex",
@@ -77,3 +77,28 @@ proc polygon3D*(this: StdPrsShapeTool; l: var TopLocLocation): Handle[PolyPolygo
     noSideEffect, importcpp: "Polygon3D", header: "StdPrs_ShapeTool.hxx".}
 proc isPlanarFace*(theFace: TopoDS_Face): bool {.
     importcpp: "StdPrs_ShapeTool::IsPlanarFace(@)", header: "StdPrs_ShapeTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

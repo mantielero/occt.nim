@@ -19,7 +19,7 @@ discard "forward decl of GeomFill_LocationGuide"
 discard "forward decl of BRepFill_ACRLaw"
 discard "forward decl of BRepFill_ACRLaw"
 type
-  HandleBRepFillACRLaw* = Handle[BRepFillACRLaw]
+  HandleC1C1* = Handle[BRepFillACRLaw]
 
 ## ! Build Location Law,  with a Wire.   In the case
 ## ! of guided contour and trihedron by reduced
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_ACRLaw.hxx".}
 proc dynamicType*(this: BRepFillACRLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_ACRLaw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

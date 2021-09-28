@@ -35,12 +35,37 @@ type
 
 proc constructMathPSO*(theFunc: ptr MathMultipleVarFunction;
                       theLowBorder: MathVector; theUppBorder: MathVector;
-                      theSteps: MathVector; theNbParticles: int = 32;
-                      theNbIter: int = 100): MathPSO {.constructor,
+                      theSteps: MathVector; theNbParticles: cint = 32;
+                      theNbIter: cint = 100): MathPSO {.constructor,
     importcpp: "math_PSO(@)", header: "math_PSO.hxx".}
-proc perform*(this: var MathPSO; theSteps: MathVector; theValue: var float;
-             theOutPnt: var MathVector; theNbIter: int = 100) {.importcpp: "Perform",
+proc perform*(this: var MathPSO; theSteps: MathVector; theValue: var cfloat;
+             theOutPnt: var MathVector; theNbIter: cint = 100) {.importcpp: "Perform",
     header: "math_PSO.hxx".}
 proc perform*(this: var MathPSO; theParticles: var MathPSOParticlesPool;
-             theNbParticles: int; theValue: var float; theOutPnt: var MathVector;
-             theNbIter: int = 100) {.importcpp: "Perform", header: "math_PSO.hxx".}
+             theNbParticles: cint; theValue: var cfloat; theOutPnt: var MathVector;
+             theNbIter: cint = 100) {.importcpp: "Perform", header: "math_PSO.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

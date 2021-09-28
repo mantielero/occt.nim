@@ -17,3 +17,28 @@
 type
   IntSurfSequenceOfInteriorPoint* = NCollectionSequence[IntSurfInteriorPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

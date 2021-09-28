@@ -16,14 +16,54 @@
 ## !!!Ignored construct:  # _Aspect_IdentDefinitionError_HeaderFile [NewLine] # _Aspect_IdentDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Aspect_IdentDefinitionError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Aspect_IdentDefinitionError"
-type
-  HandleAspectIdentDefinitionErrorAspectIdentDefinitionError* = Handle[
-      AspectIdentDefinitionError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Aspect_IdentDefinitionError , Standard_OutOfRange ) # ! defined No_Exception && ! defined No_Aspect_IdentDefinitionError [NewLine] # Aspect_IdentDefinitionError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Aspect_IdentDefinitionError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Aspect_IdentDefinitionError [NewLine] # if ( CONDITION ) throw Aspect_IdentDefinitionError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Aspect_IdentDefinitionError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Aspect_IdentDefinitionError , Standard_OutOfRange ) #  _Aspect_IdentDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Aspect_IdentDefinitionError , Standard_OutOfRange ) #  _Aspect_IdentDefinitionError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

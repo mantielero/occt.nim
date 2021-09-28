@@ -17,8 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepElement_CurveElementSectionDefinition"
 discard "forward decl of StepElement_CurveElementSectionDefinition"
 type
-  HandleStepElementCurveElementSectionDefinition* = Handle[
-      StepElementCurveElementSectionDefinition]
+  HandleC1C1* = Handle[StepElementCurveElementSectionDefinition]
 
 ## ! Representation of STEP entity CurveElementSectionDefinition
 
@@ -35,7 +34,7 @@ proc constructStepElementCurveElementSectionDefinition*(): StepElementCurveEleme
     constructor, importcpp: "StepElement_CurveElementSectionDefinition(@)",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
 proc init*(this: var StepElementCurveElementSectionDefinition;
-          aDescription: Handle[TCollectionHAsciiString]; aSectionAngle: float) {.
+          aDescription: Handle[TCollectionHAsciiString]; aSectionAngle: cfloat) {.
     importcpp: "Init", header: "StepElement_CurveElementSectionDefinition.hxx".}
 proc description*(this: StepElementCurveElementSectionDefinition): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "Description", header: "StepElement_CurveElementSectionDefinition.hxx".}
@@ -43,11 +42,11 @@ proc setDescription*(this: var StepElementCurveElementSectionDefinition;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
-proc sectionAngle*(this: StepElementCurveElementSectionDefinition): float {.
+proc sectionAngle*(this: StepElementCurveElementSectionDefinition): cfloat {.
     noSideEffect, importcpp: "SectionAngle",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
 proc setSectionAngle*(this: var StepElementCurveElementSectionDefinition;
-                     sectionAngle: float) {.importcpp: "SetSectionAngle",
+                     sectionAngle: cfloat) {.importcpp: "SetSectionAngle",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
 type
   StepElementCurveElementSectionDefinitionbaseType* = StandardTransient
@@ -58,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_CurveE
 proc dynamicType*(this: StepElementCurveElementSectionDefinition): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepElement_CurveElementSectionDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

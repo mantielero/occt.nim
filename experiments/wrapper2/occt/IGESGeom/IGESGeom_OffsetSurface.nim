@@ -20,7 +20,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of IGESGeom_OffsetSurface"
 discard "forward decl of IGESGeom_OffsetSurface"
 type
-  HandleIGESGeomOffsetSurface* = Handle[IGESGeomOffsetSurface]
+  HandleC1C1* = Handle[IGESGeomOffsetSurface]
 
 ## ! defines IGESOffsetSurface, Type <140> Form <0>
 ## ! in package IGESGeom
@@ -40,14 +40,14 @@ type
 
 proc constructIGESGeomOffsetSurface*(): IGESGeomOffsetSurface {.constructor,
     importcpp: "IGESGeom_OffsetSurface(@)", header: "IGESGeom_OffsetSurface.hxx".}
-proc init*(this: var IGESGeomOffsetSurface; anIndicatoR: Xyz; aDistance: float;
+proc init*(this: var IGESGeomOffsetSurface; anIndicatoR: Xyz; aDistance: cfloat;
           aSurface: Handle[IGESDataIGESEntity]) {.importcpp: "Init",
     header: "IGESGeom_OffsetSurface.hxx".}
 proc offsetIndicator*(this: IGESGeomOffsetSurface): Vec {.noSideEffect,
     importcpp: "OffsetIndicator", header: "IGESGeom_OffsetSurface.hxx".}
 proc transformedOffsetIndicator*(this: IGESGeomOffsetSurface): Vec {.noSideEffect,
     importcpp: "TransformedOffsetIndicator", header: "IGESGeom_OffsetSurface.hxx".}
-proc distance*(this: IGESGeomOffsetSurface): float {.noSideEffect,
+proc distance*(this: IGESGeomOffsetSurface): cfloat {.noSideEffect,
     importcpp: "Distance", header: "IGESGeom_OffsetSurface.hxx".}
 proc surface*(this: IGESGeomOffsetSurface): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Surface", header: "IGESGeom_OffsetSurface.hxx".}
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_OffsetSurface.hxx".}
 proc dynamicType*(this: IGESGeomOffsetSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_OffsetSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

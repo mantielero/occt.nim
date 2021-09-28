@@ -16,8 +16,7 @@
 discard "forward decl of StepElement_SurfaceElementPurposeMember"
 discard "forward decl of StepElement_SurfaceElementPurposeMember"
 type
-  HandleStepElementSurfaceElementPurposeMember* = Handle[
-      StepElementSurfaceElementPurposeMember]
+  HandleC1C1* = Handle[StepElementSurfaceElementPurposeMember]
 
 ## ! Representation of member for  STEP SELECT type SurfaceElementPurpose
 
@@ -53,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Surfac
 proc dynamicType*(this: StepElementSurfaceElementPurposeMember): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepElement_SurfaceElementPurposeMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

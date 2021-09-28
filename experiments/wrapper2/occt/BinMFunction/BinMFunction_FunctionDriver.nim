@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMFunction_FunctionDriver"
 discard "forward decl of BinMFunction_FunctionDriver"
 type
-  HandleBinMFunctionFunctionDriver* = Handle[BinMFunctionFunctionDriver]
+  HandleC1C1* = Handle[BinMFunctionFunctionDriver]
 
 ## ! Function attribute Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMFunctionFunctionDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMFunction_FunctionDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

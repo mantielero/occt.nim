@@ -56,3 +56,28 @@ include BRepFill_TrimShellCorner
 include BRepFill_TrimSurfaceTool
 include BRepFill_TypeOfContact
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

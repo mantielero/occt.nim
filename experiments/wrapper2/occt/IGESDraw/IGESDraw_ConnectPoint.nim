@@ -22,7 +22,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDraw_ConnectPoint"
 discard "forward decl of IGESDraw_ConnectPoint"
 type
-  HandleIGESDrawConnectPoint* = Handle[IGESDrawConnectPoint]
+  HandleC1C1* = Handle[IGESDrawConnectPoint]
 
 ## ! defines IGESConnectPoint, Type <132> Form Number <0>
 ## ! in package IGESDraw
@@ -40,13 +40,13 @@ type
 proc constructIGESDrawConnectPoint*(): IGESDrawConnectPoint {.constructor,
     importcpp: "IGESDraw_ConnectPoint(@)", header: "IGESDraw_ConnectPoint.hxx".}
 proc init*(this: var IGESDrawConnectPoint; aPoint: Xyz;
-          aDisplaySymbol: Handle[IGESDataIGESEntity]; aTypeFlag: int;
-          aFunctionFlag: int;
+          aDisplaySymbol: Handle[IGESDataIGESEntity]; aTypeFlag: cint;
+          aFunctionFlag: cint;
           aFunctionIdentifier: Handle[TCollectionHAsciiString];
           anIdentifierTemplate: Handle[IGESGraphTextDisplayTemplate];
           aFunctionName: Handle[TCollectionHAsciiString];
           aFunctionTemplate: Handle[IGESGraphTextDisplayTemplate];
-          aPointIdentifier: int; aFunctionCode: int; aSwapFlag: int;
+          aPointIdentifier: cint; aFunctionCode: cint; aSwapFlag: cint;
           anOwnerSubfigure: Handle[IGESDataIGESEntity]) {.importcpp: "Init",
     header: "IGESDraw_ConnectPoint.hxx".}
 proc point*(this: IGESDrawConnectPoint): Pnt {.noSideEffect, importcpp: "Point",
@@ -57,9 +57,9 @@ proc hasDisplaySymbol*(this: IGESDrawConnectPoint): bool {.noSideEffect,
     importcpp: "HasDisplaySymbol", header: "IGESDraw_ConnectPoint.hxx".}
 proc displaySymbol*(this: IGESDrawConnectPoint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "DisplaySymbol", header: "IGESDraw_ConnectPoint.hxx".}
-proc typeFlag*(this: IGESDrawConnectPoint): int {.noSideEffect,
+proc typeFlag*(this: IGESDrawConnectPoint): cint {.noSideEffect,
     importcpp: "TypeFlag", header: "IGESDraw_ConnectPoint.hxx".}
-proc functionFlag*(this: IGESDrawConnectPoint): int {.noSideEffect,
+proc functionFlag*(this: IGESDrawConnectPoint): cint {.noSideEffect,
     importcpp: "FunctionFlag", header: "IGESDraw_ConnectPoint.hxx".}
 proc functionIdentifier*(this: IGESDrawConnectPoint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "FunctionIdentifier",
@@ -76,9 +76,9 @@ proc hasFunctionTemplate*(this: IGESDrawConnectPoint): bool {.noSideEffect,
 proc functionTemplate*(this: IGESDrawConnectPoint): Handle[
     IGESGraphTextDisplayTemplate] {.noSideEffect, importcpp: "FunctionTemplate",
                                    header: "IGESDraw_ConnectPoint.hxx".}
-proc pointIdentifier*(this: IGESDrawConnectPoint): int {.noSideEffect,
+proc pointIdentifier*(this: IGESDrawConnectPoint): cint {.noSideEffect,
     importcpp: "PointIdentifier", header: "IGESDraw_ConnectPoint.hxx".}
-proc functionCode*(this: IGESDrawConnectPoint): int {.noSideEffect,
+proc functionCode*(this: IGESDrawConnectPoint): cint {.noSideEffect,
     importcpp: "FunctionCode", header: "IGESDraw_ConnectPoint.hxx".}
 proc swapFlag*(this: IGESDrawConnectPoint): bool {.noSideEffect,
     importcpp: "SwapFlag", header: "IGESDraw_ConnectPoint.hxx".}
@@ -96,3 +96,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDraw_ConnectPoint.hxx".}
 proc dynamicType*(this: IGESDrawConnectPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDraw_ConnectPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -42,19 +42,44 @@ proc setCheckStatus*(this: var BOPAlgoCheckResult; theStatus: BOPAlgoCheckStatus
     importcpp: "SetCheckStatus", header: "BOPAlgo_CheckResult.hxx".}
 proc getCheckStatus*(this: BOPAlgoCheckResult): BOPAlgoCheckStatus {.noSideEffect,
     importcpp: "GetCheckStatus", header: "BOPAlgo_CheckResult.hxx".}
-proc setMaxDistance1*(this: var BOPAlgoCheckResult; theDist: float) {.
+proc setMaxDistance1*(this: var BOPAlgoCheckResult; theDist: cfloat) {.
     importcpp: "SetMaxDistance1", header: "BOPAlgo_CheckResult.hxx".}
-proc setMaxDistance2*(this: var BOPAlgoCheckResult; theDist: float) {.
+proc setMaxDistance2*(this: var BOPAlgoCheckResult; theDist: cfloat) {.
     importcpp: "SetMaxDistance2", header: "BOPAlgo_CheckResult.hxx".}
-proc setMaxParameter1*(this: var BOPAlgoCheckResult; thePar: float) {.
+proc setMaxParameter1*(this: var BOPAlgoCheckResult; thePar: cfloat) {.
     importcpp: "SetMaxParameter1", header: "BOPAlgo_CheckResult.hxx".}
-proc setMaxParameter2*(this: var BOPAlgoCheckResult; thePar: float) {.
+proc setMaxParameter2*(this: var BOPAlgoCheckResult; thePar: cfloat) {.
     importcpp: "SetMaxParameter2", header: "BOPAlgo_CheckResult.hxx".}
-proc getMaxDistance1*(this: BOPAlgoCheckResult): float {.noSideEffect,
+proc getMaxDistance1*(this: BOPAlgoCheckResult): cfloat {.noSideEffect,
     importcpp: "GetMaxDistance1", header: "BOPAlgo_CheckResult.hxx".}
-proc getMaxDistance2*(this: BOPAlgoCheckResult): float {.noSideEffect,
+proc getMaxDistance2*(this: BOPAlgoCheckResult): cfloat {.noSideEffect,
     importcpp: "GetMaxDistance2", header: "BOPAlgo_CheckResult.hxx".}
-proc getMaxParameter1*(this: BOPAlgoCheckResult): float {.noSideEffect,
+proc getMaxParameter1*(this: BOPAlgoCheckResult): cfloat {.noSideEffect,
     importcpp: "GetMaxParameter1", header: "BOPAlgo_CheckResult.hxx".}
-proc getMaxParameter2*(this: BOPAlgoCheckResult): float {.noSideEffect,
+proc getMaxParameter2*(this: BOPAlgoCheckResult): cfloat {.noSideEffect,
     importcpp: "GetMaxParameter2", header: "BOPAlgo_CheckResult.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

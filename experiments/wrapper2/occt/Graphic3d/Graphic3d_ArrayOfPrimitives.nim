@@ -15,7 +15,7 @@
 discard "forward decl of Graphic3d_ArrayOfPrimitives"
 discard "forward decl of Graphic3d_ArrayOfPrimitives"
 type
-  HandleGraphic3dArrayOfPrimitives* = Handle[Graphic3dArrayOfPrimitives]
+  HandleC1C1* = Handle[Graphic3dArrayOfPrimitives]
 
 ## ! This class furnish services to defined and fill an array of primitives
 ## ! which can be passed directly to graphics rendering API.
@@ -193,12 +193,12 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Graphic3dArrayOfPrimitives): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc createArray*(theType: Graphic3dTypeOfPrimitiveArray; theMaxVertexs: int;
-                 theMaxEdges: int; theArrayFlags: Graphic3dArrayFlags): Handle[
+proc createArray*(theType: Graphic3dTypeOfPrimitiveArray; theMaxVertexs: cint;
+                 theMaxEdges: cint; theArrayFlags: Graphic3dArrayFlags): Handle[
     Graphic3dArrayOfPrimitives] {.importcpp: "Graphic3d_ArrayOfPrimitives::CreateArray(@)",
                                  header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc createArray*(theType: Graphic3dTypeOfPrimitiveArray; theMaxVertexs: int;
-                 theMaxBounds: int; theMaxEdges: int;
+proc createArray*(theType: Graphic3dTypeOfPrimitiveArray; theMaxVertexs: cint;
+                 theMaxBounds: cint; theMaxEdges: cint;
                  theArrayFlags: Graphic3dArrayFlags): Handle[
     Graphic3dArrayOfPrimitives] {.importcpp: "Graphic3d_ArrayOfPrimitives::CreateArray(@)",
                                  header: "Graphic3d_ArrayOfPrimitives.hxx".}
@@ -218,205 +218,234 @@ proc hasVertexColors*(this: Graphic3dArrayOfPrimitives): bool {.noSideEffect,
     importcpp: "HasVertexColors", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc hasVertexTexels*(this: Graphic3dArrayOfPrimitives): bool {.noSideEffect,
     importcpp: "HasVertexTexels", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexNumber*(this: Graphic3dArrayOfPrimitives): int {.noSideEffect,
+proc vertexNumber*(this: Graphic3dArrayOfPrimitives): cint {.noSideEffect,
     importcpp: "VertexNumber", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexNumberAllocated*(this: Graphic3dArrayOfPrimitives): int {.noSideEffect,
+proc vertexNumberAllocated*(this: Graphic3dArrayOfPrimitives): cint {.noSideEffect,
     importcpp: "VertexNumberAllocated", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc itemNumber*(this: Graphic3dArrayOfPrimitives): int {.noSideEffect,
+proc itemNumber*(this: Graphic3dArrayOfPrimitives): cint {.noSideEffect,
     importcpp: "ItemNumber", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc isValid*(this: var Graphic3dArrayOfPrimitives): bool {.importcpp: "IsValid",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt): int {.
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt): cint {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Graphic3dVec3): int {.
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Graphic3dVec3): cint {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: float; theY: float;
-               theZ: float): int {.importcpp: "AddVertex",
-                                header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat;
+               theZ: cfloat): cint {.importcpp: "AddVertex",
+                                  header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardShortReal;
-               theY: StandardShortReal; theZ: StandardShortReal): int {.
+               theY: StandardShortReal; theZ: StandardShortReal): cint {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt;
-               theColor: QuantityColor): int {.importcpp: "AddVertex",
+               theColor: QuantityColor): cint {.importcpp: "AddVertex",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt; theColor32: int): int {.
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt; theColor32: cint): cint {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt;
-               theColor: Graphic3dVec4ub): int {.importcpp: "AddVertex",
+               theColor: Graphic3dVec4ub): cint {.importcpp: "AddVertex",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt; theNormal: Dir): int {.
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt; theNormal: Dir): cint {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: float; theY: float;
-               theZ: float; theNX: float; theNY: float; theNZ: float): int {.
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat;
+               theZ: cfloat; theNX: cfloat; theNY: cfloat; theNZ: cfloat): cint {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardShortReal;
                theY: StandardShortReal; theZ: StandardShortReal;
                theNX: StandardShortReal; theNY: StandardShortReal;
-               theNZ: StandardShortReal): int {.importcpp: "AddVertex",
+               theNZ: StandardShortReal): cint {.importcpp: "AddVertex",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt; theNormal: Dir;
-               theColor: QuantityColor): int {.importcpp: "AddVertex",
+               theColor: QuantityColor): cint {.importcpp: "AddVertex",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt; theNormal: Dir;
-               theColor32: int): int {.importcpp: "AddVertex",
-                                    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt; theTexel: Pnt2d): int {.
+               theColor32: cint): cint {.importcpp: "AddVertex",
+                                      header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt; theTexel: Pnt2d): cint {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: float; theY: float;
-               theZ: float; theTX: float; theTY: float): int {.importcpp: "AddVertex",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat;
+               theZ: cfloat; theTX: cfloat; theTY: cfloat): cint {.
+    importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardShortReal;
                theY: StandardShortReal; theZ: StandardShortReal;
-               theTX: StandardShortReal; theTY: StandardShortReal): int {.
+               theTX: StandardShortReal; theTY: StandardShortReal): cint {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Pnt; theNormal: Dir;
-               theTexel: Pnt2d): int {.importcpp: "AddVertex",
-                                    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: float; theY: float;
-               theZ: float; theNX: float; theNY: float; theNZ: float; theTX: float;
-               theTY: float): int {.importcpp: "AddVertex",
-                                 header: "Graphic3d_ArrayOfPrimitives.hxx".}
+               theTexel: Pnt2d): cint {.importcpp: "AddVertex",
+                                     header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: cfloat; theY: cfloat;
+               theZ: cfloat; theNX: cfloat; theNY: cfloat; theNZ: cfloat; theTX: cfloat;
+               theTY: cfloat): cint {.importcpp: "AddVertex",
+                                   header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardShortReal;
                theY: StandardShortReal; theZ: StandardShortReal;
                theNX: StandardShortReal; theNY: StandardShortReal;
                theNZ: StandardShortReal; theTX: StandardShortReal;
-               theTY: StandardShortReal): int {.importcpp: "AddVertex",
+               theTY: StandardShortReal): cint {.importcpp: "AddVertex",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertice*(this: var Graphic3dArrayOfPrimitives; theIndex: int; theVertex: Pnt) {.
+proc setVertice*(this: var Graphic3dArrayOfPrimitives; theIndex: cint; theVertex: Pnt) {.
     importcpp: "SetVertice", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertice*(this: var Graphic3dArrayOfPrimitives; theIndex: int;
+proc setVertice*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                 theX: StandardShortReal; theY: StandardShortReal;
                 theZ: StandardShortReal) {.importcpp: "SetVertice",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexColor*(this: var Graphic3dArrayOfPrimitives; theIndex: int;
+proc setVertexColor*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                     theColor: QuantityColor) {.importcpp: "SetVertexColor",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexColor*(this: var Graphic3dArrayOfPrimitives; theIndex: int; theR: float;
-                    theG: float; theB: float) {.importcpp: "SetVertexColor",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexColor*(this: var Graphic3dArrayOfPrimitives; theIndex: int;
+proc setVertexColor*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
+                    theR: cfloat; theG: cfloat; theB: cfloat) {.
+    importcpp: "SetVertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc setVertexColor*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                     theColor: Graphic3dVec4ub) {.importcpp: "SetVertexColor",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexColor*(this: var Graphic3dArrayOfPrimitives; theIndex: int;
-                    theColor32: int) {.importcpp: "SetVertexColor",
-                                     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexNormal*(this: var Graphic3dArrayOfPrimitives; theIndex: int;
+proc setVertexColor*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
+                    theColor32: cint) {.importcpp: "SetVertexColor",
+                                      header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc setVertexNormal*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                      theNormal: Dir) {.importcpp: "SetVertexNormal",
                                      header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexNormal*(this: var Graphic3dArrayOfPrimitives; theIndex: int;
-                     theNX: float; theNY: float; theNZ: float) {.
+proc setVertexNormal*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
+                     theNX: cfloat; theNY: cfloat; theNZ: cfloat) {.
     importcpp: "SetVertexNormal", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexTexel*(this: var Graphic3dArrayOfPrimitives; theIndex: int;
+proc setVertexTexel*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                     theTexel: Pnt2d) {.importcpp: "SetVertexTexel",
                                      header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexTexel*(this: var Graphic3dArrayOfPrimitives; theIndex: int;
-                    theTX: float; theTY: float) {.importcpp: "SetVertexTexel",
+proc setVertexTexel*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
+                    theTX: cfloat; theTY: cfloat) {.importcpp: "SetVertexTexel",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertice*(this: Graphic3dArrayOfPrimitives; theRank: int): Pnt {.noSideEffect,
+proc vertice*(this: Graphic3dArrayOfPrimitives; theRank: cint): Pnt {.noSideEffect,
     importcpp: "Vertice", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertice*(this: Graphic3dArrayOfPrimitives; theRank: int; theX: var float;
-             theY: var float; theZ: var float) {.noSideEffect, importcpp: "Vertice",
+proc vertice*(this: Graphic3dArrayOfPrimitives; theRank: cint; theX: var cfloat;
+             theY: var cfloat; theZ: var cfloat) {.noSideEffect, importcpp: "Vertice",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: int): QuantityColor {.
+proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: cint): QuantityColor {.
     noSideEffect, importcpp: "VertexColor",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexColor*(this: Graphic3dArrayOfPrimitives; theIndex: int;
+proc vertexColor*(this: Graphic3dArrayOfPrimitives; theIndex: cint;
                  theColor: var Graphic3dVec4ub) {.noSideEffect,
     importcpp: "VertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: int; theR: var float;
-                 theG: var float; theB: var float) {.noSideEffect,
+proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: cint; theR: var cfloat;
+                 theG: var cfloat; theB: var cfloat) {.noSideEffect,
     importcpp: "VertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: int; theColor: var int) {.
+proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: cint; theColor: var cint) {.
     noSideEffect, importcpp: "VertexColor",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: int): Dir {.
+proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: cint): Dir {.
     noSideEffect, importcpp: "VertexNormal",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: int; theNX: var float;
-                  theNY: var float; theNZ: var float) {.noSideEffect,
-    importcpp: "VertexNormal", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexTexel*(this: Graphic3dArrayOfPrimitives; theRank: int): Pnt2d {.
+proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: cint;
+                  theNX: var cfloat; theNY: var cfloat; theNZ: var cfloat) {.
+    noSideEffect, importcpp: "VertexNormal",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc vertexTexel*(this: Graphic3dArrayOfPrimitives; theRank: cint): Pnt2d {.
     noSideEffect, importcpp: "VertexTexel",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexTexel*(this: Graphic3dArrayOfPrimitives; theRank: int; theTX: var float;
-                 theTY: var float) {.noSideEffect, importcpp: "VertexTexel",
-                                  header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc vertexTexel*(this: Graphic3dArrayOfPrimitives; theRank: cint; theTX: var cfloat;
+                 theTY: var cfloat) {.noSideEffect, importcpp: "VertexTexel",
+                                   header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc indices*(this: Graphic3dArrayOfPrimitives): Handle[Graphic3dIndexBuffer] {.
     noSideEffect, importcpp: "Indices", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc edgeNumber*(this: Graphic3dArrayOfPrimitives): int {.noSideEffect,
+proc edgeNumber*(this: Graphic3dArrayOfPrimitives): cint {.noSideEffect,
     importcpp: "EdgeNumber", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc edgeNumberAllocated*(this: Graphic3dArrayOfPrimitives): int {.noSideEffect,
+proc edgeNumberAllocated*(this: Graphic3dArrayOfPrimitives): cint {.noSideEffect,
     importcpp: "EdgeNumberAllocated", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc edge*(this: Graphic3dArrayOfPrimitives; theRank: int): int {.noSideEffect,
+proc edge*(this: Graphic3dArrayOfPrimitives; theRank: cint): cint {.noSideEffect,
     importcpp: "Edge", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addEdge*(this: var Graphic3dArrayOfPrimitives; theVertexIndex: int): int {.
+proc addEdge*(this: var Graphic3dArrayOfPrimitives; theVertexIndex: cint): cint {.
     importcpp: "AddEdge", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: int;
-              theVertexIndex2: int): int {.importcpp: "AddEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addSegmentEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: int;
-                     theVertexIndex2: int): int {.importcpp: "AddSegmentEdges",
+proc addEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: cint;
+              theVertexIndex2: cint): cint {.importcpp: "AddEdges",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: int;
-              theVertexIndex2: int; theVertexIndex3: int): int {.
+proc addSegmentEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: cint;
+                     theVertexIndex2: cint): cint {.importcpp: "AddSegmentEdges",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc addEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: cint;
+              theVertexIndex2: cint; theVertexIndex3: cint): cint {.
     importcpp: "AddEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addTriangleEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: int;
-                      theVertexIndex2: int; theVertexIndex3: int): int {.
+proc addTriangleEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: cint;
+                      theVertexIndex2: cint; theVertexIndex3: cint): cint {.
     importcpp: "AddTriangleEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addTriangleEdges*(this: var Graphic3dArrayOfPrimitives;
-                      theIndexes: Graphic3dVec3i): int {.
+                      theIndexes: Graphic3dVec3i): cint {.
     importcpp: "AddTriangleEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addTriangleEdges*(this: var Graphic3dArrayOfPrimitives;
-                      theIndexes: Graphic3dVec4i): int {.
+                      theIndexes: Graphic3dVec4i): cint {.
     importcpp: "AddTriangleEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: int;
-              theVertexIndex2: int; theVertexIndex3: int; theVertexIndex4: int): int {.
+proc addEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: cint;
+              theVertexIndex2: cint; theVertexIndex3: cint; theVertexIndex4: cint): cint {.
     importcpp: "AddEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addQuadEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: int;
-                  theVertexIndex2: int; theVertexIndex3: int; theVertexIndex4: int): int {.
-    importcpp: "AddQuadEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc addQuadEdges*(this: var Graphic3dArrayOfPrimitives; theVertexIndex1: cint;
+                  theVertexIndex2: cint; theVertexIndex3: cint;
+                  theVertexIndex4: cint): cint {.importcpp: "AddQuadEdges",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addQuadTriangleEdges*(this: var Graphic3dArrayOfPrimitives;
-                          theVertexIndex1: int; theVertexIndex2: int;
-                          theVertexIndex3: int; theVertexIndex4: int): int {.
+                          theVertexIndex1: cint; theVertexIndex2: cint;
+                          theVertexIndex3: cint; theVertexIndex4: cint): cint {.
     importcpp: "AddQuadTriangleEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addQuadTriangleEdges*(this: var Graphic3dArrayOfPrimitives;
-                          theIndexes: Graphic3dVec4i): int {.
+                          theIndexes: Graphic3dVec4i): cint {.
     importcpp: "AddQuadTriangleEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc addTriangleStripEdges*(this: var Graphic3dArrayOfPrimitives;
-                           theVertexLower: int; theVertexUpper: int) {.
+                           theVertexLower: cint; theVertexUpper: cint) {.
     importcpp: "AddTriangleStripEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addTriangleFanEdges*(this: var Graphic3dArrayOfPrimitives; theVertexLower: int;
-                         theVertexUpper: int; theToClose: bool) {.
-    importcpp: "AddTriangleFanEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addPolylineEdges*(this: var Graphic3dArrayOfPrimitives; theVertexLower: int;
-                      theVertexUpper: int; theToClose: bool) {.
+proc addTriangleFanEdges*(this: var Graphic3dArrayOfPrimitives;
+                         theVertexLower: cint; theVertexUpper: cint;
+                         theToClose: bool) {.importcpp: "AddTriangleFanEdges",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc addPolylineEdges*(this: var Graphic3dArrayOfPrimitives; theVertexLower: cint;
+                      theVertexUpper: cint; theToClose: bool) {.
     importcpp: "AddPolylineEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc bounds*(this: Graphic3dArrayOfPrimitives): Handle[Graphic3dBoundBuffer] {.
     noSideEffect, importcpp: "Bounds", header: "Graphic3d_ArrayOfPrimitives.hxx".}
 proc hasBoundColors*(this: Graphic3dArrayOfPrimitives): bool {.noSideEffect,
     importcpp: "HasBoundColors", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc boundNumber*(this: Graphic3dArrayOfPrimitives): int {.noSideEffect,
+proc boundNumber*(this: Graphic3dArrayOfPrimitives): cint {.noSideEffect,
     importcpp: "BoundNumber", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc boundNumberAllocated*(this: Graphic3dArrayOfPrimitives): int {.noSideEffect,
+proc boundNumberAllocated*(this: Graphic3dArrayOfPrimitives): cint {.noSideEffect,
     importcpp: "BoundNumberAllocated", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc bound*(this: Graphic3dArrayOfPrimitives; theRank: int): int {.noSideEffect,
+proc bound*(this: Graphic3dArrayOfPrimitives; theRank: cint): cint {.noSideEffect,
     importcpp: "Bound", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc boundColor*(this: Graphic3dArrayOfPrimitives; theRank: int): QuantityColor {.
+proc boundColor*(this: Graphic3dArrayOfPrimitives; theRank: cint): QuantityColor {.
     noSideEffect, importcpp: "BoundColor",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc boundColor*(this: Graphic3dArrayOfPrimitives; theRank: int; theR: var float;
-                theG: var float; theB: var float) {.noSideEffect,
+proc boundColor*(this: Graphic3dArrayOfPrimitives; theRank: cint; theR: var cfloat;
+                theG: var cfloat; theB: var cfloat) {.noSideEffect,
     importcpp: "BoundColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addBound*(this: var Graphic3dArrayOfPrimitives; theEdgeNumber: int): int {.
+proc addBound*(this: var Graphic3dArrayOfPrimitives; theEdgeNumber: cint): cint {.
     importcpp: "AddBound", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addBound*(this: var Graphic3dArrayOfPrimitives; theEdgeNumber: int;
-              theBColor: QuantityColor): int {.importcpp: "AddBound",
+proc addBound*(this: var Graphic3dArrayOfPrimitives; theEdgeNumber: cint;
+              theBColor: QuantityColor): cint {.importcpp: "AddBound",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addBound*(this: var Graphic3dArrayOfPrimitives; theEdgeNumber: int; theR: float;
-              theG: float; theB: float): int {.importcpp: "AddBound",
+proc addBound*(this: var Graphic3dArrayOfPrimitives; theEdgeNumber: cint;
+              theR: cfloat; theG: cfloat; theB: cfloat): cint {.importcpp: "AddBound",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setBoundColor*(this: var Graphic3dArrayOfPrimitives; theIndex: int;
+proc setBoundColor*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                    theColor: QuantityColor) {.importcpp: "SetBoundColor",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setBoundColor*(this: var Graphic3dArrayOfPrimitives; theIndex: int; theR: float;
-                   theG: float; theB: float) {.importcpp: "SetBoundColor",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc setBoundColor*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
+                   theR: cfloat; theG: cfloat; theB: cfloat) {.
+    importcpp: "SetBoundColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

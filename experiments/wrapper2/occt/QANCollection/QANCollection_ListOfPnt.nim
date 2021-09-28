@@ -17,3 +17,28 @@ type
   QANCollectionListOfPnt* = NCollectionList[Pnt]
   QANCollectionListIteratorOfListOfPnt* = Iterator[Pnt]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

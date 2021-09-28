@@ -65,7 +65,7 @@ proc shareds*(this: InterfaceShareTool; ent: Handle[StandardTransient]): Interfa
 proc sharings*(this: InterfaceShareTool; ent: Handle[StandardTransient]): InterfaceEntityIterator {.
     noSideEffect, importcpp: "Sharings", header: "Interface_ShareTool.hxx".}
 proc nbTypedSharings*(this: InterfaceShareTool; ent: Handle[StandardTransient];
-                     atype: Handle[StandardType]): int {.noSideEffect,
+                     atype: Handle[StandardType]): cint {.noSideEffect,
     importcpp: "NbTypedSharings", header: "Interface_ShareTool.hxx".}
 proc typedSharing*(this: InterfaceShareTool; ent: Handle[StandardTransient];
                   atype: Handle[StandardType]): Handle[StandardTransient] {.
@@ -76,3 +76,28 @@ proc all*(this: InterfaceShareTool; ent: Handle[StandardTransient];
 proc print*(this: InterfaceShareTool; iter: InterfaceEntityIterator;
            s: var StandardOStream) {.noSideEffect, importcpp: "Print",
                                   header: "Interface_ShareTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

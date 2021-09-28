@@ -28,25 +28,50 @@ type
 
 proc constructExtremaExtCS*(): ExtremaExtCS {.constructor,
     importcpp: "Extrema_ExtCS(@)", header: "Extrema_ExtCS.hxx".}
-proc constructExtremaExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; tolC: float;
-                           tolS: float): ExtremaExtCS {.constructor,
+proc constructExtremaExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; tolC: cfloat;
+                           tolS: cfloat): ExtremaExtCS {.constructor,
     importcpp: "Extrema_ExtCS(@)", header: "Extrema_ExtCS.hxx".}
-proc constructExtremaExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; uCinf: float;
-                           uCsup: float; uinf: float; usup: float; vinf: float;
-                           vsup: float; tolC: float; tolS: float): ExtremaExtCS {.
+proc constructExtremaExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; uCinf: cfloat;
+                           uCsup: cfloat; uinf: cfloat; usup: cfloat; vinf: cfloat;
+                           vsup: cfloat; tolC: cfloat; tolS: cfloat): ExtremaExtCS {.
     constructor, importcpp: "Extrema_ExtCS(@)", header: "Extrema_ExtCS.hxx".}
-proc initialize*(this: var ExtremaExtCS; s: Adaptor3dSurface; uinf: float; usup: float;
-                vinf: float; vsup: float; tolC: float; tolS: float) {.
+proc initialize*(this: var ExtremaExtCS; s: Adaptor3dSurface; uinf: cfloat;
+                usup: cfloat; vinf: cfloat; vsup: cfloat; tolC: cfloat; tolS: cfloat) {.
     importcpp: "Initialize", header: "Extrema_ExtCS.hxx".}
-proc perform*(this: var ExtremaExtCS; c: Adaptor3dCurve; uinf: float; usup: float) {.
+proc perform*(this: var ExtremaExtCS; c: Adaptor3dCurve; uinf: cfloat; usup: cfloat) {.
     importcpp: "Perform", header: "Extrema_ExtCS.hxx".}
 proc isDone*(this: ExtremaExtCS): bool {.noSideEffect, importcpp: "IsDone",
                                      header: "Extrema_ExtCS.hxx".}
 proc isParallel*(this: ExtremaExtCS): bool {.noSideEffect, importcpp: "IsParallel",
     header: "Extrema_ExtCS.hxx".}
-proc nbExt*(this: ExtremaExtCS): int {.noSideEffect, importcpp: "NbExt",
-                                   header: "Extrema_ExtCS.hxx".}
-proc squareDistance*(this: ExtremaExtCS; n: int): float {.noSideEffect,
+proc nbExt*(this: ExtremaExtCS): cint {.noSideEffect, importcpp: "NbExt",
+                                    header: "Extrema_ExtCS.hxx".}
+proc squareDistance*(this: ExtremaExtCS; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_ExtCS.hxx".}
-proc points*(this: ExtremaExtCS; n: int; p1: var ExtremaPOnCurv; p2: var ExtremaPOnSurf) {.
+proc points*(this: ExtremaExtCS; n: cint; p1: var ExtremaPOnCurv; p2: var ExtremaPOnSurf) {.
     noSideEffect, importcpp: "Points", header: "Extrema_ExtCS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

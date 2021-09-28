@@ -21,7 +21,7 @@ discard "forward decl of Message_Msg"
 discard "forward decl of ShapeProcess_ShapeContext"
 discard "forward decl of ShapeProcess_ShapeContext"
 type
-  HandleShapeProcessShapeContext* = Handle[ShapeProcessShapeContext]
+  HandleC1C1* = Handle[ShapeProcessShapeContext]
 
 ## ! Extends Context to handle shapes
 ## ! Contains map of shape-shape, and messages
@@ -100,3 +100,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeProcess_ShapeContext.hxx".}
 proc dynamicType*(this: ShapeProcessShapeContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeProcess_ShapeContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

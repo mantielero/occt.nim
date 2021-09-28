@@ -143,3 +143,28 @@ proc addAllEdges*(theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer]): Handl
 proc addVertexes*(theShape: TopoDS_Shape; theVertexMode: Prs3dVertexDrawMode): Handle[
     Graphic3dArrayOfPoints] {.importcpp: "StdPrs_WFShape::AddVertexes(@)",
                              header: "StdPrs_WFShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,12 +25,12 @@ type
     entity* {.importc: "Entity".}: Handle[Select3D_SensitiveEntity] ## !< detected entity
     point* {.importc: "Point".}: Pnt ## !< 3D point
     normal* {.importc: "Normal".}: Graphic3dVec3 ## !< surface normal or 0 vector if undefined
-    depth* {.importc: "Depth".}: float ## !< distance from the view plane to the entity
-    minDist* {.importc: "MinDist".}: float ## !< distance from the clicked point to the entity on the view plane
-    tolerance* {.importc: "Tolerance".}: float ## !< tolerance used for selecting candidates
-    priority* {.importc: "Priority".}: int ## !< selection priority
-    zLayerPosition* {.importc: "ZLayerPosition".}: int ## !< ZLayer rendering order index, stronger than a depth
-    nbOwnerMatches* {.importc: "NbOwnerMatches".}: int ## !< overall number of entities collected for the same owner
+    depth* {.importc: "Depth".}: cfloat ## !< distance from the view plane to the entity
+    minDist* {.importc: "MinDist".}: cfloat ## !< distance from the clicked point to the entity on the view plane
+    tolerance* {.importc: "Tolerance".}: cfloat ## !< tolerance used for selecting candidates
+    priority* {.importc: "Priority".}: cint ## !< selection priority
+    zLayerPosition* {.importc: "ZLayerPosition".}: cint ## !< ZLayer rendering order index, stronger than a depth
+    nbOwnerMatches* {.importc: "NbOwnerMatches".}: cint ## !< overall number of entities collected for the same owner
 
 
 proc constructSelectMgrSortCriterion*(): SelectMgrSortCriterion {.constructor,
@@ -40,3 +40,28 @@ proc isCloserDepth*(this: SelectMgrSortCriterion; theOther: SelectMgrSortCriteri
 proc isHigherPriority*(this: SelectMgrSortCriterion;
                       theOther: SelectMgrSortCriterion): bool {.noSideEffect,
     importcpp: "IsHigherPriority", header: "SelectMgr_SortCriterion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

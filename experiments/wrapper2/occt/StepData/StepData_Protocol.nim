@@ -24,7 +24,7 @@ discard "forward decl of StepData_PDescr"
 discard "forward decl of StepData_Protocol"
 discard "forward decl of StepData_Protocol"
 type
-  HandleStepDataProtocol* = Handle[StepDataProtocol]
+  HandleC1C1* = Handle[StepDataProtocol]
 
 ## ! Description of Basic Protocol for Step
 ## ! The class Protocol from StepData itself describes a default
@@ -39,13 +39,13 @@ type
 
 proc constructStepDataProtocol*(): StepDataProtocol {.constructor,
     importcpp: "StepData_Protocol(@)", header: "StepData_Protocol.hxx".}
-proc nbResources*(this: StepDataProtocol): int {.noSideEffect,
+proc nbResources*(this: StepDataProtocol): cint {.noSideEffect,
     importcpp: "NbResources", header: "StepData_Protocol.hxx".}
-proc resource*(this: StepDataProtocol; num: int): Handle[InterfaceProtocol] {.
+proc resource*(this: StepDataProtocol; num: cint): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Resource", header: "StepData_Protocol.hxx".}
-proc caseNumber*(this: StepDataProtocol; obj: Handle[StandardTransient]): int {.
+proc caseNumber*(this: StepDataProtocol; obj: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNumber", header: "StepData_Protocol.hxx".}
-proc typeNumber*(this: StepDataProtocol; atype: Handle[StandardType]): int {.
+proc typeNumber*(this: StepDataProtocol; atype: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "TypeNumber", header: "StepData_Protocol.hxx".}
 proc schemaName*(this: StepDataProtocol): StandardCString {.noSideEffect,
     importcpp: "SchemaName", header: "StepData_Protocol.hxx".}
@@ -58,13 +58,13 @@ proc unknownEntity*(this: StepDataProtocol): Handle[StandardTransient] {.
     noSideEffect, importcpp: "UnknownEntity", header: "StepData_Protocol.hxx".}
 proc isUnknownEntity*(this: StepDataProtocol; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsUnknownEntity", header: "StepData_Protocol.hxx".}
-proc descrNumber*(this: StepDataProtocol; adescr: Handle[StepDataEDescr]): int {.
+proc descrNumber*(this: StepDataProtocol; adescr: Handle[StepDataEDescr]): cint {.
     noSideEffect, importcpp: "DescrNumber", header: "StepData_Protocol.hxx".}
-proc addDescr*(this: var StepDataProtocol; adescr: Handle[StepDataEDescr]; cn: int) {.
+proc addDescr*(this: var StepDataProtocol; adescr: Handle[StepDataEDescr]; cn: cint) {.
     importcpp: "AddDescr", header: "StepData_Protocol.hxx".}
 proc hasDescr*(this: StepDataProtocol): bool {.noSideEffect, importcpp: "HasDescr",
     header: "StepData_Protocol.hxx".}
-proc descr*(this: StepDataProtocol; num: int): Handle[StepDataEDescr] {.noSideEffect,
+proc descr*(this: StepDataProtocol; num: cint): Handle[StepDataEDescr] {.noSideEffect,
     importcpp: "Descr", header: "StepData_Protocol.hxx".}
 proc descr*(this: StepDataProtocol; name: StandardCString; anylevel: bool = true): Handle[
     StepDataEDescr] {.noSideEffect, importcpp: "Descr",
@@ -95,3 +95,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_Protocol.hxx".}
 proc dynamicType*(this: StepDataProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_Protocol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

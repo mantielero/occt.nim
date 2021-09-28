@@ -30,9 +30,34 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Prs3dBasicAspect): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Prs3d_BasicAspect.hxx".}
 proc dumpJson*(this: Prs3dBasicAspect; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Prs3d_BasicAspect.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Prs3d_BasicAspect.hxx".}
 discard "forward decl of Prs3d_BasicAspect"
 type
-  HandlePrs3dBasicAspect* = Handle[Prs3dBasicAspect]
+  HandleC1C1* = Handle[Prs3dBasicAspect]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

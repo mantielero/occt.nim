@@ -31,7 +31,7 @@ proc constructRWStepReprRWQuantifiedAssemblyComponentUsage*(): RWStepReprRWQuant
     constructor, importcpp: "RWStepRepr_RWQuantifiedAssemblyComponentUsage(@)",
     header: "RWStepRepr_RWQuantifiedAssemblyComponentUsage.hxx".}
 proc readStep*(this: RWStepReprRWQuantifiedAssemblyComponentUsage;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprQuantifiedAssemblyComponentUsage]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepReprRWQuantifiedAssemblyComponentUsage;
            ent: Handle[StepReprQuantifiedAssemblyComponentUsage];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWQuantifiedAssemblyComponentUsage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,4 +13,3 @@ include GeomAPI_PointsToBSpline
 include GeomAPI_PointsToBSplineSurface
 include GeomAPI_ProjectPointOnCurve
 include GeomAPI_ProjectPointOnSurf
-

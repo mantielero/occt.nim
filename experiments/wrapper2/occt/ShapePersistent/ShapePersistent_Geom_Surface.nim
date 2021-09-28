@@ -55,50 +55,39 @@ type
   ShapePersistentGeomSurfaceOffset* = Delayed[Surface,
       ShapePersistentGeomSurfacepOffset]
 
-proc translate*(theSurf: Handle[GeomPlane];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
-proc translate*(theSurf: Handle[GeomCylindricalSurface];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
-proc translate*(theSurf: Handle[GeomConicalSurface];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
-proc translate*(theSurf: Handle[GeomSphericalSurface];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
-proc translate*(theSurf: Handle[GeomToroidalSurface];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
-proc translate*(theSurf: Handle[GeomSurfaceOfLinearExtrusion];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
-proc translate*(theSurf: Handle[GeomSurfaceOfRevolution];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
-proc translate*(theSurf: Handle[GeomBezierSurface];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
-proc translate*(theSurf: Handle[GeomBSplineSurface];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
-proc translate*(theSurf: Handle[GeomRectangularTrimmedSurface];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
-proc translate*(theSurf: Handle[GeomOffsetSurface];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Surface] {.
-    importcpp: "ShapePersistent_Geom_Surface::Translate(@)",
-    header: "ShapePersistent_Geom_Surface.hxx".}
+## !!!Ignored construct:  Translate ( const Handle ( Geom_Plane ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_CylindricalSurface ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_ConicalSurface ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_SphericalSurface ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_ToroidalSurface ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_SurfaceOfLinearExtrusion ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_SurfaceOfRevolution ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_BezierSurface ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_BSplineSurface ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_RectangularTrimmedSurface ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_OffsetSurface ) & theSurf , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
 ## =======================================================================
 ##  Elementary
 ## =======================================================================
@@ -155,4 +144,49 @@ proc translate*(theSurf: Handle[GeomOffsetSurface];
 
 ## !!!Ignored construct:  template < > [end of template] void ShapePersistent_Geom :: instance < ShapePersistent_Geom :: subBase_gp < ShapePersistent_Geom :: Surface , gp_Ax3 > , Geom_ToroidalSurface , gp_Torus > :: Write ( StdObjMgt_WriteData & theWriteData ) const ;
 ## Error: token expected: ( but got: <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -116,9 +116,34 @@ proc paste*(this: XCAFDocVisMaterial; theInto: Handle[TDF_Attribute];
            theRelTable: Handle[TDF_RelocationTable]) {.noSideEffect,
     importcpp: "Paste", header: "XCAFDoc_VisMaterial.hxx".}
 proc dumpJson*(this: XCAFDocVisMaterial; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "XCAFDoc_VisMaterial.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFDoc_VisMaterial.hxx".}
 discard "forward decl of XCAFDoc_VisMaterial"
 type
-  HandleXCAFDocVisMaterial* = Handle[XCAFDocVisMaterial]
+  HandleC1C1* = Handle[XCAFDocVisMaterial]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

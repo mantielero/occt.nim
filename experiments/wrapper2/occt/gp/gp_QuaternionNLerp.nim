@@ -24,9 +24,9 @@ type
                                                                    ## ! Empty constructor,
 
 
-#proc interpolate*(theQStart: Quaternion; theQEnd: Quaternion; theT: float): Quaternion {.
-#    importcpp: "gp_QuaternionNLerp::Interpolate(@)",
-#    header: "gp_QuaternionNLerp.hxx".}
+proc interpolate*(theQStart: Quaternion; theQEnd: Quaternion; theT: StandardReal): Quaternion {.
+    importcpp: "gp_QuaternionNLerp::Interpolate(@)",
+    header: "gp_QuaternionNLerp.hxx".}
 proc constructQuaternionNLerp*(): QuaternionNLerp {.constructor,
     importcpp: "gp_QuaternionNLerp(@)", header: "gp_QuaternionNLerp.hxx".}
 proc constructQuaternionNLerp*(theQStart: Quaternion; theQEnd: Quaternion): QuaternionNLerp {.
@@ -37,5 +37,6 @@ proc init*(this: var QuaternionNLerp; theQStart: Quaternion; theQEnd: Quaternion
 proc initFromUnit*(this: var QuaternionNLerp; theQStart: Quaternion;
                   theQEnd: Quaternion) {.importcpp: "InitFromUnit",
                                        header: "gp_QuaternionNLerp.hxx".}
-proc interpolate*(this: QuaternionNLerp; theT: float; theResultQ: var Quaternion) {.
-    noSideEffect, importcpp: "Interpolate", header: "gp_QuaternionNLerp.hxx".}
+proc interpolate*(this: QuaternionNLerp; theT: StandardReal;
+                 theResultQ: var Quaternion) {.noSideEffect,
+    importcpp: "Interpolate", header: "gp_QuaternionNLerp.hxx".}

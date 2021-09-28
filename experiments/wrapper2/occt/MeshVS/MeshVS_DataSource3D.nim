@@ -16,23 +16,23 @@
 discard "forward decl of MeshVS_DataSource3D"
 discard "forward decl of MeshVS_DataSource3D"
 type
-  HandleMeshVS_DataSource3D* = Handle[MeshVS_DataSource3D]
+  HandleC1C1* = Handle[MeshVS_DataSource3D]
   MeshVS_DataSource3D* {.importcpp: "MeshVS_DataSource3D",
                         header: "MeshVS_DataSource3D.hxx", bycopy.} = object of MeshVS_DataSource
 
 
-proc getPrismTopology*(this: MeshVS_DataSource3D; basePoints: int): Handle[
+proc getPrismTopology*(this: MeshVS_DataSource3D; basePoints: cint): Handle[
     MeshVS_HArray1OfSequenceOfInteger] {.noSideEffect,
                                         importcpp: "GetPrismTopology",
                                         header: "MeshVS_DataSource3D.hxx".}
-proc getPyramidTopology*(this: MeshVS_DataSource3D; basePoints: int): Handle[
+proc getPyramidTopology*(this: MeshVS_DataSource3D; basePoints: cint): Handle[
     MeshVS_HArray1OfSequenceOfInteger] {.noSideEffect,
                                         importcpp: "GetPyramidTopology",
                                         header: "MeshVS_DataSource3D.hxx".}
-proc createPrismTopology*(basePoints: int): Handle[
+proc createPrismTopology*(basePoints: cint): Handle[
     MeshVS_HArray1OfSequenceOfInteger] {.importcpp: "MeshVS_DataSource3D::CreatePrismTopology(@)",
                                         header: "MeshVS_DataSource3D.hxx".}
-proc createPyramidTopology*(basePoints: int): Handle[
+proc createPyramidTopology*(basePoints: cint): Handle[
     MeshVS_HArray1OfSequenceOfInteger] {.importcpp: "MeshVS_DataSource3D::CreatePyramidTopology(@)",
                                         header: "MeshVS_DataSource3D.hxx".}
 type
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MeshVS_DataSource3D.hxx".}
 proc dynamicType*(this: MeshVS_DataSource3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_DataSource3D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

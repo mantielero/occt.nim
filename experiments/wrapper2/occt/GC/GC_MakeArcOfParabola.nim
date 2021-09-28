@@ -47,11 +47,11 @@ type
                                                                                    ## radians).
 
 
-proc constructGC_MakeArcOfParabola*(parab: Parab; alpha1: float; alpha2: float;
+proc constructGC_MakeArcOfParabola*(parab: Parab; alpha1: cfloat; alpha2: cfloat;
                                    sense: bool): GC_MakeArcOfParabola {.
     constructor, importcpp: "GC_MakeArcOfParabola(@)",
     header: "GC_MakeArcOfParabola.hxx".}
-proc constructGC_MakeArcOfParabola*(parab: Parab; p: Pnt; alpha: float; sense: bool): GC_MakeArcOfParabola {.
+proc constructGC_MakeArcOfParabola*(parab: Parab; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfParabola {.
     constructor, importcpp: "GC_MakeArcOfParabola(@)",
     header: "GC_MakeArcOfParabola.hxx".}
 proc constructGC_MakeArcOfParabola*(parab: Parab; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfParabola {.
@@ -62,3 +62,24 @@ proc value*(this: GC_MakeArcOfParabola): Handle[GeomTrimmedCurve] {.noSideEffect
 converter `constopencascade`*(this: GC_MakeArcOfParabola): Handle[GeomTrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeArcOfParabola::operator constopencascade",
     header: "GC_MakeArcOfParabola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

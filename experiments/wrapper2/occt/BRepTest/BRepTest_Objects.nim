@@ -35,3 +35,28 @@ proc setToFillHistory*(theFillHist: bool) {.
     header: "BRepTest_Objects.hxx".}
 proc isHistoryNeeded*(): bool {.importcpp: "BRepTest_Objects::IsHistoryNeeded(@)",
                              header: "BRepTest_Objects.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

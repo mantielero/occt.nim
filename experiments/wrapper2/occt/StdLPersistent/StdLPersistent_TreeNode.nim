@@ -29,3 +29,28 @@ proc createAttribute*(this: var StdLPersistentTreeNode): Handle[TDF_Attribute] {
     importcpp: "CreateAttribute", header: "StdLPersistent_TreeNode.hxx".}
 proc importAttribute*(this: var StdLPersistentTreeNode) {.
     importcpp: "ImportAttribute", header: "StdLPersistent_TreeNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

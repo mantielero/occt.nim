@@ -68,3 +68,28 @@ type
 proc init*() {.importcpp: "IGESBasic::Init(@)", header: "IGESBasic.hxx".}
 proc protocol*(): Handle[IGESBasicProtocol] {.importcpp: "IGESBasic::Protocol(@)",
     header: "IGESBasic.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

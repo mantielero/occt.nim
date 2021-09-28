@@ -34,9 +34,35 @@ proc closed*(this: IntfPolygon2d): bool {.noSideEffect, importcpp: "Closed",
                                       header: "Intf_Polygon2d.hxx".}
 proc destroyIntfPolygon2d*(this: var IntfPolygon2d) {.
     importcpp: "#.~Intf_Polygon2d()", header: "Intf_Polygon2d.hxx".}
-proc deflectionOverEstimation*(this: IntfPolygon2d): float {.noSideEffect,
+proc deflectionOverEstimation*(this: IntfPolygon2d): cfloat {.noSideEffect,
     importcpp: "DeflectionOverEstimation", header: "Intf_Polygon2d.hxx".}
-proc nbSegments*(this: IntfPolygon2d): int {.noSideEffect, importcpp: "NbSegments",
+proc nbSegments*(this: IntfPolygon2d): cint {.noSideEffect, importcpp: "NbSegments",
     header: "Intf_Polygon2d.hxx".}
-proc segment*(this: IntfPolygon2d; theIndex: int; theBegin: var Pnt2d; theEnd: var Pnt2d) {.
-    noSideEffect, importcpp: "Segment", header: "Intf_Polygon2d.hxx".}
+proc segment*(this: IntfPolygon2d; theIndex: cint; theBegin: var Pnt2d;
+             theEnd: var Pnt2d) {.noSideEffect, importcpp: "Segment",
+                               header: "Intf_Polygon2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

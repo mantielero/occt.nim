@@ -27,7 +27,7 @@ proc constructRWStepReprRWAllAroundShapeAspect*(): RWStepReprRWAllAroundShapeAsp
     constructor, importcpp: "RWStepRepr_RWAllAroundShapeAspect(@)",
     header: "RWStepRepr_RWAllAroundShapeAspect.hxx".}
 proc readStep*(this: RWStepReprRWAllAroundShapeAspect;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprAllAroundShapeAspect]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWAllAroundShapeAspect.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepReprRWAllAroundShapeAspect;
            ent: Handle[StepReprAllAroundShapeAspect];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWAllAroundShapeAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

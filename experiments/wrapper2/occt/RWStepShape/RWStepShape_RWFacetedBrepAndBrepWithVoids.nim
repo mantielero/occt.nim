@@ -29,7 +29,7 @@ proc constructRWStepShapeRWFacetedBrepAndBrepWithVoids*(): RWStepShapeRWFacetedB
     constructor, importcpp: "RWStepShape_RWFacetedBrepAndBrepWithVoids(@)",
     header: "RWStepShape_RWFacetedBrepAndBrepWithVoids.hxx".}
 proc readStep*(this: RWStepShapeRWFacetedBrepAndBrepWithVoids;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeFacetedBrepAndBrepWithVoids]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWFacetedBrepAndBrepWithVoids.hxx".}
@@ -42,3 +42,28 @@ proc share*(this: RWStepShapeRWFacetedBrepAndBrepWithVoids;
            ent: Handle[StepShapeFacetedBrepAndBrepWithVoids];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWFacetedBrepAndBrepWithVoids.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

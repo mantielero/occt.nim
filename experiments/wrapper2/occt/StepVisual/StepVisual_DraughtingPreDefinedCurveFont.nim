@@ -17,8 +17,7 @@
 discard "forward decl of StepVisual_DraughtingPreDefinedCurveFont"
 discard "forward decl of StepVisual_DraughtingPreDefinedCurveFont"
 type
-  HandleStepVisualDraughtingPreDefinedCurveFont* = Handle[
-      StepVisualDraughtingPreDefinedCurveFont]
+  HandleC1C1* = Handle[StepVisualDraughtingPreDefinedCurveFont]
   StepVisualDraughtingPreDefinedCurveFont* {.
       importcpp: "StepVisual_DraughtingPreDefinedCurveFont",
       header: "StepVisual_DraughtingPreDefinedCurveFont.hxx", bycopy.} = object of StepVisualPreDefinedCurveFont ##
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Draught
 proc dynamicType*(this: StepVisualDraughtingPreDefinedCurveFont): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_DraughtingPreDefinedCurveFont.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

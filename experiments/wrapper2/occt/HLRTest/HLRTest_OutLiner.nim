@@ -21,7 +21,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of HLRTest_OutLiner"
 discard "forward decl of HLRTest_OutLiner"
 type
-  HandleHLRTestOutLiner* = Handle[HLRTestOutLiner]
+  HandleC1C1* = Handle[HLRTestOutLiner]
   HLRTestOutLiner* {.importcpp: "HLRTest_OutLiner", header: "HLRTest_OutLiner.hxx",
                     bycopy.} = object of DrawDrawable3D
 
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRTest_OutLiner.hxx".}
 proc dynamicType*(this: HLRTestOutLiner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRTest_OutLiner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

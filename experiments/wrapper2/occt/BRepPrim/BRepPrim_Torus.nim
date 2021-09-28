@@ -55,11 +55,36 @@ type
     ## !< radius of the pipe
 
 
-proc constructBRepPrimTorus*(position: Ax2; major: float; minor: float): BRepPrimTorus {.
+proc constructBRepPrimTorus*(position: Ax2; major: cfloat; minor: cfloat): BRepPrimTorus {.
     constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
-proc constructBRepPrimTorus*(major: float; minor: float): BRepPrimTorus {.constructor,
-    importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
-proc constructBRepPrimTorus*(center: Pnt; major: float; minor: float): BRepPrimTorus {.
+proc constructBRepPrimTorus*(major: cfloat; minor: cfloat): BRepPrimTorus {.
+    constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
+proc constructBRepPrimTorus*(center: Pnt; major: cfloat; minor: cfloat): BRepPrimTorus {.
     constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimTorus): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Torus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

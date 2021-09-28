@@ -16,17 +16,42 @@
 
 proc chFiKPartMakeChAsym*(dStr: var TopOpeBRepDS_DataStructure;
                          data: Handle[ChFiDS_SurfData]; pln: Pln; cyl: Cylinder;
-                         fu: float; lu: float; or1: TopAbsOrientation;
-                         or2: TopAbsOrientation; dis: float; angle: float;
-                         spine: Circ; first: float; ofpl: TopAbsOrientation;
+                         fu: cfloat; lu: cfloat; or1: TopAbsOrientation;
+                         or2: TopAbsOrientation; dis: cfloat; angle: cfloat;
+                         spine: Circ; first: cfloat; ofpl: TopAbsOrientation;
                          plandab: bool; disOnP: bool): bool {.
     importcpp: "ChFiKPart_MakeChAsym(@)",
     header: "ChFiKPart_ComputeData_ChAsymPlnCyl.hxx".}
 proc chFiKPartMakeChAsym*(dStr: var TopOpeBRepDS_DataStructure;
                          data: Handle[ChFiDS_SurfData]; pln: Pln; cyl: Cylinder;
-                         fu: float; lu: float; or1: TopAbsOrientation;
-                         or2: TopAbsOrientation; dis: float; angle: float; spine: Lin;
-                         first: float; ofpl: TopAbsOrientation; plandab: bool;
-                         disOnP: bool): bool {.
+                         fu: cfloat; lu: cfloat; or1: TopAbsOrientation;
+                         or2: TopAbsOrientation; dis: cfloat; angle: cfloat;
+                         spine: Lin; first: cfloat; ofpl: TopAbsOrientation;
+                         plandab: bool; disOnP: bool): bool {.
     importcpp: "ChFiKPart_MakeChAsym(@)",
     header: "ChFiKPart_ComputeData_ChAsymPlnCyl.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

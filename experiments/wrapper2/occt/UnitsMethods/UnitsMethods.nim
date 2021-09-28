@@ -32,15 +32,15 @@ type
                                                                                    ## units
 
 
-proc initializeFactors*(lengthFactor: float; planeAngleFactor: float;
-                       solidAngleFactor: float) {.
+proc initializeFactors*(lengthFactor: cfloat; planeAngleFactor: cfloat;
+                       solidAngleFactor: cfloat) {.
     importcpp: "UnitsMethods::InitializeFactors(@)", header: "UnitsMethods.hxx".}
-proc lengthFactor*(): float {.importcpp: "UnitsMethods::LengthFactor(@)",
-                           header: "UnitsMethods.hxx".}
-proc planeAngleFactor*(): float {.importcpp: "UnitsMethods::PlaneAngleFactor(@)",
-                               header: "UnitsMethods.hxx".}
-proc solidAngleFactor*(): float {.importcpp: "UnitsMethods::SolidAngleFactor(@)",
-                               header: "UnitsMethods.hxx".}
+proc lengthFactor*(): cfloat {.importcpp: "UnitsMethods::LengthFactor(@)",
+                            header: "UnitsMethods.hxx".}
+proc planeAngleFactor*(): cfloat {.importcpp: "UnitsMethods::PlaneAngleFactor(@)",
+                                header: "UnitsMethods.hxx".}
+proc solidAngleFactor*(): cfloat {.importcpp: "UnitsMethods::SolidAngleFactor(@)",
+                                header: "UnitsMethods.hxx".}
 proc set3dConversion*(b: bool) {.importcpp: "UnitsMethods::Set3dConversion(@)",
                               header: "UnitsMethods.hxx".}
 proc convert3d*(): bool {.importcpp: "UnitsMethods::Convert3d(@)",
@@ -53,9 +53,34 @@ proc degreeToRadian*(c: Handle[Geom2dCurve]; s: Handle[GeomSurface]): Handle[
                   header: "UnitsMethods.hxx".}
 proc mirrorPCurve*(c: Handle[Geom2dCurve]): Handle[Geom2dCurve] {.
     importcpp: "UnitsMethods::MirrorPCurve(@)", header: "UnitsMethods.hxx".}
-proc getLengthFactorValue*(param: int): float {.
+proc getLengthFactorValue*(param: cint): cfloat {.
     importcpp: "UnitsMethods::GetLengthFactorValue(@)", header: "UnitsMethods.hxx".}
-proc getCasCadeLengthUnit*(): float {.importcpp: "UnitsMethods::GetCasCadeLengthUnit(@)",
-                                   header: "UnitsMethods.hxx".}
-proc setCasCadeLengthUnit*(param: int) {.importcpp: "UnitsMethods::SetCasCadeLengthUnit(@)",
-                                      header: "UnitsMethods.hxx".}
+proc getCasCadeLengthUnit*(): cfloat {.importcpp: "UnitsMethods::GetCasCadeLengthUnit(@)",
+                                    header: "UnitsMethods.hxx".}
+proc setCasCadeLengthUnit*(param: cint) {.importcpp: "UnitsMethods::SetCasCadeLengthUnit(@)",
+                                       header: "UnitsMethods.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

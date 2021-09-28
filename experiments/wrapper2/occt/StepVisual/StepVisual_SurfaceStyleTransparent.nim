@@ -17,8 +17,7 @@
 discard "forward decl of StepVisual_SurfaceStyleTransparent"
 discard "forward decl of StepVisual_SurfaceStyleTransparent"
 type
-  HandleStepVisualSurfaceStyleTransparent* = Handle[
-      StepVisualSurfaceStyleTransparent]
+  HandleC1C1* = Handle[StepVisualSurfaceStyleTransparent]
 
 ## ! Representation of STEP entity SurfaceStyleTransparent
 
@@ -31,12 +30,12 @@ type
 proc constructStepVisualSurfaceStyleTransparent*(): StepVisualSurfaceStyleTransparent {.
     constructor, importcpp: "StepVisual_SurfaceStyleTransparent(@)",
     header: "StepVisual_SurfaceStyleTransparent.hxx".}
-proc init*(this: var StepVisualSurfaceStyleTransparent; theTransparency: float) {.
+proc init*(this: var StepVisualSurfaceStyleTransparent; theTransparency: cfloat) {.
     importcpp: "Init", header: "StepVisual_SurfaceStyleTransparent.hxx".}
-proc transparency*(this: StepVisualSurfaceStyleTransparent): float {.noSideEffect,
+proc transparency*(this: StepVisualSurfaceStyleTransparent): cfloat {.noSideEffect,
     importcpp: "Transparency", header: "StepVisual_SurfaceStyleTransparent.hxx".}
 proc setTransparency*(this: var StepVisualSurfaceStyleTransparent;
-                     theTransparency: float) {.importcpp: "SetTransparency",
+                     theTransparency: cfloat) {.importcpp: "SetTransparency",
     header: "StepVisual_SurfaceStyleTransparent.hxx".}
 type
   StepVisualSurfaceStyleTransparentbaseType* = StandardTransient
@@ -49,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualSurfaceStyleTransparent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleTransparent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

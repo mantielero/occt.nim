@@ -32,3 +32,28 @@ proc next*(this: var ExprRUIterator) {.importcpp: "Next",
                                    header: "Expr_RUIterator.hxx".}
 proc value*(this: ExprRUIterator): Handle[ExprNamedUnknown] {.noSideEffect,
     importcpp: "Value", header: "Expr_RUIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

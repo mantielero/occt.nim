@@ -27,203 +27,54 @@ discard "forward decl of GeomConvert_CompBezierSurfacesToBSplineSurface"
 discard "forward decl of GeomConvert_ApproxSurface"
 discard "forward decl of GeomConvert_ApproxCurve"
 type
-  GeomConvert* {.importcpp: "GeomConvert", header: "GeomConvert.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Convert
-                                                                                ## a
-                                                                                ## curve
-                                                                                ## from
-                                                                                ## Geom
-                                                                                ## by
-                                                                                ## an
-                                                                                ## approximation
-                                                                                ## method
-                                                                                ##
-                                                                                ## !
-                                                                                ##
-                                                                                ## !
-                                                                                ## This
-                                                                                ## method
-                                                                                ## computes
-                                                                                ## the
-                                                                                ## arc
-                                                                                ## of
-                                                                                ## B-spline
-                                                                                ## curve
-                                                                                ## between
-                                                                                ## the
-                                                                                ## two
-                                                                                ##
-                                                                                ## !
-                                                                                ## knots
-                                                                                ## FromK1
-                                                                                ## and
-                                                                                ## ToK2.
-                                                                                ## If
-                                                                                ## C
-                                                                                ## is
-                                                                                ## periodic
-                                                                                ## the
-                                                                                ## arc
-                                                                                ## has
-                                                                                ## the
-                                                                                ## same
-                                                                                ##
-                                                                                ## !
-                                                                                ## orientation
-                                                                                ## as
-                                                                                ## C
-                                                                                ## if
-                                                                                ## SameOrientation
-                                                                                ## =
-                                                                                ## Standard_True.
-                                                                                ##
-                                                                                ## !
-                                                                                ## If
-                                                                                ## C
-                                                                                ## is
-                                                                                ## not
-                                                                                ## periodic
-                                                                                ## SameOrientation
-                                                                                ## is
-                                                                                ## not
-                                                                                ## used
-                                                                                ## for
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## computation
-                                                                                ## and
-                                                                                ## C
-                                                                                ## is
-                                                                                ## oriented
-                                                                                ## from
-                                                                                ## the
-                                                                                ## knot
-                                                                                ## fromK1
-                                                                                ## to
-                                                                                ## the
-                                                                                ## knot
-                                                                                ## toK2.
-                                                                                ##
-                                                                                ## !
-                                                                                ## We
-                                                                                ## just
-                                                                                ## keep
-                                                                                ## the
-                                                                                ## local
-                                                                                ## definition
-                                                                                ## of
-                                                                                ## C
-                                                                                ## between
-                                                                                ## the
-                                                                                ## knots
-                                                                                ##
-                                                                                ## !
-                                                                                ## FromK1
-                                                                                ## and
-                                                                                ## ToK2.
-                                                                                ## The
-                                                                                ## returned
-                                                                                ## B-spline
-                                                                                ## curve
-                                                                                ## has
-                                                                                ## its
-                                                                                ## first
-                                                                                ##
-                                                                                ## !
-                                                                                ## and
-                                                                                ## last
-                                                                                ## knots
-                                                                                ## with
-                                                                                ## a
-                                                                                ## multiplicity
-                                                                                ## equal
-                                                                                ## to
-                                                                                ## degree
-                                                                                ## +
-                                                                                ## 1,
-                                                                                ## where
-                                                                                ##
-                                                                                ## !
-                                                                                ## degree
-                                                                                ## is
-                                                                                ## the
-                                                                                ## polynomial
-                                                                                ## degree
-                                                                                ## of
-                                                                                ## C.
-                                                                                ##
-                                                                                ## !
-                                                                                ## The
-                                                                                ## indexes
-                                                                                ## of
-                                                                                ## the
-                                                                                ## knots
-                                                                                ## FromK1
-                                                                                ## and
-                                                                                ## ToK2
-                                                                                ## doesn't
-                                                                                ## include
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## repetition
-                                                                                ## of
-                                                                                ## multiple
-                                                                                ## knots
-                                                                                ## in
-                                                                                ## their
-                                                                                ## definition.
-                                                                                ##
-                                                                                ## !
-                                                                                ## Raised
-                                                                                ## if
-                                                                                ## FromK1
-                                                                                ## =
-                                                                                ## ToK2
-                                                                                ##
-                                                                                ## !
-                                                                                ## Raised
-                                                                                ## if
-                                                                                ## FromK1
-                                                                                ## or
-                                                                                ## ToK2
-                                                                                ## are
-                                                                                ## out
-                                                                                ## of
-                                                                                ## the
-                                                                                ## bounds
-                                                                                ##
-                                                                                ## !
-                                                                                ## [FirstUKnotIndex,
-                                                                                ## LastUKnotIndex]
+  GeomConvert* {.importcpp: "GeomConvert", header: "GeomConvert.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomConvert; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert::operator new", header: "GeomConvert.hxx".}
+proc `delete`*(this: var GeomConvert; theAddress: pointer) {.
+    importcpp: "GeomConvert::operator delete", header: "GeomConvert.hxx".}
+proc `new[]`*(this: var GeomConvert; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert::operator new[]", header: "GeomConvert.hxx".}
+proc `delete[]`*(this: var GeomConvert; theAddress: pointer) {.
+    importcpp: "GeomConvert::operator delete[]", header: "GeomConvert.hxx".}
+proc `new`*(this: var GeomConvert; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomConvert::operator new", header: "GeomConvert.hxx".}
+proc `delete`*(this: var GeomConvert; a2: pointer; a3: pointer) {.
+    importcpp: "GeomConvert::operator delete", header: "GeomConvert.hxx".}
 proc splitBSplineCurve*(c: Handle[GeomBSplineCurve]; fromK1: int; toK2: int;
-                       sameOrientation: bool = true): Handle[GeomBSplineCurve] {.
-    importcpp: "GeomConvert::SplitBSplineCurve(@)", header: "GeomConvert.hxx".}
-proc splitBSplineCurve*(c: Handle[GeomBSplineCurve]; fromU1: float; toU2: float;
-                       parametricTolerance: float; sameOrientation: bool = true): Handle[
+                       sameOrientation: StandardBoolean = true): Handle[
+    GeomBSplineCurve] {.importcpp: "GeomConvert::SplitBSplineCurve(@)",
+                       header: "GeomConvert.hxx".}
+proc splitBSplineCurve*(c: Handle[GeomBSplineCurve]; fromU1: StandardReal;
+                       toU2: StandardReal; parametricTolerance: StandardReal;
+                       sameOrientation: StandardBoolean = true): Handle[
     GeomBSplineCurve] {.importcpp: "GeomConvert::SplitBSplineCurve(@)",
                        header: "GeomConvert.hxx".}
 proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromUK1: int; toUK2: int;
-                         fromVK1: int; toVK2: int; sameUOrientation: bool = true;
-                         sameVOrientation: bool = true): Handle[GeomBSplineSurface] {.
-    importcpp: "GeomConvert::SplitBSplineSurface(@)", header: "GeomConvert.hxx".}
-proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromK1: int; toK2: int;
-                         uSplit: bool; sameOrientation: bool = true): Handle[
+                         fromVK1: int; toVK2: int;
+                         sameUOrientation: StandardBoolean = true;
+                         sameVOrientation: StandardBoolean = true): Handle[
     GeomBSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
                          header: "GeomConvert.hxx".}
-proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromU1: float; toU2: float;
-                         fromV1: float; toV2: float; parametricTolerance: float;
-                         sameUOrientation: bool = true;
-                         sameVOrientation: bool = true): Handle[GeomBSplineSurface] {.
-    importcpp: "GeomConvert::SplitBSplineSurface(@)", header: "GeomConvert.hxx".}
-proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromParam1: float;
-                         toParam2: float; uSplit: bool; parametricTolerance: float;
-                         sameOrientation: bool = true): Handle[GeomBSplineSurface] {.
-    importcpp: "GeomConvert::SplitBSplineSurface(@)", header: "GeomConvert.hxx".}
+proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromK1: int; toK2: int;
+                         uSplit: StandardBoolean;
+                         sameOrientation: StandardBoolean = true): Handle[
+    GeomBSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
+                         header: "GeomConvert.hxx".}
+proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromU1: StandardReal;
+                         toU2: StandardReal; fromV1: StandardReal;
+                         toV2: StandardReal; parametricTolerance: StandardReal;
+                         sameUOrientation: StandardBoolean = true;
+                         sameVOrientation: StandardBoolean = true): Handle[
+    GeomBSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
+                         header: "GeomConvert.hxx".}
+proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromParam1: StandardReal;
+                         toParam2: StandardReal; uSplit: StandardBoolean;
+                         parametricTolerance: StandardReal;
+                         sameOrientation: StandardBoolean = true): Handle[
+    GeomBSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
+                         header: "GeomConvert.hxx".}
 proc curveToBSplineCurve*(c: Handle[GeomCurve]; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): Handle[
     GeomBSplineCurve] {.importcpp: "GeomConvert::CurveToBSplineCurve(@)",
                        header: "GeomConvert.hxx".}
@@ -233,29 +84,32 @@ proc surfaceToBSplineSurface*(s: Handle[GeomSurface]): Handle[GeomBSplineSurface
 proc concatG1*(arrayOfCurves: var TColGeomArray1OfBSplineCurve;
               arrayOfToler: TColStdArray1OfReal;
               arrayOfConcatenated: var Handle[TColGeomHArray1OfBSplineCurve];
-              closedFlag: var bool; closedTolerance: float) {.
+              closedFlag: var StandardBoolean; closedTolerance: StandardReal) {.
     importcpp: "GeomConvert::ConcatG1(@)", header: "GeomConvert.hxx".}
 proc concatC1*(arrayOfCurves: var TColGeomArray1OfBSplineCurve;
               arrayOfToler: TColStdArray1OfReal;
               arrayOfIndices: var Handle[TColStdHArray1OfInteger];
               arrayOfConcatenated: var Handle[TColGeomHArray1OfBSplineCurve];
-              closedFlag: var bool; closedTolerance: float) {.
+              closedFlag: var StandardBoolean; closedTolerance: StandardReal) {.
     importcpp: "GeomConvert::ConcatC1(@)", header: "GeomConvert.hxx".}
 proc concatC1*(arrayOfCurves: var TColGeomArray1OfBSplineCurve;
               arrayOfToler: TColStdArray1OfReal;
               arrayOfIndices: var Handle[TColStdHArray1OfInteger];
               arrayOfConcatenated: var Handle[TColGeomHArray1OfBSplineCurve];
-              closedFlag: var bool; closedTolerance: float; angularTolerance: float) {.
+              closedFlag: var StandardBoolean; closedTolerance: StandardReal;
+              angularTolerance: StandardReal) {.
     importcpp: "GeomConvert::ConcatC1(@)", header: "GeomConvert.hxx".}
-proc c0BSplineToC1BSplineCurve*(bs: var Handle[GeomBSplineCurve]; tolerance: float;
-                               angularTolerance: float = 1.0e-7) {.
+proc c0BSplineToC1BSplineCurve*(bs: var Handle[GeomBSplineCurve];
+                               tolerance: StandardReal;
+                               angularTolerance: StandardReal = 1.0e-7) {.
     importcpp: "GeomConvert::C0BSplineToC1BSplineCurve(@)",
     header: "GeomConvert.hxx".}
 proc c0BSplineToArrayOfC1BSplineCurve*(bs: Handle[GeomBSplineCurve]; tabBS: var Handle[
-    TColGeomHArray1OfBSplineCurve]; tolerance: float) {.
+    TColGeomHArray1OfBSplineCurve]; tolerance: StandardReal) {.
     importcpp: "GeomConvert::C0BSplineToArrayOfC1BSplineCurve(@)",
     header: "GeomConvert.hxx".}
 proc c0BSplineToArrayOfC1BSplineCurve*(bs: Handle[GeomBSplineCurve]; tabBS: var Handle[
-    TColGeomHArray1OfBSplineCurve]; angularTolerance: float; tolerance: float) {.
+    TColGeomHArray1OfBSplineCurve]; angularTolerance: StandardReal;
+                                      tolerance: StandardReal) {.
     importcpp: "GeomConvert::C0BSplineToArrayOfC1BSplineCurve(@)",
     header: "GeomConvert.hxx".}

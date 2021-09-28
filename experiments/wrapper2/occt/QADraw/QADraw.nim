@@ -23,3 +23,28 @@ proc additionalCommands*(di: var DrawInterpretor) {.
     importcpp: "QADraw::AdditionalCommands(@)", header: "QADraw.hxx".}
 proc factory*(di: var DrawInterpretor) {.importcpp: "QADraw::Factory(@)",
                                      header: "QADraw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

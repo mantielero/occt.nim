@@ -18,13 +18,38 @@
 
 proc printItem*(thePnt: Pnt) {.importcpp: "PrintItem(@)",
                             header: "QANCollection_Common.hxx".}
-proc printItem*(theDbl: float) {.importcpp: "PrintItem(@)",
-                              header: "QANCollection_Common.hxx".}
+proc printItem*(theDbl: cfloat) {.importcpp: "PrintItem(@)",
+                               header: "QANCollection_Common.hxx".}
 ##  So do for the pseudo-random generation
 
-proc random*(theValue: var float) {.importcpp: "Random(@)",
-                                header: "QANCollection_Common.hxx".}
-proc random*(theValue: var int; theMax: int = rand_Max) {.importcpp: "Random(@)",
+proc random*(theValue: var cfloat) {.importcpp: "Random(@)",
+                                 header: "QANCollection_Common.hxx".}
+proc random*(theValue: var cint; theMax: cint = rand_Max) {.importcpp: "Random(@)",
     header: "QANCollection_Common.hxx".}
 proc random*(thePnt: var Pnt) {.importcpp: "Random(@)",
                             header: "QANCollection_Common.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

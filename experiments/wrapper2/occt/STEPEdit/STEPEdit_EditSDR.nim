@@ -22,7 +22,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of STEPEdit_EditSDR"
 discard "forward decl of STEPEdit_EditSDR"
 type
-  HandleSTEPEditEditSDR* = Handle[STEPEditEditSDR]
+  HandleC1C1* = Handle[STEPEditEditSDR]
 
 ## ! EditSDR is an Editor fit for a Shape Definition Representation
 ## ! which designates a Product Definition
@@ -38,7 +38,7 @@ proc label*(this: STEPEditEditSDR): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "STEPEdit_EditSDR.hxx".}
 proc recognize*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm]): bool {.
     noSideEffect, importcpp: "Recognize", header: "STEPEdit_EditSDR.hxx".}
-proc stringValue*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm]; num: int): Handle[
+proc stringValue*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm]; num: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "StringValue",
                               header: "STEPEdit_EditSDR.hxx".}
 proc apply*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm];
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPEdit_EditSDR.hxx".}
 proc dynamicType*(this: STEPEditEditSDR): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "STEPEdit_EditSDR.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

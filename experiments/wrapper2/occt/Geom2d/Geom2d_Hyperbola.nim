@@ -27,7 +27,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Hyperbola"
 discard "forward decl of Geom2d_Hyperbola"
 type
-  HandleGeom2dHyperbola* = Handle[Geom2dHyperbola]
+  HandleC1C1* = Handle[Geom2dHyperbola]
 
 ## ! Describes a branch of a hyperbola in the plane (2D space).
 ## ! A hyperbola is defined by its major and minor radii
@@ -87,28 +87,30 @@ type
 
 proc constructGeom2dHyperbola*(h: Hypr2d): Geom2dHyperbola {.constructor,
     importcpp: "Geom2d_Hyperbola(@)", header: "Geom2d_Hyperbola.hxx".}
-proc constructGeom2dHyperbola*(majorAxis: Ax2d; majorRadius: float;
-                              minorRadius: float; sense: bool = true): Geom2dHyperbola {.
+proc constructGeom2dHyperbola*(majorAxis: Ax2d; majorRadius: StandardReal;
+                              minorRadius: StandardReal;
+                              sense: StandardBoolean = true): Geom2dHyperbola {.
     constructor, importcpp: "Geom2d_Hyperbola(@)", header: "Geom2d_Hyperbola.hxx".}
-proc constructGeom2dHyperbola*(axis: Ax22d; majorRadius: float; minorRadius: float): Geom2dHyperbola {.
+proc constructGeom2dHyperbola*(axis: Ax22d; majorRadius: StandardReal;
+                              minorRadius: StandardReal): Geom2dHyperbola {.
     constructor, importcpp: "Geom2d_Hyperbola(@)", header: "Geom2d_Hyperbola.hxx".}
 proc setHypr2d*(this: var Geom2dHyperbola; h: Hypr2d) {.importcpp: "SetHypr2d",
     header: "Geom2d_Hyperbola.hxx".}
-proc setMajorRadius*(this: var Geom2dHyperbola; majorRadius: float) {.
+proc setMajorRadius*(this: var Geom2dHyperbola; majorRadius: StandardReal) {.
     importcpp: "SetMajorRadius", header: "Geom2d_Hyperbola.hxx".}
-proc setMinorRadius*(this: var Geom2dHyperbola; minorRadius: float) {.
+proc setMinorRadius*(this: var Geom2dHyperbola; minorRadius: StandardReal) {.
     importcpp: "SetMinorRadius", header: "Geom2d_Hyperbola.hxx".}
 proc hypr2d*(this: Geom2dHyperbola): Hypr2d {.noSideEffect, importcpp: "Hypr2d",
     header: "Geom2d_Hyperbola.hxx".}
-proc reversedParameter*(this: Geom2dHyperbola; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom2d_Hyperbola.hxx".}
-proc firstParameter*(this: Geom2dHyperbola): float {.noSideEffect,
+proc reversedParameter*(this: Geom2dHyperbola; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_Hyperbola.hxx".}
+proc firstParameter*(this: Geom2dHyperbola): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_Hyperbola.hxx".}
-proc lastParameter*(this: Geom2dHyperbola): float {.noSideEffect,
+proc lastParameter*(this: Geom2dHyperbola): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_Hyperbola.hxx".}
-proc isClosed*(this: Geom2dHyperbola): bool {.noSideEffect, importcpp: "IsClosed",
-    header: "Geom2d_Hyperbola.hxx".}
-proc isPeriodic*(this: Geom2dHyperbola): bool {.noSideEffect,
+proc isClosed*(this: Geom2dHyperbola): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom2d_Hyperbola.hxx".}
+proc isPeriodic*(this: Geom2dHyperbola): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom2d_Hyperbola.hxx".}
 proc asymptote1*(this: Geom2dHyperbola): Ax2d {.noSideEffect,
     importcpp: "Asymptote1", header: "Geom2d_Hyperbola.hxx".}
@@ -122,32 +124,33 @@ proc directrix1*(this: Geom2dHyperbola): Ax2d {.noSideEffect,
     importcpp: "Directrix1", header: "Geom2d_Hyperbola.hxx".}
 proc directrix2*(this: Geom2dHyperbola): Ax2d {.noSideEffect,
     importcpp: "Directrix2", header: "Geom2d_Hyperbola.hxx".}
-proc eccentricity*(this: Geom2dHyperbola): float {.noSideEffect,
+proc eccentricity*(this: Geom2dHyperbola): StandardReal {.noSideEffect,
     importcpp: "Eccentricity", header: "Geom2d_Hyperbola.hxx".}
-proc focal*(this: Geom2dHyperbola): float {.noSideEffect, importcpp: "Focal",
-                                        header: "Geom2d_Hyperbola.hxx".}
+proc focal*(this: Geom2dHyperbola): StandardReal {.noSideEffect, importcpp: "Focal",
+    header: "Geom2d_Hyperbola.hxx".}
 proc focus1*(this: Geom2dHyperbola): Pnt2d {.noSideEffect, importcpp: "Focus1",
     header: "Geom2d_Hyperbola.hxx".}
 proc focus2*(this: Geom2dHyperbola): Pnt2d {.noSideEffect, importcpp: "Focus2",
     header: "Geom2d_Hyperbola.hxx".}
-proc majorRadius*(this: Geom2dHyperbola): float {.noSideEffect,
+proc majorRadius*(this: Geom2dHyperbola): StandardReal {.noSideEffect,
     importcpp: "MajorRadius", header: "Geom2d_Hyperbola.hxx".}
-proc minorRadius*(this: Geom2dHyperbola): float {.noSideEffect,
+proc minorRadius*(this: Geom2dHyperbola): StandardReal {.noSideEffect,
     importcpp: "MinorRadius", header: "Geom2d_Hyperbola.hxx".}
 proc otherBranch*(this: Geom2dHyperbola): Hypr2d {.noSideEffect,
     importcpp: "OtherBranch", header: "Geom2d_Hyperbola.hxx".}
-proc parameter*(this: Geom2dHyperbola): float {.noSideEffect, importcpp: "Parameter",
-    header: "Geom2d_Hyperbola.hxx".}
-proc d0*(this: Geom2dHyperbola; u: float; p: var Pnt2d) {.noSideEffect, importcpp: "D0",
-    header: "Geom2d_Hyperbola.hxx".}
-proc d1*(this: Geom2dHyperbola; u: float; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
-    importcpp: "D1", header: "Geom2d_Hyperbola.hxx".}
-proc d2*(this: Geom2dHyperbola; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc parameter*(this: Geom2dHyperbola): StandardReal {.noSideEffect,
+    importcpp: "Parameter", header: "Geom2d_Hyperbola.hxx".}
+proc d0*(this: Geom2dHyperbola; u: StandardReal; p: var Pnt2d) {.noSideEffect,
+    importcpp: "D0", header: "Geom2d_Hyperbola.hxx".}
+proc d1*(this: Geom2dHyperbola; u: StandardReal; p: var Pnt2d; v1: var Vec2d) {.
+    noSideEffect, importcpp: "D1", header: "Geom2d_Hyperbola.hxx".}
+proc d2*(this: Geom2dHyperbola; u: StandardReal; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     noSideEffect, importcpp: "D2", header: "Geom2d_Hyperbola.hxx".}
-proc d3*(this: Geom2dHyperbola; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, importcpp: "D3", header: "Geom2d_Hyperbola.hxx".}
-proc dn*(this: Geom2dHyperbola; u: float; n: int): Vec2d {.noSideEffect, importcpp: "DN",
-    header: "Geom2d_Hyperbola.hxx".}
+proc d3*(this: Geom2dHyperbola; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d; v3: var Vec2d) {.noSideEffect, importcpp: "D3",
+                                  header: "Geom2d_Hyperbola.hxx".}
+proc dn*(this: Geom2dHyperbola; u: StandardReal; n: int): Vec2d {.noSideEffect,
+    importcpp: "DN", header: "Geom2d_Hyperbola.hxx".}
 proc transform*(this: var Geom2dHyperbola; t: Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_Hyperbola.hxx".}
 proc copy*(this: Geom2dHyperbola): Handle[Geom2dGeometry] {.noSideEffect,

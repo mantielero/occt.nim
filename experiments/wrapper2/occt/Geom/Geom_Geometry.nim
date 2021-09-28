@@ -23,7 +23,7 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Geometry"
 type
-  HandleGeomGeometry* = Handle[GeomGeometry]
+  HandleC1C1* = Handle[GeomGeometry]
 
 ## ! The abstract class Geometry for 3D space is the root
 ## ! class of all geometric objects from the Geom
@@ -78,9 +78,9 @@ proc mirror*(this: var GeomGeometry; a1: Ax1) {.importcpp: "Mirror",
     header: "Geom_Geometry.hxx".}
 proc mirror*(this: var GeomGeometry; a2: Ax2) {.importcpp: "Mirror",
     header: "Geom_Geometry.hxx".}
-proc rotate*(this: var GeomGeometry; a1: Ax1; ang: float) {.importcpp: "Rotate",
+proc rotate*(this: var GeomGeometry; a1: Ax1; ang: StandardReal) {.importcpp: "Rotate",
     header: "Geom_Geometry.hxx".}
-proc scale*(this: var GeomGeometry; p: Pnt; s: float) {.importcpp: "Scale",
+proc scale*(this: var GeomGeometry; p: Pnt; s: StandardReal) {.importcpp: "Scale",
     header: "Geom_Geometry.hxx".}
 proc translate*(this: var GeomGeometry; v: Vec) {.importcpp: "Translate",
     header: "Geom_Geometry.hxx".}
@@ -94,10 +94,10 @@ proc mirrored*(this: GeomGeometry; a1: Ax1): Handle[GeomGeometry] {.noSideEffect
     importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
 proc mirrored*(this: GeomGeometry; a2: Ax2): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Mirrored", header: "Geom_Geometry.hxx".}
-proc rotated*(this: GeomGeometry; a1: Ax1; ang: float): Handle[GeomGeometry] {.
+proc rotated*(this: GeomGeometry; a1: Ax1; ang: StandardReal): Handle[GeomGeometry] {.
     noSideEffect, importcpp: "Rotated", header: "Geom_Geometry.hxx".}
-proc scaled*(this: GeomGeometry; p: Pnt; s: float): Handle[GeomGeometry] {.noSideEffect,
-    importcpp: "Scaled", header: "Geom_Geometry.hxx".}
+proc scaled*(this: GeomGeometry; p: Pnt; s: StandardReal): Handle[GeomGeometry] {.
+    noSideEffect, importcpp: "Scaled", header: "Geom_Geometry.hxx".}
 proc transformed*(this: GeomGeometry; t: Trsf): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Transformed", header: "Geom_Geometry.hxx".}
 proc translated*(this: GeomGeometry; v: Vec): Handle[GeomGeometry] {.noSideEffect,

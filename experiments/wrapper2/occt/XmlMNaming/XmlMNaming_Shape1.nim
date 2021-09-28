@@ -27,14 +27,39 @@ proc element*(this: XmlMNamingShape1): XmlObjMgtElement {.noSideEffect,
     importcpp: "Element", header: "XmlMNaming_Shape1.hxx".}
 proc element*(this: var XmlMNamingShape1): var XmlObjMgtElement {.
     importcpp: "Element", header: "XmlMNaming_Shape1.hxx".}
-proc tShapeId*(this: XmlMNamingShape1): int {.noSideEffect, importcpp: "TShapeId",
+proc tShapeId*(this: XmlMNamingShape1): cint {.noSideEffect, importcpp: "TShapeId",
     header: "XmlMNaming_Shape1.hxx".}
-proc locId*(this: XmlMNamingShape1): int {.noSideEffect, importcpp: "LocId",
-                                       header: "XmlMNaming_Shape1.hxx".}
+proc locId*(this: XmlMNamingShape1): cint {.noSideEffect, importcpp: "LocId",
+                                        header: "XmlMNaming_Shape1.hxx".}
 proc orientation*(this: XmlMNamingShape1): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "XmlMNaming_Shape1.hxx".}
-proc setShape*(this: var XmlMNamingShape1; id: int; locID: int;
+proc setShape*(this: var XmlMNamingShape1; id: cint; locID: cint;
               orient: TopAbsOrientation) {.importcpp: "SetShape",
     header: "XmlMNaming_Shape1.hxx".}
 proc setVertex*(this: var XmlMNamingShape1; theVertex: TopoDS_Shape) {.
     importcpp: "SetVertex", header: "XmlMNaming_Shape1.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

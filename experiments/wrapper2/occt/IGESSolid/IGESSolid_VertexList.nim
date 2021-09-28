@@ -19,7 +19,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESSolid_VertexList"
 discard "forward decl of IGESSolid_VertexList"
 type
-  HandleIGESSolidVertexList* = Handle[IGESSolidVertexList]
+  HandleC1C1* = Handle[IGESSolidVertexList]
 
 ## ! defines VertexList, Type <502> Form Number <1>
 ## ! in package IGESSolid
@@ -36,9 +36,9 @@ proc constructIGESSolidVertexList*(): IGESSolidVertexList {.constructor,
     importcpp: "IGESSolid_VertexList(@)", header: "IGESSolid_VertexList.hxx".}
 proc init*(this: var IGESSolidVertexList; vertices: Handle[TColgpHArray1OfXYZ]) {.
     importcpp: "Init", header: "IGESSolid_VertexList.hxx".}
-proc nbVertices*(this: IGESSolidVertexList): int {.noSideEffect,
+proc nbVertices*(this: IGESSolidVertexList): cint {.noSideEffect,
     importcpp: "NbVertices", header: "IGESSolid_VertexList.hxx".}
-proc vertex*(this: IGESSolidVertexList; num: int): Pnt {.noSideEffect,
+proc vertex*(this: IGESSolidVertexList; num: cint): Pnt {.noSideEffect,
     importcpp: "Vertex", header: "IGESSolid_VertexList.hxx".}
 type
   IGESSolidVertexListbaseType* = IGESDataIGESEntity
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_VertexList.hxx".}
 proc dynamicType*(this: IGESSolidVertexList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_VertexList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

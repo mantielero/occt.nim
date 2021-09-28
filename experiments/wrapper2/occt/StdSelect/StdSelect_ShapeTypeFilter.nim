@@ -17,7 +17,7 @@
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of StdSelect_ShapeTypeFilter"
 type
-  HandleStdSelectShapeTypeFilter* = Handle[StdSelectShapeTypeFilter]
+  HandleC1C1* = Handle[StdSelectShapeTypeFilter]
 
 ## ! A filter framework which allows you to define a filter for a specific shape type.
 
@@ -54,3 +54,28 @@ proc isOk*(this: StdSelectShapeTypeFilter; anobj: Handle[SelectMgrEntityOwner]):
     noSideEffect, importcpp: "IsOk", header: "StdSelect_ShapeTypeFilter.hxx".}
 proc actsOn*(this: StdSelectShapeTypeFilter; aStandardMode: TopAbsShapeEnum): bool {.
     noSideEffect, importcpp: "ActsOn", header: "StdSelect_ShapeTypeFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

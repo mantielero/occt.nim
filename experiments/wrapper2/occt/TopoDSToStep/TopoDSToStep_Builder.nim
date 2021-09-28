@@ -39,3 +39,28 @@ proc error*(this: TopoDSToStepBuilder): TopoDSToStepBuilderError {.noSideEffect,
 proc value*(this: TopoDSToStepBuilder): Handle[
     StepShapeTopologicalRepresentationItem] {.noSideEffect, importcpp: "Value",
     header: "TopoDSToStep_Builder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

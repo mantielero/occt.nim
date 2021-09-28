@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Subface"
 discard "forward decl of StepShape_Subface"
 type
-  HandleStepShapeSubface* = Handle[StepShapeSubface]
+  HandleC1C1* = Handle[StepShapeSubface]
 
 ## ! Representation of STEP entity Subface
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Subface.hxx".}
 proc dynamicType*(this: StepShapeSubface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Subface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

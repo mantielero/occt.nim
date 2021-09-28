@@ -19,12 +19,37 @@ type
                        header: "CSLib_NormalPolyDef.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
-proc constructCSLibNormalPolyDef*(k0: int; li: TColStdArray1OfReal): CSLibNormalPolyDef {.
+proc constructCSLibNormalPolyDef*(k0: cint; li: TColStdArray1OfReal): CSLibNormalPolyDef {.
     constructor, importcpp: "CSLib_NormalPolyDef(@)",
     header: "CSLib_NormalPolyDef.hxx".}
-proc value*(this: var CSLibNormalPolyDef; x: float; f: var float): bool {.
+proc value*(this: var CSLibNormalPolyDef; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "CSLib_NormalPolyDef.hxx".}
-proc derivative*(this: var CSLibNormalPolyDef; x: float; d: var float): bool {.
+proc derivative*(this: var CSLibNormalPolyDef; x: cfloat; d: var cfloat): bool {.
     importcpp: "Derivative", header: "CSLib_NormalPolyDef.hxx".}
-proc values*(this: var CSLibNormalPolyDef; x: float; f: var float; d: var float): bool {.
+proc values*(this: var CSLibNormalPolyDef; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     importcpp: "Values", header: "CSLib_NormalPolyDef.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

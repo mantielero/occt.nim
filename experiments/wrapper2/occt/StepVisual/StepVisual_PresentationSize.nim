@@ -19,7 +19,7 @@ discard "forward decl of StepVisual_PresentationSizeAssignmentSelect"
 discard "forward decl of StepVisual_PresentationSize"
 discard "forward decl of StepVisual_PresentationSize"
 type
-  HandleStepVisualPresentationSize* = Handle[StepVisualPresentationSize]
+  HandleC1C1* = Handle[StepVisualPresentationSize]
   StepVisualPresentationSize* {.importcpp: "StepVisual_PresentationSize",
                                header: "StepVisual_PresentationSize.hxx", bycopy.} = object of StandardTransient ##
                                                                                                           ## !
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualPresentationSize): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationSize.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

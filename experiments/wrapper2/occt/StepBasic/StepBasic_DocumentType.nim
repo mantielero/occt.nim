@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_DocumentType"
 discard "forward decl of StepBasic_DocumentType"
 type
-  HandleStepBasicDocumentType* = Handle[StepBasicDocumentType]
+  HandleC1C1* = Handle[StepBasicDocumentType]
   StepBasicDocumentType* {.importcpp: "StepBasic_DocumentType",
                           header: "StepBasic_DocumentType.hxx", bycopy.} = object of StandardTransient
 
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DocumentType.hxx".}
 proc dynamicType*(this: StepBasicDocumentType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_DocumentType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

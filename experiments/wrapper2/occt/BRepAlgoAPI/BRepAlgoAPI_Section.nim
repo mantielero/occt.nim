@@ -83,3 +83,28 @@ proc hasAncestorFaceOn1*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
 proc hasAncestorFaceOn2*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
                         f: var TopoDS_Shape): bool {.noSideEffect,
     importcpp: "HasAncestorFaceOn2", header: "BRepAlgoAPI_Section.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

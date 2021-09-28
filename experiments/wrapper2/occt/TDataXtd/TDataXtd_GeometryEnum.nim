@@ -22,3 +22,28 @@ type
     TDataXtdSPLINE, TDataXtdPLANE, TDataXtdCYLINDER
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

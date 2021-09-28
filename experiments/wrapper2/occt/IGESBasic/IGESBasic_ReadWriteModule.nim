@@ -22,7 +22,7 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESBasic_ReadWriteModule"
 discard "forward decl of IGESBasic_ReadWriteModule"
 type
-  HandleIGESBasicReadWriteModule* = Handle[IGESBasicReadWriteModule]
+  HandleC1C1* = Handle[IGESBasicReadWriteModule]
 
 ## ! Defines basic File Access Module for IGESBasic (specific parts)
 ## ! Specific actions concern : Read and Write Own Parameters of
@@ -47,14 +47,14 @@ type
 proc constructIGESBasicReadWriteModule*(): IGESBasicReadWriteModule {.constructor,
     importcpp: "IGESBasic_ReadWriteModule(@)",
     header: "IGESBasic_ReadWriteModule.hxx".}
-proc caseIGES*(this: IGESBasicReadWriteModule; typenum: int; formnum: int): int {.
+proc caseIGES*(this: IGESBasicReadWriteModule; typenum: cint; formnum: cint): cint {.
     noSideEffect, importcpp: "CaseIGES", header: "IGESBasic_ReadWriteModule.hxx".}
-proc readOwnParams*(this: IGESBasicReadWriteModule; cn: int;
+proc readOwnParams*(this: IGESBasicReadWriteModule; cn: cint;
                    ent: Handle[IGESDataIGESEntity];
                    ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
     noSideEffect, importcpp: "ReadOwnParams",
     header: "IGESBasic_ReadWriteModule.hxx".}
-proc writeOwnParams*(this: IGESBasicReadWriteModule; cn: int;
+proc writeOwnParams*(this: IGESBasicReadWriteModule; cn: cint;
                     ent: Handle[IGESDataIGESEntity]; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESBasic_ReadWriteModule.hxx".}
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESBasic_ReadWriteModule.hxx".}
 proc dynamicType*(this: IGESBasicReadWriteModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESBasic_ReadWriteModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

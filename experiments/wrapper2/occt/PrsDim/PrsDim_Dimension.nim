@@ -15,7 +15,7 @@
 
 discard "forward decl of PrsDim_Dimension"
 type
-  HandlePrsDimDimension* = Handle[PrsDimDimension]
+  HandleC1C1* = Handle[PrsDimDimension]
 
 ## ! PrsDim_Dimension is a base class for 2D presentations of linear (length, diameter, radius)
 ## ! and angular dimensions.
@@ -210,11 +210,11 @@ type
 
 proc constructPrsDimDimension*(theType: PrsDimKindOfDimension): PrsDimDimension {.
     constructor, importcpp: "PrsDim_Dimension(@)", header: "PrsDim_Dimension.hxx".}
-proc getValue*(this: PrsDimDimension): float {.noSideEffect, importcpp: "GetValue",
+proc getValue*(this: PrsDimDimension): cfloat {.noSideEffect, importcpp: "GetValue",
     header: "PrsDim_Dimension.hxx".}
 proc setComputedValue*(this: var PrsDimDimension) {.importcpp: "SetComputedValue",
     header: "PrsDim_Dimension.hxx".}
-proc setCustomValue*(this: var PrsDimDimension; theValue: float) {.
+proc setCustomValue*(this: var PrsDimDimension; theValue: cfloat) {.
     importcpp: "SetCustomValue", header: "PrsDim_Dimension.hxx".}
 proc setCustomValue*(this: var PrsDimDimension; theValue: TCollectionExtendedString) {.
     importcpp: "SetCustomValue", header: "PrsDim_Dimension.hxx".}
@@ -222,7 +222,7 @@ proc getCustomValue*(this: PrsDimDimension): TCollectionExtendedString {.
     noSideEffect, importcpp: "GetCustomValue", header: "PrsDim_Dimension.hxx".}
 proc getPlane*(this: PrsDimDimension): Pln {.noSideEffect, importcpp: "GetPlane",
     header: "PrsDim_Dimension.hxx".}
-proc getGeometryType*(this: PrsDimDimension): int {.noSideEffect,
+proc getGeometryType*(this: PrsDimDimension): cint {.noSideEffect,
     importcpp: "GetGeometryType", header: "PrsDim_Dimension.hxx".}
 proc setCustomPlane*(this: var PrsDimDimension; thePlane: Pln) {.
     importcpp: "SetCustomPlane", header: "PrsDim_Dimension.hxx".}
@@ -244,7 +244,7 @@ proc kindOfDimension*(this: PrsDimDimension): PrsDimKindOfDimension {.noSideEffe
     importcpp: "KindOfDimension", header: "PrsDim_Dimension.hxx".}
 proc `type`*(this: PrsDimDimension): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "PrsDim_Dimension.hxx".}
-proc acceptDisplayMode*(this: PrsDimDimension; theMode: int): bool {.noSideEffect,
+proc acceptDisplayMode*(this: PrsDimDimension; theMode: cint): bool {.noSideEffect,
     importcpp: "AcceptDisplayMode", header: "PrsDim_Dimension.hxx".}
 proc displaySpecialSymbol*(this: PrsDimDimension): PrsDimDisplaySpecialSymbol {.
     noSideEffect, importcpp: "DisplaySpecialSymbol", header: "PrsDim_Dimension.hxx".}
@@ -268,13 +268,38 @@ proc setModelUnits*(this: var PrsDimDimension; a2: TCollectionAsciiString) {.
   ## theUnits
 proc unsetFixedTextPosition*(this: var PrsDimDimension) {.
     importcpp: "UnsetFixedTextPosition", header: "PrsDim_Dimension.hxx".}
-proc selToleranceForText2d*(this: PrsDimDimension): float {.noSideEffect,
+proc selToleranceForText2d*(this: PrsDimDimension): cfloat {.noSideEffect,
     importcpp: "SelToleranceForText2d", header: "PrsDim_Dimension.hxx".}
-proc setSelToleranceForText2d*(this: var PrsDimDimension; theTol: float) {.
+proc setSelToleranceForText2d*(this: var PrsDimDimension; theTol: cfloat) {.
     importcpp: "SetSelToleranceForText2d", header: "PrsDim_Dimension.hxx".}
-proc getFlyout*(this: PrsDimDimension): float {.noSideEffect, importcpp: "GetFlyout",
-    header: "PrsDim_Dimension.hxx".}
-proc setFlyout*(this: var PrsDimDimension; theFlyout: float) {.importcpp: "SetFlyout",
-    header: "PrsDim_Dimension.hxx".}
+proc getFlyout*(this: PrsDimDimension): cfloat {.noSideEffect,
+    importcpp: "GetFlyout", header: "PrsDim_Dimension.hxx".}
+proc setFlyout*(this: var PrsDimDimension; theFlyout: cfloat) {.
+    importcpp: "SetFlyout", header: "PrsDim_Dimension.hxx".}
 proc isValid*(this: PrsDimDimension): bool {.noSideEffect, importcpp: "IsValid",
     header: "PrsDim_Dimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -46,3 +46,28 @@ proc modified*(this: var BRepAlgoBooleanOperation; s: TopoDS_Shape): TopToolsLis
     importcpp: "Modified", header: "BRepAlgo_BooleanOperation.hxx".}
 proc isDeleted*(this: var BRepAlgoBooleanOperation; s: TopoDS_Shape): bool {.
     importcpp: "IsDeleted", header: "BRepAlgo_BooleanOperation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

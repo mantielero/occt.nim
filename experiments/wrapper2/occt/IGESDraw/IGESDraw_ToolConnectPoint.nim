@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESDrawToolConnectPoint;
              entto: Handle[IGESDrawConnectPoint]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolConnectPoint.hxx".}
 proc ownDump*(this: IGESDrawToolConnectPoint; ent: Handle[IGESDrawConnectPoint];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolConnectPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

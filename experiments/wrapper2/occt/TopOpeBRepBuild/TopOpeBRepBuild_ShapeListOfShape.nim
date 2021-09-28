@@ -38,3 +38,28 @@ proc shape*(this: TopOpeBRepBuildShapeListOfShape): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
 proc changeShape*(this: var TopOpeBRepBuildShapeListOfShape): var TopoDS_Shape {.
     importcpp: "ChangeShape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

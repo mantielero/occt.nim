@@ -19,7 +19,7 @@ discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Geom_OsculatingSurface"
 discard "forward decl of Geom_OsculatingSurface"
 type
-  HandleGeomOsculatingSurface* = Handle[GeomOsculatingSurface]
+  HandleC1C1* = Handle[GeomOsculatingSurface]
   GeomOsculatingSurface* {.importcpp: "Geom_OsculatingSurface",
                           header: "Geom_OsculatingSurface.hxx", bycopy.} = object of StandardTransient ##
                                                                                                 ## !
@@ -34,23 +34,41 @@ type
                                                                                                 ## built
 
 
+proc `new`*(this: var GeomOsculatingSurface; theSize: csize_t): pointer {.
+    importcpp: "Geom_OsculatingSurface::operator new",
+    header: "Geom_OsculatingSurface.hxx".}
+proc `delete`*(this: var GeomOsculatingSurface; theAddress: pointer) {.
+    importcpp: "Geom_OsculatingSurface::operator delete",
+    header: "Geom_OsculatingSurface.hxx".}
+proc `new[]`*(this: var GeomOsculatingSurface; theSize: csize_t): pointer {.
+    importcpp: "Geom_OsculatingSurface::operator new[]",
+    header: "Geom_OsculatingSurface.hxx".}
+proc `delete[]`*(this: var GeomOsculatingSurface; theAddress: pointer) {.
+    importcpp: "Geom_OsculatingSurface::operator delete[]",
+    header: "Geom_OsculatingSurface.hxx".}
+proc `new`*(this: var GeomOsculatingSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom_OsculatingSurface::operator new",
+    header: "Geom_OsculatingSurface.hxx".}
+proc `delete`*(this: var GeomOsculatingSurface; a2: pointer; a3: pointer) {.
+    importcpp: "Geom_OsculatingSurface::operator delete",
+    header: "Geom_OsculatingSurface.hxx".}
 proc constructGeomOsculatingSurface*(): GeomOsculatingSurface {.constructor,
     importcpp: "Geom_OsculatingSurface(@)", header: "Geom_OsculatingSurface.hxx".}
-proc constructGeomOsculatingSurface*(bs: Handle[GeomSurface]; tol: float): GeomOsculatingSurface {.
+proc constructGeomOsculatingSurface*(bs: Handle[GeomSurface]; tol: StandardReal): GeomOsculatingSurface {.
     constructor, importcpp: "Geom_OsculatingSurface(@)",
     header: "Geom_OsculatingSurface.hxx".}
-proc init*(this: var GeomOsculatingSurface; bs: Handle[GeomSurface]; tol: float) {.
+proc init*(this: var GeomOsculatingSurface; bs: Handle[GeomSurface]; tol: StandardReal) {.
     importcpp: "Init", header: "Geom_OsculatingSurface.hxx".}
 proc basisSurface*(this: GeomOsculatingSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "BasisSurface", header: "Geom_OsculatingSurface.hxx".}
-proc tolerance*(this: GeomOsculatingSurface): float {.noSideEffect,
+proc tolerance*(this: GeomOsculatingSurface): StandardReal {.noSideEffect,
     importcpp: "Tolerance", header: "Geom_OsculatingSurface.hxx".}
-proc uOscSurf*(this: GeomOsculatingSurface; u: float; v: float; t: var bool;
-              L: var Handle[GeomBSplineSurface]): bool {.noSideEffect,
-    importcpp: "UOscSurf", header: "Geom_OsculatingSurface.hxx".}
-proc vOscSurf*(this: GeomOsculatingSurface; u: float; v: float; t: var bool;
-              L: var Handle[GeomBSplineSurface]): bool {.noSideEffect,
-    importcpp: "VOscSurf", header: "Geom_OsculatingSurface.hxx".}
+proc uOscSurf*(this: GeomOsculatingSurface; u: StandardReal; v: StandardReal;
+              t: var StandardBoolean; L: var Handle[GeomBSplineSurface]): StandardBoolean {.
+    noSideEffect, importcpp: "UOscSurf", header: "Geom_OsculatingSurface.hxx".}
+proc vOscSurf*(this: GeomOsculatingSurface; u: StandardReal; v: StandardReal;
+              t: var StandardBoolean; L: var Handle[GeomBSplineSurface]): StandardBoolean {.
+    noSideEffect, importcpp: "VOscSurf", header: "Geom_OsculatingSurface.hxx".}
 proc dumpJson*(this: GeomOsculatingSurface; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_OsculatingSurface.hxx".}

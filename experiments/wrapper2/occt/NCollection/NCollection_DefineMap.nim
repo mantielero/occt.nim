@@ -38,4 +38,3 @@
 template define_Map*(className, baseCollection, theKeyType: untyped): void =
   type
     ClassName* = NCollectionMap[TheKeyType]
-

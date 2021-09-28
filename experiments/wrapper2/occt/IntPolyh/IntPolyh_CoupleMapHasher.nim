@@ -74,9 +74,34 @@ type
                                                                                  ## theUpperBound]
 
 
-proc hashCode*(theCouple: IntPolyhCouple; theUpperBound: int): int {.
+proc hashCode*(theCouple: IntPolyhCouple; theUpperBound: cint): cint {.
     importcpp: "IntPolyh_CoupleMapHasher::HashCode(@)",
     header: "IntPolyh_CoupleMapHasher.hxx".}
 proc isEqual*(theCouple1: IntPolyhCouple; theCouple2: IntPolyhCouple): bool {.
     importcpp: "IntPolyh_CoupleMapHasher::IsEqual(@)",
     header: "IntPolyh_CoupleMapHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

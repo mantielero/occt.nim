@@ -23,7 +23,7 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_CurveOnSurface"
 discard "forward decl of BRep_CurveOnSurface"
 type
-  HandleBRepCurveOnSurface* = Handle[BRepCurveOnSurface]
+  HandleC1C1* = Handle[BRepCurveOnSurface]
 
 ## ! Representation  of a  curve   by a   curve  in the
 ## ! parametric space of a surface.
@@ -41,8 +41,8 @@ proc setUVPoints*(this: var BRepCurveOnSurface; p1: Pnt2d; p2: Pnt2d) {.
     importcpp: "SetUVPoints", header: "BRep_CurveOnSurface.hxx".}
 proc uVPoints*(this: BRepCurveOnSurface; p1: var Pnt2d; p2: var Pnt2d) {.noSideEffect,
     importcpp: "UVPoints", header: "BRep_CurveOnSurface.hxx".}
-proc d0*(this: BRepCurveOnSurface; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
-    header: "BRep_CurveOnSurface.hxx".}
+proc d0*(this: BRepCurveOnSurface; u: cfloat; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "BRep_CurveOnSurface.hxx".}
 proc isCurveOnSurface*(this: BRepCurveOnSurface): bool {.noSideEffect,
     importcpp: "IsCurveOnSurface", header: "BRep_CurveOnSurface.hxx".}
 proc isCurveOnSurface*(this: BRepCurveOnSurface; s: Handle[GeomSurface];
@@ -59,8 +59,8 @@ proc copy*(this: BRepCurveOnSurface): Handle[BRepCurveRepresentation] {.
 proc update*(this: var BRepCurveOnSurface) {.importcpp: "Update",
     header: "BRep_CurveOnSurface.hxx".}
 proc dumpJson*(this: BRepCurveOnSurface; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "BRep_CurveOnSurface.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "BRep_CurveOnSurface.hxx".}
 type
   BRepCurveOnSurfacebaseType* = BRepGCurve
 
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_CurveOnSurface.hxx".}
 proc dynamicType*(this: BRepCurveOnSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_CurveOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepShapeRWRevolvedAreaSolid*(): RWStepShapeRWRevolvedAreaSolid 
     constructor, importcpp: "RWStepShape_RWRevolvedAreaSolid(@)",
     header: "RWStepShape_RWRevolvedAreaSolid.hxx".}
 proc readStep*(this: RWStepShapeRWRevolvedAreaSolid;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeRevolvedAreaSolid]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWRevolvedAreaSolid.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepShapeRWRevolvedAreaSolid;
            ent: Handle[StepShapeRevolvedAreaSolid];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWRevolvedAreaSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

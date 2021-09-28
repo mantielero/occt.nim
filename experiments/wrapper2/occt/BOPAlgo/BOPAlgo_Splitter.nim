@@ -53,3 +53,28 @@ proc constructBOPAlgoSplitter*(theAllocator: Handle[NCollectionBaseAllocator]): 
     constructor, importcpp: "BOPAlgo_Splitter(@)", header: "BOPAlgo_Splitter.hxx".}
 proc perform*(this: var BOPAlgoSplitter) {.importcpp: "Perform",
                                        header: "BOPAlgo_Splitter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Exponential"
 discard "forward decl of Expr_Exponential"
 type
-  HandleExprExponential* = Handle[ExprExponential]
+  HandleC1C1* = Handle[ExprExponential]
   ExprExponential* {.importcpp: "Expr_Exponential", header: "Expr_Exponential.hxx",
                     bycopy.} = object of ExprUnaryExpression ## ! Creates the exponential of <exp>
 
@@ -41,7 +41,7 @@ proc derivative*(this: ExprExponential; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_Exponential.hxx".}
 proc evaluate*(this: ExprExponential; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Exponential.hxx".}
 proc string*(this: ExprExponential): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Exponential.hxx".}
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_Exponential.hxx".}
 proc dynamicType*(this: ExprExponential): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Exponential.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

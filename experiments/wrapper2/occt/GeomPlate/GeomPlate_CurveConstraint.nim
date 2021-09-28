@@ -26,7 +26,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomPlate_CurveConstraint"
 discard "forward decl of GeomPlate_CurveConstraint"
 type
-  HandleGeomPlateCurveConstraint* = Handle[GeomPlateCurveConstraint]
+  HandleC1C1* = Handle[GeomPlateCurveConstraint]
 
 ## ! Defines curves as constraints to be used to deform a surface.
 
@@ -47,8 +47,9 @@ proc constructGeomPlateCurveConstraint*(): GeomPlateCurveConstraint {.constructo
     header: "GeomPlate_CurveConstraint.hxx".}
 proc constructGeomPlateCurveConstraint*(boundary: Handle[Adaptor3dHCurve];
                                        order: int; nPt: int = 10;
-                                       tolDist: float = 0.0001;
-                                       tolAng: float = 0.01; tolCurv: float = 0.1): GeomPlateCurveConstraint {.
+                                       tolDist: StandardReal = 0.0001;
+                                       tolAng: StandardReal = 0.01;
+                                       tolCurv: StandardReal = 0.1): GeomPlateCurveConstraint {.
     constructor, importcpp: "GeomPlate_CurveConstraint(@)",
     header: "GeomPlate_CurveConstraint.hxx".}
 proc setOrder*(this: var GeomPlateCurveConstraint; order: int) {.
@@ -65,27 +66,28 @@ proc setG1Criterion*(this: var GeomPlateCurveConstraint; g1Crit: Handle[LawFunct
     importcpp: "SetG1Criterion", header: "GeomPlate_CurveConstraint.hxx".}
 proc setG2Criterion*(this: var GeomPlateCurveConstraint; g2Crit: Handle[LawFunction]) {.
     importcpp: "SetG2Criterion", header: "GeomPlate_CurveConstraint.hxx".}
-proc g0Criterion*(this: GeomPlateCurveConstraint; u: float): float {.noSideEffect,
-    importcpp: "G0Criterion", header: "GeomPlate_CurveConstraint.hxx".}
-proc g1Criterion*(this: GeomPlateCurveConstraint; u: float): float {.noSideEffect,
-    importcpp: "G1Criterion", header: "GeomPlate_CurveConstraint.hxx".}
-proc g2Criterion*(this: GeomPlateCurveConstraint; u: float): float {.noSideEffect,
-    importcpp: "G2Criterion", header: "GeomPlate_CurveConstraint.hxx".}
-proc firstParameter*(this: GeomPlateCurveConstraint): float {.noSideEffect,
+proc g0Criterion*(this: GeomPlateCurveConstraint; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "G0Criterion", header: "GeomPlate_CurveConstraint.hxx".}
+proc g1Criterion*(this: GeomPlateCurveConstraint; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "G1Criterion", header: "GeomPlate_CurveConstraint.hxx".}
+proc g2Criterion*(this: GeomPlateCurveConstraint; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "G2Criterion", header: "GeomPlate_CurveConstraint.hxx".}
+proc firstParameter*(this: GeomPlateCurveConstraint): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "GeomPlate_CurveConstraint.hxx".}
-proc lastParameter*(this: GeomPlateCurveConstraint): float {.noSideEffect,
+proc lastParameter*(this: GeomPlateCurveConstraint): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "GeomPlate_CurveConstraint.hxx".}
-proc length*(this: GeomPlateCurveConstraint): float {.noSideEffect,
+proc length*(this: GeomPlateCurveConstraint): StandardReal {.noSideEffect,
     importcpp: "Length", header: "GeomPlate_CurveConstraint.hxx".}
-proc lPropSurf*(this: var GeomPlateCurveConstraint; u: float): var GeomLPropSLProps {.
+proc lPropSurf*(this: var GeomPlateCurveConstraint; u: StandardReal): var GeomLPropSLProps {.
     importcpp: "LPropSurf", header: "GeomPlate_CurveConstraint.hxx".}
-proc d0*(this: GeomPlateCurveConstraint; u: float; p: var Pnt) {.noSideEffect,
+proc d0*(this: GeomPlateCurveConstraint; u: StandardReal; p: var Pnt) {.noSideEffect,
     importcpp: "D0", header: "GeomPlate_CurveConstraint.hxx".}
-proc d1*(this: GeomPlateCurveConstraint; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    noSideEffect, importcpp: "D1", header: "GeomPlate_CurveConstraint.hxx".}
-proc d2*(this: GeomPlateCurveConstraint; u: float; p: var Pnt; v1: var Vec; v2: var Vec;
-        v3: var Vec; v4: var Vec; v5: var Vec) {.noSideEffect, importcpp: "D2",
-                                        header: "GeomPlate_CurveConstraint.hxx".}
+proc d1*(this: GeomPlateCurveConstraint; u: StandardReal; p: var Pnt; v1: var Vec;
+        v2: var Vec) {.noSideEffect, importcpp: "D1",
+                    header: "GeomPlate_CurveConstraint.hxx".}
+proc d2*(this: GeomPlateCurveConstraint; u: StandardReal; p: var Pnt; v1: var Vec;
+        v2: var Vec; v3: var Vec; v4: var Vec; v5: var Vec) {.noSideEffect, importcpp: "D2",
+    header: "GeomPlate_CurveConstraint.hxx".}
 proc curve3d*(this: GeomPlateCurveConstraint): Handle[Adaptor3dHCurve] {.
     noSideEffect, importcpp: "Curve3d", header: "GeomPlate_CurveConstraint.hxx".}
 proc setCurve2dOnSurf*(this: var GeomPlateCurveConstraint;
@@ -95,8 +97,9 @@ proc curve2dOnSurf*(this: GeomPlateCurveConstraint): Handle[Geom2dCurve] {.
     noSideEffect, importcpp: "Curve2dOnSurf",
     header: "GeomPlate_CurveConstraint.hxx".}
 proc setProjectedCurve*(this: var GeomPlateCurveConstraint;
-                       curve2d: Handle[Adaptor2dHCurve2d]; tolU: float; tolV: float) {.
-    importcpp: "SetProjectedCurve", header: "GeomPlate_CurveConstraint.hxx".}
+                       curve2d: Handle[Adaptor2dHCurve2d]; tolU: StandardReal;
+                       tolV: StandardReal) {.importcpp: "SetProjectedCurve",
+    header: "GeomPlate_CurveConstraint.hxx".}
 proc projectedCurve*(this: GeomPlateCurveConstraint): Handle[Adaptor2dHCurve2d] {.
     noSideEffect, importcpp: "ProjectedCurve",
     header: "GeomPlate_CurveConstraint.hxx".}

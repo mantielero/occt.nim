@@ -31,3 +31,28 @@ proc build*(this: var ShapeFixEdgeConnect) {.importcpp: "Build",
     header: "ShapeFix_EdgeConnect.hxx".}
 proc clear*(this: var ShapeFixEdgeConnect) {.importcpp: "Clear",
     header: "ShapeFix_EdgeConnect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

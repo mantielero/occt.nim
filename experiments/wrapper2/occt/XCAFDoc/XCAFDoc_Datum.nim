@@ -24,7 +24,7 @@ discard "forward decl of XCAFDimTolObjects_DatumObject"
 discard "forward decl of XCAFDoc_Datum"
 discard "forward decl of XCAFDoc_Datum"
 type
-  HandleXCAFDocDatum* = Handle[XCAFDocDatum]
+  HandleC1C1* = Handle[XCAFDocDatum]
 
 ## ! attribute to store datum
 
@@ -67,8 +67,8 @@ proc paste*(this: XCAFDocDatum; into: Handle[TDF_Attribute];
            rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_Datum.hxx".}
 proc dumpJson*(this: XCAFDocDatum; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "XCAFDoc_Datum.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFDoc_Datum.hxx".}
 type
   XCAFDocDatumbaseType* = TDF_Attribute
 
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XCAFDoc_Datum.hxx".}
 proc dynamicType*(this: XCAFDocDatum): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_Datum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

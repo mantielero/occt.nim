@@ -18,7 +18,7 @@ discard "forward decl of TDocStd_Document"
 discard "forward decl of TDocStd_MultiTransactionManager"
 discard "forward decl of TDocStd_MultiTransactionManager"
 type
-  HandleTDocStdMultiTransactionManager* = Handle[TDocStdMultiTransactionManager]
+  HandleC1C1* = Handle[TDocStdMultiTransactionManager]
 
 ## ! Class for synchronization of transactions within multiple documents.
 ## ! Each transaction of this class involvess one transaction in each modified document.
@@ -44,9 +44,9 @@ type
 proc constructTDocStdMultiTransactionManager*(): TDocStdMultiTransactionManager {.
     constructor, importcpp: "TDocStd_MultiTransactionManager(@)",
     header: "TDocStd_MultiTransactionManager.hxx".}
-proc setUndoLimit*(this: var TDocStdMultiTransactionManager; theLimit: int) {.
+proc setUndoLimit*(this: var TDocStdMultiTransactionManager; theLimit: cint) {.
     importcpp: "SetUndoLimit", header: "TDocStd_MultiTransactionManager.hxx".}
-proc getUndoLimit*(this: TDocStdMultiTransactionManager): int {.noSideEffect,
+proc getUndoLimit*(this: TDocStdMultiTransactionManager): cint {.noSideEffect,
     importcpp: "GetUndoLimit", header: "TDocStd_MultiTransactionManager.hxx".}
 proc undo*(this: var TDocStdMultiTransactionManager) {.importcpp: "Undo",
     header: "TDocStd_MultiTransactionManager.hxx".}
@@ -111,3 +111,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TDocStdMultiTransactionManager): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TDocStd_MultiTransactionManager.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

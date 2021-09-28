@@ -37,3 +37,28 @@ proc p2*(this: IntToolsPntOn2Faces): IntToolsPntOnFace {.noSideEffect,
     importcpp: "P2", header: "IntTools_PntOn2Faces.hxx".}
 proc isValid*(this: IntToolsPntOn2Faces): bool {.noSideEffect, importcpp: "IsValid",
     header: "IntTools_PntOn2Faces.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

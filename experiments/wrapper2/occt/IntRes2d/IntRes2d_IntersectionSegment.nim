@@ -50,3 +50,28 @@ proc hasLastPoint*(this: IntRes2dIntersectionSegment): bool {.noSideEffect,
 proc lastPoint*(this: IntRes2dIntersectionSegment): IntRes2dIntersectionPoint {.
     noSideEffect, importcpp: "LastPoint",
     header: "IntRes2d_IntersectionSegment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

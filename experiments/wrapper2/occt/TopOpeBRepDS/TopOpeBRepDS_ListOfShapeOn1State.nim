@@ -35,3 +35,28 @@ proc split*(this: var TopOpeBRepDS_ListOfShapeOn1State; b: bool = true) {.
     importcpp: "Split", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
 proc clear*(this: var TopOpeBRepDS_ListOfShapeOn1State) {.importcpp: "Clear",
     header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

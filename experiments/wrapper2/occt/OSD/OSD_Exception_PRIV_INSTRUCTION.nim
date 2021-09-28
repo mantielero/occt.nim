@@ -15,14 +15,54 @@
 ## !!!Ignored construct:  # _OSD_Exception_PRIV_INSTRUCTION_HeaderFile [NewLine] # _OSD_Exception_PRIV_INSTRUCTION_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_PRIV_INSTRUCTION ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_Exception_PRIV_INSTRUCTION"
-type
-  HandleOSD_ExceptionPRIV_INSTRUCTIONOSD_ExceptionPRIV_INSTRUCTION* = Handle[
-      OSD_ExceptionPRIV_INSTRUCTION]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_Exception_PRIV_INSTRUCTION , OSD_Exception ) # ! defined No_Exception && ! defined No_OSD_Exception_PRIV_INSTRUCTION [NewLine] # OSD_Exception_PRIV_INSTRUCTION_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_Exception_PRIV_INSTRUCTION ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_PRIV_INSTRUCTION [NewLine] # if ( CONDITION ) throw OSD_Exception_PRIV_INSTRUCTION ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_Exception_PRIV_INSTRUCTION_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_PRIV_INSTRUCTION , OSD_Exception ) #  _OSD_Exception_PRIV_INSTRUCTION_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_PRIV_INSTRUCTION , OSD_Exception ) #  _OSD_Exception_PRIV_INSTRUCTION_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

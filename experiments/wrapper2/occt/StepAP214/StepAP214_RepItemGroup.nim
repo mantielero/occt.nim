@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepAP214_RepItemGroup"
 discard "forward decl of StepAP214_RepItemGroup"
 type
-  HandleStepAP214RepItemGroup* = Handle[StepAP214RepItemGroup]
+  HandleC1C1* = Handle[StepAP214RepItemGroup]
 
 ## ! Representation of STEP entity RepItemGroup
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepAP214_RepItemGroup.hxx".}
 proc dynamicType*(this: StepAP214RepItemGroup): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP214_RepItemGroup.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

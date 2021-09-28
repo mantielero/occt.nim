@@ -31,4 +31,3 @@ include Geom2dGcc_QualifiedCurve
 include Geom2dGcc_Type1
 include Geom2dGcc_Type2
 include Geom2dGcc_Type3
-

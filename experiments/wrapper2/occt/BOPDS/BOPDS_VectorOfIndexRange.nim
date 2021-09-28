@@ -15,3 +15,28 @@
 type
   BOPDS_VectorOfIndexRange* = NCollectionVector[BOPDS_IndexRange]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

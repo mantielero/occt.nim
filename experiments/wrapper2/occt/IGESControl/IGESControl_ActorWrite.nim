@@ -20,7 +20,7 @@ discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of IGESControl_ActorWrite"
 discard "forward decl of IGESControl_ActorWrite"
 type
-  HandleIGESControlActorWrite* = Handle[IGESControlActorWrite]
+  HandleC1C1* = Handle[IGESControlActorWrite]
 
 ## ! Actor to write Shape to IGES
 
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESControl_ActorWrite.hxx".}
 proc dynamicType*(this: IGESControlActorWrite): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESControl_ActorWrite.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

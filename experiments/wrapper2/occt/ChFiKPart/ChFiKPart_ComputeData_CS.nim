@@ -16,6 +16,31 @@
 
 proc chFiKPartCornerSpine*(s1: Handle[Adaptor3dHSurface];
                           s2: Handle[Adaptor3dHSurface]; p1s1: Pnt2d; p2s1: Pnt2d;
-                          p1s2: Pnt2d; p2s2: Pnt2d; r: float; cyl: var Cylinder;
-                          circ: var Circ; first: var float; last: var float) {.
+                          p1s2: Pnt2d; p2s2: Pnt2d; r: cfloat; cyl: var Cylinder;
+                          circ: var Circ; first: var cfloat; last: var cfloat) {.
     importcpp: "ChFiKPart_CornerSpine(@)", header: "ChFiKPart_ComputeData_CS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

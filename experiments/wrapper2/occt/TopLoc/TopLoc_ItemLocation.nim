@@ -24,9 +24,34 @@ type
                                                                        ## ! Sets the exponent to <P>
 
 
-proc constructTopLocItemLocation*(d: Handle[TopLocDatum3D]; p: int): TopLocItemLocation {.
+proc constructTopLocItemLocation*(d: Handle[TopLocDatum3D]; p: cint): TopLocItemLocation {.
     constructor, importcpp: "TopLoc_ItemLocation(@)",
     header: "TopLoc_ItemLocation.hxx".}
 proc dumpJson*(this: TopLocItemLocation; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TopLoc_ItemLocation.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TopLoc_ItemLocation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

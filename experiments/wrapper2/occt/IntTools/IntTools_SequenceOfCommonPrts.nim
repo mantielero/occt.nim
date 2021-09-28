@@ -16,3 +16,28 @@
 type
   IntToolsSequenceOfCommonPrts* = NCollectionSequence[IntToolsCommonPrt]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

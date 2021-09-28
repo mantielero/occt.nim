@@ -27,22 +27,22 @@ type
                           header: "Adaptor3d_HSurfaceTool.hxx", bycopy.} = object
 
 
-proc firstUParameter*(s: Handle[Adaptor3dHSurface]): float {.
+proc firstUParameter*(s: Handle[Adaptor3dHSurface]): cfloat {.
     importcpp: "Adaptor3d_HSurfaceTool::FirstUParameter(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc firstVParameter*(s: Handle[Adaptor3dHSurface]): float {.
+proc firstVParameter*(s: Handle[Adaptor3dHSurface]): cfloat {.
     importcpp: "Adaptor3d_HSurfaceTool::FirstVParameter(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc lastUParameter*(s: Handle[Adaptor3dHSurface]): float {.
+proc lastUParameter*(s: Handle[Adaptor3dHSurface]): cfloat {.
     importcpp: "Adaptor3d_HSurfaceTool::LastUParameter(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc lastVParameter*(s: Handle[Adaptor3dHSurface]): float {.
+proc lastVParameter*(s: Handle[Adaptor3dHSurface]): cfloat {.
     importcpp: "Adaptor3d_HSurfaceTool::LastVParameter(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc nbUIntervals*(s: Handle[Adaptor3dHSurface]; sh: GeomAbsShape): int {.
+proc nbUIntervals*(s: Handle[Adaptor3dHSurface]; sh: GeomAbsShape): cint {.
     importcpp: "Adaptor3d_HSurfaceTool::NbUIntervals(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc nbVIntervals*(s: Handle[Adaptor3dHSurface]; sh: GeomAbsShape): int {.
+proc nbVIntervals*(s: Handle[Adaptor3dHSurface]; sh: GeomAbsShape): cint {.
     importcpp: "Adaptor3d_HSurfaceTool::NbVIntervals(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
 proc uIntervals*(s: Handle[Adaptor3dHSurface]; t: var TColStdArray1OfReal;
@@ -51,10 +51,10 @@ proc uIntervals*(s: Handle[Adaptor3dHSurface]; t: var TColStdArray1OfReal;
 proc vIntervals*(s: Handle[Adaptor3dHSurface]; t: var TColStdArray1OfReal;
                 sh: GeomAbsShape) {.importcpp: "Adaptor3d_HSurfaceTool::VIntervals(@)",
                                   header: "Adaptor3d_HSurfaceTool.hxx".}
-proc uTrim*(s: Handle[Adaptor3dHSurface]; first: float; last: float; tol: float): Handle[
+proc uTrim*(s: Handle[Adaptor3dHSurface]; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHSurface] {.importcpp: "Adaptor3d_HSurfaceTool::UTrim(@)",
                         header: "Adaptor3d_HSurfaceTool.hxx".}
-proc vTrim*(s: Handle[Adaptor3dHSurface]; first: float; last: float; tol: float): Handle[
+proc vTrim*(s: Handle[Adaptor3dHSurface]; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHSurface] {.importcpp: "Adaptor3d_HSurfaceTool::VTrim(@)",
                         header: "Adaptor3d_HSurfaceTool.hxx".}
 proc isUClosed*(s: Handle[Adaptor3dHSurface]): bool {.
@@ -66,39 +66,39 @@ proc isVClosed*(s: Handle[Adaptor3dHSurface]): bool {.
 proc isUPeriodic*(s: Handle[Adaptor3dHSurface]): bool {.
     importcpp: "Adaptor3d_HSurfaceTool::IsUPeriodic(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc uPeriod*(s: Handle[Adaptor3dHSurface]): float {.
+proc uPeriod*(s: Handle[Adaptor3dHSurface]): cfloat {.
     importcpp: "Adaptor3d_HSurfaceTool::UPeriod(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
 proc isVPeriodic*(s: Handle[Adaptor3dHSurface]): bool {.
     importcpp: "Adaptor3d_HSurfaceTool::IsVPeriodic(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc vPeriod*(s: Handle[Adaptor3dHSurface]): float {.
+proc vPeriod*(s: Handle[Adaptor3dHSurface]): cfloat {.
     importcpp: "Adaptor3d_HSurfaceTool::VPeriod(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc value*(s: Handle[Adaptor3dHSurface]; u: float; v: float): Pnt {.
+proc value*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat): Pnt {.
     importcpp: "Adaptor3d_HSurfaceTool::Value(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d0*(s: Handle[Adaptor3dHSurface]; u: float; v: float; p: var Pnt) {.
+proc d0*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt) {.
     importcpp: "Adaptor3d_HSurfaceTool::D0(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d1*(s: Handle[Adaptor3dHSurface]; u: float; v: float; p: var Pnt; d1u: var Vec;
+proc d1*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec) {.importcpp: "Adaptor3d_HSurfaceTool::D1(@)",
                      header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d2*(s: Handle[Adaptor3dHSurface]; u: float; v: float; p: var Pnt; d1u: var Vec;
+proc d2*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.
     importcpp: "Adaptor3d_HSurfaceTool::D2(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d3*(s: Handle[Adaptor3dHSurface]; u: float; v: float; p: var Pnt; d1u: var Vec;
+proc d3*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
         d3uuv: var Vec; d3uvv: var Vec) {.importcpp: "Adaptor3d_HSurfaceTool::D3(@)",
                                     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc dn*(s: Handle[Adaptor3dHSurface]; u: float; v: float; nu: int; nv: int): Vec {.
+proc dn*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
     importcpp: "Adaptor3d_HSurfaceTool::DN(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc uResolution*(s: Handle[Adaptor3dHSurface]; r3d: float): float {.
+proc uResolution*(s: Handle[Adaptor3dHSurface]; r3d: cfloat): cfloat {.
     importcpp: "Adaptor3d_HSurfaceTool::UResolution(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc vResolution*(s: Handle[Adaptor3dHSurface]; r3d: float): float {.
+proc vResolution*(s: Handle[Adaptor3dHSurface]; r3d: cfloat): cfloat {.
     importcpp: "Adaptor3d_HSurfaceTool::VResolution(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
 proc getType*(s: Handle[Adaptor3dHSurface]): GeomAbsSurfaceType {.
@@ -137,18 +137,43 @@ proc basisCurve*(s: Handle[Adaptor3dHSurface]): Handle[Adaptor3dHCurve] {.
 proc basisSurface*(s: Handle[Adaptor3dHSurface]): Handle[Adaptor3dHSurface] {.
     importcpp: "Adaptor3d_HSurfaceTool::BasisSurface(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc offsetValue*(s: Handle[Adaptor3dHSurface]): float {.
+proc offsetValue*(s: Handle[Adaptor3dHSurface]): cfloat {.
     importcpp: "Adaptor3d_HSurfaceTool::OffsetValue(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc nbSamplesU*(s: Handle[Adaptor3dHSurface]): int {.
+proc nbSamplesU*(s: Handle[Adaptor3dHSurface]): cint {.
     importcpp: "Adaptor3d_HSurfaceTool::NbSamplesU(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc nbSamplesV*(s: Handle[Adaptor3dHSurface]): int {.
+proc nbSamplesV*(s: Handle[Adaptor3dHSurface]): cint {.
     importcpp: "Adaptor3d_HSurfaceTool::NbSamplesV(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc nbSamplesU*(s: Handle[Adaptor3dHSurface]; u1: float; u2: float): int {.
+proc nbSamplesU*(s: Handle[Adaptor3dHSurface]; u1: cfloat; u2: cfloat): cint {.
     importcpp: "Adaptor3d_HSurfaceTool::NbSamplesU(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc nbSamplesV*(s: Handle[Adaptor3dHSurface]; v1: float; v2: float): int {.
+proc nbSamplesV*(s: Handle[Adaptor3dHSurface]; v1: cfloat; v2: cfloat): cint {.
     importcpp: "Adaptor3d_HSurfaceTool::NbSamplesV(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

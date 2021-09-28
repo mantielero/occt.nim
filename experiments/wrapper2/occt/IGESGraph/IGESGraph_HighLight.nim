@@ -17,7 +17,7 @@
 discard "forward decl of IGESGraph_HighLight"
 discard "forward decl of IGESGraph_HighLight"
 type
-  HandleIGESGraphHighLight* = Handle[IGESGraphHighLight]
+  HandleC1C1* = Handle[IGESGraphHighLight]
 
 ## ! defines IGESHighLight, Type <406> Form <20>
 ## ! in package IGESGraph
@@ -32,11 +32,11 @@ type
 
 proc constructIGESGraphHighLight*(): IGESGraphHighLight {.constructor,
     importcpp: "IGESGraph_HighLight(@)", header: "IGESGraph_HighLight.hxx".}
-proc init*(this: var IGESGraphHighLight; nbProps: int; aHighLightStatus: int) {.
+proc init*(this: var IGESGraphHighLight; nbProps: cint; aHighLightStatus: cint) {.
     importcpp: "Init", header: "IGESGraph_HighLight.hxx".}
-proc nbPropertyValues*(this: IGESGraphHighLight): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESGraphHighLight): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESGraph_HighLight.hxx".}
-proc highLightStatus*(this: IGESGraphHighLight): int {.noSideEffect,
+proc highLightStatus*(this: IGESGraphHighLight): cint {.noSideEffect,
     importcpp: "HighLightStatus", header: "IGESGraph_HighLight.hxx".}
 proc isHighLighted*(this: IGESGraphHighLight): bool {.noSideEffect,
     importcpp: "IsHighLighted", header: "IGESGraph_HighLight.hxx".}
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGraph_HighLight.hxx".}
 proc dynamicType*(this: IGESGraphHighLight): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGraph_HighLight.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

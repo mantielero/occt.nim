@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMFunction_ScopeDriver"
 discard "forward decl of BinMFunction_ScopeDriver"
 type
-  HandleBinMFunctionScopeDriver* = Handle[BinMFunctionScopeDriver]
+  HandleC1C1* = Handle[BinMFunctionScopeDriver]
 
 ## ! Scope attribute Driver.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BinMFunction_ScopeDriver.hxx".}
 proc dynamicType*(this: BinMFunctionScopeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMFunction_ScopeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

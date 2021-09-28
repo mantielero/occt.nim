@@ -23,7 +23,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of Storage_BaseDriver"
 discard "forward decl of FSD_File"
 type
-  HandleFSD_File* = Handle[FSD_File]
+  HandleC1C1* = Handle[FSD_File]
 
 ## ! A general driver which defines as a file, the
 ## ! physical container for data to be stored or retrieved.
@@ -79,10 +79,10 @@ type
 
   FSD_FilebaseType* = StorageBaseDriver
 
-# proc getTypeName*(): cstring {.importcpp: "FSD_File::get_type_name(@)",
-#                             header: "FSD_File.hxx".}
-# proc getTypeDescriptor*(): Handle[StandardType] {.
-#     importcpp: "FSD_File::get_type_descriptor(@)", header: "FSD_File.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeName*(): cstring {.importcpp: "FSD_File::get_type_name(@)",
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                             header: "FSD_File.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeDescriptor*(): Handle[StandardType] {.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_File::get_type_descriptor(@)", header: "FSD_File.hxx".}
 proc dynamicType*(this: FSD_File): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "FSD_File.hxx".}
 proc constructFSD_File*(): FSD_File {.constructor, importcpp: "FSD_File(@)",
@@ -93,10 +93,10 @@ proc isEnd*(this: var FSD_File): bool {.importcpp: "IsEnd", header: "FSD_File.hx
 proc tell*(this: var FSD_File): StoragePosition {.importcpp: "Tell",
     header: "FSD_File.hxx".}
 proc isGoodFileType*(aName: TCollectionAsciiString): StorageError {.
-#     importcpp: "FSD_File::IsGoodFileType(@)", header: "FSD_File.hxx".}
-# proc beginWriteInfoSection*(this: var FSD_File): StorageError {.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_File::IsGoodFileType(@)", header: "FSD_File.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc beginWriteInfoSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteInfoSection", header: "FSD_File.hxx".}
-proc writeInfo*(this: var FSD_File; nbObj: int; dbVersion: TCollectionAsciiString;
+proc writeInfo*(this: var FSD_File; nbObj: cint; dbVersion: TCollectionAsciiString;
                date: TCollectionAsciiString; schemaName: TCollectionAsciiString;
                schemaVersion: TCollectionAsciiString;
                appName: TCollectionExtendedString;
@@ -108,7 +108,7 @@ proc endWriteInfoSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteInfoSection", header: "FSD_File.hxx".}
 proc beginReadInfoSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadInfoSection", header: "FSD_File.hxx".}
-proc readInfo*(this: var FSD_File; nbObj: var int;
+proc readInfo*(this: var FSD_File; nbObj: var cint;
               dbVersion: var TCollectionAsciiString;
               date: var TCollectionAsciiString;
               schemaName: var TCollectionAsciiString;
@@ -138,59 +138,59 @@ proc endReadCommentSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadCommentSection", header: "FSD_File.hxx".}
 proc beginWriteTypeSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteTypeSection", header: "FSD_File.hxx".}
-proc setTypeSectionSize*(this: var FSD_File; aSize: int) {.
+proc setTypeSectionSize*(this: var FSD_File; aSize: cint) {.
     importcpp: "SetTypeSectionSize", header: "FSD_File.hxx".}
-proc writeTypeInformations*(this: var FSD_File; typeNum: int;
+proc writeTypeInformations*(this: var FSD_File; typeNum: cint;
                            typeName: TCollectionAsciiString) {.
     importcpp: "WriteTypeInformations", header: "FSD_File.hxx".}
 proc endWriteTypeSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteTypeSection", header: "FSD_File.hxx".}
 proc beginReadTypeSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadTypeSection", header: "FSD_File.hxx".}
-proc typeSectionSize*(this: var FSD_File): int {.importcpp: "TypeSectionSize",
+proc typeSectionSize*(this: var FSD_File): cint {.importcpp: "TypeSectionSize",
     header: "FSD_File.hxx".}
-proc readTypeInformations*(this: var FSD_File; typeNum: var int;
+proc readTypeInformations*(this: var FSD_File; typeNum: var cint;
                           typeName: var TCollectionAsciiString) {.
     importcpp: "ReadTypeInformations", header: "FSD_File.hxx".}
 proc endReadTypeSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadTypeSection", header: "FSD_File.hxx".}
 proc beginWriteRootSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteRootSection", header: "FSD_File.hxx".}
-proc setRootSectionSize*(this: var FSD_File; aSize: int) {.
+proc setRootSectionSize*(this: var FSD_File; aSize: cint) {.
     importcpp: "SetRootSectionSize", header: "FSD_File.hxx".}
-proc writeRoot*(this: var FSD_File; rootName: TCollectionAsciiString; aRef: int;
+proc writeRoot*(this: var FSD_File; rootName: TCollectionAsciiString; aRef: cint;
                aType: TCollectionAsciiString) {.importcpp: "WriteRoot",
     header: "FSD_File.hxx".}
 proc endWriteRootSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteRootSection", header: "FSD_File.hxx".}
 proc beginReadRootSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadRootSection", header: "FSD_File.hxx".}
-proc rootSectionSize*(this: var FSD_File): int {.importcpp: "RootSectionSize",
+proc rootSectionSize*(this: var FSD_File): cint {.importcpp: "RootSectionSize",
     header: "FSD_File.hxx".}
-proc readRoot*(this: var FSD_File; rootName: var TCollectionAsciiString; aRef: var int;
-              aType: var TCollectionAsciiString) {.importcpp: "ReadRoot",
-    header: "FSD_File.hxx".}
+proc readRoot*(this: var FSD_File; rootName: var TCollectionAsciiString;
+              aRef: var cint; aType: var TCollectionAsciiString) {.
+    importcpp: "ReadRoot", header: "FSD_File.hxx".}
 proc endReadRootSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadRootSection", header: "FSD_File.hxx".}
 proc beginWriteRefSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteRefSection", header: "FSD_File.hxx".}
-proc setRefSectionSize*(this: var FSD_File; aSize: int) {.
+proc setRefSectionSize*(this: var FSD_File; aSize: cint) {.
     importcpp: "SetRefSectionSize", header: "FSD_File.hxx".}
-proc writeReferenceType*(this: var FSD_File; reference: int; typeNum: int) {.
+proc writeReferenceType*(this: var FSD_File; reference: cint; typeNum: cint) {.
     importcpp: "WriteReferenceType", header: "FSD_File.hxx".}
 proc endWriteRefSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteRefSection", header: "FSD_File.hxx".}
 proc beginReadRefSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadRefSection", header: "FSD_File.hxx".}
-proc refSectionSize*(this: var FSD_File): int {.importcpp: "RefSectionSize",
+proc refSectionSize*(this: var FSD_File): cint {.importcpp: "RefSectionSize",
     header: "FSD_File.hxx".}
-proc readReferenceType*(this: var FSD_File; reference: var int; typeNum: var int) {.
+proc readReferenceType*(this: var FSD_File; reference: var cint; typeNum: var cint) {.
     importcpp: "ReadReferenceType", header: "FSD_File.hxx".}
 proc endReadRefSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadRefSection", header: "FSD_File.hxx".}
 proc beginWriteDataSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteDataSection", header: "FSD_File.hxx".}
-proc writePersistentObjectHeader*(this: var FSD_File; aRef: int; aType: int) {.
+proc writePersistentObjectHeader*(this: var FSD_File; aRef: cint; aType: cint) {.
     importcpp: "WritePersistentObjectHeader", header: "FSD_File.hxx".}
 proc beginWritePersistentObjectData*(this: var FSD_File) {.
     importcpp: "BeginWritePersistentObjectData", header: "FSD_File.hxx".}
@@ -204,7 +204,7 @@ proc endWriteDataSection*(this: var FSD_File): StorageError {.
     importcpp: "EndWriteDataSection", header: "FSD_File.hxx".}
 proc beginReadDataSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginReadDataSection", header: "FSD_File.hxx".}
-proc readPersistentObjectHeader*(this: var FSD_File; aRef: var int; aType: var int) {.
+proc readPersistentObjectHeader*(this: var FSD_File; aRef: var cint; aType: var cint) {.
     importcpp: "ReadPersistentObjectHeader", header: "FSD_File.hxx".}
 proc beginReadPersistentObjectData*(this: var FSD_File) {.
     importcpp: "BeginReadPersistentObjectData", header: "FSD_File.hxx".}
@@ -217,31 +217,31 @@ proc endReadPersistentObjectData*(this: var FSD_File) {.
 proc endReadDataSection*(this: var FSD_File): StorageError {.
     importcpp: "EndReadDataSection", header: "FSD_File.hxx".}
 proc skipObject*(this: var FSD_File) {.importcpp: "SkipObject", header: "FSD_File.hxx".}
-proc putReference*(this: var FSD_File; aValue: int): var StorageBaseDriver {.
+proc putReference*(this: var FSD_File; aValue: cint): var StorageBaseDriver {.
     importcpp: "PutReference", header: "FSD_File.hxx".}
 proc putCharacter*(this: var FSD_File; aValue: StandardCharacter): var StorageBaseDriver {.
     importcpp: "PutCharacter", header: "FSD_File.hxx".}
 proc putExtCharacter*(this: var FSD_File; aValue: StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "PutExtCharacter", header: "FSD_File.hxx".}
-proc putInteger*(this: var FSD_File; aValue: int): var StorageBaseDriver {.
+proc putInteger*(this: var FSD_File; aValue: cint): var StorageBaseDriver {.
     importcpp: "PutInteger", header: "FSD_File.hxx".}
 proc putBoolean*(this: var FSD_File; aValue: bool): var StorageBaseDriver {.
     importcpp: "PutBoolean", header: "FSD_File.hxx".}
-proc putReal*(this: var FSD_File; aValue: float): var StorageBaseDriver {.
+proc putReal*(this: var FSD_File; aValue: cfloat): var StorageBaseDriver {.
     importcpp: "PutReal", header: "FSD_File.hxx".}
 proc putShortReal*(this: var FSD_File; aValue: StandardShortReal): var StorageBaseDriver {.
     importcpp: "PutShortReal", header: "FSD_File.hxx".}
-proc getReference*(this: var FSD_File; aValue: var int): var StorageBaseDriver {.
+proc getReference*(this: var FSD_File; aValue: var cint): var StorageBaseDriver {.
     importcpp: "GetReference", header: "FSD_File.hxx".}
 proc getCharacter*(this: var FSD_File; aValue: var StandardCharacter): var StorageBaseDriver {.
     importcpp: "GetCharacter", header: "FSD_File.hxx".}
 proc getExtCharacter*(this: var FSD_File; aValue: var StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "GetExtCharacter", header: "FSD_File.hxx".}
-proc getInteger*(this: var FSD_File; aValue: var int): var StorageBaseDriver {.
+proc getInteger*(this: var FSD_File; aValue: var cint): var StorageBaseDriver {.
     importcpp: "GetInteger", header: "FSD_File.hxx".}
 proc getBoolean*(this: var FSD_File; aValue: var bool): var StorageBaseDriver {.
     importcpp: "GetBoolean", header: "FSD_File.hxx".}
-proc getReal*(this: var FSD_File; aValue: var float): var StorageBaseDriver {.
+proc getReal*(this: var FSD_File; aValue: var cfloat): var StorageBaseDriver {.
     importcpp: "GetReal", header: "FSD_File.hxx".}
 proc getShortReal*(this: var FSD_File; aValue: var StandardShortReal): var StorageBaseDriver {.
     importcpp: "GetShortReal", header: "FSD_File.hxx".}
@@ -252,6 +252,121 @@ proc destroyFSD_File*(this: var FSD_File) {.importcpp: "#.~FSD_File()",
                                         header: "FSD_File.hxx".}
 proc magicNumber*(): StandardCString {.importcpp: "FSD_File::MagicNumber(@)",
                                     header: "FSD_File.hxx".}
+
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

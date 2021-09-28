@@ -13,9 +13,34 @@
 
 type
   Graphic3dVec4* = NCollectionVec4[StandardShortReal]
-  Graphic3dVec4d* = NCollectionVec4[float]
-  Graphic3dVec4i* = NCollectionVec4[int]
+  Graphic3dVec4d* = NCollectionVec4[cfloat]
+  Graphic3dVec4i* = NCollectionVec4[cint]
   Graphic3dVec4u* = NCollectionVec4[cuint]
   Graphic3dVec4ub* = NCollectionVec4[StandardByte]
   Graphic3dVec4b* = NCollectionVec4[StandardCharacter]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

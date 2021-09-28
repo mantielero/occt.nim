@@ -29,12 +29,38 @@ proc constructHLRBRepTheQuadCurvExactInterCSurf*(s: StandardAddress; c: Lin): HL
     header: "HLRBRep_TheQuadCurvExactInterCSurf.hxx".}
 proc isDone*(this: HLRBRepTheQuadCurvExactInterCSurf): bool {.noSideEffect,
     importcpp: "IsDone", header: "HLRBRep_TheQuadCurvExactInterCSurf.hxx".}
-proc nbRoots*(this: HLRBRepTheQuadCurvExactInterCSurf): int {.noSideEffect,
+proc nbRoots*(this: HLRBRepTheQuadCurvExactInterCSurf): cint {.noSideEffect,
     importcpp: "NbRoots", header: "HLRBRep_TheQuadCurvExactInterCSurf.hxx".}
-proc root*(this: HLRBRepTheQuadCurvExactInterCSurf; index: int): float {.noSideEffect,
-    importcpp: "Root", header: "HLRBRep_TheQuadCurvExactInterCSurf.hxx".}
-proc nbIntervals*(this: HLRBRepTheQuadCurvExactInterCSurf): int {.noSideEffect,
+proc root*(this: HLRBRepTheQuadCurvExactInterCSurf; index: cint): cfloat {.
+    noSideEffect, importcpp: "Root",
+    header: "HLRBRep_TheQuadCurvExactInterCSurf.hxx".}
+proc nbIntervals*(this: HLRBRepTheQuadCurvExactInterCSurf): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "HLRBRep_TheQuadCurvExactInterCSurf.hxx".}
-proc intervals*(this: HLRBRepTheQuadCurvExactInterCSurf; index: int; u1: var float;
-               u2: var float) {.noSideEffect, importcpp: "Intervals",
-                             header: "HLRBRep_TheQuadCurvExactInterCSurf.hxx".}
+proc intervals*(this: HLRBRepTheQuadCurvExactInterCSurf; index: cint; u1: var cfloat;
+               u2: var cfloat) {.noSideEffect, importcpp: "Intervals",
+                              header: "HLRBRep_TheQuadCurvExactInterCSurf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

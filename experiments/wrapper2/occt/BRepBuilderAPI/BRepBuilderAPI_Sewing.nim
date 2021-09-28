@@ -27,7 +27,7 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of BRepBuilderAPI_Sewing"
 discard "forward decl of BRepBuilderAPI_Sewing"
 type
-  HandleBRepBuilderAPI_Sewing* = Handle[BRepBuilderAPI_Sewing]
+  HandleC1C1* = Handle[BRepBuilderAPI_Sewing]
 
 ## ! Provides methods to
 ## !
@@ -113,12 +113,12 @@ type
                                                                                                ## processing
 
 
-proc constructBRepBuilderAPI_Sewing*(tolerance: float = 1.0e-06;
+proc constructBRepBuilderAPI_Sewing*(tolerance: cfloat = 1.0e-06;
                                     option1: bool = true; option2: bool = true;
                                     option3: bool = true; option4: bool = false): BRepBuilderAPI_Sewing {.
     constructor, importcpp: "BRepBuilderAPI_Sewing(@)",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc init*(this: var BRepBuilderAPI_Sewing; tolerance: float = 1.0e-06;
+proc init*(this: var BRepBuilderAPI_Sewing; tolerance: cfloat = 1.0e-06;
           option1: bool = true; option2: bool = true; option3: bool = true;
           option4: bool = false) {.importcpp: "Init",
                                header: "BRepBuilderAPI_Sewing.hxx".}
@@ -136,19 +136,19 @@ proc setContext*(this: var BRepBuilderAPI_Sewing;
     header: "BRepBuilderAPI_Sewing.hxx".}
 proc getContext*(this: BRepBuilderAPI_Sewing): Handle[BRepToolsReShape] {.
     noSideEffect, importcpp: "GetContext", header: "BRepBuilderAPI_Sewing.hxx".}
-proc nbFreeEdges*(this: BRepBuilderAPI_Sewing): int {.noSideEffect,
+proc nbFreeEdges*(this: BRepBuilderAPI_Sewing): cint {.noSideEffect,
     importcpp: "NbFreeEdges", header: "BRepBuilderAPI_Sewing.hxx".}
-proc freeEdge*(this: BRepBuilderAPI_Sewing; index: int): TopoDS_Edge {.noSideEffect,
+proc freeEdge*(this: BRepBuilderAPI_Sewing; index: cint): TopoDS_Edge {.noSideEffect,
     importcpp: "FreeEdge", header: "BRepBuilderAPI_Sewing.hxx".}
-proc nbMultipleEdges*(this: BRepBuilderAPI_Sewing): int {.noSideEffect,
+proc nbMultipleEdges*(this: BRepBuilderAPI_Sewing): cint {.noSideEffect,
     importcpp: "NbMultipleEdges", header: "BRepBuilderAPI_Sewing.hxx".}
-proc multipleEdge*(this: BRepBuilderAPI_Sewing; index: int): TopoDS_Edge {.
+proc multipleEdge*(this: BRepBuilderAPI_Sewing; index: cint): TopoDS_Edge {.
     noSideEffect, importcpp: "MultipleEdge", header: "BRepBuilderAPI_Sewing.hxx".}
-proc nbContigousEdges*(this: BRepBuilderAPI_Sewing): int {.noSideEffect,
+proc nbContigousEdges*(this: BRepBuilderAPI_Sewing): cint {.noSideEffect,
     importcpp: "NbContigousEdges", header: "BRepBuilderAPI_Sewing.hxx".}
-proc contigousEdge*(this: BRepBuilderAPI_Sewing; index: int): TopoDS_Edge {.
+proc contigousEdge*(this: BRepBuilderAPI_Sewing; index: cint): TopoDS_Edge {.
     noSideEffect, importcpp: "ContigousEdge", header: "BRepBuilderAPI_Sewing.hxx".}
-proc contigousEdgeCouple*(this: BRepBuilderAPI_Sewing; index: int): TopToolsListOfShape {.
+proc contigousEdgeCouple*(this: BRepBuilderAPI_Sewing; index: cint): TopToolsListOfShape {.
     noSideEffect, importcpp: "ContigousEdgeCouple",
     header: "BRepBuilderAPI_Sewing.hxx".}
 proc isSectionBound*(this: BRepBuilderAPI_Sewing; section: TopoDS_Edge): bool {.
@@ -156,9 +156,9 @@ proc isSectionBound*(this: BRepBuilderAPI_Sewing; section: TopoDS_Edge): bool {.
 proc sectionToBoundary*(this: BRepBuilderAPI_Sewing; section: TopoDS_Edge): TopoDS_Edge {.
     noSideEffect, importcpp: "SectionToBoundary",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc nbDegeneratedShapes*(this: BRepBuilderAPI_Sewing): int {.noSideEffect,
+proc nbDegeneratedShapes*(this: BRepBuilderAPI_Sewing): cint {.noSideEffect,
     importcpp: "NbDegeneratedShapes", header: "BRepBuilderAPI_Sewing.hxx".}
-proc degeneratedShape*(this: BRepBuilderAPI_Sewing; index: int): TopoDS_Shape {.
+proc degeneratedShape*(this: BRepBuilderAPI_Sewing; index: cint): TopoDS_Shape {.
     noSideEffect, importcpp: "DegeneratedShape",
     header: "BRepBuilderAPI_Sewing.hxx".}
 proc isDegenerated*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): bool {.
@@ -175,27 +175,27 @@ proc modifiedSubShape*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): TopoDS
     header: "BRepBuilderAPI_Sewing.hxx".}
 proc dump*(this: BRepBuilderAPI_Sewing) {.noSideEffect, importcpp: "Dump",
                                        header: "BRepBuilderAPI_Sewing.hxx".}
-proc nbDeletedFaces*(this: BRepBuilderAPI_Sewing): int {.noSideEffect,
+proc nbDeletedFaces*(this: BRepBuilderAPI_Sewing): cint {.noSideEffect,
     importcpp: "NbDeletedFaces", header: "BRepBuilderAPI_Sewing.hxx".}
-proc deletedFace*(this: BRepBuilderAPI_Sewing; index: int): TopoDS_Face {.
+proc deletedFace*(this: BRepBuilderAPI_Sewing; index: cint): TopoDS_Face {.
     noSideEffect, importcpp: "DeletedFace", header: "BRepBuilderAPI_Sewing.hxx".}
-proc whichFace*(this: BRepBuilderAPI_Sewing; theEdg: TopoDS_Edge; index: int = 1): TopoDS_Face {.
+proc whichFace*(this: BRepBuilderAPI_Sewing; theEdg: TopoDS_Edge; index: cint = 1): TopoDS_Face {.
     noSideEffect, importcpp: "WhichFace", header: "BRepBuilderAPI_Sewing.hxx".}
 proc sameParameterMode*(this: BRepBuilderAPI_Sewing): bool {.noSideEffect,
     importcpp: "SameParameterMode", header: "BRepBuilderAPI_Sewing.hxx".}
 proc setSameParameterMode*(this: var BRepBuilderAPI_Sewing; sameParameterMode: bool) {.
     importcpp: "SetSameParameterMode", header: "BRepBuilderAPI_Sewing.hxx".}
-proc tolerance*(this: BRepBuilderAPI_Sewing): float {.noSideEffect,
+proc tolerance*(this: BRepBuilderAPI_Sewing): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc setTolerance*(this: var BRepBuilderAPI_Sewing; theToler: float) {.
+proc setTolerance*(this: var BRepBuilderAPI_Sewing; theToler: cfloat) {.
     importcpp: "SetTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc minTolerance*(this: BRepBuilderAPI_Sewing): float {.noSideEffect,
+proc minTolerance*(this: BRepBuilderAPI_Sewing): cfloat {.noSideEffect,
     importcpp: "MinTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc setMinTolerance*(this: var BRepBuilderAPI_Sewing; theMinToler: float) {.
+proc setMinTolerance*(this: var BRepBuilderAPI_Sewing; theMinToler: cfloat) {.
     importcpp: "SetMinTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc maxTolerance*(this: BRepBuilderAPI_Sewing): float {.noSideEffect,
+proc maxTolerance*(this: BRepBuilderAPI_Sewing): cfloat {.noSideEffect,
     importcpp: "MaxTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc setMaxTolerance*(this: var BRepBuilderAPI_Sewing; theMaxToler: float) {.
+proc setMaxTolerance*(this: var BRepBuilderAPI_Sewing; theMaxToler: cfloat) {.
     importcpp: "SetMaxTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
 proc faceMode*(this: BRepBuilderAPI_Sewing): bool {.noSideEffect,
     importcpp: "FaceMode", header: "BRepBuilderAPI_Sewing.hxx".}
@@ -225,3 +225,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepBuilderAPI_Sewing.hxx".}
 proc dynamicType*(this: BRepBuilderAPI_Sewing): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepBuilderAPI_Sewing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

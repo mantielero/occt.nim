@@ -25,3 +25,28 @@ type
 
 
 proc init*() {.importcpp: "RWHeaderSection::Init(@)", header: "RWHeaderSection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

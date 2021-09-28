@@ -16,7 +16,7 @@
 discard "forward decl of StepDimTol_CoaxialityTolerance"
 discard "forward decl of StepDimTol_CoaxialityTolerance"
 type
-  HandleStepDimTolCoaxialityTolerance* = Handle[StepDimTolCoaxialityTolerance]
+  HandleC1C1* = Handle[StepDimTolCoaxialityTolerance]
 
 ## ! Representation of STEP entity CoaxialityTolerance
 
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolCoaxialityTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_CoaxialityTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

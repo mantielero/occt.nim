@@ -21,7 +21,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_BSplineCurve2d"
 discard "forward decl of DrawTrSurf_BSplineCurve2d"
 type
-  HandleDrawTrSurfBSplineCurve2d* = Handle[DrawTrSurfBSplineCurve2d]
+  HandleC1C1* = Handle[DrawTrSurfBSplineCurve2d]
   DrawTrSurfBSplineCurve2d* {.importcpp: "DrawTrSurf_BSplineCurve2d",
                              header: "DrawTrSurf_BSplineCurve2d.hxx", bycopy.} = object of DrawTrSurfCurve2d ##
                                                                                                       ## !
@@ -49,8 +49,8 @@ proc constructDrawTrSurfBSplineCurve2d*(c: Handle[Geom2dBSplineCurve];
                                        polesColor: DrawColor;
                                        knotsColor: DrawColor;
                                        knotsShape: DrawMarkerShape;
-                                       knotsSize: int; showPoles: bool;
-                                       showKnots: bool; discret: int): DrawTrSurfBSplineCurve2d {.
+                                       knotsSize: cint; showPoles: bool;
+                                       showKnots: bool; discret: cint): DrawTrSurfBSplineCurve2d {.
     constructor, importcpp: "DrawTrSurf_BSplineCurve2d(@)",
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
 proc drawOn*(this: DrawTrSurfBSplineCurve2d; dis: var DrawDisplay) {.noSideEffect,
@@ -63,12 +63,12 @@ proc clearPoles*(this: var DrawTrSurfBSplineCurve2d) {.importcpp: "ClearPoles",
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
 proc clearKnots*(this: var DrawTrSurfBSplineCurve2d) {.importcpp: "ClearKnots",
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc findPole*(this: DrawTrSurfBSplineCurve2d; x: float; y: float; d: DrawDisplay;
-              prec: float; index: var int) {.noSideEffect, importcpp: "FindPole",
-                                        header: "DrawTrSurf_BSplineCurve2d.hxx".}
-proc findKnot*(this: DrawTrSurfBSplineCurve2d; x: float; y: float; d: DrawDisplay;
-              prec: float; index: var int) {.noSideEffect, importcpp: "FindKnot",
-                                        header: "DrawTrSurf_BSplineCurve2d.hxx".}
+proc findPole*(this: DrawTrSurfBSplineCurve2d; x: cfloat; y: cfloat; d: DrawDisplay;
+              prec: cfloat; index: var cint) {.noSideEffect, importcpp: "FindPole",
+    header: "DrawTrSurf_BSplineCurve2d.hxx".}
+proc findKnot*(this: DrawTrSurfBSplineCurve2d; x: cfloat; y: cfloat; d: DrawDisplay;
+              prec: cfloat; index: var cint) {.noSideEffect, importcpp: "FindKnot",
+    header: "DrawTrSurf_BSplineCurve2d.hxx".}
 proc setPolesColor*(this: var DrawTrSurfBSplineCurve2d; aColor: DrawColor) {.
     importcpp: "SetPolesColor", header: "DrawTrSurf_BSplineCurve2d.hxx".}
 proc setKnotsColor*(this: var DrawTrSurfBSplineCurve2d; aColor: DrawColor) {.
@@ -93,3 +93,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_BSplineCurve2d.hxx".}
 proc dynamicType*(this: DrawTrSurfBSplineCurve2d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DrawTrSurf_BSplineCurve2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

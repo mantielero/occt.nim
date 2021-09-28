@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  XSDRAWSTLVRML_ElemNodesMap* = NCollectionDataMap[int,
+  XSDRAWSTLVRML_ElemNodesMap* = NCollectionDataMap[cint,
       TColStdDataMapOfIntegerInteger, TColStdMapIntegerHasher]
-  XSDRAWSTLVRML_DataMapIteratorOfElemNodesMap* = Iterator[int,
+  XSDRAWSTLVRML_DataMapIteratorOfElemNodesMap* = Iterator[cint,
       TColStdDataMapOfIntegerInteger, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

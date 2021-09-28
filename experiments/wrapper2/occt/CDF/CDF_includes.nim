@@ -16,3 +16,28 @@ include CDF_SubComponentStatus
 include CDF_TryStoreStatus
 include CDF_TypeOfActivation
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

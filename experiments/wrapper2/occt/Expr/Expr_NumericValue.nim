@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_NumericValue"
 discard "forward decl of Expr_NumericValue"
 type
-  HandleExprNumericValue* = Handle[ExprNumericValue]
+  HandleC1C1* = Handle[ExprNumericValue]
 
 ## ! This class describes any reel value defined in an
 ## ! expression.
@@ -31,15 +31,15 @@ type
                      header: "Expr_NumericValue.hxx", bycopy.} = object of ExprGeneralExpression
 
 
-proc constructExprNumericValue*(val: float): ExprNumericValue {.constructor,
+proc constructExprNumericValue*(val: cfloat): ExprNumericValue {.constructor,
     importcpp: "Expr_NumericValue(@)", header: "Expr_NumericValue.hxx".}
-proc getValue*(this: ExprNumericValue): float {.noSideEffect, importcpp: "GetValue",
+proc getValue*(this: ExprNumericValue): cfloat {.noSideEffect, importcpp: "GetValue",
     header: "Expr_NumericValue.hxx".}
-proc setValue*(this: var ExprNumericValue; val: float) {.importcpp: "SetValue",
+proc setValue*(this: var ExprNumericValue; val: cfloat) {.importcpp: "SetValue",
     header: "Expr_NumericValue.hxx".}
-proc nbSubExpressions*(this: ExprNumericValue): int {.noSideEffect,
+proc nbSubExpressions*(this: ExprNumericValue): cint {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_NumericValue.hxx".}
-proc subExpression*(this: ExprNumericValue; i: int): Handle[ExprGeneralExpression] {.
+proc subExpression*(this: ExprNumericValue; i: cint): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "SubExpression", header: "Expr_NumericValue.hxx".}
 proc simplified*(this: ExprNumericValue): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "Simplified", header: "Expr_NumericValue.hxx".}
@@ -58,14 +58,14 @@ proc isLinear*(this: ExprNumericValue): bool {.noSideEffect, importcpp: "IsLinea
 proc derivative*(this: ExprNumericValue; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_NumericValue.hxx".}
-proc nDerivative*(this: ExprNumericValue; x: Handle[ExprNamedUnknown]; n: int): Handle[
+proc nDerivative*(this: ExprNumericValue; x: Handle[ExprNamedUnknown]; n: cint): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "NDerivative",
                             header: "Expr_NumericValue.hxx".}
 proc replace*(this: var ExprNumericValue; `var`: Handle[ExprNamedUnknown];
              with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
     header: "Expr_NumericValue.hxx".}
 proc evaluate*(this: ExprNumericValue; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_NumericValue.hxx".}
 proc string*(this: ExprNumericValue): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_NumericValue.hxx".}
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_NumericValue.hxx".}
 proc dynamicType*(this: ExprNumericValue): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_NumericValue.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

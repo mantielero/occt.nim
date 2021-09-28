@@ -31,12 +31,37 @@ type
                                                                                 ## function.
 
 
-proc nbVariables*(this: MathMultipleVarFunctionWithGradient): int {.noSideEffect,
+proc nbVariables*(this: MathMultipleVarFunctionWithGradient): cint {.noSideEffect,
     importcpp: "NbVariables", header: "math_MultipleVarFunctionWithGradient.hxx".}
-proc value*(this: var MathMultipleVarFunctionWithGradient; x: MathVector; f: var float): bool {.
-    importcpp: "Value", header: "math_MultipleVarFunctionWithGradient.hxx".}
+proc value*(this: var MathMultipleVarFunctionWithGradient; x: MathVector;
+           f: var cfloat): bool {.importcpp: "Value", header: "math_MultipleVarFunctionWithGradient.hxx".}
 proc gradient*(this: var MathMultipleVarFunctionWithGradient; x: MathVector;
               g: var MathVector): bool {.importcpp: "Gradient", header: "math_MultipleVarFunctionWithGradient.hxx".}
 proc values*(this: var MathMultipleVarFunctionWithGradient; x: MathVector;
-            f: var float; g: var MathVector): bool {.importcpp: "Values",
+            f: var cfloat; g: var MathVector): bool {.importcpp: "Values",
     header: "math_MultipleVarFunctionWithGradient.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

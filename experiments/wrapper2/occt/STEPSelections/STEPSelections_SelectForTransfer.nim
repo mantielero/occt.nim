@@ -19,7 +19,7 @@ discard "forward decl of Interface_Graph"
 discard "forward decl of STEPSelections_SelectForTransfer"
 discard "forward decl of STEPSelections_SelectForTransfer"
 type
-  HandleSTEPSelectionsSelectForTransfer* = Handle[STEPSelectionsSelectForTransfer]
+  HandleC1C1* = Handle[STEPSelectionsSelectForTransfer]
   STEPSelectionsSelectForTransfer* {.importcpp: "STEPSelections_SelectForTransfer", header: "STEPSelections_SelectForTransfer.hxx",
                                     bycopy.} = object of XSControlSelectForTransfer
 
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectForTransfer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectForTransfer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of Storage_BaseDriver"
 type
-  HandleStorageBaseDriver* = Handle[StorageBaseDriver]
+  HandleC1C1* = Handle[StorageBaseDriver]
 
 ## ! Root class for drivers. A driver assigns a physical container
 ## ! to data to be stored or retrieved, for instance a file.
@@ -63,7 +63,7 @@ proc tell*(this: var StorageBaseDriver): StoragePosition {.importcpp: "Tell",
     header: "Storage_BaseDriver.hxx".}
 proc beginWriteInfoSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteInfoSection", header: "Storage_BaseDriver.hxx".}
-proc writeInfo*(this: var StorageBaseDriver; nbObj: int;
+proc writeInfo*(this: var StorageBaseDriver; nbObj: cint;
                dbVersion: TCollectionAsciiString; date: TCollectionAsciiString;
                schemaName: TCollectionAsciiString;
                schemaVersion: TCollectionAsciiString;
@@ -76,7 +76,7 @@ proc endWriteInfoSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteInfoSection", header: "Storage_BaseDriver.hxx".}
 proc beginReadInfoSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadInfoSection", header: "Storage_BaseDriver.hxx".}
-proc readInfo*(this: var StorageBaseDriver; nbObj: var int;
+proc readInfo*(this: var StorageBaseDriver; nbObj: var cint;
               dbVersion: var TCollectionAsciiString;
               date: var TCollectionAsciiString;
               schemaName: var TCollectionAsciiString;
@@ -107,60 +107,60 @@ proc endReadCommentSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndReadCommentSection", header: "Storage_BaseDriver.hxx".}
 proc beginWriteTypeSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteTypeSection", header: "Storage_BaseDriver.hxx".}
-proc setTypeSectionSize*(this: var StorageBaseDriver; aSize: int) {.
+proc setTypeSectionSize*(this: var StorageBaseDriver; aSize: cint) {.
     importcpp: "SetTypeSectionSize", header: "Storage_BaseDriver.hxx".}
-proc writeTypeInformations*(this: var StorageBaseDriver; typeNum: int;
+proc writeTypeInformations*(this: var StorageBaseDriver; typeNum: cint;
                            typeName: TCollectionAsciiString) {.
     importcpp: "WriteTypeInformations", header: "Storage_BaseDriver.hxx".}
 proc endWriteTypeSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteTypeSection", header: "Storage_BaseDriver.hxx".}
 proc beginReadTypeSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadTypeSection", header: "Storage_BaseDriver.hxx".}
-proc typeSectionSize*(this: var StorageBaseDriver): int {.
+proc typeSectionSize*(this: var StorageBaseDriver): cint {.
     importcpp: "TypeSectionSize", header: "Storage_BaseDriver.hxx".}
-proc readTypeInformations*(this: var StorageBaseDriver; typeNum: var int;
+proc readTypeInformations*(this: var StorageBaseDriver; typeNum: var cint;
                           typeName: var TCollectionAsciiString) {.
     importcpp: "ReadTypeInformations", header: "Storage_BaseDriver.hxx".}
 proc endReadTypeSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndReadTypeSection", header: "Storage_BaseDriver.hxx".}
 proc beginWriteRootSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteRootSection", header: "Storage_BaseDriver.hxx".}
-proc setRootSectionSize*(this: var StorageBaseDriver; aSize: int) {.
+proc setRootSectionSize*(this: var StorageBaseDriver; aSize: cint) {.
     importcpp: "SetRootSectionSize", header: "Storage_BaseDriver.hxx".}
 proc writeRoot*(this: var StorageBaseDriver; rootName: TCollectionAsciiString;
-               aRef: int; aType: TCollectionAsciiString) {.importcpp: "WriteRoot",
+               aRef: cint; aType: TCollectionAsciiString) {.importcpp: "WriteRoot",
     header: "Storage_BaseDriver.hxx".}
 proc endWriteRootSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteRootSection", header: "Storage_BaseDriver.hxx".}
 proc beginReadRootSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadRootSection", header: "Storage_BaseDriver.hxx".}
-proc rootSectionSize*(this: var StorageBaseDriver): int {.
+proc rootSectionSize*(this: var StorageBaseDriver): cint {.
     importcpp: "RootSectionSize", header: "Storage_BaseDriver.hxx".}
 proc readRoot*(this: var StorageBaseDriver; rootName: var TCollectionAsciiString;
-              aRef: var int; aType: var TCollectionAsciiString) {.
+              aRef: var cint; aType: var TCollectionAsciiString) {.
     importcpp: "ReadRoot", header: "Storage_BaseDriver.hxx".}
 proc endReadRootSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndReadRootSection", header: "Storage_BaseDriver.hxx".}
 proc beginWriteRefSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteRefSection", header: "Storage_BaseDriver.hxx".}
-proc setRefSectionSize*(this: var StorageBaseDriver; aSize: int) {.
+proc setRefSectionSize*(this: var StorageBaseDriver; aSize: cint) {.
     importcpp: "SetRefSectionSize", header: "Storage_BaseDriver.hxx".}
-proc writeReferenceType*(this: var StorageBaseDriver; reference: int; typeNum: int) {.
+proc writeReferenceType*(this: var StorageBaseDriver; reference: cint; typeNum: cint) {.
     importcpp: "WriteReferenceType", header: "Storage_BaseDriver.hxx".}
 proc endWriteRefSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteRefSection", header: "Storage_BaseDriver.hxx".}
 proc beginReadRefSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadRefSection", header: "Storage_BaseDriver.hxx".}
-proc refSectionSize*(this: var StorageBaseDriver): int {.importcpp: "RefSectionSize",
+proc refSectionSize*(this: var StorageBaseDriver): cint {.
+    importcpp: "RefSectionSize", header: "Storage_BaseDriver.hxx".}
+proc readReferenceType*(this: var StorageBaseDriver; reference: var cint;
+                       typeNum: var cint) {.importcpp: "ReadReferenceType",
     header: "Storage_BaseDriver.hxx".}
-proc readReferenceType*(this: var StorageBaseDriver; reference: var int;
-                       typeNum: var int) {.importcpp: "ReadReferenceType",
-                                        header: "Storage_BaseDriver.hxx".}
 proc endReadRefSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndReadRefSection", header: "Storage_BaseDriver.hxx".}
 proc beginWriteDataSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginWriteDataSection", header: "Storage_BaseDriver.hxx".}
-proc writePersistentObjectHeader*(this: var StorageBaseDriver; aRef: int; aType: int) {.
+proc writePersistentObjectHeader*(this: var StorageBaseDriver; aRef: cint; aType: cint) {.
     importcpp: "WritePersistentObjectHeader", header: "Storage_BaseDriver.hxx".}
 proc beginWritePersistentObjectData*(this: var StorageBaseDriver) {.
     importcpp: "BeginWritePersistentObjectData", header: "Storage_BaseDriver.hxx".}
@@ -174,8 +174,8 @@ proc endWriteDataSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "EndWriteDataSection", header: "Storage_BaseDriver.hxx".}
 proc beginReadDataSection*(this: var StorageBaseDriver): StorageError {.
     importcpp: "BeginReadDataSection", header: "Storage_BaseDriver.hxx".}
-proc readPersistentObjectHeader*(this: var StorageBaseDriver; aRef: var int;
-                                aType: var int) {.
+proc readPersistentObjectHeader*(this: var StorageBaseDriver; aRef: var cint;
+                                aType: var cint) {.
     importcpp: "ReadPersistentObjectHeader", header: "Storage_BaseDriver.hxx".}
 proc beginReadPersistentObjectData*(this: var StorageBaseDriver) {.
     importcpp: "BeginReadPersistentObjectData", header: "Storage_BaseDriver.hxx".}
@@ -191,7 +191,7 @@ proc skipObject*(this: var StorageBaseDriver) {.importcpp: "SkipObject",
     header: "Storage_BaseDriver.hxx".}
 proc close*(this: var StorageBaseDriver): StorageError {.importcpp: "Close",
     header: "Storage_BaseDriver.hxx".}
-proc putReference*(this: var StorageBaseDriver; aValue: int): var StorageBaseDriver {.
+proc putReference*(this: var StorageBaseDriver; aValue: cint): var StorageBaseDriver {.
     importcpp: "PutReference", header: "Storage_BaseDriver.hxx".}
 proc putCharacter*(this: var StorageBaseDriver; aValue: StandardCharacter): var StorageBaseDriver {.
     importcpp: "PutCharacter", header: "Storage_BaseDriver.hxx".}
@@ -201,23 +201,23 @@ proc putExtCharacter*(this: var StorageBaseDriver; aValue: StandardExtCharacter)
     importcpp: "PutExtCharacter", header: "Storage_BaseDriver.hxx".}
 proc `<<`*(this: var StorageBaseDriver; aValue: StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
-proc putInteger*(this: var StorageBaseDriver; aValue: int): var StorageBaseDriver {.
+proc putInteger*(this: var StorageBaseDriver; aValue: cint): var StorageBaseDriver {.
     importcpp: "PutInteger", header: "Storage_BaseDriver.hxx".}
-proc `<<`*(this: var StorageBaseDriver; aValue: int): var StorageBaseDriver {.
+proc `<<`*(this: var StorageBaseDriver; aValue: cint): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
 proc putBoolean*(this: var StorageBaseDriver; aValue: bool): var StorageBaseDriver {.
     importcpp: "PutBoolean", header: "Storage_BaseDriver.hxx".}
 proc `<<`*(this: var StorageBaseDriver; aValue: bool): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
-proc putReal*(this: var StorageBaseDriver; aValue: float): var StorageBaseDriver {.
+proc putReal*(this: var StorageBaseDriver; aValue: cfloat): var StorageBaseDriver {.
     importcpp: "PutReal", header: "Storage_BaseDriver.hxx".}
-proc `<<`*(this: var StorageBaseDriver; aValue: float): var StorageBaseDriver {.
+proc `<<`*(this: var StorageBaseDriver; aValue: cfloat): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
 proc putShortReal*(this: var StorageBaseDriver; aValue: StandardShortReal): var StorageBaseDriver {.
     importcpp: "PutShortReal", header: "Storage_BaseDriver.hxx".}
 proc `<<`*(this: var StorageBaseDriver; aValue: StandardShortReal): var StorageBaseDriver {.
     importcpp: "(# << #)", header: "Storage_BaseDriver.hxx".}
-proc getReference*(this: var StorageBaseDriver; aValue: var int): var StorageBaseDriver {.
+proc getReference*(this: var StorageBaseDriver; aValue: var cint): var StorageBaseDriver {.
     importcpp: "GetReference", header: "Storage_BaseDriver.hxx".}
 proc getCharacter*(this: var StorageBaseDriver; aValue: var StandardCharacter): var StorageBaseDriver {.
     importcpp: "GetCharacter", header: "Storage_BaseDriver.hxx".}
@@ -227,19 +227,44 @@ proc getExtCharacter*(this: var StorageBaseDriver; aValue: var StandardExtCharac
     importcpp: "GetExtCharacter", header: "Storage_BaseDriver.hxx".}
 proc `>>`*(this: var StorageBaseDriver; aValue: var StandardExtCharacter): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}
-proc getInteger*(this: var StorageBaseDriver; aValue: var int): var StorageBaseDriver {.
+proc getInteger*(this: var StorageBaseDriver; aValue: var cint): var StorageBaseDriver {.
     importcpp: "GetInteger", header: "Storage_BaseDriver.hxx".}
-proc `>>`*(this: var StorageBaseDriver; aValue: var int): var StorageBaseDriver {.
+proc `>>`*(this: var StorageBaseDriver; aValue: var cint): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}
 proc getBoolean*(this: var StorageBaseDriver; aValue: var bool): var StorageBaseDriver {.
     importcpp: "GetBoolean", header: "Storage_BaseDriver.hxx".}
 proc `>>`*(this: var StorageBaseDriver; aValue: var bool): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}
-proc getReal*(this: var StorageBaseDriver; aValue: var float): var StorageBaseDriver {.
+proc getReal*(this: var StorageBaseDriver; aValue: var cfloat): var StorageBaseDriver {.
     importcpp: "GetReal", header: "Storage_BaseDriver.hxx".}
-proc `>>`*(this: var StorageBaseDriver; aValue: var float): var StorageBaseDriver {.
+proc `>>`*(this: var StorageBaseDriver; aValue: var cfloat): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}
 proc getShortReal*(this: var StorageBaseDriver; aValue: var StandardShortReal): var StorageBaseDriver {.
     importcpp: "GetShortReal", header: "Storage_BaseDriver.hxx".}
 proc `>>`*(this: var StorageBaseDriver; aValue: var StandardShortReal): var StorageBaseDriver {.
     importcpp: "(# >> #)", header: "Storage_BaseDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

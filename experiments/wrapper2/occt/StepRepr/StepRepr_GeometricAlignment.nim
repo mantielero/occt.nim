@@ -16,7 +16,7 @@
 discard "forward decl of StepRepr_GeometricAlignment"
 discard "forward decl of StepRepr_GeometricAlignment"
 type
-  HandleStepReprGeometricAlignment* = Handle[StepReprGeometricAlignment]
+  HandleC1C1* = Handle[StepReprGeometricAlignment]
 
 ## ! Added for Dimensional Tolerances
 
@@ -39,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprGeometricAlignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_GeometricAlignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

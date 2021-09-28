@@ -51,5 +51,30 @@ proc dynamicType*(this: OpenGlStructureShadow): Handle[StandardType] {.noSideEff
     importcpp: "DynamicType", header: "OpenGl_StructureShadow.hxx".}
 discard "forward decl of OpenGl_StructureShadow"
 type
-  HandleOpenGlStructureShadow* = Handle[OpenGlStructureShadow]
+  HandleC1C1* = Handle[OpenGlStructureShadow]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

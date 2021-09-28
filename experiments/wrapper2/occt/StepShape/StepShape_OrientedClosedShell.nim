@@ -20,7 +20,7 @@ discard "forward decl of StepShape_Face"
 discard "forward decl of StepShape_OrientedClosedShell"
 discard "forward decl of StepShape_OrientedClosedShell"
 type
-  HandleStepShapeOrientedClosedShell* = Handle[StepShapeOrientedClosedShell]
+  HandleC1C1* = Handle[StepShapeOrientedClosedShell]
   StepShapeOrientedClosedShell* {.importcpp: "StepShape_OrientedClosedShell",
                                  header: "StepShape_OrientedClosedShell.hxx",
                                  bycopy.} = object of StepShapeClosedShell ## ! Returns a
@@ -51,10 +51,10 @@ proc setCfsFaces*(this: var StepShapeOrientedClosedShell;
 proc cfsFaces*(this: StepShapeOrientedClosedShell): Handle[StepShapeHArray1OfFace] {.
     noSideEffect, importcpp: "CfsFaces",
     header: "StepShape_OrientedClosedShell.hxx".}
-proc cfsFacesValue*(this: StepShapeOrientedClosedShell; num: int): Handle[
+proc cfsFacesValue*(this: StepShapeOrientedClosedShell; num: cint): Handle[
     StepShapeFace] {.noSideEffect, importcpp: "CfsFacesValue",
                     header: "StepShape_OrientedClosedShell.hxx".}
-proc nbCfsFaces*(this: StepShapeOrientedClosedShell): int {.noSideEffect,
+proc nbCfsFaces*(this: StepShapeOrientedClosedShell): cint {.noSideEffect,
     importcpp: "NbCfsFaces", header: "StepShape_OrientedClosedShell.hxx".}
 type
   StepShapeOrientedClosedShellbaseType* = StepShapeClosedShell
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeOrientedClosedShell): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_OrientedClosedShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

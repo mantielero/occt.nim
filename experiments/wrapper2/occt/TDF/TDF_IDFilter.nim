@@ -172,3 +172,28 @@ proc dump*(this: TDF_IDFilter; anOS: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "TDF_IDFilter.hxx".}
 proc assign*(this: var TDF_IDFilter; theFilter: TDF_IDFilter) {.importcpp: "Assign",
     header: "TDF_IDFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

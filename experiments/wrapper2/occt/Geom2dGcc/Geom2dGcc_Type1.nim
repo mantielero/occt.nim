@@ -20,4 +20,3 @@ type
     Geom2dGccCuCuCu, Geom2dGccCiCuCu, Geom2dGccCiCiCu, Geom2dGccCiLiCu,
     Geom2dGccLiLiCu, Geom2dGccLiCuCu
 
-

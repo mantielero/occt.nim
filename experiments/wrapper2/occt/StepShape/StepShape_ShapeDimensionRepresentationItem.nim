@@ -34,7 +34,7 @@ proc constructStepShapeShapeDimensionRepresentationItem*(): StepShapeShapeDimens
     constructor, importcpp: "StepShape_ShapeDimensionRepresentationItem(@)",
     header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
 proc caseNum*(this: StepShapeShapeDimensionRepresentationItem;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
 proc compoundRepresentationItem*(this: StepShapeShapeDimensionRepresentationItem): Handle[
     StepReprCompoundRepresentationItem] {.noSideEffect,
@@ -49,3 +49,28 @@ proc measureRepresentationItem*(this: StepShapeShapeDimensionRepresentationItem)
                                         importcpp: "MeasureRepresentationItem", header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
 proc placement*(this: StepShapeShapeDimensionRepresentationItem): Handle[
     StepGeomPlacement] {.noSideEffect, importcpp: "Placement", header: "StepShape_ShapeDimensionRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

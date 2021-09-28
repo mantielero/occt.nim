@@ -48,13 +48,13 @@ proc setWireframe*(this: var V3dTrihedron; theAsWireframe: bool) {.
     importcpp: "SetWireframe", header: "V3d_Trihedron.hxx".}
 proc setPosition*(this: var V3dTrihedron; thePosition: AspectTypeOfTriedronPosition) {.
     importcpp: "SetPosition", header: "V3d_Trihedron.hxx".}
-proc setScale*(this: var V3dTrihedron; theScale: float) {.importcpp: "SetScale",
+proc setScale*(this: var V3dTrihedron; theScale: cfloat) {.importcpp: "SetScale",
     header: "V3d_Trihedron.hxx".}
-proc setSizeRatio*(this: var V3dTrihedron; theRatio: float) {.
+proc setSizeRatio*(this: var V3dTrihedron; theRatio: cfloat) {.
     importcpp: "SetSizeRatio", header: "V3d_Trihedron.hxx".}
-proc setArrowDiameter*(this: var V3dTrihedron; theDiam: float) {.
+proc setArrowDiameter*(this: var V3dTrihedron; theDiam: cfloat) {.
     importcpp: "SetArrowDiameter", header: "V3d_Trihedron.hxx".}
-proc setNbFacets*(this: var V3dTrihedron; theNbFacets: int) {.
+proc setNbFacets*(this: var V3dTrihedron; theNbFacets: cint) {.
     importcpp: "SetNbFacets", header: "V3d_Trihedron.hxx".}
 proc setLabelsColor*(this: var V3dTrihedron; theColor: QuantityColor) {.
     importcpp: "SetLabelsColor", header: "V3d_Trihedron.hxx".}
@@ -65,9 +65,34 @@ proc display*(this: var V3dTrihedron; theView: V3dView) {.importcpp: "Display",
     header: "V3d_Trihedron.hxx".}
 proc erase*(this: var V3dTrihedron) {.importcpp: "Erase", header: "V3d_Trihedron.hxx".}
 proc dumpJson*(this: V3dTrihedron; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "V3d_Trihedron.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "V3d_Trihedron.hxx".}
 discard "forward decl of V3d_Trihedron"
 type
-  HandleV3dTrihedron* = Handle[V3dTrihedron]
+  HandleC1C1* = Handle[V3dTrihedron]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

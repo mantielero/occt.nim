@@ -14,35 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESGeomHArray1OfCurveOnSurface* {.importcpp: "IGESGeom_HArray1OfCurveOnSurface", header: "IGESGeom_HArray1OfCurveOnSurface.hxx",
-                                    bycopy.} = object of IGESGeomArray1OfCurveOnSurface
+## !!!Ignored construct:  # IGESGeom_HArray1OfCurveOnSurface_HeaderFile [NewLine] # IGESGeom_HArray1OfCurveOnSurface_HeaderFile [NewLine] # < IGESGeom_CurveOnSurface . hxx > [NewLine] # < IGESGeom_Array1OfCurveOnSurface . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESGeom_HArray1OfCurveOnSurface , IGESGeom_Array1OfCurveOnSurface ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESGeomHArray1OfCurveOnSurface*(theLower: int; theUpper: int): IGESGeomHArray1OfCurveOnSurface {.
-    constructor, importcpp: "IGESGeom_HArray1OfCurveOnSurface(@)",
-    header: "IGESGeom_HArray1OfCurveOnSurface.hxx".}
-proc constructIGESGeomHArray1OfCurveOnSurface*(theLower: int; theUpper: int;
-    theValue: ValueType): IGESGeomHArray1OfCurveOnSurface {.constructor,
-    importcpp: "IGESGeom_HArray1OfCurveOnSurface(@)",
-    header: "IGESGeom_HArray1OfCurveOnSurface.hxx".}
-proc constructIGESGeomHArray1OfCurveOnSurface*(
-    theOther: IGESGeomArray1OfCurveOnSurface): IGESGeomHArray1OfCurveOnSurface {.
-    constructor, importcpp: "IGESGeom_HArray1OfCurveOnSurface(@)",
-    header: "IGESGeom_HArray1OfCurveOnSurface.hxx".}
-proc array1*(this: IGESGeomHArray1OfCurveOnSurface): IGESGeomArray1OfCurveOnSurface {.
-    noSideEffect, importcpp: "Array1",
-    header: "IGESGeom_HArray1OfCurveOnSurface.hxx".}
-proc changeArray1*(this: var IGESGeomHArray1OfCurveOnSurface): var IGESGeomArray1OfCurveOnSurface {.
-    importcpp: "ChangeArray1", header: "IGESGeom_HArray1OfCurveOnSurface.hxx".}
-type
-  IGESGeomHArray1OfCurveOnSurfacebaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESGeom_HArray1OfCurveOnSurface::get_type_name(@)",
-                            header: "IGESGeom_HArray1OfCurveOnSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESGeom_HArray1OfCurveOnSurface::get_type_descriptor(@)",
-    header: "IGESGeom_HArray1OfCurveOnSurface.hxx".}
-proc dynamicType*(this: IGESGeomHArray1OfCurveOnSurface): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESGeom_HArray1OfCurveOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

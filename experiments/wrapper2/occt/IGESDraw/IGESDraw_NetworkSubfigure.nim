@@ -23,7 +23,7 @@ discard "forward decl of IGESDraw_ConnectPoint"
 discard "forward decl of IGESDraw_NetworkSubfigure"
 discard "forward decl of IGESDraw_NetworkSubfigure"
 type
-  HandleIGESDrawNetworkSubfigure* = Handle[IGESDrawNetworkSubfigure]
+  HandleC1C1* = Handle[IGESDrawNetworkSubfigure]
 
 ## ! defines IGES Network Subfigure Instance Entity,
 ## ! Type <420> Form Number <0> in package IGESDraw
@@ -41,7 +41,7 @@ proc constructIGESDrawNetworkSubfigure*(): IGESDrawNetworkSubfigure {.constructo
     header: "IGESDraw_NetworkSubfigure.hxx".}
 proc init*(this: var IGESDrawNetworkSubfigure;
           aDefinition: Handle[IGESDrawNetworkSubfigureDef]; aTranslation: Xyz;
-          aScaleFactor: Xyz; aTypeFlag: int;
+          aScaleFactor: Xyz; aTypeFlag: cint;
           aDesignator: Handle[TCollectionHAsciiString];
           aTemplate: Handle[IGESGraphTextDisplayTemplate];
           allConnectPoints: Handle[IGESDrawHArray1OfConnectPoint]) {.
@@ -55,7 +55,7 @@ proc transformedTranslation*(this: IGESDrawNetworkSubfigure): Xyz {.noSideEffect
     importcpp: "TransformedTranslation", header: "IGESDraw_NetworkSubfigure.hxx".}
 proc scaleFactors*(this: IGESDrawNetworkSubfigure): Xyz {.noSideEffect,
     importcpp: "ScaleFactors", header: "IGESDraw_NetworkSubfigure.hxx".}
-proc typeFlag*(this: IGESDrawNetworkSubfigure): int {.noSideEffect,
+proc typeFlag*(this: IGESDrawNetworkSubfigure): cint {.noSideEffect,
     importcpp: "TypeFlag", header: "IGESDraw_NetworkSubfigure.hxx".}
 proc referenceDesignator*(this: IGESDrawNetworkSubfigure): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "ReferenceDesignator",
@@ -65,9 +65,9 @@ proc hasDesignatorTemplate*(this: IGESDrawNetworkSubfigure): bool {.noSideEffect
 proc designatorTemplate*(this: IGESDrawNetworkSubfigure): Handle[
     IGESGraphTextDisplayTemplate] {.noSideEffect, importcpp: "DesignatorTemplate",
                                    header: "IGESDraw_NetworkSubfigure.hxx".}
-proc nbConnectPoints*(this: IGESDrawNetworkSubfigure): int {.noSideEffect,
+proc nbConnectPoints*(this: IGESDrawNetworkSubfigure): cint {.noSideEffect,
     importcpp: "NbConnectPoints", header: "IGESDraw_NetworkSubfigure.hxx".}
-proc connectPoint*(this: IGESDrawNetworkSubfigure; index: int): Handle[
+proc connectPoint*(this: IGESDrawNetworkSubfigure; index: cint): Handle[
     IGESDrawConnectPoint] {.noSideEffect, importcpp: "ConnectPoint",
                            header: "IGESDraw_NetworkSubfigure.hxx".}
 type
@@ -80,3 +80,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDraw_NetworkSubfigure.hxx".}
 proc dynamicType*(this: IGESDrawNetworkSubfigure): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDraw_NetworkSubfigure.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -50,3 +50,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
          anElips: Elips; midPoint: Pnt; position: Pnt; attachPoint: Pnt; point1: Pnt;
          point2: Pnt; first: bool) {.importcpp: "DsgPrs_MidPointPresentation::Add(@)",
                                  header: "DsgPrs_MidPointPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,3 +22,28 @@ type
     BRepFillNoContact, BRepFillContact, BRepFillContactOnBorder
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

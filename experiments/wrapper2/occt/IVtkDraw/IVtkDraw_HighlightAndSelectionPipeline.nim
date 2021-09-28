@@ -23,8 +23,7 @@ type
 discard "forward decl of IVtkDraw_HighlightAndSelectionPipeline"
 discard "forward decl of IVtkDraw_HighlightAndSelectionPipeline"
 type
-  HandleIVtkDrawHighlightAndSelectionPipeline* = Handle[
-      IVtkDrawHighlightAndSelectionPipeline]
+  HandleC1C1* = Handle[IVtkDrawHighlightAndSelectionPipeline]
   IVtkDrawHighlightAndSelectionPipeline* {.
       importcpp: "IVtkDraw_HighlightAndSelectionPipeline",
       header: "IVtkDraw_HighlightAndSelectionPipeline.hxx", bycopy.} = object of StandardTransient ##
@@ -74,7 +73,7 @@ type
 
 
 proc constructIVtkDrawHighlightAndSelectionPipeline*(theShape: TopoDS_Shape;
-    theShapeID: int): IVtkDrawHighlightAndSelectionPipeline {.constructor,
+    theShapeID: cint): IVtkDrawHighlightAndSelectionPipeline {.constructor,
     importcpp: "IVtkDraw_HighlightAndSelectionPipeline(@)",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
 proc destroyIVtkDrawHighlightAndSelectionPipeline*(
@@ -125,4 +124,29 @@ proc sharedVerticesSelectionOff*(this: var IVtkDrawHighlightAndSelectionPipeline
 type
   ShapePipelineMap* = NCollectionShared[NCollectionDataMap[IVtkIdType,
       Handle[IVtkDrawHighlightAndSelectionPipeline]]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -52,3 +52,28 @@ proc vertices*(w: TopoDS_Wire; vfirst: var TopoDS_Vertex; vlast: var TopoDS_Vert
     importcpp: "TopExp::Vertices(@)", header: "TopExp.hxx".}
 proc commonVertex*(e1: TopoDS_Edge; e2: TopoDS_Edge; v: var TopoDS_Vertex): bool {.
     importcpp: "TopExp::CommonVertex(@)", header: "TopExp.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

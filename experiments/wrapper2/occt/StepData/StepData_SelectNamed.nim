@@ -18,7 +18,7 @@ discard "forward decl of StepData_Field"
 discard "forward decl of StepData_SelectNamed"
 discard "forward decl of StepData_SelectNamed"
 type
-  HandleStepDataSelectNamed* = Handle[StepDataSelectNamed]
+  HandleC1C1* = Handle[StepDataSelectNamed]
 
 ## ! This select member can be of any kind, and be named
 ## ! But its takes more memory than some specialised ones
@@ -41,17 +41,17 @@ proc field*(this: StepDataSelectNamed): StepDataField {.noSideEffect,
     importcpp: "Field", header: "StepData_SelectNamed.hxx".}
 proc cField*(this: var StepDataSelectNamed): var StepDataField {.importcpp: "CField",
     header: "StepData_SelectNamed.hxx".}
-proc kind*(this: StepDataSelectNamed): int {.noSideEffect, importcpp: "Kind",
+proc kind*(this: StepDataSelectNamed): cint {.noSideEffect, importcpp: "Kind",
     header: "StepData_SelectNamed.hxx".}
-proc setKind*(this: var StepDataSelectNamed; kind: int) {.importcpp: "SetKind",
+proc setKind*(this: var StepDataSelectNamed; kind: cint) {.importcpp: "SetKind",
     header: "StepData_SelectNamed.hxx".}
-proc int*(this: StepDataSelectNamed): int {.noSideEffect, importcpp: "Int",
-                                        header: "StepData_SelectNamed.hxx".}
-proc setInt*(this: var StepDataSelectNamed; val: int) {.importcpp: "SetInt",
+proc int*(this: StepDataSelectNamed): cint {.noSideEffect, importcpp: "Int",
     header: "StepData_SelectNamed.hxx".}
-proc real*(this: StepDataSelectNamed): float {.noSideEffect, importcpp: "Real",
+proc setInt*(this: var StepDataSelectNamed; val: cint) {.importcpp: "SetInt",
     header: "StepData_SelectNamed.hxx".}
-proc setReal*(this: var StepDataSelectNamed; val: float) {.importcpp: "SetReal",
+proc real*(this: StepDataSelectNamed): cfloat {.noSideEffect, importcpp: "Real",
+    header: "StepData_SelectNamed.hxx".}
+proc setReal*(this: var StepDataSelectNamed; val: cfloat) {.importcpp: "SetReal",
     header: "StepData_SelectNamed.hxx".}
 proc string*(this: StepDataSelectNamed): StandardCString {.noSideEffect,
     importcpp: "String", header: "StepData_SelectNamed.hxx".}
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_SelectNamed.hxx".}
 proc dynamicType*(this: StepDataSelectNamed): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_SelectNamed.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@ type
   TDF_LabelList* = NCollectionList[TDF_Label]
   TDF_ListIteratorOfLabelList* = Iterator[TDF_Label]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

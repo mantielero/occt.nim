@@ -11,87 +11,68 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
-    not defined(android) and not defined(qnx) and not defined(emscripten):
-  discard
-## ! This class creates and provides connection with X server.
+## !!!Ignored construct:  # _Aspect_DisplayConnection_H__ [NewLine] # _Aspect_DisplayConnection_H__ [NewLine] # < Standard_Transient . hxx > [NewLine] # < Aspect_XAtom . hxx > [NewLine] # < TCollection_AsciiString . hxx > [NewLine] # < NCollection_DataMap . hxx > [NewLine] # ! defined ( _WIN32 ) && ( ! defined ( __APPLE__ ) || defined ( MACOSX_USE_GLX ) ) && ! defined ( __ANDROID__ ) && ! defined ( __QNX__ ) && ! defined ( __EMSCRIPTEN__ ) [NewLine] # < InterfaceGraphic . hxx > [NewLine] # [NewLine] ! This class creates and provides connection with X server.
 ## ! Raises exception if can not connect to X server.
 ## ! On Windows and Mac OS X (in case when Cocoa used) platforms this class do nothing.
-## ! WARRNING: Do not close display connection manualy!
-
-type
-  AspectDisplayConnection* {.importcpp: "Aspect_DisplayConnection",
-                            header: "Aspect_DisplayConnection.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Default
-                                                                                                    ## constructor.
-                                                                                                    ## Creates
-                                                                                                    ## connection
-                                                                                                    ## with
-                                                                                                    ## display
-                                                                                                    ## name
-                                                                                                    ## taken
-                                                                                                    ## from
-                                                                                                    ## "DISPLAY"
-                                                                                                    ## environment
-                                                                                                    ## variable
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## To
-                                                                                                    ## protect
-                                                                                                    ## the
-                                                                                                    ## connection
-                                                                                                    ## from
-                                                                                                    ## closing
-                                                                                                    ## copying
-                                                                                                    ## allowed
-                                                                                                    ## only
-                                                                                                    ## through
-                                                                                                    ## the
-                                                                                                    ## handles.
-
-
-proc constructAspectDisplayConnection*(): AspectDisplayConnection {.constructor,
-    importcpp: "Aspect_DisplayConnection(@)",
-    header: "Aspect_DisplayConnection.hxx".}
-proc destroyAspectDisplayConnection*(this: var AspectDisplayConnection) {.
-    importcpp: "#.~Aspect_DisplayConnection()",
-    header: "Aspect_DisplayConnection.hxx".}
-## !!!Ignored construct:  # ! defined ( _WIN32 ) && ( ! defined ( __APPLE__ ) || defined ( MACOSX_USE_GLX ) ) && ! defined ( __ANDROID__ ) && ! defined ( __QNX__ ) && ! defined ( __EMSCRIPTEN__ ) [NewLine] ! Constructor. Creates connection with display specified in theDisplayName.
+## ! WARRNING: Do not close display connection manualy! class Aspect_DisplayConnection : public Standard_Transient { public : ! Default constructor. Creates connection with display name taken from "DISPLAY" environment variable Aspect_DisplayConnection ( ) ; ! Destructor. Close opened connection. ~ Aspect_DisplayConnection ( ) ; # ! defined ( _WIN32 ) && ( ! defined ( __APPLE__ ) || defined ( MACOSX_USE_GLX ) ) && ! defined ( __ANDROID__ ) && ! defined ( __QNX__ ) && ! defined ( __EMSCRIPTEN__ ) [NewLine] ! Constructor. Creates connection with display specified in theDisplayName.
 ## ! Display name should be in format "hostname:number" or "hostname:number.screen_number", where:
 ## ! hostname      - Specifies the name of the host machine on which the display is physically attached.
 ## ! number        - Specifies the number of the display server on that host machine.
-## ! screen_number - Specifies the screen to be used on that server. Optional variable. Aspect_DisplayConnection ( const TCollection_AsciiString & theDisplayName ) ;
-## Error: identifier expected, but got: ! Constructor. Creates connection with display specified in theDisplayName.
-## ! Display name should be in format "hostname:number" or "hostname:number.screen_number", where:
-## ! hostname      - Specifies the name of the host machine on which the display is physically attached.
-## ! number        - Specifies the number of the display server on that host machine.
-## ! screen_number - Specifies the screen to be used on that server. Optional variable.!!!
+## ! screen_number - Specifies the screen to be used on that server. Optional variable. Aspect_DisplayConnection ( const TCollection_AsciiString & theDisplayName ) ; ! Constructor wrapping existing Display instance.
+## ! WARNING! it is a responsibility of application to keep this pointer
+## ! valid while Aspect_DisplayConnection is alive and to close Display when it is no more needed. Aspect_DisplayConnection ( Display * theDisplay ) ; ! @return pointer to Display structure that serves as the connection to the X server. Display * GetDisplay ( ) { return myDisplay ; } ! @return TRUE if X Display has been allocated by this class Standard_Boolean IsOwnDisplay ( ) const { return myIsOwnDisplay ; } ! @return identifier(atom) for custom named property associated with windows that use current connection to X server. Atom GetAtom ( const Aspect_XAtom theAtom ) const ; ! @return display name for this connection. const TCollection_AsciiString & GetDisplayName ( ) { return myDisplayName ; } ! Open connection with display specified in myDisplayName class field
+## ! or takes theDisplay parameter when it is not NULL.
+## ! WARNING! When external Display is specified, it is a responsibility of application
+## ! to keep this pointer valid while Aspect_DisplayConnection is alive
+## ! and to close Display when it is no more needed.
+## ! @param theDisplay external pointer to allocated Display, or NULL if new connection should be created void Init ( Display * theDisplay ) ; private : Display * myDisplay ; NCollection_DataMap < Aspect_XAtom , Atom > [end of template] myAtoms ; TCollection_AsciiString myDisplayName ; Standard_Boolean myIsOwnDisplay ; # [NewLine] private : ! To protect the connection from closing copying allowed only through the handles. Aspect_DisplayConnection ( const Aspect_DisplayConnection & ) ; Aspect_DisplayConnection & operator = ( const Aspect_DisplayConnection & ) ; public : public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return Aspect_DisplayConnection ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ;  Type definition } ;
+## Error: expected ';'!!!
 
-proc constructAspectDisplayConnection*(theDisplay: ptr Display): AspectDisplayConnection {.
-    constructor, importcpp: "Aspect_DisplayConnection(@)",
-    header: "Aspect_DisplayConnection.hxx".}
-proc getDisplay*(this: var AspectDisplayConnection): ptr Display {.
-    importcpp: "GetDisplay", header: "Aspect_DisplayConnection.hxx".}
-proc isOwnDisplay*(this: AspectDisplayConnection): bool {.noSideEffect,
-    importcpp: "IsOwnDisplay", header: "Aspect_DisplayConnection.hxx".}
-proc getAtom*(this: AspectDisplayConnection; theAtom: AspectXAtom): Atom {.
-    noSideEffect, importcpp: "GetAtom", header: "Aspect_DisplayConnection.hxx".}
-proc getDisplayName*(this: var AspectDisplayConnection): TCollectionAsciiString {.
-    importcpp: "GetDisplayName", header: "Aspect_DisplayConnection.hxx".}
-proc init*(this: var AspectDisplayConnection; theDisplay: ptr Display) {.
-    importcpp: "Init", header: "Aspect_DisplayConnection.hxx".}
-type
-  AspectDisplayConnectionbaseType* = StandardTransient
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Aspect_DisplayConnection , Standard_Transient ) #  _Aspect_DisplayConnection_H__
+## Error: expected ';'!!!
 
-proc getTypeName*(): cstring {.importcpp: "Aspect_DisplayConnection::get_type_name(@)",
-                            header: "Aspect_DisplayConnection.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Aspect_DisplayConnection::get_type_descriptor(@)",
-    header: "Aspect_DisplayConnection.hxx".}
-proc dynamicType*(this: AspectDisplayConnection): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "Aspect_DisplayConnection.hxx".}
-discard "forward decl of Aspect_DisplayConnection"
-type
-  HandleAspectDisplayConnection* = Handle[AspectDisplayConnection]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

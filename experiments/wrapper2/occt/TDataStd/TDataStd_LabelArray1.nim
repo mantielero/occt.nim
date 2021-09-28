@@ -17,3 +17,28 @@
 type
   TDataStdLabelArray1* = NCollectionArray1[TDF_Label]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

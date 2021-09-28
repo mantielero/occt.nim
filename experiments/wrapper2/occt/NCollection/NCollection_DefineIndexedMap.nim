@@ -26,4 +26,3 @@
 template define_Indexedmap*(className, baseCollection, theKeyType: untyped): void =
   type
     ClassName* = NCollectionIndexedMap[TheKeyType]
-

@@ -31,9 +31,35 @@ proc destroyBRepMeshConeRangeSplitter*(this: var BRepMeshConeRangeSplitter) {.
     header: "BRepMesh_ConeRangeSplitter.hxx".}
 proc getSplitSteps*(this: BRepMeshConeRangeSplitter;
                    theParameters: IMeshToolsParameters;
-                   theStepsNb: var Pair[int, int]): Pair[float, float] {.noSideEffect,
-    importcpp: "GetSplitSteps", header: "BRepMesh_ConeRangeSplitter.hxx".}
+                   theStepsNb: var Pair[cint, cint]): Pair[cfloat, cfloat] {.
+    noSideEffect, importcpp: "GetSplitSteps",
+    header: "BRepMesh_ConeRangeSplitter.hxx".}
 proc generateSurfaceNodes*(this: BRepMeshConeRangeSplitter;
                           theParameters: IMeshToolsParameters): Handle[ListOfPnt2d] {.
     noSideEffect, importcpp: "GenerateSurfaceNodes",
     header: "BRepMesh_ConeRangeSplitter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

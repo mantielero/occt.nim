@@ -26,3 +26,28 @@ proc processFaceInterferences*(this: var TopOpeBRepDS_Reducer;
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_Reducer.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_Reducer) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_Reducer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

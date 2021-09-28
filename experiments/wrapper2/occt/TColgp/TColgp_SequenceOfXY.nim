@@ -17,3 +17,28 @@
 type
   TColgpSequenceOfXY* = NCollectionSequence[Xy]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -59,3 +59,28 @@ proc defineMaterial*(this: var RWMeshMaterialMap; theStyle: XCAFPrsStyle;
     importcpp: "DefineMaterial", header: "RWMesh_MaterialMap.hxx".}
 proc isFailed*(this: RWMeshMaterialMap): bool {.noSideEffect, importcpp: "IsFailed",
     header: "RWMesh_MaterialMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

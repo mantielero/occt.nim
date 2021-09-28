@@ -49,3 +49,28 @@ proc secondPoint*(this: IntCurveSurfaceIntersectionSegment): IntCurveSurfaceInte
     header: "IntCurveSurface_IntersectionSegment.hxx".}
 proc dump*(this: IntCurveSurfaceIntersectionSegment) {.noSideEffect,
     importcpp: "Dump", header: "IntCurveSurface_IntersectionSegment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

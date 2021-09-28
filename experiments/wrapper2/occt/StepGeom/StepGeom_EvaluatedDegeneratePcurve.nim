@@ -21,8 +21,7 @@ discard "forward decl of StepRepr_DefinitionalRepresentation"
 discard "forward decl of StepGeom_EvaluatedDegeneratePcurve"
 discard "forward decl of StepGeom_EvaluatedDegeneratePcurve"
 type
-  HandleStepGeomEvaluatedDegeneratePcurve* = Handle[
-      StepGeomEvaluatedDegeneratePcurve]
+  HandleC1C1* = Handle[StepGeomEvaluatedDegeneratePcurve]
   StepGeomEvaluatedDegeneratePcurve* {.importcpp: "StepGeom_EvaluatedDegeneratePcurve", header: "StepGeom_EvaluatedDegeneratePcurve.hxx",
                                       bycopy.} = object of StepGeomDegeneratePcurve ## !
                                                                                ## Returns a
@@ -56,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomEvaluatedDegeneratePcurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_EvaluatedDegeneratePcurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -57,7 +57,7 @@ type
 
   BVH_DistanceFieldBVH_VecNt*[T; N] = Type[T, N]
 
-proc constructBVH_DistanceField*[T; N: static[cint]](theMaximumSize: int;
+proc constructBVH_DistanceField*[T; N: static[cint]](theMaximumSize: cint;
     theComputeSign: bool): BVH_DistanceField[T, N] {.constructor,
     importcpp: "BVH_DistanceField<\'*0,\'*1>(@)", header: "BVH_DistanceField.hxx".}
 proc destroyBVH_DistanceField*[T; N: static[cint]](
@@ -73,17 +73,17 @@ proc setParallel*[T; N: static[cint]](this: var BVH_DistanceField[T, N];
     header: "BVH_DistanceField.hxx".}
 proc packedData*[T; N: static[cint]](this: BVH_DistanceField[T, N]): ptr T {.
     noSideEffect, importcpp: "PackedData", header: "BVH_DistanceField.hxx".}
-proc voxel*[T; N: static[cint]](this: var BVH_DistanceField[T, N]; theX: int; theY: int;
-                             theZ: int): var T {.importcpp: "Voxel",
+proc voxel*[T; N: static[cint]](this: var BVH_DistanceField[T, N]; theX: cint;
+                             theY: cint; theZ: cint): var T {.importcpp: "Voxel",
     header: "BVH_DistanceField.hxx".}
-proc voxel*[T; N: static[cint]](this: BVH_DistanceField[T, N]; theX: int; theY: int;
-                             theZ: int): T {.noSideEffect, importcpp: "Voxel",
+proc voxel*[T; N: static[cint]](this: BVH_DistanceField[T, N]; theX: cint; theY: cint;
+                             theZ: cint): T {.noSideEffect, importcpp: "Voxel",
     header: "BVH_DistanceField.hxx".}
-proc dimensionX*[T; N: static[cint]](this: BVH_DistanceField[T, N]): int {.
+proc dimensionX*[T; N: static[cint]](this: BVH_DistanceField[T, N]): cint {.
     noSideEffect, importcpp: "DimensionX", header: "BVH_DistanceField.hxx".}
-proc dimensionY*[T; N: static[cint]](this: BVH_DistanceField[T, N]): int {.
+proc dimensionY*[T; N: static[cint]](this: BVH_DistanceField[T, N]): cint {.
     noSideEffect, importcpp: "DimensionY", header: "BVH_DistanceField.hxx".}
-proc dimensionZ*[T; N: static[cint]](this: BVH_DistanceField[T, N]): int {.
+proc dimensionZ*[T; N: static[cint]](this: BVH_DistanceField[T, N]): cint {.
     noSideEffect, importcpp: "DimensionZ", header: "BVH_DistanceField.hxx".}
 proc voxelSize*[T; N: static[cint]](this: BVH_DistanceField[T, N]): BVH_DistanceFieldBVH_VecNt {.
     noSideEffect, importcpp: "VoxelSize", header: "BVH_DistanceField.hxx".}
@@ -91,3 +91,28 @@ proc cornerMin*[T; N: static[cint]](this: BVH_DistanceField[T, N]): BVH_Distance
     noSideEffect, importcpp: "CornerMin", header: "BVH_DistanceField.hxx".}
 proc cornerMax*[T; N: static[cint]](this: BVH_DistanceField[T, N]): BVH_DistanceFieldBVH_VecNt {.
     noSideEffect, importcpp: "CornerMax", header: "BVH_DistanceField.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

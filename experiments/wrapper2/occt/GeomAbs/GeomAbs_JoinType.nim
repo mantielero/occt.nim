@@ -23,4 +23,3 @@ type
                     header: "GeomAbs_JoinType.hxx".} = enum
     GeomAbsArc, GeomAbsTangent, GeomAbsIntersection
 
-

@@ -26,9 +26,34 @@ type
 
 proc constructStepBasicSourceItem*(): StepBasicSourceItem {.constructor,
     importcpp: "StepBasic_SourceItem(@)", header: "StepBasic_SourceItem.hxx".}
-proc caseNum*(this: StepBasicSourceItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepBasicSourceItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_SourceItem.hxx".}
 proc newMember*(this: StepBasicSourceItem): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepBasic_SourceItem.hxx".}
 proc identifier*(this: StepBasicSourceItem): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Identifier", header: "StepBasic_SourceItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

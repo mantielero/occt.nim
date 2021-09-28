@@ -26,8 +26,33 @@ type
 proc constructRWStepBasicRWDate*(): RWStepBasicRWDate {.constructor,
     importcpp: "RWStepBasic_RWDate(@)", header: "RWStepBasic_RWDate.hxx".}
 proc readStep*(this: RWStepBasicRWDate; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicDate]) {.
+              num: cint; ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicDate]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWDate.hxx".}
 proc writeStep*(this: RWStepBasicRWDate; sw: var StepDataStepWriter;
                ent: Handle[StepBasicDate]) {.noSideEffect, importcpp: "WriteStep",
     header: "RWStepBasic_RWDate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

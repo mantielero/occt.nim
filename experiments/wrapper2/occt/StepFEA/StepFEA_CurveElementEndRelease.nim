@@ -17,7 +17,7 @@ discard "forward decl of StepFEA_CurveElementEndCoordinateSystem"
 discard "forward decl of StepFEA_CurveElementEndRelease"
 discard "forward decl of StepFEA_CurveElementEndRelease"
 type
-  HandleStepFEA_CurveElementEndRelease* = Handle[StepFEA_CurveElementEndRelease]
+  HandleC1C1* = Handle[StepFEA_CurveElementEndRelease]
 
 ## ! Representation of STEP entity CurveElementEndRelease
 
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_CurveElementEndRelease): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_CurveElementEndRelease.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

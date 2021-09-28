@@ -24,6 +24,24 @@ type
                          header: "GeomToStep_MakeCircle.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeCircle; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeCircle::operator new",
+    header: "GeomToStep_MakeCircle.hxx".}
+proc `delete`*(this: var GeomToStepMakeCircle; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeCircle::operator delete",
+    header: "GeomToStep_MakeCircle.hxx".}
+proc `new[]`*(this: var GeomToStepMakeCircle; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeCircle::operator new[]",
+    header: "GeomToStep_MakeCircle.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeCircle; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeCircle::operator delete[]",
+    header: "GeomToStep_MakeCircle.hxx".}
+proc `new`*(this: var GeomToStepMakeCircle; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeCircle::operator new",
+    header: "GeomToStep_MakeCircle.hxx".}
+proc `delete`*(this: var GeomToStepMakeCircle; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeCircle::operator delete",
+    header: "GeomToStep_MakeCircle.hxx".}
 proc constructGeomToStepMakeCircle*(c: Circ): GeomToStepMakeCircle {.constructor,
     importcpp: "GeomToStep_MakeCircle(@)", header: "GeomToStep_MakeCircle.hxx".}
 proc constructGeomToStepMakeCircle*(c: Handle[GeomCircle]): GeomToStepMakeCircle {.

@@ -19,9 +19,34 @@
 type
   HLRAlgoTriangleData* {.importcpp: "HLRAlgo_TriangleData",
                         header: "HLRAlgo_TriangleData.hxx", bycopy.} = object
-    node1* {.importc: "Node1".}: int
-    node2* {.importc: "Node2".}: int
-    node3* {.importc: "Node3".}: int
-    flags* {.importc: "Flags".}: int
+    node1* {.importc: "Node1".}: cint
+    node2* {.importc: "Node2".}: cint
+    node3* {.importc: "Node3".}: cint
+    flags* {.importc: "Flags".}: cint
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

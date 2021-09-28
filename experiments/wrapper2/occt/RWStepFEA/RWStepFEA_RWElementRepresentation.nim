@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWElementRepresentation*(): RWStepFEA_RWElementRepresent
     constructor, importcpp: "RWStepFEA_RWElementRepresentation(@)",
     header: "RWStepFEA_RWElementRepresentation.hxx".}
 proc readStep*(this: RWStepFEA_RWElementRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_ElementRepresentation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWElementRepresentation.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepFEA_RWElementRepresentation;
            ent: Handle[StepFEA_ElementRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWElementRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

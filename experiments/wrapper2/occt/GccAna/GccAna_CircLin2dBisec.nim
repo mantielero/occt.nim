@@ -35,7 +35,32 @@ proc constructGccAnaCircLin2dBisec*(circle: Circ2d; line: Lin2d): GccAnaCircLin2
     header: "GccAna_CircLin2dBisec.hxx".}
 proc isDone*(this: GccAnaCircLin2dBisec): bool {.noSideEffect, importcpp: "IsDone",
     header: "GccAna_CircLin2dBisec.hxx".}
-proc nbSolutions*(this: GccAnaCircLin2dBisec): int {.noSideEffect,
+proc nbSolutions*(this: GccAnaCircLin2dBisec): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_CircLin2dBisec.hxx".}
-proc thisSolution*(this: GccAnaCircLin2dBisec; index: int): Handle[GccIntBisec] {.
+proc thisSolution*(this: GccAnaCircLin2dBisec; index: cint): Handle[GccIntBisec] {.
     noSideEffect, importcpp: "ThisSolution", header: "GccAna_CircLin2dBisec.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

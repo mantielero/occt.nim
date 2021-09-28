@@ -16,3 +16,28 @@ type
   BOPDS_IndexedDataMapOfShapeCoupleOfPaveBlocks* = NCollectionIndexedDataMap[
       TopoDS_Shape, BOPDS_CoupleOfPaveBlocks, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,6 +19,18 @@ type
                    bycopy.} = object of GeomFillFilling
 
 
+proc `new`*(this: var GeomFillCurved; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Curved::operator new", header: "GeomFill_Curved.hxx".}
+proc `delete`*(this: var GeomFillCurved; theAddress: pointer) {.
+    importcpp: "GeomFill_Curved::operator delete", header: "GeomFill_Curved.hxx".}
+proc `new[]`*(this: var GeomFillCurved; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Curved::operator new[]", header: "GeomFill_Curved.hxx".}
+proc `delete[]`*(this: var GeomFillCurved; theAddress: pointer) {.
+    importcpp: "GeomFill_Curved::operator delete[]", header: "GeomFill_Curved.hxx".}
+proc `new`*(this: var GeomFillCurved; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_Curved::operator new", header: "GeomFill_Curved.hxx".}
+proc `delete`*(this: var GeomFillCurved; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_Curved::operator delete", header: "GeomFill_Curved.hxx".}
 proc constructGeomFillCurved*(): GeomFillCurved {.constructor,
     importcpp: "GeomFill_Curved(@)", header: "GeomFill_Curved.hxx".}
 proc constructGeomFillCurved*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;

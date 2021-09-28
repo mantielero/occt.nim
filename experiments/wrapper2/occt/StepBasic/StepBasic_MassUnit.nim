@@ -16,7 +16,7 @@
 discard "forward decl of StepBasic_MassUnit"
 discard "forward decl of StepBasic_MassUnit"
 type
-  HandleStepBasicMassUnit* = Handle[StepBasicMassUnit]
+  HandleC1C1* = Handle[StepBasicMassUnit]
 
 ## ! Representation of STEP entity MassUnit
 
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_MassUnit.hxx".}
 proc dynamicType*(this: StepBasicMassUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_MassUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

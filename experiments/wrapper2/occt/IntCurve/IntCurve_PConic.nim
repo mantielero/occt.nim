@@ -37,19 +37,44 @@ proc constructIntCurvePConic*(h: Hypr2d): IntCurvePConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
 proc constructIntCurvePConic*(L: Lin2d): IntCurvePConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc setEpsX*(this: var IntCurvePConic; epsDist: float) {.importcpp: "SetEpsX",
+proc setEpsX*(this: var IntCurvePConic; epsDist: cfloat) {.importcpp: "SetEpsX",
     header: "IntCurve_PConic.hxx".}
-proc setAccuracy*(this: var IntCurvePConic; nb: int) {.importcpp: "SetAccuracy",
+proc setAccuracy*(this: var IntCurvePConic; nb: cint) {.importcpp: "SetAccuracy",
     header: "IntCurve_PConic.hxx".}
-proc accuracy*(this: IntCurvePConic): int {.noSideEffect, importcpp: "Accuracy",
-                                        header: "IntCurve_PConic.hxx".}
-proc epsX*(this: IntCurvePConic): float {.noSideEffect, importcpp: "EpsX",
-                                      header: "IntCurve_PConic.hxx".}
+proc accuracy*(this: IntCurvePConic): cint {.noSideEffect, importcpp: "Accuracy",
+    header: "IntCurve_PConic.hxx".}
+proc epsX*(this: IntCurvePConic): cfloat {.noSideEffect, importcpp: "EpsX",
+                                       header: "IntCurve_PConic.hxx".}
 proc typeCurve*(this: IntCurvePConic): GeomAbsCurveType {.noSideEffect,
     importcpp: "TypeCurve", header: "IntCurve_PConic.hxx".}
 proc axis2*(this: IntCurvePConic): Ax22d {.noSideEffect, importcpp: "Axis2",
                                        header: "IntCurve_PConic.hxx".}
-proc param1*(this: IntCurvePConic): float {.noSideEffect, importcpp: "Param1",
-                                        header: "IntCurve_PConic.hxx".}
-proc param2*(this: IntCurvePConic): float {.noSideEffect, importcpp: "Param2",
-                                        header: "IntCurve_PConic.hxx".}
+proc param1*(this: IntCurvePConic): cfloat {.noSideEffect, importcpp: "Param1",
+    header: "IntCurve_PConic.hxx".}
+proc param2*(this: IntCurvePConic): cfloat {.noSideEffect, importcpp: "Param2",
+    header: "IntCurve_PConic.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,8 +28,9 @@ type
 proc constructRWStepGeomRWEllipse*(): RWStepGeomRWEllipse {.constructor,
     importcpp: "RWStepGeom_RWEllipse(@)", header: "RWStepGeom_RWEllipse.hxx".}
 proc readStep*(this: RWStepGeomRWEllipse; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomEllipse]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWEllipse.hxx".}
+              num: cint; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepGeomEllipse]) {.noSideEffect, importcpp: "ReadStep",
+    header: "RWStepGeom_RWEllipse.hxx".}
 proc writeStep*(this: RWStepGeomRWEllipse; sw: var StepDataStepWriter;
                ent: Handle[StepGeomEllipse]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWEllipse.hxx".}
@@ -39,3 +40,28 @@ proc share*(this: RWStepGeomRWEllipse; ent: Handle[StepGeomEllipse];
 proc check*(this: RWStepGeomRWEllipse; ent: Handle[StepGeomEllipse];
            shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
     noSideEffect, importcpp: "Check", header: "RWStepGeom_RWEllipse.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

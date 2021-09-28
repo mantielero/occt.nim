@@ -26,19 +26,44 @@ type
   VrmlCube* {.importcpp: "Vrml_Cube", header: "Vrml_Cube.hxx", bycopy.} = object
 
 
-proc constructVrmlCube*(aWidth: float = 2; aHeight: float = 2; aDepth: float = 2): VrmlCube {.
+proc constructVrmlCube*(aWidth: cfloat = 2; aHeight: cfloat = 2; aDepth: cfloat = 2): VrmlCube {.
     constructor, importcpp: "Vrml_Cube(@)", header: "Vrml_Cube.hxx".}
-proc setWidth*(this: var VrmlCube; aWidth: float) {.importcpp: "SetWidth",
+proc setWidth*(this: var VrmlCube; aWidth: cfloat) {.importcpp: "SetWidth",
     header: "Vrml_Cube.hxx".}
-proc width*(this: VrmlCube): float {.noSideEffect, importcpp: "Width",
-                                 header: "Vrml_Cube.hxx".}
-proc setHeight*(this: var VrmlCube; aHeight: float) {.importcpp: "SetHeight",
-    header: "Vrml_Cube.hxx".}
-proc height*(this: VrmlCube): float {.noSideEffect, importcpp: "Height",
+proc width*(this: VrmlCube): cfloat {.noSideEffect, importcpp: "Width",
                                   header: "Vrml_Cube.hxx".}
-proc setDepth*(this: var VrmlCube; aDepth: float) {.importcpp: "SetDepth",
+proc setHeight*(this: var VrmlCube; aHeight: cfloat) {.importcpp: "SetHeight",
     header: "Vrml_Cube.hxx".}
-proc depth*(this: VrmlCube): float {.noSideEffect, importcpp: "Depth",
-                                 header: "Vrml_Cube.hxx".}
+proc height*(this: VrmlCube): cfloat {.noSideEffect, importcpp: "Height",
+                                   header: "Vrml_Cube.hxx".}
+proc setDepth*(this: var VrmlCube; aDepth: cfloat) {.importcpp: "SetDepth",
+    header: "Vrml_Cube.hxx".}
+proc depth*(this: VrmlCube): cfloat {.noSideEffect, importcpp: "Depth",
+                                  header: "Vrml_Cube.hxx".}
 proc print*(this: VrmlCube; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Cube.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

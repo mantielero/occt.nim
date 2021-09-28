@@ -20,23 +20,33 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of gp_Vec2d"
 type
-  Hypr2d* {.importcpp: "gp_Hypr2d", header: "gp_Hypr2d.hxx", bycopy.} = object ## ! Creates of an
-                                                                       ## indefinite
-                                                                       ## hyperbola.
+  Hypr2d* {.importcpp: "gp_Hypr2d", header: "gp_Hypr2d.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Hypr2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Hypr2d::operator new", header: "gp_Hypr2d.hxx".}
+proc `delete`*(this: var Hypr2d; theAddress: pointer) {.
+    importcpp: "gp_Hypr2d::operator delete", header: "gp_Hypr2d.hxx".}
+proc `new[]`*(this: var Hypr2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Hypr2d::operator new[]", header: "gp_Hypr2d.hxx".}
+proc `delete[]`*(this: var Hypr2d; theAddress: pointer) {.
+    importcpp: "gp_Hypr2d::operator delete[]", header: "gp_Hypr2d.hxx".}
+proc `new`*(this: var Hypr2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Hypr2d::operator new", header: "gp_Hypr2d.hxx".}
+proc `delete`*(this: var Hypr2d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Hypr2d::operator delete", header: "gp_Hypr2d.hxx".}
 proc constructHypr2d*(): Hypr2d {.constructor, importcpp: "gp_Hypr2d(@)",
                                header: "gp_Hypr2d.hxx".}
-proc constructHypr2d*(majorAxis: Ax2d; majorRadius: float; minorRadius: float;
-                     sense: bool = true): Hypr2d {.constructor,
-    importcpp: "gp_Hypr2d(@)", header: "gp_Hypr2d.hxx".}
-proc constructHypr2d*(a: Ax22d; majorRadius: float; minorRadius: float): Hypr2d {.
+proc constructHypr2d*(majorAxis: Ax2d; majorRadius: StandardReal;
+                     minorRadius: StandardReal; sense: StandardBoolean = true): Hypr2d {.
+    constructor, importcpp: "gp_Hypr2d(@)", header: "gp_Hypr2d.hxx".}
+proc constructHypr2d*(a: Ax22d; majorRadius: StandardReal; minorRadius: StandardReal): Hypr2d {.
     constructor, importcpp: "gp_Hypr2d(@)", header: "gp_Hypr2d.hxx".}
 proc setLocation*(this: var Hypr2d; p: Pnt2d) {.importcpp: "SetLocation",
     header: "gp_Hypr2d.hxx".}
-proc setMajorRadius*(this: var Hypr2d; majorRadius: float) {.
+proc setMajorRadius*(this: var Hypr2d; majorRadius: StandardReal) {.
     importcpp: "SetMajorRadius", header: "gp_Hypr2d.hxx".}
-proc setMinorRadius*(this: var Hypr2d; minorRadius: float) {.
+proc setMinorRadius*(this: var Hypr2d; minorRadius: StandardReal) {.
     importcpp: "SetMinorRadius", header: "gp_Hypr2d.hxx".}
 proc setAxis*(this: var Hypr2d; a: Ax22d) {.importcpp: "SetAxis",
                                       header: "gp_Hypr2d.hxx".}
@@ -48,9 +58,10 @@ proc asymptote1*(this: Hypr2d): Ax2d {.noSideEffect, importcpp: "Asymptote1",
                                    header: "gp_Hypr2d.hxx".}
 proc asymptote2*(this: Hypr2d): Ax2d {.noSideEffect, importcpp: "Asymptote2",
                                    header: "gp_Hypr2d.hxx".}
-proc coefficients*(this: Hypr2d; a: var float; b: var float; c: var float; d: var float;
-                  e: var float; f: var float) {.noSideEffect,
-    importcpp: "Coefficients", header: "gp_Hypr2d.hxx".}
+proc coefficients*(this: Hypr2d; a: var StandardReal; b: var StandardReal;
+                  c: var StandardReal; d: var StandardReal; e: var StandardReal;
+                  f: var StandardReal) {.noSideEffect, importcpp: "Coefficients",
+                                      header: "gp_Hypr2d.hxx".}
 proc conjugateBranch1*(this: Hypr2d): Hypr2d {.noSideEffect,
     importcpp: "ConjugateBranch1", header: "gp_Hypr2d.hxx".}
 proc conjugateBranch2*(this: Hypr2d): Hypr2d {.noSideEffect,
@@ -59,24 +70,24 @@ proc directrix1*(this: Hypr2d): Ax2d {.noSideEffect, importcpp: "Directrix1",
                                    header: "gp_Hypr2d.hxx".}
 proc directrix2*(this: Hypr2d): Ax2d {.noSideEffect, importcpp: "Directrix2",
                                    header: "gp_Hypr2d.hxx".}
-proc eccentricity*(this: Hypr2d): float {.noSideEffect, importcpp: "Eccentricity",
+proc eccentricity*(this: Hypr2d): StandardReal {.noSideEffect,
+    importcpp: "Eccentricity", header: "gp_Hypr2d.hxx".}
+proc focal*(this: Hypr2d): StandardReal {.noSideEffect, importcpp: "Focal",
                                       header: "gp_Hypr2d.hxx".}
-proc focal*(this: Hypr2d): float {.noSideEffect, importcpp: "Focal",
-                               header: "gp_Hypr2d.hxx".}
 proc focus1*(this: Hypr2d): Pnt2d {.noSideEffect, importcpp: "Focus1",
                                 header: "gp_Hypr2d.hxx".}
 proc focus2*(this: Hypr2d): Pnt2d {.noSideEffect, importcpp: "Focus2",
                                 header: "gp_Hypr2d.hxx".}
 proc location*(this: Hypr2d): Pnt2d {.noSideEffect, importcpp: "Location",
                                   header: "gp_Hypr2d.hxx".}
-proc majorRadius*(this: Hypr2d): float {.noSideEffect, importcpp: "MajorRadius",
-                                     header: "gp_Hypr2d.hxx".}
-proc minorRadius*(this: Hypr2d): float {.noSideEffect, importcpp: "MinorRadius",
-                                     header: "gp_Hypr2d.hxx".}
+proc majorRadius*(this: Hypr2d): StandardReal {.noSideEffect,
+    importcpp: "MajorRadius", header: "gp_Hypr2d.hxx".}
+proc minorRadius*(this: Hypr2d): StandardReal {.noSideEffect,
+    importcpp: "MinorRadius", header: "gp_Hypr2d.hxx".}
 proc otherBranch*(this: Hypr2d): Hypr2d {.noSideEffect, importcpp: "OtherBranch",
                                       header: "gp_Hypr2d.hxx".}
-proc parameter*(this: Hypr2d): float {.noSideEffect, importcpp: "Parameter",
-                                   header: "gp_Hypr2d.hxx".}
+proc parameter*(this: Hypr2d): StandardReal {.noSideEffect, importcpp: "Parameter",
+    header: "gp_Hypr2d.hxx".}
 proc axis*(this: Hypr2d): Ax22d {.noSideEffect, importcpp: "Axis",
                               header: "gp_Hypr2d.hxx".}
 proc xAxis*(this: Hypr2d): Ax2d {.noSideEffect, importcpp: "XAxis",
@@ -86,21 +97,21 @@ proc yAxis*(this: Hypr2d): Ax2d {.noSideEffect, importcpp: "YAxis",
 proc reverse*(this: var Hypr2d) {.importcpp: "Reverse", header: "gp_Hypr2d.hxx".}
 proc reversed*(this: Hypr2d): Hypr2d {.noSideEffect, importcpp: "Reversed",
                                    header: "gp_Hypr2d.hxx".}
-proc isDirect*(this: Hypr2d): bool {.noSideEffect, importcpp: "IsDirect",
-                                 header: "gp_Hypr2d.hxx".}
+proc isDirect*(this: Hypr2d): StandardBoolean {.noSideEffect, importcpp: "IsDirect",
+    header: "gp_Hypr2d.hxx".}
 proc mirror*(this: var Hypr2d; p: Pnt2d) {.importcpp: "Mirror", header: "gp_Hypr2d.hxx".}
 proc mirrored*(this: Hypr2d; p: Pnt2d): Hypr2d {.noSideEffect, importcpp: "Mirrored",
     header: "gp_Hypr2d.hxx".}
 proc mirror*(this: var Hypr2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Hypr2d.hxx".}
 proc mirrored*(this: Hypr2d; a: Ax2d): Hypr2d {.noSideEffect, importcpp: "Mirrored",
     header: "gp_Hypr2d.hxx".}
-proc rotate*(this: var Hypr2d; p: Pnt2d; ang: float) {.importcpp: "Rotate",
+proc rotate*(this: var Hypr2d; p: Pnt2d; ang: StandardReal) {.importcpp: "Rotate",
     header: "gp_Hypr2d.hxx".}
-proc rotated*(this: Hypr2d; p: Pnt2d; ang: float): Hypr2d {.noSideEffect,
+proc rotated*(this: Hypr2d; p: Pnt2d; ang: StandardReal): Hypr2d {.noSideEffect,
     importcpp: "Rotated", header: "gp_Hypr2d.hxx".}
-proc scale*(this: var Hypr2d; p: Pnt2d; s: float) {.importcpp: "Scale",
+proc scale*(this: var Hypr2d; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
     header: "gp_Hypr2d.hxx".}
-proc scaled*(this: Hypr2d; p: Pnt2d; s: float): Hypr2d {.noSideEffect,
+proc scaled*(this: Hypr2d; p: Pnt2d; s: StandardReal): Hypr2d {.noSideEffect,
     importcpp: "Scaled", header: "gp_Hypr2d.hxx".}
 proc transform*(this: var Hypr2d; t: Trsf2d) {.importcpp: "Transform",
     header: "gp_Hypr2d.hxx".}

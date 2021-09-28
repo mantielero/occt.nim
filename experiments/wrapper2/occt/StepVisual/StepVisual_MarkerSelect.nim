@@ -29,11 +29,36 @@ type
 
 proc constructStepVisualMarkerSelect*(): StepVisualMarkerSelect {.constructor,
     importcpp: "StepVisual_MarkerSelect(@)", header: "StepVisual_MarkerSelect.hxx".}
-proc caseNum*(this: StepVisualMarkerSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualMarkerSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_MarkerSelect.hxx".}
 proc newMember*(this: StepVisualMarkerSelect): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepVisual_MarkerSelect.hxx".}
-proc caseMem*(this: StepVisualMarkerSelect; sm: Handle[StepDataSelectMember]): int {.
+proc caseMem*(this: StepVisualMarkerSelect; sm: Handle[StepDataSelectMember]): cint {.
     noSideEffect, importcpp: "CaseMem", header: "StepVisual_MarkerSelect.hxx".}
 proc markerMember*(this: StepVisualMarkerSelect): Handle[StepVisualMarkerMember] {.
     noSideEffect, importcpp: "MarkerMember", header: "StepVisual_MarkerSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_SizeMember"
 discard "forward decl of StepBasic_SizeMember"
 type
-  HandleStepBasicSizeMember* = Handle[StepBasicSizeMember]
+  HandleC1C1* = Handle[StepBasicSizeMember]
 
 ## ! For immediate members of SizeSelect, i.e. :
 ## ! ParameterValue (a Real)
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_SizeMember.hxx".}
 proc dynamicType*(this: StepBasicSizeMember): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_SizeMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

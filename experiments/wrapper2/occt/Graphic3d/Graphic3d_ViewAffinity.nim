@@ -13,39 +13,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## ! Structure display state.
+## !!!Ignored construct:  # _Graphic3d_ViewAffinity_HeaderFile [NewLine] # _Graphic3d_ViewAffinity_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] ! Structure display state. class Graphic3d_ViewAffinity : public Standard_Transient { public : ! Empty constructor. Graphic3d_ViewAffinity ( ) { SetVisible ( Standard_True ) ; } ! Return visibility flag. bool IsVisible ( const Standard_Integer theViewId ) const { const unsigned int aBit = 1 << theViewId ; return ( myMask & aBit ) != 0 ; } ! Setup visibility flag for all views. void SetVisible ( const Standard_Boolean theIsVisible ) { :: memset ( & myMask , theIsVisible ? 0xFF : 0x00 , sizeof ( myMask ) ) ; } ! Setup visibility flag. void SetVisible ( const Standard_Integer theViewId , const bool theIsVisible ) { const unsigned int aBit = 1 << theViewId ; if ( theIsVisible ) { myMask |= aBit ; } else { myMask &= ~ aBit ; } } ! Dumps the content of me into the stream void DumpJson ( Standard_OStream & theOStream , Standard_Integer theDepth = - 1 ) const ; private : unsigned int myMask ; !< affinity mask public : public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return Graphic3d_ViewAffinity ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; } ;
+## Error: expected ';'!!!
 
-type
-  Graphic3dViewAffinity* {.importcpp: "Graphic3d_ViewAffinity",
-                          header: "Graphic3d_ViewAffinity.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor.
-    ## !< affinity mask
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Graphic3d_ViewAffinity , Standard_Transient ) #  _Graphic3d_ViewAffinity_HeaderFile
+## Error: expected ';'!!!
 
 
-proc constructGraphic3dViewAffinity*(): Graphic3dViewAffinity {.constructor,
-    importcpp: "Graphic3d_ViewAffinity(@)", header: "Graphic3d_ViewAffinity.hxx".}
-proc isVisible*(this: Graphic3dViewAffinity; theViewId: int): bool {.noSideEffect,
-    importcpp: "IsVisible", header: "Graphic3d_ViewAffinity.hxx".}
-proc setVisible*(this: var Graphic3dViewAffinity; theIsVisible: bool) {.
-    importcpp: "SetVisible", header: "Graphic3d_ViewAffinity.hxx".}
-proc setVisible*(this: var Graphic3dViewAffinity; theViewId: int; theIsVisible: bool) {.
-    importcpp: "SetVisible", header: "Graphic3d_ViewAffinity.hxx".}
-proc dumpJson*(this: Graphic3dViewAffinity; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_ViewAffinity.hxx".}
-type
-  Graphic3dViewAffinitybaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_ViewAffinity::get_type_name(@)",
-                            header: "Graphic3d_ViewAffinity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Graphic3d_ViewAffinity::get_type_descriptor(@)",
-    header: "Graphic3d_ViewAffinity.hxx".}
-proc dynamicType*(this: Graphic3dViewAffinity): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Graphic3d_ViewAffinity.hxx".}
-discard "forward decl of Graphic3d_ViewAffinity"
-type
-  HandleGraphic3dViewAffinity* = Handle[Graphic3dViewAffinity]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

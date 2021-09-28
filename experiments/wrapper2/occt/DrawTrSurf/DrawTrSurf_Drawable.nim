@@ -21,7 +21,7 @@ discard "forward decl of Adaptor3d_IsoCurve"
 discard "forward decl of DrawTrSurf_Drawable"
 discard "forward decl of DrawTrSurf_Drawable"
 type
-  HandleDrawTrSurfDrawable* = Handle[DrawTrSurfDrawable]
+  HandleC1C1* = Handle[DrawTrSurfDrawable]
 
 ## ! this  class adds   to   the Drawable3D methods  to
 ## ! display Curves and Curves on Surface.
@@ -62,21 +62,22 @@ proc drawCurve2dOn*(this: DrawTrSurfDrawable; c: var Adaptor2dCurve2d;
 proc drawCurveOn*(this: DrawTrSurfDrawable; c: var Adaptor3dCurve; d: var DrawDisplay) {.
     noSideEffect, importcpp: "DrawCurveOn", header: "DrawTrSurf_Drawable.hxx".}
 proc drawIsoCurveOn*(this: DrawTrSurfDrawable; c: var Adaptor3dIsoCurve;
-                    t: GeomAbsIsoType; p: float; f: float; L: float; d: var DrawDisplay) {.
-    noSideEffect, importcpp: "DrawIsoCurveOn", header: "DrawTrSurf_Drawable.hxx".}
+                    t: GeomAbsIsoType; p: cfloat; f: cfloat; L: cfloat;
+                    d: var DrawDisplay) {.noSideEffect, importcpp: "DrawIsoCurveOn",
+                                       header: "DrawTrSurf_Drawable.hxx".}
 proc drawOn*(this: DrawTrSurfDrawable; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_Drawable.hxx".}
-proc setDiscretisation*(this: var DrawTrSurfDrawable; discret: int) {.
+proc setDiscretisation*(this: var DrawTrSurfDrawable; discret: cint) {.
     importcpp: "SetDiscretisation", header: "DrawTrSurf_Drawable.hxx".}
-proc getDiscretisation*(this: DrawTrSurfDrawable): int {.noSideEffect,
+proc getDiscretisation*(this: DrawTrSurfDrawable): cint {.noSideEffect,
     importcpp: "GetDiscretisation", header: "DrawTrSurf_Drawable.hxx".}
-proc setDeflection*(this: var DrawTrSurfDrawable; deflection: float) {.
+proc setDeflection*(this: var DrawTrSurfDrawable; deflection: cfloat) {.
     importcpp: "SetDeflection", header: "DrawTrSurf_Drawable.hxx".}
-proc getDeflection*(this: DrawTrSurfDrawable): float {.noSideEffect,
+proc getDeflection*(this: DrawTrSurfDrawable): cfloat {.noSideEffect,
     importcpp: "GetDeflection", header: "DrawTrSurf_Drawable.hxx".}
-proc setDrawMode*(this: var DrawTrSurfDrawable; drawMode: int) {.
+proc setDrawMode*(this: var DrawTrSurfDrawable; drawMode: cint) {.
     importcpp: "SetDrawMode", header: "DrawTrSurf_Drawable.hxx".}
-proc getDrawMode*(this: DrawTrSurfDrawable): int {.noSideEffect,
+proc getDrawMode*(this: DrawTrSurfDrawable): cint {.noSideEffect,
     importcpp: "GetDrawMode", header: "DrawTrSurf_Drawable.hxx".}
 type
   DrawTrSurfDrawablebaseType* = DrawDrawable3D
@@ -88,3 +89,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_Drawable.hxx".}
 proc dynamicType*(this: DrawTrSurfDrawable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_Drawable.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

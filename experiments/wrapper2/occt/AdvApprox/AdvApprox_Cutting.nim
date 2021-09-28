@@ -23,5 +23,30 @@ type
 
 proc destroyAdvApproxCutting*(this: var AdvApproxCutting) {.
     importcpp: "#.~AdvApprox_Cutting()", header: "AdvApprox_Cutting.hxx".}
-proc value*(this: AdvApproxCutting; a: float; b: float; cuttingvalue: var float): bool {.
+proc value*(this: AdvApproxCutting; a: cfloat; b: cfloat; cuttingvalue: var cfloat): bool {.
     noSideEffect, importcpp: "Value", header: "AdvApprox_Cutting.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

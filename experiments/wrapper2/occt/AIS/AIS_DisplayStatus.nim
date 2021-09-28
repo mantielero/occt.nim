@@ -24,3 +24,28 @@ type
     AIS_DS_None               ## !< the Interactive Object is nowhere displayed
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

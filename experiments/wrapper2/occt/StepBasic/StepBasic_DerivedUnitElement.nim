@@ -18,7 +18,7 @@ discard "forward decl of StepBasic_NamedUnit"
 discard "forward decl of StepBasic_DerivedUnitElement"
 discard "forward decl of StepBasic_DerivedUnitElement"
 type
-  HandleStepBasicDerivedUnitElement* = Handle[StepBasicDerivedUnitElement]
+  HandleC1C1* = Handle[StepBasicDerivedUnitElement]
 
 ## ! Added from StepBasic Rev2 to Rev4
 
@@ -31,16 +31,16 @@ proc constructStepBasicDerivedUnitElement*(): StepBasicDerivedUnitElement {.
     constructor, importcpp: "StepBasic_DerivedUnitElement(@)",
     header: "StepBasic_DerivedUnitElement.hxx".}
 proc init*(this: var StepBasicDerivedUnitElement; aUnit: Handle[StepBasicNamedUnit];
-          aExponent: float) {.importcpp: "Init",
-                            header: "StepBasic_DerivedUnitElement.hxx".}
+          aExponent: cfloat) {.importcpp: "Init",
+                             header: "StepBasic_DerivedUnitElement.hxx".}
 proc setUnit*(this: var StepBasicDerivedUnitElement;
              aUnit: Handle[StepBasicNamedUnit]) {.importcpp: "SetUnit",
     header: "StepBasic_DerivedUnitElement.hxx".}
 proc unit*(this: StepBasicDerivedUnitElement): Handle[StepBasicNamedUnit] {.
     noSideEffect, importcpp: "Unit", header: "StepBasic_DerivedUnitElement.hxx".}
-proc setExponent*(this: var StepBasicDerivedUnitElement; aExponent: float) {.
+proc setExponent*(this: var StepBasicDerivedUnitElement; aExponent: cfloat) {.
     importcpp: "SetExponent", header: "StepBasic_DerivedUnitElement.hxx".}
-proc exponent*(this: StepBasicDerivedUnitElement): float {.noSideEffect,
+proc exponent*(this: StepBasicDerivedUnitElement): cfloat {.noSideEffect,
     importcpp: "Exponent", header: "StepBasic_DerivedUnitElement.hxx".}
 type
   StepBasicDerivedUnitElementbaseType* = StandardTransient
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicDerivedUnitElement): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DerivedUnitElement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

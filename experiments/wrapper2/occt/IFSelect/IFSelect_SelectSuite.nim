@@ -23,7 +23,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectSuite"
 discard "forward decl of IFSelect_SelectSuite"
 type
-  HandleIFSelectSelectSuite* = Handle[IFSelectSelectSuite]
+  HandleC1C1* = Handle[IFSelectSelectSuite]
 
 ## ! A SelectSuite can describe a suite of SelectDeduct as a unique
 ## ! one : in other words, it can be seen as a "macro selection"
@@ -56,9 +56,9 @@ proc addPrevious*(this: var IFSelectSelectSuite; item: Handle[IFSelectSelectDedu
     importcpp: "AddPrevious", header: "IFSelect_SelectSuite.hxx".}
 proc addNext*(this: var IFSelectSelectSuite; item: Handle[IFSelectSelectDeduct]) {.
     importcpp: "AddNext", header: "IFSelect_SelectSuite.hxx".}
-proc nbItems*(this: IFSelectSelectSuite): int {.noSideEffect, importcpp: "NbItems",
+proc nbItems*(this: IFSelectSelectSuite): cint {.noSideEffect, importcpp: "NbItems",
     header: "IFSelect_SelectSuite.hxx".}
-proc item*(this: IFSelectSelectSuite; num: int): Handle[IFSelectSelectDeduct] {.
+proc item*(this: IFSelectSelectSuite; num: cint): Handle[IFSelectSelectDeduct] {.
     noSideEffect, importcpp: "Item", header: "IFSelect_SelectSuite.hxx".}
 proc setLabel*(this: var IFSelectSelectSuite; lab: StandardCString) {.
     importcpp: "SetLabel", header: "IFSelect_SelectSuite.hxx".}
@@ -76,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectSuite.hxx".}
 proc dynamicType*(this: IFSelectSelectSuite): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectSuite.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

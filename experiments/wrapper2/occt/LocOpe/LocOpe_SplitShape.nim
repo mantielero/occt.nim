@@ -35,7 +35,7 @@ proc init*(this: var LocOpeSplitShape; s: TopoDS_Shape) {.importcpp: "Init",
     header: "LocOpe_SplitShape.hxx".}
 proc canSplit*(this: LocOpeSplitShape; e: TopoDS_Edge): bool {.noSideEffect,
     importcpp: "CanSplit", header: "LocOpe_SplitShape.hxx".}
-proc add*(this: var LocOpeSplitShape; v: TopoDS_Vertex; p: float; e: TopoDS_Edge) {.
+proc add*(this: var LocOpeSplitShape; v: TopoDS_Vertex; p: cfloat; e: TopoDS_Edge) {.
     importcpp: "Add", header: "LocOpe_SplitShape.hxx".}
 proc add*(this: var LocOpeSplitShape; w: TopoDS_Wire; f: TopoDS_Face): bool {.
     importcpp: "Add", header: "LocOpe_SplitShape.hxx".}
@@ -47,3 +47,28 @@ proc descendantShapes*(this: var LocOpeSplitShape; s: TopoDS_Shape): TopToolsLis
     importcpp: "DescendantShapes", header: "LocOpe_SplitShape.hxx".}
 proc leftOf*(this: var LocOpeSplitShape; w: TopoDS_Wire; f: TopoDS_Face): TopToolsListOfShape {.
     importcpp: "LeftOf", header: "LocOpe_SplitShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

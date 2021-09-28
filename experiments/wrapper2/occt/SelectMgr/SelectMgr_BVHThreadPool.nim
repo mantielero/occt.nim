@@ -73,7 +73,7 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "SelectMgr_BVHThreadPool.hxx".}
 proc dynamicType*(this: SelectMgrBVHThreadPool): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "SelectMgr_BVHThreadPool.hxx".}
-proc constructSelectMgrBVHThreadPool*(theNbThreads: int): SelectMgrBVHThreadPool {.
+proc constructSelectMgrBVHThreadPool*(theNbThreads: cint): SelectMgrBVHThreadPool {.
     constructor, importcpp: "SelectMgr_BVHThreadPool(@)",
     header: "SelectMgr_BVHThreadPool.hxx".}
 proc destroySelectMgrBVHThreadPool*(this: var SelectMgrBVHThreadPool) {.
@@ -142,3 +142,28 @@ proc unlock*(this: var SelectMgrBVHThreadPoolSentry) {.importcpp: "Unlock",
 proc constructSelectMgrBVHThreadPoolSentry*(a1: SelectMgrBVHThreadPoolSentry): SelectMgrBVHThreadPoolSentry {.
     constructor, importcpp: "SelectMgr_BVHThreadPool::Sentry(@)",
     header: "SelectMgr_BVHThreadPool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

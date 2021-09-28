@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MAT2dDataMapOfIntegerConnexion* = NCollectionDataMap[int, Handle[MAT2dConnexion],
-      TColStdMapIntegerHasher]
-  MAT2dDataMapIteratorOfDataMapOfIntegerConnexion* = Iterator[int,
+  MAT2dDataMapOfIntegerConnexion* = NCollectionDataMap[cint,
       Handle[MAT2dConnexion], TColStdMapIntegerHasher]
+  MAT2dDataMapIteratorOfDataMapOfIntegerConnexion* = Iterator[cint,
+      Handle[MAT2dConnexion], TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

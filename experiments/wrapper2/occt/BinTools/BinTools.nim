@@ -23,21 +23,21 @@ type
   BinTools* {.importcpp: "BinTools", header: "BinTools.hxx", bycopy.} = object
 
 
-proc putReal*(os: var StandardOStream; theValue: float): var StandardOStream {.
+proc putReal*(os: var StandardOStream; theValue: cfloat): var StandardOStream {.
     importcpp: "BinTools::PutReal(@)", header: "BinTools.hxx".}
 proc putShortReal*(os: var StandardOStream; theValue: StandardShortReal): var StandardOStream {.
     importcpp: "BinTools::PutShortReal(@)", header: "BinTools.hxx".}
-proc putInteger*(os: var StandardOStream; theValue: int): var StandardOStream {.
+proc putInteger*(os: var StandardOStream; theValue: cint): var StandardOStream {.
     importcpp: "BinTools::PutInteger(@)", header: "BinTools.hxx".}
 proc putBool*(os: var StandardOStream; theValue: bool): var StandardOStream {.
     importcpp: "BinTools::PutBool(@)", header: "BinTools.hxx".}
 proc putExtChar*(os: var StandardOStream; theValue: StandardExtCharacter): var StandardOStream {.
     importcpp: "BinTools::PutExtChar(@)", header: "BinTools.hxx".}
-proc getReal*(`is`: var StandardIStream; theValue: var float): var StandardIStream {.
+proc getReal*(`is`: var StandardIStream; theValue: var cfloat): var StandardIStream {.
     importcpp: "BinTools::GetReal(@)", header: "BinTools.hxx".}
 proc getShortReal*(`is`: var StandardIStream; theValue: var StandardShortReal): var StandardIStream {.
     importcpp: "BinTools::GetShortReal(@)", header: "BinTools.hxx".}
-proc getInteger*(`is`: var StandardIStream; theValue: var int): var StandardIStream {.
+proc getInteger*(`is`: var StandardIStream; theValue: var cint): var StandardIStream {.
     importcpp: "BinTools::GetInteger(@)", header: "BinTools.hxx".}
 proc getBool*(`is`: var StandardIStream; theValue: var bool): var StandardIStream {.
     importcpp: "BinTools::GetBool(@)", header: "BinTools.hxx".}
@@ -55,3 +55,28 @@ proc write*(theShape: TopoDS_Shape; theFile: StandardCString;
 proc read*(theShape: var TopoDS_Shape; theFile: StandardCString;
           theRange: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "BinTools::Read(@)", header: "BinTools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

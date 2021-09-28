@@ -21,7 +21,7 @@ discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_SingleRelation"
 discard "forward decl of Expr_SingleRelation"
 type
-  HandleExprSingleRelation* = Handle[ExprSingleRelation]
+  HandleC1C1* = Handle[ExprSingleRelation]
   ExprSingleRelation* {.importcpp: "Expr_SingleRelation",
                        header: "Expr_SingleRelation.hxx", bycopy.} = object of ExprGeneralRelation ##
                                                                                             ## !
@@ -46,11 +46,11 @@ proc secondMember*(this: ExprSingleRelation): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "SecondMember", header: "Expr_SingleRelation.hxx".}
 proc isLinear*(this: ExprSingleRelation): bool {.noSideEffect, importcpp: "IsLinear",
     header: "Expr_SingleRelation.hxx".}
-proc nbOfSubRelations*(this: ExprSingleRelation): int {.noSideEffect,
+proc nbOfSubRelations*(this: ExprSingleRelation): cint {.noSideEffect,
     importcpp: "NbOfSubRelations", header: "Expr_SingleRelation.hxx".}
-proc nbOfSingleRelations*(this: ExprSingleRelation): int {.noSideEffect,
+proc nbOfSingleRelations*(this: ExprSingleRelation): cint {.noSideEffect,
     importcpp: "NbOfSingleRelations", header: "Expr_SingleRelation.hxx".}
-proc subRelation*(this: ExprSingleRelation; index: int): Handle[ExprGeneralRelation] {.
+proc subRelation*(this: ExprSingleRelation; index: cint): Handle[ExprGeneralRelation] {.
     noSideEffect, importcpp: "SubRelation", header: "Expr_SingleRelation.hxx".}
 proc contains*(this: ExprSingleRelation; exp: Handle[ExprGeneralExpression]): bool {.
     noSideEffect, importcpp: "Contains", header: "Expr_SingleRelation.hxx".}
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_SingleRelation.hxx".}
 proc dynamicType*(this: ExprSingleRelation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_SingleRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

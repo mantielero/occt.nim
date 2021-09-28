@@ -19,7 +19,7 @@ discard "forward decl of Units_Dimensions"
 discard "forward decl of Units_Quantity"
 discard "forward decl of Units_Quantity"
 type
-  HandleUnitsQuantity* = Handle[UnitsQuantity]
+  HandleC1C1* = Handle[UnitsQuantity]
 
 ## ! This  class stores  in its  field all the possible
 ## ! units of all the unit systems for a given physical
@@ -81,7 +81,7 @@ proc sequence*(this: UnitsQuantity): Handle[UnitsUnitsSequence] {.noSideEffect,
     importcpp: "Sequence", header: "Units_Quantity.hxx".}
 proc isEqual*(this: UnitsQuantity; astring: StandardCString): bool {.noSideEffect,
     importcpp: "IsEqual", header: "Units_Quantity.hxx".}
-proc dump*(this: UnitsQuantity; ashift: int; alevel: int) {.noSideEffect,
+proc dump*(this: UnitsQuantity; ashift: cint; alevel: cint) {.noSideEffect,
     importcpp: "Dump", header: "Units_Quantity.hxx".}
 type
   UnitsQuantitybaseType* = StandardTransient
@@ -93,3 +93,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Units_Quantity.hxx".}
 proc dynamicType*(this: UnitsQuantity): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_Quantity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

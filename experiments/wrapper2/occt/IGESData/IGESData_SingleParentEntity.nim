@@ -19,7 +19,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_SingleParentEntity"
 discard "forward decl of IGESData_SingleParentEntity"
 type
-  HandleIGESDataSingleParentEntity* = Handle[IGESDataSingleParentEntity]
+  HandleC1C1* = Handle[IGESDataSingleParentEntity]
 
 ## ! a SingleParentEntity is a kind of IGESEntity which can refer
 ## ! to a (Single) Parent, from Associativities list of an Entity
@@ -45,9 +45,9 @@ type
 proc singleParent*(this: IGESDataSingleParentEntity): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "SingleParent",
     header: "IGESData_SingleParentEntity.hxx".}
-proc nbChildren*(this: IGESDataSingleParentEntity): int {.noSideEffect,
+proc nbChildren*(this: IGESDataSingleParentEntity): cint {.noSideEffect,
     importcpp: "NbChildren", header: "IGESData_SingleParentEntity.hxx".}
-proc child*(this: IGESDataSingleParentEntity; num: int): Handle[IGESDataIGESEntity] {.
+proc child*(this: IGESDataSingleParentEntity; num: cint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Child", header: "IGESData_SingleParentEntity.hxx".}
 type
   IGESDataSingleParentEntitybaseType* = IGESDataIGESEntity
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDataSingleParentEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESData_SingleParentEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

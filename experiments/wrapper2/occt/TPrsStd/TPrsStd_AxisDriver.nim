@@ -19,7 +19,7 @@ discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_AxisDriver"
 discard "forward decl of TPrsStd_AxisDriver"
 type
-  HandleTPrsStdAxisDriver* = Handle[TPrsStdAxisDriver]
+  HandleC1C1* = Handle[TPrsStdAxisDriver]
 
 ## ! An implementation of TPrsStd_Driver for axes.
 
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_AxisDriver.hxx".}
 proc dynamicType*(this: TPrsStdAxisDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_AxisDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

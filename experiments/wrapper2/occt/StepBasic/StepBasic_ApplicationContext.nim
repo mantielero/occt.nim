@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ApplicationContext"
 discard "forward decl of StepBasic_ApplicationContext"
 type
-  HandleStepBasicApplicationContext* = Handle[StepBasicApplicationContext]
+  HandleC1C1* = Handle[StepBasicApplicationContext]
   StepBasicApplicationContext* {.importcpp: "StepBasic_ApplicationContext",
                                 header: "StepBasic_ApplicationContext.hxx", bycopy.} = object of StandardTransient ##
                                                                                                             ## !
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicApplicationContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ApplicationContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

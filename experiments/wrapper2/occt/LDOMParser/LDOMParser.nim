@@ -37,3 +37,28 @@ proc getError*(this: LDOMParser; aData: var TCollectionAsciiString): TCollection
     noSideEffect, importcpp: "GetError", header: "LDOMParser.hxx".}
 proc getBOM*(this: LDOMParser): BOMType {.noSideEffect, importcpp: "GetBOM",
                                       header: "LDOMParser.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

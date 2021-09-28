@@ -36,7 +36,7 @@ discard "forward decl of StepRepr_ConstructiveGeometryRepresentationRelationship
 discard "forward decl of STEPControl_ActorRead"
 discard "forward decl of STEPControl_ActorRead"
 type
-  HandleSTEPControlActorRead* = Handle[STEPControlActorRead]
+  HandleC1C1* = Handle[STEPControlActorRead]
 
 ## ! This class performs the transfer of an Entity from
 ## ! AP214 and AP203, either Geometric or Topologic.
@@ -111,3 +111,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPControl_ActorRead.hxx".}
 proc dynamicType*(this: STEPControlActorRead): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "STEPControl_ActorRead.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

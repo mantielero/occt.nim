@@ -27,7 +27,7 @@ proc constructRWStepReprRWGeometricAlignment*(): RWStepReprRWGeometricAlignment 
     constructor, importcpp: "RWStepRepr_RWGeometricAlignment(@)",
     header: "RWStepRepr_RWGeometricAlignment.hxx".}
 proc readStep*(this: RWStepReprRWGeometricAlignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprGeometricAlignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWGeometricAlignment.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepReprRWGeometricAlignment;
            ent: Handle[StepReprGeometricAlignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWGeometricAlignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

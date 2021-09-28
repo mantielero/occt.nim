@@ -20,7 +20,7 @@ discard "forward decl of BRepBlend_Extremity"
 discard "forward decl of BRepBlend_Line"
 discard "forward decl of BRepBlend_Line"
 type
-  HandleBRepBlendLine* = Handle[BRepBlendLine]
+  HandleC1C1* = Handle[BRepBlendLine]
   BRepBlendLine* {.importcpp: "BRepBlend_Line", header: "BRepBlend_Line.hxx", bycopy.} = object of StandardTransient
 
 
@@ -32,9 +32,9 @@ proc append*(this: var BRepBlendLine; p: BlendPoint) {.importcpp: "Append",
     header: "BRepBlend_Line.hxx".}
 proc prepend*(this: var BRepBlendLine; p: BlendPoint) {.importcpp: "Prepend",
     header: "BRepBlend_Line.hxx".}
-proc insertBefore*(this: var BRepBlendLine; index: int; p: BlendPoint) {.
+proc insertBefore*(this: var BRepBlendLine; index: cint; p: BlendPoint) {.
     importcpp: "InsertBefore", header: "BRepBlend_Line.hxx".}
-proc remove*(this: var BRepBlendLine; fromIndex: int; toIndex: int) {.
+proc remove*(this: var BRepBlendLine; fromIndex: cint; toIndex: cint) {.
     importcpp: "Remove", header: "BRepBlend_Line.hxx".}
 proc set*(this: var BRepBlendLine; tranS1: IntSurfTypeTrans; tranS2: IntSurfTypeTrans) {.
     importcpp: "Set", header: "BRepBlend_Line.hxx".}
@@ -46,9 +46,9 @@ proc setStartPoints*(this: var BRepBlendLine; startPt1: BRepBlendExtremity;
 proc setEndPoints*(this: var BRepBlendLine; endPt1: BRepBlendExtremity;
                   endPt2: BRepBlendExtremity) {.importcpp: "SetEndPoints",
     header: "BRepBlend_Line.hxx".}
-proc nbPoints*(this: BRepBlendLine): int {.noSideEffect, importcpp: "NbPoints",
-                                       header: "BRepBlend_Line.hxx".}
-proc point*(this: BRepBlendLine; index: int): BlendPoint {.noSideEffect,
+proc nbPoints*(this: BRepBlendLine): cint {.noSideEffect, importcpp: "NbPoints",
+                                        header: "BRepBlend_Line.hxx".}
+proc point*(this: BRepBlendLine; index: cint): BlendPoint {.noSideEffect,
     importcpp: "Point", header: "BRepBlend_Line.hxx".}
 proc transitionOnS1*(this: BRepBlendLine): IntSurfTypeTrans {.noSideEffect,
     importcpp: "TransitionOnS1", header: "BRepBlend_Line.hxx".}
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepBlend_Line.hxx".}
 proc dynamicType*(this: BRepBlendLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepBlend_Line.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

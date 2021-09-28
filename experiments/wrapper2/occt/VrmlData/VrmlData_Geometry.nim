@@ -52,5 +52,30 @@ proc dynamicType*(this: VrmlDataGeometry): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of VrmlData_Geometry"
 type
-  HandleVrmlDataGeometry* = Handle[VrmlDataGeometry]
+  HandleC1C1* = Handle[VrmlDataGeometry]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

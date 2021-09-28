@@ -22,16 +22,42 @@ type
                                                                        ## ! Returns false if no.
 
 
-proc isLinear*(thePoles: TColgpArray1OfPnt2d; theTolerance: float;
-              theDeviation: var float): bool {.
+proc isLinear*(thePoles: TColgpArray1OfPnt2d; theTolerance: cfloat;
+              theDeviation: var cfloat): bool {.
     importcpp: "ShapeCustom_Curve2d::IsLinear(@)",
     header: "ShapeCustom_Curve2d.hxx".}
-proc convertToLine2d*(theCurve: Handle[Geom2dCurve]; theFirstIn: float;
-                     theLastIn: float; theTolerance: float; theNewFirst: var float;
-                     theNewLast: var float; theDeviation: var float): Handle[
-    Geom2dLine] {.importcpp: "ShapeCustom_Curve2d::ConvertToLine2d(@)",
-                 header: "ShapeCustom_Curve2d.hxx".}
+proc convertToLine2d*(theCurve: Handle[Geom2dCurve]; theFirstIn: cfloat;
+                     theLastIn: cfloat; theTolerance: cfloat;
+                     theNewFirst: var cfloat; theNewLast: var cfloat;
+                     theDeviation: var cfloat): Handle[Geom2dLine] {.
+    importcpp: "ShapeCustom_Curve2d::ConvertToLine2d(@)",
+    header: "ShapeCustom_Curve2d.hxx".}
 proc simplifyBSpline2d*(theBSpline2d: var Handle[Geom2dBSplineCurve];
-                       theTolerance: float): bool {.
+                       theTolerance: cfloat): bool {.
     importcpp: "ShapeCustom_Curve2d::SimplifyBSpline2d(@)",
     header: "ShapeCustom_Curve2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

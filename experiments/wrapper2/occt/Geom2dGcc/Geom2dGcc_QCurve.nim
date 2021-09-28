@@ -20,17 +20,30 @@ type
                     bycopy.} = object
 
 
+proc `new`*(this: var Geom2dGccQCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc_QCurve::operator new", header: "Geom2dGcc_QCurve.hxx".}
+proc `delete`*(this: var Geom2dGccQCurve; theAddress: pointer) {.
+    importcpp: "Geom2dGcc_QCurve::operator delete", header: "Geom2dGcc_QCurve.hxx".}
+proc `new[]`*(this: var Geom2dGccQCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc_QCurve::operator new[]", header: "Geom2dGcc_QCurve.hxx".}
+proc `delete[]`*(this: var Geom2dGccQCurve; theAddress: pointer) {.
+    importcpp: "Geom2dGcc_QCurve::operator delete[]",
+    header: "Geom2dGcc_QCurve.hxx".}
+proc `new`*(this: var Geom2dGccQCurve; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dGcc_QCurve::operator new", header: "Geom2dGcc_QCurve.hxx".}
+proc `delete`*(this: var Geom2dGccQCurve; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dGcc_QCurve::operator delete", header: "Geom2dGcc_QCurve.hxx".}
 proc constructGeom2dGccQCurve*(curve: Geom2dAdaptorCurve; qualifier: GccEntPosition): Geom2dGccQCurve {.
     constructor, importcpp: "Geom2dGcc_QCurve(@)", header: "Geom2dGcc_QCurve.hxx".}
 proc qualified*(this: Geom2dGccQCurve): Geom2dAdaptorCurve {.noSideEffect,
     importcpp: "Qualified", header: "Geom2dGcc_QCurve.hxx".}
 proc qualifier*(this: Geom2dGccQCurve): GccEntPosition {.noSideEffect,
     importcpp: "Qualifier", header: "Geom2dGcc_QCurve.hxx".}
-proc isUnqualified*(this: Geom2dGccQCurve): bool {.noSideEffect,
+proc isUnqualified*(this: Geom2dGccQCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsUnqualified", header: "Geom2dGcc_QCurve.hxx".}
-proc isEnclosing*(this: Geom2dGccQCurve): bool {.noSideEffect,
+proc isEnclosing*(this: Geom2dGccQCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsEnclosing", header: "Geom2dGcc_QCurve.hxx".}
-proc isEnclosed*(this: Geom2dGccQCurve): bool {.noSideEffect,
+proc isEnclosed*(this: Geom2dGccQCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsEnclosed", header: "Geom2dGcc_QCurve.hxx".}
-proc isOutside*(this: Geom2dGccQCurve): bool {.noSideEffect, importcpp: "IsOutside",
-    header: "Geom2dGcc_QCurve.hxx".}
+proc isOutside*(this: Geom2dGccQCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsOutside", header: "Geom2dGcc_QCurve.hxx".}

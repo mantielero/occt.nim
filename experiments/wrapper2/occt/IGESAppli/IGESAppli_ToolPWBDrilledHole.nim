@@ -70,5 +70,30 @@ proc ownCopy*(this: IGESAppliToolPWBDrilledHole;
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolPWBDrilledHole.hxx".}
 proc ownDump*(this: IGESAppliToolPWBDrilledHole;
              ent: Handle[IGESAppliPWBDrilledHole]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESAppli_ToolPWBDrilledHole.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

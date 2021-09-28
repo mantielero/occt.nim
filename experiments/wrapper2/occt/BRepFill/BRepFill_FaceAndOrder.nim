@@ -26,3 +26,28 @@ proc constructBRepFillFaceAndOrder*(): BRepFillFaceAndOrder {.constructor,
 proc constructBRepFillFaceAndOrder*(aFace: TopoDS_Face; anOrder: GeomAbsShape): BRepFillFaceAndOrder {.
     constructor, importcpp: "BRepFill_FaceAndOrder(@)",
     header: "BRepFill_FaceAndOrder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

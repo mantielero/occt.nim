@@ -18,8 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_ArbitraryVolume3dElementCoordinateSystem"
 discard "forward decl of StepFEA_ArbitraryVolume3dElementCoordinateSystem"
 type
-  HandleStepFEA_ArbitraryVolume3dElementCoordinateSystem* = Handle[
-      StepFEA_ArbitraryVolume3dElementCoordinateSystem]
+  HandleC1C1* = Handle[StepFEA_ArbitraryVolume3dElementCoordinateSystem]
 
 ## ! Representation of STEP entity ArbitraryVolume3dElementCoordinateSystem
 
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_ArbitraryV
     header: "StepFEA_ArbitraryVolume3dElementCoordinateSystem.hxx".}
 proc dynamicType*(this: StepFEA_ArbitraryVolume3dElementCoordinateSystem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_ArbitraryVolume3dElementCoordinateSystem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

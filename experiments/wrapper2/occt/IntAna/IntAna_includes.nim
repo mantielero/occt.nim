@@ -13,3 +13,28 @@ include IntAna_QuadQuadGeo
 include IntAna_Quadric
 include IntAna_ResultType
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

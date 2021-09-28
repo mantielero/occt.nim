@@ -279,3 +279,28 @@ type
 type
   OpenGlGlCore45* = OpenGlTmplCore45[OpenGlGlCore44]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

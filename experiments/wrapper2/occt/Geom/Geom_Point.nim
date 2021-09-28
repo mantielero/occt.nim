@@ -18,7 +18,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Point"
 discard "forward decl of Geom_Point"
 type
-  HandleGeomPoint* = Handle[GeomPoint]
+  HandleC1C1* = Handle[GeomPoint]
 
 ## ! The abstract class Point describes the common
 ## ! behavior of geometric points in 3D space.
@@ -35,20 +35,21 @@ type
                                                                                           ## <me>.
 
 
-proc coord*(this: GeomPoint; x: var float; y: var float; z: var float) {.noSideEffect,
-    importcpp: "Coord", header: "Geom_Point.hxx".}
+proc coord*(this: GeomPoint; x: var StandardReal; y: var StandardReal;
+           z: var StandardReal) {.noSideEffect, importcpp: "Coord",
+                               header: "Geom_Point.hxx".}
 proc pnt*(this: GeomPoint): Pnt {.noSideEffect, importcpp: "Pnt",
                               header: "Geom_Point.hxx".}
-proc x*(this: GeomPoint): float {.noSideEffect, importcpp: "X",
-                              header: "Geom_Point.hxx".}
-proc y*(this: GeomPoint): float {.noSideEffect, importcpp: "Y",
-                              header: "Geom_Point.hxx".}
-proc z*(this: GeomPoint): float {.noSideEffect, importcpp: "Z",
-                              header: "Geom_Point.hxx".}
-proc distance*(this: GeomPoint; other: Handle[GeomPoint]): float {.noSideEffect,
-    importcpp: "Distance", header: "Geom_Point.hxx".}
-proc squareDistance*(this: GeomPoint; other: Handle[GeomPoint]): float {.noSideEffect,
-    importcpp: "SquareDistance", header: "Geom_Point.hxx".}
+proc x*(this: GeomPoint): StandardReal {.noSideEffect, importcpp: "X",
+                                     header: "Geom_Point.hxx".}
+proc y*(this: GeomPoint): StandardReal {.noSideEffect, importcpp: "Y",
+                                     header: "Geom_Point.hxx".}
+proc z*(this: GeomPoint): StandardReal {.noSideEffect, importcpp: "Z",
+                                     header: "Geom_Point.hxx".}
+proc distance*(this: GeomPoint; other: Handle[GeomPoint]): StandardReal {.
+    noSideEffect, importcpp: "Distance", header: "Geom_Point.hxx".}
+proc squareDistance*(this: GeomPoint; other: Handle[GeomPoint]): StandardReal {.
+    noSideEffect, importcpp: "SquareDistance", header: "Geom_Point.hxx".}
 type
   GeomPointbaseType* = GeomGeometry
 

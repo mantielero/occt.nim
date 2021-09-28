@@ -18,34 +18,34 @@ type
   BOPToolsPairSelector*[Dimension: static[cint]] {.
       importcpp: "BOPTools_PairSelector<\'0>",
       header: "BOPTools_PairSelector.hxx", bycopy.} = object of BVH_PairTraverse[
-      float, Dimension, BVH_BoxSet[float, Dimension, int]] ## ! @name public types
-                                                      ## ! Auxiliary structure to keep the pair of indices
-                                                      ## ! @name Constructor
-                                                      ## ! Empty constructor
-                                                      ## ! @name public interfaces
-                                                      ## ! Clears the indices
-                                                      ## ! @name Rejection/Acceptance rules
-                                                      ## ! Basing on the bounding boxes of the nodes checks if the pair of nodes should be rejected.
-                                                      ## ! @name Fields
+      cfloat, Dimension, BVH_BoxSet[cfloat, Dimension, cint]] ## ! @name public types
+                                                         ## ! Auxiliary structure to keep the pair of indices
+                                                         ## ! @name Constructor
+                                                         ## ! Empty constructor
+                                                         ## ! @name public interfaces
+                                                         ## ! Clears the indices
+                                                         ## ! @name Rejection/Acceptance rules
+                                                         ## ! Basing on the bounding boxes of the nodes checks if the pair of nodes should be rejected.
+                                                         ## ! @name Fields
     ## !< Selected pairs of indices
     ## !< Selection is performed from the same BVH trees
 
   BOPToolsPairSelectorPairIDs*[Dimension: static[cint]] {.
       importcpp: "BOPTools_PairSelector<\'0>::PairIDs",
       header: "BOPTools_PairSelector.hxx", bycopy.} = object
-    id1* {.importc: "ID1".}: int
-    id2* {.importc: "ID2".}: int
+    id1* {.importc: "ID1".}: cint
+    id2* {.importc: "ID2".}: cint
 
 
 proc constructBOPToolsPairSelectorPairIDs*[Dimension: static[cint]](
-    theId1: int = -1; theId2: int = -1): BOPToolsPairSelectorPairIDs[Dimension] {.
+    theId1: cint = -1; theId2: cint = -1): BOPToolsPairSelectorPairIDs[Dimension] {.
     constructor, importcpp: "BOPTools_PairSelector<\'*0>::PairIDs(@)",
     header: "BOPTools_PairSelector.hxx".}
 proc `<`*[Dimension: static[cint]](this: BOPToolsPairSelectorPairIDs[Dimension];
                                  theOther: BOPToolsPairSelectorPairIDs): bool {.
     noSideEffect, importcpp: "(# < #)", header: "BOPTools_PairSelector.hxx".}
 type
-  BOPToolsPairSelectorBVH_VecNd*[Dimension] = Type[float, Dimension]
+  BOPToolsPairSelectorBVH_VecNd*[Dimension] = Type[cfloat, Dimension]
 
 proc constructBOPToolsPairSelector*[Dimension: static[cint]](): BOPToolsPairSelector[
     Dimension] {.constructor, importcpp: "BOPTools_PairSelector<\'*0>(@)",
@@ -63,11 +63,36 @@ proc pairs*[Dimension: static[cint]](this: BOPToolsPairSelector[Dimension]): Vec
 proc rejectNode*[Dimension: static[cint]](this: BOPToolsPairSelector[Dimension];
     theCMin1: BOPToolsPairSelectorBVH_VecNd; theCMax1: BOPToolsPairSelectorBVH_VecNd;
     theCMin2: BOPToolsPairSelectorBVH_VecNd; theCMax2: BOPToolsPairSelectorBVH_VecNd;
-                                        a6: var float): bool {.noSideEffect,
+                                        a6: var cfloat): bool {.noSideEffect,
     importcpp: "RejectNode", header: "BOPTools_PairSelector.hxx".}
 proc rejectElement*[Dimension: static[cint]](
-    this: var BOPToolsPairSelector[Dimension]; theID1: int; theID2: int): bool {.
+    this: var BOPToolsPairSelector[Dimension]; theID1: cint; theID2: cint): bool {.
     importcpp: "RejectElement", header: "BOPTools_PairSelector.hxx".}
 proc accept*[Dimension: static[cint]](this: var BOPToolsPairSelector[Dimension];
-                                    theID1: int; theID2: int): bool {.
+                                    theID1: cint; theID2: cint): bool {.
     importcpp: "Accept", header: "BOPTools_PairSelector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

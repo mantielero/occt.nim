@@ -19,7 +19,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGeom_SplineSurface"
 discard "forward decl of IGESGeom_SplineSurface"
 type
-  HandleIGESGeomSplineSurface* = Handle[IGESGeomSplineSurface]
+  HandleC1C1* = Handle[IGESGeomSplineSurface]
 
 ## ! defines IGESSplineSurface, Type <114> Form <0>
 ## ! in package IGESGeom
@@ -37,32 +37,32 @@ type
 
 proc constructIGESGeomSplineSurface*(): IGESGeomSplineSurface {.constructor,
     importcpp: "IGESGeom_SplineSurface(@)", header: "IGESGeom_SplineSurface.hxx".}
-proc init*(this: var IGESGeomSplineSurface; aBoundaryType: int; aPatchType: int;
+proc init*(this: var IGESGeomSplineSurface; aBoundaryType: cint; aPatchType: cint;
           allUBreakpoints: Handle[TColStdHArray1OfReal];
           allVBreakpoints: Handle[TColStdHArray1OfReal];
           allXCoeffs: Handle[IGESBasicHArray2OfHArray1OfReal];
           allYCoeffs: Handle[IGESBasicHArray2OfHArray1OfReal];
           allZCoeffs: Handle[IGESBasicHArray2OfHArray1OfReal]) {.
     importcpp: "Init", header: "IGESGeom_SplineSurface.hxx".}
-proc nbUSegments*(this: IGESGeomSplineSurface): int {.noSideEffect,
+proc nbUSegments*(this: IGESGeomSplineSurface): cint {.noSideEffect,
     importcpp: "NbUSegments", header: "IGESGeom_SplineSurface.hxx".}
-proc nbVSegments*(this: IGESGeomSplineSurface): int {.noSideEffect,
+proc nbVSegments*(this: IGESGeomSplineSurface): cint {.noSideEffect,
     importcpp: "NbVSegments", header: "IGESGeom_SplineSurface.hxx".}
-proc boundaryType*(this: IGESGeomSplineSurface): int {.noSideEffect,
+proc boundaryType*(this: IGESGeomSplineSurface): cint {.noSideEffect,
     importcpp: "BoundaryType", header: "IGESGeom_SplineSurface.hxx".}
-proc patchType*(this: IGESGeomSplineSurface): int {.noSideEffect,
+proc patchType*(this: IGESGeomSplineSurface): cint {.noSideEffect,
     importcpp: "PatchType", header: "IGESGeom_SplineSurface.hxx".}
-proc uBreakPoint*(this: IGESGeomSplineSurface; anIndex: int): float {.noSideEffect,
+proc uBreakPoint*(this: IGESGeomSplineSurface; anIndex: cint): cfloat {.noSideEffect,
     importcpp: "UBreakPoint", header: "IGESGeom_SplineSurface.hxx".}
-proc vBreakPoint*(this: IGESGeomSplineSurface; anIndex: int): float {.noSideEffect,
+proc vBreakPoint*(this: IGESGeomSplineSurface; anIndex: cint): cfloat {.noSideEffect,
     importcpp: "VBreakPoint", header: "IGESGeom_SplineSurface.hxx".}
-proc xPolynomial*(this: IGESGeomSplineSurface; anIndex1: int; anIndex2: int): Handle[
+proc xPolynomial*(this: IGESGeomSplineSurface; anIndex1: cint; anIndex2: cint): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "XPolynomial",
                            header: "IGESGeom_SplineSurface.hxx".}
-proc yPolynomial*(this: IGESGeomSplineSurface; anIndex1: int; anIndex2: int): Handle[
+proc yPolynomial*(this: IGESGeomSplineSurface; anIndex1: cint; anIndex2: cint): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "YPolynomial",
                            header: "IGESGeom_SplineSurface.hxx".}
-proc zPolynomial*(this: IGESGeomSplineSurface; anIndex1: int; anIndex2: int): Handle[
+proc zPolynomial*(this: IGESGeomSplineSurface; anIndex1: cint; anIndex2: cint): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "ZPolynomial",
                            header: "IGESGeom_SplineSurface.hxx".}
 proc polynomials*(this: IGESGeomSplineSurface;
@@ -80,3 +80,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_SplineSurface.hxx".}
 proc dynamicType*(this: IGESGeomSplineSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_SplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

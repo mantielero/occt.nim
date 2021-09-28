@@ -40,3 +40,28 @@ proc bufferSize*(this: MediaBufferPool): cint {.noSideEffect,
     importcpp: "BufferSize", header: "Media_BufferPool.hxx".}
 proc getBuffer*(this: var MediaBufferPool): ptr AVBufferRef {.importcpp: "GetBuffer",
     header: "Media_BufferPool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,8 +17,7 @@
 discard "forward decl of StepShape_GeometricallyBoundedWireframeShapeRepresentation"
 discard "forward decl of StepShape_GeometricallyBoundedWireframeShapeRepresentation"
 type
-  HandleStepShapeGeometricallyBoundedWireframeShapeRepresentation* = Handle[
-      StepShapeGeometricallyBoundedWireframeShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeGeometricallyBoundedWireframeShapeRepresentation]
   StepShapeGeometricallyBoundedWireframeShapeRepresentation* {.
       importcpp: "StepShape_GeometricallyBoundedWireframeShapeRepresentation",
       header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx",
@@ -38,3 +37,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_Geometri
     header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx".}
 proc dynamicType*(this: StepShapeGeometricallyBoundedWireframeShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

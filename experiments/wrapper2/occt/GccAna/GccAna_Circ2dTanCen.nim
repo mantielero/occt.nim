@@ -32,7 +32,7 @@ type
 
 
 proc constructGccAnaCirc2dTanCen*(qualified1: GccEntQualifiedCirc; pcenter: Pnt2d;
-                                 tolerance: float): GccAnaCirc2dTanCen {.
+                                 tolerance: cfloat): GccAnaCirc2dTanCen {.
     constructor, importcpp: "GccAna_Circ2dTanCen(@)",
     header: "GccAna_Circ2dTanCen.hxx".}
 proc constructGccAnaCirc2dTanCen*(linetan: Lin2d; pcenter: Pnt2d): GccAnaCirc2dTanCen {.
@@ -43,15 +43,40 @@ proc constructGccAnaCirc2dTanCen*(point1: Pnt2d; pcenter: Pnt2d): GccAnaCirc2dTa
     header: "GccAna_Circ2dTanCen.hxx".}
 proc isDone*(this: GccAnaCirc2dTanCen): bool {.noSideEffect, importcpp: "IsDone",
     header: "GccAna_Circ2dTanCen.hxx".}
-proc nbSolutions*(this: GccAnaCirc2dTanCen): int {.noSideEffect,
+proc nbSolutions*(this: GccAnaCirc2dTanCen): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Circ2dTanCen.hxx".}
-proc thisSolution*(this: GccAnaCirc2dTanCen; index: int): Circ2d {.noSideEffect,
+proc thisSolution*(this: GccAnaCirc2dTanCen; index: cint): Circ2d {.noSideEffect,
     importcpp: "ThisSolution", header: "GccAna_Circ2dTanCen.hxx".}
-proc whichQualifier*(this: GccAnaCirc2dTanCen; index: int;
+proc whichQualifier*(this: GccAnaCirc2dTanCen; index: cint;
                     qualif1: var GccEntPosition) {.noSideEffect,
     importcpp: "WhichQualifier", header: "GccAna_Circ2dTanCen.hxx".}
-proc tangency1*(this: GccAnaCirc2dTanCen; index: int; parSol: var float;
-               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+proc tangency1*(this: GccAnaCirc2dTanCen; index: cint; parSol: var cfloat;
+               parArg: var cfloat; pntSol: var Pnt2d) {.noSideEffect,
     importcpp: "Tangency1", header: "GccAna_Circ2dTanCen.hxx".}
-proc isTheSame1*(this: GccAnaCirc2dTanCen; index: int): bool {.noSideEffect,
+proc isTheSame1*(this: GccAnaCirc2dTanCen; index: cint): bool {.noSideEffect,
     importcpp: "IsTheSame1", header: "GccAna_Circ2dTanCen.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

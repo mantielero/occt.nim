@@ -25,3 +25,28 @@ type
 const
   Graphic3dFrameStatsTimerNB* = graphic3dFrameStatsTimerCpuDynamics + 1
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

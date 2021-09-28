@@ -34,10 +34,10 @@ type
 
 
 proc constructAppDefMyGradientbisOfBSplineCompute*(ssp: AppDefMultiLine;
-    firstPoint: int; lastPoint: int;
+    firstPoint: cint; lastPoint: cint;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: var MathVector; deg: int; tol3d: float; tol2d: float;
-    nbIterations: int = 200): AppDefMyGradientbisOfBSplineCompute {.constructor,
+    parameters: var MathVector; deg: cint; tol3d: cfloat; tol2d: cfloat;
+    nbIterations: cint = 200): AppDefMyGradientbisOfBSplineCompute {.constructor,
     importcpp: "AppDef_MyGradientbisOfBSplineCompute(@)",
     header: "AppDef_MyGradientbisOfBSplineCompute.hxx".}
 proc isDone*(this: AppDefMyGradientbisOfBSplineCompute): bool {.noSideEffect,
@@ -45,12 +45,38 @@ proc isDone*(this: AppDefMyGradientbisOfBSplineCompute): bool {.noSideEffect,
 proc value*(this: AppDefMyGradientbisOfBSplineCompute): AppParCurvesMultiCurve {.
     noSideEffect, importcpp: "Value",
     header: "AppDef_MyGradientbisOfBSplineCompute.hxx".}
-proc error*(this: AppDefMyGradientbisOfBSplineCompute; index: int): float {.
+proc error*(this: AppDefMyGradientbisOfBSplineCompute; index: cint): cfloat {.
     noSideEffect, importcpp: "Error",
     header: "AppDef_MyGradientbisOfBSplineCompute.hxx".}
-proc maxError3d*(this: AppDefMyGradientbisOfBSplineCompute): float {.noSideEffect,
+proc maxError3d*(this: AppDefMyGradientbisOfBSplineCompute): cfloat {.noSideEffect,
     importcpp: "MaxError3d", header: "AppDef_MyGradientbisOfBSplineCompute.hxx".}
-proc maxError2d*(this: AppDefMyGradientbisOfBSplineCompute): float {.noSideEffect,
+proc maxError2d*(this: AppDefMyGradientbisOfBSplineCompute): cfloat {.noSideEffect,
     importcpp: "MaxError2d", header: "AppDef_MyGradientbisOfBSplineCompute.hxx".}
-proc averageError*(this: AppDefMyGradientbisOfBSplineCompute): float {.noSideEffect,
-    importcpp: "AverageError", header: "AppDef_MyGradientbisOfBSplineCompute.hxx".}
+proc averageError*(this: AppDefMyGradientbisOfBSplineCompute): cfloat {.
+    noSideEffect, importcpp: "AverageError",
+    header: "AppDef_MyGradientbisOfBSplineCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -41,3 +41,28 @@ proc shape*(this: LocOpeGenerator): TopoDS_Shape {.noSideEffect, importcpp: "Sha
     header: "LocOpe_Generator.hxx".}
 proc descendantFace*(this: var LocOpeGenerator; f: TopoDS_Face): TopToolsListOfShape {.
     importcpp: "DescendantFace", header: "LocOpe_Generator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

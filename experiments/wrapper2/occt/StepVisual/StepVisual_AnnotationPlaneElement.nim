@@ -26,10 +26,35 @@ proc constructStepVisualAnnotationPlaneElement*(): StepVisualAnnotationPlaneElem
     constructor, importcpp: "StepVisual_AnnotationPlaneElement(@)",
     header: "StepVisual_AnnotationPlaneElement.hxx".}
 proc caseNum*(this: StepVisualAnnotationPlaneElement;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_AnnotationPlaneElement.hxx".}
 proc draughtingCallout*(this: StepVisualAnnotationPlaneElement): Handle[
     StepVisualDraughtingCallout] {.noSideEffect, importcpp: "DraughtingCallout", header: "StepVisual_AnnotationPlaneElement.hxx".}
 proc styledItem*(this: StepVisualAnnotationPlaneElement): Handle[
     StepVisualStyledItem] {.noSideEffect, importcpp: "StyledItem",
                            header: "StepVisual_AnnotationPlaneElement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,10 +20,10 @@ type
 
 
 proc constructMeshVS_SensitiveMesh*(theOwner: Handle[SelectMgrEntityOwner];
-                                   theMode: int = 0): MeshVS_SensitiveMesh {.
+                                   theMode: cint = 0): MeshVS_SensitiveMesh {.
     constructor, importcpp: "MeshVS_SensitiveMesh(@)",
     header: "MeshVS_SensitiveMesh.hxx".}
-proc getMode*(this: MeshVS_SensitiveMesh): int {.noSideEffect, importcpp: "GetMode",
+proc getMode*(this: MeshVS_SensitiveMesh): cint {.noSideEffect, importcpp: "GetMode",
     header: "MeshVS_SensitiveMesh.hxx".}
 proc getConnected*(this: var MeshVS_SensitiveMesh): Handle[Select3D_SensitiveEntity] {.
     importcpp: "GetConnected", header: "MeshVS_SensitiveMesh.hxx".}
@@ -31,7 +31,7 @@ proc matches*(this: var MeshVS_SensitiveMesh;
              theMgr: var SelectBasicsSelectingVolumeManager;
              thePickResult: var SelectBasicsPickResult): bool {.
     importcpp: "Matches", header: "MeshVS_SensitiveMesh.hxx".}
-proc nbSubElements*(this: MeshVS_SensitiveMesh): int {.noSideEffect,
+proc nbSubElements*(this: MeshVS_SensitiveMesh): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "MeshVS_SensitiveMesh.hxx".}
 proc boundingBox*(this: var MeshVS_SensitiveMesh): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "MeshVS_SensitiveMesh.hxx".}
@@ -49,5 +49,30 @@ proc dynamicType*(this: MeshVS_SensitiveMesh): Handle[StandardType] {.noSideEffe
     importcpp: "DynamicType", header: "MeshVS_SensitiveMesh.hxx".}
 discard "forward decl of MeshVS_SensitiveMesh"
 type
-  HandleMeshVS_SensitiveMesh* = Handle[MeshVS_SensitiveMesh]
+  HandleC1C1* = Handle[MeshVS_SensitiveMesh]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

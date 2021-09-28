@@ -39,12 +39,12 @@ proc constructBRepIntCurveSurfaceInter*(): BRepIntCurveSurfaceInter {.constructo
     importcpp: "BRepIntCurveSurface_Inter(@)",
     header: "BRepIntCurveSurface_Inter.hxx".}
 proc init*(this: var BRepIntCurveSurfaceInter; theShape: TopoDS_Shape;
-          theCurve: GeomAdaptorCurve; theTol: float) {.importcpp: "Init",
+          theCurve: GeomAdaptorCurve; theTol: cfloat) {.importcpp: "Init",
     header: "BRepIntCurveSurface_Inter.hxx".}
 proc init*(this: var BRepIntCurveSurfaceInter; theShape: TopoDS_Shape; theLine: Lin;
-          theTol: float) {.importcpp: "Init",
-                         header: "BRepIntCurveSurface_Inter.hxx".}
-proc load*(this: var BRepIntCurveSurfaceInter; theShape: TopoDS_Shape; theTol: float) {.
+          theTol: cfloat) {.importcpp: "Init",
+                          header: "BRepIntCurveSurface_Inter.hxx".}
+proc load*(this: var BRepIntCurveSurfaceInter; theShape: TopoDS_Shape; theTol: cfloat) {.
     importcpp: "Load", header: "BRepIntCurveSurface_Inter.hxx".}
 proc init*(this: var BRepIntCurveSurfaceInter; theCurve: GeomAdaptorCurve) {.
     importcpp: "Init", header: "BRepIntCurveSurface_Inter.hxx".}
@@ -56,11 +56,11 @@ proc point*(this: BRepIntCurveSurfaceInter): IntCurveSurfaceIntersectionPoint {.
     noSideEffect, importcpp: "Point", header: "BRepIntCurveSurface_Inter.hxx".}
 proc pnt*(this: BRepIntCurveSurfaceInter): Pnt {.noSideEffect, importcpp: "Pnt",
     header: "BRepIntCurveSurface_Inter.hxx".}
-proc u*(this: BRepIntCurveSurfaceInter): float {.noSideEffect, importcpp: "U",
+proc u*(this: BRepIntCurveSurfaceInter): cfloat {.noSideEffect, importcpp: "U",
     header: "BRepIntCurveSurface_Inter.hxx".}
-proc v*(this: BRepIntCurveSurfaceInter): float {.noSideEffect, importcpp: "V",
+proc v*(this: BRepIntCurveSurfaceInter): cfloat {.noSideEffect, importcpp: "V",
     header: "BRepIntCurveSurface_Inter.hxx".}
-proc w*(this: BRepIntCurveSurfaceInter): float {.noSideEffect, importcpp: "W",
+proc w*(this: BRepIntCurveSurfaceInter): cfloat {.noSideEffect, importcpp: "W",
     header: "BRepIntCurveSurface_Inter.hxx".}
 proc state*(this: BRepIntCurveSurfaceInter): TopAbsState {.noSideEffect,
     importcpp: "State", header: "BRepIntCurveSurface_Inter.hxx".}
@@ -68,3 +68,28 @@ proc transition*(this: BRepIntCurveSurfaceInter): IntCurveSurfaceTransitionOnCur
     noSideEffect, importcpp: "Transition", header: "BRepIntCurveSurface_Inter.hxx".}
 proc face*(this: BRepIntCurveSurfaceInter): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BRepIntCurveSurface_Inter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

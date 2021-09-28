@@ -19,7 +19,7 @@ discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectControl"
 discard "forward decl of IFSelect_SelectControl"
 type
-  HandleIFSelectSelectControl* = Handle[IFSelectSelectControl]
+  HandleC1C1* = Handle[IFSelectSelectControl]
 
 ## ! A SelectControl kind Selection works with two input Selections
 ## ! in a dissymmetric way : the Main Input which gives an input
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectControl.hxx".}
 proc dynamicType*(this: IFSelectSelectControl): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectControl.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

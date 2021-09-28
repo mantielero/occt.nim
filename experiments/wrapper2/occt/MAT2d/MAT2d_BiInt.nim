@@ -20,17 +20,42 @@ type
   MAT2dBiInt* {.importcpp: "MAT2d_BiInt", header: "MAT2d_BiInt.hxx", bycopy.} = object
 
 
-proc constructMAT2dBiInt*(i1: int; i2: int): MAT2dBiInt {.constructor,
+proc constructMAT2dBiInt*(i1: cint; i2: cint): MAT2dBiInt {.constructor,
     importcpp: "MAT2d_BiInt(@)", header: "MAT2d_BiInt.hxx".}
-proc firstIndex*(this: MAT2dBiInt): int {.noSideEffect, importcpp: "FirstIndex",
-                                      header: "MAT2d_BiInt.hxx".}
-proc secondIndex*(this: MAT2dBiInt): int {.noSideEffect, importcpp: "SecondIndex",
+proc firstIndex*(this: MAT2dBiInt): cint {.noSideEffect, importcpp: "FirstIndex",
                                        header: "MAT2d_BiInt.hxx".}
-proc firstIndex*(this: var MAT2dBiInt; i1: int) {.importcpp: "FirstIndex",
+proc secondIndex*(this: MAT2dBiInt): cint {.noSideEffect, importcpp: "SecondIndex",
+                                        header: "MAT2d_BiInt.hxx".}
+proc firstIndex*(this: var MAT2dBiInt; i1: cint) {.importcpp: "FirstIndex",
     header: "MAT2d_BiInt.hxx".}
-proc secondIndex*(this: var MAT2dBiInt; i2: int) {.importcpp: "SecondIndex",
+proc secondIndex*(this: var MAT2dBiInt; i2: cint) {.importcpp: "SecondIndex",
     header: "MAT2d_BiInt.hxx".}
 proc isEqual*(this: MAT2dBiInt; b: MAT2dBiInt): bool {.noSideEffect,
     importcpp: "IsEqual", header: "MAT2d_BiInt.hxx".}
 proc `==`*(this: MAT2dBiInt; b: MAT2dBiInt): bool {.noSideEffect,
     importcpp: "(# == #)", header: "MAT2d_BiInt.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

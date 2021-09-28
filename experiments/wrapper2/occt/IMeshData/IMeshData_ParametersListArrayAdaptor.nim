@@ -39,9 +39,34 @@ proc destroyIMeshDataParametersListArrayAdaptor*[ParametersListPtrType](
     importcpp: "#.~IMeshData_ParametersListArrayAdaptor()",
     header: "IMeshData_ParametersListArrayAdaptor.hxx".}
 proc lower*[ParametersListPtrType](this: IMeshDataParametersListArrayAdaptor[
-    ParametersListPtrType]): int {.noSideEffect, importcpp: "Lower", header: "IMeshData_ParametersListArrayAdaptor.hxx".}
+    ParametersListPtrType]): cint {.noSideEffect, importcpp: "Lower", header: "IMeshData_ParametersListArrayAdaptor.hxx".}
 proc upper*[ParametersListPtrType](this: IMeshDataParametersListArrayAdaptor[
-    ParametersListPtrType]): int {.noSideEffect, importcpp: "Upper", header: "IMeshData_ParametersListArrayAdaptor.hxx".}
+    ParametersListPtrType]): cint {.noSideEffect, importcpp: "Upper", header: "IMeshData_ParametersListArrayAdaptor.hxx".}
 proc value*[ParametersListPtrType](this: IMeshDataParametersListArrayAdaptor[
-    ParametersListPtrType]; theIndex: int): float {.noSideEffect, importcpp: "Value",
-    header: "IMeshData_ParametersListArrayAdaptor.hxx".}
+    ParametersListPtrType]; theIndex: cint): cfloat {.noSideEffect,
+    importcpp: "Value", header: "IMeshData_ParametersListArrayAdaptor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

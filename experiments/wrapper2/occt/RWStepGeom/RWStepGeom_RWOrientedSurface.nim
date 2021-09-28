@@ -30,7 +30,7 @@ proc constructRWStepGeomRWOrientedSurface*(): RWStepGeomRWOrientedSurface {.
     constructor, importcpp: "RWStepGeom_RWOrientedSurface(@)",
     header: "RWStepGeom_RWOrientedSurface.hxx".}
 proc readStep*(this: RWStepGeomRWOrientedSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomOrientedSurface]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWOrientedSurface.hxx".}
 proc writeStep*(this: RWStepGeomRWOrientedSurface; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepGeomRWOrientedSurface; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWOrientedSurface;
            ent: Handle[StepGeomOrientedSurface]; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "Share", header: "RWStepGeom_RWOrientedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

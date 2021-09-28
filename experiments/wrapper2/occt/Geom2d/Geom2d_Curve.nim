@@ -24,7 +24,7 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom2d_Curve"
 type
-  HandleGeom2dCurve* = Handle[Geom2dCurve]
+  HandleC1C1* = Handle[Geom2dCurve]
 
 ## ! The abstract class Curve describes the common
 ## ! behavior of curves in 2D space. The Geom2d
@@ -125,40 +125,40 @@ type
 
 proc reverse*(this: var Geom2dCurve) {.importcpp: "Reverse",
                                    header: "Geom2d_Curve.hxx".}
-proc reversedParameter*(this: Geom2dCurve; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom2d_Curve.hxx".}
-proc transformedParameter*(this: Geom2dCurve; u: float; t: Trsf2d): float {.
+proc reversedParameter*(this: Geom2dCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_Curve.hxx".}
+proc transformedParameter*(this: Geom2dCurve; u: StandardReal; t: Trsf2d): StandardReal {.
     noSideEffect, importcpp: "TransformedParameter", header: "Geom2d_Curve.hxx".}
-proc parametricTransformation*(this: Geom2dCurve; t: Trsf2d): float {.noSideEffect,
-    importcpp: "ParametricTransformation", header: "Geom2d_Curve.hxx".}
+proc parametricTransformation*(this: Geom2dCurve; t: Trsf2d): StandardReal {.
+    noSideEffect, importcpp: "ParametricTransformation", header: "Geom2d_Curve.hxx".}
 proc reversed*(this: Geom2dCurve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "Reversed", header: "Geom2d_Curve.hxx".}
-proc firstParameter*(this: Geom2dCurve): float {.noSideEffect,
+proc firstParameter*(this: Geom2dCurve): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_Curve.hxx".}
-proc lastParameter*(this: Geom2dCurve): float {.noSideEffect,
+proc lastParameter*(this: Geom2dCurve): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_Curve.hxx".}
-proc isClosed*(this: Geom2dCurve): bool {.noSideEffect, importcpp: "IsClosed",
-                                      header: "Geom2d_Curve.hxx".}
-proc isPeriodic*(this: Geom2dCurve): bool {.noSideEffect, importcpp: "IsPeriodic",
-                                        header: "Geom2d_Curve.hxx".}
-proc period*(this: Geom2dCurve): float {.noSideEffect, importcpp: "Period",
-                                     header: "Geom2d_Curve.hxx".}
+proc isClosed*(this: Geom2dCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom2d_Curve.hxx".}
+proc isPeriodic*(this: Geom2dCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom2d_Curve.hxx".}
+proc period*(this: Geom2dCurve): StandardReal {.noSideEffect, importcpp: "Period",
+    header: "Geom2d_Curve.hxx".}
 proc continuity*(this: Geom2dCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom2d_Curve.hxx".}
-proc isCN*(this: Geom2dCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
-                                        header: "Geom2d_Curve.hxx".}
-proc d0*(this: Geom2dCurve; u: float; p: var Pnt2d) {.noSideEffect, importcpp: "D0",
-    header: "Geom2d_Curve.hxx".}
-proc d1*(this: Geom2dCurve; u: float; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
+proc isCN*(this: Geom2dCurve; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom2d_Curve.hxx".}
+proc d0*(this: Geom2dCurve; u: StandardReal; p: var Pnt2d) {.noSideEffect,
+    importcpp: "D0", header: "Geom2d_Curve.hxx".}
+proc d1*(this: Geom2dCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
     importcpp: "D1", header: "Geom2d_Curve.hxx".}
-proc d2*(this: Geom2dCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc d2*(this: Geom2dCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     noSideEffect, importcpp: "D2", header: "Geom2d_Curve.hxx".}
-proc d3*(this: Geom2dCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
+proc d3*(this: Geom2dCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
         v3: var Vec2d) {.noSideEffect, importcpp: "D3", header: "Geom2d_Curve.hxx".}
-proc dn*(this: Geom2dCurve; u: float; n: int): Vec2d {.noSideEffect, importcpp: "DN",
-    header: "Geom2d_Curve.hxx".}
-proc value*(this: Geom2dCurve; u: float): Pnt2d {.noSideEffect, importcpp: "Value",
-    header: "Geom2d_Curve.hxx".}
+proc dn*(this: Geom2dCurve; u: StandardReal; n: int): Vec2d {.noSideEffect,
+    importcpp: "DN", header: "Geom2d_Curve.hxx".}
+proc value*(this: Geom2dCurve; u: StandardReal): Pnt2d {.noSideEffect,
+    importcpp: "Value", header: "Geom2d_Curve.hxx".}
 proc dumpJson*(this: Geom2dCurve; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom2d_Curve.hxx".}
 type

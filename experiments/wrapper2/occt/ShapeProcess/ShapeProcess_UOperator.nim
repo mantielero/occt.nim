@@ -17,7 +17,7 @@ discard "forward decl of ShapeProcess_Context"
 discard "forward decl of ShapeProcess_UOperator"
 discard "forward decl of ShapeProcess_UOperator"
 type
-  HandleShapeProcessUOperator* = Handle[ShapeProcessUOperator]
+  HandleC1C1* = Handle[ShapeProcessUOperator]
 
 ## ! Defines operator as container for static function
 ## ! OperFunc. This allows user to create new operators
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeProcess_UOperator.hxx".}
 proc dynamicType*(this: ShapeProcessUOperator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeProcess_UOperator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

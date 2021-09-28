@@ -19,7 +19,7 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_PointOnCurve"
 discard "forward decl of BRep_PointOnCurve"
 type
-  HandleBRepPointOnCurve* = Handle[BRepPointOnCurve]
+  HandleC1C1* = Handle[BRepPointOnCurve]
 
 ## ! Representation by a parameter on a 3D curve.
 
@@ -28,7 +28,7 @@ type
                      header: "BRep_PointOnCurve.hxx", bycopy.} = object of BRepPointRepresentation
 
 
-proc constructBRepPointOnCurve*(p: float; c: Handle[GeomCurve]; L: TopLocLocation): BRepPointOnCurve {.
+proc constructBRepPointOnCurve*(p: cfloat; c: Handle[GeomCurve]; L: TopLocLocation): BRepPointOnCurve {.
     constructor, importcpp: "BRep_PointOnCurve(@)", header: "BRep_PointOnCurve.hxx".}
 proc isPointOnCurve*(this: BRepPointOnCurve): bool {.noSideEffect,
     importcpp: "IsPointOnCurve", header: "BRep_PointOnCurve.hxx".}
@@ -39,8 +39,8 @@ proc curve*(this: BRepPointOnCurve): Handle[GeomCurve] {.noSideEffect,
 proc curve*(this: var BRepPointOnCurve; c: Handle[GeomCurve]) {.importcpp: "Curve",
     header: "BRep_PointOnCurve.hxx".}
 proc dumpJson*(this: BRepPointOnCurve; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "BRep_PointOnCurve.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "BRep_PointOnCurve.hxx".}
 type
   BRepPointOnCurvebaseType* = BRepPointRepresentation
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_PointOnCurve.hxx".}
 proc dynamicType*(this: BRepPointOnCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_PointOnCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,32 @@ type
                                                                          ## Bnd_Box2d to BVH_Box
 
 
-proc bnd2BVH*(theBox: BndBox2d): BVH_Box[float, 2] {.
+proc bnd2BVH*(theBox: BndBox2d): BVH_Box[cfloat, 2] {.
     importcpp: "Bnd_Tools::Bnd2BVH(@)", header: "Bnd_Tools.hxx".}
-proc bnd2BVH*(theBox: BndBox): BVH_Box[float, 3] {.
+proc bnd2BVH*(theBox: BndBox): BVH_Box[cfloat, 3] {.
     importcpp: "Bnd_Tools::Bnd2BVH(@)", header: "Bnd_Tools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

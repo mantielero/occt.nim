@@ -40,12 +40,37 @@ type
 proc constructBRepBuilderAPI_FindPlane*(): BRepBuilderAPI_FindPlane {.constructor,
     importcpp: "BRepBuilderAPI_FindPlane(@)",
     header: "BRepBuilderAPI_FindPlane.hxx".}
-proc constructBRepBuilderAPI_FindPlane*(s: TopoDS_Shape; tol: float = -1): BRepBuilderAPI_FindPlane {.
+proc constructBRepBuilderAPI_FindPlane*(s: TopoDS_Shape; tol: cfloat = -1): BRepBuilderAPI_FindPlane {.
     constructor, importcpp: "BRepBuilderAPI_FindPlane(@)",
     header: "BRepBuilderAPI_FindPlane.hxx".}
-proc init*(this: var BRepBuilderAPI_FindPlane; s: TopoDS_Shape; tol: float = -1) {.
+proc init*(this: var BRepBuilderAPI_FindPlane; s: TopoDS_Shape; tol: cfloat = -1) {.
     importcpp: "Init", header: "BRepBuilderAPI_FindPlane.hxx".}
 proc found*(this: BRepBuilderAPI_FindPlane): bool {.noSideEffect, importcpp: "Found",
     header: "BRepBuilderAPI_FindPlane.hxx".}
 proc plane*(this: BRepBuilderAPI_FindPlane): Handle[GeomPlane] {.noSideEffect,
     importcpp: "Plane", header: "BRepBuilderAPI_FindPlane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

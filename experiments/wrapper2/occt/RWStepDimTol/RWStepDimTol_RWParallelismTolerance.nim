@@ -27,7 +27,7 @@ proc constructRWStepDimTolRWParallelismTolerance*(): RWStepDimTolRWParallelismTo
     constructor, importcpp: "RWStepDimTol_RWParallelismTolerance(@)",
     header: "RWStepDimTol_RWParallelismTolerance.hxx".}
 proc readStep*(this: RWStepDimTolRWParallelismTolerance;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolParallelismTolerance]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWParallelismTolerance.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepDimTolRWParallelismTolerance;
            ent: Handle[StepDimTolParallelismTolerance];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWParallelismTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

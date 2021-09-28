@@ -35,3 +35,28 @@ proc generateSurfaceNodes*(this: BRepMeshTorusRangeSplitter;
     header: "BRepMesh_TorusRangeSplitter.hxx".}
 proc addPoint*(this: var BRepMeshTorusRangeSplitter; thePoint: Pnt2d) {.
     importcpp: "AddPoint", header: "BRepMesh_TorusRangeSplitter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

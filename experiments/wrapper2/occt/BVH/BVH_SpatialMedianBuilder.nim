@@ -23,11 +23,37 @@ type
 
 
 proc constructBVH_SpatialMedianBuilder*[T; N: static[cint]](
-    theLeafNodeSize: int = bVH_ConstantsLeafNodeSizeDefault;
-    theMaxTreeDepth: int = bVH_ConstantsMaxTreeDepth; theToUseMainAxis: bool = false): BVH_SpatialMedianBuilder[
-    T, N] {.constructor, importcpp: "BVH_SpatialMedianBuilder<\'*0,\'*1>(@)",
-          header: "BVH_SpatialMedianBuilder.hxx".}
+    theLeafNodeSize: cint = bVH_ConstantsLeafNodeSizeDefault;
+    theMaxTreeDepth: cint = bVH_ConstantsMaxTreeDepth;
+    theToUseMainAxis: bool = false): BVH_SpatialMedianBuilder[T, N] {.constructor,
+    importcpp: "BVH_SpatialMedianBuilder<\'*0,\'*1>(@)",
+    header: "BVH_SpatialMedianBuilder.hxx".}
 proc destroyBVH_SpatialMedianBuilder*[T; N: static[cint]](
     this: var BVH_SpatialMedianBuilder[T, N]) {.
     importcpp: "#.~BVH_SpatialMedianBuilder()",
     header: "BVH_SpatialMedianBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

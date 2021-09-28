@@ -16,3 +16,28 @@ type
   BOPToolsIndexedDataMapOfSetShape* = NCollectionIndexedDataMap[BOPToolsSet,
       TopoDS_Shape, BOPToolsSetMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

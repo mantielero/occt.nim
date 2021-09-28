@@ -43,3 +43,28 @@ proc value*(this: StepToTopoDS_TranslateEdgeLoop): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
 proc error*(this: StepToTopoDS_TranslateEdgeLoop): StepToTopoDS_TranslateEdgeLoopError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

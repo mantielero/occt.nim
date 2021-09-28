@@ -25,7 +25,7 @@
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 proc hashCode*(theHExtendedString: Handle[TCollectionHExtendedString];
-              theUpperBound: int): int =
+              theUpperBound: cint): cint =
   discard
 
 proc isEqual*(theStr1: Handle[TCollectionHExtendedString];
@@ -34,3 +34,28 @@ proc isEqual*(theStr1: Handle[TCollectionHExtendedString];
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

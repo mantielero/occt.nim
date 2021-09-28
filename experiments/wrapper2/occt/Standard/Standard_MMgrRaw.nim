@@ -26,8 +26,8 @@ type
     ## ! Option to nullify allocated memory
 
 
-proc constructStandardMMgrRaw*(aClear: bool = false): StandardMMgrRaw {.constructor,
-    importcpp: "Standard_MMgrRaw(@)", header: "Standard_MMgrRaw.hxx".}
+proc constructStandardMMgrRaw*(aClear: StandardBoolean = false): StandardMMgrRaw {.
+    constructor, importcpp: "Standard_MMgrRaw(@)", header: "Standard_MMgrRaw.hxx".}
 proc allocate*(this: var StandardMMgrRaw; aSize: StandardSize): StandardAddress {.
     importcpp: "Allocate", header: "Standard_MMgrRaw.hxx".}
 proc reallocate*(this: var StandardMMgrRaw; thePtr: StandardAddress;

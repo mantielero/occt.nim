@@ -22,6 +22,31 @@ type
 
 proc constructLPropAnalyticCurInf*(): LPropAnalyticCurInf {.constructor,
     importcpp: "LProp_AnalyticCurInf(@)", header: "LProp_AnalyticCurInf.hxx".}
-proc perform*(this: var LPropAnalyticCurInf; t: GeomAbsCurveType; uFirst: float;
-             uLast: float; result: var LPropCurAndInf) {.importcpp: "Perform",
+proc perform*(this: var LPropAnalyticCurInf; t: GeomAbsCurveType; uFirst: cfloat;
+             uLast: cfloat; result: var LPropCurAndInf) {.importcpp: "Perform",
     header: "LProp_AnalyticCurInf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

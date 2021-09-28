@@ -49,11 +49,34 @@ proc destroyMeshVS_Buffer*(this: var MeshVS_Buffer) {.
     importcpp: "#.~MeshVS_Buffer()", header: "MeshVS_Buffer.hxx".}
 converter `void*`*(this: var MeshVS_Buffer): pointer {.
     importcpp: "MeshVS_Buffer::operator void*", header: "MeshVS_Buffer.hxx".}
-converter `float&`*(this: var MeshVS_Buffer): var float {.
-    importcpp: "MeshVS_Buffer::operator Standard_Real&",
-    header: "MeshVS_Buffer.hxx".}
-converter `int&`*(this: var MeshVS_Buffer): var int {.
-    importcpp: "MeshVS_Buffer::operator Standard_Integer&",
-    header: "MeshVS_Buffer.hxx".}
+converter `float&`*(this: var MeshVS_Buffer): var cfloat {.
+    importcpp: "MeshVS_Buffer::operator float&", header: "MeshVS_Buffer.hxx".}
+converter `int&`*(this: var MeshVS_Buffer): var cint {.
+    importcpp: "MeshVS_Buffer::operator int&", header: "MeshVS_Buffer.hxx".}
 converter `pnt&`*(this: var MeshVS_Buffer): var Pnt {.
     importcpp: "MeshVS_Buffer::operator gp_Pnt&", header: "MeshVS_Buffer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

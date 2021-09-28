@@ -19,7 +19,7 @@ discard "forward decl of TPrsStd_Driver"
 discard "forward decl of TPrsStd_DriverTable"
 discard "forward decl of TPrsStd_DriverTable"
 type
-  HandleTPrsStdDriverTable* = Handle[TPrsStdDriverTable]
+  HandleC1C1* = Handle[TPrsStdDriverTable]
 
 ## ! This class is   a  container to record  (AddDriver)
 ## ! binding between  GUID and  TPrsStd_Driver.
@@ -77,3 +77,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_DriverTable.hxx".}
 proc dynamicType*(this: TPrsStdDriverTable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_DriverTable.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,8 +17,7 @@
 discard "forward decl of StepRepr_ParametricRepresentationContext"
 discard "forward decl of StepRepr_ParametricRepresentationContext"
 type
-  HandleStepReprParametricRepresentationContext* = Handle[
-      StepReprParametricRepresentationContext]
+  HandleC1C1* = Handle[StepReprParametricRepresentationContext]
   StepReprParametricRepresentationContext* {.
       importcpp: "StepRepr_ParametricRepresentationContext",
       header: "StepRepr_ParametricRepresentationContext.hxx", bycopy.} = object of StepReprRepresentationContext ##
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_Parametri
 proc dynamicType*(this: StepReprParametricRepresentationContext): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_ParametricRepresentationContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

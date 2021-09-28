@@ -17,8 +17,7 @@
 discard "forward decl of StepShape_TransitionalShapeRepresentation"
 discard "forward decl of StepShape_TransitionalShapeRepresentation"
 type
-  HandleStepShapeTransitionalShapeRepresentation* = Handle[
-      StepShapeTransitionalShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeTransitionalShapeRepresentation]
   StepShapeTransitionalShapeRepresentation* {.
       importcpp: "StepShape_TransitionalShapeRepresentation",
       header: "StepShape_TransitionalShapeRepresentation.hxx", bycopy.} = object of StepShapeShapeRepresentation ##
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_Transiti
 proc dynamicType*(this: StepShapeTransitionalShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepShape_TransitionalShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

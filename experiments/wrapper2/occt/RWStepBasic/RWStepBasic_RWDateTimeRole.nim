@@ -27,9 +27,34 @@ proc constructRWStepBasicRWDateTimeRole*(): RWStepBasicRWDateTimeRole {.
     constructor, importcpp: "RWStepBasic_RWDateTimeRole(@)",
     header: "RWStepBasic_RWDateTimeRole.hxx".}
 proc readStep*(this: RWStepBasicRWDateTimeRole;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicDateTimeRole]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWDateTimeRole.hxx".}
 proc writeStep*(this: RWStepBasicRWDateTimeRole; sw: var StepDataStepWriter;
                ent: Handle[StepBasicDateTimeRole]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWDateTimeRole.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

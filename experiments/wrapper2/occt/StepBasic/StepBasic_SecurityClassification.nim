@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_SecurityClassificationLevel"
 discard "forward decl of StepBasic_SecurityClassification"
 discard "forward decl of StepBasic_SecurityClassification"
 type
-  HandleStepBasicSecurityClassification* = Handle[StepBasicSecurityClassification]
+  HandleC1C1* = Handle[StepBasicSecurityClassification]
   StepBasicSecurityClassification* {.importcpp: "StepBasic_SecurityClassification", header: "StepBasic_SecurityClassification.hxx",
                                     bycopy.} = object of StandardTransient ## ! Returns a
                                                                       ## SecurityClassification
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicSecurityClassification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SecurityClassification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

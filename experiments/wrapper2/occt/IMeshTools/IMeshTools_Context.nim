@@ -88,3 +88,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IMeshTools_Context.hxx".}
 proc dynamicType*(this: IMeshToolsContext): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshTools_Context.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

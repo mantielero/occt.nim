@@ -17,7 +17,7 @@ discard "forward decl of StepBasic_Effectivity"
 discard "forward decl of StepBasic_EffectivityAssignment"
 discard "forward decl of StepBasic_EffectivityAssignment"
 type
-  HandleStepBasicEffectivityAssignment* = Handle[StepBasicEffectivityAssignment]
+  HandleC1C1* = Handle[StepBasicEffectivityAssignment]
 
 ## ! Representation of STEP entity EffectivityAssignment
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicEffectivityAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_EffectivityAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

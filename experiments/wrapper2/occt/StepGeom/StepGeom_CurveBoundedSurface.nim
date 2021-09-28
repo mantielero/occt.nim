@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CurveBoundedSurface"
 discard "forward decl of StepGeom_CurveBoundedSurface"
 type
-  HandleStepGeomCurveBoundedSurface* = Handle[StepGeomCurveBoundedSurface]
+  HandleC1C1* = Handle[StepGeomCurveBoundedSurface]
 
 ## ! Representation of STEP entity CurveBoundedSurface
 
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomCurveBoundedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_CurveBoundedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

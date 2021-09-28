@@ -57,11 +57,11 @@ type
                                                                                       ## radians.
 
 
-proc constructGCE2dMakeArcOfCircle*(circ: Circ2d; alpha1: float; alpha2: float;
+proc constructGCE2dMakeArcOfCircle*(circ: Circ2d; alpha1: cfloat; alpha2: cfloat;
                                    sense: bool = true): GCE2dMakeArcOfCircle {.
     constructor, importcpp: "GCE2d_MakeArcOfCircle(@)",
     header: "GCE2d_MakeArcOfCircle.hxx".}
-proc constructGCE2dMakeArcOfCircle*(circ: Circ2d; p: Pnt2d; alpha: float;
+proc constructGCE2dMakeArcOfCircle*(circ: Circ2d; p: Pnt2d; alpha: cfloat;
                                    sense: bool = true): GCE2dMakeArcOfCircle {.
     constructor, importcpp: "GCE2d_MakeArcOfCircle(@)",
     header: "GCE2d_MakeArcOfCircle.hxx".}
@@ -80,3 +80,28 @@ proc value*(this: GCE2dMakeArcOfCircle): Handle[Geom2dTrimmedCurve] {.noSideEffe
 converter `constopencascade`*(this: GCE2dMakeArcOfCircle): Handle[
     Geom2dTrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfCircle::operator constopencascade",
                          header: "GCE2d_MakeArcOfCircle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

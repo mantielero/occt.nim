@@ -17,14 +17,54 @@
 ## !!!Ignored construct:  # _Graphic3d_TransformError_HeaderFile [NewLine] # _Graphic3d_TransformError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Graphic3d_TransformError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Graphic3d_TransformError"
-type
-  HandleGraphic3dTransformErrorGraphic3dTransformError* = Handle[
-      Graphic3dTransformError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Graphic3d_TransformError , Standard_OutOfRange ) # ! defined No_Exception && ! defined No_Graphic3d_TransformError [NewLine] # Graphic3d_TransformError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Graphic3d_TransformError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Graphic3d_TransformError [NewLine] # if ( CONDITION ) throw Graphic3d_TransformError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Graphic3d_TransformError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_TransformError , Standard_OutOfRange ) #  _Graphic3d_TransformError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_TransformError , Standard_OutOfRange ) #  _Graphic3d_TransformError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

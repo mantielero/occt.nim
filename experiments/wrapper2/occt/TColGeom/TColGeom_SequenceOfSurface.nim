@@ -17,3 +17,28 @@
 type
   TColGeomSequenceOfSurface* = NCollectionSequence[Handle[GeomSurface]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,7 +32,7 @@ type
 proc value3d*(pStart: IntSurfInteriorPoint): Pnt {.
     importcpp: "IntSurf_InteriorPointTool::Value3d(@)",
     header: "IntSurf_InteriorPointTool.hxx".}
-proc value2d*(pStart: IntSurfInteriorPoint; u: var float; v: var float) {.
+proc value2d*(pStart: IntSurfInteriorPoint; u: var cfloat; v: var cfloat) {.
     importcpp: "IntSurf_InteriorPointTool::Value2d(@)",
     header: "IntSurf_InteriorPointTool.hxx".}
 proc direction3d*(pStart: IntSurfInteriorPoint): Vec {.
@@ -41,3 +41,28 @@ proc direction3d*(pStart: IntSurfInteriorPoint): Vec {.
 proc direction2d*(pStart: IntSurfInteriorPoint): Dir2d {.
     importcpp: "IntSurf_InteriorPointTool::Direction2d(@)",
     header: "IntSurf_InteriorPointTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

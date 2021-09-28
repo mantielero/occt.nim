@@ -20,7 +20,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of HLRTest_Projector"
 discard "forward decl of HLRTest_Projector"
 type
-  HandleHLRTestProjector* = Handle[HLRTestProjector]
+  HandleC1C1* = Handle[HLRTestProjector]
 
 ## ! Draw Variable Projector to test.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRTest_Projector.hxx".}
 proc dynamicType*(this: HLRTestProjector): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRTest_Projector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

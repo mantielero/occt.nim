@@ -39,3 +39,28 @@ proc value*(this: StepToTopoDS_TranslatePolyLoop): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslatePolyLoop.hxx".}
 proc error*(this: StepToTopoDS_TranslatePolyLoop): StepToTopoDS_TranslatePolyLoopError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslatePolyLoop.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

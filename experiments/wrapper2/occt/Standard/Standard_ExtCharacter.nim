@@ -41,13 +41,12 @@ proc toCharacter*(achar: StandardExtCharacter): StandardCharacter =
 ##  IsAnAscii : Returns True if an ExtCharacter is in the "Ascii Range"
 ##  ------------------------------------------------------------------
 
-proc isAnAscii*(achar: StandardExtCharacter): bool =
+proc isAnAscii*(achar: StandardExtCharacter): StandardBoolean =
   discard
 
 ##  ------------------------------------------------------------------
 ##  IsEqual : Returns Standard_True if two characters have the same value
 ##  ------------------------------------------------------------------
 
-proc isEqual*(one: StandardExtCharacter; two: StandardExtCharacter): bool =
+proc isEqual*(one: StandardExtCharacter; two: StandardExtCharacter): StandardBoolean =
   discard
-

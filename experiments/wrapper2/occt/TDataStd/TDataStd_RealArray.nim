@@ -23,7 +23,7 @@ discard "forward decl of TDF_DeltaOnModification"
 discard "forward decl of TDataStd_RealArray"
 discard "forward decl of TDataStd_RealArray"
 type
-  HandleTDataStdRealArray* = Handle[TDataStdRealArray]
+  HandleC1C1* = Handle[TDataStdRealArray]
 
 ## ! A framework for an attribute composed of a real number array.
 
@@ -57,29 +57,29 @@ proc dynamicType*(this: TDataStdRealArray): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_RealArray.hxx".}
 proc getID*(): StandardGUID {.importcpp: "TDataStd_RealArray::GetID(@)",
                            header: "TDataStd_RealArray.hxx".}
-proc set*(label: TDF_Label; lower: int; upper: int; isDelta: bool = false): Handle[
+proc set*(label: TDF_Label; lower: cint; upper: cint; isDelta: bool = false): Handle[
     TDataStdRealArray] {.importcpp: "TDataStd_RealArray::Set(@)",
                         header: "TDataStd_RealArray.hxx".}
-proc set*(label: TDF_Label; theGuid: StandardGUID; lower: int; upper: int;
+proc set*(label: TDF_Label; theGuid: StandardGUID; lower: cint; upper: cint;
          isDelta: bool = false): Handle[TDataStdRealArray] {.
     importcpp: "TDataStd_RealArray::Set(@)", header: "TDataStd_RealArray.hxx".}
-proc init*(this: var TDataStdRealArray; lower: int; upper: int) {.importcpp: "Init",
+proc init*(this: var TDataStdRealArray; lower: cint; upper: cint) {.importcpp: "Init",
     header: "TDataStd_RealArray.hxx".}
 proc setID*(this: var TDataStdRealArray; theGuid: StandardGUID) {.importcpp: "SetID",
     header: "TDataStd_RealArray.hxx".}
 proc setID*(this: var TDataStdRealArray) {.importcpp: "SetID",
                                        header: "TDataStd_RealArray.hxx".}
-proc setValue*(this: var TDataStdRealArray; index: int; value: float) {.
+proc setValue*(this: var TDataStdRealArray; index: cint; value: cfloat) {.
     importcpp: "SetValue", header: "TDataStd_RealArray.hxx".}
-proc value*(this: TDataStdRealArray; index: int): float {.noSideEffect,
+proc value*(this: TDataStdRealArray; index: cint): cfloat {.noSideEffect,
     importcpp: "Value", header: "TDataStd_RealArray.hxx".}
-proc `()`*(this: TDataStdRealArray; index: int): float {.noSideEffect,
+proc `()`*(this: TDataStdRealArray; index: cint): cfloat {.noSideEffect,
     importcpp: "#(@)", header: "TDataStd_RealArray.hxx".}
-proc lower*(this: TDataStdRealArray): int {.noSideEffect, importcpp: "Lower",
-                                        header: "TDataStd_RealArray.hxx".}
-proc upper*(this: TDataStdRealArray): int {.noSideEffect, importcpp: "Upper",
-                                        header: "TDataStd_RealArray.hxx".}
-proc length*(this: TDataStdRealArray): int {.noSideEffect, importcpp: "Length",
+proc lower*(this: TDataStdRealArray): cint {.noSideEffect, importcpp: "Lower",
+    header: "TDataStd_RealArray.hxx".}
+proc upper*(this: TDataStdRealArray): cint {.noSideEffect, importcpp: "Upper",
+    header: "TDataStd_RealArray.hxx".}
+proc length*(this: TDataStdRealArray): cint {.noSideEffect, importcpp: "Length",
     header: "TDataStd_RealArray.hxx".}
 proc changeArray*(this: var TDataStdRealArray;
                  newArray: Handle[TColStdHArray1OfReal]; isCheckItems: bool = true) {.
@@ -108,5 +108,30 @@ proc deltaOnModification*(this: TDataStdRealArray;
     TDF_DeltaOnModification] {.noSideEffect, importcpp: "DeltaOnModification",
                               header: "TDataStd_RealArray.hxx".}
 proc dumpJson*(this: TDataStdRealArray; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_RealArray.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_RealArray.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

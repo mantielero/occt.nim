@@ -30,9 +30,34 @@ type
                                                                        ## theUpperBound]
 
 
-proc hashCode*(theElement: Handle[MoniToolElement]; theUpperBound: int): int {.
+proc hashCode*(theElement: Handle[MoniToolElement]; theUpperBound: cint): cint {.
     importcpp: "MoniTool_ElemHasher::HashCode(@)",
     header: "MoniTool_ElemHasher.hxx".}
 proc isEqual*(k1: Handle[MoniToolElement]; k2: Handle[MoniToolElement]): bool {.
     importcpp: "MoniTool_ElemHasher::IsEqual(@)",
     header: "MoniTool_ElemHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

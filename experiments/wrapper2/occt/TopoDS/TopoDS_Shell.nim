@@ -33,3 +33,28 @@ type
 
 proc constructTopoDS_Shell*(): TopoDS_Shell {.constructor,
     importcpp: "TopoDS_Shell(@)", header: "TopoDS_Shell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

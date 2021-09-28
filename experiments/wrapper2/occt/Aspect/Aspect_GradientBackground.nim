@@ -56,5 +56,30 @@ proc bgGradientFillMethod*(this: AspectGradientBackground): AspectGradientFillMe
     noSideEffect, importcpp: "BgGradientFillMethod",
     header: "Aspect_GradientBackground.hxx".}
 proc dumpJson*(this: AspectGradientBackground; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Aspect_GradientBackground.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Aspect_GradientBackground.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

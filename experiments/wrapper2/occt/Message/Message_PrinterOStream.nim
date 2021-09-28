@@ -16,7 +16,7 @@
 discard "forward decl of Message_PrinterOStream"
 discard "forward decl of Message_PrinterOStream"
 type
-  HandleMessagePrinterOStream* = Handle[MessagePrinterOStream]
+  HandleC1C1* = Handle[MessagePrinterOStream]
 
 ## ! Implementation of a message printer associated with an std::ostream
 ## ! The std::ostream may be either externally defined one (e.g. std::cout),
@@ -172,3 +172,28 @@ proc toColorize*(this: MessagePrinterOStream): bool {.noSideEffect,
     importcpp: "ToColorize", header: "Message_PrinterOStream.hxx".}
 proc setToColorize*(this: var MessagePrinterOStream; theToColorize: bool) {.
     importcpp: "SetToColorize", header: "Message_PrinterOStream.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

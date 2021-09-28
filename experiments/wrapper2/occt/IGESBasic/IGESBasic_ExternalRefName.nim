@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESBasic_ExternalRefName"
 discard "forward decl of IGESBasic_ExternalRefName"
 type
-  HandleIGESBasicExternalRefName* = Handle[IGESBasicExternalRefName]
+  HandleC1C1* = Handle[IGESBasicExternalRefName]
 
 ## ! defines ExternalRefName, Type <416> Form <3>
 ## ! in package IGESBasic
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESBasic_ExternalRefName.hxx".}
 proc dynamicType*(this: IGESBasicExternalRefName): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESBasic_ExternalRefName.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

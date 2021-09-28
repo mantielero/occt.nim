@@ -24,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectPointed"
 discard "forward decl of IFSelect_SelectPointed"
 type
-  HandleIFSelectSelectPointed* = Handle[IFSelectSelectPointed]
+  HandleC1C1* = Handle[IFSelectSelectPointed]
 
 ## ! This type of Selection is intended to describe a direct
 ## ! selection without an explicit criterium, for instance the
@@ -68,11 +68,11 @@ proc removeList*(this: var IFSelectSelectPointed;
 proc toggleList*(this: var IFSelectSelectPointed;
                 list: Handle[TColStdHSequenceOfTransient]): bool {.
     importcpp: "ToggleList", header: "IFSelect_SelectPointed.hxx".}
-proc rank*(this: IFSelectSelectPointed; item: Handle[StandardTransient]): int {.
+proc rank*(this: IFSelectSelectPointed; item: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "Rank", header: "IFSelect_SelectPointed.hxx".}
-proc nbItems*(this: IFSelectSelectPointed): int {.noSideEffect, importcpp: "NbItems",
-    header: "IFSelect_SelectPointed.hxx".}
-proc item*(this: IFSelectSelectPointed; num: int): Handle[StandardTransient] {.
+proc nbItems*(this: IFSelectSelectPointed): cint {.noSideEffect,
+    importcpp: "NbItems", header: "IFSelect_SelectPointed.hxx".}
+proc item*(this: IFSelectSelectPointed; num: cint): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Item", header: "IFSelect_SelectPointed.hxx".}
 proc update*(this: var IFSelectSelectPointed; control: Handle[InterfaceCopyControl]) {.
     importcpp: "Update", header: "IFSelect_SelectPointed.hxx".}
@@ -92,3 +92,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectPointed.hxx".}
 proc dynamicType*(this: IFSelectSelectPointed): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectPointed.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

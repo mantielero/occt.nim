@@ -31,7 +31,7 @@ proc constructRWStepAP203RWCcDesignSecurityClassification*(): RWStepAP203RWCcDes
     constructor, importcpp: "RWStepAP203_RWCcDesignSecurityClassification(@)",
     header: "RWStepAP203_RWCcDesignSecurityClassification.hxx".}
 proc readStep*(this: RWStepAP203RWCcDesignSecurityClassification;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP203CcDesignSecurityClassification]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepAP203RWCcDesignSecurityClassification;
            ent: Handle[StepAP203CcDesignSecurityClassification];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignSecurityClassification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

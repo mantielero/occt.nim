@@ -47,7 +47,7 @@ type
                                                                            ## singular.
 
 
-proc constructMathGaussLeastSquare*(a: MathMatrix; minPivot: float = 1.0e-20): MathGaussLeastSquare {.
+proc constructMathGaussLeastSquare*(a: MathMatrix; minPivot: cfloat = 1.0e-20): MathGaussLeastSquare {.
     constructor, importcpp: "math_GaussLeastSquare(@)",
     header: "math_GaussLeastSquare.hxx".}
 proc isDone*(this: MathGaussLeastSquare): bool {.noSideEffect, importcpp: "IsDone",
@@ -56,3 +56,28 @@ proc solve*(this: MathGaussLeastSquare; b: MathVector; x: var MathVector) {.
     noSideEffect, importcpp: "Solve", header: "math_GaussLeastSquare.hxx".}
 proc dump*(this: MathGaussLeastSquare; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_GaussLeastSquare.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

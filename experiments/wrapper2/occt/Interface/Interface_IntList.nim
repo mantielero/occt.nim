@@ -47,41 +47,66 @@ type
 
 proc constructInterfaceIntList*(): InterfaceIntList {.constructor,
     importcpp: "Interface_IntList(@)", header: "Interface_IntList.hxx".}
-proc constructInterfaceIntList*(nbe: int): InterfaceIntList {.constructor,
+proc constructInterfaceIntList*(nbe: cint): InterfaceIntList {.constructor,
     importcpp: "Interface_IntList(@)", header: "Interface_IntList.hxx".}
 proc constructInterfaceIntList*(other: InterfaceIntList; copied: bool): InterfaceIntList {.
     constructor, importcpp: "Interface_IntList(@)", header: "Interface_IntList.hxx".}
-proc initialize*(this: var InterfaceIntList; nbe: int) {.importcpp: "Initialize",
+proc initialize*(this: var InterfaceIntList; nbe: cint) {.importcpp: "Initialize",
     header: "Interface_IntList.hxx".}
-proc internals*(this: InterfaceIntList; nbrefs: var int;
+proc internals*(this: InterfaceIntList; nbrefs: var cint;
                ents: var Handle[TColStdHArray1OfInteger];
                refs: var Handle[TColStdHArray1OfInteger]) {.noSideEffect,
     importcpp: "Internals", header: "Interface_IntList.hxx".}
-proc nbEntities*(this: InterfaceIntList): int {.noSideEffect,
+proc nbEntities*(this: InterfaceIntList): cint {.noSideEffect,
     importcpp: "NbEntities", header: "Interface_IntList.hxx".}
-proc setNbEntities*(this: var InterfaceIntList; nbe: int) {.
+proc setNbEntities*(this: var InterfaceIntList; nbe: cint) {.
     importcpp: "SetNbEntities", header: "Interface_IntList.hxx".}
-proc setNumber*(this: var InterfaceIntList; number: int) {.importcpp: "SetNumber",
+proc setNumber*(this: var InterfaceIntList; number: cint) {.importcpp: "SetNumber",
     header: "Interface_IntList.hxx".}
-proc number*(this: InterfaceIntList): int {.noSideEffect, importcpp: "Number",
-                                        header: "Interface_IntList.hxx".}
-proc list*(this: InterfaceIntList; number: int; copied: bool = false): InterfaceIntList {.
+proc number*(this: InterfaceIntList): cint {.noSideEffect, importcpp: "Number",
+    header: "Interface_IntList.hxx".}
+proc list*(this: InterfaceIntList; number: cint; copied: bool = false): InterfaceIntList {.
     noSideEffect, importcpp: "List", header: "Interface_IntList.hxx".}
 proc setRedefined*(this: var InterfaceIntList; mode: bool) {.
     importcpp: "SetRedefined", header: "Interface_IntList.hxx".}
-proc reservate*(this: var InterfaceIntList; count: int) {.importcpp: "Reservate",
+proc reservate*(this: var InterfaceIntList; count: cint) {.importcpp: "Reservate",
     header: "Interface_IntList.hxx".}
-proc add*(this: var InterfaceIntList; `ref`: int) {.importcpp: "Add",
+proc add*(this: var InterfaceIntList; `ref`: cint) {.importcpp: "Add",
     header: "Interface_IntList.hxx".}
-proc length*(this: InterfaceIntList): int {.noSideEffect, importcpp: "Length",
-                                        header: "Interface_IntList.hxx".}
-proc isRedefined*(this: InterfaceIntList; num: int = 0): bool {.noSideEffect,
+proc length*(this: InterfaceIntList): cint {.noSideEffect, importcpp: "Length",
+    header: "Interface_IntList.hxx".}
+proc isRedefined*(this: InterfaceIntList; num: cint = 0): bool {.noSideEffect,
     importcpp: "IsRedefined", header: "Interface_IntList.hxx".}
-proc value*(this: InterfaceIntList; num: int): int {.noSideEffect, importcpp: "Value",
-    header: "Interface_IntList.hxx".}
-proc remove*(this: var InterfaceIntList; num: int): bool {.importcpp: "Remove",
+proc value*(this: InterfaceIntList; num: cint): cint {.noSideEffect,
+    importcpp: "Value", header: "Interface_IntList.hxx".}
+proc remove*(this: var InterfaceIntList; num: cint): bool {.importcpp: "Remove",
     header: "Interface_IntList.hxx".}
 proc clear*(this: var InterfaceIntList) {.importcpp: "Clear",
                                       header: "Interface_IntList.hxx".}
-proc adjustSize*(this: var InterfaceIntList; margin: int = 0) {.importcpp: "AdjustSize",
-    header: "Interface_IntList.hxx".}
+proc adjustSize*(this: var InterfaceIntList; margin: cint = 0) {.
+    importcpp: "AdjustSize", header: "Interface_IntList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

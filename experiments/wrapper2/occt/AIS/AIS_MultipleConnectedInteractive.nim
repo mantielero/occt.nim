@@ -14,126 +14,75 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## ! Defines an Interactive Object by gathering together
+## !!!Ignored construct:  # _AIS_MultipleConnectedInteractive_HeaderFile [NewLine] # _AIS_MultipleConnectedInteractive_HeaderFile [NewLine] # < AIS_InteractiveObject . hxx > [NewLine] # < AIS_KindOfInteractive . hxx > [NewLine] ! Defines an Interactive Object by gathering together
 ## ! several object presentations. This is done through a
 ## ! list of interactive objects. These can also be
 ## ! Connected objects. That way memory-costly
-## ! calculations of presentation are avoided.
-
-type
-  AIS_MultipleConnectedInteractive* {.importcpp: "AIS_MultipleConnectedInteractive", header: "AIS_MultipleConnectedInteractive.hxx",
-                                     bycopy.} = object of AIS_InteractiveObject ## !
-                                                                           ## Initializes the
-                                                                           ## Interactive
-                                                                           ## Object with
-                                                                           ## multiple
-                                                                           ## !
-                                                                           ## connections to
-                                                                           ## AIS_Interactive
-                                                                           ## objects.
-                                                                           ##  short
-                                                                           ## aliases to
-                                                                           ## Connect()
-                                                                           ## method
-                                                                           ## !
-                                                                           ## Establishes the
-                                                                           ## connection
-                                                                           ## between the
-                                                                           ## Connected
-                                                                           ## Interactive
-                                                                           ## Object,
-                                                                           ## theInteractive, and its
-                                                                           ## reference.
-                                                                           ## !
-                                                                           ## Copies local
-                                                                           ## transformation and
-                                                                           ## transformation
-                                                                           ## persistence mode from
-                                                                           ## theInteractive.
-                                                                           ## !
-                                                                           ## @return
-                                                                           ## created
-                                                                           ## instance
-                                                                           ## object
-                                                                           ## (AIS_ConnectedInteractive or
-                                                                           ## AIS_MultipleConnectedInteractive)
-                                                                           ## !
-                                                                           ## Computes the
-                                                                           ## selection for whole
-                                                                           ## subtree in scene
-                                                                           ## hierarchy.
-
-  AIS_MultipleConnectedInteractivebaseType* = AIS_InteractiveObject
-
-proc getTypeName*(): cstring {.importcpp: "AIS_MultipleConnectedInteractive::get_type_name(@)",
-                            header: "AIS_MultipleConnectedInteractive.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "AIS_MultipleConnectedInteractive::get_type_descriptor(@)",
-    header: "AIS_MultipleConnectedInteractive.hxx".}
-proc dynamicType*(this: AIS_MultipleConnectedInteractive): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "AIS_MultipleConnectedInteractive.hxx".}
-proc constructAIS_MultipleConnectedInteractive*(): AIS_MultipleConnectedInteractive {.
-    constructor, importcpp: "AIS_MultipleConnectedInteractive(@)",
-    header: "AIS_MultipleConnectedInteractive.hxx".}
-proc connect*(this: var AIS_MultipleConnectedInteractive;
-             theAnotherObj: Handle[AIS_InteractiveObject];
-             theLocation: Handle[TopLocDatum3D];
-             theTrsfPers: Handle[Graphic3dTransformPers]): Handle[
-    AIS_InteractiveObject] {.importcpp: "Connect",
-                            header: "AIS_MultipleConnectedInteractive.hxx".}
-proc `type`*(this: AIS_MultipleConnectedInteractive): AIS_KindOfInteractive {.
-    noSideEffect, importcpp: "Type", header: "AIS_MultipleConnectedInteractive.hxx".}
-proc signature*(this: AIS_MultipleConnectedInteractive): int {.noSideEffect,
-    importcpp: "Signature", header: "AIS_MultipleConnectedInteractive.hxx".}
-proc hasConnection*(this: AIS_MultipleConnectedInteractive): bool {.noSideEffect,
-    importcpp: "HasConnection", header: "AIS_MultipleConnectedInteractive.hxx".}
-proc disconnect*(this: var AIS_MultipleConnectedInteractive;
-                theInteractive: Handle[AIS_InteractiveObject]) {.
-    importcpp: "Disconnect", header: "AIS_MultipleConnectedInteractive.hxx".}
-proc disconnectAll*(this: var AIS_MultipleConnectedInteractive) {.
-    importcpp: "DisconnectAll", header: "AIS_MultipleConnectedInteractive.hxx".}
-proc acceptShapeDecomposition*(this: AIS_MultipleConnectedInteractive): bool {.
-    noSideEffect, importcpp: "AcceptShapeDecomposition",
-    header: "AIS_MultipleConnectedInteractive.hxx".}
-proc getAssemblyOwner*(this: AIS_MultipleConnectedInteractive): Handle[
-    SelectMgrEntityOwner] {.noSideEffect, importcpp: "GetAssemblyOwner",
-                           header: "AIS_MultipleConnectedInteractive.hxx".}
-proc globalSelOwner*(this: AIS_MultipleConnectedInteractive): Handle[
-    SelectMgrEntityOwner] {.noSideEffect, importcpp: "GlobalSelOwner",
-                           header: "AIS_MultipleConnectedInteractive.hxx".}
-proc setContext*(this: var AIS_MultipleConnectedInteractive;
-                theCtx: Handle[AIS_InteractiveContext]) {.importcpp: "SetContext",
-    header: "AIS_MultipleConnectedInteractive.hxx".}
-proc connect*(this: var AIS_MultipleConnectedInteractive;
-             theAnotherObj: Handle[AIS_InteractiveObject]): Handle[
-    AIS_InteractiveObject] {.importcpp: "Connect",
-                            header: "AIS_MultipleConnectedInteractive.hxx".}
-proc connect*(this: var AIS_MultipleConnectedInteractive;
-             theAnotherObj: Handle[AIS_InteractiveObject]; theLocation: Trsf): Handle[
-    AIS_InteractiveObject] {.importcpp: "Connect",
-                            header: "AIS_MultipleConnectedInteractive.hxx".}
-proc connect*(this: var AIS_MultipleConnectedInteractive;
-             theAnotherObj: Handle[AIS_InteractiveObject]; theLocation: Trsf;
-             theTrsfPers: Handle[Graphic3dTransformPers]): Handle[
-    AIS_InteractiveObject] {.importcpp: "Connect",
-                            header: "AIS_MultipleConnectedInteractive.hxx".}
-## !!!Ignored construct:  Standard_DEPRECATED ( This method is deprecated - Connect() taking Graphic3d_TransformPers should be called instead ) opencascade :: handle < AIS_InteractiveObject > [end of template] Connect ( const opencascade :: handle < AIS_InteractiveObject > [end of template] & theInteractive , const gp_Trsf & theLocation , const Graphic3d_TransModeFlags & theTrsfPersFlag , const gp_Pnt & theTrsfPersPoint ) { return connect ( theInteractive , new TopLoc_Datum3D ( theLocation ) , Graphic3d_TransformPers :: FromDeprecatedParams ( theTrsfPersFlag , theTrsfPersPoint ) ) ; } protected : ! this method is redefined virtual;
+## ! calculations of presentation are avoided. class AIS_MultipleConnectedInteractive : public AIS_InteractiveObject { public : typedef AIS_InteractiveObject base_type ; static const char * get_type_name ( ) { return AIS_MultipleConnectedInteractive ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; public : ! Initializes the Interactive Object with multiple
+## ! connections to AIS_Interactive objects. AIS_MultipleConnectedInteractive ( ) ; ! Establishes the connection between the Connected Interactive Object, theInteractive, and its reference.
+## ! Locates instance in theLocation and applies specified transformation persistence mode.
+## ! @return created instance object (AIS_ConnectedInteractive or AIS_MultipleConnectedInteractive) Handle ( AIS_InteractiveObject ) Connect ( const Handle ( AIS_InteractiveObject ) & theAnotherObj , const Handle ( TopLoc_Datum3D ) & theLocation , const Handle ( Graphic3d_TransformPers ) & theTrsfPers ) { return connect ( theAnotherObj , theLocation , theTrsfPers ) ; } virtual AIS_KindOfInteractive Type ( ) const ; virtual Standard_Integer Signature ( ) const ; ! Returns true if the object is connected to others. Standard_Boolean HasConnection ( ) const ; ! Removes the connection with theInteractive. void Disconnect ( const Handle ( AIS_InteractiveObject ) & theInteractive ) ; ! Clears all the connections to objects. void DisconnectAll ( ) ; ! Informs the graphic context that the interactive Object
+## ! may be decomposed into sub-shapes for dynamic selection. virtual Standard_Boolean AcceptShapeDecomposition ( ) const ; ! Returns common entity owner if the object is an assembly virtual const Handle ( SelectMgr_EntityOwner ) & GetAssemblyOwner ( ) const { return myAssemblyOwner ; } ! Returns the owner of mode for selection of object as a whole virtual Handle ( SelectMgr_EntityOwner ) GlobalSelOwner ( ) const { return myAssemblyOwner ; } ! Assigns interactive context. virtual void SetContext ( const Handle ( AIS_InteractiveContext ) & theCtx ) ; public :  short aliases to Connect() method ! Establishes the connection between the Connected Interactive Object, theInteractive, and its reference.
+## ! Copies local transformation and transformation persistence mode from theInteractive.
+## ! @return created instance object (AIS_ConnectedInteractive or AIS_MultipleConnectedInteractive) Handle ( AIS_InteractiveObject ) Connect ( const Handle ( AIS_InteractiveObject ) & theAnotherObj ) { return connect ( theAnotherObj , theAnotherObj -> LocalTransformationGeom ( ) , theAnotherObj -> TransformPersistence ( ) ) ; } ! Establishes the connection between the Connected Interactive Object, theInteractive, and its reference.
+## ! Locates instance in theLocation and copies transformation persistence mode from theInteractive.
+## ! @return created instance object (AIS_ConnectedInteractive or AIS_MultipleConnectedInteractive) Handle ( AIS_InteractiveObject ) Connect ( const Handle ( AIS_InteractiveObject ) & theAnotherObj , const gp_Trsf & theLocation ) { return connect ( theAnotherObj , new TopLoc_Datum3D ( theLocation ) , theAnotherObj -> TransformPersistence ( ) ) ; } ! Establishes the connection between the Connected Interactive Object, theInteractive, and its reference.
+## ! Locates instance in theLocation and applies specified transformation persistence mode.
+## ! @return created instance object (AIS_ConnectedInteractive or AIS_MultipleConnectedInteractive) Handle ( AIS_InteractiveObject ) Connect ( const Handle ( AIS_InteractiveObject ) & theAnotherObj , const gp_Trsf & theLocation , const Handle ( Graphic3d_TransformPers ) & theTrsfPers ) { return connect ( theAnotherObj , new TopLoc_Datum3D ( theLocation ) , theTrsfPers ) ; } Standard_DEPRECATED ( This method is deprecated - Connect() taking Graphic3d_TransformPers should be called instead ) Handle ( AIS_InteractiveObject ) Connect ( const Handle ( AIS_InteractiveObject ) & theInteractive , const gp_Trsf & theLocation , const Graphic3d_TransModeFlags & theTrsfPersFlag , const gp_Pnt & theTrsfPersPoint ) { return connect ( theInteractive , new TopLoc_Datum3D ( theLocation ) , Graphic3d_TransformPers :: FromDeprecatedParams ( theTrsfPersFlag , theTrsfPersPoint ) ) ; } protected : ! this method is redefined virtual;
 ## ! when the instance is connected to another
 ## ! InteractiveObject,this method doesn't
 ## ! compute anything, but just uses the
 ## ! presentation of this last object, with
-## ! a transformation if there's one stored. virtual void Compute ( const opencascade :: handle < PrsMgr_PresentationManager3d > [end of template] & aPresentationManager , const opencascade :: handle < Prs3d_Presentation > [end of template] & aPresentation , const Standard_Integer aMode = 0 ) ;
-## Error: identifier expected, but got: This method is deprecated - Connect() taking Graphic3d_TransformPers should be called instead!!!
+## ! a transformation if there's one stored. virtual void Compute ( const Handle ( PrsMgr_PresentationManager3d ) & aPresentationManager , const Handle ( Prs3d_Presentation ) & aPresentation , const Standard_Integer aMode = 0 ) ; ! Establishes the connection between the Connected Interactive Object, theInteractive, and its reference.
+## ! Locates instance in theLocation and applies specified transformation persistence mode.
+## ! @return created instance object (AIS_ConnectedInteractive or AIS_MultipleConnectedInteractive) virtual Handle ( AIS_InteractiveObject ) connect ( const Handle ( AIS_InteractiveObject ) & theInteractive , const Handle ( TopLoc_Datum3D ) & theLocation , const Handle ( Graphic3d_TransformPers ) & theTrsfPers ) ; private : ! Computes the selection for whole subtree in scene hierarchy. virtual void ComputeSelection ( const Handle ( SelectMgr_Selection ) & aSelection , const Standard_Integer aMode ) ; protected : Handle ( SelectMgr_EntityOwner ) myAssemblyOwner ; } ;
+## Error: expected ';'!!!
 
-proc connect*(this: var AIS_MultipleConnectedInteractive;
-             theInteractive: Handle[AIS_InteractiveObject];
-             theLocation: Handle[TopLocDatum3D];
-             theTrsfPers: Handle[Graphic3dTransformPers]): Handle[
-    AIS_InteractiveObject] {.importcpp: "connect",
-                            header: "AIS_MultipleConnectedInteractive.hxx".}
-discard "forward decl of AIS_MultipleConnectedInteractive"
-type
-  HandleAIS_MultipleConnectedInteractive* = Handle[
-      AIS_MultipleConnectedInteractive]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( AIS_MultipleConnectedInteractive , AIS_InteractiveObject ) #  _AIS_MultipleConnectedInteractive_HeaderFile
+## Error: expected ';'!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -17,3 +17,28 @@ type
   StepShapeArray1OfShapeDimensionRepresentationItem* = NCollectionArray1[
       StepShapeShapeDimensionRepresentationItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,15 +25,40 @@ proc constructBinToolsLocationSet*(): BinToolsLocationSet {.constructor,
     importcpp: "BinTools_LocationSet(@)", header: "BinTools_LocationSet.hxx".}
 proc clear*(this: var BinToolsLocationSet) {.importcpp: "Clear",
     header: "BinTools_LocationSet.hxx".}
-proc add*(this: var BinToolsLocationSet; L: TopLocLocation): int {.importcpp: "Add",
+proc add*(this: var BinToolsLocationSet; L: TopLocLocation): cint {.importcpp: "Add",
     header: "BinTools_LocationSet.hxx".}
-proc location*(this: BinToolsLocationSet; i: int): TopLocLocation {.noSideEffect,
+proc location*(this: BinToolsLocationSet; i: cint): TopLocLocation {.noSideEffect,
     importcpp: "Location", header: "BinTools_LocationSet.hxx".}
-proc index*(this: BinToolsLocationSet; L: TopLocLocation): int {.noSideEffect,
+proc index*(this: BinToolsLocationSet; L: TopLocLocation): cint {.noSideEffect,
     importcpp: "Index", header: "BinTools_LocationSet.hxx".}
-proc nbLocations*(this: BinToolsLocationSet): int {.noSideEffect,
+proc nbLocations*(this: BinToolsLocationSet): cint {.noSideEffect,
     importcpp: "NbLocations", header: "BinTools_LocationSet.hxx".}
 proc write*(this: BinToolsLocationSet; os: var StandardOStream) {.noSideEffect,
     importcpp: "Write", header: "BinTools_LocationSet.hxx".}
 proc read*(this: var BinToolsLocationSet; `is`: var StandardIStream) {.
     importcpp: "Read", header: "BinTools_LocationSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

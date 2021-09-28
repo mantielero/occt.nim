@@ -43,23 +43,48 @@ proc init*(this: var LocOpeCurveShapeIntersector; c: Circ; s: TopoDS_Shape) {.
     importcpp: "Init", header: "LocOpe_CurveShapeIntersector.hxx".}
 proc isDone*(this: LocOpeCurveShapeIntersector): bool {.noSideEffect,
     importcpp: "IsDone", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc nbPoints*(this: LocOpeCurveShapeIntersector): int {.noSideEffect,
+proc nbPoints*(this: LocOpeCurveShapeIntersector): cint {.noSideEffect,
     importcpp: "NbPoints", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc point*(this: LocOpeCurveShapeIntersector; index: int): LocOpePntFace {.
+proc point*(this: LocOpeCurveShapeIntersector; index: cint): LocOpePntFace {.
     noSideEffect, importcpp: "Point", header: "LocOpe_CurveShapeIntersector.hxx".}
-proc localizeAfter*(this: LocOpeCurveShapeIntersector; `from`: float;
-                   `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+proc localizeAfter*(this: LocOpeCurveShapeIntersector; `from`: cfloat;
+                   `or`: var TopAbsOrientation; indFrom: var cint; indTo: var cint): bool {.
     noSideEffect, importcpp: "LocalizeAfter",
     header: "LocOpe_CurveShapeIntersector.hxx".}
-proc localizeBefore*(this: LocOpeCurveShapeIntersector; `from`: float;
-                    `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+proc localizeBefore*(this: LocOpeCurveShapeIntersector; `from`: cfloat;
+                    `or`: var TopAbsOrientation; indFrom: var cint; indTo: var cint): bool {.
     noSideEffect, importcpp: "LocalizeBefore",
     header: "LocOpe_CurveShapeIntersector.hxx".}
-proc localizeAfter*(this: LocOpeCurveShapeIntersector; fromInd: int;
-                   `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+proc localizeAfter*(this: LocOpeCurveShapeIntersector; fromInd: cint;
+                   `or`: var TopAbsOrientation; indFrom: var cint; indTo: var cint): bool {.
     noSideEffect, importcpp: "LocalizeAfter",
     header: "LocOpe_CurveShapeIntersector.hxx".}
-proc localizeBefore*(this: LocOpeCurveShapeIntersector; fromInd: int;
-                    `or`: var TopAbsOrientation; indFrom: var int; indTo: var int): bool {.
+proc localizeBefore*(this: LocOpeCurveShapeIntersector; fromInd: cint;
+                    `or`: var TopAbsOrientation; indFrom: var cint; indTo: var cint): bool {.
     noSideEffect, importcpp: "LocalizeBefore",
     header: "LocOpe_CurveShapeIntersector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

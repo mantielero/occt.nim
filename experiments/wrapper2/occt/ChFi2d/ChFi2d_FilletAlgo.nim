@@ -43,12 +43,12 @@ proc init*(this: var ChFi2dFilletAlgo; theWire: TopoDS_Wire; thePlane: Pln) {.
     importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
 proc init*(this: var ChFi2dFilletAlgo; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
           thePlane: Pln) {.importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
-proc perform*(this: var ChFi2dFilletAlgo; theRadius: float): bool {.
+proc perform*(this: var ChFi2dFilletAlgo; theRadius: cfloat): bool {.
     importcpp: "Perform", header: "ChFi2d_FilletAlgo.hxx".}
-proc nbResults*(this: var ChFi2dFilletAlgo; thePoint: Pnt): int {.
+proc nbResults*(this: var ChFi2dFilletAlgo; thePoint: Pnt): cint {.
     importcpp: "NbResults", header: "ChFi2d_FilletAlgo.hxx".}
 proc result*(this: var ChFi2dFilletAlgo; thePoint: Pnt; theEdge1: var TopoDS_Edge;
-            theEdge2: var TopoDS_Edge; iSolution: int = -1): TopoDS_Edge {.
+            theEdge2: var TopoDS_Edge; iSolution: cint = -1): TopoDS_Edge {.
     importcpp: "Result", header: "ChFi2d_FilletAlgo.hxx".}
 ## ! Private class. Corresponds to the point on the first curve, computed
 ## ! fillet function and derivative on it.
@@ -86,31 +86,31 @@ type
     ## ! in sequences myV, myD.
 
 
-proc constructFilletPoint*(theParam: float): FilletPoint {.constructor,
+proc constructFilletPoint*(theParam: cfloat): FilletPoint {.constructor,
     importcpp: "FilletPoint(@)", header: "ChFi2d_FilletAlgo.hxx".}
-proc setParam*(this: var FilletPoint; theParam: float) {.importcpp: "setParam",
+proc setParam*(this: var FilletPoint; theParam: cfloat) {.importcpp: "setParam",
     header: "ChFi2d_FilletAlgo.hxx".}
-proc getParam*(this: FilletPoint): float {.noSideEffect, importcpp: "getParam",
-                                       header: "ChFi2d_FilletAlgo.hxx".}
-proc getNBValues*(this: var FilletPoint): int {.importcpp: "getNBValues",
+proc getParam*(this: FilletPoint): cfloat {.noSideEffect, importcpp: "getParam",
+                                        header: "ChFi2d_FilletAlgo.hxx".}
+proc getNBValues*(this: var FilletPoint): cint {.importcpp: "getNBValues",
     header: "ChFi2d_FilletAlgo.hxx".}
-proc getValue*(this: var FilletPoint; theIndex: cint): float {.importcpp: "getValue",
+proc getValue*(this: var FilletPoint; theIndex: cint): cfloat {.importcpp: "getValue",
     header: "ChFi2d_FilletAlgo.hxx".}
-proc getDiff*(this: var FilletPoint; theIndex: cint): float {.importcpp: "getDiff",
+proc getDiff*(this: var FilletPoint; theIndex: cint): cfloat {.importcpp: "getDiff",
     header: "ChFi2d_FilletAlgo.hxx".}
 proc isValid*(this: var FilletPoint; theIndex: cint): bool {.importcpp: "isValid",
     header: "ChFi2d_FilletAlgo.hxx".}
 proc getNear*(this: var FilletPoint; theIndex: cint): cint {.importcpp: "getNear",
     header: "ChFi2d_FilletAlgo.hxx".}
-proc setParam2*(this: var FilletPoint; theParam2: float) {.importcpp: "setParam2",
+proc setParam2*(this: var FilletPoint; theParam2: cfloat) {.importcpp: "setParam2",
     header: "ChFi2d_FilletAlgo.hxx".}
-proc getParam2*(this: var FilletPoint): float {.importcpp: "getParam2",
+proc getParam2*(this: var FilletPoint): cfloat {.importcpp: "getParam2",
     header: "ChFi2d_FilletAlgo.hxx".}
 proc setCenter*(this: var FilletPoint; thePoint: Pnt2d) {.importcpp: "setCenter",
     header: "ChFi2d_FilletAlgo.hxx".}
 proc getCenter*(this: var FilletPoint): Pnt2d {.importcpp: "getCenter",
     header: "ChFi2d_FilletAlgo.hxx".}
-proc appendValue*(this: var FilletPoint; theValue: float; theValid: bool) {.
+proc appendValue*(this: var FilletPoint; theValue: cfloat; theValid: bool) {.
     importcpp: "appendValue", header: "ChFi2d_FilletAlgo.hxx".}
 proc calculateDiff*(this: var FilletPoint; a2: ptr FilletPoint): bool {.
     importcpp: "calculateDiff", header: "ChFi2d_FilletAlgo.hxx".}
@@ -118,9 +118,34 @@ proc filterPoints*(this: var FilletPoint; a2: ptr FilletPoint) {.
     importcpp: "FilterPoints", header: "ChFi2d_FilletAlgo.hxx".}
 proc copy*(this: var FilletPoint): ptr FilletPoint {.importcpp: "Copy",
     header: "ChFi2d_FilletAlgo.hxx".}
-proc hasSolution*(this: var FilletPoint; theRadius: float): int {.
+proc hasSolution*(this: var FilletPoint; theRadius: cfloat): cint {.
     importcpp: "hasSolution", header: "ChFi2d_FilletAlgo.hxx".}
-proc lowerValue*(this: var FilletPoint): float {.importcpp: "LowerValue",
+proc lowerValue*(this: var FilletPoint): cfloat {.importcpp: "LowerValue",
     header: "ChFi2d_FilletAlgo.hxx".}
-proc remove*(this: var FilletPoint; theIndex: int) {.importcpp: "remove",
+proc remove*(this: var FilletPoint; theIndex: cint) {.importcpp: "remove",
     header: "ChFi2d_FilletAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

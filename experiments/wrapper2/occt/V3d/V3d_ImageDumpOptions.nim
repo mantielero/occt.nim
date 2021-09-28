@@ -17,13 +17,38 @@ type
   V3dImageDumpOptions* {.importcpp: "V3d_ImageDumpOptions",
                         header: "V3d_ImageDumpOptions.hxx", bycopy.} = object ## ! Default
                                                                          ## constructor.
-    width* {.importc: "Width".}: int ## !< width  of image dump to allocate an image, 0 by default (meaning that image should be already allocated)
-    height* {.importc: "Height".}: int ## !< height of image dump to allocate an image, 0 by default (meaning that image should be already allocated)
+    width* {.importc: "Width".}: cint ## !< width  of image dump to allocate an image, 0 by default (meaning that image should be already allocated)
+    height* {.importc: "Height".}: cint ## !< height of image dump to allocate an image, 0 by default (meaning that image should be already allocated)
     bufferType* {.importc: "BufferType".}: Graphic3dBufferType ## !< which buffer to dump (color / depth), Graphic3d_BT_RGB by default
     stereoOptions* {.importc: "StereoOptions".}: V3dStereoDumpOptions ## !< dumping stereoscopic camera, V3d_SDO_MONO by default (middle-point monographic projection)
-    tileSize* {.importc: "TileSize".}: int ## !< the view dimension limited for tiled dump, 0 by default (automatic tiling depending on hardware capabilities)
+    tileSize* {.importc: "TileSize".}: cint ## !< the view dimension limited for tiled dump, 0 by default (automatic tiling depending on hardware capabilities)
     toAdjustAspect* {.importc: "ToAdjustAspect".}: bool ## !< flag to override active view aspect ratio by (Width / Height) defined for image dump (TRUE by default)
 
 
 proc constructV3dImageDumpOptions*(): V3dImageDumpOptions {.constructor,
     importcpp: "V3d_ImageDumpOptions(@)", header: "V3d_ImageDumpOptions.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

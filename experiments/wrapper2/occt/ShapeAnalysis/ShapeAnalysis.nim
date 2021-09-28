@@ -85,18 +85,43 @@ type
 
 proc outerWire*(face: TopoDS_Face): TopoDS_Wire {.
     importcpp: "ShapeAnalysis::OuterWire(@)", header: "ShapeAnalysis.hxx".}
-proc totCross2D*(sewd: Handle[ShapeExtendWireData]; aFace: TopoDS_Face): float {.
+proc totCross2D*(sewd: Handle[ShapeExtendWireData]; aFace: TopoDS_Face): cfloat {.
     importcpp: "ShapeAnalysis::TotCross2D(@)", header: "ShapeAnalysis.hxx".}
-proc contourArea*(theWire: TopoDS_Wire): float {.
+proc contourArea*(theWire: TopoDS_Wire): cfloat {.
     importcpp: "ShapeAnalysis::ContourArea(@)", header: "ShapeAnalysis.hxx".}
 proc isOuterBound*(face: TopoDS_Face): bool {.
     importcpp: "ShapeAnalysis::IsOuterBound(@)", header: "ShapeAnalysis.hxx".}
-proc adjustByPeriod*(val: float; toVal: float; period: float): float {.
+proc adjustByPeriod*(val: cfloat; toVal: cfloat; period: cfloat): cfloat {.
     importcpp: "ShapeAnalysis::AdjustByPeriod(@)", header: "ShapeAnalysis.hxx".}
-proc adjustToPeriod*(val: float; valMin: float; valMax: float): float {.
+proc adjustToPeriod*(val: cfloat; valMin: cfloat; valMax: cfloat): cfloat {.
     importcpp: "ShapeAnalysis::AdjustToPeriod(@)", header: "ShapeAnalysis.hxx".}
 proc findBounds*(shape: TopoDS_Shape; v1: var TopoDS_Vertex; v2: var TopoDS_Vertex) {.
     importcpp: "ShapeAnalysis::FindBounds(@)", header: "ShapeAnalysis.hxx".}
-proc getFaceUVBounds*(f: TopoDS_Face; umin: var float; umax: var float; vmin: var float;
-                     vmax: var float) {.importcpp: "ShapeAnalysis::GetFaceUVBounds(@)",
-                                     header: "ShapeAnalysis.hxx".}
+proc getFaceUVBounds*(f: TopoDS_Face; umin: var cfloat; umax: var cfloat;
+                     vmin: var cfloat; vmax: var cfloat) {.
+    importcpp: "ShapeAnalysis::GetFaceUVBounds(@)", header: "ShapeAnalysis.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

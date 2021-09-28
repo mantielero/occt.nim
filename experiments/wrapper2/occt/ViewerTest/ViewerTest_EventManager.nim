@@ -18,7 +18,7 @@ discard "forward decl of AIS_InteractiveContext"
 discard "forward decl of V3d_View"
 discard "forward decl of ViewerTest_EventManager"
 type
-  HandleViewerTestEventManager* = Handle[ViewerTestEventManager]
+  HandleC1C1* = Handle[ViewerTestEventManager]
 
 ## ! used to manage mouse event (move,select,shiftselect)
 ## ! By default the events are transmitted to interactive context.
@@ -98,3 +98,28 @@ proc processConfigure*(this: var ViewerTestEventManager) {.
     importcpp: "ProcessConfigure", header: "ViewerTest_EventManager.hxx".}
 proc processKeyPress*(this: var ViewerTestEventManager; theKey: AspectVKey) {.
     importcpp: "ProcessKeyPress", header: "ViewerTest_EventManager.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

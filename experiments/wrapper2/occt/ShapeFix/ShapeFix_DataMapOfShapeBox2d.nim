@@ -20,3 +20,28 @@ type
   ShapeFixDataMapIteratorOfDataMapOfShapeBox2d* = Iterator[TopoDS_Shape, BndBox2d,
       TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

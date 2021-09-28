@@ -19,7 +19,7 @@ discard "forward decl of ShapeExtend_WireData"
 discard "forward decl of IGESControl_IGESBoundary"
 discard "forward decl of IGESControl_IGESBoundary"
 type
-  HandleIGESControlIGESBoundary* = Handle[IGESControlIGESBoundary]
+  HandleC1C1* = Handle[IGESControlIGESBoundary]
 
 ## ! Translates IGES boundary entity (types 141, 142 and 508)
 ## ! in Advanced Data Exchange.
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESControl_IGESBoundary.hxx".}
 proc dynamicType*(this: IGESControlIGESBoundary): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESControl_IGESBoundary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

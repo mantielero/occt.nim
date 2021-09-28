@@ -75,11 +75,11 @@ type
 
 
 proc computeAbsoluteDeflection*(theShape: TopoDS_Shape;
-                               theRelativeDeflection: float;
-                               theMaxShapeSize: float): float {.
+                               theRelativeDeflection: cfloat;
+                               theMaxShapeSize: cfloat): cfloat {.
     importcpp: "BRepMesh_Deflection::ComputeAbsoluteDeflection(@)",
     header: "BRepMesh_Deflection.hxx".}
-proc computeDeflection*(theDEdge: IEdgeHandle; theMaxShapeSize: float;
+proc computeDeflection*(theDEdge: IEdgeHandle; theMaxShapeSize: cfloat;
                        theParameters: IMeshToolsParameters) {.
     importcpp: "BRepMesh_Deflection::ComputeDeflection(@)",
     header: "BRepMesh_Deflection.hxx".}
@@ -89,8 +89,8 @@ proc computeDeflection*(theDWire: IWireHandle; theParameters: IMeshToolsParamete
 proc computeDeflection*(theDFace: IFaceHandle; theParameters: IMeshToolsParameters) {.
     importcpp: "BRepMesh_Deflection::ComputeDeflection(@)",
     header: "BRepMesh_Deflection.hxx".}
-proc isConsistent*(theCurrent: float; theRequired: float; theAllowDecrease: bool;
-                  theRatio: float = 0.1): bool {.
+proc isConsistent*(theCurrent: cfloat; theRequired: cfloat; theAllowDecrease: bool;
+                  theRatio: cfloat = 0.1): bool {.
     importcpp: "BRepMesh_Deflection::IsConsistent(@)",
     header: "BRepMesh_Deflection.hxx".}
 type
@@ -103,3 +103,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_Deflection.hxx".}
 proc dynamicType*(this: BRepMeshDeflection): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_Deflection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

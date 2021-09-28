@@ -24,7 +24,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESGraph_GeneralModule"
 discard "forward decl of IGESGraph_GeneralModule"
 type
-  HandleIGESGraphGeneralModule* = Handle[IGESGraphGeneralModule]
+  HandleC1C1* = Handle[IGESGraphGeneralModule]
 
 ## ! Definition of General Services for IGESGraph (specific part)
 ## ! This Services comprise : Shared & Implied Lists, Copy, Check
@@ -47,26 +47,26 @@ type
 
 proc constructIGESGraphGeneralModule*(): IGESGraphGeneralModule {.constructor,
     importcpp: "IGESGraph_GeneralModule(@)", header: "IGESGraph_GeneralModule.hxx".}
-proc ownSharedCase*(this: IGESGraphGeneralModule; cn: int;
+proc ownSharedCase*(this: IGESGraphGeneralModule; cn: cint;
                    ent: Handle[IGESDataIGESEntity];
                    iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnSharedCase", header: "IGESGraph_GeneralModule.hxx".}
-proc dirChecker*(this: IGESGraphGeneralModule; cn: int;
+proc dirChecker*(this: IGESGraphGeneralModule; cn: cint;
                 ent: Handle[IGESDataIGESEntity]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGraph_GeneralModule.hxx".}
-proc ownCheckCase*(this: IGESGraphGeneralModule; cn: int;
+proc ownCheckCase*(this: IGESGraphGeneralModule; cn: cint;
                   ent: Handle[IGESDataIGESEntity]; shares: InterfaceShareTool;
                   ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheckCase", header: "IGESGraph_GeneralModule.hxx".}
-proc newVoid*(this: IGESGraphGeneralModule; cn: int;
+proc newVoid*(this: IGESGraphGeneralModule; cn: cint;
              entto: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "NewVoid", header: "IGESGraph_GeneralModule.hxx".}
-proc ownCopyCase*(this: IGESGraphGeneralModule; cn: int;
+proc ownCopyCase*(this: IGESGraphGeneralModule; cn: cint;
                  entfrom: Handle[IGESDataIGESEntity];
                  entto: Handle[IGESDataIGESEntity]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopyCase", header: "IGESGraph_GeneralModule.hxx".}
-proc categoryNumber*(this: IGESGraphGeneralModule; cn: int;
-                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): int {.
+proc categoryNumber*(this: IGESGraphGeneralModule; cn: cint;
+                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): cint {.
     noSideEffect, importcpp: "CategoryNumber",
     header: "IGESGraph_GeneralModule.hxx".}
 type
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGraph_GeneralModule.hxx".}
 proc dynamicType*(this: IGESGraphGeneralModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGraph_GeneralModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

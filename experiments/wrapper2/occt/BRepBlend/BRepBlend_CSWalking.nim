@@ -38,13 +38,12 @@ discard "forward decl of gp_Vec2d"
 type
   BRepBlendCSWalking* {.importcpp: "BRepBlend_CSWalking",
                        header: "BRepBlend_CSWalking.hxx", bycopy.} = object
+    bRepBlendLine* {.importc: "BRepBlend_Line".}: Handle
 
 
-proc constructBRepBlendCSWalking*(curv: Handle[Adaptor3dHCurve];
-                                 surf: Handle[Adaptor3dHSurface];
-                                 domain: Handle[Adaptor3dTopolTool]): BRepBlendCSWalking {.
-    constructor, importcpp: "BRepBlend_CSWalking(@)",
-    header: "BRepBlend_CSWalking.hxx".}
+## !!!Ignored construct:  public : BRepBlend_CSWalking ( const Handle ( Adaptor3d_HCurve ) & Curv , const Handle ( Adaptor3d_HSurface ) & Surf , const Handle ( Adaptor3d_TopolTool ) & Domain ) ;
+## Error: token expected: ) but got: &!!!
+
 proc perform*(this: var BRepBlendCSWalking; f: var BlendCSFunction; pdep: float;
              pmax: float; maxStep: float; tolGuide: float; soldep: MathVector;
              tolesp: float; fleche: float; appro: bool = false) {.importcpp: "Perform",
@@ -53,8 +52,75 @@ proc complete*(this: var BRepBlendCSWalking; f: var BlendCSFunction; pmin: float
     importcpp: "Complete", header: "BRepBlend_CSWalking.hxx".}
 proc isDone*(this: BRepBlendCSWalking): bool {.noSideEffect, importcpp: "IsDone",
     header: "BRepBlend_CSWalking.hxx".}
-proc line*(this: BRepBlendCSWalking): Handle[BRepBlendLine] {.noSideEffect,
-    importcpp: "Line", header: "BRepBlend_CSWalking.hxx".}
-## !!!Ignored construct:  # TheVertex opencascade :: handle < Adaptor3d_HVertex > [end of template] [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc opencascade :: handle < Adaptor2d_HCurve2d > [end of template] [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # TheSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # TheSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # TheCurve opencascade :: handle < Adaptor3d_HCurve > [end of template] [NewLine] # TheCurve_hxx < Adaptor3d_HCurve . hxx > [NewLine] # TheVertexTool Standard_Integer [NewLine] # TheVertexTool_hxx < Standard_Integer . hxx > [NewLine] # TheArcTool BRepBlend_HCurve2dTool [NewLine] # TheArcTool_hxx < BRepBlend_HCurve2dTool . hxx > [NewLine] # TheSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # TheSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # TheCurveTool BRepBlend_HCurveTool [NewLine] # TheCurveTool_hxx < BRepBlend_HCurveTool . hxx > [NewLine] # Handle_TheTopolTool opencascade :: handle < Adaptor3d_TopolTool > [end of template] [NewLine] # TheTopolTool Adaptor3d_TopolTool [NewLine] # TheTopolTool_hxx < Adaptor3d_TopolTool . hxx > [NewLine] # TheBlendTool BRepBlend_BlendTool [NewLine] # TheBlendTool_hxx < BRepBlend_BlendTool . hxx > [NewLine] # ThePointOnRst BRepBlend_PointOnRst [NewLine] # ThePointOnRst_hxx < BRepBlend_PointOnRst . hxx > [NewLine] # TheSeqPointOnRst BRepBlend_SequenceOfPointOnRst [NewLine] # TheSeqPointOnRst_hxx < BRepBlend_SequenceOfPointOnRst . hxx > [NewLine] # TheExtremity BRepBlend_Extremity [NewLine] # TheExtremity_hxx < BRepBlend_Extremity . hxx > [NewLine] # Handle_TheLine opencascade :: handle < BRepBlend_Line > [end of template] [NewLine] # TheLine BRepBlend_Line [NewLine] # TheLine_hxx < BRepBlend_Line . hxx > [NewLine] # Blend_CSWalking BRepBlend_CSWalking [NewLine] # Blend_CSWalking_hxx < BRepBlend_CSWalking . hxx > [NewLine] # < Blend_CSWalking . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # TheSurface [NewLine] # TheSurface_hxx [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheVertexTool [NewLine] # TheVertexTool_hxx [NewLine] # TheArcTool [NewLine] # TheArcTool_hxx [NewLine] # TheSurfaceTool [NewLine] # TheSurfaceTool_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # Handle_TheTopolTool [NewLine] # TheTopolTool [NewLine] # TheTopolTool_hxx [NewLine] # TheBlendTool [NewLine] # TheBlendTool_hxx [NewLine] # ThePointOnRst [NewLine] # ThePointOnRst_hxx [NewLine] # TheSeqPointOnRst [NewLine] # TheSeqPointOnRst_hxx [NewLine] # TheExtremity [NewLine] # TheExtremity_hxx [NewLine] # Handle_TheLine [NewLine] # TheLine [NewLine] # TheLine_hxx [NewLine] # Blend_CSWalking [NewLine] # Blend_CSWalking_hxx [NewLine] #  _BRepBlend_CSWalking_HeaderFile
+## !!!Ignored construct:  & Line ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  void Transition ( const Handle ( Adaptor2d_HCurve2d ) & A , const Standard_Real Param , IntSurf_Transition & TLine , IntSurf_Transition & TArc ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void MakeExtremity ( BRepBlend_Extremity & Extrem , const Standard_Integer Index , const Standard_Real Param , const Standard_Boolean IsVtx , const Handle ( Adaptor3d_HVertex ) & Vtx ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  line ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  surf ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  curv ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  domain ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  firstsol ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  # TheVertex Handle ( Adaptor3d_HVertex ) [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc Handle ( Adaptor2d_HCurve2d ) [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # TheSurface Handle ( Adaptor3d_HSurface ) [NewLine] # TheSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # TheCurve Handle ( Adaptor3d_HCurve ) [NewLine] # TheCurve_hxx < Adaptor3d_HCurve . hxx > [NewLine] # TheVertexTool Standard_Integer [NewLine] # TheVertexTool_hxx < Standard_Integer . hxx > [NewLine] # TheArcTool BRepBlend_HCurve2dTool [NewLine] # TheArcTool_hxx < BRepBlend_HCurve2dTool . hxx > [NewLine] # TheSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # TheSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # TheCurveTool BRepBlend_HCurveTool [NewLine] # TheCurveTool_hxx < BRepBlend_HCurveTool . hxx > [NewLine] # Handle_TheTopolTool Handle ( Adaptor3d_TopolTool ) [NewLine] # TheTopolTool Adaptor3d_TopolTool [NewLine] # TheTopolTool_hxx < Adaptor3d_TopolTool . hxx > [NewLine] # TheBlendTool BRepBlend_BlendTool [NewLine] # TheBlendTool_hxx < BRepBlend_BlendTool . hxx > [NewLine] # ThePointOnRst BRepBlend_PointOnRst [NewLine] # ThePointOnRst_hxx < BRepBlend_PointOnRst . hxx > [NewLine] # TheSeqPointOnRst BRepBlend_SequenceOfPointOnRst [NewLine] # TheSeqPointOnRst_hxx < BRepBlend_SequenceOfPointOnRst . hxx > [NewLine] # TheExtremity BRepBlend_Extremity [NewLine] # TheExtremity_hxx < BRepBlend_Extremity . hxx > [NewLine] # Handle_TheLine Handle ( BRepBlend_Line ) [NewLine] # TheLine BRepBlend_Line [NewLine] # TheLine_hxx < BRepBlend_Line . hxx > [NewLine] # Blend_CSWalking BRepBlend_CSWalking [NewLine] # Blend_CSWalking_hxx < BRepBlend_CSWalking . hxx > [NewLine] # < Blend_CSWalking . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # TheSurface [NewLine] # TheSurface_hxx [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheVertexTool [NewLine] # TheVertexTool_hxx [NewLine] # TheArcTool [NewLine] # TheArcTool_hxx [NewLine] # TheSurfaceTool [NewLine] # TheSurfaceTool_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # Handle_TheTopolTool [NewLine] # TheTopolTool [NewLine] # TheTopolTool_hxx [NewLine] # TheBlendTool [NewLine] # TheBlendTool_hxx [NewLine] # ThePointOnRst [NewLine] # ThePointOnRst_hxx [NewLine] # TheSeqPointOnRst [NewLine] # TheSeqPointOnRst_hxx [NewLine] # TheExtremity [NewLine] # TheExtremity_hxx [NewLine] # Handle_TheLine [NewLine] # TheLine [NewLine] # TheLine_hxx [NewLine] # Blend_CSWalking [NewLine] # Blend_CSWalking_hxx [NewLine] #  _BRepBlend_CSWalking_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

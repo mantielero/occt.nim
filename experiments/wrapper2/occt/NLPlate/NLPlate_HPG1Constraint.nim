@@ -19,7 +19,7 @@ discard "forward decl of Plate_D1"
 discard "forward decl of NLPlate_HPG1Constraint"
 discard "forward decl of NLPlate_HPG1Constraint"
 type
-  HandleNLPlateHPG1Constraint* = Handle[NLPlateHPG1Constraint]
+  HandleC1C1* = Handle[NLPlateHPG1Constraint]
 
 ## ! define a PinPoint (no G0)  G1 Constraint used to load a Non
 ## ! Linear Plate
@@ -34,15 +34,15 @@ proc constructNLPlateHPG1Constraint*(uv: Xy; d1t: PlateD1): NLPlateHPG1Constrain
     header: "NLPlate_HPG1Constraint.hxx".}
 proc setIncrementalLoadAllowed*(this: var NLPlateHPG1Constraint; ila: bool) {.
     importcpp: "SetIncrementalLoadAllowed", header: "NLPlate_HPG1Constraint.hxx".}
-proc setOrientation*(this: var NLPlateHPG1Constraint; orient: int = 0) {.
+proc setOrientation*(this: var NLPlateHPG1Constraint; orient: cint = 0) {.
     importcpp: "SetOrientation", header: "NLPlate_HPG1Constraint.hxx".}
 proc incrementalLoadAllowed*(this: NLPlateHPG1Constraint): bool {.noSideEffect,
     importcpp: "IncrementalLoadAllowed", header: "NLPlate_HPG1Constraint.hxx".}
-proc activeOrder*(this: NLPlateHPG1Constraint): int {.noSideEffect,
+proc activeOrder*(this: NLPlateHPG1Constraint): cint {.noSideEffect,
     importcpp: "ActiveOrder", header: "NLPlate_HPG1Constraint.hxx".}
 proc isG0*(this: NLPlateHPG1Constraint): bool {.noSideEffect, importcpp: "IsG0",
     header: "NLPlate_HPG1Constraint.hxx".}
-proc orientation*(this: var NLPlateHPG1Constraint): int {.importcpp: "Orientation",
+proc orientation*(this: var NLPlateHPG1Constraint): cint {.importcpp: "Orientation",
     header: "NLPlate_HPG1Constraint.hxx".}
 proc g1Target*(this: NLPlateHPG1Constraint): PlateD1 {.noSideEffect,
     importcpp: "G1Target", header: "NLPlate_HPG1Constraint.hxx".}
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "NLPlate_HPG1Constraint.hxx".}
 proc dynamicType*(this: NLPlateHPG1Constraint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "NLPlate_HPG1Constraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

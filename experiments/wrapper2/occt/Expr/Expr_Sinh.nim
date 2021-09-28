@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Sinh"
 discard "forward decl of Expr_Sinh"
 type
-  HandleExprSinh* = Handle[ExprSinh]
+  HandleC1C1* = Handle[ExprSinh]
   ExprSinh* {.importcpp: "Expr_Sinh", header: "Expr_Sinh.hxx", bycopy.} = object of ExprUnaryExpression ##
                                                                                               ## !
                                                                                               ## Creates
@@ -46,7 +46,7 @@ proc derivative*(this: ExprSinh; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_Sinh.hxx".}
 proc evaluate*(this: ExprSinh; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Sinh.hxx".}
 proc string*(this: ExprSinh): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Sinh.hxx".}
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_Sinh::get_type_descriptor(@)", header: "Expr_Sinh.hxx".}
 proc dynamicType*(this: ExprSinh): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Sinh.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

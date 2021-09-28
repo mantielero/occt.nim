@@ -18,9 +18,27 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom2d_Curve"
 type
   GeomToolsCurve2dSet* {.importcpp: "GeomTools_Curve2dSet",
-                        header: "GeomTools_Curve2dSet.hxx", bycopy.} = object ## ! Returns an empty set of Curves.
+                        header: "GeomTools_Curve2dSet.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomToolsCurve2dSet; theSize: csize_t): pointer {.
+    importcpp: "GeomTools_Curve2dSet::operator new",
+    header: "GeomTools_Curve2dSet.hxx".}
+proc `delete`*(this: var GeomToolsCurve2dSet; theAddress: pointer) {.
+    importcpp: "GeomTools_Curve2dSet::operator delete",
+    header: "GeomTools_Curve2dSet.hxx".}
+proc `new[]`*(this: var GeomToolsCurve2dSet; theSize: csize_t): pointer {.
+    importcpp: "GeomTools_Curve2dSet::operator new[]",
+    header: "GeomTools_Curve2dSet.hxx".}
+proc `delete[]`*(this: var GeomToolsCurve2dSet; theAddress: pointer) {.
+    importcpp: "GeomTools_Curve2dSet::operator delete[]",
+    header: "GeomTools_Curve2dSet.hxx".}
+proc `new`*(this: var GeomToolsCurve2dSet; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomTools_Curve2dSet::operator new",
+    header: "GeomTools_Curve2dSet.hxx".}
+proc `delete`*(this: var GeomToolsCurve2dSet; a2: pointer; a3: pointer) {.
+    importcpp: "GeomTools_Curve2dSet::operator delete",
+    header: "GeomTools_Curve2dSet.hxx".}
 proc constructGeomToolsCurve2dSet*(): GeomToolsCurve2dSet {.constructor,
     importcpp: "GeomTools_Curve2dSet(@)", header: "GeomTools_Curve2dSet.hxx".}
 proc clear*(this: var GeomToolsCurve2dSet) {.importcpp: "Clear",
@@ -40,8 +58,9 @@ proc read*(this: var GeomToolsCurve2dSet; `is`: var StandardIStream;
           theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Read", header: "GeomTools_Curve2dSet.hxx".}
 proc printCurve2d*(c: Handle[Geom2dCurve]; os: var StandardOStream;
-                  compact: bool = false) {.importcpp: "GeomTools_Curve2dSet::PrintCurve2d(@)",
-                                       header: "GeomTools_Curve2dSet.hxx".}
+                  compact: StandardBoolean = false) {.
+    importcpp: "GeomTools_Curve2dSet::PrintCurve2d(@)",
+    header: "GeomTools_Curve2dSet.hxx".}
 proc readCurve2d*(`is`: var StandardIStream): Handle[Geom2dCurve] {.
     importcpp: "GeomTools_Curve2dSet::ReadCurve2d(@)",
     header: "GeomTools_Curve2dSet.hxx".}

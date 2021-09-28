@@ -56,17 +56,42 @@ type
                                                                        ## ! if needed.
 
 
-proc sameParameter*(shape: TopoDS_Shape; enforce: bool; preci: float = 0.0;
+proc sameParameter*(shape: TopoDS_Shape; enforce: bool; preci: cfloat = 0.0;
                    theProgress: MessageProgressRange = messageProgressRange();
                    theMsgReg: Handle[ShapeExtendBasicMsgRegistrator] = 0): bool {.
     importcpp: "ShapeFix::SameParameter(@)", header: "ShapeFix.hxx".}
-proc encodeRegularity*(shape: TopoDS_Shape; tolang: float = 1.0e-10) {.
+proc encodeRegularity*(shape: TopoDS_Shape; tolang: cfloat = 1.0e-10) {.
     importcpp: "ShapeFix::EncodeRegularity(@)", header: "ShapeFix.hxx".}
-proc removeSmallEdges*(shape: var TopoDS_Shape; tolerance: float;
+proc removeSmallEdges*(shape: var TopoDS_Shape; tolerance: cfloat;
                       context: var Handle[ShapeBuildReShape]): TopoDS_Shape {.
     importcpp: "ShapeFix::RemoveSmallEdges(@)", header: "ShapeFix.hxx".}
-proc fixVertexPosition*(theshape: var TopoDS_Shape; theTolerance: float;
+proc fixVertexPosition*(theshape: var TopoDS_Shape; theTolerance: cfloat;
                        thecontext: Handle[ShapeBuildReShape]): bool {.
     importcpp: "ShapeFix::FixVertexPosition(@)", header: "ShapeFix.hxx".}
-proc leastEdgeSize*(theshape: var TopoDS_Shape): float {.
+proc leastEdgeSize*(theshape: var TopoDS_Shape): cfloat {.
     importcpp: "ShapeFix::LeastEdgeSize(@)", header: "ShapeFix.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

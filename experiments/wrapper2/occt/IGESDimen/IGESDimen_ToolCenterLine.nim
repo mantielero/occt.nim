@@ -63,5 +63,30 @@ proc ownCopy*(this: IGESDimenToolCenterLine; entfrom: Handle[IGESDimenCenterLine
              entto: Handle[IGESDimenCenterLine]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolCenterLine.hxx".}
 proc ownDump*(this: IGESDimenToolCenterLine; ent: Handle[IGESDimenCenterLine];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESDimen_ToolCenterLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -79,3 +79,28 @@ proc findCDSR*(componentBinder: Handle[TransferBinder];
               assemblySDR: Handle[StepShapeShapeDefinitionRepresentation];
     componentCDSR: var Handle[StepShapeContextDependentShapeRepresentation]): bool {.
     importcpp: "STEPConstruct::FindCDSR(@)", header: "STEPConstruct.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

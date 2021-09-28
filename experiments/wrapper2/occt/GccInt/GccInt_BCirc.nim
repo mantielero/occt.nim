@@ -18,7 +18,7 @@ discard "forward decl of gp_Circ2d"
 discard "forward decl of GccInt_BCirc"
 discard "forward decl of GccInt_BCirc"
 type
-  HandleGccIntBCirc* = Handle[GccIntBCirc]
+  HandleC1C1* = Handle[GccIntBCirc]
 
 ## ! Describes a circle as a bisecting curve between two 2D
 ## ! geometric objects (such as circles or points).
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GccInt_BCirc::get_type_descriptor(@)", header: "GccInt_BCirc.hxx".}
 proc dynamicType*(this: GccIntBCirc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BCirc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,11 +24,11 @@ proc constructBinToolsSurfaceSet*(): BinToolsSurfaceSet {.constructor,
     importcpp: "BinTools_SurfaceSet(@)", header: "BinTools_SurfaceSet.hxx".}
 proc clear*(this: var BinToolsSurfaceSet) {.importcpp: "Clear",
                                         header: "BinTools_SurfaceSet.hxx".}
-proc add*(this: var BinToolsSurfaceSet; s: Handle[GeomSurface]): int {.
+proc add*(this: var BinToolsSurfaceSet; s: Handle[GeomSurface]): cint {.
     importcpp: "Add", header: "BinTools_SurfaceSet.hxx".}
-proc surface*(this: BinToolsSurfaceSet; i: int): Handle[GeomSurface] {.noSideEffect,
+proc surface*(this: BinToolsSurfaceSet; i: cint): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "BinTools_SurfaceSet.hxx".}
-proc index*(this: BinToolsSurfaceSet; s: Handle[GeomSurface]): int {.noSideEffect,
+proc index*(this: BinToolsSurfaceSet; s: Handle[GeomSurface]): cint {.noSideEffect,
     importcpp: "Index", header: "BinTools_SurfaceSet.hxx".}
 proc write*(this: BinToolsSurfaceSet; os: var StandardOStream;
            theRange: MessageProgressRange = messageProgressRange()) {.noSideEffect,
@@ -42,3 +42,28 @@ proc writeSurface*(s: Handle[GeomSurface]; os: var StandardOStream) {.
 proc readSurface*(`is`: var StandardIStream; s: var Handle[GeomSurface]): var StandardIStream {.
     importcpp: "BinTools_SurfaceSet::ReadSurface(@)",
     header: "BinTools_SurfaceSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

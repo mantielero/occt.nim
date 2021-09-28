@@ -248,7 +248,7 @@ proc generateEnvLUT*(theLUT: Handle[ImagePixMap];
                     theNbIntegralSamples: cuint = 1024) {.
     importcpp: "Graphic3d_PBRMaterial::GenerateEnvLUT(@)",
     header: "Graphic3d_PBRMaterial.hxx".}
-proc roughnessFromSpecular*(theSpecular: QuantityColor; theShiness: float): StandardShortReal {.
+proc roughnessFromSpecular*(theSpecular: QuantityColor; theShiness: cfloat): StandardShortReal {.
     importcpp: "Graphic3d_PBRMaterial::RoughnessFromSpecular(@)",
     header: "Graphic3d_PBRMaterial.hxx".}
 proc metallicFromSpecular*(theSpecular: QuantityColor): StandardShortReal {.
@@ -261,5 +261,30 @@ proc specIBLMapSamplesFactor*(theProbability: StandardShortReal;
     importcpp: "Graphic3d_PBRMaterial::SpecIBLMapSamplesFactor(@)",
     header: "Graphic3d_PBRMaterial.hxx".}
 proc dumpJson*(this: Graphic3dPBRMaterial; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_PBRMaterial.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_PBRMaterial.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

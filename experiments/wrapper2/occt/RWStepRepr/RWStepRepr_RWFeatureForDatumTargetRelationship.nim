@@ -31,7 +31,7 @@ proc constructRWStepReprRWFeatureForDatumTargetRelationship*(): RWStepReprRWFeat
     constructor, importcpp: "RWStepRepr_RWFeatureForDatumTargetRelationship(@)",
     header: "RWStepRepr_RWFeatureForDatumTargetRelationship.hxx".}
 proc readStep*(this: RWStepReprRWFeatureForDatumTargetRelationship;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprFeatureForDatumTargetRelationship]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepReprRWFeatureForDatumTargetRelationship;
            ent: Handle[StepReprFeatureForDatumTargetRelationship];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWFeatureForDatumTargetRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -54,5 +54,30 @@ proc ownCopy*(this: IGESGeomToolConicArc; entfrom: Handle[IGESGeomConicArc];
              entto: Handle[IGESGeomConicArc]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolConicArc.hxx".}
 proc ownDump*(this: IGESGeomToolConicArc; ent: Handle[IGESGeomConicArc];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolConicArc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

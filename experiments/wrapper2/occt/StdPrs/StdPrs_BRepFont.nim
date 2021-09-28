@@ -14,7 +14,7 @@
 
 discard "forward decl of StdPrs_BRepFont"
 type
-  HandleStdPrsBRepFont* = Handle[StdPrsBRepFont]
+  HandleC1C1* = Handle[StdPrsBRepFont]
 
 ## ! This tool provides basic services for rendering of vectorized text glyphs as BRep shapes.
 ## ! Single instance initialize single font for sequential glyphs rendering with implicit caching of already rendered glyphs.
@@ -60,25 +60,25 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StdPrsBRepFont): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdPrs_BRepFont.hxx".}
 proc findAndCreate*(theFontName: TCollectionAsciiString;
-                   theFontAspect: FontFontAspect; theSize: float;
+                   theFontAspect: FontFontAspect; theSize: cfloat;
                    theStrictLevel: FontStrictLevel = fontStrictLevelAny): Handle[
     StdPrsBRepFont] {.importcpp: "StdPrs_BRepFont::FindAndCreate(@)",
                      header: "StdPrs_BRepFont.hxx".}
 proc constructStdPrsBRepFont*(): StdPrsBRepFont {.constructor,
     importcpp: "StdPrs_BRepFont(@)", header: "StdPrs_BRepFont.hxx".}
-proc constructStdPrsBRepFont*(theFontPath: NCollectionString; theSize: float;
-                             theFaceId: int = 0): StdPrsBRepFont {.constructor,
+proc constructStdPrsBRepFont*(theFontPath: NCollectionString; theSize: cfloat;
+                             theFaceId: cint = 0): StdPrsBRepFont {.constructor,
     importcpp: "StdPrs_BRepFont(@)", header: "StdPrs_BRepFont.hxx".}
 proc constructStdPrsBRepFont*(theFontName: NCollectionString;
-                             theFontAspect: FontFontAspect; theSize: float;
+                             theFontAspect: FontFontAspect; theSize: cfloat;
     theStrictLevel: FontStrictLevel = fontStrictLevelAny): StdPrsBRepFont {.
     constructor, importcpp: "StdPrs_BRepFont(@)", header: "StdPrs_BRepFont.hxx".}
 proc release*(this: var StdPrsBRepFont) {.importcpp: "Release",
                                       header: "StdPrs_BRepFont.hxx".}
-proc init*(this: var StdPrsBRepFont; theFontPath: NCollectionString; theSize: float;
-          theFaceId: int): bool {.importcpp: "Init", header: "StdPrs_BRepFont.hxx".}
+proc init*(this: var StdPrsBRepFont; theFontPath: NCollectionString; theSize: cfloat;
+          theFaceId: cint): bool {.importcpp: "Init", header: "StdPrs_BRepFont.hxx".}
 proc findAndInit*(this: var StdPrsBRepFont; theFontName: TCollectionAsciiString;
-                 theFontAspect: FontFontAspect; theSize: float;
+                 theFontAspect: FontFontAspect; theSize: cfloat;
                  theStrictLevel: FontStrictLevel = fontStrictLevelAny): bool {.
     importcpp: "FindAndInit", header: "StdPrs_BRepFont.hxx".}
 proc fTFont*(this: StdPrsBRepFont): Handle[FontFTFont] {.noSideEffect,
@@ -89,28 +89,53 @@ proc setCompositeCurveMode*(this: var StdPrsBRepFont; theToConcatenate: bool) {.
     importcpp: "SetCompositeCurveMode", header: "StdPrs_BRepFont.hxx".}
 proc setWidthScaling*(this: var StdPrsBRepFont; theScaleFactor: cfloat) {.
     importcpp: "SetWidthScaling", header: "StdPrs_BRepFont.hxx".}
-proc ascender*(this: StdPrsBRepFont): float {.noSideEffect, importcpp: "Ascender",
+proc ascender*(this: StdPrsBRepFont): cfloat {.noSideEffect, importcpp: "Ascender",
     header: "StdPrs_BRepFont.hxx".}
-proc descender*(this: StdPrsBRepFont): float {.noSideEffect, importcpp: "Descender",
+proc descender*(this: StdPrsBRepFont): cfloat {.noSideEffect, importcpp: "Descender",
     header: "StdPrs_BRepFont.hxx".}
-proc lineSpacing*(this: StdPrsBRepFont): float {.noSideEffect,
+proc lineSpacing*(this: StdPrsBRepFont): cfloat {.noSideEffect,
     importcpp: "LineSpacing", header: "StdPrs_BRepFont.hxx".}
-proc pointSize*(this: StdPrsBRepFont): float {.noSideEffect, importcpp: "PointSize",
+proc pointSize*(this: StdPrsBRepFont): cfloat {.noSideEffect, importcpp: "PointSize",
     header: "StdPrs_BRepFont.hxx".}
-proc advanceX*(this: var StdPrsBRepFont; theUCharNext: StandardUtf32Char): float {.
+proc advanceX*(this: var StdPrsBRepFont; theUCharNext: StandardUtf32Char): cfloat {.
     importcpp: "AdvanceX", header: "StdPrs_BRepFont.hxx".}
 proc advanceX*(this: var StdPrsBRepFont; theUChar: StandardUtf32Char;
-              theUCharNext: StandardUtf32Char): float {.importcpp: "AdvanceX",
+              theUCharNext: StandardUtf32Char): cfloat {.importcpp: "AdvanceX",
     header: "StdPrs_BRepFont.hxx".}
-proc advanceY*(this: var StdPrsBRepFont; theUCharNext: StandardUtf32Char): float {.
+proc advanceY*(this: var StdPrsBRepFont; theUCharNext: StandardUtf32Char): cfloat {.
     importcpp: "AdvanceY", header: "StdPrs_BRepFont.hxx".}
 proc advanceY*(this: var StdPrsBRepFont; theUChar: StandardUtf32Char;
-              theUCharNext: StandardUtf32Char): float {.importcpp: "AdvanceY",
+              theUCharNext: StandardUtf32Char): cfloat {.importcpp: "AdvanceY",
     header: "StdPrs_BRepFont.hxx".}
-proc scale*(this: StdPrsBRepFont): float {.noSideEffect, importcpp: "Scale",
-                                       header: "StdPrs_BRepFont.hxx".}
+proc scale*(this: StdPrsBRepFont): cfloat {.noSideEffect, importcpp: "Scale",
+                                        header: "StdPrs_BRepFont.hxx".}
 proc mutex*(this: var StdPrsBRepFont): var StandardMutex {.importcpp: "Mutex",
     header: "StdPrs_BRepFont.hxx".}
 proc init*(this: var StdPrsBRepFont; theFontName: NCollectionString;
-          theFontAspect: FontFontAspect; theSize: float): bool {.importcpp: "Init",
+          theFontAspect: FontFontAspect; theSize: cfloat): bool {.importcpp: "Init",
     header: "StdPrs_BRepFont.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

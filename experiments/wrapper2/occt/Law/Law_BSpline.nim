@@ -23,7 +23,7 @@ discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Law_BSpline"
 discard "forward decl of Law_BSpline"
 type
-  HandleLawBSpline* = Handle[LawBSpline]
+  HandleC1C1* = Handle[LawBSpline]
 
 ## ! Definition of the 1D B_spline curve.
 ## !
@@ -140,58 +140,58 @@ type
 
 
 proc constructLawBSpline*(poles: TColStdArray1OfReal; knots: TColStdArray1OfReal;
-                         multiplicities: TColStdArray1OfInteger; degree: int;
+                         multiplicities: TColStdArray1OfInteger; degree: cint;
                          periodic: bool = false): LawBSpline {.constructor,
     importcpp: "Law_BSpline(@)", header: "Law_BSpline.hxx".}
 proc constructLawBSpline*(poles: TColStdArray1OfReal; weights: TColStdArray1OfReal;
                          knots: TColStdArray1OfReal;
-                         multiplicities: TColStdArray1OfInteger; degree: int;
+                         multiplicities: TColStdArray1OfInteger; degree: cint;
                          periodic: bool = false): LawBSpline {.constructor,
     importcpp: "Law_BSpline(@)", header: "Law_BSpline.hxx".}
-proc increaseDegree*(this: var LawBSpline; degree: int) {.importcpp: "IncreaseDegree",
-    header: "Law_BSpline.hxx".}
-proc increaseMultiplicity*(this: var LawBSpline; index: int; m: int) {.
+proc increaseDegree*(this: var LawBSpline; degree: cint) {.
+    importcpp: "IncreaseDegree", header: "Law_BSpline.hxx".}
+proc increaseMultiplicity*(this: var LawBSpline; index: cint; m: cint) {.
     importcpp: "IncreaseMultiplicity", header: "Law_BSpline.hxx".}
-proc increaseMultiplicity*(this: var LawBSpline; i1: int; i2: int; m: int) {.
+proc increaseMultiplicity*(this: var LawBSpline; i1: cint; i2: cint; m: cint) {.
     importcpp: "IncreaseMultiplicity", header: "Law_BSpline.hxx".}
-proc incrementMultiplicity*(this: var LawBSpline; i1: int; i2: int; m: int) {.
+proc incrementMultiplicity*(this: var LawBSpline; i1: cint; i2: cint; m: cint) {.
     importcpp: "IncrementMultiplicity", header: "Law_BSpline.hxx".}
-proc insertKnot*(this: var LawBSpline; u: float; m: int = 1;
-                parametricTolerance: float = 0.0; add: bool = true) {.
+proc insertKnot*(this: var LawBSpline; u: cfloat; m: cint = 1;
+                parametricTolerance: cfloat = 0.0; add: bool = true) {.
     importcpp: "InsertKnot", header: "Law_BSpline.hxx".}
 proc insertKnots*(this: var LawBSpline; knots: TColStdArray1OfReal;
-                 mults: TColStdArray1OfInteger; parametricTolerance: float = 0.0;
+                 mults: TColStdArray1OfInteger; parametricTolerance: cfloat = 0.0;
                  add: bool = false) {.importcpp: "InsertKnots",
                                   header: "Law_BSpline.hxx".}
-proc removeKnot*(this: var LawBSpline; index: int; m: int; tolerance: float): bool {.
+proc removeKnot*(this: var LawBSpline; index: cint; m: cint; tolerance: cfloat): bool {.
     importcpp: "RemoveKnot", header: "Law_BSpline.hxx".}
 proc reverse*(this: var LawBSpline) {.importcpp: "Reverse", header: "Law_BSpline.hxx".}
-proc reversedParameter*(this: LawBSpline; u: float): float {.noSideEffect,
+proc reversedParameter*(this: LawBSpline; u: cfloat): cfloat {.noSideEffect,
     importcpp: "ReversedParameter", header: "Law_BSpline.hxx".}
-proc segment*(this: var LawBSpline; u1: float; u2: float) {.importcpp: "Segment",
+proc segment*(this: var LawBSpline; u1: cfloat; u2: cfloat) {.importcpp: "Segment",
     header: "Law_BSpline.hxx".}
-proc setKnot*(this: var LawBSpline; index: int; k: float) {.importcpp: "SetKnot",
+proc setKnot*(this: var LawBSpline; index: cint; k: cfloat) {.importcpp: "SetKnot",
     header: "Law_BSpline.hxx".}
 proc setKnots*(this: var LawBSpline; k: TColStdArray1OfReal) {.importcpp: "SetKnots",
     header: "Law_BSpline.hxx".}
-proc setKnot*(this: var LawBSpline; index: int; k: float; m: int) {.importcpp: "SetKnot",
-    header: "Law_BSpline.hxx".}
-proc periodicNormalization*(this: LawBSpline; u: var float) {.noSideEffect,
+proc setKnot*(this: var LawBSpline; index: cint; k: cfloat; m: cint) {.
+    importcpp: "SetKnot", header: "Law_BSpline.hxx".}
+proc periodicNormalization*(this: LawBSpline; u: var cfloat) {.noSideEffect,
     importcpp: "PeriodicNormalization", header: "Law_BSpline.hxx".}
 proc setPeriodic*(this: var LawBSpline) {.importcpp: "SetPeriodic",
                                       header: "Law_BSpline.hxx".}
-proc setOrigin*(this: var LawBSpline; index: int) {.importcpp: "SetOrigin",
+proc setOrigin*(this: var LawBSpline; index: cint) {.importcpp: "SetOrigin",
     header: "Law_BSpline.hxx".}
 proc setNotPeriodic*(this: var LawBSpline) {.importcpp: "SetNotPeriodic",
     header: "Law_BSpline.hxx".}
-proc setPole*(this: var LawBSpline; index: int; p: float) {.importcpp: "SetPole",
+proc setPole*(this: var LawBSpline; index: cint; p: cfloat) {.importcpp: "SetPole",
     header: "Law_BSpline.hxx".}
-proc setPole*(this: var LawBSpline; index: int; p: float; weight: float) {.
+proc setPole*(this: var LawBSpline; index: cint; p: cfloat; weight: cfloat) {.
     importcpp: "SetPole", header: "Law_BSpline.hxx".}
-proc setWeight*(this: var LawBSpline; index: int; weight: float) {.
+proc setWeight*(this: var LawBSpline; index: cint; weight: cfloat) {.
     importcpp: "SetWeight", header: "Law_BSpline.hxx".}
-proc isCN*(this: LawBSpline; n: int): bool {.noSideEffect, importcpp: "IsCN",
-                                       header: "Law_BSpline.hxx".}
+proc isCN*(this: LawBSpline; n: cint): bool {.noSideEffect, importcpp: "IsCN",
+                                        header: "Law_BSpline.hxx".}
 proc isClosed*(this: LawBSpline): bool {.noSideEffect, importcpp: "IsClosed",
                                      header: "Law_BSpline.hxx".}
 proc isPeriodic*(this: LawBSpline): bool {.noSideEffect, importcpp: "IsPeriodic",
@@ -200,42 +200,42 @@ proc isRational*(this: LawBSpline): bool {.noSideEffect, importcpp: "IsRational"
                                        header: "Law_BSpline.hxx".}
 proc continuity*(this: LawBSpline): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Law_BSpline.hxx".}
-proc degree*(this: LawBSpline): int {.noSideEffect, importcpp: "Degree",
-                                  header: "Law_BSpline.hxx".}
-proc value*(this: LawBSpline; u: float): float {.noSideEffect, importcpp: "Value",
+proc degree*(this: LawBSpline): cint {.noSideEffect, importcpp: "Degree",
+                                   header: "Law_BSpline.hxx".}
+proc value*(this: LawBSpline; u: cfloat): cfloat {.noSideEffect, importcpp: "Value",
     header: "Law_BSpline.hxx".}
-proc d0*(this: LawBSpline; u: float; p: var float) {.noSideEffect, importcpp: "D0",
+proc d0*(this: LawBSpline; u: cfloat; p: var cfloat) {.noSideEffect, importcpp: "D0",
     header: "Law_BSpline.hxx".}
-proc d1*(this: LawBSpline; u: float; p: var float; v1: var float) {.noSideEffect,
+proc d1*(this: LawBSpline; u: cfloat; p: var cfloat; v1: var cfloat) {.noSideEffect,
     importcpp: "D1", header: "Law_BSpline.hxx".}
-proc d2*(this: LawBSpline; u: float; p: var float; v1: var float; v2: var float) {.
+proc d2*(this: LawBSpline; u: cfloat; p: var cfloat; v1: var cfloat; v2: var cfloat) {.
     noSideEffect, importcpp: "D2", header: "Law_BSpline.hxx".}
-proc d3*(this: LawBSpline; u: float; p: var float; v1: var float; v2: var float; v3: var float) {.
-    noSideEffect, importcpp: "D3", header: "Law_BSpline.hxx".}
-proc dn*(this: LawBSpline; u: float; n: int): float {.noSideEffect, importcpp: "DN",
+proc d3*(this: LawBSpline; u: cfloat; p: var cfloat; v1: var cfloat; v2: var cfloat;
+        v3: var cfloat) {.noSideEffect, importcpp: "D3", header: "Law_BSpline.hxx".}
+proc dn*(this: LawBSpline; u: cfloat; n: cint): cfloat {.noSideEffect, importcpp: "DN",
     header: "Law_BSpline.hxx".}
-proc localValue*(this: LawBSpline; u: float; fromK1: int; toK2: int): float {.
+proc localValue*(this: LawBSpline; u: cfloat; fromK1: cint; toK2: cint): cfloat {.
     noSideEffect, importcpp: "LocalValue", header: "Law_BSpline.hxx".}
-proc localD0*(this: LawBSpline; u: float; fromK1: int; toK2: int; p: var float) {.
+proc localD0*(this: LawBSpline; u: cfloat; fromK1: cint; toK2: cint; p: var cfloat) {.
     noSideEffect, importcpp: "LocalD0", header: "Law_BSpline.hxx".}
-proc localD1*(this: LawBSpline; u: float; fromK1: int; toK2: int; p: var float;
-             v1: var float) {.noSideEffect, importcpp: "LocalD1",
-                           header: "Law_BSpline.hxx".}
-proc localD2*(this: LawBSpline; u: float; fromK1: int; toK2: int; p: var float;
-             v1: var float; v2: var float) {.noSideEffect, importcpp: "LocalD2",
-                                       header: "Law_BSpline.hxx".}
-proc localD3*(this: LawBSpline; u: float; fromK1: int; toK2: int; p: var float;
-             v1: var float; v2: var float; v3: var float) {.noSideEffect,
+proc localD1*(this: LawBSpline; u: cfloat; fromK1: cint; toK2: cint; p: var cfloat;
+             v1: var cfloat) {.noSideEffect, importcpp: "LocalD1",
+                            header: "Law_BSpline.hxx".}
+proc localD2*(this: LawBSpline; u: cfloat; fromK1: cint; toK2: cint; p: var cfloat;
+             v1: var cfloat; v2: var cfloat) {.noSideEffect, importcpp: "LocalD2",
+    header: "Law_BSpline.hxx".}
+proc localD3*(this: LawBSpline; u: cfloat; fromK1: cint; toK2: cint; p: var cfloat;
+             v1: var cfloat; v2: var cfloat; v3: var cfloat) {.noSideEffect,
     importcpp: "LocalD3", header: "Law_BSpline.hxx".}
-proc localDN*(this: LawBSpline; u: float; fromK1: int; toK2: int; n: int): float {.
+proc localDN*(this: LawBSpline; u: cfloat; fromK1: cint; toK2: cint; n: cint): cfloat {.
     noSideEffect, importcpp: "LocalDN", header: "Law_BSpline.hxx".}
-proc endPoint*(this: LawBSpline): float {.noSideEffect, importcpp: "EndPoint",
-                                      header: "Law_BSpline.hxx".}
-proc firstUKnotIndex*(this: LawBSpline): int {.noSideEffect,
+proc endPoint*(this: LawBSpline): cfloat {.noSideEffect, importcpp: "EndPoint",
+                                       header: "Law_BSpline.hxx".}
+proc firstUKnotIndex*(this: LawBSpline): cint {.noSideEffect,
     importcpp: "FirstUKnotIndex", header: "Law_BSpline.hxx".}
-proc firstParameter*(this: LawBSpline): float {.noSideEffect,
+proc firstParameter*(this: LawBSpline): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "Law_BSpline.hxx".}
-proc knot*(this: LawBSpline; index: int): float {.noSideEffect, importcpp: "Knot",
+proc knot*(this: LawBSpline; index: cint): cfloat {.noSideEffect, importcpp: "Knot",
     header: "Law_BSpline.hxx".}
 proc knots*(this: LawBSpline; k: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "Knots", header: "Law_BSpline.hxx".}
@@ -243,39 +243,39 @@ proc knotSequence*(this: LawBSpline; k: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "KnotSequence", header: "Law_BSpline.hxx".}
 proc knotDistribution*(this: LawBSpline): GeomAbsBSplKnotDistribution {.
     noSideEffect, importcpp: "KnotDistribution", header: "Law_BSpline.hxx".}
-proc lastUKnotIndex*(this: LawBSpline): int {.noSideEffect,
+proc lastUKnotIndex*(this: LawBSpline): cint {.noSideEffect,
     importcpp: "LastUKnotIndex", header: "Law_BSpline.hxx".}
-proc lastParameter*(this: LawBSpline): float {.noSideEffect,
+proc lastParameter*(this: LawBSpline): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "Law_BSpline.hxx".}
-proc locateU*(this: LawBSpline; u: float; parametricTolerance: float; i1: var int;
-             i2: var int; withKnotRepetition: bool = false) {.noSideEffect,
+proc locateU*(this: LawBSpline; u: cfloat; parametricTolerance: cfloat; i1: var cint;
+             i2: var cint; withKnotRepetition: bool = false) {.noSideEffect,
     importcpp: "LocateU", header: "Law_BSpline.hxx".}
-proc multiplicity*(this: LawBSpline; index: int): int {.noSideEffect,
+proc multiplicity*(this: LawBSpline; index: cint): cint {.noSideEffect,
     importcpp: "Multiplicity", header: "Law_BSpline.hxx".}
 proc multiplicities*(this: LawBSpline; m: var TColStdArray1OfInteger) {.noSideEffect,
     importcpp: "Multiplicities", header: "Law_BSpline.hxx".}
-proc nbKnots*(this: LawBSpline): int {.noSideEffect, importcpp: "NbKnots",
-                                   header: "Law_BSpline.hxx".}
-proc nbPoles*(this: LawBSpline): int {.noSideEffect, importcpp: "NbPoles",
-                                   header: "Law_BSpline.hxx".}
-proc pole*(this: LawBSpline; index: int): float {.noSideEffect, importcpp: "Pole",
+proc nbKnots*(this: LawBSpline): cint {.noSideEffect, importcpp: "NbKnots",
+                                    header: "Law_BSpline.hxx".}
+proc nbPoles*(this: LawBSpline): cint {.noSideEffect, importcpp: "NbPoles",
+                                    header: "Law_BSpline.hxx".}
+proc pole*(this: LawBSpline; index: cint): cfloat {.noSideEffect, importcpp: "Pole",
     header: "Law_BSpline.hxx".}
 proc poles*(this: LawBSpline; p: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "Poles", header: "Law_BSpline.hxx".}
-proc startPoint*(this: LawBSpline): float {.noSideEffect, importcpp: "StartPoint",
-                                        header: "Law_BSpline.hxx".}
-proc weight*(this: LawBSpline; index: int): float {.noSideEffect, importcpp: "Weight",
+proc startPoint*(this: LawBSpline): cfloat {.noSideEffect, importcpp: "StartPoint",
     header: "Law_BSpline.hxx".}
+proc weight*(this: LawBSpline; index: cint): cfloat {.noSideEffect,
+    importcpp: "Weight", header: "Law_BSpline.hxx".}
 proc weights*(this: LawBSpline; w: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "Weights", header: "Law_BSpline.hxx".}
-proc maxDegree*(): int {.importcpp: "Law_BSpline::MaxDegree(@)",
-                      header: "Law_BSpline.hxx".}
-proc movePointAndTangent*(this: var LawBSpline; u: float; newValue: float;
-                         derivative: float; tolerance: float;
-                         startingCondition: int; endingCondition: int;
-                         errorStatus: var int) {.importcpp: "MovePointAndTangent",
+proc maxDegree*(): cint {.importcpp: "Law_BSpline::MaxDegree(@)",
+                       header: "Law_BSpline.hxx".}
+proc movePointAndTangent*(this: var LawBSpline; u: cfloat; newValue: cfloat;
+                         derivative: cfloat; tolerance: cfloat;
+                         startingCondition: cint; endingCondition: cint;
+                         errorStatus: var cint) {.importcpp: "MovePointAndTangent",
     header: "Law_BSpline.hxx".}
-proc resolution*(this: LawBSpline; tolerance3D: float; uTolerance: var float) {.
+proc resolution*(this: LawBSpline; tolerance3D: cfloat; uTolerance: var cfloat) {.
     noSideEffect, importcpp: "Resolution", header: "Law_BSpline.hxx".}
 proc copy*(this: LawBSpline): Handle[LawBSpline] {.noSideEffect, importcpp: "Copy",
     header: "Law_BSpline.hxx".}
@@ -288,3 +288,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Law_BSpline::get_type_descriptor(@)", header: "Law_BSpline.hxx".}
 proc dynamicType*(this: LawBSpline): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_BSpline.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

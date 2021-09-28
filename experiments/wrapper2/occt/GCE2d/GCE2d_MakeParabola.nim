@@ -35,10 +35,10 @@ type
 
 proc constructGCE2dMakeParabola*(prb: Parab2d): GCE2dMakeParabola {.constructor,
     importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}
-proc constructGCE2dMakeParabola*(axis: Ax22d; focal: float): GCE2dMakeParabola {.
+proc constructGCE2dMakeParabola*(axis: Ax22d; focal: cfloat): GCE2dMakeParabola {.
     constructor, importcpp: "GCE2d_MakeParabola(@)",
     header: "GCE2d_MakeParabola.hxx".}
-proc constructGCE2dMakeParabola*(mirrorAxis: Ax2d; focal: float; sense: bool): GCE2dMakeParabola {.
+proc constructGCE2dMakeParabola*(mirrorAxis: Ax2d; focal: cfloat; sense: bool): GCE2dMakeParabola {.
     constructor, importcpp: "GCE2d_MakeParabola(@)",
     header: "GCE2d_MakeParabola.hxx".}
 proc constructGCE2dMakeParabola*(d: Ax2d; f: Pnt2d; sense: bool = true): GCE2dMakeParabola {.
@@ -52,3 +52,28 @@ proc value*(this: GCE2dMakeParabola): Handle[Geom2dParabola] {.noSideEffect,
 converter `constopencascade`*(this: GCE2dMakeParabola): Handle[Geom2dParabola] {.
     noSideEffect, importcpp: "GCE2d_MakeParabola::operator constopencascade",
     header: "GCE2d_MakeParabola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

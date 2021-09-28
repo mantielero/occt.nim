@@ -28,7 +28,7 @@ proc constructRWStepGeomRWQuasiUniformSurface*(): RWStepGeomRWQuasiUniformSurfac
     constructor, importcpp: "RWStepGeom_RWQuasiUniformSurface(@)",
     header: "RWStepGeom_RWQuasiUniformSurface.hxx".}
 proc readStep*(this: RWStepGeomRWQuasiUniformSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomQuasiUniformSurface]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWQuasiUniformSurface.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepGeomRWQuasiUniformSurface;
            ent: Handle[StepGeomQuasiUniformSurface];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWQuasiUniformSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

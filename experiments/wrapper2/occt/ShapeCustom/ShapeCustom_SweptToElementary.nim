@@ -24,7 +24,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeCustom_SweptToElementary"
 discard "forward decl of ShapeCustom_SweptToElementary"
 type
-  HandleShapeCustomSweptToElementary* = Handle[ShapeCustomSweptToElementary]
+  HandleC1C1* = Handle[ShapeCustomSweptToElementary]
 
 ## ! implements a modification for the BRepTools
 ## ! Modifier algortihm. Converts all elementary
@@ -40,21 +40,21 @@ proc constructShapeCustomSweptToElementary*(): ShapeCustomSweptToElementary {.
     constructor, importcpp: "ShapeCustom_SweptToElementary(@)",
     header: "ShapeCustom_SweptToElementary.hxx".}
 proc newSurface*(this: var ShapeCustomSweptToElementary; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
+                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var cfloat;
                 revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
     header: "ShapeCustom_SweptToElementary.hxx".}
 proc newCurve*(this: var ShapeCustomSweptToElementary; e: TopoDS_Edge;
-              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var float): bool {.
+              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var cfloat): bool {.
     importcpp: "NewCurve", header: "ShapeCustom_SweptToElementary.hxx".}
 proc newPoint*(this: var ShapeCustomSweptToElementary; v: TopoDS_Vertex; p: var Pnt;
-              tol: var float): bool {.importcpp: "NewPoint",
-                                  header: "ShapeCustom_SweptToElementary.hxx".}
+              tol: var cfloat): bool {.importcpp: "NewPoint",
+                                   header: "ShapeCustom_SweptToElementary.hxx".}
 proc newCurve2d*(this: var ShapeCustomSweptToElementary; e: TopoDS_Edge;
                 f: TopoDS_Face; newE: TopoDS_Edge; newF: TopoDS_Face;
-                c: var Handle[Geom2dCurve]; tol: var float): bool {.
+                c: var Handle[Geom2dCurve]; tol: var cfloat): bool {.
     importcpp: "NewCurve2d", header: "ShapeCustom_SweptToElementary.hxx".}
 proc newParameter*(this: var ShapeCustomSweptToElementary; v: TopoDS_Vertex;
-                  e: TopoDS_Edge; p: var float; tol: var float): bool {.
+                  e: TopoDS_Edge; p: var cfloat; tol: var cfloat): bool {.
     importcpp: "NewParameter", header: "ShapeCustom_SweptToElementary.hxx".}
 proc continuity*(this: var ShapeCustomSweptToElementary; e: TopoDS_Edge;
                 f1: TopoDS_Face; f2: TopoDS_Face; newE: TopoDS_Edge;
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeCustomSweptToElementary): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeCustom_SweptToElementary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

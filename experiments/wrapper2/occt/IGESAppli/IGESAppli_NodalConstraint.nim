@@ -20,7 +20,7 @@ discard "forward decl of IGESDefs_TabularData"
 discard "forward decl of IGESAppli_NodalConstraint"
 discard "forward decl of IGESAppli_NodalConstraint"
 type
-  HandleIGESAppliNodalConstraint* = Handle[IGESAppliNodalConstraint]
+  HandleC1C1* = Handle[IGESAppliNodalConstraint]
 
 ## ! defines NodalConstraint, Type <418> Form <0>
 ## ! in package IGESAppli
@@ -37,17 +37,17 @@ type
 proc constructIGESAppliNodalConstraint*(): IGESAppliNodalConstraint {.constructor,
     importcpp: "IGESAppli_NodalConstraint(@)",
     header: "IGESAppli_NodalConstraint.hxx".}
-proc init*(this: var IGESAppliNodalConstraint; aType: int;
+proc init*(this: var IGESAppliNodalConstraint; aType: cint;
           aNode: Handle[IGESAppliNode];
           allTabData: Handle[IGESDefsHArray1OfTabularData]) {.importcpp: "Init",
     header: "IGESAppli_NodalConstraint.hxx".}
-proc nbCases*(this: IGESAppliNodalConstraint): int {.noSideEffect,
+proc nbCases*(this: IGESAppliNodalConstraint): cint {.noSideEffect,
     importcpp: "NbCases", header: "IGESAppli_NodalConstraint.hxx".}
-proc `type`*(this: IGESAppliNodalConstraint): int {.noSideEffect, importcpp: "Type",
+proc `type`*(this: IGESAppliNodalConstraint): cint {.noSideEffect, importcpp: "Type",
     header: "IGESAppli_NodalConstraint.hxx".}
 proc nodeEntity*(this: IGESAppliNodalConstraint): Handle[IGESAppliNode] {.
     noSideEffect, importcpp: "NodeEntity", header: "IGESAppli_NodalConstraint.hxx".}
-proc tabularData*(this: IGESAppliNodalConstraint; index: int): Handle[
+proc tabularData*(this: IGESAppliNodalConstraint; index: cint): Handle[
     IGESDefsTabularData] {.noSideEffect, importcpp: "TabularData",
                           header: "IGESAppli_NodalConstraint.hxx".}
 type
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_NodalConstraint.hxx".}
 proc dynamicType*(this: IGESAppliNodalConstraint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_NodalConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

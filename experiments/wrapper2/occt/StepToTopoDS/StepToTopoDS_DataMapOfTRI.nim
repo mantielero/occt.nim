@@ -22,3 +22,28 @@ type
       Handle[StepShapeTopologicalRepresentationItem], TopoDS_Shape,
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

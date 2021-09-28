@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_RightCircularCone"
 discard "forward decl of StepShape_RightCircularCone"
 type
-  HandleStepShapeRightCircularCone* = Handle[StepShapeRightCircularCone]
+  HandleC1C1* = Handle[StepShapeRightCircularCone]
   StepShapeRightCircularCone* {.importcpp: "StepShape_RightCircularCone",
                                header: "StepShape_RightCircularCone.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                                             ## !
@@ -33,25 +33,25 @@ proc constructStepShapeRightCircularCone*(): StepShapeRightCircularCone {.
     header: "StepShape_RightCircularCone.hxx".}
 proc init*(this: var StepShapeRightCircularCone;
           aName: Handle[TCollectionHAsciiString];
-          aPosition: Handle[StepGeomAxis1Placement]; aHeight: float; aRadius: float;
-          aSemiAngle: float) {.importcpp: "Init",
-                             header: "StepShape_RightCircularCone.hxx".}
+          aPosition: Handle[StepGeomAxis1Placement]; aHeight: cfloat;
+          aRadius: cfloat; aSemiAngle: cfloat) {.importcpp: "Init",
+    header: "StepShape_RightCircularCone.hxx".}
 proc setPosition*(this: var StepShapeRightCircularCone;
                  aPosition: Handle[StepGeomAxis1Placement]) {.
     importcpp: "SetPosition", header: "StepShape_RightCircularCone.hxx".}
 proc position*(this: StepShapeRightCircularCone): Handle[StepGeomAxis1Placement] {.
     noSideEffect, importcpp: "Position", header: "StepShape_RightCircularCone.hxx".}
-proc setHeight*(this: var StepShapeRightCircularCone; aHeight: float) {.
+proc setHeight*(this: var StepShapeRightCircularCone; aHeight: cfloat) {.
     importcpp: "SetHeight", header: "StepShape_RightCircularCone.hxx".}
-proc height*(this: StepShapeRightCircularCone): float {.noSideEffect,
+proc height*(this: StepShapeRightCircularCone): cfloat {.noSideEffect,
     importcpp: "Height", header: "StepShape_RightCircularCone.hxx".}
-proc setRadius*(this: var StepShapeRightCircularCone; aRadius: float) {.
+proc setRadius*(this: var StepShapeRightCircularCone; aRadius: cfloat) {.
     importcpp: "SetRadius", header: "StepShape_RightCircularCone.hxx".}
-proc radius*(this: StepShapeRightCircularCone): float {.noSideEffect,
+proc radius*(this: StepShapeRightCircularCone): cfloat {.noSideEffect,
     importcpp: "Radius", header: "StepShape_RightCircularCone.hxx".}
-proc setSemiAngle*(this: var StepShapeRightCircularCone; aSemiAngle: float) {.
+proc setSemiAngle*(this: var StepShapeRightCircularCone; aSemiAngle: cfloat) {.
     importcpp: "SetSemiAngle", header: "StepShape_RightCircularCone.hxx".}
-proc semiAngle*(this: StepShapeRightCircularCone): float {.noSideEffect,
+proc semiAngle*(this: StepShapeRightCircularCone): cfloat {.noSideEffect,
     importcpp: "SemiAngle", header: "StepShape_RightCircularCone.hxx".}
 type
   StepShapeRightCircularConebaseType* = StepGeomGeometricRepresentationItem
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeRightCircularCone): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_RightCircularCone.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

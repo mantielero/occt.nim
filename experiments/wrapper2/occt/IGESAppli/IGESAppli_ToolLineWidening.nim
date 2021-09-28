@@ -67,5 +67,30 @@ proc ownCopy*(this: IGESAppliToolLineWidening;
              entto: Handle[IGESAppliLineWidening]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolLineWidening.hxx".}
 proc ownDump*(this: IGESAppliToolLineWidening; ent: Handle[IGESAppliLineWidening];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolLineWidening.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

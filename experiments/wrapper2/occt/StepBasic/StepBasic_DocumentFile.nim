@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_DocumentType"
 discard "forward decl of StepBasic_DocumentFile"
 discard "forward decl of StepBasic_DocumentFile"
 type
-  HandleStepBasicDocumentFile* = Handle[StepBasicDocumentFile]
+  HandleC1C1* = Handle[StepBasicDocumentFile]
 
 ## ! Representation of STEP entity DocumentFile
 
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DocumentFile.hxx".}
 proc dynamicType*(this: StepBasicDocumentFile): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_DocumentFile.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

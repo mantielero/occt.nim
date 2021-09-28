@@ -88,16 +88,16 @@ proc setComponent*(this: var AIS_Trihedron; theComponent: Handle[GeomAxis2Placem
     importcpp: "SetComponent", header: "AIS_Trihedron.hxx".}
 proc hasOwnSize*(this: AIS_Trihedron): bool {.noSideEffect, importcpp: "HasOwnSize",
     header: "AIS_Trihedron.hxx".}
-proc setSize*(this: var AIS_Trihedron; theValue: float) {.importcpp: "SetSize",
+proc setSize*(this: var AIS_Trihedron; theValue: cfloat) {.importcpp: "SetSize",
     header: "AIS_Trihedron.hxx".}
 proc unsetSize*(this: var AIS_Trihedron) {.importcpp: "UnsetSize",
                                        header: "AIS_Trihedron.hxx".}
-proc size*(this: AIS_Trihedron): float {.noSideEffect, importcpp: "Size",
-                                     header: "AIS_Trihedron.hxx".}
-proc acceptDisplayMode*(this: AIS_Trihedron; theMode: int): bool {.noSideEffect,
+proc size*(this: AIS_Trihedron): cfloat {.noSideEffect, importcpp: "Size",
+                                      header: "AIS_Trihedron.hxx".}
+proc acceptDisplayMode*(this: AIS_Trihedron; theMode: cint): bool {.noSideEffect,
     importcpp: "AcceptDisplayMode", header: "AIS_Trihedron.hxx".}
-proc signature*(this: AIS_Trihedron): int {.noSideEffect, importcpp: "Signature",
-                                        header: "AIS_Trihedron.hxx".}
+proc signature*(this: AIS_Trihedron): cint {.noSideEffect, importcpp: "Signature",
+    header: "AIS_Trihedron.hxx".}
 proc `type`*(this: AIS_Trihedron): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_Trihedron.hxx".}
 proc setColor*(this: var AIS_Trihedron; theColor: QuantityColor) {.
@@ -134,9 +134,9 @@ proc toDrawArrows*(this: AIS_Trihedron): bool {.noSideEffect,
 proc setDrawArrows*(this: var AIS_Trihedron; theToDraw: bool) {.
     importcpp: "SetDrawArrows", header: "AIS_Trihedron.hxx".}
 proc setSelectionPriority*(this: var AIS_Trihedron; thePart: Prs3dDatumParts;
-                          thePriority: int) {.importcpp: "SetSelectionPriority",
+                          thePriority: cint) {.importcpp: "SetSelectionPriority",
     header: "AIS_Trihedron.hxx".}
-proc selectionPriority*(this: var AIS_Trihedron; thePart: Prs3dDatumParts): int {.
+proc selectionPriority*(this: var AIS_Trihedron; thePart: Prs3dDatumParts): cint {.
     importcpp: "SelectionPriority", header: "AIS_Trihedron.hxx".}
 proc setLabel*(this: var AIS_Trihedron; thePart: Prs3dDatumParts;
               thePriority: TCollectionExtendedString) {.importcpp: "SetLabel",
@@ -156,5 +156,30 @@ proc hilightOwnerWithColor*(this: var AIS_Trihedron;
     importcpp: "HilightOwnerWithColor", header: "AIS_Trihedron.hxx".}
 discard "forward decl of AIS_Trihedron"
 type
-  HandleAIS_Trihedron* = Handle[AIS_Trihedron]
+  HandleC1C1* = Handle[AIS_Trihedron]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

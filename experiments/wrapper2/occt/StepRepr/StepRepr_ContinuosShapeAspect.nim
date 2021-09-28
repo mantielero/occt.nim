@@ -16,7 +16,7 @@
 discard "forward decl of StepRepr_ContinuosShapeAspect"
 discard "forward decl of StepRepr_ContinuosShapeAspect"
 type
-  HandleStepReprContinuosShapeAspect* = Handle[StepReprContinuosShapeAspect]
+  HandleC1C1* = Handle[StepReprContinuosShapeAspect]
 
 ## ! Added for Dimensional Tolerances
 
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprContinuosShapeAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ContinuosShapeAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

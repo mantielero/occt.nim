@@ -20,3 +20,28 @@ type
   TopOpeBRepDS_DataMapIteratorOfShapeSurface* = Iterator[TopoDS_Shape,
       Handle[GeomSurface], TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

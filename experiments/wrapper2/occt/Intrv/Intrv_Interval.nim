@@ -35,33 +35,33 @@ type
 
 proc constructIntrvInterval*(): IntrvInterval {.constructor,
     importcpp: "Intrv_Interval(@)", header: "Intrv_Interval.hxx".}
-proc constructIntrvInterval*(start: float; `end`: float): IntrvInterval {.constructor,
-    importcpp: "Intrv_Interval(@)", header: "Intrv_Interval.hxx".}
-proc constructIntrvInterval*(start: float; tolStart: StandardShortReal; `end`: float;
-                            tolEnd: StandardShortReal): IntrvInterval {.
+proc constructIntrvInterval*(start: cfloat; `end`: cfloat): IntrvInterval {.
     constructor, importcpp: "Intrv_Interval(@)", header: "Intrv_Interval.hxx".}
-proc start*(this: IntrvInterval): float {.noSideEffect, importcpp: "Start",
-                                      header: "Intrv_Interval.hxx".}
-proc `end`*(this: IntrvInterval): float {.noSideEffect, importcpp: "End",
-                                      header: "Intrv_Interval.hxx".}
+proc constructIntrvInterval*(start: cfloat; tolStart: StandardShortReal;
+                            `end`: cfloat; tolEnd: StandardShortReal): IntrvInterval {.
+    constructor, importcpp: "Intrv_Interval(@)", header: "Intrv_Interval.hxx".}
+proc start*(this: IntrvInterval): cfloat {.noSideEffect, importcpp: "Start",
+                                       header: "Intrv_Interval.hxx".}
+proc `end`*(this: IntrvInterval): cfloat {.noSideEffect, importcpp: "End",
+                                       header: "Intrv_Interval.hxx".}
 proc tolStart*(this: IntrvInterval): StandardShortReal {.noSideEffect,
     importcpp: "TolStart", header: "Intrv_Interval.hxx".}
 proc tolEnd*(this: IntrvInterval): StandardShortReal {.noSideEffect,
     importcpp: "TolEnd", header: "Intrv_Interval.hxx".}
-proc bounds*(this: IntrvInterval; start: var float; tolStart: var StandardShortReal;
-            `end`: var float; tolEnd: var StandardShortReal) {.noSideEffect,
+proc bounds*(this: IntrvInterval; start: var cfloat; tolStart: var StandardShortReal;
+            `end`: var cfloat; tolEnd: var StandardShortReal) {.noSideEffect,
     importcpp: "Bounds", header: "Intrv_Interval.hxx".}
-proc setStart*(this: var IntrvInterval; start: float; tolStart: StandardShortReal) {.
+proc setStart*(this: var IntrvInterval; start: cfloat; tolStart: StandardShortReal) {.
     importcpp: "SetStart", header: "Intrv_Interval.hxx".}
-proc fuseAtStart*(this: var IntrvInterval; start: float; tolStart: StandardShortReal) {.
+proc fuseAtStart*(this: var IntrvInterval; start: cfloat; tolStart: StandardShortReal) {.
     importcpp: "FuseAtStart", header: "Intrv_Interval.hxx".}
-proc cutAtStart*(this: var IntrvInterval; start: float; tolStart: StandardShortReal) {.
+proc cutAtStart*(this: var IntrvInterval; start: cfloat; tolStart: StandardShortReal) {.
     importcpp: "CutAtStart", header: "Intrv_Interval.hxx".}
-proc setEnd*(this: var IntrvInterval; `end`: float; tolEnd: StandardShortReal) {.
+proc setEnd*(this: var IntrvInterval; `end`: cfloat; tolEnd: StandardShortReal) {.
     importcpp: "SetEnd", header: "Intrv_Interval.hxx".}
-proc fuseAtEnd*(this: var IntrvInterval; `end`: float; tolEnd: StandardShortReal) {.
+proc fuseAtEnd*(this: var IntrvInterval; `end`: cfloat; tolEnd: StandardShortReal) {.
     importcpp: "FuseAtEnd", header: "Intrv_Interval.hxx".}
-proc cutAtEnd*(this: var IntrvInterval; `end`: float; tolEnd: StandardShortReal) {.
+proc cutAtEnd*(this: var IntrvInterval; `end`: cfloat; tolEnd: StandardShortReal) {.
     importcpp: "CutAtEnd", header: "Intrv_Interval.hxx".}
 proc isProbablyEmpty*(this: IntrvInterval): bool {.noSideEffect,
     importcpp: "IsProbablyEmpty", header: "Intrv_Interval.hxx".}
@@ -94,3 +94,28 @@ proc isJustOverlappingAtEnd*(this: IntrvInterval; other: IntrvInterval): bool {.
     noSideEffect, importcpp: "IsJustOverlappingAtEnd", header: "Intrv_Interval.hxx".}
 proc isSimilar*(this: IntrvInterval; other: IntrvInterval): bool {.noSideEffect,
     importcpp: "IsSimilar", header: "Intrv_Interval.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

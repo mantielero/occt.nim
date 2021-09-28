@@ -35,7 +35,7 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Graphic3dMediaTexture): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_MediaTexture.hxx".}
 proc constructGraphic3dMediaTexture*(theMutex: Handle[MediaHMutex];
-                                    thePlane: int = -1): Graphic3dMediaTexture {.
+                                    thePlane: cint = -1): Graphic3dMediaTexture {.
     constructor, importcpp: "Graphic3d_MediaTexture(@)",
     header: "Graphic3d_MediaTexture.hxx".}
 proc getImage*(this: var Graphic3dMediaTexture;
@@ -47,3 +47,28 @@ proc setFrame*(this: var Graphic3dMediaTexture; theFrame: Handle[MediaFrame]) {.
     importcpp: "SetFrame", header: "Graphic3d_MediaTexture.hxx".}
 proc generateNewId*(this: var Graphic3dMediaTexture) {.importcpp: "GenerateNewId",
     header: "Graphic3d_MediaTexture.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

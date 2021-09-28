@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeExtend_BasicMsgRegistrator"
 discard "forward decl of ShapeExtend_BasicMsgRegistrator"
 type
-  HandleShapeExtendBasicMsgRegistrator* = Handle[ShapeExtendBasicMsgRegistrator]
+  HandleC1C1* = Handle[ShapeExtendBasicMsgRegistrator]
 
 ## ! Abstract class that can be used for attaching messages
 ## ! to the objects (e.g. shapes).
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeExtendBasicMsgRegistrator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeExtend_BasicMsgRegistrator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_RealListDriver"
 discard "forward decl of XmlMDataStd_RealListDriver"
 type
-  HandleXmlMDataStdRealListDriver* = Handle[XmlMDataStdRealListDriver]
+  HandleC1C1* = Handle[XmlMDataStdRealListDriver]
   XmlMDataStdRealListDriver* {.importcpp: "XmlMDataStd_RealListDriver",
                               header: "XmlMDataStd_RealListDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataStdRealListDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_RealListDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

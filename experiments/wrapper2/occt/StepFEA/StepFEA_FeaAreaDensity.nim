@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_FeaAreaDensity"
 discard "forward decl of StepFEA_FeaAreaDensity"
 type
-  HandleStepFEA_FeaAreaDensity* = Handle[StepFEA_FeaAreaDensity]
+  HandleC1C1* = Handle[StepFEA_FeaAreaDensity]
 
 ## ! Representation of STEP entity FeaAreaDensity
 
@@ -33,11 +33,11 @@ proc constructStepFEA_FeaAreaDensity*(): StepFEA_FeaAreaDensity {.constructor,
     importcpp: "StepFEA_FeaAreaDensity(@)", header: "StepFEA_FeaAreaDensity.hxx".}
 proc init*(this: var StepFEA_FeaAreaDensity;
           aRepresentationItemName: Handle[TCollectionHAsciiString];
-          aFeaConstant: float) {.importcpp: "Init",
-                               header: "StepFEA_FeaAreaDensity.hxx".}
-proc feaConstant*(this: StepFEA_FeaAreaDensity): float {.noSideEffect,
+          aFeaConstant: cfloat) {.importcpp: "Init",
+                                header: "StepFEA_FeaAreaDensity.hxx".}
+proc feaConstant*(this: StepFEA_FeaAreaDensity): cfloat {.noSideEffect,
     importcpp: "FeaConstant", header: "StepFEA_FeaAreaDensity.hxx".}
-proc setFeaConstant*(this: var StepFEA_FeaAreaDensity; feaConstant: float) {.
+proc setFeaConstant*(this: var StepFEA_FeaAreaDensity; feaConstant: cfloat) {.
     importcpp: "SetFeaConstant", header: "StepFEA_FeaAreaDensity.hxx".}
 type
   StepFEA_FeaAreaDensitybaseType* = StepFEA_FeaMaterialPropertyRepresentationItem
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepFEA_FeaAreaDensity.hxx".}
 proc dynamicType*(this: StepFEA_FeaAreaDensity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepFEA_FeaAreaDensity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

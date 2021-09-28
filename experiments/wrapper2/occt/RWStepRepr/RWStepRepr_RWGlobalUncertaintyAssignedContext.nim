@@ -29,7 +29,7 @@ proc constructRWStepReprRWGlobalUncertaintyAssignedContext*(): RWStepReprRWGloba
     constructor, importcpp: "RWStepRepr_RWGlobalUncertaintyAssignedContext(@)",
     header: "RWStepRepr_RWGlobalUncertaintyAssignedContext.hxx".}
 proc readStep*(this: RWStepReprRWGlobalUncertaintyAssignedContext;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprGlobalUncertaintyAssignedContext]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepReprRWGlobalUncertaintyAssignedContext;
            ent: Handle[StepReprGlobalUncertaintyAssignedContext];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWGlobalUncertaintyAssignedContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

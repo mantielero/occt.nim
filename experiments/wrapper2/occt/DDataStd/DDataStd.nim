@@ -46,3 +46,28 @@ proc treeCommands*(i: var DrawInterpretor) {.importcpp: "DDataStd::TreeCommands(
     header: "DDataStd.hxx".}
 proc dumpConstraint*(c: Handle[TDataXtdConstraint]; s: var StandardOStream) {.
     importcpp: "DDataStd::DumpConstraint(@)", header: "DDataStd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

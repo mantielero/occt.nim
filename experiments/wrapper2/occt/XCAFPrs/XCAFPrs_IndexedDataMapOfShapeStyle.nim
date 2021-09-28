@@ -19,3 +19,28 @@ type
   XCAFPrsDataMapIteratorOfIndexedDataMapOfShapeStyle* = Iterator[TopoDS_Shape,
       XCAFPrsStyle, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

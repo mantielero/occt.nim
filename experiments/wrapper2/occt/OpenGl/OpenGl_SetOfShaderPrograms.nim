@@ -45,57 +45,74 @@ type
 
 type
   OpenGlSetOfPrograms* {.importcpp: "OpenGl_SetOfPrograms",
-                        header: "OpenGl_SetOfShaderPrograms.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## constructor
-    ## !< programs array
+                        header: "OpenGl_SetOfShaderPrograms.hxx", bycopy.} = object of StandardTransient
 
   OpenGlSetOfProgramsbaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "OpenGl_SetOfPrograms::get_type_name(@)",
                             header: "OpenGl_SetOfShaderPrograms.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "OpenGl_SetOfPrograms::get_type_descriptor(@)",
-    header: "OpenGl_SetOfShaderPrograms.hxx".}
-proc dynamicType*(this: OpenGlSetOfPrograms): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "OpenGl_SetOfShaderPrograms.hxx".}
-proc constructOpenGlSetOfPrograms*(): OpenGlSetOfPrograms {.constructor,
-    importcpp: "OpenGl_SetOfPrograms(@)", header: "OpenGl_SetOfShaderPrograms.hxx".}
-proc changeValue*(this: var OpenGlSetOfPrograms; theProgramBits: int): var Handle[
-    OpenGlShaderProgram] {.importcpp: "ChangeValue",
-                          header: "OpenGl_SetOfShaderPrograms.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) { return Standard_Type :: Instance < OpenGl_SetOfPrograms > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } public : ! Empty constructor OpenGl_SetOfPrograms ( ) { } ! Access program by index Handle ( OpenGl_ShaderProgram ) & ChangeValue ( Standard_Integer theProgramBits ) { return myPrograms [ theProgramBits ] ; } protected : Handle ( OpenGl_ShaderProgram ) myPrograms [ OpenGl_PO_NB ] ;
+## Error: identifier expected, but got: &!!!
+
 ## ! Alias to 2D programs array of predefined length
 
 type
   OpenGlSetOfShaderPrograms* {.importcpp: "OpenGl_SetOfShaderPrograms",
-                              header: "OpenGl_SetOfShaderPrograms.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor
-    ## !< programs array, excluding Graphic3d_TOSM_UNLIT
+                              header: "OpenGl_SetOfShaderPrograms.hxx", bycopy.} = object of StandardTransient
 
   OpenGlSetOfShaderProgramsbaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "OpenGl_SetOfShaderPrograms::get_type_name(@)",
                             header: "OpenGl_SetOfShaderPrograms.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "OpenGl_SetOfShaderPrograms::get_type_descriptor(@)",
-    header: "OpenGl_SetOfShaderPrograms.hxx".}
-proc dynamicType*(this: OpenGlSetOfShaderPrograms): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "OpenGl_SetOfShaderPrograms.hxx".}
-proc constructOpenGlSetOfShaderPrograms*(): OpenGlSetOfShaderPrograms {.
-    constructor, importcpp: "OpenGl_SetOfShaderPrograms(@)",
-    header: "OpenGl_SetOfShaderPrograms.hxx".}
-proc constructOpenGlSetOfShaderPrograms*(thePrograms: Handle[OpenGlSetOfPrograms]): OpenGlSetOfShaderPrograms {.
-    constructor, importcpp: "OpenGl_SetOfShaderPrograms(@)",
-    header: "OpenGl_SetOfShaderPrograms.hxx".}
-proc changeValue*(this: var OpenGlSetOfShaderPrograms;
-                 theShadingModel: Graphic3dTypeOfShadingModel; theProgramBits: int): var Handle[
-    OpenGlShaderProgram] {.importcpp: "ChangeValue",
-                          header: "OpenGl_SetOfShaderPrograms.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) { return Standard_Type :: Instance < OpenGl_SetOfShaderPrograms > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } public : ! Empty constructor OpenGl_SetOfShaderPrograms ( ) { } ! Constructor OpenGl_SetOfShaderPrograms ( const Handle ( OpenGl_SetOfPrograms ) & thePrograms ) { for ( Standard_Integer aSetIter = 0 ; aSetIter < Graphic3d_TypeOfShadingModel_NB - 1 ; ++ aSetIter ) { myPrograms [ aSetIter ] = thePrograms ; } } ! Access program by index Handle ( OpenGl_ShaderProgram ) & ChangeValue ( Graphic3d_TypeOfShadingModel theShadingModel , Standard_Integer theProgramBits ) { Handle ( OpenGl_SetOfPrograms ) & aSet = myPrograms [ theShadingModel - 1 ] ; if ( aSet . IsNull ( ) ) { aSet = new OpenGl_SetOfPrograms ( ) ; } return aSet -> ChangeValue ( theProgramBits ) ; } protected : Handle ( OpenGl_SetOfPrograms ) myPrograms [ Graphic3d_TypeOfShadingModel_NB - 1 ] ;
+## Error: identifier expected, but got: &!!!
+
 type
   OpenGlMapOfShaderPrograms* = NCollectionDataMap[TCollectionAsciiString,
-      Handle[OpenGlSetOfShaderPrograms]]
+      proc (a1: OpenGlSetOfShaderPrograms): Handle]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

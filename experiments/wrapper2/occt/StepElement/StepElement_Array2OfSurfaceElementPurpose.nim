@@ -15,3 +15,28 @@ type
   StepElementArray2OfSurfaceElementPurpose* = NCollectionArray2[
       StepElementSurfaceElementPurpose]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

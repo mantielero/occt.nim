@@ -18,3 +18,28 @@ type
   IntCurveSurfaceSequenceOfPnt* = NCollectionSequence[
       IntCurveSurfaceIntersectionPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

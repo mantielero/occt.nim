@@ -22,15 +22,40 @@ type
                             header: "IntPatch_LineConstructor.hxx", bycopy.} = object
 
 
-proc constructIntPatchLineConstructor*(mode: int): IntPatchLineConstructor {.
+proc constructIntPatchLineConstructor*(mode: cint): IntPatchLineConstructor {.
     constructor, importcpp: "IntPatch_LineConstructor(@)",
     header: "IntPatch_LineConstructor.hxx".}
 proc perform*(this: var IntPatchLineConstructor; sl: IntPatchSequenceOfLine;
              L: Handle[IntPatchLine]; s1: Handle[Adaptor3dHSurface];
              d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
-             d2: Handle[Adaptor3dTopolTool]; tol: float) {.importcpp: "Perform",
+             d2: Handle[Adaptor3dTopolTool]; tol: cfloat) {.importcpp: "Perform",
     header: "IntPatch_LineConstructor.hxx".}
-proc nbLines*(this: IntPatchLineConstructor): int {.noSideEffect,
+proc nbLines*(this: IntPatchLineConstructor): cint {.noSideEffect,
     importcpp: "NbLines", header: "IntPatch_LineConstructor.hxx".}
-proc line*(this: IntPatchLineConstructor; index: int): Handle[IntPatchLine] {.
+proc line*(this: IntPatchLineConstructor; index: cint): Handle[IntPatchLine] {.
     noSideEffect, importcpp: "Line", header: "IntPatch_LineConstructor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

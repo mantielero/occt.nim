@@ -35,29 +35,56 @@ proc constructIntCurveIntImpConicParConic*(): IntCurveIntImpConicParConic {.
     header: "IntCurve_IntImpConicParConic.hxx".}
 proc constructIntCurveIntImpConicParConic*(iTool: IntCurveIConicTool;
     dom1: IntRes2dDomain; pCurve: IntCurvePConic; dom2: IntRes2dDomain;
-    tolConf: float; tol: float): IntCurveIntImpConicParConic {.constructor,
+    tolConf: cfloat; tol: cfloat): IntCurveIntImpConicParConic {.constructor,
     importcpp: "IntCurve_IntImpConicParConic(@)",
     header: "IntCurve_IntImpConicParConic.hxx".}
 proc perform*(this: var IntCurveIntImpConicParConic; iTool: IntCurveIConicTool;
              dom1: IntRes2dDomain; pCurve: IntCurvePConic; dom2: IntRes2dDomain;
-             tolConf: float; tol: float) {.importcpp: "Perform", header: "IntCurve_IntImpConicParConic.hxx".}
-proc findU*(this: IntCurveIntImpConicParConic; parameter: float; point: var Pnt2d;
-           theParCurev: IntCurvePConic; theImpTool: IntCurveIConicTool): float {.
+             tolConf: cfloat; tol: cfloat) {.importcpp: "Perform",
+    header: "IntCurve_IntImpConicParConic.hxx".}
+proc findU*(this: IntCurveIntImpConicParConic; parameter: cfloat; point: var Pnt2d;
+           theParCurev: IntCurvePConic; theImpTool: IntCurveIConicTool): cfloat {.
     noSideEffect, importcpp: "FindU", header: "IntCurve_IntImpConicParConic.hxx".}
-proc findV*(this: IntCurveIntImpConicParConic; parameter: float; point: var Pnt2d;
+proc findV*(this: IntCurveIntImpConicParConic; parameter: cfloat; point: var Pnt2d;
            theImpTool: IntCurveIConicTool; parCurve: IntCurvePConic;
-           theParCurveDomain: IntRes2dDomain; v0: float; v1: float; tolerance: float): float {.
-    noSideEffect, importcpp: "FindV", header: "IntCurve_IntImpConicParConic.hxx".}
+           theParCurveDomain: IntRes2dDomain; v0: cfloat; v1: cfloat;
+           tolerance: cfloat): cfloat {.noSideEffect, importcpp: "FindV",
+                                     header: "IntCurve_IntImpConicParConic.hxx".}
 proc andDomaineObjet1Intersections*(this: IntCurveIntImpConicParConic;
                                    theImpTool: IntCurveIConicTool;
                                    theParCurve: IntCurvePConic;
                                    theImpCurveDomain: IntRes2dDomain;
                                    theParCurveDomain: IntRes2dDomain;
-                                   nbResultats: var int;
+                                   nbResultats: var cint;
                                    inter2AndDomain2: var TColStdArray1OfReal;
                                    inter1: var TColStdArray1OfReal;
                                    resultat1: var TColStdArray1OfReal;
                                    resultat2: var TColStdArray1OfReal;
-                                   epsNul: float) {.noSideEffect,
+                                   epsNul: cfloat) {.noSideEffect,
     importcpp: "And_Domaine_Objet1_Intersections",
     header: "IntCurve_IntImpConicParConic.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,7 @@ type
 
 proc constructStorageBucket*(): StorageBucket {.constructor,
     importcpp: "Storage_Bucket(@)", header: "Storage_BucketOfPersistent.hxx".}
-proc constructStorageBucket*(theSpaceSize: int): StorageBucket {.constructor,
+proc constructStorageBucket*(theSpaceSize: cint): StorageBucket {.constructor,
     importcpp: "Storage_Bucket(@)", header: "Storage_BucketOfPersistent.hxx".}
 proc clear*(this: var StorageBucket) {.importcpp: "Clear",
                                    header: "Storage_BucketOfPersistent.hxx".}
@@ -33,15 +33,15 @@ type
                               header: "Storage_BucketOfPersistent.hxx", bycopy.} = object
 
 
-proc constructStorageBucketOfPersistent*(theBucketSize: int = 300000;
-                                        theBucketNumber: int = 100): StorageBucketOfPersistent {.
+proc constructStorageBucketOfPersistent*(theBucketSize: cint = 300000;
+                                        theBucketNumber: cint = 100): StorageBucketOfPersistent {.
     constructor, importcpp: "Storage_BucketOfPersistent(@)",
     header: "Storage_BucketOfPersistent.hxx".}
-proc length*(this: StorageBucketOfPersistent): int {.noSideEffect,
+proc length*(this: StorageBucketOfPersistent): cint {.noSideEffect,
     importcpp: "Length", header: "Storage_BucketOfPersistent.hxx".}
 proc append*(this: var StorageBucketOfPersistent; sp: Handle[StandardPersistent]) {.
     importcpp: "Append", header: "Storage_BucketOfPersistent.hxx".}
-proc value*(this: var StorageBucketOfPersistent; theIndex: int): ptr StandardPersistent {.
+proc value*(this: var StorageBucketOfPersistent; theIndex: cint): ptr StandardPersistent {.
     importcpp: "Value", header: "Storage_BucketOfPersistent.hxx".}
 proc clear*(this: var StorageBucketOfPersistent) {.importcpp: "Clear",
     header: "Storage_BucketOfPersistent.hxx".}
@@ -66,3 +66,28 @@ proc more*(this: StorageBucketIterator): bool {.noSideEffect, importcpp: "More",
     header: "Storage_BucketOfPersistent.hxx".}
 proc next*(this: var StorageBucketIterator) {.importcpp: "Next",
     header: "Storage_BucketOfPersistent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

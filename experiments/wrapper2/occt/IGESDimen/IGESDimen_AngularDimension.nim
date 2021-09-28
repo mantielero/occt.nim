@@ -22,7 +22,7 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of IGESDimen_AngularDimension"
 discard "forward decl of IGESDimen_AngularDimension"
 type
-  HandleIGESDimenAngularDimension* = Handle[IGESDimenAngularDimension]
+  HandleC1C1* = Handle[IGESDimenAngularDimension]
 
 ## ! defines AngularDimension, Type <202> Form <0>
 ## ! in package IGESDimen
@@ -38,7 +38,7 @@ proc constructIGESDimenAngularDimension*(): IGESDimenAngularDimension {.
     header: "IGESDimen_AngularDimension.hxx".}
 proc init*(this: var IGESDimenAngularDimension; aNote: Handle[IGESDimenGeneralNote];
           aLine: Handle[IGESDimenWitnessLine];
-          anotherLine: Handle[IGESDimenWitnessLine]; aVertex: Xy; aRadius: float;
+          anotherLine: Handle[IGESDimenWitnessLine]; aVertex: Xy; aRadius: cfloat;
           aLeader: Handle[IGESDimenLeaderArrow];
           anotherLeader: Handle[IGESDimenLeaderArrow]) {.importcpp: "Init",
     header: "IGESDimen_AngularDimension.hxx".}
@@ -58,7 +58,7 @@ proc vertex*(this: IGESDimenAngularDimension): Pnt2d {.noSideEffect,
     importcpp: "Vertex", header: "IGESDimen_AngularDimension.hxx".}
 proc transformedVertex*(this: IGESDimenAngularDimension): Pnt2d {.noSideEffect,
     importcpp: "TransformedVertex", header: "IGESDimen_AngularDimension.hxx".}
-proc radius*(this: IGESDimenAngularDimension): float {.noSideEffect,
+proc radius*(this: IGESDimenAngularDimension): cfloat {.noSideEffect,
     importcpp: "Radius", header: "IGESDimen_AngularDimension.hxx".}
 proc firstLeader*(this: IGESDimenAngularDimension): Handle[IGESDimenLeaderArrow] {.
     noSideEffect, importcpp: "FirstLeader",
@@ -77,3 +77,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDimenAngularDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_AngularDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

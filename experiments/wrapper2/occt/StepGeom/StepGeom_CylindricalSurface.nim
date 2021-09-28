@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_Axis2Placement3d"
 discard "forward decl of StepGeom_CylindricalSurface"
 discard "forward decl of StepGeom_CylindricalSurface"
 type
-  HandleStepGeomCylindricalSurface* = Handle[StepGeomCylindricalSurface]
+  HandleC1C1* = Handle[StepGeomCylindricalSurface]
   StepGeomCylindricalSurface* {.importcpp: "StepGeom_CylindricalSurface",
                                header: "StepGeom_CylindricalSurface.hxx", bycopy.} = object of StepGeomElementarySurface ##
                                                                                                                   ## !
@@ -33,11 +33,11 @@ proc constructStepGeomCylindricalSurface*(): StepGeomCylindricalSurface {.
     header: "StepGeom_CylindricalSurface.hxx".}
 proc init*(this: var StepGeomCylindricalSurface;
           aName: Handle[TCollectionHAsciiString];
-          aPosition: Handle[StepGeomAxis2Placement3d]; aRadius: float) {.
+          aPosition: Handle[StepGeomAxis2Placement3d]; aRadius: cfloat) {.
     importcpp: "Init", header: "StepGeom_CylindricalSurface.hxx".}
-proc setRadius*(this: var StepGeomCylindricalSurface; aRadius: float) {.
+proc setRadius*(this: var StepGeomCylindricalSurface; aRadius: cfloat) {.
     importcpp: "SetRadius", header: "StepGeom_CylindricalSurface.hxx".}
-proc radius*(this: StepGeomCylindricalSurface): float {.noSideEffect,
+proc radius*(this: StepGeomCylindricalSurface): cfloat {.noSideEffect,
     importcpp: "Radius", header: "StepGeom_CylindricalSurface.hxx".}
 type
   StepGeomCylindricalSurfacebaseType* = StepGeomElementarySurface
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomCylindricalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_CylindricalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

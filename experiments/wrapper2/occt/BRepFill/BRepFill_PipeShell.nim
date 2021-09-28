@@ -30,7 +30,7 @@ discard "forward decl of BRepFill_Sweep"
 discard "forward decl of BRepFill_PipeShell"
 discard "forward decl of BRepFill_PipeShell"
 type
-  HandleBRepFillPipeShell* = Handle[BRepFillPipeShell]
+  HandleC1C1* = Handle[BRepFillPipeShell]
 
 ## ! Computes a topological shell using some wires
 ## ! (spines and profiles) and diplacement option
@@ -77,9 +77,9 @@ proc set*(this: var BRepFillPipeShell; auxiliarySpine: TopoDS_Wire;
          curvilinearEquivalence: bool = true;
          keepContact: BRepFillTypeOfContact = bRepFillNoContact) {.importcpp: "Set",
     header: "BRepFill_PipeShell.hxx".}
-proc setMaxDegree*(this: var BRepFillPipeShell; newMaxDegree: int) {.
+proc setMaxDegree*(this: var BRepFillPipeShell; newMaxDegree: cint) {.
     importcpp: "SetMaxDegree", header: "BRepFill_PipeShell.hxx".}
-proc setMaxSegments*(this: var BRepFillPipeShell; newMaxSegments: int) {.
+proc setMaxSegments*(this: var BRepFillPipeShell; newMaxSegments: cint) {.
     importcpp: "SetMaxSegments", header: "BRepFill_PipeShell.hxx".}
 proc setForceApproxC1*(this: var BRepFillPipeShell; forceApproxC1: bool) {.
     importcpp: "SetForceApproxC1", header: "BRepFill_PipeShell.hxx".}
@@ -103,14 +103,14 @@ proc isReady*(this: BRepFillPipeShell): bool {.noSideEffect, importcpp: "IsReady
     header: "BRepFill_PipeShell.hxx".}
 proc getStatus*(this: BRepFillPipeShell): GeomFillPipeError {.noSideEffect,
     importcpp: "GetStatus", header: "BRepFill_PipeShell.hxx".}
-proc setTolerance*(this: var BRepFillPipeShell; tol3d: float = 1.0e-4;
-                  boundTol: float = 1.0e-4; tolAngular: float = 1.0e-2) {.
+proc setTolerance*(this: var BRepFillPipeShell; tol3d: cfloat = 1.0e-4;
+                  boundTol: cfloat = 1.0e-4; tolAngular: cfloat = 1.0e-2) {.
     importcpp: "SetTolerance", header: "BRepFill_PipeShell.hxx".}
 proc setTransition*(this: var BRepFillPipeShell;
                    mode: BRepFillTransitionStyle = bRepFillModified;
-                   angmin: float = 1.0e-2; angmax: float = 6.0) {.
+                   angmin: cfloat = 1.0e-2; angmax: cfloat = 6.0) {.
     importcpp: "SetTransition", header: "BRepFill_PipeShell.hxx".}
-proc simulate*(this: var BRepFillPipeShell; numberOfSection: int;
+proc simulate*(this: var BRepFillPipeShell; numberOfSection: cint;
               sections: var TopToolsListOfShape) {.importcpp: "Simulate",
     header: "BRepFill_PipeShell.hxx".}
 proc build*(this: var BRepFillPipeShell): bool {.importcpp: "Build",
@@ -119,7 +119,7 @@ proc makeSolid*(this: var BRepFillPipeShell): bool {.importcpp: "MakeSolid",
     header: "BRepFill_PipeShell.hxx".}
 proc shape*(this: BRepFillPipeShell): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BRepFill_PipeShell.hxx".}
-proc errorOnSurface*(this: BRepFillPipeShell): float {.noSideEffect,
+proc errorOnSurface*(this: BRepFillPipeShell): cfloat {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "BRepFill_PipeShell.hxx".}
 proc firstShape*(this: BRepFillPipeShell): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "BRepFill_PipeShell.hxx".}
@@ -142,3 +142,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_PipeShell.hxx".}
 proc dynamicType*(this: BRepFillPipeShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_PipeShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

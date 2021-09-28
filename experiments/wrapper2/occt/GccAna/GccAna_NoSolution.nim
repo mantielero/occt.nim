@@ -17,13 +17,54 @@
 ## !!!Ignored construct:  # _GccAna_NoSolution_HeaderFile [NewLine] # _GccAna_NoSolution_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class GccAna_NoSolution ;
 ## Error: expected ';'!!!
 
-discard "forward decl of GccAna_NoSolution"
-type
-  HandleGccAnaNoSolutionGccAnaNoSolution* = Handle[GccAnaNoSolution]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( GccAna_NoSolution , Standard_Failure ) # ! defined No_Exception && ! defined No_GccAna_NoSolution [NewLine] # GccAna_NoSolution_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw GccAna_NoSolution ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_GccAna_NoSolution [NewLine] # if ( CONDITION ) throw GccAna_NoSolution ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # GccAna_NoSolution_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( GccAna_NoSolution , Standard_Failure ) #  _GccAna_NoSolution_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( GccAna_NoSolution , Standard_Failure ) #  _GccAna_NoSolution_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

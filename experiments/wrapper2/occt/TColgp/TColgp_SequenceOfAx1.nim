@@ -17,3 +17,28 @@
 type
   TColgpSequenceOfAx1* = NCollectionSequence[Ax1]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -76,19 +76,19 @@ proc print*(s: TopAbsState; os: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(k: TopOpeBRepDS_Kind): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc sPrint*(k: TopOpeBRepDS_Kind; i: int; b: TCollectionAsciiString = "";
+proc sPrint*(k: TopOpeBRepDS_Kind; i: cint; b: TCollectionAsciiString = "";
             a: TCollectionAsciiString = ""): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc print*(k: TopOpeBRepDS_Kind; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
-proc print*(k: TopOpeBRepDS_Kind; i: int; s: var StandardOStream;
+proc print*(k: TopOpeBRepDS_Kind; i: cint; s: var StandardOStream;
            b: TCollectionAsciiString = ""; a: TCollectionAsciiString = ""): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(t: TopAbsShapeEnum): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc sPrint*(t: TopAbsShapeEnum; i: int): TCollectionAsciiString {.
+proc sPrint*(t: TopAbsShapeEnum; i: cint): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc print*(t: TopAbsShapeEnum; i: int; s: var StandardOStream): var StandardOStream {.
+proc print*(t: TopAbsShapeEnum; i: cint; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(o: TopAbsOrientation): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
@@ -104,3 +104,28 @@ proc kindToShape*(k: TopOpeBRepDS_Kind): TopAbsShapeEnum {.
     importcpp: "TopOpeBRepDS::KindToShape(@)", header: "TopOpeBRepDS.hxx".}
 proc shapeToKind*(s: TopAbsShapeEnum): TopOpeBRepDS_Kind {.
     importcpp: "TopOpeBRepDS::ShapeToKind(@)", header: "TopOpeBRepDS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

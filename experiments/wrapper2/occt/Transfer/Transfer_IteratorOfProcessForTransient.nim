@@ -68,3 +68,28 @@ proc hasStarting*(this: TransferIteratorOfProcessForTransient): bool {.noSideEff
 proc starting*(this: TransferIteratorOfProcessForTransient): Handle[
     StandardTransient] {.noSideEffect, importcpp: "Starting",
                         header: "Transfer_IteratorOfProcessForTransient.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

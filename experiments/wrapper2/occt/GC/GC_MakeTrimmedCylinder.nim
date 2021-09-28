@@ -64,10 +64,10 @@ type
 proc constructGC_MakeTrimmedCylinder*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeTrimmedCylinder {.
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)",
     header: "GC_MakeTrimmedCylinder.hxx".}
-proc constructGC_MakeTrimmedCylinder*(circ: Circ; height: float): GC_MakeTrimmedCylinder {.
+proc constructGC_MakeTrimmedCylinder*(circ: Circ; height: cfloat): GC_MakeTrimmedCylinder {.
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)",
     header: "GC_MakeTrimmedCylinder.hxx".}
-proc constructGC_MakeTrimmedCylinder*(a1: Ax1; radius: float; height: float): GC_MakeTrimmedCylinder {.
+proc constructGC_MakeTrimmedCylinder*(a1: Ax1; radius: cfloat; height: cfloat): GC_MakeTrimmedCylinder {.
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)",
     header: "GC_MakeTrimmedCylinder.hxx".}
 proc value*(this: GC_MakeTrimmedCylinder): Handle[GeomRectangularTrimmedSurface] {.
@@ -75,3 +75,24 @@ proc value*(this: GC_MakeTrimmedCylinder): Handle[GeomRectangularTrimmedSurface]
 converter `constopencascade`*(this: GC_MakeTrimmedCylinder): Handle[
     GeomRectangularTrimmedSurface] {.noSideEffect, importcpp: "GC_MakeTrimmedCylinder::operator constopencascade",
                                     header: "GC_MakeTrimmedCylinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -36,7 +36,7 @@ proc pushRelation*(this: var ExprIntrpAnalysis; rel: Handle[ExprGeneralRelation]
     importcpp: "PushRelation", header: "ExprIntrp_Analysis.hxx".}
 proc pushName*(this: var ExprIntrpAnalysis; name: TCollectionAsciiString) {.
     importcpp: "PushName", header: "ExprIntrp_Analysis.hxx".}
-proc pushValue*(this: var ExprIntrpAnalysis; degree: int) {.importcpp: "PushValue",
+proc pushValue*(this: var ExprIntrpAnalysis; degree: cint) {.importcpp: "PushValue",
     header: "ExprIntrp_Analysis.hxx".}
 proc pushFunction*(this: var ExprIntrpAnalysis; `func`: Handle[ExprGeneralFunction]) {.
     importcpp: "PushFunction", header: "ExprIntrp_Analysis.hxx".}
@@ -46,7 +46,7 @@ proc popRelation*(this: var ExprIntrpAnalysis): Handle[ExprGeneralRelation] {.
     importcpp: "PopRelation", header: "ExprIntrp_Analysis.hxx".}
 proc popName*(this: var ExprIntrpAnalysis): TCollectionAsciiString {.
     importcpp: "PopName", header: "ExprIntrp_Analysis.hxx".}
-proc popValue*(this: var ExprIntrpAnalysis): int {.importcpp: "PopValue",
+proc popValue*(this: var ExprIntrpAnalysis): cint {.importcpp: "PopValue",
     header: "ExprIntrp_Analysis.hxx".}
 proc popFunction*(this: var ExprIntrpAnalysis): Handle[ExprGeneralFunction] {.
     importcpp: "PopFunction", header: "ExprIntrp_Analysis.hxx".}
@@ -64,3 +64,28 @@ proc getNamed*(this: var ExprIntrpAnalysis; name: TCollectionAsciiString): Handl
     ExprNamedExpression] {.importcpp: "GetNamed", header: "ExprIntrp_Analysis.hxx".}
 proc getFunction*(this: var ExprIntrpAnalysis; name: TCollectionAsciiString): Handle[
     ExprNamedFunction] {.importcpp: "GetFunction", header: "ExprIntrp_Analysis.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

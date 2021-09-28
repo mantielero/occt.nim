@@ -14,7 +14,32 @@
 ##  commercial license or contractual agreement.
 
 type
-  TDF_LabelIntegerMap* = NCollectionDataMap[TDF_Label, int, TDF_LabelMapHasher]
-  TDF_DataMapIteratorOfLabelIntegerMap* = Iterator[TDF_Label, int,
+  TDF_LabelIntegerMap* = NCollectionDataMap[TDF_Label, cint, TDF_LabelMapHasher]
+  TDF_DataMapIteratorOfLabelIntegerMap* = Iterator[TDF_Label, cint,
       TDF_LabelMapHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

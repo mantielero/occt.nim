@@ -43,19 +43,19 @@ proc open*(this: var OSD_File; mode: OSD_OpenMode; protect: OSD_Protection) {.
     importcpp: "Open", header: "OSD_File.hxx".}
 proc append*(this: var OSD_File; mode: OSD_OpenMode; protect: OSD_Protection) {.
     importcpp: "Append", header: "OSD_File.hxx".}
-proc read*(this: var OSD_File; buffer: var TCollectionAsciiString; nbyte: int) {.
+proc read*(this: var OSD_File; buffer: var TCollectionAsciiString; nbyte: cint) {.
     importcpp: "Read", header: "OSD_File.hxx".}
-proc readLine*(this: var OSD_File; buffer: var TCollectionAsciiString; nByte: int;
-              nbyteRead: var int) {.importcpp: "ReadLine", header: "OSD_File.hxx".}
-proc readLine*(this: var OSD_File; buffer: var TCollectionAsciiString; nByte: int): int {.
+proc readLine*(this: var OSD_File; buffer: var TCollectionAsciiString; nByte: cint;
+              nbyteRead: var cint) {.importcpp: "ReadLine", header: "OSD_File.hxx".}
+proc readLine*(this: var OSD_File; buffer: var TCollectionAsciiString; nByte: cint): cint {.
     importcpp: "ReadLine", header: "OSD_File.hxx".}
-proc read*(this: var OSD_File; buffer: StandardAddress; nbyte: int; readbyte: var int) {.
+proc read*(this: var OSD_File; buffer: StandardAddress; nbyte: cint; readbyte: var cint) {.
     importcpp: "Read", header: "OSD_File.hxx".}
-proc write*(this: var OSD_File; theBuffer: TCollectionAsciiString; theNbBytes: int) {.
+proc write*(this: var OSD_File; theBuffer: TCollectionAsciiString; theNbBytes: cint) {.
     importcpp: "Write", header: "OSD_File.hxx".}
-proc write*(this: var OSD_File; theBuffer: StandardAddress; theNbBytes: int) {.
+proc write*(this: var OSD_File; theBuffer: StandardAddress; theNbBytes: cint) {.
     importcpp: "Write", header: "OSD_File.hxx".}
-proc seek*(this: var OSD_File; offset: int; whence: OSD_FromWhere) {.importcpp: "Seek",
+proc seek*(this: var OSD_File; offset: cint; whence: OSD_FromWhere) {.importcpp: "Seek",
     header: "OSD_File.hxx".}
 proc close*(this: var OSD_File) {.importcpp: "Close", header: "OSD_File.hxx".}
 proc isAtEnd*(this: var OSD_File): bool {.importcpp: "IsAtEnd", header: "OSD_File.hxx".}
@@ -80,8 +80,33 @@ proc isWriteable*(this: var OSD_File): bool {.importcpp: "IsWriteable",
     header: "OSD_File.hxx".}
 proc isExecutable*(this: var OSD_File): bool {.importcpp: "IsExecutable",
     header: "OSD_File.hxx".}
-proc readLastLine*(this: var OSD_File; aLine: var TCollectionAsciiString; aDelay: int;
-                  aNbTries: int): bool {.importcpp: "ReadLastLine",
-                                      header: "OSD_File.hxx".}
+proc readLastLine*(this: var OSD_File; aLine: var TCollectionAsciiString; aDelay: cint;
+                  aNbTries: cint): bool {.importcpp: "ReadLastLine",
+                                       header: "OSD_File.hxx".}
 proc edit*(this: var OSD_File): bool {.importcpp: "Edit", header: "OSD_File.hxx".}
 proc rewind*(this: var OSD_File) {.importcpp: "Rewind", header: "OSD_File.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

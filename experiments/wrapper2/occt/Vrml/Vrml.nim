@@ -62,3 +62,28 @@ proc vrmlHeaderWriter*(anOStream: var StandardOStream): var StandardOStream {.
     importcpp: "Vrml::VrmlHeaderWriter(@)", header: "Vrml.hxx".}
 proc commentWriter*(aComment: StandardCString; anOStream: var StandardOStream): var StandardOStream {.
     importcpp: "Vrml::CommentWriter(@)", header: "Vrml.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

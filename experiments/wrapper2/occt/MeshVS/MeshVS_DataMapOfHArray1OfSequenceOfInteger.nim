@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MeshVS_DataMapOfHArray1OfSequenceOfInteger* = NCollectionDataMap[int,
+  MeshVS_DataMapOfHArray1OfSequenceOfInteger* = NCollectionDataMap[cint,
       Handle[MeshVS_HArray1OfSequenceOfInteger], TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfHArray1OfSequenceOfInteger* = Iterator[int,
+  MeshVS_DataMapIteratorOfDataMapOfHArray1OfSequenceOfInteger* = Iterator[cint,
       Handle[MeshVS_HArray1OfSequenceOfInteger], TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

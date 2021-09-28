@@ -15,13 +15,31 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of gp_Pnt2d"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 type
   Geom2dHatchHatching* {.importcpp: "Geom2dHatch_Hatching",
                         header: "Geom2dHatch_Hatching.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dHatchHatching; theSize: csize_t): pointer {.
+    importcpp: "Geom2dHatch_Hatching::operator new",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc `delete`*(this: var Geom2dHatchHatching; theAddress: pointer) {.
+    importcpp: "Geom2dHatch_Hatching::operator delete",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc `new[]`*(this: var Geom2dHatchHatching; theSize: csize_t): pointer {.
+    importcpp: "Geom2dHatch_Hatching::operator new[]",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc `delete[]`*(this: var Geom2dHatchHatching; theAddress: pointer) {.
+    importcpp: "Geom2dHatch_Hatching::operator delete[]",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc `new`*(this: var Geom2dHatchHatching; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dHatch_Hatching::operator new",
+    header: "Geom2dHatch_Hatching.hxx".}
+proc `delete`*(this: var Geom2dHatchHatching; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dHatch_Hatching::operator delete",
+    header: "Geom2dHatch_Hatching.hxx".}
 proc constructGeom2dHatchHatching*(): Geom2dHatchHatching {.constructor,
     importcpp: "Geom2dHatch_Hatching(@)", header: "Geom2dHatch_Hatching.hxx".}
 proc constructGeom2dHatchHatching*(curve: Geom2dAdaptorCurve): Geom2dHatchHatching {.
@@ -31,25 +49,25 @@ proc curve*(this: Geom2dHatchHatching): Geom2dAdaptorCurve {.noSideEffect,
     importcpp: "Curve", header: "Geom2dHatch_Hatching.hxx".}
 proc changeCurve*(this: var Geom2dHatchHatching): var Geom2dAdaptorCurve {.
     importcpp: "ChangeCurve", header: "Geom2dHatch_Hatching.hxx".}
-proc trimDone*(this: var Geom2dHatchHatching; flag: bool) {.importcpp: "TrimDone",
-    header: "Geom2dHatch_Hatching.hxx".}
-proc trimDone*(this: Geom2dHatchHatching): bool {.noSideEffect,
+proc trimDone*(this: var Geom2dHatchHatching; flag: StandardBoolean) {.
     importcpp: "TrimDone", header: "Geom2dHatch_Hatching.hxx".}
-proc trimFailed*(this: var Geom2dHatchHatching; flag: bool) {.importcpp: "TrimFailed",
-    header: "Geom2dHatch_Hatching.hxx".}
-proc trimFailed*(this: Geom2dHatchHatching): bool {.noSideEffect,
+proc trimDone*(this: Geom2dHatchHatching): StandardBoolean {.noSideEffect,
+    importcpp: "TrimDone", header: "Geom2dHatch_Hatching.hxx".}
+proc trimFailed*(this: var Geom2dHatchHatching; flag: StandardBoolean) {.
     importcpp: "TrimFailed", header: "Geom2dHatch_Hatching.hxx".}
-proc isDone*(this: var Geom2dHatchHatching; flag: bool) {.importcpp: "IsDone",
-    header: "Geom2dHatch_Hatching.hxx".}
-proc isDone*(this: Geom2dHatchHatching): bool {.noSideEffect, importcpp: "IsDone",
-    header: "Geom2dHatch_Hatching.hxx".}
+proc trimFailed*(this: Geom2dHatchHatching): StandardBoolean {.noSideEffect,
+    importcpp: "TrimFailed", header: "Geom2dHatch_Hatching.hxx".}
+proc isDone*(this: var Geom2dHatchHatching; flag: StandardBoolean) {.
+    importcpp: "IsDone", header: "Geom2dHatch_Hatching.hxx".}
+proc isDone*(this: Geom2dHatchHatching): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "Geom2dHatch_Hatching.hxx".}
 proc status*(this: var Geom2dHatchHatching; theStatus: HatchGenErrorStatus) {.
     importcpp: "Status", header: "Geom2dHatch_Hatching.hxx".}
 proc status*(this: Geom2dHatchHatching): HatchGenErrorStatus {.noSideEffect,
     importcpp: "Status", header: "Geom2dHatch_Hatching.hxx".}
 proc addPoint*(this: var Geom2dHatchHatching; point: HatchGenPointOnHatching;
-              confusion: float) {.importcpp: "AddPoint",
-                                header: "Geom2dHatch_Hatching.hxx".}
+              confusion: StandardReal) {.importcpp: "AddPoint",
+                                       header: "Geom2dHatch_Hatching.hxx".}
 proc nbPoints*(this: Geom2dHatchHatching): int {.noSideEffect, importcpp: "NbPoints",
     header: "Geom2dHatch_Hatching.hxx".}
 proc point*(this: Geom2dHatchHatching; index: int): HatchGenPointOnHatching {.

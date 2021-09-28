@@ -40,7 +40,32 @@ proc constructConvertCircleToBSplineCurve*(c: Circ2d;
     parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertCircleToBSplineCurve {.
     constructor, importcpp: "Convert_CircleToBSplineCurve(@)",
     header: "Convert_CircleToBSplineCurve.hxx".}
-proc constructConvertCircleToBSplineCurve*(c: Circ2d; u1: float; u2: float;
+proc constructConvertCircleToBSplineCurve*(c: Circ2d; u1: cfloat; u2: cfloat;
     parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertCircleToBSplineCurve {.
     constructor, importcpp: "Convert_CircleToBSplineCurve(@)",
     header: "Convert_CircleToBSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -59,17 +59,17 @@ type
     ## ! Overlap tool used for intersection/overlap test.
 
 
-proc constructBRepExtremaShapeProximity*(theTolerance: float = 0.0): BRepExtremaShapeProximity {.
+proc constructBRepExtremaShapeProximity*(theTolerance: cfloat = 0.0): BRepExtremaShapeProximity {.
     constructor, importcpp: "BRepExtrema_ShapeProximity(@)",
     header: "BRepExtrema_ShapeProximity.hxx".}
 proc constructBRepExtremaShapeProximity*(theShape1: TopoDS_Shape;
                                         theShape2: TopoDS_Shape;
-                                        theTolerance: float = 0.0): BRepExtremaShapeProximity {.
+                                        theTolerance: cfloat = 0.0): BRepExtremaShapeProximity {.
     constructor, importcpp: "BRepExtrema_ShapeProximity(@)",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc tolerance*(this: BRepExtremaShapeProximity): float {.noSideEffect,
+proc tolerance*(this: BRepExtremaShapeProximity): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "BRepExtrema_ShapeProximity.hxx".}
-proc setTolerance*(this: var BRepExtremaShapeProximity; theTolerance: float) {.
+proc setTolerance*(this: var BRepExtremaShapeProximity; theTolerance: cfloat) {.
     importcpp: "SetTolerance", header: "BRepExtrema_ShapeProximity.hxx".}
 proc loadShape1*(this: var BRepExtremaShapeProximity; theShape1: TopoDS_Shape): bool {.
     importcpp: "LoadShape1", header: "BRepExtrema_ShapeProximity.hxx".}
@@ -85,10 +85,10 @@ proc overlapSubShapes1*(this: BRepExtremaShapeProximity): BRepExtremaMapOfIntege
 proc overlapSubShapes2*(this: BRepExtremaShapeProximity): BRepExtremaMapOfIntegerPackedMapOfInteger {.
     noSideEffect, importcpp: "OverlapSubShapes2",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc getSubShape1*(this: BRepExtremaShapeProximity; theID: int): TopoDS_Face {.
+proc getSubShape1*(this: BRepExtremaShapeProximity; theID: cint): TopoDS_Face {.
     noSideEffect, importcpp: "GetSubShape1",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc getSubShape2*(this: BRepExtremaShapeProximity; theID: int): TopoDS_Face {.
+proc getSubShape2*(this: BRepExtremaShapeProximity; theID: cint): TopoDS_Face {.
     noSideEffect, importcpp: "GetSubShape2",
     header: "BRepExtrema_ShapeProximity.hxx".}
 proc elementSet1*(this: BRepExtremaShapeProximity): Handle[BRepExtremaTriangleSet] {.
@@ -97,3 +97,28 @@ proc elementSet1*(this: BRepExtremaShapeProximity): Handle[BRepExtremaTriangleSe
 proc elementSet2*(this: BRepExtremaShapeProximity): Handle[BRepExtremaTriangleSet] {.
     noSideEffect, importcpp: "ElementSet2",
     header: "BRepExtrema_ShapeProximity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

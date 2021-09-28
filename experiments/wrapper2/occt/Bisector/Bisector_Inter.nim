@@ -32,10 +32,35 @@ type
 proc constructBisectorInter*(): BisectorInter {.constructor,
     importcpp: "Bisector_Inter(@)", header: "Bisector_Inter.hxx".}
 proc constructBisectorInter*(c1: BisectorBisec; d1: IntRes2dDomain;
-                            c2: BisectorBisec; d2: IntRes2dDomain; tolConf: float;
-                            tol: float; comunElement: bool): BisectorInter {.
+                            c2: BisectorBisec; d2: IntRes2dDomain; tolConf: cfloat;
+                            tol: cfloat; comunElement: bool): BisectorInter {.
     constructor, importcpp: "Bisector_Inter(@)", header: "Bisector_Inter.hxx".}
 proc perform*(this: var BisectorInter; c1: BisectorBisec; d1: IntRes2dDomain;
-             c2: BisectorBisec; d2: IntRes2dDomain; tolConf: float; tol: float;
+             c2: BisectorBisec; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat;
              comunElement: bool) {.importcpp: "Perform",
                                  header: "Bisector_Inter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

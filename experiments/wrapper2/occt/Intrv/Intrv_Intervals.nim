@@ -41,7 +41,32 @@ proc xUnite*(this: var IntrvIntervals; tool: IntrvInterval) {.importcpp: "XUnite
     header: "Intrv_Intervals.hxx".}
 proc xUnite*(this: var IntrvIntervals; tool: IntrvIntervals) {.importcpp: "XUnite",
     header: "Intrv_Intervals.hxx".}
-proc nbIntervals*(this: IntrvIntervals): int {.noSideEffect,
+proc nbIntervals*(this: IntrvIntervals): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Intrv_Intervals.hxx".}
-proc value*(this: IntrvIntervals; index: int): IntrvInterval {.noSideEffect,
+proc value*(this: IntrvIntervals; index: cint): IntrvInterval {.noSideEffect,
     importcpp: "Value", header: "Intrv_Intervals.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

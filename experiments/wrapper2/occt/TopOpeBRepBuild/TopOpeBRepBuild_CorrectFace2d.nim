@@ -41,7 +41,7 @@ proc perform*(this: var TopOpeBRepBuildCorrectFace2d) {.importcpp: "Perform",
     header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
 proc isDone*(this: TopOpeBRepBuildCorrectFace2d): bool {.noSideEffect,
     importcpp: "IsDone", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
-proc errorStatus*(this: TopOpeBRepBuildCorrectFace2d): int {.noSideEffect,
+proc errorStatus*(this: TopOpeBRepBuildCorrectFace2d): cint {.noSideEffect,
     importcpp: "ErrorStatus", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
 proc correctedFace*(this: TopOpeBRepBuildCorrectFace2d): TopoDS_Face {.noSideEffect,
     importcpp: "CorrectedFace", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
@@ -56,3 +56,28 @@ proc getP2dFL*(aFace: TopoDS_Face; anEdge: TopoDS_Edge; p2dF: var Pnt2d; p2dL: v
 proc checkList*(aFace: TopoDS_Face; aHeadList: var TopToolsListOfShape) {.
     importcpp: "TopOpeBRepBuild_CorrectFace2d::CheckList(@)",
     header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

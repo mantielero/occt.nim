@@ -21,7 +21,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of IFSelect_Modifier"
 discard "forward decl of IFSelect_Modifier"
 type
-  HandleIFSelectModifier* = Handle[IFSelectModifier]
+  HandleC1C1* = Handle[IFSelectModifier]
 
 ## ! This class gives a frame for Actions which can work globally
 ## ! on a File once completely defined (i.e. afterwards)
@@ -172,3 +172,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_Modifier.hxx".}
 proc dynamicType*(this: IFSelectModifier): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Modifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

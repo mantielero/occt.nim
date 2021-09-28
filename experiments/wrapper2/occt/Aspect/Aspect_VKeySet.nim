@@ -74,3 +74,28 @@ proc holdDuration*(this: var AspectVKeySet; theKey: AspectVKey; theTime: cdouble
 proc holdDuration*(this: var AspectVKeySet; theKey: AspectVKey; theTime: cdouble;
                   theDuration: var cdouble; thePressure: var cdouble): bool {.
     importcpp: "HoldDuration", header: "Aspect_VKeySet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

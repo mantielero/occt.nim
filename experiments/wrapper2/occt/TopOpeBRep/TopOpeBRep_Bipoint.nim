@@ -21,9 +21,34 @@ type
 
 proc constructTopOpeBRepBipoint*(): TopOpeBRepBipoint {.constructor,
     importcpp: "TopOpeBRep_Bipoint(@)", header: "TopOpeBRep_Bipoint.hxx".}
-proc constructTopOpeBRepBipoint*(i1: int; i2: int): TopOpeBRepBipoint {.constructor,
+proc constructTopOpeBRepBipoint*(i1: cint; i2: cint): TopOpeBRepBipoint {.constructor,
     importcpp: "TopOpeBRep_Bipoint(@)", header: "TopOpeBRep_Bipoint.hxx".}
-proc i1*(this: TopOpeBRepBipoint): int {.noSideEffect, importcpp: "I1",
-                                     header: "TopOpeBRep_Bipoint.hxx".}
-proc i2*(this: TopOpeBRepBipoint): int {.noSideEffect, importcpp: "I2",
-                                     header: "TopOpeBRep_Bipoint.hxx".}
+proc i1*(this: TopOpeBRepBipoint): cint {.noSideEffect, importcpp: "I1",
+                                      header: "TopOpeBRep_Bipoint.hxx".}
+proc i2*(this: TopOpeBRepBipoint): cint {.noSideEffect, importcpp: "I2",
+                                      header: "TopOpeBRep_Bipoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

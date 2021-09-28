@@ -23,6 +23,17 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Axis2Placement"
 discard "forward decl of Geom_Axis2Placement"
 type
+  GeomAxis2Placement* {.importcpp: "Geom_Axis2Placement",
+                       header: "Geom_Axis2Placement.hxx", bycopy.} = object of GeomAxisPlacement ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## transient
+                                                                                          ## copy
+                                                                                          ## of
+                                                                                          ## A2.
+
+type
   HandleGeomAxis2Placement* = Handle[GeomAxis2Placement]
 
 ## ! Describes a right-handed coordinate system in 3D space.
@@ -50,17 +61,8 @@ type
 ## ! Geom_Axis2Placement coordinate systems are
 ## ! used in a context where they can be shared by
 ## ! several objects contained inside a common data structure.
-
 type
-  GeomAxis2Placement* {.importcpp: "Geom_Axis2Placement",
-                       header: "Geom_Axis2Placement.hxx", bycopy.} = object of GeomAxisPlacement ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## a
-                                                                                          ## transient
-                                                                                          ## copy
-                                                                                          ## of
-                                                                                          ## A2.
+  GeomAxis2PlacementbaseType* = GeomAxisPlacement
 
 
 proc constructGeomAxis2Placement*(a2: Ax2): GeomAxis2Placement {.constructor,
@@ -86,13 +88,12 @@ proc transform*(this: var GeomAxis2Placement; t: Trsf) {.importcpp: "Transform",
     header: "Geom_Axis2Placement.hxx".}
 proc copy*(this: GeomAxis2Placement): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_Axis2Placement.hxx".}
-type
-  GeomAxis2PlacementbaseType* = GeomAxisPlacement
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Axis2Placement::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Axis2Placement::get_type_name(@)",
                             header: "Geom_Axis2Placement.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Axis2Placement::get_type_descriptor(@)",
     header: "Geom_Axis2Placement.hxx".}
 proc dynamicType*(this: GeomAxis2Placement): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Axis2Placement.hxx".}
+    importcpp: "DynamicType", header: "Geom_Axis2Placement.hxx".} ]#

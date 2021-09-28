@@ -17,7 +17,7 @@
 discard "forward decl of PCDM_Document"
 discard "forward decl of PCDM_Document"
 type
-  HandlePCDM_Document* = Handle[PCDM_Document]
+  HandleC1C1* = Handle[PCDM_Document]
   PCDM_Document* {.importcpp: "PCDM_Document", header: "PCDM_Document.hxx", bycopy.} = object of StandardPersistent
 
   PCDM_DocumentbaseType* = StandardPersistent
@@ -29,3 +29,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "PCDM_Document.hxx".}
 proc dynamicType*(this: PCDM_Document): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_Document.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

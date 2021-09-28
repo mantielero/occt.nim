@@ -35,3 +35,28 @@ proc setTools*(this: var BOPAlgoToolsProvider; theShapes: TopToolsListOfShape) {
     importcpp: "SetTools", header: "BOPAlgo_ToolsProvider.hxx".}
 proc tools*(this: BOPAlgoToolsProvider): TopToolsListOfShape {.noSideEffect,
     importcpp: "Tools", header: "BOPAlgo_ToolsProvider.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

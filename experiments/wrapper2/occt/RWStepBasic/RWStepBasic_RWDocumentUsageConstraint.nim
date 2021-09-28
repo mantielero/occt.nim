@@ -29,7 +29,7 @@ proc constructRWStepBasicRWDocumentUsageConstraint*(): RWStepBasicRWDocumentUsag
     constructor, importcpp: "RWStepBasic_RWDocumentUsageConstraint(@)",
     header: "RWStepBasic_RWDocumentUsageConstraint.hxx".}
 proc readStep*(this: RWStepBasicRWDocumentUsageConstraint;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicDocumentUsageConstraint]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDocumentUsageConstraint.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepBasicRWDocumentUsageConstraint;
            ent: Handle[StepBasicDocumentUsageConstraint];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWDocumentUsageConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

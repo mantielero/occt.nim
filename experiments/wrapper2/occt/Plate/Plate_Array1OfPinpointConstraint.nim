@@ -17,3 +17,28 @@
 type
   PlateArray1OfPinpointConstraint* = NCollectionArray1[PlatePinpointConstraint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

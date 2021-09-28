@@ -23,7 +23,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_ModifEditForm"
 discard "forward decl of IFSelect_ModifEditForm"
 type
-  HandleIFSelectModifEditForm* = Handle[IFSelectModifEditForm]
+  HandleC1C1* = Handle[IFSelectModifEditForm]
 
 ## ! This modifier applies an EditForm on the entities selected
 
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_ModifEditForm.hxx".}
 proc dynamicType*(this: IFSelectModifEditForm): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_ModifEditForm.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

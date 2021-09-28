@@ -51,7 +51,7 @@ proc addOption*(this: var ViewerTestCmdParser; theOptionNames: string;
     importcpp: "AddOption", header: "ViewerTest_CmdParser.hxx".}
 proc printHelp*(this: ViewerTestCmdParser) {.noSideEffect, importcpp: "PrintHelp",
     header: "ViewerTest_CmdParser.hxx".}
-proc parse*(this: var ViewerTestCmdParser; theArgsNb: int; theArgVec: cstringArray) {.
+proc parse*(this: var ViewerTestCmdParser; theArgsNb: cint; theArgVec: cstringArray) {.
     importcpp: "Parse", header: "ViewerTest_CmdParser.hxx".}
 proc getOptionNameByKey*(this: ViewerTestCmdParser;
                         theOptionKey: ViewerTestCommandOptionKey): string {.
@@ -72,52 +72,77 @@ proc hasOption*(this: ViewerTestCmdParser;
                theOptionKey: ViewerTestCommandOptionKey;
                theMandatoryArgsNb: SizeT = 0; isFatal: bool = false): bool {.
     noSideEffect, importcpp: "HasOption", header: "ViewerTest_CmdParser.hxx".}
-proc getNumberOfOptionArguments*(this: ViewerTestCmdParser; theOptionName: string): int {.
+proc getNumberOfOptionArguments*(this: ViewerTestCmdParser; theOptionName: string): cint {.
     noSideEffect, importcpp: "GetNumberOfOptionArguments",
     header: "ViewerTest_CmdParser.hxx".}
 proc getNumberOfOptionArguments*(this: ViewerTestCmdParser;
-                                theOptionKey: ViewerTestCommandOptionKey): int {.
+                                theOptionKey: ViewerTestCommandOptionKey): cint {.
     noSideEffect, importcpp: "GetNumberOfOptionArguments",
     header: "ViewerTest_CmdParser.hxx".}
-proc arg*(this: ViewerTestCmdParser; theOptionName: string; theArgumentIndex: int;
+proc arg*(this: ViewerTestCmdParser; theOptionName: string; theArgumentIndex: cint;
          theOptionArgument: var string): bool {.noSideEffect, importcpp: "Arg",
     header: "ViewerTest_CmdParser.hxx".}
 proc arg*(this: ViewerTestCmdParser; theOptionKey: ViewerTestCommandOptionKey;
-         theArgumentIndex: int; theOptionArgument: var string): bool {.noSideEffect,
+         theArgumentIndex: cint; theOptionArgument: var string): bool {.noSideEffect,
     importcpp: "Arg", header: "ViewerTest_CmdParser.hxx".}
-proc arg*(this: ViewerTestCmdParser; theOptionName: string; theArgumentIndex: int): string {.
+proc arg*(this: ViewerTestCmdParser; theOptionName: string; theArgumentIndex: cint): string {.
     noSideEffect, importcpp: "Arg", header: "ViewerTest_CmdParser.hxx".}
 proc arg*(this: ViewerTestCmdParser; theOptionKey: ViewerTestCommandOptionKey;
-         theArgumentIndex: int): string {.noSideEffect, importcpp: "Arg",
-                                       header: "ViewerTest_CmdParser.hxx".}
+         theArgumentIndex: cint): string {.noSideEffect, importcpp: "Arg",
+                                        header: "ViewerTest_CmdParser.hxx".}
 proc argVec3f*(this: ViewerTestCmdParser; theOptionName: string;
-              theArgumentIndex: int = 0): Graphic3dVec3 {.noSideEffect,
+              theArgumentIndex: cint = 0): Graphic3dVec3 {.noSideEffect,
     importcpp: "ArgVec3f", header: "ViewerTest_CmdParser.hxx".}
 proc argVec3d*(this: ViewerTestCmdParser; theOptionName: string;
-              theArgumentIndex: int = 0): Graphic3dVec3d {.noSideEffect,
+              theArgumentIndex: cint = 0): Graphic3dVec3d {.noSideEffect,
     importcpp: "ArgVec3d", header: "ViewerTest_CmdParser.hxx".}
 proc argVec*(this: ViewerTestCmdParser; theOptionName: string;
-            theArgumentIndex: int = 0): Vec {.noSideEffect, importcpp: "ArgVec",
+            theArgumentIndex: cint = 0): Vec {.noSideEffect, importcpp: "ArgVec",
     header: "ViewerTest_CmdParser.hxx".}
 proc argPnt*(this: ViewerTestCmdParser; theOptionName: string;
-            theArgumentIndex: int = 0): Pnt {.noSideEffect, importcpp: "ArgPnt",
+            theArgumentIndex: cint = 0): Pnt {.noSideEffect, importcpp: "ArgPnt",
     header: "ViewerTest_CmdParser.hxx".}
 proc argDouble*(this: ViewerTestCmdParser; theOptionName: string;
-               theArgumentIndex: int = 0): float {.noSideEffect,
+               theArgumentIndex: cint = 0): cfloat {.noSideEffect,
     importcpp: "ArgDouble", header: "ViewerTest_CmdParser.hxx".}
 proc argFloat*(this: ViewerTestCmdParser; theOptionName: string;
-              theArgumentIndex: int = 0): StandardShortReal {.noSideEffect,
+              theArgumentIndex: cint = 0): StandardShortReal {.noSideEffect,
     importcpp: "ArgFloat", header: "ViewerTest_CmdParser.hxx".}
 proc argInt*(this: ViewerTestCmdParser; theOptionName: string;
-            theArgumentIndex: int = 0): int {.noSideEffect, importcpp: "ArgInt",
+            theArgumentIndex: cint = 0): cint {.noSideEffect, importcpp: "ArgInt",
     header: "ViewerTest_CmdParser.hxx".}
 proc argBool*(this: ViewerTestCmdParser; theOptionName: string;
-             theArgumentIndex: int = 0): bool {.noSideEffect, importcpp: "ArgBool",
+             theArgumentIndex: cint = 0): bool {.noSideEffect, importcpp: "ArgBool",
     header: "ViewerTest_CmdParser.hxx".}
 proc argColor*[TheColor](this: ViewerTestCmdParser; theOptionName: string;
-                        theArgumentIndex: var int; theColor: var TheColor): bool {.
+                        theArgumentIndex: var cint; theColor: var TheColor): bool {.
     noSideEffect, importcpp: "ArgColor", header: "ViewerTest_CmdParser.hxx".}
 proc argColor*[TheColor](this: ViewerTestCmdParser;
                         theOptionKey: ViewerTestCommandOptionKey;
-                        theArgumentIndex: var int; theColor: var TheColor): bool {.
+                        theArgumentIndex: var cint; theColor: var TheColor): bool {.
     noSideEffect, importcpp: "ArgColor", header: "ViewerTest_CmdParser.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

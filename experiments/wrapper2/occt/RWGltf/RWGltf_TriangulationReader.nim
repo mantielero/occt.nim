@@ -59,3 +59,28 @@ proc dynamicType*(this: RWGltfTriangulationReader): Handle[StandardType] {.
 proc constructRWGltfTriangulationReader*(): RWGltfTriangulationReader {.
     constructor, importcpp: "RWGltf_TriangulationReader(@)",
     header: "RWGltf_TriangulationReader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

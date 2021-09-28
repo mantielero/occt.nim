@@ -22,3 +22,28 @@ converter `pnt`*(this: Select3D_Pnt): Pnt {.noSideEffect, importcpp: "Select3D_P
                                         header: "Select3D_Pnt.hxx".}
 converter `xyz`*(this: Select3D_Pnt): Xyz {.noSideEffect, importcpp: "Select3D_Pnt::operator gp_XYZ",
                                         header: "Select3D_Pnt.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

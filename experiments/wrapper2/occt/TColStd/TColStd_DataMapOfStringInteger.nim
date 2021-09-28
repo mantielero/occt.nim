@@ -14,7 +14,32 @@
 
 type
   TColStdDataMapOfStringInteger* = NCollectionDataMap[TCollectionExtendedString,
-      int, TCollectionExtendedString]
+      cint, TCollectionExtendedString]
   TColStdDataMapIteratorOfDataMapOfStringInteger* = Iterator[
-      TCollectionExtendedString, int, TCollectionExtendedString]
+      TCollectionExtendedString, cint, TCollectionExtendedString]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

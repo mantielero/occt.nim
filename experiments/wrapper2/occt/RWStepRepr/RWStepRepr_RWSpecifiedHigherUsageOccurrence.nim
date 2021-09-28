@@ -30,7 +30,7 @@ proc constructRWStepReprRWSpecifiedHigherUsageOccurrence*(): RWStepReprRWSpecifi
     constructor, importcpp: "RWStepRepr_RWSpecifiedHigherUsageOccurrence(@)",
     header: "RWStepRepr_RWSpecifiedHigherUsageOccurrence.hxx".}
 proc readStep*(this: RWStepReprRWSpecifiedHigherUsageOccurrence;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprSpecifiedHigherUsageOccurrence]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepReprRWSpecifiedHigherUsageOccurrence;
            ent: Handle[StepReprSpecifiedHigherUsageOccurrence];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWSpecifiedHigherUsageOccurrence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

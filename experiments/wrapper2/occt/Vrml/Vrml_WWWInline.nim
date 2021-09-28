@@ -39,3 +39,28 @@ proc bboxCenter*(this: VrmlWWWInline): Vec {.noSideEffect, importcpp: "BboxCente
     header: "Vrml_WWWInline.hxx".}
 proc print*(this: VrmlWWWInline; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_WWWInline.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

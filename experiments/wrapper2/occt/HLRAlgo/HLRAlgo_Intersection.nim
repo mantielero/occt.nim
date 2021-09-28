@@ -25,8 +25,8 @@ type
 
 proc constructHLRAlgoIntersection*(): HLRAlgoIntersection {.constructor,
     importcpp: "HLRAlgo_Intersection(@)", header: "HLRAlgo_Intersection.hxx".}
-proc constructHLRAlgoIntersection*(ori: TopAbsOrientation; lev: int; segInd: int;
-                                  ind: int; p: float; tol: StandardShortReal;
+proc constructHLRAlgoIntersection*(ori: TopAbsOrientation; lev: cint; segInd: cint;
+                                  ind: cint; p: cfloat; tol: StandardShortReal;
                                   s: TopAbsState): HLRAlgoIntersection {.
     constructor, importcpp: "HLRAlgo_Intersection(@)",
     header: "HLRAlgo_Intersection.hxx".}
@@ -34,21 +34,21 @@ proc orientation*(this: var HLRAlgoIntersection; ori: TopAbsOrientation) {.
     importcpp: "Orientation", header: "HLRAlgo_Intersection.hxx".}
 proc orientation*(this: HLRAlgoIntersection): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "HLRAlgo_Intersection.hxx".}
-proc level*(this: var HLRAlgoIntersection; lev: int) {.importcpp: "Level",
+proc level*(this: var HLRAlgoIntersection; lev: cint) {.importcpp: "Level",
     header: "HLRAlgo_Intersection.hxx".}
-proc level*(this: HLRAlgoIntersection): int {.noSideEffect, importcpp: "Level",
+proc level*(this: HLRAlgoIntersection): cint {.noSideEffect, importcpp: "Level",
     header: "HLRAlgo_Intersection.hxx".}
-proc segIndex*(this: var HLRAlgoIntersection; segInd: int) {.importcpp: "SegIndex",
+proc segIndex*(this: var HLRAlgoIntersection; segInd: cint) {.importcpp: "SegIndex",
     header: "HLRAlgo_Intersection.hxx".}
-proc segIndex*(this: HLRAlgoIntersection): int {.noSideEffect, importcpp: "SegIndex",
+proc segIndex*(this: HLRAlgoIntersection): cint {.noSideEffect,
+    importcpp: "SegIndex", header: "HLRAlgo_Intersection.hxx".}
+proc index*(this: var HLRAlgoIntersection; ind: cint) {.importcpp: "Index",
     header: "HLRAlgo_Intersection.hxx".}
-proc index*(this: var HLRAlgoIntersection; ind: int) {.importcpp: "Index",
+proc index*(this: HLRAlgoIntersection): cint {.noSideEffect, importcpp: "Index",
     header: "HLRAlgo_Intersection.hxx".}
-proc index*(this: HLRAlgoIntersection): int {.noSideEffect, importcpp: "Index",
+proc parameter*(this: var HLRAlgoIntersection; p: cfloat) {.importcpp: "Parameter",
     header: "HLRAlgo_Intersection.hxx".}
-proc parameter*(this: var HLRAlgoIntersection; p: float) {.importcpp: "Parameter",
-    header: "HLRAlgo_Intersection.hxx".}
-proc parameter*(this: HLRAlgoIntersection): float {.noSideEffect,
+proc parameter*(this: HLRAlgoIntersection): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "HLRAlgo_Intersection.hxx".}
 proc tolerance*(this: var HLRAlgoIntersection; t: StandardShortReal) {.
     importcpp: "Tolerance", header: "HLRAlgo_Intersection.hxx".}
@@ -58,3 +58,28 @@ proc state*(this: var HLRAlgoIntersection; s: TopAbsState) {.importcpp: "State",
     header: "HLRAlgo_Intersection.hxx".}
 proc state*(this: HLRAlgoIntersection): TopAbsState {.noSideEffect,
     importcpp: "State", header: "HLRAlgo_Intersection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

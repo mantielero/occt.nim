@@ -19,7 +19,7 @@ discard "forward decl of GeomFill_LocationDraft"
 discard "forward decl of BRepFill_DraftLaw"
 discard "forward decl of BRepFill_DraftLaw"
 type
-  HandleBRepFillDraftLaw* = Handle[BRepFillDraftLaw]
+  HandleC1C1* = Handle[BRepFillDraftLaw]
 
 ## ! Build Location Law, with a  Wire.
 
@@ -31,8 +31,8 @@ type
 proc constructBRepFillDraftLaw*(path: TopoDS_Wire;
                                law: Handle[GeomFillLocationDraft]): BRepFillDraftLaw {.
     constructor, importcpp: "BRepFill_DraftLaw(@)", header: "BRepFill_DraftLaw.hxx".}
-proc cleanLaw*(this: var BRepFillDraftLaw; tolAngular: float) {.importcpp: "CleanLaw",
-    header: "BRepFill_DraftLaw.hxx".}
+proc cleanLaw*(this: var BRepFillDraftLaw; tolAngular: cfloat) {.
+    importcpp: "CleanLaw", header: "BRepFill_DraftLaw.hxx".}
 type
   BRepFillDraftLawbaseType* = BRepFillEdge3DLaw
 
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_DraftLaw.hxx".}
 proc dynamicType*(this: BRepFillDraftLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_DraftLaw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

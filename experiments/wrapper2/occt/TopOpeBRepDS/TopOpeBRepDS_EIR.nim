@@ -22,5 +22,30 @@ proc constructTopOpeBRepDS_EIR*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOp
     constructor, importcpp: "TopOpeBRepDS_EIR(@)", header: "TopOpeBRepDS_EIR.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_EIR.hxx".}
-proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR; i: int) {.
+proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR; i: cint) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_EIR.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

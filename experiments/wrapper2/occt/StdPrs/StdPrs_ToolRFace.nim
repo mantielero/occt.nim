@@ -42,3 +42,28 @@ proc orientation*(this: StdPrsToolRFace): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "StdPrs_ToolRFace.hxx".}
 proc isInvalidGeometry*(this: StdPrsToolRFace): bool {.noSideEffect,
     importcpp: "IsInvalidGeometry", header: "StdPrs_ToolRFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

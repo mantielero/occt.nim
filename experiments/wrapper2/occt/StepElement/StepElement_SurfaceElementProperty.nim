@@ -18,8 +18,7 @@ discard "forward decl of StepElement_SurfaceSectionField"
 discard "forward decl of StepElement_SurfaceElementProperty"
 discard "forward decl of StepElement_SurfaceElementProperty"
 type
-  HandleStepElementSurfaceElementProperty* = Handle[
-      StepElementSurfaceElementProperty]
+  HandleC1C1* = Handle[StepElementSurfaceElementProperty]
 
 ## ! Representation of STEP entity SurfaceElementProperty
 
@@ -65,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementSurfaceElementProperty): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_SurfaceElementProperty.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

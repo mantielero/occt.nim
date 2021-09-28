@@ -13,67 +13,136 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _NCollection_Mat4_HeaderFile [NewLine] # _NCollection_Mat4_HeaderFile [NewLine] # < NCollection_Vec4 . hxx > [NewLine] # < Standard_Dump . hxx > [NewLine] # < Standard_OStream . hxx > [NewLine] ! Generic matrix of 4 x 4 elements.
+## ! Generic matrix of 4 x 4 elements.
 ## ! To be used in conjunction with NCollection_Vec4 entities.
 ## ! Originally introduced for 3D space projection and orientation
-## ! operations. template < typename Element_t > [end of template] class NCollection_Mat4 { public : ! Get number of rows.
-## ! @return number of rows. static size_t Rows ( ) { return 4 ; } ! Get number of columns.
-## ! @retur number of columns. static size_t Cols ( ) { return 4 ; } ! Empty constructor.
-## ! Construct the zero matrix. NCollection_Mat4 ( ) { InitIdentity ( ) ; } ! Conversion constructor (explicitly converts some 4 x 4 matrix with other element type
-## ! to a new 4 x 4 matrix with the element type Element_t,
-## ! whose elements are static_cast'ed corresponding elements of theOtherMat4 matrix)
-## ! @tparam OtherElement_t the element type of the other 4 x 4 matrix theOtherVec4
-## ! @param theOtherMat4 the 4 x 4 matrix that needs to be converted template < typename OtherElement_t > [end of template] explicit NCollection_Mat4 ( const NCollection_Mat4 < OtherElement_t > [end of template] & theOtherMat4 ) { ConvertFrom ( theOtherMat4 ) ; } ! Get element at the specified row and column.
-## ! @param theRow [in] the row.to address.
-## ! @param theCol [in] the column to address.
-## ! @return the value of the addressed element. Element_t GetValue ( const size_t theRow , const size_t theCol ) const { return myMat [ theCol * 4 + theRow ] ; } ! Access element at the specified row and column.
-## ! @param theRow [in] the row.to access.
-## ! @param theCol [in] the column to access.
-## ! @return reference on the matrix element. Element_t & ChangeValue ( const size_t theRow , const size_t theCol ) { return myMat [ theCol * 4 + theRow ] ; } ! Set value for the element specified by row and columns.
-## ! @param theRow   [in] the row to change.
-## ! @param theCol   [in] the column to change.
-## ! @param theValue [in] the value to set.s void SetValue ( const size_t theRow , const size_t theCol , const Element_t theValue ) { myMat [ theCol * 4 + theRow ] = theValue ; } ! Get vector of elements for the specified row.
-## ! @param theRow [in] the row to access.
-## ! @return vector of elements. NCollection_Vec4 < Element_t > [end of template] GetRow ( const size_t theRow ) const { return NCollection_Vec4 < Element_t > [end of template] ( GetValue ( theRow , 0 ) , GetValue ( theRow , 1 ) , GetValue ( theRow , 2 ) , GetValue ( theRow , 3 ) ) ; } ! Change first 3 row values by the passed vector.
-## ! @param theRow [in] the row to change.
-## ! @param theVec [in] the vector of values. void SetRow ( const size_t theRow , const NCollection_Vec3 < Element_t > [end of template] & theVec ) { SetValue ( theRow , 0 , theVec . x ( ) ) ; SetValue ( theRow , 1 , theVec . y ( ) ) ; SetValue ( theRow , 2 , theVec . z ( ) ) ; } ! Set row values by the passed 4 element vector.
-## ! @param theRow [in] the row to change.
-## ! @param theVec [in] the vector of values. void SetRow ( const size_t theRow , const NCollection_Vec4 < Element_t > [end of template] & theVec ) { SetValue ( theRow , 0 , theVec . x ( ) ) ; SetValue ( theRow , 1 , theVec . y ( ) ) ; SetValue ( theRow , 2 , theVec . z ( ) ) ; SetValue ( theRow , 3 , theVec . w ( ) ) ; } ! Get vector of elements for the specified column.
-## ! @param theCol [in] the column to access.
-## ! @return vector of elements. NCollection_Vec4 < Element_t > [end of template] GetColumn ( const size_t theCol ) const { return NCollection_Vec4 < Element_t > [end of template] ( GetValue ( 0 , theCol ) , GetValue ( 1 , theCol ) , GetValue ( 2 , theCol ) , GetValue ( 3 , theCol ) ) ; } ! Change first 3 column values by the passed vector.
-## ! @param theCol [in] the column to change.
-## ! @param theVec [in] the vector of values. void SetColumn ( const size_t theCol , const NCollection_Vec3 < Element_t > [end of template] & theVec ) { SetValue ( 0 , theCol , theVec . x ( ) ) ; SetValue ( 1 , theCol , theVec . y ( ) ) ; SetValue ( 2 , theCol , theVec . z ( ) ) ; } ! Set column values by the passed 4 element vector.
-## ! @param theCol [in] the column to change.
-## ! @param theVec [in] the vector of values. void SetColumn ( const size_t theCol , const NCollection_Vec4 < Element_t > [end of template] & theVec ) { SetValue ( 0 , theCol , theVec . x ( ) ) ; SetValue ( 1 , theCol , theVec . y ( ) ) ; SetValue ( 2 , theCol , theVec . z ( ) ) ; SetValue ( 3 , theCol , theVec . w ( ) ) ; } ! Get vector of diagonal elements.
-## ! \return vector of diagonal elements. NCollection_Vec4 < Element_t > [end of template] GetDiagonal ( ) const { return NCollection_Vec4 < Element_t > [end of template] ( GetValue ( 0 , 0 ) , GetValue ( 1 , 1 ) , GetValue ( 2 , 2 ) , GetValue ( 3 , 3 ) ) ; } ! Change first 3 elements of the diagonal matrix.
-## ! @param theVec the vector of values. void SetDiagonal ( const NCollection_Vec3 < Element_t > [end of template] & theVec ) { SetValue ( 0 , 0 , theVec . x ( ) ) ; SetValue ( 1 , 1 , theVec . y ( ) ) ; SetValue ( 2 , 2 , theVec . z ( ) ) ; } ! Set diagonal elements of the matrix by the passed vector.
-## ! @param theVec [in] the vector of values. void SetDiagonal ( const NCollection_Vec4 < Element_t > [end of template] & theVec ) { SetValue ( 0 , 0 , theVec . x ( ) ) ; SetValue ( 1 , 1 , theVec . y ( ) ) ; SetValue ( 2 , 2 , theVec . z ( ) ) ; SetValue ( 3 , 3 , theVec . w ( ) ) ; } ! Initialize the identity matrix. void InitIdentity ( ) { std :: memcpy ( this , myIdentityArray , sizeof ( NCollection_Mat4 ) ) ; } ! Checks the matrix for identity. bool IsIdentity ( ) const { return std :: memcmp ( this , myIdentityArray , sizeof ( NCollection_Mat4 ) ) == 0 ; } ! Check this matrix for equality with another matrix (without tolerance!). bool IsEqual ( const NCollection_Mat4 & theOther ) const { return std :: memcmp ( this , & theOther , sizeof ( NCollection_Mat4 ) ) == 0 ; } ! Check this matrix for equality with another matrix (without tolerance!). bool operator == ( const NCollection_Mat4 & theOther ) { return IsEqual ( theOther ) ; } bool operator == ( const NCollection_Mat4 & theOther ) const { return IsEqual ( theOther ) ; } ! Check this matrix for non-equality with another matrix (without tolerance!). bool operator != ( const NCollection_Mat4 & theOther ) { return ! IsEqual ( theOther ) ; } bool operator != ( const NCollection_Mat4 & theOther ) const { return ! IsEqual ( theOther ) ; } ! Raw access to the data (for OpenGL exchange). const Element_t * GetData ( ) const { return myMat ; } Element_t * ChangeData ( ) { return myMat ; } operator const Element_t * ( ) const { return myMat ; } operator Element_t * ( ) { return myMat ; } ! Multiply by the vector (M * V).
-## ! @param theVec [in] the vector to multiply. NCollection_Vec4 < Element_t > [end of template] operator * ( const NCollection_Vec4 < Element_t > [end of template] & theVec ) const { return NCollection_Vec4 < Element_t > [end of template] ( GetValue ( 0 , 0 ) * theVec . x ( ) + GetValue ( 0 , 1 ) * theVec . y ( ) + GetValue ( 0 , 2 ) * theVec . z ( ) + GetValue ( 0 , 3 ) * theVec . w ( ) , GetValue ( 1 , 0 ) * theVec . x ( ) + GetValue ( 1 , 1 ) * theVec . y ( ) + GetValue ( 1 , 2 ) * theVec . z ( ) + GetValue ( 1 , 3 ) * theVec . w ( ) , GetValue ( 2 , 0 ) * theVec . x ( ) + GetValue ( 2 , 1 ) * theVec . y ( ) + GetValue ( 2 , 2 ) * theVec . z ( ) + GetValue ( 2 , 3 ) * theVec . w ( ) , GetValue ( 3 , 0 ) * theVec . x ( ) + GetValue ( 3 , 1 ) * theVec . y ( ) + GetValue ( 3 , 2 ) * theVec . z ( ) + GetValue ( 3 , 3 ) * theVec . w ( ) ) ; } ! Compute matrix multiplication product: A * B.
-## ! @param theMatA [in] the matrix "A".
-## ! @param theMatB [in] the matrix "B". NCollection_Mat4 Multiply ( const NCollection_Mat4 & theMatA , const NCollection_Mat4 & theMatB ) { NCollection_Mat4 aMatRes ; size_t aInputElem ; for ( size_t aResElem = 0 ; aResElem < 16 ; ++ aResElem ) { aMatRes [ aResElem ] = ( Element_t ) 0 ; for ( aInputElem = 0 ; aInputElem < 4 ; ++ aInputElem ) { aMatRes [ aResElem ] += theMatA . GetValue ( aResElem % 4 , aInputElem ) * theMatB . GetValue ( aInputElem , aResElem / 4 ) ; } } return aMatRes ; } ! Compute matrix multiplication.
-## ! @param theMat [in] the matrix to multiply. void Multiply ( const NCollection_Mat4 & theMat ) { * this = Multiply ( * this , theMat ) ; } ! Multiply by the another matrix.
-## ! @param theMat [in] the other matrix. NCollection_Mat4 & operator *= ( const NCollection_Mat4 & theMat ) { Multiply ( theMat ) ; return * this ; } ! Compute matrix multiplication product.
-## ! @param theMat [in] the other matrix.
-## ! @return result of multiplication. NCollection_Mat4 operator * ( const NCollection_Mat4 & theMat ) const { return Multiplied ( theMat ) ; } ! Compute matrix multiplication product.
-## ! @param theMat [in] the other matrix.
-## ! @return result of multiplication. NCollection_Mat4 Multiplied ( const NCollection_Mat4 & theMat ) const { NCollection_Mat4 aTempMat ( * this ) ; aTempMat *= theMat ; return aTempMat ; } ! Compute per-component multiplication.
-## ! @param theFactor [in] the scale factor. void Multiply ( const Element_t theFactor ) { for ( size_t i = 0 ; i < 16 ; ++ i ) { myMat [ i ] *= theFactor ; } } ! Compute per-element multiplication.
-## ! @param theFactor [in] the scale factor. NCollection_Mat4 & operator *= ( const Element_t theFactor ) { Multiply ( theFactor ) ; return * this ; } ! Compute per-element multiplication.
-## ! @param theFactor [in] the scale factor.
-## ! @return the result of multiplicaton. NCollection_Mat4 operator * ( const Element_t theFactor ) const { return Multiplied ( theFactor ) ; } ! Compute per-element multiplication.
-## ! @param theFactor [in] the scale factor.
-## ! @return the result of multiplicaton. NCollection_Mat4 Multiplied ( const Element_t theFactor ) const { NCollection_Mat4 aTempMat ( * this ) ; aTempMat *= theFactor ; return aTempMat ; } ! Translate the matrix on the passed vector.
-## ! @param theVec [in] the translation vector. void Translate ( const NCollection_Vec3 < Element_t > [end of template] & theVec ) { NCollection_Mat4 aTempMat ; aTempMat . SetColumn ( 3 , theVec ) ; this -> Multiply ( aTempMat ) ; } ! Transpose the matrix.
-## ! @return transposed copy of the matrix. NCollection_Mat4 Transposed ( ) const { NCollection_Mat4 aTempMat ; aTempMat . SetRow ( 0 , GetColumn ( 0 ) ) ; aTempMat . SetRow ( 1 , GetColumn ( 1 ) ) ; aTempMat . SetRow ( 2 , GetColumn ( 2 ) ) ; aTempMat . SetRow ( 3 , GetColumn ( 3 ) ) ; return aTempMat ; } ! Transpose the matrix. void Transpose ( ) { * this = Transposed ( ) ; } ! Compute inverted matrix.
-## ! @param theOutMx [out] the inverted matrix.
-## ! @return true if reversion success. bool Inverted ( NCollection_Mat4 < Element_t > [end of template] & theOutMx ) const { Element_t * inv = theOutMx . myMat ;  use short-cut for better readability const Element_t * m = myMat ; inv [ 0 ] = m [ 5 ] * ( m [ 10 ] * m [ 15 ] - m [ 11 ] * m [ 14 ] ) - m [ 9 ] * ( m [ 6 ] * m [ 15 ] - m [ 7 ] * m [ 14 ] ) - m [ 13 ] * ( m [ 7 ] * m [ 10 ] - m [ 6 ] * m [ 11 ] ) ; inv [ 1 ] = m [ 1 ] * ( m [ 11 ] * m [ 14 ] - m [ 10 ] * m [ 15 ] ) - m [ 9 ] * ( m [ 3 ] * m [ 14 ] - m [ 2 ] * m [ 15 ] ) - m [ 13 ] * ( m [ 2 ] * m [ 11 ] - m [ 3 ] * m [ 10 ] ) ; inv [ 2 ] = m [ 1 ] * ( m [ 6 ] * m [ 15 ] - m [ 7 ] * m [ 14 ] ) - m [ 5 ] * ( m [ 2 ] * m [ 15 ] - m [ 3 ] * m [ 14 ] ) - m [ 13 ] * ( m [ 3 ] * m [ 6 ] - m [ 2 ] * m [ 7 ] ) ; inv [ 3 ] = m [ 1 ] * ( m [ 7 ] * m [ 10 ] - m [ 6 ] * m [ 11 ] ) - m [ 5 ] * ( m [ 3 ] * m [ 10 ] - m [ 2 ] * m [ 11 ] ) - m [ 9 ] * ( m [ 2 ] * m [ 7 ] - m [ 3 ] * m [ 6 ] ) ; inv [ 4 ] = m [ 4 ] * ( m [ 11 ] * m [ 14 ] - m [ 10 ] * m [ 15 ] ) - m [ 8 ] * ( m [ 7 ] * m [ 14 ] - m [ 6 ] * m [ 15 ] ) - m [ 12 ] * ( m [ 6 ] * m [ 11 ] - m [ 7 ] * m [ 10 ] ) ; inv [ 5 ] = m [ 0 ] * ( m [ 10 ] * m [ 15 ] - m [ 11 ] * m [ 14 ] ) - m [ 8 ] * ( m [ 2 ] * m [ 15 ] - m [ 3 ] * m [ 14 ] ) - m [ 12 ] * ( m [ 3 ] * m [ 10 ] - m [ 2 ] * m [ 11 ] ) ; inv [ 6 ] = m [ 0 ] * ( m [ 7 ] * m [ 14 ] - m [ 6 ] * m [ 15 ] ) - m [ 4 ] * ( m [ 3 ] * m [ 14 ] - m [ 2 ] * m [ 15 ] ) - m [ 12 ] * ( m [ 2 ] * m [ 7 ] - m [ 3 ] * m [ 6 ] ) ; inv [ 7 ] = m [ 0 ] * ( m [ 6 ] * m [ 11 ] - m [ 7 ] * m [ 10 ] ) - m [ 4 ] * ( m [ 2 ] * m [ 11 ] - m [ 3 ] * m [ 10 ] ) - m [ 8 ] * ( m [ 3 ] * m [ 6 ] - m [ 2 ] * m [ 7 ] ) ; inv [ 8 ] = m [ 4 ] * ( m [ 9 ] * m [ 15 ] - m [ 11 ] * m [ 13 ] ) - m [ 8 ] * ( m [ 5 ] * m [ 15 ] - m [ 7 ] * m [ 13 ] ) - m [ 12 ] * ( m [ 7 ] * m [ 9 ] - m [ 5 ] * m [ 11 ] ) ; inv [ 9 ] = m [ 0 ] * ( m [ 11 ] * m [ 13 ] - m [ 9 ] * m [ 15 ] ) - m [ 8 ] * ( m [ 3 ] * m [ 13 ] - m [ 1 ] * m [ 15 ] ) - m [ 12 ] * ( m [ 1 ] * m [ 11 ] - m [ 3 ] * m [ 9 ] ) ; inv [ 10 ] = m [ 0 ] * ( m [ 5 ] * m [ 15 ] - m [ 7 ] * m [ 13 ] ) - m [ 4 ] * ( m [ 1 ] * m [ 15 ] - m [ 3 ] * m [ 13 ] ) - m [ 12 ] * ( m [ 3 ] * m [ 5 ] - m [ 1 ] * m [ 7 ] ) ; inv [ 11 ] = m [ 0 ] * ( m [ 7 ] * m [ 9 ] - m [ 5 ] * m [ 11 ] ) - m [ 4 ] * ( m [ 3 ] * m [ 9 ] - m [ 1 ] * m [ 11 ] ) - m [ 8 ] * ( m [ 1 ] * m [ 7 ] - m [ 3 ] * m [ 5 ] ) ; inv [ 12 ] = m [ 4 ] * ( m [ 10 ] * m [ 13 ] - m [ 9 ] * m [ 14 ] ) - m [ 8 ] * ( m [ 6 ] * m [ 13 ] - m [ 5 ] * m [ 14 ] ) - m [ 12 ] * ( m [ 5 ] * m [ 10 ] - m [ 6 ] * m [ 9 ] ) ; inv [ 13 ] = m [ 0 ] * ( m [ 9 ] * m [ 14 ] - m [ 10 ] * m [ 13 ] ) - m [ 8 ] * ( m [ 1 ] * m [ 14 ] - m [ 2 ] * m [ 13 ] ) - m [ 12 ] * ( m [ 2 ] * m [ 9 ] - m [ 1 ] * m [ 10 ] ) ; inv [ 14 ] = m [ 0 ] * ( m [ 6 ] * m [ 13 ] - m [ 5 ] * m [ 14 ] ) - m [ 4 ] * ( m [ 2 ] * m [ 13 ] - m [ 1 ] * m [ 14 ] ) - m [ 12 ] * ( m [ 1 ] * m [ 6 ] - m [ 2 ] * m [ 5 ] ) ; inv [ 15 ] = m [ 0 ] * ( m [ 5 ] * m [ 10 ] - m [ 6 ] * m [ 9 ] ) - m [ 4 ] * ( m [ 1 ] * m [ 10 ] - m [ 2 ] * m [ 9 ] ) - m [ 8 ] * ( m [ 2 ] * m [ 5 ] - m [ 1 ] * m [ 6 ] ) ; Element_t aDet = m [ 0 ] * inv [ 0 ] + m [ 1 ] * inv [ 4 ] + m [ 2 ] * inv [ 8 ] + m [ 3 ] * inv [ 12 ] ; if ( aDet == 0 ) return false ; aDet = ( Element_t ) 1.0 / aDet ; for ( int i = 0 ; i < 16 ; ++ i ) inv [ i ] *= aDet ; return true ; } ! Take values from NCollection_Mat4 with a different element type with type conversion. template < typename Other_t > [end of template] void ConvertFrom ( const NCollection_Mat4 < Other_t > [end of template] & theFrom ) { for ( int anIdx = 0 ; anIdx < 16 ; ++ anIdx ) { myMat [ anIdx ] = static_cast < Element_t > [end of template] ( theFrom . myMat [ anIdx ] ) ; } } ! Take values from NCollection_Mat4 with a different element type with type conversion. template < typename Other_t > [end of template] void Convert ( const NCollection_Mat4 < Other_t > [end of template] & theFrom ) { ConvertFrom ( theFrom ) ; } ! Maps plain C array to matrix type. static NCollection_Mat4 < Element_t > [end of template] & Map ( Element_t * theData ) { return * reinterpret_cast < NCollection_Mat4 < Element_t > [end of template] * > [end of template] ( theData ) ; } ! Maps plain C array to matrix type. static const NCollection_Mat4 < Element_t > [end of template] & Map ( const Element_t * theData ) { return * reinterpret_cast < const NCollection_Mat4 < Element_t > [end of template] * > [end of template] ( theData ) ; } ! Dumps the content of me into the stream void DumpJson ( Standard_OStream & theOStream , Standard_Integer ) const { OCCT_DUMP_FIELD_VALUES_NUMERICAL ( theOStream , NCollection_Mat4 , 16 , GetValue ( 0 , 0 ) , GetValue ( 0 , 1 ) , GetValue ( 0 , 2 ) , GetValue ( 0 , 3 ) , GetValue ( 1 , 0 ) , GetValue ( 1 , 1 ) , GetValue ( 1 , 2 ) , GetValue ( 1 , 3 ) , GetValue ( 2 , 0 ) , GetValue ( 2 , 1 ) , GetValue ( 2 , 2 ) , GetValue ( 2 , 3 ) , GetValue ( 3 , 0 ) , GetValue ( 3 , 1 ) , GetValue ( 3 , 2 ) , GetValue ( 3 , 3 ) ) } private : Element_t myMat [ 16 ] ; private : static Element_t myIdentityArray [ 16 ] ;  All instantiations are friend to each other template < class OtherType > [end of template] friend class NCollection_Mat4 ; } ;
-## Error: token expected: ; but got: <!!!
+## ! operations.
 
-## !!!Ignored construct:  template < typename Element_t > [end of template] Element_t NCollection_Mat4 < Element_t > :: myIdentityArray [ ] = { 1 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 1 } ;
-## Error: token expected: ; but got: <!!!
+type
+  NCollection_Mat4*[Element_t] {.importcpp: "NCollection_Mat4<\'0>",
+                                header: "NCollection_Mat4.hxx", bycopy.} = object ## ! Get
+                                                                             ## number of
+                                                                             ## rows.
+                                                                             ## !
+                                                                             ## @return
+                                                                             ## number of
+                                                                             ## rows.
 
-when defined(msc_Ver) and (msc_Ver >= 1900):
-  staticAssert(Value[NCollectionMat4[cfloat]],
-               "NCollection_Mat4 is not is_trivially_copyable() structure!")
-  staticAssert(Value[NCollectionMat4[cfloat]],
-               "NCollection_Mat4 is not is_standard_layout() structure!")
+
+proc Rows*[Element_t](): csize_t {.importcpp: "NCollection_Mat4::Rows(@)",
+                                header: "NCollection_Mat4.hxx".}
+proc Cols*[Element_t](): csize_t {.importcpp: "NCollection_Mat4::Cols(@)",
+                                header: "NCollection_Mat4.hxx".}
+proc constructNCollection_Mat4*[Element_t](): NCollection_Mat4[Element_t] {.
+    constructor, importcpp: "NCollection_Mat4<\'*0>(@)",
+    header: "NCollection_Mat4.hxx".}
+proc constructNCollection_Mat4*[Element_t; OtherElement_t](
+    theOtherMat4: NCollection_Mat4[OtherElement_t]): NCollection_Mat4[Element_t] {.
+    constructor, importcpp: "NCollection_Mat4<\'*0>(@)",
+    header: "NCollection_Mat4.hxx".}
+proc GetValue*[Element_t](this: NCollection_Mat4[Element_t]; theRow: csize_t;
+                         theCol: csize_t): Element_t {.noSideEffect,
+    importcpp: "GetValue", header: "NCollection_Mat4.hxx".}
+proc ChangeValue*[Element_t](this: var NCollection_Mat4[Element_t]; theRow: csize_t;
+                            theCol: csize_t): var Element_t {.
+    importcpp: "ChangeValue", header: "NCollection_Mat4.hxx".}
+proc SetValue*[Element_t](this: var NCollection_Mat4[Element_t]; theRow: csize_t;
+                         theCol: csize_t; theValue: Element_t) {.
+    importcpp: "SetValue", header: "NCollection_Mat4.hxx".}
+proc GetRow*[Element_t](this: NCollection_Mat4[Element_t]; theRow: csize_t): NCollection_Vec4[
+    Element_t] {.noSideEffect, importcpp: "GetRow", header: "NCollection_Mat4.hxx".}
+#[ proc SetRow*[Element_t](this: var NCollection_Mat4[Element_t]; theRow: csize_t;
+                       theVec: NCollection_Vec3[Element_t]) {.importcpp: "SetRow",
+    header: "NCollection_Mat4.hxx".} ]#
+proc SetRow*[Element_t](this: var NCollection_Mat4[Element_t]; theRow: csize_t;
+                       theVec: NCollection_Vec4[Element_t]) {.importcpp: "SetRow",
+    header: "NCollection_Mat4.hxx".}
+proc GetColumn*[Element_t](this: NCollection_Mat4[Element_t]; theCol: csize_t): NCollection_Vec4[
+    Element_t] {.noSideEffect, importcpp: "GetColumn",
+                header: "NCollection_Mat4.hxx".}
+#[ proc SetColumn*[Element_t](this: var NCollection_Mat4[Element_t]; theCol: csize_t;
+                          theVec: NCollection_Vec3[Element_t]) {.
+    importcpp: "SetColumn", header: "NCollection_Mat4.hxx".} ]#
+proc SetColumn*[Element_t](this: var NCollection_Mat4[Element_t]; theCol: csize_t;
+                          theVec: NCollection_Vec4[Element_t]) {.
+    importcpp: "SetColumn", header: "NCollection_Mat4.hxx".}
+proc GetDiagonal*[Element_t](this: NCollection_Mat4[Element_t]): NCollection_Vec4[
+    Element_t] {.noSideEffect, importcpp: "GetDiagonal",
+                header: "NCollection_Mat4.hxx".}
+#[ proc SetDiagonal*[Element_t](this: var NCollection_Mat4[Element_t];
+                            theVec: NCollection_Vec3[Element_t]) {.
+    importcpp: "SetDiagonal", header: "NCollection_Mat4.hxx".} ]#
+proc SetDiagonal*[Element_t](this: var NCollection_Mat4[Element_t];
+                            theVec: NCollection_Vec4[Element_t]) {.
+    importcpp: "SetDiagonal", header: "NCollection_Mat4.hxx".}
+proc InitIdentity*[Element_t](this: var NCollection_Mat4[Element_t]) {.
+    importcpp: "InitIdentity", header: "NCollection_Mat4.hxx".}
+proc IsIdentity*[Element_t](this: NCollection_Mat4[Element_t]): bool {.noSideEffect,
+    importcpp: "IsIdentity", header: "NCollection_Mat4.hxx".}
+proc IsEqual*[Element_t](this: NCollection_Mat4[Element_t];
+                        theOther: NCollection_Mat4): bool {.noSideEffect,
+    importcpp: "IsEqual", header: "NCollection_Mat4.hxx".}
+proc `==`*[Element_t](this: var NCollection_Mat4[Element_t];
+                     theOther: NCollection_Mat4): bool {.importcpp: "(# == #)",
+    header: "NCollection_Mat4.hxx".}
+proc `==`*[Element_t](this: NCollection_Mat4[Element_t]; theOther: NCollection_Mat4): bool {.
+    noSideEffect, importcpp: "(# == #)", header: "NCollection_Mat4.hxx".}
+proc GetData*[Element_t](this: NCollection_Mat4[Element_t]): ptr Element_t {.
+    noSideEffect, importcpp: "GetData", header: "NCollection_Mat4.hxx".}
+proc ChangeData*[Element_t](this: var NCollection_Mat4[Element_t]): ptr Element_t {.
+    importcpp: "ChangeData", header: "NCollection_Mat4.hxx".}
+converter `constElement_t*`*[Element_t](this: NCollection_Mat4[Element_t]): ptr Element_t {.
+    noSideEffect, importcpp: "NCollection_Mat4::operator constElement_t*",
+    header: "NCollection_Mat4.hxx".}
+converter `Element_t*`*[Element_t](this: var NCollection_Mat4[Element_t]): ptr Element_t {.
+    importcpp: "NCollection_Mat4::operator Element_t*",
+    header: "NCollection_Mat4.hxx".}
+proc `*`*[Element_t](this: NCollection_Mat4[Element_t];
+                    theVec: NCollection_Vec4[Element_t]): NCollection_Vec4[
+    Element_t] {.noSideEffect, importcpp: "(# * #)", header: "NCollection_Mat4.hxx".}
+proc Multiply*[Element_t](this: var NCollection_Mat4[Element_t];
+                         theMatA: NCollection_Mat4; theMatB: NCollection_Mat4): NCollection_Mat4 {.
+    importcpp: "Multiply", header: "NCollection_Mat4.hxx".}
+proc Multiply*[Element_t](this: var NCollection_Mat4[Element_t];
+                         theMat: NCollection_Mat4) {.importcpp: "Multiply",
+    header: "NCollection_Mat4.hxx".}
+proc `*=`*[Element_t](this: var NCollection_Mat4[Element_t];
+                     theMat: NCollection_Mat4) {.importcpp: "(# *= #)",
+    header: "NCollection_Mat4.hxx".}
+proc `*`*[Element_t](this: NCollection_Mat4[Element_t]; theMat: NCollection_Mat4): NCollection_Mat4 {.
+    noSideEffect, importcpp: "(# * #)", header: "NCollection_Mat4.hxx".}
+proc Multiplied*[Element_t](this: NCollection_Mat4[Element_t];
+                           theMat: NCollection_Mat4): NCollection_Mat4 {.
+    noSideEffect, importcpp: "Multiplied", header: "NCollection_Mat4.hxx".}
+proc Multiply*[Element_t](this: var NCollection_Mat4[Element_t];
+                         theFactor: Element_t) {.importcpp: "Multiply",
+    header: "NCollection_Mat4.hxx".}
+proc `*=`*[Element_t](this: var NCollection_Mat4[Element_t]; theFactor: Element_t) {.
+    importcpp: "(# *= #)", header: "NCollection_Mat4.hxx".}
+proc `*`*[Element_t](this: NCollection_Mat4[Element_t]; theFactor: Element_t): NCollection_Mat4 {.
+    noSideEffect, importcpp: "(# * #)", header: "NCollection_Mat4.hxx".}
+proc Multiplied*[Element_t](this: NCollection_Mat4[Element_t]; theFactor: Element_t): NCollection_Mat4 {.
+    noSideEffect, importcpp: "Multiplied", header: "NCollection_Mat4.hxx".}
+#[ proc Translate*[Element_t](this: var NCollection_Mat4[Element_t];
+                          theVec: NCollection_Vec3[Element_t]) {.
+    importcpp: "Translate", header: "NCollection_Mat4.hxx".} ]#
+proc Transposed*[Element_t](this: NCollection_Mat4[Element_t]): NCollection_Mat4 {.
+    noSideEffect, importcpp: "Transposed", header: "NCollection_Mat4.hxx".}
+proc Transpose*[Element_t](this: var NCollection_Mat4[Element_t]) {.
+    importcpp: "Transpose", header: "NCollection_Mat4.hxx".}
+proc Inverted*[Element_t](this: NCollection_Mat4[Element_t];
+                         theOutMx: var NCollection_Mat4[Element_t]): bool {.
+    noSideEffect, importcpp: "Inverted", header: "NCollection_Mat4.hxx".}
+proc ConvertFrom*[Element_t; Other_t](this: var NCollection_Mat4[Element_t];
+                                    theFrom: NCollection_Mat4[Other_t]) {.
+    importcpp: "ConvertFrom", header: "NCollection_Mat4.hxx".}
+proc Convert*[Element_t; Other_t](this: var NCollection_Mat4[Element_t];
+                                theFrom: NCollection_Mat4[Other_t]) {.
+    importcpp: "Convert", header: "NCollection_Mat4.hxx".}
+proc Map*[Element_t](theData: ptr Element_t): var NCollection_Mat4[Element_t] {.
+    importcpp: "NCollection_Mat4::Map(@)", header: "NCollection_Mat4.hxx".}
+#[ proc Map*[Element_t](theData: ptr Element_t): NCollection_Mat4[Element_t] {.
+    importcpp: "NCollection_Mat4::Map(@)", header: "NCollection_Mat4.hxx".} ]#
+proc DumpJson*[Element_t](this: NCollection_Mat4[Element_t];
+                         theOStream: var Standard_OStream; a3: int) {.noSideEffect,
+    importcpp: "DumpJson", header: "NCollection_Mat4.hxx".}

@@ -43,7 +43,7 @@ proc constructVrmlDataIndexedFaceSet*(): VrmlDataIndexedFaceSet {.constructor,
 proc constructVrmlDataIndexedFaceSet*(theScene: VrmlDataScene; theName: cstring;
                                      isCCW: bool = true; isSolid: bool = true;
                                      isConvex: bool = true;
-                                     theCreaseAngle: float = 0.0): VrmlDataIndexedFaceSet {.
+                                     theCreaseAngle: cfloat = 0.0): VrmlDataIndexedFaceSet {.
     constructor, importcpp: "VrmlData_IndexedFaceSet(@)",
     header: "VrmlData_IndexedFaceSet.hxx".}
 proc normals*(this: VrmlDataIndexedFaceSet): Handle[VrmlDataNormal] {.noSideEffect,
@@ -54,47 +54,47 @@ proc textureCoords*(this: VrmlDataIndexedFaceSet): Handle[VrmlDataTextureCoordin
     noSideEffect, importcpp: "TextureCoords", header: "VrmlData_IndexedFaceSet.hxx".}
 proc coordinates*(this: VrmlDataIndexedFaceSet): Handle[VrmlDataCoordinate] {.
     noSideEffect, importcpp: "Coordinates", header: "VrmlData_IndexedFaceSet.hxx".}
-proc polygons*(this: VrmlDataIndexedFaceSet; arrPolygons: ptr ptr int): csize_t {.
+proc polygons*(this: VrmlDataIndexedFaceSet; arrPolygons: ptr ptr cint): csize_t {.
     noSideEffect, importcpp: "Polygons", header: "VrmlData_IndexedFaceSet.hxx".}
-proc polygon*(this: var VrmlDataIndexedFaceSet; iFace: int; outIndice: ptr int): int {.
+proc polygon*(this: var VrmlDataIndexedFaceSet; iFace: cint; outIndice: ptr cint): cint {.
     importcpp: "Polygon", header: "VrmlData_IndexedFaceSet.hxx".}
 proc setCoordinates*(this: var VrmlDataIndexedFaceSet;
                     theCoord: Handle[VrmlDataCoordinate]) {.
     importcpp: "SetCoordinates", header: "VrmlData_IndexedFaceSet.hxx".}
 proc setPolygons*(this: var VrmlDataIndexedFaceSet; nPolygons: StandardSize;
-                 thePolygons: ptr ptr int) {.importcpp: "SetPolygons",
+                 thePolygons: ptr ptr cint) {.importcpp: "SetPolygons",
     header: "VrmlData_IndexedFaceSet.hxx".}
-proc arrayNormalInd*(this: VrmlDataIndexedFaceSet; arrNormalInd: ptr ptr int): csize_t {.
+proc arrayNormalInd*(this: VrmlDataIndexedFaceSet; arrNormalInd: ptr ptr cint): csize_t {.
     noSideEffect, importcpp: "ArrayNormalInd",
     header: "VrmlData_IndexedFaceSet.hxx".}
-proc indiceNormals*(this: var VrmlDataIndexedFaceSet; iFace: int; outIndice: ptr int): int {.
+proc indiceNormals*(this: var VrmlDataIndexedFaceSet; iFace: cint; outIndice: ptr cint): cint {.
     importcpp: "IndiceNormals", header: "VrmlData_IndexedFaceSet.hxx".}
-proc getNormal*(this: var VrmlDataIndexedFaceSet; iFace: int; iVertex: int): Xyz {.
+proc getNormal*(this: var VrmlDataIndexedFaceSet; iFace: cint; iVertex: cint): Xyz {.
     importcpp: "GetNormal", header: "VrmlData_IndexedFaceSet.hxx".}
 proc setNormalInd*(this: var VrmlDataIndexedFaceSet; nIndice: StandardSize;
-                  theIndice: ptr ptr int) {.importcpp: "SetNormalInd",
-                                        header: "VrmlData_IndexedFaceSet.hxx".}
+                  theIndice: ptr ptr cint) {.importcpp: "SetNormalInd",
+    header: "VrmlData_IndexedFaceSet.hxx".}
 proc setNormals*(this: var VrmlDataIndexedFaceSet;
                 theNormals: Handle[VrmlDataNormal]) {.importcpp: "SetNormals",
     header: "VrmlData_IndexedFaceSet.hxx".}
 proc setNormalPerVertex*(this: var VrmlDataIndexedFaceSet; isNormalPerVertex: bool) {.
     importcpp: "SetNormalPerVertex", header: "VrmlData_IndexedFaceSet.hxx".}
-proc arrayColorInd*(this: VrmlDataIndexedFaceSet; arrColorInd: ptr ptr int): csize_t {.
+proc arrayColorInd*(this: VrmlDataIndexedFaceSet; arrColorInd: ptr ptr cint): csize_t {.
     noSideEffect, importcpp: "ArrayColorInd", header: "VrmlData_IndexedFaceSet.hxx".}
-proc getColor*(this: var VrmlDataIndexedFaceSet; iFace: int; iVertex: int): QuantityColor {.
+proc getColor*(this: var VrmlDataIndexedFaceSet; iFace: cint; iVertex: cint): QuantityColor {.
     importcpp: "GetColor", header: "VrmlData_IndexedFaceSet.hxx".}
 proc setColorInd*(this: var VrmlDataIndexedFaceSet; nIndice: StandardSize;
-                 theIndice: ptr ptr int) {.importcpp: "SetColorInd",
-                                       header: "VrmlData_IndexedFaceSet.hxx".}
+                 theIndice: ptr ptr cint) {.importcpp: "SetColorInd",
+                                        header: "VrmlData_IndexedFaceSet.hxx".}
 proc setColors*(this: var VrmlDataIndexedFaceSet; theColors: Handle[VrmlDataColor]) {.
     importcpp: "SetColors", header: "VrmlData_IndexedFaceSet.hxx".}
 proc setColorPerVertex*(this: var VrmlDataIndexedFaceSet; isColorPerVertex: bool) {.
     importcpp: "SetColorPerVertex", header: "VrmlData_IndexedFaceSet.hxx".}
 proc arrayTextureCoordInd*(this: VrmlDataIndexedFaceSet;
-                          arrTextureCoordInd: ptr ptr int): csize_t {.noSideEffect,
+                          arrTextureCoordInd: ptr ptr cint): csize_t {.noSideEffect,
     importcpp: "ArrayTextureCoordInd", header: "VrmlData_IndexedFaceSet.hxx".}
 proc setTextureCoordInd*(this: var VrmlDataIndexedFaceSet; nIndice: StandardSize;
-                        theIndice: ptr ptr int) {.importcpp: "SetTextureCoordInd",
+                        theIndice: ptr ptr cint) {.importcpp: "SetTextureCoordInd",
     header: "VrmlData_IndexedFaceSet.hxx".}
 proc setTextureCoords*(this: var VrmlDataIndexedFaceSet;
                       tc: Handle[VrmlDataTextureCoordinate]) {.
@@ -124,5 +124,30 @@ proc dynamicType*(this: VrmlDataIndexedFaceSet): Handle[StandardType] {.
 
 discard "forward decl of VrmlData_IndexedFaceSet"
 type
-  HandleVrmlDataIndexedFaceSet* = Handle[VrmlDataIndexedFaceSet]
+  HandleC1C1* = Handle[VrmlDataIndexedFaceSet]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

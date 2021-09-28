@@ -23,7 +23,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Sum"
 discard "forward decl of Expr_Sum"
 type
-  HandleExprSum* = Handle[ExprSum]
+  HandleC1C1* = Handle[ExprSum]
   ExprSum* {.importcpp: "Expr_Sum", header: "Expr_Sum.hxx", bycopy.} = object of ExprPolyExpression ##
                                                                                           ## !
                                                                                           ## Creates
@@ -54,11 +54,11 @@ proc isLinear*(this: ExprSum): bool {.noSideEffect, importcpp: "IsLinear",
 proc derivative*(this: ExprSum; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_Sum.hxx".}
-proc nDerivative*(this: ExprSum; x: Handle[ExprNamedUnknown]; n: int): Handle[
+proc nDerivative*(this: ExprSum; x: Handle[ExprNamedUnknown]; n: cint): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "NDerivative",
                             header: "Expr_Sum.hxx".}
 proc evaluate*(this: ExprSum; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Sum.hxx".}
 proc string*(this: ExprSum): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Sum.hxx".}
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Expr_Sum::get_type_descriptor(@)", header: "Expr_Sum.hxx".}
 proc dynamicType*(this: ExprSum): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Sum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

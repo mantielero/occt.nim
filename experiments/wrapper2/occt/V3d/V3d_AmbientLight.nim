@@ -69,5 +69,30 @@ proc constructV3dAmbientLight*(theColor: QuantityColor = quantityNOC_WHITE): V3d
 
 discard "forward decl of V3d_AmbientLight"
 type
-  HandleV3dAmbientLight* = Handle[V3dAmbientLight]
+  HandleC1C1* = Handle[V3dAmbientLight]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

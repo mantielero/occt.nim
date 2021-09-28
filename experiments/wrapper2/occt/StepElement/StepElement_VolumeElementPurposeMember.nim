@@ -16,8 +16,7 @@
 discard "forward decl of StepElement_VolumeElementPurposeMember"
 discard "forward decl of StepElement_VolumeElementPurposeMember"
 type
-  HandleStepElementVolumeElementPurposeMember* = Handle[
-      StepElementVolumeElementPurposeMember]
+  HandleC1C1* = Handle[StepElementVolumeElementPurposeMember]
 
 ## ! Representation of member for  STEP SELECT type VolumeElementPurpose
 
@@ -52,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Volume
 proc dynamicType*(this: StepElementVolumeElementPurposeMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_VolumeElementPurposeMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,76 +22,6 @@ type
   GeomPlateBuildAveragePlane* {.importcpp: "GeomPlate_BuildAveragePlane",
                                header: "GeomPlate_BuildAveragePlane.hxx", bycopy.} = object ##
                                                                                        ## !
-                                                                                       ## Tol
-                                                                                       ## is
-                                                                                       ## a
-                                                                                       ## Tolerance
-                                                                                       ## to
-                                                                                       ## make
-                                                                                       ## the
-                                                                                       ## difference
-                                                                                       ## between
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## the
-                                                                                       ## result
-                                                                                       ## plane
-                                                                                       ## and
-                                                                                       ## the
-                                                                                       ## result
-                                                                                       ## line.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## if
-                                                                                       ## POption
-                                                                                       ## =
-                                                                                       ## 1
-                                                                                       ## :
-                                                                                       ## automatical
-                                                                                       ## parametrisation
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## if
-                                                                                       ## POption
-                                                                                       ## =
-                                                                                       ## 2
-                                                                                       ## :
-                                                                                       ## parametrisation
-                                                                                       ## by
-                                                                                       ## eigen
-                                                                                       ## vectors
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## if
-                                                                                       ## NOption
-                                                                                       ## =
-                                                                                       ## 1
-                                                                                       ## :
-                                                                                       ## the
-                                                                                       ## average
-                                                                                       ## plane
-                                                                                       ## is
-                                                                                       ## the
-                                                                                       ## inertial
-                                                                                       ## plane.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## if
-                                                                                       ## NOption
-                                                                                       ## =
-                                                                                       ## 2
-                                                                                       ## :
-                                                                                       ## the
-                                                                                       ## average
-                                                                                       ## plane
-                                                                                       ## is
-                                                                                       ## the
-                                                                                       ## plane
-                                                                                       ## of
-                                                                                       ## max.
-                                                                                       ## flux.
-                                                                                       ##
-                                                                                       ## !
                                                                                        ## Computes
                                                                                        ## a
                                                                                        ## base
@@ -109,8 +39,26 @@ type
                                                                                        ## vectors
 
 
+proc `new`*(this: var GeomPlateBuildAveragePlane; theSize: csize_t): pointer {.
+    importcpp: "GeomPlate_BuildAveragePlane::operator new",
+    header: "GeomPlate_BuildAveragePlane.hxx".}
+proc `delete`*(this: var GeomPlateBuildAveragePlane; theAddress: pointer) {.
+    importcpp: "GeomPlate_BuildAveragePlane::operator delete",
+    header: "GeomPlate_BuildAveragePlane.hxx".}
+proc `new[]`*(this: var GeomPlateBuildAveragePlane; theSize: csize_t): pointer {.
+    importcpp: "GeomPlate_BuildAveragePlane::operator new[]",
+    header: "GeomPlate_BuildAveragePlane.hxx".}
+proc `delete[]`*(this: var GeomPlateBuildAveragePlane; theAddress: pointer) {.
+    importcpp: "GeomPlate_BuildAveragePlane::operator delete[]",
+    header: "GeomPlate_BuildAveragePlane.hxx".}
+proc `new`*(this: var GeomPlateBuildAveragePlane; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomPlate_BuildAveragePlane::operator new",
+    header: "GeomPlate_BuildAveragePlane.hxx".}
+proc `delete`*(this: var GeomPlateBuildAveragePlane; a2: pointer; a3: pointer) {.
+    importcpp: "GeomPlate_BuildAveragePlane::operator delete",
+    header: "GeomPlate_BuildAveragePlane.hxx".}
 proc constructGeomPlateBuildAveragePlane*(pts: Handle[TColgpHArray1OfPnt];
-    nbBoundPoints: int; tol: float; pOption: int; nOption: int): GeomPlateBuildAveragePlane {.
+    nbBoundPoints: int; tol: StandardReal; pOption: int; nOption: int): GeomPlateBuildAveragePlane {.
     constructor, importcpp: "GeomPlate_BuildAveragePlane(@)",
     header: "GeomPlate_BuildAveragePlane.hxx".}
 proc constructGeomPlateBuildAveragePlane*(normals: TColgpSequenceOfVec;
@@ -121,14 +69,15 @@ proc plane*(this: GeomPlateBuildAveragePlane): Handle[GeomPlane] {.noSideEffect,
     importcpp: "Plane", header: "GeomPlate_BuildAveragePlane.hxx".}
 proc line*(this: GeomPlateBuildAveragePlane): Handle[GeomLine] {.noSideEffect,
     importcpp: "Line", header: "GeomPlate_BuildAveragePlane.hxx".}
-proc isPlane*(this: GeomPlateBuildAveragePlane): bool {.noSideEffect,
+proc isPlane*(this: GeomPlateBuildAveragePlane): StandardBoolean {.noSideEffect,
     importcpp: "IsPlane", header: "GeomPlate_BuildAveragePlane.hxx".}
-proc isLine*(this: GeomPlateBuildAveragePlane): bool {.noSideEffect,
+proc isLine*(this: GeomPlateBuildAveragePlane): StandardBoolean {.noSideEffect,
     importcpp: "IsLine", header: "GeomPlate_BuildAveragePlane.hxx".}
-proc minMaxBox*(this: GeomPlateBuildAveragePlane; umin: var float; umax: var float;
-               vmin: var float; vmax: var float) {.noSideEffect,
-    importcpp: "MinMaxBox", header: "GeomPlate_BuildAveragePlane.hxx".}
+proc minMaxBox*(this: GeomPlateBuildAveragePlane; umin: var StandardReal;
+               umax: var StandardReal; vmin: var StandardReal; vmax: var StandardReal) {.
+    noSideEffect, importcpp: "MinMaxBox", header: "GeomPlate_BuildAveragePlane.hxx".}
 proc halfSpace*(newNormals: TColgpSequenceOfVec; normals: var TColgpSequenceOfVec;
-               bset: var GeomPlateSequenceOfAij; linTol: float; angTol: float): bool {.
+               bset: var GeomPlateSequenceOfAij; linTol: StandardReal;
+               angTol: StandardReal): StandardBoolean {.
     importcpp: "GeomPlate_BuildAveragePlane::HalfSpace(@)",
     header: "GeomPlate_BuildAveragePlane.hxx".}

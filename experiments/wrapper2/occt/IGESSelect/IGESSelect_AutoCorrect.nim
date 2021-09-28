@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_AutoCorrect"
 discard "forward decl of IGESSelect_AutoCorrect"
 type
-  HandleIGESSelectAutoCorrect* = Handle[IGESSelectAutoCorrect]
+  HandleC1C1* = Handle[IGESSelectAutoCorrect]
 
 ## ! Does the absolutely effective corrections on IGES Entity.
 ## ! That is to say : regarding the norm in details, some values
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_AutoCorrect.hxx".}
 proc dynamicType*(this: IGESSelectAutoCorrect): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_AutoCorrect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

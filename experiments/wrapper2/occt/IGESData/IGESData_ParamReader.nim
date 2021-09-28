@@ -40,17 +40,17 @@ type
 
 
 proc constructIGESDataParamReader*(list: Handle[InterfaceParamList];
-                                  ach: Handle[InterfaceCheck]; base: int = 1;
-                                  nbpar: int = 0; num: int = 0): IGESDataParamReader {.
+                                  ach: Handle[InterfaceCheck]; base: cint = 1;
+                                  nbpar: cint = 0; num: cint = 0): IGESDataParamReader {.
     constructor, importcpp: "IGESData_ParamReader(@)",
     header: "IGESData_ParamReader.hxx".}
-proc entityNumber*(this: IGESDataParamReader): int {.noSideEffect,
+proc entityNumber*(this: IGESDataParamReader): cint {.noSideEffect,
     importcpp: "EntityNumber", header: "IGESData_ParamReader.hxx".}
 proc clear*(this: var IGESDataParamReader) {.importcpp: "Clear",
     header: "IGESData_ParamReader.hxx".}
-proc currentNumber*(this: IGESDataParamReader): int {.noSideEffect,
+proc currentNumber*(this: IGESDataParamReader): cint {.noSideEffect,
     importcpp: "CurrentNumber", header: "IGESData_ParamReader.hxx".}
-proc setCurrentNumber*(this: var IGESDataParamReader; num: int) {.
+proc setCurrentNumber*(this: var IGESDataParamReader; num: cint) {.
     importcpp: "SetCurrentNumber", header: "IGESData_ParamReader.hxx".}
 proc stage*(this: IGESDataParamReader): IGESDataReadStage {.noSideEffect,
     importcpp: "Stage", header: "IGESData_ParamReader.hxx".}
@@ -58,31 +58,32 @@ proc nextStage*(this: var IGESDataParamReader) {.importcpp: "NextStage",
     header: "IGESData_ParamReader.hxx".}
 proc endAll*(this: var IGESDataParamReader) {.importcpp: "EndAll",
     header: "IGESData_ParamReader.hxx".}
-proc nbParams*(this: IGESDataParamReader): int {.noSideEffect, importcpp: "NbParams",
-    header: "IGESData_ParamReader.hxx".}
-proc paramType*(this: IGESDataParamReader; num: int): InterfaceParamType {.
+proc nbParams*(this: IGESDataParamReader): cint {.noSideEffect,
+    importcpp: "NbParams", header: "IGESData_ParamReader.hxx".}
+proc paramType*(this: IGESDataParamReader; num: cint): InterfaceParamType {.
     noSideEffect, importcpp: "ParamType", header: "IGESData_ParamReader.hxx".}
-proc paramValue*(this: IGESDataParamReader; num: int): StandardCString {.noSideEffect,
-    importcpp: "ParamValue", header: "IGESData_ParamReader.hxx".}
-proc isParamDefined*(this: IGESDataParamReader; num: int): bool {.noSideEffect,
+proc paramValue*(this: IGESDataParamReader; num: cint): StandardCString {.
+    noSideEffect, importcpp: "ParamValue", header: "IGESData_ParamReader.hxx".}
+proc isParamDefined*(this: IGESDataParamReader; num: cint): bool {.noSideEffect,
     importcpp: "IsParamDefined", header: "IGESData_ParamReader.hxx".}
-proc isParamEntity*(this: IGESDataParamReader; num: int): bool {.noSideEffect,
+proc isParamEntity*(this: IGESDataParamReader; num: cint): bool {.noSideEffect,
     importcpp: "IsParamEntity", header: "IGESData_ParamReader.hxx".}
-proc paramNumber*(this: IGESDataParamReader; num: int): int {.noSideEffect,
+proc paramNumber*(this: IGESDataParamReader; num: cint): cint {.noSideEffect,
     importcpp: "ParamNumber", header: "IGESData_ParamReader.hxx".}
 proc paramEntity*(this: var IGESDataParamReader; ir: Handle[IGESDataIGESReaderData];
-                 num: int): Handle[IGESDataIGESEntity] {.importcpp: "ParamEntity",
+                 num: cint): Handle[IGESDataIGESEntity] {.importcpp: "ParamEntity",
     header: "IGESData_ParamReader.hxx".}
 proc current*(this: IGESDataParamReader): IGESDataParamCursor {.noSideEffect,
     importcpp: "Current", header: "IGESData_ParamReader.hxx".}
-proc currentList*(this: IGESDataParamReader; nb: int; size: int = 1): IGESDataParamCursor {.
+proc currentList*(this: IGESDataParamReader; nb: cint; size: cint = 1): IGESDataParamCursor {.
     noSideEffect, importcpp: "CurrentList", header: "IGESData_ParamReader.hxx".}
 proc definedElseSkip*(this: var IGESDataParamReader): bool {.
     importcpp: "DefinedElseSkip", header: "IGESData_ParamReader.hxx".}
-proc readInteger*(this: var IGESDataParamReader; pc: IGESDataParamCursor; val: var int): bool {.
-    importcpp: "ReadInteger", header: "IGESData_ParamReader.hxx".}
 proc readInteger*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
-                 mess: StandardCString; val: var int): bool {.
+                 val: var cint): bool {.importcpp: "ReadInteger",
+                                    header: "IGESData_ParamReader.hxx".}
+proc readInteger*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
+                 mess: StandardCString; val: var cint): bool {.
     importcpp: "ReadInteger", header: "IGESData_ParamReader.hxx".}
 proc readBoolean*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
                  amsg: MessageMsg; val: var bool; exact: bool = true): bool {.
@@ -90,10 +91,10 @@ proc readBoolean*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
 proc readBoolean*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
                  mess: StandardCString; val: var bool; exact: bool = true): bool {.
     importcpp: "ReadBoolean", header: "IGESData_ParamReader.hxx".}
-proc readReal*(this: var IGESDataParamReader; pc: IGESDataParamCursor; val: var float): bool {.
+proc readReal*(this: var IGESDataParamReader; pc: IGESDataParamCursor; val: var cfloat): bool {.
     importcpp: "ReadReal", header: "IGESData_ParamReader.hxx".}
 proc readReal*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
-              mess: StandardCString; val: var float): bool {.importcpp: "ReadReal",
+              mess: StandardCString; val: var cfloat): bool {.importcpp: "ReadReal",
     header: "IGESData_ParamReader.hxx".}
 proc readXY*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
             amsg: var MessageMsg; val: var Xy): bool {.importcpp: "ReadXY",
@@ -143,35 +144,35 @@ proc readEntity*[T](this: var IGESDataParamReader;
     importcpp: "ReadEntity", header: "IGESData_ParamReader.hxx".}
 proc readInts*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
               amsg: MessageMsg; val: var Handle[TColStdHArray1OfInteger];
-              index: int = 1): bool {.importcpp: "ReadInts",
-                                 header: "IGESData_ParamReader.hxx".}
+              index: cint = 1): bool {.importcpp: "ReadInts",
+                                  header: "IGESData_ParamReader.hxx".}
 proc readInts*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
               mess: StandardCString; val: var Handle[TColStdHArray1OfInteger];
-              index: int = 1): bool {.importcpp: "ReadInts",
-                                 header: "IGESData_ParamReader.hxx".}
+              index: cint = 1): bool {.importcpp: "ReadInts",
+                                  header: "IGESData_ParamReader.hxx".}
 proc readReals*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
                amsg: var MessageMsg; val: var Handle[TColStdHArray1OfReal];
-               index: int = 1): bool {.importcpp: "ReadReals",
-                                  header: "IGESData_ParamReader.hxx".}
+               index: cint = 1): bool {.importcpp: "ReadReals",
+                                   header: "IGESData_ParamReader.hxx".}
 proc readReals*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
                mess: StandardCString; val: var Handle[TColStdHArray1OfReal];
-               index: int = 1): bool {.importcpp: "ReadReals",
-                                  header: "IGESData_ParamReader.hxx".}
+               index: cint = 1): bool {.importcpp: "ReadReals",
+                                   header: "IGESData_ParamReader.hxx".}
 proc readTexts*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
                amsg: MessageMsg; val: var Handle[InterfaceHArray1OfHAsciiString];
-               index: int = 1): bool {.importcpp: "ReadTexts",
-                                  header: "IGESData_ParamReader.hxx".}
+               index: cint = 1): bool {.importcpp: "ReadTexts",
+                                   header: "IGESData_ParamReader.hxx".}
 proc readTexts*(this: var IGESDataParamReader; pc: IGESDataParamCursor;
                mess: StandardCString;
-               val: var Handle[InterfaceHArray1OfHAsciiString]; index: int = 1): bool {.
+               val: var Handle[InterfaceHArray1OfHAsciiString]; index: cint = 1): bool {.
     importcpp: "ReadTexts", header: "IGESData_ParamReader.hxx".}
 proc readEnts*(this: var IGESDataParamReader; ir: Handle[IGESDataIGESReaderData];
               pc: IGESDataParamCursor; amsg: MessageMsg;
-              val: var Handle[IGESDataHArray1OfIGESEntity]; index: int = 1): bool {.
+              val: var Handle[IGESDataHArray1OfIGESEntity]; index: cint = 1): bool {.
     importcpp: "ReadEnts", header: "IGESData_ParamReader.hxx".}
 proc readEnts*(this: var IGESDataParamReader; ir: Handle[IGESDataIGESReaderData];
               pc: IGESDataParamCursor; mess: StandardCString;
-              val: var Handle[IGESDataHArray1OfIGESEntity]; index: int = 1): bool {.
+              val: var Handle[IGESDataHArray1OfIGESEntity]; index: cint = 1): bool {.
     importcpp: "ReadEnts", header: "IGESData_ParamReader.hxx".}
 proc readEntList*(this: var IGESDataParamReader; ir: Handle[IGESDataIGESReaderData];
                  pc: IGESDataParamCursor; amsg: var MessageMsg;
@@ -181,15 +182,15 @@ proc readEntList*(this: var IGESDataParamReader; ir: Handle[IGESDataIGESReaderDa
                  pc: IGESDataParamCursor; mess: StandardCString;
                  val: var InterfaceEntityList; ord: bool = true): bool {.
     importcpp: "ReadEntList", header: "IGESData_ParamReader.hxx".}
-proc readingReal*(this: var IGESDataParamReader; num: int; val: var float): bool {.
+proc readingReal*(this: var IGESDataParamReader; num: cint; val: var cfloat): bool {.
     importcpp: "ReadingReal", header: "IGESData_ParamReader.hxx".}
-proc readingReal*(this: var IGESDataParamReader; num: int; mess: StandardCString;
-                 val: var float): bool {.importcpp: "ReadingReal",
-                                     header: "IGESData_ParamReader.hxx".}
-proc readingEntityNumber*(this: var IGESDataParamReader; num: int; val: var int): bool {.
+proc readingReal*(this: var IGESDataParamReader; num: cint; mess: StandardCString;
+                 val: var cfloat): bool {.importcpp: "ReadingReal",
+                                      header: "IGESData_ParamReader.hxx".}
+proc readingEntityNumber*(this: var IGESDataParamReader; num: cint; val: var cint): bool {.
     importcpp: "ReadingEntityNumber", header: "IGESData_ParamReader.hxx".}
-proc readingEntityNumber*(this: var IGESDataParamReader; num: int;
-                         mess: StandardCString; val: var int): bool {.
+proc readingEntityNumber*(this: var IGESDataParamReader; num: cint;
+                         mess: StandardCString; val: var cint): bool {.
     importcpp: "ReadingEntityNumber", header: "IGESData_ParamReader.hxx".}
 proc sendFail*(this: var IGESDataParamReader; amsg: MessageMsg) {.
     importcpp: "SendFail", header: "IGESData_ParamReader.hxx".}
@@ -217,3 +218,28 @@ proc cCheck*(this: var IGESDataParamReader): var Handle[InterfaceCheck] {.
     importcpp: "CCheck", header: "IGESData_ParamReader.hxx".}
 proc isCheckEmpty*(this: IGESDataParamReader): bool {.noSideEffect,
     importcpp: "IsCheckEmpty", header: "IGESData_ParamReader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

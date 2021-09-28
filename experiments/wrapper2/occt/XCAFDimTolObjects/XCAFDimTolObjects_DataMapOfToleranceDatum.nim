@@ -18,3 +18,28 @@ type
       Handle[XCAFDimTolObjectsGeomToleranceObject],
       Handle[XCAFDimTolObjectsDatumObject], TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

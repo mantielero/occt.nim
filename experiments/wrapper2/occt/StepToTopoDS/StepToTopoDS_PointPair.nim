@@ -25,3 +25,28 @@ proc constructStepToTopoDS_PointPair*(p1: Handle[StepGeomCartesianPoint];
                                      p2: Handle[StepGeomCartesianPoint]): StepToTopoDS_PointPair {.
     constructor, importcpp: "StepToTopoDS_PointPair(@)",
     header: "StepToTopoDS_PointPair.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

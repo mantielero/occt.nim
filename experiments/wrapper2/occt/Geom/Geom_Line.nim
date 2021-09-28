@@ -25,7 +25,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Line"
 discard "forward decl of Geom_Line"
 type
-  HandleGeomLine* = Handle[GeomLine]
+  HandleC1C1* = Handle[GeomLine]
 
 ## ! Describes an infinite line.
 ## ! A line is defined and positioned in space with an axis
@@ -85,35 +85,35 @@ proc lin*(this: GeomLine): Lin {.noSideEffect, importcpp: "Lin",
 proc position*(this: GeomLine): Ax1 {.noSideEffect, importcpp: "Position",
                                   header: "Geom_Line.hxx".}
 proc reverse*(this: var GeomLine) {.importcpp: "Reverse", header: "Geom_Line.hxx".}
-proc reversedParameter*(this: GeomLine; u: float): float {.noSideEffect,
+proc reversedParameter*(this: GeomLine; u: StandardReal): StandardReal {.noSideEffect,
     importcpp: "ReversedParameter", header: "Geom_Line.hxx".}
-proc firstParameter*(this: GeomLine): float {.noSideEffect,
+proc firstParameter*(this: GeomLine): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_Line.hxx".}
-proc lastParameter*(this: GeomLine): float {.noSideEffect,
+proc lastParameter*(this: GeomLine): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_Line.hxx".}
-proc isClosed*(this: GeomLine): bool {.noSideEffect, importcpp: "IsClosed",
-                                   header: "Geom_Line.hxx".}
-proc isPeriodic*(this: GeomLine): bool {.noSideEffect, importcpp: "IsPeriodic",
-                                     header: "Geom_Line.hxx".}
+proc isClosed*(this: GeomLine): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom_Line.hxx".}
+proc isPeriodic*(this: GeomLine): StandardBoolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom_Line.hxx".}
 proc continuity*(this: GeomLine): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_Line.hxx".}
-proc isCN*(this: GeomLine; n: int): bool {.noSideEffect, importcpp: "IsCN",
-                                     header: "Geom_Line.hxx".}
-proc d0*(this: GeomLine; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
+proc isCN*(this: GeomLine; n: int): StandardBoolean {.noSideEffect, importcpp: "IsCN",
     header: "Geom_Line.hxx".}
-proc d1*(this: GeomLine; u: float; p: var Pnt; v1: var Vec) {.noSideEffect, importcpp: "D1",
+proc d0*(this: GeomLine; u: StandardReal; p: var Pnt) {.noSideEffect, importcpp: "D0",
     header: "Geom_Line.hxx".}
-proc d2*(this: GeomLine; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    importcpp: "D2", header: "Geom_Line.hxx".}
-proc d3*(this: GeomLine; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d1*(this: GeomLine; u: StandardReal; p: var Pnt; v1: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "Geom_Line.hxx".}
+proc d2*(this: GeomLine; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Geom_Line.hxx".}
+proc d3*(this: GeomLine; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
     noSideEffect, importcpp: "D3", header: "Geom_Line.hxx".}
-proc dn*(this: GeomLine; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
+proc dn*(this: GeomLine; u: StandardReal; n: int): Vec {.noSideEffect, importcpp: "DN",
     header: "Geom_Line.hxx".}
 proc transform*(this: var GeomLine; t: Trsf) {.importcpp: "Transform",
     header: "Geom_Line.hxx".}
-proc transformedParameter*(this: GeomLine; u: float; t: Trsf): float {.noSideEffect,
-    importcpp: "TransformedParameter", header: "Geom_Line.hxx".}
-proc parametricTransformation*(this: GeomLine; t: Trsf): float {.noSideEffect,
+proc transformedParameter*(this: GeomLine; u: StandardReal; t: Trsf): StandardReal {.
+    noSideEffect, importcpp: "TransformedParameter", header: "Geom_Line.hxx".}
+proc parametricTransformation*(this: GeomLine; t: Trsf): StandardReal {.noSideEffect,
     importcpp: "ParametricTransformation", header: "Geom_Line.hxx".}
 proc copy*(this: GeomLine): Handle[GeomGeometry] {.noSideEffect, importcpp: "Copy",
     header: "Geom_Line.hxx".}

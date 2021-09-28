@@ -29,7 +29,7 @@ type
 
 proc constructStepVisualAreaOrView*(): StepVisualAreaOrView {.constructor,
     importcpp: "StepVisual_AreaOrView(@)", header: "StepVisual_AreaOrView.hxx".}
-proc caseNum*(this: StepVisualAreaOrView; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualAreaOrView; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_AreaOrView.hxx".}
 proc presentationArea*(this: StepVisualAreaOrView): Handle[
     StepVisualPresentationArea] {.noSideEffect, importcpp: "PresentationArea",
@@ -37,3 +37,28 @@ proc presentationArea*(this: StepVisualAreaOrView): Handle[
 proc presentationView*(this: StepVisualAreaOrView): Handle[
     StepVisualPresentationView] {.noSideEffect, importcpp: "PresentationView",
                                  header: "StepVisual_AreaOrView.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

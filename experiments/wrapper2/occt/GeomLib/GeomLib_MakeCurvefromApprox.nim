@@ -24,10 +24,28 @@ type
                                header: "GeomLib_MakeCurvefromApprox.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomLibMakeCurvefromApprox; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_MakeCurvefromApprox::operator new",
+    header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc `delete`*(this: var GeomLibMakeCurvefromApprox; theAddress: pointer) {.
+    importcpp: "GeomLib_MakeCurvefromApprox::operator delete",
+    header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc `new[]`*(this: var GeomLibMakeCurvefromApprox; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_MakeCurvefromApprox::operator new[]",
+    header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc `delete[]`*(this: var GeomLibMakeCurvefromApprox; theAddress: pointer) {.
+    importcpp: "GeomLib_MakeCurvefromApprox::operator delete[]",
+    header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc `new`*(this: var GeomLibMakeCurvefromApprox; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLib_MakeCurvefromApprox::operator new",
+    header: "GeomLib_MakeCurvefromApprox.hxx".}
+proc `delete`*(this: var GeomLibMakeCurvefromApprox; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLib_MakeCurvefromApprox::operator delete",
+    header: "GeomLib_MakeCurvefromApprox.hxx".}
 proc constructGeomLibMakeCurvefromApprox*(approx: AdvApproxApproxAFunction): GeomLibMakeCurvefromApprox {.
     constructor, importcpp: "GeomLib_MakeCurvefromApprox(@)",
     header: "GeomLib_MakeCurvefromApprox.hxx".}
-proc isDone*(this: GeomLibMakeCurvefromApprox): bool {.noSideEffect,
+proc isDone*(this: GeomLibMakeCurvefromApprox): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomLib_MakeCurvefromApprox.hxx".}
 proc nb1DSpaces*(this: GeomLibMakeCurvefromApprox): int {.noSideEffect,
     importcpp: "Nb1DSpaces", header: "GeomLib_MakeCurvefromApprox.hxx".}

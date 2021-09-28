@@ -25,3 +25,28 @@ type
     V3dSDO_BLENDED            ## !< dump blended pair specific to the active device output Graphic3d_StereoMode (result will be undefined for modes like Graphic3d_StereoMode_QuadBuffer)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

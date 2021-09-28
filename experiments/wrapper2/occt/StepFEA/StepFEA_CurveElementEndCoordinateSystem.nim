@@ -30,7 +30,7 @@ proc constructStepFEA_CurveElementEndCoordinateSystem*(): StepFEA_CurveElementEn
     constructor, importcpp: "StepFEA_CurveElementEndCoordinateSystem(@)",
     header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
 proc caseNum*(this: StepFEA_CurveElementEndCoordinateSystem;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
 proc feaAxis2Placement3d*(this: StepFEA_CurveElementEndCoordinateSystem): Handle[
     StepFEA_FeaAxis2Placement3d] {.noSideEffect, importcpp: "FeaAxis2Placement3d", header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
@@ -44,3 +44,28 @@ proc parametricCurve3dElementCoordinateSystem*(
     StepFEA_ParametricCurve3dElementCoordinateSystem] {.noSideEffect,
     importcpp: "ParametricCurve3dElementCoordinateSystem",
     header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

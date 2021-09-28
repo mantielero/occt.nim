@@ -28,7 +28,7 @@ proc constructRWStepShapeRWManifoldSolidBrep*(): RWStepShapeRWManifoldSolidBrep 
     constructor, importcpp: "RWStepShape_RWManifoldSolidBrep(@)",
     header: "RWStepShape_RWManifoldSolidBrep.hxx".}
 proc readStep*(this: RWStepShapeRWManifoldSolidBrep;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeManifoldSolidBrep]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWManifoldSolidBrep.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepShapeRWManifoldSolidBrep;
            ent: Handle[StepShapeManifoldSolidBrep];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWManifoldSolidBrep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

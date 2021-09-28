@@ -35,14 +35,14 @@ type
                                   ## ! if a vector is null).
 
 
-proc constructLProp3dCLProps*(c: Handle[Adaptor3dHCurve]; n: int; resolution: float): LProp3dCLProps {.
+proc constructLProp3dCLProps*(c: Handle[Adaptor3dHCurve]; n: cint; resolution: cfloat): LProp3dCLProps {.
     constructor, importcpp: "LProp3d_CLProps(@)", header: "LProp3d_CLProps.hxx".}
-proc constructLProp3dCLProps*(c: Handle[Adaptor3dHCurve]; u: float; n: int;
-                             resolution: float): LProp3dCLProps {.constructor,
+proc constructLProp3dCLProps*(c: Handle[Adaptor3dHCurve]; u: cfloat; n: cint;
+                             resolution: cfloat): LProp3dCLProps {.constructor,
     importcpp: "LProp3d_CLProps(@)", header: "LProp3d_CLProps.hxx".}
-proc constructLProp3dCLProps*(n: int; resolution: float): LProp3dCLProps {.
+proc constructLProp3dCLProps*(n: cint; resolution: cfloat): LProp3dCLProps {.
     constructor, importcpp: "LProp3d_CLProps(@)", header: "LProp3d_CLProps.hxx".}
-proc setParameter*(this: var LProp3dCLProps; u: float) {.importcpp: "SetParameter",
+proc setParameter*(this: var LProp3dCLProps; u: cfloat) {.importcpp: "SetParameter",
     header: "LProp3d_CLProps.hxx".}
 proc setCurve*(this: var LProp3dCLProps; c: Handle[Adaptor3dHCurve]) {.
     importcpp: "SetCurve", header: "LProp3d_CLProps.hxx".}
@@ -58,9 +58,34 @@ proc isTangentDefined*(this: var LProp3dCLProps): bool {.
     importcpp: "IsTangentDefined", header: "LProp3d_CLProps.hxx".}
 proc tangent*(this: var LProp3dCLProps; d: var Dir) {.importcpp: "Tangent",
     header: "LProp3d_CLProps.hxx".}
-proc curvature*(this: var LProp3dCLProps): float {.importcpp: "Curvature",
+proc curvature*(this: var LProp3dCLProps): cfloat {.importcpp: "Curvature",
     header: "LProp3d_CLProps.hxx".}
 proc normal*(this: var LProp3dCLProps; n: var Dir) {.importcpp: "Normal",
     header: "LProp3d_CLProps.hxx".}
 proc centreOfCurvature*(this: var LProp3dCLProps; p: var Pnt) {.
     importcpp: "CentreOfCurvature", header: "LProp3d_CLProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepVisualRWTextLiteral*(): RWStepVisualRWTextLiteral {.
     constructor, importcpp: "RWStepVisual_RWTextLiteral(@)",
     header: "RWStepVisual_RWTextLiteral.hxx".}
 proc readStep*(this: RWStepVisualRWTextLiteral;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualTextLiteral]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWTextLiteral.hxx".}
 proc writeStep*(this: RWStepVisualRWTextLiteral; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepVisualRWTextLiteral; sw: var StepDataStepWriter;
 proc share*(this: RWStepVisualRWTextLiteral; ent: Handle[StepVisualTextLiteral];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWTextLiteral.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

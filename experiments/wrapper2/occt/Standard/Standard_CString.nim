@@ -47,5 +47,7 @@ proc sprintf*(theBuffer: cstring; theFormat: cstring): cint {.varargs,
 ## ! @param theArgList [in] argument list for specified format
 ## ! @return the total number of characters written, or a negative number on error
 
+#[
 proc vsprintf*(theBuffer: cstring; theFormat: cstring; theArgList: VaList): cint {.
     importcpp: "Vsprintf(@)", header: "Standard_CString.hxx".}
+]#

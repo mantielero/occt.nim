@@ -19,25 +19,50 @@ type
   BRepMeshCircleInspector* {.importcpp: "BRepMesh_CircleInspector",
                             header: "BRepMesh_CircleInspector.hxx", bycopy.} = object of NCollectionCellFilterInspectorXY
 
-  BRepMeshCircleInspectorTarget* = int
+  BRepMeshCircleInspectorTarget* = cint
 
-proc constructBRepMeshCircleInspector*(theTolerance: float; theReservedSize: int;
+proc constructBRepMeshCircleInspector*(theTolerance: cfloat; theReservedSize: cint;
     theAllocator: Handle[NCollectionIncAllocator]): BRepMeshCircleInspector {.
     constructor, importcpp: "BRepMesh_CircleInspector(@)",
     header: "BRepMesh_CircleInspector.hxx".}
-proc `bind`*(this: var BRepMeshCircleInspector; theIndex: int;
+proc `bind`*(this: var BRepMeshCircleInspector; theIndex: cint;
             theCircle: BRepMeshCircle) {.importcpp: "Bind",
                                        header: "BRepMesh_CircleInspector.hxx".}
 proc circles*(this: BRepMeshCircleInspector): VectorOfCircle {.noSideEffect,
     importcpp: "Circles", header: "BRepMesh_CircleInspector.hxx".}
-proc circle*(this: var BRepMeshCircleInspector; theIndex: int): var BRepMeshCircle {.
+proc circle*(this: var BRepMeshCircleInspector; theIndex: cint): var BRepMeshCircle {.
     importcpp: "Circle", header: "BRepMesh_CircleInspector.hxx".}
 proc setPoint*(this: var BRepMeshCircleInspector; thePoint: Xy) {.
     importcpp: "SetPoint", header: "BRepMesh_CircleInspector.hxx".}
 proc getShotCircles*(this: var BRepMeshCircleInspector): var ListOfInteger {.
     importcpp: "GetShotCircles", header: "BRepMesh_CircleInspector.hxx".}
-proc inspect*(this: var BRepMeshCircleInspector; theTargetIndex: int): NCollectionCellFilterAction {.
+proc inspect*(this: var BRepMeshCircleInspector; theTargetIndex: cint): NCollectionCellFilterAction {.
     importcpp: "Inspect", header: "BRepMesh_CircleInspector.hxx".}
-proc isEqual*(theIndex: int; theTargetIndex: int): bool {.
+proc isEqual*(theIndex: cint; theTargetIndex: cint): bool {.
     importcpp: "BRepMesh_CircleInspector::IsEqual(@)",
     header: "BRepMesh_CircleInspector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

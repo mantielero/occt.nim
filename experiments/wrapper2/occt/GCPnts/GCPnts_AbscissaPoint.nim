@@ -24,57 +24,83 @@ type
                                                                          ## Computes the length of the Curve <C>.
 
 
-proc length*(c: Adaptor3dCurve): float {.importcpp: "GCPnts_AbscissaPoint::Length(@)",
-                                     header: "GCPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d): float {.importcpp: "GCPnts_AbscissaPoint::Length(@)",
-                                       header: "GCPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor3dCurve; tol: float): float {.
+proc length*(c: Adaptor3dCurve): cfloat {.importcpp: "GCPnts_AbscissaPoint::Length(@)",
+                                      header: "GCPnts_AbscissaPoint.hxx".}
+proc length*(c: Adaptor2dCurve2d): cfloat {.importcpp: "GCPnts_AbscissaPoint::Length(@)",
+                                        header: "GCPnts_AbscissaPoint.hxx".}
+proc length*(c: Adaptor3dCurve; tol: cfloat): cfloat {.
     importcpp: "GCPnts_AbscissaPoint::Length(@)",
     header: "GCPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d; tol: float): float {.
+proc length*(c: Adaptor2dCurve2d; tol: cfloat): cfloat {.
     importcpp: "GCPnts_AbscissaPoint::Length(@)",
     header: "GCPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor3dCurve; u1: float; u2: float): float {.
+proc length*(c: Adaptor3dCurve; u1: cfloat; u2: cfloat): cfloat {.
     importcpp: "GCPnts_AbscissaPoint::Length(@)",
     header: "GCPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d; u1: float; u2: float): float {.
+proc length*(c: Adaptor2dCurve2d; u1: cfloat; u2: cfloat): cfloat {.
     importcpp: "GCPnts_AbscissaPoint::Length(@)",
     header: "GCPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor3dCurve; u1: float; u2: float; tol: float): float {.
+proc length*(c: Adaptor3dCurve; u1: cfloat; u2: cfloat; tol: cfloat): cfloat {.
     importcpp: "GCPnts_AbscissaPoint::Length(@)",
     header: "GCPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d; u1: float; u2: float; tol: float): float {.
+proc length*(c: Adaptor2dCurve2d; u1: cfloat; u2: cfloat; tol: cfloat): cfloat {.
     importcpp: "GCPnts_AbscissaPoint::Length(@)",
     header: "GCPnts_AbscissaPoint.hxx".}
 proc constructGCPntsAbscissaPoint*(): GCPntsAbscissaPoint {.constructor,
     importcpp: "GCPnts_AbscissaPoint(@)", header: "GCPnts_AbscissaPoint.hxx".}
-proc constructGCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: float; u0: float): GCPntsAbscissaPoint {.
+proc constructGCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: cfloat; u0: cfloat): GCPntsAbscissaPoint {.
     constructor, importcpp: "GCPnts_AbscissaPoint(@)",
     header: "GCPnts_AbscissaPoint.hxx".}
-proc constructGCPntsAbscissaPoint*(tol: float; c: Adaptor3dCurve; abscissa: float;
-                                  u0: float): GCPntsAbscissaPoint {.constructor,
+proc constructGCPntsAbscissaPoint*(tol: cfloat; c: Adaptor3dCurve; abscissa: cfloat;
+                                  u0: cfloat): GCPntsAbscissaPoint {.constructor,
     importcpp: "GCPnts_AbscissaPoint(@)", header: "GCPnts_AbscissaPoint.hxx".}
-proc constructGCPntsAbscissaPoint*(tol: float; c: Adaptor2dCurve2d; abscissa: float;
-                                  u0: float): GCPntsAbscissaPoint {.constructor,
-    importcpp: "GCPnts_AbscissaPoint(@)", header: "GCPnts_AbscissaPoint.hxx".}
-proc constructGCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: float; u0: float): GCPntsAbscissaPoint {.
+proc constructGCPntsAbscissaPoint*(tol: cfloat; c: Adaptor2dCurve2d;
+                                  abscissa: cfloat; u0: cfloat): GCPntsAbscissaPoint {.
     constructor, importcpp: "GCPnts_AbscissaPoint(@)",
     header: "GCPnts_AbscissaPoint.hxx".}
-proc constructGCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: float; u0: float;
-                                  ui: float): GCPntsAbscissaPoint {.constructor,
-    importcpp: "GCPnts_AbscissaPoint(@)", header: "GCPnts_AbscissaPoint.hxx".}
-proc constructGCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: float; u0: float;
-                                  ui: float): GCPntsAbscissaPoint {.constructor,
-    importcpp: "GCPnts_AbscissaPoint(@)", header: "GCPnts_AbscissaPoint.hxx".}
-proc constructGCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: float; u0: float;
-                                  ui: float; tol: float): GCPntsAbscissaPoint {.
+proc constructGCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: cfloat; u0: cfloat): GCPntsAbscissaPoint {.
     constructor, importcpp: "GCPnts_AbscissaPoint(@)",
     header: "GCPnts_AbscissaPoint.hxx".}
-proc constructGCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: float; u0: float;
-                                  ui: float; tol: float): GCPntsAbscissaPoint {.
+proc constructGCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: cfloat; u0: cfloat;
+                                  ui: cfloat): GCPntsAbscissaPoint {.constructor,
+    importcpp: "GCPnts_AbscissaPoint(@)", header: "GCPnts_AbscissaPoint.hxx".}
+proc constructGCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: cfloat; u0: cfloat;
+                                  ui: cfloat): GCPntsAbscissaPoint {.constructor,
+    importcpp: "GCPnts_AbscissaPoint(@)", header: "GCPnts_AbscissaPoint.hxx".}
+proc constructGCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: cfloat; u0: cfloat;
+                                  ui: cfloat; tol: cfloat): GCPntsAbscissaPoint {.
+    constructor, importcpp: "GCPnts_AbscissaPoint(@)",
+    header: "GCPnts_AbscissaPoint.hxx".}
+proc constructGCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: cfloat; u0: cfloat;
+                                  ui: cfloat; tol: cfloat): GCPntsAbscissaPoint {.
     constructor, importcpp: "GCPnts_AbscissaPoint(@)",
     header: "GCPnts_AbscissaPoint.hxx".}
 proc isDone*(this: GCPntsAbscissaPoint): bool {.noSideEffect, importcpp: "IsDone",
     header: "GCPnts_AbscissaPoint.hxx".}
-proc parameter*(this: GCPntsAbscissaPoint): float {.noSideEffect,
+proc parameter*(this: GCPntsAbscissaPoint): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "GCPnts_AbscissaPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

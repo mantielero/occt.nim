@@ -40,3 +40,28 @@ proc edgeTo*(this: LocOpeFindEdges): TopoDS_Edge {.noSideEffect, importcpp: "Edg
     header: "LocOpe_FindEdges.hxx".}
 proc next*(this: var LocOpeFindEdges) {.importcpp: "Next",
                                     header: "LocOpe_FindEdges.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

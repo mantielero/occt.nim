@@ -216,3 +216,28 @@ proc isComplete*(this: OpenGlPBREnvironment): bool {.noSideEffect,
     importcpp: "IsComplete", header: "OpenGl_PBREnvironment.hxx".}
 proc destroyOpenGlPBREnvironment*(this: var OpenGlPBREnvironment) {.
     importcpp: "#.~OpenGl_PBREnvironment()", header: "OpenGl_PBREnvironment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

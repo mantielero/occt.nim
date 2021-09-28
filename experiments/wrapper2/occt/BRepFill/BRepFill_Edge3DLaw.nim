@@ -19,7 +19,7 @@ discard "forward decl of GeomFill_LocationLaw"
 discard "forward decl of BRepFill_Edge3DLaw"
 discard "forward decl of BRepFill_Edge3DLaw"
 type
-  HandleBRepFillEdge3DLaw* = Handle[BRepFillEdge3DLaw]
+  HandleC1C1* = Handle[BRepFillEdge3DLaw]
 
 ## ! Build Location Law, with a  Wire.
 
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_Edge3DLaw.hxx".}
 proc dynamicType*(this: BRepFillEdge3DLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_Edge3DLaw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

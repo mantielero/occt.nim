@@ -175,6 +175,7 @@ type
                                                                                                      ## 3
                                                                                                      ## ordered
                                                                                                      ## integers.
+    standardType* {.importc: "Standard_Type".}: Handle
     ## !< list of external file references
     ## !< file header comments
     ## !< folder containing the OBJ file
@@ -202,10 +203,12 @@ type
 
 proc getTypeName*(): cstring {.importcpp: "RWObj_Reader::get_type_name(@)",
                             header: "RWObj_Reader.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "RWObj_Reader::get_type_descriptor(@)", header: "RWObj_Reader.hxx".}
-proc dynamicType*(this: RWObjReader): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "RWObj_Reader.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc constructRWObjReader*(): RWObjReader {.constructor,
     importcpp: "RWObj_Reader(@)", header: "RWObj_Reader.hxx".}
 proc read*(this: var RWObjReader; theFile: TCollectionAsciiString;
@@ -236,3 +239,48 @@ proc isSinglePrecision*(this: RWObjReader): bool {.noSideEffect,
     importcpp: "IsSinglePrecision", header: "RWObj_Reader.hxx".}
 proc setSinglePrecision*(this: var RWObjReader; theIsSinglePrecision: bool) {.
     importcpp: "SetSinglePrecision", header: "RWObj_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

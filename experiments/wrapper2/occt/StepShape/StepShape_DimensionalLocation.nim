@@ -16,7 +16,7 @@
 discard "forward decl of StepShape_DimensionalLocation"
 discard "forward decl of StepShape_DimensionalLocation"
 type
-  HandleStepShapeDimensionalLocation* = Handle[StepShapeDimensionalLocation]
+  HandleC1C1* = Handle[StepShapeDimensionalLocation]
 
 ## ! Representation of STEP entity DimensionalLocation
 
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeDimensionalLocation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_DimensionalLocation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

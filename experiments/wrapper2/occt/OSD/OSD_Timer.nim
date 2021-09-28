@@ -84,17 +84,42 @@ type
 
 proc constructOSD_Timer*(theThisThreadOnly: bool = false): OSD_Timer {.constructor,
     importcpp: "OSD_Timer(@)", header: "OSD_Timer.hxx".}
-proc reset*(this: var OSD_Timer; theTimeElapsedSec: float) {.importcpp: "Reset",
+proc reset*(this: var OSD_Timer; theTimeElapsedSec: cfloat) {.importcpp: "Reset",
     header: "OSD_Timer.hxx".}
 proc reset*(this: var OSD_Timer) {.importcpp: "Reset", header: "OSD_Timer.hxx".}
 proc restart*(this: var OSD_Timer) {.importcpp: "Restart", header: "OSD_Timer.hxx".}
 proc show*(this: OSD_Timer) {.noSideEffect, importcpp: "Show", header: "OSD_Timer.hxx".}
 proc show*(this: OSD_Timer; os: var StandardOStream) {.noSideEffect, importcpp: "Show",
     header: "OSD_Timer.hxx".}
-proc show*(this: OSD_Timer; theSeconds: var float; theMinutes: var int;
-          theHours: var int; theCPUtime: var float) {.noSideEffect, importcpp: "Show",
-    header: "OSD_Timer.hxx".}
+proc show*(this: OSD_Timer; theSeconds: var cfloat; theMinutes: var cint;
+          theHours: var cint; theCPUtime: var cfloat) {.noSideEffect,
+    importcpp: "Show", header: "OSD_Timer.hxx".}
 proc stop*(this: var OSD_Timer) {.importcpp: "Stop", header: "OSD_Timer.hxx".}
 proc start*(this: var OSD_Timer) {.importcpp: "Start", header: "OSD_Timer.hxx".}
-proc elapsedTime*(this: OSD_Timer): float {.noSideEffect, importcpp: "ElapsedTime",
-                                        header: "OSD_Timer.hxx".}
+proc elapsedTime*(this: OSD_Timer): cfloat {.noSideEffect, importcpp: "ElapsedTime",
+    header: "OSD_Timer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

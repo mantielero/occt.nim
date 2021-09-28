@@ -20,3 +20,28 @@ type
     BlendFuncRational, BlendFuncQuasiAngular, BlendFuncPolynomial, BlendFuncLinear
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

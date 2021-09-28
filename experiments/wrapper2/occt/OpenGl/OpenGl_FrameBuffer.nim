@@ -15,7 +15,7 @@
 discard "forward decl of OpenGl_FrameBuffer"
 discard "forward decl of OpenGl_FrameBuffer"
 type
-  HandleOpenGlFrameBuffer* = Handle[OpenGlFrameBuffer]
+  HandleC1C1* = Handle[OpenGlFrameBuffer]
 
 ## ! Short declaration of useful collection types.
 
@@ -196,3 +196,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "OpenGl_FrameBuffer.hxx".}
 proc dynamicType*(this: OpenGlFrameBuffer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_FrameBuffer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

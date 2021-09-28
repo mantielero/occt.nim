@@ -36,10 +36,10 @@ proc dynamicType*(this: Graphic3dAttribBuffer): Handle[StandardType] {.noSideEff
 proc constructGraphic3dAttribBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dAttribBuffer {.
     constructor, importcpp: "Graphic3d_AttribBuffer(@)",
     header: "Graphic3d_AttribBuffer.hxx".}
-proc init*(this: var Graphic3dAttribBuffer; theNbElems: int;
-          theAttribs: ptr Graphic3dAttribute; theNbAttribs: int): bool {.
+proc init*(this: var Graphic3dAttribBuffer; theNbElems: cint;
+          theAttribs: ptr Graphic3dAttribute; theNbAttribs: cint): bool {.
     importcpp: "Init", header: "Graphic3d_AttribBuffer.hxx".}
-proc init*(this: var Graphic3dAttribBuffer; theNbElems: int;
+proc init*(this: var Graphic3dAttribBuffer; theNbElems: cint;
           theAttribs: Graphic3dArray1OfAttribute): bool {.importcpp: "Init",
     header: "Graphic3d_AttribBuffer.hxx".}
 proc isMutable*(this: Graphic3dAttribBuffer): bool {.noSideEffect,
@@ -57,13 +57,38 @@ proc validate*(this: var Graphic3dAttribBuffer) {.importcpp: "Validate",
     header: "Graphic3d_AttribBuffer.hxx".}
 proc invalidate*(this: var Graphic3dAttribBuffer) {.importcpp: "Invalidate",
     header: "Graphic3d_AttribBuffer.hxx".}
-proc invalidate*(this: var Graphic3dAttribBuffer; theAttributeIndex: int) {.
+proc invalidate*(this: var Graphic3dAttribBuffer; theAttributeIndex: cint) {.
     importcpp: "Invalidate", header: "Graphic3d_AttribBuffer.hxx".}
-proc invalidate*(this: var Graphic3dAttribBuffer; theAttributeIndex: int;
-                theVertexLower: int; theVertexUpper: int) {.importcpp: "Invalidate",
-    header: "Graphic3d_AttribBuffer.hxx".}
-proc invalidate*(this: var Graphic3dAttribBuffer; theVertexLower: int;
-                theVertexUpper: int) {.importcpp: "Invalidate",
-                                     header: "Graphic3d_AttribBuffer.hxx".}
+proc invalidate*(this: var Graphic3dAttribBuffer; theAttributeIndex: cint;
+                theVertexLower: cint; theVertexUpper: cint) {.
+    importcpp: "Invalidate", header: "Graphic3d_AttribBuffer.hxx".}
+proc invalidate*(this: var Graphic3dAttribBuffer; theVertexLower: cint;
+                theVertexUpper: cint) {.importcpp: "Invalidate",
+                                      header: "Graphic3d_AttribBuffer.hxx".}
 proc invalidate*(this: var Graphic3dAttribBuffer; theRange: Graphic3dBufferRange) {.
     importcpp: "invalidate", header: "Graphic3d_AttribBuffer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

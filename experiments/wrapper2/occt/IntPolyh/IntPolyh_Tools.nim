@@ -34,13 +34,13 @@ proc isEnlargePossible*(theSurf: Handle[Adaptor3dHSurface]; theUEnlarge: var boo
                        theVEnlarge: var bool) {.
     importcpp: "IntPolyh_Tools::IsEnlargePossible(@)",
     header: "IntPolyh_Tools.hxx".}
-proc makeSampling*(theSurf: Handle[Adaptor3dHSurface]; theNbSU: int; theNbSV: int;
+proc makeSampling*(theSurf: Handle[Adaptor3dHSurface]; theNbSU: cint; theNbSV: cint;
                   theEnlargeZone: bool; theUPars: var TColStdArray1OfReal;
                   theVPars: var TColStdArray1OfReal) {.
     importcpp: "IntPolyh_Tools::MakeSampling(@)", header: "IntPolyh_Tools.hxx".}
 proc computeDeflection*(theSurf: Handle[Adaptor3dHSurface];
                        theUPars: TColStdArray1OfReal;
-                       theVPars: TColStdArray1OfReal): float {.
+                       theVPars: TColStdArray1OfReal): cfloat {.
     importcpp: "IntPolyh_Tools::ComputeDeflection(@)",
     header: "IntPolyh_Tools.hxx".}
 proc fillArrayOfPointNormal*(theSurf: Handle[Adaptor3dHSurface];
@@ -49,3 +49,28 @@ proc fillArrayOfPointNormal*(theSurf: Handle[Adaptor3dHSurface];
                             thePoints: var IntPolyhArrayOfPointNormal) {.
     importcpp: "IntPolyh_Tools::FillArrayOfPointNormal(@)",
     header: "IntPolyh_Tools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

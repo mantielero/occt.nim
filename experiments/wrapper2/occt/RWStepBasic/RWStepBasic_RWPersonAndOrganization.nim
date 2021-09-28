@@ -28,7 +28,7 @@ proc constructRWStepBasicRWPersonAndOrganization*(): RWStepBasicRWPersonAndOrgan
     constructor, importcpp: "RWStepBasic_RWPersonAndOrganization(@)",
     header: "RWStepBasic_RWPersonAndOrganization.hxx".}
 proc readStep*(this: RWStepBasicRWPersonAndOrganization;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicPersonAndOrganization]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWPersonAndOrganization.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepBasicRWPersonAndOrganization;
            ent: Handle[StepBasicPersonAndOrganization];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWPersonAndOrganization.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

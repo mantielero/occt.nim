@@ -66,3 +66,28 @@ proc iDList*(anIDList: var TDF_IDList) {.importcpp: "TDataStd::IDList(@)",
                                      header: "TDataStd.hxx".}
 proc print*(dim: TDataStdRealEnum; s: var StandardOStream): var StandardOStream {.
     importcpp: "TDataStd::Print(@)", header: "TDataStd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -73,3 +73,28 @@ proc uploadSamples*(this: var OpenGlTileSampler; theContext: Handle[OpenGlContex
 proc uploadOffsets*(this: var OpenGlTileSampler; theContext: Handle[OpenGlContext];
                    theOffsetsTexture: Handle[OpenGlTexture]; theAdaptive: bool): bool {.
     importcpp: "UploadOffsets", header: "OpenGl_TileSampler.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -127,7 +127,7 @@ proc submitEye*(this: var AspectOpenVRSession; theTexture: pointer;
 proc getString*(this: AspectOpenVRSession; theInfo: InfoString): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetString", header: "Aspect_OpenVRSession.hxx".}
 proc namedTrackedDevice*(this: AspectOpenVRSession;
-                        theDevice: AspectXRTrackedDeviceRole): int {.noSideEffect,
+                        theDevice: AspectXRTrackedDeviceRole): cint {.noSideEffect,
     importcpp: "NamedTrackedDevice", header: "Aspect_OpenVRSession.hxx".}
 proc getDigitalActionData*(this: AspectOpenVRSession;
                           theAction: Handle[AspectXRAction]): AspectXRDigitalActionData {.
@@ -144,3 +144,28 @@ proc getPoseActionDataForNextFrame*(this: AspectOpenVRSession;
 proc setTrackingOrigin*(this: var AspectOpenVRSession;
                        theOrigin: TrackingUniverseOrigin) {.
     importcpp: "SetTrackingOrigin", header: "Aspect_OpenVRSession.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

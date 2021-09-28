@@ -17,3 +17,28 @@
 type
   AdvApp2VarSequenceOfPatch* = NCollectionSequence[Handle[AdvApp2VarPatch]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

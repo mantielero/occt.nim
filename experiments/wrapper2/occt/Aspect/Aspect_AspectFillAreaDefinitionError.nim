@@ -16,14 +16,54 @@
 ## !!!Ignored construct:  # _Aspect_AspectFillAreaDefinitionError_HeaderFile [NewLine] # _Aspect_AspectFillAreaDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Aspect_AspectFillAreaDefinitionError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Aspect_AspectFillAreaDefinitionError"
-type
-  HandleAspectAspectFillAreaDefinitionErrorAspectAspectFillAreaDefinitionError* = Handle[
-      AspectAspectFillAreaDefinitionError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Aspect_AspectFillAreaDefinitionError , Standard_OutOfRange ) # ! defined No_Exception && ! defined No_Aspect_AspectFillAreaDefinitionError [NewLine] # Aspect_AspectFillAreaDefinitionError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Aspect_AspectFillAreaDefinitionError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Aspect_AspectFillAreaDefinitionError [NewLine] # if ( CONDITION ) throw Aspect_AspectFillAreaDefinitionError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Aspect_AspectFillAreaDefinitionError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Aspect_AspectFillAreaDefinitionError , Standard_OutOfRange ) #  _Aspect_AspectFillAreaDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Aspect_AspectFillAreaDefinitionError , Standard_OutOfRange ) #  _Aspect_AspectFillAreaDefinitionError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -19,4 +19,3 @@ type
                    header: "Geom2dGcc_Type3.hxx".} = enum
     Geom2dGccCuCu, Geom2dGccCiCu
 
-

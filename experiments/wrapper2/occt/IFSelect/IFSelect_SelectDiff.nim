@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectDiff"
 discard "forward decl of IFSelect_SelectDiff"
 type
-  HandleIFSelectSelectDiff* = Handle[IFSelectSelectDiff]
+  HandleC1C1* = Handle[IFSelectSelectDiff]
 
 ## ! A SelectDiff keeps the entities from a Selection, the Main
 ## ! Input, which are not listed by the Second Input
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectDiff.hxx".}
 proc dynamicType*(this: IFSelectSelectDiff): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectDiff.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

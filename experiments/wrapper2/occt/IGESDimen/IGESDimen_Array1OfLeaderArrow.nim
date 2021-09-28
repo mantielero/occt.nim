@@ -17,3 +17,28 @@
 type
   IGESDimenArray1OfLeaderArrow* = NCollectionArray1[Handle[IGESDimenLeaderArrow]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

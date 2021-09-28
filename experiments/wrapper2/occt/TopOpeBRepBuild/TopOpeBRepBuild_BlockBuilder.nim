@@ -42,21 +42,46 @@ proc blockIterator*(this: TopOpeBRepBuildBlockBuilder): TopOpeBRepBuildBlockIter
     header: "TopOpeBRepBuild_BlockBuilder.hxx".}
 proc element*(this: TopOpeBRepBuildBlockBuilder; bi: TopOpeBRepBuildBlockIterator): TopoDS_Shape {.
     noSideEffect, importcpp: "Element", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
-proc element*(this: TopOpeBRepBuildBlockBuilder; i: int): TopoDS_Shape {.noSideEffect,
-    importcpp: "Element", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
-proc element*(this: TopOpeBRepBuildBlockBuilder; s: TopoDS_Shape): int {.noSideEffect,
-    importcpp: "Element", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
+proc element*(this: TopOpeBRepBuildBlockBuilder; i: cint): TopoDS_Shape {.
+    noSideEffect, importcpp: "Element", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
+proc element*(this: TopOpeBRepBuildBlockBuilder; s: TopoDS_Shape): cint {.
+    noSideEffect, importcpp: "Element", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
 proc elementIsValid*(this: TopOpeBRepBuildBlockBuilder;
                     bi: TopOpeBRepBuildBlockIterator): bool {.noSideEffect,
     importcpp: "ElementIsValid", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
-proc elementIsValid*(this: TopOpeBRepBuildBlockBuilder; i: int): bool {.noSideEffect,
+proc elementIsValid*(this: TopOpeBRepBuildBlockBuilder; i: cint): bool {.noSideEffect,
     importcpp: "ElementIsValid", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
-proc addElement*(this: var TopOpeBRepBuildBlockBuilder; s: TopoDS_Shape): int {.
+proc addElement*(this: var TopOpeBRepBuildBlockBuilder; s: TopoDS_Shape): cint {.
     importcpp: "AddElement", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
 proc setValid*(this: var TopOpeBRepBuildBlockBuilder;
               bi: TopOpeBRepBuildBlockIterator; isvalid: bool) {.
     importcpp: "SetValid", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
-proc setValid*(this: var TopOpeBRepBuildBlockBuilder; i: int; isvalid: bool) {.
+proc setValid*(this: var TopOpeBRepBuildBlockBuilder; i: cint; isvalid: bool) {.
     importcpp: "SetValid", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
 proc currentBlockIsRegular*(this: var TopOpeBRepBuildBlockBuilder): bool {.
     importcpp: "CurrentBlockIsRegular", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

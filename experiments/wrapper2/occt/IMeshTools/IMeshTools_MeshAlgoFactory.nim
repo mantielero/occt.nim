@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IMeshToolsMeshAlgoFactory): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IMeshTools_MeshAlgoFactory.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

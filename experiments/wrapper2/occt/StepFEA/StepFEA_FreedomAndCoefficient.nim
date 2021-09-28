@@ -18,7 +18,7 @@ discard "forward decl of StepElement_MeasureOrUnspecifiedValue"
 discard "forward decl of StepFEA_FreedomAndCoefficient"
 discard "forward decl of StepFEA_FreedomAndCoefficient"
 type
-  HandleStepFEA_FreedomAndCoefficient* = Handle[StepFEA_FreedomAndCoefficient]
+  HandleC1C1* = Handle[StepFEA_FreedomAndCoefficient]
 
 ## ! Representation of STEP entity FreedomAndCoefficient
 
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_FreedomAndCoefficient): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FreedomAndCoefficient.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,7 +13,7 @@
 
 discard "forward decl of Message_PrinterSystemLog"
 type
-  HandleMessagePrinterSystemLog* = Handle[MessagePrinterSystemLog]
+  HandleC1C1* = Handle[MessagePrinterSystemLog]
 
 ## ! Implementation of a message printer associated with system log.
 ## ! Implemented for the following systems:
@@ -55,3 +55,28 @@ proc constructMessagePrinterSystemLog*(theEventSourceName: TCollectionAsciiStrin
 proc destroyMessagePrinterSystemLog*(this: var MessagePrinterSystemLog) {.
     importcpp: "#.~Message_PrinterSystemLog()",
     header: "Message_PrinterSystemLog.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

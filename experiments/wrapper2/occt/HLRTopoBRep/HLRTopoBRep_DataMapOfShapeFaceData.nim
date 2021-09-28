@@ -20,3 +20,28 @@ type
   HLRTopoBRepDataMapIteratorOfDataMapOfShapeFaceData* = Iterator[TopoDS_Shape,
       HLRTopoBRepFaceData, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

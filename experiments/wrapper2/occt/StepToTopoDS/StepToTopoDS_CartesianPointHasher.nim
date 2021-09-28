@@ -24,8 +24,33 @@ type
 
 
 proc hashCode*(theCartesianPoint: Handle[StepGeomCartesianPoint];
-              theUpperBound: int): int {.importcpp: "StepToTopoDS_CartesianPointHasher::HashCode(@)", header: "StepToTopoDS_CartesianPointHasher.hxx".}
+              theUpperBound: cint): cint {.importcpp: "StepToTopoDS_CartesianPointHasher::HashCode(@)", header: "StepToTopoDS_CartesianPointHasher.hxx".}
 proc isEqual*(k1: Handle[StepGeomCartesianPoint];
              k2: Handle[StepGeomCartesianPoint]): bool {.
     importcpp: "StepToTopoDS_CartesianPointHasher::IsEqual(@)",
     header: "StepToTopoDS_CartesianPointHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

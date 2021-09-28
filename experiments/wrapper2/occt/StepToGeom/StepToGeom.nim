@@ -207,3 +207,28 @@ proc makeVectorWithMagnitude*(sv: Handle[StepGeomVector]): Handle[
 proc makeVectorWithMagnitude2d*(sv: Handle[StepGeomVector]): Handle[
     Geom2dVectorWithMagnitude] {.importcpp: "StepToGeom::MakeVectorWithMagnitude2d(@)",
                                 header: "StepToGeom.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

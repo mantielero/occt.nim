@@ -49,8 +49,32 @@ proc dynamicType*(this: BinTObjDriversIntSparseArrayDriver): Handle[StandardType
 
 discard "forward decl of BinTObjDrivers_IntSparseArrayDriver"
 type
-  HandleBinTObjDriversIntSparseArrayDriver* = Handle[
-      BinTObjDriversIntSparseArrayDriver]
+  HandleC1C1* = Handle[BinTObjDriversIntSparseArrayDriver]
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

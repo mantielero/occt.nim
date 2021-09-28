@@ -26,8 +26,7 @@ discard "forward decl of BinLDrivers_DocumentSection"
 discard "forward decl of BinLDrivers_DocumentRetrievalDriver"
 discard "forward decl of BinLDrivers_DocumentRetrievalDriver"
 type
-  HandleBinLDriversDocumentRetrievalDriver* = Handle[
-      BinLDriversDocumentRetrievalDriver]
+  HandleC1C1* = Handle[BinLDriversDocumentRetrievalDriver]
   BinLDriversDocumentRetrievalDriver* {.importcpp: "BinLDrivers_DocumentRetrievalDriver", header: "BinLDrivers_DocumentRetrievalDriver.hxx",
                                        bycopy.} = object of PCDM_RetrievalDriver ## !
                                                                             ## Constructor
@@ -69,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinLDriversDocumentRetrievalDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinLDrivers_DocumentRetrievalDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

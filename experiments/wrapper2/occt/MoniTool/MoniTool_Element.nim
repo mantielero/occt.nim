@@ -18,7 +18,7 @@ discard "forward decl of MoniTool_AttrList"
 discard "forward decl of MoniTool_Element"
 discard "forward decl of MoniTool_Element"
 type
-  HandleMoniToolElement* = Handle[MoniToolElement]
+  HandleC1C1* = Handle[MoniToolElement]
 
 ## ! a Element allows to map any kind of object as a Key for a Map.
 ## ! This works by defining, for a Hash Code, that of the real Key,
@@ -35,7 +35,7 @@ type
 
 proc constructMoniToolElement*(): MoniToolElement {.constructor,
     importcpp: "MoniTool_Element(@)", header: "MoniTool_Element.hxx".}
-proc getHashCode*(this: MoniToolElement): int {.noSideEffect,
+proc getHashCode*(this: MoniToolElement): cint {.noSideEffect,
     importcpp: "GetHashCode", header: "MoniTool_Element.hxx".}
 proc equates*(this: MoniToolElement; other: Handle[MoniToolElement]): bool {.
     noSideEffect, importcpp: "Equates", header: "MoniTool_Element.hxx".}
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MoniTool_Element.hxx".}
 proc dynamicType*(this: MoniToolElement): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_Element.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

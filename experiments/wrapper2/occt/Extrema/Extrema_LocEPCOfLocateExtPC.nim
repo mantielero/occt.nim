@@ -31,23 +31,49 @@ type
 proc constructExtremaLocEPCOfLocateExtPC*(): ExtremaLocEPCOfLocateExtPC {.
     constructor, importcpp: "Extrema_LocEPCOfLocateExtPC(@)",
     header: "Extrema_LocEPCOfLocateExtPC.hxx".}
-proc constructExtremaLocEPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve; u0: float;
-    tolU: float): ExtremaLocEPCOfLocateExtPC {.constructor,
+proc constructExtremaLocEPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve; u0: cfloat;
+    tolU: cfloat): ExtremaLocEPCOfLocateExtPC {.constructor,
     importcpp: "Extrema_LocEPCOfLocateExtPC(@)",
     header: "Extrema_LocEPCOfLocateExtPC.hxx".}
-proc constructExtremaLocEPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve; u0: float;
-    umin: float; usup: float; tolU: float): ExtremaLocEPCOfLocateExtPC {.constructor,
-    importcpp: "Extrema_LocEPCOfLocateExtPC(@)",
+proc constructExtremaLocEPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve; u0: cfloat;
+    umin: cfloat; usup: cfloat; tolU: cfloat): ExtremaLocEPCOfLocateExtPC {.
+    constructor, importcpp: "Extrema_LocEPCOfLocateExtPC(@)",
     header: "Extrema_LocEPCOfLocateExtPC.hxx".}
-proc initialize*(this: var ExtremaLocEPCOfLocateExtPC; c: Adaptor3dCurve; umin: float;
-                usup: float; tolU: float) {.importcpp: "Initialize", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
-proc perform*(this: var ExtremaLocEPCOfLocateExtPC; p: Pnt; u0: float) {.
+proc initialize*(this: var ExtremaLocEPCOfLocateExtPC; c: Adaptor3dCurve;
+                umin: cfloat; usup: cfloat; tolU: cfloat) {.importcpp: "Initialize",
+    header: "Extrema_LocEPCOfLocateExtPC.hxx".}
+proc perform*(this: var ExtremaLocEPCOfLocateExtPC; p: Pnt; u0: cfloat) {.
     importcpp: "Perform", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc isDone*(this: ExtremaLocEPCOfLocateExtPC): bool {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
-proc squareDistance*(this: ExtremaLocEPCOfLocateExtPC): float {.noSideEffect,
+proc squareDistance*(this: ExtremaLocEPCOfLocateExtPC): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc isMin*(this: ExtremaLocEPCOfLocateExtPC): bool {.noSideEffect,
     importcpp: "IsMin", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc point*(this: ExtremaLocEPCOfLocateExtPC): ExtremaPOnCurv {.noSideEffect,
     importcpp: "Point", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,19 @@
 discard "forward decl of Standard_OutOfMemory"
 discard "forward decl of Standard_OutOfMemory"
 type
+  StandardOutOfMemory* {.importcpp: "Standard_OutOfMemory",
+                        header: "Standard_OutOfMemory.hxx", bycopy.} = object of StandardProgramError ##
+                                                                                               ## !
+                                                                                               ## Constructor
+                                                                                               ## is
+                                                                                               ## kept
+                                                                                               ## public
+                                                                                               ## for
+                                                                                               ## backward
+                                                                                               ## compatibility
+
+
+
   HandleStandardOutOfMemory* = Handle[StandardOutOfMemory]
 
 when not defined(noException) and not defined(noStandardOutOfMemory):
@@ -41,19 +54,7 @@ else:
 ## ! fail, thus use of operator new for allocation of new exception instance
 ## ! is dangerous (can cause recursion until stack overflow, see #24836).
 
-type
-  StandardOutOfMemory* {.importcpp: "Standard_OutOfMemory",
-                        header: "Standard_OutOfMemory.hxx", bycopy.} = object of StandardProgramError ##
-                                                                                               ## !
-                                                                                               ## Constructor
-                                                                                               ## is
-                                                                                               ## kept
-                                                                                               ## public
-                                                                                               ## for
-                                                                                               ## backward
-                                                                                               ## compatibility
-
-
+#[
 proc constructStandardOutOfMemory*(theMessage: StandardCString = 0): StandardOutOfMemory {.
     constructor, importcpp: "Standard_OutOfMemory(@)",
     header: "Standard_OutOfMemory.hxx".}
@@ -61,6 +62,8 @@ proc getMessageString*(this: StandardOutOfMemory): StandardCString {.noSideEffec
     importcpp: "GetMessageString", header: "Standard_OutOfMemory.hxx".}
 proc setMessageString*(this: var StandardOutOfMemory; aMessage: StandardCString) {.
     importcpp: "SetMessageString", header: "Standard_OutOfMemory.hxx".}
+]#
+#[
 proc `raise`*(theMessage: StandardCString = "") {.
     importcpp: "Standard_OutOfMemory::Raise(@)",
     header: "Standard_OutOfMemory.hxx".}
@@ -80,3 +83,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Standard_OutOfMemory.hxx".}
 proc dynamicType*(this: StandardOutOfMemory): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Standard_OutOfMemory.hxx".}
+]#

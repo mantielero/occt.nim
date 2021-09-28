@@ -20,7 +20,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_Signature"
 discard "forward decl of IFSelect_Signature"
 type
-  HandleIFSelectSignature* = Handle[IFSelectSignature]
+  HandleC1C1* = Handle[IFSelectSignature]
 
 ## ! Signature provides the basic service used by the classes
 ## ! SelectSignature and Counter (i.e. Name, Value), which is :
@@ -67,11 +67,11 @@ type
                                                                                         ## name
 
 
-proc setIntCase*(this: var IFSelectSignature; hasmin: bool; valmin: int; hasmax: bool;
-                valmax: int) {.importcpp: "SetIntCase",
-                             header: "IFSelect_Signature.hxx".}
-proc isIntCase*(this: IFSelectSignature; hasmin: var bool; valmin: var int;
-               hasmax: var bool; valmax: var int): bool {.noSideEffect,
+proc setIntCase*(this: var IFSelectSignature; hasmin: bool; valmin: cint; hasmax: bool;
+                valmax: cint) {.importcpp: "SetIntCase",
+                              header: "IFSelect_Signature.hxx".}
+proc isIntCase*(this: IFSelectSignature; hasmin: var bool; valmin: var cint;
+               hasmax: var bool; valmax: var cint): bool {.noSideEffect,
     importcpp: "IsIntCase", header: "IFSelect_Signature.hxx".}
 proc addCase*(this: var IFSelectSignature; acase: StandardCString) {.
     importcpp: "AddCase", header: "IFSelect_Signature.hxx".}
@@ -88,8 +88,8 @@ proc matches*(this: IFSelectSignature; ent: Handle[StandardTransient];
 proc matchValue*(val: StandardCString; text: TCollectionAsciiString; exact: bool): bool {.
     importcpp: "IFSelect_Signature::MatchValue(@)",
     header: "IFSelect_Signature.hxx".}
-proc intValue*(val: int): StandardCString {.importcpp: "IFSelect_Signature::IntValue(@)",
-                                        header: "IFSelect_Signature.hxx".}
+proc intValue*(val: cint): StandardCString {.
+    importcpp: "IFSelect_Signature::IntValue(@)", header: "IFSelect_Signature.hxx".}
 type
   IFSelectSignaturebaseType* = InterfaceSignType
 
@@ -100,3 +100,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_Signature.hxx".}
 proc dynamicType*(this: IFSelectSignature): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Signature.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

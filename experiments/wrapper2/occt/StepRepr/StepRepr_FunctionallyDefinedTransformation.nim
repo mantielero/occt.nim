@@ -18,8 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_FunctionallyDefinedTransformation"
 discard "forward decl of StepRepr_FunctionallyDefinedTransformation"
 type
-  HandleStepReprFunctionallyDefinedTransformation* = Handle[
-      StepReprFunctionallyDefinedTransformation]
+  HandleC1C1* = Handle[StepReprFunctionallyDefinedTransformation]
   StepReprFunctionallyDefinedTransformation* {.
       importcpp: "StepRepr_FunctionallyDefinedTransformation",
       header: "StepRepr_FunctionallyDefinedTransformation.hxx", bycopy.} = object of StandardTransient ##
@@ -56,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_Functiona
 proc dynamicType*(this: StepReprFunctionallyDefinedTransformation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_ProductType"
 discard "forward decl of StepBasic_ProductType"
 type
-  HandleStepBasicProductType* = Handle[StepBasicProductType]
+  HandleC1C1* = Handle[StepBasicProductType]
   StepBasicProductType* {.importcpp: "StepBasic_ProductType",
                          header: "StepBasic_ProductType.hxx", bycopy.} = object of StepBasicProductRelatedProductCategory ##
                                                                                                                    ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_ProductType.hxx".}
 proc dynamicType*(this: StepBasicProductType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_ProductType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

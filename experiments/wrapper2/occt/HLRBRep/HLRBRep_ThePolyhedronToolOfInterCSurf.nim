@@ -30,9 +30,9 @@ type
 proc bounding*(thePolyh: HLRBRepThePolyhedronOfInterCSurf): BndBox {.
     importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::Bounding(@)",
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-proc componentsBounding*(thePolyh: HLRBRepThePolyhedronOfInterCSurf): Handle[
-    BndHArray1OfBox] {.importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::ComponentsBounding(@)",
-                      header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
+## !!!Ignored construct:  & ComponentsBounding ( const HLRBRep_ThePolyhedronOfInterCSurf & thePolyh ) ;
+## Error: identifier expected, but got: &!!!
+
 proc deflectionOverEstimation*(thePolyh: HLRBRepThePolyhedronOfInterCSurf): float {.importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::DeflectionOverEstimation(@)",
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
 proc nbTriangles*(thePolyh: HLRBRepThePolyhedronOfInterCSurf): int {.
@@ -58,4 +58,49 @@ proc dump*(thePolyh: HLRBRepThePolyhedronOfInterCSurf) {.
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
 ## !!!Ignored construct:  # ThePolyhedron HLRBRep_ThePolyhedronOfInterCSurf [NewLine] # ThePolyhedron_hxx < HLRBRep_ThePolyhedronOfInterCSurf . hxx > [NewLine] # IntCurveSurface_PolyhedronTool HLRBRep_ThePolyhedronToolOfInterCSurf [NewLine] # IntCurveSurface_PolyhedronTool_hxx < HLRBRep_ThePolyhedronToolOfInterCSurf . hxx > [NewLine] # < IntCurveSurface_PolyhedronTool . lxx > [NewLine] # ThePolyhedron [NewLine] # ThePolyhedron_hxx [NewLine] # IntCurveSurface_PolyhedronTool [NewLine] # IntCurveSurface_PolyhedronTool_hxx [NewLine] #  _HLRBRep_ThePolyhedronToolOfInterCSurf_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

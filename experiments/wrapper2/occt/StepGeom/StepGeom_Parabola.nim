@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepGeom_Parabola"
 discard "forward decl of StepGeom_Parabola"
 type
-  HandleStepGeomParabola* = Handle[StepGeomParabola]
+  HandleC1C1* = Handle[StepGeomParabola]
   StepGeomParabola* {.importcpp: "StepGeom_Parabola",
                      header: "StepGeom_Parabola.hxx", bycopy.} = object of StepGeomConic ##
                                                                                   ## !
@@ -31,11 +31,11 @@ type
 proc constructStepGeomParabola*(): StepGeomParabola {.constructor,
     importcpp: "StepGeom_Parabola(@)", header: "StepGeom_Parabola.hxx".}
 proc init*(this: var StepGeomParabola; aName: Handle[TCollectionHAsciiString];
-          aPosition: StepGeomAxis2Placement; aFocalDist: float) {.importcpp: "Init",
-    header: "StepGeom_Parabola.hxx".}
-proc setFocalDist*(this: var StepGeomParabola; aFocalDist: float) {.
+          aPosition: StepGeomAxis2Placement; aFocalDist: cfloat) {.
+    importcpp: "Init", header: "StepGeom_Parabola.hxx".}
+proc setFocalDist*(this: var StepGeomParabola; aFocalDist: cfloat) {.
     importcpp: "SetFocalDist", header: "StepGeom_Parabola.hxx".}
-proc focalDist*(this: StepGeomParabola): float {.noSideEffect,
+proc focalDist*(this: StepGeomParabola): cfloat {.noSideEffect,
     importcpp: "FocalDist", header: "StepGeom_Parabola.hxx".}
 type
   StepGeomParabolabaseType* = StepGeomConic
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Parabola.hxx".}
 proc dynamicType*(this: StepGeomParabola): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Parabola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

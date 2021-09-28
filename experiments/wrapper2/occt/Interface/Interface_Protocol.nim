@@ -22,7 +22,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_Protocol"
 type
-  HandleInterfaceProtocol* = Handle[InterfaceProtocol]
+  HandleC1C1* = Handle[InterfaceProtocol]
 
 ## ! General description of Interface Protocols. A Protocol defines
 ## ! a set of Entity types. This class provides also the notion of
@@ -65,20 +65,20 @@ proc setActive*(aprotocol: Handle[InterfaceProtocol]) {.
     header: "Interface_Protocol.hxx".}
 proc clearActive*() {.importcpp: "Interface_Protocol::ClearActive(@)",
                     header: "Interface_Protocol.hxx".}
-proc nbResources*(this: InterfaceProtocol): int {.noSideEffect,
+proc nbResources*(this: InterfaceProtocol): cint {.noSideEffect,
     importcpp: "NbResources", header: "Interface_Protocol.hxx".}
-proc resource*(this: InterfaceProtocol; num: int): Handle[InterfaceProtocol] {.
+proc resource*(this: InterfaceProtocol; num: cint): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Resource", header: "Interface_Protocol.hxx".}
-proc caseNumber*(this: InterfaceProtocol; obj: Handle[StandardTransient]): int {.
+proc caseNumber*(this: InterfaceProtocol; obj: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNumber", header: "Interface_Protocol.hxx".}
 proc isDynamicType*(this: InterfaceProtocol; obj: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsDynamicType", header: "Interface_Protocol.hxx".}
-proc nbTypes*(this: InterfaceProtocol; obj: Handle[StandardTransient]): int {.
+proc nbTypes*(this: InterfaceProtocol; obj: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "NbTypes", header: "Interface_Protocol.hxx".}
-proc `type`*(this: InterfaceProtocol; obj: Handle[StandardTransient]; nt: int = 1): Handle[
+proc `type`*(this: InterfaceProtocol; obj: Handle[StandardTransient]; nt: cint = 1): Handle[
     StandardType] {.noSideEffect, importcpp: "Type",
                    header: "Interface_Protocol.hxx".}
-proc typeNumber*(this: InterfaceProtocol; atype: Handle[StandardType]): int {.
+proc typeNumber*(this: InterfaceProtocol; atype: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "TypeNumber", header: "Interface_Protocol.hxx".}
 proc globalCheck*(this: InterfaceProtocol; g: InterfaceGraph;
                  ach: var Handle[InterfaceCheck]): bool {.noSideEffect,
@@ -102,3 +102,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_Protocol.hxx".}
 proc dynamicType*(this: InterfaceProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_Protocol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

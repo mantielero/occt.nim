@@ -131,3 +131,28 @@ proc lastShape*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): 
     importcpp: "LastShape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
 proc closed*(this: BRepSweepNumLinearRegularSweep): bool {.noSideEffect,
     importcpp: "Closed", header: "BRepSweep_NumLinearRegularSweep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

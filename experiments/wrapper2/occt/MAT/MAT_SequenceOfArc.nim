@@ -17,3 +17,28 @@
 type
   MAT_SequenceOfArc* = NCollectionSequence[Handle[MAT_Arc]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

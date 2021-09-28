@@ -76,9 +76,9 @@ proc constructGraphic3dFrameStats*(): Graphic3dFrameStats {.constructor,
     importcpp: "Graphic3d_FrameStats(@)", header: "Graphic3d_FrameStats.hxx".}
 proc destroyGraphic3dFrameStats*(this: var Graphic3dFrameStats) {.
     importcpp: "#.~Graphic3d_FrameStats()", header: "Graphic3d_FrameStats.hxx".}
-proc updateInterval*(this: Graphic3dFrameStats): float {.noSideEffect,
+proc updateInterval*(this: Graphic3dFrameStats): cfloat {.noSideEffect,
     importcpp: "UpdateInterval", header: "Graphic3d_FrameStats.hxx".}
-proc setUpdateInterval*(this: var Graphic3dFrameStats; theInterval: float) {.
+proc setUpdateInterval*(this: var Graphic3dFrameStats; theInterval: cfloat) {.
     importcpp: "SetUpdateInterval", header: "Graphic3d_FrameStats.hxx".}
 proc isLongLineFormat*(this: Graphic3dFrameStats): bool {.noSideEffect,
     importcpp: "IsLongLineFormat", header: "Graphic3d_FrameStats.hxx".}
@@ -96,16 +96,16 @@ proc formatStats*(this: Graphic3dFrameStats;
                  theDict: var TColStdIndexedDataMapOfStringString;
                  theFlags: PerfCounters) {.noSideEffect, importcpp: "FormatStats",
     header: "Graphic3d_FrameStats.hxx".}
-proc frameDuration*(this: Graphic3dFrameStats): float {.noSideEffect,
+proc frameDuration*(this: Graphic3dFrameStats): cfloat {.noSideEffect,
     importcpp: "FrameDuration", header: "Graphic3d_FrameStats.hxx".}
-proc frameRate*(this: Graphic3dFrameStats): float {.noSideEffect,
+proc frameRate*(this: Graphic3dFrameStats): cfloat {.noSideEffect,
     importcpp: "FrameRate", header: "Graphic3d_FrameStats.hxx".}
-proc frameRateCpu*(this: Graphic3dFrameStats): float {.noSideEffect,
+proc frameRateCpu*(this: Graphic3dFrameStats): cfloat {.noSideEffect,
     importcpp: "FrameRateCpu", header: "Graphic3d_FrameStats.hxx".}
 proc counterValue*(this: Graphic3dFrameStats;
                   theCounter: Graphic3dFrameStatsCounter): StandardSize {.
     noSideEffect, importcpp: "CounterValue", header: "Graphic3d_FrameStats.hxx".}
-proc timerValue*(this: Graphic3dFrameStats; theTimer: Graphic3dFrameStatsTimer): float {.
+proc timerValue*(this: Graphic3dFrameStats; theTimer: Graphic3dFrameStatsTimer): cfloat {.
     noSideEffect, importcpp: "TimerValue", header: "Graphic3d_FrameStats.hxx".}
 proc hasCulledLayers*(this: Graphic3dFrameStats): bool {.noSideEffect,
     importcpp: "HasCulledLayers", header: "Graphic3d_FrameStats.hxx".}
@@ -113,7 +113,7 @@ proc hasCulledStructs*(this: Graphic3dFrameStats): bool {.noSideEffect,
     importcpp: "HasCulledStructs", header: "Graphic3d_FrameStats.hxx".}
 proc lastDataFrame*(this: Graphic3dFrameStats): Graphic3dFrameStatsData {.
     noSideEffect, importcpp: "LastDataFrame", header: "Graphic3d_FrameStats.hxx".}
-proc lastDataFrameIndex*(this: Graphic3dFrameStats): int {.noSideEffect,
+proc lastDataFrameIndex*(this: Graphic3dFrameStats): cint {.noSideEffect,
     importcpp: "LastDataFrameIndex", header: "Graphic3d_FrameStats.hxx".}
 proc dataFrames*(this: Graphic3dFrameStats): NCollectionArray1[
     Graphic3dFrameStatsData] {.noSideEffect, importcpp: "DataFrames",
@@ -124,7 +124,32 @@ proc changeDataFrames*(this: var Graphic3dFrameStats): var NCollectionArray1[
 proc changeCounter*(this: var Graphic3dFrameStats;
                    theCounter: Graphic3dFrameStatsCounter): var StandardSize {.
     importcpp: "ChangeCounter", header: "Graphic3d_FrameStats.hxx".}
-proc changeTimer*(this: var Graphic3dFrameStats; theTimer: Graphic3dFrameStatsTimer): var float {.
+proc changeTimer*(this: var Graphic3dFrameStats; theTimer: Graphic3dFrameStatsTimer): var cfloat {.
     importcpp: "ChangeTimer", header: "Graphic3d_FrameStats.hxx".}
 proc activeDataFrame*(this: var Graphic3dFrameStats): var Graphic3dFrameStatsDataTmp {.
     importcpp: "ActiveDataFrame", header: "Graphic3d_FrameStats.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

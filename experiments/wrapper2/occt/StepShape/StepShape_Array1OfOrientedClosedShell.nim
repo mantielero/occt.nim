@@ -18,3 +18,28 @@ type
   StepShapeArray1OfOrientedClosedShell* = NCollectionArray1[
       Handle[StepShapeOrientedClosedShell]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

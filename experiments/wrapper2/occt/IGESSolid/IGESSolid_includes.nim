@@ -65,3 +65,28 @@ include IGESSolid_ToroidalSurface
 include IGESSolid_Torus
 include IGESSolid_VertexList
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

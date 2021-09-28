@@ -27,9 +27,34 @@ proc constructRWStepShapeRWLimitsAndFits*(): RWStepShapeRWLimitsAndFits {.
     constructor, importcpp: "RWStepShape_RWLimitsAndFits(@)",
     header: "RWStepShape_RWLimitsAndFits.hxx".}
 proc readStep*(this: RWStepShapeRWLimitsAndFits;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeLimitsAndFits]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWLimitsAndFits.hxx".}
 proc writeStep*(this: RWStepShapeRWLimitsAndFits; sw: var StepDataStepWriter;
                ent: Handle[StepShapeLimitsAndFits]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWLimitsAndFits.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,7 +24,7 @@ discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of XSControl_ConnectedShapes"
 discard "forward decl of XSControl_ConnectedShapes"
 type
-  HandleXSControlConnectedShapes* = Handle[XSControlConnectedShapes]
+  HandleC1C1* = Handle[XSControlConnectedShapes]
 
 ## ! From a TopoDS_Shape, or from the entity which has produced it,
 ## ! searches for the shapes, and the entities which have produced
@@ -58,7 +58,7 @@ proc constructXSControlConnectedShapes*(tr: Handle[XSControlTransferReader]): XS
 proc setReader*(this: var XSControlConnectedShapes;
                tr: Handle[XSControlTransferReader]) {.importcpp: "SetReader",
     header: "XSControl_ConnectedShapes.hxx".}
-proc explore*(this: XSControlConnectedShapes; level: int;
+proc explore*(this: XSControlConnectedShapes; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "XSControl_ConnectedShapes.hxx".}
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XSControl_ConnectedShapes.hxx".}
 proc dynamicType*(this: XSControlConnectedShapes): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XSControl_ConnectedShapes.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

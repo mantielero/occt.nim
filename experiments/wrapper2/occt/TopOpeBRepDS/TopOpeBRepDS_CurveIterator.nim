@@ -44,10 +44,35 @@ proc constructTopOpeBRepDS_CurveIterator*(L: TopOpeBRepDS_ListOfInterference): T
 proc matchInterference*(this: TopOpeBRepDS_CurveIterator;
                        i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
     importcpp: "MatchInterference", header: "TopOpeBRepDS_CurveIterator.hxx".}
-proc current*(this: TopOpeBRepDS_CurveIterator): int {.noSideEffect,
+proc current*(this: TopOpeBRepDS_CurveIterator): cint {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc orientation*(this: TopOpeBRepDS_CurveIterator; s: TopAbsState): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation",
     header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc pCurve*(this: TopOpeBRepDS_CurveIterator): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "PCurve", header: "TopOpeBRepDS_CurveIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

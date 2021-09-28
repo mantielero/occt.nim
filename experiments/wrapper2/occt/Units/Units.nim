@@ -55,16 +55,41 @@ proc lexiconFormula*(): Handle[UnitsLexicon] {.
     importcpp: "Units::LexiconFormula(@)", header: "Units.hxx".}
 proc nullDimensions*(): Handle[UnitsDimensions] {.
     importcpp: "Units::NullDimensions(@)", header: "Units.hxx".}
-proc convert*(avalue: float; afirstunit: StandardCString;
-             asecondunit: StandardCString): float {.importcpp: "Units::Convert(@)",
-    header: "Units.hxx".}
-proc toSI*(aData: float; aUnit: StandardCString): float {.importcpp: "Units::ToSI(@)",
-    header: "Units.hxx".}
-proc toSI*(aData: float; aUnit: StandardCString; aDim: var Handle[UnitsDimensions]): float {.
+proc convert*(avalue: cfloat; afirstunit: StandardCString;
+             asecondunit: StandardCString): cfloat {.
+    importcpp: "Units::Convert(@)", header: "Units.hxx".}
+proc toSI*(aData: cfloat; aUnit: StandardCString): cfloat {.
     importcpp: "Units::ToSI(@)", header: "Units.hxx".}
-proc fromSI*(aData: float; aUnit: StandardCString): float {.
+proc toSI*(aData: cfloat; aUnit: StandardCString; aDim: var Handle[UnitsDimensions]): cfloat {.
+    importcpp: "Units::ToSI(@)", header: "Units.hxx".}
+proc fromSI*(aData: cfloat; aUnit: StandardCString): cfloat {.
     importcpp: "Units::FromSI(@)", header: "Units.hxx".}
-proc fromSI*(aData: float; aUnit: StandardCString; aDim: var Handle[UnitsDimensions]): float {.
+proc fromSI*(aData: cfloat; aUnit: StandardCString; aDim: var Handle[UnitsDimensions]): cfloat {.
     importcpp: "Units::FromSI(@)", header: "Units.hxx".}
 proc dimensions*(aType: StandardCString): Handle[UnitsDimensions] {.
     importcpp: "Units::Dimensions(@)", header: "Units.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -55,18 +55,18 @@ proc dynamicType*(this: SelectMgrViewerSelector3d): Handle[StandardType] {.
 proc constructSelectMgrViewerSelector3d*(): SelectMgrViewerSelector3d {.
     constructor, importcpp: "SelectMgr_ViewerSelector3d(@)",
     header: "SelectMgr_ViewerSelector3d.hxx".}
-proc pick*(this: var SelectMgrViewerSelector3d; theXPix: int; theYPix: int;
+proc pick*(this: var SelectMgrViewerSelector3d; theXPix: cint; theYPix: cint;
           theView: Handle[V3dView]) {.importcpp: "Pick",
                                     header: "SelectMgr_ViewerSelector3d.hxx".}
-proc pick*(this: var SelectMgrViewerSelector3d; theXPMin: int; theYPMin: int;
-          theXPMax: int; theYPMax: int; theView: Handle[V3dView]) {.importcpp: "Pick",
-    header: "SelectMgr_ViewerSelector3d.hxx".}
+proc pick*(this: var SelectMgrViewerSelector3d; theXPMin: cint; theYPMin: cint;
+          theXPMax: cint; theYPMax: cint; theView: Handle[V3dView]) {.
+    importcpp: "Pick", header: "SelectMgr_ViewerSelector3d.hxx".}
 proc pick*(this: var SelectMgrViewerSelector3d; thePolyline: TColgpArray1OfPnt2d;
           theView: Handle[V3dView]) {.importcpp: "Pick",
                                     header: "SelectMgr_ViewerSelector3d.hxx".}
 proc toPixMap*(this: var SelectMgrViewerSelector3d; theImage: var ImagePixMap;
               theView: Handle[V3dView]; theType: StdSelectTypeOfSelectionImage;
-              thePickedIndex: int = 1): bool {.importcpp: "ToPixMap",
+              thePickedIndex: cint = 1): bool {.importcpp: "ToPixMap",
     header: "SelectMgr_ViewerSelector3d.hxx".}
 proc displaySensitive*(this: var SelectMgrViewerSelector3d; theView: Handle[V3dView]) {.
     importcpp: "DisplaySensitive", header: "SelectMgr_ViewerSelector3d.hxx".}
@@ -77,9 +77,34 @@ proc displaySensitive*(this: var SelectMgrViewerSelector3d;
                       theView: Handle[V3dView]; theToClearOthers: bool = true) {.
     importcpp: "DisplaySensitive", header: "SelectMgr_ViewerSelector3d.hxx".}
 proc dumpJson*(this: SelectMgrViewerSelector3d; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "SelectMgr_ViewerSelector3d.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "SelectMgr_ViewerSelector3d.hxx".}
 discard "forward decl of SelectMgr_ViewerSelector3d"
 type
-  HandleSelectMgrViewerSelector3d* = Handle[SelectMgrViewerSelector3d]
+  HandleC1C1* = Handle[SelectMgrViewerSelector3d]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

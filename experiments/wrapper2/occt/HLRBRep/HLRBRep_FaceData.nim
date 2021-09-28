@@ -25,10 +25,10 @@ type
 proc constructHLRBRepFaceData*(): HLRBRepFaceData {.constructor,
     importcpp: "HLRBRep_FaceData(@)", header: "HLRBRep_FaceData.hxx".}
 proc set*(this: var HLRBRepFaceData; fg: TopoDS_Face; `or`: TopAbsOrientation; cl: bool;
-         nw: int) {.importcpp: "Set", header: "HLRBRep_FaceData.hxx".}
-proc setWire*(this: var HLRBRepFaceData; wi: int; ne: int) {.importcpp: "SetWire",
+         nw: cint) {.importcpp: "Set", header: "HLRBRep_FaceData.hxx".}
+proc setWire*(this: var HLRBRepFaceData; wi: cint; ne: cint) {.importcpp: "SetWire",
     header: "HLRBRep_FaceData.hxx".}
-proc setWEdge*(this: var HLRBRepFaceData; wi: int; ewi: int; ei: int;
+proc setWEdge*(this: var HLRBRepFaceData; wi: cint; ewi: cint; ei: cint;
               `or`: TopAbsOrientation; outL: bool; inte: bool; dble: bool; isoL: bool) {.
     importcpp: "SetWEdge", header: "HLRBRep_FaceData.hxx".}
 proc selected*(this: HLRBRepFaceData): bool {.noSideEffect, importcpp: "Selected",
@@ -83,9 +83,9 @@ proc torus*(this: HLRBRepFaceData): bool {.noSideEffect, importcpp: "Torus",
                                        header: "HLRBRep_FaceData.hxx".}
 proc torus*(this: var HLRBRepFaceData; b: bool) {.importcpp: "Torus",
     header: "HLRBRep_FaceData.hxx".}
-proc size*(this: HLRBRepFaceData): float {.noSideEffect, importcpp: "Size",
-                                       header: "HLRBRep_FaceData.hxx".}
-proc size*(this: var HLRBRepFaceData; s: float) {.importcpp: "Size",
+proc size*(this: HLRBRepFaceData): cfloat {.noSideEffect, importcpp: "Size",
+                                        header: "HLRBRep_FaceData.hxx".}
+proc size*(this: var HLRBRepFaceData; s: cfloat) {.importcpp: "Size",
     header: "HLRBRep_FaceData.hxx".}
 proc orientation*(this: HLRBRepFaceData): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "HLRBRep_FaceData.hxx".}
@@ -97,3 +97,28 @@ proc geometry*(this: var HLRBRepFaceData): var HLRBRepSurface {.importcpp: "Geom
     header: "HLRBRep_FaceData.hxx".}
 proc tolerance*(this: HLRBRepFaceData): StandardShortReal {.noSideEffect,
     importcpp: "Tolerance", header: "HLRBRep_FaceData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

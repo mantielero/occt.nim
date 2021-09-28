@@ -20,7 +20,7 @@ type
 discard "forward decl of OpenGl_Context"
 discard "forward decl of OpenGl_LineAttributes"
 type
-  HandleOpenGlLineAttributes* = Handle[OpenGlLineAttributes]
+  HandleC1C1* = Handle[OpenGlLineAttributes]
 
 ## ! Utility class to manage OpenGL resources of polygon hatching styles.
 ## ! @note the implementation is not supported by Core Profile and by ES version.
@@ -53,3 +53,28 @@ proc estimatedDataSize*(this: OpenGlLineAttributes): StandardSize {.noSideEffect
 proc setTypeOfHatch*(this: var OpenGlLineAttributes; theGlCtx: ptr OpenGlContext;
                     theStyle: Handle[Graphic3dHatchStyle]): bool {.
     importcpp: "SetTypeOfHatch", header: "OpenGl_LineAttributes.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

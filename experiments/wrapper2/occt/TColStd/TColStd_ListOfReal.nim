@@ -13,6 +13,31 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdListOfReal* = NCollectionList[float]
-  TColStdListIteratorOfListOfReal* = Iterator[float]
+  TColStdListOfReal* = NCollectionList[cfloat]
+  TColStdListIteratorOfListOfReal* = Iterator[cfloat]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

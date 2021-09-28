@@ -19,7 +19,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESSolid_BooleanTree"
 discard "forward decl of IGESSolid_BooleanTree"
 type
-  HandleIGESSolidBooleanTree* = Handle[IGESSolidBooleanTree]
+  HandleC1C1* = Handle[IGESSolidBooleanTree]
 
 ## ! defines BooleanTree, Type <180> Form Number <0>
 ## ! in package IGESSolid
@@ -38,13 +38,13 @@ proc init*(this: var IGESSolidBooleanTree;
           operands: Handle[IGESDataHArray1OfIGESEntity];
           operations: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
     header: "IGESSolid_BooleanTree.hxx".}
-proc length*(this: IGESSolidBooleanTree): int {.noSideEffect, importcpp: "Length",
+proc length*(this: IGESSolidBooleanTree): cint {.noSideEffect, importcpp: "Length",
     header: "IGESSolid_BooleanTree.hxx".}
-proc isOperand*(this: IGESSolidBooleanTree; index: int): bool {.noSideEffect,
+proc isOperand*(this: IGESSolidBooleanTree; index: cint): bool {.noSideEffect,
     importcpp: "IsOperand", header: "IGESSolid_BooleanTree.hxx".}
-proc operand*(this: IGESSolidBooleanTree; index: int): Handle[IGESDataIGESEntity] {.
+proc operand*(this: IGESSolidBooleanTree; index: cint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Operand", header: "IGESSolid_BooleanTree.hxx".}
-proc operation*(this: IGESSolidBooleanTree; index: int): int {.noSideEffect,
+proc operation*(this: IGESSolidBooleanTree; index: cint): cint {.noSideEffect,
     importcpp: "Operation", header: "IGESSolid_BooleanTree.hxx".}
 type
   IGESSolidBooleanTreebaseType* = IGESDataIGESEntity
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_BooleanTree.hxx".}
 proc dynamicType*(this: IGESSolidBooleanTree): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_BooleanTree.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

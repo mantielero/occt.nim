@@ -28,7 +28,7 @@ type
 proc constructStepVisualStyleContextSelect*(): StepVisualStyleContextSelect {.
     constructor, importcpp: "StepVisual_StyleContextSelect(@)",
     header: "StepVisual_StyleContextSelect.hxx".}
-proc caseNum*(this: StepVisualStyleContextSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualStyleContextSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_StyleContextSelect.hxx".}
 proc representation*(this: StepVisualStyleContextSelect): Handle[
     StepReprRepresentation] {.noSideEffect, importcpp: "Representation",
@@ -39,3 +39,28 @@ proc representationItem*(this: StepVisualStyleContextSelect): Handle[
 proc presentationSet*(this: StepVisualStyleContextSelect): Handle[
     StepVisualPresentationSet] {.noSideEffect, importcpp: "PresentationSet",
                                 header: "StepVisual_StyleContextSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

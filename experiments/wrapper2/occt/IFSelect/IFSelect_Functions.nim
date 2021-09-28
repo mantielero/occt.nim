@@ -32,7 +32,7 @@ type
 proc giveEntity*(ws: Handle[IFSelectWorkSession]; name: StandardCString = ""): Handle[
     StandardTransient] {.importcpp: "IFSelect_Functions::GiveEntity(@)",
                         header: "IFSelect_Functions.hxx".}
-proc giveEntityNumber*(ws: Handle[IFSelectWorkSession]; name: StandardCString = ""): int {.
+proc giveEntityNumber*(ws: Handle[IFSelectWorkSession]; name: StandardCString = ""): cint {.
     importcpp: "IFSelect_Functions::GiveEntityNumber(@)",
     header: "IFSelect_Functions.hxx".}
 proc giveList*(ws: Handle[IFSelectWorkSession]; first: StandardCString = "";
@@ -44,3 +44,28 @@ proc giveDispatch*(ws: Handle[IFSelectWorkSession]; name: StandardCString;
     header: "IFSelect_Functions.hxx".}
 proc init*() {.importcpp: "IFSelect_Functions::Init(@)",
              header: "IFSelect_Functions.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

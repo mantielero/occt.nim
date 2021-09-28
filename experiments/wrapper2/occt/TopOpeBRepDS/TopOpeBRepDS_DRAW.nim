@@ -20,7 +20,7 @@ when defined(DRAW):
   proc fUN_draw*(p: Pnt) {.importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_draw*(p: Pnt2d) {.importcpp: "FUN_draw(@)",
                           header: "TopOpeBRepDS_DRAW.hxx".}
-  proc fUN_draw*(c: Handle[Geom2dCurve]; dpar: float) {.importcpp: "FUN_draw(@)",
+  proc fUN_draw*(c: Handle[Geom2dCurve]; dpar: cfloat) {.importcpp: "FUN_draw(@)",
       header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_draw*(p: Pnt; v: Dir) {.importcpp: "FUN_draw(@)",
                               header: "TopOpeBRepDS_DRAW.hxx".}
@@ -32,16 +32,41 @@ when defined(DRAW):
       importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_brepDraw*(aa: TCollectionAsciiString; s: TopoDS_Shape) {.
       importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
-  proc fUN_brepDraw*(aa: TCollectionAsciiString; c: Handle[GeomCurve]; f: float;
-                    l: float) {.importcpp: "FUN_brep_draw(@)",
-                              header: "TopOpeBRepDS_DRAW.hxx".}
+  proc fUN_brepDraw*(aa: TCollectionAsciiString; c: Handle[GeomCurve]; f: cfloat;
+                    l: cfloat) {.importcpp: "FUN_brep_draw(@)",
+                               header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_brepDraw*(aa: TCollectionAsciiString; c: Handle[GeomCurve]) {.
       importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_DrawMap*(dataforDegenEd: TopToolsDataMapOfShapeListOfShape) {.
       importcpp: "FUN_DrawMap(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_draw2de*(ed: TopoDS_Shape; fa: TopoDS_Shape) {.
       importcpp: "FUN_draw2de(@)", header: "TopOpeBRepDS_DRAW.hxx".}
-  proc fUN_draw2d*(par: float; e: TopoDS_Edge; eref: TopoDS_Edge; fref: TopoDS_Face) {.
+  proc fUN_draw2d*(par: cfloat; e: TopoDS_Edge; eref: TopoDS_Edge; fref: TopoDS_Face) {.
       importcpp: "FUN_draw2d(@)", header: "TopOpeBRepDS_DRAW.hxx".}
 ##  DRAW
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

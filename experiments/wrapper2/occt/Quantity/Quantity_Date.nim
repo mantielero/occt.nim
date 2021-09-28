@@ -49,15 +49,15 @@ type
 
 proc constructQuantityDate*(): QuantityDate {.constructor,
     importcpp: "Quantity_Date(@)", header: "Quantity_Date.hxx".}
-proc constructQuantityDate*(mm: int; dd: int; yyyy: int; hh: int; mn: int; ss: int;
-                           mis: int = 0; mics: int = 0): QuantityDate {.constructor,
+proc constructQuantityDate*(mm: cint; dd: cint; yyyy: cint; hh: cint; mn: cint; ss: cint;
+                           mis: cint = 0; mics: cint = 0): QuantityDate {.constructor,
     importcpp: "Quantity_Date(@)", header: "Quantity_Date.hxx".}
-proc values*(this: QuantityDate; mm: var int; dd: var int; yy: var int; hh: var int;
-            mn: var int; ss: var int; mis: var int; mics: var int) {.noSideEffect,
+proc values*(this: QuantityDate; mm: var cint; dd: var cint; yy: var cint; hh: var cint;
+            mn: var cint; ss: var cint; mis: var cint; mics: var cint) {.noSideEffect,
     importcpp: "Values", header: "Quantity_Date.hxx".}
-proc setValues*(this: var QuantityDate; mm: int; dd: int; yy: int; hh: int; mn: int; ss: int;
-               mis: int = 0; mics: int = 0) {.importcpp: "SetValues",
-                                      header: "Quantity_Date.hxx".}
+proc setValues*(this: var QuantityDate; mm: cint; dd: cint; yy: cint; hh: cint; mn: cint;
+               ss: cint; mis: cint = 0; mics: cint = 0) {.importcpp: "SetValues",
+    header: "Quantity_Date.hxx".}
 proc difference*(this: var QuantityDate; anOther: QuantityDate): QuantityPeriod {.
     importcpp: "Difference", header: "Quantity_Date.hxx".}
 proc subtract*(this: var QuantityDate; aPeriod: QuantityPeriod): QuantityDate {.
@@ -68,20 +68,20 @@ proc add*(this: var QuantityDate; aPeriod: QuantityPeriod): QuantityDate {.
     importcpp: "Add", header: "Quantity_Date.hxx".}
 proc `+`*(this: var QuantityDate; aPeriod: QuantityPeriod): QuantityDate {.
     importcpp: "(# + #)", header: "Quantity_Date.hxx".}
-proc year*(this: var QuantityDate): int {.importcpp: "Year",
-                                     header: "Quantity_Date.hxx".}
-proc month*(this: var QuantityDate): int {.importcpp: "Month",
+proc year*(this: var QuantityDate): cint {.importcpp: "Year",
                                       header: "Quantity_Date.hxx".}
-proc day*(this: var QuantityDate): int {.importcpp: "Day", header: "Quantity_Date.hxx".}
-proc hour*(this: var QuantityDate): int {.importcpp: "Hour",
-                                     header: "Quantity_Date.hxx".}
-proc minute*(this: var QuantityDate): int {.importcpp: "Minute",
+proc month*(this: var QuantityDate): cint {.importcpp: "Month",
                                        header: "Quantity_Date.hxx".}
-proc second*(this: var QuantityDate): int {.importcpp: "Second",
-                                       header: "Quantity_Date.hxx".}
-proc milliSecond*(this: var QuantityDate): int {.importcpp: "MilliSecond",
+proc day*(this: var QuantityDate): cint {.importcpp: "Day", header: "Quantity_Date.hxx".}
+proc hour*(this: var QuantityDate): cint {.importcpp: "Hour",
+                                      header: "Quantity_Date.hxx".}
+proc minute*(this: var QuantityDate): cint {.importcpp: "Minute",
+                                        header: "Quantity_Date.hxx".}
+proc second*(this: var QuantityDate): cint {.importcpp: "Second",
+                                        header: "Quantity_Date.hxx".}
+proc milliSecond*(this: var QuantityDate): cint {.importcpp: "MilliSecond",
     header: "Quantity_Date.hxx".}
-proc microSecond*(this: var QuantityDate): int {.importcpp: "MicroSecond",
+proc microSecond*(this: var QuantityDate): cint {.importcpp: "MicroSecond",
     header: "Quantity_Date.hxx".}
 proc isEqual*(this: QuantityDate; anOther: QuantityDate): bool {.noSideEffect,
     importcpp: "IsEqual", header: "Quantity_Date.hxx".}
@@ -93,7 +93,33 @@ proc `<`*(this: QuantityDate; anOther: QuantityDate): bool {.noSideEffect,
     importcpp: "(# < #)", header: "Quantity_Date.hxx".}
 proc isLater*(this: QuantityDate; anOther: QuantityDate): bool {.noSideEffect,
     importcpp: "IsLater", header: "Quantity_Date.hxx".}
-proc isValid*(mm: int; dd: int; yy: int; hh: int; mn: int; ss: int; mis: int = 0; mics: int = 0): bool {.
-    importcpp: "Quantity_Date::IsValid(@)", header: "Quantity_Date.hxx".}
-proc isLeap*(yy: int): bool {.importcpp: "Quantity_Date::IsLeap(@)",
-                          header: "Quantity_Date.hxx".}
+proc isValid*(mm: cint; dd: cint; yy: cint; hh: cint; mn: cint; ss: cint; mis: cint = 0;
+             mics: cint = 0): bool {.importcpp: "Quantity_Date::IsValid(@)",
+                                header: "Quantity_Date.hxx".}
+proc isLeap*(yy: cint): bool {.importcpp: "Quantity_Date::IsLeap(@)",
+                           header: "Quantity_Date.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

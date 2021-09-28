@@ -36,22 +36,47 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: AIS_TrihedronOwner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_TrihedronOwner.hxx".}
 proc constructAIS_TrihedronOwner*(theSelObject: Handle[SelectMgrSelectableObject];
-                                 theDatumPart: Prs3dDatumParts; thePriority: int): AIS_TrihedronOwner {.
+                                 theDatumPart: Prs3dDatumParts; thePriority: cint): AIS_TrihedronOwner {.
     constructor, importcpp: "AIS_TrihedronOwner(@)",
     header: "AIS_TrihedronOwner.hxx".}
 proc datumPart*(this: AIS_TrihedronOwner): Prs3dDatumParts {.noSideEffect,
     importcpp: "DatumPart", header: "AIS_TrihedronOwner.hxx".}
 proc hilightWithColor*(this: var AIS_TrihedronOwner;
                       thePM: Handle[PrsMgrPresentationManager3d];
-                      theStyle: Handle[Prs3dDrawer]; theMode: int) {.
+                      theStyle: Handle[Prs3dDrawer]; theMode: cint) {.
     importcpp: "HilightWithColor", header: "AIS_TrihedronOwner.hxx".}
 proc isHilighted*(this: AIS_TrihedronOwner;
-                 thePM: Handle[PrsMgrPresentationManager]; theMode: int): bool {.
+                 thePM: Handle[PrsMgrPresentationManager]; theMode: cint): bool {.
     noSideEffect, importcpp: "IsHilighted", header: "AIS_TrihedronOwner.hxx".}
 proc unhilight*(this: var AIS_TrihedronOwner;
-               thePM: Handle[PrsMgrPresentationManager]; theMode: int) {.
+               thePM: Handle[PrsMgrPresentationManager]; theMode: cint) {.
     importcpp: "Unhilight", header: "AIS_TrihedronOwner.hxx".}
 discard "forward decl of AIS_TrihedronOwner"
 type
-  HandleAIS_TrihedronOwner* = Handle[AIS_TrihedronOwner]
+  HandleC1C1* = Handle[AIS_TrihedronOwner]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -27,3 +27,28 @@ proc fileDriverType*(aFileName: TCollectionAsciiString;
 proc fileDriverType*(theIStream: var StandardIStream;
                     theBaseDriver: var Handle[StorageBaseDriver]): PCDM_TypeOfFileDriver {.
     importcpp: "PCDM::FileDriverType(@)", header: "PCDM.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

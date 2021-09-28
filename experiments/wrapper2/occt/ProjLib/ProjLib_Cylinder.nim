@@ -48,3 +48,28 @@ proc project*(this: var ProjLibCylinder; p: Parab) {.importcpp: "Project",
     header: "ProjLib_Cylinder.hxx".}
 proc project*(this: var ProjLibCylinder; h: Hypr) {.importcpp: "Project",
     header: "ProjLib_Cylinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

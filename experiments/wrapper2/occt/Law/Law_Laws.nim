@@ -18,3 +18,28 @@ type
   LawLaws* = NCollectionList[Handle[LawFunction]]
   LawListIteratorOfLaws* = Iterator[Handle[LawFunction]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

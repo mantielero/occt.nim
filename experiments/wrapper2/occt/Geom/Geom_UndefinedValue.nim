@@ -14,16 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Geom_UndefinedValue_HeaderFile [NewLine] # _Geom_UndefinedValue_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Geom_UndefinedValue ;
-## Error: expected ';'!!!
-
+discard "forward decl of Geom_UndefinedValue"
 discard "forward decl of Geom_UndefinedValue"
 type
-  HandleGeomUndefinedValueGeomUndefinedValue* = Handle[GeomUndefinedValue]
+  HandleC1C1* = Handle[GeomUndefinedValue]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Geom_UndefinedValue [NewLine] # if ( CONDITION ) throw Geom_UndefinedValue ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noGeomUndefinedValue):
+  template geomUndefinedValueRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc geomUndefinedValue*(a1: Message): Throw {.
+          importcpp: "Geom_UndefinedValue(@)", header: "Geom_UndefinedValue.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Geom_UndefinedValue , Standard_DomainError ) #  _Geom_UndefinedValue_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+type
+  GeomUndefinedValue* {.importcpp: "Geom_UndefinedValue",
+                       header: "Geom_UndefinedValue.hxx", bycopy.} = object of StandardDomainError
 

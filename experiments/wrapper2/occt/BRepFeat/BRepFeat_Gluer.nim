@@ -48,3 +48,28 @@ proc isDeleted*(this: var BRepFeatGluer; f: TopoDS_Shape): bool {.
     importcpp: "IsDeleted", header: "BRepFeat_Gluer.hxx".}
 proc modified*(this: var BRepFeatGluer; f: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepFeat_Gluer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

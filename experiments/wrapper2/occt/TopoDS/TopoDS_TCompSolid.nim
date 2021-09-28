@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TCompSolid"
 discard "forward decl of TopoDS_TCompSolid"
 type
-  HandleTopoDS_TCompSolid* = Handle[TopoDS_TCompSolid]
+  HandleC1C1* = Handle[TopoDS_TCompSolid]
 
 ## ! A set of solids connected by their faces.
 
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopoDS_TCompSolid.hxx".}
 proc dynamicType*(this: TopoDS_TCompSolid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TCompSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

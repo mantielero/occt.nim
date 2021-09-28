@@ -28,7 +28,7 @@ proc constructRWStepVisualRWViewVolume*(): RWStepVisualRWViewVolume {.constructo
     importcpp: "RWStepVisual_RWViewVolume(@)",
     header: "RWStepVisual_RWViewVolume.hxx".}
 proc readStep*(this: RWStepVisualRWViewVolume;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualViewVolume]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWViewVolume.hxx".}
 proc writeStep*(this: RWStepVisualRWViewVolume; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepVisualRWViewVolume; sw: var StepDataStepWriter;
 proc share*(this: RWStepVisualRWViewVolume; ent: Handle[StepVisualViewVolume];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWViewVolume.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

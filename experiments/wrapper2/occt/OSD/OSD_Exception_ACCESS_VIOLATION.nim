@@ -15,14 +15,54 @@
 ## !!!Ignored construct:  # _OSD_Exception_ACCESS_VIOLATION_HeaderFile [NewLine] # _OSD_Exception_ACCESS_VIOLATION_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_ACCESS_VIOLATION ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_Exception_ACCESS_VIOLATION"
-type
-  HandleOSD_ExceptionACCESS_VIOLATIONOSD_ExceptionACCESS_VIOLATION* = Handle[
-      OSD_ExceptionACCESS_VIOLATION]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_Exception_ACCESS_VIOLATION , OSD_Exception ) # ! defined No_Exception && ! defined No_OSD_Exception_ACCESS_VIOLATION [NewLine] # OSD_Exception_ACCESS_VIOLATION_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_Exception_ACCESS_VIOLATION ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_ACCESS_VIOLATION [NewLine] # if ( CONDITION ) throw OSD_Exception_ACCESS_VIOLATION ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_Exception_ACCESS_VIOLATION_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_ACCESS_VIOLATION , OSD_Exception ) #  _OSD_Exception_ACCESS_VIOLATION_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_ACCESS_VIOLATION , OSD_Exception ) #  _OSD_Exception_ACCESS_VIOLATION_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -16,7 +16,7 @@
 discard "forward decl of Transfer_MapContainer"
 discard "forward decl of Transfer_MapContainer"
 type
-  HandleTransferMapContainer* = Handle[TransferMapContainer]
+  HandleC1C1* = Handle[TransferMapContainer]
   TransferMapContainer* {.importcpp: "Transfer_MapContainer",
                          header: "Transfer_MapContainer.hxx", bycopy.} = object of StandardTransient
 
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Transfer_MapContainer.hxx".}
 proc dynamicType*(this: TransferMapContainer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Transfer_MapContainer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

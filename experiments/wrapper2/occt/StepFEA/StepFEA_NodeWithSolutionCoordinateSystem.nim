@@ -16,8 +16,7 @@
 discard "forward decl of StepFEA_NodeWithSolutionCoordinateSystem"
 discard "forward decl of StepFEA_NodeWithSolutionCoordinateSystem"
 type
-  HandleStepFEA_NodeWithSolutionCoordinateSystem* = Handle[
-      StepFEA_NodeWithSolutionCoordinateSystem]
+  HandleC1C1* = Handle[StepFEA_NodeWithSolutionCoordinateSystem]
 
 ## ! Representation of STEP entity NodeWithSolutionCoordinateSystem
 
@@ -42,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_NodeWithSo
 proc dynamicType*(this: StepFEA_NodeWithSolutionCoordinateSystem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepFEA_NodeWithSolutionCoordinateSystem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

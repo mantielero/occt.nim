@@ -18,3 +18,28 @@ type
   MessageListOfMsg* = NCollectionList[MessageMsg]
   MessageListIteratorOfListOfMsg* = Iterator[MessageMsg]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

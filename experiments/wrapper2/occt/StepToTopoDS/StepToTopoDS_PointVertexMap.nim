@@ -22,3 +22,28 @@ type
       Handle[StepGeomCartesianPoint], TopoDS_Vertex,
       StepToTopoDS_CartesianPointHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

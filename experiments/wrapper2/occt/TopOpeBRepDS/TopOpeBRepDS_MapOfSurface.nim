@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopOpeBRepDS_MapOfSurface* = NCollectionDataMap[int, TopOpeBRepDS_SurfaceData,
+  TopOpeBRepDS_MapOfSurface* = NCollectionDataMap[cint, TopOpeBRepDS_SurfaceData,
       TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfMapOfSurface* = Iterator[int,
+  TopOpeBRepDS_DataMapIteratorOfMapOfSurface* = Iterator[cint,
       TopOpeBRepDS_SurfaceData, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

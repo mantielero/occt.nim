@@ -51,53 +51,54 @@ proc constructBRepAdaptorCompCurve*(w: TopoDS_Wire;
     constructor, importcpp: "BRepAdaptor_CompCurve(@)",
     header: "BRepAdaptor_CompCurve.hxx".}
 proc constructBRepAdaptorCompCurve*(w: TopoDS_Wire; knotByCurvilinearAbcissa: bool;
-                                   first: float; last: float; tol: float): BRepAdaptorCompCurve {.
+                                   first: cfloat; last: cfloat; tol: cfloat): BRepAdaptorCompCurve {.
     constructor, importcpp: "BRepAdaptor_CompCurve(@)",
     header: "BRepAdaptor_CompCurve.hxx".}
 proc initialize*(this: var BRepAdaptorCompCurve; w: TopoDS_Wire;
                 knotByCurvilinearAbcissa: bool) {.importcpp: "Initialize",
     header: "BRepAdaptor_CompCurve.hxx".}
 proc initialize*(this: var BRepAdaptorCompCurve; w: TopoDS_Wire;
-                knotByCurvilinearAbcissa: bool; first: float; last: float; tol: float) {.
-    importcpp: "Initialize", header: "BRepAdaptor_CompCurve.hxx".}
+                knotByCurvilinearAbcissa: bool; first: cfloat; last: cfloat;
+                tol: cfloat) {.importcpp: "Initialize",
+                             header: "BRepAdaptor_CompCurve.hxx".}
 proc wire*(this: BRepAdaptorCompCurve): TopoDS_Wire {.noSideEffect,
     importcpp: "Wire", header: "BRepAdaptor_CompCurve.hxx".}
-proc edge*(this: BRepAdaptorCompCurve; u: float; e: var TopoDS_Edge; uonE: var float) {.
+proc edge*(this: BRepAdaptorCompCurve; u: cfloat; e: var TopoDS_Edge; uonE: var cfloat) {.
     noSideEffect, importcpp: "Edge", header: "BRepAdaptor_CompCurve.hxx".}
-proc firstParameter*(this: BRepAdaptorCompCurve): float {.noSideEffect,
+proc firstParameter*(this: BRepAdaptorCompCurve): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "BRepAdaptor_CompCurve.hxx".}
-proc lastParameter*(this: BRepAdaptorCompCurve): float {.noSideEffect,
+proc lastParameter*(this: BRepAdaptorCompCurve): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "BRepAdaptor_CompCurve.hxx".}
 proc continuity*(this: BRepAdaptorCompCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "BRepAdaptor_CompCurve.hxx".}
-proc nbIntervals*(this: BRepAdaptorCompCurve; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: BRepAdaptorCompCurve; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "BRepAdaptor_CompCurve.hxx".}
 proc intervals*(this: BRepAdaptorCompCurve; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
                                 header: "BRepAdaptor_CompCurve.hxx".}
-proc trim*(this: BRepAdaptorCompCurve; first: float; last: float; tol: float): Handle[
+proc trim*(this: BRepAdaptorCompCurve; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHCurve] {.noSideEffect, importcpp: "Trim",
                       header: "BRepAdaptor_CompCurve.hxx".}
 proc isClosed*(this: BRepAdaptorCompCurve): bool {.noSideEffect,
     importcpp: "IsClosed", header: "BRepAdaptor_CompCurve.hxx".}
 proc isPeriodic*(this: BRepAdaptorCompCurve): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "BRepAdaptor_CompCurve.hxx".}
-proc period*(this: BRepAdaptorCompCurve): float {.noSideEffect, importcpp: "Period",
+proc period*(this: BRepAdaptorCompCurve): cfloat {.noSideEffect, importcpp: "Period",
     header: "BRepAdaptor_CompCurve.hxx".}
-proc value*(this: BRepAdaptorCompCurve; u: float): Pnt {.noSideEffect,
+proc value*(this: BRepAdaptorCompCurve; u: cfloat): Pnt {.noSideEffect,
     importcpp: "Value", header: "BRepAdaptor_CompCurve.hxx".}
-proc d0*(this: BRepAdaptorCompCurve; u: float; p: var Pnt) {.noSideEffect,
+proc d0*(this: BRepAdaptorCompCurve; u: cfloat; p: var Pnt) {.noSideEffect,
     importcpp: "D0", header: "BRepAdaptor_CompCurve.hxx".}
-proc d1*(this: BRepAdaptorCompCurve; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
+proc d1*(this: BRepAdaptorCompCurve; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect,
     importcpp: "D1", header: "BRepAdaptor_CompCurve.hxx".}
-proc d2*(this: BRepAdaptorCompCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: BRepAdaptorCompCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
     noSideEffect, importcpp: "D2", header: "BRepAdaptor_CompCurve.hxx".}
-proc d3*(this: BRepAdaptorCompCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec;
+proc d3*(this: BRepAdaptorCompCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec;
         v3: var Vec) {.noSideEffect, importcpp: "D3",
                     header: "BRepAdaptor_CompCurve.hxx".}
-proc dn*(this: BRepAdaptorCompCurve; u: float; n: int): Vec {.noSideEffect,
+proc dn*(this: BRepAdaptorCompCurve; u: cfloat; n: cint): Vec {.noSideEffect,
     importcpp: "DN", header: "BRepAdaptor_CompCurve.hxx".}
-proc resolution*(this: BRepAdaptorCompCurve; r3d: float): float {.noSideEffect,
+proc resolution*(this: BRepAdaptorCompCurve; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "Resolution", header: "BRepAdaptor_CompCurve.hxx".}
 proc getType*(this: BRepAdaptorCompCurve): GeomAbsCurveType {.noSideEffect,
     importcpp: "GetType", header: "BRepAdaptor_CompCurve.hxx".}
@@ -111,15 +112,40 @@ proc hyperbola*(this: BRepAdaptorCompCurve): Hypr {.noSideEffect,
     importcpp: "Hyperbola", header: "BRepAdaptor_CompCurve.hxx".}
 proc parabola*(this: BRepAdaptorCompCurve): Parab {.noSideEffect,
     importcpp: "Parabola", header: "BRepAdaptor_CompCurve.hxx".}
-proc degree*(this: BRepAdaptorCompCurve): int {.noSideEffect, importcpp: "Degree",
+proc degree*(this: BRepAdaptorCompCurve): cint {.noSideEffect, importcpp: "Degree",
     header: "BRepAdaptor_CompCurve.hxx".}
 proc isRational*(this: BRepAdaptorCompCurve): bool {.noSideEffect,
     importcpp: "IsRational", header: "BRepAdaptor_CompCurve.hxx".}
-proc nbPoles*(this: BRepAdaptorCompCurve): int {.noSideEffect, importcpp: "NbPoles",
+proc nbPoles*(this: BRepAdaptorCompCurve): cint {.noSideEffect, importcpp: "NbPoles",
     header: "BRepAdaptor_CompCurve.hxx".}
-proc nbKnots*(this: BRepAdaptorCompCurve): int {.noSideEffect, importcpp: "NbKnots",
+proc nbKnots*(this: BRepAdaptorCompCurve): cint {.noSideEffect, importcpp: "NbKnots",
     header: "BRepAdaptor_CompCurve.hxx".}
 proc bezier*(this: BRepAdaptorCompCurve): Handle[GeomBezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "BRepAdaptor_CompCurve.hxx".}
 proc bSpline*(this: BRepAdaptorCompCurve): Handle[GeomBSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "BRepAdaptor_CompCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

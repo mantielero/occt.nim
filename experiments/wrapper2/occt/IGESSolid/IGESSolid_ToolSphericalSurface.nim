@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESSolidToolSphericalSurface;
     header: "IGESSolid_ToolSphericalSurface.hxx".}
 proc ownDump*(this: IGESSolidToolSphericalSurface;
              ent: Handle[IGESSolidSphericalSurface]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESSolid_ToolSphericalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

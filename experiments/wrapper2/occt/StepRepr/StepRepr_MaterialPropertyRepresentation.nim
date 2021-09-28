@@ -19,8 +19,7 @@ discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_MaterialPropertyRepresentation"
 discard "forward decl of StepRepr_MaterialPropertyRepresentation"
 type
-  HandleStepReprMaterialPropertyRepresentation* = Handle[
-      StepReprMaterialPropertyRepresentation]
+  HandleC1C1* = Handle[StepReprMaterialPropertyRepresentation]
 
 ## ! Representation of STEP entity MaterialPropertyRepresentation
 
@@ -57,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_MaterialP
 proc dynamicType*(this: StepReprMaterialPropertyRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_MaterialPropertyRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

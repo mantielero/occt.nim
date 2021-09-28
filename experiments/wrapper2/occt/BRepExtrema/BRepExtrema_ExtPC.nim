@@ -30,17 +30,42 @@ proc perform*(this: var BRepExtremaExtPC; v: TopoDS_Vertex) {.importcpp: "Perfor
     header: "BRepExtrema_ExtPC.hxx".}
 proc isDone*(this: BRepExtremaExtPC): bool {.noSideEffect, importcpp: "IsDone",
     header: "BRepExtrema_ExtPC.hxx".}
-proc nbExt*(this: BRepExtremaExtPC): int {.noSideEffect, importcpp: "NbExt",
-                                       header: "BRepExtrema_ExtPC.hxx".}
-proc isMin*(this: BRepExtremaExtPC; n: int): bool {.noSideEffect, importcpp: "IsMin",
+proc nbExt*(this: BRepExtremaExtPC): cint {.noSideEffect, importcpp: "NbExt",
+                                        header: "BRepExtrema_ExtPC.hxx".}
+proc isMin*(this: BRepExtremaExtPC; n: cint): bool {.noSideEffect, importcpp: "IsMin",
     header: "BRepExtrema_ExtPC.hxx".}
-proc squareDistance*(this: BRepExtremaExtPC; n: int): float {.noSideEffect,
+proc squareDistance*(this: BRepExtremaExtPC; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "BRepExtrema_ExtPC.hxx".}
-proc parameter*(this: BRepExtremaExtPC; n: int): float {.noSideEffect,
+proc parameter*(this: BRepExtremaExtPC; n: cint): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "BRepExtrema_ExtPC.hxx".}
-proc point*(this: BRepExtremaExtPC; n: int): Pnt {.noSideEffect, importcpp: "Point",
+proc point*(this: BRepExtremaExtPC; n: cint): Pnt {.noSideEffect, importcpp: "Point",
     header: "BRepExtrema_ExtPC.hxx".}
-proc trimmedSquareDistances*(this: BRepExtremaExtPC; dist1: var float;
-                            dist2: var float; pnt1: var Pnt; pnt2: var Pnt) {.
+proc trimmedSquareDistances*(this: BRepExtremaExtPC; dist1: var cfloat;
+                            dist2: var cfloat; pnt1: var Pnt; pnt2: var Pnt) {.
     noSideEffect, importcpp: "TrimmedSquareDistances",
     header: "BRepExtrema_ExtPC.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

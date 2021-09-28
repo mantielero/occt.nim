@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of ShapeAnalysis_TransferParameters"
 discard "forward decl of ShapeAnalysis_TransferParameters"
 type
-  HandleShapeAnalysisTransferParameters* = Handle[ShapeAnalysisTransferParameters]
+  HandleC1C1* = Handle[ShapeAnalysisTransferParameters]
 
 ## ! This tool is used for transferring parameters
 ## ! from 3d curve of the edge to pcurve and vice versa.
@@ -50,17 +50,18 @@ proc constructShapeAnalysisTransferParameters*(e: TopoDS_Edge; f: TopoDS_Face): 
     header: "ShapeAnalysis_TransferParameters.hxx".}
 proc init*(this: var ShapeAnalysisTransferParameters; e: TopoDS_Edge; f: TopoDS_Face) {.
     importcpp: "Init", header: "ShapeAnalysis_TransferParameters.hxx".}
-proc setMaxTolerance*(this: var ShapeAnalysisTransferParameters; maxtol: float) {.
+proc setMaxTolerance*(this: var ShapeAnalysisTransferParameters; maxtol: cfloat) {.
     importcpp: "SetMaxTolerance", header: "ShapeAnalysis_TransferParameters.hxx".}
 proc perform*(this: var ShapeAnalysisTransferParameters;
              params: Handle[TColStdHSequenceOfReal]; to2d: bool): Handle[
     TColStdHSequenceOfReal] {.importcpp: "Perform",
                              header: "ShapeAnalysis_TransferParameters.hxx".}
-proc perform*(this: var ShapeAnalysisTransferParameters; param: float; to2d: bool): float {.
+proc perform*(this: var ShapeAnalysisTransferParameters; param: cfloat; to2d: bool): cfloat {.
     importcpp: "Perform", header: "ShapeAnalysis_TransferParameters.hxx".}
 proc transferRange*(this: var ShapeAnalysisTransferParameters;
-                   newEdge: var TopoDS_Edge; prevPar: float; currPar: float; to2d: bool) {.
-    importcpp: "TransferRange", header: "ShapeAnalysis_TransferParameters.hxx".}
+                   newEdge: var TopoDS_Edge; prevPar: cfloat; currPar: cfloat;
+                   to2d: bool) {.importcpp: "TransferRange",
+                               header: "ShapeAnalysis_TransferParameters.hxx".}
 proc isSameRange*(this: ShapeAnalysisTransferParameters): bool {.noSideEffect,
     importcpp: "IsSameRange", header: "ShapeAnalysis_TransferParameters.hxx".}
 type
@@ -74,3 +75,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeAnalysisTransferParameters): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeAnalysis_TransferParameters.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

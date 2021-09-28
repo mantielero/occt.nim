@@ -52,24 +52,24 @@ proc destroySelectMgrSelectableObject*(this: var SelectMgrSelectableObject) {.
     importcpp: "#.~SelectMgr_SelectableObject()",
     header: "SelectMgr_SelectableObject.hxx".}
 proc computeSelection*(this: var SelectMgrSelectableObject;
-                      theSelection: Handle[SelectMgrSelection]; theMode: int) {.
+                      theSelection: Handle[SelectMgrSelection]; theMode: cint) {.
     importcpp: "ComputeSelection", header: "SelectMgr_SelectableObject.hxx".}
 proc acceptShapeDecomposition*(this: SelectMgrSelectableObject): bool {.
     noSideEffect, importcpp: "AcceptShapeDecomposition",
     header: "SelectMgr_SelectableObject.hxx".}
 proc recomputePrimitives*(this: var SelectMgrSelectableObject) {.
     importcpp: "RecomputePrimitives", header: "SelectMgr_SelectableObject.hxx".}
-proc recomputePrimitives*(this: var SelectMgrSelectableObject; theMode: int) {.
+proc recomputePrimitives*(this: var SelectMgrSelectableObject; theMode: cint) {.
     importcpp: "RecomputePrimitives", header: "SelectMgr_SelectableObject.hxx".}
 proc addSelection*(this: var SelectMgrSelectableObject;
-                  aSelection: Handle[SelectMgrSelection]; aMode: int) {.
+                  aSelection: Handle[SelectMgrSelection]; aMode: cint) {.
     importcpp: "AddSelection", header: "SelectMgr_SelectableObject.hxx".}
 proc clearSelections*(this: var SelectMgrSelectableObject; update: bool = false) {.
     importcpp: "ClearSelections", header: "SelectMgr_SelectableObject.hxx".}
-proc selection*(this: SelectMgrSelectableObject; theMode: int): Handle[
+proc selection*(this: SelectMgrSelectableObject; theMode: cint): Handle[
     SelectMgrSelection] {.noSideEffect, importcpp: "Selection",
                          header: "SelectMgr_SelectableObject.hxx".}
-proc hasSelection*(this: SelectMgrSelectableObject; theMode: int): bool {.
+proc hasSelection*(this: SelectMgrSelectableObject; theMode: cint): bool {.
     noSideEffect, importcpp: "HasSelection",
     header: "SelectMgr_SelectableObject.hxx".}
 proc selections*(this: SelectMgrSelectableObject): SelectMgrSequenceOfSelection {.
@@ -111,15 +111,15 @@ proc erasePresentations*(this: var SelectMgrSelectableObject; theToRemove: bool)
     importcpp: "ErasePresentations", header: "SelectMgr_SelectableObject.hxx".}
 proc setZLayer*(this: var SelectMgrSelectableObject; theLayerId: Graphic3dZLayerId) {.
     importcpp: "SetZLayer", header: "SelectMgr_SelectableObject.hxx".}
-proc updateSelection*(this: var SelectMgrSelectableObject; theMode: int = -1) {.
+proc updateSelection*(this: var SelectMgrSelectableObject; theMode: cint = -1) {.
     importcpp: "UpdateSelection", header: "SelectMgr_SelectableObject.hxx".}
 proc setAssemblyOwner*(this: var SelectMgrSelectableObject;
-                      theOwner: Handle[SelectMgrEntityOwner]; theMode: int = -1) {.
+                      theOwner: Handle[SelectMgrEntityOwner]; theMode: cint = -1) {.
     importcpp: "SetAssemblyOwner", header: "SelectMgr_SelectableObject.hxx".}
 proc bndBoxOfSelected*(this: var SelectMgrSelectableObject;
                       theOwners: Handle[SelectMgrIndexedMapOfOwner]): BndBox {.
     importcpp: "BndBoxOfSelected", header: "SelectMgr_SelectableObject.hxx".}
-proc globalSelectionMode*(this: SelectMgrSelectableObject): int {.noSideEffect,
+proc globalSelectionMode*(this: SelectMgrSelectableObject): cint {.noSideEffect,
     importcpp: "GlobalSelectionMode", header: "SelectMgr_SelectableObject.hxx".}
 proc globalSelOwner*(this: SelectMgrSelectableObject): Handle[SelectMgrEntityOwner] {.
     noSideEffect, importcpp: "GlobalSelOwner",
@@ -128,9 +128,34 @@ proc getAssemblyOwner*(this: SelectMgrSelectableObject): Handle[
     SelectMgrEntityOwner] {.noSideEffect, importcpp: "GetAssemblyOwner",
                            header: "SelectMgr_SelectableObject.hxx".}
 proc dumpJson*(this: SelectMgrSelectableObject; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "SelectMgr_SelectableObject.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "SelectMgr_SelectableObject.hxx".}
 discard "forward decl of SelectMgr_SelectableObject"
 type
-  HandleSelectMgrSelectableObject* = Handle[SelectMgrSelectableObject]
+  HandleC1C1* = Handle[SelectMgrSelectableObject]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

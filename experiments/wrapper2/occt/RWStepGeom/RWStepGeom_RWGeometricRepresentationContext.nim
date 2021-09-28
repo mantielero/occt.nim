@@ -28,7 +28,7 @@ proc constructRWStepGeomRWGeometricRepresentationContext*(): RWStepGeomRWGeometr
     constructor, importcpp: "RWStepGeom_RWGeometricRepresentationContext(@)",
     header: "RWStepGeom_RWGeometricRepresentationContext.hxx".}
 proc readStep*(this: RWStepGeomRWGeometricRepresentationContext;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomGeometricRepresentationContext]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepGeomRWGeometricRepresentationContext;
                ent: Handle[StepGeomGeometricRepresentationContext]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepGeom_RWGeometricRepresentationContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

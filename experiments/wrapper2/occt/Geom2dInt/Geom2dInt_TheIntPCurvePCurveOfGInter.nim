@@ -63,18 +63,35 @@ type
     ## ! Minimal number of sample points
 
 
+proc `new`*(this: var Geom2dIntTheIntPCurvePCurveOfGInter; theSize: csize_t): pointer {.
+    importcpp: "Geom2dInt_TheIntPCurvePCurveOfGInter::operator new",
+    header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
+proc `delete`*(this: var Geom2dIntTheIntPCurvePCurveOfGInter; theAddress: pointer) {.
+    importcpp: "Geom2dInt_TheIntPCurvePCurveOfGInter::operator delete",
+    header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
+proc `new[]`*(this: var Geom2dIntTheIntPCurvePCurveOfGInter; theSize: csize_t): pointer {.
+    importcpp: "Geom2dInt_TheIntPCurvePCurveOfGInter::operator new[]",
+    header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
+proc `delete[]`*(this: var Geom2dIntTheIntPCurvePCurveOfGInter; theAddress: pointer) {.
+    importcpp: "Geom2dInt_TheIntPCurvePCurveOfGInter::operator delete[]",
+    header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
+proc `new`*(this: var Geom2dIntTheIntPCurvePCurveOfGInter; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "Geom2dInt_TheIntPCurvePCurveOfGInter::operator new", header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
+proc `delete`*(this: var Geom2dIntTheIntPCurvePCurveOfGInter; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dInt_TheIntPCurvePCurveOfGInter::operator delete",
+    header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
 proc constructGeom2dIntTheIntPCurvePCurveOfGInter*(): Geom2dIntTheIntPCurvePCurveOfGInter {.
     constructor, importcpp: "Geom2dInt_TheIntPCurvePCurveOfGInter(@)",
     header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
 proc perform*(this: var Geom2dIntTheIntPCurvePCurveOfGInter;
              curve1: Adaptor2dCurve2d; domain1: IntRes2dDomain;
-             curve2: Adaptor2dCurve2d; domain2: IntRes2dDomain; tolConf: float;
-             tol: float) {.importcpp: "Perform",
-                         header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
+             curve2: Adaptor2dCurve2d; domain2: IntRes2dDomain;
+             tolConf: StandardReal; tol: StandardReal) {.importcpp: "Perform",
+    header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
 proc perform*(this: var Geom2dIntTheIntPCurvePCurveOfGInter;
-             curve1: Adaptor2dCurve2d; domain1: IntRes2dDomain; tolConf: float;
-             tol: float) {.importcpp: "Perform",
-                         header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
+             curve1: Adaptor2dCurve2d; domain1: IntRes2dDomain;
+             tolConf: StandardReal; tol: StandardReal) {.importcpp: "Perform",
+    header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}
 proc setMinNbSamples*(this: var Geom2dIntTheIntPCurvePCurveOfGInter;
                      theMinNbSamples: int) {.importcpp: "SetMinNbSamples",
     header: "Geom2dInt_TheIntPCurvePCurveOfGInter.hxx".}

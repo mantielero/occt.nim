@@ -29,7 +29,7 @@ proc constructRWStepBasicRWApplicationContextElement*(): RWStepBasicRWApplicatio
     constructor, importcpp: "RWStepBasic_RWApplicationContextElement(@)",
     header: "RWStepBasic_RWApplicationContextElement.hxx".}
 proc readStep*(this: RWStepBasicRWApplicationContextElement;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicApplicationContextElement]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWApplicationContextElement.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepBasicRWApplicationContextElement;
            ent: Handle[StepBasicApplicationContextElement];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWApplicationContextElement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

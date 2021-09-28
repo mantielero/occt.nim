@@ -17,3 +17,28 @@
 type
   IGESGraphArray1OfTextFontDef* = NCollectionArray1[Handle[IGESGraphTextFontDef]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

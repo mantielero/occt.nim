@@ -30,7 +30,7 @@ type
 proc constructStepReprCharacterizedDefinition*(): StepReprCharacterizedDefinition {.
     constructor, importcpp: "StepRepr_CharacterizedDefinition(@)",
     header: "StepRepr_CharacterizedDefinition.hxx".}
-proc caseNum*(this: StepReprCharacterizedDefinition; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepReprCharacterizedDefinition; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepRepr_CharacterizedDefinition.hxx".}
 proc characterizedObject*(this: StepReprCharacterizedDefinition): Handle[
@@ -55,3 +55,28 @@ proc shapeAspectRelationship*(this: StepReprCharacterizedDefinition): Handle[
 proc documentFile*(this: StepReprCharacterizedDefinition): Handle[
     StepBasicDocumentFile] {.noSideEffect, importcpp: "DocumentFile",
                             header: "StepRepr_CharacterizedDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

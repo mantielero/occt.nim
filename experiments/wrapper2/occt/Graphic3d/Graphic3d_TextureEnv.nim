@@ -19,7 +19,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_TextureEnv"
 discard "forward decl of Graphic3d_TextureEnv"
 type
-  HandleGraphic3dTextureEnv* = Handle[Graphic3dTextureEnv]
+  HandleC1C1* = Handle[Graphic3dTextureEnv]
 
 ## ! This class provides environment texture.
 
@@ -47,9 +47,9 @@ proc constructGraphic3dTextureEnv*(thePixMap: Handle[ImagePixMap]): Graphic3dTex
     header: "Graphic3d_TextureEnv.hxx".}
 proc name*(this: Graphic3dTextureEnv): Graphic3dNameOfTextureEnv {.noSideEffect,
     importcpp: "Name", header: "Graphic3d_TextureEnv.hxx".}
-proc numberOfTextures*(): int {.importcpp: "Graphic3d_TextureEnv::NumberOfTextures(@)",
-                             header: "Graphic3d_TextureEnv.hxx".}
-proc textureName*(theRank: int): TCollectionAsciiString {.
+proc numberOfTextures*(): cint {.importcpp: "Graphic3d_TextureEnv::NumberOfTextures(@)",
+                              header: "Graphic3d_TextureEnv.hxx".}
+proc textureName*(theRank: cint): TCollectionAsciiString {.
     importcpp: "Graphic3d_TextureEnv::TextureName(@)",
     header: "Graphic3d_TextureEnv.hxx".}
 type
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Graphic3d_TextureEnv.hxx".}
 proc dynamicType*(this: Graphic3dTextureEnv): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_TextureEnv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

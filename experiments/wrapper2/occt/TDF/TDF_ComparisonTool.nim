@@ -36,13 +36,13 @@ proc compare*(aSourceDataSet: Handle[TDF_DataSet];
 proc sourceUnbound*(aRefDataSet: Handle[TDF_DataSet];
                    aRelocationTable: Handle[TDF_RelocationTable];
                    aFilter: TDF_IDFilter; aDiffDataSet: Handle[TDF_DataSet];
-                   anOption: int = 2): bool {.
+                   anOption: cint = 2): bool {.
     importcpp: "TDF_ComparisonTool::SourceUnbound(@)",
     header: "TDF_ComparisonTool.hxx".}
 proc targetUnbound*(aRefDataSet: Handle[TDF_DataSet];
                    aRelocationTable: Handle[TDF_RelocationTable];
                    aFilter: TDF_IDFilter; aDiffDataSet: Handle[TDF_DataSet];
-                   anOption: int = 2): bool {.
+                   anOption: cint = 2): bool {.
     importcpp: "TDF_ComparisonTool::TargetUnbound(@)",
     header: "TDF_ComparisonTool.hxx".}
 proc cut*(aDataSet: Handle[TDF_DataSet]) {.importcpp: "TDF_ComparisonTool::Cut(@)",
@@ -50,3 +50,28 @@ proc cut*(aDataSet: Handle[TDF_DataSet]) {.importcpp: "TDF_ComparisonTool::Cut(@
 proc isSelfContained*(aLabel: TDF_Label; aDataSet: Handle[TDF_DataSet]): bool {.
     importcpp: "TDF_ComparisonTool::IsSelfContained(@)",
     header: "TDF_ComparisonTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

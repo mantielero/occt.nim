@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWCurveElementLocation*(): RWStepFEA_RWCurveElementLocat
     constructor, importcpp: "RWStepFEA_RWCurveElementLocation(@)",
     header: "RWStepFEA_RWCurveElementLocation.hxx".}
 proc readStep*(this: RWStepFEA_RWCurveElementLocation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_CurveElementLocation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWCurveElementLocation.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepFEA_RWCurveElementLocation;
            ent: Handle[StepFEA_CurveElementLocation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWCurveElementLocation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -145,32 +145,32 @@ type
     ## of analytical curves and surfaces (plane - line, ...)
 
 
-proc constructIntCurvesFaceIntersector*(f: TopoDS_Face; aTol: float;
+proc constructIntCurvesFaceIntersector*(f: TopoDS_Face; aTol: cfloat;
                                        aRestr: bool = true; useBToler: bool = true): IntCurvesFaceIntersector {.
     constructor, importcpp: "IntCurvesFace_Intersector(@)",
     header: "IntCurvesFace_Intersector.hxx".}
-proc perform*(this: var IntCurvesFaceIntersector; L: Lin; pInf: float; pSup: float) {.
+proc perform*(this: var IntCurvesFaceIntersector; L: Lin; pInf: cfloat; pSup: cfloat) {.
     importcpp: "Perform", header: "IntCurvesFace_Intersector.hxx".}
 proc perform*(this: var IntCurvesFaceIntersector; hCu: Handle[Adaptor3dHCurve];
-             pInf: float; pSup: float) {.importcpp: "Perform",
-                                     header: "IntCurvesFace_Intersector.hxx".}
+             pInf: cfloat; pSup: cfloat) {.importcpp: "Perform",
+                                       header: "IntCurvesFace_Intersector.hxx".}
 proc surfaceType*(this: IntCurvesFaceIntersector): GeomAbsSurfaceType {.
     noSideEffect, importcpp: "SurfaceType", header: "IntCurvesFace_Intersector.hxx".}
 proc isDone*(this: IntCurvesFaceIntersector): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntCurvesFace_Intersector.hxx".}
-proc nbPnt*(this: IntCurvesFaceIntersector): int {.noSideEffect, importcpp: "NbPnt",
+proc nbPnt*(this: IntCurvesFaceIntersector): cint {.noSideEffect, importcpp: "NbPnt",
     header: "IntCurvesFace_Intersector.hxx".}
-proc uParameter*(this: IntCurvesFaceIntersector; i: int): float {.noSideEffect,
+proc uParameter*(this: IntCurvesFaceIntersector; i: cint): cfloat {.noSideEffect,
     importcpp: "UParameter", header: "IntCurvesFace_Intersector.hxx".}
-proc vParameter*(this: IntCurvesFaceIntersector; i: int): float {.noSideEffect,
+proc vParameter*(this: IntCurvesFaceIntersector; i: cint): cfloat {.noSideEffect,
     importcpp: "VParameter", header: "IntCurvesFace_Intersector.hxx".}
-proc wParameter*(this: IntCurvesFaceIntersector; i: int): float {.noSideEffect,
+proc wParameter*(this: IntCurvesFaceIntersector; i: cint): cfloat {.noSideEffect,
     importcpp: "WParameter", header: "IntCurvesFace_Intersector.hxx".}
-proc pnt*(this: IntCurvesFaceIntersector; i: int): Pnt {.noSideEffect,
+proc pnt*(this: IntCurvesFaceIntersector; i: cint): Pnt {.noSideEffect,
     importcpp: "Pnt", header: "IntCurvesFace_Intersector.hxx".}
-proc transition*(this: IntCurvesFaceIntersector; i: int): IntCurveSurfaceTransitionOnCurve {.
+proc transition*(this: IntCurvesFaceIntersector; i: cint): IntCurveSurfaceTransitionOnCurve {.
     noSideEffect, importcpp: "Transition", header: "IntCurvesFace_Intersector.hxx".}
-proc state*(this: IntCurvesFaceIntersector; i: int): TopAbsState {.noSideEffect,
+proc state*(this: IntCurvesFaceIntersector; i: cint): TopAbsState {.noSideEffect,
     importcpp: "State", header: "IntCurvesFace_Intersector.hxx".}
 proc isParallel*(this: IntCurvesFaceIntersector): bool {.noSideEffect,
     importcpp: "IsParallel", header: "IntCurvesFace_Intersector.hxx".}
@@ -190,3 +190,28 @@ proc destroy*(this: var IntCurvesFaceIntersector) {.importcpp: "Destroy",
 proc destroyIntCurvesFaceIntersector*(this: var IntCurvesFaceIntersector) {.
     importcpp: "#.~IntCurvesFace_Intersector()",
     header: "IntCurvesFace_Intersector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

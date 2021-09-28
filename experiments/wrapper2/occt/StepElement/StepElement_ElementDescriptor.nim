@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepElement_ElementDescriptor"
 discard "forward decl of StepElement_ElementDescriptor"
 type
-  HandleStepElementElementDescriptor* = Handle[StepElementElementDescriptor]
+  HandleC1C1* = Handle[StepElementElementDescriptor]
 
 ## ! Representation of STEP entity ElementDescriptor
 
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementElementDescriptor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_ElementDescriptor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

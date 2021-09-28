@@ -29,7 +29,7 @@ proc constructRWStepDimTolRWNonUniformZoneDefinition*(): RWStepDimTolRWNonUnifor
     constructor, importcpp: "RWStepDimTol_RWNonUniformZoneDefinition(@)",
     header: "RWStepDimTol_RWNonUniformZoneDefinition.hxx".}
 proc readStep*(this: RWStepDimTolRWNonUniformZoneDefinition;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolNonUniformZoneDefinition]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWNonUniformZoneDefinition.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepDimTolRWNonUniformZoneDefinition;
            ent: Handle[StepDimTolNonUniformZoneDefinition];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWNonUniformZoneDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

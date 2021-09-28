@@ -56,3 +56,28 @@ proc gUIDFromProgID*(progID: TCollectionExtendedString; id: var StandardGUID): b
     importcpp: "TDF::GUIDFromProgID(@)", header: "TDF.hxx".}
 proc progIDFromGUID*(id: StandardGUID; progID: var TCollectionExtendedString): bool {.
     importcpp: "TDF::ProgIDFromGUID(@)", header: "TDF.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

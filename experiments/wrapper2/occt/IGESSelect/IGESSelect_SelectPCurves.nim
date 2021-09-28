@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectPCurves"
 discard "forward decl of IGESSelect_SelectPCurves"
 type
-  HandleIGESSelectSelectPCurves* = Handle[IGESSelectSelectPCurves]
+  HandleC1C1* = Handle[IGESSelectSelectPCurves]
 
 ## ! This Selection returns the pcurves which lie on a face
 ## ! In two modes : global (i.e. a CompositeCurve is not explored)
@@ -66,7 +66,7 @@ type
 proc constructIGESSelectSelectPCurves*(basic: bool): IGESSelectSelectPCurves {.
     constructor, importcpp: "IGESSelect_SelectPCurves(@)",
     header: "IGESSelect_SelectPCurves.hxx".}
-proc explore*(this: IGESSelectSelectPCurves; level: int;
+proc explore*(this: IGESSelectSelectPCurves; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "IGESSelect_SelectPCurves.hxx".}
@@ -82,3 +82,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_SelectPCurves.hxx".}
 proc dynamicType*(this: IGESSelectSelectPCurves): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_SelectPCurves.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

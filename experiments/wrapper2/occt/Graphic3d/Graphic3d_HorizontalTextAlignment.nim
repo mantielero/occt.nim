@@ -22,3 +22,28 @@ type
     Graphic3dHTA_LEFT, Graphic3dHTA_CENTER, Graphic3dHTA_RIGHT
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

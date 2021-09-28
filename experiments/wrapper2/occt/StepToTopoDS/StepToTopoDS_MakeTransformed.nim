@@ -45,3 +45,28 @@ proc translateMappedItem*(this: var StepToTopoDS_MakeTransformed;
                          mapit: Handle[StepReprMappedItem];
                          tp: Handle[TransferTransientProcess]; theProgress: MessageProgressRange = messageProgressRange()): TopoDS_Shape {.
     importcpp: "TranslateMappedItem", header: "StepToTopoDS_MakeTransformed.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

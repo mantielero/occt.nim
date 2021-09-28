@@ -106,6 +106,31 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
     header: "DsgPrs_DiameterPresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
          aText: TCollectionExtendedString; attachmentPoint: Pnt; aCircle: Circ;
-         uFirst: float; uLast: float; arrowSide: DsgPrsArrowSide; isDiamSymbol: bool) {.
+         uFirst: cfloat; uLast: cfloat; arrowSide: DsgPrsArrowSide; isDiamSymbol: bool) {.
     importcpp: "DsgPrs_DiameterPresentation::Add(@)",
     header: "DsgPrs_DiameterPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

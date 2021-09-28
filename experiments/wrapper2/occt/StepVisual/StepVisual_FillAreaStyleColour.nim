@@ -19,7 +19,7 @@ discard "forward decl of StepVisual_Colour"
 discard "forward decl of StepVisual_FillAreaStyleColour"
 discard "forward decl of StepVisual_FillAreaStyleColour"
 type
-  HandleStepVisualFillAreaStyleColour* = Handle[StepVisualFillAreaStyleColour]
+  HandleC1C1* = Handle[StepVisualFillAreaStyleColour]
   StepVisualFillAreaStyleColour* {.importcpp: "StepVisual_FillAreaStyleColour",
                                   header: "StepVisual_FillAreaStyleColour.hxx",
                                   bycopy.} = object of StandardTransient ## ! Returns a
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualFillAreaStyleColour): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_FillAreaStyleColour.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

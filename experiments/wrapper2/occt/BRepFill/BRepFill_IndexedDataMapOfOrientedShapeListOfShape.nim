@@ -18,3 +18,28 @@ type
   BRepFillIndexedDataMapOfOrientedShapeListOfShape* = NCollectionIndexedDataMap[
       TopoDS_Shape, TopToolsListOfShape, TopToolsOrientedShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

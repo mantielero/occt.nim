@@ -21,7 +21,7 @@ type
 
 proc constructStdStorageBucket*(): StdStorageBucket {.constructor,
     importcpp: "StdStorage_Bucket(@)", header: "StdStorage_BacketOfPersistent.hxx".}
-proc constructStdStorageBucket*(theSpaceSize: int): StdStorageBucket {.constructor,
+proc constructStdStorageBucket*(theSpaceSize: cint): StdStorageBucket {.constructor,
     importcpp: "StdStorage_Bucket(@)", header: "StdStorage_BacketOfPersistent.hxx".}
 proc clear*(this: var StdStorageBucket) {.importcpp: "Clear", header: "StdStorage_BacketOfPersistent.hxx".}
 proc destroyStdStorageBucket*(this: var StdStorageBucket) {.
@@ -33,15 +33,15 @@ type
                                  bycopy.} = object
 
 
-proc constructStdStorageBucketOfPersistent*(theBucketSize: int = 300000;
-    theBucketNumber: int = 100): StdStorageBucketOfPersistent {.constructor,
+proc constructStdStorageBucketOfPersistent*(theBucketSize: cint = 300000;
+    theBucketNumber: cint = 100): StdStorageBucketOfPersistent {.constructor,
     importcpp: "StdStorage_BucketOfPersistent(@)",
     header: "StdStorage_BacketOfPersistent.hxx".}
-proc length*(this: StdStorageBucketOfPersistent): int {.noSideEffect,
+proc length*(this: StdStorageBucketOfPersistent): cint {.noSideEffect,
     importcpp: "Length", header: "StdStorage_BacketOfPersistent.hxx".}
 proc append*(this: var StdStorageBucketOfPersistent; sp: Handle[StdObjMgtPersistent]) {.
     importcpp: "Append", header: "StdStorage_BacketOfPersistent.hxx".}
-proc value*(this: var StdStorageBucketOfPersistent; theIndex: int): ptr StdObjMgtPersistent {.
+proc value*(this: var StdStorageBucketOfPersistent; theIndex: cint): ptr StdObjMgtPersistent {.
     importcpp: "Value", header: "StdStorage_BacketOfPersistent.hxx".}
 proc clear*(this: var StdStorageBucketOfPersistent) {.importcpp: "Clear",
     header: "StdStorage_BacketOfPersistent.hxx".}
@@ -66,3 +66,28 @@ proc more*(this: StdStorageBucketIterator): bool {.noSideEffect, importcpp: "Mor
     header: "StdStorage_BacketOfPersistent.hxx".}
 proc next*(this: var StdStorageBucketIterator) {.importcpp: "Next",
     header: "StdStorage_BacketOfPersistent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

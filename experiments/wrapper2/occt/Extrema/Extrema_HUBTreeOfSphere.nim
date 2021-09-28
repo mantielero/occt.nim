@@ -14,7 +14,32 @@
 ##  commercial license or contractual agreement.
 
 type
-  ExtremaUBTreeOfSphere* = NCollectionUBTree[int, BndSphere]
-  ExtremaUBTreeFillerOfSphere* = NCollectionUBTreeFiller[int, BndSphere]
+  ExtremaUBTreeOfSphere* = NCollectionUBTree[cint, BndSphere]
+  ExtremaUBTreeFillerOfSphere* = NCollectionUBTreeFiller[cint, BndSphere]
   ExtremaHUBTreeOfSphere* = NCollectionHandle[ExtremaUBTreeOfSphere]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

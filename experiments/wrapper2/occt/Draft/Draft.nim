@@ -30,5 +30,30 @@ type
                                                               ## ! Otherwise, the exception DomainError is raised.
 
 
-proc angle*(f: TopoDS_Face; direction: Dir): float {.importcpp: "Draft::Angle(@)",
+proc angle*(f: TopoDS_Face; direction: Dir): cfloat {.importcpp: "Draft::Angle(@)",
     header: "Draft.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

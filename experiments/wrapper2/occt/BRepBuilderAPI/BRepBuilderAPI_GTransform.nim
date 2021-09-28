@@ -63,3 +63,28 @@ proc modified*(this: var BRepBuilderAPI_GTransform; s: TopoDS_Shape): TopToolsLi
 proc modifiedShape*(this: BRepBuilderAPI_GTransform; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepBuilderAPI_GTransform.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

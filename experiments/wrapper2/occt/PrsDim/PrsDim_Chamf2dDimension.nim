@@ -17,7 +17,7 @@
 discard "forward decl of Geom_Plane"
 discard "forward decl of PrsDim_Chamf2dDimension"
 type
-  HandlePrsDimChamf2dDimension* = Handle[PrsDimChamf2dDimension]
+  HandleC1C1* = Handle[PrsDimChamf2dDimension]
 
 ## ! A framework to define display of 2D chamfers.
 ## ! A chamfer is displayed with arrows and text. The text
@@ -68,15 +68,15 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: PrsDimChamf2dDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_Chamf2dDimension.hxx".}
 proc constructPrsDimChamf2dDimension*(aFShape: TopoDS_Shape;
-                                     aPlane: Handle[GeomPlane]; aVal: float;
+                                     aPlane: Handle[GeomPlane]; aVal: cfloat;
                                      aText: TCollectionExtendedString): PrsDimChamf2dDimension {.
     constructor, importcpp: "PrsDim_Chamf2dDimension(@)",
     header: "PrsDim_Chamf2dDimension.hxx".}
 proc constructPrsDimChamf2dDimension*(aFShape: TopoDS_Shape;
-                                     aPlane: Handle[GeomPlane]; aVal: float;
+                                     aPlane: Handle[GeomPlane]; aVal: cfloat;
                                      aText: TCollectionExtendedString;
                                      aPosition: Pnt; aSymbolPrs: DsgPrsArrowSide;
-                                     anArrowSize: float = 0.0): PrsDimChamf2dDimension {.
+                                     anArrowSize: cfloat = 0.0): PrsDimChamf2dDimension {.
     constructor, importcpp: "PrsDim_Chamf2dDimension(@)",
     header: "PrsDim_Chamf2dDimension.hxx".}
 proc kindOfDimension*(this: PrsDimChamf2dDimension): PrsDimKindOfDimension {.
@@ -84,3 +84,28 @@ proc kindOfDimension*(this: PrsDimChamf2dDimension): PrsDimKindOfDimension {.
     header: "PrsDim_Chamf2dDimension.hxx".}
 proc isMovable*(this: PrsDimChamf2dDimension): bool {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_Chamf2dDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

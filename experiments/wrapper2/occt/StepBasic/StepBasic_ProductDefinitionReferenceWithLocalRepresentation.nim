@@ -17,8 +17,7 @@ discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepBasic_ProductDefinitionReferenceWithLocalRepresentation"
 type
-  HandleStepBasicProductDefinitionReferenceWithLocalRepresentation* = Handle[
-      StepBasicProductDefinitionReferenceWithLocalRepresentation]
+  HandleC1C1* = Handle[StepBasicProductDefinitionReferenceWithLocalRepresentation]
   StepBasicProductDefinitionReferenceWithLocalRepresentation* {.
       importcpp: "StepBasic_ProductDefinitionReferenceWithLocalRepresentation", header: "StepBasic_ProductDefinitionReferenceWithLocalRepresentation.hxx",
       bycopy.} = object of StepBasicProductDefinition ## ! Returns a
@@ -50,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ProductD
     header: "StepBasic_ProductDefinitionReferenceWithLocalRepresentation.hxx".}
 proc dynamicType*(this: StepBasicProductDefinitionReferenceWithLocalRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_ProductDefinitionReferenceWithLocalRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

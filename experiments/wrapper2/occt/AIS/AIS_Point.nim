@@ -44,15 +44,15 @@ proc dynamicType*(this: AIS_Point): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Point.hxx".}
 proc constructAIS_Point*(aComponent: Handle[GeomPoint]): AIS_Point {.constructor,
     importcpp: "AIS_Point(@)", header: "AIS_Point.hxx".}
-proc signature*(this: AIS_Point): int {.noSideEffect, importcpp: "Signature",
-                                    header: "AIS_Point.hxx".}
+proc signature*(this: AIS_Point): cint {.noSideEffect, importcpp: "Signature",
+                                     header: "AIS_Point.hxx".}
 proc `type`*(this: AIS_Point): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_Point.hxx".}
 proc component*(this: var AIS_Point): Handle[GeomPoint] {.importcpp: "Component",
     header: "AIS_Point.hxx".}
 proc setComponent*(this: var AIS_Point; aComponent: Handle[GeomPoint]) {.
     importcpp: "SetComponent", header: "AIS_Point.hxx".}
-proc acceptDisplayMode*(this: AIS_Point; aMode: int): bool {.noSideEffect,
+proc acceptDisplayMode*(this: AIS_Point; aMode: cint): bool {.noSideEffect,
     importcpp: "AcceptDisplayMode", header: "AIS_Point.hxx".}
 proc setColor*(this: var AIS_Point; theColor: QuantityColor) {.importcpp: "SetColor",
     header: "AIS_Point.hxx".}
@@ -68,5 +68,30 @@ proc vertex*(this: AIS_Point): TopoDS_Vertex {.noSideEffect, importcpp: "Vertex"
     header: "AIS_Point.hxx".}
 discard "forward decl of AIS_Point"
 type
-  HandleAIS_Point* = Handle[AIS_Point]
+  HandleC1C1* = Handle[AIS_Point]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

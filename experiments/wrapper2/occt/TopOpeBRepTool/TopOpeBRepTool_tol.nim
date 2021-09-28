@@ -16,19 +16,45 @@
 
 proc fTOL_FaceTolerances*(b1: BndBox; b2: BndBox; myFace1: TopoDS_Face;
                          myFace2: TopoDS_Face; mySurface1: BRepAdaptorSurface;
-                         mySurface2: BRepAdaptorSurface; myTol1: var float;
-                         myTol2: var float; deflection: var float; maxUV: var float) {.
+                         mySurface2: BRepAdaptorSurface; myTol1: var cfloat;
+                         myTol2: var cfloat; deflection: var cfloat; maxUV: var cfloat) {.
     importcpp: "FTOL_FaceTolerances(@)", header: "TopOpeBRepTool_tol.hxx".}
 proc fTOL_FaceTolerances3d*(myFace1: TopoDS_Face; myFace2: TopoDS_Face;
-                           tol: var float) {.importcpp: "FTOL_FaceTolerances3d(@)",
-    header: "TopOpeBRepTool_tol.hxx".}
+                           tol: var cfloat) {.
+    importcpp: "FTOL_FaceTolerances3d(@)", header: "TopOpeBRepTool_tol.hxx".}
 proc fTOL_FaceTolerances3d*(b1: BndBox; b2: BndBox; myFace1: TopoDS_Face;
                            myFace2: TopoDS_Face; mySurface1: BRepAdaptorSurface;
-                           mySurface2: BRepAdaptorSurface; myTol1: var float;
-                           myTol2: var float; deflection: var float; maxUV: var float) {.
+                           mySurface2: BRepAdaptorSurface; myTol1: var cfloat;
+                           myTol2: var cfloat; deflection: var cfloat;
+                           maxUV: var cfloat) {.
     importcpp: "FTOL_FaceTolerances3d(@)", header: "TopOpeBRepTool_tol.hxx".}
 proc fTOL_FaceTolerances2d*(b1: BndBox; b2: BndBox; myFace1: TopoDS_Face;
                            myFace2: TopoDS_Face; mySurface1: BRepAdaptorSurface;
-                           mySurface2: BRepAdaptorSurface; myTol1: var float;
-                           myTol2: var float) {.
+                           mySurface2: BRepAdaptorSurface; myTol1: var cfloat;
+                           myTol2: var cfloat) {.
     importcpp: "FTOL_FaceTolerances2d(@)", header: "TopOpeBRepTool_tol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

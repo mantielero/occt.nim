@@ -23,7 +23,7 @@ discard "forward decl of gp_XYZ"
 discard "forward decl of IGESAppli_NodalDisplAndRot"
 discard "forward decl of IGESAppli_NodalDisplAndRot"
 type
-  HandleIGESAppliNodalDisplAndRot* = Handle[IGESAppliNodalDisplAndRot]
+  HandleC1C1* = Handle[IGESAppliNodalDisplAndRot]
 
 ## ! defines NodalDisplAndRot, Type <138> Form <0>
 ## ! in package IGESAppli
@@ -45,22 +45,23 @@ proc init*(this: var IGESAppliNodalDisplAndRot;
           allRotParams: Handle[IGESBasicHArray1OfHArray1OfXYZ];
           allTransParams: Handle[IGESBasicHArray1OfHArray1OfXYZ]) {.
     importcpp: "Init", header: "IGESAppli_NodalDisplAndRot.hxx".}
-proc nbCases*(this: IGESAppliNodalDisplAndRot): int {.noSideEffect,
+proc nbCases*(this: IGESAppliNodalDisplAndRot): cint {.noSideEffect,
     importcpp: "NbCases", header: "IGESAppli_NodalDisplAndRot.hxx".}
-proc nbNodes*(this: IGESAppliNodalDisplAndRot): int {.noSideEffect,
+proc nbNodes*(this: IGESAppliNodalDisplAndRot): cint {.noSideEffect,
     importcpp: "NbNodes", header: "IGESAppli_NodalDisplAndRot.hxx".}
-proc note*(this: IGESAppliNodalDisplAndRot; index: int): Handle[IGESDimenGeneralNote] {.
+proc note*(this: IGESAppliNodalDisplAndRot; index: cint): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESAppli_NodalDisplAndRot.hxx".}
-proc nodeIdentifier*(this: IGESAppliNodalDisplAndRot; index: int): int {.noSideEffect,
-    importcpp: "NodeIdentifier", header: "IGESAppli_NodalDisplAndRot.hxx".}
-proc node*(this: IGESAppliNodalDisplAndRot; index: int): Handle[IGESAppliNode] {.
-    noSideEffect, importcpp: "Node", header: "IGESAppli_NodalDisplAndRot.hxx".}
-proc translationParameter*(this: IGESAppliNodalDisplAndRot; nodeNum: int;
-                          caseNum: int): Xyz {.noSideEffect,
-    importcpp: "TranslationParameter", header: "IGESAppli_NodalDisplAndRot.hxx".}
-proc rotationalParameter*(this: IGESAppliNodalDisplAndRot; nodeNum: int; caseNum: int): Xyz {.
-    noSideEffect, importcpp: "RotationalParameter",
+proc nodeIdentifier*(this: IGESAppliNodalDisplAndRot; index: cint): cint {.
+    noSideEffect, importcpp: "NodeIdentifier",
     header: "IGESAppli_NodalDisplAndRot.hxx".}
+proc node*(this: IGESAppliNodalDisplAndRot; index: cint): Handle[IGESAppliNode] {.
+    noSideEffect, importcpp: "Node", header: "IGESAppli_NodalDisplAndRot.hxx".}
+proc translationParameter*(this: IGESAppliNodalDisplAndRot; nodeNum: cint;
+                          caseNum: cint): Xyz {.noSideEffect,
+    importcpp: "TranslationParameter", header: "IGESAppli_NodalDisplAndRot.hxx".}
+proc rotationalParameter*(this: IGESAppliNodalDisplAndRot; nodeNum: cint;
+                         caseNum: cint): Xyz {.noSideEffect,
+    importcpp: "RotationalParameter", header: "IGESAppli_NodalDisplAndRot.hxx".}
 type
   IGESAppliNodalDisplAndRotbaseType* = IGESDataIGESEntity
 
@@ -72,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESAppliNodalDisplAndRot): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESAppli_NodalDisplAndRot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

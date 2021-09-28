@@ -30,3 +30,28 @@ proc getValue*(this: LDOM_Attr): LDOMString {.noSideEffect, importcpp: "getValue
     header: "LDOM_Attr.hxx".}
 proc setValue*(this: var LDOM_Attr; aValue: LDOMString) {.importcpp: "setValue",
     header: "LDOM_Attr.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

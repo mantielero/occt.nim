@@ -2,8 +2,6 @@
 {.experimental: "codeReordering".}
 {.experimental: "callOperator".}
 
-import ../Standard/Standard_Transient
-
 include Geom_Axis1Placement
 include Geom_Axis2Placement
 include Geom_AxisPlacement
@@ -23,7 +21,7 @@ include Geom_Direction
 include Geom_ElementarySurface
 include Geom_Ellipse
 include Geom_Geometry
-include Geom_HSequenceOfBSplineSurface
+#include Geom_HSequenceOfBSplineSurface
 include Geom_Hyperbola
 include Geom_Line
 include Geom_OffsetCurve
@@ -46,4 +44,3 @@ include Geom_UndefinedDerivative
 include Geom_UndefinedValue
 include Geom_Vector
 include Geom_VectorWithMagnitude
-

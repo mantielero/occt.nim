@@ -19,8 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_DocumentUsageConstraint"
 discard "forward decl of StepBasic_DocumentUsageConstraint"
 type
-  HandleStepBasicDocumentUsageConstraint* = Handle[
-      StepBasicDocumentUsageConstraint]
+  HandleC1C1* = Handle[StepBasicDocumentUsageConstraint]
   StepBasicDocumentUsageConstraint* {.importcpp: "StepBasic_DocumentUsageConstraint", header: "StepBasic_DocumentUsageConstraint.hxx",
                                      bycopy.} = object of StandardTransient
 
@@ -64,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicDocumentUsageConstraint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DocumentUsageConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

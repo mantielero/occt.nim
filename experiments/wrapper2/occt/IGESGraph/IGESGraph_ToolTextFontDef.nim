@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESGraphToolTextFontDef;
              entto: Handle[IGESGraphTextFontDef]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolTextFontDef.hxx".}
 proc ownDump*(this: IGESGraphToolTextFontDef; ent: Handle[IGESGraphTextFontDef];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolTextFontDef.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

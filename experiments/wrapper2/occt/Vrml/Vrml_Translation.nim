@@ -30,3 +30,28 @@ proc translation*(this: VrmlTranslation): Vec {.noSideEffect,
     importcpp: "Translation", header: "Vrml_Translation.hxx".}
 proc print*(this: VrmlTranslation; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Translation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

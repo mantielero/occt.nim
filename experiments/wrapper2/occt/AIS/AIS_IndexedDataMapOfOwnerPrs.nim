@@ -19,3 +19,28 @@ type
       Handle[SelectMgrEntityOwner], Handle[Prs3dPresentation],
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

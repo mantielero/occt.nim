@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_IntPackedMapDriver"
 discard "forward decl of BinMDataStd_IntPackedMapDriver"
 type
-  HandleBinMDataStdIntPackedMapDriver* = Handle[BinMDataStdIntPackedMapDriver]
+  HandleC1C1* = Handle[BinMDataStdIntPackedMapDriver]
 
 ## ! TDataStd_IntPackedMap attribute Driver.
 
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdIntPackedMapDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_IntPackedMapDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

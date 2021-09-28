@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectShared"
 discard "forward decl of IFSelect_SelectShared"
 type
-  HandleIFSelectSelectShared* = Handle[IFSelectSelectShared]
+  HandleC1C1* = Handle[IFSelectSelectShared]
 
 ## ! A SelectShared selects Entities which are directly Shared
 ## ! by the Entities of the Input list
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectShared.hxx".}
 proc dynamicType*(this: IFSelectSelectShared): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectShared.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

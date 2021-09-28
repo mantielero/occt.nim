@@ -60,42 +60,44 @@ type
                                                                            ## algorithm.
 
 
-proc constructAppDefBSplineCompute*(line: AppDefMultiLine; degreemin: int = 4;
-                                   degreemax: int = 8; tolerance3d: float = 1.0e-3;
-                                   tolerance2d: float = 1.0e-6;
-                                   nbIterations: int = 5; cutting: bool = true;
+proc constructAppDefBSplineCompute*(line: AppDefMultiLine; degreemin: cint = 4;
+                                   degreemax: cint = 8;
+                                   tolerance3d: cfloat = 1.0e-3;
+                                   tolerance2d: cfloat = 1.0e-6;
+                                   nbIterations: cint = 5; cutting: bool = true;
     parametrization: ApproxParametrizationType = approxChordLength;
                                    squares: bool = false): AppDefBSplineCompute {.
     constructor, importcpp: "AppDef_BSplineCompute(@)",
     header: "AppDef_BSplineCompute.hxx".}
 proc constructAppDefBSplineCompute*(line: AppDefMultiLine; parameters: MathVector;
-                                   degreemin: int = 4; degreemax: int = 8;
-                                   tolerance3d: float = 1.0e-03;
-                                   tolerance2d: float = 1.0e-06;
-                                   nbIterations: int = 5; cutting: bool = true;
+                                   degreemin: cint = 4; degreemax: cint = 8;
+                                   tolerance3d: cfloat = 1.0e-03;
+                                   tolerance2d: cfloat = 1.0e-06;
+                                   nbIterations: cint = 5; cutting: bool = true;
                                    squares: bool = false): AppDefBSplineCompute {.
     constructor, importcpp: "AppDef_BSplineCompute(@)",
     header: "AppDef_BSplineCompute.hxx".}
-proc constructAppDefBSplineCompute*(parameters: MathVector; degreemin: int = 4;
-                                   degreemax: int = 8; tolerance3d: float = 1.0e-03;
-                                   tolerance2d: float = 1.0e-06;
-                                   nbIterations: int = 5; cutting: bool = true;
+proc constructAppDefBSplineCompute*(parameters: MathVector; degreemin: cint = 4;
+                                   degreemax: cint = 8;
+                                   tolerance3d: cfloat = 1.0e-03;
+                                   tolerance2d: cfloat = 1.0e-06;
+                                   nbIterations: cint = 5; cutting: bool = true;
                                    squares: bool = false): AppDefBSplineCompute {.
     constructor, importcpp: "AppDef_BSplineCompute(@)",
     header: "AppDef_BSplineCompute.hxx".}
-proc constructAppDefBSplineCompute*(degreemin: int = 4; degreemax: int = 8;
-                                   tolerance3d: float = 1.0e-03;
-                                   tolerance2d: float = 1.0e-06;
-                                   nbIterations: int = 5; cutting: bool = true;
+proc constructAppDefBSplineCompute*(degreemin: cint = 4; degreemax: cint = 8;
+                                   tolerance3d: cfloat = 1.0e-03;
+                                   tolerance2d: cfloat = 1.0e-06;
+                                   nbIterations: cint = 5; cutting: bool = true;
     parametrization: ApproxParametrizationType = approxChordLength;
                                    squares: bool = false): AppDefBSplineCompute {.
     constructor, importcpp: "AppDef_BSplineCompute(@)",
     header: "AppDef_BSplineCompute.hxx".}
 proc interpol*(this: var AppDefBSplineCompute; line: AppDefMultiLine) {.
     importcpp: "Interpol", header: "AppDef_BSplineCompute.hxx".}
-proc init*(this: var AppDefBSplineCompute; degreemin: int = 4; degreemax: int = 8;
-          tolerance3d: float = 1.0e-03; tolerance2d: float = 1.0e-06;
-          nbIterations: int = 5; cutting: bool = true;
+proc init*(this: var AppDefBSplineCompute; degreemin: cint = 4; degreemax: cint = 8;
+          tolerance3d: cfloat = 1.0e-03; tolerance2d: cfloat = 1.0e-06;
+          nbIterations: cint = 5; cutting: bool = true;
           parametrization: ApproxParametrizationType = approxChordLength;
           squares: bool = false) {.importcpp: "Init",
                                header: "AppDef_BSplineCompute.hxx".}
@@ -109,12 +111,12 @@ proc setKnotsAndMultiplicities*(this: var AppDefBSplineCompute;
                                knots: TColStdArray1OfReal;
                                mults: TColStdArray1OfInteger) {.
     importcpp: "SetKnotsAndMultiplicities", header: "AppDef_BSplineCompute.hxx".}
-proc setDegrees*(this: var AppDefBSplineCompute; degreemin: int; degreemax: int) {.
+proc setDegrees*(this: var AppDefBSplineCompute; degreemin: cint; degreemax: cint) {.
     importcpp: "SetDegrees", header: "AppDef_BSplineCompute.hxx".}
-proc setTolerances*(this: var AppDefBSplineCompute; tolerance3d: float;
-                   tolerance2d: float) {.importcpp: "SetTolerances",
-                                       header: "AppDef_BSplineCompute.hxx".}
-proc setContinuity*(this: var AppDefBSplineCompute; c: int) {.
+proc setTolerances*(this: var AppDefBSplineCompute; tolerance3d: cfloat;
+                   tolerance2d: cfloat) {.importcpp: "SetTolerances",
+                                        header: "AppDef_BSplineCompute.hxx".}
+proc setContinuity*(this: var AppDefBSplineCompute; c: cint) {.
     importcpp: "SetContinuity", header: "AppDef_BSplineCompute.hxx".}
 proc setConstraints*(this: var AppDefBSplineCompute; firstC: AppParCurvesConstraint;
                     lastC: AppParCurvesConstraint) {.importcpp: "SetConstraints",
@@ -125,7 +127,7 @@ proc isAllApproximated*(this: AppDefBSplineCompute): bool {.noSideEffect,
     importcpp: "IsAllApproximated", header: "AppDef_BSplineCompute.hxx".}
 proc isToleranceReached*(this: AppDefBSplineCompute): bool {.noSideEffect,
     importcpp: "IsToleranceReached", header: "AppDef_BSplineCompute.hxx".}
-proc error*(this: AppDefBSplineCompute; tol3d: var float; tol2d: var float) {.
+proc error*(this: AppDefBSplineCompute; tol3d: var cfloat; tol2d: var cfloat) {.
     noSideEffect, importcpp: "Error", header: "AppDef_BSplineCompute.hxx".}
 proc value*(this: AppDefBSplineCompute): AppParCurvesMultiBSpCurve {.noSideEffect,
     importcpp: "Value", header: "AppDef_BSplineCompute.hxx".}
@@ -133,3 +135,28 @@ proc changeValue*(this: var AppDefBSplineCompute): var AppParCurvesMultiBSpCurve
     importcpp: "ChangeValue", header: "AppDef_BSplineCompute.hxx".}
 proc parameters*(this: AppDefBSplineCompute): TColStdArray1OfReal {.noSideEffect,
     importcpp: "Parameters", header: "AppDef_BSplineCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

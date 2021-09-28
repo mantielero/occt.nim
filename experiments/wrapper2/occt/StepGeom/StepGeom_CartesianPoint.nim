@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepGeom_CartesianPoint"
 type
-  HandleStepGeomCartesianPoint* = Handle[StepGeomCartesianPoint]
+  HandleC1C1* = Handle[StepGeomCartesianPoint]
   StepGeomCartesianPoint* {.importcpp: "StepGeom_CartesianPoint",
                            header: "StepGeom_CartesianPoint.hxx", bycopy.} = object of StepGeomPoint ##
                                                                                               ## !
@@ -33,19 +33,20 @@ proc init*(this: var StepGeomCartesianPoint; aName: Handle[TCollectionHAsciiStri
           aCoordinates: Handle[TColStdHArray1OfReal]) {.importcpp: "Init",
     header: "StepGeom_CartesianPoint.hxx".}
 proc init2D*(this: var StepGeomCartesianPoint;
-            aName: Handle[TCollectionHAsciiString]; x: float; y: float) {.
+            aName: Handle[TCollectionHAsciiString]; x: cfloat; y: cfloat) {.
     importcpp: "Init2D", header: "StepGeom_CartesianPoint.hxx".}
 proc init3D*(this: var StepGeomCartesianPoint;
-            aName: Handle[TCollectionHAsciiString]; x: float; y: float; z: float) {.
+            aName: Handle[TCollectionHAsciiString]; x: cfloat; y: cfloat; z: cfloat) {.
     importcpp: "Init3D", header: "StepGeom_CartesianPoint.hxx".}
 proc setCoordinates*(this: var StepGeomCartesianPoint;
                     aCoordinates: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetCoordinates", header: "StepGeom_CartesianPoint.hxx".}
 proc coordinates*(this: StepGeomCartesianPoint): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "Coordinates", header: "StepGeom_CartesianPoint.hxx".}
-proc coordinatesValue*(this: StepGeomCartesianPoint; num: int): float {.noSideEffect,
-    importcpp: "CoordinatesValue", header: "StepGeom_CartesianPoint.hxx".}
-proc nbCoordinates*(this: StepGeomCartesianPoint): int {.noSideEffect,
+proc coordinatesValue*(this: StepGeomCartesianPoint; num: cint): cfloat {.
+    noSideEffect, importcpp: "CoordinatesValue",
+    header: "StepGeom_CartesianPoint.hxx".}
+proc nbCoordinates*(this: StepGeomCartesianPoint): cint {.noSideEffect,
     importcpp: "NbCoordinates", header: "StepGeom_CartesianPoint.hxx".}
 type
   StepGeomCartesianPointbaseType* = StepGeomPoint
@@ -57,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_CartesianPoint.hxx".}
 proc dynamicType*(this: StepGeomCartesianPoint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_CartesianPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

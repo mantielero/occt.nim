@@ -19,3 +19,28 @@ type
   BRepListIteratorOfListOfPointRepresentation* = Iterator[
       Handle[BRepPointRepresentation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

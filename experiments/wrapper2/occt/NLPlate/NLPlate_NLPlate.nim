@@ -27,12 +27,12 @@ proc constructNLPlateNLPlate*(initialSurface: Handle[GeomSurface]): NLPlateNLPla
     constructor, importcpp: "NLPlate_NLPlate(@)", header: "NLPlate_NLPlate.hxx".}
 proc load*(this: var NLPlateNLPlate; gConst: Handle[NLPlateHGPPConstraint]) {.
     importcpp: "Load", header: "NLPlate_NLPlate.hxx".}
-proc solve*(this: var NLPlateNLPlate; ord: int = 2; initialConsraintOrder: int = 1) {.
+proc solve*(this: var NLPlateNLPlate; ord: cint = 2; initialConsraintOrder: cint = 1) {.
     importcpp: "Solve", header: "NLPlate_NLPlate.hxx".}
-proc solve2*(this: var NLPlateNLPlate; ord: int = 2; initialConsraintOrder: int = 1) {.
+proc solve2*(this: var NLPlateNLPlate; ord: cint = 2; initialConsraintOrder: cint = 1) {.
     importcpp: "Solve2", header: "NLPlate_NLPlate.hxx".}
-proc incrementalSolve*(this: var NLPlateNLPlate; ord: int = 2;
-                      initialConsraintOrder: int = 1; nbIncrements: int = 4;
+proc incrementalSolve*(this: var NLPlateNLPlate; ord: cint = 2;
+                      initialConsraintOrder: cint = 1; nbIncrements: cint = 4;
                       uVSliding: bool = false) {.importcpp: "IncrementalSolve",
     header: "NLPlate_NLPlate.hxx".}
 proc isDone*(this: NLPlateNLPlate): bool {.noSideEffect, importcpp: "IsDone",
@@ -45,11 +45,36 @@ proc init*(this: var NLPlateNLPlate) {.importcpp: "Init",
                                    header: "NLPlate_NLPlate.hxx".}
 proc evaluate*(this: NLPlateNLPlate; point2d: Xy): Xyz {.noSideEffect,
     importcpp: "Evaluate", header: "NLPlate_NLPlate.hxx".}
-proc evaluateDerivative*(this: NLPlateNLPlate; point2d: Xy; iu: int; iv: int): Xyz {.
+proc evaluateDerivative*(this: NLPlateNLPlate; point2d: Xy; iu: cint; iv: cint): Xyz {.
     noSideEffect, importcpp: "EvaluateDerivative", header: "NLPlate_NLPlate.hxx".}
-proc continuity*(this: NLPlateNLPlate): int {.noSideEffect, importcpp: "Continuity",
+proc continuity*(this: NLPlateNLPlate): cint {.noSideEffect, importcpp: "Continuity",
     header: "NLPlate_NLPlate.hxx".}
-proc constraintsSliding*(this: var NLPlateNLPlate; nbIterations: int = 3) {.
+proc constraintsSliding*(this: var NLPlateNLPlate; nbIterations: cint = 3) {.
     importcpp: "ConstraintsSliding", header: "NLPlate_NLPlate.hxx".}
-proc maxActiveConstraintOrder*(this: NLPlateNLPlate): int {.noSideEffect,
+proc maxActiveConstraintOrder*(this: NLPlateNLPlate): cint {.noSideEffect,
     importcpp: "MaxActiveConstraintOrder", header: "NLPlate_NLPlate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

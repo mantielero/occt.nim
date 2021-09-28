@@ -25,3 +25,28 @@ proc add*(anOStream: var StandardOStream; aShape: TopoDS_Shape;
          aDrawer: Handle[VrmlConverterDrawer]) {.
     importcpp: "VrmlConverter_WFShape::Add(@)",
     header: "VrmlConverter_WFShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

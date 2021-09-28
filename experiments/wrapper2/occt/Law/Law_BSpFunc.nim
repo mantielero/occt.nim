@@ -20,7 +20,7 @@ discard "forward decl of Law_Function"
 discard "forward decl of Law_BSpFunc"
 discard "forward decl of Law_BSpFunc"
 type
-  HandleLawBSpFunc* = Handle[LawBSpFunc]
+  HandleC1C1* = Handle[LawBSpFunc]
 
 ## ! Law Function based on a BSpline curve 1d.  Package
 ## ! methods and classes are implemented in package Law
@@ -33,23 +33,23 @@ type
 
 proc constructLawBSpFunc*(): LawBSpFunc {.constructor, importcpp: "Law_BSpFunc(@)",
                                        header: "Law_BSpFunc.hxx".}
-proc constructLawBSpFunc*(c: Handle[LawBSpline]; first: float; last: float): LawBSpFunc {.
+proc constructLawBSpFunc*(c: Handle[LawBSpline]; first: cfloat; last: cfloat): LawBSpFunc {.
     constructor, importcpp: "Law_BSpFunc(@)", header: "Law_BSpFunc.hxx".}
 proc continuity*(this: LawBSpFunc): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Law_BSpFunc.hxx".}
-proc nbIntervals*(this: LawBSpFunc; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: LawBSpFunc; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Law_BSpFunc.hxx".}
 proc intervals*(this: LawBSpFunc; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Law_BSpFunc.hxx".}
-proc value*(this: var LawBSpFunc; x: float): float {.importcpp: "Value",
+proc value*(this: var LawBSpFunc; x: cfloat): cfloat {.importcpp: "Value",
     header: "Law_BSpFunc.hxx".}
-proc d1*(this: var LawBSpFunc; x: float; f: var float; d: var float) {.importcpp: "D1",
+proc d1*(this: var LawBSpFunc; x: cfloat; f: var cfloat; d: var cfloat) {.importcpp: "D1",
     header: "Law_BSpFunc.hxx".}
-proc d2*(this: var LawBSpFunc; x: float; f: var float; d: var float; d2: var float) {.
+proc d2*(this: var LawBSpFunc; x: cfloat; f: var cfloat; d: var cfloat; d2: var cfloat) {.
     importcpp: "D2", header: "Law_BSpFunc.hxx".}
-proc trim*(this: LawBSpFunc; pFirst: float; pLast: float; tol: float): Handle[LawFunction] {.
-    noSideEffect, importcpp: "Trim", header: "Law_BSpFunc.hxx".}
-proc bounds*(this: var LawBSpFunc; pFirst: var float; pLast: var float) {.
+proc trim*(this: LawBSpFunc; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handle[
+    LawFunction] {.noSideEffect, importcpp: "Trim", header: "Law_BSpFunc.hxx".}
+proc bounds*(this: var LawBSpFunc; pFirst: var cfloat; pLast: var cfloat) {.
     importcpp: "Bounds", header: "Law_BSpFunc.hxx".}
 proc curve*(this: LawBSpFunc): Handle[LawBSpline] {.noSideEffect, importcpp: "Curve",
     header: "Law_BSpFunc.hxx".}
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Law_BSpFunc::get_type_descriptor(@)", header: "Law_BSpFunc.hxx".}
 proc dynamicType*(this: LawBSpFunc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_BSpFunc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

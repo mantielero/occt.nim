@@ -14,7 +14,7 @@
 
 discard "forward decl of PrsDim_RadiusDimension"
 type
-  HandlePrsDimRadiusDimension* = Handle[PrsDimRadiusDimension]
+  HandleC1C1* = Handle[PrsDimRadiusDimension]
 
 ## ! Radius dimension. Can be constructued:
 ## ! - On generic circle.
@@ -142,3 +142,28 @@ proc setTextPosition*(this: var PrsDimRadiusDimension; theTextPos: Pnt) {.
     importcpp: "SetTextPosition", header: "PrsDim_RadiusDimension.hxx".}
 proc getTextPosition*(this: PrsDimRadiusDimension): Pnt {.noSideEffect,
     importcpp: "GetTextPosition", header: "PrsDim_RadiusDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

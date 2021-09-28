@@ -43,7 +43,7 @@ type
 proc constructVrmlShapeHints*(aVertexOrdering: VrmlVertexOrdering = vrmlUNKNOWN_ORDERING;
     aShapeType: VrmlShapeType = vrmlUNKNOWN_SHAPE_TYPE;
                              aFaceType: VrmlFaceType = vrmlCONVEX;
-                             aAngle: float = 0.5): VrmlShapeHints {.constructor,
+                             aAngle: cfloat = 0.5): VrmlShapeHints {.constructor,
     importcpp: "Vrml_ShapeHints(@)", header: "Vrml_ShapeHints.hxx".}
 proc setVertexOrdering*(this: var VrmlShapeHints;
                        aVertexOrdering: VrmlVertexOrdering) {.
@@ -58,9 +58,34 @@ proc setFaceType*(this: var VrmlShapeHints; aFaceType: VrmlFaceType) {.
     importcpp: "SetFaceType", header: "Vrml_ShapeHints.hxx".}
 proc faceType*(this: VrmlShapeHints): VrmlFaceType {.noSideEffect,
     importcpp: "FaceType", header: "Vrml_ShapeHints.hxx".}
-proc setAngle*(this: var VrmlShapeHints; aAngle: float) {.importcpp: "SetAngle",
+proc setAngle*(this: var VrmlShapeHints; aAngle: cfloat) {.importcpp: "SetAngle",
     header: "Vrml_ShapeHints.hxx".}
-proc angle*(this: VrmlShapeHints): float {.noSideEffect, importcpp: "Angle",
-                                       header: "Vrml_ShapeHints.hxx".}
+proc angle*(this: VrmlShapeHints): cfloat {.noSideEffect, importcpp: "Angle",
+                                        header: "Vrml_ShapeHints.hxx".}
 proc print*(this: VrmlShapeHints; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_ShapeHints.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

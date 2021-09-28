@@ -20,19 +20,19 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Marker2D"
 discard "forward decl of Draw_Marker2D"
 type
-  HandleDrawMarker2D* = Handle[DrawMarker2D]
+  HandleC1C1* = Handle[DrawMarker2D]
   DrawMarker2D* {.importcpp: "Draw_Marker2D", header: "Draw_Marker2D.hxx", bycopy.} = object of DrawDrawable2D
 
 
-proc constructDrawMarker2D*(p: Pnt2d; t: DrawMarkerShape; c: DrawColor; size: int = 5): DrawMarker2D {.
+proc constructDrawMarker2D*(p: Pnt2d; t: DrawMarkerShape; c: DrawColor; size: cint = 5): DrawMarker2D {.
     constructor, importcpp: "Draw_Marker2D(@)", header: "Draw_Marker2D.hxx".}
-proc constructDrawMarker2D*(p: Pnt2d; t: DrawMarkerShape; c: DrawColor; rSize: float): DrawMarker2D {.
+proc constructDrawMarker2D*(p: Pnt2d; t: DrawMarkerShape; c: DrawColor; rSize: cfloat): DrawMarker2D {.
     constructor, importcpp: "Draw_Marker2D(@)", header: "Draw_Marker2D.hxx".}
 proc changePos*(this: var DrawMarker2D): var Pnt2d {.importcpp: "ChangePos",
     header: "Draw_Marker2D.hxx".}
 proc drawOn*(this: DrawMarker2D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Marker2D.hxx".}
-proc pickReject*(this: DrawMarker2D; x: float; y: float; prec: float): bool {.
+proc pickReject*(this: DrawMarker2D; x: cfloat; y: cfloat; prec: cfloat): bool {.
     noSideEffect, importcpp: "PickReject", header: "Draw_Marker2D.hxx".}
 type
   DrawMarker2DbaseType* = DrawDrawable2D
@@ -44,3 +44,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Draw_Marker2D.hxx".}
 proc dynamicType*(this: DrawMarker2D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Marker2D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

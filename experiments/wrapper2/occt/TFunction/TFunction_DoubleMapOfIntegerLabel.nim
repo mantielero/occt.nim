@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  TFunctionDoubleMapOfIntegerLabel* = NCollectionDoubleMap[int, TDF_Label,
+  TFunctionDoubleMapOfIntegerLabel* = NCollectionDoubleMap[cint, TDF_Label,
       TColStdMapIntegerHasher, TDF_LabelMapHasher]
-  TFunctionDoubleMapIteratorOfDoubleMapOfIntegerLabel* = Iterator[int, TDF_Label,
+  TFunctionDoubleMapIteratorOfDoubleMapOfIntegerLabel* = Iterator[cint, TDF_Label,
       TColStdMapIntegerHasher, TDF_LabelMapHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

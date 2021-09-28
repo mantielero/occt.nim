@@ -17,3 +17,28 @@
 type
   StepGeomArray1OfBoundaryCurve* = NCollectionArray1[Handle[StepGeomBoundaryCurve]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

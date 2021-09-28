@@ -25,7 +25,7 @@ type
 proc constructStepShapeValueQualifier*(): StepShapeValueQualifier {.constructor,
     importcpp: "StepShape_ValueQualifier(@)",
     header: "StepShape_ValueQualifier.hxx".}
-proc caseNum*(this: StepShapeValueQualifier; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepShapeValueQualifier; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_ValueQualifier.hxx".}
 proc precisionQualifier*(this: StepShapeValueQualifier): Handle[
     StepShapePrecisionQualifier] {.noSideEffect, importcpp: "PrecisionQualifier",
@@ -37,3 +37,28 @@ proc valueFormatTypeQualifier*(this: StepShapeValueQualifier): Handle[
     StepShapeValueFormatTypeQualifier] {.noSideEffect,
                                         importcpp: "ValueFormatTypeQualifier",
                                         header: "StepShape_ValueQualifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

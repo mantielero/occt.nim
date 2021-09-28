@@ -32,15 +32,15 @@ proc destroyIMeshDataEdge*(this: var IMeshDataEdge) {.
     importcpp: "#.~IMeshData_Edge()", header: "IMeshData_Edge.hxx".}
 proc getEdge*(this: IMeshDataEdge): TopoDS_Edge {.noSideEffect, importcpp: "GetEdge",
     header: "IMeshData_Edge.hxx".}
-proc pCurvesNb*(this: IMeshDataEdge): int {.noSideEffect, importcpp: "PCurvesNb",
-                                        header: "IMeshData_Edge.hxx".}
+proc pCurvesNb*(this: IMeshDataEdge): cint {.noSideEffect, importcpp: "PCurvesNb",
+    header: "IMeshData_Edge.hxx".}
 proc addPCurve*(this: var IMeshDataEdge; theDFace: IFacePtr;
                theOrientation: TopAbsOrientation): IPCurveHandle {.
     importcpp: "AddPCurve", header: "IMeshData_Edge.hxx".}
 proc getPCurve*(this: IMeshDataEdge; theDFace: IFacePtr;
                theOrientation: TopAbsOrientation): IPCurveHandle {.noSideEffect,
     importcpp: "GetPCurve", header: "IMeshData_Edge.hxx".}
-proc getPCurve*(this: IMeshDataEdge; theIndex: int): IPCurveHandle {.noSideEffect,
+proc getPCurve*(this: IMeshDataEdge; theIndex: cint): IPCurveHandle {.noSideEffect,
     importcpp: "GetPCurve", header: "IMeshData_Edge.hxx".}
 proc clear*(this: var IMeshDataEdge; isKeepEndPoints: bool) {.importcpp: "Clear",
     header: "IMeshData_Edge.hxx".}
@@ -50,9 +50,9 @@ proc setCurve*(this: var IMeshDataEdge; theCurve: ICurveHandle) {.
     importcpp: "SetCurve", header: "IMeshData_Edge.hxx".}
 proc getCurve*(this: IMeshDataEdge): ICurveHandle {.noSideEffect,
     importcpp: "GetCurve", header: "IMeshData_Edge.hxx".}
-proc getAngularDeflection*(this: IMeshDataEdge): float {.noSideEffect,
+proc getAngularDeflection*(this: IMeshDataEdge): cfloat {.noSideEffect,
     importcpp: "GetAngularDeflection", header: "IMeshData_Edge.hxx".}
-proc setAngularDeflection*(this: var IMeshDataEdge; theValue: float) {.
+proc setAngularDeflection*(this: var IMeshDataEdge; theValue: cfloat) {.
     importcpp: "SetAngularDeflection", header: "IMeshData_Edge.hxx".}
 proc getSameParam*(this: IMeshDataEdge): bool {.noSideEffect,
     importcpp: "GetSameParam", header: "IMeshData_Edge.hxx".}
@@ -76,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IMeshData_Edge.hxx".}
 proc dynamicType*(this: IMeshDataEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshData_Edge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

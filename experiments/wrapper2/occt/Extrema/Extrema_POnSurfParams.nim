@@ -24,19 +24,44 @@ type
 
 proc constructExtremaPOnSurfParams*(): ExtremaPOnSurfParams {.constructor,
     importcpp: "Extrema_POnSurfParams(@)", header: "Extrema_POnSurfParams.hxx".}
-proc constructExtremaPOnSurfParams*(theU: float; theV: float; thePnt: Pnt): ExtremaPOnSurfParams {.
+proc constructExtremaPOnSurfParams*(theU: cfloat; theV: cfloat; thePnt: Pnt): ExtremaPOnSurfParams {.
     constructor, importcpp: "Extrema_POnSurfParams(@)",
     header: "Extrema_POnSurfParams.hxx".}
-proc setSqrDistance*(this: var ExtremaPOnSurfParams; theSqrDistance: float) {.
+proc setSqrDistance*(this: var ExtremaPOnSurfParams; theSqrDistance: cfloat) {.
     importcpp: "SetSqrDistance", header: "Extrema_POnSurfParams.hxx".}
-proc getSqrDistance*(this: ExtremaPOnSurfParams): float {.noSideEffect,
+proc getSqrDistance*(this: ExtremaPOnSurfParams): cfloat {.noSideEffect,
     importcpp: "GetSqrDistance", header: "Extrema_POnSurfParams.hxx".}
 proc setElementType*(this: var ExtremaPOnSurfParams;
                     theElementType: ExtremaElementType) {.
     importcpp: "SetElementType", header: "Extrema_POnSurfParams.hxx".}
 proc getElementType*(this: ExtremaPOnSurfParams): ExtremaElementType {.noSideEffect,
     importcpp: "GetElementType", header: "Extrema_POnSurfParams.hxx".}
-proc setIndices*(this: var ExtremaPOnSurfParams; theIndexU: int; theIndexV: int) {.
+proc setIndices*(this: var ExtremaPOnSurfParams; theIndexU: cint; theIndexV: cint) {.
     importcpp: "SetIndices", header: "Extrema_POnSurfParams.hxx".}
-proc getIndices*(this: ExtremaPOnSurfParams; theIndexU: var int; theIndexV: var int) {.
+proc getIndices*(this: ExtremaPOnSurfParams; theIndexU: var cint; theIndexV: var cint) {.
     noSideEffect, importcpp: "GetIndices", header: "Extrema_POnSurfParams.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,7 @@
 
 discard "forward decl of Poly_Polygon2D"
 type
-  HandlePolyPolygon2D* = Handle[PolyPolygon2D]
+  HandleC1C1* = Handle[PolyPolygon2D]
 
 ## ! Provides a polygon in 2D space (for example, in the
 ## ! parametric space of a surface). It is generally an
@@ -39,23 +39,23 @@ type
                                                                                                            ## nodes.
 
 
-proc constructPolyPolygon2D*(theNbNodes: int): PolyPolygon2D {.constructor,
+proc constructPolyPolygon2D*(theNbNodes: cint): PolyPolygon2D {.constructor,
     importcpp: "Poly_Polygon2D(@)", header: "Poly_Polygon2D.hxx".}
 proc constructPolyPolygon2D*(nodes: TColgpArray1OfPnt2d): PolyPolygon2D {.
     constructor, importcpp: "Poly_Polygon2D(@)", header: "Poly_Polygon2D.hxx".}
-proc deflection*(this: PolyPolygon2D): float {.noSideEffect, importcpp: "Deflection",
+proc deflection*(this: PolyPolygon2D): cfloat {.noSideEffect,
+    importcpp: "Deflection", header: "Poly_Polygon2D.hxx".}
+proc deflection*(this: var PolyPolygon2D; theDefl: cfloat) {.importcpp: "Deflection",
     header: "Poly_Polygon2D.hxx".}
-proc deflection*(this: var PolyPolygon2D; theDefl: float) {.importcpp: "Deflection",
-    header: "Poly_Polygon2D.hxx".}
-proc nbNodes*(this: PolyPolygon2D): int {.noSideEffect, importcpp: "NbNodes",
-                                      header: "Poly_Polygon2D.hxx".}
+proc nbNodes*(this: PolyPolygon2D): cint {.noSideEffect, importcpp: "NbNodes",
+                                       header: "Poly_Polygon2D.hxx".}
 proc nodes*(this: PolyPolygon2D): TColgpArray1OfPnt2d {.noSideEffect,
     importcpp: "Nodes", header: "Poly_Polygon2D.hxx".}
 proc changeNodes*(this: var PolyPolygon2D): var TColgpArray1OfPnt2d {.
     importcpp: "ChangeNodes", header: "Poly_Polygon2D.hxx".}
 proc dumpJson*(this: PolyPolygon2D; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Poly_Polygon2D.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Poly_Polygon2D.hxx".}
 type
   PolyPolygon2DbaseType* = StandardTransient
 
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Poly_Polygon2D.hxx".}
 proc dynamicType*(this: PolyPolygon2D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Poly_Polygon2D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

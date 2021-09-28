@@ -17,3 +17,28 @@
 type
   TColGeomArray2OfSurface* = NCollectionArray2[Handle[GeomSurface]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

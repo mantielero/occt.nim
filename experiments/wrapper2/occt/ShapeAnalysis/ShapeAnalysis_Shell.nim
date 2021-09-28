@@ -33,9 +33,9 @@ proc checkOrientedShells*(this: var ShapeAnalysisShell; shape: TopoDS_Shape;
     importcpp: "CheckOrientedShells", header: "ShapeAnalysis_Shell.hxx".}
 proc isLoaded*(this: ShapeAnalysisShell; shape: TopoDS_Shape): bool {.noSideEffect,
     importcpp: "IsLoaded", header: "ShapeAnalysis_Shell.hxx".}
-proc nbLoaded*(this: ShapeAnalysisShell): int {.noSideEffect, importcpp: "NbLoaded",
+proc nbLoaded*(this: ShapeAnalysisShell): cint {.noSideEffect, importcpp: "NbLoaded",
     header: "ShapeAnalysis_Shell.hxx".}
-proc loaded*(this: ShapeAnalysisShell; num: int): TopoDS_Shape {.noSideEffect,
+proc loaded*(this: ShapeAnalysisShell; num: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "Loaded", header: "ShapeAnalysis_Shell.hxx".}
 proc hasBadEdges*(this: ShapeAnalysisShell): bool {.noSideEffect,
     importcpp: "HasBadEdges", header: "ShapeAnalysis_Shell.hxx".}
@@ -47,3 +47,28 @@ proc freeEdges*(this: ShapeAnalysisShell): TopoDS_Compound {.noSideEffect,
     importcpp: "FreeEdges", header: "ShapeAnalysis_Shell.hxx".}
 proc hasConnectedEdges*(this: ShapeAnalysisShell): bool {.noSideEffect,
     importcpp: "HasConnectedEdges", header: "ShapeAnalysis_Shell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

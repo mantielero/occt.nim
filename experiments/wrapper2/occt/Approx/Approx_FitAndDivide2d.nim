@@ -37,31 +37,32 @@ type
                                                                            ## algorithms.
 
 
-proc constructApproxFitAndDivide2d*(line: AppContFunction; degreemin: int = 3;
-                                   degreemax: int = 8; tolerance3d: float = 1.0e-5;
-                                   tolerance2d: float = 1.0e-5;
+proc constructApproxFitAndDivide2d*(line: AppContFunction; degreemin: cint = 3;
+                                   degreemax: cint = 8;
+                                   tolerance3d: cfloat = 1.0e-5;
+                                   tolerance2d: cfloat = 1.0e-5;
                                    cutting: bool = false; firstC: AppParCurvesConstraint = appParCurvesTangencyPoint;
     lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): ApproxFitAndDivide2d {.
     constructor, importcpp: "Approx_FitAndDivide2d(@)",
     header: "Approx_FitAndDivide2d.hxx".}
-proc constructApproxFitAndDivide2d*(degreemin: int = 3; degreemax: int = 8;
-                                   tolerance3d: float = 1.0e-05;
-                                   tolerance2d: float = 1.0e-05;
+proc constructApproxFitAndDivide2d*(degreemin: cint = 3; degreemax: cint = 8;
+                                   tolerance3d: cfloat = 1.0e-05;
+                                   tolerance2d: cfloat = 1.0e-05;
                                    cutting: bool = false; firstC: AppParCurvesConstraint = appParCurvesTangencyPoint;
     lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): ApproxFitAndDivide2d {.
     constructor, importcpp: "Approx_FitAndDivide2d(@)",
     header: "Approx_FitAndDivide2d.hxx".}
 proc perform*(this: var ApproxFitAndDivide2d; line: AppContFunction) {.
     importcpp: "Perform", header: "Approx_FitAndDivide2d.hxx".}
-proc setDegrees*(this: var ApproxFitAndDivide2d; degreemin: int; degreemax: int) {.
+proc setDegrees*(this: var ApproxFitAndDivide2d; degreemin: cint; degreemax: cint) {.
     importcpp: "SetDegrees", header: "Approx_FitAndDivide2d.hxx".}
-proc setTolerances*(this: var ApproxFitAndDivide2d; tolerance3d: float;
-                   tolerance2d: float) {.importcpp: "SetTolerances",
-                                       header: "Approx_FitAndDivide2d.hxx".}
+proc setTolerances*(this: var ApproxFitAndDivide2d; tolerance3d: cfloat;
+                   tolerance2d: cfloat) {.importcpp: "SetTolerances",
+                                        header: "Approx_FitAndDivide2d.hxx".}
 proc setConstraints*(this: var ApproxFitAndDivide2d; firstC: AppParCurvesConstraint;
                     lastC: AppParCurvesConstraint) {.importcpp: "SetConstraints",
     header: "Approx_FitAndDivide2d.hxx".}
-proc setMaxSegments*(this: var ApproxFitAndDivide2d; theMaxSegments: int) {.
+proc setMaxSegments*(this: var ApproxFitAndDivide2d; theMaxSegments: cint) {.
     importcpp: "SetMaxSegments", header: "Approx_FitAndDivide2d.hxx".}
 proc setInvOrder*(this: var ApproxFitAndDivide2d; theInvOrder: bool) {.
     importcpp: "SetInvOrder", header: "Approx_FitAndDivide2d.hxx".}
@@ -71,12 +72,38 @@ proc isAllApproximated*(this: ApproxFitAndDivide2d): bool {.noSideEffect,
     importcpp: "IsAllApproximated", header: "Approx_FitAndDivide2d.hxx".}
 proc isToleranceReached*(this: ApproxFitAndDivide2d): bool {.noSideEffect,
     importcpp: "IsToleranceReached", header: "Approx_FitAndDivide2d.hxx".}
-proc error*(this: ApproxFitAndDivide2d; index: int; tol3d: var float; tol2d: var float) {.
-    noSideEffect, importcpp: "Error", header: "Approx_FitAndDivide2d.hxx".}
-proc nbMultiCurves*(this: ApproxFitAndDivide2d): int {.noSideEffect,
+proc error*(this: ApproxFitAndDivide2d; index: cint; tol3d: var cfloat;
+           tol2d: var cfloat) {.noSideEffect, importcpp: "Error",
+                             header: "Approx_FitAndDivide2d.hxx".}
+proc nbMultiCurves*(this: ApproxFitAndDivide2d): cint {.noSideEffect,
     importcpp: "NbMultiCurves", header: "Approx_FitAndDivide2d.hxx".}
-proc value*(this: ApproxFitAndDivide2d; index: int = 1): AppParCurvesMultiCurve {.
+proc value*(this: ApproxFitAndDivide2d; index: cint = 1): AppParCurvesMultiCurve {.
     noSideEffect, importcpp: "Value", header: "Approx_FitAndDivide2d.hxx".}
-proc parameters*(this: ApproxFitAndDivide2d; index: int; firstp: var float;
-                lastp: var float) {.noSideEffect, importcpp: "Parameters",
-                                 header: "Approx_FitAndDivide2d.hxx".}
+proc parameters*(this: ApproxFitAndDivide2d; index: cint; firstp: var cfloat;
+                lastp: var cfloat) {.noSideEffect, importcpp: "Parameters",
+                                  header: "Approx_FitAndDivide2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

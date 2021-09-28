@@ -19,3 +19,28 @@ include TColGeom_SequenceOfBoundedCurve
 include TColGeom_SequenceOfCurve
 include TColGeom_SequenceOfSurface
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

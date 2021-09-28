@@ -29,7 +29,7 @@ proc constructRWStepReprRWGlobalUnitAssignedContext*(): RWStepReprRWGlobalUnitAs
     constructor, importcpp: "RWStepRepr_RWGlobalUnitAssignedContext(@)",
     header: "RWStepRepr_RWGlobalUnitAssignedContext.hxx".}
 proc readStep*(this: RWStepReprRWGlobalUnitAssignedContext;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprGlobalUnitAssignedContext]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWGlobalUnitAssignedContext.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepReprRWGlobalUnitAssignedContext;
            ent: Handle[StepReprGlobalUnitAssignedContext];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWGlobalUnitAssignedContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

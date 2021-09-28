@@ -23,7 +23,7 @@ discard "forward decl of Message_Messenger"
 discard "forward decl of CDF_MetaDataDriver"
 discard "forward decl of CDF_MetaDataDriver"
 type
-  HandleCDF_MetaDataDriver* = Handle[CDF_MetaDataDriver]
+  HandleC1C1* = Handle[CDF_MetaDataDriver]
 
 ## ! this class list the method that must be available for
 ## ! a specific DBMS
@@ -61,8 +61,8 @@ proc createDependsOn*(this: var CDF_MetaDataDriver;
                      aSecondData: Handle[CDM_MetaData]) {.
     importcpp: "CreateDependsOn", header: "CDF_MetaDataDriver.hxx".}
 proc createReference*(this: var CDF_MetaDataDriver; aFrom: Handle[CDM_MetaData];
-                     aTo: Handle[CDM_MetaData]; aReferenceIdentifier: int;
-                     aToDocumentVersion: int) {.importcpp: "CreateReference",
+                     aTo: Handle[CDM_MetaData]; aReferenceIdentifier: cint;
+                     aToDocumentVersion: cint) {.importcpp: "CreateReference",
     header: "CDF_MetaDataDriver.hxx".}
 proc hasVersion*(this: var CDF_MetaDataDriver; aFolder: TCollectionExtendedString;
                 aName: TCollectionExtendedString): bool {.importcpp: "HasVersion",
@@ -113,3 +113,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "CDF_MetaDataDriver.hxx".}
 proc dynamicType*(this: CDF_MetaDataDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDF_MetaDataDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

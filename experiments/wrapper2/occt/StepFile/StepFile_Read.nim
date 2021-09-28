@@ -23,8 +23,8 @@
 
 ## # include <stepread.h>  : sauf recfile_modeprint, declare ici
 
-proc stepFileReadTrace*(mode: int) {.importcpp: "StepFile_ReadTrace(@)",
-                                  header: "StepFile_Read.hxx".}
+proc stepFileReadTrace*(mode: cint) {.importcpp: "StepFile_ReadTrace(@)",
+                                   header: "StepFile_Read.hxx".}
 ##  Modal : 0 pas de trace, 1 trace LoadModel, 2 & 3 + trace interne lex-yac
 ## ! Working function reading STEP file or stream.
 ## ! @param theName - name of the file or stream
@@ -35,5 +35,30 @@ proc stepFileReadTrace*(mode: int) {.importcpp: "StepFile_ReadTrace(@)",
 
 proc stepFileRead*(theName: cstring; theIStream: ptr Istream;
                   theModel: Handle[StepDataStepModel];
-                  theProtocol: Handle[StepDataProtocol]): int {.
+                  theProtocol: Handle[StepDataProtocol]): cint {.
     importcpp: "StepFile_Read(@)", header: "StepFile_Read.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

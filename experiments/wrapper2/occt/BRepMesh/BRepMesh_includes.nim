@@ -60,3 +60,28 @@ include BRepMesh_Vertex
 include BRepMesh_VertexInspector
 include BRepMesh_VertexTool
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

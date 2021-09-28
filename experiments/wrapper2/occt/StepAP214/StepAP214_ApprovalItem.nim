@@ -48,7 +48,7 @@ type
 
 proc constructStepAP214ApprovalItem*(): StepAP214ApprovalItem {.constructor,
     importcpp: "StepAP214_ApprovalItem(@)", header: "StepAP214_ApprovalItem.hxx".}
-proc caseNum*(this: StepAP214ApprovalItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP214ApprovalItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_ApprovalItem.hxx".}
 proc assemblyComponentUsageSubstitute*(this: StepAP214ApprovalItem): Handle[
     StepReprAssemblyComponentUsageSubstitute] {.noSideEffect,
@@ -114,3 +114,28 @@ proc shapeAspectRelationship*(this: StepAP214ApprovalItem): Handle[
     StepReprShapeAspectRelationship] {.noSideEffect,
                                       importcpp: "ShapeAspectRelationship",
                                       header: "StepAP214_ApprovalItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

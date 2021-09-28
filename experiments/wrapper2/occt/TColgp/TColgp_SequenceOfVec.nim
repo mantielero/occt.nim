@@ -17,3 +17,28 @@
 type
   TColgpSequenceOfVec* = NCollectionSequence[Vec]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

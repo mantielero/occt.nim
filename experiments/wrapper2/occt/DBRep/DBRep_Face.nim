@@ -19,7 +19,7 @@ discard "forward decl of Draw_Color"
 discard "forward decl of DBRep_Face"
 discard "forward decl of DBRep_Face"
 type
-  HandleDBRepFace* = Handle[DBRepFace]
+  HandleC1C1* = Handle[DBRepFace]
 
 ## ! Display of a face. Face + Array of iso + color.
 
@@ -35,19 +35,19 @@ type
                                                                                                ## intervals.
 
 
-proc constructDBRepFace*(f: TopoDS_Face; n: int; c: DrawColor): DBRepFace {.constructor,
-    importcpp: "DBRep_Face(@)", header: "DBRep_Face.hxx".}
+proc constructDBRepFace*(f: TopoDS_Face; n: cint; c: DrawColor): DBRepFace {.
+    constructor, importcpp: "DBRep_Face(@)", header: "DBRep_Face.hxx".}
 proc face*(this: DBRepFace): TopoDS_Face {.noSideEffect, importcpp: "Face",
                                        header: "DBRep_Face.hxx".}
 proc face*(this: var DBRepFace; f: TopoDS_Face) {.importcpp: "Face",
     header: "DBRep_Face.hxx".}
-proc nbIsos*(this: DBRepFace): int {.noSideEffect, importcpp: "NbIsos",
-                                 header: "DBRep_Face.hxx".}
-proc iso*(this: var DBRepFace; i: int; t: GeomAbsIsoType; par: float; t1: float; t2: float) {.
-    importcpp: "Iso", header: "DBRep_Face.hxx".}
-proc getIso*(this: DBRepFace; i: int; t: var GeomAbsIsoType; par: var float; t1: var float;
-            t2: var float) {.noSideEffect, importcpp: "GetIso",
-                          header: "DBRep_Face.hxx".}
+proc nbIsos*(this: DBRepFace): cint {.noSideEffect, importcpp: "NbIsos",
+                                  header: "DBRep_Face.hxx".}
+proc iso*(this: var DBRepFace; i: cint; t: GeomAbsIsoType; par: cfloat; t1: cfloat;
+         t2: cfloat) {.importcpp: "Iso", header: "DBRep_Face.hxx".}
+proc getIso*(this: DBRepFace; i: cint; t: var GeomAbsIsoType; par: var cfloat;
+            t1: var cfloat; t2: var cfloat) {.noSideEffect, importcpp: "GetIso",
+                                        header: "DBRep_Face.hxx".}
 proc color*(this: DBRepFace): DrawColor {.noSideEffect, importcpp: "Color",
                                       header: "DBRep_Face.hxx".}
 proc color*(this: var DBRepFace; c: DrawColor) {.importcpp: "Color",
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DBRep_Face::get_type_descriptor(@)", header: "DBRep_Face.hxx".}
 proc dynamicType*(this: DBRepFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DBRep_Face.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

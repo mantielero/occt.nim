@@ -34,3 +34,28 @@ proc isCopied*(this: BRepToolsSubstitution; s: TopoDS_Shape): bool {.noSideEffec
     importcpp: "IsCopied", header: "BRepTools_Substitution.hxx".}
 proc copy*(this: BRepToolsSubstitution; s: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "Copy", header: "BRepTools_Substitution.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

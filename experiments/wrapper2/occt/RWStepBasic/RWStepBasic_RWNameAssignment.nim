@@ -30,7 +30,7 @@ proc constructRWStepBasicRWNameAssignment*(): RWStepBasicRWNameAssignment {.
     constructor, importcpp: "RWStepBasic_RWNameAssignment(@)",
     header: "RWStepBasic_RWNameAssignment.hxx".}
 proc readStep*(this: RWStepBasicRWNameAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicNameAssignment]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWNameAssignment.hxx".}
 proc writeStep*(this: RWStepBasicRWNameAssignment; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepBasicRWNameAssignment; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWNameAssignment;
            ent: Handle[StepBasicNameAssignment]; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "Share", header: "RWStepBasic_RWNameAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

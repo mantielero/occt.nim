@@ -24,9 +24,9 @@ type
 
 proc constructStepShapeCsgSelect*(): StepShapeCsgSelect {.constructor,
     importcpp: "StepShape_CsgSelect(@)", header: "StepShape_CsgSelect.hxx".}
-proc setTypeOfContent*(this: var StepShapeCsgSelect; aTypeOfContent: int) {.
+proc setTypeOfContent*(this: var StepShapeCsgSelect; aTypeOfContent: cint) {.
     importcpp: "SetTypeOfContent", header: "StepShape_CsgSelect.hxx".}
-proc typeOfContent*(this: StepShapeCsgSelect): int {.noSideEffect,
+proc typeOfContent*(this: StepShapeCsgSelect): cint {.noSideEffect,
     importcpp: "TypeOfContent", header: "StepShape_CsgSelect.hxx".}
 proc booleanResult*(this: StepShapeCsgSelect): Handle[StepShapeBooleanResult] {.
     noSideEffect, importcpp: "BooleanResult", header: "StepShape_CsgSelect.hxx".}
@@ -38,3 +38,28 @@ proc csgPrimitive*(this: StepShapeCsgSelect): StepShapeCsgPrimitive {.noSideEffe
 proc setCsgPrimitive*(this: var StepShapeCsgSelect;
                      aCsgPrimitive: StepShapeCsgPrimitive) {.
     importcpp: "SetCsgPrimitive", header: "StepShape_CsgSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

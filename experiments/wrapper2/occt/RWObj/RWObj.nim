@@ -22,3 +22,28 @@ type
 proc readFile*(theFile: StandardCString;
               aProgress: MessageProgressRange = messageProgressRange()): Handle[
     PolyTriangulation] {.importcpp: "RWObj::ReadFile(@)", header: "RWObj.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

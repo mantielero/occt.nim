@@ -46,3 +46,28 @@ proc project*(this: var ProjLibTorus; p: Parab) {.importcpp: "Project",
     header: "ProjLib_Torus.hxx".}
 proc project*(this: var ProjLibTorus; h: Hypr) {.importcpp: "Project",
     header: "ProjLib_Torus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

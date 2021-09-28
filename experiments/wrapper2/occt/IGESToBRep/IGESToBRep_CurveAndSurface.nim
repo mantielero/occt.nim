@@ -55,34 +55,34 @@ type
 proc constructIGESToBRepCurveAndSurface*(): IGESToBRepCurveAndSurface {.
     constructor, importcpp: "IGESToBRep_CurveAndSurface(@)",
     header: "IGESToBRep_CurveAndSurface.hxx".}
-proc constructIGESToBRepCurveAndSurface*(eps: float; epsGeom: float; epsCoeff: float;
-                                        mode: bool; modeapprox: bool;
-                                        optimized: bool): IGESToBRepCurveAndSurface {.
+proc constructIGESToBRepCurveAndSurface*(eps: cfloat; epsGeom: cfloat;
+                                        epsCoeff: cfloat; mode: bool;
+                                        modeapprox: bool; optimized: bool): IGESToBRepCurveAndSurface {.
     constructor, importcpp: "IGESToBRep_CurveAndSurface(@)",
     header: "IGESToBRep_CurveAndSurface.hxx".}
 proc init*(this: var IGESToBRepCurveAndSurface) {.importcpp: "Init",
     header: "IGESToBRep_CurveAndSurface.hxx".}
-proc setEpsilon*(this: var IGESToBRepCurveAndSurface; eps: float) {.
+proc setEpsilon*(this: var IGESToBRepCurveAndSurface; eps: cfloat) {.
     importcpp: "SetEpsilon", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc getEpsilon*(this: IGESToBRepCurveAndSurface): float {.noSideEffect,
+proc getEpsilon*(this: IGESToBRepCurveAndSurface): cfloat {.noSideEffect,
     importcpp: "GetEpsilon", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc setEpsCoeff*(this: var IGESToBRepCurveAndSurface; eps: float) {.
+proc setEpsCoeff*(this: var IGESToBRepCurveAndSurface; eps: cfloat) {.
     importcpp: "SetEpsCoeff", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc getEpsCoeff*(this: IGESToBRepCurveAndSurface): float {.noSideEffect,
+proc getEpsCoeff*(this: IGESToBRepCurveAndSurface): cfloat {.noSideEffect,
     importcpp: "GetEpsCoeff", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc setEpsGeom*(this: var IGESToBRepCurveAndSurface; eps: float) {.
+proc setEpsGeom*(this: var IGESToBRepCurveAndSurface; eps: cfloat) {.
     importcpp: "SetEpsGeom", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc getEpsGeom*(this: IGESToBRepCurveAndSurface): float {.noSideEffect,
+proc getEpsGeom*(this: IGESToBRepCurveAndSurface): cfloat {.noSideEffect,
     importcpp: "GetEpsGeom", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc setMinTol*(this: var IGESToBRepCurveAndSurface; mintol: float) {.
+proc setMinTol*(this: var IGESToBRepCurveAndSurface; mintol: cfloat) {.
     importcpp: "SetMinTol", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc setMaxTol*(this: var IGESToBRepCurveAndSurface; maxtol: float) {.
+proc setMaxTol*(this: var IGESToBRepCurveAndSurface; maxtol: cfloat) {.
     importcpp: "SetMaxTol", header: "IGESToBRep_CurveAndSurface.hxx".}
 proc updateMinMaxTol*(this: var IGESToBRepCurveAndSurface) {.
     importcpp: "UpdateMinMaxTol", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc getMinTol*(this: IGESToBRepCurveAndSurface): float {.noSideEffect,
+proc getMinTol*(this: IGESToBRepCurveAndSurface): cfloat {.noSideEffect,
     importcpp: "GetMinTol", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc getMaxTol*(this: IGESToBRepCurveAndSurface): float {.noSideEffect,
+proc getMaxTol*(this: IGESToBRepCurveAndSurface): cfloat {.noSideEffect,
     importcpp: "GetMaxTol", header: "IGESToBRep_CurveAndSurface.hxx".}
 proc setModeApprox*(this: var IGESToBRepCurveAndSurface; mode: bool) {.
     importcpp: "SetModeApprox", header: "IGESToBRep_CurveAndSurface.hxx".}
@@ -96,19 +96,19 @@ proc setOptimized*(this: var IGESToBRepCurveAndSurface; optimized: bool) {.
     importcpp: "SetOptimized", header: "IGESToBRep_CurveAndSurface.hxx".}
 proc getOptimized*(this: IGESToBRepCurveAndSurface): bool {.noSideEffect,
     importcpp: "GetOptimized", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc getUnitFactor*(this: IGESToBRepCurveAndSurface): float {.noSideEffect,
+proc getUnitFactor*(this: IGESToBRepCurveAndSurface): cfloat {.noSideEffect,
     importcpp: "GetUnitFactor", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc setSurfaceCurve*(this: var IGESToBRepCurveAndSurface; ival: int) {.
+proc setSurfaceCurve*(this: var IGESToBRepCurveAndSurface; ival: cint) {.
     importcpp: "SetSurfaceCurve", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc getSurfaceCurve*(this: IGESToBRepCurveAndSurface): int {.noSideEffect,
+proc getSurfaceCurve*(this: IGESToBRepCurveAndSurface): cint {.noSideEffect,
     importcpp: "GetSurfaceCurve", header: "IGESToBRep_CurveAndSurface.hxx".}
 proc setModel*(this: var IGESToBRepCurveAndSurface; model: Handle[IGESDataIGESModel]) {.
     importcpp: "SetModel", header: "IGESToBRep_CurveAndSurface.hxx".}
 proc getModel*(this: IGESToBRepCurveAndSurface): Handle[IGESDataIGESModel] {.
     noSideEffect, importcpp: "GetModel", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc setContinuity*(this: var IGESToBRepCurveAndSurface; continuity: int) {.
+proc setContinuity*(this: var IGESToBRepCurveAndSurface; continuity: cint) {.
     importcpp: "SetContinuity", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc getContinuity*(this: IGESToBRepCurveAndSurface): int {.noSideEffect,
+proc getContinuity*(this: IGESToBRepCurveAndSurface): cint {.noSideEffect,
     importcpp: "GetContinuity", header: "IGESToBRep_CurveAndSurface.hxx".}
 proc setTransferProcess*(this: var IGESToBRepCurveAndSurface;
                         tp: Handle[TransferTransientProcess]) {.
@@ -142,10 +142,10 @@ proc setShapeResult*(this: var IGESToBRepCurveAndSurface;
                     start: Handle[IGESDataIGESEntity]; result: TopoDS_Shape) {.
     importcpp: "SetShapeResult", header: "IGESToBRep_CurveAndSurface.hxx".}
 proc nbShapeResult*(this: IGESToBRepCurveAndSurface;
-                   start: Handle[IGESDataIGESEntity]): int {.noSideEffect,
+                   start: Handle[IGESDataIGESEntity]): cint {.noSideEffect,
     importcpp: "NbShapeResult", header: "IGESToBRep_CurveAndSurface.hxx".}
 proc getShapeResult*(this: IGESToBRepCurveAndSurface;
-                    start: Handle[IGESDataIGESEntity]; num: int): TopoDS_Shape {.
+                    start: Handle[IGESDataIGESEntity]; num: cint): TopoDS_Shape {.
     noSideEffect, importcpp: "GetShapeResult",
     header: "IGESToBRep_CurveAndSurface.hxx".}
 proc addShapeResult*(this: var IGESToBRepCurveAndSurface;
@@ -156,5 +156,30 @@ proc setSurface*(this: var IGESToBRepCurveAndSurface;
     header: "IGESToBRep_CurveAndSurface.hxx".}
 proc surface*(this: IGESToBRepCurveAndSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "IGESToBRep_CurveAndSurface.hxx".}
-proc getUVResolution*(this: var IGESToBRepCurveAndSurface): float {.
+proc getUVResolution*(this: var IGESToBRepCurveAndSurface): cfloat {.
     importcpp: "GetUVResolution", header: "IGESToBRep_CurveAndSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

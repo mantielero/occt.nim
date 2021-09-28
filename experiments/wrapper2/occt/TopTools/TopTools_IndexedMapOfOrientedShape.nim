@@ -18,3 +18,28 @@ type
   TopToolsIndexedMapOfOrientedShape* = NCollectionIndexedMap[TopoDS_Shape,
       TopToolsOrientedShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

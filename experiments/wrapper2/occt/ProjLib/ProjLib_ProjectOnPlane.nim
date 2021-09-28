@@ -48,7 +48,7 @@ proc constructProjLibProjectOnPlane*(pl: Ax3; d: Dir): ProjLibProjectOnPlane {.
     constructor, importcpp: "ProjLib_ProjectOnPlane(@)",
     header: "ProjLib_ProjectOnPlane.hxx".}
 proc load*(this: var ProjLibProjectOnPlane; c: Handle[Adaptor3dHCurve];
-          tolerance: float; keepParametrization: bool = true) {.importcpp: "Load",
+          tolerance: cfloat; keepParametrization: bool = true) {.importcpp: "Load",
     header: "ProjLib_ProjectOnPlane.hxx".}
 proc getPlane*(this: ProjLibProjectOnPlane): Ax3 {.noSideEffect,
     importcpp: "GetPlane", header: "ProjLib_ProjectOnPlane.hxx".}
@@ -58,40 +58,40 @@ proc getCurve*(this: ProjLibProjectOnPlane): Handle[Adaptor3dHCurve] {.noSideEff
     importcpp: "GetCurve", header: "ProjLib_ProjectOnPlane.hxx".}
 proc getResult*(this: ProjLibProjectOnPlane): Handle[GeomAdaptorHCurve] {.
     noSideEffect, importcpp: "GetResult", header: "ProjLib_ProjectOnPlane.hxx".}
-proc firstParameter*(this: ProjLibProjectOnPlane): float {.noSideEffect,
+proc firstParameter*(this: ProjLibProjectOnPlane): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "ProjLib_ProjectOnPlane.hxx".}
-proc lastParameter*(this: ProjLibProjectOnPlane): float {.noSideEffect,
+proc lastParameter*(this: ProjLibProjectOnPlane): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "ProjLib_ProjectOnPlane.hxx".}
 proc continuity*(this: ProjLibProjectOnPlane): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "ProjLib_ProjectOnPlane.hxx".}
-proc nbIntervals*(this: ProjLibProjectOnPlane; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: ProjLibProjectOnPlane; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "ProjLib_ProjectOnPlane.hxx".}
 proc intervals*(this: ProjLibProjectOnPlane; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
                                 header: "ProjLib_ProjectOnPlane.hxx".}
-proc trim*(this: ProjLibProjectOnPlane; first: float; last: float; tol: float): Handle[
+proc trim*(this: ProjLibProjectOnPlane; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHCurve] {.noSideEffect, importcpp: "Trim",
                       header: "ProjLib_ProjectOnPlane.hxx".}
 proc isClosed*(this: ProjLibProjectOnPlane): bool {.noSideEffect,
     importcpp: "IsClosed", header: "ProjLib_ProjectOnPlane.hxx".}
 proc isPeriodic*(this: ProjLibProjectOnPlane): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "ProjLib_ProjectOnPlane.hxx".}
-proc period*(this: ProjLibProjectOnPlane): float {.noSideEffect, importcpp: "Period",
-    header: "ProjLib_ProjectOnPlane.hxx".}
-proc value*(this: ProjLibProjectOnPlane; u: float): Pnt {.noSideEffect,
+proc period*(this: ProjLibProjectOnPlane): cfloat {.noSideEffect,
+    importcpp: "Period", header: "ProjLib_ProjectOnPlane.hxx".}
+proc value*(this: ProjLibProjectOnPlane; u: cfloat): Pnt {.noSideEffect,
     importcpp: "Value", header: "ProjLib_ProjectOnPlane.hxx".}
-proc d0*(this: ProjLibProjectOnPlane; u: float; p: var Pnt) {.noSideEffect,
+proc d0*(this: ProjLibProjectOnPlane; u: cfloat; p: var Pnt) {.noSideEffect,
     importcpp: "D0", header: "ProjLib_ProjectOnPlane.hxx".}
-proc d1*(this: ProjLibProjectOnPlane; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
+proc d1*(this: ProjLibProjectOnPlane; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect,
     importcpp: "D1", header: "ProjLib_ProjectOnPlane.hxx".}
-proc d2*(this: ProjLibProjectOnPlane; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: ProjLibProjectOnPlane; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
     noSideEffect, importcpp: "D2", header: "ProjLib_ProjectOnPlane.hxx".}
-proc d3*(this: ProjLibProjectOnPlane; u: float; p: var Pnt; v1: var Vec; v2: var Vec;
+proc d3*(this: ProjLibProjectOnPlane; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec;
         v3: var Vec) {.noSideEffect, importcpp: "D3",
                     header: "ProjLib_ProjectOnPlane.hxx".}
-proc dn*(this: ProjLibProjectOnPlane; u: float; n: int): Vec {.noSideEffect,
+proc dn*(this: ProjLibProjectOnPlane; u: cfloat; n: cint): Vec {.noSideEffect,
     importcpp: "DN", header: "ProjLib_ProjectOnPlane.hxx".}
-proc resolution*(this: ProjLibProjectOnPlane; r3d: float): float {.noSideEffect,
+proc resolution*(this: ProjLibProjectOnPlane; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "Resolution", header: "ProjLib_ProjectOnPlane.hxx".}
 proc getType*(this: ProjLibProjectOnPlane): GeomAbsCurveType {.noSideEffect,
     importcpp: "GetType", header: "ProjLib_ProjectOnPlane.hxx".}
@@ -105,15 +105,40 @@ proc hyperbola*(this: ProjLibProjectOnPlane): Hypr {.noSideEffect,
     importcpp: "Hyperbola", header: "ProjLib_ProjectOnPlane.hxx".}
 proc parabola*(this: ProjLibProjectOnPlane): Parab {.noSideEffect,
     importcpp: "Parabola", header: "ProjLib_ProjectOnPlane.hxx".}
-proc degree*(this: ProjLibProjectOnPlane): int {.noSideEffect, importcpp: "Degree",
+proc degree*(this: ProjLibProjectOnPlane): cint {.noSideEffect, importcpp: "Degree",
     header: "ProjLib_ProjectOnPlane.hxx".}
 proc isRational*(this: ProjLibProjectOnPlane): bool {.noSideEffect,
     importcpp: "IsRational", header: "ProjLib_ProjectOnPlane.hxx".}
-proc nbPoles*(this: ProjLibProjectOnPlane): int {.noSideEffect, importcpp: "NbPoles",
-    header: "ProjLib_ProjectOnPlane.hxx".}
-proc nbKnots*(this: ProjLibProjectOnPlane): int {.noSideEffect, importcpp: "NbKnots",
-    header: "ProjLib_ProjectOnPlane.hxx".}
+proc nbPoles*(this: ProjLibProjectOnPlane): cint {.noSideEffect,
+    importcpp: "NbPoles", header: "ProjLib_ProjectOnPlane.hxx".}
+proc nbKnots*(this: ProjLibProjectOnPlane): cint {.noSideEffect,
+    importcpp: "NbKnots", header: "ProjLib_ProjectOnPlane.hxx".}
 proc bezier*(this: ProjLibProjectOnPlane): Handle[GeomBezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "ProjLib_ProjectOnPlane.hxx".}
 proc bSpline*(this: ProjLibProjectOnPlane): Handle[GeomBSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "ProjLib_ProjectOnPlane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

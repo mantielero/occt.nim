@@ -18,3 +18,28 @@ type
   DBRepListOfEdge* = NCollectionList[Handle[DBRepEdge]]
   DBRepListIteratorOfListOfEdge* = Iterator[Handle[DBRepEdge]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

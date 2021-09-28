@@ -26,8 +26,34 @@ type
 proc constructRWStepShapeRWVertex*(): RWStepShapeRWVertex {.constructor,
     importcpp: "RWStepShape_RWVertex(@)", header: "RWStepShape_RWVertex.hxx".}
 proc readStep*(this: RWStepShapeRWVertex; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeVertex]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWVertex.hxx".}
+              num: cint; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeVertex]) {.noSideEffect, importcpp: "ReadStep",
+    header: "RWStepShape_RWVertex.hxx".}
 proc writeStep*(this: RWStepShapeRWVertex; sw: var StepDataStepWriter;
                ent: Handle[StepShapeVertex]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepBasicRWEffectivity*(): RWStepBasicRWEffectivity {.constructo
     importcpp: "RWStepBasic_RWEffectivity(@)",
     header: "RWStepBasic_RWEffectivity.hxx".}
 proc readStep*(this: RWStepBasicRWEffectivity;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicEffectivity]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWEffectivity.hxx".}
 proc writeStep*(this: RWStepBasicRWEffectivity; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepBasicRWEffectivity; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWEffectivity; ent: Handle[StepBasicEffectivity];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWEffectivity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

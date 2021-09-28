@@ -35,14 +35,14 @@ type
 proc constructBRepClass3dSClassifier*(): BRepClass3dSClassifier {.constructor,
     importcpp: "BRepClass3d_SClassifier(@)", header: "BRepClass3d_SClassifier.hxx".}
 proc constructBRepClass3dSClassifier*(s: var BRepClass3dSolidExplorer; p: Pnt;
-                                     tol: float): BRepClass3dSClassifier {.
+                                     tol: cfloat): BRepClass3dSClassifier {.
     constructor, importcpp: "BRepClass3d_SClassifier(@)",
     header: "BRepClass3d_SClassifier.hxx".}
 proc perform*(this: var BRepClass3dSClassifier; s: var BRepClass3dSolidExplorer;
-             p: Pnt; tol: float) {.importcpp: "Perform",
-                               header: "BRepClass3d_SClassifier.hxx".}
+             p: Pnt; tol: cfloat) {.importcpp: "Perform",
+                                header: "BRepClass3d_SClassifier.hxx".}
 proc performInfinitePoint*(this: var BRepClass3dSClassifier;
-                          s: var BRepClass3dSolidExplorer; tol: float) {.
+                          s: var BRepClass3dSolidExplorer; tol: cfloat) {.
     importcpp: "PerformInfinitePoint", header: "BRepClass3d_SClassifier.hxx".}
 proc rejected*(this: BRepClass3dSClassifier): bool {.noSideEffect,
     importcpp: "Rejected", header: "BRepClass3d_SClassifier.hxx".}
@@ -52,3 +52,28 @@ proc isOnAFace*(this: BRepClass3dSClassifier): bool {.noSideEffect,
     importcpp: "IsOnAFace", header: "BRepClass3d_SClassifier.hxx".}
 proc face*(this: BRepClass3dSClassifier): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BRepClass3d_SClassifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

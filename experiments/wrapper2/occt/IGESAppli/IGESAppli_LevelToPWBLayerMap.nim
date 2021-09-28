@@ -20,7 +20,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESAppli_LevelToPWBLayerMap"
 discard "forward decl of IGESAppli_LevelToPWBLayerMap"
 type
-  HandleIGESAppliLevelToPWBLayerMap* = Handle[IGESAppliLevelToPWBLayerMap]
+  HandleC1C1* = Handle[IGESAppliLevelToPWBLayerMap]
 
 ## ! defines LevelToPWBLayerMap, Type <406> Form <24>
 ## ! in package IGESAppli
@@ -37,26 +37,26 @@ type
 proc constructIGESAppliLevelToPWBLayerMap*(): IGESAppliLevelToPWBLayerMap {.
     constructor, importcpp: "IGESAppli_LevelToPWBLayerMap(@)",
     header: "IGESAppli_LevelToPWBLayerMap.hxx".}
-proc init*(this: var IGESAppliLevelToPWBLayerMap; nbPropVal: int;
+proc init*(this: var IGESAppliLevelToPWBLayerMap; nbPropVal: cint;
           allExchLevels: Handle[TColStdHArray1OfInteger];
           allNativeLevels: Handle[InterfaceHArray1OfHAsciiString];
           allPhysLevels: Handle[TColStdHArray1OfInteger];
           allExchIdents: Handle[InterfaceHArray1OfHAsciiString]) {.
     importcpp: "Init", header: "IGESAppli_LevelToPWBLayerMap.hxx".}
-proc nbPropertyValues*(this: IGESAppliLevelToPWBLayerMap): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESAppliLevelToPWBLayerMap): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_LevelToPWBLayerMap.hxx".}
-proc nbLevelToLayerDefs*(this: IGESAppliLevelToPWBLayerMap): int {.noSideEffect,
+proc nbLevelToLayerDefs*(this: IGESAppliLevelToPWBLayerMap): cint {.noSideEffect,
     importcpp: "NbLevelToLayerDefs", header: "IGESAppli_LevelToPWBLayerMap.hxx".}
-proc exchangeFileLevelNumber*(this: IGESAppliLevelToPWBLayerMap; index: int): int {.
+proc exchangeFileLevelNumber*(this: IGESAppliLevelToPWBLayerMap; index: cint): cint {.
     noSideEffect, importcpp: "ExchangeFileLevelNumber",
     header: "IGESAppli_LevelToPWBLayerMap.hxx".}
-proc nativeLevel*(this: IGESAppliLevelToPWBLayerMap; index: int): Handle[
+proc nativeLevel*(this: IGESAppliLevelToPWBLayerMap; index: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "NativeLevel",
                               header: "IGESAppli_LevelToPWBLayerMap.hxx".}
-proc physicalLayerNumber*(this: IGESAppliLevelToPWBLayerMap; index: int): int {.
+proc physicalLayerNumber*(this: IGESAppliLevelToPWBLayerMap; index: cint): cint {.
     noSideEffect, importcpp: "PhysicalLayerNumber",
     header: "IGESAppli_LevelToPWBLayerMap.hxx".}
-proc exchangeFileLevelIdent*(this: IGESAppliLevelToPWBLayerMap; index: int): Handle[
+proc exchangeFileLevelIdent*(this: IGESAppliLevelToPWBLayerMap; index: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "ExchangeFileLevelIdent",
                               header: "IGESAppli_LevelToPWBLayerMap.hxx".}
 type
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESAppliLevelToPWBLayerMap): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESAppli_LevelToPWBLayerMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

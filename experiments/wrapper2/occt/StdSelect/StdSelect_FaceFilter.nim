@@ -18,7 +18,7 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of StdSelect_FaceFilter"
 discard "forward decl of StdSelect_FaceFilter"
 type
-  HandleStdSelectFaceFilter* = Handle[StdSelectFaceFilter]
+  HandleC1C1* = Handle[StdSelectFaceFilter]
 
 ## ! A framework to define a filter to select a specific type of face.
 ## ! The types available include:
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StdSelect_FaceFilter.hxx".}
 proc dynamicType*(this: StdSelectFaceFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdSelect_FaceFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

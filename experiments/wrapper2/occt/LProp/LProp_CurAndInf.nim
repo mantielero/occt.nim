@@ -22,17 +22,42 @@ type
 
 proc constructLPropCurAndInf*(): LPropCurAndInf {.constructor,
     importcpp: "LProp_CurAndInf(@)", header: "LProp_CurAndInf.hxx".}
-proc addInflection*(this: var LPropCurAndInf; param: float) {.
+proc addInflection*(this: var LPropCurAndInf; param: cfloat) {.
     importcpp: "AddInflection", header: "LProp_CurAndInf.hxx".}
-proc addExtCur*(this: var LPropCurAndInf; param: float; isMin: bool) {.
+proc addExtCur*(this: var LPropCurAndInf; param: cfloat; isMin: bool) {.
     importcpp: "AddExtCur", header: "LProp_CurAndInf.hxx".}
 proc clear*(this: var LPropCurAndInf) {.importcpp: "Clear",
                                     header: "LProp_CurAndInf.hxx".}
 proc isEmpty*(this: LPropCurAndInf): bool {.noSideEffect, importcpp: "IsEmpty",
                                         header: "LProp_CurAndInf.hxx".}
-proc nbPoints*(this: LPropCurAndInf): int {.noSideEffect, importcpp: "NbPoints",
-                                        header: "LProp_CurAndInf.hxx".}
-proc parameter*(this: LPropCurAndInf; n: int): float {.noSideEffect,
+proc nbPoints*(this: LPropCurAndInf): cint {.noSideEffect, importcpp: "NbPoints",
+    header: "LProp_CurAndInf.hxx".}
+proc parameter*(this: LPropCurAndInf; n: cint): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "LProp_CurAndInf.hxx".}
-proc `type`*(this: LPropCurAndInf; n: int): LPropCIType {.noSideEffect,
+proc `type`*(this: LPropCurAndInf; n: cint): LPropCIType {.noSideEffect,
     importcpp: "Type", header: "LProp_CurAndInf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

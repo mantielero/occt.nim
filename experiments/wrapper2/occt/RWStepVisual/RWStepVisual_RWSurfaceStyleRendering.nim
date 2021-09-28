@@ -28,7 +28,7 @@ proc constructRWStepVisualRWSurfaceStyleRendering*(): RWStepVisualRWSurfaceStyle
     constructor, importcpp: "RWStepVisual_RWSurfaceStyleRendering(@)",
     header: "RWStepVisual_RWSurfaceStyleRendering.hxx".}
 proc readStep*(this: RWStepVisualRWSurfaceStyleRendering;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualSurfaceStyleRendering]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWSurfaceStyleRendering.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepVisualRWSurfaceStyleRendering;
            ent: Handle[StepVisualSurfaceStyleRendering];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWSurfaceStyleRendering.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

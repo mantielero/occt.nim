@@ -31,19 +31,20 @@ type
     format* {.importc: "Format".}: TCollectionAsciiString ## !< [optional]  video format (container), if empty - will be determined from the file name
     videoCodec* {.importc: "VideoCodec".}: TCollectionAsciiString ## !< [optional]  codec identifier, if empty - default codec from file format will be used
     pixelFormat* {.importc: "PixelFormat".}: TCollectionAsciiString ## !< [optional]  pixel format, if empty - default codec pixel format will be used
-    width* {.importc: "Width".}: int ## !< [mandatory] video frame width
-    height* {.importc: "Height".}: int ## !< [mandatory] video frame height
-    fpsNum* {.importc: "FpsNum".}: int ## !< [mandatory] framerate numerator
-    fpsDen* {.importc: "FpsDen".}: int ## !< [mandatory] framerate denumerator
+    width* {.importc: "Width".}: cint ## !< [mandatory] video frame width
+    height* {.importc: "Height".}: cint ## !< [mandatory] video frame height
+    fpsNum* {.importc: "FpsNum".}: cint ## !< [mandatory] framerate numerator
+    fpsDen* {.importc: "FpsDen".}: cint ## !< [mandatory] framerate denumerator
     videoCodecParams* {.importc: "VideoCodecParams".}: ResourceDataMapOfAsciiStringAsciiString ## !< map of advanced video codec parameters
                                                                                            ## ! Empty constructor.
 
 
 proc constructImageVideoParams*(): ImageVideoParams {.constructor,
     importcpp: "Image_VideoParams(@)", header: "Image_VideoRecorder.hxx".}
-proc setFramerate*(this: var ImageVideoParams; theNumerator: int; theDenominator: int) {.
-    importcpp: "SetFramerate", header: "Image_VideoRecorder.hxx".}
-proc setFramerate*(this: var ImageVideoParams; theValue: int) {.
+proc setFramerate*(this: var ImageVideoParams; theNumerator: cint;
+                  theDenominator: cint) {.importcpp: "SetFramerate",
+                                        header: "Image_VideoRecorder.hxx".}
+proc setFramerate*(this: var ImageVideoParams; theValue: cint) {.
     importcpp: "SetFramerate", header: "Image_VideoRecorder.hxx".}
 ## ! Video recording tool based on FFmpeg framework.
 
@@ -97,5 +98,30 @@ proc pushFrame*(this: var ImageVideoRecorder): bool {.importcpp: "PushFrame",
     header: "Image_VideoRecorder.hxx".}
 discard "forward decl of Image_VideoRecorder"
 type
-  HandleImageVideoRecorder* = Handle[ImageVideoRecorder]
+  HandleC1C1* = Handle[ImageVideoRecorder]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

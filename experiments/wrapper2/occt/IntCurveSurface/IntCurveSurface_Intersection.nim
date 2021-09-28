@@ -37,15 +37,40 @@ type
 
 proc isDone*(this: IntCurveSurfaceIntersection): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntCurveSurface_Intersection.hxx".}
-proc nbPoints*(this: IntCurveSurfaceIntersection): int {.noSideEffect,
+proc nbPoints*(this: IntCurveSurfaceIntersection): cint {.noSideEffect,
     importcpp: "NbPoints", header: "IntCurveSurface_Intersection.hxx".}
-proc point*(this: IntCurveSurfaceIntersection; index: int): IntCurveSurfaceIntersectionPoint {.
+proc point*(this: IntCurveSurfaceIntersection; index: cint): IntCurveSurfaceIntersectionPoint {.
     noSideEffect, importcpp: "Point", header: "IntCurveSurface_Intersection.hxx".}
-proc nbSegments*(this: IntCurveSurfaceIntersection): int {.noSideEffect,
+proc nbSegments*(this: IntCurveSurfaceIntersection): cint {.noSideEffect,
     importcpp: "NbSegments", header: "IntCurveSurface_Intersection.hxx".}
-proc segment*(this: IntCurveSurfaceIntersection; index: int): IntCurveSurfaceIntersectionSegment {.
+proc segment*(this: IntCurveSurfaceIntersection; index: cint): IntCurveSurfaceIntersectionSegment {.
     noSideEffect, importcpp: "Segment", header: "IntCurveSurface_Intersection.hxx".}
 proc isParallel*(this: IntCurveSurfaceIntersection): bool {.noSideEffect,
     importcpp: "IsParallel", header: "IntCurveSurface_Intersection.hxx".}
 proc dump*(this: IntCurveSurfaceIntersection) {.noSideEffect, importcpp: "Dump",
     header: "IntCurveSurface_Intersection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

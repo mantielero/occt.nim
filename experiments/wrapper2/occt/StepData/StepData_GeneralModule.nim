@@ -22,7 +22,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of StepData_GeneralModule"
 discard "forward decl of StepData_GeneralModule"
 type
-  HandleStepDataGeneralModule* = Handle[StepDataGeneralModule]
+  HandleC1C1* = Handle[StepDataGeneralModule]
 
 ## ! Specific features for General Services adapted to STEP
 
@@ -54,15 +54,15 @@ type
                                                                                                      ## below
 
 
-proc fillSharedCase*(this: StepDataGeneralModule; casenum: int;
+proc fillSharedCase*(this: StepDataGeneralModule; casenum: cint;
                     ent: Handle[StandardTransient];
                     iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillSharedCase", header: "StepData_GeneralModule.hxx".}
-proc checkCase*(this: StepDataGeneralModule; casenum: int;
+proc checkCase*(this: StepDataGeneralModule; casenum: cint;
                ent: Handle[StandardTransient]; shares: InterfaceShareTool;
                ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "CheckCase", header: "StepData_GeneralModule.hxx".}
-proc copyCase*(this: StepDataGeneralModule; casenum: int;
+proc copyCase*(this: StepDataGeneralModule; casenum: cint;
               entfrom: Handle[StandardTransient];
               entto: Handle[StandardTransient]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "CopyCase", header: "StepData_GeneralModule.hxx".}
@@ -76,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_GeneralModule.hxx".}
 proc dynamicType*(this: StepDataGeneralModule): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_GeneralModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,8 +16,7 @@
 discard "forward decl of StepFEA_FeaMaterialPropertyRepresentationItem"
 discard "forward decl of StepFEA_FeaMaterialPropertyRepresentationItem"
 type
-  HandleStepFEA_FeaMaterialPropertyRepresentationItem* = Handle[
-      StepFEA_FeaMaterialPropertyRepresentationItem]
+  HandleC1C1* = Handle[StepFEA_FeaMaterialPropertyRepresentationItem]
 
 ## ! Representation of STEP entity FeaMaterialPropertyRepresentationItem
 
@@ -42,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_FeaMateria
 proc dynamicType*(this: StepFEA_FeaMaterialPropertyRepresentationItem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepFEA_FeaMaterialPropertyRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

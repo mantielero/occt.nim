@@ -18,3 +18,28 @@ type
   StepReprSequenceOfRepresentationItem* = NCollectionSequence[
       Handle[StepReprRepresentationItem]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

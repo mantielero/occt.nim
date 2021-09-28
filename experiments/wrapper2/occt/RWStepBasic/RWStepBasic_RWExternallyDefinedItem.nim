@@ -27,7 +27,7 @@ proc constructRWStepBasicRWExternallyDefinedItem*(): RWStepBasicRWExternallyDefi
     constructor, importcpp: "RWStepBasic_RWExternallyDefinedItem(@)",
     header: "RWStepBasic_RWExternallyDefinedItem.hxx".}
 proc readStep*(this: RWStepBasicRWExternallyDefinedItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicExternallyDefinedItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWExternallyDefinedItem.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepBasicRWExternallyDefinedItem;
            ent: Handle[StepBasicExternallyDefinedItem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWExternallyDefinedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

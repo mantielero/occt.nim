@@ -15,7 +15,7 @@
 
 discard "forward decl of AIS_RubberBand"
 type
-  HandleAIS_RubberBand* = Handle[AIS_RubberBand]
+  HandleC1C1* = Handle[AIS_RubberBand]
 
 ## ! Presentation for drawing rubber band selection.
 ## ! It supports rectangle and polygonal selection.
@@ -49,21 +49,22 @@ proc dynamicType*(this: AIS_RubberBand): Handle[StandardType] {.noSideEffect,
 proc constructAIS_RubberBand*(): AIS_RubberBand {.constructor,
     importcpp: "AIS_RubberBand(@)", header: "AIS_RubberBand.hxx".}
 proc constructAIS_RubberBand*(theLineColor: QuantityColor;
-                             theType: AspectTypeOfLine; theLineWidth: float = 1.0;
+                             theType: AspectTypeOfLine;
+                             theLineWidth: cfloat = 1.0;
                              theIsPolygonClosed: bool = true): AIS_RubberBand {.
     constructor, importcpp: "AIS_RubberBand(@)", header: "AIS_RubberBand.hxx".}
 proc constructAIS_RubberBand*(theLineColor: QuantityColor;
                              theType: AspectTypeOfLine;
                              theFillColor: QuantityColor;
-                             theTransparency: float = 1.0;
-                             theLineWidth: float = 1.0;
+                             theTransparency: cfloat = 1.0;
+                             theLineWidth: cfloat = 1.0;
                              theIsPolygonClosed: bool = true): AIS_RubberBand {.
     constructor, importcpp: "AIS_RubberBand(@)", header: "AIS_RubberBand.hxx".}
 proc destroyAIS_RubberBand*(this: var AIS_RubberBand) {.
     importcpp: "#.~AIS_RubberBand()", header: "AIS_RubberBand.hxx".}
-proc setRectangle*(this: var AIS_RubberBand; theMinX: int; theMinY: int; theMaxX: int;
-                  theMaxY: int) {.importcpp: "SetRectangle",
-                                header: "AIS_RubberBand.hxx".}
+proc setRectangle*(this: var AIS_RubberBand; theMinX: cint; theMinY: cint;
+                  theMaxX: cint; theMaxY: cint) {.importcpp: "SetRectangle",
+    header: "AIS_RubberBand.hxx".}
 proc addPoint*(this: var AIS_RubberBand; thePoint: Graphic3dVec2i) {.
     importcpp: "AddPoint", header: "AIS_RubberBand.hxx".}
 proc removeLastPoint*(this: var AIS_RubberBand) {.importcpp: "RemoveLastPoint",
@@ -80,26 +81,51 @@ proc fillColor*(this: AIS_RubberBand): QuantityColor {.noSideEffect,
     importcpp: "FillColor", header: "AIS_RubberBand.hxx".}
 proc setFillColor*(this: var AIS_RubberBand; theColor: QuantityColor) {.
     importcpp: "SetFillColor", header: "AIS_RubberBand.hxx".}
-proc setLineWidth*(this: AIS_RubberBand; theWidth: float) {.noSideEffect,
+proc setLineWidth*(this: AIS_RubberBand; theWidth: cfloat) {.noSideEffect,
     importcpp: "SetLineWidth", header: "AIS_RubberBand.hxx".}
-proc lineWidth*(this: AIS_RubberBand): float {.noSideEffect, importcpp: "LineWidth",
+proc lineWidth*(this: AIS_RubberBand): cfloat {.noSideEffect, importcpp: "LineWidth",
     header: "AIS_RubberBand.hxx".}
 proc setLineType*(this: var AIS_RubberBand; theType: AspectTypeOfLine) {.
     importcpp: "SetLineType", header: "AIS_RubberBand.hxx".}
 proc lineType*(this: AIS_RubberBand): AspectTypeOfLine {.noSideEffect,
     importcpp: "LineType", header: "AIS_RubberBand.hxx".}
-proc setFillTransparency*(this: AIS_RubberBand; theValue: float) {.noSideEffect,
+proc setFillTransparency*(this: AIS_RubberBand; theValue: cfloat) {.noSideEffect,
     importcpp: "SetFillTransparency", header: "AIS_RubberBand.hxx".}
-proc fillTransparency*(this: AIS_RubberBand): float {.noSideEffect,
+proc fillTransparency*(this: AIS_RubberBand): cfloat {.noSideEffect,
     importcpp: "FillTransparency", header: "AIS_RubberBand.hxx".}
 proc setFilling*(this: var AIS_RubberBand; theIsFilling: bool) {.
     importcpp: "SetFilling", header: "AIS_RubberBand.hxx".}
 proc setFilling*(this: var AIS_RubberBand; theColor: QuantityColor;
-                theTransparency: float) {.importcpp: "SetFilling",
-                                        header: "AIS_RubberBand.hxx".}
+                theTransparency: cfloat) {.importcpp: "SetFilling",
+    header: "AIS_RubberBand.hxx".}
 proc isFilling*(this: AIS_RubberBand): bool {.noSideEffect, importcpp: "IsFilling",
     header: "AIS_RubberBand.hxx".}
 proc isPolygonClosed*(this: AIS_RubberBand): bool {.noSideEffect,
     importcpp: "IsPolygonClosed", header: "AIS_RubberBand.hxx".}
 proc setPolygonClosed*(this: var AIS_RubberBand; theIsPolygonClosed: bool) {.
     importcpp: "SetPolygonClosed", header: "AIS_RubberBand.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of MoniTool_IntVal"
 discard "forward decl of MoniTool_IntVal"
 type
-  HandleMoniToolIntVal* = Handle[MoniToolIntVal]
+  HandleC1C1* = Handle[MoniToolIntVal]
 
 ## ! An Integer through a Handle (i.e. managed as TShared)
 
@@ -26,11 +26,11 @@ type
                    bycopy.} = object of StandardTransient
 
 
-proc constructMoniToolIntVal*(val: int = 0): MoniToolIntVal {.constructor,
+proc constructMoniToolIntVal*(val: cint = 0): MoniToolIntVal {.constructor,
     importcpp: "MoniTool_IntVal(@)", header: "MoniTool_IntVal.hxx".}
-proc value*(this: MoniToolIntVal): int {.noSideEffect, importcpp: "Value",
-                                     header: "MoniTool_IntVal.hxx".}
-proc cValue*(this: var MoniToolIntVal): var int {.importcpp: "CValue",
+proc value*(this: MoniToolIntVal): cint {.noSideEffect, importcpp: "Value",
+                                      header: "MoniTool_IntVal.hxx".}
+proc cValue*(this: var MoniToolIntVal): var cint {.importcpp: "CValue",
     header: "MoniTool_IntVal.hxx".}
 type
   MoniToolIntValbaseType* = StandardTransient
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MoniTool_IntVal.hxx".}
 proc dynamicType*(this: MoniToolIntVal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_IntVal.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

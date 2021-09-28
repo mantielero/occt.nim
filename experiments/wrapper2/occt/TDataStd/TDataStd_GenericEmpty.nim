@@ -18,7 +18,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_GenericEmpty"
 discard "forward decl of TDataStd_GenericEmpty"
 type
-  HandleTDataStdGenericEmpty* = Handle[TDataStdGenericEmpty]
+  HandleC1C1* = Handle[TDataStdGenericEmpty]
 
 ## ! An ancestor attibute for all attributes which have no fields.
 ## ! If an attribute inherits this one it should not have drivers for persistence.
@@ -34,8 +34,8 @@ proc paste*(this: TDataStdGenericEmpty; a2: Handle[TDF_Attribute];
            a3: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_GenericEmpty.hxx".}
 proc dumpJson*(this: TDataStdGenericEmpty; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_GenericEmpty.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_GenericEmpty.hxx".}
 type
   TDataStdGenericEmptybaseType* = TDF_Attribute
 
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_GenericEmpty.hxx".}
 proc dynamicType*(this: TDataStdGenericEmpty): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_GenericEmpty.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

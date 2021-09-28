@@ -48,7 +48,32 @@ proc send*(theMessenger: Handle[MessageMessenger]; theShape: TopoDS_Shape) {.
     importcpp: "TopoDS_AlertAttribute::Send(@)",
     header: "TopoDS_AlertAttribute.hxx".}
 proc dumpJson*(this: TopoDS_AlertAttribute; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TopoDS_AlertAttribute.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TopoDS_AlertAttribute.hxx".}
 proc `<<`*(theMessenger: Handle[MessageMessenger]; theShape: TopoDS_Shape): var Handle[
     MessageMessenger] {.importcpp: "(# << #)", header: "TopoDS_AlertAttribute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

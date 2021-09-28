@@ -30,7 +30,7 @@ proc constructRWStepFEA_RWFeaMassDensity*(): RWStepFEA_RWFeaMassDensity {.
     constructor, importcpp: "RWStepFEA_RWFeaMassDensity(@)",
     header: "RWStepFEA_RWFeaMassDensity.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaMassDensity;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepFEA_FeaMassDensity]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepFEA_RWFeaMassDensity.hxx".}
 proc writeStep*(this: RWStepFEA_RWFeaMassDensity; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepFEA_RWFeaMassDensity; sw: var StepDataStepWriter;
 proc share*(this: RWStepFEA_RWFeaMassDensity; ent: Handle[StepFEA_FeaMassDensity];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaMassDensity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

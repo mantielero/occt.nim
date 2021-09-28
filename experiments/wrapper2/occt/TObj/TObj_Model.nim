@@ -23,7 +23,7 @@ discard "forward decl of TObj_Application"
 discard "forward decl of TObj_Model"
 discard "forward decl of TObj_Model"
 type
-  HandleTObjModel* = Handle[TObjModel]
+  HandleC1C1* = Handle[TObjModel]
 
 ## *
 ##  Base class for OCAF based models.
@@ -597,7 +597,7 @@ proc getApplication*(this: var TObjModel): Handle[TObjApplication] {.
     importcpp: "GetApplication", header: "TObj_Model.hxx".}
 proc getFormat*(this: TObjModel): TCollectionExtendedString {.noSideEffect,
     importcpp: "GetFormat", header: "TObj_Model.hxx".}
-proc getFormatVersion*(this: TObjModel): int {.noSideEffect,
+proc getFormatVersion*(this: TObjModel): cint {.noSideEffect,
     importcpp: "GetFormatVersion", header: "TObj_Model.hxx".}
 proc update*(this: var TObjModel): bool {.importcpp: "Update", header: "TObj_Model.hxx".}
 proc getGUID*(this: TObjModel): StandardGUID {.noSideEffect, importcpp: "GetGUID",
@@ -626,4 +626,29 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TObjModel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TObj_Model.hxx".}
 ## ! The Model Handle is defined in a separate header file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

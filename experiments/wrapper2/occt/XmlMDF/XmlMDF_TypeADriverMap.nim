@@ -19,3 +19,28 @@ type
   XmlMDF_DataMapIteratorOfTypeADriverMap* = Iterator[Handle[StandardType],
       Handle[XmlMDF_ADriver], TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

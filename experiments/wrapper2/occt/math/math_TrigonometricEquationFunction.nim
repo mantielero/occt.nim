@@ -23,14 +23,39 @@ type
                                       bycopy.} = object of MathFunctionWithDerivative
 
 
-proc constructMathTrigonometricEquationFunction*(a: float; b: float; c: float;
-    d: float; e: float): MathTrigonometricEquationFunction {.constructor,
+proc constructMathTrigonometricEquationFunction*(a: cfloat; b: cfloat; c: cfloat;
+    d: cfloat; e: cfloat): MathTrigonometricEquationFunction {.constructor,
     importcpp: "math_TrigonometricEquationFunction(@)",
     header: "math_TrigonometricEquationFunction.hxx".}
-proc value*(this: var MathTrigonometricEquationFunction; x: float; f: var float): bool {.
+proc value*(this: var MathTrigonometricEquationFunction; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "math_TrigonometricEquationFunction.hxx".}
-proc derivative*(this: var MathTrigonometricEquationFunction; x: float; d: var float): bool {.
+proc derivative*(this: var MathTrigonometricEquationFunction; x: cfloat; d: var cfloat): bool {.
     importcpp: "Derivative", header: "math_TrigonometricEquationFunction.hxx".}
-proc values*(this: var MathTrigonometricEquationFunction; x: float; f: var float;
-            d: var float): bool {.importcpp: "Values",
-                              header: "math_TrigonometricEquationFunction.hxx".}
+proc values*(this: var MathTrigonometricEquationFunction; x: cfloat; f: var cfloat;
+            d: var cfloat): bool {.importcpp: "Values",
+                               header: "math_TrigonometricEquationFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

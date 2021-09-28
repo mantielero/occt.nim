@@ -23,10 +23,35 @@ type
                     bycopy.} = object of Geom2dHatchHatcher ## ! Creates the builder.
 
 
-proc constructDBRepIsoBuilder*(topologicalFace: TopoDS_Face; infinite: float;
-                              nbIsos: int): DBRepIsoBuilder {.constructor,
+proc constructDBRepIsoBuilder*(topologicalFace: TopoDS_Face; infinite: cfloat;
+                              nbIsos: cint): DBRepIsoBuilder {.constructor,
     importcpp: "DBRep_IsoBuilder(@)", header: "DBRep_IsoBuilder.hxx".}
-proc nbDomains*(this: DBRepIsoBuilder): int {.noSideEffect, importcpp: "NbDomains",
+proc nbDomains*(this: DBRepIsoBuilder): cint {.noSideEffect, importcpp: "NbDomains",
     header: "DBRep_IsoBuilder.hxx".}
 proc loadIsos*(this: DBRepIsoBuilder; face: Handle[DBRepFace]) {.noSideEffect,
     importcpp: "LoadIsos", header: "DBRep_IsoBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

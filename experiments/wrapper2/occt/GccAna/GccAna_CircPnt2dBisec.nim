@@ -40,12 +40,37 @@ type
 proc constructGccAnaCircPnt2dBisec*(circle1: Circ2d; point2: Pnt2d): GccAnaCircPnt2dBisec {.
     constructor, importcpp: "GccAna_CircPnt2dBisec(@)",
     header: "GccAna_CircPnt2dBisec.hxx".}
-proc constructGccAnaCircPnt2dBisec*(circle1: Circ2d; point2: Pnt2d; tolerance: float): GccAnaCircPnt2dBisec {.
+proc constructGccAnaCircPnt2dBisec*(circle1: Circ2d; point2: Pnt2d; tolerance: cfloat): GccAnaCircPnt2dBisec {.
     constructor, importcpp: "GccAna_CircPnt2dBisec(@)",
     header: "GccAna_CircPnt2dBisec.hxx".}
 proc isDone*(this: GccAnaCircPnt2dBisec): bool {.noSideEffect, importcpp: "IsDone",
     header: "GccAna_CircPnt2dBisec.hxx".}
-proc nbSolutions*(this: GccAnaCircPnt2dBisec): int {.noSideEffect,
+proc nbSolutions*(this: GccAnaCircPnt2dBisec): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_CircPnt2dBisec.hxx".}
-proc thisSolution*(this: GccAnaCircPnt2dBisec; index: int): Handle[GccIntBisec] {.
+proc thisSolution*(this: GccAnaCircPnt2dBisec; index: cint): Handle[GccIntBisec] {.
     noSideEffect, importcpp: "ThisSolution", header: "GccAna_CircPnt2dBisec.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -90,3 +90,28 @@ include StepFEA_SymmetricTensor43dMember
 include StepFEA_UnspecifiedValue
 include StepFEA_Volume3dElementRepresentation
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

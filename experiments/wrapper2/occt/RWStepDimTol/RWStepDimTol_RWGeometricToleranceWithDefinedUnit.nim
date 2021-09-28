@@ -32,7 +32,7 @@ proc constructRWStepDimTolRWGeometricToleranceWithDefinedUnit*(): RWStepDimTolRW
     importcpp: "RWStepDimTol_RWGeometricToleranceWithDefinedUnit(@)",
     header: "RWStepDimTol_RWGeometricToleranceWithDefinedUnit.hxx".}
 proc readStep*(this: RWStepDimTolRWGeometricToleranceWithDefinedUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolGeometricToleranceWithDefinedUnit]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -46,3 +46,28 @@ proc share*(this: RWStepDimTolRWGeometricToleranceWithDefinedUnit;
            ent: Handle[StepDimTolGeometricToleranceWithDefinedUnit];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWGeometricToleranceWithDefinedUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,34 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  GeomFillHArray1OfLocationLaw* {.importcpp: "GeomFill_HArray1OfLocationLaw",
-                                 header: "GeomFill_HArray1OfLocationLaw.hxx",
-                                 bycopy.} = object of GeomFillArray1OfLocationLaw
+## !!!Ignored construct:  # GeomFill_HArray1OfLocationLaw_HeaderFile [NewLine] # GeomFill_HArray1OfLocationLaw_HeaderFile [NewLine] # < GeomFill_LocationLaw . hxx > [NewLine] # < GeomFill_Array1OfLocationLaw . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( GeomFill_HArray1OfLocationLaw , GeomFill_Array1OfLocationLaw ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructGeomFillHArray1OfLocationLaw*(theLower: int; theUpper: int): GeomFillHArray1OfLocationLaw {.
-    constructor, importcpp: "GeomFill_HArray1OfLocationLaw(@)",
-    header: "GeomFill_HArray1OfLocationLaw.hxx".}
-proc constructGeomFillHArray1OfLocationLaw*(theLower: int; theUpper: int;
-    theValue: ValueType): GeomFillHArray1OfLocationLaw {.constructor,
-    importcpp: "GeomFill_HArray1OfLocationLaw(@)",
-    header: "GeomFill_HArray1OfLocationLaw.hxx".}
-proc constructGeomFillHArray1OfLocationLaw*(theOther: GeomFillArray1OfLocationLaw): GeomFillHArray1OfLocationLaw {.
-    constructor, importcpp: "GeomFill_HArray1OfLocationLaw(@)",
-    header: "GeomFill_HArray1OfLocationLaw.hxx".}
-proc array1*(this: GeomFillHArray1OfLocationLaw): GeomFillArray1OfLocationLaw {.
-    noSideEffect, importcpp: "Array1", header: "GeomFill_HArray1OfLocationLaw.hxx".}
-proc changeArray1*(this: var GeomFillHArray1OfLocationLaw): var GeomFillArray1OfLocationLaw {.
-    importcpp: "ChangeArray1", header: "GeomFill_HArray1OfLocationLaw.hxx".}
-type
-  GeomFillHArray1OfLocationLawbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_HArray1OfLocationLaw::get_type_name(@)",
-                            header: "GeomFill_HArray1OfLocationLaw.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "GeomFill_HArray1OfLocationLaw::get_type_descriptor(@)",
-    header: "GeomFill_HArray1OfLocationLaw.hxx".}
-proc dynamicType*(this: GeomFillHArray1OfLocationLaw): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "GeomFill_HArray1OfLocationLaw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

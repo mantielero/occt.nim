@@ -16,7 +16,7 @@
 discard "forward decl of StepShape_PointRepresentation"
 discard "forward decl of StepShape_PointRepresentation"
 type
-  HandleStepShapePointRepresentation* = Handle[StepShapePointRepresentation]
+  HandleC1C1* = Handle[StepShapePointRepresentation]
 
 ## ! Representation of STEP entity PointRepresentation
 
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapePointRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_PointRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

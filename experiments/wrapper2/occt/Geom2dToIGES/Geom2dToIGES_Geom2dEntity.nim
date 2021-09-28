@@ -17,14 +17,27 @@
 discard "forward decl of IGESData_IGESModel"
 type
   Geom2dToIGES_Geom2dEntity* {.importcpp: "Geom2dToIGES_Geom2dEntity",
-                              header: "Geom2dToIGES_Geom2dEntity.hxx", bycopy.} = object ##
-                                                                                    ## !
-                                                                                    ## Creates
-                                                                                    ## a
-                                                                                    ## tool
-                                                                                    ## Geom2dEntity
+                              header: "Geom2dToIGES_Geom2dEntity.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dToIGES_Geom2dEntity; theSize: csize_t): pointer {.
+    importcpp: "Geom2dToIGES_Geom2dEntity::operator new",
+    header: "Geom2dToIGES_Geom2dEntity.hxx".}
+proc `delete`*(this: var Geom2dToIGES_Geom2dEntity; theAddress: pointer) {.
+    importcpp: "Geom2dToIGES_Geom2dEntity::operator delete",
+    header: "Geom2dToIGES_Geom2dEntity.hxx".}
+proc `new[]`*(this: var Geom2dToIGES_Geom2dEntity; theSize: csize_t): pointer {.
+    importcpp: "Geom2dToIGES_Geom2dEntity::operator new[]",
+    header: "Geom2dToIGES_Geom2dEntity.hxx".}
+proc `delete[]`*(this: var Geom2dToIGES_Geom2dEntity; theAddress: pointer) {.
+    importcpp: "Geom2dToIGES_Geom2dEntity::operator delete[]",
+    header: "Geom2dToIGES_Geom2dEntity.hxx".}
+proc `new`*(this: var Geom2dToIGES_Geom2dEntity; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dToIGES_Geom2dEntity::operator new",
+    header: "Geom2dToIGES_Geom2dEntity.hxx".}
+proc `delete`*(this: var Geom2dToIGES_Geom2dEntity; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dToIGES_Geom2dEntity::operator delete",
+    header: "Geom2dToIGES_Geom2dEntity.hxx".}
 proc constructGeom2dToIGES_Geom2dEntity*(): Geom2dToIGES_Geom2dEntity {.
     constructor, importcpp: "Geom2dToIGES_Geom2dEntity(@)",
     header: "Geom2dToIGES_Geom2dEntity.hxx".}
@@ -35,7 +48,7 @@ proc setModel*(this: var Geom2dToIGES_Geom2dEntity; model: Handle[IGESDataIGESMo
     importcpp: "SetModel", header: "Geom2dToIGES_Geom2dEntity.hxx".}
 proc getModel*(this: Geom2dToIGES_Geom2dEntity): Handle[IGESDataIGESModel] {.
     noSideEffect, importcpp: "GetModel", header: "Geom2dToIGES_Geom2dEntity.hxx".}
-proc setUnit*(this: var Geom2dToIGES_Geom2dEntity; unit: float) {.
+proc setUnit*(this: var Geom2dToIGES_Geom2dEntity; unit: StandardReal) {.
     importcpp: "SetUnit", header: "Geom2dToIGES_Geom2dEntity.hxx".}
-proc getUnit*(this: Geom2dToIGES_Geom2dEntity): float {.noSideEffect,
+proc getUnit*(this: Geom2dToIGES_Geom2dEntity): StandardReal {.noSideEffect,
     importcpp: "GetUnit", header: "Geom2dToIGES_Geom2dEntity.hxx".}

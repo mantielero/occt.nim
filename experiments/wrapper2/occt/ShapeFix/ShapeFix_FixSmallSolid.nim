@@ -18,7 +18,7 @@ discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of ShapeFix_FixSmallSolid"
 discard "forward decl of ShapeFix_FixSmallSolid"
 type
-  HandleShapeFixFixSmallSolid* = Handle[ShapeFixFixSmallSolid]
+  HandleC1C1* = Handle[ShapeFixFixSmallSolid]
 
 ## ! Fixing solids with small size
 
@@ -31,13 +31,13 @@ type
 
 proc constructShapeFixFixSmallSolid*(): ShapeFixFixSmallSolid {.constructor,
     importcpp: "ShapeFix_FixSmallSolid(@)", header: "ShapeFix_FixSmallSolid.hxx".}
-proc setFixMode*(this: var ShapeFixFixSmallSolid; theMode: int) {.
+proc setFixMode*(this: var ShapeFixFixSmallSolid; theMode: cint) {.
     importcpp: "SetFixMode", header: "ShapeFix_FixSmallSolid.hxx".}
 proc setVolumeThreshold*(this: var ShapeFixFixSmallSolid;
-                        theThreshold: float = -1.0) {.
+                        theThreshold: cfloat = -1.0) {.
     importcpp: "SetVolumeThreshold", header: "ShapeFix_FixSmallSolid.hxx".}
 proc setWidthFactorThreshold*(this: var ShapeFixFixSmallSolid;
-                             theThreshold: float = -1.0) {.
+                             theThreshold: cfloat = -1.0) {.
     importcpp: "SetWidthFactorThreshold", header: "ShapeFix_FixSmallSolid.hxx".}
 proc remove*(this: ShapeFixFixSmallSolid; theShape: TopoDS_Shape;
             theContext: Handle[ShapeBuildReShape]): TopoDS_Shape {.noSideEffect,
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_FixSmallSolid.hxx".}
 proc dynamicType*(this: ShapeFixFixSmallSolid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_FixSmallSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

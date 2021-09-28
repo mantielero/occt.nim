@@ -88,3 +88,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
          attachmentPoint1: Pnt; attachmentPoint2: Pnt; aAxis: Lin; offsetPoint: Pnt) {.
     importcpp: "DsgPrs_SymmetricPresentation::Add(@)",
     header: "DsgPrs_SymmetricPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

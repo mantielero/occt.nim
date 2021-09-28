@@ -16,7 +16,7 @@
 discard "forward decl of Aspect_DisplayConnection"
 discard "forward decl of Aspect_Window"
 type
-  HandleAspectWindow* = Handle[AspectWindow]
+  HandleC1C1* = Handle[AspectWindow]
 
 ## ! Defines a window.
 
@@ -67,11 +67,11 @@ proc isVirtual*(this: AspectWindow): bool {.noSideEffect, importcpp: "IsVirtual"
                                         header: "Aspect_Window.hxx".}
 proc setVirtual*(this: var AspectWindow; theVirtual: bool) {.importcpp: "SetVirtual",
     header: "Aspect_Window.hxx".}
-proc ratio*(this: AspectWindow): float {.noSideEffect, importcpp: "Ratio",
-                                     header: "Aspect_Window.hxx".}
-proc position*(this: AspectWindow; x1: var int; y1: var int; x2: var int; y2: var int) {.
+proc ratio*(this: AspectWindow): cfloat {.noSideEffect, importcpp: "Ratio",
+                                      header: "Aspect_Window.hxx".}
+proc position*(this: AspectWindow; x1: var cint; y1: var cint; x2: var cint; y2: var cint) {.
     noSideEffect, importcpp: "Position", header: "Aspect_Window.hxx".}
-proc size*(this: AspectWindow; width: var int; height: var int) {.noSideEffect,
+proc size*(this: AspectWindow; width: var cint; height: var cint) {.noSideEffect,
     importcpp: "Size", header: "Aspect_Window.hxx".}
 proc nativeHandle*(this: AspectWindow): AspectDrawable {.noSideEffect,
     importcpp: "NativeHandle", header: "Aspect_Window.hxx".}
@@ -85,8 +85,8 @@ proc invalidateContent*(this: var AspectWindow;
                        theDisp: Handle[AspectDisplayConnection]) {.
     importcpp: "InvalidateContent", header: "Aspect_Window.hxx".}
 proc dumpJson*(this: AspectWindow; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Aspect_Window.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Aspect_Window.hxx".}
 type
   AspectWindowbaseType* = StandardTransient
 
@@ -97,3 +97,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Aspect_Window.hxx".}
 proc dynamicType*(this: AspectWindow): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_Window.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

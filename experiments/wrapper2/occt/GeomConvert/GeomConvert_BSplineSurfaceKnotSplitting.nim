@@ -19,67 +19,24 @@ discard "forward decl of Geom_BSplineSurface"
 type
   GeomConvertBSplineSurfaceKnotSplitting* {.
       importcpp: "GeomConvert_BSplineSurfaceKnotSplitting",
-      header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx", bycopy.} = object ## !
-                                                                          ## Determines the u- and
-                                                                          ## v-isoparametric curves
-                                                                          ## ! along which the
-                                                                          ## BSpline
-                                                                          ## surface
-                                                                          ## BasisSurface
-                                                                          ## ! should be split in order to obtain
-                                                                          ## patches with a
-                                                                          ## ! degree of
-                                                                          ## continuity equal to
-                                                                          ## UContinuityRange in
-                                                                          ## ! the u
-                                                                          ## parametric
-                                                                          ## direction, and to
-                                                                          ## !
-                                                                          ## VContinuityRange in the v
-                                                                          ## parametric
-                                                                          ## direction.
-                                                                          ## ! These
-                                                                          ## isoparametric curves are
-                                                                          ## defined by
-                                                                          ## !
-                                                                          ## parameters, which are
-                                                                          ## BasisSurface knot values in
-                                                                          ## ! the u or v
-                                                                          ## parametric
-                                                                          ## direction. They are
-                                                                          ## identified
-                                                                          ## ! by
-                                                                          ## indices in the
-                                                                          ## BasisSurface knots table in the
-                                                                          ## !
-                                                                          ## corresponding
-                                                                          ## parametric
-                                                                          ## direction.
-                                                                          ## ! Use the
-                                                                          ## available
-                                                                          ## interrogation
-                                                                          ## functions to access
-                                                                          ## !
-                                                                          ## computed
-                                                                          ## values,
-                                                                          ## followed by the global
-                                                                          ## function
-                                                                          ## !
-                                                                          ## SplitBSplineSurface
-                                                                          ## (provided by the
-                                                                          ## package
-                                                                          ## !
-                                                                          ## GeomConvert) to split the
-                                                                          ## surface.
-                                                                          ## !
-                                                                          ## Exceptions
-                                                                          ## !
-                                                                          ## Standard_RangeError if
-                                                                          ## UContinuityRange or
-                                                                          ## !
-                                                                          ## VContinuityRange is less than zero.
+      header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomConvertBSplineSurfaceKnotSplitting; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert_BSplineSurfaceKnotSplitting::operator new",
+    header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
+proc `delete`*(this: var GeomConvertBSplineSurfaceKnotSplitting; theAddress: pointer) {.
+    importcpp: "GeomConvert_BSplineSurfaceKnotSplitting::operator delete",
+    header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
+proc `new[]`*(this: var GeomConvertBSplineSurfaceKnotSplitting; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert_BSplineSurfaceKnotSplitting::operator new[]",
+    header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
+proc `delete[]`*(this: var GeomConvertBSplineSurfaceKnotSplitting;
+                theAddress: pointer) {.importcpp: "GeomConvert_BSplineSurfaceKnotSplitting::operator delete[]", header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
+proc `new`*(this: var GeomConvertBSplineSurfaceKnotSplitting; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "GeomConvert_BSplineSurfaceKnotSplitting::operator new", header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
+proc `delete`*(this: var GeomConvertBSplineSurfaceKnotSplitting; a2: pointer;
+              a3: pointer) {.importcpp: "GeomConvert_BSplineSurfaceKnotSplitting::operator delete", header: "GeomConvert_BSplineSurfaceKnotSplitting.hxx".}
 proc constructGeomConvertBSplineSurfaceKnotSplitting*(
     basisSurface: Handle[GeomBSplineSurface]; uContinuityRange: int;
     vContinuityRange: int): GeomConvertBSplineSurfaceKnotSplitting {.constructor,

@@ -22,8 +22,33 @@ type
                          header: "Plate_PlaneConstraint.hxx", bycopy.} = object
 
 
-proc constructPlatePlaneConstraint*(point2d: Xy; pln: Pln; iu: int = 0; iv: int = 0): PlatePlaneConstraint {.
+proc constructPlatePlaneConstraint*(point2d: Xy; pln: Pln; iu: cint = 0; iv: cint = 0): PlatePlaneConstraint {.
     constructor, importcpp: "Plate_PlaneConstraint(@)",
     header: "Plate_PlaneConstraint.hxx".}
 proc lsc*(this: PlatePlaneConstraint): PlateLinearScalarConstraint {.noSideEffect,
     importcpp: "LSC", header: "Plate_PlaneConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

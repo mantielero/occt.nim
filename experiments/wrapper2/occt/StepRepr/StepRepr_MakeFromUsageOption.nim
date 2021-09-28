@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepRepr_MakeFromUsageOption"
 discard "forward decl of StepRepr_MakeFromUsageOption"
 type
-  HandleStepReprMakeFromUsageOption* = Handle[StepReprMakeFromUsageOption]
+  HandleC1C1* = Handle[StepReprMakeFromUsageOption]
 
 ## ! Representation of STEP entity MakeFromUsageOption
 
@@ -41,7 +41,7 @@ proc init*(this: var StepReprMakeFromUsageOption;
     aProductDefinitionRelationshipDescription: Handle[TCollectionHAsciiString];
     aProductDefinitionRelationshipRelatingProductDefinition: Handle[
     StepBasicProductDefinition]; aProductDefinitionRelationshipRelatedProductDefinition: Handle[
-    StepBasicProductDefinition]; aRanking: int;
+    StepBasicProductDefinition]; aRanking: cint;
           aRankingRationale: Handle[TCollectionHAsciiString];
           aQuantity: Handle[StepBasicMeasureWithUnit]) {.importcpp: "Init",
     header: "StepRepr_MakeFromUsageOption.hxx".}
@@ -52,12 +52,12 @@ proc init*(this: var StepReprMakeFromUsageOption;
     aProductDefinitionRelationshipDescription: Handle[TCollectionHAsciiString];
     aProductDefinitionRelationshipRelatingProductDefinition: StepBasicProductDefinitionOrReference;
     aProductDefinitionRelationshipRelatedProductDefinition: StepBasicProductDefinitionOrReference;
-          aRanking: int; aRankingRationale: Handle[TCollectionHAsciiString];
+          aRanking: cint; aRankingRationale: Handle[TCollectionHAsciiString];
           aQuantity: Handle[StepBasicMeasureWithUnit]) {.importcpp: "Init",
     header: "StepRepr_MakeFromUsageOption.hxx".}
-proc ranking*(this: StepReprMakeFromUsageOption): int {.noSideEffect,
+proc ranking*(this: StepReprMakeFromUsageOption): cint {.noSideEffect,
     importcpp: "Ranking", header: "StepRepr_MakeFromUsageOption.hxx".}
-proc setRanking*(this: var StepReprMakeFromUsageOption; ranking: int) {.
+proc setRanking*(this: var StepReprMakeFromUsageOption; ranking: cint) {.
     importcpp: "SetRanking", header: "StepRepr_MakeFromUsageOption.hxx".}
 proc rankingRationale*(this: StepReprMakeFromUsageOption): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "RankingRationale",
@@ -81,3 +81,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprMakeFromUsageOption): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_MakeFromUsageOption.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

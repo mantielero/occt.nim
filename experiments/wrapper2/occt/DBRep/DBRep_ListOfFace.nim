@@ -18,3 +18,28 @@ type
   DBRepListOfFace* = NCollectionList[Handle[DBRepFace]]
   DBRepListIteratorOfListOfFace* = Iterator[Handle[DBRepFace]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

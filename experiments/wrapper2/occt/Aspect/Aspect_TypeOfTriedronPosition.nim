@@ -31,3 +31,28 @@ type
     AspectTOTP_RIGHT_UPPER = aspectTOTP_TOP or aspectTOTP_RIGHT ## !< at the right upper corner
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

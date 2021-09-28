@@ -30,3 +30,28 @@ proc initToBRep*(theCommands: var DrawInterpretor) {.
     importcpp: "XSDRAWIGES::InitToBRep(@)", header: "XSDRAWIGES.hxx".}
 proc initFromBRep*(theCommands: var DrawInterpretor) {.
     importcpp: "XSDRAWIGES::InitFromBRep(@)", header: "XSDRAWIGES.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

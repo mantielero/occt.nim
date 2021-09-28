@@ -31,7 +31,7 @@ proc matches*(this: var MeshVS_DummySensitiveEntity;
              theMgr: var SelectBasicsSelectingVolumeManager;
              thePickResult: var SelectBasicsPickResult): bool {.
     importcpp: "Matches", header: "MeshVS_DummySensitiveEntity.hxx".}
-proc nbSubElements*(this: MeshVS_DummySensitiveEntity): int {.noSideEffect,
+proc nbSubElements*(this: MeshVS_DummySensitiveEntity): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "MeshVS_DummySensitiveEntity.hxx".}
 proc boundingBox*(this: var MeshVS_DummySensitiveEntity): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "MeshVS_DummySensitiveEntity.hxx".}
@@ -60,5 +60,30 @@ proc dynamicType*(this: MeshVS_DummySensitiveEntity): Handle[StandardType] {.
     header: "MeshVS_DummySensitiveEntity.hxx".}
 discard "forward decl of MeshVS_DummySensitiveEntity"
 type
-  HandleMeshVS_DummySensitiveEntity* = Handle[MeshVS_DummySensitiveEntity]
+  HandleC1C1* = Handle[MeshVS_DummySensitiveEntity]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

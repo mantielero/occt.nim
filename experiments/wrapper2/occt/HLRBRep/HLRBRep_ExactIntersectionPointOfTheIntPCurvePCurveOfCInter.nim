@@ -27,24 +27,48 @@ type
 
 
 proc constructHLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter*(
-    c1: StandardAddress; c2: StandardAddress; tol: float): HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter {.
+    c1: StandardAddress; c2: StandardAddress; tol: cfloat): HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter {.
     constructor,
     importcpp: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter(@)",
     header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
 proc perform*(this: var HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter;
              poly1: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter;
              poly2: HLRBRepThePolygon2dOfTheIntPCurvePCurveOfCInter;
-             numSegOn1: var int; numSegOn2: var int; paramOnSeg1: var float;
-             paramOnSeg2: var float) {.importcpp: "Perform", header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
+             numSegOn1: var cint; numSegOn2: var cint; paramOnSeg1: var cfloat;
+             paramOnSeg2: var cfloat) {.importcpp: "Perform", header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
 proc perform*(this: var HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter;
-             uo: float; vo: float; uInf: float; vInf: float; uSup: float; vSup: float) {.
-    importcpp: "Perform",
-    header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
-proc nbRoots*(this: HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter): int {.
+             uo: cfloat; vo: cfloat; uInf: cfloat; vInf: cfloat; uSup: cfloat;
+             vSup: cfloat) {.importcpp: "Perform", header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
+proc nbRoots*(this: HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter): cint {.
     noSideEffect, importcpp: "NbRoots",
     header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
 proc roots*(this: var HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter;
-           u: var float; v: var float) {.importcpp: "Roots", header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
+           u: var cfloat; v: var cfloat) {.importcpp: "Roots", header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
 proc anErrorOccurred*(this: HLRBRepExactIntersectionPointOfTheIntPCurvePCurveOfCInter): bool {.
     noSideEffect, importcpp: "AnErrorOccurred",
     header: "HLRBRep_ExactIntersectionPointOfTheIntPCurvePCurveOfCInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

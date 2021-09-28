@@ -17,3 +17,28 @@
 type
   StepAP203Array1OfContractedItem* = NCollectionArray1[StepAP203ContractedItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

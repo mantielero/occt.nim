@@ -19,12 +19,30 @@ type
                                    bycopy.} = object
 
 
+proc `new`*(this: var GeomIntParameterAndOrientation; theSize: csize_t): pointer {.
+    importcpp: "GeomInt_ParameterAndOrientation::operator new",
+    header: "GeomInt_ParameterAndOrientation.hxx".}
+proc `delete`*(this: var GeomIntParameterAndOrientation; theAddress: pointer) {.
+    importcpp: "GeomInt_ParameterAndOrientation::operator delete",
+    header: "GeomInt_ParameterAndOrientation.hxx".}
+proc `new[]`*(this: var GeomIntParameterAndOrientation; theSize: csize_t): pointer {.
+    importcpp: "GeomInt_ParameterAndOrientation::operator new[]",
+    header: "GeomInt_ParameterAndOrientation.hxx".}
+proc `delete[]`*(this: var GeomIntParameterAndOrientation; theAddress: pointer) {.
+    importcpp: "GeomInt_ParameterAndOrientation::operator delete[]",
+    header: "GeomInt_ParameterAndOrientation.hxx".}
+proc `new`*(this: var GeomIntParameterAndOrientation; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomInt_ParameterAndOrientation::operator new",
+    header: "GeomInt_ParameterAndOrientation.hxx".}
+proc `delete`*(this: var GeomIntParameterAndOrientation; a2: pointer; a3: pointer) {.
+    importcpp: "GeomInt_ParameterAndOrientation::operator delete",
+    header: "GeomInt_ParameterAndOrientation.hxx".}
 proc constructGeomIntParameterAndOrientation*(): GeomIntParameterAndOrientation {.
     constructor, importcpp: "GeomInt_ParameterAndOrientation(@)",
     header: "GeomInt_ParameterAndOrientation.hxx".}
-proc constructGeomIntParameterAndOrientation*(p: float; or1: TopAbsOrientation;
-    or2: TopAbsOrientation): GeomIntParameterAndOrientation {.constructor,
-    importcpp: "GeomInt_ParameterAndOrientation(@)",
+proc constructGeomIntParameterAndOrientation*(p: StandardReal;
+    or1: TopAbsOrientation; or2: TopAbsOrientation): GeomIntParameterAndOrientation {.
+    constructor, importcpp: "GeomInt_ParameterAndOrientation(@)",
     header: "GeomInt_ParameterAndOrientation.hxx".}
 proc setOrientation1*(this: var GeomIntParameterAndOrientation;
                      `or`: TopAbsOrientation) {.importcpp: "SetOrientation1",
@@ -32,7 +50,7 @@ proc setOrientation1*(this: var GeomIntParameterAndOrientation;
 proc setOrientation2*(this: var GeomIntParameterAndOrientation;
                      `or`: TopAbsOrientation) {.importcpp: "SetOrientation2",
     header: "GeomInt_ParameterAndOrientation.hxx".}
-proc parameter*(this: GeomIntParameterAndOrientation): float {.noSideEffect,
+proc parameter*(this: GeomIntParameterAndOrientation): StandardReal {.noSideEffect,
     importcpp: "Parameter", header: "GeomInt_ParameterAndOrientation.hxx".}
 proc orientation1*(this: GeomIntParameterAndOrientation): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation1",

@@ -45,11 +45,11 @@ proc init*(this: var ShapeUpgradeShapeDivide; s: TopoDS_Shape) {.importcpp: "Ini
 proc destroyShapeUpgradeShapeDivide*(this: var ShapeUpgradeShapeDivide) {.
     importcpp: "#.~ShapeUpgrade_ShapeDivide()",
     header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setPrecision*(this: var ShapeUpgradeShapeDivide; prec: float) {.
+proc setPrecision*(this: var ShapeUpgradeShapeDivide; prec: cfloat) {.
     importcpp: "SetPrecision", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setMaxTolerance*(this: var ShapeUpgradeShapeDivide; maxtol: float) {.
+proc setMaxTolerance*(this: var ShapeUpgradeShapeDivide; maxtol: cfloat) {.
     importcpp: "SetMaxTolerance", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setMinTolerance*(this: var ShapeUpgradeShapeDivide; mintol: float) {.
+proc setMinTolerance*(this: var ShapeUpgradeShapeDivide; mintol: cfloat) {.
     importcpp: "SetMinTolerance", header: "ShapeUpgrade_ShapeDivide.hxx".}
 proc setSurfaceSegmentMode*(this: var ShapeUpgradeShapeDivide; segment: bool) {.
     importcpp: "SetSurfaceSegmentMode", header: "ShapeUpgrade_ShapeDivide.hxx".}
@@ -76,5 +76,30 @@ proc status*(this: ShapeUpgradeShapeDivide; status: ShapeExtendStatus): bool {.
 proc setSplitFaceTool*(this: var ShapeUpgradeShapeDivide;
                       splitFaceTool: Handle[ShapeUpgradeFaceDivide]) {.
     importcpp: "SetSplitFaceTool", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setEdgeMode*(this: var ShapeUpgradeShapeDivide; aEdgeMode: int) {.
+proc setEdgeMode*(this: var ShapeUpgradeShapeDivide; aEdgeMode: cint) {.
     importcpp: "SetEdgeMode", header: "ShapeUpgrade_ShapeDivide.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,34 +18,34 @@ discard "forward decl of MAT_Bisector"
 discard "forward decl of MAT_Edge"
 discard "forward decl of MAT_Edge"
 type
-  HandleMAT_Edge* = Handle[MAT_Edge]
+  HandleC1C1* = Handle[MAT_Edge]
   MAT_Edge* {.importcpp: "MAT_Edge", header: "MAT_Edge.hxx", bycopy.} = object of StandardTransient
 
 
 proc constructMAT_Edge*(): MAT_Edge {.constructor, importcpp: "MAT_Edge(@)",
                                    header: "MAT_Edge.hxx".}
-proc edgeNumber*(this: var MAT_Edge; anumber: int) {.importcpp: "EdgeNumber",
+proc edgeNumber*(this: var MAT_Edge; anumber: cint) {.importcpp: "EdgeNumber",
     header: "MAT_Edge.hxx".}
 proc firstBisector*(this: var MAT_Edge; abisector: Handle[MAT_Bisector]) {.
     importcpp: "FirstBisector", header: "MAT_Edge.hxx".}
 proc secondBisector*(this: var MAT_Edge; abisector: Handle[MAT_Bisector]) {.
     importcpp: "SecondBisector", header: "MAT_Edge.hxx".}
-proc distance*(this: var MAT_Edge; adistance: float) {.importcpp: "Distance",
+proc distance*(this: var MAT_Edge; adistance: cfloat) {.importcpp: "Distance",
     header: "MAT_Edge.hxx".}
-proc intersectionPoint*(this: var MAT_Edge; apoint: int) {.
+proc intersectionPoint*(this: var MAT_Edge; apoint: cint) {.
     importcpp: "IntersectionPoint", header: "MAT_Edge.hxx".}
-proc edgeNumber*(this: MAT_Edge): int {.noSideEffect, importcpp: "EdgeNumber",
-                                    header: "MAT_Edge.hxx".}
+proc edgeNumber*(this: MAT_Edge): cint {.noSideEffect, importcpp: "EdgeNumber",
+                                     header: "MAT_Edge.hxx".}
 proc firstBisector*(this: MAT_Edge): Handle[MAT_Bisector] {.noSideEffect,
     importcpp: "FirstBisector", header: "MAT_Edge.hxx".}
 proc secondBisector*(this: MAT_Edge): Handle[MAT_Bisector] {.noSideEffect,
     importcpp: "SecondBisector", header: "MAT_Edge.hxx".}
-proc distance*(this: MAT_Edge): float {.noSideEffect, importcpp: "Distance",
-                                    header: "MAT_Edge.hxx".}
-proc intersectionPoint*(this: MAT_Edge): int {.noSideEffect,
+proc distance*(this: MAT_Edge): cfloat {.noSideEffect, importcpp: "Distance",
+                                     header: "MAT_Edge.hxx".}
+proc intersectionPoint*(this: MAT_Edge): cint {.noSideEffect,
     importcpp: "IntersectionPoint", header: "MAT_Edge.hxx".}
-proc dump*(this: MAT_Edge; ashift: int; alevel: int) {.noSideEffect, importcpp: "Dump",
-    header: "MAT_Edge.hxx".}
+proc dump*(this: MAT_Edge; ashift: cint; alevel: cint) {.noSideEffect,
+    importcpp: "Dump", header: "MAT_Edge.hxx".}
 type
   MAT_EdgebaseType* = StandardTransient
 
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MAT_Edge::get_type_descriptor(@)", header: "MAT_Edge.hxx".}
 proc dynamicType*(this: MAT_Edge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Edge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,25 +22,51 @@ type
 
 proc constructAppContFunction*(): AppContFunction {.constructor,
     importcpp: "AppCont_Function(@)", header: "AppCont_Function.hxx".}
-proc getNumberOfPoints*(this: AppContFunction; theNbPnt: var int; theNbPnt2d: var int) {.
-    noSideEffect, importcpp: "GetNumberOfPoints", header: "AppCont_Function.hxx".}
-proc getNbOf3dPoints*(this: AppContFunction): int {.noSideEffect,
+proc getNumberOfPoints*(this: AppContFunction; theNbPnt: var cint;
+                       theNbPnt2d: var cint) {.noSideEffect,
+    importcpp: "GetNumberOfPoints", header: "AppCont_Function.hxx".}
+proc getNbOf3dPoints*(this: AppContFunction): cint {.noSideEffect,
     importcpp: "GetNbOf3dPoints", header: "AppCont_Function.hxx".}
-proc getNbOf2dPoints*(this: AppContFunction): int {.noSideEffect,
+proc getNbOf2dPoints*(this: AppContFunction): cint {.noSideEffect,
     importcpp: "GetNbOf2dPoints", header: "AppCont_Function.hxx".}
 proc destroyAppContFunction*(this: var AppContFunction) {.
     importcpp: "#.~AppCont_Function()", header: "AppCont_Function.hxx".}
-proc firstParameter*(this: AppContFunction): float {.noSideEffect,
+proc firstParameter*(this: AppContFunction): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "AppCont_Function.hxx".}
-proc lastParameter*(this: AppContFunction): float {.noSideEffect,
+proc lastParameter*(this: AppContFunction): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "AppCont_Function.hxx".}
-proc value*(this: AppContFunction; theU: float;
+proc value*(this: AppContFunction; theU: cfloat;
            thePnt2d: var NCollectionArray1[Pnt2d];
            thePnt: var NCollectionArray1[Pnt]): bool {.noSideEffect,
     importcpp: "Value", header: "AppCont_Function.hxx".}
-proc d1*(this: AppContFunction; theU: float; theVec2d: var NCollectionArray1[Vec2d];
+proc d1*(this: AppContFunction; theU: cfloat; theVec2d: var NCollectionArray1[Vec2d];
         theVec: var NCollectionArray1[Vec]): bool {.noSideEffect, importcpp: "D1",
     header: "AppCont_Function.hxx".}
-proc periodInformation*(this: AppContFunction; a2: int; ## theDimIdx
-                       isPeriodic: var bool; thePeriod: var float) {.noSideEffect,
+proc periodInformation*(this: AppContFunction; a2: cint; isPeriodic: var bool;
+                       thePeriod: var cfloat) {.noSideEffect,
     importcpp: "PeriodInformation", header: "AppCont_Function.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@ discard "forward decl of TDF_IDFilter"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_Attribute"
 type
-  HandleTDF_Attribute* = Handle[TDF_Attribute]
+  HandleC1C1* = Handle[TDF_Attribute]
 
 ## ! A class each application has to implement. It is
 ## ! used to contain the application data.
@@ -152,9 +152,9 @@ proc setID*(this: var TDF_Attribute; a2: StandardGUID) {.importcpp: "SetID",
 proc setID*(this: var TDF_Attribute) {.importcpp: "SetID", header: "TDF_Attribute.hxx".}
 proc label*(this: TDF_Attribute): TDF_Label {.noSideEffect, importcpp: "Label",
     header: "TDF_Attribute.hxx".}
-proc transaction*(this: TDF_Attribute): int {.noSideEffect, importcpp: "Transaction",
-    header: "TDF_Attribute.hxx".}
-proc untilTransaction*(this: TDF_Attribute): int {.noSideEffect,
+proc transaction*(this: TDF_Attribute): cint {.noSideEffect,
+    importcpp: "Transaction", header: "TDF_Attribute.hxx".}
+proc untilTransaction*(this: TDF_Attribute): cint {.noSideEffect,
     importcpp: "UntilTransaction", header: "TDF_Attribute.hxx".}
 proc isValid*(this: TDF_Attribute): bool {.noSideEffect, importcpp: "IsValid",
                                        header: "TDF_Attribute.hxx".}
@@ -231,11 +231,11 @@ proc `<<`*(this: TDF_Attribute; anOS: var StandardOStream): var StandardOStream 
 proc extendedDump*(this: TDF_Attribute; anOS: var StandardOStream;
                   aFilter: TDF_IDFilter; aMap: var TDF_AttributeIndexedMap) {.
     noSideEffect, importcpp: "ExtendedDump", header: "TDF_Attribute.hxx".}
-proc forget*(this: var TDF_Attribute; aTransaction: int) {.importcpp: "Forget",
+proc forget*(this: var TDF_Attribute; aTransaction: cint) {.importcpp: "Forget",
     header: "TDF_Attribute.hxx".}
 proc dumpJson*(this: TDF_Attribute; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDF_Attribute.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDF_Attribute.hxx".}
 type
   TDF_AttributebaseType* = StandardTransient
 
@@ -246,3 +246,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDF_Attribute.hxx".}
 proc dynamicType*(this: TDF_Attribute): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_Attribute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

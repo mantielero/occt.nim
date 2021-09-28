@@ -20,7 +20,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_RightAngularWedge"
 discard "forward decl of IGESSolid_RightAngularWedge"
 type
-  HandleIGESSolidRightAngularWedge* = Handle[IGESSolidRightAngularWedge]
+  HandleC1C1* = Handle[IGESSolidRightAngularWedge]
 
 ## ! defines RightAngularWedge, Type <152> Form Number <0>
 ## ! in package IGESSolid
@@ -34,18 +34,18 @@ type
 proc constructIGESSolidRightAngularWedge*(): IGESSolidRightAngularWedge {.
     constructor, importcpp: "IGESSolid_RightAngularWedge(@)",
     header: "IGESSolid_RightAngularWedge.hxx".}
-proc init*(this: var IGESSolidRightAngularWedge; aSize: Xyz; lowX: float; aCorner: Xyz;
+proc init*(this: var IGESSolidRightAngularWedge; aSize: Xyz; lowX: cfloat; aCorner: Xyz;
           anXAxis: Xyz; anZAxis: Xyz) {.importcpp: "Init",
                                     header: "IGESSolid_RightAngularWedge.hxx".}
 proc size*(this: IGESSolidRightAngularWedge): Xyz {.noSideEffect, importcpp: "Size",
     header: "IGESSolid_RightAngularWedge.hxx".}
-proc xBigLength*(this: IGESSolidRightAngularWedge): float {.noSideEffect,
+proc xBigLength*(this: IGESSolidRightAngularWedge): cfloat {.noSideEffect,
     importcpp: "XBigLength", header: "IGESSolid_RightAngularWedge.hxx".}
-proc xSmallLength*(this: IGESSolidRightAngularWedge): float {.noSideEffect,
+proc xSmallLength*(this: IGESSolidRightAngularWedge): cfloat {.noSideEffect,
     importcpp: "XSmallLength", header: "IGESSolid_RightAngularWedge.hxx".}
-proc yLength*(this: IGESSolidRightAngularWedge): float {.noSideEffect,
+proc yLength*(this: IGESSolidRightAngularWedge): cfloat {.noSideEffect,
     importcpp: "YLength", header: "IGESSolid_RightAngularWedge.hxx".}
-proc zLength*(this: IGESSolidRightAngularWedge): float {.noSideEffect,
+proc zLength*(this: IGESSolidRightAngularWedge): cfloat {.noSideEffect,
     importcpp: "ZLength", header: "IGESSolid_RightAngularWedge.hxx".}
 proc corner*(this: IGESSolidRightAngularWedge): Pnt {.noSideEffect,
     importcpp: "Corner", header: "IGESSolid_RightAngularWedge.hxx".}
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSolidRightAngularWedge): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_RightAngularWedge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,3 +19,28 @@ type
     StepToTopoDS_TranslateShellDone, StepToTopoDS_TranslateShellOther
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

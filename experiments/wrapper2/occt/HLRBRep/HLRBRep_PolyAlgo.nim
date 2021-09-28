@@ -23,7 +23,7 @@ discard "forward decl of HLRAlgo_TriangleData"
 discard "forward decl of HLRBRep_PolyAlgo"
 discard "forward decl of HLRBRep_PolyAlgo"
 type
-  HandleHLRBRepPolyAlgo* = Handle[HLRBRepPolyAlgo]
+  HandleC1C1* = Handle[HLRBRepPolyAlgo]
 
 ## ! to remove Hidden lines on Shapes with Triangulations.
 ## ! A framework to compute the shape as seen in
@@ -90,13 +90,13 @@ proc constructHLRBRepPolyAlgo*(a: Handle[HLRBRepPolyAlgo]): HLRBRepPolyAlgo {.
     constructor, importcpp: "HLRBRep_PolyAlgo(@)", header: "HLRBRep_PolyAlgo.hxx".}
 proc constructHLRBRepPolyAlgo*(s: TopoDS_Shape): HLRBRepPolyAlgo {.constructor,
     importcpp: "HLRBRep_PolyAlgo(@)", header: "HLRBRep_PolyAlgo.hxx".}
-proc nbShapes*(this: HLRBRepPolyAlgo): int {.noSideEffect, importcpp: "NbShapes",
+proc nbShapes*(this: HLRBRepPolyAlgo): cint {.noSideEffect, importcpp: "NbShapes",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc shape*(this: var HLRBRepPolyAlgo; i: int): var TopoDS_Shape {.importcpp: "Shape",
+proc shape*(this: var HLRBRepPolyAlgo; i: cint): var TopoDS_Shape {.importcpp: "Shape",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc remove*(this: var HLRBRepPolyAlgo; i: int) {.importcpp: "Remove",
+proc remove*(this: var HLRBRepPolyAlgo; i: cint) {.importcpp: "Remove",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc index*(this: HLRBRepPolyAlgo; s: TopoDS_Shape): int {.noSideEffect,
+proc index*(this: HLRBRepPolyAlgo; s: TopoDS_Shape): cint {.noSideEffect,
     importcpp: "Index", header: "HLRBRep_PolyAlgo.hxx".}
 proc load*(this: var HLRBRepPolyAlgo; theShape: TopoDS_Shape) {.importcpp: "Load",
     header: "HLRBRep_PolyAlgo.hxx".}
@@ -106,13 +106,13 @@ proc projector*(this: HLRBRepPolyAlgo): HLRAlgoProjector {.noSideEffect,
     importcpp: "Projector", header: "HLRBRep_PolyAlgo.hxx".}
 proc projector*(this: var HLRBRepPolyAlgo; theProj: HLRAlgoProjector) {.
     importcpp: "Projector", header: "HLRBRep_PolyAlgo.hxx".}
-proc tolAngular*(this: HLRBRepPolyAlgo): float {.noSideEffect,
+proc tolAngular*(this: HLRBRepPolyAlgo): cfloat {.noSideEffect,
     importcpp: "TolAngular", header: "HLRBRep_PolyAlgo.hxx".}
-proc tolAngular*(this: var HLRBRepPolyAlgo; theTol: float) {.importcpp: "TolAngular",
+proc tolAngular*(this: var HLRBRepPolyAlgo; theTol: cfloat) {.importcpp: "TolAngular",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc tolCoef*(this: HLRBRepPolyAlgo): float {.noSideEffect, importcpp: "TolCoef",
+proc tolCoef*(this: HLRBRepPolyAlgo): cfloat {.noSideEffect, importcpp: "TolCoef",
     header: "HLRBRep_PolyAlgo.hxx".}
-proc tolCoef*(this: var HLRBRepPolyAlgo; theTol: float) {.importcpp: "TolCoef",
+proc tolCoef*(this: var HLRBRepPolyAlgo; theTol: cfloat) {.importcpp: "TolCoef",
     header: "HLRBRep_PolyAlgo.hxx".}
 proc update*(this: var HLRBRepPolyAlgo) {.importcpp: "Update",
                                       header: "HLRBRep_PolyAlgo.hxx".}
@@ -151,3 +151,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRBRep_PolyAlgo.hxx".}
 proc dynamicType*(this: HLRBRepPolyAlgo): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRBRep_PolyAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

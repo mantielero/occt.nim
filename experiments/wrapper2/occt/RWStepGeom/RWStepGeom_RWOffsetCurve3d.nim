@@ -28,7 +28,7 @@ proc constructRWStepGeomRWOffsetCurve3d*(): RWStepGeomRWOffsetCurve3d {.
     constructor, importcpp: "RWStepGeom_RWOffsetCurve3d(@)",
     header: "RWStepGeom_RWOffsetCurve3d.hxx".}
 proc readStep*(this: RWStepGeomRWOffsetCurve3d;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomOffsetCurve3d]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWOffsetCurve3d.hxx".}
 proc writeStep*(this: RWStepGeomRWOffsetCurve3d; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepGeomRWOffsetCurve3d; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWOffsetCurve3d; ent: Handle[StepGeomOffsetCurve3d];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWOffsetCurve3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

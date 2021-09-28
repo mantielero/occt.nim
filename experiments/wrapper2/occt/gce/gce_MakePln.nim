@@ -93,11 +93,11 @@ proc constructGceMakePln*(a2: Ax2): GceMakePln {.constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc constructGceMakePln*(p: Pnt; v: Dir): GceMakePln {.constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
-proc constructGceMakePln*(a: float; b: float; c: float; d: float): GceMakePln {.
+proc constructGceMakePln*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GceMakePln {.
     constructor, importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc constructGceMakePln*(pln: Pln; point: Pnt): GceMakePln {.constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
-proc constructGceMakePln*(pln: Pln; dist: float): GceMakePln {.constructor,
+proc constructGceMakePln*(pln: Pln; dist: cfloat): GceMakePln {.constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc constructGceMakePln*(p1: Pnt; p2: Pnt; p3: Pnt): GceMakePln {.constructor,
     importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
@@ -111,3 +111,28 @@ proc operator*(this: GceMakePln): Pln {.noSideEffect, importcpp: "Operator",
                                     header: "gce_MakePln.hxx".}
 converter `pln`*(this: GceMakePln): Pln {.noSideEffect, importcpp: "gce_MakePln::operator gp_Pln",
                                       header: "gce_MakePln.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

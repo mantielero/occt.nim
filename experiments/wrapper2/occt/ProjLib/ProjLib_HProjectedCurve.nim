@@ -15,47 +15,62 @@
 ##  commercial license or contractual agreement.
 
 ## !!!Ignored construct:  # _ProjLib_HProjectedCurve_HeaderFile [NewLine] # _ProjLib_HProjectedCurve_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < ProjLib_ProjectedCurve . hxx > [NewLine] # < Adaptor2d_HCurve2d . hxx > [NewLine] class Standard_OutOfRange ;
-## Error: did not expect <!!!
+## Error: expected ';'!!!
 
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of ProjLib_ProjectedCurve"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of ProjLib_HProjectedCurve"
-discard "forward decl of ProjLib_HProjectedCurve"
-type
-  HandleProjLibHProjectedCurveProjLibHProjectedCurve* = Handle[
-      ProjLibHProjectedCurve]
-  ProjLibHProjectedCurve* {.importcpp: "ProjLib_HProjectedCurve",
-                           header: "ProjLib_HProjectedCurve.hxx", bycopy.} = object of Adaptor2dHCurve2d ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## an
-                                                                                                  ## empty
-                                                                                                  ## GenHCurve2d.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( ProjLib_HProjectedCurve , Adaptor2d_HCurve2d ) class ProjLib_HProjectedCurve : public Adaptor2d_HCurve2d { public : ! Creates an empty GenHCurve2d. ProjLib_HProjectedCurve ( ) ; ! Creates a GenHCurve2d from a Curve ProjLib_HProjectedCurve ( const ProjLib_ProjectedCurve & C ) ; ! Sets the field of the GenHCurve2d. void Set ( const ProjLib_ProjectedCurve & C ) ; ! Returns the curve used to create the GenHCurve2d.
+## ! This is redefined from HCurve2d, cannot be inline. const Adaptor2d_Curve2d & Curve2d ( ) const ; ! Returns the curve used to create the GenHCurve. ProjLib_ProjectedCurve & ChangeCurve2d ( ) ; public : typedef Adaptor2d_HCurve2d base_type ; static const char * get_type_name ( ) { return ProjLib_HProjectedCurve ; ( ProjLib_HProjectedCurve , Adaptor2d_HCurve2d ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < ProjLib_HProjectedCurve > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : ProjLib_ProjectedCurve myCurve ; private : } ;
+## Error: expected ';'!!!
 
-
-proc constructProjLibHProjectedCurve*(): ProjLibHProjectedCurve {.constructor,
-    importcpp: "ProjLib_HProjectedCurve(@)", header: "ProjLib_HProjectedCurve.hxx".}
-proc constructProjLibHProjectedCurve*(c: ProjLibProjectedCurve): ProjLibHProjectedCurve {.
-    constructor, importcpp: "ProjLib_HProjectedCurve(@)",
-    header: "ProjLib_HProjectedCurve.hxx".}
-proc set*(this: var ProjLibHProjectedCurve; c: ProjLibProjectedCurve) {.
-    importcpp: "Set", header: "ProjLib_HProjectedCurve.hxx".}
-proc curve2d*(this: ProjLibHProjectedCurve): Adaptor2dCurve2d {.noSideEffect,
-    importcpp: "Curve2d", header: "ProjLib_HProjectedCurve.hxx".}
-proc changeCurve2d*(this: var ProjLibHProjectedCurve): var ProjLibProjectedCurve {.
-    importcpp: "ChangeCurve2d", header: "ProjLib_HProjectedCurve.hxx".}
-type
-  ProjLibHProjectedCurvebaseType* = Adaptor2dHCurve2d
-
-proc getTypeName*(): cstring {.importcpp: "ProjLib_HProjectedCurve::get_type_name(@)",
-                            header: "ProjLib_HProjectedCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "ProjLib_HProjectedCurve::get_type_descriptor(@)",
-    header: "ProjLib_HProjectedCurve.hxx".}
-proc dynamicType*(this: ProjLibHProjectedCurve): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "ProjLib_HProjectedCurve.hxx".}
-## !!!Ignored construct:  # TheCurve ProjLib_ProjectedCurve [NewLine] # TheCurve_hxx < ProjLib_ProjectedCurve . hxx > [NewLine] # Adaptor2d_GenHCurve2d ProjLib_HProjectedCurve [NewLine] # Adaptor2d_GenHCurve2d_hxx < ProjLib_HProjectedCurve . hxx > [NewLine] # Handle_Adaptor2d_GenHCurve2d opencascade :: handle < ProjLib_HProjectedCurve > [end of template] [NewLine] # < Adaptor2d_GenHCurve2d . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor2d_GenHCurve2d [NewLine] # Adaptor2d_GenHCurve2d_hxx [NewLine] # Handle_Adaptor2d_GenHCurve2d [NewLine] #  _ProjLib_HProjectedCurve_HeaderFile
+## !!!Ignored construct:  # TheCurve ProjLib_ProjectedCurve [NewLine] # TheCurve_hxx < ProjLib_ProjectedCurve . hxx > [NewLine] # Adaptor2d_GenHCurve2d ProjLib_HProjectedCurve [NewLine] # Adaptor2d_GenHCurve2d_hxx < ProjLib_HProjectedCurve . hxx > [NewLine] # Handle_Adaptor2d_GenHCurve2d Handle ( ProjLib_HProjectedCurve ) [NewLine] # < Adaptor2d_GenHCurve2d . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor2d_GenHCurve2d [NewLine] # Adaptor2d_GenHCurve2d_hxx [NewLine] # Handle_Adaptor2d_GenHCurve2d [NewLine] #  _ProjLib_HProjectedCurve_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

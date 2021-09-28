@@ -96,15 +96,40 @@ type
     FirstStatus = 1, StatusesPerType = 32, NbStatuses = 128, LastStatus = 129
 
 
-proc statusIndex*(status: MessageStatus): int {.
+proc statusIndex*(status: MessageStatus): cint {.
     importcpp: "Message_ExecStatus::StatusIndex(@)",
     header: "Message_ExecStatus.hxx".}
-proc localStatusIndex*(status: MessageStatus): int {.
+proc localStatusIndex*(status: MessageStatus): cint {.
     importcpp: "Message_ExecStatus::LocalStatusIndex(@)",
     header: "Message_ExecStatus.hxx".}
 proc typeOfStatus*(status: MessageStatus): MessageStatusType {.
     importcpp: "Message_ExecStatus::TypeOfStatus(@)",
     header: "Message_ExecStatus.hxx".}
-proc statusByIndex*(theIndex: int): MessageStatus {.
+proc statusByIndex*(theIndex: cint): MessageStatus {.
     importcpp: "Message_ExecStatus::StatusByIndex(@)",
     header: "Message_ExecStatus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

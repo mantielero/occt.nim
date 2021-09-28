@@ -31,14 +31,14 @@ proc constructHLRAlgoProjector*(): HLRAlgoProjector {.constructor,
     importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
 proc constructHLRAlgoProjector*(cs: Ax2): HLRAlgoProjector {.constructor,
     importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgoProjector*(cs: Ax2; focus: float): HLRAlgoProjector {.
+proc constructHLRAlgoProjector*(cs: Ax2; focus: cfloat): HLRAlgoProjector {.
     constructor, importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgoProjector*(t: Trsf; persp: bool; focus: float): HLRAlgoProjector {.
+proc constructHLRAlgoProjector*(t: Trsf; persp: bool; focus: cfloat): HLRAlgoProjector {.
     constructor, importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgoProjector*(t: Trsf; persp: bool; focus: float; v1: Vec2d; v2: Vec2d;
-                               v3: Vec2d): HLRAlgoProjector {.constructor,
+proc constructHLRAlgoProjector*(t: Trsf; persp: bool; focus: cfloat; v1: Vec2d;
+                               v2: Vec2d; v3: Vec2d): HLRAlgoProjector {.constructor,
     importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc set*(this: var HLRAlgoProjector; t: Trsf; persp: bool; focus: float) {.
+proc set*(this: var HLRAlgoProjector; t: Trsf; persp: bool; focus: cfloat) {.
     importcpp: "Set", header: "HLRAlgo_Projector.hxx".}
 proc directions*(this: HLRAlgoProjector; d1: var Vec2d; d2: var Vec2d; d3: var Vec2d) {.
     noSideEffect, importcpp: "Directions", header: "HLRAlgo_Projector.hxx".}
@@ -52,7 +52,7 @@ proc invertedTransformation*(this: HLRAlgoProjector): Trsf {.noSideEffect,
     importcpp: "InvertedTransformation", header: "HLRAlgo_Projector.hxx".}
 proc fullTransformation*(this: HLRAlgoProjector): Trsf {.noSideEffect,
     importcpp: "FullTransformation", header: "HLRAlgo_Projector.hxx".}
-proc focus*(this: HLRAlgoProjector): float {.noSideEffect, importcpp: "Focus",
+proc focus*(this: HLRAlgoProjector): cfloat {.noSideEffect, importcpp: "Focus",
     header: "HLRAlgo_Projector.hxx".}
 proc transform*(this: HLRAlgoProjector; d: var Vec) {.noSideEffect,
     importcpp: "Transform", header: "HLRAlgo_Projector.hxx".}
@@ -60,9 +60,34 @@ proc transform*(this: HLRAlgoProjector; pnt: var Pnt) {.noSideEffect,
     importcpp: "Transform", header: "HLRAlgo_Projector.hxx".}
 proc project*(this: HLRAlgoProjector; p: Pnt; pout: var Pnt2d) {.noSideEffect,
     importcpp: "Project", header: "HLRAlgo_Projector.hxx".}
-proc project*(this: HLRAlgoProjector; p: Pnt; x: var float; y: var float; z: var float) {.
+proc project*(this: HLRAlgoProjector; p: Pnt; x: var cfloat; y: var cfloat; z: var cfloat) {.
     noSideEffect, importcpp: "Project", header: "HLRAlgo_Projector.hxx".}
 proc project*(this: HLRAlgoProjector; p: Pnt; d1: Vec; pout: var Pnt2d; d1out: var Vec2d) {.
     noSideEffect, importcpp: "Project", header: "HLRAlgo_Projector.hxx".}
-proc shoot*(this: HLRAlgoProjector; x: float; y: float): Lin {.noSideEffect,
+proc shoot*(this: HLRAlgoProjector; x: cfloat; y: cfloat): Lin {.noSideEffect,
     importcpp: "Shoot", header: "HLRAlgo_Projector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

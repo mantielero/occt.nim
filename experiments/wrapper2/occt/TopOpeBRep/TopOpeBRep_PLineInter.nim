@@ -18,3 +18,28 @@ discard "forward decl of TopOpeBRep_LineInter"
 type
   TopOpeBRepPLineInter* = ptr TopOpeBRepLineInter
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

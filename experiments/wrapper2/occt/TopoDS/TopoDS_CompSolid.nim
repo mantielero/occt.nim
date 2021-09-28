@@ -36,3 +36,28 @@ type
 
 proc constructTopoDS_CompSolid*(): TopoDS_CompSolid {.constructor,
     importcpp: "TopoDS_CompSolid(@)", header: "TopoDS_CompSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

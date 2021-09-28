@@ -25,24 +25,49 @@ type
 
 proc constructIntPolyhEdge*(): IntPolyhEdge {.constructor,
     importcpp: "IntPolyh_Edge(@)", header: "IntPolyh_Edge.hxx".}
-proc constructIntPolyhEdge*(thePoint1: int; thePoint2: int; theTriangle1: int;
-                           theTriangle2: int): IntPolyhEdge {.constructor,
+proc constructIntPolyhEdge*(thePoint1: cint; thePoint2: cint; theTriangle1: cint;
+                           theTriangle2: cint): IntPolyhEdge {.constructor,
     importcpp: "IntPolyh_Edge(@)", header: "IntPolyh_Edge.hxx".}
-proc firstPoint*(this: IntPolyhEdge): int {.noSideEffect, importcpp: "FirstPoint",
-                                        header: "IntPolyh_Edge.hxx".}
-proc secondPoint*(this: IntPolyhEdge): int {.noSideEffect, importcpp: "SecondPoint",
+proc firstPoint*(this: IntPolyhEdge): cint {.noSideEffect, importcpp: "FirstPoint",
     header: "IntPolyh_Edge.hxx".}
-proc firstTriangle*(this: IntPolyhEdge): int {.noSideEffect,
+proc secondPoint*(this: IntPolyhEdge): cint {.noSideEffect, importcpp: "SecondPoint",
+    header: "IntPolyh_Edge.hxx".}
+proc firstTriangle*(this: IntPolyhEdge): cint {.noSideEffect,
     importcpp: "FirstTriangle", header: "IntPolyh_Edge.hxx".}
-proc secondTriangle*(this: IntPolyhEdge): int {.noSideEffect,
+proc secondTriangle*(this: IntPolyhEdge): cint {.noSideEffect,
     importcpp: "SecondTriangle", header: "IntPolyh_Edge.hxx".}
-proc setFirstPoint*(this: var IntPolyhEdge; thePoint: int) {.
+proc setFirstPoint*(this: var IntPolyhEdge; thePoint: cint) {.
     importcpp: "SetFirstPoint", header: "IntPolyh_Edge.hxx".}
-proc setSecondPoint*(this: var IntPolyhEdge; thePoint: int) {.
+proc setSecondPoint*(this: var IntPolyhEdge; thePoint: cint) {.
     importcpp: "SetSecondPoint", header: "IntPolyh_Edge.hxx".}
-proc setFirstTriangle*(this: var IntPolyhEdge; theTriangle: int) {.
+proc setFirstTriangle*(this: var IntPolyhEdge; theTriangle: cint) {.
     importcpp: "SetFirstTriangle", header: "IntPolyh_Edge.hxx".}
-proc setSecondTriangle*(this: var IntPolyhEdge; theTriangle: int) {.
+proc setSecondTriangle*(this: var IntPolyhEdge; theTriangle: cint) {.
     importcpp: "SetSecondTriangle", header: "IntPolyh_Edge.hxx".}
-proc dump*(this: IntPolyhEdge; v: int) {.noSideEffect, importcpp: "Dump",
-                                    header: "IntPolyh_Edge.hxx".}
+proc dump*(this: IntPolyhEdge; v: cint) {.noSideEffect, importcpp: "Dump",
+                                     header: "IntPolyh_Edge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,7 +30,7 @@ proc constructRWStepVisualRWAnnotationCurveOccurrenceAndGeomReprItem*(): RWStepV
     importcpp: "RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem(@)",
     header: "RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem.hxx".}
 proc readStep*(this: RWStepVisualRWAnnotationCurveOccurrenceAndGeomReprItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualAnnotationCurveOccurrenceAndGeomReprItem]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepVisualRWAnnotationCurveOccurrenceAndGeomReprItem;
            ent: Handle[StepVisualAnnotationCurveOccurrenceAndGeomReprItem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWAnnotationCurveOccurrenceAndGeomReprItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

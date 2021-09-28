@@ -69,3 +69,28 @@ proc rejectMetric*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
 proc stop*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): bool {.
     noSideEffect, importcpp: "Stop", header: "BVH_Distance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

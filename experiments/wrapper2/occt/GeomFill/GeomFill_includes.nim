@@ -3,8 +3,8 @@
 {.experimental: "callOperator".}
 
 include GeomFill
-include GeomFill_AppSurf
-include GeomFill_AppSweep
+#include GeomFill_AppSurf
+#include GeomFill_AppSweep
 include GeomFill_ApproxStyle
 include GeomFill_Array1OfLocationLaw
 include GeomFill_Array1OfSectionLaw
@@ -35,9 +35,9 @@ include GeomFill_FunctionGuide
 include GeomFill_Generator
 include GeomFill_GuideTrihedronAC
 include GeomFill_GuideTrihedronPlan
-include GeomFill_HArray1OfLocationLaw
-include GeomFill_HArray1OfSectionLaw
-include GeomFill_HSequenceOfAx2
+#include GeomFill_HArray1OfLocationLaw
+#include GeomFill_HArray1OfSectionLaw
+#include GeomFill_HSequenceOfAx2
 include GeomFill_Line
 include GeomFill_LocFunction
 include GeomFill_LocationDraft
@@ -68,4 +68,3 @@ include GeomFill_Trihedron
 include GeomFill_TrihedronLaw
 include GeomFill_TrihedronWithGuide
 include GeomFill_UniformSection
-

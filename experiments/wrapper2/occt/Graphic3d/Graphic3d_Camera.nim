@@ -14,7 +14,7 @@
 ##  commercial license or contractual agreement.
 
 ## !!!Ignored construct:  # _Graphic3d_Camera_HeaderFile [NewLine] # _Graphic3d_Camera_HeaderFile [NewLine] # < Aspect_Eye . hxx > [NewLine] # < Aspect_FrustumLRBT . hxx > [NewLine] # < Graphic3d_CameraTile . hxx > [NewLine] # < Graphic3d_Mat4d . hxx > [NewLine] # < Graphic3d_Mat4 . hxx > [NewLine] # < Graphic3d_Vec3 . hxx > [NewLine] # < Graphic3d_WorldViewProjState . hxx > [NewLine] # < NCollection_Lerp . hxx > [NewLine] # < NCollection_Array1 . hxx > [NewLine] # < gp_Dir . hxx > [NewLine] # < gp_Pnt . hxx > [NewLine] # < Standard_Macro . hxx > [NewLine] # < Standard_TypeDef . hxx > [NewLine] # < Bnd_Box . hxx > [NewLine] ! Forward declaration class Graphic3d_WorldViewProjState ;
-## Error: token expected: ; but got: <!!!
+## Error: expected ';'!!!
 
 ## ! Camera class provides object-oriented approach to setting up projection
 ## ! and orientation properties of 3D view.
@@ -86,6 +86,7 @@ type
     ## !< flag indicating usage of custom projection matrix
     ## !< flag indicating usage of custom stereo projection matrices
     ## !< flag indicating usage of custom stereo frustums
+    standardType* {.importc: "Standard_Type".}: Handle
 
   Graphic3dCameraProjection* {.size: sizeof(cint),
                               importcpp: "Graphic3d_Camera::Projection",
@@ -110,16 +111,20 @@ type
 
 proc constructGraphic3dCamera*(): Graphic3dCamera {.constructor,
     importcpp: "Graphic3d_Camera(@)", header: "Graphic3d_Camera.hxx".}
-proc constructGraphic3dCamera*(theOther: Handle[Graphic3dCamera]): Graphic3dCamera {.
-    constructor, importcpp: "Graphic3d_Camera(@)", header: "Graphic3d_Camera.hxx".}
-proc copyMappingData*(this: var Graphic3dCamera;
-                     theOtherCamera: Handle[Graphic3dCamera]) {.
-    importcpp: "CopyMappingData", header: "Graphic3d_Camera.hxx".}
-proc copyOrientationData*(this: var Graphic3dCamera;
-                         theOtherCamera: Handle[Graphic3dCamera]) {.
-    importcpp: "CopyOrientationData", header: "Graphic3d_Camera.hxx".}
-proc copy*(this: var Graphic3dCamera; theOther: Handle[Graphic3dCamera]) {.
-    importcpp: "Copy", header: "Graphic3d_Camera.hxx".}
+## !!!Ignored construct:  ! Copy constructor.
+## ! @param theOther [in] the camera to copy from. Graphic3d_Camera ( const Handle ( Graphic3d_Camera ) & theOther ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Initialize mapping related parameters from other camera handle. void CopyMappingData ( const Handle ( Graphic3d_Camera ) & theOtherCamera ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Initialize orientation related parameters from other camera handle. void CopyOrientationData ( const Handle ( Graphic3d_Camera ) & theOtherCamera ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Copy properties of another camera.
+## ! @param theOther [in] the camera to copy from. void Copy ( const Handle ( Graphic3d_Camera ) & theOther ) ;
+## Error: token expected: ) but got: &!!!
+
 proc direction*(this: Graphic3dCamera): Dir {.noSideEffect, importcpp: "Direction",
     header: "Graphic3d_Camera.hxx".}
 proc setDirectionFromEye*(this: var Graphic3dCamera; theDir: Dir) {.
@@ -315,16 +320,13 @@ type
 
 proc getTypeName*(): cstring {.importcpp: "Graphic3d_Camera::get_type_name(@)",
                             header: "Graphic3d_Camera.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Graphic3d_Camera::get_type_descriptor(@)",
-    header: "Graphic3d_Camera.hxx".}
-proc dynamicType*(this: Graphic3dCamera): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Graphic3d_Camera.hxx".}
-discard "forward decl of Graphic3d_Camera"
-type
-  HandleGraphic3dCameraGraphic3dCamera* = Handle[Graphic3dCamera]
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
 
-## ! Linear interpolation tool for camera orientation and position.
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Graphic3d_Camera , Standard_Transient ) ! Linear interpolation tool for camera orientation and position.
 ## ! This tool interpolates camera parameters scale, eye, center, rotation (up and direction vectors) independently.
 ## !
 ## ! Eye/Center interpolation is performed through defining an anchor point in-between Center and Eye.
@@ -340,11 +342,54 @@ type
 ## !
 ## ! This transformation might be not in line with user expectations.
 ## ! In this case, application might define intermediate camera positions for interpolation
-## ! or implement own interpolation logic.
-
-## !!!Ignored construct:  template < > [end of template] void NCollection_Lerp < opencascade :: handle < Graphic3d_Camera > [end of template] > :: Interpolate ( const double theT , opencascade :: handle < Graphic3d_Camera > [end of template] & theResult ) const ;
-## Error: token expected: ; but got: <!!!
+## ! or implement own interpolation logic. template < > void NCollection_Lerp < Handle ( Graphic3d_Camera ) > :: Interpolate ( const double theT , Handle ( Graphic3d_Camera ) & theResult ) const ;
+## Error: expected ';'!!!
 
 type
-  Graphic3dCameraLerp* = NCollectionLerp[Handle[Graphic3dCamera]]
+  Graphic3dCameraLerp* = NCollectionLerp[proc (a1: Graphic3dCamera): Handle]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

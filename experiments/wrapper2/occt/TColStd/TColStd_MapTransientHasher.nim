@@ -15,3 +15,28 @@
 type
   TColStdMapTransientHasher* = NCollectionDefaultHasher[Handle[StandardTransient]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

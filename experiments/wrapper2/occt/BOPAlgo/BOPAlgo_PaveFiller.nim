@@ -78,3 +78,28 @@ proc setAvoidBuildPCurve*(this: var BOPAlgoPaveFiller; theValue: bool) {.
     importcpp: "SetAvoidBuildPCurve", header: "BOPAlgo_PaveFiller.hxx".}
 proc isAvoidBuildPCurve*(this: BOPAlgoPaveFiller): bool {.noSideEffect,
     importcpp: "IsAvoidBuildPCurve", header: "BOPAlgo_PaveFiller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

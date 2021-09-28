@@ -19,3 +19,28 @@ type
   TDF_DoubleMapIteratorOfGUIDProgIDMap* = Iterator[StandardGUID,
       TCollectionExtendedString, StandardGUID, TCollectionExtendedString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

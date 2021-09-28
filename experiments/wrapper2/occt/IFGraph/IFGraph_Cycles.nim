@@ -57,3 +57,28 @@ proc constructIFGraphCycles*(subparts: var IFGraphStrongComponants): IFGraphCycl
     constructor, importcpp: "IFGraph_Cycles(@)", header: "IFGraph_Cycles.hxx".}
 proc evaluate*(this: var IFGraphCycles) {.importcpp: "Evaluate",
                                       header: "IFGraph_Cycles.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

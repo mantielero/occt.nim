@@ -13,12 +13,37 @@
 ##   Include a utiliser pour appeler IGESFile_Read
 
 proc iGESFileRead*(nomfic: cstring; amodel: Handle[IGESDataIGESModel];
-                  protocol: Handle[IGESDataProtocol]): int {.
+                  protocol: Handle[IGESDataProtocol]): cint {.
     importcpp: "IGESFile_Read(@)", header: "IGESFile_Read.hxx".}
 proc iGESFileReadFNES*(nomfic: cstring; amodel: Handle[IGESDataIGESModel];
-                      protocol: Handle[IGESDataProtocol]): int {.
+                      protocol: Handle[IGESDataProtocol]): cint {.
     importcpp: "IGESFile_ReadFNES(@)", header: "IGESFile_Read.hxx".}
 proc iGESFileRead*(nomfic: cstring; amodel: Handle[IGESDataIGESModel];
                   protocol: Handle[IGESDataProtocol];
-                  reco: Handle[IGESDataFileRecognizer]; modefnes: bool = false): int {.
+                  reco: Handle[IGESDataFileRecognizer]; modefnes: bool = false): cint {.
     importcpp: "IGESFile_Read(@)", header: "IGESFile_Read.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,10 +26,35 @@ proc constructStepShapeDimensionalCharacteristic*(): StepShapeDimensionalCharact
     constructor, importcpp: "StepShape_DimensionalCharacteristic(@)",
     header: "StepShape_DimensionalCharacteristic.hxx".}
 proc caseNum*(this: StepShapeDimensionalCharacteristic;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepShape_DimensionalCharacteristic.hxx".}
 proc dimensionalLocation*(this: StepShapeDimensionalCharacteristic): Handle[
     StepShapeDimensionalLocation] {.noSideEffect,
                                    importcpp: "DimensionalLocation", header: "StepShape_DimensionalCharacteristic.hxx".}
 proc dimensionalSize*(this: StepShapeDimensionalCharacteristic): Handle[
     StepShapeDimensionalSize] {.noSideEffect, importcpp: "DimensionalSize", header: "StepShape_DimensionalCharacteristic.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_NamedShapeDriver"
 discard "forward decl of TPrsStd_NamedShapeDriver"
 type
-  HandleTPrsStdNamedShapeDriver* = Handle[TPrsStdNamedShapeDriver]
+  HandleC1C1* = Handle[TPrsStdNamedShapeDriver]
 
 ## ! An implementation of TPrsStd_Driver for named shapes.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_NamedShapeDriver.hxx".}
 proc dynamicType*(this: TPrsStdNamedShapeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TPrsStd_NamedShapeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

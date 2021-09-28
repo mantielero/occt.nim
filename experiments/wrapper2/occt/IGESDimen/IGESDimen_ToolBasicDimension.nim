@@ -70,5 +70,30 @@ proc ownCopy*(this: IGESDimenToolBasicDimension;
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolBasicDimension.hxx".}
 proc ownDump*(this: IGESDimenToolBasicDimension;
              ent: Handle[IGESDimenBasicDimension]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESDimen_ToolBasicDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

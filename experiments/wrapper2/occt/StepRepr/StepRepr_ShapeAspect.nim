@@ -19,7 +19,7 @@ discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepRepr_ShapeAspect"
 type
-  HandleStepReprShapeAspect* = Handle[StepReprShapeAspect]
+  HandleC1C1* = Handle[StepReprShapeAspect]
   StepReprShapeAspect* {.importcpp: "StepRepr_ShapeAspect",
                         header: "StepRepr_ShapeAspect.hxx", bycopy.} = object of StandardTransient ##
                                                                                             ## !
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_ShapeAspect.hxx".}
 proc dynamicType*(this: StepReprShapeAspect): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepRepr_ShapeAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

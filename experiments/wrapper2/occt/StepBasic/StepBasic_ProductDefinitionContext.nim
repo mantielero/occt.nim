@@ -19,8 +19,7 @@ discard "forward decl of StepBasic_ApplicationContext"
 discard "forward decl of StepBasic_ProductDefinitionContext"
 discard "forward decl of StepBasic_ProductDefinitionContext"
 type
-  HandleStepBasicProductDefinitionContext* = Handle[
-      StepBasicProductDefinitionContext]
+  HandleC1C1* = Handle[StepBasicProductDefinitionContext]
   StepBasicProductDefinitionContext* {.importcpp: "StepBasic_ProductDefinitionContext", header: "StepBasic_ProductDefinitionContext.hxx",
                                       bycopy.} = object of StepBasicApplicationContextElement ##
                                                                                          ## !
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicProductDefinitionContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ProductDefinitionContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

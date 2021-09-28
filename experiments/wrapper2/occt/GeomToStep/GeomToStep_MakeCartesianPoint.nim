@@ -26,6 +26,24 @@ type
                                  bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeCartesianPoint; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeCartesianPoint::operator new",
+    header: "GeomToStep_MakeCartesianPoint.hxx".}
+proc `delete`*(this: var GeomToStepMakeCartesianPoint; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeCartesianPoint::operator delete",
+    header: "GeomToStep_MakeCartesianPoint.hxx".}
+proc `new[]`*(this: var GeomToStepMakeCartesianPoint; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeCartesianPoint::operator new[]",
+    header: "GeomToStep_MakeCartesianPoint.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeCartesianPoint; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeCartesianPoint::operator delete[]",
+    header: "GeomToStep_MakeCartesianPoint.hxx".}
+proc `new`*(this: var GeomToStepMakeCartesianPoint; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeCartesianPoint::operator new",
+    header: "GeomToStep_MakeCartesianPoint.hxx".}
+proc `delete`*(this: var GeomToStepMakeCartesianPoint; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeCartesianPoint::operator delete",
+    header: "GeomToStep_MakeCartesianPoint.hxx".}
 proc constructGeomToStepMakeCartesianPoint*(p: Pnt): GeomToStepMakeCartesianPoint {.
     constructor, importcpp: "GeomToStep_MakeCartesianPoint(@)",
     header: "GeomToStep_MakeCartesianPoint.hxx".}

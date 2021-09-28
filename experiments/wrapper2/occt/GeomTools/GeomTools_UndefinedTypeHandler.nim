@@ -20,7 +20,7 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of GeomTools_UndefinedTypeHandler"
 discard "forward decl of GeomTools_UndefinedTypeHandler"
 type
-  HandleGeomToolsUndefinedTypeHandler* = Handle[GeomToolsUndefinedTypeHandler]
+  HandleC1C1* = Handle[GeomToolsUndefinedTypeHandler]
   GeomToolsUndefinedTypeHandler* {.importcpp: "GeomTools_UndefinedTypeHandler",
                                   header: "GeomTools_UndefinedTypeHandler.hxx",
                                   bycopy.} = object of StandardTransient
@@ -30,22 +30,25 @@ proc constructGeomToolsUndefinedTypeHandler*(): GeomToolsUndefinedTypeHandler {.
     constructor, importcpp: "GeomTools_UndefinedTypeHandler(@)",
     header: "GeomTools_UndefinedTypeHandler.hxx".}
 proc printCurve*(this: GeomToolsUndefinedTypeHandler; c: Handle[GeomCurve];
-                os: var StandardOStream; compact: bool = false) {.noSideEffect,
-    importcpp: "PrintCurve", header: "GeomTools_UndefinedTypeHandler.hxx".}
+                os: var StandardOStream; compact: StandardBoolean = false) {.
+    noSideEffect, importcpp: "PrintCurve",
+    header: "GeomTools_UndefinedTypeHandler.hxx".}
 proc readCurve*(this: GeomToolsUndefinedTypeHandler; ctype: int;
                `is`: var StandardIStream; c: var Handle[GeomCurve]): var StandardIStream {.
     noSideEffect, importcpp: "ReadCurve",
     header: "GeomTools_UndefinedTypeHandler.hxx".}
 proc printCurve2d*(this: GeomToolsUndefinedTypeHandler; c: Handle[Geom2dCurve];
-                  os: var StandardOStream; compact: bool = false) {.noSideEffect,
-    importcpp: "PrintCurve2d", header: "GeomTools_UndefinedTypeHandler.hxx".}
+                  os: var StandardOStream; compact: StandardBoolean = false) {.
+    noSideEffect, importcpp: "PrintCurve2d",
+    header: "GeomTools_UndefinedTypeHandler.hxx".}
 proc readCurve2d*(this: GeomToolsUndefinedTypeHandler; ctype: int;
                  `is`: var StandardIStream; c: var Handle[Geom2dCurve]): var StandardIStream {.
     noSideEffect, importcpp: "ReadCurve2d",
     header: "GeomTools_UndefinedTypeHandler.hxx".}
 proc printSurface*(this: GeomToolsUndefinedTypeHandler; s: Handle[GeomSurface];
-                  os: var StandardOStream; compact: bool = false) {.noSideEffect,
-    importcpp: "PrintSurface", header: "GeomTools_UndefinedTypeHandler.hxx".}
+                  os: var StandardOStream; compact: StandardBoolean = false) {.
+    noSideEffect, importcpp: "PrintSurface",
+    header: "GeomTools_UndefinedTypeHandler.hxx".}
 proc readSurface*(this: GeomToolsUndefinedTypeHandler; ctype: int;
                  `is`: var StandardIStream; s: var Handle[GeomSurface]): var StandardIStream {.
     noSideEffect, importcpp: "ReadSurface",

@@ -18,3 +18,28 @@ type
   IntSurfListOfPntOn2S* = NCollectionList[IntSurfPntOn2S]
   IntSurfListIteratorOfListOfPntOn2S* = Iterator[IntSurfPntOn2S]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,3 +23,28 @@ type
     PrsDimTypeOfAngleExterior ## !< the angle equal 2 PI minus the interior angle
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

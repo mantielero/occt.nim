@@ -22,20 +22,45 @@ type
                        header: "BRepLProp_CurveTool.hxx", bycopy.} = object ## ! Computes the point <P> of parameter <U> on the curve <C>.
 
 
-proc value*(c: BRepAdaptorCurve; u: float; p: var Pnt) {.
+proc value*(c: BRepAdaptorCurve; u: cfloat; p: var Pnt) {.
     importcpp: "BRepLProp_CurveTool::Value(@)", header: "BRepLProp_CurveTool.hxx".}
-proc d1*(c: BRepAdaptorCurve; u: float; p: var Pnt; v1: var Vec) {.
+proc d1*(c: BRepAdaptorCurve; u: cfloat; p: var Pnt; v1: var Vec) {.
     importcpp: "BRepLProp_CurveTool::D1(@)", header: "BRepLProp_CurveTool.hxx".}
-proc d2*(c: BRepAdaptorCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(c: BRepAdaptorCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
     importcpp: "BRepLProp_CurveTool::D2(@)", header: "BRepLProp_CurveTool.hxx".}
-proc d3*(c: BRepAdaptorCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d3*(c: BRepAdaptorCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
     importcpp: "BRepLProp_CurveTool::D3(@)", header: "BRepLProp_CurveTool.hxx".}
-proc continuity*(c: BRepAdaptorCurve): int {.
+proc continuity*(c: BRepAdaptorCurve): cint {.
     importcpp: "BRepLProp_CurveTool::Continuity(@)",
     header: "BRepLProp_CurveTool.hxx".}
-proc firstParameter*(c: BRepAdaptorCurve): float {.
+proc firstParameter*(c: BRepAdaptorCurve): cfloat {.
     importcpp: "BRepLProp_CurveTool::FirstParameter(@)",
     header: "BRepLProp_CurveTool.hxx".}
-proc lastParameter*(c: BRepAdaptorCurve): float {.
+proc lastParameter*(c: BRepAdaptorCurve): cfloat {.
     importcpp: "BRepLProp_CurveTool::LastParameter(@)",
     header: "BRepLProp_CurveTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -70,3 +70,28 @@ proc c0BSplineToSequenceOfC1BSplineCurve*(bs: Handle[Geom2dBSplineCurve];
     seqBS: var Handle[TColGeom2dHSequenceOfBoundedCurve]): bool {.
     importcpp: "ShapeUpgrade::C0BSplineToSequenceOfC1BSplineCurve(@)",
     header: "ShapeUpgrade.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

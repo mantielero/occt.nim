@@ -21,7 +21,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_NewDimensionedGeometry"
 discard "forward decl of IGESDimen_NewDimensionedGeometry"
 type
-  HandleIGESDimenNewDimensionedGeometry* = Handle[IGESDimenNewDimensionedGeometry]
+  HandleC1C1* = Handle[IGESDimenNewDimensionedGeometry]
 
 ## ! defines New Dimensioned Geometry, Type <402>, Form <21>
 ## ! in package IGESDimen
@@ -38,33 +38,33 @@ type
 proc constructIGESDimenNewDimensionedGeometry*(): IGESDimenNewDimensionedGeometry {.
     constructor, importcpp: "IGESDimen_NewDimensionedGeometry(@)",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc init*(this: var IGESDimenNewDimensionedGeometry; nbDimens: int;
-          aDimen: Handle[IGESDataIGESEntity]; anOrientation: int; anAngle: float;
+proc init*(this: var IGESDimenNewDimensionedGeometry; nbDimens: cint;
+          aDimen: Handle[IGESDataIGESEntity]; anOrientation: cint; anAngle: cfloat;
           allEntities: Handle[IGESDataHArray1OfIGESEntity];
           allLocations: Handle[TColStdHArray1OfInteger];
           allPoints: Handle[TColgpHArray1OfXYZ]) {.importcpp: "Init",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc nbDimensions*(this: IGESDimenNewDimensionedGeometry): int {.noSideEffect,
+proc nbDimensions*(this: IGESDimenNewDimensionedGeometry): cint {.noSideEffect,
     importcpp: "NbDimensions", header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc nbGeometries*(this: IGESDimenNewDimensionedGeometry): int {.noSideEffect,
+proc nbGeometries*(this: IGESDimenNewDimensionedGeometry): cint {.noSideEffect,
     importcpp: "NbGeometries", header: "IGESDimen_NewDimensionedGeometry.hxx".}
 proc dimensionEntity*(this: IGESDimenNewDimensionedGeometry): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "DimensionEntity",
                          header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc dimensionOrientationFlag*(this: IGESDimenNewDimensionedGeometry): int {.
+proc dimensionOrientationFlag*(this: IGESDimenNewDimensionedGeometry): cint {.
     noSideEffect, importcpp: "DimensionOrientationFlag",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc angleValue*(this: IGESDimenNewDimensionedGeometry): float {.noSideEffect,
+proc angleValue*(this: IGESDimenNewDimensionedGeometry): cfloat {.noSideEffect,
     importcpp: "AngleValue", header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc geometryEntity*(this: IGESDimenNewDimensionedGeometry; index: int): Handle[
+proc geometryEntity*(this: IGESDimenNewDimensionedGeometry; index: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "GeometryEntity",
                          header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc dimensionLocationFlag*(this: IGESDimenNewDimensionedGeometry; index: int): int {.
+proc dimensionLocationFlag*(this: IGESDimenNewDimensionedGeometry; index: cint): cint {.
     noSideEffect, importcpp: "DimensionLocationFlag",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc point*(this: IGESDimenNewDimensionedGeometry; index: int): Pnt {.noSideEffect,
+proc point*(this: IGESDimenNewDimensionedGeometry; index: cint): Pnt {.noSideEffect,
     importcpp: "Point", header: "IGESDimen_NewDimensionedGeometry.hxx".}
-proc transformedPoint*(this: IGESDimenNewDimensionedGeometry; index: int): Pnt {.
+proc transformedPoint*(this: IGESDimenNewDimensionedGeometry; index: cint): Pnt {.
     noSideEffect, importcpp: "TransformedPoint",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
 type
@@ -78,3 +78,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDimenNewDimensionedGeometry): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_NewDimensionedGeometry.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

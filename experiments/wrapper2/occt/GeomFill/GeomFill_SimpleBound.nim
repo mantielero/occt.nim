@@ -21,7 +21,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_SimpleBound"
 discard "forward decl of GeomFill_SimpleBound"
 type
-  HandleGeomFillSimpleBound* = Handle[GeomFillSimpleBound]
+  HandleC1C1* = Handle[GeomFillSimpleBound]
 
 ## ! Defines a 3d curve as a boundary for a
 ## ! GeomFill_ConstrainedFilling algorithm.
@@ -271,20 +271,23 @@ type
                                                                                            ## (Curve,Tol,dummy);
 
 
-proc constructGeomFillSimpleBound*(curve: Handle[Adaptor3dHCurve]; tol3d: float;
-                                  tolang: float): GeomFillSimpleBound {.
+proc constructGeomFillSimpleBound*(curve: Handle[Adaptor3dHCurve];
+                                  tol3d: StandardReal; tolang: StandardReal): GeomFillSimpleBound {.
     constructor, importcpp: "GeomFill_SimpleBound(@)",
     header: "GeomFill_SimpleBound.hxx".}
-proc value*(this: GeomFillSimpleBound; u: float): Pnt {.noSideEffect,
+proc value*(this: GeomFillSimpleBound; u: StandardReal): Pnt {.noSideEffect,
     importcpp: "Value", header: "GeomFill_SimpleBound.hxx".}
-proc d1*(this: GeomFillSimpleBound; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
-    importcpp: "D1", header: "GeomFill_SimpleBound.hxx".}
-proc reparametrize*(this: var GeomFillSimpleBound; first: float; last: float;
-                   hasDF: bool; hasDL: bool; df: float; dl: float; rev: bool) {.
-    importcpp: "Reparametrize", header: "GeomFill_SimpleBound.hxx".}
-proc bounds*(this: GeomFillSimpleBound; first: var float; last: var float) {.
-    noSideEffect, importcpp: "Bounds", header: "GeomFill_SimpleBound.hxx".}
-proc isDegenerated*(this: GeomFillSimpleBound): bool {.noSideEffect,
+proc d1*(this: GeomFillSimpleBound; u: StandardReal; p: var Pnt; v: var Vec) {.
+    noSideEffect, importcpp: "D1", header: "GeomFill_SimpleBound.hxx".}
+proc reparametrize*(this: var GeomFillSimpleBound; first: StandardReal;
+                   last: StandardReal; hasDF: StandardBoolean;
+                   hasDL: StandardBoolean; df: StandardReal; dl: StandardReal;
+                   rev: StandardBoolean) {.importcpp: "Reparametrize",
+    header: "GeomFill_SimpleBound.hxx".}
+proc bounds*(this: GeomFillSimpleBound; first: var StandardReal;
+            last: var StandardReal) {.noSideEffect, importcpp: "Bounds",
+                                   header: "GeomFill_SimpleBound.hxx".}
+proc isDegenerated*(this: GeomFillSimpleBound): StandardBoolean {.noSideEffect,
     importcpp: "IsDegenerated", header: "GeomFill_SimpleBound.hxx".}
 type
   GeomFillSimpleBoundbaseType* = GeomFillBoundary

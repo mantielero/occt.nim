@@ -63,5 +63,30 @@ proc ownCopy*(this: IGESAppliToolPartNumber; entfrom: Handle[IGESAppliPartNumber
              entto: Handle[IGESAppliPartNumber]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolPartNumber.hxx".}
 proc ownDump*(this: IGESAppliToolPartNumber; ent: Handle[IGESAppliPartNumber];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolPartNumber.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

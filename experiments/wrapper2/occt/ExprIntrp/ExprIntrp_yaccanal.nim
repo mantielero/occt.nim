@@ -17,3 +17,28 @@
 var exprIntrpRecept* {.importcpp: "ExprIntrp_Recept",
                      header: "ExprIntrp_yaccanal.hxx".}: ExprIntrpAnalysis
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

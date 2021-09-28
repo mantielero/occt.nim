@@ -401,7 +401,7 @@ proc chainPreviousPlane*(this: Graphic3dClipPlane): Handle[Graphic3dClipPlane] {
     header: "Graphic3d_ClipPlane.hxx".}
 proc chainNextPlane*(this: Graphic3dClipPlane): Handle[Graphic3dClipPlane] {.
     noSideEffect, importcpp: "ChainNextPlane", header: "Graphic3d_ClipPlane.hxx".}
-proc nbChainNextPlanes*(this: Graphic3dClipPlane): int {.noSideEffect,
+proc nbChainNextPlanes*(this: Graphic3dClipPlane): cint {.noSideEffect,
     importcpp: "NbChainNextPlanes", header: "Graphic3d_ClipPlane.hxx".}
 proc setChainNextPlane*(this: var Graphic3dClipPlane;
                        thePlane: Handle[Graphic3dClipPlane]) {.
@@ -481,13 +481,38 @@ proc isBoxFullInHalfspace*(this: Graphic3dClipPlane; theBox: Graphic3dBndBox3d):
     noSideEffect, importcpp: "IsBoxFullInHalfspace",
     header: "Graphic3d_ClipPlane.hxx".}
 proc dumpJson*(this: Graphic3dClipPlane; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_ClipPlane.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_ClipPlane.hxx".}
 proc mCountEquation*(this: Graphic3dClipPlane): cuint {.noSideEffect,
     importcpp: "MCountEquation", header: "Graphic3d_ClipPlane.hxx".}
 proc mCountAspect*(this: Graphic3dClipPlane): cuint {.noSideEffect,
     importcpp: "MCountAspect", header: "Graphic3d_ClipPlane.hxx".}
 discard "forward decl of Graphic3d_ClipPlane"
 type
-  HandleGraphic3dClipPlane* = Handle[Graphic3dClipPlane]
+  HandleC1C1* = Handle[Graphic3dClipPlane]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

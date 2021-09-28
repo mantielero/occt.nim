@@ -35,16 +35,41 @@ type
 
 
 proc constructVrmlDataShapeConvert*(theScene: var VrmlDataScene;
-                                   theScale: float = 1.0): VrmlDataShapeConvert {.
+                                   theScale: cfloat = 1.0): VrmlDataShapeConvert {.
     constructor, importcpp: "VrmlData_ShapeConvert(@)",
     header: "VrmlData_ShapeConvert.hxx".}
 proc addShape*(this: var VrmlDataShapeConvert; theShape: TopoDS_Shape;
               theName: cstring = 0'i64) {.importcpp: "AddShape",
                                        header: "VrmlData_ShapeConvert.hxx".}
 proc convert*(this: var VrmlDataShapeConvert; theExtractFaces: bool;
-             theExtractEdges: bool; theDeflection: float = 0.01;
-             theDeflAngle: float = 20.0 * m_Pi div 180.0) {.importcpp: "Convert",
+             theExtractEdges: bool; theDeflection: cfloat = 0.01;
+             theDeflAngle: cfloat = 20.0 * m_Pi div 180.0) {.importcpp: "Convert",
     header: "VrmlData_ShapeConvert.hxx".}
 proc convertDocument*(this: var VrmlDataShapeConvert;
                      theDoc: Handle[TDocStdDocument]) {.
     importcpp: "ConvertDocument", header: "VrmlData_ShapeConvert.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

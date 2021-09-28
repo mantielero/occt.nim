@@ -30,7 +30,7 @@ proc constructRWStepElementRWSurfaceSectionFieldConstant*(): RWStepElementRWSurf
     constructor, importcpp: "RWStepElement_RWSurfaceSectionFieldConstant(@)",
     header: "RWStepElement_RWSurfaceSectionFieldConstant.hxx".}
 proc readStep*(this: RWStepElementRWSurfaceSectionFieldConstant;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepElementSurfaceSectionFieldConstant]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepElementRWSurfaceSectionFieldConstant;
            ent: Handle[StepElementSurfaceSectionFieldConstant];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWSurfaceSectionFieldConstant.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

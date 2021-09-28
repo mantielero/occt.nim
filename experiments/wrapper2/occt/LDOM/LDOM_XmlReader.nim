@@ -42,9 +42,34 @@ proc readRecord*(this: var LDOM_XmlReader; theIStream: var StandardIStream;
     importcpp: "ReadRecord", header: "LDOM_XmlReader.hxx".}
 proc getElement*(this: LDOM_XmlReader): var LDOM_BasicElement {.noSideEffect,
     importcpp: "GetElement", header: "LDOM_XmlReader.hxx".}
-proc createElement*(this: var LDOM_XmlReader; theName: cstring; theLen: int) {.
+proc createElement*(this: var LDOM_XmlReader; theName: cstring; theLen: cint) {.
     importcpp: "CreateElement", header: "LDOM_XmlReader.hxx".}
 proc getInteger*(theValue: var LDOMBasicString; theStart: cstring; theEnd: cstring): bool {.
     importcpp: "LDOM_XmlReader::getInteger(@)", header: "LDOM_XmlReader.hxx".}
 proc getBOM*(this: LDOM_XmlReader): BOMType {.noSideEffect, importcpp: "GetBOM",
     header: "LDOM_XmlReader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

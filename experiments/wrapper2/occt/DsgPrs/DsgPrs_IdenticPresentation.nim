@@ -55,3 +55,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
          aSAttach: Pnt; aPntOffset: Pnt; aPntOnElli: Pnt) {.
     importcpp: "DsgPrs_IdenticPresentation::Add(@)",
     header: "DsgPrs_IdenticPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

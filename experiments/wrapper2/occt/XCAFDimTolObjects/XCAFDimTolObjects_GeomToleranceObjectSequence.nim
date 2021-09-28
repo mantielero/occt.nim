@@ -18,3 +18,28 @@ type
   XCAFDimTolObjectsGeomToleranceObjectSequence* = NCollectionSequence[
       Handle[XCAFDimTolObjectsGeomToleranceObject]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

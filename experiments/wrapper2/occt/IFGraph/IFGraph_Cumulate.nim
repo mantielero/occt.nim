@@ -36,9 +36,34 @@ proc overlapped*(this: IFGraphCumulate): InterfaceEntityIterator {.noSideEffect,
     importcpp: "Overlapped", header: "IFGraph_Cumulate.hxx".}
 proc forgotten*(this: IFGraphCumulate): InterfaceEntityIterator {.noSideEffect,
     importcpp: "Forgotten", header: "IFGraph_Cumulate.hxx".}
-proc perCount*(this: IFGraphCumulate; count: int = 1): InterfaceEntityIterator {.
+proc perCount*(this: IFGraphCumulate; count: cint = 1): InterfaceEntityIterator {.
     noSideEffect, importcpp: "PerCount", header: "IFGraph_Cumulate.hxx".}
-proc nbTimes*(this: IFGraphCumulate; ent: Handle[StandardTransient]): int {.
+proc nbTimes*(this: IFGraphCumulate; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "NbTimes", header: "IFGraph_Cumulate.hxx".}
-proc highestNbTimes*(this: IFGraphCumulate): int {.noSideEffect,
+proc highestNbTimes*(this: IFGraphCumulate): cint {.noSideEffect,
     importcpp: "HighestNbTimes", header: "IFGraph_Cumulate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

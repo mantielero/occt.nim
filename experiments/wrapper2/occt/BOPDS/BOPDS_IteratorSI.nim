@@ -36,5 +36,30 @@ proc destroyBOPDS_IteratorSI*(this: var BOPDS_IteratorSI) {.
     importcpp: "#.~BOPDS_IteratorSI()", header: "BOPDS_IteratorSI.hxx".}
 proc constructBOPDS_IteratorSI*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_IteratorSI {.
     constructor, importcpp: "BOPDS_IteratorSI(@)", header: "BOPDS_IteratorSI.hxx".}
-proc updateByLevelOfCheck*(this: var BOPDS_IteratorSI; theLevel: int) {.
+proc updateByLevelOfCheck*(this: var BOPDS_IteratorSI; theLevel: cint) {.
     importcpp: "UpdateByLevelOfCheck", header: "BOPDS_IteratorSI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

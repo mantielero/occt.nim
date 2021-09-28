@@ -17,3 +17,28 @@ type
   IntPolyhListOfCouples* = NCollectionList[IntPolyhCouple]
   IntPolyhListIteratorOfListOfCouples* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

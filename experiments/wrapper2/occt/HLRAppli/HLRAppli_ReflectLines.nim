@@ -25,8 +25,8 @@ type
 proc constructHLRAppliReflectLines*(aShape: TopoDS_Shape): HLRAppliReflectLines {.
     constructor, importcpp: "HLRAppli_ReflectLines(@)",
     header: "HLRAppli_ReflectLines.hxx".}
-proc setAxes*(this: var HLRAppliReflectLines; nx: float; ny: float; nz: float; xAt: float;
-             yAt: float; zAt: float; xUp: float; yUp: float; zUp: float) {.
+proc setAxes*(this: var HLRAppliReflectLines; nx: cfloat; ny: cfloat; nz: cfloat;
+             xAt: cfloat; yAt: cfloat; zAt: cfloat; xUp: cfloat; yUp: cfloat; zUp: cfloat) {.
     importcpp: "SetAxes", header: "HLRAppli_ReflectLines.hxx".}
 proc perform*(this: var HLRAppliReflectLines) {.importcpp: "Perform",
     header: "HLRAppli_ReflectLines.hxx".}
@@ -36,3 +36,28 @@ proc getCompoundOf3dEdges*(this: HLRAppliReflectLines;
                           `type`: HLRBRepTypeOfResultingEdge; visible: bool;
                           in3d: bool): TopoDS_Shape {.noSideEffect,
     importcpp: "GetCompoundOf3dEdges", header: "HLRAppli_ReflectLines.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

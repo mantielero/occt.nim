@@ -20,3 +20,28 @@ type
     LPropUndecided, LPropUndefined, LPropDefined, LPropComputed
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

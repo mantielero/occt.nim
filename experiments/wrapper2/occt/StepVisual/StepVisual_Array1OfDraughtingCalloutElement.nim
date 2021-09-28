@@ -17,3 +17,28 @@ type
   StepVisualArray1OfDraughtingCalloutElement* = NCollectionArray1[
       StepVisualDraughtingCalloutElement]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

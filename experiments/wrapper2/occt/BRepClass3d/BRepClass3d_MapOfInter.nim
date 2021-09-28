@@ -20,3 +20,28 @@ type
   BRepClass3dDataMapIteratorOfMapOfInter* = Iterator[TopoDS_Shape, StandardAddress,
       TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

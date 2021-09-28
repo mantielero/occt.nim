@@ -73,8 +73,33 @@ type
 
 proc copyShare*(exp: Handle[ExprGeneralExpression]): Handle[ExprGeneralExpression] {.
     importcpp: "Expr::CopyShare(@)", header: "Expr.hxx".}
-proc nbOfFreeVariables*(exp: Handle[ExprGeneralExpression]): int {.
+proc nbOfFreeVariables*(exp: Handle[ExprGeneralExpression]): cint {.
     importcpp: "Expr::NbOfFreeVariables(@)", header: "Expr.hxx".}
-proc nbOfFreeVariables*(exp: Handle[ExprGeneralRelation]): int {.
+proc nbOfFreeVariables*(exp: Handle[ExprGeneralRelation]): cint {.
     importcpp: "Expr::NbOfFreeVariables(@)", header: "Expr.hxx".}
-proc sign*(val: float): float {.importcpp: "Expr::Sign(@)", header: "Expr.hxx".}
+proc sign*(val: cfloat): cfloat {.importcpp: "Expr::Sign(@)", header: "Expr.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

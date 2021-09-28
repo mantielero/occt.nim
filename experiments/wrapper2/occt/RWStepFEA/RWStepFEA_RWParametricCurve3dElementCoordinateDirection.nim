@@ -30,7 +30,7 @@ proc constructRWStepFEA_RWParametricCurve3dElementCoordinateDirection*(): RWStep
     importcpp: "RWStepFEA_RWParametricCurve3dElementCoordinateDirection(@)",
     header: "RWStepFEA_RWParametricCurve3dElementCoordinateDirection.hxx".}
 proc readStep*(this: RWStepFEA_RWParametricCurve3dElementCoordinateDirection;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_ParametricCurve3dElementCoordinateDirection]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepFEA_RWParametricCurve3dElementCoordinateDirection;
            ent: Handle[StepFEA_ParametricCurve3dElementCoordinateDirection];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWParametricCurve3dElementCoordinateDirection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

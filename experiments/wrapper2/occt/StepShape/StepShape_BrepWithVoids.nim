@@ -20,7 +20,7 @@ discard "forward decl of StepShape_OrientedClosedShell"
 discard "forward decl of StepShape_BrepWithVoids"
 discard "forward decl of StepShape_BrepWithVoids"
 type
-  HandleStepShapeBrepWithVoids* = Handle[StepShapeBrepWithVoids]
+  HandleC1C1* = Handle[StepShapeBrepWithVoids]
   StepShapeBrepWithVoids* {.importcpp: "StepShape_BrepWithVoids",
                            header: "StepShape_BrepWithVoids.hxx", bycopy.} = object of StepShapeManifoldSolidBrep ##
                                                                                                            ## !
@@ -41,10 +41,10 @@ proc setVoids*(this: var StepShapeBrepWithVoids;
 proc voids*(this: StepShapeBrepWithVoids): Handle[
     StepShapeHArray1OfOrientedClosedShell] {.noSideEffect, importcpp: "Voids",
     header: "StepShape_BrepWithVoids.hxx".}
-proc voidsValue*(this: StepShapeBrepWithVoids; num: int): Handle[
+proc voidsValue*(this: StepShapeBrepWithVoids; num: cint): Handle[
     StepShapeOrientedClosedShell] {.noSideEffect, importcpp: "VoidsValue",
                                    header: "StepShape_BrepWithVoids.hxx".}
-proc nbVoids*(this: StepShapeBrepWithVoids): int {.noSideEffect,
+proc nbVoids*(this: StepShapeBrepWithVoids): cint {.noSideEffect,
     importcpp: "NbVoids", header: "StepShape_BrepWithVoids.hxx".}
 type
   StepShapeBrepWithVoidsbaseType* = StepShapeManifoldSolidBrep
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_BrepWithVoids.hxx".}
 proc dynamicType*(this: StepShapeBrepWithVoids): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_BrepWithVoids.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,9 +61,9 @@ proc faceData*(this: ImageCompressedPixMap): Handle[NCollectionBuffer] {.
 proc setFaceData*(this: var ImageCompressedPixMap;
                  theBuffer: Handle[NCollectionBuffer]) {.importcpp: "SetFaceData",
     header: "Image_CompressedPixMap.hxx".}
-proc mipMaps*(this: ImageCompressedPixMap): NCollectionArray1[int] {.noSideEffect,
+proc mipMaps*(this: ImageCompressedPixMap): NCollectionArray1[cint] {.noSideEffect,
     importcpp: "MipMaps", header: "Image_CompressedPixMap.hxx".}
-proc changeMipMaps*(this: var ImageCompressedPixMap): var NCollectionArray1[int] {.
+proc changeMipMaps*(this: var ImageCompressedPixMap): var NCollectionArray1[cint] {.
     importcpp: "ChangeMipMaps", header: "Image_CompressedPixMap.hxx".}
 proc isCompleteMipMapSet*(this: ImageCompressedPixMap): bool {.noSideEffect,
     importcpp: "IsCompleteMipMapSet", header: "Image_CompressedPixMap.hxx".}
@@ -73,17 +73,42 @@ proc faceBytes*(this: ImageCompressedPixMap): StandardSize {.noSideEffect,
     importcpp: "FaceBytes", header: "Image_CompressedPixMap.hxx".}
 proc setFaceBytes*(this: var ImageCompressedPixMap; theSize: StandardSize) {.
     importcpp: "SetFaceBytes", header: "Image_CompressedPixMap.hxx".}
-proc sizeX*(this: ImageCompressedPixMap): int {.noSideEffect, importcpp: "SizeX",
+proc sizeX*(this: ImageCompressedPixMap): cint {.noSideEffect, importcpp: "SizeX",
     header: "Image_CompressedPixMap.hxx".}
-proc sizeY*(this: ImageCompressedPixMap): int {.noSideEffect, importcpp: "SizeY",
+proc sizeY*(this: ImageCompressedPixMap): cint {.noSideEffect, importcpp: "SizeY",
     header: "Image_CompressedPixMap.hxx".}
-proc setSize*(this: var ImageCompressedPixMap; theSizeX: int; theSizeY: int) {.
+proc setSize*(this: var ImageCompressedPixMap; theSizeX: cint; theSizeY: cint) {.
     importcpp: "SetSize", header: "Image_CompressedPixMap.hxx".}
 proc isTopDown*(this: ImageCompressedPixMap): bool {.noSideEffect,
     importcpp: "IsTopDown", header: "Image_CompressedPixMap.hxx".}
-proc nbFaces*(this: ImageCompressedPixMap): int {.noSideEffect, importcpp: "NbFaces",
-    header: "Image_CompressedPixMap.hxx".}
-proc setNbFaces*(this: var ImageCompressedPixMap; theSize: int) {.
+proc nbFaces*(this: ImageCompressedPixMap): cint {.noSideEffect,
+    importcpp: "NbFaces", header: "Image_CompressedPixMap.hxx".}
+proc setNbFaces*(this: var ImageCompressedPixMap; theSize: cint) {.
     importcpp: "SetNbFaces", header: "Image_CompressedPixMap.hxx".}
 proc constructImageCompressedPixMap*(): ImageCompressedPixMap {.constructor,
     importcpp: "Image_CompressedPixMap(@)", header: "Image_CompressedPixMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

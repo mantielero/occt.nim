@@ -24,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SplineToBSpline"
 discard "forward decl of IGESSelect_SplineToBSpline"
 type
-  HandleIGESSelectSplineToBSpline* = Handle[IGESSelectSplineToBSpline]
+  HandleC1C1* = Handle[IGESSelectSplineToBSpline]
 
 ## ! This type of Transformer allows to convert Spline Curves (IGES
 ## ! type 112) and Surfaces (IGES Type 126) to BSpline Curves (IGES
@@ -93,3 +93,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSplineToBSpline): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SplineToBSpline.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

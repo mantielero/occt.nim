@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_UpdateCreationDate"
 discard "forward decl of IGESSelect_UpdateCreationDate"
 type
-  HandleIGESSelectUpdateCreationDate* = Handle[IGESSelectUpdateCreationDate]
+  HandleC1C1* = Handle[IGESSelectUpdateCreationDate]
 
 ## ! Allows to Change the Creation Date indication in the Header
 ## ! (Global Section) of IGES File. It is taken from the operating
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectUpdateCreationDate): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_UpdateCreationDate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

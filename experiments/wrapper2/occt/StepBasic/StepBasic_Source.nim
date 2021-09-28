@@ -20,3 +20,28 @@ type
     StepBasicSMade, StepBasicSBought, StepBasicSNotKnown
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

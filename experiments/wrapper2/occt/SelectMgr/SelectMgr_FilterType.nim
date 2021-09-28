@@ -20,3 +20,28 @@ type
     SelectMgrFilterTypeOR     ## !< an object should be suitable at least one filter.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

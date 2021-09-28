@@ -47,5 +47,30 @@ proc dynamicType*(this: BRepMeshDiscretRoot): Handle[StandardType] {.noSideEffec
     importcpp: "DynamicType", header: "BRepMesh_DiscretRoot.hxx".}
 discard "forward decl of BRepMesh_DiscretRoot"
 type
-  HandleBRepMeshDiscretRoot* = Handle[BRepMeshDiscretRoot]
+  HandleC1C1* = Handle[BRepMeshDiscretRoot]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

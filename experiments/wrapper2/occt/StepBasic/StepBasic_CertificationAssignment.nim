@@ -18,8 +18,7 @@ discard "forward decl of StepBasic_Certification"
 discard "forward decl of StepBasic_CertificationAssignment"
 discard "forward decl of StepBasic_CertificationAssignment"
 type
-  HandleStepBasicCertificationAssignment* = Handle[
-      StepBasicCertificationAssignment]
+  HandleC1C1* = Handle[StepBasicCertificationAssignment]
 
 ## ! Representation of STEP entity CertificationAssignment
 
@@ -53,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicCertificationAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_CertificationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

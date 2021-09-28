@@ -31,9 +31,9 @@ type
 proc constructStepShapeBooleanOperand*(): StepShapeBooleanOperand {.constructor,
     importcpp: "StepShape_BooleanOperand(@)",
     header: "StepShape_BooleanOperand.hxx".}
-proc setTypeOfContent*(this: var StepShapeBooleanOperand; aTypeOfContent: int) {.
+proc setTypeOfContent*(this: var StepShapeBooleanOperand; aTypeOfContent: cint) {.
     importcpp: "SetTypeOfContent", header: "StepShape_BooleanOperand.hxx".}
-proc typeOfContent*(this: StepShapeBooleanOperand): int {.noSideEffect,
+proc typeOfContent*(this: StepShapeBooleanOperand): cint {.noSideEffect,
     importcpp: "TypeOfContent", header: "StepShape_BooleanOperand.hxx".}
 proc solidModel*(this: StepShapeBooleanOperand): Handle[StepShapeSolidModel] {.
     noSideEffect, importcpp: "SolidModel", header: "StepShape_BooleanOperand.hxx".}
@@ -57,3 +57,28 @@ proc booleanResult*(this: StepShapeBooleanOperand): Handle[StepShapeBooleanResul
 proc setBooleanResult*(this: var StepShapeBooleanOperand;
                       aBooleanResult: Handle[StepShapeBooleanResult]) {.
     importcpp: "SetBooleanResult", header: "StepShape_BooleanOperand.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

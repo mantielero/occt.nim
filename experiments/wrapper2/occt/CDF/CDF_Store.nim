@@ -77,3 +77,28 @@ proc setName*(this: var CDF_Store; aName: TCollectionExtendedString): CDF_StoreS
     importcpp: "SetName", header: "CDF_Store.hxx".}
 proc setFolder*(this: var CDF_Store; aFolder: StandardExtString): bool {.
     importcpp: "SetFolder", header: "CDF_Store.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

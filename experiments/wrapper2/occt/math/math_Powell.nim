@@ -27,8 +27,8 @@ type
 
 
 proc constructMathPowell*(theFunction: MathMultipleVarFunction;
-                         theTolerance: float; theNbIterations: int = 200;
-                         theZEPS: float = 1.0e-12): MathPowell {.constructor,
+                         theTolerance: cfloat; theNbIterations: cint = 200;
+                         theZEPS: cfloat = 1.0e-12): MathPowell {.constructor,
     importcpp: "math_Powell(@)", header: "math_Powell.hxx".}
 proc destroyMathPowell*(this: var MathPowell) {.importcpp: "#.~math_Powell()",
     header: "math_Powell.hxx".}
@@ -44,9 +44,34 @@ proc location*(this: MathPowell): MathVector {.noSideEffect, importcpp: "Locatio
     header: "math_Powell.hxx".}
 proc location*(this: MathPowell; loc: var MathVector) {.noSideEffect,
     importcpp: "Location", header: "math_Powell.hxx".}
-proc minimum*(this: MathPowell): float {.noSideEffect, importcpp: "Minimum",
-                                     header: "math_Powell.hxx".}
-proc nbIterations*(this: MathPowell): int {.noSideEffect, importcpp: "NbIterations",
-                                        header: "math_Powell.hxx".}
+proc minimum*(this: MathPowell): cfloat {.noSideEffect, importcpp: "Minimum",
+                                      header: "math_Powell.hxx".}
+proc nbIterations*(this: MathPowell): cint {.noSideEffect, importcpp: "NbIterations",
+    header: "math_Powell.hxx".}
 proc dump*(this: MathPowell; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "math_Powell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

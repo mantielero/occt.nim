@@ -29,7 +29,7 @@ proc constructRWStepDimTolRWConcentricityTolerance*(): RWStepDimTolRWConcentrici
     constructor, importcpp: "RWStepDimTol_RWConcentricityTolerance(@)",
     header: "RWStepDimTol_RWConcentricityTolerance.hxx".}
 proc readStep*(this: RWStepDimTolRWConcentricityTolerance;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolConcentricityTolerance]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWConcentricityTolerance.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepDimTolRWConcentricityTolerance;
            ent: Handle[StepDimTolConcentricityTolerance];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWConcentricityTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

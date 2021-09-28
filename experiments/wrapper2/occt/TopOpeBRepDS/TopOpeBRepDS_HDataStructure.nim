@@ -26,7 +26,7 @@ discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 type
-  HandleTopOpeBRepDS_HDataStructure* = Handle[TopOpeBRepDS_HDataStructure]
+  HandleC1C1* = Handle[TopOpeBRepDS_HDataStructure]
   TopOpeBRepDS_HDataStructure* {.importcpp: "TopOpeBRepDS_HDataStructure",
                                 header: "TopOpeBRepDS_HDataStructure.hxx", bycopy.} = object of StandardTransient
 
@@ -45,31 +45,31 @@ proc ds*(this: TopOpeBRepDS_HDataStructure): TopOpeBRepDS_DataStructure {.
     noSideEffect, importcpp: "DS", header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc changeDS*(this: var TopOpeBRepDS_HDataStructure): var TopOpeBRepDS_DataStructure {.
     importcpp: "ChangeDS", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc nbSurfaces*(this: TopOpeBRepDS_HDataStructure): int {.noSideEffect,
+proc nbSurfaces*(this: TopOpeBRepDS_HDataStructure): cint {.noSideEffect,
     importcpp: "NbSurfaces", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc nbCurves*(this: TopOpeBRepDS_HDataStructure): int {.noSideEffect,
+proc nbCurves*(this: TopOpeBRepDS_HDataStructure): cint {.noSideEffect,
     importcpp: "NbCurves", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc nbPoints*(this: TopOpeBRepDS_HDataStructure): int {.noSideEffect,
+proc nbPoints*(this: TopOpeBRepDS_HDataStructure): cint {.noSideEffect,
     importcpp: "NbPoints", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc surface*(this: TopOpeBRepDS_HDataStructure; i: int): TopOpeBRepDS_Surface {.
+proc surface*(this: TopOpeBRepDS_HDataStructure; i: cint): TopOpeBRepDS_Surface {.
     noSideEffect, importcpp: "Surface", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc surfaceCurves*(this: TopOpeBRepDS_HDataStructure; i: int): TopOpeBRepDS_CurveIterator {.
+proc surfaceCurves*(this: TopOpeBRepDS_HDataStructure; i: cint): TopOpeBRepDS_CurveIterator {.
     noSideEffect, importcpp: "SurfaceCurves",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc curve*(this: TopOpeBRepDS_HDataStructure; i: int): TopOpeBRepDS_Curve {.
+proc curve*(this: TopOpeBRepDS_HDataStructure; i: cint): TopOpeBRepDS_Curve {.
     noSideEffect, importcpp: "Curve", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc changeCurve*(this: var TopOpeBRepDS_HDataStructure; i: int): var TopOpeBRepDS_Curve {.
+proc changeCurve*(this: var TopOpeBRepDS_HDataStructure; i: cint): var TopOpeBRepDS_Curve {.
     importcpp: "ChangeCurve", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc curvePoints*(this: TopOpeBRepDS_HDataStructure; i: int): TopOpeBRepDS_PointIterator {.
+proc curvePoints*(this: TopOpeBRepDS_HDataStructure; i: cint): TopOpeBRepDS_PointIterator {.
     noSideEffect, importcpp: "CurvePoints",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc point*(this: TopOpeBRepDS_HDataStructure; i: int): TopOpeBRepDS_Point {.
+proc point*(this: TopOpeBRepDS_HDataStructure; i: cint): TopOpeBRepDS_Point {.
     noSideEffect, importcpp: "Point", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc nbShapes*(this: TopOpeBRepDS_HDataStructure): int {.noSideEffect,
+proc nbShapes*(this: TopOpeBRepDS_HDataStructure): cint {.noSideEffect,
     importcpp: "NbShapes", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc shape*(this: TopOpeBRepDS_HDataStructure; i: int; findKeep: bool = true): TopoDS_Shape {.
+proc shape*(this: TopOpeBRepDS_HDataStructure; i: cint; findKeep: bool = true): TopoDS_Shape {.
     noSideEffect, importcpp: "Shape", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc shape*(this: TopOpeBRepDS_HDataStructure; s: TopoDS_Shape; findKeep: bool = true): int {.
+proc shape*(this: TopOpeBRepDS_HDataStructure; s: TopoDS_Shape; findKeep: bool = true): cint {.
     noSideEffect, importcpp: "Shape", header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc hasGeometry*(this: TopOpeBRepDS_HDataStructure; s: TopoDS_Shape): bool {.
     noSideEffect, importcpp: "HasGeometry",
@@ -85,36 +85,36 @@ proc sameDomain*(this: TopOpeBRepDS_HDataStructure; s: TopoDS_Shape): TopToolsLi
 proc sameDomainOrientation*(this: TopOpeBRepDS_HDataStructure; s: TopoDS_Shape): TopOpeBRepDS_Config {.
     noSideEffect, importcpp: "SameDomainOrientation",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc sameDomainReference*(this: TopOpeBRepDS_HDataStructure; s: TopoDS_Shape): int {.
+proc sameDomainReference*(this: TopOpeBRepDS_HDataStructure; s: TopoDS_Shape): cint {.
     noSideEffect, importcpp: "SameDomainReference",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc solidSurfaces*(this: TopOpeBRepDS_HDataStructure; s: TopoDS_Shape): TopOpeBRepDS_SurfaceIterator {.
     noSideEffect, importcpp: "SolidSurfaces",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc solidSurfaces*(this: TopOpeBRepDS_HDataStructure; i: int): TopOpeBRepDS_SurfaceIterator {.
+proc solidSurfaces*(this: TopOpeBRepDS_HDataStructure; i: cint): TopOpeBRepDS_SurfaceIterator {.
     noSideEffect, importcpp: "SolidSurfaces",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc faceCurves*(this: TopOpeBRepDS_HDataStructure; f: TopoDS_Shape): TopOpeBRepDS_CurveIterator {.
     noSideEffect, importcpp: "FaceCurves",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc faceCurves*(this: TopOpeBRepDS_HDataStructure; i: int): TopOpeBRepDS_CurveIterator {.
+proc faceCurves*(this: TopOpeBRepDS_HDataStructure; i: cint): TopOpeBRepDS_CurveIterator {.
     noSideEffect, importcpp: "FaceCurves",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc edgePoints*(this: TopOpeBRepDS_HDataStructure; e: TopoDS_Shape): TopOpeBRepDS_PointIterator {.
     noSideEffect, importcpp: "EdgePoints",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc makeCurve*(this: var TopOpeBRepDS_HDataStructure; c1: TopOpeBRepDS_Curve;
-               c2: var TopOpeBRepDS_Curve): int {.importcpp: "MakeCurve",
+               c2: var TopOpeBRepDS_Curve): cint {.importcpp: "MakeCurve",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc removeCurve*(this: var TopOpeBRepDS_HDataStructure; iC: int) {.
+proc removeCurve*(this: var TopOpeBRepDS_HDataStructure; iC: cint) {.
     importcpp: "RemoveCurve", header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc nbGeometry*(this: TopOpeBRepDS_HDataStructure; k: TopOpeBRepDS_Kind): int {.
+proc nbGeometry*(this: TopOpeBRepDS_HDataStructure; k: TopOpeBRepDS_Kind): cint {.
     noSideEffect, importcpp: "NbGeometry",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc nbTopology*(this: TopOpeBRepDS_HDataStructure; k: TopOpeBRepDS_Kind): int {.
+proc nbTopology*(this: TopOpeBRepDS_HDataStructure; k: TopOpeBRepDS_Kind): cint {.
     noSideEffect, importcpp: "NbTopology",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
-proc nbTopology*(this: TopOpeBRepDS_HDataStructure): int {.noSideEffect,
+proc nbTopology*(this: TopOpeBRepDS_HDataStructure): cint {.noSideEffect,
     importcpp: "NbTopology", header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc edgesSameParameter*(this: TopOpeBRepDS_HDataStructure): bool {.noSideEffect,
     importcpp: "EdgesSameParameter", header: "TopOpeBRepDS_HDataStructure.hxx".}
@@ -126,17 +126,16 @@ proc sortOnParameter*(this: TopOpeBRepDS_HDataStructure;
                      L: var TopOpeBRepDS_ListOfInterference) {.noSideEffect,
     importcpp: "SortOnParameter", header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc minMaxOnParameter*(this: TopOpeBRepDS_HDataStructure;
-                       L: TopOpeBRepDS_ListOfInterference; min: var float;
-                       max: var float) {.noSideEffect,
-                                      importcpp: "MinMaxOnParameter",
-                                      header: "TopOpeBRepDS_HDataStructure.hxx".}
+                       L: TopOpeBRepDS_ListOfInterference; min: var cfloat;
+                       max: var cfloat) {.noSideEffect,
+                                       importcpp: "MinMaxOnParameter", header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc scanInterfList*(this: TopOpeBRepDS_HDataStructure;
                     it: var TopOpeBRepDS_ListIteratorOfListOfInterference;
                     pds: TopOpeBRepDS_Point): bool {.noSideEffect,
     importcpp: "ScanInterfList", header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc getGeometry*(this: TopOpeBRepDS_HDataStructure;
                  it: var TopOpeBRepDS_ListIteratorOfListOfInterference;
-                 pds: TopOpeBRepDS_Point; g: var int; k: var TopOpeBRepDS_Kind): bool {.
+                 pds: TopOpeBRepDS_Point; g: var cint; k: var TopOpeBRepDS_Kind): bool {.
     noSideEffect, importcpp: "GetGeometry",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc storeInterference*(this: var TopOpeBRepDS_HDataStructure;
@@ -149,7 +148,7 @@ proc storeInterference*(this: var TopOpeBRepDS_HDataStructure;
                        str: TCollectionAsciiString = "") {.
     importcpp: "StoreInterference", header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc storeInterference*(this: var TopOpeBRepDS_HDataStructure;
-                       i: Handle[TopOpeBRepDS_Interference]; `is`: int;
+                       i: Handle[TopOpeBRepDS_Interference]; `is`: cint;
                        str: TCollectionAsciiString = "") {.
     importcpp: "StoreInterference", header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc storeInterferences*(this: var TopOpeBRepDS_HDataStructure;
@@ -157,7 +156,7 @@ proc storeInterferences*(this: var TopOpeBRepDS_HDataStructure;
                         str: TCollectionAsciiString = "") {.
     importcpp: "StoreInterferences", header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc storeInterferences*(this: var TopOpeBRepDS_HDataStructure;
-                        li: TopOpeBRepDS_ListOfInterference; `is`: int;
+                        li: TopOpeBRepDS_ListOfInterference; `is`: cint;
                         str: TCollectionAsciiString = "") {.
     importcpp: "StoreInterferences", header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc clearStoreInterferences*(this: var TopOpeBRepDS_HDataStructure;
@@ -166,7 +165,7 @@ proc clearStoreInterferences*(this: var TopOpeBRepDS_HDataStructure;
     importcpp: "ClearStoreInterferences",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
 proc clearStoreInterferences*(this: var TopOpeBRepDS_HDataStructure;
-                             li: TopOpeBRepDS_ListOfInterference; `is`: int;
+                             li: TopOpeBRepDS_ListOfInterference; `is`: cint;
                              str: TCollectionAsciiString = "") {.
     importcpp: "ClearStoreInterferences",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
@@ -181,3 +180,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopOpeBRepDS_HDataStructure): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRepDS_HDataStructure.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

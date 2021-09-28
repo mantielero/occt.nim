@@ -22,7 +22,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IGESSelect_DispPerSingleView"
 discard "forward decl of IGESSelect_DispPerSingleView"
 type
-  HandleIGESSelectDispPerSingleView* = Handle[IGESSelectDispPerSingleView]
+  HandleC1C1* = Handle[IGESSelectDispPerSingleView]
 
 ## ! This type of dispatch defines sets of entities attached to
 ## ! distinct single views. This information appears in the
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectDispPerSingleView): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_DispPerSingleView.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

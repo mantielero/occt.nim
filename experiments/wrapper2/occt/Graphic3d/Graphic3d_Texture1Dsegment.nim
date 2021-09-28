@@ -18,7 +18,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture1Dsegment"
 discard "forward decl of Graphic3d_Texture1Dsegment"
 type
-  HandleGraphic3dTexture1Dsegment* = Handle[Graphic3dTexture1Dsegment]
+  HandleC1C1* = Handle[Graphic3dTexture1Dsegment]
 
 ## ! This class provides the implementation
 ## ! of a 1D texture applyable along a segment.
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Graphic3dTexture1Dsegment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_Texture1Dsegment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

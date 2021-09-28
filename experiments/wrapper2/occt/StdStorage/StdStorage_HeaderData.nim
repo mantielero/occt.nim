@@ -17,7 +17,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of StdStorage_HeaderData"
 discard "forward decl of StdStorage_HeaderData"
 type
-  HandleStdStorageHeaderData* = Handle[StdStorageHeaderData]
+  HandleC1C1* = Handle[StdStorageHeaderData]
 
 ## ! Storage header data section that contains some
 ## ! auxiliary information (application name, schema version,
@@ -71,7 +71,7 @@ proc addToComments*(this: var StdStorageHeaderData;
     importcpp: "AddToComments", header: "StdStorage_HeaderData.hxx".}
 proc comments*(this: StdStorageHeaderData): TColStdSequenceOfExtendedString {.
     noSideEffect, importcpp: "Comments", header: "StdStorage_HeaderData.hxx".}
-proc numberOfObjects*(this: StdStorageHeaderData): int {.noSideEffect,
+proc numberOfObjects*(this: StdStorageHeaderData): cint {.noSideEffect,
     importcpp: "NumberOfObjects", header: "StdStorage_HeaderData.hxx".}
 proc errorStatus*(this: StdStorageHeaderData): StorageError {.noSideEffect,
     importcpp: "ErrorStatus", header: "StdStorage_HeaderData.hxx".}
@@ -80,7 +80,7 @@ proc errorStatusExtension*(this: StdStorageHeaderData): TCollectionAsciiString {
     header: "StdStorage_HeaderData.hxx".}
 proc clearErrorStatus*(this: var StdStorageHeaderData) {.
     importcpp: "ClearErrorStatus", header: "StdStorage_HeaderData.hxx".}
-proc setNumberOfObjects*(this: var StdStorageHeaderData; anObjectNumber: int) {.
+proc setNumberOfObjects*(this: var StdStorageHeaderData; anObjectNumber: cint) {.
     importcpp: "SetNumberOfObjects", header: "StdStorage_HeaderData.hxx".}
 proc setStorageVersion*(this: var StdStorageHeaderData;
                        aVersion: TCollectionAsciiString) {.
@@ -92,3 +92,28 @@ proc setSchemaVersion*(this: var StdStorageHeaderData;
     importcpp: "SetSchemaVersion", header: "StdStorage_HeaderData.hxx".}
 proc setSchemaName*(this: var StdStorageHeaderData; aName: TCollectionAsciiString) {.
     importcpp: "SetSchemaName", header: "StdStorage_HeaderData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

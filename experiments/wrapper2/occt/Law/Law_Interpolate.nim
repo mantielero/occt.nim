@@ -28,13 +28,13 @@ type
 
 
 proc constructLawInterpolate*(points: Handle[TColStdHArray1OfReal];
-                             periodicFlag: bool; tolerance: float): LawInterpolate {.
+                             periodicFlag: bool; tolerance: cfloat): LawInterpolate {.
     constructor, importcpp: "Law_Interpolate(@)", header: "Law_Interpolate.hxx".}
 proc constructLawInterpolate*(points: Handle[TColStdHArray1OfReal];
                              parameters: Handle[TColStdHArray1OfReal];
-                             periodicFlag: bool; tolerance: float): LawInterpolate {.
+                             periodicFlag: bool; tolerance: cfloat): LawInterpolate {.
     constructor, importcpp: "Law_Interpolate(@)", header: "Law_Interpolate.hxx".}
-proc load*(this: var LawInterpolate; initialTangent: float; finalTangent: float) {.
+proc load*(this: var LawInterpolate; initialTangent: cfloat; finalTangent: cfloat) {.
     importcpp: "Load", header: "Law_Interpolate.hxx".}
 proc load*(this: var LawInterpolate; tangents: TColStdArray1OfReal;
           tangentFlags: Handle[TColStdHArray1OfBoolean]) {.importcpp: "Load",
@@ -47,3 +47,28 @@ proc curve*(this: LawInterpolate): Handle[LawBSpline] {.noSideEffect,
     importcpp: "Curve", header: "Law_Interpolate.hxx".}
 proc isDone*(this: LawInterpolate): bool {.noSideEffect, importcpp: "IsDone",
                                        header: "Law_Interpolate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

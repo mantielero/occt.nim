@@ -22,3 +22,28 @@ type
     AspectFM_NONE, AspectFM_CENTERED, AspectFM_TILED, AspectFM_STRETCH
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

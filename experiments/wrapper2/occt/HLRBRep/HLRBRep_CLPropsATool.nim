@@ -24,21 +24,47 @@ type
                                                                          ## ! Curve from HLRBRep <C>.
 
 
-proc value*(a: ptr HLRBRepCurve; u: float; p: var Pnt2d) {.
+proc value*(a: ptr HLRBRepCurve; u: cfloat; p: var Pnt2d) {.
     importcpp: "HLRBRep_CLPropsATool::Value(@)",
     header: "HLRBRep_CLPropsATool.hxx".}
-proc d1*(a: ptr HLRBRepCurve; u: float; p: var Pnt2d; v1: var Vec2d) {.
+proc d1*(a: ptr HLRBRepCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.
     importcpp: "HLRBRep_CLPropsATool::D1(@)", header: "HLRBRep_CLPropsATool.hxx".}
-proc d2*(a: ptr HLRBRepCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc d2*(a: ptr HLRBRepCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     importcpp: "HLRBRep_CLPropsATool::D2(@)", header: "HLRBRep_CLPropsATool.hxx".}
-proc d3*(a: ptr HLRBRepCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
+proc d3*(a: ptr HLRBRepCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
         v3: var Vec2d) {.importcpp: "HLRBRep_CLPropsATool::D3(@)",
                       header: "HLRBRep_CLPropsATool.hxx".}
-proc continuity*(a: ptr HLRBRepCurve): int {.importcpp: "HLRBRep_CLPropsATool::Continuity(@)",
-                                        header: "HLRBRep_CLPropsATool.hxx".}
-proc firstParameter*(a: ptr HLRBRepCurve): float {.
+proc continuity*(a: ptr HLRBRepCurve): cint {.
+    importcpp: "HLRBRep_CLPropsATool::Continuity(@)",
+    header: "HLRBRep_CLPropsATool.hxx".}
+proc firstParameter*(a: ptr HLRBRepCurve): cfloat {.
     importcpp: "HLRBRep_CLPropsATool::FirstParameter(@)",
     header: "HLRBRep_CLPropsATool.hxx".}
-proc lastParameter*(a: ptr HLRBRepCurve): float {.
+proc lastParameter*(a: ptr HLRBRepCurve): cfloat {.
     importcpp: "HLRBRep_CLPropsATool::LastParameter(@)",
     header: "HLRBRep_CLPropsATool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

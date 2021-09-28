@@ -17,7 +17,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_GenericExtString"
 discard "forward decl of TDataStd_GenericExtString"
 type
-  HandleTDataStdGenericExtString* = Handle[TDataStdGenericExtString]
+  HandleC1C1* = Handle[TDataStdGenericExtString]
 
 ## ! An ancestor attibute for all attributes which have TCollection_ExtendedString field.
 ## ! If an attribute inherits this one it should not have drivers for persistence.
@@ -67,8 +67,8 @@ proc paste*(this: TDataStdGenericExtString; into: Handle[TDF_Attribute];
            rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "TDataStd_GenericExtString.hxx".}
 proc dumpJson*(this: TDataStdGenericExtString; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_GenericExtString.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_GenericExtString.hxx".}
 type
   TDataStdGenericExtStringbaseType* = TDF_Attribute
 
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_GenericExtString.hxx".}
 proc dynamicType*(this: TDataStdGenericExtString): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TDataStd_GenericExtString.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

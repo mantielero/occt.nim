@@ -26,7 +26,7 @@ type
 proc constructRWStepVisualRWCharacterizedObjAndRepresentationAndDraughtingModel*(): RWStepVisualRWCharacterizedObjAndRepresentationAndDraughtingModel {.
     constructor, importcpp: "RWStepVisual_RWCharacterizedObjAndRepresentationAndDraughtingModel(@)", header: "RWStepVisual_RWCharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
 proc readStep*(this: RWStepVisualRWCharacterizedObjAndRepresentationAndDraughtingModel;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepVisualCharacterizedObjAndRepresentationAndDraughtingModel]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWCharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepVisualRWCharacterizedObjAndRepresentationAndDraughti
 proc share*(this: RWStepVisualRWCharacterizedObjAndRepresentationAndDraughtingModel;
     ent: Handle[StepVisualCharacterizedObjAndRepresentationAndDraughtingModel];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepVisual_RWCharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -42,7 +42,7 @@ proc removeCommand*(oldname: StandardCString) {.
 proc loadSession*(): bool {.importcpp: "XSDRAW::LoadSession(@)", header: "XSDRAW.hxx".}
 proc loadDraw*(theCommands: var DrawInterpretor) {.importcpp: "XSDRAW::LoadDraw(@)",
     header: "XSDRAW.hxx".}
-proc execute*(command: StandardCString; `var`: StandardCString = ""): int {.
+proc execute*(command: StandardCString; `var`: StandardCString = ""): cint {.
     importcpp: "XSDRAW::Execute(@)", header: "XSDRAW.hxx".}
 proc pilot*(): Handle[IFSelectSessionPilot] {.importcpp: "XSDRAW::Pilot(@)",
     header: "XSDRAW.hxx".}
@@ -62,9 +62,9 @@ proc setModel*(model: Handle[InterfaceInterfaceModel]; file: StandardCString = "
     importcpp: "XSDRAW::SetModel(@)", header: "XSDRAW.hxx".}
 proc newModel*(): Handle[InterfaceInterfaceModel] {.
     importcpp: "XSDRAW::NewModel(@)", header: "XSDRAW.hxx".}
-proc entity*(num: int): Handle[StandardTransient] {.importcpp: "XSDRAW::Entity(@)",
+proc entity*(num: cint): Handle[StandardTransient] {.importcpp: "XSDRAW::Entity(@)",
     header: "XSDRAW.hxx".}
-proc number*(ent: Handle[StandardTransient]): int {.importcpp: "XSDRAW::Number(@)",
+proc number*(ent: Handle[StandardTransient]): cint {.importcpp: "XSDRAW::Number(@)",
     header: "XSDRAW.hxx".}
 proc setTransferProcess*(tp: Handle[StandardTransient]) {.
     importcpp: "XSDRAW::SetTransferProcess(@)", header: "XSDRAW.hxx".}
@@ -72,13 +72,13 @@ proc transientProcess*(): Handle[TransferTransientProcess] {.
     importcpp: "XSDRAW::TransientProcess(@)", header: "XSDRAW.hxx".}
 proc finderProcess*(): Handle[TransferFinderProcess] {.
     importcpp: "XSDRAW::FinderProcess(@)", header: "XSDRAW.hxx".}
-proc initTransferReader*(mode: int) {.importcpp: "XSDRAW::InitTransferReader(@)",
-                                   header: "XSDRAW.hxx".}
+proc initTransferReader*(mode: cint) {.importcpp: "XSDRAW::InitTransferReader(@)",
+                                    header: "XSDRAW.hxx".}
 proc transferReader*(): Handle[XSControlTransferReader] {.
     importcpp: "XSDRAW::TransferReader(@)", header: "XSDRAW.hxx".}
 proc getEntity*(name: StandardCString = ""): Handle[StandardTransient] {.
     importcpp: "XSDRAW::GetEntity(@)", header: "XSDRAW.hxx".}
-proc getEntityNumber*(name: StandardCString = ""): int {.
+proc getEntityNumber*(name: StandardCString = ""): cint {.
     importcpp: "XSDRAW::GetEntityNumber(@)", header: "XSDRAW.hxx".}
 proc getList*(first: StandardCString = ""; second: StandardCString = ""): Handle[
     TColStdHSequenceOfTransient] {.importcpp: "XSDRAW::GetList(@)",
@@ -87,5 +87,30 @@ proc fileAndVar*(file: StandardCString; `var`: StandardCString; def: StandardCSt
                 resfile: var TCollectionAsciiString;
                 resvar: var TCollectionAsciiString): bool {.
     importcpp: "XSDRAW::FileAndVar(@)", header: "XSDRAW.hxx".}
-proc moreShapes*(list: var Handle[TopToolsHSequenceOfShape]; name: StandardCString): int {.
+proc moreShapes*(list: var Handle[TopToolsHSequenceOfShape]; name: StandardCString): cint {.
     importcpp: "XSDRAW::MoreShapes(@)", header: "XSDRAW.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

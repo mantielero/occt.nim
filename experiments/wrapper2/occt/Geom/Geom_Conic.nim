@@ -17,7 +17,7 @@
 discard "forward decl of Geom_Conic"
 discard "forward decl of Geom_Conic"
 type
-  HandleGeomConic* = Handle[GeomConic]
+  HandleC1C1* = Handle[GeomConic]
 
 ## ! The abstract class Conic describes the common
 ## ! behavior of conic curves in 3D space and, in
@@ -100,19 +100,19 @@ proc location*(this: GeomConic): Pnt {.noSideEffect, importcpp: "Location",
                                    header: "Geom_Conic.hxx".}
 proc position*(this: GeomConic): Ax2 {.noSideEffect, importcpp: "Position",
                                    header: "Geom_Conic.hxx".}
-proc eccentricity*(this: GeomConic): float {.noSideEffect, importcpp: "Eccentricity",
-    header: "Geom_Conic.hxx".}
+proc eccentricity*(this: GeomConic): StandardReal {.noSideEffect,
+    importcpp: "Eccentricity", header: "Geom_Conic.hxx".}
 proc xAxis*(this: GeomConic): Ax1 {.noSideEffect, importcpp: "XAxis",
                                 header: "Geom_Conic.hxx".}
 proc yAxis*(this: GeomConic): Ax1 {.noSideEffect, importcpp: "YAxis",
                                 header: "Geom_Conic.hxx".}
 proc reverse*(this: var GeomConic) {.importcpp: "Reverse", header: "Geom_Conic.hxx".}
-proc reversedParameter*(this: GeomConic; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom_Conic.hxx".}
+proc reversedParameter*(this: GeomConic; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_Conic.hxx".}
 proc continuity*(this: GeomConic): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_Conic.hxx".}
-proc isCN*(this: GeomConic; n: int): bool {.noSideEffect, importcpp: "IsCN",
-                                      header: "Geom_Conic.hxx".}
+proc isCN*(this: GeomConic; n: int): StandardBoolean {.noSideEffect, importcpp: "IsCN",
+    header: "Geom_Conic.hxx".}
 proc dumpJson*(this: GeomConic; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom_Conic.hxx".}
 type

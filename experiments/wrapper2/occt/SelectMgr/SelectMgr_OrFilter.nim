@@ -18,7 +18,7 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of SelectMgr_OrFilter"
 discard "forward decl of SelectMgr_OrFilter"
 type
-  HandleSelectMgrOrFilter* = Handle[SelectMgrOrFilter]
+  HandleC1C1* = Handle[SelectMgrOrFilter]
 
 ## ! A framework to define an or selection filter.
 ## ! This selects one or another type of sensitive entity.
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "SelectMgr_OrFilter.hxx".}
 proc dynamicType*(this: SelectMgrOrFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "SelectMgr_OrFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

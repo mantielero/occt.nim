@@ -17,7 +17,7 @@ discard "forward decl of XCAFDoc_ShapeTool"
 discard "forward decl of XCAFDoc_ColorTool"
 discard "forward decl of XCAFDoc_VisMaterialTool"
 type
-  XCAFPrsDocumentExplorerFlags* = int
+  XCAFPrsDocumentExplorerFlags* = cint
 
 ## ! Document explorer flags.
 
@@ -193,9 +193,9 @@ proc current*(this: XCAFPrsDocumentExplorer): XCAFPrsDocumentNode {.noSideEffect
     importcpp: "Current", header: "XCAFPrs_DocumentExplorer.hxx".}
 proc changeCurrent*(this: var XCAFPrsDocumentExplorer): var XCAFPrsDocumentNode {.
     importcpp: "ChangeCurrent", header: "XCAFPrs_DocumentExplorer.hxx".}
-proc current*(this: XCAFPrsDocumentExplorer; theDepth: int): XCAFPrsDocumentNode {.
+proc current*(this: XCAFPrsDocumentExplorer; theDepth: cint): XCAFPrsDocumentNode {.
     noSideEffect, importcpp: "Current", header: "XCAFPrs_DocumentExplorer.hxx".}
-proc currentDepth*(this: XCAFPrsDocumentExplorer): int {.noSideEffect,
+proc currentDepth*(this: XCAFPrsDocumentExplorer): cint {.noSideEffect,
     importcpp: "CurrentDepth", header: "XCAFPrs_DocumentExplorer.hxx".}
 proc next*(this: var XCAFPrsDocumentExplorer) {.importcpp: "Next",
     header: "XCAFPrs_DocumentExplorer.hxx".}
@@ -204,3 +204,28 @@ proc colorTool*(this: XCAFPrsDocumentExplorer): Handle[XCAFDocColorTool] {.
 proc visMaterialTool*(this: XCAFPrsDocumentExplorer): Handle[XCAFDocVisMaterialTool] {.
     noSideEffect, importcpp: "VisMaterialTool",
     header: "XCAFPrs_DocumentExplorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

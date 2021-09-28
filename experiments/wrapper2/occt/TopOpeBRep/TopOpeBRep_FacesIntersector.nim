@@ -38,8 +38,8 @@ proc isDone*(this: TopOpeBRepFacesIntersector): bool {.noSideEffect,
     importcpp: "IsDone", header: "TopOpeBRep_FacesIntersector.hxx".}
 proc sameDomain*(this: TopOpeBRepFacesIntersector): bool {.noSideEffect,
     importcpp: "SameDomain", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc face*(this: TopOpeBRepFacesIntersector; index: int): TopoDS_Shape {.noSideEffect,
-    importcpp: "Face", header: "TopOpeBRep_FacesIntersector.hxx".}
+proc face*(this: TopOpeBRepFacesIntersector; index: cint): TopoDS_Shape {.
+    noSideEffect, importcpp: "Face", header: "TopOpeBRep_FacesIntersector.hxx".}
 proc surfacesSameOriented*(this: TopOpeBRepFacesIntersector): bool {.noSideEffect,
     importcpp: "SurfacesSameOriented", header: "TopOpeBRep_FacesIntersector.hxx".}
 proc isRestriction*(this: TopOpeBRepFacesIntersector; e: TopoDS_Shape): bool {.
@@ -53,7 +53,7 @@ proc prepareLines*(this: var TopOpeBRepFacesIntersector) {.
 proc lines*(this: var TopOpeBRepFacesIntersector): Handle[
     TopOpeBRepHArray1OfLineInter] {.importcpp: "Lines",
                                    header: "TopOpeBRep_FacesIntersector.hxx".}
-proc nbLines*(this: TopOpeBRepFacesIntersector): int {.noSideEffect,
+proc nbLines*(this: TopOpeBRepFacesIntersector): cint {.noSideEffect,
     importcpp: "NbLines", header: "TopOpeBRep_FacesIntersector.hxx".}
 proc initLine*(this: var TopOpeBRepFacesIntersector) {.importcpp: "InitLine",
     header: "TopOpeBRep_FacesIntersector.hxx".}
@@ -63,13 +63,37 @@ proc nextLine*(this: var TopOpeBRepFacesIntersector) {.importcpp: "NextLine",
     header: "TopOpeBRep_FacesIntersector.hxx".}
 proc currentLine*(this: var TopOpeBRepFacesIntersector): var TopOpeBRepLineInter {.
     importcpp: "CurrentLine", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc currentLineIndex*(this: TopOpeBRepFacesIntersector): int {.noSideEffect,
+proc currentLineIndex*(this: TopOpeBRepFacesIntersector): cint {.noSideEffect,
     importcpp: "CurrentLineIndex", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc changeLine*(this: var TopOpeBRepFacesIntersector; il: int): var TopOpeBRepLineInter {.
+proc changeLine*(this: var TopOpeBRepFacesIntersector; il: cint): var TopOpeBRepLineInter {.
     importcpp: "ChangeLine", header: "TopOpeBRep_FacesIntersector.hxx".}
-proc forceTolerances*(this: var TopOpeBRepFacesIntersector; tolarc: float;
-                     toltang: float) {.importcpp: "ForceTolerances",
-                                     header: "TopOpeBRep_FacesIntersector.hxx".}
-proc getTolerances*(this: TopOpeBRepFacesIntersector; tolarc: var float;
-                   toltang: var float) {.noSideEffect, importcpp: "GetTolerances",
+proc forceTolerances*(this: var TopOpeBRepFacesIntersector; tolarc: cfloat;
+                     toltang: cfloat) {.importcpp: "ForceTolerances",
                                       header: "TopOpeBRep_FacesIntersector.hxx".}
+proc getTolerances*(this: TopOpeBRepFacesIntersector; tolarc: var cfloat;
+                   toltang: var cfloat) {.noSideEffect, importcpp: "GetTolerances", header: "TopOpeBRep_FacesIntersector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

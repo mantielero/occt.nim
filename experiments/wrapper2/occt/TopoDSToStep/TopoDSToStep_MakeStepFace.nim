@@ -39,3 +39,28 @@ proc value*(this: TopoDSToStepMakeStepFace): Handle[
     header: "TopoDSToStep_MakeStepFace.hxx".}
 proc error*(this: TopoDSToStepMakeStepFace): TopoDSToStepMakeFaceError {.
     noSideEffect, importcpp: "Error", header: "TopoDSToStep_MakeStepFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

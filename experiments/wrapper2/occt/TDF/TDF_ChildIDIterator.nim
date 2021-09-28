@@ -39,3 +39,28 @@ proc nextBrother*(this: var TDF_ChildIDIterator) {.importcpp: "NextBrother",
     header: "TDF_ChildIDIterator.hxx".}
 proc value*(this: TDF_ChildIDIterator): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "Value", header: "TDF_ChildIDIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

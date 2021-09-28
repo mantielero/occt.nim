@@ -38,11 +38,12 @@ type
 
 proc constructGCE2dMakeHyperbola*(h: Hypr2d): GCE2dMakeHyperbola {.constructor,
     importcpp: "GCE2d_MakeHyperbola(@)", header: "GCE2d_MakeHyperbola.hxx".}
-proc constructGCE2dMakeHyperbola*(majorAxis: Ax2d; majorRadius: float;
-                                 minorRadius: float; sense: bool): GCE2dMakeHyperbola {.
+proc constructGCE2dMakeHyperbola*(majorAxis: Ax2d; majorRadius: cfloat;
+                                 minorRadius: cfloat; sense: bool): GCE2dMakeHyperbola {.
     constructor, importcpp: "GCE2d_MakeHyperbola(@)",
     header: "GCE2d_MakeHyperbola.hxx".}
-proc constructGCE2dMakeHyperbola*(axis: Ax22d; majorRadius: float; minorRadius: float): GCE2dMakeHyperbola {.
+proc constructGCE2dMakeHyperbola*(axis: Ax22d; majorRadius: cfloat;
+                                 minorRadius: cfloat): GCE2dMakeHyperbola {.
     constructor, importcpp: "GCE2d_MakeHyperbola(@)",
     header: "GCE2d_MakeHyperbola.hxx".}
 proc constructGCE2dMakeHyperbola*(s1: Pnt2d; s2: Pnt2d; center: Pnt2d): GCE2dMakeHyperbola {.
@@ -53,3 +54,28 @@ proc value*(this: GCE2dMakeHyperbola): Handle[Geom2dHyperbola] {.noSideEffect,
 converter `constopencascade`*(this: GCE2dMakeHyperbola): Handle[Geom2dHyperbola] {.
     noSideEffect, importcpp: "GCE2d_MakeHyperbola::operator constopencascade",
     header: "GCE2d_MakeHyperbola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

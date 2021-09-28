@@ -16,7 +16,7 @@
 
 discard "forward decl of PrsDim_TangentRelation"
 type
-  HandlePrsDimTangentRelation* = Handle[PrsDimTangentRelation]
+  HandleC1C1* = Handle[PrsDimTangentRelation]
 
 ## ! A framework to display tangency constraints between
 ## ! two or more Interactive Objects of the datum type.
@@ -95,10 +95,35 @@ proc dynamicType*(this: PrsDimTangentRelation): Handle[StandardType] {.noSideEff
     importcpp: "DynamicType", header: "PrsDim_TangentRelation.hxx".}
 proc constructPrsDimTangentRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;
                                     aPlane: Handle[GeomPlane];
-                                    anExternRef: int = 0): PrsDimTangentRelation {.
+                                    anExternRef: cint = 0): PrsDimTangentRelation {.
     constructor, importcpp: "PrsDim_TangentRelation(@)",
     header: "PrsDim_TangentRelation.hxx".}
-proc externRef*(this: var PrsDimTangentRelation): int {.importcpp: "ExternRef",
+proc externRef*(this: var PrsDimTangentRelation): cint {.importcpp: "ExternRef",
     header: "PrsDim_TangentRelation.hxx".}
-proc setExternRef*(this: var PrsDimTangentRelation; aRef: int) {.
+proc setExternRef*(this: var PrsDimTangentRelation; aRef: cint) {.
     importcpp: "SetExternRef", header: "PrsDim_TangentRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

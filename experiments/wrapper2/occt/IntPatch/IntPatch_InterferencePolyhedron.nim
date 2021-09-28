@@ -35,3 +35,28 @@ proc perform*(this: var IntPatchInterferencePolyhedron; obje1: IntPatchPolyhedro
              obje2: IntPatchPolyhedron) {.importcpp: "Perform", header: "IntPatch_InterferencePolyhedron.hxx".}
 proc perform*(this: var IntPatchInterferencePolyhedron; obje: IntPatchPolyhedron) {.
     importcpp: "Perform", header: "IntPatch_InterferencePolyhedron.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

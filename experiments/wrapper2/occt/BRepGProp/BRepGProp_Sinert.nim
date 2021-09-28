@@ -29,10 +29,10 @@ proc constructBRepGPropSinert*(s: BRepGPropFace; sLocation: Pnt): BRepGPropSiner
 proc constructBRepGPropSinert*(s: var BRepGPropFace; d: var BRepGPropDomain;
                               sLocation: Pnt): BRepGPropSinert {.constructor,
     importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
-proc constructBRepGPropSinert*(s: var BRepGPropFace; sLocation: Pnt; eps: float): BRepGPropSinert {.
+proc constructBRepGPropSinert*(s: var BRepGPropFace; sLocation: Pnt; eps: cfloat): BRepGPropSinert {.
     constructor, importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
 proc constructBRepGPropSinert*(s: var BRepGPropFace; d: var BRepGPropDomain;
-                              sLocation: Pnt; eps: float): BRepGPropSinert {.
+                              sLocation: Pnt; eps: cfloat): BRepGPropSinert {.
     constructor, importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
 proc setLocation*(this: var BRepGPropSinert; sLocation: Pnt) {.
     importcpp: "SetLocation", header: "BRepGProp_Sinert.hxx".}
@@ -40,10 +40,35 @@ proc perform*(this: var BRepGPropSinert; s: BRepGPropFace) {.importcpp: "Perform
     header: "BRepGProp_Sinert.hxx".}
 proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; d: var BRepGPropDomain) {.
     importcpp: "Perform", header: "BRepGProp_Sinert.hxx".}
-proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; eps: float): float {.
+proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; eps: cfloat): cfloat {.
     importcpp: "Perform", header: "BRepGProp_Sinert.hxx".}
 proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; d: var BRepGPropDomain;
-             eps: float): float {.importcpp: "Perform",
-                               header: "BRepGProp_Sinert.hxx".}
-proc getEpsilon*(this: var BRepGPropSinert): float {.importcpp: "GetEpsilon",
+             eps: cfloat): cfloat {.importcpp: "Perform",
+                                 header: "BRepGProp_Sinert.hxx".}
+proc getEpsilon*(this: var BRepGPropSinert): cfloat {.importcpp: "GetEpsilon",
     header: "BRepGProp_Sinert.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

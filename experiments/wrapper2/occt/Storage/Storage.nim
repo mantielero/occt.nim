@@ -33,3 +33,28 @@ type
 
 proc version*(): TCollectionAsciiString {.importcpp: "Storage::Version(@)",
                                        header: "Storage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

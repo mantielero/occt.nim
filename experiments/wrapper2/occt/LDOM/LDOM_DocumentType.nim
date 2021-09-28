@@ -22,3 +22,28 @@ type
 
 proc constructLDOM_DocumentType*(): LDOM_DocumentType {.constructor,
     importcpp: "LDOM_DocumentType(@)", header: "LDOM_DocumentType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

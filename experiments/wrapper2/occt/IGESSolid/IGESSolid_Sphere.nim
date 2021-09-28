@@ -19,7 +19,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESSolid_Sphere"
 discard "forward decl of IGESSolid_Sphere"
 type
-  HandleIGESSolidSphere* = Handle[IGESSolidSphere]
+  HandleC1C1* = Handle[IGESSolidSphere]
 
 ## ! defines Sphere, Type <158> Form Number <0>
 ## ! in package IGESSolid
@@ -32,9 +32,9 @@ type
 
 proc constructIGESSolidSphere*(): IGESSolidSphere {.constructor,
     importcpp: "IGESSolid_Sphere(@)", header: "IGESSolid_Sphere.hxx".}
-proc init*(this: var IGESSolidSphere; aRadius: float; aCenter: Xyz) {.importcpp: "Init",
-    header: "IGESSolid_Sphere.hxx".}
-proc radius*(this: IGESSolidSphere): float {.noSideEffect, importcpp: "Radius",
+proc init*(this: var IGESSolidSphere; aRadius: cfloat; aCenter: Xyz) {.
+    importcpp: "Init", header: "IGESSolid_Sphere.hxx".}
+proc radius*(this: IGESSolidSphere): cfloat {.noSideEffect, importcpp: "Radius",
     header: "IGESSolid_Sphere.hxx".}
 proc center*(this: IGESSolidSphere): Pnt {.noSideEffect, importcpp: "Center",
                                        header: "IGESSolid_Sphere.hxx".}
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_Sphere.hxx".}
 proc dynamicType*(this: IGESSolidSphere): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Sphere.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

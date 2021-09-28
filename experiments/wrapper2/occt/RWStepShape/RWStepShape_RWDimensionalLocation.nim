@@ -27,7 +27,7 @@ proc constructRWStepShapeRWDimensionalLocation*(): RWStepShapeRWDimensionalLocat
     constructor, importcpp: "RWStepShape_RWDimensionalLocation(@)",
     header: "RWStepShape_RWDimensionalLocation.hxx".}
 proc readStep*(this: RWStepShapeRWDimensionalLocation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeDimensionalLocation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWDimensionalLocation.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepShapeRWDimensionalLocation;
            ent: Handle[StepShapeDimensionalLocation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWDimensionalLocation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

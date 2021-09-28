@@ -28,7 +28,7 @@ proc constructRWStepShapeRWGeometricCurveSet*(): RWStepShapeRWGeometricCurveSet 
     constructor, importcpp: "RWStepShape_RWGeometricCurveSet(@)",
     header: "RWStepShape_RWGeometricCurveSet.hxx".}
 proc readStep*(this: RWStepShapeRWGeometricCurveSet;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeGeometricCurveSet]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWGeometricCurveSet.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepShapeRWGeometricCurveSet;
            ent: Handle[StepShapeGeometricCurveSet];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWGeometricCurveSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

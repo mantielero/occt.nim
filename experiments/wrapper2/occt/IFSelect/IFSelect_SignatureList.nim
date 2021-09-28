@@ -19,7 +19,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SignatureList"
 discard "forward decl of IFSelect_SignatureList"
 type
-  HandleIFSelectSignatureList* = Handle[IFSelectSignatureList]
+  HandleC1C1* = Handle[IFSelectSignatureList]
 
 ## ! A SignatureList is given as result from a Counter (any kind)
 ## ! It gives access to a list of signatures, with counts, and
@@ -71,18 +71,18 @@ proc add*(this: var IFSelectSignatureList; ent: Handle[StandardTransient];
 proc lastValue*(this: IFSelectSignatureList): StandardCString {.noSideEffect,
     importcpp: "LastValue", header: "IFSelect_SignatureList.hxx".}
 proc init*(this: var IFSelectSignatureList; name: StandardCString;
-          count: NCollectionIndexedDataMap[TCollectionAsciiString, int]; list: NCollectionIndexedDataMap[
-    TCollectionAsciiString, Handle[StandardTransient]]; nbnuls: int) {.
+          count: NCollectionIndexedDataMap[TCollectionAsciiString, cint]; list: NCollectionIndexedDataMap[
+    TCollectionAsciiString, Handle[StandardTransient]]; nbnuls: cint) {.
     importcpp: "Init", header: "IFSelect_SignatureList.hxx".}
 proc list*(this: IFSelectSignatureList; root: StandardCString = ""): Handle[
     TColStdHSequenceOfHAsciiString] {.noSideEffect, importcpp: "List",
                                      header: "IFSelect_SignatureList.hxx".}
 proc hasEntities*(this: IFSelectSignatureList): bool {.noSideEffect,
     importcpp: "HasEntities", header: "IFSelect_SignatureList.hxx".}
-proc nbNulls*(this: IFSelectSignatureList): int {.noSideEffect, importcpp: "NbNulls",
-    header: "IFSelect_SignatureList.hxx".}
-proc nbTimes*(this: IFSelectSignatureList; sign: StandardCString): int {.noSideEffect,
-    importcpp: "NbTimes", header: "IFSelect_SignatureList.hxx".}
+proc nbNulls*(this: IFSelectSignatureList): cint {.noSideEffect,
+    importcpp: "NbNulls", header: "IFSelect_SignatureList.hxx".}
+proc nbTimes*(this: IFSelectSignatureList; sign: StandardCString): cint {.
+    noSideEffect, importcpp: "NbTimes", header: "IFSelect_SignatureList.hxx".}
 proc entities*(this: IFSelectSignatureList; sign: StandardCString): Handle[
     TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "Entities",
                                   header: "IFSelect_SignatureList.hxx".}
@@ -108,3 +108,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SignatureList.hxx".}
 proc dynamicType*(this: IFSelectSignatureList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SignatureList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

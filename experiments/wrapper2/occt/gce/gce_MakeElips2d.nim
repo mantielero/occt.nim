@@ -30,10 +30,10 @@ type
                                            ## ! "NegativeRadius" if MinorRadius < 0.0
 
 
-proc constructGceMakeElips2d*(majorAxis: Ax2d; majorRadius: float;
-                             minorRadius: float; sense: bool = true): GceMakeElips2d {.
+proc constructGceMakeElips2d*(majorAxis: Ax2d; majorRadius: cfloat;
+                             minorRadius: cfloat; sense: bool = true): GceMakeElips2d {.
     constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
-proc constructGceMakeElips2d*(a: Ax22d; majorRadius: float; minorRadius: float): GceMakeElips2d {.
+proc constructGceMakeElips2d*(a: Ax22d; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips2d {.
     constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
 proc constructGceMakeElips2d*(s1: Pnt2d; s2: Pnt2d; center: Pnt2d): GceMakeElips2d {.
     constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
@@ -44,3 +44,28 @@ proc operator*(this: GceMakeElips2d): Elips2d {.noSideEffect, importcpp: "Operat
 converter `elips2d`*(this: GceMakeElips2d): Elips2d {.noSideEffect,
     importcpp: "gce_MakeElips2d::operator gp_Elips2d",
     header: "gce_MakeElips2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

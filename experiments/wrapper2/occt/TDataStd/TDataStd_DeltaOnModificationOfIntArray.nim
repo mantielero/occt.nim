@@ -17,8 +17,7 @@ discard "forward decl of TDataStd_IntegerArray"
 discard "forward decl of TDataStd_DeltaOnModificationOfIntArray"
 discard "forward decl of TDataStd_DeltaOnModificationOfIntArray"
 type
-  HandleTDataStdDeltaOnModificationOfIntArray* = Handle[
-      TDataStdDeltaOnModificationOfIntArray]
+  HandleC1C1* = Handle[TDataStdDeltaOnModificationOfIntArray]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on a MODIFICATION action.
@@ -48,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "TDataStd_DeltaOnMo
 proc dynamicType*(this: TDataStdDeltaOnModificationOfIntArray): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TDataStd_DeltaOnModificationOfIntArray.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

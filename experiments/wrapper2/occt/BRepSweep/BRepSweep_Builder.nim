@@ -40,3 +40,28 @@ proc add*(this: BRepSweepBuilder; aShape1: var TopoDS_Shape; aShape2: TopoDS_Sha
                                     header: "BRepSweep_Builder.hxx".}
 proc add*(this: BRepSweepBuilder; aShape1: var TopoDS_Shape; aShape2: TopoDS_Shape) {.
     noSideEffect, importcpp: "Add", header: "BRepSweep_Builder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

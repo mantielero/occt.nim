@@ -186,7 +186,7 @@ proc constructGPropPGProps*(): GPropPGProps {.constructor,
     importcpp: "GProp_PGProps(@)", header: "GProp_PGProps.hxx".}
 proc addPoint*(this: var GPropPGProps; p: Pnt) {.importcpp: "AddPoint",
     header: "GProp_PGProps.hxx".}
-proc addPoint*(this: var GPropPGProps; p: Pnt; density: float) {.importcpp: "AddPoint",
+proc addPoint*(this: var GPropPGProps; p: Pnt; density: cfloat) {.importcpp: "AddPoint",
     header: "GProp_PGProps.hxx".}
 proc constructGPropPGProps*(pnts: TColgpArray1OfPnt): GPropPGProps {.constructor,
     importcpp: "GProp_PGProps(@)", header: "GProp_PGProps.hxx".}
@@ -201,8 +201,33 @@ proc barycentre*(pnts: TColgpArray1OfPnt): Pnt {.
 proc barycentre*(pnts: TColgpArray2OfPnt): Pnt {.
     importcpp: "GProp_PGProps::Barycentre(@)", header: "GProp_PGProps.hxx".}
 proc barycentre*(pnts: TColgpArray1OfPnt; density: TColStdArray1OfReal;
-                mass: var float; g: var Pnt) {.
+                mass: var cfloat; g: var Pnt) {.
     importcpp: "GProp_PGProps::Barycentre(@)", header: "GProp_PGProps.hxx".}
 proc barycentre*(pnts: TColgpArray2OfPnt; density: TColStdArray2OfReal;
-                mass: var float; g: var Pnt) {.
+                mass: var cfloat; g: var Pnt) {.
     importcpp: "GProp_PGProps::Barycentre(@)", header: "GProp_PGProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

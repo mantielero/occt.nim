@@ -17,7 +17,7 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of ShapeUpgrade_FaceDivideArea"
 discard "forward decl of ShapeUpgrade_FaceDivideArea"
 type
-  HandleShapeUpgradeFaceDivideArea* = Handle[ShapeUpgradeFaceDivideArea]
+  HandleC1C1* = Handle[ShapeUpgradeFaceDivideArea]
 
 ## ! Divides face by max area criterium.
 
@@ -38,8 +38,8 @@ proc constructShapeUpgradeFaceDivideArea*(f: TopoDS_Face): ShapeUpgradeFaceDivid
     header: "ShapeUpgrade_FaceDivideArea.hxx".}
 proc perform*(this: var ShapeUpgradeFaceDivideArea): bool {.importcpp: "Perform",
     header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc maxArea*(this: var ShapeUpgradeFaceDivideArea): var float {.importcpp: "MaxArea",
-    header: "ShapeUpgrade_FaceDivideArea.hxx".}
+proc maxArea*(this: var ShapeUpgradeFaceDivideArea): var cfloat {.
+    importcpp: "MaxArea", header: "ShapeUpgrade_FaceDivideArea.hxx".}
 type
   ShapeUpgradeFaceDivideAreabaseType* = ShapeUpgradeFaceDivide
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeFaceDivideArea): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_FaceDivideArea.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

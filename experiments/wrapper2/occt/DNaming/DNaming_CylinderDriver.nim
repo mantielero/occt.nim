@@ -19,7 +19,7 @@ discard "forward decl of BRepPrimAPI_MakeCylinder"
 discard "forward decl of DNaming_CylinderDriver"
 discard "forward decl of DNaming_CylinderDriver"
 type
-  HandleDNamingCylinderDriver* = Handle[DNamingCylinderDriver]
+  HandleC1C1* = Handle[DNamingCylinderDriver]
 
 ## ! Computes Cylinder function
 
@@ -42,7 +42,7 @@ proc validate*(this: DNamingCylinderDriver; theLog: var Handle[TFunctionLogbook]
     noSideEffect, importcpp: "Validate", header: "DNaming_CylinderDriver.hxx".}
 proc mustExecute*(this: DNamingCylinderDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_CylinderDriver.hxx".}
-proc execute*(this: DNamingCylinderDriver; theLog: var Handle[TFunctionLogbook]): int {.
+proc execute*(this: DNamingCylinderDriver; theLog: var Handle[TFunctionLogbook]): cint {.
     noSideEffect, importcpp: "Execute", header: "DNaming_CylinderDriver.hxx".}
 type
   DNamingCylinderDriverbaseType* = TFunctionDriver
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DNaming_CylinderDriver.hxx".}
 proc dynamicType*(this: DNamingCylinderDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_CylinderDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

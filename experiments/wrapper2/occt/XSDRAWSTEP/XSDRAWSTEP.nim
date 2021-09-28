@@ -23,3 +23,28 @@ type
 proc init*() {.importcpp: "XSDRAWSTEP::Init(@)", header: "XSDRAWSTEP.hxx".}
 proc initCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "XSDRAWSTEP::InitCommands(@)", header: "XSDRAWSTEP.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

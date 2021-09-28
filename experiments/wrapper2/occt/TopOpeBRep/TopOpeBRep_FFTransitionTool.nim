@@ -23,22 +23,47 @@ type
                                header: "TopOpeBRep_FFTransitionTool.hxx", bycopy.} = object
 
 
-proc processLineTransition*(p: TopOpeBRepVPointInter; index: int;
+proc processLineTransition*(p: TopOpeBRepVPointInter; index: cint;
                            edgeOrientation: TopAbsOrientation): TopOpeBRepDS_Transition {.
     importcpp: "TopOpeBRep_FFTransitionTool::ProcessLineTransition(@)",
     header: "TopOpeBRep_FFTransitionTool.hxx".}
 proc processLineTransition*(p: TopOpeBRepVPointInter; L: TopOpeBRepLineInter): TopOpeBRepDS_Transition {.
     importcpp: "TopOpeBRep_FFTransitionTool::ProcessLineTransition(@)",
     header: "TopOpeBRep_FFTransitionTool.hxx".}
-proc processEdgeTransition*(p: TopOpeBRepVPointInter; index: int;
+proc processEdgeTransition*(p: TopOpeBRepVPointInter; index: cint;
                            lineOrientation: TopAbsOrientation): TopOpeBRepDS_Transition {.
     importcpp: "TopOpeBRep_FFTransitionTool::ProcessEdgeTransition(@)",
     header: "TopOpeBRep_FFTransitionTool.hxx".}
-proc processFaceTransition*(L: TopOpeBRepLineInter; index: int;
+proc processFaceTransition*(L: TopOpeBRepLineInter; index: cint;
                            faceOrientation: TopAbsOrientation): TopOpeBRepDS_Transition {.
     importcpp: "TopOpeBRep_FFTransitionTool::ProcessFaceTransition(@)",
     header: "TopOpeBRep_FFTransitionTool.hxx".}
-proc processEdgeONTransition*(vp: TopOpeBRepVPointInter; index: int; r: TopoDS_Shape;
-                             e: TopoDS_Shape; f: TopoDS_Shape): TopOpeBRepDS_Transition {.
+proc processEdgeONTransition*(vp: TopOpeBRepVPointInter; index: cint;
+                             r: TopoDS_Shape; e: TopoDS_Shape; f: TopoDS_Shape): TopOpeBRepDS_Transition {.
     importcpp: "TopOpeBRep_FFTransitionTool::ProcessEdgeONTransition(@)",
     header: "TopOpeBRep_FFTransitionTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,3 +15,28 @@ type
   V3dListOfLight* = NCollectionList[Handle[Graphic3dCLight]]
   V3dListOfLightIterator* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

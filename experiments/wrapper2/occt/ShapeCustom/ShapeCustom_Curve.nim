@@ -26,5 +26,30 @@ proc constructShapeCustomCurve*(c: Handle[GeomCurve]): ShapeCustomCurve {.
 proc init*(this: var ShapeCustomCurve; c: Handle[GeomCurve]) {.importcpp: "Init",
     header: "ShapeCustom_Curve.hxx".}
 proc convertToPeriodic*(this: var ShapeCustomCurve; substitute: bool;
-                       preci: float = -1): Handle[GeomCurve] {.
+                       preci: cfloat = -1): Handle[GeomCurve] {.
     importcpp: "ConvertToPeriodic", header: "ShapeCustom_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

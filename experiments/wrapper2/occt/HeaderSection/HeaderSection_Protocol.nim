@@ -17,7 +17,7 @@
 discard "forward decl of HeaderSection_Protocol"
 discard "forward decl of HeaderSection_Protocol"
 type
-  HandleHeaderSectionProtocol* = Handle[HeaderSectionProtocol]
+  HandleC1C1* = Handle[HeaderSectionProtocol]
 
 ## ! Protocol for HeaderSection Entities
 ## ! It requires HeaderSection as a Resource
@@ -29,7 +29,7 @@ type
 
 proc constructHeaderSectionProtocol*(): HeaderSectionProtocol {.constructor,
     importcpp: "HeaderSection_Protocol(@)", header: "HeaderSection_Protocol.hxx".}
-proc typeNumber*(this: HeaderSectionProtocol; atype: Handle[StandardType]): int {.
+proc typeNumber*(this: HeaderSectionProtocol; atype: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "TypeNumber", header: "HeaderSection_Protocol.hxx".}
 proc schemaName*(this: HeaderSectionProtocol): StandardCString {.noSideEffect,
     importcpp: "SchemaName", header: "HeaderSection_Protocol.hxx".}
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HeaderSection_Protocol.hxx".}
 proc dynamicType*(this: HeaderSectionProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HeaderSection_Protocol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

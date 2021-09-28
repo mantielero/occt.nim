@@ -24,3 +24,28 @@ type
     Graphic3dTOTF_NEAREST, Graphic3dTOTF_BILINEAR, Graphic3dTOTF_TRILINEAR
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

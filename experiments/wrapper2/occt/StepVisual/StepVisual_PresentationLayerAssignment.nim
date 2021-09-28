@@ -19,8 +19,7 @@ discard "forward decl of StepVisual_LayeredItem"
 discard "forward decl of StepVisual_PresentationLayerAssignment"
 discard "forward decl of StepVisual_PresentationLayerAssignment"
 type
-  HandleStepVisualPresentationLayerAssignment* = Handle[
-      StepVisualPresentationLayerAssignment]
+  HandleC1C1* = Handle[StepVisualPresentationLayerAssignment]
   StepVisualPresentationLayerAssignment* {.
       importcpp: "StepVisual_PresentationLayerAssignment",
       header: "StepVisual_PresentationLayerAssignment.hxx", bycopy.} = object of StandardTransient ##
@@ -55,10 +54,10 @@ proc setAssignedItems*(this: var StepVisualPresentationLayerAssignment;
     header: "StepVisual_PresentationLayerAssignment.hxx".}
 proc assignedItems*(this: StepVisualPresentationLayerAssignment): Handle[
     StepVisualHArray1OfLayeredItem] {.noSideEffect, importcpp: "AssignedItems", header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc assignedItemsValue*(this: StepVisualPresentationLayerAssignment; num: int): StepVisualLayeredItem {.
+proc assignedItemsValue*(this: StepVisualPresentationLayerAssignment; num: cint): StepVisualLayeredItem {.
     noSideEffect, importcpp: "AssignedItemsValue",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc nbAssignedItems*(this: StepVisualPresentationLayerAssignment): int {.
+proc nbAssignedItems*(this: StepVisualPresentationLayerAssignment): cint {.
     noSideEffect, importcpp: "NbAssignedItems",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
 type
@@ -70,3 +69,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Present
 proc dynamicType*(this: StepVisualPresentationLayerAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

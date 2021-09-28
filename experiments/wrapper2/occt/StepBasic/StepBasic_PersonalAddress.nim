@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_Person"
 discard "forward decl of StepBasic_PersonalAddress"
 discard "forward decl of StepBasic_PersonalAddress"
 type
-  HandleStepBasicPersonalAddress* = Handle[StepBasicPersonalAddress]
+  HandleC1C1* = Handle[StepBasicPersonalAddress]
   StepBasicPersonalAddress* {.importcpp: "StepBasic_PersonalAddress",
                              header: "StepBasic_PersonalAddress.hxx", bycopy.} = object of StepBasicAddress ##
                                                                                                      ## !
@@ -54,9 +54,9 @@ proc setPeople*(this: var StepBasicPersonalAddress;
     importcpp: "SetPeople", header: "StepBasic_PersonalAddress.hxx".}
 proc people*(this: StepBasicPersonalAddress): Handle[StepBasicHArray1OfPerson] {.
     noSideEffect, importcpp: "People", header: "StepBasic_PersonalAddress.hxx".}
-proc peopleValue*(this: StepBasicPersonalAddress; num: int): Handle[StepBasicPerson] {.
+proc peopleValue*(this: StepBasicPersonalAddress; num: cint): Handle[StepBasicPerson] {.
     noSideEffect, importcpp: "PeopleValue", header: "StepBasic_PersonalAddress.hxx".}
-proc nbPeople*(this: StepBasicPersonalAddress): int {.noSideEffect,
+proc nbPeople*(this: StepBasicPersonalAddress): cint {.noSideEffect,
     importcpp: "NbPeople", header: "StepBasic_PersonalAddress.hxx".}
 proc setDescription*(this: var StepBasicPersonalAddress;
                     aDescription: Handle[TCollectionHAsciiString]) {.
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_PersonalAddress.hxx".}
 proc dynamicType*(this: StepBasicPersonalAddress): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_PersonalAddress.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

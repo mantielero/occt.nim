@@ -123,7 +123,32 @@ proc dynamicType*(this: TObjOcafObjectIterator): Handle[StandardType] {.
 
 discard "forward decl of TObj_OcafObjectIterator"
 type
-  HandleTObjOcafObjectIterator* = Handle[TObjOcafObjectIterator]
+  HandleC1C1* = Handle[TObjOcafObjectIterator]
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

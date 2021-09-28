@@ -36,14 +36,39 @@ type
   AppParCurves* {.importcpp: "AppParCurves", header: "AppParCurves.hxx", bycopy.} = object
 
 
-proc bernsteinMatrix*(nbPoles: int; u: MathVector; a: var MathMatrix) {.
+proc bernsteinMatrix*(nbPoles: cint; u: MathVector; a: var MathMatrix) {.
     importcpp: "AppParCurves::BernsteinMatrix(@)", header: "AppParCurves.hxx".}
-proc bernstein*(nbPoles: int; u: MathVector; a: var MathMatrix; da: var MathMatrix) {.
+proc bernstein*(nbPoles: cint; u: MathVector; a: var MathMatrix; da: var MathMatrix) {.
     importcpp: "AppParCurves::Bernstein(@)", header: "AppParCurves.hxx".}
-proc secondDerivativeBernstein*(u: float; dda: var MathVector) {.
+proc secondDerivativeBernstein*(u: cfloat; dda: var MathVector) {.
     importcpp: "AppParCurves::SecondDerivativeBernstein(@)",
     header: "AppParCurves.hxx".}
-proc splineFunction*(nbPoles: int; degree: int; parameters: MathVector;
+proc splineFunction*(nbPoles: cint; degree: cint; parameters: MathVector;
                     flatKnots: MathVector; a: var MathMatrix; da: var MathMatrix;
                     index: var MathIntegerVector) {.
     importcpp: "AppParCurves::SplineFunction(@)", header: "AppParCurves.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

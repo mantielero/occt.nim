@@ -22,7 +22,7 @@ discard "forward decl of Adaptor3d_HVertex"
 discard "forward decl of BRepTopAdaptor_HVertex"
 discard "forward decl of BRepTopAdaptor_HVertex"
 type
-  HandleBRepTopAdaptorHVertex* = Handle[BRepTopAdaptorHVertex]
+  HandleC1C1* = Handle[BRepTopAdaptorHVertex]
   BRepTopAdaptorHVertex* {.importcpp: "BRepTopAdaptor_HVertex",
                           header: "BRepTopAdaptor_HVertex.hxx", bycopy.} = object of Adaptor3dHVertex
 
@@ -37,9 +37,9 @@ proc changeVertex*(this: var BRepTopAdaptorHVertex): var TopoDS_Vertex {.
     importcpp: "ChangeVertex", header: "BRepTopAdaptor_HVertex.hxx".}
 proc value*(this: var BRepTopAdaptorHVertex): Pnt2d {.importcpp: "Value",
     header: "BRepTopAdaptor_HVertex.hxx".}
-proc parameter*(this: var BRepTopAdaptorHVertex; c: Handle[Adaptor2dHCurve2d]): float {.
+proc parameter*(this: var BRepTopAdaptorHVertex; c: Handle[Adaptor2dHCurve2d]): cfloat {.
     importcpp: "Parameter", header: "BRepTopAdaptor_HVertex.hxx".}
-proc resolution*(this: var BRepTopAdaptorHVertex; c: Handle[Adaptor2dHCurve2d]): float {.
+proc resolution*(this: var BRepTopAdaptorHVertex; c: Handle[Adaptor2dHCurve2d]): cfloat {.
     importcpp: "Resolution", header: "BRepTopAdaptor_HVertex.hxx".}
 proc orientation*(this: var BRepTopAdaptorHVertex): TopAbsOrientation {.
     importcpp: "Orientation", header: "BRepTopAdaptor_HVertex.hxx".}
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepTopAdaptor_HVertex.hxx".}
 proc dynamicType*(this: BRepTopAdaptorHVertex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepTopAdaptor_HVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   BlendSequenceOfPoint* = NCollectionSequence[BlendPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

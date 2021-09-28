@@ -15,13 +15,54 @@
 ## !!!Ignored construct:  # _OSD_SIGILL_HeaderFile [NewLine] # _OSD_SIGILL_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Signal . hxx > [NewLine] class OSD_SIGILL ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_SIGILL"
-type
-  HandleOSD_SIGILLOSD_SIGILL* = Handle[Osd_Sigill]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_SIGILL , OSD_Signal ) # ! defined No_Exception && ! defined No_OSD_SIGILL [NewLine] # OSD_SIGILL_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_SIGILL ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_SIGILL [NewLine] # if ( CONDITION ) throw OSD_SIGILL ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_SIGILL_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGILL , OSD_Signal ) #  _OSD_SIGILL_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGILL , OSD_Signal ) #  _OSD_SIGILL_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

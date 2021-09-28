@@ -26,9 +26,34 @@ type
 
 proc constructStepAP203CertifiedItem*(): StepAP203CertifiedItem {.constructor,
     importcpp: "StepAP203_CertifiedItem(@)", header: "StepAP203_CertifiedItem.hxx".}
-proc caseNum*(this: StepAP203CertifiedItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP203CertifiedItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_CertifiedItem.hxx".}
 proc suppliedPartRelationship*(this: StepAP203CertifiedItem): Handle[
     StepReprSuppliedPartRelationship] {.noSideEffect,
                                        importcpp: "SuppliedPartRelationship",
                                        header: "StepAP203_CertifiedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

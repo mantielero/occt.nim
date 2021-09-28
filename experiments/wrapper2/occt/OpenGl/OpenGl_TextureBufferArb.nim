@@ -83,5 +83,30 @@ proc textureFormat*(this: OpenGlTextureBufferArb): GLenum {.noSideEffect,
     importcpp: "TextureFormat", header: "OpenGl_TextureBufferArb.hxx".}
 discard "forward decl of OpenGl_TextureBufferArb"
 type
-  HandleOpenGlTextureBufferArb* = Handle[OpenGlTextureBufferArb]
+  HandleC1C1* = Handle[OpenGlTextureBufferArb]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

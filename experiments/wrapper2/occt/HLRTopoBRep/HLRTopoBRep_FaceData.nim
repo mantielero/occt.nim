@@ -36,3 +36,28 @@ proc addOutL*(this: var HLRTopoBRepFaceData): var TopToolsListOfShape {.
     importcpp: "AddOutL", header: "HLRTopoBRep_FaceData.hxx".}
 proc addIsoL*(this: var HLRTopoBRepFaceData): var TopToolsListOfShape {.
     importcpp: "AddIsoL", header: "HLRTopoBRep_FaceData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

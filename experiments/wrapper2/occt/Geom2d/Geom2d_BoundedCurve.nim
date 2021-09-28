@@ -18,7 +18,7 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of Geom2d_BoundedCurve"
 discard "forward decl of Geom2d_BoundedCurve"
 type
-  HandleGeom2dBoundedCurve* = Handle[Geom2dBoundedCurve]
+  HandleC1C1* = Handle[Geom2dBoundedCurve]
 
 ## ! The abstract class BoundedCurve describes the
 ## ! common behavior of bounded curves in 2D space. A

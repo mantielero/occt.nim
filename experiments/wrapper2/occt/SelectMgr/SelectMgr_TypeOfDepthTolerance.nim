@@ -23,3 +23,28 @@ type
     SelectMgrTypeOfDepthToleranceSensitivityFactor ## !< use sensitivity factor (in pixels) assigned to specific entity
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

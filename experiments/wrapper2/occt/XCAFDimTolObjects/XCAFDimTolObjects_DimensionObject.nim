@@ -16,8 +16,7 @@
 discard "forward decl of XCAFDimTolObjects_DimensionObject"
 discard "forward decl of XCAFDimTolObjects_DimensionObject"
 type
-  HandleXCAFDimTolObjectsDimensionObject* = Handle[
-      XCAFDimTolObjectsDimensionObject]
+  HandleC1C1* = Handle[XCAFDimTolObjectsDimensionObject]
 
 ## ! Access object to store dimension data
 
@@ -53,39 +52,41 @@ proc setType*(this: var XCAFDimTolObjectsDimensionObject;
 proc getType*(this: XCAFDimTolObjectsDimensionObject): XCAFDimTolObjectsDimensionType {.
     noSideEffect, importcpp: "GetType",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc getValue*(this: XCAFDimTolObjectsDimensionObject): float {.noSideEffect,
+proc getValue*(this: XCAFDimTolObjectsDimensionObject): cfloat {.noSideEffect,
     importcpp: "GetValue", header: "XCAFDimTolObjects_DimensionObject.hxx".}
 proc getValues*(this: XCAFDimTolObjectsDimensionObject): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "GetValues",
                            header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc setValue*(this: var XCAFDimTolObjectsDimensionObject; theValue: float) {.
+proc setValue*(this: var XCAFDimTolObjectsDimensionObject; theValue: cfloat) {.
     importcpp: "SetValue", header: "XCAFDimTolObjects_DimensionObject.hxx".}
 proc setValues*(this: var XCAFDimTolObjectsDimensionObject;
                theValue: Handle[TColStdHArray1OfReal]) {.importcpp: "SetValues",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
 proc isDimWithRange*(this: XCAFDimTolObjectsDimensionObject): bool {.noSideEffect,
     importcpp: "IsDimWithRange", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc setUpperBound*(this: var XCAFDimTolObjectsDimensionObject; theUpperBound: float) {.
-    importcpp: "SetUpperBound", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc setLowerBound*(this: var XCAFDimTolObjectsDimensionObject; theLowerBound: float) {.
-    importcpp: "SetLowerBound", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc getUpperBound*(this: XCAFDimTolObjectsDimensionObject): float {.noSideEffect,
+proc setUpperBound*(this: var XCAFDimTolObjectsDimensionObject;
+                   theUpperBound: cfloat) {.importcpp: "SetUpperBound",
+    header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc setLowerBound*(this: var XCAFDimTolObjectsDimensionObject;
+                   theLowerBound: cfloat) {.importcpp: "SetLowerBound",
+    header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc getUpperBound*(this: XCAFDimTolObjectsDimensionObject): cfloat {.noSideEffect,
     importcpp: "GetUpperBound", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc getLowerBound*(this: XCAFDimTolObjectsDimensionObject): float {.noSideEffect,
+proc getLowerBound*(this: XCAFDimTolObjectsDimensionObject): cfloat {.noSideEffect,
     importcpp: "GetLowerBound", header: "XCAFDimTolObjects_DimensionObject.hxx".}
 proc isDimWithPlusMinusTolerance*(this: XCAFDimTolObjectsDimensionObject): bool {.
     noSideEffect, importcpp: "IsDimWithPlusMinusTolerance",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
 proc setUpperTolValue*(this: var XCAFDimTolObjectsDimensionObject;
-                      theUperTolValue: float): bool {.
+                      theUperTolValue: cfloat): bool {.
     importcpp: "SetUpperTolValue", header: "XCAFDimTolObjects_DimensionObject.hxx".}
 proc setLowerTolValue*(this: var XCAFDimTolObjectsDimensionObject;
-                      theLowerTolValue: float): bool {.
+                      theLowerTolValue: cfloat): bool {.
     importcpp: "SetLowerTolValue", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc getUpperTolValue*(this: XCAFDimTolObjectsDimensionObject): float {.
+proc getUpperTolValue*(this: XCAFDimTolObjectsDimensionObject): cfloat {.
     noSideEffect, importcpp: "GetUpperTolValue",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc getLowerTolValue*(this: XCAFDimTolObjectsDimensionObject): float {.
+proc getLowerTolValue*(this: XCAFDimTolObjectsDimensionObject): cfloat {.
     noSideEffect, importcpp: "GetLowerTolValue",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
 proc isDimWithClassOfTolerance*(this: XCAFDimTolObjectsDimensionObject): bool {.
@@ -101,11 +102,12 @@ proc getClassOfTolerance*(this: XCAFDimTolObjectsDimensionObject;
                          theGrade: var XCAFDimTolObjectsDimensionGrade): bool {.
     noSideEffect, importcpp: "GetClassOfTolerance",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc setNbOfDecimalPlaces*(this: var XCAFDimTolObjectsDimensionObject; theL: int;
-                          theR: int) {.importcpp: "SetNbOfDecimalPlaces", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc getNbOfDecimalPlaces*(this: XCAFDimTolObjectsDimensionObject; theL: var int;
-                          theR: var int) {.noSideEffect,
-                                        importcpp: "GetNbOfDecimalPlaces", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc setNbOfDecimalPlaces*(this: var XCAFDimTolObjectsDimensionObject; theL: cint;
+                          theR: cint) {.importcpp: "SetNbOfDecimalPlaces", header: "XCAFDimTolObjects_DimensionObject.hxx".}
+proc getNbOfDecimalPlaces*(this: XCAFDimTolObjectsDimensionObject; theL: var cint;
+                          theR: var cint) {.noSideEffect,
+    importcpp: "GetNbOfDecimalPlaces",
+    header: "XCAFDimTolObjects_DimensionObject.hxx".}
 proc getModifiers*(this: XCAFDimTolObjectsDimensionObject): XCAFDimTolObjectsDimensionModifiersSequence {.
     noSideEffect, importcpp: "GetModifiers",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
@@ -162,15 +164,15 @@ proc getPresentationName*(this: XCAFDimTolObjectsDimensionObject): Handle[
                               header: "XCAFDimTolObjects_DimensionObject.hxx".}
 proc hasDescriptions*(this: XCAFDimTolObjectsDimensionObject): bool {.noSideEffect,
     importcpp: "HasDescriptions", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc nbDescriptions*(this: XCAFDimTolObjectsDimensionObject): int {.noSideEffect,
+proc nbDescriptions*(this: XCAFDimTolObjectsDimensionObject): cint {.noSideEffect,
     importcpp: "NbDescriptions", header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc getDescription*(this: XCAFDimTolObjectsDimensionObject; theNumber: int): Handle[
+proc getDescription*(this: XCAFDimTolObjectsDimensionObject; theNumber: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "GetDescription",
                               header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc getDescriptionName*(this: XCAFDimTolObjectsDimensionObject; theNumber: int): Handle[
+proc getDescriptionName*(this: XCAFDimTolObjectsDimensionObject; theNumber: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "GetDescriptionName",
                               header: "XCAFDimTolObjects_DimensionObject.hxx".}
-proc removeDescription*(this: var XCAFDimTolObjectsDimensionObject; theNumber: int) {.
+proc removeDescription*(this: var XCAFDimTolObjectsDimensionObject; theNumber: cint) {.
     importcpp: "RemoveDescription",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
 proc addDescription*(this: var XCAFDimTolObjectsDimensionObject;
@@ -188,3 +190,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XCAFDimTolObjectsDimensionObject): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XCAFDimTolObjects_DimensionObject.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

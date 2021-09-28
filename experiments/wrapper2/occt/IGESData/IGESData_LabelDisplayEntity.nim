@@ -17,7 +17,7 @@
 discard "forward decl of IGESData_LabelDisplayEntity"
 discard "forward decl of IGESData_LabelDisplayEntity"
 type
-  HandleIGESDataLabelDisplayEntity* = Handle[IGESDataLabelDisplayEntity]
+  HandleC1C1* = Handle[IGESDataLabelDisplayEntity]
 
 ## ! defines required type for LabelDisplay in directory part
 ## ! an effective LabelDisplay entity must inherits it
@@ -36,3 +36,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDataLabelDisplayEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESData_LabelDisplayEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

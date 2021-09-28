@@ -23,7 +23,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TPrsStd_AISViewer"
 discard "forward decl of TPrsStd_AISViewer"
 type
-  HandleTPrsStdAISViewer* = Handle[TPrsStdAISViewer]
+  HandleC1C1* = Handle[TPrsStdAISViewer]
 
 ## ! The groundwork to define an interactive viewer attribute.
 ## ! This attribute stores an interactive context at the root label.
@@ -86,3 +86,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_AISViewer.hxx".}
 proc dynamicType*(this: TPrsStdAISViewer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_AISViewer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

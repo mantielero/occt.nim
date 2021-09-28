@@ -23,6 +23,24 @@ type
                            header: "GeomToStep_MakeParabola.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeParabola; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeParabola::operator new",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc `delete`*(this: var GeomToStepMakeParabola; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeParabola::operator delete",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc `new[]`*(this: var GeomToStepMakeParabola; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeParabola::operator new[]",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeParabola; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeParabola::operator delete[]",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc `new`*(this: var GeomToStepMakeParabola; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeParabola::operator new",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc `delete`*(this: var GeomToStepMakeParabola; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeParabola::operator delete",
+    header: "GeomToStep_MakeParabola.hxx".}
 proc constructGeomToStepMakeParabola*(c: Handle[Geom2dParabola]): GeomToStepMakeParabola {.
     constructor, importcpp: "GeomToStep_MakeParabola(@)",
     header: "GeomToStep_MakeParabola.hxx".}

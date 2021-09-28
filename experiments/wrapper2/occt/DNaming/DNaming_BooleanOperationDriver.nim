@@ -20,7 +20,7 @@ discard "forward decl of TFunction_Function"
 discard "forward decl of DNaming_BooleanOperationDriver"
 discard "forward decl of DNaming_BooleanOperationDriver"
 type
-  HandleDNamingBooleanOperationDriver* = Handle[DNamingBooleanOperationDriver]
+  HandleC1C1* = Handle[DNamingBooleanOperationDriver]
 
 ## ! Driver  for Fuse,  Cut,  Common
 
@@ -42,7 +42,7 @@ proc mustExecute*(this: DNamingBooleanOperationDriver;
                  theLog: Handle[TFunctionLogbook]): bool {.noSideEffect,
     importcpp: "MustExecute", header: "DNaming_BooleanOperationDriver.hxx".}
 proc execute*(this: DNamingBooleanOperationDriver;
-             theLog: var Handle[TFunctionLogbook]): int {.noSideEffect,
+             theLog: var Handle[TFunctionLogbook]): cint {.noSideEffect,
     importcpp: "Execute", header: "DNaming_BooleanOperationDriver.hxx".}
 type
   DNamingBooleanOperationDriverbaseType* = TFunctionDriver
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: DNamingBooleanOperationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "DNaming_BooleanOperationDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,18 +29,43 @@ type
                                                                      ## NbIterations.
 
 
-proc constructMathBracketedRoot*(f: var MathFunction; bound1: float; bound2: float;
-                                tolerance: float; nbIterations: int = 100;
-                                zeps: float = 1.0e-12): MathBracketedRoot {.
+proc constructMathBracketedRoot*(f: var MathFunction; bound1: cfloat; bound2: cfloat;
+                                tolerance: cfloat; nbIterations: cint = 100;
+                                zeps: cfloat = 1.0e-12): MathBracketedRoot {.
     constructor, importcpp: "math_BracketedRoot(@)",
     header: "math_BracketedRoot.hxx".}
 proc isDone*(this: MathBracketedRoot): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_BracketedRoot.hxx".}
-proc root*(this: MathBracketedRoot): float {.noSideEffect, importcpp: "Root",
+proc root*(this: MathBracketedRoot): cfloat {.noSideEffect, importcpp: "Root",
     header: "math_BracketedRoot.hxx".}
-proc value*(this: MathBracketedRoot): float {.noSideEffect, importcpp: "Value",
+proc value*(this: MathBracketedRoot): cfloat {.noSideEffect, importcpp: "Value",
     header: "math_BracketedRoot.hxx".}
-proc nbIterations*(this: MathBracketedRoot): int {.noSideEffect,
+proc nbIterations*(this: MathBracketedRoot): cint {.noSideEffect,
     importcpp: "NbIterations", header: "math_BracketedRoot.hxx".}
 proc dump*(this: MathBracketedRoot; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_BracketedRoot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,8 +18,7 @@ discard "forward decl of StepGeom_BoundedCurve"
 discard "forward decl of StepGeom_SurfaceCurveAndBoundedCurve"
 discard "forward decl of StepGeom_SurfaceCurveAndBoundedCurve"
 type
-  HandleStepGeomSurfaceCurveAndBoundedCurve* = Handle[
-      StepGeomSurfaceCurveAndBoundedCurve]
+  HandleC1C1* = Handle[StepGeomSurfaceCurveAndBoundedCurve]
 
 ## ! complex type: bounded_curve + surface_curve
 ## ! needed for curve_bounded_surfaces (S4132)
@@ -49,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomSurfaceCurveAndBoundedCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_SurfaceCurveAndBoundedCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

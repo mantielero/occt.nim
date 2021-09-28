@@ -32,24 +32,49 @@ type
 proc constructExtremaLocEPCOfLocateExtPC2d*(): ExtremaLocEPCOfLocateExtPC2d {.
     constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
     header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc constructExtremaLocEPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; u0: float;
-    tolU: float): ExtremaLocEPCOfLocateExtPC2d {.constructor,
+proc constructExtremaLocEPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d;
+    u0: cfloat; tolU: cfloat): ExtremaLocEPCOfLocateExtPC2d {.constructor,
     importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
     header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc constructExtremaLocEPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; u0: float;
-    umin: float; usup: float; tolU: float): ExtremaLocEPCOfLocateExtPC2d {.constructor,
-    importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
+proc constructExtremaLocEPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d;
+    u0: cfloat; umin: cfloat; usup: cfloat; tolU: cfloat): ExtremaLocEPCOfLocateExtPC2d {.
+    constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
     header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc initialize*(this: var ExtremaLocEPCOfLocateExtPC2d; c: Adaptor2dCurve2d;
-                umin: float; usup: float; tolU: float) {.importcpp: "Initialize",
+                umin: cfloat; usup: cfloat; tolU: cfloat) {.importcpp: "Initialize",
     header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc perform*(this: var ExtremaLocEPCOfLocateExtPC2d; p: Pnt2d; u0: float) {.
+proc perform*(this: var ExtremaLocEPCOfLocateExtPC2d; p: Pnt2d; u0: cfloat) {.
     importcpp: "Perform", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc isDone*(this: ExtremaLocEPCOfLocateExtPC2d): bool {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
-proc squareDistance*(this: ExtremaLocEPCOfLocateExtPC2d): float {.noSideEffect,
+proc squareDistance*(this: ExtremaLocEPCOfLocateExtPC2d): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc isMin*(this: ExtremaLocEPCOfLocateExtPC2d): bool {.noSideEffect,
     importcpp: "IsMin", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc point*(this: ExtremaLocEPCOfLocateExtPC2d): ExtremaPOnCurv2d {.noSideEffect,
     importcpp: "Point", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,4 +19,3 @@ type
       TColStdMapIntegerHasher]
   Geom2dHatchDataMapIteratorOfHatchings* = Iterator[int, Geom2dHatchHatching,
       TColStdMapIntegerHasher]
-

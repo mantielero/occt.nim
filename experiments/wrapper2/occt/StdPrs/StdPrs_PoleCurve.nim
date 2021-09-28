@@ -30,9 +30,34 @@ type
 proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: Adaptor3dCurve;
          aDrawer: Handle[Prs3dDrawer]) {.importcpp: "StdPrs_PoleCurve::Add(@)",
                                        header: "StdPrs_PoleCurve.hxx".}
-proc match*(x: float; y: float; z: float; aDistance: float; aCurve: Adaptor3dCurve;
+proc match*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; aCurve: Adaptor3dCurve;
            aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_PoleCurve::Match(@)", header: "StdPrs_PoleCurve.hxx".}
-proc pick*(x: float; y: float; z: float; aDistance: float; aCurve: Adaptor3dCurve;
-          aDrawer: Handle[Prs3dDrawer]): int {.
+proc pick*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; aCurve: Adaptor3dCurve;
+          aDrawer: Handle[Prs3dDrawer]): cint {.
     importcpp: "StdPrs_PoleCurve::Pick(@)", header: "StdPrs_PoleCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

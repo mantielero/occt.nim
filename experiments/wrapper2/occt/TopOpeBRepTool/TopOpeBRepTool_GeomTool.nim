@@ -115,13 +115,13 @@ proc definePCurves2*(this: var TopOpeBRepToolGeomTool; compPC2: bool) {.
     importcpp: "DefinePCurves2", header: "TopOpeBRepTool_GeomTool.hxx".}
 proc define*(this: var TopOpeBRepToolGeomTool; gt: TopOpeBRepToolGeomTool) {.
     importcpp: "Define", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc getTolerances*(this: TopOpeBRepToolGeomTool; tol3d: var float; tol2d: var float) {.
+proc getTolerances*(this: TopOpeBRepToolGeomTool; tol3d: var cfloat; tol2d: var cfloat) {.
     noSideEffect, importcpp: "GetTolerances", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc setTolerances*(this: var TopOpeBRepToolGeomTool; tol3d: float; tol2d: float) {.
+proc setTolerances*(this: var TopOpeBRepToolGeomTool; tol3d: cfloat; tol2d: cfloat) {.
     importcpp: "SetTolerances", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc nbPntMax*(this: TopOpeBRepToolGeomTool): int {.noSideEffect,
+proc nbPntMax*(this: TopOpeBRepToolGeomTool): cint {.noSideEffect,
     importcpp: "NbPntMax", header: "TopOpeBRepTool_GeomTool.hxx".}
-proc setNbPntMax*(this: var TopOpeBRepToolGeomTool; nbPntMax: int) {.
+proc setNbPntMax*(this: var TopOpeBRepToolGeomTool; nbPntMax: cint) {.
     importcpp: "SetNbPntMax", header: "TopOpeBRepTool_GeomTool.hxx".}
 proc typeC3D*(this: TopOpeBRepToolGeomTool): TopOpeBRepToolOutCurveType {.
     noSideEffect, importcpp: "TypeC3D", header: "TopOpeBRepTool_GeomTool.hxx".}
@@ -131,3 +131,28 @@ proc compPC1*(this: TopOpeBRepToolGeomTool): bool {.noSideEffect,
     importcpp: "CompPC1", header: "TopOpeBRepTool_GeomTool.hxx".}
 proc compPC2*(this: TopOpeBRepToolGeomTool): bool {.noSideEffect,
     importcpp: "CompPC2", header: "TopOpeBRepTool_GeomTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

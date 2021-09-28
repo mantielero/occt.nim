@@ -17,8 +17,7 @@
 discard "forward decl of StepShape_TopologicalRepresentationItem"
 discard "forward decl of StepShape_TopologicalRepresentationItem"
 type
-  HandleStepShapeTopologicalRepresentationItem* = Handle[
-      StepShapeTopologicalRepresentationItem]
+  HandleC1C1* = Handle[StepShapeTopologicalRepresentationItem]
   StepShapeTopologicalRepresentationItem* {.
       importcpp: "StepShape_TopologicalRepresentationItem",
       header: "StepShape_TopologicalRepresentationItem.hxx", bycopy.} = object of StepReprRepresentationItem ##
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_Topologi
 proc dynamicType*(this: StepShapeTopologicalRepresentationItem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepShape_TopologicalRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_ConstraintDriver"
 discard "forward decl of TPrsStd_ConstraintDriver"
 type
-  HandleTPrsStdConstraintDriver* = Handle[TPrsStdConstraintDriver]
+  HandleC1C1* = Handle[TPrsStdConstraintDriver]
 
 ## ! An implementation of TPrsStd_Driver for constraints.
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_ConstraintDriver.hxx".}
 proc dynamicType*(this: TPrsStdConstraintDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TPrsStd_ConstraintDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

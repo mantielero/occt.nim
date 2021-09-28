@@ -18,3 +18,28 @@ type
   StepVisualArray1OfCurveStyleFontPattern* = NCollectionArray1[
       Handle[StepVisualCurveStyleFontPattern]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

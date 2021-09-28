@@ -37,29 +37,54 @@ proc initialize*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; c: Adaptor2dCur
     importcpp: "Initialize", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
 proc setPoint*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; p: Pnt2d) {.
     importcpp: "SetPoint", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
-proc value*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; u: float; f: var float): bool {.
+proc value*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; u: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
-proc derivative*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; u: float;
-                df: var float): bool {.importcpp: "Derivative", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
-proc values*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; u: float; f: var float;
-            df: var float): bool {.importcpp: "Values", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
-proc getStateNumber*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d): int {.
+proc derivative*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; u: cfloat;
+                df: var cfloat): bool {.importcpp: "Derivative", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
+proc values*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; u: cfloat; f: var cfloat;
+            df: var cfloat): bool {.importcpp: "Values", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
+proc getStateNumber*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d): cint {.
     importcpp: "GetStateNumber",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
-proc nbExt*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC2d): int {.noSideEffect,
+proc nbExt*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC2d): cint {.noSideEffect,
     importcpp: "NbExt", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
-proc squareDistance*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; n: int): float {.
+proc squareDistance*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; n: cint): cfloat {.
     noSideEffect, importcpp: "SquareDistance",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
-proc isMin*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; n: int): bool {.noSideEffect,
+proc isMin*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; n: cint): bool {.noSideEffect,
     importcpp: "IsMin", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
-proc point*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; n: int): ExtremaPOnCurv2d {.
+proc point*(this: ExtremaPCFOfEPCOfELPCOfLocateExtPC2d; n: cint): ExtremaPOnCurv2d {.
     noSideEffect, importcpp: "Point",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
 proc subIntervalInitialize*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d;
-                           theUfirst: float; theUlast: float) {.
+                           theUfirst: cfloat; theUlast: cfloat) {.
     importcpp: "SubIntervalInitialize",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
-proc searchOfTolerance*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d): float {.
+proc searchOfTolerance*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d): cfloat {.
     importcpp: "SearchOfTolerance",
     header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

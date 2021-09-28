@@ -30,7 +30,7 @@ proc constructRWStepElementRWCurveElementEndReleasePacket*(): RWStepElementRWCur
     constructor, importcpp: "RWStepElement_RWCurveElementEndReleasePacket(@)",
     header: "RWStepElement_RWCurveElementEndReleasePacket.hxx".}
 proc readStep*(this: RWStepElementRWCurveElementEndReleasePacket;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepElementCurveElementEndReleasePacket]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepElementRWCurveElementEndReleasePacket;
            ent: Handle[StepElementCurveElementEndReleasePacket];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWCurveElementEndReleasePacket.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

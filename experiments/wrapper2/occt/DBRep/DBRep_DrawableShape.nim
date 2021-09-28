@@ -79,16 +79,16 @@ proc dynamicType*(this: DBRepDrawableShape): Handle[StandardType] {.noSideEffect
     importcpp: "DynamicType", header: "DBRep_DrawableShape.hxx".}
 proc constructDBRepDrawableShape*(c: TopoDS_Shape; freeCol: DrawColor;
                                  connCol: DrawColor; edgeCol: DrawColor;
-                                 isosCol: DrawColor; size: float; nbisos: int;
-                                 discret: int): DBRepDrawableShape {.constructor,
+                                 isosCol: DrawColor; size: cfloat; nbisos: cint;
+                                 discret: cint): DBRepDrawableShape {.constructor,
     importcpp: "DBRep_DrawableShape(@)", header: "DBRep_DrawableShape.hxx".}
-proc changeNbIsos*(this: var DBRepDrawableShape; nbIsos: int) {.
+proc changeNbIsos*(this: var DBRepDrawableShape; nbIsos: cint) {.
     importcpp: "ChangeNbIsos", header: "DBRep_DrawableShape.hxx".}
-proc nbIsos*(this: DBRepDrawableShape): int {.noSideEffect, importcpp: "NbIsos",
+proc nbIsos*(this: DBRepDrawableShape): cint {.noSideEffect, importcpp: "NbIsos",
     header: "DBRep_DrawableShape.hxx".}
-proc changeDiscret*(this: var DBRepDrawableShape; discret: int) {.
+proc changeDiscret*(this: var DBRepDrawableShape; discret: cint) {.
     importcpp: "ChangeDiscret", header: "DBRep_DrawableShape.hxx".}
-proc discret*(this: DBRepDrawableShape): int {.noSideEffect, importcpp: "Discret",
+proc discret*(this: DBRepDrawableShape): cint {.noSideEffect, importcpp: "Discret",
     header: "DBRep_DrawableShape.hxx".}
 proc shape*(this: DBRepDrawableShape): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "DBRep_DrawableShape.hxx".}
@@ -99,14 +99,14 @@ proc displayTriangulation*(this: var DBRepDrawableShape; d: bool) {.
 proc displayPolygons*(this: var DBRepDrawableShape; d: bool) {.
     importcpp: "DisplayPolygons", header: "DBRep_DrawableShape.hxx".}
 proc displayHLR*(this: var DBRepDrawableShape; withHLR: bool; withRg1: bool;
-                withRgN: bool; withHid: bool; ang: float) {.importcpp: "DisplayHLR",
+                withRgN: bool; withHid: bool; ang: cfloat) {.importcpp: "DisplayHLR",
     header: "DBRep_DrawableShape.hxx".}
 proc displayTriangulation*(this: DBRepDrawableShape): bool {.noSideEffect,
     importcpp: "DisplayTriangulation", header: "DBRep_DrawableShape.hxx".}
 proc displayPolygons*(this: DBRepDrawableShape): bool {.noSideEffect,
     importcpp: "DisplayPolygons", header: "DBRep_DrawableShape.hxx".}
 proc getDisplayHLR*(this: DBRepDrawableShape; withHLR: var bool; withRg1: var bool;
-                   withRgN: var bool; withHid: var bool; ang: var float) {.noSideEffect,
+                   withRgN: var bool; withHid: var bool; ang: var cfloat) {.noSideEffect,
     importcpp: "GetDisplayHLR", header: "DBRep_DrawableShape.hxx".}
 proc drawOn*(this: DBRepDrawableShape; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DBRep_DrawableShape.hxx".}
@@ -118,28 +118,53 @@ proc dump*(this: DBRepDrawableShape; s: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "DBRep_DrawableShape.hxx".}
 proc whatis*(this: DBRepDrawableShape; i: var DrawInterpretor) {.noSideEffect,
     importcpp: "Whatis", header: "DBRep_DrawableShape.hxx".}
-proc lastPick*(s: var TopoDS_Shape; u: var float; v: var float) {.
+proc lastPick*(s: var TopoDS_Shape; u: var cfloat; v: var cfloat) {.
     importcpp: "DBRep_DrawableShape::LastPick(@)",
     header: "DBRep_DrawableShape.hxx".}
 proc addMeshNormals*(theNormals: var NCollectionVector[Pair[Pnt, Pnt]];
-                    theFace: TopoDS_Face; theLength: float): bool {.
+                    theFace: TopoDS_Face; theLength: cfloat): bool {.
     importcpp: "DBRep_DrawableShape::addMeshNormals(@)",
     header: "DBRep_DrawableShape.hxx".}
 proc addMeshNormals*(theNormals: var NCollectionDataMap[TopoDS_Face,
-    NCollectionVector[Pair[Pnt, Pnt]]]; theShape: TopoDS_Shape; theLength: float) {.
+    NCollectionVector[Pair[Pnt, Pnt]]]; theShape: TopoDS_Shape; theLength: cfloat) {.
     importcpp: "DBRep_DrawableShape::addMeshNormals(@)",
     header: "DBRep_DrawableShape.hxx".}
 proc addSurfaceNormals*(theNormals: var NCollectionVector[Pair[Pnt, Pnt]];
-                       theFace: TopoDS_Face; theLength: float; theNbAlongU: int;
-                       theNbAlongV: int): bool {.
+                       theFace: TopoDS_Face; theLength: cfloat; theNbAlongU: cint;
+                       theNbAlongV: cint): bool {.
     importcpp: "DBRep_DrawableShape::addSurfaceNormals(@)",
     header: "DBRep_DrawableShape.hxx".}
 proc addSurfaceNormals*(theNormals: var NCollectionDataMap[TopoDS_Face,
-    NCollectionVector[Pair[Pnt, Pnt]]]; theShape: TopoDS_Shape; theLength: float;
-                       theNbAlongU: int; theNbAlongV: int) {.
+    NCollectionVector[Pair[Pnt, Pnt]]]; theShape: TopoDS_Shape; theLength: cfloat;
+                       theNbAlongU: cint; theNbAlongV: cint) {.
     importcpp: "DBRep_DrawableShape::addSurfaceNormals(@)",
     header: "DBRep_DrawableShape.hxx".}
 discard "forward decl of DBRep_DrawableShape"
 type
-  HandleDBRepDrawableShape* = Handle[DBRepDrawableShape]
+  HandleC1C1* = Handle[DBRepDrawableShape]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

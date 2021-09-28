@@ -28,32 +28,57 @@ type
 
 proc constructExtremaGenExtCS*(): ExtremaGenExtCS {.constructor,
     importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
-proc constructExtremaGenExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; nbT: int;
-                              nbU: int; nbV: int; tol1: float; tol2: float): ExtremaGenExtCS {.
+proc constructExtremaGenExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; nbT: cint;
+                              nbU: cint; nbV: cint; tol1: cfloat; tol2: cfloat): ExtremaGenExtCS {.
     constructor, importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
-proc constructExtremaGenExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; nbT: int;
-                              nbU: int; nbV: int; tmin: float; tsup: float; umin: float;
-                              usup: float; vmin: float; vsup: float; tol1: float;
-                              tol2: float): ExtremaGenExtCS {.constructor,
-    importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
-proc initialize*(this: var ExtremaGenExtCS; s: Adaptor3dSurface; nbU: int; nbV: int;
-                tol2: float) {.importcpp: "Initialize",
-                             header: "Extrema_GenExtCS.hxx".}
-proc initialize*(this: var ExtremaGenExtCS; s: Adaptor3dSurface; nbU: int; nbV: int;
-                umin: float; usup: float; vmin: float; vsup: float; tol2: float) {.
+proc constructExtremaGenExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; nbT: cint;
+                              nbU: cint; nbV: cint; tmin: cfloat; tsup: cfloat;
+                              umin: cfloat; usup: cfloat; vmin: cfloat; vsup: cfloat;
+                              tol1: cfloat; tol2: cfloat): ExtremaGenExtCS {.
+    constructor, importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
+proc initialize*(this: var ExtremaGenExtCS; s: Adaptor3dSurface; nbU: cint; nbV: cint;
+                tol2: cfloat) {.importcpp: "Initialize",
+                              header: "Extrema_GenExtCS.hxx".}
+proc initialize*(this: var ExtremaGenExtCS; s: Adaptor3dSurface; nbU: cint; nbV: cint;
+                umin: cfloat; usup: cfloat; vmin: cfloat; vsup: cfloat; tol2: cfloat) {.
     importcpp: "Initialize", header: "Extrema_GenExtCS.hxx".}
-proc perform*(this: var ExtremaGenExtCS; c: Adaptor3dCurve; nbT: int; tol1: float) {.
+proc perform*(this: var ExtremaGenExtCS; c: Adaptor3dCurve; nbT: cint; tol1: cfloat) {.
     importcpp: "Perform", header: "Extrema_GenExtCS.hxx".}
-proc perform*(this: var ExtremaGenExtCS; c: Adaptor3dCurve; nbT: int; tmin: float;
-             tsup: float; tol1: float) {.importcpp: "Perform",
-                                     header: "Extrema_GenExtCS.hxx".}
+proc perform*(this: var ExtremaGenExtCS; c: Adaptor3dCurve; nbT: cint; tmin: cfloat;
+             tsup: cfloat; tol1: cfloat) {.importcpp: "Perform",
+                                       header: "Extrema_GenExtCS.hxx".}
 proc isDone*(this: ExtremaGenExtCS): bool {.noSideEffect, importcpp: "IsDone",
                                         header: "Extrema_GenExtCS.hxx".}
-proc nbExt*(this: ExtremaGenExtCS): int {.noSideEffect, importcpp: "NbExt",
-                                      header: "Extrema_GenExtCS.hxx".}
-proc squareDistance*(this: ExtremaGenExtCS; n: int): float {.noSideEffect,
+proc nbExt*(this: ExtremaGenExtCS): cint {.noSideEffect, importcpp: "NbExt",
+                                       header: "Extrema_GenExtCS.hxx".}
+proc squareDistance*(this: ExtremaGenExtCS; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_GenExtCS.hxx".}
-proc pointOnCurve*(this: ExtremaGenExtCS; n: int): ExtremaPOnCurv {.noSideEffect,
+proc pointOnCurve*(this: ExtremaGenExtCS; n: cint): ExtremaPOnCurv {.noSideEffect,
     importcpp: "PointOnCurve", header: "Extrema_GenExtCS.hxx".}
-proc pointOnSurface*(this: ExtremaGenExtCS; n: int): ExtremaPOnSurf {.noSideEffect,
+proc pointOnSurface*(this: ExtremaGenExtCS; n: cint): ExtremaPOnSurf {.noSideEffect,
     importcpp: "PointOnSurface", header: "Extrema_GenExtCS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

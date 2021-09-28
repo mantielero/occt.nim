@@ -25,7 +25,7 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Dir"
 discard "forward decl of PrsDim_IdenticRelation"
 type
-  HandlePrsDimIdenticRelation* = Handle[PrsDimIdenticRelation]
+  HandleC1C1* = Handle[PrsDimIdenticRelation]
 
 ## ! Constructs a constraint by a relation of identity
 ## ! between two or more datums figuring in shape
@@ -93,3 +93,28 @@ proc clearUsers*(this: var PrsDimIdenticRelation) {.importcpp: "ClearUsers",
     header: "PrsDim_IdenticRelation.hxx".}
 proc isMovable*(this: PrsDimIdenticRelation): bool {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_IdenticRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

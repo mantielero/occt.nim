@@ -30,7 +30,7 @@ proc constructRWStepReprRWPropertyDefinitionRelationship*(): RWStepReprRWPropert
     constructor, importcpp: "RWStepRepr_RWPropertyDefinitionRelationship(@)",
     header: "RWStepRepr_RWPropertyDefinitionRelationship.hxx".}
 proc readStep*(this: RWStepReprRWPropertyDefinitionRelationship;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprPropertyDefinitionRelationship]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepReprRWPropertyDefinitionRelationship;
            ent: Handle[StepReprPropertyDefinitionRelationship];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWPropertyDefinitionRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

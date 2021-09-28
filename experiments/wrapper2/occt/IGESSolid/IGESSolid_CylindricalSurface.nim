@@ -19,7 +19,7 @@ discard "forward decl of IGESGeom_Direction"
 discard "forward decl of IGESSolid_CylindricalSurface"
 discard "forward decl of IGESSolid_CylindricalSurface"
 type
-  HandleIGESSolidCylindricalSurface* = Handle[IGESSolidCylindricalSurface]
+  HandleC1C1* = Handle[IGESSolidCylindricalSurface]
 
 ## ! defines CylindricalSurface, Type <192> Form Number <0,1>
 ## ! in package IGESSolid
@@ -33,7 +33,7 @@ proc constructIGESSolidCylindricalSurface*(): IGESSolidCylindricalSurface {.
     constructor, importcpp: "IGESSolid_CylindricalSurface(@)",
     header: "IGESSolid_CylindricalSurface.hxx".}
 proc init*(this: var IGESSolidCylindricalSurface; aLocation: Handle[IGESGeomPoint];
-          anAxis: Handle[IGESGeomDirection]; aRadius: float;
+          anAxis: Handle[IGESGeomDirection]; aRadius: cfloat;
           aRefdir: Handle[IGESGeomDirection]) {.importcpp: "Init",
     header: "IGESSolid_CylindricalSurface.hxx".}
 proc locationPoint*(this: IGESSolidCylindricalSurface): Handle[IGESGeomPoint] {.
@@ -41,7 +41,7 @@ proc locationPoint*(this: IGESSolidCylindricalSurface): Handle[IGESGeomPoint] {.
     header: "IGESSolid_CylindricalSurface.hxx".}
 proc axis*(this: IGESSolidCylindricalSurface): Handle[IGESGeomDirection] {.
     noSideEffect, importcpp: "Axis", header: "IGESSolid_CylindricalSurface.hxx".}
-proc radius*(this: IGESSolidCylindricalSurface): float {.noSideEffect,
+proc radius*(this: IGESSolidCylindricalSurface): cfloat {.noSideEffect,
     importcpp: "Radius", header: "IGESSolid_CylindricalSurface.hxx".}
 proc isParametrised*(this: IGESSolidCylindricalSurface): bool {.noSideEffect,
     importcpp: "IsParametrised", header: "IGESSolid_CylindricalSurface.hxx".}
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSolidCylindricalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_CylindricalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

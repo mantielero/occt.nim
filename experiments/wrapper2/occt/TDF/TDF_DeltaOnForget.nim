@@ -17,7 +17,7 @@ discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DeltaOnForget"
 discard "forward decl of TDF_DeltaOnForget"
 type
-  HandleTDF_DeltaOnForget* = Handle[TDF_DeltaOnForget]
+  HandleC1C1* = Handle[TDF_DeltaOnForget]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on an Forget action.
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDF_DeltaOnForget.hxx".}
 proc dynamicType*(this: TDF_DeltaOnForget): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_DeltaOnForget.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

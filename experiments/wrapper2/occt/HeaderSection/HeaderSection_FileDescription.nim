@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of HeaderSection_FileDescription"
 discard "forward decl of HeaderSection_FileDescription"
 type
-  HandleHeaderSectionFileDescription* = Handle[HeaderSectionFileDescription]
+  HandleC1C1* = Handle[HeaderSectionFileDescription]
   HeaderSectionFileDescription* {.importcpp: "HeaderSection_FileDescription",
                                  header: "HeaderSection_FileDescription.hxx",
                                  bycopy.} = object of StandardTransient ## ! Returns a
@@ -37,10 +37,10 @@ proc setDescription*(this: var HeaderSectionFileDescription;
     importcpp: "SetDescription", header: "HeaderSection_FileDescription.hxx".}
 proc description*(this: HeaderSectionFileDescription): Handle[
     InterfaceHArray1OfHAsciiString] {.noSideEffect, importcpp: "Description", header: "HeaderSection_FileDescription.hxx".}
-proc descriptionValue*(this: HeaderSectionFileDescription; num: int): Handle[
+proc descriptionValue*(this: HeaderSectionFileDescription; num: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "DescriptionValue",
                               header: "HeaderSection_FileDescription.hxx".}
-proc nbDescription*(this: HeaderSectionFileDescription): int {.noSideEffect,
+proc nbDescription*(this: HeaderSectionFileDescription): cint {.noSideEffect,
     importcpp: "NbDescription", header: "HeaderSection_FileDescription.hxx".}
 proc setImplementationLevel*(this: var HeaderSectionFileDescription;
     aImplementationLevel: Handle[TCollectionHAsciiString]) {.
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: HeaderSectionFileDescription): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "HeaderSection_FileDescription.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

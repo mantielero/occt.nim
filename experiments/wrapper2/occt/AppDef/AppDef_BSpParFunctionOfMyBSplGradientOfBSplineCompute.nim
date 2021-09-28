@@ -57,24 +57,24 @@ type
 
 
 proc constructAppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute*(
-    ssp: AppDefMultiLine; firstPoint: int; lastPoint: int;
+    ssp: AppDefMultiLine; firstPoint: cint; lastPoint: cint;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
     parameters: MathVector; knots: TColStdArray1OfReal;
-    mults: TColStdArray1OfInteger; nbPol: int): AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute {.
+    mults: TColStdArray1OfInteger; nbPol: cint): AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute(@)",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc nbVariables*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): int {.
+proc nbVariables*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): cint {.
     noSideEffect, importcpp: "NbVariables",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
 proc value*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
-           x: MathVector; f: var float): bool {.importcpp: "Value",
+           x: MathVector; f: var cfloat): bool {.importcpp: "Value",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
 proc gradient*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
               x: MathVector; g: var MathVector): bool {.importcpp: "Gradient",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
 proc values*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
-            x: MathVector; f: var float; g: var MathVector): bool {.importcpp: "Values",
+            x: MathVector; f: var cfloat; g: var MathVector): bool {.importcpp: "Values",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
 proc newParameters*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): MathVector {.
     noSideEffect, importcpp: "NewParameters",
@@ -83,12 +83,12 @@ proc curveValue*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute)
     importcpp: "CurveValue",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
 proc error*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
-           iPoint: int; curveIndex: int): float {.importcpp: "Error",
+           iPoint: cint; curveIndex: cint): cfloat {.importcpp: "Error",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc maxError3d*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): float {.
+proc maxError3d*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): cfloat {.
     noSideEffect, importcpp: "MaxError3d",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
-proc maxError2d*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): float {.
+proc maxError2d*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): cfloat {.
     noSideEffect, importcpp: "MaxError2d",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
 proc functionMatrix*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): MathMatrix {.
@@ -101,14 +101,40 @@ proc index*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute): MathInt
     noSideEffect, importcpp: "Index",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
 proc firstConstraint*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; firstPoint: int): AppParCurvesConstraint {.
-    noSideEffect, importcpp: "FirstConstraint",
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
+                     firstPoint: cint): AppParCurvesConstraint {.noSideEffect,
+    importcpp: "FirstConstraint",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
 proc lastConstraint*(this: AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; lastPoint: int): AppParCurvesConstraint {.
+    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple]; lastPoint: cint): AppParCurvesConstraint {.
     noSideEffect, importcpp: "LastConstraint",
     header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
 proc setFirstLambda*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
-                    l1: float) {.importcpp: "SetFirstLambda", header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
+                    l1: cfloat) {.importcpp: "SetFirstLambda", header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
 proc setLastLambda*(this: var AppDefBSpParFunctionOfMyBSplGradientOfBSplineCompute;
-                   l2: float) {.importcpp: "SetLastLambda", header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
+                   l2: cfloat) {.importcpp: "SetLastLambda", header: "AppDef_BSpParFunctionOfMyBSplGradientOfBSplineCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

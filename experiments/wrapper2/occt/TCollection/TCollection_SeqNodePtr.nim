@@ -18,3 +18,28 @@ discard "forward decl of TCollection_SeqNode"
 type
   TCollectionSeqNodePtr* = ptr TCollectionSeqNode
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

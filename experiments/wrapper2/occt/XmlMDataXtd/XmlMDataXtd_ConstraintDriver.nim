@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataXtd_ConstraintDriver"
 discard "forward decl of XmlMDataXtd_ConstraintDriver"
 type
-  HandleXmlMDataXtdConstraintDriver* = Handle[XmlMDataXtdConstraintDriver]
+  HandleC1C1* = Handle[XmlMDataXtdConstraintDriver]
 
 ## ! Attribute Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataXtdConstraintDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataXtd_ConstraintDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

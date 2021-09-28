@@ -30,7 +30,7 @@ type
 
 proc constructAppParCurvesMultiPoint*(): AppParCurvesMultiPoint {.constructor,
     importcpp: "AppParCurves_MultiPoint(@)", header: "AppParCurves_MultiPoint.hxx".}
-proc constructAppParCurvesMultiPoint*(nbPoints: int; nbPoints2d: int): AppParCurvesMultiPoint {.
+proc constructAppParCurvesMultiPoint*(nbPoints: cint; nbPoints2d: cint): AppParCurvesMultiPoint {.
     constructor, importcpp: "AppParCurves_MultiPoint(@)",
     header: "AppParCurves_MultiPoint.hxx".}
 proc constructAppParCurvesMultiPoint*(tabP: TColgpArray1OfPnt): AppParCurvesMultiPoint {.
@@ -46,25 +46,50 @@ proc constructAppParCurvesMultiPoint*(tabP: TColgpArray1OfPnt;
 proc destroyAppParCurvesMultiPoint*(this: var AppParCurvesMultiPoint) {.
     importcpp: "#.~AppParCurves_MultiPoint()",
     header: "AppParCurves_MultiPoint.hxx".}
-proc setPoint*(this: var AppParCurvesMultiPoint; index: int; point: Pnt) {.
+proc setPoint*(this: var AppParCurvesMultiPoint; index: cint; point: Pnt) {.
     importcpp: "SetPoint", header: "AppParCurves_MultiPoint.hxx".}
-proc point*(this: AppParCurvesMultiPoint; index: int): Pnt {.noSideEffect,
+proc point*(this: AppParCurvesMultiPoint; index: cint): Pnt {.noSideEffect,
     importcpp: "Point", header: "AppParCurves_MultiPoint.hxx".}
-proc setPoint2d*(this: var AppParCurvesMultiPoint; index: int; point: Pnt2d) {.
+proc setPoint2d*(this: var AppParCurvesMultiPoint; index: cint; point: Pnt2d) {.
     importcpp: "SetPoint2d", header: "AppParCurves_MultiPoint.hxx".}
-proc point2d*(this: AppParCurvesMultiPoint; index: int): Pnt2d {.noSideEffect,
+proc point2d*(this: AppParCurvesMultiPoint; index: cint): Pnt2d {.noSideEffect,
     importcpp: "Point2d", header: "AppParCurves_MultiPoint.hxx".}
-proc dimension*(this: AppParCurvesMultiPoint; index: int): int {.noSideEffect,
+proc dimension*(this: AppParCurvesMultiPoint; index: cint): cint {.noSideEffect,
     importcpp: "Dimension", header: "AppParCurves_MultiPoint.hxx".}
-proc nbPoints*(this: AppParCurvesMultiPoint): int {.noSideEffect,
+proc nbPoints*(this: AppParCurvesMultiPoint): cint {.noSideEffect,
     importcpp: "NbPoints", header: "AppParCurves_MultiPoint.hxx".}
-proc nbPoints2d*(this: AppParCurvesMultiPoint): int {.noSideEffect,
+proc nbPoints2d*(this: AppParCurvesMultiPoint): cint {.noSideEffect,
     importcpp: "NbPoints2d", header: "AppParCurves_MultiPoint.hxx".}
-proc transform*(this: var AppParCurvesMultiPoint; cuIndex: int; x: float; dx: float;
-               y: float; dy: float; z: float; dz: float) {.importcpp: "Transform",
+proc transform*(this: var AppParCurvesMultiPoint; cuIndex: cint; x: cfloat; dx: cfloat;
+               y: cfloat; dy: cfloat; z: cfloat; dz: cfloat) {.importcpp: "Transform",
     header: "AppParCurves_MultiPoint.hxx".}
-proc transform2d*(this: var AppParCurvesMultiPoint; cuIndex: int; x: float; dx: float;
-                 y: float; dy: float) {.importcpp: "Transform2d",
-                                    header: "AppParCurves_MultiPoint.hxx".}
+proc transform2d*(this: var AppParCurvesMultiPoint; cuIndex: cint; x: cfloat;
+                 dx: cfloat; y: cfloat; dy: cfloat) {.importcpp: "Transform2d",
+    header: "AppParCurves_MultiPoint.hxx".}
 proc dump*(this: AppParCurvesMultiPoint; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "AppParCurves_MultiPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,6 +13,31 @@
 ##  commercial license or contractual agreement.
 
 type
-  BOPDS_DataMapOfIntegerListOfPaveBlock* = NCollectionDataMap[int,
+  BOPDS_DataMapOfIntegerListOfPaveBlock* = NCollectionDataMap[cint,
       BOPDS_ListOfPaveBlock, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

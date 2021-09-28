@@ -27,11 +27,37 @@ type
 proc constructRWStepShapeRWSphere*(): RWStepShapeRWSphere {.constructor,
     importcpp: "RWStepShape_RWSphere(@)", header: "RWStepShape_RWSphere.hxx".}
 proc readStep*(this: RWStepShapeRWSphere; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeSphere]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWSphere.hxx".}
+              num: cint; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepShapeSphere]) {.noSideEffect, importcpp: "ReadStep",
+    header: "RWStepShape_RWSphere.hxx".}
 proc writeStep*(this: RWStepShapeRWSphere; sw: var StepDataStepWriter;
                ent: Handle[StepShapeSphere]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWSphere.hxx".}
 proc share*(this: RWStepShapeRWSphere; ent: Handle[StepShapeSphere];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWSphere.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

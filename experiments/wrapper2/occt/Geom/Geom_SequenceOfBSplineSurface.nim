@@ -16,4 +16,3 @@
 
 type
   GeomSequenceOfBSplineSurface* = NCollectionSequence[Handle[GeomBSplineSurface]]
-

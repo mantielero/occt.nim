@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_Vector_HeaderFile [NewLine] # NCollection_Vector_HeaderFile [NewLine] # < NCollection_BaseVector . hxx > [NewLine] # < NCollection_StlIterator . hxx > [NewLine] ! Class NCollection_Vector (dynamic array of objects)
+## ! Class NCollection_Vector (dynamic array of objects)
 ## !
 ## ! This class is similar to NCollection_Array1  though the indices always start
 ## ! at 0 (in Array1 the first index must be specified)
@@ -33,18 +33,148 @@
 ## ! The vector iterator remembers the length of the vector  at the moment of the
 ## ! creation or initialisation of the iterator.   Therefore the iteration begins
 ## ! at index 0  and stops at the index equal to (remembered_length-1).  It is OK
-## ! to enlarge the vector during the iteration. template < class TheItemType > [end of template] class NCollection_Vector : public NCollection_BaseVector { public : ! STL-compliant typedef for value type typedef TheItemType value_type ; public : ! Nested class Iterator class Iterator : public NCollection_BaseVector :: Iterator { public : ! Empty constructor - for later Init Iterator ( ) { } ! Constructor with initialisation Iterator ( const NCollection_Vector & theVector , Standard_Boolean theToEnd = Standard_False ) : NCollection_BaseVector :: Iterator ( theVector , theToEnd ) { } ! Initialisation void Init ( const NCollection_Vector & theVector ) { initV ( theVector ) ; } ! Check end Standard_Boolean More ( ) const { return moreV ( ) ; } ! Increment operator. void Next ( ) { nextV ( ) ; } ! Decrement operator. void Previous ( ) { prevV ( ) ; } ! Offset operator. void Offset ( ptrdiff_t theOffset ) { offsetV ( static_cast < int > [end of template] ( theOffset ) ) ; }  Workaround for a bug (endless compilation) occurred in MS Visual Studio 2019 / Win32 / Release configuration
-##  with DISABLED Whole Program Optimization (as it is by default in OCCT). The problem is
-##  at the line std::stable_sort(aPairList.begin(), aPairList.end(), BRepExtrema_CheckPair_Comparator);
-##  of BRepExtrema_DistShapeShape.cxx source file.
-##  To enable Whole Program Optimization use command line keys: /GL for compiler and /LTCG for linker.
-##  Remove this workaround after the bug in VS2019 will be fixed (see OCCT bug #0031628). # defined ( _MSC_VER ) && ( _MSC_VER >= 1920 ) && ! defined ( _WIN64 ) && ! defined ( _DEBUG ) [NewLine] __declspec ( noinline ) __declspec ( deprecated ( TODO remove this workaround for VS2019 compiler hanging bug ) ) # [NewLine] ! Difference operator. ptrdiff_t Differ ( const Iterator & theOther ) const { return differV ( theOther ) ; } ! Constant value access const TheItemType & Value ( ) const { return ( ( const TheItemType * ) curBlockV ( ) -> DataPtr ) [ myCurIndex ] ; } ! Variable value access TheItemType & ChangeValue ( ) const { return ( ( TheItemType * ) curBlockV ( ) -> DataPtr ) [ myCurIndex ] ; } ! Performs comparison of two iterators. Standard_Boolean IsEqual ( const Iterator & theOther ) const { return myVector == theOther . myVector && myCurIndex == theOther . myCurIndex && myEndIndex == theOther . myEndIndex && myICurBlock == theOther . myICurBlock && myIEndBlock == theOther . myIEndBlock ; } } ; ! Shorthand for a regular iterator type. typedef NCollection_StlIterator < std :: random_access_iterator_tag , Iterator , TheItemType , false > [end of template] iterator ; ! Shorthand for a constant iterator type. typedef NCollection_StlIterator < std :: random_access_iterator_tag , Iterator , TheItemType , true > [end of template] const_iterator ; ! Returns an iterator pointing to the first element in the vector. iterator begin ( ) const { return Iterator ( * this , false ) ; } ! Returns an iterator referring to the past-the-end element in the vector. iterator end ( ) const { return Iterator ( * this , true ) ; } ! Returns a const iterator pointing to the first element in the vector. const_iterator cbegin ( ) const { return Iterator ( * this , false ) ; } ! Returns a const iterator referring to the past-the-end element in the vector. const_iterator cend ( ) const { return Iterator ( * this , true ) ; } public : ! @name public methods ! Constructor explicit NCollection_Vector ( const Standard_Integer theIncrement = 256 , const opencascade :: handle < NCollection_BaseAllocator > [end of template] & theAlloc = NULL ) : NCollection_BaseVector ( theAlloc , initMemBlocks , sizeof ( TheItemType ) , theIncrement ) { } ! Copy constructor NCollection_Vector ( const NCollection_Vector & theOther ) : NCollection_BaseVector ( theOther . myAllocator , initMemBlocks , theOther ) { copyData ( theOther ) ; } ! Destructor virtual ~ NCollection_Vector ( ) { for ( Standard_Integer anItemIter = 0 ; anItemIter < myCapacity ; ++ anItemIter ) { initMemBlocks ( * this , myData [ anItemIter ] , 0 , 0 ) ; } this -> myAllocator -> Free ( myData ) ; } ! Total number of items Standard_Integer Length ( ) const { return myLength ; } ! Total number of items in the vector Standard_Integer Size ( ) const { return myLength ; } ! Method for consistency with other collections.
-## ! @return Lower bound (inclusive) for iteration. Standard_Integer Lower ( ) const { return 0 ; } ! Method for consistency with other collections.
-## ! @return Upper bound (inclusive) for iteration. Standard_Integer Upper ( ) const { return myLength - 1 ; } ! Empty query Standard_Boolean IsEmpty ( ) const { return ( myLength == 0 ) ; } ! Assignment to the collection of the same type inline void Assign ( const NCollection_Vector & theOther , const Standard_Boolean theOwnAllocator = Standard_True ) ; ! Assignment operator NCollection_Vector & operator = ( const NCollection_Vector & theOther ) { Assign ( theOther , Standard_False ) ; return * this ; } ! Append TheItemType & Append ( const TheItemType & theValue ) { TheItemType & anAppended = * ( TheItemType * ) expandV ( myLength ) ; anAppended = theValue ; return anAppended ; } ! Appends an empty value and returns the reference to it TheItemType & Appended ( ) { TheItemType & anAppended = * ( TheItemType * ) expandV ( myLength ) ; return anAppended ; } ! Operator() - query the const value const TheItemType & operator ( ) ( const Standard_Integer theIndex ) const { return Value ( theIndex ) ; } ! Operator[] - query the const value const TheItemType & operator [ ] ( Standard_Integer theIndex ) const { return Value ( theIndex ) ; } const TheItemType & Value ( const Standard_Integer theIndex ) const { return * ( const TheItemType * ) findV ( theIndex ) ; } ! @return first element const TheItemType & First ( ) const { return * ( const TheItemType * ) findV ( Lower ( ) ) ; } ! @return first element TheItemType & ChangeFirst ( ) { return * ( TheItemType * ) findV ( Lower ( ) ) ; } ! @return last element const TheItemType & Last ( ) const { return * ( const TheItemType * ) findV ( Upper ( ) ) ; } ! @return last element TheItemType & ChangeLast ( ) { return * ( TheItemType * ) findV ( Upper ( ) ) ; } ! Operator() - query the value TheItemType & operator ( ) ( const Standard_Integer theIndex ) { return ChangeValue ( theIndex ) ; } ! Operator[] - query the value TheItemType & operator [ ] ( Standard_Integer theIndex ) { return ChangeValue ( theIndex ) ; } TheItemType & ChangeValue ( const Standard_Integer theIndex ) { return * ( TheItemType * ) findV ( theIndex ) ; } ! SetValue () - set or append a value TheItemType & SetValue ( const Standard_Integer theIndex , const TheItemType & theValue ) { Standard_OutOfRange_Raise_if ( theIndex < 0 , NCollection_Vector::SetValue ) ; TheItemType * const aVecValue = ( TheItemType * ) ( theIndex < myLength ? findV ( theIndex ) : expandV ( theIndex ) ) ; * aVecValue = theValue ; return * aVecValue ; } private : ! @name private methods void copyData ( const NCollection_Vector & theOther ) { Standard_Integer iBlock = 0 ; NCollection_Vector:: Iterator anIter ( theOther ) ; for ( Standard_Integer aLength = 0 ; aLength < myLength ; aLength += myIncrement ) { MemBlock & aBlock = myData [ iBlock ] ; initMemBlocks ( * this , aBlock , aLength , myIncrement ) ; Standard_Integer anItemIter = 0 ; for ( ; anItemIter < myIncrement ; ++ anItemIter ) { if ( ! anIter . More ( ) ) { break ; } ( ( TheItemType * ) aBlock . DataPtr ) [ anItemIter ] = anIter . Value ( ) ; anIter . Next ( ) ; } aBlock . Length = anItemIter ; iBlock ++ ; } } ! Method to initialize memory block content static void initMemBlocks ( NCollection_BaseVector & theVector , NCollection_BaseVector :: MemBlock & theBlock , const Standard_Integer theFirst , const Standard_Integer theSize ) { NCollection_Vector & aSelf = static_cast < NCollection_Vector & > [end of template] ( theVector ) ; opencascade :: handle < NCollection_BaseAllocator > [end of template] & anAllocator = aSelf . myAllocator ;  release current content if ( theBlock . DataPtr != NULL ) { for ( Standard_Integer anItemIter = 0 ; anItemIter < theBlock . Size ; ++ anItemIter ) { ( ( TheItemType * ) theBlock . DataPtr ) [ anItemIter ] . ~ TheItemType ( ) ; } anAllocator -> Free ( theBlock . DataPtr ) ; theBlock . DataPtr = NULL ; }  allocate new content if requested if ( theSize > 0 ) { theBlock . DataPtr = anAllocator -> Allocate ( theSize * sizeof ( TheItemType ) ) ; for ( Standard_Integer anItemIter = 0 ; anItemIter < theSize ; ++ anItemIter ) { new ( & ( ( TheItemType * ) theBlock . DataPtr ) [ anItemIter ] ) TheItemType ; } } theBlock . FirstIndex = theFirst ; theBlock . Size = theSize ; theBlock . Length = 0 ; } friend class Iterator ; } ;
-## Error: token expected: ; but got: <!!!
+## ! to enlarge the vector during the iteration.
 
+type
+  NCollection_Vector*[TheItemType] {.importcpp: "NCollection_Vector<\'0>",
+                                    header: "NCollection_Vector.hxx", bycopy.} = object #of NCollection_BaseVector ##
+                                                                                                           ## !
+                                                                                                           ## STL-compliant
+                                                                                                           ## typedef
+                                                                                                           ## for
+                                                                                                           ## value
+                                                                                                           ## type
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## Nested
+                                                                                                           ## class
+                                                                                                           ## Iterator
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## @name
+                                                                                                           ## public
+                                                                                                           ## methods
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## Constructor
+                                                                                                           ##
+                                                                                                           ## !
+                                                                                                           ## @name
+                                                                                                           ## private
+                                                                                                           ## methods
+
+  NCollection_Vectorvalue_type*[TheItemType] = TheItemType
+  NCollection_VectorIterator*[TheItemType] {.
+      importcpp: "NCollection_Vector<\'0>::Iterator",
+      header: "NCollection_Vector.hxx", bycopy.} = object #of NCollection_VectorIterator ##
+                                                                                 ## !
+                                                                                 ## Empty
+                                                                                 ## constructor
+                                                                                 ## -
+                                                                                 ## for
+                                                                                 ## later
+                                                                                 ## Init
+
+
+proc constructNCollection_VectorIterator*[TheItemType](): NCollection_VectorIterator[
+    TheItemType] {.constructor,
+                  importcpp: "NCollection_Vector<\'*0>::Iterator(@)",
+                  header: "NCollection_Vector.hxx".}
+proc constructNCollection_VectorIterator*[TheItemType](
+    theVector: NCollection_Vector; theToEnd: Standard_Boolean = false): NCollection_VectorIterator[
+    TheItemType] {.constructor,
+                  importcpp: "NCollection_Vector<\'*0>::Iterator(@)",
+                  header: "NCollection_Vector.hxx".}
+proc Init*[TheItemType](this: var NCollection_VectorIterator[TheItemType];
+                       theVector: NCollection_Vector) {.importcpp: "Init",
+    header: "NCollection_Vector.hxx".}
+proc More*[TheItemType](this: NCollection_VectorIterator[TheItemType]): Standard_Boolean {.
+    noSideEffect, importcpp: "More", header: "NCollection_Vector.hxx".}
+proc Next*[TheItemType](this: var NCollection_VectorIterator[TheItemType]) {.
+    importcpp: "Next", header: "NCollection_Vector.hxx".}
+proc Previous*[TheItemType](this: var NCollection_VectorIterator[TheItemType]) {.
+    importcpp: "Previous", header: "NCollection_Vector.hxx".}
+#[ proc Offset*[TheItemType](this: var NCollection_VectorIterator[TheItemType];
+                         theOffset: ptrdiff_t) {.importcpp: "Offset",
+    header: "NCollection_Vector.hxx".} ]#
+#[ proc Differ*[TheItemType](this: NCollection_VectorIterator[TheItemType];
+                         theOther: NCollection_VectorIterator): ptrdiff_t {.
+    noSideEffect, importcpp: "Differ", header: "NCollection_Vector.hxx".} ]#
+proc Value*[TheItemType](this: NCollection_VectorIterator[TheItemType]): TheItemType {.
+    noSideEffect, importcpp: "Value", header: "NCollection_Vector.hxx".}
+proc ChangeValue*[TheItemType](this: NCollection_VectorIterator[TheItemType]): var TheItemType {.
+    noSideEffect, importcpp: "ChangeValue", header: "NCollection_Vector.hxx".}
+proc IsEqual*[TheItemType](this: NCollection_VectorIterator[TheItemType];
+                          theOther: NCollection_VectorIterator): Standard_Boolean {.
+    noSideEffect, importcpp: "IsEqual", header: "NCollection_Vector.hxx".}
+#[ type
+  NCollection_Vectoriterator* = NCollection_StlIterator[
+      random_access_iterator_tag, NCollection_VectorIterator, TheItemType, false]
+  NCollection_Vectorconst_iterator* = NCollection_StlIterator[
+      random_access_iterator_tag, NCollection_VectorIterator, TheItemType, true] ]#
+
+proc begin*[TheItemType](this: NCollection_Vector[TheItemType]): NCollection_Vectoriterator {.
+    noSideEffect, importcpp: "begin", header: "NCollection_Vector.hxx".}
+proc `end`*[TheItemType](this: NCollection_Vector[TheItemType]): NCollection_Vectoriterator {.
+    noSideEffect, importcpp: "end", header: "NCollection_Vector.hxx".}
+#[ proc cbegin*[TheItemType](this: NCollection_Vector[TheItemType]): NCollection_Vectorconst_iterator {.
+    noSideEffect, importcpp: "cbegin", header: "NCollection_Vector.hxx".} ]#
+#[ proc cend*[TheItemType](this: NCollection_Vector[TheItemType]): NCollection_Vectorconst_iterator {.
+    noSideEffect, importcpp: "cend", header: "NCollection_Vector.hxx".} ]#
+#[ proc constructNCollection_Vector*[TheItemType](theIncrement: int = 256;
+    theAlloc: handle[NCollection_BaseAllocator] = nil): NCollection_Vector[
+    TheItemType] {.constructor, importcpp: "NCollection_Vector<\'*0>(@)",
+                  header: "NCollection_Vector.hxx".} ]#
+proc constructNCollection_Vector*[TheItemType](theOther: NCollection_Vector): NCollection_Vector[
+    TheItemType] {.constructor, importcpp: "NCollection_Vector<\'*0>(@)",
+                  header: "NCollection_Vector.hxx".}
+proc destroyNCollection_Vector*[TheItemType](
+    this: var NCollection_Vector[TheItemType]) {.
+    importcpp: "#.~NCollection_Vector()", header: "NCollection_Vector.hxx".}
+proc Length*[TheItemType](this: NCollection_Vector[TheItemType]): int {.
+    noSideEffect, importcpp: "Length", header: "NCollection_Vector.hxx".}
+proc Size*[TheItemType](this: NCollection_Vector[TheItemType]): int {.noSideEffect,
+    importcpp: "Size", header: "NCollection_Vector.hxx".}
+proc Lower*[TheItemType](this: NCollection_Vector[TheItemType]): int {.noSideEffect,
+    importcpp: "Lower", header: "NCollection_Vector.hxx".}
+proc Upper*[TheItemType](this: NCollection_Vector[TheItemType]): int {.noSideEffect,
+    importcpp: "Upper", header: "NCollection_Vector.hxx".}
+proc IsEmpty*[TheItemType](this: NCollection_Vector[TheItemType]): Standard_Boolean {.
+    noSideEffect, importcpp: "IsEmpty", header: "NCollection_Vector.hxx".}
+proc Assign*[TheItemType](this: var NCollection_Vector[TheItemType];
+                         theOther: NCollection_Vector;
+                         theOwnAllocator: Standard_Boolean = true) {.
+    importcpp: "Assign", header: "NCollection_Vector.hxx".}
+proc Append*[TheItemType](this: var NCollection_Vector[TheItemType];
+                         theValue: TheItemType): var TheItemType {.
+    importcpp: "Append", header: "NCollection_Vector.hxx".}
+proc Appended*[TheItemType](this: var NCollection_Vector[TheItemType]): var TheItemType {.
+    importcpp: "Appended", header: "NCollection_Vector.hxx".}
+proc `()`*[TheItemType](this: NCollection_Vector[TheItemType]; theIndex: int): TheItemType {.
+    noSideEffect, importcpp: "#(@)", header: "NCollection_Vector.hxx".}
+proc `[]`*[TheItemType](this: NCollection_Vector[TheItemType]; theIndex: int): TheItemType {.
+    noSideEffect, importcpp: "#[@]", header: "NCollection_Vector.hxx".}
+proc Value*[TheItemType](this: NCollection_Vector[TheItemType]; theIndex: int): TheItemType {.
+    noSideEffect, importcpp: "Value", header: "NCollection_Vector.hxx".}
+proc First*[TheItemType](this: NCollection_Vector[TheItemType]): TheItemType {.
+    noSideEffect, importcpp: "First", header: "NCollection_Vector.hxx".}
+proc ChangeFirst*[TheItemType](this: var NCollection_Vector[TheItemType]): var TheItemType {.
+    importcpp: "ChangeFirst", header: "NCollection_Vector.hxx".}
+proc Last*[TheItemType](this: NCollection_Vector[TheItemType]): TheItemType {.
+    noSideEffect, importcpp: "Last", header: "NCollection_Vector.hxx".}
+proc ChangeLast*[TheItemType](this: var NCollection_Vector[TheItemType]): var TheItemType {.
+    importcpp: "ChangeLast", header: "NCollection_Vector.hxx".}
+proc `()`*[TheItemType](this: var NCollection_Vector[TheItemType]; theIndex: int): var TheItemType {.
+    importcpp: "#(@)", header: "NCollection_Vector.hxx".}
+proc `[]`*[TheItemType](this: var NCollection_Vector[TheItemType]; theIndex: int): var TheItemType {.
+    importcpp: "#[@]", header: "NCollection_Vector.hxx".}
+proc ChangeValue*[TheItemType](this: var NCollection_Vector[TheItemType];
+                              theIndex: int): var TheItemType {.
+    importcpp: "ChangeValue", header: "NCollection_Vector.hxx".}
+proc SetValue*[TheItemType](this: var NCollection_Vector[TheItemType];
+                           theIndex: int; theValue: TheItemType): var TheItemType {.
+    importcpp: "SetValue", header: "NCollection_Vector.hxx".}
 ## ! Assignment to the collection of the same type
-
-## !!!Ignored construct:  template < class TheItemType > [end of template] inline void NCollection_Vector < TheItemType > :: Assign ( const NCollection_Vector & theOther , const Standard_Boolean theOwnAllocator ) { if ( this == & theOther ) { return ; }  destroy current data using current allocator for ( Standard_Integer anItemIter = 0 ; anItemIter < myCapacity ; ++ anItemIter ) { initMemBlocks ( * this , myData [ anItemIter ] , 0 , 0 ) ; } this -> myAllocator -> Free ( myData ) ;  allocate memory blocks with new allocator if ( ! theOwnAllocator ) { this -> myAllocator = theOther . myAllocator ; } myIncrement = theOther . myIncrement ; myLength = theOther . myLength ; myNBlocks = ( myLength == 0 ) ? 0 : ( 1 + ( myLength - 1 ) / myIncrement ) ; myCapacity = GetCapacity ( myIncrement ) + myLength / myIncrement ; myData = allocMemBlocks ( myCapacity ) ;  copy data copyData ( theOther ) ; } #  NCollection_Vector_HeaderFile
-## Error: token expected: ; but got: <!!!
-
+## template <class TheItemType> inline
+## void NCollection_Vector<TheItemType>::Assign (const NCollection_Vector& theOther,
+##                                               const Standard_Boolean    theOwnAllocator);

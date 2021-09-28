@@ -25,7 +25,32 @@ type
                                                                    ## theUpperBound]
 
 
-proc hashCode*(theString: StandardCString; theUpperBound: int): int {.
+proc hashCode*(theString: StandardCString; theUpperBound: cint): cint {.
     importcpp: "MoniTool_MTHasher::HashCode(@)", header: "MoniTool_MTHasher.hxx".}
 proc isEqual*(str1: StandardCString; str2: StandardCString): bool {.
     importcpp: "MoniTool_MTHasher::IsEqual(@)", header: "MoniTool_MTHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

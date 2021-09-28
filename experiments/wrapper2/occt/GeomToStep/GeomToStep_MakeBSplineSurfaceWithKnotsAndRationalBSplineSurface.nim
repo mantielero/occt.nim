@@ -22,6 +22,18 @@ type
       bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+           theSize: csize_t): pointer {.importcpp: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface::operator new", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+              theAddress: pointer) {.importcpp: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface::operator delete", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc `new[]`*(this: var GeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+             theSize: csize_t): pointer {.importcpp: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface::operator new[]", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+                theAddress: pointer) {.importcpp: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface::operator delete[]", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc `new`*(this: var GeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface::operator new", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+              a2: pointer; a3: pointer) {.importcpp: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface::operator delete", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
 proc constructGeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface*(
     bsplin: Handle[GeomBSplineSurface]): GeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface {.
     constructor, importcpp: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface(@)", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}

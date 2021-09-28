@@ -52,5 +52,30 @@ proc setTextAspect*(this: var OpenGlFrameStatsPrs;
                    theAspect: Handle[Graphic3dAspectText3d]) {.
     importcpp: "SetTextAspect", header: "OpenGl_FrameStatsPrs.hxx".}
 proc dumpJson*(this: OpenGlFrameStatsPrs; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_FrameStatsPrs.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_FrameStatsPrs.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

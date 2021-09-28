@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MAT_DataMapOfIntegerArc* = NCollectionDataMap[int, Handle[MAT_Arc],
+  MAT_DataMapOfIntegerArc* = NCollectionDataMap[cint, Handle[MAT_Arc],
       TColStdMapIntegerHasher]
-  MAT_DataMapIteratorOfDataMapOfIntegerArc* = Iterator[int, Handle[MAT_Arc],
+  MAT_DataMapIteratorOfDataMapOfIntegerArc* = Iterator[cint, Handle[MAT_Arc],
       TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

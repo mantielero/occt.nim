@@ -26,7 +26,7 @@ type
 proc constructRWStepFEA_RWNode*(): RWStepFEA_RWNode {.constructor,
     importcpp: "RWStepFEA_RWNode(@)", header: "RWStepFEA_RWNode.hxx".}
 proc readStep*(this: RWStepFEA_RWNode; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepFEA_Node]) {.
+              num: cint; ach: var Handle[InterfaceCheck]; ent: Handle[StepFEA_Node]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepFEA_RWNode.hxx".}
 proc writeStep*(this: RWStepFEA_RWNode; sw: var StepDataStepWriter;
                ent: Handle[StepFEA_Node]) {.noSideEffect, importcpp: "WriteStep",
@@ -34,3 +34,28 @@ proc writeStep*(this: RWStepFEA_RWNode; sw: var StepDataStepWriter;
 proc share*(this: RWStepFEA_RWNode; ent: Handle[StepFEA_Node];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

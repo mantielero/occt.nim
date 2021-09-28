@@ -26,22 +26,47 @@ type
 proc constructBisectorBisec*(): BisectorBisec {.constructor,
     importcpp: "Bisector_Bisec(@)", header: "Bisector_Bisec.hxx".}
 proc perform*(this: var BisectorBisec; cu1: Handle[Geom2dCurve];
-             cu2: Handle[Geom2dCurve]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: float;
-             ajointype: GeomAbsJoinType; tolerance: float; oncurve: bool = true) {.
+             cu2: Handle[Geom2dCurve]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: cfloat;
+             ajointype: GeomAbsJoinType; tolerance: cfloat; oncurve: bool = true) {.
     importcpp: "Perform", header: "Bisector_Bisec.hxx".}
 proc perform*(this: var BisectorBisec; cu: Handle[Geom2dCurve];
-             pnt: Handle[Geom2dPoint]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: float;
-             tolerance: float; oncurve: bool = true) {.importcpp: "Perform",
+             pnt: Handle[Geom2dPoint]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: cfloat;
+             tolerance: cfloat; oncurve: bool = true) {.importcpp: "Perform",
     header: "Bisector_Bisec.hxx".}
 proc perform*(this: var BisectorBisec; pnt: Handle[Geom2dPoint];
-             cu: Handle[Geom2dCurve]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: float;
-             tolerance: float; oncurve: bool = true) {.importcpp: "Perform",
+             cu: Handle[Geom2dCurve]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: cfloat;
+             tolerance: cfloat; oncurve: bool = true) {.importcpp: "Perform",
     header: "Bisector_Bisec.hxx".}
 proc perform*(this: var BisectorBisec; pnt1: Handle[Geom2dPoint];
-             pnt2: Handle[Geom2dPoint]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: float;
-             tolerance: float = 0.0; oncurve: bool = true) {.importcpp: "Perform",
+             pnt2: Handle[Geom2dPoint]; p: Pnt2d; v1: Vec2d; v2: Vec2d; sense: cfloat;
+             tolerance: cfloat = 0.0; oncurve: bool = true) {.importcpp: "Perform",
     header: "Bisector_Bisec.hxx".}
 proc value*(this: BisectorBisec): Handle[Geom2dTrimmedCurve] {.noSideEffect,
     importcpp: "Value", header: "Bisector_Bisec.hxx".}
 proc changeValue*(this: var BisectorBisec): Handle[Geom2dTrimmedCurve] {.
     importcpp: "ChangeValue", header: "Bisector_Bisec.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

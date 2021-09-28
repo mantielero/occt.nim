@@ -19,7 +19,7 @@ type
                                      bycopy.} = object
 
 
-proc constructIntPatchPrmPrmIntersectionT3Bits*(size: int): IntPatchPrmPrmIntersectionT3Bits {.
+proc constructIntPatchPrmPrmIntersectionT3Bits*(size: cint): IntPatchPrmPrmIntersectionT3Bits {.
     constructor, importcpp: "IntPatch_PrmPrmIntersection_T3Bits(@)",
     header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
 proc destroy*(this: var IntPatchPrmPrmIntersectionT3Bits) {.importcpp: "Destroy",
@@ -28,14 +28,39 @@ proc destroyIntPatchPrmPrmIntersectionT3Bits*(
     this: var IntPatchPrmPrmIntersectionT3Bits) {.
     importcpp: "#.~IntPatch_PrmPrmIntersection_T3Bits()",
     header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-proc add*(this: var IntPatchPrmPrmIntersectionT3Bits; t: int) {.importcpp: "Add",
+proc add*(this: var IntPatchPrmPrmIntersectionT3Bits; t: cint) {.importcpp: "Add",
     header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-proc val*(this: IntPatchPrmPrmIntersectionT3Bits; t: int): int {.noSideEffect,
+proc val*(this: IntPatchPrmPrmIntersectionT3Bits; t: cint): cint {.noSideEffect,
     importcpp: "Val", header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-proc raz*(this: var IntPatchPrmPrmIntersectionT3Bits; t: int) {.importcpp: "Raz",
+proc raz*(this: var IntPatchPrmPrmIntersectionT3Bits; t: cint) {.importcpp: "Raz",
     header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
 proc resetAnd*(this: var IntPatchPrmPrmIntersectionT3Bits) {.importcpp: "ResetAnd",
     header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
 proc `and`*(this: var IntPatchPrmPrmIntersectionT3Bits;
-           oth: var IntPatchPrmPrmIntersectionT3Bits; indiceprecedent: var int): int {.
+           oth: var IntPatchPrmPrmIntersectionT3Bits; indiceprecedent: var cint): cint {.
     importcpp: "And", header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

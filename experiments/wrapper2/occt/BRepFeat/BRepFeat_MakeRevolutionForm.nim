@@ -37,14 +37,14 @@ proc constructBRepFeatMakeRevolutionForm*(): BRepFeatMakeRevolutionForm {.
     constructor, importcpp: "BRepFeat_MakeRevolutionForm(@)",
     header: "BRepFeat_MakeRevolutionForm.hxx".}
 proc constructBRepFeatMakeRevolutionForm*(sbase: TopoDS_Shape; w: TopoDS_Wire;
-    plane: Handle[GeomPlane]; axis: Ax1; height1: float; height2: float; fuse: int;
+    plane: Handle[GeomPlane]; axis: Ax1; height1: cfloat; height2: cfloat; fuse: cint;
     sliding: var bool): BRepFeatMakeRevolutionForm {.constructor,
     importcpp: "BRepFeat_MakeRevolutionForm(@)",
     header: "BRepFeat_MakeRevolutionForm.hxx".}
 proc init*(this: var BRepFeatMakeRevolutionForm; sbase: TopoDS_Shape; w: TopoDS_Wire;
-          plane: Handle[GeomPlane]; axis: Ax1; height1: float; height2: float;
-          fuse: int; sliding: var bool) {.importcpp: "Init",
-                                     header: "BRepFeat_MakeRevolutionForm.hxx".}
+          plane: Handle[GeomPlane]; axis: Ax1; height1: cfloat; height2: cfloat;
+          fuse: cint; sliding: var bool) {.importcpp: "Init",
+                                      header: "BRepFeat_MakeRevolutionForm.hxx".}
 proc add*(this: var BRepFeatMakeRevolutionForm; e: TopoDS_Edge; onFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakeRevolutionForm.hxx".}
 proc perform*(this: var BRepFeatMakeRevolutionForm) {.importcpp: "Perform",
@@ -52,3 +52,28 @@ proc perform*(this: var BRepFeatMakeRevolutionForm) {.importcpp: "Perform",
 proc propagate*(this: var BRepFeatMakeRevolutionForm; L: var TopToolsListOfShape;
                f: TopoDS_Face; fPoint: Pnt; lPoint: Pnt; falseside: var bool): bool {.
     importcpp: "Propagate", header: "BRepFeat_MakeRevolutionForm.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

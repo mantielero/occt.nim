@@ -19,7 +19,7 @@ discard "forward decl of IGESData_IGESDumper"
 discard "forward decl of IGESAppli_SpecificModule"
 discard "forward decl of IGESAppli_SpecificModule"
 type
-  HandleIGESAppliSpecificModule* = Handle[IGESAppliSpecificModule]
+  HandleC1C1* = Handle[IGESAppliSpecificModule]
 
 ## ! Defines Services attached to IGES Entities :
 ## ! Dump & OwnCorrect, for IGESAppli
@@ -43,11 +43,11 @@ type
 proc constructIGESAppliSpecificModule*(): IGESAppliSpecificModule {.constructor,
     importcpp: "IGESAppli_SpecificModule(@)",
     header: "IGESAppli_SpecificModule.hxx".}
-proc ownDump*(this: IGESAppliSpecificModule; cn: int;
+proc ownDump*(this: IGESAppliSpecificModule; cn: cint;
              ent: Handle[IGESDataIGESEntity]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESAppli_SpecificModule.hxx".}
-proc ownCorrect*(this: IGESAppliSpecificModule; cn: int;
+proc ownCorrect*(this: IGESAppliSpecificModule; cn: cint;
                 ent: Handle[IGESDataIGESEntity]): bool {.noSideEffect,
     importcpp: "OwnCorrect", header: "IGESAppli_SpecificModule.hxx".}
 type
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_SpecificModule.hxx".}
 proc dynamicType*(this: IGESAppliSpecificModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_SpecificModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

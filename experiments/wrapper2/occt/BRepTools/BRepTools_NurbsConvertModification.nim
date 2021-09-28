@@ -25,8 +25,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of BRepTools_NurbsConvertModification"
 discard "forward decl of BRepTools_NurbsConvertModification"
 type
-  HandleBRepToolsNurbsConvertModification* = Handle[
-      BRepToolsNurbsConvertModification]
+  HandleC1C1* = Handle[BRepToolsNurbsConvertModification]
 
 ## ! Defines a modification of the  geometry by a  Trsf
 ## ! from gp. All methods return True and transform the
@@ -41,21 +40,21 @@ proc constructBRepToolsNurbsConvertModification*(): BRepToolsNurbsConvertModific
     constructor, importcpp: "BRepTools_NurbsConvertModification(@)",
     header: "BRepTools_NurbsConvertModification.hxx".}
 proc newSurface*(this: var BRepToolsNurbsConvertModification; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
+                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var cfloat;
                 revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
     header: "BRepTools_NurbsConvertModification.hxx".}
 proc newCurve*(this: var BRepToolsNurbsConvertModification; e: TopoDS_Edge;
-              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var float): bool {.
+              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var cfloat): bool {.
     importcpp: "NewCurve", header: "BRepTools_NurbsConvertModification.hxx".}
 proc newPoint*(this: var BRepToolsNurbsConvertModification; v: TopoDS_Vertex;
-              p: var Pnt; tol: var float): bool {.importcpp: "NewPoint",
+              p: var Pnt; tol: var cfloat): bool {.importcpp: "NewPoint",
     header: "BRepTools_NurbsConvertModification.hxx".}
 proc newCurve2d*(this: var BRepToolsNurbsConvertModification; e: TopoDS_Edge;
                 f: TopoDS_Face; newE: TopoDS_Edge; newF: TopoDS_Face;
-                c: var Handle[Geom2dCurve]; tol: var float): bool {.
+                c: var Handle[Geom2dCurve]; tol: var cfloat): bool {.
     importcpp: "NewCurve2d", header: "BRepTools_NurbsConvertModification.hxx".}
 proc newParameter*(this: var BRepToolsNurbsConvertModification; v: TopoDS_Vertex;
-                  e: TopoDS_Edge; p: var float; tol: var float): bool {.
+                  e: TopoDS_Edge; p: var cfloat; tol: var cfloat): bool {.
     importcpp: "NewParameter", header: "BRepTools_NurbsConvertModification.hxx".}
 proc continuity*(this: var BRepToolsNurbsConvertModification; e: TopoDS_Edge;
                 f1: TopoDS_Face; f2: TopoDS_Face; newE: TopoDS_Edge;
@@ -75,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BRepToolsNurbsConvertModification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepTools_NurbsConvertModification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

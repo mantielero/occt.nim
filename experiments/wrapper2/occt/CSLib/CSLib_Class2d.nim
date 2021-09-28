@@ -85,19 +85,44 @@ type
                                                                                      ## theObj
 
 
-proc constructCSLibClass2d*(thePnts2d: TColgpArray1OfPnt2d; theTolU: float;
-                           theTolV: float; theUMin: float; theVMin: float;
-                           theUMax: float; theVMax: float): CSLibClass2d {.
+proc constructCSLibClass2d*(thePnts2d: TColgpArray1OfPnt2d; theTolU: cfloat;
+                           theTolV: cfloat; theUMin: cfloat; theVMin: cfloat;
+                           theUMax: cfloat; theVMax: cfloat): CSLibClass2d {.
     constructor, importcpp: "CSLib_Class2d(@)", header: "CSLib_Class2d.hxx".}
-proc constructCSLibClass2d*(thePnts2d: TColgpSequenceOfPnt2d; theTolU: float;
-                           theTolV: float; theUMin: float; theVMin: float;
-                           theUMax: float; theVMax: float): CSLibClass2d {.
+proc constructCSLibClass2d*(thePnts2d: TColgpSequenceOfPnt2d; theTolU: cfloat;
+                           theTolV: cfloat; theUMin: cfloat; theVMin: cfloat;
+                           theUMax: cfloat; theVMax: cfloat): CSLibClass2d {.
     constructor, importcpp: "CSLib_Class2d(@)", header: "CSLib_Class2d.hxx".}
-proc siDans*(this: CSLibClass2d; p: Pnt2d): int {.noSideEffect, importcpp: "SiDans",
+proc siDans*(this: CSLibClass2d; p: Pnt2d): cint {.noSideEffect, importcpp: "SiDans",
     header: "CSLib_Class2d.hxx".}
-proc siDansOnMode*(this: CSLibClass2d; p: Pnt2d; tol: float): int {.noSideEffect,
+proc siDansOnMode*(this: CSLibClass2d; p: Pnt2d; tol: cfloat): cint {.noSideEffect,
     importcpp: "SiDans_OnMode", header: "CSLib_Class2d.hxx".}
-proc internalSiDans*(this: CSLibClass2d; x: float; y: float): int {.noSideEffect,
+proc internalSiDans*(this: CSLibClass2d; x: cfloat; y: cfloat): cint {.noSideEffect,
     importcpp: "InternalSiDans", header: "CSLib_Class2d.hxx".}
-proc internalSiDansOuOn*(this: CSLibClass2d; x: float; y: float): int {.noSideEffect,
+proc internalSiDansOuOn*(this: CSLibClass2d; x: cfloat; y: cfloat): cint {.noSideEffect,
     importcpp: "InternalSiDansOuOn", header: "CSLib_Class2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

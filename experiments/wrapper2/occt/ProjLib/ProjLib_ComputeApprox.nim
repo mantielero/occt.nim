@@ -30,17 +30,17 @@ type
 proc constructProjLibComputeApprox*(): ProjLibComputeApprox {.constructor,
     importcpp: "ProjLib_ComputeApprox(@)", header: "ProjLib_ComputeApprox.hxx".}
 proc constructProjLibComputeApprox*(c: Handle[Adaptor3dHCurve];
-                                   s: Handle[Adaptor3dHSurface]; tol: float): ProjLibComputeApprox {.
+                                   s: Handle[Adaptor3dHSurface]; tol: cfloat): ProjLibComputeApprox {.
     constructor, importcpp: "ProjLib_ComputeApprox(@)",
     header: "ProjLib_ComputeApprox.hxx".}
 proc perform*(this: var ProjLibComputeApprox; c: Handle[Adaptor3dHCurve];
              s: Handle[Adaptor3dHSurface]) {.importcpp: "Perform",
     header: "ProjLib_ComputeApprox.hxx".}
-proc setTolerance*(this: var ProjLibComputeApprox; theTolerance: float) {.
+proc setTolerance*(this: var ProjLibComputeApprox; theTolerance: cfloat) {.
     importcpp: "SetTolerance", header: "ProjLib_ComputeApprox.hxx".}
-proc setDegree*(this: var ProjLibComputeApprox; theDegMin: int; theDegMax: int) {.
+proc setDegree*(this: var ProjLibComputeApprox; theDegMin: cint; theDegMax: cint) {.
     importcpp: "SetDegree", header: "ProjLib_ComputeApprox.hxx".}
-proc setMaxSegments*(this: var ProjLibComputeApprox; theMaxSegments: int) {.
+proc setMaxSegments*(this: var ProjLibComputeApprox; theMaxSegments: cint) {.
     importcpp: "SetMaxSegments", header: "ProjLib_ComputeApprox.hxx".}
 proc setBndPnt*(this: var ProjLibComputeApprox; theBndPnt: AppParCurvesConstraint) {.
     importcpp: "SetBndPnt", header: "ProjLib_ComputeApprox.hxx".}
@@ -48,5 +48,30 @@ proc bSpline*(this: ProjLibComputeApprox): Handle[Geom2dBSplineCurve] {.
     noSideEffect, importcpp: "BSpline", header: "ProjLib_ComputeApprox.hxx".}
 proc bezier*(this: ProjLibComputeApprox): Handle[Geom2dBezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "ProjLib_ComputeApprox.hxx".}
-proc tolerance*(this: ProjLibComputeApprox): float {.noSideEffect,
+proc tolerance*(this: ProjLibComputeApprox): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "ProjLib_ComputeApprox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

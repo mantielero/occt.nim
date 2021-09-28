@@ -22,7 +22,7 @@ discard "forward decl of TDF_DeltaOnModification"
 discard "forward decl of TDataStd_ByteArray"
 discard "forward decl of TDataStd_ByteArray"
 type
-  HandleTDataStdByteArray* = Handle[TDataStdByteArray]
+  HandleC1C1* = Handle[TDataStdByteArray]
 
 ## ! An array of Byte (unsigned char) values.
 
@@ -54,29 +54,29 @@ proc dynamicType*(this: TDataStdByteArray): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_ByteArray.hxx".}
 proc getID*(): StandardGUID {.importcpp: "TDataStd_ByteArray::GetID(@)",
                            header: "TDataStd_ByteArray.hxx".}
-proc set*(label: TDF_Label; lower: int; upper: int; isDelta: bool = false): Handle[
+proc set*(label: TDF_Label; lower: cint; upper: cint; isDelta: bool = false): Handle[
     TDataStdByteArray] {.importcpp: "TDataStd_ByteArray::Set(@)",
                         header: "TDataStd_ByteArray.hxx".}
-proc set*(label: TDF_Label; theGuid: StandardGUID; lower: int; upper: int;
+proc set*(label: TDF_Label; theGuid: StandardGUID; lower: cint; upper: cint;
          isDelta: bool = false): Handle[TDataStdByteArray] {.
     importcpp: "TDataStd_ByteArray::Set(@)", header: "TDataStd_ByteArray.hxx".}
-proc init*(this: var TDataStdByteArray; lower: int; upper: int) {.importcpp: "Init",
+proc init*(this: var TDataStdByteArray; lower: cint; upper: cint) {.importcpp: "Init",
     header: "TDataStd_ByteArray.hxx".}
-proc setValue*(this: var TDataStdByteArray; index: int; value: StandardByte) {.
+proc setValue*(this: var TDataStdByteArray; index: cint; value: StandardByte) {.
     importcpp: "SetValue", header: "TDataStd_ByteArray.hxx".}
 proc setID*(this: var TDataStdByteArray; theGuid: StandardGUID) {.importcpp: "SetID",
     header: "TDataStd_ByteArray.hxx".}
 proc setID*(this: var TDataStdByteArray) {.importcpp: "SetID",
                                        header: "TDataStd_ByteArray.hxx".}
-proc value*(this: TDataStdByteArray; index: int): StandardByte {.noSideEffect,
+proc value*(this: TDataStdByteArray; index: cint): StandardByte {.noSideEffect,
     importcpp: "Value", header: "TDataStd_ByteArray.hxx".}
-proc `()`*(this: TDataStdByteArray; index: int): StandardByte {.noSideEffect,
+proc `()`*(this: TDataStdByteArray; index: cint): StandardByte {.noSideEffect,
     importcpp: "#(@)", header: "TDataStd_ByteArray.hxx".}
-proc lower*(this: TDataStdByteArray): int {.noSideEffect, importcpp: "Lower",
-                                        header: "TDataStd_ByteArray.hxx".}
-proc upper*(this: TDataStdByteArray): int {.noSideEffect, importcpp: "Upper",
-                                        header: "TDataStd_ByteArray.hxx".}
-proc length*(this: TDataStdByteArray): int {.noSideEffect, importcpp: "Length",
+proc lower*(this: TDataStdByteArray): cint {.noSideEffect, importcpp: "Lower",
+    header: "TDataStd_ByteArray.hxx".}
+proc upper*(this: TDataStdByteArray): cint {.noSideEffect, importcpp: "Upper",
+    header: "TDataStd_ByteArray.hxx".}
+proc length*(this: TDataStdByteArray): cint {.noSideEffect, importcpp: "Length",
     header: "TDataStd_ByteArray.hxx".}
 proc internalArray*(this: TDataStdByteArray): Handle[TColStdHArray1OfByte] {.
     noSideEffect, importcpp: "InternalArray", header: "TDataStd_ByteArray.hxx".}
@@ -105,5 +105,30 @@ proc deltaOnModification*(this: TDataStdByteArray;
     TDF_DeltaOnModification] {.noSideEffect, importcpp: "DeltaOnModification",
                               header: "TDataStd_ByteArray.hxx".}
 proc dumpJson*(this: TDataStdByteArray; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_ByteArray.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_ByteArray.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -77,3 +77,28 @@ proc operation*(this: BRepAlgoAPI_BooleanOperation): BOPAlgoOperation {.
     header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc build*(this: var BRepAlgoAPI_BooleanOperation) {.importcpp: "Build",
     header: "BRepAlgoAPI_BooleanOperation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

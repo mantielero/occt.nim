@@ -27,19 +27,44 @@ type
 
 
 proc constructVrmlCone*(aParts: VrmlConeParts = vrmlConeALL;
-                       aBottomRadius: float = 1; aHeight: float = 2): VrmlCone {.
+                       aBottomRadius: cfloat = 1; aHeight: cfloat = 2): VrmlCone {.
     constructor, importcpp: "Vrml_Cone(@)", header: "Vrml_Cone.hxx".}
 proc setParts*(this: var VrmlCone; aParts: VrmlConeParts) {.importcpp: "SetParts",
     header: "Vrml_Cone.hxx".}
 proc parts*(this: VrmlCone): VrmlConeParts {.noSideEffect, importcpp: "Parts",
     header: "Vrml_Cone.hxx".}
-proc setBottomRadius*(this: var VrmlCone; aBottomRadius: float) {.
+proc setBottomRadius*(this: var VrmlCone; aBottomRadius: cfloat) {.
     importcpp: "SetBottomRadius", header: "Vrml_Cone.hxx".}
-proc bottomRadius*(this: VrmlCone): float {.noSideEffect, importcpp: "BottomRadius",
-                                        header: "Vrml_Cone.hxx".}
-proc setHeight*(this: var VrmlCone; aHeight: float) {.importcpp: "SetHeight",
+proc bottomRadius*(this: VrmlCone): cfloat {.noSideEffect, importcpp: "BottomRadius",
     header: "Vrml_Cone.hxx".}
-proc height*(this: VrmlCone): float {.noSideEffect, importcpp: "Height",
-                                  header: "Vrml_Cone.hxx".}
+proc setHeight*(this: var VrmlCone; aHeight: cfloat) {.importcpp: "SetHeight",
+    header: "Vrml_Cone.hxx".}
+proc height*(this: VrmlCone): cfloat {.noSideEffect, importcpp: "Height",
+                                   header: "Vrml_Cone.hxx".}
 proc print*(this: VrmlCone; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Cone.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

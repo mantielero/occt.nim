@@ -16,3 +16,28 @@ type
   Graphic3dMapOfAspectsToAspects* = NCollectionDataMap[Handle[Graphic3dAspects],
       Handle[Graphic3dAspects]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

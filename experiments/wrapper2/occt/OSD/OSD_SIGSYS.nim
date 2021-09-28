@@ -15,13 +15,54 @@
 ## !!!Ignored construct:  # _OSD_SIGSYS_HeaderFile [NewLine] # _OSD_SIGSYS_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Signal . hxx > [NewLine] class OSD_SIGSYS ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_SIGSYS"
-type
-  HandleOSD_SIGSYSOSD_SIGSYS* = Handle[Osd_Sigsys]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_SIGSYS , OSD_Signal ) # ! defined No_Exception && ! defined No_OSD_SIGSYS [NewLine] # OSD_SIGSYS_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_SIGSYS ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_SIGSYS [NewLine] # if ( CONDITION ) throw OSD_SIGSYS ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_SIGSYS_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGSYS , OSD_Signal ) #  _OSD_SIGSYS_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGSYS , OSD_Signal ) #  _OSD_SIGSYS_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

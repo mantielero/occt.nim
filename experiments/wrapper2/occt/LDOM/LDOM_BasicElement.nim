@@ -31,7 +31,7 @@ type
 
 proc constructLDOM_BasicElement*(): LDOM_BasicElement {.constructor,
     importcpp: "LDOM_BasicElement(@)", header: "LDOM_BasicElement.hxx".}
-proc create*(aName: cstring; aLength: int; aDoc: Handle[LDOM_MemManager]): var LDOM_BasicElement {.
+proc create*(aName: cstring; aLength: cint; aDoc: Handle[LDOM_MemManager]): var LDOM_BasicElement {.
     importcpp: "LDOM_BasicElement::Create(@)", header: "LDOM_BasicElement.hxx".}
 proc destroyLDOM_BasicElement*(this: var LDOM_BasicElement) {.
     importcpp: "#.~LDOM_BasicElement()", header: "LDOM_BasicElement.hxx".}
@@ -44,3 +44,28 @@ proc getLastChild*(this: LDOM_BasicElement): ptr LDOM_BasicNode {.noSideEffect,
 proc getAttribute*(this: LDOM_BasicElement; aName: LDOMBasicString;
                   aLastCh: ptr LDOM_BasicNode): LDOM_BasicAttribute {.noSideEffect,
     importcpp: "GetAttribute", header: "LDOM_BasicElement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

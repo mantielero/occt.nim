@@ -64,6 +64,31 @@ proc ownCopy*(this: IGESDimenToolDimensionedGeometry;
              tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolDimensionedGeometry.hxx".}
 proc ownDump*(this: IGESDimenToolDimensionedGeometry;
              ent: Handle[IGESDimenDimensionedGeometry];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump",
     header: "IGESDimen_ToolDimensionedGeometry.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

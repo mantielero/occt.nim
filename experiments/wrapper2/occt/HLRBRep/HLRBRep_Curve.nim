@@ -51,32 +51,33 @@ proc curve*(this: var HLRBRepCurve; e: TopoDS_Edge) {.importcpp: "Curve",
     header: "HLRBRep_Curve.hxx".}
 proc getCurve*(this: HLRBRepCurve): BRepAdaptorCurve {.noSideEffect,
     importcpp: "GetCurve", header: "HLRBRep_Curve.hxx".}
-proc parameter2d*(this: HLRBRepCurve; p3d: float): float {.noSideEffect,
+proc parameter2d*(this: HLRBRepCurve; p3d: cfloat): cfloat {.noSideEffect,
     importcpp: "Parameter2d", header: "HLRBRep_Curve.hxx".}
-proc parameter3d*(this: HLRBRepCurve; p2d: float): float {.noSideEffect,
+proc parameter3d*(this: HLRBRepCurve; p2d: cfloat): cfloat {.noSideEffect,
     importcpp: "Parameter3d", header: "HLRBRep_Curve.hxx".}
-proc update*(this: var HLRBRepCurve; totMin: array[16, float]; totMax: array[16, float]): float {.
-    importcpp: "Update", header: "HLRBRep_Curve.hxx".}
-proc updateMinMax*(this: var HLRBRepCurve; totMin: array[16, float];
-                  totMax: array[16, float]): float {.importcpp: "UpdateMinMax",
+proc update*(this: var HLRBRepCurve; totMin: array[16, cfloat];
+            totMax: array[16, cfloat]): cfloat {.importcpp: "Update",
     header: "HLRBRep_Curve.hxx".}
-proc z*(this: HLRBRepCurve; u: float): float {.noSideEffect, importcpp: "Z",
+proc updateMinMax*(this: var HLRBRepCurve; totMin: array[16, cfloat];
+                  totMax: array[16, cfloat]): cfloat {.importcpp: "UpdateMinMax",
     header: "HLRBRep_Curve.hxx".}
-proc value3D*(this: HLRBRepCurve; u: float): Pnt {.noSideEffect, importcpp: "Value3D",
+proc z*(this: HLRBRepCurve; u: cfloat): cfloat {.noSideEffect, importcpp: "Z",
     header: "HLRBRep_Curve.hxx".}
-proc d0*(this: HLRBRepCurve; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
+proc value3D*(this: HLRBRepCurve; u: cfloat): Pnt {.noSideEffect, importcpp: "Value3D",
     header: "HLRBRep_Curve.hxx".}
-proc d1*(this: HLRBRepCurve; u: float; p: var Pnt; v: var Vec) {.noSideEffect,
+proc d0*(this: HLRBRepCurve; u: cfloat; p: var Pnt) {.noSideEffect, importcpp: "D0",
+    header: "HLRBRep_Curve.hxx".}
+proc d1*(this: HLRBRepCurve; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect,
     importcpp: "D1", header: "HLRBRep_Curve.hxx".}
 proc tangent*(this: HLRBRepCurve; atStart: bool; p: var Pnt2d; d: var Dir2d) {.
     noSideEffect, importcpp: "Tangent", header: "HLRBRep_Curve.hxx".}
-proc firstParameter*(this: HLRBRepCurve): float {.noSideEffect,
+proc firstParameter*(this: HLRBRepCurve): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "HLRBRep_Curve.hxx".}
-proc lastParameter*(this: HLRBRepCurve): float {.noSideEffect,
+proc lastParameter*(this: HLRBRepCurve): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "HLRBRep_Curve.hxx".}
 proc continuity*(this: HLRBRepCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "HLRBRep_Curve.hxx".}
-proc nbIntervals*(this: HLRBRepCurve; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: HLRBRepCurve; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "HLRBRep_Curve.hxx".}
 proc intervals*(this: HLRBRepCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "HLRBRep_Curve.hxx".}
@@ -84,21 +85,21 @@ proc isClosed*(this: HLRBRepCurve): bool {.noSideEffect, importcpp: "IsClosed",
                                        header: "HLRBRep_Curve.hxx".}
 proc isPeriodic*(this: HLRBRepCurve): bool {.noSideEffect, importcpp: "IsPeriodic",
     header: "HLRBRep_Curve.hxx".}
-proc period*(this: HLRBRepCurve): float {.noSideEffect, importcpp: "Period",
-                                      header: "HLRBRep_Curve.hxx".}
-proc value*(this: HLRBRepCurve; u: float): Pnt2d {.noSideEffect, importcpp: "Value",
+proc period*(this: HLRBRepCurve): cfloat {.noSideEffect, importcpp: "Period",
+                                       header: "HLRBRep_Curve.hxx".}
+proc value*(this: HLRBRepCurve; u: cfloat): Pnt2d {.noSideEffect, importcpp: "Value",
     header: "HLRBRep_Curve.hxx".}
-proc d0*(this: HLRBRepCurve; u: float; p: var Pnt2d) {.noSideEffect, importcpp: "D0",
+proc d0*(this: HLRBRepCurve; u: cfloat; p: var Pnt2d) {.noSideEffect, importcpp: "D0",
     header: "HLRBRep_Curve.hxx".}
-proc d1*(this: HLRBRepCurve; u: float; p: var Pnt2d; v: var Vec2d) {.noSideEffect,
+proc d1*(this: HLRBRepCurve; u: cfloat; p: var Pnt2d; v: var Vec2d) {.noSideEffect,
     importcpp: "D1", header: "HLRBRep_Curve.hxx".}
-proc d2*(this: HLRBRepCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc d2*(this: HLRBRepCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     noSideEffect, importcpp: "D2", header: "HLRBRep_Curve.hxx".}
-proc d3*(this: HLRBRepCurve; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
+proc d3*(this: HLRBRepCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
         v3: var Vec2d) {.noSideEffect, importcpp: "D3", header: "HLRBRep_Curve.hxx".}
-proc dn*(this: HLRBRepCurve; u: float; n: int): Vec2d {.noSideEffect, importcpp: "DN",
+proc dn*(this: HLRBRepCurve; u: cfloat; n: cint): Vec2d {.noSideEffect, importcpp: "DN",
     header: "HLRBRep_Curve.hxx".}
-proc resolution*(this: HLRBRepCurve; r3d: float): float {.noSideEffect,
+proc resolution*(this: HLRBRepCurve; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "Resolution", header: "HLRBRep_Curve.hxx".}
 proc getType*(this: HLRBRepCurve): GeomAbsCurveType {.noSideEffect,
     importcpp: "GetType", header: "HLRBRep_Curve.hxx".}
@@ -114,10 +115,10 @@ proc parabola*(this: HLRBRepCurve): Parab2d {.noSideEffect, importcpp: "Parabola
     header: "HLRBRep_Curve.hxx".}
 proc isRational*(this: HLRBRepCurve): bool {.noSideEffect, importcpp: "IsRational",
     header: "HLRBRep_Curve.hxx".}
-proc degree*(this: HLRBRepCurve): int {.noSideEffect, importcpp: "Degree",
-                                    header: "HLRBRep_Curve.hxx".}
-proc nbPoles*(this: HLRBRepCurve): int {.noSideEffect, importcpp: "NbPoles",
+proc degree*(this: HLRBRepCurve): cint {.noSideEffect, importcpp: "Degree",
                                      header: "HLRBRep_Curve.hxx".}
+proc nbPoles*(this: HLRBRepCurve): cint {.noSideEffect, importcpp: "NbPoles",
+                                      header: "HLRBRep_Curve.hxx".}
 proc poles*(this: HLRBRepCurve; tp: var TColgpArray1OfPnt2d) {.noSideEffect,
     importcpp: "Poles", header: "HLRBRep_Curve.hxx".}
 proc poles*(this: HLRBRepCurve; aCurve: Handle[GeomBSplineCurve];
@@ -129,9 +130,34 @@ proc polesAndWeights*(this: HLRBRepCurve; tp: var TColgpArray1OfPnt2d;
 proc polesAndWeights*(this: HLRBRepCurve; aCurve: Handle[GeomBSplineCurve];
                      tp: var TColgpArray1OfPnt2d; tw: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "PolesAndWeights", header: "HLRBRep_Curve.hxx".}
-proc nbKnots*(this: HLRBRepCurve): int {.noSideEffect, importcpp: "NbKnots",
-                                     header: "HLRBRep_Curve.hxx".}
+proc nbKnots*(this: HLRBRepCurve): cint {.noSideEffect, importcpp: "NbKnots",
+                                      header: "HLRBRep_Curve.hxx".}
 proc knots*(this: HLRBRepCurve; kn: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "Knots", header: "HLRBRep_Curve.hxx".}
 proc multiplicities*(this: HLRBRepCurve; mu: var TColStdArray1OfInteger) {.
     noSideEffect, importcpp: "Multiplicities", header: "HLRBRep_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

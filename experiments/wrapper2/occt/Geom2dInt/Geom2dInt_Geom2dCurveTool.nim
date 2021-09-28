@@ -22,10 +22,28 @@ type
                              header: "Geom2dInt_Geom2dCurveTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dIntGeom2dCurveTool; theSize: csize_t): pointer {.
+    importcpp: "Geom2dInt_Geom2dCurveTool::operator new",
+    header: "Geom2dInt_Geom2dCurveTool.hxx".}
+proc `delete`*(this: var Geom2dIntGeom2dCurveTool; theAddress: pointer) {.
+    importcpp: "Geom2dInt_Geom2dCurveTool::operator delete",
+    header: "Geom2dInt_Geom2dCurveTool.hxx".}
+proc `new[]`*(this: var Geom2dIntGeom2dCurveTool; theSize: csize_t): pointer {.
+    importcpp: "Geom2dInt_Geom2dCurveTool::operator new[]",
+    header: "Geom2dInt_Geom2dCurveTool.hxx".}
+proc `delete[]`*(this: var Geom2dIntGeom2dCurveTool; theAddress: pointer) {.
+    importcpp: "Geom2dInt_Geom2dCurveTool::operator delete[]",
+    header: "Geom2dInt_Geom2dCurveTool.hxx".}
+proc `new`*(this: var Geom2dIntGeom2dCurveTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dInt_Geom2dCurveTool::operator new",
+    header: "Geom2dInt_Geom2dCurveTool.hxx".}
+proc `delete`*(this: var Geom2dIntGeom2dCurveTool; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dInt_Geom2dCurveTool::operator delete",
+    header: "Geom2dInt_Geom2dCurveTool.hxx".}
 proc getType*(c: Adaptor2dCurve2d): GeomAbsCurveType {.
     importcpp: "Geom2dInt_Geom2dCurveTool::GetType(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc isComposite*(c: Adaptor2dCurve2d): bool {.
+proc isComposite*(c: Adaptor2dCurve2d): StandardBoolean {.
     importcpp: "Geom2dInt_Geom2dCurveTool::IsComposite(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
 proc line*(c: Adaptor2dCurve2d): Lin2d {.importcpp: "Geom2dInt_Geom2dCurveTool::Line(@)",
@@ -41,38 +59,39 @@ proc parabola*(c: Adaptor2dCurve2d): Parab2d {.
 proc hyperbola*(c: Adaptor2dCurve2d): Hypr2d {.
     importcpp: "Geom2dInt_Geom2dCurveTool::Hyperbola(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc epsX*(c: Adaptor2dCurve2d): float {.importcpp: "Geom2dInt_Geom2dCurveTool::EpsX(@)",
-                                     header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc epsX*(c: Adaptor2dCurve2d; epsXYZ: float): float {.
+proc epsX*(c: Adaptor2dCurve2d): StandardReal {.
+    importcpp: "Geom2dInt_Geom2dCurveTool::EpsX(@)",
+    header: "Geom2dInt_Geom2dCurveTool.hxx".}
+proc epsX*(c: Adaptor2dCurve2d; epsXYZ: StandardReal): StandardReal {.
     importcpp: "Geom2dInt_Geom2dCurveTool::EpsX(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
 proc nbSamples*(c: Adaptor2dCurve2d): int {.importcpp: "Geom2dInt_Geom2dCurveTool::NbSamples(@)",
                                         header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc nbSamples*(c: Adaptor2dCurve2d; u0: float; u1: float): int {.
+proc nbSamples*(c: Adaptor2dCurve2d; u0: StandardReal; u1: StandardReal): int {.
     importcpp: "Geom2dInt_Geom2dCurveTool::NbSamples(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc firstParameter*(c: Adaptor2dCurve2d): float {.
+proc firstParameter*(c: Adaptor2dCurve2d): StandardReal {.
     importcpp: "Geom2dInt_Geom2dCurveTool::FirstParameter(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc lastParameter*(c: Adaptor2dCurve2d): float {.
+proc lastParameter*(c: Adaptor2dCurve2d): StandardReal {.
     importcpp: "Geom2dInt_Geom2dCurveTool::LastParameter(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc value*(c: Adaptor2dCurve2d; x: float): Pnt2d {.
+proc value*(c: Adaptor2dCurve2d; x: StandardReal): Pnt2d {.
     importcpp: "Geom2dInt_Geom2dCurveTool::Value(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc d0*(c: Adaptor2dCurve2d; u: float; p: var Pnt2d) {.
+proc d0*(c: Adaptor2dCurve2d; u: StandardReal; p: var Pnt2d) {.
     importcpp: "Geom2dInt_Geom2dCurveTool::D0(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc d1*(c: Adaptor2dCurve2d; u: float; p: var Pnt2d; t: var Vec2d) {.
+proc d1*(c: Adaptor2dCurve2d; u: StandardReal; p: var Pnt2d; t: var Vec2d) {.
     importcpp: "Geom2dInt_Geom2dCurveTool::D1(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc d2*(c: Adaptor2dCurve2d; u: float; p: var Pnt2d; t: var Vec2d; n: var Vec2d) {.
+proc d2*(c: Adaptor2dCurve2d; u: StandardReal; p: var Pnt2d; t: var Vec2d; n: var Vec2d) {.
     importcpp: "Geom2dInt_Geom2dCurveTool::D2(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc d3*(c: Adaptor2dCurve2d; u: float; p: var Pnt2d; t: var Vec2d; n: var Vec2d; v: var Vec2d) {.
-    importcpp: "Geom2dInt_Geom2dCurveTool::D3(@)",
-    header: "Geom2dInt_Geom2dCurveTool.hxx".}
-proc dn*(c: Adaptor2dCurve2d; u: float; n: int): Vec2d {.
+proc d3*(c: Adaptor2dCurve2d; u: StandardReal; p: var Pnt2d; t: var Vec2d; n: var Vec2d;
+        v: var Vec2d) {.importcpp: "Geom2dInt_Geom2dCurveTool::D3(@)",
+                     header: "Geom2dInt_Geom2dCurveTool.hxx".}
+proc dn*(c: Adaptor2dCurve2d; u: StandardReal; n: int): Vec2d {.
     importcpp: "Geom2dInt_Geom2dCurveTool::DN(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
 proc nbIntervals*(c: Adaptor2dCurve2d): int {.
@@ -82,7 +101,7 @@ proc intervals*(c: Adaptor2dCurve2d; tab: var TColStdArray1OfReal) {.
     importcpp: "Geom2dInt_Geom2dCurveTool::Intervals(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
 proc getInterval*(c: Adaptor2dCurve2d; index: int; tab: TColStdArray1OfReal;
-                 u1: var float; u2: var float) {.
+                 u1: var StandardReal; u2: var StandardReal) {.
     importcpp: "Geom2dInt_Geom2dCurveTool::GetInterval(@)",
     header: "Geom2dInt_Geom2dCurveTool.hxx".}
 proc degree*(c: Adaptor2dCurve2d): int {.importcpp: "Geom2dInt_Geom2dCurveTool::Degree(@)",

@@ -47,3 +47,28 @@ type
 proc setDrawerForBRepOwner*(aSelection: Handle[SelectMgrSelection];
                            aDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdSelect::SetDrawerForBRepOwner(@)", header: "StdSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

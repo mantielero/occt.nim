@@ -45,25 +45,51 @@ type
                                                                                      ## method.
 
 
-proc constructMathDirectPolynomialRoots*(a: float; b: float; c: float; d: float; e: float): MathDirectPolynomialRoots {.
+proc constructMathDirectPolynomialRoots*(a: cfloat; b: cfloat; c: cfloat; d: cfloat;
+                                        e: cfloat): MathDirectPolynomialRoots {.
     constructor, importcpp: "math_DirectPolynomialRoots(@)",
     header: "math_DirectPolynomialRoots.hxx".}
-proc constructMathDirectPolynomialRoots*(a: float; b: float; c: float; d: float): MathDirectPolynomialRoots {.
+proc constructMathDirectPolynomialRoots*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): MathDirectPolynomialRoots {.
     constructor, importcpp: "math_DirectPolynomialRoots(@)",
     header: "math_DirectPolynomialRoots.hxx".}
-proc constructMathDirectPolynomialRoots*(a: float; b: float; c: float): MathDirectPolynomialRoots {.
+proc constructMathDirectPolynomialRoots*(a: cfloat; b: cfloat; c: cfloat): MathDirectPolynomialRoots {.
     constructor, importcpp: "math_DirectPolynomialRoots(@)",
     header: "math_DirectPolynomialRoots.hxx".}
-proc constructMathDirectPolynomialRoots*(a: float; b: float): MathDirectPolynomialRoots {.
+proc constructMathDirectPolynomialRoots*(a: cfloat; b: cfloat): MathDirectPolynomialRoots {.
     constructor, importcpp: "math_DirectPolynomialRoots(@)",
     header: "math_DirectPolynomialRoots.hxx".}
 proc isDone*(this: MathDirectPolynomialRoots): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_DirectPolynomialRoots.hxx".}
 proc infiniteRoots*(this: MathDirectPolynomialRoots): bool {.noSideEffect,
     importcpp: "InfiniteRoots", header: "math_DirectPolynomialRoots.hxx".}
-proc nbSolutions*(this: MathDirectPolynomialRoots): int {.noSideEffect,
+proc nbSolutions*(this: MathDirectPolynomialRoots): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "math_DirectPolynomialRoots.hxx".}
-proc value*(this: MathDirectPolynomialRoots; nieme: int): float {.noSideEffect,
+proc value*(this: MathDirectPolynomialRoots; nieme: cint): cfloat {.noSideEffect,
     importcpp: "Value", header: "math_DirectPolynomialRoots.hxx".}
 proc dump*(this: MathDirectPolynomialRoots; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_DirectPolynomialRoots.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

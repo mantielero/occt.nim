@@ -20,7 +20,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of Geom_Surface"
 discard "forward decl of PrsDim_EllipseRadiusDimension"
 type
-  HandlePrsDimEllipseRadiusDimension* = Handle[PrsDimEllipseRadiusDimension]
+  HandleC1C1* = Handle[PrsDimEllipseRadiusDimension]
 
 ## ! Computes  geometry  (  basis  curve  and  plane  of  dimension)
 ## ! for  input  shape  aShape  from  TopoDS
@@ -48,3 +48,28 @@ proc isMovable*(this: PrsDimEllipseRadiusDimension): bool {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_EllipseRadiusDimension.hxx".}
 proc computeGeometry*(this: var PrsDimEllipseRadiusDimension) {.
     importcpp: "ComputeGeometry", header: "PrsDim_EllipseRadiusDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

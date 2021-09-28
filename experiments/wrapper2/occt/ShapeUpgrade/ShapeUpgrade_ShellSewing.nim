@@ -30,5 +30,30 @@ proc constructShapeUpgradeShellSewing*(): ShapeUpgradeShellSewing {.constructor,
     importcpp: "ShapeUpgrade_ShellSewing(@)",
     header: "ShapeUpgrade_ShellSewing.hxx".}
 proc applySewing*(this: var ShapeUpgradeShellSewing; shape: TopoDS_Shape;
-                 tol: float = 0.0): TopoDS_Shape {.importcpp: "ApplySewing",
+                 tol: cfloat = 0.0): TopoDS_Shape {.importcpp: "ApplySewing",
     header: "ShapeUpgrade_ShellSewing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

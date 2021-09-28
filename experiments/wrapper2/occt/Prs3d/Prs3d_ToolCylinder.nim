@@ -158,10 +158,37 @@ type
     ## !< cylinder height
 
 
-proc create*(theBottomRad: float; theTopRad: float; theHeight: float; theNbSlices: int;
-            theNbStacks: int; theTrsf: Trsf): Handle[Graphic3dArrayOfTriangles] {.
-    importcpp: "Prs3d_ToolCylinder::Create(@)", header: "Prs3d_ToolCylinder.hxx".}
-proc constructPrs3dToolCylinder*(theBottomRad: float; theTopRad: float;
-                                theHeight: float; theNbSlices: int; theNbStacks: int): Prs3dToolCylinder {.
+proc create*(theBottomRad: cfloat; theTopRad: cfloat; theHeight: cfloat;
+            theNbSlices: cint; theNbStacks: cint; theTrsf: Trsf): Handle[
+    Graphic3dArrayOfTriangles] {.importcpp: "Prs3d_ToolCylinder::Create(@)",
+                                header: "Prs3d_ToolCylinder.hxx".}
+proc constructPrs3dToolCylinder*(theBottomRad: cfloat; theTopRad: cfloat;
+                                theHeight: cfloat; theNbSlices: cint;
+                                theNbStacks: cint): Prs3dToolCylinder {.
     constructor, importcpp: "Prs3d_ToolCylinder(@)",
     header: "Prs3d_ToolCylinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

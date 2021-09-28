@@ -176,16 +176,41 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Graphic3dArrayOfQuadrangles): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_ArrayOfQuadrangles.hxx".}
-proc constructGraphic3dArrayOfQuadrangles*(theMaxVertexs: int; theMaxEdges: int;
+proc constructGraphic3dArrayOfQuadrangles*(theMaxVertexs: cint; theMaxEdges: cint;
     theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfQuadrangles {.constructor,
     importcpp: "Graphic3d_ArrayOfQuadrangles(@)",
     header: "Graphic3d_ArrayOfQuadrangles.hxx".}
-proc constructGraphic3dArrayOfQuadrangles*(theMaxVertexs: int;
-    theMaxEdges: int = 0; theHasVNormals: bool = false; theHasVColors: bool = false;
+proc constructGraphic3dArrayOfQuadrangles*(theMaxVertexs: cint;
+    theMaxEdges: cint = 0; theHasVNormals: bool = false; theHasVColors: bool = false;
     theHasVTexels: bool = false): Graphic3dArrayOfQuadrangles {.constructor,
     importcpp: "Graphic3d_ArrayOfQuadrangles(@)",
     header: "Graphic3d_ArrayOfQuadrangles.hxx".}
 discard "forward decl of Graphic3d_ArrayOfQuadrangles"
 type
-  HandleGraphic3dArrayOfQuadrangles* = Handle[Graphic3dArrayOfQuadrangles]
+  HandleC1C1* = Handle[Graphic3dArrayOfQuadrangles]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

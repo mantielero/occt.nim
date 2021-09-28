@@ -31,3 +31,28 @@ type
 proc initCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "SWDRAW_ShapeAnalysis::InitCommands(@)",
     header: "SWDRAW_ShapeAnalysis.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

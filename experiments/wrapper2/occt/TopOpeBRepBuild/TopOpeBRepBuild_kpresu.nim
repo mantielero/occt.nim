@@ -36,3 +36,28 @@ const
   SHEGARDAUTR* = (5)            ##  prendre tous les autres shells sans classifier
   SHEGARDTOUS* = (6)            ##  prendre tous les shells sans classifier
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

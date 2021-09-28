@@ -30,3 +30,28 @@ proc constructVrmlGroup*(): VrmlGroup {.constructor, importcpp: "Vrml_Group(@)",
                                      header: "Vrml_Group.hxx".}
 proc print*(this: var VrmlGroup; anOStream: var StandardOStream): var StandardOStream {.
     importcpp: "Print", header: "Vrml_Group.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IGESSelect_SignColor"
 discard "forward decl of IGESSelect_SignColor"
 type
-  HandleIGESSelectSignColor* = Handle[IGESSelectSignColor]
+  HandleC1C1* = Handle[IGESSelectSignColor]
 
 ## ! Gives Color attached to an entity
 ## ! Several forms are possible, according to <mode>
@@ -68,7 +68,7 @@ type
                                                                                             ## mode
 
 
-proc constructIGESSelectSignColor*(mode: int): IGESSelectSignColor {.constructor,
+proc constructIGESSelectSignColor*(mode: cint): IGESSelectSignColor {.constructor,
     importcpp: "IGESSelect_SignColor(@)", header: "IGESSelect_SignColor.hxx".}
 proc value*(this: IGESSelectSignColor; ent: Handle[StandardTransient];
            model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
@@ -83,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_SignColor.hxx".}
 proc dynamicType*(this: IGESSelectSignColor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_SignColor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

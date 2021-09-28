@@ -76,9 +76,34 @@ proc clear*(this: var MessageCompositeAlerts; theGravity: MessageGravity) {.
 proc clear*(this: var MessageCompositeAlerts; theType: Handle[StandardType]) {.
     importcpp: "Clear", header: "Message_CompositeAlerts.hxx".}
 proc dumpJson*(this: MessageCompositeAlerts; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Message_CompositeAlerts.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Message_CompositeAlerts.hxx".}
 discard "forward decl of Message_CompositeAlerts"
 type
-  HandleMessageCompositeAlerts* = Handle[MessageCompositeAlerts]
+  HandleC1C1* = Handle[MessageCompositeAlerts]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

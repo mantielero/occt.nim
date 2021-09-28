@@ -25,7 +25,7 @@ proc constructStepShapeToleranceMethodDefinition*(): StepShapeToleranceMethodDef
     constructor, importcpp: "StepShape_ToleranceMethodDefinition(@)",
     header: "StepShape_ToleranceMethodDefinition.hxx".}
 proc caseNum*(this: StepShapeToleranceMethodDefinition;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepShape_ToleranceMethodDefinition.hxx".}
 proc toleranceValue*(this: StepShapeToleranceMethodDefinition): Handle[
     StepShapeToleranceValue] {.noSideEffect, importcpp: "ToleranceValue",
@@ -33,3 +33,28 @@ proc toleranceValue*(this: StepShapeToleranceMethodDefinition): Handle[
 proc limitsAndFits*(this: StepShapeToleranceMethodDefinition): Handle[
     StepShapeLimitsAndFits] {.noSideEffect, importcpp: "LimitsAndFits",
                              header: "StepShape_ToleranceMethodDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

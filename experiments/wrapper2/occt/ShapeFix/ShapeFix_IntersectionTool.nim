@@ -28,23 +28,48 @@ type
 
 
 proc constructShapeFixIntersectionTool*(context: Handle[ShapeBuildReShape];
-                                       preci: float; maxtol: float = 1.0): ShapeFixIntersectionTool {.
+                                       preci: cfloat; maxtol: cfloat = 1.0): ShapeFixIntersectionTool {.
     constructor, importcpp: "ShapeFix_IntersectionTool(@)",
     header: "ShapeFix_IntersectionTool.hxx".}
 proc context*(this: ShapeFixIntersectionTool): Handle[ShapeBuildReShape] {.
     noSideEffect, importcpp: "Context", header: "ShapeFix_IntersectionTool.hxx".}
-proc splitEdge*(this: ShapeFixIntersectionTool; edge: TopoDS_Edge; param: float;
+proc splitEdge*(this: ShapeFixIntersectionTool; edge: TopoDS_Edge; param: cfloat;
                vert: TopoDS_Vertex; face: TopoDS_Face; newE1: var TopoDS_Edge;
-               newE2: var TopoDS_Edge; preci: float): bool {.noSideEffect,
+               newE2: var TopoDS_Edge; preci: cfloat): bool {.noSideEffect,
     importcpp: "SplitEdge", header: "ShapeFix_IntersectionTool.hxx".}
-proc cutEdge*(this: ShapeFixIntersectionTool; edge: TopoDS_Edge; pend: float;
-             cut: float; face: TopoDS_Face; iscutline: var bool): bool {.noSideEffect,
+proc cutEdge*(this: ShapeFixIntersectionTool; edge: TopoDS_Edge; pend: cfloat;
+             cut: cfloat; face: TopoDS_Face; iscutline: var bool): bool {.noSideEffect,
     importcpp: "CutEdge", header: "ShapeFix_IntersectionTool.hxx".}
 proc fixSelfIntersectWire*(this: ShapeFixIntersectionTool;
                           sewd: var Handle[ShapeExtendWireData]; face: TopoDS_Face;
-                          nbSplit: var int; nbCut: var int; nbRemoved: var int): bool {.
+                          nbSplit: var cint; nbCut: var cint; nbRemoved: var cint): bool {.
     noSideEffect, importcpp: "FixSelfIntersectWire",
     header: "ShapeFix_IntersectionTool.hxx".}
 proc fixIntersectingWires*(this: ShapeFixIntersectionTool; face: var TopoDS_Face): bool {.
     noSideEffect, importcpp: "FixIntersectingWires",
     header: "ShapeFix_IntersectionTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWFreedomAndCoefficient*(): RWStepFEA_RWFreedomAndCoeffi
     constructor, importcpp: "RWStepFEA_RWFreedomAndCoefficient(@)",
     header: "RWStepFEA_RWFreedomAndCoefficient.hxx".}
 proc readStep*(this: RWStepFEA_RWFreedomAndCoefficient;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FreedomAndCoefficient]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFreedomAndCoefficient.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepFEA_RWFreedomAndCoefficient;
            ent: Handle[StepFEA_FreedomAndCoefficient];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFreedomAndCoefficient.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

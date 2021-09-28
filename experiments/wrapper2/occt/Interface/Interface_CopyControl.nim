@@ -19,7 +19,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_CopyControl"
 discard "forward decl of Interface_CopyControl"
 type
-  HandleInterfaceCopyControl* = Handle[InterfaceCopyControl]
+  HandleC1C1* = Handle[InterfaceCopyControl]
 
 ## ! This deferred class describes the services required by
 ## ! CopyTool to work. They are very simple and correspond
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_CopyControl.hxx".}
 proc dynamicType*(this: InterfaceCopyControl): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_CopyControl.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

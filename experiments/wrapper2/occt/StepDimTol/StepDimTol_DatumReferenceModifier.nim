@@ -24,7 +24,7 @@ proc constructStepDimTolDatumReferenceModifier*(): StepDimTolDatumReferenceModif
     constructor, importcpp: "StepDimTol_DatumReferenceModifier(@)",
     header: "StepDimTol_DatumReferenceModifier.hxx".}
 proc caseNum*(this: StepDimTolDatumReferenceModifier;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepDimTol_DatumReferenceModifier.hxx".}
 proc datumReferenceModifierWithValue*(this: StepDimTolDatumReferenceModifier): Handle[
     StepDimTolDatumReferenceModifierWithValue] {.noSideEffect,
@@ -34,3 +34,28 @@ proc simpleDatumReferenceModifierMember*(this: StepDimTolDatumReferenceModifier)
     StepDimTolSimpleDatumReferenceModifierMember] {.noSideEffect,
     importcpp: "SimpleDatumReferenceModifierMember",
     header: "StepDimTol_DatumReferenceModifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

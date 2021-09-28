@@ -66,10 +66,35 @@ type
                                                                                                                                    ## V2.
 
 
-proc constructConvertConeToBSplineSurface*(c: Cone; u1: float; u2: float; v1: float;
-    v2: float): ConvertConeToBSplineSurface {.constructor,
+proc constructConvertConeToBSplineSurface*(c: Cone; u1: cfloat; u2: cfloat; v1: cfloat;
+    v2: cfloat): ConvertConeToBSplineSurface {.constructor,
     importcpp: "Convert_ConeToBSplineSurface(@)",
     header: "Convert_ConeToBSplineSurface.hxx".}
-proc constructConvertConeToBSplineSurface*(c: Cone; v1: float; v2: float): ConvertConeToBSplineSurface {.
+proc constructConvertConeToBSplineSurface*(c: Cone; v1: cfloat; v2: cfloat): ConvertConeToBSplineSurface {.
     constructor, importcpp: "Convert_ConeToBSplineSurface(@)",
     header: "Convert_ConeToBSplineSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

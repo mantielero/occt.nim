@@ -89,10 +89,35 @@ proc getGeomToleranceModifier*(theModifier: XCAFDimTolObjectsGeomToleranceModif)
     importcpp: "STEPCAFControl_GDTProperty::GetGeomToleranceModifier(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getDatumRefModifiers*(theModifiers: XCAFDimTolObjectsDatumModifiersSequence;
-    theModifWithVal: XCAFDimTolObjectsDatumModifWithValue; theValue: float;
+    theModifWithVal: XCAFDimTolObjectsDatumModifWithValue; theValue: cfloat;
                           theUnit: StepBasicUnit): Handle[
     StepDimTolHArray1OfDatumReferenceModifier] {.
     importcpp: "STEPCAFControl_GDTProperty::GetDatumRefModifiers(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getTessellation*(theShape: TopoDS_Shape): Handle[
     StepVisualTessellatedGeometricSet] {.importcpp: "STEPCAFControl_GDTProperty::GetTessellation(@)", header: "STEPCAFControl_GDTProperty.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

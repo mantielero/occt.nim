@@ -23,7 +23,7 @@ discard "forward decl of TDF_AttributeDelta"
 discard "forward decl of DDataStd_DrawPresentation"
 discard "forward decl of DDataStd_DrawPresentation"
 type
-  HandleDDataStdDrawPresentation* = Handle[DDataStdDrawPresentation]
+  HandleC1C1* = Handle[DDataStdDrawPresentation]
 
 ## ! draw presentaion of a label of a document
 
@@ -97,3 +97,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DDataStd_DrawPresentation.hxx".}
 proc dynamicType*(this: DDataStdDrawPresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "DDataStd_DrawPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

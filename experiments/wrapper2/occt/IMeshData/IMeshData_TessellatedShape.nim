@@ -28,9 +28,9 @@ type
 proc destroyIMeshDataTessellatedShape*(this: var IMeshDataTessellatedShape) {.
     importcpp: "#.~IMeshData_TessellatedShape()",
     header: "IMeshData_TessellatedShape.hxx".}
-proc getDeflection*(this: IMeshDataTessellatedShape): float {.noSideEffect,
+proc getDeflection*(this: IMeshDataTessellatedShape): cfloat {.noSideEffect,
     importcpp: "GetDeflection", header: "IMeshData_TessellatedShape.hxx".}
-proc setDeflection*(this: var IMeshDataTessellatedShape; theValue: float) {.
+proc setDeflection*(this: var IMeshDataTessellatedShape; theValue: cfloat) {.
     importcpp: "SetDeflection", header: "IMeshData_TessellatedShape.hxx".}
 type
   IMeshDataTessellatedShapebaseType* = IMeshDataShape
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IMeshDataTessellatedShape): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IMeshData_TessellatedShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

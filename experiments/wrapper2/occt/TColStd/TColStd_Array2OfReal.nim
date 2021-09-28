@@ -13,5 +13,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdArray2OfReal* = NCollectionArray2[float]
+  TColStdArray2OfReal* = NCollectionArray2[cfloat]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

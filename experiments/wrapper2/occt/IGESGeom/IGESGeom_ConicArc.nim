@@ -21,7 +21,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESGeom_ConicArc"
 discard "forward decl of IGESGeom_ConicArc"
 type
-  HandleIGESGeomConicArc* = Handle[IGESGeomConicArc]
+  HandleC1C1* = Handle[IGESGeomConicArc]
 
 ## ! defines IGESConicArc, Type <104> Form <0-3>  in package IGESGeom
 ## ! A conic arc is a bounded connected portion of a parent
@@ -41,17 +41,17 @@ type
 
 proc constructIGESGeomConicArc*(): IGESGeomConicArc {.constructor,
     importcpp: "IGESGeom_ConicArc(@)", header: "IGESGeom_ConicArc.hxx".}
-proc init*(this: var IGESGeomConicArc; a: float; b: float; c: float; d: float; e: float;
-          f: float; zt: float; aStart: Xy; anEnd: Xy) {.importcpp: "Init",
+proc init*(this: var IGESGeomConicArc; a: cfloat; b: cfloat; c: cfloat; d: cfloat;
+          e: cfloat; f: cfloat; zt: cfloat; aStart: Xy; anEnd: Xy) {.importcpp: "Init",
     header: "IGESGeom_ConicArc.hxx".}
 proc ownCorrect*(this: var IGESGeomConicArc): bool {.importcpp: "OwnCorrect",
     header: "IGESGeom_ConicArc.hxx".}
-proc computedFormNumber*(this: IGESGeomConicArc): int {.noSideEffect,
+proc computedFormNumber*(this: IGESGeomConicArc): cint {.noSideEffect,
     importcpp: "ComputedFormNumber", header: "IGESGeom_ConicArc.hxx".}
-proc equation*(this: IGESGeomConicArc; a: var float; b: var float; c: var float;
-              d: var float; e: var float; f: var float) {.noSideEffect,
+proc equation*(this: IGESGeomConicArc; a: var cfloat; b: var cfloat; c: var cfloat;
+              d: var cfloat; e: var cfloat; f: var cfloat) {.noSideEffect,
     importcpp: "Equation", header: "IGESGeom_ConicArc.hxx".}
-proc zPlane*(this: IGESGeomConicArc): float {.noSideEffect, importcpp: "ZPlane",
+proc zPlane*(this: IGESGeomConicArc): cfloat {.noSideEffect, importcpp: "ZPlane",
     header: "IGESGeom_ConicArc.hxx".}
 proc startPoint*(this: IGESGeomConicArc): Pnt2d {.noSideEffect,
     importcpp: "StartPoint", header: "IGESGeom_ConicArc.hxx".}
@@ -74,15 +74,16 @@ proc axis*(this: IGESGeomConicArc): Dir {.noSideEffect, importcpp: "Axis",
 proc transformedAxis*(this: IGESGeomConicArc): Dir {.noSideEffect,
     importcpp: "TransformedAxis", header: "IGESGeom_ConicArc.hxx".}
 proc definition*(this: IGESGeomConicArc; center: var Pnt; mainAxis: var Dir;
-                rmin: var float; rmax: var float) {.noSideEffect,
+                rmin: var cfloat; rmax: var cfloat) {.noSideEffect,
     importcpp: "Definition", header: "IGESGeom_ConicArc.hxx".}
 proc transformedDefinition*(this: IGESGeomConicArc; center: var Pnt;
-                           mainAxis: var Dir; rmin: var float; rmax: var float) {.
+                           mainAxis: var Dir; rmin: var cfloat; rmax: var cfloat) {.
     noSideEffect, importcpp: "TransformedDefinition",
     header: "IGESGeom_ConicArc.hxx".}
-proc computedDefinition*(this: IGESGeomConicArc; xcen: var float; ycen: var float;
-                        xax: var float; yax: var float; rmin: var float; rmax: var float) {.
-    noSideEffect, importcpp: "ComputedDefinition", header: "IGESGeom_ConicArc.hxx".}
+proc computedDefinition*(this: IGESGeomConicArc; xcen: var cfloat; ycen: var cfloat;
+                        xax: var cfloat; yax: var cfloat; rmin: var cfloat;
+                        rmax: var cfloat) {.noSideEffect,
+    importcpp: "ComputedDefinition", header: "IGESGeom_ConicArc.hxx".}
 type
   IGESGeomConicArcbaseType* = IGESDataIGESEntity
 
@@ -93,3 +94,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_ConicArc.hxx".}
 proc dynamicType*(this: IGESGeomConicArc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_ConicArc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

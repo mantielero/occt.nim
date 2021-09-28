@@ -43,3 +43,28 @@ proc situation*(this: IntSurfTransition): IntSurfSituation {.noSideEffect,
     importcpp: "Situation", header: "IntSurf_Transition.hxx".}
 proc isOpposite*(this: IntSurfTransition): bool {.noSideEffect,
     importcpp: "IsOpposite", header: "IntSurf_Transition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

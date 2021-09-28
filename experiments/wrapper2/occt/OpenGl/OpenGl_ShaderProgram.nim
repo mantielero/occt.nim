@@ -13,39 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of OpenGl_ShaderProgram"
-discard "forward decl of OpenGl_ShaderProgram"
-type
-  HandleOpenGlShaderProgram* = Handle[OpenGlShaderProgram]
+## !!!Ignored construct:  # _OpenGl_ShaderProgram_Header [NewLine] # _OpenGl_ShaderProgram_Header [NewLine] # < NCollection_DataMap . hxx > [NewLine] # < NCollection_Sequence . hxx > [NewLine] # < TCollection_AsciiString . hxx > [NewLine] # < Graphic3d_ShaderObject . hxx > [NewLine] # < Graphic3d_ShaderProgram . hxx > [NewLine] # < Graphic3d_TextureSetBits . hxx > [NewLine] # < OpenGl_Vec . hxx > [NewLine] # < OpenGl_Matrix . hxx > [NewLine] # < OpenGl_NamedResource . hxx > [NewLine] # < OpenGl_ShaderObject . hxx > [NewLine] class OpenGl_ShaderProgram ;
+## Error: expected ';'!!!
 
-## ! The enumeration of OCCT-specific OpenGL/GLSL variables.
-
-type
-  OpenGlStateVariable* {.size: sizeof(cint), importcpp: "OpenGl_StateVariable",
-                        header: "OpenGl_ShaderProgram.hxx".} = enum ##  OpenGL matrix state
-    OpenGlOCC_MODEL_WORLD_MATRIX, OpenGlOCC_WORLD_VIEW_MATRIX,
-    OpenGlOCC_PROJECTION_MATRIX, OpenGlOCC_MODEL_WORLD_MATRIX_INVERSE,
-    OpenGlOCC_WORLD_VIEW_MATRIX_INVERSE, OpenGlOCC_PROJECTION_MATRIX_INVERSE,
-    OpenGlOCC_MODEL_WORLD_MATRIX_TRANSPOSE,
-    OpenGlOCC_WORLD_VIEW_MATRIX_TRANSPOSE, OpenGlOCC_PROJECTION_MATRIX_TRANSPOSE,
-    OpenGlOCC_MODEL_WORLD_MATRIX_INVERSE_TRANSPOSE,
-    OpenGlOCC_WORLD_VIEW_MATRIX_INVERSE_TRANSPOSE, OpenGlOCC_PROJECTION_MATRIX_INVERSE_TRANSPOSE, ##  OpenGL clip planes state
-    OpenGlOCC_CLIP_PLANE_EQUATIONS, OpenGlOCC_CLIP_PLANE_CHAINS, OpenGlOCC_CLIP_PLANE_COUNT, ##  OpenGL light state
-    OpenGlOCC_LIGHT_SOURCE_COUNT, OpenGlOCC_LIGHT_SOURCE_TYPES,
-    OpenGlOCC_LIGHT_SOURCE_PARAMS, OpenGlOCC_LIGHT_AMBIENT, ##  Material state
-    OpenGlOCCT_TEXTURE_ENABLE, OpenGlOCCT_DISTINGUISH_MODE,
-    OpenGlOCCT_PBR_FRONT_MATERIAL, OpenGlOCCT_PBR_BACK_MATERIAL,
-    OpenGlOCCT_COMMON_FRONT_MATERIAL, OpenGlOCCT_COMMON_BACK_MATERIAL,
-    OpenGlOCCT_ALPHA_CUTOFF, OpenGlOCCT_COLOR, ##  Weighted, Blended Order-Independent Transparency rendering state
-    OpenGlOCCT_OIT_OUTPUT, OpenGlOCCT_OIT_DEPTH_FACTOR, ##  Context-dependent state
-    OpenGlOCCT_TEXTURE_TRSF2D, OpenGlOCCT_POINT_SIZE, ##  Wireframe state
-    OpenGlOCCT_VIEWPORT, OpenGlOCCT_LINE_WIDTH, OpenGlOCCT_LINE_FEATHER, OpenGlOCCT_LINE_STIPPLE_PATTERN, ##  occStipplePattern
-    OpenGlOCCT_LINE_STIPPLE_FACTOR, ##  occStippleFactor
-    OpenGlOCCT_WIREFRAME_COLOR, OpenGlOCCT_QUAD_MODE_STATE, ##  Parameters of outline (silhouette) shader
-    OpenGlOCCT_ORTHO_SCALE, OpenGlOCCT_SILHOUETTE_THICKNESS, ##  PBR state
-    OpenGlOCCT_NB_SPEC_IBL_LEVELS, ##  DON'T MODIFY THIS ITEM (insert new items before it)
-    OpenGlOCCT_NUMBER_OF_STATE_VARIABLES
-
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OpenGl_ShaderProgram , OpenGl_NamedResource ) ! The enumeration of OCCT-specific OpenGL/GLSL variables. enum OpenGl_StateVariable {  OpenGL matrix state OpenGl_OCC_MODEL_WORLD_MATRIX , OpenGl_OCC_WORLD_VIEW_MATRIX , OpenGl_OCC_PROJECTION_MATRIX , OpenGl_OCC_MODEL_WORLD_MATRIX_INVERSE , OpenGl_OCC_WORLD_VIEW_MATRIX_INVERSE , OpenGl_OCC_PROJECTION_MATRIX_INVERSE , OpenGl_OCC_MODEL_WORLD_MATRIX_TRANSPOSE , OpenGl_OCC_WORLD_VIEW_MATRIX_TRANSPOSE , OpenGl_OCC_PROJECTION_MATRIX_TRANSPOSE , OpenGl_OCC_MODEL_WORLD_MATRIX_INVERSE_TRANSPOSE , OpenGl_OCC_WORLD_VIEW_MATRIX_INVERSE_TRANSPOSE , OpenGl_OCC_PROJECTION_MATRIX_INVERSE_TRANSPOSE ,  OpenGL clip planes state OpenGl_OCC_CLIP_PLANE_EQUATIONS , OpenGl_OCC_CLIP_PLANE_CHAINS , OpenGl_OCC_CLIP_PLANE_COUNT ,  OpenGL light state OpenGl_OCC_LIGHT_SOURCE_COUNT , OpenGl_OCC_LIGHT_SOURCE_TYPES , OpenGl_OCC_LIGHT_SOURCE_PARAMS , OpenGl_OCC_LIGHT_AMBIENT ,  Material state OpenGl_OCCT_TEXTURE_ENABLE , OpenGl_OCCT_DISTINGUISH_MODE , OpenGl_OCCT_PBR_FRONT_MATERIAL , OpenGl_OCCT_PBR_BACK_MATERIAL , OpenGl_OCCT_COMMON_FRONT_MATERIAL , OpenGl_OCCT_COMMON_BACK_MATERIAL , OpenGl_OCCT_ALPHA_CUTOFF , OpenGl_OCCT_COLOR ,  Weighted, Blended Order-Independent Transparency rendering state OpenGl_OCCT_OIT_OUTPUT , OpenGl_OCCT_OIT_DEPTH_FACTOR ,  Context-dependent state OpenGl_OCCT_TEXTURE_TRSF2D , OpenGl_OCCT_POINT_SIZE ,  Wireframe state OpenGl_OCCT_VIEWPORT , OpenGl_OCCT_LINE_WIDTH , OpenGl_OCCT_LINE_FEATHER , OpenGl_OCCT_LINE_STIPPLE_PATTERN ,  occStipplePattern OpenGl_OCCT_LINE_STIPPLE_FACTOR ,  occStippleFactor OpenGl_OCCT_WIREFRAME_COLOR , OpenGl_OCCT_QUAD_MODE_STATE ,  Parameters of outline (silhouette) shader OpenGl_OCCT_ORTHO_SCALE , OpenGl_OCCT_SILHOUETTE_THICKNESS ,  PBR state OpenGl_OCCT_NB_SPEC_IBL_LEVELS ,  DON'T MODIFY THIS ITEM (insert new items before it) OpenGl_OCCT_NUMBER_OF_STATE_VARIABLES } ;
+## Error: expected ';'!!!
 
 ## ! Interface for generic setter of user-defined uniform variables.
 
@@ -59,16 +31,15 @@ type
                                                                            ## program.
 
 
-proc set*(this: var OpenGlSetterInterface; theCtx: Handle[OpenGlContext];
-         theVariable: Handle[Graphic3dShaderVariable];
-         theProgram: ptr OpenGlShaderProgram) {.importcpp: "Set",
-    header: "OpenGl_ShaderProgram.hxx".}
+## !!!Ignored construct:  virtual void Set ( const Handle ( OpenGl_Context ) & theCtx , const Handle ( Graphic3d_ShaderVariable ) & theVariable , OpenGl_ShaderProgram * theProgram ) = 0 ;
+## Error: token expected: ) but got: &!!!
+
 proc destroyOpenGlSetterInterface*(this: var OpenGlSetterInterface) {.
     importcpp: "#.~OpenGl_SetterInterface()", header: "OpenGl_ShaderProgram.hxx".}
 ## ! List of OpenGL shader objects.
 
 type
-  OpenGlShaderList* = NCollectionSequence[Handle[OpenGlShaderObject]]
+  OpenGlShaderList* = NCollectionSequence[proc (a1: OpenGlShaderObject): Handle]
 
 ## ! List of shader variable setters.
 
@@ -99,10 +70,9 @@ proc constructOpenGlVariableSetterSelector*(): OpenGlVariableSetterSelector {.
 proc destroyOpenGlVariableSetterSelector*(this: var OpenGlVariableSetterSelector) {.
     importcpp: "#.~OpenGl_VariableSetterSelector()",
     header: "OpenGl_ShaderProgram.hxx".}
-proc set*(this: OpenGlVariableSetterSelector; theCtx: Handle[OpenGlContext];
-         theVariable: Handle[Graphic3dShaderVariable];
-         theProgram: ptr OpenGlShaderProgram) {.noSideEffect, importcpp: "Set",
-    header: "OpenGl_ShaderProgram.hxx".}
+## !!!Ignored construct:  ! Sets user-defined uniform variable to specified program. void Set ( const Handle ( OpenGl_Context ) & theCtx , const Handle ( Graphic3d_ShaderVariable ) & theVariable , OpenGl_ShaderProgram * theProgram ) const ;
+## Error: token expected: ) but got: &!!!
+
 ## ! Defines types of uniform state variables.
 
 type
@@ -163,37 +133,6 @@ type
                                                                                               ## of
                                                                                               ## shader
                                                                                               ## program.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Return
-                                                                                              ## TRUE
-                                                                                              ## if
-                                                                                              ## program
-                                                                                              ## defines
-                                                                                              ## tessellation
-                                                                                              ## stage.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## index
-                                                                                              ## of
-                                                                                              ## last
-                                                                                              ## modification
-                                                                                              ## of
-                                                                                              ## variables
-                                                                                              ## of
-                                                                                              ## specified
-                                                                                              ## state
-                                                                                              ## type.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## location
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## specific
-                                                                                              ## uniform
-                                                                                              ## variable.
                                                                                               ##
                                                                                               ## !
                                                                                               ## Returns
@@ -436,9 +375,10 @@ type
                                                                                               ## delayed
                                                                                               ## release
                                                                                               ## queue
+    standardType* {.importc: "Standard_Type".}: Handle
+    graphic3dShaderProgram* {.importc: "Graphic3d_ShaderProgram".}: Handle
     ## !< Handle of OpenGL shader program
     ## !< List of attached shader objects
-    ## !< Proxy shader program (from application layer)
     ## !< program users count, initialized with 1 (already shared by one user)
     ## !< length of array of light sources (THE_MAX_LIGHTS)
     ## !< length of array of clipping planes (THE_MAX_CLIP_PLANES)
@@ -454,246 +394,245 @@ type
 
 proc getTypeName*(): cstring {.importcpp: "OpenGl_ShaderProgram::get_type_name(@)",
                             header: "OpenGl_ShaderProgram.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "OpenGl_ShaderProgram::get_type_descriptor(@)",
-    header: "OpenGl_ShaderProgram.hxx".}
-proc dynamicType*(this: OpenGlShaderProgram): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "OpenGl_ShaderProgram.hxx".}
-proc compileShaderVerbose*(theCtx: Handle[OpenGlContext];
-                          theShader: Handle[OpenGlShaderObject];
-                          theSource: TCollectionAsciiString;
-                          theToPrintSource: bool = true): bool {.
-    importcpp: "OpenGl_ShaderProgram::compileShaderVerbose(@)",
-    header: "OpenGl_ShaderProgram.hxx".}
-proc constructOpenGlShaderProgram*(theProxy: Handle[Graphic3dShaderProgram] = nil;
-                                  theId: TCollectionAsciiString = ""): OpenGlShaderProgram {.
-    constructor, importcpp: "OpenGl_ShaderProgram(@)",
-    header: "OpenGl_ShaderProgram.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  static bool compileShaderVerbose ( const Handle ( OpenGl_Context ) & theCtx , const Handle ( OpenGl_ShaderObject ) & theShader , const TCollection_AsciiString & theSource , bool theToPrintSource = true ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Creates uninitialized shader program.
+## !
+## ! WARNING! This constructor is not intended to be called anywhere but from OpenGl_ShaderManager::Create().
+## ! Manager has been designed to synchronize camera position, lights definition and other aspects of the program implicitly,
+## ! as well as sharing same program across rendering groups.
+## !
+## ! Program created outside the manager will be left detached from these routines,
+## ! and them should be performed manually by caller.
+## !
+## ! This constructor has been made public to provide more flexibility to re-use OCCT OpenGL classes without OCCT Viewer itself.
+## ! If this is not the case - create the program using shared OpenGl_ShaderManager instance instead. OpenGl_ShaderProgram ( const Handle ( Graphic3d_ShaderProgram ) & theProxy = NULL , const TCollection_AsciiString & theId =  ) ;
+## Error: token expected: ) but got: &!!!
+
 proc destroyOpenGlShaderProgram*(this: var OpenGlShaderProgram) {.
     importcpp: "#.~OpenGl_ShaderProgram()", header: "OpenGl_ShaderProgram.hxx".}
-proc create*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext]): bool {.
-    importcpp: "Create", header: "OpenGl_ShaderProgram.hxx".}
+## !!!Ignored construct:  ! Creates new empty shader program of specified type. Standard_Boolean Create ( const Handle ( OpenGl_Context ) & theCtx ) ;
+## Error: token expected: ) but got: &!!!
+
 proc release*(this: var OpenGlShaderProgram; theCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_ShaderProgram.hxx".}
 proc estimatedDataSize*(this: OpenGlShaderProgram): StandardSize {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_ShaderProgram.hxx".}
-proc attachShader*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theShader: Handle[OpenGlShaderObject]): bool {.
-    importcpp: "AttachShader", header: "OpenGl_ShaderProgram.hxx".}
-proc detachShader*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theShader: Handle[OpenGlShaderObject]): bool {.
-    importcpp: "DetachShader", header: "OpenGl_ShaderProgram.hxx".}
-proc initialize*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theShaders: Graphic3dShaderObjectList): bool {.
-    importcpp: "Initialize", header: "OpenGl_ShaderProgram.hxx".}
-proc link*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-          theIsVerbose: bool = true): bool {.importcpp: "Link",
-                                        header: "OpenGl_ShaderProgram.hxx".}
-proc fetchInfoLog*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theLog: var TCollectionAsciiString): bool {.
-    importcpp: "FetchInfoLog", header: "OpenGl_ShaderProgram.hxx".}
-proc applyVariables*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext]): bool {.
-    importcpp: "ApplyVariables", header: "OpenGl_ShaderProgram.hxx".}
-proc proxy*(this: OpenGlShaderProgram): Handle[Graphic3dShaderProgram] {.
-    noSideEffect, importcpp: "Proxy", header: "OpenGl_ShaderProgram.hxx".}
-proc isValid*(this: OpenGlShaderProgram): bool {.noSideEffect, importcpp: "IsValid",
-    header: "OpenGl_ShaderProgram.hxx".}
-proc programId*(this: OpenGlShaderProgram): GLuint {.noSideEffect,
-    importcpp: "ProgramId", header: "OpenGl_ShaderProgram.hxx".}
-proc hasTessellationStage*(this: OpenGlShaderProgram): bool {.noSideEffect,
-    importcpp: "HasTessellationStage", header: "OpenGl_ShaderProgram.hxx".}
-proc nbLightsMax*(this: OpenGlShaderProgram): int {.noSideEffect,
-    importcpp: "NbLightsMax", header: "OpenGl_ShaderProgram.hxx".}
-proc nbClipPlanesMax*(this: OpenGlShaderProgram): int {.noSideEffect,
-    importcpp: "NbClipPlanesMax", header: "OpenGl_ShaderProgram.hxx".}
-proc nbFragmentOutputs*(this: OpenGlShaderProgram): int {.noSideEffect,
-    importcpp: "NbFragmentOutputs", header: "OpenGl_ShaderProgram.hxx".}
-proc hasAlphaTest*(this: OpenGlShaderProgram): bool {.noSideEffect,
-    importcpp: "HasAlphaTest", header: "OpenGl_ShaderProgram.hxx".}
-proc hasWeightOitOutput*(this: OpenGlShaderProgram): bool {.noSideEffect,
-    importcpp: "HasWeightOitOutput", header: "OpenGl_ShaderProgram.hxx".}
-proc textureSetBits*(this: OpenGlShaderProgram): int {.noSideEffect,
-    importcpp: "TextureSetBits", header: "OpenGl_ShaderProgram.hxx".}
-proc getUniformLocation*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                        theName: ptr GLchar): OpenGlShaderUniformLocation {.
-    noSideEffect, importcpp: "GetUniformLocation",
-    header: "OpenGl_ShaderProgram.hxx".}
-proc getAttributeLocation*(this: OpenGlShaderProgram;
-                          theCtx: Handle[OpenGlContext]; theName: ptr GLchar): GLint {.
-    noSideEffect, importcpp: "GetAttributeLocation",
-    header: "OpenGl_ShaderProgram.hxx".}
+## !!!Ignored construct:  ! Attaches shader object to the program object. Standard_Boolean AttachShader ( const Handle ( OpenGl_Context ) & theCtx , const Handle ( OpenGl_ShaderObject ) & theShader ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Detaches shader object to the program object. Standard_Boolean DetachShader ( const Handle ( OpenGl_Context ) & theCtx , const Handle ( OpenGl_ShaderObject ) & theShader ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Initializes program object with the list of shader objects. Standard_Boolean Initialize ( const Handle ( OpenGl_Context ) & theCtx , const Graphic3d_ShaderObjectList & theShaders ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Links the program object.
+## ! @param theCtx bound OpenGL context
+## ! @param theIsVerbose flag to print log on error Standard_Boolean Link ( const Handle ( OpenGl_Context ) & theCtx , bool theIsVerbose = true ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Fetches information log of the last link operation. Standard_Boolean FetchInfoLog ( const Handle ( OpenGl_Context ) & theCtx , TCollection_AsciiString & theLog ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Fetches uniform variables from proxy shader program. Standard_Boolean ApplyVariables ( const Handle ( OpenGl_Context ) & theCtx ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  & Proxy ( ) const { return myProxy ; } ! @return true if current object was initialized inline bool IsValid ( ) const { return myProgramID != NO_PROGRAM ; } ! @return program ID inline GLuint ProgramId ( ) const { return myProgramID ; } public : ! Return TRUE if program defines tessellation stage. Standard_Boolean HasTessellationStage ( ) const { return myHasTessShader ; } ! Return the length of array of light sources (THE_MAX_LIGHTS),
+## ! to be used for initialization occLightSources (OpenGl_OCC_LIGHT_SOURCE_PARAMS). Standard_Integer NbLightsMax ( ) const { return myNbLightsMax ; } ! Return the length of array of clipping planes (THE_MAX_CLIP_PLANES),
+## ! to be used for initialization occClipPlaneEquations (OpenGl_OCC_CLIP_PLANE_EQUATIONS) and occClipPlaneChains (OpenGl_OCC_CLIP_PLANE_CHAINS). Standard_Integer NbClipPlanesMax ( ) const { return myNbClipPlanesMax ; } ! Return the length of array of Fragment Shader outputs (THE_NB_FRAG_OUTPUTS),
+## ! to be used for initialization occFragColorArray/occFragColorN. Standard_Integer NbFragmentOutputs ( ) const { return myNbFragOutputs ; } ! Return true if Fragment Shader should perform alpha test; FALSE by default. Standard_Boolean HasAlphaTest ( ) const { return myHasAlphaTest ; } ! Return true if Fragment Shader color should output the weighted OIT coverage; FALSE by default. Standard_Boolean HasWeightOitOutput ( ) const { return myHasWeightOitOutput ; } ! Return texture units declared within the program, @sa Graphic3d_TextureSetBits. Standard_Integer TextureSetBits ( ) const { return myTextureSetBits ; } private : ! Returns index of last modification of variables of specified state type. Standard_Size ActiveState ( const OpenGl_UniformStateType theType ) const { return theType < OpenGl_UniformStateType_NB ? myCurrentState [ theType ] : 0 ; } ! Updates index of last modification of variables of specified state type. void UpdateState ( const OpenGl_UniformStateType theType , const Standard_Size theIndex ) { if ( theType < OpenGl_UniformStateType_NB ) { myCurrentState [ theType ] = theIndex ; } } public : ! Returns location of the specific uniform variable. OpenGl_ShaderUniformLocation GetUniformLocation ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  ! Returns index of the generic vertex attribute by variable name. GLint GetAttributeLocation ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName ) const ;
+## Error: token expected: ) but got: &!!!
+
 proc getStateLocation*(this: OpenGlShaderProgram; theVariable: OpenGlStateVariable): OpenGlShaderUniformLocation {.
     noSideEffect, importcpp: "GetStateLocation", header: "OpenGl_ShaderProgram.hxx".}
-proc getUniform*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: var OpenGlVec4i): bool {.noSideEffect,
-    importcpp: "GetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc getUniform*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: var OpenGlVec4i): bool {.noSideEffect,
-    importcpp: "GetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc getUniform*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: var OpenGlVec4): bool {.noSideEffect,
-    importcpp: "GetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc getUniform*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: var OpenGlVec4): bool {.noSideEffect,
-    importcpp: "GetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc getAttribute*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: var OpenGlVec4i): bool {.noSideEffect,
-    importcpp: "GetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc getAttribute*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: var OpenGlVec4i): bool {.noSideEffect,
-    importcpp: "GetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc getAttribute*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: var OpenGlVec4): bool {.noSideEffect,
-    importcpp: "GetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc getAttribute*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: var OpenGlVec4): bool {.noSideEffect,
-    importcpp: "GetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttributeName*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                      theIndex: GLint; theName: ptr GLchar): bool {.
-    importcpp: "SetAttributeName", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: GLfloat): bool {.
-    importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: GLfloat): bool {.
-    importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: OpenGlVec2): bool {.
-    importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: OpenGlVec2): bool {.
-    importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: OpenGlVec3): bool {.
-    importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: OpenGlVec3): bool {.
-    importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: OpenGlVec4): bool {.
-    importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: OpenGlVec4): bool {.
-    importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: GLint): bool {.importcpp: "SetUniform",
-    header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: GLint): bool {.importcpp: "SetUniform",
-    header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec2i): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec2i): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec3i): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec3i): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec4i): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec4i): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec2u): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec2u): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theCount: GLsizei; theValue: ptr OpenGlVec2u): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLsizei; theValue: ptr OpenGlVec2u): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: GLfloat): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: GLfloat): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec2): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec2): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec3): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec3): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec4): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec4): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlMat4;
-                theTranspose: GLboolean = gl_False): bool {.importcpp: "SetUniform",
-    header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlMat4;
-                theTranspose: GLboolean = gl_False): bool {.importcpp: "SetUniform",
-    header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlMatrix;
-                theTranspose: GLboolean = gl_False): bool {.importcpp: "SetUniform",
-    header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlMatrix;
-                theTranspose: GLboolean = gl_False): bool {.importcpp: "SetUniform",
-    header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr StandardShortReal): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec2): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec3): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec4): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr int): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec2i): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec3i): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec4i): bool {.
-    importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setSampler*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theTextureUnit: Graphic3dTextureUnit): bool {.
-    importcpp: "SetSampler", header: "OpenGl_ShaderProgram.hxx".}
-proc setSampler*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theTextureUnit: Graphic3dTextureUnit): bool {.
-    importcpp: "SetSampler", header: "OpenGl_ShaderProgram.hxx".}
-proc updateDebugDump*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                     theFolder: TCollectionAsciiString = "";
-                     theToBeautify: bool = false; theToReset: bool = false): bool {.
-    importcpp: "UpdateDebugDump", header: "OpenGl_ShaderProgram.hxx".}
+## !!!Ignored construct:  public : ! Returns the value of the integer uniform variable. Standard_Boolean GetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , OpenGl_Vec4i & theValue ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  Standard_Boolean GetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , OpenGl_Vec4i & theValue ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Returns the value of the float uniform variable. Standard_Boolean GetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , OpenGl_Vec4 & theValue ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Returns the value of the float uniform variable. Standard_Boolean GetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , OpenGl_Vec4 & theValue ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  public : ! Returns the integer vertex attribute. Standard_Boolean GetAttribute ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , OpenGl_Vec4i & theValue ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Returns the integer vertex attribute. Standard_Boolean GetAttribute ( const Handle ( OpenGl_Context ) & theCtx , GLint theIndex , OpenGl_Vec4i & theValue ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Returns the float vertex attribute. Standard_Boolean GetAttribute ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , OpenGl_Vec4 & theValue ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Returns the float vertex attribute. Standard_Boolean GetAttribute ( const Handle ( OpenGl_Context ) & theCtx , GLint theIndex , OpenGl_Vec4 & theValue ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  public : ! Wrapper for glBindAttribLocation() Standard_Boolean SetAttributeName ( const Handle ( OpenGl_Context ) & theCtx , GLint theIndex , const GLchar * theName ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Wrapper for glVertexAttrib1f() Standard_Boolean SetAttribute ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , GLfloat theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Wrapper for glVertexAttrib1f() Standard_Boolean SetAttribute ( const Handle ( OpenGl_Context ) & theCtx , GLint theIndex , GLfloat theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Wrapper for glVertexAttrib2fv() Standard_Boolean SetAttribute ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Vec2 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Wrapper for glVertexAttrib2fv() Standard_Boolean SetAttribute ( const Handle ( OpenGl_Context ) & theCtx , GLint theIndex , const OpenGl_Vec2 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Wrapper for glVertexAttrib3fv() Standard_Boolean SetAttribute ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Vec3 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Wrapper for glVertexAttrib3fv() Standard_Boolean SetAttribute ( const Handle ( OpenGl_Context ) & theCtx , GLint theIndex , const OpenGl_Vec3 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Wrapper for glVertexAttrib4fv() Standard_Boolean SetAttribute ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Vec4 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Wrapper for glVertexAttrib4fv() Standard_Boolean SetAttribute ( const Handle ( OpenGl_Context ) & theCtx , GLint theIndex , const OpenGl_Vec4 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  public : ! Specifies the value of the integer uniform variable. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , GLint theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the integer uniform variable. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , GLint theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the integer uniform 2D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Vec2i & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the integer uniform 2D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const OpenGl_Vec2i & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the integer uniform 3D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Vec3i & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the integer uniform 3D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const OpenGl_Vec3i & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the integer uniform 4D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Vec4i & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the integer uniform 4D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const OpenGl_Vec4i & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  public : ! Specifies the value of the unsigned integer uniform 2D vector (uvec2). Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Vec2u & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the unsigned integer uniform 2D vector (uvec2). Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const OpenGl_Vec2u & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the uvec2 uniform array Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const GLsizei theCount , const OpenGl_Vec2u * theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the uvec2 uniform array Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const GLsizei theCount , const OpenGl_Vec2u * theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  public : ! Specifies the value of the float uniform variable. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , GLfloat theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform variable. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , GLfloat theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform 2D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Vec2 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform 2D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const OpenGl_Vec2 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform 3D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Vec3 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform 3D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const OpenGl_Vec3 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform 4D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Vec4 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform 4D vector. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const OpenGl_Vec4 & theValue ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  public : ! Specifies the value of the float uniform 4x4 matrix. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Mat4 & theValue , GLboolean theTranspose = GL_FALSE ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform 4x4 matrix. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const OpenGl_Mat4 & theValue , GLboolean theTranspose = GL_FALSE ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform 4x4 matrix. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const OpenGl_Matrix & theValue , GLboolean theTranspose = GL_FALSE ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform 4x4 matrix. Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const OpenGl_Matrix & theValue , GLboolean theTranspose = GL_FALSE ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float uniform array Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , GLuint theCount , const Standard_ShortReal * theData ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float2 uniform array Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , GLuint theCount , const OpenGl_Vec2 * theData ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float3 uniform array Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , GLuint theCount , const OpenGl_Vec3 * theData ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the float4 uniform array Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , GLuint theCount , const OpenGl_Vec4 * theData ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the integer uniform array Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , GLuint theCount , const Standard_Integer * theData ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the int2 uniform array Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , GLuint theCount , const OpenGl_Vec2i * theData ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the int3 uniform array Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , GLuint theCount , const OpenGl_Vec3i * theData ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the int4 uniform array Standard_Boolean SetUniform ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , GLuint theCount , const OpenGl_Vec4i * theData ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  public : ! Specifies the value of the sampler uniform variable. Standard_Boolean SetSampler ( const Handle ( OpenGl_Context ) & theCtx , const GLchar * theName , const Graphic3d_TextureUnit theTextureUnit ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Specifies the value of the sampler uniform variable. Standard_Boolean SetSampler ( const Handle ( OpenGl_Context ) & theCtx , GLint theLocation , const Graphic3d_TextureUnit theTextureUnit ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  public : ! Update the shader program from external files (per shader stage) in the following way:
+## ! 1) If external file does not exist, then it will be created (current source code will be dumped, no recompilation) and FALSE will be returned.
+## ! 2) If external file exists and it has the same timestamp as   myDumpDate, nothing will be done and FALSE will be returned.
+## ! 3) If external file exists and it has    newer timestamp than myDumpDate, shader  will be recompiled and relinked and TRUE will be returned.
+## ! @param theCtx OpenGL context bound to this working thread
+## ! @param theFolder folder to store files; when unspecified, $CSF_ShadersDirectoryDump or current folder will be used instead
+## ! @param theToBeautify flag improving formatting (add extra newlines)
+## ! @param theToReset when TRUE, existing dumps will be overridden Standard_Boolean UpdateDebugDump ( const Handle ( OpenGl_Context ) & theCtx , const TCollection_AsciiString & theFolder =  , Standard_Boolean theToBeautify = Standard_False , Standard_Boolean theToReset = Standard_False ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Links the program object. Standard_Boolean link ( const Handle ( OpenGl_Context ) & theCtx ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  myProxy ;
+## Error: identifier expected, but got: ;!!!
+
 type
   OpenGlVariableSetter*[T] {.importcpp: "OpenGl_VariableSetter<\'0>",
                             header: "OpenGl_ShaderProgram.hxx", bycopy.} = object of OpenGlSetterInterface
 
 
-proc set*[T](this: var OpenGlVariableSetter[T]; theCtx: Handle[OpenGlContext];
-            theVariable: Handle[Graphic3dShaderVariable];
-            theProgram: ptr OpenGlShaderProgram) {.importcpp: "Set",
-    header: "OpenGl_ShaderProgram.hxx".}
+## !!!Ignored construct:  virtual void Set ( const Handle ( OpenGl_Context ) & theCtx , const Handle ( Graphic3d_ShaderVariable ) & theVariable , OpenGl_ShaderProgram * theProgram ) { theProgram -> SetUniform ( theCtx , theVariable -> Name ( ) . ToCString ( ) , theVariable -> Value ( ) -> As < T > ( ) ) ; } }
+## Error: token expected: ) but got: &!!!
+
 type
   MapListOfType*[K; V] {.importcpp: "OpenGl_HashMapInitializer::MapListOfType<\'0,\'1>",
                        header: "OpenGl_ShaderProgram.hxx", bycopy.} = object
@@ -712,4 +651,49 @@ converter `constNCollectionDataMap`*[K; V](this: MapListOfType[K, V]): NCollecti
           header: "OpenGl_ShaderProgram.hxx".}
 proc createListOf*[K; V](theKey: K; theValue: V): MapListOfType[K, V] =
   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

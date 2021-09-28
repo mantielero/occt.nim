@@ -20,3 +20,28 @@ type
     OSD_FILE, OSD_DIRECTORY, OSD_LINK, OSD_SOCKET, OSD_UNKNOWN
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

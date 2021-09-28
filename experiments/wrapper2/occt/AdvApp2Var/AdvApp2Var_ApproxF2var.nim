@@ -103,3 +103,28 @@ proc mma2fx6*(ncfmxu: ptr integer; ncfmxv: ptr integer; ndimen: ptr integer;
              errmax: ptr Doublereal; ncoefu: ptr integer; ncoefv: ptr integer): cint {.
     importcpp: "AdvApp2Var_ApproxF2var::mma2fx6_(@)",
     header: "AdvApp2Var_ApproxF2var.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

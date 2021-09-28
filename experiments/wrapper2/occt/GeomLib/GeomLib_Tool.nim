@@ -19,37 +19,27 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Pnt2d"
 type
-  GeomLibTool* {.importcpp: "GeomLib_Tool", header: "GeomLib_Tool.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Extracts
-                                                                                  ## the
-                                                                                  ## parameter
-                                                                                  ## of
-                                                                                  ## a
-                                                                                  ## 3D
-                                                                                  ## point
-                                                                                  ## lying
-                                                                                  ## on
-                                                                                  ## a
-                                                                                  ## 3D
-                                                                                  ## curve
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## or
-                                                                                  ## at
-                                                                                  ## a
-                                                                                  ## distance
-                                                                                  ## less
-                                                                                  ## than
-                                                                                  ## the
-                                                                                  ## MaxDist
-                                                                                  ## value.
+  GeomLibTool* {.importcpp: "GeomLib_Tool", header: "GeomLib_Tool.hxx", bycopy.} = object
 
 
-proc parameter*(curve: Handle[GeomCurve]; point: Pnt; maxDist: float; u: var float): bool {.
+proc `new`*(this: var GeomLibTool; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_Tool::operator new", header: "GeomLib_Tool.hxx".}
+proc `delete`*(this: var GeomLibTool; theAddress: pointer) {.
+    importcpp: "GeomLib_Tool::operator delete", header: "GeomLib_Tool.hxx".}
+proc `new[]`*(this: var GeomLibTool; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_Tool::operator new[]", header: "GeomLib_Tool.hxx".}
+proc `delete[]`*(this: var GeomLibTool; theAddress: pointer) {.
+    importcpp: "GeomLib_Tool::operator delete[]", header: "GeomLib_Tool.hxx".}
+proc `new`*(this: var GeomLibTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLib_Tool::operator new", header: "GeomLib_Tool.hxx".}
+proc `delete`*(this: var GeomLibTool; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLib_Tool::operator delete", header: "GeomLib_Tool.hxx".}
+proc parameter*(curve: Handle[GeomCurve]; point: Pnt; maxDist: StandardReal;
+               u: var StandardReal): StandardBoolean {.
     importcpp: "GeomLib_Tool::Parameter(@)", header: "GeomLib_Tool.hxx".}
-proc parameters*(surface: Handle[GeomSurface]; point: Pnt; maxDist: float;
-                u: var float; v: var float): bool {.
+proc parameters*(surface: Handle[GeomSurface]; point: Pnt; maxDist: StandardReal;
+                u: var StandardReal; v: var StandardReal): StandardBoolean {.
     importcpp: "GeomLib_Tool::Parameters(@)", header: "GeomLib_Tool.hxx".}
-proc parameter*(curve: Handle[Geom2dCurve]; point: Pnt2d; maxDist: float; u: var float): bool {.
+proc parameter*(curve: Handle[Geom2dCurve]; point: Pnt2d; maxDist: StandardReal;
+               u: var StandardReal): StandardBoolean {.
     importcpp: "GeomLib_Tool::Parameter(@)", header: "GeomLib_Tool.hxx".}

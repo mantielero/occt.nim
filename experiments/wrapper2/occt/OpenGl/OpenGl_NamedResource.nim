@@ -37,3 +37,28 @@ proc constructOpenGlNamedResource*(theId: TCollectionAsciiString): OpenGlNamedRe
     header: "OpenGl_NamedResource.hxx".}
 proc resourceId*(this: OpenGlNamedResource): TCollectionAsciiString {.noSideEffect,
     importcpp: "ResourceId", header: "OpenGl_NamedResource.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

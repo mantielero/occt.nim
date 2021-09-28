@@ -14,13 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc normalizeOnDomain*(a1: var float; a2: IntRes2dDomain): float {.
+proc normalizeOnDomain*(a1: var cfloat; a2: IntRes2dDomain): cfloat {.
     importcpp: "NormalizeOnDomain(@)", header: "IntImpParGen_Tool.hxx".}
 proc determinePosition*(a1: var IntRes2dPosition; a2: IntRes2dDomain; a3: Pnt2d;
-                       a4: float) {.importcpp: "Determine_Position(@)",
-                                  header: "IntImpParGen_Tool.hxx".}
+                       a4: cfloat) {.importcpp: "Determine_Position(@)",
+                                   header: "IntImpParGen_Tool.hxx".}
 proc determineTransition*(pos1: IntRes2dPosition; tan1: var Vec2d; norm1: Vec2d;
                          trans1: var IntRes2dTransition; pos2: IntRes2dPosition;
                          tan2: var Vec2d; norm2: Vec2d;
-                         trans2: var IntRes2dTransition; toleranceAng: float) {.
+                         trans2: var IntRes2dTransition; toleranceAng: cfloat) {.
     importcpp: "Determine_Transition(@)", header: "IntImpParGen_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

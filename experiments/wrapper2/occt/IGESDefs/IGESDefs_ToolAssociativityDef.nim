@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESDefsToolAssociativityDef;
     noSideEffect, importcpp: "OwnCopy", header: "IGESDefs_ToolAssociativityDef.hxx".}
 proc ownDump*(this: IGESDefsToolAssociativityDef;
              ent: Handle[IGESDefsAssociativityDef]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESDefs_ToolAssociativityDef.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

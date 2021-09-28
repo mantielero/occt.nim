@@ -31,7 +31,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of Draft_Modification"
 discard "forward decl of Draft_Modification"
 type
-  HandleDraftModification* = Handle[DraftModification]
+  HandleC1C1* = Handle[DraftModification]
   DraftModification* {.importcpp: "Draft_Modification",
                       header: "Draft_Modification.hxx", bycopy.} = object of BRepToolsModification
 
@@ -42,7 +42,7 @@ proc clear*(this: var DraftModification) {.importcpp: "Clear",
                                        header: "Draft_Modification.hxx".}
 proc init*(this: var DraftModification; s: TopoDS_Shape) {.importcpp: "Init",
     header: "Draft_Modification.hxx".}
-proc add*(this: var DraftModification; f: TopoDS_Face; direction: Dir; angle: float;
+proc add*(this: var DraftModification; f: TopoDS_Face; direction: Dir; angle: cfloat;
          neutralPlane: Pln; flag: bool = true): bool {.importcpp: "Add",
     header: "Draft_Modification.hxx".}
 proc remove*(this: var DraftModification; f: TopoDS_Face) {.importcpp: "Remove",
@@ -60,20 +60,20 @@ proc connectedFaces*(this: var DraftModification; f: TopoDS_Face): TopToolsListO
 proc modifiedFaces*(this: var DraftModification): TopToolsListOfShape {.
     importcpp: "ModifiedFaces", header: "Draft_Modification.hxx".}
 proc newSurface*(this: var DraftModification; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
+                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var cfloat;
                 revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
     header: "Draft_Modification.hxx".}
 proc newCurve*(this: var DraftModification; e: TopoDS_Edge; c: var Handle[GeomCurve];
-              L: var TopLocLocation; tol: var float): bool {.importcpp: "NewCurve",
+              L: var TopLocLocation; tol: var cfloat): bool {.importcpp: "NewCurve",
     header: "Draft_Modification.hxx".}
-proc newPoint*(this: var DraftModification; v: TopoDS_Vertex; p: var Pnt; tol: var float): bool {.
+proc newPoint*(this: var DraftModification; v: TopoDS_Vertex; p: var Pnt; tol: var cfloat): bool {.
     importcpp: "NewPoint", header: "Draft_Modification.hxx".}
 proc newCurve2d*(this: var DraftModification; e: TopoDS_Edge; f: TopoDS_Face;
                 newE: TopoDS_Edge; newF: TopoDS_Face; c: var Handle[Geom2dCurve];
-                tol: var float): bool {.importcpp: "NewCurve2d",
-                                    header: "Draft_Modification.hxx".}
+                tol: var cfloat): bool {.importcpp: "NewCurve2d",
+                                     header: "Draft_Modification.hxx".}
 proc newParameter*(this: var DraftModification; v: TopoDS_Vertex; e: TopoDS_Edge;
-                  p: var float; tol: var float): bool {.importcpp: "NewParameter",
+                  p: var cfloat; tol: var cfloat): bool {.importcpp: "NewParameter",
     header: "Draft_Modification.hxx".}
 proc continuity*(this: var DraftModification; e: TopoDS_Edge; f1: TopoDS_Face;
                 f2: TopoDS_Face; newE: TopoDS_Edge; newF1: TopoDS_Face;
@@ -89,3 +89,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Draft_Modification.hxx".}
 proc dynamicType*(this: DraftModification): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draft_Modification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

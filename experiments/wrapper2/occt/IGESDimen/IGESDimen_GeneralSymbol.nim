@@ -21,7 +21,7 @@ discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESDimen_GeneralSymbol"
 discard "forward decl of IGESDimen_GeneralSymbol"
 type
-  HandleIGESDimenGeneralSymbol* = Handle[IGESDimenGeneralSymbol]
+  HandleC1C1* = Handle[IGESDimenGeneralSymbol]
 
 ## ! defines General Symbol, Type <228>, Form <0-3,5001-9999>
 ## ! in package IGESDimen
@@ -40,19 +40,20 @@ proc init*(this: var IGESDimenGeneralSymbol; aNote: Handle[IGESDimenGeneralNote]
           allGeoms: Handle[IGESDataHArray1OfIGESEntity];
           allLeaders: Handle[IGESDimenHArray1OfLeaderArrow]) {.importcpp: "Init",
     header: "IGESDimen_GeneralSymbol.hxx".}
-proc setFormNumber*(this: var IGESDimenGeneralSymbol; form: int) {.
+proc setFormNumber*(this: var IGESDimenGeneralSymbol; form: cint) {.
     importcpp: "SetFormNumber", header: "IGESDimen_GeneralSymbol.hxx".}
 proc hasNote*(this: IGESDimenGeneralSymbol): bool {.noSideEffect,
     importcpp: "HasNote", header: "IGESDimen_GeneralSymbol.hxx".}
 proc note*(this: IGESDimenGeneralSymbol): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_GeneralSymbol.hxx".}
-proc nbGeomEntities*(this: IGESDimenGeneralSymbol): int {.noSideEffect,
+proc nbGeomEntities*(this: IGESDimenGeneralSymbol): cint {.noSideEffect,
     importcpp: "NbGeomEntities", header: "IGESDimen_GeneralSymbol.hxx".}
-proc geomEntity*(this: IGESDimenGeneralSymbol; index: int): Handle[IGESDataIGESEntity] {.
-    noSideEffect, importcpp: "GeomEntity", header: "IGESDimen_GeneralSymbol.hxx".}
-proc nbLeaders*(this: IGESDimenGeneralSymbol): int {.noSideEffect,
+proc geomEntity*(this: IGESDimenGeneralSymbol; index: cint): Handle[
+    IGESDataIGESEntity] {.noSideEffect, importcpp: "GeomEntity",
+                         header: "IGESDimen_GeneralSymbol.hxx".}
+proc nbLeaders*(this: IGESDimenGeneralSymbol): cint {.noSideEffect,
     importcpp: "NbLeaders", header: "IGESDimen_GeneralSymbol.hxx".}
-proc leaderArrow*(this: IGESDimenGeneralSymbol; index: int): Handle[
+proc leaderArrow*(this: IGESDimenGeneralSymbol; index: cint): Handle[
     IGESDimenLeaderArrow] {.noSideEffect, importcpp: "LeaderArrow",
                            header: "IGESDimen_GeneralSymbol.hxx".}
 type
@@ -65,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_GeneralSymbol.hxx".}
 proc dynamicType*(this: IGESDimenGeneralSymbol): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_GeneralSymbol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

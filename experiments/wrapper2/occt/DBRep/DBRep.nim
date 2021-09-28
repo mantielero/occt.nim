@@ -49,7 +49,32 @@ proc hLRMode*(): bool {.importcpp: "DBRep::HLRMode(@)", header: "DBRep.hxx".}
 proc rg1Mode*(): bool {.importcpp: "DBRep::Rg1Mode(@)", header: "DBRep.hxx".}
 proc rgNMode*(): bool {.importcpp: "DBRep::RgNMode(@)", header: "DBRep.hxx".}
 proc hidMode*(): bool {.importcpp: "DBRep::HidMode(@)", header: "DBRep.hxx".}
-proc hLRAngle*(): float {.importcpp: "DBRep::HLRAngle(@)", header: "DBRep.hxx".}
-proc nbIsos*(): int {.importcpp: "DBRep::NbIsos(@)", header: "DBRep.hxx".}
-proc discretisation*(): int {.importcpp: "DBRep::Discretisation(@)",
-                           header: "DBRep.hxx".}
+proc hLRAngle*(): cfloat {.importcpp: "DBRep::HLRAngle(@)", header: "DBRep.hxx".}
+proc nbIsos*(): cint {.importcpp: "DBRep::NbIsos(@)", header: "DBRep.hxx".}
+proc discretisation*(): cint {.importcpp: "DBRep::Discretisation(@)",
+                            header: "DBRep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

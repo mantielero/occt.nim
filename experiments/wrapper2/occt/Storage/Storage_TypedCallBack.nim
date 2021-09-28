@@ -19,7 +19,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Storage_TypedCallBack"
 discard "forward decl of Storage_TypedCallBack"
 type
-  HandleStorageTypedCallBack* = Handle[StorageTypedCallBack]
+  HandleC1C1* = Handle[StorageTypedCallBack]
   StorageTypedCallBack* {.importcpp: "Storage_TypedCallBack",
                          header: "Storage_TypedCallBack.hxx", bycopy.} = object of StandardTransient
 
@@ -38,9 +38,9 @@ proc setCallBack*(this: var StorageTypedCallBack; aCallBack: Handle[StorageCallB
     importcpp: "SetCallBack", header: "Storage_TypedCallBack.hxx".}
 proc callBack*(this: StorageTypedCallBack): Handle[StorageCallBack] {.noSideEffect,
     importcpp: "CallBack", header: "Storage_TypedCallBack.hxx".}
-proc setIndex*(this: var StorageTypedCallBack; anIndex: int) {.importcpp: "SetIndex",
+proc setIndex*(this: var StorageTypedCallBack; anIndex: cint) {.importcpp: "SetIndex",
     header: "Storage_TypedCallBack.hxx".}
-proc index*(this: StorageTypedCallBack): int {.noSideEffect, importcpp: "Index",
+proc index*(this: StorageTypedCallBack): cint {.noSideEffect, importcpp: "Index",
     header: "Storage_TypedCallBack.hxx".}
 type
   StorageTypedCallBackbaseType* = StandardTransient
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Storage_TypedCallBack.hxx".}
 proc dynamicType*(this: StorageTypedCallBack): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_TypedCallBack.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

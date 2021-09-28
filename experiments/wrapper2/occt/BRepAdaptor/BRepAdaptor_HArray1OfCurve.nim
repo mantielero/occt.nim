@@ -14,33 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BRepAdaptorHArray1OfCurve* {.importcpp: "BRepAdaptor_HArray1OfCurve",
-                              header: "BRepAdaptor_HArray1OfCurve.hxx", bycopy.} = object of BRepAdaptorArray1OfCurve
+## !!!Ignored construct:  # BRepAdaptor_HArray1OfCurve_HeaderFile [NewLine] # BRepAdaptor_HArray1OfCurve_HeaderFile [NewLine] # < BRepAdaptor_Curve . hxx > [NewLine] # < BRepAdaptor_Array1OfCurve . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( BRepAdaptor_HArray1OfCurve , BRepAdaptor_Array1OfCurve ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructBRepAdaptorHArray1OfCurve*(theLower: int; theUpper: int): BRepAdaptorHArray1OfCurve {.
-    constructor, importcpp: "BRepAdaptor_HArray1OfCurve(@)",
-    header: "BRepAdaptor_HArray1OfCurve.hxx".}
-proc constructBRepAdaptorHArray1OfCurve*(theLower: int; theUpper: int;
-                                        theValue: ValueType): BRepAdaptorHArray1OfCurve {.
-    constructor, importcpp: "BRepAdaptor_HArray1OfCurve(@)",
-    header: "BRepAdaptor_HArray1OfCurve.hxx".}
-proc constructBRepAdaptorHArray1OfCurve*(theOther: BRepAdaptorArray1OfCurve): BRepAdaptorHArray1OfCurve {.
-    constructor, importcpp: "BRepAdaptor_HArray1OfCurve(@)",
-    header: "BRepAdaptor_HArray1OfCurve.hxx".}
-proc array1*(this: BRepAdaptorHArray1OfCurve): BRepAdaptorArray1OfCurve {.
-    noSideEffect, importcpp: "Array1", header: "BRepAdaptor_HArray1OfCurve.hxx".}
-proc changeArray1*(this: var BRepAdaptorHArray1OfCurve): var BRepAdaptorArray1OfCurve {.
-    importcpp: "ChangeArray1", header: "BRepAdaptor_HArray1OfCurve.hxx".}
-type
-  BRepAdaptorHArray1OfCurvebaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "BRepAdaptor_HArray1OfCurve::get_type_name(@)",
-                            header: "BRepAdaptor_HArray1OfCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "BRepAdaptor_HArray1OfCurve::get_type_descriptor(@)",
-    header: "BRepAdaptor_HArray1OfCurve.hxx".}
-proc dynamicType*(this: BRepAdaptorHArray1OfCurve): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "BRepAdaptor_HArray1OfCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

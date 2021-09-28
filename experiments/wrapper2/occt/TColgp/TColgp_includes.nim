@@ -61,3 +61,28 @@ include TColgp_SequenceOfVec2d
 include TColgp_SequenceOfXY
 include TColgp_SequenceOfXYZ
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

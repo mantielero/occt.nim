@@ -59,7 +59,7 @@ proc constructBRepMeshModelHealer*(): BRepMeshModelHealer {.constructor,
     importcpp: "BRepMesh_ModelHealer(@)", header: "BRepMesh_ModelHealer.hxx".}
 proc destroyBRepMeshModelHealer*(this: var BRepMeshModelHealer) {.
     importcpp: "#.~BRepMesh_ModelHealer()", header: "BRepMesh_ModelHealer.hxx".}
-proc `()`*(this: BRepMeshModelHealer; theEdgeIndex: int) {.noSideEffect,
+proc `()`*(this: BRepMeshModelHealer; theEdgeIndex: cint) {.noSideEffect,
     importcpp: "#(@)", header: "BRepMesh_ModelHealer.hxx".}
 proc `()`*(this: BRepMeshModelHealer; theDFace: IFaceHandle) {.noSideEffect,
     importcpp: "#(@)", header: "BRepMesh_ModelHealer.hxx".}
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_ModelHealer.hxx".}
 proc dynamicType*(this: BRepMeshModelHealer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_ModelHealer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

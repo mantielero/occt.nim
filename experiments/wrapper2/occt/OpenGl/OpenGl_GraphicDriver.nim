@@ -13,7 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_Window"
+## !!!Ignored construct:  # _OpenGl_GraphicDriver_HeaderFile [NewLine] # _OpenGl_GraphicDriver_HeaderFile [NewLine] # < Graphic3d_GraphicDriver . hxx > [NewLine] # < Aspect_Display . hxx > [NewLine] # < Aspect_DisplayConnection . hxx > [NewLine] # < Aspect_RenderingContext . hxx > [NewLine] # < Graphic3d_CView . hxx > [NewLine] # < Graphic3d_CStructure . hxx > [NewLine] # < NCollection_DataMap . hxx > [NewLine] # < OpenGl_Context . hxx > [NewLine] class Aspect_Window ;
+## Error: expected ';'!!!
+
 discard "forward decl of Quantity_Color"
 discard "forward decl of OpenGl_Structure"
 discard "forward decl of OpenGl_View"
@@ -162,34 +164,41 @@ type
                                                                                                  ## State
                                                                                                  ## counter
                                                                                                  ## for
-                                                                                                 ## OpenGl
-                                                                                                 ## structures.
-#     ## !< indicates that shared context has been created within OpenGl_GraphicDriver
-#     when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
-#         defined(android) or defined(qnx) or defined(emscripten):
-#       discard
-#     when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
-#         defined(android) or defined(qnx) or defined(emscripten):
-#       discard
-#     when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
-#         defined(android) or defined(qnx) or defined(emscripten):
-#       discard
-#     ## !< State counter for OpenGl structures.
-#     ## !< Unique ID counter for primitive arrays.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                                                                                                  ## OpenGl
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                                                                                                  ## structures.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     standardType* {.importc: "Standard_Type".}: Handle
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     graphic3dCStructure* {.importc: "Graphic3d_CStructure".}: Handle
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     graphic3dCView* {.importc: "Graphic3d_CView".}: Handle
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     openGlWindow* {.importc: "OpenGl_Window".}: Handle
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     openGlContext* {.importc: "OpenGl_Context".}: Handle
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     ## !< indicates that shared context has been created within OpenGl_GraphicDriver
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #         defined(android) or defined(qnx) or defined(emscripten):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #       discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
+        defined(android) or defined(qnx) or defined(emscripten):
+      discard
+    when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
+        defined(android) or defined(qnx) or defined(emscripten):
+      discard
+    ## !< State counter for OpenGl structures.
+    ## !< Unique ID counter for primitive arrays.
 
   OpenGlGraphicDriverbaseType* = Graphic3dGraphicDriver
 
 proc getTypeName*(): cstring {.importcpp: "OpenGl_GraphicDriver::get_type_name(@)",
                             header: "OpenGl_GraphicDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "OpenGl_GraphicDriver::get_type_descriptor(@)",
-    header: "OpenGl_GraphicDriver.hxx".}
-proc dynamicType*(this: OpenGlGraphicDriver): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "OpenGl_GraphicDriver.hxx".}
-proc constructOpenGlGraphicDriver*(theDisp: Handle[AspectDisplayConnection];
-                                  theToInitialize: bool = true): OpenGlGraphicDriver {.
-    constructor, importcpp: "OpenGl_GraphicDriver(@)",
-    header: "OpenGl_GraphicDriver.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  public : ! Constructor.
+## ! @param theDisp connection to display, required on Linux but optional on other systems
+## ! @param theToInitialize perform initialization of default OpenGL context on construction OpenGl_GraphicDriver ( const Handle ( Aspect_DisplayConnection ) & theDisp , const Standard_Boolean theToInitialize = Standard_True ) ;
+## Error: token expected: ) but got: &!!!
+
 proc destroyOpenGlGraphicDriver*(this: var OpenGlGraphicDriver) {.
     importcpp: "#.~OpenGl_GraphicDriver()", header: "OpenGl_GraphicDriver.hxx".}
 proc releaseContext*(this: var OpenGlGraphicDriver) {.importcpp: "ReleaseContext",
@@ -207,33 +216,30 @@ proc initContext*(this: var OpenGlGraphicDriver): bool {.importcpp: "InitContext
 
 proc inquireLimit*(this: OpenGlGraphicDriver; theType: Graphic3dTypeOfLimit): int {.
     noSideEffect, importcpp: "InquireLimit", header: "OpenGl_GraphicDriver.hxx".}
-proc createStructure*(this: var OpenGlGraphicDriver;
-                     theManager: Handle[Graphic3dStructureManager]): Handle[
-    Graphic3dCStructure] {.importcpp: "CreateStructure",
-                          header: "OpenGl_GraphicDriver.hxx".}
-proc removeStructure*(this: var OpenGlGraphicDriver;
-                     theCStructure: var Handle[Graphic3dCStructure]) {.
-    importcpp: "RemoveStructure", header: "OpenGl_GraphicDriver.hxx".}
-proc createView*(this: var OpenGlGraphicDriver;
-                theMgr: Handle[Graphic3dStructureManager]): Handle[Graphic3dCView] {.
-    importcpp: "CreateView", header: "OpenGl_GraphicDriver.hxx".}
-proc removeView*(this: var OpenGlGraphicDriver; theView: Handle[Graphic3dCView]) {.
-    importcpp: "RemoveView", header: "OpenGl_GraphicDriver.hxx".}
-proc createRenderWindow*(this: var OpenGlGraphicDriver;
-                        theWindow: Handle[AspectWindow];
-                        theContext: AspectRenderingContext): Handle[OpenGlWindow] {.
-    importcpp: "CreateRenderWindow", header: "OpenGl_GraphicDriver.hxx".}
-proc textSize*(this: OpenGlGraphicDriver; theView: Handle[Graphic3dCView];
-              theText: StandardCString; theHeight: StandardShortReal;
-              theWidth: var StandardShortReal; theAscent: var StandardShortReal;
-              theDescent: var StandardShortReal) {.noSideEffect,
-    importcpp: "TextSize", header: "OpenGl_GraphicDriver.hxx".}
+## !!!Ignored construct:  CreateStructure ( const Handle ( Graphic3d_StructureManager ) & theManager ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  virtual void RemoveStructure ( Handle ( Graphic3d_CStructure ) & theCStructure ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  CreateView ( const Handle ( Graphic3d_StructureManager ) & theMgr ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  virtual void RemoveView ( const Handle ( Graphic3d_CView ) & theView ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  CreateRenderWindow ( const Handle ( Aspect_Window ) & theWindow , const Aspect_RenderingContext theContext ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  public : void TextSize ( const Handle ( Graphic3d_CView ) & theView , const Standard_CString theText , const Standard_ShortReal theHeight , Standard_ShortReal & theWidth , Standard_ShortReal & theAscent , Standard_ShortReal & theDescent ) const ;
+## Error: token expected: ) but got: &!!!
+
 proc defaultTextHeight*(this: OpenGlGraphicDriver): StandardShortReal {.
     noSideEffect, importcpp: "DefaultTextHeight",
     header: "OpenGl_GraphicDriver.hxx".}
-proc viewExists*(this: var OpenGlGraphicDriver; theWindow: Handle[AspectWindow];
-                theView: var Handle[Graphic3dCView]): bool {.
-    importcpp: "ViewExists", header: "OpenGl_GraphicDriver.hxx".}
+## !!!Ignored construct:  Standard_Boolean ViewExists ( const Handle ( Aspect_Window ) & theWindow , Handle ( Graphic3d_CView ) & theView ) ;
+## Error: token expected: ) but got: &!!!
+
 proc insertLayerBefore*(this: var OpenGlGraphicDriver;
                        theNewLayerId: Graphic3dZLayerId;
                        theSettings: Graphic3dZLayerSettings;
@@ -261,9 +267,9 @@ proc enableVBO*(this: var OpenGlGraphicDriver; theToTurnOn: bool) {.
 proc memoryInfo*(this: OpenGlGraphicDriver; theFreeBytes: var StandardSize;
                 theInfo: var TCollectionAsciiString): bool {.noSideEffect,
     importcpp: "MemoryInfo", header: "OpenGl_GraphicDriver.hxx".}
-proc getSharedContext*(this: OpenGlGraphicDriver; theBound: bool = false): Handle[
-    OpenGlContext] {.noSideEffect, importcpp: "GetSharedContext",
-                    header: "OpenGl_GraphicDriver.hxx".}
+## !!!Ignored construct:  & GetSharedContext ( bool theBound = false ) const ;
+## Error: identifier expected, but got: &!!!
+
 when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
     defined(android) or defined(qnx) or defined(emscripten):
   proc getRawGlDisplay*(this: OpenGlGraphicDriver): AspectDisplay {.noSideEffect,
@@ -284,8 +290,106 @@ proc getStateCounter*(this: OpenGlGraphicDriver): ptr OpenGlStateCounter {.
 proc getNextPrimitiveArrayUID*(this: OpenGlGraphicDriver): StandardSize {.
     noSideEffect, importcpp: "GetNextPrimitiveArrayUID",
     header: "OpenGl_GraphicDriver.hxx".}
-discard "forward decl of OpenGl_GraphicDriver"
-type
-  HandleOpenGlGraphicDriver* = Handle[OpenGlGraphicDriver]
+## !!!Ignored construct:  myCaps ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OpenGl_GraphicDriver , Graphic3d_GraphicDriver ) # _OpenGl_GraphicDriver_HeaderFile
+## Error: expected ';'!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

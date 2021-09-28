@@ -22,7 +22,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IGESSelect_EditHeader"
 discard "forward decl of IGESSelect_EditHeader"
 type
-  HandleIGESSelectEditHeader* = Handle[IGESSelectEditHeader]
+  HandleC1C1* = Handle[IGESSelectEditHeader]
 
 ## ! This class is aimed to display and edit the Header of an
 ## ! IGES Model : Start Section and Global Section
@@ -39,12 +39,12 @@ proc label*(this: IGESSelectEditHeader): TCollectionAsciiString {.noSideEffect,
 proc recognize*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm]): bool {.
     noSideEffect, importcpp: "Recognize", header: "IGESSelect_EditHeader.hxx".}
 proc stringValue*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm];
-                 num: int): Handle[TCollectionHAsciiString] {.noSideEffect,
+                 num: cint): Handle[TCollectionHAsciiString] {.noSideEffect,
     importcpp: "StringValue", header: "IGESSelect_EditHeader.hxx".}
 proc load*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm];
           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Load", header: "IGESSelect_EditHeader.hxx".}
-proc update*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm]; num: int;
+proc update*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm]; num: cint;
             newval: Handle[TCollectionHAsciiString]; enforce: bool): bool {.
     noSideEffect, importcpp: "Update", header: "IGESSelect_EditHeader.hxx".}
 proc apply*(this: IGESSelectEditHeader; form: Handle[IFSelectEditForm];
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_EditHeader.hxx".}
 proc dynamicType*(this: IGESSelectEditHeader): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_EditHeader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

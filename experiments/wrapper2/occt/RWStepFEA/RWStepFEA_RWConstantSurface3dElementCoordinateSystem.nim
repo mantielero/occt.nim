@@ -32,7 +32,7 @@ proc constructRWStepFEA_RWConstantSurface3dElementCoordinateSystem*(): RWStepFEA
     importcpp: "RWStepFEA_RWConstantSurface3dElementCoordinateSystem(@)",
     header: "RWStepFEA_RWConstantSurface3dElementCoordinateSystem.hxx".}
 proc readStep*(this: RWStepFEA_RWConstantSurface3dElementCoordinateSystem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_ConstantSurface3dElementCoordinateSystem]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -46,3 +46,28 @@ proc share*(this: RWStepFEA_RWConstantSurface3dElementCoordinateSystem;
            ent: Handle[StepFEA_ConstantSurface3dElementCoordinateSystem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWConstantSurface3dElementCoordinateSystem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

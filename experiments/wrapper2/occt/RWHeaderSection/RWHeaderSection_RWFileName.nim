@@ -27,9 +27,34 @@ proc constructRWHeaderSectionRWFileName*(): RWHeaderSectionRWFileName {.
     constructor, importcpp: "RWHeaderSection_RWFileName(@)",
     header: "RWHeaderSection_RWFileName.hxx".}
 proc readStep*(this: RWHeaderSectionRWFileName;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[HeaderSectionFileName]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWHeaderSection_RWFileName.hxx".}
 proc writeStep*(this: RWHeaderSectionRWFileName; sw: var StepDataStepWriter;
                ent: Handle[HeaderSectionFileName]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWHeaderSection_RWFileName.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

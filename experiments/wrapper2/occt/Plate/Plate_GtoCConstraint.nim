@@ -51,9 +51,34 @@ proc constructPlateGtoCConstraint*(point2d: Xy; d1s: PlateD1; d1t: PlateD1;
                                   d3t: PlateD3; nP: Xyz): PlateGtoCConstraint {.
     constructor, importcpp: "Plate_GtoCConstraint(@)",
     header: "Plate_GtoCConstraint.hxx".}
-proc nbPPC*(this: PlateGtoCConstraint): int {.noSideEffect, importcpp: "nb_PPC",
+proc nbPPC*(this: PlateGtoCConstraint): cint {.noSideEffect, importcpp: "nb_PPC",
     header: "Plate_GtoCConstraint.hxx".}
-proc getPPC*(this: PlateGtoCConstraint; index: int): PlatePinpointConstraint {.
+proc getPPC*(this: PlateGtoCConstraint; index: cint): PlatePinpointConstraint {.
     noSideEffect, importcpp: "GetPPC", header: "Plate_GtoCConstraint.hxx".}
 proc d1SurfInit*(this: PlateGtoCConstraint): PlateD1 {.noSideEffect,
     importcpp: "D1SurfInit", header: "Plate_GtoCConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

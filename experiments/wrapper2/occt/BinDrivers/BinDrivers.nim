@@ -34,3 +34,28 @@ proc attributeDrivers*(msgDrv: Handle[MessageMessenger]): Handle[
                           header: "BinDrivers.hxx".}
 proc storageVersion*(): TCollectionAsciiString {.
     importcpp: "BinDrivers::StorageVersion(@)", header: "BinDrivers.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

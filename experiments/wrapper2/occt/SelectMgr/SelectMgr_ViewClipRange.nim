@@ -31,10 +31,10 @@ type
 
 proc constructSelectMgrViewClipRange*(): SelectMgrViewClipRange {.constructor,
     importcpp: "SelectMgr_ViewClipRange(@)", header: "SelectMgr_ViewClipRange.hxx".}
-proc isClipped*(this: SelectMgrViewClipRange; theDepth: float): bool {.noSideEffect,
+proc isClipped*(this: SelectMgrViewClipRange; theDepth: cfloat): bool {.noSideEffect,
     importcpp: "IsClipped", header: "SelectMgr_ViewClipRange.hxx".}
 proc getNearestDepth*(this: SelectMgrViewClipRange; theRange: BndRange;
-                     theDepth: var float): bool {.noSideEffect,
+                     theDepth: var cfloat): bool {.noSideEffect,
     importcpp: "GetNearestDepth", header: "SelectMgr_ViewClipRange.hxx".}
 proc setVoid*(this: var SelectMgrViewClipRange) {.importcpp: "SetVoid",
     header: "SelectMgr_ViewClipRange.hxx".}
@@ -46,5 +46,30 @@ proc changeUnclipRange*(this: var SelectMgrViewClipRange): var BndRange {.
 proc addClipSubRange*(this: var SelectMgrViewClipRange; theRange: BndRange) {.
     importcpp: "AddClipSubRange", header: "SelectMgr_ViewClipRange.hxx".}
 proc dumpJson*(this: SelectMgrViewClipRange; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "SelectMgr_ViewClipRange.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "SelectMgr_ViewClipRange.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

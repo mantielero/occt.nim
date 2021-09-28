@@ -21,7 +21,7 @@ discard "forward decl of CDM_Application"
 discard "forward decl of PCDM_Reader"
 discard "forward decl of PCDM_Reader"
 type
-  HandlePCDM_Reader* = Handle[PCDM_Reader]
+  HandleC1C1* = Handle[PCDM_Reader]
   PCDM_Reader* {.importcpp: "PCDM_Reader", header: "PCDM_Reader.hxx", bycopy.} = object of StandardTransient ##
                                                                                                    ## !
                                                                                                    ## this
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "PCDM_Reader::get_type_descriptor(@)", header: "PCDM_Reader.hxx".}
 proc dynamicType*(this: PCDM_Reader): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

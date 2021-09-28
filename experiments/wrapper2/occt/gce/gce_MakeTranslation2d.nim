@@ -38,3 +38,28 @@ proc operator*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect,
 converter `trsf2d`*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect,
     importcpp: "gce_MakeTranslation2d::operator gp_Trsf2d",
     header: "gce_MakeTranslation2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

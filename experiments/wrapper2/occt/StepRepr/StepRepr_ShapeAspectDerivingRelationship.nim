@@ -16,8 +16,7 @@
 discard "forward decl of StepRepr_ShapeAspectDerivingRelationship"
 discard "forward decl of StepRepr_ShapeAspectDerivingRelationship"
 type
-  HandleStepReprShapeAspectDerivingRelationship* = Handle[
-      StepReprShapeAspectDerivingRelationship]
+  HandleC1C1* = Handle[StepReprShapeAspectDerivingRelationship]
 
 ## ! Added for Dimensional Tolerances
 
@@ -39,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ShapeAspe
 proc dynamicType*(this: StepReprShapeAspectDerivingRelationship): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_ShapeAspectDerivingRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

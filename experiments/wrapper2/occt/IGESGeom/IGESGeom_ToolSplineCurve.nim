@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESGeomToolSplineCurve; entfrom: Handle[IGESGeomSplineCurve
              entto: Handle[IGESGeomSplineCurve]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolSplineCurve.hxx".}
 proc ownDump*(this: IGESGeomToolSplineCurve; ent: Handle[IGESGeomSplineCurve];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

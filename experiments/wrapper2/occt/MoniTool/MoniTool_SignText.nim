@@ -19,7 +19,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of MoniTool_SignText"
 discard "forward decl of MoniTool_SignText"
 type
-  HandleMoniToolSignText* = Handle[MoniToolSignText]
+  HandleC1C1* = Handle[MoniToolSignText]
 
 ## ! Provides the basic service to get a text which identifies
 ## ! an object in a context
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MoniTool_SignText.hxx".}
 proc dynamicType*(this: MoniToolSignText): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_SignText.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

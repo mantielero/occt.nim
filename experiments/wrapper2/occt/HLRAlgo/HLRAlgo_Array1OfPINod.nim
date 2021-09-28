@@ -17,3 +17,28 @@
 type
   HLRAlgoArray1OfPINod* = NCollectionArray1[Handle[HLRAlgoPolyInternalNode]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

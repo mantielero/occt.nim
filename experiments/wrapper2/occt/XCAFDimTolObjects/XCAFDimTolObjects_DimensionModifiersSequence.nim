@@ -17,3 +17,28 @@ type
   XCAFDimTolObjectsDimensionModifiersSequence* = NCollectionSequence[
       XCAFDimTolObjectsDimensionModif]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,29 +31,54 @@ type
                                                  ## ! Ex., UFirst -= MarginCoef*(ULast-UFirst)
 
 
-proc constructIntCurveSurfaceTheExactHInter*(u: float; v: float; w: float;
-    f: IntCurveSurfaceTheCSFunctionOfHInter; tolTangency: float;
-    marginCoef: float = 0.0): IntCurveSurfaceTheExactHInter {.constructor,
+proc constructIntCurveSurfaceTheExactHInter*(u: cfloat; v: cfloat; w: cfloat;
+    f: IntCurveSurfaceTheCSFunctionOfHInter; tolTangency: cfloat;
+    marginCoef: cfloat = 0.0): IntCurveSurfaceTheExactHInter {.constructor,
     importcpp: "IntCurveSurface_TheExactHInter(@)",
     header: "IntCurveSurface_TheExactHInter.hxx".}
 proc constructIntCurveSurfaceTheExactHInter*(
-    f: IntCurveSurfaceTheCSFunctionOfHInter; tolTangency: float): IntCurveSurfaceTheExactHInter {.
+    f: IntCurveSurfaceTheCSFunctionOfHInter; tolTangency: cfloat): IntCurveSurfaceTheExactHInter {.
     constructor, importcpp: "IntCurveSurface_TheExactHInter(@)",
     header: "IntCurveSurface_TheExactHInter.hxx".}
-proc perform*(this: var IntCurveSurfaceTheExactHInter; u: float; v: float; w: float;
-             rsnld: var MathFunctionSetRoot; u0: float; v0: float; u1: float; v1: float;
-             w0: float; w1: float) {.importcpp: "Perform",
-                                 header: "IntCurveSurface_TheExactHInter.hxx".}
+proc perform*(this: var IntCurveSurfaceTheExactHInter; u: cfloat; v: cfloat; w: cfloat;
+             rsnld: var MathFunctionSetRoot; u0: cfloat; v0: cfloat; u1: cfloat;
+             v1: cfloat; w0: cfloat; w1: cfloat) {.importcpp: "Perform",
+    header: "IntCurveSurface_TheExactHInter.hxx".}
 proc isDone*(this: IntCurveSurfaceTheExactHInter): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntCurveSurface_TheExactHInter.hxx".}
 proc isEmpty*(this: IntCurveSurfaceTheExactHInter): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "IntCurveSurface_TheExactHInter.hxx".}
 proc point*(this: IntCurveSurfaceTheExactHInter): Pnt {.noSideEffect,
     importcpp: "Point", header: "IntCurveSurface_TheExactHInter.hxx".}
-proc parameterOnCurve*(this: IntCurveSurfaceTheExactHInter): float {.noSideEffect,
+proc parameterOnCurve*(this: IntCurveSurfaceTheExactHInter): cfloat {.noSideEffect,
     importcpp: "ParameterOnCurve", header: "IntCurveSurface_TheExactHInter.hxx".}
-proc parameterOnSurface*(this: IntCurveSurfaceTheExactHInter; u: var float;
-                        v: var float) {.noSideEffect,
-                                     importcpp: "ParameterOnSurface", header: "IntCurveSurface_TheExactHInter.hxx".}
+proc parameterOnSurface*(this: IntCurveSurfaceTheExactHInter; u: var cfloat;
+                        v: var cfloat) {.noSideEffect,
+                                      importcpp: "ParameterOnSurface", header: "IntCurveSurface_TheExactHInter.hxx".}
 proc function*(this: var IntCurveSurfaceTheExactHInter): var IntCurveSurfaceTheCSFunctionOfHInter {.
     importcpp: "Function", header: "IntCurveSurface_TheExactHInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

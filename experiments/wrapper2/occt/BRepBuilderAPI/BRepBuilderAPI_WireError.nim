@@ -33,3 +33,28 @@ type
     BRepBuilderAPI_DisconnectedWire, BRepBuilderAPI_NonManifoldWire
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

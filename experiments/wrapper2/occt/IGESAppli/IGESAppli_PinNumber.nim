@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESAppli_PinNumber"
 discard "forward decl of IGESAppli_PinNumber"
 type
-  HandleIGESAppliPinNumber* = Handle[IGESAppliPinNumber]
+  HandleC1C1* = Handle[IGESAppliPinNumber]
 
 ## ! defines PinNumber, Type <406> Form <8>
 ## ! in package IGESAppli
@@ -33,10 +33,10 @@ type
 
 proc constructIGESAppliPinNumber*(): IGESAppliPinNumber {.constructor,
     importcpp: "IGESAppli_PinNumber(@)", header: "IGESAppli_PinNumber.hxx".}
-proc init*(this: var IGESAppliPinNumber; nbPropVal: int;
+proc init*(this: var IGESAppliPinNumber; nbPropVal: cint;
           aValue: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESAppli_PinNumber.hxx".}
-proc nbPropertyValues*(this: IGESAppliPinNumber): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESAppliPinNumber): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_PinNumber.hxx".}
 proc pinNumberVal*(this: IGESAppliPinNumber): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "PinNumberVal", header: "IGESAppli_PinNumber.hxx".}
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_PinNumber.hxx".}
 proc dynamicType*(this: IGESAppliPinNumber): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESAppli_PinNumber.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

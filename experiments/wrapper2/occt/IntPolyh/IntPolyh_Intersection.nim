@@ -64,9 +64,9 @@ proc constructIntPolyhIntersection*(theS1: Handle[Adaptor3dHSurface];
     constructor, importcpp: "IntPolyh_Intersection(@)",
     header: "IntPolyh_Intersection.hxx".}
 proc constructIntPolyhIntersection*(theS1: Handle[Adaptor3dHSurface];
-                                   theNbSU1: int; theNbSV1: int;
+                                   theNbSU1: cint; theNbSV1: cint;
                                    theS2: Handle[Adaptor3dHSurface];
-                                   theNbSU2: int; theNbSV2: int): IntPolyhIntersection {.
+                                   theNbSU2: cint; theNbSV2: cint): IntPolyhIntersection {.
     constructor, importcpp: "IntPolyh_Intersection(@)",
     header: "IntPolyh_Intersection.hxx".}
 proc constructIntPolyhIntersection*(theS1: Handle[Adaptor3dHSurface];
@@ -79,20 +79,46 @@ proc constructIntPolyhIntersection*(theS1: Handle[Adaptor3dHSurface];
     header: "IntPolyh_Intersection.hxx".}
 proc isDone*(this: IntPolyhIntersection): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntPolyh_Intersection.hxx".}
-proc nbSectionLines*(this: IntPolyhIntersection): int {.noSideEffect,
+proc nbSectionLines*(this: IntPolyhIntersection): cint {.noSideEffect,
     importcpp: "NbSectionLines", header: "IntPolyh_Intersection.hxx".}
-proc nbPointsInLine*(this: IntPolyhIntersection; indexLine: int): int {.noSideEffect,
-    importcpp: "NbPointsInLine", header: "IntPolyh_Intersection.hxx".}
-proc nbTangentZones*(this: IntPolyhIntersection): int {.noSideEffect,
+proc nbPointsInLine*(this: IntPolyhIntersection; indexLine: cint): cint {.
+    noSideEffect, importcpp: "NbPointsInLine", header: "IntPolyh_Intersection.hxx".}
+proc nbTangentZones*(this: IntPolyhIntersection): cint {.noSideEffect,
     importcpp: "NbTangentZones", header: "IntPolyh_Intersection.hxx".}
-proc nbPointsInTangentZone*(this: IntPolyhIntersection; a2: int): int {.noSideEffect,
-    importcpp: "NbPointsInTangentZone", header: "IntPolyh_Intersection.hxx".}
-proc getLinePoint*(this: IntPolyhIntersection; indexLine: int; indexPoint: int;
-                  x: var float; y: var float; z: var float; u1: var float; v1: var float;
-                  u2: var float; v2: var float; incidence: var float) {.noSideEffect,
-    importcpp: "GetLinePoint", header: "IntPolyh_Intersection.hxx".}
-proc getTangentZonePoint*(this: IntPolyhIntersection; indexLine: int;
-                         indexPoint: int; x: var float; y: var float; z: var float;
-                         u1: var float; v1: var float; u2: var float; v2: var float) {.
+proc nbPointsInTangentZone*(this: IntPolyhIntersection; a2: cint): cint {.
+    noSideEffect, importcpp: "NbPointsInTangentZone",
+    header: "IntPolyh_Intersection.hxx".}
+proc getLinePoint*(this: IntPolyhIntersection; indexLine: cint; indexPoint: cint;
+                  x: var cfloat; y: var cfloat; z: var cfloat; u1: var cfloat;
+                  v1: var cfloat; u2: var cfloat; v2: var cfloat; incidence: var cfloat) {.
+    noSideEffect, importcpp: "GetLinePoint", header: "IntPolyh_Intersection.hxx".}
+proc getTangentZonePoint*(this: IntPolyhIntersection; indexLine: cint;
+                         indexPoint: cint; x: var cfloat; y: var cfloat; z: var cfloat;
+                         u1: var cfloat; v1: var cfloat; u2: var cfloat; v2: var cfloat) {.
     noSideEffect, importcpp: "GetTangentZonePoint",
     header: "IntPolyh_Intersection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

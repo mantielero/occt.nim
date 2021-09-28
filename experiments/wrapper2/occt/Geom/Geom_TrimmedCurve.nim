@@ -27,7 +27,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_TrimmedCurve"
 discard "forward decl of Geom_TrimmedCurve"
 type
-  HandleGeomTrimmedCurve* = Handle[GeomTrimmedCurve]
+  HandleC1C1* = Handle[GeomTrimmedCurve]
 
 ## ! Describes a portion of a curve (termed the "basis
 ## ! curve") limited by two parameter values inside the
@@ -408,53 +408,56 @@ type
                                                                                      ## U2.
 
 
-proc constructGeomTrimmedCurve*(c: Handle[GeomCurve]; u1: float; u2: float;
-                               sense: bool = true; theAdjustPeriodic: bool = true): GeomTrimmedCurve {.
+proc constructGeomTrimmedCurve*(c: Handle[GeomCurve]; u1: StandardReal;
+                               u2: StandardReal; sense: StandardBoolean = true;
+                               theAdjustPeriodic: StandardBoolean = true): GeomTrimmedCurve {.
     constructor, importcpp: "Geom_TrimmedCurve(@)", header: "Geom_TrimmedCurve.hxx".}
 proc reverse*(this: var GeomTrimmedCurve) {.importcpp: "Reverse",
                                         header: "Geom_TrimmedCurve.hxx".}
-proc reversedParameter*(this: GeomTrimmedCurve; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom_TrimmedCurve.hxx".}
-proc setTrim*(this: var GeomTrimmedCurve; u1: float; u2: float; sense: bool = true;
-             theAdjustPeriodic: bool = true) {.importcpp: "SetTrim",
+proc reversedParameter*(this: GeomTrimmedCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_TrimmedCurve.hxx".}
+proc setTrim*(this: var GeomTrimmedCurve; u1: StandardReal; u2: StandardReal;
+             sense: StandardBoolean = true;
+             theAdjustPeriodic: StandardBoolean = true) {.importcpp: "SetTrim",
     header: "Geom_TrimmedCurve.hxx".}
 proc basisCurve*(this: GeomTrimmedCurve): Handle[GeomCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "Geom_TrimmedCurve.hxx".}
 proc continuity*(this: GeomTrimmedCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_TrimmedCurve.hxx".}
-proc isCN*(this: GeomTrimmedCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
-    header: "Geom_TrimmedCurve.hxx".}
+proc isCN*(this: GeomTrimmedCurve; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom_TrimmedCurve.hxx".}
 proc endPoint*(this: GeomTrimmedCurve): Pnt {.noSideEffect, importcpp: "EndPoint",
     header: "Geom_TrimmedCurve.hxx".}
-proc firstParameter*(this: GeomTrimmedCurve): float {.noSideEffect,
+proc firstParameter*(this: GeomTrimmedCurve): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_TrimmedCurve.hxx".}
-proc isClosed*(this: GeomTrimmedCurve): bool {.noSideEffect, importcpp: "IsClosed",
-    header: "Geom_TrimmedCurve.hxx".}
-proc isPeriodic*(this: GeomTrimmedCurve): bool {.noSideEffect,
+proc isClosed*(this: GeomTrimmedCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom_TrimmedCurve.hxx".}
+proc isPeriodic*(this: GeomTrimmedCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom_TrimmedCurve.hxx".}
-proc period*(this: GeomTrimmedCurve): float {.noSideEffect, importcpp: "Period",
-    header: "Geom_TrimmedCurve.hxx".}
-proc lastParameter*(this: GeomTrimmedCurve): float {.noSideEffect,
+proc period*(this: GeomTrimmedCurve): StandardReal {.noSideEffect,
+    importcpp: "Period", header: "Geom_TrimmedCurve.hxx".}
+proc lastParameter*(this: GeomTrimmedCurve): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_TrimmedCurve.hxx".}
 proc startPoint*(this: GeomTrimmedCurve): Pnt {.noSideEffect,
     importcpp: "StartPoint", header: "Geom_TrimmedCurve.hxx".}
-proc d0*(this: GeomTrimmedCurve; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
-    header: "Geom_TrimmedCurve.hxx".}
-proc d1*(this: GeomTrimmedCurve; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+proc d0*(this: GeomTrimmedCurve; u: StandardReal; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_TrimmedCurve.hxx".}
+proc d1*(this: GeomTrimmedCurve; u: StandardReal; p: var Pnt; v1: var Vec) {.noSideEffect,
     importcpp: "D1", header: "Geom_TrimmedCurve.hxx".}
-proc d2*(this: GeomTrimmedCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: GeomTrimmedCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
     noSideEffect, importcpp: "D2", header: "Geom_TrimmedCurve.hxx".}
-proc d3*(this: GeomTrimmedCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, importcpp: "D3", header: "Geom_TrimmedCurve.hxx".}
-proc dn*(this: GeomTrimmedCurve; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
-    header: "Geom_TrimmedCurve.hxx".}
+proc d3*(this: GeomTrimmedCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec;
+        v3: var Vec) {.noSideEffect, importcpp: "D3", header: "Geom_TrimmedCurve.hxx".}
+proc dn*(this: GeomTrimmedCurve; u: StandardReal; n: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "Geom_TrimmedCurve.hxx".}
 proc transform*(this: var GeomTrimmedCurve; t: Trsf) {.importcpp: "Transform",
     header: "Geom_TrimmedCurve.hxx".}
-proc transformedParameter*(this: GeomTrimmedCurve; u: float; t: Trsf): float {.
+proc transformedParameter*(this: GeomTrimmedCurve; u: StandardReal; t: Trsf): StandardReal {.
     noSideEffect, importcpp: "TransformedParameter",
     header: "Geom_TrimmedCurve.hxx".}
-proc parametricTransformation*(this: GeomTrimmedCurve; t: Trsf): float {.noSideEffect,
-    importcpp: "ParametricTransformation", header: "Geom_TrimmedCurve.hxx".}
+proc parametricTransformation*(this: GeomTrimmedCurve; t: Trsf): StandardReal {.
+    noSideEffect, importcpp: "ParametricTransformation",
+    header: "Geom_TrimmedCurve.hxx".}
 proc copy*(this: GeomTrimmedCurve): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_TrimmedCurve.hxx".}
 proc dumpJson*(this: GeomTrimmedCurve; theOStream: var StandardOStream;

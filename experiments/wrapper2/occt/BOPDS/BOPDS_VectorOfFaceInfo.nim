@@ -15,3 +15,28 @@
 type
   BOPDS_VectorOfFaceInfo* = NCollectionVector[BOPDS_FaceInfo]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

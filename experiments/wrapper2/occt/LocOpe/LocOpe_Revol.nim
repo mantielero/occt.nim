@@ -25,13 +25,14 @@ type
 
 proc constructLocOpeRevol*(): LocOpeRevol {.constructor,
     importcpp: "LocOpe_Revol(@)", header: "LocOpe_Revol.hxx".}
-proc constructLocOpeRevol*(base: TopoDS_Shape; axis: Ax1; angle: float; angledec: float): LocOpeRevol {.
+proc constructLocOpeRevol*(base: TopoDS_Shape; axis: Ax1; angle: cfloat;
+                          angledec: cfloat): LocOpeRevol {.constructor,
+    importcpp: "LocOpe_Revol(@)", header: "LocOpe_Revol.hxx".}
+proc constructLocOpeRevol*(base: TopoDS_Shape; axis: Ax1; angle: cfloat): LocOpeRevol {.
     constructor, importcpp: "LocOpe_Revol(@)", header: "LocOpe_Revol.hxx".}
-proc constructLocOpeRevol*(base: TopoDS_Shape; axis: Ax1; angle: float): LocOpeRevol {.
-    constructor, importcpp: "LocOpe_Revol(@)", header: "LocOpe_Revol.hxx".}
-proc perform*(this: var LocOpeRevol; base: TopoDS_Shape; axis: Ax1; angle: float;
-             angledec: float) {.importcpp: "Perform", header: "LocOpe_Revol.hxx".}
-proc perform*(this: var LocOpeRevol; base: TopoDS_Shape; axis: Ax1; angle: float) {.
+proc perform*(this: var LocOpeRevol; base: TopoDS_Shape; axis: Ax1; angle: cfloat;
+             angledec: cfloat) {.importcpp: "Perform", header: "LocOpe_Revol.hxx".}
+proc perform*(this: var LocOpeRevol; base: TopoDS_Shape; axis: Ax1; angle: cfloat) {.
     importcpp: "Perform", header: "LocOpe_Revol.hxx".}
 proc firstShape*(this: LocOpeRevol): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "LocOpe_Revol.hxx".}
@@ -45,3 +46,28 @@ proc curves*(this: LocOpeRevol; sCurves: var TColGeomSequenceOfCurve) {.noSideEf
     importcpp: "Curves", header: "LocOpe_Revol.hxx".}
 proc barycCurve*(this: LocOpeRevol): Handle[GeomCurve] {.noSideEffect,
     importcpp: "BarycCurve", header: "LocOpe_Revol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

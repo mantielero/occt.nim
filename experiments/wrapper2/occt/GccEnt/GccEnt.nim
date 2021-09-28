@@ -47,3 +47,28 @@ proc outside*(obj: Lin2d): GccEntQualifiedLin {.importcpp: "GccEnt::Outside(@)",
     header: "GccEnt.hxx".}
 proc outside*(obj: Circ2d): GccEntQualifiedCirc {.importcpp: "GccEnt::Outside(@)",
     header: "GccEnt.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

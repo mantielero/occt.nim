@@ -29,7 +29,7 @@ proc constructRWStepGeomRWDegeneratePcurve*(): RWStepGeomRWDegeneratePcurve {.
     constructor, importcpp: "RWStepGeom_RWDegeneratePcurve(@)",
     header: "RWStepGeom_RWDegeneratePcurve.hxx".}
 proc readStep*(this: RWStepGeomRWDegeneratePcurve;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomDegeneratePcurve]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWDegeneratePcurve.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepGeomRWDegeneratePcurve;
            ent: Handle[StepGeomDegeneratePcurve];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWDegeneratePcurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

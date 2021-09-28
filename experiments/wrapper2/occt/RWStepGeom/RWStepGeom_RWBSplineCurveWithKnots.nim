@@ -29,7 +29,7 @@ proc constructRWStepGeomRWBSplineCurveWithKnots*(): RWStepGeomRWBSplineCurveWith
     constructor, importcpp: "RWStepGeom_RWBSplineCurveWithKnots(@)",
     header: "RWStepGeom_RWBSplineCurveWithKnots.hxx".}
 proc readStep*(this: RWStepGeomRWBSplineCurveWithKnots;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomBSplineCurveWithKnots]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWBSplineCurveWithKnots.hxx".}
@@ -45,3 +45,28 @@ proc check*(this: RWStepGeomRWBSplineCurveWithKnots;
            ent: Handle[StepGeomBSplineCurveWithKnots]; shares: InterfaceShareTool;
            ach: var Handle[InterfaceCheck]) {.noSideEffect, importcpp: "Check",
     header: "RWStepGeom_RWBSplineCurveWithKnots.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

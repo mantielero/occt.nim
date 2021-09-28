@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESSolidToolSelectedComponent;
     header: "IGESSolid_ToolSelectedComponent.hxx".}
 proc ownDump*(this: IGESSolidToolSelectedComponent;
              ent: Handle[IGESSolidSelectedComponent]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESSolid_ToolSelectedComponent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@ proc constructRWStepElementRWCurveElementSectionDefinition*(): RWStepElementRWCu
     constructor, importcpp: "RWStepElement_RWCurveElementSectionDefinition(@)",
     header: "RWStepElement_RWCurveElementSectionDefinition.hxx".}
 proc readStep*(this: RWStepElementRWCurveElementSectionDefinition;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepElementCurveElementSectionDefinition]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepElementRWCurveElementSectionDefinition;
            ent: Handle[StepElementCurveElementSectionDefinition];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWCurveElementSectionDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

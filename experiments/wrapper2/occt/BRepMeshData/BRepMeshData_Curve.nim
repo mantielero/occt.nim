@@ -33,18 +33,18 @@ proc bRepMeshDataCurve*(this: var BRepMeshDataCurve;
   ## ! Constructor.
 proc destroyBRepMeshDataCurve*(this: var BRepMeshDataCurve) {.
     importcpp: "#.~BRepMeshData_Curve()", header: "BRepMeshData_Curve.hxx".}
-proc insertPoint*(this: var BRepMeshDataCurve; thePosition: int; thePoint: Pnt;
-                 theParamOnPCurve: float) {.importcpp: "InsertPoint",
+proc insertPoint*(this: var BRepMeshDataCurve; thePosition: cint; thePoint: Pnt;
+                 theParamOnPCurve: cfloat) {.importcpp: "InsertPoint",
     header: "BRepMeshData_Curve.hxx".}
-proc addPoint*(this: var BRepMeshDataCurve; thePoint: Pnt; theParamOnCurve: float) {.
+proc addPoint*(this: var BRepMeshDataCurve; thePoint: Pnt; theParamOnCurve: cfloat) {.
     importcpp: "AddPoint", header: "BRepMeshData_Curve.hxx".}
-proc getPoint*(this: var BRepMeshDataCurve; theIndex: int): var Pnt {.
+proc getPoint*(this: var BRepMeshDataCurve; theIndex: cint): var Pnt {.
     importcpp: "GetPoint", header: "BRepMeshData_Curve.hxx".}
-proc removePoint*(this: var BRepMeshDataCurve; theIndex: int) {.
+proc removePoint*(this: var BRepMeshDataCurve; theIndex: cint) {.
     importcpp: "RemovePoint", header: "BRepMeshData_Curve.hxx".}
-proc getParameter*(this: var BRepMeshDataCurve; theIndex: int): var float {.
+proc getParameter*(this: var BRepMeshDataCurve; theIndex: cint): var cfloat {.
     importcpp: "GetParameter", header: "BRepMeshData_Curve.hxx".}
-proc parametersNb*(this: BRepMeshDataCurve): int {.noSideEffect,
+proc parametersNb*(this: BRepMeshDataCurve): cint {.noSideEffect,
     importcpp: "ParametersNb", header: "BRepMeshData_Curve.hxx".}
 proc clear*(this: var BRepMeshDataCurve; isKeepEndPoints: bool) {.importcpp: "Clear",
     header: "BRepMeshData_Curve.hxx".}
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMeshData_Curve.hxx".}
 proc dynamicType*(this: BRepMeshDataCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

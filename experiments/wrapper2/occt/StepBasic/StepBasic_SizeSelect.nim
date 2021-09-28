@@ -28,13 +28,38 @@ type
 
 proc constructStepBasicSizeSelect*(): StepBasicSizeSelect {.constructor,
     importcpp: "StepBasic_SizeSelect(@)", header: "StepBasic_SizeSelect.hxx".}
-proc caseNum*(this: StepBasicSizeSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepBasicSizeSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_SizeSelect.hxx".}
 proc newMember*(this: StepBasicSizeSelect): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepBasic_SizeSelect.hxx".}
-proc caseMem*(this: StepBasicSizeSelect; ent: Handle[StepDataSelectMember]): int {.
+proc caseMem*(this: StepBasicSizeSelect; ent: Handle[StepDataSelectMember]): cint {.
     noSideEffect, importcpp: "CaseMem", header: "StepBasic_SizeSelect.hxx".}
-proc setRealValue*(this: var StepBasicSizeSelect; aReal: float) {.
+proc setRealValue*(this: var StepBasicSizeSelect; aReal: cfloat) {.
     importcpp: "SetRealValue", header: "StepBasic_SizeSelect.hxx".}
-proc realValue*(this: StepBasicSizeSelect): float {.noSideEffect,
+proc realValue*(this: StepBasicSizeSelect): cfloat {.noSideEffect,
     importcpp: "RealValue", header: "StepBasic_SizeSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

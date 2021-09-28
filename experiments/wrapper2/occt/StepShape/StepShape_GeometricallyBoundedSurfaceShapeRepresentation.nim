@@ -17,8 +17,7 @@
 discard "forward decl of StepShape_GeometricallyBoundedSurfaceShapeRepresentation"
 discard "forward decl of StepShape_GeometricallyBoundedSurfaceShapeRepresentation"
 type
-  HandleStepShapeGeometricallyBoundedSurfaceShapeRepresentation* = Handle[
-      StepShapeGeometricallyBoundedSurfaceShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeGeometricallyBoundedSurfaceShapeRepresentation]
   StepShapeGeometricallyBoundedSurfaceShapeRepresentation* {.
       importcpp: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation",
       header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx",
@@ -38,3 +37,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_Geometri
     header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx".}
 proc dynamicType*(this: StepShapeGeometricallyBoundedSurfaceShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -37,13 +37,38 @@ proc constructIntCurveSurfaceTheQuadCurvExactHInter*(
     header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
 proc isDone*(this: IntCurveSurfaceTheQuadCurvExactHInter): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
-proc nbRoots*(this: IntCurveSurfaceTheQuadCurvExactHInter): int {.noSideEffect,
+proc nbRoots*(this: IntCurveSurfaceTheQuadCurvExactHInter): cint {.noSideEffect,
     importcpp: "NbRoots", header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
-proc root*(this: IntCurveSurfaceTheQuadCurvExactHInter; index: int): float {.
+proc root*(this: IntCurveSurfaceTheQuadCurvExactHInter; index: cint): cfloat {.
     noSideEffect, importcpp: "Root",
     header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
-proc nbIntervals*(this: IntCurveSurfaceTheQuadCurvExactHInter): int {.noSideEffect,
+proc nbIntervals*(this: IntCurveSurfaceTheQuadCurvExactHInter): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
-proc intervals*(this: IntCurveSurfaceTheQuadCurvExactHInter; index: int;
-               u1: var float; u2: var float) {.noSideEffect, importcpp: "Intervals",
+proc intervals*(this: IntCurveSurfaceTheQuadCurvExactHInter; index: cint;
+               u1: var cfloat; u2: var cfloat) {.noSideEffect, importcpp: "Intervals",
     header: "IntCurveSurface_TheQuadCurvExactHInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

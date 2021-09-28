@@ -16,7 +16,7 @@
 discard "forward decl of StepRepr_BetweenShapeAspect"
 discard "forward decl of StepRepr_BetweenShapeAspect"
 type
-  HandleStepReprBetweenShapeAspect* = Handle[StepReprBetweenShapeAspect]
+  HandleC1C1* = Handle[StepReprBetweenShapeAspect]
 
 ## ! Added for Dimensional Tolerances
 
@@ -39,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprBetweenShapeAspect): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_BetweenShapeAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

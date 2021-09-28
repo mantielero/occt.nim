@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectRoots"
 discard "forward decl of IFSelect_SelectRoots"
 type
-  HandleIFSelectSelectRoots* = Handle[IFSelectSelectRoots]
+  HandleC1C1* = Handle[IFSelectSelectRoots]
 
 ## ! A SelectRoots sorts the Entities which are local roots of a
 ## ! set of Entities (not shared by other Entities inside this set,
@@ -49,7 +49,7 @@ proc constructIFSelectSelectRoots*(): IFSelectSelectRoots {.constructor,
     importcpp: "IFSelect_SelectRoots(@)", header: "IFSelect_SelectRoots.hxx".}
 proc rootResult*(this: IFSelectSelectRoots; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectRoots.hxx".}
-proc sort*(this: IFSelectSelectRoots; rank: int; ent: Handle[StandardTransient];
+proc sort*(this: IFSelectSelectRoots; rank: cint; ent: Handle[StandardTransient];
           model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
     importcpp: "Sort", header: "IFSelect_SelectRoots.hxx".}
 proc extractLabel*(this: IFSelectSelectRoots): TCollectionAsciiString {.
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectRoots.hxx".}
 proc dynamicType*(this: IFSelectSelectRoots): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectRoots.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

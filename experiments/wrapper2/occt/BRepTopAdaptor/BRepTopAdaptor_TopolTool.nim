@@ -24,7 +24,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of BRepTopAdaptor_TopolTool"
 discard "forward decl of BRepTopAdaptor_TopolTool"
 type
-  HandleBRepTopAdaptorTopolTool* = Handle[BRepTopAdaptorTopolTool]
+  HandleC1C1* = Handle[BRepTopAdaptorTopolTool]
   BRepTopAdaptorTopolTool* {.importcpp: "BRepTopAdaptor_TopolTool",
                             header: "BRepTopAdaptor_TopolTool.hxx", bycopy.} = object of Adaptor3dTopolTool
 
@@ -59,10 +59,10 @@ proc vertex*(this: var BRepTopAdaptorTopolTool): Handle[Adaptor3dHVertex] {.
     importcpp: "Vertex", header: "BRepTopAdaptor_TopolTool.hxx".}
 proc nextVertex*(this: var BRepTopAdaptorTopolTool) {.importcpp: "NextVertex",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc classify*(this: var BRepTopAdaptorTopolTool; p2d: Pnt2d; tol: float;
+proc classify*(this: var BRepTopAdaptorTopolTool; p2d: Pnt2d; tol: cfloat;
               recadreOnPeriodic: bool = true): TopAbsState {.importcpp: "Classify",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc isThePointOn*(this: var BRepTopAdaptorTopolTool; p2d: Pnt2d; tol: float;
+proc isThePointOn*(this: var BRepTopAdaptorTopolTool; p2d: Pnt2d; tol: cfloat;
                   recadreOnPeriodic: bool = true): bool {.importcpp: "IsThePointOn",
     header: "BRepTopAdaptor_TopolTool.hxx".}
 proc orientation*(this: var BRepTopAdaptorTopolTool; c: Handle[Adaptor2dHCurve2d]): TopAbsOrientation {.
@@ -76,21 +76,21 @@ proc destroyBRepTopAdaptorTopolTool*(this: var BRepTopAdaptorTopolTool) {.
     header: "BRepTopAdaptor_TopolTool.hxx".}
 proc has3d*(this: BRepTopAdaptorTopolTool): bool {.noSideEffect, importcpp: "Has3d",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc tol3d*(this: BRepTopAdaptorTopolTool; c: Handle[Adaptor2dHCurve2d]): float {.
+proc tol3d*(this: BRepTopAdaptorTopolTool; c: Handle[Adaptor2dHCurve2d]): cfloat {.
     noSideEffect, importcpp: "Tol3d", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc tol3d*(this: BRepTopAdaptorTopolTool; v: Handle[Adaptor3dHVertex]): float {.
+proc tol3d*(this: BRepTopAdaptorTopolTool; v: Handle[Adaptor3dHVertex]): cfloat {.
     noSideEffect, importcpp: "Tol3d", header: "BRepTopAdaptor_TopolTool.hxx".}
 proc pnt*(this: BRepTopAdaptorTopolTool; v: Handle[Adaptor3dHVertex]): Pnt {.
     noSideEffect, importcpp: "Pnt", header: "BRepTopAdaptor_TopolTool.hxx".}
 proc computeSamplePoints*(this: var BRepTopAdaptorTopolTool) {.
     importcpp: "ComputeSamplePoints", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc nbSamplesU*(this: var BRepTopAdaptorTopolTool): int {.importcpp: "NbSamplesU",
+proc nbSamplesU*(this: var BRepTopAdaptorTopolTool): cint {.importcpp: "NbSamplesU",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc nbSamplesV*(this: var BRepTopAdaptorTopolTool): int {.importcpp: "NbSamplesV",
+proc nbSamplesV*(this: var BRepTopAdaptorTopolTool): cint {.importcpp: "NbSamplesV",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc nbSamples*(this: var BRepTopAdaptorTopolTool): int {.importcpp: "NbSamples",
+proc nbSamples*(this: var BRepTopAdaptorTopolTool): cint {.importcpp: "NbSamples",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc samplePoint*(this: var BRepTopAdaptorTopolTool; index: int; p2d: var Pnt2d;
+proc samplePoint*(this: var BRepTopAdaptorTopolTool; index: cint; p2d: var Pnt2d;
                  p3d: var Pnt) {.importcpp: "SamplePoint",
                               header: "BRepTopAdaptor_TopolTool.hxx".}
 proc domainIsInfinite*(this: var BRepTopAdaptorTopolTool): bool {.
@@ -105,3 +105,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepTopAdaptor_TopolTool.hxx".}
 proc dynamicType*(this: BRepTopAdaptorTopolTool): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepTopAdaptor_TopolTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

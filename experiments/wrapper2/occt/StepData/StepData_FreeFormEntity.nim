@@ -18,7 +18,7 @@ discard "forward decl of StepData_Field"
 discard "forward decl of StepData_FreeFormEntity"
 discard "forward decl of StepData_FreeFormEntity"
 type
-  HandleStepDataFreeFormEntity* = Handle[StepDataFreeFormEntity]
+  HandleC1C1* = Handle[StepDataFreeFormEntity]
 
 ## ! A Free Form Entity allows to record any kind of STEP
 ## ! parameters, in any way of typing
@@ -61,13 +61,13 @@ proc typeList*(this: StepDataFreeFormEntity): Handle[TColStdHSequenceOfAsciiStri
 proc reorder*(ent: var Handle[StepDataFreeFormEntity]): bool {.
     importcpp: "StepData_FreeFormEntity::Reorder(@)",
     header: "StepData_FreeFormEntity.hxx".}
-proc setNbFields*(this: var StepDataFreeFormEntity; nb: int) {.
+proc setNbFields*(this: var StepDataFreeFormEntity; nb: cint) {.
     importcpp: "SetNbFields", header: "StepData_FreeFormEntity.hxx".}
-proc nbFields*(this: StepDataFreeFormEntity): int {.noSideEffect,
+proc nbFields*(this: StepDataFreeFormEntity): cint {.noSideEffect,
     importcpp: "NbFields", header: "StepData_FreeFormEntity.hxx".}
-proc field*(this: StepDataFreeFormEntity; num: int): StepDataField {.noSideEffect,
+proc field*(this: StepDataFreeFormEntity; num: cint): StepDataField {.noSideEffect,
     importcpp: "Field", header: "StepData_FreeFormEntity.hxx".}
-proc cField*(this: var StepDataFreeFormEntity; num: int): var StepDataField {.
+proc cField*(this: var StepDataFreeFormEntity; num: cint): var StepDataField {.
     importcpp: "CField", header: "StepData_FreeFormEntity.hxx".}
 type
   StepDataFreeFormEntitybaseType* = StandardTransient
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_FreeFormEntity.hxx".}
 proc dynamicType*(this: StepDataFreeFormEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_FreeFormEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

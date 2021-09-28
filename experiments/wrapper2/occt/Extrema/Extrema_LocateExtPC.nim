@@ -33,23 +33,48 @@ type
 
 proc constructExtremaLocateExtPC*(): ExtremaLocateExtPC {.constructor,
     importcpp: "Extrema_LocateExtPC(@)", header: "Extrema_LocateExtPC.hxx".}
-proc constructExtremaLocateExtPC*(p: Pnt; c: Adaptor3dCurve; u0: float; tolF: float): ExtremaLocateExtPC {.
+proc constructExtremaLocateExtPC*(p: Pnt; c: Adaptor3dCurve; u0: cfloat; tolF: cfloat): ExtremaLocateExtPC {.
     constructor, importcpp: "Extrema_LocateExtPC(@)",
     header: "Extrema_LocateExtPC.hxx".}
-proc constructExtremaLocateExtPC*(p: Pnt; c: Adaptor3dCurve; u0: float; umin: float;
-                                 usup: float; tolF: float): ExtremaLocateExtPC {.
+proc constructExtremaLocateExtPC*(p: Pnt; c: Adaptor3dCurve; u0: cfloat; umin: cfloat;
+                                 usup: cfloat; tolF: cfloat): ExtremaLocateExtPC {.
     constructor, importcpp: "Extrema_LocateExtPC(@)",
     header: "Extrema_LocateExtPC.hxx".}
-proc initialize*(this: var ExtremaLocateExtPC; c: Adaptor3dCurve; umin: float;
-                usup: float; tolF: float) {.importcpp: "Initialize",
-                                        header: "Extrema_LocateExtPC.hxx".}
-proc perform*(this: var ExtremaLocateExtPC; p: Pnt; u0: float) {.importcpp: "Perform",
+proc initialize*(this: var ExtremaLocateExtPC; c: Adaptor3dCurve; umin: cfloat;
+                usup: cfloat; tolF: cfloat) {.importcpp: "Initialize",
+    header: "Extrema_LocateExtPC.hxx".}
+proc perform*(this: var ExtremaLocateExtPC; p: Pnt; u0: cfloat) {.importcpp: "Perform",
     header: "Extrema_LocateExtPC.hxx".}
 proc isDone*(this: ExtremaLocateExtPC): bool {.noSideEffect, importcpp: "IsDone",
     header: "Extrema_LocateExtPC.hxx".}
-proc squareDistance*(this: ExtremaLocateExtPC): float {.noSideEffect,
+proc squareDistance*(this: ExtremaLocateExtPC): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_LocateExtPC.hxx".}
 proc isMin*(this: ExtremaLocateExtPC): bool {.noSideEffect, importcpp: "IsMin",
     header: "Extrema_LocateExtPC.hxx".}
 proc point*(this: ExtremaLocateExtPC): ExtremaPOnCurv {.noSideEffect,
     importcpp: "Point", header: "Extrema_LocateExtPC.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

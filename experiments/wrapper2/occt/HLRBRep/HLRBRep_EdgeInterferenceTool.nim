@@ -40,15 +40,15 @@ proc currentVertex*(this: HLRBRepEdgeInterferenceTool): HLRAlgoIntersection {.
 proc currentOrientation*(this: HLRBRepEdgeInterferenceTool): TopAbsOrientation {.
     noSideEffect, importcpp: "CurrentOrientation",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc currentParameter*(this: HLRBRepEdgeInterferenceTool): float {.noSideEffect,
+proc currentParameter*(this: HLRBRepEdgeInterferenceTool): cfloat {.noSideEffect,
     importcpp: "CurrentParameter", header: "HLRBRep_EdgeInterferenceTool.hxx".}
 proc isPeriodic*(this: HLRBRepEdgeInterferenceTool): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc edgeGeometry*(this: HLRBRepEdgeInterferenceTool; param: float; tgt: var Dir;
-                  nrm: var Dir; curv: var float) {.noSideEffect,
+proc edgeGeometry*(this: HLRBRepEdgeInterferenceTool; param: cfloat; tgt: var Dir;
+                  nrm: var Dir; curv: var cfloat) {.noSideEffect,
     importcpp: "EdgeGeometry", header: "HLRBRep_EdgeInterferenceTool.hxx".}
 proc parameterOfInterference*(this: HLRBRepEdgeInterferenceTool;
-                             i: HLRAlgoInterference): float {.noSideEffect,
+                             i: HLRAlgoInterference): cfloat {.noSideEffect,
     importcpp: "ParameterOfInterference",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
 proc sameInterferences*(this: HLRBRepEdgeInterferenceTool; i1: HLRAlgoInterference;
@@ -60,6 +60,31 @@ proc sameVertexAndInterference*(this: HLRBRepEdgeInterferenceTool;
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
 proc interferenceBoundaryGeometry*(this: HLRBRepEdgeInterferenceTool;
                                   i: HLRAlgoInterference; tang: var Dir;
-                                  norm: var Dir; curv: var float) {.noSideEffect,
+                                  norm: var Dir; curv: var cfloat) {.noSideEffect,
     importcpp: "InterferenceBoundaryGeometry",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ discard "forward decl of TNaming_RefShape"
 type
   TNamingPtrRefShape* = ptr TNamingRefShape
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

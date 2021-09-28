@@ -31,7 +31,7 @@ proc constructRWStepAP203RWCcDesignDateAndTimeAssignment*(): RWStepAP203RWCcDesi
     constructor, importcpp: "RWStepAP203_RWCcDesignDateAndTimeAssignment(@)",
     header: "RWStepAP203_RWCcDesignDateAndTimeAssignment.hxx".}
 proc readStep*(this: RWStepAP203RWCcDesignDateAndTimeAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP203CcDesignDateAndTimeAssignment]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepAP203RWCcDesignDateAndTimeAssignment;
            ent: Handle[StepAP203CcDesignDateAndTimeAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignDateAndTimeAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

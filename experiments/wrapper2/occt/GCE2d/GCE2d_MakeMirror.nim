@@ -37,3 +37,28 @@ proc value*(this: GCE2dMakeMirror): Handle[Geom2dTransformation] {.noSideEffect,
 converter `constopencascade`*(this: GCE2dMakeMirror): Handle[Geom2dTransformation] {.
     noSideEffect, importcpp: "GCE2d_MakeMirror::operator constopencascade",
     header: "GCE2d_MakeMirror.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

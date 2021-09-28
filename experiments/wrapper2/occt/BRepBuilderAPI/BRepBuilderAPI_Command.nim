@@ -29,3 +29,28 @@ proc isDone*(this: BRepBuilderAPI_Command): bool {.noSideEffect, importcpp: "IsD
     header: "BRepBuilderAPI_Command.hxx".}
 proc check*(this: BRepBuilderAPI_Command) {.noSideEffect, importcpp: "Check",
     header: "BRepBuilderAPI_Command.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

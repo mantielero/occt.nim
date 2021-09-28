@@ -114,13 +114,38 @@ proc collect*(ns: Handle[TNamingNamedShape]; labels: var TNamingMapOfNamedShape;
                                    header: "TNaming_Tool.hxx".}
 proc hasLabel*(access: TDF_Label; aShape: TopoDS_Shape): bool {.
     importcpp: "TNaming_Tool::HasLabel(@)", header: "TNaming_Tool.hxx".}
-proc label*(access: TDF_Label; aShape: TopoDS_Shape; transDef: var int): TDF_Label {.
+proc label*(access: TDF_Label; aShape: TopoDS_Shape; transDef: var cint): TDF_Label {.
     importcpp: "TNaming_Tool::Label(@)", header: "TNaming_Tool.hxx".}
 proc initialShape*(aShape: TopoDS_Shape; anAcces: TDF_Label;
                   labels: var TDF_LabelList): TopoDS_Shape {.
     importcpp: "TNaming_Tool::InitialShape(@)", header: "TNaming_Tool.hxx".}
-proc validUntil*(access: TDF_Label; s: TopoDS_Shape): int {.
+proc validUntil*(access: TDF_Label; s: TopoDS_Shape): cint {.
     importcpp: "TNaming_Tool::ValidUntil(@)", header: "TNaming_Tool.hxx".}
 proc findShape*(valid: TDF_LabelMap; forbiden: TDF_LabelMap;
                arg: Handle[TNamingNamedShape]; s: var TopoDS_Shape) {.
     importcpp: "TNaming_Tool::FindShape(@)", header: "TNaming_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

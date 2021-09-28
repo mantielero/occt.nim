@@ -18,8 +18,7 @@ discard "forward decl of ShapeExtend_CompositeSurface"
 discard "forward decl of ShapeUpgrade_ConvertSurfaceToBezierBasis"
 discard "forward decl of ShapeUpgrade_ConvertSurfaceToBezierBasis"
 type
-  HandleShapeUpgradeConvertSurfaceToBezierBasis* = Handle[
-      ShapeUpgradeConvertSurfaceToBezierBasis]
+  HandleC1C1* = Handle[ShapeUpgradeConvertSurfaceToBezierBasis]
 
 ## ! Converts a plane, bspline surface, surface of revolution, surface
 ## ! of extrusion, offset surface to grid of bezier basis surface (
@@ -77,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "ShapeUpgrade_Conve
 proc dynamicType*(this: ShapeUpgradeConvertSurfaceToBezierBasis): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,75 +22,52 @@ discard "forward decl of GccEnt_QualifiedCirc"
 discard "forward decl of gp_Lin2d"
 type
   Geom2dGccLin2d2TanIter* {.importcpp: "Geom2dGcc_Lin2d2TanIter",
-                           header: "Geom2dGcc_Lin2d2TanIter.hxx", bycopy.} = object ## !
-                                                                               ## This
-                                                                               ## class
-                                                                               ## implements
-                                                                               ## the
-                                                                               ## algorithms
-                                                                               ## used
-                                                                               ## to
-                                                                               ## create
-                                                                               ## 2d
-                                                                               ## !
-                                                                               ## lines
-                                                                               ## passing
-                                                                               ## thrue a
-                                                                               ## point
-                                                                               ## and
-                                                                               ## tangent
-                                                                               ## to a
-                                                                               ## curve.
-                                                                               ## !
-                                                                               ## Tolang
-                                                                               ## is
-                                                                               ## used
-                                                                               ## to
-                                                                               ## determine
-                                                                               ## the
-                                                                               ## tolerance
-                                                                               ## for
-                                                                               ## the
-                                                                               ## !
-                                                                               ## tangency
-                                                                               ## points.
-                                                                               ## !
-                                                                               ## Param2
-                                                                               ## is
-                                                                               ## used
-                                                                               ## for
-                                                                               ## the
-                                                                               ## initial
-                                                                               ## guess
-                                                                               ## on
-                                                                               ## the
-                                                                               ## curve.
+                           header: "Geom2dGcc_Lin2d2TanIter.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dGccLin2d2TanIter; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc_Lin2d2TanIter::operator new",
+    header: "Geom2dGcc_Lin2d2TanIter.hxx".}
+proc `delete`*(this: var Geom2dGccLin2d2TanIter; theAddress: pointer) {.
+    importcpp: "Geom2dGcc_Lin2d2TanIter::operator delete",
+    header: "Geom2dGcc_Lin2d2TanIter.hxx".}
+proc `new[]`*(this: var Geom2dGccLin2d2TanIter; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc_Lin2d2TanIter::operator new[]",
+    header: "Geom2dGcc_Lin2d2TanIter.hxx".}
+proc `delete[]`*(this: var Geom2dGccLin2d2TanIter; theAddress: pointer) {.
+    importcpp: "Geom2dGcc_Lin2d2TanIter::operator delete[]",
+    header: "Geom2dGcc_Lin2d2TanIter.hxx".}
+proc `new`*(this: var Geom2dGccLin2d2TanIter; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dGcc_Lin2d2TanIter::operator new",
+    header: "Geom2dGcc_Lin2d2TanIter.hxx".}
+proc `delete`*(this: var Geom2dGccLin2d2TanIter; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dGcc_Lin2d2TanIter::operator delete",
+    header: "Geom2dGcc_Lin2d2TanIter.hxx".}
 proc constructGeom2dGccLin2d2TanIter*(qualified1: Geom2dGccQCurve; thePoint: Pnt2d;
-                                     param1: float; tolang: float): Geom2dGccLin2d2TanIter {.
+                                     param1: StandardReal; tolang: StandardReal): Geom2dGccLin2d2TanIter {.
     constructor, importcpp: "Geom2dGcc_Lin2d2TanIter(@)",
     header: "Geom2dGcc_Lin2d2TanIter.hxx".}
 proc constructGeom2dGccLin2d2TanIter*(qualified1: GccEntQualifiedCirc;
-                                     qualified2: Geom2dGccQCurve; param2: float;
-                                     tolang: float): Geom2dGccLin2d2TanIter {.
+                                     qualified2: Geom2dGccQCurve;
+                                     param2: StandardReal; tolang: StandardReal): Geom2dGccLin2d2TanIter {.
     constructor, importcpp: "Geom2dGcc_Lin2d2TanIter(@)",
     header: "Geom2dGcc_Lin2d2TanIter.hxx".}
 proc constructGeom2dGccLin2d2TanIter*(qualified1: Geom2dGccQCurve;
-                                     qualified2: Geom2dGccQCurve; param1: float;
-                                     param2: float; tolang: float): Geom2dGccLin2d2TanIter {.
+                                     qualified2: Geom2dGccQCurve;
+                                     param1: StandardReal; param2: StandardReal;
+                                     tolang: StandardReal): Geom2dGccLin2d2TanIter {.
     constructor, importcpp: "Geom2dGcc_Lin2d2TanIter(@)",
     header: "Geom2dGcc_Lin2d2TanIter.hxx".}
-proc isDone*(this: Geom2dGccLin2d2TanIter): bool {.noSideEffect, importcpp: "IsDone",
-    header: "Geom2dGcc_Lin2d2TanIter.hxx".}
+proc isDone*(this: Geom2dGccLin2d2TanIter): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "Geom2dGcc_Lin2d2TanIter.hxx".}
 proc thisSolution*(this: Geom2dGccLin2d2TanIter): Lin2d {.noSideEffect,
     importcpp: "ThisSolution", header: "Geom2dGcc_Lin2d2TanIter.hxx".}
 proc whichQualifier*(this: Geom2dGccLin2d2TanIter; qualif1: var GccEntPosition;
                     qualif2: var GccEntPosition) {.noSideEffect,
     importcpp: "WhichQualifier", header: "Geom2dGcc_Lin2d2TanIter.hxx".}
-proc tangency1*(this: Geom2dGccLin2d2TanIter; parSol: var float; parArg: var float;
-               pntSol: var Pnt2d) {.noSideEffect, importcpp: "Tangency1",
-                                 header: "Geom2dGcc_Lin2d2TanIter.hxx".}
-proc tangency2*(this: Geom2dGccLin2d2TanIter; parSol: var float; parArg: var float;
-               pntSol: var Pnt2d) {.noSideEffect, importcpp: "Tangency2",
-                                 header: "Geom2dGcc_Lin2d2TanIter.hxx".}
+proc tangency1*(this: Geom2dGccLin2d2TanIter; parSol: var StandardReal;
+               parArg: var StandardReal; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Tangency1", header: "Geom2dGcc_Lin2d2TanIter.hxx".}
+proc tangency2*(this: Geom2dGccLin2d2TanIter; parSol: var StandardReal;
+               parArg: var StandardReal; pntSol: var Pnt2d) {.noSideEffect,
+    importcpp: "Tangency2", header: "Geom2dGcc_Lin2d2TanIter.hxx".}

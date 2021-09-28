@@ -169,11 +169,12 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Graphic3dArrayOfTriangles): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_ArrayOfTriangles.hxx".}
-proc constructGraphic3dArrayOfTriangles*(theMaxVertexs: int; theMaxEdges: int;
+proc constructGraphic3dArrayOfTriangles*(theMaxVertexs: cint; theMaxEdges: cint;
                                         theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfTriangles {.
     constructor, importcpp: "Graphic3d_ArrayOfTriangles(@)",
     header: "Graphic3d_ArrayOfTriangles.hxx".}
-proc constructGraphic3dArrayOfTriangles*(theMaxVertexs: int; theMaxEdges: int = 0;
+proc constructGraphic3dArrayOfTriangles*(theMaxVertexs: cint;
+                                        theMaxEdges: cint = 0;
                                         theHasVNormals: bool = false;
                                         theHasVColors: bool = false;
                                         theHasVTexels: bool = false): Graphic3dArrayOfTriangles {.
@@ -181,5 +182,30 @@ proc constructGraphic3dArrayOfTriangles*(theMaxVertexs: int; theMaxEdges: int = 
     header: "Graphic3d_ArrayOfTriangles.hxx".}
 discard "forward decl of Graphic3d_ArrayOfTriangles"
 type
-  HandleGraphic3dArrayOfTriangles* = Handle[Graphic3dArrayOfTriangles]
+  HandleC1C1* = Handle[Graphic3dArrayOfTriangles]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -48,15 +48,15 @@ type
 proc constructBRepFeatMakePrism*(): BRepFeatMakePrism {.constructor,
     importcpp: "BRepFeat_MakePrism(@)", header: "BRepFeat_MakePrism.hxx".}
 proc constructBRepFeatMakePrism*(sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-                                skface: TopoDS_Face; direction: Dir; fuse: int;
+                                skface: TopoDS_Face; direction: Dir; fuse: cint;
                                 modify: bool): BRepFeatMakePrism {.constructor,
     importcpp: "BRepFeat_MakePrism(@)", header: "BRepFeat_MakePrism.hxx".}
 proc init*(this: var BRepFeatMakePrism; sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-          skface: TopoDS_Face; direction: Dir; fuse: int; modify: bool) {.
+          skface: TopoDS_Face; direction: Dir; fuse: cint; modify: bool) {.
     importcpp: "Init", header: "BRepFeat_MakePrism.hxx".}
 proc add*(this: var BRepFeatMakePrism; e: TopoDS_Edge; onFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakePrism.hxx".}
-proc perform*(this: var BRepFeatMakePrism; length: float) {.importcpp: "Perform",
+proc perform*(this: var BRepFeatMakePrism; length: cfloat) {.importcpp: "Perform",
     header: "BRepFeat_MakePrism.hxx".}
 proc perform*(this: var BRepFeatMakePrism; until: TopoDS_Shape) {.
     importcpp: "Perform", header: "BRepFeat_MakePrism.hxx".}
@@ -69,9 +69,34 @@ proc performFromEnd*(this: var BRepFeatMakePrism; fUntil: TopoDS_Shape) {.
 proc performThruAll*(this: var BRepFeatMakePrism) {.importcpp: "PerformThruAll",
     header: "BRepFeat_MakePrism.hxx".}
 proc performUntilHeight*(this: var BRepFeatMakePrism; until: TopoDS_Shape;
-                        length: float) {.importcpp: "PerformUntilHeight",
-                                       header: "BRepFeat_MakePrism.hxx".}
+                        length: cfloat) {.importcpp: "PerformUntilHeight",
+                                        header: "BRepFeat_MakePrism.hxx".}
 proc curves*(this: var BRepFeatMakePrism; s: var TColGeomSequenceOfCurve) {.
     importcpp: "Curves", header: "BRepFeat_MakePrism.hxx".}
 proc barycCurve*(this: var BRepFeatMakePrism): Handle[GeomCurve] {.
     importcpp: "BarycCurve", header: "BRepFeat_MakePrism.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

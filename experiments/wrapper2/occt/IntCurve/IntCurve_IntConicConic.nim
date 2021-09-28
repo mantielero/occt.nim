@@ -32,107 +32,132 @@ type
 proc constructIntCurveIntConicConic*(): IntCurveIntConicConic {.constructor,
     importcpp: "IntCurve_IntConicConic(@)", header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(l1: Lin2d; d1: IntRes2dDomain; l2: Lin2d;
-                                    d2: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; l1: Lin2d; d1: IntRes2dDomain; l2: Lin2d;
-             d2: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+             d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.importcpp: "Perform",
     header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(L: Lin2d; dl: IntRes2dDomain; c: Circ2d;
-                                    dc: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    dc: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; L: Lin2d; dl: IntRes2dDomain; c: Circ2d;
-             dc: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+             dc: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.importcpp: "Perform",
     header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(L: Lin2d; dl: IntRes2dDomain; e: Elips2d;
-                                    de: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    de: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; L: Lin2d; dl: IntRes2dDomain; e: Elips2d;
-             de: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+             de: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.importcpp: "Perform",
     header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(L: Lin2d; dl: IntRes2dDomain; p: Parab2d;
-                                    dp: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    dp: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; L: Lin2d; dl: IntRes2dDomain; p: Parab2d;
-             dp: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+             dp: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.importcpp: "Perform",
     header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(L: Lin2d; dl: IntRes2dDomain; h: Hypr2d;
-                                    dh: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    dh: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; L: Lin2d; dl: IntRes2dDomain; h: Hypr2d;
-             dh: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+             dh: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.importcpp: "Perform",
     header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(c1: Circ2d; d1: IntRes2dDomain; c2: Circ2d;
-                                    d2: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; c1: Circ2d; d1: IntRes2dDomain;
-             c2: Circ2d; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+             c2: Circ2d; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(c: Circ2d; dc: IntRes2dDomain; e: Elips2d;
-                                    de: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    de: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; c: Circ2d; dc: IntRes2dDomain;
-             e: Elips2d; de: IntRes2dDomain; tolConf: float; tol: float) {.
+             e: Elips2d; de: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(c: Circ2d; dc: IntRes2dDomain; p: Parab2d;
-                                    dp: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    dp: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; c: Circ2d; dc: IntRes2dDomain;
-             p: Parab2d; dp: IntRes2dDomain; tolConf: float; tol: float) {.
+             p: Parab2d; dp: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(c: Circ2d; dc: IntRes2dDomain; h: Hypr2d;
-                                    dh: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    dh: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; c: Circ2d; dc: IntRes2dDomain; h: Hypr2d;
-             dh: IntRes2dDomain; tolConf: float; tol: float) {.importcpp: "Perform",
+             dh: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.importcpp: "Perform",
     header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(e1: Elips2d; d1: IntRes2dDomain; e2: Elips2d;
-                                    d2: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; e1: Elips2d; d1: IntRes2dDomain;
-             e2: Elips2d; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+             e2: Elips2d; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(e: Elips2d; de: IntRes2dDomain; p: Parab2d;
-                                    dp: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    dp: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; e: Elips2d; de: IntRes2dDomain;
-             p: Parab2d; dp: IntRes2dDomain; tolConf: float; tol: float) {.
+             p: Parab2d; dp: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(e: Elips2d; de: IntRes2dDomain; h: Hypr2d;
-                                    dh: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    dh: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; e: Elips2d; de: IntRes2dDomain;
-             h: Hypr2d; dh: IntRes2dDomain; tolConf: float; tol: float) {.
+             h: Hypr2d; dh: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(p1: Parab2d; d1: IntRes2dDomain; p2: Parab2d;
-                                    d2: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; p1: Parab2d; d1: IntRes2dDomain;
-             p2: Parab2d; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+             p2: Parab2d; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(p: Parab2d; dp: IntRes2dDomain; h: Hypr2d;
-                                    dh: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    dh: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; p: Parab2d; dp: IntRes2dDomain;
-             h: Hypr2d; dh: IntRes2dDomain; tolConf: float; tol: float) {.
+             h: Hypr2d; dh: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
 proc constructIntCurveIntConicConic*(h1: Hypr2d; d1: IntRes2dDomain; h2: Hypr2d;
-                                    d2: IntRes2dDomain; tolConf: float; tol: float): IntCurveIntConicConic {.
+                                    d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat): IntCurveIntConicConic {.
     constructor, importcpp: "IntCurve_IntConicConic(@)",
     header: "IntCurve_IntConicConic.hxx".}
 proc perform*(this: var IntCurveIntConicConic; h1: Hypr2d; d1: IntRes2dDomain;
-             h2: Hypr2d; d2: IntRes2dDomain; tolConf: float; tol: float) {.
+             h2: Hypr2d; d2: IntRes2dDomain; tolConf: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntCurve_IntConicConic.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

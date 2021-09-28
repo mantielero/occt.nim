@@ -23,7 +23,7 @@ discard "forward decl of TColStd_HPackedMapOfInteger"
 discard "forward decl of Message_Algorithm"
 discard "forward decl of Message_Algorithm"
 type
-  HandleMessageAlgorithm* = Handle[MessageAlgorithm]
+  HandleC1C1* = Handle[MessageAlgorithm]
 
 ## ! Class Message_Algorithm is intended to be the base class for
 ## ! classes implementing algorithms or any operations that need
@@ -79,7 +79,7 @@ proc constructMessageAlgorithm*(): MessageAlgorithm {.constructor,
     importcpp: "Message_Algorithm(@)", header: "Message_Algorithm.hxx".}
 proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus) {.
     importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
-proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus; theInt: int) {.
+proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus; theInt: cint) {.
     importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
 proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
                theStr: StandardCString; noRepetitions: bool = true) {.
@@ -111,12 +111,12 @@ proc getMessenger*(this: MessageAlgorithm): Handle[MessageMessenger] {.noSideEff
     importcpp: "GetMessenger", header: "Message_Algorithm.hxx".}
 proc sendStatusMessages*(this: MessageAlgorithm; theFilter: MessageExecStatus;
                         theTraceLevel: MessageGravity = messageWarning;
-                        theMaxCount: int = 20) {.noSideEffect,
+                        theMaxCount: cint = 20) {.noSideEffect,
     importcpp: "SendStatusMessages", header: "Message_Algorithm.hxx".}
 proc sendMessages*(this: MessageAlgorithm;
                   theTraceLevel: MessageGravity = messageWarning;
-                  theMaxCount: int = 20) {.noSideEffect, importcpp: "SendMessages",
-                                       header: "Message_Algorithm.hxx".}
+                  theMaxCount: cint = 20) {.noSideEffect, importcpp: "SendMessages",
+                                        header: "Message_Algorithm.hxx".}
 proc addStatus*(this: var MessageAlgorithm; theOther: Handle[MessageAlgorithm]) {.
     importcpp: "AddStatus", header: "Message_Algorithm.hxx".}
 proc addStatus*(this: var MessageAlgorithm; theStatus: MessageExecStatus;
@@ -129,11 +129,11 @@ proc getMessageStrings*(this: MessageAlgorithm; theStatus: MessageStatus): Handl
     TColStdHSequenceOfHExtendedString] {.noSideEffect,
                                         importcpp: "GetMessageStrings",
                                         header: "Message_Algorithm.hxx".}
-proc prepareReport*(theError: Handle[TColStdHPackedMapOfInteger]; theMaxCount: int): TCollectionExtendedString {.
+proc prepareReport*(theError: Handle[TColStdHPackedMapOfInteger]; theMaxCount: cint): TCollectionExtendedString {.
     importcpp: "Message_Algorithm::PrepareReport(@)",
     header: "Message_Algorithm.hxx".}
 proc prepareReport*(theReportSeq: TColStdSequenceOfHExtendedString;
-                   theMaxCount: int): TCollectionExtendedString {.
+                   theMaxCount: cint): TCollectionExtendedString {.
     importcpp: "Message_Algorithm::PrepareReport(@)",
     header: "Message_Algorithm.hxx".}
 type
@@ -146,3 +146,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Message_Algorithm.hxx".}
 proc dynamicType*(this: MessageAlgorithm): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Message_Algorithm.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

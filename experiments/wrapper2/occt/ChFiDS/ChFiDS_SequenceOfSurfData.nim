@@ -17,3 +17,28 @@
 type
   ChFiDS_SequenceOfSurfData* = NCollectionSequence[Handle[ChFiDS_SurfData]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

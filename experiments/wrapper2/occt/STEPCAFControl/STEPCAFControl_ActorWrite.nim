@@ -17,7 +17,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of STEPCAFControl_ActorWrite"
 discard "forward decl of STEPCAFControl_ActorWrite"
 type
-  HandleSTEPCAFControlActorWrite* = Handle[STEPCAFControlActorWrite]
+  HandleC1C1* = Handle[STEPCAFControlActorWrite]
 
 ## ! Extends ActorWrite from STEPControl by analysis of
 ## ! whether shape is assembly (based on information from DECAF)
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPCAFControl_ActorWrite.hxx".}
 proc dynamicType*(this: STEPCAFControlActorWrite): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "STEPCAFControl_ActorWrite.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

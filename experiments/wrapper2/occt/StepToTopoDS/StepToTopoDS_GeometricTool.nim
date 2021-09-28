@@ -26,7 +26,7 @@ type
 
 
 proc pCurve*(sc: Handle[StepGeomSurfaceCurve]; s: Handle[StepGeomSurface];
-            pc: var Handle[StepGeomPcurve]; last: int = 0): int {.
+            pc: var Handle[StepGeomPcurve]; last: cint = 0): cint {.
     importcpp: "StepToTopoDS_GeometricTool::PCurve(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}
 proc isSeamCurve*(sc: Handle[StepGeomSurfaceCurve]; s: Handle[StepGeomSurface];
@@ -37,6 +37,31 @@ proc isLikeSeam*(sc: Handle[StepGeomSurfaceCurve]; s: Handle[StepGeomSurface];
                 e: Handle[StepShapeEdge]; el: Handle[StepShapeEdgeLoop]): bool {.
     importcpp: "StepToTopoDS_GeometricTool::IsLikeSeam(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}
-proc updateParam3d*(c: Handle[GeomCurve]; w1: var float; w2: var float; preci: float): bool {.
+proc updateParam3d*(c: Handle[GeomCurve]; w1: var cfloat; w2: var cfloat; preci: cfloat): bool {.
     importcpp: "StepToTopoDS_GeometricTool::UpdateParam3d(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

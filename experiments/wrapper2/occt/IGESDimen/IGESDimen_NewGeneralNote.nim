@@ -23,7 +23,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESDimen_NewGeneralNote"
 discard "forward decl of IGESDimen_NewGeneralNote"
 type
-  HandleIGESDimenNewGeneralNote* = Handle[IGESDimenNewGeneralNote]
+  HandleC1C1* = Handle[IGESDimenNewGeneralNote]
 
 ## ! defines NewGeneralNote, Type <213> Form <0>
 ## ! in package IGESDimen
@@ -37,9 +37,9 @@ type
 proc constructIGESDimenNewGeneralNote*(): IGESDimenNewGeneralNote {.constructor,
     importcpp: "IGESDimen_NewGeneralNote(@)",
     header: "IGESDimen_NewGeneralNote.hxx".}
-proc init*(this: var IGESDimenNewGeneralNote; width: float; height: float;
-          justifyCode: int; areaLoc: Xyz; areaRotationAngle: float; baseLinePos: Xyz;
-          normalInterlineSpace: float;
+proc init*(this: var IGESDimenNewGeneralNote; width: cfloat; height: cfloat;
+          justifyCode: cint; areaLoc: Xyz; areaRotationAngle: cfloat;
+          baseLinePos: Xyz; normalInterlineSpace: cfloat;
           charDisplays: Handle[TColStdHArray1OfInteger];
           charWidths: Handle[TColStdHArray1OfReal];
           charHeights: Handle[TColStdHArray1OfReal];
@@ -60,85 +60,92 @@ proc init*(this: var IGESDimenNewGeneralNote; width: float; height: float;
           startPoints: Handle[TColgpHArray1OfXYZ];
           texts: Handle[InterfaceHArray1OfHAsciiString]) {.importcpp: "Init",
     header: "IGESDimen_NewGeneralNote.hxx".}
-proc textWidth*(this: IGESDimenNewGeneralNote): float {.noSideEffect,
+proc textWidth*(this: IGESDimenNewGeneralNote): cfloat {.noSideEffect,
     importcpp: "TextWidth", header: "IGESDimen_NewGeneralNote.hxx".}
-proc textHeight*(this: IGESDimenNewGeneralNote): float {.noSideEffect,
+proc textHeight*(this: IGESDimenNewGeneralNote): cfloat {.noSideEffect,
     importcpp: "TextHeight", header: "IGESDimen_NewGeneralNote.hxx".}
-proc justifyCode*(this: IGESDimenNewGeneralNote): int {.noSideEffect,
+proc justifyCode*(this: IGESDimenNewGeneralNote): cint {.noSideEffect,
     importcpp: "JustifyCode", header: "IGESDimen_NewGeneralNote.hxx".}
 proc areaLocation*(this: IGESDimenNewGeneralNote): Pnt {.noSideEffect,
     importcpp: "AreaLocation", header: "IGESDimen_NewGeneralNote.hxx".}
 proc transformedAreaLocation*(this: IGESDimenNewGeneralNote): Pnt {.noSideEffect,
     importcpp: "TransformedAreaLocation", header: "IGESDimen_NewGeneralNote.hxx".}
-proc zDepthAreaLocation*(this: IGESDimenNewGeneralNote): float {.noSideEffect,
+proc zDepthAreaLocation*(this: IGESDimenNewGeneralNote): cfloat {.noSideEffect,
     importcpp: "ZDepthAreaLocation", header: "IGESDimen_NewGeneralNote.hxx".}
-proc areaRotationAngle*(this: IGESDimenNewGeneralNote): float {.noSideEffect,
+proc areaRotationAngle*(this: IGESDimenNewGeneralNote): cfloat {.noSideEffect,
     importcpp: "AreaRotationAngle", header: "IGESDimen_NewGeneralNote.hxx".}
 proc baseLinePosition*(this: IGESDimenNewGeneralNote): Pnt {.noSideEffect,
     importcpp: "BaseLinePosition", header: "IGESDimen_NewGeneralNote.hxx".}
 proc transformedBaseLinePosition*(this: IGESDimenNewGeneralNote): Pnt {.
     noSideEffect, importcpp: "TransformedBaseLinePosition",
     header: "IGESDimen_NewGeneralNote.hxx".}
-proc zDepthBaseLinePosition*(this: IGESDimenNewGeneralNote): float {.noSideEffect,
+proc zDepthBaseLinePosition*(this: IGESDimenNewGeneralNote): cfloat {.noSideEffect,
     importcpp: "ZDepthBaseLinePosition", header: "IGESDimen_NewGeneralNote.hxx".}
-proc normalInterlineSpace*(this: IGESDimenNewGeneralNote): float {.noSideEffect,
+proc normalInterlineSpace*(this: IGESDimenNewGeneralNote): cfloat {.noSideEffect,
     importcpp: "NormalInterlineSpace", header: "IGESDimen_NewGeneralNote.hxx".}
-proc nbStrings*(this: IGESDimenNewGeneralNote): int {.noSideEffect,
+proc nbStrings*(this: IGESDimenNewGeneralNote): cint {.noSideEffect,
     importcpp: "NbStrings", header: "IGESDimen_NewGeneralNote.hxx".}
-proc characterDisplay*(this: IGESDimenNewGeneralNote; index: int): int {.noSideEffect,
-    importcpp: "CharacterDisplay", header: "IGESDimen_NewGeneralNote.hxx".}
-proc isVariable*(this: IGESDimenNewGeneralNote; index: int): bool {.noSideEffect,
+proc characterDisplay*(this: IGESDimenNewGeneralNote; index: cint): cint {.
+    noSideEffect, importcpp: "CharacterDisplay",
+    header: "IGESDimen_NewGeneralNote.hxx".}
+proc isVariable*(this: IGESDimenNewGeneralNote; index: cint): bool {.noSideEffect,
     importcpp: "IsVariable", header: "IGESDimen_NewGeneralNote.hxx".}
-proc characterWidth*(this: IGESDimenNewGeneralNote; index: int): float {.noSideEffect,
-    importcpp: "CharacterWidth", header: "IGESDimen_NewGeneralNote.hxx".}
-proc characterHeight*(this: IGESDimenNewGeneralNote; index: int): float {.
+proc characterWidth*(this: IGESDimenNewGeneralNote; index: cint): cfloat {.
+    noSideEffect, importcpp: "CharacterWidth",
+    header: "IGESDimen_NewGeneralNote.hxx".}
+proc characterHeight*(this: IGESDimenNewGeneralNote; index: cint): cfloat {.
     noSideEffect, importcpp: "CharacterHeight",
     header: "IGESDimen_NewGeneralNote.hxx".}
-proc interCharacterSpace*(this: IGESDimenNewGeneralNote; index: int): float {.
+proc interCharacterSpace*(this: IGESDimenNewGeneralNote; index: cint): cfloat {.
     noSideEffect, importcpp: "InterCharacterSpace",
     header: "IGESDimen_NewGeneralNote.hxx".}
-proc interlineSpace*(this: IGESDimenNewGeneralNote; index: int): float {.noSideEffect,
-    importcpp: "InterlineSpace", header: "IGESDimen_NewGeneralNote.hxx".}
-proc fontStyle*(this: IGESDimenNewGeneralNote; index: int): int {.noSideEffect,
+proc interlineSpace*(this: IGESDimenNewGeneralNote; index: cint): cfloat {.
+    noSideEffect, importcpp: "InterlineSpace",
+    header: "IGESDimen_NewGeneralNote.hxx".}
+proc fontStyle*(this: IGESDimenNewGeneralNote; index: cint): cint {.noSideEffect,
     importcpp: "FontStyle", header: "IGESDimen_NewGeneralNote.hxx".}
-proc characterAngle*(this: IGESDimenNewGeneralNote; index: int): float {.noSideEffect,
-    importcpp: "CharacterAngle", header: "IGESDimen_NewGeneralNote.hxx".}
-proc controlCodeString*(this: IGESDimenNewGeneralNote; index: int): Handle[
+proc characterAngle*(this: IGESDimenNewGeneralNote; index: cint): cfloat {.
+    noSideEffect, importcpp: "CharacterAngle",
+    header: "IGESDimen_NewGeneralNote.hxx".}
+proc controlCodeString*(this: IGESDimenNewGeneralNote; index: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "ControlCodeString",
                               header: "IGESDimen_NewGeneralNote.hxx".}
-proc nbCharacters*(this: IGESDimenNewGeneralNote; index: int): int {.noSideEffect,
+proc nbCharacters*(this: IGESDimenNewGeneralNote; index: cint): cint {.noSideEffect,
     importcpp: "NbCharacters", header: "IGESDimen_NewGeneralNote.hxx".}
-proc boxWidth*(this: IGESDimenNewGeneralNote; index: int): float {.noSideEffect,
+proc boxWidth*(this: IGESDimenNewGeneralNote; index: cint): cfloat {.noSideEffect,
     importcpp: "BoxWidth", header: "IGESDimen_NewGeneralNote.hxx".}
-proc boxHeight*(this: IGESDimenNewGeneralNote; index: int): float {.noSideEffect,
+proc boxHeight*(this: IGESDimenNewGeneralNote; index: cint): cfloat {.noSideEffect,
     importcpp: "BoxHeight", header: "IGESDimen_NewGeneralNote.hxx".}
-proc isCharSetEntity*(this: IGESDimenNewGeneralNote; index: int): bool {.noSideEffect,
-    importcpp: "IsCharSetEntity", header: "IGESDimen_NewGeneralNote.hxx".}
-proc charSetCode*(this: IGESDimenNewGeneralNote; index: int): int {.noSideEffect,
+proc isCharSetEntity*(this: IGESDimenNewGeneralNote; index: cint): bool {.
+    noSideEffect, importcpp: "IsCharSetEntity",
+    header: "IGESDimen_NewGeneralNote.hxx".}
+proc charSetCode*(this: IGESDimenNewGeneralNote; index: cint): cint {.noSideEffect,
     importcpp: "CharSetCode", header: "IGESDimen_NewGeneralNote.hxx".}
-proc charSetEntity*(this: IGESDimenNewGeneralNote; index: int): Handle[
+proc charSetEntity*(this: IGESDimenNewGeneralNote; index: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "CharSetEntity",
                          header: "IGESDimen_NewGeneralNote.hxx".}
-proc slantAngle*(this: IGESDimenNewGeneralNote; index: int): float {.noSideEffect,
+proc slantAngle*(this: IGESDimenNewGeneralNote; index: cint): cfloat {.noSideEffect,
     importcpp: "SlantAngle", header: "IGESDimen_NewGeneralNote.hxx".}
-proc rotationAngle*(this: IGESDimenNewGeneralNote; index: int): float {.noSideEffect,
-    importcpp: "RotationAngle", header: "IGESDimen_NewGeneralNote.hxx".}
-proc mirrorFlag*(this: IGESDimenNewGeneralNote; index: int): int {.noSideEffect,
+proc rotationAngle*(this: IGESDimenNewGeneralNote; index: cint): cfloat {.
+    noSideEffect, importcpp: "RotationAngle",
+    header: "IGESDimen_NewGeneralNote.hxx".}
+proc mirrorFlag*(this: IGESDimenNewGeneralNote; index: cint): cint {.noSideEffect,
     importcpp: "MirrorFlag", header: "IGESDimen_NewGeneralNote.hxx".}
-proc isMirrored*(this: IGESDimenNewGeneralNote; index: int): bool {.noSideEffect,
+proc isMirrored*(this: IGESDimenNewGeneralNote; index: cint): bool {.noSideEffect,
     importcpp: "IsMirrored", header: "IGESDimen_NewGeneralNote.hxx".}
-proc rotateFlag*(this: IGESDimenNewGeneralNote; index: int): int {.noSideEffect,
+proc rotateFlag*(this: IGESDimenNewGeneralNote; index: cint): cint {.noSideEffect,
     importcpp: "RotateFlag", header: "IGESDimen_NewGeneralNote.hxx".}
-proc startPoint*(this: IGESDimenNewGeneralNote; index: int): Pnt {.noSideEffect,
+proc startPoint*(this: IGESDimenNewGeneralNote; index: cint): Pnt {.noSideEffect,
     importcpp: "StartPoint", header: "IGESDimen_NewGeneralNote.hxx".}
-proc transformedStartPoint*(this: IGESDimenNewGeneralNote; index: int): Pnt {.
+proc transformedStartPoint*(this: IGESDimenNewGeneralNote; index: cint): Pnt {.
     noSideEffect, importcpp: "TransformedStartPoint",
     header: "IGESDimen_NewGeneralNote.hxx".}
-proc zDepthStartPoint*(this: IGESDimenNewGeneralNote; index: int): float {.
+proc zDepthStartPoint*(this: IGESDimenNewGeneralNote; index: cint): cfloat {.
     noSideEffect, importcpp: "ZDepthStartPoint",
     header: "IGESDimen_NewGeneralNote.hxx".}
-proc text*(this: IGESDimenNewGeneralNote; index: int): Handle[TCollectionHAsciiString] {.
-    noSideEffect, importcpp: "Text", header: "IGESDimen_NewGeneralNote.hxx".}
+proc text*(this: IGESDimenNewGeneralNote; index: cint): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Text",
+                              header: "IGESDimen_NewGeneralNote.hxx".}
 type
   IGESDimenNewGeneralNotebaseType* = IGESDataIGESEntity
 
@@ -149,3 +156,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_NewGeneralNote.hxx".}
 proc dynamicType*(this: IGESDimenNewGeneralNote): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_NewGeneralNote.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

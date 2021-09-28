@@ -15,7 +15,7 @@
 type
   TColStdHArray1OfExtendedString* {.importcpp: "TColStd_HArray1OfExtendedString", header: "TColStd_HArray1OfExtendedString.hxx",
                                    bycopy.} = object of TColStdArray1OfExtendedString
-# 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 proc constructTColStdHArray1OfExtendedString*(theLower: int; theUpper: int): TColStdHArray1OfExtendedString {.
     constructor, importcpp: "TColStd_HArray1OfExtendedString(@)",
@@ -44,4 +44,102 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TColStdHArray1OfExtendedString): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TColStd_HArray1OfExtendedString.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

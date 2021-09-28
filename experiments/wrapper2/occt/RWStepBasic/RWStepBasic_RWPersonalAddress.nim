@@ -29,7 +29,7 @@ proc constructRWStepBasicRWPersonalAddress*(): RWStepBasicRWPersonalAddress {.
     constructor, importcpp: "RWStepBasic_RWPersonalAddress(@)",
     header: "RWStepBasic_RWPersonalAddress.hxx".}
 proc readStep*(this: RWStepBasicRWPersonalAddress;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicPersonalAddress]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWPersonalAddress.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepBasicRWPersonalAddress;
            ent: Handle[StepBasicPersonalAddress];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWPersonalAddress.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

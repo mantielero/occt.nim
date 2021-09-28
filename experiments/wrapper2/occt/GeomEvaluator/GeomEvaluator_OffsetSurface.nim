@@ -34,33 +34,34 @@ type
 
 
 proc constructGeomEvaluatorOffsetSurface*(theBase: Handle[GeomSurface];
-    theOffset: float;
+    theOffset: StandardReal;
     theOscSurf: Handle[GeomOsculatingSurface] = handle[GeomOsculatingSurface]()): GeomEvaluatorOffsetSurface {.
     constructor, importcpp: "GeomEvaluator_OffsetSurface(@)",
     header: "GeomEvaluator_OffsetSurface.hxx".}
 proc constructGeomEvaluatorOffsetSurface*(theBase: Handle[GeomAdaptorHSurface];
-    theOffset: float;
+    theOffset: StandardReal;
     theOscSurf: Handle[GeomOsculatingSurface] = handle[GeomOsculatingSurface]()): GeomEvaluatorOffsetSurface {.
     constructor, importcpp: "GeomEvaluator_OffsetSurface(@)",
     header: "GeomEvaluator_OffsetSurface.hxx".}
-proc setOffsetValue*(this: var GeomEvaluatorOffsetSurface; theOffset: float) {.
+proc setOffsetValue*(this: var GeomEvaluatorOffsetSurface; theOffset: StandardReal) {.
     importcpp: "SetOffsetValue", header: "GeomEvaluator_OffsetSurface.hxx".}
-proc d0*(this: GeomEvaluatorOffsetSurface; theU: float; theV: float; theValue: var Pnt) {.
-    noSideEffect, importcpp: "D0", header: "GeomEvaluator_OffsetSurface.hxx".}
-proc d1*(this: GeomEvaluatorOffsetSurface; theU: float; theV: float; theValue: var Pnt;
-        theD1U: var Vec; theD1V: var Vec) {.noSideEffect, importcpp: "D1",
+proc d0*(this: GeomEvaluatorOffsetSurface; theU: StandardReal; theV: StandardReal;
+        theValue: var Pnt) {.noSideEffect, importcpp: "D0",
+                          header: "GeomEvaluator_OffsetSurface.hxx".}
+proc d1*(this: GeomEvaluatorOffsetSurface; theU: StandardReal; theV: StandardReal;
+        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "GeomEvaluator_OffsetSurface.hxx".}
+proc d2*(this: GeomEvaluatorOffsetSurface; theU: StandardReal; theV: StandardReal;
+        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec; theD2U: var Vec;
+        theD2V: var Vec; theD2UV: var Vec) {.noSideEffect, importcpp: "D2", header: "GeomEvaluator_OffsetSurface.hxx".}
+proc d3*(this: GeomEvaluatorOffsetSurface; theU: StandardReal; theV: StandardReal;
+        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec; theD2U: var Vec;
+        theD2V: var Vec; theD2UV: var Vec; theD3U: var Vec; theD3V: var Vec;
+        theD3UUV: var Vec; theD3UVV: var Vec) {.noSideEffect, importcpp: "D3",
+    header: "GeomEvaluator_OffsetSurface.hxx".}
+proc dn*(this: GeomEvaluatorOffsetSurface; theU: StandardReal; theV: StandardReal;
+        theDerU: int; theDerV: int): Vec {.noSideEffect, importcpp: "DN",
                                       header: "GeomEvaluator_OffsetSurface.hxx".}
-proc d2*(this: GeomEvaluatorOffsetSurface; theU: float; theV: float; theValue: var Pnt;
-        theD1U: var Vec; theD1V: var Vec; theD2U: var Vec; theD2V: var Vec; theD2UV: var Vec) {.
-    noSideEffect, importcpp: "D2", header: "GeomEvaluator_OffsetSurface.hxx".}
-proc d3*(this: GeomEvaluatorOffsetSurface; theU: float; theV: float; theValue: var Pnt;
-        theD1U: var Vec; theD1V: var Vec; theD2U: var Vec; theD2V: var Vec;
-        theD2UV: var Vec; theD3U: var Vec; theD3V: var Vec; theD3UUV: var Vec;
-        theD3UVV: var Vec) {.noSideEffect, importcpp: "D3",
-                          header: "GeomEvaluator_OffsetSurface.hxx".}
-proc dn*(this: GeomEvaluatorOffsetSurface; theU: float; theV: float; theDerU: int;
-        theDerV: int): Vec {.noSideEffect, importcpp: "DN",
-                          header: "GeomEvaluator_OffsetSurface.hxx".}
 type
   GeomEvaluatorOffsetSurfacebaseType* = GeomEvaluatorSurface
 
@@ -74,5 +75,4 @@ proc dynamicType*(this: GeomEvaluatorOffsetSurface): Handle[StandardType] {.
     header: "GeomEvaluator_OffsetSurface.hxx".}
 discard "forward decl of GeomEvaluator_OffsetSurface"
 type
-  HandleGeomEvaluatorOffsetSurface* = Handle[GeomEvaluatorOffsetSurface]
-
+  HandleC1C1* = Handle[GeomEvaluatorOffsetSurface]

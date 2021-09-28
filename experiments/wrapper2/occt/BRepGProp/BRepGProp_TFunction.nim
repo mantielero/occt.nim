@@ -176,22 +176,47 @@ type
 
 proc constructBRepGPropTFunction*(theSurface: BRepGPropFace; theVertex: Pnt;
                                  isByPoint: bool; theCoeffs: StandardAddress;
-                                 theUMin: float; theTolerance: float): BRepGPropTFunction {.
+                                 theUMin: cfloat; theTolerance: cfloat): BRepGPropTFunction {.
     constructor, importcpp: "BRepGProp_TFunction(@)",
     header: "BRepGProp_TFunction.hxx".}
 proc init*(this: var BRepGPropTFunction) {.importcpp: "Init",
                                        header: "BRepGProp_TFunction.hxx".}
-proc setNbKronrodPoints*(this: var BRepGPropTFunction; theNbPoints: int) {.
+proc setNbKronrodPoints*(this: var BRepGPropTFunction; theNbPoints: cint) {.
     importcpp: "SetNbKronrodPoints", header: "BRepGProp_TFunction.hxx".}
 proc setValueType*(this: var BRepGPropTFunction; aType: GPropValueType) {.
     importcpp: "SetValueType", header: "BRepGProp_TFunction.hxx".}
-proc setTolerance*(this: var BRepGPropTFunction; aTol: float) {.
+proc setTolerance*(this: var BRepGPropTFunction; aTol: cfloat) {.
     importcpp: "SetTolerance", header: "BRepGProp_TFunction.hxx".}
-proc errorReached*(this: BRepGPropTFunction): float {.noSideEffect,
+proc errorReached*(this: BRepGPropTFunction): cfloat {.noSideEffect,
     importcpp: "ErrorReached", header: "BRepGProp_TFunction.hxx".}
-proc absolutError*(this: BRepGPropTFunction): float {.noSideEffect,
+proc absolutError*(this: BRepGPropTFunction): cfloat {.noSideEffect,
     importcpp: "AbsolutError", header: "BRepGProp_TFunction.hxx".}
-proc value*(this: var BRepGPropTFunction; x: float; f: var float): bool {.
+proc value*(this: var BRepGPropTFunction; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "BRepGProp_TFunction.hxx".}
-proc getStateNumber*(this: var BRepGPropTFunction): int {.
+proc getStateNumber*(this: var BRepGPropTFunction): cint {.
     importcpp: "GetStateNumber", header: "BRepGProp_TFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

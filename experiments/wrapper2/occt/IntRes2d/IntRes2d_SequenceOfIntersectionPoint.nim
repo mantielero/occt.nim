@@ -18,3 +18,28 @@ type
   IntRes2dSequenceOfIntersectionPoint* = NCollectionSequence[
       IntRes2dIntersectionPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

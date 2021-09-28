@@ -22,3 +22,28 @@ type
     AIS_DragActionAbort       ## !< abort dragging (restore initial position)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

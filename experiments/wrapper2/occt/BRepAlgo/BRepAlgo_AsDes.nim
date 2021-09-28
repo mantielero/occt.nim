@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepAlgo_AsDes"
 discard "forward decl of BRepAlgo_AsDes"
 type
-  HandleBRepAlgoAsDes* = Handle[BRepAlgoAsDes]
+  HandleC1C1* = Handle[BRepAlgoAsDes]
 
 ## ! SD to store descendants and ascendants of Shapes.
 
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepAlgo_AsDes.hxx".}
 proc dynamicType*(this: BRepAlgoAsDes): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepAlgo_AsDes.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

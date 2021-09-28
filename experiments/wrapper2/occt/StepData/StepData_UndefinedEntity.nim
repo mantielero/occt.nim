@@ -24,7 +24,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepData_UndefinedEntity"
 discard "forward decl of StepData_UndefinedEntity"
 type
-  HandleStepDataUndefinedEntity* = Handle[StepDataUndefinedEntity]
+  HandleC1C1* = Handle[StepDataUndefinedEntity]
 
 ## ! Undefined entity specific to Step Interface, in which StepType
 ## ! is defined at each instance, or is a SubList of another one
@@ -62,7 +62,7 @@ proc next*(this: StepDataUndefinedEntity): Handle[StepDataUndefinedEntity] {.
 proc stepType*(this: StepDataUndefinedEntity): StandardCString {.noSideEffect,
     importcpp: "StepType", header: "StepData_UndefinedEntity.hxx".}
 proc readRecord*(this: var StepDataUndefinedEntity;
-                sr: Handle[StepDataStepReaderData]; num: int;
+                sr: Handle[StepDataStepReaderData]; num: cint;
                 ach: var Handle[InterfaceCheck]) {.importcpp: "ReadRecord",
     header: "StepData_UndefinedEntity.hxx".}
 proc writeParams*(this: StepDataUndefinedEntity; sw: var StepDataStepWriter) {.
@@ -83,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_UndefinedEntity.hxx".}
 proc dynamicType*(this: StepDataUndefinedEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_UndefinedEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,9 +27,34 @@ proc constructRWStepBasicRWCalendarDate*(): RWStepBasicRWCalendarDate {.
     constructor, importcpp: "RWStepBasic_RWCalendarDate(@)",
     header: "RWStepBasic_RWCalendarDate.hxx".}
 proc readStep*(this: RWStepBasicRWCalendarDate;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicCalendarDate]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWCalendarDate.hxx".}
 proc writeStep*(this: RWStepBasicRWCalendarDate; sw: var StepDataStepWriter;
                ent: Handle[StepBasicCalendarDate]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWCalendarDate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

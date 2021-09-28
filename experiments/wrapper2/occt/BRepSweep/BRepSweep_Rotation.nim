@@ -40,7 +40,7 @@ type
 
 
 proc constructBRepSweepRotation*(s: TopoDS_Shape; n: SweepNumShape;
-                                L: TopLocLocation; a: Ax1; d: float; c: bool): BRepSweepRotation {.
+                                L: TopLocLocation; a: Ax1; d: cfloat; c: bool): BRepSweepRotation {.
     constructor, importcpp: "BRepSweep_Rotation(@)",
     header: "BRepSweep_Rotation.hxx".}
 proc makeEmptyVertex*(this: var BRepSweepRotation; aGenV: TopoDS_Shape;
@@ -104,5 +104,30 @@ proc isInvariant*(this: BRepSweepRotation; aGenS: TopoDS_Shape): bool {.noSideEf
     importcpp: "IsInvariant", header: "BRepSweep_Rotation.hxx".}
 proc axe*(this: BRepSweepRotation): Ax1 {.noSideEffect, importcpp: "Axe",
                                       header: "BRepSweep_Rotation.hxx".}
-proc angle*(this: BRepSweepRotation): float {.noSideEffect, importcpp: "Angle",
+proc angle*(this: BRepSweepRotation): cfloat {.noSideEffect, importcpp: "Angle",
     header: "BRepSweep_Rotation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

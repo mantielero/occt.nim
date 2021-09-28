@@ -47,11 +47,11 @@ type
                                                                                      ## radians).
 
 
-proc constructGC_MakeArcOfHyperbola*(hypr: Hypr; alpha1: float; alpha2: float;
+proc constructGC_MakeArcOfHyperbola*(hypr: Hypr; alpha1: cfloat; alpha2: cfloat;
                                     sense: bool): GC_MakeArcOfHyperbola {.
     constructor, importcpp: "GC_MakeArcOfHyperbola(@)",
     header: "GC_MakeArcOfHyperbola.hxx".}
-proc constructGC_MakeArcOfHyperbola*(hypr: Hypr; p: Pnt; alpha: float; sense: bool): GC_MakeArcOfHyperbola {.
+proc constructGC_MakeArcOfHyperbola*(hypr: Hypr; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfHyperbola {.
     constructor, importcpp: "GC_MakeArcOfHyperbola(@)",
     header: "GC_MakeArcOfHyperbola.hxx".}
 proc constructGC_MakeArcOfHyperbola*(hypr: Hypr; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfHyperbola {.
@@ -62,3 +62,24 @@ proc value*(this: GC_MakeArcOfHyperbola): Handle[GeomTrimmedCurve] {.noSideEffec
 converter `constopencascade`*(this: GC_MakeArcOfHyperbola): Handle[GeomTrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeArcOfHyperbola::operator constopencascade",
     header: "GC_MakeArcOfHyperbola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

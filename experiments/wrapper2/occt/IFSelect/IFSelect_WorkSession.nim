@@ -40,7 +40,7 @@ discard "forward decl of IFSelect_SignatureList"
 discard "forward decl of IFSelect_WorkSession"
 discard "forward decl of IFSelect_WorkSession"
 type
-  HandleIFSelectWorkSession* = Handle[IFSelectWorkSession]
+  HandleC1C1* = Handle[IFSelectWorkSession]
 
 ## ! This class can be used to simply manage a process such as
 ## ! splitting a file, extracting a set of Entities ...
@@ -124,14 +124,14 @@ proc readFile*(this: var IFSelectWorkSession; filename: StandardCString): IFSele
 proc readStream*(this: var IFSelectWorkSession; theName: StandardCString;
                 theIStream: var Istream): IFSelectReturnStatus {.
     importcpp: "ReadStream", header: "IFSelect_WorkSession.hxx".}
-proc nbStartingEntities*(this: IFSelectWorkSession): int {.noSideEffect,
+proc nbStartingEntities*(this: IFSelectWorkSession): cint {.noSideEffect,
     importcpp: "NbStartingEntities", header: "IFSelect_WorkSession.hxx".}
-proc startingEntity*(this: IFSelectWorkSession; num: int): Handle[StandardTransient] {.
+proc startingEntity*(this: IFSelectWorkSession; num: cint): Handle[StandardTransient] {.
     noSideEffect, importcpp: "StartingEntity", header: "IFSelect_WorkSession.hxx".}
-proc startingNumber*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): int {.
+proc startingNumber*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "StartingNumber", header: "IFSelect_WorkSession.hxx".}
 proc numberFromLabel*(this: IFSelectWorkSession; val: StandardCString;
-                     afternum: int = 0): int {.noSideEffect,
+                     afternum: cint = 0): cint {.noSideEffect,
     importcpp: "NumberFromLabel", header: "IFSelect_WorkSession.hxx".}
 proc entityLabel*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "EntityLabel",
@@ -139,13 +139,13 @@ proc entityLabel*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): Ha
 proc entityName*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "EntityName",
                               header: "IFSelect_WorkSession.hxx".}
-proc categoryNumber*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): int {.
+proc categoryNumber*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CategoryNumber", header: "IFSelect_WorkSession.hxx".}
 proc categoryName*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): StandardCString {.
     noSideEffect, importcpp: "CategoryName", header: "IFSelect_WorkSession.hxx".}
 proc validityName*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): StandardCString {.
     noSideEffect, importcpp: "ValidityName", header: "IFSelect_WorkSession.hxx".}
-proc clearData*(this: var IFSelectWorkSession; mode: int) {.importcpp: "ClearData",
+proc clearData*(this: var IFSelectWorkSession; mode: cint) {.importcpp: "ClearData",
     header: "IFSelect_WorkSession.hxx".}
 proc computeGraph*(this: var IFSelectWorkSession; enforce: bool = false): bool {.
     importcpp: "ComputeGraph", header: "IFSelect_WorkSession.hxx".}
@@ -170,11 +170,11 @@ proc checkOne*(this: var IFSelectWorkSession; ent: Handle[StandardTransient];
     header: "IFSelect_WorkSession.hxx".}
 proc lastRunCheckList*(this: IFSelectWorkSession): InterfaceCheckIterator {.
     noSideEffect, importcpp: "LastRunCheckList", header: "IFSelect_WorkSession.hxx".}
-proc maxIdent*(this: IFSelectWorkSession): int {.noSideEffect, importcpp: "MaxIdent",
-    header: "IFSelect_WorkSession.hxx".}
-proc item*(this: IFSelectWorkSession; id: int): Handle[StandardTransient] {.
+proc maxIdent*(this: IFSelectWorkSession): cint {.noSideEffect,
+    importcpp: "MaxIdent", header: "IFSelect_WorkSession.hxx".}
+proc item*(this: IFSelectWorkSession; id: cint): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Item", header: "IFSelect_WorkSession.hxx".}
-proc itemIdent*(this: IFSelectWorkSession; item: Handle[StandardTransient]): int {.
+proc itemIdent*(this: IFSelectWorkSession; item: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "ItemIdent", header: "IFSelect_WorkSession.hxx".}
 proc namedItem*(this: IFSelectWorkSession; name: StandardCString): Handle[
     StandardTransient] {.noSideEffect, importcpp: "NamedItem",
@@ -182,18 +182,18 @@ proc namedItem*(this: IFSelectWorkSession; name: StandardCString): Handle[
 proc namedItem*(this: IFSelectWorkSession; name: Handle[TCollectionHAsciiString]): Handle[
     StandardTransient] {.noSideEffect, importcpp: "NamedItem",
                         header: "IFSelect_WorkSession.hxx".}
-proc nameIdent*(this: IFSelectWorkSession; name: StandardCString): int {.noSideEffect,
-    importcpp: "NameIdent", header: "IFSelect_WorkSession.hxx".}
+proc nameIdent*(this: IFSelectWorkSession; name: StandardCString): cint {.
+    noSideEffect, importcpp: "NameIdent", header: "IFSelect_WorkSession.hxx".}
 proc hasName*(this: IFSelectWorkSession; item: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "HasName", header: "IFSelect_WorkSession.hxx".}
 proc name*(this: IFSelectWorkSession; item: Handle[StandardTransient]): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "Name",
                               header: "IFSelect_WorkSession.hxx".}
 proc addItem*(this: var IFSelectWorkSession; item: Handle[StandardTransient];
-             active: bool = true): int {.importcpp: "AddItem",
-                                    header: "IFSelect_WorkSession.hxx".}
+             active: bool = true): cint {.importcpp: "AddItem",
+                                     header: "IFSelect_WorkSession.hxx".}
 proc addNamedItem*(this: var IFSelectWorkSession; name: StandardCString;
-                  item: Handle[StandardTransient]; active: bool = true): int {.
+                  item: Handle[StandardTransient]; active: bool = true): cint {.
     importcpp: "AddNamedItem", header: "IFSelect_WorkSession.hxx".}
 proc setActive*(this: var IFSelectWorkSession; item: Handle[StandardTransient];
                mode: bool): bool {.importcpp: "SetActive",
@@ -206,7 +206,7 @@ proc removeItem*(this: var IFSelectWorkSession; item: Handle[StandardTransient])
     importcpp: "RemoveItem", header: "IFSelect_WorkSession.hxx".}
 proc clearItems*(this: var IFSelectWorkSession) {.importcpp: "ClearItems",
     header: "IFSelect_WorkSession.hxx".}
-proc itemLabel*(this: IFSelectWorkSession; id: int): Handle[TCollectionHAsciiString] {.
+proc itemLabel*(this: IFSelectWorkSession; id: cint): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "ItemLabel", header: "IFSelect_WorkSession.hxx".}
 proc itemIdents*(this: IFSelectWorkSession; `type`: Handle[StandardType]): Handle[
     TColStdHSequenceOfInteger] {.noSideEffect, importcpp: "ItemIdents",
@@ -218,24 +218,23 @@ proc itemNamesForLabel*(this: IFSelectWorkSession; label: StandardCString): Hand
     TColStdHSequenceOfHAsciiString] {.noSideEffect,
                                      importcpp: "ItemNamesForLabel",
                                      header: "IFSelect_WorkSession.hxx".}
-proc nextIdentForLabel*(this: IFSelectWorkSession; label: StandardCString; id: int;
-                       mode: int = 0): int {.noSideEffect,
-                                        importcpp: "NextIdentForLabel",
-                                        header: "IFSelect_WorkSession.hxx".}
+proc nextIdentForLabel*(this: IFSelectWorkSession; label: StandardCString; id: cint;
+                       mode: cint = 0): cint {.noSideEffect,
+    importcpp: "NextIdentForLabel", header: "IFSelect_WorkSession.hxx".}
 proc newParamFromStatic*(this: var IFSelectWorkSession; statname: StandardCString;
                         name: StandardCString = ""): Handle[StandardTransient] {.
     importcpp: "NewParamFromStatic", header: "IFSelect_WorkSession.hxx".}
-proc intParam*(this: IFSelectWorkSession; id: int): Handle[IFSelectIntParam] {.
+proc intParam*(this: IFSelectWorkSession; id: cint): Handle[IFSelectIntParam] {.
     noSideEffect, importcpp: "IntParam", header: "IFSelect_WorkSession.hxx".}
-proc intValue*(this: IFSelectWorkSession; it: Handle[IFSelectIntParam]): int {.
+proc intValue*(this: IFSelectWorkSession; it: Handle[IFSelectIntParam]): cint {.
     noSideEffect, importcpp: "IntValue", header: "IFSelect_WorkSession.hxx".}
 proc newIntParam*(this: var IFSelectWorkSession; name: StandardCString = ""): Handle[
     IFSelectIntParam] {.importcpp: "NewIntParam",
                        header: "IFSelect_WorkSession.hxx".}
 proc setIntValue*(this: var IFSelectWorkSession; it: Handle[IFSelectIntParam];
-                 val: int): bool {.importcpp: "SetIntValue",
-                                header: "IFSelect_WorkSession.hxx".}
-proc textParam*(this: IFSelectWorkSession; id: int): Handle[TCollectionHAsciiString] {.
+                 val: cint): bool {.importcpp: "SetIntValue",
+                                 header: "IFSelect_WorkSession.hxx".}
+proc textParam*(this: IFSelectWorkSession; id: cint): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "TextParam", header: "IFSelect_WorkSession.hxx".}
 proc textValue*(this: IFSelectWorkSession; par: Handle[TCollectionHAsciiString]): TCollectionAsciiString {.
     noSideEffect, importcpp: "TextValue", header: "IFSelect_WorkSession.hxx".}
@@ -245,12 +244,12 @@ proc newTextParam*(this: var IFSelectWorkSession; name: StandardCString = ""): H
 proc setTextValue*(this: var IFSelectWorkSession;
                   par: Handle[TCollectionHAsciiString]; val: StandardCString): bool {.
     importcpp: "SetTextValue", header: "IFSelect_WorkSession.hxx".}
-proc signature*(this: IFSelectWorkSession; id: int): Handle[IFSelectSignature] {.
+proc signature*(this: IFSelectWorkSession; id: cint): Handle[IFSelectSignature] {.
     noSideEffect, importcpp: "Signature", header: "IFSelect_WorkSession.hxx".}
 proc signValue*(this: IFSelectWorkSession; sign: Handle[IFSelectSignature];
                ent: Handle[StandardTransient]): StandardCString {.noSideEffect,
     importcpp: "SignValue", header: "IFSelect_WorkSession.hxx".}
-proc selection*(this: IFSelectWorkSession; id: int): Handle[IFSelectSelection] {.
+proc selection*(this: IFSelectWorkSession; id: cint): Handle[IFSelectSelection] {.
     noSideEffect, importcpp: "Selection", header: "IFSelect_WorkSession.hxx".}
 proc evalSelection*(this: IFSelectWorkSession; sel: Handle[IFSelectSelection]): InterfaceEntityIterator {.
     noSideEffect, importcpp: "EvalSelection", header: "IFSelect_WorkSession.hxx".}
@@ -275,7 +274,7 @@ proc resetItemSelection*(this: var IFSelectWorkSession;
 proc itemSelection*(this: IFSelectWorkSession; item: Handle[StandardTransient]): Handle[
     IFSelectSelection] {.noSideEffect, importcpp: "ItemSelection",
                         header: "IFSelect_WorkSession.hxx".}
-proc signCounter*(this: IFSelectWorkSession; id: int): Handle[IFSelectSignCounter] {.
+proc signCounter*(this: IFSelectWorkSession; id: cint): Handle[IFSelectSignCounter] {.
     noSideEffect, importcpp: "SignCounter", header: "IFSelect_WorkSession.hxx".}
 proc computeCounter*(this: var IFSelectWorkSession;
                     counter: Handle[IFSelectSignCounter]; forced: bool = false): bool {.
@@ -290,29 +289,29 @@ proc appliedDispatches*(this: IFSelectWorkSession): Handle[
                                 header: "IFSelect_WorkSession.hxx".}
 proc clearShareOut*(this: var IFSelectWorkSession; onlydisp: bool) {.
     importcpp: "ClearShareOut", header: "IFSelect_WorkSession.hxx".}
-proc dispatch*(this: IFSelectWorkSession; id: int): Handle[IFSelectDispatch] {.
+proc dispatch*(this: IFSelectWorkSession; id: cint): Handle[IFSelectDispatch] {.
     noSideEffect, importcpp: "Dispatch", header: "IFSelect_WorkSession.hxx".}
-proc dispatchRank*(this: IFSelectWorkSession; disp: Handle[IFSelectDispatch]): int {.
+proc dispatchRank*(this: IFSelectWorkSession; disp: Handle[IFSelectDispatch]): cint {.
     noSideEffect, importcpp: "DispatchRank", header: "IFSelect_WorkSession.hxx".}
 proc modelCopier*(this: IFSelectWorkSession): Handle[IFSelectModelCopier] {.
     noSideEffect, importcpp: "ModelCopier", header: "IFSelect_WorkSession.hxx".}
 proc setModelCopier*(this: var IFSelectWorkSession;
                     copier: Handle[IFSelectModelCopier]) {.
     importcpp: "SetModelCopier", header: "IFSelect_WorkSession.hxx".}
-proc nbFinalModifiers*(this: IFSelectWorkSession; formodel: bool): int {.noSideEffect,
-    importcpp: "NbFinalModifiers", header: "IFSelect_WorkSession.hxx".}
+proc nbFinalModifiers*(this: IFSelectWorkSession; formodel: bool): cint {.
+    noSideEffect, importcpp: "NbFinalModifiers", header: "IFSelect_WorkSession.hxx".}
 proc finalModifierIdents*(this: IFSelectWorkSession; formodel: bool): Handle[
     TColStdHSequenceOfInteger] {.noSideEffect, importcpp: "FinalModifierIdents",
                                 header: "IFSelect_WorkSession.hxx".}
-proc generalModifier*(this: IFSelectWorkSession; id: int): Handle[
+proc generalModifier*(this: IFSelectWorkSession; id: cint): Handle[
     IFSelectGeneralModifier] {.noSideEffect, importcpp: "GeneralModifier",
                               header: "IFSelect_WorkSession.hxx".}
-proc modelModifier*(this: IFSelectWorkSession; id: int): Handle[IFSelectModifier] {.
+proc modelModifier*(this: IFSelectWorkSession; id: cint): Handle[IFSelectModifier] {.
     noSideEffect, importcpp: "ModelModifier", header: "IFSelect_WorkSession.hxx".}
-proc modifierRank*(this: IFSelectWorkSession; item: Handle[IFSelectGeneralModifier]): int {.
+proc modifierRank*(this: IFSelectWorkSession; item: Handle[IFSelectGeneralModifier]): cint {.
     noSideEffect, importcpp: "ModifierRank", header: "IFSelect_WorkSession.hxx".}
-proc changeModifierRank*(this: var IFSelectWorkSession; formodel: bool; before: int;
-                        after: int): bool {.importcpp: "ChangeModifierRank",
+proc changeModifierRank*(this: var IFSelectWorkSession; formodel: bool; before: cint;
+                        after: cint): bool {.importcpp: "ChangeModifierRank",
     header: "IFSelect_WorkSession.hxx".}
 proc clearFinalModifiers*(this: var IFSelectWorkSession) {.
     importcpp: "ClearFinalModifiers", header: "IFSelect_WorkSession.hxx".}
@@ -327,17 +326,17 @@ proc usesAppliedModifier*(this: IFSelectWorkSession;
                          modif: Handle[IFSelectGeneralModifier]): Handle[
     StandardTransient] {.noSideEffect, importcpp: "UsesAppliedModifier",
                         header: "IFSelect_WorkSession.hxx".}
-proc transformer*(this: IFSelectWorkSession; id: int): Handle[IFSelectTransformer] {.
+proc transformer*(this: IFSelectWorkSession; id: cint): Handle[IFSelectTransformer] {.
     noSideEffect, importcpp: "Transformer", header: "IFSelect_WorkSession.hxx".}
 proc runTransformer*(this: var IFSelectWorkSession;
-                    transf: Handle[IFSelectTransformer]): int {.
+                    transf: Handle[IFSelectTransformer]): cint {.
     importcpp: "RunTransformer", header: "IFSelect_WorkSession.hxx".}
 proc runModifier*(this: var IFSelectWorkSession; modif: Handle[IFSelectModifier];
-                 copy: bool): int {.importcpp: "RunModifier",
-                                 header: "IFSelect_WorkSession.hxx".}
+                 copy: bool): cint {.importcpp: "RunModifier",
+                                  header: "IFSelect_WorkSession.hxx".}
 proc runModifierSelected*(this: var IFSelectWorkSession;
                          modif: Handle[IFSelectModifier];
-                         sel: Handle[IFSelectSelection]; copy: bool): int {.
+                         sel: Handle[IFSelectSelection]; copy: bool): cint {.
     importcpp: "RunModifierSelected", header: "IFSelect_WorkSession.hxx".}
 proc newTransformStandard*(this: var IFSelectWorkSession; copy: bool;
                           name: StandardCString = ""): Handle[IFSelectTransformer] {.
@@ -371,11 +370,11 @@ proc clearFile*(this: var IFSelectWorkSession) {.importcpp: "ClearFile",
     header: "IFSelect_WorkSession.hxx".}
 proc evaluateFile*(this: var IFSelectWorkSession) {.importcpp: "EvaluateFile",
     header: "IFSelect_WorkSession.hxx".}
-proc nbFiles*(this: IFSelectWorkSession): int {.noSideEffect, importcpp: "NbFiles",
+proc nbFiles*(this: IFSelectWorkSession): cint {.noSideEffect, importcpp: "NbFiles",
     header: "IFSelect_WorkSession.hxx".}
-proc fileModel*(this: IFSelectWorkSession; num: int): Handle[InterfaceInterfaceModel] {.
+proc fileModel*(this: IFSelectWorkSession; num: cint): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "FileModel", header: "IFSelect_WorkSession.hxx".}
-proc fileName*(this: IFSelectWorkSession; num: int): TCollectionAsciiString {.
+proc fileName*(this: IFSelectWorkSession; num: cint): TCollectionAsciiString {.
     noSideEffect, importcpp: "FileName", header: "IFSelect_WorkSession.hxx".}
 proc beginSentFiles*(this: var IFSelectWorkSession; record: bool) {.
     importcpp: "BeginSentFiles", header: "IFSelect_WorkSession.hxx".}
@@ -385,9 +384,9 @@ proc sendSplit*(this: var IFSelectWorkSession): bool {.importcpp: "SendSplit",
     header: "IFSelect_WorkSession.hxx".}
 proc evalSplit*(this: IFSelectWorkSession): Handle[IFSelectPacketList] {.
     noSideEffect, importcpp: "EvalSplit", header: "IFSelect_WorkSession.hxx".}
-proc sentList*(this: IFSelectWorkSession; count: int = -1): InterfaceEntityIterator {.
+proc sentList*(this: IFSelectWorkSession; count: cint = -1): InterfaceEntityIterator {.
     noSideEffect, importcpp: "SentList", header: "IFSelect_WorkSession.hxx".}
-proc maxSendingCount*(this: IFSelectWorkSession): int {.noSideEffect,
+proc maxSendingCount*(this: IFSelectWorkSession): cint {.noSideEffect,
     importcpp: "MaxSendingCount", header: "IFSelect_WorkSession.hxx".}
 proc setRemaining*(this: var IFSelectWorkSession; mode: IFSelectRemainMode): bool {.
     importcpp: "SetRemaining", header: "IFSelect_WorkSession.hxx".}
@@ -402,9 +401,9 @@ proc writeFile*(this: var IFSelectWorkSession; filename: StandardCString): IFSel
 proc writeFile*(this: var IFSelectWorkSession; filename: StandardCString;
                sel: Handle[IFSelectSelection]): IFSelectReturnStatus {.
     importcpp: "WriteFile", header: "IFSelect_WorkSession.hxx".}
-proc nbSources*(this: IFSelectWorkSession; sel: Handle[IFSelectSelection]): int {.
+proc nbSources*(this: IFSelectWorkSession; sel: Handle[IFSelectSelection]): cint {.
     noSideEffect, importcpp: "NbSources", header: "IFSelect_WorkSession.hxx".}
-proc source*(this: IFSelectWorkSession; sel: Handle[IFSelectSelection]; num: int = 1): Handle[
+proc source*(this: IFSelectWorkSession; sel: Handle[IFSelectSelection]; num: cint = 1): Handle[
     IFSelectSelection] {.noSideEffect, importcpp: "Source",
                         header: "IFSelect_WorkSession.hxx".}
 proc isReversedSelectExtract*(this: IFSelectWorkSession;
@@ -421,7 +420,7 @@ proc setControl*(this: var IFSelectWorkSession; sel: Handle[IFSelectSelection];
                 sc: Handle[IFSelectSelection]; formain: bool = true): bool {.
     importcpp: "SetControl", header: "IFSelect_WorkSession.hxx".}
 proc combineAdd*(this: var IFSelectWorkSession; selcomb: Handle[IFSelectSelection];
-                seladd: Handle[IFSelectSelection]; atnum: int = 0): int {.
+                seladd: Handle[IFSelectSelection]; atnum: cint = 0): cint {.
     importcpp: "CombineAdd", header: "IFSelect_WorkSession.hxx".}
 proc combineRemove*(this: var IFSelectWorkSession;
                    selcomb: Handle[IFSelectSelection];
@@ -432,7 +431,7 @@ proc newSelectPointed*(this: var IFSelectWorkSession;
                       name: StandardCString): Handle[IFSelectSelection] {.
     importcpp: "NewSelectPointed", header: "IFSelect_WorkSession.hxx".}
 proc setSelectPointed*(this: IFSelectWorkSession; sel: Handle[IFSelectSelection];
-                      list: Handle[TColStdHSequenceOfTransient]; mode: int): bool {.
+                      list: Handle[TColStdHSequenceOfTransient]; mode: cint): bool {.
     noSideEffect, importcpp: "SetSelectPointed", header: "IFSelect_WorkSession.hxx".}
 proc giveSelection*(this: IFSelectWorkSession; selname: StandardCString): Handle[
     IFSelectSelection] {.noSideEffect, importcpp: "GiveSelection",
@@ -449,21 +448,21 @@ proc giveListFromList*(this: IFSelectWorkSession; selname: StandardCString;
                                   header: "IFSelect_WorkSession.hxx".}
 proc giveListCombined*(this: IFSelectWorkSession;
                       l1: Handle[TColStdHSequenceOfTransient];
-                      l2: Handle[TColStdHSequenceOfTransient]; mode: int): Handle[
+                      l2: Handle[TColStdHSequenceOfTransient]; mode: cint): Handle[
     TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "GiveListCombined",
                                   header: "IFSelect_WorkSession.hxx".}
 proc queryCheckList*(this: var IFSelectWorkSession; chl: InterfaceCheckIterator) {.
     importcpp: "QueryCheckList", header: "IFSelect_WorkSession.hxx".}
-proc queryCheckStatus*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): int {.
+proc queryCheckStatus*(this: IFSelectWorkSession; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "QueryCheckStatus", header: "IFSelect_WorkSession.hxx".}
 proc queryParent*(this: IFSelectWorkSession; entdad: Handle[StandardTransient];
-                 entson: Handle[StandardTransient]): int {.noSideEffect,
+                 entson: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "QueryParent", header: "IFSelect_WorkSession.hxx".}
 proc setParams*(this: var IFSelectWorkSession;
                params: NCollectionVector[Handle[StandardTransient]];
-               uselist: NCollectionVector[int]) {.importcpp: "SetParams",
+               uselist: NCollectionVector[cint]) {.importcpp: "SetParams",
     header: "IFSelect_WorkSession.hxx".}
-proc traceStatics*(this: IFSelectWorkSession; use: int; mode: int = 0) {.noSideEffect,
+proc traceStatics*(this: IFSelectWorkSession; use: cint; mode: cint = 0) {.noSideEffect,
     importcpp: "TraceStatics", header: "IFSelect_WorkSession.hxx".}
 proc dumpShare*(this: IFSelectWorkSession) {.noSideEffect, importcpp: "DumpShare",
     header: "IFSelect_WorkSession.hxx".}
@@ -473,19 +472,19 @@ proc listFinalModifiers*(this: IFSelectWorkSession; formodel: bool) {.noSideEffe
     importcpp: "ListFinalModifiers", header: "IFSelect_WorkSession.hxx".}
 proc dumpSelection*(this: IFSelectWorkSession; sel: Handle[IFSelectSelection]) {.
     noSideEffect, importcpp: "DumpSelection", header: "IFSelect_WorkSession.hxx".}
-proc dumpModel*(this: var IFSelectWorkSession; level: int; s: var StandardOStream) {.
+proc dumpModel*(this: var IFSelectWorkSession; level: cint; s: var StandardOStream) {.
     importcpp: "DumpModel", header: "IFSelect_WorkSession.hxx".}
-proc traceDumpModel*(this: var IFSelectWorkSession; mode: int) {.
+proc traceDumpModel*(this: var IFSelectWorkSession; mode: cint) {.
     importcpp: "TraceDumpModel", header: "IFSelect_WorkSession.hxx".}
 proc dumpEntity*(this: IFSelectWorkSession; ent: Handle[StandardTransient];
-                level: int; s: var StandardOStream) {.noSideEffect,
+                level: cint; s: var StandardOStream) {.noSideEffect,
     importcpp: "DumpEntity", header: "IFSelect_WorkSession.hxx".}
 proc printEntityStatus*(this: var IFSelectWorkSession;
                        ent: Handle[StandardTransient]; s: var StandardOStream) {.
     importcpp: "PrintEntityStatus", header: "IFSelect_WorkSession.hxx".}
 proc traceDumpEntity*(this: IFSelectWorkSession; ent: Handle[StandardTransient];
-                     level: int) {.noSideEffect, importcpp: "TraceDumpEntity",
-                                 header: "IFSelect_WorkSession.hxx".}
+                     level: cint) {.noSideEffect, importcpp: "TraceDumpEntity",
+                                  header: "IFSelect_WorkSession.hxx".}
 proc printCheckList*(this: IFSelectWorkSession; s: var StandardOStream;
                     checklist: InterfaceCheckIterator; failsonly: bool;
                     mode: IFSelectPrintCount) {.noSideEffect,
@@ -498,12 +497,12 @@ proc evaluateSelection*(this: IFSelectWorkSession; sel: Handle[IFSelectSelection
     noSideEffect, importcpp: "EvaluateSelection",
     header: "IFSelect_WorkSession.hxx".}
 proc evaluateDispatch*(this: IFSelectWorkSession; disp: Handle[IFSelectDispatch];
-                      mode: int = 0) {.noSideEffect, importcpp: "EvaluateDispatch",
-                                   header: "IFSelect_WorkSession.hxx".}
-proc evaluateComplete*(this: IFSelectWorkSession; mode: int = 0) {.noSideEffect,
+                      mode: cint = 0) {.noSideEffect, importcpp: "EvaluateDispatch",
+                                    header: "IFSelect_WorkSession.hxx".}
+proc evaluateComplete*(this: IFSelectWorkSession; mode: cint = 0) {.noSideEffect,
     importcpp: "EvaluateComplete", header: "IFSelect_WorkSession.hxx".}
 proc listEntities*(this: IFSelectWorkSession; iter: InterfaceEntityIterator;
-                  mode: int; s: var StandardOStream) {.noSideEffect,
+                  mode: cint; s: var StandardOStream) {.noSideEffect,
     importcpp: "ListEntities", header: "IFSelect_WorkSession.hxx".}
 type
   IFSelectWorkSessionbaseType* = StandardTransient
@@ -515,3 +514,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_WorkSession.hxx".}
 proc dynamicType*(this: IFSelectWorkSession): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_WorkSession.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

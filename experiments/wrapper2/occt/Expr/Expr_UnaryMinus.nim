@@ -23,7 +23,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_UnaryMinus"
 discard "forward decl of Expr_UnaryMinus"
 type
-  HandleExprUnaryMinus* = Handle[ExprUnaryMinus]
+  HandleC1C1* = Handle[ExprUnaryMinus]
   ExprUnaryMinus* {.importcpp: "Expr_UnaryMinus", header: "Expr_UnaryMinus.hxx",
                    bycopy.} = object of ExprUnaryExpression ## ! Create the unary minus of <exp>.
 
@@ -41,11 +41,11 @@ proc isLinear*(this: ExprUnaryMinus): bool {.noSideEffect, importcpp: "IsLinear"
 proc derivative*(this: ExprUnaryMinus; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_UnaryMinus.hxx".}
-proc nDerivative*(this: ExprUnaryMinus; x: Handle[ExprNamedUnknown]; n: int): Handle[
+proc nDerivative*(this: ExprUnaryMinus; x: Handle[ExprNamedUnknown]; n: cint): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "NDerivative",
                             header: "Expr_UnaryMinus.hxx".}
 proc evaluate*(this: ExprUnaryMinus; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_UnaryMinus.hxx".}
 proc string*(this: ExprUnaryMinus): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_UnaryMinus.hxx".}
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_UnaryMinus.hxx".}
 proc dynamicType*(this: ExprUnaryMinus): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_UnaryMinus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

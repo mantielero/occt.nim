@@ -22,7 +22,7 @@ discard "forward decl of XSControl_WorkSession"
 discard "forward decl of IGESControl_Controller"
 discard "forward decl of IGESControl_Controller"
 type
-  HandleIGESControlController* = Handle[IGESControlController]
+  HandleC1C1* = Handle[IGESControlController]
 
 ## ! Controller for IGES-5.1
 
@@ -72,7 +72,7 @@ proc actorRead*(this: IGESControlController; model: Handle[InterfaceInterfaceMod
 proc transferWriteShape*(this: IGESControlController; shape: TopoDS_Shape;
                         fp: Handle[TransferFinderProcess];
                         model: Handle[InterfaceInterfaceModel];
-                        modetrans: int = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
+                        modetrans: cint = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     noSideEffect, importcpp: "TransferWriteShape",
     header: "IGESControl_Controller.hxx".}
 proc init*(): bool {.importcpp: "IGESControl_Controller::Init(@)",
@@ -90,3 +90,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESControl_Controller.hxx".}
 proc dynamicType*(this: IGESControlController): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESControl_Controller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

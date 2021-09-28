@@ -20,7 +20,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGeom_TrimmedSurface"
 discard "forward decl of IGESGeom_TrimmedSurface"
 type
-  HandleIGESGeomTrimmedSurface* = Handle[IGESGeomTrimmedSurface]
+  HandleC1C1* = Handle[IGESGeomTrimmedSurface]
 
 ## ! defines IGESTrimmedSurface, Type <144> Form <0>
 ## ! in package IGESGeom
@@ -41,7 +41,7 @@ type
 proc constructIGESGeomTrimmedSurface*(): IGESGeomTrimmedSurface {.constructor,
     importcpp: "IGESGeom_TrimmedSurface(@)", header: "IGESGeom_TrimmedSurface.hxx".}
 proc init*(this: var IGESGeomTrimmedSurface; aSurface: Handle[IGESDataIGESEntity];
-          aFlag: int; anOuter: Handle[IGESGeomCurveOnSurface];
+          aFlag: cint; anOuter: Handle[IGESGeomCurveOnSurface];
           allInners: Handle[IGESGeomHArray1OfCurveOnSurface]) {.importcpp: "Init",
     header: "IGESGeom_TrimmedSurface.hxx".}
 proc surface*(this: IGESGeomTrimmedSurface): Handle[IGESDataIGESEntity] {.
@@ -50,11 +50,11 @@ proc hasOuterContour*(this: IGESGeomTrimmedSurface): bool {.noSideEffect,
     importcpp: "HasOuterContour", header: "IGESGeom_TrimmedSurface.hxx".}
 proc outerContour*(this: IGESGeomTrimmedSurface): Handle[IGESGeomCurveOnSurface] {.
     noSideEffect, importcpp: "OuterContour", header: "IGESGeom_TrimmedSurface.hxx".}
-proc outerBoundaryType*(this: IGESGeomTrimmedSurface): int {.noSideEffect,
+proc outerBoundaryType*(this: IGESGeomTrimmedSurface): cint {.noSideEffect,
     importcpp: "OuterBoundaryType", header: "IGESGeom_TrimmedSurface.hxx".}
-proc nbInnerContours*(this: IGESGeomTrimmedSurface): int {.noSideEffect,
+proc nbInnerContours*(this: IGESGeomTrimmedSurface): cint {.noSideEffect,
     importcpp: "NbInnerContours", header: "IGESGeom_TrimmedSurface.hxx".}
-proc innerContour*(this: IGESGeomTrimmedSurface; index: int): Handle[
+proc innerContour*(this: IGESGeomTrimmedSurface; index: cint): Handle[
     IGESGeomCurveOnSurface] {.noSideEffect, importcpp: "InnerContour",
                              header: "IGESGeom_TrimmedSurface.hxx".}
 type
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_TrimmedSurface.hxx".}
 proc dynamicType*(this: IGESGeomTrimmedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGeom_TrimmedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,3 +26,28 @@ proc perform*(this: var BRepGPropMeshCinert; theNodes: TColgpArray1OfPnt) {.
 proc preparePolygon*(theE: TopoDS_Edge; thePolyg: var Handle[TColgpHArray1OfPnt]) {.
     importcpp: "BRepGProp_MeshCinert::PreparePolygon(@)",
     header: "BRepGProp_MeshCinert.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

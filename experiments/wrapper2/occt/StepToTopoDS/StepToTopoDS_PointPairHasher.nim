@@ -24,9 +24,34 @@ type
                                                 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 
-proc hashCode*(thePointPair: StepToTopoDS_PointPair; theUpperBound: int): int {.
+proc hashCode*(thePointPair: StepToTopoDS_PointPair; theUpperBound: cint): cint {.
     importcpp: "StepToTopoDS_PointPairHasher::HashCode(@)",
     header: "StepToTopoDS_PointPairHasher.hxx".}
 proc isEqual*(k1: StepToTopoDS_PointPair; k2: StepToTopoDS_PointPair): bool {.
     importcpp: "StepToTopoDS_PointPairHasher::IsEqual(@)",
     header: "StepToTopoDS_PointPairHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

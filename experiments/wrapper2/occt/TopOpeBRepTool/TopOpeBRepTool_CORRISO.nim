@@ -34,7 +34,7 @@ proc fref*(this: TopOpeBRepToolCORRISO): TopoDS_Face {.noSideEffect,
     importcpp: "Fref", header: "TopOpeBRepTool_CORRISO.hxx".}
 proc gASref*(this: TopOpeBRepToolCORRISO): GeomAdaptorSurface {.noSideEffect,
     importcpp: "GASref", header: "TopOpeBRepTool_CORRISO.hxx".}
-proc refclosed*(this: TopOpeBRepToolCORRISO; x: int; xperiod: var float): bool {.
+proc refclosed*(this: TopOpeBRepToolCORRISO; x: cint; xperiod: var cfloat): bool {.
     noSideEffect, importcpp: "Refclosed", header: "TopOpeBRepTool_CORRISO.hxx".}
 proc init*(this: var TopOpeBRepToolCORRISO; s: TopoDS_Shape): bool {.importcpp: "Init",
     header: "TopOpeBRepTool_CORRISO.hxx".}
@@ -44,30 +44,30 @@ proc eds*(this: TopOpeBRepToolCORRISO): TopToolsListOfShape {.noSideEffect,
     importcpp: "Eds", header: "TopOpeBRepTool_CORRISO.hxx".}
 proc uVClosed*(this: TopOpeBRepToolCORRISO): bool {.noSideEffect,
     importcpp: "UVClosed", header: "TopOpeBRepTool_CORRISO.hxx".}
-proc tol*(this: TopOpeBRepToolCORRISO; i: int; tol3d: float): float {.noSideEffect,
+proc tol*(this: TopOpeBRepToolCORRISO; i: cint; tol3d: cfloat): cfloat {.noSideEffect,
     importcpp: "Tol", header: "TopOpeBRepTool_CORRISO.hxx".}
 proc purgeFyClosingE*(this: TopOpeBRepToolCORRISO; clEds: TopToolsListOfShape;
                      fyClEds: var TopToolsListOfShape): bool {.noSideEffect,
     importcpp: "PurgeFyClosingE", header: "TopOpeBRepTool_CORRISO.hxx".}
 proc edgeOUTofBoundsUV*(this: TopOpeBRepToolCORRISO; e: TopoDS_Edge; onU: bool;
-                       tolx: float; parspE: var float): int {.noSideEffect,
+                       tolx: cfloat; parspE: var cfloat): cint {.noSideEffect,
     importcpp: "EdgeOUTofBoundsUV", header: "TopOpeBRepTool_CORRISO.hxx".}
 proc edgesOUTofBoundsUV*(this: TopOpeBRepToolCORRISO;
-                        edsToCheck: TopToolsListOfShape; onU: bool; tolx: float;
+                        edsToCheck: TopToolsListOfShape; onU: bool; tolx: cfloat;
                         fyEds: var TopToolsDataMapOfOrientedShapeInteger): bool {.
     noSideEffect, importcpp: "EdgesOUTofBoundsUV",
     header: "TopOpeBRepTool_CORRISO.hxx".}
-proc edgeWithFaultyUV*(this: TopOpeBRepToolCORRISO; e: TopoDS_Edge; ivfaulty: var int): bool {.
-    noSideEffect, importcpp: "EdgeWithFaultyUV",
-    header: "TopOpeBRepTool_CORRISO.hxx".}
+proc edgeWithFaultyUV*(this: TopOpeBRepToolCORRISO; e: TopoDS_Edge;
+                      ivfaulty: var cint): bool {.noSideEffect,
+    importcpp: "EdgeWithFaultyUV", header: "TopOpeBRepTool_CORRISO.hxx".}
 proc edgesWithFaultyUV*(this: TopOpeBRepToolCORRISO;
-                       edsToCheck: TopToolsListOfShape; nfybounds: int;
+                       edsToCheck: TopToolsListOfShape; nfybounds: cint;
                        fyEds: var TopToolsDataMapOfOrientedShapeInteger;
                        stopatfirst: bool = false): bool {.noSideEffect,
     importcpp: "EdgesWithFaultyUV", header: "TopOpeBRepTool_CORRISO.hxx".}
 proc edgeWithFaultyUV*(this: TopOpeBRepToolCORRISO;
-                      edsToCheck: TopToolsListOfShape; nfybounds: int;
-                      fyE: var TopoDS_Shape; ifaulty: var int): bool {.noSideEffect,
+                      edsToCheck: TopToolsListOfShape; nfybounds: cint;
+                      fyE: var TopoDS_Shape; ifaulty: var cint): bool {.noSideEffect,
     importcpp: "EdgeWithFaultyUV", header: "TopOpeBRepTool_CORRISO.hxx".}
 proc trslUV*(this: var TopOpeBRepToolCORRISO; onU: bool;
             fyEds: TopToolsDataMapOfOrientedShapeInteger): bool {.
@@ -91,3 +91,28 @@ proc addNewConnexity*(this: var TopOpeBRepToolCORRISO; v: TopoDS_Vertex;
 proc removeOldConnexity*(this: var TopOpeBRepToolCORRISO; v: TopoDS_Vertex;
                         e: TopoDS_Edge): bool {.importcpp: "RemoveOldConnexity",
     header: "TopOpeBRepTool_CORRISO.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

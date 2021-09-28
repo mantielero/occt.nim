@@ -28,7 +28,7 @@ proc constructRWStepVisualRWAnnotationPlane*(): RWStepVisualRWAnnotationPlane {.
     constructor, importcpp: "RWStepVisual_RWAnnotationPlane(@)",
     header: "RWStepVisual_RWAnnotationPlane.hxx".}
 proc readStep*(this: RWStepVisualRWAnnotationPlane;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualAnnotationPlane]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWAnnotationPlane.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepVisualRWAnnotationPlane;
            ent: Handle[StepVisualAnnotationPlane];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWAnnotationPlane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

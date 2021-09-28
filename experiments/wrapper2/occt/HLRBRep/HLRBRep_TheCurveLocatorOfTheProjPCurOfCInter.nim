@@ -38,12 +38,37 @@ type
                                                                                ## Min{distance(P,C(ui))}
 
 
-proc locate*(p: Pnt2d; c: StandardAddress; nbU: int; papp: var ExtremaPOnCurv2d) {.
+proc locate*(p: Pnt2d; c: StandardAddress; nbU: cint; papp: var ExtremaPOnCurv2d) {.
     importcpp: "HLRBRep_TheCurveLocatorOfTheProjPCurOfCInter::Locate(@)",
     header: "HLRBRep_TheCurveLocatorOfTheProjPCurOfCInter.hxx".}
-proc locate*(p: Pnt2d; c: StandardAddress; nbU: int; umin: float; usup: float;
+proc locate*(p: Pnt2d; c: StandardAddress; nbU: cint; umin: cfloat; usup: cfloat;
             papp: var ExtremaPOnCurv2d) {.importcpp: "HLRBRep_TheCurveLocatorOfTheProjPCurOfCInter::Locate(@)", header: "HLRBRep_TheCurveLocatorOfTheProjPCurOfCInter.hxx".}
-proc locate*(c1: StandardAddress; c2: StandardAddress; nbU: int; nbV: int;
+proc locate*(c1: StandardAddress; c2: StandardAddress; nbU: cint; nbV: cint;
             papp1: var ExtremaPOnCurv2d; papp2: var ExtremaPOnCurv2d) {.
     importcpp: "HLRBRep_TheCurveLocatorOfTheProjPCurOfCInter::Locate(@)",
     header: "HLRBRep_TheCurveLocatorOfTheProjPCurOfCInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

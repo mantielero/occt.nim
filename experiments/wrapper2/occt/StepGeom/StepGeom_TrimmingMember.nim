@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_TrimmingMember"
 discard "forward decl of StepGeom_TrimmingMember"
 type
-  HandleStepGeomTrimmingMember* = Handle[StepGeomTrimmingMember]
+  HandleC1C1* = Handle[StepGeomTrimmingMember]
 
 ## ! For immediate members of TrimmingSelect, i.e. :
 ## ! ParameterValue (a Real)
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_TrimmingMember.hxx".}
 proc dynamicType*(this: StepGeomTrimmingMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_TrimmingMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -36,7 +36,7 @@ proc identity*(this: var TopLocLocation) {.importcpp: "Identity",
                                        header: "TopLoc_Location.hxx".}
 proc firstDatum*(this: TopLocLocation): Handle[TopLocDatum3D] {.noSideEffect,
     importcpp: "FirstDatum", header: "TopLoc_Location.hxx".}
-proc firstPower*(this: TopLocLocation): int {.noSideEffect, importcpp: "FirstPower",
+proc firstPower*(this: TopLocLocation): cint {.noSideEffect, importcpp: "FirstPower",
     header: "TopLoc_Location.hxx".}
 proc nextLocation*(this: TopLocLocation): TopLocLocation {.noSideEffect,
     importcpp: "NextLocation", header: "TopLoc_Location.hxx".}
@@ -56,9 +56,9 @@ proc `/`*(this: TopLocLocation; other: TopLocLocation): TopLocLocation {.noSideE
     importcpp: "(# / #)", header: "TopLoc_Location.hxx".}
 proc predivided*(this: TopLocLocation; other: TopLocLocation): TopLocLocation {.
     noSideEffect, importcpp: "Predivided", header: "TopLoc_Location.hxx".}
-proc powered*(this: TopLocLocation; pwr: int): TopLocLocation {.noSideEffect,
+proc powered*(this: TopLocLocation; pwr: cint): TopLocLocation {.noSideEffect,
     importcpp: "Powered", header: "TopLoc_Location.hxx".}
-proc hashCode*(this: TopLocLocation; theUpperBound: int): int {.noSideEffect,
+proc hashCode*(this: TopLocLocation; theUpperBound: cint): cint {.noSideEffect,
     importcpp: "HashCode", header: "TopLoc_Location.hxx".}
 proc isEqual*(this: TopLocLocation; other: TopLocLocation): bool {.noSideEffect,
     importcpp: "IsEqual", header: "TopLoc_Location.hxx".}
@@ -67,8 +67,8 @@ proc `==`*(this: TopLocLocation; other: TopLocLocation): bool {.noSideEffect,
 proc isDifferent*(this: TopLocLocation; other: TopLocLocation): bool {.noSideEffect,
     importcpp: "IsDifferent", header: "TopLoc_Location.hxx".}
 proc dumpJson*(this: TopLocLocation; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TopLoc_Location.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TopLoc_Location.hxx".}
 proc shallowDump*(this: TopLocLocation; s: var StandardOStream) {.noSideEffect,
     importcpp: "ShallowDump", header: "TopLoc_Location.hxx".}
 ## ! Computes a hash code for the given location, in the range [1, theUpperBound]
@@ -76,9 +76,34 @@ proc shallowDump*(this: TopLocLocation; s: var StandardOStream) {.noSideEffect,
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theLocation: TopLocLocation; theUpperBound: int): int =
+proc hashCode*(theLocation: TopLocLocation; theUpperBound: cint): cint =
   discard
 
 proc shallowDump*(me: TopLocLocation; s: var StandardOStream) =
   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

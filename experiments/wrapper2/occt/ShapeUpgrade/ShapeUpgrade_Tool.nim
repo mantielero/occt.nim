@@ -18,7 +18,7 @@ discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of ShapeUpgrade_Tool"
 discard "forward decl of ShapeUpgrade_Tool"
 type
-  HandleShapeUpgradeTool* = Handle[ShapeUpgradeTool]
+  HandleC1C1* = Handle[ShapeUpgradeTool]
 
 ## ! Tool is a root class for splitting classes
 ## ! Provides context for recording changes, basic
@@ -41,19 +41,19 @@ proc setContext*(this: var ShapeUpgradeTool; context: Handle[ShapeBuildReShape])
     importcpp: "SetContext", header: "ShapeUpgrade_Tool.hxx".}
 proc context*(this: ShapeUpgradeTool): Handle[ShapeBuildReShape] {.noSideEffect,
     importcpp: "Context", header: "ShapeUpgrade_Tool.hxx".}
-proc setPrecision*(this: var ShapeUpgradeTool; preci: float) {.
+proc setPrecision*(this: var ShapeUpgradeTool; preci: cfloat) {.
     importcpp: "SetPrecision", header: "ShapeUpgrade_Tool.hxx".}
-proc precision*(this: ShapeUpgradeTool): float {.noSideEffect,
+proc precision*(this: ShapeUpgradeTool): cfloat {.noSideEffect,
     importcpp: "Precision", header: "ShapeUpgrade_Tool.hxx".}
-proc setMinTolerance*(this: var ShapeUpgradeTool; mintol: float) {.
+proc setMinTolerance*(this: var ShapeUpgradeTool; mintol: cfloat) {.
     importcpp: "SetMinTolerance", header: "ShapeUpgrade_Tool.hxx".}
-proc minTolerance*(this: ShapeUpgradeTool): float {.noSideEffect,
+proc minTolerance*(this: ShapeUpgradeTool): cfloat {.noSideEffect,
     importcpp: "MinTolerance", header: "ShapeUpgrade_Tool.hxx".}
-proc setMaxTolerance*(this: var ShapeUpgradeTool; maxtol: float) {.
+proc setMaxTolerance*(this: var ShapeUpgradeTool; maxtol: cfloat) {.
     importcpp: "SetMaxTolerance", header: "ShapeUpgrade_Tool.hxx".}
-proc maxTolerance*(this: ShapeUpgradeTool): float {.noSideEffect,
+proc maxTolerance*(this: ShapeUpgradeTool): cfloat {.noSideEffect,
     importcpp: "MaxTolerance", header: "ShapeUpgrade_Tool.hxx".}
-proc limitTolerance*(this: ShapeUpgradeTool; toler: float): float {.noSideEffect,
+proc limitTolerance*(this: ShapeUpgradeTool; toler: cfloat): cfloat {.noSideEffect,
     importcpp: "LimitTolerance", header: "ShapeUpgrade_Tool.hxx".}
 type
   ShapeUpgradeToolbaseType* = StandardTransient
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeUpgrade_Tool.hxx".}
 proc dynamicType*(this: ShapeUpgradeTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeUpgrade_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

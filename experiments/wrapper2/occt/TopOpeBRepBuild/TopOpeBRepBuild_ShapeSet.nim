@@ -93,7 +93,7 @@ proc findNeighbours*(this: var TopOpeBRepBuildShapeSet) {.
 proc makeNeighboursList*(this: var TopOpeBRepBuildShapeSet; e: TopoDS_Shape;
                         v: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "MakeNeighboursList", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc maxNumberSubShape*(this: var TopOpeBRepBuildShapeSet; shape: TopoDS_Shape): int {.
+proc maxNumberSubShape*(this: var TopOpeBRepBuildShapeSet; shape: TopoDS_Shape): cint {.
     importcpp: "MaxNumberSubShape", header: "TopOpeBRepBuild_ShapeSet.hxx".}
 proc checkShape*(this: var TopOpeBRepBuildShapeSet; checkshape: bool) {.
     importcpp: "CheckShape", header: "TopOpeBRepBuild_ShapeSet.hxx".}
@@ -116,9 +116,9 @@ proc dEBName*(this: var TopOpeBRepBuildShapeSet; n: TCollectionAsciiString) {.
     importcpp: "DEBName", header: "TopOpeBRepBuild_ShapeSet.hxx".}
 proc dEBName*(this: TopOpeBRepBuildShapeSet): TCollectionAsciiString {.noSideEffect,
     importcpp: "DEBName", header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc dEBNumber*(this: var TopOpeBRepBuildShapeSet; i: int) {.importcpp: "DEBNumber",
+proc dEBNumber*(this: var TopOpeBRepBuildShapeSet; i: cint) {.importcpp: "DEBNumber",
     header: "TopOpeBRepBuild_ShapeSet.hxx".}
-proc dEBNumber*(this: TopOpeBRepBuildShapeSet): int {.noSideEffect,
+proc dEBNumber*(this: TopOpeBRepBuildShapeSet): cint {.noSideEffect,
     importcpp: "DEBNumber", header: "TopOpeBRepBuild_ShapeSet.hxx".}
 proc sName*(this: TopOpeBRepBuildShapeSet; s: TopoDS_Shape;
            sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
@@ -132,3 +132,28 @@ proc sName*(this: TopOpeBRepBuildShapeSet; s: TopToolsListOfShape;
 proc sNameori*(this: TopOpeBRepBuildShapeSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SNameori", header: "TopOpeBRepBuild_ShapeSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

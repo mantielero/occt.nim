@@ -18,3 +18,28 @@ type
   XCAFDimTolObjectsDimensionObjectSequence* = NCollectionSequence[
       Handle[XCAFDimTolObjectsDimensionObject]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

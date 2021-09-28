@@ -22,7 +22,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_AxisPlacement"
 discard "forward decl of Geom2d_AxisPlacement"
 type
-  HandleGeom2dAxisPlacement* = Handle[Geom2dAxisPlacement]
+  HandleC1C1* = Handle[Geom2dAxisPlacement]
 
 ## ! Describes an axis in 2D space.
 ## ! An axis is defined by:
@@ -69,7 +69,7 @@ proc setDirection*(this: var Geom2dAxisPlacement; v: Dir2d) {.
     importcpp: "SetDirection", header: "Geom2d_AxisPlacement.hxx".}
 proc setLocation*(this: var Geom2dAxisPlacement; p: Pnt2d) {.importcpp: "SetLocation",
     header: "Geom2d_AxisPlacement.hxx".}
-proc angle*(this: Geom2dAxisPlacement; other: Handle[Geom2dAxisPlacement]): float {.
+proc angle*(this: Geom2dAxisPlacement; other: Handle[Geom2dAxisPlacement]): StandardReal {.
     noSideEffect, importcpp: "Angle", header: "Geom2d_AxisPlacement.hxx".}
 proc ax2d*(this: Geom2dAxisPlacement): Ax2d {.noSideEffect, importcpp: "Ax2d",
     header: "Geom2d_AxisPlacement.hxx".}

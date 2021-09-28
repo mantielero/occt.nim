@@ -51,7 +51,7 @@ type
 proc constructSTEPConstructUnitContext*(): STEPConstructUnitContext {.constructor,
     importcpp: "STEPConstruct_UnitContext(@)",
     header: "STEPConstruct_UnitContext.hxx".}
-proc init*(this: var STEPConstructUnitContext; tol3d: float) {.importcpp: "Init",
+proc init*(this: var STEPConstructUnitContext; tol3d: cfloat) {.importcpp: "Init",
     header: "STEPConstruct_UnitContext.hxx".}
 proc isDone*(this: STEPConstructUnitContext): bool {.noSideEffect,
     importcpp: "IsDone", header: "STEPConstruct_UnitContext.hxx".}
@@ -59,25 +59,25 @@ proc value*(this: STEPConstructUnitContext): Handle[
     StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx] {.
     noSideEffect, importcpp: "Value", header: "STEPConstruct_UnitContext.hxx".}
 proc computeFactors*(this: var STEPConstructUnitContext;
-                    aContext: Handle[StepReprGlobalUnitAssignedContext]): int {.
+                    aContext: Handle[StepReprGlobalUnitAssignedContext]): cint {.
     importcpp: "ComputeFactors", header: "STEPConstruct_UnitContext.hxx".}
 proc computeFactors*(this: var STEPConstructUnitContext;
-                    aUnit: Handle[StepBasicNamedUnit]): int {.
+                    aUnit: Handle[StepBasicNamedUnit]): cint {.
     importcpp: "ComputeFactors", header: "STEPConstruct_UnitContext.hxx".}
 proc computeTolerance*(this: var STEPConstructUnitContext; aContext: Handle[
-    StepReprGlobalUncertaintyAssignedContext]): int {.
+    StepReprGlobalUncertaintyAssignedContext]): cint {.
     importcpp: "ComputeTolerance", header: "STEPConstruct_UnitContext.hxx".}
-proc lengthFactor*(this: STEPConstructUnitContext): float {.noSideEffect,
+proc lengthFactor*(this: STEPConstructUnitContext): cfloat {.noSideEffect,
     importcpp: "LengthFactor", header: "STEPConstruct_UnitContext.hxx".}
-proc planeAngleFactor*(this: STEPConstructUnitContext): float {.noSideEffect,
+proc planeAngleFactor*(this: STEPConstructUnitContext): cfloat {.noSideEffect,
     importcpp: "PlaneAngleFactor", header: "STEPConstruct_UnitContext.hxx".}
-proc solidAngleFactor*(this: STEPConstructUnitContext): float {.noSideEffect,
+proc solidAngleFactor*(this: STEPConstructUnitContext): cfloat {.noSideEffect,
     importcpp: "SolidAngleFactor", header: "STEPConstruct_UnitContext.hxx".}
-proc uncertainty*(this: STEPConstructUnitContext): float {.noSideEffect,
+proc uncertainty*(this: STEPConstructUnitContext): cfloat {.noSideEffect,
     importcpp: "Uncertainty", header: "STEPConstruct_UnitContext.hxx".}
-proc areaFactor*(this: STEPConstructUnitContext): float {.noSideEffect,
+proc areaFactor*(this: STEPConstructUnitContext): cfloat {.noSideEffect,
     importcpp: "AreaFactor", header: "STEPConstruct_UnitContext.hxx".}
-proc volumeFactor*(this: STEPConstructUnitContext): float {.noSideEffect,
+proc volumeFactor*(this: STEPConstructUnitContext): cfloat {.noSideEffect,
     importcpp: "VolumeFactor", header: "STEPConstruct_UnitContext.hxx".}
 proc hasUncertainty*(this: STEPConstructUnitContext): bool {.noSideEffect,
     importcpp: "HasUncertainty", header: "STEPConstruct_UnitContext.hxx".}
@@ -91,9 +91,34 @@ proc areaDone*(this: STEPConstructUnitContext): bool {.noSideEffect,
     importcpp: "AreaDone", header: "STEPConstruct_UnitContext.hxx".}
 proc volumeDone*(this: STEPConstructUnitContext): bool {.noSideEffect,
     importcpp: "VolumeDone", header: "STEPConstruct_UnitContext.hxx".}
-proc statusMessage*(this: STEPConstructUnitContext; status: int): StandardCString {.
+proc statusMessage*(this: STEPConstructUnitContext; status: cint): StandardCString {.
     noSideEffect, importcpp: "StatusMessage",
     header: "STEPConstruct_UnitContext.hxx".}
-proc convertSiPrefix*(aPrefix: StepBasicSiPrefix): float {.
+proc convertSiPrefix*(aPrefix: StepBasicSiPrefix): cfloat {.
     importcpp: "STEPConstruct_UnitContext::ConvertSiPrefix(@)",
     header: "STEPConstruct_UnitContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

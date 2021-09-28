@@ -45,7 +45,7 @@ proc constructGceMakeDir2d*(v: Vec2d): GceMakeDir2d {.constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
 proc constructGceMakeDir2d*(coord: Xy): GceMakeDir2d {.constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
-proc constructGceMakeDir2d*(xv: float; yv: float): GceMakeDir2d {.constructor,
+proc constructGceMakeDir2d*(xv: cfloat; yv: cfloat): GceMakeDir2d {.constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
 proc constructGceMakeDir2d*(p1: Pnt2d; p2: Pnt2d): GceMakeDir2d {.constructor,
     importcpp: "gce_MakeDir2d(@)", header: "gce_MakeDir2d.hxx".}
@@ -55,3 +55,28 @@ proc operator*(this: GceMakeDir2d): Dir2d {.noSideEffect, importcpp: "Operator",
                                         header: "gce_MakeDir2d.hxx".}
 converter `dir2d`*(this: GceMakeDir2d): Dir2d {.noSideEffect,
     importcpp: "gce_MakeDir2d::operator gp_Dir2d", header: "gce_MakeDir2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

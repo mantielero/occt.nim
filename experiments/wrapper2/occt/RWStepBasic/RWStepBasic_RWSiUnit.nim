@@ -27,8 +27,9 @@ type
 proc constructRWStepBasicRWSiUnit*(): RWStepBasicRWSiUnit {.constructor,
     importcpp: "RWStepBasic_RWSiUnit(@)", header: "RWStepBasic_RWSiUnit.hxx".}
 proc readStep*(this: RWStepBasicRWSiUnit; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicSiUnit]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWSiUnit.hxx".}
+              num: cint; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicSiUnit]) {.noSideEffect, importcpp: "ReadStep",
+    header: "RWStepBasic_RWSiUnit.hxx".}
 proc writeStep*(this: RWStepBasicRWSiUnit; sw: var StepDataStepWriter;
                ent: Handle[StepBasicSiUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnit.hxx".}
@@ -42,3 +43,28 @@ proc encodePrefix*(this: RWStepBasicRWSiUnit; aPrefix: StepBasicSiPrefix): TColl
     noSideEffect, importcpp: "EncodePrefix", header: "RWStepBasic_RWSiUnit.hxx".}
 proc encodeName*(this: RWStepBasicRWSiUnit; aName: StepBasicSiUnitName): TCollectionAsciiString {.
     noSideEffect, importcpp: "EncodeName", header: "RWStepBasic_RWSiUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,3 +31,28 @@ proc `>>`*(theReadData: var StdObjMgtReadData; theTriangle: var PolyTriangle): v
     importcpp: "(# >> #)", header: "ShapePersistent_HArray1.hxx".}
 proc `<<`*(theWriteData: var StdObjMgtWriteData; theTriangle: PolyTriangle): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "ShapePersistent_HArray1.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

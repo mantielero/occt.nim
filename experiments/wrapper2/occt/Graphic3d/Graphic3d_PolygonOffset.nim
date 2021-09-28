@@ -26,5 +26,30 @@ proc constructGraphic3dPolygonOffset*(): Graphic3dPolygonOffset {.constructor,
 proc `==`*(this: Graphic3dPolygonOffset; theOther: Graphic3dPolygonOffset): bool {.
     noSideEffect, importcpp: "(# == #)", header: "Graphic3d_PolygonOffset.hxx".}
 proc dumpJson*(this: Graphic3dPolygonOffset; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_PolygonOffset.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_PolygonOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

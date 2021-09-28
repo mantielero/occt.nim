@@ -13,8 +13,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdDataMapOfIntegerReal* = NCollectionDataMap[int, float,
+  TColStdDataMapOfIntegerReal* = NCollectionDataMap[cint, cfloat,
       TColStdMapIntegerHasher]
-  TColStdDataMapIteratorOfDataMapOfIntegerReal* = Iterator[int, float,
+  TColStdDataMapIteratorOfDataMapOfIntegerReal* = Iterator[cint, cfloat,
       TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

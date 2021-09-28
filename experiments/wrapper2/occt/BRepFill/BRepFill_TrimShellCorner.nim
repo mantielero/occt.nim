@@ -58,7 +58,7 @@ proc addUEdges*(this: var BRepFillTrimShellCorner;
                theUEdges: Handle[TopToolsHArray2OfShape]) {.
     importcpp: "AddUEdges", header: "BRepFill_TrimShellCorner.hxx".}
 proc addVEdges*(this: var BRepFillTrimShellCorner;
-               theVEdges: Handle[TopToolsHArray2OfShape]; theIndex: int) {.
+               theVEdges: Handle[TopToolsHArray2OfShape]; theIndex: cint) {.
     importcpp: "AddVEdges", header: "BRepFill_TrimShellCorner.hxx".}
 proc perform*(this: var BRepFillTrimShellCorner) {.importcpp: "Perform",
     header: "BRepFill_TrimShellCorner.hxx".}
@@ -69,3 +69,28 @@ proc hasSection*(this: BRepFillTrimShellCorner): bool {.noSideEffect,
 proc modified*(this: var BRepFillTrimShellCorner; s: TopoDS_Shape;
               theModified: var TopToolsListOfShape) {.importcpp: "Modified",
     header: "BRepFill_TrimShellCorner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

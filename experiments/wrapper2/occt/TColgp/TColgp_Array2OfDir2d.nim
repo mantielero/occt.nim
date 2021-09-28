@@ -17,3 +17,28 @@
 type
   TColgpArray2OfDir2d* = NCollectionArray2[Dir2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

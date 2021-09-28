@@ -42,3 +42,28 @@ proc setAvoidInternalShapes*(this: var BOPAlgoBuilderArea; theAvoidInternal: boo
     importcpp: "SetAvoidInternalShapes", header: "BOPAlgo_BuilderArea.hxx".}
 proc isAvoidInternalShapes*(this: BOPAlgoBuilderArea): bool {.noSideEffect,
     importcpp: "IsAvoidInternalShapes", header: "BOPAlgo_BuilderArea.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

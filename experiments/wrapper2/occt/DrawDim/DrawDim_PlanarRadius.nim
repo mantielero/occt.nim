@@ -20,7 +20,7 @@ discard "forward decl of Draw_Display"
 discard "forward decl of DrawDim_PlanarRadius"
 discard "forward decl of DrawDim_PlanarRadius"
 type
-  HandleDrawDimPlanarRadius* = Handle[DrawDimPlanarRadius]
+  HandleC1C1* = Handle[DrawDimPlanarRadius]
   DrawDimPlanarRadius* {.importcpp: "DrawDim_PlanarRadius",
                         header: "DrawDim_PlanarRadius.hxx", bycopy.} = object of DrawDimPlanarDimension
 
@@ -43,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawDim_PlanarRadius.hxx".}
 proc dynamicType*(this: DrawDimPlanarRadius): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawDim_PlanarRadius.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

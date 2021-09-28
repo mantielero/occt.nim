@@ -19,7 +19,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DDocStd_DrawDocument"
 discard "forward decl of DDocStd_DrawDocument"
 type
-  HandleDDocStdDrawDocument* = Handle[DDocStdDrawDocument]
+  HandleC1C1* = Handle[DDocStdDrawDocument]
 
 ## ! draw variable for TDocStd_Document.
 ## ! ==================================
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DDocStd_DrawDocument.hxx".}
 proc dynamicType*(this: DDocStdDrawDocument): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DDocStd_DrawDocument.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

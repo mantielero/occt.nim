@@ -25,19 +25,19 @@ type
                                                                    ## ! Empty constructor
 
 
-proc nbSectionPoints*(this: IntfInterference): int {.noSideEffect,
+proc nbSectionPoints*(this: IntfInterference): cint {.noSideEffect,
     importcpp: "NbSectionPoints", header: "Intf_Interference.hxx".}
-proc pntValue*(this: IntfInterference; index: int): IntfSectionPoint {.noSideEffect,
+proc pntValue*(this: IntfInterference; index: cint): IntfSectionPoint {.noSideEffect,
     importcpp: "PntValue", header: "Intf_Interference.hxx".}
-proc nbSectionLines*(this: IntfInterference): int {.noSideEffect,
+proc nbSectionLines*(this: IntfInterference): cint {.noSideEffect,
     importcpp: "NbSectionLines", header: "Intf_Interference.hxx".}
-proc lineValue*(this: IntfInterference; index: int): IntfSectionLine {.noSideEffect,
+proc lineValue*(this: IntfInterference; index: cint): IntfSectionLine {.noSideEffect,
     importcpp: "LineValue", header: "Intf_Interference.hxx".}
-proc nbTangentZones*(this: IntfInterference): int {.noSideEffect,
+proc nbTangentZones*(this: IntfInterference): cint {.noSideEffect,
     importcpp: "NbTangentZones", header: "Intf_Interference.hxx".}
-proc zoneValue*(this: IntfInterference; index: int): IntfTangentZone {.noSideEffect,
+proc zoneValue*(this: IntfInterference; index: cint): IntfTangentZone {.noSideEffect,
     importcpp: "ZoneValue", header: "Intf_Interference.hxx".}
-proc getTolerance*(this: IntfInterference): float {.noSideEffect,
+proc getTolerance*(this: IntfInterference): cfloat {.noSideEffect,
     importcpp: "GetTolerance", header: "Intf_Interference.hxx".}
 proc contains*(this: IntfInterference; thePnt: IntfSectionPoint): bool {.noSideEffect,
     importcpp: "Contains", header: "Intf_Interference.hxx".}
@@ -48,3 +48,28 @@ proc insert*(this: var IntfInterference; pdeb: IntfSectionPoint;
                                     header: "Intf_Interference.hxx".}
 proc dump*(this: IntfInterference) {.noSideEffect, importcpp: "Dump",
                                   header: "Intf_Interference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

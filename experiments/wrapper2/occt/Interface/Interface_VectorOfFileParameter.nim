@@ -20,3 +20,28 @@
 type
   InterfaceVectorOfFileParameter* = NCollectionVector[InterfaceFileParameter]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

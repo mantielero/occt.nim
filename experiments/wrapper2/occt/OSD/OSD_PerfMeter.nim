@@ -49,3 +49,28 @@ proc flush*(this: OSD_PerfMeter) {.noSideEffect, importcpp: "Flush",
                                 header: "OSD_PerfMeter.hxx".}
 proc destroyOSD_PerfMeter*(this: var OSD_PerfMeter) {.
     importcpp: "#.~OSD_PerfMeter()", header: "OSD_PerfMeter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

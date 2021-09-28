@@ -21,17 +21,17 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of PCDM_RetrievalDriver"
 discard "forward decl of PCDM_RetrievalDriver"
 type
-  HandlePCDM_RetrievalDriver* = Handle[PCDM_RetrievalDriver]
+  HandleC1C1* = Handle[PCDM_RetrievalDriver]
   PCDM_RetrievalDriver* {.importcpp: "PCDM_RetrievalDriver",
                          header: "PCDM_RetrievalDriver.hxx", bycopy.} = object of PCDM_Reader
 
 
 proc documentVersion*(theFileName: TCollectionExtendedString;
-                     theMsgDriver: Handle[MessageMessenger]): int {.
+                     theMsgDriver: Handle[MessageMessenger]): cint {.
     importcpp: "PCDM_RetrievalDriver::DocumentVersion(@)",
     header: "PCDM_RetrievalDriver.hxx".}
 proc referenceCounter*(theFileName: TCollectionExtendedString;
-                      theMsgDriver: Handle[MessageMessenger]): int {.
+                      theMsgDriver: Handle[MessageMessenger]): cint {.
     importcpp: "PCDM_RetrievalDriver::ReferenceCounter(@)",
     header: "PCDM_RetrievalDriver.hxx".}
 proc setFormat*(this: var PCDM_RetrievalDriver; aformat: TCollectionExtendedString) {.
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "PCDM_RetrievalDriver.hxx".}
 proc dynamicType*(this: PCDM_RetrievalDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_RetrievalDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

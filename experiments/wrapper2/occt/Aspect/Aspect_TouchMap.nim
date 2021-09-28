@@ -14,3 +14,28 @@
 type
   AspectTouchMap* = NCollectionIndexedDataMap[StandardSize, AspectTouch]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

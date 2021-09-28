@@ -131,10 +131,35 @@ type
                                                                                        ## curve.
 
 
-proc findParameter*(c: StandardAddress; pnt: Pnt2d; tol: float): float {.
+proc findParameter*(c: StandardAddress; pnt: Pnt2d; tol: cfloat): cfloat {.
     importcpp: "HLRBRep_TheProjPCurOfCInter::FindParameter(@)",
     header: "HLRBRep_TheProjPCurOfCInter.hxx".}
-proc findParameter*(c: StandardAddress; pnt: Pnt2d; lowParameter: float;
-                   highParameter: float; tol: float): float {.
+proc findParameter*(c: StandardAddress; pnt: Pnt2d; lowParameter: cfloat;
+                   highParameter: cfloat; tol: cfloat): cfloat {.
     importcpp: "HLRBRep_TheProjPCurOfCInter::FindParameter(@)",
     header: "HLRBRep_TheProjPCurOfCInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

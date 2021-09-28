@@ -36,3 +36,28 @@ proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
     importcpp: "StdDrivers::DefineFormat(@)", header: "StdDrivers.hxx".}
 proc bindTypes*(theMap: var StdObjMgtMapOfInstantiators) {.
     importcpp: "StdDrivers::BindTypes(@)", header: "StdDrivers.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

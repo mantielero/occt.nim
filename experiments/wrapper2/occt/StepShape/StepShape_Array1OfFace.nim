@@ -17,3 +17,28 @@
 type
   StepShapeArray1OfFace* = NCollectionArray1[Handle[StepShapeFace]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

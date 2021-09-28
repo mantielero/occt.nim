@@ -43,3 +43,28 @@ proc print*(geo: TDataXtdGeometryEnum; s: var StandardOStream): var StandardOStr
     importcpp: "TDataXtd::Print(@)", header: "TDataXtd.hxx".}
 proc print*(ctr: TDataXtdConstraintEnum; s: var StandardOStream): var StandardOStream {.
     importcpp: "TDataXtd::Print(@)", header: "TDataXtd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

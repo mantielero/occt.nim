@@ -19,7 +19,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of MoniTool_SignShape"
 discard "forward decl of MoniTool_SignShape"
 type
-  HandleMoniToolSignShape* = Handle[MoniToolSignShape]
+  HandleC1C1* = Handle[MoniToolSignShape]
 
 ## ! Signs HShape according to its real content (type of Shape)
 ## ! Context is not used
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MoniTool_SignShape.hxx".}
 proc dynamicType*(this: MoniToolSignShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_SignShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

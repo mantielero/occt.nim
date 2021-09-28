@@ -36,5 +36,30 @@ proc dynamicType*(this: MeshVS_SensitiveFace): Handle[StandardType] {.noSideEffe
     importcpp: "DynamicType", header: "MeshVS_SensitiveFace.hxx".}
 discard "forward decl of MeshVS_SensitiveFace"
 type
-  HandleMeshVS_SensitiveFace* = Handle[MeshVS_SensitiveFace]
+  HandleC1C1* = Handle[MeshVS_SensitiveFace]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

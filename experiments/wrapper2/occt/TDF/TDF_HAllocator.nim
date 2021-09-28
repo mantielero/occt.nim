@@ -16,3 +16,28 @@
 type
   TDF_HAllocator* = Handle[NCollectionBaseAllocator]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

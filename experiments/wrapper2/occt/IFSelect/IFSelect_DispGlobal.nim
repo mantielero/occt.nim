@@ -20,7 +20,7 @@ discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispGlobal"
 discard "forward decl of IFSelect_DispGlobal"
 type
-  HandleIFSelectDispGlobal* = Handle[IFSelectDispGlobal]
+  HandleC1C1* = Handle[IFSelectDispGlobal]
 
 ## ! A DispGlobal gathers all the input Entities into only one
 ## ! global Packet
@@ -38,7 +38,7 @@ proc constructIFSelectDispGlobal*(): IFSelectDispGlobal {.constructor,
     importcpp: "IFSelect_DispGlobal(@)", header: "IFSelect_DispGlobal.hxx".}
 proc label*(this: IFSelectDispGlobal): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_DispGlobal.hxx".}
-proc limitedMax*(this: IFSelectDispGlobal; nbent: int; max: var int): bool {.
+proc limitedMax*(this: IFSelectDispGlobal; nbent: cint; max: var cint): bool {.
     noSideEffect, importcpp: "LimitedMax", header: "IFSelect_DispGlobal.hxx".}
 proc packets*(this: IFSelectDispGlobal; g: InterfaceGraph;
              packs: var IFGraphSubPartsIterator) {.noSideEffect,
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_DispGlobal.hxx".}
 proc dynamicType*(this: IFSelectDispGlobal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_DispGlobal.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

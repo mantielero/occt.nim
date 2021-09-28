@@ -18,3 +18,28 @@ type
     BRepExtremaIsVertex, BRepExtremaIsOnEdge, BRepExtremaIsInFace
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

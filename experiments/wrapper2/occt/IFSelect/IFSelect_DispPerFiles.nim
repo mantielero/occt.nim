@@ -22,7 +22,7 @@ discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerFiles"
 discard "forward decl of IFSelect_DispPerFiles"
 type
-  HandleIFSelectDispPerFiles* = Handle[IFSelectDispPerFiles]
+  HandleC1C1* = Handle[IFSelectDispPerFiles]
 
 ## ! A DispPerFiles produces a determined count of Packets from the
 ## ! input Entities. It divides, as equally as possible, the input
@@ -54,11 +54,11 @@ proc count*(this: IFSelectDispPerFiles): Handle[IFSelectIntParam] {.noSideEffect
     importcpp: "Count", header: "IFSelect_DispPerFiles.hxx".}
 proc setCount*(this: var IFSelectDispPerFiles; count: Handle[IFSelectIntParam]) {.
     importcpp: "SetCount", header: "IFSelect_DispPerFiles.hxx".}
-proc countValue*(this: IFSelectDispPerFiles): int {.noSideEffect,
+proc countValue*(this: IFSelectDispPerFiles): cint {.noSideEffect,
     importcpp: "CountValue", header: "IFSelect_DispPerFiles.hxx".}
 proc label*(this: IFSelectDispPerFiles): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_DispPerFiles.hxx".}
-proc limitedMax*(this: IFSelectDispPerFiles; nbent: int; max: var int): bool {.
+proc limitedMax*(this: IFSelectDispPerFiles; nbent: cint; max: var cint): bool {.
     noSideEffect, importcpp: "LimitedMax", header: "IFSelect_DispPerFiles.hxx".}
 proc packets*(this: IFSelectDispPerFiles; g: InterfaceGraph;
              packs: var IFGraphSubPartsIterator) {.noSideEffect,
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_DispPerFiles.hxx".}
 proc dynamicType*(this: IFSelectDispPerFiles): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_DispPerFiles.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

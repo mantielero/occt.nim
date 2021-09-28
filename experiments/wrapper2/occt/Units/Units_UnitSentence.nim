@@ -60,3 +60,28 @@ proc analyse*(this: var UnitsUnitSentence) {.importcpp: "Analyse",
 proc setUnits*(this: var UnitsUnitSentence;
               aquantitiessequence: Handle[UnitsQuantitiesSequence]) {.
     importcpp: "SetUnits", header: "Units_UnitSentence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

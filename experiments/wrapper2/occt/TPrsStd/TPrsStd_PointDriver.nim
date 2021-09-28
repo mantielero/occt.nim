@@ -19,7 +19,7 @@ discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_PointDriver"
 discard "forward decl of TPrsStd_PointDriver"
 type
-  HandleTPrsStdPointDriver* = Handle[TPrsStdPointDriver]
+  HandleC1C1* = Handle[TPrsStdPointDriver]
 
 ## ! An implementation of TPrsStd_Driver for points.
 
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_PointDriver.hxx".}
 proc dynamicType*(this: TPrsStdPointDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_PointDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

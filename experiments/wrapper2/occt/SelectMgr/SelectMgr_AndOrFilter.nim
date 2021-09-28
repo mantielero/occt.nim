@@ -13,7 +13,7 @@
 
 discard "forward decl of SelectMgr_AndOrFilter"
 type
-  HandleSelectMgrAndOrFilter* = Handle[SelectMgrAndOrFilter]
+  HandleC1C1* = Handle[SelectMgrAndOrFilter]
 
 ## ! A framework to define an OR or AND selection filter.
 ## ! To use an AND selection filter call SetUseOrFilter with False parameter.
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "SelectMgr_AndOrFilter.hxx".}
 proc dynamicType*(this: SelectMgrAndOrFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "SelectMgr_AndOrFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

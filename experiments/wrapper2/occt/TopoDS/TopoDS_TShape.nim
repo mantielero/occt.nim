@@ -134,11 +134,11 @@ proc shapeType*(this: TopoDS_TShape): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TShape.hxx".}
 proc emptyCopy*(this: TopoDS_TShape): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TShape.hxx".}
-proc nbChildren*(this: TopoDS_TShape): int {.noSideEffect, importcpp: "NbChildren",
+proc nbChildren*(this: TopoDS_TShape): cint {.noSideEffect, importcpp: "NbChildren",
     header: "TopoDS_TShape.hxx".}
 proc dumpJson*(this: TopoDS_TShape; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TopoDS_TShape.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TopoDS_TShape.hxx".}
 type
   TopoDS_TShapebaseType* = StandardTransient
 
@@ -151,5 +151,30 @@ proc dynamicType*(this: TopoDS_TShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TShape.hxx".}
 discard "forward decl of TopoDS_TShape"
 type
-  HandleTopoDS_TShape* = Handle[TopoDS_TShape]
+  HandleC1C1* = Handle[TopoDS_TShape]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

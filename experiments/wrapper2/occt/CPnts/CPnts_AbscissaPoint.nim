@@ -23,68 +23,93 @@ type
                        header: "CPnts_AbscissaPoint.hxx", bycopy.} = object ## ! Computes the length of the Curve <C>.
 
 
-proc length*(c: Adaptor3dCurve): float {.importcpp: "CPnts_AbscissaPoint::Length(@)",
-                                     header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d): float {.importcpp: "CPnts_AbscissaPoint::Length(@)",
-                                       header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor3dCurve; tol: float): float {.
+proc length*(c: Adaptor3dCurve): cfloat {.importcpp: "CPnts_AbscissaPoint::Length(@)",
+                                      header: "CPnts_AbscissaPoint.hxx".}
+proc length*(c: Adaptor2dCurve2d): cfloat {.importcpp: "CPnts_AbscissaPoint::Length(@)",
+                                        header: "CPnts_AbscissaPoint.hxx".}
+proc length*(c: Adaptor3dCurve; tol: cfloat): cfloat {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d; tol: float): float {.
+proc length*(c: Adaptor2dCurve2d; tol: cfloat): cfloat {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor3dCurve; u1: float; u2: float): float {.
+proc length*(c: Adaptor3dCurve; u1: cfloat; u2: cfloat): cfloat {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d; u1: float; u2: float): float {.
+proc length*(c: Adaptor2dCurve2d; u1: cfloat; u2: cfloat): cfloat {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor3dCurve; u1: float; u2: float; tol: float): float {.
+proc length*(c: Adaptor3dCurve; u1: cfloat; u2: cfloat; tol: cfloat): cfloat {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d; u1: float; u2: float; tol: float): float {.
+proc length*(c: Adaptor2dCurve2d; u1: cfloat; u2: cfloat; tol: cfloat): cfloat {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
 proc constructCPntsAbscissaPoint*(): CPntsAbscissaPoint {.constructor,
     importcpp: "CPnts_AbscissaPoint(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc constructCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: float; u0: float;
-                                 resolution: float): CPntsAbscissaPoint {.
+proc constructCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: cfloat; u0: cfloat;
+                                 resolution: cfloat): CPntsAbscissaPoint {.
     constructor, importcpp: "CPnts_AbscissaPoint(@)",
     header: "CPnts_AbscissaPoint.hxx".}
-proc constructCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: float; u0: float;
-                                 resolution: float): CPntsAbscissaPoint {.
+proc constructCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: cfloat; u0: cfloat;
+                                 resolution: cfloat): CPntsAbscissaPoint {.
     constructor, importcpp: "CPnts_AbscissaPoint(@)",
     header: "CPnts_AbscissaPoint.hxx".}
-proc constructCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: float; u0: float;
-                                 ui: float; resolution: float): CPntsAbscissaPoint {.
+proc constructCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: cfloat; u0: cfloat;
+                                 ui: cfloat; resolution: cfloat): CPntsAbscissaPoint {.
     constructor, importcpp: "CPnts_AbscissaPoint(@)",
     header: "CPnts_AbscissaPoint.hxx".}
-proc constructCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: float; u0: float;
-                                 ui: float; resolution: float): CPntsAbscissaPoint {.
+proc constructCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: cfloat; u0: cfloat;
+                                 ui: cfloat; resolution: cfloat): CPntsAbscissaPoint {.
     constructor, importcpp: "CPnts_AbscissaPoint(@)",
     header: "CPnts_AbscissaPoint.hxx".}
 proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve) {.importcpp: "Init",
     header: "CPnts_AbscissaPoint.hxx".}
 proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d) {.importcpp: "Init",
     header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve; tol: float) {.
+proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve; tol: cfloat) {.
     importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d; tol: float) {.
+proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d; tol: cfloat) {.
     importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve; u1: float; u2: float) {.
+proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve; u1: cfloat; u2: cfloat) {.
     importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d; u1: float; u2: float) {.
+proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d; u1: cfloat; u2: cfloat) {.
     importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve; u1: float; u2: float;
-          tol: float) {.importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d; u1: float; u2: float;
-          tol: float) {.importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
-proc perform*(this: var CPntsAbscissaPoint; abscissa: float; u0: float;
-             resolution: float) {.importcpp: "Perform",
-                                header: "CPnts_AbscissaPoint.hxx".}
-proc perform*(this: var CPntsAbscissaPoint; abscissa: float; u0: float; ui: float;
-             resolution: float) {.importcpp: "Perform",
-                                header: "CPnts_AbscissaPoint.hxx".}
-proc advPerform*(this: var CPntsAbscissaPoint; abscissa: float; u0: float; ui: float;
-                resolution: float) {.importcpp: "AdvPerform",
-                                   header: "CPnts_AbscissaPoint.hxx".}
+proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve; u1: cfloat; u2: cfloat;
+          tol: cfloat) {.importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
+proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d; u1: cfloat; u2: cfloat;
+          tol: cfloat) {.importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
+proc perform*(this: var CPntsAbscissaPoint; abscissa: cfloat; u0: cfloat;
+             resolution: cfloat) {.importcpp: "Perform",
+                                 header: "CPnts_AbscissaPoint.hxx".}
+proc perform*(this: var CPntsAbscissaPoint; abscissa: cfloat; u0: cfloat; ui: cfloat;
+             resolution: cfloat) {.importcpp: "Perform",
+                                 header: "CPnts_AbscissaPoint.hxx".}
+proc advPerform*(this: var CPntsAbscissaPoint; abscissa: cfloat; u0: cfloat; ui: cfloat;
+                resolution: cfloat) {.importcpp: "AdvPerform",
+                                    header: "CPnts_AbscissaPoint.hxx".}
 proc isDone*(this: CPntsAbscissaPoint): bool {.noSideEffect, importcpp: "IsDone",
     header: "CPnts_AbscissaPoint.hxx".}
-proc parameter*(this: CPntsAbscissaPoint): float {.noSideEffect,
+proc parameter*(this: CPntsAbscissaPoint): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "CPnts_AbscissaPoint.hxx".}
-proc setParameter*(this: var CPntsAbscissaPoint; p: float) {.
+proc setParameter*(this: var CPntsAbscissaPoint; p: cfloat) {.
     importcpp: "SetParameter", header: "CPnts_AbscissaPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

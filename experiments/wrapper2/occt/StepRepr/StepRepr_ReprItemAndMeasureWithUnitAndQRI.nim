@@ -17,8 +17,7 @@ discard "forward decl of StepShape_QualifiedRepresentationItem"
 discard "forward decl of StepRepr_ReprItemAndMeasureWithUnitAndQRI"
 discard "forward decl of StepRepr_ReprItemAndMeasureWithUnitAndQRI"
 type
-  HandleStepReprReprItemAndMeasureWithUnitAndQRI* = Handle[
-      StepReprReprItemAndMeasureWithUnitAndQRI]
+  HandleC1C1* = Handle[StepReprReprItemAndMeasureWithUnitAndQRI]
 
 ## ! Base class for complex types (MEASURE_REPRESENTATION_ITEM, MEASURE_WITH_UNIT, QUALIFIED_REPRESENTATION_ITEM
 ## ! REPRESENTATION_ITEM, LENGTH_MEASURE_WITH_UNIT/PLANE_ANGLE_MEASURE_WITH_UNIT).
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ReprItemA
 proc dynamicType*(this: StepReprReprItemAndMeasureWithUnitAndQRI): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_ReprItemAndMeasureWithUnitAndQRI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

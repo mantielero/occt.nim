@@ -26,19 +26,44 @@ type
 
 
 proc constructVrmlCylinder*(aParts: VrmlCylinderParts = vrmlCylinderALL;
-                           aRadius: float = 1; aHeight: float = 2): VrmlCylinder {.
+                           aRadius: cfloat = 1; aHeight: cfloat = 2): VrmlCylinder {.
     constructor, importcpp: "Vrml_Cylinder(@)", header: "Vrml_Cylinder.hxx".}
 proc setParts*(this: var VrmlCylinder; aParts: VrmlCylinderParts) {.
     importcpp: "SetParts", header: "Vrml_Cylinder.hxx".}
 proc parts*(this: VrmlCylinder): VrmlCylinderParts {.noSideEffect,
     importcpp: "Parts", header: "Vrml_Cylinder.hxx".}
-proc setRadius*(this: var VrmlCylinder; aRadius: float) {.importcpp: "SetRadius",
+proc setRadius*(this: var VrmlCylinder; aRadius: cfloat) {.importcpp: "SetRadius",
     header: "Vrml_Cylinder.hxx".}
-proc radius*(this: VrmlCylinder): float {.noSideEffect, importcpp: "Radius",
-                                      header: "Vrml_Cylinder.hxx".}
-proc setHeight*(this: var VrmlCylinder; aHeight: float) {.importcpp: "SetHeight",
+proc radius*(this: VrmlCylinder): cfloat {.noSideEffect, importcpp: "Radius",
+                                       header: "Vrml_Cylinder.hxx".}
+proc setHeight*(this: var VrmlCylinder; aHeight: cfloat) {.importcpp: "SetHeight",
     header: "Vrml_Cylinder.hxx".}
-proc height*(this: VrmlCylinder): float {.noSideEffect, importcpp: "Height",
-                                      header: "Vrml_Cylinder.hxx".}
+proc height*(this: VrmlCylinder): cfloat {.noSideEffect, importcpp: "Height",
+                                       header: "Vrml_Cylinder.hxx".}
 proc print*(this: VrmlCylinder; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Cylinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

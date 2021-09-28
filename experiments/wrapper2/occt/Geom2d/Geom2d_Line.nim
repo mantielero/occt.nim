@@ -25,7 +25,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Line"
 discard "forward decl of Geom2d_Line"
 type
-  HandleGeom2dLine* = Handle[Geom2dLine]
+  HandleC1C1* = Handle[Geom2dLine]
 
 ## ! Describes an infinite line in the plane (2D space).
 ## ! A line is defined and positioned in the plane with an
@@ -96,38 +96,38 @@ proc position*(this: Geom2dLine): Ax2d {.noSideEffect, importcpp: "Position",
 proc lin2d*(this: Geom2dLine): Lin2d {.noSideEffect, importcpp: "Lin2d",
                                    header: "Geom2d_Line.hxx".}
 proc reverse*(this: var Geom2dLine) {.importcpp: "Reverse", header: "Geom2d_Line.hxx".}
-proc reversedParameter*(this: Geom2dLine; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom2d_Line.hxx".}
-proc firstParameter*(this: Geom2dLine): float {.noSideEffect,
+proc reversedParameter*(this: Geom2dLine; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_Line.hxx".}
+proc firstParameter*(this: Geom2dLine): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_Line.hxx".}
-proc lastParameter*(this: Geom2dLine): float {.noSideEffect,
+proc lastParameter*(this: Geom2dLine): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_Line.hxx".}
-proc isClosed*(this: Geom2dLine): bool {.noSideEffect, importcpp: "IsClosed",
-                                     header: "Geom2d_Line.hxx".}
-proc isPeriodic*(this: Geom2dLine): bool {.noSideEffect, importcpp: "IsPeriodic",
-                                       header: "Geom2d_Line.hxx".}
+proc isClosed*(this: Geom2dLine): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom2d_Line.hxx".}
+proc isPeriodic*(this: Geom2dLine): StandardBoolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom2d_Line.hxx".}
 proc continuity*(this: Geom2dLine): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom2d_Line.hxx".}
-proc distance*(this: Geom2dLine; p: Pnt2d): float {.noSideEffect,
+proc distance*(this: Geom2dLine; p: Pnt2d): StandardReal {.noSideEffect,
     importcpp: "Distance", header: "Geom2d_Line.hxx".}
-proc isCN*(this: Geom2dLine; n: int): bool {.noSideEffect, importcpp: "IsCN",
-                                       header: "Geom2d_Line.hxx".}
-proc d0*(this: Geom2dLine; u: float; p: var Pnt2d) {.noSideEffect, importcpp: "D0",
-    header: "Geom2d_Line.hxx".}
-proc d1*(this: Geom2dLine; u: float; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
+proc isCN*(this: Geom2dLine; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom2d_Line.hxx".}
+proc d0*(this: Geom2dLine; u: StandardReal; p: var Pnt2d) {.noSideEffect,
+    importcpp: "D0", header: "Geom2d_Line.hxx".}
+proc d1*(this: Geom2dLine; u: StandardReal; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
     importcpp: "D1", header: "Geom2d_Line.hxx".}
-proc d2*(this: Geom2dLine; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc d2*(this: Geom2dLine; u: StandardReal; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     noSideEffect, importcpp: "D2", header: "Geom2d_Line.hxx".}
-proc d3*(this: Geom2dLine; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.
-    noSideEffect, importcpp: "D3", header: "Geom2d_Line.hxx".}
-proc dn*(this: Geom2dLine; u: float; n: int): Vec2d {.noSideEffect, importcpp: "DN",
-    header: "Geom2d_Line.hxx".}
+proc d3*(this: Geom2dLine; u: StandardReal; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
+        v3: var Vec2d) {.noSideEffect, importcpp: "D3", header: "Geom2d_Line.hxx".}
+proc dn*(this: Geom2dLine; u: StandardReal; n: int): Vec2d {.noSideEffect,
+    importcpp: "DN", header: "Geom2d_Line.hxx".}
 proc transform*(this: var Geom2dLine; t: Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_Line.hxx".}
-proc transformedParameter*(this: Geom2dLine; u: float; t: Trsf2d): float {.noSideEffect,
-    importcpp: "TransformedParameter", header: "Geom2d_Line.hxx".}
-proc parametricTransformation*(this: Geom2dLine; t: Trsf2d): float {.noSideEffect,
-    importcpp: "ParametricTransformation", header: "Geom2d_Line.hxx".}
+proc transformedParameter*(this: Geom2dLine; u: StandardReal; t: Trsf2d): StandardReal {.
+    noSideEffect, importcpp: "TransformedParameter", header: "Geom2d_Line.hxx".}
+proc parametricTransformation*(this: Geom2dLine; t: Trsf2d): StandardReal {.
+    noSideEffect, importcpp: "ParametricTransformation", header: "Geom2d_Line.hxx".}
 proc copy*(this: Geom2dLine): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_Line.hxx".}
 proc dumpJson*(this: Geom2dLine; theOStream: var StandardOStream; theDepth: int = -1) {.

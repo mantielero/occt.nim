@@ -28,7 +28,7 @@ proc constructSTEPControlWriter*(ws: Handle[XSControlWorkSession];
                                 scratch: bool = true): STEPControlWriter {.
     constructor, importcpp: "STEPControl_Writer(@)",
     header: "STEPControl_Writer.hxx".}
-proc setTolerance*(this: var STEPControlWriter; tol: float) {.
+proc setTolerance*(this: var STEPControlWriter; tol: cfloat) {.
     importcpp: "SetTolerance", header: "STEPControl_Writer.hxx".}
 proc unsetTolerance*(this: var STEPControlWriter) {.importcpp: "UnsetTolerance",
     header: "STEPControl_Writer.hxx".}
@@ -45,5 +45,30 @@ proc transfer*(this: var STEPControlWriter; sh: TopoDS_Shape;
     importcpp: "Transfer", header: "STEPControl_Writer.hxx".}
 proc write*(this: var STEPControlWriter; filename: StandardCString): IFSelectReturnStatus {.
     importcpp: "Write", header: "STEPControl_Writer.hxx".}
-proc printStatsTransfer*(this: STEPControlWriter; what: int; mode: int = 0) {.
+proc printStatsTransfer*(this: STEPControlWriter; what: cint; mode: cint = 0) {.
     noSideEffect, importcpp: "PrintStatsTransfer", header: "STEPControl_Writer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

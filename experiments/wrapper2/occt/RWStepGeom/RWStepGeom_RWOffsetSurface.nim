@@ -28,7 +28,7 @@ proc constructRWStepGeomRWOffsetSurface*(): RWStepGeomRWOffsetSurface {.
     constructor, importcpp: "RWStepGeom_RWOffsetSurface(@)",
     header: "RWStepGeom_RWOffsetSurface.hxx".}
 proc readStep*(this: RWStepGeomRWOffsetSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomOffsetSurface]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWOffsetSurface.hxx".}
 proc writeStep*(this: RWStepGeomRWOffsetSurface; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepGeomRWOffsetSurface; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWOffsetSurface; ent: Handle[StepGeomOffsetSurface];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWOffsetSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

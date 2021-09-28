@@ -13,6 +13,31 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdMapOfInteger* = NCollectionMap[int, TColStdMapIntegerHasher]
-  TColStdMapIteratorOfMapOfInteger* = Iterator[int, TColStdMapIntegerHasher]
+  TColStdMapOfInteger* = NCollectionMap[cint, TColStdMapIntegerHasher]
+  TColStdMapIteratorOfMapOfInteger* = Iterator[cint, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

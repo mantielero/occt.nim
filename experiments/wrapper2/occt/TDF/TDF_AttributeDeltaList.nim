@@ -17,3 +17,28 @@ type
   TDF_AttributeDeltaList* = NCollectionList[Handle[TDF_AttributeDelta]]
   TDF_ListIteratorOfAttributeDeltaList* = Iterator[Handle[TDF_AttributeDelta]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

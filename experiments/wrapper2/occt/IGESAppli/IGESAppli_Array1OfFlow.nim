@@ -17,3 +17,28 @@
 type
   IGESAppliArray1OfFlow* = NCollectionArray1[Handle[IGESAppliFlow]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

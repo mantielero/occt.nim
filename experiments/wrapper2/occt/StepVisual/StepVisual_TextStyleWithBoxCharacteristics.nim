@@ -20,8 +20,7 @@ discard "forward decl of StepVisual_BoxCharacteristicSelect"
 discard "forward decl of StepVisual_TextStyleWithBoxCharacteristics"
 discard "forward decl of StepVisual_TextStyleWithBoxCharacteristics"
 type
-  HandleStepVisualTextStyleWithBoxCharacteristics* = Handle[
-      StepVisualTextStyleWithBoxCharacteristics]
+  HandleC1C1* = Handle[StepVisualTextStyleWithBoxCharacteristics]
   StepVisualTextStyleWithBoxCharacteristics* {.
       importcpp: "StepVisual_TextStyleWithBoxCharacteristics",
       header: "StepVisual_TextStyleWithBoxCharacteristics.hxx", bycopy.} = object of StepVisualTextStyle ##
@@ -48,10 +47,10 @@ proc characteristics*(this: StepVisualTextStyleWithBoxCharacteristics): Handle[
     importcpp: "Characteristics",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
 proc characteristicsValue*(this: StepVisualTextStyleWithBoxCharacteristics;
-                          num: int): StepVisualBoxCharacteristicSelect {.
+                          num: cint): StepVisualBoxCharacteristicSelect {.
     noSideEffect, importcpp: "CharacteristicsValue",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
-proc nbCharacteristics*(this: StepVisualTextStyleWithBoxCharacteristics): int {.
+proc nbCharacteristics*(this: StepVisualTextStyleWithBoxCharacteristics): cint {.
     noSideEffect, importcpp: "NbCharacteristics",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
 type
@@ -63,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_TextSty
 proc dynamicType*(this: StepVisualTextStyleWithBoxCharacteristics): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

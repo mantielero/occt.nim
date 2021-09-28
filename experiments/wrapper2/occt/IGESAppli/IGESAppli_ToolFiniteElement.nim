@@ -67,5 +67,30 @@ proc ownCopy*(this: IGESAppliToolFiniteElement;
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolFiniteElement.hxx".}
 proc ownDump*(this: IGESAppliToolFiniteElement;
              ent: Handle[IGESAppliFiniteElement]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESAppli_ToolFiniteElement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

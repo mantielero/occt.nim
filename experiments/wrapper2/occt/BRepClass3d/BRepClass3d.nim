@@ -62,3 +62,28 @@ type
 
 proc outerShell*(s: TopoDS_Solid): TopoDS_Shell {.
     importcpp: "BRepClass3d::OuterShell(@)", header: "BRepClass3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

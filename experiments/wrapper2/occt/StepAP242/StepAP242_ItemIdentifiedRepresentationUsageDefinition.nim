@@ -48,7 +48,7 @@ proc constructStepAP242ItemIdentifiedRepresentationUsageDefinition*(): StepAP242
     importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition(@)",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
 proc caseNum*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
 proc appliedApprovalAssignment*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
@@ -108,3 +108,28 @@ proc shapeAspect*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): H
 proc shapeAspectRelationship*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
     StepReprShapeAspectRelationship] {.noSideEffect,
                                       importcpp: "ShapeAspectRelationship", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

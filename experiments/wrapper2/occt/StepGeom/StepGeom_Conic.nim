@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_Axis2Placement"
 discard "forward decl of StepGeom_Conic"
 discard "forward decl of StepGeom_Conic"
 type
-  HandleStepGeomConic* = Handle[StepGeomConic]
+  HandleC1C1* = Handle[StepGeomConic]
   StepGeomConic* {.importcpp: "StepGeom_Conic", header: "StepGeom_Conic.hxx", bycopy.} = object of StepGeomCurve ##
                                                                                                        ## !
                                                                                                        ## Returns
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Conic.hxx".}
 proc dynamicType*(this: StepGeomConic): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Conic.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

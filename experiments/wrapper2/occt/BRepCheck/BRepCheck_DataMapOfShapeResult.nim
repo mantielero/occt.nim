@@ -20,3 +20,28 @@ type
   BRepCheckDataMapIteratorOfDataMapOfShapeResult* = Iterator[TopoDS_Shape,
       Handle[BRepCheckResult], TopToolsOrientedShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

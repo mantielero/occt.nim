@@ -27,7 +27,7 @@ type
 proc constructStepVisualCurveStyleFontSelect*(): StepVisualCurveStyleFontSelect {.
     constructor, importcpp: "StepVisual_CurveStyleFontSelect(@)",
     header: "StepVisual_CurveStyleFontSelect.hxx".}
-proc caseNum*(this: StepVisualCurveStyleFontSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualCurveStyleFontSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepVisual_CurveStyleFontSelect.hxx".}
 proc curveStyleFont*(this: StepVisualCurveStyleFontSelect): Handle[
@@ -40,3 +40,28 @@ proc externallyDefinedCurveFont*(this: StepVisualCurveStyleFontSelect): Handle[
     StepVisualExternallyDefinedCurveFont] {.noSideEffect,
     importcpp: "ExternallyDefinedCurveFont",
     header: "StepVisual_CurveStyleFontSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

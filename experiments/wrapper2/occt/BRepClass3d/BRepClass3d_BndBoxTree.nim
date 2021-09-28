@@ -15,7 +15,7 @@
 ##  Typedef to reduce code complexity.
 
 type
-  BRepClass3dBndBoxTree* = NCollectionUBTree[int, BndBox]
+  BRepClass3dBndBoxTree* = NCollectionUBTree[cint, BndBox]
 
 ##  Class representing tree selector for point object.
 
@@ -32,7 +32,7 @@ proc constructBRepClass3dBndBoxTreeSelectorPoint*(
     header: "BRepClass3d_BndBoxTree.hxx".}
 proc reject*(this: BRepClass3dBndBoxTreeSelectorPoint; theBox: BndBox): bool {.
     noSideEffect, importcpp: "Reject", header: "BRepClass3d_BndBoxTree.hxx".}
-proc accept*(this: var BRepClass3dBndBoxTreeSelectorPoint; theObj: int): bool {.
+proc accept*(this: var BRepClass3dBndBoxTreeSelectorPoint; theObj: cint): bool {.
     importcpp: "Accept", header: "BRepClass3d_BndBoxTree.hxx".}
 proc setCurrentPoint*(this: var BRepClass3dBndBoxTreeSelectorPoint; theP: Pnt) {.
     importcpp: "SetCurrentPoint", header: "BRepClass3d_BndBoxTree.hxx".}
@@ -49,14 +49,14 @@ type
       importcpp: "BRepClass3d_BndBoxTreeSelectorLine::EdgeParam",
       header: "BRepClass3d_BndBoxTree.hxx", bycopy.} = object
     myE* {.importc: "myE".}: TopoDS_Edge
-    myParam* {.importc: "myParam".}: float ## par on myE
-    myLParam* {.importc: "myLParam".}: float ## par on line
+    myParam* {.importc: "myParam".}: cfloat ## par on myE
+    myLParam* {.importc: "myLParam".}: cfloat ## par on line
 
   BRepClass3dBndBoxTreeSelectorLineVertParam* {.
       importcpp: "BRepClass3d_BndBoxTreeSelectorLine::VertParam",
       header: "BRepClass3d_BndBoxTree.hxx", bycopy.} = object
     myV* {.importc: "myV".}: TopoDS_Vertex
-    myLParam* {.importc: "myLParam".}: float ## par on line
+    myLParam* {.importc: "myLParam".}: cfloat ## par on line
 
 
 proc constructBRepClass3dBndBoxTreeSelectorLine*(
@@ -65,23 +65,48 @@ proc constructBRepClass3dBndBoxTreeSelectorLine*(
     header: "BRepClass3d_BndBoxTree.hxx".}
 proc reject*(this: BRepClass3dBndBoxTreeSelectorLine; theBox: BndBox): bool {.
     noSideEffect, importcpp: "Reject", header: "BRepClass3d_BndBoxTree.hxx".}
-proc accept*(this: var BRepClass3dBndBoxTreeSelectorLine; theObj: int): bool {.
+proc accept*(this: var BRepClass3dBndBoxTreeSelectorLine; theObj: cint): bool {.
     importcpp: "Accept", header: "BRepClass3d_BndBoxTree.hxx".}
 proc setCurrentLine*(this: var BRepClass3dBndBoxTreeSelectorLine; theL: Lin;
-                    theMaxParam: float) {.importcpp: "SetCurrentLine",
+                    theMaxParam: cfloat) {.importcpp: "SetCurrentLine",
+    header: "BRepClass3d_BndBoxTree.hxx".}
+proc getEdgeParam*(this: BRepClass3dBndBoxTreeSelectorLine; i: cint;
+                  theOutE: var TopoDS_Edge; theOutParam: var cfloat;
+                  outLParam: var cfloat) {.noSideEffect, importcpp: "GetEdgeParam",
                                         header: "BRepClass3d_BndBoxTree.hxx".}
-proc getEdgeParam*(this: BRepClass3dBndBoxTreeSelectorLine; i: int;
-                  theOutE: var TopoDS_Edge; theOutParam: var float;
-                  outLParam: var float) {.noSideEffect, importcpp: "GetEdgeParam",
-                                       header: "BRepClass3d_BndBoxTree.hxx".}
-proc getVertParam*(this: BRepClass3dBndBoxTreeSelectorLine; i: int;
-                  theOutV: var TopoDS_Vertex; outLParam: var float) {.noSideEffect,
+proc getVertParam*(this: BRepClass3dBndBoxTreeSelectorLine; i: cint;
+                  theOutV: var TopoDS_Vertex; outLParam: var cfloat) {.noSideEffect,
     importcpp: "GetVertParam", header: "BRepClass3d_BndBoxTree.hxx".}
-proc getNbEdgeParam*(this: BRepClass3dBndBoxTreeSelectorLine): int {.noSideEffect,
+proc getNbEdgeParam*(this: BRepClass3dBndBoxTreeSelectorLine): cint {.noSideEffect,
     importcpp: "GetNbEdgeParam", header: "BRepClass3d_BndBoxTree.hxx".}
-proc getNbVertParam*(this: BRepClass3dBndBoxTreeSelectorLine): int {.noSideEffect,
+proc getNbVertParam*(this: BRepClass3dBndBoxTreeSelectorLine): cint {.noSideEffect,
     importcpp: "GetNbVertParam", header: "BRepClass3d_BndBoxTree.hxx".}
 proc clearResults*(this: var BRepClass3dBndBoxTreeSelectorLine) {.
     importcpp: "ClearResults", header: "BRepClass3d_BndBoxTree.hxx".}
 proc isCorrect*(this: BRepClass3dBndBoxTreeSelectorLine): bool {.noSideEffect,
     importcpp: "IsCorrect", header: "BRepClass3d_BndBoxTree.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

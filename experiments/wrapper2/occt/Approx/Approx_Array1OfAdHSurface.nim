@@ -17,3 +17,28 @@
 type
   ApproxArray1OfAdHSurface* = NCollectionArray1[Handle[Adaptor3dHSurface]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

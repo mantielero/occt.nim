@@ -34,13 +34,13 @@ type
                                                                                      ## point.
 
 
-proc setIndex*(this: var HatchGenIntersectionPoint; index: int) {.
+proc setIndex*(this: var HatchGenIntersectionPoint; index: cint) {.
     importcpp: "SetIndex", header: "HatchGen_IntersectionPoint.hxx".}
-proc index*(this: HatchGenIntersectionPoint): int {.noSideEffect, importcpp: "Index",
-    header: "HatchGen_IntersectionPoint.hxx".}
-proc setParameter*(this: var HatchGenIntersectionPoint; parameter: float) {.
+proc index*(this: HatchGenIntersectionPoint): cint {.noSideEffect,
+    importcpp: "Index", header: "HatchGen_IntersectionPoint.hxx".}
+proc setParameter*(this: var HatchGenIntersectionPoint; parameter: cfloat) {.
     importcpp: "SetParameter", header: "HatchGen_IntersectionPoint.hxx".}
-proc parameter*(this: HatchGenIntersectionPoint): float {.noSideEffect,
+proc parameter*(this: HatchGenIntersectionPoint): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "HatchGen_IntersectionPoint.hxx".}
 proc setPosition*(this: var HatchGenIntersectionPoint; position: TopAbsOrientation) {.
     importcpp: "SetPosition", header: "HatchGen_IntersectionPoint.hxx".}
@@ -62,5 +62,30 @@ proc setSegmentEnd*(this: var HatchGenIntersectionPoint; state: bool = true) {.
     importcpp: "SetSegmentEnd", header: "HatchGen_IntersectionPoint.hxx".}
 proc segmentEnd*(this: HatchGenIntersectionPoint): bool {.noSideEffect,
     importcpp: "SegmentEnd", header: "HatchGen_IntersectionPoint.hxx".}
-proc dump*(this: HatchGenIntersectionPoint; index: int = 0) {.noSideEffect,
+proc dump*(this: HatchGenIntersectionPoint; index: cint = 0) {.noSideEffect,
     importcpp: "Dump", header: "HatchGen_IntersectionPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

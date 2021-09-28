@@ -27,10 +27,35 @@ proc constructRWStepBasicRWSiUnitAndRatioUnit*(): RWStepBasicRWSiUnitAndRatioUni
     constructor, importcpp: "RWStepBasic_RWSiUnitAndRatioUnit(@)",
     header: "RWStepBasic_RWSiUnitAndRatioUnit.hxx".}
 proc readStep*(this: RWStepBasicRWSiUnitAndRatioUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicSiUnitAndRatioUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSiUnitAndRatioUnit.hxx".}
 proc writeStep*(this: RWStepBasicRWSiUnitAndRatioUnit; sw: var StepDataStepWriter;
                ent: Handle[StepBasicSiUnitAndRatioUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnitAndRatioUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

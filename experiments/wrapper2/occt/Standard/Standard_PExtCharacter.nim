@@ -13,4 +13,3 @@
 
 type
   StandardPExtCharacter* = ptr StandardExtCharacter
-

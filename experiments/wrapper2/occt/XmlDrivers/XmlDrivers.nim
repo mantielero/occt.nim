@@ -31,3 +31,28 @@ proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
 proc attributeDrivers*(theMsgDriver: Handle[MessageMessenger]): Handle[
     XmlMDF_ADriverTable] {.importcpp: "XmlDrivers::AttributeDrivers(@)",
                           header: "XmlDrivers.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

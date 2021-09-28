@@ -39,5 +39,30 @@ type
                                                               ## ! the function MatrixOfInertia on any GProp_GProps object.
 
 
-proc hOperator*(g: Pnt; q: Pnt; mass: float; operator: var Mat) {.
+proc hOperator*(g: Pnt; q: Pnt; mass: cfloat; operator: var Mat) {.
     importcpp: "GProp::HOperator(@)", header: "GProp.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

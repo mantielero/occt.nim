@@ -16,7 +16,7 @@
 
 discard "forward decl of PrsDim_SymmetricRelation"
 type
-  HandlePrsDimSymmetricRelation* = Handle[PrsDimSymmetricRelation]
+  HandleC1C1* = Handle[PrsDimSymmetricRelation]
 
 ## ! A framework to display constraints of symmetricity
 ## ! between two or more datum Interactive Objects.
@@ -132,3 +132,28 @@ proc setTool*(this: var PrsDimSymmetricRelation; aSymmetricTool: TopoDS_Shape) {
     importcpp: "SetTool", header: "PrsDim_SymmetricRelation.hxx".}
 proc getTool*(this: PrsDimSymmetricRelation): TopoDS_Shape {.noSideEffect,
     importcpp: "GetTool", header: "PrsDim_SymmetricRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

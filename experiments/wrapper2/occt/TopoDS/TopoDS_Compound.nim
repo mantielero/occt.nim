@@ -31,3 +31,28 @@ type
 
 proc constructTopoDS_Compound*(): TopoDS_Compound {.constructor,
     importcpp: "TopoDS_Compound(@)", header: "TopoDS_Compound.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

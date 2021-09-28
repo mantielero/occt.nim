@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_ProductContext"
 discard "forward decl of StepBasic_Product"
 discard "forward decl of StepBasic_Product"
 type
-  HandleStepBasicProduct* = Handle[StepBasicProduct]
+  HandleC1C1* = Handle[StepBasicProduct]
   StepBasicProduct* {.importcpp: "StepBasic_Product",
                      header: "StepBasic_Product.hxx", bycopy.} = object of StandardTransient ##
                                                                                       ## !
@@ -55,10 +55,10 @@ proc frameOfReference*(this: StepBasicProduct): Handle[
     StepBasicHArray1OfProductContext] {.noSideEffect,
                                        importcpp: "FrameOfReference",
                                        header: "StepBasic_Product.hxx".}
-proc frameOfReferenceValue*(this: StepBasicProduct; num: int): Handle[
+proc frameOfReferenceValue*(this: StepBasicProduct; num: cint): Handle[
     StepBasicProductContext] {.noSideEffect, importcpp: "FrameOfReferenceValue",
                               header: "StepBasic_Product.hxx".}
-proc nbFrameOfReference*(this: StepBasicProduct): int {.noSideEffect,
+proc nbFrameOfReference*(this: StepBasicProduct): cint {.noSideEffect,
     importcpp: "NbFrameOfReference", header: "StepBasic_Product.hxx".}
 type
   StepBasicProductbaseType* = StandardTransient
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Product.hxx".}
 proc dynamicType*(this: StepBasicProduct): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Product.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

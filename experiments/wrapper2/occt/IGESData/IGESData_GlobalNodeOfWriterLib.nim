@@ -14,42 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IGESData_ReadWriteModule"
+## !!!Ignored construct:  # _IGESData_GlobalNodeOfWriterLib_HeaderFile [NewLine] # _IGESData_GlobalNodeOfWriterLib_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] class IGESData_ReadWriteModule ;
+## Error: expected ';'!!!
+
 discard "forward decl of IGESData_Protocol"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_WriterLib"
 discard "forward decl of IGESData_NodeOfWriterLib"
 discard "forward decl of IGESData_GlobalNodeOfWriterLib"
-discard "forward decl of IGESData_GlobalNodeOfWriterLib"
-type
-  HandleIGESDataGlobalNodeOfWriterLib* = Handle[IGESDataGlobalNodeOfWriterLib]
-  IGESDataGlobalNodeOfWriterLib* {.importcpp: "IGESData_GlobalNodeOfWriterLib",
-                                  header: "IGESData_GlobalNodeOfWriterLib.hxx",
-                                  bycopy.} = object of StandardTransient ## ! Creates an empty GlobalNode, with no Next
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( IGESData_GlobalNodeOfWriterLib , Standard_Transient ) class IGESData_GlobalNodeOfWriterLib : public Standard_Transient { public : ! Creates an empty GlobalNode, with no Next IGESData_GlobalNodeOfWriterLib ( ) ; ! Adds a Module bound with a Protocol to the list : does
+## ! nothing if already in the list, THAT IS, Same Type (exact
+## ! match) and Same State (that is, IsEqual is not required)
+## ! Once added, stores its attached Protocol in correspondance void Add ( const Handle ( IGESData_ReadWriteModule ) & amodule , const Handle ( IGESData_Protocol ) & aprotocol ) ; ! Returns the Module stored in a given GlobalNode const Handle ( IGESData_ReadWriteModule ) & Module ( ) const ; ! Returns the attached Protocol stored in a given GlobalNode const Handle ( IGESData_Protocol ) & Protocol ( ) const ; ! Returns the Next GlobalNode. If none is defined, returned
+## ! value is a Null Handle const Handle ( IGESData_GlobalNodeOfWriterLib ) & Next ( ) const ; public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return IGESData_GlobalNodeOfWriterLib ; ( IGESData_GlobalNodeOfWriterLib , Standard_Transient ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < IGESData_GlobalNodeOfWriterLib > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : private : Handle ( IGESData_ReadWriteModule ) themod ; Handle ( IGESData_Protocol ) theprot ; Handle ( IGESData_GlobalNodeOfWriterLib ) thenext ; } ;
+## Error: expected ';'!!!
 
 
-proc constructIGESDataGlobalNodeOfWriterLib*(): IGESDataGlobalNodeOfWriterLib {.
-    constructor, importcpp: "IGESData_GlobalNodeOfWriterLib(@)",
-    header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc add*(this: var IGESDataGlobalNodeOfWriterLib;
-         amodule: Handle[IGESDataReadWriteModule];
-         aprotocol: Handle[IGESDataProtocol]) {.importcpp: "Add",
-    header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc module*(this: IGESDataGlobalNodeOfWriterLib): Handle[IGESDataReadWriteModule] {.
-    noSideEffect, importcpp: "Module", header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc protocol*(this: IGESDataGlobalNodeOfWriterLib): Handle[IGESDataProtocol] {.
-    noSideEffect, importcpp: "Protocol",
-    header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc next*(this: IGESDataGlobalNodeOfWriterLib): Handle[
-    IGESDataGlobalNodeOfWriterLib] {.noSideEffect, importcpp: "Next", header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-type
-  IGESDataGlobalNodeOfWriterLibbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_GlobalNodeOfWriterLib::get_type_name(@)",
-                            header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESData_GlobalNodeOfWriterLib::get_type_descriptor(@)",
-    header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc dynamicType*(this: IGESDataGlobalNodeOfWriterLib): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESData_GlobalNodeOfWriterLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

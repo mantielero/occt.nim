@@ -22,7 +22,7 @@ discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESDimen_FlagNote"
 discard "forward decl of IGESDimen_FlagNote"
 type
-  HandleIGESDimenFlagNote* = Handle[IGESDimenFlagNote]
+  HandleC1C1* = Handle[IGESDimenFlagNote]
 
 ## ! defines FlagNote, Type <208> Form <0>
 ## ! in package IGESDimen
@@ -35,7 +35,7 @@ type
 
 proc constructIGESDimenFlagNote*(): IGESDimenFlagNote {.constructor,
     importcpp: "IGESDimen_FlagNote(@)", header: "IGESDimen_FlagNote.hxx".}
-proc init*(this: var IGESDimenFlagNote; leftCorner: Xyz; anAngle: float;
+proc init*(this: var IGESDimenFlagNote; leftCorner: Xyz; anAngle: cfloat;
           aNote: Handle[IGESDimenGeneralNote];
           someLeaders: Handle[IGESDimenHArray1OfLeaderArrow]) {.importcpp: "Init",
     header: "IGESDimen_FlagNote.hxx".}
@@ -43,23 +43,23 @@ proc lowerLeftCorner*(this: IGESDimenFlagNote): Pnt {.noSideEffect,
     importcpp: "LowerLeftCorner", header: "IGESDimen_FlagNote.hxx".}
 proc transformedLowerLeftCorner*(this: IGESDimenFlagNote): Pnt {.noSideEffect,
     importcpp: "TransformedLowerLeftCorner", header: "IGESDimen_FlagNote.hxx".}
-proc angle*(this: IGESDimenFlagNote): float {.noSideEffect, importcpp: "Angle",
+proc angle*(this: IGESDimenFlagNote): cfloat {.noSideEffect, importcpp: "Angle",
     header: "IGESDimen_FlagNote.hxx".}
 proc note*(this: IGESDimenFlagNote): Handle[IGESDimenGeneralNote] {.noSideEffect,
     importcpp: "Note", header: "IGESDimen_FlagNote.hxx".}
-proc nbLeaders*(this: IGESDimenFlagNote): int {.noSideEffect, importcpp: "NbLeaders",
-    header: "IGESDimen_FlagNote.hxx".}
-proc leader*(this: IGESDimenFlagNote; index: int): Handle[IGESDimenLeaderArrow] {.
+proc nbLeaders*(this: IGESDimenFlagNote): cint {.noSideEffect,
+    importcpp: "NbLeaders", header: "IGESDimen_FlagNote.hxx".}
+proc leader*(this: IGESDimenFlagNote; index: cint): Handle[IGESDimenLeaderArrow] {.
     noSideEffect, importcpp: "Leader", header: "IGESDimen_FlagNote.hxx".}
-proc height*(this: IGESDimenFlagNote): float {.noSideEffect, importcpp: "Height",
+proc height*(this: IGESDimenFlagNote): cfloat {.noSideEffect, importcpp: "Height",
     header: "IGESDimen_FlagNote.hxx".}
-proc characterHeight*(this: IGESDimenFlagNote): float {.noSideEffect,
+proc characterHeight*(this: IGESDimenFlagNote): cfloat {.noSideEffect,
     importcpp: "CharacterHeight", header: "IGESDimen_FlagNote.hxx".}
-proc length*(this: IGESDimenFlagNote): float {.noSideEffect, importcpp: "Length",
+proc length*(this: IGESDimenFlagNote): cfloat {.noSideEffect, importcpp: "Length",
     header: "IGESDimen_FlagNote.hxx".}
-proc textWidth*(this: IGESDimenFlagNote): float {.noSideEffect,
+proc textWidth*(this: IGESDimenFlagNote): cfloat {.noSideEffect,
     importcpp: "TextWidth", header: "IGESDimen_FlagNote.hxx".}
-proc tipLength*(this: IGESDimenFlagNote): float {.noSideEffect,
+proc tipLength*(this: IGESDimenFlagNote): cfloat {.noSideEffect,
     importcpp: "TipLength", header: "IGESDimen_FlagNote.hxx".}
 type
   IGESDimenFlagNotebaseType* = IGESDataIGESEntity
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_FlagNote.hxx".}
 proc dynamicType*(this: IGESDimenFlagNote): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDimen_FlagNote.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

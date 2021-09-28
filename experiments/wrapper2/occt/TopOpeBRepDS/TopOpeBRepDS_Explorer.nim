@@ -45,7 +45,7 @@ proc next*(this: var TopOpeBRepDS_Explorer) {.importcpp: "Next",
     header: "TopOpeBRepDS_Explorer.hxx".}
 proc current*(this: TopOpeBRepDS_Explorer): TopoDS_Shape {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_Explorer.hxx".}
-proc index*(this: TopOpeBRepDS_Explorer): int {.noSideEffect, importcpp: "Index",
+proc index*(this: TopOpeBRepDS_Explorer): cint {.noSideEffect, importcpp: "Index",
     header: "TopOpeBRepDS_Explorer.hxx".}
 proc face*(this: TopOpeBRepDS_Explorer): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "TopOpeBRepDS_Explorer.hxx".}
@@ -53,3 +53,28 @@ proc edge*(this: TopOpeBRepDS_Explorer): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "TopOpeBRepDS_Explorer.hxx".}
 proc vertex*(this: TopOpeBRepDS_Explorer): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRepDS_Explorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of gp_GTrsf"
 discard "forward decl of IGESGeom_TransformationMatrix"
 discard "forward decl of IGESGeom_TransformationMatrix"
 type
-  HandleIGESGeomTransformationMatrix* = Handle[IGESGeomTransformationMatrix]
+  HandleC1C1* = Handle[IGESGeomTransformationMatrix]
 
 ## ! defines IGESTransformationMatrix, Type <124> Form <0>
 ## ! in package IGESGeom
@@ -42,9 +42,9 @@ proc constructIGESGeomTransformationMatrix*(): IGESGeomTransformationMatrix {.
 proc init*(this: var IGESGeomTransformationMatrix;
           aMatrix: Handle[TColStdHArray2OfReal]) {.importcpp: "Init",
     header: "IGESGeom_TransformationMatrix.hxx".}
-proc setFormNumber*(this: var IGESGeomTransformationMatrix; form: int) {.
+proc setFormNumber*(this: var IGESGeomTransformationMatrix; form: cint) {.
     importcpp: "SetFormNumber", header: "IGESGeom_TransformationMatrix.hxx".}
-proc data*(this: IGESGeomTransformationMatrix; i: int; j: int): float {.noSideEffect,
+proc data*(this: IGESGeomTransformationMatrix; i: cint; j: cint): cfloat {.noSideEffect,
     importcpp: "Data", header: "IGESGeom_TransformationMatrix.hxx".}
 proc value*(this: IGESGeomTransformationMatrix): GTrsf {.noSideEffect,
     importcpp: "Value", header: "IGESGeom_TransformationMatrix.hxx".}
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESGeomTransformationMatrix): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGeom_TransformationMatrix.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

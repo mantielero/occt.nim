@@ -18,7 +18,7 @@ discard "forward decl of HLRAlgo_EdgeStatus"
 discard "forward decl of HLRAlgo_PolyAlgo"
 discard "forward decl of HLRAlgo_PolyAlgo"
 type
-  HandleHLRAlgoPolyAlgo* = Handle[HLRAlgoPolyAlgo]
+  HandleC1C1* = Handle[HLRAlgoPolyAlgo]
 
 ## ! to remove Hidden lines on Triangulations.
 
@@ -43,7 +43,7 @@ proc moreHide*(this: HLRAlgoPolyAlgo): bool {.noSideEffect, importcpp: "MoreHide
     header: "HLRAlgo_PolyAlgo.hxx".}
 proc nextHide*(this: var HLRAlgoPolyAlgo) {.importcpp: "NextHide",
                                         header: "HLRAlgo_PolyAlgo.hxx".}
-proc hide*(this: var HLRAlgoPolyAlgo; status: var HLRAlgoEdgeStatus; index: var int;
+proc hide*(this: var HLRAlgoPolyAlgo; status: var HLRAlgoEdgeStatus; index: var cint;
           reg1: var bool; regn: var bool; outl: var bool; intl: var bool): var PointsT {.
     importcpp: "Hide", header: "HLRAlgo_PolyAlgo.hxx".}
 proc initShow*(this: var HLRAlgoPolyAlgo) {.importcpp: "InitShow",
@@ -52,7 +52,7 @@ proc moreShow*(this: HLRAlgoPolyAlgo): bool {.noSideEffect, importcpp: "MoreShow
     header: "HLRAlgo_PolyAlgo.hxx".}
 proc nextShow*(this: var HLRAlgoPolyAlgo) {.importcpp: "NextShow",
                                         header: "HLRAlgo_PolyAlgo.hxx".}
-proc show*(this: var HLRAlgoPolyAlgo; index: var int; reg1: var bool; regn: var bool;
+proc show*(this: var HLRAlgoPolyAlgo; index: var cint; reg1: var bool; regn: var bool;
           outl: var bool; intl: var bool): var PointsT {.importcpp: "Show",
     header: "HLRAlgo_PolyAlgo.hxx".}
 type
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRAlgo_PolyAlgo.hxx".}
 proc dynamicType*(this: HLRAlgoPolyAlgo): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRAlgo_PolyAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

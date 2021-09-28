@@ -25,9 +25,34 @@ type
 proc constructBisectorFunctionH*(c2: Handle[Geom2dCurve]; p1: Pnt2d; t1: Vec2d): BisectorFunctionH {.
     constructor, importcpp: "Bisector_FunctionH(@)",
     header: "Bisector_FunctionH.hxx".}
-proc value*(this: var BisectorFunctionH; x: float; f: var float): bool {.
+proc value*(this: var BisectorFunctionH; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "Bisector_FunctionH.hxx".}
-proc derivative*(this: var BisectorFunctionH; x: float; d: var float): bool {.
+proc derivative*(this: var BisectorFunctionH; x: cfloat; d: var cfloat): bool {.
     importcpp: "Derivative", header: "Bisector_FunctionH.hxx".}
-proc values*(this: var BisectorFunctionH; x: float; f: var float; d: var float): bool {.
+proc values*(this: var BisectorFunctionH; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     importcpp: "Values", header: "Bisector_FunctionH.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

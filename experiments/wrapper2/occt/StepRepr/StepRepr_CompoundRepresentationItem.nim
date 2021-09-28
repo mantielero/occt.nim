@@ -18,8 +18,7 @@ discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepRepr_CompoundRepresentationItem"
 discard "forward decl of StepRepr_CompoundRepresentationItem"
 type
-  HandleStepReprCompoundRepresentationItem* = Handle[
-      StepReprCompoundRepresentationItem]
+  HandleC1C1* = Handle[StepReprCompoundRepresentationItem]
 
 ## ! Added for Dimensional Tolerances
 
@@ -38,14 +37,14 @@ proc init*(this: var StepReprCompoundRepresentationItem;
 proc itemElement*(this: StepReprCompoundRepresentationItem): Handle[
     StepReprHArray1OfRepresentationItem] {.noSideEffect, importcpp: "ItemElement",
     header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc nbItemElement*(this: StepReprCompoundRepresentationItem): int {.noSideEffect,
+proc nbItemElement*(this: StepReprCompoundRepresentationItem): cint {.noSideEffect,
     importcpp: "NbItemElement", header: "StepRepr_CompoundRepresentationItem.hxx".}
 proc setItemElement*(this: var StepReprCompoundRepresentationItem;
                     itemElement: Handle[StepReprHArray1OfRepresentationItem]) {.
     importcpp: "SetItemElement", header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc itemElementValue*(this: StepReprCompoundRepresentationItem; num: int): Handle[
+proc itemElementValue*(this: StepReprCompoundRepresentationItem; num: cint): Handle[
     StepReprRepresentationItem] {.noSideEffect, importcpp: "ItemElementValue", header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc setItemElementValue*(this: var StepReprCompoundRepresentationItem; num: int;
+proc setItemElementValue*(this: var StepReprCompoundRepresentationItem; num: cint;
                          anelement: Handle[StepReprRepresentationItem]) {.
     importcpp: "SetItemElementValue",
     header: "StepRepr_CompoundRepresentationItem.hxx".}
@@ -60,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprCompoundRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_CompoundRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

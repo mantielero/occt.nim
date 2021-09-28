@@ -25,3 +25,28 @@ type
 const
   FontUnicodeSubsetNB* = fontUnicodeSubsetArabic
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

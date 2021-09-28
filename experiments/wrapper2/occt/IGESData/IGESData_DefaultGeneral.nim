@@ -24,7 +24,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_DefaultGeneral"
 discard "forward decl of IGESData_DefaultGeneral"
 type
-  HandleIGESDataDefaultGeneral* = Handle[IGESDataDefaultGeneral]
+  HandleC1C1* = Handle[IGESDataDefaultGeneral]
 
 ## ! Processes the specific case of UndefinedEntity from IGESData
 ## ! (Case Number 1)
@@ -53,21 +53,21 @@ type
 
 proc constructIGESDataDefaultGeneral*(): IGESDataDefaultGeneral {.constructor,
     importcpp: "IGESData_DefaultGeneral(@)", header: "IGESData_DefaultGeneral.hxx".}
-proc ownSharedCase*(this: IGESDataDefaultGeneral; cn: int;
+proc ownSharedCase*(this: IGESDataDefaultGeneral; cn: cint;
                    ent: Handle[IGESDataIGESEntity];
                    iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnSharedCase", header: "IGESData_DefaultGeneral.hxx".}
-proc dirChecker*(this: IGESDataDefaultGeneral; cn: int;
+proc dirChecker*(this: IGESDataDefaultGeneral; cn: cint;
                 ent: Handle[IGESDataIGESEntity]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESData_DefaultGeneral.hxx".}
-proc ownCheckCase*(this: IGESDataDefaultGeneral; cn: int;
+proc ownCheckCase*(this: IGESDataDefaultGeneral; cn: cint;
                   ent: Handle[IGESDataIGESEntity]; shares: InterfaceShareTool;
                   ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheckCase", header: "IGESData_DefaultGeneral.hxx".}
-proc newVoid*(this: IGESDataDefaultGeneral; cn: int;
+proc newVoid*(this: IGESDataDefaultGeneral; cn: cint;
              entto: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "NewVoid", header: "IGESData_DefaultGeneral.hxx".}
-proc ownCopyCase*(this: IGESDataDefaultGeneral; cn: int;
+proc ownCopyCase*(this: IGESDataDefaultGeneral; cn: cint;
                  entfrom: Handle[IGESDataIGESEntity];
                  entto: Handle[IGESDataIGESEntity]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopyCase", header: "IGESData_DefaultGeneral.hxx".}
@@ -81,3 +81,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_DefaultGeneral.hxx".}
 proc dynamicType*(this: IGESDataDefaultGeneral): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_DefaultGeneral.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

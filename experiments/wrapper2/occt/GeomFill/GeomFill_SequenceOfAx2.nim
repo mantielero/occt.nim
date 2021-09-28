@@ -16,4 +16,3 @@
 
 type
   GeomFillSequenceOfAx2* = NCollectionSequence[Ax2]
-

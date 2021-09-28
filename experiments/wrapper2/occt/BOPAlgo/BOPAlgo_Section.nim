@@ -26,3 +26,28 @@ proc destroyBOPAlgoSection*(this: var BOPAlgoSection) {.
     importcpp: "#.~BOPAlgo_Section()", header: "BOPAlgo_Section.hxx".}
 proc constructBOPAlgoSection*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoSection {.
     constructor, importcpp: "BOPAlgo_Section(@)", header: "BOPAlgo_Section.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

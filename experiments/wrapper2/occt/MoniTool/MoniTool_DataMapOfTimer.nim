@@ -21,3 +21,28 @@ type
   MoniToolDataMapIteratorOfDataMapOfTimer* = Iterator[StandardCString,
       Handle[MoniToolTimer], MoniToolMTHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

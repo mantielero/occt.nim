@@ -34,3 +34,28 @@ type
 proc rWGltfGltfParseAccessorType*(theType: cstring): RWGltfGltfAccessorLayout =
   discard
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

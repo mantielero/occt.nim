@@ -26,7 +26,7 @@ proc constructStepAP214AutoDesignOrganizationItem*(): StepAP214AutoDesignOrganiz
     constructor, importcpp: "StepAP214_AutoDesignOrganizationItem(@)",
     header: "StepAP214_AutoDesignOrganizationItem.hxx".}
 proc caseNum*(this: StepAP214AutoDesignOrganizationItem;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignOrganizationItem.hxx".}
 proc document*(this: StepAP214AutoDesignOrganizationItem): Handle[StepBasicDocument] {.
     noSideEffect, importcpp: "Document",
@@ -35,3 +35,28 @@ proc physicallyModeledProductDefinition*(this: StepAP214AutoDesignOrganizationIt
     StepBasicPhysicallyModeledProductDefinition] {.noSideEffect,
     importcpp: "PhysicallyModeledProductDefinition",
     header: "StepAP214_AutoDesignOrganizationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

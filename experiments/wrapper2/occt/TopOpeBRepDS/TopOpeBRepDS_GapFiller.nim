@@ -66,3 +66,28 @@ proc reBuildGeom*(this: var TopOpeBRepDS_GapFiller;
                  i1: Handle[TopOpeBRepDS_Interference];
                  done: var TColStdMapOfInteger) {.importcpp: "ReBuildGeom",
     header: "TopOpeBRepDS_GapFiller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

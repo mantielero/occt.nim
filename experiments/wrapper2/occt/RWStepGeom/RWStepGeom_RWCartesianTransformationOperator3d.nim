@@ -29,7 +29,7 @@ proc constructRWStepGeomRWCartesianTransformationOperator3d*(): RWStepGeomRWCart
     constructor, importcpp: "RWStepGeom_RWCartesianTransformationOperator3d(@)",
     header: "RWStepGeom_RWCartesianTransformationOperator3d.hxx".}
 proc readStep*(this: RWStepGeomRWCartesianTransformationOperator3d;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomCartesianTransformationOperator3d]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepGeomRWCartesianTransformationOperator3d;
            ent: Handle[StepGeomCartesianTransformationOperator3d];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWCartesianTransformationOperator3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

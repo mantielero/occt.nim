@@ -15,7 +15,7 @@
 discard "forward decl of OpenGl_PointSprite"
 discard "forward decl of OpenGl_PointSprite"
 type
-  HandleOpenGlPointSprite* = Handle[OpenGlPointSprite]
+  HandleC1C1* = Handle[OpenGlPointSprite]
 
 ## ! Point sprite resource. On modern hardware it will be texture with extra parameters.
 ## ! On ancient hardware sprites will be drawn using bitmaps.
@@ -54,3 +54,28 @@ proc drawBitmap*(this: OpenGlPointSprite; theCtx: Handle[OpenGlContext]) {.
 proc setDisplayList*(this: var OpenGlPointSprite; theCtx: Handle[OpenGlContext];
                     theBitmapList: GLuint) {.importcpp: "SetDisplayList",
     header: "OpenGl_PointSprite.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

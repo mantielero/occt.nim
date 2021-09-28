@@ -20,7 +20,7 @@ discard "forward decl of BinTools_LocationSet"
 discard "forward decl of BinMNaming_NamedShapeDriver"
 discard "forward decl of BinMNaming_NamedShapeDriver"
 type
-  HandleBinMNamingNamedShapeDriver* = Handle[BinMNamingNamedShapeDriver]
+  HandleC1C1* = Handle[BinMNamingNamedShapeDriver]
 
 ## ! NamedShape  Attribute Driver.
 
@@ -57,9 +57,9 @@ proc isWithTriangles*(this: BinMNamingNamedShapeDriver): bool {.noSideEffect,
     importcpp: "IsWithTriangles", header: "BinMNaming_NamedShapeDriver.hxx".}
 proc setWithTriangles*(this: var BinMNamingNamedShapeDriver; isWithTriangles: bool) {.
     importcpp: "SetWithTriangles", header: "BinMNaming_NamedShapeDriver.hxx".}
-proc setFormatNb*(this: var BinMNamingNamedShapeDriver; theFormat: int) {.
+proc setFormatNb*(this: var BinMNamingNamedShapeDriver; theFormat: cint) {.
     importcpp: "SetFormatNb", header: "BinMNaming_NamedShapeDriver.hxx".}
-proc getFormatNb*(this: BinMNamingNamedShapeDriver): int {.noSideEffect,
+proc getFormatNb*(this: BinMNamingNamedShapeDriver): cint {.noSideEffect,
     importcpp: "GetFormatNb", header: "BinMNaming_NamedShapeDriver.hxx".}
 proc getShapesLocations*(this: var BinMNamingNamedShapeDriver): var BinToolsLocationSet {.
     importcpp: "GetShapesLocations", header: "BinMNaming_NamedShapeDriver.hxx".}
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMNamingNamedShapeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMNaming_NamedShapeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

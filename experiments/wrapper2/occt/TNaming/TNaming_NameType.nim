@@ -24,3 +24,28 @@ type
     TNamingFILTERBYNEIGHBOURGS, TNamingORIENTATION, TNamingWIREIN, TNamingSHELLIN
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

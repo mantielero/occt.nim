@@ -29,7 +29,7 @@ proc constructRWStepFEA_RWCurveElementIntervalConstant*(): RWStepFEA_RWCurveElem
     constructor, importcpp: "RWStepFEA_RWCurveElementIntervalConstant(@)",
     header: "RWStepFEA_RWCurveElementIntervalConstant.hxx".}
 proc readStep*(this: RWStepFEA_RWCurveElementIntervalConstant;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_CurveElementIntervalConstant]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWCurveElementIntervalConstant.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepFEA_RWCurveElementIntervalConstant;
            ent: Handle[StepFEA_CurveElementIntervalConstant];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWCurveElementIntervalConstant.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

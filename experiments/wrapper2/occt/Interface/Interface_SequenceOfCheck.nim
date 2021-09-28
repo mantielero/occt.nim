@@ -17,3 +17,28 @@
 type
   InterfaceSequenceOfCheck* = NCollectionSequence[Handle[InterfaceCheck]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,3 +20,28 @@ type
   BRepMAT2dDataMapIteratorOfDataMapOfShapeSequenceOfBasicElt* = Iterator[
       TopoDS_Shape, MAT_SequenceOfBasicElt, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

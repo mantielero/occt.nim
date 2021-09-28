@@ -46,5 +46,30 @@ proc project*(this: var ProjLibSphere; p: Parab) {.importcpp: "Project",
     header: "ProjLib_Sphere.hxx".}
 proc project*(this: var ProjLibSphere; h: Hypr) {.importcpp: "Project",
     header: "ProjLib_Sphere.hxx".}
-proc setInBounds*(this: var ProjLibSphere; u: float) {.importcpp: "SetInBounds",
+proc setInBounds*(this: var ProjLibSphere; u: cfloat) {.importcpp: "SetInBounds",
     header: "ProjLib_Sphere.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

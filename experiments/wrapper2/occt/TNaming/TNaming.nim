@@ -88,3 +88,28 @@ proc print*(name: TNamingNameType; s: var StandardOStream): var StandardOStream 
     importcpp: "TNaming::Print(@)", header: "TNaming.hxx".}
 proc print*(access: TDF_Label; s: var StandardOStream): var StandardOStream {.
     importcpp: "TNaming::Print(@)", header: "TNaming.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

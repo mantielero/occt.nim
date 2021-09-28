@@ -24,32 +24,57 @@ type
                                                                        ## ! Limit the given value to become within the range [myLeft, myRight].
 
 
-proc constructMathBracketMinimum*(a: float; b: float): MathBracketMinimum {.
+proc constructMathBracketMinimum*(a: cfloat; b: cfloat): MathBracketMinimum {.
     constructor, importcpp: "math_BracketMinimum(@)",
     header: "math_BracketMinimum.hxx".}
-proc constructMathBracketMinimum*(f: var MathFunction; a: float; b: float): MathBracketMinimum {.
+proc constructMathBracketMinimum*(f: var MathFunction; a: cfloat; b: cfloat): MathBracketMinimum {.
     constructor, importcpp: "math_BracketMinimum(@)",
     header: "math_BracketMinimum.hxx".}
-proc constructMathBracketMinimum*(f: var MathFunction; a: float; b: float; fa: float): MathBracketMinimum {.
+proc constructMathBracketMinimum*(f: var MathFunction; a: cfloat; b: cfloat; fa: cfloat): MathBracketMinimum {.
     constructor, importcpp: "math_BracketMinimum(@)",
     header: "math_BracketMinimum.hxx".}
-proc constructMathBracketMinimum*(f: var MathFunction; a: float; b: float; fa: float;
-                                 fb: float): MathBracketMinimum {.constructor,
+proc constructMathBracketMinimum*(f: var MathFunction; a: cfloat; b: cfloat; fa: cfloat;
+                                 fb: cfloat): MathBracketMinimum {.constructor,
     importcpp: "math_BracketMinimum(@)", header: "math_BracketMinimum.hxx".}
-proc setLimits*(this: var MathBracketMinimum; theLeft: float; theRight: float) {.
+proc setLimits*(this: var MathBracketMinimum; theLeft: cfloat; theRight: cfloat) {.
     importcpp: "SetLimits", header: "math_BracketMinimum.hxx".}
-proc setFA*(this: var MathBracketMinimum; theValue: float) {.importcpp: "SetFA",
+proc setFA*(this: var MathBracketMinimum; theValue: cfloat) {.importcpp: "SetFA",
     header: "math_BracketMinimum.hxx".}
-proc setFB*(this: var MathBracketMinimum; theValue: float) {.importcpp: "SetFB",
+proc setFB*(this: var MathBracketMinimum; theValue: cfloat) {.importcpp: "SetFB",
     header: "math_BracketMinimum.hxx".}
 proc perform*(this: var MathBracketMinimum; f: var MathFunction) {.
     importcpp: "Perform", header: "math_BracketMinimum.hxx".}
 proc isDone*(this: MathBracketMinimum): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_BracketMinimum.hxx".}
-proc values*(this: MathBracketMinimum; a: var float; b: var float; c: var float) {.
+proc values*(this: MathBracketMinimum; a: var cfloat; b: var cfloat; c: var cfloat) {.
     noSideEffect, importcpp: "Values", header: "math_BracketMinimum.hxx".}
-proc functionValues*(this: MathBracketMinimum; fa: var float; fb: var float;
-                    fc: var float) {.noSideEffect, importcpp: "FunctionValues",
-                                  header: "math_BracketMinimum.hxx".}
+proc functionValues*(this: MathBracketMinimum; fa: var cfloat; fb: var cfloat;
+                    fc: var cfloat) {.noSideEffect, importcpp: "FunctionValues",
+                                   header: "math_BracketMinimum.hxx".}
 proc dump*(this: MathBracketMinimum; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_BracketMinimum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

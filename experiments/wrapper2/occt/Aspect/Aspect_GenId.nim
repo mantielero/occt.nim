@@ -40,21 +40,47 @@ type
 
 proc constructAspectGenId*(): AspectGenId {.constructor,
     importcpp: "Aspect_GenId(@)", header: "Aspect_GenId.hxx".}
-proc constructAspectGenId*(theLow: int; theUpper: int): AspectGenId {.constructor,
+proc constructAspectGenId*(theLow: cint; theUpper: cint): AspectGenId {.constructor,
     importcpp: "Aspect_GenId(@)", header: "Aspect_GenId.hxx".}
 proc free*(this: var AspectGenId) {.importcpp: "Free", header: "Aspect_GenId.hxx".}
-proc free*(this: var AspectGenId; theId: int) {.importcpp: "Free",
+proc free*(this: var AspectGenId; theId: cint) {.importcpp: "Free",
     header: "Aspect_GenId.hxx".}
 proc hasFree*(this: AspectGenId): bool {.noSideEffect, importcpp: "HasFree",
                                      header: "Aspect_GenId.hxx".}
-proc available*(this: AspectGenId): int {.noSideEffect, importcpp: "Available",
-                                      header: "Aspect_GenId.hxx".}
-proc lower*(this: AspectGenId): int {.noSideEffect, importcpp: "Lower",
-                                  header: "Aspect_GenId.hxx".}
-proc next*(this: var AspectGenId): int {.importcpp: "Next", header: "Aspect_GenId.hxx".}
-proc next*(this: var AspectGenId; theId: var int): bool {.importcpp: "Next",
+proc available*(this: AspectGenId): cint {.noSideEffect, importcpp: "Available",
+                                       header: "Aspect_GenId.hxx".}
+proc lower*(this: AspectGenId): cint {.noSideEffect, importcpp: "Lower",
+                                   header: "Aspect_GenId.hxx".}
+proc next*(this: var AspectGenId): cint {.importcpp: "Next", header: "Aspect_GenId.hxx".}
+proc next*(this: var AspectGenId; theId: var cint): bool {.importcpp: "Next",
     header: "Aspect_GenId.hxx".}
-proc upper*(this: AspectGenId): int {.noSideEffect, importcpp: "Upper",
-                                  header: "Aspect_GenId.hxx".}
-proc dumpJson*(this: AspectGenId; theOStream: var StandardOStream; theDepth: int = -1) {.
-    noSideEffect, importcpp: "DumpJson", header: "Aspect_GenId.hxx".}
+proc upper*(this: AspectGenId): cint {.noSideEffect, importcpp: "Upper",
+                                   header: "Aspect_GenId.hxx".}
+proc dumpJson*(this: AspectGenId; theOStream: var StandardOStream;
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Aspect_GenId.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

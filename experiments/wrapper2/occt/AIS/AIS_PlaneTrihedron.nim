@@ -60,13 +60,13 @@ proc yAxis*(this: AIS_PlaneTrihedron): Handle[AIS_Line] {.noSideEffect,
     importcpp: "YAxis", header: "AIS_PlaneTrihedron.hxx".}
 proc position*(this: AIS_PlaneTrihedron): Handle[AIS_Point] {.noSideEffect,
     importcpp: "Position", header: "AIS_PlaneTrihedron.hxx".}
-proc setLength*(this: var AIS_PlaneTrihedron; theLength: float) {.
+proc setLength*(this: var AIS_PlaneTrihedron; theLength: cfloat) {.
     importcpp: "SetLength", header: "AIS_PlaneTrihedron.hxx".}
-proc getLength*(this: AIS_PlaneTrihedron): float {.noSideEffect,
+proc getLength*(this: AIS_PlaneTrihedron): cfloat {.noSideEffect,
     importcpp: "GetLength", header: "AIS_PlaneTrihedron.hxx".}
-proc acceptDisplayMode*(this: AIS_PlaneTrihedron; aMode: int): bool {.noSideEffect,
+proc acceptDisplayMode*(this: AIS_PlaneTrihedron; aMode: cint): bool {.noSideEffect,
     importcpp: "AcceptDisplayMode", header: "AIS_PlaneTrihedron.hxx".}
-proc signature*(this: AIS_PlaneTrihedron): int {.noSideEffect,
+proc signature*(this: AIS_PlaneTrihedron): cint {.noSideEffect,
     importcpp: "Signature", header: "AIS_PlaneTrihedron.hxx".}
 proc `type`*(this: AIS_PlaneTrihedron): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_PlaneTrihedron.hxx".}
@@ -78,5 +78,30 @@ proc setYLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollectionAsciiString) 
     importcpp: "SetYLabel", header: "AIS_PlaneTrihedron.hxx".}
 discard "forward decl of AIS_PlaneTrihedron"
 type
-  HandleAIS_PlaneTrihedron* = Handle[AIS_PlaneTrihedron]
+  HandleC1C1* = Handle[AIS_PlaneTrihedron]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

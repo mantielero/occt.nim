@@ -20,7 +20,7 @@ discard "forward decl of StepVisual_PresentationStyleAssignment"
 discard "forward decl of StepVisual_StyledItem"
 discard "forward decl of StepVisual_StyledItem"
 type
-  HandleStepVisualStyledItem* = Handle[StepVisualStyledItem]
+  HandleC1C1* = Handle[StepVisualStyledItem]
   StepVisualStyledItem* {.importcpp: "StepVisual_StyledItem",
                          header: "StepVisual_StyledItem.hxx", bycopy.} = object of StepReprRepresentationItem ##
                                                                                                        ## !
@@ -43,10 +43,10 @@ proc setStyles*(this: var StepVisualStyledItem;
 proc styles*(this: StepVisualStyledItem): Handle[
     StepVisualHArray1OfPresentationStyleAssignment] {.noSideEffect,
     importcpp: "Styles", header: "StepVisual_StyledItem.hxx".}
-proc stylesValue*(this: StepVisualStyledItem; num: int): Handle[
+proc stylesValue*(this: StepVisualStyledItem; num: cint): Handle[
     StepVisualPresentationStyleAssignment] {.noSideEffect,
     importcpp: "StylesValue", header: "StepVisual_StyledItem.hxx".}
-proc nbStyles*(this: StepVisualStyledItem): int {.noSideEffect,
+proc nbStyles*(this: StepVisualStyledItem): cint {.noSideEffect,
     importcpp: "NbStyles", header: "StepVisual_StyledItem.hxx".}
 proc setItem*(this: var StepVisualStyledItem;
              aItem: Handle[StepReprRepresentationItem]) {.importcpp: "SetItem",
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_StyledItem.hxx".}
 proc dynamicType*(this: StepVisualStyledItem): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_StyledItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

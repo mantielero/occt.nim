@@ -17,3 +17,28 @@
 type
   StepAP203Array1OfCertifiedItem* = NCollectionArray1[StepAP203CertifiedItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

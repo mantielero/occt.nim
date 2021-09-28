@@ -17,14 +17,54 @@
 ## !!!Ignored construct:  # _Interface_InterfaceError_HeaderFile [NewLine] # _Interface_InterfaceError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Interface_InterfaceError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Interface_InterfaceError"
-type
-  HandleInterfaceInterfaceErrorInterfaceInterfaceError* = Handle[
-      InterfaceInterfaceError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Interface_InterfaceError , Standard_Failure ) # ! defined No_Exception && ! defined No_Interface_InterfaceError [NewLine] # Interface_InterfaceError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Interface_InterfaceError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Interface_InterfaceError [NewLine] # if ( CONDITION ) throw Interface_InterfaceError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Interface_InterfaceError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Interface_InterfaceError , Standard_Failure ) #  _Interface_InterfaceError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Interface_InterfaceError , Standard_Failure ) #  _Interface_InterfaceError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

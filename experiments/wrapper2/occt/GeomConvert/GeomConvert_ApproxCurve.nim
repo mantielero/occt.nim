@@ -22,81 +22,47 @@ discard "forward decl of Adaptor3d_HCurve"
 type
   GeomConvertApproxCurve* {.importcpp: "GeomConvert_ApproxCurve",
                            header: "GeomConvert_ApproxCurve.hxx", bycopy.} = object ## !
-                                                                               ## Constructs a
-                                                                               ## curve
-                                                                               ## approximation
-                                                                               ## framework
-                                                                               ## defined
-                                                                               ## by -
-                                                                               ## ! -
-                                                                               ## the
-                                                                               ## conic
-                                                                               ## Curve,
-                                                                               ## ! -
-                                                                               ## the
-                                                                               ## tolerance
-                                                                               ## value
-                                                                               ## Tol3d,
-                                                                               ## ! -
-                                                                               ## the
-                                                                               ## degree
-                                                                               ## of
-                                                                               ## continuity
-                                                                               ## Order,
-                                                                               ## ! -
-                                                                               ## the
-                                                                               ## maximum
-                                                                               ## number
-                                                                               ## of
-                                                                               ## segments
-                                                                               ## !
-                                                                               ## MaxSegments
-                                                                               ## allowed
-                                                                               ## in
-                                                                               ## the
-                                                                               ## resulting
-                                                                               ## BSpline
-                                                                               ## curve,
-                                                                               ## and
-                                                                               ## ! -
-                                                                               ## the
-                                                                               ## highest
-                                                                               ## degree
-                                                                               ## MaxDeg
-                                                                               ## which
-                                                                               ## the
-                                                                               ## !
-                                                                               ## polynomial
-                                                                               ## defining
-                                                                               ## the
-                                                                               ## BSpline
-                                                                               ## curve
-                                                                               ## may
-                                                                               ## have.
-                                                                               ## !
                                                                                ## Converts a
                                                                                ## curve
                                                                                ## to
                                                                                ## B-spline
 
 
-proc constructGeomConvertApproxCurve*(curve: Handle[GeomCurve]; tol3d: float;
-                                     order: GeomAbsShape; maxSegments: int;
-                                     maxDegree: int): GeomConvertApproxCurve {.
+proc `new`*(this: var GeomConvertApproxCurve; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert_ApproxCurve::operator new",
+    header: "GeomConvert_ApproxCurve.hxx".}
+proc `delete`*(this: var GeomConvertApproxCurve; theAddress: pointer) {.
+    importcpp: "GeomConvert_ApproxCurve::operator delete",
+    header: "GeomConvert_ApproxCurve.hxx".}
+proc `new[]`*(this: var GeomConvertApproxCurve; theSize: csize_t): pointer {.
+    importcpp: "GeomConvert_ApproxCurve::operator new[]",
+    header: "GeomConvert_ApproxCurve.hxx".}
+proc `delete[]`*(this: var GeomConvertApproxCurve; theAddress: pointer) {.
+    importcpp: "GeomConvert_ApproxCurve::operator delete[]",
+    header: "GeomConvert_ApproxCurve.hxx".}
+proc `new`*(this: var GeomConvertApproxCurve; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomConvert_ApproxCurve::operator new",
+    header: "GeomConvert_ApproxCurve.hxx".}
+proc `delete`*(this: var GeomConvertApproxCurve; a2: pointer; a3: pointer) {.
+    importcpp: "GeomConvert_ApproxCurve::operator delete",
+    header: "GeomConvert_ApproxCurve.hxx".}
+proc constructGeomConvertApproxCurve*(curve: Handle[GeomCurve];
+                                     tol3d: StandardReal; order: GeomAbsShape;
+                                     maxSegments: int; maxDegree: int): GeomConvertApproxCurve {.
     constructor, importcpp: "GeomConvert_ApproxCurve(@)",
     header: "GeomConvert_ApproxCurve.hxx".}
-proc constructGeomConvertApproxCurve*(curve: Handle[Adaptor3dHCurve]; tol3d: float;
-                                     order: GeomAbsShape; maxSegments: int;
-                                     maxDegree: int): GeomConvertApproxCurve {.
+proc constructGeomConvertApproxCurve*(curve: Handle[Adaptor3dHCurve];
+                                     tol3d: StandardReal; order: GeomAbsShape;
+                                     maxSegments: int; maxDegree: int): GeomConvertApproxCurve {.
     constructor, importcpp: "GeomConvert_ApproxCurve(@)",
     header: "GeomConvert_ApproxCurve.hxx".}
 proc curve*(this: GeomConvertApproxCurve): Handle[GeomBSplineCurve] {.noSideEffect,
     importcpp: "Curve", header: "GeomConvert_ApproxCurve.hxx".}
-proc isDone*(this: GeomConvertApproxCurve): bool {.noSideEffect, importcpp: "IsDone",
-    header: "GeomConvert_ApproxCurve.hxx".}
-proc hasResult*(this: GeomConvertApproxCurve): bool {.noSideEffect,
+proc isDone*(this: GeomConvertApproxCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "GeomConvert_ApproxCurve.hxx".}
+proc hasResult*(this: GeomConvertApproxCurve): StandardBoolean {.noSideEffect,
     importcpp: "HasResult", header: "GeomConvert_ApproxCurve.hxx".}
-proc maxError*(this: GeomConvertApproxCurve): float {.noSideEffect,
+proc maxError*(this: GeomConvertApproxCurve): StandardReal {.noSideEffect,
     importcpp: "MaxError", header: "GeomConvert_ApproxCurve.hxx".}
 proc dump*(this: GeomConvertApproxCurve; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "GeomConvert_ApproxCurve.hxx".}

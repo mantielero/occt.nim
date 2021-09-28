@@ -118,3 +118,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation];
          aSurface: Handle[Adaptor3dHSurface]; aDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdPrs_WFDeflectionSurface::Add(@)",
     header: "StdPrs_WFDeflectionSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

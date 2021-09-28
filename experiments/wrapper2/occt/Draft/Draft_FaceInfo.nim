@@ -46,3 +46,28 @@ proc changeCurve*(this: var DraftFaceInfo): var Handle[GeomCurve] {.
     importcpp: "ChangeCurve", header: "Draft_FaceInfo.hxx".}
 proc curve*(this: DraftFaceInfo): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "Draft_FaceInfo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

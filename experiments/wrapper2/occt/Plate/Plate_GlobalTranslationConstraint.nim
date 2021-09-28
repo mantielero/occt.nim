@@ -26,3 +26,28 @@ proc constructPlateGlobalTranslationConstraint*(sOfXY: TColgpSequenceOfXY): Plat
 proc lxyzc*(this: PlateGlobalTranslationConstraint): PlateLinearXYZConstraint {.
     noSideEffect, importcpp: "LXYZC",
     header: "Plate_GlobalTranslationConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,10 +38,10 @@ type
 
 
 proc add*(thePresentation: Handle[Prs3dPresentation]; theFace: TopoDS_Face;
-         theDrawer: Handle[Prs3dDrawer]; theDeflection: float) {.
+         theDrawer: Handle[Prs3dDrawer]; theDeflection: cfloat) {.
     importcpp: "StdPrs_Isolines::Add(@)", header: "StdPrs_Isolines.hxx".}
-proc add*(theFace: TopoDS_Face; theDrawer: Handle[Prs3dDrawer]; theDeflection: float;
-         theUPolylines: var Prs3dNListOfSequenceOfPnt;
+proc add*(theFace: TopoDS_Face; theDrawer: Handle[Prs3dDrawer];
+         theDeflection: cfloat; theUPolylines: var Prs3dNListOfSequenceOfPnt;
          theVPolylines: var Prs3dNListOfSequenceOfPnt) {.
     importcpp: "StdPrs_Isolines::Add(@)", header: "StdPrs_Isolines.hxx".}
 proc addOnTriangulation*(thePresentation: Handle[Prs3dPresentation];
@@ -64,23 +64,23 @@ proc addOnTriangulation*(thePresentation: Handle[Prs3dPresentation];
     header: "StdPrs_Isolines.hxx".}
 proc addOnSurface*(thePresentation: Handle[Prs3dPresentation];
                   theFace: TopoDS_Face; theDrawer: Handle[Prs3dDrawer];
-                  theDeflection: float) {.importcpp: "StdPrs_Isolines::AddOnSurface(@)",
-                                        header: "StdPrs_Isolines.hxx".}
+                  theDeflection: cfloat) {.
+    importcpp: "StdPrs_Isolines::AddOnSurface(@)", header: "StdPrs_Isolines.hxx".}
 proc addOnSurface*(theFace: TopoDS_Face; theDrawer: Handle[Prs3dDrawer];
-                  theDeflection: float;
+                  theDeflection: cfloat;
                   theUPolylines: var Prs3dNListOfSequenceOfPnt;
                   theVPolylines: var Prs3dNListOfSequenceOfPnt) {.
     importcpp: "StdPrs_Isolines::AddOnSurface(@)", header: "StdPrs_Isolines.hxx".}
 proc addOnSurface*(thePresentation: Handle[Prs3dPresentation];
                   theSurface: Handle[BRepAdaptorHSurface];
-                  theDrawer: Handle[Prs3dDrawer]; theDeflection: float;
+                  theDrawer: Handle[Prs3dDrawer]; theDeflection: cfloat;
                   theUIsoParams: TColStdSequenceOfReal;
                   theVIsoParams: TColStdSequenceOfReal) {.
     importcpp: "StdPrs_Isolines::AddOnSurface(@)", header: "StdPrs_Isolines.hxx".}
-proc uVIsoParameters*(theFace: TopoDS_Face; theNbIsoU: int; theNbIsoV: int;
-                     theUVLimit: float; theUIsoParams: var TColStdSequenceOfReal;
-                     theVIsoParams: var TColStdSequenceOfReal; theUmin: var float;
-                     theUmax: var float; theVmin: var float; theVmax: var float) {.
+proc uVIsoParameters*(theFace: TopoDS_Face; theNbIsoU: cint; theNbIsoV: cint;
+                     theUVLimit: cfloat; theUIsoParams: var TColStdSequenceOfReal;
+                     theVIsoParams: var TColStdSequenceOfReal; theUmin: var cfloat;
+                     theUmax: var cfloat; theVmin: var cfloat; theVmax: var cfloat) {.
     importcpp: "StdPrs_Isolines::UVIsoParameters(@)",
     header: "StdPrs_Isolines.hxx".}
 type
@@ -101,3 +101,28 @@ converter `constPntOnIso*`*(this: StdPrsIsolinesSegOnIso): ptr StdPrsIsolinesPnt
     header: "StdPrs_Isolines.hxx".}
 proc `<`*(this: StdPrsIsolinesSegOnIso; theOther: StdPrsIsolinesSegOnIso): bool {.
     noSideEffect, importcpp: "(# < #)", header: "StdPrs_Isolines.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

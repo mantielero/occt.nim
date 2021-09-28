@@ -17,3 +17,28 @@
 type
   IntSurfSequenceOfPathPoint* = NCollectionSequence[IntSurfPathPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

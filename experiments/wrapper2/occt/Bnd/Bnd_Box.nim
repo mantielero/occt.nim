@@ -34,17 +34,17 @@ proc setWhole*(this: var BndBox) {.importcpp: "SetWhole", header: "Bnd_Box.hxx".
 proc setVoid*(this: var BndBox) {.importcpp: "SetVoid", header: "Bnd_Box.hxx".}
 proc set*(this: var BndBox; p: Pnt) {.importcpp: "Set", header: "Bnd_Box.hxx".}
 proc set*(this: var BndBox; p: Pnt; d: Dir) {.importcpp: "Set", header: "Bnd_Box.hxx".}
-proc update*(this: var BndBox; aXmin: float; aYmin: float; aZmin: float; aXmax: float;
-            aYmax: float; aZmax: float) {.importcpp: "Update", header: "Bnd_Box.hxx".}
-proc update*(this: var BndBox; x: float; y: float; z: float) {.importcpp: "Update",
+proc update*(this: var BndBox; aXmin: cfloat; aYmin: cfloat; aZmin: cfloat; aXmax: cfloat;
+            aYmax: cfloat; aZmax: cfloat) {.importcpp: "Update", header: "Bnd_Box.hxx".}
+proc update*(this: var BndBox; x: cfloat; y: cfloat; z: cfloat) {.importcpp: "Update",
     header: "Bnd_Box.hxx".}
-proc getGap*(this: BndBox): float {.noSideEffect, importcpp: "GetGap",
-                                header: "Bnd_Box.hxx".}
-proc setGap*(this: var BndBox; tol: float) {.importcpp: "SetGap", header: "Bnd_Box.hxx".}
-proc enlarge*(this: var BndBox; tol: float) {.importcpp: "Enlarge",
-                                        header: "Bnd_Box.hxx".}
-proc get*(this: BndBox; theXmin: var float; theYmin: var float; theZmin: var float;
-         theXmax: var float; theYmax: var float; theZmax: var float) {.noSideEffect,
+proc getGap*(this: BndBox): cfloat {.noSideEffect, importcpp: "GetGap",
+                                 header: "Bnd_Box.hxx".}
+proc setGap*(this: var BndBox; tol: cfloat) {.importcpp: "SetGap", header: "Bnd_Box.hxx".}
+proc enlarge*(this: var BndBox; tol: cfloat) {.importcpp: "Enlarge",
+    header: "Bnd_Box.hxx".}
+proc get*(this: BndBox; theXmin: var cfloat; theYmin: var cfloat; theZmin: var cfloat;
+         theXmax: var cfloat; theYmax: var cfloat; theZmax: var cfloat) {.noSideEffect,
     importcpp: "Get", header: "Bnd_Box.hxx".}
 proc cornerMin*(this: BndBox): Pnt {.noSideEffect, importcpp: "CornerMin",
                                  header: "Bnd_Box.hxx".}
@@ -74,13 +74,13 @@ proc isWhole*(this: BndBox): bool {.noSideEffect, importcpp: "IsWhole",
                                 header: "Bnd_Box.hxx".}
 proc isVoid*(this: BndBox): bool {.noSideEffect, importcpp: "IsVoid",
                                header: "Bnd_Box.hxx".}
-proc isXThin*(this: BndBox; tol: float): bool {.noSideEffect, importcpp: "IsXThin",
+proc isXThin*(this: BndBox; tol: cfloat): bool {.noSideEffect, importcpp: "IsXThin",
     header: "Bnd_Box.hxx".}
-proc isYThin*(this: BndBox; tol: float): bool {.noSideEffect, importcpp: "IsYThin",
+proc isYThin*(this: BndBox; tol: cfloat): bool {.noSideEffect, importcpp: "IsYThin",
     header: "Bnd_Box.hxx".}
-proc isZThin*(this: BndBox; tol: float): bool {.noSideEffect, importcpp: "IsZThin",
+proc isZThin*(this: BndBox; tol: cfloat): bool {.noSideEffect, importcpp: "IsZThin",
     header: "Bnd_Box.hxx".}
-proc isThin*(this: BndBox; tol: float): bool {.noSideEffect, importcpp: "IsThin",
+proc isThin*(this: BndBox; tol: cfloat): bool {.noSideEffect, importcpp: "IsThin",
     header: "Bnd_Box.hxx".}
 proc transformed*(this: BndBox; t: Trsf): BndBox {.noSideEffect,
     importcpp: "Transformed", header: "Bnd_Box.hxx".}
@@ -102,17 +102,42 @@ proc isOut*(this: BndBox; t1: Trsf; other: BndBox; t2: Trsf): bool {.noSideEffec
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
 proc isOut*(this: BndBox; p1: Pnt; p2: Pnt; d: Dir): bool {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_Box.hxx".}
-proc distance*(this: BndBox; other: BndBox): float {.noSideEffect,
+proc distance*(this: BndBox; other: BndBox): cfloat {.noSideEffect,
     importcpp: "Distance", header: "Bnd_Box.hxx".}
 proc dump*(this: BndBox) {.noSideEffect, importcpp: "Dump", header: "Bnd_Box.hxx".}
-proc squareExtent*(this: BndBox): float {.noSideEffect, importcpp: "SquareExtent",
-                                      header: "Bnd_Box.hxx".}
+proc squareExtent*(this: BndBox): cfloat {.noSideEffect, importcpp: "SquareExtent",
+                                       header: "Bnd_Box.hxx".}
 proc finitePart*(this: BndBox): BndBox {.noSideEffect, importcpp: "FinitePart",
                                      header: "Bnd_Box.hxx".}
 proc hasFinitePart*(this: BndBox): bool {.noSideEffect, importcpp: "HasFinitePart",
                                       header: "Bnd_Box.hxx".}
-proc dumpJson*(this: BndBox; theOStream: var StandardOStream; theDepth: int = -1) {.
+proc dumpJson*(this: BndBox; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Bnd_Box.hxx".}
 proc initFromJson*(this: var BndBox; theSStream: StandardSStream;
-                  theStreamPos: var int): bool {.importcpp: "InitFromJson",
+                  theStreamPos: var cint): bool {.importcpp: "InitFromJson",
     header: "Bnd_Box.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

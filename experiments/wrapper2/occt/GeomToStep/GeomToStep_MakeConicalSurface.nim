@@ -23,6 +23,24 @@ type
                                  bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeConicalSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeConicalSurface::operator new",
+    header: "GeomToStep_MakeConicalSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeConicalSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeConicalSurface::operator delete",
+    header: "GeomToStep_MakeConicalSurface.hxx".}
+proc `new[]`*(this: var GeomToStepMakeConicalSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeConicalSurface::operator new[]",
+    header: "GeomToStep_MakeConicalSurface.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeConicalSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeConicalSurface::operator delete[]",
+    header: "GeomToStep_MakeConicalSurface.hxx".}
+proc `new`*(this: var GeomToStepMakeConicalSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeConicalSurface::operator new",
+    header: "GeomToStep_MakeConicalSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeConicalSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeConicalSurface::operator delete",
+    header: "GeomToStep_MakeConicalSurface.hxx".}
 proc constructGeomToStepMakeConicalSurface*(cSurf: Handle[GeomConicalSurface]): GeomToStepMakeConicalSurface {.
     constructor, importcpp: "GeomToStep_MakeConicalSurface(@)",
     header: "GeomToStep_MakeConicalSurface.hxx".}

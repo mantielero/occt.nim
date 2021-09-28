@@ -29,7 +29,7 @@ proc constructRWStepReprRWReprItemAndPlaneAngleMeasureWithUnitAndQRI*(): RWStepR
     importcpp: "RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI(@)",
     header: "RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
 proc readStep*(this: RWStepReprRWReprItemAndPlaneAngleMeasureWithUnitAndQRI;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepReprRWReprItemAndPlaneAngleMeasureWithUnitAndQRI;
                ent: Handle[StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of StepData_Described"
 discard "forward decl of StepData_EDescr"
 discard "forward decl of StepData_EDescr"
 type
-  HandleStepDataEDescr* = Handle[StepDataEDescr]
+  HandleC1C1* = Handle[StepDataEDescr]
 
 ## ! This class is intended to describe the authorized form for an
 ## ! entity, either Simple or Plex
@@ -44,3 +44,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_EDescr.hxx".}
 proc dynamicType*(this: StepDataEDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_EDescr.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

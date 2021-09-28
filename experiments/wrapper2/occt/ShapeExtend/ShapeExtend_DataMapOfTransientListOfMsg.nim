@@ -20,3 +20,28 @@ type
   ShapeExtendDataMapIteratorOfDataMapOfTransientListOfMsg* = Iterator[
       Handle[StandardTransient], MessageListOfMsg, TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

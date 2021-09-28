@@ -17,3 +17,28 @@
 type
   QuantityArray1OfColor* = NCollectionArray1[QuantityColor]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

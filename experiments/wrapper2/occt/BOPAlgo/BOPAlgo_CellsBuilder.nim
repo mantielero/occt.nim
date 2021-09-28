@@ -193,10 +193,10 @@ proc destroyBOPAlgoCellsBuilder*(this: var BOPAlgoCellsBuilder) {.
 proc clear*(this: var BOPAlgoCellsBuilder) {.importcpp: "Clear",
     header: "BOPAlgo_CellsBuilder.hxx".}
 proc addToResult*(this: var BOPAlgoCellsBuilder; theLSToTake: TopToolsListOfShape;
-                 theLSToAvoid: TopToolsListOfShape; theMaterial: int = 0;
+                 theLSToAvoid: TopToolsListOfShape; theMaterial: cint = 0;
                  theUpdate: bool = false) {.importcpp: "AddToResult",
                                         header: "BOPAlgo_CellsBuilder.hxx".}
-proc addAllToResult*(this: var BOPAlgoCellsBuilder; theMaterial: int = 0;
+proc addAllToResult*(this: var BOPAlgoCellsBuilder; theMaterial: cint = 0;
                     theUpdate: bool = false) {.importcpp: "AddAllToResult",
     header: "BOPAlgo_CellsBuilder.hxx".}
 proc removeFromResult*(this: var BOPAlgoCellsBuilder;
@@ -211,3 +211,28 @@ proc getAllParts*(this: BOPAlgoCellsBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "GetAllParts", header: "BOPAlgo_CellsBuilder.hxx".}
 proc makeContainers*(this: var BOPAlgoCellsBuilder) {.importcpp: "MakeContainers",
     header: "BOPAlgo_CellsBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

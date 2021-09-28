@@ -20,3 +20,28 @@ type
   TNamingDataMapIteratorOfDataMapOfShapeShapesSet* = Iterator[TopoDS_Shape,
       TNamingShapesSet, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of StepFEA_FeaModel"
 discard "forward decl of StepFEA_ElementGroup"
 discard "forward decl of StepFEA_ElementGroup"
 type
-  HandleStepFEA_ElementGroup* = Handle[StepFEA_ElementGroup]
+  HandleC1C1* = Handle[StepFEA_ElementGroup]
 
 ## ! Representation of STEP entity ElementGroup
 
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepFEA_ElementGroup.hxx".}
 proc dynamicType*(this: StepFEA_ElementGroup): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepFEA_ElementGroup.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -33,5 +33,30 @@ proc init*(this: var ChFi2dChamferAPI; theEdge1: TopoDS_Edge; theEdge2: TopoDS_E
 proc perform*(this: var ChFi2dChamferAPI): bool {.importcpp: "Perform",
     header: "ChFi2d_ChamferAPI.hxx".}
 proc result*(this: var ChFi2dChamferAPI; theEdge1: var TopoDS_Edge;
-            theEdge2: var TopoDS_Edge; theLength1: float; theLength2: float): TopoDS_Edge {.
+            theEdge2: var TopoDS_Edge; theLength1: cfloat; theLength2: cfloat): TopoDS_Edge {.
     importcpp: "Result", header: "ChFi2d_ChamferAPI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

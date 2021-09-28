@@ -22,7 +22,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_Expression"
 discard "forward decl of TDataStd_Expression"
 type
-  HandleTDataStdExpression* = Handle[TDataStdExpression]
+  HandleC1C1* = Handle[TDataStdExpression]
 
 ## ! Expression attribute.
 ## ! ====================
@@ -70,8 +70,8 @@ proc paste*(this: TDataStdExpression; into: Handle[TDF_Attribute];
 proc dump*(this: TDataStdExpression; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_Expression.hxx".}
 proc dumpJson*(this: TDataStdExpression; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_Expression.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_Expression.hxx".}
 type
   TDataStdExpressionbaseType* = TDF_Attribute
 
@@ -82,3 +82,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_Expression.hxx".}
 proc dynamicType*(this: TDataStdExpression): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_Expression.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

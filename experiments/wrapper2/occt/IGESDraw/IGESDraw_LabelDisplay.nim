@@ -23,7 +23,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESDraw_LabelDisplay"
 discard "forward decl of IGESDraw_LabelDisplay"
 type
-  HandleIGESDrawLabelDisplay* = Handle[IGESDrawLabelDisplay]
+  HandleC1C1* = Handle[IGESDrawLabelDisplay]
 
 ## ! defines IGESLabelDisplay, Type <402> Form <5>
 ## ! in package IGESDraw
@@ -45,22 +45,22 @@ proc init*(this: var IGESDrawLabelDisplay;
           allLabelLevels: Handle[TColStdHArray1OfInteger];
           allDisplayedEntities: Handle[IGESDataHArray1OfIGESEntity]) {.
     importcpp: "Init", header: "IGESDraw_LabelDisplay.hxx".}
-proc nbLabels*(this: IGESDrawLabelDisplay): int {.noSideEffect,
+proc nbLabels*(this: IGESDrawLabelDisplay): cint {.noSideEffect,
     importcpp: "NbLabels", header: "IGESDraw_LabelDisplay.hxx".}
-proc viewItem*(this: IGESDrawLabelDisplay; viewIndex: int): Handle[
+proc viewItem*(this: IGESDrawLabelDisplay; viewIndex: cint): Handle[
     IGESDataViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
                              header: "IGESDraw_LabelDisplay.hxx".}
-proc textLocation*(this: IGESDrawLabelDisplay; viewIndex: int): Pnt {.noSideEffect,
+proc textLocation*(this: IGESDrawLabelDisplay; viewIndex: cint): Pnt {.noSideEffect,
     importcpp: "TextLocation", header: "IGESDraw_LabelDisplay.hxx".}
-proc leaderEntity*(this: IGESDrawLabelDisplay; viewIndex: int): Handle[
+proc leaderEntity*(this: IGESDrawLabelDisplay; viewIndex: cint): Handle[
     IGESDimenLeaderArrow] {.noSideEffect, importcpp: "LeaderEntity",
                            header: "IGESDraw_LabelDisplay.hxx".}
-proc labelLevel*(this: IGESDrawLabelDisplay; viewIndex: int): int {.noSideEffect,
+proc labelLevel*(this: IGESDrawLabelDisplay; viewIndex: cint): cint {.noSideEffect,
     importcpp: "LabelLevel", header: "IGESDraw_LabelDisplay.hxx".}
-proc displayedEntity*(this: IGESDrawLabelDisplay; entityIndex: int): Handle[
+proc displayedEntity*(this: IGESDrawLabelDisplay; entityIndex: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "DisplayedEntity",
                          header: "IGESDraw_LabelDisplay.hxx".}
-proc transformedTextLocation*(this: IGESDrawLabelDisplay; viewIndex: int): Pnt {.
+proc transformedTextLocation*(this: IGESDrawLabelDisplay; viewIndex: cint): Pnt {.
     noSideEffect, importcpp: "TransformedTextLocation",
     header: "IGESDraw_LabelDisplay.hxx".}
 type
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDraw_LabelDisplay.hxx".}
 proc dynamicType*(this: IGESDrawLabelDisplay): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDraw_LabelDisplay.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

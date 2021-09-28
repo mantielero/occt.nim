@@ -18,7 +18,7 @@ discard "forward decl of gp_GTrsf"
 discard "forward decl of IGESData_TransfEntity"
 discard "forward decl of IGESData_TransfEntity"
 type
-  HandleIGESDataTransfEntity* = Handle[IGESDataTransfEntity]
+  HandleC1C1* = Handle[IGESDataTransfEntity]
 
 ## ! defines required type for Transf in directory part
 ## ! an effective Transf entity must inherits it
@@ -97,3 +97,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_TransfEntity.hxx".}
 proc dynamicType*(this: IGESDataTransfEntity): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_TransfEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

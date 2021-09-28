@@ -19,7 +19,7 @@ discard "forward decl of StepVisual_TextStyleForDefinedFont"
 discard "forward decl of StepVisual_TextStyle"
 discard "forward decl of StepVisual_TextStyle"
 type
-  HandleStepVisualTextStyle* = Handle[StepVisualTextStyle]
+  HandleC1C1* = Handle[StepVisualTextStyle]
   StepVisualTextStyle* {.importcpp: "StepVisual_TextStyle",
                         header: "StepVisual_TextStyle.hxx", bycopy.} = object of StandardTransient ##
                                                                                             ## !
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_TextStyle.hxx".}
 proc dynamicType*(this: StepVisualTextStyle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_TextStyle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

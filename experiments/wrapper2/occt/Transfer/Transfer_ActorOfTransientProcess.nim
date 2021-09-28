@@ -22,7 +22,7 @@ discard "forward decl of Message_ProgressScope"
 discard "forward decl of Transfer_ActorOfTransientProcess"
 discard "forward decl of Transfer_ActorOfTransientProcess"
 type
-  HandleTransferActorOfTransientProcess* = Handle[TransferActorOfTransientProcess]
+  HandleC1C1* = Handle[TransferActorOfTransientProcess]
 
 ## ! The original class was renamed. Compatibility only
 
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TransferActorOfTransientProcess): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_ActorOfTransientProcess.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

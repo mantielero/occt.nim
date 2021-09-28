@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataXtd_PositionDriver"
 discard "forward decl of BinMDataXtd_PositionDriver"
 type
-  HandleBinMDataXtdPositionDriver* = Handle[BinMDataXtdPositionDriver]
+  HandleC1C1* = Handle[BinMDataXtdPositionDriver]
 
 ## ! Position Attribute Driver.
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataXtdPositionDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataXtd_PositionDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

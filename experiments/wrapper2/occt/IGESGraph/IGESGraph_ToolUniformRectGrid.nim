@@ -64,5 +64,30 @@ proc ownCopy*(this: IGESGraphToolUniformRectGrid;
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolUniformRectGrid.hxx".}
 proc ownDump*(this: IGESGraphToolUniformRectGrid;
              ent: Handle[IGESGraphUniformRectGrid]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESGraph_ToolUniformRectGrid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

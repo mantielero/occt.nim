@@ -52,7 +52,7 @@ proc setColor*(this: var Prs3dShadingAspect; aColor: QuantityColor;
 proc setMaterial*(this: var Prs3dShadingAspect; aMaterial: Graphic3dMaterialAspect;
                  aModel: AspectTypeOfFacingModel = aspectTOFM_BOTH_SIDE) {.
     importcpp: "SetMaterial", header: "Prs3d_ShadingAspect.hxx".}
-proc setTransparency*(this: var Prs3dShadingAspect; aValue: float;
+proc setTransparency*(this: var Prs3dShadingAspect; aValue: cfloat;
                      aModel: AspectTypeOfFacingModel = aspectTOFM_BOTH_SIDE) {.
     importcpp: "SetTransparency", header: "Prs3d_ShadingAspect.hxx".}
 proc color*(this: Prs3dShadingAspect;
@@ -62,7 +62,7 @@ proc material*(this: Prs3dShadingAspect;
               aModel: AspectTypeOfFacingModel = aspectTOFM_FRONT_SIDE): Graphic3dMaterialAspect {.
     noSideEffect, importcpp: "Material", header: "Prs3d_ShadingAspect.hxx".}
 proc transparency*(this: Prs3dShadingAspect;
-                  aModel: AspectTypeOfFacingModel = aspectTOFM_FRONT_SIDE): float {.
+                  aModel: AspectTypeOfFacingModel = aspectTOFM_FRONT_SIDE): cfloat {.
     noSideEffect, importcpp: "Transparency", header: "Prs3d_ShadingAspect.hxx".}
 proc aspect*(this: Prs3dShadingAspect): Handle[Graphic3dAspectFillArea3d] {.
     noSideEffect, importcpp: "Aspect", header: "Prs3d_ShadingAspect.hxx".}
@@ -70,9 +70,34 @@ proc setAspect*(this: var Prs3dShadingAspect;
                theAspect: Handle[Graphic3dAspectFillArea3d]) {.
     importcpp: "SetAspect", header: "Prs3d_ShadingAspect.hxx".}
 proc dumpJson*(this: Prs3dShadingAspect; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Prs3d_ShadingAspect.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Prs3d_ShadingAspect.hxx".}
 discard "forward decl of Prs3d_ShadingAspect"
 type
-  HandlePrs3dShadingAspect* = Handle[Prs3dShadingAspect]
+  HandleC1C1* = Handle[Prs3dShadingAspect]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

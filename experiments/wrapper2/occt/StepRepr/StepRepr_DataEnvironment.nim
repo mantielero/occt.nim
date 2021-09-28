@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_DataEnvironment"
 discard "forward decl of StepRepr_DataEnvironment"
 type
-  HandleStepReprDataEnvironment* = Handle[StepReprDataEnvironment]
+  HandleC1C1* = Handle[StepReprDataEnvironment]
 
 ## ! Representation of STEP entity DataEnvironment
 
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_DataEnvironment.hxx".}
 proc dynamicType*(this: StepReprDataEnvironment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_DataEnvironment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

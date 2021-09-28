@@ -22,7 +22,7 @@ discard "forward decl of StepData_StepWriter"
 discard "forward decl of RWHeaderSection_ReadWriteModule"
 discard "forward decl of RWHeaderSection_ReadWriteModule"
 type
-  HandleRWHeaderSectionReadWriteModule* = Handle[RWHeaderSectionReadWriteModule]
+  HandleC1C1* = Handle[RWHeaderSectionReadWriteModule]
 
 ## ! General module to read and write HeaderSection entities
 
@@ -34,23 +34,23 @@ type
 proc constructRWHeaderSectionReadWriteModule*(): RWHeaderSectionReadWriteModule {.
     constructor, importcpp: "RWHeaderSection_ReadWriteModule(@)",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc caseStep*(this: RWHeaderSectionReadWriteModule; atype: TCollectionAsciiString): int {.
+proc caseStep*(this: RWHeaderSectionReadWriteModule; atype: TCollectionAsciiString): cint {.
     noSideEffect, importcpp: "CaseStep",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
 proc caseStep*(this: RWHeaderSectionReadWriteModule;
-              types: TColStdSequenceOfAsciiString): int {.noSideEffect,
+              types: TColStdSequenceOfAsciiString): cint {.noSideEffect,
     importcpp: "CaseStep", header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc isComplex*(this: RWHeaderSectionReadWriteModule; cn: int): bool {.noSideEffect,
+proc isComplex*(this: RWHeaderSectionReadWriteModule; cn: cint): bool {.noSideEffect,
     importcpp: "IsComplex", header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc stepType*(this: RWHeaderSectionReadWriteModule; cn: int): TCollectionAsciiString {.
+proc stepType*(this: RWHeaderSectionReadWriteModule; cn: cint): TCollectionAsciiString {.
     noSideEffect, importcpp: "StepType",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc readStep*(this: RWHeaderSectionReadWriteModule; cn: int;
-              data: Handle[StepDataStepReaderData]; num: int;
+proc readStep*(this: RWHeaderSectionReadWriteModule; cn: cint;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StandardTransient]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc writeStep*(this: RWHeaderSectionReadWriteModule; cn: int;
+proc writeStep*(this: RWHeaderSectionReadWriteModule; cn: cint;
                sw: var StepDataStepWriter; ent: Handle[StandardTransient]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: RWHeaderSectionReadWriteModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of Geom_Plane"
 discard "forward decl of PrsDim_EqualDistanceRelation"
 type
-  HandlePrsDimEqualDistanceRelation* = Handle[PrsDimEqualDistanceRelation]
+  HandleC1C1* = Handle[PrsDimEqualDistanceRelation]
 
 ## ! A framework to display equivalent distances between
 ## ! shapes and a given plane.
@@ -121,7 +121,7 @@ proc setShape4*(this: var PrsDimEqualDistanceRelation; aShape: TopoDS_Shape) {.
 proc shape4*(this: PrsDimEqualDistanceRelation): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape4", header: "PrsDim_EqualDistanceRelation.hxx".}
 proc computeTwoEdgesLength*(aPresentation: Handle[Prs3dPresentation];
-                           aDrawer: Handle[Prs3dDrawer]; arrowSize: float;
+                           aDrawer: Handle[Prs3dDrawer]; arrowSize: cfloat;
                            firstEdge: TopoDS_Edge; secondEdge: TopoDS_Edge;
                            plane: Handle[GeomPlane]; automaticPos: bool;
                            isSetBndBox: bool; bndBox: BndBox; position: var Pnt;
@@ -131,7 +131,7 @@ proc computeTwoEdgesLength*(aPresentation: Handle[Prs3dPresentation];
     importcpp: "PrsDim_EqualDistanceRelation::ComputeTwoEdgesLength(@)",
     header: "PrsDim_EqualDistanceRelation.hxx".}
 proc computeTwoVerticesLength*(aPresentation: Handle[Prs3dPresentation];
-                              aDrawer: Handle[Prs3dDrawer]; arrowSize: float;
+                              aDrawer: Handle[Prs3dDrawer]; arrowSize: cfloat;
                               firstVertex: TopoDS_Vertex;
                               secondVertex: TopoDS_Vertex;
                               plane: Handle[GeomPlane]; automaticPos: bool;
@@ -143,8 +143,8 @@ proc computeTwoVerticesLength*(aPresentation: Handle[Prs3dPresentation];
     importcpp: "PrsDim_EqualDistanceRelation::ComputeTwoVerticesLength(@)",
     header: "PrsDim_EqualDistanceRelation.hxx".}
 proc computeOneEdgeOneVertexLength*(aPresentation: Handle[Prs3dPresentation];
-                                   aDrawer: Handle[Prs3dDrawer]; arrowSize: float;
-                                   firstShape: TopoDS_Shape;
+                                   aDrawer: Handle[Prs3dDrawer];
+                                   arrowSize: cfloat; firstShape: TopoDS_Shape;
                                    secondShape: TopoDS_Shape;
                                    plane: Handle[GeomPlane]; automaticPos: bool;
                                    isSetBndBox: bool; bndBox: BndBox;
@@ -153,3 +153,28 @@ proc computeOneEdgeOneVertexLength*(aPresentation: Handle[Prs3dPresentation];
                                    secondExtreme: var Pnt;
                                    symbolPrs: var DsgPrsArrowSide) {.importcpp: "PrsDim_EqualDistanceRelation::ComputeOneEdgeOneVertexLength(@)",
     header: "PrsDim_EqualDistanceRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

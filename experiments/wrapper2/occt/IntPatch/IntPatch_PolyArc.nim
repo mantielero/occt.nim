@@ -25,16 +25,42 @@ type
                                                    ## ! None of these parameters can be infinite.
 
 
-proc constructIntPatchPolyArc*(a: Handle[Adaptor2dHCurve2d]; nbSample: int;
-                              pfirst: float; plast: float; boxOtherPolygon: BndBox2d): IntPatchPolyArc {.
+proc constructIntPatchPolyArc*(a: Handle[Adaptor2dHCurve2d]; nbSample: cint;
+                              pfirst: cfloat; plast: cfloat;
+                              boxOtherPolygon: BndBox2d): IntPatchPolyArc {.
     constructor, importcpp: "IntPatch_PolyArc(@)", header: "IntPatch_PolyArc.hxx".}
 proc closed*(this: IntPatchPolyArc): bool {.noSideEffect, importcpp: "Closed",
                                         header: "IntPatch_PolyArc.hxx".}
-proc nbPoints*(this: IntPatchPolyArc): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: IntPatchPolyArc): cint {.noSideEffect, importcpp: "NbPoints",
     header: "IntPatch_PolyArc.hxx".}
-proc point*(this: IntPatchPolyArc; index: int): Pnt2d {.noSideEffect,
+proc point*(this: IntPatchPolyArc; index: cint): Pnt2d {.noSideEffect,
     importcpp: "Point", header: "IntPatch_PolyArc.hxx".}
-proc parameter*(this: IntPatchPolyArc; index: int): float {.noSideEffect,
+proc parameter*(this: IntPatchPolyArc; index: cint): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "IntPatch_PolyArc.hxx".}
-proc setOffset*(this: var IntPatchPolyArc; offsetX: float; offsetY: float) {.
+proc setOffset*(this: var IntPatchPolyArc; offsetX: cfloat; offsetY: cfloat) {.
     importcpp: "SetOffset", header: "IntPatch_PolyArc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

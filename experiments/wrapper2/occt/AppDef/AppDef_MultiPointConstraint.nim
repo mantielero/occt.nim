@@ -32,7 +32,7 @@ type
 proc constructAppDefMultiPointConstraint*(): AppDefMultiPointConstraint {.
     constructor, importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(nbPoints: int; nbPoints2d: int): AppDefMultiPointConstraint {.
+proc constructAppDefMultiPointConstraint*(nbPoints: cint; nbPoints2d: cint): AppDefMultiPointConstraint {.
     constructor, importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
 proc constructAppDefMultiPointConstraint*(tabP: TColgpArray1OfPnt): AppDefMultiPointConstraint {.
@@ -72,21 +72,21 @@ proc constructAppDefMultiPointConstraint*(tabP2d: TColgpArray1OfPnt2d;
     tabVec2d: TColgpArray1OfVec2d; tabCur2d: TColgpArray1OfVec2d): AppDefMultiPointConstraint {.
     constructor, importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc setTang*(this: var AppDefMultiPointConstraint; index: int; tang: Vec) {.
+proc setTang*(this: var AppDefMultiPointConstraint; index: cint; tang: Vec) {.
     importcpp: "SetTang", header: "AppDef_MultiPointConstraint.hxx".}
-proc tang*(this: AppDefMultiPointConstraint; index: int): Vec {.noSideEffect,
+proc tang*(this: AppDefMultiPointConstraint; index: cint): Vec {.noSideEffect,
     importcpp: "Tang", header: "AppDef_MultiPointConstraint.hxx".}
-proc setTang2d*(this: var AppDefMultiPointConstraint; index: int; tang2d: Vec2d) {.
+proc setTang2d*(this: var AppDefMultiPointConstraint; index: cint; tang2d: Vec2d) {.
     importcpp: "SetTang2d", header: "AppDef_MultiPointConstraint.hxx".}
-proc tang2d*(this: AppDefMultiPointConstraint; index: int): Vec2d {.noSideEffect,
+proc tang2d*(this: AppDefMultiPointConstraint; index: cint): Vec2d {.noSideEffect,
     importcpp: "Tang2d", header: "AppDef_MultiPointConstraint.hxx".}
-proc setCurv*(this: var AppDefMultiPointConstraint; index: int; curv: Vec) {.
+proc setCurv*(this: var AppDefMultiPointConstraint; index: cint; curv: Vec) {.
     importcpp: "SetCurv", header: "AppDef_MultiPointConstraint.hxx".}
-proc curv*(this: AppDefMultiPointConstraint; index: int): Vec {.noSideEffect,
+proc curv*(this: AppDefMultiPointConstraint; index: cint): Vec {.noSideEffect,
     importcpp: "Curv", header: "AppDef_MultiPointConstraint.hxx".}
-proc setCurv2d*(this: var AppDefMultiPointConstraint; index: int; curv2d: Vec2d) {.
+proc setCurv2d*(this: var AppDefMultiPointConstraint; index: cint; curv2d: Vec2d) {.
     importcpp: "SetCurv2d", header: "AppDef_MultiPointConstraint.hxx".}
-proc curv2d*(this: AppDefMultiPointConstraint; index: int): Vec2d {.noSideEffect,
+proc curv2d*(this: AppDefMultiPointConstraint; index: cint): Vec2d {.noSideEffect,
     importcpp: "Curv2d", header: "AppDef_MultiPointConstraint.hxx".}
 proc isTangencyPoint*(this: AppDefMultiPointConstraint): bool {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "AppDef_MultiPointConstraint.hxx".}
@@ -94,3 +94,28 @@ proc isCurvaturePoint*(this: AppDefMultiPointConstraint): bool {.noSideEffect,
     importcpp: "IsCurvaturePoint", header: "AppDef_MultiPointConstraint.hxx".}
 proc dump*(this: AppDefMultiPointConstraint; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "AppDef_MultiPointConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

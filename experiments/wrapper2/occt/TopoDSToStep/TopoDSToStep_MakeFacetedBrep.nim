@@ -36,3 +36,28 @@ proc constructTopoDSToStepMakeFacetedBrep*(s: TopoDS_Solid;
     header: "TopoDSToStep_MakeFacetedBrep.hxx".}
 proc value*(this: TopoDSToStepMakeFacetedBrep): Handle[StepShapeFacetedBrep] {.
     noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeFacetedBrep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

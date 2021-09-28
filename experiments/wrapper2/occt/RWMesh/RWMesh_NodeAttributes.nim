@@ -24,3 +24,28 @@ type
   RWMeshNodeAttributeMap* = NCollectionDataMap[TopoDS_Shape, RWMeshNodeAttributes,
       TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

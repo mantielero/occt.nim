@@ -34,3 +34,28 @@ proc initSolidAreaBuilder*(this: var TopOpeBRepBuildSolidAreaBuilder;
                           forceClass: bool = false) {.
     importcpp: "InitSolidAreaBuilder",
     header: "TopOpeBRepBuild_SolidAreaBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

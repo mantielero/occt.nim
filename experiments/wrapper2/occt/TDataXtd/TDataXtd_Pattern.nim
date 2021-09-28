@@ -17,7 +17,7 @@ discard "forward decl of Standard_GUID"
 discard "forward decl of TDataXtd_Pattern"
 discard "forward decl of TDataXtd_Pattern"
 type
-  HandleTDataXtdPattern* = Handle[TDataXtdPattern]
+  HandleC1C1* = Handle[TDataXtdPattern]
 
 ## ! a general pattern model
 
@@ -32,8 +32,8 @@ proc id*(this: TDataXtdPattern): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "TDataXtd_Pattern.hxx".}
 proc patternID*(this: TDataXtdPattern): StandardGUID {.noSideEffect,
     importcpp: "PatternID", header: "TDataXtd_Pattern.hxx".}
-proc nbTrsfs*(this: TDataXtdPattern): int {.noSideEffect, importcpp: "NbTrsfs",
-                                        header: "TDataXtd_Pattern.hxx".}
+proc nbTrsfs*(this: TDataXtdPattern): cint {.noSideEffect, importcpp: "NbTrsfs",
+    header: "TDataXtd_Pattern.hxx".}
 proc computeTrsfs*(this: TDataXtdPattern; trsfs: var TDataXtdArray1OfTrsf) {.
     noSideEffect, importcpp: "ComputeTrsfs", header: "TDataXtd_Pattern.hxx".}
 type
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataXtd_Pattern.hxx".}
 proc dynamicType*(this: TDataXtdPattern): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataXtd_Pattern.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

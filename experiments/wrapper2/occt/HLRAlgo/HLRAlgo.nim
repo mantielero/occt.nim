@@ -42,17 +42,17 @@ type
                                                                     ## ! EdgeStatus.
 
 
-proc updateMinMax*(x: float; y: float; z: float; min: array[16, float];
-                  max: array[16, float]) {.importcpp: "HLRAlgo::UpdateMinMax(@)",
-                                        header: "HLRAlgo.hxx".}
-proc enlargeMinMax*(tol: float; min: array[16, float]; max: array[16, float]) {.
+proc updateMinMax*(x: cfloat; y: cfloat; z: cfloat; min: array[16, cfloat];
+                  max: array[16, cfloat]) {.importcpp: "HLRAlgo::UpdateMinMax(@)",
+    header: "HLRAlgo.hxx".}
+proc enlargeMinMax*(tol: cfloat; min: array[16, cfloat]; max: array[16, cfloat]) {.
     importcpp: "HLRAlgo::EnlargeMinMax(@)", header: "HLRAlgo.hxx".}
-proc initMinMax*(big: float; min: array[16, float]; max: array[16, float]) {.
+proc initMinMax*(big: cfloat; min: array[16, cfloat]; max: array[16, cfloat]) {.
     importcpp: "HLRAlgo::InitMinMax(@)", header: "HLRAlgo.hxx".}
 proc encodeMinMax*(min: var MinMaxIndices; max: var MinMaxIndices;
                   minMax: var MinMaxIndices) {.
     importcpp: "HLRAlgo::EncodeMinMax(@)", header: "HLRAlgo.hxx".}
-proc sizeBox*(min: var MinMaxIndices; max: var MinMaxIndices): float {.
+proc sizeBox*(min: var MinMaxIndices; max: var MinMaxIndices): cfloat {.
     importcpp: "HLRAlgo::SizeBox(@)", header: "HLRAlgo.hxx".}
 proc decodeMinMax*(minMax: MinMaxIndices; min: var MinMaxIndices;
                   max: var MinMaxIndices) {.importcpp: "HLRAlgo::DecodeMinMax(@)",
@@ -63,3 +63,28 @@ proc copyMinMax*(iMin: var MinMaxIndices; iMax: var MinMaxIndices;
 proc addMinMax*(iMin: var MinMaxIndices; iMax: var MinMaxIndices;
                oMin: var MinMaxIndices; oMax: var MinMaxIndices) {.
     importcpp: "HLRAlgo::AddMinMax(@)", header: "HLRAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

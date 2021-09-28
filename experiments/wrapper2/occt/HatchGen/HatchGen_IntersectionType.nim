@@ -24,3 +24,28 @@ type
     HatchGenTRUE, HatchGenTOUCH, HatchGenTANGENT, HatchGenUNDETERMINED
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -108,47 +108,48 @@ type
                                                                              ## above.
 
 
-proc constructAppDefTheLeastSquares*(ssp: AppDefMultiLine; firstPoint: int;
-                                    lastPoint: int;
+proc constructAppDefTheLeastSquares*(ssp: AppDefMultiLine; firstPoint: cint;
+                                    lastPoint: cint;
                                     firstCons: AppParCurvesConstraint;
                                     lastCons: AppParCurvesConstraint;
-                                    parameters: MathVector; nbPol: int): AppDefTheLeastSquares {.
+                                    parameters: MathVector; nbPol: cint): AppDefTheLeastSquares {.
     constructor, importcpp: "AppDef_TheLeastSquares(@)",
     header: "AppDef_TheLeastSquares.hxx".}
-proc constructAppDefTheLeastSquares*(ssp: AppDefMultiLine; firstPoint: int;
-                                    lastPoint: int;
+proc constructAppDefTheLeastSquares*(ssp: AppDefMultiLine; firstPoint: cint;
+                                    lastPoint: cint;
                                     firstCons: AppParCurvesConstraint;
-                                    lastCons: AppParCurvesConstraint; nbPol: int): AppDefTheLeastSquares {.
+                                    lastCons: AppParCurvesConstraint; nbPol: cint): AppDefTheLeastSquares {.
     constructor, importcpp: "AppDef_TheLeastSquares(@)",
     header: "AppDef_TheLeastSquares.hxx".}
 proc constructAppDefTheLeastSquares*(ssp: AppDefMultiLine;
                                     knots: TColStdArray1OfReal;
                                     mults: TColStdArray1OfInteger;
-                                    firstPoint: int; lastPoint: int;
+                                    firstPoint: cint; lastPoint: cint;
                                     firstCons: AppParCurvesConstraint;
                                     lastCons: AppParCurvesConstraint;
-                                    parameters: MathVector; nbPol: int): AppDefTheLeastSquares {.
+                                    parameters: MathVector; nbPol: cint): AppDefTheLeastSquares {.
     constructor, importcpp: "AppDef_TheLeastSquares(@)",
     header: "AppDef_TheLeastSquares.hxx".}
 proc constructAppDefTheLeastSquares*(ssp: AppDefMultiLine;
                                     knots: TColStdArray1OfReal;
                                     mults: TColStdArray1OfInteger;
-                                    firstPoint: int; lastPoint: int;
+                                    firstPoint: cint; lastPoint: cint;
                                     firstCons: AppParCurvesConstraint;
-                                    lastCons: AppParCurvesConstraint; nbPol: int): AppDefTheLeastSquares {.
+                                    lastCons: AppParCurvesConstraint; nbPol: cint): AppDefTheLeastSquares {.
     constructor, importcpp: "AppDef_TheLeastSquares(@)",
     header: "AppDef_TheLeastSquares.hxx".}
 proc perform*(this: var AppDefTheLeastSquares; parameters: MathVector) {.
     importcpp: "Perform", header: "AppDef_TheLeastSquares.hxx".}
-proc perform*(this: var AppDefTheLeastSquares; parameters: MathVector; l1: float;
-             l2: float) {.importcpp: "Perform", header: "AppDef_TheLeastSquares.hxx".}
+proc perform*(this: var AppDefTheLeastSquares; parameters: MathVector; l1: cfloat;
+             l2: cfloat) {.importcpp: "Perform",
+                         header: "AppDef_TheLeastSquares.hxx".}
 proc perform*(this: var AppDefTheLeastSquares; parameters: MathVector;
-             v1t: MathVector; v2t: MathVector; l1: float; l2: float) {.
+             v1t: MathVector; v2t: MathVector; l1: cfloat; l2: cfloat) {.
     importcpp: "Perform", header: "AppDef_TheLeastSquares.hxx".}
 proc perform*(this: var AppDefTheLeastSquares; parameters: MathVector;
              v1t: MathVector; v2t: MathVector; v1c: MathVector; v2c: MathVector;
-             l1: float; l2: float) {.importcpp: "Perform",
-                                 header: "AppDef_TheLeastSquares.hxx".}
+             l1: cfloat; l2: cfloat) {.importcpp: "Perform",
+                                   header: "AppDef_TheLeastSquares.hxx".}
 proc isDone*(this: AppDefTheLeastSquares): bool {.noSideEffect, importcpp: "IsDone",
     header: "AppDef_TheLeastSquares.hxx".}
 proc bezierValue*(this: var AppDefTheLeastSquares): AppParCurvesMultiCurve {.
@@ -161,16 +162,16 @@ proc derivativeFunctionMatrix*(this: AppDefTheLeastSquares): MathMatrix {.
     noSideEffect, importcpp: "DerivativeFunctionMatrix",
     header: "AppDef_TheLeastSquares.hxx".}
 proc errorGradient*(this: var AppDefTheLeastSquares; grad: var MathVector;
-                   f: var float; maxE3d: var float; maxE2d: var float) {.
+                   f: var cfloat; maxE3d: var cfloat; maxE2d: var cfloat) {.
     importcpp: "ErrorGradient", header: "AppDef_TheLeastSquares.hxx".}
 proc distance*(this: var AppDefTheLeastSquares): MathMatrix {.importcpp: "Distance",
     header: "AppDef_TheLeastSquares.hxx".}
-proc error*(this: var AppDefTheLeastSquares; f: var float; maxE3d: var float;
-           maxE2d: var float) {.importcpp: "Error",
-                             header: "AppDef_TheLeastSquares.hxx".}
-proc firstLambda*(this: AppDefTheLeastSquares): float {.noSideEffect,
+proc error*(this: var AppDefTheLeastSquares; f: var cfloat; maxE3d: var cfloat;
+           maxE2d: var cfloat) {.importcpp: "Error",
+                              header: "AppDef_TheLeastSquares.hxx".}
+proc firstLambda*(this: AppDefTheLeastSquares): cfloat {.noSideEffect,
     importcpp: "FirstLambda", header: "AppDef_TheLeastSquares.hxx".}
-proc lastLambda*(this: AppDefTheLeastSquares): float {.noSideEffect,
+proc lastLambda*(this: AppDefTheLeastSquares): cfloat {.noSideEffect,
     importcpp: "LastLambda", header: "AppDef_TheLeastSquares.hxx".}
 proc points*(this: AppDefTheLeastSquares): MathMatrix {.noSideEffect,
     importcpp: "Points", header: "AppDef_TheLeastSquares.hxx".}
@@ -178,3 +179,28 @@ proc poles*(this: AppDefTheLeastSquares): MathMatrix {.noSideEffect,
     importcpp: "Poles", header: "AppDef_TheLeastSquares.hxx".}
 proc kIndex*(this: AppDefTheLeastSquares): MathIntegerVector {.noSideEffect,
     importcpp: "KIndex", header: "AppDef_TheLeastSquares.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

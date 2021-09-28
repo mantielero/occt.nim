@@ -17,3 +17,28 @@
 type
   IntrvSequenceOfInterval* = NCollectionSequence[IntrvInterval]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

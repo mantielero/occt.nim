@@ -17,3 +17,28 @@
 type
   ExtremaSequenceOfPOnCurv* = NCollectionSequence[ExtremaPOnCurv]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

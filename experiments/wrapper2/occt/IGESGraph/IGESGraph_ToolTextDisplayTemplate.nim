@@ -61,6 +61,31 @@ proc ownCopy*(this: IGESGraphToolTextDisplayTemplate;
              tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
 proc ownDump*(this: IGESGraphToolTextDisplayTemplate;
              ent: Handle[IGESGraphTextDisplayTemplate];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump",
     header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

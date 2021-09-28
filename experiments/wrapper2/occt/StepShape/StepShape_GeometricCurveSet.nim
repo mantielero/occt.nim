@@ -17,7 +17,7 @@
 discard "forward decl of StepShape_GeometricCurveSet"
 discard "forward decl of StepShape_GeometricCurveSet"
 type
-  HandleStepShapeGeometricCurveSet* = Handle[StepShapeGeometricCurveSet]
+  HandleC1C1* = Handle[StepShapeGeometricCurveSet]
   StepShapeGeometricCurveSet* {.importcpp: "StepShape_GeometricCurveSet",
                                header: "StepShape_GeometricCurveSet.hxx", bycopy.} = object of StepShapeGeometricSet ##
                                                                                                               ## !
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeGeometricCurveSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_GeometricCurveSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

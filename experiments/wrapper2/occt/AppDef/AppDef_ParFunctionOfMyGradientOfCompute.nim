@@ -58,39 +58,64 @@ type
 
 
 proc constructAppDefParFunctionOfMyGradientOfCompute*(ssp: AppDefMultiLine;
-    firstPoint: int; lastPoint: int;
+    firstPoint: cint; lastPoint: cint;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: MathVector; deg: int): AppDefParFunctionOfMyGradientOfCompute {.
+    parameters: MathVector; deg: cint): AppDefParFunctionOfMyGradientOfCompute {.
     constructor, importcpp: "AppDef_ParFunctionOfMyGradientOfCompute(@)",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc nbVariables*(this: AppDefParFunctionOfMyGradientOfCompute): int {.noSideEffect,
-    importcpp: "NbVariables",
+proc nbVariables*(this: AppDefParFunctionOfMyGradientOfCompute): cint {.
+    noSideEffect, importcpp: "NbVariables",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
 proc value*(this: var AppDefParFunctionOfMyGradientOfCompute; x: MathVector;
-           f: var float): bool {.importcpp: "Value", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
+           f: var cfloat): bool {.importcpp: "Value", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
 proc gradient*(this: var AppDefParFunctionOfMyGradientOfCompute; x: MathVector;
               g: var MathVector): bool {.importcpp: "Gradient", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
 proc values*(this: var AppDefParFunctionOfMyGradientOfCompute; x: MathVector;
-            f: var float; g: var MathVector): bool {.importcpp: "Values",
+            f: var cfloat; g: var MathVector): bool {.importcpp: "Values",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
 proc newParameters*(this: AppDefParFunctionOfMyGradientOfCompute): MathVector {.
     noSideEffect, importcpp: "NewParameters",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
 proc curveValue*(this: var AppDefParFunctionOfMyGradientOfCompute): AppParCurvesMultiCurve {.
     importcpp: "CurveValue", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc error*(this: AppDefParFunctionOfMyGradientOfCompute; iPoint: int;
-           curveIndex: int): float {.noSideEffect, importcpp: "Error", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc maxError3d*(this: AppDefParFunctionOfMyGradientOfCompute): float {.
+proc error*(this: AppDefParFunctionOfMyGradientOfCompute; iPoint: cint;
+           curveIndex: cint): cfloat {.noSideEffect, importcpp: "Error", header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
+proc maxError3d*(this: AppDefParFunctionOfMyGradientOfCompute): cfloat {.
     noSideEffect, importcpp: "MaxError3d",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
-proc maxError2d*(this: AppDefParFunctionOfMyGradientOfCompute): float {.
+proc maxError2d*(this: AppDefParFunctionOfMyGradientOfCompute): cfloat {.
     noSideEffect, importcpp: "MaxError2d",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
 proc firstConstraint*(this: AppDefParFunctionOfMyGradientOfCompute; theConstraints: Handle[
-    AppParCurvesHArray1OfConstraintCouple]; firstPoint: int): AppParCurvesConstraint {.
+    AppParCurvesHArray1OfConstraintCouple]; firstPoint: cint): AppParCurvesConstraint {.
     noSideEffect, importcpp: "FirstConstraint",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
 proc lastConstraint*(this: AppDefParFunctionOfMyGradientOfCompute; theConstraints: Handle[
-    AppParCurvesHArray1OfConstraintCouple]; lastPoint: int): AppParCurvesConstraint {.
+    AppParCurvesHArray1OfConstraintCouple]; lastPoint: cint): AppParCurvesConstraint {.
     noSideEffect, importcpp: "LastConstraint",
     header: "AppDef_ParFunctionOfMyGradientOfCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,3 +26,28 @@ type
 
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
          aPt1: Pnt; aPt2: Pnt; aPt3: Pnt) {.importcpp: "DsgPrs_ShadedPlanePresentation::Add(@)", header: "DsgPrs_ShadedPlanePresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,5 +30,30 @@ proc addDrivers*(theDriverTable: Handle[BinMDF_ADriverTable];
                 aMsgDrv: Handle[MessageMessenger]) {.
     importcpp: "BinMDataStd::AddDrivers(@)", header: "BinMDataStd.hxx".}
 proc setAttributeID*[T](theSource: BinObjMgtPersistent; anAtt: Handle[T];
-                       aDocFormatVersion: int) {.
+                       aDocFormatVersion: cint) {.
     importcpp: "BinMDataStd::SetAttributeID(@)", header: "BinMDataStd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

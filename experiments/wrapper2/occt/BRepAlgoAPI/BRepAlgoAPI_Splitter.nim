@@ -113,3 +113,28 @@ proc tools*(this: BRepAlgoAPI_Splitter): TopToolsListOfShape {.noSideEffect,
     importcpp: "Tools", header: "BRepAlgoAPI_Splitter.hxx".}
 proc build*(this: var BRepAlgoAPI_Splitter) {.importcpp: "Build",
     header: "BRepAlgoAPI_Splitter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

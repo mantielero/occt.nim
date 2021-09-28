@@ -28,7 +28,7 @@ proc constructRWStepReprRWCentreOfSymmetry*(): RWStepReprRWCentreOfSymmetry {.
     constructor, importcpp: "RWStepRepr_RWCentreOfSymmetry(@)",
     header: "RWStepRepr_RWCentreOfSymmetry.hxx".}
 proc readStep*(this: RWStepReprRWCentreOfSymmetry;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprCentreOfSymmetry]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWCentreOfSymmetry.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepReprRWCentreOfSymmetry;
            ent: Handle[StepReprCentreOfSymmetry];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWCentreOfSymmetry.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

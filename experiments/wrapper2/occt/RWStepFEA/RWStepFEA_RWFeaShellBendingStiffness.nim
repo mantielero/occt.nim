@@ -29,7 +29,7 @@ proc constructRWStepFEA_RWFeaShellBendingStiffness*(): RWStepFEA_RWFeaShellBendi
     constructor, importcpp: "RWStepFEA_RWFeaShellBendingStiffness(@)",
     header: "RWStepFEA_RWFeaShellBendingStiffness.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaShellBendingStiffness;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaShellBendingStiffness]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaShellBendingStiffness.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepFEA_RWFeaShellBendingStiffness;
            ent: Handle[StepFEA_FeaShellBendingStiffness];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaShellBendingStiffness.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -117,3 +117,28 @@ include StepGeom_UniformSurfaceAndRationalBSplineSurface
 include StepGeom_Vector
 include StepGeom_VectorOrDirection
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

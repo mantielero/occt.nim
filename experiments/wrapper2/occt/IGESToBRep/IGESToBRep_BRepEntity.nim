@@ -63,7 +63,7 @@ proc constructIGESToBRepBRepEntity*(): IGESToBRepBRepEntity {.constructor,
 proc constructIGESToBRepBRepEntity*(cs: IGESToBRepCurveAndSurface): IGESToBRepBRepEntity {.
     constructor, importcpp: "IGESToBRep_BRepEntity(@)",
     header: "IGESToBRep_BRepEntity.hxx".}
-proc constructIGESToBRepBRepEntity*(eps: float; epsGeom: float; epsCoeff: float;
+proc constructIGESToBRepBRepEntity*(eps: cfloat; epsGeom: cfloat; epsCoeff: cfloat;
                                    mode: bool; modeapprox: bool; optimized: bool): IGESToBRepBRepEntity {.
     constructor, importcpp: "IGESToBRep_BRepEntity(@)",
     header: "IGESToBRep_BRepEntity.hxx".}
@@ -71,13 +71,13 @@ proc transferBRepEntity*(this: var IGESToBRepBRepEntity;
                         start: Handle[IGESDataIGESEntity]; theProgress: MessageProgressRange = messageProgressRange()): TopoDS_Shape {.
     importcpp: "TransferBRepEntity", header: "IGESToBRep_BRepEntity.hxx".}
 proc transferVertex*(this: var IGESToBRepBRepEntity;
-                    start: Handle[IGESSolidVertexList]; index: int): TopoDS_Vertex {.
+                    start: Handle[IGESSolidVertexList]; index: cint): TopoDS_Vertex {.
     importcpp: "TransferVertex", header: "IGESToBRep_BRepEntity.hxx".}
 proc transferEdge*(this: var IGESToBRepBRepEntity; start: Handle[IGESSolidEdgeList];
-                  index: int): TopoDS_Shape {.importcpp: "TransferEdge",
+                  index: cint): TopoDS_Shape {.importcpp: "TransferEdge",
     header: "IGESToBRep_BRepEntity.hxx".}
 proc transferLoop*(this: var IGESToBRepBRepEntity; start: Handle[IGESSolidLoop];
-                  face: TopoDS_Face; trans: Trsf2d; uFact: float): TopoDS_Shape {.
+                  face: TopoDS_Face; trans: Trsf2d; uFact: cfloat): TopoDS_Shape {.
     importcpp: "TransferLoop", header: "IGESToBRep_BRepEntity.hxx".}
 proc transferFace*(this: var IGESToBRepBRepEntity; start: Handle[IGESSolidFace]): TopoDS_Shape {.
     importcpp: "TransferFace", header: "IGESToBRep_BRepEntity.hxx".}
@@ -87,3 +87,28 @@ proc transferShell*(this: var IGESToBRepBRepEntity; start: Handle[IGESSolidShell
 proc transferManifoldSolid*(this: var IGESToBRepBRepEntity;
                            start: Handle[IGESSolidManifoldSolid]; theProgress: MessageProgressRange = messageProgressRange()): TopoDS_Shape {.
     importcpp: "TransferManifoldSolid", header: "IGESToBRep_BRepEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

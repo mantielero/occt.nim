@@ -28,7 +28,7 @@ proc constructRWStepGeomRWCurveBoundedSurface*(): RWStepGeomRWCurveBoundedSurfac
     constructor, importcpp: "RWStepGeom_RWCurveBoundedSurface(@)",
     header: "RWStepGeom_RWCurveBoundedSurface.hxx".}
 proc readStep*(this: RWStepGeomRWCurveBoundedSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomCurveBoundedSurface]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWCurveBoundedSurface.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepGeomRWCurveBoundedSurface;
            ent: Handle[StepGeomCurveBoundedSurface];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWCurveBoundedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

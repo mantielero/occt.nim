@@ -18,3 +18,28 @@ type
   MeshVS_MapIteratorOfMapOfTwoNodes* = Iterator[MeshVS_TwoNodes,
       MeshVS_TwoNodesHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

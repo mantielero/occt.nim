@@ -41,7 +41,7 @@ type
     ## ! Option to nullify allocated memory
 
 
-proc constructStandardMMgrTBBalloc*(aClear: bool = false): StandardMMgrTBBalloc {.
+proc constructStandardMMgrTBBalloc*(aClear: StandardBoolean = false): StandardMMgrTBBalloc {.
     constructor, importcpp: "Standard_MMgrTBBalloc(@)",
     header: "Standard_MMgrTBBalloc.hxx".}
 proc allocate*(this: var StandardMMgrTBBalloc; aSize: StandardSize): StandardAddress {.

@@ -245,24 +245,49 @@ type
                                                                                                       ## delta-constraints.
 
 
-proc constructFairCurveMinimalVariation*(p1: Pnt2d; p2: Pnt2d; heigth: float;
-                                        slope: float = 0; physicalRatio: float = 0): FairCurveMinimalVariation {.
+proc constructFairCurveMinimalVariation*(p1: Pnt2d; p2: Pnt2d; heigth: cfloat;
+                                        slope: cfloat = 0; physicalRatio: cfloat = 0): FairCurveMinimalVariation {.
     constructor, importcpp: "FairCurve_MinimalVariation(@)",
     header: "FairCurve_MinimalVariation.hxx".}
-proc setCurvature1*(this: var FairCurveMinimalVariation; curvature: float) {.
+proc setCurvature1*(this: var FairCurveMinimalVariation; curvature: cfloat) {.
     importcpp: "SetCurvature1", header: "FairCurve_MinimalVariation.hxx".}
-proc setCurvature2*(this: var FairCurveMinimalVariation; curvature: float) {.
+proc setCurvature2*(this: var FairCurveMinimalVariation; curvature: cfloat) {.
     importcpp: "SetCurvature2", header: "FairCurve_MinimalVariation.hxx".}
-proc setPhysicalRatio*(this: var FairCurveMinimalVariation; ratio: float) {.
+proc setPhysicalRatio*(this: var FairCurveMinimalVariation; ratio: cfloat) {.
     importcpp: "SetPhysicalRatio", header: "FairCurve_MinimalVariation.hxx".}
 proc compute*(this: var FairCurveMinimalVariation; aCode: var FairCurveAnalysisCode;
-             nbIterations: int = 50; tolerance: float = 1.0e-3): bool {.
+             nbIterations: cint = 50; tolerance: cfloat = 1.0e-3): bool {.
     importcpp: "Compute", header: "FairCurve_MinimalVariation.hxx".}
-proc getCurvature1*(this: FairCurveMinimalVariation): float {.noSideEffect,
+proc getCurvature1*(this: FairCurveMinimalVariation): cfloat {.noSideEffect,
     importcpp: "GetCurvature1", header: "FairCurve_MinimalVariation.hxx".}
-proc getCurvature2*(this: FairCurveMinimalVariation): float {.noSideEffect,
+proc getCurvature2*(this: FairCurveMinimalVariation): cfloat {.noSideEffect,
     importcpp: "GetCurvature2", header: "FairCurve_MinimalVariation.hxx".}
-proc getPhysicalRatio*(this: FairCurveMinimalVariation): float {.noSideEffect,
+proc getPhysicalRatio*(this: FairCurveMinimalVariation): cfloat {.noSideEffect,
     importcpp: "GetPhysicalRatio", header: "FairCurve_MinimalVariation.hxx".}
 proc dump*(this: FairCurveMinimalVariation; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "FairCurve_MinimalVariation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_Section"
 discard "forward decl of IGESDimen_Section"
 type
-  HandleIGESDimenSection* = Handle[IGESDimenSection]
+  HandleC1C1* = Handle[IGESDimenSection]
 
 ## ! defines Section, Type <106> Form <31-38>
 ## ! in package IGESDimen
@@ -32,20 +32,20 @@ type
 
 proc constructIGESDimenSection*(): IGESDimenSection {.constructor,
     importcpp: "IGESDimen_Section(@)", header: "IGESDimen_Section.hxx".}
-proc init*(this: var IGESDimenSection; dataType: int; aDisp: float;
+proc init*(this: var IGESDimenSection; dataType: cint; aDisp: cfloat;
           dataPoints: Handle[TColgpHArray1OfXY]) {.importcpp: "Init",
     header: "IGESDimen_Section.hxx".}
-proc setFormNumber*(this: var IGESDimenSection; form: int) {.
+proc setFormNumber*(this: var IGESDimenSection; form: cint) {.
     importcpp: "SetFormNumber", header: "IGESDimen_Section.hxx".}
-proc datatype*(this: IGESDimenSection): int {.noSideEffect, importcpp: "Datatype",
+proc datatype*(this: IGESDimenSection): cint {.noSideEffect, importcpp: "Datatype",
     header: "IGESDimen_Section.hxx".}
-proc nbPoints*(this: IGESDimenSection): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: IGESDimenSection): cint {.noSideEffect, importcpp: "NbPoints",
     header: "IGESDimen_Section.hxx".}
-proc zDisplacement*(this: IGESDimenSection): float {.noSideEffect,
+proc zDisplacement*(this: IGESDimenSection): cfloat {.noSideEffect,
     importcpp: "ZDisplacement", header: "IGESDimen_Section.hxx".}
-proc point*(this: IGESDimenSection; index: int): Pnt {.noSideEffect,
+proc point*(this: IGESDimenSection; index: cint): Pnt {.noSideEffect,
     importcpp: "Point", header: "IGESDimen_Section.hxx".}
-proc transformedPoint*(this: IGESDimenSection; index: int): Pnt {.noSideEffect,
+proc transformedPoint*(this: IGESDimenSection; index: cint): Pnt {.noSideEffect,
     importcpp: "TransformedPoint", header: "IGESDimen_Section.hxx".}
 type
   IGESDimenSectionbaseType* = IGESDataIGESEntity
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_Section.hxx".}
 proc dynamicType*(this: IGESDimenSection): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDimen_Section.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

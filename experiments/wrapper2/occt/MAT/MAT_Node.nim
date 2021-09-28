@@ -18,7 +18,7 @@ discard "forward decl of MAT_Arc"
 discard "forward decl of MAT_Node"
 discard "forward decl of MAT_Node"
 type
-  HandleMAT_Node* = Handle[MAT_Node]
+  HandleC1C1* = Handle[MAT_Node]
 
 ## ! Node of Graph.
 
@@ -26,25 +26,25 @@ type
   MAT_Node* {.importcpp: "MAT_Node", header: "MAT_Node.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructMAT_Node*(geomIndex: int; linkedArc: Handle[MAT_Arc]; distance: float): MAT_Node {.
+proc constructMAT_Node*(geomIndex: cint; linkedArc: Handle[MAT_Arc]; distance: cfloat): MAT_Node {.
     constructor, importcpp: "MAT_Node(@)", header: "MAT_Node.hxx".}
-proc geomIndex*(this: MAT_Node): int {.noSideEffect, importcpp: "GeomIndex",
-                                   header: "MAT_Node.hxx".}
-proc index*(this: MAT_Node): int {.noSideEffect, importcpp: "Index",
-                               header: "MAT_Node.hxx".}
+proc geomIndex*(this: MAT_Node): cint {.noSideEffect, importcpp: "GeomIndex",
+                                    header: "MAT_Node.hxx".}
+proc index*(this: MAT_Node): cint {.noSideEffect, importcpp: "Index",
+                                header: "MAT_Node.hxx".}
 proc linkedArcs*(this: MAT_Node; s: var MAT_SequenceOfArc) {.noSideEffect,
     importcpp: "LinkedArcs", header: "MAT_Node.hxx".}
 proc nearElts*(this: MAT_Node; s: var MAT_SequenceOfBasicElt) {.noSideEffect,
     importcpp: "NearElts", header: "MAT_Node.hxx".}
-proc distance*(this: MAT_Node): float {.noSideEffect, importcpp: "Distance",
-                                    header: "MAT_Node.hxx".}
+proc distance*(this: MAT_Node): cfloat {.noSideEffect, importcpp: "Distance",
+                                     header: "MAT_Node.hxx".}
 proc pendingNode*(this: MAT_Node): bool {.noSideEffect, importcpp: "PendingNode",
                                       header: "MAT_Node.hxx".}
 proc onBasicElt*(this: MAT_Node): bool {.noSideEffect, importcpp: "OnBasicElt",
                                      header: "MAT_Node.hxx".}
 proc infinite*(this: MAT_Node): bool {.noSideEffect, importcpp: "Infinite",
                                    header: "MAT_Node.hxx".}
-proc setIndex*(this: var MAT_Node; anIndex: int) {.importcpp: "SetIndex",
+proc setIndex*(this: var MAT_Node; anIndex: cint) {.importcpp: "SetIndex",
     header: "MAT_Node.hxx".}
 proc setLinkedArc*(this: var MAT_Node; anArc: Handle[MAT_Arc]) {.
     importcpp: "SetLinkedArc", header: "MAT_Node.hxx".}
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MAT_Node::get_type_descriptor(@)", header: "MAT_Node.hxx".}
 proc dynamicType*(this: MAT_Node): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Node.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

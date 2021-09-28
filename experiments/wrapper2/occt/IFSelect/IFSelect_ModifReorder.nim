@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_ModifReorder"
 discard "forward decl of IFSelect_ModifReorder"
 type
-  HandleIFSelectModifReorder* = Handle[IFSelectModifReorder]
+  HandleC1C1* = Handle[IFSelectModifReorder]
 
 ## ! This modifier reorders a whole model from its roots, i.e.
 ## ! according to <rootlast> status, it considers each of its
@@ -93,3 +93,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_ModifReorder.hxx".}
 proc dynamicType*(this: IFSelectModifReorder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_ModifReorder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

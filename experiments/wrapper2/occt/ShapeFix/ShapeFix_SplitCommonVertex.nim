@@ -17,7 +17,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeFix_SplitCommonVertex"
 discard "forward decl of ShapeFix_SplitCommonVertex"
 type
-  HandleShapeFixSplitCommonVertex* = Handle[ShapeFixSplitCommonVertex]
+  HandleC1C1* = Handle[ShapeFixSplitCommonVertex]
 
 ## ! Two wires have common vertex - this case is valid in BRep model
 ## ! and isn't valid in STEP => before writing into STEP it is necessary
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeFixSplitCommonVertex): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeFix_SplitCommonVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

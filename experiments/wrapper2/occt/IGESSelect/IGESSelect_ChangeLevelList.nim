@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_ChangeLevelList"
 discard "forward decl of IGESSelect_ChangeLevelList"
 type
-  HandleIGESSelectChangeLevelList* = Handle[IGESSelectChangeLevelList]
+  HandleC1C1* = Handle[IGESSelectChangeLevelList]
 
 ## ! Changes Level List (in directory part) to a new single value
 ## ! Only entities attached to a LevelListEntity are considered
@@ -87,3 +87,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectChangeLevelList): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_ChangeLevelList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

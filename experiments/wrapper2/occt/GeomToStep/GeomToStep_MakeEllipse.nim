@@ -24,6 +24,24 @@ type
                           header: "GeomToStep_MakeEllipse.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeEllipse; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeEllipse::operator new",
+    header: "GeomToStep_MakeEllipse.hxx".}
+proc `delete`*(this: var GeomToStepMakeEllipse; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeEllipse::operator delete",
+    header: "GeomToStep_MakeEllipse.hxx".}
+proc `new[]`*(this: var GeomToStepMakeEllipse; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeEllipse::operator new[]",
+    header: "GeomToStep_MakeEllipse.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeEllipse; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeEllipse::operator delete[]",
+    header: "GeomToStep_MakeEllipse.hxx".}
+proc `new`*(this: var GeomToStepMakeEllipse; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeEllipse::operator new",
+    header: "GeomToStep_MakeEllipse.hxx".}
+proc `delete`*(this: var GeomToStepMakeEllipse; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeEllipse::operator delete",
+    header: "GeomToStep_MakeEllipse.hxx".}
 proc constructGeomToStepMakeEllipse*(c: Elips): GeomToStepMakeEllipse {.constructor,
     importcpp: "GeomToStep_MakeEllipse(@)", header: "GeomToStep_MakeEllipse.hxx".}
 proc constructGeomToStepMakeEllipse*(c: Handle[GeomEllipse]): GeomToStepMakeEllipse {.

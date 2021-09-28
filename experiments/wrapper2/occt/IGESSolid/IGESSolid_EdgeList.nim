@@ -21,7 +21,7 @@ discard "forward decl of IGESSolid_VertexList"
 discard "forward decl of IGESSolid_EdgeList"
 discard "forward decl of IGESSolid_EdgeList"
 type
-  HandleIGESSolidEdgeList* = Handle[IGESSolidEdgeList]
+  HandleC1C1* = Handle[IGESSolidEdgeList]
 
 ## ! defines EdgeList, Type <504> Form <1>
 ## ! in package IGESSolid
@@ -41,17 +41,17 @@ proc init*(this: var IGESSolidEdgeList; curves: Handle[IGESDataHArray1OfIGESEnti
           endVertexList: Handle[IGESSolidHArray1OfVertexList];
           endVertexIndex: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
     header: "IGESSolid_EdgeList.hxx".}
-proc nbEdges*(this: IGESSolidEdgeList): int {.noSideEffect, importcpp: "NbEdges",
+proc nbEdges*(this: IGESSolidEdgeList): cint {.noSideEffect, importcpp: "NbEdges",
     header: "IGESSolid_EdgeList.hxx".}
-proc curve*(this: IGESSolidEdgeList; num: int): Handle[IGESDataIGESEntity] {.
+proc curve*(this: IGESSolidEdgeList; num: cint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Curve", header: "IGESSolid_EdgeList.hxx".}
-proc startVertexList*(this: IGESSolidEdgeList; num: int): Handle[IGESSolidVertexList] {.
+proc startVertexList*(this: IGESSolidEdgeList; num: cint): Handle[IGESSolidVertexList] {.
     noSideEffect, importcpp: "StartVertexList", header: "IGESSolid_EdgeList.hxx".}
-proc startVertexIndex*(this: IGESSolidEdgeList; num: int): int {.noSideEffect,
+proc startVertexIndex*(this: IGESSolidEdgeList; num: cint): cint {.noSideEffect,
     importcpp: "StartVertexIndex", header: "IGESSolid_EdgeList.hxx".}
-proc endVertexList*(this: IGESSolidEdgeList; num: int): Handle[IGESSolidVertexList] {.
+proc endVertexList*(this: IGESSolidEdgeList; num: cint): Handle[IGESSolidVertexList] {.
     noSideEffect, importcpp: "EndVertexList", header: "IGESSolid_EdgeList.hxx".}
-proc endVertexIndex*(this: IGESSolidEdgeList; num: int): int {.noSideEffect,
+proc endVertexIndex*(this: IGESSolidEdgeList; num: cint): cint {.noSideEffect,
     importcpp: "EndVertexIndex", header: "IGESSolid_EdgeList.hxx".}
 type
   IGESSolidEdgeListbaseType* = IGESDataIGESEntity
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_EdgeList.hxx".}
 proc dynamicType*(this: IGESSolidEdgeList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_EdgeList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

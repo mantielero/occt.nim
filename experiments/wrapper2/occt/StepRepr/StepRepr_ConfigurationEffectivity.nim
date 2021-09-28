@@ -20,8 +20,7 @@ discard "forward decl of StepBasic_ProductDefinitionRelationship"
 discard "forward decl of StepRepr_ConfigurationEffectivity"
 discard "forward decl of StepRepr_ConfigurationEffectivity"
 type
-  HandleStepReprConfigurationEffectivity* = Handle[
-      StepReprConfigurationEffectivity]
+  HandleC1C1* = Handle[StepReprConfigurationEffectivity]
 
 ## ! Representation of STEP entity ConfigurationEffectivity
 
@@ -58,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprConfigurationEffectivity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ConfigurationEffectivity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,11 +22,36 @@ type
 
 proc constructExtremaPOnSurf*(): ExtremaPOnSurf {.constructor,
     importcpp: "Extrema_POnSurf(@)", header: "Extrema_POnSurf.hxx".}
-proc constructExtremaPOnSurf*(u: float; v: float; p: Pnt): ExtremaPOnSurf {.constructor,
-    importcpp: "Extrema_POnSurf(@)", header: "Extrema_POnSurf.hxx".}
+proc constructExtremaPOnSurf*(u: cfloat; v: cfloat; p: Pnt): ExtremaPOnSurf {.
+    constructor, importcpp: "Extrema_POnSurf(@)", header: "Extrema_POnSurf.hxx".}
 proc value*(this: ExtremaPOnSurf): Pnt {.noSideEffect, importcpp: "Value",
                                      header: "Extrema_POnSurf.hxx".}
-proc setParameters*(this: var ExtremaPOnSurf; theU: float; theV: float; thePnt: Pnt) {.
+proc setParameters*(this: var ExtremaPOnSurf; theU: cfloat; theV: cfloat; thePnt: Pnt) {.
     importcpp: "SetParameters", header: "Extrema_POnSurf.hxx".}
-proc parameter*(this: ExtremaPOnSurf; u: var float; v: var float) {.noSideEffect,
+proc parameter*(this: ExtremaPOnSurf; u: var cfloat; v: var cfloat) {.noSideEffect,
     importcpp: "Parameter", header: "Extrema_POnSurf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

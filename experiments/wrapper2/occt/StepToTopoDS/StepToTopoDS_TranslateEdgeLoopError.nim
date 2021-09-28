@@ -19,3 +19,28 @@ type
     StepToTopoDS_TranslateEdgeLoopDone, StepToTopoDS_TranslateEdgeLoopOther
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

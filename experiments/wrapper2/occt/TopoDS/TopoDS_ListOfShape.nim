@@ -19,3 +19,28 @@ type
   TopoDS_ListOfShape* = NCollectionList[TopoDS_Shape]
   TopoDS_ListIteratorOfListOfShape* = Iterator[TopoDS_Shape]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

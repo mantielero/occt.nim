@@ -18,25 +18,51 @@ type
   MathDoubleTab* {.importcpp: "math_DoubleTab", header: "math_DoubleTab.hxx", bycopy.} = object
 
 
-proc constructMathDoubleTab*(lowerRow: int; upperRow: int; lowerCol: int; upperCol: int): MathDoubleTab {.
+proc constructMathDoubleTab*(lowerRow: cint; upperRow: cint; lowerCol: cint;
+                            upperCol: cint): MathDoubleTab {.constructor,
+    importcpp: "math_DoubleTab(@)", header: "math_DoubleTab.hxx".}
+proc constructMathDoubleTab*(tab: StandardAddress; lowerRow: cint; upperRow: cint;
+                            lowerCol: cint; upperCol: cint): MathDoubleTab {.
     constructor, importcpp: "math_DoubleTab(@)", header: "math_DoubleTab.hxx".}
-proc constructMathDoubleTab*(tab: StandardAddress; lowerRow: int; upperRow: int;
-                            lowerCol: int; upperCol: int): MathDoubleTab {.
-    constructor, importcpp: "math_DoubleTab(@)", header: "math_DoubleTab.hxx".}
-proc init*(this: var MathDoubleTab; initValue: float) {.importcpp: "Init",
+proc init*(this: var MathDoubleTab; initValue: cfloat) {.importcpp: "Init",
     header: "math_DoubleTab.hxx".}
 proc constructMathDoubleTab*(other: MathDoubleTab): MathDoubleTab {.constructor,
     importcpp: "math_DoubleTab(@)", header: "math_DoubleTab.hxx".}
 proc copy*(this: MathDoubleTab; other: var MathDoubleTab) {.noSideEffect,
     importcpp: "Copy", header: "math_DoubleTab.hxx".}
-proc setLowerRow*(this: var MathDoubleTab; lowerRow: int) {.importcpp: "SetLowerRow",
+proc setLowerRow*(this: var MathDoubleTab; lowerRow: cint) {.importcpp: "SetLowerRow",
     header: "math_DoubleTab.hxx".}
-proc setLowerCol*(this: var MathDoubleTab; lowerCol: int) {.importcpp: "SetLowerCol",
+proc setLowerCol*(this: var MathDoubleTab; lowerCol: cint) {.importcpp: "SetLowerCol",
     header: "math_DoubleTab.hxx".}
-proc value*(this: MathDoubleTab; rowIndex: int; colIndex: int): var float {.noSideEffect,
-    importcpp: "Value", header: "math_DoubleTab.hxx".}
-proc `()`*(this: MathDoubleTab; rowIndex: int; colIndex: int): var float {.noSideEffect,
-    importcpp: "#(@)", header: "math_DoubleTab.hxx".}
+proc value*(this: MathDoubleTab; rowIndex: cint; colIndex: cint): var cfloat {.
+    noSideEffect, importcpp: "Value", header: "math_DoubleTab.hxx".}
+proc `()`*(this: MathDoubleTab; rowIndex: cint; colIndex: cint): var cfloat {.
+    noSideEffect, importcpp: "#(@)", header: "math_DoubleTab.hxx".}
 proc free*(this: var MathDoubleTab) {.importcpp: "Free", header: "math_DoubleTab.hxx".}
 proc destroyMathDoubleTab*(this: var MathDoubleTab) {.
     importcpp: "#.~math_DoubleTab()", header: "math_DoubleTab.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

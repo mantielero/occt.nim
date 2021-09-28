@@ -176,15 +176,40 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Graphic3d_ArrayOfSegments.hxx".}
 proc dynamicType*(this: Graphic3dArrayOfSegments): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_ArrayOfSegments.hxx".}
-proc constructGraphic3dArrayOfSegments*(theMaxVertexs: int; theMaxEdges: int;
+proc constructGraphic3dArrayOfSegments*(theMaxVertexs: cint; theMaxEdges: cint;
                                        theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfSegments {.
     constructor, importcpp: "Graphic3d_ArrayOfSegments(@)",
     header: "Graphic3d_ArrayOfSegments.hxx".}
-proc constructGraphic3dArrayOfSegments*(theMaxVertexs: int; theMaxEdges: int = 0;
+proc constructGraphic3dArrayOfSegments*(theMaxVertexs: cint; theMaxEdges: cint = 0;
                                        theHasVColors: bool = false): Graphic3dArrayOfSegments {.
     constructor, importcpp: "Graphic3d_ArrayOfSegments(@)",
     header: "Graphic3d_ArrayOfSegments.hxx".}
 discard "forward decl of Graphic3d_ArrayOfSegments"
 type
-  HandleGraphic3dArrayOfSegments* = Handle[Graphic3dArrayOfSegments]
+  HandleC1C1* = Handle[Graphic3dArrayOfSegments]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

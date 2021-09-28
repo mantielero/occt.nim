@@ -22,7 +22,7 @@ discard "forward decl of IGESGeom_CompositeCurve"
 discard "forward decl of IGESDimen_PointDimension"
 discard "forward decl of IGESDimen_PointDimension"
 type
-  HandleIGESDimenPointDimension* = Handle[IGESDimenPointDimension]
+  HandleC1C1* = Handle[IGESDimenPointDimension]
 
 ## ! defines IGES Point Dimension, Type <220> Form <0>,
 ## ! in package IGESDimen
@@ -48,7 +48,7 @@ proc note*(this: IGESDimenPointDimension): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_PointDimension.hxx".}
 proc leaderArrow*(this: IGESDimenPointDimension): Handle[IGESDimenLeaderArrow] {.
     noSideEffect, importcpp: "LeaderArrow", header: "IGESDimen_PointDimension.hxx".}
-proc geomCase*(this: IGESDimenPointDimension): int {.noSideEffect,
+proc geomCase*(this: IGESDimenPointDimension): cint {.noSideEffect,
     importcpp: "GeomCase", header: "IGESDimen_PointDimension.hxx".}
 proc geom*(this: IGESDimenPointDimension): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Geom", header: "IGESDimen_PointDimension.hxx".}
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_PointDimension.hxx".}
 proc dynamicType*(this: IGESDimenPointDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_PointDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

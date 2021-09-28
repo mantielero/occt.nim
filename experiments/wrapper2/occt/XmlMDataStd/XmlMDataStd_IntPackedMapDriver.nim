@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_IntPackedMapDriver"
 discard "forward decl of XmlMDataStd_IntPackedMapDriver"
 type
-  HandleXmlMDataStdIntPackedMapDriver* = Handle[XmlMDataStdIntPackedMapDriver]
+  HandleC1C1* = Handle[XmlMDataStdIntPackedMapDriver]
 
 ## ! TDataStd_IntPackedMap attribute Driver.
 
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataStdIntPackedMapDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_IntPackedMapDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

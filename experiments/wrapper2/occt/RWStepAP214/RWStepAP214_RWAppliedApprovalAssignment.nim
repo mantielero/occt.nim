@@ -29,7 +29,7 @@ proc constructRWStepAP214RWAppliedApprovalAssignment*(): RWStepAP214RWAppliedApp
     constructor, importcpp: "RWStepAP214_RWAppliedApprovalAssignment(@)",
     header: "RWStepAP214_RWAppliedApprovalAssignment.hxx".}
 proc readStep*(this: RWStepAP214RWAppliedApprovalAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AppliedApprovalAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAppliedApprovalAssignment.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepAP214RWAppliedApprovalAssignment;
            ent: Handle[StepAP214AppliedApprovalAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedApprovalAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

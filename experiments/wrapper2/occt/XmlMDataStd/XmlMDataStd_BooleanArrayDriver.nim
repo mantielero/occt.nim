@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_BooleanArrayDriver"
 discard "forward decl of XmlMDataStd_BooleanArrayDriver"
 type
-  HandleXmlMDataStdBooleanArrayDriver* = Handle[XmlMDataStdBooleanArrayDriver]
+  HandleC1C1* = Handle[XmlMDataStdBooleanArrayDriver]
   XmlMDataStdBooleanArrayDriver* {.importcpp: "XmlMDataStd_BooleanArrayDriver",
                                   header: "XmlMDataStd_BooleanArrayDriver.hxx",
                                   bycopy.} = object of XmlMDF_ADriver
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataStdBooleanArrayDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_BooleanArrayDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

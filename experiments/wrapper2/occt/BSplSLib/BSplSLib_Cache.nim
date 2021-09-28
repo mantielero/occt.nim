@@ -128,25 +128,25 @@ type
     ##  size of array: (max(myDegree)+1) * A*(min(myDegree)+1), where A = 4 or 3
 
 
-proc constructBSplSLibCache*(theDegreeU: int; thePeriodicU: bool;
-                            theFlatKnotsU: TColStdArray1OfReal; theDegreeV: int;
+proc constructBSplSLibCache*(theDegreeU: cint; thePeriodicU: bool;
+                            theFlatKnotsU: TColStdArray1OfReal; theDegreeV: cint;
                             thePeriodicV: bool;
                             theFlatKnotsV: TColStdArray1OfReal;
                             theWeights: ptr TColStdArray2OfReal = nil): BSplSLibCache {.
     constructor, importcpp: "BSplSLib_Cache(@)", header: "BSplSLib_Cache.hxx".}
-proc isCacheValid*(this: BSplSLibCache; theParameterU: float; theParameterV: float): bool {.
+proc isCacheValid*(this: BSplSLibCache; theParameterU: cfloat; theParameterV: cfloat): bool {.
     noSideEffect, importcpp: "IsCacheValid", header: "BSplSLib_Cache.hxx".}
-proc buildCache*(this: var BSplSLibCache; theParameterU: float; theParameterV: float;
-                theFlatKnotsU: TColStdArray1OfReal;
+proc buildCache*(this: var BSplSLibCache; theParameterU: cfloat;
+                theParameterV: cfloat; theFlatKnotsU: TColStdArray1OfReal;
                 theFlatKnotsV: TColStdArray1OfReal; thePoles: TColgpArray2OfPnt;
                 theWeights: ptr TColStdArray2OfReal = nil) {.importcpp: "BuildCache",
     header: "BSplSLib_Cache.hxx".}
-proc d0*(this: BSplSLibCache; theU: float; theV: float; thePoint: var Pnt) {.noSideEffect,
-    importcpp: "D0", header: "BSplSLib_Cache.hxx".}
-proc d1*(this: BSplSLibCache; theU: float; theV: float; thePoint: var Pnt;
+proc d0*(this: BSplSLibCache; theU: cfloat; theV: cfloat; thePoint: var Pnt) {.
+    noSideEffect, importcpp: "D0", header: "BSplSLib_Cache.hxx".}
+proc d1*(this: BSplSLibCache; theU: cfloat; theV: cfloat; thePoint: var Pnt;
         theTangentU: var Vec; theTangentV: var Vec) {.noSideEffect, importcpp: "D1",
     header: "BSplSLib_Cache.hxx".}
-proc d2*(this: BSplSLibCache; theU: float; theV: float; thePoint: var Pnt;
+proc d2*(this: BSplSLibCache; theU: cfloat; theV: cfloat; thePoint: var Pnt;
         theTangentU: var Vec; theTangentV: var Vec; theCurvatureU: var Vec;
         theCurvatureV: var Vec; theCurvatureUV: var Vec) {.noSideEffect,
     importcpp: "D2", header: "BSplSLib_Cache.hxx".}
@@ -162,5 +162,30 @@ proc dynamicType*(this: BSplSLibCache): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BSplSLib_Cache.hxx".}
 discard "forward decl of BSplSLib_Cache"
 type
-  HandleBSplSLibCache* = Handle[BSplSLibCache]
+  HandleC1C1* = Handle[BSplSLibCache]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

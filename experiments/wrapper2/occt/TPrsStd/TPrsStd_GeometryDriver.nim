@@ -19,7 +19,7 @@ discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_GeometryDriver"
 discard "forward decl of TPrsStd_GeometryDriver"
 type
-  HandleTPrsStdGeometryDriver* = Handle[TPrsStdGeometryDriver]
+  HandleC1C1* = Handle[TPrsStdGeometryDriver]
 
 ## ! This method is an implementation of TPrsStd_Driver for geometries.
 
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_GeometryDriver.hxx".}
 proc dynamicType*(this: TPrsStdGeometryDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_GeometryDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

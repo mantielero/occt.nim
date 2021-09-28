@@ -17,7 +17,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_GenericEmptyDriver"
 discard "forward decl of XmlMDataStd_GenericEmptyDriver"
 type
-  HandleXmlMDataStdGenericEmptyDriver* = Handle[XmlMDataStdGenericEmptyDriver]
+  HandleC1C1* = Handle[XmlMDataStdGenericEmptyDriver]
   XmlMDataStdGenericEmptyDriver* {.importcpp: "XmlMDataStd_GenericEmptyDriver",
                                   header: "XmlMDataStd_GenericEmptyDriver.hxx",
                                   bycopy.} = object of XmlMDF_ADriver
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataStdGenericEmptyDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_GenericEmptyDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

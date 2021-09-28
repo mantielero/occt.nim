@@ -100,7 +100,7 @@ proc printResultInfo*(printer: Handle[MessagePrinter]; header: MessageMsg;
                      resultInfo: Handle[TransferBRepTransferResultInfo];
                      printEmpty: bool = true) {.
     importcpp: "TransferBRep::PrintResultInfo(@)", header: "TransferBRep.hxx".}
-proc bRepCheck*(shape: TopoDS_Shape; lev: int = 1): InterfaceCheckIterator {.
+proc bRepCheck*(shape: TopoDS_Shape; lev: cint = 1): InterfaceCheckIterator {.
     importcpp: "TransferBRep::BRepCheck(@)", header: "TransferBRep.hxx".}
 proc resultCheckList*(chl: InterfaceCheckIterator;
                      fp: Handle[TransferFinderProcess];
@@ -113,3 +113,28 @@ proc checkedShapes*(chl: InterfaceCheckIterator): Handle[TopToolsHSequenceOfShap
     importcpp: "TransferBRep::CheckedShapes(@)", header: "TransferBRep.hxx".}
 proc checkObject*(chl: InterfaceCheckIterator; obj: Handle[StandardTransient]): InterfaceCheckIterator {.
     importcpp: "TransferBRep::CheckObject(@)", header: "TransferBRep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

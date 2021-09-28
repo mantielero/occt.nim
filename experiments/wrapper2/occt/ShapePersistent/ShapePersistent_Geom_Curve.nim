@@ -45,42 +45,33 @@ type
       ShapePersistentGeomCurvepTrimmed]
   ShapePersistentGeomCurveOffset* = Delayed[Curve, ShapePersistentGeomCurvepOffset]
 
-proc translate*(theCurve: Handle[GeomLine];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
-    importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
-    header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomCircle];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
-    importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
-    header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomEllipse];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
-    importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
-    header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomHyperbola];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
-    importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
-    header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomParabola];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
-    importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
-    header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomBezierCurve];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
-    importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
-    header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomBSplineCurve];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
-    importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
-    header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomTrimmedCurve];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
-    importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
-    header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomOffsetCurve];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
-    importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
-    header: "ShapePersistent_Geom_Curve.hxx".}
+## !!!Ignored construct:  Translate ( const Handle ( Geom_Line ) & theCurve , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_Circle ) & theCurve , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_Ellipse ) & theCurve , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_Hyperbola ) & theCurve , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_Parabola ) & theCurve , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_BezierCurve ) & theCurve , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_BSplineCurve ) & theCurve , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_TrimmedCurve ) & theCurve , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  Translate ( const Handle ( Geom_OffsetCurve ) & theCurve , StdObjMgt_TransientPersistentMap & theMap ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
 ## =======================================================================
 ##  Line
 ## =======================================================================
@@ -137,4 +128,49 @@ proc translate*(theCurve: Handle[GeomOffsetCurve];
 
 ## !!!Ignored construct:  template < > [end of template] void ShapePersistent_Geom :: instance < ShapePersistent_Geom_Curve :: Conic , Geom_Parabola , gp_Parab > :: Write ( StdObjMgt_WriteData & theWriteData ) const ;
 ## Error: token expected: ( but got: <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

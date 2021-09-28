@@ -25,3 +25,28 @@ proc `type`*(ent: Handle[StandardTransient]): Handle[StandardType] {.
     importcpp: "MoniTool_DataInfo::Type(@)", header: "MoniTool_DataInfo.hxx".}
 proc typeName*(ent: Handle[StandardTransient]): StandardCString {.
     importcpp: "MoniTool_DataInfo::TypeName(@)", header: "MoniTool_DataInfo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

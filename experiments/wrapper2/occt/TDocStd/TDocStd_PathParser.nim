@@ -33,5 +33,30 @@ proc extension*(this: TDocStdPathParser): TCollectionExtendedString {.noSideEffe
     importcpp: "Extension", header: "TDocStd_PathParser.hxx".}
 proc path*(this: TDocStdPathParser): TCollectionExtendedString {.noSideEffect,
     importcpp: "Path", header: "TDocStd_PathParser.hxx".}
-proc length*(this: TDocStdPathParser): int {.noSideEffect, importcpp: "Length",
+proc length*(this: TDocStdPathParser): cint {.noSideEffect, importcpp: "Length",
     header: "TDocStd_PathParser.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

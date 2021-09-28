@@ -20,7 +20,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_CartesianPoint"
 discard "forward decl of Geom2d_CartesianPoint"
 type
-  HandleGeom2dCartesianPoint* = Handle[Geom2dCartesianPoint]
+  HandleC1C1* = Handle[Geom2dCartesianPoint]
 
 ## ! Describes a point in 2D space. A
 ## ! Geom2d_CartesianPoint is defined by a gp_Pnt2d
@@ -40,24 +40,24 @@ type
 
 proc constructGeom2dCartesianPoint*(p: Pnt2d): Geom2dCartesianPoint {.constructor,
     importcpp: "Geom2d_CartesianPoint(@)", header: "Geom2d_CartesianPoint.hxx".}
-proc constructGeom2dCartesianPoint*(x: float; y: float): Geom2dCartesianPoint {.
+proc constructGeom2dCartesianPoint*(x: StandardReal; y: StandardReal): Geom2dCartesianPoint {.
     constructor, importcpp: "Geom2d_CartesianPoint(@)",
     header: "Geom2d_CartesianPoint.hxx".}
-proc setCoord*(this: var Geom2dCartesianPoint; x: float; y: float) {.
+proc setCoord*(this: var Geom2dCartesianPoint; x: StandardReal; y: StandardReal) {.
     importcpp: "SetCoord", header: "Geom2d_CartesianPoint.hxx".}
 proc setPnt2d*(this: var Geom2dCartesianPoint; p: Pnt2d) {.importcpp: "SetPnt2d",
     header: "Geom2d_CartesianPoint.hxx".}
-proc setX*(this: var Geom2dCartesianPoint; x: float) {.importcpp: "SetX",
+proc setX*(this: var Geom2dCartesianPoint; x: StandardReal) {.importcpp: "SetX",
     header: "Geom2d_CartesianPoint.hxx".}
-proc setY*(this: var Geom2dCartesianPoint; y: float) {.importcpp: "SetY",
+proc setY*(this: var Geom2dCartesianPoint; y: StandardReal) {.importcpp: "SetY",
     header: "Geom2d_CartesianPoint.hxx".}
-proc coord*(this: Geom2dCartesianPoint; x: var float; y: var float) {.noSideEffect,
-    importcpp: "Coord", header: "Geom2d_CartesianPoint.hxx".}
+proc coord*(this: Geom2dCartesianPoint; x: var StandardReal; y: var StandardReal) {.
+    noSideEffect, importcpp: "Coord", header: "Geom2d_CartesianPoint.hxx".}
 proc pnt2d*(this: Geom2dCartesianPoint): Pnt2d {.noSideEffect, importcpp: "Pnt2d",
     header: "Geom2d_CartesianPoint.hxx".}
-proc x*(this: Geom2dCartesianPoint): float {.noSideEffect, importcpp: "X",
+proc x*(this: Geom2dCartesianPoint): StandardReal {.noSideEffect, importcpp: "X",
     header: "Geom2d_CartesianPoint.hxx".}
-proc y*(this: Geom2dCartesianPoint): float {.noSideEffect, importcpp: "Y",
+proc y*(this: Geom2dCartesianPoint): StandardReal {.noSideEffect, importcpp: "Y",
     header: "Geom2d_CartesianPoint.hxx".}
 proc transform*(this: var Geom2dCartesianPoint; t: Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_CartesianPoint.hxx".}

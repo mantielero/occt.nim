@@ -30,7 +30,7 @@ proc constructRWStepShapeRWContextDependentShapeRepresentation*(): RWStepShapeRW
     importcpp: "RWStepShape_RWContextDependentShapeRepresentation(@)",
     header: "RWStepShape_RWContextDependentShapeRepresentation.hxx".}
 proc readStep*(this: RWStepShapeRWContextDependentShapeRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeContextDependentShapeRepresentation]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepShapeRWContextDependentShapeRepresentation;
            ent: Handle[StepShapeContextDependentShapeRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWContextDependentShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

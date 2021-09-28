@@ -36,14 +36,14 @@ type
                                                                    ## ! if a vector is null).
 
 
-proc constructBRepLPropCLProps*(c: BRepAdaptorCurve; n: int; resolution: float): BRepLPropCLProps {.
+proc constructBRepLPropCLProps*(c: BRepAdaptorCurve; n: cint; resolution: cfloat): BRepLPropCLProps {.
     constructor, importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
-proc constructBRepLPropCLProps*(c: BRepAdaptorCurve; u: float; n: int;
-                               resolution: float): BRepLPropCLProps {.constructor,
+proc constructBRepLPropCLProps*(c: BRepAdaptorCurve; u: cfloat; n: cint;
+                               resolution: cfloat): BRepLPropCLProps {.constructor,
     importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
-proc constructBRepLPropCLProps*(n: int; resolution: float): BRepLPropCLProps {.
+proc constructBRepLPropCLProps*(n: cint; resolution: cfloat): BRepLPropCLProps {.
     constructor, importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
-proc setParameter*(this: var BRepLPropCLProps; u: float) {.importcpp: "SetParameter",
+proc setParameter*(this: var BRepLPropCLProps; u: cfloat) {.importcpp: "SetParameter",
     header: "BRepLProp_CLProps.hxx".}
 proc setCurve*(this: var BRepLPropCLProps; c: BRepAdaptorCurve) {.
     importcpp: "SetCurve", header: "BRepLProp_CLProps.hxx".}
@@ -59,9 +59,34 @@ proc isTangentDefined*(this: var BRepLPropCLProps): bool {.
     importcpp: "IsTangentDefined", header: "BRepLProp_CLProps.hxx".}
 proc tangent*(this: var BRepLPropCLProps; d: var Dir) {.importcpp: "Tangent",
     header: "BRepLProp_CLProps.hxx".}
-proc curvature*(this: var BRepLPropCLProps): float {.importcpp: "Curvature",
+proc curvature*(this: var BRepLPropCLProps): cfloat {.importcpp: "Curvature",
     header: "BRepLProp_CLProps.hxx".}
 proc normal*(this: var BRepLPropCLProps; n: var Dir) {.importcpp: "Normal",
     header: "BRepLProp_CLProps.hxx".}
 proc centreOfCurvature*(this: var BRepLPropCLProps; p: var Pnt) {.
     importcpp: "CentreOfCurvature", header: "BRepLProp_CLProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

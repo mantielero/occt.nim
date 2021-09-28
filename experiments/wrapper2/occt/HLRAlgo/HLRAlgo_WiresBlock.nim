@@ -17,7 +17,7 @@
 discard "forward decl of HLRAlgo_WiresBlock"
 discard "forward decl of HLRAlgo_WiresBlock"
 type
-  HandleHLRAlgoWiresBlock* = Handle[HLRAlgoWiresBlock]
+  HandleC1C1* = Handle[HLRAlgoWiresBlock]
 
 ## ! A WiresBlock is a set of Blocks. It is used by the
 ## ! DataStructure to structure the Edges.
@@ -37,13 +37,13 @@ type
                                                                                         ## Blocks.
 
 
-proc constructHLRAlgoWiresBlock*(nbWires: int): HLRAlgoWiresBlock {.constructor,
+proc constructHLRAlgoWiresBlock*(nbWires: cint): HLRAlgoWiresBlock {.constructor,
     importcpp: "HLRAlgo_WiresBlock(@)", header: "HLRAlgo_WiresBlock.hxx".}
-proc nbWires*(this: HLRAlgoWiresBlock): int {.noSideEffect, importcpp: "NbWires",
+proc nbWires*(this: HLRAlgoWiresBlock): cint {.noSideEffect, importcpp: "NbWires",
     header: "HLRAlgo_WiresBlock.hxx".}
-proc set*(this: var HLRAlgoWiresBlock; i: int; w: Handle[HLRAlgoEdgesBlock]) {.
+proc set*(this: var HLRAlgoWiresBlock; i: cint; w: Handle[HLRAlgoEdgesBlock]) {.
     importcpp: "Set", header: "HLRAlgo_WiresBlock.hxx".}
-proc wire*(this: var HLRAlgoWiresBlock; i: int): var Handle[HLRAlgoEdgesBlock] {.
+proc wire*(this: var HLRAlgoWiresBlock; i: cint): var Handle[HLRAlgoEdgesBlock] {.
     importcpp: "Wire", header: "HLRAlgo_WiresBlock.hxx".}
 proc updateMinMax*(this: var HLRAlgoWiresBlock; theMinMaxes: MinMaxIndices) {.
     importcpp: "UpdateMinMax", header: "HLRAlgo_WiresBlock.hxx".}
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRAlgo_WiresBlock.hxx".}
 proc dynamicType*(this: HLRAlgoWiresBlock): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRAlgo_WiresBlock.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

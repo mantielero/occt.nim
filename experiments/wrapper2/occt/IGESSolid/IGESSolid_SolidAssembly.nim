@@ -21,7 +21,7 @@ discard "forward decl of IGESGeom_TransformationMatrix"
 discard "forward decl of IGESSolid_SolidAssembly"
 discard "forward decl of IGESSolid_SolidAssembly"
 type
-  HandleIGESSolidSolidAssembly* = Handle[IGESSolidSolidAssembly]
+  HandleC1C1* = Handle[IGESSolidSolidAssembly]
 
 ## ! defines SolidAssembly, Type <184> Form <0>
 ## ! in package IGESSolid
@@ -47,11 +47,11 @@ proc hasBrep*(this: IGESSolidSolidAssembly): bool {.noSideEffect,
     importcpp: "HasBrep", header: "IGESSolid_SolidAssembly.hxx".}
 proc setBrep*(this: var IGESSolidSolidAssembly; hasbrep: bool) {.importcpp: "SetBrep",
     header: "IGESSolid_SolidAssembly.hxx".}
-proc nbItems*(this: IGESSolidSolidAssembly): int {.noSideEffect,
+proc nbItems*(this: IGESSolidSolidAssembly): cint {.noSideEffect,
     importcpp: "NbItems", header: "IGESSolid_SolidAssembly.hxx".}
-proc item*(this: IGESSolidSolidAssembly; index: int): Handle[IGESDataIGESEntity] {.
+proc item*(this: IGESSolidSolidAssembly; index: cint): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Item", header: "IGESSolid_SolidAssembly.hxx".}
-proc transfMatrix*(this: IGESSolidSolidAssembly; index: int): Handle[
+proc transfMatrix*(this: IGESSolidSolidAssembly; index: cint): Handle[
     IGESGeomTransformationMatrix] {.noSideEffect, importcpp: "TransfMatrix",
                                    header: "IGESSolid_SolidAssembly.hxx".}
 type
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_SolidAssembly.hxx".}
 proc dynamicType*(this: IGESSolidSolidAssembly): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_SolidAssembly.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

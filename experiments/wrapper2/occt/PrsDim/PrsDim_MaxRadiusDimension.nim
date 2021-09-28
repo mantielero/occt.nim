@@ -16,7 +16,7 @@
 
 discard "forward decl of PrsDim_MaxRadiusDimension"
 type
-  HandlePrsDimMaxRadiusDimension* = Handle[PrsDimMaxRadiusDimension]
+  HandleC1C1* = Handle[PrsDimMaxRadiusDimension]
 
 ## ! Ellipse  Max  radius  dimension  of  a  Shape  which  can  be  Edge
 ## ! or  Face  (planar  or  cylindrical(surface  of  extrusion  or
@@ -52,14 +52,39 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "PrsDim_MaxRadiusDimension.hxx".}
 proc dynamicType*(this: PrsDimMaxRadiusDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_MaxRadiusDimension.hxx".}
-proc constructPrsDimMaxRadiusDimension*(aShape: TopoDS_Shape; aVal: float;
+proc constructPrsDimMaxRadiusDimension*(aShape: TopoDS_Shape; aVal: cfloat;
                                        aText: TCollectionExtendedString): PrsDimMaxRadiusDimension {.
     constructor, importcpp: "PrsDim_MaxRadiusDimension(@)",
     header: "PrsDim_MaxRadiusDimension.hxx".}
-proc constructPrsDimMaxRadiusDimension*(aShape: TopoDS_Shape; aVal: float;
+proc constructPrsDimMaxRadiusDimension*(aShape: TopoDS_Shape; aVal: cfloat;
                                        aText: TCollectionExtendedString;
                                        aPosition: Pnt;
                                        aSymbolPrs: DsgPrsArrowSide;
-                                       anArrowSize: float = 0.0): PrsDimMaxRadiusDimension {.
+                                       anArrowSize: cfloat = 0.0): PrsDimMaxRadiusDimension {.
     constructor, importcpp: "PrsDim_MaxRadiusDimension(@)",
     header: "PrsDim_MaxRadiusDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

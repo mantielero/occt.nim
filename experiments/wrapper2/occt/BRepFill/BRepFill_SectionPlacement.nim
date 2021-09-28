@@ -40,5 +40,30 @@ proc constructBRepFillSectionPlacement*(law: Handle[BRepFillLocationLaw];
     header: "BRepFill_SectionPlacement.hxx".}
 proc transformation*(this: BRepFillSectionPlacement): Trsf {.noSideEffect,
     importcpp: "Transformation", header: "BRepFill_SectionPlacement.hxx".}
-proc abscissaOnPath*(this: var BRepFillSectionPlacement): float {.
+proc abscissaOnPath*(this: var BRepFillSectionPlacement): cfloat {.
     importcpp: "AbscissaOnPath", header: "BRepFill_SectionPlacement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

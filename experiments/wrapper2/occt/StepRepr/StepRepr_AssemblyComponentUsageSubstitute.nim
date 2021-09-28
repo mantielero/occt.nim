@@ -19,8 +19,7 @@ discard "forward decl of StepRepr_AssemblyComponentUsage"
 discard "forward decl of StepRepr_AssemblyComponentUsageSubstitute"
 discard "forward decl of StepRepr_AssemblyComponentUsageSubstitute"
 type
-  HandleStepReprAssemblyComponentUsageSubstitute* = Handle[
-      StepReprAssemblyComponentUsageSubstitute]
+  HandleC1C1* = Handle[StepReprAssemblyComponentUsageSubstitute]
   StepReprAssemblyComponentUsageSubstitute* {.
       importcpp: "StepRepr_AssemblyComponentUsageSubstitute",
       header: "StepRepr_AssemblyComponentUsageSubstitute.hxx", bycopy.} = object of StandardTransient
@@ -66,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_AssemblyC
 proc dynamicType*(this: StepReprAssemblyComponentUsageSubstitute): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_AssemblyComponentUsageSubstitute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

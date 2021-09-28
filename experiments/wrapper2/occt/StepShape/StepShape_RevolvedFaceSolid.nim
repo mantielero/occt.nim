@@ -20,7 +20,7 @@ discard "forward decl of StepShape_FaceSurface"
 discard "forward decl of StepShape_RevolvedFaceSolid"
 discard "forward decl of StepShape_RevolvedFaceSolid"
 type
-  HandleStepShapeRevolvedFaceSolid* = Handle[StepShapeRevolvedFaceSolid]
+  HandleC1C1* = Handle[StepShapeRevolvedFaceSolid]
   StepShapeRevolvedFaceSolid* {.importcpp: "StepShape_RevolvedFaceSolid",
                                header: "StepShape_RevolvedFaceSolid.hxx", bycopy.} = object of StepShapeSweptFaceSolid ##
                                                                                                                 ## !
@@ -39,16 +39,16 @@ proc init*(this: var StepShapeRevolvedFaceSolid;
 proc init*(this: var StepShapeRevolvedFaceSolid;
           aName: Handle[TCollectionHAsciiString];
           aSweptArea: Handle[StepShapeFaceSurface];
-          aAxis: Handle[StepGeomAxis1Placement]; aAngle: float) {.importcpp: "Init",
-    header: "StepShape_RevolvedFaceSolid.hxx".}
+          aAxis: Handle[StepGeomAxis1Placement]; aAngle: cfloat) {.
+    importcpp: "Init", header: "StepShape_RevolvedFaceSolid.hxx".}
 proc setAxis*(this: var StepShapeRevolvedFaceSolid;
              aAxis: Handle[StepGeomAxis1Placement]) {.importcpp: "SetAxis",
     header: "StepShape_RevolvedFaceSolid.hxx".}
 proc axis*(this: StepShapeRevolvedFaceSolid): Handle[StepGeomAxis1Placement] {.
     noSideEffect, importcpp: "Axis", header: "StepShape_RevolvedFaceSolid.hxx".}
-proc setAngle*(this: var StepShapeRevolvedFaceSolid; aAngle: float) {.
+proc setAngle*(this: var StepShapeRevolvedFaceSolid; aAngle: cfloat) {.
     importcpp: "SetAngle", header: "StepShape_RevolvedFaceSolid.hxx".}
-proc angle*(this: StepShapeRevolvedFaceSolid): float {.noSideEffect,
+proc angle*(this: StepShapeRevolvedFaceSolid): cfloat {.noSideEffect,
     importcpp: "Angle", header: "StepShape_RevolvedFaceSolid.hxx".}
 type
   StepShapeRevolvedFaceSolidbaseType* = StepShapeSweptFaceSolid
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeRevolvedFaceSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_RevolvedFaceSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

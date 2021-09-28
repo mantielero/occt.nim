@@ -17,3 +17,28 @@
 type
   BRepBlendChAsym* = BlendFuncChAsym
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,3 +38,28 @@ proc edge*(this: BRepAdaptorCurve2d): TopoDS_Edge {.noSideEffect, importcpp: "Ed
     header: "BRepAdaptor_Curve2d.hxx".}
 proc face*(this: BRepAdaptorCurve2d): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "BRepAdaptor_Curve2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

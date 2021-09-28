@@ -19,7 +19,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_SignLabel"
 discard "forward decl of Interface_SignLabel"
 type
-  HandleInterfaceSignLabel* = Handle[InterfaceSignLabel]
+  HandleC1C1* = Handle[InterfaceSignLabel]
 
 ## ! Signature to give the Label from the Model
 
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_SignLabel.hxx".}
 proc dynamicType*(this: InterfaceSignLabel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_SignLabel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

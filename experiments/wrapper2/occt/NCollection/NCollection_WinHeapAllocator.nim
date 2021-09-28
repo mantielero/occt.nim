@@ -39,8 +39,10 @@ type
                                                                                                                    ## constructor
                                                                                                                    ## -
                                                                                                                    ## prohibited
-#     when (defined(win32) or defined(win32)):
-#       discard
+
+  HandleNCollectionWinHeapAllocator* = Handle[NCollectionWinHeapAllocator]
+    #when (defined(win32) or defined(win32)):
+    #  discard
 
 
 proc constructNCollectionWinHeapAllocator*(theInitSizeBytes: csize_t = 0x80000): NCollectionWinHeapAllocator {.
@@ -56,17 +58,15 @@ proc free*(this: var NCollectionWinHeapAllocator; theAddress: pointer) {.
 type
   NCollectionWinHeapAllocatorbaseType* = NCollectionBaseAllocator
 
-proc getTypeName*(): cstring {.importcpp: "NCollection_WinHeapAllocator::get_type_name(@)",
-                            header: "NCollection_WinHeapAllocator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+#[ proc getTypeName*(): cstring {.importcpp: "NCollection_WinHeapAllocator::get_type_name(@)",
+                            header: "NCollection_WinHeapAllocator.hxx".} ]#
+#[ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "NCollection_WinHeapAllocator::get_type_descriptor(@)",
-    header: "NCollection_WinHeapAllocator.hxx".}
-proc dynamicType*(this: NCollectionWinHeapAllocator): Handle[StandardType] {.
+    header: "NCollection_WinHeapAllocator.hxx".} ]#
+#[ proc dynamicType*(this: NCollectionWinHeapAllocator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "NCollection_WinHeapAllocator.hxx".}
+    header: "NCollection_WinHeapAllocator.hxx".} ]#
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of NCollection_WinHeapAllocator"
-type
-  HandleNCollectionWinHeapAllocator* = Handle[NCollectionWinHeapAllocator]
 

@@ -66,25 +66,25 @@ proc constructBRepExtremaTriangleSet*(theFaces: BRepExtremaShapeList): BRepExtre
 proc destroyBRepExtremaTriangleSet*(this: var BRepExtremaTriangleSet) {.
     importcpp: "#.~BRepExtrema_TriangleSet()",
     header: "BRepExtrema_TriangleSet.hxx".}
-proc size*(this: BRepExtremaTriangleSet): int {.noSideEffect, importcpp: "Size",
+proc size*(this: BRepExtremaTriangleSet): cint {.noSideEffect, importcpp: "Size",
     header: "BRepExtrema_TriangleSet.hxx".}
-proc box*(this: BRepExtremaTriangleSet; theIndex: int): BVH_Box[float, 3] {.
+proc box*(this: BRepExtremaTriangleSet; theIndex: cint): BVH_Box[cfloat, 3] {.
     noSideEffect, importcpp: "Box", header: "BRepExtrema_TriangleSet.hxx".}
 ## using statement
 
-proc center*(this: BRepExtremaTriangleSet; theIndex: int; theAxis: int): float {.
+proc center*(this: BRepExtremaTriangleSet; theIndex: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center", header: "BRepExtrema_TriangleSet.hxx".}
-proc swap*(this: var BRepExtremaTriangleSet; theIndex1: int; theIndex2: int) {.
+proc swap*(this: var BRepExtremaTriangleSet; theIndex1: cint; theIndex2: cint) {.
     importcpp: "Swap", header: "BRepExtrema_TriangleSet.hxx".}
 proc clear*(this: var BRepExtremaTriangleSet) {.importcpp: "Clear",
     header: "BRepExtrema_TriangleSet.hxx".}
 proc init*(this: var BRepExtremaTriangleSet; theFaces: BRepExtremaShapeList): bool {.
     importcpp: "Init", header: "BRepExtrema_TriangleSet.hxx".}
-proc getVertices*(this: BRepExtremaTriangleSet; theIndex: int;
+proc getVertices*(this: BRepExtremaTriangleSet; theIndex: cint;
                  theVertex1: var BVH_Vec3d; theVertex2: var BVH_Vec3d;
                  theVertex3: var BVH_Vec3d) {.noSideEffect,
     importcpp: "GetVertices", header: "BRepExtrema_TriangleSet.hxx".}
-proc getFaceID*(this: BRepExtremaTriangleSet; theIndex: int): int {.noSideEffect,
+proc getFaceID*(this: BRepExtremaTriangleSet; theIndex: cint): cint {.noSideEffect,
     importcpp: "GetFaceID", header: "BRepExtrema_TriangleSet.hxx".}
 type
   BRepExtremaTriangleSetbaseType* = BVH_PrimitiveSet3d
@@ -98,5 +98,30 @@ proc dynamicType*(this: BRepExtremaTriangleSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepExtrema_TriangleSet.hxx".}
 discard "forward decl of BRepExtrema_TriangleSet"
 type
-  HandleBRepExtremaTriangleSet* = Handle[BRepExtremaTriangleSet]
+  HandleC1C1* = Handle[BRepExtremaTriangleSet]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

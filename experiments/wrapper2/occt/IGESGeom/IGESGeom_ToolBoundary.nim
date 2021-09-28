@@ -54,5 +54,30 @@ proc ownCopy*(this: IGESGeomToolBoundary; entfrom: Handle[IGESGeomBoundary];
              entto: Handle[IGESGeomBoundary]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolBoundary.hxx".}
 proc ownDump*(this: IGESGeomToolBoundary; ent: Handle[IGESGeomBoundary];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolBoundary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ discard "forward decl of Interface_GTool"
 discard "forward decl of Interface_HGraph"
 discard "forward decl of Interface_HGraph"
 type
-  HandleInterfaceHGraph* = Handle[InterfaceHGraph]
+  HandleC1C1* = Handle[InterfaceHGraph]
 
 ## ! This class allows to store a redefinable Graph, via a Handle
 ## ! (usefull for an Object which can work on several successive
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_HGraph.hxx".}
 proc dynamicType*(this: InterfaceHGraph): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_HGraph.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

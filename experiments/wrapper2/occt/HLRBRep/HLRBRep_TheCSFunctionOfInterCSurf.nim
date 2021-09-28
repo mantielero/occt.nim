@@ -27,9 +27,9 @@ type
 proc constructHLRBRepTheCSFunctionOfInterCSurf*(s: StandardAddress; c: Lin): HLRBRepTheCSFunctionOfInterCSurf {.
     constructor, importcpp: "HLRBRep_TheCSFunctionOfInterCSurf(@)",
     header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc nbVariables*(this: HLRBRepTheCSFunctionOfInterCSurf): int {.noSideEffect,
+proc nbVariables*(this: HLRBRepTheCSFunctionOfInterCSurf): cint {.noSideEffect,
     importcpp: "NbVariables", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc nbEquations*(this: HLRBRepTheCSFunctionOfInterCSurf): int {.noSideEffect,
+proc nbEquations*(this: HLRBRepTheCSFunctionOfInterCSurf): cint {.noSideEffect,
     importcpp: "NbEquations", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
 proc value*(this: var HLRBRepTheCSFunctionOfInterCSurf; x: MathVector;
            f: var MathVector): bool {.importcpp: "Value", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
@@ -40,10 +40,35 @@ proc values*(this: var HLRBRepTheCSFunctionOfInterCSurf; x: MathVector;
     header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
 proc point*(this: HLRBRepTheCSFunctionOfInterCSurf): Pnt {.noSideEffect,
     importcpp: "Point", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc root*(this: HLRBRepTheCSFunctionOfInterCSurf): float {.noSideEffect,
+proc root*(this: HLRBRepTheCSFunctionOfInterCSurf): cfloat {.noSideEffect,
     importcpp: "Root", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
 proc auxillarSurface*(this: HLRBRepTheCSFunctionOfInterCSurf): StandardAddress {.
     noSideEffect, importcpp: "AuxillarSurface",
     header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
 proc auxillarCurve*(this: HLRBRepTheCSFunctionOfInterCSurf): Lin {.noSideEffect,
     importcpp: "AuxillarCurve", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

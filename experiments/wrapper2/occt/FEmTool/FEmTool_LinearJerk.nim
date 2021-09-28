@@ -20,7 +20,7 @@ discard "forward decl of math_Matrix"
 discard "forward decl of FEmTool_LinearJerk"
 discard "forward decl of FEmTool_LinearJerk"
 type
-  HandleFEmToolLinearJerk* = Handle[FEmToolLinearJerk]
+  HandleC1C1* = Handle[FEmToolLinearJerk]
 
 ## ! Criterion of LinearJerk To Hermit-Jacobi  elements
 
@@ -29,17 +29,17 @@ type
                       header: "FEmTool_LinearJerk.hxx", bycopy.} = object of FEmToolElementaryCriterion
 
 
-proc constructFEmToolLinearJerk*(workDegree: int; constraintOrder: GeomAbsShape): FEmToolLinearJerk {.
+proc constructFEmToolLinearJerk*(workDegree: cint; constraintOrder: GeomAbsShape): FEmToolLinearJerk {.
     constructor, importcpp: "FEmTool_LinearJerk(@)",
     header: "FEmTool_LinearJerk.hxx".}
 proc dependenceTable*(this: FEmToolLinearJerk): Handle[TColStdHArray2OfInteger] {.
     noSideEffect, importcpp: "DependenceTable", header: "FEmTool_LinearJerk.hxx".}
-proc value*(this: var FEmToolLinearJerk): float {.importcpp: "Value",
+proc value*(this: var FEmToolLinearJerk): cfloat {.importcpp: "Value",
     header: "FEmTool_LinearJerk.hxx".}
-proc hessian*(this: var FEmToolLinearJerk; dimension1: int; dimension2: int;
+proc hessian*(this: var FEmToolLinearJerk; dimension1: cint; dimension2: cint;
              h: var MathMatrix) {.importcpp: "Hessian",
                                header: "FEmTool_LinearJerk.hxx".}
-proc gradient*(this: var FEmToolLinearJerk; dimension: int; g: var MathVector) {.
+proc gradient*(this: var FEmToolLinearJerk; dimension: cint; g: var MathVector) {.
     importcpp: "Gradient", header: "FEmTool_LinearJerk.hxx".}
 type
   FEmToolLinearJerkbaseType* = FEmToolElementaryCriterion
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "FEmTool_LinearJerk.hxx".}
 proc dynamicType*(this: FEmToolLinearJerk): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "FEmTool_LinearJerk.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

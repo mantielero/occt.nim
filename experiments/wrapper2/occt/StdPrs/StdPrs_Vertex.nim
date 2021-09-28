@@ -14,3 +14,28 @@
 type
   StdPrsVertex* = Prs3dPoint[TopoDS_Vertex, StdPrsToolVertex]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

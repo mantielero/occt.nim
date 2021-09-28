@@ -35,83 +35,83 @@ proc constructTopOpeBRepDS_DataStructure*(): TopOpeBRepDS_DataStructure {.
     header: "TopOpeBRepDS_DataStructure.hxx".}
 proc init*(this: var TopOpeBRepDS_DataStructure) {.importcpp: "Init",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc addSurface*(this: var TopOpeBRepDS_DataStructure; s: TopOpeBRepDS_Surface): int {.
+proc addSurface*(this: var TopOpeBRepDS_DataStructure; s: TopOpeBRepDS_Surface): cint {.
     importcpp: "AddSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc removeSurface*(this: var TopOpeBRepDS_DataStructure; i: int) {.
+proc removeSurface*(this: var TopOpeBRepDS_DataStructure; i: cint) {.
     importcpp: "RemoveSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc keepSurface*(this: TopOpeBRepDS_DataStructure; i: int): bool {.noSideEffect,
+proc keepSurface*(this: TopOpeBRepDS_DataStructure; i: cint): bool {.noSideEffect,
     importcpp: "KeepSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepSurface*(this: TopOpeBRepDS_DataStructure; s: var TopOpeBRepDS_Surface): bool {.
     noSideEffect, importcpp: "KeepSurface",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeKeepSurface*(this: var TopOpeBRepDS_DataStructure; i: int; findKeep: bool) {.
+proc changeKeepSurface*(this: var TopOpeBRepDS_DataStructure; i: cint; findKeep: bool) {.
     importcpp: "ChangeKeepSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepSurface*(this: var TopOpeBRepDS_DataStructure;
                        s: var TopOpeBRepDS_Surface; findKeep: bool) {.
     importcpp: "ChangeKeepSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc addCurve*(this: var TopOpeBRepDS_DataStructure; s: TopOpeBRepDS_Curve): int {.
+proc addCurve*(this: var TopOpeBRepDS_DataStructure; s: TopOpeBRepDS_Curve): cint {.
     importcpp: "AddCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc removeCurve*(this: var TopOpeBRepDS_DataStructure; i: int) {.
+proc removeCurve*(this: var TopOpeBRepDS_DataStructure; i: cint) {.
     importcpp: "RemoveCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc keepCurve*(this: TopOpeBRepDS_DataStructure; i: int): bool {.noSideEffect,
+proc keepCurve*(this: TopOpeBRepDS_DataStructure; i: cint): bool {.noSideEffect,
     importcpp: "KeepCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepCurve*(this: TopOpeBRepDS_DataStructure; c: TopOpeBRepDS_Curve): bool {.
     noSideEffect, importcpp: "KeepCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeKeepCurve*(this: var TopOpeBRepDS_DataStructure; i: int; findKeep: bool) {.
+proc changeKeepCurve*(this: var TopOpeBRepDS_DataStructure; i: cint; findKeep: bool) {.
     importcpp: "ChangeKeepCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepCurve*(this: var TopOpeBRepDS_DataStructure;
                      c: var TopOpeBRepDS_Curve; findKeep: bool) {.
     importcpp: "ChangeKeepCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc addPoint*(this: var TopOpeBRepDS_DataStructure; pds: TopOpeBRepDS_Point): int {.
+proc addPoint*(this: var TopOpeBRepDS_DataStructure; pds: TopOpeBRepDS_Point): cint {.
     importcpp: "AddPoint", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addPointSS*(this: var TopOpeBRepDS_DataStructure; pds: TopOpeBRepDS_Point;
-                s1: TopoDS_Shape; s2: TopoDS_Shape): int {.importcpp: "AddPointSS",
+                s1: TopoDS_Shape; s2: TopoDS_Shape): cint {.importcpp: "AddPointSS",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc removePoint*(this: var TopOpeBRepDS_DataStructure; i: int) {.
+proc removePoint*(this: var TopOpeBRepDS_DataStructure; i: cint) {.
     importcpp: "RemovePoint", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc keepPoint*(this: TopOpeBRepDS_DataStructure; i: int): bool {.noSideEffect,
+proc keepPoint*(this: TopOpeBRepDS_DataStructure; i: cint): bool {.noSideEffect,
     importcpp: "KeepPoint", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepPoint*(this: TopOpeBRepDS_DataStructure; p: TopOpeBRepDS_Point): bool {.
     noSideEffect, importcpp: "KeepPoint", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeKeepPoint*(this: var TopOpeBRepDS_DataStructure; i: int; findKeep: bool) {.
+proc changeKeepPoint*(this: var TopOpeBRepDS_DataStructure; i: cint; findKeep: bool) {.
     importcpp: "ChangeKeepPoint", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepPoint*(this: var TopOpeBRepDS_DataStructure;
                      p: var TopOpeBRepDS_Point; findKeep: bool) {.
     importcpp: "ChangeKeepPoint", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc addShape*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape): int {.
+proc addShape*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape): cint {.
     importcpp: "AddShape", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc addShape*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; i: int): int {.
+proc addShape*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; i: cint): cint {.
     importcpp: "AddShape", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc keepShape*(this: TopOpeBRepDS_DataStructure; i: int; findKeep: bool = true): bool {.
+proc keepShape*(this: TopOpeBRepDS_DataStructure; i: cint; findKeep: bool = true): bool {.
     noSideEffect, importcpp: "KeepShape", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepShape*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                findKeep: bool = true): bool {.noSideEffect, importcpp: "KeepShape",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeKeepShape*(this: var TopOpeBRepDS_DataStructure; i: int; findKeep: bool) {.
+proc changeKeepShape*(this: var TopOpeBRepDS_DataStructure; i: cint; findKeep: bool) {.
     importcpp: "ChangeKeepShape", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepShape*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                      findKeep: bool) {.importcpp: "ChangeKeepShape",
                                      header: "TopOpeBRepDS_DataStructure.hxx".}
 proc initSectionEdges*(this: var TopOpeBRepDS_DataStructure) {.
     importcpp: "InitSectionEdges", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc addSectionEdge*(this: var TopOpeBRepDS_DataStructure; e: TopoDS_Edge): int {.
+proc addSectionEdge*(this: var TopOpeBRepDS_DataStructure; e: TopoDS_Edge): cint {.
     importcpp: "AddSectionEdge", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc surfaceInterferences*(this: TopOpeBRepDS_DataStructure; i: int): TopOpeBRepDS_ListOfInterference {.
+proc surfaceInterferences*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_ListOfInterference {.
     noSideEffect, importcpp: "SurfaceInterferences",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeSurfaceInterferences*(this: var TopOpeBRepDS_DataStructure; i: int): var TopOpeBRepDS_ListOfInterference {.
+proc changeSurfaceInterferences*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "ChangeSurfaceInterferences",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc curveInterferences*(this: TopOpeBRepDS_DataStructure; i: int): TopOpeBRepDS_ListOfInterference {.
+proc curveInterferences*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_ListOfInterference {.
     noSideEffect, importcpp: "CurveInterferences",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeCurveInterferences*(this: var TopOpeBRepDS_DataStructure; i: int): var TopOpeBRepDS_ListOfInterference {.
+proc changeCurveInterferences*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "ChangeCurveInterferences",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc pointInterferences*(this: TopOpeBRepDS_DataStructure; i: int): TopOpeBRepDS_ListOfInterference {.
+proc pointInterferences*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_ListOfInterference {.
     noSideEffect, importcpp: "PointInterferences",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changePointInterferences*(this: var TopOpeBRepDS_DataStructure; i: int): var TopOpeBRepDS_ListOfInterference {.
+proc changePointInterferences*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "ChangePointInterferences",
     header: "TopOpeBRepDS_DataStructure.hxx".}
 proc shapeInterferences*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
@@ -121,11 +121,11 @@ proc shapeInterferences*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
 proc changeShapeInterferences*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "ChangeShapeInterferences",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc shapeInterferences*(this: TopOpeBRepDS_DataStructure; i: int;
+proc shapeInterferences*(this: TopOpeBRepDS_DataStructure; i: cint;
                         findKeep: bool = true): TopOpeBRepDS_ListOfInterference {.
     noSideEffect, importcpp: "ShapeInterferences",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeShapeInterferences*(this: var TopOpeBRepDS_DataStructure; i: int): var TopOpeBRepDS_ListOfInterference {.
+proc changeShapeInterferences*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "ChangeShapeInterferences",
     header: "TopOpeBRepDS_DataStructure.hxx".}
 proc shapeSameDomain*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): TopToolsListOfShape {.
@@ -133,10 +133,10 @@ proc shapeSameDomain*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): TopToo
     header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeShapeSameDomain*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape): var TopToolsListOfShape {.
     importcpp: "ChangeShapeSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc shapeSameDomain*(this: TopOpeBRepDS_DataStructure; i: int): TopToolsListOfShape {.
+proc shapeSameDomain*(this: TopOpeBRepDS_DataStructure; i: cint): TopToolsListOfShape {.
     noSideEffect, importcpp: "ShapeSameDomain",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeShapeSameDomain*(this: var TopOpeBRepDS_DataStructure; i: int): var TopToolsListOfShape {.
+proc changeShapeSameDomain*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopToolsListOfShape {.
     importcpp: "ChangeShapeSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeShapes*(this: var TopOpeBRepDS_DataStructure): var TopOpeBRepDS_MapOfShapeData {.
     importcpp: "ChangeShapes", header: "TopOpeBRepDS_DataStructure.hxx".}
@@ -146,44 +146,44 @@ proc addShapeSameDomain*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
 proc removeShapeSameDomain*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                            ssd: TopoDS_Shape) {.
     importcpp: "RemoveShapeSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sameDomainRef*(this: TopOpeBRepDS_DataStructure; i: int): int {.noSideEffect,
+proc sameDomainRef*(this: TopOpeBRepDS_DataStructure; i: cint): cint {.noSideEffect,
     importcpp: "SameDomainRef", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sameDomainRef*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): int {.
+proc sameDomainRef*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): cint {.
     noSideEffect, importcpp: "SameDomainRef",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sameDomainRef*(this: var TopOpeBRepDS_DataStructure; i: int; `ref`: int) {.
+proc sameDomainRef*(this: var TopOpeBRepDS_DataStructure; i: cint; `ref`: cint) {.
     importcpp: "SameDomainRef", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sameDomainRef*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; `ref`: int) {.
+proc sameDomainRef*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; `ref`: cint) {.
     importcpp: "SameDomainRef", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sameDomainOri*(this: TopOpeBRepDS_DataStructure; i: int): TopOpeBRepDS_Config {.
+proc sameDomainOri*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_Config {.
     noSideEffect, importcpp: "SameDomainOri",
     header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainOri*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): TopOpeBRepDS_Config {.
     noSideEffect, importcpp: "SameDomainOri",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sameDomainOri*(this: var TopOpeBRepDS_DataStructure; i: int;
+proc sameDomainOri*(this: var TopOpeBRepDS_DataStructure; i: cint;
                    ori: TopOpeBRepDS_Config) {.importcpp: "SameDomainOri",
     header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainOri*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                    ori: TopOpeBRepDS_Config) {.importcpp: "SameDomainOri",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sameDomainInd*(this: TopOpeBRepDS_DataStructure; i: int): int {.noSideEffect,
+proc sameDomainInd*(this: TopOpeBRepDS_DataStructure; i: cint): cint {.noSideEffect,
     importcpp: "SameDomainInd", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sameDomainInd*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): int {.
+proc sameDomainInd*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): cint {.
     noSideEffect, importcpp: "SameDomainInd",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sameDomainInd*(this: var TopOpeBRepDS_DataStructure; i: int; ind: int) {.
+proc sameDomainInd*(this: var TopOpeBRepDS_DataStructure; i: cint; ind: cint) {.
     importcpp: "SameDomainInd", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sameDomainInd*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; ind: int) {.
+proc sameDomainInd*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; ind: cint) {.
     importcpp: "SameDomainInd", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc ancestorRank*(this: TopOpeBRepDS_DataStructure; i: int): int {.noSideEffect,
+proc ancestorRank*(this: TopOpeBRepDS_DataStructure; i: cint): cint {.noSideEffect,
     importcpp: "AncestorRank", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc ancestorRank*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): int {.
+proc ancestorRank*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): cint {.
     noSideEffect, importcpp: "AncestorRank",
     header: "TopOpeBRepDS_DataStructure.hxx".}
-proc ancestorRank*(this: var TopOpeBRepDS_DataStructure; i: int; ianc: int) {.
+proc ancestorRank*(this: var TopOpeBRepDS_DataStructure; i: cint; ianc: cint) {.
     importcpp: "AncestorRank", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc ancestorRank*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; ianc: int) {.
+proc ancestorRank*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; ianc: cint) {.
     importcpp: "AncestorRank", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addShapeInterference*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                           i: Handle[TopOpeBRepDS_Interference]) {.
@@ -201,40 +201,40 @@ proc fillShapesSameDomain*(this: var TopOpeBRepDS_DataStructure; s1: TopoDS_Shap
 proc unfillShapesSameDomain*(this: var TopOpeBRepDS_DataStructure; s1: TopoDS_Shape;
                             s2: TopoDS_Shape) {.
     importcpp: "UnfillShapesSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc nbSurfaces*(this: TopOpeBRepDS_DataStructure): int {.noSideEffect,
+proc nbSurfaces*(this: TopOpeBRepDS_DataStructure): cint {.noSideEffect,
     importcpp: "NbSurfaces", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc nbCurves*(this: TopOpeBRepDS_DataStructure): int {.noSideEffect,
+proc nbCurves*(this: TopOpeBRepDS_DataStructure): cint {.noSideEffect,
     importcpp: "NbCurves", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeNbCurves*(this: var TopOpeBRepDS_DataStructure; n: int) {.
+proc changeNbCurves*(this: var TopOpeBRepDS_DataStructure; n: cint) {.
     importcpp: "ChangeNbCurves", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc nbPoints*(this: TopOpeBRepDS_DataStructure): int {.noSideEffect,
+proc nbPoints*(this: TopOpeBRepDS_DataStructure): cint {.noSideEffect,
     importcpp: "NbPoints", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc nbShapes*(this: TopOpeBRepDS_DataStructure): int {.noSideEffect,
+proc nbShapes*(this: TopOpeBRepDS_DataStructure): cint {.noSideEffect,
     importcpp: "NbShapes", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc nbSectionEdges*(this: TopOpeBRepDS_DataStructure): int {.noSideEffect,
+proc nbSectionEdges*(this: TopOpeBRepDS_DataStructure): cint {.noSideEffect,
     importcpp: "NbSectionEdges", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc surface*(this: TopOpeBRepDS_DataStructure; i: int): TopOpeBRepDS_Surface {.
+proc surface*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_Surface {.
     noSideEffect, importcpp: "Surface", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeSurface*(this: var TopOpeBRepDS_DataStructure; i: int): var TopOpeBRepDS_Surface {.
+proc changeSurface*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_Surface {.
     importcpp: "ChangeSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc curve*(this: TopOpeBRepDS_DataStructure; i: int): TopOpeBRepDS_Curve {.
+proc curve*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_Curve {.
     noSideEffect, importcpp: "Curve", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changeCurve*(this: var TopOpeBRepDS_DataStructure; i: int): var TopOpeBRepDS_Curve {.
+proc changeCurve*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_Curve {.
     importcpp: "ChangeCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc point*(this: TopOpeBRepDS_DataStructure; i: int): TopOpeBRepDS_Point {.
+proc point*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_Point {.
     noSideEffect, importcpp: "Point", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc changePoint*(this: var TopOpeBRepDS_DataStructure; i: int): var TopOpeBRepDS_Point {.
+proc changePoint*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_Point {.
     importcpp: "ChangePoint", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc shape*(this: TopOpeBRepDS_DataStructure; i: int; findKeep: bool = true): TopoDS_Shape {.
+proc shape*(this: TopOpeBRepDS_DataStructure; i: cint; findKeep: bool = true): TopoDS_Shape {.
     noSideEffect, importcpp: "Shape", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc shape*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape; findKeep: bool = true): int {.
+proc shape*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape; findKeep: bool = true): cint {.
     noSideEffect, importcpp: "Shape", header: "TopOpeBRepDS_DataStructure.hxx".}
-proc sectionEdge*(this: TopOpeBRepDS_DataStructure; i: int; findKeep: bool = true): TopoDS_Edge {.
+proc sectionEdge*(this: TopOpeBRepDS_DataStructure; i: cint; findKeep: bool = true): TopoDS_Edge {.
     noSideEffect, importcpp: "SectionEdge",
     header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sectionEdge*(this: TopOpeBRepDS_DataStructure; e: TopoDS_Edge;
-                 findKeep: bool = true): int {.noSideEffect, importcpp: "SectionEdge",
-    header: "TopOpeBRepDS_DataStructure.hxx".}
+                 findKeep: bool = true): cint {.noSideEffect,
+    importcpp: "SectionEdge", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc isSectionEdge*(this: TopOpeBRepDS_DataStructure; e: TopoDS_Edge;
                    findKeep: bool = true): bool {.noSideEffect,
     importcpp: "IsSectionEdge", header: "TopOpeBRepDS_DataStructure.hxx".}
@@ -275,3 +275,28 @@ proc changeMapOfRejectedShapesObj*(this: var TopOpeBRepDS_DataStructure): var To
 proc changeMapOfRejectedShapesTool*(this: var TopOpeBRepDS_DataStructure): var TopToolsIndexedMapOfShape {.
     importcpp: "ChangeMapOfRejectedShapesTool",
     header: "TopOpeBRepDS_DataStructure.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

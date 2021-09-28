@@ -28,7 +28,7 @@ proc constructRWStepAP214RWAppliedDateAssignment*(): RWStepAP214RWAppliedDateAss
     constructor, importcpp: "RWStepAP214_RWAppliedDateAssignment(@)",
     header: "RWStepAP214_RWAppliedDateAssignment.hxx".}
 proc readStep*(this: RWStepAP214RWAppliedDateAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AppliedDateAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAppliedDateAssignment.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepAP214RWAppliedDateAssignment;
            ent: Handle[StepAP214AppliedDateAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedDateAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

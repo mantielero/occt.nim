@@ -17,3 +17,28 @@ discard "forward decl of XCAFDoc_GraphNode"
 type
   XCAFDocGraphNodeSequence* = NCollectionSequence[Handle[XCAFDocGraphNode]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

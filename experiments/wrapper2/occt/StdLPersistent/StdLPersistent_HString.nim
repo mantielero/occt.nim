@@ -35,3 +35,28 @@ proc extString*(this: StdLPersistentHStringExtended): Handle[
                                  header: "StdLPersistent_HString.hxx".}
 proc pName*(this: StdLPersistentHStringExtended): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_HString.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,3 +61,28 @@ proc decodePolyLoopError*(error: StepToTopoDS_TranslatePolyLoopError): Handle[
 proc decodeGeometricToolError*(error: StepToTopoDS_GeometricToolError): StandardCString {.
     importcpp: "StepToTopoDS::DecodeGeometricToolError(@)",
     header: "StepToTopoDS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

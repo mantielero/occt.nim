@@ -29,3 +29,28 @@ type
 proc add*(thePresentation: Handle[Prs3dPresentation]; theDatum: Ax2;
          theDrawer: Handle[Prs3dDrawer]) {.importcpp: "DsgPrs_DatumPrs::Add(@)",
     header: "DsgPrs_DatumPrs.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

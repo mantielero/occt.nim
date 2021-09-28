@@ -68,3 +68,28 @@ proc setLayerMode*(this: var IGESCAFControlReader; theMode: bool) {.
     importcpp: "SetLayerMode", header: "IGESCAFControl_Reader.hxx".}
 proc getLayerMode*(this: IGESCAFControlReader): bool {.noSideEffect,
     importcpp: "GetLayerMode", header: "IGESCAFControl_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

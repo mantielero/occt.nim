@@ -31,7 +31,32 @@ type
 proc addDrivers*(aDriverTable: Handle[XmlMDF_ADriverTable];
                 anMsgDrv: Handle[MessageMessenger]) {.
     importcpp: "XmlMDataXtd::AddDrivers(@)", header: "XmlMDataXtd.hxx".}
-proc setDocumentVersion*(docVersion: int) {.
+proc setDocumentVersion*(docVersion: cint) {.
     importcpp: "XmlMDataXtd::SetDocumentVersion(@)", header: "XmlMDataXtd.hxx".}
-proc documentVersion*(): int {.importcpp: "XmlMDataXtd::DocumentVersion(@)",
-                            header: "XmlMDataXtd.hxx".}
+proc documentVersion*(): cint {.importcpp: "XmlMDataXtd::DocumentVersion(@)",
+                             header: "XmlMDataXtd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

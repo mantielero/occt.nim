@@ -92,20 +92,20 @@ type
 
 
 proc constructBRepApproxMyBSplGradientOfTheComputeLineOfApprox*(
-    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: cint; lastPoint: cint;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
     parameters: var MathVector; knots: TColStdArray1OfReal;
-    mults: TColStdArray1OfInteger; deg: int; tol3d: float; tol2d: float;
-    nbIterations: int = 1): BRepApproxMyBSplGradientOfTheComputeLineOfApprox {.
+    mults: TColStdArray1OfInteger; deg: cint; tol3d: cfloat; tol2d: cfloat;
+    nbIterations: cint = 1): BRepApproxMyBSplGradientOfTheComputeLineOfApprox {.
     constructor,
     importcpp: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox(@)",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc constructBRepApproxMyBSplGradientOfTheComputeLineOfApprox*(
-    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: cint; lastPoint: cint;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
     parameters: var MathVector; knots: TColStdArray1OfReal;
-    mults: TColStdArray1OfInteger; deg: int; tol3d: float; tol2d: float;
-    nbIterations: int; lambda1: float; lambda2: float): BRepApproxMyBSplGradientOfTheComputeLineOfApprox {.
+    mults: TColStdArray1OfInteger; deg: cint; tol3d: cfloat; tol2d: cfloat;
+    nbIterations: cint; lambda1: cfloat; lambda2: cfloat): BRepApproxMyBSplGradientOfTheComputeLineOfApprox {.
     constructor,
     importcpp: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox(@)",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
@@ -115,15 +115,40 @@ proc isDone*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): bool {.
 proc value*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): AppParCurvesMultiBSpCurve {.
     noSideEffect, importcpp: "Value",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc error*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox; index: int): float {.
+proc error*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox; index: cint): cfloat {.
     noSideEffect, importcpp: "Error",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc maxError3d*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): float {.
+proc maxError3d*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): cfloat {.
     noSideEffect, importcpp: "MaxError3d",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc maxError2d*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): float {.
+proc maxError2d*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): cfloat {.
     noSideEffect, importcpp: "MaxError2d",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc averageError*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): float {.
+proc averageError*(this: BRepApproxMyBSplGradientOfTheComputeLineOfApprox): cfloat {.
     noSideEffect, importcpp: "AverageError",
     header: "BRepApprox_MyBSplGradientOfTheComputeLineOfApprox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

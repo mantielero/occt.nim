@@ -69,3 +69,28 @@ proc hasFaulty*(this: BOPAlgoArgumentAnalyzer): bool {.noSideEffect,
 proc getCheckResult*(this: BOPAlgoArgumentAnalyzer): BOPAlgoListOfCheckResult {.
     noSideEffect, importcpp: "GetCheckResult",
     header: "BOPAlgo_ArgumentAnalyzer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

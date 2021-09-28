@@ -19,3 +19,28 @@ include AppParCurves_MultiPoint
 include AppParCurves_SequenceOfMultiBSpCurve
 include AppParCurves_SequenceOfMultiCurve
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

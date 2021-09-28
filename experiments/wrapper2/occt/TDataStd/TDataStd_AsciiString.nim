@@ -20,7 +20,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_AsciiString"
 discard "forward decl of TDataStd_AsciiString"
 type
-  HandleTDataStdAsciiString* = Handle[TDataStdAsciiString]
+  HandleC1C1* = Handle[TDataStdAsciiString]
 
 ## ! Used to define an AsciiString attribute containing a TCollection_AsciiString
 
@@ -75,8 +75,8 @@ proc paste*(this: TDataStdAsciiString; into: Handle[TDF_Attribute];
 proc dump*(this: TDataStdAsciiString; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_AsciiString.hxx".}
 proc dumpJson*(this: TDataStdAsciiString; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_AsciiString.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_AsciiString.hxx".}
 type
   TDataStdAsciiStringbaseType* = TDF_Attribute
 
@@ -87,3 +87,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_AsciiString.hxx".}
 proc dynamicType*(this: TDataStdAsciiString): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_AsciiString.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

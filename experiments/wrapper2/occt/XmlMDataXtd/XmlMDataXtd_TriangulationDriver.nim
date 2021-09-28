@@ -18,7 +18,7 @@ discard "forward decl of TDF_Attribute"
 discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataXtd_TriangulationDriver"
 type
-  HandleXmlMDataXtdTriangulationDriver* = Handle[XmlMDataXtdTriangulationDriver]
+  HandleC1C1* = Handle[XmlMDataXtdTriangulationDriver]
 
 ## ! TDataStd_Mesh attribute XML Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataXtdTriangulationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataXtd_TriangulationDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

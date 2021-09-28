@@ -18,7 +18,7 @@ discard "forward decl of IFSelect_GeneralModifier"
 discard "forward decl of IFSelect_AppliedModifiers"
 discard "forward decl of IFSelect_AppliedModifiers"
 type
-  HandleIFSelectAppliedModifiers* = Handle[IFSelectAppliedModifiers]
+  HandleC1C1* = Handle[IFSelectAppliedModifiers]
 
 ## ! This class allows to memorize and access to the modifiers
 ## ! which are to be applied to a file. To each modifier, is bound
@@ -63,20 +63,20 @@ type
                                                                                                       ## entities
 
 
-proc constructIFSelectAppliedModifiers*(nbmax: int; nbent: int): IFSelectAppliedModifiers {.
+proc constructIFSelectAppliedModifiers*(nbmax: cint; nbent: cint): IFSelectAppliedModifiers {.
     constructor, importcpp: "IFSelect_AppliedModifiers(@)",
     header: "IFSelect_AppliedModifiers.hxx".}
 proc addModif*(this: var IFSelectAppliedModifiers;
               modif: Handle[IFSelectGeneralModifier]): bool {.
     importcpp: "AddModif", header: "IFSelect_AppliedModifiers.hxx".}
-proc addNum*(this: var IFSelectAppliedModifiers; nument: int): bool {.
+proc addNum*(this: var IFSelectAppliedModifiers; nument: cint): bool {.
     importcpp: "AddNum", header: "IFSelect_AppliedModifiers.hxx".}
-proc count*(this: IFSelectAppliedModifiers): int {.noSideEffect, importcpp: "Count",
+proc count*(this: IFSelectAppliedModifiers): cint {.noSideEffect, importcpp: "Count",
     header: "IFSelect_AppliedModifiers.hxx".}
-proc item*(this: var IFSelectAppliedModifiers; num: int;
-          modif: var Handle[IFSelectGeneralModifier]; entcount: var int): bool {.
+proc item*(this: var IFSelectAppliedModifiers; num: cint;
+          modif: var Handle[IFSelectGeneralModifier]; entcount: var cint): bool {.
     importcpp: "Item", header: "IFSelect_AppliedModifiers.hxx".}
-proc itemNum*(this: IFSelectAppliedModifiers; nument: int): int {.noSideEffect,
+proc itemNum*(this: IFSelectAppliedModifiers; nument: cint): cint {.noSideEffect,
     importcpp: "ItemNum", header: "IFSelect_AppliedModifiers.hxx".}
 proc itemList*(this: IFSelectAppliedModifiers): Handle[TColStdHSequenceOfInteger] {.
     noSideEffect, importcpp: "ItemList", header: "IFSelect_AppliedModifiers.hxx".}
@@ -92,3 +92,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_AppliedModifiers.hxx".}
 proc dynamicType*(this: IFSelectAppliedModifiers): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_AppliedModifiers.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

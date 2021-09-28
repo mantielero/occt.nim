@@ -29,7 +29,7 @@ proc constructRWStepBasicRWDocumentProductAssociation*(): RWStepBasicRWDocumentP
     constructor, importcpp: "RWStepBasic_RWDocumentProductAssociation(@)",
     header: "RWStepBasic_RWDocumentProductAssociation.hxx".}
 proc readStep*(this: RWStepBasicRWDocumentProductAssociation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicDocumentProductAssociation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDocumentProductAssociation.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepBasicRWDocumentProductAssociation;
            ent: Handle[StepBasicDocumentProductAssociation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWDocumentProductAssociation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

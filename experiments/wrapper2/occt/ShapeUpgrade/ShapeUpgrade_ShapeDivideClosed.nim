@@ -27,5 +27,30 @@ type
 proc constructShapeUpgradeShapeDivideClosed*(s: TopoDS_Shape): ShapeUpgradeShapeDivideClosed {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideClosed(@)",
     header: "ShapeUpgrade_ShapeDivideClosed.hxx".}
-proc setNbSplitPoints*(this: var ShapeUpgradeShapeDivideClosed; num: int) {.
+proc setNbSplitPoints*(this: var ShapeUpgradeShapeDivideClosed; num: cint) {.
     importcpp: "SetNbSplitPoints", header: "ShapeUpgrade_ShapeDivideClosed.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

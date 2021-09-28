@@ -16,7 +16,7 @@
 discard "forward decl of StepRepr_CentreOfSymmetry"
 discard "forward decl of StepRepr_CentreOfSymmetry"
 type
-  HandleStepReprCentreOfSymmetry* = Handle[StepReprCentreOfSymmetry]
+  HandleC1C1* = Handle[StepReprCentreOfSymmetry]
 
 ## ! Added for Dimensional Tolerances
 
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_CentreOfSymmetry.hxx".}
 proc dynamicType*(this: StepReprCentreOfSymmetry): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_CentreOfSymmetry.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

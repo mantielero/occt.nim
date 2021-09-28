@@ -28,7 +28,7 @@ proc constructRWStepAP242RWItemIdentifiedRepresentationUsage*(): RWStepAP242RWIt
     constructor, importcpp: "RWStepAP242_RWItemIdentifiedRepresentationUsage(@)",
     header: "RWStepAP242_RWItemIdentifiedRepresentationUsage.hxx".}
 proc readStep*(this: RWStepAP242RWItemIdentifiedRepresentationUsage;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP242ItemIdentifiedRepresentationUsage]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -42,3 +42,28 @@ proc share*(this: RWStepAP242RWItemIdentifiedRepresentationUsage;
            ent: Handle[StepAP242ItemIdentifiedRepresentationUsage];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP242_RWItemIdentifiedRepresentationUsage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

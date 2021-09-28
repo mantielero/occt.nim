@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESDrawToolNetworkSubfigure;
     noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolNetworkSubfigure.hxx".}
 proc ownDump*(this: IGESDrawToolNetworkSubfigure;
              ent: Handle[IGESDrawNetworkSubfigure]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESDraw_ToolNetworkSubfigure.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

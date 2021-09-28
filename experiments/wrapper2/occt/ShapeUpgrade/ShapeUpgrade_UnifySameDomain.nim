@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeUpgrade_UnifySameDomain"
 discard "forward decl of ShapeUpgrade_UnifySameDomain"
 type
-  HandleShapeUpgradeUnifySameDomain* = Handle[ShapeUpgradeUnifySameDomain]
+  HandleC1C1* = Handle[ShapeUpgradeUnifySameDomain]
 
 ## ! This tool tries to unify faces and edges of the shape which lie on the same geometry.
 ## ! Faces/edges are considering as 'same-domain' if a group of neighbouring faces/edges
@@ -103,9 +103,9 @@ proc keepShapes*(this: var ShapeUpgradeUnifySameDomain;
     header: "ShapeUpgrade_UnifySameDomain.hxx".}
 proc setSafeInputMode*(this: var ShapeUpgradeUnifySameDomain; theValue: bool) {.
     importcpp: "SetSafeInputMode", header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc setLinearTolerance*(this: var ShapeUpgradeUnifySameDomain; theValue: float) {.
+proc setLinearTolerance*(this: var ShapeUpgradeUnifySameDomain; theValue: cfloat) {.
     importcpp: "SetLinearTolerance", header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc setAngularTolerance*(this: var ShapeUpgradeUnifySameDomain; theValue: float) {.
+proc setAngularTolerance*(this: var ShapeUpgradeUnifySameDomain; theValue: cfloat) {.
     importcpp: "SetAngularTolerance", header: "ShapeUpgrade_UnifySameDomain.hxx".}
 proc build*(this: var ShapeUpgradeUnifySameDomain) {.importcpp: "Build",
     header: "ShapeUpgrade_UnifySameDomain.hxx".}
@@ -126,3 +126,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeUnifySameDomain): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_UnifySameDomain.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

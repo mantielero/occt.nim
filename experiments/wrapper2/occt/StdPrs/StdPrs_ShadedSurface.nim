@@ -70,3 +70,28 @@ type
 proc add*(aPresentation: Handle[Prs3dPresentation]; aSurface: Adaptor3dSurface;
          aDrawer: Handle[Prs3dDrawer]) {.importcpp: "StdPrs_ShadedSurface::Add(@)",
                                        header: "StdPrs_ShadedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,7 +29,7 @@ type
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theKey: MeshVS_TwoColors; theUpperBound: int): int {.
+proc hashCode*(theKey: MeshVS_TwoColors; theUpperBound: cint): cint {.
     importcpp: "HashCode(@)", header: "MeshVS_TwoColors.hxx".}
 proc isEqual*(k1: MeshVS_TwoColors; k2: MeshVS_TwoColors): bool {.
     importcpp: "IsEqual(@)", header: "MeshVS_TwoColors.hxx".}
@@ -37,8 +37,33 @@ proc `==`*(k1: MeshVS_TwoColors; k2: MeshVS_TwoColors): bool {.importcpp: "(# ==
     header: "MeshVS_TwoColors.hxx".}
 proc bindTwoColors*(a1: QuantityColor; a2: QuantityColor): MeshVS_TwoColors {.
     importcpp: "BindTwoColors(@)", header: "MeshVS_TwoColors.hxx".}
-proc extractColor*(a1: var MeshVS_TwoColors; a2: int): QuantityColor {.
+proc extractColor*(a1: var MeshVS_TwoColors; a2: cint): QuantityColor {.
     importcpp: "ExtractColor(@)", header: "MeshVS_TwoColors.hxx".}
 proc extractColors*(a1: var MeshVS_TwoColors; a2: var QuantityColor;
                    a3: var QuantityColor) {.importcpp: "ExtractColors(@)",
     header: "MeshVS_TwoColors.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

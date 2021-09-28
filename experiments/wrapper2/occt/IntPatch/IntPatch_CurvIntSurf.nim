@@ -35,27 +35,53 @@ type
                                                                          ## MarginCoef*(ULast-UFirst)
 
 
-proc constructIntPatchCurvIntSurf*(u: float; v: float; w: float; f: IntPatchCSFunction;
-                                  tolTangency: float; marginCoef: float = 0.0): IntPatchCurvIntSurf {.
+proc constructIntPatchCurvIntSurf*(u: cfloat; v: cfloat; w: cfloat;
+                                  f: IntPatchCSFunction; tolTangency: cfloat;
+                                  marginCoef: cfloat = 0.0): IntPatchCurvIntSurf {.
     constructor, importcpp: "IntPatch_CurvIntSurf(@)",
     header: "IntPatch_CurvIntSurf.hxx".}
-proc constructIntPatchCurvIntSurf*(f: IntPatchCSFunction; tolTangency: float): IntPatchCurvIntSurf {.
+proc constructIntPatchCurvIntSurf*(f: IntPatchCSFunction; tolTangency: cfloat): IntPatchCurvIntSurf {.
     constructor, importcpp: "IntPatch_CurvIntSurf(@)",
     header: "IntPatch_CurvIntSurf.hxx".}
-proc perform*(this: var IntPatchCurvIntSurf; u: float; v: float; w: float;
-             rsnld: var MathFunctionSetRoot; u0: float; v0: float; u1: float; v1: float;
-             w0: float; w1: float) {.importcpp: "Perform",
-                                 header: "IntPatch_CurvIntSurf.hxx".}
+proc perform*(this: var IntPatchCurvIntSurf; u: cfloat; v: cfloat; w: cfloat;
+             rsnld: var MathFunctionSetRoot; u0: cfloat; v0: cfloat; u1: cfloat;
+             v1: cfloat; w0: cfloat; w1: cfloat) {.importcpp: "Perform",
+    header: "IntPatch_CurvIntSurf.hxx".}
 proc isDone*(this: IntPatchCurvIntSurf): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntPatch_CurvIntSurf.hxx".}
 proc isEmpty*(this: IntPatchCurvIntSurf): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "IntPatch_CurvIntSurf.hxx".}
 proc point*(this: IntPatchCurvIntSurf): Pnt {.noSideEffect, importcpp: "Point",
     header: "IntPatch_CurvIntSurf.hxx".}
-proc parameterOnCurve*(this: IntPatchCurvIntSurf): float {.noSideEffect,
+proc parameterOnCurve*(this: IntPatchCurvIntSurf): cfloat {.noSideEffect,
     importcpp: "ParameterOnCurve", header: "IntPatch_CurvIntSurf.hxx".}
-proc parameterOnSurface*(this: IntPatchCurvIntSurf; u: var float; v: var float) {.
+proc parameterOnSurface*(this: IntPatchCurvIntSurf; u: var cfloat; v: var cfloat) {.
     noSideEffect, importcpp: "ParameterOnSurface",
     header: "IntPatch_CurvIntSurf.hxx".}
 proc function*(this: var IntPatchCurvIntSurf): var IntPatchCSFunction {.
     importcpp: "Function", header: "IntPatch_CurvIntSurf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

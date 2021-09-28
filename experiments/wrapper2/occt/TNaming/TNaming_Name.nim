@@ -34,8 +34,8 @@ proc append*(this: var TNamingName; arg: Handle[TNamingNamedShape]) {.
     importcpp: "Append", header: "TNaming_Name.hxx".}
 proc stopNamedShape*(this: var TNamingName; arg: Handle[TNamingNamedShape]) {.
     importcpp: "StopNamedShape", header: "TNaming_Name.hxx".}
-proc index*(this: var TNamingName; i: int) {.importcpp: "Index",
-                                       header: "TNaming_Name.hxx".}
+proc index*(this: var TNamingName; i: cint) {.importcpp: "Index",
+                                        header: "TNaming_Name.hxx".}
 proc contextLabel*(this: var TNamingName; theLab: TDF_Label) {.
     importcpp: "ContextLabel", header: "TNaming_Name.hxx".}
 proc orientation*(this: var TNamingName; theOrientation: TopAbsOrientation) {.
@@ -50,8 +50,8 @@ proc arguments*(this: TNamingName): TNamingListOfNamedShape {.noSideEffect,
     importcpp: "Arguments", header: "TNaming_Name.hxx".}
 proc stopNamedShape*(this: TNamingName): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "StopNamedShape", header: "TNaming_Name.hxx".}
-proc index*(this: TNamingName): int {.noSideEffect, importcpp: "Index",
-                                  header: "TNaming_Name.hxx".}
+proc index*(this: TNamingName): cint {.noSideEffect, importcpp: "Index",
+                                   header: "TNaming_Name.hxx".}
 proc contextLabel*(this: TNamingName): TDF_Label {.noSideEffect,
     importcpp: "ContextLabel", header: "TNaming_Name.hxx".}
 proc orientation*(this: TNamingName): TopAbsOrientation {.noSideEffect,
@@ -60,5 +60,31 @@ proc solve*(this: TNamingName; aLab: TDF_Label; valid: TDF_LabelMap): bool {.
     noSideEffect, importcpp: "Solve", header: "TNaming_Name.hxx".}
 proc paste*(this: TNamingName; into: var TNamingName; rt: Handle[TDF_RelocationTable]) {.
     noSideEffect, importcpp: "Paste", header: "TNaming_Name.hxx".}
-proc dumpJson*(this: TNamingName; theOStream: var StandardOStream; theDepth: int = -1) {.
-    noSideEffect, importcpp: "DumpJson", header: "TNaming_Name.hxx".}
+proc dumpJson*(this: TNamingName; theOStream: var StandardOStream;
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TNaming_Name.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

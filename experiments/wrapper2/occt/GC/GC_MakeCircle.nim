@@ -39,22 +39,43 @@ type
 
 proc constructGC_MakeCircle*(c: Circ): GC_MakeCircle {.constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(a2: Ax2; radius: float): GC_MakeCircle {.constructor,
+proc constructGC_MakeCircle*(a2: Ax2; radius: cfloat): GC_MakeCircle {.constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(circ: Circ; dist: float): GC_MakeCircle {.constructor,
+proc constructGC_MakeCircle*(circ: Circ; dist: cfloat): GC_MakeCircle {.constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc constructGC_MakeCircle*(circ: Circ; point: Pnt): GC_MakeCircle {.constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc constructGC_MakeCircle*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeCircle {.constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(center: Pnt; norm: Dir; radius: float): GC_MakeCircle {.
+proc constructGC_MakeCircle*(center: Pnt; norm: Dir; radius: cfloat): GC_MakeCircle {.
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(center: Pnt; ptAxis: Pnt; radius: float): GC_MakeCircle {.
+proc constructGC_MakeCircle*(center: Pnt; ptAxis: Pnt; radius: cfloat): GC_MakeCircle {.
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(axis: Ax1; radius: float): GC_MakeCircle {.constructor,
+proc constructGC_MakeCircle*(axis: Ax1; radius: cfloat): GC_MakeCircle {.constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc value*(this: GC_MakeCircle): Handle[GeomCircle] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeCircle.hxx".}
 converter `constopencascade`*(this: GC_MakeCircle): Handle[GeomCircle] {.
     noSideEffect, importcpp: "GC_MakeCircle::operator constopencascade",
     header: "GC_MakeCircle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,3 +32,28 @@ proc face*(this: var BRepClassEdge): var TopoDS_Face {.importcpp: "Face",
     header: "BRepClass_Edge.hxx".}
 proc face*(this: BRepClassEdge): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "BRepClass_Edge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

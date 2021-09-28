@@ -18,3 +18,28 @@ type
   InterfaceArray1OfHAsciiString* = NCollectionArray1[
       Handle[TCollectionHAsciiString]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of Geom_Plane"
 discard "forward decl of PrsDim_FixRelation"
 type
-  HandlePrsDimFixRelation* = Handle[PrsDimFixRelation]
+  HandleC1C1* = Handle[PrsDimFixRelation]
 
 ## ! Constructs and manages a constraint by a fixed
 ## ! relation between two or more interactive datums. This
@@ -72,14 +72,14 @@ proc constructPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane]
     header: "PrsDim_FixRelation.hxx".}
 proc constructPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane];
                                 aWire: TopoDS_Wire; aPosition: Pnt;
-                                anArrowSize: float = 0.01): PrsDimFixRelation {.
+                                anArrowSize: cfloat = 0.01): PrsDimFixRelation {.
     constructor, importcpp: "PrsDim_FixRelation(@)",
     header: "PrsDim_FixRelation.hxx".}
 proc constructPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane]): PrsDimFixRelation {.
     constructor, importcpp: "PrsDim_FixRelation(@)",
     header: "PrsDim_FixRelation.hxx".}
 proc constructPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane];
-                                aPosition: Pnt; anArrowSize: float = 0.01): PrsDimFixRelation {.
+                                aPosition: Pnt; anArrowSize: cfloat = 0.01): PrsDimFixRelation {.
     constructor, importcpp: "PrsDim_FixRelation(@)",
     header: "PrsDim_FixRelation.hxx".}
 proc wire*(this: var PrsDimFixRelation): TopoDS_Wire {.importcpp: "Wire",
@@ -88,3 +88,28 @@ proc setWire*(this: var PrsDimFixRelation; aWire: TopoDS_Wire) {.importcpp: "Set
     header: "PrsDim_FixRelation.hxx".}
 proc isMovable*(this: PrsDimFixRelation): bool {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_FixRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

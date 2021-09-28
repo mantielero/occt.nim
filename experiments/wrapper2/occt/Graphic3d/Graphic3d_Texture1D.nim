@@ -19,7 +19,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture1D"
 discard "forward decl of Graphic3d_Texture1D"
 type
-  HandleGraphic3dTexture1D* = Handle[Graphic3dTexture1D]
+  HandleC1C1* = Handle[Graphic3dTexture1D]
 
 ## ! This is an abstract class for managing 1D textures.
 
@@ -50,9 +50,9 @@ type
 
 proc name*(this: Graphic3dTexture1D): Graphic3dNameOfTexture1D {.noSideEffect,
     importcpp: "Name", header: "Graphic3d_Texture1D.hxx".}
-proc numberOfTextures*(): int {.importcpp: "Graphic3d_Texture1D::NumberOfTextures(@)",
-                             header: "Graphic3d_Texture1D.hxx".}
-proc textureName*(aRank: int): TCollectionAsciiString {.
+proc numberOfTextures*(): cint {.importcpp: "Graphic3d_Texture1D::NumberOfTextures(@)",
+                              header: "Graphic3d_Texture1D.hxx".}
+proc textureName*(aRank: cint): TCollectionAsciiString {.
     importcpp: "Graphic3d_Texture1D::TextureName(@)",
     header: "Graphic3d_Texture1D.hxx".}
 type
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Graphic3d_Texture1D.hxx".}
 proc dynamicType*(this: Graphic3dTexture1D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_Texture1D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

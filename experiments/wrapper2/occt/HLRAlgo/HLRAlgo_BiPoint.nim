@@ -20,16 +20,16 @@ type
 
   HLRAlgoBiPointIndicesT* {.importcpp: "HLRAlgo_BiPoint::IndicesT",
                            header: "HLRAlgo_BiPoint.hxx", bycopy.} = object
-    shapeIndex* {.importc: "ShapeIndex".}: int
-    faceConex1* {.importc: "FaceConex1".}: int
-    face1Pt1* {.importc: "Face1Pt1".}: int
-    face1Pt2* {.importc: "Face1Pt2".}: int
-    faceConex2* {.importc: "FaceConex2".}: int
-    face2Pt1* {.importc: "Face2Pt1".}: int
-    face2Pt2* {.importc: "Face2Pt2".}: int
-    minSeg* {.importc: "MinSeg".}: int
-    maxSeg* {.importc: "MaxSeg".}: int
-    segFlags* {.importc: "SegFlags".}: int
+    shapeIndex* {.importc: "ShapeIndex".}: cint
+    faceConex1* {.importc: "FaceConex1".}: cint
+    face1Pt1* {.importc: "Face1Pt1".}: cint
+    face1Pt2* {.importc: "Face1Pt2".}: cint
+    faceConex2* {.importc: "FaceConex2".}: cint
+    face2Pt1* {.importc: "Face2Pt1".}: cint
+    face2Pt2* {.importc: "Face2Pt2".}: cint
+    minSeg* {.importc: "MinSeg".}: cint
+    maxSeg* {.importc: "MaxSeg".}: cint
+    segFlags* {.importc: "SegFlags".}: cint
 
 
 proc constructHLRAlgoBiPointIndicesT*(): HLRAlgoBiPointIndicesT {.constructor,
@@ -49,36 +49,39 @@ proc pntP22D*(this: HLRAlgoBiPointPointsT): Xy {.noSideEffect, importcpp: "PntP2
     header: "HLRAlgo_BiPoint.hxx".}
 proc constructHLRAlgoBiPoint*(): HLRAlgoBiPoint {.constructor,
     importcpp: "HLRAlgo_BiPoint(@)", header: "HLRAlgo_BiPoint.hxx".}
-proc constructHLRAlgoBiPoint*(x1: float; y1: float; z1: float; x2: float; y2: float;
-                             z2: float; xt1: float; yt1: float; zt1: float; xt2: float;
-                             yt2: float; zt2: float; index: int; reg1: bool; regn: bool;
+proc constructHLRAlgoBiPoint*(x1: cfloat; y1: cfloat; z1: cfloat; x2: cfloat; y2: cfloat;
+                             z2: cfloat; xt1: cfloat; yt1: cfloat; zt1: cfloat;
+                             xt2: cfloat; yt2: cfloat; zt2: cfloat; index: cint;
+                             reg1: bool; regn: bool; outl: bool; intl: bool): HLRAlgoBiPoint {.
+    constructor, importcpp: "HLRAlgo_BiPoint(@)", header: "HLRAlgo_BiPoint.hxx".}
+proc constructHLRAlgoBiPoint*(x1: cfloat; y1: cfloat; z1: cfloat; x2: cfloat; y2: cfloat;
+                             z2: cfloat; xt1: cfloat; yt1: cfloat; zt1: cfloat;
+                             xt2: cfloat; yt2: cfloat; zt2: cfloat; index: cint;
+                             flag: cint): HLRAlgoBiPoint {.constructor,
+    importcpp: "HLRAlgo_BiPoint(@)", header: "HLRAlgo_BiPoint.hxx".}
+proc constructHLRAlgoBiPoint*(x1: cfloat; y1: cfloat; z1: cfloat; x2: cfloat; y2: cfloat;
+                             z2: cfloat; xt1: cfloat; yt1: cfloat; zt1: cfloat;
+                             xt2: cfloat; yt2: cfloat; zt2: cfloat; index: cint;
+                             i1: cint; i1p1: cint; i1p2: cint; reg1: bool; regn: bool;
                              outl: bool; intl: bool): HLRAlgoBiPoint {.constructor,
     importcpp: "HLRAlgo_BiPoint(@)", header: "HLRAlgo_BiPoint.hxx".}
-proc constructHLRAlgoBiPoint*(x1: float; y1: float; z1: float; x2: float; y2: float;
-                             z2: float; xt1: float; yt1: float; zt1: float; xt2: float;
-                             yt2: float; zt2: float; index: int; flag: int): HLRAlgoBiPoint {.
+proc constructHLRAlgoBiPoint*(x1: cfloat; y1: cfloat; z1: cfloat; x2: cfloat; y2: cfloat;
+                             z2: cfloat; xt1: cfloat; yt1: cfloat; zt1: cfloat;
+                             xt2: cfloat; yt2: cfloat; zt2: cfloat; index: cint;
+                             i1: cint; i1p1: cint; i1p2: cint; flag: cint): HLRAlgoBiPoint {.
     constructor, importcpp: "HLRAlgo_BiPoint(@)", header: "HLRAlgo_BiPoint.hxx".}
-proc constructHLRAlgoBiPoint*(x1: float; y1: float; z1: float; x2: float; y2: float;
-                             z2: float; xt1: float; yt1: float; zt1: float; xt2: float;
-                             yt2: float; zt2: float; index: int; i1: int; i1p1: int;
-                             i1p2: int; reg1: bool; regn: bool; outl: bool; intl: bool): HLRAlgoBiPoint {.
+proc constructHLRAlgoBiPoint*(x1: cfloat; y1: cfloat; z1: cfloat; x2: cfloat; y2: cfloat;
+                             z2: cfloat; xt1: cfloat; yt1: cfloat; zt1: cfloat;
+                             xt2: cfloat; yt2: cfloat; zt2: cfloat; index: cint;
+                             i1: cint; i1p1: cint; i1p2: cint; i2: cint; i2p1: cint;
+                             i2p2: cint; reg1: bool; regn: bool; outl: bool; intl: bool): HLRAlgoBiPoint {.
     constructor, importcpp: "HLRAlgo_BiPoint(@)", header: "HLRAlgo_BiPoint.hxx".}
-proc constructHLRAlgoBiPoint*(x1: float; y1: float; z1: float; x2: float; y2: float;
-                             z2: float; xt1: float; yt1: float; zt1: float; xt2: float;
-                             yt2: float; zt2: float; index: int; i1: int; i1p1: int;
-                             i1p2: int; flag: int): HLRAlgoBiPoint {.constructor,
+proc constructHLRAlgoBiPoint*(x1: cfloat; y1: cfloat; z1: cfloat; x2: cfloat; y2: cfloat;
+                             z2: cfloat; xt1: cfloat; yt1: cfloat; zt1: cfloat;
+                             xt2: cfloat; yt2: cfloat; zt2: cfloat; index: cint;
+                             i1: cint; i1p1: cint; i1p2: cint; i2: cint; i2p1: cint;
+                             i2p2: cint; flag: cint): HLRAlgoBiPoint {.constructor,
     importcpp: "HLRAlgo_BiPoint(@)", header: "HLRAlgo_BiPoint.hxx".}
-proc constructHLRAlgoBiPoint*(x1: float; y1: float; z1: float; x2: float; y2: float;
-                             z2: float; xt1: float; yt1: float; zt1: float; xt2: float;
-                             yt2: float; zt2: float; index: int; i1: int; i1p1: int;
-                             i1p2: int; i2: int; i2p1: int; i2p2: int; reg1: bool;
-                             regn: bool; outl: bool; intl: bool): HLRAlgoBiPoint {.
-    constructor, importcpp: "HLRAlgo_BiPoint(@)", header: "HLRAlgo_BiPoint.hxx".}
-proc constructHLRAlgoBiPoint*(x1: float; y1: float; z1: float; x2: float; y2: float;
-                             z2: float; xt1: float; yt1: float; zt1: float; xt2: float;
-                             yt2: float; zt2: float; index: int; i1: int; i1p1: int;
-                             i1p2: int; i2: int; i2p1: int; i2p2: int; flag: int): HLRAlgoBiPoint {.
-    constructor, importcpp: "HLRAlgo_BiPoint(@)", header: "HLRAlgo_BiPoint.hxx".}
 proc rg1Line*(this: HLRAlgoBiPoint): bool {.noSideEffect, importcpp: "Rg1Line",
                                         header: "HLRAlgo_BiPoint.hxx".}
 proc rg1Line*(this: var HLRAlgoBiPoint; b: bool) {.importcpp: "Rg1Line",
@@ -103,3 +106,28 @@ proc indices*(this: var HLRAlgoBiPoint): var HLRAlgoBiPointIndicesT {.
     importcpp: "Indices", header: "HLRAlgo_BiPoint.hxx".}
 proc points*(this: var HLRAlgoBiPoint): var HLRAlgoBiPointPointsT {.
     importcpp: "Points", header: "HLRAlgo_BiPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

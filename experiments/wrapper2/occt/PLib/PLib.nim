@@ -47,35 +47,36 @@ proc getPoles*(fp: TColStdArray1OfReal; poles: var TColgpArray1OfPnt2d) {.
 proc getPoles*(fp: TColStdArray1OfReal; poles: var TColgpArray1OfPnt2d;
               weights: var TColStdArray1OfReal) {.importcpp: "PLib::GetPoles(@)",
     header: "PLib.hxx".}
-proc bin*(n: int; p: int): float {.importcpp: "PLib::Bin(@)", header: "PLib.hxx".}
-proc rationalDerivative*(degree: int; n: int; dimension: int; ders: var float;
-                        rDers: var float; all: bool = true) {.
+proc bin*(n: cint; p: cint): cfloat {.importcpp: "PLib::Bin(@)", header: "PLib.hxx".}
+proc rationalDerivative*(degree: cint; n: cint; dimension: cint; ders: var cfloat;
+                        rDers: var cfloat; all: bool = true) {.
     importcpp: "PLib::RationalDerivative(@)", header: "PLib.hxx".}
-proc rationalDerivatives*(derivativesRequest: int; dimension: int;
-                         polesDerivatives: var float;
-                         weightsDerivatives: var float;
-                         rationalDerivates: var float) {.
+proc rationalDerivatives*(derivativesRequest: cint; dimension: cint;
+                         polesDerivatives: var cfloat;
+                         weightsDerivatives: var cfloat;
+                         rationalDerivates: var cfloat) {.
     importcpp: "PLib::RationalDerivatives(@)", header: "PLib.hxx".}
-proc evalPolynomial*(u: float; derivativeOrder: int; degree: int; dimension: int;
-                    polynomialCoeff: var float; results: var float) {.
+proc evalPolynomial*(u: cfloat; derivativeOrder: cint; degree: cint; dimension: cint;
+                    polynomialCoeff: var cfloat; results: var cfloat) {.
     importcpp: "PLib::EvalPolynomial(@)", header: "PLib.hxx".}
-proc noDerivativeEvalPolynomial*(u: float; degree: int; dimension: int;
-                                degreeDimension: int; polynomialCoeff: var float;
-                                results: var float) {.
+proc noDerivativeEvalPolynomial*(u: cfloat; degree: cint; dimension: cint;
+                                degreeDimension: cint;
+                                polynomialCoeff: var cfloat; results: var cfloat) {.
     importcpp: "PLib::NoDerivativeEvalPolynomial(@)", header: "PLib.hxx".}
-proc evalPoly2Var*(u: float; v: float; uDerivativeOrder: int; vDerivativeOrder: int;
-                  uDegree: int; vDegree: int; dimension: int;
-                  polynomialCoeff: var float; results: var float) {.
+proc evalPoly2Var*(u: cfloat; v: cfloat; uDerivativeOrder: cint;
+                  vDerivativeOrder: cint; uDegree: cint; vDegree: cint;
+                  dimension: cint; polynomialCoeff: var cfloat; results: var cfloat) {.
     importcpp: "PLib::EvalPoly2Var(@)", header: "PLib.hxx".}
-proc evalLagrange*(u: float; derivativeOrder: int; degree: int; dimension: int;
-                  valueArray: var float; parameterArray: var float; results: var float): int {.
-    importcpp: "PLib::EvalLagrange(@)", header: "PLib.hxx".}
-proc evalCubicHermite*(u: float; derivativeOrder: int; dimension: int;
-                      valueArray: var float; derivativeArray: var float;
-                      parameterArray: var float; results: var float): int {.
+proc evalLagrange*(u: cfloat; derivativeOrder: cint; degree: cint; dimension: cint;
+                  valueArray: var cfloat; parameterArray: var cfloat;
+                  results: var cfloat): cint {.importcpp: "PLib::EvalLagrange(@)",
+    header: "PLib.hxx".}
+proc evalCubicHermite*(u: cfloat; derivativeOrder: cint; dimension: cint;
+                      valueArray: var cfloat; derivativeArray: var cfloat;
+                      parameterArray: var cfloat; results: var cfloat): cint {.
     importcpp: "PLib::EvalCubicHermite(@)", header: "PLib.hxx".}
-proc hermiteCoefficients*(firstParameter: float; lastParameter: float;
-                         firstOrder: int; lastOrder: int;
+proc hermiteCoefficients*(firstParameter: cfloat; lastParameter: cfloat;
+                         firstOrder: cint; lastOrder: cint;
                          matrixCoefs: var MathMatrix): bool {.
     importcpp: "PLib::HermiteCoefficients(@)", header: "PLib.hxx".}
 proc coefficientsPoles*(coefs: TColgpArray1OfPnt; wCoefs: ptr TColStdArray1OfReal;
@@ -92,49 +93,74 @@ proc coefficientsPoles*(coefs: TColStdArray1OfReal;
                        poles: var TColStdArray1OfReal;
                        wPoles: ptr TColStdArray1OfReal) {.
     importcpp: "PLib::CoefficientsPoles(@)", header: "PLib.hxx".}
-proc coefficientsPoles*(dim: int; coefs: TColStdArray1OfReal;
+proc coefficientsPoles*(dim: cint; coefs: TColStdArray1OfReal;
                        wCoefs: ptr TColStdArray1OfReal;
                        poles: var TColStdArray1OfReal;
                        wPoles: ptr TColStdArray1OfReal) {.
     importcpp: "PLib::CoefficientsPoles(@)", header: "PLib.hxx".}
-proc trimming*(u1: float; u2: float; coeffs: var TColgpArray1OfPnt;
+proc trimming*(u1: cfloat; u2: cfloat; coeffs: var TColgpArray1OfPnt;
               wCoeffs: ptr TColStdArray1OfReal) {.importcpp: "PLib::Trimming(@)",
     header: "PLib.hxx".}
-proc trimming*(u1: float; u2: float; coeffs: var TColgpArray1OfPnt2d;
+proc trimming*(u1: cfloat; u2: cfloat; coeffs: var TColgpArray1OfPnt2d;
               wCoeffs: ptr TColStdArray1OfReal) {.importcpp: "PLib::Trimming(@)",
     header: "PLib.hxx".}
-proc trimming*(u1: float; u2: float; coeffs: var TColStdArray1OfReal;
+proc trimming*(u1: cfloat; u2: cfloat; coeffs: var TColStdArray1OfReal;
               wCoeffs: ptr TColStdArray1OfReal) {.importcpp: "PLib::Trimming(@)",
     header: "PLib.hxx".}
-proc trimming*(u1: float; u2: float; dim: int; coeffs: var TColStdArray1OfReal;
+proc trimming*(u1: cfloat; u2: cfloat; dim: cint; coeffs: var TColStdArray1OfReal;
               wCoeffs: ptr TColStdArray1OfReal) {.importcpp: "PLib::Trimming(@)",
     header: "PLib.hxx".}
 proc coefficientsPoles*(coefs: TColgpArray2OfPnt; wCoefs: ptr TColStdArray2OfReal;
                        poles: var TColgpArray2OfPnt;
                        wPoles: ptr TColStdArray2OfReal) {.
     importcpp: "PLib::CoefficientsPoles(@)", header: "PLib.hxx".}
-proc uTrimming*(u1: float; u2: float; coeffs: var TColgpArray2OfPnt;
+proc uTrimming*(u1: cfloat; u2: cfloat; coeffs: var TColgpArray2OfPnt;
                wCoeffs: ptr TColStdArray2OfReal) {.importcpp: "PLib::UTrimming(@)",
     header: "PLib.hxx".}
-proc vTrimming*(v1: float; v2: float; coeffs: var TColgpArray2OfPnt;
+proc vTrimming*(v1: cfloat; v2: cfloat; coeffs: var TColgpArray2OfPnt;
                wCoeffs: ptr TColStdArray2OfReal) {.importcpp: "PLib::VTrimming(@)",
     header: "PLib.hxx".}
-proc hermiteInterpolate*(dimension: int; firstParameter: float; lastParameter: float;
-                        firstOrder: int; lastOrder: int;
+proc hermiteInterpolate*(dimension: cint; firstParameter: cfloat;
+                        lastParameter: cfloat; firstOrder: cint; lastOrder: cint;
                         firstConstr: TColStdArray2OfReal;
                         lastConstr: TColStdArray2OfReal;
                         coefficients: var TColStdArray1OfReal): bool {.
     importcpp: "PLib::HermiteInterpolate(@)", header: "PLib.hxx".}
-proc jacobiParameters*(constraintOrder: GeomAbsShape; maxDegree: int; code: int;
-                      nbGaussPoints: var int; workDegree: var int) {.
+proc jacobiParameters*(constraintOrder: GeomAbsShape; maxDegree: cint; code: cint;
+                      nbGaussPoints: var cint; workDegree: var cint) {.
     importcpp: "PLib::JacobiParameters(@)", header: "PLib.hxx".}
-proc nivConstr*(constraintOrder: GeomAbsShape): int {.
+proc nivConstr*(constraintOrder: GeomAbsShape): cint {.
     importcpp: "PLib::NivConstr(@)", header: "PLib.hxx".}
-proc constraintOrder*(nivConstr: int): GeomAbsShape {.
+proc constraintOrder*(nivConstr: cint): GeomAbsShape {.
     importcpp: "PLib::ConstraintOrder(@)", header: "PLib.hxx".}
-proc evalLength*(degree: int; dimension: int; polynomialCoeff: var float; u1: float;
-                u2: float; length: var float) {.importcpp: "PLib::EvalLength(@)",
+proc evalLength*(degree: cint; dimension: cint; polynomialCoeff: var cfloat; u1: cfloat;
+                u2: cfloat; length: var cfloat) {.importcpp: "PLib::EvalLength(@)",
     header: "PLib.hxx".}
-proc evalLength*(degree: int; dimension: int; polynomialCoeff: var float; u1: float;
-                u2: float; tol: float; length: var float; error: var float) {.
+proc evalLength*(degree: cint; dimension: cint; polynomialCoeff: var cfloat; u1: cfloat;
+                u2: cfloat; tol: cfloat; length: var cfloat; error: var cfloat) {.
     importcpp: "PLib::EvalLength(@)", header: "PLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

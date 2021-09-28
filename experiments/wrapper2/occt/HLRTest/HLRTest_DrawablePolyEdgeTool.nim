@@ -19,7 +19,7 @@ discard "forward decl of Draw_Display"
 discard "forward decl of HLRTest_DrawablePolyEdgeTool"
 discard "forward decl of HLRTest_DrawablePolyEdgeTool"
 type
-  HandleHLRTestDrawablePolyEdgeTool* = Handle[HLRTestDrawablePolyEdgeTool]
+  HandleC1C1* = Handle[HLRTestDrawablePolyEdgeTool]
 
 ## ! Used to display the results.
 
@@ -29,7 +29,7 @@ type
 
 
 proc constructHLRTestDrawablePolyEdgeTool*(alg: Handle[HLRBRepPolyAlgo];
-    viewId: int; debug: bool = false): HLRTestDrawablePolyEdgeTool {.constructor,
+    viewId: cint; debug: bool = false): HLRTestDrawablePolyEdgeTool {.constructor,
     importcpp: "HLRTest_DrawablePolyEdgeTool(@)",
     header: "HLRTest_DrawablePolyEdgeTool.hxx".}
 proc show*(this: var HLRTestDrawablePolyEdgeTool) {.importcpp: "Show",
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: HLRTestDrawablePolyEdgeTool): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "HLRTest_DrawablePolyEdgeTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,8 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_DimensionalSizeWithPath"
 discard "forward decl of StepShape_DimensionalSizeWithPath"
 type
-  HandleStepShapeDimensionalSizeWithPath* = Handle[
-      StepShapeDimensionalSizeWithPath]
+  HandleC1C1* = Handle[StepShapeDimensionalSizeWithPath]
 
 ## ! Representation of STEP entity DimensionalSizeWithPath
 
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeDimensionalSizeWithPath): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_DimensionalSizeWithPath.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

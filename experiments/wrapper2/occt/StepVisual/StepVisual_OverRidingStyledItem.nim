@@ -20,7 +20,7 @@ discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepVisual_OverRidingStyledItem"
 discard "forward decl of StepVisual_OverRidingStyledItem"
 type
-  HandleStepVisualOverRidingStyledItem* = Handle[StepVisualOverRidingStyledItem]
+  HandleC1C1* = Handle[StepVisualOverRidingStyledItem]
   StepVisualOverRidingStyledItem* {.importcpp: "StepVisual_OverRidingStyledItem", header: "StepVisual_OverRidingStyledItem.hxx",
                                    bycopy.} = object of StepVisualStyledItem ## ! Returns a
                                                                         ## OverRidingStyledItem
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualOverRidingStyledItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_OverRidingStyledItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

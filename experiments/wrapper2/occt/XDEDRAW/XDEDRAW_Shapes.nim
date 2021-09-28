@@ -21,3 +21,28 @@ type
 
 proc initCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "XDEDRAW_Shapes::InitCommands(@)", header: "XDEDRAW_Shapes.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

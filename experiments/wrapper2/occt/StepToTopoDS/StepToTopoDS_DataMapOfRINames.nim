@@ -20,3 +20,28 @@ type
   StepToTopoDS_DataMapIteratorOfDataMapOfRINames* = Iterator[
       TCollectionAsciiString, TopoDS_Shape, TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

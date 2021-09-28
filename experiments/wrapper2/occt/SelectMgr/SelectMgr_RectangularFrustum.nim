@@ -42,7 +42,7 @@ proc build*(this: var SelectMgrRectangularFrustum; thePoint: Pnt2d) {.
     importcpp: "Build", header: "SelectMgr_RectangularFrustum.hxx".}
 proc build*(this: var SelectMgrRectangularFrustum; theMinPnt: Pnt2d; theMaxPnt: Pnt2d) {.
     importcpp: "Build", header: "SelectMgr_RectangularFrustum.hxx".}
-proc scaleAndTransform*(this: SelectMgrRectangularFrustum; theScaleFactor: int;
+proc scaleAndTransform*(this: SelectMgrRectangularFrustum; theScaleFactor: cint;
                        theTrsf: GTrsf): Handle[SelectMgrBaseFrustum] {.
     noSideEffect, importcpp: "ScaleAndTransform",
     header: "SelectMgr_RectangularFrustum.hxx".}
@@ -74,10 +74,10 @@ proc overlaps*(this: SelectMgrRectangularFrustum; thePnt1: Pnt; thePnt2: Pnt;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
     importcpp: "Overlaps", header: "SelectMgr_RectangularFrustum.hxx".}
-proc distToGeometryCenter*(this: SelectMgrRectangularFrustum; theCOG: Pnt): float {.
+proc distToGeometryCenter*(this: SelectMgrRectangularFrustum; theCOG: Pnt): cfloat {.
     noSideEffect, importcpp: "DistToGeometryCenter",
     header: "SelectMgr_RectangularFrustum.hxx".}
-proc detectedPoint*(this: SelectMgrRectangularFrustum; theDepth: float): Pnt {.
+proc detectedPoint*(this: SelectMgrRectangularFrustum; theDepth: cfloat): Pnt {.
     noSideEffect, importcpp: "DetectedPoint",
     header: "SelectMgr_RectangularFrustum.hxx".}
 proc getVertices*(this: SelectMgrRectangularFrustum): ptr Pnt {.noSideEffect,
@@ -95,5 +95,30 @@ proc getPlanes*(this: SelectMgrRectangularFrustum;
     noSideEffect, importcpp: "GetPlanes",
     header: "SelectMgr_RectangularFrustum.hxx".}
 proc dumpJson*(this: SelectMgrRectangularFrustum; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "SelectMgr_RectangularFrustum.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "SelectMgr_RectangularFrustum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

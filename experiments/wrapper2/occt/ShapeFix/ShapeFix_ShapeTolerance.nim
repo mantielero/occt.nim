@@ -22,10 +22,35 @@ type
 
 proc constructShapeFixShapeTolerance*(): ShapeFixShapeTolerance {.constructor,
     importcpp: "ShapeFix_ShapeTolerance(@)", header: "ShapeFix_ShapeTolerance.hxx".}
-proc limitTolerance*(this: ShapeFixShapeTolerance; shape: TopoDS_Shape; tmin: float;
-                    tmax: float = 0.0; styp: TopAbsShapeEnum = topAbsSHAPE): bool {.
+proc limitTolerance*(this: ShapeFixShapeTolerance; shape: TopoDS_Shape; tmin: cfloat;
+                    tmax: cfloat = 0.0; styp: TopAbsShapeEnum = topAbsSHAPE): bool {.
     noSideEffect, importcpp: "LimitTolerance",
     header: "ShapeFix_ShapeTolerance.hxx".}
-proc setTolerance*(this: ShapeFixShapeTolerance; shape: TopoDS_Shape; preci: float;
+proc setTolerance*(this: ShapeFixShapeTolerance; shape: TopoDS_Shape; preci: cfloat;
                   styp: TopAbsShapeEnum = topAbsSHAPE) {.noSideEffect,
     importcpp: "SetTolerance", header: "ShapeFix_ShapeTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

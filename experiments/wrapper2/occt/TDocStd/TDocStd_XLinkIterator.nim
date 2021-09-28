@@ -35,3 +35,28 @@ proc next*(this: var TDocStdXLinkIterator) {.importcpp: "Next",
     header: "TDocStd_XLinkIterator.hxx".}
 proc value*(this: TDocStdXLinkIterator): TDocStdXLinkPtr {.noSideEffect,
     importcpp: "Value", header: "TDocStd_XLinkIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,3 +38,28 @@ proc constructBRepAlgoAPI_Common*(s1: TopoDS_Shape; s2: TopoDS_Shape;
                                  pf: BOPAlgoPaveFiller): BRepAlgoAPI_Common {.
     constructor, importcpp: "BRepAlgoAPI_Common(@)",
     header: "BRepAlgoAPI_Common.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

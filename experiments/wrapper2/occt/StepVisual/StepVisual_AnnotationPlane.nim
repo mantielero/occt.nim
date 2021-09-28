@@ -16,7 +16,7 @@
 discard "forward decl of StepVisual_AnnotationPlane"
 discard "forward decl of StepVisual_AnnotationPlane"
 type
-  HandleStepVisualAnnotationPlane* = Handle[StepVisualAnnotationPlane]
+  HandleC1C1* = Handle[StepVisualAnnotationPlane]
   StepVisualAnnotationPlane* {.importcpp: "StepVisual_AnnotationPlane",
                               header: "StepVisual_AnnotationPlane.hxx", bycopy.} = object of StepVisualAnnotationOccurrence ##
                                                                                                                      ## !
@@ -40,12 +40,12 @@ proc elements*(this: StepVisualAnnotationPlane): Handle[
 proc setElements*(this: var StepVisualAnnotationPlane;
                  theElements: Handle[StepVisualHArray1OfAnnotationPlaneElement]) {.
     importcpp: "SetElements", header: "StepVisual_AnnotationPlane.hxx".}
-proc nbElements*(this: StepVisualAnnotationPlane): int {.noSideEffect,
+proc nbElements*(this: StepVisualAnnotationPlane): cint {.noSideEffect,
     importcpp: "NbElements", header: "StepVisual_AnnotationPlane.hxx".}
-proc elementsValue*(this: StepVisualAnnotationPlane; theNum: int): StepVisualAnnotationPlaneElement {.
+proc elementsValue*(this: StepVisualAnnotationPlane; theNum: cint): StepVisualAnnotationPlaneElement {.
     noSideEffect, importcpp: "ElementsValue",
     header: "StepVisual_AnnotationPlane.hxx".}
-proc setElementsValue*(this: var StepVisualAnnotationPlane; theNum: int;
+proc setElementsValue*(this: var StepVisualAnnotationPlane; theNum: cint;
                       theItem: StepVisualAnnotationPlaneElement) {.
     importcpp: "SetElementsValue", header: "StepVisual_AnnotationPlane.hxx".}
 type
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualAnnotationPlane): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_AnnotationPlane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

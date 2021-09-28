@@ -66,9 +66,34 @@ type
 
 proc isEmpty*(this: TCollectionBaseSequence): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "TCollection_BaseSequence.hxx".}
-proc length*(this: TCollectionBaseSequence): int {.noSideEffect, importcpp: "Length",
-    header: "TCollection_BaseSequence.hxx".}
+proc length*(this: TCollectionBaseSequence): cint {.noSideEffect,
+    importcpp: "Length", header: "TCollection_BaseSequence.hxx".}
 proc reverse*(this: var TCollectionBaseSequence) {.importcpp: "Reverse",
     header: "TCollection_BaseSequence.hxx".}
-proc exchange*(this: var TCollectionBaseSequence; i: int; j: int) {.
+proc exchange*(this: var TCollectionBaseSequence; i: cint; j: cint) {.
     importcpp: "Exchange", header: "TCollection_BaseSequence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

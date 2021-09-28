@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  QANCollectionDoubleMapOfRealInteger* = NCollectionDoubleMap[float, int,
+  QANCollectionDoubleMapOfRealInteger* = NCollectionDoubleMap[cfloat, cint,
       TColStdMapRealHasher, TColStdMapIntegerHasher]
-  QANCollectionDoubleMapIteratorOfDoubleMapOfRealInteger* = Iterator[float, int,
+  QANCollectionDoubleMapIteratorOfDoubleMapOfRealInteger* = Iterator[cfloat, cint,
       TColStdMapRealHasher, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -42,59 +42,21 @@ discard "forward decl of Geom2dGcc_FunctionTanCuCu"
 discard "forward decl of Geom2dGcc_FunctionTanCuPnt"
 discard "forward decl of Geom2dGcc_FunctionTanCirCu"
 type
-  Geom2dGcc* {.importcpp: "Geom2dGcc", header: "Geom2dGcc.hxx", bycopy.} = object ## !
-                                                                          ## Constructs such a
-                                                                          ## qualified curve that the
-                                                                          ## relative
-                                                                          ## !
-                                                                          ## position of the
-                                                                          ## solution
-                                                                          ## computed by a
-                                                                          ## construction
-                                                                          ## !
-                                                                          ## algorithm using the
-                                                                          ## qualified curve to the circle or line is
-                                                                          ## ! not
-                                                                          ## qualified, i.e. all
-                                                                          ## solutions apply.
-                                                                          ## !
-                                                                          ## Warning
-                                                                          ## ! Obj is an
-                                                                          ## adapted curve, i.e. an object which is an
-                                                                          ## interface
-                                                                          ## between:
-                                                                          ## ! -   the
-                                                                          ## services
-                                                                          ## provided by a 2D curve from the
-                                                                          ## package
-                                                                          ## Geom2d,
-                                                                          ## ! -   and those
-                                                                          ## required on the curve by a
-                                                                          ## computation
-                                                                          ## algorithm.
-                                                                          ## ! The
-                                                                          ## adapted curve is
-                                                                          ## created in the
-                                                                          ## following way:
-                                                                          ## !
-                                                                          ## Handle(Geom2d_Curve)
-                                                                          ## mycurve = ...
-                                                                          ## ! ;
-                                                                          ## !
-                                                                          ## Geom2dAdaptor_Curve Obj (
-                                                                          ## mycurve )
-                                                                          ## ! ;
-                                                                          ## ! The
-                                                                          ## qualified curve is then
-                                                                          ## constructed with this
-                                                                          ## object:
-                                                                          ## !
-                                                                          ## Geom2dGcc_QualifiedCurve
-                                                                          ## !
-                                                                          ## myQCurve =
-                                                                          ## Geom2dGcc::Unqualified(Obj);
+  Geom2dGcc* {.importcpp: "Geom2dGcc", header: "Geom2dGcc.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dGcc; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc::operator new", header: "Geom2dGcc.hxx".}
+proc `delete`*(this: var Geom2dGcc; theAddress: pointer) {.
+    importcpp: "Geom2dGcc::operator delete", header: "Geom2dGcc.hxx".}
+proc `new[]`*(this: var Geom2dGcc; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc::operator new[]", header: "Geom2dGcc.hxx".}
+proc `delete[]`*(this: var Geom2dGcc; theAddress: pointer) {.
+    importcpp: "Geom2dGcc::operator delete[]", header: "Geom2dGcc.hxx".}
+proc `new`*(this: var Geom2dGcc; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dGcc::operator new", header: "Geom2dGcc.hxx".}
+proc `delete`*(this: var Geom2dGcc; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dGcc::operator delete", header: "Geom2dGcc.hxx".}
 proc unqualified*(obj: Geom2dAdaptorCurve): Geom2dGccQualifiedCurve {.
     importcpp: "Geom2dGcc::Unqualified(@)", header: "Geom2dGcc.hxx".}
 proc enclosing*(obj: Geom2dAdaptorCurve): Geom2dGccQualifiedCurve {.

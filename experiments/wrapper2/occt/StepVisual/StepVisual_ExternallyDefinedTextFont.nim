@@ -16,8 +16,7 @@
 discard "forward decl of StepVisual_ExternallyDefinedTextFont"
 discard "forward decl of StepVisual_ExternallyDefinedTextFont"
 type
-  HandleStepVisualExternallyDefinedTextFont* = Handle[
-      StepVisualExternallyDefinedTextFont]
+  HandleC1C1* = Handle[StepVisualExternallyDefinedTextFont]
 
 ## ! Representation of STEP entity ExternallyDefinedTextFont
 
@@ -43,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualExternallyDefinedTextFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_ExternallyDefinedTextFont.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

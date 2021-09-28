@@ -34,9 +34,9 @@ proc copyReplaceVertices*(this: ShapeBuildEdge; edge: TopoDS_Edge; v1: TopoDS_Ve
                          v2: TopoDS_Vertex): TopoDS_Edge {.noSideEffect,
     importcpp: "CopyReplaceVertices", header: "ShapeBuild_Edge.hxx".}
 proc copyRanges*(this: ShapeBuildEdge; toedge: TopoDS_Edge; fromedge: TopoDS_Edge;
-                alpha: float = 0; beta: float = 1) {.noSideEffect,
+                alpha: cfloat = 0; beta: cfloat = 1) {.noSideEffect,
     importcpp: "CopyRanges", header: "ShapeBuild_Edge.hxx".}
-proc setRange3d*(this: ShapeBuildEdge; edge: TopoDS_Edge; first: float; last: float) {.
+proc setRange3d*(this: ShapeBuildEdge; edge: TopoDS_Edge; first: cfloat; last: cfloat) {.
     noSideEffect, importcpp: "SetRange3d", header: "ShapeBuild_Edge.hxx".}
 proc copyPCurves*(this: ShapeBuildEdge; toedge: TopoDS_Edge; fromedge: TopoDS_Edge) {.
     noSideEffect, importcpp: "CopyPCurves", header: "ShapeBuild_Edge.hxx".}
@@ -56,9 +56,9 @@ proc reassignPCurve*(this: ShapeBuildEdge; edge: TopoDS_Edge; old: TopoDS_Face;
                     sub: TopoDS_Face): bool {.noSideEffect,
     importcpp: "ReassignPCurve", header: "ShapeBuild_Edge.hxx".}
 proc transformPCurve*(this: ShapeBuildEdge; pcurve: Handle[Geom2dCurve];
-                     trans: Trsf2d; uFact: float; aFirst: var float; aLast: var float): Handle[
-    Geom2dCurve] {.noSideEffect, importcpp: "TransformPCurve",
-                  header: "ShapeBuild_Edge.hxx".}
+                     trans: Trsf2d; uFact: cfloat; aFirst: var cfloat;
+                     aLast: var cfloat): Handle[Geom2dCurve] {.noSideEffect,
+    importcpp: "TransformPCurve", header: "ShapeBuild_Edge.hxx".}
 proc removeCurve3d*(this: ShapeBuildEdge; edge: TopoDS_Edge) {.noSideEffect,
     importcpp: "RemoveCurve3d", header: "ShapeBuild_Edge.hxx".}
 proc buildCurve3d*(this: ShapeBuildEdge; edge: TopoDS_Edge): bool {.noSideEffect,
@@ -67,18 +67,43 @@ proc makeEdge*(this: ShapeBuildEdge; edge: var TopoDS_Edge; curve: Handle[GeomCu
               L: TopLocLocation) {.noSideEffect, importcpp: "MakeEdge",
                                  header: "ShapeBuild_Edge.hxx".}
 proc makeEdge*(this: ShapeBuildEdge; edge: var TopoDS_Edge; curve: Handle[GeomCurve];
-              L: TopLocLocation; p1: float; p2: float) {.noSideEffect,
+              L: TopLocLocation; p1: cfloat; p2: cfloat) {.noSideEffect,
     importcpp: "MakeEdge", header: "ShapeBuild_Edge.hxx".}
 proc makeEdge*(this: ShapeBuildEdge; edge: var TopoDS_Edge;
               pcurve: Handle[Geom2dCurve]; face: TopoDS_Face) {.noSideEffect,
     importcpp: "MakeEdge", header: "ShapeBuild_Edge.hxx".}
 proc makeEdge*(this: ShapeBuildEdge; edge: var TopoDS_Edge;
-              pcurve: Handle[Geom2dCurve]; face: TopoDS_Face; p1: float; p2: float) {.
+              pcurve: Handle[Geom2dCurve]; face: TopoDS_Face; p1: cfloat; p2: cfloat) {.
     noSideEffect, importcpp: "MakeEdge", header: "ShapeBuild_Edge.hxx".}
 proc makeEdge*(this: ShapeBuildEdge; edge: var TopoDS_Edge;
               pcurve: Handle[Geom2dCurve]; s: Handle[GeomSurface]; L: TopLocLocation) {.
     noSideEffect, importcpp: "MakeEdge", header: "ShapeBuild_Edge.hxx".}
 proc makeEdge*(this: ShapeBuildEdge; edge: var TopoDS_Edge;
               pcurve: Handle[Geom2dCurve]; s: Handle[GeomSurface];
-              L: TopLocLocation; p1: float; p2: float) {.noSideEffect,
+              L: TopLocLocation; p1: cfloat; p2: cfloat) {.noSideEffect,
     importcpp: "MakeEdge", header: "ShapeBuild_Edge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

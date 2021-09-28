@@ -18,3 +18,28 @@ discard "forward decl of V3d_View"
 type
   V3dViewPointer* = ptr V3dView
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

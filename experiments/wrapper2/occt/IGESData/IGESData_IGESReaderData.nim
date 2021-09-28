@@ -22,7 +22,7 @@ discard "forward decl of IGESData_IGESType"
 discard "forward decl of IGESData_IGESReaderData"
 discard "forward decl of IGESData_IGESReaderData"
 type
-  HandleIGESDataIGESReaderData* = Handle[IGESDataIGESReaderData]
+  HandleC1C1* = Handle[IGESDataIGESReaderData]
 
 ## ! specific FileReaderData for IGES
 ## ! contains header as GlobalSection, and for each Entity, its
@@ -63,7 +63,7 @@ type
                                                                                                         ## parameters
 
 
-proc constructIGESDataIGESReaderData*(nbe: int; nbp: int): IGESDataIGESReaderData {.
+proc constructIGESDataIGESReaderData*(nbe: cint; nbp: cint): IGESDataIGESReaderData {.
     constructor, importcpp: "IGESData_IGESReaderData(@)",
     header: "IGESData_IGESReaderData.hxx".}
 proc addStartLine*(this: var IGESDataIGESReaderData; aval: StandardCString) {.
@@ -78,34 +78,34 @@ proc setGlobalSection*(this: var IGESDataIGESReaderData) {.
     importcpp: "SetGlobalSection", header: "IGESData_IGESReaderData.hxx".}
 proc globalSection*(this: IGESDataIGESReaderData): IGESDataGlobalSection {.
     noSideEffect, importcpp: "GlobalSection", header: "IGESData_IGESReaderData.hxx".}
-proc setDirPart*(this: var IGESDataIGESReaderData; num: int; i1: int; i2: int; i3: int;
-                i4: int; i5: int; i6: int; i7: int; i8: int; i9: int; i10: int; i11: int;
-                i12: int; i13: int; i14: int; i15: int; i16: int; i17: int;
-                res1: StandardCString; res2: StandardCString;
+proc setDirPart*(this: var IGESDataIGESReaderData; num: cint; i1: cint; i2: cint;
+                i3: cint; i4: cint; i5: cint; i6: cint; i7: cint; i8: cint; i9: cint;
+                i10: cint; i11: cint; i12: cint; i13: cint; i14: cint; i15: cint; i16: cint;
+                i17: cint; res1: StandardCString; res2: StandardCString;
                 label: StandardCString; subs: StandardCString) {.
     importcpp: "SetDirPart", header: "IGESData_IGESReaderData.hxx".}
-proc dirPart*(this: IGESDataIGESReaderData; num: int): IGESDataDirPart {.noSideEffect,
-    importcpp: "DirPart", header: "IGESData_IGESReaderData.hxx".}
-proc dirValues*(this: IGESDataIGESReaderData; num: int; i1: var int; i2: var int;
-               i3: var int; i4: var int; i5: var int; i6: var int; i7: var int; i8: var int;
-               i9: var int; i10: var int; i11: var int; i12: var int; i13: var int;
-               i14: var int; i15: var int; i16: var int; i17: var int;
+proc dirPart*(this: IGESDataIGESReaderData; num: cint): IGESDataDirPart {.
+    noSideEffect, importcpp: "DirPart", header: "IGESData_IGESReaderData.hxx".}
+proc dirValues*(this: IGESDataIGESReaderData; num: cint; i1: var cint; i2: var cint;
+               i3: var cint; i4: var cint; i5: var cint; i6: var cint; i7: var cint;
+               i8: var cint; i9: var cint; i10: var cint; i11: var cint; i12: var cint;
+               i13: var cint; i14: var cint; i15: var cint; i16: var cint; i17: var cint;
                res1: var StandardCString; res2: var StandardCString;
                label: var StandardCString; subs: var StandardCString) {.noSideEffect,
     importcpp: "DirValues", header: "IGESData_IGESReaderData.hxx".}
-proc dirType*(this: IGESDataIGESReaderData; num: int): IGESDataIGESType {.
+proc dirType*(this: IGESDataIGESReaderData; num: cint): IGESDataIGESType {.
     noSideEffect, importcpp: "DirType", header: "IGESData_IGESReaderData.hxx".}
-proc nbEntities*(this: IGESDataIGESReaderData): int {.noSideEffect,
+proc nbEntities*(this: IGESDataIGESReaderData): cint {.noSideEffect,
     importcpp: "NbEntities", header: "IGESData_IGESReaderData.hxx".}
-proc findNextRecord*(this: IGESDataIGESReaderData; num: int): int {.noSideEffect,
+proc findNextRecord*(this: IGESDataIGESReaderData; num: cint): cint {.noSideEffect,
     importcpp: "FindNextRecord", header: "IGESData_IGESReaderData.hxx".}
 proc setEntityNumbers*(this: var IGESDataIGESReaderData) {.
     importcpp: "SetEntityNumbers", header: "IGESData_IGESReaderData.hxx".}
 proc globalCheck*(this: IGESDataIGESReaderData): Handle[InterfaceCheck] {.
     noSideEffect, importcpp: "GlobalCheck", header: "IGESData_IGESReaderData.hxx".}
-proc setDefaultLineWeight*(this: var IGESDataIGESReaderData; defw: float) {.
+proc setDefaultLineWeight*(this: var IGESDataIGESReaderData; defw: cfloat) {.
     importcpp: "SetDefaultLineWeight", header: "IGESData_IGESReaderData.hxx".}
-proc defaultLineWeight*(this: IGESDataIGESReaderData): float {.noSideEffect,
+proc defaultLineWeight*(this: IGESDataIGESReaderData): cfloat {.noSideEffect,
     importcpp: "DefaultLineWeight", header: "IGESData_IGESReaderData.hxx".}
 type
   IGESDataIGESReaderDatabaseType* = InterfaceFileReaderData
@@ -117,3 +117,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_IGESReaderData.hxx".}
 proc dynamicType*(this: IGESDataIGESReaderData): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_IGESReaderData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

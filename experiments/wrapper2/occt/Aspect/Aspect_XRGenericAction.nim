@@ -38,3 +38,28 @@ type
 const
   AspectXRGenericActionNB* = aspectXRGenericActionOutputHaptic + 1
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

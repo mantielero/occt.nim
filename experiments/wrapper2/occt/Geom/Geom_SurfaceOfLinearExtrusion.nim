@@ -26,7 +26,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_SurfaceOfLinearExtrusion"
 discard "forward decl of Geom_SurfaceOfLinearExtrusion"
 type
-  HandleGeomSurfaceOfLinearExtrusion* = Handle[GeomSurfaceOfLinearExtrusion]
+  HandleC1C1* = Handle[GeomSurfaceOfLinearExtrusion]
 
 ## ! Describes a surface of linear extrusion ("extruded
 ## ! surface"), e.g. a generalized cylinder. Such a surface
@@ -84,50 +84,55 @@ proc setBasisCurve*(this: var GeomSurfaceOfLinearExtrusion; c: Handle[GeomCurve]
     importcpp: "SetBasisCurve", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc uReverse*(this: var GeomSurfaceOfLinearExtrusion) {.importcpp: "UReverse",
     header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc uReversedParameter*(this: GeomSurfaceOfLinearExtrusion; u: float): float {.
+proc uReversedParameter*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal): StandardReal {.
     noSideEffect, importcpp: "UReversedParameter",
     header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc vReverse*(this: var GeomSurfaceOfLinearExtrusion) {.importcpp: "VReverse",
     header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc vReversedParameter*(this: GeomSurfaceOfLinearExtrusion; v: float): float {.
+proc vReversedParameter*(this: GeomSurfaceOfLinearExtrusion; v: StandardReal): StandardReal {.
     noSideEffect, importcpp: "VReversedParameter",
     header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc bounds*(this: GeomSurfaceOfLinearExtrusion; u1: var float; u2: var float;
-            v1: var float; v2: var float) {.noSideEffect, importcpp: "Bounds", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc isUClosed*(this: GeomSurfaceOfLinearExtrusion): bool {.noSideEffect,
+proc bounds*(this: GeomSurfaceOfLinearExtrusion; u1: var StandardReal;
+            u2: var StandardReal; v1: var StandardReal; v2: var StandardReal) {.
+    noSideEffect, importcpp: "Bounds", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc isUClosed*(this: GeomSurfaceOfLinearExtrusion): StandardBoolean {.noSideEffect,
     importcpp: "IsUClosed", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc isVClosed*(this: GeomSurfaceOfLinearExtrusion): bool {.noSideEffect,
+proc isVClosed*(this: GeomSurfaceOfLinearExtrusion): StandardBoolean {.noSideEffect,
     importcpp: "IsVClosed", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc isCNu*(this: GeomSurfaceOfLinearExtrusion; n: int): bool {.noSideEffect,
-    importcpp: "IsCNu", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc isCNv*(this: GeomSurfaceOfLinearExtrusion; n: int): bool {.noSideEffect,
-    importcpp: "IsCNv", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc isUPeriodic*(this: GeomSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    importcpp: "IsUPeriodic", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc isVPeriodic*(this: GeomSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    importcpp: "IsVPeriodic", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc uIso*(this: GeomSurfaceOfLinearExtrusion; u: float): Handle[GeomCurve] {.
+proc isCNu*(this: GeomSurfaceOfLinearExtrusion; n: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsCNu", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc isCNv*(this: GeomSurfaceOfLinearExtrusion; n: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsCNv", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc isUPeriodic*(this: GeomSurfaceOfLinearExtrusion): StandardBoolean {.
+    noSideEffect, importcpp: "IsUPeriodic",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc isVPeriodic*(this: GeomSurfaceOfLinearExtrusion): StandardBoolean {.
+    noSideEffect, importcpp: "IsVPeriodic",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc uIso*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal): Handle[GeomCurve] {.
     noSideEffect, importcpp: "UIso", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc vIso*(this: GeomSurfaceOfLinearExtrusion; v: float): Handle[GeomCurve] {.
+proc vIso*(this: GeomSurfaceOfLinearExtrusion; v: StandardReal): Handle[GeomCurve] {.
     noSideEffect, importcpp: "VIso", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc d0*(this: GeomSurfaceOfLinearExtrusion; u: float; v: float; p: var Pnt) {.
-    noSideEffect, importcpp: "D0", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc d1*(this: GeomSurfaceOfLinearExtrusion; u: float; v: float; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, importcpp: "D1",
+proc d0*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal; v: StandardReal;
+        p: var Pnt) {.noSideEffect, importcpp: "D0",
+                   header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc d1*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal; v: StandardReal;
+        p: var Pnt; d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc d2*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal; v: StandardReal;
+        p: var Pnt; d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc d3*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal; v: StandardReal;
+        p: var Pnt; d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec;
+        d3u: var Vec; d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect,
+    importcpp: "D3", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc dn*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal; v: StandardReal; nu: int;
+        nv: int): Vec {.noSideEffect, importcpp: "DN",
                      header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc d2*(this: GeomSurfaceOfLinearExtrusion; u: float; v: float; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
-    importcpp: "D2", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc d3*(this: GeomSurfaceOfLinearExtrusion; u: float; v: float; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
-        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
-                                    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc dn*(this: GeomSurfaceOfLinearExtrusion; u: float; v: float; nu: int; nv: int): Vec {.
-    noSideEffect, importcpp: "DN", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc transform*(this: var GeomSurfaceOfLinearExtrusion; t: Trsf) {.
     importcpp: "Transform", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-proc transformParameters*(this: GeomSurfaceOfLinearExtrusion; u: var float;
-                         v: var float; t: Trsf) {.noSideEffect,
+proc transformParameters*(this: GeomSurfaceOfLinearExtrusion; u: var StandardReal;
+                         v: var StandardReal; t: Trsf) {.noSideEffect,
     importcpp: "TransformParameters", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc parametricTransformation*(this: GeomSurfaceOfLinearExtrusion; t: Trsf): GTrsf2d {.
     noSideEffect, importcpp: "ParametricTransformation",

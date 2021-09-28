@@ -28,13 +28,38 @@ proc processInterferences*(this: var TopOpeBRepDS_Filter) {.
     importcpp: "ProcessInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processFaceInterferences*(this: var TopOpeBRepDS_Filter; mEsp: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_Filter.hxx".}
-proc processFaceInterferences*(this: var TopOpeBRepDS_Filter; i: int; mEsp: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
+proc processFaceInterferences*(this: var TopOpeBRepDS_Filter; i: cint; mEsp: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_Filter) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_Filter.hxx".}
-proc processEdgeInterferences*(this: var TopOpeBRepDS_Filter; i: int) {.
+proc processEdgeInterferences*(this: var TopOpeBRepDS_Filter; i: cint) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processCurveInterferences*(this: var TopOpeBRepDS_Filter) {.
     importcpp: "ProcessCurveInterferences", header: "TopOpeBRepDS_Filter.hxx".}
-proc processCurveInterferences*(this: var TopOpeBRepDS_Filter; i: int) {.
+proc processCurveInterferences*(this: var TopOpeBRepDS_Filter; i: cint) {.
     importcpp: "ProcessCurveInterferences", header: "TopOpeBRepDS_Filter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

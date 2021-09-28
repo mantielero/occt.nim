@@ -17,7 +17,7 @@
 discard "forward decl of Geom_BoundedSurface"
 discard "forward decl of Geom_BoundedSurface"
 type
-  HandleGeomBoundedSurface* = Handle[GeomBoundedSurface]
+  HandleC1C1* = Handle[GeomBoundedSurface]
 
 ## ! The root class for bounded surfaces in 3D space. A
 ## ! bounded surface is defined by a rectangle in its 2D parametric space, i.e.

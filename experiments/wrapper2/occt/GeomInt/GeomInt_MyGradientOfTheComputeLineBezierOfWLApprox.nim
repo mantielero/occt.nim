@@ -26,95 +26,45 @@ discard "forward decl of AppParCurves_MultiCurve"
 type
   GeomIntMyGradientOfTheComputeLineBezierOfWLApprox* {.
       importcpp: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox",
-      header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Tries
-                                                                                     ## to
-                                                                                     ## minimize
-                                                                                     ## the
-                                                                                     ## sum
-                                                                                     ## (square(||Qui
-                                                                                     ## -
-                                                                                     ## Bi*Pi||))
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## where
-                                                                                     ## Pui
-                                                                                     ## describe
-                                                                                     ## the
-                                                                                     ## approximating
-                                                                                     ## Bezier
-                                                                                     ## curves'Poles
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## and
-                                                                                     ## Qi
-                                                                                     ## the
-                                                                                     ## MultiLine
-                                                                                     ## points
-                                                                                     ## with
-                                                                                     ## a
-                                                                                     ## parameter
-                                                                                     ## ui.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## In
-                                                                                     ## this
-                                                                                     ## algorithm,
-                                                                                     ## the
-                                                                                     ## parameters
-                                                                                     ## ui
-                                                                                     ## are
-                                                                                     ## the
-                                                                                     ## unknowns.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## The
-                                                                                     ## tolerance
-                                                                                     ## required
-                                                                                     ## on
-                                                                                     ## this
-                                                                                     ## sum
-                                                                                     ## is
-                                                                                     ## given
-                                                                                     ## by
-                                                                                     ## Tol.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## The
-                                                                                     ## desired
-                                                                                     ## degree
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## resulting
-                                                                                     ## curve
-                                                                                     ## is
-                                                                                     ## Deg.
+      header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomIntMyGradientOfTheComputeLineBezierOfWLApprox;
+           theSize: csize_t): pointer {.importcpp: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox::operator new", header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntMyGradientOfTheComputeLineBezierOfWLApprox;
+              theAddress: pointer) {.importcpp: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox::operator delete", header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `new[]`*(this: var GeomIntMyGradientOfTheComputeLineBezierOfWLApprox;
+             theSize: csize_t): pointer {.importcpp: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox::operator new[]", header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `delete[]`*(this: var GeomIntMyGradientOfTheComputeLineBezierOfWLApprox;
+                theAddress: pointer) {.importcpp: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox::operator delete[]", header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `new`*(this: var GeomIntMyGradientOfTheComputeLineBezierOfWLApprox;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox::operator new",
+    header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
+proc `delete`*(this: var GeomIntMyGradientOfTheComputeLineBezierOfWLApprox;
+              a2: pointer; a3: pointer) {.importcpp: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox::operator delete", header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc constructGeomIntMyGradientOfTheComputeLineBezierOfWLApprox*(
     ssp: GeomIntTheMultiLineOfWLApprox; firstPoint: int; lastPoint: int;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: var MathVector; deg: int; tol3d: float; tol2d: float;
+    parameters: var MathVector; deg: int; tol3d: StandardReal; tol2d: StandardReal;
     nbIterations: int = 200): GeomIntMyGradientOfTheComputeLineBezierOfWLApprox {.
     constructor,
     importcpp: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox(@)",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc isDone*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): bool {.
+proc isDone*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): StandardBoolean {.
     noSideEffect, importcpp: "IsDone",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
 proc value*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): AppParCurvesMultiCurve {.
     noSideEffect, importcpp: "Value",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc error*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox; index: int): float {.
+proc error*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox; index: int): StandardReal {.
     noSideEffect, importcpp: "Error",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc maxError3d*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): float {.
+proc maxError3d*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): StandardReal {.
     noSideEffect, importcpp: "MaxError3d",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc maxError2d*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): float {.
+proc maxError2d*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): StandardReal {.
     noSideEffect, importcpp: "MaxError2d",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc averageError*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): float {.
+proc averageError*(this: GeomIntMyGradientOfTheComputeLineBezierOfWLApprox): StandardReal {.
     noSideEffect, importcpp: "AverageError",
     header: "GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox.hxx".}

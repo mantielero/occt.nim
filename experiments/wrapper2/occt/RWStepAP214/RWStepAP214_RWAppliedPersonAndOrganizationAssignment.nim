@@ -30,7 +30,7 @@ proc constructRWStepAP214RWAppliedPersonAndOrganizationAssignment*(): RWStepAP21
     importcpp: "RWStepAP214_RWAppliedPersonAndOrganizationAssignment(@)",
     header: "RWStepAP214_RWAppliedPersonAndOrganizationAssignment.hxx".}
 proc readStep*(this: RWStepAP214RWAppliedPersonAndOrganizationAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AppliedPersonAndOrganizationAssignment]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepAP214RWAppliedPersonAndOrganizationAssignment;
            ent: Handle[StepAP214AppliedPersonAndOrganizationAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedPersonAndOrganizationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_TrihedronWithGuide"
 discard "forward decl of GeomFill_TrihedronWithGuide"
 type
-  HandleGeomFillTrihedronWithGuide* = Handle[GeomFillTrihedronWithGuide]
+  HandleC1C1* = Handle[GeomFillTrihedronWithGuide]
 
 ## ! To define Trihedron along one Curve with a guide
 
@@ -32,8 +32,9 @@ type
 
 proc guide*(this: GeomFillTrihedronWithGuide): Handle[Adaptor3dHCurve] {.
     noSideEffect, importcpp: "Guide", header: "GeomFill_TrihedronWithGuide.hxx".}
-proc origine*(this: var GeomFillTrihedronWithGuide; param1: float; param2: float) {.
-    importcpp: "Origine", header: "GeomFill_TrihedronWithGuide.hxx".}
+proc origine*(this: var GeomFillTrihedronWithGuide; param1: StandardReal;
+             param2: StandardReal) {.importcpp: "Origine",
+                                   header: "GeomFill_TrihedronWithGuide.hxx".}
 proc currentPointOnGuide*(this: GeomFillTrihedronWithGuide): Pnt {.noSideEffect,
     importcpp: "CurrentPointOnGuide", header: "GeomFill_TrihedronWithGuide.hxx".}
 type

@@ -20,52 +20,40 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_Surface"
 discard "forward decl of gp_Pnt"
 type
-  GeomAPI_IntCS* {.importcpp: "GeomAPI_IntCS", header: "GeomAPI_IntCS.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## object.
-                                                                                      ## Use
-                                                                                      ## the
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## function
-                                                                                      ## Perform
-                                                                                      ## for
-                                                                                      ## further
-                                                                                      ## initialization
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## algorithm
-                                                                                      ## by
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## the
-                                                                                      ## curve
-                                                                                      ## and
-                                                                                      ## the
-                                                                                      ## surface.
+  GeomAPI_IntCS* {.importcpp: "GeomAPI_IntCS", header: "GeomAPI_IntCS.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomAPI_IntCS; theSize: csize_t): pointer {.
+    importcpp: "GeomAPI_IntCS::operator new", header: "GeomAPI_IntCS.hxx".}
+proc `delete`*(this: var GeomAPI_IntCS; theAddress: pointer) {.
+    importcpp: "GeomAPI_IntCS::operator delete", header: "GeomAPI_IntCS.hxx".}
+proc `new[]`*(this: var GeomAPI_IntCS; theSize: csize_t): pointer {.
+    importcpp: "GeomAPI_IntCS::operator new[]", header: "GeomAPI_IntCS.hxx".}
+proc `delete[]`*(this: var GeomAPI_IntCS; theAddress: pointer) {.
+    importcpp: "GeomAPI_IntCS::operator delete[]", header: "GeomAPI_IntCS.hxx".}
+proc `new`*(this: var GeomAPI_IntCS; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomAPI_IntCS::operator new", header: "GeomAPI_IntCS.hxx".}
+proc `delete`*(this: var GeomAPI_IntCS; a2: pointer; a3: pointer) {.
+    importcpp: "GeomAPI_IntCS::operator delete", header: "GeomAPI_IntCS.hxx".}
 proc constructGeomAPI_IntCS*(): GeomAPI_IntCS {.constructor,
     importcpp: "GeomAPI_IntCS(@)", header: "GeomAPI_IntCS.hxx".}
 proc constructGeomAPI_IntCS*(c: Handle[GeomCurve]; s: Handle[GeomSurface]): GeomAPI_IntCS {.
     constructor, importcpp: "GeomAPI_IntCS(@)", header: "GeomAPI_IntCS.hxx".}
 proc perform*(this: var GeomAPI_IntCS; c: Handle[GeomCurve]; s: Handle[GeomSurface]) {.
     importcpp: "Perform", header: "GeomAPI_IntCS.hxx".}
-proc isDone*(this: GeomAPI_IntCS): bool {.noSideEffect, importcpp: "IsDone",
-                                      header: "GeomAPI_IntCS.hxx".}
+proc isDone*(this: GeomAPI_IntCS): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "GeomAPI_IntCS.hxx".}
 proc nbPoints*(this: GeomAPI_IntCS): int {.noSideEffect, importcpp: "NbPoints",
                                        header: "GeomAPI_IntCS.hxx".}
 proc point*(this: GeomAPI_IntCS; index: int): Pnt {.noSideEffect, importcpp: "Point",
     header: "GeomAPI_IntCS.hxx".}
-proc parameters*(this: GeomAPI_IntCS; index: int; u: var float; v: var float; w: var float) {.
-    noSideEffect, importcpp: "Parameters", header: "GeomAPI_IntCS.hxx".}
+proc parameters*(this: GeomAPI_IntCS; index: int; u: var StandardReal;
+                v: var StandardReal; w: var StandardReal) {.noSideEffect,
+    importcpp: "Parameters", header: "GeomAPI_IntCS.hxx".}
 proc nbSegments*(this: GeomAPI_IntCS): int {.noSideEffect, importcpp: "NbSegments",
     header: "GeomAPI_IntCS.hxx".}
 proc segment*(this: GeomAPI_IntCS; index: int): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Segment", header: "GeomAPI_IntCS.hxx".}
-proc parameters*(this: GeomAPI_IntCS; index: int; u1: var float; v1: var float;
-                u2: var float; v2: var float) {.noSideEffect, importcpp: "Parameters",
-    header: "GeomAPI_IntCS.hxx".}
+proc parameters*(this: GeomAPI_IntCS; index: int; u1: var StandardReal;
+                v1: var StandardReal; u2: var StandardReal; v2: var StandardReal) {.
+    noSideEffect, importcpp: "Parameters", header: "GeomAPI_IntCS.hxx".}

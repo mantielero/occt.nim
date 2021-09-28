@@ -21,7 +21,7 @@ discard "forward decl of ShapeExtend_CompositeSurface"
 discard "forward decl of ShapeUpgrade_SplitSurface"
 discard "forward decl of ShapeUpgrade_SplitSurface"
 type
-  HandleShapeUpgradeSplitSurface* = Handle[ShapeUpgradeSplitSurface]
+  HandleC1C1* = Handle[ShapeUpgradeSplitSurface]
 
 ## ! Splits a Surface with a criterion.
 
@@ -38,8 +38,8 @@ proc constructShapeUpgradeSplitSurface*(): ShapeUpgradeSplitSurface {.constructo
     header: "ShapeUpgrade_SplitSurface.hxx".}
 proc init*(this: var ShapeUpgradeSplitSurface; s: Handle[GeomSurface]) {.
     importcpp: "Init", header: "ShapeUpgrade_SplitSurface.hxx".}
-proc init*(this: var ShapeUpgradeSplitSurface; s: Handle[GeomSurface]; uFirst: float;
-          uLast: float; vFirst: float; vLast: float) {.importcpp: "Init",
+proc init*(this: var ShapeUpgradeSplitSurface; s: Handle[GeomSurface]; uFirst: cfloat;
+          uLast: cfloat; vFirst: cfloat; vLast: cfloat) {.importcpp: "Init",
     header: "ShapeUpgrade_SplitSurface.hxx".}
 proc setUSplitValues*(this: var ShapeUpgradeSplitSurface;
                      uValues: Handle[TColStdHSequenceOfReal]) {.
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeUpgrade_SplitSurface.hxx".}
 proc dynamicType*(this: ShapeUpgradeSplitSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_SplitSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

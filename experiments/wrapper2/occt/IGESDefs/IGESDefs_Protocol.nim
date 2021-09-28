@@ -18,7 +18,7 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of IGESDefs_Protocol"
 discard "forward decl of IGESDefs_Protocol"
 type
-  HandleIGESDefsProtocol* = Handle[IGESDefsProtocol]
+  HandleC1C1* = Handle[IGESDefsProtocol]
 
 ## ! Description of Protocol for IGESDefs
 
@@ -29,11 +29,11 @@ type
 
 proc constructIGESDefsProtocol*(): IGESDefsProtocol {.constructor,
     importcpp: "IGESDefs_Protocol(@)", header: "IGESDefs_Protocol.hxx".}
-proc nbResources*(this: IGESDefsProtocol): int {.noSideEffect,
+proc nbResources*(this: IGESDefsProtocol): cint {.noSideEffect,
     importcpp: "NbResources", header: "IGESDefs_Protocol.hxx".}
-proc resource*(this: IGESDefsProtocol; num: int): Handle[InterfaceProtocol] {.
+proc resource*(this: IGESDefsProtocol; num: cint): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Resource", header: "IGESDefs_Protocol.hxx".}
-proc typeNumber*(this: IGESDefsProtocol; atype: Handle[StandardType]): int {.
+proc typeNumber*(this: IGESDefsProtocol; atype: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "TypeNumber", header: "IGESDefs_Protocol.hxx".}
 type
   IGESDefsProtocolbaseType* = IGESDataProtocol
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDefs_Protocol.hxx".}
 proc dynamicType*(this: IGESDefsProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDefs_Protocol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

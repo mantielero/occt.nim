@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESBasicToolExternalRefLibName;
     header: "IGESBasic_ToolExternalRefLibName.hxx".}
 proc ownDump*(this: IGESBasicToolExternalRefLibName;
              ent: Handle[IGESBasicExternalRefLibName]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESBasic_ToolExternalRefLibName.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

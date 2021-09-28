@@ -20,14 +20,33 @@ type
                           header: "Geom2dLProp_FuncCurExt.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
-proc constructGeom2dLPropFuncCurExt*(c: Handle[Geom2dCurve]; tol: float): Geom2dLPropFuncCurExt {.
+proc `new`*(this: var Geom2dLPropFuncCurExt; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_FuncCurExt::operator new",
+    header: "Geom2dLProp_FuncCurExt.hxx".}
+proc `delete`*(this: var Geom2dLPropFuncCurExt; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_FuncCurExt::operator delete",
+    header: "Geom2dLProp_FuncCurExt.hxx".}
+proc `new[]`*(this: var Geom2dLPropFuncCurExt; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_FuncCurExt::operator new[]",
+    header: "Geom2dLProp_FuncCurExt.hxx".}
+proc `delete[]`*(this: var Geom2dLPropFuncCurExt; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_FuncCurExt::operator delete[]",
+    header: "Geom2dLProp_FuncCurExt.hxx".}
+proc `new`*(this: var Geom2dLPropFuncCurExt; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dLProp_FuncCurExt::operator new",
+    header: "Geom2dLProp_FuncCurExt.hxx".}
+proc `delete`*(this: var Geom2dLPropFuncCurExt; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dLProp_FuncCurExt::operator delete",
+    header: "Geom2dLProp_FuncCurExt.hxx".}
+proc constructGeom2dLPropFuncCurExt*(c: Handle[Geom2dCurve]; tol: StandardReal): Geom2dLPropFuncCurExt {.
     constructor, importcpp: "Geom2dLProp_FuncCurExt(@)",
     header: "Geom2dLProp_FuncCurExt.hxx".}
-proc value*(this: var Geom2dLPropFuncCurExt; x: float; f: var float): bool {.
+proc value*(this: var Geom2dLPropFuncCurExt; x: StandardReal; f: var StandardReal): StandardBoolean {.
     importcpp: "Value", header: "Geom2dLProp_FuncCurExt.hxx".}
-proc derivative*(this: var Geom2dLPropFuncCurExt; x: float; d: var float): bool {.
+proc derivative*(this: var Geom2dLPropFuncCurExt; x: StandardReal; d: var StandardReal): StandardBoolean {.
     importcpp: "Derivative", header: "Geom2dLProp_FuncCurExt.hxx".}
-proc values*(this: var Geom2dLPropFuncCurExt; x: float; f: var float; d: var float): bool {.
-    importcpp: "Values", header: "Geom2dLProp_FuncCurExt.hxx".}
-proc isMinKC*(this: Geom2dLPropFuncCurExt; param: float): bool {.noSideEffect,
-    importcpp: "IsMinKC", header: "Geom2dLProp_FuncCurExt.hxx".}
+proc values*(this: var Geom2dLPropFuncCurExt; x: StandardReal; f: var StandardReal;
+            d: var StandardReal): StandardBoolean {.importcpp: "Values",
+    header: "Geom2dLProp_FuncCurExt.hxx".}
+proc isMinKC*(this: Geom2dLPropFuncCurExt; param: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsMinKC", header: "Geom2dLProp_FuncCurExt.hxx".}

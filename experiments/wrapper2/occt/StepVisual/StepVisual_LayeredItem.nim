@@ -29,7 +29,7 @@ type
 
 proc constructStepVisualLayeredItem*(): StepVisualLayeredItem {.constructor,
     importcpp: "StepVisual_LayeredItem(@)", header: "StepVisual_LayeredItem.hxx".}
-proc caseNum*(this: StepVisualLayeredItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualLayeredItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_LayeredItem.hxx".}
 proc presentationRepresentation*(this: StepVisualLayeredItem): Handle[
     StepVisualPresentationRepresentation] {.noSideEffect,
@@ -37,3 +37,28 @@ proc presentationRepresentation*(this: StepVisualLayeredItem): Handle[
 proc representationItem*(this: StepVisualLayeredItem): Handle[
     StepReprRepresentationItem] {.noSideEffect, importcpp: "RepresentationItem",
                                  header: "StepVisual_LayeredItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

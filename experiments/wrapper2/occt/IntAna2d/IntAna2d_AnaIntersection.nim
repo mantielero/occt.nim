@@ -85,7 +85,32 @@ proc identicalElements*(this: IntAna2dAnaIntersection): bool {.noSideEffect,
     importcpp: "IdenticalElements", header: "IntAna2d_AnaIntersection.hxx".}
 proc parallelElements*(this: IntAna2dAnaIntersection): bool {.noSideEffect,
     importcpp: "ParallelElements", header: "IntAna2d_AnaIntersection.hxx".}
-proc nbPoints*(this: IntAna2dAnaIntersection): int {.noSideEffect,
+proc nbPoints*(this: IntAna2dAnaIntersection): cint {.noSideEffect,
     importcpp: "NbPoints", header: "IntAna2d_AnaIntersection.hxx".}
-proc point*(this: IntAna2dAnaIntersection; n: int): IntAna2dIntPoint {.noSideEffect,
+proc point*(this: IntAna2dAnaIntersection; n: cint): IntAna2dIntPoint {.noSideEffect,
     importcpp: "Point", header: "IntAna2d_AnaIntersection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

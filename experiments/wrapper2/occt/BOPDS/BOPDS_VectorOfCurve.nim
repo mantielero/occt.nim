@@ -15,3 +15,28 @@
 type
   BOPDS_VectorOfCurve* = NCollectionVector[BOPDS_Curve]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,3 +14,28 @@
 type
   XmlObjMgtDocument* = LDOM_Document
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

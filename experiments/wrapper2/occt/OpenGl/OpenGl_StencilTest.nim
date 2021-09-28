@@ -33,5 +33,30 @@ proc release*(this: var OpenGlStencilTest; theContext: ptr OpenGlContext) {.
 proc setOptions*(this: var OpenGlStencilTest; theIsEnabled: bool) {.
     importcpp: "SetOptions", header: "OpenGl_StencilTest.hxx".}
 proc dumpJson*(this: OpenGlStencilTest; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_StencilTest.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_StencilTest.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectBypassGroup"
 discard "forward decl of IGESSelect_SelectBypassGroup"
 type
-  HandleIGESSelectSelectBypassGroup* = Handle[IGESSelectSelectBypassGroup]
+  HandleC1C1* = Handle[IGESSelectSelectBypassGroup]
 
 ## ! Selects a list built as follows :
 ## ! Groups are entities type 402, forms 1,7,14,15 (Group,
@@ -55,10 +55,10 @@ type
                                                                                                                 ## level)
 
 
-proc constructIGESSelectSelectBypassGroup*(level: int = 0): IGESSelectSelectBypassGroup {.
+proc constructIGESSelectSelectBypassGroup*(level: cint = 0): IGESSelectSelectBypassGroup {.
     constructor, importcpp: "IGESSelect_SelectBypassGroup(@)",
     header: "IGESSelect_SelectBypassGroup.hxx".}
-proc explore*(this: IGESSelectSelectBypassGroup; level: int;
+proc explore*(this: IGESSelectSelectBypassGroup; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "IGESSelect_SelectBypassGroup.hxx".}
@@ -76,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSelectBypassGroup): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectBypassGroup.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -89,7 +89,7 @@ type
                                                                                               ## MinorRadius.
 
 
-proc constructGceMakeElips*(a2: Ax2; majorRadius: float; minorRadius: float): GceMakeElips {.
+proc constructGceMakeElips*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips {.
     constructor, importcpp: "gce_MakeElips(@)", header: "gce_MakeElips.hxx".}
 proc constructGceMakeElips*(s1: Pnt; s2: Pnt; center: Pnt): GceMakeElips {.constructor,
     importcpp: "gce_MakeElips(@)", header: "gce_MakeElips.hxx".}
@@ -99,3 +99,28 @@ proc operator*(this: GceMakeElips): Elips {.noSideEffect, importcpp: "Operator",
                                         header: "gce_MakeElips.hxx".}
 converter `elips`*(this: GceMakeElips): Elips {.noSideEffect,
     importcpp: "gce_MakeElips::operator gp_Elips", header: "gce_MakeElips.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

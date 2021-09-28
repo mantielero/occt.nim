@@ -24,7 +24,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_CurveAndTrihedron"
 discard "forward decl of GeomFill_CurveAndTrihedron"
 type
-  HandleGeomFillCurveAndTrihedron* = Handle[GeomFillCurveAndTrihedron]
+  HandleC1C1* = Handle[GeomFillCurveAndTrihedron]
 
 ## ! Define location law with an TrihedronLaw and an
 ## ! curve
@@ -50,19 +50,19 @@ proc setTrsf*(this: var GeomFillCurveAndTrihedron; transfo: Mat) {.
     importcpp: "SetTrsf", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc copy*(this: GeomFillCurveAndTrihedron): Handle[GeomFillLocationLaw] {.
     noSideEffect, importcpp: "Copy", header: "GeomFill_CurveAndTrihedron.hxx".}
-proc d0*(this: var GeomFillCurveAndTrihedron; param: float; m: var Mat; v: var Vec): bool {.
+proc d0*(this: var GeomFillCurveAndTrihedron; param: StandardReal; m: var Mat; v: var Vec): StandardBoolean {.
     importcpp: "D0", header: "GeomFill_CurveAndTrihedron.hxx".}
-proc d0*(this: var GeomFillCurveAndTrihedron; param: float; m: var Mat; v: var Vec;
-        poles2d: var TColgpArray1OfPnt2d): bool {.importcpp: "D0",
+proc d0*(this: var GeomFillCurveAndTrihedron; param: StandardReal; m: var Mat;
+        v: var Vec; poles2d: var TColgpArray1OfPnt2d): StandardBoolean {.
+    importcpp: "D0", header: "GeomFill_CurveAndTrihedron.hxx".}
+proc d1*(this: var GeomFillCurveAndTrihedron; param: StandardReal; m: var Mat;
+        v: var Vec; dm: var Mat; dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
+        dPoles2d: var TColgpArray1OfVec2d): StandardBoolean {.importcpp: "D1",
     header: "GeomFill_CurveAndTrihedron.hxx".}
-proc d1*(this: var GeomFillCurveAndTrihedron; param: float; m: var Mat; v: var Vec;
-        dm: var Mat; dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
-        dPoles2d: var TColgpArray1OfVec2d): bool {.importcpp: "D1",
-    header: "GeomFill_CurveAndTrihedron.hxx".}
-proc d2*(this: var GeomFillCurveAndTrihedron; param: float; m: var Mat; v: var Vec;
-        dm: var Mat; dv: var Vec; d2m: var Mat; d2v: var Vec;
+proc d2*(this: var GeomFillCurveAndTrihedron; param: StandardReal; m: var Mat;
+        v: var Vec; dm: var Mat; dv: var Vec; d2m: var Mat; d2v: var Vec;
         poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
-        d2Poles2d: var TColgpArray1OfVec2d): bool {.importcpp: "D2",
+        d2Poles2d: var TColgpArray1OfVec2d): StandardBoolean {.importcpp: "D2",
     header: "GeomFill_CurveAndTrihedron.hxx".}
 proc nbIntervals*(this: GeomFillCurveAndTrihedron; s: GeomAbsShape): int {.
     noSideEffect, importcpp: "NbIntervals",
@@ -70,21 +70,22 @@ proc nbIntervals*(this: GeomFillCurveAndTrihedron; s: GeomAbsShape): int {.
 proc intervals*(this: GeomFillCurveAndTrihedron; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
                                 header: "GeomFill_CurveAndTrihedron.hxx".}
-proc setInterval*(this: var GeomFillCurveAndTrihedron; first: float; last: float) {.
-    importcpp: "SetInterval", header: "GeomFill_CurveAndTrihedron.hxx".}
-proc getInterval*(this: GeomFillCurveAndTrihedron; first: var float; last: var float) {.
-    noSideEffect, importcpp: "GetInterval",
-    header: "GeomFill_CurveAndTrihedron.hxx".}
-proc getDomain*(this: GeomFillCurveAndTrihedron; first: var float; last: var float) {.
-    noSideEffect, importcpp: "GetDomain", header: "GeomFill_CurveAndTrihedron.hxx".}
-proc getMaximalNorm*(this: var GeomFillCurveAndTrihedron): float {.
+proc setInterval*(this: var GeomFillCurveAndTrihedron; first: StandardReal;
+                 last: StandardReal) {.importcpp: "SetInterval",
+                                     header: "GeomFill_CurveAndTrihedron.hxx".}
+proc getInterval*(this: GeomFillCurveAndTrihedron; first: var StandardReal;
+                 last: var StandardReal) {.noSideEffect, importcpp: "GetInterval", header: "GeomFill_CurveAndTrihedron.hxx".}
+proc getDomain*(this: GeomFillCurveAndTrihedron; first: var StandardReal;
+               last: var StandardReal) {.noSideEffect, importcpp: "GetDomain",
+                                      header: "GeomFill_CurveAndTrihedron.hxx".}
+proc getMaximalNorm*(this: var GeomFillCurveAndTrihedron): StandardReal {.
     importcpp: "GetMaximalNorm", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc getAverageLaw*(this: var GeomFillCurveAndTrihedron; am: var Mat; av: var Vec) {.
     importcpp: "GetAverageLaw", header: "GeomFill_CurveAndTrihedron.hxx".}
-proc isTranslation*(this: GeomFillCurveAndTrihedron; error: var float): bool {.
+proc isTranslation*(this: GeomFillCurveAndTrihedron; error: var StandardReal): StandardBoolean {.
     noSideEffect, importcpp: "IsTranslation",
     header: "GeomFill_CurveAndTrihedron.hxx".}
-proc isRotation*(this: GeomFillCurveAndTrihedron; error: var float): bool {.
+proc isRotation*(this: GeomFillCurveAndTrihedron; error: var StandardReal): StandardBoolean {.
     noSideEffect, importcpp: "IsRotation", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc rotation*(this: GeomFillCurveAndTrihedron; center: var Pnt) {.noSideEffect,
     importcpp: "Rotation", header: "GeomFill_CurveAndTrihedron.hxx".}

@@ -16,8 +16,7 @@
 discard "forward decl of StepDimTol_DatumReferenceModifierWithValue"
 discard "forward decl of StepDimTol_DatumReferenceModifierWithValue"
 type
-  HandleStepDimTolDatumReferenceModifierWithValue* = Handle[
-      StepDimTolDatumReferenceModifierWithValue]
+  HandleC1C1* = Handle[StepDimTolDatumReferenceModifierWithValue]
 
 ## ! Representation of STEP entity DatumReferenceModifierWithValue
 
@@ -59,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_DatumRe
 proc dynamicType*(this: StepDimTolDatumReferenceModifierWithValue): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepDimTol_DatumReferenceModifierWithValue.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

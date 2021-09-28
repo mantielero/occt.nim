@@ -18,7 +18,7 @@ discard "forward decl of HLRAlgo_EdgeStatus"
 discard "forward decl of HLRAlgo_PolyData"
 discard "forward decl of HLRAlgo_PolyData"
 type
-  HandleHLRAlgoPolyData* = Handle[HLRAlgoPolyData]
+  HandleC1C1* = Handle[HLRAlgoPolyData]
 
 ## ! Data structure of a set of Triangles.
 
@@ -30,9 +30,9 @@ type
                                header: "HLRAlgo_PolyData.hxx", bycopy.} = object ## ! The
                                                                             ## default
                                                                             ## constructor.
-    index* {.importc: "Index".}: int
-    min* {.importc: "Min".}: int
-    max* {.importc: "Max".}: int
+    index* {.importc: "Index".}: cint
+    min* {.importc: "Min".}: cint
+    max* {.importc: "Max".}: cint
 
 
 proc constructHLRAlgoPolyDataFaceIndices*(): HLRAlgoPolyDataFaceIndices {.
@@ -44,25 +44,25 @@ type
     v1* {.importc: "V1".}: Xy
     v2* {.importc: "V2".}: Xy
     v3* {.importc: "V3".}: Xy
-    param* {.importc: "Param".}: float
-    tolParam* {.importc: "TolParam".}: float
-    tolAng* {.importc: "TolAng".}: float
-    tolerance* {.importc: "Tolerance".}: float
+    param* {.importc: "Param".}: cfloat
+    tolParam* {.importc: "TolParam".}: cfloat
+    tolAng* {.importc: "TolAng".}: cfloat
+    tolerance* {.importc: "Tolerance".}: cfloat
 
   HLRAlgoPolyDataBox* {.importcpp: "HLRAlgo_PolyData::Box",
                        header: "HLRAlgo_PolyData.hxx", bycopy.} = object
-    xMin* {.importc: "XMin".}: float
-    yMin* {.importc: "YMin".}: float
-    zMin* {.importc: "ZMin".}: float
-    xMax* {.importc: "XMax".}: float
-    yMax* {.importc: "YMax".}: float
-    zMax* {.importc: "ZMax".}: float ## ! The default constructor.
+    xMin* {.importc: "XMin".}: cfloat
+    yMin* {.importc: "YMin".}: cfloat
+    zMin* {.importc: "ZMin".}: cfloat
+    xMax* {.importc: "XMax".}: cfloat
+    yMax* {.importc: "YMax".}: cfloat
+    zMax* {.importc: "ZMax".}: cfloat ## ! The default constructor.
 
 
 proc constructHLRAlgoPolyDataBox*(): HLRAlgoPolyDataBox {.constructor,
     importcpp: "HLRAlgo_PolyData::Box(@)", header: "HLRAlgo_PolyData.hxx".}
-proc constructHLRAlgoPolyDataBox*(theXMin: float; theYMin: float; theZMin: float;
-                                 theXMax: float; theYMax: float; theZMax: float): HLRAlgoPolyDataBox {.
+proc constructHLRAlgoPolyDataBox*(theXMin: cfloat; theYMin: cfloat; theZMin: cfloat;
+                                 theXMax: cfloat; theYMax: cfloat; theZMax: cfloat): HLRAlgoPolyDataBox {.
     constructor, importcpp: "HLRAlgo_PolyData::Box(@)",
     header: "HLRAlgo_PolyData.hxx".}
 proc constructHLRAlgoPolyData*(): HLRAlgoPolyData {.constructor,
@@ -73,9 +73,9 @@ proc hTData*(this: var HLRAlgoPolyData; hTData: Handle[HLRAlgoHArray1OfTData]) {
     importcpp: "HTData", header: "HLRAlgo_PolyData.hxx".}
 proc hPHDat*(this: var HLRAlgoPolyData; hPHDat: Handle[HLRAlgoHArray1OfPHDat]) {.
     importcpp: "HPHDat", header: "HLRAlgo_PolyData.hxx".}
-proc faceIndex*(this: var HLRAlgoPolyData; i: int) {.importcpp: "FaceIndex",
+proc faceIndex*(this: var HLRAlgoPolyData; i: cint) {.importcpp: "FaceIndex",
     header: "HLRAlgo_PolyData.hxx".}
-proc faceIndex*(this: HLRAlgoPolyData): int {.noSideEffect, importcpp: "FaceIndex",
+proc faceIndex*(this: HLRAlgoPolyData): cint {.noSideEffect, importcpp: "FaceIndex",
     header: "HLRAlgo_PolyData.hxx".}
 proc nodes*(this: HLRAlgoPolyData): var TColgpArray1OfXYZ {.noSideEffect,
     importcpp: "Nodes", header: "HLRAlgo_PolyData.hxx".}
@@ -104,3 +104,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "HLRAlgo_PolyData.hxx".}
 proc dynamicType*(this: HLRAlgoPolyData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRAlgo_PolyData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

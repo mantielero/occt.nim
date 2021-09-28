@@ -17,3 +17,28 @@
 type
   StoragePArray* = NCollectionArray1[Handle[StandardPersistent]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

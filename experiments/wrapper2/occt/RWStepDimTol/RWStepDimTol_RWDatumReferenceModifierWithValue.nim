@@ -31,7 +31,7 @@ proc constructRWStepDimTolRWDatumReferenceModifierWithValue*(): RWStepDimTolRWDa
     constructor, importcpp: "RWStepDimTol_RWDatumReferenceModifierWithValue(@)",
     header: "RWStepDimTol_RWDatumReferenceModifierWithValue.hxx".}
 proc readStep*(this: RWStepDimTolRWDatumReferenceModifierWithValue;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolDatumReferenceModifierWithValue]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -41,3 +41,28 @@ proc writeStep*(this: RWStepDimTolRWDatumReferenceModifierWithValue;
                ent: Handle[StepDimTolDatumReferenceModifierWithValue]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepDimTol_RWDatumReferenceModifierWithValue.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of RWHeaderSection_GeneralModule"
 discard "forward decl of RWHeaderSection_GeneralModule"
 type
-  HandleRWHeaderSectionGeneralModule* = Handle[RWHeaderSectionGeneralModule]
+  HandleC1C1* = Handle[RWHeaderSectionGeneralModule]
 
 ## ! Defines General Services for HeaderSection Entities
 ## ! (Share,Check,Copy; Trace already inherited)
@@ -38,20 +38,20 @@ type
 proc constructRWHeaderSectionGeneralModule*(): RWHeaderSectionGeneralModule {.
     constructor, importcpp: "RWHeaderSection_GeneralModule(@)",
     header: "RWHeaderSection_GeneralModule.hxx".}
-proc fillSharedCase*(this: RWHeaderSectionGeneralModule; cn: int;
+proc fillSharedCase*(this: RWHeaderSectionGeneralModule; cn: cint;
                     ent: Handle[StandardTransient];
                     iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillSharedCase", header: "RWHeaderSection_GeneralModule.hxx".}
-proc checkCase*(this: RWHeaderSectionGeneralModule; cn: int;
+proc checkCase*(this: RWHeaderSectionGeneralModule; cn: cint;
                ent: Handle[StandardTransient]; shares: InterfaceShareTool;
                ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "CheckCase", header: "RWHeaderSection_GeneralModule.hxx".}
-proc copyCase*(this: RWHeaderSectionGeneralModule; cn: int;
+proc copyCase*(this: RWHeaderSectionGeneralModule; cn: cint;
               entfrom: Handle[StandardTransient];
               entto: Handle[StandardTransient]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "CopyCase",
     header: "RWHeaderSection_GeneralModule.hxx".}
-proc newVoid*(this: RWHeaderSectionGeneralModule; cn: int;
+proc newVoid*(this: RWHeaderSectionGeneralModule; cn: cint;
              ent: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "NewVoid", header: "RWHeaderSection_GeneralModule.hxx".}
 type
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: RWHeaderSectionGeneralModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "RWHeaderSection_GeneralModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -83,7 +83,32 @@ proc dynamicType*(this: TObjReferenceIterator): Handle[StandardType] {.noSideEff
 
 discard "forward decl of TObj_ReferenceIterator"
 type
-  HandleTObjReferenceIterator* = Handle[TObjReferenceIterator]
+  HandleC1C1* = Handle[TObjReferenceIterator]
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

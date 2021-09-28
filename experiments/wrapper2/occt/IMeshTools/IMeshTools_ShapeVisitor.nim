@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IMeshTools_ShapeVisitor.hxx".}
 proc dynamicType*(this: IMeshToolsShapeVisitor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IMeshTools_ShapeVisitor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

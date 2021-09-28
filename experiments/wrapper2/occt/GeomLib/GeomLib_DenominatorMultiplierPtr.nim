@@ -17,4 +17,3 @@
 discard "forward decl of GeomLib_DenominatorMultiplier"
 type
   GeomLibDenominatorMultiplierPtr* = ptr GeomLibDenominatorMultiplier
-

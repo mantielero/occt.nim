@@ -24,12 +24,13 @@ discard "forward decl of math_Matrix"
 type
   GeomIntTheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox* {.importcpp: "GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox", header: "GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx",
       bycopy.} = object of MathFunctionSetWithDerivatives
+    adaptor3dHSurface* {.importc: "Adaptor3d_HSurface".}: Handle
+    adaptor3dHSurface* {.importc: "Adaptor3d_HSurface".}: Handle
 
 
-proc constructGeomIntTheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox*(
-    s1: Handle[Adaptor3dHSurface]; s2: Handle[Adaptor3dHSurface]): GeomIntTheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox {.
-    constructor, importcpp: "GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox(@)",
-    header: "GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
+## !!!Ignored construct:  public : GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox ( const Handle ( Adaptor3d_HSurface ) & S1 , const Handle ( Adaptor3d_HSurface ) & S2 ) ;
+## Error: token expected: ) but got: &!!!
+
 proc nbVariables*(this: GeomIntTheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): int {.
     noSideEffect, importcpp: "NbVariables",
     header: "GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
@@ -72,10 +73,57 @@ proc directionOnS1*(this: GeomIntTheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLA
 proc directionOnS2*(this: GeomIntTheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): Dir2d {.
     noSideEffect, importcpp: "DirectionOnS2",
     header: "GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc auxillarSurface1*(this: GeomIntTheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): Handle[
-    Adaptor3dHSurface] {.noSideEffect, importcpp: "AuxillarSurface1", header: "GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc auxillarSurface2*(this: GeomIntTheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): Handle[
-    Adaptor3dHSurface] {.noSideEffect, importcpp: "AuxillarSurface2", header: "GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_ZerParFunc GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox [NewLine] # IntImp_ZerParFunc_hxx < GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # < IntImp_ZerParFunc . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_ZerParFunc [NewLine] # IntImp_ZerParFunc_hxx [NewLine] #  _GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox_HeaderFile
+## !!!Ignored construct:  & AuxillarSurface1 ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & AuxillarSurface2 ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  # ThePSurface Handle ( Adaptor3d_HSurface ) [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_ZerParFunc GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox [NewLine] # IntImp_ZerParFunc_hxx < GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # < IntImp_ZerParFunc . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_ZerParFunc [NewLine] # IntImp_ZerParFunc_hxx [NewLine] #  _GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

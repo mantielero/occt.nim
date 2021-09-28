@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectFaces"
 discard "forward decl of IGESSelect_SelectFaces"
 type
-  HandleIGESSelectSelectFaces* = Handle[IGESSelectSelectFaces]
+  HandleC1C1* = Handle[IGESSelectSelectFaces]
 
 ## ! This selection returns the faces contained in an IGES Entity
 ## ! or itself if it is a Face
@@ -41,7 +41,7 @@ type
 
 proc constructIGESSelectSelectFaces*(): IGESSelectSelectFaces {.constructor,
     importcpp: "IGESSelect_SelectFaces(@)", header: "IGESSelect_SelectFaces.hxx".}
-proc explore*(this: IGESSelectSelectFaces; level: int;
+proc explore*(this: IGESSelectSelectFaces; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "IGESSelect_SelectFaces.hxx".}
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_SelectFaces.hxx".}
 proc dynamicType*(this: IGESSelectSelectFaces): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_SelectFaces.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

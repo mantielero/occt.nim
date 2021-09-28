@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWCurveElementEndOffset*(): RWStepFEA_RWCurveElementEndO
     constructor, importcpp: "RWStepFEA_RWCurveElementEndOffset(@)",
     header: "RWStepFEA_RWCurveElementEndOffset.hxx".}
 proc readStep*(this: RWStepFEA_RWCurveElementEndOffset;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_CurveElementEndOffset]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWCurveElementEndOffset.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepFEA_RWCurveElementEndOffset;
            ent: Handle[StepFEA_CurveElementEndOffset];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWCurveElementEndOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

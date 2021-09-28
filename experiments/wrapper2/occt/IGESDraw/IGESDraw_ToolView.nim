@@ -50,5 +50,30 @@ proc ownCopy*(this: IGESDrawToolView; entfrom: Handle[IGESDrawView];
              entto: Handle[IGESDrawView]; tc: var InterfaceCopyTool) {.noSideEffect,
     importcpp: "OwnCopy", header: "IGESDraw_ToolView.hxx".}
 proc ownDump*(this: IGESDrawToolView; ent: Handle[IGESDrawView];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolView.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

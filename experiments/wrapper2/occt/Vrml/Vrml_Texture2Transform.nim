@@ -22,7 +22,7 @@ type
 
 proc constructVrmlTexture2Transform*(): VrmlTexture2Transform {.constructor,
     importcpp: "Vrml_Texture2Transform(@)", header: "Vrml_Texture2Transform.hxx".}
-proc constructVrmlTexture2Transform*(aTranslation: Vec2d; aRotation: float;
+proc constructVrmlTexture2Transform*(aTranslation: Vec2d; aRotation: cfloat;
                                     aScaleFactor: Vec2d; aCenter: Vec2d): VrmlTexture2Transform {.
     constructor, importcpp: "Vrml_Texture2Transform(@)",
     header: "Vrml_Texture2Transform.hxx".}
@@ -30,9 +30,9 @@ proc setTranslation*(this: var VrmlTexture2Transform; aTranslation: Vec2d) {.
     importcpp: "SetTranslation", header: "Vrml_Texture2Transform.hxx".}
 proc translation*(this: VrmlTexture2Transform): Vec2d {.noSideEffect,
     importcpp: "Translation", header: "Vrml_Texture2Transform.hxx".}
-proc setRotation*(this: var VrmlTexture2Transform; aRotation: float) {.
+proc setRotation*(this: var VrmlTexture2Transform; aRotation: cfloat) {.
     importcpp: "SetRotation", header: "Vrml_Texture2Transform.hxx".}
-proc rotation*(this: VrmlTexture2Transform): float {.noSideEffect,
+proc rotation*(this: VrmlTexture2Transform): cfloat {.noSideEffect,
     importcpp: "Rotation", header: "Vrml_Texture2Transform.hxx".}
 proc setScaleFactor*(this: var VrmlTexture2Transform; aScaleFactor: Vec2d) {.
     importcpp: "SetScaleFactor", header: "Vrml_Texture2Transform.hxx".}
@@ -44,3 +44,28 @@ proc center*(this: VrmlTexture2Transform): Vec2d {.noSideEffect, importcpp: "Cen
     header: "Vrml_Texture2Transform.hxx".}
 proc print*(this: VrmlTexture2Transform; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Texture2Transform.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

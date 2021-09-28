@@ -45,3 +45,28 @@ proc firstOnly*(this: IFGraphCompare): InterfaceEntityIterator {.noSideEffect,
     importcpp: "FirstOnly", header: "IFGraph_Compare.hxx".}
 proc secondOnly*(this: IFGraphCompare): InterfaceEntityIterator {.noSideEffect,
     importcpp: "SecondOnly", header: "IFGraph_Compare.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

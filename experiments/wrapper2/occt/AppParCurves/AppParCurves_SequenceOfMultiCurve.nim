@@ -17,3 +17,28 @@
 type
   AppParCurvesSequenceOfMultiCurve* = NCollectionSequence[AppParCurvesMultiCurve]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

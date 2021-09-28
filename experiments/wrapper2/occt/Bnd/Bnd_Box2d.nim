@@ -33,18 +33,18 @@ proc setVoid*(this: var BndBox2d) {.importcpp: "SetVoid", header: "Bnd_Box2d.hxx
 proc set*(this: var BndBox2d; thePnt: Pnt2d) {.importcpp: "Set", header: "Bnd_Box2d.hxx".}
 proc set*(this: var BndBox2d; thePnt: Pnt2d; theDir: Dir2d) {.importcpp: "Set",
     header: "Bnd_Box2d.hxx".}
-proc update*(this: var BndBox2d; aXmin: float; aYmin: float; aXmax: float; aYmax: float) {.
-    importcpp: "Update", header: "Bnd_Box2d.hxx".}
-proc update*(this: var BndBox2d; x: float; y: float) {.importcpp: "Update",
+proc update*(this: var BndBox2d; aXmin: cfloat; aYmin: cfloat; aXmax: cfloat;
+            aYmax: cfloat) {.importcpp: "Update", header: "Bnd_Box2d.hxx".}
+proc update*(this: var BndBox2d; x: cfloat; y: cfloat) {.importcpp: "Update",
     header: "Bnd_Box2d.hxx".}
-proc getGap*(this: BndBox2d): float {.noSideEffect, importcpp: "GetGap",
-                                  header: "Bnd_Box2d.hxx".}
-proc setGap*(this: var BndBox2d; tol: float) {.importcpp: "SetGap",
+proc getGap*(this: BndBox2d): cfloat {.noSideEffect, importcpp: "GetGap",
+                                   header: "Bnd_Box2d.hxx".}
+proc setGap*(this: var BndBox2d; tol: cfloat) {.importcpp: "SetGap",
     header: "Bnd_Box2d.hxx".}
-proc enlarge*(this: var BndBox2d; theTol: float) {.importcpp: "Enlarge",
+proc enlarge*(this: var BndBox2d; theTol: cfloat) {.importcpp: "Enlarge",
     header: "Bnd_Box2d.hxx".}
-proc get*(this: BndBox2d; aXmin: var float; aYmin: var float; aXmax: var float;
-         aYmax: var float) {.noSideEffect, importcpp: "Get", header: "Bnd_Box2d.hxx".}
+proc get*(this: BndBox2d; aXmin: var cfloat; aYmin: var cfloat; aXmax: var cfloat;
+         aYmax: var cfloat) {.noSideEffect, importcpp: "Get", header: "Bnd_Box2d.hxx".}
 proc openXmin*(this: var BndBox2d) {.importcpp: "OpenXmin", header: "Bnd_Box2d.hxx".}
 proc openXmax*(this: var BndBox2d) {.importcpp: "OpenXmax", header: "Bnd_Box2d.hxx".}
 proc openYmin*(this: var BndBox2d) {.importcpp: "OpenYmin", header: "Bnd_Box2d.hxx".}
@@ -78,5 +78,30 @@ proc isOut*(this: BndBox2d; theOther: BndBox2d; theTrsf: Trsf2d): bool {.noSideE
 proc isOut*(this: BndBox2d; t1: Trsf2d; other: BndBox2d; t2: Trsf2d): bool {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
 proc dump*(this: BndBox2d) {.noSideEffect, importcpp: "Dump", header: "Bnd_Box2d.hxx".}
-proc squareExtent*(this: BndBox2d): float {.noSideEffect, importcpp: "SquareExtent",
-                                        header: "Bnd_Box2d.hxx".}
+proc squareExtent*(this: BndBox2d): cfloat {.noSideEffect, importcpp: "SquareExtent",
+    header: "Bnd_Box2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

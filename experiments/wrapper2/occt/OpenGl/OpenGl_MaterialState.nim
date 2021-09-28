@@ -48,3 +48,28 @@ proc toDistinguish*(this: OpenGlMaterialState): bool {.noSideEffect,
     importcpp: "ToDistinguish", header: "OpenGl_MaterialState.hxx".}
 proc toMapTexture*(this: OpenGlMaterialState): bool {.noSideEffect,
     importcpp: "ToMapTexture", header: "OpenGl_MaterialState.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

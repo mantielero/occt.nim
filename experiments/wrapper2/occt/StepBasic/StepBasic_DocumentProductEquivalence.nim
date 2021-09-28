@@ -16,8 +16,7 @@
 discard "forward decl of StepBasic_DocumentProductEquivalence"
 discard "forward decl of StepBasic_DocumentProductEquivalence"
 type
-  HandleStepBasicDocumentProductEquivalence* = Handle[
-      StepBasicDocumentProductEquivalence]
+  HandleC1C1* = Handle[StepBasicDocumentProductEquivalence]
 
 ## ! Representation of STEP entity DocumentProductEquivalence
 
@@ -43,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicDocumentProductEquivalence): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DocumentProductEquivalence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

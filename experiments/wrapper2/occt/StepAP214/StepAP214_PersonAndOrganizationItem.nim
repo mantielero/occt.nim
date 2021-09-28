@@ -30,7 +30,7 @@ proc constructStepAP214PersonAndOrganizationItem*(): StepAP214PersonAndOrganizat
     constructor, importcpp: "StepAP214_PersonAndOrganizationItem(@)",
     header: "StepAP214_PersonAndOrganizationItem.hxx".}
 proc caseNum*(this: StepAP214PersonAndOrganizationItem;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_PersonAndOrganizationItem.hxx".}
 proc appliedOrganizationAssignment*(this: StepAP214PersonAndOrganizationItem): Handle[
     StepAP214AppliedOrganizationAssignment] {.noSideEffect,
@@ -44,3 +44,28 @@ proc appliedSecurityClassificationAssignment*(
 proc approval*(this: StepAP214PersonAndOrganizationItem): Handle[StepBasicApproval] {.
     noSideEffect, importcpp: "Approval",
     header: "StepAP214_PersonAndOrganizationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

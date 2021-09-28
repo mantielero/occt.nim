@@ -22,7 +22,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_ActorOfFinderProcess"
 discard "forward decl of Transfer_ActorOfFinderProcess"
 type
-  HandleTransferActorOfFinderProcess* = Handle[TransferActorOfFinderProcess]
+  HandleC1C1* = Handle[TransferActorOfFinderProcess]
 
 ## ! The original class was renamed. Compatibility only
 ## !
@@ -38,7 +38,7 @@ type
 proc constructTransferActorOfFinderProcess*(): TransferActorOfFinderProcess {.
     constructor, importcpp: "Transfer_ActorOfFinderProcess(@)",
     header: "Transfer_ActorOfFinderProcess.hxx".}
-proc modeTrans*(this: var TransferActorOfFinderProcess): var int {.
+proc modeTrans*(this: var TransferActorOfFinderProcess): var cint {.
     importcpp: "ModeTrans", header: "Transfer_ActorOfFinderProcess.hxx".}
 proc transferring*(this: var TransferActorOfFinderProcess;
                   start: Handle[TransferFinder];
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TransferActorOfFinderProcess): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_ActorOfFinderProcess.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

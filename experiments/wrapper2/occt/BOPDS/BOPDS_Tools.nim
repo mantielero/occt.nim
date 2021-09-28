@@ -42,11 +42,36 @@ type
                                                                                 ## returned
 
 
-proc typeToInteger*(theT1: TopAbsShapeEnum; theT2: TopAbsShapeEnum): int {.
+proc typeToInteger*(theT1: TopAbsShapeEnum; theT2: TopAbsShapeEnum): cint {.
     importcpp: "BOPDS_Tools::TypeToInteger(@)", header: "BOPDS_Tools.hxx".}
-proc typeToInteger*(theT: TopAbsShapeEnum): int {.
+proc typeToInteger*(theT: TopAbsShapeEnum): cint {.
     importcpp: "BOPDS_Tools::TypeToInteger(@)", header: "BOPDS_Tools.hxx".}
 proc hasBRep*(theT: TopAbsShapeEnum): bool {.importcpp: "BOPDS_Tools::HasBRep(@)",
     header: "BOPDS_Tools.hxx".}
 proc isInterfering*(theT: TopAbsShapeEnum): bool {.
     importcpp: "BOPDS_Tools::IsInterfering(@)", header: "BOPDS_Tools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

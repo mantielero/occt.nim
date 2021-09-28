@@ -18,3 +18,28 @@ type
   ChFiDS_IndexedDataMapOfVertexListOfStripe* = NCollectionIndexedDataMap[
       TopoDS_Vertex, ChFiDS_ListOfStripe, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

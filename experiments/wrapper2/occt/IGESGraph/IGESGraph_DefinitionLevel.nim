@@ -18,7 +18,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGraph_DefinitionLevel"
 discard "forward decl of IGESGraph_DefinitionLevel"
 type
-  HandleIGESGraphDefinitionLevel* = Handle[IGESGraphDefinitionLevel]
+  HandleC1C1* = Handle[IGESGraphDefinitionLevel]
 
 ## ! defines IGESDefinitionLevel, Type <406> Form <1>
 ## ! in package IGESGraph
@@ -37,11 +37,11 @@ proc constructIGESGraphDefinitionLevel*(): IGESGraphDefinitionLevel {.constructo
 proc init*(this: var IGESGraphDefinitionLevel;
           allLevelNumbers: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
     header: "IGESGraph_DefinitionLevel.hxx".}
-proc nbPropertyValues*(this: IGESGraphDefinitionLevel): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESGraphDefinitionLevel): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESGraph_DefinitionLevel.hxx".}
-proc nbLevelNumbers*(this: IGESGraphDefinitionLevel): int {.noSideEffect,
+proc nbLevelNumbers*(this: IGESGraphDefinitionLevel): cint {.noSideEffect,
     importcpp: "NbLevelNumbers", header: "IGESGraph_DefinitionLevel.hxx".}
-proc levelNumber*(this: IGESGraphDefinitionLevel; levelIndex: int): int {.
+proc levelNumber*(this: IGESGraphDefinitionLevel; levelIndex: cint): cint {.
     noSideEffect, importcpp: "LevelNumber", header: "IGESGraph_DefinitionLevel.hxx".}
 type
   IGESGraphDefinitionLevelbaseType* = IGESDataLevelListEntity
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGraph_DefinitionLevel.hxx".}
 proc dynamicType*(this: IGESGraphDefinitionLevel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGraph_DefinitionLevel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

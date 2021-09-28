@@ -20,7 +20,7 @@ discard "forward decl of StepBasic_DimensionalExponents"
 discard "forward decl of StepBasic_ConversionBasedUnit"
 discard "forward decl of StepBasic_ConversionBasedUnit"
 type
-  HandleStepBasicConversionBasedUnit* = Handle[StepBasicConversionBasedUnit]
+  HandleC1C1* = Handle[StepBasicConversionBasedUnit]
   StepBasicConversionBasedUnit* {.importcpp: "StepBasic_ConversionBasedUnit",
                                  header: "StepBasic_ConversionBasedUnit.hxx",
                                  bycopy.} = object of StepBasicNamedUnit ## ! Returns a
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicConversionBasedUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ConversionBasedUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

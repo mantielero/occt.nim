@@ -29,7 +29,7 @@ proc constructRWStepGeomRWRectangularCompositeSurface*(): RWStepGeomRWRectangula
     constructor, importcpp: "RWStepGeom_RWRectangularCompositeSurface(@)",
     header: "RWStepGeom_RWRectangularCompositeSurface.hxx".}
 proc readStep*(this: RWStepGeomRWRectangularCompositeSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomRectangularCompositeSurface]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWRectangularCompositeSurface.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepGeomRWRectangularCompositeSurface;
            ent: Handle[StepGeomRectangularCompositeSurface];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWRectangularCompositeSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

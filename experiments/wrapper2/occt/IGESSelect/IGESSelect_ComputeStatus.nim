@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_ComputeStatus"
 discard "forward decl of IGESSelect_ComputeStatus"
 type
-  HandleIGESSelectComputeStatus* = Handle[IGESSelectComputeStatus]
+  HandleC1C1* = Handle[IGESSelectComputeStatus]
 
 ## ! Computes Status of IGES Entities for a whole IGESModel.
 ## ! This concerns SubordinateStatus and UseFlag, which must have
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_ComputeStatus.hxx".}
 proc dynamicType*(this: IGESSelectComputeStatus): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_ComputeStatus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,13 +22,13 @@ type
 
 proc constructIntToolsPntOnFace*(): IntToolsPntOnFace {.constructor,
     importcpp: "IntTools_PntOnFace(@)", header: "IntTools_PntOnFace.hxx".}
-proc init*(this: var IntToolsPntOnFace; aF: TopoDS_Face; aP: Pnt; u: float; v: float) {.
+proc init*(this: var IntToolsPntOnFace; aF: TopoDS_Face; aP: Pnt; u: cfloat; v: cfloat) {.
     importcpp: "Init", header: "IntTools_PntOnFace.hxx".}
 proc setFace*(this: var IntToolsPntOnFace; aF: TopoDS_Face) {.importcpp: "SetFace",
     header: "IntTools_PntOnFace.hxx".}
 proc setPnt*(this: var IntToolsPntOnFace; aP: Pnt) {.importcpp: "SetPnt",
     header: "IntTools_PntOnFace.hxx".}
-proc setParameters*(this: var IntToolsPntOnFace; u: float; v: float) {.
+proc setParameters*(this: var IntToolsPntOnFace; u: cfloat; v: cfloat) {.
     importcpp: "SetParameters", header: "IntTools_PntOnFace.hxx".}
 proc setValid*(this: var IntToolsPntOnFace; bF: bool) {.importcpp: "SetValid",
     header: "IntTools_PntOnFace.hxx".}
@@ -38,7 +38,32 @@ proc face*(this: IntToolsPntOnFace): TopoDS_Face {.noSideEffect, importcpp: "Fac
     header: "IntTools_PntOnFace.hxx".}
 proc pnt*(this: IntToolsPntOnFace): Pnt {.noSideEffect, importcpp: "Pnt",
                                       header: "IntTools_PntOnFace.hxx".}
-proc parameters*(this: IntToolsPntOnFace; u: var float; v: var float) {.noSideEffect,
+proc parameters*(this: IntToolsPntOnFace; u: var cfloat; v: var cfloat) {.noSideEffect,
     importcpp: "Parameters", header: "IntTools_PntOnFace.hxx".}
 proc isValid*(this: IntToolsPntOnFace): bool {.noSideEffect, importcpp: "IsValid",
     header: "IntTools_PntOnFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

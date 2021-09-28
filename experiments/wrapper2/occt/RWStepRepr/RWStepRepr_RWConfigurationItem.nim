@@ -29,7 +29,7 @@ proc constructRWStepReprRWConfigurationItem*(): RWStepReprRWConfigurationItem {.
     constructor, importcpp: "RWStepRepr_RWConfigurationItem(@)",
     header: "RWStepRepr_RWConfigurationItem.hxx".}
 proc readStep*(this: RWStepReprRWConfigurationItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprConfigurationItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWConfigurationItem.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepReprRWConfigurationItem;
            ent: Handle[StepReprConfigurationItem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWConfigurationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

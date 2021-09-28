@@ -32,7 +32,7 @@ proc constructRWStepFEA_RWAlignedCurve3dElementCoordinateSystem*(): RWStepFEA_RW
     importcpp: "RWStepFEA_RWAlignedCurve3dElementCoordinateSystem(@)",
     header: "RWStepFEA_RWAlignedCurve3dElementCoordinateSystem.hxx".}
 proc readStep*(this: RWStepFEA_RWAlignedCurve3dElementCoordinateSystem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_AlignedCurve3dElementCoordinateSystem]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -46,3 +46,28 @@ proc share*(this: RWStepFEA_RWAlignedCurve3dElementCoordinateSystem;
            ent: Handle[StepFEA_AlignedCurve3dElementCoordinateSystem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWAlignedCurve3dElementCoordinateSystem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

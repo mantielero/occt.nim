@@ -51,3 +51,28 @@ proc transactionCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "DDF::TransactionCommands(@)", header: "DDF.hxx".}
 proc browserCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "DDF::BrowserCommands(@)", header: "DDF.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,4 +14,3 @@
 
 type
   StandardOStream* = ref object   # should be: Ostream
-

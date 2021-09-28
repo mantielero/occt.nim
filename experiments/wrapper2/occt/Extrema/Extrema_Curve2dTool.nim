@@ -24,16 +24,16 @@ type
                        header: "Extrema_Curve2dTool.hxx", bycopy.} = object
 
 
-proc firstParameter*(c: Adaptor2dCurve2d): float {.
+proc firstParameter*(c: Adaptor2dCurve2d): cfloat {.
     importcpp: "Extrema_Curve2dTool::FirstParameter(@)",
     header: "Extrema_Curve2dTool.hxx".}
-proc lastParameter*(c: Adaptor2dCurve2d): float {.
+proc lastParameter*(c: Adaptor2dCurve2d): cfloat {.
     importcpp: "Extrema_Curve2dTool::LastParameter(@)",
     header: "Extrema_Curve2dTool.hxx".}
 proc continuity*(c: Adaptor2dCurve2d): GeomAbsShape {.
     importcpp: "Extrema_Curve2dTool::Continuity(@)",
     header: "Extrema_Curve2dTool.hxx".}
-proc nbIntervals*(c: Adaptor2dCurve2d; s: GeomAbsShape): int {.
+proc nbIntervals*(c: Adaptor2dCurve2d; s: GeomAbsShape): cint {.
     importcpp: "Extrema_Curve2dTool::NbIntervals(@)",
     header: "Extrema_Curve2dTool.hxx".}
 proc intervals*(c: Adaptor2dCurve2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
@@ -47,22 +47,22 @@ proc isClosed*(c: Adaptor2dCurve2d): bool {.importcpp: "Extrema_Curve2dTool::IsC
 proc isPeriodic*(c: Adaptor2dCurve2d): bool {.
     importcpp: "Extrema_Curve2dTool::IsPeriodic(@)",
     header: "Extrema_Curve2dTool.hxx".}
-proc period*(c: Adaptor2dCurve2d): float {.importcpp: "Extrema_Curve2dTool::Period(@)",
-                                       header: "Extrema_Curve2dTool.hxx".}
-proc value*(c: Adaptor2dCurve2d; u: float): Pnt2d {.
+proc period*(c: Adaptor2dCurve2d): cfloat {.importcpp: "Extrema_Curve2dTool::Period(@)",
+                                        header: "Extrema_Curve2dTool.hxx".}
+proc value*(c: Adaptor2dCurve2d; u: cfloat): Pnt2d {.
     importcpp: "Extrema_Curve2dTool::Value(@)", header: "Extrema_Curve2dTool.hxx".}
-proc d0*(c: Adaptor2dCurve2d; u: float; p: var Pnt2d) {.
+proc d0*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d) {.
     importcpp: "Extrema_Curve2dTool::D0(@)", header: "Extrema_Curve2dTool.hxx".}
-proc d1*(c: Adaptor2dCurve2d; u: float; p: var Pnt2d; v: var Vec2d) {.
+proc d1*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d; v: var Vec2d) {.
     importcpp: "Extrema_Curve2dTool::D1(@)", header: "Extrema_Curve2dTool.hxx".}
-proc d2*(c: Adaptor2dCurve2d; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc d2*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     importcpp: "Extrema_Curve2dTool::D2(@)", header: "Extrema_Curve2dTool.hxx".}
-proc d3*(c: Adaptor2dCurve2d; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
+proc d3*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
         v3: var Vec2d) {.importcpp: "Extrema_Curve2dTool::D3(@)",
                       header: "Extrema_Curve2dTool.hxx".}
-proc dn*(c: Adaptor2dCurve2d; u: float; n: int): Vec2d {.
+proc dn*(c: Adaptor2dCurve2d; u: cfloat; n: cint): Vec2d {.
     importcpp: "Extrema_Curve2dTool::DN(@)", header: "Extrema_Curve2dTool.hxx".}
-proc resolution*(c: Adaptor2dCurve2d; r3d: float): float {.
+proc resolution*(c: Adaptor2dCurve2d; r3d: cfloat): cfloat {.
     importcpp: "Extrema_Curve2dTool::Resolution(@)",
     header: "Extrema_Curve2dTool.hxx".}
 proc getType*(c: Adaptor2dCurve2d): GeomAbsCurveType {.
@@ -81,17 +81,42 @@ proc hyperbola*(c: Adaptor2dCurve2d): Hypr2d {.
 proc parabola*(c: Adaptor2dCurve2d): Parab2d {.
     importcpp: "Extrema_Curve2dTool::Parabola(@)",
     header: "Extrema_Curve2dTool.hxx".}
-proc degree*(c: Adaptor2dCurve2d): int {.importcpp: "Extrema_Curve2dTool::Degree(@)",
-                                     header: "Extrema_Curve2dTool.hxx".}
+proc degree*(c: Adaptor2dCurve2d): cint {.importcpp: "Extrema_Curve2dTool::Degree(@)",
+                                      header: "Extrema_Curve2dTool.hxx".}
 proc isRational*(c: Adaptor2dCurve2d): bool {.
     importcpp: "Extrema_Curve2dTool::IsRational(@)",
     header: "Extrema_Curve2dTool.hxx".}
-proc nbPoles*(c: Adaptor2dCurve2d): int {.importcpp: "Extrema_Curve2dTool::NbPoles(@)",
-                                      header: "Extrema_Curve2dTool.hxx".}
-proc nbKnots*(c: Adaptor2dCurve2d): int {.importcpp: "Extrema_Curve2dTool::NbKnots(@)",
-                                      header: "Extrema_Curve2dTool.hxx".}
+proc nbPoles*(c: Adaptor2dCurve2d): cint {.importcpp: "Extrema_Curve2dTool::NbPoles(@)",
+                                       header: "Extrema_Curve2dTool.hxx".}
+proc nbKnots*(c: Adaptor2dCurve2d): cint {.importcpp: "Extrema_Curve2dTool::NbKnots(@)",
+                                       header: "Extrema_Curve2dTool.hxx".}
 proc bezier*(c: Adaptor2dCurve2d): Handle[Geom2dBezierCurve] {.
     importcpp: "Extrema_Curve2dTool::Bezier(@)", header: "Extrema_Curve2dTool.hxx".}
 proc bSpline*(c: Adaptor2dCurve2d): Handle[Geom2dBSplineCurve] {.
     importcpp: "Extrema_Curve2dTool::BSpline(@)",
     header: "Extrema_Curve2dTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

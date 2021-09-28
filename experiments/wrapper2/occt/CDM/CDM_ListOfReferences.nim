@@ -18,3 +18,28 @@ type
   CDM_ListOfReferences* = NCollectionList[Handle[CDM_Reference]]
   CDM_ListIteratorOfListOfReferences* = Iterator[Handle[CDM_Reference]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

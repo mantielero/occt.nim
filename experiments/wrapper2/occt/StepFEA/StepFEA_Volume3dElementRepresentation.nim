@@ -21,8 +21,7 @@ discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepFEA_Volume3dElementRepresentation"
 discard "forward decl of StepFEA_Volume3dElementRepresentation"
 type
-  HandleStepFEA_Volume3dElementRepresentation* = Handle[
-      StepFEA_Volume3dElementRepresentation]
+  HandleC1C1* = Handle[StepFEA_Volume3dElementRepresentation]
 
 ## ! Representation of STEP entity Volume3dElementRepresentation
 
@@ -77,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_Volume3dElementRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_Volume3dElementRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataXtd_ConstraintDriver"
 discard "forward decl of BinMDataXtd_ConstraintDriver"
 type
-  HandleBinMDataXtdConstraintDriver* = Handle[BinMDataXtdConstraintDriver]
+  HandleC1C1* = Handle[BinMDataXtdConstraintDriver]
 
 ## ! Attribute Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataXtdConstraintDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataXtd_ConstraintDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

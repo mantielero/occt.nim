@@ -14,16 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_Overflow_HeaderFile [NewLine] # _Standard_Overflow_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_NumericError . hxx > [NewLine] class Standard_Overflow ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_Overflow"
 discard "forward decl of Standard_Overflow"
 type
-  HandleStandardOverflowStandardOverflow* = Handle[StandardOverflow]
+  StandardOverflow* {.importcpp: "Standard_Overflow",
+                     header: "Standard_Overflow.hxx", bycopy.} = object of StandardNumericError
+type
+  HandleStandardOverflow* = Handle[StandardOverflow]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_Overflow [NewLine] # if ( CONDITION ) throw Standard_Overflow ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardOverflow):
+  template standardOverflowRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardOverflow*(a1: Message): Throw {.
+          importcpp: "Standard_Overflow(@)", header: "Standard_Overflow.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_Overflow , Standard_NumericError ) #  _Standard_Overflow_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
 

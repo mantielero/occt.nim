@@ -58,5 +58,30 @@ proc reset*(this: var OSD_FileIterator) {.importcpp: "Reset",
                                       header: "OSD_FileIterator.hxx".}
 proc perror*(this: var OSD_FileIterator) {.importcpp: "Perror",
                                        header: "OSD_FileIterator.hxx".}
-proc error*(this: OSD_FileIterator): int {.noSideEffect, importcpp: "Error",
-                                       header: "OSD_FileIterator.hxx".}
+proc error*(this: OSD_FileIterator): cint {.noSideEffect, importcpp: "Error",
+                                        header: "OSD_FileIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -57,6 +57,31 @@ type
 proc add*(aPresentation: Handle[Prs3dPresentation]; aPlane: Adaptor3dSurface;
          aDrawer: Handle[Prs3dDrawer]) {.importcpp: "StdPrs_Plane::Add(@)",
                                        header: "StdPrs_Plane.hxx".}
-proc match*(x: float; y: float; z: float; aDistance: float; aPlane: Adaptor3dSurface;
+proc match*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; aPlane: Adaptor3dSurface;
            aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_Plane::Match(@)", header: "StdPrs_Plane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

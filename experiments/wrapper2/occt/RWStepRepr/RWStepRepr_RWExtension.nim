@@ -28,7 +28,7 @@ type
 proc constructRWStepReprRWExtension*(): RWStepReprRWExtension {.constructor,
     importcpp: "RWStepRepr_RWExtension(@)", header: "RWStepRepr_RWExtension.hxx".}
 proc readStep*(this: RWStepReprRWExtension; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprExtension]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWExtension.hxx".}
 proc writeStep*(this: RWStepReprRWExtension; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepReprRWExtension; sw: var StepDataStepWriter;
 proc share*(this: RWStepReprRWExtension; ent: Handle[StepReprExtension];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWExtension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

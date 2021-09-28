@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of STEPSelections_SelectFaces"
 discard "forward decl of STEPSelections_SelectFaces"
 type
-  HandleSTEPSelectionsSelectFaces* = Handle[STEPSelectionsSelectFaces]
+  HandleC1C1* = Handle[STEPSelectionsSelectFaces]
 
 ## ! This selection returns "STEP faces"
 
@@ -33,7 +33,7 @@ type
 proc constructSTEPSelectionsSelectFaces*(): STEPSelectionsSelectFaces {.
     constructor, importcpp: "STEPSelections_SelectFaces(@)",
     header: "STEPSelections_SelectFaces.hxx".}
-proc explore*(this: STEPSelectionsSelectFaces; level: int;
+proc explore*(this: STEPSelectionsSelectFaces; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "STEPSelections_SelectFaces.hxx".}
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectFaces): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectFaces.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

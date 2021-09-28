@@ -27,51 +27,80 @@ type
                                                                                             ## !
                                                                                             ## Empty
                                                                                             ## constructor.
+    standardType* {.importc: "Standard_Type".}: Handle
 
   Graphic3dTextureSetbaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "Graphic3d_TextureSet::get_type_name(@)",
                             header: "Graphic3d_TextureSet.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Graphic3d_TextureSet::get_type_descriptor(@)",
-    header: "Graphic3d_TextureSet.hxx".}
-proc dynamicType*(this: Graphic3dTextureSet): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Graphic3d_TextureSet.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 type
   Graphic3dTextureSetIterator* {.importcpp: "Graphic3d_TextureSet::Iterator",
                                 header: "Graphic3d_TextureSet.hxx", bycopy.} = object of Graphic3dTextureSetIterator[
-      Handle[Graphic3dTextureMap]] ## ! Empty constructor.
+      proc (a1: Graphic3dTextureMap): Handle] ## ! Empty constructor.
 
 
 proc constructGraphic3dTextureSetIterator*(): Graphic3dTextureSetIterator {.
     constructor, importcpp: "Graphic3d_TextureSet::Iterator(@)",
     header: "Graphic3d_TextureSet.hxx".}
-proc constructGraphic3dTextureSetIterator*(theSet: Handle[Graphic3dTextureSet]): Graphic3dTextureSetIterator {.
-    constructor, importcpp: "Graphic3d_TextureSet::Iterator(@)",
-    header: "Graphic3d_TextureSet.hxx".}
+## !!!Ignored construct:  ! Constructor. Iterator ( const Handle ( Graphic3d_TextureSet ) & theSet ) { if ( ! theSet . IsNull ( ) ) { NCollection_Array1 < Handle ( Graphic3d_TextureMap ) > :: Iterator :: Init ( theSet -> myTextures ) ; } } }
+## Error: token expected: ) but got: &!!!
+
 proc constructGraphic3dTextureSet*(): Graphic3dTextureSet {.constructor,
     importcpp: "Graphic3d_TextureSet(@)", header: "Graphic3d_TextureSet.hxx".}
 proc constructGraphic3dTextureSet*(theNbTextures: int): Graphic3dTextureSet {.
     constructor, importcpp: "Graphic3d_TextureSet(@)",
     header: "Graphic3d_TextureSet.hxx".}
-proc constructGraphic3dTextureSet*(theTexture: Handle[Graphic3dTextureMap]): Graphic3dTextureSet {.
-    constructor, importcpp: "Graphic3d_TextureSet(@)",
-    header: "Graphic3d_TextureSet.hxx".}
-proc isEmpty*(this: Graphic3dTextureSet): bool {.noSideEffect, importcpp: "IsEmpty",
-    header: "Graphic3d_TextureSet.hxx".}
-proc size*(this: Graphic3dTextureSet): int {.noSideEffect, importcpp: "Size",
-    header: "Graphic3d_TextureSet.hxx".}
-proc lower*(this: Graphic3dTextureSet): int {.noSideEffect, importcpp: "Lower",
-    header: "Graphic3d_TextureSet.hxx".}
-proc upper*(this: Graphic3dTextureSet): int {.noSideEffect, importcpp: "Upper",
-    header: "Graphic3d_TextureSet.hxx".}
-proc first*(this: Graphic3dTextureSet): Handle[Graphic3dTextureMap] {.noSideEffect,
-    importcpp: "First", header: "Graphic3d_TextureSet.hxx".}
-proc setFirst*(this: var Graphic3dTextureSet;
-              theTexture: Handle[Graphic3dTextureMap]) {.importcpp: "SetFirst",
-    header: "Graphic3d_TextureSet.hxx".}
-proc value*(this: Graphic3dTextureSet; theIndex: int): Handle[Graphic3dTextureMap] {.
-    noSideEffect, importcpp: "Value", header: "Graphic3d_TextureSet.hxx".}
-proc setValue*(this: var Graphic3dTextureSet; theIndex: int;
-              theTexture: Handle[Graphic3dTextureMap]) {.importcpp: "SetValue",
-    header: "Graphic3d_TextureSet.hxx".}
+## !!!Ignored construct:  ! Constructor for a single texture. Graphic3d_TextureSet ( const Handle ( Graphic3d_TextureMap ) & theTexture ) : myTextures ( 0 , 0 ) { myTextures . ChangeFirst ( ) = theTexture ; } ! Return TRUE if texture array is empty. Standard_Boolean IsEmpty ( ) const { return myTextures . IsEmpty ( ) ; } ! Return number of textures. Standard_Integer Size ( ) const { return myTextures . Size ( ) ; } ! Return the lower index in texture set. Standard_Integer Lower ( ) const { return myTextures . Lower ( ) ; } ! Return the upper index in texture set. Standard_Integer Upper ( ) const { return myTextures . Upper ( ) ; } ! Return the first texture. const Handle ( Graphic3d_TextureMap ) & First ( ) const { return myTextures . First ( ) ; } ! Return the first texture. void SetFirst ( const Handle ( Graphic3d_TextureMap ) & theTexture ) { myTextures . ChangeFirst ( ) = theTexture ; } ! Return the texture at specified position within [0, Size()) range. const Handle ( Graphic3d_TextureMap ) & Value ( Standard_Integer theIndex ) const { return myTextures . Value ( theIndex ) ; } ! Return the texture at specified position within [0, Size()) range. void SetValue ( Standard_Integer theIndex , const Handle ( Graphic3d_TextureMap ) & theTexture ) { myTextures . SetValue ( theIndex , theTexture ) ; } protected : NCollection_Array1 < Handle ( Graphic3d_TextureMap ) > myTextures ;
+## Error: token expected: ) but got: &!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -43,9 +43,9 @@ proc setActor*(this: var TransferBRepReader;
     importcpp: "SetActor", header: "TransferBRep_Reader.hxx".}
 proc actor*(this: TransferBRepReader): Handle[TransferActorOfTransientProcess] {.
     noSideEffect, importcpp: "Actor", header: "TransferBRep_Reader.hxx".}
-proc setFileStatus*(this: var TransferBRepReader; status: int) {.
+proc setFileStatus*(this: var TransferBRepReader; status: cint) {.
     importcpp: "SetFileStatus", header: "TransferBRep_Reader.hxx".}
-proc fileStatus*(this: TransferBRepReader): int {.noSideEffect,
+proc fileStatus*(this: TransferBRepReader): cint {.noSideEffect,
     importcpp: "FileStatus", header: "TransferBRep_Reader.hxx".}
 proc fileNotFound*(this: TransferBRepReader): bool {.noSideEffect,
     importcpp: "FileNotFound", header: "TransferBRep_Reader.hxx".}
@@ -72,7 +72,7 @@ proc prepareTransfer*(this: var TransferBRepReader) {.importcpp: "PrepareTransfe
 proc transferRoots*(this: var TransferBRepReader;
                    theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "TransferRoots", header: "TransferBRep_Reader.hxx".}
-proc transfer*(this: var TransferBRepReader; num: int;
+proc transfer*(this: var TransferBRepReader; num: cint;
               theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Transfer", header: "TransferBRep_Reader.hxx".}
 proc transferList*(this: var TransferBRepReader;
@@ -81,21 +81,21 @@ proc transferList*(this: var TransferBRepReader;
     importcpp: "TransferList", header: "TransferBRep_Reader.hxx".}
 proc isDone*(this: TransferBRepReader): bool {.noSideEffect, importcpp: "IsDone",
     header: "TransferBRep_Reader.hxx".}
-proc nbShapes*(this: TransferBRepReader): int {.noSideEffect, importcpp: "NbShapes",
+proc nbShapes*(this: TransferBRepReader): cint {.noSideEffect, importcpp: "NbShapes",
     header: "TransferBRep_Reader.hxx".}
 proc shapes*(this: TransferBRepReader): Handle[TopToolsHSequenceOfShape] {.
     noSideEffect, importcpp: "Shapes", header: "TransferBRep_Reader.hxx".}
-proc shape*(this: TransferBRepReader; num: int = 1): TopoDS_Shape {.noSideEffect,
+proc shape*(this: TransferBRepReader; num: cint = 1): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TransferBRep_Reader.hxx".}
 proc shapeResult*(this: TransferBRepReader; ent: Handle[StandardTransient]): TopoDS_Shape {.
     noSideEffect, importcpp: "ShapeResult", header: "TransferBRep_Reader.hxx".}
 proc oneShape*(this: TransferBRepReader): TopoDS_Shape {.noSideEffect,
     importcpp: "OneShape", header: "TransferBRep_Reader.hxx".}
-proc nbTransients*(this: TransferBRepReader): int {.noSideEffect,
+proc nbTransients*(this: TransferBRepReader): cint {.noSideEffect,
     importcpp: "NbTransients", header: "TransferBRep_Reader.hxx".}
 proc transients*(this: TransferBRepReader): Handle[TColStdHSequenceOfTransient] {.
     noSideEffect, importcpp: "Transients", header: "TransferBRep_Reader.hxx".}
-proc transient*(this: TransferBRepReader; num: int = 1): Handle[StandardTransient] {.
+proc transient*(this: TransferBRepReader; num: cint = 1): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Transient", header: "TransferBRep_Reader.hxx".}
 proc checkStatusResult*(this: TransferBRepReader; withprints: bool): bool {.
     noSideEffect, importcpp: "CheckStatusResult", header: "TransferBRep_Reader.hxx".}
@@ -105,3 +105,28 @@ proc transientProcess*(this: TransferBRepReader): Handle[TransferTransientProces
     noSideEffect, importcpp: "TransientProcess", header: "TransferBRep_Reader.hxx".}
 proc destroyTransferBRepReader*(this: var TransferBRepReader) {.
     importcpp: "#.~TransferBRep_Reader()", header: "TransferBRep_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

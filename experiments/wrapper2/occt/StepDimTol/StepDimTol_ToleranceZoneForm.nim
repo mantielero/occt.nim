@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepDimTol_ToleranceZoneForm"
 discard "forward decl of StepDimTol_ToleranceZoneForm"
 type
-  HandleStepDimTolToleranceZoneForm* = Handle[StepDimTolToleranceZoneForm]
+  HandleC1C1* = Handle[StepDimTolToleranceZoneForm]
 
 ## ! Added for Dimensional Tolerances
 
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolToleranceZoneForm): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_ToleranceZoneForm.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

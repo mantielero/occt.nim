@@ -120,5 +120,30 @@ type
                                                                                 ## map.
 
 
-proc nextPrimeForMap*(i: int): int {.importcpp: "TCollection::NextPrimeForMap(@)",
-                                 header: "TCollection.hxx".}
+proc nextPrimeForMap*(i: cint): cint {.importcpp: "TCollection::NextPrimeForMap(@)",
+                                   header: "TCollection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

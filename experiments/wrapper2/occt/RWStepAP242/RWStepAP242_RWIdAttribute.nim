@@ -27,7 +27,7 @@ proc constructRWStepAP242RWIdAttribute*(): RWStepAP242RWIdAttribute {.constructo
     importcpp: "RWStepAP242_RWIdAttribute(@)",
     header: "RWStepAP242_RWIdAttribute.hxx".}
 proc readStep*(this: RWStepAP242RWIdAttribute;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepAP242IdAttribute]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepAP242_RWIdAttribute.hxx".}
 proc writeStep*(this: RWStepAP242RWIdAttribute; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepAP242RWIdAttribute; sw: var StepDataStepWriter;
 proc share*(this: RWStepAP242RWIdAttribute; ent: Handle[StepAP242IdAttribute];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP242_RWIdAttribute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

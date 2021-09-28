@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_Centroid"
 discard "forward decl of XCAFDoc_Centroid"
 type
-  HandleXCAFDocCentroid* = Handle[XCAFDocCentroid]
+  HandleC1C1* = Handle[XCAFDocCentroid]
 
 ## ! attribute to store centroid
 
@@ -55,8 +55,8 @@ proc paste*(this: XCAFDocCentroid; into: Handle[TDF_Attribute];
 proc dump*(this: XCAFDocCentroid; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "XCAFDoc_Centroid.hxx".}
 proc dumpJson*(this: XCAFDocCentroid; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "XCAFDoc_Centroid.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFDoc_Centroid.hxx".}
 type
   XCAFDocCentroidbaseType* = TDF_Attribute
 
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XCAFDoc_Centroid.hxx".}
 proc dynamicType*(this: XCAFDocCentroid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_Centroid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

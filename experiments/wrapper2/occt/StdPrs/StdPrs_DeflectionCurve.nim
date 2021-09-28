@@ -102,36 +102,62 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: var Adaptor3dCurve;
     importcpp: "StdPrs_DeflectionCurve::Add(@)",
     header: "StdPrs_DeflectionCurve.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: var Adaptor3dCurve;
-         u1: float; u2: float; aDrawer: Handle[Prs3dDrawer]; drawCurve: bool = true) {.
+         u1: cfloat; u2: cfloat; aDrawer: Handle[Prs3dDrawer]; drawCurve: bool = true) {.
     importcpp: "StdPrs_DeflectionCurve::Add(@)",
     header: "StdPrs_DeflectionCurve.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: var Adaptor3dCurve;
-         aDeflection: float; aLimit: float; anAngle: float = 0.2; drawCurve: bool = true) {.
-    importcpp: "StdPrs_DeflectionCurve::Add(@)",
-    header: "StdPrs_DeflectionCurve.hxx".}
+         aDeflection: cfloat; aLimit: cfloat; anAngle: cfloat = 0.2;
+         drawCurve: bool = true) {.importcpp: "StdPrs_DeflectionCurve::Add(@)",
+                               header: "StdPrs_DeflectionCurve.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: var Adaptor3dCurve;
-         aDeflection: float; aDrawer: Handle[Prs3dDrawer];
+         aDeflection: cfloat; aDrawer: Handle[Prs3dDrawer];
          points: var TColgpSequenceOfPnt; drawCurve: bool = true) {.
     importcpp: "StdPrs_DeflectionCurve::Add(@)",
     header: "StdPrs_DeflectionCurve.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: var Adaptor3dCurve;
-         u1: float; u2: float; aDeflection: float; points: var TColgpSequenceOfPnt;
-         anAngle: float = 0.2; drawCurve: bool = true) {.
+         u1: cfloat; u2: cfloat; aDeflection: cfloat; points: var TColgpSequenceOfPnt;
+         anAngle: cfloat = 0.2; drawCurve: bool = true) {.
     importcpp: "StdPrs_DeflectionCurve::Add(@)",
     header: "StdPrs_DeflectionCurve.hxx".}
-proc match*(x: float; y: float; z: float; aDistance: float; aCurve: Adaptor3dCurve;
+proc match*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; aCurve: Adaptor3dCurve;
            aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_DeflectionCurve::Match(@)",
     header: "StdPrs_DeflectionCurve.hxx".}
-proc match*(x: float; y: float; z: float; aDistance: float; aCurve: Adaptor3dCurve;
-           u1: float; u2: float; aDrawer: Handle[Prs3dDrawer]): bool {.
+proc match*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; aCurve: Adaptor3dCurve;
+           u1: cfloat; u2: cfloat; aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_DeflectionCurve::Match(@)",
     header: "StdPrs_DeflectionCurve.hxx".}
-proc match*(theX: float; theY: float; theZ: float; theDistance: float;
-           theCurve: Adaptor3dCurve; theDeflection: float; theLimit: float;
-           theAngle: float): bool {.importcpp: "StdPrs_DeflectionCurve::Match(@)",
-                                 header: "StdPrs_DeflectionCurve.hxx".}
-proc match*(theX: float; theY: float; theZ: float; theDistance: float;
-           theCurve: Adaptor3dCurve; theU1: float; theU2: float; theDeflection: float;
-           theAngle: float): bool {.importcpp: "StdPrs_DeflectionCurve::Match(@)",
-                                 header: "StdPrs_DeflectionCurve.hxx".}
+proc match*(theX: cfloat; theY: cfloat; theZ: cfloat; theDistance: cfloat;
+           theCurve: Adaptor3dCurve; theDeflection: cfloat; theLimit: cfloat;
+           theAngle: cfloat): bool {.importcpp: "StdPrs_DeflectionCurve::Match(@)",
+                                  header: "StdPrs_DeflectionCurve.hxx".}
+proc match*(theX: cfloat; theY: cfloat; theZ: cfloat; theDistance: cfloat;
+           theCurve: Adaptor3dCurve; theU1: cfloat; theU2: cfloat;
+           theDeflection: cfloat; theAngle: cfloat): bool {.
+    importcpp: "StdPrs_DeflectionCurve::Match(@)",
+    header: "StdPrs_DeflectionCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

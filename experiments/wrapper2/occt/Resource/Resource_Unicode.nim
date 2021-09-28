@@ -42,19 +42,19 @@ proc convertBig5ToUnicode*(fromstr: StandardCString;
     importcpp: "Resource_Unicode::ConvertBig5ToUnicode(@)",
     header: "Resource_Unicode.hxx".}
 proc convertUnicodeToSJIS*(fromstr: TCollectionExtendedString;
-                          tostr: var StandardPCharacter; maxsize: int): bool {.
+                          tostr: var StandardPCharacter; maxsize: cint): bool {.
     importcpp: "Resource_Unicode::ConvertUnicodeToSJIS(@)",
     header: "Resource_Unicode.hxx".}
 proc convertUnicodeToEUC*(fromstr: TCollectionExtendedString;
-                         tostr: var StandardPCharacter; maxsize: int): bool {.
+                         tostr: var StandardPCharacter; maxsize: cint): bool {.
     importcpp: "Resource_Unicode::ConvertUnicodeToEUC(@)",
     header: "Resource_Unicode.hxx".}
 proc convertUnicodeToGB*(fromstr: TCollectionExtendedString;
-                        tostr: var StandardPCharacter; maxsize: int): bool {.
+                        tostr: var StandardPCharacter; maxsize: cint): bool {.
     importcpp: "Resource_Unicode::ConvertUnicodeToGB(@)",
     header: "Resource_Unicode.hxx".}
 proc convertUnicodeToANSI*(fromstr: TCollectionExtendedString;
-                          tostr: var StandardPCharacter; maxsize: int): bool {.
+                          tostr: var StandardPCharacter; maxsize: cint): bool {.
     importcpp: "Resource_Unicode::ConvertUnicodeToANSI(@)",
     header: "Resource_Unicode.hxx".}
 proc setFormat*(typecode: ResourceFormatType) {.
@@ -74,10 +74,35 @@ proc convertFormatToUnicode*(theFormat: ResourceFormatType;
     header: "Resource_Unicode.hxx".}
 proc convertUnicodeToFormat*(theFormat: ResourceFormatType;
                             theFromStr: TCollectionExtendedString;
-                            theToStr: var StandardPCharacter; theMaxSize: int): bool {.
+                            theToStr: var StandardPCharacter; theMaxSize: cint): bool {.
     importcpp: "Resource_Unicode::ConvertUnicodeToFormat(@)",
     header: "Resource_Unicode.hxx".}
 proc convertUnicodeToFormat*(theFromStr: TCollectionExtendedString;
-                            theToStr: var StandardPCharacter; theMaxSize: int): bool {.
+                            theToStr: var StandardPCharacter; theMaxSize: cint): bool {.
     importcpp: "Resource_Unicode::ConvertUnicodeToFormat(@)",
     header: "Resource_Unicode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

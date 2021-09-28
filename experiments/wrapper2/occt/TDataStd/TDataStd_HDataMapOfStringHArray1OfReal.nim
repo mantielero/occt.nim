@@ -29,7 +29,7 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "TDataStd_HDataMapO
 proc dynamicType*(this: TDataStdHDataMapOfStringHArray1OfReal): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
-proc constructTDataStdHDataMapOfStringHArray1OfReal*(nbBuckets: int = 1): TDataStdHDataMapOfStringHArray1OfReal {.
+proc constructTDataStdHDataMapOfStringHArray1OfReal*(nbBuckets: cint = 1): TDataStdHDataMapOfStringHArray1OfReal {.
     constructor, importcpp: "TDataStd_HDataMapOfStringHArray1OfReal(@)",
     header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
 proc constructTDataStdHDataMapOfStringHArray1OfReal*(
@@ -43,6 +43,30 @@ proc changeMap*(this: var TDataStdHDataMapOfStringHArray1OfReal): var TDataStdDa
     importcpp: "ChangeMap", header: "TDataStd_HDataMapOfStringHArray1OfReal.hxx".}
 discard "forward decl of TDataStd_HDataMapOfStringHArray1OfReal"
 type
-  HandleTDataStdHDataMapOfStringHArray1OfReal* = Handle[
-      TDataStdHDataMapOfStringHArray1OfReal]
+  HandleC1C1* = Handle[TDataStdHDataMapOfStringHArray1OfReal]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

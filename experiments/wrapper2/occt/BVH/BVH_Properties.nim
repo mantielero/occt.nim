@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BVH_Properties_Header [NewLine] # _BVH_Properties_Header [NewLine] # < BVH_Box . hxx > [NewLine] # < Standard_Macro . hxx > [NewLine] ! Abstract properties of geometric object. class BVH_Properties : public Standard_Transient { public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return BVH_Properties ; } static const opencascade :: handle < Standard_Type > [end of template] & get_type_descriptor ( ) ; virtual const opencascade :: handle < Standard_Type > [end of template] & DynamicType ( ) const ; public : ! Releases resources of object properties. virtual ~ BVH_Properties ( ) = 0 ; } ;
+## !!!Ignored construct:  # _BVH_Properties_Header [NewLine] # _BVH_Properties_Header [NewLine] # < BVH_Box . hxx > [NewLine] # < Standard_Macro . hxx > [NewLine] ! Abstract properties of geometric object. class BVH_Properties : public Standard_Transient { public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return BVH_Properties ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; public : ! Releases resources of object properties. virtual ~ BVH_Properties ( ) = 0 ; } ;
 ## Error: token expected: ; but got: <!!!
 
 ## ! Stores transform properties of geometric object.
@@ -82,4 +82,49 @@ type
 ##  purpose  :
 ##  ======================================================================= template < class T , int N > BVH_Box < T , N > BVH_Transform < T , N > :: Apply ( const BVH_Box < T , N > & theBox ) const { typename BVH_Box < T , N > :: BVH_VecNt aSize = theBox . Size ( ) ; BVH_Box < T , N > aBox ; for ( Standard_Integer aX = 0 ; aX <= 1 ; ++ aX ) { for ( Standard_Integer aY = 0 ; aY <= 1 ; ++ aY ) { for ( Standard_Integer aZ = 0 ; aZ <= 1 ; ++ aZ ) { typename BVH_Box < T , N > :: BVH_VecNt aCorner = theBox . CornerMin ( ) + BVH :: UnitVector < T , N > :: DX ( ) * aSize * static_cast < T > ( aX ) + BVH :: UnitVector < T , N > :: DY ( ) * aSize * static_cast < T > ( aY ) + BVH :: UnitVector < T , N > :: DZ ( ) * aSize * static_cast < T > ( aZ ) ; aBox . Add ( BVH :: MatrixOp < T , N > :: Multiply ( myTransform , aCorner ) ) ; } } } return aBox ; } #  _BVH_Properties_Header
 ## Error: token expected: ; but got: <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

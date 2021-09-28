@@ -34,10 +34,13 @@ type
 
 proc constructContapTheSearch*(): ContapTheSearch {.constructor,
     importcpp: "Contap_TheSearch(@)", header: "Contap_TheSearch.hxx".}
-proc perform*(this: var ContapTheSearch; f: var ContapArcFunction;
-             domain: Handle[Adaptor3dTopolTool]; tolBoundary: float;
-             tolTangency: float; recheckOnRegularity: bool = false) {.
-    importcpp: "Perform", header: "Contap_TheSearch.hxx".}
+## !!!Ignored construct:  ! Algorithm to find the points and parts of curves of Domain
+## ! (domain of of restriction of a surface) which verify
+## ! F = 0.
+## ! TolBoundary defines if a curve is on Q.
+## ! TolTangency defines if a point is on Q. void Perform ( Contap_ArcFunction & F , const Handle ( Adaptor3d_TopolTool ) & Domain , const Standard_Real TolBoundary , const Standard_Real TolTangency , const Standard_Boolean RecheckOnRegularity = Standard_False ) ;
+## Error: token expected: ) but got: &!!!
+
 proc isDone*(this: ContapTheSearch): bool {.noSideEffect, importcpp: "IsDone",
                                         header: "Contap_TheSearch.hxx".}
 proc allArcSolution*(this: ContapTheSearch): bool {.noSideEffect,
@@ -50,6 +53,51 @@ proc nbSegments*(this: ContapTheSearch): int {.noSideEffect, importcpp: "NbSegme
     header: "Contap_TheSearch.hxx".}
 proc segment*(this: ContapTheSearch; index: int): ContapTheSegmentOfTheSearch {.
     noSideEffect, importcpp: "Segment", header: "Contap_TheSearch.hxx".}
-## !!!Ignored construct:  # TheVertex opencascade :: handle < Adaptor3d_HVertex > [end of template] [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc opencascade :: handle < Adaptor2d_HCurve2d > [end of template] [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # TheArcTool Contap_HCurve2dTool [NewLine] # TheArcTool_hxx < Contap_HCurve2dTool . hxx > [NewLine] # TheSOBTool Contap_HContTool [NewLine] # TheSOBTool_hxx < Contap_HContTool . hxx > [NewLine] # Handle_TheTopolTool opencascade :: handle < Adaptor3d_TopolTool > [end of template] [NewLine] # TheTopolTool Adaptor3d_TopolTool [NewLine] # TheTopolTool_hxx < Adaptor3d_TopolTool . hxx > [NewLine] # TheFunction Contap_ArcFunction [NewLine] # TheFunction_hxx < Contap_ArcFunction . hxx > [NewLine] # IntStart_ThePathPoint Contap_ThePathPointOfTheSearch [NewLine] # IntStart_ThePathPoint_hxx < Contap_ThePathPointOfTheSearch . hxx > [NewLine] # IntStart_SequenceOfPathPoint Contap_SequenceOfPathPointOfTheSearch [NewLine] # IntStart_SequenceOfPathPoint_hxx < Contap_SequenceOfPathPointOfTheSearch . hxx > [NewLine] # IntStart_TheSegment Contap_TheSegmentOfTheSearch [NewLine] # IntStart_TheSegment_hxx < Contap_TheSegmentOfTheSearch . hxx > [NewLine] # IntStart_SequenceOfSegment Contap_SequenceOfSegmentOfTheSearch [NewLine] # IntStart_SequenceOfSegment_hxx < Contap_SequenceOfSegmentOfTheSearch . hxx > [NewLine] # IntStart_SearchOnBoundaries Contap_TheSearch [NewLine] # IntStart_SearchOnBoundaries_hxx < Contap_TheSearch . hxx > [NewLine] # < IntStart_SearchOnBoundaries . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # TheArcTool [NewLine] # TheArcTool_hxx [NewLine] # TheSOBTool [NewLine] # TheSOBTool_hxx [NewLine] # Handle_TheTopolTool [NewLine] # TheTopolTool [NewLine] # TheTopolTool_hxx [NewLine] # TheFunction [NewLine] # TheFunction_hxx [NewLine] # IntStart_ThePathPoint [NewLine] # IntStart_ThePathPoint_hxx [NewLine] # IntStart_SequenceOfPathPoint [NewLine] # IntStart_SequenceOfPathPoint_hxx [NewLine] # IntStart_TheSegment [NewLine] # IntStart_TheSegment_hxx [NewLine] # IntStart_SequenceOfSegment [NewLine] # IntStart_SequenceOfSegment_hxx [NewLine] # IntStart_SearchOnBoundaries [NewLine] # IntStart_SearchOnBoundaries_hxx [NewLine] #  _Contap_TheSearch_HeaderFile
+## !!!Ignored construct:  # TheVertex Handle ( Adaptor3d_HVertex ) [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc Handle ( Adaptor2d_HCurve2d ) [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # TheArcTool Contap_HCurve2dTool [NewLine] # TheArcTool_hxx < Contap_HCurve2dTool . hxx > [NewLine] # TheSOBTool Contap_HContTool [NewLine] # TheSOBTool_hxx < Contap_HContTool . hxx > [NewLine] # Handle_TheTopolTool Handle ( Adaptor3d_TopolTool ) [NewLine] # TheTopolTool Adaptor3d_TopolTool [NewLine] # TheTopolTool_hxx < Adaptor3d_TopolTool . hxx > [NewLine] # TheFunction Contap_ArcFunction [NewLine] # TheFunction_hxx < Contap_ArcFunction . hxx > [NewLine] # IntStart_ThePathPoint Contap_ThePathPointOfTheSearch [NewLine] # IntStart_ThePathPoint_hxx < Contap_ThePathPointOfTheSearch . hxx > [NewLine] # IntStart_SequenceOfPathPoint Contap_SequenceOfPathPointOfTheSearch [NewLine] # IntStart_SequenceOfPathPoint_hxx < Contap_SequenceOfPathPointOfTheSearch . hxx > [NewLine] # IntStart_TheSegment Contap_TheSegmentOfTheSearch [NewLine] # IntStart_TheSegment_hxx < Contap_TheSegmentOfTheSearch . hxx > [NewLine] # IntStart_SequenceOfSegment Contap_SequenceOfSegmentOfTheSearch [NewLine] # IntStart_SequenceOfSegment_hxx < Contap_SequenceOfSegmentOfTheSearch . hxx > [NewLine] # IntStart_SearchOnBoundaries Contap_TheSearch [NewLine] # IntStart_SearchOnBoundaries_hxx < Contap_TheSearch . hxx > [NewLine] # < IntStart_SearchOnBoundaries . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # TheArcTool [NewLine] # TheArcTool_hxx [NewLine] # TheSOBTool [NewLine] # TheSOBTool_hxx [NewLine] # Handle_TheTopolTool [NewLine] # TheTopolTool [NewLine] # TheTopolTool_hxx [NewLine] # TheFunction [NewLine] # TheFunction_hxx [NewLine] # IntStart_ThePathPoint [NewLine] # IntStart_ThePathPoint_hxx [NewLine] # IntStart_SequenceOfPathPoint [NewLine] # IntStart_SequenceOfPathPoint_hxx [NewLine] # IntStart_TheSegment [NewLine] # IntStart_TheSegment_hxx [NewLine] # IntStart_SequenceOfSegment [NewLine] # IntStart_SequenceOfSegment_hxx [NewLine] # IntStart_SearchOnBoundaries [NewLine] # IntStart_SearchOnBoundaries_hxx [NewLine] #  _Contap_TheSearch_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Storage_Root"
 discard "forward decl of Storage_Root"
 type
-  HandleStorageRoot* = Handle[StorageRoot]
+  HandleC1C1* = Handle[StorageRoot]
 
 ## ! A root object extracted from a Storage_Data object.
 ## ! A Storage_Root encapsulates a persistent
@@ -45,7 +45,7 @@ proc constructStorageRoot*(): StorageRoot {.constructor,
 proc constructStorageRoot*(theName: TCollectionAsciiString;
                           theObject: Handle[StandardPersistent]): StorageRoot {.
     constructor, importcpp: "Storage_Root(@)", header: "Storage_Root.hxx".}
-proc constructStorageRoot*(theName: TCollectionAsciiString; theRef: int;
+proc constructStorageRoot*(theName: TCollectionAsciiString; theRef: cint;
                           theType: TCollectionAsciiString): StorageRoot {.
     constructor, importcpp: "Storage_Root(@)", header: "Storage_Root.hxx".}
 proc setName*(this: var StorageRoot; theName: TCollectionAsciiString) {.
@@ -58,10 +58,10 @@ proc `object`*(this: StorageRoot): Handle[StandardPersistent] {.noSideEffect,
     importcpp: "Object", header: "Storage_Root.hxx".}
 proc `type`*(this: StorageRoot): TCollectionAsciiString {.noSideEffect,
     importcpp: "Type", header: "Storage_Root.hxx".}
-proc setReference*(this: var StorageRoot; aRef: int) {.importcpp: "SetReference",
+proc setReference*(this: var StorageRoot; aRef: cint) {.importcpp: "SetReference",
     header: "Storage_Root.hxx".}
-proc reference*(this: StorageRoot): int {.noSideEffect, importcpp: "Reference",
-                                      header: "Storage_Root.hxx".}
+proc reference*(this: StorageRoot): cint {.noSideEffect, importcpp: "Reference",
+                                       header: "Storage_Root.hxx".}
 proc setType*(this: var StorageRoot; aType: TCollectionAsciiString) {.
     importcpp: "SetType", header: "Storage_Root.hxx".}
 type
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Storage_Root::get_type_descriptor(@)", header: "Storage_Root.hxx".}
 proc dynamicType*(this: StorageRoot): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_Root.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

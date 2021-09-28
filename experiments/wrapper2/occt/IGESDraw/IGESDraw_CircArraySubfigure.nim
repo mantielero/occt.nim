@@ -21,7 +21,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDraw_CircArraySubfigure"
 discard "forward decl of IGESDraw_CircArraySubfigure"
 type
-  HandleIGESDrawCircArraySubfigure* = Handle[IGESDrawCircArraySubfigure]
+  HandleC1C1* = Handle[IGESDrawCircArraySubfigure]
 
 ## ! Defines IGES Circular Array Subfigure Instance Entity,
 ## ! Type <414> Form Number <0> in package IGESDraw
@@ -39,34 +39,35 @@ proc constructIGESDrawCircArraySubfigure*(): IGESDrawCircArraySubfigure {.
     constructor, importcpp: "IGESDraw_CircArraySubfigure(@)",
     header: "IGESDraw_CircArraySubfigure.hxx".}
 proc init*(this: var IGESDrawCircArraySubfigure; aBase: Handle[IGESDataIGESEntity];
-          aNumLocs: int; aCenter: Xyz; aRadius: float; aStAngle: float;
-          aDelAngle: float; aFlag: int; allNumPos: Handle[TColStdHArray1OfInteger]) {.
+          aNumLocs: cint; aCenter: Xyz; aRadius: cfloat; aStAngle: cfloat;
+          aDelAngle: cfloat; aFlag: cint; allNumPos: Handle[TColStdHArray1OfInteger]) {.
     importcpp: "Init", header: "IGESDraw_CircArraySubfigure.hxx".}
 proc baseEntity*(this: IGESDrawCircArraySubfigure): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "BaseEntity",
     header: "IGESDraw_CircArraySubfigure.hxx".}
-proc nbLocations*(this: IGESDrawCircArraySubfigure): int {.noSideEffect,
+proc nbLocations*(this: IGESDrawCircArraySubfigure): cint {.noSideEffect,
     importcpp: "NbLocations", header: "IGESDraw_CircArraySubfigure.hxx".}
 proc centerPoint*(this: IGESDrawCircArraySubfigure): Pnt {.noSideEffect,
     importcpp: "CenterPoint", header: "IGESDraw_CircArraySubfigure.hxx".}
 proc transformedCenterPoint*(this: IGESDrawCircArraySubfigure): Pnt {.noSideEffect,
     importcpp: "TransformedCenterPoint", header: "IGESDraw_CircArraySubfigure.hxx".}
-proc circleRadius*(this: IGESDrawCircArraySubfigure): float {.noSideEffect,
+proc circleRadius*(this: IGESDrawCircArraySubfigure): cfloat {.noSideEffect,
     importcpp: "CircleRadius", header: "IGESDraw_CircArraySubfigure.hxx".}
-proc startAngle*(this: IGESDrawCircArraySubfigure): float {.noSideEffect,
+proc startAngle*(this: IGESDrawCircArraySubfigure): cfloat {.noSideEffect,
     importcpp: "StartAngle", header: "IGESDraw_CircArraySubfigure.hxx".}
-proc deltaAngle*(this: IGESDrawCircArraySubfigure): float {.noSideEffect,
+proc deltaAngle*(this: IGESDrawCircArraySubfigure): cfloat {.noSideEffect,
     importcpp: "DeltaAngle", header: "IGESDraw_CircArraySubfigure.hxx".}
-proc listCount*(this: IGESDrawCircArraySubfigure): int {.noSideEffect,
+proc listCount*(this: IGESDrawCircArraySubfigure): cint {.noSideEffect,
     importcpp: "ListCount", header: "IGESDraw_CircArraySubfigure.hxx".}
 proc displayFlag*(this: IGESDrawCircArraySubfigure): bool {.noSideEffect,
     importcpp: "DisplayFlag", header: "IGESDraw_CircArraySubfigure.hxx".}
 proc doDontFlag*(this: IGESDrawCircArraySubfigure): bool {.noSideEffect,
     importcpp: "DoDontFlag", header: "IGESDraw_CircArraySubfigure.hxx".}
-proc positionNum*(this: IGESDrawCircArraySubfigure; index: int): bool {.noSideEffect,
+proc positionNum*(this: IGESDrawCircArraySubfigure; index: cint): bool {.noSideEffect,
     importcpp: "PositionNum", header: "IGESDraw_CircArraySubfigure.hxx".}
-proc listPosition*(this: IGESDrawCircArraySubfigure; index: int): int {.noSideEffect,
-    importcpp: "ListPosition", header: "IGESDraw_CircArraySubfigure.hxx".}
+proc listPosition*(this: IGESDrawCircArraySubfigure; index: cint): cint {.
+    noSideEffect, importcpp: "ListPosition",
+    header: "IGESDraw_CircArraySubfigure.hxx".}
 type
   IGESDrawCircArraySubfigurebaseType* = IGESDataIGESEntity
 
@@ -78,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDrawCircArraySubfigure): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDraw_CircArraySubfigure.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

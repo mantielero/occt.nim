@@ -19,7 +19,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_WitnessLine"
 discard "forward decl of IGESDimen_WitnessLine"
 type
-  HandleIGESDimenWitnessLine* = Handle[IGESDimenWitnessLine]
+  HandleC1C1* = Handle[IGESDimenWitnessLine]
 
 ## ! defines WitnessLine, Type <106> Form <40>
 ## ! in package IGESDimen
@@ -33,18 +33,18 @@ type
 
 proc constructIGESDimenWitnessLine*(): IGESDimenWitnessLine {.constructor,
     importcpp: "IGESDimen_WitnessLine(@)", header: "IGESDimen_WitnessLine.hxx".}
-proc init*(this: var IGESDimenWitnessLine; dataType: int; aDisp: float;
+proc init*(this: var IGESDimenWitnessLine; dataType: cint; aDisp: cfloat;
           dataPoints: Handle[TColgpHArray1OfXY]) {.importcpp: "Init",
     header: "IGESDimen_WitnessLine.hxx".}
-proc datatype*(this: IGESDimenWitnessLine): int {.noSideEffect,
+proc datatype*(this: IGESDimenWitnessLine): cint {.noSideEffect,
     importcpp: "Datatype", header: "IGESDimen_WitnessLine.hxx".}
-proc nbPoints*(this: IGESDimenWitnessLine): int {.noSideEffect,
+proc nbPoints*(this: IGESDimenWitnessLine): cint {.noSideEffect,
     importcpp: "NbPoints", header: "IGESDimen_WitnessLine.hxx".}
-proc zDisplacement*(this: IGESDimenWitnessLine): float {.noSideEffect,
+proc zDisplacement*(this: IGESDimenWitnessLine): cfloat {.noSideEffect,
     importcpp: "ZDisplacement", header: "IGESDimen_WitnessLine.hxx".}
-proc point*(this: IGESDimenWitnessLine; index: int): Pnt {.noSideEffect,
+proc point*(this: IGESDimenWitnessLine; index: cint): Pnt {.noSideEffect,
     importcpp: "Point", header: "IGESDimen_WitnessLine.hxx".}
-proc transformedPoint*(this: IGESDimenWitnessLine; index: int): Pnt {.noSideEffect,
+proc transformedPoint*(this: IGESDimenWitnessLine; index: cint): Pnt {.noSideEffect,
     importcpp: "TransformedPoint", header: "IGESDimen_WitnessLine.hxx".}
 type
   IGESDimenWitnessLinebaseType* = IGESDataIGESEntity
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_WitnessLine.hxx".}
 proc dynamicType*(this: IGESDimenWitnessLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDimen_WitnessLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

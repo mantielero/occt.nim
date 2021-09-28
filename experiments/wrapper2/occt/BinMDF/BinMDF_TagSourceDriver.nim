@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDF_TagSourceDriver"
 discard "forward decl of BinMDF_TagSourceDriver"
 type
-  HandleBinMDF_TagSourceDriver* = Handle[BinMDF_TagSourceDriver]
+  HandleC1C1* = Handle[BinMDF_TagSourceDriver]
 
 ## ! TDF_TagSource Driver.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BinMDF_TagSourceDriver.hxx".}
 proc dynamicType*(this: BinMDF_TagSourceDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMDF_TagSourceDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

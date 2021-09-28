@@ -70,3 +70,28 @@ proc generatedIdentification*(this: var TNamingIdentifier;
 proc identification*(this: var TNamingIdentifier; localizer: var TNamingLocalizer;
                     ns: Handle[TNamingNamedShape]) {.importcpp: "Identification",
     header: "TNaming_Identifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

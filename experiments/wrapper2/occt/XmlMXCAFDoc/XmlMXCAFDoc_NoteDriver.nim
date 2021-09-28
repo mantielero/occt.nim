@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMXCAFDoc_NoteDriver"
 discard "forward decl of XmlMXCAFDoc_NoteDriver"
 type
-  HandleXmlMXCAFDocNoteDriver* = Handle[XmlMXCAFDocNoteDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocNoteDriver]
 
 ## ! Attribute Driver.
 
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XmlMXCAFDoc_NoteDriver.hxx".}
 proc dynamicType*(this: XmlMXCAFDocNoteDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XmlMXCAFDoc_NoteDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

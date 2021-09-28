@@ -13,5 +13,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdSequenceOfInteger* = NCollectionSequence[int]
+  TColStdSequenceOfInteger* = NCollectionSequence[cint]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

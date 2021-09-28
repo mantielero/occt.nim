@@ -27,7 +27,7 @@ proc constructRWStepAP214RWAppliedGroupAssignment*(): RWStepAP214RWAppliedGroupA
     constructor, importcpp: "RWStepAP214_RWAppliedGroupAssignment(@)",
     header: "RWStepAP214_RWAppliedGroupAssignment.hxx".}
 proc readStep*(this: RWStepAP214RWAppliedGroupAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AppliedGroupAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAppliedGroupAssignment.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepAP214RWAppliedGroupAssignment;
            ent: Handle[StepAP214AppliedGroupAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedGroupAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

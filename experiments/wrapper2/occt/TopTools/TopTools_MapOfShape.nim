@@ -18,3 +18,28 @@ type
   TopToolsMapOfShape* = NCollectionMap[TopoDS_Shape, TopToolsShapeMapHasher]
   TopToolsMapIteratorOfMapOfShape* = Iterator[TopoDS_Shape, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,9 +25,34 @@ type
                                                                         ## theUpperBound]
 
 
-proc hashCode*(thePave: BOPDS_Pave; theUpperBound: int): int {.
+proc hashCode*(thePave: BOPDS_Pave; theUpperBound: cint): cint {.
     importcpp: "BOPDS_PaveMapHasher::HashCode(@)",
     header: "BOPDS_PaveMapHasher.hxx".}
 proc isEqual*(aPave1: BOPDS_Pave; aPave2: BOPDS_Pave): bool {.
     importcpp: "BOPDS_PaveMapHasher::IsEqual(@)",
     header: "BOPDS_PaveMapHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

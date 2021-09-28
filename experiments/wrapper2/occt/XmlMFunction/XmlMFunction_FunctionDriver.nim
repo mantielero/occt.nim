@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMFunction_FunctionDriver"
 discard "forward decl of XmlMFunction_FunctionDriver"
 type
-  HandleXmlMFunctionFunctionDriver* = Handle[XmlMFunctionFunctionDriver]
+  HandleC1C1* = Handle[XmlMFunctionFunctionDriver]
 
 ## ! Attribute Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMFunctionFunctionDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMFunction_FunctionDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

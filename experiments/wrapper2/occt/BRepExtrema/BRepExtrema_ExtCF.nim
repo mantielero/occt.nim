@@ -30,17 +30,42 @@ proc perform*(this: var BRepExtremaExtCF; e: TopoDS_Edge; f: TopoDS_Face) {.
     importcpp: "Perform", header: "BRepExtrema_ExtCF.hxx".}
 proc isDone*(this: BRepExtremaExtCF): bool {.noSideEffect, importcpp: "IsDone",
     header: "BRepExtrema_ExtCF.hxx".}
-proc nbExt*(this: BRepExtremaExtCF): int {.noSideEffect, importcpp: "NbExt",
-                                       header: "BRepExtrema_ExtCF.hxx".}
-proc squareDistance*(this: BRepExtremaExtCF; n: int): float {.noSideEffect,
+proc nbExt*(this: BRepExtremaExtCF): cint {.noSideEffect, importcpp: "NbExt",
+                                        header: "BRepExtrema_ExtCF.hxx".}
+proc squareDistance*(this: BRepExtremaExtCF; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "BRepExtrema_ExtCF.hxx".}
 proc isParallel*(this: BRepExtremaExtCF): bool {.noSideEffect,
     importcpp: "IsParallel", header: "BRepExtrema_ExtCF.hxx".}
-proc parameterOnEdge*(this: BRepExtremaExtCF; n: int): float {.noSideEffect,
+proc parameterOnEdge*(this: BRepExtremaExtCF; n: cint): cfloat {.noSideEffect,
     importcpp: "ParameterOnEdge", header: "BRepExtrema_ExtCF.hxx".}
-proc parameterOnFace*(this: BRepExtremaExtCF; n: int; u: var float; v: var float) {.
+proc parameterOnFace*(this: BRepExtremaExtCF; n: cint; u: var cfloat; v: var cfloat) {.
     noSideEffect, importcpp: "ParameterOnFace", header: "BRepExtrema_ExtCF.hxx".}
-proc pointOnEdge*(this: BRepExtremaExtCF; n: int): Pnt {.noSideEffect,
+proc pointOnEdge*(this: BRepExtremaExtCF; n: cint): Pnt {.noSideEffect,
     importcpp: "PointOnEdge", header: "BRepExtrema_ExtCF.hxx".}
-proc pointOnFace*(this: BRepExtremaExtCF; n: int): Pnt {.noSideEffect,
+proc pointOnFace*(this: BRepExtremaExtCF; n: cint): Pnt {.noSideEffect,
     importcpp: "PointOnFace", header: "BRepExtrema_ExtCF.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,8 +18,7 @@ discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_SurfaceStyleSilhouette"
 discard "forward decl of StepVisual_SurfaceStyleSilhouette"
 type
-  HandleStepVisualSurfaceStyleSilhouette* = Handle[
-      StepVisualSurfaceStyleSilhouette]
+  HandleC1C1* = Handle[StepVisualSurfaceStyleSilhouette]
   StepVisualSurfaceStyleSilhouette* {.importcpp: "StepVisual_SurfaceStyleSilhouette", header: "StepVisual_SurfaceStyleSilhouette.hxx",
                                      bycopy.} = object of StandardTransient ## ! Returns a
                                                                        ## SurfaceStyleSilhouette
@@ -49,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualSurfaceStyleSilhouette): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleSilhouette.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

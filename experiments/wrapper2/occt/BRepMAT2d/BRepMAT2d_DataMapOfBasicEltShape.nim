@@ -20,3 +20,28 @@ type
   BRepMAT2dDataMapIteratorOfDataMapOfBasicEltShape* = Iterator[
       Handle[MAT_BasicElt], TopoDS_Shape, TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

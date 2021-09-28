@@ -19,7 +19,7 @@ discard "forward decl of StepRepr_CharacterizedDefinition"
 discard "forward decl of StepRepr_MaterialDesignation"
 discard "forward decl of StepRepr_MaterialDesignation"
 type
-  HandleStepReprMaterialDesignation* = Handle[StepReprMaterialDesignation]
+  HandleC1C1* = Handle[StepReprMaterialDesignation]
   StepReprMaterialDesignation* {.importcpp: "StepRepr_MaterialDesignation",
                                 header: "StepRepr_MaterialDesignation.hxx", bycopy.} = object of StandardTransient
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprMaterialDesignation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_MaterialDesignation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

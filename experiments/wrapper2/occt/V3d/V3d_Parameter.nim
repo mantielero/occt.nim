@@ -15,5 +15,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  V3dParameter* = float
+  V3dParameter* = cfloat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

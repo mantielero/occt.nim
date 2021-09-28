@@ -67,5 +67,30 @@ proc ownCopy*(this: IGESDrawToolPerspectiveView;
     noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolPerspectiveView.hxx".}
 proc ownDump*(this: IGESDrawToolPerspectiveView;
              ent: Handle[IGESDrawPerspectiveView]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESDraw_ToolPerspectiveView.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

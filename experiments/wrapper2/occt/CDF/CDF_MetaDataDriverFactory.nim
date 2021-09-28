@@ -18,7 +18,7 @@ discard "forward decl of CDF_MetaDataDriver"
 discard "forward decl of CDF_MetaDataDriverFactory"
 discard "forward decl of CDF_MetaDataDriverFactory"
 type
-  HandleCDF_MetaDataDriverFactory* = Handle[CDF_MetaDataDriverFactory]
+  HandleC1C1* = Handle[CDF_MetaDataDriverFactory]
   CDF_MetaDataDriverFactory* {.importcpp: "CDF_MetaDataDriverFactory",
                               header: "CDF_MetaDataDriverFactory.hxx", bycopy.} = object of StandardTransient
 
@@ -35,3 +35,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "CDF_MetaDataDriverFactory.hxx".}
 proc dynamicType*(this: CDF_MetaDataDriverFactory): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "CDF_MetaDataDriverFactory.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

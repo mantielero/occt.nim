@@ -32,7 +32,7 @@ proc constructStepBasicProductDefinitionOrReference*(): StepBasicProductDefiniti
     constructor, importcpp: "StepBasic_ProductDefinitionOrReference(@)",
     header: "StepBasic_ProductDefinitionOrReference.hxx".}
 proc caseNum*(this: StepBasicProductDefinitionOrReference;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepBasic_ProductDefinitionOrReference.hxx".}
 proc productDefinition*(this: StepBasicProductDefinitionOrReference): Handle[
     StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepBasic_ProductDefinitionOrReference.hxx".}
@@ -45,3 +45,28 @@ proc productDefinitionReferenceWithLocalRepresentation*(
     StepBasicProductDefinitionReferenceWithLocalRepresentation] {.noSideEffect,
     importcpp: "ProductDefinitionReferenceWithLocalRepresentation",
     header: "StepBasic_ProductDefinitionOrReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

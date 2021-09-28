@@ -26,7 +26,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Parabola"
 discard "forward decl of Geom_Parabola"
 type
-  HandleGeomParabola* = Handle[GeomParabola]
+  HandleC1C1* = Handle[GeomParabola]
 
 ## ! Describes a parabola in 3D space.
 ## ! A parabola is defined by its focal length (i.e. the
@@ -77,52 +77,53 @@ type
 
 proc constructGeomParabola*(prb: Parab): GeomParabola {.constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
-proc constructGeomParabola*(a2: Ax2; focal: float): GeomParabola {.constructor,
+proc constructGeomParabola*(a2: Ax2; focal: StandardReal): GeomParabola {.constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
 proc constructGeomParabola*(d: Ax1; f: Pnt): GeomParabola {.constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
-proc setFocal*(this: var GeomParabola; focal: float) {.importcpp: "SetFocal",
+proc setFocal*(this: var GeomParabola; focal: StandardReal) {.importcpp: "SetFocal",
     header: "Geom_Parabola.hxx".}
 proc setParab*(this: var GeomParabola; prb: Parab) {.importcpp: "SetParab",
     header: "Geom_Parabola.hxx".}
 proc parab*(this: GeomParabola): Parab {.noSideEffect, importcpp: "Parab",
                                      header: "Geom_Parabola.hxx".}
-proc reversedParameter*(this: GeomParabola; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom_Parabola.hxx".}
-proc firstParameter*(this: GeomParabola): float {.noSideEffect,
+proc reversedParameter*(this: GeomParabola; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_Parabola.hxx".}
+proc firstParameter*(this: GeomParabola): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_Parabola.hxx".}
-proc lastParameter*(this: GeomParabola): float {.noSideEffect,
+proc lastParameter*(this: GeomParabola): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_Parabola.hxx".}
-proc isClosed*(this: GeomParabola): bool {.noSideEffect, importcpp: "IsClosed",
-                                       header: "Geom_Parabola.hxx".}
-proc isPeriodic*(this: GeomParabola): bool {.noSideEffect, importcpp: "IsPeriodic",
-    header: "Geom_Parabola.hxx".}
+proc isClosed*(this: GeomParabola): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom_Parabola.hxx".}
+proc isPeriodic*(this: GeomParabola): StandardBoolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom_Parabola.hxx".}
 proc directrix*(this: GeomParabola): Ax1 {.noSideEffect, importcpp: "Directrix",
                                        header: "Geom_Parabola.hxx".}
-proc eccentricity*(this: GeomParabola): float {.noSideEffect,
+proc eccentricity*(this: GeomParabola): StandardReal {.noSideEffect,
     importcpp: "Eccentricity", header: "Geom_Parabola.hxx".}
 proc focus*(this: GeomParabola): Pnt {.noSideEffect, importcpp: "Focus",
                                    header: "Geom_Parabola.hxx".}
-proc focal*(this: GeomParabola): float {.noSideEffect, importcpp: "Focal",
-                                     header: "Geom_Parabola.hxx".}
-proc parameter*(this: GeomParabola): float {.noSideEffect, importcpp: "Parameter",
+proc focal*(this: GeomParabola): StandardReal {.noSideEffect, importcpp: "Focal",
     header: "Geom_Parabola.hxx".}
-proc d0*(this: GeomParabola; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
-    header: "Geom_Parabola.hxx".}
-proc d1*(this: GeomParabola; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+proc parameter*(this: GeomParabola): StandardReal {.noSideEffect,
+    importcpp: "Parameter", header: "Geom_Parabola.hxx".}
+proc d0*(this: GeomParabola; u: StandardReal; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_Parabola.hxx".}
+proc d1*(this: GeomParabola; u: StandardReal; p: var Pnt; v1: var Vec) {.noSideEffect,
     importcpp: "D1", header: "Geom_Parabola.hxx".}
-proc d2*(this: GeomParabola; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    importcpp: "D2", header: "Geom_Parabola.hxx".}
-proc d3*(this: GeomParabola; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, importcpp: "D3", header: "Geom_Parabola.hxx".}
-proc dn*(this: GeomParabola; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
-    header: "Geom_Parabola.hxx".}
+proc d2*(this: GeomParabola; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Geom_Parabola.hxx".}
+proc d3*(this: GeomParabola; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec;
+        v3: var Vec) {.noSideEffect, importcpp: "D3", header: "Geom_Parabola.hxx".}
+proc dn*(this: GeomParabola; u: StandardReal; n: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "Geom_Parabola.hxx".}
 proc transform*(this: var GeomParabola; t: Trsf) {.importcpp: "Transform",
     header: "Geom_Parabola.hxx".}
-proc transformedParameter*(this: GeomParabola; u: float; t: Trsf): float {.noSideEffect,
-    importcpp: "TransformedParameter", header: "Geom_Parabola.hxx".}
-proc parametricTransformation*(this: GeomParabola; t: Trsf): float {.noSideEffect,
-    importcpp: "ParametricTransformation", header: "Geom_Parabola.hxx".}
+proc transformedParameter*(this: GeomParabola; u: StandardReal; t: Trsf): StandardReal {.
+    noSideEffect, importcpp: "TransformedParameter", header: "Geom_Parabola.hxx".}
+proc parametricTransformation*(this: GeomParabola; t: Trsf): StandardReal {.
+    noSideEffect, importcpp: "ParametricTransformation",
+    header: "Geom_Parabola.hxx".}
 proc copy*(this: GeomParabola): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_Parabola.hxx".}
 proc dumpJson*(this: GeomParabola; theOStream: var StandardOStream;

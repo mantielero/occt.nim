@@ -18,3 +18,28 @@ discard "forward decl of TopOpeBRepBuild_Builder"
 type
   TopOpeBRepBuildPBuilder* = ptr TopOpeBRepBuildBuilder
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

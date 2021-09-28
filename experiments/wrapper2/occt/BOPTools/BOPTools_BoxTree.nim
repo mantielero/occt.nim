@@ -28,14 +28,39 @@ proc constructBOPToolsBoxSet*[NumType; Dimension: static[cint]; DataType](
 ## ! 2D definitions
 
 type
-  BOPToolsBox2dTree* = BOPToolsBoxSet[float, 2, int]
+  BOPToolsBox2dTree* = BOPToolsBoxSet[cfloat, 2, cint]
   BOPToolsBox2dTreeSelector* = BOPToolsBoxSelector[2]
   BOPToolsBox2dPairSelector* = BOPToolsPairSelector[2]
 
 ## ! 3D definitions
 
 type
-  BOPToolsBoxTree* = BOPToolsBoxSet[float, 3, int]
+  BOPToolsBoxTree* = BOPToolsBoxSet[cfloat, 3, cint]
   BOPToolsBoxTreeSelector* = BOPToolsBoxSelector[3]
   BOPToolsBoxPairSelector* = BOPToolsPairSelector[3]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -20,7 +20,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_BooleanArray"
 discard "forward decl of TDataStd_BooleanArray"
 type
-  HandleTDataStdBooleanArray* = Handle[TDataStdBooleanArray]
+  HandleC1C1* = Handle[TDataStdBooleanArray]
 
 ## ! An array of boolean values.
 
@@ -44,29 +44,29 @@ type
 
 proc getID*(): StandardGUID {.importcpp: "TDataStd_BooleanArray::GetID(@)",
                            header: "TDataStd_BooleanArray.hxx".}
-proc set*(label: TDF_Label; lower: int; upper: int): Handle[TDataStdBooleanArray] {.
+proc set*(label: TDF_Label; lower: cint; upper: cint): Handle[TDataStdBooleanArray] {.
     importcpp: "TDataStd_BooleanArray::Set(@)",
     header: "TDataStd_BooleanArray.hxx".}
-proc set*(label: TDF_Label; theGuid: StandardGUID; lower: int; upper: int): Handle[
+proc set*(label: TDF_Label; theGuid: StandardGUID; lower: cint; upper: cint): Handle[
     TDataStdBooleanArray] {.importcpp: "TDataStd_BooleanArray::Set(@)",
                            header: "TDataStd_BooleanArray.hxx".}
-proc init*(this: var TDataStdBooleanArray; lower: int; upper: int) {.importcpp: "Init",
-    header: "TDataStd_BooleanArray.hxx".}
-proc setValue*(this: var TDataStdBooleanArray; index: int; value: bool) {.
+proc init*(this: var TDataStdBooleanArray; lower: cint; upper: cint) {.
+    importcpp: "Init", header: "TDataStd_BooleanArray.hxx".}
+proc setValue*(this: var TDataStdBooleanArray; index: cint; value: bool) {.
     importcpp: "SetValue", header: "TDataStd_BooleanArray.hxx".}
 proc setID*(this: var TDataStdBooleanArray; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_BooleanArray.hxx".}
 proc setID*(this: var TDataStdBooleanArray) {.importcpp: "SetID",
     header: "TDataStd_BooleanArray.hxx".}
-proc value*(this: TDataStdBooleanArray; index: int): bool {.noSideEffect,
+proc value*(this: TDataStdBooleanArray; index: cint): bool {.noSideEffect,
     importcpp: "Value", header: "TDataStd_BooleanArray.hxx".}
-proc `()`*(this: TDataStdBooleanArray; index: int): bool {.noSideEffect,
+proc `()`*(this: TDataStdBooleanArray; index: cint): bool {.noSideEffect,
     importcpp: "#(@)", header: "TDataStd_BooleanArray.hxx".}
-proc lower*(this: TDataStdBooleanArray): int {.noSideEffect, importcpp: "Lower",
+proc lower*(this: TDataStdBooleanArray): cint {.noSideEffect, importcpp: "Lower",
     header: "TDataStd_BooleanArray.hxx".}
-proc upper*(this: TDataStdBooleanArray): int {.noSideEffect, importcpp: "Upper",
+proc upper*(this: TDataStdBooleanArray): cint {.noSideEffect, importcpp: "Upper",
     header: "TDataStd_BooleanArray.hxx".}
-proc length*(this: TDataStdBooleanArray): int {.noSideEffect, importcpp: "Length",
+proc length*(this: TDataStdBooleanArray): cint {.noSideEffect, importcpp: "Length",
     header: "TDataStd_BooleanArray.hxx".}
 proc internalArray*(this: TDataStdBooleanArray): Handle[TColStdHArray1OfByte] {.
     noSideEffect, importcpp: "InternalArray", header: "TDataStd_BooleanArray.hxx".}
@@ -87,8 +87,8 @@ proc paste*(this: TDataStdBooleanArray; into: Handle[TDF_Attribute];
 proc dump*(this: TDataStdBooleanArray; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_BooleanArray.hxx".}
 proc dumpJson*(this: TDataStdBooleanArray; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_BooleanArray.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_BooleanArray.hxx".}
 type
   TDataStdBooleanArraybaseType* = TDF_Attribute
 
@@ -99,3 +99,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_BooleanArray.hxx".}
 proc dynamicType*(this: TDataStdBooleanArray): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_BooleanArray.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

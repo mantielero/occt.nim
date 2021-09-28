@@ -21,7 +21,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of ShapeExtend_ComplexCurve"
 discard "forward decl of ShapeExtend_ComplexCurve"
 type
-  HandleShapeExtendComplexCurve* = Handle[ShapeExtendComplexCurve]
+  HandleC1C1* = Handle[ShapeExtendComplexCurve]
 
 ## ! Defines a curve which consists of several segments.
 ## ! Implements basic interface to it.
@@ -36,24 +36,24 @@ type
                                                                                             ## curves
 
 
-proc nbCurves*(this: ShapeExtendComplexCurve): int {.noSideEffect,
+proc nbCurves*(this: ShapeExtendComplexCurve): cint {.noSideEffect,
     importcpp: "NbCurves", header: "ShapeExtend_ComplexCurve.hxx".}
-proc curve*(this: ShapeExtendComplexCurve; index: int): Handle[GeomCurve] {.
+proc curve*(this: ShapeExtendComplexCurve; index: cint): Handle[GeomCurve] {.
     noSideEffect, importcpp: "Curve", header: "ShapeExtend_ComplexCurve.hxx".}
-proc locateParameter*(this: ShapeExtendComplexCurve; u: float; uOut: var float): int {.
+proc locateParameter*(this: ShapeExtendComplexCurve; u: cfloat; uOut: var cfloat): cint {.
     noSideEffect, importcpp: "LocateParameter",
     header: "ShapeExtend_ComplexCurve.hxx".}
-proc localToGlobal*(this: ShapeExtendComplexCurve; index: int; ulocal: float): float {.
+proc localToGlobal*(this: ShapeExtendComplexCurve; index: cint; ulocal: cfloat): cfloat {.
     noSideEffect, importcpp: "LocalToGlobal",
     header: "ShapeExtend_ComplexCurve.hxx".}
 proc transform*(this: var ShapeExtendComplexCurve; t: Trsf) {.importcpp: "Transform",
     header: "ShapeExtend_ComplexCurve.hxx".}
-proc reversedParameter*(this: ShapeExtendComplexCurve; u: float): float {.
+proc reversedParameter*(this: ShapeExtendComplexCurve; u: cfloat): cfloat {.
     noSideEffect, importcpp: "ReversedParameter",
     header: "ShapeExtend_ComplexCurve.hxx".}
-proc firstParameter*(this: ShapeExtendComplexCurve): float {.noSideEffect,
+proc firstParameter*(this: ShapeExtendComplexCurve): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "ShapeExtend_ComplexCurve.hxx".}
-proc lastParameter*(this: ShapeExtendComplexCurve): float {.noSideEffect,
+proc lastParameter*(this: ShapeExtendComplexCurve): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "ShapeExtend_ComplexCurve.hxx".}
 proc isClosed*(this: ShapeExtendComplexCurve): bool {.noSideEffect,
     importcpp: "IsClosed", header: "ShapeExtend_ComplexCurve.hxx".}
@@ -61,22 +61,22 @@ proc isPeriodic*(this: ShapeExtendComplexCurve): bool {.noSideEffect,
     importcpp: "IsPeriodic", header: "ShapeExtend_ComplexCurve.hxx".}
 proc continuity*(this: ShapeExtendComplexCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "ShapeExtend_ComplexCurve.hxx".}
-proc isCN*(this: ShapeExtendComplexCurve; n: int): bool {.noSideEffect,
+proc isCN*(this: ShapeExtendComplexCurve; n: cint): bool {.noSideEffect,
     importcpp: "IsCN", header: "ShapeExtend_ComplexCurve.hxx".}
-proc d0*(this: ShapeExtendComplexCurve; u: float; p: var Pnt) {.noSideEffect,
+proc d0*(this: ShapeExtendComplexCurve; u: cfloat; p: var Pnt) {.noSideEffect,
     importcpp: "D0", header: "ShapeExtend_ComplexCurve.hxx".}
-proc d1*(this: ShapeExtendComplexCurve; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+proc d1*(this: ShapeExtendComplexCurve; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect,
     importcpp: "D1", header: "ShapeExtend_ComplexCurve.hxx".}
-proc d2*(this: ShapeExtendComplexCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: ShapeExtendComplexCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
     noSideEffect, importcpp: "D2", header: "ShapeExtend_ComplexCurve.hxx".}
-proc d3*(this: ShapeExtendComplexCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec;
+proc d3*(this: ShapeExtendComplexCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec;
         v3: var Vec) {.noSideEffect, importcpp: "D3",
                     header: "ShapeExtend_ComplexCurve.hxx".}
-proc dn*(this: ShapeExtendComplexCurve; u: float; n: int): Vec {.noSideEffect,
+proc dn*(this: ShapeExtendComplexCurve; u: cfloat; n: cint): Vec {.noSideEffect,
     importcpp: "DN", header: "ShapeExtend_ComplexCurve.hxx".}
-proc getScaleFactor*(this: ShapeExtendComplexCurve; ind: int): float {.noSideEffect,
+proc getScaleFactor*(this: ShapeExtendComplexCurve; ind: cint): cfloat {.noSideEffect,
     importcpp: "GetScaleFactor", header: "ShapeExtend_ComplexCurve.hxx".}
-proc checkConnectivity*(this: var ShapeExtendComplexCurve; preci: float): bool {.
+proc checkConnectivity*(this: var ShapeExtendComplexCurve; preci: cfloat): bool {.
     importcpp: "CheckConnectivity", header: "ShapeExtend_ComplexCurve.hxx".}
 type
   ShapeExtendComplexCurvebaseType* = GeomCurve
@@ -88,3 +88,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeExtend_ComplexCurve.hxx".}
 proc dynamicType*(this: ShapeExtendComplexCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeExtend_ComplexCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

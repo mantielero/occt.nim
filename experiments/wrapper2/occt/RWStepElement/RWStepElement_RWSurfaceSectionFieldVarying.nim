@@ -30,7 +30,7 @@ proc constructRWStepElementRWSurfaceSectionFieldVarying*(): RWStepElementRWSurfa
     constructor, importcpp: "RWStepElement_RWSurfaceSectionFieldVarying(@)",
     header: "RWStepElement_RWSurfaceSectionFieldVarying.hxx".}
 proc readStep*(this: RWStepElementRWSurfaceSectionFieldVarying;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepElementSurfaceSectionFieldVarying]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepElementRWSurfaceSectionFieldVarying;
            ent: Handle[StepElementSurfaceSectionFieldVarying];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWSurfaceSectionFieldVarying.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

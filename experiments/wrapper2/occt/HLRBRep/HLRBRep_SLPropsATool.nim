@@ -24,18 +24,44 @@ type
                                                                          ## ! on the Surface <A>.
 
 
-proc value*(a: StandardAddress; u: float; v: float; p: var Pnt) {.
+proc value*(a: StandardAddress; u: cfloat; v: cfloat; p: var Pnt) {.
     importcpp: "HLRBRep_SLPropsATool::Value(@)",
     header: "HLRBRep_SLPropsATool.hxx".}
-proc d1*(a: StandardAddress; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
+proc d1*(a: StandardAddress; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
     importcpp: "HLRBRep_SLPropsATool::D1(@)", header: "HLRBRep_SLPropsATool.hxx".}
-proc d2*(a: StandardAddress; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
+proc d2*(a: StandardAddress; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec;
         d2u: var Vec; d2v: var Vec; duv: var Vec) {.
     importcpp: "HLRBRep_SLPropsATool::D2(@)", header: "HLRBRep_SLPropsATool.hxx".}
-proc dn*(a: StandardAddress; u: float; v: float; nu: int; nv: int): Vec {.
+proc dn*(a: StandardAddress; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
     importcpp: "HLRBRep_SLPropsATool::DN(@)", header: "HLRBRep_SLPropsATool.hxx".}
-proc continuity*(a: StandardAddress): int {.importcpp: "HLRBRep_SLPropsATool::Continuity(@)",
-                                        header: "HLRBRep_SLPropsATool.hxx".}
-proc bounds*(a: StandardAddress; u1: var float; v1: var float; u2: var float; v2: var float) {.
-    importcpp: "HLRBRep_SLPropsATool::Bounds(@)",
+proc continuity*(a: StandardAddress): cint {.
+    importcpp: "HLRBRep_SLPropsATool::Continuity(@)",
     header: "HLRBRep_SLPropsATool.hxx".}
+proc bounds*(a: StandardAddress; u1: var cfloat; v1: var cfloat; u2: var cfloat;
+            v2: var cfloat) {.importcpp: "HLRBRep_SLPropsATool::Bounds(@)",
+                           header: "HLRBRep_SLPropsATool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

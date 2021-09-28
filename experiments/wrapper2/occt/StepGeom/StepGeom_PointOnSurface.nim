@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_PointOnSurface"
 discard "forward decl of StepGeom_PointOnSurface"
 type
-  HandleStepGeomPointOnSurface* = Handle[StepGeomPointOnSurface]
+  HandleC1C1* = Handle[StepGeomPointOnSurface]
   StepGeomPointOnSurface* {.importcpp: "StepGeom_PointOnSurface",
                            header: "StepGeom_PointOnSurface.hxx", bycopy.} = object of StepGeomPoint ##
                                                                                               ## !
@@ -31,21 +31,21 @@ type
 proc constructStepGeomPointOnSurface*(): StepGeomPointOnSurface {.constructor,
     importcpp: "StepGeom_PointOnSurface(@)", header: "StepGeom_PointOnSurface.hxx".}
 proc init*(this: var StepGeomPointOnSurface; aName: Handle[TCollectionHAsciiString];
-          aBasisSurface: Handle[StepGeomSurface]; aPointParameterU: float;
-          aPointParameterV: float) {.importcpp: "Init",
-                                   header: "StepGeom_PointOnSurface.hxx".}
+          aBasisSurface: Handle[StepGeomSurface]; aPointParameterU: cfloat;
+          aPointParameterV: cfloat) {.importcpp: "Init",
+                                    header: "StepGeom_PointOnSurface.hxx".}
 proc setBasisSurface*(this: var StepGeomPointOnSurface;
                      aBasisSurface: Handle[StepGeomSurface]) {.
     importcpp: "SetBasisSurface", header: "StepGeom_PointOnSurface.hxx".}
 proc basisSurface*(this: StepGeomPointOnSurface): Handle[StepGeomSurface] {.
     noSideEffect, importcpp: "BasisSurface", header: "StepGeom_PointOnSurface.hxx".}
-proc setPointParameterU*(this: var StepGeomPointOnSurface; aPointParameterU: float) {.
+proc setPointParameterU*(this: var StepGeomPointOnSurface; aPointParameterU: cfloat) {.
     importcpp: "SetPointParameterU", header: "StepGeom_PointOnSurface.hxx".}
-proc pointParameterU*(this: StepGeomPointOnSurface): float {.noSideEffect,
+proc pointParameterU*(this: StepGeomPointOnSurface): cfloat {.noSideEffect,
     importcpp: "PointParameterU", header: "StepGeom_PointOnSurface.hxx".}
-proc setPointParameterV*(this: var StepGeomPointOnSurface; aPointParameterV: float) {.
+proc setPointParameterV*(this: var StepGeomPointOnSurface; aPointParameterV: cfloat) {.
     importcpp: "SetPointParameterV", header: "StepGeom_PointOnSurface.hxx".}
-proc pointParameterV*(this: StepGeomPointOnSurface): float {.noSideEffect,
+proc pointParameterV*(this: StepGeomPointOnSurface): cfloat {.noSideEffect,
     importcpp: "PointParameterV", header: "StepGeom_PointOnSurface.hxx".}
 type
   StepGeomPointOnSurfacebaseType* = StepGeomPoint
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_PointOnSurface.hxx".}
 proc dynamicType*(this: StepGeomPointOnSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_PointOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

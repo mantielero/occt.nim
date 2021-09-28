@@ -17,3 +17,28 @@ type
   BRepBuilderAPI_CellFilter* = NCollectionCellFilter[
       BRepBuilderAPI_VertexInspector]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

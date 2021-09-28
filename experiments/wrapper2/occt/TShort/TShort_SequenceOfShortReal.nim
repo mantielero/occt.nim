@@ -15,3 +15,28 @@
 type
   TShortSequenceOfShortReal* = NCollectionSequence[StandardShortReal]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

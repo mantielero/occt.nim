@@ -19,3 +19,28 @@ type
   IntToolsDataMapIteratorOfDataMapOfCurveSampleBox* = Iterator[
       IntToolsCurveRangeSample, BndBox, IntToolsCurveRangeSampleMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

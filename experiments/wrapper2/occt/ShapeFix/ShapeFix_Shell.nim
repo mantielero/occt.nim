@@ -21,7 +21,7 @@ discard "forward decl of ShapeExtend_BasicMsgRegistrator"
 discard "forward decl of ShapeFix_Shell"
 discard "forward decl of ShapeFix_Shell"
 type
-  HandleShapeFixShell* = Handle[ShapeFixShell]
+  HandleC1C1* = Handle[ShapeFixShell]
 
 ## ! Fixing orientation of faces in shell
 
@@ -48,8 +48,8 @@ proc shell*(this: var ShapeFixShell): TopoDS_Shell {.importcpp: "Shell",
     header: "ShapeFix_Shell.hxx".}
 proc shape*(this: var ShapeFixShell): TopoDS_Shape {.importcpp: "Shape",
     header: "ShapeFix_Shell.hxx".}
-proc nbShells*(this: ShapeFixShell): int {.noSideEffect, importcpp: "NbShells",
-                                       header: "ShapeFix_Shell.hxx".}
+proc nbShells*(this: ShapeFixShell): cint {.noSideEffect, importcpp: "NbShells",
+                                        header: "ShapeFix_Shell.hxx".}
 proc errorFaces*(this: ShapeFixShell): TopoDS_Compound {.noSideEffect,
     importcpp: "ErrorFaces", header: "ShapeFix_Shell.hxx".}
 proc status*(this: ShapeFixShell; status: ShapeExtendStatus): bool {.noSideEffect,
@@ -59,15 +59,15 @@ proc fixFaceTool*(this: var ShapeFixShell): Handle[ShapeFixFace] {.
 proc setMsgRegistrator*(this: var ShapeFixShell;
                        msgreg: Handle[ShapeExtendBasicMsgRegistrator]) {.
     importcpp: "SetMsgRegistrator", header: "ShapeFix_Shell.hxx".}
-proc setPrecision*(this: var ShapeFixShell; preci: float) {.importcpp: "SetPrecision",
-    header: "ShapeFix_Shell.hxx".}
-proc setMinTolerance*(this: var ShapeFixShell; mintol: float) {.
+proc setPrecision*(this: var ShapeFixShell; preci: cfloat) {.
+    importcpp: "SetPrecision", header: "ShapeFix_Shell.hxx".}
+proc setMinTolerance*(this: var ShapeFixShell; mintol: cfloat) {.
     importcpp: "SetMinTolerance", header: "ShapeFix_Shell.hxx".}
-proc setMaxTolerance*(this: var ShapeFixShell; maxtol: float) {.
+proc setMaxTolerance*(this: var ShapeFixShell; maxtol: cfloat) {.
     importcpp: "SetMaxTolerance", header: "ShapeFix_Shell.hxx".}
-proc fixFaceMode*(this: var ShapeFixShell): var int {.importcpp: "FixFaceMode",
+proc fixFaceMode*(this: var ShapeFixShell): var cint {.importcpp: "FixFaceMode",
     header: "ShapeFix_Shell.hxx".}
-proc fixOrientationMode*(this: var ShapeFixShell): var int {.
+proc fixOrientationMode*(this: var ShapeFixShell): var cint {.
     importcpp: "FixOrientationMode", header: "ShapeFix_Shell.hxx".}
 proc setNonManifoldFlag*(this: var ShapeFixShell; isNonManifold: bool) {.
     importcpp: "SetNonManifoldFlag", header: "ShapeFix_Shell.hxx".}
@@ -81,3 +81,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_Shell.hxx".}
 proc dynamicType*(this: ShapeFixShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Shell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

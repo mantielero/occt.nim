@@ -20,3 +20,28 @@ type
   TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceShape* = Iterator[
       Handle[TopOpeBRepDS_Interference], TopoDS_Shape, TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

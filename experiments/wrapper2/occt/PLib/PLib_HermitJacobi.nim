@@ -19,7 +19,7 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of PLib_HermitJacobi"
 discard "forward decl of PLib_HermitJacobi"
 type
-  HandlePLibHermitJacobi* = Handle[PLibHermitJacobi]
+  HandleC1C1* = Handle[PLibHermitJacobi]
 
 ## ! This class provides method  to work with Jacobi Polynomials
 ## ! relativly to an order of constraint
@@ -73,36 +73,37 @@ type
                                                                              ## functions in u
 
 
-proc constructPLibHermitJacobi*(workDegree: int; constraintOrder: GeomAbsShape): PLibHermitJacobi {.
+proc constructPLibHermitJacobi*(workDegree: cint; constraintOrder: GeomAbsShape): PLibHermitJacobi {.
     constructor, importcpp: "PLib_HermitJacobi(@)", header: "PLib_HermitJacobi.hxx".}
-proc maxError*(this: PLibHermitJacobi; dimension: int; hermJacCoeff: var float;
-              newDegree: int): float {.noSideEffect, importcpp: "MaxError",
-                                    header: "PLib_HermitJacobi.hxx".}
-proc reduceDegree*(this: PLibHermitJacobi; dimension: int; maxDegree: int; tol: float;
-                  hermJacCoeff: var float; newDegree: var int; maxError: var float) {.
-    noSideEffect, importcpp: "ReduceDegree", header: "PLib_HermitJacobi.hxx".}
-proc averageError*(this: PLibHermitJacobi; dimension: int; hermJacCoeff: var float;
-                  newDegree: int): float {.noSideEffect, importcpp: "AverageError",
-                                        header: "PLib_HermitJacobi.hxx".}
-proc toCoefficients*(this: PLibHermitJacobi; dimension: int; degree: int;
+proc maxError*(this: PLibHermitJacobi; dimension: cint; hermJacCoeff: var cfloat;
+              newDegree: cint): cfloat {.noSideEffect, importcpp: "MaxError",
+                                      header: "PLib_HermitJacobi.hxx".}
+proc reduceDegree*(this: PLibHermitJacobi; dimension: cint; maxDegree: cint;
+                  tol: cfloat; hermJacCoeff: var cfloat; newDegree: var cint;
+                  maxError: var cfloat) {.noSideEffect, importcpp: "ReduceDegree",
+                                       header: "PLib_HermitJacobi.hxx".}
+proc averageError*(this: PLibHermitJacobi; dimension: cint; hermJacCoeff: var cfloat;
+                  newDegree: cint): cfloat {.noSideEffect,
+    importcpp: "AverageError", header: "PLib_HermitJacobi.hxx".}
+proc toCoefficients*(this: PLibHermitJacobi; dimension: cint; degree: cint;
                     hermJacCoeff: TColStdArray1OfReal;
                     coefficients: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "ToCoefficients", header: "PLib_HermitJacobi.hxx".}
-proc d0*(this: var PLibHermitJacobi; u: float; basisValue: var TColStdArray1OfReal) {.
+proc d0*(this: var PLibHermitJacobi; u: cfloat; basisValue: var TColStdArray1OfReal) {.
     importcpp: "D0", header: "PLib_HermitJacobi.hxx".}
-proc d1*(this: var PLibHermitJacobi; u: float; basisValue: var TColStdArray1OfReal;
+proc d1*(this: var PLibHermitJacobi; u: cfloat; basisValue: var TColStdArray1OfReal;
         basisD1: var TColStdArray1OfReal) {.importcpp: "D1",
     header: "PLib_HermitJacobi.hxx".}
-proc d2*(this: var PLibHermitJacobi; u: float; basisValue: var TColStdArray1OfReal;
+proc d2*(this: var PLibHermitJacobi; u: cfloat; basisValue: var TColStdArray1OfReal;
         basisD1: var TColStdArray1OfReal; basisD2: var TColStdArray1OfReal) {.
     importcpp: "D2", header: "PLib_HermitJacobi.hxx".}
-proc d3*(this: var PLibHermitJacobi; u: float; basisValue: var TColStdArray1OfReal;
+proc d3*(this: var PLibHermitJacobi; u: cfloat; basisValue: var TColStdArray1OfReal;
         basisD1: var TColStdArray1OfReal; basisD2: var TColStdArray1OfReal;
         basisD3: var TColStdArray1OfReal) {.importcpp: "D3",
     header: "PLib_HermitJacobi.hxx".}
-proc workDegree*(this: PLibHermitJacobi): int {.noSideEffect,
+proc workDegree*(this: PLibHermitJacobi): cint {.noSideEffect,
     importcpp: "WorkDegree", header: "PLib_HermitJacobi.hxx".}
-proc nivConstr*(this: PLibHermitJacobi): int {.noSideEffect, importcpp: "NivConstr",
+proc nivConstr*(this: PLibHermitJacobi): cint {.noSideEffect, importcpp: "NivConstr",
     header: "PLib_HermitJacobi.hxx".}
 type
   PLibHermitJacobibaseType* = PLibBase
@@ -114,3 +115,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "PLib_HermitJacobi.hxx".}
 proc dynamicType*(this: PLibHermitJacobi): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PLib_HermitJacobi.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

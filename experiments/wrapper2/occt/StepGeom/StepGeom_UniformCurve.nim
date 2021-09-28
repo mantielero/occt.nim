@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_UniformCurve"
 discard "forward decl of StepGeom_UniformCurve"
 type
-  HandleStepGeomUniformCurve* = Handle[StepGeomUniformCurve]
+  HandleC1C1* = Handle[StepGeomUniformCurve]
   StepGeomUniformCurve* {.importcpp: "StepGeom_UniformCurve",
                          header: "StepGeom_UniformCurve.hxx", bycopy.} = object of StepGeomBSplineCurve ##
                                                                                                  ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_UniformCurve.hxx".}
 proc dynamicType*(this: StepGeomUniformCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_UniformCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

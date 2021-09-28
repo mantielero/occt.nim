@@ -21,7 +21,7 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_Curve3D"
 discard "forward decl of BRep_Curve3D"
 type
-  HandleBRepCurve3D* = Handle[BRepCurve3D]
+  HandleC1C1* = Handle[BRepCurve3D]
 
 ## ! Representation of a curve by a 3D curve.
 
@@ -31,7 +31,7 @@ type
 
 proc constructBRepCurve3D*(c: Handle[GeomCurve]; L: TopLocLocation): BRepCurve3D {.
     constructor, importcpp: "BRep_Curve3D(@)", header: "BRep_Curve3D.hxx".}
-proc d0*(this: BRepCurve3D; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
+proc d0*(this: BRepCurve3D; u: cfloat; p: var Pnt) {.noSideEffect, importcpp: "D0",
     header: "BRep_Curve3D.hxx".}
 proc isCurve3D*(this: BRepCurve3D): bool {.noSideEffect, importcpp: "IsCurve3D",
                                        header: "BRep_Curve3D.hxx".}
@@ -41,8 +41,9 @@ proc curve3D*(this: var BRepCurve3D; c: Handle[GeomCurve]) {.importcpp: "Curve3D
     header: "BRep_Curve3D.hxx".}
 proc copy*(this: BRepCurve3D): Handle[BRepCurveRepresentation] {.noSideEffect,
     importcpp: "Copy", header: "BRep_Curve3D.hxx".}
-proc dumpJson*(this: BRepCurve3D; theOStream: var StandardOStream; theDepth: int = -1) {.
-    noSideEffect, importcpp: "DumpJson", header: "BRep_Curve3D.hxx".}
+proc dumpJson*(this: BRepCurve3D; theOStream: var StandardOStream;
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "BRep_Curve3D.hxx".}
 type
   BRepCurve3DbaseType* = BRepGCurve
 
@@ -52,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_Curve3D::get_type_descriptor(@)", header: "BRep_Curve3D.hxx".}
 proc dynamicType*(this: BRepCurve3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_Curve3D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

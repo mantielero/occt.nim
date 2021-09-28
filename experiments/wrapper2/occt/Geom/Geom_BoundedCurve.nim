@@ -46,6 +46,8 @@ type
                                                                               ## the
                                                                               ## curve.
 
+type
+  GeomBoundedCurvebaseType* = GeomCurve
 
 proc endPoint*(this: GeomBoundedCurve): Pnt {.noSideEffect, importcpp: "EndPoint",
     header: "Geom_BoundedCurve.hxx".}
@@ -54,13 +56,11 @@ proc startPoint*(this: GeomBoundedCurve): Pnt {.noSideEffect,
 proc dumpJson*(this: GeomBoundedCurve; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_BoundedCurve.hxx".}
-type
-  GeomBoundedCurvebaseType* = GeomCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom_BoundedCurve::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_BoundedCurve::get_type_name(@)",
                             header: "Geom_BoundedCurve.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_BoundedCurve::get_type_descriptor(@)",
     header: "Geom_BoundedCurve.hxx".}
 proc dynamicType*(this: GeomBoundedCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_BoundedCurve.hxx".}
+    importcpp: "DynamicType", header: "Geom_BoundedCurve.hxx".} ]#

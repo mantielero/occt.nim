@@ -29,7 +29,7 @@ proc constructRWStepReprRWCompoundRepresentationItem*(): RWStepReprRWCompoundRep
     constructor, importcpp: "RWStepRepr_RWCompoundRepresentationItem(@)",
     header: "RWStepRepr_RWCompoundRepresentationItem.hxx".}
 proc readStep*(this: RWStepReprRWCompoundRepresentationItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprCompoundRepresentationItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWCompoundRepresentationItem.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepReprRWCompoundRepresentationItem;
            ent: Handle[StepReprCompoundRepresentationItem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWCompoundRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

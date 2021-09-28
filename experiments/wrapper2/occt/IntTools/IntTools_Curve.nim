@@ -28,8 +28,8 @@ proc constructIntToolsCurve*(): IntToolsCurve {.constructor,
 proc constructIntToolsCurve*(the3dCurve3d: Handle[GeomCurve];
                             the2dCurve1: Handle[Geom2dCurve];
                             the2dCurve2: Handle[Geom2dCurve];
-                            theTolerance: float = 0.0;
-                            theTangentialTolerance: float = 0.0): IntToolsCurve {.
+                            theTolerance: cfloat = 0.0;
+                            theTangentialTolerance: cfloat = 0.0): IntToolsCurve {.
     constructor, importcpp: "IntTools_Curve(@)", header: "IntTools_Curve.hxx".}
 proc setCurves*(this: var IntToolsCurve; the3dCurve: Handle[GeomCurve];
                the2dCurve1: Handle[Geom2dCurve]; the2dCurve2: Handle[Geom2dCurve]) {.
@@ -40,9 +40,9 @@ proc setFirstCurve2d*(this: var IntToolsCurve; the2dCurve1: Handle[Geom2dCurve])
     importcpp: "SetFirstCurve2d", header: "IntTools_Curve.hxx".}
 proc setSecondCurve2d*(this: var IntToolsCurve; the2dCurve2: Handle[Geom2dCurve]) {.
     importcpp: "SetSecondCurve2d", header: "IntTools_Curve.hxx".}
-proc setTolerance*(this: var IntToolsCurve; theTolerance: float) {.
+proc setTolerance*(this: var IntToolsCurve; theTolerance: cfloat) {.
     importcpp: "SetTolerance", header: "IntTools_Curve.hxx".}
-proc setTangentialTolerance*(this: var IntToolsCurve; theTangentialTolerance: float) {.
+proc setTangentialTolerance*(this: var IntToolsCurve; theTangentialTolerance: cfloat) {.
     importcpp: "SetTangentialTolerance", header: "IntTools_Curve.hxx".}
 proc curve*(this: IntToolsCurve): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "IntTools_Curve.hxx".}
@@ -50,16 +50,41 @@ proc firstCurve2d*(this: IntToolsCurve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "FirstCurve2d", header: "IntTools_Curve.hxx".}
 proc secondCurve2d*(this: IntToolsCurve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "SecondCurve2d", header: "IntTools_Curve.hxx".}
-proc tolerance*(this: IntToolsCurve): float {.noSideEffect, importcpp: "Tolerance",
+proc tolerance*(this: IntToolsCurve): cfloat {.noSideEffect, importcpp: "Tolerance",
     header: "IntTools_Curve.hxx".}
-proc tangentialTolerance*(this: IntToolsCurve): float {.noSideEffect,
+proc tangentialTolerance*(this: IntToolsCurve): cfloat {.noSideEffect,
     importcpp: "TangentialTolerance", header: "IntTools_Curve.hxx".}
 proc hasBounds*(this: IntToolsCurve): bool {.noSideEffect, importcpp: "HasBounds",
     header: "IntTools_Curve.hxx".}
-proc bounds*(this: IntToolsCurve; theFirst: var float; theLast: var float;
+proc bounds*(this: IntToolsCurve; theFirst: var cfloat; theLast: var cfloat;
             theFirstPnt: var Pnt; theLastPnt: var Pnt): bool {.noSideEffect,
     importcpp: "Bounds", header: "IntTools_Curve.hxx".}
-proc d0*(this: IntToolsCurve; thePar: float; thePnt: var Pnt): bool {.noSideEffect,
+proc d0*(this: IntToolsCurve; thePar: cfloat; thePnt: var Pnt): bool {.noSideEffect,
     importcpp: "D0", header: "IntTools_Curve.hxx".}
 proc `type`*(this: IntToolsCurve): GeomAbsCurveType {.noSideEffect,
     importcpp: "Type", header: "IntTools_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ type
 proc constructRWStepVisualRWMechanicalDesignGeometricPresentationRepresentation*(): RWStepVisualRWMechanicalDesignGeometricPresentationRepresentation {.
     constructor, importcpp: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation(@)", header: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation.hxx".}
 proc readStep*(this: RWStepVisualRWMechanicalDesignGeometricPresentationRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepVisualMechanicalDesignGeometricPresentationRepresentation]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation.hxx".}
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepVisualRWMechanicalDesignGeometricPresentationReprese
 proc share*(this: RWStepVisualRWMechanicalDesignGeometricPresentationRepresentation;
     ent: Handle[StepVisualMechanicalDesignGeometricPresentationRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepVisual_RWMechanicalDesignGeometricPresentationRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

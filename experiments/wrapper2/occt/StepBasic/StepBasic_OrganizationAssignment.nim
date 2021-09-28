@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_OrganizationRole"
 discard "forward decl of StepBasic_OrganizationAssignment"
 discard "forward decl of StepBasic_OrganizationAssignment"
 type
-  HandleStepBasicOrganizationAssignment* = Handle[StepBasicOrganizationAssignment]
+  HandleC1C1* = Handle[StepBasicOrganizationAssignment]
   StepBasicOrganizationAssignment* {.importcpp: "StepBasic_OrganizationAssignment", header: "StepBasic_OrganizationAssignment.hxx",
                                     bycopy.} = object of StandardTransient
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicOrganizationAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_OrganizationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

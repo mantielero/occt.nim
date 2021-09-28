@@ -56,13 +56,13 @@ proc constructProjLibCompProjectedCurve*(): ProjLibCompProjectedCurve {.
     constructor, importcpp: "ProjLib_CompProjectedCurve(@)",
     header: "ProjLib_CompProjectedCurve.hxx".}
 proc constructProjLibCompProjectedCurve*(s: Handle[Adaptor3dHSurface];
-                                        c: Handle[Adaptor3dHCurve]; tolU: float;
-                                        tolV: float): ProjLibCompProjectedCurve {.
+                                        c: Handle[Adaptor3dHCurve]; tolU: cfloat;
+                                        tolV: cfloat): ProjLibCompProjectedCurve {.
     constructor, importcpp: "ProjLib_CompProjectedCurve(@)",
     header: "ProjLib_CompProjectedCurve.hxx".}
 proc constructProjLibCompProjectedCurve*(s: Handle[Adaptor3dHSurface];
-                                        c: Handle[Adaptor3dHCurve]; tolU: float;
-                                        tolV: float; maxDist: float): ProjLibCompProjectedCurve {.
+                                        c: Handle[Adaptor3dHCurve]; tolU: cfloat;
+                                        tolV: cfloat; maxDist: cfloat): ProjLibCompProjectedCurve {.
     constructor, importcpp: "ProjLib_CompProjectedCurve(@)",
     header: "ProjLib_CompProjectedCurve.hxx".}
 proc init*(this: var ProjLibCompProjectedCurve) {.importcpp: "Init",
@@ -75,49 +75,75 @@ proc getSurface*(this: ProjLibCompProjectedCurve): Handle[Adaptor3dHSurface] {.
     noSideEffect, importcpp: "GetSurface", header: "ProjLib_CompProjectedCurve.hxx".}
 proc getCurve*(this: ProjLibCompProjectedCurve): Handle[Adaptor3dHCurve] {.
     noSideEffect, importcpp: "GetCurve", header: "ProjLib_CompProjectedCurve.hxx".}
-proc getTolerance*(this: ProjLibCompProjectedCurve; tolU: var float; tolV: var float) {.
+proc getTolerance*(this: ProjLibCompProjectedCurve; tolU: var cfloat; tolV: var cfloat) {.
     noSideEffect, importcpp: "GetTolerance",
     header: "ProjLib_CompProjectedCurve.hxx".}
-proc nbCurves*(this: ProjLibCompProjectedCurve): int {.noSideEffect,
+proc nbCurves*(this: ProjLibCompProjectedCurve): cint {.noSideEffect,
     importcpp: "NbCurves", header: "ProjLib_CompProjectedCurve.hxx".}
-proc bounds*(this: ProjLibCompProjectedCurve; index: int; udeb: var float;
-            ufin: var float) {.noSideEffect, importcpp: "Bounds",
-                            header: "ProjLib_CompProjectedCurve.hxx".}
-proc isSinglePnt*(this: ProjLibCompProjectedCurve; index: int; p: var Pnt2d): bool {.
+proc bounds*(this: ProjLibCompProjectedCurve; index: cint; udeb: var cfloat;
+            ufin: var cfloat) {.noSideEffect, importcpp: "Bounds",
+                             header: "ProjLib_CompProjectedCurve.hxx".}
+proc isSinglePnt*(this: ProjLibCompProjectedCurve; index: cint; p: var Pnt2d): bool {.
     noSideEffect, importcpp: "IsSinglePnt",
     header: "ProjLib_CompProjectedCurve.hxx".}
-proc isUIso*(this: ProjLibCompProjectedCurve; index: int; u: var float): bool {.
+proc isUIso*(this: ProjLibCompProjectedCurve; index: cint; u: var cfloat): bool {.
     noSideEffect, importcpp: "IsUIso", header: "ProjLib_CompProjectedCurve.hxx".}
-proc isVIso*(this: ProjLibCompProjectedCurve; index: int; v: var float): bool {.
+proc isVIso*(this: ProjLibCompProjectedCurve; index: cint; v: var cfloat): bool {.
     noSideEffect, importcpp: "IsVIso", header: "ProjLib_CompProjectedCurve.hxx".}
-proc value*(this: ProjLibCompProjectedCurve; u: float): Pnt2d {.noSideEffect,
+proc value*(this: ProjLibCompProjectedCurve; u: cfloat): Pnt2d {.noSideEffect,
     importcpp: "Value", header: "ProjLib_CompProjectedCurve.hxx".}
-proc d0*(this: ProjLibCompProjectedCurve; u: float; p: var Pnt2d) {.noSideEffect,
+proc d0*(this: ProjLibCompProjectedCurve; u: cfloat; p: var Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "ProjLib_CompProjectedCurve.hxx".}
-proc d1*(this: ProjLibCompProjectedCurve; u: float; p: var Pnt2d; v: var Vec2d) {.
+proc d1*(this: ProjLibCompProjectedCurve; u: cfloat; p: var Pnt2d; v: var Vec2d) {.
     noSideEffect, importcpp: "D1", header: "ProjLib_CompProjectedCurve.hxx".}
-proc d2*(this: ProjLibCompProjectedCurve; u: float; p: var Pnt2d; v1: var Vec2d;
+proc d2*(this: ProjLibCompProjectedCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d;
         v2: var Vec2d) {.noSideEffect, importcpp: "D2",
                       header: "ProjLib_CompProjectedCurve.hxx".}
-proc dn*(this: ProjLibCompProjectedCurve; u: float; n: int): Vec2d {.noSideEffect,
+proc dn*(this: ProjLibCompProjectedCurve; u: cfloat; n: cint): Vec2d {.noSideEffect,
     importcpp: "DN", header: "ProjLib_CompProjectedCurve.hxx".}
-proc firstParameter*(this: ProjLibCompProjectedCurve): float {.noSideEffect,
+proc firstParameter*(this: ProjLibCompProjectedCurve): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "ProjLib_CompProjectedCurve.hxx".}
-proc lastParameter*(this: ProjLibCompProjectedCurve): float {.noSideEffect,
+proc lastParameter*(this: ProjLibCompProjectedCurve): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "ProjLib_CompProjectedCurve.hxx".}
-proc nbIntervals*(this: ProjLibCompProjectedCurve; s: GeomAbsShape): int {.
+proc nbIntervals*(this: ProjLibCompProjectedCurve; s: GeomAbsShape): cint {.
     noSideEffect, importcpp: "NbIntervals",
     header: "ProjLib_CompProjectedCurve.hxx".}
-proc trim*(this: ProjLibCompProjectedCurve; firstParam: float; lastParam: float;
-          tol: float): Handle[Adaptor2dHCurve2d] {.noSideEffect, importcpp: "Trim",
+proc trim*(this: ProjLibCompProjectedCurve; firstParam: cfloat; lastParam: cfloat;
+          tol: cfloat): Handle[Adaptor2dHCurve2d] {.noSideEffect, importcpp: "Trim",
     header: "ProjLib_CompProjectedCurve.hxx".}
 proc intervals*(this: ProjLibCompProjectedCurve; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
                                 header: "ProjLib_CompProjectedCurve.hxx".}
-proc maxDistance*(this: ProjLibCompProjectedCurve; index: int): float {.noSideEffect,
-    importcpp: "MaxDistance", header: "ProjLib_CompProjectedCurve.hxx".}
+proc maxDistance*(this: ProjLibCompProjectedCurve; index: cint): cfloat {.
+    noSideEffect, importcpp: "MaxDistance",
+    header: "ProjLib_CompProjectedCurve.hxx".}
 proc getSequence*(this: ProjLibCompProjectedCurve): Handle[
     ProjLibHSequenceOfHSequenceOfPnt] {.noSideEffect, importcpp: "GetSequence",
                                        header: "ProjLib_CompProjectedCurve.hxx".}
 proc getType*(this: ProjLibCompProjectedCurve): GeomAbsCurveType {.noSideEffect,
     importcpp: "GetType", header: "ProjLib_CompProjectedCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

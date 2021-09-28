@@ -17,7 +17,7 @@
 discard "forward decl of StepVisual_CurveStyleFontPattern"
 discard "forward decl of StepVisual_CurveStyleFontPattern"
 type
-  HandleStepVisualCurveStyleFontPattern* = Handle[StepVisualCurveStyleFontPattern]
+  HandleC1C1* = Handle[StepVisualCurveStyleFontPattern]
   StepVisualCurveStyleFontPattern* {.importcpp: "StepVisual_CurveStyleFontPattern", header: "StepVisual_CurveStyleFontPattern.hxx",
                                     bycopy.} = object of StandardTransient ## ! Returns a
                                                                       ## CurveStyleFontPattern
@@ -26,21 +26,21 @@ type
 proc constructStepVisualCurveStyleFontPattern*(): StepVisualCurveStyleFontPattern {.
     constructor, importcpp: "StepVisual_CurveStyleFontPattern(@)",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc init*(this: var StepVisualCurveStyleFontPattern; aVisibleSegmentLength: float;
-          aInvisibleSegmentLength: float) {.importcpp: "Init",
+proc init*(this: var StepVisualCurveStyleFontPattern; aVisibleSegmentLength: cfloat;
+          aInvisibleSegmentLength: cfloat) {.importcpp: "Init",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
 proc setVisibleSegmentLength*(this: var StepVisualCurveStyleFontPattern;
-                             aVisibleSegmentLength: float) {.
+                             aVisibleSegmentLength: cfloat) {.
     importcpp: "SetVisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc visibleSegmentLength*(this: StepVisualCurveStyleFontPattern): float {.
+proc visibleSegmentLength*(this: StepVisualCurveStyleFontPattern): cfloat {.
     noSideEffect, importcpp: "VisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
 proc setInvisibleSegmentLength*(this: var StepVisualCurveStyleFontPattern;
-                               aInvisibleSegmentLength: float) {.
+                               aInvisibleSegmentLength: cfloat) {.
     importcpp: "SetInvisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc invisibleSegmentLength*(this: StepVisualCurveStyleFontPattern): float {.
+proc invisibleSegmentLength*(this: StepVisualCurveStyleFontPattern): cfloat {.
     noSideEffect, importcpp: "InvisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
 type
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualCurveStyleFontPattern): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

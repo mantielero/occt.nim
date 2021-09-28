@@ -43,3 +43,28 @@ const
   AspectVKeyMouseMainButtons* = AspectVKeyMouseLeftButton or
       AspectVKeyMouseMiddleButton or AspectVKeyMouseRightButton
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

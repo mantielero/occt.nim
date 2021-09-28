@@ -94,18 +94,18 @@ proc isReady*(this: BRepOffsetAPI_MakePipeShell): bool {.noSideEffect,
     importcpp: "IsReady", header: "BRepOffsetAPI_MakePipeShell.hxx".}
 proc getStatus*(this: BRepOffsetAPI_MakePipeShell): BRepBuilderAPI_PipeError {.
     noSideEffect, importcpp: "GetStatus", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc setTolerance*(this: var BRepOffsetAPI_MakePipeShell; tol3d: float = 1.0e-4;
-                  boundTol: float = 1.0e-4; tolAngular: float = 1.0e-2) {.
+proc setTolerance*(this: var BRepOffsetAPI_MakePipeShell; tol3d: cfloat = 1.0e-4;
+                  boundTol: cfloat = 1.0e-4; tolAngular: cfloat = 1.0e-2) {.
     importcpp: "SetTolerance", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc setMaxDegree*(this: var BRepOffsetAPI_MakePipeShell; newMaxDegree: int) {.
+proc setMaxDegree*(this: var BRepOffsetAPI_MakePipeShell; newMaxDegree: cint) {.
     importcpp: "SetMaxDegree", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc setMaxSegments*(this: var BRepOffsetAPI_MakePipeShell; newMaxSegments: int) {.
+proc setMaxSegments*(this: var BRepOffsetAPI_MakePipeShell; newMaxSegments: cint) {.
     importcpp: "SetMaxSegments", header: "BRepOffsetAPI_MakePipeShell.hxx".}
 proc setForceApproxC1*(this: var BRepOffsetAPI_MakePipeShell; forceApproxC1: bool) {.
     importcpp: "SetForceApproxC1", header: "BRepOffsetAPI_MakePipeShell.hxx".}
 proc setTransitionMode*(this: var BRepOffsetAPI_MakePipeShell; mode: BRepBuilderAPI_TransitionMode = bRepBuilderAPI_Transformed) {.
     importcpp: "SetTransitionMode", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc simulate*(this: var BRepOffsetAPI_MakePipeShell; numberOfSection: int;
+proc simulate*(this: var BRepOffsetAPI_MakePipeShell; numberOfSection: cint;
               result: var TopToolsListOfShape) {.importcpp: "Simulate",
     header: "BRepOffsetAPI_MakePipeShell.hxx".}
 proc build*(this: var BRepOffsetAPI_MakePipeShell) {.importcpp: "Build",
@@ -118,10 +118,35 @@ proc lastShape*(this: var BRepOffsetAPI_MakePipeShell): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepOffsetAPI_MakePipeShell.hxx".}
 proc generated*(this: var BRepOffsetAPI_MakePipeShell; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_MakePipeShell.hxx".}
-proc errorOnSurface*(this: BRepOffsetAPI_MakePipeShell): float {.noSideEffect,
+proc errorOnSurface*(this: BRepOffsetAPI_MakePipeShell): cfloat {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "BRepOffsetAPI_MakePipeShell.hxx".}
 proc profiles*(this: var BRepOffsetAPI_MakePipeShell;
               theProfiles: var TopToolsListOfShape) {.importcpp: "Profiles",
     header: "BRepOffsetAPI_MakePipeShell.hxx".}
 proc spine*(this: var BRepOffsetAPI_MakePipeShell): TopoDS_Wire {.importcpp: "Spine",
     header: "BRepOffsetAPI_MakePipeShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

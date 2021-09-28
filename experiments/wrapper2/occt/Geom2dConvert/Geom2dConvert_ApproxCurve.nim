@@ -22,65 +22,6 @@ type
   Geom2dConvertApproxCurve* {.importcpp: "Geom2dConvert_ApproxCurve",
                              header: "Geom2dConvert_ApproxCurve.hxx", bycopy.} = object ##
                                                                                    ## !
-                                                                                   ## Constructs
-                                                                                   ## an
-                                                                                   ## approximation
-                                                                                   ## framework
-                                                                                   ## defined
-                                                                                   ## by
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## 2D
-                                                                                   ## conic
-                                                                                   ## Curve
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## tolerance
-                                                                                   ## value
-                                                                                   ## Tol2d
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## degree
-                                                                                   ## of
-                                                                                   ## continuity
-                                                                                   ## Order
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## maximum
-                                                                                   ## number
-                                                                                   ## of
-                                                                                   ## segments
-                                                                                   ## allowed
-                                                                                   ## MaxSegments
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## the
-                                                                                   ## highest
-                                                                                   ## degree
-                                                                                   ## MaxDegree
-                                                                                   ## which
-                                                                                   ## the
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## polynomial
-                                                                                   ## defining
-                                                                                   ## the
-                                                                                   ## BSpline
-                                                                                   ## is
-                                                                                   ## allowed
-                                                                                   ## to
-                                                                                   ## have.
-                                                                                   ##
-                                                                                   ## !
                                                                                    ## Converts
                                                                                    ## a
                                                                                    ## curve
@@ -88,23 +29,41 @@ type
                                                                                    ## B-spline
 
 
-proc constructGeom2dConvertApproxCurve*(curve: Handle[Geom2dCurve]; tol2d: float;
-                                       order: GeomAbsShape; maxSegments: int;
-                                       maxDegree: int): Geom2dConvertApproxCurve {.
+proc `new`*(this: var Geom2dConvertApproxCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dConvert_ApproxCurve::operator new",
+    header: "Geom2dConvert_ApproxCurve.hxx".}
+proc `delete`*(this: var Geom2dConvertApproxCurve; theAddress: pointer) {.
+    importcpp: "Geom2dConvert_ApproxCurve::operator delete",
+    header: "Geom2dConvert_ApproxCurve.hxx".}
+proc `new[]`*(this: var Geom2dConvertApproxCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dConvert_ApproxCurve::operator new[]",
+    header: "Geom2dConvert_ApproxCurve.hxx".}
+proc `delete[]`*(this: var Geom2dConvertApproxCurve; theAddress: pointer) {.
+    importcpp: "Geom2dConvert_ApproxCurve::operator delete[]",
+    header: "Geom2dConvert_ApproxCurve.hxx".}
+proc `new`*(this: var Geom2dConvertApproxCurve; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dConvert_ApproxCurve::operator new",
+    header: "Geom2dConvert_ApproxCurve.hxx".}
+proc `delete`*(this: var Geom2dConvertApproxCurve; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dConvert_ApproxCurve::operator delete",
+    header: "Geom2dConvert_ApproxCurve.hxx".}
+proc constructGeom2dConvertApproxCurve*(curve: Handle[Geom2dCurve];
+                                       tol2d: StandardReal; order: GeomAbsShape;
+                                       maxSegments: int; maxDegree: int): Geom2dConvertApproxCurve {.
     constructor, importcpp: "Geom2dConvert_ApproxCurve(@)",
     header: "Geom2dConvert_ApproxCurve.hxx".}
 proc constructGeom2dConvertApproxCurve*(curve: Handle[Adaptor2dHCurve2d];
-                                       tol2d: float; order: GeomAbsShape;
+                                       tol2d: StandardReal; order: GeomAbsShape;
                                        maxSegments: int; maxDegree: int): Geom2dConvertApproxCurve {.
     constructor, importcpp: "Geom2dConvert_ApproxCurve(@)",
     header: "Geom2dConvert_ApproxCurve.hxx".}
 proc curve*(this: Geom2dConvertApproxCurve): Handle[Geom2dBSplineCurve] {.
     noSideEffect, importcpp: "Curve", header: "Geom2dConvert_ApproxCurve.hxx".}
-proc isDone*(this: Geom2dConvertApproxCurve): bool {.noSideEffect,
+proc isDone*(this: Geom2dConvertApproxCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dConvert_ApproxCurve.hxx".}
-proc hasResult*(this: Geom2dConvertApproxCurve): bool {.noSideEffect,
+proc hasResult*(this: Geom2dConvertApproxCurve): StandardBoolean {.noSideEffect,
     importcpp: "HasResult", header: "Geom2dConvert_ApproxCurve.hxx".}
-proc maxError*(this: Geom2dConvertApproxCurve): float {.noSideEffect,
+proc maxError*(this: Geom2dConvertApproxCurve): StandardReal {.noSideEffect,
     importcpp: "MaxError", header: "Geom2dConvert_ApproxCurve.hxx".}
 proc dump*(this: Geom2dConvertApproxCurve; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "Geom2dConvert_ApproxCurve.hxx".}

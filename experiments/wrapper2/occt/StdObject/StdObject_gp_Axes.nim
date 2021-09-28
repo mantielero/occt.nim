@@ -37,3 +37,28 @@ proc `>>`*(theReadData: var StdObjMgtReadData; theAx: var Ax3): var StdObjMgtRea
     importcpp: "(# >> #)", header: "StdObject_gp_Axes.hxx".}
 proc `<<`*(theWriteData: var StdObjMgtWriteData; theAx: Ax3): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Axes.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

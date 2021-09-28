@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESGeomToolCircularArc; entfrom: Handle[IGESGeomCircularArc
              entto: Handle[IGESGeomCircularArc]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolCircularArc.hxx".}
 proc ownDump*(this: IGESGeomToolCircularArc; ent: Handle[IGESGeomCircularArc];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolCircularArc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

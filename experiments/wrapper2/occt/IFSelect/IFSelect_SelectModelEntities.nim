@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectModelEntities"
 discard "forward decl of IFSelect_SelectModelEntities"
 type
-  HandleIFSelectSelectModelEntities* = Handle[IFSelectSelectModelEntities]
+  HandleC1C1* = Handle[IFSelectSelectModelEntities]
 
 ## ! A SelectModelEntities gets all the Entities of an
 ## ! InterfaceModel.
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IFSelectSelectModelEntities): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectModelEntities.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -53,3 +53,28 @@ proc shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.importcpp: "Shape",
 
 ## using statement
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

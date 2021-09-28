@@ -20,7 +20,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDefs_TabularData"
 discard "forward decl of IGESDefs_TabularData"
 type
-  HandleIGESDefsTabularData* = Handle[IGESDefsTabularData]
+  HandleC1C1* = Handle[IGESDefsTabularData]
 
 ## ! Defines IGES Tabular Data, Type <406> Form <11>,
 ## ! in package IGESDefs
@@ -34,34 +34,34 @@ type
 
 proc constructIGESDefsTabularData*(): IGESDefsTabularData {.constructor,
     importcpp: "IGESDefs_TabularData(@)", header: "IGESDefs_TabularData.hxx".}
-proc init*(this: var IGESDefsTabularData; nbProps: int; propType: int;
+proc init*(this: var IGESDefsTabularData; nbProps: cint; propType: cint;
           typesInd: Handle[TColStdHArray1OfInteger];
           nbValuesInd: Handle[TColStdHArray1OfInteger];
           valuesInd: Handle[IGESBasicHArray1OfHArray1OfReal];
           valuesDep: Handle[IGESBasicHArray1OfHArray1OfReal]) {.importcpp: "Init",
     header: "IGESDefs_TabularData.hxx".}
-proc nbPropertyValues*(this: IGESDefsTabularData): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESDefsTabularData): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESDefs_TabularData.hxx".}
-proc computedNbPropertyValues*(this: IGESDefsTabularData): int {.noSideEffect,
+proc computedNbPropertyValues*(this: IGESDefsTabularData): cint {.noSideEffect,
     importcpp: "ComputedNbPropertyValues", header: "IGESDefs_TabularData.hxx".}
 proc ownCorrect*(this: var IGESDefsTabularData): bool {.importcpp: "OwnCorrect",
     header: "IGESDefs_TabularData.hxx".}
-proc propertyType*(this: IGESDefsTabularData): int {.noSideEffect,
+proc propertyType*(this: IGESDefsTabularData): cint {.noSideEffect,
     importcpp: "PropertyType", header: "IGESDefs_TabularData.hxx".}
-proc nbDependents*(this: IGESDefsTabularData): int {.noSideEffect,
+proc nbDependents*(this: IGESDefsTabularData): cint {.noSideEffect,
     importcpp: "NbDependents", header: "IGESDefs_TabularData.hxx".}
-proc nbIndependents*(this: IGESDefsTabularData): int {.noSideEffect,
+proc nbIndependents*(this: IGESDefsTabularData): cint {.noSideEffect,
     importcpp: "NbIndependents", header: "IGESDefs_TabularData.hxx".}
-proc typeOfIndependents*(this: IGESDefsTabularData; num: int): int {.noSideEffect,
+proc typeOfIndependents*(this: IGESDefsTabularData; num: cint): cint {.noSideEffect,
     importcpp: "TypeOfIndependents", header: "IGESDefs_TabularData.hxx".}
-proc nbValues*(this: IGESDefsTabularData; num: int): int {.noSideEffect,
+proc nbValues*(this: IGESDefsTabularData; num: cint): cint {.noSideEffect,
     importcpp: "NbValues", header: "IGESDefs_TabularData.hxx".}
-proc independentValue*(this: IGESDefsTabularData; variablenum: int; valuenum: int): float {.
+proc independentValue*(this: IGESDefsTabularData; variablenum: cint; valuenum: cint): cfloat {.
     noSideEffect, importcpp: "IndependentValue", header: "IGESDefs_TabularData.hxx".}
-proc dependentValues*(this: IGESDefsTabularData; num: int): Handle[
+proc dependentValues*(this: IGESDefsTabularData; num: cint): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "DependentValues",
                            header: "IGESDefs_TabularData.hxx".}
-proc dependentValue*(this: IGESDefsTabularData; variablenum: int; valuenum: int): float {.
+proc dependentValue*(this: IGESDefsTabularData; variablenum: cint; valuenum: cint): cfloat {.
     noSideEffect, importcpp: "DependentValue", header: "IGESDefs_TabularData.hxx".}
 type
   IGESDefsTabularDatabaseType* = IGESDataIGESEntity
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDefs_TabularData.hxx".}
 proc dynamicType*(this: IGESDefsTabularData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDefs_TabularData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

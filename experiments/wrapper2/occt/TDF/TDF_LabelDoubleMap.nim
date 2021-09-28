@@ -19,3 +19,28 @@ type
   TDF_DoubleMapIteratorOfLabelDoubleMap* = Iterator[TDF_Label, TDF_Label,
       TDF_LabelMapHasher, TDF_LabelMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

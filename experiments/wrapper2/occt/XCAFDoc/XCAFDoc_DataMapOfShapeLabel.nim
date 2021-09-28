@@ -19,3 +19,28 @@ type
   XCAFDocDataMapIteratorOfDataMapOfShapeLabel* = Iterator[TopoDS_Shape, TDF_Label,
       TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

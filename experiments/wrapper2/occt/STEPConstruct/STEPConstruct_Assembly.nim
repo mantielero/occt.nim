@@ -48,3 +48,28 @@ proc checkSRRReversesNAUO*(theGraph: InterfaceGraph; cdsr: Handle[
     StepShapeContextDependentShapeRepresentation]): bool {.
     importcpp: "STEPConstruct_Assembly::CheckSRRReversesNAUO(@)",
     header: "STEPConstruct_Assembly.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

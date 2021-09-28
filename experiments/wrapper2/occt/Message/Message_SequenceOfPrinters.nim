@@ -17,3 +17,28 @@
 type
   MessageSequenceOfPrinters* = NCollectionSequence[Handle[MessagePrinter]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

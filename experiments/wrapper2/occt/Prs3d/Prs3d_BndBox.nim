@@ -130,3 +130,28 @@ proc fillSegments*(theSegments: Handle[Graphic3dArrayOfSegments]; theBox: BndBox
     importcpp: "Prs3d_BndBox::FillSegments(@)", header: "Prs3d_BndBox.hxx".}
 proc fillSegments*(theSegments: Handle[Graphic3dArrayOfSegments]; theBox: ptr Pnt) {.
     importcpp: "Prs3d_BndBox::fillSegments(@)", header: "Prs3d_BndBox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   IGESSolidArray1OfFace* = NCollectionArray1[Handle[IGESSolidFace]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

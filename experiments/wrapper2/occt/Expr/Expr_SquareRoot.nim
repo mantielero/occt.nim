@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_SquareRoot"
 discard "forward decl of Expr_SquareRoot"
 type
-  HandleExprSquareRoot* = Handle[ExprSquareRoot]
+  HandleC1C1* = Handle[ExprSquareRoot]
   ExprSquareRoot* {.importcpp: "Expr_SquareRoot", header: "Expr_SquareRoot.hxx",
                    bycopy.} = object of ExprUnaryExpression ## ! Creates the square root of <exp>
 
@@ -41,7 +41,7 @@ proc derivative*(this: ExprSquareRoot; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_SquareRoot.hxx".}
 proc evaluate*(this: ExprSquareRoot; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_SquareRoot.hxx".}
 proc string*(this: ExprSquareRoot): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_SquareRoot.hxx".}
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_SquareRoot.hxx".}
 proc dynamicType*(this: ExprSquareRoot): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_SquareRoot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

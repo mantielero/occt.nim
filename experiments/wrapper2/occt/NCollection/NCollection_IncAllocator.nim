@@ -24,9 +24,13 @@ type
 
   NCollectionIncAllocatoralignedT* = pointer
 
-proc constructNCollectionIncAllocator*(theBlockSize: csize_t = defaultBlockSize): NCollectionIncAllocator {.
+  HandleNCollectionIncAllocator* = Handle[NCollectionIncAllocator]
+
+
+
+#[ proc constructNCollectionIncAllocator*(theBlockSize: csize_t = defaultBlockSize): NCollectionIncAllocator {.
     constructor, importcpp: "NCollection_IncAllocator(@)",
-    header: "NCollection_IncAllocator.hxx".}
+    header: "NCollection_IncAllocator.hxx".} ]#
 proc setThreadSafe*(this: var NCollectionIncAllocator; theIsThreadSafe: bool = true) {.
     importcpp: "SetThreadSafe", header: "NCollection_IncAllocator.hxx".}
 proc allocate*(this: var NCollectionIncAllocator; size: csize_t): pointer {.
@@ -41,21 +45,19 @@ proc destroyNCollectionIncAllocator*(this: var NCollectionIncAllocator) {.
 proc reallocate*(this: var NCollectionIncAllocator; anAddress: pointer;
                 oldSize: csize_t; newSize: csize_t): pointer {.
     importcpp: "Reallocate", header: "NCollection_IncAllocator.hxx".}
-proc reset*(this: var NCollectionIncAllocator; doReleaseMem: bool = true) {.
+proc reset*(this: var NCollectionIncAllocator; doReleaseMem: StandardBoolean = true) {.
     importcpp: "Reset", header: "NCollection_IncAllocator.hxx".}
 type
   NCollectionIncAllocatorbaseType* = NCollectionBaseAllocator
 
-proc getTypeName*(): cstring {.importcpp: "NCollection_IncAllocator::get_type_name(@)",
-                            header: "NCollection_IncAllocator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+#[ proc getTypeName*(): cstring {.importcpp: "NCollection_IncAllocator::get_type_name(@)",
+                            header: "NCollection_IncAllocator.hxx".} ]#
+#[ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "NCollection_IncAllocator::get_type_descriptor(@)",
-    header: "NCollection_IncAllocator.hxx".}
-proc dynamicType*(this: NCollectionIncAllocator): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "NCollection_IncAllocator.hxx".}
+    header: "NCollection_IncAllocator.hxx".} ]#
+#[ proc dynamicType*(this: NCollectionIncAllocator): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType", header: "NCollection_IncAllocator.hxx".} ]#
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of NCollection_IncAllocator"
-type
-  HandleNCollectionIncAllocator* = Handle[NCollectionIncAllocator]
 

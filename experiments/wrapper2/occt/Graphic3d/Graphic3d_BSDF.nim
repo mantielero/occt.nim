@@ -57,8 +57,8 @@ proc `==`*(this: Graphic3dFresnel; theOther: Graphic3dFresnel): bool {.noSideEff
 proc fresnelType*(this: Graphic3dFresnel): Graphic3dFresnelModel {.noSideEffect,
     importcpp: "FresnelType", header: "Graphic3d_BSDF.hxx".}
 proc dumpJson*(this: Graphic3dFresnel; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_BSDF.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_BSDF.hxx".}
 ## ! Describes material's BSDF (Bidirectional Scattering Distribution Function) used
 ## ! for physically-based rendering (in path tracing engine). BSDF is represented as
 ## ! weighted mixture of basic BRDFs/BTDFs (Bidirectional Reflectance (Transmittance)
@@ -125,5 +125,30 @@ proc normalize*(this: var Graphic3dBSDF) {.importcpp: "Normalize",
 proc `==`*(this: Graphic3dBSDF; theOther: Graphic3dBSDF): bool {.noSideEffect,
     importcpp: "(# == #)", header: "Graphic3d_BSDF.hxx".}
 proc dumpJson*(this: Graphic3dBSDF; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_BSDF.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_BSDF.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

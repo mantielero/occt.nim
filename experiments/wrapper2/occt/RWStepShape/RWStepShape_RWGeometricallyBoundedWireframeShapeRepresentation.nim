@@ -27,7 +27,7 @@ type
 proc constructRWStepShapeRWGeometricallyBoundedWireframeShapeRepresentation*(): RWStepShapeRWGeometricallyBoundedWireframeShapeRepresentation {.
     constructor, importcpp: "RWStepShape_RWGeometricallyBoundedWireframeShapeRepresentation(@)", header: "RWStepShape_RWGeometricallyBoundedWireframeShapeRepresentation.hxx".}
 proc readStep*(this: RWStepShapeRWGeometricallyBoundedWireframeShapeRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepShapeGeometricallyBoundedWireframeShapeRepresentation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWGeometricallyBoundedWireframeShapeRepresentation.hxx".}
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepShapeRWGeometricallyBoundedWireframeShapeRepresentat
 proc share*(this: RWStepShapeRWGeometricallyBoundedWireframeShapeRepresentation;
     ent: Handle[StepShapeGeometricallyBoundedWireframeShapeRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepShape_RWGeometricallyBoundedWireframeShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

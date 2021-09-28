@@ -46,11 +46,36 @@ proc newEdges*(this: BRepFeatRibSlot): TopToolsListOfShape {.noSideEffect,
     importcpp: "NewEdges", header: "BRepFeat_RibSlot.hxx".}
 proc tgtEdges*(this: BRepFeatRibSlot): TopToolsListOfShape {.noSideEffect,
     importcpp: "TgtEdges", header: "BRepFeat_RibSlot.hxx".}
-proc intPar*(c: Handle[GeomCurve]; p: Pnt): float {.
+proc intPar*(c: Handle[GeomCurve]; p: Pnt): cfloat {.
     importcpp: "BRepFeat_RibSlot::IntPar(@)", header: "BRepFeat_RibSlot.hxx".}
-proc choiceOfFaces*(faces: var TopToolsListOfShape; cc: Handle[GeomCurve]; par: float;
-                   bnd: float; pln: Handle[GeomPlane]): TopoDS_Face {.
+proc choiceOfFaces*(faces: var TopToolsListOfShape; cc: Handle[GeomCurve];
+                   par: cfloat; bnd: cfloat; pln: Handle[GeomPlane]): TopoDS_Face {.
     importcpp: "BRepFeat_RibSlot::ChoiceOfFaces(@)",
     header: "BRepFeat_RibSlot.hxx".}
 proc currentStatusError*(this: BRepFeatRibSlot): BRepFeatStatusError {.noSideEffect,
     importcpp: "CurrentStatusError", header: "BRepFeat_RibSlot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

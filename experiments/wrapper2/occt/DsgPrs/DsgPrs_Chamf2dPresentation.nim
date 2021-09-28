@@ -84,3 +84,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
          aPntAttach: Pnt; aPntEnd: Pnt; aText: TCollectionExtendedString;
          arrowSide: DsgPrsArrowSide) {.importcpp: "DsgPrs_Chamf2dPresentation::Add(@)",
                                      header: "DsgPrs_Chamf2dPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

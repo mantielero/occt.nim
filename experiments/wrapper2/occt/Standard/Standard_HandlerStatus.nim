@@ -19,4 +19,3 @@ type
                           header: "Standard_HandlerStatus.hxx".} = enum
     StandardHandlerVoid, StandardHandlerJumped, StandardHandlerProcessed
 
-

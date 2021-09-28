@@ -14,16 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_TypeMismatch_HeaderFile [NewLine] # _Standard_TypeMismatch_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_TypeMismatch ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Standard_TypeMismatch"
 type
-  HandleStandardTypeMismatchStandardTypeMismatch* = Handle[StandardTypeMismatch]
+  StandardTypeMismatch* {.importcpp: "Standard_TypeMismatch",
+                         header: "Standard_TypeMismatch.hxx", bycopy.} = object of StandardDomainError
+type
+  HandleStandardTypeMismatch* = Handle[StandardTypeMismatch]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_TypeMismatch [NewLine] # if ( CONDITION ) throw Standard_TypeMismatch ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardTypeMismatch):
+  template standardTypeMismatchRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardTypeMismatch*(a1: Message): Throw {.
+          importcpp: "Standard_TypeMismatch(@)",
+          header: "Standard_TypeMismatch.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_TypeMismatch , Standard_DomainError ) #  _Standard_TypeMismatch_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+
+
 

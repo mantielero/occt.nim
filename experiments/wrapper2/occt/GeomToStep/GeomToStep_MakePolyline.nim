@@ -21,6 +21,24 @@ type
                            header: "GeomToStep_MakePolyline.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakePolyline; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakePolyline::operator new",
+    header: "GeomToStep_MakePolyline.hxx".}
+proc `delete`*(this: var GeomToStepMakePolyline; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakePolyline::operator delete",
+    header: "GeomToStep_MakePolyline.hxx".}
+proc `new[]`*(this: var GeomToStepMakePolyline; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakePolyline::operator new[]",
+    header: "GeomToStep_MakePolyline.hxx".}
+proc `delete[]`*(this: var GeomToStepMakePolyline; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakePolyline::operator delete[]",
+    header: "GeomToStep_MakePolyline.hxx".}
+proc `new`*(this: var GeomToStepMakePolyline; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakePolyline::operator new",
+    header: "GeomToStep_MakePolyline.hxx".}
+proc `delete`*(this: var GeomToStepMakePolyline; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakePolyline::operator delete",
+    header: "GeomToStep_MakePolyline.hxx".}
 proc constructGeomToStepMakePolyline*(p: TColgpArray1OfPnt): GeomToStepMakePolyline {.
     constructor, importcpp: "GeomToStep_MakePolyline(@)",
     header: "GeomToStep_MakePolyline.hxx".}

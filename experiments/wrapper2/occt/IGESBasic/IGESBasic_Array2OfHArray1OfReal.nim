@@ -17,3 +17,28 @@
 type
   IGESBasicArray2OfHArray1OfReal* = NCollectionArray2[Handle[TColStdHArray1OfReal]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

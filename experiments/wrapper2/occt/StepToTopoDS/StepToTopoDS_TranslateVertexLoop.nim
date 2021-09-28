@@ -40,3 +40,28 @@ proc value*(this: StepToTopoDS_TranslateVertexLoop): TopoDS_Shape {.noSideEffect
 proc error*(this: StepToTopoDS_TranslateVertexLoop): StepToTopoDS_TranslateVertexLoopError {.
     noSideEffect, importcpp: "Error",
     header: "StepToTopoDS_TranslateVertexLoop.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   BRepOffsetAPI_SequenceOfSequenceOfShape* = NCollectionSequence[
       TopToolsSequenceOfShape]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@ type
   StepVisualArray1OfCameraModelD3MultiClippingInterectionSelect* = NCollectionArray1[
       StepVisualCameraModelD3MultiClippingInterectionSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

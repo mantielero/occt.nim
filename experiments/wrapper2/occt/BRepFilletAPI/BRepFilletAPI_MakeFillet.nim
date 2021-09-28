@@ -90,55 +90,55 @@ type
 proc constructBRepFilletAPI_MakeFillet*(s: TopoDS_Shape; fShape: ChFi3dFilletShape = chFi3dRational): BRepFilletAPI_MakeFillet {.
     constructor, importcpp: "BRepFilletAPI_MakeFillet(@)",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setParams*(this: var BRepFilletAPI_MakeFillet; tang: float; tesp: float;
-               t2d: float; tApp3d: float; tolApp2d: float; fleche: float) {.
+proc setParams*(this: var BRepFilletAPI_MakeFillet; tang: cfloat; tesp: cfloat;
+               t2d: cfloat; tApp3d: cfloat; tolApp2d: cfloat; fleche: cfloat) {.
     importcpp: "SetParams", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setContinuity*(this: var BRepFilletAPI_MakeFillet;
-                   internalContinuity: GeomAbsShape; angularTolerance: float) {.
+                   internalContinuity: GeomAbsShape; angularTolerance: cfloat) {.
     importcpp: "SetContinuity", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc add*(this: var BRepFilletAPI_MakeFillet; e: TopoDS_Edge) {.importcpp: "Add",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc add*(this: var BRepFilletAPI_MakeFillet; radius: float; e: TopoDS_Edge) {.
+proc add*(this: var BRepFilletAPI_MakeFillet; radius: cfloat; e: TopoDS_Edge) {.
     importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc add*(this: var BRepFilletAPI_MakeFillet; r1: float; r2: float; e: TopoDS_Edge) {.
+proc add*(this: var BRepFilletAPI_MakeFillet; r1: cfloat; r2: cfloat; e: TopoDS_Edge) {.
     importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc add*(this: var BRepFilletAPI_MakeFillet; L: Handle[LawFunction]; e: TopoDS_Edge) {.
     importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc add*(this: var BRepFilletAPI_MakeFillet; uandR: TColgpArray1OfPnt2d;
          e: TopoDS_Edge) {.importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: float; ic: int; iinC: int) {.
+proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: cfloat; ic: cint; iinC: cint) {.
     importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; r1: float; r2: float; ic: int;
-               iinC: int) {.importcpp: "SetRadius",
-                          header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; L: Handle[LawFunction]; ic: int;
-               iinC: int) {.importcpp: "SetRadius",
-                          header: "BRepFilletAPI_MakeFillet.hxx".}
+proc setRadius*(this: var BRepFilletAPI_MakeFillet; r1: cfloat; r2: cfloat; ic: cint;
+               iinC: cint) {.importcpp: "SetRadius",
+                           header: "BRepFilletAPI_MakeFillet.hxx".}
+proc setRadius*(this: var BRepFilletAPI_MakeFillet; L: Handle[LawFunction]; ic: cint;
+               iinC: cint) {.importcpp: "SetRadius",
+                           header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setRadius*(this: var BRepFilletAPI_MakeFillet; uandR: TColgpArray1OfPnt2d;
-               ic: int; iinC: int) {.importcpp: "SetRadius",
-                                 header: "BRepFilletAPI_MakeFillet.hxx".}
-proc resetContour*(this: var BRepFilletAPI_MakeFillet; ic: int) {.
+               ic: cint; iinC: cint) {.importcpp: "SetRadius",
+                                   header: "BRepFilletAPI_MakeFillet.hxx".}
+proc resetContour*(this: var BRepFilletAPI_MakeFillet; ic: cint) {.
     importcpp: "ResetContour", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc isConstant*(this: var BRepFilletAPI_MakeFillet; ic: int): bool {.
+proc isConstant*(this: var BRepFilletAPI_MakeFillet; ic: cint): bool {.
     importcpp: "IsConstant", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc radius*(this: var BRepFilletAPI_MakeFillet; ic: int): float {.importcpp: "Radius",
-    header: "BRepFilletAPI_MakeFillet.hxx".}
-proc isConstant*(this: var BRepFilletAPI_MakeFillet; ic: int; e: TopoDS_Edge): bool {.
-    importcpp: "IsConstant", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc radius*(this: var BRepFilletAPI_MakeFillet; ic: int; e: TopoDS_Edge): float {.
+proc radius*(this: var BRepFilletAPI_MakeFillet; ic: cint): cfloat {.
     importcpp: "Radius", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: float; ic: int;
+proc isConstant*(this: var BRepFilletAPI_MakeFillet; ic: cint; e: TopoDS_Edge): bool {.
+    importcpp: "IsConstant", header: "BRepFilletAPI_MakeFillet.hxx".}
+proc radius*(this: var BRepFilletAPI_MakeFillet; ic: cint; e: TopoDS_Edge): cfloat {.
+    importcpp: "Radius", header: "BRepFilletAPI_MakeFillet.hxx".}
+proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: cfloat; ic: cint;
                e: TopoDS_Edge) {.importcpp: "SetRadius",
                                header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: float; ic: int;
+proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: cfloat; ic: cint;
                v: TopoDS_Vertex) {.importcpp: "SetRadius",
                                  header: "BRepFilletAPI_MakeFillet.hxx".}
-proc getBounds*(this: var BRepFilletAPI_MakeFillet; ic: int; e: TopoDS_Edge;
-               f: var float; L: var float): bool {.importcpp: "GetBounds",
+proc getBounds*(this: var BRepFilletAPI_MakeFillet; ic: cint; e: TopoDS_Edge;
+               f: var cfloat; L: var cfloat): bool {.importcpp: "GetBounds",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc getLaw*(this: var BRepFilletAPI_MakeFillet; ic: int; e: TopoDS_Edge): Handle[
+proc getLaw*(this: var BRepFilletAPI_MakeFillet; ic: cint; e: TopoDS_Edge): Handle[
     LawFunction] {.importcpp: "GetLaw", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setLaw*(this: var BRepFilletAPI_MakeFillet; ic: int; e: TopoDS_Edge;
+proc setLaw*(this: var BRepFilletAPI_MakeFillet; ic: cint; e: TopoDS_Edge;
             L: Handle[LawFunction]) {.importcpp: "SetLaw",
                                     header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setFilletShape*(this: var BRepFilletAPI_MakeFillet; fShape: ChFi3dFilletShape) {.
@@ -146,30 +146,30 @@ proc setFilletShape*(this: var BRepFilletAPI_MakeFillet; fShape: ChFi3dFilletSha
 proc getFilletShape*(this: BRepFilletAPI_MakeFillet): ChFi3dFilletShape {.
     noSideEffect, importcpp: "GetFilletShape",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbContours*(this: BRepFilletAPI_MakeFillet): int {.noSideEffect,
+proc nbContours*(this: BRepFilletAPI_MakeFillet): cint {.noSideEffect,
     importcpp: "NbContours", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc contour*(this: BRepFilletAPI_MakeFillet; e: TopoDS_Edge): int {.noSideEffect,
+proc contour*(this: BRepFilletAPI_MakeFillet; e: TopoDS_Edge): cint {.noSideEffect,
     importcpp: "Contour", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbEdges*(this: BRepFilletAPI_MakeFillet; i: int): int {.noSideEffect,
+proc nbEdges*(this: BRepFilletAPI_MakeFillet; i: cint): cint {.noSideEffect,
     importcpp: "NbEdges", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc edge*(this: BRepFilletAPI_MakeFillet; i: int; j: int): TopoDS_Edge {.noSideEffect,
-    importcpp: "Edge", header: "BRepFilletAPI_MakeFillet.hxx".}
+proc edge*(this: BRepFilletAPI_MakeFillet; i: cint; j: cint): TopoDS_Edge {.
+    noSideEffect, importcpp: "Edge", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc remove*(this: var BRepFilletAPI_MakeFillet; e: TopoDS_Edge) {.
     importcpp: "Remove", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc length*(this: BRepFilletAPI_MakeFillet; ic: int): float {.noSideEffect,
+proc length*(this: BRepFilletAPI_MakeFillet; ic: cint): cfloat {.noSideEffect,
     importcpp: "Length", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc firstVertex*(this: BRepFilletAPI_MakeFillet; ic: int): TopoDS_Vertex {.
+proc firstVertex*(this: BRepFilletAPI_MakeFillet; ic: cint): TopoDS_Vertex {.
     noSideEffect, importcpp: "FirstVertex", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc lastVertex*(this: BRepFilletAPI_MakeFillet; ic: int): TopoDS_Vertex {.
+proc lastVertex*(this: BRepFilletAPI_MakeFillet; ic: cint): TopoDS_Vertex {.
     noSideEffect, importcpp: "LastVertex", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc abscissa*(this: BRepFilletAPI_MakeFillet; ic: int; v: TopoDS_Vertex): float {.
+proc abscissa*(this: BRepFilletAPI_MakeFillet; ic: cint; v: TopoDS_Vertex): cfloat {.
     noSideEffect, importcpp: "Abscissa", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc relativeAbscissa*(this: BRepFilletAPI_MakeFillet; ic: int; v: TopoDS_Vertex): float {.
+proc relativeAbscissa*(this: BRepFilletAPI_MakeFillet; ic: cint; v: TopoDS_Vertex): cfloat {.
     noSideEffect, importcpp: "RelativeAbscissa",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc closedAndTangent*(this: BRepFilletAPI_MakeFillet; ic: int): bool {.noSideEffect,
+proc closedAndTangent*(this: BRepFilletAPI_MakeFillet; ic: cint): bool {.noSideEffect,
     importcpp: "ClosedAndTangent", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc closed*(this: BRepFilletAPI_MakeFillet; ic: int): bool {.noSideEffect,
+proc closed*(this: BRepFilletAPI_MakeFillet; ic: cint): bool {.noSideEffect,
     importcpp: "Closed", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc build*(this: var BRepFilletAPI_MakeFillet) {.importcpp: "Build",
     header: "BRepFilletAPI_MakeFillet.hxx".}
@@ -183,33 +183,59 @@ proc modified*(this: var BRepFilletAPI_MakeFillet; f: TopoDS_Shape): TopToolsLis
     importcpp: "Modified", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc isDeleted*(this: var BRepFilletAPI_MakeFillet; f: TopoDS_Shape): bool {.
     importcpp: "IsDeleted", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbSurfaces*(this: BRepFilletAPI_MakeFillet): int {.noSideEffect,
+proc nbSurfaces*(this: BRepFilletAPI_MakeFillet): cint {.noSideEffect,
     importcpp: "NbSurfaces", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc newFaces*(this: var BRepFilletAPI_MakeFillet; i: int): TopToolsListOfShape {.
+proc newFaces*(this: var BRepFilletAPI_MakeFillet; i: cint): TopToolsListOfShape {.
     importcpp: "NewFaces", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc simulate*(this: var BRepFilletAPI_MakeFillet; ic: int) {.importcpp: "Simulate",
+proc simulate*(this: var BRepFilletAPI_MakeFillet; ic: cint) {.importcpp: "Simulate",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbSurf*(this: BRepFilletAPI_MakeFillet; ic: int): int {.noSideEffect,
+proc nbSurf*(this: BRepFilletAPI_MakeFillet; ic: cint): cint {.noSideEffect,
     importcpp: "NbSurf", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc sect*(this: BRepFilletAPI_MakeFillet; ic: int; `is`: int): Handle[
+proc sect*(this: BRepFilletAPI_MakeFillet; ic: cint; `is`: cint): Handle[
     ChFiDS_SecHArray1] {.noSideEffect, importcpp: "Sect",
                         header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbFaultyContours*(this: BRepFilletAPI_MakeFillet): int {.noSideEffect,
+proc nbFaultyContours*(this: BRepFilletAPI_MakeFillet): cint {.noSideEffect,
     importcpp: "NbFaultyContours", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc faultyContour*(this: BRepFilletAPI_MakeFillet; i: int): int {.noSideEffect,
+proc faultyContour*(this: BRepFilletAPI_MakeFillet; i: cint): cint {.noSideEffect,
     importcpp: "FaultyContour", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbComputedSurfaces*(this: BRepFilletAPI_MakeFillet; ic: int): int {.noSideEffect,
-    importcpp: "NbComputedSurfaces", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc computedSurface*(this: BRepFilletAPI_MakeFillet; ic: int; `is`: int): Handle[
+proc nbComputedSurfaces*(this: BRepFilletAPI_MakeFillet; ic: cint): cint {.
+    noSideEffect, importcpp: "NbComputedSurfaces",
+    header: "BRepFilletAPI_MakeFillet.hxx".}
+proc computedSurface*(this: BRepFilletAPI_MakeFillet; ic: cint; `is`: cint): Handle[
     GeomSurface] {.noSideEffect, importcpp: "ComputedSurface",
                   header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbFaultyVertices*(this: BRepFilletAPI_MakeFillet): int {.noSideEffect,
+proc nbFaultyVertices*(this: BRepFilletAPI_MakeFillet): cint {.noSideEffect,
     importcpp: "NbFaultyVertices", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc faultyVertex*(this: BRepFilletAPI_MakeFillet; iv: int): TopoDS_Vertex {.
+proc faultyVertex*(this: BRepFilletAPI_MakeFillet; iv: cint): TopoDS_Vertex {.
     noSideEffect, importcpp: "FaultyVertex", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc hasResult*(this: BRepFilletAPI_MakeFillet): bool {.noSideEffect,
     importcpp: "HasResult", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc badShape*(this: BRepFilletAPI_MakeFillet): TopoDS_Shape {.noSideEffect,
     importcpp: "BadShape", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc stripeStatus*(this: BRepFilletAPI_MakeFillet; ic: int): ChFiDS_ErrorStatus {.
+proc stripeStatus*(this: BRepFilletAPI_MakeFillet; ic: cint): ChFiDS_ErrorStatus {.
     noSideEffect, importcpp: "StripeStatus", header: "BRepFilletAPI_MakeFillet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

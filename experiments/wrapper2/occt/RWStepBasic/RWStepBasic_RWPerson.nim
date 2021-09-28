@@ -26,8 +26,34 @@ type
 proc constructRWStepBasicRWPerson*(): RWStepBasicRWPerson {.constructor,
     importcpp: "RWStepBasic_RWPerson(@)", header: "RWStepBasic_RWPerson.hxx".}
 proc readStep*(this: RWStepBasicRWPerson; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicPerson]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWPerson.hxx".}
+              num: cint; ach: var Handle[InterfaceCheck];
+              ent: Handle[StepBasicPerson]) {.noSideEffect, importcpp: "ReadStep",
+    header: "RWStepBasic_RWPerson.hxx".}
 proc writeStep*(this: RWStepBasicRWPerson; sw: var StepDataStepWriter;
                ent: Handle[StepBasicPerson]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWPerson.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,6 +23,24 @@ type
                                   bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeToroidalSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeToroidalSurface::operator new",
+    header: "GeomToStep_MakeToroidalSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeToroidalSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeToroidalSurface::operator delete",
+    header: "GeomToStep_MakeToroidalSurface.hxx".}
+proc `new[]`*(this: var GeomToStepMakeToroidalSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeToroidalSurface::operator new[]",
+    header: "GeomToStep_MakeToroidalSurface.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeToroidalSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeToroidalSurface::operator delete[]",
+    header: "GeomToStep_MakeToroidalSurface.hxx".}
+proc `new`*(this: var GeomToStepMakeToroidalSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeToroidalSurface::operator new",
+    header: "GeomToStep_MakeToroidalSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeToroidalSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeToroidalSurface::operator delete",
+    header: "GeomToStep_MakeToroidalSurface.hxx".}
 proc constructGeomToStepMakeToroidalSurface*(torSurf: Handle[GeomToroidalSurface]): GeomToStepMakeToroidalSurface {.
     constructor, importcpp: "GeomToStep_MakeToroidalSurface(@)",
     header: "GeomToStep_MakeToroidalSurface.hxx".}

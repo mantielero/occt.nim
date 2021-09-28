@@ -37,3 +37,28 @@ type
 type
   AIS_MouseGestureMap* = NCollectionDataMap[cuint, AIS_MouseGesture]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

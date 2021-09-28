@@ -25,9 +25,34 @@ proc constructMathEigenValuesSearcher*(diagonal: TColStdArray1OfReal;
     header: "math_EigenValuesSearcher.hxx".}
 proc isDone*(this: MathEigenValuesSearcher): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_EigenValuesSearcher.hxx".}
-proc dimension*(this: MathEigenValuesSearcher): int {.noSideEffect,
+proc dimension*(this: MathEigenValuesSearcher): cint {.noSideEffect,
     importcpp: "Dimension", header: "math_EigenValuesSearcher.hxx".}
-proc eigenValue*(this: MathEigenValuesSearcher; index: int): float {.noSideEffect,
+proc eigenValue*(this: MathEigenValuesSearcher; index: cint): cfloat {.noSideEffect,
     importcpp: "EigenValue", header: "math_EigenValuesSearcher.hxx".}
-proc eigenVector*(this: MathEigenValuesSearcher; index: int): MathVector {.
+proc eigenVector*(this: MathEigenValuesSearcher; index: cint): MathVector {.
     noSideEffect, importcpp: "EigenVector", header: "math_EigenValuesSearcher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

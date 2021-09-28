@@ -16,8 +16,7 @@
 discard "forward decl of StepShape_NonManifoldSurfaceShapeRepresentation"
 discard "forward decl of StepShape_NonManifoldSurfaceShapeRepresentation"
 type
-  HandleStepShapeNonManifoldSurfaceShapeRepresentation* = Handle[
-      StepShapeNonManifoldSurfaceShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeNonManifoldSurfaceShapeRepresentation]
 
 ## ! Representation of STEP entity NonManifoldSurfaceShapeRepresentation
 
@@ -41,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_NonManif
     header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx".}
 proc dynamicType*(this: StepShapeNonManifoldSurfaceShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

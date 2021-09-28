@@ -31,23 +31,48 @@ proc dynamicType*(this: AdvApp2VarNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AdvApp2Var_Node.hxx".}
 proc constructAdvApp2VarNode*(): AdvApp2VarNode {.constructor,
     importcpp: "AdvApp2Var_Node(@)", header: "AdvApp2Var_Node.hxx".}
-proc constructAdvApp2VarNode*(iu: int; iv: int): AdvApp2VarNode {.constructor,
+proc constructAdvApp2VarNode*(iu: cint; iv: cint): AdvApp2VarNode {.constructor,
     importcpp: "AdvApp2Var_Node(@)", header: "AdvApp2Var_Node.hxx".}
-proc constructAdvApp2VarNode*(uv: Xy; iu: int; iv: int): AdvApp2VarNode {.constructor,
+proc constructAdvApp2VarNode*(uv: Xy; iu: cint; iv: cint): AdvApp2VarNode {.constructor,
     importcpp: "AdvApp2Var_Node(@)", header: "AdvApp2Var_Node.hxx".}
 proc coord*(this: AdvApp2VarNode): Xy {.noSideEffect, importcpp: "Coord",
                                     header: "AdvApp2Var_Node.hxx".}
-proc setCoord*(this: var AdvApp2VarNode; x1: float; x2: float) {.importcpp: "SetCoord",
-    header: "AdvApp2Var_Node.hxx".}
-proc uOrder*(this: AdvApp2VarNode): int {.noSideEffect, importcpp: "UOrder",
-                                      header: "AdvApp2Var_Node.hxx".}
-proc vOrder*(this: AdvApp2VarNode): int {.noSideEffect, importcpp: "VOrder",
-                                      header: "AdvApp2Var_Node.hxx".}
-proc setPoint*(this: var AdvApp2VarNode; iu: int; iv: int; pt: Pnt) {.
+proc setCoord*(this: var AdvApp2VarNode; x1: cfloat; x2: cfloat) {.
+    importcpp: "SetCoord", header: "AdvApp2Var_Node.hxx".}
+proc uOrder*(this: AdvApp2VarNode): cint {.noSideEffect, importcpp: "UOrder",
+                                       header: "AdvApp2Var_Node.hxx".}
+proc vOrder*(this: AdvApp2VarNode): cint {.noSideEffect, importcpp: "VOrder",
+                                       header: "AdvApp2Var_Node.hxx".}
+proc setPoint*(this: var AdvApp2VarNode; iu: cint; iv: cint; pt: Pnt) {.
     importcpp: "SetPoint", header: "AdvApp2Var_Node.hxx".}
-proc point*(this: AdvApp2VarNode; iu: int; iv: int): Pnt {.noSideEffect,
+proc point*(this: AdvApp2VarNode; iu: cint; iv: cint): Pnt {.noSideEffect,
     importcpp: "Point", header: "AdvApp2Var_Node.hxx".}
-proc setError*(this: var AdvApp2VarNode; iu: int; iv: int; error: float) {.
+proc setError*(this: var AdvApp2VarNode; iu: cint; iv: cint; error: cfloat) {.
     importcpp: "SetError", header: "AdvApp2Var_Node.hxx".}
-proc error*(this: AdvApp2VarNode; iu: int; iv: int): float {.noSideEffect,
+proc error*(this: AdvApp2VarNode; iu: cint; iv: cint): cfloat {.noSideEffect,
     importcpp: "Error", header: "AdvApp2Var_Node.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

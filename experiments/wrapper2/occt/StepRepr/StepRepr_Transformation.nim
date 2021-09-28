@@ -29,7 +29,7 @@ type
 
 proc constructStepReprTransformation*(): StepReprTransformation {.constructor,
     importcpp: "StepRepr_Transformation(@)", header: "StepRepr_Transformation.hxx".}
-proc caseNum*(this: StepReprTransformation; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepReprTransformation; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepRepr_Transformation.hxx".}
 proc itemDefinedTransformation*(this: StepReprTransformation): Handle[
     StepReprItemDefinedTransformation] {.noSideEffect,
@@ -39,3 +39,28 @@ proc functionallyDefinedTransformation*(this: StepReprTransformation): Handle[
     StepReprFunctionallyDefinedTransformation] {.noSideEffect,
     importcpp: "FunctionallyDefinedTransformation",
     header: "StepRepr_Transformation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

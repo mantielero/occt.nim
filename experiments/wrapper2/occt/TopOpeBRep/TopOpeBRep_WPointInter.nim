@@ -26,13 +26,13 @@ proc constructTopOpeBRepWPointInter*(): TopOpeBRepWPointInter {.constructor,
     importcpp: "TopOpeBRep_WPointInter(@)", header: "TopOpeBRep_WPointInter.hxx".}
 proc set*(this: var TopOpeBRepWPointInter; p: IntSurfPntOn2S) {.importcpp: "Set",
     header: "TopOpeBRep_WPointInter.hxx".}
-proc parametersOnS1*(this: TopOpeBRepWPointInter; u: var float; v: var float) {.
+proc parametersOnS1*(this: TopOpeBRepWPointInter; u: var cfloat; v: var cfloat) {.
     noSideEffect, importcpp: "ParametersOnS1", header: "TopOpeBRep_WPointInter.hxx".}
-proc parametersOnS2*(this: TopOpeBRepWPointInter; u: var float; v: var float) {.
+proc parametersOnS2*(this: TopOpeBRepWPointInter; u: var cfloat; v: var cfloat) {.
     noSideEffect, importcpp: "ParametersOnS2", header: "TopOpeBRep_WPointInter.hxx".}
-proc parameters*(this: TopOpeBRepWPointInter; u1: var float; v1: var float;
-                u2: var float; v2: var float) {.noSideEffect, importcpp: "Parameters",
-    header: "TopOpeBRep_WPointInter.hxx".}
+proc parameters*(this: TopOpeBRepWPointInter; u1: var cfloat; v1: var cfloat;
+                u2: var cfloat; v2: var cfloat) {.noSideEffect,
+    importcpp: "Parameters", header: "TopOpeBRep_WPointInter.hxx".}
 proc valueOnS1*(this: TopOpeBRepWPointInter): Pnt2d {.noSideEffect,
     importcpp: "ValueOnS1", header: "TopOpeBRep_WPointInter.hxx".}
 proc valueOnS2*(this: TopOpeBRepWPointInter): Pnt2d {.noSideEffect,
@@ -41,3 +41,28 @@ proc value*(this: TopOpeBRepWPointInter): Pnt {.noSideEffect, importcpp: "Value"
     header: "TopOpeBRep_WPointInter.hxx".}
 proc pPntOn2SDummy*(this: TopOpeBRepWPointInter): TopOpeBRepPPntOn2S {.noSideEffect,
     importcpp: "PPntOn2SDummy", header: "TopOpeBRep_WPointInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -99,7 +99,7 @@ proc textureFillMethod*(this: OpenGlBackgroundArray): AspectFillMethod {.
 proc gradientFillMethod*(this: OpenGlBackgroundArray): AspectGradientFillMethod {.
     noSideEffect, importcpp: "GradientFillMethod",
     header: "OpenGl_BackgroundArray.hxx".}
-proc gradientColor*(this: OpenGlBackgroundArray; theIndex: int): OpenGlVec4 {.
+proc gradientColor*(this: OpenGlBackgroundArray; theIndex: cint): OpenGlVec4 {.
     noSideEffect, importcpp: "GradientColor", header: "OpenGl_BackgroundArray.hxx".}
 proc setGradientFillMethod*(this: var OpenGlBackgroundArray;
                            theType: AspectGradientFillMethod) {.
@@ -109,4 +109,29 @@ proc setGradientParameters*(this: var OpenGlBackgroundArray;
                            theType: AspectGradientFillMethod) {.
     importcpp: "SetGradientParameters", header: "OpenGl_BackgroundArray.hxx".}
 ## using statement
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

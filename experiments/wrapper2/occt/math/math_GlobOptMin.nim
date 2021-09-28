@@ -80,35 +80,35 @@ type
 
 proc constructMathGlobOptMin*(theFunc: ptr MathMultipleVarFunction;
                              theLowerBorder: MathVector;
-                             theUpperBorder: MathVector; theC: float = 9;
-                             theDiscretizationTol: float = 1.0e-2;
-                             theSameTol: float = 1.0e-7): MathGlobOptMin {.
+                             theUpperBorder: MathVector; theC: cfloat = 9;
+                             theDiscretizationTol: cfloat = 1.0e-2;
+                             theSameTol: cfloat = 1.0e-7): MathGlobOptMin {.
     constructor, importcpp: "math_GlobOptMin(@)", header: "math_GlobOptMin.hxx".}
 proc setGlobalParams*(this: var MathGlobOptMin;
                      theFunc: ptr MathMultipleVarFunction;
                      theLowerBorder: MathVector; theUpperBorder: MathVector;
-                     theC: float = 9; theDiscretizationTol: float = 1.0e-2;
-                     theSameTol: float = 1.0e-7) {.importcpp: "SetGlobalParams",
+                     theC: cfloat = 9; theDiscretizationTol: cfloat = 1.0e-2;
+                     theSameTol: cfloat = 1.0e-7) {.importcpp: "SetGlobalParams",
     header: "math_GlobOptMin.hxx".}
 proc setLocalParams*(this: var MathGlobOptMin; theLocalA: MathVector;
                     theLocalB: MathVector) {.importcpp: "SetLocalParams",
     header: "math_GlobOptMin.hxx".}
-proc setTol*(this: var MathGlobOptMin; theDiscretizationTol: float; theSameTol: float) {.
-    importcpp: "SetTol", header: "math_GlobOptMin.hxx".}
-proc getTol*(this: var MathGlobOptMin; theDiscretizationTol: var float;
-            theSameTol: var float) {.importcpp: "GetTol",
-                                  header: "math_GlobOptMin.hxx".}
+proc setTol*(this: var MathGlobOptMin; theDiscretizationTol: cfloat;
+            theSameTol: cfloat) {.importcpp: "SetTol", header: "math_GlobOptMin.hxx".}
+proc getTol*(this: var MathGlobOptMin; theDiscretizationTol: var cfloat;
+            theSameTol: var cfloat) {.importcpp: "GetTol",
+                                   header: "math_GlobOptMin.hxx".}
 proc perform*(this: var MathGlobOptMin; isFindSingleSolution: bool = false) {.
     importcpp: "Perform", header: "math_GlobOptMin.hxx".}
-proc points*(this: var MathGlobOptMin; theIndex: int; theSol: var MathVector) {.
+proc points*(this: var MathGlobOptMin; theIndex: cint; theSol: var MathVector) {.
     importcpp: "Points", header: "math_GlobOptMin.hxx".}
-proc setContinuity*(this: var MathGlobOptMin; theCont: int) {.
+proc setContinuity*(this: var MathGlobOptMin; theCont: cint) {.
     importcpp: "SetContinuity", header: "math_GlobOptMin.hxx".}
-proc getContinuity*(this: MathGlobOptMin): int {.noSideEffect,
+proc getContinuity*(this: MathGlobOptMin): cint {.noSideEffect,
     importcpp: "GetContinuity", header: "math_GlobOptMin.hxx".}
-proc setFunctionalMinimalValue*(this: var MathGlobOptMin; theMinimalValue: float) {.
+proc setFunctionalMinimalValue*(this: var MathGlobOptMin; theMinimalValue: cfloat) {.
     importcpp: "SetFunctionalMinimalValue", header: "math_GlobOptMin.hxx".}
-proc getFunctionalMinimalValue*(this: MathGlobOptMin): float {.noSideEffect,
+proc getFunctionalMinimalValue*(this: MathGlobOptMin): cfloat {.noSideEffect,
     importcpp: "GetFunctionalMinimalValue", header: "math_GlobOptMin.hxx".}
 proc setLipConstState*(this: var MathGlobOptMin; theFlag: bool) {.
     importcpp: "SetLipConstState", header: "math_GlobOptMin.hxx".}
@@ -116,7 +116,32 @@ proc getLipConstState*(this: MathGlobOptMin): bool {.noSideEffect,
     importcpp: "GetLipConstState", header: "math_GlobOptMin.hxx".}
 proc isDone*(this: MathGlobOptMin): bool {.noSideEffect, importcpp: "isDone",
                                        header: "math_GlobOptMin.hxx".}
-proc getF*(this: MathGlobOptMin): float {.noSideEffect, importcpp: "GetF",
-                                      header: "math_GlobOptMin.hxx".}
-proc nbExtrema*(this: MathGlobOptMin): int {.noSideEffect, importcpp: "NbExtrema",
+proc getF*(this: MathGlobOptMin): cfloat {.noSideEffect, importcpp: "GetF",
+                                       header: "math_GlobOptMin.hxx".}
+proc nbExtrema*(this: MathGlobOptMin): cint {.noSideEffect, importcpp: "NbExtrema",
     header: "math_GlobOptMin.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -46,8 +46,8 @@ type
                                                                                  ## 0.
 
 
-proc tolerance*(s: TopoDS_Shape): float {.importcpp: "TopOpeBRepTool_ShapeTool::Tolerance(@)",
-                                      header: "TopOpeBRepTool_ShapeTool.hxx".}
+proc tolerance*(s: TopoDS_Shape): cfloat {.importcpp: "TopOpeBRepTool_ShapeTool::Tolerance(@)",
+                                       header: "TopOpeBRepTool_ShapeTool.hxx".}
 proc pnt*(s: TopoDS_Shape): Pnt {.importcpp: "TopOpeBRepTool_ShapeTool::Pnt(@)",
                               header: "TopOpeBRepTool_ShapeTool.hxx".}
 proc basiscurve*(c: Handle[GeomCurve]): Handle[GeomCurve] {.
@@ -62,21 +62,21 @@ proc basissurface*(s: Handle[GeomSurface]): Handle[GeomSurface] {.
 proc basissurface*(f: TopoDS_Face): Handle[GeomSurface] {.
     importcpp: "TopOpeBRepTool_ShapeTool::BASISSURFACE(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc uvbounds*(s: Handle[GeomSurface]; uPeri: var bool; vPeri: var bool; umin: var float;
-              umax: var float; vmin: var float; vmax: var float) {.
+proc uvbounds*(s: Handle[GeomSurface]; uPeri: var bool; vPeri: var bool;
+              umin: var cfloat; umax: var cfloat; vmin: var cfloat; vmax: var cfloat) {.
     importcpp: "TopOpeBRepTool_ShapeTool::UVBOUNDS(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc uvbounds*(f: TopoDS_Face; uPeri: var bool; vPeri: var bool; umin: var float;
-              umax: var float; vmin: var float; vmax: var float) {.
+proc uvbounds*(f: TopoDS_Face; uPeri: var bool; vPeri: var bool; umin: var cfloat;
+              umax: var cfloat; vmin: var cfloat; vmax: var cfloat) {.
     importcpp: "TopOpeBRepTool_ShapeTool::UVBOUNDS(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc adjustOnPeriodic*(s: TopoDS_Shape; u: var float; v: var float) {.
+proc adjustOnPeriodic*(s: TopoDS_Shape; u: var cfloat; v: var cfloat) {.
     importcpp: "TopOpeBRepTool_ShapeTool::AdjustOnPeriodic(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
 proc closed*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.
     importcpp: "TopOpeBRepTool_ShapeTool::Closed(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc periodizeParameter*(par: float; ee: TopoDS_Shape; ff: TopoDS_Shape): float {.
+proc periodizeParameter*(par: cfloat; ee: TopoDS_Shape; ff: TopoDS_Shape): cfloat {.
     importcpp: "TopOpeBRepTool_ShapeTool::PeriodizeParameter(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
 proc shapesSameOriented*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.
@@ -94,21 +94,46 @@ proc curvesSameOriented*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve): bool {.
 proc edgesSameOriented*(e1: TopoDS_Shape; e2: TopoDS_Shape): bool {.
     importcpp: "TopOpeBRepTool_ShapeTool::EdgesSameOriented(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc edgeData*(brac: BRepAdaptorCurve; p: float; t: var Dir; n: var Dir; c: var float): float {.
+proc edgeData*(brac: BRepAdaptorCurve; p: cfloat; t: var Dir; n: var Dir; c: var cfloat): cfloat {.
     importcpp: "TopOpeBRepTool_ShapeTool::EdgeData(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc edgeData*(e: TopoDS_Shape; p: float; t: var Dir; n: var Dir; c: var float): float {.
+proc edgeData*(e: TopoDS_Shape; p: cfloat; t: var Dir; n: var Dir; c: var cfloat): cfloat {.
     importcpp: "TopOpeBRepTool_ShapeTool::EdgeData(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc resolution3dU*(su: Handle[GeomSurface]; tol2d: float): float {.
+proc resolution3dU*(su: Handle[GeomSurface]; tol2d: cfloat): cfloat {.
     importcpp: "TopOpeBRepTool_ShapeTool::Resolution3dU(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc resolution3dV*(su: Handle[GeomSurface]; tol2d: float): float {.
+proc resolution3dV*(su: Handle[GeomSurface]; tol2d: cfloat): cfloat {.
     importcpp: "TopOpeBRepTool_ShapeTool::Resolution3dV(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc resolution3d*(su: Handle[GeomSurface]; tol2d: float): float {.
+proc resolution3d*(su: Handle[GeomSurface]; tol2d: cfloat): cfloat {.
     importcpp: "TopOpeBRepTool_ShapeTool::Resolution3d(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc resolution3d*(f: TopoDS_Face; tol2d: float): float {.
+proc resolution3d*(f: TopoDS_Face; tol2d: cfloat): cfloat {.
     importcpp: "TopOpeBRepTool_ShapeTool::Resolution3d(@)",
     header: "TopOpeBRepTool_ShapeTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

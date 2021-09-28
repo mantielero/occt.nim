@@ -185,43 +185,43 @@ type
 
 
 proc constructAppDefParLeastSquareOfMyGradientbisOfBSplineCompute*(
-    ssp: AppDefMultiLine; firstPoint: int; lastPoint: int;
+    ssp: AppDefMultiLine; firstPoint: cint; lastPoint: cint;
     firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    parameters: MathVector; nbPol: int): AppDefParLeastSquareOfMyGradientbisOfBSplineCompute {.
+    parameters: MathVector; nbPol: cint): AppDefParLeastSquareOfMyGradientbisOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute(@)",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc constructAppDefParLeastSquareOfMyGradientbisOfBSplineCompute*(
-    ssp: AppDefMultiLine; firstPoint: int; lastPoint: int;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint; nbPol: int): AppDefParLeastSquareOfMyGradientbisOfBSplineCompute {.
-    constructor,
-    importcpp: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute(@)",
-    header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
-proc constructAppDefParLeastSquareOfMyGradientbisOfBSplineCompute*(
-    ssp: AppDefMultiLine; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
-    firstPoint: int; lastPoint: int; firstCons: AppParCurvesConstraint;
-    lastCons: AppParCurvesConstraint; parameters: MathVector; nbPol: int): AppDefParLeastSquareOfMyGradientbisOfBSplineCompute {.
+    ssp: AppDefMultiLine; firstPoint: cint; lastPoint: cint;
+    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint; nbPol: cint): AppDefParLeastSquareOfMyGradientbisOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute(@)",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc constructAppDefParLeastSquareOfMyGradientbisOfBSplineCompute*(
     ssp: AppDefMultiLine; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
-    firstPoint: int; lastPoint: int; firstCons: AppParCurvesConstraint;
-    lastCons: AppParCurvesConstraint; nbPol: int): AppDefParLeastSquareOfMyGradientbisOfBSplineCompute {.
+    firstPoint: cint; lastPoint: cint; firstCons: AppParCurvesConstraint;
+    lastCons: AppParCurvesConstraint; parameters: MathVector; nbPol: cint): AppDefParLeastSquareOfMyGradientbisOfBSplineCompute {.
+    constructor,
+    importcpp: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute(@)",
+    header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
+proc constructAppDefParLeastSquareOfMyGradientbisOfBSplineCompute*(
+    ssp: AppDefMultiLine; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
+    firstPoint: cint; lastPoint: cint; firstCons: AppParCurvesConstraint;
+    lastCons: AppParCurvesConstraint; nbPol: cint): AppDefParLeastSquareOfMyGradientbisOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute(@)",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc perform*(this: var AppDefParLeastSquareOfMyGradientbisOfBSplineCompute;
              parameters: MathVector) {.importcpp: "Perform", header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc perform*(this: var AppDefParLeastSquareOfMyGradientbisOfBSplineCompute;
-             parameters: MathVector; l1: float; l2: float) {.importcpp: "Perform",
+             parameters: MathVector; l1: cfloat; l2: cfloat) {.importcpp: "Perform",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc perform*(this: var AppDefParLeastSquareOfMyGradientbisOfBSplineCompute;
-             parameters: MathVector; v1t: MathVector; v2t: MathVector; l1: float;
-             l2: float) {.importcpp: "Perform", header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
+             parameters: MathVector; v1t: MathVector; v2t: MathVector; l1: cfloat;
+             l2: cfloat) {.importcpp: "Perform", header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc perform*(this: var AppDefParLeastSquareOfMyGradientbisOfBSplineCompute;
              parameters: MathVector; v1t: MathVector; v2t: MathVector;
-             v1c: MathVector; v2c: MathVector; l1: float; l2: float) {.
+             v1c: MathVector; v2c: MathVector; l1: cfloat; l2: cfloat) {.
     importcpp: "Perform",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc isDone*(this: AppDefParLeastSquareOfMyGradientbisOfBSplineCompute): bool {.
@@ -240,18 +240,18 @@ proc derivativeFunctionMatrix*(this: AppDefParLeastSquareOfMyGradientbisOfBSplin
     noSideEffect, importcpp: "DerivativeFunctionMatrix",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc errorGradient*(this: var AppDefParLeastSquareOfMyGradientbisOfBSplineCompute;
-                   grad: var MathVector; f: var float; maxE3d: var float;
-                   maxE2d: var float) {.importcpp: "ErrorGradient", header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
+                   grad: var MathVector; f: var cfloat; maxE3d: var cfloat;
+                   maxE2d: var cfloat) {.importcpp: "ErrorGradient", header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc distance*(this: var AppDefParLeastSquareOfMyGradientbisOfBSplineCompute): MathMatrix {.
     importcpp: "Distance",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc error*(this: var AppDefParLeastSquareOfMyGradientbisOfBSplineCompute;
-           f: var float; maxE3d: var float; maxE2d: var float) {.importcpp: "Error",
+           f: var cfloat; maxE3d: var cfloat; maxE2d: var cfloat) {.importcpp: "Error",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
-proc firstLambda*(this: AppDefParLeastSquareOfMyGradientbisOfBSplineCompute): float {.
+proc firstLambda*(this: AppDefParLeastSquareOfMyGradientbisOfBSplineCompute): cfloat {.
     noSideEffect, importcpp: "FirstLambda",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
-proc lastLambda*(this: AppDefParLeastSquareOfMyGradientbisOfBSplineCompute): float {.
+proc lastLambda*(this: AppDefParLeastSquareOfMyGradientbisOfBSplineCompute): cfloat {.
     noSideEffect, importcpp: "LastLambda",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
 proc points*(this: AppDefParLeastSquareOfMyGradientbisOfBSplineCompute): MathMatrix {.
@@ -263,3 +263,28 @@ proc poles*(this: AppDefParLeastSquareOfMyGradientbisOfBSplineCompute): MathMatr
 proc kIndex*(this: AppDefParLeastSquareOfMyGradientbisOfBSplineCompute): MathIntegerVector {.
     noSideEffect, importcpp: "KIndex",
     header: "AppDef_ParLeastSquareOfMyGradientbisOfBSplineCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

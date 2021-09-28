@@ -23,3 +23,28 @@ include AdvApp2Var_SequenceOfStrip
 include AdvApp2Var_Strip
 include AdvApp2Var_SysBase
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

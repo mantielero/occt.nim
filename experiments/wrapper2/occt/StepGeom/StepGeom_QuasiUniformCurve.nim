@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_QuasiUniformCurve"
 discard "forward decl of StepGeom_QuasiUniformCurve"
 type
-  HandleStepGeomQuasiUniformCurve* = Handle[StepGeomQuasiUniformCurve]
+  HandleC1C1* = Handle[StepGeomQuasiUniformCurve]
   StepGeomQuasiUniformCurve* {.importcpp: "StepGeom_QuasiUniformCurve",
                               header: "StepGeom_QuasiUniformCurve.hxx", bycopy.} = object of StepGeomBSplineCurve ##
                                                                                                            ## !
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomQuasiUniformCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_QuasiUniformCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

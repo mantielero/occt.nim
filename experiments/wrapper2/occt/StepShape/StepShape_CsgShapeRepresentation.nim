@@ -17,7 +17,7 @@
 discard "forward decl of StepShape_CsgShapeRepresentation"
 discard "forward decl of StepShape_CsgShapeRepresentation"
 type
-  HandleStepShapeCsgShapeRepresentation* = Handle[StepShapeCsgShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeCsgShapeRepresentation]
   StepShapeCsgShapeRepresentation* {.importcpp: "StepShape_CsgShapeRepresentation", header: "StepShape_CsgShapeRepresentation.hxx",
                                     bycopy.} = object of StepShapeShapeRepresentation ##
                                                                                  ## !
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeCsgShapeRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_CsgShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

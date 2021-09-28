@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectExtract"
 discard "forward decl of IFSelect_SelectExtract"
 type
-  HandleIFSelectSelectExtract* = Handle[IFSelectSelectExtract]
+  HandleC1C1* = Handle[IFSelectSelectExtract]
 
 ## ! A SelectExtract determines a list of Entities from an Input
 ## ! Selection, as a sub-list of the Input Result
@@ -66,10 +66,10 @@ proc setDirect*(this: var IFSelectSelectExtract; direct: bool) {.
     importcpp: "SetDirect", header: "IFSelect_SelectExtract.hxx".}
 proc rootResult*(this: IFSelectSelectExtract; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectExtract.hxx".}
-proc sort*(this: IFSelectSelectExtract; rank: int; ent: Handle[StandardTransient];
+proc sort*(this: IFSelectSelectExtract; rank: cint; ent: Handle[StandardTransient];
           model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
     importcpp: "Sort", header: "IFSelect_SelectExtract.hxx".}
-proc sortInGraph*(this: IFSelectSelectExtract; rank: int;
+proc sortInGraph*(this: IFSelectSelectExtract; rank: cint;
                  ent: Handle[StandardTransient]; g: InterfaceGraph): bool {.
     noSideEffect, importcpp: "SortInGraph", header: "IFSelect_SelectExtract.hxx".}
 proc label*(this: IFSelectSelectExtract): TCollectionAsciiString {.noSideEffect,
@@ -86,3 +86,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectExtract.hxx".}
 proc dynamicType*(this: IFSelectSelectExtract): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectExtract.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

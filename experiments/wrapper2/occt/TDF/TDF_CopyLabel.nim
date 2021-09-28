@@ -46,3 +46,28 @@ proc isDone*(this: TDF_CopyLabel): bool {.noSideEffect, importcpp: "IsDone",
                                       header: "TDF_CopyLabel.hxx".}
 proc relocationTable*(this: TDF_CopyLabel): Handle[TDF_RelocationTable] {.
     noSideEffect, importcpp: "RelocationTable", header: "TDF_CopyLabel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,8 +19,7 @@ discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepShape_ContextDependentShapeRepresentation"
 discard "forward decl of StepShape_ContextDependentShapeRepresentation"
 type
-  HandleStepShapeContextDependentShapeRepresentation* = Handle[
-      StepShapeContextDependentShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeContextDependentShapeRepresentation]
   StepShapeContextDependentShapeRepresentation* {.
       importcpp: "StepShape_ContextDependentShapeRepresentation",
       header: "StepShape_ContextDependentShapeRepresentation.hxx", bycopy.} = object of StandardTransient
@@ -57,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_ContextD
 proc dynamicType*(this: StepShapeContextDependentShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepShape_ContextDependentShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

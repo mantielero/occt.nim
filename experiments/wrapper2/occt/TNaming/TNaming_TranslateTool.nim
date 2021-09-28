@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TNaming_TranslateTool"
 discard "forward decl of TNaming_TranslateTool"
 type
-  HandleTNamingTranslateTool* = Handle[TNamingTranslateTool]
+  HandleC1C1* = Handle[TNamingTranslateTool]
 
 ## ! tool to copy underlying TShape of a Shape.
 ## ! The TranslateTool class is provided to support the
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TNaming_TranslateTool.hxx".}
 proc dynamicType*(this: TNamingTranslateTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TNaming_TranslateTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

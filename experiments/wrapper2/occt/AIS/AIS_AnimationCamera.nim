@@ -58,5 +58,30 @@ proc setCameraEnd*(this: var AIS_AnimationCamera;
     importcpp: "SetCameraEnd", header: "AIS_AnimationCamera.hxx".}
 discard "forward decl of AIS_AnimationCamera"
 type
-  HandleAIS_AnimationCamera* = Handle[AIS_AnimationCamera]
+  HandleC1C1* = Handle[AIS_AnimationCamera]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

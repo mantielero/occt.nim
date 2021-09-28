@@ -26,27 +26,52 @@ type
 
 
 proc constructPlateFreeGtoCConstraint*(point2d: Xy; d1s: PlateD1; d1t: PlateD1;
-                                      incrementalLoad: float = 1.0;
-                                      orientation: int = 0): PlateFreeGtoCConstraint {.
+                                      incrementalLoad: cfloat = 1.0;
+                                      orientation: cint = 0): PlateFreeGtoCConstraint {.
     constructor, importcpp: "Plate_FreeGtoCConstraint(@)",
     header: "Plate_FreeGtoCConstraint.hxx".}
 proc constructPlateFreeGtoCConstraint*(point2d: Xy; d1s: PlateD1; d1t: PlateD1;
                                       d2s: PlateD2; d2t: PlateD2;
-                                      incrementalLoad: float = 1.0;
-                                      orientation: int = 0): PlateFreeGtoCConstraint {.
+                                      incrementalLoad: cfloat = 1.0;
+                                      orientation: cint = 0): PlateFreeGtoCConstraint {.
     constructor, importcpp: "Plate_FreeGtoCConstraint(@)",
     header: "Plate_FreeGtoCConstraint.hxx".}
 proc constructPlateFreeGtoCConstraint*(point2d: Xy; d1s: PlateD1; d1t: PlateD1;
                                       d2s: PlateD2; d2t: PlateD2; d3s: PlateD3;
-                                      d3t: PlateD3; incrementalLoad: float = 1.0;
-                                      orientation: int = 0): PlateFreeGtoCConstraint {.
+                                      d3t: PlateD3; incrementalLoad: cfloat = 1.0;
+                                      orientation: cint = 0): PlateFreeGtoCConstraint {.
     constructor, importcpp: "Plate_FreeGtoCConstraint(@)",
     header: "Plate_FreeGtoCConstraint.hxx".}
-proc nbPPC*(this: PlateFreeGtoCConstraint): int {.noSideEffect, importcpp: "nb_PPC",
+proc nbPPC*(this: PlateFreeGtoCConstraint): cint {.noSideEffect, importcpp: "nb_PPC",
     header: "Plate_FreeGtoCConstraint.hxx".}
-proc getPPC*(this: PlateFreeGtoCConstraint; index: int): PlatePinpointConstraint {.
+proc getPPC*(this: PlateFreeGtoCConstraint; index: cint): PlatePinpointConstraint {.
     noSideEffect, importcpp: "GetPPC", header: "Plate_FreeGtoCConstraint.hxx".}
-proc nbLSC*(this: PlateFreeGtoCConstraint): int {.noSideEffect, importcpp: "nb_LSC",
+proc nbLSC*(this: PlateFreeGtoCConstraint): cint {.noSideEffect, importcpp: "nb_LSC",
     header: "Plate_FreeGtoCConstraint.hxx".}
-proc lsc*(this: PlateFreeGtoCConstraint; index: int): PlateLinearScalarConstraint {.
+proc lsc*(this: PlateFreeGtoCConstraint; index: cint): PlateLinearScalarConstraint {.
     noSideEffect, importcpp: "LSC", header: "Plate_FreeGtoCConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

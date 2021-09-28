@@ -131,3 +131,28 @@ proc isInvariant*(this: BRepSweepTrsf; aGenS: TopoDS_Shape): bool {.noSideEffect
     importcpp: "IsInvariant", header: "BRepSweep_Trsf.hxx".}
 proc setContinuity*(this: var BRepSweepTrsf; aGenS: TopoDS_Shape; aDirS: SweepNumShape) {.
     importcpp: "SetContinuity", header: "BRepSweep_Trsf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

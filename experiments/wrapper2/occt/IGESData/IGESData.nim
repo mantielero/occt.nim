@@ -64,3 +64,28 @@ type
 proc init*() {.importcpp: "IGESData::Init(@)", header: "IGESData.hxx".}
 proc protocol*(): Handle[IGESDataProtocol] {.importcpp: "IGESData::Protocol(@)",
     header: "IGESData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

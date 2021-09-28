@@ -24,11 +24,11 @@ type
                                                                        ## information is useful in setting the size of an array.
 
 
-proc nbLabels*(aLabel: TDF_Label): int {.importcpp: "TDF_Tool::NbLabels(@)",
-                                     header: "TDF_Tool.hxx".}
-proc nbAttributes*(aLabel: TDF_Label): int {.importcpp: "TDF_Tool::NbAttributes(@)",
-    header: "TDF_Tool.hxx".}
-proc nbAttributes*(aLabel: TDF_Label; aFilter: TDF_IDFilter): int {.
+proc nbLabels*(aLabel: TDF_Label): cint {.importcpp: "TDF_Tool::NbLabels(@)",
+                                      header: "TDF_Tool.hxx".}
+proc nbAttributes*(aLabel: TDF_Label): cint {.
+    importcpp: "TDF_Tool::NbAttributes(@)", header: "TDF_Tool.hxx".}
+proc nbAttributes*(aLabel: TDF_Label; aFilter: TDF_IDFilter): cint {.
     importcpp: "TDF_Tool::NbAttributes(@)", header: "TDF_Tool.hxx".}
 proc isSelfContained*(aLabel: TDF_Label): bool {.
     importcpp: "TDF_Tool::IsSelfContained(@)", header: "TDF_Tool.hxx".}
@@ -76,3 +76,28 @@ proc deepDump*(anOS: var StandardOStream; aLabel: TDF_Label) {.
 proc extendedDeepDump*(anOS: var StandardOStream; aLabel: TDF_Label;
                       aFilter: TDF_IDFilter) {.
     importcpp: "TDF_Tool::ExtendedDeepDump(@)", header: "TDF_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

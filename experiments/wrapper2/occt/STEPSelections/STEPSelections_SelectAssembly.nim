@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of STEPSelections_SelectAssembly"
 discard "forward decl of STEPSelections_SelectAssembly"
 type
-  HandleSTEPSelectionsSelectAssembly* = Handle[STEPSelectionsSelectAssembly]
+  HandleC1C1* = Handle[STEPSelectionsSelectAssembly]
   STEPSelectionsSelectAssembly* {.importcpp: "STEPSelections_SelectAssembly",
                                  header: "STEPSelections_SelectAssembly.hxx",
                                  bycopy.} = object of IFSelectSelectExplore
@@ -30,7 +30,7 @@ type
 proc constructSTEPSelectionsSelectAssembly*(): STEPSelectionsSelectAssembly {.
     constructor, importcpp: "STEPSelections_SelectAssembly(@)",
     header: "STEPSelections_SelectAssembly.hxx".}
-proc explore*(this: STEPSelectionsSelectAssembly; level: int;
+proc explore*(this: STEPSelectionsSelectAssembly; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "STEPSelections_SelectAssembly.hxx".}
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectAssembly): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectAssembly.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@
 
 discard "forward decl of gp_Pln"
 discard "forward decl of Geom_Surface"
-## !!!Ignored construct:  class Standard_DEPRECATED ( This class is deprecated - BRepAlgoAPI_Section should be used instead ) BRepAlgo_Section : public BRepAlgo_BooleanOperation { public : BRepAlgo_Section ( const TopoDS_Shape & Sh1 , const TopoDS_Shape & Sh2 , const Standard_Boolean PerformNow = Standard_True ) ; BRepAlgo_Section ( const TopoDS_Shape & Sh , const gp_Pln & Pl , const Standard_Boolean PerformNow = Standard_True ) ; BRepAlgo_Section ( const TopoDS_Shape & Sh , const opencascade :: handle < Geom_Surface > & Sf , const Standard_Boolean PerformNow = Standard_True ) ; BRepAlgo_Section ( const opencascade :: handle < Geom_Surface > & Sf , const TopoDS_Shape & Sh , const Standard_Boolean PerformNow = Standard_True ) ; ! This and the above algorithms construct a framework for computing the section lines of
+## !!!Ignored construct:  class Standard_DEPRECATED ( This class is deprecated - BRepAlgoAPI_Section should be used instead ) BRepAlgo_Section : public BRepAlgo_BooleanOperation { public : BRepAlgo_Section ( const TopoDS_Shape & Sh1 , const TopoDS_Shape & Sh2 , const Standard_Boolean PerformNow = Standard_True ) ; BRepAlgo_Section ( const TopoDS_Shape & Sh , const gp_Pln & Pl , const Standard_Boolean PerformNow = Standard_True ) ; BRepAlgo_Section ( const TopoDS_Shape & Sh , const Handle ( Geom_Surface ) & Sf , const Standard_Boolean PerformNow = Standard_True ) ; BRepAlgo_Section ( const Handle ( Geom_Surface ) & Sf , const TopoDS_Shape & Sh , const Standard_Boolean PerformNow = Standard_True ) ; ! This and the above algorithms construct a framework for computing the section lines of
 ## ! - the two shapes Sh1 and Sh2, or
 ## ! - the shape Sh and the plane Pl, or
 ## ! - the shape Sh and the surface Sf, or
@@ -95,12 +95,12 @@ discard "forward decl of Geom_Surface"
 ## ! S.ComputePCurveOn1 (Standard_True);
 ## ! S.Approximation (Standard_True);
 ## ! S.Build();
-## ! TopoDS_Shape R = S.Shape(); BRepAlgo_Section ( const opencascade :: handle < Geom_Surface > & Sf1 , const opencascade :: handle < Geom_Surface > & Sf2 , const Standard_Boolean PerformNow = Standard_True ) ; ! Initializes the first part void Init1 ( const TopoDS_Shape & S1 ) ; ! Initializes the first part void Init1 ( const gp_Pln & Pl ) ; ! Initializes the first part void Init1 ( const opencascade :: handle < Geom_Surface > & Sf ) ; ! initialize second part void Init2 ( const TopoDS_Shape & S2 ) ; ! Initializes the second part void Init2 ( const gp_Pln & Pl ) ; ! This and the above algorithms
+## ! TopoDS_Shape R = S.Shape(); BRepAlgo_Section ( const Handle ( Geom_Surface ) & Sf1 , const Handle ( Geom_Surface ) & Sf2 , const Standard_Boolean PerformNow = Standard_True ) ; ! Initializes the first part void Init1 ( const TopoDS_Shape & S1 ) ; ! Initializes the first part void Init1 ( const gp_Pln & Pl ) ; ! Initializes the first part void Init1 ( const Handle ( Geom_Surface ) & Sf ) ; ! initialize second part void Init2 ( const TopoDS_Shape & S2 ) ; ! Initializes the second part void Init2 ( const gp_Pln & Pl ) ; ! This and the above algorithms
 ## ! reinitialize the first and the second parts on which
 ## ! this algorithm is going to perform the intersection
 ## ! computation. This is done with either: the surface
 ## ! Sf, the plane Pl or the shape Sh.
-## ! You use the function Build to construct the result. void Init2 ( const opencascade :: handle < Geom_Surface > & Sf ) ; ! Defines an option for computation of further
+## ! You use the function Build to construct the result. void Init2 ( const Handle ( Geom_Surface ) & Sf ) ; ! Defines an option for computation of further
 ## ! intersections. This computation will be performed by
 ## ! the function Build in this framework.
 ## ! By default, the underlying 3D geometry attached to
@@ -233,4 +233,49 @@ discard "forward decl of Geom_Surface"
 ## ! ancestor face: F is significant only if the returned
 ## ! Boolean value equals true. Standard_Boolean HasAncestorFaceOn2 ( const TopoDS_Shape & E , TopoDS_Shape & F ) const ; protected : private : virtual void InitParameters ( ) ; Standard_Boolean myS1Changed ; Standard_Boolean myS2Changed ; Standard_Boolean myApproxChanged ; Standard_Boolean myPCurve1Changed ; Standard_Boolean myPCurve2Changed ; Standard_Boolean myshapeisnull ; } ;
 ## Error: token expected: ; but got: [identifier]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

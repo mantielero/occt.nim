@@ -69,19 +69,44 @@ proc constructMoniToolStat*(other: MoniToolStat): MoniToolStat {.constructor,
     importcpp: "MoniTool_Stat(@)", header: "MoniTool_Stat.hxx".}
 proc current*(): var MoniToolStat {.importcpp: "MoniTool_Stat::Current(@)",
                                 header: "MoniTool_Stat.hxx".}
-proc open*(this: var MoniToolStat; nb: int = 100): int {.importcpp: "Open",
+proc open*(this: var MoniToolStat; nb: cint = 100): cint {.importcpp: "Open",
     header: "MoniTool_Stat.hxx".}
-proc openMore*(this: var MoniToolStat; id: int; nb: int) {.importcpp: "OpenMore",
+proc openMore*(this: var MoniToolStat; id: cint; nb: cint) {.importcpp: "OpenMore",
     header: "MoniTool_Stat.hxx".}
-proc add*(this: var MoniToolStat; nb: int = 1) {.importcpp: "Add",
+proc add*(this: var MoniToolStat; nb: cint = 1) {.importcpp: "Add",
     header: "MoniTool_Stat.hxx".}
-proc addSub*(this: var MoniToolStat; nb: int = 1) {.importcpp: "AddSub",
+proc addSub*(this: var MoniToolStat; nb: cint = 1) {.importcpp: "AddSub",
     header: "MoniTool_Stat.hxx".}
 proc addEnd*(this: var MoniToolStat) {.importcpp: "AddEnd",
                                    header: "MoniTool_Stat.hxx".}
-proc close*(this: var MoniToolStat; id: int) {.importcpp: "Close",
+proc close*(this: var MoniToolStat; id: cint) {.importcpp: "Close",
     header: "MoniTool_Stat.hxx".}
-proc level*(this: MoniToolStat): int {.noSideEffect, importcpp: "Level",
-                                   header: "MoniTool_Stat.hxx".}
-proc percent*(this: MoniToolStat; fromlev: int = 0): float {.noSideEffect,
+proc level*(this: MoniToolStat): cint {.noSideEffect, importcpp: "Level",
+                                    header: "MoniTool_Stat.hxx".}
+proc percent*(this: MoniToolStat; fromlev: cint = 0): cfloat {.noSideEffect,
     importcpp: "Percent", header: "MoniTool_Stat.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

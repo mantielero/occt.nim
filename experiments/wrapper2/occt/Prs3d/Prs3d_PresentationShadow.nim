@@ -40,7 +40,7 @@ proc constructPrs3dPresentationShadow*(theViewer: Handle[Graphic3dStructureManag
                                       thePrs: Handle[Graphic3dStructure]): Prs3dPresentationShadow {.
     constructor, importcpp: "Prs3d_PresentationShadow(@)",
     header: "Prs3d_PresentationShadow.hxx".}
-proc parentId*(this: Prs3dPresentationShadow): int {.noSideEffect,
+proc parentId*(this: Prs3dPresentationShadow): cint {.noSideEffect,
     importcpp: "ParentId", header: "Prs3d_PresentationShadow.hxx".}
 proc parentAffinity*(this: Prs3dPresentationShadow): Handle[Graphic3dViewAffinity] {.
     noSideEffect, importcpp: "ParentAffinity",
@@ -48,9 +48,34 @@ proc parentAffinity*(this: Prs3dPresentationShadow): Handle[Graphic3dViewAffinit
 proc calculateBoundBox*(this: var Prs3dPresentationShadow) {.
     importcpp: "CalculateBoundBox", header: "Prs3d_PresentationShadow.hxx".}
 proc dumpJson*(this: Prs3dPresentationShadow; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Prs3d_PresentationShadow.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Prs3d_PresentationShadow.hxx".}
 discard "forward decl of Prs3d_PresentationShadow"
 type
-  HandlePrs3dPresentationShadow* = Handle[Prs3dPresentationShadow]
+  HandleC1C1* = Handle[Prs3dPresentationShadow]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

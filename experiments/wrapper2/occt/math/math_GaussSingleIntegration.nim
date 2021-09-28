@@ -28,17 +28,42 @@ type
 proc constructMathGaussSingleIntegration*(): MathGaussSingleIntegration {.
     constructor, importcpp: "math_GaussSingleIntegration(@)",
     header: "math_GaussSingleIntegration.hxx".}
-proc constructMathGaussSingleIntegration*(f: var MathFunction; lower: float;
-    upper: float; order: int): MathGaussSingleIntegration {.constructor,
+proc constructMathGaussSingleIntegration*(f: var MathFunction; lower: cfloat;
+    upper: cfloat; order: cint): MathGaussSingleIntegration {.constructor,
     importcpp: "math_GaussSingleIntegration(@)",
     header: "math_GaussSingleIntegration.hxx".}
-proc constructMathGaussSingleIntegration*(f: var MathFunction; lower: float;
-    upper: float; order: int; tol: float): MathGaussSingleIntegration {.constructor,
+proc constructMathGaussSingleIntegration*(f: var MathFunction; lower: cfloat;
+    upper: cfloat; order: cint; tol: cfloat): MathGaussSingleIntegration {.constructor,
     importcpp: "math_GaussSingleIntegration(@)",
     header: "math_GaussSingleIntegration.hxx".}
 proc isDone*(this: MathGaussSingleIntegration): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_GaussSingleIntegration.hxx".}
-proc value*(this: MathGaussSingleIntegration): float {.noSideEffect,
+proc value*(this: MathGaussSingleIntegration): cfloat {.noSideEffect,
     importcpp: "Value", header: "math_GaussSingleIntegration.hxx".}
 proc dump*(this: MathGaussSingleIntegration; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_GaussSingleIntegration.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

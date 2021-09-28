@@ -27,11 +27,36 @@ type
 proc constructOSD_Error*(): OSD_Error {.constructor, importcpp: "OSD_Error(@)",
                                      header: "OSD_Error.hxx".}
 proc perror*(this: var OSD_Error) {.importcpp: "Perror", header: "OSD_Error.hxx".}
-proc setValue*(this: var OSD_Error; errcode: int; `from`: int;
+proc setValue*(this: var OSD_Error; errcode: cint; `from`: cint;
               message: TCollectionAsciiString) {.importcpp: "SetValue",
     header: "OSD_Error.hxx".}
-proc error*(this: OSD_Error): int {.noSideEffect, importcpp: "Error",
-                                header: "OSD_Error.hxx".}
+proc error*(this: OSD_Error): cint {.noSideEffect, importcpp: "Error",
+                                 header: "OSD_Error.hxx".}
 proc failed*(this: OSD_Error): bool {.noSideEffect, importcpp: "Failed",
                                   header: "OSD_Error.hxx".}
 proc reset*(this: var OSD_Error) {.importcpp: "Reset", header: "OSD_Error.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

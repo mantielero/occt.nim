@@ -20,7 +20,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_RealList"
 discard "forward decl of TDataStd_RealList"
 type
-  HandleTDataStdRealList* = Handle[TDataStdRealList]
+  HandleC1C1* = Handle[TDataStdRealList]
 
 ## ! Contains a list of doubles.
 
@@ -56,34 +56,34 @@ proc constructTDataStdRealList*(): TDataStdRealList {.constructor,
     importcpp: "TDataStd_RealList(@)", header: "TDataStd_RealList.hxx".}
 proc isEmpty*(this: TDataStdRealList): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "TDataStd_RealList.hxx".}
-proc extent*(this: TDataStdRealList): int {.noSideEffect, importcpp: "Extent",
-                                        header: "TDataStd_RealList.hxx".}
-proc prepend*(this: var TDataStdRealList; value: float) {.importcpp: "Prepend",
+proc extent*(this: TDataStdRealList): cint {.noSideEffect, importcpp: "Extent",
     header: "TDataStd_RealList.hxx".}
-proc append*(this: var TDataStdRealList; value: float) {.importcpp: "Append",
+proc prepend*(this: var TDataStdRealList; value: cfloat) {.importcpp: "Prepend",
+    header: "TDataStd_RealList.hxx".}
+proc append*(this: var TDataStdRealList; value: cfloat) {.importcpp: "Append",
     header: "TDataStd_RealList.hxx".}
 proc setID*(this: var TDataStdRealList; theGuid: StandardGUID) {.importcpp: "SetID",
     header: "TDataStd_RealList.hxx".}
 proc setID*(this: var TDataStdRealList) {.importcpp: "SetID",
                                       header: "TDataStd_RealList.hxx".}
-proc insertBefore*(this: var TDataStdRealList; value: float; beforeValue: float): bool {.
+proc insertBefore*(this: var TDataStdRealList; value: cfloat; beforeValue: cfloat): bool {.
     importcpp: "InsertBefore", header: "TDataStd_RealList.hxx".}
-proc insertBeforeByIndex*(this: var TDataStdRealList; index: int; beforeValue: float): bool {.
+proc insertBeforeByIndex*(this: var TDataStdRealList; index: cint; beforeValue: cfloat): bool {.
     importcpp: "InsertBeforeByIndex", header: "TDataStd_RealList.hxx".}
-proc insertAfter*(this: var TDataStdRealList; value: float; afterValue: float): bool {.
+proc insertAfter*(this: var TDataStdRealList; value: cfloat; afterValue: cfloat): bool {.
     importcpp: "InsertAfter", header: "TDataStd_RealList.hxx".}
-proc insertAfterByIndex*(this: var TDataStdRealList; index: int; afterValue: float): bool {.
+proc insertAfterByIndex*(this: var TDataStdRealList; index: cint; afterValue: cfloat): bool {.
     importcpp: "InsertAfterByIndex", header: "TDataStd_RealList.hxx".}
-proc remove*(this: var TDataStdRealList; value: float): bool {.importcpp: "Remove",
+proc remove*(this: var TDataStdRealList; value: cfloat): bool {.importcpp: "Remove",
     header: "TDataStd_RealList.hxx".}
-proc removeByIndex*(this: var TDataStdRealList; index: int): bool {.
+proc removeByIndex*(this: var TDataStdRealList; index: cint): bool {.
     importcpp: "RemoveByIndex", header: "TDataStd_RealList.hxx".}
 proc clear*(this: var TDataStdRealList) {.importcpp: "Clear",
                                       header: "TDataStd_RealList.hxx".}
-proc first*(this: TDataStdRealList): float {.noSideEffect, importcpp: "First",
+proc first*(this: TDataStdRealList): cfloat {.noSideEffect, importcpp: "First",
     header: "TDataStd_RealList.hxx".}
-proc last*(this: TDataStdRealList): float {.noSideEffect, importcpp: "Last",
-                                        header: "TDataStd_RealList.hxx".}
+proc last*(this: TDataStdRealList): cfloat {.noSideEffect, importcpp: "Last",
+    header: "TDataStd_RealList.hxx".}
 proc list*(this: TDataStdRealList): TColStdListOfReal {.noSideEffect,
     importcpp: "List", header: "TDataStd_RealList.hxx".}
 proc id*(this: TDataStdRealList): StandardGUID {.noSideEffect, importcpp: "ID",
@@ -98,8 +98,8 @@ proc paste*(this: TDataStdRealList; into: Handle[TDF_Attribute];
 proc dump*(this: TDataStdRealList; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_RealList.hxx".}
 proc dumpJson*(this: TDataStdRealList; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_RealList.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_RealList.hxx".}
 type
   TDataStdRealListbaseType* = TDF_Attribute
 
@@ -110,3 +110,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_RealList.hxx".}
 proc dynamicType*(this: TDataStdRealList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_RealList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

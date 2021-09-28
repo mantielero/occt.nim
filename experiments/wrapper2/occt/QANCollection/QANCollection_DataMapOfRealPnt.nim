@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  QANCollectionDataMapOfRealPnt* = NCollectionDataMap[float, Pnt,
+  QANCollectionDataMapOfRealPnt* = NCollectionDataMap[cfloat, Pnt,
       TColStdMapRealHasher]
-  QANCollectionDataMapIteratorOfDataMapOfRealPnt* = Iterator[float, Pnt,
+  QANCollectionDataMapIteratorOfDataMapOfRealPnt* = Iterator[cfloat, Pnt,
       TColStdMapRealHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

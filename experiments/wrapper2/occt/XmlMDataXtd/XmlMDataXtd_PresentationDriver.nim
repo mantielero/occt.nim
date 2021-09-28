@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataXtd_PresentationDriver"
 discard "forward decl of XmlMDataXtd_PresentationDriver"
 type
-  HandleXmlMDataXtdPresentationDriver* = Handle[XmlMDataXtdPresentationDriver]
+  HandleC1C1* = Handle[XmlMDataXtdPresentationDriver]
 
 ## ! Attribute Driver.
 
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataXtdPresentationDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataXtd_PresentationDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

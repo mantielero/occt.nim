@@ -73,31 +73,44 @@ discard "forward decl of GeomFill_GuideTrihedronPlan"
 discard "forward decl of GeomFill_Sweep"
 discard "forward decl of GeomFill_SectionPlacement"
 type
-  GeomFill* {.importcpp: "GeomFill", header: "GeomFill.hxx", bycopy.} = object ## ! Builds a ruled surface between the two curves, Curve1 and Curve2.
+  GeomFill* {.importcpp: "GeomFill", header: "GeomFill.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomFill; theSize: csize_t): pointer {.
+    importcpp: "GeomFill::operator new", header: "GeomFill.hxx".}
+proc `delete`*(this: var GeomFill; theAddress: pointer) {.
+    importcpp: "GeomFill::operator delete", header: "GeomFill.hxx".}
+proc `new[]`*(this: var GeomFill; theSize: csize_t): pointer {.
+    importcpp: "GeomFill::operator new[]", header: "GeomFill.hxx".}
+proc `delete[]`*(this: var GeomFill; theAddress: pointer) {.
+    importcpp: "GeomFill::operator delete[]", header: "GeomFill.hxx".}
+proc `new`*(this: var GeomFill; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill::operator new", header: "GeomFill.hxx".}
+proc `delete`*(this: var GeomFill; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill::operator delete", header: "GeomFill.hxx".}
 proc surface*(curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]): Handle[
     GeomSurface] {.importcpp: "GeomFill::Surface(@)", header: "GeomFill.hxx".}
 proc getCircle*(tConv: ConvertParameterisationType; ns1: Vec; ns2: Vec; nplan: Vec;
-               pt1: Pnt; pt2: Pnt; rayon: float; center: Pnt;
+               pt1: Pnt; pt2: Pnt; rayon: StandardReal; center: Pnt;
                poles: var TColgpArray1OfPnt; weigths: var TColStdArray1OfReal) {.
     importcpp: "GeomFill::GetCircle(@)", header: "GeomFill.hxx".}
 proc getCircle*(tConv: ConvertParameterisationType; ns1: Vec; ns2: Vec; dn1w: Vec;
                dn2w: Vec; nplan: Vec; dnplan: Vec; pts1: Pnt; pts2: Pnt; tang1: Vec;
-               tang2: Vec; rayon: float; dRayon: float; center: Pnt; dCenter: Vec;
-               poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
-               weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
+               tang2: Vec; rayon: StandardReal; dRayon: StandardReal; center: Pnt;
+               dCenter: Vec; poles: var TColgpArray1OfPnt;
+               dPoles: var TColgpArray1OfVec; weigths: var TColStdArray1OfReal;
+               dWeigths: var TColStdArray1OfReal): StandardBoolean {.
     importcpp: "GeomFill::GetCircle(@)", header: "GeomFill.hxx".}
 proc getCircle*(tConv: ConvertParameterisationType; ns1: Vec; ns2: Vec; dn1w: Vec;
                dn2w: Vec; d2n1w: Vec; d2n2w: Vec; nplan: Vec; dnplan: Vec; d2nplan: Vec;
                pts1: Pnt; pts2: Pnt; tang1: Vec; tang2: Vec; dtang1: Vec; dtang2: Vec;
-               rayon: float; dRayon: float; d2Rayon: float; center: Pnt; dCenter: Vec;
-               d2Center: Vec; poles: var TColgpArray1OfPnt;
+               rayon: StandardReal; dRayon: StandardReal; d2Rayon: StandardReal;
+               center: Pnt; dCenter: Vec; d2Center: Vec; poles: var TColgpArray1OfPnt;
                dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
                weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
-               d2Weigths: var TColStdArray1OfReal): bool {.
+               d2Weigths: var TColStdArray1OfReal): StandardBoolean {.
     importcpp: "GeomFill::GetCircle(@)", header: "GeomFill.hxx".}
-proc getShape*(maxAng: float; nbPoles: var int; nbKnots: var int; degree: var int;
+proc getShape*(maxAng: StandardReal; nbPoles: var int; nbKnots: var int; degree: var int;
               typeConv: var ConvertParameterisationType) {.
     importcpp: "GeomFill::GetShape(@)", header: "GeomFill.hxx".}
 proc knots*(typeConv: ConvertParameterisationType; tKnots: var TColStdArray1OfReal) {.
@@ -105,9 +118,10 @@ proc knots*(typeConv: ConvertParameterisationType; tKnots: var TColStdArray1OfRe
 proc mults*(typeConv: ConvertParameterisationType;
            tMults: var TColStdArray1OfInteger) {.importcpp: "GeomFill::Mults(@)",
     header: "GeomFill.hxx".}
-proc getMinimalWeights*(tConv: ConvertParameterisationType; angleMin: float;
-                       angleMax: float; weigths: var TColStdArray1OfReal) {.
+proc getMinimalWeights*(tConv: ConvertParameterisationType; angleMin: StandardReal;
+                       angleMax: StandardReal; weigths: var TColStdArray1OfReal) {.
     importcpp: "GeomFill::GetMinimalWeights(@)", header: "GeomFill.hxx".}
-proc getTolerance*(tConv: ConvertParameterisationType; angleMin: float;
-                  radius: float; angularTol: float; spatialTol: float): float {.
+proc getTolerance*(tConv: ConvertParameterisationType; angleMin: StandardReal;
+                  radius: StandardReal; angularTol: StandardReal;
+                  spatialTol: StandardReal): StandardReal {.
     importcpp: "GeomFill::GetTolerance(@)", header: "GeomFill.hxx".}

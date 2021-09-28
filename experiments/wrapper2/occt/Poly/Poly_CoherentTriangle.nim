@@ -27,30 +27,55 @@ type
 
 proc constructPolyCoherentTriangle*(): PolyCoherentTriangle {.constructor,
     importcpp: "Poly_CoherentTriangle(@)", header: "Poly_CoherentTriangle.hxx".}
-proc constructPolyCoherentTriangle*(iNode0: int; iNode1: int; iNode2: int): PolyCoherentTriangle {.
+proc constructPolyCoherentTriangle*(iNode0: cint; iNode1: cint; iNode2: cint): PolyCoherentTriangle {.
     constructor, importcpp: "Poly_CoherentTriangle(@)",
     header: "Poly_CoherentTriangle.hxx".}
-proc node*(this: PolyCoherentTriangle; ind: int): int {.noSideEffect,
+proc node*(this: PolyCoherentTriangle; ind: cint): cint {.noSideEffect,
     importcpp: "Node", header: "Poly_CoherentTriangle.hxx".}
 proc isEmpty*(this: PolyCoherentTriangle): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "Poly_CoherentTriangle.hxx".}
-proc setConnection*(this: var PolyCoherentTriangle; iConn: int;
+proc setConnection*(this: var PolyCoherentTriangle; iConn: cint;
                    theTr: var PolyCoherentTriangle): bool {.
     importcpp: "SetConnection", header: "Poly_CoherentTriangle.hxx".}
 proc setConnection*(this: var PolyCoherentTriangle; theTri: var PolyCoherentTriangle): bool {.
     importcpp: "SetConnection", header: "Poly_CoherentTriangle.hxx".}
-proc removeConnection*(this: var PolyCoherentTriangle; iConn: int) {.
+proc removeConnection*(this: var PolyCoherentTriangle; iConn: cint) {.
     importcpp: "RemoveConnection", header: "Poly_CoherentTriangle.hxx".}
 proc removeConnection*(this: var PolyCoherentTriangle;
                       theTri: var PolyCoherentTriangle): bool {.
     importcpp: "RemoveConnection", header: "Poly_CoherentTriangle.hxx".}
-proc nConnections*(this: PolyCoherentTriangle): int {.noSideEffect,
+proc nConnections*(this: PolyCoherentTriangle): cint {.noSideEffect,
     importcpp: "NConnections", header: "Poly_CoherentTriangle.hxx".}
-proc getConnectedNode*(this: PolyCoherentTriangle; iConn: int): int {.noSideEffect,
+proc getConnectedNode*(this: PolyCoherentTriangle; iConn: cint): cint {.noSideEffect,
     importcpp: "GetConnectedNode", header: "Poly_CoherentTriangle.hxx".}
-proc getConnectedTri*(this: PolyCoherentTriangle; iConn: int): ptr PolyCoherentTriangle {.
+proc getConnectedTri*(this: PolyCoherentTriangle; iConn: cint): ptr PolyCoherentTriangle {.
     noSideEffect, importcpp: "GetConnectedTri", header: "Poly_CoherentTriangle.hxx".}
-proc getLink*(this: PolyCoherentTriangle; iLink: int): ptr PolyCoherentLink {.
+proc getLink*(this: PolyCoherentTriangle; iLink: cint): ptr PolyCoherentLink {.
     noSideEffect, importcpp: "GetLink", header: "Poly_CoherentTriangle.hxx".}
-proc findConnection*(this: PolyCoherentTriangle; a2: PolyCoherentTriangle): int {.
+proc findConnection*(this: PolyCoherentTriangle; a2: PolyCoherentTriangle): cint {.
     noSideEffect, importcpp: "FindConnection", header: "Poly_CoherentTriangle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

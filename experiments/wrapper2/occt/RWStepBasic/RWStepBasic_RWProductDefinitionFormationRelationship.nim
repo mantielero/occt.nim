@@ -32,7 +32,7 @@ proc constructRWStepBasicRWProductDefinitionFormationRelationship*(): RWStepBasi
     importcpp: "RWStepBasic_RWProductDefinitionFormationRelationship(@)",
     header: "RWStepBasic_RWProductDefinitionFormationRelationship.hxx".}
 proc readStep*(this: RWStepBasicRWProductDefinitionFormationRelationship;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicProductDefinitionFormationRelationship]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -46,3 +46,28 @@ proc share*(this: RWStepBasicRWProductDefinitionFormationRelationship;
            ent: Handle[StepBasicProductDefinitionFormationRelationship];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWProductDefinitionFormationRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

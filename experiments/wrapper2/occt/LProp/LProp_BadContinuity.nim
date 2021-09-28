@@ -17,13 +17,54 @@
 ## !!!Ignored construct:  # _LProp_BadContinuity_HeaderFile [NewLine] # _LProp_BadContinuity_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class LProp_BadContinuity ;
 ## Error: expected ';'!!!
 
-discard "forward decl of LProp_BadContinuity"
-type
-  HandleLPropBadContinuityLPropBadContinuity* = Handle[LPropBadContinuity]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( LProp_BadContinuity , Standard_Failure ) # ! defined No_Exception && ! defined No_LProp_BadContinuity [NewLine] # LProp_BadContinuity_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw LProp_BadContinuity ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_LProp_BadContinuity [NewLine] # if ( CONDITION ) throw LProp_BadContinuity ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # LProp_BadContinuity_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( LProp_BadContinuity , Standard_Failure ) #  _LProp_BadContinuity_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( LProp_BadContinuity , Standard_Failure ) #  _LProp_BadContinuity_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

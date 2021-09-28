@@ -20,7 +20,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_Ellipsoid"
 discard "forward decl of IGESSolid_Ellipsoid"
 type
-  HandleIGESSolidEllipsoid* = Handle[IGESSolidEllipsoid]
+  HandleC1C1* = Handle[IGESSolidEllipsoid]
 
 ## ! defines Ellipsoid, Type <168> Form Number <0>
 ## ! in package IGESSolid
@@ -41,11 +41,11 @@ proc init*(this: var IGESSolidEllipsoid; aSize: Xyz; aCenter: Xyz; anXAxis: Xyz;
           anZAxis: Xyz) {.importcpp: "Init", header: "IGESSolid_Ellipsoid.hxx".}
 proc size*(this: IGESSolidEllipsoid): Xyz {.noSideEffect, importcpp: "Size",
                                         header: "IGESSolid_Ellipsoid.hxx".}
-proc xLength*(this: IGESSolidEllipsoid): float {.noSideEffect, importcpp: "XLength",
+proc xLength*(this: IGESSolidEllipsoid): cfloat {.noSideEffect, importcpp: "XLength",
     header: "IGESSolid_Ellipsoid.hxx".}
-proc yLength*(this: IGESSolidEllipsoid): float {.noSideEffect, importcpp: "YLength",
+proc yLength*(this: IGESSolidEllipsoid): cfloat {.noSideEffect, importcpp: "YLength",
     header: "IGESSolid_Ellipsoid.hxx".}
-proc zLength*(this: IGESSolidEllipsoid): float {.noSideEffect, importcpp: "ZLength",
+proc zLength*(this: IGESSolidEllipsoid): cfloat {.noSideEffect, importcpp: "ZLength",
     header: "IGESSolid_Ellipsoid.hxx".}
 proc center*(this: IGESSolidEllipsoid): Pnt {.noSideEffect, importcpp: "Center",
     header: "IGESSolid_Ellipsoid.hxx".}
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_Ellipsoid.hxx".}
 proc dynamicType*(this: IGESSolidEllipsoid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Ellipsoid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

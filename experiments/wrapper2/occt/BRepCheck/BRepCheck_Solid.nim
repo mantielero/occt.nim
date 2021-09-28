@@ -17,7 +17,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Solid"
 discard "forward decl of BRepCheck_Solid"
 type
-  HandleBRepCheckSolid* = Handle[BRepCheckSolid]
+  HandleC1C1* = Handle[BRepCheckSolid]
 
 ## ! The class is to check a solid.
 
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Solid.hxx".}
 proc dynamicType*(this: BRepCheckSolid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Solid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

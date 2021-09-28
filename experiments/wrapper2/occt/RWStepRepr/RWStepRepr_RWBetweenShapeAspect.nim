@@ -27,7 +27,7 @@ proc constructRWStepReprRWBetweenShapeAspect*(): RWStepReprRWBetweenShapeAspect 
     constructor, importcpp: "RWStepRepr_RWBetweenShapeAspect(@)",
     header: "RWStepRepr_RWBetweenShapeAspect.hxx".}
 proc readStep*(this: RWStepReprRWBetweenShapeAspect;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprBetweenShapeAspect]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWBetweenShapeAspect.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepReprRWBetweenShapeAspect;
            ent: Handle[StepReprBetweenShapeAspect];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWBetweenShapeAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

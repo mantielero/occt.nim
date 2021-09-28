@@ -38,7 +38,7 @@ proc skipWire*(this: var HLRBRepFaceIterator) {.importcpp: "SkipWire",
     header: "HLRBRep_FaceIterator.hxx".}
 proc wire*(this: HLRBRepFaceIterator): Handle[HLRAlgoEdgesBlock] {.noSideEffect,
     importcpp: "Wire", header: "HLRBRep_FaceIterator.hxx".}
-proc edge*(this: HLRBRepFaceIterator): int {.noSideEffect, importcpp: "Edge",
+proc edge*(this: HLRBRepFaceIterator): cint {.noSideEffect, importcpp: "Edge",
     header: "HLRBRep_FaceIterator.hxx".}
 proc orientation*(this: HLRBRepFaceIterator): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "HLRBRep_FaceIterator.hxx".}
@@ -50,3 +50,28 @@ proc double*(this: HLRBRepFaceIterator): bool {.noSideEffect, importcpp: "Double
     header: "HLRBRep_FaceIterator.hxx".}
 proc isoLine*(this: HLRBRepFaceIterator): bool {.noSideEffect, importcpp: "IsoLine",
     header: "HLRBRep_FaceIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

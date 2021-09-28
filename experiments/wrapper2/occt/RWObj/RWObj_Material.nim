@@ -29,3 +29,28 @@ type
 
 proc constructRWObjMaterial*(): RWObjMaterial {.constructor,
     importcpp: "RWObj_Material(@)", header: "RWObj_Material.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,3 +23,28 @@ type
 proc checkTopoDSShape*(sh: TopoDS_Shape): TopoDSToStepFacetedError {.
     importcpp: "TopoDSToStep_FacetedTool::CheckTopoDSShape(@)",
     header: "TopoDSToStep_FacetedTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

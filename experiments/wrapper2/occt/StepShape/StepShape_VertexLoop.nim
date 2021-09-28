@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_VertexLoop"
 discard "forward decl of StepShape_VertexLoop"
 type
-  HandleStepShapeVertexLoop* = Handle[StepShapeVertexLoop]
+  HandleC1C1* = Handle[StepShapeVertexLoop]
   StepShapeVertexLoop* {.importcpp: "StepShape_VertexLoop",
                         header: "StepShape_VertexLoop.hxx", bycopy.} = object of StepShapeLoop ##
                                                                                         ## !
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_VertexLoop.hxx".}
 proc dynamicType*(this: StepShapeVertexLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_VertexLoop.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

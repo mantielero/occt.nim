@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataXtd_PositionDriver"
 discard "forward decl of XmlMDataXtd_PositionDriver"
 type
-  HandleXmlMDataXtdPositionDriver* = Handle[XmlMDataXtdPositionDriver]
+  HandleC1C1* = Handle[XmlMDataXtdPositionDriver]
 
 ## ! Attribute Driver.
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataXtdPositionDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataXtd_PositionDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

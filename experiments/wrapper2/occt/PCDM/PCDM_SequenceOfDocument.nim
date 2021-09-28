@@ -17,3 +17,28 @@
 type
   PCDM_SequenceOfDocument* = NCollectionSequence[Handle[PCDM_Document]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

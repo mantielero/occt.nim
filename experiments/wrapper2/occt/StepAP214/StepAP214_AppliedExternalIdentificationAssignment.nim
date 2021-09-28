@@ -19,8 +19,7 @@ discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of StepAP214_AppliedExternalIdentificationAssignment"
 discard "forward decl of StepAP214_AppliedExternalIdentificationAssignment"
 type
-  HandleStepAP214AppliedExternalIdentificationAssignment* = Handle[
-      StepAP214AppliedExternalIdentificationAssignment]
+  HandleC1C1* = Handle[StepAP214AppliedExternalIdentificationAssignment]
 
 ## ! Representation of STEP entity AppliedExternalIdentificationAssignment
 
@@ -60,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AppliedE
     header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}
 proc dynamicType*(this: StepAP214AppliedExternalIdentificationAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AppliedExternalIdentificationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

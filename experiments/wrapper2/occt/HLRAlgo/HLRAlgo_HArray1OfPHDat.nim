@@ -14,32 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HLRAlgoHArray1OfPHDat* {.importcpp: "HLRAlgo_HArray1OfPHDat",
-                          header: "HLRAlgo_HArray1OfPHDat.hxx", bycopy.} = object of HLRAlgoArray1OfPHDat
+## !!!Ignored construct:  # HLRAlgo_HArray1OfPHDat_HeaderFile [NewLine] # HLRAlgo_HArray1OfPHDat_HeaderFile [NewLine] # < HLRAlgo_PolyHidingData . hxx > [NewLine] # < HLRAlgo_Array1OfPHDat . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( HLRAlgo_HArray1OfPHDat , HLRAlgo_Array1OfPHDat ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructHLRAlgoHArray1OfPHDat*(theLower: int; theUpper: int): HLRAlgoHArray1OfPHDat {.
-    constructor, importcpp: "HLRAlgo_HArray1OfPHDat(@)",
-    header: "HLRAlgo_HArray1OfPHDat.hxx".}
-proc constructHLRAlgoHArray1OfPHDat*(theLower: int; theUpper: int;
-                                    theValue: ValueType): HLRAlgoHArray1OfPHDat {.
-    constructor, importcpp: "HLRAlgo_HArray1OfPHDat(@)",
-    header: "HLRAlgo_HArray1OfPHDat.hxx".}
-proc constructHLRAlgoHArray1OfPHDat*(theOther: HLRAlgoArray1OfPHDat): HLRAlgoHArray1OfPHDat {.
-    constructor, importcpp: "HLRAlgo_HArray1OfPHDat(@)",
-    header: "HLRAlgo_HArray1OfPHDat.hxx".}
-proc array1*(this: HLRAlgoHArray1OfPHDat): HLRAlgoArray1OfPHDat {.noSideEffect,
-    importcpp: "Array1", header: "HLRAlgo_HArray1OfPHDat.hxx".}
-proc changeArray1*(this: var HLRAlgoHArray1OfPHDat): var HLRAlgoArray1OfPHDat {.
-    importcpp: "ChangeArray1", header: "HLRAlgo_HArray1OfPHDat.hxx".}
-type
-  HLRAlgoHArray1OfPHDatbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "HLRAlgo_HArray1OfPHDat::get_type_name(@)",
-                            header: "HLRAlgo_HArray1OfPHDat.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "HLRAlgo_HArray1OfPHDat::get_type_descriptor(@)",
-    header: "HLRAlgo_HArray1OfPHDat.hxx".}
-proc dynamicType*(this: HLRAlgoHArray1OfPHDat): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "HLRAlgo_HArray1OfPHDat.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

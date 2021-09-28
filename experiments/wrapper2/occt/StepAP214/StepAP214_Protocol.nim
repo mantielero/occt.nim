@@ -18,7 +18,7 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of StepAP214_Protocol"
 discard "forward decl of StepAP214_Protocol"
 type
-  HandleStepAP214Protocol* = Handle[StepAP214Protocol]
+  HandleC1C1* = Handle[StepAP214Protocol]
 
 ## ! Protocol for StepAP214 Entities
 ## ! It requires StepAP214 as a Resource
@@ -30,13 +30,13 @@ type
 
 proc constructStepAP214Protocol*(): StepAP214Protocol {.constructor,
     importcpp: "StepAP214_Protocol(@)", header: "StepAP214_Protocol.hxx".}
-proc typeNumber*(this: StepAP214Protocol; atype: Handle[StandardType]): int {.
+proc typeNumber*(this: StepAP214Protocol; atype: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "TypeNumber", header: "StepAP214_Protocol.hxx".}
 proc schemaName*(this: StepAP214Protocol): StandardCString {.noSideEffect,
     importcpp: "SchemaName", header: "StepAP214_Protocol.hxx".}
-proc nbResources*(this: StepAP214Protocol): int {.noSideEffect,
+proc nbResources*(this: StepAP214Protocol): cint {.noSideEffect,
     importcpp: "NbResources", header: "StepAP214_Protocol.hxx".}
-proc resource*(this: StepAP214Protocol; num: int): Handle[InterfaceProtocol] {.
+proc resource*(this: StepAP214Protocol; num: cint): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Resource", header: "StepAP214_Protocol.hxx".}
 type
   StepAP214ProtocolbaseType* = StepDataProtocol
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepAP214_Protocol.hxx".}
 proc dynamicType*(this: StepAP214Protocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP214_Protocol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

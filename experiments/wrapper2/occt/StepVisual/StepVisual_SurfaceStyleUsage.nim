@@ -18,7 +18,7 @@ discard "forward decl of StepVisual_SurfaceSideStyle"
 discard "forward decl of StepVisual_SurfaceStyleUsage"
 discard "forward decl of StepVisual_SurfaceStyleUsage"
 type
-  HandleStepVisualSurfaceStyleUsage* = Handle[StepVisualSurfaceStyleUsage]
+  HandleC1C1* = Handle[StepVisualSurfaceStyleUsage]
   StepVisualSurfaceStyleUsage* {.importcpp: "StepVisual_SurfaceStyleUsage",
                                 header: "StepVisual_SurfaceStyleUsage.hxx", bycopy.} = object of StandardTransient ##
                                                                                                             ## !
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualSurfaceStyleUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleUsage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

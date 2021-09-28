@@ -17,8 +17,7 @@
 discard "forward decl of StepRepr_ExternallyDefinedRepresentation"
 discard "forward decl of StepRepr_ExternallyDefinedRepresentation"
 type
-  HandleStepReprExternallyDefinedRepresentation* = Handle[
-      StepReprExternallyDefinedRepresentation]
+  HandleC1C1* = Handle[StepReprExternallyDefinedRepresentation]
   StepReprExternallyDefinedRepresentation* {.
       importcpp: "StepRepr_ExternallyDefinedRepresentation",
       header: "StepRepr_ExternallyDefinedRepresentation.hxx", bycopy.} = object of StepReprRepresentation
@@ -36,3 +35,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_Externall
 proc dynamicType*(this: StepReprExternallyDefinedRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_ExternallyDefinedRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

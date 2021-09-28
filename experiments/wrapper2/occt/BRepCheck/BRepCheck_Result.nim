@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Result"
 discard "forward decl of BRepCheck_Result"
 type
-  HandleBRepCheckResult* = Handle[BRepCheckResult]
+  HandleC1C1* = Handle[BRepCheckResult]
   BRepCheckResult* {.importcpp: "BRepCheck_Result", header: "BRepCheck_Result.hxx",
                     bycopy.} = object of StandardTransient
 
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Result.hxx".}
 proc dynamicType*(this: BRepCheckResult): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Result.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

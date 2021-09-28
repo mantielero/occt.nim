@@ -35,12 +35,37 @@ type
                                                                                                    ## Fix=2
 
 
-proc constructAdaptor3dInterFunc*(c: Handle[Adaptor2dHCurve2d]; fixVal: float;
-                                 fix: int): Adaptor3dInterFunc {.constructor,
+proc constructAdaptor3dInterFunc*(c: Handle[Adaptor2dHCurve2d]; fixVal: cfloat;
+                                 fix: cint): Adaptor3dInterFunc {.constructor,
     importcpp: "Adaptor3d_InterFunc(@)", header: "Adaptor3d_InterFunc.hxx".}
-proc value*(this: var Adaptor3dInterFunc; x: float; f: var float): bool {.
+proc value*(this: var Adaptor3dInterFunc; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "Adaptor3d_InterFunc.hxx".}
-proc derivative*(this: var Adaptor3dInterFunc; x: float; d: var float): bool {.
+proc derivative*(this: var Adaptor3dInterFunc; x: cfloat; d: var cfloat): bool {.
     importcpp: "Derivative", header: "Adaptor3d_InterFunc.hxx".}
-proc values*(this: var Adaptor3dInterFunc; x: float; f: var float; d: var float): bool {.
+proc values*(this: var Adaptor3dInterFunc; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     importcpp: "Values", header: "Adaptor3d_InterFunc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

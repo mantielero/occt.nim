@@ -23,6 +23,24 @@ type
                          header: "GeomToIGES_GeomPoint.hxx", bycopy.} = object of GeomToIGES_GeomEntity
 
 
+proc `new`*(this: var GeomToIGES_GeomPoint; theSize: csize_t): pointer {.
+    importcpp: "GeomToIGES_GeomPoint::operator new",
+    header: "GeomToIGES_GeomPoint.hxx".}
+proc `delete`*(this: var GeomToIGES_GeomPoint; theAddress: pointer) {.
+    importcpp: "GeomToIGES_GeomPoint::operator delete",
+    header: "GeomToIGES_GeomPoint.hxx".}
+proc `new[]`*(this: var GeomToIGES_GeomPoint; theSize: csize_t): pointer {.
+    importcpp: "GeomToIGES_GeomPoint::operator new[]",
+    header: "GeomToIGES_GeomPoint.hxx".}
+proc `delete[]`*(this: var GeomToIGES_GeomPoint; theAddress: pointer) {.
+    importcpp: "GeomToIGES_GeomPoint::operator delete[]",
+    header: "GeomToIGES_GeomPoint.hxx".}
+proc `new`*(this: var GeomToIGES_GeomPoint; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToIGES_GeomPoint::operator new",
+    header: "GeomToIGES_GeomPoint.hxx".}
+proc `delete`*(this: var GeomToIGES_GeomPoint; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToIGES_GeomPoint::operator delete",
+    header: "GeomToIGES_GeomPoint.hxx".}
 proc constructGeomToIGES_GeomPoint*(): GeomToIGES_GeomPoint {.constructor,
     importcpp: "GeomToIGES_GeomPoint(@)", header: "GeomToIGES_GeomPoint.hxx".}
 proc constructGeomToIGES_GeomPoint*(ge: GeomToIGES_GeomEntity): GeomToIGES_GeomPoint {.

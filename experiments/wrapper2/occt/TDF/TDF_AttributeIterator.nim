@@ -72,3 +72,28 @@ proc more*(this: TDF_AttributeIterator): bool {.noSideEffect, importcpp: "More",
     header: "TDF_AttributeIterator.hxx".}
 proc value*(this: TDF_AttributeIterator): Handle[TDF_Attribute] {.noSideEffect,
     importcpp: "Value", header: "TDF_AttributeIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,7 @@
 discard "forward decl of Draw_Printer"
 discard "forward decl of Draw_Printer"
 type
-  HandleDrawPrinter* = Handle[DrawPrinter]
+  HandleC1C1* = Handle[DrawPrinter]
 
 ## ! Implementation of Printer class with output
 ## ! (Message_Messenge) directed to Draw_Interpretor
@@ -52,3 +52,28 @@ proc dynamicType*(this: DrawPrinter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Printer.hxx".}
 proc constructDrawPrinter*(theTcl: var DrawInterpretor): DrawPrinter {.constructor,
     importcpp: "Draw_Printer(@)", header: "Draw_Printer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

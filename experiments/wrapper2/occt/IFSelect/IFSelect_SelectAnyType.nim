@@ -19,7 +19,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SelectAnyType"
 discard "forward decl of IFSelect_SelectAnyType"
 type
-  HandleIFSelectSelectAnyType* = Handle[IFSelectSelectAnyType]
+  HandleC1C1* = Handle[IFSelectSelectAnyType]
 
 ## ! A SelectAnyType sorts the Entities of which the Type is Kind
 ## ! of a given Type : this Type for Match is specific of each
@@ -43,7 +43,7 @@ type
 
 proc typeForMatch*(this: IFSelectSelectAnyType): Handle[StandardType] {.
     noSideEffect, importcpp: "TypeForMatch", header: "IFSelect_SelectAnyType.hxx".}
-proc sort*(this: IFSelectSelectAnyType; rank: int; ent: Handle[StandardTransient];
+proc sort*(this: IFSelectSelectAnyType; rank: cint; ent: Handle[StandardTransient];
           model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
     importcpp: "Sort", header: "IFSelect_SelectAnyType.hxx".}
 type
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectAnyType.hxx".}
 proc dynamicType*(this: IFSelectSelectAnyType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectAnyType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

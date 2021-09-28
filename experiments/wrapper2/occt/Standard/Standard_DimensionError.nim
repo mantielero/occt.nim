@@ -14,17 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_DimensionError_HeaderFile [NewLine] # _Standard_DimensionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_DimensionError ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_DimensionError"
 type
-  HandleStandardDimensionErrorStandardDimensionError* = Handle[
-      StandardDimensionError]
+  StandardDimensionError* {.importcpp: "Standard_DimensionError",
+                           header: "Standard_DimensionError.hxx", bycopy.} = object of StandardDomainError
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_DimensionError [NewLine] # if ( CONDITION ) throw Standard_DimensionError ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+  HandleStandardDimensionError* = Handle[StandardDimensionError]
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_DimensionError , Standard_DomainError ) #  _Standard_DimensionError_HeaderFile
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardDimensionError):
+  template standardDimensionErrorRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardDimensionError*(a1: Message): Throw {.
+          importcpp: "Standard_DimensionError(@)",
+          header: "Standard_DimensionError.hxx".}
+
+else:
+  discard
+
 

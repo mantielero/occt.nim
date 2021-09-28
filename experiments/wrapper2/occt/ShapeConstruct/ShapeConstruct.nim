@@ -36,20 +36,20 @@ type
                                                                                          ## triangulation
 
 
-proc convertCurveToBSpline*(c3d: Handle[GeomCurve]; first: float; last: float;
-                           tol3d: float; continuity: GeomAbsShape; maxSegments: int;
-                           maxDegree: int): Handle[GeomBSplineCurve] {.
-    importcpp: "ShapeConstruct::ConvertCurveToBSpline(@)",
-    header: "ShapeConstruct.hxx".}
-proc convertCurveToBSpline*(c2d: Handle[Geom2dCurve]; first: float; last: float;
-                           tol2d: float; continuity: GeomAbsShape; maxSegments: int;
-                           maxDegree: int): Handle[Geom2dBSplineCurve] {.
-    importcpp: "ShapeConstruct::ConvertCurveToBSpline(@)",
-    header: "ShapeConstruct.hxx".}
-proc convertSurfaceToBSpline*(surf: Handle[GeomSurface]; uf: float; ul: float;
-                             vf: float; vl: float; tol3d: float;
-                             continuity: GeomAbsShape; maxSegments: int;
-                             maxDegree: int): Handle[GeomBSplineSurface] {.
+proc convertCurveToBSpline*(c3d: Handle[GeomCurve]; first: cfloat; last: cfloat;
+                           tol3d: cfloat; continuity: GeomAbsShape;
+                           maxSegments: cint; maxDegree: cint): Handle[
+    GeomBSplineCurve] {.importcpp: "ShapeConstruct::ConvertCurveToBSpline(@)",
+                       header: "ShapeConstruct.hxx".}
+proc convertCurveToBSpline*(c2d: Handle[Geom2dCurve]; first: cfloat; last: cfloat;
+                           tol2d: cfloat; continuity: GeomAbsShape;
+                           maxSegments: cint; maxDegree: cint): Handle[
+    Geom2dBSplineCurve] {.importcpp: "ShapeConstruct::ConvertCurveToBSpline(@)",
+                         header: "ShapeConstruct.hxx".}
+proc convertSurfaceToBSpline*(surf: Handle[GeomSurface]; uf: cfloat; ul: cfloat;
+                             vf: cfloat; vl: cfloat; tol3d: cfloat;
+                             continuity: GeomAbsShape; maxSegments: cint;
+                             maxDegree: cint): Handle[GeomBSplineSurface] {.
     importcpp: "ShapeConstruct::ConvertSurfaceToBSpline(@)",
     header: "ShapeConstruct.hxx".}
 proc joinPCurves*(theEdges: Handle[TopToolsHSequenceOfShape]; theFace: TopoDS_Face;
@@ -57,12 +57,38 @@ proc joinPCurves*(theEdges: Handle[TopToolsHSequenceOfShape]; theFace: TopoDS_Fa
     importcpp: "ShapeConstruct::JoinPCurves(@)", header: "ShapeConstruct.hxx".}
 proc joinCurves*(c3d1: Handle[GeomCurve]; ac3d2: Handle[GeomCurve];
                 orient1: TopAbsOrientation; orient2: TopAbsOrientation;
-                first1: var float; last1: var float; first2: var float; last2: var float;
-                c3dOut: var Handle[GeomCurve]; isRev1: var bool; isRev2: var bool): bool {.
-    importcpp: "ShapeConstruct::JoinCurves(@)", header: "ShapeConstruct.hxx".}
+                first1: var cfloat; last1: var cfloat; first2: var cfloat;
+                last2: var cfloat; c3dOut: var Handle[GeomCurve]; isRev1: var bool;
+                isRev2: var bool): bool {.importcpp: "ShapeConstruct::JoinCurves(@)",
+                                      header: "ShapeConstruct.hxx".}
 proc joinCurves*(c2d1: Handle[Geom2dCurve]; ac2d2: Handle[Geom2dCurve];
                 orient1: TopAbsOrientation; orient2: TopAbsOrientation;
-                first1: var float; last1: var float; first2: var float; last2: var float;
-                c2dOut: var Handle[Geom2dCurve]; isRev1: var bool; isRev2: var bool;
-                isError: bool = false): bool {.
+                first1: var cfloat; last1: var cfloat; first2: var cfloat;
+                last2: var cfloat; c2dOut: var Handle[Geom2dCurve]; isRev1: var bool;
+                isRev2: var bool; isError: bool = false): bool {.
     importcpp: "ShapeConstruct::JoinCurves(@)", header: "ShapeConstruct.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

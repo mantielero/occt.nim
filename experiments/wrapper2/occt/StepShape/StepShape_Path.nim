@@ -19,7 +19,7 @@ discard "forward decl of StepShape_OrientedEdge"
 discard "forward decl of StepShape_Path"
 discard "forward decl of StepShape_Path"
 type
-  HandleStepShapePath* = Handle[StepShapePath]
+  HandleC1C1* = Handle[StepShapePath]
   StepShapePath* {.importcpp: "StepShape_Path", header: "StepShape_Path.hxx", bycopy.} = object of StepShapeTopologicalRepresentationItem ##
                                                                                                                                 ## !
                                                                                                                                 ## Returns
@@ -37,9 +37,9 @@ proc setEdgeList*(this: var StepShapePath;
     importcpp: "SetEdgeList", header: "StepShape_Path.hxx".}
 proc edgeList*(this: StepShapePath): Handle[StepShapeHArray1OfOrientedEdge] {.
     noSideEffect, importcpp: "EdgeList", header: "StepShape_Path.hxx".}
-proc edgeListValue*(this: StepShapePath; num: int): Handle[StepShapeOrientedEdge] {.
+proc edgeListValue*(this: StepShapePath; num: cint): Handle[StepShapeOrientedEdge] {.
     noSideEffect, importcpp: "EdgeListValue", header: "StepShape_Path.hxx".}
-proc nbEdgeList*(this: StepShapePath): int {.noSideEffect, importcpp: "NbEdgeList",
+proc nbEdgeList*(this: StepShapePath): cint {.noSideEffect, importcpp: "NbEdgeList",
     header: "StepShape_Path.hxx".}
 type
   StepShapePathbaseType* = StepShapeTopologicalRepresentationItem
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Path.hxx".}
 proc dynamicType*(this: StepShapePath): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Path.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

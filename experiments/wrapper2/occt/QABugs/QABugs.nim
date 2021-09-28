@@ -61,3 +61,28 @@ proc commands20*(di: var DrawInterpretor) {.importcpp: "QABugs::Commands_20(@)",
                                         header: "QABugs.hxx".}
 proc commandsBVH*(di: var DrawInterpretor) {.importcpp: "QABugs::Commands_BVH(@)",
     header: "QABugs.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

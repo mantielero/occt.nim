@@ -21,7 +21,7 @@ discard "forward decl of PrsMgr_PresentationManager"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of StdSelect_BRepOwner"
 type
-  HandleStdSelectBRepOwner* = Handle[StdSelectBRepOwner]
+  HandleC1C1* = Handle[StdSelectBRepOwner]
 
 ## ! Defines Specific Owners for Sensitive Primitives
 ## ! (Sensitive Segments,Circles...).
@@ -57,15 +57,17 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StdSelect_BRepOwner.hxx".}
 proc dynamicType*(this: StdSelectBRepOwner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StdSelect_BRepOwner.hxx".}
-proc constructStdSelectBRepOwner*(aPriority: int): StdSelectBRepOwner {.constructor,
-    importcpp: "StdSelect_BRepOwner(@)", header: "StdSelect_BRepOwner.hxx".}
-proc constructStdSelectBRepOwner*(aShape: TopoDS_Shape; aPriority: int = 0;
+proc constructStdSelectBRepOwner*(aPriority: cint): StdSelectBRepOwner {.
+    constructor, importcpp: "StdSelect_BRepOwner(@)",
+    header: "StdSelect_BRepOwner.hxx".}
+proc constructStdSelectBRepOwner*(aShape: TopoDS_Shape; aPriority: cint = 0;
                                  comesFromDecomposition: bool = false): StdSelectBRepOwner {.
     constructor, importcpp: "StdSelect_BRepOwner(@)",
     header: "StdSelect_BRepOwner.hxx".}
 proc constructStdSelectBRepOwner*(aShape: TopoDS_Shape;
                                  theOrigin: Handle[SelectMgrSelectableObject];
-                                 aPriority: int = 0; fromDecomposition: bool = false): StdSelectBRepOwner {.
+                                 aPriority: cint = 0;
+                                 fromDecomposition: bool = false): StdSelectBRepOwner {.
     constructor, importcpp: "StdSelect_BRepOwner(@)",
     header: "StdSelect_BRepOwner.hxx".}
 proc hasShape*(this: StdSelectBRepOwner): bool {.noSideEffect, importcpp: "HasShape",
@@ -74,31 +76,56 @@ proc shape*(this: StdSelectBRepOwner): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "StdSelect_BRepOwner.hxx".}
 proc hasHilightMode*(this: StdSelectBRepOwner): bool {.noSideEffect,
     importcpp: "HasHilightMode", header: "StdSelect_BRepOwner.hxx".}
-proc setHilightMode*(this: var StdSelectBRepOwner; theMode: int) {.
+proc setHilightMode*(this: var StdSelectBRepOwner; theMode: cint) {.
     importcpp: "SetHilightMode", header: "StdSelect_BRepOwner.hxx".}
 proc resetHilightMode*(this: var StdSelectBRepOwner) {.
     importcpp: "ResetHilightMode", header: "StdSelect_BRepOwner.hxx".}
-proc hilightMode*(this: StdSelectBRepOwner): int {.noSideEffect,
+proc hilightMode*(this: StdSelectBRepOwner): cint {.noSideEffect,
     importcpp: "HilightMode", header: "StdSelect_BRepOwner.hxx".}
 proc isHilighted*(this: StdSelectBRepOwner; aPM: Handle[PrsMgrPresentationManager];
-                 aMode: int = 0): bool {.noSideEffect, importcpp: "IsHilighted",
-                                    header: "StdSelect_BRepOwner.hxx".}
+                 aMode: cint = 0): bool {.noSideEffect, importcpp: "IsHilighted",
+                                     header: "StdSelect_BRepOwner.hxx".}
 proc hilightWithColor*(this: var StdSelectBRepOwner;
                       thePM: Handle[PrsMgrPresentationManager3d];
-                      theStyle: Handle[Prs3dDrawer]; theMode: int = 0) {.
+                      theStyle: Handle[Prs3dDrawer]; theMode: cint = 0) {.
     importcpp: "HilightWithColor", header: "StdSelect_BRepOwner.hxx".}
 proc unhilight*(this: var StdSelectBRepOwner;
-               aPM: Handle[PrsMgrPresentationManager]; aMode: int = 0) {.
+               aPM: Handle[PrsMgrPresentationManager]; aMode: cint = 0) {.
     importcpp: "Unhilight", header: "StdSelect_BRepOwner.hxx".}
 proc clear*(this: var StdSelectBRepOwner; aPM: Handle[PrsMgrPresentationManager];
-           aMode: int = 0) {.importcpp: "Clear", header: "StdSelect_BRepOwner.hxx".}
+           aMode: cint = 0) {.importcpp: "Clear", header: "StdSelect_BRepOwner.hxx".}
 proc setLocation*(this: var StdSelectBRepOwner; aLoc: TopLocLocation) {.
     importcpp: "SetLocation", header: "StdSelect_BRepOwner.hxx".}
 proc updateHighlightTrsf*(this: var StdSelectBRepOwner;
                          theViewer: Handle[V3dViewer];
                          theManager: Handle[PrsMgrPresentationManager3d];
-                         theDispMode: int) {.importcpp: "UpdateHighlightTrsf",
+                         theDispMode: cint) {.importcpp: "UpdateHighlightTrsf",
     header: "StdSelect_BRepOwner.hxx".}
 proc dumpJson*(this: StdSelectBRepOwner; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "StdSelect_BRepOwner.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "StdSelect_BRepOwner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepGeomRWCylindricalSurface*(): RWStepGeomRWCylindricalSurface 
     constructor, importcpp: "RWStepGeom_RWCylindricalSurface(@)",
     header: "RWStepGeom_RWCylindricalSurface.hxx".}
 proc readStep*(this: RWStepGeomRWCylindricalSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomCylindricalSurface]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWCylindricalSurface.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepGeomRWCylindricalSurface;
            ent: Handle[StepGeomCylindricalSurface];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWCylindricalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

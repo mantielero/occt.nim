@@ -43,56 +43,81 @@ type
                                    ## ! compute the curve with respect of the delta-constraints.
 
 
-proc constructFairCurveBatten*(p1: Pnt2d; p2: Pnt2d; height: float; slope: float = 0): FairCurveBatten {.
+proc constructFairCurveBatten*(p1: Pnt2d; p2: Pnt2d; height: cfloat; slope: cfloat = 0): FairCurveBatten {.
     constructor, importcpp: "FairCurve_Batten(@)", header: "FairCurve_Batten.hxx".}
 proc destroyFairCurveBatten*(this: var FairCurveBatten) {.
     importcpp: "#.~FairCurve_Batten()", header: "FairCurve_Batten.hxx".}
 proc setFreeSliding*(this: var FairCurveBatten; freeSliding: bool) {.
     importcpp: "SetFreeSliding", header: "FairCurve_Batten.hxx".}
-proc setConstraintOrder1*(this: var FairCurveBatten; constraintOrder: int) {.
+proc setConstraintOrder1*(this: var FairCurveBatten; constraintOrder: cint) {.
     importcpp: "SetConstraintOrder1", header: "FairCurve_Batten.hxx".}
-proc setConstraintOrder2*(this: var FairCurveBatten; constraintOrder: int) {.
+proc setConstraintOrder2*(this: var FairCurveBatten; constraintOrder: cint) {.
     importcpp: "SetConstraintOrder2", header: "FairCurve_Batten.hxx".}
 proc setP1*(this: var FairCurveBatten; p1: Pnt2d) {.importcpp: "SetP1",
     header: "FairCurve_Batten.hxx".}
 proc setP2*(this: var FairCurveBatten; p2: Pnt2d) {.importcpp: "SetP2",
     header: "FairCurve_Batten.hxx".}
-proc setAngle1*(this: var FairCurveBatten; angle1: float) {.importcpp: "SetAngle1",
+proc setAngle1*(this: var FairCurveBatten; angle1: cfloat) {.importcpp: "SetAngle1",
     header: "FairCurve_Batten.hxx".}
-proc setAngle2*(this: var FairCurveBatten; angle2: float) {.importcpp: "SetAngle2",
+proc setAngle2*(this: var FairCurveBatten; angle2: cfloat) {.importcpp: "SetAngle2",
     header: "FairCurve_Batten.hxx".}
-proc setHeight*(this: var FairCurveBatten; height: float) {.importcpp: "SetHeight",
+proc setHeight*(this: var FairCurveBatten; height: cfloat) {.importcpp: "SetHeight",
     header: "FairCurve_Batten.hxx".}
-proc setSlope*(this: var FairCurveBatten; slope: float) {.importcpp: "SetSlope",
+proc setSlope*(this: var FairCurveBatten; slope: cfloat) {.importcpp: "SetSlope",
     header: "FairCurve_Batten.hxx".}
-proc setSlidingFactor*(this: var FairCurveBatten; slidingFactor: float) {.
+proc setSlidingFactor*(this: var FairCurveBatten; slidingFactor: cfloat) {.
     importcpp: "SetSlidingFactor", header: "FairCurve_Batten.hxx".}
 proc compute*(this: var FairCurveBatten; code: var FairCurveAnalysisCode;
-             nbIterations: int = 50; tolerance: float = 1.0e-3): bool {.
+             nbIterations: cint = 50; tolerance: cfloat = 1.0e-3): bool {.
     importcpp: "Compute", header: "FairCurve_Batten.hxx".}
-proc slidingOfReference*(this: FairCurveBatten): float {.noSideEffect,
+proc slidingOfReference*(this: FairCurveBatten): cfloat {.noSideEffect,
     importcpp: "SlidingOfReference", header: "FairCurve_Batten.hxx".}
 proc getFreeSliding*(this: FairCurveBatten): bool {.noSideEffect,
     importcpp: "GetFreeSliding", header: "FairCurve_Batten.hxx".}
-proc getConstraintOrder1*(this: FairCurveBatten): int {.noSideEffect,
+proc getConstraintOrder1*(this: FairCurveBatten): cint {.noSideEffect,
     importcpp: "GetConstraintOrder1", header: "FairCurve_Batten.hxx".}
-proc getConstraintOrder2*(this: FairCurveBatten): int {.noSideEffect,
+proc getConstraintOrder2*(this: FairCurveBatten): cint {.noSideEffect,
     importcpp: "GetConstraintOrder2", header: "FairCurve_Batten.hxx".}
 proc getP1*(this: FairCurveBatten): Pnt2d {.noSideEffect, importcpp: "GetP1",
                                         header: "FairCurve_Batten.hxx".}
 proc getP2*(this: FairCurveBatten): Pnt2d {.noSideEffect, importcpp: "GetP2",
                                         header: "FairCurve_Batten.hxx".}
-proc getAngle1*(this: FairCurveBatten): float {.noSideEffect, importcpp: "GetAngle1",
+proc getAngle1*(this: FairCurveBatten): cfloat {.noSideEffect,
+    importcpp: "GetAngle1", header: "FairCurve_Batten.hxx".}
+proc getAngle2*(this: FairCurveBatten): cfloat {.noSideEffect,
+    importcpp: "GetAngle2", header: "FairCurve_Batten.hxx".}
+proc getHeight*(this: FairCurveBatten): cfloat {.noSideEffect,
+    importcpp: "GetHeight", header: "FairCurve_Batten.hxx".}
+proc getSlope*(this: FairCurveBatten): cfloat {.noSideEffect, importcpp: "GetSlope",
     header: "FairCurve_Batten.hxx".}
-proc getAngle2*(this: FairCurveBatten): float {.noSideEffect, importcpp: "GetAngle2",
-    header: "FairCurve_Batten.hxx".}
-proc getHeight*(this: FairCurveBatten): float {.noSideEffect, importcpp: "GetHeight",
-    header: "FairCurve_Batten.hxx".}
-proc getSlope*(this: FairCurveBatten): float {.noSideEffect, importcpp: "GetSlope",
-    header: "FairCurve_Batten.hxx".}
-proc getSlidingFactor*(this: FairCurveBatten): float {.noSideEffect,
+proc getSlidingFactor*(this: FairCurveBatten): cfloat {.noSideEffect,
     importcpp: "GetSlidingFactor", header: "FairCurve_Batten.hxx".}
 proc curve*(this: FairCurveBatten): Handle[Geom2dBSplineCurve] {.noSideEffect,
     importcpp: "Curve", header: "FairCurve_Batten.hxx".}
 proc dump*(this: FairCurveBatten; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "FairCurve_Batten.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

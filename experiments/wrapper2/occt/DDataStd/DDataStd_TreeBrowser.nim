@@ -21,7 +21,7 @@ discard "forward decl of TDataStd_TreeNode"
 discard "forward decl of DDataStd_TreeBrowser"
 discard "forward decl of DDataStd_TreeBrowser"
 type
-  HandleDDataStdTreeBrowser* = Handle[DDataStdTreeBrowser]
+  HandleC1C1* = Handle[DDataStdTreeBrowser]
 
 ## ! Browses a TreeNode from TDataStd.
 ## ! =================================
@@ -77,3 +77,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DDataStd_TreeBrowser.hxx".}
 proc dynamicType*(this: DDataStdTreeBrowser): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DDataStd_TreeBrowser.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

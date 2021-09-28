@@ -20,7 +20,7 @@ discard "forward decl of IGESSolid_Face"
 discard "forward decl of IGESSolid_Shell"
 discard "forward decl of IGESSolid_Shell"
 type
-  HandleIGESSolidShell* = Handle[IGESSolidShell]
+  HandleC1C1* = Handle[IGESSolidShell]
 
 ## ! defines Shell, Type <514> Form Number <1>
 ## ! in package IGESSolid
@@ -44,11 +44,11 @@ proc isClosed*(this: IGESSolidShell): bool {.noSideEffect, importcpp: "IsClosed"
     header: "IGESSolid_Shell.hxx".}
 proc setClosed*(this: var IGESSolidShell; closed: bool) {.importcpp: "SetClosed",
     header: "IGESSolid_Shell.hxx".}
-proc nbFaces*(this: IGESSolidShell): int {.noSideEffect, importcpp: "NbFaces",
-                                       header: "IGESSolid_Shell.hxx".}
-proc face*(this: IGESSolidShell; index: int): Handle[IGESSolidFace] {.noSideEffect,
+proc nbFaces*(this: IGESSolidShell): cint {.noSideEffect, importcpp: "NbFaces",
+                                        header: "IGESSolid_Shell.hxx".}
+proc face*(this: IGESSolidShell; index: cint): Handle[IGESSolidFace] {.noSideEffect,
     importcpp: "Face", header: "IGESSolid_Shell.hxx".}
-proc orientation*(this: IGESSolidShell; index: int): bool {.noSideEffect,
+proc orientation*(this: IGESSolidShell; index: cint): bool {.noSideEffect,
     importcpp: "Orientation", header: "IGESSolid_Shell.hxx".}
 type
   IGESSolidShellbaseType* = IGESDataIGESEntity
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_Shell.hxx".}
 proc dynamicType*(this: IGESSolidShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Shell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

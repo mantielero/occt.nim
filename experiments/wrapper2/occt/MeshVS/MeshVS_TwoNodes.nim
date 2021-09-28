@@ -11,10 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# when not defined(_Standard_HeaderFile):
-#   discard
-# when not defined(_Standard_Macro_HeaderFile):
-#   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Macro_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
 ## ! Structure containing two IDs (of nodes) for using as a key in a map
 ## ! (as representation of a mesh link)
 ## !
@@ -22,18 +22,18 @@
 type
   MeshVS_TwoNodes* {.importcpp: "MeshVS_TwoNodes", header: "MeshVS_TwoNodes.hxx",
                     bycopy.} = object
-    first* {.importc: "First".}: int
-    second* {.importc: "Second".}: int
+    first* {.importc: "First".}: cint
+    second* {.importc: "Second".}: cint
 
 
-proc constructMeshVS_TwoNodes*(aFirst: int = 0; aSecond: int = 0): MeshVS_TwoNodes {.
+proc constructMeshVS_TwoNodes*(aFirst: cint = 0; aSecond: cint = 0): MeshVS_TwoNodes {.
     constructor, importcpp: "MeshVS_TwoNodes(@)", header: "MeshVS_TwoNodes.hxx".}
 ## ! Computes a hash code for two nodes, in the range [1, theUpperBound]
 ## ! @param theTwoNodes the object of structure containing two IDs which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theTwoNodes: MeshVS_TwoNodes; theUpperBound: int): int =
+proc hashCode*(theTwoNodes: MeshVS_TwoNodes; theUpperBound: cint): cint =
   discard
 
 ## ================================================================
@@ -43,4 +43,59 @@ proc hashCode*(theTwoNodes: MeshVS_TwoNodes; theUpperBound: int): int =
 
 proc `==`*(obj1: MeshVS_TwoNodes; obj2: MeshVS_TwoNodes): bool {.
     importcpp: "(# == #)", header: "MeshVS_TwoNodes.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

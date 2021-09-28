@@ -35,9 +35,34 @@ proc faces*(this: var TopOpeBRepToolPurgeInternalEdges;
     importcpp: "Faces", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc shape*(this: var TopOpeBRepToolPurgeInternalEdges): var TopoDS_Shape {.
     importcpp: "Shape", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
-proc nbEdges*(this: TopOpeBRepToolPurgeInternalEdges): int {.noSideEffect,
+proc nbEdges*(this: TopOpeBRepToolPurgeInternalEdges): cint {.noSideEffect,
     importcpp: "NbEdges", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc isDone*(this: TopOpeBRepToolPurgeInternalEdges): bool {.noSideEffect,
     importcpp: "IsDone", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc perform*(this: var TopOpeBRepToolPurgeInternalEdges) {.importcpp: "Perform",
     header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

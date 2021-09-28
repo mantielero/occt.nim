@@ -29,15 +29,15 @@ type
 
 proc constructSweepNumShape*(): SweepNumShape {.constructor,
     importcpp: "Sweep_NumShape(@)", header: "Sweep_NumShape.hxx".}
-proc constructSweepNumShape*(index: int; `type`: TopAbsShapeEnum;
+proc constructSweepNumShape*(index: cint; `type`: TopAbsShapeEnum;
                             closed: bool = false; begInf: bool = false;
                             endInf: bool = false): SweepNumShape {.constructor,
     importcpp: "Sweep_NumShape(@)", header: "Sweep_NumShape.hxx".}
-proc init*(this: var SweepNumShape; index: int; `type`: TopAbsShapeEnum;
+proc init*(this: var SweepNumShape; index: cint; `type`: TopAbsShapeEnum;
           closed: bool = false; begInf: bool = false; endInf: bool = false) {.
     importcpp: "Init", header: "Sweep_NumShape.hxx".}
-proc index*(this: SweepNumShape): int {.noSideEffect, importcpp: "Index",
-                                    header: "Sweep_NumShape.hxx".}
+proc index*(this: SweepNumShape): cint {.noSideEffect, importcpp: "Index",
+                                     header: "Sweep_NumShape.hxx".}
 proc `type`*(this: SweepNumShape): TopAbsShapeEnum {.noSideEffect, importcpp: "Type",
     header: "Sweep_NumShape.hxx".}
 proc closed*(this: SweepNumShape): bool {.noSideEffect, importcpp: "Closed",
@@ -48,3 +48,28 @@ proc endInfinite*(this: SweepNumShape): bool {.noSideEffect,
     importcpp: "EndInfinite", header: "Sweep_NumShape.hxx".}
 proc orientation*(this: SweepNumShape): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "Sweep_NumShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

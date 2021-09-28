@@ -22,23 +22,23 @@ type
 
 proc constructIntPolyhSectionLine*(): IntPolyhSectionLine {.constructor,
     importcpp: "IntPolyh_SectionLine(@)", header: "IntPolyh_SectionLine.hxx".}
-proc constructIntPolyhSectionLine*(nn: int): IntPolyhSectionLine {.constructor,
+proc constructIntPolyhSectionLine*(nn: cint): IntPolyhSectionLine {.constructor,
     importcpp: "IntPolyh_SectionLine(@)", header: "IntPolyh_SectionLine.hxx".}
-proc init*(this: var IntPolyhSectionLine; nn: int) {.importcpp: "Init",
+proc init*(this: var IntPolyhSectionLine; nn: cint) {.importcpp: "Init",
     header: "IntPolyh_SectionLine.hxx".}
-proc value*(this: IntPolyhSectionLine; nn: int): IntPolyhStartPoint {.noSideEffect,
+proc value*(this: IntPolyhSectionLine; nn: cint): IntPolyhStartPoint {.noSideEffect,
     importcpp: "Value", header: "IntPolyh_SectionLine.hxx".}
-proc `[]`*(this: IntPolyhSectionLine; nn: int): IntPolyhStartPoint {.noSideEffect,
+proc `[]`*(this: IntPolyhSectionLine; nn: cint): IntPolyhStartPoint {.noSideEffect,
     importcpp: "#[@]", header: "IntPolyh_SectionLine.hxx".}
-proc changeValue*(this: var IntPolyhSectionLine; nn: int): var IntPolyhStartPoint {.
+proc changeValue*(this: var IntPolyhSectionLine; nn: cint): var IntPolyhStartPoint {.
     importcpp: "ChangeValue", header: "IntPolyh_SectionLine.hxx".}
-proc `[]`*(this: var IntPolyhSectionLine; nn: int): var IntPolyhStartPoint {.
+proc `[]`*(this: var IntPolyhSectionLine; nn: cint): var IntPolyhStartPoint {.
     importcpp: "#[@]", header: "IntPolyh_SectionLine.hxx".}
 proc copy*(this: var IntPolyhSectionLine; other: IntPolyhSectionLine): var IntPolyhSectionLine {.
     importcpp: "Copy", header: "IntPolyh_SectionLine.hxx".}
-proc getN*(this: IntPolyhSectionLine): int {.noSideEffect, importcpp: "GetN",
+proc getN*(this: IntPolyhSectionLine): cint {.noSideEffect, importcpp: "GetN",
     header: "IntPolyh_SectionLine.hxx".}
-proc nbStartPoints*(this: IntPolyhSectionLine): int {.noSideEffect,
+proc nbStartPoints*(this: IntPolyhSectionLine): cint {.noSideEffect,
     importcpp: "NbStartPoints", header: "IntPolyh_SectionLine.hxx".}
 proc incrementNbStartPoints*(this: var IntPolyhSectionLine) {.
     importcpp: "IncrementNbStartPoints", header: "IntPolyh_SectionLine.hxx".}
@@ -50,3 +50,28 @@ proc dump*(this: IntPolyhSectionLine) {.noSideEffect, importcpp: "Dump",
                                      header: "IntPolyh_SectionLine.hxx".}
 proc prepend*(this: var IntPolyhSectionLine; sp: IntPolyhStartPoint) {.
     importcpp: "Prepend", header: "IntPolyh_SectionLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,7 +32,7 @@ proc setUsageOfExecutionStatus*(this: var TFunctionIterator; usage: bool) {.
     importcpp: "SetUsageOfExecutionStatus", header: "TFunction_Iterator.hxx".}
 proc getUsageOfExecutionStatus*(this: TFunctionIterator): bool {.noSideEffect,
     importcpp: "GetUsageOfExecutionStatus", header: "TFunction_Iterator.hxx".}
-proc getMaxNbThreads*(this: TFunctionIterator): int {.noSideEffect,
+proc getMaxNbThreads*(this: TFunctionIterator): cint {.noSideEffect,
     importcpp: "GetMaxNbThreads", header: "TFunction_Iterator.hxx".}
 proc current*(this: TFunctionIterator): TDF_LabelList {.noSideEffect,
     importcpp: "Current", header: "TFunction_Iterator.hxx".}
@@ -47,3 +47,28 @@ proc setStatus*(this: TFunctionIterator; `func`: TDF_Label;
     importcpp: "SetStatus", header: "TFunction_Iterator.hxx".}
 proc dump*(this: TFunctionIterator; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TFunction_Iterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

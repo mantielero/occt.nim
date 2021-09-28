@@ -26,7 +26,7 @@ discard "forward decl of TDF_IDFilter"
 discard "forward decl of TNaming_Naming"
 discard "forward decl of TNaming_Naming"
 type
-  HandleTNamingNaming* = Handle[TNamingNaming]
+  HandleC1C1* = Handle[TNamingNaming]
 
 ## ! This attribute  store the  topological  naming of any
 ## ! selected   shape,  when this  shape  is  not  already
@@ -83,8 +83,8 @@ proc extendedDump*(this: TNamingNaming; anOS: var StandardOStream;
                   aFilter: TDF_IDFilter; aMap: var TDF_AttributeIndexedMap) {.
     noSideEffect, importcpp: "ExtendedDump", header: "TNaming_Naming.hxx".}
 proc dumpJson*(this: TNamingNaming; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TNaming_Naming.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TNaming_Naming.hxx".}
 type
   TNamingNamingbaseType* = TDF_Attribute
 
@@ -95,3 +95,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TNaming_Naming.hxx".}
 proc dynamicType*(this: TNamingNaming): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TNaming_Naming.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

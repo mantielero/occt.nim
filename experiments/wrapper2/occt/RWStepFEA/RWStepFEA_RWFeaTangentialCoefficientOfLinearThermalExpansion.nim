@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion*(): R
     constructor, importcpp: "RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion(@)",
     header: "RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -41,3 +41,28 @@ proc share*(this: RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion; 
     StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

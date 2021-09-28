@@ -25,14 +25,40 @@ type
                             header: "HLRTopoBRep_FaceIsoLiner.hxx", bycopy.} = object
 
 
-proc perform*(fi: int; f: TopoDS_Face; ds: var HLRTopoBRepData; nbIsos: int) {.
+proc perform*(fi: cint; f: TopoDS_Face; ds: var HLRTopoBRepData; nbIsos: cint) {.
     importcpp: "HLRTopoBRep_FaceIsoLiner::Perform(@)",
     header: "HLRTopoBRep_FaceIsoLiner.hxx".}
-proc makeVertex*(e: TopoDS_Edge; p: Pnt; par: float; tol: float; ds: var HLRTopoBRepData): TopoDS_Vertex {.
+proc makeVertex*(e: TopoDS_Edge; p: Pnt; par: cfloat; tol: cfloat;
+                ds: var HLRTopoBRepData): TopoDS_Vertex {.
     importcpp: "HLRTopoBRep_FaceIsoLiner::MakeVertex(@)",
     header: "HLRTopoBRep_FaceIsoLiner.hxx".}
 proc makeIsoLine*(f: TopoDS_Face; iso: Handle[Geom2dLine]; v1: var TopoDS_Vertex;
-                 v2: var TopoDS_Vertex; u1: float; u2: float; tol: float;
+                 v2: var TopoDS_Vertex; u1: cfloat; u2: cfloat; tol: cfloat;
                  ds: var HLRTopoBRepData) {.
     importcpp: "HLRTopoBRep_FaceIsoLiner::MakeIsoLine(@)",
     header: "HLRTopoBRep_FaceIsoLiner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

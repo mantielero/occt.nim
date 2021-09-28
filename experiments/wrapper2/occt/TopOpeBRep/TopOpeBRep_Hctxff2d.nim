@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopOpeBRep_Hctxff2d"
 discard "forward decl of TopOpeBRep_Hctxff2d"
 type
-  HandleTopOpeBRepHctxff2d* = Handle[TopOpeBRepHctxff2d]
+  HandleC1C1* = Handle[TopOpeBRepHctxff2d]
   TopOpeBRepHctxff2d* {.importcpp: "TopOpeBRep_Hctxff2d",
                        header: "TopOpeBRep_Hctxff2d.hxx", bycopy.} = object of StandardTransient
 
@@ -31,21 +31,21 @@ proc setFaces*(this: var TopOpeBRepHctxff2d; f1: TopoDS_Face; f2: TopoDS_Face) {
 proc setHSurfaces*(this: var TopOpeBRepHctxff2d; s1: Handle[BRepAdaptorHSurface];
                   s2: Handle[BRepAdaptorHSurface]) {.importcpp: "SetHSurfaces",
     header: "TopOpeBRep_Hctxff2d.hxx".}
-proc setTolerances*(this: var TopOpeBRepHctxff2d; tol1: float; tol2: float) {.
+proc setTolerances*(this: var TopOpeBRepHctxff2d; tol1: cfloat; tol2: cfloat) {.
     importcpp: "SetTolerances", header: "TopOpeBRep_Hctxff2d.hxx".}
-proc getTolerances*(this: TopOpeBRepHctxff2d; tol1: var float; tol2: var float) {.
+proc getTolerances*(this: TopOpeBRepHctxff2d; tol1: var cfloat; tol2: var cfloat) {.
     noSideEffect, importcpp: "GetTolerances", header: "TopOpeBRep_Hctxff2d.hxx".}
-proc getMaxTolerance*(this: TopOpeBRepHctxff2d): float {.noSideEffect,
+proc getMaxTolerance*(this: TopOpeBRepHctxff2d): cfloat {.noSideEffect,
     importcpp: "GetMaxTolerance", header: "TopOpeBRep_Hctxff2d.hxx".}
-proc face*(this: TopOpeBRepHctxff2d; i: int): TopoDS_Face {.noSideEffect,
+proc face*(this: TopOpeBRepHctxff2d; i: cint): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "TopOpeBRep_Hctxff2d.hxx".}
-proc hSurface*(this: TopOpeBRepHctxff2d; i: int): Handle[BRepAdaptorHSurface] {.
+proc hSurface*(this: TopOpeBRepHctxff2d; i: cint): Handle[BRepAdaptorHSurface] {.
     noSideEffect, importcpp: "HSurface", header: "TopOpeBRep_Hctxff2d.hxx".}
 proc surfacesSameOriented*(this: TopOpeBRepHctxff2d): bool {.noSideEffect,
     importcpp: "SurfacesSameOriented", header: "TopOpeBRep_Hctxff2d.hxx".}
 proc facesSameOriented*(this: TopOpeBRepHctxff2d): bool {.noSideEffect,
     importcpp: "FacesSameOriented", header: "TopOpeBRep_Hctxff2d.hxx".}
-proc faceSameOrientedWithRef*(this: TopOpeBRepHctxff2d; i: int): bool {.noSideEffect,
+proc faceSameOrientedWithRef*(this: TopOpeBRepHctxff2d; i: cint): bool {.noSideEffect,
     importcpp: "FaceSameOrientedWithRef", header: "TopOpeBRep_Hctxff2d.hxx".}
 type
   TopOpeBRepHctxff2dbaseType* = StandardTransient
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRep_Hctxff2d.hxx".}
 proc dynamicType*(this: TopOpeBRepHctxff2d): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRep_Hctxff2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

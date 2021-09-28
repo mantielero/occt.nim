@@ -30,4 +30,3 @@
 template define_Datamap*(className, baseCollection, theKeyType, theItemType: untyped): void =
   type
     ClassName* = NCollectionDataMap[TheKeyType, TheItemType]
-

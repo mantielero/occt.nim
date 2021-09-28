@@ -20,8 +20,7 @@ discard "forward decl of StepAP214_PersonAndOrganizationItem"
 discard "forward decl of StepAP214_AppliedPersonAndOrganizationAssignment"
 discard "forward decl of StepAP214_AppliedPersonAndOrganizationAssignment"
 type
-  HandleStepAP214AppliedPersonAndOrganizationAssignment* = Handle[
-      StepAP214AppliedPersonAndOrganizationAssignment]
+  HandleC1C1* = Handle[StepAP214AppliedPersonAndOrganizationAssignment]
   StepAP214AppliedPersonAndOrganizationAssignment* {.
       importcpp: "StepAP214_AppliedPersonAndOrganizationAssignment",
       header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx", bycopy.} = object of StepBasicPersonAndOrganizationAssignment ##
@@ -49,10 +48,10 @@ proc items*(this: StepAP214AppliedPersonAndOrganizationAssignment): Handle[
     StepAP214HArray1OfPersonAndOrganizationItem] {.noSideEffect,
     importcpp: "Items",
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
-proc itemsValue*(this: StepAP214AppliedPersonAndOrganizationAssignment; num: int): StepAP214PersonAndOrganizationItem {.
+proc itemsValue*(this: StepAP214AppliedPersonAndOrganizationAssignment; num: cint): StepAP214PersonAndOrganizationItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
-proc nbItems*(this: StepAP214AppliedPersonAndOrganizationAssignment): int {.
+proc nbItems*(this: StepAP214AppliedPersonAndOrganizationAssignment): cint {.
     noSideEffect, importcpp: "NbItems",
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
 type
@@ -63,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AppliedP
     header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
 proc dynamicType*(this: StepAP214AppliedPersonAndOrganizationAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AppliedPersonAndOrganizationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

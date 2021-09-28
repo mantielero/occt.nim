@@ -30,3 +30,28 @@ proc translate*(aStr: XmlObjMgtDOMString; t: var Mat): bool {.
     importcpp: "XmlObjMgt_GP::Translate(@)", header: "XmlObjMgt_GP.hxx".}
 proc translate*(aStr: XmlObjMgtDOMString; t: var Xyz): bool {.
     importcpp: "XmlObjMgt_GP::Translate(@)", header: "XmlObjMgt_GP.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

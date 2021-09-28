@@ -20,19 +20,19 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Marker3D"
 discard "forward decl of Draw_Marker3D"
 type
-  HandleDrawMarker3D* = Handle[DrawMarker3D]
+  HandleC1C1* = Handle[DrawMarker3D]
   DrawMarker3D* {.importcpp: "Draw_Marker3D", header: "Draw_Marker3D.hxx", bycopy.} = object of DrawDrawable3D
 
 
-proc constructDrawMarker3D*(p: Pnt; t: DrawMarkerShape; c: DrawColor; iSize: int = 5): DrawMarker3D {.
+proc constructDrawMarker3D*(p: Pnt; t: DrawMarkerShape; c: DrawColor; iSize: cint = 5): DrawMarker3D {.
     constructor, importcpp: "Draw_Marker3D(@)", header: "Draw_Marker3D.hxx".}
-proc constructDrawMarker3D*(p: Pnt; t: DrawMarkerShape; c: DrawColor; rSize: float): DrawMarker3D {.
+proc constructDrawMarker3D*(p: Pnt; t: DrawMarkerShape; c: DrawColor; rSize: cfloat): DrawMarker3D {.
     constructor, importcpp: "Draw_Marker3D(@)", header: "Draw_Marker3D.hxx".}
 proc changePos*(this: var DrawMarker3D): var Pnt {.importcpp: "ChangePos",
     header: "Draw_Marker3D.hxx".}
 proc drawOn*(this: DrawMarker3D; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Marker3D.hxx".}
-proc pickReject*(this: DrawMarker3D; x: float; y: float; prec: float): bool {.
+proc pickReject*(this: DrawMarker3D; x: cfloat; y: cfloat; prec: cfloat): bool {.
     noSideEffect, importcpp: "PickReject", header: "Draw_Marker3D.hxx".}
 type
   DrawMarker3DbaseType* = DrawDrawable3D
@@ -44,3 +44,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Draw_Marker3D.hxx".}
 proc dynamicType*(this: DrawMarker3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Marker3D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

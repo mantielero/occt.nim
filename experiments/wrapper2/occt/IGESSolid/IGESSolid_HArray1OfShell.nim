@@ -14,32 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESSolidHArray1OfShell* {.importcpp: "IGESSolid_HArray1OfShell",
-                            header: "IGESSolid_HArray1OfShell.hxx", bycopy.} = object of IGESSolidArray1OfShell
+## !!!Ignored construct:  # IGESSolid_HArray1OfShell_HeaderFile [NewLine] # IGESSolid_HArray1OfShell_HeaderFile [NewLine] # < IGESSolid_Shell . hxx > [NewLine] # < IGESSolid_Array1OfShell . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESSolid_HArray1OfShell , IGESSolid_Array1OfShell ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESSolidHArray1OfShell*(theLower: int; theUpper: int): IGESSolidHArray1OfShell {.
-    constructor, importcpp: "IGESSolid_HArray1OfShell(@)",
-    header: "IGESSolid_HArray1OfShell.hxx".}
-proc constructIGESSolidHArray1OfShell*(theLower: int; theUpper: int;
-                                      theValue: ValueType): IGESSolidHArray1OfShell {.
-    constructor, importcpp: "IGESSolid_HArray1OfShell(@)",
-    header: "IGESSolid_HArray1OfShell.hxx".}
-proc constructIGESSolidHArray1OfShell*(theOther: IGESSolidArray1OfShell): IGESSolidHArray1OfShell {.
-    constructor, importcpp: "IGESSolid_HArray1OfShell(@)",
-    header: "IGESSolid_HArray1OfShell.hxx".}
-proc array1*(this: IGESSolidHArray1OfShell): IGESSolidArray1OfShell {.noSideEffect,
-    importcpp: "Array1", header: "IGESSolid_HArray1OfShell.hxx".}
-proc changeArray1*(this: var IGESSolidHArray1OfShell): var IGESSolidArray1OfShell {.
-    importcpp: "ChangeArray1", header: "IGESSolid_HArray1OfShell.hxx".}
-type
-  IGESSolidHArray1OfShellbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_HArray1OfShell::get_type_name(@)",
-                            header: "IGESSolid_HArray1OfShell.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESSolid_HArray1OfShell::get_type_descriptor(@)",
-    header: "IGESSolid_HArray1OfShell.hxx".}
-proc dynamicType*(this: IGESSolidHArray1OfShell): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESSolid_HArray1OfShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

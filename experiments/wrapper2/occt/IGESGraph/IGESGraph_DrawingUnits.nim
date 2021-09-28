@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESGraph_DrawingUnits"
 discard "forward decl of IGESGraph_DrawingUnits"
 type
-  HandleIGESGraphDrawingUnits* = Handle[IGESGraphDrawingUnits]
+  HandleC1C1* = Handle[IGESGraphDrawingUnits]
 
 ## ! defines IGESDrawingUnits, Type <406> Form <17>
 ## ! in package IGESGraph
@@ -33,16 +33,16 @@ type
 
 proc constructIGESGraphDrawingUnits*(): IGESGraphDrawingUnits {.constructor,
     importcpp: "IGESGraph_DrawingUnits(@)", header: "IGESGraph_DrawingUnits.hxx".}
-proc init*(this: var IGESGraphDrawingUnits; nbProps: int; aFlag: int;
+proc init*(this: var IGESGraphDrawingUnits; nbProps: cint; aFlag: cint;
           aUnit: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESGraph_DrawingUnits.hxx".}
-proc nbPropertyValues*(this: IGESGraphDrawingUnits): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESGraphDrawingUnits): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESGraph_DrawingUnits.hxx".}
-proc flag*(this: IGESGraphDrawingUnits): int {.noSideEffect, importcpp: "Flag",
+proc flag*(this: IGESGraphDrawingUnits): cint {.noSideEffect, importcpp: "Flag",
     header: "IGESGraph_DrawingUnits.hxx".}
 proc unit*(this: IGESGraphDrawingUnits): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Unit", header: "IGESGraph_DrawingUnits.hxx".}
-proc unitValue*(this: IGESGraphDrawingUnits): float {.noSideEffect,
+proc unitValue*(this: IGESGraphDrawingUnits): cfloat {.noSideEffect,
     importcpp: "UnitValue", header: "IGESGraph_DrawingUnits.hxx".}
 type
   IGESGraphDrawingUnitsbaseType* = IGESDataIGESEntity
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGraph_DrawingUnits.hxx".}
 proc dynamicType*(this: IGESGraphDrawingUnits): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGraph_DrawingUnits.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

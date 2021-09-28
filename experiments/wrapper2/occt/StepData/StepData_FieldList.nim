@@ -26,11 +26,36 @@ proc destroyStepDataFieldList*(this: var StepDataFieldList) {.
     importcpp: "#.~StepData_FieldList()", header: "StepData_FieldList.hxx".}
 proc constructStepDataFieldList*(): StepDataFieldList {.constructor,
     importcpp: "StepData_FieldList(@)", header: "StepData_FieldList.hxx".}
-proc nbFields*(this: StepDataFieldList): int {.noSideEffect, importcpp: "NbFields",
+proc nbFields*(this: StepDataFieldList): cint {.noSideEffect, importcpp: "NbFields",
     header: "StepData_FieldList.hxx".}
-proc field*(this: StepDataFieldList; num: int): StepDataField {.noSideEffect,
+proc field*(this: StepDataFieldList; num: cint): StepDataField {.noSideEffect,
     importcpp: "Field", header: "StepData_FieldList.hxx".}
-proc cField*(this: var StepDataFieldList; num: int): var StepDataField {.
+proc cField*(this: var StepDataFieldList; num: cint): var StepDataField {.
     importcpp: "CField", header: "StepData_FieldList.hxx".}
 proc fillShared*(this: StepDataFieldList; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "FillShared", header: "StepData_FieldList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESGraph_NominalSize"
 discard "forward decl of IGESGraph_NominalSize"
 type
-  HandleIGESGraphNominalSize* = Handle[IGESGraphNominalSize]
+  HandleC1C1* = Handle[IGESGraphNominalSize]
 
 ## ! defines IGESNominalSize, Type <406> Form <13>
 ## ! in package IGESGraph
@@ -33,13 +33,13 @@ type
 
 proc constructIGESGraphNominalSize*(): IGESGraphNominalSize {.constructor,
     importcpp: "IGESGraph_NominalSize(@)", header: "IGESGraph_NominalSize.hxx".}
-proc init*(this: var IGESGraphNominalSize; nbProps: int; aNominalSizeValue: float;
+proc init*(this: var IGESGraphNominalSize; nbProps: cint; aNominalSizeValue: cfloat;
           aNominalSizeName: Handle[TCollectionHAsciiString];
           aStandardName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESGraph_NominalSize.hxx".}
-proc nbPropertyValues*(this: IGESGraphNominalSize): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESGraphNominalSize): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESGraph_NominalSize.hxx".}
-proc nominalSizeValue*(this: IGESGraphNominalSize): float {.noSideEffect,
+proc nominalSizeValue*(this: IGESGraphNominalSize): cfloat {.noSideEffect,
     importcpp: "NominalSizeValue", header: "IGESGraph_NominalSize.hxx".}
 proc nominalSizeName*(this: IGESGraphNominalSize): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "NominalSizeName", header: "IGESGraph_NominalSize.hxx".}
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGraph_NominalSize.hxx".}
 proc dynamicType*(this: IGESGraphNominalSize): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGraph_NominalSize.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

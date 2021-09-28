@@ -105,12 +105,12 @@ type
 
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
          aText: TCollectionExtendedString; attachmentPoint: Pnt; aCircle: Circ;
-         firstparam: float; lastparam: float; drawFromCenter: bool = true;
+         firstparam: cfloat; lastparam: cfloat; drawFromCenter: bool = true;
          reverseArrow: bool = false) {.importcpp: "DsgPrs_RadiusPresentation::Add(@)",
                                    header: "DsgPrs_RadiusPresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
          aText: TCollectionExtendedString; attachmentPoint: Pnt; aCircle: Circ;
-         firstparam: float; lastparam: float; arrowSide: DsgPrsArrowSide;
+         firstparam: cfloat; lastparam: cfloat; arrowSide: DsgPrsArrowSide;
          drawFromCenter: bool = true; reverseArrow: bool = false) {.
     importcpp: "DsgPrs_RadiusPresentation::Add(@)",
     header: "DsgPrs_RadiusPresentation.hxx".}
@@ -119,3 +119,28 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer]
          endOfArrow: Pnt; arrowSide: DsgPrsArrowSide; drawFromCenter: bool = true;
          reverseArrow: bool = false) {.importcpp: "DsgPrs_RadiusPresentation::Add(@)",
                                    header: "DsgPrs_RadiusPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

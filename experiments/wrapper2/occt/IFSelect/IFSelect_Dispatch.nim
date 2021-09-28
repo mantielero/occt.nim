@@ -25,7 +25,7 @@ discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_Dispatch"
 discard "forward decl of IFSelect_Dispatch"
 type
-  HandleIFSelectDispatch* = Handle[IFSelectDispatch]
+  HandleC1C1* = Handle[IFSelectDispatch]
 
 ## ! This class allows to describe how a set of Entities has to be
 ## ! dispatched into resulting Packets : a Packet is a sub-set of
@@ -92,8 +92,8 @@ proc selections*(this: IFSelectDispatch): IFSelectSelectionIterator {.noSideEffe
     importcpp: "Selections", header: "IFSelect_Dispatch.hxx".}
 proc canHaveRemainder*(this: IFSelectDispatch): bool {.noSideEffect,
     importcpp: "CanHaveRemainder", header: "IFSelect_Dispatch.hxx".}
-proc limitedMax*(this: IFSelectDispatch; nbent: int; max: var int): bool {.noSideEffect,
-    importcpp: "LimitedMax", header: "IFSelect_Dispatch.hxx".}
+proc limitedMax*(this: IFSelectDispatch; nbent: cint; max: var cint): bool {.
+    noSideEffect, importcpp: "LimitedMax", header: "IFSelect_Dispatch.hxx".}
 proc label*(this: IFSelectDispatch): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_Dispatch.hxx".}
 proc getEntities*(this: IFSelectDispatch; g: InterfaceGraph): InterfaceEntityIterator {.
@@ -115,3 +115,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_Dispatch.hxx".}
 proc dynamicType*(this: IFSelectDispatch): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Dispatch.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

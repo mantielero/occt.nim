@@ -22,7 +22,7 @@ discard "forward decl of TDF_DeltaOnModification"
 discard "forward decl of TDataStd_IntPackedMap"
 discard "forward decl of TDataStd_IntPackedMap"
 type
-  HandleTDataStdIntPackedMap* = Handle[TDataStdIntPackedMap]
+  HandleC1C1* = Handle[TDataStdIntPackedMap]
 
 ## ! Attribute for storing TColStd_PackedMapOfInteger
 
@@ -71,13 +71,13 @@ proc getHMap*(this: TDataStdIntPackedMap): Handle[TColStdHPackedMapOfInteger] {.
     noSideEffect, importcpp: "GetHMap", header: "TDataStd_IntPackedMap.hxx".}
 proc clear*(this: var TDataStdIntPackedMap): bool {.importcpp: "Clear",
     header: "TDataStd_IntPackedMap.hxx".}
-proc add*(this: var TDataStdIntPackedMap; theKey: int): bool {.importcpp: "Add",
+proc add*(this: var TDataStdIntPackedMap; theKey: cint): bool {.importcpp: "Add",
     header: "TDataStd_IntPackedMap.hxx".}
-proc remove*(this: var TDataStdIntPackedMap; theKey: int): bool {.importcpp: "Remove",
+proc remove*(this: var TDataStdIntPackedMap; theKey: cint): bool {.importcpp: "Remove",
     header: "TDataStd_IntPackedMap.hxx".}
-proc contains*(this: TDataStdIntPackedMap; theKey: int): bool {.noSideEffect,
+proc contains*(this: TDataStdIntPackedMap; theKey: cint): bool {.noSideEffect,
     importcpp: "Contains", header: "TDataStd_IntPackedMap.hxx".}
-proc extent*(this: TDataStdIntPackedMap): int {.noSideEffect, importcpp: "Extent",
+proc extent*(this: TDataStdIntPackedMap): cint {.noSideEffect, importcpp: "Extent",
     header: "TDataStd_IntPackedMap.hxx".}
 proc isEmpty*(this: TDataStdIntPackedMap): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "TDataStd_IntPackedMap.hxx".}
@@ -101,5 +101,30 @@ proc deltaOnModification*(this: TDataStdIntPackedMap;
     TDF_DeltaOnModification] {.noSideEffect, importcpp: "DeltaOnModification",
                               header: "TDataStd_IntPackedMap.hxx".}
 proc dumpJson*(this: TDataStdIntPackedMap; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_IntPackedMap.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_IntPackedMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

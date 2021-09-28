@@ -14,3 +14,28 @@
 type
   StdStorageSequenceOfRoots* = NCollectionSequence[Handle[StdStorageRoot]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

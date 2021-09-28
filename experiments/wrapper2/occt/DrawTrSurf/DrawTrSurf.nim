@@ -57,51 +57,117 @@ proc set*(name: StandardCString; g: Pnt) {.importcpp: "DrawTrSurf::Set(@)",
                                       header: "DrawTrSurf.hxx".}
 proc set*(name: StandardCString; g: Pnt2d) {.importcpp: "DrawTrSurf::Set(@)",
                                         header: "DrawTrSurf.hxx".}
-proc set*(name: StandardCString; g: Handle[GeomGeometry]; isSenseMarker: bool = true) {.
-    importcpp: "DrawTrSurf::Set(@)", header: "DrawTrSurf.hxx".}
-## !!!Ignored construct:  template < class T > [end of template] static void Set ( const Standard_CString Name , const opencascade :: handle < T > [end of template] & Arg , typename opencascade :: std :: enable_if < opencascade :: std :: is_base_of < Geom_Geometry , T > :: value > :: type * = 0 ) { Set ( Name , ( const opencascade :: handle < Geom_Geometry > [end of template] & ) Arg ) ; } ! Sets <C> in the variable <Name>.  Overwrite the
+## !!!Ignored construct:  ! Sets <G> in the variable <Name>.  Overwrite the
 ## ! variable if already set.
 ## ! isSenseMarker indicates whether to render the
-## ! sense glyph (arrow) for curves or not static void Set ( const Standard_CString Name , const opencascade :: handle < Geom2d_Curve > [end of template] & C , const Standard_Boolean isSenseMarker = Standard_True ) ;
-## Error: token expected: ) but got: ::!!!
+## ! sense glyph (arrow) for curves or not static void Set ( const Standard_CString Name , const Handle ( Geom_Geometry ) & G , const Standard_Boolean isSenseMarker = Standard_True ) ;
+## Error: token expected: ) but got: &!!!
 
-## !!!Ignored construct:  template < class T > [end of template] static void Set ( const Standard_CString Name , const opencascade :: handle < T > [end of template] & Arg , typename opencascade :: std :: enable_if < opencascade :: std :: is_base_of < Geom2d_Curve , T > :: value > :: type * = 0 ) { Set ( Name , ( const opencascade :: handle < Geom2d_Curve > [end of template] & ) Arg ) ; } ! Sets <T> in the variable <Name>.  Overwrite the
-## ! variable if already set. static void Set ( const Standard_CString Name , const opencascade :: handle < Poly_Triangulation > [end of template] & T ) ;
-## Error: token expected: ) but got: ::!!!
+## !!!Ignored construct:  template < class T > [end of template] static void Set ( const Standard_CString Name , const Handle ( T ) & Arg , typename opencascade :: std :: enable_if < opencascade :: std :: is_base_of < Geom_Geometry , T > :: value > :: type * = 0 ) { Set ( Name , ( const Handle ( Geom_Geometry ) & ) Arg ) ; } ! Sets <C> in the variable <Name>.  Overwrite the
+## ! variable if already set.
+## ! isSenseMarker indicates whether to render the
+## ! sense glyph (arrow) for curves or not static void Set ( const Standard_CString Name , const Handle ( Geom2d_Curve ) & C , const Standard_Boolean isSenseMarker = Standard_True ) ;
+## Error: token expected: ) but got: &!!!
 
-proc set*(name: StandardCString; p: Handle[PolyPolygon3D]) {.
-    importcpp: "DrawTrSurf::Set(@)", header: "DrawTrSurf.hxx".}
-proc set*(name: StandardCString; p: Handle[PolyPolygon2D]) {.
-    importcpp: "DrawTrSurf::Set(@)", header: "DrawTrSurf.hxx".}
-proc get*(name: var StandardCString): Handle[GeomGeometry] {.
-    importcpp: "DrawTrSurf::Get(@)", header: "DrawTrSurf.hxx".}
+## !!!Ignored construct:  template < class T > [end of template] static void Set ( const Standard_CString Name , const Handle ( T ) & Arg , typename opencascade :: std :: enable_if < opencascade :: std :: is_base_of < Geom2d_Curve , T > :: value > :: type * = 0 ) { Set ( Name , ( const Handle ( Geom2d_Curve ) & ) Arg ) ; } ! Sets <T> in the variable <Name>.  Overwrite the
+## ! variable if already set. static void Set ( const Standard_CString Name , const Handle ( Poly_Triangulation ) & T ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Sets <P> in the variable <Name>.  Overwrite the
+## ! variable if already set. static void Set ( const Standard_CString Name , const Handle ( Poly_Polygon3D ) & P ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Sets <P> in the variable <Name>.  Overwrite the
+## ! variable if already set. static void Set ( const Standard_CString Name , const Handle ( Poly_Polygon2D ) & P ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  Get ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
 proc getPoint*(name: var StandardCString; p: var Pnt): bool {.
     importcpp: "DrawTrSurf::GetPoint(@)", header: "DrawTrSurf.hxx".}
 proc getPoint2d*(name: var StandardCString; p: var Pnt2d): bool {.
     importcpp: "DrawTrSurf::GetPoint2d(@)", header: "DrawTrSurf.hxx".}
-proc getCurve*(name: var StandardCString): Handle[GeomCurve] {.
-    importcpp: "DrawTrSurf::GetCurve(@)", header: "DrawTrSurf.hxx".}
-proc getBezierCurve*(name: var StandardCString): Handle[GeomBezierCurve] {.
-    importcpp: "DrawTrSurf::GetBezierCurve(@)", header: "DrawTrSurf.hxx".}
-proc getBSplineCurve*(name: var StandardCString): Handle[GeomBSplineCurve] {.
-    importcpp: "DrawTrSurf::GetBSplineCurve(@)", header: "DrawTrSurf.hxx".}
-proc getCurve2d*(name: var StandardCString): Handle[Geom2dCurve] {.
-    importcpp: "DrawTrSurf::GetCurve2d(@)", header: "DrawTrSurf.hxx".}
-proc getBezierCurve2d*(name: var StandardCString): Handle[Geom2dBezierCurve] {.
-    importcpp: "DrawTrSurf::GetBezierCurve2d(@)", header: "DrawTrSurf.hxx".}
-proc getBSplineCurve2d*(name: var StandardCString): Handle[Geom2dBSplineCurve] {.
-    importcpp: "DrawTrSurf::GetBSplineCurve2d(@)", header: "DrawTrSurf.hxx".}
-proc getSurface*(name: var StandardCString): Handle[GeomSurface] {.
-    importcpp: "DrawTrSurf::GetSurface(@)", header: "DrawTrSurf.hxx".}
-proc getBezierSurface*(name: var StandardCString): Handle[GeomBezierSurface] {.
-    importcpp: "DrawTrSurf::GetBezierSurface(@)", header: "DrawTrSurf.hxx".}
-proc getBSplineSurface*(name: var StandardCString): Handle[GeomBSplineSurface] {.
-    importcpp: "DrawTrSurf::GetBSplineSurface(@)", header: "DrawTrSurf.hxx".}
-proc getTriangulation*(name: var StandardCString): Handle[PolyTriangulation] {.
-    importcpp: "DrawTrSurf::GetTriangulation(@)", header: "DrawTrSurf.hxx".}
-proc getPolygon3D*(name: var StandardCString): Handle[PolyPolygon3D] {.
-    importcpp: "DrawTrSurf::GetPolygon3D(@)", header: "DrawTrSurf.hxx".}
-proc getPolygon2D*(name: var StandardCString): Handle[PolyPolygon2D] {.
-    importcpp: "DrawTrSurf::GetPolygon2D(@)", header: "DrawTrSurf.hxx".}
+## !!!Ignored construct:  GetCurve ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetBezierCurve ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetBSplineCurve ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetCurve2d ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetBezierCurve2d ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetBSplineCurve2d ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetSurface ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetBezierSurface ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetBSplineSurface ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetTriangulation ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetPolygon3D ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  GetPolygon2D ( Standard_CString & Name ) ;
+## Error: token expected: ) but got: &!!!
+
 proc basicCommands*(i: var DrawInterpretor) {.
     importcpp: "DrawTrSurf::BasicCommands(@)", header: "DrawTrSurf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

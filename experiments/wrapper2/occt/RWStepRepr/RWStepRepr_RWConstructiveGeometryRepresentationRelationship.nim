@@ -28,7 +28,7 @@ proc constructRWStepReprRWConstructiveGeometryRepresentationRelationship*(): RWS
     constructor, importcpp: "RWStepRepr_RWConstructiveGeometryRepresentationRelationship(@)",
     header: "RWStepRepr_RWConstructiveGeometryRepresentationRelationship.hxx".}
 proc readStep*(this: RWStepReprRWConstructiveGeometryRepresentationRelationship;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[
     StepReprConstructiveGeometryRepresentationRelationship]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -42,3 +42,28 @@ proc share*(this: RWStepReprRWConstructiveGeometryRepresentationRelationship;
            ent: Handle[StepReprConstructiveGeometryRepresentationRelationship];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWConstructiveGeometryRepresentationRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

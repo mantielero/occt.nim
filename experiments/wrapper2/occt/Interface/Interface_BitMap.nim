@@ -34,48 +34,73 @@ type
 
 proc constructInterfaceBitMap*(): InterfaceBitMap {.constructor,
     importcpp: "Interface_BitMap(@)", header: "Interface_BitMap.hxx".}
-proc constructInterfaceBitMap*(nbitems: int; resflags: int = 0): InterfaceBitMap {.
+proc constructInterfaceBitMap*(nbitems: cint; resflags: cint = 0): InterfaceBitMap {.
     constructor, importcpp: "Interface_BitMap(@)", header: "Interface_BitMap.hxx".}
-proc initialize*(this: var InterfaceBitMap; nbitems: int; resflags: int = 0) {.
+proc initialize*(this: var InterfaceBitMap; nbitems: cint; resflags: cint = 0) {.
     importcpp: "Initialize", header: "Interface_BitMap.hxx".}
 proc constructInterfaceBitMap*(other: InterfaceBitMap; copied: bool = false): InterfaceBitMap {.
     constructor, importcpp: "Interface_BitMap(@)", header: "Interface_BitMap.hxx".}
 proc initialize*(this: var InterfaceBitMap; other: InterfaceBitMap;
                 copied: bool = false) {.importcpp: "Initialize",
                                     header: "Interface_BitMap.hxx".}
-proc reservate*(this: var InterfaceBitMap; moreflags: int) {.importcpp: "Reservate",
+proc reservate*(this: var InterfaceBitMap; moreflags: cint) {.importcpp: "Reservate",
     header: "Interface_BitMap.hxx".}
-proc setLength*(this: var InterfaceBitMap; nbitems: int) {.importcpp: "SetLength",
+proc setLength*(this: var InterfaceBitMap; nbitems: cint) {.importcpp: "SetLength",
     header: "Interface_BitMap.hxx".}
-proc addFlag*(this: var InterfaceBitMap; name: StandardCString = ""): int {.
+proc addFlag*(this: var InterfaceBitMap; name: StandardCString = ""): cint {.
     importcpp: "AddFlag", header: "Interface_BitMap.hxx".}
-proc addSomeFlags*(this: var InterfaceBitMap; more: int): int {.
+proc addSomeFlags*(this: var InterfaceBitMap; more: cint): cint {.
     importcpp: "AddSomeFlags", header: "Interface_BitMap.hxx".}
-proc removeFlag*(this: var InterfaceBitMap; num: int): bool {.importcpp: "RemoveFlag",
+proc removeFlag*(this: var InterfaceBitMap; num: cint): bool {.importcpp: "RemoveFlag",
     header: "Interface_BitMap.hxx".}
-proc setFlagName*(this: var InterfaceBitMap; num: int; name: StandardCString): bool {.
+proc setFlagName*(this: var InterfaceBitMap; num: cint; name: StandardCString): bool {.
     importcpp: "SetFlagName", header: "Interface_BitMap.hxx".}
-proc nbFlags*(this: InterfaceBitMap): int {.noSideEffect, importcpp: "NbFlags",
+proc nbFlags*(this: InterfaceBitMap): cint {.noSideEffect, importcpp: "NbFlags",
+    header: "Interface_BitMap.hxx".}
+proc length*(this: InterfaceBitMap): cint {.noSideEffect, importcpp: "Length",
                                         header: "Interface_BitMap.hxx".}
-proc length*(this: InterfaceBitMap): int {.noSideEffect, importcpp: "Length",
-                                       header: "Interface_BitMap.hxx".}
-proc flagName*(this: InterfaceBitMap; num: int): StandardCString {.noSideEffect,
+proc flagName*(this: InterfaceBitMap; num: cint): StandardCString {.noSideEffect,
     importcpp: "FlagName", header: "Interface_BitMap.hxx".}
-proc flagNumber*(this: InterfaceBitMap; name: StandardCString): int {.noSideEffect,
+proc flagNumber*(this: InterfaceBitMap; name: StandardCString): cint {.noSideEffect,
     importcpp: "FlagNumber", header: "Interface_BitMap.hxx".}
-proc value*(this: InterfaceBitMap; item: int; flag: int = 0): bool {.noSideEffect,
+proc value*(this: InterfaceBitMap; item: cint; flag: cint = 0): bool {.noSideEffect,
     importcpp: "Value", header: "Interface_BitMap.hxx".}
-proc setValue*(this: InterfaceBitMap; item: int; val: bool; flag: int = 0) {.noSideEffect,
-    importcpp: "SetValue", header: "Interface_BitMap.hxx".}
-proc setTrue*(this: InterfaceBitMap; item: int; flag: int = 0) {.noSideEffect,
+proc setValue*(this: InterfaceBitMap; item: cint; val: bool; flag: cint = 0) {.
+    noSideEffect, importcpp: "SetValue", header: "Interface_BitMap.hxx".}
+proc setTrue*(this: InterfaceBitMap; item: cint; flag: cint = 0) {.noSideEffect,
     importcpp: "SetTrue", header: "Interface_BitMap.hxx".}
-proc setFalse*(this: InterfaceBitMap; item: int; flag: int = 0) {.noSideEffect,
+proc setFalse*(this: InterfaceBitMap; item: cint; flag: cint = 0) {.noSideEffect,
     importcpp: "SetFalse", header: "Interface_BitMap.hxx".}
-proc cTrue*(this: InterfaceBitMap; item: int; flag: int = 0): bool {.noSideEffect,
+proc cTrue*(this: InterfaceBitMap; item: cint; flag: cint = 0): bool {.noSideEffect,
     importcpp: "CTrue", header: "Interface_BitMap.hxx".}
-proc cFalse*(this: InterfaceBitMap; item: int; flag: int = 0): bool {.noSideEffect,
+proc cFalse*(this: InterfaceBitMap; item: cint; flag: cint = 0): bool {.noSideEffect,
     importcpp: "CFalse", header: "Interface_BitMap.hxx".}
-proc init*(this: InterfaceBitMap; val: bool; flag: int = 0) {.noSideEffect,
+proc init*(this: InterfaceBitMap; val: bool; flag: cint = 0) {.noSideEffect,
     importcpp: "Init", header: "Interface_BitMap.hxx".}
 proc clear*(this: var InterfaceBitMap) {.importcpp: "Clear",
                                      header: "Interface_BitMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

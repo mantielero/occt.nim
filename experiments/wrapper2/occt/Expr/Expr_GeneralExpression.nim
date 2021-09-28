@@ -23,7 +23,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_GeneralExpression"
 type
-  HandleExprGeneralExpression* = Handle[ExprGeneralExpression]
+  HandleC1C1* = Handle[ExprGeneralExpression]
 
 ## ! Defines the general purposes of any expression.
 
@@ -46,9 +46,9 @@ type
                                                                                                 ## 0)
 
 
-proc nbSubExpressions*(this: ExprGeneralExpression): int {.noSideEffect,
+proc nbSubExpressions*(this: ExprGeneralExpression): cint {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_GeneralExpression.hxx".}
-proc subExpression*(this: ExprGeneralExpression; i: int): Handle[
+proc subExpression*(this: ExprGeneralExpression; i: cint): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "SubExpression",
                             header: "Expr_GeneralExpression.hxx".}
 proc simplified*(this: ExprGeneralExpression): Handle[ExprGeneralExpression] {.
@@ -71,16 +71,16 @@ proc isIdentical*(this: ExprGeneralExpression; other: Handle[ExprGeneralExpressi
 proc derivative*(this: ExprGeneralExpression; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_GeneralExpression.hxx".}
-proc nDerivative*(this: ExprGeneralExpression; x: Handle[ExprNamedUnknown]; n: int): Handle[
+proc nDerivative*(this: ExprGeneralExpression; x: Handle[ExprNamedUnknown]; n: cint): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "NDerivative",
                             header: "Expr_GeneralExpression.hxx".}
 proc replace*(this: var ExprGeneralExpression; `var`: Handle[ExprNamedUnknown];
              with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
     header: "Expr_GeneralExpression.hxx".}
 proc evaluate*(this: ExprGeneralExpression; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_GeneralExpression.hxx".}
-proc evaluateNumeric*(this: ExprGeneralExpression): float {.noSideEffect,
+proc evaluateNumeric*(this: ExprGeneralExpression): cfloat {.noSideEffect,
     importcpp: "EvaluateNumeric", header: "Expr_GeneralExpression.hxx".}
 proc string*(this: ExprGeneralExpression): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_GeneralExpression.hxx".}
@@ -94,3 +94,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_GeneralExpression.hxx".}
 proc dynamicType*(this: ExprGeneralExpression): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_GeneralExpression.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

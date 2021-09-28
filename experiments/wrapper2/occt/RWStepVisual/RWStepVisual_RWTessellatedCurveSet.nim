@@ -26,7 +26,7 @@ proc constructRWStepVisualRWTessellatedCurveSet*(): RWStepVisualRWTessellatedCur
     constructor, importcpp: "RWStepVisual_RWTessellatedCurveSet(@)",
     header: "RWStepVisual_RWTessellatedCurveSet.hxx".}
 proc readStep*(this: RWStepVisualRWTessellatedCurveSet;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualTessellatedCurveSet]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWTessellatedCurveSet.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepVisualRWTessellatedCurveSet;
            ent: Handle[StepVisualTessellatedCurveSet];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWTessellatedCurveSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

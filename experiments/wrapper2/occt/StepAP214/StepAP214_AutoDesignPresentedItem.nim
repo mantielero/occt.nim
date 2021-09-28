@@ -18,8 +18,7 @@ discard "forward decl of StepAP214_AutoDesignPresentedItemSelect"
 discard "forward decl of StepAP214_AutoDesignPresentedItem"
 discard "forward decl of StepAP214_AutoDesignPresentedItem"
 type
-  HandleStepAP214AutoDesignPresentedItem* = Handle[
-      StepAP214AutoDesignPresentedItem]
+  HandleC1C1* = Handle[StepAP214AutoDesignPresentedItem]
   StepAP214AutoDesignPresentedItem* {.importcpp: "StepAP214_AutoDesignPresentedItem", header: "StepAP214_AutoDesignPresentedItem.hxx",
                                      bycopy.} = object of StepVisualPresentedItem ## !
                                                                              ## Returns a
@@ -38,10 +37,10 @@ proc setItems*(this: var StepAP214AutoDesignPresentedItem;
 proc items*(this: StepAP214AutoDesignPresentedItem): Handle[
     StepAP214HArray1OfAutoDesignPresentedItemSelect] {.noSideEffect,
     importcpp: "Items", header: "StepAP214_AutoDesignPresentedItem.hxx".}
-proc itemsValue*(this: StepAP214AutoDesignPresentedItem; num: int): StepAP214AutoDesignPresentedItemSelect {.
+proc itemsValue*(this: StepAP214AutoDesignPresentedItem; num: cint): StepAP214AutoDesignPresentedItemSelect {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignPresentedItem.hxx".}
-proc nbItems*(this: StepAP214AutoDesignPresentedItem): int {.noSideEffect,
+proc nbItems*(this: StepAP214AutoDesignPresentedItem): cint {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AutoDesignPresentedItem.hxx".}
 type
   StepAP214AutoDesignPresentedItembaseType* = StepVisualPresentedItem
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214AutoDesignPresentedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AutoDesignPresentedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

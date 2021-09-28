@@ -42,10 +42,10 @@ type
                                                                                  ## Alpha2.
 
 
-proc constructGC_MakeArcOfEllipse*(elips: Elips; alpha1: float; alpha2: float;
+proc constructGC_MakeArcOfEllipse*(elips: Elips; alpha1: cfloat; alpha2: cfloat;
                                   sense: bool): GC_MakeArcOfEllipse {.constructor,
     importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
-proc constructGC_MakeArcOfEllipse*(elips: Elips; p: Pnt; alpha: float; sense: bool): GC_MakeArcOfEllipse {.
+proc constructGC_MakeArcOfEllipse*(elips: Elips; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfEllipse {.
     constructor, importcpp: "GC_MakeArcOfEllipse(@)",
     header: "GC_MakeArcOfEllipse.hxx".}
 proc constructGC_MakeArcOfEllipse*(elips: Elips; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfEllipse {.
@@ -56,3 +56,24 @@ proc value*(this: GC_MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.noSideEffect,
 converter `constopencascade`*(this: GC_MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeArcOfEllipse::operator constopencascade",
     header: "GC_MakeArcOfEllipse.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

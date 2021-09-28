@@ -20,7 +20,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGraph_TextDisplayTemplate"
 discard "forward decl of IGESGraph_TextDisplayTemplate"
 type
-  HandleIGESGraphTextDisplayTemplate* = Handle[IGESGraphTextDisplayTemplate]
+  HandleC1C1* = Handle[IGESGraphTextDisplayTemplate]
 
 ## ! defines IGES TextDisplayTemplate Entity,
 ## ! Type <312>, form <0, 1> in package IGESGraph
@@ -38,33 +38,33 @@ type
 proc constructIGESGraphTextDisplayTemplate*(): IGESGraphTextDisplayTemplate {.
     constructor, importcpp: "IGESGraph_TextDisplayTemplate(@)",
     header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc init*(this: var IGESGraphTextDisplayTemplate; aWidth: float; aHeight: float;
-          aFontCode: int; aFontEntity: Handle[IGESGraphTextFontDef];
-          aSlantAngle: float; aRotationAngle: float; aMirrorFlag: int;
-          aRotationFlag: int; aCorner: Xyz) {.importcpp: "Init",
+proc init*(this: var IGESGraphTextDisplayTemplate; aWidth: cfloat; aHeight: cfloat;
+          aFontCode: cint; aFontEntity: Handle[IGESGraphTextFontDef];
+          aSlantAngle: cfloat; aRotationAngle: cfloat; aMirrorFlag: cint;
+          aRotationFlag: cint; aCorner: Xyz) {.importcpp: "Init",
     header: "IGESGraph_TextDisplayTemplate.hxx".}
 proc setIncremental*(this: var IGESGraphTextDisplayTemplate; mode: bool) {.
     importcpp: "SetIncremental", header: "IGESGraph_TextDisplayTemplate.hxx".}
 proc isIncremental*(this: IGESGraphTextDisplayTemplate): bool {.noSideEffect,
     importcpp: "IsIncremental", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc boxWidth*(this: IGESGraphTextDisplayTemplate): float {.noSideEffect,
+proc boxWidth*(this: IGESGraphTextDisplayTemplate): cfloat {.noSideEffect,
     importcpp: "BoxWidth", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc boxHeight*(this: IGESGraphTextDisplayTemplate): float {.noSideEffect,
+proc boxHeight*(this: IGESGraphTextDisplayTemplate): cfloat {.noSideEffect,
     importcpp: "BoxHeight", header: "IGESGraph_TextDisplayTemplate.hxx".}
 proc isFontEntity*(this: IGESGraphTextDisplayTemplate): bool {.noSideEffect,
     importcpp: "IsFontEntity", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc fontCode*(this: IGESGraphTextDisplayTemplate): int {.noSideEffect,
+proc fontCode*(this: IGESGraphTextDisplayTemplate): cint {.noSideEffect,
     importcpp: "FontCode", header: "IGESGraph_TextDisplayTemplate.hxx".}
 proc fontEntity*(this: IGESGraphTextDisplayTemplate): Handle[IGESGraphTextFontDef] {.
     noSideEffect, importcpp: "FontEntity",
     header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc slantAngle*(this: IGESGraphTextDisplayTemplate): float {.noSideEffect,
+proc slantAngle*(this: IGESGraphTextDisplayTemplate): cfloat {.noSideEffect,
     importcpp: "SlantAngle", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc rotationAngle*(this: IGESGraphTextDisplayTemplate): float {.noSideEffect,
+proc rotationAngle*(this: IGESGraphTextDisplayTemplate): cfloat {.noSideEffect,
     importcpp: "RotationAngle", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc mirrorFlag*(this: IGESGraphTextDisplayTemplate): int {.noSideEffect,
+proc mirrorFlag*(this: IGESGraphTextDisplayTemplate): cint {.noSideEffect,
     importcpp: "MirrorFlag", header: "IGESGraph_TextDisplayTemplate.hxx".}
-proc rotateFlag*(this: IGESGraphTextDisplayTemplate): int {.noSideEffect,
+proc rotateFlag*(this: IGESGraphTextDisplayTemplate): cint {.noSideEffect,
     importcpp: "RotateFlag", header: "IGESGraph_TextDisplayTemplate.hxx".}
 proc startingCorner*(this: IGESGraphTextDisplayTemplate): Pnt {.noSideEffect,
     importcpp: "StartingCorner", header: "IGESGraph_TextDisplayTemplate.hxx".}
@@ -82,3 +82,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESGraphTextDisplayTemplate): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGraph_TextDisplayTemplate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -45,3 +45,28 @@ proc session*(pilot: Handle[IFSelectSessionPilot]): Handle[XSControlWorkSession]
     importcpp: "XSControl::Session(@)", header: "XSControl.hxx".}
 proc vars*(pilot: Handle[IFSelectSessionPilot]): Handle[XSControlVars] {.
     importcpp: "XSControl::Vars(@)", header: "XSControl.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

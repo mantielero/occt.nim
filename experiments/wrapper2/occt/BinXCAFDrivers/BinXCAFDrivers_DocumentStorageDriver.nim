@@ -18,8 +18,7 @@ discard "forward decl of Message_Messenger"
 discard "forward decl of BinXCAFDrivers_DocumentStorageDriver"
 discard "forward decl of BinXCAFDrivers_DocumentStorageDriver"
 type
-  HandleBinXCAFDriversDocumentStorageDriver* = Handle[
-      BinXCAFDriversDocumentStorageDriver]
+  HandleC1C1* = Handle[BinXCAFDriversDocumentStorageDriver]
   BinXCAFDriversDocumentStorageDriver* {.importcpp: "BinXCAFDrivers_DocumentStorageDriver", header: "BinXCAFDrivers_DocumentStorageDriver.hxx",
                                         bycopy.} = object of BinDriversDocumentStorageDriver ##
                                                                                         ## !
@@ -44,3 +43,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinXCAFDriversDocumentStorageDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinXCAFDrivers_DocumentStorageDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

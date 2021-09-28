@@ -28,7 +28,7 @@ proc constructRWStepReprRWParametricRepresentationContext*(): RWStepReprRWParame
     constructor, importcpp: "RWStepRepr_RWParametricRepresentationContext(@)",
     header: "RWStepRepr_RWParametricRepresentationContext.hxx".}
 proc readStep*(this: RWStepReprRWParametricRepresentationContext;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprParametricRepresentationContext]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepReprRWParametricRepresentationContext;
                ent: Handle[StepReprParametricRepresentationContext]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWParametricRepresentationContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

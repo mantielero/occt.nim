@@ -17,3 +17,28 @@ type
   StdStorageDataMapIteratorOfMapOfRoots* = Iterator[TCollectionAsciiString,
       Handle[StdStorageRoot], TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

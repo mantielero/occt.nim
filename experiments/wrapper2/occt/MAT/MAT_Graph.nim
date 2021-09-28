@@ -21,7 +21,7 @@ discard "forward decl of MAT_Node"
 discard "forward decl of MAT_Graph"
 discard "forward decl of MAT_Graph"
 type
-  HandleMAT_Graph* = Handle[MAT_Graph]
+  HandleC1C1* = Handle[MAT_Graph]
 
 ## ! The Class Graph permits the exploration of the
 ## ! Bisector Locus.
@@ -71,26 +71,26 @@ type
 proc constructMAT_Graph*(): MAT_Graph {.constructor, importcpp: "MAT_Graph(@)",
                                      header: "MAT_Graph.hxx".}
 proc perform*(this: var MAT_Graph; semiInfinite: bool;
-             theRoots: Handle[MAT_ListOfBisector]; nbBasicElts: int; nbArcs: int) {.
+             theRoots: Handle[MAT_ListOfBisector]; nbBasicElts: cint; nbArcs: cint) {.
     importcpp: "Perform", header: "MAT_Graph.hxx".}
-proc arc*(this: MAT_Graph; index: int): Handle[MAT_Arc] {.noSideEffect,
+proc arc*(this: MAT_Graph; index: cint): Handle[MAT_Arc] {.noSideEffect,
     importcpp: "Arc", header: "MAT_Graph.hxx".}
-proc basicElt*(this: MAT_Graph; index: int): Handle[MAT_BasicElt] {.noSideEffect,
+proc basicElt*(this: MAT_Graph; index: cint): Handle[MAT_BasicElt] {.noSideEffect,
     importcpp: "BasicElt", header: "MAT_Graph.hxx".}
-proc node*(this: MAT_Graph; index: int): Handle[MAT_Node] {.noSideEffect,
+proc node*(this: MAT_Graph; index: cint): Handle[MAT_Node] {.noSideEffect,
     importcpp: "Node", header: "MAT_Graph.hxx".}
-proc numberOfArcs*(this: MAT_Graph): int {.noSideEffect, importcpp: "NumberOfArcs",
-                                       header: "MAT_Graph.hxx".}
-proc numberOfNodes*(this: MAT_Graph): int {.noSideEffect, importcpp: "NumberOfNodes",
+proc numberOfArcs*(this: MAT_Graph): cint {.noSideEffect, importcpp: "NumberOfArcs",
                                         header: "MAT_Graph.hxx".}
-proc numberOfBasicElts*(this: MAT_Graph): int {.noSideEffect,
+proc numberOfNodes*(this: MAT_Graph): cint {.noSideEffect,
+    importcpp: "NumberOfNodes", header: "MAT_Graph.hxx".}
+proc numberOfBasicElts*(this: MAT_Graph): cint {.noSideEffect,
     importcpp: "NumberOfBasicElts", header: "MAT_Graph.hxx".}
-proc numberOfInfiniteNodes*(this: MAT_Graph): int {.noSideEffect,
+proc numberOfInfiniteNodes*(this: MAT_Graph): cint {.noSideEffect,
     importcpp: "NumberOfInfiniteNodes", header: "MAT_Graph.hxx".}
-proc fusionOfBasicElts*(this: var MAT_Graph; indexElt1: int; indexElt2: int;
-                       mergeArc1: var bool; geomIndexArc1: var int;
-                       geomIndexArc2: var int; mergeArc2: var bool;
-                       geomIndexArc3: var int; geomIndexArc4: var int) {.
+proc fusionOfBasicElts*(this: var MAT_Graph; indexElt1: cint; indexElt2: cint;
+                       mergeArc1: var bool; geomIndexArc1: var cint;
+                       geomIndexArc2: var cint; mergeArc2: var bool;
+                       geomIndexArc3: var cint; geomIndexArc4: var cint) {.
     importcpp: "FusionOfBasicElts", header: "MAT_Graph.hxx".}
 proc compactArcs*(this: var MAT_Graph) {.importcpp: "CompactArcs",
                                      header: "MAT_Graph.hxx".}
@@ -98,7 +98,7 @@ proc compactNodes*(this: var MAT_Graph) {.importcpp: "CompactNodes",
                                       header: "MAT_Graph.hxx".}
 proc changeBasicElts*(this: var MAT_Graph; newMap: MAT_DataMapOfIntegerBasicElt) {.
     importcpp: "ChangeBasicElts", header: "MAT_Graph.hxx".}
-proc changeBasicElt*(this: var MAT_Graph; index: int): Handle[MAT_BasicElt] {.
+proc changeBasicElt*(this: var MAT_Graph; index: cint): Handle[MAT_BasicElt] {.
     importcpp: "ChangeBasicElt", header: "MAT_Graph.hxx".}
 type
   MAT_GraphbaseType* = StandardTransient
@@ -109,3 +109,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MAT_Graph::get_type_descriptor(@)", header: "MAT_Graph.hxx".}
 proc dynamicType*(this: MAT_Graph): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Graph.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

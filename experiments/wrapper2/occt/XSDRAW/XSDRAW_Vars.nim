@@ -25,7 +25,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of XSDRAW_Vars"
 discard "forward decl of XSDRAW_Vars"
 type
-  HandleXSDRAW_Vars* = Handle[XSDRAW_Vars]
+  HandleC1C1* = Handle[XSDRAW_Vars]
 
 ## ! Vars for DRAW session (i.e. DBRep and DrawTrSurf)
 
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "XSDRAW_Vars::get_type_descriptor(@)", header: "XSDRAW_Vars.hxx".}
 proc dynamicType*(this: XSDRAW_Vars): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XSDRAW_Vars.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

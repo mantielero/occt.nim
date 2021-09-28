@@ -18,7 +18,7 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of IGESDraw_Protocol"
 discard "forward decl of IGESDraw_Protocol"
 type
-  HandleIGESDrawProtocol* = Handle[IGESDrawProtocol]
+  HandleC1C1* = Handle[IGESDrawProtocol]
 
 ## ! Description of Protocol for IGESDraw
 
@@ -29,11 +29,11 @@ type
 
 proc constructIGESDrawProtocol*(): IGESDrawProtocol {.constructor,
     importcpp: "IGESDraw_Protocol(@)", header: "IGESDraw_Protocol.hxx".}
-proc nbResources*(this: IGESDrawProtocol): int {.noSideEffect,
+proc nbResources*(this: IGESDrawProtocol): cint {.noSideEffect,
     importcpp: "NbResources", header: "IGESDraw_Protocol.hxx".}
-proc resource*(this: IGESDrawProtocol; num: int): Handle[InterfaceProtocol] {.
+proc resource*(this: IGESDrawProtocol; num: cint): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Resource", header: "IGESDraw_Protocol.hxx".}
-proc typeNumber*(this: IGESDrawProtocol; atype: Handle[StandardType]): int {.
+proc typeNumber*(this: IGESDrawProtocol; atype: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "TypeNumber", header: "IGESDraw_Protocol.hxx".}
 type
   IGESDrawProtocolbaseType* = IGESDataProtocol
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDraw_Protocol.hxx".}
 proc dynamicType*(this: IGESDrawProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDraw_Protocol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

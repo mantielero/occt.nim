@@ -33,11 +33,36 @@ proc constructHLRBRepTheQuadCurvFuncOfTheQuadCurvExactInterCSurf*(
     importcpp: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf(@)",
     header: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf.hxx".}
 proc value*(this: var HLRBRepTheQuadCurvFuncOfTheQuadCurvExactInterCSurf;
-           param: float; f: var float): bool {.importcpp: "Value",
+           param: cfloat; f: var cfloat): bool {.importcpp: "Value",
     header: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf.hxx".}
 proc derivative*(this: var HLRBRepTheQuadCurvFuncOfTheQuadCurvExactInterCSurf;
-                param: float; d: var float): bool {.importcpp: "Derivative",
+                param: cfloat; d: var cfloat): bool {.importcpp: "Derivative",
     header: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf.hxx".}
 proc values*(this: var HLRBRepTheQuadCurvFuncOfTheQuadCurvExactInterCSurf;
-            param: float; f: var float; d: var float): bool {.importcpp: "Values",
+            param: cfloat; f: var cfloat; d: var cfloat): bool {.importcpp: "Values",
     header: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

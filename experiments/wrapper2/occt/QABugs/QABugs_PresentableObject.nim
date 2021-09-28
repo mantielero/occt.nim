@@ -15,7 +15,7 @@
 
 discard "forward decl of QABugs_PresentableObject"
 type
-  HandleQABugsPresentableObject* = Handle[QABugsPresentableObject]
+  HandleC1C1* = Handle[QABugsPresentableObject]
   QABugsPresentableObject* {.importcpp: "QABugs_PresentableObject",
                             header: "QABugs_PresentableObject.hxx", bycopy.} = object of AIS_InteractiveObject
 
@@ -31,3 +31,28 @@ proc dynamicType*(this: QABugsPresentableObject): Handle[StandardType] {.
 proc constructQABugsPresentableObject*(aTypeOfPresentation3d: PrsMgrTypeOfPresentation3d = prsMgrTOP_AllView): QABugsPresentableObject {.
     constructor, importcpp: "QABugs_PresentableObject(@)",
     header: "QABugs_PresentableObject.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

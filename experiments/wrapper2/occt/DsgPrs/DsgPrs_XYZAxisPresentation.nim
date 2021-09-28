@@ -126,14 +126,39 @@ type
 
 
 proc add*(aPresentation: Handle[Prs3dPresentation];
-         anLineAspect: Handle[Prs3dLineAspect]; aDir: Dir; aVal: float;
+         anLineAspect: Handle[Prs3dLineAspect]; aDir: Dir; aVal: cfloat;
          aText: StandardCString; aPfirst: Pnt; aPlast: Pnt) {.
     importcpp: "DsgPrs_XYZAxisPresentation::Add(@)",
     header: "DsgPrs_XYZAxisPresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation];
          aLineAspect: Handle[Prs3dLineAspect];
          anArrowAspect: Handle[Prs3dArrowAspect];
-         aTextAspect: Handle[Prs3dTextAspect]; aDir: Dir; aVal: float;
+         aTextAspect: Handle[Prs3dTextAspect]; aDir: Dir; aVal: cfloat;
          aText: StandardCString; aPfirst: Pnt; aPlast: Pnt) {.
     importcpp: "DsgPrs_XYZAxisPresentation::Add(@)",
     header: "DsgPrs_XYZAxisPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

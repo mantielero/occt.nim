@@ -15,3 +15,28 @@ type
   Graphic3dMapOfZLayerSettings* = NCollectionDataMap[Graphic3dZLayerId,
       Graphic3dZLayerSettings]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

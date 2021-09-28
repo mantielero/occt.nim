@@ -36,13 +36,14 @@ type
                                   ## ! if a vector is null).
 
 
-proc constructHLRBRepCLProps*(c: ptr HLRBRepCurve; n: int; resolution: float): HLRBRepCLProps {.
+proc constructHLRBRepCLProps*(c: ptr HLRBRepCurve; n: cint; resolution: cfloat): HLRBRepCLProps {.
     constructor, importcpp: "HLRBRep_CLProps(@)", header: "HLRBRep_CLProps.hxx".}
-proc constructHLRBRepCLProps*(c: ptr HLRBRepCurve; u: float; n: int; resolution: float): HLRBRepCLProps {.
+proc constructHLRBRepCLProps*(c: ptr HLRBRepCurve; u: cfloat; n: cint;
+                             resolution: cfloat): HLRBRepCLProps {.constructor,
+    importcpp: "HLRBRep_CLProps(@)", header: "HLRBRep_CLProps.hxx".}
+proc constructHLRBRepCLProps*(n: cint; resolution: cfloat): HLRBRepCLProps {.
     constructor, importcpp: "HLRBRep_CLProps(@)", header: "HLRBRep_CLProps.hxx".}
-proc constructHLRBRepCLProps*(n: int; resolution: float): HLRBRepCLProps {.
-    constructor, importcpp: "HLRBRep_CLProps(@)", header: "HLRBRep_CLProps.hxx".}
-proc setParameter*(this: var HLRBRepCLProps; u: float) {.importcpp: "SetParameter",
+proc setParameter*(this: var HLRBRepCLProps; u: cfloat) {.importcpp: "SetParameter",
     header: "HLRBRep_CLProps.hxx".}
 proc setCurve*(this: var HLRBRepCLProps; c: ptr HLRBRepCurve) {.importcpp: "SetCurve",
     header: "HLRBRep_CLProps.hxx".}
@@ -58,9 +59,34 @@ proc isTangentDefined*(this: var HLRBRepCLProps): bool {.
     importcpp: "IsTangentDefined", header: "HLRBRep_CLProps.hxx".}
 proc tangent*(this: var HLRBRepCLProps; d: var Dir2d) {.importcpp: "Tangent",
     header: "HLRBRep_CLProps.hxx".}
-proc curvature*(this: var HLRBRepCLProps): float {.importcpp: "Curvature",
+proc curvature*(this: var HLRBRepCLProps): cfloat {.importcpp: "Curvature",
     header: "HLRBRep_CLProps.hxx".}
 proc normal*(this: var HLRBRepCLProps; n: var Dir2d) {.importcpp: "Normal",
     header: "HLRBRep_CLProps.hxx".}
 proc centreOfCurvature*(this: var HLRBRepCLProps; p: var Pnt2d) {.
     importcpp: "CentreOfCurvature", header: "HLRBRep_CLProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

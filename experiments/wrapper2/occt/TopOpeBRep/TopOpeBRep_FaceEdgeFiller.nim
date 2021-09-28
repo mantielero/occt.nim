@@ -99,3 +99,28 @@ proc insert*(this: var TopOpeBRepFaceEdgeFiller; f: TopoDS_Shape; e: TopoDS_Shap
             feint: var TopOpeBRepFaceEdgeIntersector;
             hds: Handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Insert",
     header: "TopOpeBRep_FaceEdgeFiller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

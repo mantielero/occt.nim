@@ -30,7 +30,7 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TDataStdHDataMapOfStringInteger): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TDataStd_HDataMapOfStringInteger.hxx".}
-proc constructTDataStdHDataMapOfStringInteger*(nbBuckets: int = 1): TDataStdHDataMapOfStringInteger {.
+proc constructTDataStdHDataMapOfStringInteger*(nbBuckets: cint = 1): TDataStdHDataMapOfStringInteger {.
     constructor, importcpp: "TDataStd_HDataMapOfStringInteger(@)",
     header: "TDataStd_HDataMapOfStringInteger.hxx".}
 proc constructTDataStdHDataMapOfStringInteger*(
@@ -43,5 +43,30 @@ proc changeMap*(this: var TDataStdHDataMapOfStringInteger): var TColStdDataMapOf
     importcpp: "ChangeMap", header: "TDataStd_HDataMapOfStringInteger.hxx".}
 discard "forward decl of TDataStd_HDataMapOfStringInteger"
 type
-  HandleTDataStdHDataMapOfStringInteger* = Handle[TDataStdHDataMapOfStringInteger]
+  HandleC1C1* = Handle[TDataStdHDataMapOfStringInteger]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

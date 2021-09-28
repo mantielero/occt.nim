@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_ExtStringList"
 discard "forward decl of TDataStd_ExtStringList"
 type
-  HandleTDataStdExtStringList* = Handle[TDataStdExtStringList]
+  HandleC1C1* = Handle[TDataStdExtStringList]
 
 ## ! Contains a list of ExtendedString.
 
@@ -59,7 +59,7 @@ proc constructTDataStdExtStringList*(): TDataStdExtStringList {.constructor,
     importcpp: "TDataStd_ExtStringList(@)", header: "TDataStd_ExtStringList.hxx".}
 proc isEmpty*(this: TDataStdExtStringList): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "TDataStd_ExtStringList.hxx".}
-proc extent*(this: TDataStdExtStringList): int {.noSideEffect, importcpp: "Extent",
+proc extent*(this: TDataStdExtStringList): cint {.noSideEffect, importcpp: "Extent",
     header: "TDataStd_ExtStringList.hxx".}
 proc prepend*(this: var TDataStdExtStringList; value: TCollectionExtendedString) {.
     importcpp: "Prepend", header: "TDataStd_ExtStringList.hxx".}
@@ -73,18 +73,18 @@ proc insertBefore*(this: var TDataStdExtStringList;
                   value: TCollectionExtendedString;
                   beforeValue: TCollectionExtendedString): bool {.
     importcpp: "InsertBefore", header: "TDataStd_ExtStringList.hxx".}
-proc insertBefore*(this: var TDataStdExtStringList; index: int;
+proc insertBefore*(this: var TDataStdExtStringList; index: cint;
                   beforeValue: TCollectionExtendedString): bool {.
     importcpp: "InsertBefore", header: "TDataStd_ExtStringList.hxx".}
 proc insertAfter*(this: var TDataStdExtStringList; value: TCollectionExtendedString;
                  afterValue: TCollectionExtendedString): bool {.
     importcpp: "InsertAfter", header: "TDataStd_ExtStringList.hxx".}
-proc insertAfter*(this: var TDataStdExtStringList; index: int;
+proc insertAfter*(this: var TDataStdExtStringList; index: cint;
                  afterValue: TCollectionExtendedString): bool {.
     importcpp: "InsertAfter", header: "TDataStd_ExtStringList.hxx".}
 proc remove*(this: var TDataStdExtStringList; value: TCollectionExtendedString): bool {.
     importcpp: "Remove", header: "TDataStd_ExtStringList.hxx".}
-proc remove*(this: var TDataStdExtStringList; index: int): bool {.importcpp: "Remove",
+proc remove*(this: var TDataStdExtStringList; index: cint): bool {.importcpp: "Remove",
     header: "TDataStd_ExtStringList.hxx".}
 proc clear*(this: var TDataStdExtStringList) {.importcpp: "Clear",
     header: "TDataStd_ExtStringList.hxx".}
@@ -106,8 +106,8 @@ proc paste*(this: TDataStdExtStringList; into: Handle[TDF_Attribute];
 proc dump*(this: TDataStdExtStringList; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_ExtStringList.hxx".}
 proc dumpJson*(this: TDataStdExtStringList; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_ExtStringList.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_ExtStringList.hxx".}
 type
   TDataStdExtStringListbaseType* = TDF_Attribute
 
@@ -118,3 +118,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_ExtStringList.hxx".}
 proc dynamicType*(this: TDataStdExtStringList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_ExtStringList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SignAncestor"
 discard "forward decl of IFSelect_SignAncestor"
 type
-  HandleIFSelectSignAncestor* = Handle[IFSelectSignAncestor]
+  HandleC1C1* = Handle[IFSelectSignAncestor]
   IFSelectSignAncestor* {.importcpp: "IFSelect_SignAncestor",
                          header: "IFSelect_SignAncestor.hxx", bycopy.} = object of IFSelectSignType
 
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SignAncestor.hxx".}
 proc dynamicType*(this: IFSelectSignAncestor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SignAncestor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

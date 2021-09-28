@@ -32,26 +32,26 @@ type
 
 
 proc constructGeom2dEvaluatorOffsetCurve*(theBase: Handle[Geom2dCurve];
-    theOffset: float): Geom2dEvaluatorOffsetCurve {.constructor,
+    theOffset: StandardReal): Geom2dEvaluatorOffsetCurve {.constructor,
     importcpp: "Geom2dEvaluator_OffsetCurve(@)",
     header: "Geom2dEvaluator_OffsetCurve.hxx".}
 proc constructGeom2dEvaluatorOffsetCurve*(theBase: Handle[Geom2dAdaptorHCurve];
-    theOffset: float): Geom2dEvaluatorOffsetCurve {.constructor,
+    theOffset: StandardReal): Geom2dEvaluatorOffsetCurve {.constructor,
     importcpp: "Geom2dEvaluator_OffsetCurve(@)",
     header: "Geom2dEvaluator_OffsetCurve.hxx".}
-proc setOffsetValue*(this: var Geom2dEvaluatorOffsetCurve; theOffset: float) {.
+proc setOffsetValue*(this: var Geom2dEvaluatorOffsetCurve; theOffset: StandardReal) {.
     importcpp: "SetOffsetValue", header: "Geom2dEvaluator_OffsetCurve.hxx".}
-proc d0*(this: Geom2dEvaluatorOffsetCurve; theU: float; theValue: var Pnt2d) {.
+proc d0*(this: Geom2dEvaluatorOffsetCurve; theU: StandardReal; theValue: var Pnt2d) {.
     noSideEffect, importcpp: "D0", header: "Geom2dEvaluator_OffsetCurve.hxx".}
-proc d1*(this: Geom2dEvaluatorOffsetCurve; theU: float; theValue: var Pnt2d;
+proc d1*(this: Geom2dEvaluatorOffsetCurve; theU: StandardReal; theValue: var Pnt2d;
         theD1: var Vec2d) {.noSideEffect, importcpp: "D1",
                          header: "Geom2dEvaluator_OffsetCurve.hxx".}
-proc d2*(this: Geom2dEvaluatorOffsetCurve; theU: float; theValue: var Pnt2d;
+proc d2*(this: Geom2dEvaluatorOffsetCurve; theU: StandardReal; theValue: var Pnt2d;
         theD1: var Vec2d; theD2: var Vec2d) {.noSideEffect, importcpp: "D2", header: "Geom2dEvaluator_OffsetCurve.hxx".}
-proc d3*(this: Geom2dEvaluatorOffsetCurve; theU: float; theValue: var Pnt2d;
+proc d3*(this: Geom2dEvaluatorOffsetCurve; theU: StandardReal; theValue: var Pnt2d;
         theD1: var Vec2d; theD2: var Vec2d; theD3: var Vec2d) {.noSideEffect,
     importcpp: "D3", header: "Geom2dEvaluator_OffsetCurve.hxx".}
-proc dn*(this: Geom2dEvaluatorOffsetCurve; theU: float; theDeriv: int): Vec2d {.
+proc dn*(this: Geom2dEvaluatorOffsetCurve; theU: StandardReal; theDeriv: int): Vec2d {.
     noSideEffect, importcpp: "DN", header: "Geom2dEvaluator_OffsetCurve.hxx".}
 type
   Geom2dEvaluatorOffsetCurvebaseType* = Geom2dEvaluatorCurve
@@ -66,5 +66,4 @@ proc dynamicType*(this: Geom2dEvaluatorOffsetCurve): Handle[StandardType] {.
     header: "Geom2dEvaluator_OffsetCurve.hxx".}
 discard "forward decl of Geom2dEvaluator_OffsetCurve"
 type
-  HandleGeom2dEvaluatorOffsetCurve* = Handle[Geom2dEvaluatorOffsetCurve]
-
+  HandleC1C1* = Handle[Geom2dEvaluatorOffsetCurve]

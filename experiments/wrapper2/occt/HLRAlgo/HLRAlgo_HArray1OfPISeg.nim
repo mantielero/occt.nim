@@ -14,32 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HLRAlgoHArray1OfPISeg* {.importcpp: "HLRAlgo_HArray1OfPISeg",
-                          header: "HLRAlgo_HArray1OfPISeg.hxx", bycopy.} = object of HLRAlgoArray1OfPISeg
+## !!!Ignored construct:  # HLRAlgo_HArray1OfPISeg_HeaderFile [NewLine] # HLRAlgo_HArray1OfPISeg_HeaderFile [NewLine] # < HLRAlgo_PolyInternalSegment . hxx > [NewLine] # < HLRAlgo_Array1OfPISeg . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( HLRAlgo_HArray1OfPISeg , HLRAlgo_Array1OfPISeg ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructHLRAlgoHArray1OfPISeg*(theLower: int; theUpper: int): HLRAlgoHArray1OfPISeg {.
-    constructor, importcpp: "HLRAlgo_HArray1OfPISeg(@)",
-    header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc constructHLRAlgoHArray1OfPISeg*(theLower: int; theUpper: int;
-                                    theValue: ValueType): HLRAlgoHArray1OfPISeg {.
-    constructor, importcpp: "HLRAlgo_HArray1OfPISeg(@)",
-    header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc constructHLRAlgoHArray1OfPISeg*(theOther: HLRAlgoArray1OfPISeg): HLRAlgoHArray1OfPISeg {.
-    constructor, importcpp: "HLRAlgo_HArray1OfPISeg(@)",
-    header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc array1*(this: HLRAlgoHArray1OfPISeg): HLRAlgoArray1OfPISeg {.noSideEffect,
-    importcpp: "Array1", header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc changeArray1*(this: var HLRAlgoHArray1OfPISeg): var HLRAlgoArray1OfPISeg {.
-    importcpp: "ChangeArray1", header: "HLRAlgo_HArray1OfPISeg.hxx".}
-type
-  HLRAlgoHArray1OfPISegbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "HLRAlgo_HArray1OfPISeg::get_type_name(@)",
-                            header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "HLRAlgo_HArray1OfPISeg::get_type_descriptor(@)",
-    header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc dynamicType*(this: HLRAlgoHArray1OfPISeg): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "HLRAlgo_HArray1OfPISeg.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

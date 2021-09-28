@@ -18,7 +18,7 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of Geom2d_Point"
 discard "forward decl of Geom2d_Point"
 type
-  HandleGeom2dPoint* = Handle[Geom2dPoint]
+  HandleC1C1* = Handle[Geom2dPoint]
 
 ## ! The abstract class Point describes the common
 ## ! behavior of geometric points in 2D space.
@@ -35,17 +35,17 @@ type
                                                                                                   ## <me>.
 
 
-proc coord*(this: Geom2dPoint; x: var float; y: var float) {.noSideEffect,
+proc coord*(this: Geom2dPoint; x: var StandardReal; y: var StandardReal) {.noSideEffect,
     importcpp: "Coord", header: "Geom2d_Point.hxx".}
 proc pnt2d*(this: Geom2dPoint): Pnt2d {.noSideEffect, importcpp: "Pnt2d",
                                     header: "Geom2d_Point.hxx".}
-proc x*(this: Geom2dPoint): float {.noSideEffect, importcpp: "X",
-                                header: "Geom2d_Point.hxx".}
-proc y*(this: Geom2dPoint): float {.noSideEffect, importcpp: "Y",
-                                header: "Geom2d_Point.hxx".}
-proc distance*(this: Geom2dPoint; other: Handle[Geom2dPoint]): float {.noSideEffect,
-    importcpp: "Distance", header: "Geom2d_Point.hxx".}
-proc squareDistance*(this: Geom2dPoint; other: Handle[Geom2dPoint]): float {.
+proc x*(this: Geom2dPoint): StandardReal {.noSideEffect, importcpp: "X",
+                                       header: "Geom2d_Point.hxx".}
+proc y*(this: Geom2dPoint): StandardReal {.noSideEffect, importcpp: "Y",
+                                       header: "Geom2d_Point.hxx".}
+proc distance*(this: Geom2dPoint; other: Handle[Geom2dPoint]): StandardReal {.
+    noSideEffect, importcpp: "Distance", header: "Geom2d_Point.hxx".}
+proc squareDistance*(this: Geom2dPoint; other: Handle[Geom2dPoint]): StandardReal {.
     noSideEffect, importcpp: "SquareDistance", header: "Geom2d_Point.hxx".}
 proc dumpJson*(this: Geom2dPoint; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom2d_Point.hxx".}

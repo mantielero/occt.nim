@@ -52,19 +52,64 @@
 ##           UseHandle(pk_class,object);
 ##   Declaration of a static Handle : first use for a given type
 
-## !!!Ignored construct:  # StaticHandle ( type , var ) static struct type ## _struc { opencascade :: handle < type > H ; } * var ## _s = NULL [NewLine]   Another declaration for an already declared type (with StaticHandle) # StaticHandleA ( type , var ) static struct type ## _struc * var ## _s = NULL [NewLine]   Using it (IT MUST HAVE BEEN FORMERLY INITIALIZED) # UseHandle ( type , var ) opencascade :: handle < type > & var = var ## _s -> H [NewLine]   Initializing it (as Null Handle) # InitHandle ( type , var ) if ( ! var ## _s ) { var ## _s = new type ## _struc ; } opencascade :: handle < type > & var = var ## _s -> H ;
+## !!!Ignored construct:  # StaticHandle ( type , var ) static struct type ## _struc { Handle ( type ) H ; } * var ## _s = NULL [NewLine]   Another declaration for an already declared type (with StaticHandle) # StaticHandleA ( type , var ) static struct type ## _struc * var ## _s = NULL [NewLine]   Using it (IT MUST HAVE BEEN FORMERLY INITIALIZED) # UseHandle ( type , var ) Handle ( type ) & var = var ## _s -> H [NewLine]   Initializing it (as Null Handle) # InitHandle ( type , var ) if ( ! var ## _s ) { var ## _s = new type ## _struc ; } Handle ( type ) & var = var ## _s -> H ;
 ## Error: identifier expected, but got: ##!!!
 
-## !!!Ignored construct:  [NewLine]   Initializing it and Creating it by a Void Constructor # InitHandleVoid ( type , var ) if ( ! var ## _s ) { var ## _s = new type ## _struc ; var ## _s -> H = new type ; } opencascade :: handle < type > & var = var ## _s -> H ;
+## !!!Ignored construct:  [NewLine]   Initializing it and Creating it by a Void Constructor # InitHandleVoid ( type , var ) if ( ! var ## _s ) { var ## _s = new type ## _struc ; var ## _s -> H = new type ; } Handle ( type ) & var = var ## _s -> H ;
 ## Error: did not expect [NewLine]!!!
 
 ## !!!Ignored construct:  [NewLine]   Initializing it and Creating it by a Constructor with Arguments
-##     (give them grouped in their parentheses) # InitHandleArgs ( type , var , args ) if ( ! var ## _s ) { var ## _s = new type ## _struc ; var ## _s -> H = new type args ; } opencascade :: handle < type > & var = var ## _s -> H ;
+##     (give them grouped in their parentheses) # InitHandleArgs ( type , var , args ) if ( ! var ## _s ) { var ## _s = new type ## _struc ; var ## _s -> H = new type args ; } Handle ( type ) & var = var ## _s -> H ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine]   Initializing it from an already determined Value # InitHandleVal ( type , var , value ) if ( ! var ## _s ) { var ## _s = new type ## _struc ; var ## _s -> H = value ; } opencascade :: handle < type > & var = var ## _s -> H ;
+## !!!Ignored construct:  [NewLine]   Initializing it from an already determined Value # InitHandleVal ( type , var , value ) if ( ! var ## _s ) { var ## _s = new type ## _struc ; var ## _s -> H = value ; } Handle ( type ) & var = var ## _s -> H ;
 ## Error: did not expect [NewLine]!!!
 
 ## !!!Ignored construct:  [NewLine]
 ## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -19,8 +19,7 @@ discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_RepresentationRelationship"
 discard "forward decl of StepRepr_RepresentationRelationship"
 type
-  HandleStepReprRepresentationRelationship* = Handle[
-      StepReprRepresentationRelationship]
+  HandleC1C1* = Handle[StepReprRepresentationRelationship]
   StepReprRepresentationRelationship* {.importcpp: "StepRepr_RepresentationRelationship", header: "StepRepr_RepresentationRelationship.hxx",
                                        bycopy.} = object of StandardTransient ## ! Returns a
                                                                          ## RepresentationRelationship
@@ -70,3 +69,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprRepresentationRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_RepresentationRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

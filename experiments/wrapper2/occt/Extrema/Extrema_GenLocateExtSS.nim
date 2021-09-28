@@ -26,19 +26,44 @@ type
 proc constructExtremaGenLocateExtSS*(): ExtremaGenLocateExtSS {.constructor,
     importcpp: "Extrema_GenLocateExtSS(@)", header: "Extrema_GenLocateExtSS.hxx".}
 proc constructExtremaGenLocateExtSS*(s1: Adaptor3dSurface; s2: Adaptor3dSurface;
-                                    u1: float; v1: float; u2: float; v2: float;
-                                    tol1: float; tol2: float): ExtremaGenLocateExtSS {.
+                                    u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
+                                    tol1: cfloat; tol2: cfloat): ExtremaGenLocateExtSS {.
     constructor, importcpp: "Extrema_GenLocateExtSS(@)",
     header: "Extrema_GenLocateExtSS.hxx".}
 proc perform*(this: var ExtremaGenLocateExtSS; s1: Adaptor3dSurface;
-             s2: Adaptor3dSurface; u1: float; v1: float; u2: float; v2: float;
-             tol1: float; tol2: float) {.importcpp: "Perform",
-                                     header: "Extrema_GenLocateExtSS.hxx".}
+             s2: Adaptor3dSurface; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
+             tol1: cfloat; tol2: cfloat) {.importcpp: "Perform",
+                                       header: "Extrema_GenLocateExtSS.hxx".}
 proc isDone*(this: ExtremaGenLocateExtSS): bool {.noSideEffect, importcpp: "IsDone",
     header: "Extrema_GenLocateExtSS.hxx".}
-proc squareDistance*(this: ExtremaGenLocateExtSS): float {.noSideEffect,
+proc squareDistance*(this: ExtremaGenLocateExtSS): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_GenLocateExtSS.hxx".}
 proc pointOnS1*(this: ExtremaGenLocateExtSS): ExtremaPOnSurf {.noSideEffect,
     importcpp: "PointOnS1", header: "Extrema_GenLocateExtSS.hxx".}
 proc pointOnS2*(this: ExtremaGenLocateExtSS): ExtremaPOnSurf {.noSideEffect,
     importcpp: "PointOnS2", header: "Extrema_GenLocateExtSS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

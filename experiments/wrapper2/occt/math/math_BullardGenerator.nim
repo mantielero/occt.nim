@@ -30,5 +30,30 @@ proc setSeed*(this: var MathBullardGenerator; theSeed: cuint = 1) {.
     importcpp: "SetSeed", header: "math_BullardGenerator.hxx".}
 proc nextInt*(this: var MathBullardGenerator): cuint {.importcpp: "NextInt",
     header: "math_BullardGenerator.hxx".}
-proc nextReal*(this: var MathBullardGenerator): float {.importcpp: "NextReal",
+proc nextReal*(this: var MathBullardGenerator): cfloat {.importcpp: "NextReal",
     header: "math_BullardGenerator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

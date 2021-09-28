@@ -17,3 +17,28 @@
 type
   StepShapeArray1OfOrientedEdge* = NCollectionArray1[Handle[StepShapeOrientedEdge]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

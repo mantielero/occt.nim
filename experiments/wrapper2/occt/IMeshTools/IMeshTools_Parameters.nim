@@ -21,12 +21,12 @@ type
                                                                            ## Default
                                                                            ## constructor
     meshAlgo* {.importc: "MeshAlgo".}: IMeshToolsMeshAlgoType ## ! Angular deflection used to tessellate the boundary edges
-    angle* {.importc: "Angle".}: float ## !Linear deflection used to tessellate the boundary edges
-    deflection* {.importc: "Deflection".}: float ## ! Angular deflection used to tessellate the face interior
-    angleInterior* {.importc: "AngleInterior".}: float ## ! Linear deflection used to tessellate the face interior
-    deflectionInterior* {.importc: "DeflectionInterior".}: float ## ! Minimum size parameter limiting size of triangle's edges to prevent
-                                                             ## ! sinking into amplification in case of distorted curves and surfaces.
-    minSize* {.importc: "MinSize".}: float ## ! Switches on/off multi-thread computation
+    angle* {.importc: "Angle".}: cfloat ## !Linear deflection used to tessellate the boundary edges
+    deflection* {.importc: "Deflection".}: cfloat ## ! Angular deflection used to tessellate the face interior
+    angleInterior* {.importc: "AngleInterior".}: cfloat ## ! Linear deflection used to tessellate the face interior
+    deflectionInterior* {.importc: "DeflectionInterior".}: cfloat ## ! Minimum size parameter limiting size of triangle's edges to prevent
+                                                              ## ! sinking into amplification in case of distorted curves and surfaces.
+    minSize* {.importc: "MinSize".}: cfloat ## ! Switches on/off multi-thread computation
     inParallel* {.importc: "InParallel".}: bool ## ! Switches on/off relative computation of edge tolerance<br>
                                             ## ! If true, deflection used for the polygonalisation of each edge will be
                                             ## ! <defle> * Size of Edge. The deflection used for the faces will be the
@@ -50,5 +50,30 @@ type
 
 proc constructIMeshToolsParameters*(): IMeshToolsParameters {.constructor,
     importcpp: "IMeshTools_Parameters(@)", header: "IMeshTools_Parameters.hxx".}
-proc relMinSize*(): float {.importcpp: "IMeshTools_Parameters::RelMinSize(@)",
-                         header: "IMeshTools_Parameters.hxx".}
+proc relMinSize*(): cfloat {.importcpp: "IMeshTools_Parameters::RelMinSize(@)",
+                          header: "IMeshTools_Parameters.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

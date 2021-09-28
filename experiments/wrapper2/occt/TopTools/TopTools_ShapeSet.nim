@@ -28,17 +28,17 @@ proc constructTopToolsShapeSet*(): TopToolsShapeSet {.constructor,
     importcpp: "TopTools_ShapeSet(@)", header: "TopTools_ShapeSet.hxx".}
 proc destroyTopToolsShapeSet*(this: var TopToolsShapeSet) {.
     importcpp: "#.~TopTools_ShapeSet()", header: "TopTools_ShapeSet.hxx".}
-proc setFormatNb*(this: var TopToolsShapeSet; theFormatNb: int) {.
+proc setFormatNb*(this: var TopToolsShapeSet; theFormatNb: cint) {.
     importcpp: "SetFormatNb", header: "TopTools_ShapeSet.hxx".}
-proc formatNb*(this: TopToolsShapeSet): int {.noSideEffect, importcpp: "FormatNb",
+proc formatNb*(this: TopToolsShapeSet): cint {.noSideEffect, importcpp: "FormatNb",
     header: "TopTools_ShapeSet.hxx".}
 proc clear*(this: var TopToolsShapeSet) {.importcpp: "Clear",
                                       header: "TopTools_ShapeSet.hxx".}
-proc add*(this: var TopToolsShapeSet; s: TopoDS_Shape): int {.importcpp: "Add",
+proc add*(this: var TopToolsShapeSet; s: TopoDS_Shape): cint {.importcpp: "Add",
     header: "TopTools_ShapeSet.hxx".}
-proc shape*(this: TopToolsShapeSet; i: int): TopoDS_Shape {.noSideEffect,
+proc shape*(this: TopToolsShapeSet; i: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TopTools_ShapeSet.hxx".}
-proc index*(this: TopToolsShapeSet; s: TopoDS_Shape): int {.noSideEffect,
+proc index*(this: TopToolsShapeSet; s: TopoDS_Shape): cint {.noSideEffect,
     importcpp: "Index", header: "TopTools_ShapeSet.hxx".}
 proc locations*(this: TopToolsShapeSet): TopToolsLocationSet {.noSideEffect,
     importcpp: "Locations", header: "TopTools_ShapeSet.hxx".}
@@ -83,5 +83,30 @@ proc addShapes*(this: var TopToolsShapeSet; s1: var TopoDS_Shape; s2: TopoDS_Sha
     importcpp: "AddShapes", header: "TopTools_ShapeSet.hxx".}
 proc check*(this: var TopToolsShapeSet; t: TopAbsShapeEnum; s: var TopoDS_Shape) {.
     importcpp: "Check", header: "TopTools_ShapeSet.hxx".}
-proc nbShapes*(this: TopToolsShapeSet): int {.noSideEffect, importcpp: "NbShapes",
+proc nbShapes*(this: TopToolsShapeSet): cint {.noSideEffect, importcpp: "NbShapes",
     header: "TopTools_ShapeSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_ReaderModule"
 discard "forward decl of Interface_ReaderModule"
 type
-  HandleInterfaceReaderModule* = Handle[InterfaceReaderModule]
+  HandleC1C1* = Handle[InterfaceReaderModule]
 
 ## ! Defines unitary operations required to read an Entity from a
 ## ! File (see FileReaderData, FileReaderTool), under control of
@@ -61,14 +61,14 @@ type
 
 
 proc caseNum*(this: InterfaceReaderModule; data: Handle[InterfaceFileReaderData];
-             num: int): int {.noSideEffect, importcpp: "CaseNum",
-                           header: "Interface_ReaderModule.hxx".}
-proc read*(this: InterfaceReaderModule; casenum: int;
-          data: Handle[InterfaceFileReaderData]; num: int;
+             num: cint): cint {.noSideEffect, importcpp: "CaseNum",
+                             header: "Interface_ReaderModule.hxx".}
+proc read*(this: InterfaceReaderModule; casenum: cint;
+          data: Handle[InterfaceFileReaderData]; num: cint;
           ach: var Handle[InterfaceCheck]; ent: Handle[StandardTransient]) {.
     noSideEffect, importcpp: "Read", header: "Interface_ReaderModule.hxx".}
-proc newRead*(this: InterfaceReaderModule; casenum: int;
-             data: Handle[InterfaceFileReaderData]; num: int;
+proc newRead*(this: InterfaceReaderModule; casenum: cint;
+             data: Handle[InterfaceFileReaderData]; num: cint;
              ach: var Handle[InterfaceCheck]; ent: var Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "NewRead", header: "Interface_ReaderModule.hxx".}
 type
@@ -81,3 +81,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_ReaderModule.hxx".}
 proc dynamicType*(this: InterfaceReaderModule): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_ReaderModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

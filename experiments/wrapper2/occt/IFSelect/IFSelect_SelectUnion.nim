@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectUnion"
 discard "forward decl of IFSelect_SelectUnion"
 type
-  HandleIFSelectSelectUnion* = Handle[IFSelectSelectUnion]
+  HandleC1C1* = Handle[IFSelectSelectUnion]
 
 ## ! A SelectUnion cumulates the Entities issued from several other
 ## ! Selections (union of results : "OR" operator)
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectUnion.hxx".}
 proc dynamicType*(this: IFSelectSelectUnion): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectUnion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

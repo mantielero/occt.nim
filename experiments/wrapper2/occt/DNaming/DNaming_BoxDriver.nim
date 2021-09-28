@@ -19,7 +19,7 @@ discard "forward decl of BRepPrimAPI_MakeBox"
 discard "forward decl of DNaming_BoxDriver"
 discard "forward decl of DNaming_BoxDriver"
 type
-  HandleDNamingBoxDriver* = Handle[DNamingBoxDriver]
+  HandleC1C1* = Handle[DNamingBoxDriver]
   DNamingBoxDriver* {.importcpp: "DNaming_BoxDriver",
                      header: "DNaming_BoxDriver.hxx", bycopy.} = object of TFunctionDriver ##
                                                                                     ## !
@@ -38,7 +38,7 @@ proc validate*(this: DNamingBoxDriver; theLog: var Handle[TFunctionLogbook]) {.
     noSideEffect, importcpp: "Validate", header: "DNaming_BoxDriver.hxx".}
 proc mustExecute*(this: DNamingBoxDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_BoxDriver.hxx".}
-proc execute*(this: DNamingBoxDriver; theLog: var Handle[TFunctionLogbook]): int {.
+proc execute*(this: DNamingBoxDriver; theLog: var Handle[TFunctionLogbook]): cint {.
     noSideEffect, importcpp: "Execute", header: "DNaming_BoxDriver.hxx".}
 type
   DNamingBoxDriverbaseType* = TFunctionDriver
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DNaming_BoxDriver.hxx".}
 proc dynamicType*(this: DNamingBoxDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_BoxDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

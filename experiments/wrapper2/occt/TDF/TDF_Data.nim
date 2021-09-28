@@ -21,7 +21,7 @@ discard "forward decl of TDF_Label"
 discard "forward decl of TDF_Data"
 discard "forward decl of TDF_Data"
 type
-  HandleTDF_Data* = Handle[TDF_Data]
+  HandleC1C1* = Handle[TDF_Data]
 
 ## ! This class is used to manipulate a complete
 ## ! independant, self sufficient data structure and
@@ -75,10 +75,10 @@ proc constructTDF_Data*(): TDF_Data {.constructor, importcpp: "TDF_Data(@)",
                                    header: "TDF_Data.hxx".}
 proc root*(this: TDF_Data): TDF_Label {.noSideEffect, importcpp: "Root",
                                     header: "TDF_Data.hxx".}
-proc transaction*(this: TDF_Data): int {.noSideEffect, importcpp: "Transaction",
-                                     header: "TDF_Data.hxx".}
-proc time*(this: TDF_Data): int {.noSideEffect, importcpp: "Time",
-                              header: "TDF_Data.hxx".}
+proc transaction*(this: TDF_Data): cint {.noSideEffect, importcpp: "Transaction",
+                                      header: "TDF_Data.hxx".}
+proc time*(this: TDF_Data): cint {.noSideEffect, importcpp: "Time",
+                               header: "TDF_Data.hxx".}
 proc isApplicable*(this: TDF_Data; aDelta: Handle[TDF_Delta]): bool {.noSideEffect,
     importcpp: "IsApplicable", header: "TDF_Data.hxx".}
 proc undo*(this: var TDF_Data; aDelta: Handle[TDF_Delta]; withDelta: bool = false): Handle[
@@ -98,7 +98,7 @@ proc isModificationAllowed*(this: TDF_Data): bool {.noSideEffect,
     importcpp: "IsModificationAllowed", header: "TDF_Data.hxx".}
 proc labelNodeAllocator*(this: TDF_Data): TDF_HAllocator {.noSideEffect,
     importcpp: "LabelNodeAllocator", header: "TDF_Data.hxx".}
-proc dumpJson*(this: TDF_Data; theOStream: var StandardOStream; theDepth: int = -1) {.
+proc dumpJson*(this: TDF_Data; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "TDF_Data.hxx".}
 type
   TDF_DatabaseType* = StandardTransient
@@ -109,3 +109,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_Data::get_type_descriptor(@)", header: "TDF_Data.hxx".}
 proc dynamicType*(this: TDF_Data): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_Data.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

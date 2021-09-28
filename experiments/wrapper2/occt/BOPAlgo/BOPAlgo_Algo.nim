@@ -26,3 +26,28 @@ type
 
 proc perform*(this: var BOPAlgoAlgo) {.importcpp: "Perform",
                                    header: "BOPAlgo_Algo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

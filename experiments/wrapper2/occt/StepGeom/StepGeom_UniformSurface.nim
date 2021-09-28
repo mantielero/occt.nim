@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_UniformSurface"
 discard "forward decl of StepGeom_UniformSurface"
 type
-  HandleStepGeomUniformSurface* = Handle[StepGeomUniformSurface]
+  HandleC1C1* = Handle[StepGeomUniformSurface]
   StepGeomUniformSurface* {.importcpp: "StepGeom_UniformSurface",
                            header: "StepGeom_UniformSurface.hxx", bycopy.} = object of StepGeomBSplineSurface ##
                                                                                                        ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_UniformSurface.hxx".}
 proc dynamicType*(this: StepGeomUniformSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_UniformSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

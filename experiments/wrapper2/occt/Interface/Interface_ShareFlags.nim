@@ -70,7 +70,32 @@ proc isShared*(this: InterfaceShareFlags; ent: Handle[StandardTransient]): bool 
     noSideEffect, importcpp: "IsShared", header: "Interface_ShareFlags.hxx".}
 proc rootEntities*(this: InterfaceShareFlags): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootEntities", header: "Interface_ShareFlags.hxx".}
-proc nbRoots*(this: InterfaceShareFlags): int {.noSideEffect, importcpp: "NbRoots",
+proc nbRoots*(this: InterfaceShareFlags): cint {.noSideEffect, importcpp: "NbRoots",
     header: "Interface_ShareFlags.hxx".}
-proc root*(this: InterfaceShareFlags; num: int = 1): Handle[StandardTransient] {.
+proc root*(this: InterfaceShareFlags; num: cint = 1): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Root", header: "Interface_ShareFlags.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

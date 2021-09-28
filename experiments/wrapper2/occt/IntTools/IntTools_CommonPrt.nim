@@ -36,15 +36,15 @@ proc setType*(this: var IntToolsCommonPrt; aType: TopAbsShapeEnum) {.
     importcpp: "SetType", header: "IntTools_CommonPrt.hxx".}
 proc setRange1*(this: var IntToolsCommonPrt; aR: IntToolsRange) {.
     importcpp: "SetRange1", header: "IntTools_CommonPrt.hxx".}
-proc setRange1*(this: var IntToolsCommonPrt; tf: float; tl: float) {.
+proc setRange1*(this: var IntToolsCommonPrt; tf: cfloat; tl: cfloat) {.
     importcpp: "SetRange1", header: "IntTools_CommonPrt.hxx".}
 proc appendRange2*(this: var IntToolsCommonPrt; aR: IntToolsRange) {.
     importcpp: "AppendRange2", header: "IntTools_CommonPrt.hxx".}
-proc appendRange2*(this: var IntToolsCommonPrt; tf: float; tl: float) {.
+proc appendRange2*(this: var IntToolsCommonPrt; tf: cfloat; tl: cfloat) {.
     importcpp: "AppendRange2", header: "IntTools_CommonPrt.hxx".}
-proc setVertexParameter1*(this: var IntToolsCommonPrt; tV: float) {.
+proc setVertexParameter1*(this: var IntToolsCommonPrt; tV: cfloat) {.
     importcpp: "SetVertexParameter1", header: "IntTools_CommonPrt.hxx".}
-proc setVertexParameter2*(this: var IntToolsCommonPrt; tV: float) {.
+proc setVertexParameter2*(this: var IntToolsCommonPrt; tV: cfloat) {.
     importcpp: "SetVertexParameter2", header: "IntTools_CommonPrt.hxx".}
 proc edge1*(this: IntToolsCommonPrt): TopoDS_Edge {.noSideEffect, importcpp: "Edge1",
     header: "IntTools_CommonPrt.hxx".}
@@ -54,15 +54,15 @@ proc `type`*(this: IntToolsCommonPrt): TopAbsShapeEnum {.noSideEffect,
     importcpp: "Type", header: "IntTools_CommonPrt.hxx".}
 proc range1*(this: IntToolsCommonPrt): IntToolsRange {.noSideEffect,
     importcpp: "Range1", header: "IntTools_CommonPrt.hxx".}
-proc range1*(this: IntToolsCommonPrt; tf: var float; tl: var float) {.noSideEffect,
+proc range1*(this: IntToolsCommonPrt; tf: var cfloat; tl: var cfloat) {.noSideEffect,
     importcpp: "Range1", header: "IntTools_CommonPrt.hxx".}
 proc ranges2*(this: IntToolsCommonPrt): IntToolsSequenceOfRanges {.noSideEffect,
     importcpp: "Ranges2", header: "IntTools_CommonPrt.hxx".}
 proc changeRanges2*(this: var IntToolsCommonPrt): var IntToolsSequenceOfRanges {.
     importcpp: "ChangeRanges2", header: "IntTools_CommonPrt.hxx".}
-proc vertexParameter1*(this: IntToolsCommonPrt): float {.noSideEffect,
+proc vertexParameter1*(this: IntToolsCommonPrt): cfloat {.noSideEffect,
     importcpp: "VertexParameter1", header: "IntTools_CommonPrt.hxx".}
-proc vertexParameter2*(this: IntToolsCommonPrt): float {.noSideEffect,
+proc vertexParameter2*(this: IntToolsCommonPrt): cfloat {.noSideEffect,
     importcpp: "VertexParameter2", header: "IntTools_CommonPrt.hxx".}
 proc copy*(this: IntToolsCommonPrt; anOther: var IntToolsCommonPrt) {.noSideEffect,
     importcpp: "Copy", header: "IntTools_CommonPrt.hxx".}
@@ -74,3 +74,28 @@ proc setBoundingPoints*(this: var IntToolsCommonPrt; aP1: Pnt; aP2: Pnt) {.
     importcpp: "SetBoundingPoints", header: "IntTools_CommonPrt.hxx".}
 proc boundingPoints*(this: IntToolsCommonPrt; aP1: var Pnt; aP2: var Pnt) {.noSideEffect,
     importcpp: "BoundingPoints", header: "IntTools_CommonPrt.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

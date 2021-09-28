@@ -192,13 +192,13 @@ type
   OpenGlShaderObjectShaderVariable* {.importcpp: "OpenGl_ShaderObject::ShaderVariable",
                                      header: "OpenGl_ShaderObject.hxx", bycopy.} = object
     name* {.importc: "Name".}: TCollectionAsciiString ## !< variable name
-    stages* {.importc: "Stages".}: int ## !< active stages as Graphic3d_TypeOfShaderObject bits;
-                                   ## !  for in/out variables, intermediate stages will be automatically filled
-                                   ## ! Create new shader variable.
+    stages* {.importc: "Stages".}: cint ## !< active stages as Graphic3d_TypeOfShaderObject bits;
+                                    ## !  for in/out variables, intermediate stages will be automatically filled
+                                    ## ! Create new shader variable.
 
 
 proc constructOpenGlShaderObjectShaderVariable*(
-    theVarName: TCollectionAsciiString; theShaderStageBits: int): OpenGlShaderObjectShaderVariable {.
+    theVarName: TCollectionAsciiString; theShaderStageBits: cint): OpenGlShaderObjectShaderVariable {.
     constructor, importcpp: "OpenGl_ShaderObject::ShaderVariable(@)",
     header: "OpenGl_ShaderObject.hxx".}
 proc constructOpenGlShaderObjectShaderVariable*(): OpenGlShaderObjectShaderVariable {.
@@ -213,7 +213,7 @@ proc createFromSource*(theSource: var TCollectionAsciiString;
                       theUniforms: OpenGlShaderObjectShaderVariableList;
                       theStageInOuts: OpenGlShaderObjectShaderVariableList;
     theInName: TCollectionAsciiString = tCollectionAsciiString(); theOutName: TCollectionAsciiString = tCollectionAsciiString();
-                      theNbGeomInputVerts: int = 0): Handle[Graphic3dShaderObject] {.
+                      theNbGeomInputVerts: cint = 0): Handle[Graphic3dShaderObject] {.
     importcpp: "OpenGl_ShaderObject::CreateFromSource(@)",
     header: "OpenGl_ShaderObject.hxx".}
 proc constructOpenGlShaderObject*(theType: GLenum): OpenGlShaderObject {.
@@ -253,5 +253,30 @@ proc updateDebugDump*(this: var OpenGlShaderObject; theCtx: Handle[OpenGlContext
     header: "OpenGl_ShaderObject.hxx".}
 discard "forward decl of OpenGl_ShaderObject"
 type
-  HandleOpenGlShaderObject* = Handle[OpenGlShaderObject]
+  HandleC1C1* = Handle[OpenGlShaderObject]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

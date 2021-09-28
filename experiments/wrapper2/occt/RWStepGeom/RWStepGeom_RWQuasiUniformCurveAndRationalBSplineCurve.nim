@@ -30,7 +30,7 @@ proc constructRWStepGeomRWQuasiUniformCurveAndRationalBSplineCurve*(): RWStepGeo
     importcpp: "RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve(@)",
     header: "RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve.hxx".}
 proc readStep*(this: RWStepGeomRWQuasiUniformCurveAndRationalBSplineCurve;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomQuasiUniformCurveAndRationalBSplineCurve]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepGeomRWQuasiUniformCurveAndRationalBSplineCurve;
            ent: Handle[StepGeomQuasiUniformCurveAndRationalBSplineCurve];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWQuasiUniformCurveAndRationalBSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

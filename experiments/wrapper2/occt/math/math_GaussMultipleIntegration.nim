@@ -30,7 +30,32 @@ proc constructMathGaussMultipleIntegration*(f: var MathMultipleVarFunction;
     header: "math_GaussMultipleIntegration.hxx".}
 proc isDone*(this: MathGaussMultipleIntegration): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_GaussMultipleIntegration.hxx".}
-proc value*(this: MathGaussMultipleIntegration): float {.noSideEffect,
+proc value*(this: MathGaussMultipleIntegration): cfloat {.noSideEffect,
     importcpp: "Value", header: "math_GaussMultipleIntegration.hxx".}
 proc dump*(this: MathGaussMultipleIntegration; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_GaussMultipleIntegration.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

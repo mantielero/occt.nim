@@ -22,7 +22,7 @@ discard "forward decl of IFSelect_SignCounter"
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IFSelect_SessionPilot"
 type
-  HandleIFSelectSessionPilot* = Handle[IFSelectSessionPilot]
+  HandleC1C1* = Handle[IFSelectSessionPilot]
 
 ## ! A SessionPilot is intended to make easier the use of a
 ## ! WorkSession. It receives commands, under alphanumeric form,
@@ -111,19 +111,19 @@ proc setCommandLine*(this: var IFSelectSessionPilot; command: TCollectionAsciiSt
     importcpp: "SetCommandLine", header: "IFSelect_SessionPilot.hxx".}
 proc commandLine*(this: IFSelectSessionPilot): TCollectionAsciiString {.
     noSideEffect, importcpp: "CommandLine", header: "IFSelect_SessionPilot.hxx".}
-proc commandPart*(this: IFSelectSessionPilot; numarg: int = 0): StandardCString {.
+proc commandPart*(this: IFSelectSessionPilot; numarg: cint = 0): StandardCString {.
     noSideEffect, importcpp: "CommandPart", header: "IFSelect_SessionPilot.hxx".}
-proc nbWords*(this: IFSelectSessionPilot): int {.noSideEffect, importcpp: "NbWords",
+proc nbWords*(this: IFSelectSessionPilot): cint {.noSideEffect, importcpp: "NbWords",
     header: "IFSelect_SessionPilot.hxx".}
-proc word*(this: IFSelectSessionPilot; num: int): TCollectionAsciiString {.
+proc word*(this: IFSelectSessionPilot; num: cint): TCollectionAsciiString {.
     noSideEffect, importcpp: "Word", header: "IFSelect_SessionPilot.hxx".}
-proc arg*(this: IFSelectSessionPilot; num: int): StandardCString {.noSideEffect,
+proc arg*(this: IFSelectSessionPilot; num: cint): StandardCString {.noSideEffect,
     importcpp: "Arg", header: "IFSelect_SessionPilot.hxx".}
-proc removeWord*(this: var IFSelectSessionPilot; num: int): bool {.
+proc removeWord*(this: var IFSelectSessionPilot; num: cint): bool {.
     importcpp: "RemoveWord", header: "IFSelect_SessionPilot.hxx".}
-proc nbCommands*(this: IFSelectSessionPilot): int {.noSideEffect,
+proc nbCommands*(this: IFSelectSessionPilot): cint {.noSideEffect,
     importcpp: "NbCommands", header: "IFSelect_SessionPilot.hxx".}
-proc command*(this: IFSelectSessionPilot; num: int): TCollectionAsciiString {.
+proc command*(this: IFSelectSessionPilot; num: cint): TCollectionAsciiString {.
     noSideEffect, importcpp: "Command", header: "IFSelect_SessionPilot.hxx".}
 proc recordItem*(this: var IFSelectSessionPilot; item: Handle[StandardTransient]): IFSelectReturnStatus {.
     importcpp: "RecordItem", header: "IFSelect_SessionPilot.hxx".}
@@ -140,15 +140,15 @@ proc executeAlias*(this: var IFSelectSessionPilot; aliasname: TCollectionAsciiSt
 proc execute*(this: var IFSelectSessionPilot; command: TCollectionAsciiString): IFSelectReturnStatus {.
     importcpp: "Execute", header: "IFSelect_SessionPilot.hxx".}
 proc executeCounter*(this: var IFSelectSessionPilot;
-                    counter: Handle[IFSelectSignCounter]; numword: int;
+                    counter: Handle[IFSelectSignCounter]; numword: cint;
                     mode: IFSelectPrintCount = iFSelectCountByItem): IFSelectReturnStatus {.
     importcpp: "ExecuteCounter", header: "IFSelect_SessionPilot.hxx".}
-proc number*(this: IFSelectSessionPilot; val: StandardCString): int {.noSideEffect,
+proc number*(this: IFSelectSessionPilot; val: StandardCString): cint {.noSideEffect,
     importcpp: "Number", header: "IFSelect_SessionPilot.hxx".}
-proc `do`*(this: var IFSelectSessionPilot; number: int;
+proc `do`*(this: var IFSelectSessionPilot; number: cint;
           session: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
     importcpp: "Do", header: "IFSelect_SessionPilot.hxx".}
-proc help*(this: IFSelectSessionPilot; number: int): StandardCString {.noSideEffect,
+proc help*(this: IFSelectSessionPilot; number: cint): StandardCString {.noSideEffect,
     importcpp: "Help", header: "IFSelect_SessionPilot.hxx".}
 type
   IFSelectSessionPilotbaseType* = IFSelectActivator
@@ -160,3 +160,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SessionPilot.hxx".}
 proc dynamicType*(this: IFSelectSessionPilot): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SessionPilot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

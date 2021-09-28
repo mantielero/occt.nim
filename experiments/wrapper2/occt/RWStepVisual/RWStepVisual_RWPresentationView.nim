@@ -28,7 +28,7 @@ proc constructRWStepVisualRWPresentationView*(): RWStepVisualRWPresentationView 
     constructor, importcpp: "RWStepVisual_RWPresentationView(@)",
     header: "RWStepVisual_RWPresentationView.hxx".}
 proc readStep*(this: RWStepVisualRWPresentationView;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualPresentationView]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPresentationView.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepVisualRWPresentationView;
            ent: Handle[StepVisualPresentationView];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWPresentationView.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

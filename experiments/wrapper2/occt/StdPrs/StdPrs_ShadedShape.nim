@@ -129,3 +129,28 @@ proc fillFaceBoundaries*(theShape: TopoDS_Shape;
                         theUpperContinuity: GeomAbsShape = geomAbsCN): Handle[
     Graphic3dArrayOfSegments] {.importcpp: "StdPrs_ShadedShape::FillFaceBoundaries(@)",
                                header: "StdPrs_ShadedShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

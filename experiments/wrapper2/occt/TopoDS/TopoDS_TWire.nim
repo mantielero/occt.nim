@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TWire"
 discard "forward decl of TopoDS_TWire"
 type
-  HandleTopoDS_TWire* = Handle[TopoDS_TWire]
+  HandleC1C1* = Handle[TopoDS_TWire]
 
 ## ! A set of edges connected by their vertices.
 
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TWire::get_type_descriptor(@)", header: "TopoDS_TWire.hxx".}
 proc dynamicType*(this: TopoDS_TWire): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TWire.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

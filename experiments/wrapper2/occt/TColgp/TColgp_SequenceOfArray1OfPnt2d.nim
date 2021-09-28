@@ -18,3 +18,28 @@ type
   TColgpSequenceOfArray1OfPnt2d* = NCollectionSequence[
       Handle[TColgpHArray1OfPnt2d]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

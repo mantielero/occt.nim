@@ -19,7 +19,7 @@ discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of TPrsStd_PlaneDriver"
 discard "forward decl of TPrsStd_PlaneDriver"
 type
-  HandleTPrsStdPlaneDriver* = Handle[TPrsStdPlaneDriver]
+  HandleC1C1* = Handle[TPrsStdPlaneDriver]
 
 ## ! An implementation of TPrsStd_Driver for planes.
 
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_PlaneDriver.hxx".}
 proc dynamicType*(this: TPrsStdPlaneDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_PlaneDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

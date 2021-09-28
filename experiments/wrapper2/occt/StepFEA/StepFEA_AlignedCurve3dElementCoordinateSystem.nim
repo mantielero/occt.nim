@@ -18,8 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepFEA_AlignedCurve3dElementCoordinateSystem"
 discard "forward decl of StepFEA_AlignedCurve3dElementCoordinateSystem"
 type
-  HandleStepFEA_AlignedCurve3dElementCoordinateSystem* = Handle[
-      StepFEA_AlignedCurve3dElementCoordinateSystem]
+  HandleC1C1* = Handle[StepFEA_AlignedCurve3dElementCoordinateSystem]
 
 ## ! Representation of STEP entity AlignedCurve3dElementCoordinateSystem
 
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_AlignedCur
 proc dynamicType*(this: StepFEA_AlignedCurve3dElementCoordinateSystem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepFEA_AlignedCurve3dElementCoordinateSystem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

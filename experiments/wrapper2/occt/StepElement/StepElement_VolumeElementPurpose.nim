@@ -25,11 +25,11 @@ type
 proc constructStepElementVolumeElementPurpose*(): StepElementVolumeElementPurpose {.
     constructor, importcpp: "StepElement_VolumeElementPurpose(@)",
     header: "StepElement_VolumeElementPurpose.hxx".}
-proc caseNum*(this: StepElementVolumeElementPurpose; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepElementVolumeElementPurpose; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepElement_VolumeElementPurpose.hxx".}
 proc caseMem*(this: StepElementVolumeElementPurpose;
-             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
+             ent: Handle[StepDataSelectMember]): cint {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_VolumeElementPurpose.hxx".}
 proc newMember*(this: StepElementVolumeElementPurpose): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember",
@@ -50,3 +50,28 @@ proc applicationDefinedElementPurpose*(this: StepElementVolumeElementPurpose): H
     TCollectionHAsciiString] {.noSideEffect,
                               importcpp: "ApplicationDefinedElementPurpose",
                               header: "StepElement_VolumeElementPurpose.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -45,3 +45,28 @@ proc next*(this: var XCAFPrsDocumentIdIterator) {.importcpp: "Next",
 
 proc next*(this: var XCAFPrsDocumentIdIterator) {.importcpp: "Next",
     header: "XCAFPrs_DocumentIdIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_RadiusDimension"
 discard "forward decl of IGESDimen_RadiusDimension"
 type
-  HandleIGESDimenRadiusDimension* = Handle[IGESDimenRadiusDimension]
+  HandleC1C1* = Handle[IGESDimenRadiusDimension]
 
 ## ! Defines IGES Radius Dimension, type <222> Form <0, 1>,
 ## ! in package IGESDimen.
@@ -43,8 +43,8 @@ proc init*(this: var IGESDimenRadiusDimension; aNote: Handle[IGESDimenGeneralNot
           anArrow: Handle[IGESDimenLeaderArrow]; arcCenter: Xy;
           anotherArrow: Handle[IGESDimenLeaderArrow]) {.importcpp: "Init",
     header: "IGESDimen_RadiusDimension.hxx".}
-proc initForm*(this: var IGESDimenRadiusDimension; form: int) {.importcpp: "InitForm",
-    header: "IGESDimen_RadiusDimension.hxx".}
+proc initForm*(this: var IGESDimenRadiusDimension; form: cint) {.
+    importcpp: "InitForm", header: "IGESDimen_RadiusDimension.hxx".}
 proc note*(this: IGESDimenRadiusDimension): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_RadiusDimension.hxx".}
 proc leader*(this: IGESDimenRadiusDimension): Handle[IGESDimenLeaderArrow] {.
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_RadiusDimension.hxx".}
 proc dynamicType*(this: IGESDimenRadiusDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_RadiusDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,3 +34,28 @@ proc value*(this: SweepNumShapeIterator): SweepNumShape {.noSideEffect,
     importcpp: "Value", header: "Sweep_NumShapeIterator.hxx".}
 proc orientation*(this: SweepNumShapeIterator): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "Sweep_NumShapeIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

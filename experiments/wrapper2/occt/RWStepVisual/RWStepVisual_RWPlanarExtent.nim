@@ -27,9 +27,34 @@ proc constructRWStepVisualRWPlanarExtent*(): RWStepVisualRWPlanarExtent {.
     constructor, importcpp: "RWStepVisual_RWPlanarExtent(@)",
     header: "RWStepVisual_RWPlanarExtent.hxx".}
 proc readStep*(this: RWStepVisualRWPlanarExtent;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualPlanarExtent]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWPlanarExtent.hxx".}
 proc writeStep*(this: RWStepVisualRWPlanarExtent; sw: var StepDataStepWriter;
                ent: Handle[StepVisualPlanarExtent]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPlanarExtent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

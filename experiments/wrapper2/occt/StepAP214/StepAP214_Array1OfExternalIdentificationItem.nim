@@ -18,3 +18,28 @@ type
   StepAP214Array1OfExternalIdentificationItem* = NCollectionArray1[
       StepAP214ExternalIdentificationItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

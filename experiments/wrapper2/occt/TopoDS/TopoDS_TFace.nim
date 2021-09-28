@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TFace"
 discard "forward decl of TopoDS_TFace"
 type
-  HandleTopoDS_TFace* = Handle[TopoDS_TFace]
+  HandleC1C1* = Handle[TopoDS_TFace]
 
 ## ! A  topological part  of a surface   or  of the  2D
 ## ! space.  The  boundary  is  a   set of  wires   and
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TFace::get_type_descriptor(@)", header: "TopoDS_TFace.hxx".}
 proc dynamicType*(this: TopoDS_TFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

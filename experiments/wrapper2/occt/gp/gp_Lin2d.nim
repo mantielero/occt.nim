@@ -19,19 +19,29 @@ discard "forward decl of gp_Dir2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of gp_Vec2d"
 type
-  Lin2d* {.importcpp: "gp_Lin2d", header: "gp_Lin2d.hxx", bycopy.} = object ## ! Creates a Line
-                                                                    ## corresponding to X axis of the
-                                                                    ## ! reference coordinate system.
+  Lin2d* {.importcpp: "gp_Lin2d", header: "gp_Lin2d.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Lin2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Lin2d::operator new", header: "gp_Lin2d.hxx".}
+proc `delete`*(this: var Lin2d; theAddress: pointer) {.
+    importcpp: "gp_Lin2d::operator delete", header: "gp_Lin2d.hxx".}
+proc `new[]`*(this: var Lin2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Lin2d::operator new[]", header: "gp_Lin2d.hxx".}
+proc `delete[]`*(this: var Lin2d; theAddress: pointer) {.
+    importcpp: "gp_Lin2d::operator delete[]", header: "gp_Lin2d.hxx".}
+proc `new`*(this: var Lin2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Lin2d::operator new", header: "gp_Lin2d.hxx".}
+proc `delete`*(this: var Lin2d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Lin2d::operator delete", header: "gp_Lin2d.hxx".}
 proc constructLin2d*(): Lin2d {.constructor, importcpp: "gp_Lin2d(@)",
                              header: "gp_Lin2d.hxx".}
 proc constructLin2d*(a: Ax2d): Lin2d {.constructor, importcpp: "gp_Lin2d(@)",
                                    header: "gp_Lin2d.hxx".}
 proc constructLin2d*(p: Pnt2d; v: Dir2d): Lin2d {.constructor,
     importcpp: "gp_Lin2d(@)", header: "gp_Lin2d.hxx".}
-proc constructLin2d*(a: float; b: float; c: float): Lin2d {.constructor,
-    importcpp: "gp_Lin2d(@)", header: "gp_Lin2d.hxx".}
+proc constructLin2d*(a: StandardReal; b: StandardReal; c: StandardReal): Lin2d {.
+    constructor, importcpp: "gp_Lin2d(@)", header: "gp_Lin2d.hxx".}
 proc reverse*(this: var Lin2d) {.importcpp: "Reverse", header: "gp_Lin2d.hxx".}
 proc reversed*(this: Lin2d): Lin2d {.noSideEffect, importcpp: "Reversed",
                                  header: "gp_Lin2d.hxx".}
@@ -41,25 +51,26 @@ proc setLocation*(this: var Lin2d; p: Pnt2d) {.importcpp: "SetLocation",
     header: "gp_Lin2d.hxx".}
 proc setPosition*(this: var Lin2d; a: Ax2d) {.importcpp: "SetPosition",
                                         header: "gp_Lin2d.hxx".}
-proc coefficients*(this: Lin2d; a: var float; b: var float; c: var float) {.noSideEffect,
-    importcpp: "Coefficients", header: "gp_Lin2d.hxx".}
+proc coefficients*(this: Lin2d; a: var StandardReal; b: var StandardReal;
+                  c: var StandardReal) {.noSideEffect, importcpp: "Coefficients",
+                                      header: "gp_Lin2d.hxx".}
 proc direction*(this: Lin2d): Dir2d {.noSideEffect, importcpp: "Direction",
                                   header: "gp_Lin2d.hxx".}
 proc location*(this: Lin2d): Pnt2d {.noSideEffect, importcpp: "Location",
                                  header: "gp_Lin2d.hxx".}
 proc position*(this: Lin2d): Ax2d {.noSideEffect, importcpp: "Position",
                                 header: "gp_Lin2d.hxx".}
-proc angle*(this: Lin2d; other: Lin2d): float {.noSideEffect, importcpp: "Angle",
-    header: "gp_Lin2d.hxx".}
-proc contains*(this: Lin2d; p: Pnt2d; linearTolerance: float): bool {.noSideEffect,
-    importcpp: "Contains", header: "gp_Lin2d.hxx".}
-proc distance*(this: Lin2d; p: Pnt2d): float {.noSideEffect, importcpp: "Distance",
-    header: "gp_Lin2d.hxx".}
-proc distance*(this: Lin2d; other: Lin2d): float {.noSideEffect, importcpp: "Distance",
-    header: "gp_Lin2d.hxx".}
-proc squareDistance*(this: Lin2d; p: Pnt2d): float {.noSideEffect,
+proc angle*(this: Lin2d; other: Lin2d): StandardReal {.noSideEffect,
+    importcpp: "Angle", header: "gp_Lin2d.hxx".}
+proc contains*(this: Lin2d; p: Pnt2d; linearTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "Contains", header: "gp_Lin2d.hxx".}
+proc distance*(this: Lin2d; p: Pnt2d): StandardReal {.noSideEffect,
+    importcpp: "Distance", header: "gp_Lin2d.hxx".}
+proc distance*(this: Lin2d; other: Lin2d): StandardReal {.noSideEffect,
+    importcpp: "Distance", header: "gp_Lin2d.hxx".}
+proc squareDistance*(this: Lin2d; p: Pnt2d): StandardReal {.noSideEffect,
     importcpp: "SquareDistance", header: "gp_Lin2d.hxx".}
-proc squareDistance*(this: Lin2d; other: Lin2d): float {.noSideEffect,
+proc squareDistance*(this: Lin2d; other: Lin2d): StandardReal {.noSideEffect,
     importcpp: "SquareDistance", header: "gp_Lin2d.hxx".}
 proc normal*(this: Lin2d; p: Pnt2d): Lin2d {.noSideEffect, importcpp: "Normal",
                                        header: "gp_Lin2d.hxx".}
@@ -69,14 +80,14 @@ proc mirrored*(this: Lin2d; p: Pnt2d): Lin2d {.noSideEffect, importcpp: "Mirrore
 proc mirror*(this: var Lin2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Lin2d.hxx".}
 proc mirrored*(this: Lin2d; a: Ax2d): Lin2d {.noSideEffect, importcpp: "Mirrored",
                                         header: "gp_Lin2d.hxx".}
-proc rotate*(this: var Lin2d; p: Pnt2d; ang: float) {.importcpp: "Rotate",
+proc rotate*(this: var Lin2d; p: Pnt2d; ang: StandardReal) {.importcpp: "Rotate",
     header: "gp_Lin2d.hxx".}
-proc rotated*(this: Lin2d; p: Pnt2d; ang: float): Lin2d {.noSideEffect,
+proc rotated*(this: Lin2d; p: Pnt2d; ang: StandardReal): Lin2d {.noSideEffect,
     importcpp: "Rotated", header: "gp_Lin2d.hxx".}
-proc scale*(this: var Lin2d; p: Pnt2d; s: float) {.importcpp: "Scale",
+proc scale*(this: var Lin2d; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
     header: "gp_Lin2d.hxx".}
-proc scaled*(this: Lin2d; p: Pnt2d; s: float): Lin2d {.noSideEffect, importcpp: "Scaled",
-    header: "gp_Lin2d.hxx".}
+proc scaled*(this: Lin2d; p: Pnt2d; s: StandardReal): Lin2d {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Lin2d.hxx".}
 proc transform*(this: var Lin2d; t: Trsf2d) {.importcpp: "Transform",
                                         header: "gp_Lin2d.hxx".}
 proc transformed*(this: Lin2d; t: Trsf2d): Lin2d {.noSideEffect,

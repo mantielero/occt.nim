@@ -25,9 +25,34 @@ type
 proc constructStepFEA_SymmetricTensor22d*(): StepFEA_SymmetricTensor22d {.
     constructor, importcpp: "StepFEA_SymmetricTensor22d(@)",
     header: "StepFEA_SymmetricTensor22d.hxx".}
-proc caseNum*(this: StepFEA_SymmetricTensor22d; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepFEA_SymmetricTensor22d; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepFEA_SymmetricTensor22d.hxx".}
 proc anisotropicSymmetricTensor22d*(this: StepFEA_SymmetricTensor22d): Handle[
     TColStdHArray1OfReal] {.noSideEffect,
                            importcpp: "AnisotropicSymmetricTensor22d",
                            header: "StepFEA_SymmetricTensor22d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

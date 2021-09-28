@@ -20,7 +20,7 @@ discard "forward decl of StepData_StepWriter"
 discard "forward decl of StepSelect_FloatFormat"
 discard "forward decl of StepSelect_FloatFormat"
 type
-  HandleStepSelectFloatFormat* = Handle[StepSelectFloatFormat]
+  HandleC1C1* = Handle[StepSelectFloatFormat]
 
 ## ! This class gives control out format for floatting values :
 ## ! ZeroSuppress or no, Main Format, Format in Range (for values
@@ -59,21 +59,21 @@ type
 
 proc constructStepSelectFloatFormat*(): StepSelectFloatFormat {.constructor,
     importcpp: "StepSelect_FloatFormat(@)", header: "StepSelect_FloatFormat.hxx".}
-proc setDefault*(this: var StepSelectFloatFormat; digits: int = 0) {.
+proc setDefault*(this: var StepSelectFloatFormat; digits: cint = 0) {.
     importcpp: "SetDefault", header: "StepSelect_FloatFormat.hxx".}
 proc setZeroSuppress*(this: var StepSelectFloatFormat; mode: bool) {.
     importcpp: "SetZeroSuppress", header: "StepSelect_FloatFormat.hxx".}
 proc setFormat*(this: var StepSelectFloatFormat; format: StandardCString = "%E") {.
     importcpp: "SetFormat", header: "StepSelect_FloatFormat.hxx".}
 proc setFormatForRange*(this: var StepSelectFloatFormat;
-                       format: StandardCString = "%f"; rmin: float = 0.1;
-                       rmax: float = 1000.0) {.importcpp: "SetFormatForRange",
+                       format: StandardCString = "%f"; rmin: cfloat = 0.1;
+                       rmax: cfloat = 1000.0) {.importcpp: "SetFormatForRange",
     header: "StepSelect_FloatFormat.hxx".}
 proc format*(this: StepSelectFloatFormat; zerosup: var bool;
             mainform: var TCollectionAsciiString; hasrange: var bool;
-            forminrange: var TCollectionAsciiString; rangemin: var float;
-            rangemax: var float) {.noSideEffect, importcpp: "Format",
-                                header: "StepSelect_FloatFormat.hxx".}
+            forminrange: var TCollectionAsciiString; rangemin: var cfloat;
+            rangemax: var cfloat) {.noSideEffect, importcpp: "Format",
+                                 header: "StepSelect_FloatFormat.hxx".}
 proc perform*(this: StepSelectFloatFormat; ctx: var IFSelectContextWrite;
              writer: var StepDataStepWriter) {.noSideEffect, importcpp: "Perform",
     header: "StepSelect_FloatFormat.hxx".}
@@ -89,3 +89,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepSelect_FloatFormat.hxx".}
 proc dynamicType*(this: StepSelectFloatFormat): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepSelect_FloatFormat.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

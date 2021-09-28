@@ -18,8 +18,7 @@ discard "forward decl of TDataStd_IntPackedMap"
 discard "forward decl of TDataStd_DeltaOnModificationOfIntPackedMap"
 discard "forward decl of TDataStd_DeltaOnModificationOfIntPackedMap"
 type
-  HandleTDataStdDeltaOnModificationOfIntPackedMap* = Handle[
-      TDataStdDeltaOnModificationOfIntPackedMap]
+  HandleC1C1* = Handle[TDataStdDeltaOnModificationOfIntPackedMap]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on a MODIFICATION action.
@@ -49,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "TDataStd_DeltaOnMo
 proc dynamicType*(this: TDataStdDeltaOnModificationOfIntPackedMap): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "TDataStd_DeltaOnModificationOfIntPackedMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

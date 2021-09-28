@@ -59,9 +59,9 @@ proc getOneItem*(this: var InterfaceEntityIterator;
 proc selectType*(this: var InterfaceEntityIterator; atype: Handle[StandardType];
                 keep: bool) {.importcpp: "SelectType",
                             header: "Interface_EntityIterator.hxx".}
-proc nbEntities*(this: InterfaceEntityIterator): int {.noSideEffect,
+proc nbEntities*(this: InterfaceEntityIterator): cint {.noSideEffect,
     importcpp: "NbEntities", header: "Interface_EntityIterator.hxx".}
-proc nbTyped*(this: InterfaceEntityIterator; `type`: Handle[StandardType]): int {.
+proc nbTyped*(this: InterfaceEntityIterator; `type`: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "NbTyped", header: "Interface_EntityIterator.hxx".}
 proc typed*(this: InterfaceEntityIterator; `type`: Handle[StandardType]): InterfaceEntityIterator {.
     noSideEffect, importcpp: "Typed", header: "Interface_EntityIterator.hxx".}
@@ -80,3 +80,28 @@ proc destroy*(this: var InterfaceEntityIterator) {.importcpp: "Destroy",
 proc destroyInterfaceEntityIterator*(this: var InterfaceEntityIterator) {.
     importcpp: "#.~Interface_EntityIterator()",
     header: "Interface_EntityIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

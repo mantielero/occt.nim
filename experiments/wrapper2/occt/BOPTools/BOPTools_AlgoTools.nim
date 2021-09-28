@@ -140,75 +140,75 @@ type
                                                                      ## ! Makes empty container of requested type
 
 
-proc dTolerance*(): float {.importcpp: "BOPTools_AlgoTools::DTolerance(@)",
-                         header: "BOPTools_AlgoTools.hxx".}
-proc computeVV*(theV: TopoDS_Vertex; theP: Pnt; theTolP: float): int {.
+proc dTolerance*(): cfloat {.importcpp: "BOPTools_AlgoTools::DTolerance(@)",
+                          header: "BOPTools_AlgoTools.hxx".}
+proc computeVV*(theV: TopoDS_Vertex; theP: Pnt; theTolP: cfloat): cint {.
     importcpp: "BOPTools_AlgoTools::ComputeVV(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc computeVV*(theV1: TopoDS_Vertex; theV2: TopoDS_Vertex;
-               theFuzz: float = confusion()): int {.
+               theFuzz: cfloat = confusion()): cint {.
     importcpp: "BOPTools_AlgoTools::ComputeVV(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc makeVertex*(theLV: TopToolsListOfShape; theV: var TopoDS_Vertex) {.
     importcpp: "BOPTools_AlgoTools::MakeVertex(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc makeNewVertex*(aP1: Pnt; aTol: float; aNewVertex: var TopoDS_Vertex) {.
+proc makeNewVertex*(aP1: Pnt; aTol: cfloat; aNewVertex: var TopoDS_Vertex) {.
     importcpp: "BOPTools_AlgoTools::MakeNewVertex(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc makeNewVertex*(aV1: TopoDS_Vertex; aV2: TopoDS_Vertex;
                    aNewVertex: var TopoDS_Vertex) {.
     importcpp: "BOPTools_AlgoTools::MakeNewVertex(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc makeNewVertex*(aE1: TopoDS_Edge; aP1: float; aE2: TopoDS_Edge; aP2: float;
+proc makeNewVertex*(aE1: TopoDS_Edge; aP1: cfloat; aE2: TopoDS_Edge; aP2: cfloat;
                    aNewVertex: var TopoDS_Vertex) {.
     importcpp: "BOPTools_AlgoTools::MakeNewVertex(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc makeNewVertex*(aE1: TopoDS_Edge; aP1: float; aF2: TopoDS_Face;
+proc makeNewVertex*(aE1: TopoDS_Edge; aP1: cfloat; aF2: TopoDS_Face;
                    aNewVertex: var TopoDS_Vertex) {.
     importcpp: "BOPTools_AlgoTools::MakeNewVertex(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc updateVertex*(aIC: IntToolsCurve; aT: float; aV: TopoDS_Vertex) {.
+proc updateVertex*(aIC: IntToolsCurve; aT: cfloat; aV: TopoDS_Vertex) {.
     importcpp: "BOPTools_AlgoTools::UpdateVertex(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc updateVertex*(aE: TopoDS_Edge; aT: float; aV: TopoDS_Vertex) {.
+proc updateVertex*(aE: TopoDS_Edge; aT: cfloat; aV: TopoDS_Vertex) {.
     importcpp: "BOPTools_AlgoTools::UpdateVertex(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc updateVertex*(aVF: TopoDS_Vertex; aVN: TopoDS_Vertex) {.
     importcpp: "BOPTools_AlgoTools::UpdateVertex(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc makeEdge*(theCurve: IntToolsCurve; theV1: TopoDS_Vertex; theT1: float;
-              theV2: TopoDS_Vertex; theT2: float; theTolR3D: float;
+proc makeEdge*(theCurve: IntToolsCurve; theV1: TopoDS_Vertex; theT1: cfloat;
+              theV2: TopoDS_Vertex; theT2: cfloat; theTolR3D: cfloat;
               theE: var TopoDS_Edge) {.importcpp: "BOPTools_AlgoTools::MakeEdge(@)",
                                     header: "BOPTools_AlgoTools.hxx".}
 proc copyEdge*(theEdge: TopoDS_Edge): TopoDS_Edge {.
     importcpp: "BOPTools_AlgoTools::CopyEdge(@)", header: "BOPTools_AlgoTools.hxx".}
-proc makeSplitEdge*(aE1: TopoDS_Edge; aV1: TopoDS_Vertex; aP1: float;
-                   aV2: TopoDS_Vertex; aP2: float; aNewEdge: var TopoDS_Edge) {.
+proc makeSplitEdge*(aE1: TopoDS_Edge; aV1: TopoDS_Vertex; aP1: cfloat;
+                   aV2: TopoDS_Vertex; aP2: cfloat; aNewEdge: var TopoDS_Edge) {.
     importcpp: "BOPTools_AlgoTools::MakeSplitEdge(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc makeSectEdge*(aIC: IntToolsCurve; aV1: TopoDS_Vertex; aP1: float;
-                  aV2: TopoDS_Vertex; aP2: float; aNewEdge: var TopoDS_Edge) {.
+proc makeSectEdge*(aIC: IntToolsCurve; aV1: TopoDS_Vertex; aP1: cfloat;
+                  aV2: TopoDS_Vertex; aP2: cfloat; aNewEdge: var TopoDS_Edge) {.
     importcpp: "BOPTools_AlgoTools::MakeSectEdge(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc computeState*(thePoint: Pnt; theSolid: TopoDS_Solid; theTol: float;
+proc computeState*(thePoint: Pnt; theSolid: TopoDS_Solid; theTol: cfloat;
                   theContext: Handle[IntToolsContext]): TopAbsState {.
     importcpp: "BOPTools_AlgoTools::ComputeState(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc computeState*(theVertex: TopoDS_Vertex; theSolid: TopoDS_Solid; theTol: float;
+proc computeState*(theVertex: TopoDS_Vertex; theSolid: TopoDS_Solid; theTol: cfloat;
                   theContext: Handle[IntToolsContext]): TopAbsState {.
     importcpp: "BOPTools_AlgoTools::ComputeState(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc computeState*(theEdge: TopoDS_Edge; theSolid: TopoDS_Solid; theTol: float;
+proc computeState*(theEdge: TopoDS_Edge; theSolid: TopoDS_Solid; theTol: cfloat;
                   theContext: Handle[IntToolsContext]): TopAbsState {.
     importcpp: "BOPTools_AlgoTools::ComputeState(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc computeState*(theFace: TopoDS_Face; theSolid: TopoDS_Solid; theTol: float;
+proc computeState*(theFace: TopoDS_Face; theSolid: TopoDS_Solid; theTol: cfloat;
                   theBounds: TopToolsIndexedMapOfShape;
                   theContext: Handle[IntToolsContext]): TopAbsState {.
     importcpp: "BOPTools_AlgoTools::ComputeState(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc computeStateByOnePoint*(theShape: TopoDS_Shape; theSolid: TopoDS_Solid;
-                            theTol: float; theContext: Handle[IntToolsContext]): TopAbsState {.
+                            theTol: cfloat; theContext: Handle[IntToolsContext]): TopAbsState {.
     importcpp: "BOPTools_AlgoTools::ComputeStateByOnePoint(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc getFaceOff*(theEdge: TopoDS_Edge; theFace: TopoDS_Face;
@@ -218,17 +218,17 @@ proc getFaceOff*(theEdge: TopoDS_Edge; theFace: TopoDS_Face;
     header: "BOPTools_AlgoTools.hxx".}
 proc isInternalFace*(theFace: TopoDS_Face; theEdge: TopoDS_Edge;
                     theFace1: TopoDS_Face; theFace2: TopoDS_Face;
-                    theContext: Handle[IntToolsContext]): int {.
+                    theContext: Handle[IntToolsContext]): cint {.
     importcpp: "BOPTools_AlgoTools::IsInternalFace(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc isInternalFace*(theFace: TopoDS_Face; theEdge: TopoDS_Edge;
                     theLF: var TopToolsListOfShape;
-                    theContext: Handle[IntToolsContext]): int {.
+                    theContext: Handle[IntToolsContext]): cint {.
     importcpp: "BOPTools_AlgoTools::IsInternalFace(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc isInternalFace*(theFace: TopoDS_Face; theSolid: TopoDS_Solid;
                     theMEF: var TopToolsIndexedDataMapOfShapeListOfShape;
-                    theTol: float; theContext: Handle[IntToolsContext]): bool {.
+                    theTol: cfloat; theContext: Handle[IntToolsContext]): bool {.
     importcpp: "BOPTools_AlgoTools::IsInternalFace(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc makePCurve*(theE: TopoDS_Edge; theF1: TopoDS_Face; theF2: TopoDS_Face;
@@ -239,7 +239,8 @@ proc makePCurve*(theE: TopoDS_Edge; theF1: TopoDS_Face; theF2: TopoDS_Face;
 proc isHole*(theW: TopoDS_Shape; theF: TopoDS_Shape): bool {.
     importcpp: "BOPTools_AlgoTools::IsHole(@)", header: "BOPTools_AlgoTools.hxx".}
 proc isSplitToReverse*(theSplit: TopoDS_Shape; theShape: TopoDS_Shape;
-                      theContext: Handle[IntToolsContext]; theError: ptr int = nil): bool {.
+                      theContext: Handle[IntToolsContext];
+                      theError: ptr cint = nil): bool {.
     importcpp: "BOPTools_AlgoTools::IsSplitToReverse(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc isSplitToReverseWithWarn*(theSplit: TopoDS_Shape; theShape: TopoDS_Shape;
@@ -248,15 +249,17 @@ proc isSplitToReverseWithWarn*(theSplit: TopoDS_Shape; theShape: TopoDS_Shape;
     importcpp: "BOPTools_AlgoTools::IsSplitToReverseWithWarn(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc isSplitToReverse*(theSplit: TopoDS_Face; theShape: TopoDS_Face;
-                      theContext: Handle[IntToolsContext]; theError: ptr int = nil): bool {.
+                      theContext: Handle[IntToolsContext];
+                      theError: ptr cint = nil): bool {.
     importcpp: "BOPTools_AlgoTools::IsSplitToReverse(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc isSplitToReverse*(theSplit: TopoDS_Edge; theShape: TopoDS_Edge;
-                      theContext: Handle[IntToolsContext]; theError: ptr int = nil): bool {.
+                      theContext: Handle[IntToolsContext];
+                      theError: ptr cint = nil): bool {.
     importcpp: "BOPTools_AlgoTools::IsSplitToReverse(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc sense*(theF1: TopoDS_Face; theF2: TopoDS_Face;
-           theContext: Handle[IntToolsContext]): int {.
+           theContext: Handle[IntToolsContext]): cint {.
     importcpp: "BOPTools_AlgoTools::Sense(@)", header: "BOPTools_AlgoTools.hxx".}
 proc makeConnexityBlock*(theLS: var TopToolsListOfShape;
                         theMapAvoid: var TopToolsIndexedMapOfShape;
@@ -288,17 +291,17 @@ proc orientFacesOnShell*(theShell: var TopoDS_Shape) {.
     header: "BOPTools_AlgoTools.hxx".}
 proc correctTolerances*(theS: TopoDS_Shape;
                        theMapToAvoid: TopToolsIndexedMapOfShape;
-                       theTolMax: float = 0.0001; theRunParallel: bool = false) {.
+                       theTolMax: cfloat = 0.0001; theRunParallel: bool = false) {.
     importcpp: "BOPTools_AlgoTools::CorrectTolerances(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc correctCurveOnSurface*(theS: TopoDS_Shape;
                            theMapToAvoid: TopToolsIndexedMapOfShape;
-                           theTolMax: float = 0.0001; theRunParallel: bool = false) {.
+                           theTolMax: cfloat = 0.0001; theRunParallel: bool = false) {.
     importcpp: "BOPTools_AlgoTools::CorrectCurveOnSurface(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc correctPointOnCurve*(theS: TopoDS_Shape;
                          theMapToAvoid: TopToolsIndexedMapOfShape;
-                         theTolMax: float = 0.0001; theRunParallel: bool = false) {.
+                         theTolMax: cfloat = 0.0001; theRunParallel: bool = false) {.
     importcpp: "BOPTools_AlgoTools::CorrectPointOnCurve(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc correctShapeTolerances*(theS: TopoDS_Shape;
@@ -308,7 +311,7 @@ proc correctShapeTolerances*(theS: TopoDS_Shape;
     header: "BOPTools_AlgoTools.hxx".}
 proc areFacesSameDomain*(theF1: TopoDS_Face; theF2: TopoDS_Face;
                         theContext: Handle[IntToolsContext];
-                        theFuzz: float = confusion()): bool {.
+                        theFuzz: cfloat = confusion()): bool {.
     importcpp: "BOPTools_AlgoTools::AreFacesSameDomain(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc getEdgeOff*(theEdge: TopoDS_Edge; theFace: TopoDS_Face;
@@ -335,24 +338,24 @@ proc isInvertedSolid*(theSolid: TopoDS_Solid): bool {.
     importcpp: "BOPTools_AlgoTools::IsInvertedSolid(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc computeTolerance*(theFace: TopoDS_Face; theEdge: TopoDS_Edge;
-                      theMaxDist: var float; theMaxPar: var float): bool {.
+                      theMaxDist: var cfloat; theMaxPar: var cfloat): bool {.
     importcpp: "BOPTools_AlgoTools::ComputeTolerance(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc makeContainer*(theType: TopAbsShapeEnum; theShape: var TopoDS_Shape) {.
     importcpp: "BOPTools_AlgoTools::MakeContainer(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc pointOnEdge*(aEdge: TopoDS_Edge; aPrm: float; aP: var Pnt) {.
+proc pointOnEdge*(aEdge: TopoDS_Edge; aPrm: cfloat; aP: var Pnt) {.
     importcpp: "BOPTools_AlgoTools::PointOnEdge(@)",
     header: "BOPTools_AlgoTools.hxx".}
 proc isBlockInOnFace*(aShR: IntToolsRange; aF: TopoDS_Face; aE: TopoDS_Edge;
                      aContext: Handle[IntToolsContext]): bool {.
     importcpp: "BOPTools_AlgoTools::IsBlockInOnFace(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc dimensions*(theS: TopoDS_Shape; theDMin: var int; theDMax: var int) {.
+proc dimensions*(theS: TopoDS_Shape; theDMin: var cint; theDMax: var cint) {.
     importcpp: "BOPTools_AlgoTools::Dimensions(@)",
     header: "BOPTools_AlgoTools.hxx".}
-proc dimension*(theS: TopoDS_Shape): int {.importcpp: "BOPTools_AlgoTools::Dimension(@)",
-                                       header: "BOPTools_AlgoTools.hxx".}
+proc dimension*(theS: TopoDS_Shape): cint {.importcpp: "BOPTools_AlgoTools::Dimension(@)",
+                                        header: "BOPTools_AlgoTools.hxx".}
 proc treatCompound*(theS: TopoDS_Shape; theList: var TopToolsListOfShape;
                    theMap: ptr TopToolsMapOfShape = nil) {.
     importcpp: "BOPTools_AlgoTools::TreatCompound(@)",
@@ -360,3 +363,28 @@ proc treatCompound*(theS: TopoDS_Shape; theList: var TopToolsListOfShape;
 proc isOpenShell*(theShell: TopoDS_Shell): bool {.
     importcpp: "BOPTools_AlgoTools::IsOpenShell(@)",
     header: "BOPTools_AlgoTools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

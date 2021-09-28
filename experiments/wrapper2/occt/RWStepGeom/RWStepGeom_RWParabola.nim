@@ -27,7 +27,7 @@ type
 proc constructRWStepGeomRWParabola*(): RWStepGeomRWParabola {.constructor,
     importcpp: "RWStepGeom_RWParabola(@)", header: "RWStepGeom_RWParabola.hxx".}
 proc readStep*(this: RWStepGeomRWParabola; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomParabola]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepGeom_RWParabola.hxx".}
 proc writeStep*(this: RWStepGeomRWParabola; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepGeomRWParabola; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWParabola; ent: Handle[StepGeomParabola];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWParabola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

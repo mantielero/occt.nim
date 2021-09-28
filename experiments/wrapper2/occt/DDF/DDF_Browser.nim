@@ -21,7 +21,7 @@ discard "forward decl of TDF_Label"
 discard "forward decl of DDF_Browser"
 discard "forward decl of DDF_Browser"
 type
-  HandleDDF_Browser* = Handle[DDF_Browser]
+  HandleC1C1* = Handle[DDF_Browser]
 
 ## ! Browses a data framework from TDF.
 
@@ -49,13 +49,13 @@ proc openLabel*(this: DDF_Browser; aLab: TDF_Label): TCollectionAsciiString {.
     noSideEffect, importcpp: "OpenLabel", header: "DDF_Browser.hxx".}
 proc openAttributeList*(this: var DDF_Browser; aLab: TDF_Label): TCollectionAsciiString {.
     importcpp: "OpenAttributeList", header: "DDF_Browser.hxx".}
-proc openAttribute*(this: var DDF_Browser; anIndex: int = 0): TCollectionAsciiString {.
+proc openAttribute*(this: var DDF_Browser; anIndex: cint = 0): TCollectionAsciiString {.
     importcpp: "OpenAttribute", header: "DDF_Browser.hxx".}
 proc information*(this: DDF_Browser): TCollectionAsciiString {.noSideEffect,
     importcpp: "Information", header: "DDF_Browser.hxx".}
 proc information*(this: DDF_Browser; aLab: TDF_Label): TCollectionAsciiString {.
     noSideEffect, importcpp: "Information", header: "DDF_Browser.hxx".}
-proc information*(this: DDF_Browser; anIndex: int = 0): TCollectionAsciiString {.
+proc information*(this: DDF_Browser; anIndex: cint = 0): TCollectionAsciiString {.
     noSideEffect, importcpp: "Information", header: "DDF_Browser.hxx".}
 type
   DDF_BrowserbaseType* = DrawDrawable3D
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "DDF_Browser::get_type_descriptor(@)", header: "DDF_Browser.hxx".}
 proc dynamicType*(this: DDF_Browser): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DDF_Browser.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

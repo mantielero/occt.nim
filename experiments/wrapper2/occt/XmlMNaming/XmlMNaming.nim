@@ -29,3 +29,28 @@ type
 proc addDrivers*(aDriverTable: Handle[XmlMDF_ADriverTable];
                 aMessageDriver: Handle[MessageMessenger]) {.
     importcpp: "XmlMNaming::AddDrivers(@)", header: "XmlMNaming.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -137,3 +137,28 @@ proc constructGraphic3dValidatedCubeMapOrder*(
     theOther: Graphic3dValidatedCubeMapOrder): Graphic3dValidatedCubeMapOrder {.
     constructor, importcpp: "Graphic3d_ValidatedCubeMapOrder(@)",
     header: "Graphic3d_CubeMapOrder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

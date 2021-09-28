@@ -282,8 +282,8 @@ proc keyUp*(this: var AIS_ViewController; theKey: AspectVKey; theTime: cdouble) 
 proc keyFromAxis*(this: var AIS_ViewController; theNegative: AspectVKey;
                  thePositive: AspectVKey; theTime: cdouble; thePressure: cdouble) {.
     importcpp: "KeyFromAxis", header: "AIS_ViewController.hxx".}
-proc fetchNavigationKeys*(this: var AIS_ViewController; theCrouchRatio: float;
-                         theRunRatio: float): AIS_WalkDelta {.
+proc fetchNavigationKeys*(this: var AIS_ViewController; theCrouchRatio: cfloat;
+                         theRunRatio: cfloat): AIS_WalkDelta {.
     importcpp: "FetchNavigationKeys", header: "AIS_ViewController.hxx".}
 proc mouseGestureMap*(this: AIS_ViewController): AIS_MouseGestureMap {.noSideEffect,
     importcpp: "MouseGestureMap", header: "AIS_ViewController.hxx".}
@@ -494,5 +494,30 @@ proc handleXRPresentations*(this: var AIS_ViewController;
     importcpp: "handleXRPresentations", header: "AIS_ViewController.hxx".}
 proc handleXRMoveTo*(this: var AIS_ViewController;
                     theCtx: Handle[AIS_InteractiveContext];
-                    theView: Handle[V3dView]; thePose: Trsf; theToHighlight: bool): int {.
+                    theView: Handle[V3dView]; thePose: Trsf; theToHighlight: bool): cint {.
     importcpp: "handleXRMoveTo", header: "AIS_ViewController.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

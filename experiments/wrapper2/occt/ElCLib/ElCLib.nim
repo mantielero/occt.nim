@@ -42,237 +42,241 @@ type
                                                                  ## !   It is expected but not checked that (ULast > UFirst)
 
 
-proc inPeriod*(u: float; uFirst: float; uLast: float): float {.
+proc inPeriod*(u: cfloat; uFirst: cfloat; uLast: cfloat): cfloat {.
     importcpp: "ElCLib::InPeriod(@)", header: "ElCLib.hxx".}
-proc adjustPeriodic*(uFirst: float; uLast: float; precision: float; u1: var float;
-                    u2: var float) {.importcpp: "ElCLib::AdjustPeriodic(@)",
-                                  header: "ElCLib.hxx".}
-proc value*(u: float; L: Lin): Pnt {.importcpp: "ElCLib::Value(@)", header: "ElCLib.hxx".}
-proc value*(u: float; c: Circ): Pnt {.importcpp: "ElCLib::Value(@)",
+proc adjustPeriodic*(uFirst: cfloat; uLast: cfloat; precision: cfloat; u1: var cfloat;
+                    u2: var cfloat) {.importcpp: "ElCLib::AdjustPeriodic(@)",
+                                   header: "ElCLib.hxx".}
+proc value*(u: cfloat; L: Lin): Pnt {.importcpp: "ElCLib::Value(@)",
                                 header: "ElCLib.hxx".}
-proc value*(u: float; e: Elips): Pnt {.importcpp: "ElCLib::Value(@)",
+proc value*(u: cfloat; c: Circ): Pnt {.importcpp: "ElCLib::Value(@)",
                                  header: "ElCLib.hxx".}
-proc value*(u: float; h: Hypr): Pnt {.importcpp: "ElCLib::Value(@)",
-                                header: "ElCLib.hxx".}
-proc value*(u: float; prb: Parab): Pnt {.importcpp: "ElCLib::Value(@)",
-                                   header: "ElCLib.hxx".}
-proc d1*(u: float; L: Lin; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::D1(@)",
-    header: "ElCLib.hxx".}
-proc d1*(u: float; c: Circ; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::D1(@)",
-    header: "ElCLib.hxx".}
-proc d1*(u: float; e: Elips; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::D1(@)",
-    header: "ElCLib.hxx".}
-proc d1*(u: float; h: Hypr; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::D1(@)",
-    header: "ElCLib.hxx".}
-proc d1*(u: float; prb: Parab; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::D1(@)",
-    header: "ElCLib.hxx".}
-proc d2*(u: float; c: Circ; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: float; e: Elips; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: float; h: Hypr; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: float; prb: Parab; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d3*(u: float; c: Circ; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc d3*(u: float; e: Elips; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc d3*(u: float; h: Hypr; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc dn*(u: float; L: Lin; n: int): Vec {.importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc dn*(u: float; c: Circ; n: int): Vec {.importcpp: "ElCLib::DN(@)",
-                                   header: "ElCLib.hxx".}
-proc dn*(u: float; e: Elips; n: int): Vec {.importcpp: "ElCLib::DN(@)",
+proc value*(u: cfloat; e: Elips): Pnt {.importcpp: "ElCLib::Value(@)",
+                                  header: "ElCLib.hxx".}
+proc value*(u: cfloat; h: Hypr): Pnt {.importcpp: "ElCLib::Value(@)",
+                                 header: "ElCLib.hxx".}
+proc value*(u: cfloat; prb: Parab): Pnt {.importcpp: "ElCLib::Value(@)",
                                     header: "ElCLib.hxx".}
-proc dn*(u: float; h: Hypr; n: int): Vec {.importcpp: "ElCLib::DN(@)",
-                                   header: "ElCLib.hxx".}
-proc dn*(u: float; prb: Parab; n: int): Vec {.importcpp: "ElCLib::DN(@)",
+proc d1*(u: cfloat; L: Lin; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::D1(@)",
+    header: "ElCLib.hxx".}
+proc d1*(u: cfloat; c: Circ; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::D1(@)",
+    header: "ElCLib.hxx".}
+proc d1*(u: cfloat; e: Elips; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::D1(@)",
+    header: "ElCLib.hxx".}
+proc d1*(u: cfloat; h: Hypr; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::D1(@)",
+    header: "ElCLib.hxx".}
+proc d1*(u: cfloat; prb: Parab; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::D1(@)",
+    header: "ElCLib.hxx".}
+proc d2*(u: cfloat; c: Circ; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc d2*(u: cfloat; e: Elips; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc d2*(u: cfloat; h: Hypr; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc d2*(u: cfloat; prb: Parab; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc d3*(u: cfloat; c: Circ; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
+proc d3*(u: cfloat; e: Elips; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
+proc d3*(u: cfloat; h: Hypr; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
+proc dn*(u: cfloat; L: Lin; n: cint): Vec {.importcpp: "ElCLib::DN(@)",
+                                    header: "ElCLib.hxx".}
+proc dn*(u: cfloat; c: Circ; n: cint): Vec {.importcpp: "ElCLib::DN(@)",
+                                     header: "ElCLib.hxx".}
+proc dn*(u: cfloat; e: Elips; n: cint): Vec {.importcpp: "ElCLib::DN(@)",
                                       header: "ElCLib.hxx".}
-proc value*(u: float; L: Lin2d): Pnt2d {.importcpp: "ElCLib::Value(@)",
-                                   header: "ElCLib.hxx".}
-proc value*(u: float; c: Circ2d): Pnt2d {.importcpp: "ElCLib::Value(@)",
-                                    header: "ElCLib.hxx".}
-proc value*(u: float; e: Elips2d): Pnt2d {.importcpp: "ElCLib::Value(@)",
+proc dn*(u: cfloat; h: Hypr; n: cint): Vec {.importcpp: "ElCLib::DN(@)",
                                      header: "ElCLib.hxx".}
-proc value*(u: float; h: Hypr2d): Pnt2d {.importcpp: "ElCLib::Value(@)",
+proc dn*(u: cfloat; prb: Parab; n: cint): Vec {.importcpp: "ElCLib::DN(@)",
+                                        header: "ElCLib.hxx".}
+proc value*(u: cfloat; L: Lin2d): Pnt2d {.importcpp: "ElCLib::Value(@)",
                                     header: "ElCLib.hxx".}
-proc value*(u: float; prb: Parab2d): Pnt2d {.importcpp: "ElCLib::Value(@)",
-                                       header: "ElCLib.hxx".}
-proc d1*(u: float; L: Lin2d; p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::D1(@)",
-    header: "ElCLib.hxx".}
-proc d1*(u: float; c: Circ2d; p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::D1(@)",
-    header: "ElCLib.hxx".}
-proc d1*(u: float; e: Elips2d; p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::D1(@)",
-    header: "ElCLib.hxx".}
-proc d1*(u: float; h: Hypr2d; p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::D1(@)",
-    header: "ElCLib.hxx".}
-proc d1*(u: float; prb: Parab2d; p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::D1(@)",
-    header: "ElCLib.hxx".}
-proc d2*(u: float; c: Circ2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: float; e: Elips2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: float; h: Hypr2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: float; prb: Parab2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d3*(u: float; c: Circ2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.
-    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc d3*(u: float; e: Elips2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.
-    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc d3*(u: float; h: Hypr2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.
-    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc dn*(u: float; L: Lin2d; n: int): Vec2d {.importcpp: "ElCLib::DN(@)",
+proc value*(u: cfloat; c: Circ2d): Pnt2d {.importcpp: "ElCLib::Value(@)",
+                                     header: "ElCLib.hxx".}
+proc value*(u: cfloat; e: Elips2d): Pnt2d {.importcpp: "ElCLib::Value(@)",
                                       header: "ElCLib.hxx".}
-proc dn*(u: float; c: Circ2d; n: int): Vec2d {.importcpp: "ElCLib::DN(@)",
-                                       header: "ElCLib.hxx".}
-proc dn*(u: float; e: Elips2d; n: int): Vec2d {.importcpp: "ElCLib::DN(@)",
-                                        header: "ElCLib.hxx".}
-proc dn*(u: float; h: Hypr2d; n: int): Vec2d {.importcpp: "ElCLib::DN(@)",
-                                       header: "ElCLib.hxx".}
-proc dn*(u: float; prb: Parab2d; n: int): Vec2d {.importcpp: "ElCLib::DN(@)",
-    header: "ElCLib.hxx".}
-proc lineValue*(u: float; pos: Ax1): Pnt {.importcpp: "ElCLib::LineValue(@)",
+proc value*(u: cfloat; h: Hypr2d): Pnt2d {.importcpp: "ElCLib::Value(@)",
                                      header: "ElCLib.hxx".}
-proc circleValue*(u: float; pos: Ax2; radius: float): Pnt {.
-    importcpp: "ElCLib::CircleValue(@)", header: "ElCLib.hxx".}
-proc ellipseValue*(u: float; pos: Ax2; majorRadius: float; minorRadius: float): Pnt {.
-    importcpp: "ElCLib::EllipseValue(@)", header: "ElCLib.hxx".}
-proc hyperbolaValue*(u: float; pos: Ax2; majorRadius: float; minorRadius: float): Pnt {.
-    importcpp: "ElCLib::HyperbolaValue(@)", header: "ElCLib.hxx".}
-proc parabolaValue*(u: float; pos: Ax2; focal: float): Pnt {.
-    importcpp: "ElCLib::ParabolaValue(@)", header: "ElCLib.hxx".}
-proc lineD1*(u: float; pos: Ax1; p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::LineD1(@)",
+proc value*(u: cfloat; prb: Parab2d): Pnt2d {.importcpp: "ElCLib::Value(@)",
+                                        header: "ElCLib.hxx".}
+proc d1*(u: cfloat; L: Lin2d; p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::D1(@)",
     header: "ElCLib.hxx".}
-proc circleD1*(u: float; pos: Ax2; radius: float; p: var Pnt; v1: var Vec) {.
-    importcpp: "ElCLib::CircleD1(@)", header: "ElCLib.hxx".}
-proc ellipseD1*(u: float; pos: Ax2; majorRadius: float; minorRadius: float; p: var Pnt;
-               v1: var Vec) {.importcpp: "ElCLib::EllipseD1(@)", header: "ElCLib.hxx".}
-proc hyperbolaD1*(u: float; pos: Ax2; majorRadius: float; minorRadius: float; p: var Pnt;
-                 v1: var Vec) {.importcpp: "ElCLib::HyperbolaD1(@)",
-                             header: "ElCLib.hxx".}
-proc parabolaD1*(u: float; pos: Ax2; focal: float; p: var Pnt; v1: var Vec) {.
-    importcpp: "ElCLib::ParabolaD1(@)", header: "ElCLib.hxx".}
-proc circleD2*(u: float; pos: Ax2; radius: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    importcpp: "ElCLib::CircleD2(@)", header: "ElCLib.hxx".}
-proc ellipseD2*(u: float; pos: Ax2; majorRadius: float; minorRadius: float; p: var Pnt;
-               v1: var Vec; v2: var Vec) {.importcpp: "ElCLib::EllipseD2(@)",
-                                     header: "ElCLib.hxx".}
-proc hyperbolaD2*(u: float; pos: Ax2; majorRadius: float; minorRadius: float; p: var Pnt;
-                 v1: var Vec; v2: var Vec) {.importcpp: "ElCLib::HyperbolaD2(@)",
-                                       header: "ElCLib.hxx".}
-proc parabolaD2*(u: float; pos: Ax2; focal: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    importcpp: "ElCLib::ParabolaD2(@)", header: "ElCLib.hxx".}
-proc circleD3*(u: float; pos: Ax2; radius: float; p: var Pnt; v1: var Vec; v2: var Vec;
-              v3: var Vec) {.importcpp: "ElCLib::CircleD3(@)", header: "ElCLib.hxx".}
-proc ellipseD3*(u: float; pos: Ax2; majorRadius: float; minorRadius: float; p: var Pnt;
-               v1: var Vec; v2: var Vec; v3: var Vec) {.
-    importcpp: "ElCLib::EllipseD3(@)", header: "ElCLib.hxx".}
-proc hyperbolaD3*(u: float; pos: Ax2; majorRadius: float; minorRadius: float; p: var Pnt;
-                 v1: var Vec; v2: var Vec; v3: var Vec) {.
-    importcpp: "ElCLib::HyperbolaD3(@)", header: "ElCLib.hxx".}
-proc lineDN*(u: float; pos: Ax1; n: int): Vec {.importcpp: "ElCLib::LineDN(@)",
+proc d1*(u: cfloat; c: Circ2d; p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::D1(@)",
+    header: "ElCLib.hxx".}
+proc d1*(u: cfloat; e: Elips2d; p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::D1(@)",
+    header: "ElCLib.hxx".}
+proc d1*(u: cfloat; h: Hypr2d; p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::D1(@)",
+    header: "ElCLib.hxx".}
+proc d1*(u: cfloat; prb: Parab2d; p: var Pnt2d; v1: var Vec2d) {.
+    importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
+proc d2*(u: cfloat; c: Circ2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc d2*(u: cfloat; e: Elips2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc d2*(u: cfloat; h: Hypr2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc d2*(u: cfloat; prb: Parab2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc d3*(u: cfloat; c: Circ2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.
+    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
+proc d3*(u: cfloat; e: Elips2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.
+    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
+proc d3*(u: cfloat; h: Hypr2d; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.
+    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
+proc dn*(u: cfloat; L: Lin2d; n: cint): Vec2d {.importcpp: "ElCLib::DN(@)",
                                         header: "ElCLib.hxx".}
-proc circleDN*(u: float; pos: Ax2; radius: float; n: int): Vec {.
-    importcpp: "ElCLib::CircleDN(@)", header: "ElCLib.hxx".}
-proc ellipseDN*(u: float; pos: Ax2; majorRadius: float; minorRadius: float; n: int): Vec {.
-    importcpp: "ElCLib::EllipseDN(@)", header: "ElCLib.hxx".}
-proc hyperbolaDN*(u: float; pos: Ax2; majorRadius: float; minorRadius: float; n: int): Vec {.
-    importcpp: "ElCLib::HyperbolaDN(@)", header: "ElCLib.hxx".}
-proc parabolaDN*(u: float; pos: Ax2; focal: float; n: int): Vec {.
-    importcpp: "ElCLib::ParabolaDN(@)", header: "ElCLib.hxx".}
-proc lineValue*(u: float; pos: Ax2d): Pnt2d {.importcpp: "ElCLib::LineValue(@)",
-                                        header: "ElCLib.hxx".}
-proc circleValue*(u: float; pos: Ax22d; radius: float): Pnt2d {.
+proc dn*(u: cfloat; c: Circ2d; n: cint): Vec2d {.importcpp: "ElCLib::DN(@)",
+    header: "ElCLib.hxx".}
+proc dn*(u: cfloat; e: Elips2d; n: cint): Vec2d {.importcpp: "ElCLib::DN(@)",
+    header: "ElCLib.hxx".}
+proc dn*(u: cfloat; h: Hypr2d; n: cint): Vec2d {.importcpp: "ElCLib::DN(@)",
+    header: "ElCLib.hxx".}
+proc dn*(u: cfloat; prb: Parab2d; n: cint): Vec2d {.importcpp: "ElCLib::DN(@)",
+    header: "ElCLib.hxx".}
+proc lineValue*(u: cfloat; pos: Ax1): Pnt {.importcpp: "ElCLib::LineValue(@)",
+                                      header: "ElCLib.hxx".}
+proc circleValue*(u: cfloat; pos: Ax2; radius: cfloat): Pnt {.
     importcpp: "ElCLib::CircleValue(@)", header: "ElCLib.hxx".}
-proc ellipseValue*(u: float; pos: Ax22d; majorRadius: float; minorRadius: float): Pnt2d {.
+proc ellipseValue*(u: cfloat; pos: Ax2; majorRadius: cfloat; minorRadius: cfloat): Pnt {.
     importcpp: "ElCLib::EllipseValue(@)", header: "ElCLib.hxx".}
-proc hyperbolaValue*(u: float; pos: Ax22d; majorRadius: float; minorRadius: float): Pnt2d {.
+proc hyperbolaValue*(u: cfloat; pos: Ax2; majorRadius: cfloat; minorRadius: cfloat): Pnt {.
     importcpp: "ElCLib::HyperbolaValue(@)", header: "ElCLib.hxx".}
-proc parabolaValue*(u: float; pos: Ax22d; focal: float): Pnt2d {.
+proc parabolaValue*(u: cfloat; pos: Ax2; focal: cfloat): Pnt {.
     importcpp: "ElCLib::ParabolaValue(@)", header: "ElCLib.hxx".}
-proc lineD1*(u: float; pos: Ax2d; p: var Pnt2d; v1: var Vec2d) {.
+proc lineD1*(u: cfloat; pos: Ax1; p: var Pnt; v1: var Vec) {.
     importcpp: "ElCLib::LineD1(@)", header: "ElCLib.hxx".}
-proc circleD1*(u: float; pos: Ax22d; radius: float; p: var Pnt2d; v1: var Vec2d) {.
+proc circleD1*(u: cfloat; pos: Ax2; radius: cfloat; p: var Pnt; v1: var Vec) {.
     importcpp: "ElCLib::CircleD1(@)", header: "ElCLib.hxx".}
-proc ellipseD1*(u: float; pos: Ax22d; majorRadius: float; minorRadius: float;
+proc ellipseD1*(u: cfloat; pos: Ax2; majorRadius: cfloat; minorRadius: cfloat;
+               p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::EllipseD1(@)",
+                                    header: "ElCLib.hxx".}
+proc hyperbolaD1*(u: cfloat; pos: Ax2; majorRadius: cfloat; minorRadius: cfloat;
+                 p: var Pnt; v1: var Vec) {.importcpp: "ElCLib::HyperbolaD1(@)",
+                                      header: "ElCLib.hxx".}
+proc parabolaD1*(u: cfloat; pos: Ax2; focal: cfloat; p: var Pnt; v1: var Vec) {.
+    importcpp: "ElCLib::ParabolaD1(@)", header: "ElCLib.hxx".}
+proc circleD2*(u: cfloat; pos: Ax2; radius: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    importcpp: "ElCLib::CircleD2(@)", header: "ElCLib.hxx".}
+proc ellipseD2*(u: cfloat; pos: Ax2; majorRadius: cfloat; minorRadius: cfloat;
+               p: var Pnt; v1: var Vec; v2: var Vec) {.importcpp: "ElCLib::EllipseD2(@)",
+    header: "ElCLib.hxx".}
+proc hyperbolaD2*(u: cfloat; pos: Ax2; majorRadius: cfloat; minorRadius: cfloat;
+                 p: var Pnt; v1: var Vec; v2: var Vec) {.
+    importcpp: "ElCLib::HyperbolaD2(@)", header: "ElCLib.hxx".}
+proc parabolaD2*(u: cfloat; pos: Ax2; focal: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    importcpp: "ElCLib::ParabolaD2(@)", header: "ElCLib.hxx".}
+proc circleD3*(u: cfloat; pos: Ax2; radius: cfloat; p: var Pnt; v1: var Vec; v2: var Vec;
+              v3: var Vec) {.importcpp: "ElCLib::CircleD3(@)", header: "ElCLib.hxx".}
+proc ellipseD3*(u: cfloat; pos: Ax2; majorRadius: cfloat; minorRadius: cfloat;
+               p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    importcpp: "ElCLib::EllipseD3(@)", header: "ElCLib.hxx".}
+proc hyperbolaD3*(u: cfloat; pos: Ax2; majorRadius: cfloat; minorRadius: cfloat;
+                 p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    importcpp: "ElCLib::HyperbolaD3(@)", header: "ElCLib.hxx".}
+proc lineDN*(u: cfloat; pos: Ax1; n: cint): Vec {.importcpp: "ElCLib::LineDN(@)",
+    header: "ElCLib.hxx".}
+proc circleDN*(u: cfloat; pos: Ax2; radius: cfloat; n: cint): Vec {.
+    importcpp: "ElCLib::CircleDN(@)", header: "ElCLib.hxx".}
+proc ellipseDN*(u: cfloat; pos: Ax2; majorRadius: cfloat; minorRadius: cfloat; n: cint): Vec {.
+    importcpp: "ElCLib::EllipseDN(@)", header: "ElCLib.hxx".}
+proc hyperbolaDN*(u: cfloat; pos: Ax2; majorRadius: cfloat; minorRadius: cfloat; n: cint): Vec {.
+    importcpp: "ElCLib::HyperbolaDN(@)", header: "ElCLib.hxx".}
+proc parabolaDN*(u: cfloat; pos: Ax2; focal: cfloat; n: cint): Vec {.
+    importcpp: "ElCLib::ParabolaDN(@)", header: "ElCLib.hxx".}
+proc lineValue*(u: cfloat; pos: Ax2d): Pnt2d {.importcpp: "ElCLib::LineValue(@)",
+    header: "ElCLib.hxx".}
+proc circleValue*(u: cfloat; pos: Ax22d; radius: cfloat): Pnt2d {.
+    importcpp: "ElCLib::CircleValue(@)", header: "ElCLib.hxx".}
+proc ellipseValue*(u: cfloat; pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat): Pnt2d {.
+    importcpp: "ElCLib::EllipseValue(@)", header: "ElCLib.hxx".}
+proc hyperbolaValue*(u: cfloat; pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat): Pnt2d {.
+    importcpp: "ElCLib::HyperbolaValue(@)", header: "ElCLib.hxx".}
+proc parabolaValue*(u: cfloat; pos: Ax22d; focal: cfloat): Pnt2d {.
+    importcpp: "ElCLib::ParabolaValue(@)", header: "ElCLib.hxx".}
+proc lineD1*(u: cfloat; pos: Ax2d; p: var Pnt2d; v1: var Vec2d) {.
+    importcpp: "ElCLib::LineD1(@)", header: "ElCLib.hxx".}
+proc circleD1*(u: cfloat; pos: Ax22d; radius: cfloat; p: var Pnt2d; v1: var Vec2d) {.
+    importcpp: "ElCLib::CircleD1(@)", header: "ElCLib.hxx".}
+proc ellipseD1*(u: cfloat; pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat;
                p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::EllipseD1(@)",
                                         header: "ElCLib.hxx".}
-proc hyperbolaD1*(u: float; pos: Ax22d; majorRadius: float; minorRadius: float;
+proc hyperbolaD1*(u: cfloat; pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat;
                  p: var Pnt2d; v1: var Vec2d) {.importcpp: "ElCLib::HyperbolaD1(@)",
     header: "ElCLib.hxx".}
-proc parabolaD1*(u: float; pos: Ax22d; focal: float; p: var Pnt2d; v1: var Vec2d) {.
+proc parabolaD1*(u: cfloat; pos: Ax22d; focal: cfloat; p: var Pnt2d; v1: var Vec2d) {.
     importcpp: "ElCLib::ParabolaD1(@)", header: "ElCLib.hxx".}
-proc circleD2*(u: float; pos: Ax22d; radius: float; p: var Pnt2d; v1: var Vec2d;
+proc circleD2*(u: cfloat; pos: Ax22d; radius: cfloat; p: var Pnt2d; v1: var Vec2d;
               v2: var Vec2d) {.importcpp: "ElCLib::CircleD2(@)", header: "ElCLib.hxx".}
-proc ellipseD2*(u: float; pos: Ax22d; majorRadius: float; minorRadius: float;
+proc ellipseD2*(u: cfloat; pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat;
                p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     importcpp: "ElCLib::EllipseD2(@)", header: "ElCLib.hxx".}
-proc hyperbolaD2*(u: float; pos: Ax22d; majorRadius: float; minorRadius: float;
+proc hyperbolaD2*(u: cfloat; pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat;
                  p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
     importcpp: "ElCLib::HyperbolaD2(@)", header: "ElCLib.hxx".}
-proc parabolaD2*(u: float; pos: Ax22d; focal: float; p: var Pnt2d; v1: var Vec2d;
+proc parabolaD2*(u: cfloat; pos: Ax22d; focal: cfloat; p: var Pnt2d; v1: var Vec2d;
                 v2: var Vec2d) {.importcpp: "ElCLib::ParabolaD2(@)",
                               header: "ElCLib.hxx".}
-proc circleD3*(u: float; pos: Ax22d; radius: float; p: var Pnt2d; v1: var Vec2d;
+proc circleD3*(u: cfloat; pos: Ax22d; radius: cfloat; p: var Pnt2d; v1: var Vec2d;
               v2: var Vec2d; v3: var Vec2d) {.importcpp: "ElCLib::CircleD3(@)",
                                         header: "ElCLib.hxx".}
-proc ellipseD3*(u: float; pos: Ax22d; majorRadius: float; minorRadius: float;
+proc ellipseD3*(u: cfloat; pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat;
                p: var Pnt2d; v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.
     importcpp: "ElCLib::EllipseD3(@)", header: "ElCLib.hxx".}
-proc hyperbolaD3*(u: float; pos: Ax22d; majorRadius: float; minorRadius: float;
+proc hyperbolaD3*(u: cfloat; pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat;
                  p: var Pnt2d; v1: var Vec2d; v2: var Vec2d; v3: var Vec2d) {.
     importcpp: "ElCLib::HyperbolaD3(@)", header: "ElCLib.hxx".}
-proc lineDN*(u: float; pos: Ax2d; n: int): Vec2d {.importcpp: "ElCLib::LineDN(@)",
+proc lineDN*(u: cfloat; pos: Ax2d; n: cint): Vec2d {.importcpp: "ElCLib::LineDN(@)",
     header: "ElCLib.hxx".}
-proc circleDN*(u: float; pos: Ax22d; radius: float; n: int): Vec2d {.
+proc circleDN*(u: cfloat; pos: Ax22d; radius: cfloat; n: cint): Vec2d {.
     importcpp: "ElCLib::CircleDN(@)", header: "ElCLib.hxx".}
-proc ellipseDN*(u: float; pos: Ax22d; majorRadius: float; minorRadius: float; n: int): Vec2d {.
+proc ellipseDN*(u: cfloat; pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat; n: cint): Vec2d {.
     importcpp: "ElCLib::EllipseDN(@)", header: "ElCLib.hxx".}
-proc hyperbolaDN*(u: float; pos: Ax22d; majorRadius: float; minorRadius: float; n: int): Vec2d {.
-    importcpp: "ElCLib::HyperbolaDN(@)", header: "ElCLib.hxx".}
-proc parabolaDN*(u: float; pos: Ax22d; focal: float; n: int): Vec2d {.
+proc hyperbolaDN*(u: cfloat; pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat;
+                 n: cint): Vec2d {.importcpp: "ElCLib::HyperbolaDN(@)",
+                                header: "ElCLib.hxx".}
+proc parabolaDN*(u: cfloat; pos: Ax22d; focal: cfloat; n: cint): Vec2d {.
     importcpp: "ElCLib::ParabolaDN(@)", header: "ElCLib.hxx".}
-proc parameter*(L: Lin; p: Pnt): float {.importcpp: "ElCLib::Parameter(@)",
-                                   header: "ElCLib.hxx".}
-proc parameter*(L: Lin2d; p: Pnt2d): float {.importcpp: "ElCLib::Parameter(@)",
-                                       header: "ElCLib.hxx".}
-proc parameter*(c: Circ; p: Pnt): float {.importcpp: "ElCLib::Parameter(@)",
+proc parameter*(L: Lin; p: Pnt): cfloat {.importcpp: "ElCLib::Parameter(@)",
                                     header: "ElCLib.hxx".}
-proc parameter*(c: Circ2d; p: Pnt2d): float {.importcpp: "ElCLib::Parameter(@)",
+proc parameter*(L: Lin2d; p: Pnt2d): cfloat {.importcpp: "ElCLib::Parameter(@)",
                                         header: "ElCLib.hxx".}
-proc parameter*(e: Elips; p: Pnt): float {.importcpp: "ElCLib::Parameter(@)",
+proc parameter*(c: Circ; p: Pnt): cfloat {.importcpp: "ElCLib::Parameter(@)",
                                      header: "ElCLib.hxx".}
-proc parameter*(e: Elips2d; p: Pnt2d): float {.importcpp: "ElCLib::Parameter(@)",
+proc parameter*(c: Circ2d; p: Pnt2d): cfloat {.importcpp: "ElCLib::Parameter(@)",
     header: "ElCLib.hxx".}
-proc parameter*(h: Hypr; p: Pnt): float {.importcpp: "ElCLib::Parameter(@)",
-                                    header: "ElCLib.hxx".}
-proc parameter*(h: Hypr2d; p: Pnt2d): float {.importcpp: "ElCLib::Parameter(@)",
+proc parameter*(e: Elips; p: Pnt): cfloat {.importcpp: "ElCLib::Parameter(@)",
+                                      header: "ElCLib.hxx".}
+proc parameter*(e: Elips2d; p: Pnt2d): cfloat {.importcpp: "ElCLib::Parameter(@)",
+    header: "ElCLib.hxx".}
+proc parameter*(h: Hypr; p: Pnt): cfloat {.importcpp: "ElCLib::Parameter(@)",
+                                     header: "ElCLib.hxx".}
+proc parameter*(h: Hypr2d; p: Pnt2d): cfloat {.importcpp: "ElCLib::Parameter(@)",
+    header: "ElCLib.hxx".}
+proc parameter*(prb: Parab; p: Pnt): cfloat {.importcpp: "ElCLib::Parameter(@)",
                                         header: "ElCLib.hxx".}
-proc parameter*(prb: Parab; p: Pnt): float {.importcpp: "ElCLib::Parameter(@)",
-                                       header: "ElCLib.hxx".}
-proc parameter*(prb: Parab2d; p: Pnt2d): float {.importcpp: "ElCLib::Parameter(@)",
+proc parameter*(prb: Parab2d; p: Pnt2d): cfloat {.importcpp: "ElCLib::Parameter(@)",
     header: "ElCLib.hxx".}
-proc lineParameter*(pos: Ax1; p: Pnt): float {.importcpp: "ElCLib::LineParameter(@)",
+proc lineParameter*(pos: Ax1; p: Pnt): cfloat {.importcpp: "ElCLib::LineParameter(@)",
     header: "ElCLib.hxx".}
-proc lineParameter*(pos: Ax2d; p: Pnt2d): float {.
+proc lineParameter*(pos: Ax2d; p: Pnt2d): cfloat {.
     importcpp: "ElCLib::LineParameter(@)", header: "ElCLib.hxx".}
-proc circleParameter*(pos: Ax2; p: Pnt): float {.
+proc circleParameter*(pos: Ax2; p: Pnt): cfloat {.
     importcpp: "ElCLib::CircleParameter(@)", header: "ElCLib.hxx".}
-proc circleParameter*(pos: Ax22d; p: Pnt2d): float {.
+proc circleParameter*(pos: Ax22d; p: Pnt2d): cfloat {.
     importcpp: "ElCLib::CircleParameter(@)", header: "ElCLib.hxx".}
-proc ellipseParameter*(pos: Ax2; majorRadius: float; minorRadius: float; p: Pnt): float {.
+proc ellipseParameter*(pos: Ax2; majorRadius: cfloat; minorRadius: cfloat; p: Pnt): cfloat {.
     importcpp: "ElCLib::EllipseParameter(@)", header: "ElCLib.hxx".}
-proc ellipseParameter*(pos: Ax22d; majorRadius: float; minorRadius: float; p: Pnt2d): float {.
+proc ellipseParameter*(pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat; p: Pnt2d): cfloat {.
     importcpp: "ElCLib::EllipseParameter(@)", header: "ElCLib.hxx".}
-proc hyperbolaParameter*(pos: Ax2; majorRadius: float; minorRadius: float; p: Pnt): float {.
+proc hyperbolaParameter*(pos: Ax2; majorRadius: cfloat; minorRadius: cfloat; p: Pnt): cfloat {.
     importcpp: "ElCLib::HyperbolaParameter(@)", header: "ElCLib.hxx".}
-proc hyperbolaParameter*(pos: Ax22d; majorRadius: float; minorRadius: float; p: Pnt2d): float {.
+proc hyperbolaParameter*(pos: Ax22d; majorRadius: cfloat; minorRadius: cfloat; p: Pnt2d): cfloat {.
     importcpp: "ElCLib::HyperbolaParameter(@)", header: "ElCLib.hxx".}
-proc parabolaParameter*(pos: Ax2; p: Pnt): float {.
+proc parabolaParameter*(pos: Ax2; p: Pnt): cfloat {.
     importcpp: "ElCLib::ParabolaParameter(@)", header: "ElCLib.hxx".}
-proc parabolaParameter*(pos: Ax22d; p: Pnt2d): float {.
+proc parabolaParameter*(pos: Ax22d; p: Pnt2d): cfloat {.
     importcpp: "ElCLib::ParabolaParameter(@)", header: "ElCLib.hxx".}
 proc to3d*(pos: Ax2; p: Pnt2d): Pnt {.importcpp: "ElCLib::To3d(@)", header: "ElCLib.hxx".}
 proc to3d*(pos: Ax2; v: Vec2d): Vec {.importcpp: "ElCLib::To3d(@)", header: "ElCLib.hxx".}
@@ -288,3 +292,28 @@ proc to3d*(pos: Ax2; h: Hypr2d): Hypr {.importcpp: "ElCLib::To3d(@)",
                                   header: "ElCLib.hxx".}
 proc to3d*(pos: Ax2; prb: Parab2d): Parab {.importcpp: "ElCLib::To3d(@)",
                                       header: "ElCLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

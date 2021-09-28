@@ -126,10 +126,35 @@ type
                                                                                          ## curve.
 
 
-proc findParameter*(c: IntCurvePConic; pnt: Pnt2d; tol: float): float {.
+proc findParameter*(c: IntCurvePConic; pnt: Pnt2d; tol: cfloat): cfloat {.
     importcpp: "IntCurve_ProjectOnPConicTool::FindParameter(@)",
     header: "IntCurve_ProjectOnPConicTool.hxx".}
-proc findParameter*(c: IntCurvePConic; pnt: Pnt2d; lowParameter: float;
-                   highParameter: float; tol: float): float {.
+proc findParameter*(c: IntCurvePConic; pnt: Pnt2d; lowParameter: cfloat;
+                   highParameter: cfloat; tol: cfloat): cfloat {.
     importcpp: "IntCurve_ProjectOnPConicTool::FindParameter(@)",
     header: "IntCurve_ProjectOnPConicTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

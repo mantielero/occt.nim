@@ -18,3 +18,28 @@ type
   STEPSelectionsSequenceOfAssemblyComponent* = NCollectionSequence[
       Handle[STEPSelectionsAssemblyComponent]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

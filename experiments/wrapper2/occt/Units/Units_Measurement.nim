@@ -22,9 +22,9 @@ type
 
 proc constructUnitsMeasurement*(): UnitsMeasurement {.constructor,
     importcpp: "Units_Measurement(@)", header: "Units_Measurement.hxx".}
-proc constructUnitsMeasurement*(avalue: float; atoken: Handle[UnitsToken]): UnitsMeasurement {.
+proc constructUnitsMeasurement*(avalue: cfloat; atoken: Handle[UnitsToken]): UnitsMeasurement {.
     constructor, importcpp: "Units_Measurement(@)", header: "Units_Measurement.hxx".}
-proc constructUnitsMeasurement*(avalue: float; aunit: StandardCString): UnitsMeasurement {.
+proc constructUnitsMeasurement*(avalue: cfloat; aunit: StandardCString): UnitsMeasurement {.
     constructor, importcpp: "Units_Measurement(@)", header: "Units_Measurement.hxx".}
 proc convert*(this: var UnitsMeasurement; aunit: StandardCString) {.
     importcpp: "Convert", header: "Units_Measurement.hxx".}
@@ -32,7 +32,7 @@ proc integer*(this: UnitsMeasurement): UnitsMeasurement {.noSideEffect,
     importcpp: "Integer", header: "Units_Measurement.hxx".}
 proc fractional*(this: UnitsMeasurement): UnitsMeasurement {.noSideEffect,
     importcpp: "Fractional", header: "Units_Measurement.hxx".}
-proc measurement*(this: UnitsMeasurement): float {.noSideEffect,
+proc measurement*(this: UnitsMeasurement): cfloat {.noSideEffect,
     importcpp: "Measurement", header: "Units_Measurement.hxx".}
 proc token*(this: UnitsMeasurement): Handle[UnitsToken] {.noSideEffect,
     importcpp: "Token", header: "Units_Measurement.hxx".}
@@ -48,21 +48,46 @@ proc multiply*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMea
     noSideEffect, importcpp: "Multiply", header: "Units_Measurement.hxx".}
 proc `*`*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "(# * #)", header: "Units_Measurement.hxx".}
-proc multiply*(this: UnitsMeasurement; avalue: float): UnitsMeasurement {.
+proc multiply*(this: UnitsMeasurement; avalue: cfloat): UnitsMeasurement {.
     noSideEffect, importcpp: "Multiply", header: "Units_Measurement.hxx".}
-proc `*`*(this: UnitsMeasurement; avalue: float): UnitsMeasurement {.noSideEffect,
+proc `*`*(this: UnitsMeasurement; avalue: cfloat): UnitsMeasurement {.noSideEffect,
     importcpp: "(# * #)", header: "Units_Measurement.hxx".}
 proc divide*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "Divide", header: "Units_Measurement.hxx".}
 proc `/`*(this: UnitsMeasurement; ameasurement: UnitsMeasurement): UnitsMeasurement {.
     noSideEffect, importcpp: "(# / #)", header: "Units_Measurement.hxx".}
-proc divide*(this: UnitsMeasurement; avalue: float): UnitsMeasurement {.noSideEffect,
+proc divide*(this: UnitsMeasurement; avalue: cfloat): UnitsMeasurement {.noSideEffect,
     importcpp: "Divide", header: "Units_Measurement.hxx".}
-proc `/`*(this: UnitsMeasurement; avalue: float): UnitsMeasurement {.noSideEffect,
+proc `/`*(this: UnitsMeasurement; avalue: cfloat): UnitsMeasurement {.noSideEffect,
     importcpp: "(# / #)", header: "Units_Measurement.hxx".}
-proc power*(this: UnitsMeasurement; anexponent: float): UnitsMeasurement {.
+proc power*(this: UnitsMeasurement; anexponent: cfloat): UnitsMeasurement {.
     noSideEffect, importcpp: "Power", header: "Units_Measurement.hxx".}
 proc hasToken*(this: UnitsMeasurement): bool {.noSideEffect, importcpp: "HasToken",
     header: "Units_Measurement.hxx".}
 proc dump*(this: UnitsMeasurement) {.noSideEffect, importcpp: "Dump",
                                   header: "Units_Measurement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

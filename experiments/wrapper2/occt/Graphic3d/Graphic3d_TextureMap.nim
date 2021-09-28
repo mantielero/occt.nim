@@ -57,5 +57,30 @@ proc setAnisoFilter*(this: var Graphic3dTextureMap;
     importcpp: "SetAnisoFilter", header: "Graphic3d_TextureMap.hxx".}
 discard "forward decl of Graphic3d_TextureMap"
 type
-  HandleGraphic3dTextureMap* = Handle[Graphic3dTextureMap]
+  HandleC1C1* = Handle[Graphic3dTextureMap]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

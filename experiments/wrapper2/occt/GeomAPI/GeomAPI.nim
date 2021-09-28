@@ -26,22 +26,21 @@ discard "forward decl of GeomAPI_Interpolate"
 discard "forward decl of GeomAPI_IntSS"
 discard "forward decl of GeomAPI_IntCS"
 type
-  GeomAPI* {.importcpp: "GeomAPI", header: "GeomAPI.hxx", bycopy.} = object ## ! This function builds (in the
-                                                                    ## ! parametric space of the plane P) a 2D curve equivalent to the 3D curve
-                                                                    ## ! C. The 3D curve C is considered to be located in the plane P.
-                                                                    ## ! Warning
-                                                                    ## ! The 3D curve C must be of one of the following types:
-                                                                    ## ! -      a line
-                                                                    ## ! -      a circle
-                                                                    ## ! -      an ellipse
-                                                                    ## ! -      a hyperbola
-                                                                    ## ! -      a parabola
-                                                                    ## ! -      a Bezier curve
-                                                                    ## ! -      a BSpline curve
-                                                                    ## ! Exceptions
-                                                                    ## Standard_NoSuchObject if C is not a defined type curve.
+  GeomAPI* {.importcpp: "GeomAPI", header: "GeomAPI.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomAPI; theSize: csize_t): pointer {.
+    importcpp: "GeomAPI::operator new", header: "GeomAPI.hxx".}
+proc `delete`*(this: var GeomAPI; theAddress: pointer) {.
+    importcpp: "GeomAPI::operator delete", header: "GeomAPI.hxx".}
+proc `new[]`*(this: var GeomAPI; theSize: csize_t): pointer {.
+    importcpp: "GeomAPI::operator new[]", header: "GeomAPI.hxx".}
+proc `delete[]`*(this: var GeomAPI; theAddress: pointer) {.
+    importcpp: "GeomAPI::operator delete[]", header: "GeomAPI.hxx".}
+proc `new`*(this: var GeomAPI; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomAPI::operator new", header: "GeomAPI.hxx".}
+proc `delete`*(this: var GeomAPI; a2: pointer; a3: pointer) {.
+    importcpp: "GeomAPI::operator delete", header: "GeomAPI.hxx".}
 proc to2d*(c: Handle[GeomCurve]; p: Pln): Handle[Geom2dCurve] {.
     importcpp: "GeomAPI::To2d(@)", header: "GeomAPI.hxx".}
 proc to3d*(c: Handle[Geom2dCurve]; p: Pln): Handle[GeomCurve] {.

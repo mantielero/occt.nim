@@ -12,12 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of AIS_ColorScale"
-discard "forward decl of AIS_ColorScale"
-type
-  HandleAIS_ColorScale* = Handle[AIS_ColorScale]
+## !!!Ignored construct:  # _AIS_ColorScale_HeaderFile [NewLine] # _AIS_ColorScale_HeaderFile [NewLine] # < AIS_InteractiveObject . hxx > [NewLine] # < Aspect_TypeOfColorScaleData . hxx > [NewLine] # < Aspect_TypeOfColorScalePosition . hxx > [NewLine] # < Aspect_SequenceOfColor . hxx > [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineHandle . hxx > [NewLine] # < TCollection_ExtendedString . hxx > [NewLine] # < TColStd_SequenceOfExtendedString . hxx > [NewLine] class AIS_ColorScale ;
+## Error: expected ';'!!!
 
-## ! Class for drawing a custom color scale.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( AIS_ColorScale , AIS_InteractiveObject ) ! Class for drawing a custom color scale.
 ## !
 ## ! The color scale consists of rectangular color bar (composed of fixed
 ## ! number of color intervals), optional labels, and title.
@@ -25,217 +23,53 @@ type
 ## ! or at the middle of each interval.
 ## ! Colors and labels can be either defined automatically or set by the user.
 ## ! Automatic labels are calculated from numerical limits of the scale,
-## ! its type (logarithmic or plain), and formatted by specified format string.
-
-type
-  AIS_ColorScale* {.importcpp: "AIS_ColorScale", header: "AIS_ColorScale.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                                ## !
-                                                                                                                ## Calculate
-                                                                                                                ## color
-                                                                                                                ## according
-                                                                                                                ## passed
-                                                                                                                ## value;
-                                                                                                                ## returns
-                                                                                                                ## true
-                                                                                                                ## if
-                                                                                                                ## value
-                                                                                                                ## is
-                                                                                                                ## in
-                                                                                                                ## range
-                                                                                                                ## or
-                                                                                                                ## false,
-                                                                                                                ## if
-                                                                                                                ## isn't
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Default
-                                                                                                                ## constructor.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## the
-                                                                                                                ## width
-                                                                                                                ## of
-                                                                                                                ## text.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## @param
-                                                                                                                ## theText
-                                                                                                                ## [in]
-                                                                                                                ## the
-                                                                                                                ## text
-                                                                                                                ## of
-                                                                                                                ## which
-                                                                                                                ## to
-                                                                                                                ## calculate
-                                                                                                                ## width.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Return
-                                                                                                                ## true
-                                                                                                                ## if
-                                                                                                                ## specified
-                                                                                                                ## display
-                                                                                                                ## mode
-                                                                                                                ## is
-                                                                                                                ## supported.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## the
-                                                                                                                ## size
-                                                                                                                ## of
-                                                                                                                ## color
-                                                                                                                ## scale.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## @param
-                                                                                                                ## theWidth
-                                                                                                                ## [out]
-                                                                                                                ## the
-                                                                                                                ## width
-                                                                                                                ## of
-                                                                                                                ## color
-                                                                                                                ## scale.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## @param
-                                                                                                                ## theHeight
-                                                                                                                ## [out]
-                                                                                                                ## the
-                                                                                                                ## height
-                                                                                                                ## of
-                                                                                                                ## color
-                                                                                                                ## scale.
-    ## !< values range - minimal value
-    ## !< values range - maximal value
-    ## !< HLS color corresponding to minimum value
-    ## !< HLS color corresponding to maximum value
-    ## !< optional title string
-    ## !< sprintf() format for generating label from value
-    ## !< number of intervals
-    ## !< color type
-    ## !< label type
-    ## !< at border
-    ## !< flag indicating reversed order
-    ## !< flag indicating logarithmic scale
-    ## !< flag indicating smooth transition between the colors
-    ## !< sequence of custom colors
-    ## !< sequence of custom text labels
-    ## !< label position relative to the color scale
-    ## !< title position
-    ## !< left   position
-    ## !< bottom position
-    ## !< color scale breadth
-    ## !< height of the color scale
-    ## !< extra spacing between element
-    ## !< label font height
-
-  AIS_ColorScalebaseType* = AIS_InteractiveObject
-
-proc getTypeName*(): cstring {.importcpp: "AIS_ColorScale::get_type_name(@)",
-                            header: "AIS_ColorScale.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "AIS_ColorScale::get_type_descriptor(@)",
-    header: "AIS_ColorScale.hxx".}
-proc dynamicType*(this: AIS_ColorScale): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "AIS_ColorScale.hxx".}
-proc findColor*(theValue: float; theMin: float; theMax: float; theColorsCount: int;
-               theColorHlsMin: Graphic3dVec3d; theColorHlsMax: Graphic3dVec3d;
-               theColor: var QuantityColor): bool {.
-    importcpp: "AIS_ColorScale::FindColor(@)", header: "AIS_ColorScale.hxx".}
-proc findColor*(theValue: float; theMin: float; theMax: float; theColorsCount: int;
-               theColor: var QuantityColor): bool {.
-    importcpp: "AIS_ColorScale::FindColor(@)", header: "AIS_ColorScale.hxx".}
-proc hueToValidRange*(theHue: float): float {.
-    importcpp: "AIS_ColorScale::hueToValidRange(@)", header: "AIS_ColorScale.hxx".}
-proc constructAIS_ColorScale*(): AIS_ColorScale {.constructor,
-    importcpp: "AIS_ColorScale(@)", header: "AIS_ColorScale.hxx".}
-proc findColor*(this: AIS_ColorScale; theValue: float; theColor: var QuantityColor): bool {.
-    noSideEffect, importcpp: "FindColor", header: "AIS_ColorScale.hxx".}
-proc getMin*(this: AIS_ColorScale): float {.noSideEffect, importcpp: "GetMin",
-                                        header: "AIS_ColorScale.hxx".}
-proc setMin*(this: var AIS_ColorScale; theMin: float) {.importcpp: "SetMin",
-    header: "AIS_ColorScale.hxx".}
-proc getMax*(this: AIS_ColorScale): float {.noSideEffect, importcpp: "GetMax",
-                                        header: "AIS_ColorScale.hxx".}
-proc setMax*(this: var AIS_ColorScale; theMax: float) {.importcpp: "SetMax",
-    header: "AIS_ColorScale.hxx".}
-proc getRange*(this: AIS_ColorScale; theMin: var float; theMax: var float) {.
-    noSideEffect, importcpp: "GetRange", header: "AIS_ColorScale.hxx".}
-proc setRange*(this: var AIS_ColorScale; theMin: float; theMax: float) {.
-    importcpp: "SetRange", header: "AIS_ColorScale.hxx".}
-proc hueMin*(this: AIS_ColorScale): float {.noSideEffect, importcpp: "HueMin",
-                                        header: "AIS_ColorScale.hxx".}
-proc hueMax*(this: AIS_ColorScale): float {.noSideEffect, importcpp: "HueMax",
-                                        header: "AIS_ColorScale.hxx".}
-proc hueRange*(this: AIS_ColorScale; theMinAngle: var float; theMaxAngle: var float) {.
-    noSideEffect, importcpp: "HueRange", header: "AIS_ColorScale.hxx".}
-proc setHueRange*(this: var AIS_ColorScale; theMinAngle: float; theMaxAngle: float) {.
-    importcpp: "SetHueRange", header: "AIS_ColorScale.hxx".}
-proc colorRange*(this: AIS_ColorScale; theMinColor: var QuantityColor;
-                theMaxColor: var QuantityColor) {.noSideEffect,
-    importcpp: "ColorRange", header: "AIS_ColorScale.hxx".}
-proc setColorRange*(this: var AIS_ColorScale; theMinColor: QuantityColor;
-                   theMaxColor: QuantityColor) {.importcpp: "SetColorRange",
-    header: "AIS_ColorScale.hxx".}
-proc getLabelType*(this: AIS_ColorScale): AspectTypeOfColorScaleData {.noSideEffect,
-    importcpp: "GetLabelType", header: "AIS_ColorScale.hxx".}
-proc setLabelType*(this: var AIS_ColorScale; theType: AspectTypeOfColorScaleData) {.
-    importcpp: "SetLabelType", header: "AIS_ColorScale.hxx".}
-proc getColorType*(this: AIS_ColorScale): AspectTypeOfColorScaleData {.noSideEffect,
-    importcpp: "GetColorType", header: "AIS_ColorScale.hxx".}
-proc setColorType*(this: var AIS_ColorScale; theType: AspectTypeOfColorScaleData) {.
-    importcpp: "SetColorType", header: "AIS_ColorScale.hxx".}
-proc getNumberOfIntervals*(this: AIS_ColorScale): int {.noSideEffect,
-    importcpp: "GetNumberOfIntervals", header: "AIS_ColorScale.hxx".}
-proc setNumberOfIntervals*(this: var AIS_ColorScale; theNum: int) {.
-    importcpp: "SetNumberOfIntervals", header: "AIS_ColorScale.hxx".}
-proc getTitle*(this: AIS_ColorScale): TCollectionExtendedString {.noSideEffect,
-    importcpp: "GetTitle", header: "AIS_ColorScale.hxx".}
-proc setTitle*(this: var AIS_ColorScale; theTitle: TCollectionExtendedString) {.
-    importcpp: "SetTitle", header: "AIS_ColorScale.hxx".}
-proc getFormat*(this: AIS_ColorScale): TCollectionAsciiString {.noSideEffect,
-    importcpp: "GetFormat", header: "AIS_ColorScale.hxx".}
-proc format*(this: AIS_ColorScale): TCollectionAsciiString {.noSideEffect,
-    importcpp: "Format", header: "AIS_ColorScale.hxx".}
-proc setFormat*(this: var AIS_ColorScale; theFormat: TCollectionAsciiString) {.
-    importcpp: "SetFormat", header: "AIS_ColorScale.hxx".}
-proc getLabel*(this: AIS_ColorScale; theIndex: int): TCollectionExtendedString {.
-    noSideEffect, importcpp: "GetLabel", header: "AIS_ColorScale.hxx".}
-proc getIntervalColor*(this: AIS_ColorScale; theIndex: int): QuantityColor {.
-    noSideEffect, importcpp: "GetIntervalColor", header: "AIS_ColorScale.hxx".}
-proc setIntervalColor*(this: var AIS_ColorScale; theColor: QuantityColor;
-                      theIndex: int) {.importcpp: "SetIntervalColor",
-                                     header: "AIS_ColorScale.hxx".}
-proc getLabels*(this: AIS_ColorScale;
-               theLabels: var TColStdSequenceOfExtendedString) {.noSideEffect,
-    importcpp: "GetLabels", header: "AIS_ColorScale.hxx".}
-proc labels*(this: AIS_ColorScale): TColStdSequenceOfExtendedString {.noSideEffect,
-    importcpp: "Labels", header: "AIS_ColorScale.hxx".}
-proc setLabels*(this: var AIS_ColorScale; theSeq: TColStdSequenceOfExtendedString) {.
-    importcpp: "SetLabels", header: "AIS_ColorScale.hxx".}
-proc getColors*(this: AIS_ColorScale; theColors: var AspectSequenceOfColor) {.
-    noSideEffect, importcpp: "GetColors", header: "AIS_ColorScale.hxx".}
-proc getColors*(this: AIS_ColorScale): AspectSequenceOfColor {.noSideEffect,
-    importcpp: "GetColors", header: "AIS_ColorScale.hxx".}
-proc setColors*(this: var AIS_ColorScale; theSeq: AspectSequenceOfColor) {.
-    importcpp: "SetColors", header: "AIS_ColorScale.hxx".}
-proc setUniformColors*(this: var AIS_ColorScale; theLightness: float;
-                      theHueFrom: float; theHueTo: float) {.
-    importcpp: "SetUniformColors", header: "AIS_ColorScale.hxx".}
-proc makeUniformColors*(theNbColors: int; theLightness: float; theHueFrom: float;
-                       theHueTo: float): AspectSequenceOfColor {.
-    importcpp: "AIS_ColorScale::MakeUniformColors(@)",
-    header: "AIS_ColorScale.hxx".}
-proc getLabelPosition*(this: AIS_ColorScale): AspectTypeOfColorScalePosition {.
-    noSideEffect, importcpp: "GetLabelPosition", header: "AIS_ColorScale.hxx".}
-proc setLabelPosition*(this: var AIS_ColorScale;
-                      thePos: AspectTypeOfColorScalePosition) {.
-    importcpp: "SetLabelPosition", header: "AIS_ColorScale.hxx".}
-proc getTitlePosition*(this: AIS_ColorScale): AspectTypeOfColorScalePosition {.
-    noSideEffect, importcpp: "GetTitlePosition", header: "AIS_ColorScale.hxx".}
-## !!!Ignored construct:  ! Sets the color scale title position. Standard_DEPRECATED ( AIS_ColorScale::SetTitlePosition() has no effect! ) void SetTitlePosition ( const Aspect_TypeOfColorScalePosition thePos ) { myTitlePos = thePos ; } ! Returns TRUE if the labels and colors used in reversed order, FALSE by default.
+## ! its type (logarithmic or plain), and formatted by specified format string. class AIS_ColorScale : public AIS_InteractiveObject { public : typedef AIS_InteractiveObject base_type ; static const char * get_type_name ( ) { return AIS_ColorScale ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; public : ! Calculate color according passed value; returns true if value is in range or false, if isn't static Standard_Boolean FindColor ( const Standard_Real theValue , const Standard_Real theMin , const Standard_Real theMax , const Standard_Integer theColorsCount , const Graphic3d_Vec3d & theColorHlsMin , const Graphic3d_Vec3d & theColorHlsMax , Quantity_Color & theColor ) ; ! Calculate color according passed value; returns true if value is in range or false, if isn't static Standard_Boolean FindColor ( const Standard_Real theValue , const Standard_Real theMin , const Standard_Real theMax , const Standard_Integer theColorsCount , Quantity_Color & theColor ) { return FindColor ( theValue , theMin , theMax , theColorsCount , Graphic3d_Vec3d ( 230.0 , 1.0 , 1.0 ) , Graphic3d_Vec3d ( 0.0 , 1.0 , 1.0 ) , theColor ) ; } ! Shift hue into valid range.
+## ! Lightness and Saturation should be specified in valid range [0.0, 1.0],
+## ! however Hue might be given out of Quantity_Color range to specify desired range for interpolation. static Standard_Real hueToValidRange ( const Standard_Real theHue ) { Standard_Real aHue = theHue ; while ( aHue < 0.0 ) { aHue += 360.0 ; } while ( aHue > 360.0 ) { aHue -= 360.0 ; } return aHue ; } public : ! Default constructor. AIS_ColorScale ( ) ; ! Calculate color according passed value; returns true if value is in range or false, if isn't Standard_Boolean FindColor ( const Standard_Real theValue , Quantity_Color & theColor ) const ; ! Returns minimal value of color scale, 0.0 by default. Standard_Real GetMin ( ) const { return myMin ; } ! Sets the minimal value of color scale. void SetMin ( const Standard_Real theMin ) { SetRange ( theMin , GetMax ( ) ) ; } ! Returns maximal value of color scale, 1.0 by default. Standard_Real GetMax ( ) const { return myMax ; } ! Sets the maximal value of color scale. void SetMax ( const Standard_Real theMax ) { SetRange ( GetMin ( ) , theMax ) ; } ! Returns minimal and maximal values of color scale, 0.0 to 1.0 by default. void GetRange ( Standard_Real & theMin , Standard_Real & theMax ) const { theMin = myMin ; theMax = myMax ; } ! Sets the minimal and maximal value of color scale.
+## ! Note that values order will be ignored - the minimum and maximum values will be swapped if needed.
+## ! ::SetReversed() should be called to swap displaying order. void SetRange ( const Standard_Real theMin , const Standard_Real theMax ) ; ! Returns the hue angle corresponding to minimum value, 230 by default (blue). Standard_Real HueMin ( ) const { return myColorHlsMin [ 0 ] ; } ! Returns the hue angle corresponding to maximum value, 0 by default (red). Standard_Real HueMax ( ) const { return myColorHlsMax [ 0 ] ; } ! Returns the hue angle range corresponding to minimum and maximum values, 230 to 0 by default (blue to red). void HueRange ( Standard_Real & theMinAngle , Standard_Real & theMaxAngle ) const { theMinAngle = myColorHlsMin [ 0 ] ; theMaxAngle = myColorHlsMax [ 0 ] ; } ! Sets hue angle range corresponding to minimum and maximum values.
+## ! The valid angle range is [0, 360], see Quantity_Color and Quantity_TOC_HLS for more details. void SetHueRange ( const Standard_Real theMinAngle , const Standard_Real theMaxAngle ) { myColorHlsMin [ 0 ] = theMinAngle ; myColorHlsMax [ 0 ] = theMaxAngle ; } ! Returns color range corresponding to minimum and maximum values, blue to red by default. void ColorRange ( Quantity_Color & theMinColor , Quantity_Color & theMaxColor ) const { theMinColor . SetValues ( hueToValidRange ( myColorHlsMin [ 0 ] ) , myColorHlsMin [ 1 ] , myColorHlsMin [ 2 ] , Quantity_TOC_HLS ) ; theMaxColor . SetValues ( hueToValidRange ( myColorHlsMax [ 0 ] ) , myColorHlsMax [ 1 ] , myColorHlsMax [ 2 ] , Quantity_TOC_HLS ) ; } ! Sets color range corresponding to minimum and maximum values. void SetColorRange ( const Quantity_Color & theMinColor , const Quantity_Color & theMaxColor ) { theMinColor . Values ( myColorHlsMin [ 0 ] , myColorHlsMin [ 1 ] , myColorHlsMin [ 2 ] , Quantity_TOC_HLS ) ; theMaxColor . Values ( myColorHlsMax [ 0 ] , myColorHlsMax [ 1 ] , myColorHlsMax [ 2 ] , Quantity_TOC_HLS ) ; } ! Returns the type of labels, Aspect_TOCSD_AUTO by default.
+## ! Aspect_TOCSD_AUTO - labels as boundary values for intervals
+## ! Aspect_TOCSD_USER - user specified label is used Aspect_TypeOfColorScaleData GetLabelType ( ) const { return myLabelType ; } ! Sets the type of labels.
+## ! Aspect_TOCSD_AUTO - labels as boundary values for intervals
+## ! Aspect_TOCSD_USER - user specified label is used void SetLabelType ( const Aspect_TypeOfColorScaleData theType ) { myLabelType = theType ; } ! Returns the type of colors, Aspect_TOCSD_AUTO by default.
+## ! Aspect_TOCSD_AUTO - value between Red and Blue
+## ! Aspect_TOCSD_USER - user specified color from color map Aspect_TypeOfColorScaleData GetColorType ( ) const { return myColorType ; } ! Sets the type of colors.
+## ! Aspect_TOCSD_AUTO - value between Red and Blue
+## ! Aspect_TOCSD_USER - user specified color from color map void SetColorType ( const Aspect_TypeOfColorScaleData theType ) { myColorType = theType ; } ! Returns the number of color scale intervals, 10 by default. Standard_Integer GetNumberOfIntervals ( ) const { return myNbIntervals ; } ! Sets the number of color scale intervals. void SetNumberOfIntervals ( const Standard_Integer theNum ) ; ! Returns the color scale title string, empty string by default. const TCollection_ExtendedString & GetTitle ( ) const { return myTitle ; } ! Sets the color scale title string. void SetTitle ( const TCollection_ExtendedString & theTitle ) { myTitle = theTitle ; } ! Returns the format for numbers, "%.4g" by default.
+## ! The same like format for function printf().
+## ! Used if GetLabelType() is TOCSD_AUTO; const TCollection_AsciiString & GetFormat ( ) const { return myFormat ; } ! Returns the format of text. const TCollection_AsciiString & Format ( ) const { return myFormat ; } ! Sets the color scale auto label format specification. void SetFormat ( const TCollection_AsciiString & theFormat ) { myFormat = theFormat ; } ! Returns the user specified label with index theIndex.
+## ! Index is in range from 1 to GetNumberOfIntervals() or to
+## ! GetNumberOfIntervals() + 1 if IsLabelAtBorder() is true.
+## ! Returns empty string if label not defined. TCollection_ExtendedString GetLabel ( const Standard_Integer theIndex ) const ; ! Returns the user specified color from color map with index (starts at 1).
+## ! Returns default color if index is out of range in color map. Quantity_Color GetIntervalColor ( const Standard_Integer theIndex ) const ; ! Sets the color of the specified interval.
+## ! Note that list is automatically resized to include specified index.
+## ! @param theColor color value to set
+## ! @param theIndex index in range [1, GetNumberOfIntervals()];
+## !                 appended to the end of list if -1 is specified void SetIntervalColor ( const Quantity_Color & theColor , const Standard_Integer theIndex ) ; ! Returns the user specified labels. void GetLabels ( TColStd_SequenceOfExtendedString & theLabels ) const ; ! Returns the user specified labels. const TColStd_SequenceOfExtendedString & Labels ( ) const { return myLabels ; } ! Sets the color scale labels.
+## ! The length of the sequence should be equal to GetNumberOfIntervals() or to GetNumberOfIntervals() + 1 if IsLabelAtBorder() is true.
+## ! If length of the sequence does not much the number of intervals,
+## ! then these labels will be considered as "free" and will be located
+## ! at the virtual intervals corresponding to the number of labels
+## ! (with flag IsLabelAtBorder() having the same effect as in normal case). void SetLabels ( const TColStd_SequenceOfExtendedString & theSeq ) ; ! Returns the user specified colors. void GetColors ( Aspect_SequenceOfColor & theColors ) const ; ! Returns the user specified colors. const Aspect_SequenceOfColor & GetColors ( ) const { return myColors ; } ! Sets the color scale colors.
+## ! The length of the sequence should be equal to GetNumberOfIntervals(). void SetColors ( const Aspect_SequenceOfColor & theSeq ) ; ! Populates colors scale by colors of the same lightness value in CIE Lch
+## ! color space, distributed by hue, with perceptually uniform differences
+## ! between consequent colors.
+## ! See MakeUniformColors() for description of parameters. void SetUniformColors ( Standard_Real theLightness , Standard_Real theHueFrom , Standard_Real theHueTo ) { SetColors ( MakeUniformColors ( myNbIntervals , theLightness , theHueFrom , theHueTo ) ) ; SetColorType ( Aspect_TOCSD_USER ) ; } ! Generates sequence of colors of the same lightness value in CIE Lch
+## ! color space (see #Quantity_TOC_CIELch), with hue values in the specified range.
+## ! The colors are distributed across the range such as to have perceptually
+## ! same difference between neighbour colors.
+## ! For each color, maximal chroma value fitting in sRGB gamut is used.
+## !
+## ! @param theNbColors - number of colors to generate
+## ! @param theLightness - lightness to be used (0 is black, 100 is white, 32 is
+## !        lightness of pure blue)
+## ! @param theHueFrom - hue value at the start of the scale
+## ! @param theHueTo - hue value defining the end of the scale
+## !
+## ! Hue value can be out of the range [0, 360], interpreted as modulo 360.
+## ! The colors of the scale will be in the order of increasing hue if
+## ! theHueTo > theHueFrom, and decreasing otherwise. static Aspect_SequenceOfColor MakeUniformColors ( Standard_Integer theNbColors , Standard_Real theLightness , Standard_Real theHueFrom , Standard_Real theHueTo ) ; ! Returns the position of labels concerning color filled rectangles, Aspect_TOCSP_RIGHT by default. Aspect_TypeOfColorScalePosition GetLabelPosition ( ) const { return myLabelPos ; } ! Sets the color scale labels position relative to color bar. void SetLabelPosition ( const Aspect_TypeOfColorScalePosition thePos ) { myLabelPos = thePos ; } ! Returns the position of color scale title, Aspect_TOCSP_LEFT by default. Aspect_TypeOfColorScalePosition GetTitlePosition ( ) const { return myTitlePos ; } ! Sets the color scale title position. Standard_DEPRECATED ( AIS_ColorScale::SetTitlePosition() has no effect! ) void SetTitlePosition ( const Aspect_TypeOfColorScalePosition thePos ) { myTitlePos = thePos ; } ! Returns TRUE if the labels and colors used in reversed order, FALSE by default.
 ## !  - Normal,   bottom-up order with Minimal value on the Bottom and Maximum value on Top.
 ## !  - Reversed, top-down  order with Maximum value on the Bottom and Minimum value on Top. Standard_Boolean IsReversed ( ) const { return myIsReversed ; } ! Sets true if the labels and colors used in reversed order. void SetReversed ( const Standard_Boolean theReverse ) { myIsReversed = theReverse ; } ! Return TRUE if color transition between neighbor intervals
 ## ! should be linearly interpolated, FALSE by default. Standard_Boolean IsSmoothTransition ( ) const { return myIsSmooth ; } ! Setup smooth color transition. void SetSmoothTransition ( const Standard_Boolean theIsSmooth ) { myIsSmooth = theIsSmooth ; } ! Returns TRUE if the labels are placed at border of color intervals, TRUE by default.
@@ -246,51 +80,71 @@ proc getTitlePosition*(this: AIS_ColorScale): AspectTypeOfColorScalePosition {.
 ## ! Note that list is automatically resized to include specified index.
 ## ! @param theLabel new label text
 ## ! @param theIndex index in range [1, GetNumberOfIntervals()] or [1, GetNumberOfIntervals() + 1] if IsLabelAtBorder() is true;
-## !                 label is appended to the end of list if negative index is specified void SetLabel ( const TCollection_ExtendedString & theLabel , const Standard_Integer theIndex ) ;
-## Error: identifier expected, but got: AIS_ColorScale::SetTitlePosition() has no effect!!!!
+## !                 label is appended to the end of list if negative index is specified void SetLabel ( const TCollection_ExtendedString & theLabel , const Standard_Integer theIndex ) ; ! Returns the size of color bar, 0 and 0 by default
+## ! (e.g. should be set by user explicitly before displaying). void GetSize ( Standard_Integer & theBreadth , Standard_Integer & theHeight ) const { theBreadth = myBreadth ; theHeight = myHeight ; } ! Sets the size of color bar. void SetSize ( const Standard_Integer theBreadth , const Standard_Integer theHeight ) { myBreadth = theBreadth ; myHeight = theHeight ; } ! Returns the breadth of color bar, 0 by default
+## ! (e.g. should be set by user explicitly before displaying). Standard_Integer GetBreadth ( ) const { return myBreadth ; } ! Sets the width of color bar. void SetBreadth ( const Standard_Integer theBreadth ) { myBreadth = theBreadth ; } ! Returns the height of color bar, 0 by default
+## ! (e.g. should be set by user explicitly before displaying). Standard_Integer GetHeight ( ) const { return myHeight ; } ! Sets the height of color bar. void SetHeight ( const Standard_Integer theHeight ) { myHeight = theHeight ; } ! Returns the bottom-left position of color scale, 0x0 by default. void GetPosition ( Standard_Real & theX , Standard_Real & theY ) const { theX = myXPos ; theY = myYPos ; } ! Sets the position of color scale. void SetPosition ( const Standard_Integer theX , const Standard_Integer theY ) { myXPos = theX ; myYPos = theY ; } ! Returns the left position of color scale, 0 by default. Standard_Integer GetXPosition ( ) const { return myXPos ; } ! Sets the left position of color scale. void SetXPosition ( const Standard_Integer theX ) { myXPos = theX ; } ! Returns the bottom position of color scale, 0 by default. Standard_Integer GetYPosition ( ) const { return myYPos ; } ! Sets the bottom position of color scale. void SetYPosition ( const Standard_Integer theY ) { myYPos = theY ; } ! Returns the font height of text labels, 20 by default. Standard_Integer GetTextHeight ( ) const { return myTextHeight ; } ! Sets the height of text of color scale. void SetTextHeight ( const Standard_Integer theHeight ) { myTextHeight = theHeight ; } public : ! Returns the width of text.
+## ! @param theText [in] the text of which to calculate width. Standard_Integer TextWidth ( const TCollection_ExtendedString & theText ) const ; ! Returns the height of text.
+## ! @param theText [in] the text of which to calculate height. Standard_Integer TextHeight ( const TCollection_ExtendedString & theText ) const ; void TextSize ( const TCollection_ExtendedString & theText , const Standard_Integer theHeight , Standard_Integer & theWidth , Standard_Integer & theAscent , Standard_Integer & theDescent ) const ; public : ! Return true if specified display mode is supported. virtual Standard_Boolean AcceptDisplayMode ( const Standard_Integer theMode ) const { return theMode == 0 ; } ! Compute presentation. virtual void Compute ( const Handle ( PrsMgr_PresentationManager3d ) & thePresentationManager , const Handle ( Prs3d_Presentation ) & thePresentation , const Standard_Integer theMode ) ; ! Compute selection - not implemented for color scale. virtual void ComputeSelection ( const Handle ( SelectMgr_Selection ) & aSelection , const Standard_Integer aMode ) { } private : ! Returns the size of color scale.
+## ! @param theWidth [out] the width of color scale.
+## ! @param theHeight [out] the height of color scale. void SizeHint ( Standard_Integer & theWidth , Standard_Integer & theHeight ) const ; ! Returns the upper value of given interval, or minimum for theIndex = 0. Standard_Real GetIntervalValue ( const Standard_Integer theIndex ) const ; ! Returns the color for the given value in the given interval.
+## ! @param theValue [in] the current value of interval
+## ! @param theMin   [in] the min value of interval
+## ! @param theMax   [in] the max value of interval Quantity_Color colorFromValue ( const Standard_Real theValue , const Standard_Real theMin , const Standard_Real theMax ) const ; ! Initialize text aspect for drawing the labels. void updateTextAspect ( ) ; ! Simple alias for Prs3d_Text::Draw().
+## ! @param theGroup [in] presentation group
+## ! @param theText  [in] text to draw
+## ! @param theX     [in] X coordinate of text position
+## ! @param theY     [in] Y coordinate of text position
+## ! @param theVertAlignment [in] text vertical alignment void drawText ( const Handle ( Graphic3d_Group ) & theGroup , const TCollection_ExtendedString & theText , const Standard_Integer theX , const Standard_Integer theY , const Graphic3d_VerticalTextAlignment theVertAlignment ) ; ! Determine the maximum text label width in pixels. Standard_Integer computeMaxLabelWidth ( const TColStd_SequenceOfExtendedString & theLabels ) const ; ! Draw labels. void drawLabels ( const Handle ( Graphic3d_Group ) & theGroup , const TColStd_SequenceOfExtendedString & theLabels , const Standard_Integer theBarBottom , const Standard_Integer theBarHeight , const Standard_Integer theMaxLabelWidth , const Standard_Integer theColorBreadth ) ; ! Draw a color bar. void drawColorBar ( const Handle ( Prs3d_Presentation ) & thePrs , const Standard_Integer theBarBottom , const Standard_Integer theBarHeight , const Standard_Integer theMaxLabelWidth , const Standard_Integer theColorBreadth ) ; ! Draw a frame.
+## ! @param theX [in] the X coordinate of frame position.
+## ! @param theY [in] the Y coordinate of frame position.
+## ! @param theWidth [in] the width of frame.
+## ! @param theHeight [in] the height of frame.
+## ! @param theColor [in] the color of frame. void drawFrame ( const Handle ( Prs3d_Presentation ) & thePrs , const Standard_Integer theX , const Standard_Integer theY , const Standard_Integer theWidth , const Standard_Integer theHeight , const Quantity_Color & theColor ) ; private : Standard_Real myMin ; !< values range - minimal value Standard_Real myMax ; !< values range - maximal value Graphic3d_Vec3d myColorHlsMin ; !< HLS color corresponding to minimum value Graphic3d_Vec3d myColorHlsMax ; !< HLS color corresponding to maximum value TCollection_ExtendedString myTitle ; !< optional title string TCollection_AsciiString myFormat ; !< sprintf() format for generating label from value Standard_Integer myNbIntervals ; !< number of intervals Aspect_TypeOfColorScaleData myColorType ; !< color type Aspect_TypeOfColorScaleData myLabelType ; !< label type Standard_Boolean myIsLabelAtBorder ; !< at border Standard_Boolean myIsReversed ; !< flag indicating reversed order Standard_Boolean myIsLogarithmic ; !< flag indicating logarithmic scale Standard_Boolean myIsSmooth ; !< flag indicating smooth transition between the colors Aspect_SequenceOfColor myColors ; !< sequence of custom colors TColStd_SequenceOfExtendedString myLabels ; !< sequence of custom text labels Aspect_TypeOfColorScalePosition myLabelPos ; !< label position relative to the color scale Aspect_TypeOfColorScalePosition myTitlePos ; !< title position Standard_Integer myXPos ; !< left   position Standard_Integer myYPos ; !< bottom position Standard_Integer myBreadth ; !< color scale breadth Standard_Integer myHeight ; !< height of the color scale Standard_Integer mySpacing ; !< extra spacing between element Standard_Integer myTextHeight ; !< label font height } ;
+## Error: expected ';'!!!
 
-proc getSize*(this: AIS_ColorScale; theBreadth: var int; theHeight: var int) {.
-    noSideEffect, importcpp: "GetSize", header: "AIS_ColorScale.hxx".}
-proc setSize*(this: var AIS_ColorScale; theBreadth: int; theHeight: int) {.
-    importcpp: "SetSize", header: "AIS_ColorScale.hxx".}
-proc getBreadth*(this: AIS_ColorScale): int {.noSideEffect, importcpp: "GetBreadth",
-    header: "AIS_ColorScale.hxx".}
-proc setBreadth*(this: var AIS_ColorScale; theBreadth: int) {.importcpp: "SetBreadth",
-    header: "AIS_ColorScale.hxx".}
-proc getHeight*(this: AIS_ColorScale): int {.noSideEffect, importcpp: "GetHeight",
-    header: "AIS_ColorScale.hxx".}
-proc setHeight*(this: var AIS_ColorScale; theHeight: int) {.importcpp: "SetHeight",
-    header: "AIS_ColorScale.hxx".}
-proc getPosition*(this: AIS_ColorScale; theX: var float; theY: var float) {.noSideEffect,
-    importcpp: "GetPosition", header: "AIS_ColorScale.hxx".}
-proc setPosition*(this: var AIS_ColorScale; theX: int; theY: int) {.
-    importcpp: "SetPosition", header: "AIS_ColorScale.hxx".}
-proc getXPosition*(this: AIS_ColorScale): int {.noSideEffect,
-    importcpp: "GetXPosition", header: "AIS_ColorScale.hxx".}
-proc setXPosition*(this: var AIS_ColorScale; theX: int) {.importcpp: "SetXPosition",
-    header: "AIS_ColorScale.hxx".}
-proc getYPosition*(this: AIS_ColorScale): int {.noSideEffect,
-    importcpp: "GetYPosition", header: "AIS_ColorScale.hxx".}
-proc setYPosition*(this: var AIS_ColorScale; theY: int) {.importcpp: "SetYPosition",
-    header: "AIS_ColorScale.hxx".}
-proc getTextHeight*(this: AIS_ColorScale): int {.noSideEffect,
-    importcpp: "GetTextHeight", header: "AIS_ColorScale.hxx".}
-proc setTextHeight*(this: var AIS_ColorScale; theHeight: int) {.
-    importcpp: "SetTextHeight", header: "AIS_ColorScale.hxx".}
-proc textWidth*(this: AIS_ColorScale; theText: TCollectionExtendedString): int {.
-    noSideEffect, importcpp: "TextWidth", header: "AIS_ColorScale.hxx".}
-proc textHeight*(this: AIS_ColorScale; theText: TCollectionExtendedString): int {.
-    noSideEffect, importcpp: "TextHeight", header: "AIS_ColorScale.hxx".}
-proc textSize*(this: AIS_ColorScale; theText: TCollectionExtendedString;
-              theHeight: int; theWidth: var int; theAscent: var int; theDescent: var int) {.
-    noSideEffect, importcpp: "TextSize", header: "AIS_ColorScale.hxx".}
-proc acceptDisplayMode*(this: AIS_ColorScale; theMode: int): bool {.noSideEffect,
-    importcpp: "AcceptDisplayMode", header: "AIS_ColorScale.hxx".}
-proc compute*(this: var AIS_ColorScale;
-             thePresentationManager: Handle[PrsMgrPresentationManager3d];
-             thePresentation: Handle[Prs3dPresentation]; theMode: int) {.
-    importcpp: "Compute", header: "AIS_ColorScale.hxx".}
-proc computeSelection*(this: var AIS_ColorScale; a2: Handle[SelectMgrSelection]; ## aSelection
-                      a3: int) {.importcpp: "ComputeSelection",
-                               header: "AIS_ColorScale.hxx".}
-  ## aMode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

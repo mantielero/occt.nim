@@ -31,5 +31,30 @@ proc setColor*(this: var AspectBackground; aColor: QuantityColor) {.
 proc color*(this: AspectBackground): QuantityColor {.noSideEffect,
     importcpp: "Color", header: "Aspect_Background.hxx".}
 proc dumpJson*(this: AspectBackground; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Aspect_Background.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Aspect_Background.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

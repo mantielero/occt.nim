@@ -36,13 +36,13 @@ type
 
 proc constructBRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox*(
     ssp: BRepApproxTheMultiLineOfApprox; sCurv: var AppParCurvesMultiCurve;
-    firstPoint: int; lastPoint: int;
+    firstPoint: cint; lastPoint: cint;
     constraints: Handle[AppParCurvesHArray1OfConstraintCouple]; bern: MathMatrix;
-    derivativeBern: MathMatrix; tolerance: float = 1.0e-10): BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox {.
+    derivativeBern: MathMatrix; tolerance: cfloat = 1.0e-10): BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox {.
     constructor, importcpp: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox(@)", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
 proc isDone*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox): bool {.
     noSideEffect, importcpp: "IsDone", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc error*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox): float {.
+proc error*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox): cfloat {.
     noSideEffect, importcpp: "Error", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
 proc constraintMatrix*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox): MathMatrix {.
     noSideEffect, importcpp: "ConstraintMatrix", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
@@ -50,7 +50,32 @@ proc duale*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox
     noSideEffect, importcpp: "Duale", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
 proc constraintDerivative*(this: var BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox;
                           ssp: BRepApproxTheMultiLineOfApprox;
-                          parameters: MathVector; deg: int; da: MathMatrix): MathMatrix {.
+                          parameters: MathVector; deg: cint; da: MathMatrix): MathMatrix {.
     importcpp: "ConstraintDerivative", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
 proc inverseMatrix*(this: BRepApproxResConstraintOfMyGradientbisOfTheComputeLineOfApprox): MathMatrix {.
     noSideEffect, importcpp: "InverseMatrix", header: "BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

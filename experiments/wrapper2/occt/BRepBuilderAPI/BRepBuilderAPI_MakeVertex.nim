@@ -56,3 +56,28 @@ proc vertex*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
 converter `topoDS_Vertex`*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
     importcpp: "BRepBuilderAPI_MakeVertex::operator TopoDS_Vertex",
     header: "BRepBuilderAPI_MakeVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

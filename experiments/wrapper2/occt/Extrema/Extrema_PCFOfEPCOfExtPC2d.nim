@@ -36,24 +36,49 @@ proc initialize*(this: var ExtremaPCFOfEPCOfExtPC2d; c: Adaptor2dCurve2d) {.
     importcpp: "Initialize", header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
 proc setPoint*(this: var ExtremaPCFOfEPCOfExtPC2d; p: Pnt2d) {.importcpp: "SetPoint",
     header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
-proc value*(this: var ExtremaPCFOfEPCOfExtPC2d; u: float; f: var float): bool {.
+proc value*(this: var ExtremaPCFOfEPCOfExtPC2d; u: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
-proc derivative*(this: var ExtremaPCFOfEPCOfExtPC2d; u: float; df: var float): bool {.
+proc derivative*(this: var ExtremaPCFOfEPCOfExtPC2d; u: cfloat; df: var cfloat): bool {.
     importcpp: "Derivative", header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
-proc values*(this: var ExtremaPCFOfEPCOfExtPC2d; u: float; f: var float; df: var float): bool {.
+proc values*(this: var ExtremaPCFOfEPCOfExtPC2d; u: cfloat; f: var cfloat; df: var cfloat): bool {.
     importcpp: "Values", header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
-proc getStateNumber*(this: var ExtremaPCFOfEPCOfExtPC2d): int {.
+proc getStateNumber*(this: var ExtremaPCFOfEPCOfExtPC2d): cint {.
     importcpp: "GetStateNumber", header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
-proc nbExt*(this: ExtremaPCFOfEPCOfExtPC2d): int {.noSideEffect, importcpp: "NbExt",
+proc nbExt*(this: ExtremaPCFOfEPCOfExtPC2d): cint {.noSideEffect, importcpp: "NbExt",
     header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
-proc squareDistance*(this: ExtremaPCFOfEPCOfExtPC2d; n: int): float {.noSideEffect,
+proc squareDistance*(this: ExtremaPCFOfEPCOfExtPC2d; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
-proc isMin*(this: ExtremaPCFOfEPCOfExtPC2d; n: int): bool {.noSideEffect,
+proc isMin*(this: ExtremaPCFOfEPCOfExtPC2d; n: cint): bool {.noSideEffect,
     importcpp: "IsMin", header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
-proc point*(this: ExtremaPCFOfEPCOfExtPC2d; n: int): ExtremaPOnCurv2d {.noSideEffect,
+proc point*(this: ExtremaPCFOfEPCOfExtPC2d; n: cint): ExtremaPOnCurv2d {.noSideEffect,
     importcpp: "Point", header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
-proc subIntervalInitialize*(this: var ExtremaPCFOfEPCOfExtPC2d; theUfirst: float;
-                           theUlast: float) {.importcpp: "SubIntervalInitialize",
+proc subIntervalInitialize*(this: var ExtremaPCFOfEPCOfExtPC2d; theUfirst: cfloat;
+                           theUlast: cfloat) {.importcpp: "SubIntervalInitialize",
     header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
-proc searchOfTolerance*(this: var ExtremaPCFOfEPCOfExtPC2d): float {.
+proc searchOfTolerance*(this: var ExtremaPCFOfEPCOfExtPC2d): cfloat {.
     importcpp: "SearchOfTolerance", header: "Extrema_PCFOfEPCOfExtPC2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

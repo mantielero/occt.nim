@@ -13,7 +13,7 @@
 
 discard "forward decl of Message_Attribute"
 type
-  HandleMessageAttribute* = Handle[MessageAttribute]
+  HandleC1C1* = Handle[MessageAttribute]
 
 ## ! Additional information of extended alert attribute
 ## ! To provide other custom attribute container, it might be redefined.
@@ -44,5 +44,30 @@ proc getName*(this: MessageAttribute): TCollectionAsciiString {.noSideEffect,
 proc setName*(this: var MessageAttribute; theName: TCollectionAsciiString) {.
     importcpp: "SetName", header: "Message_Attribute.hxx".}
 proc dumpJson*(this: MessageAttribute; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Message_Attribute.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Message_Attribute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

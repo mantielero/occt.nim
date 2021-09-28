@@ -16,7 +16,7 @@
 
 discard "forward decl of PrsDim_MinRadiusDimension"
 type
-  HandlePrsDimMinRadiusDimension* = Handle[PrsDimMinRadiusDimension]
+  HandleC1C1* = Handle[PrsDimMinRadiusDimension]
 
 ## ! --  Ellipse  Min  radius  dimension  of  a  Shape  which
 ## ! can  be  Edge  or  Face  (planar  or  cylindrical(surface  of
@@ -52,14 +52,39 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "PrsDim_MinRadiusDimension.hxx".}
 proc dynamicType*(this: PrsDimMinRadiusDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_MinRadiusDimension.hxx".}
-proc constructPrsDimMinRadiusDimension*(aShape: TopoDS_Shape; aVal: float;
+proc constructPrsDimMinRadiusDimension*(aShape: TopoDS_Shape; aVal: cfloat;
                                        aText: TCollectionExtendedString): PrsDimMinRadiusDimension {.
     constructor, importcpp: "PrsDim_MinRadiusDimension(@)",
     header: "PrsDim_MinRadiusDimension.hxx".}
-proc constructPrsDimMinRadiusDimension*(aShape: TopoDS_Shape; aVal: float;
+proc constructPrsDimMinRadiusDimension*(aShape: TopoDS_Shape; aVal: cfloat;
                                        aText: TCollectionExtendedString;
                                        aPosition: Pnt;
                                        aSymbolPrs: DsgPrsArrowSide;
-                                       anArrowSize: float = 0.0): PrsDimMinRadiusDimension {.
+                                       anArrowSize: cfloat = 0.0): PrsDimMinRadiusDimension {.
     constructor, importcpp: "PrsDim_MinRadiusDimension(@)",
     header: "PrsDim_MinRadiusDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,20 +23,34 @@ type
                     bycopy.} = object
 
 
+proc `new`*(this: var GeomIntLineTool; theSize: csize_t): pointer {.
+    importcpp: "GeomInt_LineTool::operator new", header: "GeomInt_LineTool.hxx".}
+proc `delete`*(this: var GeomIntLineTool; theAddress: pointer) {.
+    importcpp: "GeomInt_LineTool::operator delete", header: "GeomInt_LineTool.hxx".}
+proc `new[]`*(this: var GeomIntLineTool; theSize: csize_t): pointer {.
+    importcpp: "GeomInt_LineTool::operator new[]", header: "GeomInt_LineTool.hxx".}
+proc `delete[]`*(this: var GeomIntLineTool; theAddress: pointer) {.
+    importcpp: "GeomInt_LineTool::operator delete[]",
+    header: "GeomInt_LineTool.hxx".}
+proc `new`*(this: var GeomIntLineTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomInt_LineTool::operator new", header: "GeomInt_LineTool.hxx".}
+proc `delete`*(this: var GeomIntLineTool; a2: pointer; a3: pointer) {.
+    importcpp: "GeomInt_LineTool::operator delete", header: "GeomInt_LineTool.hxx".}
 proc nbVertex*(L: Handle[IntPatchLine]): int {.
     importcpp: "GeomInt_LineTool::NbVertex(@)", header: "GeomInt_LineTool.hxx".}
 proc vertex*(L: Handle[IntPatchLine]; i: int): IntPatchPoint {.
     importcpp: "GeomInt_LineTool::Vertex(@)", header: "GeomInt_LineTool.hxx".}
-proc firstParameter*(L: Handle[IntPatchLine]): float {.
+proc firstParameter*(L: Handle[IntPatchLine]): StandardReal {.
     importcpp: "GeomInt_LineTool::FirstParameter(@)",
     header: "GeomInt_LineTool.hxx".}
-proc lastParameter*(L: Handle[IntPatchLine]): float {.
+proc lastParameter*(L: Handle[IntPatchLine]): StandardReal {.
     importcpp: "GeomInt_LineTool::LastParameter(@)",
     header: "GeomInt_LineTool.hxx".}
 proc decompositionOfWLine*(theWLine: Handle[IntPatchWLine];
                           theSurface1: Handle[GeomAdaptorHSurface];
                           theSurface2: Handle[GeomAdaptorHSurface];
-                          aTolSum: float; theLConstructor: GeomIntLineConstructor;
-                          theNewLines: var IntPatchSequenceOfLine): bool {.
+                          aTolSum: StandardReal;
+                          theLConstructor: GeomIntLineConstructor;
+                          theNewLines: var IntPatchSequenceOfLine): StandardBoolean {.
     importcpp: "GeomInt_LineTool::DecompositionOfWLine(@)",
     header: "GeomInt_LineTool.hxx".}

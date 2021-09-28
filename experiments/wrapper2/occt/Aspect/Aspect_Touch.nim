@@ -15,17 +15,43 @@
 
 type
   AspectTouch* {.importcpp: "Aspect_Touch", header: "Aspect_Touch.hxx", bycopy.} = object
-    `from`* {.importc: "From".}: NCollectionVec2[float] ## !< original touch position
-    to* {.importc: "To".}: NCollectionVec2[float] ## !< current  touch position
+    `from`* {.importc: "From".}: NCollectionVec2[cfloat] ## !< original touch position
+    to* {.importc: "To".}: NCollectionVec2[cfloat] ## !< current  touch position
     isPreciseDevice* {.importc: "IsPreciseDevice".}: bool ## !< precise device input (e.g. mouse cursor, NOT emulated from touch screen)
                                                       ## ! Return values delta.
 
 
-proc delta*(this: AspectTouch): NCollectionVec2[float] {.noSideEffect,
+proc delta*(this: AspectTouch): NCollectionVec2[cfloat] {.noSideEffect,
     importcpp: "Delta", header: "Aspect_Touch.hxx".}
 proc constructAspectTouch*(): AspectTouch {.constructor,
     importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
-proc constructAspectTouch*(thePnt: NCollectionVec2[float]; theIsPreciseDevice: bool): AspectTouch {.
+proc constructAspectTouch*(thePnt: NCollectionVec2[cfloat];
+                          theIsPreciseDevice: bool): AspectTouch {.constructor,
+    importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
+proc constructAspectTouch*(theX: cfloat; theY: cfloat; theIsPreciseDevice: bool): AspectTouch {.
     constructor, importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
-proc constructAspectTouch*(theX: float; theY: float; theIsPreciseDevice: bool): AspectTouch {.
-    constructor, importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   TColgpArray1OfLin2d* = NCollectionArray1[Lin2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

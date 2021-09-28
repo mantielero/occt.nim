@@ -19,17 +19,28 @@ discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of gp_Vec2d"
 type
-  Ax22d* {.importcpp: "gp_Ax22d", header: "gp_Ax22d.hxx", bycopy.} = object ## ! Creates an object representing the reference
-                                                                    ## ! co-ordinate system (OXY).
+  Ax22d* {.importcpp: "gp_Ax22d", header: "gp_Ax22d.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Ax22d; theSize: csize_t): pointer {.
+    importcpp: "gp_Ax22d::operator new", header: "gp_Ax22d.hxx".}
+proc `delete`*(this: var Ax22d; theAddress: pointer) {.
+    importcpp: "gp_Ax22d::operator delete", header: "gp_Ax22d.hxx".}
+proc `new[]`*(this: var Ax22d; theSize: csize_t): pointer {.
+    importcpp: "gp_Ax22d::operator new[]", header: "gp_Ax22d.hxx".}
+proc `delete[]`*(this: var Ax22d; theAddress: pointer) {.
+    importcpp: "gp_Ax22d::operator delete[]", header: "gp_Ax22d.hxx".}
+proc `new`*(this: var Ax22d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Ax22d::operator new", header: "gp_Ax22d.hxx".}
+proc `delete`*(this: var Ax22d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Ax22d::operator delete", header: "gp_Ax22d.hxx".}
 proc constructAx22d*(): Ax22d {.constructor, importcpp: "gp_Ax22d(@)",
                              header: "gp_Ax22d.hxx".}
 proc constructAx22d*(p: Pnt2d; vx: Dir2d; vy: Dir2d): Ax22d {.constructor,
     importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
-proc constructAx22d*(p: Pnt2d; v: Dir2d; sense: bool = true): Ax22d {.constructor,
-    importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
-proc constructAx22d*(a: Ax2d; sense: bool = true): Ax22d {.constructor,
+proc constructAx22d*(p: Pnt2d; v: Dir2d; sense: StandardBoolean = true): Ax22d {.
+    constructor, importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
+proc constructAx22d*(a: Ax2d; sense: StandardBoolean = true): Ax22d {.constructor,
     importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
 proc setAxis*(this: var Ax22d; a1: Ax22d) {.importcpp: "SetAxis", header: "gp_Ax22d.hxx".}
 proc setXAxis*(this: var Ax22d; a1: Ax2d) {.importcpp: "SetXAxis",
@@ -58,14 +69,14 @@ proc mirrored*(this: Ax22d; p: Pnt2d): Ax22d {.noSideEffect, importcpp: "Mirrore
 proc mirror*(this: var Ax22d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Ax22d.hxx".}
 proc mirrored*(this: Ax22d; a: Ax2d): Ax22d {.noSideEffect, importcpp: "Mirrored",
                                         header: "gp_Ax22d.hxx".}
-proc rotate*(this: var Ax22d; p: Pnt2d; ang: float) {.importcpp: "Rotate",
+proc rotate*(this: var Ax22d; p: Pnt2d; ang: StandardReal) {.importcpp: "Rotate",
     header: "gp_Ax22d.hxx".}
-proc rotated*(this: Ax22d; p: Pnt2d; ang: float): Ax22d {.noSideEffect,
+proc rotated*(this: Ax22d; p: Pnt2d; ang: StandardReal): Ax22d {.noSideEffect,
     importcpp: "Rotated", header: "gp_Ax22d.hxx".}
-proc scale*(this: var Ax22d; p: Pnt2d; s: float) {.importcpp: "Scale",
+proc scale*(this: var Ax22d; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
     header: "gp_Ax22d.hxx".}
-proc scaled*(this: Ax22d; p: Pnt2d; s: float): Ax22d {.noSideEffect, importcpp: "Scaled",
-    header: "gp_Ax22d.hxx".}
+proc scaled*(this: Ax22d; p: Pnt2d; s: StandardReal): Ax22d {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Ax22d.hxx".}
 proc transform*(this: var Ax22d; t: Trsf2d) {.importcpp: "Transform",
                                         header: "gp_Ax22d.hxx".}
 proc transformed*(this: Ax22d; t: Trsf2d): Ax22d {.noSideEffect,

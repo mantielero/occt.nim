@@ -24,7 +24,7 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESGeom_GeneralModule"
 discard "forward decl of IGESGeom_GeneralModule"
 type
-  HandleIGESGeomGeneralModule* = Handle[IGESGeomGeneralModule]
+  HandleC1C1* = Handle[IGESGeomGeneralModule]
 
 ## ! Definition of General Services for IGESGeom (specific part)
 ## ! This Services comprise : Shared & Implied Lists, Copy, Check
@@ -47,26 +47,26 @@ type
 
 proc constructIGESGeomGeneralModule*(): IGESGeomGeneralModule {.constructor,
     importcpp: "IGESGeom_GeneralModule(@)", header: "IGESGeom_GeneralModule.hxx".}
-proc ownSharedCase*(this: IGESGeomGeneralModule; cn: int;
+proc ownSharedCase*(this: IGESGeomGeneralModule; cn: cint;
                    ent: Handle[IGESDataIGESEntity];
                    iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnSharedCase", header: "IGESGeom_GeneralModule.hxx".}
-proc dirChecker*(this: IGESGeomGeneralModule; cn: int;
+proc dirChecker*(this: IGESGeomGeneralModule; cn: cint;
                 ent: Handle[IGESDataIGESEntity]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGeom_GeneralModule.hxx".}
-proc ownCheckCase*(this: IGESGeomGeneralModule; cn: int;
+proc ownCheckCase*(this: IGESGeomGeneralModule; cn: cint;
                   ent: Handle[IGESDataIGESEntity]; shares: InterfaceShareTool;
                   ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheckCase", header: "IGESGeom_GeneralModule.hxx".}
-proc newVoid*(this: IGESGeomGeneralModule; cn: int;
+proc newVoid*(this: IGESGeomGeneralModule; cn: cint;
              entto: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "NewVoid", header: "IGESGeom_GeneralModule.hxx".}
-proc ownCopyCase*(this: IGESGeomGeneralModule; cn: int;
+proc ownCopyCase*(this: IGESGeomGeneralModule; cn: cint;
                  entfrom: Handle[IGESDataIGESEntity];
                  entto: Handle[IGESDataIGESEntity]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopyCase", header: "IGESGeom_GeneralModule.hxx".}
-proc categoryNumber*(this: IGESGeomGeneralModule; cn: int;
-                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): int {.
+proc categoryNumber*(this: IGESGeomGeneralModule; cn: cint;
+                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): cint {.
     noSideEffect, importcpp: "CategoryNumber", header: "IGESGeom_GeneralModule.hxx".}
 type
   IGESGeomGeneralModulebaseType* = IGESDataGeneralModule
@@ -78,3 +78,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_GeneralModule.hxx".}
 proc dynamicType*(this: IGESGeomGeneralModule): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_GeneralModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

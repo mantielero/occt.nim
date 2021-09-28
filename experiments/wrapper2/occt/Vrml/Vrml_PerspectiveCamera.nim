@@ -24,7 +24,7 @@ type
 proc constructVrmlPerspectiveCamera*(): VrmlPerspectiveCamera {.constructor,
     importcpp: "Vrml_PerspectiveCamera(@)", header: "Vrml_PerspectiveCamera.hxx".}
 proc constructVrmlPerspectiveCamera*(aPosition: Vec; aOrientation: VrmlSFRotation;
-                                    aFocalDistance: float; aHeightAngle: float): VrmlPerspectiveCamera {.
+                                    aFocalDistance: cfloat; aHeightAngle: cfloat): VrmlPerspectiveCamera {.
     constructor, importcpp: "Vrml_PerspectiveCamera(@)",
     header: "Vrml_PerspectiveCamera.hxx".}
 proc setPosition*(this: var VrmlPerspectiveCamera; aPosition: Vec) {.
@@ -35,13 +35,38 @@ proc setOrientation*(this: var VrmlPerspectiveCamera; aOrientation: VrmlSFRotati
     importcpp: "SetOrientation", header: "Vrml_PerspectiveCamera.hxx".}
 proc orientation*(this: VrmlPerspectiveCamera): VrmlSFRotation {.noSideEffect,
     importcpp: "Orientation", header: "Vrml_PerspectiveCamera.hxx".}
-proc setFocalDistance*(this: var VrmlPerspectiveCamera; aFocalDistance: float) {.
+proc setFocalDistance*(this: var VrmlPerspectiveCamera; aFocalDistance: cfloat) {.
     importcpp: "SetFocalDistance", header: "Vrml_PerspectiveCamera.hxx".}
-proc focalDistance*(this: VrmlPerspectiveCamera): float {.noSideEffect,
+proc focalDistance*(this: VrmlPerspectiveCamera): cfloat {.noSideEffect,
     importcpp: "FocalDistance", header: "Vrml_PerspectiveCamera.hxx".}
-proc setAngle*(this: var VrmlPerspectiveCamera; aHeightAngle: float) {.
+proc setAngle*(this: var VrmlPerspectiveCamera; aHeightAngle: cfloat) {.
     importcpp: "SetAngle", header: "Vrml_PerspectiveCamera.hxx".}
-proc angle*(this: VrmlPerspectiveCamera): float {.noSideEffect, importcpp: "Angle",
+proc angle*(this: VrmlPerspectiveCamera): cfloat {.noSideEffect, importcpp: "Angle",
     header: "Vrml_PerspectiveCamera.hxx".}
 proc print*(this: VrmlPerspectiveCamera; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_PerspectiveCamera.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

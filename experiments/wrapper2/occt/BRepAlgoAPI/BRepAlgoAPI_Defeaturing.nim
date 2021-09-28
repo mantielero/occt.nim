@@ -221,3 +221,28 @@ proc hasDeleted*(this: BRepAlgoAPI_Defeaturing): bool {.noSideEffect,
     importcpp: "HasDeleted", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc history*(this: var BRepAlgoAPI_Defeaturing): Handle[BRepToolsHistory] {.
     importcpp: "History", header: "BRepAlgoAPI_Defeaturing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

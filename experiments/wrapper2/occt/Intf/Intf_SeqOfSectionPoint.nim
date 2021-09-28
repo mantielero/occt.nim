@@ -17,3 +17,28 @@
 type
   IntfSeqOfSectionPoint* = NCollectionSequence[IntfSectionPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

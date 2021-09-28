@@ -109,7 +109,7 @@ type
                                                                                            ## MajorRadius.
 
 
-proc constructGceMakeHypr*(a2: Ax2; majorRadius: float; minorRadius: float): GceMakeHypr {.
+proc constructGceMakeHypr*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr {.
     constructor, importcpp: "gce_MakeHypr(@)", header: "gce_MakeHypr.hxx".}
 proc constructGceMakeHypr*(s1: Pnt; s2: Pnt; center: Pnt): GceMakeHypr {.constructor,
     importcpp: "gce_MakeHypr(@)", header: "gce_MakeHypr.hxx".}
@@ -119,3 +119,28 @@ proc operator*(this: GceMakeHypr): Hypr {.noSideEffect, importcpp: "Operator",
                                       header: "gce_MakeHypr.hxx".}
 converter `hypr`*(this: GceMakeHypr): Hypr {.noSideEffect,
     importcpp: "gce_MakeHypr::operator gp_Hypr", header: "gce_MakeHypr.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

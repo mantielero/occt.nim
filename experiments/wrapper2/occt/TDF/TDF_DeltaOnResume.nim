@@ -17,7 +17,7 @@ discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DeltaOnResume"
 discard "forward decl of TDF_DeltaOnResume"
 type
-  HandleTDF_DeltaOnResume* = Handle[TDF_DeltaOnResume]
+  HandleC1C1* = Handle[TDF_DeltaOnResume]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on an Resume action.
@@ -39,8 +39,8 @@ proc constructTDF_DeltaOnResume*(anAtt: Handle[TDF_Attribute]): TDF_DeltaOnResum
 proc apply*(this: var TDF_DeltaOnResume) {.importcpp: "Apply",
                                        header: "TDF_DeltaOnResume.hxx".}
 proc dumpJson*(this: TDF_DeltaOnResume; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDF_DeltaOnResume.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDF_DeltaOnResume.hxx".}
 type
   TDF_DeltaOnResumebaseType* = TDF_AttributeDelta
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDF_DeltaOnResume.hxx".}
 proc dynamicType*(this: TDF_DeltaOnResume): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_DeltaOnResume.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

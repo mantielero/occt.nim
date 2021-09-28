@@ -27,3 +27,28 @@ proc pName*(this: StdLPersistentXLink): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_XLink.hxx".}
 proc `import`*(this: StdLPersistentXLink; theAttribute: Handle[TDocStdXLink]) {.
     noSideEffect, importcpp: "Import", header: "StdLPersistent_XLink.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

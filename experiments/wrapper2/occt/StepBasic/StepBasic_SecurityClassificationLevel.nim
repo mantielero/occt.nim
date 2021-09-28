@@ -18,8 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_SecurityClassificationLevel"
 discard "forward decl of StepBasic_SecurityClassificationLevel"
 type
-  HandleStepBasicSecurityClassificationLevel* = Handle[
-      StepBasicSecurityClassificationLevel]
+  HandleC1C1* = Handle[StepBasicSecurityClassificationLevel]
   StepBasicSecurityClassificationLevel* {.
       importcpp: "StepBasic_SecurityClassificationLevel",
       header: "StepBasic_SecurityClassificationLevel.hxx", bycopy.} = object of StandardTransient ##
@@ -51,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicSecurityClassificationLevel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SecurityClassificationLevel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

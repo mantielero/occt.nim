@@ -23,20 +23,67 @@ type
                                                                                             ##
                                                                                             ## !
                                                                                             ## Constructor.
+    standardType* {.importc: "Standard_Type".}: Handle
 
 
 proc destroyIMeshToolsModelAlgo*(this: var IMeshToolsModelAlgo) {.
     importcpp: "#.~IMeshTools_ModelAlgo()", header: "IMeshTools_ModelAlgo.hxx".}
-proc perform*(this: var IMeshToolsModelAlgo; theModel: Handle[IMeshDataModel];
-             theParameters: IMeshToolsParameters; theRange: MessageProgressRange): bool {.
-    importcpp: "Perform", header: "IMeshTools_ModelAlgo.hxx".}
-type
-  IMeshToolsModelAlgobaseType* = StandardTransient
+## !!!Ignored construct:  ! Exceptions protected processing of the given model. Standard_Boolean Perform ( const Handle ( IMeshData_Model ) & theModel , const IMeshTools_Parameters & theParameters , const Message_ProgressRange & theRange ) { try { OCC_CATCH_SIGNALS return performInternal ( theModel , theParameters , theRange ) ; } catch ( Standard_Failure const & ) { return Standard_False ; } } public : typedef Standard_Transient base_type ;
+## Error: token expected: ) but got: &!!!
 
 proc getTypeName*(): cstring {.importcpp: "IMeshTools_ModelAlgo::get_type_name(@)",
                             header: "IMeshTools_ModelAlgo.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IMeshTools_ModelAlgo::get_type_descriptor(@)",
-    header: "IMeshTools_ModelAlgo.hxx".}
-proc dynamicType*(this: IMeshToolsModelAlgo): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IMeshTools_ModelAlgo.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  ! Performs processing of the given model. virtual Standard_Boolean performInternal ( const Handle ( IMeshData_Model ) & theModel , const IMeshTools_Parameters & theParameters , const Message_ProgressRange & theRange ) = 0 ;
+## Error: token expected: ) but got: &!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

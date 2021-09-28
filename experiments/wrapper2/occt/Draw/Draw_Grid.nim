@@ -18,7 +18,7 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Grid"
 discard "forward decl of Draw_Grid"
 type
-  HandleDrawGrid* = Handle[DrawGrid]
+  HandleC1C1* = Handle[DrawGrid]
   DrawGrid* {.importcpp: "Draw_Grid", header: "Draw_Grid.hxx", bycopy.} = object of DrawDrawable3D ##
                                                                                          ## !
                                                                                          ## Creates
@@ -28,14 +28,14 @@ type
 
 proc constructDrawGrid*(): DrawGrid {.constructor, importcpp: "Draw_Grid(@)",
                                    header: "Draw_Grid.hxx".}
-proc steps*(this: var DrawGrid; stepX: float; stepY: float; stepZ: float) {.
+proc steps*(this: var DrawGrid; stepX: cfloat; stepY: cfloat; stepZ: cfloat) {.
     importcpp: "Steps", header: "Draw_Grid.hxx".}
-proc stepX*(this: DrawGrid): float {.noSideEffect, importcpp: "StepX",
-                                 header: "Draw_Grid.hxx".}
-proc stepY*(this: DrawGrid): float {.noSideEffect, importcpp: "StepY",
-                                 header: "Draw_Grid.hxx".}
-proc stepZ*(this: DrawGrid): float {.noSideEffect, importcpp: "StepZ",
-                                 header: "Draw_Grid.hxx".}
+proc stepX*(this: DrawGrid): cfloat {.noSideEffect, importcpp: "StepX",
+                                  header: "Draw_Grid.hxx".}
+proc stepY*(this: DrawGrid): cfloat {.noSideEffect, importcpp: "StepY",
+                                  header: "Draw_Grid.hxx".}
+proc stepZ*(this: DrawGrid): cfloat {.noSideEffect, importcpp: "StepZ",
+                                  header: "Draw_Grid.hxx".}
 proc isActive*(this: DrawGrid): bool {.noSideEffect, importcpp: "IsActive",
                                    header: "Draw_Grid.hxx".}
 proc drawOn*(this: DrawGrid; `out`: var DrawDisplay) {.noSideEffect,
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Grid::get_type_descriptor(@)", header: "Draw_Grid.hxx".}
 proc dynamicType*(this: DrawGrid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Grid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

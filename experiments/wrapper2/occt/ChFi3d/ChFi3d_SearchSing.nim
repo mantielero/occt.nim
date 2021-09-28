@@ -22,9 +22,34 @@ type
 
 proc constructChFi3dSearchSing*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]): ChFi3dSearchSing {.
     constructor, importcpp: "ChFi3d_SearchSing(@)", header: "ChFi3d_SearchSing.hxx".}
-proc value*(this: var ChFi3dSearchSing; x: float; f: var float): bool {.
+proc value*(this: var ChFi3dSearchSing; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "ChFi3d_SearchSing.hxx".}
-proc derivative*(this: var ChFi3dSearchSing; x: float; d: var float): bool {.
+proc derivative*(this: var ChFi3dSearchSing; x: cfloat; d: var cfloat): bool {.
     importcpp: "Derivative", header: "ChFi3d_SearchSing.hxx".}
-proc values*(this: var ChFi3dSearchSing; x: float; f: var float; d: var float): bool {.
+proc values*(this: var ChFi3dSearchSing; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     importcpp: "Values", header: "ChFi3d_SearchSing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

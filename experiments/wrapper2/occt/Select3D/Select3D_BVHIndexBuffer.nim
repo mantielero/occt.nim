@@ -13,43 +13,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## ! Index buffer for BVH tree.
+## !!!Ignored construct:  # _Select3D_BVHIndexBuffer_Header [NewLine] # _Select3D_BVHIndexBuffer_Header [NewLine] # < Graphic3d_Buffer . hxx > [NewLine] # < Graphic3d_IndexBuffer . hxx > [NewLine] # < Select3D_SensitiveSet . hxx > [NewLine] # < TColStd_HArray1OfInteger . hxx > [NewLine] ! Index buffer for BVH tree. class Select3D_BVHIndexBuffer : public Graphic3d_Buffer { public : ! Empty constructor. Select3D_BVHIndexBuffer ( const Handle ( NCollection_BaseAllocator ) & theAlloc ) : Graphic3d_Buffer ( theAlloc ) , myHasPatches ( false ) { } bool HasPatches ( ) const { return myHasPatches ; } ! Allocates new empty index array bool Init ( const Standard_Integer theNbElems , const bool theHasPatches ) { release ( ) ; Stride = sizeof ( unsigned int ) ; myHasPatches = theHasPatches ; if ( theHasPatches ) { Stride += sizeof ( unsigned int ) ; } NbElements = theNbElems ; NbAttributes = 0 ; if ( NbElements != 0 && ! Allocate ( size_t ( Stride ) * size_t ( NbElements ) ) ) { release ( ) ; return false ; } return true ; } ! Access index at specified position Standard_Integer Index ( const Standard_Integer theIndex ) const { return Standard_Integer ( * reinterpret_cast < const unsigned int * > ( value ( theIndex ) ) ) ; } ! Access index at specified position Standard_Integer PatchSize ( const Standard_Integer theIndex ) const { return myHasPatches ? Standard_Integer ( * reinterpret_cast < const unsigned int * > ( value ( theIndex ) + sizeof ( unsigned int ) ) ) : 1 ; } ! Change index at specified position void SetIndex ( const Standard_Integer theIndex , const Standard_Integer theValue ) { * reinterpret_cast < unsigned int * > ( changeValue ( theIndex ) ) = ( unsigned int ) theValue ; } ! Change index at specified position void SetIndex ( const Standard_Integer theIndex , const Standard_Integer theValue , const Standard_Integer thePatchSize ) { * reinterpret_cast < unsigned int * > ( changeValue ( theIndex ) ) = ( unsigned int ) theValue ; * reinterpret_cast < unsigned int * > ( changeValue ( theIndex ) + sizeof ( unsigned int ) ) = ( unsigned int ) thePatchSize ; } private : bool myHasPatches ; public : public : typedef Graphic3d_Buffer base_type ; static const char * get_type_name ( ) { return Select3D_BVHIndexBuffer ; ( Select3D_BVHIndexBuffer , Graphic3d_Buffer ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < Select3D_BVHIndexBuffer > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } } ;
+## Error: expected ';'!!!
 
-type
-  Select3D_BVHIndexBuffer* {.importcpp: "Select3D_BVHIndexBuffer",
-                            header: "Select3D_BVHIndexBuffer.hxx", bycopy.} = object of Graphic3dBuffer ##
-                                                                                                 ## !
-                                                                                                 ## Empty
-                                                                                                 ## constructor.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Select3D_BVHIndexBuffer , Graphic3d_Buffer ) #  _Select3D_BVHIndexBuffer_Header
+## Error: expected ';'!!!
 
 
-proc constructSelect3D_BVHIndexBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Select3D_BVHIndexBuffer {.
-    constructor, importcpp: "Select3D_BVHIndexBuffer(@)",
-    header: "Select3D_BVHIndexBuffer.hxx".}
-proc hasPatches*(this: Select3D_BVHIndexBuffer): bool {.noSideEffect,
-    importcpp: "HasPatches", header: "Select3D_BVHIndexBuffer.hxx".}
-proc init*(this: var Select3D_BVHIndexBuffer; theNbElems: int; theHasPatches: bool): bool {.
-    importcpp: "Init", header: "Select3D_BVHIndexBuffer.hxx".}
-proc index*(this: Select3D_BVHIndexBuffer; theIndex: int): int {.noSideEffect,
-    importcpp: "Index", header: "Select3D_BVHIndexBuffer.hxx".}
-proc patchSize*(this: Select3D_BVHIndexBuffer; theIndex: int): int {.noSideEffect,
-    importcpp: "PatchSize", header: "Select3D_BVHIndexBuffer.hxx".}
-proc setIndex*(this: var Select3D_BVHIndexBuffer; theIndex: int; theValue: int) {.
-    importcpp: "SetIndex", header: "Select3D_BVHIndexBuffer.hxx".}
-proc setIndex*(this: var Select3D_BVHIndexBuffer; theIndex: int; theValue: int;
-              thePatchSize: int) {.importcpp: "SetIndex",
-                                 header: "Select3D_BVHIndexBuffer.hxx".}
-type
-  Select3D_BVHIndexBufferbaseType* = Graphic3dBuffer
 
-proc getTypeName*(): cstring {.importcpp: "Select3D_BVHIndexBuffer::get_type_name(@)",
-                            header: "Select3D_BVHIndexBuffer.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Select3D_BVHIndexBuffer::get_type_descriptor(@)",
-    header: "Select3D_BVHIndexBuffer.hxx".}
-proc dynamicType*(this: Select3D_BVHIndexBuffer): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "Select3D_BVHIndexBuffer.hxx".}
-discard "forward decl of Select3D_BVHIndexBuffer"
-type
-  HandleSelect3D_BVHIndexBuffer* = Handle[Select3D_BVHIndexBuffer]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

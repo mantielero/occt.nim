@@ -17,8 +17,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_GenericExtStringDriver"
 discard "forward decl of BinMDataStd_GenericExtStringDriver"
 type
-  HandleBinMDataStdGenericExtStringDriver* = Handle[
-      BinMDataStdGenericExtStringDriver]
+  HandleC1C1* = Handle[BinMDataStdGenericExtStringDriver]
 
 ## ! TDataStd_Name attribute Driver.
 
@@ -56,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdGenericExtStringDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_GenericExtStringDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

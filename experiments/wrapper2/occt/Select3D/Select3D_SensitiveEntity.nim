@@ -41,9 +41,9 @@ proc ownerId*(this: Select3D_SensitiveEntity): Handle[SelectMgrEntityOwner] {.
 proc set*(this: var Select3D_SensitiveEntity;
          theOwnerId: Handle[SelectMgrEntityOwner]) {.importcpp: "Set",
     header: "Select3D_SensitiveEntity.hxx".}
-proc sensitivityFactor*(this: Select3D_SensitiveEntity): int {.noSideEffect,
+proc sensitivityFactor*(this: Select3D_SensitiveEntity): cint {.noSideEffect,
     importcpp: "SensitivityFactor", header: "Select3D_SensitiveEntity.hxx".}
-proc setSensitivityFactor*(this: var Select3D_SensitiveEntity; theNewSens: int) {.
+proc setSensitivityFactor*(this: var Select3D_SensitiveEntity; theNewSens: cint) {.
     importcpp: "SetSensitivityFactor", header: "Select3D_SensitiveEntity.hxx".}
 proc getConnected*(this: var Select3D_SensitiveEntity): Handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
@@ -52,7 +52,7 @@ proc matches*(this: var Select3D_SensitiveEntity;
              theMgr: var SelectBasicsSelectingVolumeManager;
              thePickResult: var SelectBasicsPickResult): bool {.
     importcpp: "Matches", header: "Select3D_SensitiveEntity.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveEntity): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitiveEntity): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitiveEntity.hxx".}
 proc boundingBox*(this: var Select3D_SensitiveEntity): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveEntity.hxx".}
@@ -69,14 +69,39 @@ proc hasInitLocation*(this: Select3D_SensitiveEntity): bool {.noSideEffect,
 proc invInitLocation*(this: Select3D_SensitiveEntity): GTrsf {.noSideEffect,
     importcpp: "InvInitLocation", header: "Select3D_SensitiveEntity.hxx".}
 proc dumpJson*(this: Select3D_SensitiveEntity; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Select3D_SensitiveEntity.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Select3D_SensitiveEntity.hxx".}
 discard "forward decl of Select3D_SensitiveEntity"
 type
-  HandleSelect3D_SensitiveEntity* = Handle[Select3D_SensitiveEntity]
+  HandleC1C1* = Handle[Select3D_SensitiveEntity]
 
 ##  for porting old code
 
 type
   SelectBasicsSensitiveEntity* = Select3D_SensitiveEntity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

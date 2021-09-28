@@ -1,24 +1,23 @@
 #ifdef C2NIM
 #skipinclude
-#mangle Standard_Integer int
-#mangle Standard_Real float
-#mangle Standard_Boolean bool
-#mangle Standard_True true
-#mangle Standard_False false  
-#prefix gp_
-#def DEFINE_STANDARD_ALLOC
-#def DEFINE_NCOLLECTION_ALLOC
-#def Standard_EXPORT
-#def Standard_NODISCARD 
-#def Standard_OVERRIDE
+#assumendef _MSC_VER
+#def Standard_True true
+#def Standard_False false  
+#assumendef _DEBUG 
+#pp Standard_ASSERT_RETURN
+#pp Standard_ASSERT_RAISE
+#pp Standard_ASSERT_INVOKE
+#prefix gp_                     
+#prefix GC_
+
 #def STANDARD_TYPE(theType) theType::get_type_descriptor()
 #def OCCT_CHECK_BASE_CLASS
 #def TRUE_ (1)
 #def FALSE_ (0)
-#pp DEFINE_STANDARD_HANDLE
+
+
 #pp DEFINE_HARRAY1
-#pp DEFINE_STANDARD_HANDLECLASS
-#pp Handle
+
 #def DEFINE_STANDARD_RTTIEXT(Class,Base) \
       public: \
         typedef Base base_type; \
@@ -29,20 +28,151 @@
 #def DEFINE_STANDARD_RTTI_INLINE(Class,Base) \
 public: \
   typedef Base base_type; \
-  static const char* get_type_name () { return #Class; OCCT_CHECK_BASE_CLASS(Class,Base) } \
-  static const Handle(Standard_Type)& get_type_descriptor () { return Standard_Type::Instance<Class>(); } \
-  virtual const Handle(Standard_Type)& DynamicType() const Standard_OVERRIDE { return get_type_descriptor (); }
+  static const char* get_type_name () \
+  static const Handle(Standard_Type)& get_type_descriptor () \
+  virtual const Handle(Standard_Type)& DynamicType() const Standard_OVERRIDE 
 
-#def DEFINE_NCOLLECTION_ALLOC                                               \
+#def DEFINE_NCOLLECTION_ALLOC                                                   \
    void* operator new (size_t theSize,                                           \
                        const Handle(NCollection_BaseAllocator)& theAllocator)    \
-   {                                                                             \
-     return theAllocator->Allocate(theSize);                                     \
-   }                                                                             \
    void  operator delete (void* theAddress,                                      \
-                          const Handle(NCollection_BaseAllocator)& theAllocator) \
-   {                                                                             \
-     theAllocator->Free(theAddress);                                             \
-   }
+                          const Handle(NCollection_BaseAllocator)& theAllocator) 
 
+#def DEFINE_HSEQUENCE(HClassName, _SequenceType_)                              \
+class HClassName : public _SequenceType_, public Standard_Transient {          \
+ public:                                                                       \
+   DEFINE_STANDARD_ALLOC                                                       \
+   DEFINE_NCOLLECTION_ALLOC                                                    \
+   HClassName ()                                                               \
+   HClassName (const _SequenceType_& theOther) : _SequenceType_(theOther)    \
+   const _SequenceType_& Sequence () const                                   \
+   void Append (const _SequenceType_::value_type& theItem)                   \
+   void Append (_SequenceType_& theSequence)                                 \
+   _SequenceType_& ChangeSequence ()                                         \
+   template <class T>                                                        \
+   void Append (const Handle(T)& theOther,                                   \
+                typename opencascade::std::enable_if<opencascade::std::is_base_of<HClassName, T>::value>::type * = 0) \
+   DEFINE_STANDARD_RTTI_INLINE(HClassName,Standard_Transient)                \
+}; \
+DEFINE_STANDARD_HANDLE (HClassName, Standard_Transient) 
+
+#def IMPLEMENT_HSEQUENCE(HClassName) 
+
+#def Standard_AbortiveTransaction_Raise_if(CONDITION, MESSAGE) \
+if (CONDITION) throw Standard_AbortiveTransaction(MESSAGE);
+
+#def OCCT_DUMP_FIELD_VALUES_NUMERICAL(a, b, c, d, e, f,  g, h,  i, j, k, l,  m, n, o, p, q, r,  s)
+
+#def NCOLLECTION_VEC_COMPONENTS_2D(theX, theY) \
+  const NCollection_Vec2<Element_t> theX##theY() const \
+  const NCollection_Vec2<Element_t> theY##theX() const 
+
+#assumedef No_Exception
+#def Standard_Underflow_Raise_if(CONDITION, MESSAGE)
+
+#assumedef _Standard_Type_HeaderFile
+#def STANDARD_TYPE(theType) theType::get_type_descriptor()
+#def OCCT_CHECK_BASE_CLASS(Class,Base) \
+  static_assert(opencascade::is_base_but_not_same<Base, Class>::value, "OCCT RTTI definition is incorrect: " #Base " is not base class of " #Class);
+
+
+
+#pp OCC_VERSION_MAJOR
+#pp OCC_VERSION_MINOR
+#pp OCC_VERSION_MAINTENANCE
+#pp OCC_VERSION
+#pp OCC_VERSION_STRING
+#pp OCC_VERSION_COMPLETE
+#pp OCC_VERSION_HEX
+#pp OCC_VERSION_STRING_EXT
+#assumendef OCC_VERSION_DEVELOPMENT
+
+#def Handle(x) opencascade::handle<x>
+#def DEFINE_STANDARD_HANDLECLASS(C1,C2,BC) class C1; typedef Handle(C1) Handle_##C1;
+#def DEFINE_STANDARD_HANDLE(C1,C2) DEFINE_STANDARD_HANDLECLASS(C1,C2,Standard_Transient)
+#def DEFINE_STANDARD_PHANDLE(C1,C2) DEFINE_STANDARD_HANDLECLASS(C1,C2,Standard_Persistent)
+
+
+#def DEFINE_STANDARD_EXCEPTION(C1,C2) \
+class C1 : public C2 { \
+  void Throw () const Standard_OVERRIDE ; \
+};
+
+#def DEFINE_STANDARD_RTTI_INLINE(Class,Base) \
+public: \
+  typedef Base base_type; \
+  static const char* get_type_name (); \
+  static const Handle(Standard_Type)& get_type_descriptor (); \
+  virtual const Handle(Standard_Type)& DynamicType() const Standard_OVERRIDE ; 
+
+#def DEFINE_STANDARD_RTTIEXT(Class,Base) \
+public: \
+  typedef Base base_type; \
+  static const char* get_type_name () ; \
+  Standard_EXPORT static const Handle(Standard_Type)& get_type_descriptor () ; \
+  Standard_EXPORT virtual const Handle(Standard_Type)& DynamicType() const Standard_OVERRIDE;
+
+#def IMPLEMENT_STANDARD_RTTIEXT(Class,Base) \
+  const Handle(Standard_Type)& Class::get_type_descriptor () ; \
+  const Handle(Standard_Type)& Class::DynamicType() const ;
+
+#assumedef _Standard_Integer_HeaderFile
+#mangle Standard_Integer int
+
+#assumedef _Standard_Real_HeaderFile
+#mangle Standar_Real float
+
+
+#assumedef _Standard_Boolean_HeaderFile
+#mangle Standar_Boolean bool
+
+#assumedef _Standard_ShortReal_HeaderFile
+#mangle Short_Real float32
+
+#assumedef OCCT_NO_RVALUE_REFERENCE
+
+#assumedef _Standard_Macro_HeaderFile
+#def fallthrough
+#def Standard_OVERRIDE override
+#def Standard_FALLTHROUGH
+#def Standard_NODISCARD
+#def Standard_UNUSED
+#def Standard_THREADLOCAL thread_local
+#def Standard_DEPRECATED(theMsg)
+#def Standard_DISABLE_DEPRECATION_WARNINGS
+#def Standard_ENABLE_DEPRECATION_WARNINGS
+#def OCCT_NO_RVALUE_REFERENCE
+#def Standard_EXPORT
+#def Standard_EXPORTEXTERN extern
+#def Standard_EXPORTEXTERNC extern "C"
+#def Standard_IMPORT extern
+#def Standard_IMPORTC extern "C"
+
+#assumedef _Standard_DefineAlloc_HeaderFile
+#def DEFINE_STANDARD_ALLOC_ARRAY                \
+   void* operator new[] (size_t theSize) ;        \             
+   void  operator delete[] (void* theAddress) ;  
+
+#def DEFINE_STANDARD_ALLOC_PLACEMENT             \
+   void* operator new (size_t, void* theAddress) ; \
+   void operator delete (void*, void*) ;     
+
+#def DEFINE_STANDARD_ALLOC                  \
+  void* operator new (size_t theSize) ;      \ 
+  void  operator delete (void* theAddress) ; \ 
+  DEFINE_STANDARD_ALLOC_ARRAY               \
+  DEFINE_STANDARD_ALLOC_PLACEMENT
+
+#def STANDARD_ALIGNED(theAlignment, theType, theVar) theType theVar
+
+#def NCOLLECTION_VEC_COMPONENTS_2D(theX, theY) \
+  const NCollection_Vec2<Element_t> theX##theY() const ; \
+  const NCollection_Vec2<Element_t> theY##theX() const ;
+#def NCOLLECTION_VEC_COMPONENTS_3D(theX, theY, theZ) \
+  const NCollection_Vec3<Element_t> theX##theY##theZ() const { return NCollection_Vec3<Element_t>(theX(), theY(), theZ()); } \
+  const NCollection_Vec3<Element_t> theX##theZ##theY() const { return NCollection_Vec3<Element_t>(theX(), theZ(), theY()); } \
+  const NCollection_Vec3<Element_t> theY##theX##theZ() const { return NCollection_Vec3<Element_t>(theY(), theX(), theZ()); } \
+  const NCollection_Vec3<Element_t> theY##theZ##theX() const { return NCollection_Vec3<Element_t>(theY(), theZ(), theX()); } \
+  const NCollection_Vec3<Element_t> theZ##theY##theX() const { return NCollection_Vec3<Element_t>(theZ(), theY(), theX()); } \
+  const NCollection_Vec3<Element_t> theZ##theX##theY() const { return NCollection_Vec3<Element_t>(theZ(), theX(), theY()); }
 #endif

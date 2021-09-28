@@ -17,3 +17,28 @@
 type
   TColgpArray1OfCirc2d* = NCollectionArray1[Circ2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

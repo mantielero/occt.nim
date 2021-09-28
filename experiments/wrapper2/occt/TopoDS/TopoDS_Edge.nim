@@ -32,3 +32,28 @@ type
 
 proc constructTopoDS_Edge*(): TopoDS_Edge {.constructor,
     importcpp: "TopoDS_Edge(@)", header: "TopoDS_Edge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,12 +17,57 @@
 
 ## !!!Ignored construct:  # MoniTool_Macros_HeaderFile [NewLine] # MoniTool_Macros_HeaderFile [NewLine]  Interface General purpose Macros
 ##  Their use is not required, but it gets some program parts easier :
-##  DownCasting, with or without Declaration   DownCasting to a "Handle" already declared # GetCasted ( atype , start ) opencascade :: handle < atype > [end of template] :: DownCast ( start ) [NewLine]   DownCasting with Declaration :
+##  DownCasting, with or without Declaration   DownCasting to a "Handle" already declared # GetCasted ( atype , start ) Handle ( atype ) :: DownCast ( start ) [NewLine]   DownCasting with Declaration :
 ##   - Declares the variable result
 ##   - then performs DownCasting
-##   - after it, result can be used as a new variable # DeclareAndCast ( atype , result , start ) opencascade :: handle < atype > [end of template] result = opencascade :: handle < atype > [end of template] :: DownCast ( start ) [NewLine] # FastCast ( atype , result , start ) opencascade :: handle < atype > [end of template] result ;
-## Error: expected ';'!!!
+##   - after it, result can be used as a new variable # DeclareAndCast ( atype , result , start ) Handle ( atype ) result = Handle ( atype ) :: DownCast ( start ) [NewLine] # FastCast ( atype , result , start ) Handle ( atype ) result ;
+## Error: did not expect ::!!!
 
-## !!!Ignored construct:  result = ( * ( opencascade :: handle < atype > [end of template] * ) ) & start [NewLine] # [NewLine]
+## !!!Ignored construct:  result = ( * ( Handle ( atype ) * ) ) & start [NewLine] # [NewLine]
 ## Error: identifier expected, but got: *!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

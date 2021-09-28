@@ -31,29 +31,54 @@ proc constructContapContAna*(): ContapContAna {.constructor,
     importcpp: "Contap_ContAna(@)", header: "Contap_ContAna.hxx".}
 proc perform*(this: var ContapContAna; s: Sphere; d: Dir) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; s: Sphere; d: Dir; ang: float) {.
+proc perform*(this: var ContapContAna; s: Sphere; d: Dir; ang: cfloat) {.
     importcpp: "Perform", header: "Contap_ContAna.hxx".}
 proc perform*(this: var ContapContAna; s: Sphere; eye: Pnt) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
 proc perform*(this: var ContapContAna; c: Cylinder; d: Dir) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; c: Cylinder; d: Dir; ang: float) {.
+proc perform*(this: var ContapContAna; c: Cylinder; d: Dir; ang: cfloat) {.
     importcpp: "Perform", header: "Contap_ContAna.hxx".}
 proc perform*(this: var ContapContAna; c: Cylinder; eye: Pnt) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
 proc perform*(this: var ContapContAna; c: Cone; d: Dir) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; c: Cone; d: Dir; ang: float) {.
+proc perform*(this: var ContapContAna; c: Cone; d: Dir; ang: cfloat) {.
     importcpp: "Perform", header: "Contap_ContAna.hxx".}
 proc perform*(this: var ContapContAna; c: Cone; eye: Pnt) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
 proc isDone*(this: ContapContAna): bool {.noSideEffect, importcpp: "IsDone",
                                       header: "Contap_ContAna.hxx".}
-proc nbContours*(this: ContapContAna): int {.noSideEffect, importcpp: "NbContours",
+proc nbContours*(this: ContapContAna): cint {.noSideEffect, importcpp: "NbContours",
     header: "Contap_ContAna.hxx".}
 proc typeContour*(this: ContapContAna): GeomAbsCurveType {.noSideEffect,
     importcpp: "TypeContour", header: "Contap_ContAna.hxx".}
 proc circle*(this: ContapContAna): Circ {.noSideEffect, importcpp: "Circle",
                                       header: "Contap_ContAna.hxx".}
-proc line*(this: ContapContAna; index: int): Lin {.noSideEffect, importcpp: "Line",
+proc line*(this: ContapContAna; index: cint): Lin {.noSideEffect, importcpp: "Line",
     header: "Contap_ContAna.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -112,3 +112,28 @@ proc getLogFileHandler*(): ptr OSD_MAllocHookLogFileHandler {.
     header: "OSD_MAllocHook.hxx".}
 proc getCollectBySize*(): ptr OSD_MAllocHookCollectBySize {.
     importcpp: "OSD_MAllocHook::GetCollectBySize(@)", header: "OSD_MAllocHook.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

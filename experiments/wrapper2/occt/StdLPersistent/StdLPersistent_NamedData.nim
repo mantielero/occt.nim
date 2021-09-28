@@ -28,3 +28,28 @@ proc pName*(this: StdLPersistentNamedData): StandardCString {.noSideEffect,
 proc `import`*(this: StdLPersistentNamedData;
               theAttribute: Handle[TDataStdNamedData]) {.noSideEffect,
     importcpp: "Import", header: "StdLPersistent_NamedData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

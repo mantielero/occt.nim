@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESAppli_LevelFunction"
 discard "forward decl of IGESAppli_LevelFunction"
 type
-  HandleIGESAppliLevelFunction* = Handle[IGESAppliLevelFunction]
+  HandleC1C1* = Handle[IGESAppliLevelFunction]
 
 ## ! defines LevelFunction, Type <406> Form <3>
 ## ! in package IGESAppli
@@ -32,12 +32,12 @@ type
 
 proc constructIGESAppliLevelFunction*(): IGESAppliLevelFunction {.constructor,
     importcpp: "IGESAppli_LevelFunction(@)", header: "IGESAppli_LevelFunction.hxx".}
-proc init*(this: var IGESAppliLevelFunction; nbPropVal: int; aCode: int;
+proc init*(this: var IGESAppliLevelFunction; nbPropVal: cint; aCode: cint;
           aFuncDescrip: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESAppli_LevelFunction.hxx".}
-proc nbPropertyValues*(this: IGESAppliLevelFunction): int {.noSideEffect,
+proc nbPropertyValues*(this: IGESAppliLevelFunction): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_LevelFunction.hxx".}
-proc funcDescriptionCode*(this: IGESAppliLevelFunction): int {.noSideEffect,
+proc funcDescriptionCode*(this: IGESAppliLevelFunction): cint {.noSideEffect,
     importcpp: "FuncDescriptionCode", header: "IGESAppli_LevelFunction.hxx".}
 proc funcDescription*(this: IGESAppliLevelFunction): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "FuncDescription",
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_LevelFunction.hxx".}
 proc dynamicType*(this: IGESAppliLevelFunction): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_LevelFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

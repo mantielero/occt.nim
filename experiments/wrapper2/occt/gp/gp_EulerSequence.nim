@@ -43,4 +43,3 @@ type
     ExtrinsicZXZ, IntrinsicXYX, IntrinsicXZX, IntrinsicYZY, IntrinsicYXY,
     IntrinsicZXZ, IntrinsicZYZ
 
-

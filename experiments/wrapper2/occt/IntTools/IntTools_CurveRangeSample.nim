@@ -22,18 +22,43 @@ type
 proc constructIntToolsCurveRangeSample*(): IntToolsCurveRangeSample {.constructor,
     importcpp: "IntTools_CurveRangeSample(@)",
     header: "IntTools_CurveRangeSample.hxx".}
-proc constructIntToolsCurveRangeSample*(theIndex: int): IntToolsCurveRangeSample {.
+proc constructIntToolsCurveRangeSample*(theIndex: cint): IntToolsCurveRangeSample {.
     constructor, importcpp: "IntTools_CurveRangeSample(@)",
     header: "IntTools_CurveRangeSample.hxx".}
-proc setRangeIndex*(this: var IntToolsCurveRangeSample; theIndex: int) {.
+proc setRangeIndex*(this: var IntToolsCurveRangeSample; theIndex: cint) {.
     importcpp: "SetRangeIndex", header: "IntTools_CurveRangeSample.hxx".}
-proc getRangeIndex*(this: IntToolsCurveRangeSample): int {.noSideEffect,
+proc getRangeIndex*(this: IntToolsCurveRangeSample): cint {.noSideEffect,
     importcpp: "GetRangeIndex", header: "IntTools_CurveRangeSample.hxx".}
 proc isEqual*(this: IntToolsCurveRangeSample; other: IntToolsCurveRangeSample): bool {.
     noSideEffect, importcpp: "IsEqual", header: "IntTools_CurveRangeSample.hxx".}
-proc getRange*(this: IntToolsCurveRangeSample; theFirst: float; theLast: float;
-              theNbSample: int): IntToolsRange {.noSideEffect,
+proc getRange*(this: IntToolsCurveRangeSample; theFirst: cfloat; theLast: cfloat;
+              theNbSample: cint): IntToolsRange {.noSideEffect,
     importcpp: "GetRange", header: "IntTools_CurveRangeSample.hxx".}
-proc getRangeIndexDeeper*(this: IntToolsCurveRangeSample; theNbSample: int): int {.
+proc getRangeIndexDeeper*(this: IntToolsCurveRangeSample; theNbSample: cint): cint {.
     noSideEffect, importcpp: "GetRangeIndexDeeper",
     header: "IntTools_CurveRangeSample.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

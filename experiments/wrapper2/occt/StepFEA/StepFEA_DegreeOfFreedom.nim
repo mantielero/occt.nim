@@ -26,9 +26,9 @@ type
 
 proc constructStepFEA_DegreeOfFreedom*(): StepFEA_DegreeOfFreedom {.constructor,
     importcpp: "StepFEA_DegreeOfFreedom(@)", header: "StepFEA_DegreeOfFreedom.hxx".}
-proc caseNum*(this: StepFEA_DegreeOfFreedom; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepFEA_DegreeOfFreedom; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepFEA_DegreeOfFreedom.hxx".}
-proc caseMem*(this: StepFEA_DegreeOfFreedom; ent: Handle[StepDataSelectMember]): int {.
+proc caseMem*(this: StepFEA_DegreeOfFreedom; ent: Handle[StepDataSelectMember]): cint {.
     noSideEffect, importcpp: "CaseMem", header: "StepFEA_DegreeOfFreedom.hxx".}
 proc newMember*(this: StepFEA_DegreeOfFreedom): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepFEA_DegreeOfFreedom.hxx".}
@@ -47,3 +47,28 @@ proc applicationDefinedDegreeOfFreedom*(this: StepFEA_DegreeOfFreedom): Handle[
     TCollectionHAsciiString] {.noSideEffect,
                               importcpp: "ApplicationDefinedDegreeOfFreedom",
                               header: "StepFEA_DegreeOfFreedom.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

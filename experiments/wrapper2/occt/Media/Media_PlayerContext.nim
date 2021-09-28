@@ -132,12 +132,12 @@ proc setInput*(this: var MediaPlayerContext; theInputPath: TCollectionAsciiStrin
               theToWait: bool) {.importcpp: "SetInput",
                                header: "Media_PlayerContext.hxx".}
 proc playbackState*(this: var MediaPlayerContext; theIsPaused: var bool;
-                   theProgress: var float; theDuration: var float) {.
+                   theProgress: var cfloat; theDuration: var cfloat) {.
     importcpp: "PlaybackState", header: "Media_PlayerContext.hxx".}
 proc playPause*(this: var MediaPlayerContext; theIsPaused: var bool;
-               theProgress: var float; theDuration: var float) {.
+               theProgress: var cfloat; theDuration: var cfloat) {.
     importcpp: "PlayPause", header: "Media_PlayerContext.hxx".}
-proc seek*(this: var MediaPlayerContext; thePosSec: float) {.importcpp: "Seek",
+proc seek*(this: var MediaPlayerContext; thePosSec: cfloat) {.importcpp: "Seek",
     header: "Media_PlayerContext.hxx".}
 proc pause*(this: var MediaPlayerContext) {.importcpp: "Pause",
                                         header: "Media_PlayerContext.hxx".}
@@ -147,3 +147,28 @@ proc toForceRgb*(this: MediaPlayerContext): bool {.noSideEffect,
     importcpp: "ToForceRgb", header: "Media_PlayerContext.hxx".}
 proc setForceRgb*(this: var MediaPlayerContext; theToForce: bool) {.
     importcpp: "SetForceRgb", header: "Media_PlayerContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

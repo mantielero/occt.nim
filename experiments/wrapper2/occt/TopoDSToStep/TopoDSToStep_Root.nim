@@ -23,7 +23,32 @@ type
                                                                    ## ! If not set, starts at 0.0001
 
 
-proc tolerance*(this: var TopoDSToStepRoot): var float {.importcpp: "Tolerance",
+proc tolerance*(this: var TopoDSToStepRoot): var cfloat {.importcpp: "Tolerance",
     header: "TopoDSToStep_Root.hxx".}
 proc isDone*(this: TopoDSToStepRoot): bool {.noSideEffect, importcpp: "IsDone",
     header: "TopoDSToStep_Root.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

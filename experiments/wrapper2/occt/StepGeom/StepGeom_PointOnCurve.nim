@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_PointOnCurve"
 discard "forward decl of StepGeom_PointOnCurve"
 type
-  HandleStepGeomPointOnCurve* = Handle[StepGeomPointOnCurve]
+  HandleC1C1* = Handle[StepGeomPointOnCurve]
   StepGeomPointOnCurve* {.importcpp: "StepGeom_PointOnCurve",
                          header: "StepGeom_PointOnCurve.hxx", bycopy.} = object of StepGeomPoint ##
                                                                                           ## !
@@ -31,16 +31,16 @@ type
 proc constructStepGeomPointOnCurve*(): StepGeomPointOnCurve {.constructor,
     importcpp: "StepGeom_PointOnCurve(@)", header: "StepGeom_PointOnCurve.hxx".}
 proc init*(this: var StepGeomPointOnCurve; aName: Handle[TCollectionHAsciiString];
-          aBasisCurve: Handle[StepGeomCurve]; aPointParameter: float) {.
+          aBasisCurve: Handle[StepGeomCurve]; aPointParameter: cfloat) {.
     importcpp: "Init", header: "StepGeom_PointOnCurve.hxx".}
 proc setBasisCurve*(this: var StepGeomPointOnCurve;
                    aBasisCurve: Handle[StepGeomCurve]) {.
     importcpp: "SetBasisCurve", header: "StepGeom_PointOnCurve.hxx".}
 proc basisCurve*(this: StepGeomPointOnCurve): Handle[StepGeomCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "StepGeom_PointOnCurve.hxx".}
-proc setPointParameter*(this: var StepGeomPointOnCurve; aPointParameter: float) {.
+proc setPointParameter*(this: var StepGeomPointOnCurve; aPointParameter: cfloat) {.
     importcpp: "SetPointParameter", header: "StepGeom_PointOnCurve.hxx".}
-proc pointParameter*(this: StepGeomPointOnCurve): float {.noSideEffect,
+proc pointParameter*(this: StepGeomPointOnCurve): cfloat {.noSideEffect,
     importcpp: "PointParameter", header: "StepGeom_PointOnCurve.hxx".}
 type
   StepGeomPointOnCurvebaseType* = StepGeomPoint
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_PointOnCurve.hxx".}
 proc dynamicType*(this: StepGeomPointOnCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_PointOnCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

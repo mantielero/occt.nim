@@ -12,5 +12,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  Graphic3dMat4d* = NCollectionMat4[float]
+  Graphic3dMat4d* = NCollectionMat4[cfloat]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

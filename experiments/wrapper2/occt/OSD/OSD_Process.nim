@@ -59,7 +59,7 @@ proc userName*(this: var OSD_Process): TCollectionAsciiString {.
     importcpp: "UserName", header: "OSD_Process.hxx".}
 proc isSuperUser*(this: var OSD_Process): bool {.importcpp: "IsSuperUser",
     header: "OSD_Process.hxx".}
-proc processId*(this: var OSD_Process): int {.importcpp: "ProcessId",
+proc processId*(this: var OSD_Process): cint {.importcpp: "ProcessId",
     header: "OSD_Process.hxx".}
 proc currentDirectory*(this: var OSD_Process): OSD_Path {.
     importcpp: "CurrentDirectory", header: "OSD_Process.hxx".}
@@ -69,5 +69,30 @@ proc failed*(this: OSD_Process): bool {.noSideEffect, importcpp: "Failed",
                                     header: "OSD_Process.hxx".}
 proc reset*(this: var OSD_Process) {.importcpp: "Reset", header: "OSD_Process.hxx".}
 proc perror*(this: var OSD_Process) {.importcpp: "Perror", header: "OSD_Process.hxx".}
-proc error*(this: OSD_Process): int {.noSideEffect, importcpp: "Error",
-                                  header: "OSD_Process.hxx".}
+proc error*(this: OSD_Process): cint {.noSideEffect, importcpp: "Error",
+                                   header: "OSD_Process.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

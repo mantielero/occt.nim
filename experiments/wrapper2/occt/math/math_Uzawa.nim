@@ -71,13 +71,13 @@ type
 
 
 proc constructMathUzawa*(cont: MathMatrix; secont: MathVector;
-                        startingPoint: MathVector; epsLix: float = 1.0e-06;
-                        epsLic: float = 1.0e-06; nbIterations: int = 500): MathUzawa {.
+                        startingPoint: MathVector; epsLix: cfloat = 1.0e-06;
+                        epsLic: cfloat = 1.0e-06; nbIterations: cint = 500): MathUzawa {.
     constructor, importcpp: "math_Uzawa(@)", header: "math_Uzawa.hxx".}
 proc constructMathUzawa*(cont: MathMatrix; secont: MathVector;
-                        startingPoint: MathVector; nci: int; nce: int;
-                        epsLix: float = 1.0e-06; epsLic: float = 1.0e-06;
-                        nbIterations: int = 500): MathUzawa {.constructor,
+                        startingPoint: MathVector; nci: cint; nce: cint;
+                        epsLix: cfloat = 1.0e-06; epsLic: cfloat = 1.0e-06;
+                        nbIterations: cint = 500): MathUzawa {.constructor,
     importcpp: "math_Uzawa(@)", header: "math_Uzawa.hxx".}
 proc isDone*(this: MathUzawa): bool {.noSideEffect, importcpp: "IsDone",
                                   header: "math_Uzawa.hxx".}
@@ -89,9 +89,34 @@ proc duale*(this: MathUzawa; v: var MathVector) {.noSideEffect, importcpp: "Dual
     header: "math_Uzawa.hxx".}
 proc error*(this: MathUzawa): MathVector {.noSideEffect, importcpp: "Error",
                                        header: "math_Uzawa.hxx".}
-proc nbIterations*(this: MathUzawa): int {.noSideEffect, importcpp: "NbIterations",
-                                       header: "math_Uzawa.hxx".}
+proc nbIterations*(this: MathUzawa): cint {.noSideEffect, importcpp: "NbIterations",
+                                        header: "math_Uzawa.hxx".}
 proc inverseCont*(this: MathUzawa): MathMatrix {.noSideEffect,
     importcpp: "InverseCont", header: "math_Uzawa.hxx".}
 proc dump*(this: MathUzawa; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "math_Uzawa.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

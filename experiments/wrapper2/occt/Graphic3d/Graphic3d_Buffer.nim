@@ -47,9 +47,9 @@ type
     dataType* {.importc: "DataType".}: Graphic3dTypeOfData ## !< vec2,vec3,vec4,vec4ub
 
 
-proc stride*(this: Graphic3dAttribute): int {.noSideEffect, importcpp: "Stride",
+proc stride*(this: Graphic3dAttribute): cint {.noSideEffect, importcpp: "Stride",
     header: "Graphic3d_Buffer.hxx".}
-proc stride*(theType: Graphic3dTypeOfData): int {.
+proc stride*(theType: Graphic3dTypeOfData): cint {.
     importcpp: "Graphic3d_Attribute::Stride(@)", header: "Graphic3d_Buffer.hxx".}
 type
   Graphic3dArray1OfAttribute* = NCollectionArray1[Graphic3dAttribute]
@@ -63,9 +63,9 @@ type
                                                       ## ! Release buffer.
                                                       ## ! Flag indicating that attributes in the buffer are interleaved; TRUE by default.
                                                       ## ! Requires sub-classing for creating a non-interleaved buffer (advanced usage).
-    stride* {.importc: "Stride".}: int ## !< the distance to the attributes of the next vertex within interleaved array
-    nbElements* {.importc: "NbElements".}: int ## !< number of the elements (@sa NbMaxElements() specifying the number of initially allocated number of elements)
-    nbAttributes* {.importc: "NbAttributes".}: int ## !< number of vertex attributes
+    stride* {.importc: "Stride".}: cint ## !< the distance to the attributes of the next vertex within interleaved array
+    nbElements* {.importc: "NbElements".}: cint ## !< number of the elements (@sa NbMaxElements() specifying the number of initially allocated number of elements)
+    nbAttributes* {.importc: "NbAttributes".}: cint ## !< number of vertex attributes
 
   Graphic3dBufferbaseType* = NCollectionBuffer
 
@@ -78,29 +78,29 @@ proc dynamicType*(this: Graphic3dBuffer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_Buffer.hxx".}
 proc constructGraphic3dBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dBuffer {.
     constructor, importcpp: "Graphic3d_Buffer(@)", header: "Graphic3d_Buffer.hxx".}
-proc nbMaxElements*(this: Graphic3dBuffer): int {.noSideEffect,
+proc nbMaxElements*(this: Graphic3dBuffer): cint {.noSideEffect,
     importcpp: "NbMaxElements", header: "Graphic3d_Buffer.hxx".}
 proc attributesArray*(this: Graphic3dBuffer): ptr Graphic3dAttribute {.noSideEffect,
     importcpp: "AttributesArray", header: "Graphic3d_Buffer.hxx".}
-proc attribute*(this: Graphic3dBuffer; theAttribIndex: int): Graphic3dAttribute {.
+proc attribute*(this: Graphic3dBuffer; theAttribIndex: cint): Graphic3dAttribute {.
     noSideEffect, importcpp: "Attribute", header: "Graphic3d_Buffer.hxx".}
-proc changeAttribute*(this: var Graphic3dBuffer; theAttribIndex: int): var Graphic3dAttribute {.
+proc changeAttribute*(this: var Graphic3dBuffer; theAttribIndex: cint): var Graphic3dAttribute {.
     importcpp: "ChangeAttribute", header: "Graphic3d_Buffer.hxx".}
-proc findAttribute*(this: Graphic3dBuffer; theAttrib: Graphic3dTypeOfAttribute): int {.
+proc findAttribute*(this: Graphic3dBuffer; theAttrib: Graphic3dTypeOfAttribute): cint {.
     noSideEffect, importcpp: "FindAttribute", header: "Graphic3d_Buffer.hxx".}
-proc attributeOffset*(this: Graphic3dBuffer; theAttribIndex: int): int {.noSideEffect,
-    importcpp: "AttributeOffset", header: "Graphic3d_Buffer.hxx".}
-proc data*(this: Graphic3dBuffer; theAttribIndex: int): ptr StandardByte {.
+proc attributeOffset*(this: Graphic3dBuffer; theAttribIndex: cint): cint {.
+    noSideEffect, importcpp: "AttributeOffset", header: "Graphic3d_Buffer.hxx".}
+proc data*(this: Graphic3dBuffer; theAttribIndex: cint): ptr StandardByte {.
     noSideEffect, importcpp: "Data", header: "Graphic3d_Buffer.hxx".}
-proc changeData*(this: var Graphic3dBuffer; theAttribIndex: int): ptr StandardByte {.
+proc changeData*(this: var Graphic3dBuffer; theAttribIndex: cint): ptr StandardByte {.
     importcpp: "ChangeData", header: "Graphic3d_Buffer.hxx".}
-proc value*(this: Graphic3dBuffer; theElem: int): ptr StandardByte {.noSideEffect,
+proc value*(this: Graphic3dBuffer; theElem: cint): ptr StandardByte {.noSideEffect,
     importcpp: "value", header: "Graphic3d_Buffer.hxx".}
-proc changeValue*(this: var Graphic3dBuffer; theElem: int): ptr StandardByte {.
+proc changeValue*(this: var Graphic3dBuffer; theElem: cint): ptr StandardByte {.
     importcpp: "changeValue", header: "Graphic3d_Buffer.hxx".}
-proc value*[TypeT](this: Graphic3dBuffer; theElem: int): TypeT {.noSideEffect,
+proc value*[TypeT](this: Graphic3dBuffer; theElem: cint): TypeT {.noSideEffect,
     importcpp: "Value", header: "Graphic3d_Buffer.hxx".}
-proc changeValue*[TypeT](this: var Graphic3dBuffer; theElem: int): var TypeT {.
+proc changeValue*[TypeT](this: var Graphic3dBuffer; theElem: cint): var TypeT {.
     importcpp: "ChangeValue", header: "Graphic3d_Buffer.hxx".}
 ## using statement
 
@@ -108,17 +108,18 @@ proc changeValue*[TypeT](this: var Graphic3dBuffer; theElem: int): var TypeT {.
 
 proc changeAttributeData*(this: var Graphic3dBuffer;
                          theAttrib: Graphic3dTypeOfAttribute;
-                         theAttribIndex: var int; theAttribStride: var StandardSize): ptr StandardByte {.
+                         theAttribIndex: var cint;
+                         theAttribStride: var StandardSize): ptr StandardByte {.
     importcpp: "ChangeAttributeData", header: "Graphic3d_Buffer.hxx".}
 proc attributeData*(this: Graphic3dBuffer; theAttrib: Graphic3dTypeOfAttribute;
-                   theAttribIndex: var int; theAttribStride: var StandardSize): ptr StandardByte {.
+                   theAttribIndex: var cint; theAttribStride: var StandardSize): ptr StandardByte {.
     noSideEffect, importcpp: "AttributeData", header: "Graphic3d_Buffer.hxx".}
 proc release*(this: var Graphic3dBuffer) {.importcpp: "release",
                                        header: "Graphic3d_Buffer.hxx".}
-proc init*(this: var Graphic3dBuffer; theNbElems: int;
-          theAttribs: ptr Graphic3dAttribute; theNbAttribs: int): bool {.
+proc init*(this: var Graphic3dBuffer; theNbElems: cint;
+          theAttribs: ptr Graphic3dAttribute; theNbAttribs: cint): bool {.
     importcpp: "Init", header: "Graphic3d_Buffer.hxx".}
-proc init*(this: var Graphic3dBuffer; theNbElems: int;
+proc init*(this: var Graphic3dBuffer; theNbElems: cint;
           theAttribs: Graphic3dArray1OfAttribute): bool {.importcpp: "Init",
     header: "Graphic3d_Buffer.hxx".}
 proc isInterleaved*(this: Graphic3dBuffer): bool {.noSideEffect,
@@ -132,9 +133,34 @@ proc validate*(this: var Graphic3dBuffer) {.importcpp: "Validate",
 proc invalidate*(this: var Graphic3dBuffer) {.importcpp: "Invalidate",
     header: "Graphic3d_Buffer.hxx".}
 proc dumpJson*(this: Graphic3dBuffer; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_Buffer.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_Buffer.hxx".}
 discard "forward decl of Graphic3d_Buffer"
 type
-  HandleGraphic3dBuffer* = Handle[Graphic3dBuffer]
+  HandleC1C1* = Handle[Graphic3dBuffer]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

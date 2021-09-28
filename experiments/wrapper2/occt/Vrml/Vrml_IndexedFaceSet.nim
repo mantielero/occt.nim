@@ -17,7 +17,7 @@
 discard "forward decl of Vrml_IndexedFaceSet"
 discard "forward decl of Vrml_IndexedFaceSet"
 type
-  HandleVrmlIndexedFaceSet* = Handle[VrmlIndexedFaceSet]
+  HandleC1C1* = Handle[VrmlIndexedFaceSet]
 
 ## ! defines a IndexedFaceSet node of VRML specifying geometry shapes.
 ## ! This node represents a 3D shape formed by constructing faces (polygons) from
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Vrml_IndexedFaceSet.hxx".}
 proc dynamicType*(this: VrmlIndexedFaceSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_IndexedFaceSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

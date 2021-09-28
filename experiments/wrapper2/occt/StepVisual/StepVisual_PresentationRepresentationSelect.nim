@@ -32,7 +32,7 @@ proc constructStepVisualPresentationRepresentationSelect*(): StepVisualPresentat
     constructor, importcpp: "StepVisual_PresentationRepresentationSelect(@)",
     header: "StepVisual_PresentationRepresentationSelect.hxx".}
 proc caseNum*(this: StepVisualPresentationRepresentationSelect;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepVisual_PresentationRepresentationSelect.hxx".}
 proc presentationRepresentation*(this: StepVisualPresentationRepresentationSelect): Handle[
@@ -41,3 +41,28 @@ proc presentationRepresentation*(this: StepVisualPresentationRepresentationSelec
     header: "StepVisual_PresentationRepresentationSelect.hxx".}
 proc presentationSet*(this: StepVisualPresentationRepresentationSelect): Handle[
     StepVisualPresentationSet] {.noSideEffect, importcpp: "PresentationSet", header: "StepVisual_PresentationRepresentationSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

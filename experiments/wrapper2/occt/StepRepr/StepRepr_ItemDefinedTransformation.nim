@@ -19,8 +19,7 @@ discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of StepRepr_ItemDefinedTransformation"
 discard "forward decl of StepRepr_ItemDefinedTransformation"
 type
-  HandleStepReprItemDefinedTransformation* = Handle[
-      StepReprItemDefinedTransformation]
+  HandleC1C1* = Handle[StepReprItemDefinedTransformation]
 
 ## ! Added from StepRepr Rev2 to Rev4
 
@@ -73,3 +72,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprItemDefinedTransformation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ItemDefinedTransformation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

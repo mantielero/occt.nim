@@ -21,7 +21,7 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of LocOpe_GluedShape"
 discard "forward decl of LocOpe_GluedShape"
 type
-  HandleLocOpeGluedShape* = Handle[LocOpeGluedShape]
+  HandleC1C1* = Handle[LocOpeGluedShape]
   LocOpeGluedShape* {.importcpp: "LocOpe_GluedShape",
                      header: "LocOpe_GluedShape.hxx", bycopy.} = object of LocOpeGeneratedShape
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "LocOpe_GluedShape.hxx".}
 proc dynamicType*(this: LocOpeGluedShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "LocOpe_GluedShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

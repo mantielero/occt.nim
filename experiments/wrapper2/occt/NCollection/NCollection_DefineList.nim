@@ -22,4 +22,3 @@
 template define_List*(className, baseCollection, theItemType: untyped): void =
   type
     ClassName* = NCollectionList[TheItemType]
-

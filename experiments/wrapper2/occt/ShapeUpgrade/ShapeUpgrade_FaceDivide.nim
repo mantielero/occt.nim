@@ -21,7 +21,7 @@ discard "forward decl of ShapeUpgrade_WireDivide"
 discard "forward decl of ShapeUpgrade_FaceDivide"
 discard "forward decl of ShapeUpgrade_FaceDivide"
 type
-  HandleShapeUpgradeFaceDivide* = Handle[ShapeUpgradeFaceDivide]
+  HandleC1C1* = Handle[ShapeUpgradeFaceDivide]
 
 ## ! Divides a Face (both edges in the wires, by splitting
 ## ! curves and pcurves, and the face itself, by splitting
@@ -88,3 +88,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeUpgrade_FaceDivide.hxx".}
 proc dynamicType*(this: ShapeUpgradeFaceDivide): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_FaceDivide.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

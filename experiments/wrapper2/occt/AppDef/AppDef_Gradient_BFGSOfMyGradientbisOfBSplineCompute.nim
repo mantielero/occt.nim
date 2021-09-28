@@ -29,7 +29,7 @@ type
 
 proc constructAppDefGradientBFGSOfMyGradientbisOfBSplineCompute*(
     f: var MathMultipleVarFunctionWithGradient; startingPoint: MathVector;
-    tolerance3d: float; tolerance2d: float; eps: float; nbIterations: int = 200): AppDefGradientBFGSOfMyGradientbisOfBSplineCompute {.
+    tolerance3d: cfloat; tolerance2d: cfloat; eps: cfloat; nbIterations: cint = 200): AppDefGradientBFGSOfMyGradientbisOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_Gradient_BFGSOfMyGradientbisOfBSplineCompute(@)",
     header: "AppDef_Gradient_BFGSOfMyGradientbisOfBSplineCompute.hxx".}
@@ -37,3 +37,28 @@ proc isSolutionReached*(this: AppDefGradientBFGSOfMyGradientbisOfBSplineCompute;
                        f: var MathMultipleVarFunctionWithGradient): bool {.
     noSideEffect, importcpp: "IsSolutionReached",
     header: "AppDef_Gradient_BFGSOfMyGradientbisOfBSplineCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

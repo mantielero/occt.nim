@@ -41,3 +41,28 @@ proc map*(this: ShapeProcessAPI_ApplySequence): TopToolsDataMapOfShapeShape {.
 proc printPreparationResult*(this: ShapeProcessAPI_ApplySequence) {.noSideEffect,
     importcpp: "PrintPreparationResult",
     header: "ShapeProcessAPI_ApplySequence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

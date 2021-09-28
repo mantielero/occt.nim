@@ -17,8 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_ValueFormatTypeQualifier"
 discard "forward decl of StepShape_ValueFormatTypeQualifier"
 type
-  HandleStepShapeValueFormatTypeQualifier* = Handle[
-      StepShapeValueFormatTypeQualifier]
+  HandleC1C1* = Handle[StepShapeValueFormatTypeQualifier]
 
 ## ! Added for Dimensional Tolerances
 
@@ -50,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeValueFormatTypeQualifier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ValueFormatTypeQualifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,18 +26,20 @@ type
                                   ## ! 0 <= mics
 
 
-proc constructQuantityPeriod*(dd: int; hh: int; mn: int; ss: int; mis: int = 0; mics: int = 0): QuantityPeriod {.
-    constructor, importcpp: "Quantity_Period(@)", header: "Quantity_Period.hxx".}
-proc constructQuantityPeriod*(ss: int; mics: int = 0): QuantityPeriod {.constructor,
+proc constructQuantityPeriod*(dd: cint; hh: cint; mn: cint; ss: cint; mis: cint = 0;
+                             mics: cint = 0): QuantityPeriod {.constructor,
     importcpp: "Quantity_Period(@)", header: "Quantity_Period.hxx".}
-proc values*(this: QuantityPeriod; dd: var int; hh: var int; mn: var int; ss: var int;
-            mis: var int; mics: var int) {.noSideEffect, importcpp: "Values",
-                                     header: "Quantity_Period.hxx".}
-proc values*(this: QuantityPeriod; ss: var int; mics: var int) {.noSideEffect,
+proc constructQuantityPeriod*(ss: cint; mics: cint = 0): QuantityPeriod {.constructor,
+    importcpp: "Quantity_Period(@)", header: "Quantity_Period.hxx".}
+proc values*(this: QuantityPeriod; dd: var cint; hh: var cint; mn: var cint; ss: var cint;
+            mis: var cint; mics: var cint) {.noSideEffect, importcpp: "Values",
+                                       header: "Quantity_Period.hxx".}
+proc values*(this: QuantityPeriod; ss: var cint; mics: var cint) {.noSideEffect,
     importcpp: "Values", header: "Quantity_Period.hxx".}
-proc setValues*(this: var QuantityPeriod; dd: int; hh: int; mn: int; ss: int; mis: int = 0;
-               mics: int = 0) {.importcpp: "SetValues", header: "Quantity_Period.hxx".}
-proc setValues*(this: var QuantityPeriod; ss: int; mics: int = 0) {.
+proc setValues*(this: var QuantityPeriod; dd: cint; hh: cint; mn: cint; ss: cint;
+               mis: cint = 0; mics: cint = 0) {.importcpp: "SetValues",
+                                        header: "Quantity_Period.hxx".}
+proc setValues*(this: var QuantityPeriod; ss: cint; mics: cint = 0) {.
     importcpp: "SetValues", header: "Quantity_Period.hxx".}
 proc subtract*(this: QuantityPeriod; anOther: QuantityPeriod): QuantityPeriod {.
     noSideEffect, importcpp: "Subtract", header: "Quantity_Period.hxx".}
@@ -57,7 +59,32 @@ proc `<`*(this: QuantityPeriod; anOther: QuantityPeriod): bool {.noSideEffect,
     importcpp: "(# < #)", header: "Quantity_Period.hxx".}
 proc isLonger*(this: QuantityPeriod; anOther: QuantityPeriod): bool {.noSideEffect,
     importcpp: "IsLonger", header: "Quantity_Period.hxx".}
-proc isValid*(dd: int; hh: int; mn: int; ss: int; mis: int = 0; mics: int = 0): bool {.
+proc isValid*(dd: cint; hh: cint; mn: cint; ss: cint; mis: cint = 0; mics: cint = 0): bool {.
     importcpp: "Quantity_Period::IsValid(@)", header: "Quantity_Period.hxx".}
-proc isValid*(ss: int; mics: int = 0): bool {.importcpp: "Quantity_Period::IsValid(@)",
-                                      header: "Quantity_Period.hxx".}
+proc isValid*(ss: cint; mics: cint = 0): bool {.importcpp: "Quantity_Period::IsValid(@)",
+                                        header: "Quantity_Period.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TDocStd_Application"
 discard "forward decl of TDocStd_Application"
 type
-  HandleTDocStdApplication* = Handle[TDocStdApplication]
+  HandleC1C1* = Handle[TDocStdApplication]
 
 ## ! The abstract root class for all application classes.
 ## ! They are in charge of:
@@ -87,9 +87,9 @@ proc readingFormats*(this: var TDocStdApplication;
 proc writingFormats*(this: var TDocStdApplication;
                     theFormats: var TColStdSequenceOfAsciiString) {.
     importcpp: "WritingFormats", header: "TDocStd_Application.hxx".}
-proc nbDocuments*(this: TDocStdApplication): int {.noSideEffect,
+proc nbDocuments*(this: TDocStdApplication): cint {.noSideEffect,
     importcpp: "NbDocuments", header: "TDocStd_Application.hxx".}
-proc getDocument*(this: TDocStdApplication; index: int;
+proc getDocument*(this: TDocStdApplication; index: cint;
                  aDoc: var Handle[TDocStdDocument]) {.noSideEffect,
     importcpp: "GetDocument", header: "TDocStd_Application.hxx".}
 proc newDocument*(this: var TDocStdApplication; format: TCollectionExtendedString;
@@ -99,7 +99,7 @@ proc initDocument*(this: TDocStdApplication; aDoc: Handle[TDocStdDocument]) {.
     noSideEffect, importcpp: "InitDocument", header: "TDocStd_Application.hxx".}
 proc close*(this: var TDocStdApplication; aDoc: Handle[TDocStdDocument]) {.
     importcpp: "Close", header: "TDocStd_Application.hxx".}
-proc isInSession*(this: TDocStdApplication; path: TCollectionExtendedString): int {.
+proc isInSession*(this: TDocStdApplication; path: TCollectionExtendedString): cint {.
     noSideEffect, importcpp: "IsInSession", header: "TDocStd_Application.hxx".}
 proc open*(this: var TDocStdApplication; path: TCollectionExtendedString;
           aDoc: var Handle[TDocStdDocument];
@@ -144,8 +144,8 @@ proc onAbortTransaction*(this: var TDocStdApplication;
                         theDoc: Handle[TDocStdDocument]) {.
     importcpp: "OnAbortTransaction", header: "TDocStd_Application.hxx".}
 proc dumpJson*(this: TDocStdApplication; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDocStd_Application.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDocStd_Application.hxx".}
 type
   TDocStdApplicationbaseType* = CDF_Application
 
@@ -156,3 +156,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDocStd_Application.hxx".}
 proc dynamicType*(this: TDocStdApplication): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_Application.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

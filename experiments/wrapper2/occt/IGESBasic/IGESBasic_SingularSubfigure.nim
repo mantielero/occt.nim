@@ -19,7 +19,7 @@ discard "forward decl of gp_XYZ"
 discard "forward decl of IGESBasic_SingularSubfigure"
 discard "forward decl of IGESBasic_SingularSubfigure"
 type
-  HandleIGESBasicSingularSubfigure* = Handle[IGESBasicSingularSubfigure]
+  HandleC1C1* = Handle[IGESBasicSingularSubfigure]
 
 ## ! defines SingularSubfigure, Type <408> Form <0>
 ## ! in package IGESBasic
@@ -36,12 +36,12 @@ proc constructIGESBasicSingularSubfigure*(): IGESBasicSingularSubfigure {.
     header: "IGESBasic_SingularSubfigure.hxx".}
 proc init*(this: var IGESBasicSingularSubfigure;
           aSubfigureDef: Handle[IGESBasicSubfigureDef]; aTranslation: Xyz;
-          hasScale: bool; aScale: float) {.importcpp: "Init", header: "IGESBasic_SingularSubfigure.hxx".}
+          hasScale: bool; aScale: cfloat) {.importcpp: "Init", header: "IGESBasic_SingularSubfigure.hxx".}
 proc subfigure*(this: IGESBasicSingularSubfigure): Handle[IGESBasicSubfigureDef] {.
     noSideEffect, importcpp: "Subfigure", header: "IGESBasic_SingularSubfigure.hxx".}
 proc translation*(this: IGESBasicSingularSubfigure): Xyz {.noSideEffect,
     importcpp: "Translation", header: "IGESBasic_SingularSubfigure.hxx".}
-proc scaleFactor*(this: IGESBasicSingularSubfigure): float {.noSideEffect,
+proc scaleFactor*(this: IGESBasicSingularSubfigure): cfloat {.noSideEffect,
     importcpp: "ScaleFactor", header: "IGESBasic_SingularSubfigure.hxx".}
 proc hasScaleFactor*(this: IGESBasicSingularSubfigure): bool {.noSideEffect,
     importcpp: "HasScaleFactor", header: "IGESBasic_SingularSubfigure.hxx".}
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESBasicSingularSubfigure): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESBasic_SingularSubfigure.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

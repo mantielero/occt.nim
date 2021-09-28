@@ -30,7 +30,7 @@ proc constructRWStepElementRWVolume3dElementDescriptor*(): RWStepElementRWVolume
     constructor, importcpp: "RWStepElement_RWVolume3dElementDescriptor(@)",
     header: "RWStepElement_RWVolume3dElementDescriptor.hxx".}
 proc readStep*(this: RWStepElementRWVolume3dElementDescriptor;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepElementVolume3dElementDescriptor]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepElement_RWVolume3dElementDescriptor.hxx".}
@@ -43,3 +43,28 @@ proc share*(this: RWStepElementRWVolume3dElementDescriptor;
            ent: Handle[StepElementVolume3dElementDescriptor];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWVolume3dElementDescriptor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

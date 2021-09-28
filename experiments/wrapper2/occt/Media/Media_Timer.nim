@@ -30,20 +30,45 @@ proc dynamicType*(this: MediaTimer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Media_Timer.hxx".}
 proc constructMediaTimer*(): MediaTimer {.constructor, importcpp: "Media_Timer(@)",
                                        header: "Media_Timer.hxx".}
-proc elapsedTime*(this: MediaTimer): float {.noSideEffect, importcpp: "ElapsedTime",
+proc elapsedTime*(this: MediaTimer): cfloat {.noSideEffect, importcpp: "ElapsedTime",
     header: "Media_Timer.hxx".}
-proc playbackSpeed*(this: MediaTimer): float {.noSideEffect,
+proc playbackSpeed*(this: MediaTimer): cfloat {.noSideEffect,
     importcpp: "PlaybackSpeed", header: "Media_Timer.hxx".}
-proc setPlaybackSpeed*(this: var MediaTimer; theSpeed: float) {.
+proc setPlaybackSpeed*(this: var MediaTimer; theSpeed: cfloat) {.
     importcpp: "SetPlaybackSpeed", header: "Media_Timer.hxx".}
 proc isStarted*(this: MediaTimer): bool {.noSideEffect, importcpp: "IsStarted",
                                       header: "Media_Timer.hxx".}
 proc start*(this: var MediaTimer) {.importcpp: "Start", header: "Media_Timer.hxx".}
 proc pause*(this: var MediaTimer) {.importcpp: "Pause", header: "Media_Timer.hxx".}
 proc stop*(this: var MediaTimer) {.importcpp: "Stop", header: "Media_Timer.hxx".}
-proc seek*(this: var MediaTimer; theTime: float) {.importcpp: "Seek",
+proc seek*(this: var MediaTimer; theTime: cfloat) {.importcpp: "Seek",
     header: "Media_Timer.hxx".}
 discard "forward decl of Media_Timer"
 type
-  HandleMediaTimer* = Handle[MediaTimer]
+  HandleC1C1* = Handle[MediaTimer]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

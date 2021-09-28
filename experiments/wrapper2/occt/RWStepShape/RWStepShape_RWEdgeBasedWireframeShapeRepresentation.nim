@@ -32,7 +32,7 @@ proc constructRWStepShapeRWEdgeBasedWireframeShapeRepresentation*(): RWStepShape
     importcpp: "RWStepShape_RWEdgeBasedWireframeShapeRepresentation(@)",
     header: "RWStepShape_RWEdgeBasedWireframeShapeRepresentation.hxx".}
 proc readStep*(this: RWStepShapeRWEdgeBasedWireframeShapeRepresentation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeEdgeBasedWireframeShapeRepresentation]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -46,3 +46,28 @@ proc share*(this: RWStepShapeRWEdgeBasedWireframeShapeRepresentation;
            ent: Handle[StepShapeEdgeBasedWireframeShapeRepresentation];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWEdgeBasedWireframeShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

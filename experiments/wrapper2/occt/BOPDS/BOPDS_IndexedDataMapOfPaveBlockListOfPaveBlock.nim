@@ -16,3 +16,28 @@ type
   BOPDS_IndexedDataMapOfPaveBlockListOfPaveBlock* = NCollectionIndexedDataMap[
       Handle[BOPDS_PaveBlock], BOPDS_ListOfPaveBlock, TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

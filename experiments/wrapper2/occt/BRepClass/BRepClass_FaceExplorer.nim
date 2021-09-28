@@ -33,18 +33,18 @@ proc checkPoint*(this: var BRepClassFaceExplorer; thePoint: var Pnt2d): bool {.
     importcpp: "CheckPoint", header: "BRepClass_FaceExplorer.hxx".}
 proc reject*(this: BRepClassFaceExplorer; p: Pnt2d): bool {.noSideEffect,
     importcpp: "Reject", header: "BRepClass_FaceExplorer.hxx".}
-proc segment*(this: var BRepClassFaceExplorer; p: Pnt2d; L: var Lin2d; par: var float): bool {.
+proc segment*(this: var BRepClassFaceExplorer; p: Pnt2d; L: var Lin2d; par: var cfloat): bool {.
     importcpp: "Segment", header: "BRepClass_FaceExplorer.hxx".}
 proc otherSegment*(this: var BRepClassFaceExplorer; p: Pnt2d; L: var Lin2d;
-                  par: var float): bool {.importcpp: "OtherSegment",
-                                      header: "BRepClass_FaceExplorer.hxx".}
+                  par: var cfloat): bool {.importcpp: "OtherSegment",
+                                       header: "BRepClass_FaceExplorer.hxx".}
 proc initWires*(this: var BRepClassFaceExplorer) {.importcpp: "InitWires",
     header: "BRepClass_FaceExplorer.hxx".}
 proc moreWires*(this: BRepClassFaceExplorer): bool {.noSideEffect,
     importcpp: "MoreWires", header: "BRepClass_FaceExplorer.hxx".}
 proc nextWire*(this: var BRepClassFaceExplorer) {.importcpp: "NextWire",
     header: "BRepClass_FaceExplorer.hxx".}
-proc rejectWire*(this: BRepClassFaceExplorer; L: Lin2d; par: float): bool {.
+proc rejectWire*(this: BRepClassFaceExplorer; L: Lin2d; par: cfloat): bool {.
     noSideEffect, importcpp: "RejectWire", header: "BRepClass_FaceExplorer.hxx".}
 proc initEdges*(this: var BRepClassFaceExplorer) {.importcpp: "InitEdges",
     header: "BRepClass_FaceExplorer.hxx".}
@@ -52,8 +52,33 @@ proc moreEdges*(this: BRepClassFaceExplorer): bool {.noSideEffect,
     importcpp: "MoreEdges", header: "BRepClass_FaceExplorer.hxx".}
 proc nextEdge*(this: var BRepClassFaceExplorer) {.importcpp: "NextEdge",
     header: "BRepClass_FaceExplorer.hxx".}
-proc rejectEdge*(this: BRepClassFaceExplorer; L: Lin2d; par: float): bool {.
+proc rejectEdge*(this: BRepClassFaceExplorer; L: Lin2d; par: cfloat): bool {.
     noSideEffect, importcpp: "RejectEdge", header: "BRepClass_FaceExplorer.hxx".}
 proc currentEdge*(this: BRepClassFaceExplorer; e: var BRepClassEdge;
                  `or`: var TopAbsOrientation) {.noSideEffect,
     importcpp: "CurrentEdge", header: "BRepClass_FaceExplorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

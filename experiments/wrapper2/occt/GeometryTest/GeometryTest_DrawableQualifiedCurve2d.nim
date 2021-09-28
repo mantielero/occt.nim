@@ -17,8 +17,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of GeometryTest_DrawableQualifiedCurve2d"
 discard "forward decl of GeometryTest_DrawableQualifiedCurve2d"
 type
-  HandleGeometryTestDrawableQualifiedCurve2d* = Handle[
-      GeometryTestDrawableQualifiedCurve2d]
+  HandleC1C1* = Handle[GeometryTestDrawableQualifiedCurve2d]
 
 ## ! Create geom curve drawable presentation with the position of a solution of a construction algorithm.
 
@@ -41,14 +40,14 @@ type
 
 proc constructGeometryTestDrawableQualifiedCurve2d*(
     theCurve: Handle[Geom2dCurve]; thePosition: GccEntPosition;
-    theDispOrigin: bool = true): GeometryTestDrawableQualifiedCurve2d {.constructor,
-    importcpp: "GeometryTest_DrawableQualifiedCurve2d(@)",
+    theDispOrigin: StandardBoolean = true): GeometryTestDrawableQualifiedCurve2d {.
+    constructor, importcpp: "GeometryTest_DrawableQualifiedCurve2d(@)",
     header: "GeometryTest_DrawableQualifiedCurve2d.hxx".}
 proc constructGeometryTestDrawableQualifiedCurve2d*(
     theCurve: Handle[Geom2dCurve]; theColor: DrawColor; theDiscret: int;
-    thePosition: GccEntPosition; theDispOrigin: bool = true;
-    theDispCurvRadius: bool = false; theRadiusMax: float = 1.0e3;
-    theRatioOfRadius: float = 0.1): GeometryTestDrawableQualifiedCurve2d {.
+    thePosition: GccEntPosition; theDispOrigin: StandardBoolean = true;
+    theDispCurvRadius: StandardBoolean = false; theRadiusMax: StandardReal = 1.0e3;
+    theRatioOfRadius: StandardReal = 0.1): GeometryTestDrawableQualifiedCurve2d {.
     constructor, importcpp: "GeometryTest_DrawableQualifiedCurve2d(@)",
     header: "GeometryTest_DrawableQualifiedCurve2d.hxx".}
 proc getPosition*(this: GeometryTestDrawableQualifiedCurve2d): GccEntPosition {.

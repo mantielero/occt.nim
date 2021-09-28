@@ -16,3 +16,28 @@
 type
   BinObjMgtPByte* = ptr StandardByte
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

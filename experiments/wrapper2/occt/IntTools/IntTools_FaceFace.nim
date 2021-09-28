@@ -29,7 +29,7 @@ proc constructIntToolsFaceFace*(): IntToolsFaceFace {.constructor,
     importcpp: "IntTools_FaceFace(@)", header: "IntTools_FaceFace.hxx".}
 proc setParameters*(this: var IntToolsFaceFace; approxCurves: bool;
                    computeCurveOnS1: bool; computeCurveOnS2: bool;
-                   approximationTolerance: float) {.importcpp: "SetParameters",
+                   approximationTolerance: cfloat) {.importcpp: "SetParameters",
     header: "IntTools_FaceFace.hxx".}
 proc perform*(this: var IntToolsFaceFace; f1: TopoDS_Face; f2: TopoDS_Face) {.
     importcpp: "Perform", header: "IntTools_FaceFace.hxx".}
@@ -51,9 +51,34 @@ proc setList*(this: var IntToolsFaceFace; listOfPnts: var IntSurfListOfPntOn2S) 
     importcpp: "SetList", header: "IntTools_FaceFace.hxx".}
 proc setContext*(this: var IntToolsFaceFace; aContext: Handle[IntToolsContext]) {.
     importcpp: "SetContext", header: "IntTools_FaceFace.hxx".}
-proc setFuzzyValue*(this: var IntToolsFaceFace; theFuzz: float) {.
+proc setFuzzyValue*(this: var IntToolsFaceFace; theFuzz: cfloat) {.
     importcpp: "SetFuzzyValue", header: "IntTools_FaceFace.hxx".}
-proc fuzzyValue*(this: IntToolsFaceFace): float {.noSideEffect,
+proc fuzzyValue*(this: IntToolsFaceFace): cfloat {.noSideEffect,
     importcpp: "FuzzyValue", header: "IntTools_FaceFace.hxx".}
 proc context*(this: IntToolsFaceFace): Handle[IntToolsContext] {.noSideEffect,
     importcpp: "Context", header: "IntTools_FaceFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -84,25 +84,50 @@ proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: Adaptor3dCurve;
          aDrawer: Handle[Prs3dDrawer]; drawCurve: bool = true) {.
     importcpp: "StdPrs_Curve::Add(@)", header: "StdPrs_Curve.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: Adaptor3dCurve;
-         u1: float; u2: float; aDrawer: Handle[Prs3dDrawer]; drawCurve: bool = true) {.
+         u1: cfloat; u2: cfloat; aDrawer: Handle[Prs3dDrawer]; drawCurve: bool = true) {.
     importcpp: "StdPrs_Curve::Add(@)", header: "StdPrs_Curve.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: Adaptor3dCurve;
          aDrawer: Handle[Prs3dDrawer]; points: var TColgpSequenceOfPnt;
          drawCurve: bool = true) {.importcpp: "StdPrs_Curve::Add(@)",
                                header: "StdPrs_Curve.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aCurve: Adaptor3dCurve;
-         u1: float; u2: float; points: var TColgpSequenceOfPnt; aNbPoints: int = 30;
+         u1: cfloat; u2: cfloat; points: var TColgpSequenceOfPnt; aNbPoints: cint = 30;
          drawCurve: bool = true) {.importcpp: "StdPrs_Curve::Add(@)",
                                header: "StdPrs_Curve.hxx".}
-proc match*(x: float; y: float; z: float; aDistance: float; aCurve: Adaptor3dCurve;
+proc match*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; aCurve: Adaptor3dCurve;
            aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_Curve::Match(@)", header: "StdPrs_Curve.hxx".}
-proc match*(x: float; y: float; z: float; aDistance: float; aCurve: Adaptor3dCurve;
-           aDeflection: float; aLimit: float; aNbPoints: int): bool {.
+proc match*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; aCurve: Adaptor3dCurve;
+           aDeflection: cfloat; aLimit: cfloat; aNbPoints: cint): bool {.
     importcpp: "StdPrs_Curve::Match(@)", header: "StdPrs_Curve.hxx".}
-proc match*(x: float; y: float; z: float; aDistance: float; aCurve: Adaptor3dCurve;
-           u1: float; u2: float; aDrawer: Handle[Prs3dDrawer]): bool {.
+proc match*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; aCurve: Adaptor3dCurve;
+           u1: cfloat; u2: cfloat; aDrawer: Handle[Prs3dDrawer]): bool {.
     importcpp: "StdPrs_Curve::Match(@)", header: "StdPrs_Curve.hxx".}
-proc match*(x: float; y: float; z: float; aDistance: float; aCurve: Adaptor3dCurve;
-           u1: float; u2: float; aDeflection: float; aNbPoints: int): bool {.
+proc match*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; aCurve: Adaptor3dCurve;
+           u1: cfloat; u2: cfloat; aDeflection: cfloat; aNbPoints: cint): bool {.
     importcpp: "StdPrs_Curve::Match(@)", header: "StdPrs_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,10 +12,35 @@
 ##  commercial license or contractual agreement.
 
 type
-  SelectMgrVec3* = NCollectionVec3[float]
-  SelectMgrVec4* = NCollectionVec4[float]
-  SelectMgrMat4* = NCollectionMat4[float]
+  SelectMgrVec3* = NCollectionVec3[cfloat]
+  SelectMgrVec4* = NCollectionVec4[cfloat]
+  SelectMgrMat4* = NCollectionMat4[cfloat]
 
 proc transform*(theTrsf: Trsf; theVec: SelectMgrVec3): SelectMgrVec3 =
   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -17,3 +17,28 @@ type
   Graphic3dMapOfObject* = NCollectionDataMap[ptr StandardTransient,
       Handle[Graphic3dViewAffinity]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

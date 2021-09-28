@@ -18,3 +18,28 @@ discard "forward decl of TCollection_MapNode"
 type
   TCollectionMapNodePtr* = ptr TCollectionMapNode
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

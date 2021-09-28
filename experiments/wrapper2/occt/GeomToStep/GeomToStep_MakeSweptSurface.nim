@@ -22,6 +22,24 @@ type
                                header: "GeomToStep_MakeSweptSurface.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeSweptSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeSweptSurface::operator new",
+    header: "GeomToStep_MakeSweptSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeSweptSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeSweptSurface::operator delete",
+    header: "GeomToStep_MakeSweptSurface.hxx".}
+proc `new[]`*(this: var GeomToStepMakeSweptSurface; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeSweptSurface::operator new[]",
+    header: "GeomToStep_MakeSweptSurface.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeSweptSurface; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeSweptSurface::operator delete[]",
+    header: "GeomToStep_MakeSweptSurface.hxx".}
+proc `new`*(this: var GeomToStepMakeSweptSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeSweptSurface::operator new",
+    header: "GeomToStep_MakeSweptSurface.hxx".}
+proc `delete`*(this: var GeomToStepMakeSweptSurface; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeSweptSurface::operator delete",
+    header: "GeomToStep_MakeSweptSurface.hxx".}
 proc constructGeomToStepMakeSweptSurface*(s: Handle[GeomSweptSurface]): GeomToStepMakeSweptSurface {.
     constructor, importcpp: "GeomToStep_MakeSweptSurface(@)",
     header: "GeomToStep_MakeSweptSurface.hxx".}

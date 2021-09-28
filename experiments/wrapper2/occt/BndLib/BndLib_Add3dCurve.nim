@@ -57,13 +57,39 @@ type
                                                                    ## ! numbers, or two positive infinite real numbers.
 
 
-proc add*(c: Adaptor3dCurve; tol: float; b: var BndBox) {.
+proc add*(c: Adaptor3dCurve; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib_Add3dCurve::Add(@)", header: "BndLib_Add3dCurve.hxx".}
-proc add*(c: Adaptor3dCurve; u1: float; u2: float; tol: float; b: var BndBox) {.
+proc add*(c: Adaptor3dCurve; u1: cfloat; u2: cfloat; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib_Add3dCurve::Add(@)", header: "BndLib_Add3dCurve.hxx".}
-proc addOptimal*(c: Adaptor3dCurve; tol: float; b: var BndBox) {.
+proc addOptimal*(c: Adaptor3dCurve; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib_Add3dCurve::AddOptimal(@)", header: "BndLib_Add3dCurve.hxx".}
-proc addOptimal*(c: Adaptor3dCurve; u1: float; u2: float; tol: float; b: var BndBox) {.
+proc addOptimal*(c: Adaptor3dCurve; u1: cfloat; u2: cfloat; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib_Add3dCurve::AddOptimal(@)", header: "BndLib_Add3dCurve.hxx".}
-proc addGenCurv*(c: Adaptor3dCurve; uMin: float; uMax: float; tol: float; b: var BndBox) {.
-    importcpp: "BndLib_Add3dCurve::AddGenCurv(@)", header: "BndLib_Add3dCurve.hxx".}
+proc addGenCurv*(c: Adaptor3dCurve; uMin: cfloat; uMax: cfloat; tol: cfloat;
+                b: var BndBox) {.importcpp: "BndLib_Add3dCurve::AddGenCurv(@)",
+                              header: "BndLib_Add3dCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ type
 
 proc constructHLRBRepBiPnt2D*(): HLRBRepBiPnt2D {.constructor,
     importcpp: "HLRBRep_BiPnt2D(@)", header: "HLRBRep_BiPnt2D.hxx".}
-proc constructHLRBRepBiPnt2D*(x1: float; y1: float; x2: float; y2: float;
+proc constructHLRBRepBiPnt2D*(x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat;
                              s: TopoDS_Shape; reg1: bool; regn: bool; outl: bool;
                              intl: bool): HLRBRepBiPnt2D {.constructor,
     importcpp: "HLRBRep_BiPnt2D(@)", header: "HLRBRep_BiPnt2D.hxx".}
@@ -54,3 +54,28 @@ proc intLine*(this: HLRBRepBiPnt2D): bool {.noSideEffect, importcpp: "IntLine",
                                         header: "HLRBRep_BiPnt2D.hxx".}
 proc intLine*(this: var HLRBRepBiPnt2D; b: bool) {.importcpp: "IntLine",
     header: "HLRBRep_BiPnt2D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

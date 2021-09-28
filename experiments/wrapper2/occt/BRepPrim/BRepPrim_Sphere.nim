@@ -25,11 +25,36 @@ type
                                                       ## ! raised if the radius is < Resolution.
 
 
-proc constructBRepPrimSphere*(radius: float): BRepPrimSphere {.constructor,
+proc constructBRepPrimSphere*(radius: cfloat): BRepPrimSphere {.constructor,
     importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
-proc constructBRepPrimSphere*(center: Pnt; radius: float): BRepPrimSphere {.
+proc constructBRepPrimSphere*(center: Pnt; radius: cfloat): BRepPrimSphere {.
     constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
-proc constructBRepPrimSphere*(axes: Ax2; radius: float): BRepPrimSphere {.constructor,
-    importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
+proc constructBRepPrimSphere*(axes: Ax2; radius: cfloat): BRepPrimSphere {.
+    constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimSphere): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Sphere.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

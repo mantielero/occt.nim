@@ -25,5 +25,30 @@ type
 proc constructAdvApproxPrefCutting*(cutPnts: TColStdArray1OfReal): AdvApproxPrefCutting {.
     constructor, importcpp: "AdvApprox_PrefCutting(@)",
     header: "AdvApprox_PrefCutting.hxx".}
-proc value*(this: AdvApproxPrefCutting; a: float; b: float; cuttingvalue: var float): bool {.
+proc value*(this: AdvApproxPrefCutting; a: cfloat; b: cfloat; cuttingvalue: var cfloat): bool {.
     noSideEffect, importcpp: "Value", header: "AdvApprox_PrefCutting.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

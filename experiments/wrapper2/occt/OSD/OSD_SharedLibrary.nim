@@ -44,3 +44,28 @@ proc destroy*(this: var OSD_SharedLibrary) {.importcpp: "Destroy",
     header: "OSD_SharedLibrary.hxx".}
 proc destroyOSD_SharedLibrary*(this: var OSD_SharedLibrary) {.
     importcpp: "#.~OSD_SharedLibrary()", header: "OSD_SharedLibrary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

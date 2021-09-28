@@ -23,7 +23,7 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Transformation"
 discard "forward decl of Geom2d_Transformation"
 type
-  HandleGeom2dTransformation* = Handle[Geom2dTransformation]
+  HandleC1C1* = Handle[Geom2dTransformation]
 
 ## ! The class Transformation allows to create Translation,
 ## ! Rotation, Symmetry, Scaling and complex transformations
@@ -76,9 +76,9 @@ proc setMirror*(this: var Geom2dTransformation; p: Pnt2d) {.importcpp: "SetMirro
     header: "Geom2d_Transformation.hxx".}
 proc setMirror*(this: var Geom2dTransformation; a: Ax2d) {.importcpp: "SetMirror",
     header: "Geom2d_Transformation.hxx".}
-proc setRotation*(this: var Geom2dTransformation; p: Pnt2d; ang: float) {.
+proc setRotation*(this: var Geom2dTransformation; p: Pnt2d; ang: StandardReal) {.
     importcpp: "SetRotation", header: "Geom2d_Transformation.hxx".}
-proc setScale*(this: var Geom2dTransformation; p: Pnt2d; s: float) {.
+proc setScale*(this: var Geom2dTransformation; p: Pnt2d; s: StandardReal) {.
     importcpp: "SetScale", header: "Geom2d_Transformation.hxx".}
 proc setTransformation*(this: var Geom2dTransformation; fromSystem1: Ax2d;
                        toSystem2: Ax2d) {.importcpp: "SetTransformation",
@@ -91,16 +91,16 @@ proc setTranslation*(this: var Geom2dTransformation; p1: Pnt2d; p2: Pnt2d) {.
     importcpp: "SetTranslation", header: "Geom2d_Transformation.hxx".}
 proc setTrsf2d*(this: var Geom2dTransformation; t: Trsf2d) {.importcpp: "SetTrsf2d",
     header: "Geom2d_Transformation.hxx".}
-proc isNegative*(this: Geom2dTransformation): bool {.noSideEffect,
+proc isNegative*(this: Geom2dTransformation): StandardBoolean {.noSideEffect,
     importcpp: "IsNegative", header: "Geom2d_Transformation.hxx".}
 proc form*(this: Geom2dTransformation): TrsfForm {.noSideEffect, importcpp: "Form",
     header: "Geom2d_Transformation.hxx".}
-proc scaleFactor*(this: Geom2dTransformation): float {.noSideEffect,
+proc scaleFactor*(this: Geom2dTransformation): StandardReal {.noSideEffect,
     importcpp: "ScaleFactor", header: "Geom2d_Transformation.hxx".}
 proc trsf2d*(this: Geom2dTransformation): Trsf2d {.noSideEffect, importcpp: "Trsf2d",
     header: "Geom2d_Transformation.hxx".}
-proc value*(this: Geom2dTransformation; row: int; col: int): float {.noSideEffect,
-    importcpp: "Value", header: "Geom2d_Transformation.hxx".}
+proc value*(this: Geom2dTransformation; row: int; col: int): StandardReal {.
+    noSideEffect, importcpp: "Value", header: "Geom2d_Transformation.hxx".}
 proc invert*(this: var Geom2dTransformation) {.importcpp: "Invert",
     header: "Geom2d_Transformation.hxx".}
 proc inverted*(this: Geom2dTransformation): Handle[Geom2dTransformation] {.
@@ -122,8 +122,8 @@ proc powered*(this: Geom2dTransformation; n: int): Handle[Geom2dTransformation] 
 proc preMultiply*(this: var Geom2dTransformation;
                  other: Handle[Geom2dTransformation]) {.importcpp: "PreMultiply",
     header: "Geom2d_Transformation.hxx".}
-proc transforms*(this: Geom2dTransformation; x: var float; y: var float) {.noSideEffect,
-    importcpp: "Transforms", header: "Geom2d_Transformation.hxx".}
+proc transforms*(this: Geom2dTransformation; x: var StandardReal; y: var StandardReal) {.
+    noSideEffect, importcpp: "Transforms", header: "Geom2d_Transformation.hxx".}
 proc copy*(this: Geom2dTransformation): Handle[Geom2dTransformation] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_Transformation.hxx".}
 type

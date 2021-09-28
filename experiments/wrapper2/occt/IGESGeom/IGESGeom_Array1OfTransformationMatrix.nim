@@ -18,3 +18,28 @@ type
   IGESGeomArray1OfTransformationMatrix* = NCollectionArray1[
       Handle[IGESGeomTransformationMatrix]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

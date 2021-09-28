@@ -19,7 +19,7 @@ discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepDimTol_CommonDatum"
 discard "forward decl of StepDimTol_CommonDatum"
 type
-  HandleStepDimTolCommonDatum* = Handle[StepDimTolCommonDatum]
+  HandleC1C1* = Handle[StepDimTolCommonDatum]
 
 ## ! Representation of STEP entity CommonDatum
 
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepDimTol_CommonDatum.hxx".}
 proc dynamicType*(this: StepDimTolCommonDatum): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepDimTol_CommonDatum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_PointsOnSurface"
 discard "forward decl of BRep_PointsOnSurface"
 type
-  HandleBRepPointsOnSurface* = Handle[BRepPointsOnSurface]
+  HandleC1C1* = Handle[BRepPointsOnSurface]
 
 ## ! Root for points on surface.
 
@@ -33,8 +33,8 @@ proc surface*(this: BRepPointsOnSurface): Handle[GeomSurface] {.noSideEffect,
 proc surface*(this: var BRepPointsOnSurface; s: Handle[GeomSurface]) {.
     importcpp: "Surface", header: "BRep_PointsOnSurface.hxx".}
 proc dumpJson*(this: BRepPointsOnSurface; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "BRep_PointsOnSurface.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "BRep_PointsOnSurface.hxx".}
 type
   BRepPointsOnSurfacebaseType* = BRepPointRepresentation
 
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_PointsOnSurface.hxx".}
 proc dynamicType*(this: BRepPointsOnSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_PointsOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

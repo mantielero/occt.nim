@@ -28,7 +28,7 @@ type
 proc constructStepVisualInvisibilityContext*(): StepVisualInvisibilityContext {.
     constructor, importcpp: "StepVisual_InvisibilityContext(@)",
     header: "StepVisual_InvisibilityContext.hxx".}
-proc caseNum*(this: StepVisualInvisibilityContext; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualInvisibilityContext; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepVisual_InvisibilityContext.hxx".}
 proc presentationRepresentation*(this: StepVisualInvisibilityContext): Handle[
@@ -41,3 +41,28 @@ proc presentationSet*(this: StepVisualInvisibilityContext): Handle[
 proc draughtingModel*(this: StepVisualInvisibilityContext): Handle[
     StepVisualDraughtingModel] {.noSideEffect, importcpp: "DraughtingModel",
                                 header: "StepVisual_InvisibilityContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

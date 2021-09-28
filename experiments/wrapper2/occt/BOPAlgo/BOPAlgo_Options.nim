@@ -68,9 +68,9 @@ proc setRunParallel*(this: var BOPAlgoOptions; theFlag: bool) {.
     importcpp: "SetRunParallel", header: "BOPAlgo_Options.hxx".}
 proc runParallel*(this: BOPAlgoOptions): bool {.noSideEffect,
     importcpp: "RunParallel", header: "BOPAlgo_Options.hxx".}
-proc setFuzzyValue*(this: var BOPAlgoOptions; theFuzz: float) {.
+proc setFuzzyValue*(this: var BOPAlgoOptions; theFuzz: cfloat) {.
     importcpp: "SetFuzzyValue", header: "BOPAlgo_Options.hxx".}
-proc fuzzyValue*(this: BOPAlgoOptions): float {.noSideEffect,
+proc fuzzyValue*(this: BOPAlgoOptions): cfloat {.noSideEffect,
     importcpp: "FuzzyValue", header: "BOPAlgo_Options.hxx".}
 proc setProgressIndicator*(this: var BOPAlgoOptions;
                           theProgress: MessageProgressScope) {.
@@ -79,3 +79,28 @@ proc setUseOBB*(this: var BOPAlgoOptions; theUseOBB: bool) {.importcpp: "SetUseO
     header: "BOPAlgo_Options.hxx".}
 proc useOBB*(this: BOPAlgoOptions): bool {.noSideEffect, importcpp: "UseOBB",
                                        header: "BOPAlgo_Options.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

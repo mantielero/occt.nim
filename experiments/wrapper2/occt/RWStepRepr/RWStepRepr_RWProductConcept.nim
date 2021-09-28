@@ -31,7 +31,7 @@ proc constructRWStepReprRWProductConcept*(): RWStepReprRWProductConcept {.
     constructor, importcpp: "RWStepRepr_RWProductConcept(@)",
     header: "RWStepRepr_RWProductConcept.hxx".}
 proc readStep*(this: RWStepReprRWProductConcept;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepReprProductConcept]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepRepr_RWProductConcept.hxx".}
 proc writeStep*(this: RWStepReprRWProductConcept; sw: var StepDataStepWriter;
@@ -40,3 +40,28 @@ proc writeStep*(this: RWStepReprRWProductConcept; sw: var StepDataStepWriter;
 proc share*(this: RWStepReprRWProductConcept; ent: Handle[StepReprProductConcept];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWProductConcept.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

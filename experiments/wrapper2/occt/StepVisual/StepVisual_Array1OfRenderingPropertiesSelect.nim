@@ -18,3 +18,28 @@ type
   StepVisualArray1OfRenderingPropertiesSelect* = NCollectionArray1[
       StepVisualRenderingPropertiesSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -35,12 +35,38 @@ proc constructGccAnaLin2dTanPar*(qualified1: GccEntQualifiedCirc; lin1: Lin2d): 
     header: "GccAna_Lin2dTanPar.hxx".}
 proc isDone*(this: GccAnaLin2dTanPar): bool {.noSideEffect, importcpp: "IsDone",
     header: "GccAna_Lin2dTanPar.hxx".}
-proc nbSolutions*(this: GccAnaLin2dTanPar): int {.noSideEffect,
+proc nbSolutions*(this: GccAnaLin2dTanPar): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Lin2dTanPar.hxx".}
-proc thisSolution*(this: GccAnaLin2dTanPar; index: int): Lin2d {.noSideEffect,
+proc thisSolution*(this: GccAnaLin2dTanPar; index: cint): Lin2d {.noSideEffect,
     importcpp: "ThisSolution", header: "GccAna_Lin2dTanPar.hxx".}
-proc whichQualifier*(this: GccAnaLin2dTanPar; index: int; qualif1: var GccEntPosition) {.
-    noSideEffect, importcpp: "WhichQualifier", header: "GccAna_Lin2dTanPar.hxx".}
-proc tangency1*(this: GccAnaLin2dTanPar; index: int; parSol: var float;
-               parArg: var float; pnt: var Pnt2d) {.noSideEffect,
+proc whichQualifier*(this: GccAnaLin2dTanPar; index: cint;
+                    qualif1: var GccEntPosition) {.noSideEffect,
+    importcpp: "WhichQualifier", header: "GccAna_Lin2dTanPar.hxx".}
+proc tangency1*(this: GccAnaLin2dTanPar; index: cint; parSol: var cfloat;
+               parArg: var cfloat; pnt: var Pnt2d) {.noSideEffect,
     importcpp: "Tangency1", header: "GccAna_Lin2dTanPar.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

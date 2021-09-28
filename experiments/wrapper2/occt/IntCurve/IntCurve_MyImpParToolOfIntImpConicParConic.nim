@@ -32,10 +32,35 @@ proc constructIntCurveMyImpParToolOfIntImpConicParConic*(it: IntCurveIConicTool;
     pc: IntCurvePConic): IntCurveMyImpParToolOfIntImpConicParConic {.constructor,
     importcpp: "IntCurve_MyImpParToolOfIntImpConicParConic(@)",
     header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
-proc value*(this: var IntCurveMyImpParToolOfIntImpConicParConic; param: float;
-           f: var float): bool {.importcpp: "Value", header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
-proc derivative*(this: var IntCurveMyImpParToolOfIntImpConicParConic; param: float;
-                d: var float): bool {.importcpp: "Derivative", header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
-proc values*(this: var IntCurveMyImpParToolOfIntImpConicParConic; param: float;
-            f: var float; d: var float): bool {.importcpp: "Values",
+proc value*(this: var IntCurveMyImpParToolOfIntImpConicParConic; param: cfloat;
+           f: var cfloat): bool {.importcpp: "Value", header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
+proc derivative*(this: var IntCurveMyImpParToolOfIntImpConicParConic; param: cfloat;
+                d: var cfloat): bool {.importcpp: "Derivative", header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
+proc values*(this: var IntCurveMyImpParToolOfIntImpConicParConic; param: cfloat;
+            f: var cfloat; d: var cfloat): bool {.importcpp: "Values",
     header: "IntCurve_MyImpParToolOfIntImpConicParConic.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

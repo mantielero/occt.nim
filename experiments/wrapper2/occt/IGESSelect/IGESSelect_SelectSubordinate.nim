@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectSubordinate"
 discard "forward decl of IGESSelect_SelectSubordinate"
 type
-  HandleIGESSelectSelectSubordinate* = Handle[IGESSelectSelectSubordinate]
+  HandleC1C1* = Handle[IGESSelectSelectSubordinate]
 
 ## ! This selections uses Subordinate Status as sort criterium
 ## ! It is an integer number which can be :
@@ -51,12 +51,12 @@ type
                                                                                                                 ## sorted
 
 
-proc constructIGESSelectSelectSubordinate*(status: int): IGESSelectSelectSubordinate {.
+proc constructIGESSelectSelectSubordinate*(status: cint): IGESSelectSelectSubordinate {.
     constructor, importcpp: "IGESSelect_SelectSubordinate(@)",
     header: "IGESSelect_SelectSubordinate.hxx".}
-proc status*(this: IGESSelectSelectSubordinate): int {.noSideEffect,
+proc status*(this: IGESSelectSelectSubordinate): cint {.noSideEffect,
     importcpp: "Status", header: "IGESSelect_SelectSubordinate.hxx".}
-proc sort*(this: IGESSelectSelectSubordinate; rank: int;
+proc sort*(this: IGESSelectSelectSubordinate; rank: cint;
           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Sort", header: "IGESSelect_SelectSubordinate.hxx".}
 proc extractLabel*(this: IGESSelectSelectSubordinate): TCollectionAsciiString {.
@@ -73,3 +73,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSelectSubordinate): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectSubordinate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

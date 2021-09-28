@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_LessThan"
 discard "forward decl of Expr_LessThan"
 type
-  HandleExprLessThan* = Handle[ExprLessThan]
+  HandleC1C1* = Handle[ExprLessThan]
   ExprLessThan* {.importcpp: "Expr_LessThan", header: "Expr_LessThan.hxx", bycopy.} = object of ExprSingleRelation ##
                                                                                                          ## !
                                                                                                          ## Creates
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_LessThan.hxx".}
 proc dynamicType*(this: ExprLessThan): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_LessThan.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

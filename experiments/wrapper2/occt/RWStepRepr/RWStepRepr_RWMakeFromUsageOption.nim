@@ -27,7 +27,7 @@ proc constructRWStepReprRWMakeFromUsageOption*(): RWStepReprRWMakeFromUsageOptio
     constructor, importcpp: "RWStepRepr_RWMakeFromUsageOption(@)",
     header: "RWStepRepr_RWMakeFromUsageOption.hxx".}
 proc readStep*(this: RWStepReprRWMakeFromUsageOption;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprMakeFromUsageOption]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWMakeFromUsageOption.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepReprRWMakeFromUsageOption;
            ent: Handle[StepReprMakeFromUsageOption];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWMakeFromUsageOption.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

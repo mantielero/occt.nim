@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Sphere"
 discard "forward decl of StepShape_Sphere"
 type
-  HandleStepShapeSphere* = Handle[StepShapeSphere]
+  HandleC1C1* = Handle[StepShapeSphere]
   StepShapeSphere* {.importcpp: "StepShape_Sphere", header: "StepShape_Sphere.hxx",
                     bycopy.} = object of StepGeomGeometricRepresentationItem ## ! Returns a Sphere
 
@@ -27,11 +27,11 @@ type
 proc constructStepShapeSphere*(): StepShapeSphere {.constructor,
     importcpp: "StepShape_Sphere(@)", header: "StepShape_Sphere.hxx".}
 proc init*(this: var StepShapeSphere; aName: Handle[TCollectionHAsciiString];
-          aRadius: float; aCentre: Handle[StepGeomPoint]) {.importcpp: "Init",
+          aRadius: cfloat; aCentre: Handle[StepGeomPoint]) {.importcpp: "Init",
     header: "StepShape_Sphere.hxx".}
-proc setRadius*(this: var StepShapeSphere; aRadius: float) {.importcpp: "SetRadius",
+proc setRadius*(this: var StepShapeSphere; aRadius: cfloat) {.importcpp: "SetRadius",
     header: "StepShape_Sphere.hxx".}
-proc radius*(this: StepShapeSphere): float {.noSideEffect, importcpp: "Radius",
+proc radius*(this: StepShapeSphere): cfloat {.noSideEffect, importcpp: "Radius",
     header: "StepShape_Sphere.hxx".}
 proc setCentre*(this: var StepShapeSphere; aCentre: Handle[StepGeomPoint]) {.
     importcpp: "SetCentre", header: "StepShape_Sphere.hxx".}
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Sphere.hxx".}
 proc dynamicType*(this: StepShapeSphere): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Sphere.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

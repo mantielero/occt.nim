@@ -70,15 +70,15 @@ type
 
 proc constructInterfaceMSG*(key: StandardCString): InterfaceMSG {.constructor,
     importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
-proc constructInterfaceMSG*(key: StandardCString; i1: int): InterfaceMSG {.
+proc constructInterfaceMSG*(key: StandardCString; i1: cint): InterfaceMSG {.
     constructor, importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
-proc constructInterfaceMSG*(key: StandardCString; i1: int; i2: int): InterfaceMSG {.
+proc constructInterfaceMSG*(key: StandardCString; i1: cint; i2: cint): InterfaceMSG {.
     constructor, importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
-proc constructInterfaceMSG*(key: StandardCString; r1: float; intervals: int = -1): InterfaceMSG {.
+proc constructInterfaceMSG*(key: StandardCString; r1: cfloat; intervals: cint = -1): InterfaceMSG {.
     constructor, importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
 proc constructInterfaceMSG*(key: StandardCString; str: StandardCString): InterfaceMSG {.
     constructor, importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
-proc constructInterfaceMSG*(key: StandardCString; ival: int; str: StandardCString): InterfaceMSG {.
+proc constructInterfaceMSG*(key: StandardCString; ival: cint; str: StandardCString): InterfaceMSG {.
     constructor, importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
 proc destroy*(this: var InterfaceMSG) {.importcpp: "Destroy",
                                     header: "Interface_MSG.hxx".}
@@ -89,11 +89,11 @@ proc value*(this: InterfaceMSG): StandardCString {.noSideEffect, importcpp: "Val
 converter `standardCString`*(this: InterfaceMSG): StandardCString {.noSideEffect,
     importcpp: "Interface_MSG::operator Standard_CString",
     header: "Interface_MSG.hxx".}
-proc read*(s: var StandardIStream): int {.importcpp: "Interface_MSG::Read(@)",
-                                     header: "Interface_MSG.hxx".}
-proc read*(file: StandardCString): int {.importcpp: "Interface_MSG::Read(@)",
-                                     header: "Interface_MSG.hxx".}
-proc write*(s: var StandardOStream; rootkey: StandardCString = ""): int {.
+proc read*(s: var StandardIStream): cint {.importcpp: "Interface_MSG::Read(@)",
+                                      header: "Interface_MSG.hxx".}
+proc read*(file: StandardCString): cint {.importcpp: "Interface_MSG::Read(@)",
+                                      header: "Interface_MSG.hxx".}
+proc write*(s: var StandardOStream; rootkey: StandardCString = ""): cint {.
     importcpp: "Interface_MSG::Write(@)", header: "Interface_MSG.hxx".}
 proc isKey*(mess: StandardCString): bool {.importcpp: "Interface_MSG::IsKey(@)",
                                        header: "Interface_MSG.hxx".}
@@ -107,21 +107,46 @@ proc setMode*(running: bool; raising: bool) {.importcpp: "Interface_MSG::SetMode
     header: "Interface_MSG.hxx".}
 proc printTrace*(s: var StandardOStream) {.importcpp: "Interface_MSG::PrintTrace(@)",
                                        header: "Interface_MSG.hxx".}
-proc intervalled*(val: float; order: int = 3; upper: bool = false): float {.
+proc intervalled*(val: cfloat; order: cint = 3; upper: bool = false): cfloat {.
     importcpp: "Interface_MSG::Intervalled(@)", header: "Interface_MSG.hxx".}
-proc tDate*(text: StandardCString; yy: int; mm: int; dd: int; hh: int; mn: int; ss: int;
-           format: StandardCString = "") {.importcpp: "Interface_MSG::TDate(@)",
-                                       header: "Interface_MSG.hxx".}
-proc nDate*(text: StandardCString; yy: var int; mm: var int; dd: var int; hh: var int;
-           mn: var int; ss: var int): bool {.importcpp: "Interface_MSG::NDate(@)",
-                                      header: "Interface_MSG.hxx".}
-proc cDate*(text1: StandardCString; text2: StandardCString): int {.
-    importcpp: "Interface_MSG::CDate(@)", header: "Interface_MSG.hxx".}
-proc blanks*(val: int; max: int): StandardCString {.
-    importcpp: "Interface_MSG::Blanks(@)", header: "Interface_MSG.hxx".}
-proc blanks*(val: StandardCString; max: int): StandardCString {.
-    importcpp: "Interface_MSG::Blanks(@)", header: "Interface_MSG.hxx".}
-proc blanks*(count: int): StandardCString {.importcpp: "Interface_MSG::Blanks(@)",
+proc tDate*(text: StandardCString; yy: cint; mm: cint; dd: cint; hh: cint; mn: cint;
+           ss: cint; format: StandardCString = "") {.
+    importcpp: "Interface_MSG::TDate(@)", header: "Interface_MSG.hxx".}
+proc nDate*(text: StandardCString; yy: var cint; mm: var cint; dd: var cint; hh: var cint;
+           mn: var cint; ss: var cint): bool {.importcpp: "Interface_MSG::NDate(@)",
                                         header: "Interface_MSG.hxx".}
-proc print*(s: var StandardOStream; val: StandardCString; max: int; just: int = -1) {.
+proc cDate*(text1: StandardCString; text2: StandardCString): cint {.
+    importcpp: "Interface_MSG::CDate(@)", header: "Interface_MSG.hxx".}
+proc blanks*(val: cint; max: cint): StandardCString {.
+    importcpp: "Interface_MSG::Blanks(@)", header: "Interface_MSG.hxx".}
+proc blanks*(val: StandardCString; max: cint): StandardCString {.
+    importcpp: "Interface_MSG::Blanks(@)", header: "Interface_MSG.hxx".}
+proc blanks*(count: cint): StandardCString {.importcpp: "Interface_MSG::Blanks(@)",
+    header: "Interface_MSG.hxx".}
+proc print*(s: var StandardOStream; val: StandardCString; max: cint; just: cint = -1) {.
     importcpp: "Interface_MSG::Print(@)", header: "Interface_MSG.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

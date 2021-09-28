@@ -17,3 +17,28 @@
 type
   AIS_SequenceOfInteractive* = NCollectionSequence[Handle[AIS_InteractiveObject]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

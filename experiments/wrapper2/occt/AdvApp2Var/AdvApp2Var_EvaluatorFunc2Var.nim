@@ -1,4 +1,34 @@
 {.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
+{.experimental: "callOperator".}
 ##  Created on: 1996-04-18
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -42,11 +72,11 @@ proc constructAdvApp2VarEvaluatorFunc2Var*(): AdvApp2VarEvaluatorFunc2Var {.
 proc destroyAdvApp2VarEvaluatorFunc2Var*(this: var AdvApp2VarEvaluatorFunc2Var) {.
     importcpp: "#.~AdvApp2Var_EvaluatorFunc2Var()",
     header: "AdvApp2Var_EvaluatorFunc2Var.hxx".}
-proc evaluate*(this: AdvApp2VarEvaluatorFunc2Var; theDimension: ptr int;
-              theUStartEnd: ptr float; theVStartEnd: ptr float; theFavorIso: ptr int;
-              theConstParam: ptr float; theNbParams: ptr int;
-              theParameters: ptr float; theUOrder: ptr int; theVOrder: ptr int;
-              theResult: ptr float; theErrorCode: ptr int) {.noSideEffect,
+proc evaluate*(this: AdvApp2VarEvaluatorFunc2Var; theDimension: ptr cint;
+              theUStartEnd: ptr cfloat; theVStartEnd: ptr cfloat;
+              theFavorIso: ptr cint; theConstParam: ptr cfloat; theNbParams: ptr cint;
+              theParameters: ptr cfloat; theUOrder: ptr cint; theVOrder: ptr cint;
+              theResult: ptr cfloat; theErrorCode: ptr cint) {.noSideEffect,
     importcpp: "Evaluate", header: "AdvApp2Var_EvaluatorFunc2Var.hxx".}
   ## !< First and last parameters in U
   ## !< First and last parameters in V
@@ -57,10 +87,65 @@ proc evaluate*(this: AdvApp2VarEvaluatorFunc2Var; theDimension: ptr int;
   ## !< Derivative Request in U
   ## !< Derivative Request in V
   ## !< Result[Dimension,N]
-proc `()`*(this: AdvApp2VarEvaluatorFunc2Var; theDimension: ptr int;
-          theUStartEnd: ptr float; theVStartEnd: ptr float; theFavorIso: ptr int;
-          theConstParam: ptr float; theNbParams: ptr int; theParameters: ptr float;
-          theUOrder: ptr int; theVOrder: ptr int; theResult: ptr float;
-          theErrorCode: ptr int) {.noSideEffect, importcpp: "#(@)",
-                                header: "AdvApp2Var_EvaluatorFunc2Var.hxx".}
+proc `()`*(this: AdvApp2VarEvaluatorFunc2Var; theDimension: ptr cint;
+          theUStartEnd: ptr cfloat; theVStartEnd: ptr cfloat; theFavorIso: ptr cint;
+          theConstParam: ptr cfloat; theNbParams: ptr cint; theParameters: ptr cfloat;
+          theUOrder: ptr cint; theVOrder: ptr cint; theResult: ptr cfloat;
+          theErrorCode: ptr cint) {.noSideEffect, importcpp: "#(@)",
+                                 header: "AdvApp2Var_EvaluatorFunc2Var.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

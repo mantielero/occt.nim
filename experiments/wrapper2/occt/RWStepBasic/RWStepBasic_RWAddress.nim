@@ -26,9 +26,34 @@ type
 proc constructRWStepBasicRWAddress*(): RWStepBasicRWAddress {.constructor,
     importcpp: "RWStepBasic_RWAddress(@)", header: "RWStepBasic_RWAddress.hxx".}
 proc readStep*(this: RWStepBasicRWAddress; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicAddress]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepBasic_RWAddress.hxx".}
 proc writeStep*(this: RWStepBasicRWAddress; sw: var StepDataStepWriter;
                ent: Handle[StepBasicAddress]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWAddress.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

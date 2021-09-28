@@ -23,7 +23,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_Transformer"
 discard "forward decl of IFSelect_Transformer"
 type
-  HandleIFSelectTransformer* = Handle[IFSelectTransformer]
+  HandleC1C1* = Handle[IFSelectTransformer]
 
 ## ! A Transformer defines the way an InterfaceModel is transformed
 ## ! (without sending it to a file).
@@ -304,3 +304,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_Transformer.hxx".}
 proc dynamicType*(this: IFSelectTransformer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Transformer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

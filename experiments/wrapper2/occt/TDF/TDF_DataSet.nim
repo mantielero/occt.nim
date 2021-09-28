@@ -18,7 +18,7 @@ discard "forward decl of TDF_Attribute"
 discard "forward decl of TDF_DataSet"
 discard "forward decl of TDF_DataSet"
 type
-  HandleTDF_DataSet* = Handle[TDF_DataSet]
+  HandleC1C1* = Handle[TDF_DataSet]
 
 ## ! This class is a set of TDF informations like
 ## ! labels and attributes.
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TDF_DataSet::get_type_descriptor(@)", header: "TDF_DataSet.hxx".}
 proc dynamicType*(this: TDF_DataSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_DataSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

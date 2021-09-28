@@ -43,3 +43,28 @@ proc addIntervalBetweenTwoArcs*(aPresentation: Handle[Prs3dPresentation];
                                aPoint3: Pnt; aPoint4: Pnt;
                                anArrowSide: DsgPrsArrowSide) {.importcpp: "DsgPrs_EqualDistancePresentation::AddIntervalBetweenTwoArcs(@)",
     header: "DsgPrs_EqualDistancePresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,3 +21,28 @@ type
       Handle[StepBasicProductDefinition], Handle[STEPCAFControlExternFile],
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

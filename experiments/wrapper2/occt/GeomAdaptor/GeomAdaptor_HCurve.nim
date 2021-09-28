@@ -20,7 +20,7 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of GeomAdaptor_HCurve"
 discard "forward decl of GeomAdaptor_HCurve"
 type
-  HandleGeomAdaptorHCurve* = Handle[GeomAdaptorHCurve]
+  HandleC1C1* = Handle[GeomAdaptorHCurve]
 
 ## ! An interface between the services provided by any
 ## ! curve from the package Geom and those required of
@@ -39,7 +39,8 @@ proc constructGeomAdaptorHCurve*(`as`: GeomAdaptorCurve): GeomAdaptorHCurve {.
 proc constructGeomAdaptorHCurve*(s: Handle[GeomCurve]): GeomAdaptorHCurve {.
     constructor, importcpp: "GeomAdaptor_HCurve(@)",
     header: "GeomAdaptor_HCurve.hxx".}
-proc constructGeomAdaptorHCurve*(s: Handle[GeomCurve]; uFirst: float; uLast: float): GeomAdaptorHCurve {.
+proc constructGeomAdaptorHCurve*(s: Handle[GeomCurve]; uFirst: StandardReal;
+                                uLast: StandardReal): GeomAdaptorHCurve {.
     constructor, importcpp: "GeomAdaptor_HCurve(@)",
     header: "GeomAdaptor_HCurve.hxx".}
 type

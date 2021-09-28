@@ -22,41 +22,31 @@ discard "forward decl of Geom2d_BezierCurve"
 type
   Geom2dConvertBSplineCurveToBezierCurve* {.
       importcpp: "Geom2dConvert_BSplineCurveToBezierCurve",
-      header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx", bycopy.} = object ## !
-                                                                          ## Computes all the data needed to
-                                                                          ## convert
-                                                                          ## ! -   the
-                                                                          ## BSpline curve
-                                                                          ## BasisCurve, into a series of
-                                                                          ## adjacent Bezier arcs.
-                                                                          ## ! The result
-                                                                          ## consists of a series of
-                                                                          ## BasisCurve arcs
-                                                                          ## !
-                                                                          ## limited by points
-                                                                          ## corresponding to knot values of the curve.
-                                                                          ## ! Use the
-                                                                          ## available
-                                                                          ## interrogation
-                                                                          ## functions to
-                                                                          ## ascertain
-                                                                          ## ! the number of
-                                                                          ## computed Bezier arcs, and then to
-                                                                          ## !
-                                                                          ## construct each
-                                                                          ## individual Bezier curve (or all Bezier
-                                                                          ## curves).
-                                                                          ## ! Note:
-                                                                          ## ParametricTolerance is not used.
+      header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dConvertBSplineCurveToBezierCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dConvert_BSplineCurveToBezierCurve::operator new",
+    header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
+proc `delete`*(this: var Geom2dConvertBSplineCurveToBezierCurve; theAddress: pointer) {.
+    importcpp: "Geom2dConvert_BSplineCurveToBezierCurve::operator delete",
+    header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
+proc `new[]`*(this: var Geom2dConvertBSplineCurveToBezierCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dConvert_BSplineCurveToBezierCurve::operator new[]",
+    header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
+proc `delete[]`*(this: var Geom2dConvertBSplineCurveToBezierCurve;
+                theAddress: pointer) {.importcpp: "Geom2dConvert_BSplineCurveToBezierCurve::operator delete[]", header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
+proc `new`*(this: var Geom2dConvertBSplineCurveToBezierCurve; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "Geom2dConvert_BSplineCurveToBezierCurve::operator new", header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
+proc `delete`*(this: var Geom2dConvertBSplineCurveToBezierCurve; a2: pointer;
+              a3: pointer) {.importcpp: "Geom2dConvert_BSplineCurveToBezierCurve::operator delete", header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
 proc constructGeom2dConvertBSplineCurveToBezierCurve*(
     basisCurve: Handle[Geom2dBSplineCurve]): Geom2dConvertBSplineCurveToBezierCurve {.
     constructor, importcpp: "Geom2dConvert_BSplineCurveToBezierCurve(@)",
     header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
 proc constructGeom2dConvertBSplineCurveToBezierCurve*(
-    basisCurve: Handle[Geom2dBSplineCurve]; u1: float; u2: float;
-    parametricTolerance: float): Geom2dConvertBSplineCurveToBezierCurve {.
+    basisCurve: Handle[Geom2dBSplineCurve]; u1: StandardReal; u2: StandardReal;
+    parametricTolerance: StandardReal): Geom2dConvertBSplineCurveToBezierCurve {.
     constructor, importcpp: "Geom2dConvert_BSplineCurveToBezierCurve(@)",
     header: "Geom2dConvert_BSplineCurveToBezierCurve.hxx".}
 proc arc*(this: var Geom2dConvertBSplineCurveToBezierCurve; index: int): Handle[

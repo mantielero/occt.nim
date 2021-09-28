@@ -18,3 +18,28 @@ type
   TopOpeBRepToolIndexedDataMapOfSolidClassifier* = NCollectionIndexedDataMap[
       TopoDS_Shape, BRepClass3dSolidClassifier, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

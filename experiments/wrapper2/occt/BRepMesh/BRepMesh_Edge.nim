@@ -22,7 +22,7 @@ type
 
 proc constructBRepMeshEdge*(): BRepMeshEdge {.constructor,
     importcpp: "BRepMesh_Edge(@)", header: "BRepMesh_Edge.hxx".}
-proc constructBRepMeshEdge*(theFirstNode: int; theLastNode: int;
+proc constructBRepMeshEdge*(theFirstNode: cint; theLastNode: cint;
                            theMovability: BRepMeshDegreeOfFreedom): BRepMeshEdge {.
     constructor, importcpp: "BRepMesh_Edge(@)", header: "BRepMesh_Edge.hxx".}
 proc movability*(this: BRepMeshEdge): BRepMeshDegreeOfFreedom {.noSideEffect,
@@ -40,6 +40,31 @@ proc `==`*(this: BRepMeshEdge; other: BRepMeshEdge): bool {.noSideEffect,
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theEdge: BRepMeshEdge; theUpperBound: int): int =
+proc hashCode*(theEdge: BRepMeshEdge; theUpperBound: cint): cint =
   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

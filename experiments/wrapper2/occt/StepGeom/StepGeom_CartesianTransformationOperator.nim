@@ -20,8 +20,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_CartesianTransformationOperator"
 discard "forward decl of StepGeom_CartesianTransformationOperator"
 type
-  HandleStepGeomCartesianTransformationOperator* = Handle[
-      StepGeomCartesianTransformationOperator]
+  HandleC1C1* = Handle[StepGeomCartesianTransformationOperator]
   StepGeomCartesianTransformationOperator* {.
       importcpp: "StepGeom_CartesianTransformationOperator",
       header: "StepGeom_CartesianTransformationOperator.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
@@ -39,8 +38,7 @@ proc init*(this: var StepGeomCartesianTransformationOperator;
           aAxis1: Handle[StepGeomDirection]; hasAaxis2: bool;
           aAxis2: Handle[StepGeomDirection];
           aLocalOrigin: Handle[StepGeomCartesianPoint]; hasAscale: bool;
-          aScale: float) {.importcpp: "Init",
-                         header: "StepGeom_CartesianTransformationOperator.hxx".}
+          aScale: cfloat) {.importcpp: "Init", header: "StepGeom_CartesianTransformationOperator.hxx".}
 proc setAxis1*(this: var StepGeomCartesianTransformationOperator;
               aAxis1: Handle[StepGeomDirection]) {.importcpp: "SetAxis1",
     header: "StepGeom_CartesianTransformationOperator.hxx".}
@@ -69,12 +67,12 @@ proc setLocalOrigin*(this: var StepGeomCartesianTransformationOperator;
     header: "StepGeom_CartesianTransformationOperator.hxx".}
 proc localOrigin*(this: StepGeomCartesianTransformationOperator): Handle[
     StepGeomCartesianPoint] {.noSideEffect, importcpp: "LocalOrigin", header: "StepGeom_CartesianTransformationOperator.hxx".}
-proc setScale*(this: var StepGeomCartesianTransformationOperator; aScale: float) {.
+proc setScale*(this: var StepGeomCartesianTransformationOperator; aScale: cfloat) {.
     importcpp: "SetScale", header: "StepGeom_CartesianTransformationOperator.hxx".}
 proc unSetScale*(this: var StepGeomCartesianTransformationOperator) {.
     importcpp: "UnSetScale",
     header: "StepGeom_CartesianTransformationOperator.hxx".}
-proc scale*(this: StepGeomCartesianTransformationOperator): float {.noSideEffect,
+proc scale*(this: StepGeomCartesianTransformationOperator): cfloat {.noSideEffect,
     importcpp: "Scale", header: "StepGeom_CartesianTransformationOperator.hxx".}
 proc hasScale*(this: StepGeomCartesianTransformationOperator): bool {.noSideEffect,
     importcpp: "HasScale", header: "StepGeom_CartesianTransformationOperator.hxx".}
@@ -87,3 +85,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_Cartesian
 proc dynamicType*(this: StepGeomCartesianTransformationOperator): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepGeom_CartesianTransformationOperator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

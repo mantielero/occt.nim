@@ -18,7 +18,7 @@ discard "forward decl of StepRepr_CharacterizedDefinition"
 discard "forward decl of StepRepr_PropertyDefinition"
 discard "forward decl of StepRepr_PropertyDefinition"
 type
-  HandleStepReprPropertyDefinition* = Handle[StepReprPropertyDefinition]
+  HandleC1C1* = Handle[StepReprPropertyDefinition]
 
 ## ! Representation of STEP entity PropertyDefinition
 
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprPropertyDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_PropertyDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

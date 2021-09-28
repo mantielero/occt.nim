@@ -18,3 +18,28 @@ include GCE2d_MakeSegment
 include GCE2d_MakeTranslation
 include GCE2d_Root
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of ShapeProcess_Context"
 discard "forward decl of ShapeProcess_Context"
 type
-  HandleShapeProcessContext* = Handle[ShapeProcessContext]
+  HandleC1C1* = Handle[ShapeProcessContext]
 
 ## ! Provides convenient interface to resource file
 ## ! Allows to load resource file and get values of
@@ -58,18 +58,18 @@ proc unSetScope*(this: var ShapeProcessContext) {.importcpp: "UnSetScope",
     header: "ShapeProcess_Context.hxx".}
 proc isParamSet*(this: ShapeProcessContext; param: StandardCString): bool {.
     noSideEffect, importcpp: "IsParamSet", header: "ShapeProcess_Context.hxx".}
-proc getReal*(this: ShapeProcessContext; param: StandardCString; val: var float): bool {.
+proc getReal*(this: ShapeProcessContext; param: StandardCString; val: var cfloat): bool {.
     noSideEffect, importcpp: "GetReal", header: "ShapeProcess_Context.hxx".}
-proc getInteger*(this: ShapeProcessContext; param: StandardCString; val: var int): bool {.
+proc getInteger*(this: ShapeProcessContext; param: StandardCString; val: var cint): bool {.
     noSideEffect, importcpp: "GetInteger", header: "ShapeProcess_Context.hxx".}
 proc getBoolean*(this: ShapeProcessContext; param: StandardCString; val: var bool): bool {.
     noSideEffect, importcpp: "GetBoolean", header: "ShapeProcess_Context.hxx".}
 proc getString*(this: ShapeProcessContext; param: StandardCString;
                val: var TCollectionAsciiString): bool {.noSideEffect,
     importcpp: "GetString", header: "ShapeProcess_Context.hxx".}
-proc realVal*(this: ShapeProcessContext; param: StandardCString; def: float): float {.
+proc realVal*(this: ShapeProcessContext; param: StandardCString; def: cfloat): cfloat {.
     noSideEffect, importcpp: "RealVal", header: "ShapeProcess_Context.hxx".}
-proc integerVal*(this: ShapeProcessContext; param: StandardCString; def: int): int {.
+proc integerVal*(this: ShapeProcessContext; param: StandardCString; def: cint): cint {.
     noSideEffect, importcpp: "IntegerVal", header: "ShapeProcess_Context.hxx".}
 proc booleanVal*(this: ShapeProcessContext; param: StandardCString; def: bool): bool {.
     noSideEffect, importcpp: "BooleanVal", header: "ShapeProcess_Context.hxx".}
@@ -81,9 +81,9 @@ proc setMessenger*(this: var ShapeProcessContext;
     importcpp: "SetMessenger", header: "ShapeProcess_Context.hxx".}
 proc messenger*(this: ShapeProcessContext): Handle[MessageMessenger] {.noSideEffect,
     importcpp: "Messenger", header: "ShapeProcess_Context.hxx".}
-proc setTraceLevel*(this: var ShapeProcessContext; tracelev: int) {.
+proc setTraceLevel*(this: var ShapeProcessContext; tracelev: cint) {.
     importcpp: "SetTraceLevel", header: "ShapeProcess_Context.hxx".}
-proc traceLevel*(this: ShapeProcessContext): int {.noSideEffect,
+proc traceLevel*(this: ShapeProcessContext): cint {.noSideEffect,
     importcpp: "TraceLevel", header: "ShapeProcess_Context.hxx".}
 type
   ShapeProcessContextbaseType* = StandardTransient
@@ -95,3 +95,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeProcess_Context.hxx".}
 proc dynamicType*(this: ShapeProcessContext): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeProcess_Context.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

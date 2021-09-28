@@ -16,8 +16,7 @@
 discard "forward decl of StepRepr_StructuralResponseProperty"
 discard "forward decl of StepRepr_StructuralResponseProperty"
 type
-  HandleStepReprStructuralResponseProperty* = Handle[
-      StepReprStructuralResponseProperty]
+  HandleC1C1* = Handle[StepReprStructuralResponseProperty]
 
 ## ! Representation of STEP entity StructuralResponseProperty
 
@@ -43,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprStructuralResponseProperty): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_StructuralResponseProperty.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

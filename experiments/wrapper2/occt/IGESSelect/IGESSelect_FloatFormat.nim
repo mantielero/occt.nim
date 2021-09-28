@@ -20,7 +20,7 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESSelect_FloatFormat"
 discard "forward decl of IGESSelect_FloatFormat"
 type
-  HandleIGESSelectFloatFormat* = Handle[IGESSelectFloatFormat]
+  HandleC1C1* = Handle[IGESSelectFloatFormat]
 
 ## ! This class gives control out format for floatting values :
 ## ! ZeroSuppress or no, Main Format, Format in Range (for values
@@ -59,21 +59,21 @@ type
 
 proc constructIGESSelectFloatFormat*(): IGESSelectFloatFormat {.constructor,
     importcpp: "IGESSelect_FloatFormat(@)", header: "IGESSelect_FloatFormat.hxx".}
-proc setDefault*(this: var IGESSelectFloatFormat; digits: int = 0) {.
+proc setDefault*(this: var IGESSelectFloatFormat; digits: cint = 0) {.
     importcpp: "SetDefault", header: "IGESSelect_FloatFormat.hxx".}
 proc setZeroSuppress*(this: var IGESSelectFloatFormat; mode: bool) {.
     importcpp: "SetZeroSuppress", header: "IGESSelect_FloatFormat.hxx".}
 proc setFormat*(this: var IGESSelectFloatFormat; format: StandardCString = "%E") {.
     importcpp: "SetFormat", header: "IGESSelect_FloatFormat.hxx".}
 proc setFormatForRange*(this: var IGESSelectFloatFormat;
-                       format: StandardCString = "%f"; rmin: float = 0.1;
-                       rmax: float = 1000.0) {.importcpp: "SetFormatForRange",
+                       format: StandardCString = "%f"; rmin: cfloat = 0.1;
+                       rmax: cfloat = 1000.0) {.importcpp: "SetFormatForRange",
     header: "IGESSelect_FloatFormat.hxx".}
 proc format*(this: IGESSelectFloatFormat; zerosup: var bool;
             mainform: var TCollectionAsciiString; hasrange: var bool;
-            forminrange: var TCollectionAsciiString; rangemin: var float;
-            rangemax: var float) {.noSideEffect, importcpp: "Format",
-                                header: "IGESSelect_FloatFormat.hxx".}
+            forminrange: var TCollectionAsciiString; rangemin: var cfloat;
+            rangemax: var cfloat) {.noSideEffect, importcpp: "Format",
+                                 header: "IGESSelect_FloatFormat.hxx".}
 proc perform*(this: IGESSelectFloatFormat; ctx: var IFSelectContextWrite;
              writer: var IGESDataIGESWriter) {.noSideEffect, importcpp: "Perform",
     header: "IGESSelect_FloatFormat.hxx".}
@@ -89,3 +89,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_FloatFormat.hxx".}
 proc dynamicType*(this: IGESSelectFloatFormat): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_FloatFormat.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

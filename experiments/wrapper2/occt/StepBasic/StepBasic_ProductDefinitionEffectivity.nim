@@ -19,8 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ProductDefinitionEffectivity"
 discard "forward decl of StepBasic_ProductDefinitionEffectivity"
 type
-  HandleStepBasicProductDefinitionEffectivity* = Handle[
-      StepBasicProductDefinitionEffectivity]
+  HandleC1C1* = Handle[StepBasicProductDefinitionEffectivity]
   StepBasicProductDefinitionEffectivity* {.
       importcpp: "StepBasic_ProductDefinitionEffectivity",
       header: "StepBasic_ProductDefinitionEffectivity.hxx", bycopy.} = object of StepBasicEffectivity
@@ -48,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ProductD
 proc dynamicType*(this: StepBasicProductDefinitionEffectivity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ProductDefinitionEffectivity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -349,7 +349,7 @@ proc perform*(this: var BOPAlgoMakeConnected) {.importcpp: "Perform",
     header: "BOPAlgo_MakeConnected.hxx".}
 proc makePeriodic*(this: var BOPAlgoMakeConnected; theParams: PeriodicityParams) {.
     importcpp: "MakePeriodic", header: "BOPAlgo_MakeConnected.hxx".}
-proc repeatShape*(this: var BOPAlgoMakeConnected; theDirectionID: int; theTimes: int) {.
+proc repeatShape*(this: var BOPAlgoMakeConnected; theDirectionID: cint; theTimes: cint) {.
     importcpp: "RepeatShape", header: "BOPAlgo_MakeConnected.hxx".}
 proc clearRepetitions*(this: var BOPAlgoMakeConnected) {.
     importcpp: "ClearRepetitions", header: "BOPAlgo_MakeConnected.hxx".}
@@ -371,3 +371,28 @@ proc periodicShape*(this: BOPAlgoMakeConnected): TopoDS_Shape {.noSideEffect,
     importcpp: "PeriodicShape", header: "BOPAlgo_MakeConnected.hxx".}
 proc clear*(this: var BOPAlgoMakeConnected) {.importcpp: "Clear",
     header: "BOPAlgo_MakeConnected.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

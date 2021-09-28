@@ -32,13 +32,21 @@ type
                     bycopy.} = object ## ! compute the solution point with the close point
 
 
-proc constructIntWalkTheInt2S*(param: TColStdArray1OfReal;
-                              s1: Handle[Adaptor3dHSurface];
-                              s2: Handle[Adaptor3dHSurface]; tolTangency: float): IntWalkTheInt2S {.
-    constructor, importcpp: "IntWalk_TheInt2S(@)", header: "IntWalk_TheInt2S.hxx".}
-proc constructIntWalkTheInt2S*(s1: Handle[Adaptor3dHSurface];
-                              s2: Handle[Adaptor3dHSurface]; tolTangency: float): IntWalkTheInt2S {.
-    constructor, importcpp: "IntWalk_TheInt2S(@)", header: "IntWalk_TheInt2S.hxx".}
+## !!!Ignored construct:  public : ! compute the solution point with the close point IntWalk_TheInt2S ( const TColStd_Array1OfReal & Param , const Handle ( Adaptor3d_HSurface ) & S1 , const Handle ( Adaptor3d_HSurface ) & S2 , const Standard_Real TolTangency ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! initialize the parameters to compute the solution point
+## ! it 's possible to write to optimize:
+## ! IntImp_Int2S inter(S1,S2,Func,TolTangency);
+## ! math_FunctionSetRoot rsnld(inter.Function());
+## ! while ...{
+## ! Param(1)=...
+## ! Param(2)=...
+## ! param(3)=...
+## ! inter.Perform(Param,rsnld);
+## ! } IntWalk_TheInt2S ( const Handle ( Adaptor3d_HSurface ) & S1 , const Handle ( Adaptor3d_HSurface ) & S2 , const Standard_Real TolTangency ) ;
+## Error: token expected: ) but got: &!!!
+
 proc perform*(this: var IntWalkTheInt2S; param: TColStdArray1OfReal;
              rsnld: var MathFunctionSetRoot): IntImpConstIsoparametric {.
     importcpp: "Perform", header: "IntWalk_TheInt2S.hxx".}
@@ -63,6 +71,51 @@ proc function*(this: var IntWalkTheInt2S): var IntWalkTheFunctionOfTheInt2S {.
     importcpp: "Function", header: "IntWalk_TheInt2S.hxx".}
 proc changePoint*(this: var IntWalkTheInt2S): var IntSurfPntOn2S {.
     importcpp: "ChangePoint", header: "IntWalk_TheInt2S.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_TheFunction IntWalk_TheFunctionOfTheInt2S [NewLine] # IntImp_TheFunction_hxx < IntWalk_TheFunctionOfTheInt2S . hxx > [NewLine] # IntImp_Int2S IntWalk_TheInt2S [NewLine] # IntImp_Int2S_hxx < IntWalk_TheInt2S . hxx > [NewLine] # < IntImp_Int2S . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_TheFunction [NewLine] # IntImp_TheFunction_hxx [NewLine] # IntImp_Int2S [NewLine] # IntImp_Int2S_hxx [NewLine] #  _IntWalk_TheInt2S_HeaderFile
+## !!!Ignored construct:  # ThePSurface Handle ( Adaptor3d_HSurface ) [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_TheFunction IntWalk_TheFunctionOfTheInt2S [NewLine] # IntImp_TheFunction_hxx < IntWalk_TheFunctionOfTheInt2S . hxx > [NewLine] # IntImp_Int2S IntWalk_TheInt2S [NewLine] # IntImp_Int2S_hxx < IntWalk_TheInt2S . hxx > [NewLine] # < IntImp_Int2S . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_TheFunction [NewLine] # IntImp_TheFunction_hxx [NewLine] # IntImp_Int2S [NewLine] # IntImp_Int2S_hxx [NewLine] #  _IntWalk_TheInt2S_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -28,10 +28,35 @@ proc constructRWStepVisualRWPresentationSet*(): RWStepVisualRWPresentationSet {.
     constructor, importcpp: "RWStepVisual_RWPresentationSet(@)",
     header: "RWStepVisual_RWPresentationSet.hxx".}
 proc readStep*(this: RWStepVisualRWPresentationSet;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualPresentationSet]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPresentationSet.hxx".}
 proc writeStep*(this: RWStepVisualRWPresentationSet; sw: var StepDataStepWriter;
                ent: Handle[StepVisualPresentationSet]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPresentationSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

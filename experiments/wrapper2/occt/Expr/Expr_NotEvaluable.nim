@@ -17,13 +17,54 @@
 ## !!!Ignored construct:  # _Expr_NotEvaluable_HeaderFile [NewLine] # _Expr_NotEvaluable_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Expr_ExprFailure . hxx > [NewLine] class Expr_NotEvaluable ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Expr_NotEvaluable"
-type
-  HandleExprNotEvaluableExprNotEvaluable* = Handle[ExprNotEvaluable]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Expr_NotEvaluable , Expr_ExprFailure ) # ! defined No_Exception && ! defined No_Expr_NotEvaluable [NewLine] # Expr_NotEvaluable_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Expr_NotEvaluable ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Expr_NotEvaluable [NewLine] # if ( CONDITION ) throw Expr_NotEvaluable ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Expr_NotEvaluable_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_NotEvaluable , Expr_ExprFailure ) #  _Expr_NotEvaluable_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_NotEvaluable , Expr_ExprFailure ) #  _Expr_NotEvaluable_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

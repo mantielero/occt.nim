@@ -32,3 +32,28 @@ type
 
 proc constructTopoDS_Vertex*(): TopoDS_Vertex {.constructor,
     importcpp: "TopoDS_Vertex(@)", header: "TopoDS_Vertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

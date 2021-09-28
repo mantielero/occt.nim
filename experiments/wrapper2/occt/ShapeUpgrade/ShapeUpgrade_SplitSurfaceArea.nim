@@ -16,7 +16,7 @@
 discard "forward decl of ShapeUpgrade_SplitSurfaceArea"
 discard "forward decl of ShapeUpgrade_SplitSurfaceArea"
 type
-  HandleShapeUpgradeSplitSurfaceArea* = Handle[ShapeUpgradeSplitSurfaceArea]
+  HandleC1C1* = Handle[ShapeUpgradeSplitSurfaceArea]
 
 ## ! Split surface in the parametric space
 ## ! in according specified number of splits on the
@@ -31,8 +31,8 @@ type
 proc constructShapeUpgradeSplitSurfaceArea*(): ShapeUpgradeSplitSurfaceArea {.
     constructor, importcpp: "ShapeUpgrade_SplitSurfaceArea(@)",
     header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
-proc nbParts*(this: var ShapeUpgradeSplitSurfaceArea): var int {.importcpp: "NbParts",
-    header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
+proc nbParts*(this: var ShapeUpgradeSplitSurfaceArea): var cint {.
+    importcpp: "NbParts", header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
 proc compute*(this: var ShapeUpgradeSplitSurfaceArea; segment: bool = true) {.
     importcpp: "Compute", header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
 type
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeSplitSurfaceArea): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_SplitSurfaceArea.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

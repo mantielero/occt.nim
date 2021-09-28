@@ -26,9 +26,9 @@ type
                     bycopy.} = object of BlendAppFunction ## ! Returns 3 (default value). Can be redefined.
 
 
-proc nbVariables*(this: BlendCSFunction): int {.noSideEffect,
+proc nbVariables*(this: BlendCSFunction): cint {.noSideEffect,
     importcpp: "NbVariables", header: "Blend_CSFunction.hxx".}
-proc nbEquations*(this: BlendCSFunction): int {.noSideEffect,
+proc nbEquations*(this: BlendCSFunction): cint {.noSideEffect,
     importcpp: "NbEquations", header: "Blend_CSFunction.hxx".}
 proc value*(this: var BlendCSFunction; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "Blend_CSFunction.hxx".}
@@ -37,18 +37,18 @@ proc derivatives*(this: var BlendCSFunction; x: MathVector; d: var MathMatrix): 
 proc values*(this: var BlendCSFunction; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.importcpp: "Values",
                                    header: "Blend_CSFunction.hxx".}
-proc set*(this: var BlendCSFunction; param: float) {.importcpp: "Set",
+proc set*(this: var BlendCSFunction; param: cfloat) {.importcpp: "Set",
     header: "Blend_CSFunction.hxx".}
-proc set*(this: var BlendCSFunction; first: float; last: float) {.importcpp: "Set",
+proc set*(this: var BlendCSFunction; first: cfloat; last: cfloat) {.importcpp: "Set",
     header: "Blend_CSFunction.hxx".}
-proc getTolerance*(this: BlendCSFunction; tolerance: var MathVector; tol: float) {.
+proc getTolerance*(this: BlendCSFunction; tolerance: var MathVector; tol: cfloat) {.
     noSideEffect, importcpp: "GetTolerance", header: "Blend_CSFunction.hxx".}
 proc getBounds*(this: BlendCSFunction; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
                                         header: "Blend_CSFunction.hxx".}
-proc isSolution*(this: var BlendCSFunction; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendCSFunction; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "Blend_CSFunction.hxx".}
-proc getMinimalDistance*(this: BlendCSFunction): float {.noSideEffect,
+proc getMinimalDistance*(this: BlendCSFunction): cfloat {.noSideEffect,
     importcpp: "GetMinimalDistance", header: "Blend_CSFunction.hxx".}
 proc pnt1*(this: BlendCSFunction): Pnt {.noSideEffect, importcpp: "Pnt1",
                                      header: "Blend_CSFunction.hxx".}
@@ -60,7 +60,7 @@ proc pointOnC*(this: BlendCSFunction): Pnt {.noSideEffect, importcpp: "PointOnC"
     header: "Blend_CSFunction.hxx".}
 proc pnt2d*(this: BlendCSFunction): Pnt2d {.noSideEffect, importcpp: "Pnt2d",
                                         header: "Blend_CSFunction.hxx".}
-proc parameterOnC*(this: BlendCSFunction): float {.noSideEffect,
+proc parameterOnC*(this: BlendCSFunction): cfloat {.noSideEffect,
     importcpp: "ParameterOnC", header: "Blend_CSFunction.hxx".}
 proc isTangencyPoint*(this: BlendCSFunction): bool {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "Blend_CSFunction.hxx".}
@@ -70,13 +70,13 @@ proc tangent2d*(this: BlendCSFunction): Vec2d {.noSideEffect, importcpp: "Tangen
     header: "Blend_CSFunction.hxx".}
 proc tangentOnC*(this: BlendCSFunction): Vec {.noSideEffect, importcpp: "TangentOnC",
     header: "Blend_CSFunction.hxx".}
-proc tangent*(this: BlendCSFunction; u: float; v: float; tgS: var Vec; normS: var Vec) {.
+proc tangent*(this: BlendCSFunction; u: cfloat; v: cfloat; tgS: var Vec; normS: var Vec) {.
     noSideEffect, importcpp: "Tangent", header: "Blend_CSFunction.hxx".}
-proc getShape*(this: var BlendCSFunction; nbPoles: var int; nbKnots: var int;
-              degree: var int; nbPoles2d: var int) {.importcpp: "GetShape",
+proc getShape*(this: var BlendCSFunction; nbPoles: var cint; nbKnots: var cint;
+              degree: var cint; nbPoles2d: var cint) {.importcpp: "GetShape",
     header: "Blend_CSFunction.hxx".}
-proc getTolerance*(this: BlendCSFunction; boundTol: float; surfTol: float;
-                  angleTol: float; tol3d: var MathVector; tol1D: var MathVector) {.
+proc getTolerance*(this: BlendCSFunction; boundTol: cfloat; surfTol: cfloat;
+                  angleTol: cfloat; tol3d: var MathVector; tol1D: var MathVector) {.
     noSideEffect, importcpp: "GetTolerance", header: "Blend_CSFunction.hxx".}
 proc knots*(this: var BlendCSFunction; tKnots: var TColStdArray1OfReal) {.
     importcpp: "Knots", header: "Blend_CSFunction.hxx".}
@@ -96,3 +96,28 @@ proc section*(this: var BlendCSFunction; p: BlendPoint; poles: var TColgpArray1O
              d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
              dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): bool {.
     importcpp: "Section", header: "Blend_CSFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

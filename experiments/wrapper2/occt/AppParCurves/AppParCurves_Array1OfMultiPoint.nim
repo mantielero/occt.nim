@@ -17,3 +17,28 @@
 type
   AppParCurvesArray1OfMultiPoint* = NCollectionArray1[AppParCurvesMultiPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

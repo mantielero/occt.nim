@@ -49,13 +49,13 @@ proc constructExtremaECC*(): ExtremaECC {.constructor, importcpp: "Extrema_ECC(@
                                        header: "Extrema_ECC.hxx".}
 proc constructExtremaECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaECC {.
     constructor, importcpp: "Extrema_ECC(@)", header: "Extrema_ECC.hxx".}
-proc constructExtremaECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; uinf: float;
-                         usup: float; vinf: float; vsup: float): ExtremaECC {.
+proc constructExtremaECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; uinf: cfloat;
+                         usup: cfloat; vinf: cfloat; vsup: cfloat): ExtremaECC {.
     constructor, importcpp: "Extrema_ECC(@)", header: "Extrema_ECC.hxx".}
 proc setParams*(this: var ExtremaECC; c1: Adaptor3dCurve; c2: Adaptor3dCurve;
-               uinf: float; usup: float; vinf: float; vsup: float) {.
+               uinf: cfloat; usup: cfloat; vinf: cfloat; vsup: cfloat) {.
     importcpp: "SetParams", header: "Extrema_ECC.hxx".}
-proc setTolerance*(this: var ExtremaECC; tol: float) {.importcpp: "SetTolerance",
+proc setTolerance*(this: var ExtremaECC; tol: cfloat) {.importcpp: "SetTolerance",
     header: "Extrema_ECC.hxx".}
 proc setSingleSolutionFlag*(this: var ExtremaECC; theSingleSolutionFlag: bool) {.
     importcpp: "SetSingleSolutionFlag", header: "Extrema_ECC.hxx".}
@@ -66,9 +66,34 @@ proc isDone*(this: ExtremaECC): bool {.noSideEffect, importcpp: "IsDone",
                                    header: "Extrema_ECC.hxx".}
 proc isParallel*(this: ExtremaECC): bool {.noSideEffect, importcpp: "IsParallel",
                                        header: "Extrema_ECC.hxx".}
-proc nbExt*(this: ExtremaECC): int {.noSideEffect, importcpp: "NbExt",
-                                 header: "Extrema_ECC.hxx".}
-proc squareDistance*(this: ExtremaECC; n: int = 1): float {.noSideEffect,
+proc nbExt*(this: ExtremaECC): cint {.noSideEffect, importcpp: "NbExt",
+                                  header: "Extrema_ECC.hxx".}
+proc squareDistance*(this: ExtremaECC; n: cint = 1): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_ECC.hxx".}
-proc points*(this: ExtremaECC; n: int; p1: var ExtremaPOnCurv; p2: var ExtremaPOnCurv) {.
+proc points*(this: ExtremaECC; n: cint; p1: var ExtremaPOnCurv; p2: var ExtremaPOnCurv) {.
     noSideEffect, importcpp: "Points", header: "Extrema_ECC.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

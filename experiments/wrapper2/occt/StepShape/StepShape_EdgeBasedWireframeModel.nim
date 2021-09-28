@@ -17,8 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_EdgeBasedWireframeModel"
 discard "forward decl of StepShape_EdgeBasedWireframeModel"
 type
-  HandleStepShapeEdgeBasedWireframeModel* = Handle[
-      StepShapeEdgeBasedWireframeModel]
+  HandleC1C1* = Handle[StepShapeEdgeBasedWireframeModel]
 
 ## ! Representation of STEP entity EdgeBasedWireframeModel
 
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeEdgeBasedWireframeModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_EdgeBasedWireframeModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

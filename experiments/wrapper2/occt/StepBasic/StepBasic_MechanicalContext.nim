@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_MechanicalContext"
 discard "forward decl of StepBasic_MechanicalContext"
 type
-  HandleStepBasicMechanicalContext* = Handle[StepBasicMechanicalContext]
+  HandleC1C1* = Handle[StepBasicMechanicalContext]
   StepBasicMechanicalContext* {.importcpp: "StepBasic_MechanicalContext",
                                header: "StepBasic_MechanicalContext.hxx", bycopy.} = object of StepBasicProductContext ##
                                                                                                                 ## !
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicMechanicalContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_MechanicalContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

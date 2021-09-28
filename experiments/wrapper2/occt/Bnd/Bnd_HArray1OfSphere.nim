@@ -14,31 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BndHArray1OfSphere* {.importcpp: "Bnd_HArray1OfSphere",
-                       header: "Bnd_HArray1OfSphere.hxx", bycopy.} = object of BndArray1OfSphere
+## !!!Ignored construct:  # Bnd_HArray1OfSphere_HeaderFile [NewLine] # Bnd_HArray1OfSphere_HeaderFile [NewLine] # < Bnd_Sphere . hxx > [NewLine] # < Bnd_Array1OfSphere . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( Bnd_HArray1OfSphere , Bnd_Array1OfSphere ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructBndHArray1OfSphere*(theLower: int; theUpper: int): BndHArray1OfSphere {.
-    constructor, importcpp: "Bnd_HArray1OfSphere(@)",
-    header: "Bnd_HArray1OfSphere.hxx".}
-proc constructBndHArray1OfSphere*(theLower: int; theUpper: int; theValue: ValueType): BndHArray1OfSphere {.
-    constructor, importcpp: "Bnd_HArray1OfSphere(@)",
-    header: "Bnd_HArray1OfSphere.hxx".}
-proc constructBndHArray1OfSphere*(theOther: BndArray1OfSphere): BndHArray1OfSphere {.
-    constructor, importcpp: "Bnd_HArray1OfSphere(@)",
-    header: "Bnd_HArray1OfSphere.hxx".}
-proc array1*(this: BndHArray1OfSphere): BndArray1OfSphere {.noSideEffect,
-    importcpp: "Array1", header: "Bnd_HArray1OfSphere.hxx".}
-proc changeArray1*(this: var BndHArray1OfSphere): var BndArray1OfSphere {.
-    importcpp: "ChangeArray1", header: "Bnd_HArray1OfSphere.hxx".}
-type
-  BndHArray1OfSpherebaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "Bnd_HArray1OfSphere::get_type_name(@)",
-                            header: "Bnd_HArray1OfSphere.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Bnd_HArray1OfSphere::get_type_descriptor(@)",
-    header: "Bnd_HArray1OfSphere.hxx".}
-proc dynamicType*(this: BndHArray1OfSphere): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Bnd_HArray1OfSphere.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

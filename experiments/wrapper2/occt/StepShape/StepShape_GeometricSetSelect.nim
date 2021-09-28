@@ -31,7 +31,7 @@ type
 proc constructStepShapeGeometricSetSelect*(): StepShapeGeometricSetSelect {.
     constructor, importcpp: "StepShape_GeometricSetSelect(@)",
     header: "StepShape_GeometricSetSelect.hxx".}
-proc caseNum*(this: StepShapeGeometricSetSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepShapeGeometricSetSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_GeometricSetSelect.hxx".}
 proc point*(this: StepShapeGeometricSetSelect): Handle[StepGeomPoint] {.
     noSideEffect, importcpp: "Point", header: "StepShape_GeometricSetSelect.hxx".}
@@ -39,3 +39,28 @@ proc curve*(this: StepShapeGeometricSetSelect): Handle[StepGeomCurve] {.
     noSideEffect, importcpp: "Curve", header: "StepShape_GeometricSetSelect.hxx".}
 proc surface*(this: StepShapeGeometricSetSelect): Handle[StepGeomSurface] {.
     noSideEffect, importcpp: "Surface", header: "StepShape_GeometricSetSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

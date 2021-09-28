@@ -18,3 +18,28 @@ type
   TopToolsIndexedDataMapOfShapeShape* = NCollectionIndexedDataMap[TopoDS_Shape,
       TopoDS_Shape, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

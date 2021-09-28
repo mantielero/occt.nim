@@ -18,3 +18,28 @@ type
   NLPlateStackOfPlate* = NCollectionList[PlatePlate]
   NLPlateListIteratorOfStackOfPlate* = Iterator[PlatePlate]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

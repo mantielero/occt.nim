@@ -17,7 +17,7 @@ discard "forward decl of TDocStd_Document"
 discard "forward decl of XCAFApp_Application"
 discard "forward decl of XCAFApp_Application"
 type
-  HandleXCAFAppApplication* = Handle[XCAFAppApplication]
+  HandleC1C1* = Handle[XCAFAppApplication]
 
 ## ! Implements an Application for the DECAF documents
 
@@ -41,8 +41,8 @@ proc getApplication*(): Handle[XCAFAppApplication] {.
     importcpp: "XCAFApp_Application::GetApplication(@)",
     header: "XCAFApp_Application.hxx".}
 proc dumpJson*(this: XCAFAppApplication; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "XCAFApp_Application.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFApp_Application.hxx".}
 type
   XCAFAppApplicationbaseType* = TDocStdApplication
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XCAFApp_Application.hxx".}
 proc dynamicType*(this: XCAFAppApplication): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFApp_Application.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

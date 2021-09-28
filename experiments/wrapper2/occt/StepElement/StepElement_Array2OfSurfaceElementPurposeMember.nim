@@ -15,3 +15,28 @@ type
   StepElementArray2OfSurfaceElementPurposeMember* = NCollectionArray2[
       Handle[StepElementSurfaceElementPurposeMember]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

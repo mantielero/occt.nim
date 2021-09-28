@@ -21,7 +21,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of XSControl_SignTransferStatus"
 discard "forward decl of XSControl_SignTransferStatus"
 type
-  HandleXSControlSignTransferStatus* = Handle[XSControlSignTransferStatus]
+  HandleC1C1* = Handle[XSControlSignTransferStatus]
 
 ## ! This Signatures gives the Transfer Status of an entity, as
 ## ! recorded in a TransferProcess. It can be :
@@ -85,3 +85,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XSControlSignTransferStatus): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XSControl_SignTransferStatus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

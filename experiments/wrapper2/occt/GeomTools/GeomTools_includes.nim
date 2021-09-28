@@ -7,4 +7,3 @@ include GeomTools_Curve2dSet
 include GeomTools_CurveSet
 include GeomTools_SurfaceSet
 include GeomTools_UndefinedTypeHandler
-

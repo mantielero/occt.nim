@@ -19,8 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMXCAFDoc_AssemblyItemRefDriver"
 discard "forward decl of BinMXCAFDoc_AssemblyItemRefDriver"
 type
-  HandleBinMXCAFDocAssemblyItemRefDriver* = Handle[
-      BinMXCAFDocAssemblyItemRefDriver]
+  HandleC1C1* = Handle[BinMXCAFDocAssemblyItemRefDriver]
   BinMXCAFDocAssemblyItemRefDriver* {.importcpp: "BinMXCAFDoc_AssemblyItemRefDriver", header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx",
                                      bycopy.} = object of BinMDF_ADriver
 
@@ -51,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMXCAFDocAssemblyItemRefDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMXCAFDoc_AssemblyItemRefDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

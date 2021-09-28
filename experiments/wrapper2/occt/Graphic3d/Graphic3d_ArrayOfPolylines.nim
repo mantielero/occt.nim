@@ -408,18 +408,44 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Graphic3dArrayOfPolylines): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_ArrayOfPolylines.hxx".}
-proc constructGraphic3dArrayOfPolylines*(theMaxVertexs: int; theMaxBounds: int;
-                                        theMaxEdges: int;
+proc constructGraphic3dArrayOfPolylines*(theMaxVertexs: cint; theMaxBounds: cint;
+                                        theMaxEdges: cint;
                                         theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfPolylines {.
     constructor, importcpp: "Graphic3d_ArrayOfPolylines(@)",
     header: "Graphic3d_ArrayOfPolylines.hxx".}
-proc constructGraphic3dArrayOfPolylines*(theMaxVertexs: int; theMaxBounds: int = 0;
-                                        theMaxEdges: int = 0;
+proc constructGraphic3dArrayOfPolylines*(theMaxVertexs: cint;
+                                        theMaxBounds: cint = 0;
+                                        theMaxEdges: cint = 0;
                                         theHasVColors: bool = false;
                                         theHasBColors: bool = false): Graphic3dArrayOfPolylines {.
     constructor, importcpp: "Graphic3d_ArrayOfPolylines(@)",
     header: "Graphic3d_ArrayOfPolylines.hxx".}
 discard "forward decl of Graphic3d_ArrayOfPolylines"
 type
-  HandleGraphic3dArrayOfPolylines* = Handle[Graphic3dArrayOfPolylines]
+  HandleC1C1* = Handle[Graphic3dArrayOfPolylines]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

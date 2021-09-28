@@ -30,8 +30,8 @@ proc moreHidden*(this: HLRAlgoEdgeIterator): bool {.noSideEffect,
     importcpp: "MoreHidden", header: "HLRAlgo_EdgeIterator.hxx".}
 proc nextHidden*(this: var HLRAlgoEdgeIterator) {.importcpp: "NextHidden",
     header: "HLRAlgo_EdgeIterator.hxx".}
-proc hidden*(this: HLRAlgoEdgeIterator; start: var float;
-            tolStart: var StandardShortReal; `end`: var float;
+proc hidden*(this: HLRAlgoEdgeIterator; start: var cfloat;
+            tolStart: var StandardShortReal; `end`: var cfloat;
             tolEnd: var StandardShortReal) {.noSideEffect, importcpp: "Hidden",
     header: "HLRAlgo_EdgeIterator.hxx".}
 proc initVisible*(this: var HLRAlgoEdgeIterator; status: var HLRAlgoEdgeStatus) {.
@@ -40,7 +40,32 @@ proc moreVisible*(this: HLRAlgoEdgeIterator): bool {.noSideEffect,
     importcpp: "MoreVisible", header: "HLRAlgo_EdgeIterator.hxx".}
 proc nextVisible*(this: var HLRAlgoEdgeIterator) {.importcpp: "NextVisible",
     header: "HLRAlgo_EdgeIterator.hxx".}
-proc visible*(this: var HLRAlgoEdgeIterator; start: var float;
-             tolStart: var StandardShortReal; `end`: var float;
+proc visible*(this: var HLRAlgoEdgeIterator; start: var cfloat;
+             tolStart: var StandardShortReal; `end`: var cfloat;
              tolEnd: var StandardShortReal) {.importcpp: "Visible",
     header: "HLRAlgo_EdgeIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@ proc constructRWStepFEA_RWCurveElementIntervalLinearlyVarying*(): RWStepFEA_RWCu
     constructor, importcpp: "RWStepFEA_RWCurveElementIntervalLinearlyVarying(@)",
     header: "RWStepFEA_RWCurveElementIntervalLinearlyVarying.hxx".}
 proc readStep*(this: RWStepFEA_RWCurveElementIntervalLinearlyVarying;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_CurveElementIntervalLinearlyVarying]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepFEA_RWCurveElementIntervalLinearlyVarying;
            ent: Handle[StepFEA_CurveElementIntervalLinearlyVarying];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWCurveElementIntervalLinearlyVarying.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

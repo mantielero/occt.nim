@@ -29,9 +29,9 @@ type
 proc constructBlendFuncCorde*(s: Handle[Adaptor3dHSurface];
                              cGuide: Handle[Adaptor3dHCurve]): BlendFuncCorde {.
     constructor, importcpp: "BlendFunc_Corde(@)", header: "BlendFunc_Corde.hxx".}
-proc setParam*(this: var BlendFuncCorde; param: float) {.importcpp: "SetParam",
+proc setParam*(this: var BlendFuncCorde; param: cfloat) {.importcpp: "SetParam",
     header: "BlendFunc_Corde.hxx".}
-proc setDist*(this: var BlendFuncCorde; dist: float) {.importcpp: "SetDist",
+proc setDist*(this: var BlendFuncCorde; dist: cfloat) {.importcpp: "SetDist",
     header: "BlendFunc_Corde.hxx".}
 proc value*(this: var BlendFuncCorde; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_Corde.hxx".}
@@ -51,5 +51,30 @@ proc tangent2dOnS*(this: BlendFuncCorde): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS", header: "BlendFunc_Corde.hxx".}
 proc derFguide*(this: var BlendFuncCorde; sol: MathVector; derF: var Vec2d) {.
     importcpp: "DerFguide", header: "BlendFunc_Corde.hxx".}
-proc isSolution*(this: var BlendFuncCorde; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendFuncCorde; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BlendFunc_Corde.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

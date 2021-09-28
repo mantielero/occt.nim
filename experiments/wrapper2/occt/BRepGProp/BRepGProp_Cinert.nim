@@ -29,3 +29,28 @@ proc setLocation*(this: var BRepGPropCinert; cLocation: Pnt) {.
     importcpp: "SetLocation", header: "BRepGProp_Cinert.hxx".}
 proc perform*(this: var BRepGPropCinert; c: BRepAdaptorCurve) {.importcpp: "Perform",
     header: "BRepGProp_Cinert.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

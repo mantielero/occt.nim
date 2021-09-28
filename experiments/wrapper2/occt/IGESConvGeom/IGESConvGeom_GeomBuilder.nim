@@ -46,11 +46,11 @@ proc addXYZ*(this: var IGESConvGeomGeomBuilder; val: Xyz) {.importcpp: "AddXYZ",
     header: "IGESConvGeom_GeomBuilder.hxx".}
 proc addVec*(this: var IGESConvGeomGeomBuilder; val: Xyz) {.importcpp: "AddVec",
     header: "IGESConvGeom_GeomBuilder.hxx".}
-proc nbPoints*(this: IGESConvGeomGeomBuilder): int {.noSideEffect,
+proc nbPoints*(this: IGESConvGeomGeomBuilder): cint {.noSideEffect,
     importcpp: "NbPoints", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc point*(this: IGESConvGeomGeomBuilder; num: int): Xyz {.noSideEffect,
+proc point*(this: IGESConvGeomGeomBuilder; num: cint): Xyz {.noSideEffect,
     importcpp: "Point", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc makeCopiousData*(this: IGESConvGeomGeomBuilder; datatype: int;
+proc makeCopiousData*(this: IGESConvGeomGeomBuilder; datatype: cint;
                      polyline: bool = false): Handle[IGESGeomCopiousData] {.
     noSideEffect, importcpp: "MakeCopiousData",
     header: "IGESConvGeom_GeomBuilder.hxx".}
@@ -70,9 +70,34 @@ proc isTranslation*(this: IGESConvGeomGeomBuilder): bool {.noSideEffect,
     importcpp: "IsTranslation", header: "IGESConvGeom_GeomBuilder.hxx".}
 proc isZOnly*(this: IGESConvGeomGeomBuilder): bool {.noSideEffect,
     importcpp: "IsZOnly", header: "IGESConvGeom_GeomBuilder.hxx".}
-proc evalXYZ*(this: IGESConvGeomGeomBuilder; val: Xyz; x: var float; y: var float;
-             z: var float) {.noSideEffect, importcpp: "EvalXYZ",
-                          header: "IGESConvGeom_GeomBuilder.hxx".}
-proc makeTransformation*(this: IGESConvGeomGeomBuilder; unit: float = 1): Handle[
+proc evalXYZ*(this: IGESConvGeomGeomBuilder; val: Xyz; x: var cfloat; y: var cfloat;
+             z: var cfloat) {.noSideEffect, importcpp: "EvalXYZ",
+                           header: "IGESConvGeom_GeomBuilder.hxx".}
+proc makeTransformation*(this: IGESConvGeomGeomBuilder; unit: cfloat = 1): Handle[
     IGESGeomTransformationMatrix] {.noSideEffect, importcpp: "MakeTransformation",
                                    header: "IGESConvGeom_GeomBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

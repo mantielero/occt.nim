@@ -27,9 +27,9 @@ type
 
 proc constructExtremaExtElC2d*(): ExtremaExtElC2d {.constructor,
     importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc constructExtremaExtElC2d*(c1: Lin2d; c2: Lin2d; angTol: float): ExtremaExtElC2d {.
+proc constructExtremaExtElC2d*(c1: Lin2d; c2: Lin2d; angTol: cfloat): ExtremaExtElC2d {.
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc constructExtremaExtElC2d*(c1: Lin2d; c2: Circ2d; tol: float): ExtremaExtElC2d {.
+proc constructExtremaExtElC2d*(c1: Lin2d; c2: Circ2d; tol: cfloat): ExtremaExtElC2d {.
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc constructExtremaExtElC2d*(c1: Lin2d; c2: Elips2d): ExtremaExtElC2d {.constructor,
     importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
@@ -49,10 +49,35 @@ proc isDone*(this: ExtremaExtElC2d): bool {.noSideEffect, importcpp: "IsDone",
                                         header: "Extrema_ExtElC2d.hxx".}
 proc isParallel*(this: ExtremaExtElC2d): bool {.noSideEffect,
     importcpp: "IsParallel", header: "Extrema_ExtElC2d.hxx".}
-proc nbExt*(this: ExtremaExtElC2d): int {.noSideEffect, importcpp: "NbExt",
-                                      header: "Extrema_ExtElC2d.hxx".}
-proc squareDistance*(this: ExtremaExtElC2d; n: int = 1): float {.noSideEffect,
+proc nbExt*(this: ExtremaExtElC2d): cint {.noSideEffect, importcpp: "NbExt",
+                                       header: "Extrema_ExtElC2d.hxx".}
+proc squareDistance*(this: ExtremaExtElC2d; n: cint = 1): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_ExtElC2d.hxx".}
-proc points*(this: ExtremaExtElC2d; n: int; p1: var ExtremaPOnCurv2d;
+proc points*(this: ExtremaExtElC2d; n: cint; p1: var ExtremaPOnCurv2d;
             p2: var ExtremaPOnCurv2d) {.noSideEffect, importcpp: "Points",
                                      header: "Extrema_ExtElC2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

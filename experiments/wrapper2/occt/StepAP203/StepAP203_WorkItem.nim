@@ -26,8 +26,33 @@ type
 
 proc constructStepAP203WorkItem*(): StepAP203WorkItem {.constructor,
     importcpp: "StepAP203_WorkItem(@)", header: "StepAP203_WorkItem.hxx".}
-proc caseNum*(this: StepAP203WorkItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP203WorkItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_WorkItem.hxx".}
 proc productDefinitionFormation*(this: StepAP203WorkItem): Handle[
     StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation", header: "StepAP203_WorkItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

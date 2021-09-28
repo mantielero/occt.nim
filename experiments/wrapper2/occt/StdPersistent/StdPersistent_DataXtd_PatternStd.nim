@@ -31,3 +31,28 @@ proc pName*(this: StdPersistentDataXtdPatternStd): StandardCString {.noSideEffec
 proc `import`*(this: StdPersistentDataXtdPatternStd;
               theAttribute: Handle[TDataXtdPatternStd]) {.noSideEffect,
     importcpp: "Import", header: "StdPersistent_DataXtd_PatternStd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

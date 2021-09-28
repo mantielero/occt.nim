@@ -19,7 +19,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_CenterLine"
 discard "forward decl of IGESDimen_CenterLine"
 type
-  HandleIGESDimenCenterLine* = Handle[IGESDimenCenterLine]
+  HandleC1C1* = Handle[IGESDimenCenterLine]
 
 ## ! defines CenterLine, Type <106> Form <20-21>
 ## ! in package IGESDimen
@@ -33,20 +33,20 @@ type
 
 proc constructIGESDimenCenterLine*(): IGESDimenCenterLine {.constructor,
     importcpp: "IGESDimen_CenterLine(@)", header: "IGESDimen_CenterLine.hxx".}
-proc init*(this: var IGESDimenCenterLine; aDataType: int; aZdisp: float;
+proc init*(this: var IGESDimenCenterLine; aDataType: cint; aZdisp: cfloat;
           dataPnts: Handle[TColgpHArray1OfXY]) {.importcpp: "Init",
     header: "IGESDimen_CenterLine.hxx".}
 proc setCrossHair*(this: var IGESDimenCenterLine; mode: bool) {.
     importcpp: "SetCrossHair", header: "IGESDimen_CenterLine.hxx".}
-proc datatype*(this: IGESDimenCenterLine): int {.noSideEffect, importcpp: "Datatype",
-    header: "IGESDimen_CenterLine.hxx".}
-proc nbPoints*(this: IGESDimenCenterLine): int {.noSideEffect, importcpp: "NbPoints",
-    header: "IGESDimen_CenterLine.hxx".}
-proc zDisplacement*(this: IGESDimenCenterLine): float {.noSideEffect,
+proc datatype*(this: IGESDimenCenterLine): cint {.noSideEffect,
+    importcpp: "Datatype", header: "IGESDimen_CenterLine.hxx".}
+proc nbPoints*(this: IGESDimenCenterLine): cint {.noSideEffect,
+    importcpp: "NbPoints", header: "IGESDimen_CenterLine.hxx".}
+proc zDisplacement*(this: IGESDimenCenterLine): cfloat {.noSideEffect,
     importcpp: "ZDisplacement", header: "IGESDimen_CenterLine.hxx".}
-proc point*(this: IGESDimenCenterLine; index: int): Pnt {.noSideEffect,
+proc point*(this: IGESDimenCenterLine; index: cint): Pnt {.noSideEffect,
     importcpp: "Point", header: "IGESDimen_CenterLine.hxx".}
-proc transformedPoint*(this: IGESDimenCenterLine; index: int): Pnt {.noSideEffect,
+proc transformedPoint*(this: IGESDimenCenterLine; index: cint): Pnt {.noSideEffect,
     importcpp: "TransformedPoint", header: "IGESDimen_CenterLine.hxx".}
 proc isCrossHair*(this: IGESDimenCenterLine): bool {.noSideEffect,
     importcpp: "IsCrossHair", header: "IGESDimen_CenterLine.hxx".}
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_CenterLine.hxx".}
 proc dynamicType*(this: IGESDimenCenterLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDimen_CenterLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

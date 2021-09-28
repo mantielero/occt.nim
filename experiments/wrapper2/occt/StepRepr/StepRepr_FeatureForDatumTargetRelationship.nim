@@ -16,8 +16,7 @@
 discard "forward decl of StepRepr_FeatureForDatumTargetRelationship"
 discard "forward decl of StepRepr_FeatureForDatumTargetRelationship"
 type
-  HandleStepReprFeatureForDatumTargetRelationship* = Handle[
-      StepReprFeatureForDatumTargetRelationship]
+  HandleC1C1* = Handle[StepReprFeatureForDatumTargetRelationship]
 
 ## ! Representation of STEP entity DimensionalLocation
 
@@ -42,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_FeatureFo
 proc dynamicType*(this: StepReprFeatureForDatumTargetRelationship): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_FeatureForDatumTargetRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

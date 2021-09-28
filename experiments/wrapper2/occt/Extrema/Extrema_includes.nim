@@ -84,3 +84,28 @@ include Extrema_SequenceOfPOnCurv
 include Extrema_SequenceOfPOnCurv2d
 include Extrema_SequenceOfPOnSurf
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -67,11 +67,11 @@ proc constructGraphic3dAspectMarker3d*(): Graphic3dAspectMarker3d {.constructor,
     importcpp: "Graphic3d_AspectMarker3d(@)",
     header: "Graphic3d_AspectMarker3d.hxx".}
 proc constructGraphic3dAspectMarker3d*(theType: AspectTypeOfMarker;
-                                      theColor: QuantityColor; theScale: float): Graphic3dAspectMarker3d {.
+                                      theColor: QuantityColor; theScale: cfloat): Graphic3dAspectMarker3d {.
     constructor, importcpp: "Graphic3d_AspectMarker3d(@)",
     header: "Graphic3d_AspectMarker3d.hxx".}
-proc constructGraphic3dAspectMarker3d*(theColor: QuantityColor; theWidth: int;
-                                      theHeight: int; theTextureBitmap: Handle[
+proc constructGraphic3dAspectMarker3d*(theColor: QuantityColor; theWidth: cint;
+                                      theHeight: cint; theTextureBitmap: Handle[
     TColStdHArray1OfByte]): Graphic3dAspectMarker3d {.constructor,
     importcpp: "Graphic3d_AspectMarker3d(@)",
     header: "Graphic3d_AspectMarker3d.hxx".}
@@ -82,22 +82,48 @@ proc scale*(this: Graphic3dAspectMarker3d): StandardShortReal {.noSideEffect,
     importcpp: "Scale", header: "Graphic3d_AspectMarker3d.hxx".}
 proc setScale*(this: var Graphic3dAspectMarker3d; theScale: StandardShortReal) {.
     importcpp: "SetScale", header: "Graphic3d_AspectMarker3d.hxx".}
-proc setScale*(this: var Graphic3dAspectMarker3d; theScale: float) {.
+proc setScale*(this: var Graphic3dAspectMarker3d; theScale: cfloat) {.
     importcpp: "SetScale", header: "Graphic3d_AspectMarker3d.hxx".}
 proc `type`*(this: Graphic3dAspectMarker3d): AspectTypeOfMarker {.noSideEffect,
     importcpp: "Type", header: "Graphic3d_AspectMarker3d.hxx".}
 proc setType*(this: var Graphic3dAspectMarker3d; theType: AspectTypeOfMarker) {.
     importcpp: "SetType", header: "Graphic3d_AspectMarker3d.hxx".}
-proc getTextureSize*(this: Graphic3dAspectMarker3d; theWidth: var int;
-                    theHeight: var int) {.noSideEffect, importcpp: "GetTextureSize",
-                                       header: "Graphic3d_AspectMarker3d.hxx".}
+proc getTextureSize*(this: Graphic3dAspectMarker3d; theWidth: var cint;
+                    theHeight: var cint) {.noSideEffect,
+                                        importcpp: "GetTextureSize",
+                                        header: "Graphic3d_AspectMarker3d.hxx".}
 proc getMarkerImage*(this: Graphic3dAspectMarker3d): Handle[Graphic3dMarkerImage] {.
     noSideEffect, importcpp: "GetMarkerImage",
     header: "Graphic3d_AspectMarker3d.hxx".}
-proc setBitMap*(this: var Graphic3dAspectMarker3d; theWidth: int; theHeight: int;
+proc setBitMap*(this: var Graphic3dAspectMarker3d; theWidth: cint; theHeight: cint;
                theTexture: Handle[TColStdHArray1OfByte]) {.importcpp: "SetBitMap",
     header: "Graphic3d_AspectMarker3d.hxx".}
 discard "forward decl of Graphic3d_AspectMarker3d"
 type
-  HandleGraphic3dAspectMarker3d* = Handle[Graphic3dAspectMarker3d]
+  HandleC1C1* = Handle[Graphic3dAspectMarker3d]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

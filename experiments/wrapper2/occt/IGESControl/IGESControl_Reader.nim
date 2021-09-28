@@ -39,8 +39,33 @@ proc getReadVisible*(this: IGESControlReader): bool {.noSideEffect,
     importcpp: "GetReadVisible", header: "IGESControl_Reader.hxx".}
 proc iGESModel*(this: IGESControlReader): Handle[IGESDataIGESModel] {.noSideEffect,
     importcpp: "IGESModel", header: "IGESControl_Reader.hxx".}
-proc nbRootsForTransfer*(this: var IGESControlReader): int {.
+proc nbRootsForTransfer*(this: var IGESControlReader): cint {.
     importcpp: "NbRootsForTransfer", header: "IGESControl_Reader.hxx".}
 proc printTransferInfo*(this: IGESControlReader; failwarn: IFSelectPrintFail;
                        mode: IFSelectPrintCount) {.noSideEffect,
     importcpp: "PrintTransferInfo", header: "IGESControl_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

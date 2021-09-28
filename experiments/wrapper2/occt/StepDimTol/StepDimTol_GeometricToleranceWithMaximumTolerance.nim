@@ -20,8 +20,7 @@ discard "forward decl of StepDimTol_HArray1OfGeometricToleranceModifier"
 discard "forward decl of StepDimTol_GeometricToleranceWithMaximumTolerance"
 discard "forward decl of StepDimTol_GeometricToleranceWithMaximumTolerance"
 type
-  HandleStepDimTolGeometricToleranceWithMaximumTolerance* = Handle[
-      StepDimTolGeometricToleranceWithMaximumTolerance]
+  HandleC1C1* = Handle[StepDimTolGeometricToleranceWithMaximumTolerance]
 
 ## ! Representation of STEP entity GeometricToleranceWithMaximumTolerance
 
@@ -62,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_Geometr
     header: "StepDimTol_GeometricToleranceWithMaximumTolerance.hxx".}
 proc dynamicType*(this: StepDimTolGeometricToleranceWithMaximumTolerance): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepDimTol_GeometricToleranceWithMaximumTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

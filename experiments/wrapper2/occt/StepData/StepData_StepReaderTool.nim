@@ -55,7 +55,7 @@ proc prepare*(this: var StepDataStepReaderTool; optimize: bool = true) {.
 proc prepare*(this: var StepDataStepReaderTool;
              reco: Handle[StepDataFileRecognizer]; optimize: bool = true) {.
     importcpp: "Prepare", header: "StepData_StepReaderTool.hxx".}
-proc recognize*(this: var StepDataStepReaderTool; num: int;
+proc recognize*(this: var StepDataStepReaderTool; num: cint;
                ach: var Handle[InterfaceCheck]; ent: var Handle[StandardTransient]): bool {.
     importcpp: "Recognize", header: "StepData_StepReaderTool.hxx".}
 proc prepareHeader*(this: var StepDataStepReaderTool;
@@ -64,10 +64,35 @@ proc prepareHeader*(this: var StepDataStepReaderTool;
 proc beginRead*(this: var StepDataStepReaderTool;
                amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "BeginRead",
     header: "StepData_StepReaderTool.hxx".}
-proc analyseRecord*(this: var StepDataStepReaderTool; num: int;
+proc analyseRecord*(this: var StepDataStepReaderTool; num: cint;
                    anent: Handle[StandardTransient];
                    acheck: var Handle[InterfaceCheck]): bool {.
     importcpp: "AnalyseRecord", header: "StepData_StepReaderTool.hxx".}
 proc endRead*(this: var StepDataStepReaderTool;
              amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "EndRead",
     header: "StepData_StepReaderTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

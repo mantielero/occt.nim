@@ -28,7 +28,7 @@ proc constructRWStepShapeRWGeometricSet*(): RWStepShapeRWGeometricSet {.
     constructor, importcpp: "RWStepShape_RWGeometricSet(@)",
     header: "RWStepShape_RWGeometricSet.hxx".}
 proc readStep*(this: RWStepShapeRWGeometricSet;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeGeometricSet]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWGeometricSet.hxx".}
 proc writeStep*(this: RWStepShapeRWGeometricSet; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepShapeRWGeometricSet; sw: var StepDataStepWriter;
 proc share*(this: RWStepShapeRWGeometricSet; ent: Handle[StepShapeGeometricSet];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWGeometricSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

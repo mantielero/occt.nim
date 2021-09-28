@@ -16,4 +16,3 @@
 
 type
   GeomFillArray1OfSectionLaw* = NCollectionArray1[Handle[GeomFillSectionLaw]]
-

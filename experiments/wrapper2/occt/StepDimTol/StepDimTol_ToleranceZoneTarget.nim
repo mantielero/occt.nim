@@ -28,7 +28,7 @@ type
 proc constructStepDimTolToleranceZoneTarget*(): StepDimTolToleranceZoneTarget {.
     constructor, importcpp: "StepDimTol_ToleranceZoneTarget(@)",
     header: "StepDimTol_ToleranceZoneTarget.hxx".}
-proc caseNum*(this: StepDimTolToleranceZoneTarget; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepDimTolToleranceZoneTarget; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepDimTol_ToleranceZoneTarget.hxx".}
 proc dimensionalLocation*(this: StepDimTolToleranceZoneTarget): Handle[
@@ -44,3 +44,28 @@ proc geometricTolerance*(this: StepDimTolToleranceZoneTarget): Handle[
 proc generalDatumReference*(this: StepDimTolToleranceZoneTarget): Handle[
     StepDimTolGeneralDatumReference] {.noSideEffect,
                                       importcpp: "GeneralDatumReference", header: "StepDimTol_ToleranceZoneTarget.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

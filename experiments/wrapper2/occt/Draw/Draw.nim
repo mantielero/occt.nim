@@ -47,7 +47,7 @@ proc set*(name: StandardCString; d: Handle[DrawDrawable3D]; disp: bool) {.
     importcpp: "Draw::Set(@)", header: "Draw.hxx".}
 proc set*(name: StandardCString; d: Handle[DrawDrawable3D]) {.
     importcpp: "Draw::Set(@)", header: "Draw.hxx".}
-proc set*(name: StandardCString; val: float) {.importcpp: "Draw::Set(@)",
+proc set*(name: StandardCString; val: cfloat) {.importcpp: "Draw::Set(@)",
     header: "Draw.hxx".}
 proc getInterpretor*(): var DrawInterpretor {.importcpp: "Draw::GetInterpretor(@)",
     header: "Draw.hxx".}
@@ -55,27 +55,28 @@ proc get*(theName: var StandardCString): Handle[DrawDrawable3D] {.
     importcpp: "Draw::Get(@)", header: "Draw.hxx".}
 proc getExisting*(theName: StandardCString): Handle[DrawDrawable3D] {.
     importcpp: "Draw::GetExisting(@)", header: "Draw.hxx".}
-proc get*(name: StandardCString; val: var float): bool {.importcpp: "Draw::Get(@)",
+proc get*(name: StandardCString; val: var cfloat): bool {.importcpp: "Draw::Get(@)",
     header: "Draw.hxx".}
 proc set*(name: StandardCString; val: StandardCString) {.importcpp: "Draw::Set(@)",
     header: "Draw.hxx".}
-proc atof*(name: StandardCString): float {.importcpp: "Draw::Atof(@)",
-                                       header: "Draw.hxx".}
-proc parseReal*(theExpressionString: StandardCString; theParsedRealValue: var float): bool {.
+proc atof*(name: StandardCString): cfloat {.importcpp: "Draw::Atof(@)",
+                                        header: "Draw.hxx".}
+proc parseReal*(theExpressionString: StandardCString;
+               theParsedRealValue: var cfloat): bool {.
     importcpp: "Draw::ParseReal(@)", header: "Draw.hxx".}
-proc atoi*(name: StandardCString): int {.importcpp: "Draw::Atoi(@)",
-                                     header: "Draw.hxx".}
+proc atoi*(name: StandardCString): cint {.importcpp: "Draw::Atoi(@)",
+                                      header: "Draw.hxx".}
 proc parseInteger*(theExpressionString: StandardCString;
-                  theParsedIntegerValue: var int): bool {.
+                  theParsedIntegerValue: var cint): bool {.
     importcpp: "Draw::ParseInteger(@)", header: "Draw.hxx".}
-proc parseColor*(theArgNb: int; theArgVec: cstringArray;
-                theColor: var QuantityColorRGBA): int {.
+proc parseColor*(theArgNb: cint; theArgVec: cstringArray;
+                theColor: var QuantityColorRGBA): cint {.
     importcpp: "Draw::ParseColor(@)", header: "Draw.hxx".}
-proc parseColor*(theArgNb: int; theArgVec: cstringArray; theColor: var QuantityColor): int {.
+proc parseColor*(theArgNb: cint; theArgVec: cstringArray; theColor: var QuantityColor): cint {.
     importcpp: "Draw::ParseColor(@)", header: "Draw.hxx".}
 proc parseOnOff*(theArg: StandardCString; theIsOn: var bool): bool {.
     importcpp: "Draw::ParseOnOff(@)", header: "Draw.hxx".}
-proc lastPick*(view: var int; x: var int; y: var int; button: var int) {.
+proc lastPick*(view: var cint; x: var cint; y: var cint; button: var cint) {.
     importcpp: "Draw::LastPick(@)", header: "Draw.hxx".}
 proc repaint*() {.importcpp: "Draw::Repaint(@)", header: "Draw.hxx".}
 proc setProgressBar*(theProgress: Handle[DrawProgressIndicator]) {.
@@ -96,3 +97,28 @@ proc ploadCommands*(i: var DrawInterpretor) {.importcpp: "Draw::PloadCommands(@)
     header: "Draw.hxx".}
 proc unitCommands*(i: var DrawInterpretor) {.importcpp: "Draw::UnitCommands(@)",
     header: "Draw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

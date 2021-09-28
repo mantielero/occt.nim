@@ -25,33 +25,39 @@ discard "forward decl of Geom2dGcc_Lin2dTanOblIter"
 discard "forward decl of Geom2dAdaptor_Curve"
 type
   Geom2dGccLin2dTanObl* {.importcpp: "Geom2dGcc_Lin2dTanObl",
-                         header: "Geom2dGcc_Lin2dTanObl.hxx", bycopy.} = object ## ! This class
-                                                                           ## implements the
-                                                                           ## algorithm used to
-                                                                           ## !
-                                                                           ## create 2d line
-                                                                           ## tangent to a curve and doing an
-                                                                           ## ! angle Angle with the line
-                                                                           ## TheLin.
-                                                                           ## ! Angle must be in
-                                                                           ## Radian.
-                                                                           ## !
-                                                                           ## Tolang is the
-                                                                           ## angular
-                                                                           ## tolerance.
+                         header: "Geom2dGcc_Lin2dTanObl.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dGccLin2dTanObl; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc_Lin2dTanObl::operator new",
+    header: "Geom2dGcc_Lin2dTanObl.hxx".}
+proc `delete`*(this: var Geom2dGccLin2dTanObl; theAddress: pointer) {.
+    importcpp: "Geom2dGcc_Lin2dTanObl::operator delete",
+    header: "Geom2dGcc_Lin2dTanObl.hxx".}
+proc `new[]`*(this: var Geom2dGccLin2dTanObl; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc_Lin2dTanObl::operator new[]",
+    header: "Geom2dGcc_Lin2dTanObl.hxx".}
+proc `delete[]`*(this: var Geom2dGccLin2dTanObl; theAddress: pointer) {.
+    importcpp: "Geom2dGcc_Lin2dTanObl::operator delete[]",
+    header: "Geom2dGcc_Lin2dTanObl.hxx".}
+proc `new`*(this: var Geom2dGccLin2dTanObl; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dGcc_Lin2dTanObl::operator new",
+    header: "Geom2dGcc_Lin2dTanObl.hxx".}
+proc `delete`*(this: var Geom2dGccLin2dTanObl; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dGcc_Lin2dTanObl::operator delete",
+    header: "Geom2dGcc_Lin2dTanObl.hxx".}
 proc constructGeom2dGccLin2dTanObl*(qualified1: Geom2dGccQualifiedCurve;
-                                   theLin: Lin2d; tolAng: float; angle: float): Geom2dGccLin2dTanObl {.
+                                   theLin: Lin2d; tolAng: StandardReal;
+                                   angle: StandardReal): Geom2dGccLin2dTanObl {.
     constructor, importcpp: "Geom2dGcc_Lin2dTanObl(@)",
     header: "Geom2dGcc_Lin2dTanObl.hxx".}
 proc constructGeom2dGccLin2dTanObl*(qualified1: Geom2dGccQualifiedCurve;
-                                   theLin: Lin2d; tolAng: float; param1: float;
-                                   angle: float): Geom2dGccLin2dTanObl {.
+                                   theLin: Lin2d; tolAng: StandardReal;
+                                   param1: StandardReal; angle: StandardReal): Geom2dGccLin2dTanObl {.
     constructor, importcpp: "Geom2dGcc_Lin2dTanObl(@)",
     header: "Geom2dGcc_Lin2dTanObl.hxx".}
-proc isDone*(this: Geom2dGccLin2dTanObl): bool {.noSideEffect, importcpp: "IsDone",
-    header: "Geom2dGcc_Lin2dTanObl.hxx".}
+proc isDone*(this: Geom2dGccLin2dTanObl): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "Geom2dGcc_Lin2dTanObl.hxx".}
 proc nbSolutions*(this: Geom2dGccLin2dTanObl): int {.noSideEffect,
     importcpp: "NbSolutions", header: "Geom2dGcc_Lin2dTanObl.hxx".}
 proc thisSolution*(this: Geom2dGccLin2dTanObl; index: int): Lin2d {.noSideEffect,
@@ -59,11 +65,11 @@ proc thisSolution*(this: Geom2dGccLin2dTanObl; index: int): Lin2d {.noSideEffect
 proc whichQualifier*(this: Geom2dGccLin2dTanObl; index: int;
                     qualif1: var GccEntPosition) {.noSideEffect,
     importcpp: "WhichQualifier", header: "Geom2dGcc_Lin2dTanObl.hxx".}
-proc tangency1*(this: Geom2dGccLin2dTanObl; index: int; parSol: var float;
-               parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+proc tangency1*(this: Geom2dGccLin2dTanObl; index: int; parSol: var StandardReal;
+               parArg: var StandardReal; pntSol: var Pnt2d) {.noSideEffect,
     importcpp: "Tangency1", header: "Geom2dGcc_Lin2dTanObl.hxx".}
-proc intersection2*(this: Geom2dGccLin2dTanObl; index: int; parSol: var float;
-                   parArg: var float; pntSol: var Pnt2d) {.noSideEffect,
+proc intersection2*(this: Geom2dGccLin2dTanObl; index: int; parSol: var StandardReal;
+                   parArg: var StandardReal; pntSol: var Pnt2d) {.noSideEffect,
     importcpp: "Intersection2", header: "Geom2dGcc_Lin2dTanObl.hxx".}
-proc isParallel2*(this: Geom2dGccLin2dTanObl): bool {.noSideEffect,
+proc isParallel2*(this: Geom2dGccLin2dTanObl): StandardBoolean {.noSideEffect,
     importcpp: "IsParallel2", header: "Geom2dGcc_Lin2dTanObl.hxx".}

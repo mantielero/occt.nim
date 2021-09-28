@@ -19,7 +19,7 @@ discard "forward decl of TopLoc_SListOfItemLocation"
 discard "forward decl of TopLoc_SListNodeOfItemLocation"
 discard "forward decl of TopLoc_SListNodeOfItemLocation"
 type
-  HandleTopLocSListNodeOfItemLocation* = Handle[TopLocSListNodeOfItemLocation]
+  HandleC1C1* = Handle[TopLocSListNodeOfItemLocation]
   TopLocSListNodeOfItemLocation* {.importcpp: "TopLoc_SListNodeOfItemLocation",
                                   header: "TopLoc_SListNodeOfItemLocation.hxx",
                                   bycopy.} = object of StandardTransient
@@ -44,3 +44,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopLocSListNodeOfItemLocation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopLoc_SListNodeOfItemLocation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

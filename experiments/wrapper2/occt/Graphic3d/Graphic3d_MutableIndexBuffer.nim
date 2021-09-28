@@ -44,9 +44,34 @@ proc validate*(this: var Graphic3dMutableIndexBuffer) {.importcpp: "Validate",
     header: "Graphic3d_MutableIndexBuffer.hxx".}
 proc invalidate*(this: var Graphic3dMutableIndexBuffer) {.importcpp: "Invalidate",
     header: "Graphic3d_MutableIndexBuffer.hxx".}
-proc invalidate*(this: var Graphic3dMutableIndexBuffer; theIndexLower: int;
-                theIndexUpper: int) {.importcpp: "Invalidate",
-                                    header: "Graphic3d_MutableIndexBuffer.hxx".}
+proc invalidate*(this: var Graphic3dMutableIndexBuffer; theIndexLower: cint;
+                theIndexUpper: cint) {.importcpp: "Invalidate",
+                                     header: "Graphic3d_MutableIndexBuffer.hxx".}
 proc invalidate*(this: var Graphic3dMutableIndexBuffer;
                 theRange: Graphic3dBufferRange) {.importcpp: "invalidate",
     header: "Graphic3d_MutableIndexBuffer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

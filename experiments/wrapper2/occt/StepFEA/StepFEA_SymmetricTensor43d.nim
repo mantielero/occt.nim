@@ -26,9 +26,9 @@ type
 proc constructStepFEA_SymmetricTensor43d*(): StepFEA_SymmetricTensor43d {.
     constructor, importcpp: "StepFEA_SymmetricTensor43d(@)",
     header: "StepFEA_SymmetricTensor43d.hxx".}
-proc caseNum*(this: StepFEA_SymmetricTensor43d; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepFEA_SymmetricTensor43d; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepFEA_SymmetricTensor43d.hxx".}
-proc caseMem*(this: StepFEA_SymmetricTensor43d; ent: Handle[StepDataSelectMember]): int {.
+proc caseMem*(this: StepFEA_SymmetricTensor43d; ent: Handle[StepDataSelectMember]): cint {.
     noSideEffect, importcpp: "CaseMem", header: "StepFEA_SymmetricTensor43d.hxx".}
 proc newMember*(this: StepFEA_SymmetricTensor43d): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepFEA_SymmetricTensor43d.hxx".}
@@ -59,3 +59,28 @@ proc feaColumnNormalisedMonoclinicSymmetricTensor43d*(
     this: StepFEA_SymmetricTensor43d): Handle[TColStdHArray1OfReal] {.noSideEffect,
     importcpp: "FeaColumnNormalisedMonoclinicSymmetricTensor43d",
     header: "StepFEA_SymmetricTensor43d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

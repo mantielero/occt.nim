@@ -64,6 +64,31 @@ proc ownCopy*(this: IGESAppliToolReferenceDesignator;
              tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolReferenceDesignator.hxx".}
 proc ownDump*(this: IGESAppliToolReferenceDesignator;
              ent: Handle[IGESAppliReferenceDesignator];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump",
     header: "IGESAppli_ToolReferenceDesignator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

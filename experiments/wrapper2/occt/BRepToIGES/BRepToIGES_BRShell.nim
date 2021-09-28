@@ -41,3 +41,28 @@ proc transferFace*(this: var BRepToIGES_BRShell; start: TopoDS_Face;
                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
     IGESDataIGESEntity] {.importcpp: "TransferFace",
                          header: "BRepToIGES_BRShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

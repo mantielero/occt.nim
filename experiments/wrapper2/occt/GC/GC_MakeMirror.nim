@@ -42,3 +42,24 @@ proc value*(this: GC_MakeMirror): Handle[GeomTransformation] {.noSideEffect,
 converter `constopencascade`*(this: GC_MakeMirror): Handle[GeomTransformation] {.
     noSideEffect, importcpp: "GC_MakeMirror::operator constopencascade",
     header: "GC_MakeMirror.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

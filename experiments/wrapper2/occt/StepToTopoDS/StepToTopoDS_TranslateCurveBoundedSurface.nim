@@ -41,3 +41,28 @@ proc init*(this: var StepToTopoDS_TranslateCurveBoundedSurface;
 proc value*(this: StepToTopoDS_TranslateCurveBoundedSurface): TopoDS_Face {.
     noSideEffect, importcpp: "Value",
     header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

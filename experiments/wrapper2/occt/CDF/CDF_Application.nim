@@ -26,7 +26,7 @@ discard "forward decl of CDF_Directory"
 discard "forward decl of CDF_Application"
 discard "forward decl of CDF_Application"
 type
-  HandleCDF_Application* = Handle[CDF_Application]
+  HandleC1C1* = Handle[CDF_Application]
   CDF_Application* {.importcpp: "CDF_Application", header: "CDF_Application.hxx",
                     bycopy.} = object of CDM_Application ## ! plugs an application.
                                                     ## !
@@ -111,3 +111,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "CDF_Application.hxx".}
 proc dynamicType*(this: CDF_Application): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDF_Application.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

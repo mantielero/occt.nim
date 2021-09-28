@@ -22,7 +22,7 @@ discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of STEPControl_Controller"
 discard "forward decl of STEPControl_Controller"
 type
-  HandleSTEPControlController* = Handle[STEPControlController]
+  HandleC1C1* = Handle[STEPControlController]
 
 ## ! defines basic controller for STEP processor
 
@@ -57,7 +57,7 @@ proc customise*(this: var STEPControlController;
 proc transferWriteShape*(this: STEPControlController; shape: TopoDS_Shape;
                         fp: Handle[TransferFinderProcess];
                         model: Handle[InterfaceInterfaceModel];
-                        modetrans: int = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
+                        modetrans: cint = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     noSideEffect, importcpp: "TransferWriteShape",
     header: "STEPControl_Controller.hxx".}
 proc init*(): bool {.importcpp: "STEPControl_Controller::Init(@)",
@@ -72,3 +72,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPControl_Controller.hxx".}
 proc dynamicType*(this: STEPControlController): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "STEPControl_Controller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

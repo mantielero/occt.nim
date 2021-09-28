@@ -72,12 +72,37 @@ proc constructGraphic3dHatchStyle*(theType: AspectHatchStyle): Graphic3dHatchSty
     header: "Graphic3d_HatchStyle.hxx".}
 proc pattern*(this: Graphic3dHatchStyle): ptr StandardByte {.noSideEffect,
     importcpp: "Pattern", header: "Graphic3d_HatchStyle.hxx".}
-proc hatchType*(this: Graphic3dHatchStyle): int {.noSideEffect,
+proc hatchType*(this: Graphic3dHatchStyle): cint {.noSideEffect,
     importcpp: "HatchType", header: "Graphic3d_HatchStyle.hxx".}
 proc dumpJson*(this: Graphic3dHatchStyle; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_HatchStyle.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_HatchStyle.hxx".}
 discard "forward decl of Graphic3d_HatchStyle"
 type
-  HandleGraphic3dHatchStyle* = Handle[Graphic3dHatchStyle]
+  HandleC1C1* = Handle[Graphic3dHatchStyle]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

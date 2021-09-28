@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_AddGroup"
 discard "forward decl of IGESSelect_AddGroup"
 type
-  HandleIGESSelectAddGroup* = Handle[IGESSelectAddGroup]
+  HandleC1C1* = Handle[IGESSelectAddGroup]
 
 ## ! Adds a Group to contain the entities designated by the
 ## ! Selection. If no Selection is given, nothing is done
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSelect_AddGroup.hxx".}
 proc dynamicType*(this: IGESSelectAddGroup): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_AddGroup.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

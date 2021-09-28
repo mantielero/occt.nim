@@ -19,8 +19,7 @@ discard "forward decl of StepDimTol_GeometricToleranceTarget"
 discard "forward decl of StepDimTol_UnequallyDisposedGeometricTolerance"
 discard "forward decl of StepDimTol_UnequallyDisposedGeometricTolerance"
 type
-  HandleStepDimTolUnequallyDisposedGeometricTolerance* = Handle[
-      StepDimTolUnequallyDisposedGeometricTolerance]
+  HandleC1C1* = Handle[StepDimTolUnequallyDisposedGeometricTolerance]
 
 ## ! Representation of STEP entity UnequallyDisposedGeometricTolerance
 
@@ -59,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_Unequal
 proc dynamicType*(this: StepDimTolUnequallyDisposedGeometricTolerance): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

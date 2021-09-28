@@ -19,20 +19,20 @@ discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HVertex"
 discard "forward decl of Adaptor3d_HVertex"
 type
-  HandleAdaptor3dHVertex* = Handle[Adaptor3dHVertex]
+  HandleC1C1* = Handle[Adaptor3dHVertex]
   Adaptor3dHVertex* {.importcpp: "Adaptor3d_HVertex",
                      header: "Adaptor3d_HVertex.hxx", bycopy.} = object of StandardTransient
 
 
 proc constructAdaptor3dHVertex*(): Adaptor3dHVertex {.constructor,
     importcpp: "Adaptor3d_HVertex(@)", header: "Adaptor3d_HVertex.hxx".}
-proc constructAdaptor3dHVertex*(p: Pnt2d; ori: TopAbsOrientation; resolution: float): Adaptor3dHVertex {.
+proc constructAdaptor3dHVertex*(p: Pnt2d; ori: TopAbsOrientation; resolution: cfloat): Adaptor3dHVertex {.
     constructor, importcpp: "Adaptor3d_HVertex(@)", header: "Adaptor3d_HVertex.hxx".}
 proc value*(this: var Adaptor3dHVertex): Pnt2d {.importcpp: "Value",
     header: "Adaptor3d_HVertex.hxx".}
-proc parameter*(this: var Adaptor3dHVertex; c: Handle[Adaptor2dHCurve2d]): float {.
+proc parameter*(this: var Adaptor3dHVertex; c: Handle[Adaptor2dHCurve2d]): cfloat {.
     importcpp: "Parameter", header: "Adaptor3d_HVertex.hxx".}
-proc resolution*(this: var Adaptor3dHVertex; c: Handle[Adaptor2dHCurve2d]): float {.
+proc resolution*(this: var Adaptor3dHVertex; c: Handle[Adaptor2dHCurve2d]): cfloat {.
     importcpp: "Resolution", header: "Adaptor3d_HVertex.hxx".}
 proc orientation*(this: var Adaptor3dHVertex): TopAbsOrientation {.
     importcpp: "Orientation", header: "Adaptor3d_HVertex.hxx".}
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Adaptor3d_HVertex.hxx".}
 proc dynamicType*(this: Adaptor3dHVertex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Adaptor3d_HVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

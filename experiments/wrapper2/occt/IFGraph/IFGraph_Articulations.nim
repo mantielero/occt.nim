@@ -77,3 +77,28 @@ proc resetData*(this: var IFGraphArticulations) {.importcpp: "ResetData",
     header: "IFGraph_Articulations.hxx".}
 proc evaluate*(this: var IFGraphArticulations) {.importcpp: "Evaluate",
     header: "IFGraph_Articulations.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

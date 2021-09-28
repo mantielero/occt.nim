@@ -28,7 +28,7 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of XSControl_Controller"
 discard "forward decl of XSControl_Controller"
 type
-  HandleXSControlController* = Handle[XSControlController]
+  HandleC1C1* = Handle[XSControlController]
 
 ## ! This class allows a general X-STEP engine to run generic
 ## ! functions on any interface norm, in the same way. It includes
@@ -126,37 +126,37 @@ proc actorRead*(this: XSControlController; model: Handle[InterfaceInterfaceModel
                                       header: "XSControl_Controller.hxx".}
 proc actorWrite*(this: XSControlController): Handle[TransferActorOfFinderProcess] {.
     noSideEffect, importcpp: "ActorWrite", header: "XSControl_Controller.hxx".}
-proc setModeWrite*(this: var XSControlController; modemin: int; modemax: int;
+proc setModeWrite*(this: var XSControlController; modemin: cint; modemax: cint;
                   shape: bool = true) {.importcpp: "SetModeWrite",
                                     header: "XSControl_Controller.hxx".}
-proc setModeWriteHelp*(this: var XSControlController; modetrans: int;
+proc setModeWriteHelp*(this: var XSControlController; modetrans: cint;
                       help: StandardCString; shape: bool = true) {.
     importcpp: "SetModeWriteHelp", header: "XSControl_Controller.hxx".}
-proc modeWriteBounds*(this: XSControlController; modemin: var int; modemax: var int;
+proc modeWriteBounds*(this: XSControlController; modemin: var cint; modemax: var cint;
                      shape: bool = true): bool {.noSideEffect,
     importcpp: "ModeWriteBounds", header: "XSControl_Controller.hxx".}
-proc isModeWrite*(this: XSControlController; modetrans: int; shape: bool = true): bool {.
+proc isModeWrite*(this: XSControlController; modetrans: cint; shape: bool = true): bool {.
     noSideEffect, importcpp: "IsModeWrite", header: "XSControl_Controller.hxx".}
-proc modeWriteHelp*(this: XSControlController; modetrans: int; shape: bool = true): StandardCString {.
+proc modeWriteHelp*(this: XSControlController; modetrans: cint; shape: bool = true): StandardCString {.
     noSideEffect, importcpp: "ModeWriteHelp", header: "XSControl_Controller.hxx".}
 proc recognizeWriteTransient*(this: XSControlController;
-                             obj: Handle[StandardTransient]; modetrans: int = 0): bool {.
+                             obj: Handle[StandardTransient]; modetrans: cint = 0): bool {.
     noSideEffect, importcpp: "RecognizeWriteTransient",
     header: "XSControl_Controller.hxx".}
 proc transferWriteTransient*(this: XSControlController;
                             obj: Handle[StandardTransient];
                             fp: Handle[TransferFinderProcess];
                             model: Handle[InterfaceInterfaceModel];
-                            modetrans: int = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
+                            modetrans: cint = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     noSideEffect, importcpp: "TransferWriteTransient",
     header: "XSControl_Controller.hxx".}
 proc recognizeWriteShape*(this: XSControlController; shape: TopoDS_Shape;
-                         modetrans: int = 0): bool {.noSideEffect,
+                         modetrans: cint = 0): bool {.noSideEffect,
     importcpp: "RecognizeWriteShape", header: "XSControl_Controller.hxx".}
 proc transferWriteShape*(this: XSControlController; shape: TopoDS_Shape;
                         fp: Handle[TransferFinderProcess];
                         model: Handle[InterfaceInterfaceModel];
-                        modetrans: int = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
+                        modetrans: cint = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     noSideEffect, importcpp: "TransferWriteShape",
     header: "XSControl_Controller.hxx".}
 proc addSessionItem*(this: var XSControlController;
@@ -181,3 +181,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XSControl_Controller.hxx".}
 proc dynamicType*(this: XSControlController): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XSControl_Controller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

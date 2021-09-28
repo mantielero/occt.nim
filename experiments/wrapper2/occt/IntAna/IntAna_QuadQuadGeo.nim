@@ -37,99 +37,125 @@ type
 
 proc constructIntAnaQuadQuadGeo*(): IntAnaQuadQuadGeo {.constructor,
     importcpp: "IntAna_QuadQuadGeo(@)", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(p1: Pln; p2: Pln; tolAng: float; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(p1: Pln; p2: Pln; tolAng: cfloat; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; p1: Pln; p2: Pln; tolAng: float; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; p1: Pln; p2: Pln; tolAng: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(p: Pln; c: Cylinder; tolang: float; tol: float;
-                                h: float = 0): IntAnaQuadQuadGeo {.constructor,
+proc constructIntAnaQuadQuadGeo*(p: Pln; c: Cylinder; tolang: cfloat; tol: cfloat;
+                                h: cfloat = 0): IntAnaQuadQuadGeo {.constructor,
     importcpp: "IntAna_QuadQuadGeo(@)", header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; p: Pln; c: Cylinder; tolang: float; tol: float;
-             h: float = 0) {.importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
+proc perform*(this: var IntAnaQuadQuadGeo; p: Pln; c: Cylinder; tolang: cfloat;
+             tol: cfloat; h: cfloat = 0) {.importcpp: "Perform",
+                                     header: "IntAna_QuadQuadGeo.hxx".}
 proc constructIntAnaQuadQuadGeo*(p: Pln; s: Sphere): IntAnaQuadQuadGeo {.constructor,
     importcpp: "IntAna_QuadQuadGeo(@)", header: "IntAna_QuadQuadGeo.hxx".}
 proc perform*(this: var IntAnaQuadQuadGeo; p: Pln; s: Sphere) {.importcpp: "Perform",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(p: Pln; c: Cone; tolang: float; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(p: Pln; c: Cone; tolang: cfloat; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; p: Pln; c: Cone; tolang: float; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; p: Pln; c: Cone; tolang: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(cyl1: Cylinder; cyl2: Cylinder; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(cyl1: Cylinder; cyl2: Cylinder; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; cyl1: Cylinder; cyl2: Cylinder; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; cyl1: Cylinder; cyl2: Cylinder; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(cyl: Cylinder; sph: Sphere; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(cyl: Cylinder; sph: Sphere; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; cyl: Cylinder; sph: Sphere; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; cyl: Cylinder; sph: Sphere; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(cyl: Cylinder; con: Cone; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(cyl: Cylinder; con: Cone; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; cyl: Cylinder; con: Cone; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; cyl: Cylinder; con: Cone; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(sph1: Sphere; sph2: Sphere; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(sph1: Sphere; sph2: Sphere; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; sph1: Sphere; sph2: Sphere; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; sph1: Sphere; sph2: Sphere; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(sph: Sphere; con: Cone; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(sph: Sphere; con: Cone; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; sph: Sphere; con: Cone; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; sph: Sphere; con: Cone; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(con1: Cone; con2: Cone; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(con1: Cone; con2: Cone; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; con1: Cone; con2: Cone; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; con1: Cone; con2: Cone; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(pln: Pln; tor: Torus; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(pln: Pln; tor: Torus; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; pln: Pln; tor: Torus; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; pln: Pln; tor: Torus; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(cyl: Cylinder; tor: Torus; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(cyl: Cylinder; tor: Torus; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; cyl: Cylinder; tor: Torus; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; cyl: Cylinder; tor: Torus; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(con: Cone; tor: Torus; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(con: Cone; tor: Torus; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; con: Cone; tor: Torus; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; con: Cone; tor: Torus; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(sph: Sphere; tor: Torus; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(sph: Sphere; tor: Torus; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; sph: Sphere; tor: Torus; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; sph: Sphere; tor: Torus; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
-proc constructIntAnaQuadQuadGeo*(tor1: Torus; tor2: Torus; tol: float): IntAnaQuadQuadGeo {.
+proc constructIntAnaQuadQuadGeo*(tor1: Torus; tor2: Torus; tol: cfloat): IntAnaQuadQuadGeo {.
     constructor, importcpp: "IntAna_QuadQuadGeo(@)",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc perform*(this: var IntAnaQuadQuadGeo; tor1: Torus; tor2: Torus; tol: float) {.
+proc perform*(this: var IntAnaQuadQuadGeo; tor1: Torus; tor2: Torus; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_QuadQuadGeo.hxx".}
 proc isDone*(this: IntAnaQuadQuadGeo): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntAna_QuadQuadGeo.hxx".}
 proc typeInter*(this: IntAnaQuadQuadGeo): IntAnaResultType {.noSideEffect,
     importcpp: "TypeInter", header: "IntAna_QuadQuadGeo.hxx".}
-proc nbSolutions*(this: IntAnaQuadQuadGeo): int {.noSideEffect,
+proc nbSolutions*(this: IntAnaQuadQuadGeo): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "IntAna_QuadQuadGeo.hxx".}
-proc point*(this: IntAnaQuadQuadGeo; num: int): Pnt {.noSideEffect, importcpp: "Point",
+proc point*(this: IntAnaQuadQuadGeo; num: cint): Pnt {.noSideEffect,
+    importcpp: "Point", header: "IntAna_QuadQuadGeo.hxx".}
+proc line*(this: IntAnaQuadQuadGeo; num: cint): Lin {.noSideEffect, importcpp: "Line",
     header: "IntAna_QuadQuadGeo.hxx".}
-proc line*(this: IntAnaQuadQuadGeo; num: int): Lin {.noSideEffect, importcpp: "Line",
-    header: "IntAna_QuadQuadGeo.hxx".}
-proc circle*(this: IntAnaQuadQuadGeo; num: int): Circ {.noSideEffect,
+proc circle*(this: IntAnaQuadQuadGeo; num: cint): Circ {.noSideEffect,
     importcpp: "Circle", header: "IntAna_QuadQuadGeo.hxx".}
-proc ellipse*(this: IntAnaQuadQuadGeo; num: int): Elips {.noSideEffect,
+proc ellipse*(this: IntAnaQuadQuadGeo; num: cint): Elips {.noSideEffect,
     importcpp: "Ellipse", header: "IntAna_QuadQuadGeo.hxx".}
-proc parabola*(this: IntAnaQuadQuadGeo; num: int): Parab {.noSideEffect,
+proc parabola*(this: IntAnaQuadQuadGeo; num: cint): Parab {.noSideEffect,
     importcpp: "Parabola", header: "IntAna_QuadQuadGeo.hxx".}
-proc hyperbola*(this: IntAnaQuadQuadGeo; num: int): Hypr {.noSideEffect,
+proc hyperbola*(this: IntAnaQuadQuadGeo; num: cint): Hypr {.noSideEffect,
     importcpp: "Hyperbola", header: "IntAna_QuadQuadGeo.hxx".}
 proc hasCommonGen*(this: IntAnaQuadQuadGeo): bool {.noSideEffect,
     importcpp: "HasCommonGen", header: "IntAna_QuadQuadGeo.hxx".}
 proc pChar*(this: IntAnaQuadQuadGeo): Pnt {.noSideEffect, importcpp: "PChar",
                                         header: "IntAna_QuadQuadGeo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

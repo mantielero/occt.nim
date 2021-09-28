@@ -25,7 +25,7 @@ type
 
 proc constructIGESToBRepReader*(): IGESToBRepReader {.constructor,
     importcpp: "IGESToBRep_Reader(@)", header: "IGESToBRep_Reader.hxx".}
-proc loadFile*(this: var IGESToBRepReader; filename: StandardCString): int {.
+proc loadFile*(this: var IGESToBRepReader; filename: StandardCString): cint {.
     importcpp: "LoadFile", header: "IGESToBRep_Reader.hxx".}
 proc setModel*(this: var IGESToBRepReader; model: Handle[IGESDataIGESModel]) {.
     importcpp: "SetModel", header: "IGESToBRep_Reader.hxx".}
@@ -45,16 +45,41 @@ proc check*(this: IGESToBRepReader; withprint: bool): bool {.noSideEffect,
 proc transferRoots*(this: var IGESToBRepReader; onlyvisible: bool = true;
                    theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "TransferRoots", header: "IGESToBRep_Reader.hxx".}
-proc transfer*(this: var IGESToBRepReader; num: int;
+proc transfer*(this: var IGESToBRepReader; num: cint;
               theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "Transfer", header: "IGESToBRep_Reader.hxx".}
 proc isDone*(this: IGESToBRepReader): bool {.noSideEffect, importcpp: "IsDone",
     header: "IGESToBRep_Reader.hxx".}
-proc usedTolerance*(this: IGESToBRepReader): float {.noSideEffect,
+proc usedTolerance*(this: IGESToBRepReader): cfloat {.noSideEffect,
     importcpp: "UsedTolerance", header: "IGESToBRep_Reader.hxx".}
-proc nbShapes*(this: IGESToBRepReader): int {.noSideEffect, importcpp: "NbShapes",
+proc nbShapes*(this: IGESToBRepReader): cint {.noSideEffect, importcpp: "NbShapes",
     header: "IGESToBRep_Reader.hxx".}
-proc shape*(this: IGESToBRepReader; num: int = 1): TopoDS_Shape {.noSideEffect,
+proc shape*(this: IGESToBRepReader; num: cint = 1): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "IGESToBRep_Reader.hxx".}
 proc oneShape*(this: IGESToBRepReader): TopoDS_Shape {.noSideEffect,
     importcpp: "OneShape", header: "IGESToBRep_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

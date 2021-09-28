@@ -84,5 +84,30 @@ proc failed*(this: OSD_FileNode): bool {.noSideEffect, importcpp: "Failed",
                                      header: "OSD_FileNode.hxx".}
 proc reset*(this: var OSD_FileNode) {.importcpp: "Reset", header: "OSD_FileNode.hxx".}
 proc perror*(this: var OSD_FileNode) {.importcpp: "Perror", header: "OSD_FileNode.hxx".}
-proc error*(this: OSD_FileNode): int {.noSideEffect, importcpp: "Error",
-                                   header: "OSD_FileNode.hxx".}
+proc error*(this: OSD_FileNode): cint {.noSideEffect, importcpp: "Error",
+                                    header: "OSD_FileNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

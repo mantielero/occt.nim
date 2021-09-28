@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MAT2dDataMapOfIntegerPnt2d* = NCollectionDataMap[int, Pnt2d,
+  MAT2dDataMapOfIntegerPnt2d* = NCollectionDataMap[cint, Pnt2d,
       TColStdMapIntegerHasher]
-  MAT2dDataMapIteratorOfDataMapOfIntegerPnt2d* = Iterator[int, Pnt2d,
+  MAT2dDataMapIteratorOfDataMapOfIntegerPnt2d* = Iterator[cint, Pnt2d,
       TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

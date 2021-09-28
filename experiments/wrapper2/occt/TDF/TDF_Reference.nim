@@ -21,7 +21,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDF_Reference"
 discard "forward decl of TDF_Reference"
 type
-  HandleTDF_Reference* = Handle[TDF_Reference]
+  HandleC1C1* = Handle[TDF_Reference]
 
 ## ! This  attribute is  used to  store in the  framework a
 ## ! reference to an other label.
@@ -54,8 +54,8 @@ proc dump*(this: TDF_Reference; anOS: var StandardOStream): var StandardOStream 
 proc constructTDF_Reference*(): TDF_Reference {.constructor,
     importcpp: "TDF_Reference(@)", header: "TDF_Reference.hxx".}
 proc dumpJson*(this: TDF_Reference; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDF_Reference.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDF_Reference.hxx".}
 type
   TDF_ReferencebaseType* = TDF_Attribute
 
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDF_Reference.hxx".}
 proc dynamicType*(this: TDF_Reference): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDF_Reference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

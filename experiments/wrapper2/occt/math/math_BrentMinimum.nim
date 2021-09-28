@@ -22,25 +22,50 @@ type
                                                                    ## ! correctly all the fields of this class.
 
 
-proc constructMathBrentMinimum*(tolX: float; nbIterations: int = 100;
-                               zeps: float = 1.0e-12): MathBrentMinimum {.
+proc constructMathBrentMinimum*(tolX: cfloat; nbIterations: cint = 100;
+                               zeps: cfloat = 1.0e-12): MathBrentMinimum {.
     constructor, importcpp: "math_BrentMinimum(@)", header: "math_BrentMinimum.hxx".}
-proc constructMathBrentMinimum*(tolX: float; fbx: float; nbIterations: int = 100;
-                               zeps: float = 1.0e-12): MathBrentMinimum {.
+proc constructMathBrentMinimum*(tolX: cfloat; fbx: cfloat; nbIterations: cint = 100;
+                               zeps: cfloat = 1.0e-12): MathBrentMinimum {.
     constructor, importcpp: "math_BrentMinimum(@)", header: "math_BrentMinimum.hxx".}
 proc destroyMathBrentMinimum*(this: var MathBrentMinimum) {.
     importcpp: "#.~math_BrentMinimum()", header: "math_BrentMinimum.hxx".}
-proc perform*(this: var MathBrentMinimum; f: var MathFunction; ax: float; bx: float;
-             cx: float) {.importcpp: "Perform", header: "math_BrentMinimum.hxx".}
+proc perform*(this: var MathBrentMinimum; f: var MathFunction; ax: cfloat; bx: cfloat;
+             cx: cfloat) {.importcpp: "Perform", header: "math_BrentMinimum.hxx".}
 proc isSolutionReached*(this: var MathBrentMinimum; theFunction: var MathFunction): bool {.
     importcpp: "IsSolutionReached", header: "math_BrentMinimum.hxx".}
 proc isDone*(this: MathBrentMinimum): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_BrentMinimum.hxx".}
-proc location*(this: MathBrentMinimum): float {.noSideEffect, importcpp: "Location",
+proc location*(this: MathBrentMinimum): cfloat {.noSideEffect, importcpp: "Location",
     header: "math_BrentMinimum.hxx".}
-proc minimum*(this: MathBrentMinimum): float {.noSideEffect, importcpp: "Minimum",
+proc minimum*(this: MathBrentMinimum): cfloat {.noSideEffect, importcpp: "Minimum",
     header: "math_BrentMinimum.hxx".}
-proc nbIterations*(this: MathBrentMinimum): int {.noSideEffect,
+proc nbIterations*(this: MathBrentMinimum): cint {.noSideEffect,
     importcpp: "NbIterations", header: "math_BrentMinimum.hxx".}
 proc dump*(this: MathBrentMinimum; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_BrentMinimum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

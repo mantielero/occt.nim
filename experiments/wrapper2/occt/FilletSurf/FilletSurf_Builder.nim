@@ -36,9 +36,9 @@ type
                                                                      ## approximation tolerance
 
 
-proc constructFilletSurfBuilder*(s: TopoDS_Shape; e: TopToolsListOfShape; r: float;
-                                ta: float = 1.0e-2; tapp3d: float = 1.0e-4;
-                                tapp2d: float = 1.0e-5): FilletSurfBuilder {.
+proc constructFilletSurfBuilder*(s: TopoDS_Shape; e: TopToolsListOfShape; r: cfloat;
+                                ta: cfloat = 1.0e-2; tapp3d: cfloat = 1.0e-4;
+                                tapp2d: cfloat = 1.0e-5): FilletSurfBuilder {.
     constructor, importcpp: "FilletSurf_Builder(@)",
     header: "FilletSurf_Builder.hxx".}
 proc perform*(this: var FilletSurfBuilder) {.importcpp: "Perform",
@@ -49,38 +49,63 @@ proc isDone*(this: FilletSurfBuilder): FilletSurfStatusDone {.noSideEffect,
     importcpp: "IsDone", header: "FilletSurf_Builder.hxx".}
 proc statusError*(this: FilletSurfBuilder): FilletSurfErrorTypeStatus {.
     noSideEffect, importcpp: "StatusError", header: "FilletSurf_Builder.hxx".}
-proc nbSurface*(this: FilletSurfBuilder): int {.noSideEffect, importcpp: "NbSurface",
-    header: "FilletSurf_Builder.hxx".}
-proc surfaceFillet*(this: FilletSurfBuilder; index: int): Handle[GeomSurface] {.
+proc nbSurface*(this: FilletSurfBuilder): cint {.noSideEffect,
+    importcpp: "NbSurface", header: "FilletSurf_Builder.hxx".}
+proc surfaceFillet*(this: FilletSurfBuilder; index: cint): Handle[GeomSurface] {.
     noSideEffect, importcpp: "SurfaceFillet", header: "FilletSurf_Builder.hxx".}
-proc tolApp3d*(this: FilletSurfBuilder; index: int): float {.noSideEffect,
+proc tolApp3d*(this: FilletSurfBuilder; index: cint): cfloat {.noSideEffect,
     importcpp: "TolApp3d", header: "FilletSurf_Builder.hxx".}
-proc supportFace1*(this: FilletSurfBuilder; index: int): TopoDS_Face {.noSideEffect,
+proc supportFace1*(this: FilletSurfBuilder; index: cint): TopoDS_Face {.noSideEffect,
     importcpp: "SupportFace1", header: "FilletSurf_Builder.hxx".}
-proc supportFace2*(this: FilletSurfBuilder; index: int): TopoDS_Face {.noSideEffect,
+proc supportFace2*(this: FilletSurfBuilder; index: cint): TopoDS_Face {.noSideEffect,
     importcpp: "SupportFace2", header: "FilletSurf_Builder.hxx".}
-proc curveOnFace1*(this: FilletSurfBuilder; index: int): Handle[GeomCurve] {.
+proc curveOnFace1*(this: FilletSurfBuilder; index: cint): Handle[GeomCurve] {.
     noSideEffect, importcpp: "CurveOnFace1", header: "FilletSurf_Builder.hxx".}
-proc curveOnFace2*(this: FilletSurfBuilder; index: int): Handle[GeomCurve] {.
+proc curveOnFace2*(this: FilletSurfBuilder; index: cint): Handle[GeomCurve] {.
     noSideEffect, importcpp: "CurveOnFace2", header: "FilletSurf_Builder.hxx".}
-proc pCurveOnFace1*(this: FilletSurfBuilder; index: int): Handle[Geom2dCurve] {.
+proc pCurveOnFace1*(this: FilletSurfBuilder; index: cint): Handle[Geom2dCurve] {.
     noSideEffect, importcpp: "PCurveOnFace1", header: "FilletSurf_Builder.hxx".}
-proc pCurve1OnFillet*(this: FilletSurfBuilder; index: int): Handle[Geom2dCurve] {.
+proc pCurve1OnFillet*(this: FilletSurfBuilder; index: cint): Handle[Geom2dCurve] {.
     noSideEffect, importcpp: "PCurve1OnFillet", header: "FilletSurf_Builder.hxx".}
-proc pCurveOnFace2*(this: FilletSurfBuilder; index: int): Handle[Geom2dCurve] {.
+proc pCurveOnFace2*(this: FilletSurfBuilder; index: cint): Handle[Geom2dCurve] {.
     noSideEffect, importcpp: "PCurveOnFace2", header: "FilletSurf_Builder.hxx".}
-proc pCurve2OnFillet*(this: FilletSurfBuilder; index: int): Handle[Geom2dCurve] {.
+proc pCurve2OnFillet*(this: FilletSurfBuilder; index: cint): Handle[Geom2dCurve] {.
     noSideEffect, importcpp: "PCurve2OnFillet", header: "FilletSurf_Builder.hxx".}
-proc firstParameter*(this: FilletSurfBuilder): float {.noSideEffect,
+proc firstParameter*(this: FilletSurfBuilder): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "FilletSurf_Builder.hxx".}
-proc lastParameter*(this: FilletSurfBuilder): float {.noSideEffect,
+proc lastParameter*(this: FilletSurfBuilder): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "FilletSurf_Builder.hxx".}
 proc startSectionStatus*(this: FilletSurfBuilder): FilletSurfStatusType {.
     noSideEffect, importcpp: "StartSectionStatus", header: "FilletSurf_Builder.hxx".}
 proc endSectionStatus*(this: FilletSurfBuilder): FilletSurfStatusType {.
     noSideEffect, importcpp: "EndSectionStatus", header: "FilletSurf_Builder.hxx".}
-proc nbSection*(this: FilletSurfBuilder; indexSurf: int): int {.noSideEffect,
+proc nbSection*(this: FilletSurfBuilder; indexSurf: cint): cint {.noSideEffect,
     importcpp: "NbSection", header: "FilletSurf_Builder.hxx".}
-proc section*(this: FilletSurfBuilder; indexSurf: int; indexSec: int;
+proc section*(this: FilletSurfBuilder; indexSurf: cint; indexSec: cint;
              circ: var Handle[GeomTrimmedCurve]) {.noSideEffect,
     importcpp: "Section", header: "FilletSurf_Builder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

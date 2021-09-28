@@ -22,3 +22,28 @@ type
     OSD_SignalModeUnset       ## !< Unset signal handler to system default
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,36 +29,37 @@ type
 
 proc constructIntPatchPoint*(): IntPatchPoint {.constructor,
     importcpp: "IntPatch_Point(@)", header: "IntPatch_Point.hxx".}
-proc setValue*(this: var IntPatchPoint; pt: Pnt; tol: float; tangent: bool) {.
+proc setValue*(this: var IntPatchPoint; pt: Pnt; tol: cfloat; tangent: bool) {.
     importcpp: "SetValue", header: "IntPatch_Point.hxx".}
 proc setValue*(this: var IntPatchPoint; pt: Pnt) {.importcpp: "SetValue",
     header: "IntPatch_Point.hxx".}
 proc setValue*(this: var IntPatchPoint; thePOn2S: IntSurfPntOn2S) {.
     importcpp: "SetValue", header: "IntPatch_Point.hxx".}
-proc setTolerance*(this: var IntPatchPoint; tol: float) {.importcpp: "SetTolerance",
+proc setTolerance*(this: var IntPatchPoint; tol: cfloat) {.importcpp: "SetTolerance",
     header: "IntPatch_Point.hxx".}
-proc setParameters*(this: var IntPatchPoint; u1: float; v1: float; u2: float; v2: float) {.
-    importcpp: "SetParameters", header: "IntPatch_Point.hxx".}
-proc setParameter*(this: var IntPatchPoint; para: float) {.importcpp: "SetParameter",
+proc setParameters*(this: var IntPatchPoint; u1: cfloat; v1: cfloat; u2: cfloat;
+                   v2: cfloat) {.importcpp: "SetParameters",
+                               header: "IntPatch_Point.hxx".}
+proc setParameter*(this: var IntPatchPoint; para: cfloat) {.importcpp: "SetParameter",
     header: "IntPatch_Point.hxx".}
 proc setVertex*(this: var IntPatchPoint; onFirst: bool; v: Handle[Adaptor3dHVertex]) {.
     importcpp: "SetVertex", header: "IntPatch_Point.hxx".}
 proc setArc*(this: var IntPatchPoint; onFirst: bool; a: Handle[Adaptor2dHCurve2d];
-            param: float; tLine: IntSurfTransition; tArc: IntSurfTransition) {.
+            param: cfloat; tLine: IntSurfTransition; tArc: IntSurfTransition) {.
     importcpp: "SetArc", header: "IntPatch_Point.hxx".}
 proc setMultiple*(this: var IntPatchPoint; isMult: bool) {.importcpp: "SetMultiple",
     header: "IntPatch_Point.hxx".}
 proc value*(this: IntPatchPoint): Pnt {.noSideEffect, importcpp: "Value",
                                     header: "IntPatch_Point.hxx".}
-proc parameterOnLine*(this: IntPatchPoint): float {.noSideEffect,
+proc parameterOnLine*(this: IntPatchPoint): cfloat {.noSideEffect,
     importcpp: "ParameterOnLine", header: "IntPatch_Point.hxx".}
-proc tolerance*(this: IntPatchPoint): float {.noSideEffect, importcpp: "Tolerance",
+proc tolerance*(this: IntPatchPoint): cfloat {.noSideEffect, importcpp: "Tolerance",
     header: "IntPatch_Point.hxx".}
 proc isTangencyPoint*(this: IntPatchPoint): bool {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "IntPatch_Point.hxx".}
-proc parametersOnS1*(this: IntPatchPoint; u1: var float; v1: var float) {.noSideEffect,
+proc parametersOnS1*(this: IntPatchPoint; u1: var cfloat; v1: var cfloat) {.noSideEffect,
     importcpp: "ParametersOnS1", header: "IntPatch_Point.hxx".}
-proc parametersOnS2*(this: IntPatchPoint; u2: var float; v2: var float) {.noSideEffect,
+proc parametersOnS2*(this: IntPatchPoint; u2: var cfloat; v2: var cfloat) {.noSideEffect,
     importcpp: "ParametersOnS2", header: "IntPatch_Point.hxx".}
 proc isMultiple*(this: IntPatchPoint): bool {.noSideEffect, importcpp: "IsMultiple",
     header: "IntPatch_Point.hxx".}
@@ -74,7 +75,7 @@ proc transitionLineArc1*(this: IntPatchPoint): IntSurfTransition {.noSideEffect,
     importcpp: "TransitionLineArc1", header: "IntPatch_Point.hxx".}
 proc transitionOnS1*(this: IntPatchPoint): IntSurfTransition {.noSideEffect,
     importcpp: "TransitionOnS1", header: "IntPatch_Point.hxx".}
-proc parameterOnArc1*(this: IntPatchPoint): float {.noSideEffect,
+proc parameterOnArc1*(this: IntPatchPoint): cfloat {.noSideEffect,
     importcpp: "ParameterOnArc1", header: "IntPatch_Point.hxx".}
 proc isOnDomS2*(this: IntPatchPoint): bool {.noSideEffect, importcpp: "IsOnDomS2",
     header: "IntPatch_Point.hxx".}
@@ -88,14 +89,39 @@ proc transitionLineArc2*(this: IntPatchPoint): IntSurfTransition {.noSideEffect,
     importcpp: "TransitionLineArc2", header: "IntPatch_Point.hxx".}
 proc transitionOnS2*(this: IntPatchPoint): IntSurfTransition {.noSideEffect,
     importcpp: "TransitionOnS2", header: "IntPatch_Point.hxx".}
-proc parameterOnArc2*(this: IntPatchPoint): float {.noSideEffect,
+proc parameterOnArc2*(this: IntPatchPoint): cfloat {.noSideEffect,
     importcpp: "ParameterOnArc2", header: "IntPatch_Point.hxx".}
 proc pntOn2S*(this: IntPatchPoint): IntSurfPntOn2S {.noSideEffect,
     importcpp: "PntOn2S", header: "IntPatch_Point.hxx".}
-proc parameters*(this: IntPatchPoint; u1: var float; v1: var float; u2: var float;
-                v2: var float) {.noSideEffect, importcpp: "Parameters",
-                              header: "IntPatch_Point.hxx".}
+proc parameters*(this: IntPatchPoint; u1: var cfloat; v1: var cfloat; u2: var cfloat;
+                v2: var cfloat) {.noSideEffect, importcpp: "Parameters",
+                               header: "IntPatch_Point.hxx".}
 proc reverseTransition*(this: var IntPatchPoint) {.importcpp: "ReverseTransition",
     header: "IntPatch_Point.hxx".}
 proc dump*(this: IntPatchPoint) {.noSideEffect, importcpp: "Dump",
                                header: "IntPatch_Point.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

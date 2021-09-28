@@ -22,7 +22,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of StepSelect_StepType"
 discard "forward decl of StepSelect_StepType"
 type
-  HandleStepSelectStepType* = Handle[StepSelectStepType]
+  HandleC1C1* = Handle[StepSelectStepType]
 
 ## ! StepType is a Signature specific to Step definitions : it
 ## ! considers the type as defined in STEP Schemas, the same which
@@ -86,3 +86,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepSelect_StepType.hxx".}
 proc dynamicType*(this: StepSelectStepType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepSelect_StepType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

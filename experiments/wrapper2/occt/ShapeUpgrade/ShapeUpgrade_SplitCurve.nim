@@ -21,7 +21,7 @@
 discard "forward decl of ShapeUpgrade_SplitCurve"
 discard "forward decl of ShapeUpgrade_SplitCurve"
 type
-  HandleShapeUpgradeSplitCurve* = Handle[ShapeUpgradeSplitCurve]
+  HandleC1C1* = Handle[ShapeUpgradeSplitCurve]
 
 ## ! Splits a  curve with a  criterion.
 
@@ -35,7 +35,7 @@ type
 
 proc constructShapeUpgradeSplitCurve*(): ShapeUpgradeSplitCurve {.constructor,
     importcpp: "ShapeUpgrade_SplitCurve(@)", header: "ShapeUpgrade_SplitCurve.hxx".}
-proc init*(this: var ShapeUpgradeSplitCurve; first: float; last: float) {.
+proc init*(this: var ShapeUpgradeSplitCurve; first: cfloat; last: cfloat) {.
     importcpp: "Init", header: "ShapeUpgrade_SplitCurve.hxx".}
 proc setSplitValues*(this: var ShapeUpgradeSplitCurve;
                     splitValues: Handle[TColStdHSequenceOfReal]) {.
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeUpgrade_SplitCurve.hxx".}
 proc dynamicType*(this: ShapeUpgradeSplitCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_SplitCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

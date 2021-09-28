@@ -32,3 +32,28 @@ proc read*(theDriver: Handle[StorageBaseDriver];
     importcpp: "StdStorage::Read(@)", header: "StdStorage.hxx".}
 proc write*(theDriver: Handle[StorageBaseDriver]; theData: Handle[StdStorageData]): StorageError {.
     importcpp: "StdStorage::Write(@)", header: "StdStorage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

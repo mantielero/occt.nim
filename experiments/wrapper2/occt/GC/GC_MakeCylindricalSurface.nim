@@ -118,7 +118,7 @@ type
                                                                                              ## 0.0
 
 
-proc constructGC_MakeCylindricalSurface*(a2: Ax2; radius: float): GC_MakeCylindricalSurface {.
+proc constructGC_MakeCylindricalSurface*(a2: Ax2; radius: cfloat): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
 proc constructGC_MakeCylindricalSurface*(c: Cylinder): GC_MakeCylindricalSurface {.
@@ -127,13 +127,13 @@ proc constructGC_MakeCylindricalSurface*(c: Cylinder): GC_MakeCylindricalSurface
 proc constructGC_MakeCylindricalSurface*(cyl: Cylinder; point: Pnt): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc constructGC_MakeCylindricalSurface*(cyl: Cylinder; dist: float): GC_MakeCylindricalSurface {.
+proc constructGC_MakeCylindricalSurface*(cyl: Cylinder; dist: cfloat): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
 proc constructGC_MakeCylindricalSurface*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc constructGC_MakeCylindricalSurface*(axis: Ax1; radius: float): GC_MakeCylindricalSurface {.
+proc constructGC_MakeCylindricalSurface*(axis: Ax1; radius: cfloat): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
 proc constructGC_MakeCylindricalSurface*(circ: Circ): GC_MakeCylindricalSurface {.
@@ -144,3 +144,24 @@ proc value*(this: GC_MakeCylindricalSurface): Handle[GeomCylindricalSurface] {.
 converter `constopencascade`*(this: GC_MakeCylindricalSurface): Handle[
     GeomCylindricalSurface] {.noSideEffect, importcpp: "GC_MakeCylindricalSurface::operator constopencascade",
                              header: "GC_MakeCylindricalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

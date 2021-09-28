@@ -44,3 +44,28 @@ proc value*[PixelTypeT](this: ImagePixMapTypedData[PixelTypeT];
 proc changeValue*[PixelTypeT](this: var ImagePixMapTypedData[PixelTypeT];
                              theRow: StandardSize; theCol: StandardSize): var PixelTypeT {.
     importcpp: "ChangeValue", header: "Image_PixMapTypedData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -54,10 +54,35 @@ proc edge*(this: TopOpeBRepBuildPaveSet): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc hasEqualParameters*(this: var TopOpeBRepBuildPaveSet): bool {.
     importcpp: "HasEqualParameters", header: "TopOpeBRepBuild_PaveSet.hxx".}
-proc equalParameters*(this: TopOpeBRepBuildPaveSet): float {.noSideEffect,
+proc equalParameters*(this: TopOpeBRepBuildPaveSet): cfloat {.noSideEffect,
     importcpp: "EqualParameters", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc closedVertices*(this: var TopOpeBRepBuildPaveSet): bool {.
     importcpp: "ClosedVertices", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc sortPave*(lin: TopOpeBRepBuildListOfPave; lout: var TopOpeBRepBuildListOfPave) {.
     importcpp: "TopOpeBRepBuild_PaveSet::SortPave(@)",
     header: "TopOpeBRepBuild_PaveSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

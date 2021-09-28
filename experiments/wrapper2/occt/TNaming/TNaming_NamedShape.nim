@@ -29,7 +29,7 @@ discard "forward decl of TDF_AttributeDelta"
 discard "forward decl of TNaming_NamedShape"
 discard "forward decl of TNaming_NamedShape"
 type
-  HandleTNamingNamedShape* = Handle[TNamingNamedShape]
+  HandleC1C1* = Handle[TNamingNamedShape]
 
 ## ! The basis to define an attribute for the storage of
 ## ! topology and naming data.
@@ -74,10 +74,10 @@ proc get*(this: TNamingNamedShape): TopoDS_Shape {.noSideEffect, importcpp: "Get
     header: "TNaming_NamedShape.hxx".}
 proc evolution*(this: TNamingNamedShape): TNamingEvolution {.noSideEffect,
     importcpp: "Evolution", header: "TNaming_NamedShape.hxx".}
-proc version*(this: TNamingNamedShape): int {.noSideEffect, importcpp: "Version",
+proc version*(this: TNamingNamedShape): cint {.noSideEffect, importcpp: "Version",
     header: "TNaming_NamedShape.hxx".}
-proc setVersion*(this: var TNamingNamedShape; version: int) {.importcpp: "SetVersion",
-    header: "TNaming_NamedShape.hxx".}
+proc setVersion*(this: var TNamingNamedShape; version: cint) {.
+    importcpp: "SetVersion", header: "TNaming_NamedShape.hxx".}
 proc clear*(this: var TNamingNamedShape) {.importcpp: "Clear",
                                        header: "TNaming_NamedShape.hxx".}
 proc destroyTNamingNamedShape*(this: var TNamingNamedShape) {.
@@ -115,8 +115,8 @@ proc afterUndo*(this: var TNamingNamedShape; anAttDelta: Handle[TDF_AttributeDel
 proc dump*(this: TNamingNamedShape; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TNaming_NamedShape.hxx".}
 proc dumpJson*(this: TNamingNamedShape; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TNaming_NamedShape.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TNaming_NamedShape.hxx".}
 type
   TNamingNamedShapebaseType* = TDF_Attribute
 
@@ -127,3 +127,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TNaming_NamedShape.hxx".}
 proc dynamicType*(this: TNamingNamedShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TNaming_NamedShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

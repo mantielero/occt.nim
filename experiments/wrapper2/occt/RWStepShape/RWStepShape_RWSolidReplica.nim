@@ -28,7 +28,7 @@ proc constructRWStepShapeRWSolidReplica*(): RWStepShapeRWSolidReplica {.
     constructor, importcpp: "RWStepShape_RWSolidReplica(@)",
     header: "RWStepShape_RWSolidReplica.hxx".}
 proc readStep*(this: RWStepShapeRWSolidReplica;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeSolidReplica]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWSolidReplica.hxx".}
 proc writeStep*(this: RWStepShapeRWSolidReplica; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepShapeRWSolidReplica; sw: var StepDataStepWriter;
 proc share*(this: RWStepShapeRWSolidReplica; ent: Handle[StepShapeSolidReplica];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWSolidReplica.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

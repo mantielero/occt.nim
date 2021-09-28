@@ -22,7 +22,7 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Geometry"
 type
-  HandleGeom2dGeometry* = Handle[Geom2dGeometry]
+  HandleC1C1* = Handle[Geom2dGeometry]
 
 ## ! The general abstract class Geometry in 2D space describes
 ## ! the common behaviour of all the geometric entities.
@@ -59,9 +59,9 @@ proc mirror*(this: var Geom2dGeometry; p: Pnt2d) {.importcpp: "Mirror",
     header: "Geom2d_Geometry.hxx".}
 proc mirror*(this: var Geom2dGeometry; a: Ax2d) {.importcpp: "Mirror",
     header: "Geom2d_Geometry.hxx".}
-proc rotate*(this: var Geom2dGeometry; p: Pnt2d; ang: float) {.importcpp: "Rotate",
-    header: "Geom2d_Geometry.hxx".}
-proc scale*(this: var Geom2dGeometry; p: Pnt2d; s: float) {.importcpp: "Scale",
+proc rotate*(this: var Geom2dGeometry; p: Pnt2d; ang: StandardReal) {.
+    importcpp: "Rotate", header: "Geom2d_Geometry.hxx".}
+proc scale*(this: var Geom2dGeometry; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
     header: "Geom2d_Geometry.hxx".}
 proc translate*(this: var Geom2dGeometry; v: Vec2d) {.importcpp: "Translate",
     header: "Geom2d_Geometry.hxx".}
@@ -73,9 +73,9 @@ proc mirrored*(this: Geom2dGeometry; p: Pnt2d): Handle[Geom2dGeometry] {.noSideE
     importcpp: "Mirrored", header: "Geom2d_Geometry.hxx".}
 proc mirrored*(this: Geom2dGeometry; a: Ax2d): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Mirrored", header: "Geom2d_Geometry.hxx".}
-proc rotated*(this: Geom2dGeometry; p: Pnt2d; ang: float): Handle[Geom2dGeometry] {.
+proc rotated*(this: Geom2dGeometry; p: Pnt2d; ang: StandardReal): Handle[Geom2dGeometry] {.
     noSideEffect, importcpp: "Rotated", header: "Geom2d_Geometry.hxx".}
-proc scaled*(this: Geom2dGeometry; p: Pnt2d; s: float): Handle[Geom2dGeometry] {.
+proc scaled*(this: Geom2dGeometry; p: Pnt2d; s: StandardReal): Handle[Geom2dGeometry] {.
     noSideEffect, importcpp: "Scaled", header: "Geom2d_Geometry.hxx".}
 proc transformed*(this: Geom2dGeometry; t: Trsf2d): Handle[Geom2dGeometry] {.
     noSideEffect, importcpp: "Transformed", header: "Geom2d_Geometry.hxx".}

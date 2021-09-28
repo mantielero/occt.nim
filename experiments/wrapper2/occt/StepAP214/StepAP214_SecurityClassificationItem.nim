@@ -36,7 +36,7 @@ proc constructStepAP214SecurityClassificationItem*(): StepAP214SecurityClassific
     constructor, importcpp: "StepAP214_SecurityClassificationItem(@)",
     header: "StepAP214_SecurityClassificationItem.hxx".}
 proc caseNum*(this: StepAP214SecurityClassificationItem;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_SecurityClassificationItem.hxx".}
 proc action*(this: StepAP214SecurityClassificationItem): Handle[StepBasicAction] {.
     noSideEffect, importcpp: "Action",
@@ -64,3 +64,28 @@ proc productDefinitionUsage*(this: StepAP214SecurityClassificationItem): Handle[
 proc versionedActionRequest*(this: StepAP214SecurityClassificationItem): Handle[
     StepBasicVersionedActionRequest] {.noSideEffect,
                                       importcpp: "VersionedActionRequest", header: "StepAP214_SecurityClassificationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

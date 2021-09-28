@@ -15,13 +15,54 @@
 ## !!!Ignored construct:  # _OSD_SIGKILL_HeaderFile [NewLine] # _OSD_SIGKILL_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Signal . hxx > [NewLine] class OSD_SIGKILL ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_SIGKILL"
-type
-  HandleOSD_SIGKILLOSD_SIGKILL* = Handle[Osd_Sigkill]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_SIGKILL , OSD_Signal ) # ! defined No_Exception && ! defined No_OSD_SIGKILL [NewLine] # OSD_SIGKILL_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_SIGKILL ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_SIGKILL [NewLine] # if ( CONDITION ) throw OSD_SIGKILL ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_SIGKILL_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGKILL , OSD_Signal ) #  _OSD_SIGKILL_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGKILL , OSD_Signal ) #  _OSD_SIGKILL_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -15,3 +15,28 @@ type
   StepElementArray1OfMeasureOrUnspecifiedValue* = NCollectionArray1[
       StepElementMeasureOrUnspecifiedValue]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

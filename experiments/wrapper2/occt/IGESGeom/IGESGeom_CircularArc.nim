@@ -21,7 +21,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESGeom_CircularArc"
 discard "forward decl of IGESGeom_CircularArc"
 type
-  HandleIGESGeomCircularArc* = Handle[IGESGeomCircularArc]
+  HandleC1C1* = Handle[IGESGeomCircularArc]
 
 ## ! defines IGESCircularArc, Type <100> Form <0>
 ## ! in package IGESGeom
@@ -38,7 +38,7 @@ type
 
 proc constructIGESGeomCircularArc*(): IGESGeomCircularArc {.constructor,
     importcpp: "IGESGeom_CircularArc(@)", header: "IGESGeom_CircularArc.hxx".}
-proc init*(this: var IGESGeomCircularArc; aZT: float; aCenter: Xy; aStart: Xy; anEnd: Xy) {.
+proc init*(this: var IGESGeomCircularArc; aZT: cfloat; aCenter: Xy; aStart: Xy; anEnd: Xy) {.
     importcpp: "Init", header: "IGESGeom_CircularArc.hxx".}
 proc center*(this: IGESGeomCircularArc): Pnt2d {.noSideEffect, importcpp: "Center",
     header: "IGESGeom_CircularArc.hxx".}
@@ -48,15 +48,15 @@ proc startPoint*(this: IGESGeomCircularArc): Pnt2d {.noSideEffect,
     importcpp: "StartPoint", header: "IGESGeom_CircularArc.hxx".}
 proc transformedStartPoint*(this: IGESGeomCircularArc): Pnt {.noSideEffect,
     importcpp: "TransformedStartPoint", header: "IGESGeom_CircularArc.hxx".}
-proc zPlane*(this: IGESGeomCircularArc): float {.noSideEffect, importcpp: "ZPlane",
+proc zPlane*(this: IGESGeomCircularArc): cfloat {.noSideEffect, importcpp: "ZPlane",
     header: "IGESGeom_CircularArc.hxx".}
 proc endPoint*(this: IGESGeomCircularArc): Pnt2d {.noSideEffect,
     importcpp: "EndPoint", header: "IGESGeom_CircularArc.hxx".}
 proc transformedEndPoint*(this: IGESGeomCircularArc): Pnt {.noSideEffect,
     importcpp: "TransformedEndPoint", header: "IGESGeom_CircularArc.hxx".}
-proc radius*(this: IGESGeomCircularArc): float {.noSideEffect, importcpp: "Radius",
+proc radius*(this: IGESGeomCircularArc): cfloat {.noSideEffect, importcpp: "Radius",
     header: "IGESGeom_CircularArc.hxx".}
-proc angle*(this: IGESGeomCircularArc): float {.noSideEffect, importcpp: "Angle",
+proc angle*(this: IGESGeomCircularArc): cfloat {.noSideEffect, importcpp: "Angle",
     header: "IGESGeom_CircularArc.hxx".}
 proc axis*(this: IGESGeomCircularArc): Dir {.noSideEffect, importcpp: "Axis",
     header: "IGESGeom_CircularArc.hxx".}
@@ -74,3 +74,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_CircularArc.hxx".}
 proc dynamicType*(this: IGESGeomCircularArc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_CircularArc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

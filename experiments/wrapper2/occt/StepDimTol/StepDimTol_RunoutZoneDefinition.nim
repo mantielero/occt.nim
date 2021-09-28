@@ -17,7 +17,7 @@ discard "forward decl of StepRepr_HArray1OfShapeAspect"
 discard "forward decl of StepDimTol_RunoutZoneDefinition"
 discard "forward decl of StepDimTol_RunoutZoneDefinition"
 type
-  HandleStepDimTolRunoutZoneDefinition* = Handle[StepDimTolRunoutZoneDefinition]
+  HandleC1C1* = Handle[StepDimTolRunoutZoneDefinition]
 
 ## ! Representation of STEP entity ToleranceZoneDefinition
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolRunoutZoneDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_RunoutZoneDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

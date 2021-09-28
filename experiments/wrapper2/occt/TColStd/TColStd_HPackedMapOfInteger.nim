@@ -16,7 +16,7 @@
 discard "forward decl of TColStd_HPackedMapOfInteger"
 discard "forward decl of TColStd_HPackedMapOfInteger"
 type
-  HandleTColStdHPackedMapOfInteger* = Handle[TColStdHPackedMapOfInteger]
+  HandleC1C1* = Handle[TColStdHPackedMapOfInteger]
 
 ## ! Extension of TColStd_PackedMapOfInteger class to be manipulated by handle.
 
@@ -25,7 +25,7 @@ type
                                header: "TColStd_HPackedMapOfInteger.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructTColStdHPackedMapOfInteger*(nbBuckets: int = 1): TColStdHPackedMapOfInteger {.
+proc constructTColStdHPackedMapOfInteger*(nbBuckets: cint = 1): TColStdHPackedMapOfInteger {.
     constructor, importcpp: "TColStd_HPackedMapOfInteger(@)",
     header: "TColStd_HPackedMapOfInteger.hxx".}
 proc constructTColStdHPackedMapOfInteger*(theOther: TColStdPackedMapOfInteger): TColStdHPackedMapOfInteger {.
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TColStdHPackedMapOfInteger): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TColStd_HPackedMapOfInteger.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

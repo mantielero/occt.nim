@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_CompositeCurveSegment"
 discard "forward decl of StepGeom_CompositeCurve"
 discard "forward decl of StepGeom_CompositeCurve"
 type
-  HandleStepGeomCompositeCurve* = Handle[StepGeomCompositeCurve]
+  HandleC1C1* = Handle[StepGeomCompositeCurve]
   StepGeomCompositeCurve* {.importcpp: "StepGeom_CompositeCurve",
                            header: "StepGeom_CompositeCurve.hxx", bycopy.} = object of StepGeomBoundedCurve ##
                                                                                                      ## !
@@ -40,10 +40,10 @@ proc setSegments*(this: var StepGeomCompositeCurve;
 proc segments*(this: StepGeomCompositeCurve): Handle[
     StepGeomHArray1OfCompositeCurveSegment] {.noSideEffect, importcpp: "Segments",
     header: "StepGeom_CompositeCurve.hxx".}
-proc segmentsValue*(this: StepGeomCompositeCurve; num: int): Handle[
+proc segmentsValue*(this: StepGeomCompositeCurve; num: cint): Handle[
     StepGeomCompositeCurveSegment] {.noSideEffect, importcpp: "SegmentsValue",
                                     header: "StepGeom_CompositeCurve.hxx".}
-proc nbSegments*(this: StepGeomCompositeCurve): int {.noSideEffect,
+proc nbSegments*(this: StepGeomCompositeCurve): cint {.noSideEffect,
     importcpp: "NbSegments", header: "StepGeom_CompositeCurve.hxx".}
 proc setSelfIntersect*(this: var StepGeomCompositeCurve;
                       aSelfIntersect: StepDataLogical) {.
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_CompositeCurve.hxx".}
 proc dynamicType*(this: StepGeomCompositeCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_CompositeCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

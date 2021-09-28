@@ -29,7 +29,7 @@ proc constructRWStepAP214RWAutoDesignPresentedItem*(): RWStepAP214RWAutoDesignPr
     constructor, importcpp: "RWStepAP214_RWAutoDesignPresentedItem(@)",
     header: "RWStepAP214_RWAutoDesignPresentedItem.hxx".}
 proc readStep*(this: RWStepAP214RWAutoDesignPresentedItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AutoDesignPresentedItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAutoDesignPresentedItem.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepAP214RWAutoDesignPresentedItem;
            ent: Handle[StepAP214AutoDesignPresentedItem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAutoDesignPresentedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

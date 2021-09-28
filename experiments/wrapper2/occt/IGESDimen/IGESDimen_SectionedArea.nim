@@ -21,7 +21,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_SectionedArea"
 discard "forward decl of IGESDimen_SectionedArea"
 type
-  HandleIGESDimenSectionedArea* = Handle[IGESDimenSectionedArea]
+  HandleC1C1* = Handle[IGESDimenSectionedArea]
 
 ## ! defines IGES Sectioned Area, Type <230> Form <0>,
 ## ! in package IGESDimen
@@ -44,7 +44,7 @@ type
 proc constructIGESDimenSectionedArea*(): IGESDimenSectionedArea {.constructor,
     importcpp: "IGESDimen_SectionedArea(@)", header: "IGESDimen_SectionedArea.hxx".}
 proc init*(this: var IGESDimenSectionedArea; aCurve: Handle[IGESDataIGESEntity];
-          aPattern: int; aPoint: Xyz; aDistance: float; anAngle: float;
+          aPattern: cint; aPoint: Xyz; aDistance: cfloat; anAngle: cfloat;
           someIslands: Handle[IGESDataHArray1OfIGESEntity]) {.importcpp: "Init",
     header: "IGESDimen_SectionedArea.hxx".}
 proc setInverted*(this: var IGESDimenSectionedArea; mode: bool) {.
@@ -53,21 +53,21 @@ proc isInverted*(this: IGESDimenSectionedArea): bool {.noSideEffect,
     importcpp: "IsInverted", header: "IGESDimen_SectionedArea.hxx".}
 proc exteriorCurve*(this: IGESDimenSectionedArea): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "ExteriorCurve", header: "IGESDimen_SectionedArea.hxx".}
-proc pattern*(this: IGESDimenSectionedArea): int {.noSideEffect,
+proc pattern*(this: IGESDimenSectionedArea): cint {.noSideEffect,
     importcpp: "Pattern", header: "IGESDimen_SectionedArea.hxx".}
 proc passingPoint*(this: IGESDimenSectionedArea): Pnt {.noSideEffect,
     importcpp: "PassingPoint", header: "IGESDimen_SectionedArea.hxx".}
 proc transformedPassingPoint*(this: IGESDimenSectionedArea): Pnt {.noSideEffect,
     importcpp: "TransformedPassingPoint", header: "IGESDimen_SectionedArea.hxx".}
-proc zDepth*(this: IGESDimenSectionedArea): float {.noSideEffect,
+proc zDepth*(this: IGESDimenSectionedArea): cfloat {.noSideEffect,
     importcpp: "ZDepth", header: "IGESDimen_SectionedArea.hxx".}
-proc distance*(this: IGESDimenSectionedArea): float {.noSideEffect,
+proc distance*(this: IGESDimenSectionedArea): cfloat {.noSideEffect,
     importcpp: "Distance", header: "IGESDimen_SectionedArea.hxx".}
-proc angle*(this: IGESDimenSectionedArea): float {.noSideEffect, importcpp: "Angle",
+proc angle*(this: IGESDimenSectionedArea): cfloat {.noSideEffect, importcpp: "Angle",
     header: "IGESDimen_SectionedArea.hxx".}
-proc nbIslands*(this: IGESDimenSectionedArea): int {.noSideEffect,
+proc nbIslands*(this: IGESDimenSectionedArea): cint {.noSideEffect,
     importcpp: "NbIslands", header: "IGESDimen_SectionedArea.hxx".}
-proc islandCurve*(this: IGESDimenSectionedArea; index: int): Handle[
+proc islandCurve*(this: IGESDimenSectionedArea; index: cint): Handle[
     IGESDataIGESEntity] {.noSideEffect, importcpp: "IslandCurve",
                          header: "IGESDimen_SectionedArea.hxx".}
 type
@@ -80,3 +80,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_SectionedArea.hxx".}
 proc dynamicType*(this: IGESDimenSectionedArea): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_SectionedArea.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

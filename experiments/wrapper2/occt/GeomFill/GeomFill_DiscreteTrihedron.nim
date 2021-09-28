@@ -22,7 +22,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_DiscreteTrihedron"
 discard "forward decl of GeomFill_DiscreteTrihedron"
 type
-  HandleGeomFillDiscreteTrihedron* = Handle[GeomFillDiscreteTrihedron]
+  HandleC1C1* = Handle[GeomFillDiscreteTrihedron]
 
 ## ! Defined Discrete Trihedron Law.
 ## ! The requirement for path curve is only G1.
@@ -43,16 +43,16 @@ proc init*(this: var GeomFillDiscreteTrihedron) {.importcpp: "Init",
     header: "GeomFill_DiscreteTrihedron.hxx".}
 proc setCurve*(this: var GeomFillDiscreteTrihedron; c: Handle[Adaptor3dHCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_DiscreteTrihedron.hxx".}
-proc d0*(this: var GeomFillDiscreteTrihedron; param: float; tangent: var Vec;
-        normal: var Vec; biNormal: var Vec): bool {.importcpp: "D0",
+proc d0*(this: var GeomFillDiscreteTrihedron; param: StandardReal; tangent: var Vec;
+        normal: var Vec; biNormal: var Vec): StandardBoolean {.importcpp: "D0",
     header: "GeomFill_DiscreteTrihedron.hxx".}
-proc d1*(this: var GeomFillDiscreteTrihedron; param: float; tangent: var Vec;
+proc d1*(this: var GeomFillDiscreteTrihedron; param: StandardReal; tangent: var Vec;
         dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
-        dBiNormal: var Vec): bool {.importcpp: "D1",
-                                header: "GeomFill_DiscreteTrihedron.hxx".}
-proc d2*(this: var GeomFillDiscreteTrihedron; param: float; tangent: var Vec;
+        dBiNormal: var Vec): StandardBoolean {.importcpp: "D1",
+    header: "GeomFill_DiscreteTrihedron.hxx".}
+proc d2*(this: var GeomFillDiscreteTrihedron; param: StandardReal; tangent: var Vec;
         dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
-        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
+        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): StandardBoolean {.
     importcpp: "D2", header: "GeomFill_DiscreteTrihedron.hxx".}
 proc nbIntervals*(this: GeomFillDiscreteTrihedron; s: GeomAbsShape): int {.
     noSideEffect, importcpp: "NbIntervals",
@@ -63,10 +63,11 @@ proc intervals*(this: GeomFillDiscreteTrihedron; t: var TColStdArray1OfReal;
 proc getAverageLaw*(this: var GeomFillDiscreteTrihedron; aTangent: var Vec;
                    aNormal: var Vec; aBiNormal: var Vec) {.importcpp: "GetAverageLaw",
     header: "GeomFill_DiscreteTrihedron.hxx".}
-proc isConstant*(this: GeomFillDiscreteTrihedron): bool {.noSideEffect,
+proc isConstant*(this: GeomFillDiscreteTrihedron): StandardBoolean {.noSideEffect,
     importcpp: "IsConstant", header: "GeomFill_DiscreteTrihedron.hxx".}
-proc isOnlyBy3dCurve*(this: GeomFillDiscreteTrihedron): bool {.noSideEffect,
-    importcpp: "IsOnlyBy3dCurve", header: "GeomFill_DiscreteTrihedron.hxx".}
+proc isOnlyBy3dCurve*(this: GeomFillDiscreteTrihedron): StandardBoolean {.
+    noSideEffect, importcpp: "IsOnlyBy3dCurve",
+    header: "GeomFill_DiscreteTrihedron.hxx".}
 type
   GeomFillDiscreteTrihedronbaseType* = GeomFillTrihedronLaw
 

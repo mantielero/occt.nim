@@ -28,7 +28,7 @@ proc constructRWStepReprRWFunctionallyDefinedTransformation*(): RWStepReprRWFunc
     constructor, importcpp: "RWStepRepr_RWFunctionallyDefinedTransformation(@)",
     header: "RWStepRepr_RWFunctionallyDefinedTransformation.hxx".}
 proc readStep*(this: RWStepReprRWFunctionallyDefinedTransformation;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprFunctionallyDefinedTransformation]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepReprRWFunctionallyDefinedTransformation;
                ent: Handle[StepReprFunctionallyDefinedTransformation]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWFunctionallyDefinedTransformation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

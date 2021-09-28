@@ -15,3 +15,28 @@ type
   MessageArrayOfMsg* = NCollectionArray1[NCollectionHandle[MessageMsg]]
   MessageHArrayOfMsg* = NCollectionHandle[MessageArrayOfMsg]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

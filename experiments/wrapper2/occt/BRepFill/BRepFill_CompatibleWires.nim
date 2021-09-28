@@ -57,7 +57,7 @@ proc constructBRepFillCompatibleWires*(sections: TopToolsSequenceOfShape): BRepF
     header: "BRepFill_CompatibleWires.hxx".}
 proc init*(this: var BRepFillCompatibleWires; sections: TopToolsSequenceOfShape) {.
     importcpp: "Init", header: "BRepFill_CompatibleWires.hxx".}
-proc setPercent*(this: var BRepFillCompatibleWires; percent: float = 0.01) {.
+proc setPercent*(this: var BRepFillCompatibleWires; percent: cfloat = 0.01) {.
     importcpp: "SetPercent", header: "BRepFill_CompatibleWires.hxx".}
 proc perform*(this: var BRepFillCompatibleWires; withRotation: bool = true) {.
     importcpp: "Perform", header: "BRepFill_CompatibleWires.hxx".}
@@ -74,3 +74,28 @@ proc isDegeneratedFirstSection*(this: BRepFillCompatibleWires): bool {.noSideEff
     importcpp: "IsDegeneratedFirstSection", header: "BRepFill_CompatibleWires.hxx".}
 proc isDegeneratedLastSection*(this: BRepFillCompatibleWires): bool {.noSideEffect,
     importcpp: "IsDegeneratedLastSection", header: "BRepFill_CompatibleWires.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

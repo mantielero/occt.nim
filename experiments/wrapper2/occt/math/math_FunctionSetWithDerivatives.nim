@@ -20,9 +20,9 @@ type
                                    bycopy.} = object of MathFunctionSet ## ! Returns the number of variables of the function.
 
 
-proc nbVariables*(this: MathFunctionSetWithDerivatives): int {.noSideEffect,
+proc nbVariables*(this: MathFunctionSetWithDerivatives): cint {.noSideEffect,
     importcpp: "NbVariables", header: "math_FunctionSetWithDerivatives.hxx".}
-proc nbEquations*(this: MathFunctionSetWithDerivatives): int {.noSideEffect,
+proc nbEquations*(this: MathFunctionSetWithDerivatives): cint {.noSideEffect,
     importcpp: "NbEquations", header: "math_FunctionSetWithDerivatives.hxx".}
 proc value*(this: var MathFunctionSetWithDerivatives; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "math_FunctionSetWithDerivatives.hxx".}
@@ -31,3 +31,28 @@ proc derivatives*(this: var MathFunctionSetWithDerivatives; x: MathVector;
 proc values*(this: var MathFunctionSetWithDerivatives; x: MathVector;
             f: var MathVector; d: var MathMatrix): bool {.importcpp: "Values",
     header: "math_FunctionSetWithDerivatives.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

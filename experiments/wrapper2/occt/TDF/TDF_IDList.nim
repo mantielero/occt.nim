@@ -17,3 +17,28 @@ type
   TDF_IDList* = NCollectionList[StandardGUID]
   TDF_ListIteratorOfIDList* = Iterator[StandardGUID]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

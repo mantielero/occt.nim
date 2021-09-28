@@ -16,14 +16,54 @@
 ## !!!Ignored construct:  # _Aspect_WindowDefinitionError_HeaderFile [NewLine] # _Aspect_WindowDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Aspect_WindowDefinitionError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Aspect_WindowDefinitionError"
-type
-  HandleAspectWindowDefinitionErrorAspectWindowDefinitionError* = Handle[
-      AspectWindowDefinitionError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Aspect_WindowDefinitionError , Standard_OutOfRange ) # ! defined No_Exception && ! defined No_Aspect_WindowDefinitionError [NewLine] # Aspect_WindowDefinitionError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Aspect_WindowDefinitionError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Aspect_WindowDefinitionError [NewLine] # if ( CONDITION ) throw Aspect_WindowDefinitionError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Aspect_WindowDefinitionError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Aspect_WindowDefinitionError , Standard_OutOfRange ) #  _Aspect_WindowDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Aspect_WindowDefinitionError , Standard_OutOfRange ) #  _Aspect_WindowDefinitionError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

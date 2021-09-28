@@ -20,3 +20,28 @@ type
   BRepFillDataMapIteratorOfDataMapOfShapeDataMapOfShapeListOfShape* = Iterator[
       TopoDS_Shape, TopToolsDataMapOfShapeListOfShape, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

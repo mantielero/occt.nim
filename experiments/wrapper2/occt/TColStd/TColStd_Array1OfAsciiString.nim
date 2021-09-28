@@ -15,3 +15,28 @@
 type
   TColStdArray1OfAsciiString* = NCollectionArray1[TCollectionAsciiString]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

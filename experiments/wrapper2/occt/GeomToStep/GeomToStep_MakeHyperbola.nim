@@ -23,6 +23,24 @@ type
                             header: "GeomToStep_MakeHyperbola.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeHyperbola; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeHyperbola::operator new",
+    header: "GeomToStep_MakeHyperbola.hxx".}
+proc `delete`*(this: var GeomToStepMakeHyperbola; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeHyperbola::operator delete",
+    header: "GeomToStep_MakeHyperbola.hxx".}
+proc `new[]`*(this: var GeomToStepMakeHyperbola; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeHyperbola::operator new[]",
+    header: "GeomToStep_MakeHyperbola.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeHyperbola; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeHyperbola::operator delete[]",
+    header: "GeomToStep_MakeHyperbola.hxx".}
+proc `new`*(this: var GeomToStepMakeHyperbola; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeHyperbola::operator new",
+    header: "GeomToStep_MakeHyperbola.hxx".}
+proc `delete`*(this: var GeomToStepMakeHyperbola; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeHyperbola::operator delete",
+    header: "GeomToStep_MakeHyperbola.hxx".}
 proc constructGeomToStepMakeHyperbola*(c: Handle[Geom2dHyperbola]): GeomToStepMakeHyperbola {.
     constructor, importcpp: "GeomToStep_MakeHyperbola(@)",
     header: "GeomToStep_MakeHyperbola.hxx".}

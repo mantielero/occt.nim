@@ -205,3 +205,28 @@ proc perform*(this: var BOPAlgoBuilderSolid) {.importcpp: "Perform",
     header: "BOPAlgo_BuilderSolid.hxx".}
 proc getBoxesMap*(this: BOPAlgoBuilderSolid): TopToolsDataMapOfShapeBox {.
     noSideEffect, importcpp: "GetBoxesMap", header: "BOPAlgo_BuilderSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -56,3 +56,28 @@ proc perform*(this: var StdPrsBRepTextBuilder; theFont: var StdPrsBRepFont;
              theHAlign: Graphic3dHorizontalTextAlignment = graphic3dHTA_LEFT;
              theVAlign: Graphic3dVerticalTextAlignment = graphic3dVTA_BOTTOM): TopoDS_Shape {.
     importcpp: "Perform", header: "StdPrs_BRepTextBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,9 +30,9 @@ proc constructExtremaFuncExtSS*(s1: Adaptor3dSurface; s2: Adaptor3dSurface): Ext
 proc initialize*(this: var ExtremaFuncExtSS; s1: Adaptor3dSurface;
                 s2: Adaptor3dSurface) {.importcpp: "Initialize",
                                       header: "Extrema_FuncExtSS.hxx".}
-proc nbVariables*(this: ExtremaFuncExtSS): int {.noSideEffect,
+proc nbVariables*(this: ExtremaFuncExtSS): cint {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_FuncExtSS.hxx".}
-proc nbEquations*(this: ExtremaFuncExtSS): int {.noSideEffect,
+proc nbEquations*(this: ExtremaFuncExtSS): cint {.noSideEffect,
     importcpp: "NbEquations", header: "Extrema_FuncExtSS.hxx".}
 proc value*(this: var ExtremaFuncExtSS; uv: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "Extrema_FuncExtSS.hxx".}
@@ -41,13 +41,38 @@ proc derivatives*(this: var ExtremaFuncExtSS; uv: MathVector; df: var MathMatrix
 proc values*(this: var ExtremaFuncExtSS; uv: MathVector; f: var MathVector;
             df: var MathMatrix): bool {.importcpp: "Values",
                                     header: "Extrema_FuncExtSS.hxx".}
-proc getStateNumber*(this: var ExtremaFuncExtSS): int {.importcpp: "GetStateNumber",
+proc getStateNumber*(this: var ExtremaFuncExtSS): cint {.importcpp: "GetStateNumber",
     header: "Extrema_FuncExtSS.hxx".}
-proc nbExt*(this: ExtremaFuncExtSS): int {.noSideEffect, importcpp: "NbExt",
-                                       header: "Extrema_FuncExtSS.hxx".}
-proc squareDistance*(this: ExtremaFuncExtSS; n: int): float {.noSideEffect,
+proc nbExt*(this: ExtremaFuncExtSS): cint {.noSideEffect, importcpp: "NbExt",
+                                        header: "Extrema_FuncExtSS.hxx".}
+proc squareDistance*(this: ExtremaFuncExtSS; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_FuncExtSS.hxx".}
-proc pointOnS1*(this: ExtremaFuncExtSS; n: int): ExtremaPOnSurf {.noSideEffect,
+proc pointOnS1*(this: ExtremaFuncExtSS; n: cint): ExtremaPOnSurf {.noSideEffect,
     importcpp: "PointOnS1", header: "Extrema_FuncExtSS.hxx".}
-proc pointOnS2*(this: ExtremaFuncExtSS; n: int): ExtremaPOnSurf {.noSideEffect,
+proc pointOnS2*(this: ExtremaFuncExtSS; n: cint): ExtremaPOnSurf {.noSideEffect,
     importcpp: "PointOnS2", header: "Extrema_FuncExtSS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

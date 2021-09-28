@@ -29,7 +29,7 @@ proc constructRWStepBasicRWApprovalPersonOrganization*(): RWStepBasicRWApprovalP
     constructor, importcpp: "RWStepBasic_RWApprovalPersonOrganization(@)",
     header: "RWStepBasic_RWApprovalPersonOrganization.hxx".}
 proc readStep*(this: RWStepBasicRWApprovalPersonOrganization;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicApprovalPersonOrganization]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWApprovalPersonOrganization.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepBasicRWApprovalPersonOrganization;
            ent: Handle[StepBasicApprovalPersonOrganization];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWApprovalPersonOrganization.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

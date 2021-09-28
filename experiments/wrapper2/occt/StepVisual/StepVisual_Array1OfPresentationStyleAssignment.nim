@@ -18,3 +18,28 @@ type
   StepVisualArray1OfPresentationStyleAssignment* = NCollectionArray1[
       Handle[StepVisualPresentationStyleAssignment]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

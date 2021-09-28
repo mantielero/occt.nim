@@ -29,8 +29,8 @@ type
                                                                        ## triangles.
 
 
-proc constructIntPatchPolyhedron*(surface: Handle[Adaptor3dHSurface]; nbdU: int;
-                                 nbdV: int): IntPatchPolyhedron {.constructor,
+proc constructIntPatchPolyhedron*(surface: Handle[Adaptor3dHSurface]; nbdU: cint;
+                                 nbdV: cint): IntPatchPolyhedron {.constructor,
     importcpp: "IntPatch_Polyhedron(@)", header: "IntPatch_Polyhedron.hxx".}
 proc constructIntPatchPolyhedron*(surface: Handle[Adaptor3dHSurface]): IntPatchPolyhedron {.
     constructor, importcpp: "IntPatch_Polyhedron(@)",
@@ -40,12 +40,12 @@ proc destroy*(this: var IntPatchPolyhedron) {.importcpp: "Destroy",
 proc destroyIntPatchPolyhedron*(this: var IntPatchPolyhedron) {.
     importcpp: "#.~IntPatch_Polyhedron()", header: "IntPatch_Polyhedron.hxx".}
 proc perform*(this: var IntPatchPolyhedron; surface: Handle[Adaptor3dHSurface];
-             nbdU: int; nbdV: int) {.importcpp: "Perform",
-                                 header: "IntPatch_Polyhedron.hxx".}
-proc deflectionOverEstimation*(this: var IntPatchPolyhedron; flec: float) {.
+             nbdU: cint; nbdV: cint) {.importcpp: "Perform",
+                                   header: "IntPatch_Polyhedron.hxx".}
+proc deflectionOverEstimation*(this: var IntPatchPolyhedron; flec: cfloat) {.
     importcpp: "DeflectionOverEstimation", header: "IntPatch_Polyhedron.hxx".}
 proc deflectionOnTriangle*(this: IntPatchPolyhedron;
-                          surface: Handle[Adaptor3dHSurface]; index: int): float {.
+                          surface: Handle[Adaptor3dHSurface]; index: cint): cfloat {.
     noSideEffect, importcpp: "DeflectionOnTriangle",
     header: "IntPatch_Polyhedron.hxx".}
 proc uMinSingularity*(this: var IntPatchPolyhedron; sing: bool) {.
@@ -56,24 +56,25 @@ proc vMinSingularity*(this: var IntPatchPolyhedron; sing: bool) {.
     importcpp: "VMinSingularity", header: "IntPatch_Polyhedron.hxx".}
 proc vMaxSingularity*(this: var IntPatchPolyhedron; sing: bool) {.
     importcpp: "VMaxSingularity", header: "IntPatch_Polyhedron.hxx".}
-proc size*(this: IntPatchPolyhedron; nbdu: var int; nbdv: var int) {.noSideEffect,
+proc size*(this: IntPatchPolyhedron; nbdu: var cint; nbdv: var cint) {.noSideEffect,
     importcpp: "Size", header: "IntPatch_Polyhedron.hxx".}
-proc nbTriangles*(this: IntPatchPolyhedron): int {.noSideEffect,
+proc nbTriangles*(this: IntPatchPolyhedron): cint {.noSideEffect,
     importcpp: "NbTriangles", header: "IntPatch_Polyhedron.hxx".}
-proc triangle*(this: IntPatchPolyhedron; index: int; p1: var int; p2: var int; p3: var int) {.
-    noSideEffect, importcpp: "Triangle", header: "IntPatch_Polyhedron.hxx".}
-proc triConnex*(this: IntPatchPolyhedron; triang: int; pivot: int; pedge: int;
-               triCon: var int; otherP: var int): int {.noSideEffect,
+proc triangle*(this: IntPatchPolyhedron; index: cint; p1: var cint; p2: var cint;
+              p3: var cint) {.noSideEffect, importcpp: "Triangle",
+                           header: "IntPatch_Polyhedron.hxx".}
+proc triConnex*(this: IntPatchPolyhedron; triang: cint; pivot: cint; pedge: cint;
+               triCon: var cint; otherP: var cint): cint {.noSideEffect,
     importcpp: "TriConnex", header: "IntPatch_Polyhedron.hxx".}
-proc nbPoints*(this: IntPatchPolyhedron): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: IntPatchPolyhedron): cint {.noSideEffect, importcpp: "NbPoints",
     header: "IntPatch_Polyhedron.hxx".}
-proc point*(this: var IntPatchPolyhedron; thePnt: Pnt; lig: int; col: int; u: float;
-           v: float) {.importcpp: "Point", header: "IntPatch_Polyhedron.hxx".}
-proc point*(this: IntPatchPolyhedron; index: int; u: var float; v: var float): Pnt {.
+proc point*(this: var IntPatchPolyhedron; thePnt: Pnt; lig: cint; col: cint; u: cfloat;
+           v: cfloat) {.importcpp: "Point", header: "IntPatch_Polyhedron.hxx".}
+proc point*(this: IntPatchPolyhedron; index: cint; u: var cfloat; v: var cfloat): Pnt {.
     noSideEffect, importcpp: "Point", header: "IntPatch_Polyhedron.hxx".}
-proc point*(this: IntPatchPolyhedron; index: int): Pnt {.noSideEffect,
+proc point*(this: IntPatchPolyhedron; index: cint): Pnt {.noSideEffect,
     importcpp: "Point", header: "IntPatch_Polyhedron.hxx".}
-proc point*(this: IntPatchPolyhedron; index: int; p: var Pnt) {.noSideEffect,
+proc point*(this: IntPatchPolyhedron; index: cint; p: var Pnt) {.noSideEffect,
     importcpp: "Point", header: "IntPatch_Polyhedron.hxx".}
 proc bounding*(this: IntPatchPolyhedron): BndBox {.noSideEffect,
     importcpp: "Bounding", header: "IntPatch_Polyhedron.hxx".}
@@ -82,7 +83,7 @@ proc fillBounding*(this: var IntPatchPolyhedron) {.importcpp: "FillBounding",
 proc componentsBounding*(this: IntPatchPolyhedron): Handle[BndHArray1OfBox] {.
     noSideEffect, importcpp: "ComponentsBounding",
     header: "IntPatch_Polyhedron.hxx".}
-proc deflectionOverEstimation*(this: IntPatchPolyhedron): float {.noSideEffect,
+proc deflectionOverEstimation*(this: IntPatchPolyhedron): cfloat {.noSideEffect,
     importcpp: "DeflectionOverEstimation", header: "IntPatch_Polyhedron.hxx".}
 proc hasUMinSingularity*(this: IntPatchPolyhedron): bool {.noSideEffect,
     importcpp: "HasUMinSingularity", header: "IntPatch_Polyhedron.hxx".}
@@ -92,12 +93,37 @@ proc hasVMinSingularity*(this: IntPatchPolyhedron): bool {.noSideEffect,
     importcpp: "HasVMinSingularity", header: "IntPatch_Polyhedron.hxx".}
 proc hasVMaxSingularity*(this: IntPatchPolyhedron): bool {.noSideEffect,
     importcpp: "HasVMaxSingularity", header: "IntPatch_Polyhedron.hxx".}
-proc planeEquation*(this: IntPatchPolyhedron; triang: int; normalVector: var Xyz;
-                   polarDistance: var float) {.noSideEffect,
+proc planeEquation*(this: IntPatchPolyhedron; triang: cint; normalVector: var Xyz;
+                   polarDistance: var cfloat) {.noSideEffect,
     importcpp: "PlaneEquation", header: "IntPatch_Polyhedron.hxx".}
-proc contain*(this: IntPatchPolyhedron; triang: int; thePnt: Pnt): bool {.noSideEffect,
+proc contain*(this: IntPatchPolyhedron; triang: cint; thePnt: Pnt): bool {.noSideEffect,
     importcpp: "Contain", header: "IntPatch_Polyhedron.hxx".}
-proc parameters*(this: IntPatchPolyhedron; index: int; u: var float; v: var float) {.
+proc parameters*(this: IntPatchPolyhedron; index: cint; u: var cfloat; v: var cfloat) {.
     noSideEffect, importcpp: "Parameters", header: "IntPatch_Polyhedron.hxx".}
 proc dump*(this: IntPatchPolyhedron) {.noSideEffect, importcpp: "Dump",
                                     header: "IntPatch_Polyhedron.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

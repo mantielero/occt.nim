@@ -22,17 +22,17 @@
 type
   NCollectionTListIterator*[TheItemType] {.
       importcpp: "NCollection_TListIterator<\'0>",
-      header: "NCollection_TListIterator.hxx", bycopy.} = object of Iterator ## ! Empty
+      header: "NCollection_TListIterator.hxx", bycopy.} = object# of Iterator ## ! Empty
                                                                       ## constructor - for later Init
 
 
 proc constructNCollectionTListIterator*[TheItemType](): NCollectionTListIterator[
     TheItemType] {.constructor, importcpp: "NCollection_TListIterator<\'*0>(@)",
                   header: "NCollection_TListIterator.hxx".}
-proc constructNCollectionTListIterator*[TheItemType](theList: NCollectionBaseList): NCollectionTListIterator[
+#[ proc constructNCollectionTListIterator*[TheItemType](theList: NCollectionBaseList): NCollectionTListIterator[
     TheItemType] {.constructor, importcpp: "NCollection_TListIterator<\'*0>(@)",
-                  header: "NCollection_TListIterator.hxx".}
-proc more*[TheItemType](this: NCollectionTListIterator[TheItemType]): bool {.
+                  header: "NCollection_TListIterator.hxx".} ]#
+proc more*[TheItemType](this: NCollectionTListIterator[TheItemType]): StandardBoolean {.
     noSideEffect, importcpp: "More", header: "NCollection_TListIterator.hxx".}
 proc next*[TheItemType](this: var NCollectionTListIterator[TheItemType]) {.
     importcpp: "Next", header: "NCollection_TListIterator.hxx".}

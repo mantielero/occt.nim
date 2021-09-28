@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_GreaterThanOrEqual"
 discard "forward decl of Expr_GreaterThanOrEqual"
 type
-  HandleExprGreaterThanOrEqual* = Handle[ExprGreaterThanOrEqual]
+  HandleC1C1* = Handle[ExprGreaterThanOrEqual]
   ExprGreaterThanOrEqual* {.importcpp: "Expr_GreaterThanOrEqual",
                            header: "Expr_GreaterThanOrEqual.hxx", bycopy.} = object of ExprSingleRelation ##
                                                                                                    ## !
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_GreaterThanOrEqual.hxx".}
 proc dynamicType*(this: ExprGreaterThanOrEqual): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Expr_GreaterThanOrEqual.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

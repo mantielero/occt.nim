@@ -70,3 +70,28 @@ include StepElement_Volume3dElementShape
 include StepElement_VolumeElementPurpose
 include StepElement_VolumeElementPurposeMember
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

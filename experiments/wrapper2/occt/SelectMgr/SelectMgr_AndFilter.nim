@@ -18,7 +18,7 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of SelectMgr_AndFilter"
 discard "forward decl of SelectMgr_AndFilter"
 type
-  HandleSelectMgrAndFilter* = Handle[SelectMgrAndFilter]
+  HandleC1C1* = Handle[SelectMgrAndFilter]
 
 ## ! A framework to define a selection filter for two or
 ## ! more types of entity.
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "SelectMgr_AndFilter.hxx".}
 proc dynamicType*(this: SelectMgrAndFilter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "SelectMgr_AndFilter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

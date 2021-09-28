@@ -39,7 +39,32 @@ type
 
 
 proc init*() {.importcpp: "ShapeExtend::Init(@)", header: "ShapeExtend.hxx".}
-proc encodeStatus*(status: ShapeExtendStatus): int {.
+proc encodeStatus*(status: ShapeExtendStatus): cint {.
     importcpp: "ShapeExtend::EncodeStatus(@)", header: "ShapeExtend.hxx".}
-proc decodeStatus*(flag: int; status: ShapeExtendStatus): bool {.
+proc decodeStatus*(flag: cint; status: ShapeExtendStatus): bool {.
     importcpp: "ShapeExtend::DecodeStatus(@)", header: "ShapeExtend.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

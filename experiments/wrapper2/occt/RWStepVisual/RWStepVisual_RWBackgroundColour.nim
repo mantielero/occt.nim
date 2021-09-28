@@ -28,7 +28,7 @@ proc constructRWStepVisualRWBackgroundColour*(): RWStepVisualRWBackgroundColour 
     constructor, importcpp: "RWStepVisual_RWBackgroundColour(@)",
     header: "RWStepVisual_RWBackgroundColour.hxx".}
 proc readStep*(this: RWStepVisualRWBackgroundColour;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualBackgroundColour]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWBackgroundColour.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepVisualRWBackgroundColour;
            ent: Handle[StepVisualBackgroundColour];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWBackgroundColour.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

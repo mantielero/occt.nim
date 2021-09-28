@@ -4,4 +4,3 @@
 
 include GeometryTest
 include GeometryTest_DrawableQualifiedCurve2d
-

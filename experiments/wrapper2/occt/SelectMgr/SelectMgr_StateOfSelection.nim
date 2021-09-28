@@ -26,3 +26,28 @@ type
     SelectMgrSOS_Activated    ## !< activated selection
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

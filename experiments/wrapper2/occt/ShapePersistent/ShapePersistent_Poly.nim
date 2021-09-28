@@ -54,3 +54,28 @@ proc translate*(thePolyTriang: Handle[PolyTriangulation];
                theMap: var StdObjMgtTransientPersistentMap): Handle[
     ShapePersistentPolyTriangulation] {.importcpp: "ShapePersistent_Poly::Translate(@)",
                                        header: "ShapePersistent_Poly.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -35,7 +35,7 @@ proc setProtocol*(this: var InterfaceCategory;
                  theProtocol: Handle[InterfaceProtocol]) {.
     importcpp: "SetProtocol", header: "Interface_Category.hxx".}
 proc catNum*(this: var InterfaceCategory; theEnt: Handle[StandardTransient];
-            theShares: InterfaceShareTool): int {.importcpp: "CatNum",
+            theShares: InterfaceShareTool): cint {.importcpp: "CatNum",
     header: "Interface_Category.hxx".}
 proc clearNums*(this: var InterfaceCategory) {.importcpp: "ClearNums",
     header: "Interface_Category.hxx".}
@@ -43,16 +43,41 @@ proc compute*(this: var InterfaceCategory;
              theModel: Handle[InterfaceInterfaceModel];
              theShares: InterfaceShareTool) {.importcpp: "Compute",
     header: "Interface_Category.hxx".}
-proc num*(this: InterfaceCategory; theNumEnt: int): int {.noSideEffect,
+proc num*(this: InterfaceCategory; theNumEnt: cint): cint {.noSideEffect,
     importcpp: "Num", header: "Interface_Category.hxx".}
-proc addCategory*(theName: StandardCString): int {.
+proc addCategory*(theName: StandardCString): cint {.
     importcpp: "Interface_Category::AddCategory(@)",
     header: "Interface_Category.hxx".}
-proc nbCategories*(): int {.importcpp: "Interface_Category::NbCategories(@)",
-                         header: "Interface_Category.hxx".}
-proc name*(theNum: int): StandardCString {.importcpp: "Interface_Category::Name(@)",
-                                       header: "Interface_Category.hxx".}
-proc number*(theName: StandardCString): int {.
+proc nbCategories*(): cint {.importcpp: "Interface_Category::NbCategories(@)",
+                          header: "Interface_Category.hxx".}
+proc name*(theNum: cint): StandardCString {.importcpp: "Interface_Category::Name(@)",
+                                        header: "Interface_Category.hxx".}
+proc number*(theName: StandardCString): cint {.
     importcpp: "Interface_Category::Number(@)", header: "Interface_Category.hxx".}
 proc init*() {.importcpp: "Interface_Category::Init(@)",
              header: "Interface_Category.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

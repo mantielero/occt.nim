@@ -29,17 +29,42 @@ type
 proc constructMAT2dMiniPath*(): MAT2dMiniPath {.constructor,
     importcpp: "MAT2d_MiniPath(@)", header: "MAT2d_MiniPath.hxx".}
 proc perform*(this: var MAT2dMiniPath; figure: MAT2dSequenceOfSequenceOfGeometry;
-             indStart: int; sense: bool) {.importcpp: "Perform",
-                                       header: "MAT2d_MiniPath.hxx".}
+             indStart: cint; sense: bool) {.importcpp: "Perform",
+                                        header: "MAT2d_MiniPath.hxx".}
 proc runOnConnexions*(this: var MAT2dMiniPath) {.importcpp: "RunOnConnexions",
     header: "MAT2d_MiniPath.hxx".}
 proc path*(this: MAT2dMiniPath): MAT2dSequenceOfConnexion {.noSideEffect,
     importcpp: "Path", header: "MAT2d_MiniPath.hxx".}
-proc isConnexionsFrom*(this: MAT2dMiniPath; index: int): bool {.noSideEffect,
+proc isConnexionsFrom*(this: MAT2dMiniPath; index: cint): bool {.noSideEffect,
     importcpp: "IsConnexionsFrom", header: "MAT2d_MiniPath.hxx".}
-proc connexionsFrom*(this: var MAT2dMiniPath; index: int): var MAT2dSequenceOfConnexion {.
+proc connexionsFrom*(this: var MAT2dMiniPath; index: cint): var MAT2dSequenceOfConnexion {.
     importcpp: "ConnexionsFrom", header: "MAT2d_MiniPath.hxx".}
-proc isRoot*(this: MAT2dMiniPath; index: int): bool {.noSideEffect,
+proc isRoot*(this: MAT2dMiniPath; index: cint): bool {.noSideEffect,
     importcpp: "IsRoot", header: "MAT2d_MiniPath.hxx".}
-proc father*(this: var MAT2dMiniPath; index: int): Handle[MAT2dConnexion] {.
+proc father*(this: var MAT2dMiniPath; index: cint): Handle[MAT2dConnexion] {.
     importcpp: "Father", header: "MAT2d_MiniPath.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

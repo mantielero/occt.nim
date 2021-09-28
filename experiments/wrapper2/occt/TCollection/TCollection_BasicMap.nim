@@ -30,11 +30,36 @@ type
                                                                          ## IndexedDataMap
 
 
-proc nbBuckets*(this: TCollectionBasicMap): int {.noSideEffect,
+proc nbBuckets*(this: TCollectionBasicMap): cint {.noSideEffect,
     importcpp: "NbBuckets", header: "TCollection_BasicMap.hxx".}
-proc extent*(this: TCollectionBasicMap): int {.noSideEffect, importcpp: "Extent",
+proc extent*(this: TCollectionBasicMap): cint {.noSideEffect, importcpp: "Extent",
     header: "TCollection_BasicMap.hxx".}
 proc isEmpty*(this: TCollectionBasicMap): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "TCollection_BasicMap.hxx".}
 proc statistics*(this: TCollectionBasicMap; s: var StandardOStream) {.noSideEffect,
     importcpp: "Statistics", header: "TCollection_BasicMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

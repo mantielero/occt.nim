@@ -35,7 +35,32 @@ type
                                                                                    ## Select3D_SensitiveEntity.
 
 
-proc maxOwnerPriority*(): int {.importcpp: "SelectBasics::MaxOwnerPriority(@)",
-                             header: "SelectBasics.hxx".}
-proc minOwnerPriority*(): int {.importcpp: "SelectBasics::MinOwnerPriority(@)",
-                             header: "SelectBasics.hxx".}
+proc maxOwnerPriority*(): cint {.importcpp: "SelectBasics::MaxOwnerPriority(@)",
+                              header: "SelectBasics.hxx".}
+proc minOwnerPriority*(): cint {.importcpp: "SelectBasics::MinOwnerPriority(@)",
+                              header: "SelectBasics.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

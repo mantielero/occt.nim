@@ -23,7 +23,7 @@ discard "forward decl of TDF_DeltaOnModification"
 discard "forward decl of TDataStd_IntegerArray"
 discard "forward decl of TDataStd_IntegerArray"
 type
-  HandleTDataStdIntegerArray* = Handle[TDataStdIntegerArray]
+  HandleC1C1* = Handle[TDataStdIntegerArray]
 
 ## ! Contains an array of integers.
 
@@ -57,30 +57,30 @@ proc dynamicType*(this: TDataStdIntegerArray): Handle[StandardType] {.noSideEffe
     importcpp: "DynamicType", header: "TDataStd_IntegerArray.hxx".}
 proc getID*(): StandardGUID {.importcpp: "TDataStd_IntegerArray::GetID(@)",
                            header: "TDataStd_IntegerArray.hxx".}
-proc set*(label: TDF_Label; lower: int; upper: int; isDelta: bool = false): Handle[
+proc set*(label: TDF_Label; lower: cint; upper: cint; isDelta: bool = false): Handle[
     TDataStdIntegerArray] {.importcpp: "TDataStd_IntegerArray::Set(@)",
                            header: "TDataStd_IntegerArray.hxx".}
-proc set*(label: TDF_Label; theGuid: StandardGUID; lower: int; upper: int;
+proc set*(label: TDF_Label; theGuid: StandardGUID; lower: cint; upper: cint;
          isDelta: bool = false): Handle[TDataStdIntegerArray] {.
     importcpp: "TDataStd_IntegerArray::Set(@)",
     header: "TDataStd_IntegerArray.hxx".}
-proc init*(this: var TDataStdIntegerArray; lower: int; upper: int) {.importcpp: "Init",
-    header: "TDataStd_IntegerArray.hxx".}
-proc setValue*(this: var TDataStdIntegerArray; index: int; value: int) {.
+proc init*(this: var TDataStdIntegerArray; lower: cint; upper: cint) {.
+    importcpp: "Init", header: "TDataStd_IntegerArray.hxx".}
+proc setValue*(this: var TDataStdIntegerArray; index: cint; value: cint) {.
     importcpp: "SetValue", header: "TDataStd_IntegerArray.hxx".}
 proc setID*(this: var TDataStdIntegerArray; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_IntegerArray.hxx".}
 proc setID*(this: var TDataStdIntegerArray) {.importcpp: "SetID",
     header: "TDataStd_IntegerArray.hxx".}
-proc value*(this: TDataStdIntegerArray; index: int): int {.noSideEffect,
+proc value*(this: TDataStdIntegerArray; index: cint): cint {.noSideEffect,
     importcpp: "Value", header: "TDataStd_IntegerArray.hxx".}
-proc `()`*(this: TDataStdIntegerArray; index: int): int {.noSideEffect,
+proc `()`*(this: TDataStdIntegerArray; index: cint): cint {.noSideEffect,
     importcpp: "#(@)", header: "TDataStd_IntegerArray.hxx".}
-proc lower*(this: TDataStdIntegerArray): int {.noSideEffect, importcpp: "Lower",
+proc lower*(this: TDataStdIntegerArray): cint {.noSideEffect, importcpp: "Lower",
     header: "TDataStd_IntegerArray.hxx".}
-proc upper*(this: TDataStdIntegerArray): int {.noSideEffect, importcpp: "Upper",
+proc upper*(this: TDataStdIntegerArray): cint {.noSideEffect, importcpp: "Upper",
     header: "TDataStd_IntegerArray.hxx".}
-proc length*(this: TDataStdIntegerArray): int {.noSideEffect, importcpp: "Length",
+proc length*(this: TDataStdIntegerArray): cint {.noSideEffect, importcpp: "Length",
     header: "TDataStd_IntegerArray.hxx".}
 proc changeArray*(this: var TDataStdIntegerArray;
                  newArray: Handle[TColStdHArray1OfInteger];
@@ -110,5 +110,30 @@ proc deltaOnModification*(this: TDataStdIntegerArray;
     TDF_DeltaOnModification] {.noSideEffect, importcpp: "DeltaOnModification",
                               header: "TDataStd_IntegerArray.hxx".}
 proc dumpJson*(this: TDataStdIntegerArray; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_IntegerArray.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_IntegerArray.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,7 +30,7 @@ proc constructRWStepReprRWDataEnvironment*(): RWStepReprRWDataEnvironment {.
     constructor, importcpp: "RWStepRepr_RWDataEnvironment(@)",
     header: "RWStepRepr_RWDataEnvironment.hxx".}
 proc readStep*(this: RWStepReprRWDataEnvironment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepReprDataEnvironment]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepRepr_RWDataEnvironment.hxx".}
 proc writeStep*(this: RWStepReprRWDataEnvironment; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepReprRWDataEnvironment; sw: var StepDataStepWriter;
 proc share*(this: RWStepReprRWDataEnvironment;
            ent: Handle[StepReprDataEnvironment]; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "Share", header: "RWStepRepr_RWDataEnvironment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

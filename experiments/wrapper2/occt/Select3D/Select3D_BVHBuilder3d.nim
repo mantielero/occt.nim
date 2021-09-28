@@ -12,5 +12,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  Select3D_BVHBuilder3d* = BVH_Builder[float, 3]
+  Select3D_BVHBuilder3d* = BVH_Builder[cfloat, 3]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

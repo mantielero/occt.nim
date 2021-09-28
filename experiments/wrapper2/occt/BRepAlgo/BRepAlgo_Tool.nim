@@ -80,3 +80,28 @@ type
 
 proc deboucle3D*(s: TopoDS_Shape; boundary: TopToolsMapOfShape): TopoDS_Shape {.
     importcpp: "BRepAlgo_Tool::Deboucle3D(@)", header: "BRepAlgo_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_GenericEmptyDriver"
 discard "forward decl of BinMDataStd_GenericEmptyDriver"
 type
-  HandleBinMDataStdGenericEmptyDriver* = Handle[BinMDataStdGenericEmptyDriver]
+  HandleC1C1* = Handle[BinMDataStdGenericEmptyDriver]
 
 ## ! GenericEmpty attribute driver.
 
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdGenericEmptyDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_GenericEmptyDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

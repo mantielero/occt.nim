@@ -17,7 +17,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMNaming_NamingDriver"
 discard "forward decl of XmlMNaming_NamingDriver"
 type
-  HandleXmlMNamingNamingDriver* = Handle[XmlMNamingNamingDriver]
+  HandleC1C1* = Handle[XmlMNamingNamingDriver]
   XmlMNamingNamingDriver* {.importcpp: "XmlMNaming_NamingDriver",
                            header: "XmlMNaming_NamingDriver.hxx", bycopy.} = object of XmlMDF_ADriver
 
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XmlMNaming_NamingDriver.hxx".}
 proc dynamicType*(this: XmlMNamingNamingDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XmlMNaming_NamingDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_ExtStringArrayDriver"
 discard "forward decl of XmlMDataStd_ExtStringArrayDriver"
 type
-  HandleXmlMDataStdExtStringArrayDriver* = Handle[XmlMDataStdExtStringArrayDriver]
+  HandleC1C1* = Handle[XmlMDataStdExtStringArrayDriver]
 
 ## ! Attribute Driver.
 
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataStdExtStringArrayDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_ExtStringArrayDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

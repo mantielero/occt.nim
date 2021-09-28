@@ -17,3 +17,28 @@
 type
   TObjSequenceOfIterator* = NCollectionSequence[Handle[TObjObjectIterator]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

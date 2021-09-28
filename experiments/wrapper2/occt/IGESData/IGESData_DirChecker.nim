@@ -24,12 +24,12 @@ type
 
 proc constructIGESDataDirChecker*(): IGESDataDirChecker {.constructor,
     importcpp: "IGESData_DirChecker(@)", header: "IGESData_DirChecker.hxx".}
-proc constructIGESDataDirChecker*(atype: int): IGESDataDirChecker {.constructor,
+proc constructIGESDataDirChecker*(atype: cint): IGESDataDirChecker {.constructor,
     importcpp: "IGESData_DirChecker(@)", header: "IGESData_DirChecker.hxx".}
-proc constructIGESDataDirChecker*(atype: int; aform: int): IGESDataDirChecker {.
+proc constructIGESDataDirChecker*(atype: cint; aform: cint): IGESDataDirChecker {.
     constructor, importcpp: "IGESData_DirChecker(@)",
     header: "IGESData_DirChecker.hxx".}
-proc constructIGESDataDirChecker*(atype: int; aform1: int; aform2: int): IGESDataDirChecker {.
+proc constructIGESDataDirChecker*(atype: cint; aform1: cint; aform2: cint): IGESDataDirChecker {.
     constructor, importcpp: "IGESData_DirChecker(@)",
     header: "IGESData_DirChecker.hxx".}
 proc isSet*(this: IGESDataDirChecker): bool {.noSideEffect, importcpp: "IsSet",
@@ -44,23 +44,23 @@ proc lineWeight*(this: var IGESDataDirChecker; crit: IGESDataDefType) {.
     importcpp: "LineWeight", header: "IGESData_DirChecker.hxx".}
 proc color*(this: var IGESDataDirChecker; crit: IGESDataDefType) {.importcpp: "Color",
     header: "IGESData_DirChecker.hxx".}
-proc graphicsIgnored*(this: var IGESDataDirChecker; hierarchy: int = -1) {.
+proc graphicsIgnored*(this: var IGESDataDirChecker; hierarchy: cint = -1) {.
     importcpp: "GraphicsIgnored", header: "IGESData_DirChecker.hxx".}
 proc blankStatusIgnored*(this: var IGESDataDirChecker) {.
     importcpp: "BlankStatusIgnored", header: "IGESData_DirChecker.hxx".}
-proc blankStatusRequired*(this: var IGESDataDirChecker; val: int) {.
+proc blankStatusRequired*(this: var IGESDataDirChecker; val: cint) {.
     importcpp: "BlankStatusRequired", header: "IGESData_DirChecker.hxx".}
 proc subordinateStatusIgnored*(this: var IGESDataDirChecker) {.
     importcpp: "SubordinateStatusIgnored", header: "IGESData_DirChecker.hxx".}
-proc subordinateStatusRequired*(this: var IGESDataDirChecker; val: int) {.
+proc subordinateStatusRequired*(this: var IGESDataDirChecker; val: cint) {.
     importcpp: "SubordinateStatusRequired", header: "IGESData_DirChecker.hxx".}
 proc useFlagIgnored*(this: var IGESDataDirChecker) {.importcpp: "UseFlagIgnored",
     header: "IGESData_DirChecker.hxx".}
-proc useFlagRequired*(this: var IGESDataDirChecker; val: int) {.
+proc useFlagRequired*(this: var IGESDataDirChecker; val: cint) {.
     importcpp: "UseFlagRequired", header: "IGESData_DirChecker.hxx".}
 proc hierarchyStatusIgnored*(this: var IGESDataDirChecker) {.
     importcpp: "HierarchyStatusIgnored", header: "IGESData_DirChecker.hxx".}
-proc hierarchyStatusRequired*(this: var IGESDataDirChecker; val: int) {.
+proc hierarchyStatusRequired*(this: var IGESDataDirChecker; val: cint) {.
     importcpp: "HierarchyStatusRequired", header: "IGESData_DirChecker.hxx".}
 proc check*(this: IGESDataDirChecker; ach: var Handle[InterfaceCheck];
            ent: Handle[IGESDataIGESEntity]) {.noSideEffect, importcpp: "Check",
@@ -70,3 +70,28 @@ proc checkTypeAndForm*(this: IGESDataDirChecker; ach: var Handle[InterfaceCheck]
     importcpp: "CheckTypeAndForm", header: "IGESData_DirChecker.hxx".}
 proc correct*(this: IGESDataDirChecker; ent: Handle[IGESDataIGESEntity]): bool {.
     noSideEffect, importcpp: "Correct", header: "IGESData_DirChecker.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

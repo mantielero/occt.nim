@@ -35,3 +35,28 @@ proc constructBRepAlgoAPI_Fuse*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI
 proc constructBRepAlgoAPI_Fuse*(s1: TopoDS_Shape; s2: TopoDS_Shape;
                                aDSF: BOPAlgoPaveFiller): BRepAlgoAPI_Fuse {.
     constructor, importcpp: "BRepAlgoAPI_Fuse(@)", header: "BRepAlgoAPI_Fuse.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

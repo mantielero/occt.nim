@@ -30,7 +30,7 @@ proc constructStepAP214AutoDesignDateAndTimeItem*(): StepAP214AutoDesignDateAndT
     constructor, importcpp: "StepAP214_AutoDesignDateAndTimeItem(@)",
     header: "StepAP214_AutoDesignDateAndTimeItem.hxx".}
 proc caseNum*(this: StepAP214AutoDesignDateAndTimeItem;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignDateAndTimeItem.hxx".}
 proc approvalPersonOrganization*(this: StepAP214AutoDesignDateAndTimeItem): Handle[
     StepBasicApprovalPersonOrganization] {.noSideEffect,
@@ -44,3 +44,28 @@ proc productDefinitionEffectivity*(this: StepAP214AutoDesignDateAndTimeItem): Ha
     StepBasicProductDefinitionEffectivity] {.noSideEffect,
     importcpp: "ProductDefinitionEffectivity",
     header: "StepAP214_AutoDesignDateAndTimeItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

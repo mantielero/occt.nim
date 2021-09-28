@@ -32,12 +32,37 @@ type
                                    ## ! the zero near the close point.
 
 
-proc constructExtremaLocECC2d*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d; u0: float;
-                              v0: float; tolU: float; tolV: float): ExtremaLocECC2d {.
+proc constructExtremaLocECC2d*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d;
+                              u0: cfloat; v0: cfloat; tolU: cfloat; tolV: cfloat): ExtremaLocECC2d {.
     constructor, importcpp: "Extrema_LocECC2d(@)", header: "Extrema_LocECC2d.hxx".}
 proc isDone*(this: ExtremaLocECC2d): bool {.noSideEffect, importcpp: "IsDone",
                                         header: "Extrema_LocECC2d.hxx".}
-proc squareDistance*(this: ExtremaLocECC2d): float {.noSideEffect,
+proc squareDistance*(this: ExtremaLocECC2d): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_LocECC2d.hxx".}
 proc point*(this: ExtremaLocECC2d; p1: var ExtremaPOnCurv2d; p2: var ExtremaPOnCurv2d) {.
     noSideEffect, importcpp: "Point", header: "Extrema_LocECC2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

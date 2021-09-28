@@ -20,3 +20,28 @@ type
   TNamingDataMapIteratorOfDataMapOfShapePtrRefShape* = Iterator[TopoDS_Shape,
       TNamingPtrRefShape, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

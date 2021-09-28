@@ -20,7 +20,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IntTools_TopolTool"
 discard "forward decl of IntTools_TopolTool"
 type
-  HandleIntToolsTopolTool* = Handle[IntToolsTopolTool]
+  HandleC1C1* = Handle[IntToolsTopolTool]
 
 ## ! Class redefine methods of TopolTool from Adaptor3d
 ## ! concerning sample points
@@ -44,17 +44,17 @@ proc initialize*(this: var IntToolsTopolTool; theSurface: Handle[Adaptor3dHSurfa
     importcpp: "Initialize", header: "IntTools_TopolTool.hxx".}
 proc computeSamplePoints*(this: var IntToolsTopolTool) {.
     importcpp: "ComputeSamplePoints", header: "IntTools_TopolTool.hxx".}
-proc nbSamplesU*(this: var IntToolsTopolTool): int {.importcpp: "NbSamplesU",
+proc nbSamplesU*(this: var IntToolsTopolTool): cint {.importcpp: "NbSamplesU",
     header: "IntTools_TopolTool.hxx".}
-proc nbSamplesV*(this: var IntToolsTopolTool): int {.importcpp: "NbSamplesV",
+proc nbSamplesV*(this: var IntToolsTopolTool): cint {.importcpp: "NbSamplesV",
     header: "IntTools_TopolTool.hxx".}
-proc nbSamples*(this: var IntToolsTopolTool): int {.importcpp: "NbSamples",
+proc nbSamples*(this: var IntToolsTopolTool): cint {.importcpp: "NbSamples",
     header: "IntTools_TopolTool.hxx".}
-proc samplePoint*(this: var IntToolsTopolTool; index: int; p2d: var Pnt2d; p3d: var Pnt) {.
+proc samplePoint*(this: var IntToolsTopolTool; index: cint; p2d: var Pnt2d; p3d: var Pnt) {.
     importcpp: "SamplePoint", header: "IntTools_TopolTool.hxx".}
-proc samplePnts*(this: var IntToolsTopolTool; theDefl: float; theNUmin: int;
-                theNVmin: int) {.importcpp: "SamplePnts",
-                               header: "IntTools_TopolTool.hxx".}
+proc samplePnts*(this: var IntToolsTopolTool; theDefl: cfloat; theNUmin: cint;
+                theNVmin: cint) {.importcpp: "SamplePnts",
+                                header: "IntTools_TopolTool.hxx".}
 type
   IntToolsTopolToolbaseType* = Adaptor3dTopolTool
 
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IntTools_TopolTool.hxx".}
 proc dynamicType*(this: IntToolsTopolTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntTools_TopolTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

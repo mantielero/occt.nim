@@ -28,7 +28,7 @@ proc constructRWStepGeomRWBoundaryCurve*(): RWStepGeomRWBoundaryCurve {.
     constructor, importcpp: "RWStepGeom_RWBoundaryCurve(@)",
     header: "RWStepGeom_RWBoundaryCurve.hxx".}
 proc readStep*(this: RWStepGeomRWBoundaryCurve;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomBoundaryCurve]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWBoundaryCurve.hxx".}
 proc writeStep*(this: RWStepGeomRWBoundaryCurve; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepGeomRWBoundaryCurve; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWBoundaryCurve; ent: Handle[StepGeomBoundaryCurve];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWBoundaryCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

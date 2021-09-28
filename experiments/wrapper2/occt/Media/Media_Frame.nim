@@ -94,3 +94,28 @@ proc setLocked*(this: var MediaFrame; theToLock: bool) {.importcpp: "SetLocked",
     header: "Media_Frame.hxx".}
 proc initWrapper*(this: var MediaFrame; thePixMap: Handle[ImagePixMap]): bool {.
     importcpp: "InitWrapper", header: "Media_Frame.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

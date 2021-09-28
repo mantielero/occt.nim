@@ -17,7 +17,7 @@ discard "forward decl of StepFEA_CurveElementEndCoordinateSystem"
 discard "forward decl of StepFEA_CurveElementEndOffset"
 discard "forward decl of StepFEA_CurveElementEndOffset"
 type
-  HandleStepFEA_CurveElementEndOffset* = Handle[StepFEA_CurveElementEndOffset]
+  HandleC1C1* = Handle[StepFEA_CurveElementEndOffset]
 
 ## ! Representation of STEP entity CurveElementEndOffset
 
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_CurveElementEndOffset): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_CurveElementEndOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

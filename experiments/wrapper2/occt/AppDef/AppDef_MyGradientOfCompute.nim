@@ -91,22 +91,47 @@ type
                                                                                      ## Deg.
 
 
-proc constructAppDefMyGradientOfCompute*(ssp: AppDefMultiLine; firstPoint: int;
-                                        lastPoint: int; theConstraints: Handle[
-    AppParCurvesHArray1OfConstraintCouple]; parameters: var MathVector; deg: int;
-                                        tol3d: float; tol2d: float;
-                                        nbIterations: int = 200): AppDefMyGradientOfCompute {.
+proc constructAppDefMyGradientOfCompute*(ssp: AppDefMultiLine; firstPoint: cint;
+                                        lastPoint: cint; theConstraints: Handle[
+    AppParCurvesHArray1OfConstraintCouple]; parameters: var MathVector; deg: cint;
+                                        tol3d: cfloat; tol2d: cfloat;
+                                        nbIterations: cint = 200): AppDefMyGradientOfCompute {.
     constructor, importcpp: "AppDef_MyGradientOfCompute(@)",
     header: "AppDef_MyGradientOfCompute.hxx".}
 proc isDone*(this: AppDefMyGradientOfCompute): bool {.noSideEffect,
     importcpp: "IsDone", header: "AppDef_MyGradientOfCompute.hxx".}
 proc value*(this: AppDefMyGradientOfCompute): AppParCurvesMultiCurve {.noSideEffect,
     importcpp: "Value", header: "AppDef_MyGradientOfCompute.hxx".}
-proc error*(this: AppDefMyGradientOfCompute; index: int): float {.noSideEffect,
+proc error*(this: AppDefMyGradientOfCompute; index: cint): cfloat {.noSideEffect,
     importcpp: "Error", header: "AppDef_MyGradientOfCompute.hxx".}
-proc maxError3d*(this: AppDefMyGradientOfCompute): float {.noSideEffect,
+proc maxError3d*(this: AppDefMyGradientOfCompute): cfloat {.noSideEffect,
     importcpp: "MaxError3d", header: "AppDef_MyGradientOfCompute.hxx".}
-proc maxError2d*(this: AppDefMyGradientOfCompute): float {.noSideEffect,
+proc maxError2d*(this: AppDefMyGradientOfCompute): cfloat {.noSideEffect,
     importcpp: "MaxError2d", header: "AppDef_MyGradientOfCompute.hxx".}
-proc averageError*(this: AppDefMyGradientOfCompute): float {.noSideEffect,
+proc averageError*(this: AppDefMyGradientOfCompute): cfloat {.noSideEffect,
     importcpp: "AverageError", header: "AppDef_MyGradientOfCompute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

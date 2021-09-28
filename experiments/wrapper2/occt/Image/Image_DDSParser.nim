@@ -25,10 +25,35 @@ type
 
 
 proc load*(theSupported: Handle[ImageSupportedFormats];
-          theFile: TCollectionAsciiString; theFaceIndex: int;
+          theFile: TCollectionAsciiString; theFaceIndex: cint;
           theFileOffset: int64T = 0): Handle[ImageCompressedPixMap] {.
     importcpp: "Image_DDSParser::Load(@)", header: "Image_DDSParser.hxx".}
 proc load*(theSupported: Handle[ImageSupportedFormats];
-          theBuffer: Handle[NCollectionBuffer]; theFaceIndex: int): Handle[
+          theBuffer: Handle[NCollectionBuffer]; theFaceIndex: cint): Handle[
     ImageCompressedPixMap] {.importcpp: "Image_DDSParser::Load(@)",
                             header: "Image_DDSParser.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

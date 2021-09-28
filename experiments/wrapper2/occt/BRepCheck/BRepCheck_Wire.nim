@@ -21,7 +21,7 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of BRepCheck_Wire"
 discard "forward decl of BRepCheck_Wire"
 type
-  HandleBRepCheckWire* = Handle[BRepCheckWire]
+  HandleC1C1* = Handle[BRepCheckWire]
   BRepCheckWire* {.importcpp: "BRepCheck_Wire", header: "BRepCheck_Wire.hxx", bycopy.} = object of BRepCheckResult
 
 
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Wire.hxx".}
 proc dynamicType*(this: BRepCheckWire): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Wire.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -100,9 +100,9 @@ proc destroyBRepMeshIncrementalMesh*(this: var BRepMeshIncrementalMesh) {.
     importcpp: "#.~BRepMesh_IncrementalMesh()",
     header: "BRepMesh_IncrementalMesh.hxx".}
 proc constructBRepMeshIncrementalMesh*(theShape: TopoDS_Shape;
-                                      theLinDeflection: float;
+                                      theLinDeflection: cfloat;
                                       isRelative: bool = false;
-                                      theAngDeflection: float = 0.5;
+                                      theAngDeflection: cfloat = 0.5;
                                       isInParallel: bool = false): BRepMeshIncrementalMesh {.
     constructor, importcpp: "BRepMesh_IncrementalMesh(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
@@ -124,10 +124,10 @@ proc changeParameters*(this: var BRepMeshIncrementalMesh): var IMeshToolsParamet
     importcpp: "ChangeParameters", header: "BRepMesh_IncrementalMesh.hxx".}
 proc isModified*(this: BRepMeshIncrementalMesh): bool {.noSideEffect,
     importcpp: "IsModified", header: "BRepMesh_IncrementalMesh.hxx".}
-proc getStatusFlags*(this: BRepMeshIncrementalMesh): int {.noSideEffect,
+proc getStatusFlags*(this: BRepMeshIncrementalMesh): cint {.noSideEffect,
     importcpp: "GetStatusFlags", header: "BRepMesh_IncrementalMesh.hxx".}
-proc discret*(theShape: TopoDS_Shape; theLinDeflection: float;
-             theAngDeflection: float; theAlgo: ptr BRepMeshDiscretRoot): int {.
+proc discret*(theShape: TopoDS_Shape; theLinDeflection: cfloat;
+             theAngDeflection: cfloat; theAlgo: ptr BRepMeshDiscretRoot): cint {.
     importcpp: "BRepMesh_IncrementalMesh::Discret(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
 proc isParallelDefault*(): bool {.importcpp: "BRepMesh_IncrementalMesh::IsParallelDefault(@)",
@@ -145,3 +145,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_IncrementalMesh.hxx".}
 proc dynamicType*(this: BRepMeshIncrementalMesh): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepMesh_IncrementalMesh.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

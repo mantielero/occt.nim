@@ -17,8 +17,11 @@ discard "forward decl of Graphic3d_Camera"
 discard "forward decl of Graphic3d_CStructure"
 type
   Graphic3dBvhCStructureSetTrsfPers* {.importcpp: "Graphic3d_BvhCStructureSetTrsfPers", header: "Graphic3d_BvhCStructureSetTrsfPers.hxx",
-                                      bycopy.} = object of BVH_Set[float, 3] ## ! Creates an empty primitive set for BVH clipping.
-                                                                       ## ! Marks internal object state as outdated.
+                                      bycopy.} = object of BVH_Set[cfloat, 3] ## ! Creates an empty
+                                                                        ## primitive set for BVH
+                                                                        ## clipping.
+                                                                        ## ! Marks internal object state as
+                                                                        ## outdated.
     ## ! Constructed bottom-level BVH.
     ## ! Builder for bottom-level BVH.
     ## ! Indexed map of structures.
@@ -32,15 +35,15 @@ proc constructGraphic3dBvhCStructureSetTrsfPers*(
     theBuilder: Handle[Select3D_BVHBuilder3d]): Graphic3dBvhCStructureSetTrsfPers {.
     constructor, importcpp: "Graphic3d_BvhCStructureSetTrsfPers(@)",
     header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
-proc size*(this: Graphic3dBvhCStructureSetTrsfPers): int {.noSideEffect,
+proc size*(this: Graphic3dBvhCStructureSetTrsfPers): cint {.noSideEffect,
     importcpp: "Size", header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
-proc box*(this: Graphic3dBvhCStructureSetTrsfPers; theIdx: int): Graphic3dBndBox3d {.
+proc box*(this: Graphic3dBvhCStructureSetTrsfPers; theIdx: cint): Graphic3dBndBox3d {.
     noSideEffect, importcpp: "Box",
     header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
-proc center*(this: Graphic3dBvhCStructureSetTrsfPers; theIdx: int; theAxis: int): float {.
+proc center*(this: Graphic3dBvhCStructureSetTrsfPers; theIdx: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center",
     header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
-proc swap*(this: var Graphic3dBvhCStructureSetTrsfPers; theIdx1: int; theIdx2: int) {.
+proc swap*(this: var Graphic3dBvhCStructureSetTrsfPers; theIdx1: cint; theIdx2: cint) {.
     importcpp: "Swap", header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
 proc add*(this: var Graphic3dBvhCStructureSetTrsfPers;
          theStruct: ptr Graphic3dCStructure): bool {.importcpp: "Add",
@@ -50,7 +53,7 @@ proc remove*(this: var Graphic3dBvhCStructureSetTrsfPers;
     header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
 proc clear*(this: var Graphic3dBvhCStructureSetTrsfPers) {.importcpp: "Clear",
     header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
-proc getStructureById*(this: var Graphic3dBvhCStructureSetTrsfPers; theId: int): ptr Graphic3dCStructure {.
+proc getStructureById*(this: var Graphic3dBvhCStructureSetTrsfPers; theId: cint): ptr Graphic3dCStructure {.
     importcpp: "GetStructureById",
     header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
 proc structures*(this: Graphic3dBvhCStructureSetTrsfPers): NCollectionIndexedMap[
@@ -60,13 +63,38 @@ proc markDirty*(this: var Graphic3dBvhCStructureSetTrsfPers) {.
     importcpp: "MarkDirty", header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
 proc bvh*(this: var Graphic3dBvhCStructureSetTrsfPers;
          theCamera: Handle[Graphic3dCamera]; theProjectionMatrix: Graphic3dMat4d;
-         theWorldViewMatrix: Graphic3dMat4d; theViewportWidth: int;
-         theViewportHeight: int; theWVPState: Graphic3dWorldViewProjState): Handle[
-    BVH_Tree[float, 3]] {.importcpp: "BVH",
-                        header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
+         theWorldViewMatrix: Graphic3dMat4d; theViewportWidth: cint;
+         theViewportHeight: cint; theWVPState: Graphic3dWorldViewProjState): Handle[
+    BVH_Tree[cfloat, 3]] {.importcpp: "BVH",
+                         header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
 proc builder*(this: Graphic3dBvhCStructureSetTrsfPers): Handle[
     Select3D_BVHBuilder3d] {.noSideEffect, importcpp: "Builder",
                             header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
 proc setBuilder*(this: var Graphic3dBvhCStructureSetTrsfPers;
                 theBuilder: Handle[Select3D_BVHBuilder3d]) {.
     importcpp: "SetBuilder", header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

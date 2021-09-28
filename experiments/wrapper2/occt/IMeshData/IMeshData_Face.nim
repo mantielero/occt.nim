@@ -27,6 +27,8 @@ type
                                                                                                                    ## Initializes
                                                                                                                    ## empty
                                                                                                                    ## model.
+    bRepAdaptorHSurface* {.importc: "BRepAdaptor_HSurface".}: Handle
+    standardType* {.importc: "Standard_Type".}: Handle
 
 
 proc destroyIMeshDataFace*(this: var IMeshDataFace) {.
@@ -37,19 +39,62 @@ proc addWire*(this: var IMeshDataFace; theWire: TopoDS_Wire; theEdgeNb: int = 0)
     importcpp: "AddWire", header: "IMeshData_Face.hxx".}
 proc getWire*(this: IMeshDataFace; theIndex: int): IWireHandle {.noSideEffect,
     importcpp: "GetWire", header: "IMeshData_Face.hxx".}
-proc getSurface*(this: IMeshDataFace): Handle[BRepAdaptorHSurface] {.noSideEffect,
-    importcpp: "GetSurface", header: "IMeshData_Face.hxx".}
-proc getFace*(this: IMeshDataFace): TopoDS_Face {.noSideEffect, importcpp: "GetFace",
-    header: "IMeshData_Face.hxx".}
-proc isValid*(this: IMeshDataFace): bool {.noSideEffect, importcpp: "IsValid",
-                                       header: "IMeshData_Face.hxx".}
-type
-  IMeshDataFacebaseType* = IMeshDataTessellatedShape
+## !!!Ignored construct:  & GetSurface ( ) const { return mySurface ; } ! Returns TopoDS_Face attached to model. const TopoDS_Face & GetFace ( ) const { return TopoDS :: Face ( GetShape ( ) ) ; } ! Returns whether the face discrete model is valid. Standard_Boolean IsValid ( ) const { return ( IsEqual ( IMeshData_NoError ) || IsEqual ( IMeshData_ReMesh ) || IsEqual ( IMeshData_UnorientedWire ) ) ; } public : typedef IMeshData_TessellatedShape base_type ;
+## Error: identifier expected, but got: &!!!
 
 proc getTypeName*(): cstring {.importcpp: "IMeshData_Face::get_type_name(@)",
                             header: "IMeshData_Face.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IMeshData_Face::get_type_descriptor(@)",
-    header: "IMeshData_Face.hxx".}
-proc dynamicType*(this: IMeshDataFace): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IMeshData_Face.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  mySurface ;
+## Error: identifier expected, but got: ;!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

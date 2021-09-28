@@ -20,7 +20,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_CircularBlendFunc"
 discard "forward decl of GeomFill_CircularBlendFunc"
 type
-  HandleGeomFillCircularBlendFunc* = Handle[GeomFillCircularBlendFunc]
+  HandleC1C1* = Handle[GeomFillCircularBlendFunc]
 
 ## ! Circular     Blend Function  to    approximate by
 ## ! SweepApproximation from Approx
@@ -106,25 +106,27 @@ type
 proc constructGeomFillCircularBlendFunc*(path: Handle[Adaptor3dHCurve];
                                         curve1: Handle[Adaptor3dHCurve];
                                         curve2: Handle[Adaptor3dHCurve];
-                                        radius: float; polynomial: bool = false): GeomFillCircularBlendFunc {.
+                                        radius: StandardReal;
+                                        polynomial: StandardBoolean = false): GeomFillCircularBlendFunc {.
     constructor, importcpp: "GeomFill_CircularBlendFunc(@)",
     header: "GeomFill_CircularBlendFunc.hxx".}
-proc d0*(this: var GeomFillCircularBlendFunc; param: float; first: float; last: float;
-        poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
-        weigths: var TColStdArray1OfReal): bool {.importcpp: "D0",
+proc d0*(this: var GeomFillCircularBlendFunc; param: StandardReal;
+        first: StandardReal; last: StandardReal; poles: var TColgpArray1OfPnt;
+        poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal): StandardBoolean {.
+    importcpp: "D0", header: "GeomFill_CircularBlendFunc.hxx".}
+proc d1*(this: var GeomFillCircularBlendFunc; param: StandardReal;
+        first: StandardReal; last: StandardReal; poles: var TColgpArray1OfPnt;
+        dPoles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
+        dPoles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
+        dWeigths: var TColStdArray1OfReal): StandardBoolean {.importcpp: "D1",
     header: "GeomFill_CircularBlendFunc.hxx".}
-proc d1*(this: var GeomFillCircularBlendFunc; param: float; first: float; last: float;
-        poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
+proc d2*(this: var GeomFillCircularBlendFunc; param: StandardReal;
+        first: StandardReal; last: StandardReal; poles: var TColgpArray1OfPnt;
+        dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
         poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
-        weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
-    importcpp: "D1", header: "GeomFill_CircularBlendFunc.hxx".}
-proc d2*(this: var GeomFillCircularBlendFunc; param: float; first: float; last: float;
-        poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
-        d2Poles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
-        dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d;
-        weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
-        d2Weigths: var TColStdArray1OfReal): bool {.importcpp: "D2",
-    header: "GeomFill_CircularBlendFunc.hxx".}
+        d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
+        dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): StandardBoolean {.
+    importcpp: "D2", header: "GeomFill_CircularBlendFunc.hxx".}
 proc nb2dCurves*(this: GeomFillCircularBlendFunc): int {.noSideEffect,
     importcpp: "Nb2dCurves", header: "GeomFill_CircularBlendFunc.hxx".}
 proc sectionShape*(this: GeomFillCircularBlendFunc; nbPoles: var int;
@@ -134,7 +136,7 @@ proc knots*(this: GeomFillCircularBlendFunc; tKnots: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "Knots", header: "GeomFill_CircularBlendFunc.hxx".}
 proc mults*(this: GeomFillCircularBlendFunc; tMults: var TColStdArray1OfInteger) {.
     noSideEffect, importcpp: "Mults", header: "GeomFill_CircularBlendFunc.hxx".}
-proc isRational*(this: GeomFillCircularBlendFunc): bool {.noSideEffect,
+proc isRational*(this: GeomFillCircularBlendFunc): StandardBoolean {.noSideEffect,
     importcpp: "IsRational", header: "GeomFill_CircularBlendFunc.hxx".}
 proc nbIntervals*(this: GeomFillCircularBlendFunc; s: GeomAbsShape): int {.
     noSideEffect, importcpp: "NbIntervals",
@@ -142,16 +144,19 @@ proc nbIntervals*(this: GeomFillCircularBlendFunc; s: GeomAbsShape): int {.
 proc intervals*(this: GeomFillCircularBlendFunc; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
                                 header: "GeomFill_CircularBlendFunc.hxx".}
-proc setInterval*(this: var GeomFillCircularBlendFunc; first: float; last: float) {.
-    importcpp: "SetInterval", header: "GeomFill_CircularBlendFunc.hxx".}
-proc getTolerance*(this: GeomFillCircularBlendFunc; boundTol: float; surfTol: float;
-                  angleTol: float; tol3d: var TColStdArray1OfReal) {.noSideEffect,
+proc setInterval*(this: var GeomFillCircularBlendFunc; first: StandardReal;
+                 last: StandardReal) {.importcpp: "SetInterval",
+                                     header: "GeomFill_CircularBlendFunc.hxx".}
+proc getTolerance*(this: GeomFillCircularBlendFunc; boundTol: StandardReal;
+                  surfTol: StandardReal; angleTol: StandardReal;
+                  tol3d: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "GetTolerance", header: "GeomFill_CircularBlendFunc.hxx".}
-proc setTolerance*(this: var GeomFillCircularBlendFunc; tol3d: float; tol2d: float) {.
-    importcpp: "SetTolerance", header: "GeomFill_CircularBlendFunc.hxx".}
+proc setTolerance*(this: var GeomFillCircularBlendFunc; tol3d: StandardReal;
+                  tol2d: StandardReal) {.importcpp: "SetTolerance",
+                                       header: "GeomFill_CircularBlendFunc.hxx".}
 proc barycentreOfSurf*(this: GeomFillCircularBlendFunc): Pnt {.noSideEffect,
     importcpp: "BarycentreOfSurf", header: "GeomFill_CircularBlendFunc.hxx".}
-proc maximalSection*(this: GeomFillCircularBlendFunc): float {.noSideEffect,
+proc maximalSection*(this: GeomFillCircularBlendFunc): StandardReal {.noSideEffect,
     importcpp: "MaximalSection", header: "GeomFill_CircularBlendFunc.hxx".}
 proc getMinimalWeight*(this: GeomFillCircularBlendFunc;
                       weigths: var TColStdArray1OfReal) {.noSideEffect,

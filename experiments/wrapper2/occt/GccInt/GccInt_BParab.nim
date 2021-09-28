@@ -18,7 +18,7 @@ discard "forward decl of gp_Parab2d"
 discard "forward decl of GccInt_BParab"
 discard "forward decl of GccInt_BParab"
 type
-  HandleGccIntBParab* = Handle[GccIntBParab]
+  HandleC1C1* = Handle[GccIntBParab]
 
 ## ! Describes a parabola as a bisecting curve between two
 ## ! 2D geometric objects (such as lines, circles or points).
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "GccInt_BParab.hxx".}
 proc dynamicType*(this: GccIntBParab): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BParab.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

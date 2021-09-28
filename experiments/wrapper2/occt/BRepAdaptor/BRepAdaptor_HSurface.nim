@@ -15,46 +15,62 @@
 ##  commercial license or contractual agreement.
 
 ## !!!Ignored construct:  # _BRepAdaptor_HSurface_HeaderFile [NewLine] # _BRepAdaptor_HSurface_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < BRepAdaptor_Surface . hxx > [NewLine] # < Adaptor3d_HSurface . hxx > [NewLine] class Standard_OutOfRange ;
-## Error: did not expect <!!!
+## Error: expected ';'!!!
 
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of BRepAdaptor_Surface"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of BRepAdaptor_HSurface"
-discard "forward decl of BRepAdaptor_HSurface"
-type
-  HandleBRepAdaptorHSurfaceBRepAdaptorHSurface* = Handle[BRepAdaptorHSurface]
-  BRepAdaptorHSurface* {.importcpp: "BRepAdaptor_HSurface",
-                        header: "BRepAdaptor_HSurface.hxx", bycopy.} = object of Adaptor3dHSurface ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## an
-                                                                                            ## empty
-                                                                                            ## GenHSurface.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( BRepAdaptor_HSurface , Adaptor3d_HSurface ) class BRepAdaptor_HSurface : public Adaptor3d_HSurface { public : ! Creates an empty GenHSurface. BRepAdaptor_HSurface ( ) ; ! Creates a GenHSurface from a Surface. BRepAdaptor_HSurface ( const BRepAdaptor_Surface & S ) ; ! Sets the field of the GenHSurface. void Set ( const BRepAdaptor_Surface & S ) ; ! Returns a reference to the Surface inside the HSurface.
+## ! This is redefined from HSurface, cannot be inline. const Adaptor3d_Surface & Surface ( ) const ; ! Returns the surface used to create the GenHSurface. BRepAdaptor_Surface & ChangeSurface ( ) ; public : typedef Adaptor3d_HSurface base_type ; static const char * get_type_name ( ) { return BRepAdaptor_HSurface ; ( BRepAdaptor_HSurface , Adaptor3d_HSurface ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < BRepAdaptor_HSurface > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : BRepAdaptor_Surface mySurf ; private : } ;
+## Error: expected ';'!!!
 
-
-proc constructBRepAdaptorHSurface*(): BRepAdaptorHSurface {.constructor,
-    importcpp: "BRepAdaptor_HSurface(@)", header: "BRepAdaptor_HSurface.hxx".}
-proc constructBRepAdaptorHSurface*(s: BRepAdaptorSurface): BRepAdaptorHSurface {.
-    constructor, importcpp: "BRepAdaptor_HSurface(@)",
-    header: "BRepAdaptor_HSurface.hxx".}
-proc set*(this: var BRepAdaptorHSurface; s: BRepAdaptorSurface) {.importcpp: "Set",
-    header: "BRepAdaptor_HSurface.hxx".}
-proc surface*(this: BRepAdaptorHSurface): Adaptor3dSurface {.noSideEffect,
-    importcpp: "Surface", header: "BRepAdaptor_HSurface.hxx".}
-proc changeSurface*(this: var BRepAdaptorHSurface): var BRepAdaptorSurface {.
-    importcpp: "ChangeSurface", header: "BRepAdaptor_HSurface.hxx".}
-type
-  BRepAdaptorHSurfacebaseType* = Adaptor3dHSurface
-
-proc getTypeName*(): cstring {.importcpp: "BRepAdaptor_HSurface::get_type_name(@)",
-                            header: "BRepAdaptor_HSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "BRepAdaptor_HSurface::get_type_descriptor(@)",
-    header: "BRepAdaptor_HSurface.hxx".}
-proc dynamicType*(this: BRepAdaptorHSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRepAdaptor_HSurface.hxx".}
-## !!!Ignored construct:  # TheSurface BRepAdaptor_Surface [NewLine] # TheSurface_hxx < BRepAdaptor_Surface . hxx > [NewLine] # Adaptor3d_GenHSurface BRepAdaptor_HSurface [NewLine] # Adaptor3d_GenHSurface_hxx < BRepAdaptor_HSurface . hxx > [NewLine] # Handle_Adaptor3d_GenHSurface opencascade :: handle < BRepAdaptor_HSurface > [end of template] [NewLine] # < Adaptor3d_GenHSurface . lxx > [NewLine] # TheSurface [NewLine] # TheSurface_hxx [NewLine] # Adaptor3d_GenHSurface [NewLine] # Adaptor3d_GenHSurface_hxx [NewLine] # Handle_Adaptor3d_GenHSurface [NewLine] #  _BRepAdaptor_HSurface_HeaderFile
+## !!!Ignored construct:  # TheSurface BRepAdaptor_Surface [NewLine] # TheSurface_hxx < BRepAdaptor_Surface . hxx > [NewLine] # Adaptor3d_GenHSurface BRepAdaptor_HSurface [NewLine] # Adaptor3d_GenHSurface_hxx < BRepAdaptor_HSurface . hxx > [NewLine] # Handle_Adaptor3d_GenHSurface Handle ( BRepAdaptor_HSurface ) [NewLine] # < Adaptor3d_GenHSurface . lxx > [NewLine] # TheSurface [NewLine] # TheSurface_hxx [NewLine] # Adaptor3d_GenHSurface [NewLine] # Adaptor3d_GenHSurface_hxx [NewLine] # Handle_Adaptor3d_GenHSurface [NewLine] #  _BRepAdaptor_HSurface_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -17,3 +17,28 @@
 type
   ExtremaArray1OfPOnCurv2d* = NCollectionArray1[ExtremaPOnCurv2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

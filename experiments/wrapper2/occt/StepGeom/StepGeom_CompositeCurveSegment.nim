@@ -18,7 +18,7 @@ discard "forward decl of StepGeom_Curve"
 discard "forward decl of StepGeom_CompositeCurveSegment"
 discard "forward decl of StepGeom_CompositeCurveSegment"
 type
-  HandleStepGeomCompositeCurveSegment* = Handle[StepGeomCompositeCurveSegment]
+  HandleC1C1* = Handle[StepGeomCompositeCurveSegment]
   StepGeomCompositeCurveSegment* {.importcpp: "StepGeom_CompositeCurveSegment",
                                   header: "StepGeom_CompositeCurveSegment.hxx",
                                   bycopy.} = object of StandardTransient ## ! Returns a
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomCompositeCurveSegment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_CompositeCurveSegment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -46,35 +46,60 @@ type
 proc constructGCPntsQuasiUniformAbscissa*(): GCPntsQuasiUniformAbscissa {.
     constructor, importcpp: "GCPnts_QuasiUniformAbscissa(@)",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor3dCurve; nbPoints: int): GCPntsQuasiUniformAbscissa {.
+proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor3dCurve; nbPoints: cint): GCPntsQuasiUniformAbscissa {.
     constructor, importcpp: "GCPnts_QuasiUniformAbscissa(@)",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor3dCurve; nbPoints: int;
-    u1: float; u2: float): GCPntsQuasiUniformAbscissa {.constructor,
+proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor3dCurve; nbPoints: cint;
+    u1: cfloat; u2: cfloat): GCPntsQuasiUniformAbscissa {.constructor,
     importcpp: "GCPnts_QuasiUniformAbscissa(@)",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
 proc initialize*(this: var GCPntsQuasiUniformAbscissa; c: Adaptor3dCurve;
-                nbPoints: int) {.importcpp: "Initialize",
-                               header: "GCPnts_QuasiUniformAbscissa.hxx".}
+                nbPoints: cint) {.importcpp: "Initialize",
+                                header: "GCPnts_QuasiUniformAbscissa.hxx".}
 proc initialize*(this: var GCPntsQuasiUniformAbscissa; c: Adaptor3dCurve;
-                nbPoints: int; u1: float; u2: float) {.importcpp: "Initialize",
+                nbPoints: cint; u1: cfloat; u2: cfloat) {.importcpp: "Initialize",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor2dCurve2d; nbPoints: int): GCPntsQuasiUniformAbscissa {.
+proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor2dCurve2d; nbPoints: cint): GCPntsQuasiUniformAbscissa {.
     constructor, importcpp: "GCPnts_QuasiUniformAbscissa(@)",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor2dCurve2d; nbPoints: int;
-    u1: float; u2: float): GCPntsQuasiUniformAbscissa {.constructor,
+proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor2dCurve2d; nbPoints: cint;
+    u1: cfloat; u2: cfloat): GCPntsQuasiUniformAbscissa {.constructor,
     importcpp: "GCPnts_QuasiUniformAbscissa(@)",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
 proc initialize*(this: var GCPntsQuasiUniformAbscissa; c: Adaptor2dCurve2d;
-                nbPoints: int) {.importcpp: "Initialize",
-                               header: "GCPnts_QuasiUniformAbscissa.hxx".}
+                nbPoints: cint) {.importcpp: "Initialize",
+                                header: "GCPnts_QuasiUniformAbscissa.hxx".}
 proc initialize*(this: var GCPntsQuasiUniformAbscissa; c: Adaptor2dCurve2d;
-                nbPoints: int; u1: float; u2: float) {.importcpp: "Initialize",
+                nbPoints: cint; u1: cfloat; u2: cfloat) {.importcpp: "Initialize",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
 proc isDone*(this: GCPntsQuasiUniformAbscissa): bool {.noSideEffect,
     importcpp: "IsDone", header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc nbPoints*(this: GCPntsQuasiUniformAbscissa): int {.noSideEffect,
+proc nbPoints*(this: GCPntsQuasiUniformAbscissa): cint {.noSideEffect,
     importcpp: "NbPoints", header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc parameter*(this: GCPntsQuasiUniformAbscissa; index: int): float {.noSideEffect,
+proc parameter*(this: GCPntsQuasiUniformAbscissa; index: cint): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "GCPnts_QuasiUniformAbscissa.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

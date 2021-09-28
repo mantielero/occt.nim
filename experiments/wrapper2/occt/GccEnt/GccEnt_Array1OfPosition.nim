@@ -17,3 +17,28 @@
 type
   GccEntArray1OfPosition* = NCollectionArray1[GccEntPosition]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

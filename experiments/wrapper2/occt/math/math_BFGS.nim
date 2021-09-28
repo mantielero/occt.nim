@@ -39,8 +39,8 @@ type
                                                                          ## function F.
 
 
-proc constructMathBFGS*(nbVariables: int; tolerance: float = 1.0e-8;
-                       nbIterations: int = 200; zeps: float = 1.0e-12): MathBFGS {.
+proc constructMathBFGS*(nbVariables: cint; tolerance: cfloat = 1.0e-8;
+                       nbIterations: cint = 200; zeps: cfloat = 1.0e-12): MathBFGS {.
     constructor, importcpp: "math_BFGS(@)", header: "math_BFGS.hxx".}
 proc destroyMathBFGS*(this: var MathBFGS) {.importcpp: "#.~math_BFGS()",
                                         header: "math_BFGS.hxx".}
@@ -58,13 +58,38 @@ proc location*(this: MathBFGS): MathVector {.noSideEffect, importcpp: "Location"
     header: "math_BFGS.hxx".}
 proc location*(this: MathBFGS; loc: var MathVector) {.noSideEffect,
     importcpp: "Location", header: "math_BFGS.hxx".}
-proc minimum*(this: MathBFGS): float {.noSideEffect, importcpp: "Minimum",
-                                   header: "math_BFGS.hxx".}
+proc minimum*(this: MathBFGS): cfloat {.noSideEffect, importcpp: "Minimum",
+                                    header: "math_BFGS.hxx".}
 proc gradient*(this: MathBFGS): MathVector {.noSideEffect, importcpp: "Gradient",
     header: "math_BFGS.hxx".}
 proc gradient*(this: MathBFGS; grad: var MathVector) {.noSideEffect,
     importcpp: "Gradient", header: "math_BFGS.hxx".}
-proc nbIterations*(this: MathBFGS): int {.noSideEffect, importcpp: "NbIterations",
-                                      header: "math_BFGS.hxx".}
+proc nbIterations*(this: MathBFGS): cint {.noSideEffect, importcpp: "NbIterations",
+                                       header: "math_BFGS.hxx".}
 proc dump*(this: MathBFGS; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "math_BFGS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

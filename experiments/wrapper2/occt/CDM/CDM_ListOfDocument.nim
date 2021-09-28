@@ -18,3 +18,28 @@ type
   CDM_ListOfDocument* = NCollectionList[Handle[CDM_Document]]
   CDM_ListIteratorOfListOfDocument* = Iterator[Handle[CDM_Document]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

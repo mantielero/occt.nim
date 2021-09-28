@@ -33,3 +33,28 @@ proc closure*(aLabel: TDF_Label; aLabMap: var TDF_LabelMap;
              anAttMap: var TDF_AttributeMap; aFilter: TDF_IDFilter;
              aMode: TDF_ClosureMode) {.importcpp: "TDF_ClosureTool::Closure(@)",
                                      header: "TDF_ClosureTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

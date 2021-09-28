@@ -19,7 +19,7 @@ discard "forward decl of PrsMgr_PresentationManager"
 discard "forward decl of MeshVS_MeshOwner"
 discard "forward decl of MeshVS_MeshOwner"
 type
-  HandleMeshVS_MeshOwner* = Handle[MeshVS_MeshOwner]
+  HandleC1C1* = Handle[MeshVS_MeshOwner]
 
 ## ! The custom mesh owner used for advanced mesh selection. This class provides methods to store information:
 ## ! 1) IDs of hilighted mesh nodes and elements
@@ -32,8 +32,8 @@ type
 
 proc constructMeshVS_MeshOwner*(theSelObj: ptr SelectMgrSelectableObject;
                                theDS: Handle[MeshVS_DataSource];
-                               thePriority: int = 0): MeshVS_MeshOwner {.constructor,
-    importcpp: "MeshVS_MeshOwner(@)", header: "MeshVS_MeshOwner.hxx".}
+                               thePriority: cint = 0): MeshVS_MeshOwner {.
+    constructor, importcpp: "MeshVS_MeshOwner(@)", header: "MeshVS_MeshOwner.hxx".}
 proc getDataSource*(this: MeshVS_MeshOwner): Handle[MeshVS_DataSource] {.
     noSideEffect, importcpp: "GetDataSource", header: "MeshVS_MeshOwner.hxx".}
 proc getSelectedNodes*(this: MeshVS_MeshOwner): Handle[TColStdHPackedMapOfInteger] {.
@@ -58,10 +58,11 @@ proc setDetectedEntities*(this: var MeshVS_MeshOwner;
     importcpp: "SetDetectedEntities", header: "MeshVS_MeshOwner.hxx".}
 proc hilightWithColor*(this: var MeshVS_MeshOwner;
                       thePM: Handle[PrsMgrPresentationManager3d];
-                      theColor: Handle[Prs3dDrawer]; theMode: int = 0) {.
+                      theColor: Handle[Prs3dDrawer]; theMode: cint = 0) {.
     importcpp: "HilightWithColor", header: "MeshVS_MeshOwner.hxx".}
 proc unhilight*(this: var MeshVS_MeshOwner; pm: Handle[PrsMgrPresentationManager];
-               mode: int = 0) {.importcpp: "Unhilight", header: "MeshVS_MeshOwner.hxx".}
+               mode: cint = 0) {.importcpp: "Unhilight",
+                             header: "MeshVS_MeshOwner.hxx".}
 proc isForcedHilight*(this: MeshVS_MeshOwner): bool {.noSideEffect,
     importcpp: "IsForcedHilight", header: "MeshVS_MeshOwner.hxx".}
 type
@@ -74,3 +75,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MeshVS_MeshOwner.hxx".}
 proc dynamicType*(this: MeshVS_MeshOwner): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_MeshOwner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

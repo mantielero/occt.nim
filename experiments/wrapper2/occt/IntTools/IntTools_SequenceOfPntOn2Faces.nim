@@ -16,3 +16,28 @@
 type
   IntToolsSequenceOfPntOn2Faces* = NCollectionSequence[IntToolsPntOn2Faces]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

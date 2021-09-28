@@ -34,22 +34,18 @@ type
               ## ! Loads the given element sets into the overlap tool.
               ## ! Performs narrow-phase of overlap test (exact intersection).
               ## ! Set of all mesh elements (triangles) of the 1st shape.
-    ## ! Set of all mesh elements (triangles) of the 2nd shape.
-    ## ! Filter for preliminary checking pairs of mesh elements.
     ## ! Resulted set of overlapped sub-shapes of 1st shape (only faces).
     ## ! Resulted set of overlapped sub-shapes of 2nd shape (only faces).
 
 
 proc constructBRepExtremaOverlapTool*(): BRepExtremaOverlapTool {.constructor,
     importcpp: "BRepExtrema_OverlapTool(@)", header: "BRepExtrema_OverlapTool.hxx".}
-proc constructBRepExtremaOverlapTool*(theSet1: Handle[BRepExtremaTriangleSet];
-                                     theSet2: Handle[BRepExtremaTriangleSet]): BRepExtremaOverlapTool {.
-    constructor, importcpp: "BRepExtrema_OverlapTool(@)",
-    header: "BRepExtrema_OverlapTool.hxx".}
-proc loadTriangleSets*(this: var BRepExtremaOverlapTool;
-                      theSet1: Handle[BRepExtremaTriangleSet];
-                      theSet2: Handle[BRepExtremaTriangleSet]) {.
-    importcpp: "LoadTriangleSets", header: "BRepExtrema_OverlapTool.hxx".}
+## !!!Ignored construct:  ! Creates new overlap tool for the given element sets. BRepExtrema_OverlapTool ( const Handle ( BRepExtrema_TriangleSet ) & theSet1 , const Handle ( BRepExtrema_TriangleSet ) & theSet2 ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  public : ! Loads the given element sets into the overlap tool. void LoadTriangleSets ( const Handle ( BRepExtrema_TriangleSet ) & theSet1 , const Handle ( BRepExtrema_TriangleSet ) & theSet2 ) ;
+## Error: token expected: ) but got: &!!!
+
 proc perform*(this: var BRepExtremaOverlapTool; theTolerance: float = 0.0) {.
     importcpp: "Perform", header: "BRepExtrema_OverlapTool.hxx".}
 proc isDone*(this: BRepExtremaOverlapTool): bool {.noSideEffect, importcpp: "IsDone",
@@ -67,6 +63,57 @@ proc overlapSubShapes2*(this: BRepExtremaOverlapTool): BRepExtremaMapOfIntegerPa
 
 proc accept*(this: var BRepExtremaOverlapTool; theLeaf1: int; theLeaf2: int): bool {.
     importcpp: "Accept", header: "BRepExtrema_OverlapTool.hxx".}
+## !!!Ignored construct:  mySet1 ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  mySet2 ;
+## Error: identifier expected, but got: ;!!!
+
 ## !!!Ignored construct:  # OVERLAP_TOOL_OUTPUT_TRIANGLES [NewLine] ! Set of overlapped elements from the 1st shape (only triangles). TColStd_PackedMapOfInteger myOverlapTriangles1 ;
 ## Error: identifier expected, but got: ! Set of overlapped elements from the 1st shape (only triangles).!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

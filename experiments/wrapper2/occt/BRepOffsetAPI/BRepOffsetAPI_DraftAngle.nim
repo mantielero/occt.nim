@@ -89,7 +89,7 @@ proc clear*(this: var BRepOffsetAPI_DraftAngle) {.importcpp: "Clear",
 proc init*(this: var BRepOffsetAPI_DraftAngle; s: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
 proc add*(this: var BRepOffsetAPI_DraftAngle; f: TopoDS_Face; direction: Dir;
-         angle: float; neutralPlane: Pln; flag: bool = true) {.importcpp: "Add",
+         angle: cfloat; neutralPlane: Pln; flag: bool = true) {.importcpp: "Add",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
 proc addDone*(this: BRepOffsetAPI_DraftAngle): bool {.noSideEffect,
     importcpp: "AddDone", header: "BRepOffsetAPI_DraftAngle.hxx".}
@@ -116,3 +116,28 @@ proc modified*(this: var BRepOffsetAPI_DraftAngle; s: TopoDS_Shape): TopToolsLis
 proc modifiedShape*(this: BRepOffsetAPI_DraftAngle; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

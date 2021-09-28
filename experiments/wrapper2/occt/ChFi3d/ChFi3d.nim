@@ -26,17 +26,18 @@ type
 
 
 proc defineConnectType*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face;
-                       sinTol: float; correctPoint: bool): ChFiDS_TypeOfConcavity {.
+                       sinTol: cfloat; correctPoint: bool): ChFiDS_TypeOfConcavity {.
     importcpp: "ChFi3d::DefineConnectType(@)", header: "ChFi3d.hxx".}
 proc isTangentFaces*(theEdge: TopoDS_Edge; theFace1: TopoDS_Face;
                     theFace2: TopoDS_Face; order: GeomAbsShape = geomAbsG1): bool {.
     importcpp: "ChFi3d::IsTangentFaces(@)", header: "ChFi3d.hxx".}
 proc concaveSide*(s1: BRepAdaptorSurface; s2: BRepAdaptorSurface; e: TopoDS_Edge;
-                 or1: var TopAbsOrientation; or2: var TopAbsOrientation): int {.
+                 or1: var TopAbsOrientation; or2: var TopAbsOrientation): cint {.
     importcpp: "ChFi3d::ConcaveSide(@)", header: "ChFi3d.hxx".}
 proc nextSide*(or1: var TopAbsOrientation; or2: var TopAbsOrientation;
-              orSave1: TopAbsOrientation; orSave2: TopAbsOrientation; choixSauv: int): int {.
-    importcpp: "ChFi3d::NextSide(@)", header: "ChFi3d.hxx".}
+              orSave1: TopAbsOrientation; orSave2: TopAbsOrientation;
+              choixSauv: cint): cint {.importcpp: "ChFi3d::NextSide(@)",
+                                    header: "ChFi3d.hxx".}
 proc nextSide*(`or`: var TopAbsOrientation; orSave: TopAbsOrientation;
               orFace: TopAbsOrientation) {.importcpp: "ChFi3d::NextSide(@)",
     header: "ChFi3d.hxx".}
@@ -44,3 +45,28 @@ proc sameSide*(`or`: TopAbsOrientation; orSave1: TopAbsOrientation;
               orSave2: TopAbsOrientation; orFace1: TopAbsOrientation;
               orFace2: TopAbsOrientation): bool {.importcpp: "ChFi3d::SameSide(@)",
     header: "ChFi3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

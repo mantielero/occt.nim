@@ -31,3 +31,28 @@ proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
 proc attributeDrivers*(msgDrv: Handle[MessageMessenger]): Handle[
     BinMDF_ADriverTable] {.importcpp: "BinXCAFDrivers::AttributeDrivers(@)",
                           header: "BinXCAFDrivers.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

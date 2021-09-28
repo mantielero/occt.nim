@@ -38,3 +38,28 @@ const
   FontNOF_KANJI_MONO* = "Iris"
   FontNOF_KATAKANA_MONO* = "Iris"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

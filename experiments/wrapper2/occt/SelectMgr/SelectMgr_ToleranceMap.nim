@@ -28,17 +28,42 @@ proc constructSelectMgrToleranceMap*(): SelectMgrToleranceMap {.constructor,
     importcpp: "SelectMgr_ToleranceMap(@)", header: "SelectMgr_ToleranceMap.hxx".}
 proc destroySelectMgrToleranceMap*(this: var SelectMgrToleranceMap) {.
     importcpp: "#.~SelectMgr_ToleranceMap()", header: "SelectMgr_ToleranceMap.hxx".}
-proc add*(this: var SelectMgrToleranceMap; theTolerance: int) {.importcpp: "Add",
+proc add*(this: var SelectMgrToleranceMap; theTolerance: cint) {.importcpp: "Add",
     header: "SelectMgr_ToleranceMap.hxx".}
-proc decrement*(this: var SelectMgrToleranceMap; theTolerance: int) {.
+proc decrement*(this: var SelectMgrToleranceMap; theTolerance: cint) {.
     importcpp: "Decrement", header: "SelectMgr_ToleranceMap.hxx".}
-proc tolerance*(this: SelectMgrToleranceMap): int {.noSideEffect,
+proc tolerance*(this: SelectMgrToleranceMap): cint {.noSideEffect,
     importcpp: "Tolerance", header: "SelectMgr_ToleranceMap.hxx".}
-proc setCustomTolerance*(this: var SelectMgrToleranceMap; theTolerance: int) {.
+proc setCustomTolerance*(this: var SelectMgrToleranceMap; theTolerance: cint) {.
     importcpp: "SetCustomTolerance", header: "SelectMgr_ToleranceMap.hxx".}
 proc resetDefaults*(this: var SelectMgrToleranceMap) {.importcpp: "ResetDefaults",
     header: "SelectMgr_ToleranceMap.hxx".}
-proc customTolerance*(this: SelectMgrToleranceMap): int {.noSideEffect,
+proc customTolerance*(this: SelectMgrToleranceMap): cint {.noSideEffect,
     importcpp: "CustomTolerance", header: "SelectMgr_ToleranceMap.hxx".}
 proc isCustomTolSet*(this: SelectMgrToleranceMap): bool {.noSideEffect,
     importcpp: "IsCustomTolSet", header: "SelectMgr_ToleranceMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

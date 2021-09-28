@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MAT_DataMapOfIntegerBisector* = NCollectionDataMap[int, Handle[MAT_Bisector],
+  MAT_DataMapOfIntegerBisector* = NCollectionDataMap[cint, Handle[MAT_Bisector],
       TColStdMapIntegerHasher]
-  MAT_DataMapIteratorOfDataMapOfIntegerBisector* = Iterator[int,
+  MAT_DataMapIteratorOfDataMapOfIntegerBisector* = Iterator[cint,
       Handle[MAT_Bisector], TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

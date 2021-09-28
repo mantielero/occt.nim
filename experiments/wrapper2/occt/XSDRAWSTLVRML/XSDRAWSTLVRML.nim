@@ -34,3 +34,28 @@ proc initCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "XSDRAWSTLVRML::InitCommands(@)", header: "XSDRAWSTLVRML.hxx".}
 proc factory*(theDI: var DrawInterpretor) {.importcpp: "XSDRAWSTLVRML::Factory(@)",
                                         header: "XSDRAWSTLVRML.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

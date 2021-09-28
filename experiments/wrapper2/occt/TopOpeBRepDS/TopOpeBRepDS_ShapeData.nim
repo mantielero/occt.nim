@@ -30,3 +30,28 @@ proc keep*(this: TopOpeBRepDS_ShapeData): bool {.noSideEffect, importcpp: "Keep"
     header: "TopOpeBRepDS_ShapeData.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_ShapeData; b: bool) {.importcpp: "ChangeKeep",
     header: "TopOpeBRepDS_ShapeData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

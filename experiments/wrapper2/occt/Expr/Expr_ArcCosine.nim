@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_ArcCosine"
 discard "forward decl of Expr_ArcCosine"
 type
-  HandleExprArcCosine* = Handle[ExprArcCosine]
+  HandleC1C1* = Handle[ExprArcCosine]
   ExprArcCosine* {.importcpp: "Expr_ArcCosine", header: "Expr_ArcCosine.hxx", bycopy.} = object of ExprUnaryExpression ##
                                                                                                              ## !
                                                                                                              ## Creates
@@ -46,7 +46,7 @@ proc derivative*(this: ExprArcCosine; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_ArcCosine.hxx".}
 proc evaluate*(this: ExprArcCosine; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_ArcCosine.hxx".}
 proc string*(this: ExprArcCosine): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_ArcCosine.hxx".}
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_ArcCosine.hxx".}
 proc dynamicType*(this: ExprArcCosine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_ArcCosine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

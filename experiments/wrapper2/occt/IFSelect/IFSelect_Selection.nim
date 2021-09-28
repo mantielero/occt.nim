@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of IFSelect_Selection"
 type
-  HandleIFSelectSelection* = Handle[IFSelectSelection]
+  HandleC1C1* = Handle[IFSelectSelection]
 
 ## ! A Selection allows to define a set of Interface Entities.
 ## ! Entities to be put on an output file should be identified in
@@ -128,3 +128,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_Selection.hxx".}
 proc dynamicType*(this: IFSelectSelection): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Selection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

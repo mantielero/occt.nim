@@ -174,39 +174,39 @@ type
                                                                                    ## Poles.
 
 
-proc constructAdvApproxApproxAFunction*(num1DSS: int; num2DSS: int; num3DSS: int;
+proc constructAdvApproxApproxAFunction*(num1DSS: cint; num2DSS: cint; num3DSS: cint;
                                        oneDTol: Handle[TColStdHArray1OfReal];
                                        twoDTol: Handle[TColStdHArray1OfReal];
                                        threeDTol: Handle[TColStdHArray1OfReal];
-                                       first: float; last: float;
-                                       continuity: GeomAbsShape; maxDeg: int;
-                                       maxSeg: int;
+                                       first: cfloat; last: cfloat;
+                                       continuity: GeomAbsShape; maxDeg: cint;
+                                       maxSeg: cint;
                                        `func`: AdvApproxEvaluatorFunction): AdvApproxApproxAFunction {.
     constructor, importcpp: "AdvApprox_ApproxAFunction(@)",
     header: "AdvApprox_ApproxAFunction.hxx".}
-proc constructAdvApproxApproxAFunction*(num1DSS: int; num2DSS: int; num3DSS: int;
+proc constructAdvApproxApproxAFunction*(num1DSS: cint; num2DSS: cint; num3DSS: cint;
                                        oneDTol: Handle[TColStdHArray1OfReal];
                                        twoDTol: Handle[TColStdHArray1OfReal];
                                        threeDTol: Handle[TColStdHArray1OfReal];
-                                       first: float; last: float;
-                                       continuity: GeomAbsShape; maxDeg: int;
-                                       maxSeg: int;
+                                       first: cfloat; last: cfloat;
+                                       continuity: GeomAbsShape; maxDeg: cint;
+                                       maxSeg: cint;
                                        `func`: AdvApproxEvaluatorFunction;
                                        cutTool: AdvApproxCutting): AdvApproxApproxAFunction {.
     constructor, importcpp: "AdvApprox_ApproxAFunction(@)",
     header: "AdvApprox_ApproxAFunction.hxx".}
-proc approximation*(totalDimension: int; totalNumSS: int;
-                   localDimension: TColStdArray1OfInteger; first: float;
-                   last: float; evaluator: var AdvApproxEvaluatorFunction;
-                   cutTool: AdvApproxCutting; continuityOrder: int;
-                   numMaxCoeffs: int; maxSegments: int;
-                   tolerancesArray: TColStdArray1OfReal; codePrecis: int;
-                   numCurves: var int;
+proc approximation*(totalDimension: cint; totalNumSS: cint;
+                   localDimension: TColStdArray1OfInteger; first: cfloat;
+                   last: cfloat; evaluator: var AdvApproxEvaluatorFunction;
+                   cutTool: AdvApproxCutting; continuityOrder: cint;
+                   numMaxCoeffs: cint; maxSegments: cint;
+                   tolerancesArray: TColStdArray1OfReal; codePrecis: cint;
+                   numCurves: var cint;
                    numCoeffPerCurveArray: var TColStdArray1OfInteger;
                    localCoefficientArray: var TColStdArray1OfReal;
                    intervalsArray: var TColStdArray1OfReal;
                    errorMaxArray: var TColStdArray1OfReal;
-                   averageErrorArray: var TColStdArray1OfReal; errorCode: var int) {.
+                   averageErrorArray: var TColStdArray1OfReal; errorCode: var cint) {.
     importcpp: "AdvApprox_ApproxAFunction::Approximation(@)",
     header: "AdvApprox_ApproxAFunction.hxx".}
 proc isDone*(this: AdvApproxApproxAFunction): bool {.noSideEffect,
@@ -219,19 +219,19 @@ proc poles2d*(this: AdvApproxApproxAFunction): Handle[TColgpHArray2OfPnt2d] {.
     noSideEffect, importcpp: "Poles2d", header: "AdvApprox_ApproxAFunction.hxx".}
 proc poles*(this: AdvApproxApproxAFunction): Handle[TColgpHArray2OfPnt] {.
     noSideEffect, importcpp: "Poles", header: "AdvApprox_ApproxAFunction.hxx".}
-proc nbPoles*(this: AdvApproxApproxAFunction): int {.noSideEffect,
+proc nbPoles*(this: AdvApproxApproxAFunction): cint {.noSideEffect,
     importcpp: "NbPoles", header: "AdvApprox_ApproxAFunction.hxx".}
-proc poles1d*(this: AdvApproxApproxAFunction; index: int; p: var TColStdArray1OfReal) {.
+proc poles1d*(this: AdvApproxApproxAFunction; index: cint; p: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "Poles1d", header: "AdvApprox_ApproxAFunction.hxx".}
-proc poles2d*(this: AdvApproxApproxAFunction; index: int; p: var TColgpArray1OfPnt2d) {.
+proc poles2d*(this: AdvApproxApproxAFunction; index: cint; p: var TColgpArray1OfPnt2d) {.
     noSideEffect, importcpp: "Poles2d", header: "AdvApprox_ApproxAFunction.hxx".}
-proc poles*(this: AdvApproxApproxAFunction; index: int; p: var TColgpArray1OfPnt) {.
+proc poles*(this: AdvApproxApproxAFunction; index: cint; p: var TColgpArray1OfPnt) {.
     noSideEffect, importcpp: "Poles", header: "AdvApprox_ApproxAFunction.hxx".}
-proc degree*(this: AdvApproxApproxAFunction): int {.noSideEffect,
+proc degree*(this: AdvApproxApproxAFunction): cint {.noSideEffect,
     importcpp: "Degree", header: "AdvApprox_ApproxAFunction.hxx".}
-proc nbKnots*(this: AdvApproxApproxAFunction): int {.noSideEffect,
+proc nbKnots*(this: AdvApproxApproxAFunction): cint {.noSideEffect,
     importcpp: "NbKnots", header: "AdvApprox_ApproxAFunction.hxx".}
-proc numSubSpaces*(this: AdvApproxApproxAFunction; dimension: int): int {.
+proc numSubSpaces*(this: AdvApproxApproxAFunction; dimension: cint): cint {.
     noSideEffect, importcpp: "NumSubSpaces",
     header: "AdvApprox_ApproxAFunction.hxx".}
 proc knots*(this: AdvApproxApproxAFunction): Handle[TColStdHArray1OfReal] {.
@@ -239,16 +239,41 @@ proc knots*(this: AdvApproxApproxAFunction): Handle[TColStdHArray1OfReal] {.
 proc multiplicities*(this: AdvApproxApproxAFunction): Handle[
     TColStdHArray1OfInteger] {.noSideEffect, importcpp: "Multiplicities",
                               header: "AdvApprox_ApproxAFunction.hxx".}
-proc maxError*(this: AdvApproxApproxAFunction; dimension: int): Handle[
+proc maxError*(this: AdvApproxApproxAFunction; dimension: cint): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "MaxError",
                            header: "AdvApprox_ApproxAFunction.hxx".}
-proc averageError*(this: AdvApproxApproxAFunction; dimension: int): Handle[
+proc averageError*(this: AdvApproxApproxAFunction; dimension: cint): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "AverageError",
                            header: "AdvApprox_ApproxAFunction.hxx".}
-proc maxError*(this: AdvApproxApproxAFunction; dimension: int; index: int): float {.
+proc maxError*(this: AdvApproxApproxAFunction; dimension: cint; index: cint): cfloat {.
     noSideEffect, importcpp: "MaxError", header: "AdvApprox_ApproxAFunction.hxx".}
-proc averageError*(this: AdvApproxApproxAFunction; dimension: int; index: int): float {.
+proc averageError*(this: AdvApproxApproxAFunction; dimension: cint; index: cint): cfloat {.
     noSideEffect, importcpp: "AverageError",
     header: "AdvApprox_ApproxAFunction.hxx".}
 proc dump*(this: AdvApproxApproxAFunction; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "AdvApprox_ApproxAFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

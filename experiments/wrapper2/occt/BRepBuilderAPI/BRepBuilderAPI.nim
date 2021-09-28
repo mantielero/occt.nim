@@ -46,7 +46,32 @@ proc plane*(p: Handle[GeomPlane]) {.importcpp: "BRepBuilderAPI::Plane(@)",
                                  header: "BRepBuilderAPI.hxx".}
 proc plane*(): Handle[GeomPlane] {.importcpp: "BRepBuilderAPI::Plane(@)",
                                 header: "BRepBuilderAPI.hxx".}
-proc precision*(p: float) {.importcpp: "BRepBuilderAPI::Precision(@)",
+proc precision*(p: cfloat) {.importcpp: "BRepBuilderAPI::Precision(@)",
+                          header: "BRepBuilderAPI.hxx".}
+proc precision*(): cfloat {.importcpp: "BRepBuilderAPI::Precision(@)",
                          header: "BRepBuilderAPI.hxx".}
-proc precision*(): float {.importcpp: "BRepBuilderAPI::Precision(@)",
-                        header: "BRepBuilderAPI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

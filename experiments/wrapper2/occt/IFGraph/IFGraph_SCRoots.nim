@@ -29,3 +29,28 @@ proc constructIFGraphSCRoots*(subparts: var IFGraphStrongComponants): IFGraphSCR
     constructor, importcpp: "IFGraph_SCRoots(@)", header: "IFGraph_SCRoots.hxx".}
 proc evaluate*(this: var IFGraphSCRoots) {.importcpp: "Evaluate",
                                        header: "IFGraph_SCRoots.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   HLRAlgoArray1OfTData* = NCollectionArray1[HLRAlgoTriangleData]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

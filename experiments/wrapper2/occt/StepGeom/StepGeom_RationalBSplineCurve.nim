@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_RationalBSplineCurve"
 discard "forward decl of StepGeom_RationalBSplineCurve"
 type
-  HandleStepGeomRationalBSplineCurve* = Handle[StepGeomRationalBSplineCurve]
+  HandleC1C1* = Handle[StepGeomRationalBSplineCurve]
   StepGeomRationalBSplineCurve* {.importcpp: "StepGeom_RationalBSplineCurve",
                                  header: "StepGeom_RationalBSplineCurve.hxx",
                                  bycopy.} = object of StepGeomBSplineCurve ## ! Returns a
@@ -29,7 +29,7 @@ proc constructStepGeomRationalBSplineCurve*(): StepGeomRationalBSplineCurve {.
     constructor, importcpp: "StepGeom_RationalBSplineCurve(@)",
     header: "StepGeom_RationalBSplineCurve.hxx".}
 proc init*(this: var StepGeomRationalBSplineCurve;
-          aName: Handle[TCollectionHAsciiString]; aDegree: int;
+          aName: Handle[TCollectionHAsciiString]; aDegree: cint;
           aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
           aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
           aSelfIntersect: StepDataLogical;
@@ -41,10 +41,10 @@ proc setWeightsData*(this: var StepGeomRationalBSplineCurve;
 proc weightsData*(this: StepGeomRationalBSplineCurve): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "WeightsData",
     header: "StepGeom_RationalBSplineCurve.hxx".}
-proc weightsDataValue*(this: StepGeomRationalBSplineCurve; num: int): float {.
+proc weightsDataValue*(this: StepGeomRationalBSplineCurve; num: cint): cfloat {.
     noSideEffect, importcpp: "WeightsDataValue",
     header: "StepGeom_RationalBSplineCurve.hxx".}
-proc nbWeightsData*(this: StepGeomRationalBSplineCurve): int {.noSideEffect,
+proc nbWeightsData*(this: StepGeomRationalBSplineCurve): cint {.noSideEffect,
     importcpp: "NbWeightsData", header: "StepGeom_RationalBSplineCurve.hxx".}
 type
   StepGeomRationalBSplineCurvebaseType* = StepGeomBSplineCurve
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomRationalBSplineCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_RationalBSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

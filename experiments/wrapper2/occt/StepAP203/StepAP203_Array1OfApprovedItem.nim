@@ -17,3 +17,28 @@
 type
   StepAP203Array1OfApprovedItem* = NCollectionArray1[StepAP203ApprovedItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

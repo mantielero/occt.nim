@@ -17,6 +17,31 @@
 proc chFiKPartMakeRotule*(dStr: var TopOpeBRepDS_DataStructure;
                          data: Handle[ChFiDS_SurfData]; pl: Pln; pl1: Pln; pl2: Pln;
                          opl: TopAbsOrientation; opl1: TopAbsOrientation;
-                         opl2: TopAbsOrientation; r: float; ofpl: TopAbsOrientation): bool {.
+                         opl2: TopAbsOrientation; r: cfloat; ofpl: TopAbsOrientation): bool {.
     importcpp: "ChFiKPart_MakeRotule(@)",
     header: "ChFiKPart_ComputeData_Rotule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

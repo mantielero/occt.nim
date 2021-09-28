@@ -17,8 +17,7 @@
 discard "forward decl of StepRepr_ShapeRepresentationRelationshipWithTransformation"
 discard "forward decl of StepRepr_ShapeRepresentationRelationshipWithTransformation"
 type
-  HandleStepReprShapeRepresentationRelationshipWithTransformation* = Handle[
-      StepReprShapeRepresentationRelationshipWithTransformation]
+  HandleC1C1* = Handle[StepReprShapeRepresentationRelationshipWithTransformation]
   StepReprShapeRepresentationRelationshipWithTransformation* {.
       importcpp: "StepRepr_ShapeRepresentationRelationshipWithTransformation",
       header: "StepRepr_ShapeRepresentationRelationshipWithTransformation.hxx",
@@ -37,3 +36,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ShapeRepr
     header: "StepRepr_ShapeRepresentationRelationshipWithTransformation.hxx".}
 proc dynamicType*(this: StepReprShapeRepresentationRelationshipWithTransformation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_ShapeRepresentationRelationshipWithTransformation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,7 +24,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_ConstantBiNormal"
 discard "forward decl of GeomFill_ConstantBiNormal"
 type
-  HandleGeomFillConstantBiNormal* = Handle[GeomFillConstantBiNormal]
+  HandleC1C1* = Handle[GeomFillConstantBiNormal]
 
 ## ! Defined an Trihedron Law  where the BiNormal, is fixed
 
@@ -40,16 +40,16 @@ proc copy*(this: GeomFillConstantBiNormal): Handle[GeomFillTrihedronLaw] {.
     noSideEffect, importcpp: "Copy", header: "GeomFill_ConstantBiNormal.hxx".}
 proc setCurve*(this: var GeomFillConstantBiNormal; c: Handle[Adaptor3dHCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_ConstantBiNormal.hxx".}
-proc d0*(this: var GeomFillConstantBiNormal; param: float; tangent: var Vec;
-        normal: var Vec; biNormal: var Vec): bool {.importcpp: "D0",
+proc d0*(this: var GeomFillConstantBiNormal; param: StandardReal; tangent: var Vec;
+        normal: var Vec; biNormal: var Vec): StandardBoolean {.importcpp: "D0",
     header: "GeomFill_ConstantBiNormal.hxx".}
-proc d1*(this: var GeomFillConstantBiNormal; param: float; tangent: var Vec;
+proc d1*(this: var GeomFillConstantBiNormal; param: StandardReal; tangent: var Vec;
         dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
-        dBiNormal: var Vec): bool {.importcpp: "D1",
-                                header: "GeomFill_ConstantBiNormal.hxx".}
-proc d2*(this: var GeomFillConstantBiNormal; param: float; tangent: var Vec;
+        dBiNormal: var Vec): StandardBoolean {.importcpp: "D1",
+    header: "GeomFill_ConstantBiNormal.hxx".}
+proc d2*(this: var GeomFillConstantBiNormal; param: StandardReal; tangent: var Vec;
         dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
-        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
+        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): StandardBoolean {.
     importcpp: "D2", header: "GeomFill_ConstantBiNormal.hxx".}
 proc nbIntervals*(this: GeomFillConstantBiNormal; s: GeomAbsShape): int {.
     noSideEffect, importcpp: "NbIntervals", header: "GeomFill_ConstantBiNormal.hxx".}
@@ -59,10 +59,11 @@ proc intervals*(this: GeomFillConstantBiNormal; t: var TColStdArray1OfReal;
 proc getAverageLaw*(this: var GeomFillConstantBiNormal; aTangent: var Vec;
                    aNormal: var Vec; aBiNormal: var Vec) {.importcpp: "GetAverageLaw",
     header: "GeomFill_ConstantBiNormal.hxx".}
-proc isConstant*(this: GeomFillConstantBiNormal): bool {.noSideEffect,
+proc isConstant*(this: GeomFillConstantBiNormal): StandardBoolean {.noSideEffect,
     importcpp: "IsConstant", header: "GeomFill_ConstantBiNormal.hxx".}
-proc isOnlyBy3dCurve*(this: GeomFillConstantBiNormal): bool {.noSideEffect,
-    importcpp: "IsOnlyBy3dCurve", header: "GeomFill_ConstantBiNormal.hxx".}
+proc isOnlyBy3dCurve*(this: GeomFillConstantBiNormal): StandardBoolean {.
+    noSideEffect, importcpp: "IsOnlyBy3dCurve",
+    header: "GeomFill_ConstantBiNormal.hxx".}
 type
   GeomFillConstantBiNormalbaseType* = GeomFillTrihedronLaw
 

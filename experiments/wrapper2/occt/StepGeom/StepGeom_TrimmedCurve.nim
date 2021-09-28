@@ -20,7 +20,7 @@ discard "forward decl of StepGeom_TrimmingSelect"
 discard "forward decl of StepGeom_TrimmedCurve"
 discard "forward decl of StepGeom_TrimmedCurve"
 type
-  HandleStepGeomTrimmedCurve* = Handle[StepGeomTrimmedCurve]
+  HandleC1C1* = Handle[StepGeomTrimmedCurve]
   StepGeomTrimmedCurve* {.importcpp: "StepGeom_TrimmedCurve",
                          header: "StepGeom_TrimmedCurve.hxx", bycopy.} = object of StepGeomBoundedCurve ##
                                                                                                  ## !
@@ -47,18 +47,18 @@ proc setTrim1*(this: var StepGeomTrimmedCurve;
     importcpp: "SetTrim1", header: "StepGeom_TrimmedCurve.hxx".}
 proc trim1*(this: StepGeomTrimmedCurve): Handle[StepGeomHArray1OfTrimmingSelect] {.
     noSideEffect, importcpp: "Trim1", header: "StepGeom_TrimmedCurve.hxx".}
-proc trim1Value*(this: StepGeomTrimmedCurve; num: int): StepGeomTrimmingSelect {.
+proc trim1Value*(this: StepGeomTrimmedCurve; num: cint): StepGeomTrimmingSelect {.
     noSideEffect, importcpp: "Trim1Value", header: "StepGeom_TrimmedCurve.hxx".}
-proc nbTrim1*(this: StepGeomTrimmedCurve): int {.noSideEffect, importcpp: "NbTrim1",
+proc nbTrim1*(this: StepGeomTrimmedCurve): cint {.noSideEffect, importcpp: "NbTrim1",
     header: "StepGeom_TrimmedCurve.hxx".}
 proc setTrim2*(this: var StepGeomTrimmedCurve;
               aTrim2: Handle[StepGeomHArray1OfTrimmingSelect]) {.
     importcpp: "SetTrim2", header: "StepGeom_TrimmedCurve.hxx".}
 proc trim2*(this: StepGeomTrimmedCurve): Handle[StepGeomHArray1OfTrimmingSelect] {.
     noSideEffect, importcpp: "Trim2", header: "StepGeom_TrimmedCurve.hxx".}
-proc trim2Value*(this: StepGeomTrimmedCurve; num: int): StepGeomTrimmingSelect {.
+proc trim2Value*(this: StepGeomTrimmedCurve; num: cint): StepGeomTrimmingSelect {.
     noSideEffect, importcpp: "Trim2Value", header: "StepGeom_TrimmedCurve.hxx".}
-proc nbTrim2*(this: StepGeomTrimmedCurve): int {.noSideEffect, importcpp: "NbTrim2",
+proc nbTrim2*(this: StepGeomTrimmedCurve): cint {.noSideEffect, importcpp: "NbTrim2",
     header: "StepGeom_TrimmedCurve.hxx".}
 proc setSenseAgreement*(this: var StepGeomTrimmedCurve; aSenseAgreement: bool) {.
     importcpp: "SetSenseAgreement", header: "StepGeom_TrimmedCurve.hxx".}
@@ -80,3 +80,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_TrimmedCurve.hxx".}
 proc dynamicType*(this: StepGeomTrimmedCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_TrimmedCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

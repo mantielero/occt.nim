@@ -17,7 +17,7 @@
 discard "forward decl of StepBasic_MeasureValueMember"
 discard "forward decl of StepBasic_MeasureValueMember"
 type
-  HandleStepBasicMeasureValueMember* = Handle[StepBasicMeasureValueMember]
+  HandleC1C1* = Handle[StepBasicMeasureValueMember]
 
 ## ! for Select MeasureValue, i.e. :
 ## ! length_measure,time_measure,plane_angle_measure,
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicMeasureValueMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_MeasureValueMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

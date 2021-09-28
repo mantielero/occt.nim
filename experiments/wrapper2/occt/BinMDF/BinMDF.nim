@@ -26,3 +26,28 @@ type
 proc addDrivers*(aDriverTable: Handle[BinMDF_ADriverTable];
                 aMsgDrv: Handle[MessageMessenger]) {.
     importcpp: "BinMDF::AddDrivers(@)", header: "BinMDF.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

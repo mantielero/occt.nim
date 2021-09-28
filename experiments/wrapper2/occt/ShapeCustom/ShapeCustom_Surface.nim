@@ -27,11 +27,36 @@ proc constructShapeCustomSurface*(s: Handle[GeomSurface]): ShapeCustomSurface {.
     header: "ShapeCustom_Surface.hxx".}
 proc init*(this: var ShapeCustomSurface; s: Handle[GeomSurface]) {.importcpp: "Init",
     header: "ShapeCustom_Surface.hxx".}
-proc gap*(this: ShapeCustomSurface): float {.noSideEffect, importcpp: "Gap",
+proc gap*(this: ShapeCustomSurface): cfloat {.noSideEffect, importcpp: "Gap",
     header: "ShapeCustom_Surface.hxx".}
-proc convertToAnalytical*(this: var ShapeCustomSurface; tol: float; substitute: bool): Handle[
+proc convertToAnalytical*(this: var ShapeCustomSurface; tol: cfloat; substitute: bool): Handle[
     GeomSurface] {.importcpp: "ConvertToAnalytical",
                   header: "ShapeCustom_Surface.hxx".}
 proc convertToPeriodic*(this: var ShapeCustomSurface; substitute: bool;
-                       preci: float = -1): Handle[GeomSurface] {.
+                       preci: cfloat = -1): Handle[GeomSurface] {.
     importcpp: "ConvertToPeriodic", header: "ShapeCustom_Surface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

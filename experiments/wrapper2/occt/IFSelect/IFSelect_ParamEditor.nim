@@ -23,7 +23,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_ParamEditor"
 discard "forward decl of IFSelect_ParamEditor"
 type
-  HandleIFSelectParamEditor* = Handle[IFSelectParamEditor]
+  HandleC1C1* = Handle[IFSelectParamEditor]
 
 ## ! A ParamEditor gives access for edition to a list of TypedValue
 ## ! (i.e. of Static too)
@@ -67,7 +67,7 @@ type
                                                                                          ## Editor"
 
 
-proc constructIFSelectParamEditor*(nbmax: int = 100; label: StandardCString = ""): IFSelectParamEditor {.
+proc constructIFSelectParamEditor*(nbmax: cint = 100; label: StandardCString = ""): IFSelectParamEditor {.
     constructor, importcpp: "IFSelect_ParamEditor(@)",
     header: "IFSelect_ParamEditor.hxx".}
 proc addValue*(this: var IFSelectParamEditor; val: Handle[InterfaceTypedValue];
@@ -81,9 +81,9 @@ proc label*(this: IFSelectParamEditor): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_ParamEditor.hxx".}
 proc recognize*(this: IFSelectParamEditor; form: Handle[IFSelectEditForm]): bool {.
     noSideEffect, importcpp: "Recognize", header: "IFSelect_ParamEditor.hxx".}
-proc stringValue*(this: IFSelectParamEditor; form: Handle[IFSelectEditForm]; num: int): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "StringValue",
-                              header: "IFSelect_ParamEditor.hxx".}
+proc stringValue*(this: IFSelectParamEditor; form: Handle[IFSelectEditForm];
+                 num: cint): Handle[TCollectionHAsciiString] {.noSideEffect,
+    importcpp: "StringValue", header: "IFSelect_ParamEditor.hxx".}
 proc load*(this: IFSelectParamEditor; form: Handle[IFSelectEditForm];
           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Load", header: "IFSelect_ParamEditor.hxx".}
@@ -104,3 +104,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_ParamEditor.hxx".}
 proc dynamicType*(this: IFSelectParamEditor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_ParamEditor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

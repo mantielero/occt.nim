@@ -14,6 +14,31 @@
 ##  commercial license or contractual agreement.
 
 type
-  Select3D_BndBox3d* = BVH_Box[float, 3]
-  Select3D_Vec3* = NCollectionVec3[float]
+  Select3D_BndBox3d* = BVH_Box[cfloat, 3]
+  Select3D_Vec3* = NCollectionVec3[cfloat]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

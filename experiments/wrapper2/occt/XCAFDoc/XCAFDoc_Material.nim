@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of XCAFDoc_Material"
 discard "forward decl of XCAFDoc_Material"
 type
-  HandleXCAFDocMaterial* = Handle[XCAFDocMaterial]
+  HandleC1C1* = Handle[XCAFDocMaterial]
 
 ## ! attribute to store material
 
@@ -35,12 +35,12 @@ proc constructXCAFDocMaterial*(): XCAFDocMaterial {.constructor,
 proc getID*(): StandardGUID {.importcpp: "XCAFDoc_Material::GetID(@)",
                            header: "XCAFDoc_Material.hxx".}
 proc set*(label: TDF_Label; aName: Handle[TCollectionHAsciiString];
-         aDescription: Handle[TCollectionHAsciiString]; aDensity: float;
+         aDescription: Handle[TCollectionHAsciiString]; aDensity: cfloat;
          aDensName: Handle[TCollectionHAsciiString];
          aDensValType: Handle[TCollectionHAsciiString]): Handle[XCAFDocMaterial] {.
     importcpp: "XCAFDoc_Material::Set(@)", header: "XCAFDoc_Material.hxx".}
 proc set*(this: var XCAFDocMaterial; aName: Handle[TCollectionHAsciiString];
-         aDescription: Handle[TCollectionHAsciiString]; aDensity: float;
+         aDescription: Handle[TCollectionHAsciiString]; aDensity: cfloat;
          aDensName: Handle[TCollectionHAsciiString];
          aDensValType: Handle[TCollectionHAsciiString]) {.importcpp: "Set",
     header: "XCAFDoc_Material.hxx".}
@@ -48,7 +48,7 @@ proc getName*(this: XCAFDocMaterial): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GetName", header: "XCAFDoc_Material.hxx".}
 proc getDescription*(this: XCAFDocMaterial): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GetDescription", header: "XCAFDoc_Material.hxx".}
-proc getDensity*(this: XCAFDocMaterial): float {.noSideEffect,
+proc getDensity*(this: XCAFDocMaterial): cfloat {.noSideEffect,
     importcpp: "GetDensity", header: "XCAFDoc_Material.hxx".}
 proc getDensName*(this: XCAFDocMaterial): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "GetDensName", header: "XCAFDoc_Material.hxx".}
@@ -64,8 +64,8 @@ proc paste*(this: XCAFDocMaterial; into: Handle[TDF_Attribute];
            rt: Handle[TDF_RelocationTable]) {.noSideEffect, importcpp: "Paste",
     header: "XCAFDoc_Material.hxx".}
 proc dumpJson*(this: XCAFDocMaterial; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "XCAFDoc_Material.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFDoc_Material.hxx".}
 type
   XCAFDocMaterialbaseType* = TDF_Attribute
 
@@ -76,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XCAFDoc_Material.hxx".}
 proc dynamicType*(this: XCAFDocMaterial): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_Material.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

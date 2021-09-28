@@ -62,3 +62,28 @@ proc userBreak*(this: MessageProgressRange): bool {.noSideEffect,
 
 proc close*(this: var MessageProgressRange) {.importcpp: "Close",
     header: "Message_ProgressRange.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

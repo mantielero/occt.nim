@@ -35,3 +35,28 @@ include AppDef_TheLeastSquares
 include AppDef_TheResol
 include AppDef_Variational
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

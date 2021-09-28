@@ -24,15 +24,40 @@ type
 
 proc constructIGESDataIGESType*(): IGESDataIGESType {.constructor,
     importcpp: "IGESData_IGESType(@)", header: "IGESData_IGESType.hxx".}
-proc constructIGESDataIGESType*(atype: int; aform: int): IGESDataIGESType {.
+proc constructIGESDataIGESType*(atype: cint; aform: cint): IGESDataIGESType {.
     constructor, importcpp: "IGESData_IGESType(@)", header: "IGESData_IGESType.hxx".}
-proc `type`*(this: IGESDataIGESType): int {.noSideEffect, importcpp: "Type",
-                                        header: "IGESData_IGESType.hxx".}
-proc form*(this: IGESDataIGESType): int {.noSideEffect, importcpp: "Form",
-                                      header: "IGESData_IGESType.hxx".}
+proc `type`*(this: IGESDataIGESType): cint {.noSideEffect, importcpp: "Type",
+    header: "IGESData_IGESType.hxx".}
+proc form*(this: IGESDataIGESType): cint {.noSideEffect, importcpp: "Form",
+                                       header: "IGESData_IGESType.hxx".}
 proc isEqual*(this: IGESDataIGESType; another: IGESDataIGESType): bool {.noSideEffect,
     importcpp: "IsEqual", header: "IGESData_IGESType.hxx".}
 proc `==`*(this: IGESDataIGESType; another: IGESDataIGESType): bool {.noSideEffect,
     importcpp: "(# == #)", header: "IGESData_IGESType.hxx".}
 proc nullify*(this: var IGESDataIGESType) {.importcpp: "Nullify",
                                         header: "IGESData_IGESType.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

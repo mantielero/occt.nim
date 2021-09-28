@@ -26,3 +26,28 @@ type
 proc add*(aPresentation: Handle[Prs3dPresentation];
          aSurface: Handle[Adaptor3dHSurface]; aDrawer: Handle[Prs3dDrawer]) {.
     importcpp: "StdPrs_WFSurface::Add(@)", header: "StdPrs_WFSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

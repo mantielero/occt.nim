@@ -16,6 +16,31 @@
 ## ! Set of overlapped sub-shapes.
 
 type
-  BRepExtremaMapOfIntegerPackedMapOfInteger* = NCollectionDataMap[int,
+  BRepExtremaMapOfIntegerPackedMapOfInteger* = NCollectionDataMap[cint,
       TColStdPackedMapOfInteger]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

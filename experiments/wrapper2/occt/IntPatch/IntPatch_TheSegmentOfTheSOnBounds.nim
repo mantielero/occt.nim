@@ -23,20 +23,21 @@ discard "forward decl of IntPatch_ThePathPointOfTheSOnBounds"
 type
   IntPatchTheSegmentOfTheSOnBounds* {.importcpp: "IntPatch_TheSegmentOfTheSOnBounds", header: "IntPatch_TheSegmentOfTheSOnBounds.hxx",
                                      bycopy.} = object ## ! Empty constructor.
+    adaptor2dHCurve2d* {.importc: "Adaptor2d_HCurve2d".}: Handle
 
 
 proc constructIntPatchTheSegmentOfTheSOnBounds*(): IntPatchTheSegmentOfTheSOnBounds {.
     constructor, importcpp: "IntPatch_TheSegmentOfTheSOnBounds(@)",
     header: "IntPatch_TheSegmentOfTheSOnBounds.hxx".}
-proc setValue*(this: var IntPatchTheSegmentOfTheSOnBounds;
-              a: Handle[Adaptor2dHCurve2d]) {.importcpp: "SetValue",
-    header: "IntPatch_TheSegmentOfTheSOnBounds.hxx".}
+## !!!Ignored construct:  ! Defines the concerned arc. void SetValue ( const Handle ( Adaptor2d_HCurve2d ) & A ) ;
+## Error: token expected: ) but got: &!!!
+
 proc setLimitPoint*(this: var IntPatchTheSegmentOfTheSOnBounds;
                    v: IntPatchThePathPointOfTheSOnBounds; first: bool) {.
     importcpp: "SetLimitPoint", header: "IntPatch_TheSegmentOfTheSOnBounds.hxx".}
-proc curve*(this: IntPatchTheSegmentOfTheSOnBounds): Handle[Adaptor2dHCurve2d] {.
-    noSideEffect, importcpp: "Curve",
-    header: "IntPatch_TheSegmentOfTheSOnBounds.hxx".}
+## !!!Ignored construct:  & Curve ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc hasFirstPoint*(this: IntPatchTheSegmentOfTheSOnBounds): bool {.noSideEffect,
     importcpp: "HasFirstPoint", header: "IntPatch_TheSegmentOfTheSOnBounds.hxx".}
 proc firstPoint*(this: IntPatchTheSegmentOfTheSOnBounds): IntPatchThePathPointOfTheSOnBounds {.
@@ -47,6 +48,54 @@ proc hasLastPoint*(this: IntPatchTheSegmentOfTheSOnBounds): bool {.noSideEffect,
 proc lastPoint*(this: IntPatchTheSegmentOfTheSOnBounds): IntPatchThePathPointOfTheSOnBounds {.
     noSideEffect, importcpp: "LastPoint",
     header: "IntPatch_TheSegmentOfTheSOnBounds.hxx".}
-## !!!Ignored construct:  # TheVertex opencascade :: handle < Adaptor3d_HVertex > [end of template] [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc opencascade :: handle < Adaptor2d_HCurve2d > [end of template] [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # ThePathPoint IntPatch_ThePathPointOfTheSOnBounds [NewLine] # ThePathPoint_hxx < IntPatch_ThePathPointOfTheSOnBounds . hxx > [NewLine] # IntStart_Segment IntPatch_TheSegmentOfTheSOnBounds [NewLine] # IntStart_Segment_hxx < IntPatch_TheSegmentOfTheSOnBounds . hxx > [NewLine] # < IntStart_Segment . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # ThePathPoint [NewLine] # ThePathPoint_hxx [NewLine] # IntStart_Segment [NewLine] # IntStart_Segment_hxx [NewLine] #  _IntPatch_TheSegmentOfTheSOnBounds_HeaderFile
+## !!!Ignored construct:  arc ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  # TheVertex Handle ( Adaptor3d_HVertex ) [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc Handle ( Adaptor2d_HCurve2d ) [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # ThePathPoint IntPatch_ThePathPointOfTheSOnBounds [NewLine] # ThePathPoint_hxx < IntPatch_ThePathPointOfTheSOnBounds . hxx > [NewLine] # IntStart_Segment IntPatch_TheSegmentOfTheSOnBounds [NewLine] # IntStart_Segment_hxx < IntPatch_TheSegmentOfTheSOnBounds . hxx > [NewLine] # < IntStart_Segment . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # ThePathPoint [NewLine] # ThePathPoint_hxx [NewLine] # IntStart_Segment [NewLine] # IntStart_Segment_hxx [NewLine] #  _IntPatch_TheSegmentOfTheSOnBounds_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

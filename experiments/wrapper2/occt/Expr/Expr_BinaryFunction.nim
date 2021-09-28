@@ -24,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_BinaryFunction"
 discard "forward decl of Expr_BinaryFunction"
 type
-  HandleExprBinaryFunction* = Handle[ExprBinaryFunction]
+  HandleC1C1* = Handle[ExprBinaryFunction]
 
 ## ! Defines the use of a binary function in an expression
 ## ! with given arguments.
@@ -68,7 +68,7 @@ proc derivative*(this: ExprBinaryFunction; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_BinaryFunction.hxx".}
 proc evaluate*(this: ExprBinaryFunction; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_BinaryFunction.hxx".}
 proc string*(this: ExprBinaryFunction): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_BinaryFunction.hxx".}
@@ -82,3 +82,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_BinaryFunction.hxx".}
 proc dynamicType*(this: ExprBinaryFunction): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_BinaryFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

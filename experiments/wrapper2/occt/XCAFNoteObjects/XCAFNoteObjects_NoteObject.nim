@@ -63,5 +63,30 @@ proc reset*(this: var XCAFNoteObjectsNoteObject) {.importcpp: "Reset",
     header: "XCAFNoteObjects_NoteObject.hxx".}
 discard "forward decl of XCAFNoteObjects_NoteObject"
 type
-  HandleXCAFNoteObjectsNoteObject* = Handle[XCAFNoteObjectsNoteObject]
+  HandleC1C1* = Handle[XCAFNoteObjectsNoteObject]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

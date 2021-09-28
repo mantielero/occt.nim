@@ -14,32 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESAppliHArray1OfNode* {.importcpp: "IGESAppli_HArray1OfNode",
-                           header: "IGESAppli_HArray1OfNode.hxx", bycopy.} = object of IGESAppliArray1OfNode
+## !!!Ignored construct:  # IGESAppli_HArray1OfNode_HeaderFile [NewLine] # IGESAppli_HArray1OfNode_HeaderFile [NewLine] # < IGESAppli_Node . hxx > [NewLine] # < IGESAppli_Array1OfNode . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESAppli_HArray1OfNode , IGESAppli_Array1OfNode ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESAppliHArray1OfNode*(theLower: int; theUpper: int): IGESAppliHArray1OfNode {.
-    constructor, importcpp: "IGESAppli_HArray1OfNode(@)",
-    header: "IGESAppli_HArray1OfNode.hxx".}
-proc constructIGESAppliHArray1OfNode*(theLower: int; theUpper: int;
-                                     theValue: ValueType): IGESAppliHArray1OfNode {.
-    constructor, importcpp: "IGESAppli_HArray1OfNode(@)",
-    header: "IGESAppli_HArray1OfNode.hxx".}
-proc constructIGESAppliHArray1OfNode*(theOther: IGESAppliArray1OfNode): IGESAppliHArray1OfNode {.
-    constructor, importcpp: "IGESAppli_HArray1OfNode(@)",
-    header: "IGESAppli_HArray1OfNode.hxx".}
-proc array1*(this: IGESAppliHArray1OfNode): IGESAppliArray1OfNode {.noSideEffect,
-    importcpp: "Array1", header: "IGESAppli_HArray1OfNode.hxx".}
-proc changeArray1*(this: var IGESAppliHArray1OfNode): var IGESAppliArray1OfNode {.
-    importcpp: "ChangeArray1", header: "IGESAppli_HArray1OfNode.hxx".}
-type
-  IGESAppliHArray1OfNodebaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_HArray1OfNode::get_type_name(@)",
-                            header: "IGESAppli_HArray1OfNode.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESAppli_HArray1OfNode::get_type_descriptor(@)",
-    header: "IGESAppli_HArray1OfNode.hxx".}
-proc dynamicType*(this: IGESAppliHArray1OfNode): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "IGESAppli_HArray1OfNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

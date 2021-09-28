@@ -28,7 +28,7 @@ type
 proc constructStepReprRepresentedDefinition*(): StepReprRepresentedDefinition {.
     constructor, importcpp: "StepRepr_RepresentedDefinition(@)",
     header: "StepRepr_RepresentedDefinition.hxx".}
-proc caseNum*(this: StepReprRepresentedDefinition; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepReprRepresentedDefinition; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepRepr_RepresentedDefinition.hxx".}
 proc generalProperty*(this: StepReprRepresentedDefinition): Handle[
@@ -47,3 +47,28 @@ proc shapeAspect*(this: StepReprRepresentedDefinition): Handle[StepReprShapeAspe
 proc shapeAspectRelationship*(this: StepReprRepresentedDefinition): Handle[
     StepReprShapeAspectRelationship] {.noSideEffect,
                                       importcpp: "ShapeAspectRelationship", header: "StepRepr_RepresentedDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

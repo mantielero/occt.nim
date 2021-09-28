@@ -32,3 +32,28 @@ type
 const
   FontFontAspectNB* = fontFontAspectBoldItalic + 1
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

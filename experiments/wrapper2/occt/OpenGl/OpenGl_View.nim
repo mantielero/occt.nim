@@ -23,7 +23,7 @@ discard "forward decl of OpenGl_Workspace"
 discard "forward decl of OpenGl_View"
 discard "forward decl of OpenGl_View"
 type
-  HandleOpenGlView* = Handle[OpenGlView]
+  HandleC1C1* = Handle[OpenGlView]
 
 ## ! Implementation of OpenGl view.
 
@@ -426,8 +426,8 @@ proc removeZLayer*(this: var OpenGlView; theLayerId: Graphic3dZLayerId) {.
 proc setZLayerSettings*(this: var OpenGlView; theLayerId: Graphic3dZLayerId;
                        theSettings: Graphic3dZLayerSettings) {.
     importcpp: "SetZLayerSettings", header: "OpenGl_View.hxx".}
-proc zLayerMax*(this: OpenGlView): int {.noSideEffect, importcpp: "ZLayerMax",
-                                     header: "OpenGl_View.hxx".}
+proc zLayerMax*(this: OpenGlView): cint {.noSideEffect, importcpp: "ZLayerMax",
+                                      header: "OpenGl_View.hxx".}
 proc layers*(this: OpenGlView): NCollectionList[Handle[Graphic3dLayer]] {.
     noSideEffect, importcpp: "Layers", header: "OpenGl_View.hxx".}
 proc layer*(this: OpenGlView; theLayerId: Graphic3dZLayerId): Handle[Graphic3dLayer] {.
@@ -438,16 +438,16 @@ proc fbo*(this: OpenGlView): Handle[StandardTransient] {.noSideEffect,
     importcpp: "FBO", header: "OpenGl_View.hxx".}
 proc setFBO*(this: var OpenGlView; theFbo: Handle[StandardTransient]) {.
     importcpp: "SetFBO", header: "OpenGl_View.hxx".}
-proc fBOCreate*(this: var OpenGlView; theWidth: int; theHeight: int): Handle[
+proc fBOCreate*(this: var OpenGlView; theWidth: cint; theHeight: cint): Handle[
     StandardTransient] {.importcpp: "FBOCreate", header: "OpenGl_View.hxx".}
 proc fBORelease*(this: var OpenGlView; theFbo: var Handle[StandardTransient]) {.
     importcpp: "FBORelease", header: "OpenGl_View.hxx".}
 proc fBOGetDimensions*(this: var OpenGlView; theFbo: Handle[StandardTransient];
-                      theWidth: var int; theHeight: var int; theWidthMax: var int;
-                      theHeightMax: var int) {.importcpp: "FBOGetDimensions",
+                      theWidth: var cint; theHeight: var cint; theWidthMax: var cint;
+                      theHeightMax: var cint) {.importcpp: "FBOGetDimensions",
     header: "OpenGl_View.hxx".}
 proc fBOChangeViewport*(this: var OpenGlView; theFbo: Handle[StandardTransient];
-                       theWidth: int; theHeight: int) {.
+                       theWidth: cint; theHeight: cint) {.
     importcpp: "FBOChangeViewport", header: "OpenGl_View.hxx".}
 proc gradientBackground*(this: OpenGlView): AspectGradientBackground {.noSideEffect,
     importcpp: "GradientBackground", header: "OpenGl_View.hxx".}
@@ -545,3 +545,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "OpenGl_View::get_type_descriptor(@)", header: "OpenGl_View.hxx".}
 proc dynamicType*(this: OpenGlView): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_View.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   SelectMgrSequenceOfFilter* = NCollectionSequence[Handle[SelectMgrFilter]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

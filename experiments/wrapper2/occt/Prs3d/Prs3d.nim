@@ -20,14 +20,14 @@ type
                                                               ## ! to a given direction.
 
 
-proc matchSegment*(x: float; y: float; z: float; aDistance: float; p1: Pnt; p2: Pnt;
-                  dist: var float): bool {.importcpp: "Prs3d::MatchSegment(@)",
-                                       header: "Prs3d.hxx".}
+proc matchSegment*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; p1: Pnt; p2: Pnt;
+                  dist: var cfloat): bool {.importcpp: "Prs3d::MatchSegment(@)",
+                                        header: "Prs3d.hxx".}
 proc getDeflection*(theBndMin: Graphic3dVec3d; theBndMax: Graphic3dVec3d;
-                   theDeviationCoefficient: float): float {.
+                   theDeviationCoefficient: cfloat): cfloat {.
     importcpp: "Prs3d::GetDeflection(@)", header: "Prs3d.hxx".}
-proc getDeflection*(theBndBox: BndBox; theDeviationCoefficient: float;
-                   theMaximalChordialDeviation: float): float {.
+proc getDeflection*(theBndBox: BndBox; theDeviationCoefficient: cfloat;
+                   theMaximalChordialDeviation: cfloat): cfloat {.
     importcpp: "Prs3d::GetDeflection(@)", header: "Prs3d.hxx".}
 proc primitivesFromPolylines*(thePoints: Prs3dNListOfSequenceOfPnt): Handle[
     Graphic3dArrayOfPrimitives] {.importcpp: "Prs3d::PrimitivesFromPolylines(@)",
@@ -39,3 +39,28 @@ proc addPrimitivesGroup*(thePrs: Handle[Prs3dPresentation];
 proc addFreeEdges*(theSegments: var TColgpSequenceOfPnt;
                   thePolyTri: Handle[PolyTriangulation]; theLocation: Trsf) {.
     importcpp: "Prs3d::AddFreeEdges(@)", header: "Prs3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

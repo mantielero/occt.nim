@@ -29,12 +29,12 @@ proc constructBRepLibMakeShell*(): BRepLibMakeShell {.constructor,
     importcpp: "BRepLib_MakeShell(@)", header: "BRepLib_MakeShell.hxx".}
 proc constructBRepLibMakeShell*(s: Handle[GeomSurface]; segment: bool = false): BRepLibMakeShell {.
     constructor, importcpp: "BRepLib_MakeShell(@)", header: "BRepLib_MakeShell.hxx".}
-proc constructBRepLibMakeShell*(s: Handle[GeomSurface]; uMin: float; uMax: float;
-                               vMin: float; vMax: float; segment: bool = false): BRepLibMakeShell {.
+proc constructBRepLibMakeShell*(s: Handle[GeomSurface]; uMin: cfloat; uMax: cfloat;
+                               vMin: cfloat; vMax: cfloat; segment: bool = false): BRepLibMakeShell {.
     constructor, importcpp: "BRepLib_MakeShell(@)", header: "BRepLib_MakeShell.hxx".}
-proc init*(this: var BRepLibMakeShell; s: Handle[GeomSurface]; uMin: float; uMax: float;
-          vMin: float; vMax: float; segment: bool = false) {.importcpp: "Init",
-    header: "BRepLib_MakeShell.hxx".}
+proc init*(this: var BRepLibMakeShell; s: Handle[GeomSurface]; uMin: cfloat;
+          uMax: cfloat; vMin: cfloat; vMax: cfloat; segment: bool = false) {.
+    importcpp: "Init", header: "BRepLib_MakeShell.hxx".}
 proc error*(this: BRepLibMakeShell): BRepLibShellError {.noSideEffect,
     importcpp: "Error", header: "BRepLib_MakeShell.hxx".}
 proc shell*(this: BRepLibMakeShell): TopoDS_Shell {.noSideEffect, importcpp: "Shell",
@@ -42,3 +42,28 @@ proc shell*(this: BRepLibMakeShell): TopoDS_Shell {.noSideEffect, importcpp: "Sh
 converter `topoDS_Shell`*(this: BRepLibMakeShell): TopoDS_Shell {.noSideEffect,
     importcpp: "BRepLib_MakeShell::operator TopoDS_Shell",
     header: "BRepLib_MakeShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

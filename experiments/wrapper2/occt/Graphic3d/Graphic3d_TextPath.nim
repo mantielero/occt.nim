@@ -22,3 +22,28 @@ type
     Graphic3dTP_UP, Graphic3dTP_DOWN, Graphic3dTP_LEFT, Graphic3dTP_RIGHT
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

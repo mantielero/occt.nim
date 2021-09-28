@@ -20,7 +20,7 @@ discard "forward decl of math_Matrix"
 discard "forward decl of FEmTool_LinearTension"
 discard "forward decl of FEmTool_LinearTension"
 type
-  HandleFEmToolLinearTension* = Handle[FEmToolLinearTension]
+  HandleC1C1* = Handle[FEmToolLinearTension]
 
 ## ! Criterium of LinearTension To Hermit-Jacobi  elements
 
@@ -29,17 +29,17 @@ type
                          header: "FEmTool_LinearTension.hxx", bycopy.} = object of FEmToolElementaryCriterion
 
 
-proc constructFEmToolLinearTension*(workDegree: int; constraintOrder: GeomAbsShape): FEmToolLinearTension {.
+proc constructFEmToolLinearTension*(workDegree: cint; constraintOrder: GeomAbsShape): FEmToolLinearTension {.
     constructor, importcpp: "FEmTool_LinearTension(@)",
     header: "FEmTool_LinearTension.hxx".}
 proc dependenceTable*(this: FEmToolLinearTension): Handle[TColStdHArray2OfInteger] {.
     noSideEffect, importcpp: "DependenceTable", header: "FEmTool_LinearTension.hxx".}
-proc value*(this: var FEmToolLinearTension): float {.importcpp: "Value",
+proc value*(this: var FEmToolLinearTension): cfloat {.importcpp: "Value",
     header: "FEmTool_LinearTension.hxx".}
-proc hessian*(this: var FEmToolLinearTension; dimension1: int; dimension2: int;
+proc hessian*(this: var FEmToolLinearTension; dimension1: cint; dimension2: cint;
              h: var MathMatrix) {.importcpp: "Hessian",
                                header: "FEmTool_LinearTension.hxx".}
-proc gradient*(this: var FEmToolLinearTension; dimension: int; g: var MathVector) {.
+proc gradient*(this: var FEmToolLinearTension; dimension: cint; g: var MathVector) {.
     importcpp: "Gradient", header: "FEmTool_LinearTension.hxx".}
 type
   FEmToolLinearTensionbaseType* = FEmToolElementaryCriterion
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "FEmTool_LinearTension.hxx".}
 proc dynamicType*(this: FEmToolLinearTension): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "FEmTool_LinearTension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

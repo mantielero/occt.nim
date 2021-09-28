@@ -78,14 +78,39 @@ proc pCurve2*(this: BRepLibCheckCurveOnSurface): Handle[Geom2dCurve] {.noSideEff
     importcpp: "PCurve2", header: "BRepLib_CheckCurveOnSurface.hxx".}
 proc surface*(this: BRepLibCheckCurveOnSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc range*(this: var BRepLibCheckCurveOnSurface; theFirst: var float;
-           theLast: var float) {.importcpp: "Range",
-                              header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc range*(this: var BRepLibCheckCurveOnSurface; theFirst: var cfloat;
+           theLast: var cfloat) {.importcpp: "Range",
+                               header: "BRepLib_CheckCurveOnSurface.hxx".}
 proc isDone*(this: BRepLibCheckCurveOnSurface): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc errorStatus*(this: BRepLibCheckCurveOnSurface): int {.noSideEffect,
+proc errorStatus*(this: BRepLibCheckCurveOnSurface): cint {.noSideEffect,
     importcpp: "ErrorStatus", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc maxDistance*(this: BRepLibCheckCurveOnSurface): float {.noSideEffect,
+proc maxDistance*(this: BRepLibCheckCurveOnSurface): cfloat {.noSideEffect,
     importcpp: "MaxDistance", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc maxParameter*(this: BRepLibCheckCurveOnSurface): float {.noSideEffect,
+proc maxParameter*(this: BRepLibCheckCurveOnSurface): cfloat {.noSideEffect,
     importcpp: "MaxParameter", header: "BRepLib_CheckCurveOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -70,3 +70,28 @@ proc addHeaderProtocol*(headerproto: Handle[StepDataProtocol]) {.
 proc init*() {.importcpp: "StepData::Init(@)", header: "StepData.hxx".}
 proc protocol*(): Handle[StepDataProtocol] {.importcpp: "StepData::Protocol(@)",
     header: "StepData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

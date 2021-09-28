@@ -27,9 +27,9 @@ type
                                            ## ! The status is "NullFocalLength" Raised if Focal < 0.0
 
 
-proc constructGceMakeParab2d*(mirrorAxis: Ax2d; focal: float; sense: bool = true): GceMakeParab2d {.
+proc constructGceMakeParab2d*(mirrorAxis: Ax2d; focal: cfloat; sense: bool = true): GceMakeParab2d {.
     constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
-proc constructGceMakeParab2d*(a: Ax22d; focal: float): GceMakeParab2d {.constructor,
+proc constructGceMakeParab2d*(a: Ax22d; focal: cfloat): GceMakeParab2d {.constructor,
     importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
 proc constructGceMakeParab2d*(d: Ax2d; f: Pnt2d; sense: bool = true): GceMakeParab2d {.
     constructor, importcpp: "gce_MakeParab2d(@)", header: "gce_MakeParab2d.hxx".}
@@ -42,3 +42,28 @@ proc operator*(this: GceMakeParab2d): Parab2d {.noSideEffect, importcpp: "Operat
 converter `parab2d`*(this: GceMakeParab2d): Parab2d {.noSideEffect,
     importcpp: "gce_MakeParab2d::operator gp_Parab2d",
     header: "gce_MakeParab2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

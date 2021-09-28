@@ -20,7 +20,7 @@ discard "forward decl of StepBasic_ExternalSource"
 discard "forward decl of StepAP214_ExternallyDefinedClass"
 discard "forward decl of StepAP214_ExternallyDefinedClass"
 type
-  HandleStepAP214ExternallyDefinedClass* = Handle[StepAP214ExternallyDefinedClass]
+  HandleC1C1* = Handle[StepAP214ExternallyDefinedClass]
 
 ## ! Representation of STEP entity ExternallyDefinedClass
 
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214ExternallyDefinedClass): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_ExternallyDefinedClass.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

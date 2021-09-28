@@ -20,7 +20,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_Polygon2D"
 discard "forward decl of DrawTrSurf_Polygon2D"
 type
-  HandleDrawTrSurfPolygon2D* = Handle[DrawTrSurfPolygon2D]
+  HandleC1C1* = Handle[DrawTrSurfPolygon2D]
 
 ## ! Used to display a 2d polygon.
 ## !
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_Polygon2D.hxx".}
 proc dynamicType*(this: DrawTrSurfPolygon2D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_Polygon2D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

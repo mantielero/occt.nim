@@ -31,7 +31,7 @@ proc constructRWStepVisualRWMechanicalDesignGeometricPresentationArea*(): RWStep
     importcpp: "RWStepVisual_RWMechanicalDesignGeometricPresentationArea(@)",
     header: "RWStepVisual_RWMechanicalDesignGeometricPresentationArea.hxx".}
 proc readStep*(this: RWStepVisualRWMechanicalDesignGeometricPresentationArea;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualMechanicalDesignGeometricPresentationArea]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepVisualRWMechanicalDesignGeometricPresentationArea;
            ent: Handle[StepVisualMechanicalDesignGeometricPresentationArea];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWMechanicalDesignGeometricPresentationArea.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

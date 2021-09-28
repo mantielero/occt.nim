@@ -35,3 +35,28 @@ proc buildOnContext*(this: var BRepOffsetMakeLoops; lContext: TopToolsListOfShap
 proc buildFaces*(this: var BRepOffsetMakeLoops; lf: TopToolsListOfShape;
                 asDes: Handle[BRepAlgoAsDes]; image: var BRepAlgoImage) {.
     importcpp: "BuildFaces", header: "BRepOffset_MakeLoops.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

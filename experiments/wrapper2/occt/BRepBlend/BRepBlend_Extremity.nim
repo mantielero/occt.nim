@@ -29,22 +29,23 @@ type
 
 proc constructBRepBlendExtremity*(): BRepBlendExtremity {.constructor,
     importcpp: "BRepBlend_Extremity(@)", header: "BRepBlend_Extremity.hxx".}
-proc constructBRepBlendExtremity*(p: Pnt; u: float; v: float; param: float; tol: float): BRepBlendExtremity {.
+proc constructBRepBlendExtremity*(p: Pnt; u: cfloat; v: cfloat; param: cfloat;
+                                 tol: cfloat): BRepBlendExtremity {.constructor,
+    importcpp: "BRepBlend_Extremity(@)", header: "BRepBlend_Extremity.hxx".}
+proc constructBRepBlendExtremity*(p: Pnt; u: cfloat; v: cfloat; param: cfloat;
+                                 tol: cfloat; vtx: Handle[Adaptor3dHVertex]): BRepBlendExtremity {.
     constructor, importcpp: "BRepBlend_Extremity(@)",
     header: "BRepBlend_Extremity.hxx".}
-proc constructBRepBlendExtremity*(p: Pnt; u: float; v: float; param: float; tol: float;
-                                 vtx: Handle[Adaptor3dHVertex]): BRepBlendExtremity {.
+proc constructBRepBlendExtremity*(p: Pnt; w: cfloat; param: cfloat; tol: cfloat): BRepBlendExtremity {.
     constructor, importcpp: "BRepBlend_Extremity(@)",
     header: "BRepBlend_Extremity.hxx".}
-proc constructBRepBlendExtremity*(p: Pnt; w: float; param: float; tol: float): BRepBlendExtremity {.
-    constructor, importcpp: "BRepBlend_Extremity(@)",
+proc setValue*(this: var BRepBlendExtremity; p: Pnt; u: cfloat; v: cfloat; param: cfloat;
+              tol: cfloat) {.importcpp: "SetValue",
+                           header: "BRepBlend_Extremity.hxx".}
+proc setValue*(this: var BRepBlendExtremity; p: Pnt; u: cfloat; v: cfloat; param: cfloat;
+              tol: cfloat; vtx: Handle[Adaptor3dHVertex]) {.importcpp: "SetValue",
     header: "BRepBlend_Extremity.hxx".}
-proc setValue*(this: var BRepBlendExtremity; p: Pnt; u: float; v: float; param: float;
-              tol: float) {.importcpp: "SetValue", header: "BRepBlend_Extremity.hxx".}
-proc setValue*(this: var BRepBlendExtremity; p: Pnt; u: float; v: float; param: float;
-              tol: float; vtx: Handle[Adaptor3dHVertex]) {.importcpp: "SetValue",
-    header: "BRepBlend_Extremity.hxx".}
-proc setValue*(this: var BRepBlendExtremity; p: Pnt; w: float; param: float; tol: float) {.
+proc setValue*(this: var BRepBlendExtremity; p: Pnt; w: cfloat; param: cfloat; tol: cfloat) {.
     importcpp: "SetValue", header: "BRepBlend_Extremity.hxx".}
 proc value*(this: BRepBlendExtremity): Pnt {.noSideEffect, importcpp: "Value",
     header: "BRepBlend_Extremity.hxx".}
@@ -54,24 +55,49 @@ proc hasTangent*(this: BRepBlendExtremity): bool {.noSideEffect,
     importcpp: "HasTangent", header: "BRepBlend_Extremity.hxx".}
 proc tangent*(this: BRepBlendExtremity): Vec {.noSideEffect, importcpp: "Tangent",
     header: "BRepBlend_Extremity.hxx".}
-proc tolerance*(this: BRepBlendExtremity): float {.noSideEffect,
+proc tolerance*(this: BRepBlendExtremity): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "BRepBlend_Extremity.hxx".}
 proc setVertex*(this: var BRepBlendExtremity; v: Handle[Adaptor3dHVertex]) {.
     importcpp: "SetVertex", header: "BRepBlend_Extremity.hxx".}
-proc addArc*(this: var BRepBlendExtremity; a: Handle[Adaptor2dHCurve2d]; param: float;
-            tLine: IntSurfTransition; tArc: IntSurfTransition) {.
+proc addArc*(this: var BRepBlendExtremity; a: Handle[Adaptor2dHCurve2d];
+            param: cfloat; tLine: IntSurfTransition; tArc: IntSurfTransition) {.
     importcpp: "AddArc", header: "BRepBlend_Extremity.hxx".}
-proc parameters*(this: BRepBlendExtremity; u: var float; v: var float) {.noSideEffect,
+proc parameters*(this: BRepBlendExtremity; u: var cfloat; v: var cfloat) {.noSideEffect,
     importcpp: "Parameters", header: "BRepBlend_Extremity.hxx".}
 proc isVertex*(this: BRepBlendExtremity): bool {.noSideEffect, importcpp: "IsVertex",
     header: "BRepBlend_Extremity.hxx".}
 proc vertex*(this: BRepBlendExtremity): Handle[Adaptor3dHVertex] {.noSideEffect,
     importcpp: "Vertex", header: "BRepBlend_Extremity.hxx".}
-proc nbPointOnRst*(this: BRepBlendExtremity): int {.noSideEffect,
+proc nbPointOnRst*(this: BRepBlendExtremity): cint {.noSideEffect,
     importcpp: "NbPointOnRst", header: "BRepBlend_Extremity.hxx".}
-proc pointOnRst*(this: BRepBlendExtremity; index: int): BRepBlendPointOnRst {.
+proc pointOnRst*(this: BRepBlendExtremity; index: cint): BRepBlendPointOnRst {.
     noSideEffect, importcpp: "PointOnRst", header: "BRepBlend_Extremity.hxx".}
-proc parameter*(this: BRepBlendExtremity): float {.noSideEffect,
+proc parameter*(this: BRepBlendExtremity): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "BRepBlend_Extremity.hxx".}
-proc parameterOnGuide*(this: BRepBlendExtremity): float {.noSideEffect,
+proc parameterOnGuide*(this: BRepBlendExtremity): cfloat {.noSideEffect,
     importcpp: "ParameterOnGuide", header: "BRepBlend_Extremity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

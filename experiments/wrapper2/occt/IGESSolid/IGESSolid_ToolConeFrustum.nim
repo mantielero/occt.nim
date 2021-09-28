@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESSolidToolConeFrustum;
              entto: Handle[IGESSolidConeFrustum]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolConeFrustum.hxx".}
 proc ownDump*(this: IGESSolidToolConeFrustum; ent: Handle[IGESSolidConeFrustum];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolConeFrustum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

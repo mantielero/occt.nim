@@ -94,3 +94,28 @@ include StepRepr_Transformation
 include StepRepr_ValueRange
 include StepRepr_ValueRepresentationItem
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,3 +29,28 @@ proc constructVrmlTransformSeparator*(): VrmlTransformSeparator {.constructor,
     importcpp: "Vrml_TransformSeparator(@)", header: "Vrml_TransformSeparator.hxx".}
 proc print*(this: var VrmlTransformSeparator; anOStream: var StandardOStream): var StandardOStream {.
     importcpp: "Print", header: "Vrml_TransformSeparator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,10 +20,21 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  Lin* {.importcpp: "gp_Lin", header: "gp_Lin.hxx", bycopy.} = object ## ! Creates a Line corresponding to Z axis of the
-                                                              ## ! reference coordinate system.
+  Lin* {.importcpp: "gp_Lin", header: "gp_Lin.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Lin; theSize: csize_t): pointer {.
+    importcpp: "gp_Lin::operator new", header: "gp_Lin.hxx".}
+proc `delete`*(this: var Lin; theAddress: pointer) {.
+    importcpp: "gp_Lin::operator delete", header: "gp_Lin.hxx".}
+proc `new[]`*(this: var Lin; theSize: csize_t): pointer {.
+    importcpp: "gp_Lin::operator new[]", header: "gp_Lin.hxx".}
+proc `delete[]`*(this: var Lin; theAddress: pointer) {.
+    importcpp: "gp_Lin::operator delete[]", header: "gp_Lin.hxx".}
+proc `new`*(this: var Lin; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Lin::operator new", header: "gp_Lin.hxx".}
+proc `delete`*(this: var Lin; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Lin::operator delete", header: "gp_Lin.hxx".}
 proc constructLin*(): Lin {.constructor, importcpp: "gp_Lin(@)", header: "gp_Lin.hxx".}
 proc constructLin*(a1: Ax1): Lin {.constructor, importcpp: "gp_Lin(@)",
                                header: "gp_Lin.hxx".}
@@ -44,17 +55,17 @@ proc location*(this: Lin): Pnt {.noSideEffect, importcpp: "Location",
                              header: "gp_Lin.hxx".}
 proc position*(this: Lin): Ax1 {.noSideEffect, importcpp: "Position",
                              header: "gp_Lin.hxx".}
-proc angle*(this: Lin; other: Lin): float {.noSideEffect, importcpp: "Angle",
-                                      header: "gp_Lin.hxx".}
-proc contains*(this: Lin; p: Pnt; linearTolerance: float): bool {.noSideEffect,
-    importcpp: "Contains", header: "gp_Lin.hxx".}
-proc distance*(this: Lin; p: Pnt): float {.noSideEffect, importcpp: "Distance",
-                                     header: "gp_Lin.hxx".}
-proc distance*(this: Lin; other: Lin): float {.noSideEffect, importcpp: "Distance",
+proc angle*(this: Lin; other: Lin): StandardReal {.noSideEffect, importcpp: "Angle",
     header: "gp_Lin.hxx".}
-proc squareDistance*(this: Lin; p: Pnt): float {.noSideEffect,
+proc contains*(this: Lin; p: Pnt; linearTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "Contains", header: "gp_Lin.hxx".}
+proc distance*(this: Lin; p: Pnt): StandardReal {.noSideEffect, importcpp: "Distance",
+    header: "gp_Lin.hxx".}
+proc distance*(this: Lin; other: Lin): StandardReal {.noSideEffect,
+    importcpp: "Distance", header: "gp_Lin.hxx".}
+proc squareDistance*(this: Lin; p: Pnt): StandardReal {.noSideEffect,
     importcpp: "SquareDistance", header: "gp_Lin.hxx".}
-proc squareDistance*(this: Lin; other: Lin): float {.noSideEffect,
+proc squareDistance*(this: Lin; other: Lin): StandardReal {.noSideEffect,
     importcpp: "SquareDistance", header: "gp_Lin.hxx".}
 proc normal*(this: Lin; p: Pnt): Lin {.noSideEffect, importcpp: "Normal",
                                  header: "gp_Lin.hxx".}
@@ -67,13 +78,14 @@ proc mirrored*(this: Lin; a1: Ax1): Lin {.noSideEffect, importcpp: "Mirrored",
 proc mirror*(this: var Lin; a2: Ax2) {.importcpp: "Mirror", header: "gp_Lin.hxx".}
 proc mirrored*(this: Lin; a2: Ax2): Lin {.noSideEffect, importcpp: "Mirrored",
                                     header: "gp_Lin.hxx".}
-proc rotate*(this: var Lin; a1: Ax1; ang: float) {.importcpp: "Rotate",
+proc rotate*(this: var Lin; a1: Ax1; ang: StandardReal) {.importcpp: "Rotate",
     header: "gp_Lin.hxx".}
-proc rotated*(this: Lin; a1: Ax1; ang: float): Lin {.noSideEffect, importcpp: "Rotated",
+proc rotated*(this: Lin; a1: Ax1; ang: StandardReal): Lin {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Lin.hxx".}
+proc scale*(this: var Lin; p: Pnt; s: StandardReal) {.importcpp: "Scale",
     header: "gp_Lin.hxx".}
-proc scale*(this: var Lin; p: Pnt; s: float) {.importcpp: "Scale", header: "gp_Lin.hxx".}
-proc scaled*(this: Lin; p: Pnt; s: float): Lin {.noSideEffect, importcpp: "Scaled",
-    header: "gp_Lin.hxx".}
+proc scaled*(this: Lin; p: Pnt; s: StandardReal): Lin {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Lin.hxx".}
 proc transform*(this: var Lin; t: Trsf) {.importcpp: "Transform", header: "gp_Lin.hxx".}
 proc transformed*(this: Lin; t: Trsf): Lin {.noSideEffect, importcpp: "Transformed",
                                        header: "gp_Lin.hxx".}

@@ -25,11 +25,36 @@ type
 
 
 proc constructFairCurveNewton*(theFunction: MathMultipleVarFunctionWithHessian;
-                              theSpatialTolerance: float = 1.0e-7;
-                              theCriteriumTolerance: float = 1.0e-7;
-                              theNbIterations: int = 40;
-                              theConvexity: float = 1.0e-6;
+                              theSpatialTolerance: cfloat = 1.0e-7;
+                              theCriteriumTolerance: cfloat = 1.0e-7;
+                              theNbIterations: cint = 40;
+                              theConvexity: cfloat = 1.0e-6;
                               theWithSingularity: bool = true): FairCurveNewton {.
     constructor, importcpp: "FairCurve_Newton(@)", header: "FairCurve_Newton.hxx".}
 proc isConverged*(this: FairCurveNewton): bool {.noSideEffect,
     importcpp: "IsConverged", header: "FairCurve_Newton.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

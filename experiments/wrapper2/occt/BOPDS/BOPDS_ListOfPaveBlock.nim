@@ -17,3 +17,28 @@ type
   BOPDS_ListOfPaveBlock* = NCollectionList[Handle[BOPDS_PaveBlock]]
   BOPDS_ListIteratorOfListOfPaveBlock* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

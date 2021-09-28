@@ -21,13 +21,32 @@ type
                               header: "Geom2dGcc_FunctionTanCuPnt.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
+proc `new`*(this: var Geom2dGccFunctionTanCuPnt; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc_FunctionTanCuPnt::operator new",
+    header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
+proc `delete`*(this: var Geom2dGccFunctionTanCuPnt; theAddress: pointer) {.
+    importcpp: "Geom2dGcc_FunctionTanCuPnt::operator delete",
+    header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
+proc `new[]`*(this: var Geom2dGccFunctionTanCuPnt; theSize: csize_t): pointer {.
+    importcpp: "Geom2dGcc_FunctionTanCuPnt::operator new[]",
+    header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
+proc `delete[]`*(this: var Geom2dGccFunctionTanCuPnt; theAddress: pointer) {.
+    importcpp: "Geom2dGcc_FunctionTanCuPnt::operator delete[]",
+    header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
+proc `new`*(this: var Geom2dGccFunctionTanCuPnt; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dGcc_FunctionTanCuPnt::operator new",
+    header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
+proc `delete`*(this: var Geom2dGccFunctionTanCuPnt; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dGcc_FunctionTanCuPnt::operator delete",
+    header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
 proc constructGeom2dGccFunctionTanCuPnt*(c: Geom2dAdaptorCurve; point: Pnt2d): Geom2dGccFunctionTanCuPnt {.
     constructor, importcpp: "Geom2dGcc_FunctionTanCuPnt(@)",
     header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
-proc value*(this: var Geom2dGccFunctionTanCuPnt; x: float; f: var float): bool {.
+proc value*(this: var Geom2dGccFunctionTanCuPnt; x: StandardReal; f: var StandardReal): StandardBoolean {.
     importcpp: "Value", header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
-proc derivative*(this: var Geom2dGccFunctionTanCuPnt; x: float; deriv: var float): bool {.
-    importcpp: "Derivative", header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
-proc values*(this: var Geom2dGccFunctionTanCuPnt; x: float; f: var float;
-            deriv: var float): bool {.importcpp: "Values",
-                                  header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
+proc derivative*(this: var Geom2dGccFunctionTanCuPnt; x: StandardReal;
+                deriv: var StandardReal): StandardBoolean {.importcpp: "Derivative",
+    header: "Geom2dGcc_FunctionTanCuPnt.hxx".}
+proc values*(this: var Geom2dGccFunctionTanCuPnt; x: StandardReal;
+            f: var StandardReal; deriv: var StandardReal): StandardBoolean {.
+    importcpp: "Values", header: "Geom2dGcc_FunctionTanCuPnt.hxx".}

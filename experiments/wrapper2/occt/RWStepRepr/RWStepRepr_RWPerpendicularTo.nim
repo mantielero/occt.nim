@@ -30,7 +30,7 @@ proc constructRWStepReprRWPerpendicularTo*(): RWStepReprRWPerpendicularTo {.
     constructor, importcpp: "RWStepRepr_RWPerpendicularTo(@)",
     header: "RWStepRepr_RWPerpendicularTo.hxx".}
 proc readStep*(this: RWStepReprRWPerpendicularTo;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepReprPerpendicularTo]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepRepr_RWPerpendicularTo.hxx".}
 proc writeStep*(this: RWStepReprRWPerpendicularTo; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepReprRWPerpendicularTo; sw: var StepDataStepWriter;
 proc share*(this: RWStepReprRWPerpendicularTo;
            ent: Handle[StepReprPerpendicularTo]; iter: var InterfaceEntityIterator) {.
     noSideEffect, importcpp: "Share", header: "RWStepRepr_RWPerpendicularTo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

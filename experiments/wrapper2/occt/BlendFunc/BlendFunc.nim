@@ -35,8 +35,8 @@ type
   BlendFunc* {.importcpp: "BlendFunc", header: "BlendFunc.hxx", bycopy.} = object
 
 
-proc getShape*(sectShape: BlendFuncSectionShape; maxAng: float; nbPoles: var int;
-              nbKnots: var int; degree: var int;
+proc getShape*(sectShape: BlendFuncSectionShape; maxAng: cfloat; nbPoles: var cint;
+              nbKnots: var cint; degree: var cint;
               typeConv: var ConvertParameterisationType) {.
     importcpp: "BlendFunc::GetShape(@)", header: "BlendFunc.hxx".}
 proc knots*(sectShape: BlendFuncSectionShape; tKnots: var TColStdArray1OfReal) {.
@@ -44,8 +44,8 @@ proc knots*(sectShape: BlendFuncSectionShape; tKnots: var TColStdArray1OfReal) {
 proc mults*(sectShape: BlendFuncSectionShape; tMults: var TColStdArray1OfInteger) {.
     importcpp: "BlendFunc::Mults(@)", header: "BlendFunc.hxx".}
 proc getMinimalWeights*(sectShape: BlendFuncSectionShape;
-                       tConv: ConvertParameterisationType; angleMin: float;
-                       angleMax: float; weigths: var TColStdArray1OfReal) {.
+                       tConv: ConvertParameterisationType; angleMin: cfloat;
+                       angleMax: cfloat; weigths: var TColStdArray1OfReal) {.
     importcpp: "BlendFunc::GetMinimalWeights(@)", header: "BlendFunc.hxx".}
 proc nextShape*(s: GeomAbsShape): GeomAbsShape {.
     importcpp: "BlendFunc::NextShape(@)", header: "BlendFunc.hxx".}
@@ -54,3 +54,28 @@ proc computeNormal*(surf: Handle[Adaptor3dHSurface]; p2d: Pnt2d; normal: var Vec
 proc computeDNormal*(surf: Handle[Adaptor3dHSurface]; p2d: Pnt2d; normal: var Vec;
                     dNu: var Vec; dNv: var Vec): bool {.
     importcpp: "BlendFunc::ComputeDNormal(@)", header: "BlendFunc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ discard "forward decl of TDataStd_TreeNode"
 type
   TDataStdPtrTreeNode* = ptr TDataStdTreeNode
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

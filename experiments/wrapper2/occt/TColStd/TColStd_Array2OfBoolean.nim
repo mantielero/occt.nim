@@ -15,3 +15,28 @@
 type
   TColStdArray2OfBoolean* = NCollectionArray2[bool]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

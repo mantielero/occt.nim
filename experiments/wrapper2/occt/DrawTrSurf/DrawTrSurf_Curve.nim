@@ -21,7 +21,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_Curve"
 discard "forward decl of DrawTrSurf_Curve"
 type
-  HandleDrawTrSurfCurve* = Handle[DrawTrSurfCurve]
+  HandleC1C1* = Handle[DrawTrSurfCurve]
 
 ## ! This class defines a drawable curve in 3d space.
 
@@ -32,10 +32,10 @@ type
 
 proc constructDrawTrSurfCurve*(c: Handle[GeomCurve]; dispOrigin: bool = true): DrawTrSurfCurve {.
     constructor, importcpp: "DrawTrSurf_Curve(@)", header: "DrawTrSurf_Curve.hxx".}
-proc constructDrawTrSurfCurve*(c: Handle[GeomCurve]; aColor: DrawColor; discret: int;
-                              deflection: float; drawMode: int;
+proc constructDrawTrSurfCurve*(c: Handle[GeomCurve]; aColor: DrawColor;
+                              discret: cint; deflection: cfloat; drawMode: cint;
                               dispOrigin: bool = true; dispCurvRadius: bool = false;
-                              radiusMax: float = 1.0e3; ratioOfRadius: float = 0.1): DrawTrSurfCurve {.
+                              radiusMax: cfloat = 1.0e3; ratioOfRadius: cfloat = 0.1): DrawTrSurfCurve {.
     constructor, importcpp: "DrawTrSurf_Curve(@)", header: "DrawTrSurf_Curve.hxx".}
 proc drawOn*(this: DrawTrSurfCurve; dis: var DrawDisplay) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_Curve.hxx".}
@@ -51,15 +51,15 @@ proc showCurvature*(this: var DrawTrSurfCurve) {.importcpp: "ShowCurvature",
     header: "DrawTrSurf_Curve.hxx".}
 proc clearCurvature*(this: var DrawTrSurfCurve) {.importcpp: "ClearCurvature",
     header: "DrawTrSurf_Curve.hxx".}
-proc setRadiusMax*(this: var DrawTrSurfCurve; radius: float) {.
+proc setRadiusMax*(this: var DrawTrSurfCurve; radius: cfloat) {.
     importcpp: "SetRadiusMax", header: "DrawTrSurf_Curve.hxx".}
-proc setRadiusRatio*(this: var DrawTrSurfCurve; ratio: float) {.
+proc setRadiusRatio*(this: var DrawTrSurfCurve; ratio: cfloat) {.
     importcpp: "SetRadiusRatio", header: "DrawTrSurf_Curve.hxx".}
 proc color*(this: DrawTrSurfCurve): DrawColor {.noSideEffect, importcpp: "Color",
     header: "DrawTrSurf_Curve.hxx".}
-proc radiusMax*(this: DrawTrSurfCurve): float {.noSideEffect, importcpp: "RadiusMax",
-    header: "DrawTrSurf_Curve.hxx".}
-proc radiusRatio*(this: DrawTrSurfCurve): float {.noSideEffect,
+proc radiusMax*(this: DrawTrSurfCurve): cfloat {.noSideEffect,
+    importcpp: "RadiusMax", header: "DrawTrSurf_Curve.hxx".}
+proc radiusRatio*(this: DrawTrSurfCurve): cfloat {.noSideEffect,
     importcpp: "RadiusRatio", header: "DrawTrSurf_Curve.hxx".}
 proc copy*(this: DrawTrSurfCurve): Handle[DrawDrawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_Curve.hxx".}
@@ -77,3 +77,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_Curve.hxx".}
 proc dynamicType*(this: DrawTrSurfCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

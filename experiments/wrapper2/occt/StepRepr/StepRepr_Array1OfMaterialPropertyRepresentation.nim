@@ -18,3 +18,28 @@ type
   StepReprArray1OfMaterialPropertyRepresentation* = NCollectionArray1[
       Handle[StepReprMaterialPropertyRepresentation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

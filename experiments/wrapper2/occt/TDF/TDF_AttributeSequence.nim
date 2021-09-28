@@ -16,3 +16,28 @@
 type
   TDF_AttributeSequence* = NCollectionSequence[Handle[TDF_Attribute]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

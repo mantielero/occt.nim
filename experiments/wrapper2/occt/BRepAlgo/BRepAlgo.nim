@@ -36,7 +36,7 @@ type
 
 
 proc concatenateWire*(wire: TopoDS_Wire; option: GeomAbsShape;
-                     angularTolerance: float = 1.0e-4): TopoDS_Wire {.
+                     angularTolerance: cfloat = 1.0e-4): TopoDS_Wire {.
     importcpp: "BRepAlgo::ConcatenateWire(@)", header: "BRepAlgo.hxx".}
 proc concatenateWireC0*(wire: TopoDS_Wire): TopoDS_Edge {.
     importcpp: "BRepAlgo::ConcatenateWireC0(@)", header: "BRepAlgo.hxx".}
@@ -47,3 +47,28 @@ proc isValid*(theArgs: TopToolsListOfShape; theResult: TopoDS_Shape;
     importcpp: "BRepAlgo::IsValid(@)", header: "BRepAlgo.hxx".}
 proc isTopologicallyValid*(s: TopoDS_Shape): bool {.
     importcpp: "BRepAlgo::IsTopologicallyValid(@)", header: "BRepAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

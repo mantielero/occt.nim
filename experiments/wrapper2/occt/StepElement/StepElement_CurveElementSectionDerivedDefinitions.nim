@@ -18,8 +18,7 @@ discard "forward decl of StepElement_MeasureOrUnspecifiedValue"
 discard "forward decl of StepElement_CurveElementSectionDerivedDefinitions"
 discard "forward decl of StepElement_CurveElementSectionDerivedDefinitions"
 type
-  HandleStepElementCurveElementSectionDerivedDefinitions* = Handle[
-      StepElementCurveElementSectionDerivedDefinitions]
+  HandleC1C1* = Handle[StepElementCurveElementSectionDerivedDefinitions]
 
 ## ! Representation of STEP entity CurveElementSectionDerivedDefinitions
 
@@ -38,11 +37,11 @@ proc constructStepElementCurveElementSectionDerivedDefinitions*(): StepElementCu
     header: "StepElement_CurveElementSectionDerivedDefinitions.hxx".}
 proc init*(this: var StepElementCurveElementSectionDerivedDefinitions;
     aCurveElementSectionDefinitionDescription: Handle[TCollectionHAsciiString];
-          aCurveElementSectionDefinitionSectionAngle: float;
-          aCrossSectionalArea: float;
+          aCurveElementSectionDefinitionSectionAngle: cfloat;
+          aCrossSectionalArea: cfloat;
           aShearArea: Handle[StepElementHArray1OfMeasureOrUnspecifiedValue];
           aSecondMomentOfArea: Handle[TColStdHArray1OfReal];
-          aTorsionalConstant: float;
+          aTorsionalConstant: cfloat;
           aWarpingConstant: StepElementMeasureOrUnspecifiedValue;
     aLocationOfCentroid: Handle[StepElementHArray1OfMeasureOrUnspecifiedValue];
     aLocationOfShearCentre: Handle[StepElementHArray1OfMeasureOrUnspecifiedValue];
@@ -50,11 +49,11 @@ proc init*(this: var StepElementCurveElementSectionDerivedDefinitions;
           aNonStructuralMass: StepElementMeasureOrUnspecifiedValue;
           aPolarMoment: StepElementMeasureOrUnspecifiedValue) {.importcpp: "Init",
     header: "StepElement_CurveElementSectionDerivedDefinitions.hxx".}
-proc crossSectionalArea*(this: StepElementCurveElementSectionDerivedDefinitions): float {.
+proc crossSectionalArea*(this: StepElementCurveElementSectionDerivedDefinitions): cfloat {.
     noSideEffect, importcpp: "CrossSectionalArea",
     header: "StepElement_CurveElementSectionDerivedDefinitions.hxx".}
 proc setCrossSectionalArea*(this: var StepElementCurveElementSectionDerivedDefinitions;
-                           crossSectionalArea: float) {.
+                           crossSectionalArea: cfloat) {.
     importcpp: "SetCrossSectionalArea",
     header: "StepElement_CurveElementSectionDerivedDefinitions.hxx".}
 proc shearArea*(this: StepElementCurveElementSectionDerivedDefinitions): Handle[
@@ -71,11 +70,11 @@ proc setSecondMomentOfArea*(this: var StepElementCurveElementSectionDerivedDefin
                            secondMomentOfArea: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetSecondMomentOfArea",
     header: "StepElement_CurveElementSectionDerivedDefinitions.hxx".}
-proc torsionalConstant*(this: StepElementCurveElementSectionDerivedDefinitions): float {.
+proc torsionalConstant*(this: StepElementCurveElementSectionDerivedDefinitions): cfloat {.
     noSideEffect, importcpp: "TorsionalConstant",
     header: "StepElement_CurveElementSectionDerivedDefinitions.hxx".}
 proc setTorsionalConstant*(this: var StepElementCurveElementSectionDerivedDefinitions;
-                          torsionalConstant: float) {.
+                          torsionalConstant: cfloat) {.
     importcpp: "SetTorsionalConstant",
     header: "StepElement_CurveElementSectionDerivedDefinitions.hxx".}
 proc warpingConstant*(this: StepElementCurveElementSectionDerivedDefinitions): StepElementMeasureOrUnspecifiedValue {.
@@ -131,3 +130,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_CurveE
     header: "StepElement_CurveElementSectionDerivedDefinitions.hxx".}
 proc dynamicType*(this: StepElementCurveElementSectionDerivedDefinitions): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepElement_CurveElementSectionDerivedDefinitions.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

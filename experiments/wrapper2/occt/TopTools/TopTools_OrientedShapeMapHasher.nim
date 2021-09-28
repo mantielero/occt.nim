@@ -23,9 +23,34 @@ type
                                                   ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 
-proc hashCode*(theShape: TopoDS_Shape; theUpperBound: int): int {.
+proc hashCode*(theShape: TopoDS_Shape; theUpperBound: cint): cint {.
     importcpp: "TopTools_OrientedShapeMapHasher::HashCode(@)",
     header: "TopTools_OrientedShapeMapHasher.hxx".}
 proc isEqual*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.
     importcpp: "TopTools_OrientedShapeMapHasher::IsEqual(@)",
     header: "TopTools_OrientedShapeMapHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

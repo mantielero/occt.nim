@@ -48,21 +48,21 @@ proc changeConfig*(this: var TopOpeBRepBuildGTopo; c1: TopOpeBRepDS_Config;
     header: "TopOpeBRepBuild_GTopo.hxx".}
 proc value*(this: TopOpeBRepBuildGTopo; s1: TopAbsState; s2: TopAbsState): bool {.
     noSideEffect, importcpp: "Value", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc value*(this: TopOpeBRepBuildGTopo; i1: int; i2: int): bool {.noSideEffect,
+proc value*(this: TopOpeBRepBuildGTopo; i1: cint; i2: cint): bool {.noSideEffect,
     importcpp: "Value", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc value*(this: TopOpeBRepBuildGTopo; ii: int): bool {.noSideEffect,
+proc value*(this: TopOpeBRepBuildGTopo; ii: cint): bool {.noSideEffect,
     importcpp: "Value", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc changeValue*(this: var TopOpeBRepBuildGTopo; i1: int; i2: int; b: bool) {.
+proc changeValue*(this: var TopOpeBRepBuildGTopo; i1: cint; i2: cint; b: bool) {.
     importcpp: "ChangeValue", header: "TopOpeBRepBuild_GTopo.hxx".}
 proc changeValue*(this: var TopOpeBRepBuildGTopo; s1: TopAbsState; s2: TopAbsState;
                  b: bool) {.importcpp: "ChangeValue",
                           header: "TopOpeBRepBuild_GTopo.hxx".}
-proc gIndex*(this: TopOpeBRepBuildGTopo; s: TopAbsState): int {.noSideEffect,
+proc gIndex*(this: TopOpeBRepBuildGTopo; s: TopAbsState): cint {.noSideEffect,
     importcpp: "GIndex", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc gState*(this: TopOpeBRepBuildGTopo; i: int): TopAbsState {.noSideEffect,
+proc gState*(this: TopOpeBRepBuildGTopo; i: cint): TopAbsState {.noSideEffect,
     importcpp: "GState", header: "TopOpeBRepBuild_GTopo.hxx".}
-proc index*(this: TopOpeBRepBuildGTopo; ii: int; i1: var int; i2: var int) {.noSideEffect,
-    importcpp: "Index", header: "TopOpeBRepBuild_GTopo.hxx".}
+proc index*(this: TopOpeBRepBuildGTopo; ii: cint; i1: var cint; i2: var cint) {.
+    noSideEffect, importcpp: "Index", header: "TopOpeBRepBuild_GTopo.hxx".}
 proc dumpVal*(this: TopOpeBRepBuildGTopo; os: var StandardOStream; s1: TopAbsState;
              s2: TopAbsState) {.noSideEffect, importcpp: "DumpVal",
                               header: "TopOpeBRepBuild_GTopo.hxx".}
@@ -86,3 +86,28 @@ proc reverse*(this: TopOpeBRepBuildGTopo): bool {.noSideEffect, importcpp: "Reve
     header: "TopOpeBRepBuild_GTopo.hxx".}
 proc copyPermuted*(this: TopOpeBRepBuildGTopo): TopOpeBRepBuildGTopo {.noSideEffect,
     importcpp: "CopyPermuted", header: "TopOpeBRepBuild_GTopo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

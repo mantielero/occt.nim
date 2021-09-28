@@ -25,28 +25,36 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Dir"
 type
   GeomLPropSLProps* {.importcpp: "GeomLProp_SLProps",
-                     header: "GeomLProp_SLProps.hxx", bycopy.} = object ## ! Initializes the local properties of the surface <S>
-                                                                   ## ! for the parameter values (<U>, <V>).
-                                                                   ## ! The current point and the derivatives are
-                                                                   ## ! computed at the same time, which allows an
-                                                                   ## ! optimization of the computation time.
-                                                                   ## ! <N> indicates the maximum number of derivations to
-                                                                   ## ! be done (0, 1, or 2). For example, to compute
-                                                                   ## ! only the tangent, N should be equal to 1.
-                                                                   ## ! <Resolution> is the linear tolerance (it is used to test
-                                                                   ## ! if a vector is null).
+                     header: "GeomLProp_SLProps.hxx", bycopy.} = object
 
 
-proc constructGeomLPropSLProps*(s: Handle[GeomSurface]; u: float; v: float; n: int;
-                               resolution: float): GeomLPropSLProps {.constructor,
-    importcpp: "GeomLProp_SLProps(@)", header: "GeomLProp_SLProps.hxx".}
-proc constructGeomLPropSLProps*(s: Handle[GeomSurface]; n: int; resolution: float): GeomLPropSLProps {.
+proc `new`*(this: var GeomLPropSLProps; theSize: csize_t): pointer {.
+    importcpp: "GeomLProp_SLProps::operator new", header: "GeomLProp_SLProps.hxx".}
+proc `delete`*(this: var GeomLPropSLProps; theAddress: pointer) {.
+    importcpp: "GeomLProp_SLProps::operator delete",
+    header: "GeomLProp_SLProps.hxx".}
+proc `new[]`*(this: var GeomLPropSLProps; theSize: csize_t): pointer {.
+    importcpp: "GeomLProp_SLProps::operator new[]",
+    header: "GeomLProp_SLProps.hxx".}
+proc `delete[]`*(this: var GeomLPropSLProps; theAddress: pointer) {.
+    importcpp: "GeomLProp_SLProps::operator delete[]",
+    header: "GeomLProp_SLProps.hxx".}
+proc `new`*(this: var GeomLPropSLProps; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLProp_SLProps::operator new", header: "GeomLProp_SLProps.hxx".}
+proc `delete`*(this: var GeomLPropSLProps; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLProp_SLProps::operator delete",
+    header: "GeomLProp_SLProps.hxx".}
+proc constructGeomLPropSLProps*(s: Handle[GeomSurface]; u: StandardReal;
+                               v: StandardReal; n: int; resolution: StandardReal): GeomLPropSLProps {.
     constructor, importcpp: "GeomLProp_SLProps(@)", header: "GeomLProp_SLProps.hxx".}
-proc constructGeomLPropSLProps*(n: int; resolution: float): GeomLPropSLProps {.
+proc constructGeomLPropSLProps*(s: Handle[GeomSurface]; n: int;
+                               resolution: StandardReal): GeomLPropSLProps {.
+    constructor, importcpp: "GeomLProp_SLProps(@)", header: "GeomLProp_SLProps.hxx".}
+proc constructGeomLPropSLProps*(n: int; resolution: StandardReal): GeomLPropSLProps {.
     constructor, importcpp: "GeomLProp_SLProps(@)", header: "GeomLProp_SLProps.hxx".}
 proc setSurface*(this: var GeomLPropSLProps; s: Handle[GeomSurface]) {.
     importcpp: "SetSurface", header: "GeomLProp_SLProps.hxx".}
-proc setParameters*(this: var GeomLPropSLProps; u: float; v: float) {.
+proc setParameters*(this: var GeomLPropSLProps; u: StandardReal; v: StandardReal) {.
     importcpp: "SetParameters", header: "GeomLProp_SLProps.hxx".}
 proc value*(this: GeomLPropSLProps): Pnt {.noSideEffect, importcpp: "Value",
                                        header: "GeomLProp_SLProps.hxx".}
@@ -60,29 +68,29 @@ proc d2v*(this: var GeomLPropSLProps): Vec {.importcpp: "D2V",
                                         header: "GeomLProp_SLProps.hxx".}
 proc duv*(this: var GeomLPropSLProps): Vec {.importcpp: "DUV",
                                         header: "GeomLProp_SLProps.hxx".}
-proc isTangentUDefined*(this: var GeomLPropSLProps): bool {.
+proc isTangentUDefined*(this: var GeomLPropSLProps): StandardBoolean {.
     importcpp: "IsTangentUDefined", header: "GeomLProp_SLProps.hxx".}
 proc tangentU*(this: var GeomLPropSLProps; d: var Dir) {.importcpp: "TangentU",
     header: "GeomLProp_SLProps.hxx".}
-proc isTangentVDefined*(this: var GeomLPropSLProps): bool {.
+proc isTangentVDefined*(this: var GeomLPropSLProps): StandardBoolean {.
     importcpp: "IsTangentVDefined", header: "GeomLProp_SLProps.hxx".}
 proc tangentV*(this: var GeomLPropSLProps; d: var Dir) {.importcpp: "TangentV",
     header: "GeomLProp_SLProps.hxx".}
-proc isNormalDefined*(this: var GeomLPropSLProps): bool {.
+proc isNormalDefined*(this: var GeomLPropSLProps): StandardBoolean {.
     importcpp: "IsNormalDefined", header: "GeomLProp_SLProps.hxx".}
 proc normal*(this: var GeomLPropSLProps): Dir {.importcpp: "Normal",
     header: "GeomLProp_SLProps.hxx".}
-proc isCurvatureDefined*(this: var GeomLPropSLProps): bool {.
+proc isCurvatureDefined*(this: var GeomLPropSLProps): StandardBoolean {.
     importcpp: "IsCurvatureDefined", header: "GeomLProp_SLProps.hxx".}
-proc isUmbilic*(this: var GeomLPropSLProps): bool {.importcpp: "IsUmbilic",
-    header: "GeomLProp_SLProps.hxx".}
-proc maxCurvature*(this: var GeomLPropSLProps): float {.importcpp: "MaxCurvature",
-    header: "GeomLProp_SLProps.hxx".}
-proc minCurvature*(this: var GeomLPropSLProps): float {.importcpp: "MinCurvature",
-    header: "GeomLProp_SLProps.hxx".}
+proc isUmbilic*(this: var GeomLPropSLProps): StandardBoolean {.
+    importcpp: "IsUmbilic", header: "GeomLProp_SLProps.hxx".}
+proc maxCurvature*(this: var GeomLPropSLProps): StandardReal {.
+    importcpp: "MaxCurvature", header: "GeomLProp_SLProps.hxx".}
+proc minCurvature*(this: var GeomLPropSLProps): StandardReal {.
+    importcpp: "MinCurvature", header: "GeomLProp_SLProps.hxx".}
 proc curvatureDirections*(this: var GeomLPropSLProps; maxD: var Dir; minD: var Dir) {.
     importcpp: "CurvatureDirections", header: "GeomLProp_SLProps.hxx".}
-proc meanCurvature*(this: var GeomLPropSLProps): float {.importcpp: "MeanCurvature",
-    header: "GeomLProp_SLProps.hxx".}
-proc gaussianCurvature*(this: var GeomLPropSLProps): float {.
+proc meanCurvature*(this: var GeomLPropSLProps): StandardReal {.
+    importcpp: "MeanCurvature", header: "GeomLProp_SLProps.hxx".}
+proc gaussianCurvature*(this: var GeomLPropSLProps): StandardReal {.
     importcpp: "GaussianCurvature", header: "GeomLProp_SLProps.hxx".}

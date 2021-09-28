@@ -18,8 +18,7 @@ discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepVisual_SurfaceStyleSegmentationCurve"
 discard "forward decl of StepVisual_SurfaceStyleSegmentationCurve"
 type
-  HandleStepVisualSurfaceStyleSegmentationCurve* = Handle[
-      StepVisualSurfaceStyleSegmentationCurve]
+  HandleC1C1* = Handle[StepVisualSurfaceStyleSegmentationCurve]
   StepVisualSurfaceStyleSegmentationCurve* {.
       importcpp: "StepVisual_SurfaceStyleSegmentationCurve",
       header: "StepVisual_SurfaceStyleSegmentationCurve.hxx", bycopy.} = object of StandardTransient ##
@@ -50,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Surface
 proc dynamicType*(this: StepVisualSurfaceStyleSegmentationCurve): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,7 +29,7 @@ proc constructRWStepBasicRWProductDefinitionEffectivity*(): RWStepBasicRWProduct
     constructor, importcpp: "RWStepBasic_RWProductDefinitionEffectivity(@)",
     header: "RWStepBasic_RWProductDefinitionEffectivity.hxx".}
 proc readStep*(this: RWStepBasicRWProductDefinitionEffectivity;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicProductDefinitionEffectivity]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepBasicRWProductDefinitionEffectivity;
            ent: Handle[StepBasicProductDefinitionEffectivity];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWProductDefinitionEffectivity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -62,14 +62,14 @@ proc makeVertex*(this: BRepPrimBuilder; v: var TopoDS_Vertex; p: Pnt) {.noSideEf
 proc reverseFace*(this: BRepPrimBuilder; f: var TopoDS_Face) {.noSideEffect,
     importcpp: "ReverseFace", header: "BRepPrim_Builder.hxx".}
 proc addEdgeVertex*(this: BRepPrimBuilder; e: var TopoDS_Edge; v: TopoDS_Vertex;
-                   p: float; direct: bool) {.noSideEffect,
+                   p: cfloat; direct: bool) {.noSideEffect,
     importcpp: "AddEdgeVertex", header: "BRepPrim_Builder.hxx".}
 proc addEdgeVertex*(this: BRepPrimBuilder; e: var TopoDS_Edge; v: TopoDS_Vertex;
-                   p1: float; p2: float) {.noSideEffect, importcpp: "AddEdgeVertex",
-                                       header: "BRepPrim_Builder.hxx".}
+                   p1: cfloat; p2: cfloat) {.noSideEffect,
+    importcpp: "AddEdgeVertex", header: "BRepPrim_Builder.hxx".}
 proc setParameters*(this: BRepPrimBuilder; e: var TopoDS_Edge; v: TopoDS_Vertex;
-                   p1: float; p2: float) {.noSideEffect, importcpp: "SetParameters",
-                                       header: "BRepPrim_Builder.hxx".}
+                   p1: cfloat; p2: cfloat) {.noSideEffect,
+    importcpp: "SetParameters", header: "BRepPrim_Builder.hxx".}
 proc addWireEdge*(this: BRepPrimBuilder; w: var TopoDS_Wire; e: TopoDS_Edge;
                  direct: bool) {.noSideEffect, importcpp: "AddWireEdge",
                                header: "BRepPrim_Builder.hxx".}
@@ -85,3 +85,28 @@ proc completeFace*(this: BRepPrimBuilder; f: var TopoDS_Face) {.noSideEffect,
     importcpp: "CompleteFace", header: "BRepPrim_Builder.hxx".}
 proc completeShell*(this: BRepPrimBuilder; s: var TopoDS_Shell) {.noSideEffect,
     importcpp: "CompleteShell", header: "BRepPrim_Builder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

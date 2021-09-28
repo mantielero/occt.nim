@@ -37,3 +37,28 @@ proc getOutLiner*(name: var StandardCString): Handle[HLRTopoBRepOutLiner] {.
     importcpp: "HLRTest::GetOutLiner(@)", header: "HLRTest.hxx".}
 proc commands*(i: var DrawInterpretor) {.importcpp: "HLRTest::Commands(@)",
                                      header: "HLRTest.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

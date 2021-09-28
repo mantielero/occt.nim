@@ -20,7 +20,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom2dAdaptor_HCurve"
 discard "forward decl of Geom2dAdaptor_HCurve"
 type
-  HandleGeom2dAdaptorHCurve* = Handle[Geom2dAdaptorHCurve]
+  HandleC1C1* = Handle[Geom2dAdaptorHCurve]
 
 ## ! Provides an interface between the services provided by any
 ## ! curve from the package Geom2d and those required
@@ -39,9 +39,10 @@ proc constructGeom2dAdaptorHCurve*(`as`: Geom2dAdaptorCurve): Geom2dAdaptorHCurv
 proc constructGeom2dAdaptorHCurve*(s: Handle[Geom2dCurve]): Geom2dAdaptorHCurve {.
     constructor, importcpp: "Geom2dAdaptor_HCurve(@)",
     header: "Geom2dAdaptor_HCurve.hxx".}
-proc constructGeom2dAdaptorHCurve*(s: Handle[Geom2dCurve]; uFirst: float;
-                                  uLast: float): Geom2dAdaptorHCurve {.constructor,
-    importcpp: "Geom2dAdaptor_HCurve(@)", header: "Geom2dAdaptor_HCurve.hxx".}
+proc constructGeom2dAdaptorHCurve*(s: Handle[Geom2dCurve]; uFirst: StandardReal;
+                                  uLast: StandardReal): Geom2dAdaptorHCurve {.
+    constructor, importcpp: "Geom2dAdaptor_HCurve(@)",
+    header: "Geom2dAdaptor_HCurve.hxx".}
 type
   Geom2dAdaptorHCurvebaseType* = Geom2dAdaptorGHCurve
 

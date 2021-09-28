@@ -28,33 +28,58 @@ type
 
 proc constructExtremaExtPS*(): ExtremaExtPS {.constructor,
     importcpp: "Extrema_ExtPS(@)", header: "Extrema_ExtPS.hxx".}
-proc constructExtremaExtPS*(p: Pnt; s: Adaptor3dSurface; tolU: float; tolV: float;
+proc constructExtremaExtPS*(p: Pnt; s: Adaptor3dSurface; tolU: cfloat; tolV: cfloat;
                            f: ExtremaExtFlag = extremaExtFlagMINMAX;
                            a: ExtremaExtAlgo = extremaExtAlgoGrad): ExtremaExtPS {.
     constructor, importcpp: "Extrema_ExtPS(@)", header: "Extrema_ExtPS.hxx".}
-proc constructExtremaExtPS*(p: Pnt; s: Adaptor3dSurface; uinf: float; usup: float;
-                           vinf: float; vsup: float; tolU: float; tolV: float;
+proc constructExtremaExtPS*(p: Pnt; s: Adaptor3dSurface; uinf: cfloat; usup: cfloat;
+                           vinf: cfloat; vsup: cfloat; tolU: cfloat; tolV: cfloat;
                            f: ExtremaExtFlag = extremaExtFlagMINMAX;
                            a: ExtremaExtAlgo = extremaExtAlgoGrad): ExtremaExtPS {.
     constructor, importcpp: "Extrema_ExtPS(@)", header: "Extrema_ExtPS.hxx".}
-proc initialize*(this: var ExtremaExtPS; s: Adaptor3dSurface; uinf: float; usup: float;
-                vinf: float; vsup: float; tolU: float; tolV: float) {.
+proc initialize*(this: var ExtremaExtPS; s: Adaptor3dSurface; uinf: cfloat;
+                usup: cfloat; vinf: cfloat; vsup: cfloat; tolU: cfloat; tolV: cfloat) {.
     importcpp: "Initialize", header: "Extrema_ExtPS.hxx".}
 proc perform*(this: var ExtremaExtPS; p: Pnt) {.importcpp: "Perform",
     header: "Extrema_ExtPS.hxx".}
 proc isDone*(this: ExtremaExtPS): bool {.noSideEffect, importcpp: "IsDone",
                                      header: "Extrema_ExtPS.hxx".}
-proc nbExt*(this: ExtremaExtPS): int {.noSideEffect, importcpp: "NbExt",
-                                   header: "Extrema_ExtPS.hxx".}
-proc squareDistance*(this: ExtremaExtPS; n: int): float {.noSideEffect,
+proc nbExt*(this: ExtremaExtPS): cint {.noSideEffect, importcpp: "NbExt",
+                                    header: "Extrema_ExtPS.hxx".}
+proc squareDistance*(this: ExtremaExtPS; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_ExtPS.hxx".}
-proc point*(this: ExtremaExtPS; n: int): ExtremaPOnSurf {.noSideEffect,
+proc point*(this: ExtremaExtPS; n: cint): ExtremaPOnSurf {.noSideEffect,
     importcpp: "Point", header: "Extrema_ExtPS.hxx".}
-proc trimmedSquareDistances*(this: ExtremaExtPS; dUfVf: var float; dUfVl: var float;
-                            dUlVf: var float; dUlVl: var float; pUfVf: var Pnt;
+proc trimmedSquareDistances*(this: ExtremaExtPS; dUfVf: var cfloat; dUfVl: var cfloat;
+                            dUlVf: var cfloat; dUlVl: var cfloat; pUfVf: var Pnt;
                             pUfVl: var Pnt; pUlVf: var Pnt; pUlVl: var Pnt) {.
     noSideEffect, importcpp: "TrimmedSquareDistances", header: "Extrema_ExtPS.hxx".}
 proc setFlag*(this: var ExtremaExtPS; f: ExtremaExtFlag) {.importcpp: "SetFlag",
     header: "Extrema_ExtPS.hxx".}
 proc setAlgo*(this: var ExtremaExtPS; a: ExtremaExtAlgo) {.importcpp: "SetAlgo",
     header: "Extrema_ExtPS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

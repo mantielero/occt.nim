@@ -16,8 +16,7 @@
 discard "forward decl of XCAFDimTolObjects_GeomToleranceObject"
 discard "forward decl of XCAFDimTolObjects_GeomToleranceObject"
 type
-  HandleXCAFDimTolObjectsGeomToleranceObject* = Handle[
-      XCAFDimTolObjectsGeomToleranceObject]
+  HandleC1C1* = Handle[XCAFDimTolObjectsGeomToleranceObject]
 
 ## ! Access object to store dimension and tolerance
 
@@ -53,9 +52,9 @@ proc setTypeOfValue*(this: var XCAFDimTolObjectsGeomToleranceObject;
 proc getTypeOfValue*(this: XCAFDimTolObjectsGeomToleranceObject): XCAFDimTolObjectsGeomToleranceTypeValue {.
     noSideEffect, importcpp: "GetTypeOfValue",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc setValue*(this: var XCAFDimTolObjectsGeomToleranceObject; theValue: float) {.
+proc setValue*(this: var XCAFDimTolObjectsGeomToleranceObject; theValue: cfloat) {.
     importcpp: "SetValue", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc getValue*(this: XCAFDimTolObjectsGeomToleranceObject): float {.noSideEffect,
+proc getValue*(this: XCAFDimTolObjectsGeomToleranceObject): cfloat {.noSideEffect,
     importcpp: "GetValue", header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
 proc setMaterialRequirementModifier*(this: var XCAFDimTolObjectsGeomToleranceObject;
     theMatReqModif: XCAFDimTolObjectsGeomToleranceMatReqModif) {.
@@ -72,10 +71,10 @@ proc getZoneModifier*(this: XCAFDimTolObjectsGeomToleranceObject): XCAFDimTolObj
     noSideEffect, importcpp: "GetZoneModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
 proc setValueOfZoneModifier*(this: var XCAFDimTolObjectsGeomToleranceObject;
-                            theValue: float) {.
+                            theValue: cfloat) {.
     importcpp: "SetValueOfZoneModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc getValueOfZoneModifier*(this: XCAFDimTolObjectsGeomToleranceObject): float {.
+proc getValueOfZoneModifier*(this: XCAFDimTolObjectsGeomToleranceObject): cfloat {.
     noSideEffect, importcpp: "GetValueOfZoneModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
 proc setModifiers*(this: var XCAFDimTolObjectsGeomToleranceObject;
@@ -88,9 +87,9 @@ proc getModifiers*(this: XCAFDimTolObjectsGeomToleranceObject): XCAFDimTolObject
     noSideEffect, importcpp: "GetModifiers",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
 proc setMaxValueModifier*(this: var XCAFDimTolObjectsGeomToleranceObject;
-                         theModifier: float) {.importcpp: "SetMaxValueModifier",
+                         theModifier: cfloat) {.importcpp: "SetMaxValueModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
-proc getMaxValueModifier*(this: XCAFDimTolObjectsGeomToleranceObject): float {.
+proc getMaxValueModifier*(this: XCAFDimTolObjectsGeomToleranceObject): cfloat {.
     noSideEffect, importcpp: "GetMaxValueModifier",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
 proc setAxis*(this: var XCAFDimTolObjectsGeomToleranceObject; theAxis: Ax2) {.
@@ -161,3 +160,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XCAFDimTolObjectsGeomToleranceObject): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XCAFDimTolObjects_GeomToleranceObject.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

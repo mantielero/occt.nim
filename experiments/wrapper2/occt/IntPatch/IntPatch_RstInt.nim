@@ -25,6 +25,31 @@ type
 
 proc putVertexOnLine*(L: Handle[IntPatchLine]; surf: Handle[Adaptor3dHSurface];
                      domain: Handle[Adaptor3dTopolTool];
-                     otherSurf: Handle[Adaptor3dHSurface]; onFirst: bool; tol: float) {.
-    importcpp: "IntPatch_RstInt::PutVertexOnLine(@)",
-    header: "IntPatch_RstInt.hxx".}
+                     otherSurf: Handle[Adaptor3dHSurface]; onFirst: bool;
+                     tol: cfloat) {.importcpp: "IntPatch_RstInt::PutVertexOnLine(@)",
+                                  header: "IntPatch_RstInt.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

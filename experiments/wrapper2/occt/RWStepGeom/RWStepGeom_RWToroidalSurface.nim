@@ -29,7 +29,7 @@ proc constructRWStepGeomRWToroidalSurface*(): RWStepGeomRWToroidalSurface {.
     constructor, importcpp: "RWStepGeom_RWToroidalSurface(@)",
     header: "RWStepGeom_RWToroidalSurface.hxx".}
 proc readStep*(this: RWStepGeomRWToroidalSurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomToroidalSurface]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWToroidalSurface.hxx".}
 proc writeStep*(this: RWStepGeomRWToroidalSurface; sw: var StepDataStepWriter;
@@ -42,3 +42,28 @@ proc check*(this: RWStepGeomRWToroidalSurface;
            ent: Handle[StepGeomToroidalSurface]; shares: InterfaceShareTool;
            ach: var Handle[InterfaceCheck]) {.noSideEffect, importcpp: "Check",
     header: "RWStepGeom_RWToroidalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ discard "forward decl of StepBasic_Group"
 discard "forward decl of StepAP214_AppliedGroupAssignment"
 discard "forward decl of StepAP214_AppliedGroupAssignment"
 type
-  HandleStepAP214AppliedGroupAssignment* = Handle[StepAP214AppliedGroupAssignment]
+  HandleC1C1* = Handle[StepAP214AppliedGroupAssignment]
 
 ## ! Representation of STEP entity AppliedGroupAssignment
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214AppliedGroupAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedGroupAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

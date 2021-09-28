@@ -20,14 +20,14 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Text3D"
 discard "forward decl of Draw_Text3D"
 type
-  HandleDrawText3D* = Handle[DrawText3D]
+  HandleC1C1* = Handle[DrawText3D]
   DrawText3D* {.importcpp: "Draw_Text3D", header: "Draw_Text3D.hxx", bycopy.} = object of DrawDrawable3D
 
 
 proc constructDrawText3D*(p: Pnt; t: StandardCString; col: DrawColor): DrawText3D {.
     constructor, importcpp: "Draw_Text3D(@)", header: "Draw_Text3D.hxx".}
-proc constructDrawText3D*(p: Pnt; t: StandardCString; col: DrawColor; moveX: float;
-                         moveY: float): DrawText3D {.constructor,
+proc constructDrawText3D*(p: Pnt; t: StandardCString; col: DrawColor; moveX: cfloat;
+                         moveY: cfloat): DrawText3D {.constructor,
     importcpp: "Draw_Text3D(@)", header: "Draw_Text3D.hxx".}
 proc setPnt*(this: var DrawText3D; p: Pnt) {.importcpp: "SetPnt",
                                        header: "Draw_Text3D.hxx".}
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Draw_Text3D::get_type_descriptor(@)", header: "Draw_Text3D.hxx".}
 proc dynamicType*(this: DrawText3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Text3D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

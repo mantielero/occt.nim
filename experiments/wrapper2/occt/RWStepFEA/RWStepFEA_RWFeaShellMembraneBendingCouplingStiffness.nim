@@ -32,7 +32,7 @@ proc constructRWStepFEA_RWFeaShellMembraneBendingCouplingStiffness*(): RWStepFEA
     importcpp: "RWStepFEA_RWFeaShellMembraneBendingCouplingStiffness(@)",
     header: "RWStepFEA_RWFeaShellMembraneBendingCouplingStiffness.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaShellMembraneBendingCouplingStiffness;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaShellMembraneBendingCouplingStiffness]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -46,3 +46,28 @@ proc share*(this: RWStepFEA_RWFeaShellMembraneBendingCouplingStiffness;
            ent: Handle[StepFEA_FeaShellMembraneBendingCouplingStiffness];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaShellMembraneBendingCouplingStiffness.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,3 +19,28 @@ type
   MeshVS_DataMapIteratorOfDataMapOfColorMapOfInteger* = Iterator[QuantityColor,
       TColStdMapOfInteger, QuantityColorHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

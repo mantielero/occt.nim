@@ -20,3 +20,28 @@ type
   ShapeExtendDataMapIteratorOfDataMapOfShapeListOfMsg* = Iterator[TopoDS_Shape,
       MessageListOfMsg, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

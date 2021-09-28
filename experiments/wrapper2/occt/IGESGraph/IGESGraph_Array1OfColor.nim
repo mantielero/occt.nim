@@ -17,3 +17,28 @@
 type
   IGESGraphArray1OfColor* = NCollectionArray1[Handle[IGESGraphColor]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

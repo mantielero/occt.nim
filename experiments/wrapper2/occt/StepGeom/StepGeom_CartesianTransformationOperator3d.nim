@@ -20,8 +20,7 @@ discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepGeom_CartesianTransformationOperator3d"
 discard "forward decl of StepGeom_CartesianTransformationOperator3d"
 type
-  HandleStepGeomCartesianTransformationOperator3d* = Handle[
-      StepGeomCartesianTransformationOperator3d]
+  HandleC1C1* = Handle[StepGeomCartesianTransformationOperator3d]
   StepGeomCartesianTransformationOperator3d* {.
       importcpp: "StepGeom_CartesianTransformationOperator3d",
       header: "StepGeom_CartesianTransformationOperator3d.hxx", bycopy.} = object of StepGeomCartesianTransformationOperator ##
@@ -39,7 +38,7 @@ proc init*(this: var StepGeomCartesianTransformationOperator3d;
           aAxis1: Handle[StepGeomDirection]; hasAaxis2: bool;
           aAxis2: Handle[StepGeomDirection];
           aLocalOrigin: Handle[StepGeomCartesianPoint]; hasAscale: bool;
-          aScale: float; hasAaxis3: bool; aAxis3: Handle[StepGeomDirection]) {.
+          aScale: cfloat; hasAaxis3: bool; aAxis3: Handle[StepGeomDirection]) {.
     importcpp: "Init", header: "StepGeom_CartesianTransformationOperator3d.hxx".}
 proc setAxis3*(this: var StepGeomCartesianTransformationOperator3d;
               aAxis3: Handle[StepGeomDirection]) {.importcpp: "SetAxis3",
@@ -61,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_Cartesian
 proc dynamicType*(this: StepGeomCartesianTransformationOperator3d): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepGeom_CartesianTransformationOperator3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

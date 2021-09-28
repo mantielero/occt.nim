@@ -31,7 +31,7 @@ type
 proc constructStepAP214DateAndTimeItem*(): StepAP214DateAndTimeItem {.constructor,
     importcpp: "StepAP214_DateAndTimeItem(@)",
     header: "StepAP214_DateAndTimeItem.hxx".}
-proc caseNum*(this: StepAP214DateAndTimeItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP214DateAndTimeItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_DateAndTimeItem.hxx".}
 proc approvalPersonOrganization*(this: StepAP214DateAndTimeItem): Handle[
     StepBasicApprovalPersonOrganization] {.noSideEffect,
@@ -45,3 +45,28 @@ proc appliedOrganizationAssignment*(this: StepAP214DateAndTimeItem): Handle[
     StepAP214AppliedOrganizationAssignment] {.noSideEffect,
     importcpp: "AppliedOrganizationAssignment",
     header: "StepAP214_DateAndTimeItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,3 +15,28 @@
 type
   TColStdArray1OfByte* = NCollectionArray1[StandardByte]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

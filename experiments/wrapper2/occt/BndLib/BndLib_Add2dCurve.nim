@@ -56,14 +56,39 @@ type
                                                                    ## ! numbers, or two positive infinite real numbers.
 
 
-proc add*(c: Adaptor2dCurve2d; tol: float; b: var BndBox2d) {.
+proc add*(c: Adaptor2dCurve2d; tol: cfloat; b: var BndBox2d) {.
     importcpp: "BndLib_Add2dCurve::Add(@)", header: "BndLib_Add2dCurve.hxx".}
-proc add*(c: Adaptor2dCurve2d; u1: float; u2: float; tol: float; b: var BndBox2d) {.
+proc add*(c: Adaptor2dCurve2d; u1: cfloat; u2: cfloat; tol: cfloat; b: var BndBox2d) {.
     importcpp: "BndLib_Add2dCurve::Add(@)", header: "BndLib_Add2dCurve.hxx".}
-proc add*(c: Handle[Geom2dCurve]; tol: float; box: var BndBox2d) {.
+proc add*(c: Handle[Geom2dCurve]; tol: cfloat; box: var BndBox2d) {.
     importcpp: "BndLib_Add2dCurve::Add(@)", header: "BndLib_Add2dCurve.hxx".}
-proc add*(c: Handle[Geom2dCurve]; u1: float; u2: float; tol: float; b: var BndBox2d) {.
+proc add*(c: Handle[Geom2dCurve]; u1: cfloat; u2: cfloat; tol: cfloat; b: var BndBox2d) {.
     importcpp: "BndLib_Add2dCurve::Add(@)", header: "BndLib_Add2dCurve.hxx".}
-proc addOptimal*(c: Handle[Geom2dCurve]; u1: float; u2: float; tol: float;
+proc addOptimal*(c: Handle[Geom2dCurve]; u1: cfloat; u2: cfloat; tol: cfloat;
                 b: var BndBox2d) {.importcpp: "BndLib_Add2dCurve::AddOptimal(@)",
                                 header: "BndLib_Add2dCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

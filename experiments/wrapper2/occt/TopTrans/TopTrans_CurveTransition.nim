@@ -48,14 +48,39 @@ type
 proc constructTopTransCurveTransition*(): TopTransCurveTransition {.constructor,
     importcpp: "TopTrans_CurveTransition(@)",
     header: "TopTrans_CurveTransition.hxx".}
-proc reset*(this: var TopTransCurveTransition; tgt: Dir; norm: Dir; curv: float) {.
+proc reset*(this: var TopTransCurveTransition; tgt: Dir; norm: Dir; curv: cfloat) {.
     importcpp: "Reset", header: "TopTrans_CurveTransition.hxx".}
 proc reset*(this: var TopTransCurveTransition; tgt: Dir) {.importcpp: "Reset",
     header: "TopTrans_CurveTransition.hxx".}
-proc compare*(this: var TopTransCurveTransition; tole: float; tang: Dir; norm: Dir;
-             curv: float; s: TopAbsOrientation; `or`: TopAbsOrientation) {.
+proc compare*(this: var TopTransCurveTransition; tole: cfloat; tang: Dir; norm: Dir;
+             curv: cfloat; s: TopAbsOrientation; `or`: TopAbsOrientation) {.
     importcpp: "Compare", header: "TopTrans_CurveTransition.hxx".}
 proc stateBefore*(this: TopTransCurveTransition): TopAbsState {.noSideEffect,
     importcpp: "StateBefore", header: "TopTrans_CurveTransition.hxx".}
 proc stateAfter*(this: TopTransCurveTransition): TopAbsState {.noSideEffect,
     importcpp: "StateAfter", header: "TopTrans_CurveTransition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

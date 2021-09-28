@@ -30,3 +30,28 @@ proc prefix*(this: XmlLDriversNamespaceDef): TCollectionAsciiString {.noSideEffe
     importcpp: "Prefix", header: "XmlLDrivers_NamespaceDef.hxx".}
 proc uri*(this: XmlLDriversNamespaceDef): TCollectionAsciiString {.noSideEffect,
     importcpp: "URI", header: "XmlLDrivers_NamespaceDef.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

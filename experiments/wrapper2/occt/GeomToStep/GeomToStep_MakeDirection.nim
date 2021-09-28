@@ -25,6 +25,24 @@ type
                             header: "GeomToStep_MakeDirection.hxx", bycopy.} = object of GeomToStepRoot
 
 
+proc `new`*(this: var GeomToStepMakeDirection; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeDirection::operator new",
+    header: "GeomToStep_MakeDirection.hxx".}
+proc `delete`*(this: var GeomToStepMakeDirection; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeDirection::operator delete",
+    header: "GeomToStep_MakeDirection.hxx".}
+proc `new[]`*(this: var GeomToStepMakeDirection; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeDirection::operator new[]",
+    header: "GeomToStep_MakeDirection.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeDirection; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeDirection::operator delete[]",
+    header: "GeomToStep_MakeDirection.hxx".}
+proc `new`*(this: var GeomToStepMakeDirection; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeDirection::operator new",
+    header: "GeomToStep_MakeDirection.hxx".}
+proc `delete`*(this: var GeomToStepMakeDirection; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeDirection::operator delete",
+    header: "GeomToStep_MakeDirection.hxx".}
 proc constructGeomToStepMakeDirection*(d: Dir): GeomToStepMakeDirection {.
     constructor, importcpp: "GeomToStep_MakeDirection(@)",
     header: "GeomToStep_MakeDirection.hxx".}

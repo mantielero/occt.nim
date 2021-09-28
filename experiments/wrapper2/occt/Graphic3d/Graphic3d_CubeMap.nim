@@ -71,5 +71,30 @@ proc destroyGraphic3dCubeMap*(this: var Graphic3dCubeMap) {.
     importcpp: "#.~Graphic3d_CubeMap()", header: "Graphic3d_CubeMap.hxx".}
 discard "forward decl of Graphic3d_CubeMap"
 type
-  HandleGraphic3dCubeMap* = Handle[Graphic3dCubeMap]
+  HandleC1C1* = Handle[Graphic3dCubeMap]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

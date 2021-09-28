@@ -21,13 +21,38 @@ type
 
 proc constructPCDM_Reference*(): PCDM_Reference {.constructor,
     importcpp: "PCDM_Reference(@)", header: "PCDM_Reference.hxx".}
-proc constructPCDM_Reference*(aReferenceIdentifier: int;
+proc constructPCDM_Reference*(aReferenceIdentifier: cint;
                              aFileName: TCollectionExtendedString;
-                             aDocumentVersion: int): PCDM_Reference {.constructor,
+                             aDocumentVersion: cint): PCDM_Reference {.constructor,
     importcpp: "PCDM_Reference(@)", header: "PCDM_Reference.hxx".}
-proc referenceIdentifier*(this: PCDM_Reference): int {.noSideEffect,
+proc referenceIdentifier*(this: PCDM_Reference): cint {.noSideEffect,
     importcpp: "ReferenceIdentifier", header: "PCDM_Reference.hxx".}
 proc fileName*(this: PCDM_Reference): TCollectionExtendedString {.noSideEffect,
     importcpp: "FileName", header: "PCDM_Reference.hxx".}
-proc documentVersion*(this: PCDM_Reference): int {.noSideEffect,
+proc documentVersion*(this: PCDM_Reference): cint {.noSideEffect,
     importcpp: "DocumentVersion", header: "PCDM_Reference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

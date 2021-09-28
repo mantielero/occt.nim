@@ -29,7 +29,7 @@ proc constructRWStepBasicRWUncertaintyMeasureWithUnit*(): RWStepBasicRWUncertain
     constructor, importcpp: "RWStepBasic_RWUncertaintyMeasureWithUnit(@)",
     header: "RWStepBasic_RWUncertaintyMeasureWithUnit.hxx".}
 proc readStep*(this: RWStepBasicRWUncertaintyMeasureWithUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicUncertaintyMeasureWithUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWUncertaintyMeasureWithUnit.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepBasicRWUncertaintyMeasureWithUnit;
            ent: Handle[StepBasicUncertaintyMeasureWithUnit];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWUncertaintyMeasureWithUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESDimen_GeneralLabel"
 discard "forward decl of IGESDimen_GeneralLabel"
 type
-  HandleIGESDimenGeneralLabel* = Handle[IGESDimenGeneralLabel]
+  HandleC1C1* = Handle[IGESDimenGeneralLabel]
 
 ## ! defines GeneralLabel, Type <210> Form <0>
 ## ! in package IGESDimen
@@ -38,9 +38,9 @@ proc init*(this: var IGESDimenGeneralLabel; aNote: Handle[IGESDimenGeneralNote];
     header: "IGESDimen_GeneralLabel.hxx".}
 proc note*(this: IGESDimenGeneralLabel): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_GeneralLabel.hxx".}
-proc nbLeaders*(this: IGESDimenGeneralLabel): int {.noSideEffect,
+proc nbLeaders*(this: IGESDimenGeneralLabel): cint {.noSideEffect,
     importcpp: "NbLeaders", header: "IGESDimen_GeneralLabel.hxx".}
-proc leader*(this: IGESDimenGeneralLabel; index: int): Handle[IGESDimenLeaderArrow] {.
+proc leader*(this: IGESDimenGeneralLabel; index: cint): Handle[IGESDimenLeaderArrow] {.
     noSideEffect, importcpp: "Leader", header: "IGESDimen_GeneralLabel.hxx".}
 type
   IGESDimenGeneralLabelbaseType* = IGESDataIGESEntity
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_GeneralLabel.hxx".}
 proc dynamicType*(this: IGESDimenGeneralLabel): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDimen_GeneralLabel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

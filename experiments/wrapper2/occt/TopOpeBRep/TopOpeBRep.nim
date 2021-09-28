@@ -53,3 +53,28 @@ type
 
 proc print*(tlc: TopOpeBRepTypeLineCurve; os: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRep::Print(@)", header: "TopOpeBRep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

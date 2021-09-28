@@ -18,7 +18,7 @@ discard "forward decl of StepBasic_Action"
 discard "forward decl of StepAP203_Change"
 discard "forward decl of StepAP203_Change"
 type
-  HandleStepAP203Change* = Handle[StepAP203Change]
+  HandleC1C1* = Handle[StepAP203Change]
 
 ## ! Representation of STEP entity Change
 
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepAP203_Change.hxx".}
 proc dynamicType*(this: StepAP203Change): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP203_Change.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

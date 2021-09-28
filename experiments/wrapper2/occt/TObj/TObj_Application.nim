@@ -69,8 +69,8 @@ proc setVerbose*(this: var TObjApplication; isVerbose: bool) {.
 proc isVerbose*(this: TObjApplication): bool {.noSideEffect, importcpp: "IsVerbose",
     header: "TObj_Application.hxx".}
 proc dumpJson*(this: TObjApplication; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TObj_Application.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TObj_Application.hxx".}
 proc resourcesName*(this: var TObjApplication): StandardCString {.
     importcpp: "ResourcesName", header: "TObj_Application.hxx".}
 type
@@ -87,5 +87,30 @@ proc dynamicType*(this: TObjApplication): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of TObj_Application"
 type
-  HandleTObjApplication* = Handle[TObjApplication]
+  HandleC1C1* = Handle[TObjApplication]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -18,7 +18,7 @@ discard "forward decl of SelectMgr_SelectableObject"
 discard "forward decl of PrsMgr_PresentationManager"
 discard "forward decl of PrsDim_DimensionOwner"
 type
-  HandlePrsDimDimensionOwner* = Handle[PrsDimDimensionOwner]
+  HandleC1C1* = Handle[PrsDimDimensionOwner]
 
 ## ! The owner is the entity which makes it possible to link
 ## ! the sensitive primitives and the reference shapes that
@@ -61,18 +61,43 @@ proc dynamicType*(this: PrsDimDimensionOwner): Handle[StandardType] {.noSideEffe
     importcpp: "DynamicType", header: "PrsDim_DimensionOwner.hxx".}
 proc constructPrsDimDimensionOwner*(theSelObject: Handle[SelectMgrSelectableObject];
                                    theSelMode: PrsDimDimensionSelectionMode;
-                                   thePriority: int = 0): PrsDimDimensionOwner {.
+                                   thePriority: cint = 0): PrsDimDimensionOwner {.
     constructor, importcpp: "PrsDim_DimensionOwner(@)",
     header: "PrsDim_DimensionOwner.hxx".}
 proc selectionMode*(this: PrsDimDimensionOwner): PrsDimDimensionSelectionMode {.
     noSideEffect, importcpp: "SelectionMode", header: "PrsDim_DimensionOwner.hxx".}
 proc hilightWithColor*(this: var PrsDimDimensionOwner;
                       thePM: Handle[PrsMgrPresentationManager3d];
-                      theStyle: Handle[Prs3dDrawer]; theMode: int = 0) {.
+                      theStyle: Handle[Prs3dDrawer]; theMode: cint = 0) {.
     importcpp: "HilightWithColor", header: "PrsDim_DimensionOwner.hxx".}
 proc isHilighted*(this: PrsDimDimensionOwner;
-                 thePM: Handle[PrsMgrPresentationManager]; theMode: int = 0): bool {.
+                 thePM: Handle[PrsMgrPresentationManager]; theMode: cint = 0): bool {.
     noSideEffect, importcpp: "IsHilighted", header: "PrsDim_DimensionOwner.hxx".}
 proc unhilight*(this: var PrsDimDimensionOwner;
-               thePM: Handle[PrsMgrPresentationManager]; theMode: int = 0) {.
+               thePM: Handle[PrsMgrPresentationManager]; theMode: cint = 0) {.
     importcpp: "Unhilight", header: "PrsDim_DimensionOwner.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

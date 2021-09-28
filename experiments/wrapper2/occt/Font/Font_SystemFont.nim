@@ -13,62 +13,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## ! This class stores information about the font, which is merely a file path and cached metadata about the font.
+## !!!Ignored construct:  # _Font_SystemFont_HeaderFile [NewLine] # _Font_SystemFont_HeaderFile [NewLine] # < Font_FontAspect . hxx > [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < TCollection_AsciiString . hxx > [NewLine] ! This class stores information about the font, which is merely a file path and cached metadata about the font. class Font_SystemFont : public Standard_Transient { public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return Font_SystemFont ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; public : ! Creates a new font object. Font_SystemFont ( const TCollection_AsciiString & theFontName ) ; ! Returns font family name (lower-cased). const TCollection_AsciiString & FontKey ( ) const { return myFontKey ; } ! Returns font family name. const TCollection_AsciiString & FontName ( ) const { return myFontName ; } ! Returns font file path. const TCollection_AsciiString & FontPath ( Font_FontAspect theAspect ) const { return myFilePaths [ theAspect != Font_FontAspect_UNDEFINED ? theAspect : Font_FontAspect_Regular ] ; } ! Returns font file path. Standard_Integer FontFaceId ( Font_FontAspect theAspect ) const { return myFaceIds [ theAspect != Font_FontAspect_UNDEFINED ? theAspect : Font_FontAspect_Regular ] ; } ! Sets font file path for specific aspect. void SetFontPath ( Font_FontAspect theAspect , const TCollection_AsciiString & thePath , const Standard_Integer theFaceId = 0 ) ; ! Returns TRUE if dedicated file for specified font aspect has been defined. bool HasFontAspect ( Font_FontAspect theAspect ) const { return ! myFilePaths [ theAspect != Font_FontAspect_UNDEFINED ? theAspect : Font_FontAspect_Regular ] . IsEmpty ( ) ; } ! Returns any defined font file path. const TCollection_AsciiString & FontPathAny ( Font_FontAspect theAspect , bool & theToSynthesizeItalic , Standard_Integer & theFaceId ) const { const Font_FontAspect anAspect = theAspect != Font_FontAspect_UNDEFINED ? theAspect : Font_FontAspect_Regular ; const TCollection_AsciiString & aPath = myFilePaths [ anAspect ] ; theFaceId = myFaceIds [ anAspect ] ; if ( ! aPath . IsEmpty ( ) ) { return aPath ; } if ( theAspect == Font_FontAspect_Italic || theAspect == Font_FontAspect_BoldItalic ) { if ( theAspect == Font_FontAspect_BoldItalic && ! myFilePaths [ Font_FontAspect_Bold ] . IsEmpty ( ) ) { theToSynthesizeItalic = true ; theFaceId = myFaceIds [ Font_FontAspect_Bold ] ; return myFilePaths [ Font_FontAspect_Bold ] ; } else if ( ! myFilePaths [ Font_FontAspect_Regular ] . IsEmpty ( ) ) { theToSynthesizeItalic = true ; theFaceId = myFaceIds [ Font_FontAspect_Regular ] ; return myFilePaths [ Font_FontAspect_Regular ] ; } } if ( ! myFilePaths [ Font_FontAspect_Regular ] . IsEmpty ( ) ) { theFaceId = myFaceIds [ Font_FontAspect_Regular ] ; return myFilePaths [ Font_FontAspect_Regular ] ; } for ( int anAspectIter = 0 ; anAspectIter < Font_FontAspect_NB ; ++ anAspectIter ) { if ( ! myFilePaths [ anAspectIter ] . IsEmpty ( ) ) { theFaceId = myFaceIds [ anAspectIter ] ; return myFilePaths [ anAspectIter ] ; } } theFaceId = myFaceIds [ Font_FontAspect_Regular ] ; return myFilePaths [ Font_FontAspect_Regular ] ; } ! Return true if the FontName, FontAspect and FontSize are the same. Standard_Boolean IsEqual ( const Handle ( Font_SystemFont ) & theOtherFont ) const ; ! Return TRUE if this is single-stroke (one-line) font, FALSE by default.
+## ! Such fonts define single-line glyphs instead of closed contours, so that they are rendered incorrectly by normal software. Standard_Boolean IsSingleStrokeFont ( ) const { return myIsSingleLine ; } ! Set if this font should be rendered as single-stroke (one-line). void SetSingleStrokeFont ( Standard_Boolean theIsSingleLine ) { myIsSingleLine = theIsSingleLine ; } ! Format font description. TCollection_AsciiString ToString ( ) const ; public : ! Computes a hash code for the system font, in the range [1, theUpperBound]. Based on Font Family, so that the whole
+## ! family with different aspects can be found within the same bucket of some map
+## ! @param theSystemFont the system font which hash code is to be computed
+## ! @param theUpperBound the upper bound of the range a computing hash code must be within
+## ! @return a computed hash code, in the range [1, theUpperBound] static Standard_Integer HashCode ( const Handle ( Font_SystemFont ) & theSystemFont , const Standard_Integer theUpperBound ) { return :: HashCode ( theSystemFont -> FontKey ( ) , theUpperBound ) ; } ! Matching two instances, for Map interface. static bool IsEqual ( const Handle ( Font_SystemFont ) & theFont1 , const Handle ( Font_SystemFont ) & theFont2 ) { return theFont1 -> IsEqual ( theFont2 ) ; } private : TCollection_AsciiString myFilePaths [ Font_FontAspect_NB ] ; !< paths to the font file Standard_Integer myFaceIds [ Font_FontAspect_NB ] ; !< face ids per font file TCollection_AsciiString myFontKey ; !< font family name, lower cased TCollection_AsciiString myFontName ; !< font family name Standard_Boolean myIsSingleLine ; !< single stroke font flag, FALSE by default } ;
+## Error: expected ';'!!!
 
-type
-  FontSystemFont* {.importcpp: "Font_SystemFont", header: "Font_SystemFont.hxx",
-                   bycopy.} = object of StandardTransient ## ! Creates a new font object.
-                                                     ## ! Computes a hash code for the system font, in the range [1, theUpperBound]. Based on Font Family, so that the whole
-                                                     ## ! family with different aspects can be found within the same bucket of some map
-                                                     ## ! @param theSystemFont the system font which hash code is to be computed
-                                                     ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
-                                                     ## ! @return a computed hash code, in the range [1, theUpperBound]
-    ## !< paths to the font file
-    ## !< face ids per font file
-    ## !< font family name, lower cased
-    ## !< font family name
-    ## !< single stroke font flag, FALSE by default
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Font_SystemFont , Standard_Transient ) #  _Font_SystemFont_HeaderFile
+## Error: expected ';'!!!
 
-  FontSystemFontbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Font_SystemFont::get_type_name(@)",
-                            header: "Font_SystemFont.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Font_SystemFont::get_type_descriptor(@)",
-    header: "Font_SystemFont.hxx".}
-proc dynamicType*(this: FontSystemFont): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Font_SystemFont.hxx".}
-proc constructFontSystemFont*(theFontName: TCollectionAsciiString): FontSystemFont {.
-    constructor, importcpp: "Font_SystemFont(@)", header: "Font_SystemFont.hxx".}
-proc fontKey*(this: FontSystemFont): TCollectionAsciiString {.noSideEffect,
-    importcpp: "FontKey", header: "Font_SystemFont.hxx".}
-proc fontName*(this: FontSystemFont): TCollectionAsciiString {.noSideEffect,
-    importcpp: "FontName", header: "Font_SystemFont.hxx".}
-proc fontPath*(this: FontSystemFont; theAspect: FontFontAspect): TCollectionAsciiString {.
-    noSideEffect, importcpp: "FontPath", header: "Font_SystemFont.hxx".}
-proc fontFaceId*(this: FontSystemFont; theAspect: FontFontAspect): int {.noSideEffect,
-    importcpp: "FontFaceId", header: "Font_SystemFont.hxx".}
-proc setFontPath*(this: var FontSystemFont; theAspect: FontFontAspect;
-                 thePath: TCollectionAsciiString; theFaceId: int = 0) {.
-    importcpp: "SetFontPath", header: "Font_SystemFont.hxx".}
-proc hasFontAspect*(this: FontSystemFont; theAspect: FontFontAspect): bool {.
-    noSideEffect, importcpp: "HasFontAspect", header: "Font_SystemFont.hxx".}
-proc fontPathAny*(this: FontSystemFont; theAspect: FontFontAspect;
-                 theToSynthesizeItalic: var bool; theFaceId: var int): TCollectionAsciiString {.
-    noSideEffect, importcpp: "FontPathAny", header: "Font_SystemFont.hxx".}
-proc isEqual*(this: FontSystemFont; theOtherFont: Handle[FontSystemFont]): bool {.
-    noSideEffect, importcpp: "IsEqual", header: "Font_SystemFont.hxx".}
-proc isSingleStrokeFont*(this: FontSystemFont): bool {.noSideEffect,
-    importcpp: "IsSingleStrokeFont", header: "Font_SystemFont.hxx".}
-proc setSingleStrokeFont*(this: var FontSystemFont; theIsSingleLine: bool) {.
-    importcpp: "SetSingleStrokeFont", header: "Font_SystemFont.hxx".}
-proc toString*(this: FontSystemFont): TCollectionAsciiString {.noSideEffect,
-    importcpp: "ToString", header: "Font_SystemFont.hxx".}
-proc hashCode*(theSystemFont: Handle[FontSystemFont]; theUpperBound: int): int {.
-    importcpp: "Font_SystemFont::HashCode(@)", header: "Font_SystemFont.hxx".}
-proc isEqual*(theFont1: Handle[FontSystemFont]; theFont2: Handle[FontSystemFont]): bool {.
-    importcpp: "Font_SystemFont::IsEqual(@)", header: "Font_SystemFont.hxx".}
-discard "forward decl of Font_SystemFont"
-type
-  HandleFontSystemFont* = Handle[FontSystemFont]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

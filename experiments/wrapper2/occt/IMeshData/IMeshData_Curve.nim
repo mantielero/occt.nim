@@ -22,15 +22,15 @@ type
 
 proc destroyIMeshDataCurve*(this: var IMeshDataCurve) {.
     importcpp: "#.~IMeshData_Curve()", header: "IMeshData_Curve.hxx".}
-proc insertPoint*(this: var IMeshDataCurve; thePosition: int; thePoint: Pnt;
-                 theParamOnPCurve: float) {.importcpp: "InsertPoint",
+proc insertPoint*(this: var IMeshDataCurve; thePosition: cint; thePoint: Pnt;
+                 theParamOnPCurve: cfloat) {.importcpp: "InsertPoint",
     header: "IMeshData_Curve.hxx".}
-proc addPoint*(this: var IMeshDataCurve; thePoint: Pnt; theParamOnCurve: float) {.
+proc addPoint*(this: var IMeshDataCurve; thePoint: Pnt; theParamOnCurve: cfloat) {.
     importcpp: "AddPoint", header: "IMeshData_Curve.hxx".}
-proc getPoint*(this: var IMeshDataCurve; theIndex: int): var Pnt {.
+proc getPoint*(this: var IMeshDataCurve; theIndex: cint): var Pnt {.
     importcpp: "GetPoint", header: "IMeshData_Curve.hxx".}
-proc removePoint*(this: var IMeshDataCurve; theIndex: int) {.importcpp: "RemovePoint",
-    header: "IMeshData_Curve.hxx".}
+proc removePoint*(this: var IMeshDataCurve; theIndex: cint) {.
+    importcpp: "RemovePoint", header: "IMeshData_Curve.hxx".}
 type
   IMeshDataCurvebaseType* = IMeshDataParametersList
 
@@ -41,3 +41,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IMeshData_Curve.hxx".}
 proc dynamicType*(this: IMeshDataCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshData_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -39,17 +39,43 @@ type
 
 proc mixBnd*(lin: Handle[LawLinear]): Handle[LawBSpFunc] {.
     importcpp: "Law::MixBnd(@)", header: "Law.hxx".}
-proc mixBnd*(degree: int; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
+proc mixBnd*(degree: cint; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
             lin: Handle[LawLinear]): Handle[TColStdHArray1OfReal] {.
     importcpp: "Law::MixBnd(@)", header: "Law.hxx".}
-proc mixTgt*(degree: int; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
-            nulOnTheRight: bool; index: int): Handle[TColStdHArray1OfReal] {.
+proc mixTgt*(degree: cint; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
+            nulOnTheRight: bool; index: cint): Handle[TColStdHArray1OfReal] {.
     importcpp: "Law::MixTgt(@)", header: "Law.hxx".}
-proc reparametrize*(curve: Adaptor3dCurve; first: float; last: float; hasDF: bool;
-                   hasDL: bool; dFirst: float; dLast: float; rev: bool; nbPoints: int): Handle[
+proc reparametrize*(curve: Adaptor3dCurve; first: cfloat; last: cfloat; hasDF: bool;
+                   hasDL: bool; dFirst: cfloat; dLast: cfloat; rev: bool; nbPoints: cint): Handle[
     LawBSpline] {.importcpp: "Law::Reparametrize(@)", header: "Law.hxx".}
-proc scale*(first: float; last: float; hasF: bool; hasL: bool; vFirst: float; vLast: float): Handle[
-    LawBSpline] {.importcpp: "Law::Scale(@)", header: "Law.hxx".}
-proc scaleCub*(first: float; last: float; hasF: bool; hasL: bool; vFirst: float;
-              vLast: float): Handle[LawBSpline] {.importcpp: "Law::ScaleCub(@)",
+proc scale*(first: cfloat; last: cfloat; hasF: bool; hasL: bool; vFirst: cfloat;
+           vLast: cfloat): Handle[LawBSpline] {.importcpp: "Law::Scale(@)",
     header: "Law.hxx".}
+proc scaleCub*(first: cfloat; last: cfloat; hasF: bool; hasL: bool; vFirst: cfloat;
+              vLast: cfloat): Handle[LawBSpline] {.importcpp: "Law::ScaleCub(@)",
+    header: "Law.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

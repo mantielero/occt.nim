@@ -43,21 +43,21 @@ type
   DNaming* {.importcpp: "DNaming", header: "DNaming.hxx", bycopy.} = object
 
 
-proc getReal*(theFunction: Handle[TFunctionFunction]; thePosition: int): Handle[
+proc getReal*(theFunction: Handle[TFunctionFunction]; thePosition: cint): Handle[
     TDataStdReal] {.importcpp: "DNaming::GetReal(@)", header: "DNaming.hxx".}
-proc getInteger*(theFunction: Handle[TFunctionFunction]; thePosition: int): Handle[
+proc getInteger*(theFunction: Handle[TFunctionFunction]; thePosition: cint): Handle[
     TDataStdInteger] {.importcpp: "DNaming::GetInteger(@)", header: "DNaming.hxx".}
-proc getString*(theFunction: Handle[TFunctionFunction]; thePosition: int): Handle[
+proc getString*(theFunction: Handle[TFunctionFunction]; thePosition: cint): Handle[
     TDataStdName] {.importcpp: "DNaming::GetString(@)", header: "DNaming.hxx".}
 proc computeAxis*(theNS: Handle[TNamingNamedShape]; theAx1: var Ax1): bool {.
     importcpp: "DNaming::ComputeAxis(@)", header: "DNaming.hxx".}
 proc getFunctionResult*(theFunction: Handle[TFunctionFunction]): Handle[
     TNamingNamedShape] {.importcpp: "DNaming::GetFunctionResult(@)",
                         header: "DNaming.hxx".}
-proc getObjectArg*(theFunction: Handle[TFunctionFunction]; thePosition: int): Handle[
+proc getObjectArg*(theFunction: Handle[TFunctionFunction]; thePosition: cint): Handle[
     TDataStdUAttribute] {.importcpp: "DNaming::GetObjectArg(@)",
                          header: "DNaming.hxx".}
-proc setObjectArg*(theFunction: Handle[TFunctionFunction]; thePosition: int;
+proc setObjectArg*(theFunction: Handle[TFunctionFunction]; thePosition: cint;
                   theNewValue: Handle[TDataStdUAttribute]) {.
     importcpp: "DNaming::SetObjectArg(@)", header: "DNaming.hxx".}
 proc getObjectValue*(theObject: Handle[TDataStdUAttribute]): Handle[
@@ -104,7 +104,7 @@ proc currentShape*(shapeEntry: StandardCString; data: Handle[TDF_Data]): TopoDS_
 proc getShape*(shapeEntry: StandardCString; data: Handle[TDF_Data];
               shapes: var TopToolsListOfShape) {.importcpp: "DNaming::GetShape(@)",
     header: "DNaming.hxx".}
-proc getEntry*(shape: TopoDS_Shape; data: Handle[TDF_Data]; theStatus: var int): TCollectionAsciiString {.
+proc getEntry*(shape: TopoDS_Shape; data: Handle[TDF_Data]; theStatus: var cint): TCollectionAsciiString {.
     importcpp: "DNaming::GetEntry(@)", header: "DNaming.hxx".}
 proc loadImportedShape*(theResultLabel: TDF_Label; theShape: TopoDS_Shape) {.
     importcpp: "DNaming::LoadImportedShape(@)", header: "DNaming.hxx".}
@@ -120,3 +120,28 @@ proc selectionCommands*(di: var DrawInterpretor) {.
     importcpp: "DNaming::SelectionCommands(@)", header: "DNaming.hxx".}
 proc modelingCommands*(di: var DrawInterpretor) {.
     importcpp: "DNaming::ModelingCommands(@)", header: "DNaming.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

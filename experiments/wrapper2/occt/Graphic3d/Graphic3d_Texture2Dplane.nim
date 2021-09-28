@@ -18,7 +18,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture2Dplane"
 discard "forward decl of Graphic3d_Texture2Dplane"
 type
-  HandleGraphic3dTexture2Dplane* = Handle[Graphic3dTexture2Dplane]
+  HandleC1C1* = Handle[Graphic3dTexture2Dplane]
 
 ## ! This class allows the management of a 2D texture defined from a plane equation
 ## ! Use the SetXXX() methods for positioning the texture as you want.
@@ -93,3 +93,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Graphic3d_Texture2Dplane.hxx".}
 proc dynamicType*(this: Graphic3dTexture2Dplane): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_Texture2Dplane.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,3 +34,28 @@ proc texture2*(this: OpenGlTextureSetPairIterator): ptr OpenGlTexture {.noSideEf
     importcpp: "Texture2", header: "OpenGl_TextureSetPairIterator.hxx".}
 proc next*(this: var OpenGlTextureSetPairIterator) {.importcpp: "Next",
     header: "OpenGl_TextureSetPairIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

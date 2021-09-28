@@ -20,7 +20,7 @@ discard "forward decl of IGESSolid_Loop"
 discard "forward decl of IGESSolid_Face"
 discard "forward decl of IGESSolid_Face"
 type
-  HandleIGESSolidFace* = Handle[IGESSolidFace]
+  HandleC1C1* = Handle[IGESSolidFace]
 
 ## ! defines Face, Type <510> Form Number <1>
 ## ! in package IGESSolid
@@ -37,11 +37,11 @@ proc init*(this: var IGESSolidFace; aSurface: Handle[IGESDataIGESEntity];
     importcpp: "Init", header: "IGESSolid_Face.hxx".}
 proc surface*(this: IGESSolidFace): Handle[IGESDataIGESEntity] {.noSideEffect,
     importcpp: "Surface", header: "IGESSolid_Face.hxx".}
-proc nbLoops*(this: IGESSolidFace): int {.noSideEffect, importcpp: "NbLoops",
-                                      header: "IGESSolid_Face.hxx".}
+proc nbLoops*(this: IGESSolidFace): cint {.noSideEffect, importcpp: "NbLoops",
+                                       header: "IGESSolid_Face.hxx".}
 proc hasOuterLoop*(this: IGESSolidFace): bool {.noSideEffect,
     importcpp: "HasOuterLoop", header: "IGESSolid_Face.hxx".}
-proc loop*(this: IGESSolidFace; index: int): Handle[IGESSolidLoop] {.noSideEffect,
+proc loop*(this: IGESSolidFace; index: cint): Handle[IGESSolidLoop] {.noSideEffect,
     importcpp: "Loop", header: "IGESSolid_Face.hxx".}
 type
   IGESSolidFacebaseType* = IGESDataIGESEntity
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_Face.hxx".}
 proc dynamicType*(this: IGESSolidFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Face.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

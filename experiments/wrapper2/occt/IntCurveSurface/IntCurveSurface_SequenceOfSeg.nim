@@ -18,3 +18,28 @@ type
   IntCurveSurfaceSequenceOfSeg* = NCollectionSequence[
       IntCurveSurfaceIntersectionSegment]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

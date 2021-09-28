@@ -28,7 +28,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_OffsetCurve"
 discard "forward decl of Geom_OffsetCurve"
 type
-  HandleGeomOffsetCurve* = Handle[GeomOffsetCurve]
+  HandleC1C1* = Handle[GeomOffsetCurve]
 
 ## ! This class implements the basis services for an offset curve
 ## ! in 3D space. The Offset curve in this package can be a self
@@ -93,19 +93,19 @@ type
                                               ## ! No check is done to know if ||V^T|| != 0.0 at any point.
 
 
-proc constructGeomOffsetCurve*(c: Handle[GeomCurve]; offset: float; v: Dir;
-                              isNotCheckC0: bool = false): GeomOffsetCurve {.
+proc constructGeomOffsetCurve*(c: Handle[GeomCurve]; offset: StandardReal; v: Dir;
+                              isNotCheckC0: StandardBoolean = false): GeomOffsetCurve {.
     constructor, importcpp: "Geom_OffsetCurve(@)", header: "Geom_OffsetCurve.hxx".}
 proc reverse*(this: var GeomOffsetCurve) {.importcpp: "Reverse",
                                        header: "Geom_OffsetCurve.hxx".}
-proc reversedParameter*(this: GeomOffsetCurve; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom_OffsetCurve.hxx".}
+proc reversedParameter*(this: GeomOffsetCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_OffsetCurve.hxx".}
 proc setBasisCurve*(this: var GeomOffsetCurve; c: Handle[GeomCurve];
-                   isNotCheckC0: bool = false) {.importcpp: "SetBasisCurve",
-    header: "Geom_OffsetCurve.hxx".}
+                   isNotCheckC0: StandardBoolean = false) {.
+    importcpp: "SetBasisCurve", header: "Geom_OffsetCurve.hxx".}
 proc setDirection*(this: var GeomOffsetCurve; v: Dir) {.importcpp: "SetDirection",
     header: "Geom_OffsetCurve.hxx".}
-proc setOffsetValue*(this: var GeomOffsetCurve; d: float) {.
+proc setOffsetValue*(this: var GeomOffsetCurve; d: StandardReal) {.
     importcpp: "SetOffsetValue", header: "Geom_OffsetCurve.hxx".}
 proc basisCurve*(this: GeomOffsetCurve): Handle[GeomCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "Geom_OffsetCurve.hxx".}
@@ -113,36 +113,37 @@ proc continuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_OffsetCurve.hxx".}
 proc direction*(this: GeomOffsetCurve): Dir {.noSideEffect, importcpp: "Direction",
     header: "Geom_OffsetCurve.hxx".}
-proc d0*(this: GeomOffsetCurve; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
-    header: "Geom_OffsetCurve.hxx".}
-proc d1*(this: GeomOffsetCurve; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+proc d0*(this: GeomOffsetCurve; u: StandardReal; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_OffsetCurve.hxx".}
+proc d1*(this: GeomOffsetCurve; u: StandardReal; p: var Pnt; v1: var Vec) {.noSideEffect,
     importcpp: "D1", header: "Geom_OffsetCurve.hxx".}
-proc d2*(this: GeomOffsetCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: GeomOffsetCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
     noSideEffect, importcpp: "D2", header: "Geom_OffsetCurve.hxx".}
-proc d3*(this: GeomOffsetCurve; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, importcpp: "D3", header: "Geom_OffsetCurve.hxx".}
-proc dn*(this: GeomOffsetCurve; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
-    header: "Geom_OffsetCurve.hxx".}
-proc firstParameter*(this: GeomOffsetCurve): float {.noSideEffect,
+proc d3*(this: GeomOffsetCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec;
+        v3: var Vec) {.noSideEffect, importcpp: "D3", header: "Geom_OffsetCurve.hxx".}
+proc dn*(this: GeomOffsetCurve; u: StandardReal; n: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "Geom_OffsetCurve.hxx".}
+proc firstParameter*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_OffsetCurve.hxx".}
-proc lastParameter*(this: GeomOffsetCurve): float {.noSideEffect,
+proc lastParameter*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_OffsetCurve.hxx".}
-proc offset*(this: GeomOffsetCurve): float {.noSideEffect, importcpp: "Offset",
-    header: "Geom_OffsetCurve.hxx".}
-proc isClosed*(this: GeomOffsetCurve): bool {.noSideEffect, importcpp: "IsClosed",
-    header: "Geom_OffsetCurve.hxx".}
-proc isCN*(this: GeomOffsetCurve; n: int): bool {.noSideEffect, importcpp: "IsCN",
-    header: "Geom_OffsetCurve.hxx".}
-proc isPeriodic*(this: GeomOffsetCurve): bool {.noSideEffect,
+proc offset*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
+    importcpp: "Offset", header: "Geom_OffsetCurve.hxx".}
+proc isClosed*(this: GeomOffsetCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom_OffsetCurve.hxx".}
+proc isCN*(this: GeomOffsetCurve; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom_OffsetCurve.hxx".}
+proc isPeriodic*(this: GeomOffsetCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom_OffsetCurve.hxx".}
-proc period*(this: GeomOffsetCurve): float {.noSideEffect, importcpp: "Period",
-    header: "Geom_OffsetCurve.hxx".}
+proc period*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
+    importcpp: "Period", header: "Geom_OffsetCurve.hxx".}
 proc transform*(this: var GeomOffsetCurve; t: Trsf) {.importcpp: "Transform",
     header: "Geom_OffsetCurve.hxx".}
-proc transformedParameter*(this: GeomOffsetCurve; u: float; t: Trsf): float {.
+proc transformedParameter*(this: GeomOffsetCurve; u: StandardReal; t: Trsf): StandardReal {.
     noSideEffect, importcpp: "TransformedParameter", header: "Geom_OffsetCurve.hxx".}
-proc parametricTransformation*(this: GeomOffsetCurve; t: Trsf): float {.noSideEffect,
-    importcpp: "ParametricTransformation", header: "Geom_OffsetCurve.hxx".}
+proc parametricTransformation*(this: GeomOffsetCurve; t: Trsf): StandardReal {.
+    noSideEffect, importcpp: "ParametricTransformation",
+    header: "Geom_OffsetCurve.hxx".}
 proc copy*(this: GeomOffsetCurve): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_OffsetCurve.hxx".}
 proc getBasisCurveContinuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,

@@ -20,3 +20,28 @@ type
     AspectColorSpaceLinear = 1  ## !< linear RGB color space
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

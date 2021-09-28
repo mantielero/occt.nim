@@ -61,3 +61,28 @@ proc hasChildNodes*(this: LDOM_Node): bool {.noSideEffect,
     importcpp: "hasChildNodes", header: "LDOM_Node.hxx".}
 proc setValueClear*(this: LDOM_Node) {.noSideEffect, importcpp: "SetValueClear",
                                     header: "LDOM_Node.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

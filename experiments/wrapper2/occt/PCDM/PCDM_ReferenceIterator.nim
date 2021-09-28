@@ -21,7 +21,7 @@ discard "forward decl of CDM_Application"
 discard "forward decl of PCDM_ReferenceIterator"
 discard "forward decl of PCDM_ReferenceIterator"
 type
-  HandlePCDM_ReferenceIterator* = Handle[PCDM_ReferenceIterator]
+  HandleC1C1* = Handle[PCDM_ReferenceIterator]
   PCDM_ReferenceIterator* {.importcpp: "PCDM_ReferenceIterator",
                            header: "PCDM_ReferenceIterator.hxx", bycopy.} = object of StandardTransient ##
                                                                                                  ## !
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "PCDM_ReferenceIterator.hxx".}
 proc dynamicType*(this: PCDM_ReferenceIterator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "PCDM_ReferenceIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

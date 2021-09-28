@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Absolute"
 discard "forward decl of Expr_Absolute"
 type
-  HandleExprAbsolute* = Handle[ExprAbsolute]
+  HandleC1C1* = Handle[ExprAbsolute]
   ExprAbsolute* {.importcpp: "Expr_Absolute", header: "Expr_Absolute.hxx", bycopy.} = object of ExprUnaryExpression ##
                                                                                                           ## !
                                                                                                           ## Creates
@@ -46,7 +46,7 @@ proc derivative*(this: ExprAbsolute; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_Absolute.hxx".}
 proc evaluate*(this: ExprAbsolute; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Absolute.hxx".}
 proc string*(this: ExprAbsolute): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Absolute.hxx".}
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_Absolute.hxx".}
 proc dynamicType*(this: ExprAbsolute): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Absolute.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

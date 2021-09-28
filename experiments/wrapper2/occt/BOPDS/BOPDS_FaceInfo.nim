@@ -33,10 +33,10 @@ proc constructBOPDS_FaceInfo*(theAllocator: Handle[NCollectionBaseAllocator]): B
     constructor, importcpp: "BOPDS_FaceInfo(@)", header: "BOPDS_FaceInfo.hxx".}
 proc clear*(this: var BOPDS_FaceInfo) {.importcpp: "Clear",
                                     header: "BOPDS_FaceInfo.hxx".}
-proc setIndex*(this: var BOPDS_FaceInfo; theI: int) {.importcpp: "SetIndex",
+proc setIndex*(this: var BOPDS_FaceInfo; theI: cint) {.importcpp: "SetIndex",
     header: "BOPDS_FaceInfo.hxx".}
-proc index*(this: BOPDS_FaceInfo): int {.noSideEffect, importcpp: "Index",
-                                     header: "BOPDS_FaceInfo.hxx".}
+proc index*(this: BOPDS_FaceInfo): cint {.noSideEffect, importcpp: "Index",
+                                      header: "BOPDS_FaceInfo.hxx".}
 proc paveBlocksIn*(this: BOPDS_FaceInfo): BOPDS_IndexedMapOfPaveBlock {.
     noSideEffect, importcpp: "PaveBlocksIn", header: "BOPDS_FaceInfo.hxx".}
 proc changePaveBlocksIn*(this: var BOPDS_FaceInfo): var BOPDS_IndexedMapOfPaveBlock {.
@@ -61,3 +61,28 @@ proc verticesSc*(this: BOPDS_FaceInfo): TColStdMapOfInteger {.noSideEffect,
     importcpp: "VerticesSc", header: "BOPDS_FaceInfo.hxx".}
 proc changeVerticesSc*(this: var BOPDS_FaceInfo): var TColStdMapOfInteger {.
     importcpp: "ChangeVerticesSc", header: "BOPDS_FaceInfo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,7 @@
 discard "forward decl of StepVisual_DraughtingModel"
 discard "forward decl of StepVisual_DraughtingModel"
 type
-  HandleStepVisualDraughtingModel* = Handle[StepVisualDraughtingModel]
+  HandleC1C1* = Handle[StepVisualDraughtingModel]
 
 ## ! Representation of STEP entity DraughtingModel
 
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualDraughtingModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_DraughtingModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

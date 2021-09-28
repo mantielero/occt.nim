@@ -15,3 +15,28 @@ type
   StepElementSequenceOfElementMaterial* = NCollectionSequence[
       Handle[StepElementElementMaterial]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

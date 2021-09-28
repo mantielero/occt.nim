@@ -17,7 +17,7 @@ discard "forward decl of OSD_Timer"
 discard "forward decl of MoniTool_Timer"
 discard "forward decl of MoniTool_Timer"
 type
-  HandleMoniToolTimer* = Handle[MoniToolTimer]
+  HandleC1C1* = Handle[MoniToolTimer]
 
 ## ! Provides convenient service on global timers
 ## ! accessed by string name, mostly aimed for debugging purposes
@@ -48,14 +48,14 @@ proc start*(this: var MoniToolTimer) {.importcpp: "Start",
 proc stop*(this: var MoniToolTimer) {.importcpp: "Stop", header: "MoniTool_Timer.hxx".}
 proc reset*(this: var MoniToolTimer) {.importcpp: "Reset",
                                    header: "MoniTool_Timer.hxx".}
-proc count*(this: MoniToolTimer): int {.noSideEffect, importcpp: "Count",
-                                    header: "MoniTool_Timer.hxx".}
-proc isRunning*(this: MoniToolTimer): int {.noSideEffect, importcpp: "IsRunning",
+proc count*(this: MoniToolTimer): cint {.noSideEffect, importcpp: "Count",
+                                     header: "MoniTool_Timer.hxx".}
+proc isRunning*(this: MoniToolTimer): cint {.noSideEffect, importcpp: "IsRunning",
+    header: "MoniTool_Timer.hxx".}
+proc cpu*(this: var MoniToolTimer): cfloat {.importcpp: "CPU",
                                         header: "MoniTool_Timer.hxx".}
-proc cpu*(this: var MoniToolTimer): float {.importcpp: "CPU",
+proc amend*(this: MoniToolTimer): cfloat {.noSideEffect, importcpp: "Amend",
                                        header: "MoniTool_Timer.hxx".}
-proc amend*(this: MoniToolTimer): float {.noSideEffect, importcpp: "Amend",
-                                      header: "MoniTool_Timer.hxx".}
 proc dump*(this: var MoniToolTimer; ostr: var StandardOStream) {.importcpp: "Dump",
     header: "MoniTool_Timer.hxx".}
 proc timer*(name: StandardCString): Handle[MoniToolTimer] {.
@@ -72,9 +72,9 @@ proc dumpTimers*(ostr: var StandardOStream) {.
     importcpp: "MoniTool_Timer::DumpTimers(@)", header: "MoniTool_Timer.hxx".}
 proc computeAmendments*() {.importcpp: "MoniTool_Timer::ComputeAmendments(@)",
                           header: "MoniTool_Timer.hxx".}
-proc getAmendments*(access: var float; internal: var float; external: var float;
-                   error10: var float) {.importcpp: "MoniTool_Timer::GetAmendments(@)",
-                                      header: "MoniTool_Timer.hxx".}
+proc getAmendments*(access: var cfloat; internal: var cfloat; external: var cfloat;
+                   error10: var cfloat) {.importcpp: "MoniTool_Timer::GetAmendments(@)",
+                                       header: "MoniTool_Timer.hxx".}
 type
   MoniToolTimerbaseType* = StandardTransient
 
@@ -85,3 +85,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MoniTool_Timer.hxx".}
 proc dynamicType*(this: MoniToolTimer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_Timer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

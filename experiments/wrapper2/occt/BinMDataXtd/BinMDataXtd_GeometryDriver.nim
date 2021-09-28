@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataXtd_GeometryDriver"
 discard "forward decl of BinMDataXtd_GeometryDriver"
 type
-  HandleBinMDataXtdGeometryDriver* = Handle[BinMDataXtdGeometryDriver]
+  HandleC1C1* = Handle[BinMDataXtdGeometryDriver]
 
 ## ! Attribute Driver.
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataXtdGeometryDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataXtd_GeometryDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -54,5 +54,30 @@ proc ownCopy*(this: IGESSolidToolCylinder; entfrom: Handle[IGESSolidCylinder];
              entto: Handle[IGESSolidCylinder]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolCylinder.hxx".}
 proc ownDump*(this: IGESSolidToolCylinder; ent: Handle[IGESSolidCylinder];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolCylinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

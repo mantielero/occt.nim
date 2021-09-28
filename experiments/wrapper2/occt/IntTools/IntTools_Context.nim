@@ -58,56 +58,56 @@ proc hatcher*(this: var IntToolsContext; aF: TopoDS_Face): var Geom2dHatchHatche
 proc surfaceAdaptor*(this: var IntToolsContext; theFace: TopoDS_Face): var BRepAdaptorSurface {.
     importcpp: "SurfaceAdaptor", header: "IntTools_Context.hxx".}
 proc obb*(this: var IntToolsContext; theShape: TopoDS_Shape;
-         theFuzzyValue: float = confusion()): var BndOBB {.importcpp: "OBB",
+         theFuzzyValue: cfloat = confusion()): var BndOBB {.importcpp: "OBB",
     header: "IntTools_Context.hxx".}
-proc uVBounds*(this: var IntToolsContext; theFace: TopoDS_Face; uMin: var float;
-              uMax: var float; vMin: var float; vMax: var float) {.importcpp: "UVBounds",
-    header: "IntTools_Context.hxx".}
-proc computePE*(this: var IntToolsContext; theP: Pnt; theTolP: float; theE: TopoDS_Edge;
-               theT: var float; theDist: var float): int {.importcpp: "ComputePE",
-    header: "IntTools_Context.hxx".}
+proc uVBounds*(this: var IntToolsContext; theFace: TopoDS_Face; uMin: var cfloat;
+              uMax: var cfloat; vMin: var cfloat; vMax: var cfloat) {.
+    importcpp: "UVBounds", header: "IntTools_Context.hxx".}
+proc computePE*(this: var IntToolsContext; theP: Pnt; theTolP: cfloat;
+               theE: TopoDS_Edge; theT: var cfloat; theDist: var cfloat): cint {.
+    importcpp: "ComputePE", header: "IntTools_Context.hxx".}
 proc computeVE*(this: var IntToolsContext; theV: TopoDS_Vertex; theE: TopoDS_Edge;
-               theT: var float; theTol: var float; theFuzz: float = confusion()): int {.
+               theT: var cfloat; theTol: var cfloat; theFuzz: cfloat = confusion()): cint {.
     importcpp: "ComputeVE", header: "IntTools_Context.hxx".}
 proc computeVF*(this: var IntToolsContext; theVertex: TopoDS_Vertex;
-               theFace: TopoDS_Face; theU: var float; theV: var float;
-               theTol: var float; theFuzz: float = confusion()): int {.
+               theFace: TopoDS_Face; theU: var cfloat; theV: var cfloat;
+               theTol: var cfloat; theFuzz: cfloat = confusion()): cint {.
     importcpp: "ComputeVF", header: "IntTools_Context.hxx".}
 proc statePointFace*(this: var IntToolsContext; aF: TopoDS_Face; aP2D: Pnt2d): TopAbsState {.
     importcpp: "StatePointFace", header: "IntTools_Context.hxx".}
 proc isPointInFace*(this: var IntToolsContext; aF: TopoDS_Face; aP2D: Pnt2d): bool {.
     importcpp: "IsPointInFace", header: "IntTools_Context.hxx".}
-proc isPointInFace*(this: var IntToolsContext; aP3D: Pnt; aF: TopoDS_Face; aTol: float): bool {.
+proc isPointInFace*(this: var IntToolsContext; aP3D: Pnt; aF: TopoDS_Face; aTol: cfloat): bool {.
     importcpp: "IsPointInFace", header: "IntTools_Context.hxx".}
 proc isPointInOnFace*(this: var IntToolsContext; aF: TopoDS_Face; aP2D: Pnt2d): bool {.
     importcpp: "IsPointInOnFace", header: "IntTools_Context.hxx".}
 proc isValidPointForFace*(this: var IntToolsContext; aP3D: Pnt; aF: TopoDS_Face;
-                         aTol: float): bool {.importcpp: "IsValidPointForFace",
+                         aTol: cfloat): bool {.importcpp: "IsValidPointForFace",
     header: "IntTools_Context.hxx".}
 proc isValidPointForFaces*(this: var IntToolsContext; aP3D: Pnt; aF1: TopoDS_Face;
-                          aF2: TopoDS_Face; aTol: float): bool {.
+                          aF2: TopoDS_Face; aTol: cfloat): bool {.
     importcpp: "IsValidPointForFaces", header: "IntTools_Context.hxx".}
-proc isValidBlockForFace*(this: var IntToolsContext; aT1: float; aT2: float;
-                         aIC: IntToolsCurve; aF: TopoDS_Face; aTol: float): bool {.
+proc isValidBlockForFace*(this: var IntToolsContext; aT1: cfloat; aT2: cfloat;
+                         aIC: IntToolsCurve; aF: TopoDS_Face; aTol: cfloat): bool {.
     importcpp: "IsValidBlockForFace", header: "IntTools_Context.hxx".}
-proc isValidBlockForFaces*(this: var IntToolsContext; aT1: float; aT2: float;
+proc isValidBlockForFaces*(this: var IntToolsContext; aT1: cfloat; aT2: cfloat;
                           aIC: IntToolsCurve; aF1: TopoDS_Face; aF2: TopoDS_Face;
-                          aTol: float): bool {.importcpp: "IsValidBlockForFaces",
+                          aTol: cfloat): bool {.importcpp: "IsValidBlockForFaces",
     header: "IntTools_Context.hxx".}
 proc isVertexOnLine*(this: var IntToolsContext; aV: TopoDS_Vertex; aIC: IntToolsCurve;
-                    aTolC: float; aT: var float): bool {.importcpp: "IsVertexOnLine",
-    header: "IntTools_Context.hxx".}
-proc isVertexOnLine*(this: var IntToolsContext; aV: TopoDS_Vertex; aTolV: float;
-                    aIC: IntToolsCurve; aTolC: float; aT: var float): bool {.
+                    aTolC: cfloat; aT: var cfloat): bool {.
+    importcpp: "IsVertexOnLine", header: "IntTools_Context.hxx".}
+proc isVertexOnLine*(this: var IntToolsContext; aV: TopoDS_Vertex; aTolV: cfloat;
+                    aIC: IntToolsCurve; aTolC: cfloat; aT: var cfloat): bool {.
     importcpp: "IsVertexOnLine", header: "IntTools_Context.hxx".}
 proc projectPointOnEdge*(this: var IntToolsContext; aP: Pnt; aE: TopoDS_Edge;
-                        aT: var float): bool {.importcpp: "ProjectPointOnEdge",
+                        aT: var cfloat): bool {.importcpp: "ProjectPointOnEdge",
     header: "IntTools_Context.hxx".}
 proc bndBox*(this: var IntToolsContext; theS: TopoDS_Shape): var BndBox {.
     importcpp: "BndBox", header: "IntTools_Context.hxx".}
 proc isInfiniteFace*(this: var IntToolsContext; theFace: TopoDS_Face): bool {.
     importcpp: "IsInfiniteFace", header: "IntTools_Context.hxx".}
-proc setPOnSProjectionTolerance*(this: var IntToolsContext; theValue: float) {.
+proc setPOnSProjectionTolerance*(this: var IntToolsContext; theValue: cfloat) {.
     importcpp: "SetPOnSProjectionTolerance", header: "IntTools_Context.hxx".}
 type
   IntToolsContextbaseType* = StandardTransient
@@ -121,5 +121,30 @@ proc dynamicType*(this: IntToolsContext): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntTools_Context.hxx".}
 discard "forward decl of IntTools_Context"
 type
-  HandleIntToolsContext* = Handle[IntToolsContext]
+  HandleC1C1* = Handle[IntToolsContext]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

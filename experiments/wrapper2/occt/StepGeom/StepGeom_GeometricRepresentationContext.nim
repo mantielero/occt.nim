@@ -18,8 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_GeometricRepresentationContext"
 discard "forward decl of StepGeom_GeometricRepresentationContext"
 type
-  HandleStepGeomGeometricRepresentationContext* = Handle[
-      StepGeomGeometricRepresentationContext]
+  HandleC1C1* = Handle[StepGeomGeometricRepresentationContext]
   StepGeomGeometricRepresentationContext* {.
       importcpp: "StepGeom_GeometricRepresentationContext",
       header: "StepGeom_GeometricRepresentationContext.hxx", bycopy.} = object of StepReprRepresentationContext ##
@@ -35,13 +34,13 @@ proc constructStepGeomGeometricRepresentationContext*(): StepGeomGeometricRepres
 proc init*(this: var StepGeomGeometricRepresentationContext;
           aContextIdentifier: Handle[TCollectionHAsciiString];
           aContextType: Handle[TCollectionHAsciiString];
-          aCoordinateSpaceDimension: int) {.importcpp: "Init",
+          aCoordinateSpaceDimension: cint) {.importcpp: "Init",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
 proc setCoordinateSpaceDimension*(this: var StepGeomGeometricRepresentationContext;
-                                 aCoordinateSpaceDimension: int) {.
+                                 aCoordinateSpaceDimension: cint) {.
     importcpp: "SetCoordinateSpaceDimension",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
-proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContext): int {.
+proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContext): cint {.
     noSideEffect, importcpp: "CoordinateSpaceDimension",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
 type
@@ -53,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_Geometric
 proc dynamicType*(this: StepGeomGeometricRepresentationContext): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepGeom_GeometricRepresentationContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

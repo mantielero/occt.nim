@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMXCAFDoc_DatumDriver"
 discard "forward decl of BinMXCAFDoc_DatumDriver"
 type
-  HandleBinMXCAFDocDatumDriver* = Handle[BinMXCAFDocDatumDriver]
+  HandleC1C1* = Handle[BinMXCAFDocDatumDriver]
   BinMXCAFDocDatumDriver* {.importcpp: "BinMXCAFDoc_DatumDriver",
                            header: "BinMXCAFDoc_DatumDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BinMXCAFDoc_DatumDriver.hxx".}
 proc dynamicType*(this: BinMXCAFDocDatumDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMXCAFDoc_DatumDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

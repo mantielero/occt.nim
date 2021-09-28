@@ -17,3 +17,28 @@ include BRepTools_Substitution
 include BRepTools_TrsfModification
 include BRepTools_WireExplorer
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

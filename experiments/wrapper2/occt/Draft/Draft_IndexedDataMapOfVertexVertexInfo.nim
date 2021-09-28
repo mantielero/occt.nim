@@ -18,3 +18,28 @@ type
   DraftIndexedDataMapOfVertexVertexInfo* = NCollectionIndexedDataMap[
       TopoDS_Vertex, DraftVertexInfo, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

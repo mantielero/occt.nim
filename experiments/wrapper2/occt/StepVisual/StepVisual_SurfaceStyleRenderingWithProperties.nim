@@ -17,8 +17,7 @@
 discard "forward decl of StepVisual_SurfaceStyleRenderingWithProperties"
 discard "forward decl of StepVisual_SurfaceStyleRenderingWithProperties"
 type
-  HandleStepVisualSurfaceStyleRenderingWithProperties* = Handle[
-      StepVisualSurfaceStyleRenderingWithProperties]
+  HandleC1C1* = Handle[StepVisualSurfaceStyleRenderingWithProperties]
 
 ## ! Representation of STEP entity SurfaceStyleRenderingWithProperties
 
@@ -57,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Surface
 proc dynamicType*(this: StepVisualSurfaceStyleRenderingWithProperties): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_SurfaceStyleRenderingWithProperties.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

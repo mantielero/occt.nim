@@ -28,8 +28,33 @@ type
 
 proc constructBRepApproxGradientBFGSOfMyGradientbisOfTheComputeLineOfApprox*(
     f: var MathMultipleVarFunctionWithGradient; startingPoint: MathVector;
-    tolerance3d: float; tolerance2d: float; eps: float; nbIterations: int = 200): BRepApproxGradientBFGSOfMyGradientbisOfTheComputeLineOfApprox {.
+    tolerance3d: cfloat; tolerance2d: cfloat; eps: cfloat; nbIterations: cint = 200): BRepApproxGradientBFGSOfMyGradientbisOfTheComputeLineOfApprox {.
     constructor, importcpp: "BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox(@)", header: "BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
 proc isSolutionReached*(this: BRepApproxGradientBFGSOfMyGradientbisOfTheComputeLineOfApprox;
                        f: var MathMultipleVarFunctionWithGradient): bool {.
     noSideEffect, importcpp: "IsSolutionReached", header: "BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ proc constructRWStepReprRWCompositeShapeAspect*(): RWStepReprRWCompositeShapeAsp
     constructor, importcpp: "RWStepRepr_RWCompositeShapeAspect(@)",
     header: "RWStepRepr_RWCompositeShapeAspect.hxx".}
 proc readStep*(this: RWStepReprRWCompositeShapeAspect;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprCompositeShapeAspect]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWCompositeShapeAspect.hxx".}
@@ -38,3 +38,28 @@ proc share*(this: RWStepReprRWCompositeShapeAspect;
            ent: Handle[StepReprCompositeShapeAspect];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWCompositeShapeAspect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

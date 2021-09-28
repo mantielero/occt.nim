@@ -23,7 +23,7 @@ discard "forward decl of TCollection_HExtendedString"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of TCollection_HAsciiString"
 type
-  HandleTCollectionHAsciiString* = Handle[TCollectionHAsciiString]
+  HandleC1C1* = Handle[TCollectionHAsciiString]
 
 ## ! A variable-length sequence of ASCII characters
 ## ! (normal 8-bit character type). It provides editing
@@ -56,13 +56,13 @@ proc constructTCollectionHAsciiString*(message: StandardCString): TCollectionHAs
 proc constructTCollectionHAsciiString*(aChar: StandardCharacter): TCollectionHAsciiString {.
     constructor, importcpp: "TCollection_HAsciiString(@)",
     header: "TCollection_HAsciiString.hxx".}
-proc constructTCollectionHAsciiString*(length: int; filler: StandardCharacter): TCollectionHAsciiString {.
+proc constructTCollectionHAsciiString*(length: cint; filler: StandardCharacter): TCollectionHAsciiString {.
     constructor, importcpp: "TCollection_HAsciiString(@)",
     header: "TCollection_HAsciiString.hxx".}
-proc constructTCollectionHAsciiString*(value: int): TCollectionHAsciiString {.
+proc constructTCollectionHAsciiString*(value: cint): TCollectionHAsciiString {.
     constructor, importcpp: "TCollection_HAsciiString(@)",
     header: "TCollection_HAsciiString.hxx".}
-proc constructTCollectionHAsciiString*(value: float): TCollectionHAsciiString {.
+proc constructTCollectionHAsciiString*(value: cfloat): TCollectionHAsciiString {.
     constructor, importcpp: "TCollection_HAsciiString(@)",
     header: "TCollection_HAsciiString.hxx".}
 proc constructTCollectionHAsciiString*(aString: TCollectionAsciiString): TCollectionHAsciiString {.
@@ -88,7 +88,7 @@ proc cat*(this: TCollectionHAsciiString; other: StandardCString): Handle[
 proc cat*(this: TCollectionHAsciiString; other: Handle[TCollectionHAsciiString]): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "Cat",
                               header: "TCollection_HAsciiString.hxx".}
-proc center*(this: var TCollectionHAsciiString; width: int; filler: StandardCharacter) {.
+proc center*(this: var TCollectionHAsciiString; width: cint; filler: StandardCharacter) {.
     importcpp: "Center", header: "TCollection_HAsciiString.hxx".}
 proc changeAll*(this: var TCollectionHAsciiString; aChar: StandardCharacter;
                newChar: StandardCharacter; caseSensitive: bool = true) {.
@@ -96,24 +96,24 @@ proc changeAll*(this: var TCollectionHAsciiString; aChar: StandardCharacter;
 proc clear*(this: var TCollectionHAsciiString) {.importcpp: "Clear",
     header: "TCollection_HAsciiString.hxx".}
 proc firstLocationInSet*(this: TCollectionHAsciiString;
-                        set: Handle[TCollectionHAsciiString]; fromIndex: int;
-                        toIndex: int): int {.noSideEffect,
+                        set: Handle[TCollectionHAsciiString]; fromIndex: cint;
+                        toIndex: cint): cint {.noSideEffect,
     importcpp: "FirstLocationInSet", header: "TCollection_HAsciiString.hxx".}
 proc firstLocationNotInSet*(this: TCollectionHAsciiString;
-                           set: Handle[TCollectionHAsciiString]; fromIndex: int;
-                           toIndex: int): int {.noSideEffect,
+                           set: Handle[TCollectionHAsciiString]; fromIndex: cint;
+                           toIndex: cint): cint {.noSideEffect,
     importcpp: "FirstLocationNotInSet", header: "TCollection_HAsciiString.hxx".}
-proc insert*(this: var TCollectionHAsciiString; where: int; what: StandardCharacter) {.
+proc insert*(this: var TCollectionHAsciiString; where: cint; what: StandardCharacter) {.
     importcpp: "Insert", header: "TCollection_HAsciiString.hxx".}
-proc insert*(this: var TCollectionHAsciiString; where: int; what: StandardCString) {.
+proc insert*(this: var TCollectionHAsciiString; where: cint; what: StandardCString) {.
     importcpp: "Insert", header: "TCollection_HAsciiString.hxx".}
-proc insert*(this: var TCollectionHAsciiString; where: int;
+proc insert*(this: var TCollectionHAsciiString; where: cint;
             what: Handle[TCollectionHAsciiString]) {.importcpp: "Insert",
     header: "TCollection_HAsciiString.hxx".}
-proc insertAfter*(this: var TCollectionHAsciiString; index: int;
+proc insertAfter*(this: var TCollectionHAsciiString; index: cint;
                  other: Handle[TCollectionHAsciiString]) {.
     importcpp: "InsertAfter", header: "TCollection_HAsciiString.hxx".}
-proc insertBefore*(this: var TCollectionHAsciiString; index: int;
+proc insertBefore*(this: var TCollectionHAsciiString; index: cint;
                   other: Handle[TCollectionHAsciiString]) {.
     importcpp: "InsertBefore", header: "TCollection_HAsciiString.hxx".}
 proc isEmpty*(this: TCollectionHAsciiString): bool {.noSideEffect,
@@ -123,7 +123,7 @@ proc isLess*(this: TCollectionHAsciiString; other: Handle[TCollectionHAsciiStrin
 proc isGreater*(this: TCollectionHAsciiString;
                other: Handle[TCollectionHAsciiString]): bool {.noSideEffect,
     importcpp: "IsGreater", header: "TCollection_HAsciiString.hxx".}
-proc integerValue*(this: TCollectionHAsciiString): int {.noSideEffect,
+proc integerValue*(this: TCollectionHAsciiString): cint {.noSideEffect,
     importcpp: "IntegerValue", header: "TCollection_HAsciiString.hxx".}
 proc isIntegerValue*(this: TCollectionHAsciiString): bool {.noSideEffect,
     importcpp: "IsIntegerValue", header: "TCollection_HAsciiString.hxx".}
@@ -141,16 +141,16 @@ proc isSameString*(this: TCollectionHAsciiString;
     noSideEffect, importcpp: "IsSameString", header: "TCollection_HAsciiString.hxx".}
 proc leftAdjust*(this: var TCollectionHAsciiString) {.importcpp: "LeftAdjust",
     header: "TCollection_HAsciiString.hxx".}
-proc leftJustify*(this: var TCollectionHAsciiString; width: int;
+proc leftJustify*(this: var TCollectionHAsciiString; width: cint;
                  filler: StandardCharacter) {.importcpp: "LeftJustify",
     header: "TCollection_HAsciiString.hxx".}
-proc length*(this: TCollectionHAsciiString): int {.noSideEffect, importcpp: "Length",
-    header: "TCollection_HAsciiString.hxx".}
+proc length*(this: TCollectionHAsciiString): cint {.noSideEffect,
+    importcpp: "Length", header: "TCollection_HAsciiString.hxx".}
 proc location*(this: TCollectionHAsciiString;
-              other: Handle[TCollectionHAsciiString]; fromIndex: int; toIndex: int): int {.
+              other: Handle[TCollectionHAsciiString]; fromIndex: cint; toIndex: cint): cint {.
     noSideEffect, importcpp: "Location", header: "TCollection_HAsciiString.hxx".}
-proc location*(this: TCollectionHAsciiString; n: int; c: StandardCharacter;
-              fromIndex: int; toIndex: int): int {.noSideEffect,
+proc location*(this: TCollectionHAsciiString; n: cint; c: StandardCharacter;
+              fromIndex: cint; toIndex: cint): cint {.noSideEffect,
     importcpp: "Location", header: "TCollection_HAsciiString.hxx".}
 proc lowerCase*(this: var TCollectionHAsciiString) {.importcpp: "LowerCase",
     header: "TCollection_HAsciiString.hxx".}
@@ -159,55 +159,55 @@ proc prepend*(this: var TCollectionHAsciiString;
     header: "TCollection_HAsciiString.hxx".}
 proc print*(this: TCollectionHAsciiString; astream: var StandardOStream) {.
     noSideEffect, importcpp: "Print", header: "TCollection_HAsciiString.hxx".}
-proc realValue*(this: TCollectionHAsciiString): float {.noSideEffect,
+proc realValue*(this: TCollectionHAsciiString): cfloat {.noSideEffect,
     importcpp: "RealValue", header: "TCollection_HAsciiString.hxx".}
 proc removeAll*(this: var TCollectionHAsciiString; c: StandardCharacter;
                caseSensitive: bool) {.importcpp: "RemoveAll",
                                     header: "TCollection_HAsciiString.hxx".}
 proc removeAll*(this: var TCollectionHAsciiString; what: StandardCharacter) {.
     importcpp: "RemoveAll", header: "TCollection_HAsciiString.hxx".}
-proc remove*(this: var TCollectionHAsciiString; where: int; ahowmany: int = 1) {.
+proc remove*(this: var TCollectionHAsciiString; where: cint; ahowmany: cint = 1) {.
     importcpp: "Remove", header: "TCollection_HAsciiString.hxx".}
 proc rightAdjust*(this: var TCollectionHAsciiString) {.importcpp: "RightAdjust",
     header: "TCollection_HAsciiString.hxx".}
-proc rightJustify*(this: var TCollectionHAsciiString; width: int;
+proc rightJustify*(this: var TCollectionHAsciiString; width: cint;
                   filler: StandardCharacter) {.importcpp: "RightJustify",
     header: "TCollection_HAsciiString.hxx".}
-proc search*(this: TCollectionHAsciiString; what: StandardCString): int {.
+proc search*(this: TCollectionHAsciiString; what: StandardCString): cint {.
     noSideEffect, importcpp: "Search", header: "TCollection_HAsciiString.hxx".}
-proc search*(this: TCollectionHAsciiString; what: Handle[TCollectionHAsciiString]): int {.
+proc search*(this: TCollectionHAsciiString; what: Handle[TCollectionHAsciiString]): cint {.
     noSideEffect, importcpp: "Search", header: "TCollection_HAsciiString.hxx".}
-proc searchFromEnd*(this: TCollectionHAsciiString; what: StandardCString): int {.
+proc searchFromEnd*(this: TCollectionHAsciiString; what: StandardCString): cint {.
     noSideEffect, importcpp: "SearchFromEnd",
     header: "TCollection_HAsciiString.hxx".}
 proc searchFromEnd*(this: TCollectionHAsciiString;
-                   what: Handle[TCollectionHAsciiString]): int {.noSideEffect,
+                   what: Handle[TCollectionHAsciiString]): cint {.noSideEffect,
     importcpp: "SearchFromEnd", header: "TCollection_HAsciiString.hxx".}
-proc setValue*(this: var TCollectionHAsciiString; where: int; what: StandardCharacter) {.
+proc setValue*(this: var TCollectionHAsciiString; where: cint; what: StandardCharacter) {.
     importcpp: "SetValue", header: "TCollection_HAsciiString.hxx".}
-proc setValue*(this: var TCollectionHAsciiString; where: int; what: StandardCString) {.
+proc setValue*(this: var TCollectionHAsciiString; where: cint; what: StandardCString) {.
     importcpp: "SetValue", header: "TCollection_HAsciiString.hxx".}
-proc setValue*(this: var TCollectionHAsciiString; where: int;
+proc setValue*(this: var TCollectionHAsciiString; where: cint;
               what: Handle[TCollectionHAsciiString]) {.importcpp: "SetValue",
     header: "TCollection_HAsciiString.hxx".}
-proc split*(this: var TCollectionHAsciiString; where: int): Handle[
+proc split*(this: var TCollectionHAsciiString; where: cint): Handle[
     TCollectionHAsciiString] {.importcpp: "Split",
                               header: "TCollection_HAsciiString.hxx".}
-proc subString*(this: TCollectionHAsciiString; fromIndex: int; toIndex: int): Handle[
+proc subString*(this: TCollectionHAsciiString; fromIndex: cint; toIndex: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "SubString",
                               header: "TCollection_HAsciiString.hxx".}
 proc toCString*(this: TCollectionHAsciiString): StandardCString {.noSideEffect,
     importcpp: "ToCString", header: "TCollection_HAsciiString.hxx".}
 proc token*(this: TCollectionHAsciiString; separators: StandardCString = " \t";
-           whichone: int = 1): Handle[TCollectionHAsciiString] {.noSideEffect,
+           whichone: cint = 1): Handle[TCollectionHAsciiString] {.noSideEffect,
     importcpp: "Token", header: "TCollection_HAsciiString.hxx".}
-proc trunc*(this: var TCollectionHAsciiString; ahowmany: int) {.importcpp: "Trunc",
+proc trunc*(this: var TCollectionHAsciiString; ahowmany: cint) {.importcpp: "Trunc",
     header: "TCollection_HAsciiString.hxx".}
 proc upperCase*(this: var TCollectionHAsciiString) {.importcpp: "UpperCase",
     header: "TCollection_HAsciiString.hxx".}
-proc usefullLength*(this: TCollectionHAsciiString): int {.noSideEffect,
+proc usefullLength*(this: TCollectionHAsciiString): cint {.noSideEffect,
     importcpp: "UsefullLength", header: "TCollection_HAsciiString.hxx".}
-proc value*(this: TCollectionHAsciiString; where: int): StandardCharacter {.
+proc value*(this: TCollectionHAsciiString; where: cint): StandardCharacter {.
     noSideEffect, importcpp: "Value", header: "TCollection_HAsciiString.hxx".}
 proc string*(this: TCollectionHAsciiString): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "TCollection_HAsciiString.hxx".}
@@ -224,3 +224,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TCollection_HAsciiString.hxx".}
 proc dynamicType*(this: TCollectionHAsciiString): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TCollection_HAsciiString.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -35,8 +35,8 @@ type
 proc constructExtremaGlobOptFuncCQuadric*(c: ptr Adaptor3dCurve): ExtremaGlobOptFuncCQuadric {.
     constructor, importcpp: "Extrema_GlobOptFuncCQuadric(@)",
     header: "Extrema_GlobOptFuncCQuadric.hxx".}
-proc constructExtremaGlobOptFuncCQuadric*(c: ptr Adaptor3dCurve; theTf: float;
-    theTl: float): ExtremaGlobOptFuncCQuadric {.constructor,
+proc constructExtremaGlobOptFuncCQuadric*(c: ptr Adaptor3dCurve; theTf: cfloat;
+    theTl: cfloat): ExtremaGlobOptFuncCQuadric {.constructor,
     importcpp: "Extrema_GlobOptFuncCQuadric(@)",
     header: "Extrema_GlobOptFuncCQuadric.hxx".}
 proc constructExtremaGlobOptFuncCQuadric*(c: ptr Adaptor3dCurve;
@@ -44,12 +44,37 @@ proc constructExtremaGlobOptFuncCQuadric*(c: ptr Adaptor3dCurve;
     importcpp: "Extrema_GlobOptFuncCQuadric(@)",
     header: "Extrema_GlobOptFuncCQuadric.hxx".}
 proc loadQuad*(this: var ExtremaGlobOptFuncCQuadric; s: ptr Adaptor3dSurface;
-              theUf: float; theUl: float; theVf: float; theVl: float) {.
+              theUf: cfloat; theUl: cfloat; theVf: cfloat; theVl: cfloat) {.
     importcpp: "LoadQuad", header: "Extrema_GlobOptFuncCQuadric.hxx".}
-proc nbVariables*(this: ExtremaGlobOptFuncCQuadric): int {.noSideEffect,
+proc nbVariables*(this: ExtremaGlobOptFuncCQuadric): cint {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_GlobOptFuncCQuadric.hxx".}
-proc value*(this: var ExtremaGlobOptFuncCQuadric; theX: MathVector; theF: var float): bool {.
+proc value*(this: var ExtremaGlobOptFuncCQuadric; theX: MathVector; theF: var cfloat): bool {.
     importcpp: "Value", header: "Extrema_GlobOptFuncCQuadric.hxx".}
 proc quadricParameters*(this: ExtremaGlobOptFuncCQuadric; theCT: MathVector;
                        theUV: var MathVector) {.noSideEffect,
     importcpp: "QuadricParameters", header: "Extrema_GlobOptFuncCQuadric.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

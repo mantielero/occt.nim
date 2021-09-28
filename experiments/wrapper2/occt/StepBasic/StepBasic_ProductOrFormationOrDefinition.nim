@@ -30,7 +30,7 @@ proc constructStepBasicProductOrFormationOrDefinition*(): StepBasicProductOrForm
     constructor, importcpp: "StepBasic_ProductOrFormationOrDefinition(@)",
     header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
 proc caseNum*(this: StepBasicProductOrFormationOrDefinition;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
 proc product*(this: StepBasicProductOrFormationOrDefinition): Handle[
     StepBasicProduct] {.noSideEffect, importcpp: "Product",
@@ -41,3 +41,28 @@ proc productDefinitionFormation*(this: StepBasicProductOrFormationOrDefinition):
     header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
 proc productDefinition*(this: StepBasicProductOrFormationOrDefinition): Handle[
     StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

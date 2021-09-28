@@ -20,36 +20,20 @@ discard "forward decl of Geom2dAdaptor_Curve"
 discard "forward decl of Geom2dAdaptor_GHCurve"
 discard "forward decl of Geom2dAdaptor_HCurve"
 type
-  Geom2dAdaptor* {.importcpp: "Geom2dAdaptor", header: "Geom2dAdaptor.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Inherited
-                                                                                      ## from
-                                                                                      ## GHCurve.
-                                                                                      ## Provides
-                                                                                      ## a
-                                                                                      ## curve
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## handled
-                                                                                      ## by
-                                                                                      ## reference.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## 2d
-                                                                                      ## curve
-                                                                                      ## from
-                                                                                      ## a
-                                                                                      ## HCurve2d.
-                                                                                      ## This
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## cannot
-                                                                                      ## process
-                                                                                      ## the
-                                                                                      ## OtherCurves.
+  Geom2dAdaptor* {.importcpp: "Geom2dAdaptor", header: "Geom2dAdaptor.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dAdaptor; theSize: csize_t): pointer {.
+    importcpp: "Geom2dAdaptor::operator new", header: "Geom2dAdaptor.hxx".}
+proc `delete`*(this: var Geom2dAdaptor; theAddress: pointer) {.
+    importcpp: "Geom2dAdaptor::operator delete", header: "Geom2dAdaptor.hxx".}
+proc `new[]`*(this: var Geom2dAdaptor; theSize: csize_t): pointer {.
+    importcpp: "Geom2dAdaptor::operator new[]", header: "Geom2dAdaptor.hxx".}
+proc `delete[]`*(this: var Geom2dAdaptor; theAddress: pointer) {.
+    importcpp: "Geom2dAdaptor::operator delete[]", header: "Geom2dAdaptor.hxx".}
+proc `new`*(this: var Geom2dAdaptor; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dAdaptor::operator new", header: "Geom2dAdaptor.hxx".}
+proc `delete`*(this: var Geom2dAdaptor; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dAdaptor::operator delete", header: "Geom2dAdaptor.hxx".}
 proc makeCurve*(hc: Adaptor2dCurve2d): Handle[Geom2dCurve] {.
     importcpp: "Geom2dAdaptor::MakeCurve(@)", header: "Geom2dAdaptor.hxx".}

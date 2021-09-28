@@ -1,9 +1,6 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 {.experimental: "callOperator".}
-import ../gp/gp_includes
-import ../Standard/Standard_Handle
-import ../Geom/Geom_includes
 
 include GC_MakeArcOfCircle
 include GC_MakeArcOfEllipse
@@ -24,5 +21,25 @@ include GC_MakeTranslation
 include GC_MakeTrimmedCone
 include GC_MakeTrimmedCylinder
 include GC_Root
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

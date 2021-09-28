@@ -45,11 +45,36 @@ type
 proc constructExtremaFuncPSDist*(theS: Adaptor3dSurface; theP: Pnt): ExtremaFuncPSDist {.
     constructor, importcpp: "Extrema_FuncPSDist(@)",
     header: "Extrema_FuncPSDist.hxx".}
-proc nbVariables*(this: ExtremaFuncPSDist): int {.noSideEffect,
+proc nbVariables*(this: ExtremaFuncPSDist): cint {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_FuncPSDist.hxx".}
-proc value*(this: var ExtremaFuncPSDist; x: MathVector; f: var float): bool {.
+proc value*(this: var ExtremaFuncPSDist; x: MathVector; f: var cfloat): bool {.
     importcpp: "Value", header: "Extrema_FuncPSDist.hxx".}
 proc gradient*(this: var ExtremaFuncPSDist; x: MathVector; g: var MathVector): bool {.
     importcpp: "Gradient", header: "Extrema_FuncPSDist.hxx".}
-proc values*(this: var ExtremaFuncPSDist; x: MathVector; f: var float; g: var MathVector): bool {.
+proc values*(this: var ExtremaFuncPSDist; x: MathVector; f: var cfloat; g: var MathVector): bool {.
     importcpp: "Values", header: "Extrema_FuncPSDist.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

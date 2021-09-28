@@ -20,7 +20,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_CopyMap"
 discard "forward decl of Interface_CopyMap"
 type
-  HandleInterfaceCopyMap* = Handle[InterfaceCopyMap]
+  HandleC1C1* = Handle[InterfaceCopyMap]
 
 ## ! Manages a Map for the need of single Transfers, such as Copies
 ## ! In such transfer, Starting Entities are read from a unique
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_CopyMap.hxx".}
 proc dynamicType*(this: InterfaceCopyMap): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_CopyMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

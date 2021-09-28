@@ -18,8 +18,7 @@ discard "forward decl of StepVisual_PresentationStyleSelect"
 discard "forward decl of StepVisual_PresentationStyleAssignment"
 discard "forward decl of StepVisual_PresentationStyleAssignment"
 type
-  HandleStepVisualPresentationStyleAssignment* = Handle[
-      StepVisualPresentationStyleAssignment]
+  HandleC1C1* = Handle[StepVisualPresentationStyleAssignment]
   StepVisualPresentationStyleAssignment* {.
       importcpp: "StepVisual_PresentationStyleAssignment",
       header: "StepVisual_PresentationStyleAssignment.hxx", bycopy.} = object of StandardTransient ##
@@ -41,10 +40,10 @@ proc setStyles*(this: var StepVisualPresentationStyleAssignment;
 proc styles*(this: StepVisualPresentationStyleAssignment): Handle[
     StepVisualHArray1OfPresentationStyleSelect] {.noSideEffect,
     importcpp: "Styles", header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc stylesValue*(this: StepVisualPresentationStyleAssignment; num: int): StepVisualPresentationStyleSelect {.
+proc stylesValue*(this: StepVisualPresentationStyleAssignment; num: cint): StepVisualPresentationStyleSelect {.
     noSideEffect, importcpp: "StylesValue",
     header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc nbStyles*(this: StepVisualPresentationStyleAssignment): int {.noSideEffect,
+proc nbStyles*(this: StepVisualPresentationStyleAssignment): cint {.noSideEffect,
     importcpp: "NbStyles", header: "StepVisual_PresentationStyleAssignment.hxx".}
 type
   StepVisualPresentationStyleAssignmentbaseType* = StandardTransient
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Present
 proc dynamicType*(this: StepVisualPresentationStyleAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationStyleAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

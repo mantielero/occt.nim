@@ -28,8 +28,33 @@ proc constructBlendFuncConstThroatWithPenetrationInv*(
     constructor, importcpp: "BlendFunc_ConstThroatWithPenetrationInv(@)",
     header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
 proc isSolution*(this: var BlendFuncConstThroatWithPenetrationInv; sol: MathVector;
-                tol: float): bool {.importcpp: "IsSolution", header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
+                tol: cfloat): bool {.importcpp: "IsSolution", header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
 proc value*(this: var BlendFuncConstThroatWithPenetrationInv; x: MathVector;
            f: var MathVector): bool {.importcpp: "Value", header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
 proc derivatives*(this: var BlendFuncConstThroatWithPenetrationInv; x: MathVector;
                  d: var MathMatrix): bool {.importcpp: "Derivatives", header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

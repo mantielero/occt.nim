@@ -41,10 +41,10 @@ proc sampleEdges*(s: TopoDS_Shape; pt: var TColgpSequenceOfPnt) {.
     importcpp: "BRepFeat::SampleEdges(@)", header: "BRepFeat.hxx".}
 proc barycenter*(s: TopoDS_Shape; pt: var Pnt) {.importcpp: "BRepFeat::Barycenter(@)",
     header: "BRepFeat.hxx".}
-proc parametricBarycenter*(s: TopoDS_Shape; c: Handle[GeomCurve]): float {.
+proc parametricBarycenter*(s: TopoDS_Shape; c: Handle[GeomCurve]): cfloat {.
     importcpp: "BRepFeat::ParametricBarycenter(@)", header: "BRepFeat.hxx".}
-proc parametricMinMax*(s: TopoDS_Shape; c: Handle[GeomCurve]; prmin: var float;
-                      prmax: var float; prbmin: var float; prbmax: var float;
+proc parametricMinMax*(s: TopoDS_Shape; c: Handle[GeomCurve]; prmin: var cfloat;
+                      prmax: var cfloat; prbmin: var cfloat; prbmax: var cfloat;
                       flag: var bool; ori: bool = false) {.
     importcpp: "BRepFeat::ParametricMinMax(@)", header: "BRepFeat.hxx".}
 proc isInside*(f1: TopoDS_Face; f2: TopoDS_Face): bool {.
@@ -57,3 +57,28 @@ proc tool*(sRef: TopoDS_Shape; fac: TopoDS_Face; orf: TopAbsOrientation): TopoDS
     importcpp: "BRepFeat::Tool(@)", header: "BRepFeat.hxx".}
 proc print*(se: BRepFeatStatusError; s: var StandardOStream): var StandardOStream {.
     importcpp: "BRepFeat::Print(@)", header: "BRepFeat.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

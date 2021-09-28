@@ -13,5 +13,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdIndexedMapOfInteger* = NCollectionIndexedMap[int, TColStdMapIntegerHasher]
+  TColStdIndexedMapOfInteger* = NCollectionIndexedMap[cint, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

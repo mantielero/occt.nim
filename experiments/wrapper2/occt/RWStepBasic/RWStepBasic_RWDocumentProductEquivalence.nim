@@ -29,7 +29,7 @@ proc constructRWStepBasicRWDocumentProductEquivalence*(): RWStepBasicRWDocumentP
     constructor, importcpp: "RWStepBasic_RWDocumentProductEquivalence(@)",
     header: "RWStepBasic_RWDocumentProductEquivalence.hxx".}
 proc readStep*(this: RWStepBasicRWDocumentProductEquivalence;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicDocumentProductEquivalence]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDocumentProductEquivalence.hxx".}
@@ -41,3 +41,28 @@ proc share*(this: RWStepBasicRWDocumentProductEquivalence;
            ent: Handle[StepBasicDocumentProductEquivalence];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWDocumentProductEquivalence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

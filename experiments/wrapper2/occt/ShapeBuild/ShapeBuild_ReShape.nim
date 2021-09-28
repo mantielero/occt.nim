@@ -20,7 +20,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of ShapeBuild_ReShape"
 type
-  HandleShapeBuildReShape* = Handle[ShapeBuildReShape]
+  HandleC1C1* = Handle[ShapeBuildReShape]
 
 ## ! Rebuilds a Shape by making pre-defined substitutions on some
 ## ! of its components
@@ -48,13 +48,13 @@ type
 proc constructShapeBuildReShape*(): ShapeBuildReShape {.constructor,
     importcpp: "ShapeBuild_ReShape(@)", header: "ShapeBuild_ReShape.hxx".}
 proc apply*(this: var ShapeBuildReShape; shape: TopoDS_Shape; until: TopAbsShapeEnum;
-           buildmode: int): TopoDS_Shape {.importcpp: "Apply",
-                                        header: "ShapeBuild_ReShape.hxx".}
+           buildmode: cint): TopoDS_Shape {.importcpp: "Apply",
+    header: "ShapeBuild_ReShape.hxx".}
 proc apply*(this: var ShapeBuildReShape; shape: TopoDS_Shape;
            until: TopAbsShapeEnum = topAbsSHAPE): TopoDS_Shape {.importcpp: "Apply",
     header: "ShapeBuild_ReShape.hxx".}
 proc status*(this: var ShapeBuildReShape; shape: TopoDS_Shape;
-            newsh: var TopoDS_Shape; last: bool = false): int {.importcpp: "Status",
+            newsh: var TopoDS_Shape; last: bool = false): cint {.importcpp: "Status",
     header: "ShapeBuild_ReShape.hxx".}
 proc status*(this: ShapeBuildReShape; status: ShapeExtendStatus): bool {.noSideEffect,
     importcpp: "Status", header: "ShapeBuild_ReShape.hxx".}
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeBuild_ReShape.hxx".}
 proc dynamicType*(this: ShapeBuildReShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeBuild_ReShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

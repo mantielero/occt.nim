@@ -16,3 +16,28 @@
 type
   MeshVS_Array1OfSequenceOfInteger* = NCollectionArray1[TColStdSequenceOfInteger]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

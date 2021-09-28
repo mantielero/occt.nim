@@ -17,3 +17,28 @@
 type
   StepGeomArray1OfTrimmingSelect* = NCollectionArray1[StepGeomTrimmingSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

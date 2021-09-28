@@ -15,3 +15,28 @@ type
   StepElementArray1OfVolumeElementPurposeMember* = NCollectionArray1[
       Handle[StepElementVolumeElementPurposeMember]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

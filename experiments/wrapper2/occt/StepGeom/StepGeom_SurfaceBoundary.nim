@@ -28,7 +28,7 @@ type
 proc constructStepGeomSurfaceBoundary*(): StepGeomSurfaceBoundary {.constructor,
     importcpp: "StepGeom_SurfaceBoundary(@)",
     header: "StepGeom_SurfaceBoundary.hxx".}
-proc caseNum*(this: StepGeomSurfaceBoundary; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepGeomSurfaceBoundary; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_SurfaceBoundary.hxx".}
 proc boundaryCurve*(this: StepGeomSurfaceBoundary): Handle[StepGeomBoundaryCurve] {.
     noSideEffect, importcpp: "BoundaryCurve",
@@ -36,3 +36,28 @@ proc boundaryCurve*(this: StepGeomSurfaceBoundary): Handle[StepGeomBoundaryCurve
 proc degeneratePcurve*(this: StepGeomSurfaceBoundary): Handle[
     StepGeomDegeneratePcurve] {.noSideEffect, importcpp: "DegeneratePcurve",
                                header: "StepGeom_SurfaceBoundary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

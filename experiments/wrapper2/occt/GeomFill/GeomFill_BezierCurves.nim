@@ -19,23 +19,27 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Geom_BezierCurve"
 type
   GeomFillBezierCurves* {.importcpp: "GeomFill_BezierCurves",
-                         header: "GeomFill_BezierCurves.hxx", bycopy.} = object ## !
-                                                                           ## Constructs an empty
-                                                                           ## framework for
-                                                                           ## building a
-                                                                           ## Bezier
-                                                                           ## !
-                                                                           ## surface from
-                                                                           ## contiguous
-                                                                           ## Bezier
-                                                                           ## curves.
-                                                                           ## ! You use the Init
-                                                                           ## function to
-                                                                           ## define the
-                                                                           ## boundaries of the
-                                                                           ## surface.
+                         header: "GeomFill_BezierCurves.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomFillBezierCurves; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_BezierCurves::operator new",
+    header: "GeomFill_BezierCurves.hxx".}
+proc `delete`*(this: var GeomFillBezierCurves; theAddress: pointer) {.
+    importcpp: "GeomFill_BezierCurves::operator delete",
+    header: "GeomFill_BezierCurves.hxx".}
+proc `new[]`*(this: var GeomFillBezierCurves; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_BezierCurves::operator new[]",
+    header: "GeomFill_BezierCurves.hxx".}
+proc `delete[]`*(this: var GeomFillBezierCurves; theAddress: pointer) {.
+    importcpp: "GeomFill_BezierCurves::operator delete[]",
+    header: "GeomFill_BezierCurves.hxx".}
+proc `new`*(this: var GeomFillBezierCurves; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_BezierCurves::operator new",
+    header: "GeomFill_BezierCurves.hxx".}
+proc `delete`*(this: var GeomFillBezierCurves; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_BezierCurves::operator delete",
+    header: "GeomFill_BezierCurves.hxx".}
 proc constructGeomFillBezierCurves*(): GeomFillBezierCurves {.constructor,
     importcpp: "GeomFill_BezierCurves(@)", header: "GeomFill_BezierCurves.hxx".}
 proc constructGeomFillBezierCurves*(c1: Handle[GeomBezierCurve];

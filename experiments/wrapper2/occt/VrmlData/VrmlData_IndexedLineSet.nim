@@ -43,20 +43,20 @@ proc colors*(this: VrmlDataIndexedLineSet): Handle[VrmlDataColor] {.noSideEffect
     importcpp: "Colors", header: "VrmlData_IndexedLineSet.hxx".}
 proc setColors*(this: var VrmlDataIndexedLineSet; theColors: Handle[VrmlDataColor]) {.
     importcpp: "SetColors", header: "VrmlData_IndexedLineSet.hxx".}
-proc polygons*(this: VrmlDataIndexedLineSet; arrPolygons: ptr ptr int): csize_t {.
+proc polygons*(this: VrmlDataIndexedLineSet; arrPolygons: ptr ptr cint): csize_t {.
     noSideEffect, importcpp: "Polygons", header: "VrmlData_IndexedLineSet.hxx".}
-proc polygon*(this: var VrmlDataIndexedLineSet; iPolygon: int; outIndice: ptr int): int {.
+proc polygon*(this: var VrmlDataIndexedLineSet; iPolygon: cint; outIndice: ptr cint): cint {.
     importcpp: "Polygon", header: "VrmlData_IndexedLineSet.hxx".}
 proc setPolygons*(this: var VrmlDataIndexedLineSet; nPolygons: StandardSize;
-                 thePolygons: ptr ptr int) {.importcpp: "SetPolygons",
+                 thePolygons: ptr ptr cint) {.importcpp: "SetPolygons",
     header: "VrmlData_IndexedLineSet.hxx".}
-proc arrayColorInd*(this: VrmlDataIndexedLineSet; arrColorInd: ptr ptr int): csize_t {.
+proc arrayColorInd*(this: VrmlDataIndexedLineSet; arrColorInd: ptr ptr cint): csize_t {.
     noSideEffect, importcpp: "ArrayColorInd", header: "VrmlData_IndexedLineSet.hxx".}
-proc getColor*(this: var VrmlDataIndexedLineSet; iFace: int; iVertex: int): QuantityColor {.
+proc getColor*(this: var VrmlDataIndexedLineSet; iFace: cint; iVertex: cint): QuantityColor {.
     importcpp: "GetColor", header: "VrmlData_IndexedLineSet.hxx".}
 proc setColorInd*(this: var VrmlDataIndexedLineSet; nIndice: StandardSize;
-                 theIndice: ptr ptr int) {.importcpp: "SetColorInd",
-                                       header: "VrmlData_IndexedLineSet.hxx".}
+                 theIndice: ptr ptr cint) {.importcpp: "SetColorInd",
+                                        header: "VrmlData_IndexedLineSet.hxx".}
 proc setColorPerVertex*(this: var VrmlDataIndexedLineSet; isColorPerVertex: bool) {.
     importcpp: "SetColorPerVertex", header: "VrmlData_IndexedLineSet.hxx".}
 proc tShape*(this: var VrmlDataIndexedLineSet): Handle[TopoDS_TShape] {.
@@ -84,5 +84,30 @@ proc dynamicType*(this: VrmlDataIndexedLineSet): Handle[StandardType] {.
 
 discard "forward decl of VrmlData_IndexedLineSet"
 type
-  HandleVrmlDataIndexedLineSet* = Handle[VrmlDataIndexedLineSet]
+  HandleC1C1* = Handle[VrmlDataIndexedLineSet]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

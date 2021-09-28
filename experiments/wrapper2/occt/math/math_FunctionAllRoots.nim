@@ -53,24 +53,50 @@ type
 
 
 proc constructMathFunctionAllRoots*(f: var MathFunctionWithDerivative;
-                                   s: MathFunctionSample; epsX: float; epsF: float;
-                                   epsNul: float): MathFunctionAllRoots {.
+                                   s: MathFunctionSample; epsX: cfloat;
+                                   epsF: cfloat; epsNul: cfloat): MathFunctionAllRoots {.
     constructor, importcpp: "math_FunctionAllRoots(@)",
     header: "math_FunctionAllRoots.hxx".}
 proc isDone*(this: MathFunctionAllRoots): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_FunctionAllRoots.hxx".}
-proc nbIntervals*(this: MathFunctionAllRoots): int {.noSideEffect,
+proc nbIntervals*(this: MathFunctionAllRoots): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "math_FunctionAllRoots.hxx".}
-proc getInterval*(this: MathFunctionAllRoots; index: int; a: var float; b: var float) {.
+proc getInterval*(this: MathFunctionAllRoots; index: cint; a: var cfloat; b: var cfloat) {.
     noSideEffect, importcpp: "GetInterval", header: "math_FunctionAllRoots.hxx".}
-proc getIntervalState*(this: MathFunctionAllRoots; index: int; iFirst: var int;
-                      iLast: var int) {.noSideEffect, importcpp: "GetIntervalState",
-                                     header: "math_FunctionAllRoots.hxx".}
-proc nbPoints*(this: MathFunctionAllRoots): int {.noSideEffect,
+proc getIntervalState*(this: MathFunctionAllRoots; index: cint; iFirst: var cint;
+                      iLast: var cint) {.noSideEffect,
+                                      importcpp: "GetIntervalState",
+                                      header: "math_FunctionAllRoots.hxx".}
+proc nbPoints*(this: MathFunctionAllRoots): cint {.noSideEffect,
     importcpp: "NbPoints", header: "math_FunctionAllRoots.hxx".}
-proc getPoint*(this: MathFunctionAllRoots; index: int): float {.noSideEffect,
+proc getPoint*(this: MathFunctionAllRoots; index: cint): cfloat {.noSideEffect,
     importcpp: "GetPoint", header: "math_FunctionAllRoots.hxx".}
-proc getPointState*(this: MathFunctionAllRoots; index: int): int {.noSideEffect,
+proc getPointState*(this: MathFunctionAllRoots; index: cint): cint {.noSideEffect,
     importcpp: "GetPointState", header: "math_FunctionAllRoots.hxx".}
 proc dump*(this: MathFunctionAllRoots; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_FunctionAllRoots.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,3 +34,28 @@ proc timer*(this: MoniToolTimerSentry): Handle[MoniToolTimer] {.noSideEffect,
     importcpp: "Timer", header: "MoniTool_TimerSentry.hxx".}
 proc stop*(this: var MoniToolTimerSentry) {.importcpp: "Stop",
                                         header: "MoniTool_TimerSentry.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

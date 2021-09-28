@@ -20,14 +20,39 @@ type
                                    bycopy.} = object of FairCurveDistributionOfEnergy
 
 
-proc constructFairCurveDistributionOfTension*(bSplOrder: int;
+proc constructFairCurveDistributionOfTension*(bSplOrder: cint;
     flatKnots: Handle[TColStdHArray1OfReal]; poles: Handle[TColgpHArray1OfPnt2d];
-    derivativeOrder: int; lengthSliding: float; law: FairCurveBattenLaw;
-    nbValAux: int = 0; uniform: bool = false): FairCurveDistributionOfTension {.
+    derivativeOrder: cint; lengthSliding: cfloat; law: FairCurveBattenLaw;
+    nbValAux: cint = 0; uniform: bool = false): FairCurveDistributionOfTension {.
     constructor, importcpp: "FairCurve_DistributionOfTension(@)",
     header: "FairCurve_DistributionOfTension.hxx".}
 proc setLengthSliding*(this: var FairCurveDistributionOfTension;
-                      lengthSliding: float) {.importcpp: "SetLengthSliding",
+                      lengthSliding: cfloat) {.importcpp: "SetLengthSliding",
     header: "FairCurve_DistributionOfTension.hxx".}
 proc value*(this: var FairCurveDistributionOfTension; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "FairCurve_DistributionOfTension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

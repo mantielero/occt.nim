@@ -68,40 +68,65 @@ proc constructInterfaceSTAT*(title: StandardCString = ""): InterfaceSTAT {.
 proc constructInterfaceSTAT*(other: InterfaceSTAT): InterfaceSTAT {.constructor,
     importcpp: "Interface_STAT(@)", header: "Interface_STAT.hxx".}
 proc internals*(this: InterfaceSTAT; tit: var Handle[TCollectionHAsciiString];
-               total: var float; phn: var Handle[TColStdHSequenceOfAsciiString];
+               total: var cfloat; phn: var Handle[TColStdHSequenceOfAsciiString];
                phw: var Handle[TColStdHSequenceOfReal];
                phdeb: var Handle[TColStdHSequenceOfInteger];
                phfin: var Handle[TColStdHSequenceOfInteger];
                stw: var Handle[TColStdHSequenceOfReal]) {.noSideEffect,
     importcpp: "Internals", header: "Interface_STAT.hxx".}
-proc addPhase*(this: var InterfaceSTAT; weight: float; name: StandardCString = "") {.
+proc addPhase*(this: var InterfaceSTAT; weight: cfloat; name: StandardCString = "") {.
     importcpp: "AddPhase", header: "Interface_STAT.hxx".}
-proc addStep*(this: var InterfaceSTAT; weight: float = 1) {.importcpp: "AddStep",
+proc addStep*(this: var InterfaceSTAT; weight: cfloat = 1) {.importcpp: "AddStep",
     header: "Interface_STAT.hxx".}
-proc description*(this: InterfaceSTAT; nbphases: var int; total: var float;
+proc description*(this: InterfaceSTAT; nbphases: var cint; total: var cfloat;
                  title: var StandardCString) {.noSideEffect,
     importcpp: "Description", header: "Interface_STAT.hxx".}
-proc phase*(this: InterfaceSTAT; num: int; n0step: var int; nbstep: var int;
-           weight: var float; name: var StandardCString) {.noSideEffect,
+proc phase*(this: InterfaceSTAT; num: cint; n0step: var cint; nbstep: var cint;
+           weight: var cfloat; name: var StandardCString) {.noSideEffect,
     importcpp: "Phase", header: "Interface_STAT.hxx".}
-proc step*(this: InterfaceSTAT; num: int): float {.noSideEffect, importcpp: "Step",
+proc step*(this: InterfaceSTAT; num: cint): cfloat {.noSideEffect, importcpp: "Step",
     header: "Interface_STAT.hxx".}
-proc start*(this: InterfaceSTAT; items: int; cycles: int = 1) {.noSideEffect,
+proc start*(this: InterfaceSTAT; items: cint; cycles: cint = 1) {.noSideEffect,
     importcpp: "Start", header: "Interface_STAT.hxx".}
-proc startCount*(items: int; title: StandardCString = "") {.
+proc startCount*(items: cint; title: StandardCString = "") {.
     importcpp: "Interface_STAT::StartCount(@)", header: "Interface_STAT.hxx".}
-proc nextPhase*(items: int; cycles: int = 1) {.importcpp: "Interface_STAT::NextPhase(@)",
-                                        header: "Interface_STAT.hxx".}
-proc setPhase*(items: int; cycles: int = 1) {.importcpp: "Interface_STAT::SetPhase(@)",
-                                       header: "Interface_STAT.hxx".}
-proc nextCycle*(items: int) {.importcpp: "Interface_STAT::NextCycle(@)",
-                           header: "Interface_STAT.hxx".}
+proc nextPhase*(items: cint; cycles: cint = 1) {.
+    importcpp: "Interface_STAT::NextPhase(@)", header: "Interface_STAT.hxx".}
+proc setPhase*(items: cint; cycles: cint = 1) {.
+    importcpp: "Interface_STAT::SetPhase(@)", header: "Interface_STAT.hxx".}
+proc nextCycle*(items: cint) {.importcpp: "Interface_STAT::NextCycle(@)",
+                            header: "Interface_STAT.hxx".}
 proc nextStep*() {.importcpp: "Interface_STAT::NextStep(@)",
                  header: "Interface_STAT.hxx".}
-proc nextItem*(nbitems: int = 1) {.importcpp: "Interface_STAT::NextItem(@)",
-                              header: "Interface_STAT.hxx".}
+proc nextItem*(nbitems: cint = 1) {.importcpp: "Interface_STAT::NextItem(@)",
+                               header: "Interface_STAT.hxx".}
 proc `end`*() {.importcpp: "Interface_STAT::End(@)", header: "Interface_STAT.hxx".}
 proc where*(phase: bool = true): StandardCString {.
     importcpp: "Interface_STAT::Where(@)", header: "Interface_STAT.hxx".}
-proc percent*(phase: bool = false): int {.importcpp: "Interface_STAT::Percent(@)",
-                                    header: "Interface_STAT.hxx".}
+proc percent*(phase: bool = false): cint {.importcpp: "Interface_STAT::Percent(@)",
+                                     header: "Interface_STAT.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

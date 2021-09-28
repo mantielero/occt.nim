@@ -19,7 +19,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ChFiDS_Stripe"
 discard "forward decl of ChFiDS_Stripe"
 type
-  HandleChFiDS_Stripe* = Handle[ChFiDS_Stripe]
+  HandleC1C1* = Handle[ChFiDS_Stripe]
 
 ## ! Data characterising a band of fillet.
 
@@ -38,8 +38,8 @@ proc orientationOnFace1*(this: ChFiDS_Stripe): TopAbsOrientation {.noSideEffect,
     importcpp: "OrientationOnFace1", header: "ChFiDS_Stripe.hxx".}
 proc orientationOnFace2*(this: ChFiDS_Stripe): TopAbsOrientation {.noSideEffect,
     importcpp: "OrientationOnFace2", header: "ChFiDS_Stripe.hxx".}
-proc choix*(this: ChFiDS_Stripe): int {.noSideEffect, importcpp: "Choix",
-                                    header: "ChFiDS_Stripe.hxx".}
+proc choix*(this: ChFiDS_Stripe): cint {.noSideEffect, importcpp: "Choix",
+                                     header: "ChFiDS_Stripe.hxx".}
 proc changeSetOfSurfData*(this: var ChFiDS_Stripe): var Handle[ChFiDS_HData] {.
     importcpp: "ChangeSetOfSurfData", header: "ChFiDS_Stripe.hxx".}
 proc changeSpine*(this: var ChFiDS_Stripe): var Handle[ChFiDS_Spine] {.
@@ -48,23 +48,23 @@ proc orientationOnFace1*(this: var ChFiDS_Stripe; or1: TopAbsOrientation) {.
     importcpp: "OrientationOnFace1", header: "ChFiDS_Stripe.hxx".}
 proc orientationOnFace2*(this: var ChFiDS_Stripe; or2: TopAbsOrientation) {.
     importcpp: "OrientationOnFace2", header: "ChFiDS_Stripe.hxx".}
-proc choix*(this: var ChFiDS_Stripe; c: int) {.importcpp: "Choix",
+proc choix*(this: var ChFiDS_Stripe; c: cint) {.importcpp: "Choix",
     header: "ChFiDS_Stripe.hxx".}
-proc firstParameters*(this: ChFiDS_Stripe; pdeb: var float; pfin: var float) {.
+proc firstParameters*(this: ChFiDS_Stripe; pdeb: var cfloat; pfin: var cfloat) {.
     noSideEffect, importcpp: "FirstParameters", header: "ChFiDS_Stripe.hxx".}
-proc lastParameters*(this: ChFiDS_Stripe; pdeb: var float; pfin: var float) {.
+proc lastParameters*(this: ChFiDS_Stripe; pdeb: var cfloat; pfin: var cfloat) {.
     noSideEffect, importcpp: "LastParameters", header: "ChFiDS_Stripe.hxx".}
-proc changeFirstParameters*(this: var ChFiDS_Stripe; pdeb: float; pfin: float) {.
+proc changeFirstParameters*(this: var ChFiDS_Stripe; pdeb: cfloat; pfin: cfloat) {.
     importcpp: "ChangeFirstParameters", header: "ChFiDS_Stripe.hxx".}
-proc changeLastParameters*(this: var ChFiDS_Stripe; pdeb: float; pfin: float) {.
+proc changeLastParameters*(this: var ChFiDS_Stripe; pdeb: cfloat; pfin: cfloat) {.
     importcpp: "ChangeLastParameters", header: "ChFiDS_Stripe.hxx".}
-proc firstCurve*(this: ChFiDS_Stripe): int {.noSideEffect, importcpp: "FirstCurve",
+proc firstCurve*(this: ChFiDS_Stripe): cint {.noSideEffect, importcpp: "FirstCurve",
     header: "ChFiDS_Stripe.hxx".}
-proc lastCurve*(this: ChFiDS_Stripe): int {.noSideEffect, importcpp: "LastCurve",
-                                        header: "ChFiDS_Stripe.hxx".}
-proc changeFirstCurve*(this: var ChFiDS_Stripe; index: int) {.
+proc lastCurve*(this: ChFiDS_Stripe): cint {.noSideEffect, importcpp: "LastCurve",
+    header: "ChFiDS_Stripe.hxx".}
+proc changeFirstCurve*(this: var ChFiDS_Stripe; index: cint) {.
     importcpp: "ChangeFirstCurve", header: "ChFiDS_Stripe.hxx".}
-proc changeLastCurve*(this: var ChFiDS_Stripe; index: int) {.
+proc changeLastCurve*(this: var ChFiDS_Stripe; index: cint) {.
     importcpp: "ChangeLastCurve", header: "ChFiDS_Stripe.hxx".}
 proc firstPCurve*(this: ChFiDS_Stripe): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "FirstPCurve", header: "ChFiDS_Stripe.hxx".}
@@ -82,53 +82,53 @@ proc firstPCurveOrientation*(this: var ChFiDS_Stripe; o: TopAbsOrientation) {.
     importcpp: "FirstPCurveOrientation", header: "ChFiDS_Stripe.hxx".}
 proc lastPCurveOrientation*(this: var ChFiDS_Stripe; o: TopAbsOrientation) {.
     importcpp: "LastPCurveOrientation", header: "ChFiDS_Stripe.hxx".}
-proc indexFirstPointOnS1*(this: ChFiDS_Stripe): int {.noSideEffect,
+proc indexFirstPointOnS1*(this: ChFiDS_Stripe): cint {.noSideEffect,
     importcpp: "IndexFirstPointOnS1", header: "ChFiDS_Stripe.hxx".}
-proc indexFirstPointOnS2*(this: ChFiDS_Stripe): int {.noSideEffect,
+proc indexFirstPointOnS2*(this: ChFiDS_Stripe): cint {.noSideEffect,
     importcpp: "IndexFirstPointOnS2", header: "ChFiDS_Stripe.hxx".}
-proc indexLastPointOnS1*(this: ChFiDS_Stripe): int {.noSideEffect,
+proc indexLastPointOnS1*(this: ChFiDS_Stripe): cint {.noSideEffect,
     importcpp: "IndexLastPointOnS1", header: "ChFiDS_Stripe.hxx".}
-proc indexLastPointOnS2*(this: ChFiDS_Stripe): int {.noSideEffect,
+proc indexLastPointOnS2*(this: ChFiDS_Stripe): cint {.noSideEffect,
     importcpp: "IndexLastPointOnS2", header: "ChFiDS_Stripe.hxx".}
-proc changeIndexFirstPointOnS1*(this: var ChFiDS_Stripe; index: int) {.
+proc changeIndexFirstPointOnS1*(this: var ChFiDS_Stripe; index: cint) {.
     importcpp: "ChangeIndexFirstPointOnS1", header: "ChFiDS_Stripe.hxx".}
-proc changeIndexFirstPointOnS2*(this: var ChFiDS_Stripe; index: int) {.
+proc changeIndexFirstPointOnS2*(this: var ChFiDS_Stripe; index: cint) {.
     importcpp: "ChangeIndexFirstPointOnS2", header: "ChFiDS_Stripe.hxx".}
-proc changeIndexLastPointOnS1*(this: var ChFiDS_Stripe; index: int) {.
+proc changeIndexLastPointOnS1*(this: var ChFiDS_Stripe; index: cint) {.
     importcpp: "ChangeIndexLastPointOnS1", header: "ChFiDS_Stripe.hxx".}
-proc changeIndexLastPointOnS2*(this: var ChFiDS_Stripe; index: int) {.
+proc changeIndexLastPointOnS2*(this: var ChFiDS_Stripe; index: cint) {.
     importcpp: "ChangeIndexLastPointOnS2", header: "ChFiDS_Stripe.hxx".}
-proc parameters*(this: ChFiDS_Stripe; first: bool; pdeb: var float; pfin: var float) {.
+proc parameters*(this: ChFiDS_Stripe; first: bool; pdeb: var cfloat; pfin: var cfloat) {.
     noSideEffect, importcpp: "Parameters", header: "ChFiDS_Stripe.hxx".}
-proc setParameters*(this: var ChFiDS_Stripe; first: bool; pdeb: float; pfin: float) {.
+proc setParameters*(this: var ChFiDS_Stripe; first: bool; pdeb: cfloat; pfin: cfloat) {.
     importcpp: "SetParameters", header: "ChFiDS_Stripe.hxx".}
-proc curve*(this: ChFiDS_Stripe; first: bool): int {.noSideEffect, importcpp: "Curve",
+proc curve*(this: ChFiDS_Stripe; first: bool): cint {.noSideEffect, importcpp: "Curve",
     header: "ChFiDS_Stripe.hxx".}
-proc setCurve*(this: var ChFiDS_Stripe; index: int; first: bool) {.
+proc setCurve*(this: var ChFiDS_Stripe; index: cint; first: bool) {.
     importcpp: "SetCurve", header: "ChFiDS_Stripe.hxx".}
 proc pCurve*(this: ChFiDS_Stripe; first: bool): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "PCurve", header: "ChFiDS_Stripe.hxx".}
 proc changePCurve*(this: var ChFiDS_Stripe; first: bool): var Handle[Geom2dCurve] {.
     importcpp: "ChangePCurve", header: "ChFiDS_Stripe.hxx".}
-proc orientation*(this: ChFiDS_Stripe; onS: int): TopAbsOrientation {.noSideEffect,
+proc orientation*(this: ChFiDS_Stripe; onS: cint): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "ChFiDS_Stripe.hxx".}
-proc setOrientation*(this: var ChFiDS_Stripe; `or`: TopAbsOrientation; onS: int) {.
+proc setOrientation*(this: var ChFiDS_Stripe; `or`: TopAbsOrientation; onS: cint) {.
     importcpp: "SetOrientation", header: "ChFiDS_Stripe.hxx".}
 proc orientation*(this: ChFiDS_Stripe; first: bool): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "ChFiDS_Stripe.hxx".}
 proc setOrientation*(this: var ChFiDS_Stripe; `or`: TopAbsOrientation; first: bool) {.
     importcpp: "SetOrientation", header: "ChFiDS_Stripe.hxx".}
-proc indexPoint*(this: ChFiDS_Stripe; first: bool; onS: int): int {.noSideEffect,
+proc indexPoint*(this: ChFiDS_Stripe; first: bool; onS: cint): cint {.noSideEffect,
     importcpp: "IndexPoint", header: "ChFiDS_Stripe.hxx".}
-proc setIndexPoint*(this: var ChFiDS_Stripe; index: int; first: bool; onS: int) {.
+proc setIndexPoint*(this: var ChFiDS_Stripe; index: cint; first: bool; onS: cint) {.
     importcpp: "SetIndexPoint", header: "ChFiDS_Stripe.hxx".}
-proc solidIndex*(this: ChFiDS_Stripe): int {.noSideEffect, importcpp: "SolidIndex",
+proc solidIndex*(this: ChFiDS_Stripe): cint {.noSideEffect, importcpp: "SolidIndex",
     header: "ChFiDS_Stripe.hxx".}
-proc setSolidIndex*(this: var ChFiDS_Stripe; index: int) {.importcpp: "SetSolidIndex",
+proc setSolidIndex*(this: var ChFiDS_Stripe; index: cint) {.
+    importcpp: "SetSolidIndex", header: "ChFiDS_Stripe.hxx".}
+proc inDS*(this: var ChFiDS_Stripe; first: bool; nb: cint = 1) {.importcpp: "InDS",
     header: "ChFiDS_Stripe.hxx".}
-proc inDS*(this: var ChFiDS_Stripe; first: bool; nb: int = 1) {.importcpp: "InDS",
-    header: "ChFiDS_Stripe.hxx".}
-proc isInDS*(this: ChFiDS_Stripe; first: bool): int {.noSideEffect,
+proc isInDS*(this: ChFiDS_Stripe; first: bool): cint {.noSideEffect,
     importcpp: "IsInDS", header: "ChFiDS_Stripe.hxx".}
 type
   ChFiDS_StripebaseType* = StandardTransient
@@ -140,3 +140,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ChFiDS_Stripe.hxx".}
 proc dynamicType*(this: ChFiDS_Stripe): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ChFiDS_Stripe.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

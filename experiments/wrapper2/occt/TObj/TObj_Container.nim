@@ -22,3 +22,28 @@ type
   TObjDataMapOfStringPointer* = NCollectionDataMap[TCollectionAsciiString,
       StandardAddress]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

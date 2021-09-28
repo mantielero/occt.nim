@@ -30,7 +30,7 @@ proc constructRWStepGeomRWReparametrisedCompositeCurveSegment*(): RWStepGeomRWRe
     importcpp: "RWStepGeom_RWReparametrisedCompositeCurveSegment(@)",
     header: "RWStepGeom_RWReparametrisedCompositeCurveSegment.hxx".}
 proc readStep*(this: RWStepGeomRWReparametrisedCompositeCurveSegment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomReparametrisedCompositeCurveSegment]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepGeomRWReparametrisedCompositeCurveSegment;
            ent: Handle[StepGeomReparametrisedCompositeCurveSegment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWReparametrisedCompositeCurveSegment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,6 +24,24 @@ type
                               header: "Geom2dToIGES_Geom2dVector.hxx", bycopy.} = object of Geom2dToIGES_Geom2dEntity
 
 
+proc `new`*(this: var Geom2dToIGES_Geom2dVector; theSize: csize_t): pointer {.
+    importcpp: "Geom2dToIGES_Geom2dVector::operator new",
+    header: "Geom2dToIGES_Geom2dVector.hxx".}
+proc `delete`*(this: var Geom2dToIGES_Geom2dVector; theAddress: pointer) {.
+    importcpp: "Geom2dToIGES_Geom2dVector::operator delete",
+    header: "Geom2dToIGES_Geom2dVector.hxx".}
+proc `new[]`*(this: var Geom2dToIGES_Geom2dVector; theSize: csize_t): pointer {.
+    importcpp: "Geom2dToIGES_Geom2dVector::operator new[]",
+    header: "Geom2dToIGES_Geom2dVector.hxx".}
+proc `delete[]`*(this: var Geom2dToIGES_Geom2dVector; theAddress: pointer) {.
+    importcpp: "Geom2dToIGES_Geom2dVector::operator delete[]",
+    header: "Geom2dToIGES_Geom2dVector.hxx".}
+proc `new`*(this: var Geom2dToIGES_Geom2dVector; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dToIGES_Geom2dVector::operator new",
+    header: "Geom2dToIGES_Geom2dVector.hxx".}
+proc `delete`*(this: var Geom2dToIGES_Geom2dVector; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dToIGES_Geom2dVector::operator delete",
+    header: "Geom2dToIGES_Geom2dVector.hxx".}
 proc constructGeom2dToIGES_Geom2dVector*(): Geom2dToIGES_Geom2dVector {.
     constructor, importcpp: "Geom2dToIGES_Geom2dVector(@)",
     header: "Geom2dToIGES_Geom2dVector.hxx".}

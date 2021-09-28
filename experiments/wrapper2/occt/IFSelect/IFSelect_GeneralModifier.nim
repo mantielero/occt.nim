@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_GeneralModifier"
 discard "forward decl of IFSelect_GeneralModifier"
 type
-  HandleIFSelectGeneralModifier* = Handle[IFSelectGeneralModifier]
+  HandleC1C1* = Handle[IFSelectGeneralModifier]
 
 ## ! This class gives a frame for Actions which modify the effect
 ## ! of a Dispatch, i.e. :
@@ -184,3 +184,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_GeneralModifier.hxx".}
 proc dynamicType*(this: IFSelectGeneralModifier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_GeneralModifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

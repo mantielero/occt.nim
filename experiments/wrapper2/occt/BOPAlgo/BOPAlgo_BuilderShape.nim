@@ -113,3 +113,28 @@ proc setToFillHistory*(this: var BOPAlgoBuilderShape; theHistFlag: bool) {.
     importcpp: "SetToFillHistory", header: "BOPAlgo_BuilderShape.hxx".}
 proc hasHistory*(this: BOPAlgoBuilderShape): bool {.noSideEffect,
     importcpp: "HasHistory", header: "BOPAlgo_BuilderShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

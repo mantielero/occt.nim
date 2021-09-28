@@ -21,7 +21,7 @@ discard "forward decl of Transfer_TransferFailure"
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_Binder"
 type
-  HandleTransferBinder* = Handle[TransferBinder]
+  HandleC1C1* = Handle[TransferBinder]
 
 ## ! A Binder is an auxiliary object to Map the Result of the
 ## ! Transfer of a given Object : it records the Result of the
@@ -99,3 +99,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Transfer_Binder.hxx".}
 proc dynamicType*(this: TransferBinder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Transfer_Binder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ type
 proc constructRWStepGeomRWHyperbola*(): RWStepGeomRWHyperbola {.constructor,
     importcpp: "RWStepGeom_RWHyperbola(@)", header: "RWStepGeom_RWHyperbola.hxx".}
 proc readStep*(this: RWStepGeomRWHyperbola; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomHyperbola]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWHyperbola.hxx".}
 proc writeStep*(this: RWStepGeomRWHyperbola; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepGeomRWHyperbola; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWHyperbola; ent: Handle[StepGeomHyperbola];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWHyperbola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

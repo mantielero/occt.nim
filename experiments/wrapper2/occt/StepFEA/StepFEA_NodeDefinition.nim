@@ -16,7 +16,7 @@
 discard "forward decl of StepFEA_NodeDefinition"
 discard "forward decl of StepFEA_NodeDefinition"
 type
-  HandleStepFEA_NodeDefinition* = Handle[StepFEA_NodeDefinition]
+  HandleC1C1* = Handle[StepFEA_NodeDefinition]
 
 ## ! Representation of STEP entity NodeDefinition
 
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepFEA_NodeDefinition.hxx".}
 proc dynamicType*(this: StepFEA_NodeDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepFEA_NodeDefinition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -49,13 +49,13 @@ proc inter3D*(f1: TopoDS_Face; f2: TopoDS_Face; lInt1: var TopToolsListOfShape;
     importcpp: "BRepOffset_Tool::Inter3D(@)", header: "BRepOffset_Tool.hxx".}
 proc tryProject*(f1: TopoDS_Face; f2: TopoDS_Face; edges: TopToolsListOfShape;
                 lInt1: var TopToolsListOfShape; lInt2: var TopToolsListOfShape;
-                side: TopAbsState; tolConf: float): bool {.
+                side: TopAbsState; tolConf: cfloat): bool {.
     importcpp: "BRepOffset_Tool::TryProject(@)", header: "BRepOffset_Tool.hxx".}
 proc pipeInter*(f1: TopoDS_Face; f2: TopoDS_Face; lInt1: var TopToolsListOfShape;
                lInt2: var TopToolsListOfShape; side: TopAbsState) {.
     importcpp: "BRepOffset_Tool::PipeInter(@)", header: "BRepOffset_Tool.hxx".}
 proc inter2d*(f: TopoDS_Face; e1: TopoDS_Edge; e2: TopoDS_Edge;
-             lv: var TopToolsListOfShape; tol: float) {.
+             lv: var TopToolsListOfShape; tol: cfloat) {.
     importcpp: "BRepOffset_Tool::Inter2d(@)", header: "BRepOffset_Tool.hxx".}
 proc interOrExtent*(f1: TopoDS_Face; f2: TopoDS_Face; lInt1: var TopToolsListOfShape;
                    lInt2: var TopToolsListOfShape; side: TopAbsState) {.
@@ -66,13 +66,13 @@ proc checkBounds*(f: TopoDS_Face; analyse: BRepOffsetAnalyse; enlargeU: var bool
 proc enLargeFace*(f: TopoDS_Face; nf: var TopoDS_Face; changeGeom: bool;
                  upDatePCurve: bool = false; enlargeU: bool = true;
                  enlargeVfirst: bool = true; enlargeVlast: bool = true;
-                 theExtensionMode: int = 1; theLenBeforeUfirst: float = -1.0;
-                 theLenAfterUlast: float = -1.0; theLenBeforeVfirst: float = -1.0;
-                 theLenAfterVlast: float = -1.0): bool {.
+                 theExtensionMode: cint = 1; theLenBeforeUfirst: cfloat = -1.0;
+                 theLenAfterUlast: cfloat = -1.0;
+                 theLenBeforeVfirst: cfloat = -1.0; theLenAfterVlast: cfloat = -1.0): bool {.
     importcpp: "BRepOffset_Tool::EnLargeFace(@)", header: "BRepOffset_Tool.hxx".}
 proc extentFace*(f: TopoDS_Face; constShapes: var TopToolsDataMapOfShapeShape;
                 toBuild: var TopToolsDataMapOfShapeShape; side: TopAbsState;
-                tolConf: float; nf: var TopoDS_Face) {.
+                tolConf: cfloat; nf: var TopoDS_Face) {.
     importcpp: "BRepOffset_Tool::ExtentFace(@)", header: "BRepOffset_Tool.hxx".}
 proc buildNeighbour*(w: TopoDS_Wire; f: TopoDS_Face;
                     nOnV1: var TopToolsDataMapOfShapeShape;
@@ -84,12 +84,37 @@ proc deboucle3D*(s: TopoDS_Shape; boundary: TopToolsMapOfShape): TopoDS_Shape {.
     importcpp: "BRepOffset_Tool::Deboucle3D(@)", header: "BRepOffset_Tool.hxx".}
 proc correctOrientation*(si: TopoDS_Shape; newEdges: TopToolsIndexedMapOfShape;
                         asDes: var Handle[BRepAlgoAsDes];
-                        initOffset: var BRepAlgoImage; offset: float) {.
+                        initOffset: var BRepAlgoImage; offset: cfloat) {.
     importcpp: "BRepOffset_Tool::CorrectOrientation(@)",
     header: "BRepOffset_Tool.hxx".}
-proc gabarit*(aCurve: Handle[GeomCurve]): float {.
+proc gabarit*(aCurve: Handle[GeomCurve]): cfloat {.
     importcpp: "BRepOffset_Tool::Gabarit(@)", header: "BRepOffset_Tool.hxx".}
 proc checkPlanesNormals*(theFace1: TopoDS_Face; theFace2: TopoDS_Face;
-                        theTolAng: float = 1.e-8): bool {.
+                        theTolAng: cfloat = 1.e-8): bool {.
     importcpp: "BRepOffset_Tool::CheckPlanesNormals(@)",
     header: "BRepOffset_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

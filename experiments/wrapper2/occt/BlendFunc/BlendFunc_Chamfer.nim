@@ -35,9 +35,9 @@ proc value*(this: var BlendFuncChamfer; x: MathVector; f: var MathVector): bool 
     importcpp: "Value", header: "BlendFunc_Chamfer.hxx".}
 proc derivatives*(this: var BlendFuncChamfer; x: MathVector; d: var MathMatrix): bool {.
     importcpp: "Derivatives", header: "BlendFunc_Chamfer.hxx".}
-proc set*(this: var BlendFuncChamfer; param: float) {.importcpp: "Set",
+proc set*(this: var BlendFuncChamfer; param: cfloat) {.importcpp: "Set",
     header: "BlendFunc_Chamfer.hxx".}
-proc isSolution*(this: var BlendFuncChamfer; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendFuncChamfer; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BlendFunc_Chamfer.hxx".}
 proc pointOnS1*(this: BlendFuncChamfer): Pnt {.noSideEffect, importcpp: "PointOnS1",
     header: "BlendFunc_Chamfer.hxx".}
@@ -53,10 +53,35 @@ proc tangentOnS2*(this: BlendFuncChamfer): Vec {.noSideEffect,
     importcpp: "TangentOnS2", header: "BlendFunc_Chamfer.hxx".}
 proc tangent2dOnS2*(this: BlendFuncChamfer): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_Chamfer.hxx".}
-proc tangent*(this: BlendFuncChamfer; u1: float; v1: float; u2: float; v2: float;
+proc tangent*(this: BlendFuncChamfer; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
              tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
     noSideEffect, importcpp: "Tangent", header: "BlendFunc_Chamfer.hxx".}
-proc set*(this: var BlendFuncChamfer; dist1: float; dist2: float; choix: int) {.
+proc set*(this: var BlendFuncChamfer; dist1: cfloat; dist2: cfloat; choix: cint) {.
     importcpp: "Set", header: "BlendFunc_Chamfer.hxx".}
-proc getSectionSize*(this: BlendFuncChamfer): float {.noSideEffect,
+proc getSectionSize*(this: BlendFuncChamfer): cfloat {.noSideEffect,
     importcpp: "GetSectionSize", header: "BlendFunc_Chamfer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

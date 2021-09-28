@@ -18,7 +18,7 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of GccInt_BPoint"
 discard "forward decl of GccInt_BPoint"
 type
-  HandleGccIntBPoint* = Handle[GccIntBPoint]
+  HandleC1C1* = Handle[GccIntBPoint]
 
 ## ! Describes a point as a bisecting object between two 2D geometric objects.
 
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "GccInt_BPoint.hxx".}
 proc dynamicType*(this: GccIntBPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

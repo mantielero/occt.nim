@@ -28,7 +28,7 @@ proc constructRWStepBasicRWRatioMeasureWithUnit*(): RWStepBasicRWRatioMeasureWit
     constructor, importcpp: "RWStepBasic_RWRatioMeasureWithUnit(@)",
     header: "RWStepBasic_RWRatioMeasureWithUnit.hxx".}
 proc readStep*(this: RWStepBasicRWRatioMeasureWithUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicRatioMeasureWithUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWRatioMeasureWithUnit.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepBasicRWRatioMeasureWithUnit;
            ent: Handle[StepBasicRatioMeasureWithUnit];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWRatioMeasureWithUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

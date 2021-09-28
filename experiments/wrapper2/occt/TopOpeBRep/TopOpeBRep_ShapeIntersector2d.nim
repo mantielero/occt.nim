@@ -28,7 +28,7 @@ proc constructTopOpeBRepShapeIntersector2d*(): TopOpeBRepShapeIntersector2d {.
     header: "TopOpeBRep_ShapeIntersector2d.hxx".}
 proc initIntersection*(this: var TopOpeBRepShapeIntersector2d; s1: TopoDS_Shape;
                       s2: TopoDS_Shape) {.importcpp: "InitIntersection", header: "TopOpeBRep_ShapeIntersector2d.hxx".}
-proc shape*(this: TopOpeBRepShapeIntersector2d; index: int): TopoDS_Shape {.
+proc shape*(this: TopOpeBRepShapeIntersector2d; index: cint): TopoDS_Shape {.
     noSideEffect, importcpp: "Shape", header: "TopOpeBRep_ShapeIntersector2d.hxx".}
 proc moreIntersection*(this: TopOpeBRepShapeIntersector2d): bool {.noSideEffect,
     importcpp: "MoreIntersection", header: "TopOpeBRep_ShapeIntersector2d.hxx".}
@@ -37,10 +37,35 @@ proc nextIntersection*(this: var TopOpeBRepShapeIntersector2d) {.
 proc changeEdgesIntersector*(this: var TopOpeBRepShapeIntersector2d): var TopOpeBRepEdgesIntersector {.
     importcpp: "ChangeEdgesIntersector",
     header: "TopOpeBRep_ShapeIntersector2d.hxx".}
-proc currentGeomShape*(this: TopOpeBRepShapeIntersector2d; index: int): TopoDS_Shape {.
+proc currentGeomShape*(this: TopOpeBRepShapeIntersector2d; index: cint): TopoDS_Shape {.
     noSideEffect, importcpp: "CurrentGeomShape",
     header: "TopOpeBRep_ShapeIntersector2d.hxx".}
-proc dumpCurrent*(this: TopOpeBRepShapeIntersector2d; k: int) {.noSideEffect,
+proc dumpCurrent*(this: TopOpeBRepShapeIntersector2d; k: cint) {.noSideEffect,
     importcpp: "DumpCurrent", header: "TopOpeBRep_ShapeIntersector2d.hxx".}
-proc index*(this: TopOpeBRepShapeIntersector2d; k: int): int {.noSideEffect,
+proc index*(this: TopOpeBRepShapeIntersector2d; k: cint): cint {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRep_ShapeIntersector2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

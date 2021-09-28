@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopToolsDataMapOfShapeInteger* = NCollectionDataMap[TopoDS_Shape, int,
+  TopToolsDataMapOfShapeInteger* = NCollectionDataMap[TopoDS_Shape, cint,
       TopToolsShapeMapHasher]
-  TopToolsDataMapIteratorOfDataMapOfShapeInteger* = Iterator[TopoDS_Shape, int,
+  TopToolsDataMapIteratorOfDataMapOfShapeInteger* = Iterator[TopoDS_Shape, cint,
       TopToolsShapeMapHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

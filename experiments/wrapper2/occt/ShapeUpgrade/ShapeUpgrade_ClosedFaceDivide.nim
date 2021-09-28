@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of ShapeUpgrade_ClosedFaceDivide"
 discard "forward decl of ShapeUpgrade_ClosedFaceDivide"
 type
-  HandleShapeUpgradeClosedFaceDivide* = Handle[ShapeUpgradeClosedFaceDivide]
+  HandleC1C1* = Handle[ShapeUpgradeClosedFaceDivide]
 
 ## ! Divides a Face with one or more seam edge to avoid closed faces.
 ## ! Splitting is performed by U and V direction. The number of
@@ -39,9 +39,9 @@ proc constructShapeUpgradeClosedFaceDivide*(f: TopoDS_Face): ShapeUpgradeClosedF
     header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
 proc splitSurface*(this: var ShapeUpgradeClosedFaceDivide): bool {.
     importcpp: "SplitSurface", header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
-proc setNbSplitPoints*(this: var ShapeUpgradeClosedFaceDivide; num: int) {.
+proc setNbSplitPoints*(this: var ShapeUpgradeClosedFaceDivide; num: cint) {.
     importcpp: "SetNbSplitPoints", header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
-proc getNbSplitPoints*(this: ShapeUpgradeClosedFaceDivide): int {.noSideEffect,
+proc getNbSplitPoints*(this: ShapeUpgradeClosedFaceDivide): cint {.noSideEffect,
     importcpp: "GetNbSplitPoints", header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
 type
   ShapeUpgradeClosedFaceDividebaseType* = ShapeUpgradeFaceDivide
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeClosedFaceDivide): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_ClosedFaceDivide.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

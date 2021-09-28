@@ -29,7 +29,7 @@ proc add*(this: var DraftVertexInfo; e: TopoDS_Edge) {.importcpp: "Add",
     header: "Draft_VertexInfo.hxx".}
 proc geometry*(this: DraftVertexInfo): Pnt {.noSideEffect, importcpp: "Geometry",
     header: "Draft_VertexInfo.hxx".}
-proc parameter*(this: var DraftVertexInfo; e: TopoDS_Edge): float {.
+proc parameter*(this: var DraftVertexInfo; e: TopoDS_Edge): cfloat {.
     importcpp: "Parameter", header: "Draft_VertexInfo.hxx".}
 proc initEdgeIterator*(this: var DraftVertexInfo) {.importcpp: "InitEdgeIterator",
     header: "Draft_VertexInfo.hxx".}
@@ -41,5 +41,30 @@ proc moreEdge*(this: DraftVertexInfo): bool {.noSideEffect, importcpp: "MoreEdge
     header: "Draft_VertexInfo.hxx".}
 proc changeGeometry*(this: var DraftVertexInfo): var Pnt {.
     importcpp: "ChangeGeometry", header: "Draft_VertexInfo.hxx".}
-proc changeParameter*(this: var DraftVertexInfo; e: TopoDS_Edge): var float {.
+proc changeParameter*(this: var DraftVertexInfo; e: TopoDS_Edge): var cfloat {.
     importcpp: "ChangeParameter", header: "Draft_VertexInfo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

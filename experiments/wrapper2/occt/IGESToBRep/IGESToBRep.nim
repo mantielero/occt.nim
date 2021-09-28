@@ -56,7 +56,32 @@ proc isTopoSurface*(start: Handle[IGESDataIGESEntity]): bool {.
 proc isBRepEntity*(start: Handle[IGESDataIGESEntity]): bool {.
     importcpp: "IGESToBRep::IsBRepEntity(@)", header: "IGESToBRep.hxx".}
 proc iGESCurveToSequenceOfIGESCurve*(curve: Handle[IGESDataIGESEntity]; sequence: var Handle[
-    TColStdHSequenceOfTransient]): int {.importcpp: "IGESToBRep::IGESCurveToSequenceOfIGESCurve(@)",
-                                       header: "IGESToBRep.hxx".}
+    TColStdHSequenceOfTransient]): cint {.importcpp: "IGESToBRep::IGESCurveToSequenceOfIGESCurve(@)",
+                                        header: "IGESToBRep.hxx".}
 proc transferPCurve*(fromedge: TopoDS_Edge; toedge: TopoDS_Edge; face: TopoDS_Face): bool {.
     importcpp: "IGESToBRep::TransferPCurve(@)", header: "IGESToBRep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

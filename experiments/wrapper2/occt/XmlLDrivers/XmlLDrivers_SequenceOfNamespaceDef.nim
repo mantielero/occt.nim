@@ -16,3 +16,28 @@
 type
   XmlLDriversSequenceOfNamespaceDef* = NCollectionSequence[XmlLDriversNamespaceDef]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

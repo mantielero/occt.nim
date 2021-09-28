@@ -34,3 +34,28 @@ proc updateRediness*(this: var OpenGlAspectsProgram;
     importcpp: "UpdateRediness", header: "OpenGl_AspectsProgram.hxx".}
 proc release*(this: var OpenGlAspectsProgram; theCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_AspectsProgram.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

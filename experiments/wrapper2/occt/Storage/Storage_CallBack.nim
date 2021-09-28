@@ -20,7 +20,7 @@ discard "forward decl of Storage_BaseDriver"
 discard "forward decl of Storage_CallBack"
 discard "forward decl of Storage_CallBack"
 type
-  HandleStorageCallBack* = Handle[StorageCallBack]
+  HandleC1C1* = Handle[StorageCallBack]
   StorageCallBack* {.importcpp: "Storage_CallBack", header: "Storage_CallBack.hxx",
                     bycopy.} = object of StandardTransient
 
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Storage_CallBack.hxx".}
 proc dynamicType*(this: StorageCallBack): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_CallBack.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

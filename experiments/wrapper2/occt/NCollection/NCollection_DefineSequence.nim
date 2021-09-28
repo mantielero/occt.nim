@@ -21,4 +21,3 @@
 template define_Sequence*(className, baseCollection, theItemType: untyped): void =
   type
     ClassName* = NCollectionSequence[TheItemType]
-

@@ -31,15 +31,15 @@ type
 proc constructVrmlDataMaterial*(): VrmlDataMaterial {.constructor,
     importcpp: "VrmlData_Material(@)", header: "VrmlData_Material.hxx".}
 proc constructVrmlDataMaterial*(theScene: VrmlDataScene; theName: cstring;
-                               theAmbientIntensity: float = -1.0;
-                               theShininess: float = -1.0;
-                               theTransparency: float = -1.0): VrmlDataMaterial {.
+                               theAmbientIntensity: cfloat = -1.0;
+                               theShininess: cfloat = -1.0;
+                               theTransparency: cfloat = -1.0): VrmlDataMaterial {.
     constructor, importcpp: "VrmlData_Material(@)", header: "VrmlData_Material.hxx".}
-proc ambientIntensity*(this: VrmlDataMaterial): float {.noSideEffect,
+proc ambientIntensity*(this: VrmlDataMaterial): cfloat {.noSideEffect,
     importcpp: "AmbientIntensity", header: "VrmlData_Material.hxx".}
-proc shininess*(this: VrmlDataMaterial): float {.noSideEffect,
+proc shininess*(this: VrmlDataMaterial): cfloat {.noSideEffect,
     importcpp: "Shininess", header: "VrmlData_Material.hxx".}
-proc transparency*(this: VrmlDataMaterial): float {.noSideEffect,
+proc transparency*(this: VrmlDataMaterial): cfloat {.noSideEffect,
     importcpp: "Transparency", header: "VrmlData_Material.hxx".}
 proc diffuseColor*(this: VrmlDataMaterial): QuantityColor {.noSideEffect,
     importcpp: "DiffuseColor", header: "VrmlData_Material.hxx".}
@@ -47,11 +47,11 @@ proc emissiveColor*(this: VrmlDataMaterial): QuantityColor {.noSideEffect,
     importcpp: "EmissiveColor", header: "VrmlData_Material.hxx".}
 proc specularColor*(this: VrmlDataMaterial): QuantityColor {.noSideEffect,
     importcpp: "SpecularColor", header: "VrmlData_Material.hxx".}
-proc setAmbientIntensity*(this: var VrmlDataMaterial; theAmbientIntensity: float) {.
+proc setAmbientIntensity*(this: var VrmlDataMaterial; theAmbientIntensity: cfloat) {.
     importcpp: "SetAmbientIntensity", header: "VrmlData_Material.hxx".}
-proc setShininess*(this: var VrmlDataMaterial; theShininess: float) {.
+proc setShininess*(this: var VrmlDataMaterial; theShininess: cfloat) {.
     importcpp: "SetShininess", header: "VrmlData_Material.hxx".}
-proc setTransparency*(this: var VrmlDataMaterial; theTransparency: float) {.
+proc setTransparency*(this: var VrmlDataMaterial; theTransparency: cfloat) {.
     importcpp: "SetTransparency", header: "VrmlData_Material.hxx".}
 proc setDiffuseColor*(this: var VrmlDataMaterial; theColor: QuantityColor) {.
     importcpp: "SetDiffuseColor", header: "VrmlData_Material.hxx".}
@@ -82,5 +82,30 @@ proc dynamicType*(this: VrmlDataMaterial): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of VrmlData_Material"
 type
-  HandleVrmlDataMaterial* = Handle[VrmlDataMaterial]
+  HandleC1C1* = Handle[VrmlDataMaterial]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

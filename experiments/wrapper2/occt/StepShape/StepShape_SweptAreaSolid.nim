@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_SweptAreaSolid"
 discard "forward decl of StepShape_SweptAreaSolid"
 type
-  HandleStepShapeSweptAreaSolid* = Handle[StepShapeSweptAreaSolid]
+  HandleC1C1* = Handle[StepShapeSweptAreaSolid]
   StepShapeSweptAreaSolid* {.importcpp: "StepShape_SweptAreaSolid",
                             header: "StepShape_SweptAreaSolid.hxx", bycopy.} = object of StepShapeSolidModel ##
                                                                                                       ## !
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_SweptAreaSolid.hxx".}
 proc dynamicType*(this: StepShapeSweptAreaSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_SweptAreaSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

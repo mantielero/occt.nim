@@ -14,33 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ExtremaHArray1OfPOnCurv2d* {.importcpp: "Extrema_HArray1OfPOnCurv2d",
-                              header: "Extrema_HArray1OfPOnCurv2d.hxx", bycopy.} = object of ExtremaArray1OfPOnCurv2d
+## !!!Ignored construct:  # Extrema_HArray1OfPOnCurv2d_HeaderFile [NewLine] # Extrema_HArray1OfPOnCurv2d_HeaderFile [NewLine] # < Extrema_POnCurv2d . hxx > [NewLine] # < Extrema_Array1OfPOnCurv2d . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( Extrema_HArray1OfPOnCurv2d , Extrema_Array1OfPOnCurv2d ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructExtremaHArray1OfPOnCurv2d*(theLower: int; theUpper: int): ExtremaHArray1OfPOnCurv2d {.
-    constructor, importcpp: "Extrema_HArray1OfPOnCurv2d(@)",
-    header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc constructExtremaHArray1OfPOnCurv2d*(theLower: int; theUpper: int;
-                                        theValue: ValueType): ExtremaHArray1OfPOnCurv2d {.
-    constructor, importcpp: "Extrema_HArray1OfPOnCurv2d(@)",
-    header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc constructExtremaHArray1OfPOnCurv2d*(theOther: ExtremaArray1OfPOnCurv2d): ExtremaHArray1OfPOnCurv2d {.
-    constructor, importcpp: "Extrema_HArray1OfPOnCurv2d(@)",
-    header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc array1*(this: ExtremaHArray1OfPOnCurv2d): ExtremaArray1OfPOnCurv2d {.
-    noSideEffect, importcpp: "Array1", header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc changeArray1*(this: var ExtremaHArray1OfPOnCurv2d): var ExtremaArray1OfPOnCurv2d {.
-    importcpp: "ChangeArray1", header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-type
-  ExtremaHArray1OfPOnCurv2dbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "Extrema_HArray1OfPOnCurv2d::get_type_name(@)",
-                            header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Extrema_HArray1OfPOnCurv2d::get_type_descriptor(@)",
-    header: "Extrema_HArray1OfPOnCurv2d.hxx".}
-proc dynamicType*(this: ExtremaHArray1OfPOnCurv2d): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "Extrema_HArray1OfPOnCurv2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

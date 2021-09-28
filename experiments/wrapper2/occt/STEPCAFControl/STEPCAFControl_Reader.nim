@@ -87,9 +87,9 @@ proc init*(this: var STEPCAFControlReader; ws: Handle[XSControlWorkSession];
                               header: "STEPCAFControl_Reader.hxx".}
 proc readFile*(this: var STEPCAFControlReader; filename: StandardCString): IFSelectReturnStatus {.
     importcpp: "ReadFile", header: "STEPCAFControl_Reader.hxx".}
-proc nbRootsForTransfer*(this: var STEPCAFControlReader): int {.
+proc nbRootsForTransfer*(this: var STEPCAFControlReader): cint {.
     importcpp: "NbRootsForTransfer", header: "STEPCAFControl_Reader.hxx".}
-proc transferOneRoot*(this: var STEPCAFControlReader; num: int;
+proc transferOneRoot*(this: var STEPCAFControlReader; num: cint;
                      doc: var Handle[TDocStdDocument];
                      theProgress: MessageProgressRange = messageProgressRange()): bool {.
     importcpp: "TransferOneRoot", header: "STEPCAFControl_Reader.hxx".}
@@ -151,3 +151,28 @@ proc setViewMode*(this: var STEPCAFControlReader; viewmode: bool) {.
     importcpp: "SetViewMode", header: "STEPCAFControl_Reader.hxx".}
 proc getViewMode*(this: STEPCAFControlReader): bool {.noSideEffect,
     importcpp: "GetViewMode", header: "STEPCAFControl_Reader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

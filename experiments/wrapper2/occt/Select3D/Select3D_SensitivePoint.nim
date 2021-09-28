@@ -51,7 +51,7 @@ proc constructSelect3D_SensitivePoint*(theOwnerId: Handle[SelectMgrEntityOwner];
                                       thePoint: Pnt): Select3D_SensitivePoint {.
     constructor, importcpp: "Select3D_SensitivePoint(@)",
     header: "Select3D_SensitivePoint.hxx".}
-proc nbSubElements*(this: Select3D_SensitivePoint): int {.noSideEffect,
+proc nbSubElements*(this: Select3D_SensitivePoint): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitivePoint.hxx".}
 proc getConnected*(this: var Select3D_SensitivePoint): Handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
@@ -69,9 +69,34 @@ proc boundingBox*(this: var Select3D_SensitivePoint): Select3D_BndBox3d {.
 proc toBuildBVH*(this: Select3D_SensitivePoint): bool {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitivePoint.hxx".}
 proc dumpJson*(this: Select3D_SensitivePoint; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Select3D_SensitivePoint.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Select3D_SensitivePoint.hxx".}
 discard "forward decl of Select3D_SensitivePoint"
 type
-  HandleSelect3D_SensitivePoint* = Handle[Select3D_SensitivePoint]
+  HandleC1C1* = Handle[Select3D_SensitivePoint]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

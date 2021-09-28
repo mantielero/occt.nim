@@ -21,7 +21,7 @@ discard "forward decl of math_Matrix"
 discard "forward decl of AppDef_SmoothCriterion"
 discard "forward decl of AppDef_SmoothCriterion"
 type
-  HandleAppDefSmoothCriterion* = Handle[AppDefSmoothCriterion]
+  HandleC1C1* = Handle[AppDefSmoothCriterion]
 
 ## ! defined criterion to smooth  points in  curve
 
@@ -37,40 +37,40 @@ proc setCurve*(this: var AppDefSmoothCriterion; c: Handle[FEmToolCurve]) {.
     importcpp: "SetCurve", header: "AppDef_SmoothCriterion.hxx".}
 proc getCurve*(this: AppDefSmoothCriterion; c: var Handle[FEmToolCurve]) {.
     noSideEffect, importcpp: "GetCurve", header: "AppDef_SmoothCriterion.hxx".}
-proc setEstimation*(this: var AppDefSmoothCriterion; e1: float; e2: float; e3: float) {.
+proc setEstimation*(this: var AppDefSmoothCriterion; e1: cfloat; e2: cfloat; e3: cfloat) {.
     importcpp: "SetEstimation", header: "AppDef_SmoothCriterion.hxx".}
-proc estLength*(this: var AppDefSmoothCriterion): var float {.importcpp: "EstLength",
+proc estLength*(this: var AppDefSmoothCriterion): var cfloat {.importcpp: "EstLength",
     header: "AppDef_SmoothCriterion.hxx".}
-proc getEstimation*(this: AppDefSmoothCriterion; e1: var float; e2: var float;
-                   e3: var float) {.noSideEffect, importcpp: "GetEstimation",
-                                 header: "AppDef_SmoothCriterion.hxx".}
+proc getEstimation*(this: AppDefSmoothCriterion; e1: var cfloat; e2: var cfloat;
+                   e3: var cfloat) {.noSideEffect, importcpp: "GetEstimation",
+                                  header: "AppDef_SmoothCriterion.hxx".}
 proc assemblyTable*(this: AppDefSmoothCriterion): Handle[FEmToolHAssemblyTable] {.
     noSideEffect, importcpp: "AssemblyTable", header: "AppDef_SmoothCriterion.hxx".}
 proc dependenceTable*(this: AppDefSmoothCriterion): Handle[TColStdHArray2OfInteger] {.
     noSideEffect, importcpp: "DependenceTable",
     header: "AppDef_SmoothCriterion.hxx".}
-proc qualityValues*(this: var AppDefSmoothCriterion; j1min: float; j2min: float;
-                   j3min: float; j1: var float; j2: var float; j3: var float): int {.
+proc qualityValues*(this: var AppDefSmoothCriterion; j1min: cfloat; j2min: cfloat;
+                   j3min: cfloat; j1: var cfloat; j2: var cfloat; j3: var cfloat): cint {.
     importcpp: "QualityValues", header: "AppDef_SmoothCriterion.hxx".}
-proc errorValues*(this: var AppDefSmoothCriterion; maxError: var float;
-                 quadraticError: var float; averageError: var float) {.
+proc errorValues*(this: var AppDefSmoothCriterion; maxError: var cfloat;
+                 quadraticError: var cfloat; averageError: var cfloat) {.
     importcpp: "ErrorValues", header: "AppDef_SmoothCriterion.hxx".}
-proc hessian*(this: var AppDefSmoothCriterion; element: int; dimension1: int;
-             dimension2: int; h: var MathMatrix) {.importcpp: "Hessian",
+proc hessian*(this: var AppDefSmoothCriterion; element: cint; dimension1: cint;
+             dimension2: cint; h: var MathMatrix) {.importcpp: "Hessian",
     header: "AppDef_SmoothCriterion.hxx".}
-proc gradient*(this: var AppDefSmoothCriterion; element: int; dimension: int;
+proc gradient*(this: var AppDefSmoothCriterion; element: cint; dimension: cint;
               g: var MathVector) {.importcpp: "Gradient",
                                 header: "AppDef_SmoothCriterion.hxx".}
 proc inputVector*(this: var AppDefSmoothCriterion; x: MathVector;
                  assTable: Handle[FEmToolHAssemblyTable]) {.
     importcpp: "InputVector", header: "AppDef_SmoothCriterion.hxx".}
-proc setWeight*(this: var AppDefSmoothCriterion; quadraticWeight: float;
-               qualityWeight: float; percentJ1: float; percentJ2: float;
-               percentJ3: float) {.importcpp: "SetWeight",
-                                 header: "AppDef_SmoothCriterion.hxx".}
-proc getWeight*(this: AppDefSmoothCriterion; quadraticWeight: var float;
-               qualityWeight: var float) {.noSideEffect, importcpp: "GetWeight",
-                                        header: "AppDef_SmoothCriterion.hxx".}
+proc setWeight*(this: var AppDefSmoothCriterion; quadraticWeight: cfloat;
+               qualityWeight: cfloat; percentJ1: cfloat; percentJ2: cfloat;
+               percentJ3: cfloat) {.importcpp: "SetWeight",
+                                  header: "AppDef_SmoothCriterion.hxx".}
+proc getWeight*(this: AppDefSmoothCriterion; quadraticWeight: var cfloat;
+               qualityWeight: var cfloat) {.noSideEffect, importcpp: "GetWeight",
+    header: "AppDef_SmoothCriterion.hxx".}
 proc setWeight*(this: var AppDefSmoothCriterion; weight: TColStdArray1OfReal) {.
     importcpp: "SetWeight", header: "AppDef_SmoothCriterion.hxx".}
 type
@@ -83,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "AppDef_SmoothCriterion.hxx".}
 proc dynamicType*(this: AppDefSmoothCriterion): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "AppDef_SmoothCriterion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

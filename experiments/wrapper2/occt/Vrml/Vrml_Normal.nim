@@ -17,7 +17,7 @@
 discard "forward decl of Vrml_Normal"
 discard "forward decl of Vrml_Normal"
 type
-  HandleVrmlNormal* = Handle[VrmlNormal]
+  HandleC1C1* = Handle[VrmlNormal]
 
 ## ! defines a Normal node of VRML specifying properties of geometry
 ## ! and its appearance.
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_Normal::get_type_descriptor(@)", header: "Vrml_Normal.hxx".}
 proc dynamicType*(this: VrmlNormal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_Normal.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

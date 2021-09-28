@@ -20,3 +20,28 @@ include TDataXtd_Presentation
 include TDataXtd_Shape
 include TDataXtd_Triangulation
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

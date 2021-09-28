@@ -20,7 +20,7 @@ discard "forward decl of CDM_Document"
 discard "forward decl of CDF_FWOSDriver"
 discard "forward decl of CDF_FWOSDriver"
 type
-  HandleCDF_FWOSDriver* = Handle[CDF_FWOSDriver]
+  HandleC1C1* = Handle[CDF_FWOSDriver]
   CDF_FWOSDriver* {.importcpp: "CDF_FWOSDriver", header: "CDF_FWOSDriver.hxx", bycopy.} = object of CDF_MetaDataDriver ##
                                                                                                              ## !
                                                                                                              ## Initializes
@@ -87,3 +87,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "CDF_FWOSDriver.hxx".}
 proc dynamicType*(this: CDF_FWOSDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDF_FWOSDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

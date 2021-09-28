@@ -72,7 +72,32 @@ proc ownWhenDelete*(this: IGESDrawToolViewsVisible;
                    ent: Handle[IGESDrawViewsVisible]) {.noSideEffect,
     importcpp: "OwnWhenDelete", header: "IGESDraw_ToolViewsVisible.hxx".}
 proc ownDump*(this: IGESDrawToolViewsVisible; ent: Handle[IGESDrawViewsVisible];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolViewsVisible.hxx".}
 proc ownCorrect*(this: IGESDrawToolViewsVisible; ent: Handle[IGESDrawViewsVisible]): bool {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESDraw_ToolViewsVisible.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

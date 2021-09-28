@@ -19,7 +19,7 @@ discard "forward decl of StepShape_Vertex"
 discard "forward decl of StepShape_Subedge"
 discard "forward decl of StepShape_Subedge"
 type
-  HandleStepShapeSubedge* = Handle[StepShapeSubedge]
+  HandleC1C1* = Handle[StepShapeSubedge]
 
 ## ! Representation of STEP entity Subedge
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Subedge.hxx".}
 proc dynamicType*(this: StepShapeSubedge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Subedge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

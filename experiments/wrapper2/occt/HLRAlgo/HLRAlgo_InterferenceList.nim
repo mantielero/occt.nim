@@ -18,3 +18,28 @@ type
   HLRAlgoInterferenceList* = NCollectionList[HLRAlgoInterference]
   HLRAlgoListIteratorOfInterferenceList* = Iterator[HLRAlgoInterference]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

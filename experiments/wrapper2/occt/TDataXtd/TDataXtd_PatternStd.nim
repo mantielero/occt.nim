@@ -24,7 +24,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of TDataXtd_PatternStd"
 discard "forward decl of TDataXtd_PatternStd"
 type
-  HandleTDataXtdPatternStd* = Handle[TDataXtdPatternStd]
+  HandleC1C1* = Handle[TDataXtdPatternStd]
 
 ## ! to create a PatternStd
 ## ! (LinearPattern, CircularPattern, RectangularPattern,
@@ -41,7 +41,7 @@ proc set*(label: TDF_Label): Handle[TDataXtdPatternStd] {.
     importcpp: "TDataXtd_PatternStd::Set(@)", header: "TDataXtd_PatternStd.hxx".}
 proc constructTDataXtdPatternStd*(): TDataXtdPatternStd {.constructor,
     importcpp: "TDataXtd_PatternStd(@)", header: "TDataXtd_PatternStd.hxx".}
-proc signature*(this: var TDataXtdPatternStd; signature: int) {.
+proc signature*(this: var TDataXtdPatternStd; signature: cint) {.
     importcpp: "Signature", header: "TDataXtd_PatternStd.hxx".}
 proc axis1*(this: var TDataXtdPatternStd; axis1: Handle[TNamingNamedShape]) {.
     importcpp: "Axis1", header: "TDataXtd_PatternStd.hxx".}
@@ -63,7 +63,7 @@ proc nbInstances2*(this: var TDataXtdPatternStd;
     importcpp: "NbInstances2", header: "TDataXtd_PatternStd.hxx".}
 proc mirror*(this: var TDataXtdPatternStd; plane: Handle[TNamingNamedShape]) {.
     importcpp: "Mirror", header: "TDataXtd_PatternStd.hxx".}
-proc signature*(this: TDataXtdPatternStd): int {.noSideEffect,
+proc signature*(this: TDataXtdPatternStd): cint {.noSideEffect,
     importcpp: "Signature", header: "TDataXtd_PatternStd.hxx".}
 proc axis1*(this: TDataXtdPatternStd): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "Axis1", header: "TDataXtd_PatternStd.hxx".}
@@ -83,7 +83,7 @@ proc nbInstances2*(this: TDataXtdPatternStd): Handle[TDataStdInteger] {.
     noSideEffect, importcpp: "NbInstances2", header: "TDataXtd_PatternStd.hxx".}
 proc mirror*(this: TDataXtdPatternStd): Handle[TNamingNamedShape] {.noSideEffect,
     importcpp: "Mirror", header: "TDataXtd_PatternStd.hxx".}
-proc nbTrsfs*(this: TDataXtdPatternStd): int {.noSideEffect, importcpp: "NbTrsfs",
+proc nbTrsfs*(this: TDataXtdPatternStd): cint {.noSideEffect, importcpp: "NbTrsfs",
     header: "TDataXtd_PatternStd.hxx".}
 proc computeTrsfs*(this: TDataXtdPatternStd; trsfs: var TDataXtdArray1OfTrsf) {.
     noSideEffect, importcpp: "ComputeTrsfs", header: "TDataXtd_PatternStd.hxx".}
@@ -110,3 +110,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataXtd_PatternStd.hxx".}
 proc dynamicType*(this: TDataXtdPatternStd): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataXtd_PatternStd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

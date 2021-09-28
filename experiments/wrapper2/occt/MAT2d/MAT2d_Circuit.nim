@@ -21,7 +21,7 @@ discard "forward decl of MAT2d_MiniPath"
 discard "forward decl of MAT2d_Circuit"
 discard "forward decl of MAT2d_Circuit"
 type
-  HandleMAT2dCircuit* = Handle[MAT2dCircuit]
+  HandleC1C1* = Handle[MAT2dCircuit]
 
 ## ! Constructs a circuit on a set of lines.
 ## ! EquiCircuit gives a Circuit passing by all the lines
@@ -36,19 +36,19 @@ proc constructMAT2dCircuit*(aJoinType: GeomAbsJoinType = geomAbsArc;
     importcpp: "MAT2d_Circuit(@)", header: "MAT2d_Circuit.hxx".}
 proc perform*(this: var MAT2dCircuit;
              aFigure: var MAT2dSequenceOfSequenceOfGeometry;
-             isClosed: TColStdSequenceOfBoolean; indRefLine: int; trigo: bool) {.
+             isClosed: TColStdSequenceOfBoolean; indRefLine: cint; trigo: bool) {.
     importcpp: "Perform", header: "MAT2d_Circuit.hxx".}
-proc numberOfItems*(this: MAT2dCircuit): int {.noSideEffect,
+proc numberOfItems*(this: MAT2dCircuit): cint {.noSideEffect,
     importcpp: "NumberOfItems", header: "MAT2d_Circuit.hxx".}
-proc value*(this: MAT2dCircuit; index: int): Handle[Geom2dGeometry] {.noSideEffect,
+proc value*(this: MAT2dCircuit; index: cint): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Value", header: "MAT2d_Circuit.hxx".}
-proc lineLength*(this: MAT2dCircuit; indexLine: int): int {.noSideEffect,
+proc lineLength*(this: MAT2dCircuit; indexLine: cint): cint {.noSideEffect,
     importcpp: "LineLength", header: "MAT2d_Circuit.hxx".}
-proc refToEqui*(this: MAT2dCircuit; indLine: int; indCurve: int): TColStdSequenceOfInteger {.
+proc refToEqui*(this: MAT2dCircuit; indLine: cint; indCurve: cint): TColStdSequenceOfInteger {.
     noSideEffect, importcpp: "RefToEqui", header: "MAT2d_Circuit.hxx".}
-proc connexion*(this: MAT2dCircuit; index: int): Handle[MAT2dConnexion] {.
+proc connexion*(this: MAT2dCircuit; index: cint): Handle[MAT2dConnexion] {.
     noSideEffect, importcpp: "Connexion", header: "MAT2d_Circuit.hxx".}
-proc connexionOn*(this: MAT2dCircuit; index: int): bool {.noSideEffect,
+proc connexionOn*(this: MAT2dCircuit; index: cint): bool {.noSideEffect,
     importcpp: "ConnexionOn", header: "MAT2d_Circuit.hxx".}
 type
   MAT2dCircuitbaseType* = StandardTransient
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MAT2d_Circuit.hxx".}
 proc dynamicType*(this: MAT2dCircuit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT2d_Circuit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of MoniTool_RealVal"
 discard "forward decl of MoniTool_RealVal"
 type
-  HandleMoniToolRealVal* = Handle[MoniToolRealVal]
+  HandleC1C1* = Handle[MoniToolRealVal]
 
 ## ! A Real through a Handle (i.e. managed as TShared)
 
@@ -26,11 +26,11 @@ type
                     bycopy.} = object of StandardTransient
 
 
-proc constructMoniToolRealVal*(val: float = 0.0): MoniToolRealVal {.constructor,
+proc constructMoniToolRealVal*(val: cfloat = 0.0): MoniToolRealVal {.constructor,
     importcpp: "MoniTool_RealVal(@)", header: "MoniTool_RealVal.hxx".}
-proc value*(this: MoniToolRealVal): float {.noSideEffect, importcpp: "Value",
-                                        header: "MoniTool_RealVal.hxx".}
-proc cValue*(this: var MoniToolRealVal): var float {.importcpp: "CValue",
+proc value*(this: MoniToolRealVal): cfloat {.noSideEffect, importcpp: "Value",
+    header: "MoniTool_RealVal.hxx".}
+proc cValue*(this: var MoniToolRealVal): var cfloat {.importcpp: "CValue",
     header: "MoniTool_RealVal.hxx".}
 type
   MoniToolRealValbaseType* = StandardTransient
@@ -42,3 +42,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MoniTool_RealVal.hxx".}
 proc dynamicType*(this: MoniToolRealVal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_RealVal.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

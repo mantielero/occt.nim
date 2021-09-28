@@ -28,7 +28,7 @@ proc constructRWStepVisualRWAnnotationFillAreaOccurrence*(): RWStepVisualRWAnnot
     constructor, importcpp: "RWStepVisual_RWAnnotationFillAreaOccurrence(@)",
     header: "RWStepVisual_RWAnnotationFillAreaOccurrence.hxx".}
 proc readStep*(this: RWStepVisualRWAnnotationFillAreaOccurrence;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualAnnotationFillAreaOccurrence]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -42,3 +42,28 @@ proc share*(this: RWStepVisualRWAnnotationFillAreaOccurrence;
            ent: Handle[StepVisualAnnotationFillAreaOccurrence];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWAnnotationFillAreaOccurrence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

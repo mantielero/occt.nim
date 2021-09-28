@@ -24,7 +24,7 @@ discard "forward decl of StepShape_NonManifoldSurfaceShapeRepresentation"
 discard "forward decl of STEPControl_ActorWrite"
 discard "forward decl of STEPControl_ActorWrite"
 type
-  HandleSTEPControlActorWrite* = Handle[STEPControlActorWrite]
+  HandleC1C1* = Handle[STEPControlActorWrite]
 
 ## ! This class performs the transfer of a Shape from TopoDS
 ## ! to AP203 or AP214 (CD2 or DIS)
@@ -106,11 +106,11 @@ proc setMode*(this: var STEPControlActorWrite; m: STEPControlStepModelType) {.
     importcpp: "SetMode", header: "STEPControl_ActorWrite.hxx".}
 proc mode*(this: STEPControlActorWrite): STEPControlStepModelType {.noSideEffect,
     importcpp: "Mode", header: "STEPControl_ActorWrite.hxx".}
-proc setGroupMode*(this: var STEPControlActorWrite; mode: int) {.
+proc setGroupMode*(this: var STEPControlActorWrite; mode: cint) {.
     importcpp: "SetGroupMode", header: "STEPControl_ActorWrite.hxx".}
-proc groupMode*(this: STEPControlActorWrite): int {.noSideEffect,
+proc groupMode*(this: STEPControlActorWrite): cint {.noSideEffect,
     importcpp: "GroupMode", header: "STEPControl_ActorWrite.hxx".}
-proc setTolerance*(this: var STEPControlActorWrite; tol: float) {.
+proc setTolerance*(this: var STEPControlActorWrite; tol: cfloat) {.
     importcpp: "SetTolerance", header: "STEPControl_ActorWrite.hxx".}
 proc isAssembly*(this: STEPControlActorWrite; s: var TopoDS_Shape): bool {.
     noSideEffect, importcpp: "IsAssembly", header: "STEPControl_ActorWrite.hxx".}
@@ -124,3 +124,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPControl_ActorWrite.hxx".}
 proc dynamicType*(this: STEPControlActorWrite): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "STEPControl_ActorWrite.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of TopOpeBRepBuild_BlockIterator"
 discard "forward decl of TopOpeBRepBuild_Loop"
 discard "forward decl of TopOpeBRepBuild_Loop"
 type
-  HandleTopOpeBRepBuildLoop* = Handle[TopOpeBRepBuildLoop]
+  HandleC1C1* = Handle[TopOpeBRepBuildLoop]
 
 ## ! a Loop is an existing shape (Shell,Wire) or a set
 ## ! of shapes (Faces,Edges) which are connex.
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepBuild_Loop.hxx".}
 proc dynamicType*(this: TopOpeBRepBuildLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRepBuild_Loop.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

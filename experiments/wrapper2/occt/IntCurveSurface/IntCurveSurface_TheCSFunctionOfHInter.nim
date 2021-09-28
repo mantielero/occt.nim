@@ -30,9 +30,9 @@ proc constructIntCurveSurfaceTheCSFunctionOfHInter*(s: Handle[Adaptor3dHSurface]
     c: Handle[Adaptor3dHCurve]): IntCurveSurfaceTheCSFunctionOfHInter {.
     constructor, importcpp: "IntCurveSurface_TheCSFunctionOfHInter(@)",
     header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc nbVariables*(this: IntCurveSurfaceTheCSFunctionOfHInter): int {.noSideEffect,
+proc nbVariables*(this: IntCurveSurfaceTheCSFunctionOfHInter): cint {.noSideEffect,
     importcpp: "NbVariables", header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc nbEquations*(this: IntCurveSurfaceTheCSFunctionOfHInter): int {.noSideEffect,
+proc nbEquations*(this: IntCurveSurfaceTheCSFunctionOfHInter): cint {.noSideEffect,
     importcpp: "NbEquations", header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
 proc value*(this: var IntCurveSurfaceTheCSFunctionOfHInter; x: MathVector;
            f: var MathVector): bool {.importcpp: "Value", header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
@@ -43,7 +43,7 @@ proc values*(this: var IntCurveSurfaceTheCSFunctionOfHInter; x: MathVector;
     header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
 proc point*(this: IntCurveSurfaceTheCSFunctionOfHInter): Pnt {.noSideEffect,
     importcpp: "Point", header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc root*(this: IntCurveSurfaceTheCSFunctionOfHInter): float {.noSideEffect,
+proc root*(this: IntCurveSurfaceTheCSFunctionOfHInter): cfloat {.noSideEffect,
     importcpp: "Root", header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
 proc auxillarSurface*(this: IntCurveSurfaceTheCSFunctionOfHInter): Handle[
     Adaptor3dHSurface] {.noSideEffect, importcpp: "AuxillarSurface",
@@ -51,3 +51,28 @@ proc auxillarSurface*(this: IntCurveSurfaceTheCSFunctionOfHInter): Handle[
 proc auxillarCurve*(this: IntCurveSurfaceTheCSFunctionOfHInter): Handle[
     Adaptor3dHCurve] {.noSideEffect, importcpp: "AuxillarCurve",
                       header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

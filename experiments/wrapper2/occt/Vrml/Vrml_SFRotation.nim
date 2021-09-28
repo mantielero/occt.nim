@@ -25,22 +25,47 @@ type
 
 proc constructVrmlSFRotation*(): VrmlSFRotation {.constructor,
     importcpp: "Vrml_SFRotation(@)", header: "Vrml_SFRotation.hxx".}
-proc constructVrmlSFRotation*(aRotationX: float; aRotationY: float;
-                             aRotationZ: float; anAngle: float): VrmlSFRotation {.
+proc constructVrmlSFRotation*(aRotationX: cfloat; aRotationY: cfloat;
+                             aRotationZ: cfloat; anAngle: cfloat): VrmlSFRotation {.
     constructor, importcpp: "Vrml_SFRotation(@)", header: "Vrml_SFRotation.hxx".}
-proc setRotationX*(this: var VrmlSFRotation; aRotationX: float) {.
+proc setRotationX*(this: var VrmlSFRotation; aRotationX: cfloat) {.
     importcpp: "SetRotationX", header: "Vrml_SFRotation.hxx".}
-proc rotationX*(this: VrmlSFRotation): float {.noSideEffect, importcpp: "RotationX",
+proc rotationX*(this: VrmlSFRotation): cfloat {.noSideEffect, importcpp: "RotationX",
     header: "Vrml_SFRotation.hxx".}
-proc setRotationY*(this: var VrmlSFRotation; aRotationY: float) {.
+proc setRotationY*(this: var VrmlSFRotation; aRotationY: cfloat) {.
     importcpp: "SetRotationY", header: "Vrml_SFRotation.hxx".}
-proc rotationY*(this: VrmlSFRotation): float {.noSideEffect, importcpp: "RotationY",
+proc rotationY*(this: VrmlSFRotation): cfloat {.noSideEffect, importcpp: "RotationY",
     header: "Vrml_SFRotation.hxx".}
-proc setRotationZ*(this: var VrmlSFRotation; aRotationZ: float) {.
+proc setRotationZ*(this: var VrmlSFRotation; aRotationZ: cfloat) {.
     importcpp: "SetRotationZ", header: "Vrml_SFRotation.hxx".}
-proc rotationZ*(this: VrmlSFRotation): float {.noSideEffect, importcpp: "RotationZ",
+proc rotationZ*(this: VrmlSFRotation): cfloat {.noSideEffect, importcpp: "RotationZ",
     header: "Vrml_SFRotation.hxx".}
-proc setAngle*(this: var VrmlSFRotation; anAngle: float) {.importcpp: "SetAngle",
+proc setAngle*(this: var VrmlSFRotation; anAngle: cfloat) {.importcpp: "SetAngle",
     header: "Vrml_SFRotation.hxx".}
-proc angle*(this: VrmlSFRotation): float {.noSideEffect, importcpp: "Angle",
-                                       header: "Vrml_SFRotation.hxx".}
+proc angle*(this: VrmlSFRotation): cfloat {.noSideEffect, importcpp: "Angle",
+                                        header: "Vrml_SFRotation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

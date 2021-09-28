@@ -31,3 +31,28 @@ proc addShell*(this: var TopOpeBRepBuildShellToSolid; sh: TopoDS_Shell) {.
 proc makeSolids*(this: var TopOpeBRepBuildShellToSolid; so: TopoDS_Solid;
                 lSo: var TopToolsListOfShape) {.importcpp: "MakeSolids",
     header: "TopOpeBRepBuild_ShellToSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

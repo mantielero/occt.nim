@@ -24,10 +24,10 @@ type
 
 proc constructShapeFixWireVertex*(): ShapeFixWireVertex {.constructor,
     importcpp: "ShapeFix_WireVertex(@)", header: "ShapeFix_WireVertex.hxx".}
-proc init*(this: var ShapeFixWireVertex; wire: TopoDS_Wire; preci: float) {.
+proc init*(this: var ShapeFixWireVertex; wire: TopoDS_Wire; preci: cfloat) {.
     importcpp: "Init", header: "ShapeFix_WireVertex.hxx".}
 proc init*(this: var ShapeFixWireVertex; sbwd: Handle[ShapeExtendWireData];
-          preci: float) {.importcpp: "Init", header: "ShapeFix_WireVertex.hxx".}
+          preci: cfloat) {.importcpp: "Init", header: "ShapeFix_WireVertex.hxx".}
 proc init*(this: var ShapeFixWireVertex; sawv: ShapeAnalysisWireVertex) {.
     importcpp: "Init", header: "ShapeFix_WireVertex.hxx".}
 proc analyzer*(this: ShapeFixWireVertex): ShapeAnalysisWireVertex {.noSideEffect,
@@ -36,7 +36,32 @@ proc wireData*(this: ShapeFixWireVertex): Handle[ShapeExtendWireData] {.
     noSideEffect, importcpp: "WireData", header: "ShapeFix_WireVertex.hxx".}
 proc wire*(this: ShapeFixWireVertex): TopoDS_Wire {.noSideEffect, importcpp: "Wire",
     header: "ShapeFix_WireVertex.hxx".}
-proc fixSame*(this: var ShapeFixWireVertex): int {.importcpp: "FixSame",
+proc fixSame*(this: var ShapeFixWireVertex): cint {.importcpp: "FixSame",
     header: "ShapeFix_WireVertex.hxx".}
-proc fix*(this: var ShapeFixWireVertex): int {.importcpp: "Fix",
+proc fix*(this: var ShapeFixWireVertex): cint {.importcpp: "Fix",
     header: "ShapeFix_WireVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

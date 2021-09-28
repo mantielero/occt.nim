@@ -47,7 +47,32 @@ proc dynamicType*(this: XmlTObjDriversModelDriver): Handle[StandardType] {.
 
 discard "forward decl of XmlTObjDrivers_ModelDriver"
 type
-  HandleXmlTObjDriversModelDriver* = Handle[XmlTObjDriversModelDriver]
+  HandleC1C1* = Handle[XmlTObjDriversModelDriver]
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

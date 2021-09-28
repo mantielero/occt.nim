@@ -20,7 +20,7 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of MAT_Arc"
 discard "forward decl of MAT_Arc"
 type
-  HandleMAT_Arc* = Handle[MAT_Arc]
+  HandleC1C1* = Handle[MAT_Arc]
 
 ## ! An Arc is associated to each Bisecting of the mat.
 
@@ -28,14 +28,14 @@ type
   MAT_Arc* {.importcpp: "MAT_Arc", header: "MAT_Arc.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructMAT_Arc*(arcIndex: int; geomIndex: int;
+proc constructMAT_Arc*(arcIndex: cint; geomIndex: cint;
                       firstElement: Handle[MAT_BasicElt];
                       secondElement: Handle[MAT_BasicElt]): MAT_Arc {.constructor,
     importcpp: "MAT_Arc(@)", header: "MAT_Arc.hxx".}
-proc index*(this: MAT_Arc): int {.noSideEffect, importcpp: "Index",
-                              header: "MAT_Arc.hxx".}
-proc geomIndex*(this: MAT_Arc): int {.noSideEffect, importcpp: "GeomIndex",
-                                  header: "MAT_Arc.hxx".}
+proc index*(this: MAT_Arc): cint {.noSideEffect, importcpp: "Index",
+                               header: "MAT_Arc.hxx".}
+proc geomIndex*(this: MAT_Arc): cint {.noSideEffect, importcpp: "GeomIndex",
+                                   header: "MAT_Arc.hxx".}
 proc firstElement*(this: MAT_Arc): Handle[MAT_BasicElt] {.noSideEffect,
     importcpp: "FirstElement", header: "MAT_Arc.hxx".}
 proc secondElement*(this: MAT_Arc): Handle[MAT_BasicElt] {.noSideEffect,
@@ -50,9 +50,9 @@ proc hasNeighbour*(this: MAT_Arc; aNode: Handle[MAT_Node]; aSide: MAT_Side): boo
     noSideEffect, importcpp: "HasNeighbour", header: "MAT_Arc.hxx".}
 proc neighbour*(this: MAT_Arc; aNode: Handle[MAT_Node]; aSide: MAT_Side): Handle[
     MAT_Arc] {.noSideEffect, importcpp: "Neighbour", header: "MAT_Arc.hxx".}
-proc setIndex*(this: var MAT_Arc; anInteger: int) {.importcpp: "SetIndex",
+proc setIndex*(this: var MAT_Arc; anInteger: cint) {.importcpp: "SetIndex",
     header: "MAT_Arc.hxx".}
-proc setGeomIndex*(this: var MAT_Arc; anInteger: int) {.importcpp: "SetGeomIndex",
+proc setGeomIndex*(this: var MAT_Arc; anInteger: cint) {.importcpp: "SetGeomIndex",
     header: "MAT_Arc.hxx".}
 proc setFirstElement*(this: var MAT_Arc; aBasicElt: Handle[MAT_BasicElt]) {.
     importcpp: "SetFirstElement", header: "MAT_Arc.hxx".}
@@ -78,3 +78,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "MAT_Arc::get_type_descriptor(@)", header: "MAT_Arc.hxx".}
 proc dynamicType*(this: MAT_Arc): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Arc.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

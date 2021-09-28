@@ -15,54 +15,62 @@
 ##  commercial license or contractual agreement.
 
 ## !!!Ignored construct:  # _GeomAdaptor_HSurfaceOfLinearExtrusion_HeaderFile [NewLine] # _GeomAdaptor_HSurfaceOfLinearExtrusion_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < GeomAdaptor_SurfaceOfLinearExtrusion . hxx > [NewLine] # < Adaptor3d_HSurface . hxx > [NewLine] class Standard_OutOfRange ;
-## Error: did not expect <!!!
+## Error: expected ';'!!!
 
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of GeomAdaptor_SurfaceOfLinearExtrusion"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of GeomAdaptor_HSurfaceOfLinearExtrusion"
-discard "forward decl of GeomAdaptor_HSurfaceOfLinearExtrusion"
-type
-  HandleGeomAdaptorHSurfaceOfLinearExtrusionGeomAdaptorHSurfaceOfLinearExtrusion* = Handle[
-      GeomAdaptorHSurfaceOfLinearExtrusion]
-  GeomAdaptorHSurfaceOfLinearExtrusion* {.
-      importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion",
-      header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx", bycopy.} = object of Adaptor3dHSurface ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## an
-                                                                                           ## empty
-                                                                                           ## GenHSurface.
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( GeomAdaptor_HSurfaceOfLinearExtrusion , Adaptor3d_HSurface ) class GeomAdaptor_HSurfaceOfLinearExtrusion : public Adaptor3d_HSurface { public : ! Creates an empty GenHSurface. GeomAdaptor_HSurfaceOfLinearExtrusion ( ) ; ! Creates a GenHSurface from a Surface. GeomAdaptor_HSurfaceOfLinearExtrusion ( const GeomAdaptor_SurfaceOfLinearExtrusion & S ) ; ! Sets the field of the GenHSurface. void Set ( const GeomAdaptor_SurfaceOfLinearExtrusion & S ) ; ! Returns a reference to the Surface inside the HSurface.
+## ! This is redefined from HSurface, cannot be inline. const Adaptor3d_Surface & Surface ( ) const ; ! Returns the surface used to create the GenHSurface. GeomAdaptor_SurfaceOfLinearExtrusion & ChangeSurface ( ) ; public : typedef Adaptor3d_HSurface base_type ; static const char * get_type_name ( ) { return GeomAdaptor_HSurfaceOfLinearExtrusion ; ( GeomAdaptor_HSurfaceOfLinearExtrusion , Adaptor3d_HSurface ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < GeomAdaptor_HSurfaceOfLinearExtrusion > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : GeomAdaptor_SurfaceOfLinearExtrusion mySurf ; private : } ;
+## Error: expected ';'!!!
 
-
-proc constructGeomAdaptorHSurfaceOfLinearExtrusion*(): GeomAdaptorHSurfaceOfLinearExtrusion {.
-    constructor, importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion(@)",
-    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc constructGeomAdaptorHSurfaceOfLinearExtrusion*(
-    s: GeomAdaptorSurfaceOfLinearExtrusion): GeomAdaptorHSurfaceOfLinearExtrusion {.
-    constructor, importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion(@)",
-    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc set*(this: var GeomAdaptorHSurfaceOfLinearExtrusion;
-         s: GeomAdaptorSurfaceOfLinearExtrusion) {.importcpp: "Set",
-    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc surface*(this: GeomAdaptorHSurfaceOfLinearExtrusion): Adaptor3dSurface {.
-    noSideEffect, importcpp: "Surface",
-    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc changeSurface*(this: var GeomAdaptorHSurfaceOfLinearExtrusion): var GeomAdaptorSurfaceOfLinearExtrusion {.
-    importcpp: "ChangeSurface",
-    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-type
-  GeomAdaptorHSurfaceOfLinearExtrusionbaseType* = Adaptor3dHSurface
-
-proc getTypeName*(): cstring {.importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion::get_type_name(@)",
-                            header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion::get_type_descriptor(@)",
-    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc dynamicType*(this: GeomAdaptorHSurfaceOfLinearExtrusion): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-## !!!Ignored construct:  # TheSurface GeomAdaptor_SurfaceOfLinearExtrusion [NewLine] # TheSurface_hxx < GeomAdaptor_SurfaceOfLinearExtrusion . hxx > [NewLine] # Adaptor3d_GenHSurface GeomAdaptor_HSurfaceOfLinearExtrusion [NewLine] # Adaptor3d_GenHSurface_hxx < GeomAdaptor_HSurfaceOfLinearExtrusion . hxx > [NewLine] # Handle_Adaptor3d_GenHSurface opencascade :: handle < GeomAdaptor_HSurfaceOfLinearExtrusion > [end of template] [NewLine] # < Adaptor3d_GenHSurface . lxx > [NewLine] # TheSurface [NewLine] # TheSurface_hxx [NewLine] # Adaptor3d_GenHSurface [NewLine] # Adaptor3d_GenHSurface_hxx [NewLine] # Handle_Adaptor3d_GenHSurface [NewLine] #  _GeomAdaptor_HSurfaceOfLinearExtrusion_HeaderFile
+## !!!Ignored construct:  # TheSurface GeomAdaptor_SurfaceOfLinearExtrusion [NewLine] # TheSurface_hxx < GeomAdaptor_SurfaceOfLinearExtrusion . hxx > [NewLine] # Adaptor3d_GenHSurface GeomAdaptor_HSurfaceOfLinearExtrusion [NewLine] # Adaptor3d_GenHSurface_hxx < GeomAdaptor_HSurfaceOfLinearExtrusion . hxx > [NewLine] # Handle_Adaptor3d_GenHSurface Handle ( GeomAdaptor_HSurfaceOfLinearExtrusion ) [NewLine] # < Adaptor3d_GenHSurface . lxx > [NewLine] # TheSurface [NewLine] # TheSurface_hxx [NewLine] # Adaptor3d_GenHSurface [NewLine] # Adaptor3d_GenHSurface_hxx [NewLine] # Handle_Adaptor3d_GenHSurface [NewLine] #  _GeomAdaptor_HSurfaceOfLinearExtrusion_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

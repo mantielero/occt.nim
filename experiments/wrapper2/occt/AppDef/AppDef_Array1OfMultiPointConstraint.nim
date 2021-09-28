@@ -18,3 +18,28 @@ type
   AppDefArray1OfMultiPointConstraint* = NCollectionArray1[
       AppDefMultiPointConstraint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

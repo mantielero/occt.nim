@@ -58,3 +58,28 @@ include BOPDS_VectorOfPoint
 include BOPDS_VectorOfShapeInfo
 include BOPDS_VectorOfVectorOfPair
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

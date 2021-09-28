@@ -21,6 +21,24 @@ type
                                header: "Geom2dLProp_NumericCurInf2d.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dLPropNumericCurInf2d; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_NumericCurInf2d::operator new",
+    header: "Geom2dLProp_NumericCurInf2d.hxx".}
+proc `delete`*(this: var Geom2dLPropNumericCurInf2d; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_NumericCurInf2d::operator delete",
+    header: "Geom2dLProp_NumericCurInf2d.hxx".}
+proc `new[]`*(this: var Geom2dLPropNumericCurInf2d; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_NumericCurInf2d::operator new[]",
+    header: "Geom2dLProp_NumericCurInf2d.hxx".}
+proc `delete[]`*(this: var Geom2dLPropNumericCurInf2d; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_NumericCurInf2d::operator delete[]",
+    header: "Geom2dLProp_NumericCurInf2d.hxx".}
+proc `new`*(this: var Geom2dLPropNumericCurInf2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dLProp_NumericCurInf2d::operator new",
+    header: "Geom2dLProp_NumericCurInf2d.hxx".}
+proc `delete`*(this: var Geom2dLPropNumericCurInf2d; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dLProp_NumericCurInf2d::operator delete",
+    header: "Geom2dLProp_NumericCurInf2d.hxx".}
 proc constructGeom2dLPropNumericCurInf2d*(): Geom2dLPropNumericCurInf2d {.
     constructor, importcpp: "Geom2dLProp_NumericCurInf2d(@)",
     header: "Geom2dLProp_NumericCurInf2d.hxx".}
@@ -31,10 +49,11 @@ proc performInf*(this: var Geom2dLPropNumericCurInf2d; c: Handle[Geom2dCurve];
                 result: var LPropCurAndInf) {.importcpp: "PerformInf",
     header: "Geom2dLProp_NumericCurInf2d.hxx".}
 proc performCurExt*(this: var Geom2dLPropNumericCurInf2d; c: Handle[Geom2dCurve];
-                   uMin: float; uMax: float; result: var LPropCurAndInf) {.
-    importcpp: "PerformCurExt", header: "Geom2dLProp_NumericCurInf2d.hxx".}
+                   uMin: StandardReal; uMax: StandardReal;
+                   result: var LPropCurAndInf) {.importcpp: "PerformCurExt",
+    header: "Geom2dLProp_NumericCurInf2d.hxx".}
 proc performInf*(this: var Geom2dLPropNumericCurInf2d; c: Handle[Geom2dCurve];
-                uMin: float; uMax: float; result: var LPropCurAndInf) {.
+                uMin: StandardReal; uMax: StandardReal; result: var LPropCurAndInf) {.
     importcpp: "PerformInf", header: "Geom2dLProp_NumericCurInf2d.hxx".}
-proc isDone*(this: Geom2dLPropNumericCurInf2d): bool {.noSideEffect,
+proc isDone*(this: Geom2dLPropNumericCurInf2d): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dLProp_NumericCurInf2d.hxx".}

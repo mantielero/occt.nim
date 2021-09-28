@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_Current"
 discard "forward decl of TDataStd_Current"
 type
-  HandleTDataStdCurrent* = Handle[TDataStdCurrent]
+  HandleC1C1* = Handle[TDataStdCurrent]
 
 ## ! this attribute,  located at root label,  manage an
 ## ! access to a current label.
@@ -58,8 +58,8 @@ proc paste*(this: TDataStdCurrent; into: Handle[TDF_Attribute];
 proc dump*(this: TDataStdCurrent; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_Current.hxx".}
 proc dumpJson*(this: TDataStdCurrent; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_Current.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_Current.hxx".}
 type
   TDataStdCurrentbaseType* = TDF_Attribute
 
@@ -70,3 +70,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_Current.hxx".}
 proc dynamicType*(this: TDataStdCurrent): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_Current.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

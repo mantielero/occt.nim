@@ -98,3 +98,28 @@ proc perform*(this: var RWGltfCafWriter; theDocument: Handle[TDocStdDocument];
              theFileInfo: TColStdIndexedDataMapOfStringString;
              theProgress: MessageProgressRange): bool {.importcpp: "Perform",
     header: "RWGltf_CafWriter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

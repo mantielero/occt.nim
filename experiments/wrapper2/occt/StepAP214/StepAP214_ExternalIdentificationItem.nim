@@ -39,7 +39,7 @@ proc constructStepAP214ExternalIdentificationItem*(): StepAP214ExternalIdentific
     constructor, importcpp: "StepAP214_ExternalIdentificationItem(@)",
     header: "StepAP214_ExternalIdentificationItem.hxx".}
 proc caseNum*(this: StepAP214ExternalIdentificationItem;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_ExternalIdentificationItem.hxx".}
 proc documentFile*(this: StepAP214ExternalIdentificationItem): Handle[
     StepBasicDocumentFile] {.noSideEffect, importcpp: "DocumentFile",
@@ -86,3 +86,28 @@ proc dateAndTimeAssignment*(this: StepAP214ExternalIdentificationItem): Handle[
                                      importcpp: "DateAndTimeAssignment", header: "StepAP214_ExternalIdentificationItem.hxx".}
 proc dateAssignment*(this: StepAP214ExternalIdentificationItem): Handle[
     StepBasicDateAssignment] {.noSideEffect, importcpp: "DateAssignment", header: "StepAP214_ExternalIdentificationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

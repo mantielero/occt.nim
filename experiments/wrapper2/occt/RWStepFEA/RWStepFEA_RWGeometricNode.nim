@@ -30,7 +30,7 @@ proc constructRWStepFEA_RWGeometricNode*(): RWStepFEA_RWGeometricNode {.
     constructor, importcpp: "RWStepFEA_RWGeometricNode(@)",
     header: "RWStepFEA_RWGeometricNode.hxx".}
 proc readStep*(this: RWStepFEA_RWGeometricNode;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepFEA_GeometricNode]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepFEA_RWGeometricNode.hxx".}
 proc writeStep*(this: RWStepFEA_RWGeometricNode; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepFEA_RWGeometricNode; sw: var StepDataStepWriter;
 proc share*(this: RWStepFEA_RWGeometricNode; ent: Handle[StepFEA_GeometricNode];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWGeometricNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,7 +29,7 @@ proc constructRWStepAP214RWAppliedDateAndTimeAssignment*(): RWStepAP214RWApplied
     constructor, importcpp: "RWStepAP214_RWAppliedDateAndTimeAssignment(@)",
     header: "RWStepAP214_RWAppliedDateAndTimeAssignment.hxx".}
 proc readStep*(this: RWStepAP214RWAppliedDateAndTimeAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AppliedDateAndTimeAssignment]) {.noSideEffect,
     importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepAP214RWAppliedDateAndTimeAssignment;
            ent: Handle[StepAP214AppliedDateAndTimeAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedDateAndTimeAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of gp_Circ"
 discard "forward decl of gp_Elips"
 discard "forward decl of PrsDim_MidPointRelation"
 type
-  HandlePrsDimMidPointRelation* = Handle[PrsDimMidPointRelation]
+  HandleC1C1* = Handle[PrsDimMidPointRelation]
 
 ## ! presentation of equal distance to point myMidPoint
 
@@ -49,3 +49,28 @@ proc setTool*(this: var PrsDimMidPointRelation; aMidPointTool: TopoDS_Shape) {.
     importcpp: "SetTool", header: "PrsDim_MidPointRelation.hxx".}
 proc getTool*(this: PrsDimMidPointRelation): TopoDS_Shape {.noSideEffect,
     importcpp: "GetTool", header: "PrsDim_MidPointRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

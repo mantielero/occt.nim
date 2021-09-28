@@ -20,6 +20,18 @@ type
   GeomPlateAij* {.importcpp: "GeomPlate_Aij", header: "GeomPlate_Aij.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomPlateAij; theSize: csize_t): pointer {.
+    importcpp: "GeomPlate_Aij::operator new", header: "GeomPlate_Aij.hxx".}
+proc `delete`*(this: var GeomPlateAij; theAddress: pointer) {.
+    importcpp: "GeomPlate_Aij::operator delete", header: "GeomPlate_Aij.hxx".}
+proc `new[]`*(this: var GeomPlateAij; theSize: csize_t): pointer {.
+    importcpp: "GeomPlate_Aij::operator new[]", header: "GeomPlate_Aij.hxx".}
+proc `delete[]`*(this: var GeomPlateAij; theAddress: pointer) {.
+    importcpp: "GeomPlate_Aij::operator delete[]", header: "GeomPlate_Aij.hxx".}
+proc `new`*(this: var GeomPlateAij; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomPlate_Aij::operator new", header: "GeomPlate_Aij.hxx".}
+proc `delete`*(this: var GeomPlateAij; a2: pointer; a3: pointer) {.
+    importcpp: "GeomPlate_Aij::operator delete", header: "GeomPlate_Aij.hxx".}
 proc constructGeomPlateAij*(): GeomPlateAij {.constructor,
     importcpp: "GeomPlate_Aij(@)", header: "GeomPlate_Aij.hxx".}
 proc constructGeomPlateAij*(anInd1: int; anInd2: int; aVec: Vec): GeomPlateAij {.

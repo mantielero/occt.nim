@@ -44,6 +44,31 @@ proc setDefault*(this: var BRepMeshDiscretFactory; theName: TCollectionAsciiStri
                 theFuncName: TCollectionAsciiString = "DISCRETALGO"): bool {.
     importcpp: "SetDefault", header: "BRepMesh_DiscretFactory.hxx".}
 proc discret*(this: var BRepMeshDiscretFactory; theShape: TopoDS_Shape;
-             theLinDeflection: float; theAngDeflection: float): Handle[
+             theLinDeflection: cfloat; theAngDeflection: cfloat): Handle[
     BRepMeshDiscretRoot] {.importcpp: "Discret",
                           header: "BRepMesh_DiscretFactory.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

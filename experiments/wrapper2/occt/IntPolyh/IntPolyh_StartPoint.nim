@@ -22,68 +22,94 @@ type
 
 proc constructIntPolyhStartPoint*(): IntPolyhStartPoint {.constructor,
     importcpp: "IntPolyh_StartPoint(@)", header: "IntPolyh_StartPoint.hxx".}
-proc constructIntPolyhStartPoint*(xx: float; yy: float; zz: float; uu1: float;
-                                 vv1: float; uu2: float; vv2: float; t1: int; e1: int;
-                                 lam1: float; t2: int; e2: int; lam2: float; list: int): IntPolyhStartPoint {.
+proc constructIntPolyhStartPoint*(xx: cfloat; yy: cfloat; zz: cfloat; uu1: cfloat;
+                                 vv1: cfloat; uu2: cfloat; vv2: cfloat; t1: cint;
+                                 e1: cint; lam1: cfloat; t2: cint; e2: cint;
+                                 lam2: cfloat; list: cint): IntPolyhStartPoint {.
     constructor, importcpp: "IntPolyh_StartPoint(@)",
     header: "IntPolyh_StartPoint.hxx".}
-proc x*(this: IntPolyhStartPoint): float {.noSideEffect, importcpp: "X",
-                                       header: "IntPolyh_StartPoint.hxx".}
-proc y*(this: IntPolyhStartPoint): float {.noSideEffect, importcpp: "Y",
-                                       header: "IntPolyh_StartPoint.hxx".}
-proc z*(this: IntPolyhStartPoint): float {.noSideEffect, importcpp: "Z",
-                                       header: "IntPolyh_StartPoint.hxx".}
-proc u1*(this: IntPolyhStartPoint): float {.noSideEffect, importcpp: "U1",
+proc x*(this: IntPolyhStartPoint): cfloat {.noSideEffect, importcpp: "X",
                                         header: "IntPolyh_StartPoint.hxx".}
-proc v1*(this: IntPolyhStartPoint): float {.noSideEffect, importcpp: "V1",
+proc y*(this: IntPolyhStartPoint): cfloat {.noSideEffect, importcpp: "Y",
                                         header: "IntPolyh_StartPoint.hxx".}
-proc u2*(this: IntPolyhStartPoint): float {.noSideEffect, importcpp: "U2",
+proc z*(this: IntPolyhStartPoint): cfloat {.noSideEffect, importcpp: "Z",
                                         header: "IntPolyh_StartPoint.hxx".}
-proc v2*(this: IntPolyhStartPoint): float {.noSideEffect, importcpp: "V2",
-                                        header: "IntPolyh_StartPoint.hxx".}
-proc t1*(this: IntPolyhStartPoint): int {.noSideEffect, importcpp: "T1",
-                                      header: "IntPolyh_StartPoint.hxx".}
-proc e1*(this: IntPolyhStartPoint): int {.noSideEffect, importcpp: "E1",
-                                      header: "IntPolyh_StartPoint.hxx".}
-proc lambda1*(this: IntPolyhStartPoint): float {.noSideEffect, importcpp: "Lambda1",
+proc u1*(this: IntPolyhStartPoint): cfloat {.noSideEffect, importcpp: "U1",
     header: "IntPolyh_StartPoint.hxx".}
-proc t2*(this: IntPolyhStartPoint): int {.noSideEffect, importcpp: "T2",
-                                      header: "IntPolyh_StartPoint.hxx".}
-proc e2*(this: IntPolyhStartPoint): int {.noSideEffect, importcpp: "E2",
-                                      header: "IntPolyh_StartPoint.hxx".}
-proc lambda2*(this: IntPolyhStartPoint): float {.noSideEffect, importcpp: "Lambda2",
+proc v1*(this: IntPolyhStartPoint): cfloat {.noSideEffect, importcpp: "V1",
     header: "IntPolyh_StartPoint.hxx".}
-proc getAngle*(this: IntPolyhStartPoint): float {.noSideEffect,
+proc u2*(this: IntPolyhStartPoint): cfloat {.noSideEffect, importcpp: "U2",
+    header: "IntPolyh_StartPoint.hxx".}
+proc v2*(this: IntPolyhStartPoint): cfloat {.noSideEffect, importcpp: "V2",
+    header: "IntPolyh_StartPoint.hxx".}
+proc t1*(this: IntPolyhStartPoint): cint {.noSideEffect, importcpp: "T1",
+                                       header: "IntPolyh_StartPoint.hxx".}
+proc e1*(this: IntPolyhStartPoint): cint {.noSideEffect, importcpp: "E1",
+                                       header: "IntPolyh_StartPoint.hxx".}
+proc lambda1*(this: IntPolyhStartPoint): cfloat {.noSideEffect, importcpp: "Lambda1",
+    header: "IntPolyh_StartPoint.hxx".}
+proc t2*(this: IntPolyhStartPoint): cint {.noSideEffect, importcpp: "T2",
+                                       header: "IntPolyh_StartPoint.hxx".}
+proc e2*(this: IntPolyhStartPoint): cint {.noSideEffect, importcpp: "E2",
+                                       header: "IntPolyh_StartPoint.hxx".}
+proc lambda2*(this: IntPolyhStartPoint): cfloat {.noSideEffect, importcpp: "Lambda2",
+    header: "IntPolyh_StartPoint.hxx".}
+proc getAngle*(this: IntPolyhStartPoint): cfloat {.noSideEffect,
     importcpp: "GetAngle", header: "IntPolyh_StartPoint.hxx".}
-proc chainList*(this: IntPolyhStartPoint): int {.noSideEffect,
+proc chainList*(this: IntPolyhStartPoint): cint {.noSideEffect,
     importcpp: "ChainList", header: "IntPolyh_StartPoint.hxx".}
 proc getEdgePoints*(this: IntPolyhStartPoint; triangle: IntPolyhTriangle;
-                   firstEdgePoint: var int; secondEdgePoint: var int;
-                   lastPoint: var int): int {.noSideEffect,
+                   firstEdgePoint: var cint; secondEdgePoint: var cint;
+                   lastPoint: var cint): cint {.noSideEffect,
     importcpp: "GetEdgePoints", header: "IntPolyh_StartPoint.hxx".}
-proc setXYZ*(this: var IntPolyhStartPoint; xx: float; yy: float; zz: float) {.
+proc setXYZ*(this: var IntPolyhStartPoint; xx: cfloat; yy: cfloat; zz: cfloat) {.
     importcpp: "SetXYZ", header: "IntPolyh_StartPoint.hxx".}
-proc setUV1*(this: var IntPolyhStartPoint; uu1: float; vv1: float) {.
+proc setUV1*(this: var IntPolyhStartPoint; uu1: cfloat; vv1: cfloat) {.
     importcpp: "SetUV1", header: "IntPolyh_StartPoint.hxx".}
-proc setUV2*(this: var IntPolyhStartPoint; uu2: float; vv2: float) {.
+proc setUV2*(this: var IntPolyhStartPoint; uu2: cfloat; vv2: cfloat) {.
     importcpp: "SetUV2", header: "IntPolyh_StartPoint.hxx".}
-proc setEdge1*(this: var IntPolyhStartPoint; ie1: int) {.importcpp: "SetEdge1",
+proc setEdge1*(this: var IntPolyhStartPoint; ie1: cint) {.importcpp: "SetEdge1",
     header: "IntPolyh_StartPoint.hxx".}
-proc setLambda1*(this: var IntPolyhStartPoint; lam1: float) {.importcpp: "SetLambda1",
+proc setLambda1*(this: var IntPolyhStartPoint; lam1: cfloat) {.
+    importcpp: "SetLambda1", header: "IntPolyh_StartPoint.hxx".}
+proc setEdge2*(this: var IntPolyhStartPoint; ie2: cint) {.importcpp: "SetEdge2",
     header: "IntPolyh_StartPoint.hxx".}
-proc setEdge2*(this: var IntPolyhStartPoint; ie2: int) {.importcpp: "SetEdge2",
-    header: "IntPolyh_StartPoint.hxx".}
-proc setLambda2*(this: var IntPolyhStartPoint; lam2: float) {.importcpp: "SetLambda2",
-    header: "IntPolyh_StartPoint.hxx".}
-proc setCoupleValue*(this: var IntPolyhStartPoint; it1: int; it2: int) {.
+proc setLambda2*(this: var IntPolyhStartPoint; lam2: cfloat) {.
+    importcpp: "SetLambda2", header: "IntPolyh_StartPoint.hxx".}
+proc setCoupleValue*(this: var IntPolyhStartPoint; it1: cint; it2: cint) {.
     importcpp: "SetCoupleValue", header: "IntPolyh_StartPoint.hxx".}
-proc setAngle*(this: var IntPolyhStartPoint; ang: float) {.importcpp: "SetAngle",
+proc setAngle*(this: var IntPolyhStartPoint; ang: cfloat) {.importcpp: "SetAngle",
     header: "IntPolyh_StartPoint.hxx".}
-proc setChainList*(this: var IntPolyhStartPoint; chList: int) {.
+proc setChainList*(this: var IntPolyhStartPoint; chList: cint) {.
     importcpp: "SetChainList", header: "IntPolyh_StartPoint.hxx".}
-proc checkSameSP*(this: IntPolyhStartPoint; sp: IntPolyhStartPoint): int {.
+proc checkSameSP*(this: IntPolyhStartPoint; sp: IntPolyhStartPoint): cint {.
     noSideEffect, importcpp: "CheckSameSP", header: "IntPolyh_StartPoint.hxx".}
 proc dump*(this: IntPolyhStartPoint) {.noSideEffect, importcpp: "Dump",
                                     header: "IntPolyh_StartPoint.hxx".}
-proc dump*(this: IntPolyhStartPoint; i: int) {.noSideEffect, importcpp: "Dump",
+proc dump*(this: IntPolyhStartPoint; i: cint) {.noSideEffect, importcpp: "Dump",
     header: "IntPolyh_StartPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

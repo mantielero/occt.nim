@@ -57,5 +57,30 @@ proc ownCopy*(this: IGESGraphToolHighLight; entfrom: Handle[IGESGraphHighLight];
              entto: Handle[IGESGraphHighLight]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolHighLight.hxx".}
 proc ownDump*(this: IGESGraphToolHighLight; ent: Handle[IGESGraphHighLight];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolHighLight.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

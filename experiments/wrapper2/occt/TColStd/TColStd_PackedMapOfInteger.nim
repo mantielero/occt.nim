@@ -60,11 +60,11 @@ proc initialize*(this: var TColStdPackedMapOfIntegerIterator;
     header: "TColStd_PackedMapOfInteger.hxx".}
 proc reset*(this: var TColStdPackedMapOfIntegerIterator) {.importcpp: "Reset",
     header: "TColStd_PackedMapOfInteger.hxx".}
-proc key*(this: TColStdPackedMapOfIntegerIterator): int {.noSideEffect,
+proc key*(this: TColStdPackedMapOfIntegerIterator): cint {.noSideEffect,
     importcpp: "Key", header: "TColStd_PackedMapOfInteger.hxx".}
 proc next*(this: var TColStdPackedMapOfIntegerIterator) {.importcpp: "Next",
     header: "TColStd_PackedMapOfInteger.hxx".}
-proc constructTColStdPackedMapOfInteger*(nbBuckets: int = 1): TColStdPackedMapOfInteger {.
+proc constructTColStdPackedMapOfInteger*(nbBuckets: cint = 1): TColStdPackedMapOfInteger {.
     constructor, importcpp: "TColStd_PackedMapOfInteger(@)",
     header: "TColStd_PackedMapOfInteger.hxx".}
 proc constructTColStdPackedMapOfInteger*(theOther: TColStdPackedMapOfInteger): TColStdPackedMapOfInteger {.
@@ -72,30 +72,30 @@ proc constructTColStdPackedMapOfInteger*(theOther: TColStdPackedMapOfInteger): T
     header: "TColStd_PackedMapOfInteger.hxx".}
 proc assign*(this: var TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger): var TColStdPackedMapOfInteger {.
     importcpp: "Assign", header: "TColStd_PackedMapOfInteger.hxx".}
-proc reSize*(this: var TColStdPackedMapOfInteger; nbBuckets: int) {.
+proc reSize*(this: var TColStdPackedMapOfInteger; nbBuckets: cint) {.
     importcpp: "ReSize", header: "TColStd_PackedMapOfInteger.hxx".}
 proc clear*(this: var TColStdPackedMapOfInteger) {.importcpp: "Clear",
     header: "TColStd_PackedMapOfInteger.hxx".}
 proc destroyTColStdPackedMapOfInteger*(this: var TColStdPackedMapOfInteger) {.
     importcpp: "#.~TColStd_PackedMapOfInteger()",
     header: "TColStd_PackedMapOfInteger.hxx".}
-proc add*(this: var TColStdPackedMapOfInteger; aKey: int): bool {.importcpp: "Add",
+proc add*(this: var TColStdPackedMapOfInteger; aKey: cint): bool {.importcpp: "Add",
     header: "TColStd_PackedMapOfInteger.hxx".}
-proc contains*(this: TColStdPackedMapOfInteger; aKey: int): bool {.noSideEffect,
+proc contains*(this: TColStdPackedMapOfInteger; aKey: cint): bool {.noSideEffect,
     importcpp: "Contains", header: "TColStd_PackedMapOfInteger.hxx".}
-proc remove*(this: var TColStdPackedMapOfInteger; aKey: int): bool {.
+proc remove*(this: var TColStdPackedMapOfInteger; aKey: cint): bool {.
     importcpp: "Remove", header: "TColStd_PackedMapOfInteger.hxx".}
-proc nbBuckets*(this: TColStdPackedMapOfInteger): int {.noSideEffect,
+proc nbBuckets*(this: TColStdPackedMapOfInteger): cint {.noSideEffect,
     importcpp: "NbBuckets", header: "TColStd_PackedMapOfInteger.hxx".}
-proc extent*(this: TColStdPackedMapOfInteger): int {.noSideEffect,
+proc extent*(this: TColStdPackedMapOfInteger): cint {.noSideEffect,
     importcpp: "Extent", header: "TColStd_PackedMapOfInteger.hxx".}
 proc isEmpty*(this: TColStdPackedMapOfInteger): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "TColStd_PackedMapOfInteger.hxx".}
 proc statistics*(this: TColStdPackedMapOfInteger; outStream: var StandardOStream) {.
     noSideEffect, importcpp: "Statistics", header: "TColStd_PackedMapOfInteger.hxx".}
-proc getMinimalMapped*(this: TColStdPackedMapOfInteger): int {.noSideEffect,
+proc getMinimalMapped*(this: TColStdPackedMapOfInteger): cint {.noSideEffect,
     importcpp: "GetMinimalMapped", header: "TColStd_PackedMapOfInteger.hxx".}
-proc getMaximalMapped*(this: TColStdPackedMapOfInteger): int {.noSideEffect,
+proc getMaximalMapped*(this: TColStdPackedMapOfInteger): cint {.noSideEffect,
     importcpp: "GetMaximalMapped", header: "TColStd_PackedMapOfInteger.hxx".}
 proc union*(this: var TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger;
            a3: TColStdPackedMapOfInteger) {.importcpp: "Union",
@@ -136,3 +136,28 @@ proc `<=`*(this: TColStdPackedMapOfInteger; mm: TColStdPackedMapOfInteger): bool
 proc hasIntersection*(this: TColStdPackedMapOfInteger;
                      a2: TColStdPackedMapOfInteger): bool {.noSideEffect,
     importcpp: "HasIntersection", header: "TColStd_PackedMapOfInteger.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

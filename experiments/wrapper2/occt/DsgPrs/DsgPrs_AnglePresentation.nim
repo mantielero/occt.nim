@@ -76,38 +76,63 @@ type
 
 
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         aVal: float; aText: TCollectionExtendedString; aCircle: Circ; aPosition: Pnt;
-         apex: Pnt; vminCircle: Circ; vmaxCircle: Circ; aArrowSize: float) {.
-    importcpp: "DsgPrs_AnglePresentation::Add(@)",
-    header: "DsgPrs_AnglePresentation.hxx".}
+         aVal: cfloat; aText: TCollectionExtendedString; aCircle: Circ;
+         aPosition: Pnt; apex: Pnt; vminCircle: Circ; vmaxCircle: Circ;
+         aArrowSize: cfloat) {.importcpp: "DsgPrs_AnglePresentation::Add(@)",
+                             header: "DsgPrs_AnglePresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: float; centerPoint: Pnt; attachmentPoint1: Pnt;
+         theval: cfloat; centerPoint: Pnt; attachmentPoint1: Pnt;
          attachmentPoint2: Pnt; dir1: Dir; dir2: Dir; offsetPoint: Pnt) {.
     importcpp: "DsgPrs_AnglePresentation::Add(@)",
     header: "DsgPrs_AnglePresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: float; thevalstring: TCollectionExtendedString; centerPoint: Pnt;
+         theval: cfloat; thevalstring: TCollectionExtendedString; centerPoint: Pnt;
          attachmentPoint1: Pnt; attachmentPoint2: Pnt; dir1: Dir; dir2: Dir;
          offsetPoint: Pnt) {.importcpp: "DsgPrs_AnglePresentation::Add(@)",
                            header: "DsgPrs_AnglePresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: float; thevalstring: TCollectionExtendedString; centerPoint: Pnt;
+         theval: cfloat; thevalstring: TCollectionExtendedString; centerPoint: Pnt;
          attachmentPoint1: Pnt; attachmentPoint2: Pnt; dir1: Dir; dir2: Dir;
          offsetPoint: Pnt; arrowSide: DsgPrsArrowSide) {.
     importcpp: "DsgPrs_AnglePresentation::Add(@)",
     header: "DsgPrs_AnglePresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: float; thevalstring: TCollectionExtendedString; centerPoint: Pnt;
+         theval: cfloat; thevalstring: TCollectionExtendedString; centerPoint: Pnt;
          attachmentPoint1: Pnt; attachmentPoint2: Pnt; dir1: Dir; dir2: Dir;
          axisdir: Dir; offsetPoint: Pnt) {.importcpp: "DsgPrs_AnglePresentation::Add(@)",
                                        header: "DsgPrs_AnglePresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: float; thevalstring: TCollectionExtendedString; centerPoint: Pnt;
+         theval: cfloat; thevalstring: TCollectionExtendedString; centerPoint: Pnt;
          attachmentPoint1: Pnt; attachmentPoint2: Pnt; dir1: Dir; dir2: Dir;
          axisdir: Dir; isPlane: bool; axisOfSurf: Ax1; offsetPoint: Pnt;
          arrowSide: DsgPrsArrowSide) {.importcpp: "DsgPrs_AnglePresentation::Add(@)",
                                      header: "DsgPrs_AnglePresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: float; theCenter: Pnt; attachmentPoint1: Pnt; theAxe: Ax1;
+         theval: cfloat; theCenter: Pnt; attachmentPoint1: Pnt; theAxe: Ax1;
          arrowSide: DsgPrsArrowSide) {.importcpp: "DsgPrs_AnglePresentation::Add(@)",
                                      header: "DsgPrs_AnglePresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

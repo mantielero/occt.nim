@@ -17,13 +17,13 @@ type
                        header: "GCPnts_DistFunction.hxx", bycopy.} = object of MathFunction
 
 
-proc constructGCPntsDistFunction*(theCurve: Adaptor3dCurve; u1: float; u2: float): GCPntsDistFunction {.
+proc constructGCPntsDistFunction*(theCurve: Adaptor3dCurve; u1: cfloat; u2: cfloat): GCPntsDistFunction {.
     constructor, importcpp: "GCPnts_DistFunction(@)",
     header: "GCPnts_DistFunction.hxx".}
 proc constructGCPntsDistFunction*(theOther: GCPntsDistFunction): GCPntsDistFunction {.
     constructor, importcpp: "GCPnts_DistFunction(@)",
     header: "GCPnts_DistFunction.hxx".}
-proc value*(this: var GCPntsDistFunction; x: float; f: var float): bool {.
+proc value*(this: var GCPntsDistFunction; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "GCPnts_DistFunction.hxx".}
 ##
 ## ! The same as class GCPnts_DistFunction, but it can be used in minimization algorithms that
@@ -37,8 +37,33 @@ type
 proc constructGCPntsDistFunctionMV*(theCurvLinDist: var GCPntsDistFunction): GCPntsDistFunctionMV {.
     constructor, importcpp: "GCPnts_DistFunctionMV(@)",
     header: "GCPnts_DistFunction.hxx".}
-proc value*(this: var GCPntsDistFunctionMV; x: MathVector; f: var float): bool {.
+proc value*(this: var GCPntsDistFunctionMV; x: MathVector; f: var cfloat): bool {.
     importcpp: "Value", header: "GCPnts_DistFunction.hxx".}
-proc nbVariables*(this: GCPntsDistFunctionMV): int {.noSideEffect,
+proc nbVariables*(this: GCPntsDistFunctionMV): cint {.noSideEffect,
     importcpp: "NbVariables", header: "GCPnts_DistFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -17,8 +17,7 @@
 discard "forward decl of StepGeom_CartesianTransformationOperator2d"
 discard "forward decl of StepGeom_CartesianTransformationOperator2d"
 type
-  HandleStepGeomCartesianTransformationOperator2d* = Handle[
-      StepGeomCartesianTransformationOperator2d]
+  HandleC1C1* = Handle[StepGeomCartesianTransformationOperator2d]
 
 ## ! Added from StepGeom Rev2 to Rev4
 
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_Cartesian
 proc dynamicType*(this: StepGeomCartesianTransformationOperator2d): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepGeom_CartesianTransformationOperator2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

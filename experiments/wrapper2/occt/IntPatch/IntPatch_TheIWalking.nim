@@ -56,6 +56,7 @@ type
                                                                          ## ! in case of
                                                                          ## IntPatch walking
                                                                          ## theToFillHoles is False
+    intPatchTheIWLineOfTheIWalking* {.importc: "IntPatch_TheIWLineOfTheIWalking".}: Handle
     ##  Estimated U-range for section curve
     ##  Estimated V-range for section curve
 
@@ -67,26 +68,80 @@ proc constructIntPatchTheIWalking*(epsilon: float; deflection: float; step: floa
 proc setTolerance*(this: var IntPatchTheIWalking; epsilon: float; deflection: float;
                   step: float) {.importcpp: "SetTolerance",
                                header: "IntPatch_TheIWalking.hxx".}
-proc perform*(this: var IntPatchTheIWalking; pnts1: IntSurfSequenceOfPathPoint;
-             pnts2: IntSurfSequenceOfInteriorPoint;
-             `func`: var IntPatchTheSurfFunction; s: Handle[Adaptor3dHSurface];
-             reversed: bool = false) {.importcpp: "Perform",
-                                   header: "IntPatch_TheIWalking.hxx".}
-proc perform*(this: var IntPatchTheIWalking; pnts1: IntSurfSequenceOfPathPoint;
-             `func`: var IntPatchTheSurfFunction; s: Handle[Adaptor3dHSurface];
-             reversed: bool = false) {.importcpp: "Perform",
-                                   header: "IntPatch_TheIWalking.hxx".}
+## !!!Ignored construct:  ! Searches a set of polylines starting on a point of Pnts1
+## ! or Pnts2.
+## ! Each point on a resulting polyline verifies F(u,v)=0 void Perform ( const IntSurf_SequenceOfPathPoint & Pnts1 , const IntSurf_SequenceOfInteriorPoint & Pnts2 , IntPatch_TheSurfFunction & Func , const Handle ( Adaptor3d_HSurface ) & S , const Standard_Boolean Reversed = Standard_False ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Searches a set of polylines starting on a point of Pnts1.
+## ! Each point on a resulting polyline verifies F(u,v)=0 void Perform ( const IntSurf_SequenceOfPathPoint & Pnts1 , IntPatch_TheSurfFunction & Func , const Handle ( Adaptor3d_HSurface ) & S , const Standard_Boolean Reversed = Standard_False ) ;
+## Error: token expected: ) but got: &!!!
+
 proc isDone*(this: IntPatchTheIWalking): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntPatch_TheIWalking.hxx".}
 proc nbLines*(this: IntPatchTheIWalking): int {.noSideEffect, importcpp: "NbLines",
     header: "IntPatch_TheIWalking.hxx".}
-proc value*(this: IntPatchTheIWalking; index: int): Handle[
-    IntPatchTheIWLineOfTheIWalking] {.noSideEffect, importcpp: "Value",
-                                     header: "IntPatch_TheIWalking.hxx".}
+## !!!Ignored construct:  & Value ( const Standard_Integer Index ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc nbSinglePnts*(this: IntPatchTheIWalking): int {.noSideEffect,
     importcpp: "NbSinglePnts", header: "IntPatch_TheIWalking.hxx".}
 proc singlePnt*(this: IntPatchTheIWalking; index: int): IntSurfPathPoint {.
     noSideEffect, importcpp: "SinglePnt", header: "IntPatch_TheIWalking.hxx".}
-## !!!Ignored construct:  # ThePointOfPath IntSurf_PathPoint [NewLine] # ThePointOfPath_hxx < IntSurf_PathPoint . hxx > [NewLine] # ThePointOfPathTool IntSurf_PathPointTool [NewLine] # ThePointOfPathTool_hxx < IntSurf_PathPointTool . hxx > [NewLine] # ThePOPIterator IntSurf_SequenceOfPathPoint [NewLine] # ThePOPIterator_hxx < IntSurf_SequenceOfPathPoint . hxx > [NewLine] # ThePointOfLoop IntSurf_InteriorPoint [NewLine] # ThePointOfLoop_hxx < IntSurf_InteriorPoint . hxx > [NewLine] # ThePointOfLoopTool IntSurf_InteriorPointTool [NewLine] # ThePointOfLoopTool_hxx < IntSurf_InteriorPointTool . hxx > [NewLine] # ThePOLIterator IntSurf_SequenceOfInteriorPoint [NewLine] # ThePOLIterator_hxx < IntSurf_SequenceOfInteriorPoint . hxx > [NewLine] # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # TheIWFunction IntPatch_TheSurfFunction [NewLine] # TheIWFunction_hxx < IntPatch_TheSurfFunction . hxx > [NewLine] # IntWalk_TheIWLine IntPatch_TheIWLineOfTheIWalking [NewLine] # IntWalk_TheIWLine_hxx < IntPatch_TheIWLineOfTheIWalking . hxx > [NewLine] # IntWalk_SequenceOfIWLine IntPatch_SequenceOfIWLineOfTheIWalking [NewLine] # IntWalk_SequenceOfIWLine_hxx < IntPatch_SequenceOfIWLineOfTheIWalking . hxx > [NewLine] # Handle_IntWalk_TheIWLine opencascade :: handle < IntPatch_TheIWLineOfTheIWalking > [end of template] [NewLine] # IntWalk_IWalking IntPatch_TheIWalking [NewLine] # IntWalk_IWalking_hxx < IntPatch_TheIWalking . hxx > [NewLine] # < IntWalk_IWalking . lxx > [NewLine] # ThePointOfPath [NewLine] # ThePointOfPath_hxx [NewLine] # ThePointOfPathTool [NewLine] # ThePointOfPathTool_hxx [NewLine] # ThePOPIterator [NewLine] # ThePOPIterator_hxx [NewLine] # ThePointOfLoop [NewLine] # ThePointOfLoop_hxx [NewLine] # ThePointOfLoopTool [NewLine] # ThePointOfLoopTool_hxx [NewLine] # ThePOLIterator [NewLine] # ThePOLIterator_hxx [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # TheIWFunction [NewLine] # TheIWFunction_hxx [NewLine] # IntWalk_TheIWLine [NewLine] # IntWalk_TheIWLine_hxx [NewLine] # IntWalk_SequenceOfIWLine [NewLine] # IntWalk_SequenceOfIWLine_hxx [NewLine] # Handle_IntWalk_TheIWLine [NewLine] # IntWalk_IWalking [NewLine] # IntWalk_IWalking_hxx [NewLine] #  _IntPatch_TheIWalking_HeaderFile
+## !!!Ignored construct:  void TestArretCadre ( const TColStd_SequenceOfReal & Umult , const TColStd_SequenceOfReal & Vmult , const Handle ( IntPatch_TheIWLineOfTheIWalking ) & Line , IntPatch_TheSurfFunction & Section , math_Vector & UV , Standard_Integer & Irang ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void OpenLine ( const Standard_Integer N , const IntSurf_PntOn2S & Psol , const IntSurf_SequenceOfPathPoint & Pnts1 , IntPatch_TheSurfFunction & Section , const Handle ( IntPatch_TheIWLineOfTheIWalking ) & Line ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void AddPointInCurrentLine ( const Standard_Integer N , const IntSurf_PathPoint & PathPnt , const Handle ( IntPatch_TheIWLineOfTheIWalking ) & CurrentLine ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  # ThePointOfPath IntSurf_PathPoint [NewLine] # ThePointOfPath_hxx < IntSurf_PathPoint . hxx > [NewLine] # ThePointOfPathTool IntSurf_PathPointTool [NewLine] # ThePointOfPathTool_hxx < IntSurf_PathPointTool . hxx > [NewLine] # ThePOPIterator IntSurf_SequenceOfPathPoint [NewLine] # ThePOPIterator_hxx < IntSurf_SequenceOfPathPoint . hxx > [NewLine] # ThePointOfLoop IntSurf_InteriorPoint [NewLine] # ThePointOfLoop_hxx < IntSurf_InteriorPoint . hxx > [NewLine] # ThePointOfLoopTool IntSurf_InteriorPointTool [NewLine] # ThePointOfLoopTool_hxx < IntSurf_InteriorPointTool . hxx > [NewLine] # ThePOLIterator IntSurf_SequenceOfInteriorPoint [NewLine] # ThePOLIterator_hxx < IntSurf_SequenceOfInteriorPoint . hxx > [NewLine] # ThePSurface Handle ( Adaptor3d_HSurface ) [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # TheIWFunction IntPatch_TheSurfFunction [NewLine] # TheIWFunction_hxx < IntPatch_TheSurfFunction . hxx > [NewLine] # IntWalk_TheIWLine IntPatch_TheIWLineOfTheIWalking [NewLine] # IntWalk_TheIWLine_hxx < IntPatch_TheIWLineOfTheIWalking . hxx > [NewLine] # IntWalk_SequenceOfIWLine IntPatch_SequenceOfIWLineOfTheIWalking [NewLine] # IntWalk_SequenceOfIWLine_hxx < IntPatch_SequenceOfIWLineOfTheIWalking . hxx > [NewLine] # Handle_IntWalk_TheIWLine Handle ( IntPatch_TheIWLineOfTheIWalking ) [NewLine] # IntWalk_IWalking IntPatch_TheIWalking [NewLine] # IntWalk_IWalking_hxx < IntPatch_TheIWalking . hxx > [NewLine] # < IntWalk_IWalking . lxx > [NewLine] # ThePointOfPath [NewLine] # ThePointOfPath_hxx [NewLine] # ThePointOfPathTool [NewLine] # ThePointOfPathTool_hxx [NewLine] # ThePOPIterator [NewLine] # ThePOPIterator_hxx [NewLine] # ThePointOfLoop [NewLine] # ThePointOfLoop_hxx [NewLine] # ThePointOfLoopTool [NewLine] # ThePointOfLoopTool_hxx [NewLine] # ThePOLIterator [NewLine] # ThePOLIterator_hxx [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # TheIWFunction [NewLine] # TheIWFunction_hxx [NewLine] # IntWalk_TheIWLine [NewLine] # IntWalk_TheIWLine_hxx [NewLine] # IntWalk_SequenceOfIWLine [NewLine] # IntWalk_SequenceOfIWLine_hxx [NewLine] # Handle_IntWalk_TheIWLine [NewLine] # IntWalk_IWalking [NewLine] # IntWalk_IWalking_hxx [NewLine] #  _IntPatch_TheIWalking_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

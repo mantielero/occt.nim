@@ -25,3 +25,28 @@ type
     BRepLibDifferentsPointAndParameter, BRepLibLineThroughIdenticPoints
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

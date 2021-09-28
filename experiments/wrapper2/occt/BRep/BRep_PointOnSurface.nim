@@ -19,7 +19,7 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_PointOnSurface"
 discard "forward decl of BRep_PointOnSurface"
 type
-  HandleBRepPointOnSurface* = Handle[BRepPointOnSurface]
+  HandleC1C1* = Handle[BRepPointOnSurface]
 
 ## ! Representation by two parameters on a surface.
 
@@ -28,7 +28,7 @@ type
                        header: "BRep_PointOnSurface.hxx", bycopy.} = object of BRepPointsOnSurface
 
 
-proc constructBRepPointOnSurface*(p1: float; p2: float; s: Handle[GeomSurface];
+proc constructBRepPointOnSurface*(p1: cfloat; p2: cfloat; s: Handle[GeomSurface];
                                  L: TopLocLocation): BRepPointOnSurface {.
     constructor, importcpp: "BRep_PointOnSurface(@)",
     header: "BRep_PointOnSurface.hxx".}
@@ -37,9 +37,9 @@ proc isPointOnSurface*(this: BRepPointOnSurface): bool {.noSideEffect,
 proc isPointOnSurface*(this: BRepPointOnSurface; s: Handle[GeomSurface];
                       L: TopLocLocation): bool {.noSideEffect,
     importcpp: "IsPointOnSurface", header: "BRep_PointOnSurface.hxx".}
-proc parameter2*(this: BRepPointOnSurface): float {.noSideEffect,
+proc parameter2*(this: BRepPointOnSurface): cfloat {.noSideEffect,
     importcpp: "Parameter2", header: "BRep_PointOnSurface.hxx".}
-proc parameter2*(this: var BRepPointOnSurface; p: float) {.importcpp: "Parameter2",
+proc parameter2*(this: var BRepPointOnSurface; p: cfloat) {.importcpp: "Parameter2",
     header: "BRep_PointOnSurface.hxx".}
 type
   BRepPointOnSurfacebaseType* = BRepPointsOnSurface
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_PointOnSurface.hxx".}
 proc dynamicType*(this: BRepPointOnSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_PointOnSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

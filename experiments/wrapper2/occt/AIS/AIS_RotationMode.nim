@@ -27,3 +27,28 @@ const
   AIS_RotationModeLOWER* = 0
   AIS_RotationModeUPPER* = aIS_RotationModeBndBoxScene
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

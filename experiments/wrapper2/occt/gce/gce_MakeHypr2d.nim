@@ -83,10 +83,10 @@ type
 
 proc constructGceMakeHypr2d*(s1: Pnt2d; s2: Pnt2d; center: Pnt2d): GceMakeHypr2d {.
     constructor, importcpp: "gce_MakeHypr2d(@)", header: "gce_MakeHypr2d.hxx".}
-proc constructGceMakeHypr2d*(majorAxis: Ax2d; majorRadius: float; minorRadius: float;
-                            sense: bool): GceMakeHypr2d {.constructor,
-    importcpp: "gce_MakeHypr2d(@)", header: "gce_MakeHypr2d.hxx".}
-proc constructGceMakeHypr2d*(a: Ax22d; majorRadius: float; minorRadius: float): GceMakeHypr2d {.
+proc constructGceMakeHypr2d*(majorAxis: Ax2d; majorRadius: cfloat;
+                            minorRadius: cfloat; sense: bool): GceMakeHypr2d {.
+    constructor, importcpp: "gce_MakeHypr2d(@)", header: "gce_MakeHypr2d.hxx".}
+proc constructGceMakeHypr2d*(a: Ax22d; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr2d {.
     constructor, importcpp: "gce_MakeHypr2d(@)", header: "gce_MakeHypr2d.hxx".}
 proc value*(this: GceMakeHypr2d): Hypr2d {.noSideEffect, importcpp: "Value",
                                        header: "gce_MakeHypr2d.hxx".}
@@ -94,3 +94,28 @@ proc operator*(this: GceMakeHypr2d): Hypr2d {.noSideEffect, importcpp: "Operator
     header: "gce_MakeHypr2d.hxx".}
 converter `hypr2d`*(this: GceMakeHypr2d): Hypr2d {.noSideEffect,
     importcpp: "gce_MakeHypr2d::operator gp_Hypr2d", header: "gce_MakeHypr2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,8 +19,7 @@ discard "forward decl of StepAP214_ApprovalItem"
 discard "forward decl of StepAP214_AppliedApprovalAssignment"
 discard "forward decl of StepAP214_AppliedApprovalAssignment"
 type
-  HandleStepAP214AppliedApprovalAssignment* = Handle[
-      StepAP214AppliedApprovalAssignment]
+  HandleC1C1* = Handle[StepAP214AppliedApprovalAssignment]
   StepAP214AppliedApprovalAssignment* {.importcpp: "StepAP214_AppliedApprovalAssignment", header: "StepAP214_AppliedApprovalAssignment.hxx",
                                        bycopy.} = object of StepBasicApprovalAssignment ##
                                                                                    ## !
@@ -41,10 +40,10 @@ proc setItems*(this: var StepAP214AppliedApprovalAssignment;
     importcpp: "SetItems", header: "StepAP214_AppliedApprovalAssignment.hxx".}
 proc items*(this: StepAP214AppliedApprovalAssignment): Handle[
     StepAP214HArray1OfApprovalItem] {.noSideEffect, importcpp: "Items", header: "StepAP214_AppliedApprovalAssignment.hxx".}
-proc itemsValue*(this: StepAP214AppliedApprovalAssignment; num: int): StepAP214ApprovalItem {.
+proc itemsValue*(this: StepAP214AppliedApprovalAssignment; num: cint): StepAP214ApprovalItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedApprovalAssignment.hxx".}
-proc nbItems*(this: StepAP214AppliedApprovalAssignment): int {.noSideEffect,
+proc nbItems*(this: StepAP214AppliedApprovalAssignment): cint {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AppliedApprovalAssignment.hxx".}
 type
   StepAP214AppliedApprovalAssignmentbaseType* = StepBasicApprovalAssignment
@@ -57,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214AppliedApprovalAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedApprovalAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

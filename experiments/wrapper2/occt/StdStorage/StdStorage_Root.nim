@@ -17,7 +17,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Storage_Root"
 discard "forward decl of StdStorage_Root"
 type
-  HandleStdStorageRoot* = Handle[StdStorageRoot]
+  HandleC1C1* = Handle[StdStorageRoot]
 
 ## ! Describes a named persistent root
 
@@ -51,5 +51,30 @@ proc `type`*(this: StdStorageRoot): TCollectionAsciiString {.noSideEffect,
     importcpp: "Type", header: "StdStorage_Root.hxx".}
 proc setType*(this: var StdStorageRoot; aType: TCollectionAsciiString) {.
     importcpp: "SetType", header: "StdStorage_Root.hxx".}
-proc reference*(this: StdStorageRoot): int {.noSideEffect, importcpp: "Reference",
+proc reference*(this: StdStorageRoot): cint {.noSideEffect, importcpp: "Reference",
     header: "StdStorage_Root.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

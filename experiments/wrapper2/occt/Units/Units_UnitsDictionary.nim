@@ -20,7 +20,7 @@ discard "forward decl of Units_Dimensions"
 discard "forward decl of Units_UnitsDictionary"
 discard "forward decl of Units_UnitsDictionary"
 type
-  HandleUnitsUnitsDictionary* = Handle[UnitsUnitsDictionary]
+  HandleC1C1* = Handle[UnitsUnitsDictionary]
 
 ## ! This class creates  a dictionary of all  the units
 ## ! you want to know.
@@ -45,8 +45,8 @@ proc sequence*(this: UnitsUnitsDictionary): Handle[UnitsQuantitiesSequence] {.
     noSideEffect, importcpp: "Sequence", header: "Units_UnitsDictionary.hxx".}
 proc activeUnit*(this: UnitsUnitsDictionary; aquantity: StandardCString): TCollectionAsciiString {.
     noSideEffect, importcpp: "ActiveUnit", header: "Units_UnitsDictionary.hxx".}
-proc dump*(this: UnitsUnitsDictionary; alevel: int) {.noSideEffect, importcpp: "Dump",
-    header: "Units_UnitsDictionary.hxx".}
+proc dump*(this: UnitsUnitsDictionary; alevel: cint) {.noSideEffect,
+    importcpp: "Dump", header: "Units_UnitsDictionary.hxx".}
 proc dump*(this: UnitsUnitsDictionary; adimensions: Handle[UnitsDimensions]) {.
     noSideEffect, importcpp: "Dump", header: "Units_UnitsDictionary.hxx".}
 type
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Units_UnitsDictionary.hxx".}
 proc dynamicType*(this: UnitsUnitsDictionary): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_UnitsDictionary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

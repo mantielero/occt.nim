@@ -40,10 +40,35 @@ proc intersectionType*(this: HatchGenPointOnElement): HatchGenIntersectionType {
     noSideEffect, importcpp: "IntersectionType",
     header: "HatchGen_PointOnElement.hxx".}
 proc isIdentical*(this: HatchGenPointOnElement; point: HatchGenPointOnElement;
-                 confusion: float): bool {.noSideEffect, importcpp: "IsIdentical",
-                                        header: "HatchGen_PointOnElement.hxx".}
+                 confusion: cfloat): bool {.noSideEffect, importcpp: "IsIdentical",
+    header: "HatchGen_PointOnElement.hxx".}
 proc isDifferent*(this: HatchGenPointOnElement; point: HatchGenPointOnElement;
-                 confusion: float): bool {.noSideEffect, importcpp: "IsDifferent",
-                                        header: "HatchGen_PointOnElement.hxx".}
-proc dump*(this: HatchGenPointOnElement; index: int = 0) {.noSideEffect,
+                 confusion: cfloat): bool {.noSideEffect, importcpp: "IsDifferent",
+    header: "HatchGen_PointOnElement.hxx".}
+proc dump*(this: HatchGenPointOnElement; index: cint = 0) {.noSideEffect,
     importcpp: "Dump", header: "HatchGen_PointOnElement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

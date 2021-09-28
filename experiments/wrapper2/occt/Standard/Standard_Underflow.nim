@@ -14,16 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_Underflow_HeaderFile [NewLine] # _Standard_Underflow_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_NumericError . hxx > [NewLine] class Standard_Underflow ;
-## Error: expected ';'!!!
-
+discard "forward decl of Standard_Underflow"
 discard "forward decl of Standard_Underflow"
 type
-  HandleStandardUnderflowStandardUnderflow* = Handle[StandardUnderflow]
+  HandleC1C1* = Handle[StandardUnderflow]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_Underflow [NewLine] # if ( CONDITION ) throw Standard_Underflow ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noStandardUnderflow):
+  template standardUnderflowRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardUnderflow*(a1: Message): Throw {.
+          importcpp: "Standard_Underflow(@)", header: "Standard_Underflow.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_Underflow , Standard_NumericError ) #  _Standard_Underflow_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+type
+  StandardUnderflow* {.importcpp: "Standard_Underflow",
+                      header: "Standard_Underflow.hxx", bycopy.} = object of StandardNumericError
+
+
+
+
+
+
 

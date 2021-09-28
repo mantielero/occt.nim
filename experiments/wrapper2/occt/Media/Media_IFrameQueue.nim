@@ -23,3 +23,28 @@ proc lockFrame*(this: var MediaIFrameQueue): Handle[MediaFrame] {.
     importcpp: "LockFrame", header: "Media_IFrameQueue.hxx".}
 proc releaseFrame*(this: var MediaIFrameQueue; theFrame: Handle[MediaFrame]) {.
     importcpp: "ReleaseFrame", header: "Media_IFrameQueue.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,15 +24,40 @@ type
 proc constructPlatePinpointConstraint*(): PlatePinpointConstraint {.constructor,
     importcpp: "Plate_PinpointConstraint(@)",
     header: "Plate_PinpointConstraint.hxx".}
-proc constructPlatePinpointConstraint*(point2d: Xy; imposedValue: Xyz; iu: int = 0;
-                                      iv: int = 0): PlatePinpointConstraint {.
+proc constructPlatePinpointConstraint*(point2d: Xy; imposedValue: Xyz; iu: cint = 0;
+                                      iv: cint = 0): PlatePinpointConstraint {.
     constructor, importcpp: "Plate_PinpointConstraint(@)",
     header: "Plate_PinpointConstraint.hxx".}
 proc pnt2d*(this: PlatePinpointConstraint): Xy {.noSideEffect, importcpp: "Pnt2d",
     header: "Plate_PinpointConstraint.hxx".}
-proc idu*(this: PlatePinpointConstraint): int {.noSideEffect, importcpp: "Idu",
+proc idu*(this: PlatePinpointConstraint): cint {.noSideEffect, importcpp: "Idu",
     header: "Plate_PinpointConstraint.hxx".}
-proc idv*(this: PlatePinpointConstraint): int {.noSideEffect, importcpp: "Idv",
+proc idv*(this: PlatePinpointConstraint): cint {.noSideEffect, importcpp: "Idv",
     header: "Plate_PinpointConstraint.hxx".}
 proc value*(this: PlatePinpointConstraint): Xyz {.noSideEffect, importcpp: "Value",
     header: "Plate_PinpointConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

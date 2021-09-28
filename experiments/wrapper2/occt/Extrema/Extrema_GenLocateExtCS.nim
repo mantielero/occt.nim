@@ -28,18 +28,43 @@ type
 proc constructExtremaGenLocateExtCS*(): ExtremaGenLocateExtCS {.constructor,
     importcpp: "Extrema_GenLocateExtCS(@)", header: "Extrema_GenLocateExtCS.hxx".}
 proc constructExtremaGenLocateExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface;
-                                    t: float; u: float; v: float; tol1: float;
-                                    tol2: float): ExtremaGenLocateExtCS {.
+                                    t: cfloat; u: cfloat; v: cfloat; tol1: cfloat;
+                                    tol2: cfloat): ExtremaGenLocateExtCS {.
     constructor, importcpp: "Extrema_GenLocateExtCS(@)",
     header: "Extrema_GenLocateExtCS.hxx".}
 proc perform*(this: var ExtremaGenLocateExtCS; c: Adaptor3dCurve; s: Adaptor3dSurface;
-             t: float; u: float; v: float; tol1: float; tol2: float) {.
+             t: cfloat; u: cfloat; v: cfloat; tol1: cfloat; tol2: cfloat) {.
     importcpp: "Perform", header: "Extrema_GenLocateExtCS.hxx".}
 proc isDone*(this: ExtremaGenLocateExtCS): bool {.noSideEffect, importcpp: "IsDone",
     header: "Extrema_GenLocateExtCS.hxx".}
-proc squareDistance*(this: ExtremaGenLocateExtCS): float {.noSideEffect,
+proc squareDistance*(this: ExtremaGenLocateExtCS): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_GenLocateExtCS.hxx".}
 proc pointOnCurve*(this: ExtremaGenLocateExtCS): ExtremaPOnCurv {.noSideEffect,
     importcpp: "PointOnCurve", header: "Extrema_GenLocateExtCS.hxx".}
 proc pointOnSurface*(this: ExtremaGenLocateExtCS): ExtremaPOnSurf {.noSideEffect,
     importcpp: "PointOnSurface", header: "Extrema_GenLocateExtCS.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

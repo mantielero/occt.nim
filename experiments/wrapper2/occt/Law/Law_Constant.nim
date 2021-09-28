@@ -19,7 +19,7 @@ discard "forward decl of Law_Function"
 discard "forward decl of Law_Constant"
 discard "forward decl of Law_Constant"
 type
-  HandleLawConstant* = Handle[LawConstant]
+  HandleC1C1* = Handle[LawConstant]
 
 ## ! Loi constante
 
@@ -29,23 +29,23 @@ type
 
 proc constructLawConstant*(): LawConstant {.constructor,
     importcpp: "Law_Constant(@)", header: "Law_Constant.hxx".}
-proc set*(this: var LawConstant; radius: float; pFirst: float; pLast: float) {.
+proc set*(this: var LawConstant; radius: cfloat; pFirst: cfloat; pLast: cfloat) {.
     importcpp: "Set", header: "Law_Constant.hxx".}
 proc continuity*(this: LawConstant): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Law_Constant.hxx".}
-proc nbIntervals*(this: LawConstant; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: LawConstant; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Law_Constant.hxx".}
 proc intervals*(this: LawConstant; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "Law_Constant.hxx".}
-proc value*(this: var LawConstant; x: float): float {.importcpp: "Value",
+proc value*(this: var LawConstant; x: cfloat): cfloat {.importcpp: "Value",
     header: "Law_Constant.hxx".}
-proc d1*(this: var LawConstant; x: float; f: var float; d: var float) {.importcpp: "D1",
+proc d1*(this: var LawConstant; x: cfloat; f: var cfloat; d: var cfloat) {.importcpp: "D1",
     header: "Law_Constant.hxx".}
-proc d2*(this: var LawConstant; x: float; f: var float; d: var float; d2: var float) {.
+proc d2*(this: var LawConstant; x: cfloat; f: var cfloat; d: var cfloat; d2: var cfloat) {.
     importcpp: "D2", header: "Law_Constant.hxx".}
-proc trim*(this: LawConstant; pFirst: float; pLast: float; tol: float): Handle[
+proc trim*(this: LawConstant; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handle[
     LawFunction] {.noSideEffect, importcpp: "Trim", header: "Law_Constant.hxx".}
-proc bounds*(this: var LawConstant; pFirst: var float; pLast: var float) {.
+proc bounds*(this: var LawConstant; pFirst: var cfloat; pLast: var cfloat) {.
     importcpp: "Bounds", header: "Law_Constant.hxx".}
 type
   LawConstantbaseType* = LawFunction
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Law_Constant::get_type_descriptor(@)", header: "Law_Constant.hxx".}
 proc dynamicType*(this: LawConstant): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_Constant.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

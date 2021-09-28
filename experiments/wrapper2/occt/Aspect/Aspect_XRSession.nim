@@ -77,16 +77,16 @@ proc submitEye*(this: var AspectXRSession; theTexture: pointer;
                theGraphicsLib: AspectGraphicsLibrary;
                theColorSpace: AspectColorSpace; theEye: AspectEye): bool {.
     importcpp: "SubmitEye", header: "Aspect_XRSession.hxx".}
-proc unitFactor*(this: AspectXRSession): float {.noSideEffect,
+proc unitFactor*(this: AspectXRSession): cfloat {.noSideEffect,
     importcpp: "UnitFactor", header: "Aspect_XRSession.hxx".}
-proc setUnitFactor*(this: var AspectXRSession; theFactor: float) {.
+proc setUnitFactor*(this: var AspectXRSession; theFactor: cfloat) {.
     importcpp: "SetUnitFactor", header: "Aspect_XRSession.hxx".}
-proc aspect*(this: AspectXRSession): float {.noSideEffect, importcpp: "Aspect",
+proc aspect*(this: AspectXRSession): cfloat {.noSideEffect, importcpp: "Aspect",
     header: "Aspect_XRSession.hxx".}
-proc fieldOfView*(this: AspectXRSession): float {.noSideEffect,
+proc fieldOfView*(this: AspectXRSession): cfloat {.noSideEffect,
     importcpp: "FieldOfView", header: "Aspect_XRSession.hxx".}
-proc iod*(this: AspectXRSession): float {.noSideEffect, importcpp: "IOD",
-                                      header: "Aspect_XRSession.hxx".}
+proc iod*(this: AspectXRSession): cfloat {.noSideEffect, importcpp: "IOD",
+                                       header: "Aspect_XRSession.hxx".}
 proc displayFrequency*(this: AspectXRSession): StandardShortReal {.noSideEffect,
     importcpp: "DisplayFrequency", header: "Aspect_XRSession.hxx".}
 proc projectionFrustum*(this: AspectXRSession; theEye: AspectEye): AspectFrustumLRBT[
@@ -100,16 +100,16 @@ proc rightHandPose*(this: AspectXRSession): Trsf {.noSideEffect,
     importcpp: "RightHandPose", header: "Aspect_XRSession.hxx".}
 proc trackedPoses*(this: AspectXRSession): AspectTrackedDevicePoseArray {.
     noSideEffect, importcpp: "TrackedPoses", header: "Aspect_XRSession.hxx".}
-proc hasTrackedPose*(this: AspectXRSession; theDevice: int): bool {.noSideEffect,
+proc hasTrackedPose*(this: AspectXRSession; theDevice: cint): bool {.noSideEffect,
     importcpp: "HasTrackedPose", header: "Aspect_XRSession.hxx".}
 proc namedTrackedDevice*(this: AspectXRSession;
-                        theDevice: AspectXRTrackedDeviceRole): int {.noSideEffect,
+                        theDevice: AspectXRTrackedDeviceRole): cint {.noSideEffect,
     importcpp: "NamedTrackedDevice", header: "Aspect_XRSession.hxx".}
-proc loadRenderModel*(this: var AspectXRSession; theDevice: int;
+proc loadRenderModel*(this: var AspectXRSession; theDevice: cint;
                      theTexture: var Handle[ImageTexture]): Handle[
     Graphic3dArrayOfTriangles] {.importcpp: "LoadRenderModel",
                                 header: "Aspect_XRSession.hxx".}
-proc loadRenderModel*(this: var AspectXRSession; theDevice: int;
+proc loadRenderModel*(this: var AspectXRSession; theDevice: cint;
                      theToApplyUnitFactor: bool;
                      theTexture: var Handle[ImageTexture]): Handle[
     Graphic3dArrayOfTriangles] {.importcpp: "LoadRenderModel",
@@ -146,3 +146,28 @@ type
 
 proc getString*(this: AspectXRSession; theInfo: AspectXRSessionInfoString): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetString", header: "Aspect_XRSession.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataStd_BooleanList"
 discard "forward decl of TDataStd_BooleanList"
 type
-  HandleTDataStdBooleanList* = Handle[TDataStdBooleanList]
+  HandleC1C1* = Handle[TDataStdBooleanList]
 
 ## ! Contains a list of bolleans.
 
@@ -56,7 +56,7 @@ proc constructTDataStdBooleanList*(): TDataStdBooleanList {.constructor,
     importcpp: "TDataStd_BooleanList(@)", header: "TDataStd_BooleanList.hxx".}
 proc isEmpty*(this: TDataStdBooleanList): bool {.noSideEffect, importcpp: "IsEmpty",
     header: "TDataStd_BooleanList.hxx".}
-proc extent*(this: TDataStdBooleanList): int {.noSideEffect, importcpp: "Extent",
+proc extent*(this: TDataStdBooleanList): cint {.noSideEffect, importcpp: "Extent",
     header: "TDataStd_BooleanList.hxx".}
 proc prepend*(this: var TDataStdBooleanList; value: bool) {.importcpp: "Prepend",
     header: "TDataStd_BooleanList.hxx".}
@@ -70,11 +70,11 @@ proc last*(this: TDataStdBooleanList): bool {.noSideEffect, importcpp: "Last",
     header: "TDataStd_BooleanList.hxx".}
 proc list*(this: TDataStdBooleanList): TDataStdListOfByte {.noSideEffect,
     importcpp: "List", header: "TDataStd_BooleanList.hxx".}
-proc insertBefore*(this: var TDataStdBooleanList; index: int; beforeValue: bool): bool {.
+proc insertBefore*(this: var TDataStdBooleanList; index: cint; beforeValue: bool): bool {.
     importcpp: "InsertBefore", header: "TDataStd_BooleanList.hxx".}
-proc insertAfter*(this: var TDataStdBooleanList; index: int; afterValue: bool): bool {.
+proc insertAfter*(this: var TDataStdBooleanList; index: cint; afterValue: bool): bool {.
     importcpp: "InsertAfter", header: "TDataStd_BooleanList.hxx".}
-proc remove*(this: var TDataStdBooleanList; index: int): bool {.importcpp: "Remove",
+proc remove*(this: var TDataStdBooleanList; index: cint): bool {.importcpp: "Remove",
     header: "TDataStd_BooleanList.hxx".}
 proc setID*(this: var TDataStdBooleanList; theGuid: StandardGUID) {.
     importcpp: "SetID", header: "TDataStd_BooleanList.hxx".}
@@ -92,8 +92,8 @@ proc paste*(this: TDataStdBooleanList; into: Handle[TDF_Attribute];
 proc dump*(this: TDataStdBooleanList; anOS: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Dump", header: "TDataStd_BooleanList.hxx".}
 proc dumpJson*(this: TDataStdBooleanList; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "TDataStd_BooleanList.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "TDataStd_BooleanList.hxx".}
 type
   TDataStdBooleanListbaseType* = TDF_Attribute
 
@@ -104,3 +104,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataStd_BooleanList.hxx".}
 proc dynamicType*(this: TDataStdBooleanList): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataStd_BooleanList.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

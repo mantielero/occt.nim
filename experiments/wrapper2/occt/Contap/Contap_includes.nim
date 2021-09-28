@@ -26,3 +26,28 @@ include Contap_TheSegmentOfTheSearch
 include Contap_TheSequenceOfLine
 include Contap_TheSequenceOfPoint
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESDimen_LeaderArrow"
 type
-  HandleIGESDimenLeaderArrow* = Handle[IGESDimenLeaderArrow]
+  HandleC1C1* = Handle[IGESDimenLeaderArrow]
 
 ## ! defines LeaderArrow, Type <214> Form <1-12>
 ## ! in package IGESDimen
@@ -36,26 +36,26 @@ type
 
 proc constructIGESDimenLeaderArrow*(): IGESDimenLeaderArrow {.constructor,
     importcpp: "IGESDimen_LeaderArrow(@)", header: "IGESDimen_LeaderArrow.hxx".}
-proc init*(this: var IGESDimenLeaderArrow; height: float; width: float; depth: float;
+proc init*(this: var IGESDimenLeaderArrow; height: cfloat; width: cfloat; depth: cfloat;
           position: Xy; segments: Handle[TColgpHArray1OfXY]) {.importcpp: "Init",
     header: "IGESDimen_LeaderArrow.hxx".}
-proc setFormNumber*(this: var IGESDimenLeaderArrow; form: int) {.
+proc setFormNumber*(this: var IGESDimenLeaderArrow; form: cint) {.
     importcpp: "SetFormNumber", header: "IGESDimen_LeaderArrow.hxx".}
-proc nbSegments*(this: IGESDimenLeaderArrow): int {.noSideEffect,
+proc nbSegments*(this: IGESDimenLeaderArrow): cint {.noSideEffect,
     importcpp: "NbSegments", header: "IGESDimen_LeaderArrow.hxx".}
-proc arrowHeadHeight*(this: IGESDimenLeaderArrow): float {.noSideEffect,
+proc arrowHeadHeight*(this: IGESDimenLeaderArrow): cfloat {.noSideEffect,
     importcpp: "ArrowHeadHeight", header: "IGESDimen_LeaderArrow.hxx".}
-proc arrowHeadWidth*(this: IGESDimenLeaderArrow): float {.noSideEffect,
+proc arrowHeadWidth*(this: IGESDimenLeaderArrow): cfloat {.noSideEffect,
     importcpp: "ArrowHeadWidth", header: "IGESDimen_LeaderArrow.hxx".}
-proc zDepth*(this: IGESDimenLeaderArrow): float {.noSideEffect, importcpp: "ZDepth",
+proc zDepth*(this: IGESDimenLeaderArrow): cfloat {.noSideEffect, importcpp: "ZDepth",
     header: "IGESDimen_LeaderArrow.hxx".}
 proc arrowHead*(this: IGESDimenLeaderArrow): Pnt2d {.noSideEffect,
     importcpp: "ArrowHead", header: "IGESDimen_LeaderArrow.hxx".}
 proc transformedArrowHead*(this: IGESDimenLeaderArrow): Pnt {.noSideEffect,
     importcpp: "TransformedArrowHead", header: "IGESDimen_LeaderArrow.hxx".}
-proc segmentTail*(this: IGESDimenLeaderArrow; index: int): Pnt2d {.noSideEffect,
+proc segmentTail*(this: IGESDimenLeaderArrow; index: cint): Pnt2d {.noSideEffect,
     importcpp: "SegmentTail", header: "IGESDimen_LeaderArrow.hxx".}
-proc transformedSegmentTail*(this: IGESDimenLeaderArrow; index: int): Pnt {.
+proc transformedSegmentTail*(this: IGESDimenLeaderArrow; index: cint): Pnt {.
     noSideEffect, importcpp: "TransformedSegmentTail",
     header: "IGESDimen_LeaderArrow.hxx".}
 type
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDimen_LeaderArrow.hxx".}
 proc dynamicType*(this: IGESDimenLeaderArrow): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDimen_LeaderArrow.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

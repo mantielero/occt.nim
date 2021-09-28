@@ -20,42 +20,68 @@ type
                      header: "AppDef_MyLineTool.hxx", bycopy.} = object ## ! Returns the first index of multipoints of the MultiLine.
 
 
-proc firstPoint*(ml: AppDefMultiLine): int {.
+proc firstPoint*(ml: AppDefMultiLine): cint {.
     importcpp: "AppDef_MyLineTool::FirstPoint(@)", header: "AppDef_MyLineTool.hxx".}
-proc lastPoint*(ml: AppDefMultiLine): int {.importcpp: "AppDef_MyLineTool::LastPoint(@)",
-                                        header: "AppDef_MyLineTool.hxx".}
-proc nbP2d*(ml: AppDefMultiLine): int {.importcpp: "AppDef_MyLineTool::NbP2d(@)",
-                                    header: "AppDef_MyLineTool.hxx".}
-proc nbP3d*(ml: AppDefMultiLine): int {.importcpp: "AppDef_MyLineTool::NbP3d(@)",
-                                    header: "AppDef_MyLineTool.hxx".}
-proc value*(ml: AppDefMultiLine; mPointIndex: int; tabPt: var TColgpArray1OfPnt) {.
+proc lastPoint*(ml: AppDefMultiLine): cint {.
+    importcpp: "AppDef_MyLineTool::LastPoint(@)", header: "AppDef_MyLineTool.hxx".}
+proc nbP2d*(ml: AppDefMultiLine): cint {.importcpp: "AppDef_MyLineTool::NbP2d(@)",
+                                     header: "AppDef_MyLineTool.hxx".}
+proc nbP3d*(ml: AppDefMultiLine): cint {.importcpp: "AppDef_MyLineTool::NbP3d(@)",
+                                     header: "AppDef_MyLineTool.hxx".}
+proc value*(ml: AppDefMultiLine; mPointIndex: cint; tabPt: var TColgpArray1OfPnt) {.
     importcpp: "AppDef_MyLineTool::Value(@)", header: "AppDef_MyLineTool.hxx".}
-proc value*(ml: AppDefMultiLine; mPointIndex: int; tabPt2d: var TColgpArray1OfPnt2d) {.
+proc value*(ml: AppDefMultiLine; mPointIndex: cint; tabPt2d: var TColgpArray1OfPnt2d) {.
     importcpp: "AppDef_MyLineTool::Value(@)", header: "AppDef_MyLineTool.hxx".}
-proc value*(ml: AppDefMultiLine; mPointIndex: int; tabPt: var TColgpArray1OfPnt;
+proc value*(ml: AppDefMultiLine; mPointIndex: cint; tabPt: var TColgpArray1OfPnt;
            tabPt2d: var TColgpArray1OfPnt2d) {.
     importcpp: "AppDef_MyLineTool::Value(@)", header: "AppDef_MyLineTool.hxx".}
-proc tangency*(ml: AppDefMultiLine; mPointIndex: int; tabV: var TColgpArray1OfVec): bool {.
+proc tangency*(ml: AppDefMultiLine; mPointIndex: cint; tabV: var TColgpArray1OfVec): bool {.
     importcpp: "AppDef_MyLineTool::Tangency(@)", header: "AppDef_MyLineTool.hxx".}
-proc tangency*(ml: AppDefMultiLine; mPointIndex: int; tabV2d: var TColgpArray1OfVec2d): bool {.
-    importcpp: "AppDef_MyLineTool::Tangency(@)", header: "AppDef_MyLineTool.hxx".}
-proc tangency*(ml: AppDefMultiLine; mPointIndex: int; tabV: var TColgpArray1OfVec;
+proc tangency*(ml: AppDefMultiLine; mPointIndex: cint;
               tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "AppDef_MyLineTool::Tangency(@)", header: "AppDef_MyLineTool.hxx".}
-proc curvature*(ml: AppDefMultiLine; mPointIndex: int; tabV: var TColgpArray1OfVec): bool {.
+proc tangency*(ml: AppDefMultiLine; mPointIndex: cint; tabV: var TColgpArray1OfVec;
+              tabV2d: var TColgpArray1OfVec2d): bool {.
+    importcpp: "AppDef_MyLineTool::Tangency(@)", header: "AppDef_MyLineTool.hxx".}
+proc curvature*(ml: AppDefMultiLine; mPointIndex: cint; tabV: var TColgpArray1OfVec): bool {.
     importcpp: "AppDef_MyLineTool::Curvature(@)", header: "AppDef_MyLineTool.hxx".}
-proc curvature*(ml: AppDefMultiLine; mPointIndex: int;
+proc curvature*(ml: AppDefMultiLine; mPointIndex: cint;
                tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "AppDef_MyLineTool::Curvature(@)", header: "AppDef_MyLineTool.hxx".}
-proc curvature*(ml: AppDefMultiLine; mPointIndex: int; tabV: var TColgpArray1OfVec;
+proc curvature*(ml: AppDefMultiLine; mPointIndex: cint; tabV: var TColgpArray1OfVec;
                tabV2d: var TColgpArray1OfVec2d): bool {.
     importcpp: "AppDef_MyLineTool::Curvature(@)", header: "AppDef_MyLineTool.hxx".}
-proc whatStatus*(ml: AppDefMultiLine; i1: int; i2: int): ApproxStatus {.
+proc whatStatus*(ml: AppDefMultiLine; i1: cint; i2: cint): ApproxStatus {.
     importcpp: "AppDef_MyLineTool::WhatStatus(@)", header: "AppDef_MyLineTool.hxx".}
-proc makeMLBetween*(ml: AppDefMultiLine; i1: int; i2: int; nbPMin: int): AppDefMultiLine {.
+proc makeMLBetween*(ml: AppDefMultiLine; i1: cint; i2: cint; nbPMin: cint): AppDefMultiLine {.
     importcpp: "AppDef_MyLineTool::MakeMLBetween(@)",
     header: "AppDef_MyLineTool.hxx".}
-proc makeMLOneMorePoint*(ml: AppDefMultiLine; i1: int; i2: int; indbad: int;
+proc makeMLOneMorePoint*(ml: AppDefMultiLine; i1: cint; i2: cint; indbad: cint;
                         otherLine: var AppDefMultiLine): bool {.
     importcpp: "AppDef_MyLineTool::MakeMLOneMorePoint(@)",
     header: "AppDef_MyLineTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

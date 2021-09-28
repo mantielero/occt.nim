@@ -36,3 +36,28 @@ type
     BRepBuilderAPI_CurveProjectionFailed, BRepBuilderAPI_ParametersOutOfRange
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  ChFiKPartRstMap* = NCollectionDataMap[int, Handle[Adaptor2dHCurve2d],
+  ChFiKPartRstMap* = NCollectionDataMap[cint, Handle[Adaptor2dHCurve2d],
                                       TColStdMapIntegerHasher]
-  ChFiKPartDataMapIteratorOfRstMap* = Iterator[int, Handle[Adaptor2dHCurve2d],
+  ChFiKPartDataMapIteratorOfRstMap* = Iterator[cint, Handle[Adaptor2dHCurve2d],
       TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

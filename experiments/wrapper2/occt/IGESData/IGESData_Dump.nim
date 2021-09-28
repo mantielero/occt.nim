@@ -125,38 +125,38 @@ template iGESDataDumpListHeader*(s, lower, upper: untyped): void =
     s shl " (" shl lower shl " - " shl upper shl ")"
 
 template iGESDataDumpListVal*(s, lower, upper, item: untyped): void =
-  var lo: int
-  var up: int
+  var lo: cint
+  var up: cint
   iGESDataDumpListHeader(s, lo, up)
   s shl " :"
-  var iopa: int
+  var iopa: cint
   while iopa <= up:
     s shl " " shl item(iopa)
     inc(iopa)
 
 template iGESDataDumpListXY*(s, lower, upper, item: untyped): void =
-  var lo: int
-  var up: int
+  var lo: cint
+  var up: cint
   iGESDataDumpListHeader(s, lo, up)
   s shl " :"
-  var iopa: int
+  var iopa: cint
   while iopa <= up:
     iGESDataDumpXY(s, item(iopa))
     inc(iopa)
 
 template iGESDataDumpListXYZ*(s, lower, upper, item: untyped): void =
-  var lo: int
-  var up: int
+  var lo: cint
+  var up: cint
   iGESDataDumpListHeader(s, lo, up)
   s shl " :"
-  var iopa: int
+  var iopa: cint
   while iopa <= up:
     iGESDataDumpXYZ(s, item(iopa))
     inc(iopa)
 
 template iGESDataDumpVals*(s, level, lower, upper, item: untyped): void =
-  var lo: int
-  var up: int
+  var lo: cint
+  var up: cint
   iGESDataDumpListHeader(s, lo, up)
   if lo > up:
     discard
@@ -164,14 +164,14 @@ template iGESDataDumpVals*(s, level, lower, upper, item: untyped): void =
     s shl " [content : ask level > 4]"
   elif level > 0:
     s shl " :"
-    var iopa: int
+    var iopa: cint
     while iopa <= up:
       s shl " " shl item(iopa)
       inc(iopa)
 
 template iGESDataDumpListXYL*(s, level, lower, upper, item, trsf: untyped): void =
-  var lo: int
-  var up: int
+  var lo: cint
+  var up: cint
   iGESDataDumpListHeader(s, lo, up)
   if lo > up:
     discard
@@ -179,7 +179,7 @@ template iGESDataDumpListXYL*(s, level, lower, upper, item, trsf: untyped): void
     s shl " [content : ask level > 4, transformed : level > 5]"
   elif level > 0:
     s shl " :"
-    var iopa: int
+    var iopa: cint
     while iopa <= up:
       iGESDataDumpXY(s, item(iopa))
       inc(iopa)
@@ -188,14 +188,14 @@ template iGESDataDumpListXYL*(s, level, lower, upper, item, trsf: untyped): void
       if level == 5:
         s shl " [ask level > 5]"
       else:
-        var jopa: int
+        var jopa: cint
         while jopa <= up:
           iGESDataDumpXYT(s, item(jopa), trsf)
           inc(jopa)
 
 template iGESDataDumpListXYLZ*(s, level, lower, upper, item, trsf, z: untyped): void =
-  var lo: int
-  var up: int
+  var lo: cint
+  var up: cint
   iGESDataDumpListHeader(s, lo, up)
   if lo > up:
     discard
@@ -203,7 +203,7 @@ template iGESDataDumpListXYLZ*(s, level, lower, upper, item, trsf, z: untyped): 
     s shl " [content : ask level > 4, transformed : level > 5]"
   elif level > 0:
     s shl " :"
-    var iopa: int
+    var iopa: cint
     while iopa <= up:
       iGESDataDumpXY(s, item(iopa))
       inc(iopa)
@@ -212,14 +212,14 @@ template iGESDataDumpListXYLZ*(s, level, lower, upper, item, trsf, z: untyped): 
       if level == 5:
         s shl " [ask level > 5]"
       else:
-        var jopa: int
+        var jopa: cint
         while jopa <= up:
           iGESDataDumpXYTZ(s, item(jopa), trsf, z)
           inc(jopa)
 
 template iGESDataDumpListXYZL*(s, level, lower, upper, item, trsf: untyped): void =
-  var lo: int
-  var up: int
+  var lo: cint
+  var up: cint
   iGESDataDumpListHeader(s, lo, up)
   if lo > up:
     discard
@@ -227,7 +227,7 @@ template iGESDataDumpListXYZL*(s, level, lower, upper, item, trsf: untyped): voi
     s shl " [content : ask level > 4, transformed : level > 5]"
   elif level > 0:
     s shl " :"
-    var iopa: int
+    var iopa: cint
     while iopa <= up:
       iGESDataDumpXYZ(s, item(iopa))
       inc(iopa)
@@ -236,14 +236,14 @@ template iGESDataDumpListXYZL*(s, level, lower, upper, item, trsf: untyped): voi
       if level == 5:
         s shl " [ask level > 5]"
       else:
-        var jopa: int
+        var jopa: cint
         while jopa <= up:
           iGESDataDumpXYZT(s, item(jopa), trsf)
           inc(jopa)
 
 template iGESDataDumpStrings*(s, level, lower, upper, item: untyped): void =
-  var lo: int
-  var up: int
+  var lo: cint
+  var up: cint
   iGESDataDumpListHeader(s, lo, up)
   if lo > up:
     discard
@@ -251,7 +251,7 @@ template iGESDataDumpStrings*(s, level, lower, upper, item: untyped): void =
     s shl " [content : ask level > 4]"
   elif level > 0:
     s shl " :"
-    var iopa: int
+    var iopa: cint
     while iopa <= up:
       s shl "\n[" shl blanks(iopa, 3) shl iopa shl "]:\"" shl item(iopa).string() shl
           '\"'
@@ -259,8 +259,8 @@ template iGESDataDumpStrings*(s, level, lower, upper, item: untyped): void =
     s shl "\n"
 
 template iGESDataDumpEntities*(s, dumper, level, lower, upper, item: untyped): void =
-  var lo: int
-  var up: int
+  var lo: cint
+  var up: cint
   iGESDataDumpListHeader(s, lo, up)
   if lo > up:
     discard
@@ -268,7 +268,7 @@ template iGESDataDumpEntities*(s, dumper, level, lower, upper, item: untyped): v
     s shl " [content : ask level > 4]"
   elif level > 0:
     s shl " :"
-    var iopa: int
+    var iopa: cint
     while iopa <= up:
       if level == 5:
         s shl " "
@@ -299,4 +299,29 @@ template iGESDataDumpRectVals*(s, level, lowCol, upCol, lowRow, upRow, item: unt
         inc(ic)
       s shl " ]\n"
       inc(ir)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

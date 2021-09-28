@@ -19,10 +19,21 @@ discard "forward decl of Standard_Persistent"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_Failure"
 type
-  Standard* {.importcpp: "Standard", header: "Standard.hxx", bycopy.} = object ## ! Allocates memory blocks
-                                                                       ## ! aSize - bytes to  allocate
+  Standard* {.importcpp: "Standard", header: "Standard.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Standard; theSize: csize_t): pointer {.
+    importcpp: "Standard::operator new", header: "Standard.hxx".}
+proc `delete`*(this: var Standard; theAddress: pointer) {.
+    importcpp: "Standard::operator delete", header: "Standard.hxx".}
+proc `new[]`*(this: var Standard; theSize: csize_t): pointer {.
+    importcpp: "Standard::operator new[]", header: "Standard.hxx".}
+proc `delete[]`*(this: var Standard; theAddress: pointer) {.
+    importcpp: "Standard::operator delete[]", header: "Standard.hxx".}
+proc `new`*(this: var Standard; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Standard::operator new", header: "Standard.hxx".}
+proc `delete`*(this: var Standard; a2: pointer; a3: pointer) {.
+    importcpp: "Standard::operator delete", header: "Standard.hxx".}
 proc allocate*(aSize: StandardSize): StandardAddress {.
     importcpp: "Standard::Allocate(@)", header: "Standard.hxx".}
 proc free*(thePtr: StandardAddress) {.importcpp: "Standard::Free(@)",
@@ -39,4 +50,3 @@ proc freeAligned*[T](thePtrAligned: ptr T) {.importcpp: "Standard::FreeAligned(@
 proc purge*(): int {.importcpp: "Standard::Purge(@)", header: "Standard.hxx".}
 ##  include definition of handle to make it always visible
 ##  (put at the and of the file due to cyclic dependency between headers)
-

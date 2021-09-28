@@ -21,46 +21,47 @@ discard "forward decl of gp_Vec2d"
 type
   Geom2dAPI_Interpolate* {.importcpp: "Geom2dAPI_Interpolate",
                           header: "Geom2dAPI_Interpolate.hxx", bycopy.} = object ## !
-                                                                            ## Tolerance is to
-                                                                            ## check if the
-                                                                            ## points are not too
-                                                                            ## close to one an
-                                                                            ## other
-                                                                            ## ! It is also used to
-                                                                            ## check if the
-                                                                            ## tangent
-                                                                            ## vector is not too
-                                                                            ## small.
-                                                                            ## !
-                                                                            ## There
-                                                                            ## should be at
-                                                                            ## least 2
-                                                                            ## points
-                                                                            ## ! if
-                                                                            ## PeriodicFlag is True then the
-                                                                            ## curve will be
-                                                                            ## periodic.
-                                                                            ## !
                                                                             ## Interpolates in a non
                                                                             ## periodic
                                                                             ## fashion
 
 
+proc `new`*(this: var Geom2dAPI_Interpolate; theSize: csize_t): pointer {.
+    importcpp: "Geom2dAPI_Interpolate::operator new",
+    header: "Geom2dAPI_Interpolate.hxx".}
+proc `delete`*(this: var Geom2dAPI_Interpolate; theAddress: pointer) {.
+    importcpp: "Geom2dAPI_Interpolate::operator delete",
+    header: "Geom2dAPI_Interpolate.hxx".}
+proc `new[]`*(this: var Geom2dAPI_Interpolate; theSize: csize_t): pointer {.
+    importcpp: "Geom2dAPI_Interpolate::operator new[]",
+    header: "Geom2dAPI_Interpolate.hxx".}
+proc `delete[]`*(this: var Geom2dAPI_Interpolate; theAddress: pointer) {.
+    importcpp: "Geom2dAPI_Interpolate::operator delete[]",
+    header: "Geom2dAPI_Interpolate.hxx".}
+proc `new`*(this: var Geom2dAPI_Interpolate; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dAPI_Interpolate::operator new",
+    header: "Geom2dAPI_Interpolate.hxx".}
+proc `delete`*(this: var Geom2dAPI_Interpolate; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dAPI_Interpolate::operator delete",
+    header: "Geom2dAPI_Interpolate.hxx".}
 proc constructGeom2dAPI_Interpolate*(points: Handle[TColgpHArray1OfPnt2d];
-                                    periodicFlag: bool; tolerance: float): Geom2dAPI_Interpolate {.
+                                    periodicFlag: StandardBoolean;
+                                    tolerance: StandardReal): Geom2dAPI_Interpolate {.
     constructor, importcpp: "Geom2dAPI_Interpolate(@)",
     header: "Geom2dAPI_Interpolate.hxx".}
 proc constructGeom2dAPI_Interpolate*(points: Handle[TColgpHArray1OfPnt2d];
                                     parameters: Handle[TColStdHArray1OfReal];
-                                    periodicFlag: bool; tolerance: float): Geom2dAPI_Interpolate {.
+                                    periodicFlag: StandardBoolean;
+                                    tolerance: StandardReal): Geom2dAPI_Interpolate {.
     constructor, importcpp: "Geom2dAPI_Interpolate(@)",
     header: "Geom2dAPI_Interpolate.hxx".}
 proc load*(this: var Geom2dAPI_Interpolate; initialTangent: Vec2d;
-          finalTangent: Vec2d; scale: bool = true) {.importcpp: "Load",
+          finalTangent: Vec2d; scale: StandardBoolean = true) {.importcpp: "Load",
     header: "Geom2dAPI_Interpolate.hxx".}
 proc load*(this: var Geom2dAPI_Interpolate; tangents: TColgpArray1OfVec2d;
-          tangentFlags: Handle[TColStdHArray1OfBoolean]; scale: bool = true) {.
-    importcpp: "Load", header: "Geom2dAPI_Interpolate.hxx".}
+          tangentFlags: Handle[TColStdHArray1OfBoolean];
+          scale: StandardBoolean = true) {.importcpp: "Load",
+                                       header: "Geom2dAPI_Interpolate.hxx".}
 proc clearTangents*(this: var Geom2dAPI_Interpolate) {.importcpp: "ClearTangents",
     header: "Geom2dAPI_Interpolate.hxx".}
 proc perform*(this: var Geom2dAPI_Interpolate) {.importcpp: "Perform",
@@ -70,5 +71,5 @@ proc curve*(this: Geom2dAPI_Interpolate): Handle[Geom2dBSplineCurve] {.noSideEff
 converter `opencascade`*(this: Geom2dAPI_Interpolate): Handle[Geom2dBSplineCurve] {.
     noSideEffect, importcpp: "Geom2dAPI_Interpolate::operator opencascade",
     header: "Geom2dAPI_Interpolate.hxx".}
-proc isDone*(this: Geom2dAPI_Interpolate): bool {.noSideEffect, importcpp: "IsDone",
-    header: "Geom2dAPI_Interpolate.hxx".}
+proc isDone*(this: Geom2dAPI_Interpolate): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "Geom2dAPI_Interpolate.hxx".}

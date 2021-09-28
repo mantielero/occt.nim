@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESGeomToolTabulatedCylinder;
     header: "IGESGeom_ToolTabulatedCylinder.hxx".}
 proc ownDump*(this: IGESGeomToolTabulatedCylinder;
              ent: Handle[IGESGeomTabulatedCylinder]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESGeom_ToolTabulatedCylinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

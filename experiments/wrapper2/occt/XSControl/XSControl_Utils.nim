@@ -39,7 +39,7 @@ proc isKind*(this: XSControlUtils; item: Handle[StandardTransient];
 proc typeName*(this: XSControlUtils; item: Handle[StandardTransient];
               nopk: bool = false): StandardCString {.noSideEffect,
     importcpp: "TypeName", header: "XSControl_Utils.hxx".}
-proc traValue*(this: XSControlUtils; list: Handle[StandardTransient]; num: int): Handle[
+proc traValue*(this: XSControlUtils; list: Handle[StandardTransient]; num: cint): Handle[
     StandardTransient] {.noSideEffect, importcpp: "TraValue",
                         header: "XSControl_Utils.hxx".}
 proc newSeqTra*(this: XSControlUtils): Handle[TColStdHSequenceOfTransient] {.
@@ -47,11 +47,12 @@ proc newSeqTra*(this: XSControlUtils): Handle[TColStdHSequenceOfTransient] {.
 proc appendTra*(this: XSControlUtils; seqval: Handle[TColStdHSequenceOfTransient];
                traval: Handle[StandardTransient]) {.noSideEffect,
     importcpp: "AppendTra", header: "XSControl_Utils.hxx".}
-proc dateString*(this: XSControlUtils; yy: int; mm: int; dd: int; hh: int; mn: int; ss: int): StandardCString {.
-    noSideEffect, importcpp: "DateString", header: "XSControl_Utils.hxx".}
-proc dateValues*(this: XSControlUtils; text: StandardCString; yy: var int; mm: var int;
-                dd: var int; hh: var int; mn: var int; ss: var int) {.noSideEffect,
-    importcpp: "DateValues", header: "XSControl_Utils.hxx".}
+proc dateString*(this: XSControlUtils; yy: cint; mm: cint; dd: cint; hh: cint; mn: cint;
+                ss: cint): StandardCString {.noSideEffect, importcpp: "DateString",
+    header: "XSControl_Utils.hxx".}
+proc dateValues*(this: XSControlUtils; text: StandardCString; yy: var cint;
+                mm: var cint; dd: var cint; hh: var cint; mn: var cint; ss: var cint) {.
+    noSideEffect, importcpp: "DateValues", header: "XSControl_Utils.hxx".}
 proc toCString*(this: XSControlUtils; strval: Handle[TCollectionHAsciiString]): StandardCString {.
     noSideEffect, importcpp: "ToCString", header: "XSControl_Utils.hxx".}
 proc toCString*(this: XSControlUtils; strval: TCollectionAsciiString): StandardCString {.
@@ -76,9 +77,9 @@ proc isAscii*(this: XSControlUtils; str: StandardExtString): bool {.noSideEffect
     importcpp: "IsAscii", header: "XSControl_Utils.hxx".}
 proc extendedToAscii*(this: XSControlUtils; str: StandardExtString): StandardCString {.
     noSideEffect, importcpp: "ExtendedToAscii", header: "XSControl_Utils.hxx".}
-proc cStrValue*(this: XSControlUtils; list: Handle[StandardTransient]; num: int): StandardCString {.
+proc cStrValue*(this: XSControlUtils; list: Handle[StandardTransient]; num: cint): StandardCString {.
     noSideEffect, importcpp: "CStrValue", header: "XSControl_Utils.hxx".}
-proc eStrValue*(this: XSControlUtils; list: Handle[StandardTransient]; num: int): StandardExtString {.
+proc eStrValue*(this: XSControlUtils; list: Handle[StandardTransient]; num: cint): StandardExtString {.
     noSideEffect, importcpp: "EStrValue", header: "XSControl_Utils.hxx".}
 proc newSeqCStr*(this: XSControlUtils): Handle[TColStdHSequenceOfHAsciiString] {.
     noSideEffect, importcpp: "NewSeqCStr", header: "XSControl_Utils.hxx".}
@@ -101,8 +102,8 @@ proc sortedCompound*(this: XSControlUtils; shape: TopoDS_Shape;
                     `type`: TopAbsShapeEnum; explore: bool; compound: bool): TopoDS_Shape {.
     noSideEffect, importcpp: "SortedCompound", header: "XSControl_Utils.hxx".}
 proc shapeValue*(this: XSControlUtils; seqv: Handle[TopToolsHSequenceOfShape];
-                num: int): TopoDS_Shape {.noSideEffect, importcpp: "ShapeValue",
-                                       header: "XSControl_Utils.hxx".}
+                num: cint): TopoDS_Shape {.noSideEffect, importcpp: "ShapeValue",
+                                        header: "XSControl_Utils.hxx".}
 proc newSeqShape*(this: XSControlUtils): Handle[TopToolsHSequenceOfShape] {.
     noSideEffect, importcpp: "NewSeqShape", header: "XSControl_Utils.hxx".}
 proc appendShape*(this: XSControlUtils; seqv: Handle[TopToolsHSequenceOfShape];
@@ -113,14 +114,39 @@ proc shapeBinder*(this: XSControlUtils; shape: TopoDS_Shape; hs: bool = true): H
                         header: "XSControl_Utils.hxx".}
 proc binderShape*(this: XSControlUtils; tr: Handle[StandardTransient]): TopoDS_Shape {.
     noSideEffect, importcpp: "BinderShape", header: "XSControl_Utils.hxx".}
-proc seqLength*(this: XSControlUtils; list: Handle[StandardTransient]): int {.
+proc seqLength*(this: XSControlUtils; list: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "SeqLength", header: "XSControl_Utils.hxx".}
-proc seqToArr*(this: XSControlUtils; seq: Handle[StandardTransient]; first: int = 1): Handle[
+proc seqToArr*(this: XSControlUtils; seq: Handle[StandardTransient]; first: cint = 1): Handle[
     StandardTransient] {.noSideEffect, importcpp: "SeqToArr",
                         header: "XSControl_Utils.hxx".}
 proc arrToSeq*(this: XSControlUtils; arr: Handle[StandardTransient]): Handle[
     StandardTransient] {.noSideEffect, importcpp: "ArrToSeq",
                         header: "XSControl_Utils.hxx".}
 proc seqIntValue*(this: XSControlUtils; list: Handle[TColStdHSequenceOfInteger];
-                 num: int): int {.noSideEffect, importcpp: "SeqIntValue",
-                               header: "XSControl_Utils.hxx".}
+                 num: cint): cint {.noSideEffect, importcpp: "SeqIntValue",
+                                 header: "XSControl_Utils.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

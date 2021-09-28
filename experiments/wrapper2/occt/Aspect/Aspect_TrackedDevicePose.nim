@@ -32,3 +32,28 @@ proc constructAspectTrackedDevicePose*(): AspectTrackedDevicePose {.constructor,
 type
   AspectTrackedDevicePoseArray* = NCollectionArray1[AspectTrackedDevicePose]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

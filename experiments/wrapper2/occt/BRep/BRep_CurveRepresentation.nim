@@ -26,7 +26,7 @@ discard "forward decl of Poly_PolygonOnTriangulation"
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_CurveRepresentation"
 type
-  HandleBRepCurveRepresentation* = Handle[BRepCurveRepresentation]
+  HandleC1C1* = Handle[BRepCurveRepresentation]
 
 ## ! Root class for the curve representations. Contains
 ## ! a location.
@@ -131,8 +131,8 @@ proc continuity*(this: var BRepCurveRepresentation; c: GeomAbsShape) {.
 proc copy*(this: BRepCurveRepresentation): Handle[BRepCurveRepresentation] {.
     noSideEffect, importcpp: "Copy", header: "BRep_CurveRepresentation.hxx".}
 proc dumpJson*(this: BRepCurveRepresentation; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "BRep_CurveRepresentation.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "BRep_CurveRepresentation.hxx".}
 type
   BRepCurveRepresentationbaseType* = StandardTransient
 
@@ -143,3 +143,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_CurveRepresentation.hxx".}
 proc dynamicType*(this: BRepCurveRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRep_CurveRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

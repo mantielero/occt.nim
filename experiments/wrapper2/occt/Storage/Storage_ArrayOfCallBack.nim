@@ -17,3 +17,28 @@
 type
   StorageArrayOfCallBack* = NCollectionArray1[Handle[StorageCallBack]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

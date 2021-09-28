@@ -21,3 +21,28 @@ type
     AIS_SOD_OnlyOneDetected, AIS_SOD_OnlyOneGood, AIS_SOD_SeveralGood
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

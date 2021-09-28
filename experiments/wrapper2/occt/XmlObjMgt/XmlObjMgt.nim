@@ -43,15 +43,40 @@ proc getTagEntryString*(theTarget: XmlObjMgtDOMString;
 proc setTagEntryString*(theSource: var XmlObjMgtDOMString;
                        theTagEntry: TCollectionAsciiString) {.
     importcpp: "XmlObjMgt::SetTagEntryString(@)", header: "XmlObjMgt.hxx".}
-proc findChildElement*(theSource: XmlObjMgtElement; theObjId: int): XmlObjMgtElement {.
+proc findChildElement*(theSource: XmlObjMgtElement; theObjId: cint): XmlObjMgtElement {.
     importcpp: "XmlObjMgt::FindChildElement(@)", header: "XmlObjMgt.hxx".}
 proc findChildByRef*(theSource: XmlObjMgtElement; theRefName: XmlObjMgtDOMString): XmlObjMgtElement {.
     importcpp: "XmlObjMgt::FindChildByRef(@)", header: "XmlObjMgt.hxx".}
 proc findChildByName*(theSource: XmlObjMgtElement; theName: XmlObjMgtDOMString): XmlObjMgtElement {.
     importcpp: "XmlObjMgt::FindChildByName(@)", header: "XmlObjMgt.hxx".}
-proc getInteger*(theString: var StandardCString; theValue: var int): bool {.
+proc getInteger*(theString: var StandardCString; theValue: var cint): bool {.
     importcpp: "XmlObjMgt::GetInteger(@)", header: "XmlObjMgt.hxx".}
-proc getReal*(theString: var StandardCString; theValue: var float): bool {.
+proc getReal*(theString: var StandardCString; theValue: var cfloat): bool {.
     importcpp: "XmlObjMgt::GetReal(@)", header: "XmlObjMgt.hxx".}
-proc getReal*(theString: XmlObjMgtDOMString; theValue: var float): bool {.
+proc getReal*(theString: XmlObjMgtDOMString; theValue: var cfloat): bool {.
     importcpp: "XmlObjMgt::GetReal(@)", header: "XmlObjMgt.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

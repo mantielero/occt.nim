@@ -22,7 +22,7 @@ discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_UnaryExpression"
 discard "forward decl of Expr_UnaryExpression"
 type
-  HandleExprUnaryExpression* = Handle[ExprUnaryExpression]
+  HandleC1C1* = Handle[ExprUnaryExpression]
   ExprUnaryExpression* {.importcpp: "Expr_UnaryExpression",
                         header: "Expr_UnaryExpression.hxx", bycopy.} = object of ExprGeneralExpression ##
                                                                                                 ## !
@@ -44,9 +44,9 @@ proc operand*(this: ExprUnaryExpression): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "Operand", header: "Expr_UnaryExpression.hxx".}
 proc setOperand*(this: var ExprUnaryExpression; exp: Handle[ExprGeneralExpression]) {.
     importcpp: "SetOperand", header: "Expr_UnaryExpression.hxx".}
-proc nbSubExpressions*(this: ExprUnaryExpression): int {.noSideEffect,
+proc nbSubExpressions*(this: ExprUnaryExpression): cint {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_UnaryExpression.hxx".}
-proc subExpression*(this: ExprUnaryExpression; i: int): Handle[ExprGeneralExpression] {.
+proc subExpression*(this: ExprUnaryExpression; i: cint): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "SubExpression", header: "Expr_UnaryExpression.hxx".}
 proc containsUnknowns*(this: ExprUnaryExpression): bool {.noSideEffect,
     importcpp: "ContainsUnknowns", header: "Expr_UnaryExpression.hxx".}
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_UnaryExpression.hxx".}
 proc dynamicType*(this: ExprUnaryExpression): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_UnaryExpression.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

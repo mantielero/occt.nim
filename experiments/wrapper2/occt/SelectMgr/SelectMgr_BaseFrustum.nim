@@ -65,14 +65,14 @@ proc worldViewMatrix*(this: SelectMgrBaseFrustum): Graphic3dMat4d {.noSideEffect
 proc worldViewProjState*(this: SelectMgrBaseFrustum): Graphic3dWorldViewProjState {.
     noSideEffect, importcpp: "WorldViewProjState",
     header: "SelectMgr_BaseFrustum.hxx".}
-proc setPixelTolerance*(this: var SelectMgrBaseFrustum; theTol: int) {.
+proc setPixelTolerance*(this: var SelectMgrBaseFrustum; theTol: cint) {.
     importcpp: "SetPixelTolerance", header: "SelectMgr_BaseFrustum.hxx".}
-proc setWindowSize*(this: var SelectMgrBaseFrustum; theWidth: int; theHeight: int) {.
+proc setWindowSize*(this: var SelectMgrBaseFrustum; theWidth: cint; theHeight: cint) {.
     importcpp: "SetWindowSize", header: "SelectMgr_BaseFrustum.hxx".}
-proc windowSize*(this: SelectMgrBaseFrustum; theWidth: var int; theHeight: var int) {.
+proc windowSize*(this: SelectMgrBaseFrustum; theWidth: var cint; theHeight: var cint) {.
     noSideEffect, importcpp: "WindowSize", header: "SelectMgr_BaseFrustum.hxx".}
-proc setViewport*(this: var SelectMgrBaseFrustum; theX: float; theY: float;
-                 theWidth: float; theHeight: float) {.importcpp: "SetViewport",
+proc setViewport*(this: var SelectMgrBaseFrustum; theX: cfloat; theY: cfloat;
+                 theWidth: cfloat; theHeight: cfloat) {.importcpp: "SetViewport",
     header: "SelectMgr_BaseFrustum.hxx".}
 proc setBuilder*(this: var SelectMgrBaseFrustum;
                 theBuilder: Handle[SelectMgrFrustumBuilder]) {.
@@ -90,9 +90,9 @@ proc build*(this: var SelectMgrBaseFrustum; a2: Pnt2d; ## theP1
 proc build*(this: var SelectMgrBaseFrustum; a2: TColgpArray1OfPnt2d) {.
     importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
   ## thePoints
-proc scaleAndTransform*(this: SelectMgrBaseFrustum; a2: int; ## theScaleFactor
-                       a3: GTrsf): Handle[SelectMgrBaseFrustum] {.noSideEffect,
-    importcpp: "ScaleAndTransform", header: "SelectMgr_BaseFrustum.hxx".}
+proc scaleAndTransform*(this: SelectMgrBaseFrustum; a2: cint; a3: GTrsf): Handle[
+    SelectMgrBaseFrustum] {.noSideEffect, importcpp: "ScaleAndTransform",
+                           header: "SelectMgr_BaseFrustum.hxx".}
   ## theTrsf
 proc overlaps*(this: SelectMgrBaseFrustum; theBoxMin: SelectMgrVec3;
               theBoxMax: SelectMgrVec3; theClipRange: SelectMgrViewClipRange;
@@ -121,17 +121,17 @@ proc overlaps*(this: SelectMgrBaseFrustum; thePt1: Pnt; thePt2: Pnt; thePt3: Pnt
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect,
     importcpp: "Overlaps", header: "SelectMgr_BaseFrustum.hxx".}
-proc distToGeometryCenter*(this: SelectMgrBaseFrustum; theCOG: Pnt): float {.
+proc distToGeometryCenter*(this: SelectMgrBaseFrustum; theCOG: Pnt): cfloat {.
     noSideEffect, importcpp: "DistToGeometryCenter",
     header: "SelectMgr_BaseFrustum.hxx".}
-proc detectedPoint*(this: SelectMgrBaseFrustum; theDepth: float): Pnt {.noSideEffect,
+proc detectedPoint*(this: SelectMgrBaseFrustum; theDepth: cfloat): Pnt {.noSideEffect,
     importcpp: "DetectedPoint", header: "SelectMgr_BaseFrustum.hxx".}
 proc getPlanes*(this: SelectMgrBaseFrustum;
                thePlaneEquations: var NCollectionVector[SelectMgrVec4]) {.
     noSideEffect, importcpp: "GetPlanes", header: "SelectMgr_BaseFrustum.hxx".}
 proc dumpJson*(this: SelectMgrBaseFrustum; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "SelectMgr_BaseFrustum.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "SelectMgr_BaseFrustum.hxx".}
 type
   SelectMgrBaseFrustumbaseType* = StandardTransient
 
@@ -142,3 +142,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "SelectMgr_BaseFrustum.hxx".}
 proc dynamicType*(this: SelectMgrBaseFrustum): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "SelectMgr_BaseFrustum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

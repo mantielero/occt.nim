@@ -35,3 +35,28 @@ proc ffinite*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect,
     importcpp: "Ffinite", header: "TopOpeBRepTool_face.hxx".}
 proc realF*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect,
     importcpp: "RealF", header: "TopOpeBRepTool_face.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,45 +19,57 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  Elips* {.importcpp: "gp_Elips", header: "gp_Elips.hxx", bycopy.} = object ## ! Creates an indefinite ellipse.
+  Elips* {.importcpp: "gp_Elips", header: "gp_Elips.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Elips; theSize: csize_t): pointer {.
+    importcpp: "gp_Elips::operator new", header: "gp_Elips.hxx".}
+proc `delete`*(this: var Elips; theAddress: pointer) {.
+    importcpp: "gp_Elips::operator delete", header: "gp_Elips.hxx".}
+proc `new[]`*(this: var Elips; theSize: csize_t): pointer {.
+    importcpp: "gp_Elips::operator new[]", header: "gp_Elips.hxx".}
+proc `delete[]`*(this: var Elips; theAddress: pointer) {.
+    importcpp: "gp_Elips::operator delete[]", header: "gp_Elips.hxx".}
+proc `new`*(this: var Elips; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Elips::operator new", header: "gp_Elips.hxx".}
+proc `delete`*(this: var Elips; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Elips::operator delete", header: "gp_Elips.hxx".}
 proc constructElips*(): Elips {.constructor, importcpp: "gp_Elips(@)",
                              header: "gp_Elips.hxx".}
-proc constructElips*(a2: Ax2; majorRadius: float; minorRadius: float): Elips {.
+proc constructElips*(a2: Ax2; majorRadius: StandardReal; minorRadius: StandardReal): Elips {.
     constructor, importcpp: "gp_Elips(@)", header: "gp_Elips.hxx".}
 proc setAxis*(this: var Elips; a1: Ax1) {.importcpp: "SetAxis", header: "gp_Elips.hxx".}
 proc setLocation*(this: var Elips; p: Pnt) {.importcpp: "SetLocation",
                                        header: "gp_Elips.hxx".}
-proc setMajorRadius*(this: var Elips; majorRadius: float) {.
+proc setMajorRadius*(this: var Elips; majorRadius: StandardReal) {.
     importcpp: "SetMajorRadius", header: "gp_Elips.hxx".}
-proc setMinorRadius*(this: var Elips; minorRadius: float) {.
+proc setMinorRadius*(this: var Elips; minorRadius: StandardReal) {.
     importcpp: "SetMinorRadius", header: "gp_Elips.hxx".}
 proc setPosition*(this: var Elips; a2: Ax2) {.importcpp: "SetPosition",
                                         header: "gp_Elips.hxx".}
-proc area*(this: Elips): float {.noSideEffect, importcpp: "Area",
-                             header: "gp_Elips.hxx".}
+proc area*(this: Elips): StandardReal {.noSideEffect, importcpp: "Area",
+                                    header: "gp_Elips.hxx".}
 proc axis*(this: Elips): Ax1 {.noSideEffect, importcpp: "Axis", header: "gp_Elips.hxx".}
 proc directrix1*(this: Elips): Ax1 {.noSideEffect, importcpp: "Directrix1",
                                  header: "gp_Elips.hxx".}
 proc directrix2*(this: Elips): Ax1 {.noSideEffect, importcpp: "Directrix2",
                                  header: "gp_Elips.hxx".}
-proc eccentricity*(this: Elips): float {.noSideEffect, importcpp: "Eccentricity",
+proc eccentricity*(this: Elips): StandardReal {.noSideEffect,
+    importcpp: "Eccentricity", header: "gp_Elips.hxx".}
+proc focal*(this: Elips): StandardReal {.noSideEffect, importcpp: "Focal",
                                      header: "gp_Elips.hxx".}
-proc focal*(this: Elips): float {.noSideEffect, importcpp: "Focal",
-                              header: "gp_Elips.hxx".}
 proc focus1*(this: Elips): Pnt {.noSideEffect, importcpp: "Focus1",
                              header: "gp_Elips.hxx".}
 proc focus2*(this: Elips): Pnt {.noSideEffect, importcpp: "Focus2",
                              header: "gp_Elips.hxx".}
 proc location*(this: Elips): Pnt {.noSideEffect, importcpp: "Location",
                                header: "gp_Elips.hxx".}
-proc majorRadius*(this: Elips): float {.noSideEffect, importcpp: "MajorRadius",
-                                    header: "gp_Elips.hxx".}
-proc minorRadius*(this: Elips): float {.noSideEffect, importcpp: "MinorRadius",
-                                    header: "gp_Elips.hxx".}
-proc parameter*(this: Elips): float {.noSideEffect, importcpp: "Parameter",
-                                  header: "gp_Elips.hxx".}
+proc majorRadius*(this: Elips): StandardReal {.noSideEffect,
+    importcpp: "MajorRadius", header: "gp_Elips.hxx".}
+proc minorRadius*(this: Elips): StandardReal {.noSideEffect,
+    importcpp: "MinorRadius", header: "gp_Elips.hxx".}
+proc parameter*(this: Elips): StandardReal {.noSideEffect, importcpp: "Parameter",
+    header: "gp_Elips.hxx".}
 proc position*(this: Elips): Ax2 {.noSideEffect, importcpp: "Position",
                                header: "gp_Elips.hxx".}
 proc xAxis*(this: Elips): Ax1 {.noSideEffect, importcpp: "XAxis",
@@ -73,14 +85,14 @@ proc mirrored*(this: Elips; a1: Ax1): Elips {.noSideEffect, importcpp: "Mirrored
 proc mirror*(this: var Elips; a2: Ax2) {.importcpp: "Mirror", header: "gp_Elips.hxx".}
 proc mirrored*(this: Elips; a2: Ax2): Elips {.noSideEffect, importcpp: "Mirrored",
                                         header: "gp_Elips.hxx".}
-proc rotate*(this: var Elips; a1: Ax1; ang: float) {.importcpp: "Rotate",
+proc rotate*(this: var Elips; a1: Ax1; ang: StandardReal) {.importcpp: "Rotate",
     header: "gp_Elips.hxx".}
-proc rotated*(this: Elips; a1: Ax1; ang: float): Elips {.noSideEffect,
+proc rotated*(this: Elips; a1: Ax1; ang: StandardReal): Elips {.noSideEffect,
     importcpp: "Rotated", header: "gp_Elips.hxx".}
-proc scale*(this: var Elips; p: Pnt; s: float) {.importcpp: "Scale",
+proc scale*(this: var Elips; p: Pnt; s: StandardReal) {.importcpp: "Scale",
     header: "gp_Elips.hxx".}
-proc scaled*(this: Elips; p: Pnt; s: float): Elips {.noSideEffect, importcpp: "Scaled",
-    header: "gp_Elips.hxx".}
+proc scaled*(this: Elips; p: Pnt; s: StandardReal): Elips {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Elips.hxx".}
 proc transform*(this: var Elips; t: Trsf) {.importcpp: "Transform",
                                       header: "gp_Elips.hxx".}
 proc transformed*(this: Elips; t: Trsf): Elips {.noSideEffect,

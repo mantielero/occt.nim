@@ -176,3 +176,28 @@ proc origins*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, importcpp: "Origins", header: "BOPAlgo_Builder.hxx".}
 proc shapesSD*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeShape {.noSideEffect,
     importcpp: "ShapesSD", header: "BOPAlgo_Builder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

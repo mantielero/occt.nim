@@ -109,7 +109,32 @@ proc value*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): StandardSize {.
     noSideEffect, importcpp: "Value", header: "OSD_MemInfo.hxx".}
 proc valueMiB*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): StandardSize {.
     noSideEffect, importcpp: "ValueMiB", header: "OSD_MemInfo.hxx".}
-proc valuePreciseMiB*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): float {.
+proc valuePreciseMiB*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): cfloat {.
     noSideEffect, importcpp: "ValuePreciseMiB", header: "OSD_MemInfo.hxx".}
 proc printInfo*(): TCollectionAsciiString {.importcpp: "OSD_MemInfo::PrintInfo(@)",
     header: "OSD_MemInfo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

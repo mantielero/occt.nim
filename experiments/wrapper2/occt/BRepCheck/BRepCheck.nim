@@ -38,7 +38,32 @@ proc print*(stat: BRepCheckStatus; os: var StandardOStream) {.
 proc selfIntersection*(w: TopoDS_Wire; f: TopoDS_Face; e1: var TopoDS_Edge;
                       e2: var TopoDS_Edge): bool {.
     importcpp: "BRepCheck::SelfIntersection(@)", header: "BRepCheck.hxx".}
-proc precCurve*(aAC3D: Adaptor3dCurve): float {.
+proc precCurve*(aAC3D: Adaptor3dCurve): cfloat {.
     importcpp: "BRepCheck::PrecCurve(@)", header: "BRepCheck.hxx".}
-proc precSurface*(aAHSurf: Handle[Adaptor3dHSurface]): float {.
+proc precSurface*(aAHSurf: Handle[Adaptor3dHSurface]): cfloat {.
     importcpp: "BRepCheck::PrecSurface(@)", header: "BRepCheck.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

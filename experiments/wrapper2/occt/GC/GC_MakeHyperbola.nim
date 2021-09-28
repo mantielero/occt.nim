@@ -31,7 +31,7 @@ type
 
 proc constructGC_MakeHyperbola*(h: Hypr): GC_MakeHyperbola {.constructor,
     importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc constructGC_MakeHyperbola*(a2: Ax2; majorRadius: float; minorRadius: float): GC_MakeHyperbola {.
+proc constructGC_MakeHyperbola*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GC_MakeHyperbola {.
     constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
 proc constructGC_MakeHyperbola*(s1: Pnt; s2: Pnt; center: Pnt): GC_MakeHyperbola {.
     constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
@@ -40,3 +40,24 @@ proc value*(this: GC_MakeHyperbola): Handle[GeomHyperbola] {.noSideEffect,
 converter `constopencascade`*(this: GC_MakeHyperbola): Handle[GeomHyperbola] {.
     noSideEffect, importcpp: "GC_MakeHyperbola::operator constopencascade",
     header: "GC_MakeHyperbola.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

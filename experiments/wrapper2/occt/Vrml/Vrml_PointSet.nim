@@ -20,15 +20,40 @@ type
   VrmlPointSet* {.importcpp: "Vrml_PointSet", header: "Vrml_PointSet.hxx", bycopy.} = object
 
 
-proc constructVrmlPointSet*(aStartIndex: int = 0; aNumPoints: int = -1): VrmlPointSet {.
+proc constructVrmlPointSet*(aStartIndex: cint = 0; aNumPoints: cint = -1): VrmlPointSet {.
     constructor, importcpp: "Vrml_PointSet(@)", header: "Vrml_PointSet.hxx".}
-proc setStartIndex*(this: var VrmlPointSet; aStartIndex: int) {.
+proc setStartIndex*(this: var VrmlPointSet; aStartIndex: cint) {.
     importcpp: "SetStartIndex", header: "Vrml_PointSet.hxx".}
-proc startIndex*(this: VrmlPointSet): int {.noSideEffect, importcpp: "StartIndex",
-                                        header: "Vrml_PointSet.hxx".}
-proc setNumPoints*(this: var VrmlPointSet; aNumPoints: int) {.
+proc startIndex*(this: VrmlPointSet): cint {.noSideEffect, importcpp: "StartIndex",
+    header: "Vrml_PointSet.hxx".}
+proc setNumPoints*(this: var VrmlPointSet; aNumPoints: cint) {.
     importcpp: "SetNumPoints", header: "Vrml_PointSet.hxx".}
-proc numPoints*(this: VrmlPointSet): int {.noSideEffect, importcpp: "NumPoints",
-                                       header: "Vrml_PointSet.hxx".}
+proc numPoints*(this: VrmlPointSet): cint {.noSideEffect, importcpp: "NumPoints",
+                                        header: "Vrml_PointSet.hxx".}
 proc print*(this: VrmlPointSet; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_PointSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

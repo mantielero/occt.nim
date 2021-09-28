@@ -25,7 +25,7 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of ShapeFix_ComposeShell"
 discard "forward decl of ShapeFix_ComposeShell"
 type
-  HandleShapeFixComposeShell* = Handle[ShapeFixComposeShell]
+  HandleC1C1* = Handle[ShapeFixComposeShell]
 
 ## ! This class is intended to create a shell from the composite
 ## ! surface (grid of surfaces) and set of wires.
@@ -116,8 +116,8 @@ proc constructShapeFixComposeShell*(): ShapeFixComposeShell {.constructor,
     importcpp: "ShapeFix_ComposeShell(@)", header: "ShapeFix_ComposeShell.hxx".}
 proc init*(this: var ShapeFixComposeShell;
           grid: Handle[ShapeExtendCompositeSurface]; L: TopLocLocation;
-          face: TopoDS_Face; prec: float) {.importcpp: "Init",
-                                        header: "ShapeFix_ComposeShell.hxx".}
+          face: TopoDS_Face; prec: cfloat) {.importcpp: "Init",
+    header: "ShapeFix_ComposeShell.hxx".}
 proc closedMode*(this: var ShapeFixComposeShell): var bool {.importcpp: "ClosedMode",
     header: "ShapeFix_ComposeShell.hxx".}
 proc perform*(this: var ShapeFixComposeShell): bool {.importcpp: "Perform",
@@ -148,3 +148,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_ComposeShell.hxx".}
 proc dynamicType*(this: ShapeFixComposeShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_ComposeShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

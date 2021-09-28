@@ -20,7 +20,7 @@ discard "forward decl of StepAP214_DateItem"
 discard "forward decl of StepAP214_AppliedDateAssignment"
 discard "forward decl of StepAP214_AppliedDateAssignment"
 type
-  HandleStepAP214AppliedDateAssignment* = Handle[StepAP214AppliedDateAssignment]
+  HandleC1C1* = Handle[StepAP214AppliedDateAssignment]
   StepAP214AppliedDateAssignment* {.importcpp: "StepAP214_AppliedDateAssignment", header: "StepAP214_AppliedDateAssignment.hxx",
                                    bycopy.} = object of StepBasicDateAssignment ## !
                                                                            ## Returns a
@@ -40,10 +40,10 @@ proc setItems*(this: var StepAP214AppliedDateAssignment;
 proc items*(this: StepAP214AppliedDateAssignment): Handle[
     StepAP214HArray1OfDateItem] {.noSideEffect, importcpp: "Items",
                                  header: "StepAP214_AppliedDateAssignment.hxx".}
-proc itemsValue*(this: StepAP214AppliedDateAssignment; num: int): StepAP214DateItem {.
+proc itemsValue*(this: StepAP214AppliedDateAssignment; num: cint): StepAP214DateItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedDateAssignment.hxx".}
-proc nbItems*(this: StepAP214AppliedDateAssignment): int {.noSideEffect,
+proc nbItems*(this: StepAP214AppliedDateAssignment): cint {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AppliedDateAssignment.hxx".}
 type
   StepAP214AppliedDateAssignmentbaseType* = StepBasicDateAssignment
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214AppliedDateAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedDateAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

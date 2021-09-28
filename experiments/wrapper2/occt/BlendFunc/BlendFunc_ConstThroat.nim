@@ -34,9 +34,9 @@ proc value*(this: var BlendFuncConstThroat; x: MathVector; f: var MathVector): b
     importcpp: "Value", header: "BlendFunc_ConstThroat.hxx".}
 proc derivatives*(this: var BlendFuncConstThroat; x: MathVector; d: var MathMatrix): bool {.
     importcpp: "Derivatives", header: "BlendFunc_ConstThroat.hxx".}
-proc set*(this: var BlendFuncConstThroat; param: float) {.importcpp: "Set",
+proc set*(this: var BlendFuncConstThroat; param: cfloat) {.importcpp: "Set",
     header: "BlendFunc_ConstThroat.hxx".}
-proc isSolution*(this: var BlendFuncConstThroat; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendFuncConstThroat; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BlendFunc_ConstThroat.hxx".}
 proc pointOnS1*(this: BlendFuncConstThroat): Pnt {.noSideEffect,
     importcpp: "PointOnS1", header: "BlendFunc_ConstThroat.hxx".}
@@ -52,10 +52,35 @@ proc tangentOnS2*(this: BlendFuncConstThroat): Vec {.noSideEffect,
     importcpp: "TangentOnS2", header: "BlendFunc_ConstThroat.hxx".}
 proc tangent2dOnS2*(this: BlendFuncConstThroat): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_ConstThroat.hxx".}
-proc tangent*(this: BlendFuncConstThroat; u1: float; v1: float; u2: float; v2: float;
+proc tangent*(this: BlendFuncConstThroat; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
              tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
     noSideEffect, importcpp: "Tangent", header: "BlendFunc_ConstThroat.hxx".}
-proc set*(this: var BlendFuncConstThroat; aThroat: float; a3: float; choix: int) {.
+proc set*(this: var BlendFuncConstThroat; aThroat: cfloat; a3: cfloat; choix: cint) {.
     importcpp: "Set", header: "BlendFunc_ConstThroat.hxx".}
-proc getSectionSize*(this: BlendFuncConstThroat): float {.noSideEffect,
+proc getSectionSize*(this: BlendFuncConstThroat): cfloat {.noSideEffect,
     importcpp: "GetSectionSize", header: "BlendFunc_ConstThroat.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

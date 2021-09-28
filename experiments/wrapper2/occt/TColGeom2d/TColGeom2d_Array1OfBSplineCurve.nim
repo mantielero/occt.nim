@@ -17,3 +17,28 @@
 type
   TColGeom2dArray1OfBSplineCurve* = NCollectionArray1[Handle[Geom2dBSplineCurve]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

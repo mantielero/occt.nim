@@ -18,3 +18,28 @@ type
   IntPatchSequenceOfSegmentOfTheSOnBounds* = NCollectionSequence[
       IntPatchTheSegmentOfTheSOnBounds]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

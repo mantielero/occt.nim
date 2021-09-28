@@ -27,3 +27,28 @@ type
 
 proc init*() {.importcpp: "XSControl_Functions::Init(@)",
              header: "XSControl_Functions.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

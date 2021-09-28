@@ -19,8 +19,7 @@ discard "forward decl of StepBasic_ProductOrFormationOrDefinition"
 discard "forward decl of StepBasic_DocumentProductAssociation"
 discard "forward decl of StepBasic_DocumentProductAssociation"
 type
-  HandleStepBasicDocumentProductAssociation* = Handle[
-      StepBasicDocumentProductAssociation]
+  HandleC1C1* = Handle[StepBasicDocumentProductAssociation]
 
 ## ! Representation of STEP entity DocumentProductAssociation
 
@@ -78,3 +77,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicDocumentProductAssociation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DocumentProductAssociation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectSent"
 discard "forward decl of IFSelect_SelectSent"
 type
-  HandleIFSelectSelectSent* = Handle[IFSelectSelectSent]
+  HandleC1C1* = Handle[IFSelectSelectSent]
 
 ## ! This class returns entities according sending to a file
 ## ! Once a model has been loaded, further sendings are recorded
@@ -110,16 +110,16 @@ type
                                                                                               ## etc...
 
 
-proc constructIFSelectSelectSent*(sentcount: int = 1; atleast: bool = true): IFSelectSelectSent {.
+proc constructIFSelectSelectSent*(sentcount: cint = 1; atleast: bool = true): IFSelectSelectSent {.
     constructor, importcpp: "IFSelect_SelectSent(@)",
     header: "IFSelect_SelectSent.hxx".}
-proc sentCount*(this: IFSelectSelectSent): int {.noSideEffect,
+proc sentCount*(this: IFSelectSelectSent): cint {.noSideEffect,
     importcpp: "SentCount", header: "IFSelect_SelectSent.hxx".}
 proc atLeast*(this: IFSelectSelectSent): bool {.noSideEffect, importcpp: "AtLeast",
     header: "IFSelect_SelectSent.hxx".}
 proc rootResult*(this: IFSelectSelectSent; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectSent.hxx".}
-proc sort*(this: IFSelectSelectSent; rank: int; ent: Handle[StandardTransient];
+proc sort*(this: IFSelectSelectSent; rank: cint; ent: Handle[StandardTransient];
           model: Handle[InterfaceInterfaceModel]): bool {.noSideEffect,
     importcpp: "Sort", header: "IFSelect_SelectSent.hxx".}
 proc extractLabel*(this: IFSelectSelectSent): TCollectionAsciiString {.noSideEffect,
@@ -134,3 +134,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectSent.hxx".}
 proc dynamicType*(this: IFSelectSelectSent): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectSent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

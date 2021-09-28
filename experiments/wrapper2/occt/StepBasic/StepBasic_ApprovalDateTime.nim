@@ -19,7 +19,7 @@ discard "forward decl of StepBasic_DateTimeSelect"
 discard "forward decl of StepBasic_ApprovalDateTime"
 discard "forward decl of StepBasic_ApprovalDateTime"
 type
-  HandleStepBasicApprovalDateTime* = Handle[StepBasicApprovalDateTime]
+  HandleC1C1* = Handle[StepBasicApprovalDateTime]
 
 ## ! Added from StepBasic Rev2 to Rev4
 
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicApprovalDateTime): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ApprovalDateTime.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

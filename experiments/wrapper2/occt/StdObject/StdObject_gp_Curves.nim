@@ -51,3 +51,28 @@ proc `>>`*(theReadData: var StdObjMgtReadData; theParab: var Parab): var StdObjM
     importcpp: "(# >> #)", header: "StdObject_gp_Curves.hxx".}
 proc `<<`*(theWriteData: var StdObjMgtWriteData; theParab: Parab): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_gp_Curves.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

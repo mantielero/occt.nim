@@ -20,7 +20,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_TransientListBinder"
 discard "forward decl of Transfer_TransientListBinder"
 type
-  HandleTransferTransientListBinder* = Handle[TransferTransientListBinder]
+  HandleC1C1* = Handle[TransferTransientListBinder]
 
 ## ! This binder binds several (a list of) Transients with a starting
 ## ! entity, when this entity itself corresponds to a simple list
@@ -52,12 +52,12 @@ proc addResult*(this: var TransferTransientListBinder;
     header: "Transfer_TransientListBinder.hxx".}
 proc result*(this: TransferTransientListBinder): Handle[TColStdHSequenceOfTransient] {.
     noSideEffect, importcpp: "Result", header: "Transfer_TransientListBinder.hxx".}
-proc setResult*(this: var TransferTransientListBinder; num: int;
+proc setResult*(this: var TransferTransientListBinder; num: cint;
                res: Handle[StandardTransient]) {.importcpp: "SetResult",
     header: "Transfer_TransientListBinder.hxx".}
-proc nbTransients*(this: TransferTransientListBinder): int {.noSideEffect,
+proc nbTransients*(this: TransferTransientListBinder): cint {.noSideEffect,
     importcpp: "NbTransients", header: "Transfer_TransientListBinder.hxx".}
-proc transient*(this: TransferTransientListBinder; num: int): Handle[
+proc transient*(this: TransferTransientListBinder; num: cint): Handle[
     StandardTransient] {.noSideEffect, importcpp: "Transient",
                         header: "Transfer_TransientListBinder.hxx".}
 type
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TransferTransientListBinder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_TransientListBinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

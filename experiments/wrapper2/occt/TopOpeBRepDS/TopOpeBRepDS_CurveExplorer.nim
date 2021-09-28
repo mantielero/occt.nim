@@ -37,13 +37,38 @@ proc next*(this: var TopOpeBRepDS_CurveExplorer) {.importcpp: "Next",
     header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc curve*(this: TopOpeBRepDS_CurveExplorer): TopOpeBRepDS_Curve {.noSideEffect,
     importcpp: "Curve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc isCurve*(this: TopOpeBRepDS_CurveExplorer; i: int): bool {.noSideEffect,
+proc isCurve*(this: TopOpeBRepDS_CurveExplorer; i: cint): bool {.noSideEffect,
     importcpp: "IsCurve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc isCurveKeep*(this: TopOpeBRepDS_CurveExplorer; i: int): bool {.noSideEffect,
+proc isCurveKeep*(this: TopOpeBRepDS_CurveExplorer; i: cint): bool {.noSideEffect,
     importcpp: "IsCurveKeep", header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc curve*(this: TopOpeBRepDS_CurveExplorer; i: int): TopOpeBRepDS_Curve {.
+proc curve*(this: TopOpeBRepDS_CurveExplorer; i: cint): TopOpeBRepDS_Curve {.
     noSideEffect, importcpp: "Curve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc nbCurve*(this: var TopOpeBRepDS_CurveExplorer): int {.importcpp: "NbCurve",
+proc nbCurve*(this: var TopOpeBRepDS_CurveExplorer): cint {.importcpp: "NbCurve",
     header: "TopOpeBRepDS_CurveExplorer.hxx".}
-proc index*(this: TopOpeBRepDS_CurveExplorer): int {.noSideEffect,
+proc index*(this: TopOpeBRepDS_CurveExplorer): cint {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRepDS_CurveExplorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

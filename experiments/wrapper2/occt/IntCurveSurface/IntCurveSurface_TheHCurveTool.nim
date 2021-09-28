@@ -30,82 +30,147 @@ type
                                  bycopy.} = object
 
 
-proc firstParameter*(c: Handle[Adaptor3dHCurve]): float {.
-    importcpp: "IntCurveSurface_TheHCurveTool::FirstParameter(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc lastParameter*(c: Handle[Adaptor3dHCurve]): float {.
-    importcpp: "IntCurveSurface_TheHCurveTool::LastParameter(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc continuity*(c: Handle[Adaptor3dHCurve]): GeomAbsShape {.
-    importcpp: "IntCurveSurface_TheHCurveTool::Continuity(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc nbIntervals*(c: Handle[Adaptor3dHCurve]; s: GeomAbsShape): int {.
-    importcpp: "IntCurveSurface_TheHCurveTool::NbIntervals(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc intervals*(c: Handle[Adaptor3dHCurve]; t: var TColStdArray1OfReal;
-               s: GeomAbsShape) {.importcpp: "IntCurveSurface_TheHCurveTool::Intervals(@)",
-                                header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc isClosed*(c: Handle[Adaptor3dHCurve]): bool {.
-    importcpp: "IntCurveSurface_TheHCurveTool::IsClosed(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc isPeriodic*(c: Handle[Adaptor3dHCurve]): bool {.
-    importcpp: "IntCurveSurface_TheHCurveTool::IsPeriodic(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc period*(c: Handle[Adaptor3dHCurve]): float {.
-    importcpp: "IntCurveSurface_TheHCurveTool::Period(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc value*(c: Handle[Adaptor3dHCurve]; u: float): Pnt {.
-    importcpp: "IntCurveSurface_TheHCurveTool::Value(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc d0*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt) {.
-    importcpp: "IntCurveSurface_TheHCurveTool::D0(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc d1*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt; v: var Vec) {.
-    importcpp: "IntCurveSurface_TheHCurveTool::D1(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc d2*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    importcpp: "IntCurveSurface_TheHCurveTool::D2(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc d3*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt; v1: var Vec; v2: var Vec;
-        v3: var Vec) {.importcpp: "IntCurveSurface_TheHCurveTool::D3(@)",
-                    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc dn*(c: Handle[Adaptor3dHCurve]; u: float; n: int): Vec {.
-    importcpp: "IntCurveSurface_TheHCurveTool::DN(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc resolution*(c: Handle[Adaptor3dHCurve]; r3d: float): float {.
-    importcpp: "IntCurveSurface_TheHCurveTool::Resolution(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc getType*(c: Handle[Adaptor3dHCurve]): GeomAbsCurveType {.
-    importcpp: "IntCurveSurface_TheHCurveTool::GetType(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc line*(c: Handle[Adaptor3dHCurve]): Lin {.
-    importcpp: "IntCurveSurface_TheHCurveTool::Line(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc circle*(c: Handle[Adaptor3dHCurve]): Circ {.
-    importcpp: "IntCurveSurface_TheHCurveTool::Circle(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc ellipse*(c: Handle[Adaptor3dHCurve]): Elips {.
-    importcpp: "IntCurveSurface_TheHCurveTool::Ellipse(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc hyperbola*(c: Handle[Adaptor3dHCurve]): Hypr {.
-    importcpp: "IntCurveSurface_TheHCurveTool::Hyperbola(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc parabola*(c: Handle[Adaptor3dHCurve]): Parab {.
-    importcpp: "IntCurveSurface_TheHCurveTool::Parabola(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc bezier*(c: Handle[Adaptor3dHCurve]): Handle[GeomBezierCurve] {.
-    importcpp: "IntCurveSurface_TheHCurveTool::Bezier(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc bSpline*(c: Handle[Adaptor3dHCurve]): Handle[GeomBSplineCurve] {.
-    importcpp: "IntCurveSurface_TheHCurveTool::BSpline(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc nbSamples*(c: Handle[Adaptor3dHCurve]; u0: float; u1: float): int {.
-    importcpp: "IntCurveSurface_TheHCurveTool::NbSamples(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-proc samplePars*(c: Handle[Adaptor3dHCurve]; u0: float; u1: float; defl: float;
-                nbMin: int; pars: var Handle[TColStdHArray1OfReal]) {.
-    importcpp: "IntCurveSurface_TheHCurveTool::SamplePars(@)",
-    header: "IntCurveSurface_TheHCurveTool.hxx".}
-## !!!Ignored construct:  # CurveGen opencascade :: handle < Adaptor3d_HCurve > [end of template] [NewLine] # CurveGen_hxx < Adaptor3d_HCurve . hxx > [NewLine] # IntCurveSurface_HCurveTool IntCurveSurface_TheHCurveTool [NewLine] # IntCurveSurface_HCurveTool_hxx < IntCurveSurface_TheHCurveTool . hxx > [NewLine] # < IntCurveSurface_HCurveTool . lxx > [NewLine] # CurveGen [NewLine] # CurveGen_hxx [NewLine] # IntCurveSurface_HCurveTool [NewLine] # IntCurveSurface_HCurveTool_hxx [NewLine] #  _IntCurveSurface_TheHCurveTool_HeaderFile
+## !!!Ignored construct:  public : static Standard_Real FirstParameter ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static Standard_Real LastParameter ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static GeomAbs_Shape Continuity ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Returns  the number  of  intervals for  continuity
+## ! <S>. May be one if Continuity(myclass) >= <S> static Standard_Integer NbIntervals ( const Handle ( Adaptor3d_HCurve ) & C , const GeomAbs_Shape S ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Stores in <T> the  parameters bounding the intervals
+## ! of continuity <S>.
+## !
+## ! The array must provide  enough room to  accomodate
+## ! for the parameters. i.e. T.Length() > NbIntervals() static void Intervals ( const Handle ( Adaptor3d_HCurve ) & C , TColStd_Array1OfReal & T , const GeomAbs_Shape S ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static Standard_Boolean IsClosed ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static Standard_Boolean IsPeriodic ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static Standard_Real Period ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Computes the point of parameter U on the curve. static gp_Pnt Value ( const Handle ( Adaptor3d_HCurve ) & C , const Standard_Real U ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Computes the point of parameter U on the curve. static void D0 ( const Handle ( Adaptor3d_HCurve ) & C , const Standard_Real U , gp_Pnt & P ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Computes the point of parameter U on the curve with its
+## ! first derivative.
+## ! Raised if the continuity of the current interval
+## ! is not C1. static void D1 ( const Handle ( Adaptor3d_HCurve ) & C , const Standard_Real U , gp_Pnt & P , gp_Vec & V ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Returns the point P of parameter U, the first and second
+## ! derivatives V1 and V2.
+## ! Raised if the continuity of the current interval
+## ! is not C2. static void D2 ( const Handle ( Adaptor3d_HCurve ) & C , const Standard_Real U , gp_Pnt & P , gp_Vec & V1 , gp_Vec & V2 ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Returns the point P of parameter U, the first, the second
+## ! and the third derivative.
+## ! Raised if the continuity of the current interval
+## ! is not C3. static void D3 ( const Handle ( Adaptor3d_HCurve ) & C , const Standard_Real U , gp_Pnt & P , gp_Vec & V1 , gp_Vec & V2 , gp_Vec & V3 ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! The returned vector gives the value of the derivative for the
+## ! order of derivation N.
+## ! Raised if the continuity of the current interval
+## ! is not CN.
+## ! Raised if N < 1. static gp_Vec DN ( const Handle ( Adaptor3d_HCurve ) & C , const Standard_Real U , const Standard_Integer N ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Returns the parametric  resolution corresponding
+## ! to the real space resolution <R3d>. static Standard_Real Resolution ( const Handle ( Adaptor3d_HCurve ) & C , const Standard_Real R3d ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Returns  the  type of the   curve  in the  current
+## ! interval :   Line,   Circle,   Ellipse, Hyperbola,
+## ! Parabola, BezierCurve, BSplineCurve, OtherCurve. static GeomAbs_CurveType GetType ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static gp_Lin Line ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static gp_Circ Circle ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static gp_Elips Ellipse ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static gp_Hypr Hyperbola ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static gp_Parab Parabola ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  Bezier ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  BSpline ( const Handle ( Adaptor3d_HCurve ) & C ) ;
+## Error: token expected: ) but got: [identifier]!!!
+
+## !!!Ignored construct:  static Standard_Integer NbSamples ( const Handle ( Adaptor3d_HCurve ) & C , const Standard_Real U0 , const Standard_Real U1 ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  static void SamplePars ( const Handle ( Adaptor3d_HCurve ) & C , const Standard_Real U0 , const Standard_Real U1 , const Standard_Real Defl , const Standard_Integer NbMin , Handle ( TColStd_HArray1OfReal ) & Pars ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  # CurveGen Handle ( Adaptor3d_HCurve ) [NewLine] # CurveGen_hxx < Adaptor3d_HCurve . hxx > [NewLine] # IntCurveSurface_HCurveTool IntCurveSurface_TheHCurveTool [NewLine] # IntCurveSurface_HCurveTool_hxx < IntCurveSurface_TheHCurveTool . hxx > [NewLine] # < IntCurveSurface_HCurveTool . lxx > [NewLine] # CurveGen [NewLine] # CurveGen_hxx [NewLine] # IntCurveSurface_HCurveTool [NewLine] # IntCurveSurface_HCurveTool_hxx [NewLine] #  _IntCurveSurface_TheHCurveTool_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

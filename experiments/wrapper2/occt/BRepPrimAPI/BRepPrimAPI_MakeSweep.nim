@@ -35,3 +35,28 @@ proc firstShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepPrimAPI_MakeSweep.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepPrimAPI_MakeSweep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

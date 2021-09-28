@@ -18,7 +18,7 @@ type
                                      bycopy.} = object
 
 
-proc constructMathComputeGaussPointsAndWeights*(number: int): MathComputeGaussPointsAndWeights {.
+proc constructMathComputeGaussPointsAndWeights*(number: cint): MathComputeGaussPointsAndWeights {.
     constructor, importcpp: "math_ComputeGaussPointsAndWeights(@)",
     header: "math_ComputeGaussPointsAndWeights.hxx".}
 proc isDone*(this: MathComputeGaussPointsAndWeights): bool {.noSideEffect,
@@ -27,3 +27,28 @@ proc points*(this: MathComputeGaussPointsAndWeights): MathVector {.noSideEffect,
     importcpp: "Points", header: "math_ComputeGaussPointsAndWeights.hxx".}
 proc weights*(this: MathComputeGaussPointsAndWeights): MathVector {.noSideEffect,
     importcpp: "Weights", header: "math_ComputeGaussPointsAndWeights.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

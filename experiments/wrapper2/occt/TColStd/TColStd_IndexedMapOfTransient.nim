@@ -16,3 +16,28 @@ type
   TColStdIndexedMapOfTransient* = NCollectionIndexedMap[Handle[StandardTransient],
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

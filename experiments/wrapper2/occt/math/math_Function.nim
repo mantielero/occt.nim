@@ -29,7 +29,32 @@ type
 
 proc destroyMathFunction*(this: var MathFunction) {.importcpp: "#.~math_Function()",
     header: "math_Function.hxx".}
-proc value*(this: var MathFunction; x: float; f: var float): bool {.importcpp: "Value",
+proc value*(this: var MathFunction; x: cfloat; f: var cfloat): bool {.importcpp: "Value",
     header: "math_Function.hxx".}
-proc getStateNumber*(this: var MathFunction): int {.importcpp: "GetStateNumber",
+proc getStateNumber*(this: var MathFunction): cint {.importcpp: "GetStateNumber",
     header: "math_Function.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

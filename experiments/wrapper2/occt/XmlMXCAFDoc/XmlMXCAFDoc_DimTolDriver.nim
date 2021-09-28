@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMXCAFDoc_DimTolDriver"
 discard "forward decl of XmlMXCAFDoc_DimTolDriver"
 type
-  HandleXmlMXCAFDocDimTolDriver* = Handle[XmlMXCAFDocDimTolDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocDimTolDriver]
 
 ## ! Attribute Driver.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XmlMXCAFDoc_DimTolDriver.hxx".}
 proc dynamicType*(this: XmlMXCAFDocDimTolDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XmlMXCAFDoc_DimTolDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

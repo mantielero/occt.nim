@@ -97,7 +97,7 @@ type
 proc constructGC_MakeTrimmedCone*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): GC_MakeTrimmedCone {.
     constructor, importcpp: "GC_MakeTrimmedCone(@)",
     header: "GC_MakeTrimmedCone.hxx".}
-proc constructGC_MakeTrimmedCone*(p1: Pnt; p2: Pnt; r1: float; r2: float): GC_MakeTrimmedCone {.
+proc constructGC_MakeTrimmedCone*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): GC_MakeTrimmedCone {.
     constructor, importcpp: "GC_MakeTrimmedCone(@)",
     header: "GC_MakeTrimmedCone.hxx".}
 proc value*(this: GC_MakeTrimmedCone): Handle[GeomRectangularTrimmedSurface] {.
@@ -105,3 +105,24 @@ proc value*(this: GC_MakeTrimmedCone): Handle[GeomRectangularTrimmedSurface] {.
 converter `constopencascade`*(this: GC_MakeTrimmedCone): Handle[
     GeomRectangularTrimmedSurface] {.noSideEffect, importcpp: "GC_MakeTrimmedCone::operator constopencascade",
                                     header: "GC_MakeTrimmedCone.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -49,9 +49,9 @@ proc constructIntPatchCSFunction*(s1: Handle[Adaptor3dHSurface];
                                  s2: Handle[Adaptor3dHSurface]): IntPatchCSFunction {.
     constructor, importcpp: "IntPatch_CSFunction(@)",
     header: "IntPatch_CSFunction.hxx".}
-proc nbVariables*(this: IntPatchCSFunction): int {.noSideEffect,
+proc nbVariables*(this: IntPatchCSFunction): cint {.noSideEffect,
     importcpp: "NbVariables", header: "IntPatch_CSFunction.hxx".}
-proc nbEquations*(this: IntPatchCSFunction): int {.noSideEffect,
+proc nbEquations*(this: IntPatchCSFunction): cint {.noSideEffect,
     importcpp: "NbEquations", header: "IntPatch_CSFunction.hxx".}
 proc value*(this: var IntPatchCSFunction; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "IntPatch_CSFunction.hxx".}
@@ -62,9 +62,34 @@ proc values*(this: var IntPatchCSFunction; x: MathVector; f: var MathVector;
                                    header: "IntPatch_CSFunction.hxx".}
 proc point*(this: IntPatchCSFunction): Pnt {.noSideEffect, importcpp: "Point",
     header: "IntPatch_CSFunction.hxx".}
-proc root*(this: IntPatchCSFunction): float {.noSideEffect, importcpp: "Root",
+proc root*(this: IntPatchCSFunction): cfloat {.noSideEffect, importcpp: "Root",
     header: "IntPatch_CSFunction.hxx".}
 proc auxillarSurface*(this: IntPatchCSFunction): Handle[Adaptor3dHSurface] {.
     noSideEffect, importcpp: "AuxillarSurface", header: "IntPatch_CSFunction.hxx".}
 proc auxillarCurve*(this: IntPatchCSFunction): Handle[Adaptor2dHCurve2d] {.
     noSideEffect, importcpp: "AuxillarCurve", header: "IntPatch_CSFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

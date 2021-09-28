@@ -41,3 +41,28 @@ proc currentWP*(this: var TopOpeBRepWPointInterIterator): TopOpeBRepWPointInter 
 proc pLineInterDummy*(this: TopOpeBRepWPointInterIterator): TopOpeBRepPLineInter {.
     noSideEffect, importcpp: "PLineInterDummy",
     header: "TopOpeBRep_WPointInterIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

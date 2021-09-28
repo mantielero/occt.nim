@@ -39,7 +39,7 @@ type
 proc constructStepAP242IdAttributeSelect*(): StepAP242IdAttributeSelect {.
     constructor, importcpp: "StepAP242_IdAttributeSelect(@)",
     header: "StepAP242_IdAttributeSelect.hxx".}
-proc caseNum*(this: StepAP242IdAttributeSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP242IdAttributeSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP242_IdAttributeSelect.hxx".}
 proc action*(this: StepAP242IdAttributeSelect): Handle[StepBasicAction] {.
     noSideEffect, importcpp: "Action", header: "StepAP242_IdAttributeSelect.hxx".}
@@ -72,3 +72,28 @@ proc shapeAspectRelationship*(this: StepAP242IdAttributeSelect): Handle[
     StepReprShapeAspectRelationship] {.noSideEffect,
                                       importcpp: "ShapeAspectRelationship",
                                       header: "StepAP242_IdAttributeSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ discard "forward decl of Standard_Persistent"
 discard "forward decl of Storage_RootData"
 discard "forward decl of Storage_RootData"
 type
-  HandleStorageRootData* = Handle[StorageRootData]
+  HandleC1C1* = Handle[StorageRootData]
   StorageRootData* {.importcpp: "Storage_RootData", header: "Storage_RootData.hxx",
                     bycopy.} = object of StandardTransient
 
@@ -32,7 +32,7 @@ proc constructStorageRootData*(): StorageRootData {.constructor,
     importcpp: "Storage_RootData(@)", header: "Storage_RootData.hxx".}
 proc read*(this: var StorageRootData; theDriver: Handle[StorageBaseDriver]): bool {.
     importcpp: "Read", header: "Storage_RootData.hxx".}
-proc numberOfRoots*(this: StorageRootData): int {.noSideEffect,
+proc numberOfRoots*(this: StorageRootData): cint {.noSideEffect,
     importcpp: "NumberOfRoots", header: "Storage_RootData.hxx".}
 proc addRoot*(this: var StorageRootData; aRoot: Handle[StorageRoot]) {.
     importcpp: "AddRoot", header: "Storage_RootData.hxx".}
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Storage_RootData.hxx".}
 proc dynamicType*(this: StorageRootData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_RootData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

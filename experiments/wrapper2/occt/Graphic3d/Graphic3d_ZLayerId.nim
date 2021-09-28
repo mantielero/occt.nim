@@ -14,7 +14,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  Graphic3dZLayerId* = int
+  Graphic3dZLayerId* = cint
 
 ## ! This enumeration defines the list of predefined layers, which can not be removed (but settings can be overridden).
 ## ! Custom layers might be added with positive index (>= 1) if standard list is insufficient for application needs;
@@ -27,4 +27,29 @@ const
   Graphic3dZLayerIdTopmost* = -3 ## !< overlay for 3D presentations with independent Depth
   Graphic3dZLayerIdTopOSD* = -4 ## !< overlay for 2D presentations (On-Screen-Display)
   Graphic3dZLayerIdBotOSD* = -5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -16,7 +16,7 @@
 discard "forward decl of XSAlgo_ToolContainer"
 discard "forward decl of XSAlgo_ToolContainer"
 type
-  HandleXSAlgoToolContainer* = Handle[XSAlgoToolContainer]
+  HandleC1C1* = Handle[XSAlgoToolContainer]
 
 ## ! Returns tools used by AlgoContainer
 
@@ -40,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XSAlgo_ToolContainer.hxx".}
 proc dynamicType*(this: XSAlgoToolContainer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XSAlgo_ToolContainer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

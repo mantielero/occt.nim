@@ -30,7 +30,7 @@ proc constructRWStepAP214RWAutoDesignActualDateAndTimeAssignment*(): RWStepAP214
     importcpp: "RWStepAP214_RWAutoDesignActualDateAndTimeAssignment(@)",
     header: "RWStepAP214_RWAutoDesignActualDateAndTimeAssignment.hxx".}
 proc readStep*(this: RWStepAP214RWAutoDesignActualDateAndTimeAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AutoDesignActualDateAndTimeAssignment]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepAP214RWAutoDesignActualDateAndTimeAssignment;
            ent: Handle[StepAP214AutoDesignActualDateAndTimeAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAutoDesignActualDateAndTimeAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

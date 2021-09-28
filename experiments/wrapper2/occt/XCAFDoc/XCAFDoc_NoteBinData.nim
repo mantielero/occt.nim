@@ -55,8 +55,8 @@ proc title*(this: XCAFDocNoteBinData): TCollectionExtendedString {.noSideEffect,
     importcpp: "Title", header: "XCAFDoc_NoteBinData.hxx".}
 proc mIMEtype*(this: XCAFDocNoteBinData): TCollectionAsciiString {.noSideEffect,
     importcpp: "MIMEtype", header: "XCAFDoc_NoteBinData.hxx".}
-proc size*(this: XCAFDocNoteBinData): int {.noSideEffect, importcpp: "Size",
-                                        header: "XCAFDoc_NoteBinData.hxx".}
+proc size*(this: XCAFDocNoteBinData): cint {.noSideEffect, importcpp: "Size",
+    header: "XCAFDoc_NoteBinData.hxx".}
 proc data*(this: XCAFDocNoteBinData): Handle[TColStdHArray1OfByte] {.noSideEffect,
     importcpp: "Data", header: "XCAFDoc_NoteBinData.hxx".}
 proc id*(this: XCAFDocNoteBinData): StandardGUID {.noSideEffect, importcpp: "ID",
@@ -72,5 +72,30 @@ proc dump*(this: XCAFDocNoteBinData; theOS: var StandardOStream): var StandardOS
     noSideEffect, importcpp: "Dump", header: "XCAFDoc_NoteBinData.hxx".}
 discard "forward decl of XCAFDoc_NoteBinData"
 type
-  HandleXCAFDocNoteBinData* = Handle[XCAFDocNoteBinData]
+  HandleC1C1* = Handle[XCAFDocNoteBinData]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

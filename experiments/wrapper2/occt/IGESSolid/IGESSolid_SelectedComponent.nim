@@ -20,7 +20,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESSolid_SelectedComponent"
 discard "forward decl of IGESSolid_SelectedComponent"
 type
-  HandleIGESSolidSelectedComponent* = Handle[IGESSolidSelectedComponent]
+  HandleC1C1* = Handle[IGESSolidSelectedComponent]
 
 ## ! defines SelectedComponent, Type <182> Form Number <0>
 ## ! in package IGESSolid
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSolidSelectedComponent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_SelectedComponent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MeshVS_DataMapOfIntegerColor* = NCollectionDataMap[int, QuantityColor,
+  MeshVS_DataMapOfIntegerColor* = NCollectionDataMap[cint, QuantityColor,
       TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerColor* = Iterator[int, QuantityColor,
+  MeshVS_DataMapIteratorOfDataMapOfIntegerColor* = Iterator[cint, QuantityColor,
       TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -26,17 +26,17 @@ proc constructGraphic3dVertex*(): Graphic3dVertex {.constructor,
 proc constructGraphic3dVertex*(theX: StandardShortReal; theY: StandardShortReal;
                               theZ: StandardShortReal): Graphic3dVertex {.
     constructor, importcpp: "Graphic3d_Vertex(@)", header: "Graphic3d_Vertex.hxx".}
-proc constructGraphic3dVertex*(theX: float; theY: float; theZ: float): Graphic3dVertex {.
+proc constructGraphic3dVertex*(theX: cfloat; theY: cfloat; theZ: cfloat): Graphic3dVertex {.
     constructor, importcpp: "Graphic3d_Vertex(@)", header: "Graphic3d_Vertex.hxx".}
 proc setCoord*(this: var Graphic3dVertex; theX: StandardShortReal;
               theY: StandardShortReal; theZ: StandardShortReal) {.
     importcpp: "SetCoord", header: "Graphic3d_Vertex.hxx".}
-proc setCoord*(this: var Graphic3dVertex; theX: float; theY: float; theZ: float) {.
+proc setCoord*(this: var Graphic3dVertex; theX: cfloat; theY: cfloat; theZ: cfloat) {.
     importcpp: "SetCoord", header: "Graphic3d_Vertex.hxx".}
 proc coord*(this: Graphic3dVertex; theX: var StandardShortReal;
            theY: var StandardShortReal; theZ: var StandardShortReal) {.noSideEffect,
     importcpp: "Coord", header: "Graphic3d_Vertex.hxx".}
-proc coord*(this: Graphic3dVertex; theX: var float; theY: var float; theZ: var float) {.
+proc coord*(this: Graphic3dVertex; theX: var cfloat; theY: var cfloat; theZ: var cfloat) {.
     noSideEffect, importcpp: "Coord", header: "Graphic3d_Vertex.hxx".}
 proc x*(this: Graphic3dVertex): StandardShortReal {.noSideEffect, importcpp: "X",
     header: "Graphic3d_Vertex.hxx".}
@@ -47,5 +47,30 @@ proc z*(this: Graphic3dVertex): StandardShortReal {.noSideEffect, importcpp: "Z"
 proc distance*(this: Graphic3dVertex; theOther: Graphic3dVertex): StandardShortReal {.
     noSideEffect, importcpp: "Distance", header: "Graphic3d_Vertex.hxx".}
 proc dumpJson*(this: Graphic3dVertex; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_Vertex.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_Vertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

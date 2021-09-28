@@ -19,7 +19,7 @@ discard "forward decl of Units_Token"
 discard "forward decl of Units_ShiftedUnit"
 discard "forward decl of Units_ShiftedUnit"
 type
-  HandleUnitsShiftedUnit* = Handle[UnitsShiftedUnit]
+  HandleC1C1* = Handle[UnitsShiftedUnit]
 
 ## ! This class is useful   to describe  units  with  a
 ## ! shifted origin in relation to another unit. A well
@@ -86,20 +86,20 @@ type
 
 
 proc constructUnitsShiftedUnit*(aname: StandardCString; asymbol: StandardCString;
-                               avalue: float; amove: float;
+                               avalue: cfloat; amove: cfloat;
                                aquantity: Handle[UnitsQuantity]): UnitsShiftedUnit {.
     constructor, importcpp: "Units_ShiftedUnit(@)", header: "Units_ShiftedUnit.hxx".}
 proc constructUnitsShiftedUnit*(aname: StandardCString; asymbol: StandardCString): UnitsShiftedUnit {.
     constructor, importcpp: "Units_ShiftedUnit(@)", header: "Units_ShiftedUnit.hxx".}
 proc constructUnitsShiftedUnit*(aname: StandardCString): UnitsShiftedUnit {.
     constructor, importcpp: "Units_ShiftedUnit(@)", header: "Units_ShiftedUnit.hxx".}
-proc move*(this: var UnitsShiftedUnit; amove: float) {.importcpp: "Move",
+proc move*(this: var UnitsShiftedUnit; amove: cfloat) {.importcpp: "Move",
     header: "Units_ShiftedUnit.hxx".}
-proc move*(this: UnitsShiftedUnit): float {.noSideEffect, importcpp: "Move",
-                                        header: "Units_ShiftedUnit.hxx".}
+proc move*(this: UnitsShiftedUnit): cfloat {.noSideEffect, importcpp: "Move",
+    header: "Units_ShiftedUnit.hxx".}
 proc token*(this: UnitsShiftedUnit): Handle[UnitsToken] {.noSideEffect,
     importcpp: "Token", header: "Units_ShiftedUnit.hxx".}
-proc dump*(this: UnitsShiftedUnit; ashift: int; alevel: int) {.noSideEffect,
+proc dump*(this: UnitsShiftedUnit; ashift: cint; alevel: cint) {.noSideEffect,
     importcpp: "Dump", header: "Units_ShiftedUnit.hxx".}
 type
   UnitsShiftedUnitbaseType* = UnitsUnit
@@ -111,3 +111,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Units_ShiftedUnit.hxx".}
 proc dynamicType*(this: UnitsShiftedUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_ShiftedUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,7 @@
 discard "forward decl of StepRepr_Extension"
 discard "forward decl of StepRepr_Extension"
 type
-  HandleStepReprExtension* = Handle[StepReprExtension]
+  HandleC1C1* = Handle[StepReprExtension]
 
 ## ! Added for Dimensional Tolerances
 
@@ -37,3 +37,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_Extension.hxx".}
 proc dynamicType*(this: StepReprExtension): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepRepr_Extension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

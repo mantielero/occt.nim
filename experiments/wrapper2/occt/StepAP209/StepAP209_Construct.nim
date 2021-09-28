@@ -130,3 +130,28 @@ proc idealShape*(this: StepAP209Construct;
                 pds: Handle[StepReprProductDefinitionShape]): Handle[
     StepShapeShapeRepresentation] {.noSideEffect, importcpp: "IdealShape",
                                    header: "StepAP209_Construct.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

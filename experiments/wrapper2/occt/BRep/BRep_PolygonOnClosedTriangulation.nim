@@ -21,8 +21,7 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_PolygonOnClosedTriangulation"
 discard "forward decl of BRep_PolygonOnClosedTriangulation"
 type
-  HandleBRepPolygonOnClosedTriangulation* = Handle[
-      BRepPolygonOnClosedTriangulation]
+  HandleC1C1* = Handle[BRepPolygonOnClosedTriangulation]
 
 ## ! A representation by two arrays of nodes on a
 ## ! triangulation.
@@ -52,7 +51,7 @@ proc copy*(this: BRepPolygonOnClosedTriangulation): Handle[BRepCurveRepresentati
     noSideEffect, importcpp: "Copy",
     header: "BRep_PolygonOnClosedTriangulation.hxx".}
 proc dumpJson*(this: BRepPolygonOnClosedTriangulation;
-              theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
+              theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     importcpp: "DumpJson", header: "BRep_PolygonOnClosedTriangulation.hxx".}
 type
   BRepPolygonOnClosedTriangulationbaseType* = BRepPolygonOnTriangulation
@@ -65,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BRepPolygonOnClosedTriangulation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRep_PolygonOnClosedTriangulation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

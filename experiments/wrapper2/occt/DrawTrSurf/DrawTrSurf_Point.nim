@@ -22,7 +22,7 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_Point"
 discard "forward decl of DrawTrSurf_Point"
 type
-  HandleDrawTrSurfPoint* = Handle[DrawTrSurfPoint]
+  HandleC1C1* = Handle[DrawTrSurfPoint]
 
 ## ! A drawable point.
 
@@ -71,3 +71,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawTrSurf_Point.hxx".}
 proc dynamicType*(this: DrawTrSurfPoint): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_Point.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

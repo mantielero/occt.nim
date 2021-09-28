@@ -37,3 +37,28 @@ proc map*(this: VrmlWWWAnchor): VrmlWWWAnchorMap {.noSideEffect, importcpp: "Map
     header: "Vrml_WWWAnchor.hxx".}
 proc print*(this: VrmlWWWAnchor; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_WWWAnchor.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

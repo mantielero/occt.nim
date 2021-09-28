@@ -29,7 +29,7 @@ type
 
 proc constructStepVisualFontSelect*(): StepVisualFontSelect {.constructor,
     importcpp: "StepVisual_FontSelect(@)", header: "StepVisual_FontSelect.hxx".}
-proc caseNum*(this: StepVisualFontSelect; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepVisualFontSelect; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_FontSelect.hxx".}
 proc preDefinedTextFont*(this: StepVisualFontSelect): Handle[
     StepVisualPreDefinedTextFont] {.noSideEffect, importcpp: "PreDefinedTextFont",
@@ -37,3 +37,28 @@ proc preDefinedTextFont*(this: StepVisualFontSelect): Handle[
 proc externallyDefinedTextFont*(this: StepVisualFontSelect): Handle[
     StepVisualExternallyDefinedTextFont] {.noSideEffect,
     importcpp: "ExternallyDefinedTextFont", header: "StepVisual_FontSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of StepShape_AdvancedFace"
 discard "forward decl of StepShape_AdvancedFace"
 type
-  HandleStepShapeAdvancedFace* = Handle[StepShapeAdvancedFace]
+  HandleC1C1* = Handle[StepShapeAdvancedFace]
   StepShapeAdvancedFace* {.importcpp: "StepShape_AdvancedFace",
                           header: "StepShape_AdvancedFace.hxx", bycopy.} = object of StepShapeFaceSurface ##
                                                                                                    ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_AdvancedFace.hxx".}
 proc dynamicType*(this: StepShapeAdvancedFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_AdvancedFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

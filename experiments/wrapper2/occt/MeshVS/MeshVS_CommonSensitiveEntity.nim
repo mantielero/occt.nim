@@ -47,15 +47,15 @@ proc constructMeshVS_CommonSensitiveEntity*(
 proc destroyMeshVS_CommonSensitiveEntity*(this: var MeshVS_CommonSensitiveEntity) {.
     importcpp: "#.~MeshVS_CommonSensitiveEntity()",
     header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc nbSubElements*(this: MeshVS_CommonSensitiveEntity): int {.noSideEffect,
+proc nbSubElements*(this: MeshVS_CommonSensitiveEntity): cint {.noSideEffect,
     importcpp: "NbSubElements", header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc size*(this: MeshVS_CommonSensitiveEntity): int {.noSideEffect,
+proc size*(this: MeshVS_CommonSensitiveEntity): cint {.noSideEffect,
     importcpp: "Size", header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc box*(this: MeshVS_CommonSensitiveEntity; theIdx: int): Select3D_BndBox3d {.
+proc box*(this: MeshVS_CommonSensitiveEntity; theIdx: cint): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc center*(this: MeshVS_CommonSensitiveEntity; theIdx: int; theAxis: int): float {.
+proc center*(this: MeshVS_CommonSensitiveEntity; theIdx: cint; theAxis: cint): cfloat {.
     noSideEffect, importcpp: "Center", header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc swap*(this: var MeshVS_CommonSensitiveEntity; theIdx1: int; theIdx2: int) {.
+proc swap*(this: var MeshVS_CommonSensitiveEntity; theIdx1: cint; theIdx2: cint) {.
     importcpp: "Swap", header: "MeshVS_CommonSensitiveEntity.hxx".}
 proc boundingBox*(this: var MeshVS_CommonSensitiveEntity): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "MeshVS_CommonSensitiveEntity.hxx".}
@@ -66,5 +66,30 @@ proc getConnected*(this: var MeshVS_CommonSensitiveEntity): Handle[
                                header: "MeshVS_CommonSensitiveEntity.hxx".}
 discard "forward decl of MeshVS_CommonSensitiveEntity"
 type
-  HandleMeshVS_CommonSensitiveEntity* = Handle[MeshVS_CommonSensitiveEntity]
+  HandleC1C1* = Handle[MeshVS_CommonSensitiveEntity]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

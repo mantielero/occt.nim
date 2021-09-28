@@ -145,38 +145,63 @@ type
                                                                           ## exist).
 
 
-proc angular*(): float {.importcpp: "Precision::Angular(@)", header: "Precision.hxx".}
-proc confusion*(): float {.importcpp: "Precision::Confusion(@)",
-                        header: "Precision.hxx".}
-proc squareConfusion*(): float {.importcpp: "Precision::SquareConfusion(@)",
-                              header: "Precision.hxx".}
-proc intersection*(): float {.importcpp: "Precision::Intersection(@)",
-                           header: "Precision.hxx".}
-proc approximation*(): float {.importcpp: "Precision::Approximation(@)",
-                            header: "Precision.hxx".}
-proc parametric*(p: float; t: float): float {.importcpp: "Precision::Parametric(@)",
-                                        header: "Precision.hxx".}
-proc pConfusion*(t: float): float {.importcpp: "Precision::PConfusion(@)",
-                                header: "Precision.hxx".}
-proc squarePConfusion*(): float {.importcpp: "Precision::SquarePConfusion(@)",
-                               header: "Precision.hxx".}
-proc pIntersection*(t: float): float {.importcpp: "Precision::PIntersection(@)",
-                                   header: "Precision.hxx".}
-proc pApproximation*(t: float): float {.importcpp: "Precision::PApproximation(@)",
-                                    header: "Precision.hxx".}
-proc parametric*(p: float): float {.importcpp: "Precision::Parametric(@)",
-                                header: "Precision.hxx".}
-proc pConfusion*(): float {.importcpp: "Precision::PConfusion(@)",
+proc angular*(): cfloat {.importcpp: "Precision::Angular(@)", header: "Precision.hxx".}
+proc confusion*(): cfloat {.importcpp: "Precision::Confusion(@)",
                          header: "Precision.hxx".}
-proc pIntersection*(): float {.importcpp: "Precision::PIntersection(@)",
-                            header: "Precision.hxx".}
-proc pApproximation*(): float {.importcpp: "Precision::PApproximation(@)",
-                             header: "Precision.hxx".}
-proc isInfinite*(r: float): bool {.importcpp: "Precision::IsInfinite(@)",
+proc squareConfusion*(): cfloat {.importcpp: "Precision::SquareConfusion(@)",
                                header: "Precision.hxx".}
-proc isPositiveInfinite*(r: float): bool {.importcpp: "Precision::IsPositiveInfinite(@)",
-                                       header: "Precision.hxx".}
-proc isNegativeInfinite*(r: float): bool {.importcpp: "Precision::IsNegativeInfinite(@)",
-                                       header: "Precision.hxx".}
-proc infinite*(): float {.importcpp: "Precision::Infinite(@)",
-                       header: "Precision.hxx".}
+proc intersection*(): cfloat {.importcpp: "Precision::Intersection(@)",
+                            header: "Precision.hxx".}
+proc approximation*(): cfloat {.importcpp: "Precision::Approximation(@)",
+                             header: "Precision.hxx".}
+proc parametric*(p: cfloat; t: cfloat): cfloat {.
+    importcpp: "Precision::Parametric(@)", header: "Precision.hxx".}
+proc pConfusion*(t: cfloat): cfloat {.importcpp: "Precision::PConfusion(@)",
+                                  header: "Precision.hxx".}
+proc squarePConfusion*(): cfloat {.importcpp: "Precision::SquarePConfusion(@)",
+                                header: "Precision.hxx".}
+proc pIntersection*(t: cfloat): cfloat {.importcpp: "Precision::PIntersection(@)",
+                                     header: "Precision.hxx".}
+proc pApproximation*(t: cfloat): cfloat {.importcpp: "Precision::PApproximation(@)",
+                                      header: "Precision.hxx".}
+proc parametric*(p: cfloat): cfloat {.importcpp: "Precision::Parametric(@)",
+                                  header: "Precision.hxx".}
+proc pConfusion*(): cfloat {.importcpp: "Precision::PConfusion(@)",
+                          header: "Precision.hxx".}
+proc pIntersection*(): cfloat {.importcpp: "Precision::PIntersection(@)",
+                             header: "Precision.hxx".}
+proc pApproximation*(): cfloat {.importcpp: "Precision::PApproximation(@)",
+                              header: "Precision.hxx".}
+proc isInfinite*(r: cfloat): bool {.importcpp: "Precision::IsInfinite(@)",
+                                header: "Precision.hxx".}
+proc isPositiveInfinite*(r: cfloat): bool {.importcpp: "Precision::IsPositiveInfinite(@)",
+                                        header: "Precision.hxx".}
+proc isNegativeInfinite*(r: cfloat): bool {.importcpp: "Precision::IsNegativeInfinite(@)",
+                                        header: "Precision.hxx".}
+proc infinite*(): cfloat {.importcpp: "Precision::Infinite(@)",
+                        header: "Precision.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

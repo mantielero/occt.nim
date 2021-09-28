@@ -31,7 +31,7 @@ proc constructRWStepBasicRWExternalIdentificationAssignment*(): RWStepBasicRWExt
     constructor, importcpp: "RWStepBasic_RWExternalIdentificationAssignment(@)",
     header: "RWStepBasic_RWExternalIdentificationAssignment.hxx".}
 proc readStep*(this: RWStepBasicRWExternalIdentificationAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicExternalIdentificationAssignment]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -45,3 +45,28 @@ proc share*(this: RWStepBasicRWExternalIdentificationAssignment;
            ent: Handle[StepBasicExternalIdentificationAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWExternalIdentificationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

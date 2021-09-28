@@ -21,4 +21,3 @@ type
     GeomAbsBezierSurface, GeomAbsBSplineSurface, GeomAbsSurfaceOfRevolution,
     GeomAbsSurfaceOfExtrusion, GeomAbsOffsetSurface, GeomAbsOtherSurface
 
-

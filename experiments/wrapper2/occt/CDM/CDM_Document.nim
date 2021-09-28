@@ -26,7 +26,7 @@ discard "forward decl of Resource_Manager"
 discard "forward decl of CDM_Document"
 discard "forward decl of CDM_Document"
 type
-  HandleCDM_Document* = Handle[CDM_Document]
+  HandleC1C1* = Handle[CDM_Document]
 
 ## ! An applicative document is an instance of a class inheriting CDM_Document.
 ## ! These documents have the following properties:
@@ -115,7 +115,7 @@ type
 
 
 proc update*(this: var CDM_Document; aToDocument: Handle[CDM_Document];
-            aReferenceIdentifier: int; aModifContext: StandardAddress) {.
+            aReferenceIdentifier: cint; aModifContext: StandardAddress) {.
     importcpp: "Update", header: "CDM_Document.hxx".}
 proc update*(this: var CDM_Document; errorString: var TCollectionExtendedString): bool {.
     importcpp: "Update", header: "CDM_Document.hxx".}
@@ -128,49 +128,49 @@ proc getAlternativeDocument*(this: var CDM_Document;
                             aFormat: TCollectionExtendedString;
                             anAlternativeDocument: var Handle[CDM_Document]): bool {.
     importcpp: "GetAlternativeDocument", header: "CDM_Document.hxx".}
-proc createReference*(this: var CDM_Document; anOtherDocument: Handle[CDM_Document]): int {.
+proc createReference*(this: var CDM_Document; anOtherDocument: Handle[CDM_Document]): cint {.
     importcpp: "CreateReference", header: "CDM_Document.hxx".}
-proc removeReference*(this: var CDM_Document; aReferenceIdentifier: int) {.
+proc removeReference*(this: var CDM_Document; aReferenceIdentifier: cint) {.
     importcpp: "RemoveReference", header: "CDM_Document.hxx".}
 proc removeAllReferences*(this: var CDM_Document) {.
     importcpp: "RemoveAllReferences", header: "CDM_Document.hxx".}
-proc document*(this: CDM_Document; aReferenceIdentifier: int): Handle[CDM_Document] {.
+proc document*(this: CDM_Document; aReferenceIdentifier: cint): Handle[CDM_Document] {.
     noSideEffect, importcpp: "Document", header: "CDM_Document.hxx".}
-proc isInSession*(this: CDM_Document; aReferenceIdentifier: int): bool {.noSideEffect,
-    importcpp: "IsInSession", header: "CDM_Document.hxx".}
-proc isStored*(this: CDM_Document; aReferenceIdentifier: int): bool {.noSideEffect,
+proc isInSession*(this: CDM_Document; aReferenceIdentifier: cint): bool {.
+    noSideEffect, importcpp: "IsInSession", header: "CDM_Document.hxx".}
+proc isStored*(this: CDM_Document; aReferenceIdentifier: cint): bool {.noSideEffect,
     importcpp: "IsStored", header: "CDM_Document.hxx".}
-proc name*(this: CDM_Document; aReferenceIdentifier: int): TCollectionExtendedString {.
+proc name*(this: CDM_Document; aReferenceIdentifier: cint): TCollectionExtendedString {.
     noSideEffect, importcpp: "Name", header: "CDM_Document.hxx".}
 proc updateFromDocuments*(this: CDM_Document; aModifContext: StandardAddress) {.
     noSideEffect, importcpp: "UpdateFromDocuments", header: "CDM_Document.hxx".}
-proc toReferencesNumber*(this: CDM_Document): int {.noSideEffect,
+proc toReferencesNumber*(this: CDM_Document): cint {.noSideEffect,
     importcpp: "ToReferencesNumber", header: "CDM_Document.hxx".}
-proc fromReferencesNumber*(this: CDM_Document): int {.noSideEffect,
+proc fromReferencesNumber*(this: CDM_Document): cint {.noSideEffect,
     importcpp: "FromReferencesNumber", header: "CDM_Document.hxx".}
 proc shallowReferences*(this: CDM_Document; aDocument: Handle[CDM_Document]): bool {.
     noSideEffect, importcpp: "ShallowReferences", header: "CDM_Document.hxx".}
 proc deepReferences*(this: CDM_Document; aDocument: Handle[CDM_Document]): bool {.
     noSideEffect, importcpp: "DeepReferences", header: "CDM_Document.hxx".}
 proc copyReference*(this: var CDM_Document; aFromDocument: Handle[CDM_Document];
-                   aReferenceIdentifier: int): int {.importcpp: "CopyReference",
+                   aReferenceIdentifier: cint): cint {.importcpp: "CopyReference",
     header: "CDM_Document.hxx".}
 proc isReadOnly*(this: CDM_Document): bool {.noSideEffect, importcpp: "IsReadOnly",
     header: "CDM_Document.hxx".}
-proc isReadOnly*(this: CDM_Document; aReferenceIdentifier: int): bool {.noSideEffect,
+proc isReadOnly*(this: CDM_Document; aReferenceIdentifier: cint): bool {.noSideEffect,
     importcpp: "IsReadOnly", header: "CDM_Document.hxx".}
 proc setIsReadOnly*(this: var CDM_Document) {.importcpp: "SetIsReadOnly",
     header: "CDM_Document.hxx".}
 proc unsetIsReadOnly*(this: var CDM_Document) {.importcpp: "UnsetIsReadOnly",
     header: "CDM_Document.hxx".}
 proc modify*(this: var CDM_Document) {.importcpp: "Modify", header: "CDM_Document.hxx".}
-proc modifications*(this: CDM_Document): int {.noSideEffect,
+proc modifications*(this: CDM_Document): cint {.noSideEffect,
     importcpp: "Modifications", header: "CDM_Document.hxx".}
 proc unModify*(this: var CDM_Document) {.importcpp: "UnModify",
                                      header: "CDM_Document.hxx".}
-proc isUpToDate*(this: CDM_Document; aReferenceIdentifier: int): bool {.noSideEffect,
+proc isUpToDate*(this: CDM_Document; aReferenceIdentifier: cint): bool {.noSideEffect,
     importcpp: "IsUpToDate", header: "CDM_Document.hxx".}
-proc setIsUpToDate*(this: var CDM_Document; aReferenceIdentifier: int) {.
+proc setIsUpToDate*(this: var CDM_Document; aReferenceIdentifier: cint) {.
     importcpp: "SetIsUpToDate", header: "CDM_Document.hxx".}
 proc setComment*(this: var CDM_Document; aComment: TCollectionExtendedString) {.
     importcpp: "SetComment", header: "CDM_Document.hxx".}
@@ -184,7 +184,7 @@ proc comment*(this: CDM_Document): StandardExtString {.noSideEffect,
     importcpp: "Comment", header: "CDM_Document.hxx".}
 proc isStored*(this: CDM_Document): bool {.noSideEffect, importcpp: "IsStored",
                                        header: "CDM_Document.hxx".}
-proc storageVersion*(this: CDM_Document): int {.noSideEffect,
+proc storageVersion*(this: CDM_Document): cint {.noSideEffect,
     importcpp: "StorageVersion", header: "CDM_Document.hxx".}
 proc setMetaData*(this: var CDM_Document; aMetaData: Handle[CDM_MetaData]) {.
     importcpp: "SetMetaData", header: "CDM_Document.hxx".}
@@ -244,38 +244,38 @@ proc close*(this: var CDM_Document) {.importcpp: "Close", header: "CDM_Document.
 proc application*(this: CDM_Document): Handle[CDM_Application] {.noSideEffect,
     importcpp: "Application", header: "CDM_Document.hxx".}
 proc canCloseReference*(this: CDM_Document; aDocument: Handle[CDM_Document];
-                       aReferenceIdentifier: int): bool {.noSideEffect,
+                       aReferenceIdentifier: cint): bool {.noSideEffect,
     importcpp: "CanCloseReference", header: "CDM_Document.hxx".}
 proc closeReference*(this: var CDM_Document; aDocument: Handle[CDM_Document];
-                    aReferenceIdentifier: int) {.importcpp: "CloseReference",
+                    aReferenceIdentifier: cint) {.importcpp: "CloseReference",
     header: "CDM_Document.hxx".}
-proc isOpened*(this: CDM_Document; aReferenceIdentifier: int): bool {.noSideEffect,
+proc isOpened*(this: CDM_Document; aReferenceIdentifier: cint): bool {.noSideEffect,
     importcpp: "IsOpened", header: "CDM_Document.hxx".}
 proc createReference*(this: var CDM_Document; aMetaData: Handle[CDM_MetaData];
-                     aReferenceIdentifier: int;
+                     aReferenceIdentifier: cint;
                      anApplication: Handle[CDM_Application];
-                     aToDocumentVersion: int; useStorageConfiguration: bool) {.
+                     aToDocumentVersion: cint; useStorageConfiguration: bool) {.
     importcpp: "CreateReference", header: "CDM_Document.hxx".}
 proc createReference*(this: var CDM_Document; aMetaData: Handle[CDM_MetaData];
                      anApplication: Handle[CDM_Application];
-                     aDocumentVersion: int; useStorageConfiguration: bool): int {.
+                     aDocumentVersion: cint; useStorageConfiguration: bool): cint {.
     importcpp: "CreateReference", header: "CDM_Document.hxx".}
-proc referenceCounter*(this: CDM_Document): int {.noSideEffect,
+proc referenceCounter*(this: CDM_Document): cint {.noSideEffect,
     importcpp: "ReferenceCounter", header: "CDM_Document.hxx".}
 proc update*(this: var CDM_Document) {.importcpp: "Update", header: "CDM_Document.hxx".}
-proc reference*(this: CDM_Document; aReferenceIdentifier: int): Handle[CDM_Reference] {.
+proc reference*(this: CDM_Document; aReferenceIdentifier: cint): Handle[CDM_Reference] {.
     noSideEffect, importcpp: "Reference", header: "CDM_Document.hxx".}
-proc setModifications*(this: var CDM_Document; modifications: int) {.
+proc setModifications*(this: var CDM_Document; modifications: cint) {.
     importcpp: "SetModifications", header: "CDM_Document.hxx".}
-proc setReferenceCounter*(this: var CDM_Document; aReferenceCounter: int) {.
+proc setReferenceCounter*(this: var CDM_Document; aReferenceCounter: cint) {.
     importcpp: "SetReferenceCounter", header: "CDM_Document.hxx".}
-proc storageFormatVersion*(this: CDM_Document): int {.noSideEffect,
+proc storageFormatVersion*(this: CDM_Document): cint {.noSideEffect,
     importcpp: "StorageFormatVersion", header: "CDM_Document.hxx".}
-proc changeStorageFormatVersion*(this: var CDM_Document; theVersion: int) {.
+proc changeStorageFormatVersion*(this: var CDM_Document; theVersion: cint) {.
     importcpp: "ChangeStorageFormatVersion", header: "CDM_Document.hxx".}
 proc dumpJson*(this: CDM_Document; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "CDM_Document.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "CDM_Document.hxx".}
 type
   CDM_DocumentbaseType* = StandardTransient
 
@@ -285,3 +285,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "CDM_Document::get_type_descriptor(@)", header: "CDM_Document.hxx".}
 proc dynamicType*(this: CDM_Document): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "CDM_Document.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

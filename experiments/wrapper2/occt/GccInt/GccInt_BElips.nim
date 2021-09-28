@@ -18,7 +18,7 @@ discard "forward decl of gp_Elips2d"
 discard "forward decl of GccInt_BElips"
 discard "forward decl of GccInt_BElips"
 type
-  HandleGccIntBElips* = Handle[GccIntBElips]
+  HandleC1C1* = Handle[GccIntBElips]
 
 ## ! Describes an ellipse as a bisecting curve between two
 ## ! 2D geometric objects (such as circles or points).
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "GccInt_BElips.hxx".}
 proc dynamicType*(this: GccIntBElips): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BElips.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

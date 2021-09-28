@@ -27,7 +27,7 @@ proc currentShape*(shapeEntry: StandardCString; data: Handle[TDF_Data]): TopoDS_
 proc getShape*(shapeEntry: StandardCString; data: Handle[TDF_Data];
               shapes: var TopToolsListOfShape) {.
     importcpp: "QADNaming::GetShape(@)", header: "QADNaming.hxx".}
-proc getEntry*(shape: TopoDS_Shape; data: Handle[TDF_Data]; theStatus: var int): TCollectionAsciiString {.
+proc getEntry*(shape: TopoDS_Shape; data: Handle[TDF_Data]; theStatus: var cint): TCollectionAsciiString {.
     importcpp: "QADNaming::GetEntry(@)", header: "QADNaming.hxx".}
 proc entry*(theArguments: StandardAddress; theLabel: var TDF_Label): bool {.
     importcpp: "QADNaming::Entry(@)", header: "QADNaming.hxx".}
@@ -43,3 +43,28 @@ proc toolsCommands*(di: var DrawInterpretor) {.
     importcpp: "QADNaming::ToolsCommands(@)", header: "QADNaming.hxx".}
 proc selectionCommands*(di: var DrawInterpretor) {.
     importcpp: "QADNaming::SelectionCommands(@)", header: "QADNaming.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

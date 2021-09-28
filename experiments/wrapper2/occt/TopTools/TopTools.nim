@@ -28,4 +28,29 @@ type
 
 proc dump*(sh: TopoDS_Shape; s: var StandardOStream) {.importcpp: "TopTools::Dump(@)",
     header: "TopTools.hxx".}
-proc dummy*(i: int) {.importcpp: "TopTools::Dummy(@)", header: "TopTools.hxx".}
+proc dummy*(i: cint) {.importcpp: "TopTools::Dummy(@)", header: "TopTools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

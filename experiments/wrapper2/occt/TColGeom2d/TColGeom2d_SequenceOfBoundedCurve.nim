@@ -18,3 +18,28 @@ type
   TColGeom2dSequenceOfBoundedCurve* = NCollectionSequence[
       Handle[Geom2dBoundedCurve]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

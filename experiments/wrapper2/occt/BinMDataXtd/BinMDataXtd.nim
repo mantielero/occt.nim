@@ -33,7 +33,32 @@ type
 proc addDrivers*(theDriverTable: Handle[BinMDF_ADriverTable];
                 aMsgDrv: Handle[MessageMessenger]) {.
     importcpp: "BinMDataXtd::AddDrivers(@)", header: "BinMDataXtd.hxx".}
-proc setDocumentVersion*(docVersion: int) {.
+proc setDocumentVersion*(docVersion: cint) {.
     importcpp: "BinMDataXtd::SetDocumentVersion(@)", header: "BinMDataXtd.hxx".}
-proc documentVersion*(): int {.importcpp: "BinMDataXtd::DocumentVersion(@)",
-                            header: "BinMDataXtd.hxx".}
+proc documentVersion*(): cint {.importcpp: "BinMDataXtd::DocumentVersion(@)",
+                             header: "BinMDataXtd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,13 +17,13 @@ type
                          header: "GCPnts_DistFunction2d.hxx", bycopy.} = object of MathFunction
 
 
-proc constructGCPntsDistFunction2d*(theCurve: Adaptor2dCurve2d; u1: float; u2: float): GCPntsDistFunction2d {.
-    constructor, importcpp: "GCPnts_DistFunction2d(@)",
-    header: "GCPnts_DistFunction2d.hxx".}
+proc constructGCPntsDistFunction2d*(theCurve: Adaptor2dCurve2d; u1: cfloat;
+                                   u2: cfloat): GCPntsDistFunction2d {.constructor,
+    importcpp: "GCPnts_DistFunction2d(@)", header: "GCPnts_DistFunction2d.hxx".}
 proc constructGCPntsDistFunction2d*(theOther: GCPntsDistFunction2d): GCPntsDistFunction2d {.
     constructor, importcpp: "GCPnts_DistFunction2d(@)",
     header: "GCPnts_DistFunction2d.hxx".}
-proc value*(this: var GCPntsDistFunction2d; x: float; f: var float): bool {.
+proc value*(this: var GCPntsDistFunction2d; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "GCPnts_DistFunction2d.hxx".}
 ##
 ## ! The same as class GCPnts_DistFunction2d,
@@ -38,8 +38,33 @@ type
 proc constructGCPntsDistFunction2dMV*(theCurvLinDist: var GCPntsDistFunction2d): GCPntsDistFunction2dMV {.
     constructor, importcpp: "GCPnts_DistFunction2dMV(@)",
     header: "GCPnts_DistFunction2d.hxx".}
-proc value*(this: var GCPntsDistFunction2dMV; x: MathVector; f: var float): bool {.
+proc value*(this: var GCPntsDistFunction2dMV; x: MathVector; f: var cfloat): bool {.
     importcpp: "Value", header: "GCPnts_DistFunction2d.hxx".}
-proc nbVariables*(this: GCPntsDistFunction2dMV): int {.noSideEffect,
+proc nbVariables*(this: GCPntsDistFunction2dMV): cint {.noSideEffect,
     importcpp: "NbVariables", header: "GCPnts_DistFunction2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -23,7 +23,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of IFSelect_WorkLibrary"
 discard "forward decl of IFSelect_WorkLibrary"
 type
-  HandleIFSelectWorkLibrary* = Handle[IFSelectWorkLibrary]
+  HandleC1C1* = Handle[IFSelectWorkLibrary]
 
 ## ! This class defines the (empty) frame which can be used to
 ## ! enrich a XSTEP set with new capabilities
@@ -128,12 +128,12 @@ type
 
 proc readFile*(this: IFSelectWorkLibrary; name: StandardCString;
               model: var Handle[InterfaceInterfaceModel];
-              protocol: Handle[InterfaceProtocol]): int {.noSideEffect,
+              protocol: Handle[InterfaceProtocol]): cint {.noSideEffect,
     importcpp: "ReadFile", header: "IFSelect_WorkLibrary.hxx".}
 proc readStream*(this: IFSelectWorkLibrary; theName: StandardCString;
                 theIStream: var Istream;
                 model: var Handle[InterfaceInterfaceModel];
-                protocol: Handle[InterfaceProtocol]): int {.noSideEffect,
+                protocol: Handle[InterfaceProtocol]): cint {.noSideEffect,
     importcpp: "ReadStream", header: "IFSelect_WorkLibrary.hxx".}
 proc writeFile*(this: IFSelectWorkLibrary; ctx: var IFSelectContextWrite): bool {.
     noSideEffect, importcpp: "WriteFile", header: "IFSelect_WorkLibrary.hxx".}
@@ -144,20 +144,21 @@ proc copyModel*(this: IFSelectWorkLibrary;
     noSideEffect, importcpp: "CopyModel", header: "IFSelect_WorkLibrary.hxx".}
 proc dumpEntity*(this: IFSelectWorkLibrary; model: Handle[InterfaceInterfaceModel];
                 protocol: Handle[InterfaceProtocol];
-                entity: Handle[StandardTransient]; s: var StandardOStream; level: int) {.
-    noSideEffect, importcpp: "DumpEntity", header: "IFSelect_WorkLibrary.hxx".}
+                entity: Handle[StandardTransient]; s: var StandardOStream;
+                level: cint) {.noSideEffect, importcpp: "DumpEntity",
+                             header: "IFSelect_WorkLibrary.hxx".}
 proc dumpEntity*(this: IFSelectWorkLibrary; model: Handle[InterfaceInterfaceModel];
                 protocol: Handle[InterfaceProtocol];
                 entity: Handle[StandardTransient]; s: var StandardOStream) {.
     noSideEffect, importcpp: "DumpEntity", header: "IFSelect_WorkLibrary.hxx".}
-proc setDumpLevels*(this: var IFSelectWorkLibrary; def: int; max: int) {.
+proc setDumpLevels*(this: var IFSelectWorkLibrary; def: cint; max: cint) {.
     importcpp: "SetDumpLevels", header: "IFSelect_WorkLibrary.hxx".}
-proc dumpLevels*(this: IFSelectWorkLibrary; def: var int; max: var int) {.noSideEffect,
+proc dumpLevels*(this: IFSelectWorkLibrary; def: var cint; max: var cint) {.noSideEffect,
     importcpp: "DumpLevels", header: "IFSelect_WorkLibrary.hxx".}
-proc setDumpHelp*(this: var IFSelectWorkLibrary; level: int; help: StandardCString) {.
+proc setDumpHelp*(this: var IFSelectWorkLibrary; level: cint; help: StandardCString) {.
     importcpp: "SetDumpHelp", header: "IFSelect_WorkLibrary.hxx".}
-proc dumpHelp*(this: IFSelectWorkLibrary; level: int): StandardCString {.noSideEffect,
-    importcpp: "DumpHelp", header: "IFSelect_WorkLibrary.hxx".}
+proc dumpHelp*(this: IFSelectWorkLibrary; level: cint): StandardCString {.
+    noSideEffect, importcpp: "DumpHelp", header: "IFSelect_WorkLibrary.hxx".}
 type
   IFSelectWorkLibrarybaseType* = StandardTransient
 
@@ -168,3 +169,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_WorkLibrary.hxx".}
 proc dynamicType*(this: IFSelectWorkLibrary): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_WorkLibrary.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

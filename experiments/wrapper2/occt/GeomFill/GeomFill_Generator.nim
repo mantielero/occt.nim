@@ -22,9 +22,27 @@ type
                       header: "GeomFill_Generator.hxx", bycopy.} = object of GeomFillProfiler
 
 
+proc `new`*(this: var GeomFillGenerator; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Generator::operator new",
+    header: "GeomFill_Generator.hxx".}
+proc `delete`*(this: var GeomFillGenerator; theAddress: pointer) {.
+    importcpp: "GeomFill_Generator::operator delete",
+    header: "GeomFill_Generator.hxx".}
+proc `new[]`*(this: var GeomFillGenerator; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_Generator::operator new[]",
+    header: "GeomFill_Generator.hxx".}
+proc `delete[]`*(this: var GeomFillGenerator; theAddress: pointer) {.
+    importcpp: "GeomFill_Generator::operator delete[]",
+    header: "GeomFill_Generator.hxx".}
+proc `new`*(this: var GeomFillGenerator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_Generator::operator new",
+    header: "GeomFill_Generator.hxx".}
+proc `delete`*(this: var GeomFillGenerator; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_Generator::operator delete",
+    header: "GeomFill_Generator.hxx".}
 proc constructGeomFillGenerator*(): GeomFillGenerator {.constructor,
     importcpp: "GeomFill_Generator(@)", header: "GeomFill_Generator.hxx".}
-proc perform*(this: var GeomFillGenerator; pTol: float) {.importcpp: "Perform",
+proc perform*(this: var GeomFillGenerator; pTol: StandardReal) {.importcpp: "Perform",
     header: "GeomFill_Generator.hxx".}
 proc surface*(this: GeomFillGenerator): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "GeomFill_Generator.hxx".}

@@ -36,3 +36,28 @@ proc constructTopoDSToStepMakeManifoldSolidBrep*(s: TopoDS_Solid;
     header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
 proc value*(this: TopoDSToStepMakeManifoldSolidBrep): Handle[
     StepShapeManifoldSolidBrep] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,7 +29,7 @@ proc constructRWStepGeomRWRationalBSplineCurve*(): RWStepGeomRWRationalBSplineCu
     constructor, importcpp: "RWStepGeom_RWRationalBSplineCurve(@)",
     header: "RWStepGeom_RWRationalBSplineCurve.hxx".}
 proc readStep*(this: RWStepGeomRWRationalBSplineCurve;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomRationalBSplineCurve]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWRationalBSplineCurve.hxx".}
@@ -44,3 +44,28 @@ proc check*(this: RWStepGeomRWRationalBSplineCurve;
            ent: Handle[StepGeomRationalBSplineCurve]; shares: InterfaceShareTool;
            ach: var Handle[InterfaceCheck]) {.noSideEffect, importcpp: "Check",
     header: "RWStepGeom_RWRationalBSplineCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

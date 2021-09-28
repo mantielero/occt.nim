@@ -28,7 +28,7 @@ type
 proc constructStepAP203ClassifiedItem*(): StepAP203ClassifiedItem {.constructor,
     importcpp: "StepAP203_ClassifiedItem(@)",
     header: "StepAP203_ClassifiedItem.hxx".}
-proc caseNum*(this: StepAP203ClassifiedItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP203ClassifiedItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_ClassifiedItem.hxx".}
 proc productDefinitionFormation*(this: StepAP203ClassifiedItem): Handle[
     StepBasicProductDefinitionFormation] {.noSideEffect,
@@ -38,3 +38,28 @@ proc assemblyComponentUsage*(this: StepAP203ClassifiedItem): Handle[
     StepReprAssemblyComponentUsage] {.noSideEffect,
                                      importcpp: "AssemblyComponentUsage",
                                      header: "StepAP203_ClassifiedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

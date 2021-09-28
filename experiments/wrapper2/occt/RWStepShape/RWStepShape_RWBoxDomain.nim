@@ -27,7 +27,7 @@ type
 proc constructRWStepShapeRWBoxDomain*(): RWStepShapeRWBoxDomain {.constructor,
     importcpp: "RWStepShape_RWBoxDomain(@)", header: "RWStepShape_RWBoxDomain.hxx".}
 proc readStep*(this: RWStepShapeRWBoxDomain; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeBoxDomain]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWBoxDomain.hxx".}
 proc writeStep*(this: RWStepShapeRWBoxDomain; sw: var StepDataStepWriter;
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepShapeRWBoxDomain; sw: var StepDataStepWriter;
 proc share*(this: RWStepShapeRWBoxDomain; ent: Handle[StepShapeBoxDomain];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWBoxDomain.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

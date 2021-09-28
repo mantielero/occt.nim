@@ -66,9 +66,34 @@ type
                                                                              ## Geom_OffsetSurface.
 
 
-proc surface*(surface: Handle[GeomSurface]; offset: float;
+proc surface*(surface: Handle[GeomSurface]; offset: cfloat;
              theStatus: var BRepOffsetStatus; allowC0: bool = false): Handle[
     GeomSurface] {.importcpp: "BRepOffset::Surface(@)", header: "BRepOffset.hxx".}
 proc collapseSingularities*(theSurface: Handle[GeomSurface]; theFace: TopoDS_Face;
-                           thePrecision: float): Handle[GeomSurface] {.
+                           thePrecision: cfloat): Handle[GeomSurface] {.
     importcpp: "BRepOffset::CollapseSingularities(@)", header: "BRepOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

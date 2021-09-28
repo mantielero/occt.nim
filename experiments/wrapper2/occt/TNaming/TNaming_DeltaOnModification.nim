@@ -18,7 +18,7 @@ discard "forward decl of TNaming_NamedShape"
 discard "forward decl of TNaming_DeltaOnModification"
 discard "forward decl of TNaming_DeltaOnModification"
 type
-  HandleTNamingDeltaOnModification* = Handle[TNamingDeltaOnModification]
+  HandleC1C1* = Handle[TNamingDeltaOnModification]
 
 ## ! This class provides default services for an
 ## ! AttributeDelta on a MODIFICATION action.
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TNamingDeltaOnModification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TNaming_DeltaOnModification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

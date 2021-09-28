@@ -29,7 +29,7 @@ proc constructRWStepGeomRWElementarySurface*(): RWStepGeomRWElementarySurface {.
     constructor, importcpp: "RWStepGeom_RWElementarySurface(@)",
     header: "RWStepGeom_RWElementarySurface.hxx".}
 proc readStep*(this: RWStepGeomRWElementarySurface;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomElementarySurface]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWElementarySurface.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepGeomRWElementarySurface;
            ent: Handle[StepGeomElementarySurface];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWElementarySurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

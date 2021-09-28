@@ -69,9 +69,34 @@ type
                                                                                ## theUpperBound]
 
 
-proc hashCode*(theShape: TopoDS_Shape; theUpperBound: int): int {.
+proc hashCode*(theShape: TopoDS_Shape; theUpperBound: cint): cint {.
     importcpp: "TopTools_ShapeMapHasher::HashCode(@)",
     header: "TopTools_ShapeMapHasher.hxx".}
 proc isEqual*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.
     importcpp: "TopTools_ShapeMapHasher::IsEqual(@)",
     header: "TopTools_ShapeMapHasher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

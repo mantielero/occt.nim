@@ -25,17 +25,42 @@ type
 
 
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: float; aText: TCollectionExtendedString; attachmentPoint: Pnt;
+         theval: cfloat; aText: TCollectionExtendedString; attachmentPoint: Pnt;
          anEndOfArrow: Pnt; aCenter: Pnt; isMaxRadius: bool;
          arrowSide: DsgPrsArrowSide) {.importcpp: "DsgPrs_EllipseRadiusPresentation::Add(@)", header: "DsgPrs_EllipseRadiusPresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: float; aText: TCollectionExtendedString; anEllipse: Elips;
-         attachmentPoint: Pnt; anEndOfArrow: Pnt; aCenter: Pnt; uFirst: float;
+         theval: cfloat; aText: TCollectionExtendedString; anEllipse: Elips;
+         attachmentPoint: Pnt; anEndOfArrow: Pnt; aCenter: Pnt; uFirst: cfloat;
          isInDomain: bool; isMaxRadius: bool; arrowSide: DsgPrsArrowSide) {.
     importcpp: "DsgPrs_EllipseRadiusPresentation::Add(@)",
     header: "DsgPrs_EllipseRadiusPresentation.hxx".}
 proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: float; aText: TCollectionExtendedString;
+         theval: cfloat; aText: TCollectionExtendedString;
          aCurve: Handle[GeomOffsetCurve]; attachmentPoint: Pnt; anEndOfArrow: Pnt;
-         aCenter: Pnt; uFirst: float; isInDomain: bool; isMaxRadius: bool;
+         aCenter: Pnt; uFirst: cfloat; isInDomain: bool; isMaxRadius: bool;
          arrowSide: DsgPrsArrowSide) {.importcpp: "DsgPrs_EllipseRadiusPresentation::Add(@)", header: "DsgPrs_EllipseRadiusPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

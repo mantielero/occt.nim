@@ -16,4 +16,3 @@
 
 type
   GeomLibArray1OfMat* = NCollectionArray1[Mat]
-

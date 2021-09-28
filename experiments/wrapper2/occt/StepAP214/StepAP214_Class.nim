@@ -16,7 +16,7 @@
 discard "forward decl of StepAP214_Class"
 discard "forward decl of StepAP214_Class"
 type
-  HandleStepAP214Class* = Handle[StepAP214Class]
+  HandleC1C1* = Handle[StepAP214Class]
 
 ## ! Representation of STEP entity Class
 
@@ -37,3 +37,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepAP214_Class.hxx".}
 proc dynamicType*(this: StepAP214Class): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP214_Class.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

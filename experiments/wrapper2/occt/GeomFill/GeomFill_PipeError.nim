@@ -20,4 +20,3 @@ type
     GeomFillPipeOk, GeomFillPipeNotOk, GeomFillPlaneNotIntersectGuide,
     GeomFillImpossibleContact
 
-

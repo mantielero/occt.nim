@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MeshVS_DataMapOfIntegerAsciiString* = NCollectionDataMap[int,
+  MeshVS_DataMapOfIntegerAsciiString* = NCollectionDataMap[cint,
       TCollectionAsciiString, TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerAsciiString* = Iterator[int,
+  MeshVS_DataMapIteratorOfDataMapOfIntegerAsciiString* = Iterator[cint,
       TCollectionAsciiString, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -37,3 +37,28 @@ proc curveOnF1*(this: BRepFillApproxSeewing): Handle[Geom2dCurve] {.noSideEffect
     importcpp: "CurveOnF1", header: "BRepFill_ApproxSeewing.hxx".}
 proc curveOnF2*(this: BRepFillApproxSeewing): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "CurveOnF2", header: "BRepFill_ApproxSeewing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

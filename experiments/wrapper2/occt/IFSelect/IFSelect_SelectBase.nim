@@ -18,7 +18,7 @@ discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectBase"
 discard "forward decl of IFSelect_SelectBase"
 type
-  HandleIFSelectSelectBase* = Handle[IFSelectSelectBase]
+  HandleC1C1* = Handle[IFSelectSelectBase]
 
 ## ! SelectBase works directly from an InterfaceModel : it is the
 ## ! first base for other Selections.
@@ -62,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectBase.hxx".}
 proc dynamicType*(this: IFSelectSelectBase): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectBase.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,3 +31,28 @@ proc `>>`*(theReadData: var StdObjMgtReadData; theLocation: var StdObjectLocatio
 
 proc `<<`*(theWriteData: var StdObjMgtWriteData; theLocation: StdObjectLocation): var StdObjMgtWriteData {.
     importcpp: "(# << #)", header: "StdObject_Location.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

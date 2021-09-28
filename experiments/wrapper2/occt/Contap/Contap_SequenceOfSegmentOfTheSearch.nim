@@ -18,3 +18,28 @@ type
   ContapSequenceOfSegmentOfTheSearch* = NCollectionSequence[
       ContapTheSegmentOfTheSearch]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

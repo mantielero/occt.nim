@@ -35,8 +35,33 @@ type
                                                                           ## derivative.
 
 
-proc continuity*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve; u1: float; u2: float;
-                tl: float; ta: float): GeomAbsShape {.
+proc continuity*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve; u1: cfloat; u2: cfloat;
+                tl: cfloat; ta: cfloat): GeomAbsShape {.
     importcpp: "BRepLProp::Continuity(@)", header: "BRepLProp.hxx".}
-proc continuity*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve; u1: float; u2: float): GeomAbsShape {.
+proc continuity*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve; u1: cfloat; u2: cfloat): GeomAbsShape {.
     importcpp: "BRepLProp::Continuity(@)", header: "BRepLProp.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

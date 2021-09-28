@@ -27,22 +27,47 @@ type
                                                                    ## ! The maximum number of iterations allowed is given by NbIterations.
 
 
-proc constructMathFunctionRoot*(f: var MathFunctionWithDerivative; guess: float;
-                               tolerance: float; nbIterations: int = 100): MathFunctionRoot {.
+proc constructMathFunctionRoot*(f: var MathFunctionWithDerivative; guess: cfloat;
+                               tolerance: cfloat; nbIterations: cint = 100): MathFunctionRoot {.
     constructor, importcpp: "math_FunctionRoot(@)", header: "math_FunctionRoot.hxx".}
-proc constructMathFunctionRoot*(f: var MathFunctionWithDerivative; guess: float;
-                               tolerance: float; a: float; b: float;
-                               nbIterations: int = 100): MathFunctionRoot {.
+proc constructMathFunctionRoot*(f: var MathFunctionWithDerivative; guess: cfloat;
+                               tolerance: cfloat; a: cfloat; b: cfloat;
+                               nbIterations: cint = 100): MathFunctionRoot {.
     constructor, importcpp: "math_FunctionRoot(@)", header: "math_FunctionRoot.hxx".}
 proc isDone*(this: MathFunctionRoot): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_FunctionRoot.hxx".}
-proc root*(this: MathFunctionRoot): float {.noSideEffect, importcpp: "Root",
-                                        header: "math_FunctionRoot.hxx".}
-proc derivative*(this: MathFunctionRoot): float {.noSideEffect,
-    importcpp: "Derivative", header: "math_FunctionRoot.hxx".}
-proc value*(this: MathFunctionRoot): float {.noSideEffect, importcpp: "Value",
+proc root*(this: MathFunctionRoot): cfloat {.noSideEffect, importcpp: "Root",
     header: "math_FunctionRoot.hxx".}
-proc nbIterations*(this: MathFunctionRoot): int {.noSideEffect,
+proc derivative*(this: MathFunctionRoot): cfloat {.noSideEffect,
+    importcpp: "Derivative", header: "math_FunctionRoot.hxx".}
+proc value*(this: MathFunctionRoot): cfloat {.noSideEffect, importcpp: "Value",
+    header: "math_FunctionRoot.hxx".}
+proc nbIterations*(this: MathFunctionRoot): cint {.noSideEffect,
     importcpp: "NbIterations", header: "math_FunctionRoot.hxx".}
 proc dump*(this: MathFunctionRoot; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_FunctionRoot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

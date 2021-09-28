@@ -17,7 +17,7 @@
 discard "forward decl of Transfer_Finder"
 discard "forward decl of Transfer_Finder"
 type
-  HandleTransferFinder* = Handle[TransferFinder]
+  HandleC1C1* = Handle[TransferFinder]
 
 ## ! a Finder allows to map any kind of object as a Key for a Map.
 ## ! This works by defining, for a Hash Code, that of the real Key,
@@ -34,7 +34,7 @@ type
                                                      ## ! create the Mapper
 
 
-proc getHashCode*(this: TransferFinder): int {.noSideEffect,
+proc getHashCode*(this: TransferFinder): cint {.noSideEffect,
     importcpp: "GetHashCode", header: "Transfer_Finder.hxx".}
 proc equates*(this: TransferFinder; other: Handle[TransferFinder]): bool {.
     noSideEffect, importcpp: "Equates", header: "Transfer_Finder.hxx".}
@@ -55,17 +55,17 @@ proc attribute*(this: TransferFinder; name: StandardCString): Handle[
                         header: "Transfer_Finder.hxx".}
 proc attributeType*(this: TransferFinder; name: StandardCString): InterfaceParamType {.
     noSideEffect, importcpp: "AttributeType", header: "Transfer_Finder.hxx".}
-proc setIntegerAttribute*(this: var TransferFinder; name: StandardCString; val: int) {.
+proc setIntegerAttribute*(this: var TransferFinder; name: StandardCString; val: cint) {.
     importcpp: "SetIntegerAttribute", header: "Transfer_Finder.hxx".}
-proc getIntegerAttribute*(this: TransferFinder; name: StandardCString; val: var int): bool {.
+proc getIntegerAttribute*(this: TransferFinder; name: StandardCString; val: var cint): bool {.
     noSideEffect, importcpp: "GetIntegerAttribute", header: "Transfer_Finder.hxx".}
-proc integerAttribute*(this: TransferFinder; name: StandardCString): int {.
+proc integerAttribute*(this: TransferFinder; name: StandardCString): cint {.
     noSideEffect, importcpp: "IntegerAttribute", header: "Transfer_Finder.hxx".}
-proc setRealAttribute*(this: var TransferFinder; name: StandardCString; val: float) {.
+proc setRealAttribute*(this: var TransferFinder; name: StandardCString; val: cfloat) {.
     importcpp: "SetRealAttribute", header: "Transfer_Finder.hxx".}
-proc getRealAttribute*(this: TransferFinder; name: StandardCString; val: var float): bool {.
+proc getRealAttribute*(this: TransferFinder; name: StandardCString; val: var cfloat): bool {.
     noSideEffect, importcpp: "GetRealAttribute", header: "Transfer_Finder.hxx".}
-proc realAttribute*(this: TransferFinder; name: StandardCString): float {.
+proc realAttribute*(this: TransferFinder; name: StandardCString): cfloat {.
     noSideEffect, importcpp: "RealAttribute", header: "Transfer_Finder.hxx".}
 proc setStringAttribute*(this: var TransferFinder; name: StandardCString;
                         val: StandardCString) {.importcpp: "SetStringAttribute",
@@ -93,3 +93,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Transfer_Finder.hxx".}
 proc dynamicType*(this: TransferFinder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Transfer_Finder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

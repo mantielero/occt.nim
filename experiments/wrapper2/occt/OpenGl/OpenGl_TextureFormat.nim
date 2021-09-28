@@ -33,17 +33,25 @@ type
 proc create*[TheCompType; TheNbComps: static[cint]](): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
     importcpp: "OpenGl_TextureFormat::Create(@)",
     header: "OpenGl_TextureFormat.hxx".}
-proc findFormat*(theCtx: Handle[OpenGlContext]; theFormat: ImageFormat;
-                theIsColorMap: bool): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
-    importcpp: "OpenGl_TextureFormat::FindFormat(@)",
-    header: "OpenGl_TextureFormat.hxx".}
-proc findSizedFormat*(theCtx: Handle[OpenGlContext]; theSizedFormat: GLint): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
-    importcpp: "OpenGl_TextureFormat::FindSizedFormat(@)",
-    header: "OpenGl_TextureFormat.hxx".}
-proc findCompressedFormat*(theCtx: Handle[OpenGlContext];
-                          theFormat: ImageCompressedFormat; theIsColorMap: bool): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
-    importcpp: "OpenGl_TextureFormat::FindCompressedFormat(@)",
-    header: "OpenGl_TextureFormat.hxx".}
+## !!!Ignored construct:  ! Find texture format suitable to specified image format.
+## ! @param theCtx [in] OpenGL context defining supported texture formats
+## ! @param theFormat [in] image format
+## ! @param theIsColorMap [in] flag indicating color nature of image (to select sRGB texture)
+## ! @return found format or invalid format static OpenGl_TextureFormat FindFormat ( const Handle ( OpenGl_Context ) & theCtx , Image_Format theFormat , bool theIsColorMap ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Find texture format suitable to specified internal (sized) texture format.
+## ! @param theCtx [in] OpenGL context defining supported texture formats
+## ! @param theSizedFormat [in] sized (internal) texture format (example: GL_RGBA8)
+## ! @return found format or invalid format static OpenGl_TextureFormat FindSizedFormat ( const Handle ( OpenGl_Context ) & theCtx , GLint theSizedFormat ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Find texture format suitable to specified compressed texture format.
+## ! @param theCtx [in] OpenGL context defining supported texture formats
+## ! @param theFormat [in] compressed texture format
+## ! @return found format or invalid format static OpenGl_TextureFormat FindCompressedFormat ( const Handle ( OpenGl_Context ) & theCtx , Image_CompressedFormat theFormat , bool theIsColorMap ) ;
+## Error: token expected: ) but got: &!!!
+
 proc constructOpenGlTextureFormatSelectorOpenGlTextureFormat*(): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
     constructor,
     importcpp: "OpenGl_TextureFormatSelector<\'*0>::OpenGl_TextureFormat(@)",
@@ -125,3 +133,48 @@ type
 
 proc create*(this: var OpenGlTextureFormatSelectorOpenGlTextureFormat): OpenGlTextureFormatSelectorOpenGlTextureFormat {.
     importcpp: "Create", header: "OpenGl_TextureFormat.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

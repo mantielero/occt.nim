@@ -32,14 +32,14 @@ proc destroyIMeshDataWire*(this: var IMeshDataWire) {.
     importcpp: "#.~IMeshData_Wire()", header: "IMeshData_Wire.hxx".}
 proc getWire*(this: IMeshDataWire): TopoDS_Wire {.noSideEffect, importcpp: "GetWire",
     header: "IMeshData_Wire.hxx".}
-proc edgesNb*(this: IMeshDataWire): int {.noSideEffect, importcpp: "EdgesNb",
-                                      header: "IMeshData_Wire.hxx".}
+proc edgesNb*(this: IMeshDataWire): cint {.noSideEffect, importcpp: "EdgesNb",
+                                       header: "IMeshData_Wire.hxx".}
 proc addEdge*(this: var IMeshDataWire; theDEdge: IEdgePtr;
-             theOrientation: TopAbsOrientation): int {.importcpp: "AddEdge",
+             theOrientation: TopAbsOrientation): cint {.importcpp: "AddEdge",
     header: "IMeshData_Wire.hxx".}
-proc getEdge*(this: IMeshDataWire; theIndex: int): IEdgePtr {.noSideEffect,
+proc getEdge*(this: IMeshDataWire; theIndex: cint): IEdgePtr {.noSideEffect,
     importcpp: "GetEdge", header: "IMeshData_Wire.hxx".}
-proc getEdgeOrientation*(this: IMeshDataWire; theIndex: int): TopAbsOrientation {.
+proc getEdgeOrientation*(this: IMeshDataWire; theIndex: cint): TopAbsOrientation {.
     noSideEffect, importcpp: "GetEdgeOrientation", header: "IMeshData_Wire.hxx".}
 type
   IMeshDataWirebaseType* = IMeshDataTessellatedShape
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IMeshData_Wire.hxx".}
 proc dynamicType*(this: IMeshDataWire): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshData_Wire.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,3 +25,28 @@ proc `type`*(ent: Handle[StandardTransient]): Handle[StandardType] {.
     importcpp: "Transfer_DataInfo::Type(@)", header: "Transfer_DataInfo.hxx".}
 proc typeName*(ent: Handle[StandardTransient]): StandardCString {.
     importcpp: "Transfer_DataInfo::TypeName(@)", header: "Transfer_DataInfo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

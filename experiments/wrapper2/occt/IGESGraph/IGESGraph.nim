@@ -59,3 +59,28 @@ type
 proc init*() {.importcpp: "IGESGraph::Init(@)", header: "IGESGraph.hxx".}
 proc protocol*(): Handle[IGESGraphProtocol] {.importcpp: "IGESGraph::Protocol(@)",
     header: "IGESGraph.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,7 +30,7 @@ proc constructRWStepDimTolRWCommonDatum*(): RWStepDimTolRWCommonDatum {.
     constructor, importcpp: "RWStepDimTol_RWCommonDatum(@)",
     header: "RWStepDimTol_RWCommonDatum.hxx".}
 proc readStep*(this: RWStepDimTolRWCommonDatum;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepDimTolCommonDatum]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepDimTol_RWCommonDatum.hxx".}
 proc writeStep*(this: RWStepDimTolRWCommonDatum; sw: var StepDataStepWriter;
@@ -39,3 +39,28 @@ proc writeStep*(this: RWStepDimTolRWCommonDatum; sw: var StepDataStepWriter;
 proc share*(this: RWStepDimTolRWCommonDatum; ent: Handle[StepDimTolCommonDatum];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWCommonDatum.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

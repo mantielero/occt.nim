@@ -18,3 +18,28 @@ type
   IntToolsListIteratorOfListOfCurveRangeSample* = Iterator[
       IntToolsCurveRangeSample]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

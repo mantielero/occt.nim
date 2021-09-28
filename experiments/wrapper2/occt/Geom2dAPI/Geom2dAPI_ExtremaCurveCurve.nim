@@ -21,79 +21,30 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of Extrema_ExtCC2d"
 type
   Geom2dAPI_ExtremaCurveCurve* {.importcpp: "Geom2dAPI_ExtremaCurveCurve",
-                                header: "Geom2dAPI_ExtremaCurveCurve.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Computes
-                                                                                        ## the
-                                                                                        ## extrema
-                                                                                        ## between
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## -
-                                                                                        ## the
-                                                                                        ## portion
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## curve
-                                                                                        ## C1
-                                                                                        ## limited
-                                                                                        ## by
-                                                                                        ## the
-                                                                                        ## two
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## points
-                                                                                        ## of
-                                                                                        ## parameter
-                                                                                        ## (U1min,U1max),
-                                                                                        ## and
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## -
-                                                                                        ## the
-                                                                                        ## portion
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## curve
-                                                                                        ## C2
-                                                                                        ## limited
-                                                                                        ## by
-                                                                                        ## the
-                                                                                        ## two
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## points
-                                                                                        ## of
-                                                                                        ## parameter
-                                                                                        ## (U2min,U2max).
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Warning
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Use
-                                                                                        ## the
-                                                                                        ## function
-                                                                                        ## NbExtrema
-                                                                                        ## to
-                                                                                        ## obtain
-                                                                                        ## the
-                                                                                        ## number
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## of
-                                                                                        ## solutions.
-                                                                                        ## If
-                                                                                        ## this
-                                                                                        ## algorithm
-                                                                                        ## fails,
-                                                                                        ## NbExtrema
-                                                                                        ## returns
-                                                                                        ## 0.
+                                header: "Geom2dAPI_ExtremaCurveCurve.hxx", bycopy.} = object
 
 
+proc `new`*(this: var Geom2dAPI_ExtremaCurveCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dAPI_ExtremaCurveCurve::operator new",
+    header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
+proc `delete`*(this: var Geom2dAPI_ExtremaCurveCurve; theAddress: pointer) {.
+    importcpp: "Geom2dAPI_ExtremaCurveCurve::operator delete",
+    header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
+proc `new[]`*(this: var Geom2dAPI_ExtremaCurveCurve; theSize: csize_t): pointer {.
+    importcpp: "Geom2dAPI_ExtremaCurveCurve::operator new[]",
+    header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
+proc `delete[]`*(this: var Geom2dAPI_ExtremaCurveCurve; theAddress: pointer) {.
+    importcpp: "Geom2dAPI_ExtremaCurveCurve::operator delete[]",
+    header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
+proc `new`*(this: var Geom2dAPI_ExtremaCurveCurve; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dAPI_ExtremaCurveCurve::operator new",
+    header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
+proc `delete`*(this: var Geom2dAPI_ExtremaCurveCurve; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dAPI_ExtremaCurveCurve::operator delete",
+    header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
 proc constructGeom2dAPI_ExtremaCurveCurve*(c1: Handle[Geom2dCurve];
-    c2: Handle[Geom2dCurve]; u1min: float; u1max: float; u2min: float; u2max: float): Geom2dAPI_ExtremaCurveCurve {.
+    c2: Handle[Geom2dCurve]; u1min: StandardReal; u1max: StandardReal;
+    u2min: StandardReal; u2max: StandardReal): Geom2dAPI_ExtremaCurveCurve {.
     constructor, importcpp: "Geom2dAPI_ExtremaCurveCurve(@)",
     header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
 proc nbExtrema*(this: Geom2dAPI_ExtremaCurveCurve): int {.noSideEffect,
@@ -103,21 +54,22 @@ converter `int`*(this: Geom2dAPI_ExtremaCurveCurve): int {.noSideEffect,
     header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
 proc points*(this: Geom2dAPI_ExtremaCurveCurve; index: int; p1: var Pnt2d; p2: var Pnt2d) {.
     noSideEffect, importcpp: "Points", header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
-proc parameters*(this: Geom2dAPI_ExtremaCurveCurve; index: int; u1: var float;
-                u2: var float) {.noSideEffect, importcpp: "Parameters",
-                              header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
-proc distance*(this: Geom2dAPI_ExtremaCurveCurve; index: int): float {.noSideEffect,
-    importcpp: "Distance", header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
+proc parameters*(this: Geom2dAPI_ExtremaCurveCurve; index: int; u1: var StandardReal;
+                u2: var StandardReal) {.noSideEffect, importcpp: "Parameters",
+                                     header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
+proc distance*(this: Geom2dAPI_ExtremaCurveCurve; index: int): StandardReal {.
+    noSideEffect, importcpp: "Distance", header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
 proc nearestPoints*(this: Geom2dAPI_ExtremaCurveCurve; p1: var Pnt2d; p2: var Pnt2d) {.
     noSideEffect, importcpp: "NearestPoints",
     header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
-proc lowerDistanceParameters*(this: Geom2dAPI_ExtremaCurveCurve; u1: var float;
-                             u2: var float) {.noSideEffect,
-    importcpp: "LowerDistanceParameters",
+proc lowerDistanceParameters*(this: Geom2dAPI_ExtremaCurveCurve;
+                             u1: var StandardReal; u2: var StandardReal) {.
+    noSideEffect, importcpp: "LowerDistanceParameters",
     header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
-proc lowerDistance*(this: Geom2dAPI_ExtremaCurveCurve): float {.noSideEffect,
+proc lowerDistance*(this: Geom2dAPI_ExtremaCurveCurve): StandardReal {.noSideEffect,
     importcpp: "LowerDistance", header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
-converter `float`*(this: Geom2dAPI_ExtremaCurveCurve): float {.noSideEffect,
+converter `standardReal`*(this: Geom2dAPI_ExtremaCurveCurve): StandardReal {.
+    noSideEffect,
     importcpp: "Geom2dAPI_ExtremaCurveCurve::operator Standard_Real",
     header: "Geom2dAPI_ExtremaCurveCurve.hxx".}
 proc extrema*(this: Geom2dAPI_ExtremaCurveCurve): ExtremaExtCC2d {.noSideEffect,

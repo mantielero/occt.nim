@@ -18,3 +18,28 @@ type
   TopBasListOfTestInterference* = NCollectionList[TopBasTestInterference]
   TopBasListIteratorOfListOfTestInterference* = Iterator[TopBasTestInterference]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

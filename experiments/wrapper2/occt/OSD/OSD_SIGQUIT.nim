@@ -15,13 +15,54 @@
 ## !!!Ignored construct:  # _OSD_SIGQUIT_HeaderFile [NewLine] # _OSD_SIGQUIT_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Signal . hxx > [NewLine] class OSD_SIGQUIT ;
 ## Error: expected ';'!!!
 
-discard "forward decl of OSD_SIGQUIT"
-type
-  HandleOSD_SIGQUITOSD_SIGQUIT* = Handle[Osd_Sigquit]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OSD_SIGQUIT , OSD_Signal ) # ! defined No_Exception && ! defined No_OSD_SIGQUIT [NewLine] # OSD_SIGQUIT_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw OSD_SIGQUIT ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_SIGQUIT [NewLine] # if ( CONDITION ) throw OSD_SIGQUIT ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # OSD_SIGQUIT_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGQUIT , OSD_Signal ) #  _OSD_SIGQUIT_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGQUIT , OSD_Signal ) #  _OSD_SIGQUIT_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

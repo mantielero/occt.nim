@@ -70,5 +70,30 @@ proc sendObject*(this: MessagePrinterToReport;
     noSideEffect, importcpp: "SendObject", header: "Message_PrinterToReport.hxx".}
 discard "forward decl of Message_PrinterToReport"
 type
-  HandleMessagePrinterToReport* = Handle[MessagePrinterToReport]
+  HandleC1C1* = Handle[MessagePrinterToReport]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -18,6 +18,31 @@ type
   XBRepMesh* {.importcpp: "XBRepMesh", header: "XBRepMesh.hxx", bycopy.} = object
 
 
-proc discret*(theShape: TopoDS_Shape; theDeflection: float; theAngle: float;
-             theAlgo: ptr BRepMeshDiscretRoot): int {.
+proc discret*(theShape: TopoDS_Shape; theDeflection: cfloat; theAngle: cfloat;
+             theAlgo: ptr BRepMeshDiscretRoot): cint {.
     importcpp: "XBRepMesh::Discret(@)", header: "XBRepMesh.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

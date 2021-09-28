@@ -17,8 +17,7 @@
 discard "forward decl of StepBasic_CoordinatedUniversalTimeOffset"
 discard "forward decl of StepBasic_CoordinatedUniversalTimeOffset"
 type
-  HandleStepBasicCoordinatedUniversalTimeOffset* = Handle[
-      StepBasicCoordinatedUniversalTimeOffset]
+  HandleC1C1* = Handle[StepBasicCoordinatedUniversalTimeOffset]
   StepBasicCoordinatedUniversalTimeOffset* {.
       importcpp: "StepBasic_CoordinatedUniversalTimeOffset",
       header: "StepBasic_CoordinatedUniversalTimeOffset.hxx", bycopy.} = object of StandardTransient ##
@@ -31,21 +30,22 @@ type
 proc constructStepBasicCoordinatedUniversalTimeOffset*(): StepBasicCoordinatedUniversalTimeOffset {.
     constructor, importcpp: "StepBasic_CoordinatedUniversalTimeOffset(@)",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc init*(this: var StepBasicCoordinatedUniversalTimeOffset; aHourOffset: int;
-          hasAminuteOffset: bool; aMinuteOffset: int; aSense: StepBasicAheadOrBehind) {.
-    importcpp: "Init", header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
+proc init*(this: var StepBasicCoordinatedUniversalTimeOffset; aHourOffset: cint;
+          hasAminuteOffset: bool; aMinuteOffset: cint;
+          aSense: StepBasicAheadOrBehind) {.importcpp: "Init",
+    header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
 proc setHourOffset*(this: var StepBasicCoordinatedUniversalTimeOffset;
-                   aHourOffset: int) {.importcpp: "SetHourOffset", header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc hourOffset*(this: StepBasicCoordinatedUniversalTimeOffset): int {.noSideEffect,
-    importcpp: "HourOffset",
+                   aHourOffset: cint) {.importcpp: "SetHourOffset", header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
+proc hourOffset*(this: StepBasicCoordinatedUniversalTimeOffset): cint {.
+    noSideEffect, importcpp: "HourOffset",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
 proc setMinuteOffset*(this: var StepBasicCoordinatedUniversalTimeOffset;
-                     aMinuteOffset: int) {.importcpp: "SetMinuteOffset",
+                     aMinuteOffset: cint) {.importcpp: "SetMinuteOffset",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
 proc unSetMinuteOffset*(this: var StepBasicCoordinatedUniversalTimeOffset) {.
     importcpp: "UnSetMinuteOffset",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
-proc minuteOffset*(this: StepBasicCoordinatedUniversalTimeOffset): int {.
+proc minuteOffset*(this: StepBasicCoordinatedUniversalTimeOffset): cint {.
     noSideEffect, importcpp: "MinuteOffset",
     header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
 proc hasMinuteOffset*(this: StepBasicCoordinatedUniversalTimeOffset): bool {.
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_Coordina
 proc dynamicType*(this: StepBasicCoordinatedUniversalTimeOffset): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepBasic_CoordinatedUniversalTimeOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

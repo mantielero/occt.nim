@@ -40,25 +40,26 @@ proc constructBRepBlendSurfRstLineBuilder*(surf1: Handle[Adaptor3dHSurface];
 proc perform*(this: var BRepBlendSurfRstLineBuilder;
              `func`: var BlendSurfRstFunction; finv: var BlendFuncInv;
              finvP: var BlendSurfPointFuncInv; finvC: var BlendSurfCurvFuncInv;
-             pdep: float; pmax: float; maxStep: float; tolGuide: float;
-             soldep: MathVector; tolesp: float; fleche: float; appro: bool = false) {.
+             pdep: cfloat; pmax: cfloat; maxStep: cfloat; tolGuide: cfloat;
+             soldep: MathVector; tolesp: cfloat; fleche: cfloat; appro: bool = false) {.
     importcpp: "Perform", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc performFirstSection*(this: var BRepBlendSurfRstLineBuilder;
                          `func`: var BlendSurfRstFunction; finv: var BlendFuncInv;
                          finvP: var BlendSurfPointFuncInv;
-                         finvC: var BlendSurfCurvFuncInv; pdep: float; pmax: float;
-                         soldep: MathVector; tolesp: float; tolGuide: float;
-                         recRst: bool; recP: bool; recS: bool; psol: var float;
+                         finvC: var BlendSurfCurvFuncInv; pdep: cfloat; pmax: cfloat;
+                         soldep: MathVector; tolesp: cfloat; tolGuide: cfloat;
+                         recRst: bool; recP: bool; recS: bool; psol: var cfloat;
                          parSol: var MathVector): bool {.
     importcpp: "PerformFirstSection", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc complete*(this: var BRepBlendSurfRstLineBuilder;
               `func`: var BlendSurfRstFunction; finv: var BlendFuncInv;
               finvP: var BlendSurfPointFuncInv; finvC: var BlendSurfCurvFuncInv;
-              pmin: float): bool {.importcpp: "Complete",
-                                header: "BRepBlend_SurfRstLineBuilder.hxx".}
+              pmin: cfloat): bool {.importcpp: "Complete",
+                                 header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc arcToRecadre*(this: var BRepBlendSurfRstLineBuilder; sol: MathVector;
-                  prevIndex: int; pt2d: var Pnt2d; lastpt2d: var Pnt2d;
-                  ponarc: var float): int {.importcpp: "ArcToRecadre", header: "BRepBlend_SurfRstLineBuilder.hxx".}
+                  prevIndex: cint; pt2d: var Pnt2d; lastpt2d: var Pnt2d;
+                  ponarc: var cfloat): cint {.importcpp: "ArcToRecadre",
+    header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc isDone*(this: BRepBlendSurfRstLineBuilder): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc line*(this: BRepBlendSurfRstLineBuilder): Handle[BRepBlendLine] {.noSideEffect,
@@ -67,3 +68,28 @@ proc decrochStart*(this: BRepBlendSurfRstLineBuilder): bool {.noSideEffect,
     importcpp: "DecrochStart", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc decrochEnd*(this: BRepBlendSurfRstLineBuilder): bool {.noSideEffect,
     importcpp: "DecrochEnd", header: "BRepBlend_SurfRstLineBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

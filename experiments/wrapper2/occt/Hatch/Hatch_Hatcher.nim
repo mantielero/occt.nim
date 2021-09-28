@@ -35,47 +35,72 @@ type
                                                                                      ## intersections.
 
 
-proc constructHatchHatcher*(tol: float; oriented: bool = true): HatchHatcher {.
+proc constructHatchHatcher*(tol: cfloat; oriented: bool = true): HatchHatcher {.
     constructor, importcpp: "Hatch_Hatcher(@)", header: "Hatch_Hatcher.hxx".}
-proc tolerance*(this: var HatchHatcher; tol: float) {.importcpp: "Tolerance",
+proc tolerance*(this: var HatchHatcher; tol: cfloat) {.importcpp: "Tolerance",
     header: "Hatch_Hatcher.hxx".}
-proc tolerance*(this: HatchHatcher): float {.noSideEffect, importcpp: "Tolerance",
+proc tolerance*(this: HatchHatcher): cfloat {.noSideEffect, importcpp: "Tolerance",
     header: "Hatch_Hatcher.hxx".}
 proc addLine*(this: var HatchHatcher; L: Lin2d; t: HatchLineForm = hatchANYLINE) {.
     importcpp: "AddLine", header: "Hatch_Hatcher.hxx".}
-proc addLine*(this: var HatchHatcher; d: Dir2d; dist: float) {.importcpp: "AddLine",
+proc addLine*(this: var HatchHatcher; d: Dir2d; dist: cfloat) {.importcpp: "AddLine",
     header: "Hatch_Hatcher.hxx".}
-proc addXLine*(this: var HatchHatcher; x: float) {.importcpp: "AddXLine",
+proc addXLine*(this: var HatchHatcher; x: cfloat) {.importcpp: "AddXLine",
     header: "Hatch_Hatcher.hxx".}
-proc addYLine*(this: var HatchHatcher; y: float) {.importcpp: "AddYLine",
+proc addYLine*(this: var HatchHatcher; y: cfloat) {.importcpp: "AddYLine",
     header: "Hatch_Hatcher.hxx".}
-proc trim*(this: var HatchHatcher; L: Lin2d; index: int = 0) {.importcpp: "Trim",
+proc trim*(this: var HatchHatcher; L: Lin2d; index: cint = 0) {.importcpp: "Trim",
     header: "Hatch_Hatcher.hxx".}
-proc trim*(this: var HatchHatcher; L: Lin2d; start: float; `end`: float; index: int = 0) {.
+proc trim*(this: var HatchHatcher; L: Lin2d; start: cfloat; `end`: cfloat; index: cint = 0) {.
     importcpp: "Trim", header: "Hatch_Hatcher.hxx".}
-proc trim*(this: var HatchHatcher; p1: Pnt2d; p2: Pnt2d; index: int = 0) {.
+proc trim*(this: var HatchHatcher; p1: Pnt2d; p2: Pnt2d; index: cint = 0) {.
     importcpp: "Trim", header: "Hatch_Hatcher.hxx".}
-proc nbIntervals*(this: HatchHatcher): int {.noSideEffect, importcpp: "NbIntervals",
+proc nbIntervals*(this: HatchHatcher): cint {.noSideEffect, importcpp: "NbIntervals",
     header: "Hatch_Hatcher.hxx".}
-proc nbLines*(this: HatchHatcher): int {.noSideEffect, importcpp: "NbLines",
-                                     header: "Hatch_Hatcher.hxx".}
-proc line*(this: HatchHatcher; i: int): Lin2d {.noSideEffect, importcpp: "Line",
+proc nbLines*(this: HatchHatcher): cint {.noSideEffect, importcpp: "NbLines",
+                                      header: "Hatch_Hatcher.hxx".}
+proc line*(this: HatchHatcher; i: cint): Lin2d {.noSideEffect, importcpp: "Line",
     header: "Hatch_Hatcher.hxx".}
-proc lineForm*(this: HatchHatcher; i: int): HatchLineForm {.noSideEffect,
+proc lineForm*(this: HatchHatcher; i: cint): HatchLineForm {.noSideEffect,
     importcpp: "LineForm", header: "Hatch_Hatcher.hxx".}
-proc isXLine*(this: HatchHatcher; i: int): bool {.noSideEffect, importcpp: "IsXLine",
+proc isXLine*(this: HatchHatcher; i: cint): bool {.noSideEffect, importcpp: "IsXLine",
     header: "Hatch_Hatcher.hxx".}
-proc isYLine*(this: HatchHatcher; i: int): bool {.noSideEffect, importcpp: "IsYLine",
+proc isYLine*(this: HatchHatcher; i: cint): bool {.noSideEffect, importcpp: "IsYLine",
     header: "Hatch_Hatcher.hxx".}
-proc coordinate*(this: HatchHatcher; i: int): float {.noSideEffect,
+proc coordinate*(this: HatchHatcher; i: cint): cfloat {.noSideEffect,
     importcpp: "Coordinate", header: "Hatch_Hatcher.hxx".}
-proc nbIntervals*(this: HatchHatcher; i: int): int {.noSideEffect,
+proc nbIntervals*(this: HatchHatcher; i: cint): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Hatch_Hatcher.hxx".}
-proc start*(this: HatchHatcher; i: int; j: int): float {.noSideEffect,
+proc start*(this: HatchHatcher; i: cint; j: cint): cfloat {.noSideEffect,
     importcpp: "Start", header: "Hatch_Hatcher.hxx".}
-proc startIndex*(this: HatchHatcher; i: int; j: int; index: var int; par2: var float) {.
+proc startIndex*(this: HatchHatcher; i: cint; j: cint; index: var cint; par2: var cfloat) {.
     noSideEffect, importcpp: "StartIndex", header: "Hatch_Hatcher.hxx".}
-proc `end`*(this: HatchHatcher; i: int; j: int): float {.noSideEffect, importcpp: "End",
-    header: "Hatch_Hatcher.hxx".}
-proc endIndex*(this: HatchHatcher; i: int; j: int; index: var int; par2: var float) {.
+proc `end`*(this: HatchHatcher; i: cint; j: cint): cfloat {.noSideEffect,
+    importcpp: "End", header: "Hatch_Hatcher.hxx".}
+proc endIndex*(this: HatchHatcher; i: cint; j: cint; index: var cint; par2: var cfloat) {.
     noSideEffect, importcpp: "EndIndex", header: "Hatch_Hatcher.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

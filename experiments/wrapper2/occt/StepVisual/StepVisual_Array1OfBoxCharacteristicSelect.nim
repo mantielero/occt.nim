@@ -18,3 +18,28 @@ type
   StepVisualArray1OfBoxCharacteristicSelect* = NCollectionArray1[
       StepVisualBoxCharacteristicSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

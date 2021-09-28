@@ -17,3 +17,28 @@ type
       Handle[BOPDS_PaveBlock], TColStdListOfInteger, TColStdMapTransientHasher]
   BOPDS_DataMapIteratorOfDataMapOfPaveBlockListOfInteger* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

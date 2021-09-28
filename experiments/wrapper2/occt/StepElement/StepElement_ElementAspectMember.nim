@@ -16,7 +16,7 @@
 discard "forward decl of StepElement_ElementAspectMember"
 discard "forward decl of StepElement_ElementAspectMember"
 type
-  HandleStepElementElementAspectMember* = Handle[StepElementElementAspectMember]
+  HandleC1C1* = Handle[StepElementElementAspectMember]
 
 ## ! Representation of member for  STEP SELECT type ElementAspect
 
@@ -49,3 +49,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementElementAspectMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_ElementAspectMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

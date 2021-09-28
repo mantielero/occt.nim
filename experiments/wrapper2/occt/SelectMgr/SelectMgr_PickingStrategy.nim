@@ -21,3 +21,28 @@ type
     SelectMgrPickingStrategyOnlyTopmost ## !< only topmost detected entity passing selection filter is accepted
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

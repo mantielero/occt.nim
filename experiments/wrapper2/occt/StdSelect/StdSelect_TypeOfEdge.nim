@@ -24,3 +24,28 @@ type
     StdSelectAnyEdge, StdSelectLine, StdSelectCircle
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

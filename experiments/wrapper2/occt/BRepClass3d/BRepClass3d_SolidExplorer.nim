@@ -41,39 +41,39 @@ proc initShape*(this: var BRepClass3dSolidExplorer; s: TopoDS_Shape) {.
     importcpp: "InitShape", header: "BRepClass3d_SolidExplorer.hxx".}
 proc reject*(this: BRepClass3dSolidExplorer; p: Pnt): bool {.noSideEffect,
     importcpp: "Reject", header: "BRepClass3d_SolidExplorer.hxx".}
-proc findAPointInTheFace*(f: TopoDS_Face; p: var Pnt; param: var float): bool {.
+proc findAPointInTheFace*(f: TopoDS_Face; p: var Pnt; param: var cfloat): bool {.
     importcpp: "BRepClass3d_SolidExplorer::FindAPointInTheFace(@)",
     header: "BRepClass3d_SolidExplorer.hxx".}
-proc findAPointInTheFace*(f: TopoDS_Face; p: var Pnt; u: var float; v: var float;
-                         param: var float): bool {.
+proc findAPointInTheFace*(f: TopoDS_Face; p: var Pnt; u: var cfloat; v: var cfloat;
+                         param: var cfloat): bool {.
     importcpp: "BRepClass3d_SolidExplorer::FindAPointInTheFace(@)",
     header: "BRepClass3d_SolidExplorer.hxx".}
-proc findAPointInTheFace*(f: TopoDS_Face; p: var Pnt; u: var float; v: var float;
-                         param: var float; theVecD1U: var Vec; theVecD1V: var Vec): bool {.
+proc findAPointInTheFace*(f: TopoDS_Face; p: var Pnt; u: var cfloat; v: var cfloat;
+                         param: var cfloat; theVecD1U: var Vec; theVecD1V: var Vec): bool {.
     importcpp: "BRepClass3d_SolidExplorer::FindAPointInTheFace(@)",
     header: "BRepClass3d_SolidExplorer.hxx".}
-proc findAPointInTheFace*(f: TopoDS_Face; p: var Pnt; u: var float; v: var float): bool {.
+proc findAPointInTheFace*(f: TopoDS_Face; p: var Pnt; u: var cfloat; v: var cfloat): bool {.
     importcpp: "BRepClass3d_SolidExplorer::FindAPointInTheFace(@)",
     header: "BRepClass3d_SolidExplorer.hxx".}
 proc findAPointInTheFace*(f: TopoDS_Face; p: var Pnt): bool {.
     importcpp: "BRepClass3d_SolidExplorer::FindAPointInTheFace(@)",
     header: "BRepClass3d_SolidExplorer.hxx".}
-proc findAPointInTheFace*(f: TopoDS_Face; u: var float; v: var float): bool {.
+proc findAPointInTheFace*(f: TopoDS_Face; u: var cfloat; v: var cfloat): bool {.
     importcpp: "BRepClass3d_SolidExplorer::FindAPointInTheFace(@)",
     header: "BRepClass3d_SolidExplorer.hxx".}
 proc pointInTheFace*(this: BRepClass3dSolidExplorer; f: TopoDS_Face; p: var Pnt;
-                    u: var float; v: var float; param: var float; index: var int): bool {.
+                    u: var cfloat; v: var cfloat; param: var cfloat; index: var cint): bool {.
     noSideEffect, importcpp: "PointInTheFace",
     header: "BRepClass3d_SolidExplorer.hxx".}
 proc pointInTheFace*(this: BRepClass3dSolidExplorer; f: TopoDS_Face; p: var Pnt;
-                    u: var float; v: var float; param: var float; index: var int;
-                    surf: Handle[BRepAdaptorHSurface]; u1: float; v1: float;
-                    u2: float; v2: float): bool {.noSideEffect,
+                    u: var cfloat; v: var cfloat; param: var cfloat; index: var cint;
+                    surf: Handle[BRepAdaptorHSurface]; u1: cfloat; v1: cfloat;
+                    u2: cfloat; v2: cfloat): bool {.noSideEffect,
     importcpp: "PointInTheFace", header: "BRepClass3d_SolidExplorer.hxx".}
 proc pointInTheFace*(this: BRepClass3dSolidExplorer; f: TopoDS_Face; p: var Pnt;
-                    u: var float; v: var float; param: var float; index: var int;
-                    surf: Handle[BRepAdaptorHSurface]; u1: float; v1: float;
-                    u2: float; v2: float; theVecD1U: var Vec; theVecD1V: var Vec): bool {.
+                    u: var cfloat; v: var cfloat; param: var cfloat; index: var cint;
+                    surf: Handle[BRepAdaptorHSurface]; u1: cfloat; v1: cfloat;
+                    u2: cfloat; v2: cfloat; theVecD1U: var Vec; theVecD1V: var Vec): bool {.
     noSideEffect, importcpp: "PointInTheFace",
     header: "BRepClass3d_SolidExplorer.hxx".}
 proc initShell*(this: var BRepClass3dSolidExplorer) {.importcpp: "InitShell",
@@ -96,13 +96,14 @@ proc currentFace*(this: BRepClass3dSolidExplorer): TopoDS_Face {.noSideEffect,
     importcpp: "CurrentFace", header: "BRepClass3d_SolidExplorer.hxx".}
 proc rejectFace*(this: BRepClass3dSolidExplorer; L: Lin): bool {.noSideEffect,
     importcpp: "RejectFace", header: "BRepClass3d_SolidExplorer.hxx".}
-proc segment*(this: var BRepClass3dSolidExplorer; p: Pnt; L: var Lin; par: var float): int {.
+proc segment*(this: var BRepClass3dSolidExplorer; p: Pnt; L: var Lin; par: var cfloat): cint {.
     importcpp: "Segment", header: "BRepClass3d_SolidExplorer.hxx".}
-proc otherSegment*(this: var BRepClass3dSolidExplorer; p: Pnt; L: var Lin; par: var float): int {.
-    importcpp: "OtherSegment", header: "BRepClass3d_SolidExplorer.hxx".}
-proc getFaceSegmentIndex*(this: BRepClass3dSolidExplorer): int {.noSideEffect,
+proc otherSegment*(this: var BRepClass3dSolidExplorer; p: Pnt; L: var Lin;
+                  par: var cfloat): cint {.importcpp: "OtherSegment",
+                                       header: "BRepClass3d_SolidExplorer.hxx".}
+proc getFaceSegmentIndex*(this: BRepClass3dSolidExplorer): cint {.noSideEffect,
     importcpp: "GetFaceSegmentIndex", header: "BRepClass3d_SolidExplorer.hxx".}
-proc dumpSegment*(this: BRepClass3dSolidExplorer; p: Pnt; L: Lin; par: float;
+proc dumpSegment*(this: BRepClass3dSolidExplorer; p: Pnt; L: Lin; par: cfloat;
                  s: TopAbsState) {.noSideEffect, importcpp: "DumpSegment",
                                  header: "BRepClass3d_SolidExplorer.hxx".}
 proc box*(this: BRepClass3dSolidExplorer): BndBox {.noSideEffect, importcpp: "Box",
@@ -117,3 +118,28 @@ proc getMapEV*(this: var BRepClass3dSolidExplorer): TopToolsIndexedMapOfShape {.
     importcpp: "GetMapEV", header: "BRepClass3d_SolidExplorer.hxx".}
 proc destroy*(this: var BRepClass3dSolidExplorer) {.importcpp: "Destroy",
     header: "BRepClass3d_SolidExplorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

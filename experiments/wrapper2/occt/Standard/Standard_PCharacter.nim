@@ -13,4 +13,3 @@
 
 type
   StandardPCharacter* = ptr StandardCharacter
-

@@ -17,3 +17,28 @@
 type
   TColgpArray1OfXYZ* = NCollectionArray1[Xyz]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

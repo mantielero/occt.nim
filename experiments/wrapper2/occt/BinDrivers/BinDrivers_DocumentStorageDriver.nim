@@ -19,7 +19,7 @@ discard "forward decl of BinLDrivers_DocumentSection"
 discard "forward decl of BinDrivers_DocumentStorageDriver"
 discard "forward decl of BinDrivers_DocumentStorageDriver"
 type
-  HandleBinDriversDocumentStorageDriver* = Handle[BinDriversDocumentStorageDriver]
+  HandleC1C1* = Handle[BinDriversDocumentStorageDriver]
 
 ## ! persistent implemention of storage a document in a binary file
 
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinDriversDocumentStorageDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinDrivers_DocumentStorageDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

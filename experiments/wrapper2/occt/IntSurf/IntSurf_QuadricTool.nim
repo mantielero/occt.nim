@@ -21,15 +21,40 @@ type
                        header: "IntSurf_QuadricTool.hxx", bycopy.} = object ## ! Returns the value of the function.
 
 
-proc value*(quad: IntSurfQuadric; x: float; y: float; z: float): float {.
+proc value*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat): cfloat {.
     importcpp: "IntSurf_QuadricTool::Value(@)", header: "IntSurf_QuadricTool.hxx".}
-proc gradient*(quad: IntSurfQuadric; x: float; y: float; z: float; v: var Vec) {.
+proc gradient*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat; v: var Vec) {.
     importcpp: "IntSurf_QuadricTool::Gradient(@)",
     header: "IntSurf_QuadricTool.hxx".}
-proc valueAndGradient*(quad: IntSurfQuadric; x: float; y: float; z: float;
-                      val: var float; grad: var Vec) {.
+proc valueAndGradient*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat;
+                      val: var cfloat; grad: var Vec) {.
     importcpp: "IntSurf_QuadricTool::ValueAndGradient(@)",
     header: "IntSurf_QuadricTool.hxx".}
-proc tolerance*(quad: IntSurfQuadric): float {.
+proc tolerance*(quad: IntSurfQuadric): cfloat {.
     importcpp: "IntSurf_QuadricTool::Tolerance(@)",
     header: "IntSurf_QuadricTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

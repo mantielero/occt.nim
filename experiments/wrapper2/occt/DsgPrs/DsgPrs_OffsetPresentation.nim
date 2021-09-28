@@ -94,3 +94,28 @@ proc addAxes*(aPresentation: Handle[Prs3dPresentation];
              aDirection2: Dir; offsetPoint: Pnt) {.
     importcpp: "DsgPrs_OffsetPresentation::AddAxes(@)",
     header: "DsgPrs_OffsetPresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepGeomRWGeometricRepresentationItem*(): RWStepGeomRWGeometricR
     constructor, importcpp: "RWStepGeom_RWGeometricRepresentationItem(@)",
     header: "RWStepGeom_RWGeometricRepresentationItem.hxx".}
 proc readStep*(this: RWStepGeomRWGeometricRepresentationItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomGeometricRepresentationItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWGeometricRepresentationItem.hxx".}
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepGeomRWGeometricRepresentationItem;
                sw: var StepDataStepWriter;
                ent: Handle[StepGeomGeometricRepresentationItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWGeometricRepresentationItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

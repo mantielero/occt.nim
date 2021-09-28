@@ -20,17 +20,31 @@ discard "forward decl of Standard_ConstructionError"
 type
   GeomLibDenominatorMultiplier* {.importcpp: "GeomLib_DenominatorMultiplier",
                                  header: "GeomLib_DenominatorMultiplier.hxx",
-                                 bycopy.} = object ## ! if the surface is rational this will define the evaluator
-                                                ## ! of a real function of 2 variables a(u,v) such that
-                                                ## ! if we define a new surface by :
-                                                ## ! a(u,v) * N(u,v)
-                                                ## ! NewF(u,v) = ----------------
-                                                ## ! a(u,v) * D(u,v)
+                                 bycopy.} = object
 
 
+proc `new`*(this: var GeomLibDenominatorMultiplier; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_DenominatorMultiplier::operator new",
+    header: "GeomLib_DenominatorMultiplier.hxx".}
+proc `delete`*(this: var GeomLibDenominatorMultiplier; theAddress: pointer) {.
+    importcpp: "GeomLib_DenominatorMultiplier::operator delete",
+    header: "GeomLib_DenominatorMultiplier.hxx".}
+proc `new[]`*(this: var GeomLibDenominatorMultiplier; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_DenominatorMultiplier::operator new[]",
+    header: "GeomLib_DenominatorMultiplier.hxx".}
+proc `delete[]`*(this: var GeomLibDenominatorMultiplier; theAddress: pointer) {.
+    importcpp: "GeomLib_DenominatorMultiplier::operator delete[]",
+    header: "GeomLib_DenominatorMultiplier.hxx".}
+proc `new`*(this: var GeomLibDenominatorMultiplier; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLib_DenominatorMultiplier::operator new",
+    header: "GeomLib_DenominatorMultiplier.hxx".}
+proc `delete`*(this: var GeomLibDenominatorMultiplier; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLib_DenominatorMultiplier::operator delete",
+    header: "GeomLib_DenominatorMultiplier.hxx".}
 proc constructGeomLibDenominatorMultiplier*(surface: Handle[GeomBSplineSurface];
     knotVector: TColStdArray1OfReal): GeomLibDenominatorMultiplier {.constructor,
     importcpp: "GeomLib_DenominatorMultiplier(@)",
     header: "GeomLib_DenominatorMultiplier.hxx".}
-proc value*(this: GeomLibDenominatorMultiplier; uParameter: float; vParameter: float): float {.
-    noSideEffect, importcpp: "Value", header: "GeomLib_DenominatorMultiplier.hxx".}
+proc value*(this: GeomLibDenominatorMultiplier; uParameter: StandardReal;
+           vParameter: StandardReal): StandardReal {.noSideEffect,
+    importcpp: "Value", header: "GeomLib_DenominatorMultiplier.hxx".}

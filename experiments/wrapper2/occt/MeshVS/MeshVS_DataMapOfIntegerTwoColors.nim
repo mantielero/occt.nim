@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MeshVS_DataMapOfIntegerTwoColors* = NCollectionDataMap[int, MeshVS_TwoColors,
+  MeshVS_DataMapOfIntegerTwoColors* = NCollectionDataMap[cint, MeshVS_TwoColors,
       TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerTwoColors* = Iterator[int,
+  MeshVS_DataMapIteratorOfDataMapOfIntegerTwoColors* = Iterator[cint,
       MeshVS_TwoColors, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

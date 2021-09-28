@@ -27,7 +27,7 @@ type
 proc constructRWStepGeomRWPcurve*(): RWStepGeomRWPcurve {.constructor,
     importcpp: "RWStepGeom_RWPcurve(@)", header: "RWStepGeom_RWPcurve.hxx".}
 proc readStep*(this: RWStepGeomRWPcurve; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPcurve]) {.
+              num: cint; ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomPcurve]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWPcurve.hxx".}
 proc writeStep*(this: RWStepGeomRWPcurve; sw: var StepDataStepWriter;
                ent: Handle[StepGeomPcurve]) {.noSideEffect, importcpp: "WriteStep",
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepGeomRWPcurve; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWPcurve; ent: Handle[StepGeomPcurve];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWPcurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

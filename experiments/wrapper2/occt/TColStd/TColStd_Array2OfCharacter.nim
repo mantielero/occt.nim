@@ -15,3 +15,28 @@
 type
   TColStdArray2OfCharacter* = NCollectionArray2[StandardCharacter]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ proc constructRWStepFEA_RWCurve3dElementProperty*(): RWStepFEA_RWCurve3dElementP
     constructor, importcpp: "RWStepFEA_RWCurve3dElementProperty(@)",
     header: "RWStepFEA_RWCurve3dElementProperty.hxx".}
 proc readStep*(this: RWStepFEA_RWCurve3dElementProperty;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_Curve3dElementProperty]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWCurve3dElementProperty.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepFEA_RWCurve3dElementProperty;
            ent: Handle[StepFEA_Curve3dElementProperty];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWCurve3dElementProperty.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

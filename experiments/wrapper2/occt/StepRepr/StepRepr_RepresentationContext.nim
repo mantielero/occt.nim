@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepRepr_RepresentationContext"
 discard "forward decl of StepRepr_RepresentationContext"
 type
-  HandleStepReprRepresentationContext* = Handle[StepReprRepresentationContext]
+  HandleC1C1* = Handle[StepReprRepresentationContext]
   StepReprRepresentationContext* {.importcpp: "StepRepr_RepresentationContext",
                                   header: "StepRepr_RepresentationContext.hxx",
                                   bycopy.} = object of StandardTransient ## ! Returns a
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprRepresentationContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_RepresentationContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepShapeRWRightCircularCylinder*(): RWStepShapeRWRightCircularC
     constructor, importcpp: "RWStepShape_RWRightCircularCylinder(@)",
     header: "RWStepShape_RWRightCircularCylinder.hxx".}
 proc readStep*(this: RWStepShapeRWRightCircularCylinder;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeRightCircularCylinder]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWRightCircularCylinder.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepShapeRWRightCircularCylinder;
            ent: Handle[StepShapeRightCircularCylinder];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWRightCircularCylinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

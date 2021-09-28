@@ -31,7 +31,32 @@ proc findFromKey*(this: ChFiDS_Map; s: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "FindFromKey", header: "ChFiDS_Map.hxx".}
 proc `()`*(this: ChFiDS_Map; s: TopoDS_Shape): TopToolsListOfShape {.noSideEffect,
     importcpp: "#(@)", header: "ChFiDS_Map.hxx".}
-proc findFromIndex*(this: ChFiDS_Map; i: int): TopToolsListOfShape {.noSideEffect,
+proc findFromIndex*(this: ChFiDS_Map; i: cint): TopToolsListOfShape {.noSideEffect,
     importcpp: "FindFromIndex", header: "ChFiDS_Map.hxx".}
-proc `()`*(this: ChFiDS_Map; i: int): TopToolsListOfShape {.noSideEffect,
+proc `()`*(this: ChFiDS_Map; i: cint): TopToolsListOfShape {.noSideEffect,
     importcpp: "#(@)", header: "ChFiDS_Map.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

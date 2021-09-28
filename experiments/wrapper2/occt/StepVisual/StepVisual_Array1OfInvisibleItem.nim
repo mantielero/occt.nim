@@ -17,3 +17,28 @@
 type
   StepVisualArray1OfInvisibleItem* = NCollectionArray1[StepVisualInvisibleItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

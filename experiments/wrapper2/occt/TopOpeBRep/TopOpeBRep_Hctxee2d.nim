@@ -22,7 +22,7 @@ discard "forward decl of IntRes2d_Domain"
 discard "forward decl of TopOpeBRep_Hctxee2d"
 discard "forward decl of TopOpeBRep_Hctxee2d"
 type
-  HandleTopOpeBRepHctxee2d* = Handle[TopOpeBRepHctxee2d]
+  HandleC1C1* = Handle[TopOpeBRepHctxee2d]
   TopOpeBRepHctxee2d* {.importcpp: "TopOpeBRep_Hctxee2d",
                        header: "TopOpeBRep_Hctxee2d.hxx", bycopy.} = object of StandardTransient
 
@@ -32,11 +32,11 @@ proc constructTopOpeBRepHctxee2d*(): TopOpeBRepHctxee2d {.constructor,
 proc setEdges*(this: var TopOpeBRepHctxee2d; e1: TopoDS_Edge; e2: TopoDS_Edge;
               bas1: BRepAdaptorSurface; bas2: BRepAdaptorSurface) {.
     importcpp: "SetEdges", header: "TopOpeBRep_Hctxee2d.hxx".}
-proc edge*(this: TopOpeBRepHctxee2d; i: int): TopoDS_Shape {.noSideEffect,
+proc edge*(this: TopOpeBRepHctxee2d; i: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "Edge", header: "TopOpeBRep_Hctxee2d.hxx".}
-proc curve*(this: TopOpeBRepHctxee2d; i: int): Geom2dAdaptorCurve {.noSideEffect,
+proc curve*(this: TopOpeBRepHctxee2d; i: cint): Geom2dAdaptorCurve {.noSideEffect,
     importcpp: "Curve", header: "TopOpeBRep_Hctxee2d.hxx".}
-proc domain*(this: TopOpeBRepHctxee2d; i: int): IntRes2dDomain {.noSideEffect,
+proc domain*(this: TopOpeBRepHctxee2d; i: cint): IntRes2dDomain {.noSideEffect,
     importcpp: "Domain", header: "TopOpeBRep_Hctxee2d.hxx".}
 type
   TopOpeBRepHctxee2dbaseType* = StandardTransient
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRep_Hctxee2d.hxx".}
 proc dynamicType*(this: TopOpeBRepHctxee2d): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRep_Hctxee2d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

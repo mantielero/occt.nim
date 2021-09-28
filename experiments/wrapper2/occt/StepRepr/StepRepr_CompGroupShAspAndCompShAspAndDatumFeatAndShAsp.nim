@@ -16,8 +16,7 @@
 discard "forward decl of StepRepr_CompGroupShAspAndCompShAspAndDatumFeatAndShAsp"
 discard "forward decl of StepRepr_CompGroupShAspAndCompShAspAndDatumFeatAndShAsp"
 type
-  HandleStepReprCompGroupShAspAndCompShAspAndDatumFeatAndShAsp* = Handle[
-      StepReprCompGroupShAspAndCompShAspAndDatumFeatAndShAsp]
+  HandleC1C1* = Handle[StepReprCompGroupShAspAndCompShAspAndDatumFeatAndShAsp]
 
 ## ! Added for Dimensional Tolerances
 
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_CompGroup
     header: "StepRepr_CompGroupShAspAndCompShAspAndDatumFeatAndShAsp.hxx".}
 proc dynamicType*(this: StepReprCompGroupShAspAndCompShAspAndDatumFeatAndShAsp): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_CompGroupShAspAndCompShAspAndDatumFeatAndShAsp.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

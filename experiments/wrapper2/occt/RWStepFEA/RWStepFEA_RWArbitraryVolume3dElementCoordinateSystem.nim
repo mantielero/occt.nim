@@ -32,7 +32,7 @@ proc constructRWStepFEA_RWArbitraryVolume3dElementCoordinateSystem*(): RWStepFEA
     importcpp: "RWStepFEA_RWArbitraryVolume3dElementCoordinateSystem(@)",
     header: "RWStepFEA_RWArbitraryVolume3dElementCoordinateSystem.hxx".}
 proc readStep*(this: RWStepFEA_RWArbitraryVolume3dElementCoordinateSystem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_ArbitraryVolume3dElementCoordinateSystem]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -46,3 +46,28 @@ proc share*(this: RWStepFEA_RWArbitraryVolume3dElementCoordinateSystem;
            ent: Handle[StepFEA_ArbitraryVolume3dElementCoordinateSystem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWArbitraryVolume3dElementCoordinateSystem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

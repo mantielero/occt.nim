@@ -27,9 +27,34 @@ proc constructRWStepGeomRWBoundedCurve*(): RWStepGeomRWBoundedCurve {.constructo
     importcpp: "RWStepGeom_RWBoundedCurve(@)",
     header: "RWStepGeom_RWBoundedCurve.hxx".}
 proc readStep*(this: RWStepGeomRWBoundedCurve;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomBoundedCurve]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWBoundedCurve.hxx".}
 proc writeStep*(this: RWStepGeomRWBoundedCurve; sw: var StepDataStepWriter;
                ent: Handle[StepGeomBoundedCurve]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWBoundedCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,3 +30,28 @@ proc pName*(this: StdLPersistentFunction): StandardCString {.noSideEffect,
 proc `import`*(this: StdLPersistentFunction;
               theAttribute: Handle[TFunctionFunction]) {.noSideEffect,
     importcpp: "Import", header: "StdLPersistent_Function.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

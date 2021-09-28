@@ -17,7 +17,7 @@ discard "forward decl of Message_Msg"
 discard "forward decl of ShapeCustom_Modification"
 discard "forward decl of ShapeCustom_Modification"
 type
-  HandleShapeCustomModification* = Handle[ShapeCustomModification]
+  HandleC1C1* = Handle[ShapeCustomModification]
 
 ## ! A base class of Modification's from ShapeCustom.
 ## ! Implements message sending mechanism.
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeCustom_Modification.hxx".}
 proc dynamicType*(this: ShapeCustomModification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeCustom_Modification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

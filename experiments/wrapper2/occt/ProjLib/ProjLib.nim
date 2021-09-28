@@ -88,3 +88,28 @@ proc makePCurveOfType*(pc: ProjLibProjectedCurve; aC: var Handle[Geom2dCurve]) {
     importcpp: "ProjLib::MakePCurveOfType(@)", header: "ProjLib.hxx".}
 proc isAnaSurf*(theAS: Handle[Adaptor3dHSurface]): bool {.
     importcpp: "ProjLib::IsAnaSurf(@)", header: "ProjLib.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

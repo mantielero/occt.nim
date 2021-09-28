@@ -24,70 +24,73 @@ type
 
 proc constructBlendPoint*(): BlendPoint {.constructor, importcpp: "Blend_Point(@)",
                                        header: "Blend_Point.hxx".}
-proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-                         u2: float; v2: float; tg1: Vec; tg2: Vec; tg12d: Vec2d;
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat; v1: cfloat;
+                         u2: cfloat; v2: cfloat; tg1: Vec; tg2: Vec; tg12d: Vec2d;
                          tg22d: Vec2d): BlendPoint {.constructor,
     importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-                         u2: float; v2: float): BlendPoint {.constructor,
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat; v1: cfloat;
+                         u2: cfloat; v2: cfloat): BlendPoint {.constructor,
     importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlendPoint*(pts: Pnt; ptc: Pnt; param: float; u: float; v: float; w: float;
-                         tgs: Vec; tgc: Vec; tg2d: Vec2d): BlendPoint {.constructor,
-    importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlendPoint*(pts: Pnt; ptc: Pnt; param: float; u: float; v: float; w: float): BlendPoint {.
+proc constructBlendPoint*(pts: Pnt; ptc: Pnt; param: cfloat; u: cfloat; v: cfloat;
+                         w: cfloat; tgs: Vec; tgc: Vec; tg2d: Vec2d): BlendPoint {.
     constructor, importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-                         u2: float; v2: float; pc: float; tg1: Vec; tg2: Vec;
+proc constructBlendPoint*(pts: Pnt; ptc: Pnt; param: cfloat; u: cfloat; v: cfloat;
+                         w: cfloat): BlendPoint {.constructor,
+    importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat; v1: cfloat;
+                         u2: cfloat; v2: cfloat; pc: cfloat; tg1: Vec; tg2: Vec;
                          tg12d: Vec2d; tg22d: Vec2d): BlendPoint {.constructor,
     importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-                         u2: float; v2: float; pc: float): BlendPoint {.constructor,
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat; v1: cfloat;
+                         u2: cfloat; v2: cfloat; pc: cfloat): BlendPoint {.constructor,
     importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-                         u2: float; v2: float; pc1: float; pc2: float; tg1: Vec; tg2: Vec;
-                         tg12d: Vec2d; tg22d: Vec2d): BlendPoint {.constructor,
-    importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-                         u2: float; v2: float; pc1: float; pc2: float): BlendPoint {.
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat; v1: cfloat;
+                         u2: cfloat; v2: cfloat; pc1: cfloat; pc2: cfloat; tg1: Vec;
+                         tg2: Vec; tg12d: Vec2d; tg22d: Vec2d): BlendPoint {.
     constructor, importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
-proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-              u2: float; v2: float; tg1: Vec; tg2: Vec; tg12d: Vec2d; tg22d: Vec2d) {.
-    importcpp: "SetValue", header: "Blend_Point.hxx".}
-proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-              u2: float; v2: float) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
-proc setValue*(this: var BlendPoint; pts: Pnt; ptc: Pnt; param: float; u: float; v: float;
-              w: float; tgs: Vec; tgc: Vec; tg2d: Vec2d) {.importcpp: "SetValue",
-    header: "Blend_Point.hxx".}
-proc setValue*(this: var BlendPoint; pts: Pnt; ptc: Pnt; param: float; u: float; v: float;
-              w: float) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
-proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-              u2: float; v2: float; pc: float; tg1: Vec; tg2: Vec; tg12d: Vec2d;
+proc constructBlendPoint*(pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat; v1: cfloat;
+                         u2: cfloat; v2: cfloat; pc1: cfloat; pc2: cfloat): BlendPoint {.
+    constructor, importcpp: "Blend_Point(@)", header: "Blend_Point.hxx".}
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat;
+              v1: cfloat; u2: cfloat; v2: cfloat; tg1: Vec; tg2: Vec; tg12d: Vec2d;
               tg22d: Vec2d) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
-proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-              u2: float; v2: float; pc: float) {.importcpp: "SetValue",
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat;
+              v1: cfloat; u2: cfloat; v2: cfloat) {.importcpp: "SetValue",
     header: "Blend_Point.hxx".}
-proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-              u2: float; v2: float; pc1: float; pc2: float; tg1: Vec; tg2: Vec;
+proc setValue*(this: var BlendPoint; pts: Pnt; ptc: Pnt; param: cfloat; u: cfloat;
+              v: cfloat; w: cfloat; tgs: Vec; tgc: Vec; tg2d: Vec2d) {.
+    importcpp: "SetValue", header: "Blend_Point.hxx".}
+proc setValue*(this: var BlendPoint; pts: Pnt; ptc: Pnt; param: cfloat; u: cfloat;
+              v: cfloat; w: cfloat) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat;
+              v1: cfloat; u2: cfloat; v2: cfloat; pc: cfloat; tg1: Vec; tg2: Vec;
               tg12d: Vec2d; tg22d: Vec2d) {.importcpp: "SetValue",
                                         header: "Blend_Point.hxx".}
-proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; u1: float; v1: float;
-              u2: float; v2: float; pc1: float; pc2: float) {.importcpp: "SetValue",
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat;
+              v1: cfloat; u2: cfloat; v2: cfloat; pc: cfloat) {.importcpp: "SetValue",
     header: "Blend_Point.hxx".}
-proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: float; pc1: float;
-              pc2: float) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
-proc setParameter*(this: var BlendPoint; param: float) {.importcpp: "SetParameter",
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat;
+              v1: cfloat; u2: cfloat; v2: cfloat; pc1: cfloat; pc2: cfloat; tg1: Vec;
+              tg2: Vec; tg12d: Vec2d; tg22d: Vec2d) {.importcpp: "SetValue",
     header: "Blend_Point.hxx".}
-proc parameter*(this: BlendPoint): float {.noSideEffect, importcpp: "Parameter",
-                                       header: "Blend_Point.hxx".}
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: cfloat; u1: cfloat;
+              v1: cfloat; u2: cfloat; v2: cfloat; pc1: cfloat; pc2: cfloat) {.
+    importcpp: "SetValue", header: "Blend_Point.hxx".}
+proc setValue*(this: var BlendPoint; pt1: Pnt; pt2: Pnt; param: cfloat; pc1: cfloat;
+              pc2: cfloat) {.importcpp: "SetValue", header: "Blend_Point.hxx".}
+proc setParameter*(this: var BlendPoint; param: cfloat) {.importcpp: "SetParameter",
+    header: "Blend_Point.hxx".}
+proc parameter*(this: BlendPoint): cfloat {.noSideEffect, importcpp: "Parameter",
+                                        header: "Blend_Point.hxx".}
 proc isTangencyPoint*(this: BlendPoint): bool {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "Blend_Point.hxx".}
 proc pointOnS1*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnS1",
                                      header: "Blend_Point.hxx".}
 proc pointOnS2*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnS2",
                                      header: "Blend_Point.hxx".}
-proc parametersOnS1*(this: BlendPoint; u: var float; v: var float) {.noSideEffect,
+proc parametersOnS1*(this: BlendPoint; u: var cfloat; v: var cfloat) {.noSideEffect,
     importcpp: "ParametersOnS1", header: "Blend_Point.hxx".}
-proc parametersOnS2*(this: BlendPoint; u: var float; v: var float) {.noSideEffect,
+proc parametersOnS2*(this: BlendPoint; u: var cfloat; v: var cfloat) {.noSideEffect,
     importcpp: "ParametersOnS2", header: "Blend_Point.hxx".}
 proc tangentOnS1*(this: BlendPoint): Vec {.noSideEffect, importcpp: "TangentOnS1",
                                        header: "Blend_Point.hxx".}
@@ -101,9 +104,9 @@ proc pointOnS*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnS",
                                     header: "Blend_Point.hxx".}
 proc pointOnC*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnC",
                                     header: "Blend_Point.hxx".}
-proc parametersOnS*(this: BlendPoint; u: var float; v: var float) {.noSideEffect,
+proc parametersOnS*(this: BlendPoint; u: var cfloat; v: var cfloat) {.noSideEffect,
     importcpp: "ParametersOnS", header: "Blend_Point.hxx".}
-proc parameterOnC*(this: BlendPoint): float {.noSideEffect,
+proc parameterOnC*(this: BlendPoint): cfloat {.noSideEffect,
     importcpp: "ParameterOnC", header: "Blend_Point.hxx".}
 proc tangentOnS*(this: BlendPoint): Vec {.noSideEffect, importcpp: "TangentOnS",
                                       header: "Blend_Point.hxx".}
@@ -115,11 +118,36 @@ proc pointOnC1*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnC1",
                                      header: "Blend_Point.hxx".}
 proc pointOnC2*(this: BlendPoint): Pnt {.noSideEffect, importcpp: "PointOnC2",
                                      header: "Blend_Point.hxx".}
-proc parameterOnC1*(this: BlendPoint): float {.noSideEffect,
+proc parameterOnC1*(this: BlendPoint): cfloat {.noSideEffect,
     importcpp: "ParameterOnC1", header: "Blend_Point.hxx".}
-proc parameterOnC2*(this: BlendPoint): float {.noSideEffect,
+proc parameterOnC2*(this: BlendPoint): cfloat {.noSideEffect,
     importcpp: "ParameterOnC2", header: "Blend_Point.hxx".}
 proc tangentOnC1*(this: BlendPoint): Vec {.noSideEffect, importcpp: "TangentOnC1",
                                        header: "Blend_Point.hxx".}
 proc tangentOnC2*(this: BlendPoint): Vec {.noSideEffect, importcpp: "TangentOnC2",
                                        header: "Blend_Point.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

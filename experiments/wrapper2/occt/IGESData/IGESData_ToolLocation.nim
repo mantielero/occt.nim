@@ -23,7 +23,7 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of IGESData_ToolLocation"
 discard "forward decl of IGESData_ToolLocation"
 type
-  HandleIGESDataToolLocation* = Handle[IGESDataToolLocation]
+  HandleC1C1* = Handle[IGESDataToolLocation]
 
 ## ! This Tool determines and gives access to effective Locations
 ## ! of IGES Entities as defined by the IGES Norm. These Locations
@@ -85,7 +85,7 @@ proc constructIGESDataToolLocation*(amodel: Handle[IGESDataIGESModel];
     header: "IGESData_ToolLocation.hxx".}
 proc load*(this: var IGESDataToolLocation) {.importcpp: "Load",
     header: "IGESData_ToolLocation.hxx".}
-proc setPrecision*(this: var IGESDataToolLocation; prec: float) {.
+proc setPrecision*(this: var IGESDataToolLocation; prec: cfloat) {.
     importcpp: "SetPrecision", header: "IGESData_ToolLocation.hxx".}
 proc setReference*(this: var IGESDataToolLocation;
                   parent: Handle[IGESDataIGESEntity];
@@ -128,7 +128,7 @@ proc effectiveLocation*(this: IGESDataToolLocation; ent: Handle[IGESDataIGESEnti
     header: "IGESData_ToolLocation.hxx".}
 proc analyseLocation*(this: IGESDataToolLocation; loc: GTrsf; result: var Trsf): bool {.
     noSideEffect, importcpp: "AnalyseLocation", header: "IGESData_ToolLocation.hxx".}
-proc convertLocation*(prec: float; loc: GTrsf; result: var Trsf; uni: float = 1): bool {.
+proc convertLocation*(prec: cfloat; loc: GTrsf; result: var Trsf; uni: cfloat = 1): bool {.
     importcpp: "IGESData_ToolLocation::ConvertLocation(@)",
     header: "IGESData_ToolLocation.hxx".}
 type
@@ -141,3 +141,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_ToolLocation.hxx".}
 proc dynamicType*(this: IGESDataToolLocation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_ToolLocation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

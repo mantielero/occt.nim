@@ -20,7 +20,7 @@ discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_SimpleBinderOfTransient"
 discard "forward decl of Transfer_SimpleBinderOfTransient"
 type
-  HandleTransferSimpleBinderOfTransient* = Handle[TransferSimpleBinderOfTransient]
+  HandleC1C1* = Handle[TransferSimpleBinderOfTransient]
 
 ## ! An adapted instantiation of SimpleBinder for Transient Result,
 ## ! i.e. ResultType can be computed from the Result itself,
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TransferSimpleBinderOfTransient): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_SimpleBinderOfTransient.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

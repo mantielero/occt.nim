@@ -16,3 +16,28 @@
 type
   TDF_AttributeArray1* = NCollectionArray1[Handle[TDF_Attribute]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

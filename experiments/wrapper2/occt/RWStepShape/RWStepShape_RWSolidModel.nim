@@ -27,9 +27,34 @@ proc constructRWStepShapeRWSolidModel*(): RWStepShapeRWSolidModel {.constructor,
     importcpp: "RWStepShape_RWSolidModel(@)",
     header: "RWStepShape_RWSolidModel.hxx".}
 proc readStep*(this: RWStepShapeRWSolidModel; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeSolidModel]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWSolidModel.hxx".}
 proc writeStep*(this: RWStepShapeRWSolidModel; sw: var StepDataStepWriter;
                ent: Handle[StepShapeSolidModel]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWSolidModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

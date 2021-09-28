@@ -40,13 +40,13 @@ proc constructBOPDS_CoupleOfPaveBlocks*(thePB1: Handle[BOPDS_PaveBlock];
 proc destroyBOPDS_CoupleOfPaveBlocks*(this: var BOPDS_CoupleOfPaveBlocks) {.
     importcpp: "#.~BOPDS_CoupleOfPaveBlocks()",
     header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc setIndex*(this: var BOPDS_CoupleOfPaveBlocks; theIndex: int) {.
+proc setIndex*(this: var BOPDS_CoupleOfPaveBlocks; theIndex: cint) {.
     importcpp: "SetIndex", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc index*(this: BOPDS_CoupleOfPaveBlocks): int {.noSideEffect, importcpp: "Index",
+proc index*(this: BOPDS_CoupleOfPaveBlocks): cint {.noSideEffect, importcpp: "Index",
     header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc setIndexInterf*(this: var BOPDS_CoupleOfPaveBlocks; theIndex: int) {.
+proc setIndexInterf*(this: var BOPDS_CoupleOfPaveBlocks; theIndex: cint) {.
     importcpp: "SetIndexInterf", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc indexInterf*(this: BOPDS_CoupleOfPaveBlocks): int {.noSideEffect,
+proc indexInterf*(this: BOPDS_CoupleOfPaveBlocks): cint {.noSideEffect,
     importcpp: "IndexInterf", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
 proc setPaveBlocks*(this: var BOPDS_CoupleOfPaveBlocks;
                    thePB1: Handle[BOPDS_PaveBlock];
@@ -66,8 +66,33 @@ proc setPaveBlock2*(this: var BOPDS_CoupleOfPaveBlocks;
     header: "BOPDS_CoupleOfPaveBlocks.hxx".}
 proc paveBlock2*(this: BOPDS_CoupleOfPaveBlocks): Handle[BOPDS_PaveBlock] {.
     noSideEffect, importcpp: "PaveBlock2", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc setTolerance*(this: var BOPDS_CoupleOfPaveBlocks; theTol: float) {.
+proc setTolerance*(this: var BOPDS_CoupleOfPaveBlocks; theTol: cfloat) {.
     importcpp: "SetTolerance", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc tolerance*(this: BOPDS_CoupleOfPaveBlocks): float {.noSideEffect,
+proc tolerance*(this: BOPDS_CoupleOfPaveBlocks): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

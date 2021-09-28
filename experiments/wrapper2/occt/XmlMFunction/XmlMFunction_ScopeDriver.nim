@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMFunction_ScopeDriver"
 discard "forward decl of XmlMFunction_ScopeDriver"
 type
-  HandleXmlMFunctionScopeDriver* = Handle[XmlMFunctionScopeDriver]
+  HandleC1C1* = Handle[XmlMFunctionScopeDriver]
 
 ## ! XML persistence driver for a scope of functions.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XmlMFunction_ScopeDriver.hxx".}
 proc dynamicType*(this: XmlMFunctionScopeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XmlMFunction_ScopeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

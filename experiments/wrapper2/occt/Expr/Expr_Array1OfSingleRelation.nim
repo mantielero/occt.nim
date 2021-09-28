@@ -17,3 +17,28 @@
 type
   ExprArray1OfSingleRelation* = NCollectionArray1[Handle[ExprSingleRelation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

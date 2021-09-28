@@ -22,7 +22,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Direction"
 discard "forward decl of Geom2d_Direction"
 type
-  HandleGeom2dDirection* = Handle[Geom2dDirection]
+  HandleC1C1* = Handle[Geom2dDirection]
 
 ## ! The class Direction specifies a vector that is never null.
 ## ! It is a unit vector.
@@ -34,28 +34,28 @@ type
                                                  ## ! Raised if Sqrt( X*X + Y*Y) <= Resolution from gp.
 
 
-proc constructGeom2dDirection*(x: float; y: float): Geom2dDirection {.constructor,
-    importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
+proc constructGeom2dDirection*(x: StandardReal; y: StandardReal): Geom2dDirection {.
+    constructor, importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
 proc constructGeom2dDirection*(v: Dir2d): Geom2dDirection {.constructor,
     importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
-proc setCoord*(this: var Geom2dDirection; x: float; y: float) {.importcpp: "SetCoord",
-    header: "Geom2d_Direction.hxx".}
+proc setCoord*(this: var Geom2dDirection; x: StandardReal; y: StandardReal) {.
+    importcpp: "SetCoord", header: "Geom2d_Direction.hxx".}
 proc setDir2d*(this: var Geom2dDirection; v: Dir2d) {.importcpp: "SetDir2d",
     header: "Geom2d_Direction.hxx".}
-proc setX*(this: var Geom2dDirection; x: float) {.importcpp: "SetX",
+proc setX*(this: var Geom2dDirection; x: StandardReal) {.importcpp: "SetX",
     header: "Geom2d_Direction.hxx".}
-proc setY*(this: var Geom2dDirection; y: float) {.importcpp: "SetY",
+proc setY*(this: var Geom2dDirection; y: StandardReal) {.importcpp: "SetY",
     header: "Geom2d_Direction.hxx".}
 proc dir2d*(this: Geom2dDirection): Dir2d {.noSideEffect, importcpp: "Dir2d",
                                         header: "Geom2d_Direction.hxx".}
-proc magnitude*(this: Geom2dDirection): float {.noSideEffect, importcpp: "Magnitude",
-    header: "Geom2d_Direction.hxx".}
-proc squareMagnitude*(this: Geom2dDirection): float {.noSideEffect,
+proc magnitude*(this: Geom2dDirection): StandardReal {.noSideEffect,
+    importcpp: "Magnitude", header: "Geom2d_Direction.hxx".}
+proc squareMagnitude*(this: Geom2dDirection): StandardReal {.noSideEffect,
     importcpp: "SquareMagnitude", header: "Geom2d_Direction.hxx".}
-proc crossed*(this: Geom2dDirection; other: Handle[Geom2dVector]): float {.
+proc crossed*(this: Geom2dDirection; other: Handle[Geom2dVector]): StandardReal {.
     noSideEffect, importcpp: "Crossed", header: "Geom2d_Direction.hxx".}
-proc `^`*(this: Geom2dDirection; other: Handle[Geom2dVector]): float {.noSideEffect,
-    importcpp: "(# ^ #)", header: "Geom2d_Direction.hxx".}
+proc `^`*(this: Geom2dDirection; other: Handle[Geom2dVector]): StandardReal {.
+    noSideEffect, importcpp: "(# ^ #)", header: "Geom2d_Direction.hxx".}
 proc transform*(this: var Geom2dDirection; t: Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_Direction.hxx".}
 proc copy*(this: Geom2dDirection): Handle[Geom2dGeometry] {.noSideEffect,

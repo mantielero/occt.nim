@@ -24,9 +24,9 @@ type
 
 proc constructHLRBRepEdgeData*(): HLRBRepEdgeData {.constructor,
     importcpp: "HLRBRep_EdgeData(@)", header: "HLRBRep_EdgeData.hxx".}
-proc set*(this: var HLRBRepEdgeData; reg1: bool; regN: bool; eg: TopoDS_Edge; v1: int;
-         v2: int; out1: bool; out2: bool; cut1: bool; cut2: bool; start: float;
-         tolStart: StandardShortReal; `end`: float; tolEnd: StandardShortReal) {.
+proc set*(this: var HLRBRepEdgeData; reg1: bool; regN: bool; eg: TopoDS_Edge; v1: cint;
+         v2: cint; out1: bool; out2: bool; cut1: bool; cut2: bool; start: cfloat;
+         tolStart: StandardShortReal; `end`: cfloat; tolEnd: StandardShortReal) {.
     importcpp: "Set", header: "HLRBRep_EdgeData.hxx".}
 proc selected*(this: HLRBRepEdgeData): bool {.noSideEffect, importcpp: "Selected",
     header: "HLRBRep_EdgeData.hxx".}
@@ -80,17 +80,17 @@ proc used*(this: HLRBRepEdgeData): bool {.noSideEffect, importcpp: "Used",
                                       header: "HLRBRep_EdgeData.hxx".}
 proc used*(this: var HLRBRepEdgeData; b: bool) {.importcpp: "Used",
     header: "HLRBRep_EdgeData.hxx".}
-proc hideCount*(this: HLRBRepEdgeData): int {.noSideEffect, importcpp: "HideCount",
+proc hideCount*(this: HLRBRepEdgeData): cint {.noSideEffect, importcpp: "HideCount",
     header: "HLRBRep_EdgeData.hxx".}
-proc hideCount*(this: var HLRBRepEdgeData; i: int) {.importcpp: "HideCount",
+proc hideCount*(this: var HLRBRepEdgeData; i: cint) {.importcpp: "HideCount",
     header: "HLRBRep_EdgeData.hxx".}
-proc vSta*(this: HLRBRepEdgeData): int {.noSideEffect, importcpp: "VSta",
-                                     header: "HLRBRep_EdgeData.hxx".}
-proc vSta*(this: var HLRBRepEdgeData; i: int) {.importcpp: "VSta",
+proc vSta*(this: HLRBRepEdgeData): cint {.noSideEffect, importcpp: "VSta",
+                                      header: "HLRBRep_EdgeData.hxx".}
+proc vSta*(this: var HLRBRepEdgeData; i: cint) {.importcpp: "VSta",
     header: "HLRBRep_EdgeData.hxx".}
-proc vEnd*(this: HLRBRepEdgeData): int {.noSideEffect, importcpp: "VEnd",
-                                     header: "HLRBRep_EdgeData.hxx".}
-proc vEnd*(this: var HLRBRepEdgeData; i: int) {.importcpp: "VEnd",
+proc vEnd*(this: HLRBRepEdgeData): cint {.noSideEffect, importcpp: "VEnd",
+                                      header: "HLRBRep_EdgeData.hxx".}
+proc vEnd*(this: var HLRBRepEdgeData; i: cint) {.importcpp: "VEnd",
     header: "HLRBRep_EdgeData.hxx".}
 proc updateMinMax*(this: var HLRBRepEdgeData; theTotMinMax: MinMaxIndices) {.
     importcpp: "UpdateMinMax", header: "HLRBRep_EdgeData.hxx".}
@@ -106,3 +106,28 @@ proc curve*(this: var HLRBRepEdgeData): ptr HLRBRepCurve {.importcpp: "Curve",
     header: "HLRBRep_EdgeData.hxx".}
 proc tolerance*(this: HLRBRepEdgeData): StandardShortReal {.noSideEffect,
     importcpp: "Tolerance", header: "HLRBRep_EdgeData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

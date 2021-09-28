@@ -27,7 +27,7 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of ShapeAlgo_AlgoContainer"
 discard "forward decl of ShapeAlgo_AlgoContainer"
 type
-  HandleShapeAlgoAlgoContainer* = Handle[ShapeAlgoAlgoContainer]
+  HandleC1C1* = Handle[ShapeAlgoAlgoContainer]
   ShapeAlgoAlgoContainer* {.importcpp: "ShapeAlgo_AlgoContainer",
                            header: "ShapeAlgo_AlgoContainer.hxx", bycopy.} = object of StandardTransient ##
                                                                                                   ## !
@@ -43,8 +43,8 @@ proc setToolContainer*(this: var ShapeAlgoAlgoContainer;
 proc toolContainer*(this: ShapeAlgoAlgoContainer): Handle[ShapeAlgoToolContainer] {.
     noSideEffect, importcpp: "ToolContainer", header: "ShapeAlgo_AlgoContainer.hxx".}
 proc connectNextWire*(this: ShapeAlgoAlgoContainer; saw: Handle[ShapeAnalysisWire];
-                     nextsewd: Handle[ShapeExtendWireData]; maxtol: float;
-                     distmin: var float; revsewd: var bool; revnextsewd: var bool): bool {.
+                     nextsewd: Handle[ShapeExtendWireData]; maxtol: cfloat;
+                     distmin: var cfloat; revsewd: var bool; revnextsewd: var bool): bool {.
     noSideEffect, importcpp: "ConnectNextWire",
     header: "ShapeAlgo_AlgoContainer.hxx".}
 proc approxBSplineCurve*(this: ShapeAlgoAlgoContainer;
@@ -65,12 +65,12 @@ proc c0BSplineToSequenceOfC1BSplineCurve*(this: ShapeAlgoAlgoContainer;
     seqBS: var Handle[TColGeom2dHSequenceOfBoundedCurve]): bool {.noSideEffect,
     importcpp: "C0BSplineToSequenceOfC1BSplineCurve",
     header: "ShapeAlgo_AlgoContainer.hxx".}
-proc c0ShapeToC1Shape*(this: ShapeAlgoAlgoContainer; shape: TopoDS_Shape; tol: float): TopoDS_Shape {.
+proc c0ShapeToC1Shape*(this: ShapeAlgoAlgoContainer; shape: TopoDS_Shape; tol: cfloat): TopoDS_Shape {.
     noSideEffect, importcpp: "C0ShapeToC1Shape",
     header: "ShapeAlgo_AlgoContainer.hxx".}
 proc convertSurfaceToBSpline*(this: ShapeAlgoAlgoContainer;
-                             surf: Handle[GeomSurface]; uf: float; ul: float;
-                             vf: float; vl: float): Handle[GeomBSplineSurface] {.
+                             surf: Handle[GeomSurface]; uf: cfloat; ul: cfloat;
+                             vf: cfloat; vl: cfloat): Handle[GeomBSplineSurface] {.
     noSideEffect, importcpp: "ConvertSurfaceToBSpline",
     header: "ShapeAlgo_AlgoContainer.hxx".}
 proc homoWires*(this: ShapeAlgoAlgoContainer; wireIn1: TopoDS_Wire;
@@ -82,13 +82,14 @@ proc outerWire*(this: ShapeAlgoAlgoContainer; face: TopoDS_Face): TopoDS_Wire {.
 proc convertToPeriodic*(this: ShapeAlgoAlgoContainer; surf: Handle[GeomSurface]): Handle[
     GeomSurface] {.noSideEffect, importcpp: "ConvertToPeriodic",
                   header: "ShapeAlgo_AlgoContainer.hxx".}
-proc getFaceUVBounds*(this: ShapeAlgoAlgoContainer; f: TopoDS_Face; umin: var float;
-                     umax: var float; vmin: var float; vmax: var float) {.noSideEffect,
-    importcpp: "GetFaceUVBounds", header: "ShapeAlgo_AlgoContainer.hxx".}
+proc getFaceUVBounds*(this: ShapeAlgoAlgoContainer; f: TopoDS_Face; umin: var cfloat;
+                     umax: var cfloat; vmin: var cfloat; vmax: var cfloat) {.
+    noSideEffect, importcpp: "GetFaceUVBounds",
+    header: "ShapeAlgo_AlgoContainer.hxx".}
 proc convertCurveToBSpline*(this: ShapeAlgoAlgoContainer; c3d: Handle[GeomCurve];
-                           first: float; last: float; tol3d: float;
-                           continuity: GeomAbsShape; maxSegments: int;
-                           maxDegree: int): Handle[GeomBSplineCurve] {.
+                           first: cfloat; last: cfloat; tol3d: cfloat;
+                           continuity: GeomAbsShape; maxSegments: cint;
+                           maxDegree: cint): Handle[GeomBSplineCurve] {.
     noSideEffect, importcpp: "ConvertCurveToBSpline",
     header: "ShapeAlgo_AlgoContainer.hxx".}
 type
@@ -101,3 +102,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeAlgo_AlgoContainer.hxx".}
 proc dynamicType*(this: ShapeAlgoAlgoContainer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeAlgo_AlgoContainer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

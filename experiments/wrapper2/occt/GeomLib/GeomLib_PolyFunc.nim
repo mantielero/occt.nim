@@ -21,11 +21,25 @@ type
                     bycopy.} = object of MathFunctionWithDerivative
 
 
+proc `new`*(this: var GeomLibPolyFunc; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_PolyFunc::operator new", header: "GeomLib_PolyFunc.hxx".}
+proc `delete`*(this: var GeomLibPolyFunc; theAddress: pointer) {.
+    importcpp: "GeomLib_PolyFunc::operator delete", header: "GeomLib_PolyFunc.hxx".}
+proc `new[]`*(this: var GeomLibPolyFunc; theSize: csize_t): pointer {.
+    importcpp: "GeomLib_PolyFunc::operator new[]", header: "GeomLib_PolyFunc.hxx".}
+proc `delete[]`*(this: var GeomLibPolyFunc; theAddress: pointer) {.
+    importcpp: "GeomLib_PolyFunc::operator delete[]",
+    header: "GeomLib_PolyFunc.hxx".}
+proc `new`*(this: var GeomLibPolyFunc; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLib_PolyFunc::operator new", header: "GeomLib_PolyFunc.hxx".}
+proc `delete`*(this: var GeomLibPolyFunc; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLib_PolyFunc::operator delete", header: "GeomLib_PolyFunc.hxx".}
 proc constructGeomLibPolyFunc*(coeffs: MathVector): GeomLibPolyFunc {.constructor,
     importcpp: "GeomLib_PolyFunc(@)", header: "GeomLib_PolyFunc.hxx".}
-proc value*(this: var GeomLibPolyFunc; x: float; f: var float): bool {.importcpp: "Value",
-    header: "GeomLib_PolyFunc.hxx".}
-proc derivative*(this: var GeomLibPolyFunc; x: float; d: var float): bool {.
+proc value*(this: var GeomLibPolyFunc; x: StandardReal; f: var StandardReal): StandardBoolean {.
+    importcpp: "Value", header: "GeomLib_PolyFunc.hxx".}
+proc derivative*(this: var GeomLibPolyFunc; x: StandardReal; d: var StandardReal): StandardBoolean {.
     importcpp: "Derivative", header: "GeomLib_PolyFunc.hxx".}
-proc values*(this: var GeomLibPolyFunc; x: float; f: var float; d: var float): bool {.
-    importcpp: "Values", header: "GeomLib_PolyFunc.hxx".}
+proc values*(this: var GeomLibPolyFunc; x: StandardReal; f: var StandardReal;
+            d: var StandardReal): StandardBoolean {.importcpp: "Values",
+    header: "GeomLib_PolyFunc.hxx".}

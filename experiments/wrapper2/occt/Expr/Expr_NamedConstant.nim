@@ -21,7 +21,7 @@ discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_NamedConstant"
 discard "forward decl of Expr_NamedConstant"
 type
-  HandleExprNamedConstant* = Handle[ExprNamedConstant]
+  HandleC1C1* = Handle[ExprNamedConstant]
 
 ## ! Describes any numeric constant known by a special name
 ## ! (as PI, e,...).
@@ -42,14 +42,14 @@ type
                                                                                           ## <value>.
 
 
-proc constructExprNamedConstant*(name: TCollectionAsciiString; value: float): ExprNamedConstant {.
+proc constructExprNamedConstant*(name: TCollectionAsciiString; value: cfloat): ExprNamedConstant {.
     constructor, importcpp: "Expr_NamedConstant(@)",
     header: "Expr_NamedConstant.hxx".}
-proc getValue*(this: ExprNamedConstant): float {.noSideEffect, importcpp: "GetValue",
-    header: "Expr_NamedConstant.hxx".}
-proc nbSubExpressions*(this: ExprNamedConstant): int {.noSideEffect,
+proc getValue*(this: ExprNamedConstant): cfloat {.noSideEffect,
+    importcpp: "GetValue", header: "Expr_NamedConstant.hxx".}
+proc nbSubExpressions*(this: ExprNamedConstant): cint {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_NamedConstant.hxx".}
-proc subExpression*(this: ExprNamedConstant; i: int): Handle[ExprGeneralExpression] {.
+proc subExpression*(this: ExprNamedConstant; i: cint): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "SubExpression", header: "Expr_NamedConstant.hxx".}
 proc simplified*(this: ExprNamedConstant): Handle[ExprGeneralExpression] {.
     noSideEffect, importcpp: "Simplified", header: "Expr_NamedConstant.hxx".}
@@ -66,14 +66,14 @@ proc isLinear*(this: ExprNamedConstant): bool {.noSideEffect, importcpp: "IsLine
 proc derivative*(this: ExprNamedConstant; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_NamedConstant.hxx".}
-proc nDerivative*(this: ExprNamedConstant; x: Handle[ExprNamedUnknown]; n: int): Handle[
+proc nDerivative*(this: ExprNamedConstant; x: Handle[ExprNamedUnknown]; n: cint): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "NDerivative",
                             header: "Expr_NamedConstant.hxx".}
 proc replace*(this: var ExprNamedConstant; `var`: Handle[ExprNamedUnknown];
              with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
     header: "Expr_NamedConstant.hxx".}
 proc evaluate*(this: ExprNamedConstant; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_NamedConstant.hxx".}
 type
   ExprNamedConstantbaseType* = ExprNamedExpression
@@ -85,3 +85,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_NamedConstant.hxx".}
 proc dynamicType*(this: ExprNamedConstant): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_NamedConstant.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

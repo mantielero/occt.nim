@@ -33,7 +33,32 @@ proc performInf*(this: var MAT2dCutCurve; c: Handle[Geom2dCurve]) {.
     importcpp: "PerformInf", header: "MAT2d_CutCurve.hxx".}
 proc unModified*(this: MAT2dCutCurve): bool {.noSideEffect, importcpp: "UnModified",
     header: "MAT2d_CutCurve.hxx".}
-proc nbCurves*(this: MAT2dCutCurve): int {.noSideEffect, importcpp: "NbCurves",
-                                       header: "MAT2d_CutCurve.hxx".}
-proc value*(this: MAT2dCutCurve; index: int): Handle[Geom2dTrimmedCurve] {.
+proc nbCurves*(this: MAT2dCutCurve): cint {.noSideEffect, importcpp: "NbCurves",
+                                        header: "MAT2d_CutCurve.hxx".}
+proc value*(this: MAT2dCutCurve; index: cint): Handle[Geom2dTrimmedCurve] {.
     noSideEffect, importcpp: "Value", header: "MAT2d_CutCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

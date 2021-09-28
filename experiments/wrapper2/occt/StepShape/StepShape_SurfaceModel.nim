@@ -28,9 +28,34 @@ type
 
 proc constructStepShapeSurfaceModel*(): StepShapeSurfaceModel {.constructor,
     importcpp: "StepShape_SurfaceModel(@)", header: "StepShape_SurfaceModel.hxx".}
-proc caseNum*(this: StepShapeSurfaceModel; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepShapeSurfaceModel; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_SurfaceModel.hxx".}
 proc shellBasedSurfaceModel*(this: StepShapeSurfaceModel): Handle[
     StepShapeShellBasedSurfaceModel] {.noSideEffect,
                                       importcpp: "ShellBasedSurfaceModel",
                                       header: "StepShape_SurfaceModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,3 +21,28 @@ type
 
 proc decode*(theStr: ptr StandardByte; theLen: StandardSize): Handle[NCollectionBuffer] {.
     importcpp: "FSD_Base64Decoder::Decode(@)", header: "FSD_Base64Decoder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

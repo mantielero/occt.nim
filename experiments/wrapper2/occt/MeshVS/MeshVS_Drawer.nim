@@ -19,7 +19,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of MeshVS_Drawer"
 discard "forward decl of MeshVS_Drawer"
 type
-  HandleMeshVS_Drawer* = Handle[MeshVS_Drawer]
+  HandleC1C1* = Handle[MeshVS_Drawer]
 
 ## ! This class provided the common interface to share between classes
 ## ! big set of constants affecting to object appearance. By default, this class
@@ -41,41 +41,42 @@ type
 
 proc assign*(this: var MeshVS_Drawer; aDrawer: Handle[MeshVS_Drawer]) {.
     importcpp: "Assign", header: "MeshVS_Drawer.hxx".}
-proc setInteger*(this: var MeshVS_Drawer; key: int; value: int) {.
+proc setInteger*(this: var MeshVS_Drawer; key: cint; value: cint) {.
     importcpp: "SetInteger", header: "MeshVS_Drawer.hxx".}
-proc setDouble*(this: var MeshVS_Drawer; key: int; value: float) {.
+proc setDouble*(this: var MeshVS_Drawer; key: cint; value: cfloat) {.
     importcpp: "SetDouble", header: "MeshVS_Drawer.hxx".}
-proc setBoolean*(this: var MeshVS_Drawer; key: int; value: bool) {.
+proc setBoolean*(this: var MeshVS_Drawer; key: cint; value: bool) {.
     importcpp: "SetBoolean", header: "MeshVS_Drawer.hxx".}
-proc setColor*(this: var MeshVS_Drawer; key: int; value: QuantityColor) {.
+proc setColor*(this: var MeshVS_Drawer; key: cint; value: QuantityColor) {.
     importcpp: "SetColor", header: "MeshVS_Drawer.hxx".}
-proc setMaterial*(this: var MeshVS_Drawer; key: int; value: Graphic3dMaterialAspect) {.
+proc setMaterial*(this: var MeshVS_Drawer; key: cint; value: Graphic3dMaterialAspect) {.
     importcpp: "SetMaterial", header: "MeshVS_Drawer.hxx".}
-proc setAsciiString*(this: var MeshVS_Drawer; key: int; value: TCollectionAsciiString) {.
+proc setAsciiString*(this: var MeshVS_Drawer; key: cint; value: TCollectionAsciiString) {.
     importcpp: "SetAsciiString", header: "MeshVS_Drawer.hxx".}
-proc getInteger*(this: MeshVS_Drawer; key: int; value: var int): bool {.noSideEffect,
+proc getInteger*(this: MeshVS_Drawer; key: cint; value: var cint): bool {.noSideEffect,
     importcpp: "GetInteger", header: "MeshVS_Drawer.hxx".}
-proc getDouble*(this: MeshVS_Drawer; key: int; value: var float): bool {.noSideEffect,
+proc getDouble*(this: MeshVS_Drawer; key: cint; value: var cfloat): bool {.noSideEffect,
     importcpp: "GetDouble", header: "MeshVS_Drawer.hxx".}
-proc getBoolean*(this: MeshVS_Drawer; key: int; value: var bool): bool {.noSideEffect,
+proc getBoolean*(this: MeshVS_Drawer; key: cint; value: var bool): bool {.noSideEffect,
     importcpp: "GetBoolean", header: "MeshVS_Drawer.hxx".}
-proc getColor*(this: MeshVS_Drawer; key: int; value: var QuantityColor): bool {.
+proc getColor*(this: MeshVS_Drawer; key: cint; value: var QuantityColor): bool {.
     noSideEffect, importcpp: "GetColor", header: "MeshVS_Drawer.hxx".}
-proc getMaterial*(this: MeshVS_Drawer; key: int; value: var Graphic3dMaterialAspect): bool {.
+proc getMaterial*(this: MeshVS_Drawer; key: cint; value: var Graphic3dMaterialAspect): bool {.
     noSideEffect, importcpp: "GetMaterial", header: "MeshVS_Drawer.hxx".}
-proc getAsciiString*(this: MeshVS_Drawer; key: int; value: var TCollectionAsciiString): bool {.
-    noSideEffect, importcpp: "GetAsciiString", header: "MeshVS_Drawer.hxx".}
-proc removeInteger*(this: var MeshVS_Drawer; key: int): bool {.
+proc getAsciiString*(this: MeshVS_Drawer; key: cint;
+                    value: var TCollectionAsciiString): bool {.noSideEffect,
+    importcpp: "GetAsciiString", header: "MeshVS_Drawer.hxx".}
+proc removeInteger*(this: var MeshVS_Drawer; key: cint): bool {.
     importcpp: "RemoveInteger", header: "MeshVS_Drawer.hxx".}
-proc removeDouble*(this: var MeshVS_Drawer; key: int): bool {.
+proc removeDouble*(this: var MeshVS_Drawer; key: cint): bool {.
     importcpp: "RemoveDouble", header: "MeshVS_Drawer.hxx".}
-proc removeBoolean*(this: var MeshVS_Drawer; key: int): bool {.
+proc removeBoolean*(this: var MeshVS_Drawer; key: cint): bool {.
     importcpp: "RemoveBoolean", header: "MeshVS_Drawer.hxx".}
-proc removeColor*(this: var MeshVS_Drawer; key: int): bool {.importcpp: "RemoveColor",
+proc removeColor*(this: var MeshVS_Drawer; key: cint): bool {.importcpp: "RemoveColor",
     header: "MeshVS_Drawer.hxx".}
-proc removeMaterial*(this: var MeshVS_Drawer; key: int): bool {.
+proc removeMaterial*(this: var MeshVS_Drawer; key: cint): bool {.
     importcpp: "RemoveMaterial", header: "MeshVS_Drawer.hxx".}
-proc removeAsciiString*(this: var MeshVS_Drawer; key: int): bool {.
+proc removeAsciiString*(this: var MeshVS_Drawer; key: cint): bool {.
     importcpp: "RemoveAsciiString", header: "MeshVS_Drawer.hxx".}
 type
   MeshVS_DrawerbaseType* = StandardTransient
@@ -87,3 +88,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MeshVS_Drawer.hxx".}
 proc dynamicType*(this: MeshVS_Drawer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_Drawer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

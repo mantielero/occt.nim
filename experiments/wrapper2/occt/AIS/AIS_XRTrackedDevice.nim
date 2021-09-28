@@ -62,3 +62,28 @@ proc unitFactor*(this: AIS_XRTrackedDevice): StandardShortReal {.noSideEffect,
     importcpp: "UnitFactor", header: "AIS_XRTrackedDevice.hxx".}
 proc setUnitFactor*(this: var AIS_XRTrackedDevice; theFactor: StandardShortReal) {.
     importcpp: "SetUnitFactor", header: "AIS_XRTrackedDevice.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

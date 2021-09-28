@@ -36,7 +36,7 @@ proc constructInterfaceGraphContent*(): InterfaceGraphContent {.constructor,
 proc constructInterfaceGraphContent*(agraph: InterfaceGraph): InterfaceGraphContent {.
     constructor, importcpp: "Interface_GraphContent(@)",
     header: "Interface_GraphContent.hxx".}
-proc constructInterfaceGraphContent*(agraph: InterfaceGraph; stat: int): InterfaceGraphContent {.
+proc constructInterfaceGraphContent*(agraph: InterfaceGraph; stat: cint): InterfaceGraphContent {.
     constructor, importcpp: "Interface_GraphContent(@)",
     header: "Interface_GraphContent.hxx".}
 proc constructInterfaceGraphContent*(agraph: InterfaceGraph;
@@ -45,7 +45,7 @@ proc constructInterfaceGraphContent*(agraph: InterfaceGraph;
     header: "Interface_GraphContent.hxx".}
 proc getFromGraph*(this: var InterfaceGraphContent; agraph: InterfaceGraph) {.
     importcpp: "GetFromGraph", header: "Interface_GraphContent.hxx".}
-proc getFromGraph*(this: var InterfaceGraphContent; agraph: InterfaceGraph; stat: int) {.
+proc getFromGraph*(this: var InterfaceGraphContent; agraph: InterfaceGraph; stat: cint) {.
     importcpp: "GetFromGraph", header: "Interface_GraphContent.hxx".}
 proc result*(this: var InterfaceGraphContent): InterfaceEntityIterator {.
     importcpp: "Result", header: "Interface_GraphContent.hxx".}
@@ -53,3 +53,28 @@ proc begin*(this: var InterfaceGraphContent) {.importcpp: "Begin",
     header: "Interface_GraphContent.hxx".}
 proc evaluate*(this: var InterfaceGraphContent) {.importcpp: "Evaluate",
     header: "Interface_GraphContent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

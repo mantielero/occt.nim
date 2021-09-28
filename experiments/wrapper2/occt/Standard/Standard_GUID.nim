@@ -16,14 +16,27 @@
 
 const
   StandardGUID_SIZE* = 36
-  StandardGUID_SIZE_ALLOC* = standardGUID_SIZE + 1
+  StandardGUID_SIZE_ALLOC* = StandardGUID_SIZE + 1
 
 type
   StandardGUID* {.importcpp: "Standard_GUID", header: "Standard_GUID.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StandardGUID; theSize: csize_t): pointer {.
+    importcpp: "Standard_GUID::operator new", header: "Standard_GUID.hxx".}
+proc `delete`*(this: var StandardGUID; theAddress: pointer) {.
+    importcpp: "Standard_GUID::operator delete", header: "Standard_GUID.hxx".}
+proc `new[]`*(this: var StandardGUID; theSize: csize_t): pointer {.
+    importcpp: "Standard_GUID::operator new[]", header: "Standard_GUID.hxx".}
+proc `delete[]`*(this: var StandardGUID; theAddress: pointer) {.
+    importcpp: "Standard_GUID::operator delete[]", header: "Standard_GUID.hxx".}
+proc `new`*(this: var StandardGUID; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Standard_GUID::operator new", header: "Standard_GUID.hxx".}
+proc `delete`*(this: var StandardGUID; a2: pointer; a3: pointer) {.
+    importcpp: "Standard_GUID::operator delete", header: "Standard_GUID.hxx".}
 proc constructStandardGUID*(): StandardGUID {.constructor,
     importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
+#[
 proc constructStandardGUID*(aGuid: StandardCString): StandardGUID {.constructor,
     importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
 proc constructStandardGUID*(aGuid: StandardExtString): StandardGUID {.constructor,
@@ -35,6 +48,7 @@ proc constructStandardGUID*(a32b: int; a16b1: StandardExtCharacter;
                            a8b4: StandardByte; a8b5: StandardByte;
                            a8b6: StandardByte): StandardGUID {.constructor,
     importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
+]#
 proc constructStandardGUID*(aGuid: StandardUUID): StandardGUID {.constructor,
     importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
 proc constructStandardGUID*(aGuid: StandardGUID): StandardGUID {.constructor,
@@ -45,23 +59,23 @@ proc toCString*(this: StandardGUID; aStrGuid: StandardPCharacter) {.noSideEffect
     importcpp: "ToCString", header: "Standard_GUID.hxx".}
 proc toExtString*(this: StandardGUID; aStrGuid: StandardPExtCharacter) {.
     noSideEffect, importcpp: "ToExtString", header: "Standard_GUID.hxx".}
-proc isSame*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect,
+proc isSame*(this: StandardGUID; uid: StandardGUID): StandardBoolean {.noSideEffect,
     importcpp: "IsSame", header: "Standard_GUID.hxx".}
-proc `==`*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect,
+proc `==`*(this: StandardGUID; uid: StandardGUID): StandardBoolean {.noSideEffect,
     importcpp: "(# == #)", header: "Standard_GUID.hxx".}
-proc isNotSame*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect,
-    importcpp: "IsNotSame", header: "Standard_GUID.hxx".}
+proc isNotSame*(this: StandardGUID; uid: StandardGUID): StandardBoolean {.
+    noSideEffect, importcpp: "IsNotSame", header: "Standard_GUID.hxx".}
 proc assign*(this: var StandardGUID; uid: StandardGUID) {.importcpp: "Assign",
     header: "Standard_GUID.hxx".}
 proc assign*(this: var StandardGUID; uid: StandardUUID) {.importcpp: "Assign",
     header: "Standard_GUID.hxx".}
 proc shallowDump*(this: StandardGUID; aStream: var StandardOStream) {.noSideEffect,
     importcpp: "ShallowDump", header: "Standard_GUID.hxx".}
-proc checkGUIDFormat*(aGuid: StandardCString): bool {.
+proc checkGUIDFormat*(aGuid: StandardCString): StandardBoolean {.
     importcpp: "Standard_GUID::CheckGUIDFormat(@)", header: "Standard_GUID.hxx".}
 proc hash*(this: StandardGUID; upper: int): int {.noSideEffect, importcpp: "Hash",
     header: "Standard_GUID.hxx".}
 proc hashCode*(theGUID: StandardGUID; theUpperBound: int): int {.
     importcpp: "Standard_GUID::HashCode(@)", header: "Standard_GUID.hxx".}
-proc isEqual*(string1: StandardGUID; string2: StandardGUID): bool {.
+proc isEqual*(string1: StandardGUID; string2: StandardGUID): StandardBoolean {.
     importcpp: "Standard_GUID::IsEqual(@)", header: "Standard_GUID.hxx".}

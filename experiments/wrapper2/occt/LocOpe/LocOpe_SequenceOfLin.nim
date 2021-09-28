@@ -17,3 +17,28 @@
 type
   LocOpeSequenceOfLin* = NCollectionSequence[Lin]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

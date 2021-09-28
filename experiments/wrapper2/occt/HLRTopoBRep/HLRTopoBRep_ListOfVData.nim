@@ -18,3 +18,28 @@ type
   HLRTopoBRepListOfVData* = NCollectionList[HLRTopoBRepVData]
   HLRTopoBRepListIteratorOfListOfVData* = Iterator[HLRTopoBRepVData]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

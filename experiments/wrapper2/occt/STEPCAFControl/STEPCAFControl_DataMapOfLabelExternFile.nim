@@ -19,3 +19,28 @@ type
   STEPCAFControlDataMapIteratorOfDataMapOfLabelExternFile* = Iterator[TDF_Label,
       Handle[STEPCAFControlExternFile], TDF_LabelMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

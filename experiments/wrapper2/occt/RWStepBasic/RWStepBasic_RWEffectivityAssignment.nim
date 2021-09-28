@@ -27,7 +27,7 @@ proc constructRWStepBasicRWEffectivityAssignment*(): RWStepBasicRWEffectivityAss
     constructor, importcpp: "RWStepBasic_RWEffectivityAssignment(@)",
     header: "RWStepBasic_RWEffectivityAssignment.hxx".}
 proc readStep*(this: RWStepBasicRWEffectivityAssignment;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicEffectivityAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWEffectivityAssignment.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepBasicRWEffectivityAssignment;
            ent: Handle[StepBasicEffectivityAssignment];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWEffectivityAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

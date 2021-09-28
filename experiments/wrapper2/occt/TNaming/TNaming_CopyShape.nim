@@ -32,3 +32,28 @@ proc translate*(aShape: TopoDS_Shape;
 proc translate*(L: TopLocLocation;
                aMap: var TColStdIndexedDataMapOfTransientTransient): TopLocLocation {.
     importcpp: "TNaming_CopyShape::Translate(@)", header: "TNaming_CopyShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

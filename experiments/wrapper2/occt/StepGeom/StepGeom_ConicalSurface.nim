@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_Axis2Placement3d"
 discard "forward decl of StepGeom_ConicalSurface"
 discard "forward decl of StepGeom_ConicalSurface"
 type
-  HandleStepGeomConicalSurface* = Handle[StepGeomConicalSurface]
+  HandleC1C1* = Handle[StepGeomConicalSurface]
   StepGeomConicalSurface* {.importcpp: "StepGeom_ConicalSurface",
                            header: "StepGeom_ConicalSurface.hxx", bycopy.} = object of StepGeomElementarySurface ##
                                                                                                           ## !
@@ -31,16 +31,16 @@ type
 proc constructStepGeomConicalSurface*(): StepGeomConicalSurface {.constructor,
     importcpp: "StepGeom_ConicalSurface(@)", header: "StepGeom_ConicalSurface.hxx".}
 proc init*(this: var StepGeomConicalSurface; aName: Handle[TCollectionHAsciiString];
-          aPosition: Handle[StepGeomAxis2Placement3d]; aRadius: float;
-          aSemiAngle: float) {.importcpp: "Init",
-                             header: "StepGeom_ConicalSurface.hxx".}
-proc setRadius*(this: var StepGeomConicalSurface; aRadius: float) {.
+          aPosition: Handle[StepGeomAxis2Placement3d]; aRadius: cfloat;
+          aSemiAngle: cfloat) {.importcpp: "Init",
+                              header: "StepGeom_ConicalSurface.hxx".}
+proc setRadius*(this: var StepGeomConicalSurface; aRadius: cfloat) {.
     importcpp: "SetRadius", header: "StepGeom_ConicalSurface.hxx".}
-proc radius*(this: StepGeomConicalSurface): float {.noSideEffect,
+proc radius*(this: StepGeomConicalSurface): cfloat {.noSideEffect,
     importcpp: "Radius", header: "StepGeom_ConicalSurface.hxx".}
-proc setSemiAngle*(this: var StepGeomConicalSurface; aSemiAngle: float) {.
+proc setSemiAngle*(this: var StepGeomConicalSurface; aSemiAngle: cfloat) {.
     importcpp: "SetSemiAngle", header: "StepGeom_ConicalSurface.hxx".}
-proc semiAngle*(this: StepGeomConicalSurface): float {.noSideEffect,
+proc semiAngle*(this: StepGeomConicalSurface): cfloat {.noSideEffect,
     importcpp: "SemiAngle", header: "StepGeom_ConicalSurface.hxx".}
 type
   StepGeomConicalSurfacebaseType* = StepGeomElementarySurface
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_ConicalSurface.hxx".}
 proc dynamicType*(this: StepGeomConicalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_ConicalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   HLRBRepListOfBPnt2D* = NCollectionList[HLRBRepBiPnt2D]
   HLRBRepListIteratorOfListOfBPnt2D* = Iterator[HLRBRepBiPnt2D]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

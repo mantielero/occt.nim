@@ -16,7 +16,7 @@
 discard "forward decl of StepVisual_DraughtingCallout"
 discard "forward decl of StepVisual_DraughtingCallout"
 type
-  HandleStepVisualDraughtingCallout* = Handle[StepVisualDraughtingCallout]
+  HandleC1C1* = Handle[StepVisualDraughtingCallout]
   StepVisualDraughtingCallout* {.importcpp: "StepVisual_DraughtingCallout",
                                 header: "StepVisual_DraughtingCallout.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                                               ## !
@@ -38,12 +38,12 @@ proc contents*(this: StepVisualDraughtingCallout): Handle[
 proc setContents*(this: var StepVisualDraughtingCallout; theContents: Handle[
     StepVisualHArray1OfDraughtingCalloutElement]) {.importcpp: "SetContents",
     header: "StepVisual_DraughtingCallout.hxx".}
-proc nbContents*(this: StepVisualDraughtingCallout): int {.noSideEffect,
+proc nbContents*(this: StepVisualDraughtingCallout): cint {.noSideEffect,
     importcpp: "NbContents", header: "StepVisual_DraughtingCallout.hxx".}
-proc contentsValue*(this: StepVisualDraughtingCallout; theNum: int): StepVisualDraughtingCalloutElement {.
+proc contentsValue*(this: StepVisualDraughtingCallout; theNum: cint): StepVisualDraughtingCalloutElement {.
     noSideEffect, importcpp: "ContentsValue",
     header: "StepVisual_DraughtingCallout.hxx".}
-proc setContentsValue*(this: var StepVisualDraughtingCallout; theNum: int;
+proc setContentsValue*(this: var StepVisualDraughtingCallout; theNum: cint;
                       theItem: StepVisualDraughtingCalloutElement) {.
     importcpp: "SetContentsValue", header: "StepVisual_DraughtingCallout.hxx".}
 type
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualDraughtingCallout): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_DraughtingCallout.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

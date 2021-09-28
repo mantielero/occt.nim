@@ -23,7 +23,7 @@ discard "forward decl of Storage_BaseDriver"
 discard "forward decl of PCDM_ReadWriter"
 discard "forward decl of PCDM_ReadWriter"
 type
-  HandlePCDM_ReadWriter* = Handle[PCDM_ReadWriter]
+  HandleC1C1* = Handle[PCDM_ReadWriter]
   PCDM_ReadWriter* {.importcpp: "PCDM_ReadWriter", header: "PCDM_ReadWriter.hxx",
                     bycopy.} = object of StandardTransient ## ! returns PCDM_ReadWriter_1.
 
@@ -45,7 +45,7 @@ proc writeVersion*(this: PCDM_ReadWriter; aData: Handle[StorageData];
     importcpp: "WriteVersion", header: "PCDM_ReadWriter.hxx".}
 proc readReferenceCounter*(this: PCDM_ReadWriter;
                           theFileName: TCollectionExtendedString;
-                          theMsgDriver: Handle[MessageMessenger]): int {.
+                          theMsgDriver: Handle[MessageMessenger]): cint {.
     noSideEffect, importcpp: "ReadReferenceCounter", header: "PCDM_ReadWriter.hxx".}
 proc readReferences*(this: PCDM_ReadWriter; aFileName: TCollectionExtendedString;
                     theReferences: var PCDM_SequenceOfReference;
@@ -57,7 +57,7 @@ proc readExtensions*(this: PCDM_ReadWriter; aFileName: TCollectionExtendedString
     importcpp: "ReadExtensions", header: "PCDM_ReadWriter.hxx".}
 proc readDocumentVersion*(this: PCDM_ReadWriter;
                          aFileName: TCollectionExtendedString;
-                         theMsgDriver: Handle[MessageMessenger]): int {.
+                         theMsgDriver: Handle[MessageMessenger]): cint {.
     noSideEffect, importcpp: "ReadDocumentVersion", header: "PCDM_ReadWriter.hxx".}
 proc open*(aDriver: Handle[StorageBaseDriver];
           aFileName: TCollectionExtendedString; anOpenMode: StorageOpenMode) {.
@@ -83,3 +83,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "PCDM_ReadWriter.hxx".}
 proc dynamicType*(this: PCDM_ReadWriter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_ReadWriter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

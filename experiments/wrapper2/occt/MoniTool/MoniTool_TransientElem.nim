@@ -19,7 +19,7 @@ discard "forward decl of MoniTool_Element"
 discard "forward decl of MoniTool_TransientElem"
 discard "forward decl of MoniTool_TransientElem"
 type
-  HandleMoniToolTransientElem* = Handle[MoniToolTransientElem]
+  HandleC1C1* = Handle[MoniToolTransientElem]
 
 ## ! an TransientElem defines an Element for a specific input class
 ## ! its definition includes the value of the Key to be mapped,
@@ -93,3 +93,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MoniTool_TransientElem.hxx".}
 proc dynamicType*(this: MoniToolTransientElem): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_TransientElem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

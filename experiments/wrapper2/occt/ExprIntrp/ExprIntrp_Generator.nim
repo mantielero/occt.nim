@@ -20,7 +20,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of ExprIntrp_Generator"
 discard "forward decl of ExprIntrp_Generator"
 type
-  HandleExprIntrpGenerator* = Handle[ExprIntrpGenerator]
+  HandleC1C1* = Handle[ExprIntrpGenerator]
 
 ## ! Implements general services for interpretation of
 ## ! expressions.
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ExprIntrp_Generator.hxx".}
 proc dynamicType*(this: ExprIntrpGenerator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ExprIntrp_Generator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

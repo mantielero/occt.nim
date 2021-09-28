@@ -14,17 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Geom2d_UndefinedDerivative_HeaderFile [NewLine] # _Geom2d_UndefinedDerivative_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Geom2d_UndefinedDerivative ;
-## Error: expected ';'!!!
-
+discard "forward decl of Geom2d_UndefinedDerivative"
 discard "forward decl of Geom2d_UndefinedDerivative"
 type
-  HandleGeom2dUndefinedDerivativeGeom2dUndefinedDerivative* = Handle[
-      Geom2dUndefinedDerivative]
+  HandleC1C1* = Handle[Geom2dUndefinedDerivative]
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Geom2d_UndefinedDerivative [NewLine] # if ( CONDITION ) throw Geom2d_UndefinedDerivative ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noGeom2dUndefinedDerivative):
+  template geom2dUndefinedDerivativeRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc geom2dUndefinedDerivative*(a1: Message): Throw {.
+          importcpp: "Geom2d_UndefinedDerivative(@)",
+          header: "Geom2d_UndefinedDerivative.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Geom2d_UndefinedDerivative , Standard_DomainError ) #  _Geom2d_UndefinedDerivative_HeaderFile
-## Error: did not expect [NewLine]!!!
+else:
+  discard
+type
+  Geom2dUndefinedDerivative* {.importcpp: "Geom2d_UndefinedDerivative",
+                              header: "Geom2d_UndefinedDerivative.hxx", bycopy.} = object of StandardDomainError
 

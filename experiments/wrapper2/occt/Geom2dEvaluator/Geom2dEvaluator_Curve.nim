@@ -12,7 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt2d"
+## !!!Ignored construct:  # _Geom2dEvaluator_Curve_HeaderFile [NewLine] # _Geom2dEvaluator_Curve_HeaderFile [NewLine] # < Standard_Transient . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] class gp_Pnt2d ;
+## Error: expected ';'!!!
+
 discard "forward decl of gp_Vec2d"
 type
   Geom2dEvaluatorCurve* {.importcpp: "Geom2dEvaluator_Curve",
@@ -38,12 +40,54 @@ type
 
 proc getTypeName*(): cstring {.importcpp: "Geom2dEvaluator_Curve::get_type_name(@)",
                             header: "Geom2dEvaluator_Curve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Geom2dEvaluator_Curve::get_type_descriptor(@)",
-    header: "Geom2dEvaluator_Curve.hxx".}
-proc dynamicType*(this: Geom2dEvaluatorCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2dEvaluator_Curve.hxx".}
-discard "forward decl of Geom2dEvaluator_Curve"
-type
-  HandleGeom2dEvaluatorCurve* = Handle[Geom2dEvaluatorCurve]
+## !!!Ignored construct:  & get_type_descriptor ( ) { return Standard_Type :: Instance < Geom2dEvaluator_Curve > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } }
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Geom2dEvaluator_Curve , Standard_Transient ) #  _Geom2dEvaluator_Curve_HeaderFile
+## Error: expected ';'!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

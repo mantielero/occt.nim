@@ -16,3 +16,28 @@
 type
   IFSelectActFunc* = proc (a1: Handle[IFSelectSessionPilot]): IFSelectReturnStatus
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,3 +15,28 @@ type
   StepElementArray2OfCurveElementPurposeMember* = NCollectionArray2[
       Handle[StepElementCurveElementPurposeMember]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

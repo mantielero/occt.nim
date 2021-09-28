@@ -17,3 +17,28 @@
 type
   PolyArray1OfTriangle* = NCollectionArray1[PolyTriangle]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

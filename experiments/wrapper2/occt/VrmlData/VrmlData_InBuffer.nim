@@ -24,8 +24,33 @@ type
     line* {.importc: "Line".}: array[8096, char]
     linePtr* {.importc: "LinePtr".}: cstring
     isProcessed* {.importc: "IsProcessed".}: bool
-    lineCount* {.importc: "LineCount".}: int
+    lineCount* {.importc: "LineCount".}: cint
 
 
 proc constructVrmlDataInBuffer*(theStream: var StandardIStream): VrmlDataInBuffer {.
     constructor, importcpp: "VrmlData_InBuffer(@)", header: "VrmlData_InBuffer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

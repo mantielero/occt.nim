@@ -34,7 +34,32 @@ type
 
 
 proc planeEquation*(p1: Pnt; p2: Pnt; p3: Pnt; normalVector: var Xyz;
-                   polarDistance: var float) {.importcpp: "Intf::PlaneEquation(@)",
-    header: "Intf.hxx".}
+                   polarDistance: var cfloat) {.
+    importcpp: "Intf::PlaneEquation(@)", header: "Intf.hxx".}
 proc contain*(p1: Pnt; p2: Pnt; p3: Pnt; thePnt: Pnt): bool {.
     importcpp: "Intf::Contain(@)", header: "Intf.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

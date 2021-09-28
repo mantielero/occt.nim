@@ -19,6 +19,156 @@ type
   Counter* = ref object
 
   
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
+type
+  StreamBuffer* = ref object
+  Counter* = ref object
+
+  
 discard "forward decl of Message_Report"
 type
   Message* {.importcpp: "Message", header: "Message.hxx", bycopy.} = object ## ! Defines default messenger for OCCT
@@ -80,7 +230,7 @@ proc sendInfo*(theMessage: TCollectionAsciiString) {.
     importcpp: "Message::SendInfo(@)", header: "Message.hxx".}
 proc sendTrace*(theMessage: TCollectionAsciiString) {.
     importcpp: "Message::SendTrace(@)", header: "Message.hxx".}
-proc fillTime*(hour: int; minute: int; second: float): TCollectionAsciiString {.
+proc fillTime*(hour: cint; minute: cint; second: cfloat): TCollectionAsciiString {.
     importcpp: "Message::FillTime(@)", header: "Message.hxx".}
 proc defaultReport*(theToCreate: bool = false): Handle[MessageReport] {.
     importcpp: "Message::DefaultReport(@)", header: "Message.hxx".}
@@ -94,4 +244,59 @@ proc toOSDMetric*(theMetric: MessageMetricType; theMemInfo: var Counter): bool {
     importcpp: "Message::ToOSDMetric(@)", header: "Message.hxx".}
 proc toMessageMetric*(theMemInfo: Counter; theMetric: var MessageMetricType): bool {.
     importcpp: "Message::ToMessageMetric(@)", header: "Message.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

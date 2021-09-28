@@ -16,3 +16,28 @@
 type
   SelectMgrSequenceOfSelection* = NCollectionSequence[Handle[SelectMgrSelection]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,25 +26,50 @@ type
                                                   ## ! is used by the constructors above.
 
 
-proc constructMathTrigonometricFunctionRoots*(a: float; b: float; c: float; d: float;
-    e: float; infBound: float; supBound: float): MathTrigonometricFunctionRoots {.
+proc constructMathTrigonometricFunctionRoots*(a: cfloat; b: cfloat; c: cfloat;
+    d: cfloat; e: cfloat; infBound: cfloat; supBound: cfloat): MathTrigonometricFunctionRoots {.
     constructor, importcpp: "math_TrigonometricFunctionRoots(@)",
     header: "math_TrigonometricFunctionRoots.hxx".}
-proc constructMathTrigonometricFunctionRoots*(d: float; e: float; infBound: float;
-    supBound: float): MathTrigonometricFunctionRoots {.constructor,
+proc constructMathTrigonometricFunctionRoots*(d: cfloat; e: cfloat; infBound: cfloat;
+    supBound: cfloat): MathTrigonometricFunctionRoots {.constructor,
     importcpp: "math_TrigonometricFunctionRoots(@)",
     header: "math_TrigonometricFunctionRoots.hxx".}
-proc constructMathTrigonometricFunctionRoots*(c: float; d: float; e: float;
-    infBound: float; supBound: float): MathTrigonometricFunctionRoots {.constructor,
-    importcpp: "math_TrigonometricFunctionRoots(@)",
+proc constructMathTrigonometricFunctionRoots*(c: cfloat; d: cfloat; e: cfloat;
+    infBound: cfloat; supBound: cfloat): MathTrigonometricFunctionRoots {.
+    constructor, importcpp: "math_TrigonometricFunctionRoots(@)",
     header: "math_TrigonometricFunctionRoots.hxx".}
 proc isDone*(this: MathTrigonometricFunctionRoots): bool {.noSideEffect,
     importcpp: "IsDone", header: "math_TrigonometricFunctionRoots.hxx".}
 proc infiniteRoots*(this: MathTrigonometricFunctionRoots): bool {.noSideEffect,
     importcpp: "InfiniteRoots", header: "math_TrigonometricFunctionRoots.hxx".}
-proc value*(this: MathTrigonometricFunctionRoots; index: int): float {.noSideEffect,
+proc value*(this: MathTrigonometricFunctionRoots; index: cint): cfloat {.noSideEffect,
     importcpp: "Value", header: "math_TrigonometricFunctionRoots.hxx".}
-proc nbSolutions*(this: MathTrigonometricFunctionRoots): int {.noSideEffect,
+proc nbSolutions*(this: MathTrigonometricFunctionRoots): cint {.noSideEffect,
     importcpp: "NbSolutions", header: "math_TrigonometricFunctionRoots.hxx".}
 proc dump*(this: MathTrigonometricFunctionRoots; o: var StandardOStream) {.
     noSideEffect, importcpp: "Dump", header: "math_TrigonometricFunctionRoots.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

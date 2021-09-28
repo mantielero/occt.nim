@@ -22,7 +22,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_EntityCluster"
 discard "forward decl of Interface_EntityCluster"
 type
-  HandleInterfaceEntityCluster* = Handle[InterfaceEntityCluster]
+  HandleC1C1* = Handle[InterfaceEntityCluster]
 
 ## ! Auxiliary class for EntityList. An EntityList designates an
 ## ! EntityCluster, which brings itself an fixed maximum count of
@@ -83,13 +83,13 @@ proc append*(this: var InterfaceEntityCluster; ent: Handle[StandardTransient]) {
     importcpp: "Append", header: "Interface_EntityCluster.hxx".}
 proc remove*(this: var InterfaceEntityCluster; ent: Handle[StandardTransient]): bool {.
     importcpp: "Remove", header: "Interface_EntityCluster.hxx".}
-proc remove*(this: var InterfaceEntityCluster; num: int): bool {.importcpp: "Remove",
+proc remove*(this: var InterfaceEntityCluster; num: cint): bool {.importcpp: "Remove",
     header: "Interface_EntityCluster.hxx".}
-proc nbEntities*(this: InterfaceEntityCluster): int {.noSideEffect,
+proc nbEntities*(this: InterfaceEntityCluster): cint {.noSideEffect,
     importcpp: "NbEntities", header: "Interface_EntityCluster.hxx".}
-proc value*(this: InterfaceEntityCluster; num: int): Handle[StandardTransient] {.
+proc value*(this: InterfaceEntityCluster; num: cint): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Value", header: "Interface_EntityCluster.hxx".}
-proc setValue*(this: var InterfaceEntityCluster; num: int;
+proc setValue*(this: var InterfaceEntityCluster; num: cint;
               ent: Handle[StandardTransient]) {.importcpp: "SetValue",
     header: "Interface_EntityCluster.hxx".}
 proc fillIterator*(this: InterfaceEntityCluster; iter: var InterfaceEntityIterator) {.
@@ -107,3 +107,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_EntityCluster.hxx".}
 proc dynamicType*(this: InterfaceEntityCluster): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "Interface_EntityCluster.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

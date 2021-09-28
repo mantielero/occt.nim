@@ -21,7 +21,7 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of IGESDimen_DiameterDimension"
 discard "forward decl of IGESDimen_DiameterDimension"
 type
-  HandleIGESDimenDiameterDimension* = Handle[IGESDimenDiameterDimension]
+  HandleC1C1* = Handle[IGESDimenDiameterDimension]
 
 ## ! defines DiameterDimension, Type <206> Form <0>
 ## ! in package IGESDimen
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDimenDiameterDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_DiameterDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

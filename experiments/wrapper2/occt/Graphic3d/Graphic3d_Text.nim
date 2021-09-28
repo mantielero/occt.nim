@@ -94,5 +94,30 @@ proc setVerticalAlignment*(this: var Graphic3dText;
     importcpp: "SetVerticalAlignment", header: "Graphic3d_Text.hxx".}
 discard "forward decl of Graphic3d_Text"
 type
-  HandleGraphic3dText* = Handle[Graphic3dText]
+  HandleC1C1* = Handle[Graphic3dText]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

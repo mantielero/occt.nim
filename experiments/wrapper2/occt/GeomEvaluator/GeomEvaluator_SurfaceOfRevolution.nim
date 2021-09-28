@@ -37,22 +37,24 @@ proc setLocation*(this: var GeomEvaluatorSurfaceOfRevolution; theLocation: Pnt) 
     importcpp: "SetLocation", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
 proc setAxis*(this: var GeomEvaluatorSurfaceOfRevolution; theAxis: Ax1) {.
     importcpp: "SetAxis", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc d0*(this: GeomEvaluatorSurfaceOfRevolution; theU: float; theV: float;
-        theValue: var Pnt) {.noSideEffect, importcpp: "D0",
-                          header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc d1*(this: GeomEvaluatorSurfaceOfRevolution; theU: float; theV: float;
-        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec) {.noSideEffect,
-    importcpp: "D1", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc d2*(this: GeomEvaluatorSurfaceOfRevolution; theU: float; theV: float;
-        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec; theD2U: var Vec;
-        theD2V: var Vec; theD2UV: var Vec) {.noSideEffect, importcpp: "D2", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc d3*(this: GeomEvaluatorSurfaceOfRevolution; theU: float; theV: float;
-        theValue: var Pnt; theD1U: var Vec; theD1V: var Vec; theD2U: var Vec;
-        theD2V: var Vec; theD2UV: var Vec; theD3U: var Vec; theD3V: var Vec;
-        theD3UUV: var Vec; theD3UVV: var Vec) {.noSideEffect, importcpp: "D3",
+proc d0*(this: GeomEvaluatorSurfaceOfRevolution; theU: StandardReal;
+        theV: StandardReal; theValue: var Pnt) {.noSideEffect, importcpp: "D0",
     header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
-proc dn*(this: GeomEvaluatorSurfaceOfRevolution; theU: float; theV: float;
-        theDerU: int; theDerV: int): Vec {.noSideEffect, importcpp: "DN", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
+proc d1*(this: GeomEvaluatorSurfaceOfRevolution; theU: StandardReal;
+        theV: StandardReal; theValue: var Pnt; theD1U: var Vec; theD1V: var Vec) {.
+    noSideEffect, importcpp: "D1", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
+proc d2*(this: GeomEvaluatorSurfaceOfRevolution; theU: StandardReal;
+        theV: StandardReal; theValue: var Pnt; theD1U: var Vec; theD1V: var Vec;
+        theD2U: var Vec; theD2V: var Vec; theD2UV: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
+proc d3*(this: GeomEvaluatorSurfaceOfRevolution; theU: StandardReal;
+        theV: StandardReal; theValue: var Pnt; theD1U: var Vec; theD1V: var Vec;
+        theD2U: var Vec; theD2V: var Vec; theD2UV: var Vec; theD3U: var Vec;
+        theD3V: var Vec; theD3UUV: var Vec; theD3UVV: var Vec) {.noSideEffect,
+    importcpp: "D3", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
+proc dn*(this: GeomEvaluatorSurfaceOfRevolution; theU: StandardReal;
+        theV: StandardReal; theDerU: int; theDerV: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
 type
   GeomEvaluatorSurfaceOfRevolutionbaseType* = GeomEvaluatorSurface
 
@@ -66,6 +68,4 @@ proc dynamicType*(this: GeomEvaluatorSurfaceOfRevolution): Handle[StandardType] 
     header: "GeomEvaluator_SurfaceOfRevolution.hxx".}
 discard "forward decl of GeomEvaluator_SurfaceOfRevolution"
 type
-  HandleGeomEvaluatorSurfaceOfRevolution* = Handle[
-      GeomEvaluatorSurfaceOfRevolution]
-
+  HandleC1C1* = Handle[GeomEvaluatorSurfaceOfRevolution]

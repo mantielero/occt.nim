@@ -62,5 +62,30 @@ proc ownCopy*(this: IGESAppliToolNodalDisplAndRot;
     header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
 proc ownDump*(this: IGESAppliToolNodalDisplAndRot;
              ent: Handle[IGESAppliNodalDisplAndRot]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESAppli_ToolNodalDisplAndRot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,4 +28,3 @@ type
     CompoundTrsf,             ## !< Combination of the above transformations
     Other                     ## !< Transformation with not-orthogonal matrix
 
-

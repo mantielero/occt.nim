@@ -30,15 +30,15 @@ proc constructTopTransSurfaceTransition*(): TopTransSurfaceTransition {.
     constructor, importcpp: "TopTrans_SurfaceTransition(@)",
     header: "TopTrans_SurfaceTransition.hxx".}
 proc reset*(this: var TopTransSurfaceTransition; tgt: Dir; norm: Dir; maxD: Dir;
-           minD: Dir; maxCurv: float; minCurv: float) {.importcpp: "Reset",
+           minD: Dir; maxCurv: cfloat; minCurv: cfloat) {.importcpp: "Reset",
     header: "TopTrans_SurfaceTransition.hxx".}
 proc reset*(this: var TopTransSurfaceTransition; tgt: Dir; norm: Dir) {.
     importcpp: "Reset", header: "TopTrans_SurfaceTransition.hxx".}
-proc compare*(this: var TopTransSurfaceTransition; tole: float; norm: Dir; maxD: Dir;
-             minD: Dir; maxCurv: float; minCurv: float; s: TopAbsOrientation;
+proc compare*(this: var TopTransSurfaceTransition; tole: cfloat; norm: Dir; maxD: Dir;
+             minD: Dir; maxCurv: cfloat; minCurv: cfloat; s: TopAbsOrientation;
              o: TopAbsOrientation) {.importcpp: "Compare",
                                    header: "TopTrans_SurfaceTransition.hxx".}
-proc compare*(this: var TopTransSurfaceTransition; tole: float; norm: Dir;
+proc compare*(this: var TopTransSurfaceTransition; tole: cfloat; norm: Dir;
              s: TopAbsOrientation; o: TopAbsOrientation) {.importcpp: "Compare",
     header: "TopTrans_SurfaceTransition.hxx".}
 proc stateBefore*(this: TopTransSurfaceTransition): TopAbsState {.noSideEffect,
@@ -51,3 +51,28 @@ proc getBefore*(tran: TopAbsOrientation): TopAbsState {.
 proc getAfter*(tran: TopAbsOrientation): TopAbsState {.
     importcpp: "TopTrans_SurfaceTransition::GetAfter(@)",
     header: "TopTrans_SurfaceTransition.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

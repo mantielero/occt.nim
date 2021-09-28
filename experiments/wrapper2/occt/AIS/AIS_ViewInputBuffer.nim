@@ -152,3 +152,28 @@ proc constructAIS_ViewInputBuffer*(): AIS_ViewInputBuffer {.constructor,
     importcpp: "AIS_ViewInputBuffer(@)", header: "AIS_ViewInputBuffer.hxx".}
 proc reset*(this: var AIS_ViewInputBuffer) {.importcpp: "Reset",
     header: "AIS_ViewInputBuffer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

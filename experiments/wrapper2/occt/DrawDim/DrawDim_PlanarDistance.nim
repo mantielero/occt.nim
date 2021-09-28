@@ -22,7 +22,7 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of DrawDim_PlanarDistance"
 discard "forward decl of DrawDim_PlanarDistance"
 type
-  HandleDrawDimPlanarDistance* = Handle[DrawDimPlanarDistance]
+  HandleC1C1* = Handle[DrawDimPlanarDistance]
 
 ## ! PlanarDistance point/point
 ## ! PlanarDistance point/line
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DrawDim_PlanarDistance.hxx".}
 proc dynamicType*(this: DrawDimPlanarDistance): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawDim_PlanarDistance.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

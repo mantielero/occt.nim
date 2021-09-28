@@ -20,7 +20,7 @@ discard "forward decl of STEPSelections_AssemblyComponent"
 discard "forward decl of STEPSelections_AssemblyLink"
 discard "forward decl of STEPSelections_AssemblyLink"
 type
-  HandleSTEPSelectionsAssemblyLink* = Handle[STEPSelectionsAssemblyLink]
+  HandleC1C1* = Handle[STEPSelectionsAssemblyLink]
   STEPSelectionsAssemblyLink* {.importcpp: "STEPSelections_AssemblyLink",
                                header: "STEPSelections_AssemblyLink.hxx", bycopy.} = object of StandardTransient
 
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsAssemblyLink): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_AssemblyLink.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

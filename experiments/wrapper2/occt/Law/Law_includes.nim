@@ -16,3 +16,28 @@ include Law_Linear
 include Law_ListIteratorOfLaws
 include Law_S
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,7 +25,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESData_GeneralModule"
 discard "forward decl of IGESData_GeneralModule"
 type
-  HandleIGESDataGeneralModule* = Handle[IGESDataGeneralModule]
+  HandleC1C1* = Handle[IGESDataGeneralModule]
 
 ## ! Definition of General Services adapted to IGES.
 ## ! This Services comprise : Shared & Implied Lists, Copy, Check
@@ -80,61 +80,62 @@ type
                                                                                                      ## Entity)
 
 
-proc fillSharedCase*(this: IGESDataGeneralModule; cn: int;
+proc fillSharedCase*(this: IGESDataGeneralModule; cn: cint;
                     ent: Handle[StandardTransient];
                     iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillSharedCase", header: "IGESData_GeneralModule.hxx".}
-proc ownSharedCase*(this: IGESDataGeneralModule; cn: int;
+proc ownSharedCase*(this: IGESDataGeneralModule; cn: cint;
                    ent: Handle[IGESDataIGESEntity];
                    iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnSharedCase", header: "IGESData_GeneralModule.hxx".}
-proc listImpliedCase*(this: IGESDataGeneralModule; cn: int;
+proc listImpliedCase*(this: IGESDataGeneralModule; cn: cint;
                      ent: Handle[StandardTransient];
                      iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "ListImpliedCase", header: "IGESData_GeneralModule.hxx".}
-proc ownImpliedCase*(this: IGESDataGeneralModule; cn: int;
+proc ownImpliedCase*(this: IGESDataGeneralModule; cn: cint;
                     ent: Handle[IGESDataIGESEntity];
                     iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "OwnImpliedCase", header: "IGESData_GeneralModule.hxx".}
-proc checkCase*(this: IGESDataGeneralModule; cn: int; ent: Handle[StandardTransient];
-               shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
-    noSideEffect, importcpp: "CheckCase", header: "IGESData_GeneralModule.hxx".}
-proc dirChecker*(this: IGESDataGeneralModule; cn: int;
+proc checkCase*(this: IGESDataGeneralModule; cn: cint;
+               ent: Handle[StandardTransient]; shares: InterfaceShareTool;
+               ach: var Handle[InterfaceCheck]) {.noSideEffect,
+    importcpp: "CheckCase", header: "IGESData_GeneralModule.hxx".}
+proc dirChecker*(this: IGESDataGeneralModule; cn: cint;
                 ent: Handle[IGESDataIGESEntity]): IGESDataDirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESData_GeneralModule.hxx".}
-proc ownCheckCase*(this: IGESDataGeneralModule; cn: int;
+proc ownCheckCase*(this: IGESDataGeneralModule; cn: cint;
                   ent: Handle[IGESDataIGESEntity]; shares: InterfaceShareTool;
                   ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "OwnCheckCase", header: "IGESData_GeneralModule.hxx".}
-proc canCopy*(this: IGESDataGeneralModule; cn: int; ent: Handle[StandardTransient]): bool {.
+proc canCopy*(this: IGESDataGeneralModule; cn: cint; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "CanCopy", header: "IGESData_GeneralModule.hxx".}
-proc newVoid*(this: IGESDataGeneralModule; cn: int;
+proc newVoid*(this: IGESDataGeneralModule; cn: cint;
              entto: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "NewVoid", header: "IGESData_GeneralModule.hxx".}
-proc copyCase*(this: IGESDataGeneralModule; cn: int;
+proc copyCase*(this: IGESDataGeneralModule; cn: cint;
               entfrom: Handle[StandardTransient];
               entto: Handle[StandardTransient]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "CopyCase", header: "IGESData_GeneralModule.hxx".}
-proc ownCopyCase*(this: IGESDataGeneralModule; cn: int;
+proc ownCopyCase*(this: IGESDataGeneralModule; cn: cint;
                  entfrom: Handle[IGESDataIGESEntity];
                  entto: Handle[IGESDataIGESEntity]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopyCase", header: "IGESData_GeneralModule.hxx".}
-proc renewImpliedCase*(this: IGESDataGeneralModule; cn: int;
+proc renewImpliedCase*(this: IGESDataGeneralModule; cn: cint;
                       entfrom: Handle[StandardTransient];
                       entto: Handle[StandardTransient]; tc: InterfaceCopyTool) {.
     noSideEffect, importcpp: "RenewImpliedCase",
     header: "IGESData_GeneralModule.hxx".}
-proc ownRenewCase*(this: IGESDataGeneralModule; cn: int;
+proc ownRenewCase*(this: IGESDataGeneralModule; cn: cint;
                   entfrom: Handle[IGESDataIGESEntity];
                   entto: Handle[IGESDataIGESEntity]; tc: InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnRenewCase", header: "IGESData_GeneralModule.hxx".}
-proc whenDeleteCase*(this: IGESDataGeneralModule; cn: int;
+proc whenDeleteCase*(this: IGESDataGeneralModule; cn: cint;
                     ent: Handle[StandardTransient]; dispatched: bool) {.
     noSideEffect, importcpp: "WhenDeleteCase", header: "IGESData_GeneralModule.hxx".}
-proc ownDeleteCase*(this: IGESDataGeneralModule; cn: int;
+proc ownDeleteCase*(this: IGESDataGeneralModule; cn: cint;
                    ent: Handle[IGESDataIGESEntity]) {.noSideEffect,
     importcpp: "OwnDeleteCase", header: "IGESData_GeneralModule.hxx".}
-proc name*(this: IGESDataGeneralModule; cn: int; ent: Handle[StandardTransient];
+proc name*(this: IGESDataGeneralModule; cn: cint; ent: Handle[StandardTransient];
           shares: InterfaceShareTool): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "IGESData_GeneralModule.hxx".}
 type
@@ -147,3 +148,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_GeneralModule.hxx".}
 proc dynamicType*(this: IGESDataGeneralModule): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_GeneralModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

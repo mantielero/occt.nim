@@ -25,7 +25,7 @@ discard "forward decl of IntPatch_Point"
 discard "forward decl of IntPatch_GLine"
 discard "forward decl of IntPatch_GLine"
 type
-  HandleIntPatchGLine* = Handle[IntPatchGLine]
+  HandleC1C1* = Handle[IntPatchGLine]
 
 ## ! Implementation of an intersection line represented
 ## ! by a conic.
@@ -92,12 +92,12 @@ proc constructIntPatchGLine*(h: Hypr; tang: bool): IntPatchGLine {.constructor,
     importcpp: "IntPatch_GLine(@)", header: "IntPatch_GLine.hxx".}
 proc addVertex*(this: var IntPatchGLine; pnt: IntPatchPoint) {.importcpp: "AddVertex",
     header: "IntPatch_GLine.hxx".}
-proc replace*(this: var IntPatchGLine; index: int; pnt: IntPatchPoint) {.
+proc replace*(this: var IntPatchGLine; index: cint; pnt: IntPatchPoint) {.
     importcpp: "Replace", header: "IntPatch_GLine.hxx".}
-proc setFirstPoint*(this: var IntPatchGLine; indFirst: int) {.
+proc setFirstPoint*(this: var IntPatchGLine; indFirst: cint) {.
     importcpp: "SetFirstPoint", header: "IntPatch_GLine.hxx".}
-proc setLastPoint*(this: var IntPatchGLine; indLast: int) {.importcpp: "SetLastPoint",
-    header: "IntPatch_GLine.hxx".}
+proc setLastPoint*(this: var IntPatchGLine; indLast: cint) {.
+    importcpp: "SetLastPoint", header: "IntPatch_GLine.hxx".}
 proc line*(this: IntPatchGLine): Lin {.noSideEffect, importcpp: "Line",
                                    header: "IntPatch_GLine.hxx".}
 proc circle*(this: IntPatchGLine): Circ {.noSideEffect, importcpp: "Circle",
@@ -116,11 +116,11 @@ proc firstPoint*(this: IntPatchGLine): IntPatchPoint {.noSideEffect,
     importcpp: "FirstPoint", header: "IntPatch_GLine.hxx".}
 proc lastPoint*(this: IntPatchGLine): IntPatchPoint {.noSideEffect,
     importcpp: "LastPoint", header: "IntPatch_GLine.hxx".}
-proc nbVertex*(this: IntPatchGLine): int {.noSideEffect, importcpp: "NbVertex",
-                                       header: "IntPatch_GLine.hxx".}
-proc vertex*(this: IntPatchGLine; index: int): IntPatchPoint {.noSideEffect,
+proc nbVertex*(this: IntPatchGLine): cint {.noSideEffect, importcpp: "NbVertex",
+                                        header: "IntPatch_GLine.hxx".}
+proc vertex*(this: IntPatchGLine; index: cint): IntPatchPoint {.noSideEffect,
     importcpp: "Vertex", header: "IntPatch_GLine.hxx".}
-proc computeVertexParameters*(this: var IntPatchGLine; tol: float) {.
+proc computeVertexParameters*(this: var IntPatchGLine; tol: cfloat) {.
     importcpp: "ComputeVertexParameters", header: "IntPatch_GLine.hxx".}
 type
   IntPatchGLinebaseType* = IntPatchLine
@@ -132,3 +132,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IntPatch_GLine.hxx".}
 proc dynamicType*(this: IntPatchGLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_GLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

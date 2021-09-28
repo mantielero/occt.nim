@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MeshVS_DataMapOfIntegerMaterial* = NCollectionDataMap[int,
+  MeshVS_DataMapOfIntegerMaterial* = NCollectionDataMap[cint,
       Graphic3dMaterialAspect, TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerMaterial* = Iterator[int,
+  MeshVS_DataMapIteratorOfDataMapOfIntegerMaterial* = Iterator[cint,
       Graphic3dMaterialAspect, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

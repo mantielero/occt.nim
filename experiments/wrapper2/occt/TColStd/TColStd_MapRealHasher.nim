@@ -13,5 +13,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColStdMapRealHasher* = NCollectionDefaultHasher[float]
+  TColStdMapRealHasher* = NCollectionDefaultHasher[cfloat]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

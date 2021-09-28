@@ -20,3 +20,28 @@ type
   TopToolsMapIteratorOfMapOfOrientedShape* = Iterator[TopoDS_Shape,
       TopToolsOrientedShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -94,13 +94,13 @@ proc model*(this: IFGraphSubPartsIterator): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "IFGraph_SubPartsIterator.hxx".}
 proc addPart*(this: var IFGraphSubPartsIterator) {.importcpp: "AddPart",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc nbParts*(this: IFGraphSubPartsIterator): int {.noSideEffect,
+proc nbParts*(this: IFGraphSubPartsIterator): cint {.noSideEffect,
     importcpp: "NbParts", header: "IFGraph_SubPartsIterator.hxx".}
-proc partNum*(this: IFGraphSubPartsIterator): int {.noSideEffect,
+proc partNum*(this: IFGraphSubPartsIterator): cint {.noSideEffect,
     importcpp: "PartNum", header: "IFGraph_SubPartsIterator.hxx".}
 proc setLoad*(this: var IFGraphSubPartsIterator) {.importcpp: "SetLoad",
     header: "IFGraph_SubPartsIterator.hxx".}
-proc setPartNum*(this: var IFGraphSubPartsIterator; num: int) {.
+proc setPartNum*(this: var IFGraphSubPartsIterator; num: cint) {.
     importcpp: "SetPartNum", header: "IFGraph_SubPartsIterator.hxx".}
 proc getFromEntity*(this: var IFGraphSubPartsIterator;
                    ent: Handle[StandardTransient]; shared: bool) {.
@@ -119,7 +119,7 @@ proc isLoaded*(this: IFGraphSubPartsIterator; ent: Handle[StandardTransient]): b
     noSideEffect, importcpp: "IsLoaded", header: "IFGraph_SubPartsIterator.hxx".}
 proc isInPart*(this: IFGraphSubPartsIterator; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsInPart", header: "IFGraph_SubPartsIterator.hxx".}
-proc entityPartNum*(this: IFGraphSubPartsIterator; ent: Handle[StandardTransient]): int {.
+proc entityPartNum*(this: IFGraphSubPartsIterator; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "EntityPartNum",
     header: "IFGraph_SubPartsIterator.hxx".}
 proc start*(this: var IFGraphSubPartsIterator) {.importcpp: "Start",
@@ -137,3 +137,28 @@ proc entities*(this: IFGraphSubPartsIterator): InterfaceEntityIterator {.
 proc destroyIFGraphSubPartsIterator*(this: var IFGraphSubPartsIterator) {.
     importcpp: "#.~IFGraph_SubPartsIterator()",
     header: "IFGraph_SubPartsIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

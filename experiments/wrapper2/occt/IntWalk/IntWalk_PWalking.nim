@@ -45,29 +45,29 @@ type
 
 proc constructIntWalkPWalking*(caro1: Handle[Adaptor3dHSurface];
                               caro2: Handle[Adaptor3dHSurface];
-                              tolTangency: float; epsilon: float; deflection: float;
-                              increment: float): IntWalkPWalking {.constructor,
-    importcpp: "IntWalk_PWalking(@)", header: "IntWalk_PWalking.hxx".}
+                              tolTangency: cfloat; epsilon: cfloat;
+                              deflection: cfloat; increment: cfloat): IntWalkPWalking {.
+    constructor, importcpp: "IntWalk_PWalking(@)", header: "IntWalk_PWalking.hxx".}
 proc constructIntWalkPWalking*(caro1: Handle[Adaptor3dHSurface];
                               caro2: Handle[Adaptor3dHSurface];
-                              tolTangency: float; epsilon: float; deflection: float;
-                              increment: float; u1: float; v1: float; u2: float;
-                              v2: float): IntWalkPWalking {.constructor,
-    importcpp: "IntWalk_PWalking(@)", header: "IntWalk_PWalking.hxx".}
+                              tolTangency: cfloat; epsilon: cfloat;
+                              deflection: cfloat; increment: cfloat; u1: cfloat;
+                              v1: cfloat; u2: cfloat; v2: cfloat): IntWalkPWalking {.
+    constructor, importcpp: "IntWalk_PWalking(@)", header: "IntWalk_PWalking.hxx".}
 proc perform*(this: var IntWalkPWalking; parDep: TColStdArray1OfReal) {.
     importcpp: "Perform", header: "IntWalk_PWalking.hxx".}
-proc perform*(this: var IntWalkPWalking; parDep: TColStdArray1OfReal; u1min: float;
-             v1min: float; u2min: float; v2min: float; u1max: float; v1max: float;
-             u2max: float; v2max: float) {.importcpp: "Perform",
-                                       header: "IntWalk_PWalking.hxx".}
+proc perform*(this: var IntWalkPWalking; parDep: TColStdArray1OfReal; u1min: cfloat;
+             v1min: cfloat; u2min: cfloat; v2min: cfloat; u1max: cfloat; v1max: cfloat;
+             u2max: cfloat; v2max: cfloat) {.importcpp: "Perform",
+    header: "IntWalk_PWalking.hxx".}
 proc performFirstPoint*(this: var IntWalkPWalking; parDep: TColStdArray1OfReal;
                        firstPoint: var IntSurfPntOn2S): bool {.
     importcpp: "PerformFirstPoint", header: "IntWalk_PWalking.hxx".}
 proc isDone*(this: IntWalkPWalking): bool {.noSideEffect, importcpp: "IsDone",
                                         header: "IntWalk_PWalking.hxx".}
-proc nbPoints*(this: IntWalkPWalking): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: IntWalkPWalking): cint {.noSideEffect, importcpp: "NbPoints",
     header: "IntWalk_PWalking.hxx".}
-proc value*(this: IntWalkPWalking; index: int): IntSurfPntOn2S {.noSideEffect,
+proc value*(this: IntWalkPWalking; index: cint): IntSurfPntOn2S {.noSideEffect,
     importcpp: "Value", header: "IntWalk_PWalking.hxx".}
 proc line*(this: IntWalkPWalking): Handle[IntSurfLineOn2S] {.noSideEffect,
     importcpp: "Line", header: "IntWalk_PWalking.hxx".}
@@ -77,7 +77,7 @@ proc tangentAtLast*(this: IntWalkPWalking): bool {.noSideEffect,
     importcpp: "TangentAtLast", header: "IntWalk_PWalking.hxx".}
 proc isClosed*(this: IntWalkPWalking): bool {.noSideEffect, importcpp: "IsClosed",
     header: "IntWalk_PWalking.hxx".}
-proc tangentAtLine*(this: IntWalkPWalking; index: var int): Dir {.noSideEffect,
+proc tangentAtLine*(this: IntWalkPWalking; index: var cint): Dir {.noSideEffect,
     importcpp: "TangentAtLine", header: "IntWalk_PWalking.hxx".}
 proc testDeflection*(this: var IntWalkPWalking; choixIso: IntImpConstIsoparametric;
                     theStatus: IntWalkStatusDeflection): IntWalkStatusDeflection {.
@@ -91,7 +91,7 @@ proc repartirOuDiviser*(this: var IntWalkPWalking; dejaReparti: var bool;
     importcpp: "RepartirOuDiviser", header: "IntWalk_PWalking.hxx".}
 proc addAPoint*(this: var IntWalkPWalking; thePOn2S: IntSurfPntOn2S) {.
     importcpp: "AddAPoint", header: "IntWalk_PWalking.hxx".}
-proc removeAPoint*(this: var IntWalkPWalking; theIndex: int) {.
+proc removeAPoint*(this: var IntWalkPWalking; theIndex: cint) {.
     importcpp: "RemoveAPoint", header: "IntWalk_PWalking.hxx".}
 proc putToBoundary*(this: var IntWalkPWalking; theASurf1: Handle[Adaptor3dHSurface];
                    theASurf2: Handle[Adaptor3dHSurface]): bool {.
@@ -99,7 +99,32 @@ proc putToBoundary*(this: var IntWalkPWalking; theASurf1: Handle[Adaptor3dHSurfa
 proc seekAdditionalPoints*(this: var IntWalkPWalking;
                           theASurf1: Handle[Adaptor3dHSurface];
                           theASurf2: Handle[Adaptor3dHSurface];
-                          theMinNbPoints: int): bool {.
+                          theMinNbPoints: cint): bool {.
     importcpp: "SeekAdditionalPoints", header: "IntWalk_PWalking.hxx".}
-proc maxStep*(this: var IntWalkPWalking; theIndex: int): float {.importcpp: "MaxStep",
-    header: "IntWalk_PWalking.hxx".}
+proc maxStep*(this: var IntWalkPWalking; theIndex: cint): cfloat {.
+    importcpp: "MaxStep", header: "IntWalk_PWalking.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

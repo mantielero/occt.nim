@@ -18,3 +18,28 @@ type
   StepGeomArray1OfCompositeCurveSegment* = NCollectionArray1[
       Handle[StepGeomCompositeCurveSegment]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

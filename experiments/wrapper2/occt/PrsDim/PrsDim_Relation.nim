@@ -51,8 +51,8 @@ proc secondShape*(this: PrsDimRelation): TopoDS_Shape {.noSideEffect,
     importcpp: "SecondShape", header: "PrsDim_Relation.hxx".}
 proc setSecondShape*(this: var PrsDimRelation; aSShape: TopoDS_Shape) {.
     importcpp: "SetSecondShape", header: "PrsDim_Relation.hxx".}
-proc setBndBox*(this: var PrsDimRelation; theXmin: float; theYmin: float;
-               theZmin: float; theXmax: float; theYmax: float; theZmax: float) {.
+proc setBndBox*(this: var PrsDimRelation; theXmin: cfloat; theYmin: cfloat;
+               theZmin: cfloat; theXmax: cfloat; theYmax: cfloat; theZmax: cfloat) {.
     importcpp: "SetBndBox", header: "PrsDim_Relation.hxx".}
 proc unsetBndBox*(this: var PrsDimRelation) {.importcpp: "UnsetBndBox",
     header: "PrsDim_Relation.hxx".}
@@ -60,9 +60,9 @@ proc plane*(this: PrsDimRelation): Handle[GeomPlane] {.noSideEffect,
     importcpp: "Plane", header: "PrsDim_Relation.hxx".}
 proc setPlane*(this: var PrsDimRelation; thePlane: Handle[GeomPlane]) {.
     importcpp: "SetPlane", header: "PrsDim_Relation.hxx".}
-proc value*(this: PrsDimRelation): float {.noSideEffect, importcpp: "Value",
-                                       header: "PrsDim_Relation.hxx".}
-proc setValue*(this: var PrsDimRelation; theVal: float) {.importcpp: "SetValue",
+proc value*(this: PrsDimRelation): cfloat {.noSideEffect, importcpp: "Value",
+                                        header: "PrsDim_Relation.hxx".}
+proc setValue*(this: var PrsDimRelation; theVal: cfloat) {.importcpp: "SetValue",
     header: "PrsDim_Relation.hxx".}
 proc position*(this: PrsDimRelation): Pnt {.noSideEffect, importcpp: "Position",
                                         header: "PrsDim_Relation.hxx".}
@@ -72,19 +72,19 @@ proc text*(this: PrsDimRelation): TCollectionExtendedString {.noSideEffect,
     importcpp: "Text", header: "PrsDim_Relation.hxx".}
 proc setText*(this: var PrsDimRelation; theText: TCollectionExtendedString) {.
     importcpp: "SetText", header: "PrsDim_Relation.hxx".}
-proc arrowSize*(this: PrsDimRelation): float {.noSideEffect, importcpp: "ArrowSize",
+proc arrowSize*(this: PrsDimRelation): cfloat {.noSideEffect, importcpp: "ArrowSize",
     header: "PrsDim_Relation.hxx".}
-proc setArrowSize*(this: var PrsDimRelation; theArrowSize: float) {.
+proc setArrowSize*(this: var PrsDimRelation; theArrowSize: cfloat) {.
     importcpp: "SetArrowSize", header: "PrsDim_Relation.hxx".}
 proc symbolPrs*(this: PrsDimRelation): DsgPrsArrowSide {.noSideEffect,
     importcpp: "SymbolPrs", header: "PrsDim_Relation.hxx".}
 proc setSymbolPrs*(this: var PrsDimRelation; theSymbolPrs: DsgPrsArrowSide) {.
     importcpp: "SetSymbolPrs", header: "PrsDim_Relation.hxx".}
-proc setExtShape*(this: var PrsDimRelation; theIndex: int) {.importcpp: "SetExtShape",
+proc setExtShape*(this: var PrsDimRelation; theIndex: cint) {.
+    importcpp: "SetExtShape", header: "PrsDim_Relation.hxx".}
+proc extShape*(this: PrsDimRelation): cint {.noSideEffect, importcpp: "ExtShape",
     header: "PrsDim_Relation.hxx".}
-proc extShape*(this: PrsDimRelation): int {.noSideEffect, importcpp: "ExtShape",
-                                        header: "PrsDim_Relation.hxx".}
-proc acceptDisplayMode*(this: PrsDimRelation; theMode: int): bool {.noSideEffect,
+proc acceptDisplayMode*(this: PrsDimRelation; theMode: cint): bool {.noSideEffect,
     importcpp: "AcceptDisplayMode", header: "PrsDim_Relation.hxx".}
 proc setAutomaticPosition*(this: var PrsDimRelation; theStatus: bool) {.
     importcpp: "SetAutomaticPosition", header: "PrsDim_Relation.hxx".}
@@ -92,5 +92,30 @@ proc automaticPosition*(this: PrsDimRelation): bool {.noSideEffect,
     importcpp: "AutomaticPosition", header: "PrsDim_Relation.hxx".}
 discard "forward decl of PrsDim_Relation"
 type
-  HandlePrsDimRelation* = Handle[PrsDimRelation]
+  HandleC1C1* = Handle[PrsDimRelation]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

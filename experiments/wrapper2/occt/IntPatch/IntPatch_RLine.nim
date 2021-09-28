@@ -22,7 +22,7 @@ discard "forward decl of IntSurf_PntOn2S"
 discard "forward decl of IntPatch_RLine"
 discard "forward decl of IntPatch_RLine"
 type
-  HandleIntPatchRLine* = Handle[IntPatchRLine]
+  HandleC1C1* = Handle[IntPatchRLine]
 
 ## ! Implementation of an intersection line described by a
 ## ! restriction line on one of the surfaces.
@@ -59,12 +59,12 @@ proc constructIntPatchRLine*(tang: bool): IntPatchRLine {.constructor,
 proc addVertex*(this: var IntPatchRLine; pnt: IntPatchPoint;
                theIsPrepend: bool = false) {.importcpp: "AddVertex",
     header: "IntPatch_RLine.hxx".}
-proc replace*(this: var IntPatchRLine; index: int; pnt: IntPatchPoint) {.
+proc replace*(this: var IntPatchRLine; index: cint; pnt: IntPatchPoint) {.
     importcpp: "Replace", header: "IntPatch_RLine.hxx".}
-proc setFirstPoint*(this: var IntPatchRLine; indFirst: int) {.
+proc setFirstPoint*(this: var IntPatchRLine; indFirst: cint) {.
     importcpp: "SetFirstPoint", header: "IntPatch_RLine.hxx".}
-proc setLastPoint*(this: var IntPatchRLine; indLast: int) {.importcpp: "SetLastPoint",
-    header: "IntPatch_RLine.hxx".}
+proc setLastPoint*(this: var IntPatchRLine; indLast: cint) {.
+    importcpp: "SetLastPoint", header: "IntPatch_RLine.hxx".}
 proc add*(this: var IntPatchRLine; L: Handle[IntSurfLineOn2S]) {.importcpp: "Add",
     header: "IntPatch_RLine.hxx".}
 proc isArcOnS1*(this: IntPatchRLine): bool {.noSideEffect, importcpp: "IsArcOnS1",
@@ -75,17 +75,17 @@ proc setArcOnS1*(this: var IntPatchRLine; a: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "SetArcOnS1", header: "IntPatch_RLine.hxx".}
 proc setArcOnS2*(this: var IntPatchRLine; a: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "SetArcOnS2", header: "IntPatch_RLine.hxx".}
-proc setParamOnS1*(this: var IntPatchRLine; p1: float; p2: float) {.
+proc setParamOnS1*(this: var IntPatchRLine; p1: cfloat; p2: cfloat) {.
     importcpp: "SetParamOnS1", header: "IntPatch_RLine.hxx".}
-proc setParamOnS2*(this: var IntPatchRLine; p1: var float; p2: var float) {.
+proc setParamOnS2*(this: var IntPatchRLine; p1: var cfloat; p2: var cfloat) {.
     importcpp: "SetParamOnS2", header: "IntPatch_RLine.hxx".}
 proc arcOnS1*(this: IntPatchRLine): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "ArcOnS1", header: "IntPatch_RLine.hxx".}
 proc arcOnS2*(this: IntPatchRLine): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "ArcOnS2", header: "IntPatch_RLine.hxx".}
-proc paramOnS1*(this: IntPatchRLine; p1: var float; p2: var float) {.noSideEffect,
+proc paramOnS1*(this: IntPatchRLine; p1: var cfloat; p2: var cfloat) {.noSideEffect,
     importcpp: "ParamOnS1", header: "IntPatch_RLine.hxx".}
-proc paramOnS2*(this: IntPatchRLine; p1: var float; p2: var float) {.noSideEffect,
+proc paramOnS2*(this: IntPatchRLine; p1: var cfloat; p2: var cfloat) {.noSideEffect,
     importcpp: "ParamOnS2", header: "IntPatch_RLine.hxx".}
 proc hasFirstPoint*(this: IntPatchRLine): bool {.noSideEffect,
     importcpp: "HasFirstPoint", header: "IntPatch_RLine.hxx".}
@@ -95,23 +95,23 @@ proc firstPoint*(this: IntPatchRLine): IntPatchPoint {.noSideEffect,
     importcpp: "FirstPoint", header: "IntPatch_RLine.hxx".}
 proc lastPoint*(this: IntPatchRLine): IntPatchPoint {.noSideEffect,
     importcpp: "LastPoint", header: "IntPatch_RLine.hxx".}
-proc nbVertex*(this: IntPatchRLine): int {.noSideEffect, importcpp: "NbVertex",
-                                       header: "IntPatch_RLine.hxx".}
-proc vertex*(this: IntPatchRLine; index: int): IntPatchPoint {.noSideEffect,
+proc nbVertex*(this: IntPatchRLine): cint {.noSideEffect, importcpp: "NbVertex",
+                                        header: "IntPatch_RLine.hxx".}
+proc vertex*(this: IntPatchRLine; index: cint): IntPatchPoint {.noSideEffect,
     importcpp: "Vertex", header: "IntPatch_RLine.hxx".}
-proc changeVertex*(this: var IntPatchRLine; index: int): var IntPatchPoint {.
+proc changeVertex*(this: var IntPatchRLine; index: cint): var IntPatchPoint {.
     importcpp: "ChangeVertex", header: "IntPatch_RLine.hxx".}
-proc removeVertex*(this: var IntPatchRLine; theIndex: int) {.
+proc removeVertex*(this: var IntPatchRLine; theIndex: cint) {.
     importcpp: "RemoveVertex", header: "IntPatch_RLine.hxx".}
 proc hasPolygon*(this: IntPatchRLine): bool {.noSideEffect, importcpp: "HasPolygon",
     header: "IntPatch_RLine.hxx".}
-proc nbPnts*(this: IntPatchRLine): int {.noSideEffect, importcpp: "NbPnts",
-                                     header: "IntPatch_RLine.hxx".}
-proc point*(this: IntPatchRLine; index: int): IntSurfPntOn2S {.noSideEffect,
+proc nbPnts*(this: IntPatchRLine): cint {.noSideEffect, importcpp: "NbPnts",
+                                      header: "IntPatch_RLine.hxx".}
+proc point*(this: IntPatchRLine; index: cint): IntSurfPntOn2S {.noSideEffect,
     importcpp: "Point", header: "IntPatch_RLine.hxx".}
-proc setPoint*(this: var IntPatchRLine; index: int; pnt: IntPatchPoint) {.
+proc setPoint*(this: var IntPatchRLine; index: cint; pnt: IntPatchPoint) {.
     importcpp: "SetPoint", header: "IntPatch_RLine.hxx".}
-proc computeVertexParameters*(this: var IntPatchRLine; tol: float) {.
+proc computeVertexParameters*(this: var IntPatchRLine; tol: cfloat) {.
     importcpp: "ComputeVertexParameters", header: "IntPatch_RLine.hxx".}
 proc curve*(this: IntPatchRLine): Handle[IntSurfLineOn2S] {.noSideEffect,
     importcpp: "Curve", header: "IntPatch_RLine.hxx".}
@@ -125,7 +125,7 @@ proc clearVertexes*(this: var IntPatchRLine) {.importcpp: "ClearVertexes",
     header: "IntPatch_RLine.hxx".}
 proc setCurve*(this: var IntPatchRLine; theNewCurve: Handle[IntSurfLineOn2S]) {.
     importcpp: "SetCurve", header: "IntPatch_RLine.hxx".}
-proc dump*(this: IntPatchRLine; theMode: int) {.noSideEffect, importcpp: "Dump",
+proc dump*(this: IntPatchRLine; theMode: cint) {.noSideEffect, importcpp: "Dump",
     header: "IntPatch_RLine.hxx".}
 type
   IntPatchRLinebaseType* = IntPatchPointLine
@@ -137,3 +137,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IntPatch_RLine.hxx".}
 proc dynamicType*(this: IntPatchRLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_RLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

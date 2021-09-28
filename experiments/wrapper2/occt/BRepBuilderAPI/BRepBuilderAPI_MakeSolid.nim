@@ -89,3 +89,28 @@ converter `topoDS_Solid`*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.
     header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc isDeleted*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shape): bool {.
     importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

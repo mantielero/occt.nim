@@ -49,3 +49,28 @@ proc disp*(this: DrawSaveAndRestore): bool {.noSideEffect, importcpp: "Disp",
     header: "Draw_Appli.hxx".}
 proc next*(this: var DrawSaveAndRestore): ptr DrawSaveAndRestore {.importcpp: "Next",
     header: "Draw_Appli.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

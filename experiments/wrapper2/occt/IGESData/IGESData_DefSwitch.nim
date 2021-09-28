@@ -31,9 +31,34 @@ proc setVoid*(this: var IGESDataDefSwitch) {.importcpp: "SetVoid",
     header: "IGESData_DefSwitch.hxx".}
 proc setReference*(this: var IGESDataDefSwitch) {.importcpp: "SetReference",
     header: "IGESData_DefSwitch.hxx".}
-proc setRank*(this: var IGESDataDefSwitch; val: int) {.importcpp: "SetRank",
+proc setRank*(this: var IGESDataDefSwitch; val: cint) {.importcpp: "SetRank",
     header: "IGESData_DefSwitch.hxx".}
 proc defType*(this: IGESDataDefSwitch): IGESDataDefType {.noSideEffect,
     importcpp: "DefType", header: "IGESData_DefSwitch.hxx".}
-proc value*(this: IGESDataDefSwitch): int {.noSideEffect, importcpp: "Value",
-                                        header: "IGESData_DefSwitch.hxx".}
+proc value*(this: IGESDataDefSwitch): cint {.noSideEffect, importcpp: "Value",
+    header: "IGESData_DefSwitch.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

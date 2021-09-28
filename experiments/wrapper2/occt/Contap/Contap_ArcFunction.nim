@@ -30,25 +30,25 @@ proc set*(this: var ContapArcFunction; s: Handle[Adaptor3dHSurface]) {.
     importcpp: "Set", header: "Contap_ArcFunction.hxx".}
 proc set*(this: var ContapArcFunction; direction: Dir) {.importcpp: "Set",
     header: "Contap_ArcFunction.hxx".}
-proc set*(this: var ContapArcFunction; direction: Dir; angle: float) {.importcpp: "Set",
-    header: "Contap_ArcFunction.hxx".}
+proc set*(this: var ContapArcFunction; direction: Dir; angle: cfloat) {.
+    importcpp: "Set", header: "Contap_ArcFunction.hxx".}
 proc set*(this: var ContapArcFunction; eye: Pnt) {.importcpp: "Set",
     header: "Contap_ArcFunction.hxx".}
-proc set*(this: var ContapArcFunction; eye: Pnt; angle: float) {.importcpp: "Set",
+proc set*(this: var ContapArcFunction; eye: Pnt; angle: cfloat) {.importcpp: "Set",
     header: "Contap_ArcFunction.hxx".}
 proc set*(this: var ContapArcFunction; a: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "Set", header: "Contap_ArcFunction.hxx".}
-proc value*(this: var ContapArcFunction; x: float; f: var float): bool {.
+proc value*(this: var ContapArcFunction; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "Contap_ArcFunction.hxx".}
-proc derivative*(this: var ContapArcFunction; x: float; d: var float): bool {.
+proc derivative*(this: var ContapArcFunction; x: cfloat; d: var cfloat): bool {.
     importcpp: "Derivative", header: "Contap_ArcFunction.hxx".}
-proc values*(this: var ContapArcFunction; x: float; f: var float; d: var float): bool {.
+proc values*(this: var ContapArcFunction; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     importcpp: "Values", header: "Contap_ArcFunction.hxx".}
-proc nbSamples*(this: ContapArcFunction): int {.noSideEffect, importcpp: "NbSamples",
-    header: "Contap_ArcFunction.hxx".}
-proc getStateNumber*(this: var ContapArcFunction): int {.importcpp: "GetStateNumber",
-    header: "Contap_ArcFunction.hxx".}
-proc valpoint*(this: ContapArcFunction; index: int): Pnt {.noSideEffect,
+proc nbSamples*(this: ContapArcFunction): cint {.noSideEffect,
+    importcpp: "NbSamples", header: "Contap_ArcFunction.hxx".}
+proc getStateNumber*(this: var ContapArcFunction): cint {.
+    importcpp: "GetStateNumber", header: "Contap_ArcFunction.hxx".}
+proc valpoint*(this: ContapArcFunction; index: cint): Pnt {.noSideEffect,
     importcpp: "Valpoint", header: "Contap_ArcFunction.hxx".}
 proc quadric*(this: ContapArcFunction): IntSurfQuadric {.noSideEffect,
     importcpp: "Quadric", header: "Contap_ArcFunction.hxx".}
@@ -56,3 +56,28 @@ proc surface*(this: ContapArcFunction): Handle[Adaptor3dHSurface] {.noSideEffect
     importcpp: "Surface", header: "Contap_ArcFunction.hxx".}
 proc lastComputedPoint*(this: ContapArcFunction): Pnt {.noSideEffect,
     importcpp: "LastComputedPoint", header: "Contap_ArcFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

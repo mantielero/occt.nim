@@ -22,7 +22,7 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESGeom_ReadWriteModule"
 discard "forward decl of IGESGeom_ReadWriteModule"
 type
-  HandleIGESGeomReadWriteModule* = Handle[IGESGeomReadWriteModule]
+  HandleC1C1* = Handle[IGESGeomReadWriteModule]
 
 ## ! Defines Geom File Access Module for IGESGeom (specific parts)
 ## ! Specific actions concern : Read and Write Own Parameters of
@@ -47,14 +47,14 @@ type
 proc constructIGESGeomReadWriteModule*(): IGESGeomReadWriteModule {.constructor,
     importcpp: "IGESGeom_ReadWriteModule(@)",
     header: "IGESGeom_ReadWriteModule.hxx".}
-proc caseIGES*(this: IGESGeomReadWriteModule; typenum: int; formnum: int): int {.
+proc caseIGES*(this: IGESGeomReadWriteModule; typenum: cint; formnum: cint): cint {.
     noSideEffect, importcpp: "CaseIGES", header: "IGESGeom_ReadWriteModule.hxx".}
-proc readOwnParams*(this: IGESGeomReadWriteModule; cn: int;
+proc readOwnParams*(this: IGESGeomReadWriteModule; cn: cint;
                    ent: Handle[IGESDataIGESEntity];
                    ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
     noSideEffect, importcpp: "ReadOwnParams",
     header: "IGESGeom_ReadWriteModule.hxx".}
-proc writeOwnParams*(this: IGESGeomReadWriteModule; cn: int;
+proc writeOwnParams*(this: IGESGeomReadWriteModule; cn: cint;
                     ent: Handle[IGESDataIGESEntity]; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESGeom_ReadWriteModule.hxx".}
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_ReadWriteModule.hxx".}
 proc dynamicType*(this: IGESGeomReadWriteModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGeom_ReadWriteModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

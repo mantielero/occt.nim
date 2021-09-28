@@ -19,7 +19,7 @@ discard "forward decl of Standard_GUID"
 discard "forward decl of XCAFPrs_Driver"
 discard "forward decl of XCAFPrs_Driver"
 type
-  HandleXCAFPrsDriver* = Handle[XCAFPrsDriver]
+  HandleC1C1* = Handle[XCAFPrsDriver]
 
 ## ! Implements a driver for presentation of shapes in DECAF
 ## ! document. Its the only purpose is to initialize and return
@@ -44,3 +44,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XCAFPrs_Driver.hxx".}
 proc dynamicType*(this: XCAFPrsDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFPrs_Driver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Segment2D"
 discard "forward decl of Draw_Segment2D"
 type
-  HandleDrawSegment2D* = Handle[DrawSegment2D]
+  HandleC1C1* = Handle[DrawSegment2D]
   DrawSegment2D* {.importcpp: "Draw_Segment2D", header: "Draw_Segment2D.hxx", bycopy.} = object of DrawDrawable2D
 
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Draw_Segment2D.hxx".}
 proc dynamicType*(this: DrawSegment2D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Segment2D.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

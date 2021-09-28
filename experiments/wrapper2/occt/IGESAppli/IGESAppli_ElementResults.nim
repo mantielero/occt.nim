@@ -23,7 +23,7 @@ discard "forward decl of IGESAppli_FiniteElement"
 discard "forward decl of IGESAppli_ElementResults"
 discard "forward decl of IGESAppli_ElementResults"
 type
-  HandleIGESAppliElementResults* = Handle[IGESAppliElementResults]
+  HandleC1C1* = Handle[IGESAppliElementResults]
 
 ## ! defines ElementResults, Type <148>
 ## ! in package IGESAppli
@@ -38,7 +38,7 @@ proc constructIGESAppliElementResults*(): IGESAppliElementResults {.constructor,
     importcpp: "IGESAppli_ElementResults(@)",
     header: "IGESAppli_ElementResults.hxx".}
 proc init*(this: var IGESAppliElementResults; aNote: Handle[IGESDimenGeneralNote];
-          aSubCase: int; aTime: float; nbResults: int; aResRepFlag: int;
+          aSubCase: cint; aTime: cfloat; nbResults: cint; aResRepFlag: cint;
           allElementIdents: Handle[TColStdHArray1OfInteger];
           allFiniteElems: Handle[IGESAppliHArray1OfFiniteElement];
           allTopTypes: Handle[TColStdHArray1OfInteger];
@@ -48,49 +48,50 @@ proc init*(this: var IGESAppliElementResults; aNote: Handle[IGESDimenGeneralNote
           allResDataLocs: Handle[IGESBasicHArray1OfHArray1OfInteger];
           allResults: Handle[IGESBasicHArray1OfHArray1OfReal]) {.
     importcpp: "Init", header: "IGESAppli_ElementResults.hxx".}
-proc setFormNumber*(this: var IGESAppliElementResults; form: int) {.
+proc setFormNumber*(this: var IGESAppliElementResults; form: cint) {.
     importcpp: "SetFormNumber", header: "IGESAppli_ElementResults.hxx".}
 proc note*(this: IGESAppliElementResults): Handle[IGESDimenGeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESAppli_ElementResults.hxx".}
-proc subCaseNumber*(this: IGESAppliElementResults): int {.noSideEffect,
+proc subCaseNumber*(this: IGESAppliElementResults): cint {.noSideEffect,
     importcpp: "SubCaseNumber", header: "IGESAppli_ElementResults.hxx".}
-proc time*(this: IGESAppliElementResults): float {.noSideEffect, importcpp: "Time",
+proc time*(this: IGESAppliElementResults): cfloat {.noSideEffect, importcpp: "Time",
     header: "IGESAppli_ElementResults.hxx".}
-proc nbResultValues*(this: IGESAppliElementResults): int {.noSideEffect,
+proc nbResultValues*(this: IGESAppliElementResults): cint {.noSideEffect,
     importcpp: "NbResultValues", header: "IGESAppli_ElementResults.hxx".}
-proc resultReportFlag*(this: IGESAppliElementResults): int {.noSideEffect,
+proc resultReportFlag*(this: IGESAppliElementResults): cint {.noSideEffect,
     importcpp: "ResultReportFlag", header: "IGESAppli_ElementResults.hxx".}
-proc nbElements*(this: IGESAppliElementResults): int {.noSideEffect,
+proc nbElements*(this: IGESAppliElementResults): cint {.noSideEffect,
     importcpp: "NbElements", header: "IGESAppli_ElementResults.hxx".}
-proc elementIdentifier*(this: IGESAppliElementResults; index: int): int {.
+proc elementIdentifier*(this: IGESAppliElementResults; index: cint): cint {.
     noSideEffect, importcpp: "ElementIdentifier",
     header: "IGESAppli_ElementResults.hxx".}
-proc element*(this: IGESAppliElementResults; index: int): Handle[
+proc element*(this: IGESAppliElementResults; index: cint): Handle[
     IGESAppliFiniteElement] {.noSideEffect, importcpp: "Element",
                              header: "IGESAppli_ElementResults.hxx".}
-proc elementTopologyType*(this: IGESAppliElementResults; index: int): int {.
+proc elementTopologyType*(this: IGESAppliElementResults; index: cint): cint {.
     noSideEffect, importcpp: "ElementTopologyType",
     header: "IGESAppli_ElementResults.hxx".}
-proc nbLayers*(this: IGESAppliElementResults; index: int): int {.noSideEffect,
+proc nbLayers*(this: IGESAppliElementResults; index: cint): cint {.noSideEffect,
     importcpp: "NbLayers", header: "IGESAppli_ElementResults.hxx".}
-proc dataLayerFlag*(this: IGESAppliElementResults; index: int): int {.noSideEffect,
+proc dataLayerFlag*(this: IGESAppliElementResults; index: cint): cint {.noSideEffect,
     importcpp: "DataLayerFlag", header: "IGESAppli_ElementResults.hxx".}
-proc nbResultDataLocs*(this: IGESAppliElementResults; index: int): int {.noSideEffect,
-    importcpp: "NbResultDataLocs", header: "IGESAppli_ElementResults.hxx".}
-proc resultDataLoc*(this: IGESAppliElementResults; nElem: int; nLoc: int): int {.
+proc nbResultDataLocs*(this: IGESAppliElementResults; index: cint): cint {.
+    noSideEffect, importcpp: "NbResultDataLocs",
+    header: "IGESAppli_ElementResults.hxx".}
+proc resultDataLoc*(this: IGESAppliElementResults; nElem: cint; nLoc: cint): cint {.
     noSideEffect, importcpp: "ResultDataLoc",
     header: "IGESAppli_ElementResults.hxx".}
-proc nbResults*(this: IGESAppliElementResults; index: int): int {.noSideEffect,
+proc nbResults*(this: IGESAppliElementResults; index: cint): cint {.noSideEffect,
     importcpp: "NbResults", header: "IGESAppli_ElementResults.hxx".}
-proc resultData*(this: IGESAppliElementResults; nElem: int; num: int): float {.
+proc resultData*(this: IGESAppliElementResults; nElem: cint; num: cint): cfloat {.
     noSideEffect, importcpp: "ResultData", header: "IGESAppli_ElementResults.hxx".}
-proc resultRank*(this: IGESAppliElementResults; nElem: int; nVal: int; nLay: int;
-                nLoc: int): int {.noSideEffect, importcpp: "ResultRank",
-                               header: "IGESAppli_ElementResults.hxx".}
-proc resultData*(this: IGESAppliElementResults; nElem: int; nVal: int; nLay: int;
-                nLoc: int): float {.noSideEffect, importcpp: "ResultData",
+proc resultRank*(this: IGESAppliElementResults; nElem: cint; nVal: cint; nLay: cint;
+                nLoc: cint): cint {.noSideEffect, importcpp: "ResultRank",
                                  header: "IGESAppli_ElementResults.hxx".}
-proc resultList*(this: IGESAppliElementResults; nElem: int): Handle[
+proc resultData*(this: IGESAppliElementResults; nElem: cint; nVal: cint; nLay: cint;
+                nLoc: cint): cfloat {.noSideEffect, importcpp: "ResultData",
+                                   header: "IGESAppli_ElementResults.hxx".}
+proc resultList*(this: IGESAppliElementResults; nElem: cint): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "ResultList",
                            header: "IGESAppli_ElementResults.hxx".}
 type
@@ -103,3 +104,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_ElementResults.hxx".}
 proc dynamicType*(this: IGESAppliElementResults): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_ElementResults.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

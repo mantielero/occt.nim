@@ -54,7 +54,7 @@ proc load*(this: var PlatePlate; gtoCConst: PlateGtoCConstraint) {.importcpp: "L
     header: "Plate_Plate.hxx".}
 proc load*(this: var PlatePlate; fGtoCConst: PlateFreeGtoCConstraint) {.
     importcpp: "Load", header: "Plate_Plate.hxx".}
-proc solveTI*(this: var PlatePlate; ord: int = 4; anisotropie: float = 1.0;
+proc solveTI*(this: var PlatePlate; ord: cint = 4; anisotropie: cfloat = 1.0;
              theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "SolveTI", header: "Plate_Plate.hxx".}
 proc isDone*(this: PlatePlate): bool {.noSideEffect, importcpp: "IsDone",
@@ -65,16 +65,41 @@ proc destroyPlatePlate*(this: var PlatePlate) {.importcpp: "#.~Plate_Plate()",
 proc init*(this: var PlatePlate) {.importcpp: "Init", header: "Plate_Plate.hxx".}
 proc evaluate*(this: PlatePlate; point2d: Xy): Xyz {.noSideEffect,
     importcpp: "Evaluate", header: "Plate_Plate.hxx".}
-proc evaluateDerivative*(this: PlatePlate; point2d: Xy; iu: int; iv: int): Xyz {.
+proc evaluateDerivative*(this: PlatePlate; point2d: Xy; iu: cint; iv: cint): Xyz {.
     noSideEffect, importcpp: "EvaluateDerivative", header: "Plate_Plate.hxx".}
 proc coefPol*(this: PlatePlate; coefs: var Handle[TColgpHArray2OfXYZ]) {.noSideEffect,
     importcpp: "CoefPol", header: "Plate_Plate.hxx".}
 proc setPolynomialPartOnly*(this: var PlatePlate; pPOnly: bool = true) {.
     importcpp: "SetPolynomialPartOnly", header: "Plate_Plate.hxx".}
-proc continuity*(this: PlatePlate): int {.noSideEffect, importcpp: "Continuity",
-                                      header: "Plate_Plate.hxx".}
-proc uVBox*(this: PlatePlate; uMin: var float; uMax: var float; vMin: var float;
-           vMax: var float) {.noSideEffect, importcpp: "UVBox",
-                           header: "Plate_Plate.hxx".}
+proc continuity*(this: PlatePlate): cint {.noSideEffect, importcpp: "Continuity",
+                                       header: "Plate_Plate.hxx".}
+proc uVBox*(this: PlatePlate; uMin: var cfloat; uMax: var cfloat; vMin: var cfloat;
+           vMax: var cfloat) {.noSideEffect, importcpp: "UVBox",
+                            header: "Plate_Plate.hxx".}
 proc uVConstraints*(this: PlatePlate; seq: var TColgpSequenceOfXY) {.noSideEffect,
     importcpp: "UVConstraints", header: "Plate_Plate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

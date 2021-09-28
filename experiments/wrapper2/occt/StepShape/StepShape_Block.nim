@@ -19,7 +19,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_Block"
 discard "forward decl of StepShape_Block"
 type
-  HandleStepShapeBlock* = Handle[StepShapeBlock]
+  HandleC1C1* = Handle[StepShapeBlock]
   StepShapeBlock* {.importcpp: "StepShape_Block", header: "StepShape_Block.hxx",
                    bycopy.} = object of StepGeomGeometricRepresentationItem ## ! Returns a Block
 
@@ -27,25 +27,25 @@ type
 proc constructStepShapeBlock*(): StepShapeBlock {.constructor,
     importcpp: "StepShape_Block(@)", header: "StepShape_Block.hxx".}
 proc init*(this: var StepShapeBlock; aName: Handle[TCollectionHAsciiString];
-          aPosition: Handle[StepGeomAxis2Placement3d]; aX: float; aY: float; aZ: float) {.
-    importcpp: "Init", header: "StepShape_Block.hxx".}
+          aPosition: Handle[StepGeomAxis2Placement3d]; aX: cfloat; aY: cfloat;
+          aZ: cfloat) {.importcpp: "Init", header: "StepShape_Block.hxx".}
 proc setPosition*(this: var StepShapeBlock;
                  aPosition: Handle[StepGeomAxis2Placement3d]) {.
     importcpp: "SetPosition", header: "StepShape_Block.hxx".}
 proc position*(this: StepShapeBlock): Handle[StepGeomAxis2Placement3d] {.
     noSideEffect, importcpp: "Position", header: "StepShape_Block.hxx".}
-proc setX*(this: var StepShapeBlock; aX: float) {.importcpp: "SetX",
+proc setX*(this: var StepShapeBlock; aX: cfloat) {.importcpp: "SetX",
     header: "StepShape_Block.hxx".}
-proc x*(this: StepShapeBlock): float {.noSideEffect, importcpp: "X",
-                                   header: "StepShape_Block.hxx".}
-proc setY*(this: var StepShapeBlock; aY: float) {.importcpp: "SetY",
+proc x*(this: StepShapeBlock): cfloat {.noSideEffect, importcpp: "X",
+                                    header: "StepShape_Block.hxx".}
+proc setY*(this: var StepShapeBlock; aY: cfloat) {.importcpp: "SetY",
     header: "StepShape_Block.hxx".}
-proc y*(this: StepShapeBlock): float {.noSideEffect, importcpp: "Y",
-                                   header: "StepShape_Block.hxx".}
-proc setZ*(this: var StepShapeBlock; aZ: float) {.importcpp: "SetZ",
+proc y*(this: StepShapeBlock): cfloat {.noSideEffect, importcpp: "Y",
+                                    header: "StepShape_Block.hxx".}
+proc setZ*(this: var StepShapeBlock; aZ: cfloat) {.importcpp: "SetZ",
     header: "StepShape_Block.hxx".}
-proc z*(this: StepShapeBlock): float {.noSideEffect, importcpp: "Z",
-                                   header: "StepShape_Block.hxx".}
+proc z*(this: StepShapeBlock): cfloat {.noSideEffect, importcpp: "Z",
+                                    header: "StepShape_Block.hxx".}
 type
   StepShapeBlockbaseType* = StepGeomGeometricRepresentationItem
 
@@ -56,3 +56,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Block.hxx".}
 proc dynamicType*(this: StepShapeBlock): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Block.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

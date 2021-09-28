@@ -16,3 +16,28 @@ type
   BOPToolsListOfConnexityBlock* = NCollectionList[BOPToolsConnexityBlock]
   BOPToolsListIteratorOfListOfConnexityBlock* = Iterator
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

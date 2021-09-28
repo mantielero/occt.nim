@@ -16,3 +16,28 @@
 type
   BinObjMgtPExtChar* = ptr StandardExtCharacter
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

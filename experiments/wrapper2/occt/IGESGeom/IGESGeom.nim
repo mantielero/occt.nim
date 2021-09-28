@@ -73,3 +73,28 @@ type
 proc init*() {.importcpp: "IGESGeom::Init(@)", header: "IGESGeom.hxx".}
 proc protocol*(): Handle[IGESGeomProtocol] {.importcpp: "IGESGeom::Protocol(@)",
     header: "IGESGeom.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

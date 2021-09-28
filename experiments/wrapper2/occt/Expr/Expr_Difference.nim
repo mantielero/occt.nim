@@ -23,7 +23,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Difference"
 discard "forward decl of Expr_Difference"
 type
-  HandleExprDifference* = Handle[ExprDifference]
+  HandleC1C1* = Handle[ExprDifference]
   ExprDifference* {.importcpp: "Expr_Difference", header: "Expr_Difference.hxx",
                    bycopy.} = object of ExprBinaryExpression ## ! Creates the difference <exp1> - <exp2>.
 
@@ -42,11 +42,11 @@ proc isLinear*(this: ExprDifference): bool {.noSideEffect, importcpp: "IsLinear"
 proc derivative*(this: ExprDifference; x: Handle[ExprNamedUnknown]): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
                             header: "Expr_Difference.hxx".}
-proc nDerivative*(this: ExprDifference; x: Handle[ExprNamedUnknown]; n: int): Handle[
+proc nDerivative*(this: ExprDifference; x: Handle[ExprNamedUnknown]; n: cint): Handle[
     ExprGeneralExpression] {.noSideEffect, importcpp: "NDerivative",
                             header: "Expr_Difference.hxx".}
 proc evaluate*(this: ExprDifference; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): float {.noSideEffect,
+              vals: TColStdArray1OfReal): cfloat {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Difference.hxx".}
 proc string*(this: ExprDifference): TCollectionAsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Difference.hxx".}
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_Difference.hxx".}
 proc dynamicType*(this: ExprDifference): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Difference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

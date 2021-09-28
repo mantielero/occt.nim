@@ -18,7 +18,7 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of MAT2d_Connexion"
 discard "forward decl of MAT2d_Connexion"
 type
-  HandleMAT2dConnexion* = Handle[MAT2dConnexion]
+  HandleC1C1* = Handle[MAT2dConnexion]
 
 ## ! A Connexion links two lines of items  in a set
 ## ! of  lines. It s contains two  points and their paramatric
@@ -32,51 +32,52 @@ type
 
 proc constructMAT2dConnexion*(): MAT2dConnexion {.constructor,
     importcpp: "MAT2d_Connexion(@)", header: "MAT2d_Connexion.hxx".}
-proc constructMAT2dConnexion*(lineA: int; lineB: int; itemA: int; itemB: int;
-                             distance: float; parameterOnA: float;
-                             parameterOnB: float; pointA: Pnt2d; pointB: Pnt2d): MAT2dConnexion {.
+proc constructMAT2dConnexion*(lineA: cint; lineB: cint; itemA: cint; itemB: cint;
+                             distance: cfloat; parameterOnA: cfloat;
+                             parameterOnB: cfloat; pointA: Pnt2d; pointB: Pnt2d): MAT2dConnexion {.
     constructor, importcpp: "MAT2d_Connexion(@)", header: "MAT2d_Connexion.hxx".}
-proc indexFirstLine*(this: MAT2dConnexion): int {.noSideEffect,
+proc indexFirstLine*(this: MAT2dConnexion): cint {.noSideEffect,
     importcpp: "IndexFirstLine", header: "MAT2d_Connexion.hxx".}
-proc indexSecondLine*(this: MAT2dConnexion): int {.noSideEffect,
+proc indexSecondLine*(this: MAT2dConnexion): cint {.noSideEffect,
     importcpp: "IndexSecondLine", header: "MAT2d_Connexion.hxx".}
-proc indexItemOnFirst*(this: MAT2dConnexion): int {.noSideEffect,
+proc indexItemOnFirst*(this: MAT2dConnexion): cint {.noSideEffect,
     importcpp: "IndexItemOnFirst", header: "MAT2d_Connexion.hxx".}
-proc indexItemOnSecond*(this: MAT2dConnexion): int {.noSideEffect,
+proc indexItemOnSecond*(this: MAT2dConnexion): cint {.noSideEffect,
     importcpp: "IndexItemOnSecond", header: "MAT2d_Connexion.hxx".}
-proc parameterOnFirst*(this: MAT2dConnexion): float {.noSideEffect,
+proc parameterOnFirst*(this: MAT2dConnexion): cfloat {.noSideEffect,
     importcpp: "ParameterOnFirst", header: "MAT2d_Connexion.hxx".}
-proc parameterOnSecond*(this: MAT2dConnexion): float {.noSideEffect,
+proc parameterOnSecond*(this: MAT2dConnexion): cfloat {.noSideEffect,
     importcpp: "ParameterOnSecond", header: "MAT2d_Connexion.hxx".}
 proc pointOnFirst*(this: MAT2dConnexion): Pnt2d {.noSideEffect,
     importcpp: "PointOnFirst", header: "MAT2d_Connexion.hxx".}
 proc pointOnSecond*(this: MAT2dConnexion): Pnt2d {.noSideEffect,
     importcpp: "PointOnSecond", header: "MAT2d_Connexion.hxx".}
-proc distance*(this: MAT2dConnexion): float {.noSideEffect, importcpp: "Distance",
+proc distance*(this: MAT2dConnexion): cfloat {.noSideEffect, importcpp: "Distance",
     header: "MAT2d_Connexion.hxx".}
-proc indexFirstLine*(this: var MAT2dConnexion; anIndex: int) {.
+proc indexFirstLine*(this: var MAT2dConnexion; anIndex: cint) {.
     importcpp: "IndexFirstLine", header: "MAT2d_Connexion.hxx".}
-proc indexSecondLine*(this: var MAT2dConnexion; anIndex: int) {.
+proc indexSecondLine*(this: var MAT2dConnexion; anIndex: cint) {.
     importcpp: "IndexSecondLine", header: "MAT2d_Connexion.hxx".}
-proc indexItemOnFirst*(this: var MAT2dConnexion; anIndex: int) {.
+proc indexItemOnFirst*(this: var MAT2dConnexion; anIndex: cint) {.
     importcpp: "IndexItemOnFirst", header: "MAT2d_Connexion.hxx".}
-proc indexItemOnSecond*(this: var MAT2dConnexion; anIndex: int) {.
+proc indexItemOnSecond*(this: var MAT2dConnexion; anIndex: cint) {.
     importcpp: "IndexItemOnSecond", header: "MAT2d_Connexion.hxx".}
-proc parameterOnFirst*(this: var MAT2dConnexion; aParameter: float) {.
+proc parameterOnFirst*(this: var MAT2dConnexion; aParameter: cfloat) {.
     importcpp: "ParameterOnFirst", header: "MAT2d_Connexion.hxx".}
-proc parameterOnSecond*(this: var MAT2dConnexion; aParameter: float) {.
+proc parameterOnSecond*(this: var MAT2dConnexion; aParameter: cfloat) {.
     importcpp: "ParameterOnSecond", header: "MAT2d_Connexion.hxx".}
 proc pointOnFirst*(this: var MAT2dConnexion; aPoint: Pnt2d) {.
     importcpp: "PointOnFirst", header: "MAT2d_Connexion.hxx".}
 proc pointOnSecond*(this: var MAT2dConnexion; aPoint: Pnt2d) {.
     importcpp: "PointOnSecond", header: "MAT2d_Connexion.hxx".}
-proc distance*(this: var MAT2dConnexion; aDistance: float) {.importcpp: "Distance",
+proc distance*(this: var MAT2dConnexion; aDistance: cfloat) {.importcpp: "Distance",
     header: "MAT2d_Connexion.hxx".}
 proc reverse*(this: MAT2dConnexion): Handle[MAT2dConnexion] {.noSideEffect,
     importcpp: "Reverse", header: "MAT2d_Connexion.hxx".}
-proc isAfter*(this: MAT2dConnexion; aConnexion: Handle[MAT2dConnexion]; aSense: float): bool {.
-    noSideEffect, importcpp: "IsAfter", header: "MAT2d_Connexion.hxx".}
-proc dump*(this: MAT2dConnexion; deep: int = 0; offset: int = 0) {.noSideEffect,
+proc isAfter*(this: MAT2dConnexion; aConnexion: Handle[MAT2dConnexion];
+             aSense: cfloat): bool {.noSideEffect, importcpp: "IsAfter",
+                                  header: "MAT2d_Connexion.hxx".}
+proc dump*(this: MAT2dConnexion; deep: cint = 0; offset: cint = 0) {.noSideEffect,
     importcpp: "Dump", header: "MAT2d_Connexion.hxx".}
 type
   MAT2dConnexionbaseType* = StandardTransient
@@ -88,3 +89,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MAT2d_Connexion.hxx".}
 proc dynamicType*(this: MAT2dConnexion): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT2d_Connexion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

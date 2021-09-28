@@ -20,15 +20,36 @@ type
                         header: "GeomFill_LocFunction.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeomFillLocFunction; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_LocFunction::operator new",
+    header: "GeomFill_LocFunction.hxx".}
+proc `delete`*(this: var GeomFillLocFunction; theAddress: pointer) {.
+    importcpp: "GeomFill_LocFunction::operator delete",
+    header: "GeomFill_LocFunction.hxx".}
+proc `new[]`*(this: var GeomFillLocFunction; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_LocFunction::operator new[]",
+    header: "GeomFill_LocFunction.hxx".}
+proc `delete[]`*(this: var GeomFillLocFunction; theAddress: pointer) {.
+    importcpp: "GeomFill_LocFunction::operator delete[]",
+    header: "GeomFill_LocFunction.hxx".}
+proc `new`*(this: var GeomFillLocFunction; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_LocFunction::operator new",
+    header: "GeomFill_LocFunction.hxx".}
+proc `delete`*(this: var GeomFillLocFunction; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_LocFunction::operator delete",
+    header: "GeomFill_LocFunction.hxx".}
 proc constructGeomFillLocFunction*(law: Handle[GeomFillLocationLaw]): GeomFillLocFunction {.
     constructor, importcpp: "GeomFill_LocFunction(@)",
     header: "GeomFill_LocFunction.hxx".}
-proc d0*(this: var GeomFillLocFunction; param: float; first: float; last: float): bool {.
-    importcpp: "D0", header: "GeomFill_LocFunction.hxx".}
-proc d1*(this: var GeomFillLocFunction; param: float; first: float; last: float): bool {.
-    importcpp: "D1", header: "GeomFill_LocFunction.hxx".}
-proc d2*(this: var GeomFillLocFunction; param: float; first: float; last: float): bool {.
-    importcpp: "D2", header: "GeomFill_LocFunction.hxx".}
-proc dn*(this: var GeomFillLocFunction; param: float; first: float; last: float;
-        order: int; result: var float; ier: var int) {.importcpp: "DN",
+proc d0*(this: var GeomFillLocFunction; param: StandardReal; first: StandardReal;
+        last: StandardReal): StandardBoolean {.importcpp: "D0",
     header: "GeomFill_LocFunction.hxx".}
+proc d1*(this: var GeomFillLocFunction; param: StandardReal; first: StandardReal;
+        last: StandardReal): StandardBoolean {.importcpp: "D1",
+    header: "GeomFill_LocFunction.hxx".}
+proc d2*(this: var GeomFillLocFunction; param: StandardReal; first: StandardReal;
+        last: StandardReal): StandardBoolean {.importcpp: "D2",
+    header: "GeomFill_LocFunction.hxx".}
+proc dn*(this: var GeomFillLocFunction; param: StandardReal; first: StandardReal;
+        last: StandardReal; order: int; result: var StandardReal; ier: var int) {.
+    importcpp: "DN", header: "GeomFill_LocFunction.hxx".}

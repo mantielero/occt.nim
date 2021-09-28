@@ -38,6 +38,23 @@ type
     ## /< whether the direction of extrusion is initialized
 
 
+proc `new`*(this: var GeomAdaptorSurfaceOfLinearExtrusion; theSize: csize_t): pointer {.
+    importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion::operator new",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc `delete`*(this: var GeomAdaptorSurfaceOfLinearExtrusion; theAddress: pointer) {.
+    importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion::operator delete",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc `new[]`*(this: var GeomAdaptorSurfaceOfLinearExtrusion; theSize: csize_t): pointer {.
+    importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion::operator new[]",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc `delete[]`*(this: var GeomAdaptorSurfaceOfLinearExtrusion; theAddress: pointer) {.
+    importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion::operator delete[]",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc `new`*(this: var GeomAdaptorSurfaceOfLinearExtrusion; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion::operator new", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc `delete`*(this: var GeomAdaptorSurfaceOfLinearExtrusion; a2: pointer; a3: pointer) {.
+    importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion::operator delete",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc constructGeomAdaptorSurfaceOfLinearExtrusion*(): GeomAdaptorSurfaceOfLinearExtrusion {.
     constructor, importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion(@)",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
@@ -52,16 +69,16 @@ proc load*(this: var GeomAdaptorSurfaceOfLinearExtrusion; c: Handle[Adaptor3dHCu
     importcpp: "Load", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc load*(this: var GeomAdaptorSurfaceOfLinearExtrusion; v: Dir) {.importcpp: "Load",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc firstUParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): float {.
+proc firstUParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardReal {.
     noSideEffect, importcpp: "FirstUParameter",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc lastUParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): float {.
+proc lastUParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardReal {.
     noSideEffect, importcpp: "LastUParameter",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc firstVParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): float {.
+proc firstVParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardReal {.
     noSideEffect, importcpp: "FirstVParameter",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc lastVParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): float {.
+proc lastVParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardReal {.
     noSideEffect, importcpp: "LastVParameter",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc uContinuity*(this: GeomAdaptorSurfaceOfLinearExtrusion): GeomAbsShape {.
@@ -82,28 +99,36 @@ proc uIntervals*(this: GeomAdaptorSurfaceOfLinearExtrusion;
 proc vIntervals*(this: GeomAdaptorSurfaceOfLinearExtrusion;
                 t: var TColStdArray1OfReal; s: GeomAbsShape) {.noSideEffect,
     importcpp: "VIntervals", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc uTrim*(this: GeomAdaptorSurfaceOfLinearExtrusion; first: float; last: float;
-           tol: float): Handle[Adaptor3dHSurface] {.noSideEffect,
-    importcpp: "UTrim", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc vTrim*(this: GeomAdaptorSurfaceOfLinearExtrusion; first: float; last: float;
-           tol: float): Handle[Adaptor3dHSurface] {.noSideEffect,
-    importcpp: "VTrim", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc isUClosed*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    importcpp: "IsUClosed", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc isVClosed*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    importcpp: "IsVClosed", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc isUPeriodic*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    importcpp: "IsUPeriodic", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc uPeriod*(this: GeomAdaptorSurfaceOfLinearExtrusion): float {.noSideEffect,
-    importcpp: "UPeriod", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc isVPeriodic*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    importcpp: "IsVPeriodic", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc vPeriod*(this: GeomAdaptorSurfaceOfLinearExtrusion): float {.noSideEffect,
-    importcpp: "VPeriod", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc uResolution*(this: GeomAdaptorSurfaceOfLinearExtrusion; r3d: float): float {.
+proc uTrim*(this: GeomAdaptorSurfaceOfLinearExtrusion; first: StandardReal;
+           last: StandardReal; tol: StandardReal): Handle[Adaptor3dHSurface] {.
+    noSideEffect, importcpp: "UTrim",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc vTrim*(this: GeomAdaptorSurfaceOfLinearExtrusion; first: StandardReal;
+           last: StandardReal; tol: StandardReal): Handle[Adaptor3dHSurface] {.
+    noSideEffect, importcpp: "VTrim",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc isUClosed*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardBoolean {.
+    noSideEffect, importcpp: "IsUClosed",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc isVClosed*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardBoolean {.
+    noSideEffect, importcpp: "IsVClosed",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc isUPeriodic*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardBoolean {.
+    noSideEffect, importcpp: "IsUPeriodic",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc uPeriod*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardReal {.
+    noSideEffect, importcpp: "UPeriod",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc isVPeriodic*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardBoolean {.
+    noSideEffect, importcpp: "IsVPeriodic",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc vPeriod*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardReal {.
+    noSideEffect, importcpp: "VPeriod",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc uResolution*(this: GeomAdaptorSurfaceOfLinearExtrusion; r3d: StandardReal): StandardReal {.
     noSideEffect, importcpp: "UResolution",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc vResolution*(this: GeomAdaptorSurfaceOfLinearExtrusion; r3d: float): float {.
+proc vResolution*(this: GeomAdaptorSurfaceOfLinearExtrusion; r3d: StandardReal): StandardReal {.
     noSideEffect, importcpp: "VResolution",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc getType*(this: GeomAdaptorSurfaceOfLinearExtrusion): GeomAbsSurfaceType {.
@@ -123,10 +148,12 @@ proc uDegree*(this: GeomAdaptorSurfaceOfLinearExtrusion): int {.noSideEffect,
     importcpp: "UDegree", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc nbUPoles*(this: GeomAdaptorSurfaceOfLinearExtrusion): int {.noSideEffect,
     importcpp: "NbUPoles", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc isURational*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    importcpp: "IsURational", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
-proc isVRational*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    importcpp: "IsVRational", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc isURational*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardBoolean {.
+    noSideEffect, importcpp: "IsURational",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+proc isVRational*(this: GeomAdaptorSurfaceOfLinearExtrusion): StandardBoolean {.
+    noSideEffect, importcpp: "IsVRational",
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc bezier*(this: GeomAdaptorSurfaceOfLinearExtrusion): Handle[GeomBezierSurface] {.
     noSideEffect, importcpp: "Bezier",
     header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}

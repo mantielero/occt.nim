@@ -29,3 +29,28 @@ proc isChanged*(this: var AspectXRAnalogActionData): bool {.importcpp: "IsChange
 proc constructAspectXRAnalogActionData*(): AspectXRAnalogActionData {.constructor,
     importcpp: "Aspect_XRAnalogActionData(@)",
     header: "Aspect_XRAnalogActionData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

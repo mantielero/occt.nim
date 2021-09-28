@@ -19,15 +19,30 @@ discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Geom2dInt_Geom2dCurveTool"
 type
   Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter* {.importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx",
-      bycopy.} = object of MathFunctionWithDerivative ## ! Constructor of the class.
+      bycopy.} = object of MathFunctionWithDerivative
 
 
+proc `new`*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
+           theSize: csize_t): pointer {.importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter::operator new", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+proc `delete`*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
+              theAddress: pointer) {.importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter::operator delete", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+proc `new[]`*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
+             theSize: csize_t): pointer {.importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter::operator new[]", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+proc `delete[]`*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
+                theAddress: pointer) {.importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter::operator delete[]", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+proc `new`*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter::operator new", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+proc `delete`*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
+              a2: pointer; a3: pointer) {.importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter::operator delete", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
 proc constructGeom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter*(
     it: IntCurveIConicTool; pc: Adaptor2dCurve2d): Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter {.
     constructor, importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter(@)", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
 proc value*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
-           param: float; f: var float): bool {.importcpp: "Value", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+           param: StandardReal; f: var StandardReal): StandardBoolean {.
+    importcpp: "Value", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
 proc derivative*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
-                param: float; d: var float): bool {.importcpp: "Derivative", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+                param: StandardReal; d: var StandardReal): StandardBoolean {.
+    importcpp: "Derivative", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
 proc values*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
-            param: float; f: var float; d: var float): bool {.importcpp: "Values", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
+            param: StandardReal; f: var StandardReal; d: var StandardReal): StandardBoolean {.
+    importcpp: "Values", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}

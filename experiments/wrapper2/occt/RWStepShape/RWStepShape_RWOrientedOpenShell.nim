@@ -28,7 +28,7 @@ proc constructRWStepShapeRWOrientedOpenShell*(): RWStepShapeRWOrientedOpenShell 
     constructor, importcpp: "RWStepShape_RWOrientedOpenShell(@)",
     header: "RWStepShape_RWOrientedOpenShell.hxx".}
 proc readStep*(this: RWStepShapeRWOrientedOpenShell;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepShapeOrientedOpenShell]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWOrientedOpenShell.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepShapeRWOrientedOpenShell;
            ent: Handle[StepShapeOrientedOpenShell];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWOrientedOpenShell.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of StepVisual_MarkerMember"
 discard "forward decl of StepVisual_MarkerMember"
 type
-  HandleStepVisualMarkerMember* = Handle[StepVisualMarkerMember]
+  HandleC1C1* = Handle[StepVisualMarkerMember]
 
 ## ! Defines MarkerType as unique member of MarkerSelect
 ## ! Works with an EnumTool
@@ -37,7 +37,7 @@ proc setName*(this: var StepVisualMarkerMember; name: StandardCString): bool {.
     importcpp: "SetName", header: "StepVisual_MarkerMember.hxx".}
 proc enumText*(this: StepVisualMarkerMember): StandardCString {.noSideEffect,
     importcpp: "EnumText", header: "StepVisual_MarkerMember.hxx".}
-proc setEnumText*(this: var StepVisualMarkerMember; val: int; text: StandardCString) {.
+proc setEnumText*(this: var StepVisualMarkerMember; val: cint; text: StandardCString) {.
     importcpp: "SetEnumText", header: "StepVisual_MarkerMember.hxx".}
 proc setValue*(this: var StepVisualMarkerMember; val: StepVisualMarkerType) {.
     importcpp: "SetValue", header: "StepVisual_MarkerMember.hxx".}
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_MarkerMember.hxx".}
 proc dynamicType*(this: StepVisualMarkerMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_MarkerMember.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

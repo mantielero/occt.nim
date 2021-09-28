@@ -28,7 +28,7 @@ type
 proc constructRWStepFEA_RWFeaModel3d*(): RWStepFEA_RWFeaModel3d {.constructor,
     importcpp: "RWStepFEA_RWFeaModel3d(@)", header: "RWStepFEA_RWFeaModel3d.hxx".}
 proc readStep*(this: RWStepFEA_RWFeaModel3d; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_FeaModel3d]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaModel3d.hxx".}
 proc writeStep*(this: RWStepFEA_RWFeaModel3d; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepFEA_RWFeaModel3d; sw: var StepDataStepWriter;
 proc share*(this: RWStepFEA_RWFeaModel3d; ent: Handle[StepFEA_FeaModel3d];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaModel3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

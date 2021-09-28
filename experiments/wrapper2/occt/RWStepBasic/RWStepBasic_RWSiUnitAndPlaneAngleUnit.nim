@@ -28,7 +28,7 @@ proc constructRWStepBasicRWSiUnitAndPlaneAngleUnit*(): RWStepBasicRWSiUnitAndPla
     constructor, importcpp: "RWStepBasic_RWSiUnitAndPlaneAngleUnit(@)",
     header: "RWStepBasic_RWSiUnitAndPlaneAngleUnit.hxx".}
 proc readStep*(this: RWStepBasicRWSiUnitAndPlaneAngleUnit;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicSiUnitAndPlaneAngleUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSiUnitAndPlaneAngleUnit.hxx".}
@@ -36,3 +36,28 @@ proc writeStep*(this: RWStepBasicRWSiUnitAndPlaneAngleUnit;
                sw: var StepDataStepWriter;
                ent: Handle[StepBasicSiUnitAndPlaneAngleUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnitAndPlaneAngleUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

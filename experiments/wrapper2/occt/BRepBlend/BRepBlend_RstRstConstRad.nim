@@ -36,9 +36,9 @@ proc constructBRepBlendRstRstConstRad*(surf1: Handle[Adaptor3dHSurface];
                                       cGuide: Handle[Adaptor3dHCurve]): BRepBlendRstRstConstRad {.
     constructor, importcpp: "BRepBlend_RstRstConstRad(@)",
     header: "BRepBlend_RstRstConstRad.hxx".}
-proc nbVariables*(this: BRepBlendRstRstConstRad): int {.noSideEffect,
+proc nbVariables*(this: BRepBlendRstRstConstRad): cint {.noSideEffect,
     importcpp: "NbVariables", header: "BRepBlend_RstRstConstRad.hxx".}
-proc nbEquations*(this: BRepBlendRstRstConstRad): int {.noSideEffect,
+proc nbEquations*(this: BRepBlendRstRstConstRad): cint {.noSideEffect,
     importcpp: "NbEquations", header: "BRepBlend_RstRstConstRad.hxx".}
 proc value*(this: var BRepBlendRstRstConstRad; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BRepBlend_RstRstConstRad.hxx".}
@@ -51,19 +51,19 @@ proc set*(this: var BRepBlendRstRstConstRad; surfRef1: Handle[Adaptor3dHSurface]
          rstRef1: Handle[Adaptor2dHCurve2d]; surfRef2: Handle[Adaptor3dHSurface];
          rstRef2: Handle[Adaptor2dHCurve2d]) {.importcpp: "Set",
     header: "BRepBlend_RstRstConstRad.hxx".}
-proc set*(this: var BRepBlendRstRstConstRad; param: float) {.importcpp: "Set",
+proc set*(this: var BRepBlendRstRstConstRad; param: cfloat) {.importcpp: "Set",
     header: "BRepBlend_RstRstConstRad.hxx".}
-proc set*(this: var BRepBlendRstRstConstRad; first: float; last: float) {.
+proc set*(this: var BRepBlendRstRstConstRad; first: cfloat; last: cfloat) {.
     importcpp: "Set", header: "BRepBlend_RstRstConstRad.hxx".}
 proc getTolerance*(this: BRepBlendRstRstConstRad; tolerance: var MathVector;
-                  tol: float) {.noSideEffect, importcpp: "GetTolerance",
-                              header: "BRepBlend_RstRstConstRad.hxx".}
+                  tol: cfloat) {.noSideEffect, importcpp: "GetTolerance",
+                               header: "BRepBlend_RstRstConstRad.hxx".}
 proc getBounds*(this: BRepBlendRstRstConstRad; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
                                         header: "BRepBlend_RstRstConstRad.hxx".}
-proc isSolution*(this: var BRepBlendRstRstConstRad; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BRepBlendRstRstConstRad; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BRepBlend_RstRstConstRad.hxx".}
-proc getMinimalDistance*(this: BRepBlendRstRstConstRad): float {.noSideEffect,
+proc getMinimalDistance*(this: BRepBlendRstRstConstRad): cfloat {.noSideEffect,
     importcpp: "GetMinimalDistance", header: "BRepBlend_RstRstConstRad.hxx".}
 proc pointOnRst1*(this: BRepBlendRstRstConstRad): Pnt {.noSideEffect,
     importcpp: "PointOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
@@ -73,9 +73,9 @@ proc pnt2dOnRst1*(this: BRepBlendRstRstConstRad): Pnt2d {.noSideEffect,
     importcpp: "Pnt2dOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
 proc pnt2dOnRst2*(this: BRepBlendRstRstConstRad): Pnt2d {.noSideEffect,
     importcpp: "Pnt2dOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
-proc parameterOnRst1*(this: BRepBlendRstRstConstRad): float {.noSideEffect,
+proc parameterOnRst1*(this: BRepBlendRstRstConstRad): cfloat {.noSideEffect,
     importcpp: "ParameterOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
-proc parameterOnRst2*(this: BRepBlendRstRstConstRad): float {.noSideEffect,
+proc parameterOnRst2*(this: BRepBlendRstRstConstRad): cfloat {.noSideEffect,
     importcpp: "ParameterOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
 proc isTangencyPoint*(this: BRepBlendRstRstConstRad): bool {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "BRepBlend_RstRstConstRad.hxx".}
@@ -90,33 +90,33 @@ proc tangent2dOnRst2*(this: BRepBlendRstRstConstRad): Vec2d {.noSideEffect,
 proc decroch*(this: BRepBlendRstRstConstRad; sol: MathVector; nRst1: var Vec;
              tgRst1: var Vec; nRst2: var Vec; tgRst2: var Vec): BlendDecrochStatus {.
     noSideEffect, importcpp: "Decroch", header: "BRepBlend_RstRstConstRad.hxx".}
-proc set*(this: var BRepBlendRstRstConstRad; radius: float; choix: int) {.
+proc set*(this: var BRepBlendRstRstConstRad; radius: cfloat; choix: cint) {.
     importcpp: "Set", header: "BRepBlend_RstRstConstRad.hxx".}
 proc set*(this: var BRepBlendRstRstConstRad; typeSection: BlendFuncSectionShape) {.
     importcpp: "Set", header: "BRepBlend_RstRstConstRad.hxx".}
 proc centerCircleRst1Rst2*(this: BRepBlendRstRstConstRad; ptRst1: Pnt; ptRst2: Pnt;
                           np: Vec; center: var Pnt; vdMed: var Vec): bool {.noSideEffect,
     importcpp: "CenterCircleRst1Rst2", header: "BRepBlend_RstRstConstRad.hxx".}
-proc section*(this: var BRepBlendRstRstConstRad; param: float; u: float; v: float;
-             pdeb: var float; pfin: var float; c: var Circ) {.importcpp: "Section",
+proc section*(this: var BRepBlendRstRstConstRad; param: cfloat; u: cfloat; v: cfloat;
+             pdeb: var cfloat; pfin: var cfloat; c: var Circ) {.importcpp: "Section",
     header: "BRepBlend_RstRstConstRad.hxx".}
 proc isRational*(this: BRepBlendRstRstConstRad): bool {.noSideEffect,
     importcpp: "IsRational", header: "BRepBlend_RstRstConstRad.hxx".}
-proc getSectionSize*(this: BRepBlendRstRstConstRad): float {.noSideEffect,
+proc getSectionSize*(this: BRepBlendRstRstConstRad): cfloat {.noSideEffect,
     importcpp: "GetSectionSize", header: "BRepBlend_RstRstConstRad.hxx".}
 proc getMinimalWeight*(this: BRepBlendRstRstConstRad;
                       weigths: var TColStdArray1OfReal) {.noSideEffect,
     importcpp: "GetMinimalWeight", header: "BRepBlend_RstRstConstRad.hxx".}
-proc nbIntervals*(this: BRepBlendRstRstConstRad; s: GeomAbsShape): int {.noSideEffect,
-    importcpp: "NbIntervals", header: "BRepBlend_RstRstConstRad.hxx".}
+proc nbIntervals*(this: BRepBlendRstRstConstRad; s: GeomAbsShape): cint {.
+    noSideEffect, importcpp: "NbIntervals", header: "BRepBlend_RstRstConstRad.hxx".}
 proc intervals*(this: BRepBlendRstRstConstRad; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
                                 header: "BRepBlend_RstRstConstRad.hxx".}
-proc getShape*(this: var BRepBlendRstRstConstRad; nbPoles: var int; nbKnots: var int;
-              degree: var int; nbPoles2d: var int) {.importcpp: "GetShape",
+proc getShape*(this: var BRepBlendRstRstConstRad; nbPoles: var cint; nbKnots: var cint;
+              degree: var cint; nbPoles2d: var cint) {.importcpp: "GetShape",
     header: "BRepBlend_RstRstConstRad.hxx".}
-proc getTolerance*(this: BRepBlendRstRstConstRad; boundTol: float; surfTol: float;
-                  angleTol: float; tol3d: var MathVector; tol1D: var MathVector) {.
+proc getTolerance*(this: BRepBlendRstRstConstRad; boundTol: cfloat; surfTol: cfloat;
+                  angleTol: cfloat; tol3d: var MathVector; tol1D: var MathVector) {.
     noSideEffect, importcpp: "GetTolerance", header: "BRepBlend_RstRstConstRad.hxx".}
 proc knots*(this: var BRepBlendRstRstConstRad; tKnots: var TColStdArray1OfReal) {.
     importcpp: "Knots", header: "BRepBlend_RstRstConstRad.hxx".}
@@ -138,6 +138,31 @@ proc section*(this: var BRepBlendRstRstConstRad; p: BlendPoint;
              weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
              d2Weigths: var TColStdArray1OfReal): bool {.importcpp: "Section",
     header: "BRepBlend_RstRstConstRad.hxx".}
-proc resolution*(this: BRepBlendRstRstConstRad; iC2d: int; tol: float; tolU: var float;
-                tolV: var float) {.noSideEffect, importcpp: "Resolution",
-                                header: "BRepBlend_RstRstConstRad.hxx".}
+proc resolution*(this: BRepBlendRstRstConstRad; iC2d: cint; tol: cfloat;
+                tolU: var cfloat; tolV: var cfloat) {.noSideEffect,
+    importcpp: "Resolution", header: "BRepBlend_RstRstConstRad.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

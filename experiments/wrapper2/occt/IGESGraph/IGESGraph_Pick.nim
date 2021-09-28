@@ -17,7 +17,7 @@
 discard "forward decl of IGESGraph_Pick"
 discard "forward decl of IGESGraph_Pick"
 type
-  HandleIGESGraphPick* = Handle[IGESGraphPick]
+  HandleC1C1* = Handle[IGESGraphPick]
 
 ## ! defines IGESPick, Type <406> Form <21>
 ## ! in package IGESGraph
@@ -32,12 +32,12 @@ type
 
 proc constructIGESGraphPick*(): IGESGraphPick {.constructor,
     importcpp: "IGESGraph_Pick(@)", header: "IGESGraph_Pick.hxx".}
-proc init*(this: var IGESGraphPick; nbProps: int; aPickStatus: int) {.importcpp: "Init",
-    header: "IGESGraph_Pick.hxx".}
-proc nbPropertyValues*(this: IGESGraphPick): int {.noSideEffect,
+proc init*(this: var IGESGraphPick; nbProps: cint; aPickStatus: cint) {.
+    importcpp: "Init", header: "IGESGraph_Pick.hxx".}
+proc nbPropertyValues*(this: IGESGraphPick): cint {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESGraph_Pick.hxx".}
-proc pickFlag*(this: IGESGraphPick): int {.noSideEffect, importcpp: "PickFlag",
-                                       header: "IGESGraph_Pick.hxx".}
+proc pickFlag*(this: IGESGraphPick): cint {.noSideEffect, importcpp: "PickFlag",
+                                        header: "IGESGraph_Pick.hxx".}
 proc isPickable*(this: IGESGraphPick): bool {.noSideEffect, importcpp: "IsPickable",
     header: "IGESGraph_Pick.hxx".}
 type
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGraph_Pick.hxx".}
 proc dynamicType*(this: IGESGraphPick): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGraph_Pick.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

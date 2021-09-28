@@ -18,7 +18,7 @@ discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of TopOpeBRepDS_Check"
 discard "forward decl of TopOpeBRepDS_Check"
 type
-  HandleTopOpeBRepDS_Check* = Handle[TopOpeBRepDS_Check]
+  HandleC1C1* = Handle[TopOpeBRepDS_Check]
 
 ## ! a tool verifing integrity and structure of DS
 
@@ -37,7 +37,7 @@ proc chkIntg*(this: var TopOpeBRepDS_Check): bool {.importcpp: "ChkIntg",
 proc chkIntgInterf*(this: var TopOpeBRepDS_Check;
                    li: TopOpeBRepDS_ListOfInterference): bool {.
     importcpp: "ChkIntgInterf", header: "TopOpeBRepDS_Check.hxx".}
-proc checkDS*(this: var TopOpeBRepDS_Check; i: int; k: TopOpeBRepDS_Kind): bool {.
+proc checkDS*(this: var TopOpeBRepDS_Check; i: cint; k: TopOpeBRepDS_Kind): bool {.
     importcpp: "CheckDS", header: "TopOpeBRepDS_Check.hxx".}
 proc chkIntgSamDom*(this: var TopOpeBRepDS_Check): bool {.importcpp: "ChkIntgSamDom",
     header: "TopOpeBRepDS_Check.hxx".}
@@ -57,7 +57,7 @@ proc print*(this: var TopOpeBRepDS_Check; stat: TopOpeBRepDS_CheckStatus;
 proc printShape*(this: var TopOpeBRepDS_Check; se: TopAbsShapeEnum;
                 s: var StandardOStream): var StandardOStream {.
     importcpp: "PrintShape", header: "TopOpeBRepDS_Check.hxx".}
-proc printShape*(this: var TopOpeBRepDS_Check; index: int; s: var StandardOStream): var StandardOStream {.
+proc printShape*(this: var TopOpeBRepDS_Check; index: cint; s: var StandardOStream): var StandardOStream {.
     importcpp: "PrintShape", header: "TopOpeBRepDS_Check.hxx".}
 type
   TopOpeBRepDS_CheckbaseType* = StandardTransient
@@ -69,3 +69,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepDS_Check.hxx".}
 proc dynamicType*(this: TopOpeBRepDS_Check): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRepDS_Check.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

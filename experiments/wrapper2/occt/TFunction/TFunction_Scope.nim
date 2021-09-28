@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TFunction_Scope"
 discard "forward decl of TFunction_Scope"
 type
-  HandleTFunctionScope* = Handle[TFunctionScope]
+  HandleC1C1* = Handle[TFunctionScope]
 
 ## ! Keeps a scope of functions.
 
@@ -43,17 +43,17 @@ proc addFunction*(this: var TFunctionScope; L: TDF_Label): bool {.
     importcpp: "AddFunction", header: "TFunction_Scope.hxx".}
 proc removeFunction*(this: var TFunctionScope; L: TDF_Label): bool {.
     importcpp: "RemoveFunction", header: "TFunction_Scope.hxx".}
-proc removeFunction*(this: var TFunctionScope; id: int): bool {.
+proc removeFunction*(this: var TFunctionScope; id: cint): bool {.
     importcpp: "RemoveFunction", header: "TFunction_Scope.hxx".}
 proc removeAllFunctions*(this: var TFunctionScope) {.
     importcpp: "RemoveAllFunctions", header: "TFunction_Scope.hxx".}
-proc hasFunction*(this: TFunctionScope; id: int): bool {.noSideEffect,
+proc hasFunction*(this: TFunctionScope; id: cint): bool {.noSideEffect,
     importcpp: "HasFunction", header: "TFunction_Scope.hxx".}
 proc hasFunction*(this: TFunctionScope; L: TDF_Label): bool {.noSideEffect,
     importcpp: "HasFunction", header: "TFunction_Scope.hxx".}
-proc getFunction*(this: TFunctionScope; L: TDF_Label): int {.noSideEffect,
+proc getFunction*(this: TFunctionScope; L: TDF_Label): cint {.noSideEffect,
     importcpp: "GetFunction", header: "TFunction_Scope.hxx".}
-proc getFunction*(this: TFunctionScope; id: int): TDF_Label {.noSideEffect,
+proc getFunction*(this: TFunctionScope; id: cint): TDF_Label {.noSideEffect,
     importcpp: "GetFunction", header: "TFunction_Scope.hxx".}
 proc getLogbook*(this: TFunctionScope): Handle[TFunctionLogbook] {.noSideEffect,
     importcpp: "GetLogbook", header: "TFunction_Scope.hxx".}
@@ -72,9 +72,9 @@ proc getFunctions*(this: TFunctionScope): TFunctionDoubleMapOfIntegerLabel {.
     noSideEffect, importcpp: "GetFunctions", header: "TFunction_Scope.hxx".}
 proc changeFunctions*(this: var TFunctionScope): var TFunctionDoubleMapOfIntegerLabel {.
     importcpp: "ChangeFunctions", header: "TFunction_Scope.hxx".}
-proc setFreeID*(this: var TFunctionScope; id: int) {.importcpp: "SetFreeID",
+proc setFreeID*(this: var TFunctionScope; id: cint) {.importcpp: "SetFreeID",
     header: "TFunction_Scope.hxx".}
-proc getFreeID*(this: TFunctionScope): int {.noSideEffect, importcpp: "GetFreeID",
+proc getFreeID*(this: TFunctionScope): cint {.noSideEffect, importcpp: "GetFreeID",
     header: "TFunction_Scope.hxx".}
 type
   TFunctionScopebaseType* = TDF_Attribute
@@ -86,3 +86,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TFunction_Scope.hxx".}
 proc dynamicType*(this: TFunctionScope): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TFunction_Scope.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

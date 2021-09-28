@@ -25,7 +25,7 @@ type
 
 
 proc constructBRepOffsetInter3d*(asDes: Handle[BRepAlgoAsDes]; side: TopAbsState;
-                                tol: float): BRepOffsetInter3d {.constructor,
+                                tol: cfloat): BRepOffsetInter3d {.constructor,
     importcpp: "BRepOffset_Inter3d(@)", header: "BRepOffset_Inter3d.hxx".}
 proc completInt*(this: var BRepOffsetInter3d; setOfFaces: TopToolsListOfShape;
                 initOffsetFace: BRepAlgoImage) {.importcpp: "CompletInt",
@@ -67,3 +67,28 @@ proc asDes*(this: BRepOffsetInter3d): Handle[BRepAlgoAsDes] {.noSideEffect,
     importcpp: "AsDes", header: "BRepOffset_Inter3d.hxx".}
 proc newEdges*(this: var BRepOffsetInter3d): var TopToolsIndexedMapOfShape {.
     importcpp: "NewEdges", header: "BRepOffset_Inter3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

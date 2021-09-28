@@ -30,3 +30,28 @@ proc getData*(this: LDOM_BasicText): LDOMBasicString {.noSideEffect,
 proc setData*(this: var LDOM_BasicText; aValue: LDOMBasicString;
              aDoc: Handle[LDOM_MemManager]) {.importcpp: "SetData",
     header: "LDOM_BasicText.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESDimen_OrdinateDimension"
 discard "forward decl of IGESDimen_OrdinateDimension"
 type
-  HandleIGESDimenOrdinateDimension* = Handle[IGESDimenOrdinateDimension]
+  HandleC1C1* = Handle[IGESDimenOrdinateDimension]
 
 ## ! defines IGES Ordinate Dimension, Type <218> Form <0, 1>,
 ## ! in package IGESDimen
@@ -64,3 +64,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESDimenOrdinateDimension): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_OrdinateDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

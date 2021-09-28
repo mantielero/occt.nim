@@ -56,3 +56,28 @@ proc solid*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.importcpp: "Solid
 converter `topoDS_Solid`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.
     importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Solid",
     header: "BRepPrimAPI_MakeOneAxis.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

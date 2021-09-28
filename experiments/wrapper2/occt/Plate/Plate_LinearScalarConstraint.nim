@@ -38,15 +38,40 @@ proc constructPlateLinearScalarConstraint*(
     thePPC: PlateArray1OfPinpointConstraint; theCoeff: TColgpArray2OfXYZ): PlateLinearScalarConstraint {.
     constructor, importcpp: "Plate_LinearScalarConstraint(@)",
     header: "Plate_LinearScalarConstraint.hxx".}
-proc constructPlateLinearScalarConstraint*(colLen: int; rowLen: int): PlateLinearScalarConstraint {.
+proc constructPlateLinearScalarConstraint*(colLen: cint; rowLen: cint): PlateLinearScalarConstraint {.
     constructor, importcpp: "Plate_LinearScalarConstraint(@)",
     header: "Plate_LinearScalarConstraint.hxx".}
 proc getPPC*(this: PlateLinearScalarConstraint): PlateArray1OfPinpointConstraint {.
     noSideEffect, importcpp: "GetPPC", header: "Plate_LinearScalarConstraint.hxx".}
 proc coeff*(this: PlateLinearScalarConstraint): TColgpArray2OfXYZ {.noSideEffect,
     importcpp: "Coeff", header: "Plate_LinearScalarConstraint.hxx".}
-proc setPPC*(this: var PlateLinearScalarConstraint; index: int;
+proc setPPC*(this: var PlateLinearScalarConstraint; index: cint;
             value: PlatePinpointConstraint) {.importcpp: "SetPPC",
     header: "Plate_LinearScalarConstraint.hxx".}
-proc setCoeff*(this: var PlateLinearScalarConstraint; row: int; col: int; value: Xyz) {.
+proc setCoeff*(this: var PlateLinearScalarConstraint; row: cint; col: cint; value: Xyz) {.
     importcpp: "SetCoeff", header: "Plate_LinearScalarConstraint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

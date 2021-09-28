@@ -23,5 +23,31 @@ type
 
 proc constructHatchParameter*(): HatchParameter {.constructor,
     importcpp: "Hatch_Parameter(@)", header: "Hatch_Parameter.hxx".}
-proc constructHatchParameter*(par1: float; start: bool; index: int = 0; par2: float = 0): HatchParameter {.
-    constructor, importcpp: "Hatch_Parameter(@)", header: "Hatch_Parameter.hxx".}
+proc constructHatchParameter*(par1: cfloat; start: bool; index: cint = 0;
+                             par2: cfloat = 0): HatchParameter {.constructor,
+    importcpp: "Hatch_Parameter(@)", header: "Hatch_Parameter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

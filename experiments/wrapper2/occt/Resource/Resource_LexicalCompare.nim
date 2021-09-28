@@ -25,3 +25,28 @@ proc constructResourceLexicalCompare*(): ResourceLexicalCompare {.constructor,
 proc isLower*(this: ResourceLexicalCompare; left: TCollectionAsciiString;
              right: TCollectionAsciiString): bool {.noSideEffect,
     importcpp: "IsLower", header: "Resource_LexicalCompare.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

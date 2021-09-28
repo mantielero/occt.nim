@@ -35,3 +35,28 @@ proc nextLoop*(this: var TopOpeBRepBuildLoopSet) {.importcpp: "NextLoop",
     header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc loop*(this: TopOpeBRepBuildLoopSet): Handle[TopOpeBRepBuildLoop] {.
     noSideEffect, importcpp: "Loop", header: "TopOpeBRepBuild_LoopSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

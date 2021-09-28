@@ -21,7 +21,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_SolidOfRevolution"
 discard "forward decl of IGESSolid_SolidOfRevolution"
 type
-  HandleIGESSolidSolidOfRevolution* = Handle[IGESSolidSolidOfRevolution]
+  HandleC1C1* = Handle[IGESSolidSolidOfRevolution]
 
 ## ! defines SolidOfRevolution, Type <162> Form Number <0,1>
 ## ! in package IGESSolid
@@ -38,7 +38,7 @@ proc constructIGESSolidSolidOfRevolution*(): IGESSolidSolidOfRevolution {.
     constructor, importcpp: "IGESSolid_SolidOfRevolution(@)",
     header: "IGESSolid_SolidOfRevolution.hxx".}
 proc init*(this: var IGESSolidSolidOfRevolution; aCurve: Handle[IGESDataIGESEntity];
-          aFract: float; aAxisPnt: Xyz; aDirection: Xyz) {.importcpp: "Init",
+          aFract: cfloat; aAxisPnt: Xyz; aDirection: Xyz) {.importcpp: "Init",
     header: "IGESSolid_SolidOfRevolution.hxx".}
 proc setClosedToAxis*(this: var IGESSolidSolidOfRevolution; mode: bool) {.
     importcpp: "SetClosedToAxis", header: "IGESSolid_SolidOfRevolution.hxx".}
@@ -46,7 +46,7 @@ proc isClosedToAxis*(this: IGESSolidSolidOfRevolution): bool {.noSideEffect,
     importcpp: "IsClosedToAxis", header: "IGESSolid_SolidOfRevolution.hxx".}
 proc curve*(this: IGESSolidSolidOfRevolution): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Curve", header: "IGESSolid_SolidOfRevolution.hxx".}
-proc fraction*(this: IGESSolidSolidOfRevolution): float {.noSideEffect,
+proc fraction*(this: IGESSolidSolidOfRevolution): cfloat {.noSideEffect,
     importcpp: "Fraction", header: "IGESSolid_SolidOfRevolution.hxx".}
 proc axisPoint*(this: IGESSolidSolidOfRevolution): Pnt {.noSideEffect,
     importcpp: "AxisPoint", header: "IGESSolid_SolidOfRevolution.hxx".}
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSolidSolidOfRevolution): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_SolidOfRevolution.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

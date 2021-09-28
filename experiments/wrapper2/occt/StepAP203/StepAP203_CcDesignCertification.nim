@@ -18,7 +18,7 @@ discard "forward decl of StepBasic_Certification"
 discard "forward decl of StepAP203_CcDesignCertification"
 discard "forward decl of StepAP203_CcDesignCertification"
 type
-  HandleStepAP203CcDesignCertification* = Handle[StepAP203CcDesignCertification]
+  HandleC1C1* = Handle[StepAP203CcDesignCertification]
 
 ## ! Representation of STEP entity CcDesignCertification
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP203CcDesignCertification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_CcDesignCertification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

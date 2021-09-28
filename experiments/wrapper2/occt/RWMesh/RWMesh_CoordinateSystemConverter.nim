@@ -61,15 +61,16 @@ proc constructRWMeshCoordinateSystemConverter*(): RWMeshCoordinateSystemConverte
     header: "RWMesh_CoordinateSystemConverter.hxx".}
 proc isEmpty*(this: RWMeshCoordinateSystemConverter): bool {.noSideEffect,
     importcpp: "IsEmpty", header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc inputLengthUnit*(this: RWMeshCoordinateSystemConverter): float {.noSideEffect,
+proc inputLengthUnit*(this: RWMeshCoordinateSystemConverter): cfloat {.noSideEffect,
     importcpp: "InputLengthUnit", header: "RWMesh_CoordinateSystemConverter.hxx".}
 proc setInputLengthUnit*(this: var RWMeshCoordinateSystemConverter;
-                        theInputScale: float) {.importcpp: "SetInputLengthUnit",
+                        theInputScale: cfloat) {.importcpp: "SetInputLengthUnit",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc outputLengthUnit*(this: RWMeshCoordinateSystemConverter): float {.noSideEffect,
-    importcpp: "OutputLengthUnit", header: "RWMesh_CoordinateSystemConverter.hxx".}
+proc outputLengthUnit*(this: RWMeshCoordinateSystemConverter): cfloat {.
+    noSideEffect, importcpp: "OutputLengthUnit",
+    header: "RWMesh_CoordinateSystemConverter.hxx".}
 proc setOutputLengthUnit*(this: var RWMeshCoordinateSystemConverter;
-                         theOutputScale: float) {.
+                         theOutputScale: cfloat) {.
     importcpp: "SetOutputLengthUnit",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
 proc hasInputCoordinateSystem*(this: RWMeshCoordinateSystemConverter): bool {.
@@ -101,8 +102,8 @@ proc setOutputCoordinateSystem*(this: var RWMeshCoordinateSystemConverter;
     importcpp: "SetOutputCoordinateSystem",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
 proc init*(this: var RWMeshCoordinateSystemConverter; theInputSystem: Ax3;
-          theInputLengthUnit: float; theOutputSystem: Ax3;
-          theOutputLengthUnit: float) {.importcpp: "Init", header: "RWMesh_CoordinateSystemConverter.hxx".}
+          theInputLengthUnit: cfloat; theOutputSystem: Ax3;
+          theOutputLengthUnit: cfloat) {.importcpp: "Init", header: "RWMesh_CoordinateSystemConverter.hxx".}
 proc transformTransformation*(this: RWMeshCoordinateSystemConverter;
                              theTrsf: var Trsf) {.noSideEffect,
     importcpp: "TransformTransformation",
@@ -113,3 +114,28 @@ proc transformPosition*(this: RWMeshCoordinateSystemConverter; thePos: var Xyz) 
 proc transformNormal*(this: RWMeshCoordinateSystemConverter;
                      theNorm: var Graphic3dVec3) {.noSideEffect,
     importcpp: "TransformNormal", header: "RWMesh_CoordinateSystemConverter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

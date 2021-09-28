@@ -43,25 +43,50 @@ proc constructBRepApproxApprox*(): BRepApproxApprox {.constructor,
 proc perform*(this: var BRepApproxApprox; surf1: BRepAdaptorSurface;
              surf2: BRepAdaptorSurface; aLine: Handle[BRepApproxApproxLine];
              approxXYZ: bool = true; approxU1V1: bool = true; approxU2V2: bool = true;
-             indicemin: int = 0; indicemax: int = 0) {.importcpp: "Perform",
+             indicemin: cint = 0; indicemax: cint = 0) {.importcpp: "Perform",
     header: "BRepApprox_Approx.hxx".}
 proc perform*(this: var BRepApproxApprox; aLine: Handle[BRepApproxApproxLine];
              approxXYZ: bool = true; approxU1V1: bool = true; approxU2V2: bool = true;
-             indicemin: int = 0; indicemax: int = 0) {.importcpp: "Perform",
+             indicemin: cint = 0; indicemax: cint = 0) {.importcpp: "Perform",
     header: "BRepApprox_Approx.hxx".}
-proc setParameters*(this: var BRepApproxApprox; tol3d: float; tol2d: float; degMin: int;
-                   degMax: int; nbIterMax: int; nbPntMax: int = 30;
+proc setParameters*(this: var BRepApproxApprox; tol3d: cfloat; tol2d: cfloat;
+                   degMin: cint; degMax: cint; nbIterMax: cint; nbPntMax: cint = 30;
                    approxWithTangency: bool = true; parametrization: ApproxParametrizationType = approxChordLength) {.
     importcpp: "SetParameters", header: "BRepApprox_Approx.hxx".}
 proc perform*(this: var BRepApproxApprox) {.importcpp: "Perform",
                                         header: "BRepApprox_Approx.hxx".}
-proc tolReached3d*(this: BRepApproxApprox): float {.noSideEffect,
+proc tolReached3d*(this: BRepApproxApprox): cfloat {.noSideEffect,
     importcpp: "TolReached3d", header: "BRepApprox_Approx.hxx".}
-proc tolReached2d*(this: BRepApproxApprox): float {.noSideEffect,
+proc tolReached2d*(this: BRepApproxApprox): cfloat {.noSideEffect,
     importcpp: "TolReached2d", header: "BRepApprox_Approx.hxx".}
 proc isDone*(this: BRepApproxApprox): bool {.noSideEffect, importcpp: "IsDone",
     header: "BRepApprox_Approx.hxx".}
-proc nbMultiCurves*(this: BRepApproxApprox): int {.noSideEffect,
+proc nbMultiCurves*(this: BRepApproxApprox): cint {.noSideEffect,
     importcpp: "NbMultiCurves", header: "BRepApprox_Approx.hxx".}
-proc value*(this: BRepApproxApprox; index: int): AppParCurvesMultiBSpCurve {.
+proc value*(this: BRepApproxApprox; index: cint): AppParCurvesMultiBSpCurve {.
     noSideEffect, importcpp: "Value", header: "BRepApprox_Approx.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

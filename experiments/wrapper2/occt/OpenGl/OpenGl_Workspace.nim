@@ -18,7 +18,7 @@ discard "forward decl of Image_PixMap"
 discard "forward decl of OpenGl_Workspace"
 discard "forward decl of OpenGl_Workspace"
 type
-  HandleOpenGlWorkspace* = Handle[OpenGlWorkspace]
+  HandleC1C1* = Handle[OpenGlWorkspace]
 
 ## ! Rendering workspace.
 ## ! Provides methods to render primitives and maintain GL state.
@@ -48,17 +48,17 @@ proc view*(this: OpenGlWorkspace): ptr OpenGlView {.noSideEffect, importcpp: "Vi
     header: "OpenGl_Workspace.hxx".}
 proc getGlContext*(this: var OpenGlWorkspace): Handle[OpenGlContext] {.
     importcpp: "GetGlContext", header: "OpenGl_Workspace.hxx".}
-proc fBOCreate*(this: var OpenGlWorkspace; theWidth: int; theHeight: int): Handle[
+proc fBOCreate*(this: var OpenGlWorkspace; theWidth: cint; theHeight: cint): Handle[
     OpenGlFrameBuffer] {.importcpp: "FBOCreate", header: "OpenGl_Workspace.hxx".}
 proc fBORelease*(this: var OpenGlWorkspace; theFbo: var Handle[OpenGlFrameBuffer]) {.
     importcpp: "FBORelease", header: "OpenGl_Workspace.hxx".}
 proc bufferDump*(this: var OpenGlWorkspace; theFbo: Handle[OpenGlFrameBuffer];
                 theImage: var ImagePixMap; theBufferType: Graphic3dBufferType): bool {.
     importcpp: "BufferDump", header: "OpenGl_Workspace.hxx".}
-proc width*(this: OpenGlWorkspace): int {.noSideEffect, importcpp: "Width",
-                                      header: "OpenGl_Workspace.hxx".}
-proc height*(this: OpenGlWorkspace): int {.noSideEffect, importcpp: "Height",
+proc width*(this: OpenGlWorkspace): cint {.noSideEffect, importcpp: "Width",
                                        header: "OpenGl_Workspace.hxx".}
+proc height*(this: OpenGlWorkspace): cint {.noSideEffect, importcpp: "Height",
+                                        header: "OpenGl_Workspace.hxx".}
 proc setUseZBuffer*(this: var OpenGlWorkspace; theToUse: bool): bool {.
     importcpp: "SetUseZBuffer", header: "OpenGl_Workspace.hxx".}
 proc useZBuffer*(this: var OpenGlWorkspace): var bool {.importcpp: "UseZBuffer",
@@ -97,13 +97,13 @@ proc applyAspects*(this: var OpenGlWorkspace; theToBindTextures: bool = true): p
     importcpp: "ApplyAspects", header: "OpenGl_Workspace.hxx".}
 proc resetAppliedAspect*(this: var OpenGlWorkspace) {.
     importcpp: "ResetAppliedAspect", header: "OpenGl_Workspace.hxx".}
-proc renderFilter*(this: OpenGlWorkspace): int {.noSideEffect,
+proc renderFilter*(this: OpenGlWorkspace): cint {.noSideEffect,
     importcpp: "RenderFilter", header: "OpenGl_Workspace.hxx".}
-proc setRenderFilter*(this: var OpenGlWorkspace; theFilter: int) {.
+proc setRenderFilter*(this: var OpenGlWorkspace; theFilter: cint) {.
     importcpp: "SetRenderFilter", header: "OpenGl_Workspace.hxx".}
 proc shouldRender*(this: var OpenGlWorkspace; theElement: ptr OpenGlElement): bool {.
     importcpp: "ShouldRender", header: "OpenGl_Workspace.hxx".}
-proc nbSkippedTransparentElements*(this: var OpenGlWorkspace): int {.
+proc nbSkippedTransparentElements*(this: var OpenGlWorkspace): cint {.
     importcpp: "NbSkippedTransparentElements", header: "OpenGl_Workspace.hxx".}
 proc resetSkippedCounter*(this: var OpenGlWorkspace) {.
     importcpp: "ResetSkippedCounter", header: "OpenGl_Workspace.hxx".}
@@ -121,8 +121,8 @@ proc setEnvironmentTexture*(this: var OpenGlWorkspace;
 proc environmentTexture*(this: OpenGlWorkspace): Handle[OpenGlTextureSet] {.
     noSideEffect, importcpp: "EnvironmentTexture", header: "OpenGl_Workspace.hxx".}
 proc dumpJson*(this: OpenGlWorkspace; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_Workspace.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_Workspace.hxx".}
 type
   OpenGlWorkspacebaseType* = StandardTransient
 
@@ -133,3 +133,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "OpenGl_Workspace.hxx".}
 proc dynamicType*(this: OpenGlWorkspace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_Workspace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

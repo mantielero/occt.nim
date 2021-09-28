@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of BRep_TEdge"
 discard "forward decl of BRep_TEdge"
 type
-  HandleBRepTEdge* = Handle[BRepTEdge]
+  HandleC1C1* = Handle[BRepTEdge]
 
 ## ! The TEdge from BRep is  inherited from  the  TEdge
 ## ! from TopoDS. It contains the geometric data.
@@ -46,11 +46,11 @@ type
 
 proc constructBRepTEdge*(): BRepTEdge {.constructor, importcpp: "BRep_TEdge(@)",
                                      header: "BRep_TEdge.hxx".}
-proc tolerance*(this: BRepTEdge): float {.noSideEffect, importcpp: "Tolerance",
-                                      header: "BRep_TEdge.hxx".}
-proc tolerance*(this: var BRepTEdge; t: float) {.importcpp: "Tolerance",
+proc tolerance*(this: BRepTEdge): cfloat {.noSideEffect, importcpp: "Tolerance",
+                                       header: "BRep_TEdge.hxx".}
+proc tolerance*(this: var BRepTEdge; t: cfloat) {.importcpp: "Tolerance",
     header: "BRep_TEdge.hxx".}
-proc updateTolerance*(this: var BRepTEdge; t: float) {.importcpp: "UpdateTolerance",
+proc updateTolerance*(this: var BRepTEdge; t: cfloat) {.importcpp: "UpdateTolerance",
     header: "BRep_TEdge.hxx".}
 proc sameParameter*(this: BRepTEdge): bool {.noSideEffect,
     importcpp: "SameParameter", header: "BRep_TEdge.hxx".}
@@ -70,7 +70,7 @@ proc changeCurves*(this: var BRepTEdge): var BRepListOfCurveRepresentation {.
     importcpp: "ChangeCurves", header: "BRep_TEdge.hxx".}
 proc emptyCopy*(this: BRepTEdge): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "BRep_TEdge.hxx".}
-proc dumpJson*(this: BRepTEdge; theOStream: var StandardOStream; theDepth: int = -1) {.
+proc dumpJson*(this: BRepTEdge; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "BRep_TEdge.hxx".}
 type
   BRepTEdgebaseType* = TopoDS_TEdge
@@ -81,3 +81,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_TEdge::get_type_descriptor(@)", header: "BRep_TEdge.hxx".}
 proc dynamicType*(this: BRepTEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_TEdge.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,7 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_TextureParams"
+## !!!Ignored construct:  # _OpenGl_Texture_H__ [NewLine] # _OpenGl_Texture_H__ [NewLine] # < Graphic3d_CubeMap . hxx > [NewLine] # < OpenGl_TextureFormat . hxx > [NewLine] # < OpenGl_NamedResource . hxx > [NewLine] # < OpenGl_Sampler . hxx > [NewLine] # < Graphic3d_TextureUnit . hxx > [NewLine] # < Graphic3d_TypeOfTexture . hxx > [NewLine] class Graphic3d_TextureParams ;
+## Error: expected ';'!!!
+
 discard "forward decl of Image_PixMap"
 type
   OpenGlTexture* {.importcpp: "OpenGl_Texture", header: "OpenGl_Texture.hxx", bycopy.} = object of OpenGlNamedResource ##
@@ -33,7 +35,8 @@ type
                                                                                                              ## after
                                                                                                              ## texture
                                                                                                              ## creation.
-    ## !< texture sampler
+    standardType* {.importc: "Standard_Type".}: Handle
+    openGlSampler* {.importc: "OpenGl_Sampler".}: Handle
     ## !< revision of associated data source
     ## !< GL resource ID
     ## !< GL_TEXTURE_1D/GL_TEXTURE_2D/GL_TEXTURE_3D
@@ -51,17 +54,18 @@ type
 
 proc getTypeName*(): cstring {.importcpp: "OpenGl_Texture::get_type_name(@)",
                             header: "OpenGl_Texture.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "OpenGl_Texture::get_type_descriptor(@)",
-    header: "OpenGl_Texture.hxx".}
-proc dynamicType*(this: OpenGlTexture): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "OpenGl_Texture.hxx".}
+## !!!Ignored construct:  & get_type_descriptor ( ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & DynamicType ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc pixelSizeOfPixelFormat*(theInternalFormat: int): StandardSize {.
     importcpp: "OpenGl_Texture::PixelSizeOfPixelFormat(@)",
     header: "OpenGl_Texture.hxx".}
-proc constructOpenGlTexture*(theResourceId: TCollectionAsciiString = tCollectionAsciiString();
-    theParams: Handle[Graphic3dTextureParams] = handle[Graphic3dTextureParams]()): OpenGlTexture {.
-    constructor, importcpp: "OpenGl_Texture(@)", header: "OpenGl_Texture.hxx".}
+## !!!Ignored construct:  public : ! Create uninitialized texture. OpenGl_Texture ( const TCollection_AsciiString & theResourceId = TCollection_AsciiString ( ) , const Handle ( Graphic3d_TextureParams ) & theParams = Handle ( Graphic3d_TextureParams ) ( ) ) ;
+## Error: token expected: ) but got: &!!!
+
 proc destroyOpenGlTexture*(this: var OpenGlTexture) {.
     importcpp: "#.~OpenGl_Texture()", header: "OpenGl_Texture.hxx".}
 proc isValid*(this: OpenGlTexture): bool {.noSideEffect, importcpp: "IsValid",
@@ -86,55 +90,56 @@ proc isTopDown*(this: OpenGlTexture): bool {.noSideEffect, importcpp: "IsTopDown
     header: "OpenGl_Texture.hxx".}
 proc setTopDown*(this: var OpenGlTexture; theIsTopDown: bool) {.
     importcpp: "SetTopDown", header: "OpenGl_Texture.hxx".}
-proc create*(this: var OpenGlTexture; theCtx: Handle[OpenGlContext]): bool {.
-    importcpp: "Create", header: "OpenGl_Texture.hxx".}
+## !!!Ignored construct:  ! Creates Texture id if not yet generated.
+## ! Data should be initialized by another method. bool Create ( const Handle ( OpenGl_Context ) & theCtx ) ;
+## Error: token expected: ) but got: &!!!
+
 proc release*(this: var OpenGlTexture; theCtx: ptr OpenGlContext) {.
     importcpp: "Release", header: "OpenGl_Texture.hxx".}
-proc sampler*(this: OpenGlTexture): Handle[OpenGlSampler] {.noSideEffect,
-    importcpp: "Sampler", header: "OpenGl_Texture.hxx".}
-proc setSampler*(this: var OpenGlTexture; theSampler: Handle[OpenGlSampler]) {.
-    importcpp: "SetSampler", header: "OpenGl_Texture.hxx".}
-proc initSamplerObject*(this: var OpenGlTexture; theCtx: Handle[OpenGlContext]): bool {.
-    importcpp: "InitSamplerObject", header: "OpenGl_Texture.hxx".}
-proc `bind`*(this: OpenGlTexture; theCtx: Handle[OpenGlContext]) {.noSideEffect,
-    importcpp: "Bind", header: "OpenGl_Texture.hxx".}
-proc unbind*(this: OpenGlTexture; theCtx: Handle[OpenGlContext]) {.noSideEffect,
-    importcpp: "Unbind", header: "OpenGl_Texture.hxx".}
-proc `bind`*(this: OpenGlTexture; theCtx: Handle[OpenGlContext];
-            theTextureUnit: Graphic3dTextureUnit) {.noSideEffect,
-    importcpp: "Bind", header: "OpenGl_Texture.hxx".}
-proc unbind*(this: OpenGlTexture; theCtx: Handle[OpenGlContext];
-            theTextureUnit: Graphic3dTextureUnit) {.noSideEffect,
-    importcpp: "Unbind", header: "OpenGl_Texture.hxx".}
+## !!!Ignored construct:  & Sampler ( ) const { return mySampler ; } ! Set texture sampler. void SetSampler ( const Handle ( OpenGl_Sampler ) & theSampler ) { mySampler = theSampler ; } ! Initialize the Sampler Object (as OpenGL object).
+## ! @param theCtx currently bound OpenGL context bool InitSamplerObject ( const Handle ( OpenGl_Context ) & theCtx ) ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  ! Bind this Texture to the unit specified in sampler parameters.
+## ! Also binds Sampler Object if it is allocated. void Bind ( const Handle ( OpenGl_Context ) & theCtx ) const { Bind ( theCtx , mySampler -> Parameters ( ) -> TextureUnit ( ) ) ; } ! Unbind texture from the unit specified in sampler parameters.
+## ! Also unbinds Sampler Object if it is allocated. void Unbind ( const Handle ( OpenGl_Context ) & theCtx ) const { Unbind ( theCtx , mySampler -> Parameters ( ) -> TextureUnit ( ) ) ; } ! Bind this Texture to specified unit.
+## ! Also binds Sampler Object if it is allocated. void Bind ( const Handle ( OpenGl_Context ) & theCtx , const Graphic3d_TextureUnit theTextureUnit ) const ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Unbind texture from specified unit.
+## ! Also unbinds Sampler Object if it is allocated. void Unbind ( const Handle ( OpenGl_Context ) & theCtx , const Graphic3d_TextureUnit theTextureUnit ) const ;
+## Error: token expected: ) but got: &!!!
+
 proc revision*(this: OpenGlTexture): StandardSize {.noSideEffect,
     importcpp: "Revision", header: "OpenGl_Texture.hxx".}
 proc setRevision*(this: var OpenGlTexture; theRevision: StandardSize) {.
     importcpp: "SetRevision", header: "OpenGl_Texture.hxx".}
-proc init*(this: var OpenGlTexture; theCtx: Handle[OpenGlContext];
-          theImage: ImagePixMap; theType: Graphic3dTypeOfTexture;
-          theIsColorMap: bool): bool {.importcpp: "Init",
-                                    header: "OpenGl_Texture.hxx".}
-proc init*(this: var OpenGlTexture; theCtx: Handle[OpenGlContext];
-          theFormat: OpenGlTextureFormat; theSizeXY: Graphic3dVec2i;
-          theType: Graphic3dTypeOfTexture; theImage: ptr ImagePixMap = nil): bool {.
-    importcpp: "Init", header: "OpenGl_Texture.hxx".}
-proc init*(this: var OpenGlTexture; theCtx: Handle[OpenGlContext];
-          theTextureMap: Handle[Graphic3dTextureMap]): bool {.importcpp: "Init",
-    header: "OpenGl_Texture.hxx".}
-proc initCompressed*(this: var OpenGlTexture; theCtx: Handle[OpenGlContext];
-                    theImage: ImageCompressedPixMap; theIsColorMap: bool): bool {.
-    importcpp: "InitCompressed", header: "OpenGl_Texture.hxx".}
-proc init2DMultisample*(this: var OpenGlTexture; theCtx: Handle[OpenGlContext];
-                       theNbSamples: GLsizei; theTextFormat: GLint;
-                       theSizeX: GLsizei; theSizeY: GLsizei): bool {.
-    importcpp: "Init2DMultisample", header: "OpenGl_Texture.hxx".}
-proc initRectangle*(this: var OpenGlTexture; theCtx: Handle[OpenGlContext];
-                   theSizeX: int; theSizeY: int; theFormat: OpenGlTextureFormat): bool {.
-    importcpp: "InitRectangle", header: "OpenGl_Texture.hxx".}
-proc init3D*(this: var OpenGlTexture; theCtx: Handle[OpenGlContext];
-            theFormat: OpenGlTextureFormat; theSizeXYZ: Graphic3dVec3i;
-            thePixels: pointer): bool {.importcpp: "Init3D",
-                                     header: "OpenGl_Texture.hxx".}
+## !!!Ignored construct:  ! Notice that texture will be unbound after this call. bool Init ( const Handle ( OpenGl_Context ) & theCtx , const Image_PixMap & theImage , const Graphic3d_TypeOfTexture theType , const Standard_Boolean theIsColorMap ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Initialize the texture with specified format, size and texture type.
+## ! If theImage is empty the texture data will contain trash.
+## ! Notice that texture will be unbound after this call. bool Init ( const Handle ( OpenGl_Context ) & theCtx , const OpenGl_TextureFormat & theFormat , const Graphic3d_Vec2i & theSizeXY , const Graphic3d_TypeOfTexture theType , const Image_PixMap * theImage = NULL ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Initialize the texture with Graphic3d_TextureMap.
+## ! It is an universal way to initialize.
+## ! Suitable initialization method will be chosen. bool Init ( const Handle ( OpenGl_Context ) & theCtx , const Handle ( Graphic3d_TextureMap ) & theTextureMap ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Initialize the texture with Image_CompressedPixMap. bool InitCompressed ( const Handle ( OpenGl_Context ) & theCtx , const Image_CompressedPixMap & theImage , const Standard_Boolean theIsColorMap ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Initialize the 2D multisampling texture using glTexImage2DMultisample(). bool Init2DMultisample ( const Handle ( OpenGl_Context ) & theCtx , const GLsizei theNbSamples , const GLint theTextFormat , const GLsizei theSizeX , const GLsizei theSizeY ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Allocates texture rectangle with specified format and size.
+## ! \note Texture data is not initialized (will contain trash). bool InitRectangle ( const Handle ( OpenGl_Context ) & theCtx , const Standard_Integer theSizeX , const Standard_Integer theSizeY , const OpenGl_TextureFormat & theFormat ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! Initializes 3D texture rectangle with specified format and size. bool Init3D ( const Handle ( OpenGl_Context ) & theCtx , const OpenGl_TextureFormat & theFormat , const Graphic3d_Vec3i & theSizeXYZ , const void * thePixels ) ;
+## Error: token expected: ) but got: &!!!
+
 proc hasMipmaps*(this: OpenGlTexture): bool {.noSideEffect, importcpp: "HasMipmaps",
     header: "OpenGl_Texture.hxx".}
 proc maxMipmapLevel*(this: OpenGlTexture): int {.noSideEffect,
@@ -143,7 +148,7 @@ proc estimatedDataSize*(this: OpenGlTexture): StandardSize {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_Texture.hxx".}
 proc isPointSprite*(this: OpenGlTexture): bool {.noSideEffect,
     importcpp: "IsPointSprite", header: "OpenGl_Texture.hxx".}
-## !!!Ignored construct:  public : Standard_DEPRECATED ( Deprecated method, OpenGl_TextureFormat::FindFormat() should be used instead ) static bool GetDataFormat ( const opencascade :: handle < OpenGl_Context > [end of template] & theCtx , const Image_Format theFormat , GLint & theTextFormat , GLenum & thePixelFormat , GLenum & theDataType ) { OpenGl_TextureFormat aFormat = OpenGl_TextureFormat :: FindFormat ( theCtx , theFormat , false ) ; theTextFormat = aFormat . InternalFormat ( ) ; thePixelFormat = aFormat . PixelFormat ( ) ; theDataType = aFormat . DataType ( ) ; return aFormat . IsValid ( ) ; } Standard_DEPRECATED ( Deprecated method, OpenGl_TextureFormat::FindFormat() should be used instead ) static bool GetDataFormat ( const opencascade :: handle < OpenGl_Context > [end of template] & theCtx , const Image_PixMap & theData , GLint & theTextFormat , GLenum & thePixelFormat , GLenum & theDataType ) { OpenGl_TextureFormat aFormat = OpenGl_TextureFormat :: FindFormat ( theCtx , theData . Format ( ) , false ) ; theTextFormat = aFormat . InternalFormat ( ) ; thePixelFormat = aFormat . PixelFormat ( ) ; theDataType = aFormat . DataType ( ) ; return aFormat . IsValid ( ) ; } Standard_DEPRECATED ( Deprecated method, OpenGl_TextureFormat should be passed instead of separate parameters ) bool Init ( const opencascade :: handle < OpenGl_Context > [end of template] & theCtx , const GLint theTextFormat , const GLenum thePixelFormat , const GLenum theDataType , const GLsizei theSizeX , const GLsizei theSizeY , const Graphic3d_TypeOfTexture theType , const Image_PixMap * theImage = NULL ) { OpenGl_TextureFormat aFormat ; aFormat . SetInternalFormat ( theTextFormat ) ; aFormat . SetPixelFormat ( thePixelFormat ) ; aFormat . SetDataType ( theDataType ) ; return Init ( theCtx , aFormat , Graphic3d_Vec2i ( theSizeX , theSizeY ) , theType , theImage ) ; } Standard_DEPRECATED ( Deprecated method, theIsColorMap parameter should be explicitly specified ) bool Init ( const opencascade :: handle < OpenGl_Context > [end of template] & theCtx , const Image_PixMap & theImage , const Graphic3d_TypeOfTexture theType ) { return Init ( theCtx , theImage , theType , true ) ; } Standard_DEPRECATED ( Deprecated method, OpenGl_TextureFormat should be passed instead of separate parameters ) bool Init3D ( const opencascade :: handle < OpenGl_Context > [end of template] & theCtx , const GLint theTextFormat , const GLenum thePixelFormat , const GLenum theDataType , const Standard_Integer theSizeX , const Standard_Integer theSizeY , const Standard_Integer theSizeZ , const void * thePixels ) { OpenGl_TextureFormat aFormat ; aFormat . SetInternalFormat ( theTextFormat ) ; aFormat . SetPixelFormat ( thePixelFormat ) ; aFormat . SetDataType ( theDataType ) ; return Init3D ( theCtx , aFormat , Graphic3d_Vec3i ( theSizeX , theSizeY , theSizeZ ) , thePixels ) ; } ! Initializes 6 sides of cubemap.
+## !!!Ignored construct:  public : Standard_DEPRECATED ( Deprecated method, OpenGl_TextureFormat::FindFormat() should be used instead ) static bool GetDataFormat ( const Handle ( OpenGl_Context ) & theCtx , const Image_Format theFormat , GLint & theTextFormat , GLenum & thePixelFormat , GLenum & theDataType ) { OpenGl_TextureFormat aFormat = OpenGl_TextureFormat :: FindFormat ( theCtx , theFormat , false ) ; theTextFormat = aFormat . InternalFormat ( ) ; thePixelFormat = aFormat . PixelFormat ( ) ; theDataType = aFormat . DataType ( ) ; return aFormat . IsValid ( ) ; } Standard_DEPRECATED ( Deprecated method, OpenGl_TextureFormat::FindFormat() should be used instead ) static bool GetDataFormat ( const Handle ( OpenGl_Context ) & theCtx , const Image_PixMap & theData , GLint & theTextFormat , GLenum & thePixelFormat , GLenum & theDataType ) { OpenGl_TextureFormat aFormat = OpenGl_TextureFormat :: FindFormat ( theCtx , theData . Format ( ) , false ) ; theTextFormat = aFormat . InternalFormat ( ) ; thePixelFormat = aFormat . PixelFormat ( ) ; theDataType = aFormat . DataType ( ) ; return aFormat . IsValid ( ) ; } Standard_DEPRECATED ( Deprecated method, OpenGl_TextureFormat should be passed instead of separate parameters ) bool Init ( const Handle ( OpenGl_Context ) & theCtx , const GLint theTextFormat , const GLenum thePixelFormat , const GLenum theDataType , const GLsizei theSizeX , const GLsizei theSizeY , const Graphic3d_TypeOfTexture theType , const Image_PixMap * theImage = NULL ) { OpenGl_TextureFormat aFormat ; aFormat . SetInternalFormat ( theTextFormat ) ; aFormat . SetPixelFormat ( thePixelFormat ) ; aFormat . SetDataType ( theDataType ) ; return Init ( theCtx , aFormat , Graphic3d_Vec2i ( theSizeX , theSizeY ) , theType , theImage ) ; } Standard_DEPRECATED ( Deprecated method, theIsColorMap parameter should be explicitly specified ) bool Init ( const Handle ( OpenGl_Context ) & theCtx , const Image_PixMap & theImage , const Graphic3d_TypeOfTexture theType ) { return Init ( theCtx , theImage , theType , true ) ; } Standard_DEPRECATED ( Deprecated method, OpenGl_TextureFormat should be passed instead of separate parameters ) bool Init3D ( const Handle ( OpenGl_Context ) & theCtx , const GLint theTextFormat , const GLenum thePixelFormat , const GLenum theDataType , const Standard_Integer theSizeX , const Standard_Integer theSizeY , const Standard_Integer theSizeZ , const void * thePixels ) { OpenGl_TextureFormat aFormat ; aFormat . SetInternalFormat ( theTextFormat ) ; aFormat . SetPixelFormat ( thePixelFormat ) ; aFormat . SetDataType ( theDataType ) ; return Init3D ( theCtx , aFormat , Graphic3d_Vec3i ( theSizeX , theSizeY , theSizeZ ) , thePixels ) ; } ! Initializes 6 sides of cubemap.
 ## ! If theCubeMap is not NULL then size and format will be taken from it and corresponding arguments will be ignored.
 ## ! Otherwise this parametres will be taken from arguments.
 ## ! @param theCtx         [in] active OpenGL context
@@ -151,10 +156,60 @@ proc isPointSprite*(this: OpenGlTexture): bool {.noSideEffect,
 ## ! @param theSize        [in] cubemap dimensions
 ## ! @param theFormat      [in] image format
 ## ! @param theToGenMipmap [in] flag to generate mipmaped cubemap
-## ! @param theIsColorMap  [in] flag indicating cubemap storing color values bool InitCubeMap ( const opencascade :: handle < OpenGl_Context > [end of template] & theCtx , const opencascade :: handle < Graphic3d_CubeMap > [end of template] & theCubeMap , Standard_Size theSize , Image_Format theFormat , Standard_Boolean theToGenMipmap , Standard_Boolean theIsColorMap ) ;
+## ! @param theIsColorMap  [in] flag indicating cubemap storing color values bool InitCubeMap ( const Handle ( OpenGl_Context ) & theCtx , const Handle ( Graphic3d_CubeMap ) & theCubeMap , Standard_Size theSize , Image_Format theFormat , Standard_Boolean theToGenMipmap , Standard_Boolean theIsColorMap ) ;
 ## Error: identifier expected, but got: Deprecated method, OpenGl_TextureFormat::FindFormat() should be used instead!!!
 
-discard "forward decl of OpenGl_Texture"
-type
-  HandleOpenGlTexture* = Handle[OpenGlTexture]
+## !!!Ignored construct:  protected : ! Apply default sampler parameters after texture creation. void applyDefaultSamplerParams ( const Handle ( OpenGl_Context ) & theCtx ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  mySampler ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OpenGl_Texture , OpenGl_NamedResource ) #  _OpenGl_Texture_H__
+## Error: expected ';'!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

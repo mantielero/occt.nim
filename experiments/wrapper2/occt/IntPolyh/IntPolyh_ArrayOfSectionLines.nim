@@ -16,3 +16,28 @@
 type
   IntPolyhArrayOfSectionLines* = IntPolyhArray[IntPolyhSectionLine]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

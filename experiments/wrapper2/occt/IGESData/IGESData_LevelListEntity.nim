@@ -18,7 +18,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_LevelListEntity"
 discard "forward decl of IGESData_LevelListEntity"
 type
-  HandleIGESDataLevelListEntity* = Handle[IGESDataLevelListEntity]
+  HandleC1C1* = Handle[IGESDataLevelListEntity]
 
 ## ! defines required type for LevelList in directory part
 ## ! an effective LevelList entity must inherits it
@@ -35,11 +35,11 @@ type
                                                                                                      ## levels
 
 
-proc nbLevelNumbers*(this: IGESDataLevelListEntity): int {.noSideEffect,
+proc nbLevelNumbers*(this: IGESDataLevelListEntity): cint {.noSideEffect,
     importcpp: "NbLevelNumbers", header: "IGESData_LevelListEntity.hxx".}
-proc levelNumber*(this: IGESDataLevelListEntity; num: int): int {.noSideEffect,
+proc levelNumber*(this: IGESDataLevelListEntity; num: cint): cint {.noSideEffect,
     importcpp: "LevelNumber", header: "IGESData_LevelListEntity.hxx".}
-proc hasLevelNumber*(this: IGESDataLevelListEntity; level: int): bool {.noSideEffect,
+proc hasLevelNumber*(this: IGESDataLevelListEntity; level: cint): bool {.noSideEffect,
     importcpp: "HasLevelNumber", header: "IGESData_LevelListEntity.hxx".}
 type
   IGESDataLevelListEntitybaseType* = IGESDataIGESEntity
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_LevelListEntity.hxx".}
 proc dynamicType*(this: IGESDataLevelListEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_LevelListEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

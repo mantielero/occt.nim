@@ -53,3 +53,28 @@ proc changeValid*(this: var TNamingScope): var TDF_LabelMap {.
     importcpp: "ChangeValid", header: "TNaming_Scope.hxx".}
 proc currentShape*(this: TNamingScope; ns: Handle[TNamingNamedShape]): TopoDS_Shape {.
     noSideEffect, importcpp: "CurrentShape", header: "TNaming_Scope.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -44,11 +44,11 @@ proc constructBRepMeshCurveTessellator*(theEdge: IEdgeHandle;
 proc destroyBRepMeshCurveTessellator*(this: var BRepMeshCurveTessellator) {.
     importcpp: "#.~BRepMesh_CurveTessellator()",
     header: "BRepMesh_CurveTessellator.hxx".}
-proc pointsNb*(this: BRepMeshCurveTessellator): int {.noSideEffect,
+proc pointsNb*(this: BRepMeshCurveTessellator): cint {.noSideEffect,
     importcpp: "PointsNb", header: "BRepMesh_CurveTessellator.hxx".}
-proc value*(this: BRepMeshCurveTessellator; theIndex: int; thePoint: var Pnt;
-           theParameter: var float): bool {.noSideEffect, importcpp: "Value",
-                                        header: "BRepMesh_CurveTessellator.hxx".}
+proc value*(this: BRepMeshCurveTessellator; theIndex: cint; thePoint: var Pnt;
+           theParameter: var cfloat): bool {.noSideEffect, importcpp: "Value",
+    header: "BRepMesh_CurveTessellator.hxx".}
 type
   BRepMeshCurveTessellatorbaseType* = IMeshToolsCurveTessellator
 
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_CurveTessellator.hxx".}
 proc dynamicType*(this: BRepMeshCurveTessellator): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepMesh_CurveTessellator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

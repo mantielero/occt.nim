@@ -15,3 +15,28 @@ type
   StepElementArray1OfSurfaceSection* = NCollectionArray1[
       Handle[StepElementSurfaceSection]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

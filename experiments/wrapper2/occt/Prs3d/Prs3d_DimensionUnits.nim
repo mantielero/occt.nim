@@ -37,3 +37,28 @@ proc setLengthUnits*(this: var Prs3dDimensionUnits; theUnits: TCollectionAsciiSt
     importcpp: "SetLengthUnits", header: "Prs3d_DimensionUnits.hxx".}
 proc getLengthUnits*(this: Prs3dDimensionUnits): TCollectionAsciiString {.
     noSideEffect, importcpp: "GetLengthUnits", header: "Prs3d_DimensionUnits.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

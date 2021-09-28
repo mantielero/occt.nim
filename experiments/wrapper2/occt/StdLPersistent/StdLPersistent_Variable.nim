@@ -29,3 +29,28 @@ proc pName*(this: StdLPersistentVariable): StandardCString {.noSideEffect,
     importcpp: "PName", header: "StdLPersistent_Variable.hxx".}
 proc `import`*(this: StdLPersistentVariable; theAttribute: Handle[TDataStdVariable]) {.
     noSideEffect, importcpp: "Import", header: "StdLPersistent_Variable.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

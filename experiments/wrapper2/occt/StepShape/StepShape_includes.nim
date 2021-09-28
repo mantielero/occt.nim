@@ -130,3 +130,28 @@ include StepShape_Vertex
 include StepShape_VertexLoop
 include StepShape_VertexPoint
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -36,3 +36,28 @@ proc `type`*(ent: TopoDS_Shape): Handle[StandardType] {.
 proc typeName*(ent: TopoDS_Shape): StandardCString {.
     importcpp: "TransferBRep_ShapeInfo::TypeName(@)",
     header: "TransferBRep_ShapeInfo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

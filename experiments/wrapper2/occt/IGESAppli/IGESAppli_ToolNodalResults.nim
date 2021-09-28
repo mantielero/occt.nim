@@ -64,5 +64,30 @@ proc ownCopy*(this: IGESAppliToolNodalResults;
              entto: Handle[IGESAppliNodalResults]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolNodalResults.hxx".}
 proc ownDump*(this: IGESAppliToolNodalResults; ent: Handle[IGESAppliNodalResults];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolNodalResults.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

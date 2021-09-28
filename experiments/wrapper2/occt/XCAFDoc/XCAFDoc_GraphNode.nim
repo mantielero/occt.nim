@@ -21,7 +21,7 @@ discard "forward decl of TDF_DataSet"
 discard "forward decl of XCAFDoc_GraphNode"
 discard "forward decl of XCAFDoc_GraphNode"
 type
-  HandleXCAFDocGraphNode* = Handle[XCAFDocGraphNode]
+  HandleC1C1* = Handle[XCAFDocGraphNode]
 
 ## ! This attribute allow user multirelation tree of labels.
 ## ! This GraphNode is experimental Graph that not control looping and redundance.
@@ -81,33 +81,33 @@ proc constructXCAFDocGraphNode*(): XCAFDocGraphNode {.constructor,
     importcpp: "XCAFDoc_GraphNode(@)", header: "XCAFDoc_GraphNode.hxx".}
 proc setGraphID*(this: var XCAFDocGraphNode; explicitID: StandardGUID) {.
     importcpp: "SetGraphID", header: "XCAFDoc_GraphNode.hxx".}
-proc setFather*(this: var XCAFDocGraphNode; f: Handle[XCAFDocGraphNode]): int {.
+proc setFather*(this: var XCAFDocGraphNode; f: Handle[XCAFDocGraphNode]): cint {.
     importcpp: "SetFather", header: "XCAFDoc_GraphNode.hxx".}
-proc setChild*(this: var XCAFDocGraphNode; ch: Handle[XCAFDocGraphNode]): int {.
+proc setChild*(this: var XCAFDocGraphNode; ch: Handle[XCAFDocGraphNode]): cint {.
     importcpp: "SetChild", header: "XCAFDoc_GraphNode.hxx".}
 proc unSetFather*(this: var XCAFDocGraphNode; f: Handle[XCAFDocGraphNode]) {.
     importcpp: "UnSetFather", header: "XCAFDoc_GraphNode.hxx".}
-proc unSetFather*(this: var XCAFDocGraphNode; findex: int) {.importcpp: "UnSetFather",
-    header: "XCAFDoc_GraphNode.hxx".}
+proc unSetFather*(this: var XCAFDocGraphNode; findex: cint) {.
+    importcpp: "UnSetFather", header: "XCAFDoc_GraphNode.hxx".}
 proc unSetChild*(this: var XCAFDocGraphNode; ch: Handle[XCAFDocGraphNode]) {.
     importcpp: "UnSetChild", header: "XCAFDoc_GraphNode.hxx".}
-proc unSetChild*(this: var XCAFDocGraphNode; chindex: int) {.importcpp: "UnSetChild",
+proc unSetChild*(this: var XCAFDocGraphNode; chindex: cint) {.importcpp: "UnSetChild",
     header: "XCAFDoc_GraphNode.hxx".}
-proc getFather*(this: XCAFDocGraphNode; findex: int): Handle[XCAFDocGraphNode] {.
+proc getFather*(this: XCAFDocGraphNode; findex: cint): Handle[XCAFDocGraphNode] {.
     noSideEffect, importcpp: "GetFather", header: "XCAFDoc_GraphNode.hxx".}
-proc getChild*(this: XCAFDocGraphNode; chindex: int): Handle[XCAFDocGraphNode] {.
+proc getChild*(this: XCAFDocGraphNode; chindex: cint): Handle[XCAFDocGraphNode] {.
     noSideEffect, importcpp: "GetChild", header: "XCAFDoc_GraphNode.hxx".}
-proc fatherIndex*(this: XCAFDocGraphNode; f: Handle[XCAFDocGraphNode]): int {.
+proc fatherIndex*(this: XCAFDocGraphNode; f: Handle[XCAFDocGraphNode]): cint {.
     noSideEffect, importcpp: "FatherIndex", header: "XCAFDoc_GraphNode.hxx".}
-proc childIndex*(this: XCAFDocGraphNode; ch: Handle[XCAFDocGraphNode]): int {.
+proc childIndex*(this: XCAFDocGraphNode; ch: Handle[XCAFDocGraphNode]): cint {.
     noSideEffect, importcpp: "ChildIndex", header: "XCAFDoc_GraphNode.hxx".}
 proc isFather*(this: XCAFDocGraphNode; ch: Handle[XCAFDocGraphNode]): bool {.
     noSideEffect, importcpp: "IsFather", header: "XCAFDoc_GraphNode.hxx".}
 proc isChild*(this: XCAFDocGraphNode; f: Handle[XCAFDocGraphNode]): bool {.
     noSideEffect, importcpp: "IsChild", header: "XCAFDoc_GraphNode.hxx".}
-proc nbFathers*(this: XCAFDocGraphNode): int {.noSideEffect, importcpp: "NbFathers",
+proc nbFathers*(this: XCAFDocGraphNode): cint {.noSideEffect, importcpp: "NbFathers",
     header: "XCAFDoc_GraphNode.hxx".}
-proc nbChildren*(this: XCAFDocGraphNode): int {.noSideEffect,
+proc nbChildren*(this: XCAFDocGraphNode): cint {.noSideEffect,
     importcpp: "NbChildren", header: "XCAFDoc_GraphNode.hxx".}
 proc id*(this: XCAFDocGraphNode): StandardGUID {.noSideEffect, importcpp: "ID",
     header: "XCAFDoc_GraphNode.hxx".}
@@ -125,8 +125,8 @@ proc dump*(this: XCAFDocGraphNode; anOS: var StandardOStream): var StandardOStre
 proc beforeForget*(this: var XCAFDocGraphNode) {.importcpp: "BeforeForget",
     header: "XCAFDoc_GraphNode.hxx".}
 proc dumpJson*(this: XCAFDocGraphNode; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "XCAFDoc_GraphNode.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "XCAFDoc_GraphNode.hxx".}
 type
   XCAFDocGraphNodebaseType* = TDF_Attribute
 
@@ -137,3 +137,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XCAFDoc_GraphNode.hxx".}
 proc dynamicType*(this: XCAFDocGraphNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "XCAFDoc_GraphNode.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

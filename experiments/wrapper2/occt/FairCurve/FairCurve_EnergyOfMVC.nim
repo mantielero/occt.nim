@@ -43,19 +43,45 @@ type
                                                                                             ## X
 
 
-proc constructFairCurveEnergyOfMVC*(bSplOrder: int;
+proc constructFairCurveEnergyOfMVC*(bSplOrder: cint;
                                    flatKnots: Handle[TColStdHArray1OfReal];
                                    poles: Handle[TColgpHArray1OfPnt2d];
-                                   contrOrder1: int; contrOrder2: int;
-                                   law: FairCurveBattenLaw; physicalRatio: float;
-                                   lengthSliding: float; freeSliding: bool = true;
-                                   angle1: float = 0; angle2: float = 0;
-                                   curvature1: float = 0; curvature2: float = 0): FairCurveEnergyOfMVC {.
+                                   contrOrder1: cint; contrOrder2: cint;
+                                   law: FairCurveBattenLaw; physicalRatio: cfloat;
+                                   lengthSliding: cfloat;
+                                   freeSliding: bool = true; angle1: cfloat = 0;
+                                   angle2: cfloat = 0; curvature1: cfloat = 0;
+                                   curvature2: cfloat = 0): FairCurveEnergyOfMVC {.
     constructor, importcpp: "FairCurve_EnergyOfMVC(@)",
     header: "FairCurve_EnergyOfMVC.hxx".}
-proc lengthSliding*(this: FairCurveEnergyOfMVC): float {.noSideEffect,
+proc lengthSliding*(this: FairCurveEnergyOfMVC): cfloat {.noSideEffect,
     importcpp: "LengthSliding", header: "FairCurve_EnergyOfMVC.hxx".}
 proc status*(this: FairCurveEnergyOfMVC): FairCurveAnalysisCode {.noSideEffect,
     importcpp: "Status", header: "FairCurve_EnergyOfMVC.hxx".}
 proc variable*(this: FairCurveEnergyOfMVC; x: var MathVector): bool {.noSideEffect,
     importcpp: "Variable", header: "FairCurve_EnergyOfMVC.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

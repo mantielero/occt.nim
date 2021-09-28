@@ -24,22 +24,47 @@ type
 
 proc constructIntSurfInteriorPoint*(): IntSurfInteriorPoint {.constructor,
     importcpp: "IntSurf_InteriorPoint(@)", header: "IntSurf_InteriorPoint.hxx".}
-proc constructIntSurfInteriorPoint*(p: Pnt; u: float; v: float; direc: Vec;
+proc constructIntSurfInteriorPoint*(p: Pnt; u: cfloat; v: cfloat; direc: Vec;
                                    direc2d: Vec2d): IntSurfInteriorPoint {.
     constructor, importcpp: "IntSurf_InteriorPoint(@)",
     header: "IntSurf_InteriorPoint.hxx".}
-proc setValue*(this: var IntSurfInteriorPoint; p: Pnt; u: float; v: float; direc: Vec;
+proc setValue*(this: var IntSurfInteriorPoint; p: Pnt; u: cfloat; v: cfloat; direc: Vec;
               direc2d: Vec2d) {.importcpp: "SetValue",
                               header: "IntSurf_InteriorPoint.hxx".}
 proc value*(this: IntSurfInteriorPoint): Pnt {.noSideEffect, importcpp: "Value",
     header: "IntSurf_InteriorPoint.hxx".}
-proc parameters*(this: IntSurfInteriorPoint; u: var float; v: var float) {.noSideEffect,
-    importcpp: "Parameters", header: "IntSurf_InteriorPoint.hxx".}
-proc uParameter*(this: IntSurfInteriorPoint): float {.noSideEffect,
+proc parameters*(this: IntSurfInteriorPoint; u: var cfloat; v: var cfloat) {.
+    noSideEffect, importcpp: "Parameters", header: "IntSurf_InteriorPoint.hxx".}
+proc uParameter*(this: IntSurfInteriorPoint): cfloat {.noSideEffect,
     importcpp: "UParameter", header: "IntSurf_InteriorPoint.hxx".}
-proc vParameter*(this: IntSurfInteriorPoint): float {.noSideEffect,
+proc vParameter*(this: IntSurfInteriorPoint): cfloat {.noSideEffect,
     importcpp: "VParameter", header: "IntSurf_InteriorPoint.hxx".}
 proc direction*(this: IntSurfInteriorPoint): Vec {.noSideEffect,
     importcpp: "Direction", header: "IntSurf_InteriorPoint.hxx".}
 proc direction2d*(this: IntSurfInteriorPoint): Vec2d {.noSideEffect,
     importcpp: "Direction2d", header: "IntSurf_InteriorPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

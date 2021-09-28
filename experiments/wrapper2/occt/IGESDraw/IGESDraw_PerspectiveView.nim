@@ -25,7 +25,7 @@ discard "forward decl of IGESData_TransfEntity"
 discard "forward decl of IGESDraw_PerspectiveView"
 discard "forward decl of IGESDraw_PerspectiveView"
 type
-  HandleIGESDrawPerspectiveView* = Handle[IGESDrawPerspectiveView]
+  HandleC1C1* = Handle[IGESDrawPerspectiveView]
 
 ## ! defines IGESPerspectiveView, Type <410> Form <1>
 ## ! in package IGESDraw
@@ -50,22 +50,22 @@ type
 proc constructIGESDrawPerspectiveView*(): IGESDrawPerspectiveView {.constructor,
     importcpp: "IGESDraw_PerspectiveView(@)",
     header: "IGESDraw_PerspectiveView.hxx".}
-proc init*(this: var IGESDrawPerspectiveView; aViewNumber: int; aScaleFactor: float;
+proc init*(this: var IGESDrawPerspectiveView; aViewNumber: cint; aScaleFactor: cfloat;
           aViewNormalVector: Xyz; aViewReferencePoint: Xyz;
-          aCenterOfProjection: Xyz; aViewUpVector: Xyz; aViewPlaneDistance: float;
-          aTopLeft: Xy; aBottomRight: Xy; aDepthClip: int; aBackPlaneDistance: float;
-          aFrontPlaneDistance: float) {.importcpp: "Init",
-                                      header: "IGESDraw_PerspectiveView.hxx".}
+          aCenterOfProjection: Xyz; aViewUpVector: Xyz; aViewPlaneDistance: cfloat;
+          aTopLeft: Xy; aBottomRight: Xy; aDepthClip: cint;
+          aBackPlaneDistance: cfloat; aFrontPlaneDistance: cfloat) {.
+    importcpp: "Init", header: "IGESDraw_PerspectiveView.hxx".}
 proc isSingle*(this: IGESDrawPerspectiveView): bool {.noSideEffect,
     importcpp: "IsSingle", header: "IGESDraw_PerspectiveView.hxx".}
-proc nbViews*(this: IGESDrawPerspectiveView): int {.noSideEffect,
+proc nbViews*(this: IGESDrawPerspectiveView): cint {.noSideEffect,
     importcpp: "NbViews", header: "IGESDraw_PerspectiveView.hxx".}
-proc viewItem*(this: IGESDrawPerspectiveView; num: int): Handle[
+proc viewItem*(this: IGESDrawPerspectiveView; num: cint): Handle[
     IGESDataViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
                              header: "IGESDraw_PerspectiveView.hxx".}
-proc viewNumber*(this: IGESDrawPerspectiveView): int {.noSideEffect,
+proc viewNumber*(this: IGESDrawPerspectiveView): cint {.noSideEffect,
     importcpp: "ViewNumber", header: "IGESDraw_PerspectiveView.hxx".}
-proc scaleFactor*(this: IGESDrawPerspectiveView): float {.noSideEffect,
+proc scaleFactor*(this: IGESDrawPerspectiveView): cfloat {.noSideEffect,
     importcpp: "ScaleFactor", header: "IGESDraw_PerspectiveView.hxx".}
 proc viewNormalVector*(this: IGESDrawPerspectiveView): Vec {.noSideEffect,
     importcpp: "ViewNormalVector", header: "IGESDraw_PerspectiveView.hxx".}
@@ -75,17 +75,17 @@ proc centerOfProjection*(this: IGESDrawPerspectiveView): Pnt {.noSideEffect,
     importcpp: "CenterOfProjection", header: "IGESDraw_PerspectiveView.hxx".}
 proc viewUpVector*(this: IGESDrawPerspectiveView): Vec {.noSideEffect,
     importcpp: "ViewUpVector", header: "IGESDraw_PerspectiveView.hxx".}
-proc viewPlaneDistance*(this: IGESDrawPerspectiveView): float {.noSideEffect,
+proc viewPlaneDistance*(this: IGESDrawPerspectiveView): cfloat {.noSideEffect,
     importcpp: "ViewPlaneDistance", header: "IGESDraw_PerspectiveView.hxx".}
 proc topLeft*(this: IGESDrawPerspectiveView): Pnt2d {.noSideEffect,
     importcpp: "TopLeft", header: "IGESDraw_PerspectiveView.hxx".}
 proc bottomRight*(this: IGESDrawPerspectiveView): Pnt2d {.noSideEffect,
     importcpp: "BottomRight", header: "IGESDraw_PerspectiveView.hxx".}
-proc depthClip*(this: IGESDrawPerspectiveView): int {.noSideEffect,
+proc depthClip*(this: IGESDrawPerspectiveView): cint {.noSideEffect,
     importcpp: "DepthClip", header: "IGESDraw_PerspectiveView.hxx".}
-proc backPlaneDistance*(this: IGESDrawPerspectiveView): float {.noSideEffect,
+proc backPlaneDistance*(this: IGESDrawPerspectiveView): cfloat {.noSideEffect,
     importcpp: "BackPlaneDistance", header: "IGESDraw_PerspectiveView.hxx".}
-proc frontPlaneDistance*(this: IGESDrawPerspectiveView): float {.noSideEffect,
+proc frontPlaneDistance*(this: IGESDrawPerspectiveView): cfloat {.noSideEffect,
     importcpp: "FrontPlaneDistance", header: "IGESDraw_PerspectiveView.hxx".}
 proc viewMatrix*(this: IGESDrawPerspectiveView): Handle[IGESDataTransfEntity] {.
     noSideEffect, importcpp: "ViewMatrix", header: "IGESDraw_PerspectiveView.hxx".}
@@ -101,3 +101,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESDraw_PerspectiveView.hxx".}
 proc dynamicType*(this: IGESDrawPerspectiveView): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDraw_PerspectiveView.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

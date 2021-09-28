@@ -30,8 +30,8 @@ proc release*(this: var OpenGlResource; theGlCtx: ptr OpenGlContext) {.
 proc estimatedDataSize*(this: OpenGlResource): StandardSize {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_Resource.hxx".}
 proc dumpJson*(this: OpenGlResource; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_Resource.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_Resource.hxx".}
 type
   OpenGlResourcebaseType* = StandardTransient
 
@@ -44,5 +44,30 @@ proc dynamicType*(this: OpenGlResource): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_Resource.hxx".}
 discard "forward decl of OpenGl_Resource"
 type
-  HandleOpenGlResource* = Handle[OpenGlResource]
+  HandleC1C1* = Handle[OpenGlResource]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

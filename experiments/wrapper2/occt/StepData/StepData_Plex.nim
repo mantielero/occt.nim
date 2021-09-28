@@ -23,7 +23,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepData_Plex"
 discard "forward decl of StepData_Plex"
 type
-  HandleStepDataPlex* = Handle[StepDataPlex]
+  HandleC1C1* = Handle[StepDataPlex]
 
 ## ! A Plex (for Complex) Entity is defined as a list of Simple
 ## ! Members ("external mapping")
@@ -70,9 +70,9 @@ proc field*(this: StepDataPlex; name: StandardCString): StepDataField {.noSideEf
     importcpp: "Field", header: "StepData_Plex.hxx".}
 proc cField*(this: var StepDataPlex; name: StandardCString): var StepDataField {.
     importcpp: "CField", header: "StepData_Plex.hxx".}
-proc nbMembers*(this: StepDataPlex): int {.noSideEffect, importcpp: "NbMembers",
-                                       header: "StepData_Plex.hxx".}
-proc member*(this: StepDataPlex; num: int): Handle[StepDataSimple] {.noSideEffect,
+proc nbMembers*(this: StepDataPlex): cint {.noSideEffect, importcpp: "NbMembers",
+                                        header: "StepData_Plex.hxx".}
+proc member*(this: StepDataPlex; num: cint): Handle[StepDataSimple] {.noSideEffect,
     importcpp: "Member", header: "StepData_Plex.hxx".}
 proc typeList*(this: StepDataPlex): Handle[TColStdHSequenceOfAsciiString] {.
     noSideEffect, importcpp: "TypeList", header: "StepData_Plex.hxx".}
@@ -90,3 +90,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_Plex.hxx".}
 proc dynamicType*(this: StepDataPlex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_Plex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

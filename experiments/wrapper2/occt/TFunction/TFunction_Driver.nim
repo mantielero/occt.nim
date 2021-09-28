@@ -19,7 +19,7 @@ discard "forward decl of TFunction_Logbook"
 discard "forward decl of TFunction_Driver"
 discard "forward decl of TFunction_Driver"
 type
-  HandleTFunctionDriver* = Handle[TFunctionDriver]
+  HandleC1C1* = Handle[TFunctionDriver]
 
 ## ! This  driver  class provide  services  around function
 ## ! execution.   One instance of  this class is  built for
@@ -49,7 +49,7 @@ proc validate*(this: TFunctionDriver; log: var Handle[TFunctionLogbook]) {.
     noSideEffect, importcpp: "Validate", header: "TFunction_Driver.hxx".}
 proc mustExecute*(this: TFunctionDriver; log: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "TFunction_Driver.hxx".}
-proc execute*(this: TFunctionDriver; log: var Handle[TFunctionLogbook]): int {.
+proc execute*(this: TFunctionDriver; log: var Handle[TFunctionLogbook]): cint {.
     noSideEffect, importcpp: "Execute", header: "TFunction_Driver.hxx".}
 proc arguments*(this: TFunctionDriver; args: var TDF_LabelList) {.noSideEffect,
     importcpp: "Arguments", header: "TFunction_Driver.hxx".}
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TFunction_Driver.hxx".}
 proc dynamicType*(this: TFunctionDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TFunction_Driver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

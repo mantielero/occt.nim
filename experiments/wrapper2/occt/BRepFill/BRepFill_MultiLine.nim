@@ -40,23 +40,48 @@ proc continuity*(this: BRepFillMultiLine): GeomAbsShape {.noSideEffect,
 proc curves*(this: BRepFillMultiLine; curve: var Handle[GeomCurve];
             pCurve1: var Handle[Geom2dCurve]; pCurve2: var Handle[Geom2dCurve]) {.
     noSideEffect, importcpp: "Curves", header: "BRepFill_MultiLine.hxx".}
-proc firstParameter*(this: BRepFillMultiLine): float {.noSideEffect,
+proc firstParameter*(this: BRepFillMultiLine): cfloat {.noSideEffect,
     importcpp: "FirstParameter", header: "BRepFill_MultiLine.hxx".}
-proc lastParameter*(this: BRepFillMultiLine): float {.noSideEffect,
+proc lastParameter*(this: BRepFillMultiLine): cfloat {.noSideEffect,
     importcpp: "LastParameter", header: "BRepFill_MultiLine.hxx".}
-proc value*(this: BRepFillMultiLine; u: float): Pnt {.noSideEffect, importcpp: "Value",
-    header: "BRepFill_MultiLine.hxx".}
-proc valueOnF1*(this: BRepFillMultiLine; u: float): Pnt2d {.noSideEffect,
+proc value*(this: BRepFillMultiLine; u: cfloat): Pnt {.noSideEffect,
+    importcpp: "Value", header: "BRepFill_MultiLine.hxx".}
+proc valueOnF1*(this: BRepFillMultiLine; u: cfloat): Pnt2d {.noSideEffect,
     importcpp: "ValueOnF1", header: "BRepFill_MultiLine.hxx".}
-proc valueOnF2*(this: BRepFillMultiLine; u: float): Pnt2d {.noSideEffect,
+proc valueOnF2*(this: BRepFillMultiLine; u: cfloat): Pnt2d {.noSideEffect,
     importcpp: "ValueOnF2", header: "BRepFill_MultiLine.hxx".}
-proc value3dOnF1OnF2*(this: BRepFillMultiLine; u: float; p3d: var Pnt; pf1: var Pnt2d;
+proc value3dOnF1OnF2*(this: BRepFillMultiLine; u: cfloat; p3d: var Pnt; pf1: var Pnt2d;
                      pf2: var Pnt2d) {.noSideEffect, importcpp: "Value3dOnF1OnF2",
                                     header: "BRepFill_MultiLine.hxx".}
-proc value*(this: BRepFillMultiLine; theU: float;
+proc value*(this: BRepFillMultiLine; theU: cfloat;
            thePnt2d: var NCollectionArray1[Pnt2d];
            thePnt: var NCollectionArray1[Pnt]): bool {.noSideEffect,
     importcpp: "Value", header: "BRepFill_MultiLine.hxx".}
-proc d1*(this: BRepFillMultiLine; theU: float;
+proc d1*(this: BRepFillMultiLine; theU: cfloat;
         theVec2d: var NCollectionArray1[Vec2d]; theVec: var NCollectionArray1[Vec]): bool {.
     noSideEffect, importcpp: "D1", header: "BRepFill_MultiLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,3 +28,28 @@ proc perform*(this: var LocOpeBuildShape; L: TopToolsListOfShape) {.
     importcpp: "Perform", header: "LocOpe_BuildShape.hxx".}
 proc shape*(this: LocOpeBuildShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "LocOpe_BuildShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,7 +24,7 @@ type
 proc constructVrmlOrthographicCamera*(): VrmlOrthographicCamera {.constructor,
     importcpp: "Vrml_OrthographicCamera(@)", header: "Vrml_OrthographicCamera.hxx".}
 proc constructVrmlOrthographicCamera*(aPosition: Vec; aOrientation: VrmlSFRotation;
-                                     aFocalDistance: float; aHeight: float): VrmlOrthographicCamera {.
+                                     aFocalDistance: cfloat; aHeight: cfloat): VrmlOrthographicCamera {.
     constructor, importcpp: "Vrml_OrthographicCamera(@)",
     header: "Vrml_OrthographicCamera.hxx".}
 proc setPosition*(this: var VrmlOrthographicCamera; aPosition: Vec) {.
@@ -35,13 +35,38 @@ proc setOrientation*(this: var VrmlOrthographicCamera; aOrientation: VrmlSFRotat
     importcpp: "SetOrientation", header: "Vrml_OrthographicCamera.hxx".}
 proc orientation*(this: VrmlOrthographicCamera): VrmlSFRotation {.noSideEffect,
     importcpp: "Orientation", header: "Vrml_OrthographicCamera.hxx".}
-proc setFocalDistance*(this: var VrmlOrthographicCamera; aFocalDistance: float) {.
+proc setFocalDistance*(this: var VrmlOrthographicCamera; aFocalDistance: cfloat) {.
     importcpp: "SetFocalDistance", header: "Vrml_OrthographicCamera.hxx".}
-proc focalDistance*(this: VrmlOrthographicCamera): float {.noSideEffect,
+proc focalDistance*(this: VrmlOrthographicCamera): cfloat {.noSideEffect,
     importcpp: "FocalDistance", header: "Vrml_OrthographicCamera.hxx".}
-proc setHeight*(this: var VrmlOrthographicCamera; aHeight: float) {.
+proc setHeight*(this: var VrmlOrthographicCamera; aHeight: cfloat) {.
     importcpp: "SetHeight", header: "Vrml_OrthographicCamera.hxx".}
-proc height*(this: VrmlOrthographicCamera): float {.noSideEffect,
+proc height*(this: VrmlOrthographicCamera): cfloat {.noSideEffect,
     importcpp: "Height", header: "Vrml_OrthographicCamera.hxx".}
 proc print*(this: VrmlOrthographicCamera; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_OrthographicCamera.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -55,3 +55,28 @@ include RWStepFEA_RWParametricSurface3dElementCoordinateSystem
 include RWStepFEA_RWSurface3dElementRepresentation
 include RWStepFEA_RWVolume3dElementRepresentation
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

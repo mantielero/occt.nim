@@ -29,33 +29,58 @@ proc constructAdvApp2VarFramework*(frame: AdvApp2VarSequenceOfNode;
                                   vFrontier: AdvApp2VarSequenceOfStrip): AdvApp2VarFramework {.
     constructor, importcpp: "AdvApp2Var_Framework(@)",
     header: "AdvApp2Var_Framework.hxx".}
-proc firstNotApprox*(this: AdvApp2VarFramework; indexIso: var int; indexStrip: var int): Handle[
-    AdvApp2VarIso] {.noSideEffect, importcpp: "FirstNotApprox",
-                    header: "AdvApp2Var_Framework.hxx".}
-proc firstNode*(this: AdvApp2VarFramework; `type`: GeomAbsIsoType; indexIso: int;
-               indexStrip: int): int {.noSideEffect, importcpp: "FirstNode",
-                                    header: "AdvApp2Var_Framework.hxx".}
-proc lastNode*(this: AdvApp2VarFramework; `type`: GeomAbsIsoType; indexIso: int;
-              indexStrip: int): int {.noSideEffect, importcpp: "LastNode",
-                                   header: "AdvApp2Var_Framework.hxx".}
-proc changeIso*(this: var AdvApp2VarFramework; indexIso: int; indexStrip: int;
+proc firstNotApprox*(this: AdvApp2VarFramework; indexIso: var cint;
+                    indexStrip: var cint): Handle[AdvApp2VarIso] {.noSideEffect,
+    importcpp: "FirstNotApprox", header: "AdvApp2Var_Framework.hxx".}
+proc firstNode*(this: AdvApp2VarFramework; `type`: GeomAbsIsoType; indexIso: cint;
+               indexStrip: cint): cint {.noSideEffect, importcpp: "FirstNode",
+                                      header: "AdvApp2Var_Framework.hxx".}
+proc lastNode*(this: AdvApp2VarFramework; `type`: GeomAbsIsoType; indexIso: cint;
+              indexStrip: cint): cint {.noSideEffect, importcpp: "LastNode",
+                                     header: "AdvApp2Var_Framework.hxx".}
+proc changeIso*(this: var AdvApp2VarFramework; indexIso: cint; indexStrip: cint;
                anIso: Handle[AdvApp2VarIso]) {.importcpp: "ChangeIso",
     header: "AdvApp2Var_Framework.hxx".}
-proc node*(this: AdvApp2VarFramework; indexNode: int): Handle[AdvApp2VarNode] {.
+proc node*(this: AdvApp2VarFramework; indexNode: cint): Handle[AdvApp2VarNode] {.
     noSideEffect, importcpp: "Node", header: "AdvApp2Var_Framework.hxx".}
-proc node*(this: AdvApp2VarFramework; u: float; v: float): Handle[AdvApp2VarNode] {.
+proc node*(this: AdvApp2VarFramework; u: cfloat; v: cfloat): Handle[AdvApp2VarNode] {.
     noSideEffect, importcpp: "Node", header: "AdvApp2Var_Framework.hxx".}
-proc isoU*(this: AdvApp2VarFramework; u: float; v0: float; v1: float): AdvApp2VarIso {.
+proc isoU*(this: AdvApp2VarFramework; u: cfloat; v0: cfloat; v1: cfloat): AdvApp2VarIso {.
     noSideEffect, importcpp: "IsoU", header: "AdvApp2Var_Framework.hxx".}
-proc isoV*(this: AdvApp2VarFramework; u0: float; u1: float; v: float): AdvApp2VarIso {.
+proc isoV*(this: AdvApp2VarFramework; u0: cfloat; u1: cfloat; v: cfloat): AdvApp2VarIso {.
     noSideEffect, importcpp: "IsoV", header: "AdvApp2Var_Framework.hxx".}
-proc updateInU*(this: var AdvApp2VarFramework; cuttingValue: float) {.
+proc updateInU*(this: var AdvApp2VarFramework; cuttingValue: cfloat) {.
     importcpp: "UpdateInU", header: "AdvApp2Var_Framework.hxx".}
-proc updateInV*(this: var AdvApp2VarFramework; cuttingValue: float) {.
+proc updateInV*(this: var AdvApp2VarFramework; cuttingValue: cfloat) {.
     importcpp: "UpdateInV", header: "AdvApp2Var_Framework.hxx".}
-proc uEquation*(this: AdvApp2VarFramework; indexIso: int; indexStrip: int): Handle[
+proc uEquation*(this: AdvApp2VarFramework; indexIso: cint; indexStrip: cint): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "UEquation",
                            header: "AdvApp2Var_Framework.hxx".}
-proc vEquation*(this: AdvApp2VarFramework; indexIso: int; indexStrip: int): Handle[
+proc vEquation*(this: AdvApp2VarFramework; indexIso: cint; indexStrip: cint): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "VEquation",
                            header: "AdvApp2Var_Framework.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

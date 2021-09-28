@@ -26,10 +26,35 @@ proc constructRWStepDimTolRWToleranceZoneForm*(): RWStepDimTolRWToleranceZoneFor
     constructor, importcpp: "RWStepDimTol_RWToleranceZoneForm(@)",
     header: "RWStepDimTol_RWToleranceZoneForm.hxx".}
 proc readStep*(this: RWStepDimTolRWToleranceZoneForm;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolToleranceZoneForm]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWToleranceZoneForm.hxx".}
 proc writeStep*(this: RWStepDimTolRWToleranceZoneForm; sw: var StepDataStepWriter;
                ent: Handle[StepDimTolToleranceZoneForm]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWToleranceZoneForm.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

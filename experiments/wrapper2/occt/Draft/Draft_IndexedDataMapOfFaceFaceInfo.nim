@@ -18,3 +18,28 @@ type
   DraftIndexedDataMapOfFaceFaceInfo* = NCollectionIndexedDataMap[TopoDS_Face,
       DraftFaceInfo, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

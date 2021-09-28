@@ -43,12 +43,12 @@ proc constructTopOpeBRepDS_PointIterator*(L: TopOpeBRepDS_ListOfInterference): T
 proc matchInterference*(this: TopOpeBRepDS_PointIterator;
                        i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
     importcpp: "MatchInterference", header: "TopOpeBRepDS_PointIterator.hxx".}
-proc current*(this: TopOpeBRepDS_PointIterator): int {.noSideEffect,
+proc current*(this: TopOpeBRepDS_PointIterator): cint {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc orientation*(this: TopOpeBRepDS_PointIterator; s: TopAbsState): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation",
     header: "TopOpeBRepDS_PointIterator.hxx".}
-proc parameter*(this: TopOpeBRepDS_PointIterator): float {.noSideEffect,
+proc parameter*(this: TopOpeBRepDS_PointIterator): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc isVertex*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect,
     importcpp: "IsVertex", header: "TopOpeBRepDS_PointIterator.hxx".}
@@ -58,5 +58,30 @@ proc diffOriented*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect,
     importcpp: "DiffOriented", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc sameOriented*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect,
     importcpp: "SameOriented", header: "TopOpeBRepDS_PointIterator.hxx".}
-proc support*(this: TopOpeBRepDS_PointIterator): int {.noSideEffect,
+proc support*(this: TopOpeBRepDS_PointIterator): cint {.noSideEffect,
     importcpp: "Support", header: "TopOpeBRepDS_PointIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

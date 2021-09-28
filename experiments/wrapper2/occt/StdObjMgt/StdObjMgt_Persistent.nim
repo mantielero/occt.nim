@@ -59,11 +59,36 @@ proc extString*(this: StdObjMgtPersistent): Handle[TCollectionHExtendedString] {
     noSideEffect, importcpp: "ExtString", header: "StdObjMgt_Persistent.hxx".}
 proc label*(this: StdObjMgtPersistent; theDF: Handle[TDF_Data]): TDF_Label {.
     noSideEffect, importcpp: "Label", header: "StdObjMgt_Persistent.hxx".}
-proc typeNum*(this: StdObjMgtPersistent): int {.noSideEffect, importcpp: "TypeNum",
+proc typeNum*(this: StdObjMgtPersistent): cint {.noSideEffect, importcpp: "TypeNum",
     header: "StdObjMgt_Persistent.hxx".}
-proc typeNum*(this: var StdObjMgtPersistent; theTypeNum: int) {.importcpp: "TypeNum",
+proc typeNum*(this: var StdObjMgtPersistent; theTypeNum: cint) {.importcpp: "TypeNum",
     header: "StdObjMgt_Persistent.hxx".}
-proc refNum*(this: StdObjMgtPersistent): int {.noSideEffect, importcpp: "RefNum",
+proc refNum*(this: StdObjMgtPersistent): cint {.noSideEffect, importcpp: "RefNum",
     header: "StdObjMgt_Persistent.hxx".}
-proc refNum*(this: var StdObjMgtPersistent; theRefNum: int) {.importcpp: "RefNum",
+proc refNum*(this: var StdObjMgtPersistent; theRefNum: cint) {.importcpp: "RefNum",
     header: "StdObjMgt_Persistent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -76,8 +76,8 @@ proc ok*(theStat: VrmlDataErrorStatus): bool {.importcpp: "VrmlData_Node::OK(@)"
     header: "VrmlData_Node.hxx".}
 proc ok*(outStat: var VrmlDataErrorStatus; theStat: VrmlDataErrorStatus): bool {.
     importcpp: "VrmlData_Node::OK(@)", header: "VrmlData_Node.hxx".}
-proc globalIndent*(): int {.importcpp: "VrmlData_Node::GlobalIndent(@)",
-                         header: "VrmlData_Node.hxx".}
+proc globalIndent*(): cint {.importcpp: "VrmlData_Node::GlobalIndent(@)",
+                          header: "VrmlData_Node.hxx".}
 type
   VrmlDataNodebaseType* = StandardTransient
 
@@ -92,14 +92,39 @@ proc dynamicType*(this: VrmlDataNode): Handle[StandardType] {.noSideEffect,
 
 discard "forward decl of VrmlData_Node"
 type
-  HandleVrmlDataNode* = Handle[VrmlDataNode]
+  HandleC1C1* = Handle[VrmlDataNode]
 
 ## ! Computes a hash code for the given VRML node, in the range [1, theUpperBound]
 ## ! @param theNode the VRML node which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theNode: Handle[VrmlDataNode]; theUpperBound: int): int {.
+proc hashCode*(theNode: Handle[VrmlDataNode]; theUpperBound: cint): cint {.
     importcpp: "HashCode(@)", header: "VrmlData_Node.hxx".}
 proc isEqual*(theOne: Handle[VrmlDataNode]; theTwo: Handle[VrmlDataNode]): bool {.
     importcpp: "IsEqual(@)", header: "VrmlData_Node.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

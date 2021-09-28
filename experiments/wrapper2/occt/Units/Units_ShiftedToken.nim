@@ -19,7 +19,7 @@ discard "forward decl of Units_Token"
 discard "forward decl of Units_ShiftedToken"
 discard "forward decl of Units_ShiftedToken"
 type
-  HandleUnitsShiftedToken* = Handle[UnitsShiftedToken]
+  HandleC1C1* = Handle[UnitsShiftedToken]
 
 ## ! The  ShiftedToken class  inherits   from Token and
 ## ! describes tokens which have  a gap in  addition of
@@ -96,19 +96,19 @@ type
 
 
 proc constructUnitsShiftedToken*(aword: StandardCString; amean: StandardCString;
-                                avalue: float; amove: float;
+                                avalue: cfloat; amove: cfloat;
                                 adimensions: Handle[UnitsDimensions]): UnitsShiftedToken {.
     constructor, importcpp: "Units_ShiftedToken(@)",
     header: "Units_ShiftedToken.hxx".}
 proc creates*(this: UnitsShiftedToken): Handle[UnitsToken] {.noSideEffect,
     importcpp: "Creates", header: "Units_ShiftedToken.hxx".}
-proc move*(this: UnitsShiftedToken): float {.noSideEffect, importcpp: "Move",
+proc move*(this: UnitsShiftedToken): cfloat {.noSideEffect, importcpp: "Move",
     header: "Units_ShiftedToken.hxx".}
-proc multiplied*(this: UnitsShiftedToken; avalue: float): float {.noSideEffect,
+proc multiplied*(this: UnitsShiftedToken; avalue: cfloat): cfloat {.noSideEffect,
     importcpp: "Multiplied", header: "Units_ShiftedToken.hxx".}
-proc divided*(this: UnitsShiftedToken; avalue: float): float {.noSideEffect,
+proc divided*(this: UnitsShiftedToken; avalue: cfloat): cfloat {.noSideEffect,
     importcpp: "Divided", header: "Units_ShiftedToken.hxx".}
-proc dump*(this: UnitsShiftedToken; ashift: int; alevel: int) {.noSideEffect,
+proc dump*(this: UnitsShiftedToken; ashift: cint; alevel: cint) {.noSideEffect,
     importcpp: "Dump", header: "Units_ShiftedToken.hxx".}
 type
   UnitsShiftedTokenbaseType* = UnitsToken
@@ -120,3 +120,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Units_ShiftedToken.hxx".}
 proc dynamicType*(this: UnitsShiftedToken): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_ShiftedToken.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

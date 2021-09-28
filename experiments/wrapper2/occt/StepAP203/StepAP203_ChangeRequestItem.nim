@@ -27,9 +27,34 @@ type
 proc constructStepAP203ChangeRequestItem*(): StepAP203ChangeRequestItem {.
     constructor, importcpp: "StepAP203_ChangeRequestItem(@)",
     header: "StepAP203_ChangeRequestItem.hxx".}
-proc caseNum*(this: StepAP203ChangeRequestItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP203ChangeRequestItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_ChangeRequestItem.hxx".}
 proc productDefinitionFormation*(this: StepAP203ChangeRequestItem): Handle[
     StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepAP203_ChangeRequestItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

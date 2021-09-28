@@ -17,3 +17,28 @@ discard "forward decl of Graphic3d_Structure"
 type
   Graphic3dMapOfStructure* = NCollectionMap[Handle[Graphic3dStructure]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

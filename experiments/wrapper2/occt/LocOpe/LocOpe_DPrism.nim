@@ -24,10 +24,10 @@ type
   LocOpeDPrism* {.importcpp: "LocOpe_DPrism", header: "LocOpe_DPrism.hxx", bycopy.} = object
 
 
-proc constructLocOpeDPrism*(spine: TopoDS_Face; height1: float; height2: float;
-                           angle: float): LocOpeDPrism {.constructor,
+proc constructLocOpeDPrism*(spine: TopoDS_Face; height1: cfloat; height2: cfloat;
+                           angle: cfloat): LocOpeDPrism {.constructor,
     importcpp: "LocOpe_DPrism(@)", header: "LocOpe_DPrism.hxx".}
-proc constructLocOpeDPrism*(spine: TopoDS_Face; height: float; angle: float): LocOpeDPrism {.
+proc constructLocOpeDPrism*(spine: TopoDS_Face; height: cfloat; angle: cfloat): LocOpeDPrism {.
     constructor, importcpp: "LocOpe_DPrism(@)", header: "LocOpe_DPrism.hxx".}
 proc isDone*(this: LocOpeDPrism): bool {.noSideEffect, importcpp: "IsDone",
                                      header: "LocOpe_DPrism.hxx".}
@@ -47,3 +47,28 @@ proc curves*(this: LocOpeDPrism; sCurves: var TColGeomSequenceOfCurve) {.noSideE
     importcpp: "Curves", header: "LocOpe_DPrism.hxx".}
 proc barycCurve*(this: LocOpeDPrism): Handle[GeomCurve] {.noSideEffect,
     importcpp: "BarycCurve", header: "LocOpe_DPrism.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

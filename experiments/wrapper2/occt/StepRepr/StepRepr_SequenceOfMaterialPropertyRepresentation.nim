@@ -18,3 +18,28 @@ type
   StepReprSequenceOfMaterialPropertyRepresentation* = NCollectionSequence[
       Handle[StepReprMaterialPropertyRepresentation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

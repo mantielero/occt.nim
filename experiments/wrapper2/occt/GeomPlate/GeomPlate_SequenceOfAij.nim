@@ -16,4 +16,3 @@
 
 type
   GeomPlateSequenceOfAij* = NCollectionSequence[GeomPlateAij]
-

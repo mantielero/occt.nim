@@ -15,3 +15,28 @@ type
   StepFEA_Array1OfCurveElementEndRelease* = NCollectionArray1[
       Handle[StepFEA_CurveElementEndRelease]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

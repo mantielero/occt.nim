@@ -25,7 +25,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_SystemRelation"
 discard "forward decl of Expr_SystemRelation"
 type
-  HandleExprSystemRelation* = Handle[ExprSystemRelation]
+  HandleC1C1* = Handle[ExprSystemRelation]
   ExprSystemRelation* {.importcpp: "Expr_SystemRelation",
                        header: "Expr_SystemRelation.hxx", bycopy.} = object of ExprGeneralRelation ##
                                                                                             ## !
@@ -46,11 +46,11 @@ proc remove*(this: var ExprSystemRelation; relation: Handle[ExprGeneralRelation]
     importcpp: "Remove", header: "Expr_SystemRelation.hxx".}
 proc isLinear*(this: ExprSystemRelation): bool {.noSideEffect, importcpp: "IsLinear",
     header: "Expr_SystemRelation.hxx".}
-proc nbOfSubRelations*(this: ExprSystemRelation): int {.noSideEffect,
+proc nbOfSubRelations*(this: ExprSystemRelation): cint {.noSideEffect,
     importcpp: "NbOfSubRelations", header: "Expr_SystemRelation.hxx".}
-proc nbOfSingleRelations*(this: ExprSystemRelation): int {.noSideEffect,
+proc nbOfSingleRelations*(this: ExprSystemRelation): cint {.noSideEffect,
     importcpp: "NbOfSingleRelations", header: "Expr_SystemRelation.hxx".}
-proc subRelation*(this: ExprSystemRelation; index: int): Handle[ExprGeneralRelation] {.
+proc subRelation*(this: ExprSystemRelation; index: cint): Handle[ExprGeneralRelation] {.
     noSideEffect, importcpp: "SubRelation", header: "Expr_SystemRelation.hxx".}
 proc isSatisfied*(this: ExprSystemRelation): bool {.noSideEffect,
     importcpp: "IsSatisfied", header: "Expr_SystemRelation.hxx".}
@@ -77,3 +77,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Expr_SystemRelation.hxx".}
 proc dynamicType*(this: ExprSystemRelation): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_SystemRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   StepAP214Array1OfAutoDesignPresentedItemSelect* = NCollectionArray1[
       StepAP214AutoDesignPresentedItemSelect]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

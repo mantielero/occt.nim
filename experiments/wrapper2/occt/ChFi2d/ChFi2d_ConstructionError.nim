@@ -33,3 +33,28 @@ type
     ChFi2dLastEdgeDegenerated, ChFi2dBothEdgesDegenerated, ChFi2dNotAuthorized
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

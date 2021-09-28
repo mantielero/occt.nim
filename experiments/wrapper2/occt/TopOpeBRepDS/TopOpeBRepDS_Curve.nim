@@ -25,14 +25,14 @@ type
 
 proc constructTopOpeBRepDS_Curve*(): TopOpeBRepDS_Curve {.constructor,
     importcpp: "TopOpeBRepDS_Curve(@)", header: "TopOpeBRepDS_Curve.hxx".}
-proc constructTopOpeBRepDS_Curve*(p: Handle[GeomCurve]; t: float;
+proc constructTopOpeBRepDS_Curve*(p: Handle[GeomCurve]; t: cfloat;
                                  isWalk: bool = false): TopOpeBRepDS_Curve {.
     constructor, importcpp: "TopOpeBRepDS_Curve(@)",
     header: "TopOpeBRepDS_Curve.hxx".}
-proc defineCurve*(this: var TopOpeBRepDS_Curve; p: Handle[GeomCurve]; t: float;
+proc defineCurve*(this: var TopOpeBRepDS_Curve; p: Handle[GeomCurve]; t: cfloat;
                  isWalk: bool) {.importcpp: "DefineCurve",
                                header: "TopOpeBRepDS_Curve.hxx".}
-proc tolerance*(this: var TopOpeBRepDS_Curve; tol: float) {.importcpp: "Tolerance",
+proc tolerance*(this: var TopOpeBRepDS_Curve; tol: cfloat) {.importcpp: "Tolerance",
     header: "TopOpeBRepDS_Curve.hxx".}
 proc setSCI*(this: var TopOpeBRepDS_Curve; i1: Handle[TopOpeBRepDS_Interference];
             i2: Handle[TopOpeBRepDS_Interference]) {.importcpp: "SetSCI",
@@ -58,15 +58,15 @@ proc changeShape2*(this: var TopOpeBRepDS_Curve): var TopoDS_Shape {.
     importcpp: "ChangeShape2", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve*(this: TopOpeBRepDS_Curve): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "TopOpeBRepDS_Curve.hxx".}
-proc setRange*(this: var TopOpeBRepDS_Curve; first: float; last: float) {.
+proc setRange*(this: var TopOpeBRepDS_Curve; first: cfloat; last: cfloat) {.
     importcpp: "SetRange", header: "TopOpeBRepDS_Curve.hxx".}
-proc range*(this: TopOpeBRepDS_Curve; first: var float; last: var float): bool {.
+proc range*(this: TopOpeBRepDS_Curve; first: var cfloat; last: var cfloat): bool {.
     noSideEffect, importcpp: "Range", header: "TopOpeBRepDS_Curve.hxx".}
-proc tolerance*(this: TopOpeBRepDS_Curve): float {.noSideEffect,
+proc tolerance*(this: TopOpeBRepDS_Curve): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "TopOpeBRepDS_Curve.hxx".}
 proc changeCurve*(this: var TopOpeBRepDS_Curve): var Handle[GeomCurve] {.
     importcpp: "ChangeCurve", header: "TopOpeBRepDS_Curve.hxx".}
-proc curve*(this: var TopOpeBRepDS_Curve; c3d: Handle[GeomCurve]; tol: float) {.
+proc curve*(this: var TopOpeBRepDS_Curve; c3d: Handle[GeomCurve]; tol: cfloat) {.
     importcpp: "Curve", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve1*(this: TopOpeBRepDS_Curve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "Curve1", header: "TopOpeBRepDS_Curve.hxx".}
@@ -84,11 +84,36 @@ proc keep*(this: TopOpeBRepDS_Curve): bool {.noSideEffect, importcpp: "Keep",
     header: "TopOpeBRepDS_Curve.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_Curve; b: bool) {.importcpp: "ChangeKeep",
     header: "TopOpeBRepDS_Curve.hxx".}
-proc mother*(this: TopOpeBRepDS_Curve): int {.noSideEffect, importcpp: "Mother",
+proc mother*(this: TopOpeBRepDS_Curve): cint {.noSideEffect, importcpp: "Mother",
     header: "TopOpeBRepDS_Curve.hxx".}
-proc changeMother*(this: var TopOpeBRepDS_Curve; i: int) {.importcpp: "ChangeMother",
+proc changeMother*(this: var TopOpeBRepDS_Curve; i: cint) {.importcpp: "ChangeMother",
     header: "TopOpeBRepDS_Curve.hxx".}
-proc dSIndex*(this: TopOpeBRepDS_Curve): int {.noSideEffect, importcpp: "DSIndex",
+proc dSIndex*(this: TopOpeBRepDS_Curve): cint {.noSideEffect, importcpp: "DSIndex",
     header: "TopOpeBRepDS_Curve.hxx".}
-proc changeDSIndex*(this: var TopOpeBRepDS_Curve; i: int) {.
+proc changeDSIndex*(this: var TopOpeBRepDS_Curve; i: cint) {.
     importcpp: "ChangeDSIndex", header: "TopOpeBRepDS_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

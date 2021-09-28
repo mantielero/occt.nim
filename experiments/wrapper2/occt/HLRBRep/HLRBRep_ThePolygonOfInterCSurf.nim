@@ -64,6 +64,54 @@ proc approxParamOnCurve*(this: HLRBRepThePolygonOfInterCSurf; index: int;
     importcpp: "ApproxParamOnCurve", header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
 proc dump*(this: HLRBRepThePolygonOfInterCSurf) {.noSideEffect, importcpp: "Dump",
     header: "HLRBRep_ThePolygonOfInterCSurf.hxx".}
+## !!!Ignored construct:  myParams ;
+## Error: identifier expected, but got: ;!!!
+
 ## !!!Ignored construct:  # TheCurve gp_Lin [NewLine] # TheCurve_hxx < gp_Lin . hxx > [NewLine] # TheCurveTool HLRBRep_LineTool [NewLine] # TheCurveTool_hxx < HLRBRep_LineTool . hxx > [NewLine] # IntCurveSurface_Polygon HLRBRep_ThePolygonOfInterCSurf [NewLine] # IntCurveSurface_Polygon_hxx < HLRBRep_ThePolygonOfInterCSurf . hxx > [NewLine] # < IntCurveSurface_Polygon . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurveSurface_Polygon [NewLine] # IntCurveSurface_Polygon_hxx [NewLine] #  _HLRBRep_ThePolygonOfInterCSurf_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

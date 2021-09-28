@@ -18,7 +18,7 @@ discard "forward decl of HLRAlgo_Projector"
 discard "forward decl of VrmlConverter_Projector"
 discard "forward decl of VrmlConverter_Projector"
 type
-  HandleVrmlConverterProjector* = Handle[VrmlConverterProjector]
+  HandleC1C1* = Handle[VrmlConverterProjector]
 
 ## ! defines projector  and calculates properties of cameras and lights from Vrml
 ## ! ( OrthograpicCamera, PerspectiveCamera, DirectionalLight, PointLight, SpotLight
@@ -31,9 +31,9 @@ type
                            header: "VrmlConverter_Projector.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructVrmlConverterProjector*(shapes: TopToolsArray1OfShape; focus: float;
-                                     dx: float; dy: float; dz: float; xUp: float;
-                                     yUp: float; zUp: float; camera: VrmlConverterTypeOfCamera = vrmlConverterNoCamera;
+proc constructVrmlConverterProjector*(shapes: TopToolsArray1OfShape; focus: cfloat;
+                                     dx: cfloat; dy: cfloat; dz: cfloat; xUp: cfloat;
+                                     yUp: cfloat; zUp: cfloat; camera: VrmlConverterTypeOfCamera = vrmlConverterNoCamera;
     light: VrmlConverterTypeOfLight = vrmlConverterNoLight): VrmlConverterProjector {.
     constructor, importcpp: "VrmlConverter_Projector(@)",
     header: "VrmlConverter_Projector.hxx".}
@@ -59,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "VrmlConverter_Projector.hxx".}
 proc dynamicType*(this: VrmlConverterProjector): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "VrmlConverter_Projector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

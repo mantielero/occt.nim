@@ -43,19 +43,44 @@ type
                                                                                                   ## X
 
 
-proc constructFairCurveEnergyOfBatten*(bSplOrder: int;
+proc constructFairCurveEnergyOfBatten*(bSplOrder: cint;
                                       flatKnots: Handle[TColStdHArray1OfReal];
                                       poles: Handle[TColgpHArray1OfPnt2d];
-                                      contrOrder1: int; contrOrder2: int;
+                                      contrOrder1: cint; contrOrder2: cint;
                                       law: FairCurveBattenLaw;
-                                      lengthSliding: float;
-                                      freeSliding: bool = true; angle1: float = 0;
-                                      angle2: float = 0): FairCurveEnergyOfBatten {.
+                                      lengthSliding: cfloat;
+                                      freeSliding: bool = true; angle1: cfloat = 0;
+                                      angle2: cfloat = 0): FairCurveEnergyOfBatten {.
     constructor, importcpp: "FairCurve_EnergyOfBatten(@)",
     header: "FairCurve_EnergyOfBatten.hxx".}
-proc lengthSliding*(this: FairCurveEnergyOfBatten): float {.noSideEffect,
+proc lengthSliding*(this: FairCurveEnergyOfBatten): cfloat {.noSideEffect,
     importcpp: "LengthSliding", header: "FairCurve_EnergyOfBatten.hxx".}
 proc status*(this: FairCurveEnergyOfBatten): FairCurveAnalysisCode {.noSideEffect,
     importcpp: "Status", header: "FairCurve_EnergyOfBatten.hxx".}
 proc variable*(this: FairCurveEnergyOfBatten; x: var MathVector): bool {.noSideEffect,
     importcpp: "Variable", header: "FairCurve_EnergyOfBatten.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

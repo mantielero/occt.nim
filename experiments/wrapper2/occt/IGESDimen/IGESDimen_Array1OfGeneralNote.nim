@@ -17,3 +17,28 @@
 type
   IGESDimenArray1OfGeneralNote* = NCollectionArray1[Handle[IGESDimenGeneralNote]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

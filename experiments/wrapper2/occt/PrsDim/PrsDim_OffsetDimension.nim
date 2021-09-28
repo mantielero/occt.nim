@@ -16,7 +16,7 @@
 
 discard "forward decl of PrsDim_OffsetDimension"
 type
-  HandlePrsDimOffsetDimension* = Handle[PrsDimOffsetDimension]
+  HandleC1C1* = Handle[PrsDimOffsetDimension]
 
 ## ! A framework to display dimensions of offsets.
 ## ! The relation between the offset and the basis shape
@@ -65,7 +65,7 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: PrsDimOffsetDimension): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "PrsDim_OffsetDimension.hxx".}
 proc constructPrsDimOffsetDimension*(fistShape: TopoDS_Shape;
-                                    secondShape: TopoDS_Shape; aVal: float;
+                                    secondShape: TopoDS_Shape; aVal: cfloat;
                                     aText: TCollectionExtendedString): PrsDimOffsetDimension {.
     constructor, importcpp: "PrsDim_OffsetDimension(@)",
     header: "PrsDim_OffsetDimension.hxx".}
@@ -76,3 +76,28 @@ proc isMovable*(this: PrsDimOffsetDimension): bool {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_OffsetDimension.hxx".}
 proc setRelativePos*(this: var PrsDimOffsetDimension; aTrsf: Trsf) {.
     importcpp: "SetRelativePos", header: "PrsDim_OffsetDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

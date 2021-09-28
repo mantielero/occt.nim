@@ -18,3 +18,28 @@ type
   TopOpeBRepToolIndexedDataMapOfShapeconnexity* = NCollectionIndexedDataMap[
       TopoDS_Shape, TopOpeBRepToolConnexity, TopToolsShapeMapHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

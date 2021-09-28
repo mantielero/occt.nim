@@ -18,3 +18,28 @@ type
   DBRepListOfHideData* = NCollectionList[DBRepHideData]
   DBRepListIteratorOfListOfHideData* = Iterator[DBRepHideData]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

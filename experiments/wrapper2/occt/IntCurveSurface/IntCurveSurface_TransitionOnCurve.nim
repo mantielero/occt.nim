@@ -37,3 +37,28 @@ type
     IntCurveSurfaceTangent, IntCurveSurfaceIn, IntCurveSurfaceOut
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,8 +14,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  XSDRAWSTLVRML_CoordsMap* = NCollectionDataMap[int, TColStdDataMapOfIntegerReal,
+  XSDRAWSTLVRML_CoordsMap* = NCollectionDataMap[cint, TColStdDataMapOfIntegerReal,
       TColStdMapIntegerHasher]
-  XSDRAWSTLVRML_DataMapIteratorOfCoordsMap* = Iterator[int,
+  XSDRAWSTLVRML_DataMapIteratorOfCoordsMap* = Iterator[cint,
       TColStdDataMapOfIntegerReal, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

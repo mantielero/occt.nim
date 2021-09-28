@@ -68,3 +68,28 @@ proc modelForStatus*(this: TransferTransferOutput;
                     roots: bool = true): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "ModelForStatus",
     header: "Transfer_TransferOutput.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

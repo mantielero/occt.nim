@@ -25,7 +25,7 @@ discard "forward decl of ShapeAnalysis_WireOrder"
 discard "forward decl of ShapeFix_Wire"
 discard "forward decl of ShapeFix_Wire"
 type
-  HandleShapeFixWire* = Handle[ShapeFixWire]
+  HandleC1C1* = Handle[ShapeFixWire]
 
 ## ! This class provides a set of tools for repairing a wire.
 ## !
@@ -224,13 +224,13 @@ type
 
 proc constructShapeFixWire*(): ShapeFixWire {.constructor,
     importcpp: "ShapeFix_Wire(@)", header: "ShapeFix_Wire.hxx".}
-proc constructShapeFixWire*(wire: TopoDS_Wire; face: TopoDS_Face; prec: float): ShapeFixWire {.
+proc constructShapeFixWire*(wire: TopoDS_Wire; face: TopoDS_Face; prec: cfloat): ShapeFixWire {.
     constructor, importcpp: "ShapeFix_Wire(@)", header: "ShapeFix_Wire.hxx".}
 proc clearModes*(this: var ShapeFixWire) {.importcpp: "ClearModes",
                                        header: "ShapeFix_Wire.hxx".}
 proc clearStatuses*(this: var ShapeFixWire) {.importcpp: "ClearStatuses",
     header: "ShapeFix_Wire.hxx".}
-proc init*(this: var ShapeFixWire; wire: TopoDS_Wire; face: TopoDS_Face; prec: float) {.
+proc init*(this: var ShapeFixWire; wire: TopoDS_Wire; face: TopoDS_Face; prec: cfloat) {.
     importcpp: "Init", header: "ShapeFix_Wire.hxx".}
 proc init*(this: var ShapeFixWire; saw: Handle[ShapeAnalysisWire]) {.
     importcpp: "Init", header: "ShapeFix_Wire.hxx".}
@@ -245,18 +245,18 @@ proc setSurface*(this: var ShapeFixWire; surf: Handle[GeomSurface]) {.
 proc setSurface*(this: var ShapeFixWire; surf: Handle[GeomSurface];
                 loc: TopLocLocation) {.importcpp: "SetSurface",
                                      header: "ShapeFix_Wire.hxx".}
-proc setPrecision*(this: var ShapeFixWire; prec: float) {.importcpp: "SetPrecision",
+proc setPrecision*(this: var ShapeFixWire; prec: cfloat) {.importcpp: "SetPrecision",
     header: "ShapeFix_Wire.hxx".}
-proc setMaxTailAngle*(this: var ShapeFixWire; theMaxTailAngle: float) {.
+proc setMaxTailAngle*(this: var ShapeFixWire; theMaxTailAngle: cfloat) {.
     importcpp: "SetMaxTailAngle", header: "ShapeFix_Wire.hxx".}
-proc setMaxTailWidth*(this: var ShapeFixWire; theMaxTailWidth: float) {.
+proc setMaxTailWidth*(this: var ShapeFixWire; theMaxTailWidth: cfloat) {.
     importcpp: "SetMaxTailWidth", header: "ShapeFix_Wire.hxx".}
 proc isLoaded*(this: ShapeFixWire): bool {.noSideEffect, importcpp: "IsLoaded",
                                        header: "ShapeFix_Wire.hxx".}
 proc isReady*(this: ShapeFixWire): bool {.noSideEffect, importcpp: "IsReady",
                                       header: "ShapeFix_Wire.hxx".}
-proc nbEdges*(this: ShapeFixWire): int {.noSideEffect, importcpp: "NbEdges",
-                                     header: "ShapeFix_Wire.hxx".}
+proc nbEdges*(this: ShapeFixWire): cint {.noSideEffect, importcpp: "NbEdges",
+                                      header: "ShapeFix_Wire.hxx".}
 proc wire*(this: ShapeFixWire): TopoDS_Wire {.noSideEffect, importcpp: "Wire",
     header: "ShapeFix_Wire.hxx".}
 proc wireAPIMake*(this: ShapeFixWire): TopoDS_Wire {.noSideEffect,
@@ -271,7 +271,7 @@ proc modifyTopologyMode*(this: var ShapeFixWire): var bool {.
     importcpp: "ModifyTopologyMode", header: "ShapeFix_Wire.hxx".}
 proc modifyGeometryMode*(this: var ShapeFixWire): var bool {.
     importcpp: "ModifyGeometryMode", header: "ShapeFix_Wire.hxx".}
-proc modifyRemoveLoopMode*(this: var ShapeFixWire): var int {.
+proc modifyRemoveLoopMode*(this: var ShapeFixWire): var cint {.
     importcpp: "ModifyRemoveLoopMode", header: "ShapeFix_Wire.hxx".}
 proc closedWireMode*(this: var ShapeFixWire): var bool {.importcpp: "ClosedWireMode",
     header: "ShapeFix_Wire.hxx".}
@@ -279,59 +279,59 @@ proc preferencePCurveMode*(this: var ShapeFixWire): var bool {.
     importcpp: "PreferencePCurveMode", header: "ShapeFix_Wire.hxx".}
 proc fixGapsByRangesMode*(this: var ShapeFixWire): var bool {.
     importcpp: "FixGapsByRangesMode", header: "ShapeFix_Wire.hxx".}
-proc fixReorderMode*(this: var ShapeFixWire): var int {.importcpp: "FixReorderMode",
+proc fixReorderMode*(this: var ShapeFixWire): var cint {.importcpp: "FixReorderMode",
     header: "ShapeFix_Wire.hxx".}
-proc fixSmallMode*(this: var ShapeFixWire): var int {.importcpp: "FixSmallMode",
+proc fixSmallMode*(this: var ShapeFixWire): var cint {.importcpp: "FixSmallMode",
     header: "ShapeFix_Wire.hxx".}
-proc fixConnectedMode*(this: var ShapeFixWire): var int {.
+proc fixConnectedMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixConnectedMode", header: "ShapeFix_Wire.hxx".}
-proc fixEdgeCurvesMode*(this: var ShapeFixWire): var int {.
+proc fixEdgeCurvesMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixEdgeCurvesMode", header: "ShapeFix_Wire.hxx".}
-proc fixDegeneratedMode*(this: var ShapeFixWire): var int {.
+proc fixDegeneratedMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixDegeneratedMode", header: "ShapeFix_Wire.hxx".}
-proc fixSelfIntersectionMode*(this: var ShapeFixWire): var int {.
+proc fixSelfIntersectionMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixSelfIntersectionMode", header: "ShapeFix_Wire.hxx".}
-proc fixLackingMode*(this: var ShapeFixWire): var int {.importcpp: "FixLackingMode",
+proc fixLackingMode*(this: var ShapeFixWire): var cint {.importcpp: "FixLackingMode",
     header: "ShapeFix_Wire.hxx".}
-proc fixGaps3dMode*(this: var ShapeFixWire): var int {.importcpp: "FixGaps3dMode",
+proc fixGaps3dMode*(this: var ShapeFixWire): var cint {.importcpp: "FixGaps3dMode",
     header: "ShapeFix_Wire.hxx".}
-proc fixGaps2dMode*(this: var ShapeFixWire): var int {.importcpp: "FixGaps2dMode",
+proc fixGaps2dMode*(this: var ShapeFixWire): var cint {.importcpp: "FixGaps2dMode",
     header: "ShapeFix_Wire.hxx".}
-proc fixReversed2dMode*(this: var ShapeFixWire): var int {.
+proc fixReversed2dMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixReversed2dMode", header: "ShapeFix_Wire.hxx".}
-proc fixRemovePCurveMode*(this: var ShapeFixWire): var int {.
+proc fixRemovePCurveMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixRemovePCurveMode", header: "ShapeFix_Wire.hxx".}
-proc fixAddPCurveMode*(this: var ShapeFixWire): var int {.
+proc fixAddPCurveMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixAddPCurveMode", header: "ShapeFix_Wire.hxx".}
-proc fixRemoveCurve3dMode*(this: var ShapeFixWire): var int {.
+proc fixRemoveCurve3dMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixRemoveCurve3dMode", header: "ShapeFix_Wire.hxx".}
-proc fixAddCurve3dMode*(this: var ShapeFixWire): var int {.
+proc fixAddCurve3dMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixAddCurve3dMode", header: "ShapeFix_Wire.hxx".}
-proc fixSeamMode*(this: var ShapeFixWire): var int {.importcpp: "FixSeamMode",
+proc fixSeamMode*(this: var ShapeFixWire): var cint {.importcpp: "FixSeamMode",
     header: "ShapeFix_Wire.hxx".}
-proc fixShiftedMode*(this: var ShapeFixWire): var int {.importcpp: "FixShiftedMode",
+proc fixShiftedMode*(this: var ShapeFixWire): var cint {.importcpp: "FixShiftedMode",
     header: "ShapeFix_Wire.hxx".}
-proc fixSameParameterMode*(this: var ShapeFixWire): var int {.
+proc fixSameParameterMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixSameParameterMode", header: "ShapeFix_Wire.hxx".}
-proc fixVertexToleranceMode*(this: var ShapeFixWire): var int {.
+proc fixVertexToleranceMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixVertexToleranceMode", header: "ShapeFix_Wire.hxx".}
-proc fixNotchedEdgesMode*(this: var ShapeFixWire): var int {.
+proc fixNotchedEdgesMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixNotchedEdgesMode", header: "ShapeFix_Wire.hxx".}
-proc fixSelfIntersectingEdgeMode*(this: var ShapeFixWire): var int {.
+proc fixSelfIntersectingEdgeMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixSelfIntersectingEdgeMode", header: "ShapeFix_Wire.hxx".}
-proc fixIntersectingEdgesMode*(this: var ShapeFixWire): var int {.
+proc fixIntersectingEdgesMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixIntersectingEdgesMode", header: "ShapeFix_Wire.hxx".}
-proc fixNonAdjacentIntersectingEdgesMode*(this: var ShapeFixWire): var int {.
+proc fixNonAdjacentIntersectingEdgesMode*(this: var ShapeFixWire): var cint {.
     importcpp: "FixNonAdjacentIntersectingEdgesMode", header: "ShapeFix_Wire.hxx".}
-proc fixTailMode*(this: var ShapeFixWire): var int {.importcpp: "FixTailMode",
+proc fixTailMode*(this: var ShapeFixWire): var cint {.importcpp: "FixTailMode",
     header: "ShapeFix_Wire.hxx".}
 proc perform*(this: var ShapeFixWire): bool {.importcpp: "Perform",
     header: "ShapeFix_Wire.hxx".}
 proc fixReorder*(this: var ShapeFixWire): bool {.importcpp: "FixReorder",
     header: "ShapeFix_Wire.hxx".}
-proc fixSmall*(this: var ShapeFixWire; lockvtx: bool; precsmall: float = 0.0): int {.
+proc fixSmall*(this: var ShapeFixWire; lockvtx: bool; precsmall: cfloat = 0.0): cint {.
     importcpp: "FixSmall", header: "ShapeFix_Wire.hxx".}
-proc fixConnected*(this: var ShapeFixWire; prec: float = -1.0): bool {.
+proc fixConnected*(this: var ShapeFixWire; prec: cfloat = -1.0): bool {.
     importcpp: "FixConnected", header: "ShapeFix_Wire.hxx".}
 proc fixEdgeCurves*(this: var ShapeFixWire): bool {.importcpp: "FixEdgeCurves",
     header: "ShapeFix_Wire.hxx".}
@@ -341,7 +341,7 @@ proc fixSelfIntersection*(this: var ShapeFixWire): bool {.
     importcpp: "FixSelfIntersection", header: "ShapeFix_Wire.hxx".}
 proc fixLacking*(this: var ShapeFixWire; force: bool = false): bool {.
     importcpp: "FixLacking", header: "ShapeFix_Wire.hxx".}
-proc fixClosed*(this: var ShapeFixWire; prec: float = -1.0): bool {.
+proc fixClosed*(this: var ShapeFixWire; prec: cfloat = -1.0): bool {.
     importcpp: "FixClosed", header: "ShapeFix_Wire.hxx".}
 proc fixGaps3d*(this: var ShapeFixWire): bool {.importcpp: "FixGaps3d",
     header: "ShapeFix_Wire.hxx".}
@@ -349,23 +349,23 @@ proc fixGaps2d*(this: var ShapeFixWire): bool {.importcpp: "FixGaps2d",
     header: "ShapeFix_Wire.hxx".}
 proc fixReorder*(this: var ShapeFixWire; wi: ShapeAnalysisWireOrder): bool {.
     importcpp: "FixReorder", header: "ShapeFix_Wire.hxx".}
-proc fixSmall*(this: var ShapeFixWire; num: int; lockvtx: bool; precsmall: float): bool {.
+proc fixSmall*(this: var ShapeFixWire; num: cint; lockvtx: bool; precsmall: cfloat): bool {.
     importcpp: "FixSmall", header: "ShapeFix_Wire.hxx".}
-proc fixConnected*(this: var ShapeFixWire; num: int; prec: float): bool {.
+proc fixConnected*(this: var ShapeFixWire; num: cint; prec: cfloat): bool {.
     importcpp: "FixConnected", header: "ShapeFix_Wire.hxx".}
-proc fixSeam*(this: var ShapeFixWire; num: int): bool {.importcpp: "FixSeam",
+proc fixSeam*(this: var ShapeFixWire; num: cint): bool {.importcpp: "FixSeam",
     header: "ShapeFix_Wire.hxx".}
 proc fixShifted*(this: var ShapeFixWire): bool {.importcpp: "FixShifted",
     header: "ShapeFix_Wire.hxx".}
-proc fixDegenerated*(this: var ShapeFixWire; num: int): bool {.
+proc fixDegenerated*(this: var ShapeFixWire; num: cint): bool {.
     importcpp: "FixDegenerated", header: "ShapeFix_Wire.hxx".}
-proc fixLacking*(this: var ShapeFixWire; num: int; force: bool = false): bool {.
+proc fixLacking*(this: var ShapeFixWire; num: cint; force: bool = false): bool {.
     importcpp: "FixLacking", header: "ShapeFix_Wire.hxx".}
 proc fixNotchedEdges*(this: var ShapeFixWire): bool {.importcpp: "FixNotchedEdges",
     header: "ShapeFix_Wire.hxx".}
-proc fixGap3d*(this: var ShapeFixWire; num: int; convert: bool = false): bool {.
+proc fixGap3d*(this: var ShapeFixWire; num: cint; convert: bool = false): bool {.
     importcpp: "FixGap3d", header: "ShapeFix_Wire.hxx".}
-proc fixGap2d*(this: var ShapeFixWire; num: int; convert: bool = false): bool {.
+proc fixGap2d*(this: var ShapeFixWire; num: cint; convert: bool = false): bool {.
     importcpp: "FixGap2d", header: "ShapeFix_Wire.hxx".}
 proc fixTails*(this: var ShapeFixWire): bool {.importcpp: "FixTails",
     header: "ShapeFix_Wire.hxx".}
@@ -409,3 +409,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ShapeFix_Wire.hxx".}
 proc dynamicType*(this: ShapeFixWire): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Wire.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

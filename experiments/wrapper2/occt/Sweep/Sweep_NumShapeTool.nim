@@ -27,11 +27,11 @@ type
 proc constructSweepNumShapeTool*(aShape: SweepNumShape): SweepNumShapeTool {.
     constructor, importcpp: "Sweep_NumShapeTool(@)",
     header: "Sweep_NumShapeTool.hxx".}
-proc nbShapes*(this: SweepNumShapeTool): int {.noSideEffect, importcpp: "NbShapes",
+proc nbShapes*(this: SweepNumShapeTool): cint {.noSideEffect, importcpp: "NbShapes",
     header: "Sweep_NumShapeTool.hxx".}
-proc index*(this: SweepNumShapeTool; aShape: SweepNumShape): int {.noSideEffect,
+proc index*(this: SweepNumShapeTool; aShape: SweepNumShape): cint {.noSideEffect,
     importcpp: "Index", header: "Sweep_NumShapeTool.hxx".}
-proc shape*(this: SweepNumShapeTool; anIndex: int): SweepNumShape {.noSideEffect,
+proc shape*(this: SweepNumShapeTool; anIndex: cint): SweepNumShape {.noSideEffect,
     importcpp: "Shape", header: "Sweep_NumShapeTool.hxx".}
 proc `type`*(this: SweepNumShapeTool; aShape: SweepNumShape): TopAbsShapeEnum {.
     noSideEffect, importcpp: "Type", header: "Sweep_NumShapeTool.hxx".}
@@ -45,3 +45,28 @@ proc firstVertex*(this: SweepNumShapeTool): SweepNumShape {.noSideEffect,
     importcpp: "FirstVertex", header: "Sweep_NumShapeTool.hxx".}
 proc lastVertex*(this: SweepNumShapeTool): SweepNumShape {.noSideEffect,
     importcpp: "LastVertex", header: "Sweep_NumShapeTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ discard "forward decl of StepRepr_ConfigurationDesignItem"
 discard "forward decl of StepRepr_ConfigurationDesign"
 discard "forward decl of StepRepr_ConfigurationDesign"
 type
-  HandleStepReprConfigurationDesign* = Handle[StepReprConfigurationDesign]
+  HandleC1C1* = Handle[StepReprConfigurationDesign]
 
 ## ! Representation of STEP entity ConfigurationDesign
 
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprConfigurationDesign): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ConfigurationDesign.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepGeom_Axis1Placement"
 discard "forward decl of StepGeom_Axis1Placement"
 type
-  HandleStepGeomAxis1Placement* = Handle[StepGeomAxis1Placement]
+  HandleC1C1* = Handle[StepGeomAxis1Placement]
   StepGeomAxis1Placement* {.importcpp: "StepGeom_Axis1Placement",
                            header: "StepGeom_Axis1Placement.hxx", bycopy.} = object of StepGeomPlacement ##
                                                                                                   ## !
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Axis1Placement.hxx".}
 proc dynamicType*(this: StepGeomAxis1Placement): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_Axis1Placement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

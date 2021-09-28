@@ -29,7 +29,7 @@ type
                                    ## ! when <Up> is less than <Low>.
 
 
-proc constructXmlObjMgtArray1*(low: int; up: int): XmlObjMgtArray1 {.constructor,
+proc constructXmlObjMgtArray1*(low: cint; up: cint): XmlObjMgtArray1 {.constructor,
     importcpp: "XmlObjMgt_Array1(@)", header: "XmlObjMgt_Array1.hxx".}
 proc constructXmlObjMgtArray1*(theParent: XmlObjMgtElement;
                               theName: XmlObjMgtDOMString): XmlObjMgtArray1 {.
@@ -39,13 +39,38 @@ proc createArrayElement*(this: var XmlObjMgtArray1; theParent: var XmlObjMgtElem
     importcpp: "CreateArrayElement", header: "XmlObjMgt_Array1.hxx".}
 proc element*(this: XmlObjMgtArray1): XmlObjMgtElement {.noSideEffect,
     importcpp: "Element", header: "XmlObjMgt_Array1.hxx".}
-proc length*(this: XmlObjMgtArray1): int {.noSideEffect, importcpp: "Length",
+proc length*(this: XmlObjMgtArray1): cint {.noSideEffect, importcpp: "Length",
+                                        header: "XmlObjMgt_Array1.hxx".}
+proc lower*(this: XmlObjMgtArray1): cint {.noSideEffect, importcpp: "Lower",
                                        header: "XmlObjMgt_Array1.hxx".}
-proc lower*(this: XmlObjMgtArray1): int {.noSideEffect, importcpp: "Lower",
-                                      header: "XmlObjMgt_Array1.hxx".}
-proc upper*(this: XmlObjMgtArray1): int {.noSideEffect, importcpp: "Upper",
-                                      header: "XmlObjMgt_Array1.hxx".}
-proc setValue*(this: var XmlObjMgtArray1; index: int; value: var XmlObjMgtElement) {.
+proc upper*(this: XmlObjMgtArray1): cint {.noSideEffect, importcpp: "Upper",
+                                       header: "XmlObjMgt_Array1.hxx".}
+proc setValue*(this: var XmlObjMgtArray1; index: cint; value: var XmlObjMgtElement) {.
     importcpp: "SetValue", header: "XmlObjMgt_Array1.hxx".}
-proc value*(this: XmlObjMgtArray1; index: int): XmlObjMgtElement {.noSideEffect,
+proc value*(this: XmlObjMgtArray1; index: cint): XmlObjMgtElement {.noSideEffect,
     importcpp: "Value", header: "XmlObjMgt_Array1.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

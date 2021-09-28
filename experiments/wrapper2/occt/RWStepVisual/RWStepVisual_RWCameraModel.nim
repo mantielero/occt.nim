@@ -27,9 +27,34 @@ proc constructRWStepVisualRWCameraModel*(): RWStepVisualRWCameraModel {.
     constructor, importcpp: "RWStepVisual_RWCameraModel(@)",
     header: "RWStepVisual_RWCameraModel.hxx".}
 proc readStep*(this: RWStepVisualRWCameraModel;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualCameraModel]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWCameraModel.hxx".}
 proc writeStep*(this: RWStepVisualRWCameraModel; sw: var StepDataStepWriter;
                ent: Handle[StepVisualCameraModel]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWCameraModel.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

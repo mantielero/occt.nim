@@ -36,3 +36,28 @@ proc isSinglePrecision*(this: RWObjCafReader): bool {.noSideEffect,
     importcpp: "IsSinglePrecision", header: "RWObj_CafReader.hxx".}
 proc setSinglePrecision*(this: var RWObjCafReader; theIsSinglePrecision: bool) {.
     importcpp: "SetSinglePrecision", header: "RWObj_CafReader.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ proc constructRWStepBasicRWCoordinatedUniversalTimeOffset*(): RWStepBasicRWCoord
     constructor, importcpp: "RWStepBasic_RWCoordinatedUniversalTimeOffset(@)",
     header: "RWStepBasic_RWCoordinatedUniversalTimeOffset.hxx".}
 proc readStep*(this: RWStepBasicRWCoordinatedUniversalTimeOffset;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicCoordinatedUniversalTimeOffset]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -38,3 +38,28 @@ proc writeStep*(this: RWStepBasicRWCoordinatedUniversalTimeOffset;
                ent: Handle[StepBasicCoordinatedUniversalTimeOffset]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepBasic_RWCoordinatedUniversalTimeOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

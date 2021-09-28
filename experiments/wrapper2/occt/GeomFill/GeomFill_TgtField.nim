@@ -19,7 +19,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_TgtField"
 discard "forward decl of GeomFill_TgtField"
 type
-  HandleGeomFillTgtField* = Handle[GeomFillTgtField]
+  HandleC1C1* = Handle[GeomFillTgtField]
 
 ## ! Root class defining the methods we need to make an
 ## ! algorithmic tangents field.
@@ -29,15 +29,15 @@ type
                      header: "GeomFill_TgtField.hxx", bycopy.} = object of StandardTransient
 
 
-proc isScalable*(this: GeomFillTgtField): bool {.noSideEffect,
+proc isScalable*(this: GeomFillTgtField): StandardBoolean {.noSideEffect,
     importcpp: "IsScalable", header: "GeomFill_TgtField.hxx".}
 proc scale*(this: var GeomFillTgtField; `func`: Handle[LawBSpline]) {.
     importcpp: "Scale", header: "GeomFill_TgtField.hxx".}
-proc value*(this: GeomFillTgtField; w: float): Vec {.noSideEffect, importcpp: "Value",
+proc value*(this: GeomFillTgtField; w: StandardReal): Vec {.noSideEffect,
+    importcpp: "Value", header: "GeomFill_TgtField.hxx".}
+proc d1*(this: GeomFillTgtField; w: StandardReal): Vec {.noSideEffect, importcpp: "D1",
     header: "GeomFill_TgtField.hxx".}
-proc d1*(this: GeomFillTgtField; w: float): Vec {.noSideEffect, importcpp: "D1",
-    header: "GeomFill_TgtField.hxx".}
-proc d1*(this: GeomFillTgtField; w: float; v: var Vec; dv: var Vec) {.noSideEffect,
+proc d1*(this: GeomFillTgtField; w: StandardReal; v: var Vec; dv: var Vec) {.noSideEffect,
     importcpp: "D1", header: "GeomFill_TgtField.hxx".}
 type
   GeomFillTgtFieldbaseType* = StandardTransient

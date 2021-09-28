@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Storage_TypeData"
 discard "forward decl of Storage_TypeData"
 type
-  HandleStorageTypeData* = Handle[StorageTypeData]
+  HandleC1C1* = Handle[StorageTypeData]
   StorageTypeData* {.importcpp: "Storage_TypeData", header: "Storage_TypeData.hxx",
                     bycopy.} = object of StandardTransient
 
@@ -30,13 +30,13 @@ proc constructStorageTypeData*(): StorageTypeData {.constructor,
     importcpp: "Storage_TypeData(@)", header: "Storage_TypeData.hxx".}
 proc read*(this: var StorageTypeData; theDriver: Handle[StorageBaseDriver]): bool {.
     importcpp: "Read", header: "Storage_TypeData.hxx".}
-proc numberOfTypes*(this: StorageTypeData): int {.noSideEffect,
+proc numberOfTypes*(this: StorageTypeData): cint {.noSideEffect,
     importcpp: "NumberOfTypes", header: "Storage_TypeData.hxx".}
-proc addType*(this: var StorageTypeData; aName: TCollectionAsciiString; aTypeNum: int) {.
+proc addType*(this: var StorageTypeData; aName: TCollectionAsciiString; aTypeNum: cint) {.
     importcpp: "AddType", header: "Storage_TypeData.hxx".}
-proc `type`*(this: StorageTypeData; aTypeNum: int): TCollectionAsciiString {.
+proc `type`*(this: StorageTypeData; aTypeNum: cint): TCollectionAsciiString {.
     noSideEffect, importcpp: "Type", header: "Storage_TypeData.hxx".}
-proc `type`*(this: StorageTypeData; aTypeName: TCollectionAsciiString): int {.
+proc `type`*(this: StorageTypeData; aTypeName: TCollectionAsciiString): cint {.
     noSideEffect, importcpp: "Type", header: "Storage_TypeData.hxx".}
 proc isType*(this: StorageTypeData; aName: TCollectionAsciiString): bool {.
     noSideEffect, importcpp: "IsType", header: "Storage_TypeData.hxx".}
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Storage_TypeData.hxx".}
 proc dynamicType*(this: StorageTypeData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_TypeData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

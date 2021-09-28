@@ -28,8 +28,33 @@ proc constructSelectMgrSelectionImageFiller*(thePixMap: var ImagePixMap;
     theSelector: ptr SelectMgrViewerSelector): SelectMgrSelectionImageFiller {.
     constructor, importcpp: "SelectMgr_SelectionImageFiller(@)",
     header: "SelectMgr_SelectionImageFiller.hxx".}
-proc fill*(this: var SelectMgrSelectionImageFiller; theCol: int; theRow: int;
-          thePicked: int) {.importcpp: "Fill",
-                          header: "SelectMgr_SelectionImageFiller.hxx".}
+proc fill*(this: var SelectMgrSelectionImageFiller; theCol: cint; theRow: cint;
+          thePicked: cint) {.importcpp: "Fill",
+                           header: "SelectMgr_SelectionImageFiller.hxx".}
 proc flush*(this: var SelectMgrSelectionImageFiller) {.importcpp: "Flush",
     header: "SelectMgr_SelectionImageFiller.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

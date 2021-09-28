@@ -9,3 +9,28 @@ include StepAP242_IdAttributeSelect
 include StepAP242_ItemIdentifiedRepresentationUsage
 include StepAP242_ItemIdentifiedRepresentationUsageDefinition
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

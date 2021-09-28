@@ -19,7 +19,7 @@ discard "forward decl of StepGeom_Direction"
 discard "forward decl of StepFEA_FeaAxis2Placement3d"
 discard "forward decl of StepFEA_FeaAxis2Placement3d"
 type
-  HandleStepFEA_FeaAxis2Placement3d* = Handle[StepFEA_FeaAxis2Placement3d]
+  HandleC1C1* = Handle[StepFEA_FeaAxis2Placement3d]
 
 ## ! Representation of STEP entity FeaAxis2Placement3d
 
@@ -67,3 +67,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_FeaAxis2Placement3d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaAxis2Placement3d.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

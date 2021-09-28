@@ -38,4 +38,3 @@
 template define_Array1*(className, baseCollection, theItemType: untyped): void =
   type
     ClassName* = NCollectionArray1[TheItemType]
-

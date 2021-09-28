@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDocStd_Modified"
 discard "forward decl of TDocStd_Modified"
 type
-  HandleTDocStdModified* = Handle[TDocStdModified]
+  HandleC1C1* = Handle[TDocStdModified]
 
 ## ! Transient     attribute   wich     register modified
 ## ! labels. This attribute is attached to root label.
@@ -79,3 +79,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDocStd_Modified.hxx".}
 proc dynamicType*(this: TDocStdModified): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDocStd_Modified.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

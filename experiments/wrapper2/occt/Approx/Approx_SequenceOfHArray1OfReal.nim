@@ -18,3 +18,28 @@ type
   ApproxSequenceOfHArray1OfReal* = NCollectionSequence[
       Handle[TColStdHArray1OfReal]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

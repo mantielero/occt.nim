@@ -34,7 +34,7 @@ type
 
 proc constructStepAP203DateTimeItem*(): StepAP203DateTimeItem {.constructor,
     importcpp: "StepAP203_DateTimeItem(@)", header: "StepAP203_DateTimeItem.hxx".}
-proc caseNum*(this: StepAP203DateTimeItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP203DateTimeItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_DateTimeItem.hxx".}
 proc productDefinition*(this: StepAP203DateTimeItem): Handle[
     StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
@@ -58,3 +58,28 @@ proc securityClassification*(this: StepAP203DateTimeItem): Handle[
                                       header: "StepAP203_DateTimeItem.hxx".}
 proc certification*(this: StepAP203DateTimeItem): Handle[StepBasicCertification] {.
     noSideEffect, importcpp: "Certification", header: "StepAP203_DateTimeItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

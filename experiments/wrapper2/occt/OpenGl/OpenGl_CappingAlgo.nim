@@ -31,3 +31,28 @@ proc renderCapping*(theWorkspace: Handle[OpenGlWorkspace];
                    theStructure: OpenGlStructure) {.
     importcpp: "OpenGl_CappingAlgo::RenderCapping(@)",
     header: "OpenGl_CappingAlgo.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

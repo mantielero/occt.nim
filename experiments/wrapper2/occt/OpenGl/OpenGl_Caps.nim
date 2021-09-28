@@ -128,7 +128,7 @@ type
     ffpEnable* {.importc: "ffpEnable".}: bool ## !< Enables FFP (fixed-function pipeline), do not use built-in GLSL programs (OFF by default)
     usePolygonMode* {.importc: "usePolygonMode".}: bool ## !< Enables Polygon Mode instead of built-in GLSL programs (OFF by default; unsupported on OpenGL ES)
     useSystemBuffer* {.importc: "useSystemBuffer".}: bool ## !< Enables usage of system backbuffer for blitting (OFF by default on desktop OpenGL and ON on OpenGL ES for testing)
-    swapInterval* {.importc: "swapInterval".}: int ## !< controls swap interval - 0 for VSync off and 1 for VSync on, 1 by default
+    swapInterval* {.importc: "swapInterval".}: cint ## !< controls swap interval - 0 for VSync off and 1 for VSync on, 1 by default
     buffersNoSwap* {.importc: "buffersNoSwap".}: bool ## *
                                                   ##  Request stereoscopic context (with Quad Buffer). This flag requires support in OpenGL driver.
                                                   ##
@@ -192,18 +192,18 @@ type
                                                               ##
                                                               ##  (-1, -1) by default, which means no restriction.
                                                               ##
-    contextMajorVersionUpper* {.importc: "contextMajorVersionUpper".}: int
-    contextMinorVersionUpper* {.importc: "contextMinorVersionUpper".}: int ## *
-                                                                       ##  Define if 2D texture UV coordinates are defined top-down or bottom-up. FALSE by default.
-                                                                       ##
-                                                                       ##  Proper rendering requires image texture uploading and UV texture coordinates being consistent,
-                                                                       ##  otherwise texture mapping might appear vertically flipped.
-                                                                       ##  Historically, OCCT used image library loading images bottom-up,
-                                                                       ##  so that applications have to generate UV accordingly (flip V when necessary, V' = 1.0 - V).
-                                                                       ##
-                                                                       ##  Graphic driver now compares this flag with image layout reported by Image_PixMap::IsTopDown(),
-                                                                       ##  and in case of mismatch applies implicit texture coordinates conversion in GLSL program.
-                                                                       ##
+    contextMajorVersionUpper* {.importc: "contextMajorVersionUpper".}: cint
+    contextMinorVersionUpper* {.importc: "contextMinorVersionUpper".}: cint ## *
+                                                                        ##  Define if 2D texture UV coordinates are defined top-down or bottom-up. FALSE by default.
+                                                                        ##
+                                                                        ##  Proper rendering requires image texture uploading and UV texture coordinates being consistent,
+                                                                        ##  otherwise texture mapping might appear vertically flipped.
+                                                                        ##  Historically, OCCT used image library loading images bottom-up,
+                                                                        ##  so that applications have to generate UV accordingly (flip V when necessary, V' = 1.0 - V).
+                                                                        ##
+                                                                        ##  Graphic driver now compares this flag with image layout reported by Image_PixMap::IsTopDown(),
+                                                                        ##  and in case of mismatch applies implicit texture coordinates conversion in GLSL program.
+                                                                        ##
     isTopDownTextureUV* {.importc: "isTopDownTextureUV".}: bool
     glslWarnings* {.importc: "glslWarnings".}: bool ## ! Suppress redundant messages from debug GL context. ON by default.
     suppressExtraMsg* {.importc: "suppressExtraMsg".}: bool ## ! Print GLSL program source code. OFF by default.
@@ -225,5 +225,30 @@ proc dynamicType*(this: OpenGlCaps): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_Caps.hxx".}
 discard "forward decl of OpenGl_Caps"
 type
-  HandleOpenGlCaps* = Handle[OpenGlCaps]
+  HandleC1C1* = Handle[OpenGlCaps]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

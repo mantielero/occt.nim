@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SetGlobalParameter"
 discard "forward decl of IGESSelect_SetGlobalParameter"
 type
-  HandleIGESSelectSetGlobalParameter* = Handle[IGESSelectSetGlobalParameter]
+  HandleC1C1* = Handle[IGESSelectSetGlobalParameter]
 
 ## ! Sets a Global (Header) Parameter to a new value, directly given
 ## ! Controls the form of the parameter (Integer, Real, String
@@ -45,10 +45,10 @@ type
                                                                          ## <numpar>
 
 
-proc constructIGESSelectSetGlobalParameter*(numpar: int): IGESSelectSetGlobalParameter {.
+proc constructIGESSelectSetGlobalParameter*(numpar: cint): IGESSelectSetGlobalParameter {.
     constructor, importcpp: "IGESSelect_SetGlobalParameter(@)",
     header: "IGESSelect_SetGlobalParameter.hxx".}
-proc globalNumber*(this: IGESSelectSetGlobalParameter): int {.noSideEffect,
+proc globalNumber*(this: IGESSelectSetGlobalParameter): cint {.noSideEffect,
     importcpp: "GlobalNumber", header: "IGESSelect_SetGlobalParameter.hxx".}
 proc setValue*(this: var IGESSelectSetGlobalParameter;
               text: Handle[TCollectionHAsciiString]) {.importcpp: "SetValue",
@@ -72,3 +72,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESSelectSetGlobalParameter): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SetGlobalParameter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

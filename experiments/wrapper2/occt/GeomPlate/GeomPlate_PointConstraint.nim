@@ -23,7 +23,7 @@ discard "forward decl of GeomLProp_SLProps"
 discard "forward decl of GeomPlate_PointConstraint"
 discard "forward decl of GeomPlate_PointConstraint"
 type
-  HandleGeomPlatePointConstraint* = Handle[GeomPlatePointConstraint]
+  HandleC1C1* = Handle[GeomPlatePointConstraint]
 
 ## ! Defines points as constraints to be used to deform a surface.
 
@@ -167,30 +167,32 @@ type
                                                                                                       ## -1
 
 
-proc constructGeomPlatePointConstraint*(pt: Pnt; order: int; tolDist: float = 0.0001): GeomPlatePointConstraint {.
+proc constructGeomPlatePointConstraint*(pt: Pnt; order: int;
+                                       tolDist: StandardReal = 0.0001): GeomPlatePointConstraint {.
     constructor, importcpp: "GeomPlate_PointConstraint(@)",
     header: "GeomPlate_PointConstraint.hxx".}
-proc constructGeomPlatePointConstraint*(u: float; v: float;
+proc constructGeomPlatePointConstraint*(u: StandardReal; v: StandardReal;
                                        surf: Handle[GeomSurface]; order: int;
-                                       tolDist: float = 0.0001;
-                                       tolAng: float = 0.01; tolCurv: float = 0.1): GeomPlatePointConstraint {.
+                                       tolDist: StandardReal = 0.0001;
+                                       tolAng: StandardReal = 0.01;
+                                       tolCurv: StandardReal = 0.1): GeomPlatePointConstraint {.
     constructor, importcpp: "GeomPlate_PointConstraint(@)",
     header: "GeomPlate_PointConstraint.hxx".}
 proc setOrder*(this: var GeomPlatePointConstraint; order: int) {.
     importcpp: "SetOrder", header: "GeomPlate_PointConstraint.hxx".}
 proc order*(this: GeomPlatePointConstraint): int {.noSideEffect, importcpp: "Order",
     header: "GeomPlate_PointConstraint.hxx".}
-proc setG0Criterion*(this: var GeomPlatePointConstraint; tolDist: float) {.
+proc setG0Criterion*(this: var GeomPlatePointConstraint; tolDist: StandardReal) {.
     importcpp: "SetG0Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc setG1Criterion*(this: var GeomPlatePointConstraint; tolAng: float) {.
+proc setG1Criterion*(this: var GeomPlatePointConstraint; tolAng: StandardReal) {.
     importcpp: "SetG1Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc setG2Criterion*(this: var GeomPlatePointConstraint; tolCurv: float) {.
+proc setG2Criterion*(this: var GeomPlatePointConstraint; tolCurv: StandardReal) {.
     importcpp: "SetG2Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc g0Criterion*(this: GeomPlatePointConstraint): float {.noSideEffect,
+proc g0Criterion*(this: GeomPlatePointConstraint): StandardReal {.noSideEffect,
     importcpp: "G0Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc g1Criterion*(this: GeomPlatePointConstraint): float {.noSideEffect,
+proc g1Criterion*(this: GeomPlatePointConstraint): StandardReal {.noSideEffect,
     importcpp: "G1Criterion", header: "GeomPlate_PointConstraint.hxx".}
-proc g2Criterion*(this: GeomPlatePointConstraint): float {.noSideEffect,
+proc g2Criterion*(this: GeomPlatePointConstraint): StandardReal {.noSideEffect,
     importcpp: "G2Criterion", header: "GeomPlate_PointConstraint.hxx".}
 proc d0*(this: GeomPlatePointConstraint; p: var Pnt) {.noSideEffect, importcpp: "D0",
     header: "GeomPlate_PointConstraint.hxx".}
@@ -199,8 +201,9 @@ proc d1*(this: GeomPlatePointConstraint; p: var Pnt; v1: var Vec; v2: var Vec) {
 proc d2*(this: GeomPlatePointConstraint; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec;
         v4: var Vec; v5: var Vec) {.noSideEffect, importcpp: "D2",
                               header: "GeomPlate_PointConstraint.hxx".}
-proc hasPnt2dOnSurf*(this: GeomPlatePointConstraint): bool {.noSideEffect,
-    importcpp: "HasPnt2dOnSurf", header: "GeomPlate_PointConstraint.hxx".}
+proc hasPnt2dOnSurf*(this: GeomPlatePointConstraint): StandardBoolean {.
+    noSideEffect, importcpp: "HasPnt2dOnSurf",
+    header: "GeomPlate_PointConstraint.hxx".}
 proc setPnt2dOnSurf*(this: var GeomPlatePointConstraint; pnt: Pnt2d) {.
     importcpp: "SetPnt2dOnSurf", header: "GeomPlate_PointConstraint.hxx".}
 proc pnt2dOnSurf*(this: GeomPlatePointConstraint): Pnt2d {.noSideEffect,

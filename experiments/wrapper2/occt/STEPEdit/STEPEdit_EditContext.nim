@@ -22,7 +22,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of STEPEdit_EditContext"
 discard "forward decl of STEPEdit_EditContext"
 type
-  HandleSTEPEditEditContext* = Handle[STEPEditEditContext]
+  HandleC1C1* = Handle[STEPEditEditContext]
 
 ## ! EditContext is an Editor fit for
 ## ! Product Definition Context (one per Model) , i.e. :
@@ -41,9 +41,9 @@ proc label*(this: STEPEditEditContext): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "STEPEdit_EditContext.hxx".}
 proc recognize*(this: STEPEditEditContext; form: Handle[IFSelectEditForm]): bool {.
     noSideEffect, importcpp: "Recognize", header: "STEPEdit_EditContext.hxx".}
-proc stringValue*(this: STEPEditEditContext; form: Handle[IFSelectEditForm]; num: int): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "StringValue",
-                              header: "STEPEdit_EditContext.hxx".}
+proc stringValue*(this: STEPEditEditContext; form: Handle[IFSelectEditForm];
+                 num: cint): Handle[TCollectionHAsciiString] {.noSideEffect,
+    importcpp: "StringValue", header: "STEPEdit_EditContext.hxx".}
 proc apply*(this: STEPEditEditContext; form: Handle[IFSelectEditForm];
            ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Apply", header: "STEPEdit_EditContext.hxx".}
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPEdit_EditContext.hxx".}
 proc dynamicType*(this: STEPEditEditContext): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "STEPEdit_EditContext.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

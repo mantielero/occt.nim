@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MAT2dDataMapOfBiIntInteger* = NCollectionDataMap[MAT2dBiInt, int,
+  MAT2dDataMapOfBiIntInteger* = NCollectionDataMap[MAT2dBiInt, cint,
       MAT2dMapBiIntHasher]
-  MAT2dDataMapIteratorOfDataMapOfBiIntInteger* = Iterator[MAT2dBiInt, int,
+  MAT2dDataMapIteratorOfDataMapOfBiIntInteger* = Iterator[MAT2dBiInt, cint,
       MAT2dMapBiIntHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

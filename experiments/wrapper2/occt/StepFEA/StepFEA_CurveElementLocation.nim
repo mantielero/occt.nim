@@ -17,7 +17,7 @@ discard "forward decl of StepFEA_FeaParametricPoint"
 discard "forward decl of StepFEA_CurveElementLocation"
 discard "forward decl of StepFEA_CurveElementLocation"
 type
-  HandleStepFEA_CurveElementLocation* = Handle[StepFEA_CurveElementLocation]
+  HandleC1C1* = Handle[StepFEA_CurveElementLocation]
 
 ## ! Representation of STEP entity CurveElementLocation
 
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_CurveElementLocation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_CurveElementLocation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

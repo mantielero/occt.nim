@@ -18,3 +18,28 @@ type
   AppParCurvesArray1OfConstraintCouple* = NCollectionArray1[
       AppParCurvesConstraintCouple]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

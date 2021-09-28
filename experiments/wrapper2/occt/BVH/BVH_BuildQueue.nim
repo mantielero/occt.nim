@@ -55,11 +55,36 @@ proc constructBVH_BuildQueue*(): BVH_BuildQueue {.constructor,
     importcpp: "BVH_BuildQueue(@)", header: "BVH_BuildQueue.hxx".}
 proc destroyBVH_BuildQueue*(this: var BVH_BuildQueue) {.
     importcpp: "#.~BVH_BuildQueue()", header: "BVH_BuildQueue.hxx".}
-proc size*(this: var BVH_BuildQueue): int {.importcpp: "Size",
-                                       header: "BVH_BuildQueue.hxx".}
-proc enqueue*(this: var BVH_BuildQueue; theNode: int) {.importcpp: "Enqueue",
+proc size*(this: var BVH_BuildQueue): cint {.importcpp: "Size",
+                                        header: "BVH_BuildQueue.hxx".}
+proc enqueue*(this: var BVH_BuildQueue; theNode: cint) {.importcpp: "Enqueue",
     header: "BVH_BuildQueue.hxx".}
-proc fetch*(this: var BVH_BuildQueue; wasBusy: var bool): int {.importcpp: "Fetch",
+proc fetch*(this: var BVH_BuildQueue; wasBusy: var bool): cint {.importcpp: "Fetch",
     header: "BVH_BuildQueue.hxx".}
 proc hasBusyThreads*(this: var BVH_BuildQueue): bool {.importcpp: "HasBusyThreads",
     header: "BVH_BuildQueue.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

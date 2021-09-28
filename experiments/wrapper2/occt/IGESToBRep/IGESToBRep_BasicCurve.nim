@@ -65,7 +65,7 @@ proc constructIGESToBRepBasicCurve*(): IGESToBRepBasicCurve {.constructor,
 proc constructIGESToBRepBasicCurve*(cs: IGESToBRepCurveAndSurface): IGESToBRepBasicCurve {.
     constructor, importcpp: "IGESToBRep_BasicCurve(@)",
     header: "IGESToBRep_BasicCurve.hxx".}
-proc constructIGESToBRepBasicCurve*(eps: float; epsGeom: float; epsCoeff: float;
+proc constructIGESToBRepBasicCurve*(eps: cfloat; epsGeom: cfloat; epsCoeff: cfloat;
                                    mode: bool; modeapprox: bool; optimized: bool): IGESToBRepBasicCurve {.
     constructor, importcpp: "IGESToBRep_BasicCurve(@)",
     header: "IGESToBRep_BasicCurve.hxx".}
@@ -118,3 +118,28 @@ proc transferTransformation*(this: var IGESToBRepBasicCurve;
                             start: Handle[IGESGeomTransformationMatrix]): Handle[
     GeomTransformation] {.importcpp: "TransferTransformation",
                          header: "IGESToBRep_BasicCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

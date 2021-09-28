@@ -33,13 +33,13 @@ proc perform*(this: var TopOpeBRepFaceEdgeIntersector; f: TopoDS_Shape;
                               header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
 proc isEmpty*(this: var TopOpeBRepFaceEdgeIntersector): bool {.importcpp: "IsEmpty",
     header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
-proc shape*(this: TopOpeBRepFaceEdgeIntersector; index: int): TopoDS_Shape {.
+proc shape*(this: TopOpeBRepFaceEdgeIntersector; index: cint): TopoDS_Shape {.
     noSideEffect, importcpp: "Shape", header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
-proc forceTolerance*(this: var TopOpeBRepFaceEdgeIntersector; tol: float) {.
+proc forceTolerance*(this: var TopOpeBRepFaceEdgeIntersector; tol: cfloat) {.
     importcpp: "ForceTolerance", header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
-proc tolerance*(this: TopOpeBRepFaceEdgeIntersector): float {.noSideEffect,
+proc tolerance*(this: TopOpeBRepFaceEdgeIntersector): cfloat {.noSideEffect,
     importcpp: "Tolerance", header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
-proc nbPoints*(this: TopOpeBRepFaceEdgeIntersector): int {.noSideEffect,
+proc nbPoints*(this: TopOpeBRepFaceEdgeIntersector): cint {.noSideEffect,
     importcpp: "NbPoints", header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
 proc initPoint*(this: var TopOpeBRepFaceEdgeIntersector) {.importcpp: "InitPoint",
     header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
@@ -49,20 +49,45 @@ proc nextPoint*(this: var TopOpeBRepFaceEdgeIntersector) {.importcpp: "NextPoint
     header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
 proc value*(this: TopOpeBRepFaceEdgeIntersector): Pnt {.noSideEffect,
     importcpp: "Value", header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
-proc parameter*(this: TopOpeBRepFaceEdgeIntersector): float {.noSideEffect,
+proc parameter*(this: TopOpeBRepFaceEdgeIntersector): cfloat {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
 proc uVPoint*(this: TopOpeBRepFaceEdgeIntersector; p: var Pnt2d) {.noSideEffect,
     importcpp: "UVPoint", header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
 proc state*(this: TopOpeBRepFaceEdgeIntersector): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
-proc transition*(this: TopOpeBRepFaceEdgeIntersector; index: int;
+proc transition*(this: TopOpeBRepFaceEdgeIntersector; index: cint;
                 faceOrientation: TopAbsOrientation): TopOpeBRepDS_Transition {.
     noSideEffect, importcpp: "Transition",
     header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
 proc isVertex*(this: var TopOpeBRepFaceEdgeIntersector; s: TopoDS_Shape; p: Pnt;
-              tol: float; v: var TopoDS_Vertex): bool {.importcpp: "IsVertex",
+              tol: cfloat; v: var TopoDS_Vertex): bool {.importcpp: "IsVertex",
     header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
-proc isVertex*(this: var TopOpeBRepFaceEdgeIntersector; i: int; v: var TopoDS_Vertex): bool {.
+proc isVertex*(this: var TopOpeBRepFaceEdgeIntersector; i: cint; v: var TopoDS_Vertex): bool {.
     importcpp: "IsVertex", header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
-proc index*(this: TopOpeBRepFaceEdgeIntersector): int {.noSideEffect,
+proc index*(this: TopOpeBRepFaceEdgeIntersector): cint {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRep_FaceEdgeIntersector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

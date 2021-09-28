@@ -23,39 +23,90 @@ discard "forward decl of gp_Pnt"
 type
   IntPatchThePathPointOfTheSOnBounds* {.importcpp: "IntPatch_ThePathPointOfTheSOnBounds", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx",
                                        bycopy.} = object
+    adaptor3dHVertex* {.importc: "Adaptor3d_HVertex".}: Handle
+    adaptor2dHCurve2d* {.importc: "Adaptor2d_HCurve2d".}: Handle
 
 
 proc constructIntPatchThePathPointOfTheSOnBounds*(): IntPatchThePathPointOfTheSOnBounds {.
     constructor, importcpp: "IntPatch_ThePathPointOfTheSOnBounds(@)",
     header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc constructIntPatchThePathPointOfTheSOnBounds*(p: Pnt; tol: float;
-    v: Handle[Adaptor3dHVertex]; a: Handle[Adaptor2dHCurve2d]; parameter: float): IntPatchThePathPointOfTheSOnBounds {.
-    constructor, importcpp: "IntPatch_ThePathPointOfTheSOnBounds(@)",
-    header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc constructIntPatchThePathPointOfTheSOnBounds*(p: Pnt; tol: float;
-    a: Handle[Adaptor2dHCurve2d]; parameter: float): IntPatchThePathPointOfTheSOnBounds {.
-    constructor, importcpp: "IntPatch_ThePathPointOfTheSOnBounds(@)",
-    header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc setValue*(this: var IntPatchThePathPointOfTheSOnBounds; p: Pnt; tol: float;
-              v: Handle[Adaptor3dHVertex]; a: Handle[Adaptor2dHCurve2d];
-              parameter: float) {.importcpp: "SetValue", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc setValue*(this: var IntPatchThePathPointOfTheSOnBounds; p: Pnt; tol: float;
-              a: Handle[Adaptor2dHCurve2d]; parameter: float) {.
-    importcpp: "SetValue", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
+## !!!Ignored construct:  IntPatch_ThePathPointOfTheSOnBounds ( const gp_Pnt & P , const Standard_Real Tol , const Handle ( Adaptor3d_HVertex ) & V , const Handle ( Adaptor2d_HCurve2d ) & A , const Standard_Real Parameter ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  IntPatch_ThePathPointOfTheSOnBounds ( const gp_Pnt & P , const Standard_Real Tol , const Handle ( Adaptor2d_HCurve2d ) & A , const Standard_Real Parameter ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void SetValue ( const gp_Pnt & P , const Standard_Real Tol , const Handle ( Adaptor3d_HVertex ) & V , const Handle ( Adaptor2d_HCurve2d ) & A , const Standard_Real Parameter ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  void SetValue ( const gp_Pnt & P , const Standard_Real Tol , const Handle ( Adaptor2d_HCurve2d ) & A , const Standard_Real Parameter ) ;
+## Error: token expected: ) but got: &!!!
+
 proc value*(this: IntPatchThePathPointOfTheSOnBounds): Pnt {.noSideEffect,
     importcpp: "Value", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
 proc tolerance*(this: IntPatchThePathPointOfTheSOnBounds): float {.noSideEffect,
     importcpp: "Tolerance", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
 proc isNew*(this: IntPatchThePathPointOfTheSOnBounds): bool {.noSideEffect,
     importcpp: "IsNew", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc vertex*(this: IntPatchThePathPointOfTheSOnBounds): Handle[Adaptor3dHVertex] {.
-    noSideEffect, importcpp: "Vertex",
-    header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc arc*(this: IntPatchThePathPointOfTheSOnBounds): Handle[Adaptor2dHCurve2d] {.
-    noSideEffect, importcpp: "Arc",
-    header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
+## !!!Ignored construct:  & Vertex ( ) const ;
+## Error: identifier expected, but got: &!!!
+
+## !!!Ignored construct:  & Arc ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc parameter*(this: IntPatchThePathPointOfTheSOnBounds): float {.noSideEffect,
     importcpp: "Parameter", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-## !!!Ignored construct:  # TheVertex opencascade :: handle < Adaptor3d_HVertex > [end of template] [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc opencascade :: handle < Adaptor2d_HCurve2d > [end of template] [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # IntStart_PathPoint IntPatch_ThePathPointOfTheSOnBounds [NewLine] # IntStart_PathPoint_hxx < IntPatch_ThePathPointOfTheSOnBounds . hxx > [NewLine] # < IntStart_PathPoint . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # IntStart_PathPoint [NewLine] # IntStart_PathPoint_hxx [NewLine] #  _IntPatch_ThePathPointOfTheSOnBounds_HeaderFile
+## !!!Ignored construct:  vtx ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  arc ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  # TheVertex Handle ( Adaptor3d_HVertex ) [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc Handle ( Adaptor2d_HCurve2d ) [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # IntStart_PathPoint IntPatch_ThePathPointOfTheSOnBounds [NewLine] # IntStart_PathPoint_hxx < IntPatch_ThePathPointOfTheSOnBounds . hxx > [NewLine] # < IntStart_PathPoint . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # IntStart_PathPoint [NewLine] # IntStart_PathPoint_hxx [NewLine] #  _IntPatch_ThePathPointOfTheSOnBounds_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

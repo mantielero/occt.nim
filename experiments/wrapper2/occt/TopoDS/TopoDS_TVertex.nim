@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_TVertex"
 #   discard
 discard "forward decl of TopoDS_TVertex"
 type
-  HandleTopoDS_TVertex* = Handle[TopoDS_TVertex]
+  HandleC1C1* = Handle[TopoDS_TVertex]
 
 ## ! A  Vertex is a topological  point in  two or three
 ## ! dimensions.
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopoDS_TVertex.hxx".}
 proc dynamicType*(this: TopoDS_TVertex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TVertex.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

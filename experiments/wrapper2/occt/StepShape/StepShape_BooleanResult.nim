@@ -19,7 +19,7 @@ discard "forward decl of StepShape_BooleanOperand"
 discard "forward decl of StepShape_BooleanResult"
 discard "forward decl of StepShape_BooleanResult"
 type
-  HandleStepShapeBooleanResult* = Handle[StepShapeBooleanResult]
+  HandleC1C1* = Handle[StepShapeBooleanResult]
   StepShapeBooleanResult* {.importcpp: "StepShape_BooleanResult",
                            header: "StepShape_BooleanResult.hxx", bycopy.} = object of StepGeomGeometricRepresentationItem ##
                                                                                                                     ## !
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_BooleanResult.hxx".}
 proc dynamicType*(this: StepShapeBooleanResult): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_BooleanResult.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

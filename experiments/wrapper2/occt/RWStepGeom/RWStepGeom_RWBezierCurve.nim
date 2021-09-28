@@ -28,7 +28,7 @@ proc constructRWStepGeomRWBezierCurve*(): RWStepGeomRWBezierCurve {.constructor,
     importcpp: "RWStepGeom_RWBezierCurve(@)",
     header: "RWStepGeom_RWBezierCurve.hxx".}
 proc readStep*(this: RWStepGeomRWBezierCurve; data: Handle[StepDataStepReaderData];
-              num: int; ach: var Handle[InterfaceCheck];
+              num: cint; ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomBezierCurve]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWBezierCurve.hxx".}
 proc writeStep*(this: RWStepGeomRWBezierCurve; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepGeomRWBezierCurve; sw: var StepDataStepWriter;
 proc share*(this: RWStepGeomRWBezierCurve; ent: Handle[StepGeomBezierCurve];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWBezierCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

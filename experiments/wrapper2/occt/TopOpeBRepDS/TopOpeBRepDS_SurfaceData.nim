@@ -27,3 +27,28 @@ proc constructTopOpeBRepDS_SurfaceData*(): TopOpeBRepDS_SurfaceData {.constructo
 proc constructTopOpeBRepDS_SurfaceData*(s: TopOpeBRepDS_Surface): TopOpeBRepDS_SurfaceData {.
     constructor, importcpp: "TopOpeBRepDS_SurfaceData(@)",
     header: "TopOpeBRepDS_SurfaceData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

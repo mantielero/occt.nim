@@ -18,8 +18,7 @@ discard "forward decl of StepElement_AnalysisItemWithinRepresentation"
 discard "forward decl of StepFEA_FeaCurveSectionGeometricRelationship"
 discard "forward decl of StepFEA_FeaCurveSectionGeometricRelationship"
 type
-  HandleStepFEA_FeaCurveSectionGeometricRelationship* = Handle[
-      StepFEA_FeaCurveSectionGeometricRelationship]
+  HandleC1C1* = Handle[StepFEA_FeaCurveSectionGeometricRelationship]
 
 ## ! Representation of STEP entity FeaCurveSectionGeometricRelationship
 
@@ -63,3 +62,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_FeaCurveSe
 proc dynamicType*(this: StepFEA_FeaCurveSectionGeometricRelationship): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepFEA_FeaCurveSectionGeometricRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

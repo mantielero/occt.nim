@@ -17,13 +17,54 @@
 ## !!!Ignored construct:  # _Expr_InvalidFunction_HeaderFile [NewLine] # _Expr_InvalidFunction_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Expr_ExprFailure . hxx > [NewLine] class Expr_InvalidFunction ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Expr_InvalidFunction"
-type
-  HandleExprInvalidFunctionExprInvalidFunction* = Handle[ExprInvalidFunction]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Expr_InvalidFunction , Expr_ExprFailure ) # ! defined No_Exception && ! defined No_Expr_InvalidFunction [NewLine] # Expr_InvalidFunction_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Expr_InvalidFunction ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Expr_InvalidFunction [NewLine] # if ( CONDITION ) throw Expr_InvalidFunction ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Expr_InvalidFunction_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_InvalidFunction , Expr_ExprFailure ) #  _Expr_InvalidFunction_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_InvalidFunction , Expr_ExprFailure ) #  _Expr_InvalidFunction_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

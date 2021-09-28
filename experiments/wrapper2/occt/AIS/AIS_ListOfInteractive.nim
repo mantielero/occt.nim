@@ -18,3 +18,28 @@ type
   AIS_ListOfInteractive* = NCollectionList[Handle[AIS_InteractiveObject]]
   AIS_ListIteratorOfListOfInteractive* = Iterator[Handle[AIS_InteractiveObject]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

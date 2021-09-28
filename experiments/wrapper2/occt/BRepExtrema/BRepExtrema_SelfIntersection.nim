@@ -46,10 +46,10 @@ type
                                                                                                                    ## !
                                                                                                                    ## Self-intersection
                                                                                                                    ## tolerance.
+    bRepExtremaTriangleSet* {.importc: "BRepExtrema_TriangleSet".}: Handle
     ## ! Is the input shape inited?
     ## ! List of triangulated faces of the shape.
     ## ! Set of all the face triangles of the shape.
-    ## ! Overlap tool used for self-intersection test.
 
 
 proc constructBRepExtremaSelfIntersection*(theTolerance: float = 0.0): BRepExtremaSelfIntersection {.
@@ -75,11 +75,8 @@ proc overlapElements*(this: BRepExtremaSelfIntersection): BRepExtremaMapOfIntege
 proc getSubShape*(this: BRepExtremaSelfIntersection; theID: int): TopoDS_Face {.
     noSideEffect, importcpp: "GetSubShape",
     header: "BRepExtrema_SelfIntersection.hxx".}
-proc elementSet*(this: BRepExtremaSelfIntersection): Handle[BRepExtremaTriangleSet] {.
-    noSideEffect, importcpp: "ElementSet",
-    header: "BRepExtrema_SelfIntersection.hxx".}
-## !!!Ignored construct:  # OVERLAP_TOOL_OUTPUT_TRIANGLES [NewLine] ! Returns set of overlapped mesh elements (only triangles). const TColStd_PackedMapOfInteger & OverlapTriangles ( ) const { return myOverlapTool . OverlapTriangles1 ( ) ; } # [NewLine] protected : ! Filter out correct adjacent mesh elements. virtual BRepExtrema_ElementFilter :: FilterResult PreCheckElements ( const Standard_Integer theIndex1 , const Standard_Integer theIndex2 ) ;
-## Error: identifier expected, but got: ! Returns set of overlapped mesh elements (only triangles).!!!
+## !!!Ignored construct:  & ElementSet ( ) const { return myElementSet ; } # OVERLAP_TOOL_OUTPUT_TRIANGLES [NewLine] ! Returns set of overlapped mesh elements (only triangles). const TColStd_PackedMapOfInteger & OverlapTriangles ( ) const { return myOverlapTool . OverlapTriangles1 ( ) ; } # [NewLine] protected : ! Filter out correct adjacent mesh elements. virtual BRepExtrema_ElementFilter :: FilterResult PreCheckElements ( const Standard_Integer theIndex1 , const Standard_Integer theIndex2 ) ;
+## Error: identifier expected, but got: &!!!
 
 proc isRegularSharedVertex*(this: var BRepExtremaSelfIntersection;
                            theSharedVert: BVH_Vec3d; theTrng1Vtxs1: BVH_Vec3d;
@@ -90,3 +87,51 @@ proc isRegularSharedEdge*(this: var BRepExtremaSelfIntersection;
                          theTrng1Vtxs0: BVH_Vec3d; theTrng1Vtxs1: BVH_Vec3d;
                          theTrng1Vtxs2: BVH_Vec3d; theTrng2Vtxs2: BVH_Vec3d): FilterResult {.
     importcpp: "isRegularSharedEdge", header: "BRepExtrema_SelfIntersection.hxx".}
+## !!!Ignored construct:  myElementSet ;
+## Error: identifier expected, but got: ;!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,51 @@
 ## !!!Ignored construct:  # _PCDM_BaseDriverPointer_HeaderFile [NewLine] # _PCDM_BaseDriverPointer_HeaderFile [NewLine] class Storage_BaseDriver ;
 ## Error: expected ';'!!!
 
-## !!!Ignored construct:  Standard_DEPRECATED ( Typedef PCDM_BaseDriverPointer is kept for compatibility only, instead consider using Handle(Storage_BaseDriver) explicitly ) typedef opencascade :: handle < Storage_BaseDriver > PCDM_BaseDriverPointer ;
+## !!!Ignored construct:  Standard_DEPRECATED ( Typedef PCDM_BaseDriverPointer is kept for compatibility only, instead consider using Handle(Storage_BaseDriver) explicitly ) typedef Handle ( Storage_BaseDriver ) PCDM_BaseDriverPointer ;
 ## Error: expected ';'!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

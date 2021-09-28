@@ -14,41 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IGESDefs_HArray1OfHArray1OfTextDisplayTemplate"
-discard "forward decl of IGESDefs_HArray1OfHArray1OfTextDisplayTemplate"
-type
-  HandleIGESDefsHArray1OfHArray1OfTextDisplayTemplate* = Handle[
-      IGESDefsHArray1OfHArray1OfTextDisplayTemplate]
-  IGESDefsHArray1OfHArray1OfTextDisplayTemplate* {.
-      importcpp: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate",
-      header: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate.hxx", bycopy.} = object of StandardTransient
+## !!!Ignored construct:  # _IGESDefs_HArray1OfHArray1OfTextDisplayTemplate_HeaderFile [NewLine] # _IGESDefs_HArray1OfHArray1OfTextDisplayTemplate_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < TColStd_Array1OfTransient . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < IGESGraph_HArray1OfTextDisplayTemplate . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] class IGESDefs_HArray1OfHArray1OfTextDisplayTemplate ;
+## Error: expected ';'!!!
+
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( IGESDefs_HArray1OfHArray1OfTextDisplayTemplate , Standard_Transient ) class IGESDefs_HArray1OfHArray1OfTextDisplayTemplate : public Standard_Transient { public : IGESDefs_HArray1OfHArray1OfTextDisplayTemplate ( const Standard_Integer low , const Standard_Integer up ) ; Standard_Integer Lower ( ) const ; Standard_Integer Upper ( ) const ; Standard_Integer Length ( ) const ; void SetValue ( const Standard_Integer num , const Handle ( IGESGraph_HArray1OfTextDisplayTemplate ) & val ) ; Handle ( IGESGraph_HArray1OfTextDisplayTemplate ) Value ( const Standard_Integer num ) const ; public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return IGESDefs_HArray1OfHArray1OfTextDisplayTemplate ; ( IGESDefs_HArray1OfHArray1OfTextDisplayTemplate , Standard_Transient ) } static const Handle ( Standard_Type ) & get_type_descriptor ( ) { return Standard_Type :: Instance < IGESDefs_HArray1OfHArray1OfTextDisplayTemplate > ( ) ; } virtual const Handle ( Standard_Type ) & DynamicType ( ) const { return get_type_descriptor ( ) ; } protected : private : TColStd_Array1OfTransient thelist ; } ;
+## Error: expected ';'!!!
 
 
-proc constructIGESDefsHArray1OfHArray1OfTextDisplayTemplate*(low: int; up: int): IGESDefsHArray1OfHArray1OfTextDisplayTemplate {.
-    constructor, importcpp: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate(@)",
-    header: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate.hxx".}
-proc lower*(this: IGESDefsHArray1OfHArray1OfTextDisplayTemplate): int {.
-    noSideEffect, importcpp: "Lower",
-    header: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate.hxx".}
-proc upper*(this: IGESDefsHArray1OfHArray1OfTextDisplayTemplate): int {.
-    noSideEffect, importcpp: "Upper",
-    header: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate.hxx".}
-proc length*(this: IGESDefsHArray1OfHArray1OfTextDisplayTemplate): int {.
-    noSideEffect, importcpp: "Length",
-    header: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate.hxx".}
-proc setValue*(this: var IGESDefsHArray1OfHArray1OfTextDisplayTemplate; num: int;
-              val: Handle[IGESGraphHArray1OfTextDisplayTemplate]) {.
-    importcpp: "SetValue",
-    header: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate.hxx".}
-proc value*(this: IGESDefsHArray1OfHArray1OfTextDisplayTemplate; num: int): Handle[
-    IGESGraphHArray1OfTextDisplayTemplate] {.noSideEffect, importcpp: "Value",
-    header: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate.hxx".}
-type
-  IGESDefsHArray1OfHArray1OfTextDisplayTemplatebaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate::get_type_name(@)", header: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate::get_type_descriptor(@)",
-    header: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate.hxx".}
-proc dynamicType*(this: IGESDefsHArray1OfHArray1OfTextDisplayTemplate): Handle[
-    StandardType] {.noSideEffect, importcpp: "DynamicType",
-                   header: "IGESDefs_HArray1OfHArray1OfTextDisplayTemplate.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -53,8 +53,8 @@ proc resetSelectionActiveStatus*(this: SelectMgrSensitiveEntity) {.noSideEffect,
 proc setActiveForSelection*(this: SelectMgrSensitiveEntity) {.noSideEffect,
     importcpp: "SetActiveForSelection", header: "SelectMgr_SensitiveEntity.hxx".}
 proc dumpJson*(this: SelectMgrSensitiveEntity; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "SelectMgr_SensitiveEntity.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "SelectMgr_SensitiveEntity.hxx".}
 type
   SelectMgrSensitiveEntitybaseType* = StandardTransient
 
@@ -67,5 +67,30 @@ proc dynamicType*(this: SelectMgrSensitiveEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "SelectMgr_SensitiveEntity.hxx".}
 discard "forward decl of SelectMgr_SensitiveEntity"
 type
-  HandleSelectMgrSensitiveEntity* = Handle[SelectMgrSensitiveEntity]
+  HandleC1C1* = Handle[SelectMgrSensitiveEntity]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -17,7 +17,7 @@
 discard "forward decl of Vrml_SFImage"
 discard "forward decl of Vrml_SFImage"
 type
-  HandleVrmlSFImage* = Handle[VrmlSFImage]
+  HandleC1C1* = Handle[VrmlSFImage]
 
 ## ! defines SFImage type of VRML field types.
 
@@ -27,17 +27,17 @@ type
 
 proc constructVrmlSFImage*(): VrmlSFImage {.constructor,
     importcpp: "Vrml_SFImage(@)", header: "Vrml_SFImage.hxx".}
-proc constructVrmlSFImage*(aWidth: int; aHeight: int; aNumber: VrmlSFImageNumber;
+proc constructVrmlSFImage*(aWidth: cint; aHeight: cint; aNumber: VrmlSFImageNumber;
                           anArray: Handle[TColStdHArray1OfInteger]): VrmlSFImage {.
     constructor, importcpp: "Vrml_SFImage(@)", header: "Vrml_SFImage.hxx".}
-proc setWidth*(this: var VrmlSFImage; aWidth: int) {.importcpp: "SetWidth",
+proc setWidth*(this: var VrmlSFImage; aWidth: cint) {.importcpp: "SetWidth",
     header: "Vrml_SFImage.hxx".}
-proc width*(this: VrmlSFImage): int {.noSideEffect, importcpp: "Width",
-                                  header: "Vrml_SFImage.hxx".}
-proc setHeight*(this: var VrmlSFImage; aHeight: int) {.importcpp: "SetHeight",
-    header: "Vrml_SFImage.hxx".}
-proc height*(this: VrmlSFImage): int {.noSideEffect, importcpp: "Height",
+proc width*(this: VrmlSFImage): cint {.noSideEffect, importcpp: "Width",
                                    header: "Vrml_SFImage.hxx".}
+proc setHeight*(this: var VrmlSFImage; aHeight: cint) {.importcpp: "SetHeight",
+    header: "Vrml_SFImage.hxx".}
+proc height*(this: VrmlSFImage): cint {.noSideEffect, importcpp: "Height",
+                                    header: "Vrml_SFImage.hxx".}
 proc setNumber*(this: var VrmlSFImage; aNumber: VrmlSFImageNumber) {.
     importcpp: "SetNumber", header: "Vrml_SFImage.hxx".}
 proc number*(this: VrmlSFImage): VrmlSFImageNumber {.noSideEffect,
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Vrml_SFImage::get_type_descriptor(@)", header: "Vrml_SFImage.hxx".}
 proc dynamicType*(this: VrmlSFImage): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Vrml_SFImage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

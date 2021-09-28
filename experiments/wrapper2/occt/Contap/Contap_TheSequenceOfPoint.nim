@@ -17,3 +17,28 @@
 type
   ContapTheSequenceOfPoint* = NCollectionSequence[ContapPoint]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

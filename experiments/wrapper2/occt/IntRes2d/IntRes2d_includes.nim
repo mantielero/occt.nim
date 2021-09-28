@@ -13,3 +13,28 @@ include IntRes2d_Situation
 include IntRes2d_Transition
 include IntRes2d_TypeTrans
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

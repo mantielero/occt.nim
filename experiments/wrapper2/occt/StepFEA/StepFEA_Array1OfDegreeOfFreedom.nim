@@ -14,3 +14,28 @@
 type
   StepFEA_Array1OfDegreeOfFreedom* = NCollectionArray1[StepFEA_DegreeOfFreedom]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

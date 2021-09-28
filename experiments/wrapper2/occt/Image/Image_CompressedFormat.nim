@@ -26,3 +26,28 @@ type
 const
   ImageCompressedFormatNB* = imageCompressedFormatRGBA_S3TC_DXT5 + 1
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

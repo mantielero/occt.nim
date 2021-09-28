@@ -71,23 +71,24 @@ proc clear*(this: var STEPConstructExternRefs) {.importcpp: "Clear",
     header: "STEPConstruct_ExternRefs.hxx".}
 proc loadExternRefs*(this: var STEPConstructExternRefs): bool {.
     importcpp: "LoadExternRefs", header: "STEPConstruct_ExternRefs.hxx".}
-proc nbExternRefs*(this: STEPConstructExternRefs): int {.noSideEffect,
+proc nbExternRefs*(this: STEPConstructExternRefs): cint {.noSideEffect,
     importcpp: "NbExternRefs", header: "STEPConstruct_ExternRefs.hxx".}
-proc fileName*(this: STEPConstructExternRefs; num: int): StandardCString {.
+proc fileName*(this: STEPConstructExternRefs; num: cint): StandardCString {.
     noSideEffect, importcpp: "FileName", header: "STEPConstruct_ExternRefs.hxx".}
-proc prodDef*(this: STEPConstructExternRefs; num: int): Handle[
+proc prodDef*(this: STEPConstructExternRefs; num: cint): Handle[
     StepBasicProductDefinition] {.noSideEffect, importcpp: "ProdDef",
                                  header: "STEPConstruct_ExternRefs.hxx".}
-proc docFile*(this: STEPConstructExternRefs; num: int): Handle[StepBasicDocumentFile] {.
+proc docFile*(this: STEPConstructExternRefs; num: cint): Handle[StepBasicDocumentFile] {.
     noSideEffect, importcpp: "DocFile", header: "STEPConstruct_ExternRefs.hxx".}
-proc format*(this: STEPConstructExternRefs; num: int): Handle[TCollectionHAsciiString] {.
-    noSideEffect, importcpp: "Format", header: "STEPConstruct_ExternRefs.hxx".}
+proc format*(this: STEPConstructExternRefs; num: cint): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "Format",
+                              header: "STEPConstruct_ExternRefs.hxx".}
 proc addExternRef*(this: var STEPConstructExternRefs; filename: StandardCString;
-                  pd: Handle[StepBasicProductDefinition]; format: StandardCString): int {.
+                  pd: Handle[StepBasicProductDefinition]; format: StandardCString): cint {.
     importcpp: "AddExternRef", header: "STEPConstruct_ExternRefs.hxx".}
 proc checkAP214Shared*(this: var STEPConstructExternRefs) {.
     importcpp: "checkAP214Shared", header: "STEPConstruct_ExternRefs.hxx".}
-proc writeExternRefs*(this: STEPConstructExternRefs; num: int): int {.noSideEffect,
+proc writeExternRefs*(this: STEPConstructExternRefs; num: cint): cint {.noSideEffect,
     importcpp: "WriteExternRefs", header: "STEPConstruct_ExternRefs.hxx".}
 proc setAP214APD*(this: var STEPConstructExternRefs;
                  apd: Handle[StepBasicApplicationProtocolDefinition]) {.
@@ -95,3 +96,28 @@ proc setAP214APD*(this: var STEPConstructExternRefs;
 proc getAP214APD*(this: var STEPConstructExternRefs): Handle[
     StepBasicApplicationProtocolDefinition] {.importcpp: "GetAP214APD",
     header: "STEPConstruct_ExternRefs.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

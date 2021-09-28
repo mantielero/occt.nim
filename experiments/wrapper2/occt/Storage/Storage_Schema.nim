@@ -26,7 +26,7 @@ discard "forward decl of Standard_Persistent"
 discard "forward decl of Storage_Schema"
 discard "forward decl of Storage_Schema"
 type
-  HandleStorageSchema* = Handle[StorageSchema]
+  HandleC1C1* = Handle[StorageSchema]
 
 ## ! Root class for basic storage/retrieval algorithms.
 ## ! A Storage_Schema object processes:
@@ -196,3 +196,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Storage_Schema.hxx".}
 proc dynamicType*(this: StorageSchema): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Storage_Schema.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

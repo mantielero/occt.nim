@@ -45,24 +45,25 @@ proc constructBRepLibMakeFace*(s: Sphere): BRepLibMakeFace {.constructor,
     importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
 proc constructBRepLibMakeFace*(c: Torus): BRepLibMakeFace {.constructor,
     importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
-proc constructBRepLibMakeFace*(s: Handle[GeomSurface]; tolDegen: float): BRepLibMakeFace {.
+proc constructBRepLibMakeFace*(s: Handle[GeomSurface]; tolDegen: cfloat): BRepLibMakeFace {.
     constructor, importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
-proc constructBRepLibMakeFace*(p: Pln; uMin: float; uMax: float; vMin: float; vMax: float): BRepLibMakeFace {.
-    constructor, importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
-proc constructBRepLibMakeFace*(c: Cylinder; uMin: float; uMax: float; vMin: float;
-                              vMax: float): BRepLibMakeFace {.constructor,
+proc constructBRepLibMakeFace*(p: Pln; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+                              vMax: cfloat): BRepLibMakeFace {.constructor,
     importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
-proc constructBRepLibMakeFace*(c: Cone; uMin: float; uMax: float; vMin: float;
-                              vMax: float): BRepLibMakeFace {.constructor,
+proc constructBRepLibMakeFace*(c: Cylinder; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+                              vMax: cfloat): BRepLibMakeFace {.constructor,
     importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
-proc constructBRepLibMakeFace*(s: Sphere; uMin: float; uMax: float; vMin: float;
-                              vMax: float): BRepLibMakeFace {.constructor,
+proc constructBRepLibMakeFace*(c: Cone; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+                              vMax: cfloat): BRepLibMakeFace {.constructor,
     importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
-proc constructBRepLibMakeFace*(c: Torus; uMin: float; uMax: float; vMin: float;
-                              vMax: float): BRepLibMakeFace {.constructor,
+proc constructBRepLibMakeFace*(s: Sphere; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+                              vMax: cfloat): BRepLibMakeFace {.constructor,
     importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
-proc constructBRepLibMakeFace*(s: Handle[GeomSurface]; uMin: float; uMax: float;
-                              vMin: float; vMax: float; tolDegen: float): BRepLibMakeFace {.
+proc constructBRepLibMakeFace*(c: Torus; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+                              vMax: cfloat): BRepLibMakeFace {.constructor,
+    importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
+proc constructBRepLibMakeFace*(s: Handle[GeomSurface]; uMin: cfloat; uMax: cfloat;
+                              vMin: cfloat; vMax: cfloat; tolDegen: cfloat): BRepLibMakeFace {.
     constructor, importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
 proc constructBRepLibMakeFace*(w: TopoDS_Wire; onlyPlane: bool = false): BRepLibMakeFace {.
     constructor, importcpp: "BRepLib_MakeFace(@)", header: "BRepLib_MakeFace.hxx".}
@@ -84,10 +85,10 @@ proc constructBRepLibMakeFace*(f: TopoDS_Face; w: TopoDS_Wire): BRepLibMakeFace 
 proc init*(this: var BRepLibMakeFace; f: TopoDS_Face) {.importcpp: "Init",
     header: "BRepLib_MakeFace.hxx".}
 proc init*(this: var BRepLibMakeFace; s: Handle[GeomSurface]; bound: bool;
-          tolDegen: float) {.importcpp: "Init", header: "BRepLib_MakeFace.hxx".}
-proc init*(this: var BRepLibMakeFace; s: Handle[GeomSurface]; uMin: float; uMax: float;
-          vMin: float; vMax: float; tolDegen: float) {.importcpp: "Init",
-    header: "BRepLib_MakeFace.hxx".}
+          tolDegen: cfloat) {.importcpp: "Init", header: "BRepLib_MakeFace.hxx".}
+proc init*(this: var BRepLibMakeFace; s: Handle[GeomSurface]; uMin: cfloat;
+          uMax: cfloat; vMin: cfloat; vMax: cfloat; tolDegen: cfloat) {.
+    importcpp: "Init", header: "BRepLib_MakeFace.hxx".}
 proc add*(this: var BRepLibMakeFace; w: TopoDS_Wire) {.importcpp: "Add",
     header: "BRepLib_MakeFace.hxx".}
 proc error*(this: BRepLibMakeFace): BRepLibFaceError {.noSideEffect,
@@ -97,7 +98,32 @@ proc face*(this: BRepLibMakeFace): TopoDS_Face {.noSideEffect, importcpp: "Face"
 converter `topoDS_Face`*(this: BRepLibMakeFace): TopoDS_Face {.noSideEffect,
     importcpp: "BRepLib_MakeFace::operator TopoDS_Face",
     header: "BRepLib_MakeFace.hxx".}
-proc isDegenerated*(theCurve: Handle[GeomCurve]; theMaxTol: float;
-                   theActTol: var float): bool {.
+proc isDegenerated*(theCurve: Handle[GeomCurve]; theMaxTol: cfloat;
+                   theActTol: var cfloat): bool {.
     importcpp: "BRepLib_MakeFace::IsDegenerated(@)",
     header: "BRepLib_MakeFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

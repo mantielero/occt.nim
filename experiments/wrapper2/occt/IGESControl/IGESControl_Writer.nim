@@ -33,10 +33,10 @@ type
 
 proc constructIGESControlWriter*(): IGESControlWriter {.constructor,
     importcpp: "IGESControl_Writer(@)", header: "IGESControl_Writer.hxx".}
-proc constructIGESControlWriter*(unit: StandardCString; modecr: int = 0): IGESControlWriter {.
+proc constructIGESControlWriter*(unit: StandardCString; modecr: cint = 0): IGESControlWriter {.
     constructor, importcpp: "IGESControl_Writer(@)",
     header: "IGESControl_Writer.hxx".}
-proc constructIGESControlWriter*(model: Handle[IGESDataIGESModel]; modecr: int = 0): IGESControlWriter {.
+proc constructIGESControlWriter*(model: Handle[IGESDataIGESModel]; modecr: cint = 0): IGESControlWriter {.
     constructor, importcpp: "IGESControl_Writer(@)",
     header: "IGESControl_Writer.hxx".}
 proc model*(this: IGESControlWriter): Handle[IGESDataIGESModel] {.noSideEffect,
@@ -59,3 +59,28 @@ proc write*(this: var IGESControlWriter; s: var StandardOStream; fnes: bool = fa
     importcpp: "Write", header: "IGESControl_Writer.hxx".}
 proc write*(this: var IGESControlWriter; file: StandardCString; fnes: bool = false): bool {.
     importcpp: "Write", header: "IGESControl_Writer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

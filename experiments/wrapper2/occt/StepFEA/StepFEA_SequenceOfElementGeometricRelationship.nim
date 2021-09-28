@@ -15,3 +15,28 @@ type
   StepFEA_SequenceOfElementGeometricRelationship* = NCollectionSequence[
       Handle[StepFEA_ElementGeometricRelationship]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

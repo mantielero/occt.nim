@@ -24,7 +24,7 @@ type
 
 proc constructIntPatchPolyLine*(): IntPatchPolyLine {.constructor,
     importcpp: "IntPatch_PolyLine(@)", header: "IntPatch_PolyLine.hxx".}
-proc constructIntPatchPolyLine*(initDefle: float): IntPatchPolyLine {.constructor,
+proc constructIntPatchPolyLine*(initDefle: cfloat): IntPatchPolyLine {.constructor,
     importcpp: "IntPatch_PolyLine(@)", header: "IntPatch_PolyLine.hxx".}
 proc setWLine*(this: var IntPatchPolyLine; onFirst: bool; line: Handle[IntPatchWLine]) {.
     importcpp: "SetWLine", header: "IntPatch_PolyLine.hxx".}
@@ -32,7 +32,32 @@ proc setRLine*(this: var IntPatchPolyLine; onFirst: bool; line: Handle[IntPatchR
     importcpp: "SetRLine", header: "IntPatch_PolyLine.hxx".}
 proc resetError*(this: var IntPatchPolyLine) {.importcpp: "ResetError",
     header: "IntPatch_PolyLine.hxx".}
-proc nbPoints*(this: IntPatchPolyLine): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: IntPatchPolyLine): cint {.noSideEffect, importcpp: "NbPoints",
     header: "IntPatch_PolyLine.hxx".}
-proc point*(this: IntPatchPolyLine; index: int): Pnt2d {.noSideEffect,
+proc point*(this: IntPatchPolyLine; index: cint): Pnt2d {.noSideEffect,
     importcpp: "Point", header: "IntPatch_PolyLine.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

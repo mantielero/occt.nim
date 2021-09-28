@@ -19,3 +19,28 @@ type
 
 proc bindTypes*(theMap: var StdObjMgtMapOfInstantiators) {.
     importcpp: "ShapePersistent::BindTypes(@)", header: "ShapePersistent.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

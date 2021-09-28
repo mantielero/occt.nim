@@ -20,8 +20,7 @@ discard "forward decl of StepBasic_Unit"
 discard "forward decl of StepBasic_UncertaintyMeasureWithUnit"
 discard "forward decl of StepBasic_UncertaintyMeasureWithUnit"
 type
-  HandleStepBasicUncertaintyMeasureWithUnit* = Handle[
-      StepBasicUncertaintyMeasureWithUnit]
+  HandleC1C1* = Handle[StepBasicUncertaintyMeasureWithUnit]
   StepBasicUncertaintyMeasureWithUnit* {.importcpp: "StepBasic_UncertaintyMeasureWithUnit", header: "StepBasic_UncertaintyMeasureWithUnit.hxx",
                                         bycopy.} = object of StepBasicMeasureWithUnit ##
                                                                                  ## !
@@ -60,3 +59,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicUncertaintyMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_UncertaintyMeasureWithUnit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

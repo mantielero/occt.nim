@@ -23,7 +23,7 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of LocOpe_WiresOnShape"
 discard "forward decl of LocOpe_WiresOnShape"
 type
-  HandleLocOpeWiresOnShape* = Handle[LocOpeWiresOnShape]
+  HandleC1C1* = Handle[LocOpeWiresOnShape]
   LocOpeWiresOnShape* {.importcpp: "LocOpe_WiresOnShape",
                        header: "LocOpe_WiresOnShape.hxx", bycopy.} = object of StandardTransient
 
@@ -65,10 +65,10 @@ proc onVertex*(this: var LocOpeWiresOnShape; vwire: TopoDS_Vertex;
               vshape: var TopoDS_Vertex): bool {.importcpp: "OnVertex",
     header: "LocOpe_WiresOnShape.hxx".}
 proc onEdge*(this: var LocOpeWiresOnShape; v: TopoDS_Vertex; e: var TopoDS_Edge;
-            p: var float): bool {.importcpp: "OnEdge",
-                              header: "LocOpe_WiresOnShape.hxx".}
+            p: var cfloat): bool {.importcpp: "OnEdge",
+                               header: "LocOpe_WiresOnShape.hxx".}
 proc onEdge*(this: var LocOpeWiresOnShape; v: TopoDS_Vertex; edgeFrom: TopoDS_Edge;
-            e: var TopoDS_Edge; p: var float): bool {.importcpp: "OnEdge",
+            e: var TopoDS_Edge; p: var cfloat): bool {.importcpp: "OnEdge",
     header: "LocOpe_WiresOnShape.hxx".}
 proc isFaceWithSection*(this: LocOpeWiresOnShape; aFace: TopoDS_Shape): bool {.
     noSideEffect, importcpp: "IsFaceWithSection", header: "LocOpe_WiresOnShape.hxx".}
@@ -82,3 +82,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "LocOpe_WiresOnShape.hxx".}
 proc dynamicType*(this: LocOpeWiresOnShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "LocOpe_WiresOnShape.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

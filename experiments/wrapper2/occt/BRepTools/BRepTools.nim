@@ -46,15 +46,15 @@ type
                                                                           ## parametric space of F.
 
 
-proc uVBounds*(f: TopoDS_Face; uMin: var float; uMax: var float; vMin: var float;
-              vMax: var float) {.importcpp: "BRepTools::UVBounds(@)",
-                              header: "BRepTools.hxx".}
-proc uVBounds*(f: TopoDS_Face; w: TopoDS_Wire; uMin: var float; uMax: var float;
-              vMin: var float; vMax: var float) {.importcpp: "BRepTools::UVBounds(@)",
-    header: "BRepTools.hxx".}
-proc uVBounds*(f: TopoDS_Face; e: TopoDS_Edge; uMin: var float; uMax: var float;
-              vMin: var float; vMax: var float) {.importcpp: "BRepTools::UVBounds(@)",
-    header: "BRepTools.hxx".}
+proc uVBounds*(f: TopoDS_Face; uMin: var cfloat; uMax: var cfloat; vMin: var cfloat;
+              vMax: var cfloat) {.importcpp: "BRepTools::UVBounds(@)",
+                               header: "BRepTools.hxx".}
+proc uVBounds*(f: TopoDS_Face; w: TopoDS_Wire; uMin: var cfloat; uMax: var cfloat;
+              vMin: var cfloat; vMax: var cfloat) {.
+    importcpp: "BRepTools::UVBounds(@)", header: "BRepTools.hxx".}
+proc uVBounds*(f: TopoDS_Face; e: TopoDS_Edge; uMin: var cfloat; uMax: var cfloat;
+              vMin: var cfloat; vMax: var cfloat) {.
+    importcpp: "BRepTools::UVBounds(@)", header: "BRepTools.hxx".}
 proc addUVBounds*(f: TopoDS_Face; b: var BndBox2d) {.
     importcpp: "BRepTools::AddUVBounds(@)", header: "BRepTools.hxx".}
 proc addUVBounds*(f: TopoDS_Face; w: TopoDS_Wire; b: var BndBox2d) {.
@@ -87,7 +87,7 @@ proc cleanGeometry*(theShape: TopoDS_Shape) {.
     importcpp: "BRepTools::CleanGeometry(@)", header: "BRepTools.hxx".}
 proc removeUnusedPCurves*(s: TopoDS_Shape) {.
     importcpp: "BRepTools::RemoveUnusedPCurves(@)", header: "BRepTools.hxx".}
-proc triangulation*(theShape: TopoDS_Shape; theLinDefl: float;
+proc triangulation*(theShape: TopoDS_Shape; theLinDefl: cfloat;
                    theToCheckFreeEdges: bool = false): bool {.
     importcpp: "BRepTools::Triangulation(@)", header: "BRepTools.hxx".}
 proc compare*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): bool {.
@@ -119,9 +119,34 @@ proc read*(sh: var TopoDS_Shape; file: StandardCString; b: BRepBuilder;
     importcpp: "BRepTools::Read(@)", header: "BRepTools.hxx".}
 proc evalAndUpdateTol*(theE: TopoDS_Edge; theC3d: Handle[GeomCurve];
                       theC2d: Handle[Geom2dCurve]; theS: Handle[GeomSurface];
-                      theF: float; theL: float): float {.
+                      theF: cfloat; theL: cfloat): cfloat {.
     importcpp: "BRepTools::EvalAndUpdateTol(@)", header: "BRepTools.hxx".}
 proc oriEdgeInFace*(theEdge: TopoDS_Edge; theFace: TopoDS_Face): TopAbsOrientation {.
     importcpp: "BRepTools::OriEdgeInFace(@)", header: "BRepTools.hxx".}
 proc removeInternals*(theS: var TopoDS_Shape; theForce: bool = false) {.
     importcpp: "BRepTools::RemoveInternals(@)", header: "BRepTools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,7 +32,7 @@ type
 
 
 proc constructRWGltfGltfMaterialMap*(theFile: TCollectionAsciiString;
-                                    theDefSamplerId: int): RWGltfGltfMaterialMap {.
+                                    theDefSamplerId: cint): RWGltfGltfMaterialMap {.
     constructor, importcpp: "RWGltf_GltfMaterialMap(@)",
     header: "RWGltf_GltfMaterialMap.hxx".}
 proc destroyRWGltfGltfMaterialMap*(this: var RWGltfGltfMaterialMap) {.
@@ -49,10 +49,35 @@ proc addTextures*(this: var RWGltfGltfMaterialMap;
                  theWriter: ptr RWGltfGltfOStreamWriter; theStyle: XCAFPrsStyle;
                  theIsStarted: var bool) {.importcpp: "AddTextures",
                                         header: "RWGltf_GltfMaterialMap.hxx".}
-proc nbImages*(this: RWGltfGltfMaterialMap): int {.noSideEffect,
+proc nbImages*(this: RWGltfGltfMaterialMap): cint {.noSideEffect,
     importcpp: "NbImages", header: "RWGltf_GltfMaterialMap.hxx".}
-proc nbTextures*(this: RWGltfGltfMaterialMap): int {.noSideEffect,
+proc nbTextures*(this: RWGltfGltfMaterialMap): cint {.noSideEffect,
     importcpp: "NbTextures", header: "RWGltf_GltfMaterialMap.hxx".}
 proc baseColorTexture*(theMat: Handle[XCAFDocVisMaterial]): Handle[ImageTexture] {.
     importcpp: "RWGltf_GltfMaterialMap::baseColorTexture(@)",
     header: "RWGltf_GltfMaterialMap.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

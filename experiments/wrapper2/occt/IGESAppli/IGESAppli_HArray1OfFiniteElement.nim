@@ -14,35 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESAppliHArray1OfFiniteElement* {.importcpp: "IGESAppli_HArray1OfFiniteElement", header: "IGESAppli_HArray1OfFiniteElement.hxx",
-                                    bycopy.} = object of IGESAppliArray1OfFiniteElement
+## !!!Ignored construct:  # IGESAppli_HArray1OfFiniteElement_HeaderFile [NewLine] # IGESAppli_HArray1OfFiniteElement_HeaderFile [NewLine] # < IGESAppli_FiniteElement . hxx > [NewLine] # < IGESAppli_Array1OfFiniteElement . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESAppli_HArray1OfFiniteElement , IGESAppli_Array1OfFiniteElement ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESAppliHArray1OfFiniteElement*(theLower: int; theUpper: int): IGESAppliHArray1OfFiniteElement {.
-    constructor, importcpp: "IGESAppli_HArray1OfFiniteElement(@)",
-    header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc constructIGESAppliHArray1OfFiniteElement*(theLower: int; theUpper: int;
-    theValue: ValueType): IGESAppliHArray1OfFiniteElement {.constructor,
-    importcpp: "IGESAppli_HArray1OfFiniteElement(@)",
-    header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc constructIGESAppliHArray1OfFiniteElement*(
-    theOther: IGESAppliArray1OfFiniteElement): IGESAppliHArray1OfFiniteElement {.
-    constructor, importcpp: "IGESAppli_HArray1OfFiniteElement(@)",
-    header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc array1*(this: IGESAppliHArray1OfFiniteElement): IGESAppliArray1OfFiniteElement {.
-    noSideEffect, importcpp: "Array1",
-    header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc changeArray1*(this: var IGESAppliHArray1OfFiniteElement): var IGESAppliArray1OfFiniteElement {.
-    importcpp: "ChangeArray1", header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-type
-  IGESAppliHArray1OfFiniteElementbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_HArray1OfFiniteElement::get_type_name(@)",
-                            header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESAppli_HArray1OfFiniteElement::get_type_descriptor(@)",
-    header: "IGESAppli_HArray1OfFiniteElement.hxx".}
-proc dynamicType*(this: IGESAppliHArray1OfFiniteElement): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESAppli_HArray1OfFiniteElement.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

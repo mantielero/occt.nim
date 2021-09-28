@@ -19,3 +19,28 @@ type
   BRepListIteratorOfListOfCurveRepresentation* = Iterator[
       Handle[BRepCurveRepresentation]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

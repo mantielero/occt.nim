@@ -41,7 +41,7 @@ type
 
 proc constructStepAP214GroupItem*(): StepAP214GroupItem {.constructor,
     importcpp: "StepAP214_GroupItem(@)", header: "StepAP214_GroupItem.hxx".}
-proc caseNum*(this: StepAP214GroupItem; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepAP214GroupItem; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_GroupItem.hxx".}
 proc geometricRepresentationItem*(this: StepAP214GroupItem): Handle[
     StepGeomGeometricRepresentationItem] {.noSideEffect,
@@ -85,3 +85,28 @@ proc styledItem*(this: StepAP214GroupItem): Handle[StepVisualStyledItem] {.
 proc topologicalRepresentationItem*(this: StepAP214GroupItem): Handle[
     StepShapeTopologicalRepresentationItem] {.noSideEffect,
     importcpp: "TopologicalRepresentationItem", header: "StepAP214_GroupItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

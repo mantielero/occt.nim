@@ -41,3 +41,28 @@ proc curves*(this: var LocOpePipe; spt: TColgpSequenceOfPnt): TColGeomSequenceOf
     importcpp: "Curves", header: "LocOpe_Pipe.hxx".}
 proc barycCurve*(this: var LocOpePipe): Handle[GeomCurve] {.importcpp: "BarycCurve",
     header: "LocOpe_Pipe.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

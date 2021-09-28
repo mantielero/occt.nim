@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_CharacterizedObject"
 discard "forward decl of StepBasic_CharacterizedObject"
 type
-  HandleStepBasicCharacterizedObject* = Handle[StepBasicCharacterizedObject]
+  HandleC1C1* = Handle[StepBasicCharacterizedObject]
 
 ## ! Representation of STEP entity CharacterizedObject
 
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicCharacterizedObject): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_CharacterizedObject.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

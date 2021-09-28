@@ -111,11 +111,12 @@ type
                                                 ## ! and curvat2 the curvature at the second point
 
 
-proc constructLocalAnalysisCurveContinuity*(curv1: Handle[GeomCurve]; u1: float;
-    curv2: Handle[GeomCurve]; u2: float; order: GeomAbsShape; epsNul: float = 0.001;
-    epsC0: float = 0.001; epsC1: float = 0.001; epsC2: float = 0.001; epsG1: float = 0.001;
-    epsG2: float = 0.001; percent: float = 0.01; maxlen: float = 10000): LocalAnalysisCurveContinuity {.
-    constructor, importcpp: "LocalAnalysis_CurveContinuity(@)",
+proc constructLocalAnalysisCurveContinuity*(curv1: Handle[GeomCurve]; u1: cfloat;
+    curv2: Handle[GeomCurve]; u2: cfloat; order: GeomAbsShape; epsNul: cfloat = 0.001;
+    epsC0: cfloat = 0.001; epsC1: cfloat = 0.001; epsC2: cfloat = 0.001;
+    epsG1: cfloat = 0.001; epsG2: cfloat = 0.001; percent: cfloat = 0.01;
+    maxlen: cfloat = 10000): LocalAnalysisCurveContinuity {.constructor,
+    importcpp: "LocalAnalysis_CurveContinuity(@)",
     header: "LocalAnalysis_CurveContinuity.hxx".}
 proc isDone*(this: LocalAnalysisCurveContinuity): bool {.noSideEffect,
     importcpp: "IsDone", header: "LocalAnalysis_CurveContinuity.hxx".}
@@ -125,21 +126,21 @@ proc statusError*(this: LocalAnalysisCurveContinuity): LocalAnalysisStatusErrorT
 proc continuityStatus*(this: LocalAnalysisCurveContinuity): GeomAbsShape {.
     noSideEffect, importcpp: "ContinuityStatus",
     header: "LocalAnalysis_CurveContinuity.hxx".}
-proc c0Value*(this: LocalAnalysisCurveContinuity): float {.noSideEffect,
+proc c0Value*(this: LocalAnalysisCurveContinuity): cfloat {.noSideEffect,
     importcpp: "C0Value", header: "LocalAnalysis_CurveContinuity.hxx".}
-proc c1Angle*(this: LocalAnalysisCurveContinuity): float {.noSideEffect,
+proc c1Angle*(this: LocalAnalysisCurveContinuity): cfloat {.noSideEffect,
     importcpp: "C1Angle", header: "LocalAnalysis_CurveContinuity.hxx".}
-proc c1Ratio*(this: LocalAnalysisCurveContinuity): float {.noSideEffect,
+proc c1Ratio*(this: LocalAnalysisCurveContinuity): cfloat {.noSideEffect,
     importcpp: "C1Ratio", header: "LocalAnalysis_CurveContinuity.hxx".}
-proc c2Angle*(this: LocalAnalysisCurveContinuity): float {.noSideEffect,
+proc c2Angle*(this: LocalAnalysisCurveContinuity): cfloat {.noSideEffect,
     importcpp: "C2Angle", header: "LocalAnalysis_CurveContinuity.hxx".}
-proc c2Ratio*(this: LocalAnalysisCurveContinuity): float {.noSideEffect,
+proc c2Ratio*(this: LocalAnalysisCurveContinuity): cfloat {.noSideEffect,
     importcpp: "C2Ratio", header: "LocalAnalysis_CurveContinuity.hxx".}
-proc g1Angle*(this: LocalAnalysisCurveContinuity): float {.noSideEffect,
+proc g1Angle*(this: LocalAnalysisCurveContinuity): cfloat {.noSideEffect,
     importcpp: "G1Angle", header: "LocalAnalysis_CurveContinuity.hxx".}
-proc g2Angle*(this: LocalAnalysisCurveContinuity): float {.noSideEffect,
+proc g2Angle*(this: LocalAnalysisCurveContinuity): cfloat {.noSideEffect,
     importcpp: "G2Angle", header: "LocalAnalysis_CurveContinuity.hxx".}
-proc g2CurvatureVariation*(this: LocalAnalysisCurveContinuity): float {.
+proc g2CurvatureVariation*(this: LocalAnalysisCurveContinuity): cfloat {.
     noSideEffect, importcpp: "G2CurvatureVariation",
     header: "LocalAnalysis_CurveContinuity.hxx".}
 proc isC0*(this: LocalAnalysisCurveContinuity): bool {.noSideEffect,
@@ -152,3 +153,28 @@ proc isG1*(this: LocalAnalysisCurveContinuity): bool {.noSideEffect,
     importcpp: "IsG1", header: "LocalAnalysis_CurveContinuity.hxx".}
 proc isG2*(this: LocalAnalysisCurveContinuity): bool {.noSideEffect,
     importcpp: "IsG2", header: "LocalAnalysis_CurveContinuity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

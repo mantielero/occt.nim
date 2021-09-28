@@ -17,7 +17,7 @@ discard "forward decl of IGESToBRep_ToolContainer"
 discard "forward decl of IGESToBRep_AlgoContainer"
 discard "forward decl of IGESToBRep_AlgoContainer"
 type
-  HandleIGESToBRepAlgoContainer* = Handle[IGESToBRepAlgoContainer]
+  HandleC1C1* = Handle[IGESToBRepAlgoContainer]
   IGESToBRepAlgoContainer* {.importcpp: "IGESToBRep_AlgoContainer",
                             header: "IGESToBRep_AlgoContainer.hxx", bycopy.} = object of StandardTransient ##
                                                                                                     ## !
@@ -44,3 +44,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESToBRep_AlgoContainer.hxx".}
 proc dynamicType*(this: IGESToBRepAlgoContainer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESToBRep_AlgoContainer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,7 +30,7 @@ proc constructRWStepFEA_RWNodeWithSolutionCoordinateSystem*(): RWStepFEA_RWNodeW
     constructor, importcpp: "RWStepFEA_RWNodeWithSolutionCoordinateSystem(@)",
     header: "RWStepFEA_RWNodeWithSolutionCoordinateSystem.hxx".}
 proc readStep*(this: RWStepFEA_RWNodeWithSolutionCoordinateSystem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepFEA_NodeWithSolutionCoordinateSystem]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepFEA_RWNodeWithSolutionCoordinateSystem;
            ent: Handle[StepFEA_NodeWithSolutionCoordinateSystem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWNodeWithSolutionCoordinateSystem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

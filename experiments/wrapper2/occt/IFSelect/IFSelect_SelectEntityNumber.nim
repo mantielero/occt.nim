@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectEntityNumber"
 discard "forward decl of IFSelect_SelectEntityNumber"
 type
-  HandleIFSelectSelectEntityNumber* = Handle[IFSelectSelectEntityNumber]
+  HandleC1C1* = Handle[IFSelectSelectEntityNumber]
 
 ## ! A SelectEntityNumber gets in an InterfaceModel (through a
 ## ! Graph), the Entity which has a specified Number (its rank of
@@ -66,3 +66,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IFSelectSelectEntityNumber): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectEntityNumber.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

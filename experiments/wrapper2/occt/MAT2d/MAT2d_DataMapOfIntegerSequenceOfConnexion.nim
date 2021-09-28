@@ -15,8 +15,33 @@
 ##  commercial license or contractual agreement.
 
 type
-  MAT2dDataMapOfIntegerSequenceOfConnexion* = NCollectionDataMap[int,
+  MAT2dDataMapOfIntegerSequenceOfConnexion* = NCollectionDataMap[cint,
       MAT2dSequenceOfConnexion, TColStdMapIntegerHasher]
-  MAT2dDataMapIteratorOfDataMapOfIntegerSequenceOfConnexion* = Iterator[int,
+  MAT2dDataMapIteratorOfDataMapOfIntegerSequenceOfConnexion* = Iterator[cint,
       MAT2dSequenceOfConnexion, TColStdMapIntegerHasher]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

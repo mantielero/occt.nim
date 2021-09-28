@@ -69,7 +69,7 @@ proc constructIGESToBRepTopoCurve*(cs: IGESToBRepCurveAndSurface): IGESToBRepTop
 proc constructIGESToBRepTopoCurve*(cs: IGESToBRepTopoCurve): IGESToBRepTopoCurve {.
     constructor, importcpp: "IGESToBRep_TopoCurve(@)",
     header: "IGESToBRep_TopoCurve.hxx".}
-proc constructIGESToBRepTopoCurve*(eps: float; epsGeom: float; epsCoeff: float;
+proc constructIGESToBRepTopoCurve*(eps: cfloat; epsGeom: cfloat; epsCoeff: cfloat;
                                   mode: bool; modeapprox: bool; optimized: bool): IGESToBRepTopoCurve {.
     constructor, importcpp: "IGESToBRep_TopoCurve(@)",
     header: "IGESToBRep_TopoCurve.hxx".}
@@ -78,14 +78,14 @@ proc transferTopoCurve*(this: var IGESToBRepTopoCurve;
     importcpp: "TransferTopoCurve", header: "IGESToBRep_TopoCurve.hxx".}
 proc transfer2dTopoCurve*(this: var IGESToBRepTopoCurve;
                          start: Handle[IGESDataIGESEntity]; face: TopoDS_Face;
-                         trans: Trsf2d; uFact: float): TopoDS_Shape {.
+                         trans: Trsf2d; uFact: cfloat): TopoDS_Shape {.
     importcpp: "Transfer2dTopoCurve", header: "IGESToBRep_TopoCurve.hxx".}
 proc transferTopoBasicCurve*(this: var IGESToBRepTopoCurve;
                             start: Handle[IGESDataIGESEntity]): TopoDS_Shape {.
     importcpp: "TransferTopoBasicCurve", header: "IGESToBRep_TopoCurve.hxx".}
 proc transfer2dTopoBasicCurve*(this: var IGESToBRepTopoCurve;
                               start: Handle[IGESDataIGESEntity];
-                              face: TopoDS_Face; trans: Trsf2d; uFact: float): TopoDS_Shape {.
+                              face: TopoDS_Face; trans: Trsf2d; uFact: cfloat): TopoDS_Shape {.
     importcpp: "Transfer2dTopoBasicCurve", header: "IGESToBRep_TopoCurve.hxx".}
 proc transferPoint*(this: var IGESToBRepTopoCurve; start: Handle[IGESGeomPoint]): TopoDS_Vertex {.
     importcpp: "TransferPoint", header: "IGESToBRep_TopoCurve.hxx".}
@@ -96,44 +96,69 @@ proc transferCompositeCurve*(this: var IGESToBRepTopoCurve;
     importcpp: "TransferCompositeCurve", header: "IGESToBRep_TopoCurve.hxx".}
 proc transfer2dCompositeCurve*(this: var IGESToBRepTopoCurve;
                               start: Handle[IGESGeomCompositeCurve];
-                              face: TopoDS_Face; trans: Trsf2d; uFact: float): TopoDS_Shape {.
+                              face: TopoDS_Face; trans: Trsf2d; uFact: cfloat): TopoDS_Shape {.
     importcpp: "Transfer2dCompositeCurve", header: "IGESToBRep_TopoCurve.hxx".}
 proc transferOffsetCurve*(this: var IGESToBRepTopoCurve;
                          start: Handle[IGESGeomOffsetCurve]): TopoDS_Shape {.
     importcpp: "TransferOffsetCurve", header: "IGESToBRep_TopoCurve.hxx".}
 proc transfer2dOffsetCurve*(this: var IGESToBRepTopoCurve;
                            start: Handle[IGESGeomOffsetCurve]; face: TopoDS_Face;
-                           trans: Trsf2d; uFact: float): TopoDS_Shape {.
+                           trans: Trsf2d; uFact: cfloat): TopoDS_Shape {.
     importcpp: "Transfer2dOffsetCurve", header: "IGESToBRep_TopoCurve.hxx".}
 proc transferCurveOnSurface*(this: var IGESToBRepTopoCurve;
                             start: Handle[IGESGeomCurveOnSurface]): TopoDS_Shape {.
     importcpp: "TransferCurveOnSurface", header: "IGESToBRep_TopoCurve.hxx".}
 proc transferCurveOnFace*(this: var IGESToBRepTopoCurve; face: var TopoDS_Face;
                          start: Handle[IGESGeomCurveOnSurface]; trans: Trsf2d;
-                         uFact: float; isCurv: bool): TopoDS_Shape {.
+                         uFact: cfloat; isCurv: bool): TopoDS_Shape {.
     importcpp: "TransferCurveOnFace", header: "IGESToBRep_TopoCurve.hxx".}
 proc transferBoundary*(this: var IGESToBRepTopoCurve;
                       start: Handle[IGESGeomBoundary]): TopoDS_Shape {.
     importcpp: "TransferBoundary", header: "IGESToBRep_TopoCurve.hxx".}
 proc transferBoundaryOnFace*(this: var IGESToBRepTopoCurve; face: var TopoDS_Face;
                             start: Handle[IGESGeomBoundary]; trans: Trsf2d;
-                            uFact: float): TopoDS_Shape {.
+                            uFact: cfloat): TopoDS_Shape {.
     importcpp: "TransferBoundaryOnFace", header: "IGESToBRep_TopoCurve.hxx".}
 proc approxBSplineCurve*(this: var IGESToBRepTopoCurve;
                         start: Handle[GeomBSplineCurve]) {.
     importcpp: "ApproxBSplineCurve", header: "IGESToBRep_TopoCurve.hxx".}
-proc nbCurves*(this: IGESToBRepTopoCurve): int {.noSideEffect, importcpp: "NbCurves",
-    header: "IGESToBRep_TopoCurve.hxx".}
-proc curve*(this: IGESToBRepTopoCurve; num: int = 1): Handle[GeomCurve] {.noSideEffect,
+proc nbCurves*(this: IGESToBRepTopoCurve): cint {.noSideEffect,
+    importcpp: "NbCurves", header: "IGESToBRep_TopoCurve.hxx".}
+proc curve*(this: IGESToBRepTopoCurve; num: cint = 1): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "IGESToBRep_TopoCurve.hxx".}
 proc approx2dBSplineCurve*(this: var IGESToBRepTopoCurve;
                           start: Handle[Geom2dBSplineCurve]) {.
     importcpp: "Approx2dBSplineCurve", header: "IGESToBRep_TopoCurve.hxx".}
-proc nbCurves2d*(this: IGESToBRepTopoCurve): int {.noSideEffect,
+proc nbCurves2d*(this: IGESToBRepTopoCurve): cint {.noSideEffect,
     importcpp: "NbCurves2d", header: "IGESToBRep_TopoCurve.hxx".}
-proc curve2d*(this: IGESToBRepTopoCurve; num: int = 1): Handle[Geom2dCurve] {.
+proc curve2d*(this: IGESToBRepTopoCurve; num: cint = 1): Handle[Geom2dCurve] {.
     noSideEffect, importcpp: "Curve2d", header: "IGESToBRep_TopoCurve.hxx".}
 proc setBadCase*(this: var IGESToBRepTopoCurve; value: bool) {.
     importcpp: "SetBadCase", header: "IGESToBRep_TopoCurve.hxx".}
 proc badCase*(this: IGESToBRepTopoCurve): bool {.noSideEffect, importcpp: "BadCase",
     header: "IGESToBRep_TopoCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

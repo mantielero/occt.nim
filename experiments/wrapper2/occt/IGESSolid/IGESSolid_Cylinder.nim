@@ -20,7 +20,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_Cylinder"
 discard "forward decl of IGESSolid_Cylinder"
 type
-  HandleIGESSolidCylinder* = Handle[IGESSolidCylinder]
+  HandleC1C1* = Handle[IGESSolidCylinder]
 
 ## ! defines Cylinder, Type <154> Form Number <0>
 ## ! in package IGESSolid
@@ -33,11 +33,11 @@ type
 
 proc constructIGESSolidCylinder*(): IGESSolidCylinder {.constructor,
     importcpp: "IGESSolid_Cylinder(@)", header: "IGESSolid_Cylinder.hxx".}
-proc init*(this: var IGESSolidCylinder; aHeight: float; aRadius: float; aCenter: Xyz;
+proc init*(this: var IGESSolidCylinder; aHeight: cfloat; aRadius: cfloat; aCenter: Xyz;
           anAxis: Xyz) {.importcpp: "Init", header: "IGESSolid_Cylinder.hxx".}
-proc height*(this: IGESSolidCylinder): float {.noSideEffect, importcpp: "Height",
+proc height*(this: IGESSolidCylinder): cfloat {.noSideEffect, importcpp: "Height",
     header: "IGESSolid_Cylinder.hxx".}
-proc radius*(this: IGESSolidCylinder): float {.noSideEffect, importcpp: "Radius",
+proc radius*(this: IGESSolidCylinder): cfloat {.noSideEffect, importcpp: "Radius",
     header: "IGESSolid_Cylinder.hxx".}
 proc faceCenter*(this: IGESSolidCylinder): Pnt {.noSideEffect,
     importcpp: "FaceCenter", header: "IGESSolid_Cylinder.hxx".}
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_Cylinder.hxx".}
 proc dynamicType*(this: IGESSolidCylinder): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Cylinder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,12 +31,37 @@ type
                                                                        ## ! the zero near the close point.
 
 
-proc constructExtremaLocateExtCC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; u0: float;
-                                 v0: float): ExtremaLocateExtCC {.constructor,
+proc constructExtremaLocateExtCC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; u0: cfloat;
+                                 v0: cfloat): ExtremaLocateExtCC {.constructor,
     importcpp: "Extrema_LocateExtCC(@)", header: "Extrema_LocateExtCC.hxx".}
 proc isDone*(this: ExtremaLocateExtCC): bool {.noSideEffect, importcpp: "IsDone",
     header: "Extrema_LocateExtCC.hxx".}
-proc squareDistance*(this: ExtremaLocateExtCC): float {.noSideEffect,
+proc squareDistance*(this: ExtremaLocateExtCC): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_LocateExtCC.hxx".}
 proc point*(this: ExtremaLocateExtCC; p1: var ExtremaPOnCurv; p2: var ExtremaPOnCurv) {.
     noSideEffect, importcpp: "Point", header: "Extrema_LocateExtCC.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

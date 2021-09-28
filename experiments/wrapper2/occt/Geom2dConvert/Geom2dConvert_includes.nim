@@ -7,4 +7,3 @@ include Geom2dConvert_ApproxCurve
 include Geom2dConvert_BSplineCurveKnotSplitting
 include Geom2dConvert_BSplineCurveToBezierCurve
 include Geom2dConvert_CompCurveToBSplineCurve
-

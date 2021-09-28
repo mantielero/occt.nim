@@ -22,23 +22,48 @@ type
                                                                    ## ! @param theXTolerance - algorithm tolerance.
 
 
-proc constructMathBissecNewton*(theXTolerance: float): MathBissecNewton {.
+proc constructMathBissecNewton*(theXTolerance: cfloat): MathBissecNewton {.
     constructor, importcpp: "math_BissecNewton(@)", header: "math_BissecNewton.hxx".}
 proc perform*(this: var MathBissecNewton; f: var MathFunctionWithDerivative;
-             bound1: float; bound2: float; nbIterations: int = 100) {.
+             bound1: cfloat; bound2: cfloat; nbIterations: cint = 100) {.
     importcpp: "Perform", header: "math_BissecNewton.hxx".}
 proc isSolutionReached*(this: var MathBissecNewton;
                        theFunction: var MathFunctionWithDerivative): bool {.
     importcpp: "IsSolutionReached", header: "math_BissecNewton.hxx".}
 proc isDone*(this: MathBissecNewton): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_BissecNewton.hxx".}
-proc root*(this: MathBissecNewton): float {.noSideEffect, importcpp: "Root",
-                                        header: "math_BissecNewton.hxx".}
-proc derivative*(this: MathBissecNewton): float {.noSideEffect,
+proc root*(this: MathBissecNewton): cfloat {.noSideEffect, importcpp: "Root",
+    header: "math_BissecNewton.hxx".}
+proc derivative*(this: MathBissecNewton): cfloat {.noSideEffect,
     importcpp: "Derivative", header: "math_BissecNewton.hxx".}
-proc value*(this: MathBissecNewton): float {.noSideEffect, importcpp: "Value",
+proc value*(this: MathBissecNewton): cfloat {.noSideEffect, importcpp: "Value",
     header: "math_BissecNewton.hxx".}
 proc dump*(this: MathBissecNewton; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_BissecNewton.hxx".}
 proc destroyMathBissecNewton*(this: var MathBissecNewton) {.
     importcpp: "#.~math_BissecNewton()", header: "math_BissecNewton.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

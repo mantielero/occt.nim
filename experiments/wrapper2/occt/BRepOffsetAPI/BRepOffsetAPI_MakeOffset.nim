@@ -53,9 +53,34 @@ proc init*(this: var BRepOffsetAPI_MakeOffset; join: GeomAbsJoinType = geomAbsAr
                                     header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc addWire*(this: var BRepOffsetAPI_MakeOffset; spine: TopoDS_Wire) {.
     importcpp: "AddWire", header: "BRepOffsetAPI_MakeOffset.hxx".}
-proc perform*(this: var BRepOffsetAPI_MakeOffset; offset: float; alt: float = 0.0) {.
+proc perform*(this: var BRepOffsetAPI_MakeOffset; offset: cfloat; alt: cfloat = 0.0) {.
     importcpp: "Perform", header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc build*(this: var BRepOffsetAPI_MakeOffset) {.importcpp: "Build",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc generated*(this: var BRepOffsetAPI_MakeOffset; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_MakeOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

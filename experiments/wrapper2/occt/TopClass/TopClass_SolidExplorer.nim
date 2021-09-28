@@ -33,9 +33,9 @@ type
 
 proc reject*(this: TopClassSolidExplorer; p: Pnt): bool {.noSideEffect,
     importcpp: "Reject", header: "TopClass_SolidExplorer.hxx".}
-proc segment*(this: var TopClassSolidExplorer; p: Pnt; L: var Lin; par: var float) {.
+proc segment*(this: var TopClassSolidExplorer; p: Pnt; L: var Lin; par: var cfloat) {.
     importcpp: "Segment", header: "TopClass_SolidExplorer.hxx".}
-proc otherSegment*(this: var TopClassSolidExplorer; p: Pnt; L: var Lin; par: var float) {.
+proc otherSegment*(this: var TopClassSolidExplorer; p: Pnt; L: var Lin; par: var cfloat) {.
     importcpp: "OtherSegment", header: "TopClass_SolidExplorer.hxx".}
 proc initShell*(this: var TopClassSolidExplorer) {.importcpp: "InitShell",
     header: "TopClass_SolidExplorer.hxx".}
@@ -43,8 +43,8 @@ proc moreShells*(this: TopClassSolidExplorer): bool {.noSideEffect,
     importcpp: "MoreShells", header: "TopClass_SolidExplorer.hxx".}
 proc nextShell*(this: var TopClassSolidExplorer) {.importcpp: "NextShell",
     header: "TopClass_SolidExplorer.hxx".}
-proc rejectShell*(this: TopClassSolidExplorer; L: Lin; par: float): bool {.noSideEffect,
-    importcpp: "RejectShell", header: "TopClass_SolidExplorer.hxx".}
+proc rejectShell*(this: TopClassSolidExplorer; L: Lin; par: cfloat): bool {.
+    noSideEffect, importcpp: "RejectShell", header: "TopClass_SolidExplorer.hxx".}
 proc initFace*(this: var TopClassSolidExplorer) {.importcpp: "InitFace",
     header: "TopClass_SolidExplorer.hxx".}
 proc moreFaces*(this: TopClassSolidExplorer): bool {.noSideEffect,
@@ -53,5 +53,30 @@ proc nextFace*(this: var TopClassSolidExplorer) {.importcpp: "NextFace",
     header: "TopClass_SolidExplorer.hxx".}
 proc currentFace*(this: TopClassSolidExplorer): TopoDS_Face {.noSideEffect,
     importcpp: "CurrentFace", header: "TopClass_SolidExplorer.hxx".}
-proc rejectFace*(this: TopClassSolidExplorer; L: Lin; par: float): bool {.noSideEffect,
+proc rejectFace*(this: TopClassSolidExplorer; L: Lin; par: cfloat): bool {.noSideEffect,
     importcpp: "RejectFace", header: "TopClass_SolidExplorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

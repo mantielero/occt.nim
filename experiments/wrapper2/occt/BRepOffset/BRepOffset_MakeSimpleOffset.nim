@@ -84,11 +84,11 @@ proc constructBRepOffsetMakeSimpleOffset*(): BRepOffsetMakeSimpleOffset {.
     constructor, importcpp: "BRepOffset_MakeSimpleOffset(@)",
     header: "BRepOffset_MakeSimpleOffset.hxx".}
 proc constructBRepOffsetMakeSimpleOffset*(theInputShape: TopoDS_Shape;
-    theOffsetValue: float): BRepOffsetMakeSimpleOffset {.constructor,
+    theOffsetValue: cfloat): BRepOffsetMakeSimpleOffset {.constructor,
     importcpp: "BRepOffset_MakeSimpleOffset(@)",
     header: "BRepOffset_MakeSimpleOffset.hxx".}
 proc initialize*(this: var BRepOffsetMakeSimpleOffset; theInputShape: TopoDS_Shape;
-                theOffsetValue: float) {.importcpp: "Initialize", header: "BRepOffset_MakeSimpleOffset.hxx".}
+                theOffsetValue: cfloat) {.importcpp: "Initialize", header: "BRepOffset_MakeSimpleOffset.hxx".}
 proc perform*(this: var BRepOffsetMakeSimpleOffset) {.importcpp: "Perform",
     header: "BRepOffset_MakeSimpleOffset.hxx".}
 proc getErrorMessage*(this: BRepOffsetMakeSimpleOffset): TCollectionAsciiString {.
@@ -100,21 +100,46 @@ proc getBuildSolidFlag*(this: BRepOffsetMakeSimpleOffset): bool {.noSideEffect,
     importcpp: "GetBuildSolidFlag", header: "BRepOffset_MakeSimpleOffset.hxx".}
 proc setBuildSolidFlag*(this: var BRepOffsetMakeSimpleOffset; theBuildFlag: bool) {.
     importcpp: "SetBuildSolidFlag", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc getOffsetValue*(this: BRepOffsetMakeSimpleOffset): float {.noSideEffect,
+proc getOffsetValue*(this: BRepOffsetMakeSimpleOffset): cfloat {.noSideEffect,
     importcpp: "GetOffsetValue", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc setOffsetValue*(this: var BRepOffsetMakeSimpleOffset; theOffsetValue: float) {.
+proc setOffsetValue*(this: var BRepOffsetMakeSimpleOffset; theOffsetValue: cfloat) {.
     importcpp: "SetOffsetValue", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc getTolerance*(this: BRepOffsetMakeSimpleOffset): float {.noSideEffect,
+proc getTolerance*(this: BRepOffsetMakeSimpleOffset): cfloat {.noSideEffect,
     importcpp: "GetTolerance", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc setTolerance*(this: var BRepOffsetMakeSimpleOffset; theValue: float) {.
+proc setTolerance*(this: var BRepOffsetMakeSimpleOffset; theValue: cfloat) {.
     importcpp: "SetTolerance", header: "BRepOffset_MakeSimpleOffset.hxx".}
 proc isDone*(this: BRepOffsetMakeSimpleOffset): bool {.noSideEffect,
     importcpp: "IsDone", header: "BRepOffset_MakeSimpleOffset.hxx".}
 proc getResultShape*(this: BRepOffsetMakeSimpleOffset): TopoDS_Shape {.noSideEffect,
     importcpp: "GetResultShape", header: "BRepOffset_MakeSimpleOffset.hxx".}
-proc getSafeOffset*(this: var BRepOffsetMakeSimpleOffset; theExpectedToler: float): float {.
+proc getSafeOffset*(this: var BRepOffsetMakeSimpleOffset; theExpectedToler: cfloat): cfloat {.
     importcpp: "GetSafeOffset", header: "BRepOffset_MakeSimpleOffset.hxx".}
 proc generated*(this: BRepOffsetMakeSimpleOffset; theShape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "Generated", header: "BRepOffset_MakeSimpleOffset.hxx".}
 proc modified*(this: BRepOffsetMakeSimpleOffset; theShape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "Modified", header: "BRepOffset_MakeSimpleOffset.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

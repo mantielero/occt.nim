@@ -19,38 +19,45 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
   Geom2dLPropCurve2dTool* {.importcpp: "Geom2dLProp_Curve2dTool",
-                           header: "Geom2dLProp_Curve2dTool.hxx", bycopy.} = object ## !
-                                                                               ## Computes
-                                                                               ## the
-                                                                               ## point
-                                                                               ## <P>
-                                                                               ## of
-                                                                               ## parameter
-                                                                               ## <U>
-                                                                               ## on
-                                                                               ## the
-                                                                               ## curve
-                                                                               ## <C>.
+                           header: "Geom2dLProp_Curve2dTool.hxx", bycopy.} = object
 
 
-proc value*(c: Handle[Geom2dCurve]; u: float; p: var Pnt2d) {.
+proc `new`*(this: var Geom2dLPropCurve2dTool; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_Curve2dTool::operator new",
+    header: "Geom2dLProp_Curve2dTool.hxx".}
+proc `delete`*(this: var Geom2dLPropCurve2dTool; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_Curve2dTool::operator delete",
+    header: "Geom2dLProp_Curve2dTool.hxx".}
+proc `new[]`*(this: var Geom2dLPropCurve2dTool; theSize: csize_t): pointer {.
+    importcpp: "Geom2dLProp_Curve2dTool::operator new[]",
+    header: "Geom2dLProp_Curve2dTool.hxx".}
+proc `delete[]`*(this: var Geom2dLPropCurve2dTool; theAddress: pointer) {.
+    importcpp: "Geom2dLProp_Curve2dTool::operator delete[]",
+    header: "Geom2dLProp_Curve2dTool.hxx".}
+proc `new`*(this: var Geom2dLPropCurve2dTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Geom2dLProp_Curve2dTool::operator new",
+    header: "Geom2dLProp_Curve2dTool.hxx".}
+proc `delete`*(this: var Geom2dLPropCurve2dTool; a2: pointer; a3: pointer) {.
+    importcpp: "Geom2dLProp_Curve2dTool::operator delete",
+    header: "Geom2dLProp_Curve2dTool.hxx".}
+proc value*(c: Handle[Geom2dCurve]; u: StandardReal; p: var Pnt2d) {.
     importcpp: "Geom2dLProp_Curve2dTool::Value(@)",
     header: "Geom2dLProp_Curve2dTool.hxx".}
-proc d1*(c: Handle[Geom2dCurve]; u: float; p: var Pnt2d; v1: var Vec2d) {.
+proc d1*(c: Handle[Geom2dCurve]; u: StandardReal; p: var Pnt2d; v1: var Vec2d) {.
     importcpp: "Geom2dLProp_Curve2dTool::D1(@)",
     header: "Geom2dLProp_Curve2dTool.hxx".}
-proc d2*(c: Handle[Geom2dCurve]; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    importcpp: "Geom2dLProp_Curve2dTool::D2(@)",
-    header: "Geom2dLProp_Curve2dTool.hxx".}
-proc d3*(c: Handle[Geom2dCurve]; u: float; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.importcpp: "Geom2dLProp_Curve2dTool::D3(@)",
+proc d2*(c: Handle[Geom2dCurve]; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d) {.importcpp: "Geom2dLProp_Curve2dTool::D2(@)",
                       header: "Geom2dLProp_Curve2dTool.hxx".}
+proc d3*(c: Handle[Geom2dCurve]; u: StandardReal; p: var Pnt2d; v1: var Vec2d;
+        v2: var Vec2d; v3: var Vec2d) {.importcpp: "Geom2dLProp_Curve2dTool::D3(@)",
+                                  header: "Geom2dLProp_Curve2dTool.hxx".}
 proc continuity*(c: Handle[Geom2dCurve]): int {.
     importcpp: "Geom2dLProp_Curve2dTool::Continuity(@)",
     header: "Geom2dLProp_Curve2dTool.hxx".}
-proc firstParameter*(c: Handle[Geom2dCurve]): float {.
+proc firstParameter*(c: Handle[Geom2dCurve]): StandardReal {.
     importcpp: "Geom2dLProp_Curve2dTool::FirstParameter(@)",
     header: "Geom2dLProp_Curve2dTool.hxx".}
-proc lastParameter*(c: Handle[Geom2dCurve]): float {.
+proc lastParameter*(c: Handle[Geom2dCurve]): StandardReal {.
     importcpp: "Geom2dLProp_Curve2dTool::LastParameter(@)",
     header: "Geom2dLProp_Curve2dTool.hxx".}

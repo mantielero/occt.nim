@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_RealArrayDriver"
 discard "forward decl of BinMDataStd_RealArrayDriver"
 type
-  HandleBinMDataStdRealArrayDriver* = Handle[BinMDataStdRealArrayDriver]
+  HandleC1C1* = Handle[BinMDataStdRealArrayDriver]
 
 ## ! Array of Real attribute Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMDataStdRealArrayDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_RealArrayDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

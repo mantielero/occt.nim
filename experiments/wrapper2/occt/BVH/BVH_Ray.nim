@@ -26,3 +26,28 @@ type
 proc constructBVH_Ray*[T; N: static[cint]](theOrigin: BVH_RayBVH_VecNt;
                                         theDirect: BVH_RayBVH_VecNt): BVH_Ray[T, N] {.
     constructor, importcpp: "BVH_Ray<\'*0,\'*1>(@)", header: "BVH_Ray.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

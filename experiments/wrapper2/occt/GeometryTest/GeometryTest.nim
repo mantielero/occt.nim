@@ -18,14 +18,21 @@
 ## ! surface.
 
 type
-  GeometryTest* {.importcpp: "GeometryTest", header: "GeometryTest.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## defines
-                                                                                   ## all
-                                                                                   ## geometric
-                                                                                   ## commands.
+  GeometryTest* {.importcpp: "GeometryTest", header: "GeometryTest.hxx", bycopy.} = object
 
 
+proc `new`*(this: var GeometryTest; theSize: csize_t): pointer {.
+    importcpp: "GeometryTest::operator new", header: "GeometryTest.hxx".}
+proc `delete`*(this: var GeometryTest; theAddress: pointer) {.
+    importcpp: "GeometryTest::operator delete", header: "GeometryTest.hxx".}
+proc `new[]`*(this: var GeometryTest; theSize: csize_t): pointer {.
+    importcpp: "GeometryTest::operator new[]", header: "GeometryTest.hxx".}
+proc `delete[]`*(this: var GeometryTest; theAddress: pointer) {.
+    importcpp: "GeometryTest::operator delete[]", header: "GeometryTest.hxx".}
+proc `new`*(this: var GeometryTest; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeometryTest::operator new", header: "GeometryTest.hxx".}
+proc `delete`*(this: var GeometryTest; a2: pointer; a3: pointer) {.
+    importcpp: "GeometryTest::operator delete", header: "GeometryTest.hxx".}
 proc allCommands*(i: var DrawInterpretor) {.importcpp: "GeometryTest::AllCommands(@)",
                                         header: "GeometryTest.hxx".}
 proc curveCommands*(i: var DrawInterpretor) {.

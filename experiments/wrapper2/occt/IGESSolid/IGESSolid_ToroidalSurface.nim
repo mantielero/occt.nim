@@ -20,7 +20,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESSolid_ToroidalSurface"
 discard "forward decl of IGESSolid_ToroidalSurface"
 type
-  HandleIGESSolidToroidalSurface* = Handle[IGESSolidToroidalSurface]
+  HandleC1C1* = Handle[IGESSolidToroidalSurface]
 
 ## ! defines ToroidalSurface, Type <198> Form Number <0,1>
 ## ! in package IGESSolid
@@ -37,7 +37,7 @@ proc constructIGESSolidToroidalSurface*(): IGESSolidToroidalSurface {.constructo
     importcpp: "IGESSolid_ToroidalSurface(@)",
     header: "IGESSolid_ToroidalSurface.hxx".}
 proc init*(this: var IGESSolidToroidalSurface; aCenter: Handle[IGESGeomPoint];
-          anAxis: Handle[IGESGeomDirection]; majRadius: float; minRadius: float;
+          anAxis: Handle[IGESGeomDirection]; majRadius: cfloat; minRadius: cfloat;
           refdir: Handle[IGESGeomDirection]) {.importcpp: "Init",
     header: "IGESSolid_ToroidalSurface.hxx".}
 proc center*(this: IGESSolidToroidalSurface): Handle[IGESGeomPoint] {.noSideEffect,
@@ -46,9 +46,9 @@ proc transformedCenter*(this: IGESSolidToroidalSurface): Pnt {.noSideEffect,
     importcpp: "TransformedCenter", header: "IGESSolid_ToroidalSurface.hxx".}
 proc axis*(this: IGESSolidToroidalSurface): Handle[IGESGeomDirection] {.
     noSideEffect, importcpp: "Axis", header: "IGESSolid_ToroidalSurface.hxx".}
-proc majorRadius*(this: IGESSolidToroidalSurface): float {.noSideEffect,
+proc majorRadius*(this: IGESSolidToroidalSurface): cfloat {.noSideEffect,
     importcpp: "MajorRadius", header: "IGESSolid_ToroidalSurface.hxx".}
-proc minorRadius*(this: IGESSolidToroidalSurface): float {.noSideEffect,
+proc minorRadius*(this: IGESSolidToroidalSurface): cfloat {.noSideEffect,
     importcpp: "MinorRadius", header: "IGESSolid_ToroidalSurface.hxx".}
 proc referenceDir*(this: IGESSolidToroidalSurface): Handle[IGESGeomDirection] {.
     noSideEffect, importcpp: "ReferenceDir",
@@ -65,3 +65,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_ToroidalSurface.hxx".}
 proc dynamicType*(this: IGESSolidToroidalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_ToroidalSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

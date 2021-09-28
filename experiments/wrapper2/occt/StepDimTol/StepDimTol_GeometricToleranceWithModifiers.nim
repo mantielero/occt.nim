@@ -20,8 +20,7 @@ discard "forward decl of StepDimTol_GeometricToleranceTarget"
 discard "forward decl of StepDimTol_GeometricToleranceWithModifiers"
 discard "forward decl of StepDimTol_GeometricToleranceWithModifiers"
 type
-  HandleStepDimTolGeometricToleranceWithModifiers* = Handle[
-      StepDimTolGeometricToleranceWithModifiers]
+  HandleC1C1* = Handle[StepDimTolGeometricToleranceWithModifiers]
 
 ## ! Representation of STEP entity GeometricToleranceWithModifiers
 
@@ -51,14 +50,14 @@ proc modifiers*(this: StepDimTolGeometricToleranceWithModifiers): Handle[
 proc setModifiers*(this: var StepDimTolGeometricToleranceWithModifiers; theModifiers: Handle[
     StepDimTolHArray1OfGeometricToleranceModifier]) {.importcpp: "SetModifiers",
     header: "StepDimTol_GeometricToleranceWithModifiers.hxx".}
-proc nbModifiers*(this: StepDimTolGeometricToleranceWithModifiers): int {.
+proc nbModifiers*(this: StepDimTolGeometricToleranceWithModifiers): cint {.
     noSideEffect, importcpp: "NbModifiers",
     header: "StepDimTol_GeometricToleranceWithModifiers.hxx".}
-proc modifierValue*(this: StepDimTolGeometricToleranceWithModifiers; theNum: int): StepDimTolGeometricToleranceModifier {.
+proc modifierValue*(this: StepDimTolGeometricToleranceWithModifiers; theNum: cint): StepDimTolGeometricToleranceModifier {.
     noSideEffect, importcpp: "ModifierValue",
     header: "StepDimTol_GeometricToleranceWithModifiers.hxx".}
 proc setModifierValue*(this: var StepDimTolGeometricToleranceWithModifiers;
-                      theNum: int; theItem: StepDimTolGeometricToleranceModifier) {.
+                      theNum: cint; theItem: StepDimTolGeometricToleranceModifier) {.
     importcpp: "SetModifierValue",
     header: "StepDimTol_GeometricToleranceWithModifiers.hxx".}
 type
@@ -70,3 +69,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_Geometr
 proc dynamicType*(this: StepDimTolGeometricToleranceWithModifiers): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepDimTol_GeometricToleranceWithModifiers.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

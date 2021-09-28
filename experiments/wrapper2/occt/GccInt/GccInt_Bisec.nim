@@ -24,7 +24,7 @@ discard "forward decl of gp_Elips2d"
 discard "forward decl of GccInt_Bisec"
 discard "forward decl of GccInt_Bisec"
 type
-  HandleGccIntBisec* = Handle[GccIntBisec]
+  HandleC1C1* = Handle[GccIntBisec]
 
 ## ! The deferred class GccInt_Bisec is the root class for
 ## ! elementary bisecting loci between two simple geometric
@@ -88,3 +88,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "GccInt_Bisec::get_type_descriptor(@)", header: "GccInt_Bisec.hxx".}
 proc dynamicType*(this: GccIntBisec): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_Bisec.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

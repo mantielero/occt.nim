@@ -23,9 +23,34 @@ proc constructLDOMString*(): LDOMString {.constructor, importcpp: "LDOMString(@)
                                        header: "LDOMString.hxx".}
 proc constructLDOMString*(anOther: LDOMString): LDOMString {.constructor,
     importcpp: "LDOMString(@)", header: "LDOMString.hxx".}
-proc constructLDOMString*(aValue: int): LDOMString {.constructor,
+proc constructLDOMString*(aValue: cint): LDOMString {.constructor,
     importcpp: "LDOMString(@)", header: "LDOMString.hxx".}
 proc constructLDOMString*(aValue: cstring): LDOMString {.constructor,
     importcpp: "LDOMString(@)", header: "LDOMString.hxx".}
 proc getOwnerDocument*(this: LDOMString): LDOM_MemManager {.noSideEffect,
     importcpp: "getOwnerDocument", header: "LDOMString.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

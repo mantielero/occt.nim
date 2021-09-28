@@ -58,30 +58,31 @@ proc constructIntAnaIntConicQuad*(h: Hypr; q: IntAnaQuadric): IntAnaIntConicQuad
     header: "IntAna_IntConicQuad.hxx".}
 proc perform*(this: var IntAnaIntConicQuad; h: Hypr; q: IntAnaQuadric) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(L: Lin; p: Pln; tolang: float; tol: float = 0;
-                                 len: float = 0): IntAnaIntConicQuad {.constructor,
+proc constructIntAnaIntConicQuad*(L: Lin; p: Pln; tolang: cfloat; tol: cfloat = 0;
+                                 len: cfloat = 0): IntAnaIntConicQuad {.constructor,
     importcpp: "IntAna_IntConicQuad(@)", header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; L: Lin; p: Pln; tolang: float; tol: float = 0;
-             len: float = 0) {.importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(c: Circ; p: Pln; tolang: float; tol: float): IntAnaIntConicQuad {.
+proc perform*(this: var IntAnaIntConicQuad; L: Lin; p: Pln; tolang: cfloat;
+             tol: cfloat = 0; len: cfloat = 0) {.importcpp: "Perform",
+    header: "IntAna_IntConicQuad.hxx".}
+proc constructIntAnaIntConicQuad*(c: Circ; p: Pln; tolang: cfloat; tol: cfloat): IntAnaIntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; c: Circ; p: Pln; tolang: float; tol: float) {.
+proc perform*(this: var IntAnaIntConicQuad; c: Circ; p: Pln; tolang: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(e: Elips; p: Pln; tolang: float; tol: float): IntAnaIntConicQuad {.
+proc constructIntAnaIntConicQuad*(e: Elips; p: Pln; tolang: cfloat; tol: cfloat): IntAnaIntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; e: Elips; p: Pln; tolang: float; tol: float) {.
+proc perform*(this: var IntAnaIntConicQuad; e: Elips; p: Pln; tolang: cfloat; tol: cfloat) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(pb: Parab; p: Pln; tolang: float): IntAnaIntConicQuad {.
+proc constructIntAnaIntConicQuad*(pb: Parab; p: Pln; tolang: cfloat): IntAnaIntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; pb: Parab; p: Pln; tolang: float) {.
+proc perform*(this: var IntAnaIntConicQuad; pb: Parab; p: Pln; tolang: cfloat) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(h: Hypr; p: Pln; tolang: float): IntAnaIntConicQuad {.
+proc constructIntAnaIntConicQuad*(h: Hypr; p: Pln; tolang: cfloat): IntAnaIntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; h: Hypr; p: Pln; tolang: float) {.
+proc perform*(this: var IntAnaIntConicQuad; h: Hypr; p: Pln; tolang: cfloat) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
 proc isDone*(this: IntAnaIntConicQuad): bool {.noSideEffect, importcpp: "IsDone",
     header: "IntAna_IntConicQuad.hxx".}
@@ -89,9 +90,34 @@ proc isInQuadric*(this: IntAnaIntConicQuad): bool {.noSideEffect,
     importcpp: "IsInQuadric", header: "IntAna_IntConicQuad.hxx".}
 proc isParallel*(this: IntAnaIntConicQuad): bool {.noSideEffect,
     importcpp: "IsParallel", header: "IntAna_IntConicQuad.hxx".}
-proc nbPoints*(this: IntAnaIntConicQuad): int {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: IntAnaIntConicQuad): cint {.noSideEffect, importcpp: "NbPoints",
     header: "IntAna_IntConicQuad.hxx".}
-proc point*(this: IntAnaIntConicQuad; n: int): Pnt {.noSideEffect, importcpp: "Point",
+proc point*(this: IntAnaIntConicQuad; n: cint): Pnt {.noSideEffect, importcpp: "Point",
     header: "IntAna_IntConicQuad.hxx".}
-proc paramOnConic*(this: IntAnaIntConicQuad; n: int): float {.noSideEffect,
+proc paramOnConic*(this: IntAnaIntConicQuad; n: cint): cfloat {.noSideEffect,
     importcpp: "ParamOnConic", header: "IntAna_IntConicQuad.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

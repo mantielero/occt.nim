@@ -21,20 +21,45 @@ type
                      header: "LProp3d_CurveTool.hxx", bycopy.} = object ## ! Computes the point <P> of parameter <U> on the HCurve <C>.
 
 
-proc value*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt) {.
+proc value*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var Pnt) {.
     importcpp: "LProp3d_CurveTool::Value(@)", header: "LProp3d_CurveTool.hxx".}
-proc d1*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt; v1: var Vec) {.
+proc d1*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var Pnt; v1: var Vec) {.
     importcpp: "LProp3d_CurveTool::D1(@)", header: "LProp3d_CurveTool.hxx".}
-proc d2*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
     importcpp: "LProp3d_CurveTool::D2(@)", header: "LProp3d_CurveTool.hxx".}
-proc d3*(c: Handle[Adaptor3dHCurve]; u: float; p: var Pnt; v1: var Vec; v2: var Vec;
+proc d3*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec;
         v3: var Vec) {.importcpp: "LProp3d_CurveTool::D3(@)",
                     header: "LProp3d_CurveTool.hxx".}
-proc continuity*(c: Handle[Adaptor3dHCurve]): int {.
+proc continuity*(c: Handle[Adaptor3dHCurve]): cint {.
     importcpp: "LProp3d_CurveTool::Continuity(@)", header: "LProp3d_CurveTool.hxx".}
-proc firstParameter*(c: Handle[Adaptor3dHCurve]): float {.
+proc firstParameter*(c: Handle[Adaptor3dHCurve]): cfloat {.
     importcpp: "LProp3d_CurveTool::FirstParameter(@)",
     header: "LProp3d_CurveTool.hxx".}
-proc lastParameter*(c: Handle[Adaptor3dHCurve]): float {.
+proc lastParameter*(c: Handle[Adaptor3dHCurve]): cfloat {.
     importcpp: "LProp3d_CurveTool::LastParameter(@)",
     header: "LProp3d_CurveTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

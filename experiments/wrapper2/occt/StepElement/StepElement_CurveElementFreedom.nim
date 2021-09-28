@@ -25,11 +25,11 @@ type
 proc constructStepElementCurveElementFreedom*(): StepElementCurveElementFreedom {.
     constructor, importcpp: "StepElement_CurveElementFreedom(@)",
     header: "StepElement_CurveElementFreedom.hxx".}
-proc caseNum*(this: StepElementCurveElementFreedom; ent: Handle[StandardTransient]): int {.
+proc caseNum*(this: StepElementCurveElementFreedom; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepElement_CurveElementFreedom.hxx".}
 proc caseMem*(this: StepElementCurveElementFreedom;
-             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
+             ent: Handle[StepDataSelectMember]): cint {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_CurveElementFreedom.hxx".}
 proc newMember*(this: StepElementCurveElementFreedom): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember",
@@ -49,3 +49,28 @@ proc applicationDefinedDegreeOfFreedom*(this: StepElementCurveElementFreedom): H
     TCollectionHAsciiString] {.noSideEffect,
                               importcpp: "ApplicationDefinedDegreeOfFreedom",
                               header: "StepElement_CurveElementFreedom.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,15 +23,15 @@ type
 
 proc constructBOPDS_Pave*(): BOPDS_Pave {.constructor, importcpp: "BOPDS_Pave(@)",
                                        header: "BOPDS_Pave.hxx".}
-proc setIndex*(this: var BOPDS_Pave; theIndex: int) {.importcpp: "SetIndex",
+proc setIndex*(this: var BOPDS_Pave; theIndex: cint) {.importcpp: "SetIndex",
     header: "BOPDS_Pave.hxx".}
-proc index*(this: BOPDS_Pave): int {.noSideEffect, importcpp: "Index",
-                                 header: "BOPDS_Pave.hxx".}
-proc setParameter*(this: var BOPDS_Pave; theParameter: float) {.
+proc index*(this: BOPDS_Pave): cint {.noSideEffect, importcpp: "Index",
+                                  header: "BOPDS_Pave.hxx".}
+proc setParameter*(this: var BOPDS_Pave; theParameter: cfloat) {.
     importcpp: "SetParameter", header: "BOPDS_Pave.hxx".}
-proc parameter*(this: BOPDS_Pave): float {.noSideEffect, importcpp: "Parameter",
-                                       header: "BOPDS_Pave.hxx".}
-proc contents*(this: BOPDS_Pave; theIndex: var int; theParameter: var float) {.
+proc parameter*(this: BOPDS_Pave): cfloat {.noSideEffect, importcpp: "Parameter",
+                                        header: "BOPDS_Pave.hxx".}
+proc contents*(this: BOPDS_Pave; theIndex: var cint; theParameter: var cfloat) {.
     noSideEffect, importcpp: "Contents", header: "BOPDS_Pave.hxx".}
 proc isLess*(this: BOPDS_Pave; theOther: BOPDS_Pave): bool {.noSideEffect,
     importcpp: "IsLess", header: "BOPDS_Pave.hxx".}
@@ -43,3 +43,28 @@ proc `==`*(this: BOPDS_Pave; theOther: BOPDS_Pave): bool {.noSideEffect,
     importcpp: "(# == #)", header: "BOPDS_Pave.hxx".}
 proc dump*(this: BOPDS_Pave) {.noSideEffect, importcpp: "Dump",
                             header: "BOPDS_Pave.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

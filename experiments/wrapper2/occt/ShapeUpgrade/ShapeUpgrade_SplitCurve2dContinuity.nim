@@ -17,8 +17,7 @@
 discard "forward decl of ShapeUpgrade_SplitCurve2dContinuity"
 discard "forward decl of ShapeUpgrade_SplitCurve2dContinuity"
 type
-  HandleShapeUpgradeSplitCurve2dContinuity* = Handle[
-      ShapeUpgradeSplitCurve2dContinuity]
+  HandleC1C1* = Handle[ShapeUpgradeSplitCurve2dContinuity]
 
 ## ! Corrects/splits a 2d curve with a continuity criterion.
 ## ! Tolerance is used to correct the curve at a knot that respects
@@ -39,7 +38,7 @@ proc constructShapeUpgradeSplitCurve2dContinuity*(): ShapeUpgradeSplitCurve2dCon
 proc setCriterion*(this: var ShapeUpgradeSplitCurve2dContinuity;
                   criterion: GeomAbsShape) {.importcpp: "SetCriterion",
     header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
-proc setTolerance*(this: var ShapeUpgradeSplitCurve2dContinuity; tol: float) {.
+proc setTolerance*(this: var ShapeUpgradeSplitCurve2dContinuity; tol: cfloat) {.
     importcpp: "SetTolerance", header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
 proc compute*(this: var ShapeUpgradeSplitCurve2dContinuity) {.importcpp: "Compute",
     header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
@@ -54,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: ShapeUpgradeSplitCurve2dContinuity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_SplitCurve2dContinuity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

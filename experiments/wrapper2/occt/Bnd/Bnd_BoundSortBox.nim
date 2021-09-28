@@ -33,9 +33,9 @@ proc initialize*(this: var BndBoundSortBox; completeBox: BndBox;
     header: "Bnd_BoundSortBox.hxx".}
 proc initialize*(this: var BndBoundSortBox; setOfBox: Handle[BndHArray1OfBox]) {.
     importcpp: "Initialize", header: "Bnd_BoundSortBox.hxx".}
-proc initialize*(this: var BndBoundSortBox; completeBox: BndBox; nbComponents: int) {.
+proc initialize*(this: var BndBoundSortBox; completeBox: BndBox; nbComponents: cint) {.
     importcpp: "Initialize", header: "Bnd_BoundSortBox.hxx".}
-proc add*(this: var BndBoundSortBox; theBox: BndBox; boxIndex: int) {.importcpp: "Add",
+proc add*(this: var BndBoundSortBox; theBox: BndBox; boxIndex: cint) {.importcpp: "Add",
     header: "Bnd_BoundSortBox.hxx".}
 proc compare*(this: var BndBoundSortBox; theBox: BndBox): TColStdListOfInteger {.
     importcpp: "Compare", header: "Bnd_BoundSortBox.hxx".}
@@ -47,3 +47,28 @@ proc destroy*(this: var BndBoundSortBox) {.importcpp: "Destroy",
                                        header: "Bnd_BoundSortBox.hxx".}
 proc destroyBndBoundSortBox*(this: var BndBoundSortBox) {.
     importcpp: "#.~Bnd_BoundSortBox()", header: "Bnd_BoundSortBox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

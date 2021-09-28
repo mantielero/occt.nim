@@ -30,7 +30,7 @@ proc constructRWStepReprRWShapeAspectDerivingRelationship*(): RWStepReprRWShapeA
     constructor, importcpp: "RWStepRepr_RWShapeAspectDerivingRelationship(@)",
     header: "RWStepRepr_RWShapeAspectDerivingRelationship.hxx".}
 proc readStep*(this: RWStepReprRWShapeAspectDerivingRelationship;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprShapeAspectDerivingRelationship]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -44,3 +44,28 @@ proc share*(this: RWStepReprRWShapeAspectDerivingRelationship;
            ent: Handle[StepReprShapeAspectDerivingRelationship];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWShapeAspectDerivingRelationship.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

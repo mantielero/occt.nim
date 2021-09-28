@@ -16,22 +16,22 @@ discard "forward decl of math_IntegerVector"
 discard "forward decl of math_Vector"
 discard "forward decl of math_Matrix"
 var mathStatusUserAborted* {.importcpp: "math_Status_UserAborted",
-                           header: "math_Recipes.hxx".}: int
+                           header: "math_Recipes.hxx".}: cint
 
-var mathStatusOK* {.importcpp: "math_Status_OK", header: "math_Recipes.hxx".}: int
+var mathStatusOK* {.importcpp: "math_Status_OK", header: "math_Recipes.hxx".}: cint
 
 var mathStatusSingularMatrix* {.importcpp: "math_Status_SingularMatrix",
-                              header: "math_Recipes.hxx".}: int
+                              header: "math_Recipes.hxx".}: cint
 
 var mathStatusArgumentError* {.importcpp: "math_Status_ArgumentError",
-                             header: "math_Recipes.hxx".}: int
+                             header: "math_Recipes.hxx".}: cint
 
 var mathStatusNoConvergence* {.importcpp: "math_Status_NoConvergence",
-                             header: "math_Recipes.hxx".}: int
+                             header: "math_Recipes.hxx".}: cint
 
-proc lU_Decompose*(a: var MathMatrix; indx: var MathIntegerVector; d: var float;
-                  tiny: float = 1.0e-20;
-                  theProgress: MessageProgressRange = messageProgressRange()): int {.
+proc lU_Decompose*(a: var MathMatrix; indx: var MathIntegerVector; d: var cfloat;
+                  tiny: cfloat = 1.0e-20;
+                  theProgress: MessageProgressRange = messageProgressRange()): cint {.
     importcpp: "LU_Decompose(@)", header: "math_Recipes.hxx".}
 ##  Given a matrix a(1..n, 1..n), this routine computes its LU decomposition,
 ##  The matrix a is replaced by this LU decomposition and the vector indx(1..n)
@@ -39,9 +39,9 @@ proc lU_Decompose*(a: var MathMatrix; indx: var MathIntegerVector; d: var float;
 ##  pivoting; d is output as +1 or -1 depending on wether the number of row
 ##  interchanges was even or odd.
 
-proc lU_Decompose*(a: var MathMatrix; indx: var MathIntegerVector; d: var float;
-                  vv: var MathVector; tiny: float = 1.0e-30;
-                  theProgress: MessageProgressRange = messageProgressRange()): int {.
+proc lU_Decompose*(a: var MathMatrix; indx: var MathIntegerVector; d: var cfloat;
+                  vv: var MathVector; tiny: cfloat = 1.0e-30;
+                  theProgress: MessageProgressRange = messageProgressRange()): cint {.
     importcpp: "LU_Decompose(@)", header: "math_Recipes.hxx".}
 ##  Idem to the previous LU_Decompose function. But the input Vector vv(1..n) is
 ##  used internally as a scratch area.
@@ -54,12 +54,12 @@ proc lU_Solve*(a: MathMatrix; indx: MathIntegerVector; b: var MathVector) {.
 ##  replaced by the solution vector.Neither a and indx are destroyed, so
 ##  the routine may be called sequentially with different b's.
 
-proc lU_Invert*(a: var MathMatrix): int {.importcpp: "LU_Invert(@)",
-                                     header: "math_Recipes.hxx".}
+proc lU_Invert*(a: var MathMatrix): cint {.importcpp: "LU_Invert(@)",
+                                      header: "math_Recipes.hxx".}
 ##  Given a matrix a(1..n, 1..n) this routine computes its inverse. The matrix
 ##  a is replaced by its inverse.
 
-proc sVD_Decompose*(a: var MathMatrix; w: var MathVector; v: var MathMatrix): int {.
+proc sVD_Decompose*(a: var MathMatrix; w: var MathVector; v: var MathMatrix): cint {.
     importcpp: "SVD_Decompose(@)", header: "math_Recipes.hxx".}
 ##  Given a matrix a(1..m, 1..n), this routine computes its singular value
 ##  decomposition, a = u * w * transposed(v). The matrix u replaces a on
@@ -69,7 +69,7 @@ proc sVD_Decompose*(a: var MathMatrix; w: var MathVector; v: var MathMatrix): in
 ##  zero rows.
 
 proc sVD_Decompose*(a: var MathMatrix; w: var MathVector; v: var MathMatrix;
-                   rv1: var MathVector): int {.importcpp: "SVD_Decompose(@)",
+                   rv1: var MathVector): cint {.importcpp: "SVD_Decompose(@)",
     header: "math_Recipes.hxx".}
 ##  Idem to the previous LU_Decompose function. But the input Vector vv(1..m)
 ##  (the number of rows a(1..m, 1..n)) is used internally as a scratch area.
@@ -85,7 +85,7 @@ proc sVD_Solve*(u: MathMatrix; w: MathVector; v: MathMatrix; b: MathVector;
 ##  sequentially with different b's.
 
 proc dACTCL_Decompose*(a: var MathVector; indx: MathIntegerVector;
-                      minPivot: float = 1.e-20): int {.
+                      minPivot: cfloat = 1.e-20): cint {.
     importcpp: "DACTCL_Decompose(@)", header: "math_Recipes.hxx".}
 ##  Given a SYMMETRIC matrix a, this routine computes its
 ##  LU decomposition.
@@ -97,13 +97,13 @@ proc dACTCL_Decompose*(a: var MathVector; indx: MathIntegerVector;
 ##  and a.Length() = indx(n).
 
 proc dACTCL_Solve*(a: MathVector; b: var MathVector; indx: MathIntegerVector;
-                  minPivot: float = 1.e-20): int {.importcpp: "DACTCL_Solve(@)",
+                  minPivot: cfloat = 1.e-20): cint {.importcpp: "DACTCL_Solve(@)",
     header: "math_Recipes.hxx".}
 ##  Solves a * x = b for a vector x and a matrix a coming from DACTCL_Decompose.
 ##  indx is the same vector as in DACTCL_Decompose.
 ##  the vector b is replaced by the vector solution x.
 
-proc jacobi*(a: var MathMatrix; d: var MathVector; v: var MathMatrix; nrot: var int): int {.
+proc jacobi*(a: var MathMatrix; d: var MathVector; v: var MathMatrix; nrot: var cint): cint {.
     importcpp: "Jacobi(@)", header: "math_Recipes.hxx".}
 ##  Computes all eigenvalues and eigenvectors of a real symmetric matrix
 ##  a(1..n, 1..n). On output, elements of a above the diagonal are destroyed.
@@ -112,4 +112,29 @@ proc jacobi*(a: var MathMatrix; d: var MathVector; v: var MathMatrix; nrot: var 
 ##  the number of Jacobi rotations that were required.
 ##  Eigenvalues are sorted into descending order, and eigenvectors are
 ##  arranges correspondingly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

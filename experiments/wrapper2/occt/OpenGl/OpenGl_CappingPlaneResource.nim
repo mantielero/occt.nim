@@ -16,7 +16,7 @@
 discard "forward decl of OpenGl_CappingPlaneResource"
 discard "forward decl of OpenGl_CappingPlaneResource"
 type
-  HandleOpenGlCappingPlaneResource* = Handle[OpenGlCappingPlaneResource]
+  HandleC1C1* = Handle[OpenGlCappingPlaneResource]
 
 ## ! Container of graphical resources for rendering capping plane
 ## ! associated to graphical clipping plane.
@@ -102,3 +102,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: OpenGlCappingPlaneResource): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "OpenGl_CappingPlaneResource.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

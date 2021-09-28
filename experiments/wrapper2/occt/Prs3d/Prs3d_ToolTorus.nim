@@ -45,31 +45,57 @@ type
     ## !< second angle to create a torus ring segment
 
 
-proc create*(theMajorRad: float; theMinorRad: float; theNbSlices: int;
-            theNbStacks: int; theTrsf: Trsf): Handle[Graphic3dArrayOfTriangles] {.
+proc create*(theMajorRad: cfloat; theMinorRad: cfloat; theNbSlices: cint;
+            theNbStacks: cint; theTrsf: Trsf): Handle[Graphic3dArrayOfTriangles] {.
     importcpp: "Prs3d_ToolTorus::Create(@)", header: "Prs3d_ToolTorus.hxx".}
-proc create*(theMajorRad: float; theMinorRad: float; theAngle: float; theNbSlices: int;
-            theNbStacks: int; theTrsf: Trsf): Handle[Graphic3dArrayOfTriangles] {.
-    importcpp: "Prs3d_ToolTorus::Create(@)", header: "Prs3d_ToolTorus.hxx".}
-proc create*(theMajorRad: float; theMinorRad: float; theAngle1: float;
-            theAngle2: float; theNbSlices: int; theNbStacks: int; theTrsf: Trsf): Handle[
+proc create*(theMajorRad: cfloat; theMinorRad: cfloat; theAngle: cfloat;
+            theNbSlices: cint; theNbStacks: cint; theTrsf: Trsf): Handle[
     Graphic3dArrayOfTriangles] {.importcpp: "Prs3d_ToolTorus::Create(@)",
                                 header: "Prs3d_ToolTorus.hxx".}
-proc create*(theMajorRad: float; theMinorRad: float; theAngle1: float;
-            theAngle2: float; theAngle: float; theNbSlices: int; theNbStacks: int;
+proc create*(theMajorRad: cfloat; theMinorRad: cfloat; theAngle1: cfloat;
+            theAngle2: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: Trsf): Handle[
+    Graphic3dArrayOfTriangles] {.importcpp: "Prs3d_ToolTorus::Create(@)",
+                                header: "Prs3d_ToolTorus.hxx".}
+proc create*(theMajorRad: cfloat; theMinorRad: cfloat; theAngle1: cfloat;
+            theAngle2: cfloat; theAngle: cfloat; theNbSlices: cint; theNbStacks: cint;
             theTrsf: Trsf): Handle[Graphic3dArrayOfTriangles] {.
     importcpp: "Prs3d_ToolTorus::Create(@)", header: "Prs3d_ToolTorus.hxx".}
-proc constructPrs3dToolTorus*(theMajorRad: float; theMinorRad: float;
-                             theNbSlices: int; theNbStacks: int): Prs3dToolTorus {.
+proc constructPrs3dToolTorus*(theMajorRad: cfloat; theMinorRad: cfloat;
+                             theNbSlices: cint; theNbStacks: cint): Prs3dToolTorus {.
     constructor, importcpp: "Prs3d_ToolTorus(@)", header: "Prs3d_ToolTorus.hxx".}
-proc constructPrs3dToolTorus*(theMajorRad: float; theMinorRad: float;
-                             theAngle: float; theNbSlices: int; theNbStacks: int): Prs3dToolTorus {.
+proc constructPrs3dToolTorus*(theMajorRad: cfloat; theMinorRad: cfloat;
+                             theAngle: cfloat; theNbSlices: cint; theNbStacks: cint): Prs3dToolTorus {.
     constructor, importcpp: "Prs3d_ToolTorus(@)", header: "Prs3d_ToolTorus.hxx".}
-proc constructPrs3dToolTorus*(theMajorRad: float; theMinorRad: float;
-                             theAngle1: float; theAngle2: float; theNbSlices: int;
-                             theNbStacks: int): Prs3dToolTorus {.constructor,
-    importcpp: "Prs3d_ToolTorus(@)", header: "Prs3d_ToolTorus.hxx".}
-proc constructPrs3dToolTorus*(theMajorRad: float; theMinorRad: float;
-                             theAngle1: float; theAngle2: float; theAngle: float;
-                             theNbSlices: int; theNbStacks: int): Prs3dToolTorus {.
+proc constructPrs3dToolTorus*(theMajorRad: cfloat; theMinorRad: cfloat;
+                             theAngle1: cfloat; theAngle2: cfloat;
+                             theNbSlices: cint; theNbStacks: cint): Prs3dToolTorus {.
     constructor, importcpp: "Prs3d_ToolTorus(@)", header: "Prs3d_ToolTorus.hxx".}
+proc constructPrs3dToolTorus*(theMajorRad: cfloat; theMinorRad: cfloat;
+                             theAngle1: cfloat; theAngle2: cfloat; theAngle: cfloat;
+                             theNbSlices: cint; theNbStacks: cint): Prs3dToolTorus {.
+    constructor, importcpp: "Prs3d_ToolTorus(@)", header: "Prs3d_ToolTorus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

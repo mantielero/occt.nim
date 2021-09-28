@@ -33,9 +33,9 @@ proc initialize*(this: var ExtremaFuncPSNorm; s: Adaptor3dSurface) {.
     importcpp: "Initialize", header: "Extrema_FuncPSNorm.hxx".}
 proc setPoint*(this: var ExtremaFuncPSNorm; p: Pnt) {.importcpp: "SetPoint",
     header: "Extrema_FuncPSNorm.hxx".}
-proc nbVariables*(this: ExtremaFuncPSNorm): int {.noSideEffect,
+proc nbVariables*(this: ExtremaFuncPSNorm): cint {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_FuncPSNorm.hxx".}
-proc nbEquations*(this: ExtremaFuncPSNorm): int {.noSideEffect,
+proc nbEquations*(this: ExtremaFuncPSNorm): cint {.noSideEffect,
     importcpp: "NbEquations", header: "Extrema_FuncPSNorm.hxx".}
 proc value*(this: var ExtremaFuncPSNorm; uv: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "Extrema_FuncPSNorm.hxx".}
@@ -44,11 +44,36 @@ proc derivatives*(this: var ExtremaFuncPSNorm; uv: MathVector; df: var MathMatri
 proc values*(this: var ExtremaFuncPSNorm; uv: MathVector; f: var MathVector;
             df: var MathMatrix): bool {.importcpp: "Values",
                                     header: "Extrema_FuncPSNorm.hxx".}
-proc getStateNumber*(this: var ExtremaFuncPSNorm): int {.importcpp: "GetStateNumber",
+proc getStateNumber*(this: var ExtremaFuncPSNorm): cint {.
+    importcpp: "GetStateNumber", header: "Extrema_FuncPSNorm.hxx".}
+proc nbExt*(this: ExtremaFuncPSNorm): cint {.noSideEffect, importcpp: "NbExt",
     header: "Extrema_FuncPSNorm.hxx".}
-proc nbExt*(this: ExtremaFuncPSNorm): int {.noSideEffect, importcpp: "NbExt",
-                                        header: "Extrema_FuncPSNorm.hxx".}
-proc squareDistance*(this: ExtremaFuncPSNorm; n: int): float {.noSideEffect,
+proc squareDistance*(this: ExtremaFuncPSNorm; n: cint): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_FuncPSNorm.hxx".}
-proc point*(this: ExtremaFuncPSNorm; n: int): ExtremaPOnSurf {.noSideEffect,
+proc point*(this: ExtremaFuncPSNorm; n: cint): ExtremaPOnSurf {.noSideEffect,
     importcpp: "Point", header: "Extrema_FuncPSNorm.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

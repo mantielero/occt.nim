@@ -17,7 +17,7 @@
 discard "forward decl of IGESData_ColorEntity"
 discard "forward decl of IGESData_ColorEntity"
 type
-  HandleIGESDataColorEntity* = Handle[IGESDataColorEntity]
+  HandleC1C1* = Handle[IGESDataColorEntity]
 
 ## ! defines required type for Color in directory part
 ## ! an effective Color entity must inherits it
@@ -35,3 +35,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_ColorEntity.hxx".}
 proc dynamicType*(this: IGESDataColorEntity): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_ColorEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

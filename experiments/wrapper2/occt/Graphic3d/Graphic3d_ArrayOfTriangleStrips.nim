@@ -158,16 +158,41 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: Graphic3dArrayOfTriangleStrips): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_ArrayOfTriangleStrips.hxx".}
-proc constructGraphic3dArrayOfTriangleStrips*(theMaxVertexs: int;
-    theMaxStrips: int; theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfTriangleStrips {.
+proc constructGraphic3dArrayOfTriangleStrips*(theMaxVertexs: cint;
+    theMaxStrips: cint; theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfTriangleStrips {.
     constructor, importcpp: "Graphic3d_ArrayOfTriangleStrips(@)",
     header: "Graphic3d_ArrayOfTriangleStrips.hxx".}
-proc constructGraphic3dArrayOfTriangleStrips*(theMaxVertexs: int;
-    theMaxStrips: int = 0; theHasVNormals: bool = false; theHasVColors: bool = false;
+proc constructGraphic3dArrayOfTriangleStrips*(theMaxVertexs: cint;
+    theMaxStrips: cint = 0; theHasVNormals: bool = false; theHasVColors: bool = false;
     theHasBColors: bool = false; theHasVTexels: bool = false): Graphic3dArrayOfTriangleStrips {.
     constructor, importcpp: "Graphic3d_ArrayOfTriangleStrips(@)",
     header: "Graphic3d_ArrayOfTriangleStrips.hxx".}
 discard "forward decl of Graphic3d_ArrayOfTriangleStrips"
 type
-  HandleGraphic3dArrayOfTriangleStrips* = Handle[Graphic3dArrayOfTriangleStrips]
+  HandleC1C1* = Handle[Graphic3dArrayOfTriangleStrips]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

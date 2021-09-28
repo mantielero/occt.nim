@@ -32,4 +32,3 @@
 template define_Indexeddatamap*(className, baseCollection, theKeyType, theItemType: untyped): void =
   type
     ClassName* = NCollectionIndexedDataMap[TheKeyType, TheItemType]
-

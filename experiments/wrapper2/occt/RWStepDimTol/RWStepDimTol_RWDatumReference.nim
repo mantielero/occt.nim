@@ -28,7 +28,7 @@ proc constructRWStepDimTolRWDatumReference*(): RWStepDimTolRWDatumReference {.
     constructor, importcpp: "RWStepDimTol_RWDatumReference(@)",
     header: "RWStepDimTol_RWDatumReference.hxx".}
 proc readStep*(this: RWStepDimTolRWDatumReference;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepDimTolDatumReference]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWDatumReference.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepDimTolRWDatumReference;
            ent: Handle[StepDimTolDatumReference];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWDatumReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

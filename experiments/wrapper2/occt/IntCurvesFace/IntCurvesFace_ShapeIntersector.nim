@@ -28,33 +28,34 @@ type
 proc constructIntCurvesFaceShapeIntersector*(): IntCurvesFaceShapeIntersector {.
     constructor, importcpp: "IntCurvesFace_ShapeIntersector(@)",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc load*(this: var IntCurvesFaceShapeIntersector; sh: TopoDS_Shape; tol: float) {.
+proc load*(this: var IntCurvesFaceShapeIntersector; sh: TopoDS_Shape; tol: cfloat) {.
     importcpp: "Load", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc perform*(this: var IntCurvesFaceShapeIntersector; L: Lin; pInf: float; pSup: float) {.
-    importcpp: "Perform", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc performNearest*(this: var IntCurvesFaceShapeIntersector; L: Lin; pInf: float;
-                    pSup: float) {.importcpp: "PerformNearest",
-                                 header: "IntCurvesFace_ShapeIntersector.hxx".}
+proc perform*(this: var IntCurvesFaceShapeIntersector; L: Lin; pInf: cfloat;
+             pSup: cfloat) {.importcpp: "Perform",
+                           header: "IntCurvesFace_ShapeIntersector.hxx".}
+proc performNearest*(this: var IntCurvesFaceShapeIntersector; L: Lin; pInf: cfloat;
+                    pSup: cfloat) {.importcpp: "PerformNearest",
+                                  header: "IntCurvesFace_ShapeIntersector.hxx".}
 proc perform*(this: var IntCurvesFaceShapeIntersector; hCu: Handle[Adaptor3dHCurve];
-             pInf: float; pSup: float) {.importcpp: "Perform", header: "IntCurvesFace_ShapeIntersector.hxx".}
+             pInf: cfloat; pSup: cfloat) {.importcpp: "Perform", header: "IntCurvesFace_ShapeIntersector.hxx".}
 proc isDone*(this: IntCurvesFaceShapeIntersector): bool {.noSideEffect,
     importcpp: "IsDone", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc nbPnt*(this: IntCurvesFaceShapeIntersector): int {.noSideEffect,
+proc nbPnt*(this: IntCurvesFaceShapeIntersector): cint {.noSideEffect,
     importcpp: "NbPnt", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc uParameter*(this: IntCurvesFaceShapeIntersector; i: int): float {.noSideEffect,
+proc uParameter*(this: IntCurvesFaceShapeIntersector; i: cint): cfloat {.noSideEffect,
     importcpp: "UParameter", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc vParameter*(this: IntCurvesFaceShapeIntersector; i: int): float {.noSideEffect,
+proc vParameter*(this: IntCurvesFaceShapeIntersector; i: cint): cfloat {.noSideEffect,
     importcpp: "VParameter", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc wParameter*(this: IntCurvesFaceShapeIntersector; i: int): float {.noSideEffect,
+proc wParameter*(this: IntCurvesFaceShapeIntersector; i: cint): cfloat {.noSideEffect,
     importcpp: "WParameter", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc pnt*(this: IntCurvesFaceShapeIntersector; i: int): Pnt {.noSideEffect,
+proc pnt*(this: IntCurvesFaceShapeIntersector; i: cint): Pnt {.noSideEffect,
     importcpp: "Pnt", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc transition*(this: IntCurvesFaceShapeIntersector; i: int): IntCurveSurfaceTransitionOnCurve {.
+proc transition*(this: IntCurvesFaceShapeIntersector; i: cint): IntCurveSurfaceTransitionOnCurve {.
     noSideEffect, importcpp: "Transition",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc state*(this: IntCurvesFaceShapeIntersector; i: int): TopAbsState {.noSideEffect,
+proc state*(this: IntCurvesFaceShapeIntersector; i: cint): TopAbsState {.noSideEffect,
     importcpp: "State", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc face*(this: IntCurvesFaceShapeIntersector; i: int): TopoDS_Face {.noSideEffect,
+proc face*(this: IntCurvesFaceShapeIntersector; i: cint): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "IntCurvesFace_ShapeIntersector.hxx".}
 proc sortResult*(this: var IntCurvesFaceShapeIntersector) {.importcpp: "SortResult",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
@@ -64,3 +65,28 @@ proc destroyIntCurvesFaceShapeIntersector*(
     this: var IntCurvesFaceShapeIntersector) {.
     importcpp: "#.~IntCurvesFace_ShapeIntersector()",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

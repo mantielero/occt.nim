@@ -19,7 +19,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_ReportEntity"
 discard "forward decl of Interface_ReportEntity"
 type
-  HandleInterfaceReportEntity* = Handle[InterfaceReportEntity]
+  HandleC1C1* = Handle[InterfaceReportEntity]
 
 ## ! A ReportEntity is produced to aknowledge and memorize the
 ## ! binding between a Check and an Entity. The Check can bring
@@ -107,3 +107,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Interface_ReportEntity.hxx".}
 proc dynamicType*(this: InterfaceReportEntity): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_ReportEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

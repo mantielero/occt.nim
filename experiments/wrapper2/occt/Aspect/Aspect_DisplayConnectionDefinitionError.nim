@@ -16,14 +16,54 @@
 ## !!!Ignored construct:  # _Aspect_DisplayConnectionDefinitionError_HeaderFile [NewLine] # _Aspect_DisplayConnectionDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Aspect_DisplayConnectionDefinitionError ;
 ## Error: expected ';'!!!
 
-discard "forward decl of Aspect_DisplayConnectionDefinitionError"
-type
-  HandleAspectDisplayConnectionDefinitionErrorAspectDisplayConnectionDefinitionError* = Handle[
-      AspectDisplayConnectionDefinitionError]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Aspect_DisplayConnectionDefinitionError , Standard_OutOfRange ) # ! defined No_Exception && ! defined No_Aspect_DisplayConnectionDefinitionError [NewLine] # Aspect_DisplayConnectionDefinitionError_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw Aspect_DisplayConnectionDefinitionError ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Aspect_DisplayConnectionDefinitionError [NewLine] # if ( CONDITION ) throw Aspect_DisplayConnectionDefinitionError ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # Aspect_DisplayConnectionDefinitionError_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Aspect_DisplayConnectionDefinitionError , Standard_OutOfRange ) #  _Aspect_DisplayConnectionDefinitionError_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Aspect_DisplayConnectionDefinitionError , Standard_OutOfRange ) #  _Aspect_DisplayConnectionDefinitionError_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

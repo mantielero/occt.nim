@@ -67,5 +67,30 @@ proc ownCopy*(this: IGESDimenToolGeneralSymbol;
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolGeneralSymbol.hxx".}
 proc ownDump*(this: IGESDimenToolGeneralSymbol;
              ent: Handle[IGESDimenGeneralSymbol]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESDimen_ToolGeneralSymbol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

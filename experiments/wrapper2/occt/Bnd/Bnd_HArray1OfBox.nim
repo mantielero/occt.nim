@@ -14,28 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BndHArray1OfBox* {.importcpp: "Bnd_HArray1OfBox", header: "Bnd_HArray1OfBox.hxx",
-                    bycopy.} = object of BndArray1OfBox
+## !!!Ignored construct:  # Bnd_HArray1OfBox_HeaderFile [NewLine] # Bnd_HArray1OfBox_HeaderFile [NewLine] # < Bnd_Box . hxx > [NewLine] # < Bnd_Array1OfBox . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( Bnd_HArray1OfBox , Bnd_Array1OfBox ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructBndHArray1OfBox*(theLower: int; theUpper: int): BndHArray1OfBox {.
-    constructor, importcpp: "Bnd_HArray1OfBox(@)", header: "Bnd_HArray1OfBox.hxx".}
-proc constructBndHArray1OfBox*(theLower: int; theUpper: int; theValue: ValueType): BndHArray1OfBox {.
-    constructor, importcpp: "Bnd_HArray1OfBox(@)", header: "Bnd_HArray1OfBox.hxx".}
-proc constructBndHArray1OfBox*(theOther: BndArray1OfBox): BndHArray1OfBox {.
-    constructor, importcpp: "Bnd_HArray1OfBox(@)", header: "Bnd_HArray1OfBox.hxx".}
-proc array1*(this: BndHArray1OfBox): BndArray1OfBox {.noSideEffect,
-    importcpp: "Array1", header: "Bnd_HArray1OfBox.hxx".}
-proc changeArray1*(this: var BndHArray1OfBox): var BndArray1OfBox {.
-    importcpp: "ChangeArray1", header: "Bnd_HArray1OfBox.hxx".}
-type
-  BndHArray1OfBoxbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "Bnd_HArray1OfBox::get_type_name(@)",
-                            header: "Bnd_HArray1OfBox.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Bnd_HArray1OfBox::get_type_descriptor(@)",
-    header: "Bnd_HArray1OfBox.hxx".}
-proc dynamicType*(this: BndHArray1OfBox): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Bnd_HArray1OfBox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

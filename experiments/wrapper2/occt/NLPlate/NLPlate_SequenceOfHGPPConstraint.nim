@@ -18,3 +18,28 @@ type
   NLPlateSequenceOfHGPPConstraint* = NCollectionSequence[
       Handle[NLPlateHGPPConstraint]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

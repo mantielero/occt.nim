@@ -18,7 +18,7 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of IGESGeom_Protocol"
 discard "forward decl of IGESGeom_Protocol"
 type
-  HandleIGESGeomProtocol* = Handle[IGESGeomProtocol]
+  HandleC1C1* = Handle[IGESGeomProtocol]
 
 ## ! Description of Protocol for IGESGeom
 
@@ -29,11 +29,11 @@ type
 
 proc constructIGESGeomProtocol*(): IGESGeomProtocol {.constructor,
     importcpp: "IGESGeom_Protocol(@)", header: "IGESGeom_Protocol.hxx".}
-proc nbResources*(this: IGESGeomProtocol): int {.noSideEffect,
+proc nbResources*(this: IGESGeomProtocol): cint {.noSideEffect,
     importcpp: "NbResources", header: "IGESGeom_Protocol.hxx".}
-proc resource*(this: IGESGeomProtocol; num: int): Handle[InterfaceProtocol] {.
+proc resource*(this: IGESGeomProtocol; num: cint): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Resource", header: "IGESGeom_Protocol.hxx".}
-proc typeNumber*(this: IGESGeomProtocol; atype: Handle[StandardType]): int {.
+proc typeNumber*(this: IGESGeomProtocol; atype: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "TypeNumber", header: "IGESGeom_Protocol.hxx".}
 type
   IGESGeomProtocolbaseType* = IGESDataProtocol
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGeom_Protocol.hxx".}
 proc dynamicType*(this: IGESGeomProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Protocol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

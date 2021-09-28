@@ -104,7 +104,7 @@ proc changeBoundingBox*(this: var Graphic3dCStructure): var Graphic3dBndBox3d {.
     importcpp: "ChangeBoundingBox", header: "Graphic3d_CStructure.hxx".}
 proc isVisible*(this: Graphic3dCStructure): bool {.noSideEffect,
     importcpp: "IsVisible", header: "Graphic3d_CStructure.hxx".}
-proc isVisible*(this: Graphic3dCStructure; theViewId: int): bool {.noSideEffect,
+proc isVisible*(this: Graphic3dCStructure; theViewId: cint): bool {.noSideEffect,
     importcpp: "IsVisible", header: "Graphic3d_CStructure.hxx".}
 proc setZLayer*(this: var Graphic3dCStructure; theLayerIndex: Graphic3dZLayerId) {.
     importcpp: "SetZLayer", header: "Graphic3d_CStructure.hxx".}
@@ -150,8 +150,8 @@ proc removeGroup*(this: var Graphic3dCStructure; theGroup: Handle[Graphic3dGroup
 proc updateLayerTransformation*(this: var Graphic3dCStructure) {.
     importcpp: "updateLayerTransformation", header: "Graphic3d_CStructure.hxx".}
 proc dumpJson*(this: Graphic3dCStructure; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_CStructure.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_CStructure.hxx".}
 type
   Graphic3dCStructurebaseType* = StandardTransient
 
@@ -164,5 +164,30 @@ proc dynamicType*(this: Graphic3dCStructure): Handle[StandardType] {.noSideEffec
     importcpp: "DynamicType", header: "Graphic3d_CStructure.hxx".}
 discard "forward decl of Graphic3d_CStructure"
 type
-  HandleGraphic3dCStructure* = Handle[Graphic3dCStructure]
+  HandleC1C1* = Handle[Graphic3dCStructure]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

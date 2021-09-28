@@ -46,3 +46,28 @@ type
 proc constructUnitsMathSentence*(astring: StandardCString): UnitsMathSentence {.
     constructor, importcpp: "Units_MathSentence(@)",
     header: "Units_MathSentence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

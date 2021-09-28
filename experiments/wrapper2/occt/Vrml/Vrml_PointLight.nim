@@ -23,16 +23,16 @@ type
 
 proc constructVrmlPointLight*(): VrmlPointLight {.constructor,
     importcpp: "Vrml_PointLight(@)", header: "Vrml_PointLight.hxx".}
-proc constructVrmlPointLight*(aOnOff: bool; aIntensity: float; aColor: QuantityColor;
-                             aLocation: Vec): VrmlPointLight {.constructor,
-    importcpp: "Vrml_PointLight(@)", header: "Vrml_PointLight.hxx".}
+proc constructVrmlPointLight*(aOnOff: bool; aIntensity: cfloat;
+                             aColor: QuantityColor; aLocation: Vec): VrmlPointLight {.
+    constructor, importcpp: "Vrml_PointLight(@)", header: "Vrml_PointLight.hxx".}
 proc setOnOff*(this: var VrmlPointLight; aOnOff: bool) {.importcpp: "SetOnOff",
     header: "Vrml_PointLight.hxx".}
 proc onOff*(this: VrmlPointLight): bool {.noSideEffect, importcpp: "OnOff",
                                       header: "Vrml_PointLight.hxx".}
-proc setIntensity*(this: var VrmlPointLight; aIntensity: float) {.
+proc setIntensity*(this: var VrmlPointLight; aIntensity: cfloat) {.
     importcpp: "SetIntensity", header: "Vrml_PointLight.hxx".}
-proc intensity*(this: VrmlPointLight): float {.noSideEffect, importcpp: "Intensity",
+proc intensity*(this: VrmlPointLight): cfloat {.noSideEffect, importcpp: "Intensity",
     header: "Vrml_PointLight.hxx".}
 proc setColor*(this: var VrmlPointLight; aColor: QuantityColor) {.
     importcpp: "SetColor", header: "Vrml_PointLight.hxx".}
@@ -44,3 +44,28 @@ proc location*(this: VrmlPointLight): Vec {.noSideEffect, importcpp: "Location",
                                         header: "Vrml_PointLight.hxx".}
 proc print*(this: VrmlPointLight; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_PointLight.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

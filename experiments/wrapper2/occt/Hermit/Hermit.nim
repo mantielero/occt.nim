@@ -21,13 +21,38 @@ type
                                                                  ## ! be multiplicated with BS later.
 
 
-proc solution*(bs: Handle[GeomBSplineCurve]; tolPoles: float = 0.000001;
-              tolKnots: float = 0.000001): Handle[Geom2dBSplineCurve] {.
+proc solution*(bs: Handle[GeomBSplineCurve]; tolPoles: cfloat = 0.000001;
+              tolKnots: cfloat = 0.000001): Handle[Geom2dBSplineCurve] {.
     importcpp: "Hermit::Solution(@)", header: "Hermit.hxx".}
-proc solution*(bs: Handle[Geom2dBSplineCurve]; tolPoles: float = 0.000001;
-              tolKnots: float = 0.000001): Handle[Geom2dBSplineCurve] {.
+proc solution*(bs: Handle[Geom2dBSplineCurve]; tolPoles: cfloat = 0.000001;
+              tolKnots: cfloat = 0.000001): Handle[Geom2dBSplineCurve] {.
     importcpp: "Hermit::Solution(@)", header: "Hermit.hxx".}
-proc solutionbis*(bs: Handle[GeomBSplineCurve]; knotmin: var float;
-                 knotmax: var float; tolPoles: float = 0.000001;
-                 tolKnots: float = 0.000001) {.importcpp: "Hermit::Solutionbis(@)",
+proc solutionbis*(bs: Handle[GeomBSplineCurve]; knotmin: var cfloat;
+                 knotmax: var cfloat; tolPoles: cfloat = 0.000001;
+                 tolKnots: cfloat = 0.000001) {.importcpp: "Hermit::Solutionbis(@)",
     header: "Hermit.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

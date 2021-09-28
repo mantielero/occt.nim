@@ -22,7 +22,7 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESGraph_ReadWriteModule"
 discard "forward decl of IGESGraph_ReadWriteModule"
 type
-  HandleIGESGraphReadWriteModule* = Handle[IGESGraphReadWriteModule]
+  HandleC1C1* = Handle[IGESGraphReadWriteModule]
 
 ## ! Defines Graph File Access Module for IGESGraph (specific parts)
 ## ! Specific actions concern : Read and Write Own Parameters of
@@ -47,14 +47,14 @@ type
 proc constructIGESGraphReadWriteModule*(): IGESGraphReadWriteModule {.constructor,
     importcpp: "IGESGraph_ReadWriteModule(@)",
     header: "IGESGraph_ReadWriteModule.hxx".}
-proc caseIGES*(this: IGESGraphReadWriteModule; typenum: int; formnum: int): int {.
+proc caseIGES*(this: IGESGraphReadWriteModule; typenum: cint; formnum: cint): cint {.
     noSideEffect, importcpp: "CaseIGES", header: "IGESGraph_ReadWriteModule.hxx".}
-proc readOwnParams*(this: IGESGraphReadWriteModule; cn: int;
+proc readOwnParams*(this: IGESGraphReadWriteModule; cn: cint;
                    ent: Handle[IGESDataIGESEntity];
                    ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
     noSideEffect, importcpp: "ReadOwnParams",
     header: "IGESGraph_ReadWriteModule.hxx".}
-proc writeOwnParams*(this: IGESGraphReadWriteModule; cn: int;
+proc writeOwnParams*(this: IGESGraphReadWriteModule; cn: cint;
                     ent: Handle[IGESDataIGESEntity]; iw: var IGESDataIGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESGraph_ReadWriteModule.hxx".}
@@ -68,3 +68,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESGraph_ReadWriteModule.hxx".}
 proc dynamicType*(this: IGESGraphReadWriteModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGraph_ReadWriteModule.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

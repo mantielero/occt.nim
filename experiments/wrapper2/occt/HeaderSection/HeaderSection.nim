@@ -30,3 +30,28 @@ type
 
 proc protocol*(): Handle[HeaderSectionProtocol] {.
     importcpp: "HeaderSection::Protocol(@)", header: "HeaderSection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

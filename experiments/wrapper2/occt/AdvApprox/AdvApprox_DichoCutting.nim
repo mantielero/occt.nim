@@ -23,5 +23,30 @@ type
 
 proc constructAdvApproxDichoCutting*(): AdvApproxDichoCutting {.constructor,
     importcpp: "AdvApprox_DichoCutting(@)", header: "AdvApprox_DichoCutting.hxx".}
-proc value*(this: AdvApproxDichoCutting; a: float; b: float; cuttingvalue: var float): bool {.
+proc value*(this: AdvApproxDichoCutting; a: cfloat; b: cfloat; cuttingvalue: var cfloat): bool {.
     noSideEffect, importcpp: "Value", header: "AdvApprox_DichoCutting.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

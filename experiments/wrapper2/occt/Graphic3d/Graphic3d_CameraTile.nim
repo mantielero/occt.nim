@@ -42,5 +42,30 @@ proc cropped*(this: Graphic3dCameraTile): Graphic3dCameraTile {.noSideEffect,
 proc `==`*(this: Graphic3dCameraTile; theOther: Graphic3dCameraTile): bool {.
     noSideEffect, importcpp: "(# == #)", header: "Graphic3d_CameraTile.hxx".}
 proc dumpJson*(this: Graphic3dCameraTile; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_CameraTile.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_CameraTile.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

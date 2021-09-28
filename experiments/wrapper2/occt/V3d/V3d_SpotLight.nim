@@ -79,5 +79,30 @@ proc setDirection*(this: var V3dSpotLight; theOrientation: V3dTypeOfOrientation)
 
 discard "forward decl of V3d_SpotLight"
 type
-  HandleV3dSpotLight* = Handle[V3dSpotLight]
+  HandleC1C1* = Handle[V3dSpotLight]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

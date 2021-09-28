@@ -56,3 +56,28 @@ proc perform*(this: var BOPAlgoBuilderFace) {.importcpp: "Perform",
     header: "BOPAlgo_BuilderFace.hxx".}
 proc orientation*(this: BOPAlgoBuilderFace): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "BOPAlgo_BuilderFace.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

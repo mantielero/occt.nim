@@ -24,6 +24,24 @@ type
                           header: "GeomFill_FunctionDraft.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
 
 
+proc `new`*(this: var GeomFillFunctionDraft; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_FunctionDraft::operator new",
+    header: "GeomFill_FunctionDraft.hxx".}
+proc `delete`*(this: var GeomFillFunctionDraft; theAddress: pointer) {.
+    importcpp: "GeomFill_FunctionDraft::operator delete",
+    header: "GeomFill_FunctionDraft.hxx".}
+proc `new[]`*(this: var GeomFillFunctionDraft; theSize: csize_t): pointer {.
+    importcpp: "GeomFill_FunctionDraft::operator new[]",
+    header: "GeomFill_FunctionDraft.hxx".}
+proc `delete[]`*(this: var GeomFillFunctionDraft; theAddress: pointer) {.
+    importcpp: "GeomFill_FunctionDraft::operator delete[]",
+    header: "GeomFill_FunctionDraft.hxx".}
+proc `new`*(this: var GeomFillFunctionDraft; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomFill_FunctionDraft::operator new",
+    header: "GeomFill_FunctionDraft.hxx".}
+proc `delete`*(this: var GeomFillFunctionDraft; a2: pointer; a3: pointer) {.
+    importcpp: "GeomFill_FunctionDraft::operator delete",
+    header: "GeomFill_FunctionDraft.hxx".}
 proc constructGeomFillFunctionDraft*(s: Handle[Adaptor3dHSurface];
                                     c: Handle[Adaptor3dHCurve]): GeomFillFunctionDraft {.
     constructor, importcpp: "GeomFill_FunctionDraft(@)",
@@ -32,20 +50,23 @@ proc nbVariables*(this: GeomFillFunctionDraft): int {.noSideEffect,
     importcpp: "NbVariables", header: "GeomFill_FunctionDraft.hxx".}
 proc nbEquations*(this: GeomFillFunctionDraft): int {.noSideEffect,
     importcpp: "NbEquations", header: "GeomFill_FunctionDraft.hxx".}
-proc value*(this: var GeomFillFunctionDraft; x: MathVector; f: var MathVector): bool {.
+proc value*(this: var GeomFillFunctionDraft; x: MathVector; f: var MathVector): StandardBoolean {.
     importcpp: "Value", header: "GeomFill_FunctionDraft.hxx".}
-proc derivatives*(this: var GeomFillFunctionDraft; x: MathVector; d: var MathMatrix): bool {.
+proc derivatives*(this: var GeomFillFunctionDraft; x: MathVector; d: var MathMatrix): StandardBoolean {.
     importcpp: "Derivatives", header: "GeomFill_FunctionDraft.hxx".}
 proc values*(this: var GeomFillFunctionDraft; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.importcpp: "Values",
-                                   header: "GeomFill_FunctionDraft.hxx".}
+            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+    header: "GeomFill_FunctionDraft.hxx".}
 proc derivT*(this: var GeomFillFunctionDraft; c: Handle[Adaptor3dHCurve];
-            param: float; w: float; dN: Vec; teta: float; f: var MathVector): bool {.
-    importcpp: "DerivT", header: "GeomFill_FunctionDraft.hxx".}
+            param: StandardReal; w: StandardReal; dN: Vec; teta: StandardReal;
+            f: var MathVector): StandardBoolean {.importcpp: "DerivT",
+    header: "GeomFill_FunctionDraft.hxx".}
 proc deriv2T*(this: var GeomFillFunctionDraft; c: Handle[Adaptor3dHCurve];
-             param: float; w: float; d2N: Vec; teta: float; f: var MathVector): bool {.
-    importcpp: "Deriv2T", header: "GeomFill_FunctionDraft.hxx".}
-proc derivTX*(this: var GeomFillFunctionDraft; dN: Vec; teta: float; d: var MathMatrix): bool {.
-    importcpp: "DerivTX", header: "GeomFill_FunctionDraft.hxx".}
-proc deriv2X*(this: var GeomFillFunctionDraft; x: MathVector; t: var GeomFillTensor): bool {.
+             param: StandardReal; w: StandardReal; d2N: Vec; teta: StandardReal;
+             f: var MathVector): StandardBoolean {.importcpp: "Deriv2T",
+    header: "GeomFill_FunctionDraft.hxx".}
+proc derivTX*(this: var GeomFillFunctionDraft; dN: Vec; teta: StandardReal;
+             d: var MathMatrix): StandardBoolean {.importcpp: "DerivTX",
+    header: "GeomFill_FunctionDraft.hxx".}
+proc deriv2X*(this: var GeomFillFunctionDraft; x: MathVector; t: var GeomFillTensor): StandardBoolean {.
     importcpp: "Deriv2X", header: "GeomFill_FunctionDraft.hxx".}

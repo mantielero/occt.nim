@@ -21,7 +21,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectExplore"
 discard "forward decl of IFSelect_SelectExplore"
 type
-  HandleIFSelectSelectExplore* = Handle[IFSelectSelectExplore]
+  HandleC1C1* = Handle[IFSelectSelectExplore]
 
 ## ! A SelectExplore determines from an input list of Entities,
 ## ! a list obtained by a way of exploration. This implies the
@@ -77,11 +77,11 @@ type
                                                                                                    ## etc...
 
 
-proc level*(this: IFSelectSelectExplore): int {.noSideEffect, importcpp: "Level",
+proc level*(this: IFSelectSelectExplore): cint {.noSideEffect, importcpp: "Level",
     header: "IFSelect_SelectExplore.hxx".}
 proc rootResult*(this: IFSelectSelectExplore; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectExplore.hxx".}
-proc explore*(this: IFSelectSelectExplore; level: int;
+proc explore*(this: IFSelectSelectExplore; level: cint;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
              explored: var InterfaceEntityIterator): bool {.noSideEffect,
     importcpp: "Explore", header: "IFSelect_SelectExplore.hxx".}
@@ -99,3 +99,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SelectExplore.hxx".}
 proc dynamicType*(this: IFSelectSelectExplore): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectExplore.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ proc constructRWStepReprRWAssemblyComponentUsage*(): RWStepReprRWAssemblyCompone
     constructor, importcpp: "RWStepRepr_RWAssemblyComponentUsage(@)",
     header: "RWStepRepr_RWAssemblyComponentUsage.hxx".}
 proc readStep*(this: RWStepReprRWAssemblyComponentUsage;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepReprAssemblyComponentUsage]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWAssemblyComponentUsage.hxx".}
@@ -39,3 +39,28 @@ proc share*(this: RWStepReprRWAssemblyComponentUsage;
            ent: Handle[StepReprAssemblyComponentUsage];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWAssemblyComponentUsage.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

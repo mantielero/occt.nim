@@ -33,3 +33,28 @@ proc endElement*(this: var PCDM_DOMHeaderParser): bool {.importcpp: "endElement"
     header: "PCDM_DOMHeaderParser.hxx".}
 proc getElement*(this: PCDM_DOMHeaderParser): LDOM_Element {.noSideEffect,
     importcpp: "GetElement", header: "PCDM_DOMHeaderParser.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

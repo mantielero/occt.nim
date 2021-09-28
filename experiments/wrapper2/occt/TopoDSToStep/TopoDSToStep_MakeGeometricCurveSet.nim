@@ -29,3 +29,28 @@ proc constructTopoDSToStepMakeGeometricCurveSet*(sh: TopoDS_Shape;
     header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
 proc value*(this: TopoDSToStepMakeGeometricCurveSet): Handle[
     StepShapeGeometricCurveSet] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,13 +18,54 @@
 ## ! an undefined inertia axis of symmetry. class GProp_UndefinedAxis ;
 ## Error: expected ';'!!!
 
-discard "forward decl of GProp_UndefinedAxis"
-type
-  HandleGPropUndefinedAxisGPropUndefinedAxis* = Handle[GPropUndefinedAxis]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( GProp_UndefinedAxis , Standard_DomainError ) # ! defined No_Exception && ! defined No_GProp_UndefinedAxis [NewLine] # GProp_UndefinedAxis_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw GProp_UndefinedAxis ( MESSAGE ) ;
+## Error: expected ';'!!!
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_GProp_UndefinedAxis [NewLine] # if ( CONDITION ) throw GProp_UndefinedAxis ( MESSAGE ) ;
+## !!!Ignored construct:  [NewLine] # [NewLine] # GProp_UndefinedAxis_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( GProp_UndefinedAxis , Standard_DomainError ) #  _GProp_UndefinedAxis_HeaderFile
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( GProp_UndefinedAxis , Standard_DomainError ) #  _GProp_UndefinedAxis_HeaderFile
-## Error: did not expect [NewLine]!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

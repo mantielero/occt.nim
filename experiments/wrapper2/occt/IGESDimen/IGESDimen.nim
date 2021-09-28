@@ -77,3 +77,28 @@ type
 proc init*() {.importcpp: "IGESDimen::Init(@)", header: "IGESDimen.hxx".}
 proc protocol*(): Handle[IGESDimenProtocol] {.importcpp: "IGESDimen::Protocol(@)",
     header: "IGESDimen.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

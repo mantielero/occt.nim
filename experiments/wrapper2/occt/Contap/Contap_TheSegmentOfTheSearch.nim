@@ -26,18 +26,21 @@ type
                                                                                          ## !
                                                                                          ## Empty
                                                                                          ## constructor.
+    adaptor2dHCurve2d* {.importc: "Adaptor2d_HCurve2d".}: Handle
 
 
 proc constructContapTheSegmentOfTheSearch*(): ContapTheSegmentOfTheSearch {.
     constructor, importcpp: "Contap_TheSegmentOfTheSearch(@)",
     header: "Contap_TheSegmentOfTheSearch.hxx".}
-proc setValue*(this: var ContapTheSegmentOfTheSearch; a: Handle[Adaptor2dHCurve2d]) {.
-    importcpp: "SetValue", header: "Contap_TheSegmentOfTheSearch.hxx".}
+## !!!Ignored construct:  ! Defines the concerned arc. void SetValue ( const Handle ( Adaptor2d_HCurve2d ) & A ) ;
+## Error: token expected: ) but got: &!!!
+
 proc setLimitPoint*(this: var ContapTheSegmentOfTheSearch;
                    v: ContapThePathPointOfTheSearch; first: bool) {.
     importcpp: "SetLimitPoint", header: "Contap_TheSegmentOfTheSearch.hxx".}
-proc curve*(this: ContapTheSegmentOfTheSearch): Handle[Adaptor2dHCurve2d] {.
-    noSideEffect, importcpp: "Curve", header: "Contap_TheSegmentOfTheSearch.hxx".}
+## !!!Ignored construct:  & Curve ( ) const ;
+## Error: identifier expected, but got: &!!!
+
 proc hasFirstPoint*(this: ContapTheSegmentOfTheSearch): bool {.noSideEffect,
     importcpp: "HasFirstPoint", header: "Contap_TheSegmentOfTheSearch.hxx".}
 proc firstPoint*(this: ContapTheSegmentOfTheSearch): ContapThePathPointOfTheSearch {.
@@ -48,6 +51,54 @@ proc hasLastPoint*(this: ContapTheSegmentOfTheSearch): bool {.noSideEffect,
 proc lastPoint*(this: ContapTheSegmentOfTheSearch): ContapThePathPointOfTheSearch {.
     noSideEffect, importcpp: "LastPoint",
     header: "Contap_TheSegmentOfTheSearch.hxx".}
-## !!!Ignored construct:  # TheVertex opencascade :: handle < Adaptor3d_HVertex > [end of template] [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc opencascade :: handle < Adaptor2d_HCurve2d > [end of template] [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # ThePathPoint Contap_ThePathPointOfTheSearch [NewLine] # ThePathPoint_hxx < Contap_ThePathPointOfTheSearch . hxx > [NewLine] # IntStart_Segment Contap_TheSegmentOfTheSearch [NewLine] # IntStart_Segment_hxx < Contap_TheSegmentOfTheSearch . hxx > [NewLine] # < IntStart_Segment . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # ThePathPoint [NewLine] # ThePathPoint_hxx [NewLine] # IntStart_Segment [NewLine] # IntStart_Segment_hxx [NewLine] #  _Contap_TheSegmentOfTheSearch_HeaderFile
+## !!!Ignored construct:  arc ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  # TheVertex Handle ( Adaptor3d_HVertex ) [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc Handle ( Adaptor2d_HCurve2d ) [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # ThePathPoint Contap_ThePathPointOfTheSearch [NewLine] # ThePathPoint_hxx < Contap_ThePathPointOfTheSearch . hxx > [NewLine] # IntStart_Segment Contap_TheSegmentOfTheSearch [NewLine] # IntStart_Segment_hxx < Contap_TheSegmentOfTheSearch . hxx > [NewLine] # < IntStart_Segment . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # ThePathPoint [NewLine] # ThePathPoint_hxx [NewLine] # IntStart_Segment [NewLine] # IntStart_Segment_hxx [NewLine] #  _Contap_TheSegmentOfTheSearch_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

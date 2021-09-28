@@ -17,3 +17,28 @@
 type
   HLRBRepArray1OfEData* = NCollectionArray1[HLRBRepEdgeData]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

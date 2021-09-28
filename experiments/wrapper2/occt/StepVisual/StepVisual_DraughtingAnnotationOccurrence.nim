@@ -17,8 +17,7 @@
 discard "forward decl of StepVisual_DraughtingAnnotationOccurrence"
 discard "forward decl of StepVisual_DraughtingAnnotationOccurrence"
 type
-  HandleStepVisualDraughtingAnnotationOccurrence* = Handle[
-      StepVisualDraughtingAnnotationOccurrence]
+  HandleC1C1* = Handle[StepVisualDraughtingAnnotationOccurrence]
   StepVisualDraughtingAnnotationOccurrence* {.
       importcpp: "StepVisual_DraughtingAnnotationOccurrence",
       header: "StepVisual_DraughtingAnnotationOccurrence.hxx", bycopy.} = object of StepVisualAnnotationOccurrence ##
@@ -40,3 +39,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Draught
 proc dynamicType*(this: StepVisualDraughtingAnnotationOccurrence): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_DraughtingAnnotationOccurrence.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

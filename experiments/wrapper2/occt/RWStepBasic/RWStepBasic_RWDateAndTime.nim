@@ -28,7 +28,7 @@ proc constructRWStepBasicRWDateAndTime*(): RWStepBasicRWDateAndTime {.constructo
     importcpp: "RWStepBasic_RWDateAndTime(@)",
     header: "RWStepBasic_RWDateAndTime.hxx".}
 proc readStep*(this: RWStepBasicRWDateAndTime;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicDateAndTime]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWDateAndTime.hxx".}
 proc writeStep*(this: RWStepBasicRWDateAndTime; sw: var StepDataStepWriter;
@@ -37,3 +37,28 @@ proc writeStep*(this: RWStepBasicRWDateAndTime; sw: var StepDataStepWriter;
 proc share*(this: RWStepBasicRWDateAndTime; ent: Handle[StepBasicDateAndTime];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWDateAndTime.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

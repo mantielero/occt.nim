@@ -19,8 +19,7 @@ discard "forward decl of StepBasic_DateTimeRole"
 discard "forward decl of StepAP203_CcDesignDateAndTimeAssignment"
 discard "forward decl of StepAP203_CcDesignDateAndTimeAssignment"
 type
-  HandleStepAP203CcDesignDateAndTimeAssignment* = Handle[
-      StepAP203CcDesignDateAndTimeAssignment]
+  HandleC1C1* = Handle[StepAP203CcDesignDateAndTimeAssignment]
 
 ## ! Representation of STEP entity CcDesignDateAndTimeAssignment
 
@@ -55,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP203_CcDesign
 proc dynamicType*(this: StepAP203CcDesignDateAndTimeAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP203_CcDesignDateAndTimeAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

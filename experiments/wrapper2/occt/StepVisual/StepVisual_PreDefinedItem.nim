@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepVisual_PreDefinedItem"
 discard "forward decl of StepVisual_PreDefinedItem"
 type
-  HandleStepVisualPreDefinedItem* = Handle[StepVisualPreDefinedItem]
+  HandleC1C1* = Handle[StepVisualPreDefinedItem]
   StepVisualPreDefinedItem* {.importcpp: "StepVisual_PreDefinedItem",
                              header: "StepVisual_PreDefinedItem.hxx", bycopy.} = object of StandardTransient ##
                                                                                                       ## !
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_PreDefinedItem.hxx".}
 proc dynamicType*(this: StepVisualPreDefinedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_PreDefinedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

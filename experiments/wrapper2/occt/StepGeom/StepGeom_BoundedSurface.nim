@@ -17,7 +17,7 @@
 discard "forward decl of StepGeom_BoundedSurface"
 discard "forward decl of StepGeom_BoundedSurface"
 type
-  HandleStepGeomBoundedSurface* = Handle[StepGeomBoundedSurface]
+  HandleC1C1* = Handle[StepGeomBoundedSurface]
   StepGeomBoundedSurface* {.importcpp: "StepGeom_BoundedSurface",
                            header: "StepGeom_BoundedSurface.hxx", bycopy.} = object of StepGeomSurface ##
                                                                                                 ## !
@@ -38,3 +38,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_BoundedSurface.hxx".}
 proc dynamicType*(this: StepGeomBoundedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_BoundedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

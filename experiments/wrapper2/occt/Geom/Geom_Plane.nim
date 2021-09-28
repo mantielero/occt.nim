@@ -28,7 +28,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Plane"
 discard "forward decl of Geom_Plane"
 type
-  HandleGeomPlane* = Handle[GeomPlane]
+  HandleC1C1* = Handle[GeomPlane]
 
 ## ! Describes a plane in 3D space.
 ## ! A plane is positioned in space by a coordinate system
@@ -128,50 +128,55 @@ proc constructGeomPlane*(pl: Pln): GeomPlane {.constructor,
     importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
 proc constructGeomPlane*(p: Pnt; v: Dir): GeomPlane {.constructor,
     importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
-proc constructGeomPlane*(a: float; b: float; c: float; d: float): GeomPlane {.constructor,
+proc constructGeomPlane*(a: StandardReal; b: StandardReal; c: StandardReal;
+                        d: StandardReal): GeomPlane {.constructor,
     importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
 proc setPln*(this: var GeomPlane; pl: Pln) {.importcpp: "SetPln",
                                        header: "Geom_Plane.hxx".}
 proc pln*(this: GeomPlane): Pln {.noSideEffect, importcpp: "Pln",
                               header: "Geom_Plane.hxx".}
 proc uReverse*(this: var GeomPlane) {.importcpp: "UReverse", header: "Geom_Plane.hxx".}
-proc uReversedParameter*(this: GeomPlane; u: float): float {.noSideEffect,
-    importcpp: "UReversedParameter", header: "Geom_Plane.hxx".}
+proc uReversedParameter*(this: GeomPlane; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter", header: "Geom_Plane.hxx".}
 proc vReverse*(this: var GeomPlane) {.importcpp: "VReverse", header: "Geom_Plane.hxx".}
-proc vReversedParameter*(this: GeomPlane; v: float): float {.noSideEffect,
-    importcpp: "VReversedParameter", header: "Geom_Plane.hxx".}
-proc transformParameters*(this: GeomPlane; u: var float; v: var float; t: Trsf) {.
-    noSideEffect, importcpp: "TransformParameters", header: "Geom_Plane.hxx".}
+proc vReversedParameter*(this: GeomPlane; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter", header: "Geom_Plane.hxx".}
+proc transformParameters*(this: GeomPlane; u: var StandardReal; v: var StandardReal;
+                         t: Trsf) {.noSideEffect, importcpp: "TransformParameters",
+                                  header: "Geom_Plane.hxx".}
 proc parametricTransformation*(this: GeomPlane; t: Trsf): GTrsf2d {.noSideEffect,
     importcpp: "ParametricTransformation", header: "Geom_Plane.hxx".}
-proc bounds*(this: GeomPlane; u1: var float; u2: var float; v1: var float; v2: var float) {.
-    noSideEffect, importcpp: "Bounds", header: "Geom_Plane.hxx".}
-proc coefficients*(this: GeomPlane; a: var float; b: var float; c: var float; d: var float) {.
-    noSideEffect, importcpp: "Coefficients", header: "Geom_Plane.hxx".}
-proc isUClosed*(this: GeomPlane): bool {.noSideEffect, importcpp: "IsUClosed",
-                                     header: "Geom_Plane.hxx".}
-proc isVClosed*(this: GeomPlane): bool {.noSideEffect, importcpp: "IsVClosed",
-                                     header: "Geom_Plane.hxx".}
-proc isUPeriodic*(this: GeomPlane): bool {.noSideEffect, importcpp: "IsUPeriodic",
-                                       header: "Geom_Plane.hxx".}
-proc isVPeriodic*(this: GeomPlane): bool {.noSideEffect, importcpp: "IsVPeriodic",
-                                       header: "Geom_Plane.hxx".}
-proc uIso*(this: GeomPlane; u: float): Handle[GeomCurve] {.noSideEffect,
+proc bounds*(this: GeomPlane; u1: var StandardReal; u2: var StandardReal;
+            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+    importcpp: "Bounds", header: "Geom_Plane.hxx".}
+proc coefficients*(this: GeomPlane; a: var StandardReal; b: var StandardReal;
+                  c: var StandardReal; d: var StandardReal) {.noSideEffect,
+    importcpp: "Coefficients", header: "Geom_Plane.hxx".}
+proc isUClosed*(this: GeomPlane): StandardBoolean {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_Plane.hxx".}
+proc isVClosed*(this: GeomPlane): StandardBoolean {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_Plane.hxx".}
+proc isUPeriodic*(this: GeomPlane): StandardBoolean {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_Plane.hxx".}
+proc isVPeriodic*(this: GeomPlane): StandardBoolean {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_Plane.hxx".}
+proc uIso*(this: GeomPlane; u: StandardReal): Handle[GeomCurve] {.noSideEffect,
     importcpp: "UIso", header: "Geom_Plane.hxx".}
-proc vIso*(this: GeomPlane; v: float): Handle[GeomCurve] {.noSideEffect,
+proc vIso*(this: GeomPlane; v: StandardReal): Handle[GeomCurve] {.noSideEffect,
     importcpp: "VIso", header: "Geom_Plane.hxx".}
-proc d0*(this: GeomPlane; u: float; v: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
-    header: "Geom_Plane.hxx".}
-proc d1*(this: GeomPlane; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
-    noSideEffect, importcpp: "D1", header: "Geom_Plane.hxx".}
-proc d2*(this: GeomPlane; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
-        d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, importcpp: "D2",
-    header: "Geom_Plane.hxx".}
-proc d3*(this: GeomPlane; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
-        d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec; d3uuv: var Vec;
-        d3uvv: var Vec) {.noSideEffect, importcpp: "D3", header: "Geom_Plane.hxx".}
-proc dn*(this: GeomPlane; u: float; v: float; nu: int; nv: int): Vec {.noSideEffect,
-    importcpp: "DN", header: "Geom_Plane.hxx".}
+proc d0*(this: GeomPlane; u: StandardReal; v: StandardReal; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_Plane.hxx".}
+proc d1*(this: GeomPlane; u: StandardReal; v: StandardReal; p: var Pnt; d1u: var Vec;
+        d1v: var Vec) {.noSideEffect, importcpp: "D1", header: "Geom_Plane.hxx".}
+proc d2*(this: GeomPlane; u: StandardReal; v: StandardReal; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_Plane.hxx".}
+proc d3*(this: GeomPlane; u: StandardReal; v: StandardReal; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
+        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Geom_Plane.hxx".}
+proc dn*(this: GeomPlane; u: StandardReal; v: StandardReal; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "Geom_Plane.hxx".}
 proc transform*(this: var GeomPlane; t: Trsf) {.importcpp: "Transform",
     header: "Geom_Plane.hxx".}
 proc copy*(this: GeomPlane): Handle[GeomGeometry] {.noSideEffect, importcpp: "Copy",

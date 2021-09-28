@@ -19,8 +19,7 @@ discard "forward decl of StepAP214_SecurityClassificationItem"
 discard "forward decl of StepAP214_AppliedSecurityClassificationAssignment"
 discard "forward decl of StepAP214_AppliedSecurityClassificationAssignment"
 type
-  HandleStepAP214AppliedSecurityClassificationAssignment* = Handle[
-      StepAP214AppliedSecurityClassificationAssignment]
+  HandleC1C1* = Handle[StepAP214AppliedSecurityClassificationAssignment]
   StepAP214AppliedSecurityClassificationAssignment* {.
       importcpp: "StepAP214_AppliedSecurityClassificationAssignment",
       header: "StepAP214_AppliedSecurityClassificationAssignment.hxx", bycopy.} = object of StepBasicSecurityClassificationAssignment ##
@@ -47,10 +46,10 @@ proc items*(this: StepAP214AppliedSecurityClassificationAssignment): Handle[
     StepAP214HArray1OfSecurityClassificationItem] {.noSideEffect,
     importcpp: "Items",
     header: "StepAP214_AppliedSecurityClassificationAssignment.hxx".}
-proc itemsValue*(this: StepAP214AppliedSecurityClassificationAssignment; num: int): StepAP214SecurityClassificationItem {.
+proc itemsValue*(this: StepAP214AppliedSecurityClassificationAssignment; num: cint): StepAP214SecurityClassificationItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedSecurityClassificationAssignment.hxx".}
-proc nbItems*(this: StepAP214AppliedSecurityClassificationAssignment): int {.
+proc nbItems*(this: StepAP214AppliedSecurityClassificationAssignment): cint {.
     noSideEffect, importcpp: "NbItems",
     header: "StepAP214_AppliedSecurityClassificationAssignment.hxx".}
 type
@@ -61,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AppliedS
     header: "StepAP214_AppliedSecurityClassificationAssignment.hxx".}
 proc dynamicType*(this: StepAP214AppliedSecurityClassificationAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AppliedSecurityClassificationAssignment.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ discard "forward decl of StepAP214_PresentedItemSelect"
 discard "forward decl of StepAP214_AppliedPresentedItem"
 discard "forward decl of StepAP214_AppliedPresentedItem"
 type
-  HandleStepAP214AppliedPresentedItem* = Handle[StepAP214AppliedPresentedItem]
+  HandleC1C1* = Handle[StepAP214AppliedPresentedItem]
   StepAP214AppliedPresentedItem* {.importcpp: "StepAP214_AppliedPresentedItem",
                                   header: "StepAP214_AppliedPresentedItem.hxx",
                                   bycopy.} = object of StepVisualPresentedItem ## !
@@ -38,10 +38,10 @@ proc setItems*(this: var StepAP214AppliedPresentedItem;
 proc items*(this: StepAP214AppliedPresentedItem): Handle[
     StepAP214HArray1OfPresentedItemSelect] {.noSideEffect, importcpp: "Items",
     header: "StepAP214_AppliedPresentedItem.hxx".}
-proc itemsValue*(this: StepAP214AppliedPresentedItem; num: int): StepAP214PresentedItemSelect {.
+proc itemsValue*(this: StepAP214AppliedPresentedItem; num: cint): StepAP214PresentedItemSelect {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedPresentedItem.hxx".}
-proc nbItems*(this: StepAP214AppliedPresentedItem): int {.noSideEffect,
+proc nbItems*(this: StepAP214AppliedPresentedItem): cint {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AppliedPresentedItem.hxx".}
 type
   StepAP214AppliedPresentedItembaseType* = StepVisualPresentedItem
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214AppliedPresentedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedPresentedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

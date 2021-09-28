@@ -80,3 +80,28 @@ proc transientProcess*(this: TransferTransferDispatch): Handle[
 proc copy*(this: var TransferTransferDispatch; entfrom: Handle[StandardTransient];
           entto: var Handle[StandardTransient]; mapped: bool; errstat: bool): bool {.
     importcpp: "Copy", header: "Transfer_TransferDispatch.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -56,16 +56,41 @@ type
                                                                    ## AddSurface::Add ( S, Tol, B );
 
 
-proc add*(s: Adaptor3dSurface; tol: float; b: var BndBox) {.
+proc add*(s: Adaptor3dSurface; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib_AddSurface::Add(@)", header: "BndLib_AddSurface.hxx".}
-proc add*(s: Adaptor3dSurface; uMin: float; uMax: float; vMin: float; vMax: float;
-         tol: float; b: var BndBox) {.importcpp: "BndLib_AddSurface::Add(@)",
-                                 header: "BndLib_AddSurface.hxx".}
-proc addOptimal*(s: Adaptor3dSurface; tol: float; b: var BndBox) {.
+proc add*(s: Adaptor3dSurface; uMin: cfloat; uMax: cfloat; vMin: cfloat; vMax: cfloat;
+         tol: cfloat; b: var BndBox) {.importcpp: "BndLib_AddSurface::Add(@)",
+                                  header: "BndLib_AddSurface.hxx".}
+proc addOptimal*(s: Adaptor3dSurface; tol: cfloat; b: var BndBox) {.
     importcpp: "BndLib_AddSurface::AddOptimal(@)", header: "BndLib_AddSurface.hxx".}
-proc addOptimal*(s: Adaptor3dSurface; uMin: float; uMax: float; vMin: float; vMax: float;
-                tol: float; b: var BndBox) {.importcpp: "BndLib_AddSurface::AddOptimal(@)",
-                                        header: "BndLib_AddSurface.hxx".}
-proc addGenSurf*(s: Adaptor3dSurface; uMin: float; uMax: float; vMin: float; vMax: float;
-                tol: float; b: var BndBox) {.importcpp: "BndLib_AddSurface::AddGenSurf(@)",
-                                        header: "BndLib_AddSurface.hxx".}
+proc addOptimal*(s: Adaptor3dSurface; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+                vMax: cfloat; tol: cfloat; b: var BndBox) {.
+    importcpp: "BndLib_AddSurface::AddOptimal(@)", header: "BndLib_AddSurface.hxx".}
+proc addGenSurf*(s: Adaptor3dSurface; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+                vMax: cfloat; tol: cfloat; b: var BndBox) {.
+    importcpp: "BndLib_AddSurface::AddGenSurf(@)", header: "BndLib_AddSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

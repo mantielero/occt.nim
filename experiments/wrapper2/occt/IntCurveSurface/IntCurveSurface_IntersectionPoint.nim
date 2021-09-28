@@ -23,27 +23,53 @@ type
 proc constructIntCurveSurfaceIntersectionPoint*(): IntCurveSurfaceIntersectionPoint {.
     constructor, importcpp: "IntCurveSurface_IntersectionPoint(@)",
     header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc constructIntCurveSurfaceIntersectionPoint*(p: Pnt; uSurf: float; vSurf: float;
-    uCurv: float; trCurv: IntCurveSurfaceTransitionOnCurve): IntCurveSurfaceIntersectionPoint {.
+proc constructIntCurveSurfaceIntersectionPoint*(p: Pnt; uSurf: cfloat; vSurf: cfloat;
+    uCurv: cfloat; trCurv: IntCurveSurfaceTransitionOnCurve): IntCurveSurfaceIntersectionPoint {.
     constructor, importcpp: "IntCurveSurface_IntersectionPoint(@)",
     header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc setValues*(this: var IntCurveSurfaceIntersectionPoint; p: Pnt; uSurf: float;
-               vSurf: float; uCurv: float; trCurv: IntCurveSurfaceTransitionOnCurve) {.
-    importcpp: "SetValues", header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc values*(this: IntCurveSurfaceIntersectionPoint; p: var Pnt; uSurf: var float;
-            vSurf: var float; uCurv: var float;
+proc setValues*(this: var IntCurveSurfaceIntersectionPoint; p: Pnt; uSurf: cfloat;
+               vSurf: cfloat; uCurv: cfloat;
+               trCurv: IntCurveSurfaceTransitionOnCurve) {.importcpp: "SetValues",
+    header: "IntCurveSurface_IntersectionPoint.hxx".}
+proc values*(this: IntCurveSurfaceIntersectionPoint; p: var Pnt; uSurf: var cfloat;
+            vSurf: var cfloat; uCurv: var cfloat;
             trCurv: var IntCurveSurfaceTransitionOnCurve) {.noSideEffect,
     importcpp: "Values", header: "IntCurveSurface_IntersectionPoint.hxx".}
 proc pnt*(this: IntCurveSurfaceIntersectionPoint): Pnt {.noSideEffect,
     importcpp: "Pnt", header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc u*(this: IntCurveSurfaceIntersectionPoint): float {.noSideEffect,
+proc u*(this: IntCurveSurfaceIntersectionPoint): cfloat {.noSideEffect,
     importcpp: "U", header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc v*(this: IntCurveSurfaceIntersectionPoint): float {.noSideEffect,
+proc v*(this: IntCurveSurfaceIntersectionPoint): cfloat {.noSideEffect,
     importcpp: "V", header: "IntCurveSurface_IntersectionPoint.hxx".}
-proc w*(this: IntCurveSurfaceIntersectionPoint): float {.noSideEffect,
+proc w*(this: IntCurveSurfaceIntersectionPoint): cfloat {.noSideEffect,
     importcpp: "W", header: "IntCurveSurface_IntersectionPoint.hxx".}
 proc transition*(this: IntCurveSurfaceIntersectionPoint): IntCurveSurfaceTransitionOnCurve {.
     noSideEffect, importcpp: "Transition",
     header: "IntCurveSurface_IntersectionPoint.hxx".}
 proc dump*(this: IntCurveSurfaceIntersectionPoint) {.noSideEffect,
     importcpp: "Dump", header: "IntCurveSurface_IntersectionPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

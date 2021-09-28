@@ -23,7 +23,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IFSelect_SignCounter"
 discard "forward decl of IFSelect_SignCounter"
 type
-  HandleIFSelectSignCounter* = Handle[IFSelectSignCounter]
+  HandleC1C1* = Handle[IFSelectSignCounter]
 
 ## ! SignCounter gives the frame to count signatures associated
 ## ! with entities, deducted from them. Ex.: their Dynamic Type.
@@ -148,9 +148,9 @@ proc setSelection*(this: var IFSelectSignCounter; sel: Handle[IFSelectSelection]
     importcpp: "SetSelection", header: "IFSelect_SignCounter.hxx".}
 proc selection*(this: IFSelectSignCounter): Handle[IFSelectSelection] {.
     noSideEffect, importcpp: "Selection", header: "IFSelect_SignCounter.hxx".}
-proc setSelMode*(this: var IFSelectSignCounter; selmode: int) {.
+proc setSelMode*(this: var IFSelectSignCounter; selmode: cint) {.
     importcpp: "SetSelMode", header: "IFSelect_SignCounter.hxx".}
-proc selMode*(this: IFSelectSignCounter): int {.noSideEffect, importcpp: "SelMode",
+proc selMode*(this: IFSelectSignCounter): cint {.noSideEffect, importcpp: "SelMode",
     header: "IFSelect_SignCounter.hxx".}
 proc computeSelected*(this: var IFSelectSignCounter; g: InterfaceGraph;
                      forced: bool = false): bool {.importcpp: "ComputeSelected",
@@ -171,3 +171,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IFSelect_SignCounter.hxx".}
 proc dynamicType*(this: IFSelectSignCounter): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SignCounter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,8 +28,8 @@ type
 
 
 proc constructMathFRPR*(theFunction: MathMultipleVarFunctionWithGradient;
-                       theTolerance: float; theNbIterations: int = 200;
-                       theZEPS: float = 1.0e-12): MathFRPR {.constructor,
+                       theTolerance: cfloat; theNbIterations: cint = 200;
+                       theZEPS: cfloat = 1.0e-12): MathFRPR {.constructor,
     importcpp: "math_FRPR(@)", header: "math_FRPR.hxx".}
 proc destroyMathFRPR*(this: var MathFRPR) {.importcpp: "#.~math_FRPR()",
                                         header: "math_FRPR.hxx".}
@@ -46,13 +46,38 @@ proc location*(this: MathFRPR): MathVector {.noSideEffect, importcpp: "Location"
     header: "math_FRPR.hxx".}
 proc location*(this: MathFRPR; loc: var MathVector) {.noSideEffect,
     importcpp: "Location", header: "math_FRPR.hxx".}
-proc minimum*(this: MathFRPR): float {.noSideEffect, importcpp: "Minimum",
-                                   header: "math_FRPR.hxx".}
+proc minimum*(this: MathFRPR): cfloat {.noSideEffect, importcpp: "Minimum",
+                                    header: "math_FRPR.hxx".}
 proc gradient*(this: MathFRPR): MathVector {.noSideEffect, importcpp: "Gradient",
     header: "math_FRPR.hxx".}
 proc gradient*(this: MathFRPR; grad: var MathVector) {.noSideEffect,
     importcpp: "Gradient", header: "math_FRPR.hxx".}
-proc nbIterations*(this: MathFRPR): int {.noSideEffect, importcpp: "NbIterations",
-                                      header: "math_FRPR.hxx".}
+proc nbIterations*(this: MathFRPR): cint {.noSideEffect, importcpp: "NbIterations",
+                                       header: "math_FRPR.hxx".}
 proc dump*(this: MathFRPR; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "math_FRPR.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

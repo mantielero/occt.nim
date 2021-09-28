@@ -21,7 +21,7 @@ discard "forward decl of TDF_RelocationTable"
 discard "forward decl of TDataXtd_Position"
 discard "forward decl of TDataXtd_Position"
 type
-  HandleTDataXtdPosition* = Handle[TDataXtdPosition]
+  HandleC1C1* = Handle[TDataXtdPosition]
 
 ## ! Position of a Label
 
@@ -76,3 +76,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TDataXtd_Position.hxx".}
 proc dynamicType*(this: TDataXtdPosition): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TDataXtd_Position.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

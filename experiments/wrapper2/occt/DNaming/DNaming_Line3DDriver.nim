@@ -19,7 +19,7 @@ discard "forward decl of TopoDS_Wire"
 discard "forward decl of DNaming_Line3DDriver"
 discard "forward decl of DNaming_Line3DDriver"
 type
-  HandleDNamingLine3DDriver* = Handle[DNamingLine3DDriver]
+  HandleC1C1* = Handle[DNamingLine3DDriver]
 
 ## ! Computes Line 3D function
 
@@ -51,7 +51,7 @@ proc validate*(this: DNamingLine3DDriver; theLog: var Handle[TFunctionLogbook]) 
     noSideEffect, importcpp: "Validate", header: "DNaming_Line3DDriver.hxx".}
 proc mustExecute*(this: DNamingLine3DDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_Line3DDriver.hxx".}
-proc execute*(this: DNamingLine3DDriver; theLog: var Handle[TFunctionLogbook]): int {.
+proc execute*(this: DNamingLine3DDriver; theLog: var Handle[TFunctionLogbook]): cint {.
     noSideEffect, importcpp: "Execute", header: "DNaming_Line3DDriver.hxx".}
 type
   DNamingLine3DDriverbaseType* = TFunctionDriver
@@ -63,3 +63,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DNaming_Line3DDriver.hxx".}
 proc dynamicType*(this: DNamingLine3DDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_Line3DDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

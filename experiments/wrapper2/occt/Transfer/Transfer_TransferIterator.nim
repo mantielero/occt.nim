@@ -48,9 +48,9 @@ proc selectResult*(this: var TransferTransferIterator; atype: Handle[StandardTyp
                               header: "Transfer_TransferIterator.hxx".}
 proc selectUnique*(this: var TransferTransferIterator; keep: bool) {.
     importcpp: "SelectUnique", header: "Transfer_TransferIterator.hxx".}
-proc selectItem*(this: var TransferTransferIterator; num: int; keep: bool) {.
+proc selectItem*(this: var TransferTransferIterator; num: cint; keep: bool) {.
     importcpp: "SelectItem", header: "Transfer_TransferIterator.hxx".}
-proc number*(this: TransferTransferIterator): int {.noSideEffect,
+proc number*(this: TransferTransferIterator): cint {.noSideEffect,
     importcpp: "Number", header: "Transfer_TransferIterator.hxx".}
 proc start*(this: var TransferTransferIterator) {.importcpp: "Start",
     header: "Transfer_TransferIterator.hxx".}
@@ -79,3 +79,28 @@ proc hasWarnings*(this: TransferTransferIterator): bool {.noSideEffect,
     importcpp: "HasWarnings", header: "Transfer_TransferIterator.hxx".}
 proc check*(this: TransferTransferIterator): Handle[InterfaceCheck] {.noSideEffect,
     importcpp: "Check", header: "Transfer_TransferIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -55,7 +55,7 @@ type
                                                                             ## matrix.
 
 
-proc constructMathGauss*(a: MathMatrix; minPivot: float = 1.0e-20; theProgress: MessageProgressRange = messageProgressRange()): MathGauss {.
+proc constructMathGauss*(a: MathMatrix; minPivot: cfloat = 1.0e-20; theProgress: MessageProgressRange = messageProgressRange()): MathGauss {.
     constructor, importcpp: "math_Gauss(@)", header: "math_Gauss.hxx".}
 proc isDone*(this: MathGauss): bool {.noSideEffect, importcpp: "IsDone",
                                   header: "math_Gauss.hxx".}
@@ -63,11 +63,36 @@ proc solve*(this: MathGauss; b: MathVector; x: var MathVector) {.noSideEffect,
     importcpp: "Solve", header: "math_Gauss.hxx".}
 proc solve*(this: MathGauss; b: var MathVector) {.noSideEffect, importcpp: "Solve",
     header: "math_Gauss.hxx".}
-proc determinant*(this: MathGauss): float {.noSideEffect, importcpp: "Determinant",
-                                        header: "math_Gauss.hxx".}
+proc determinant*(this: MathGauss): cfloat {.noSideEffect, importcpp: "Determinant",
+    header: "math_Gauss.hxx".}
 proc invert*(this: MathGauss; inv: var MathMatrix) {.noSideEffect, importcpp: "Invert",
     header: "math_Gauss.hxx".}
 proc dump*(this: MathGauss; o: var StandardOStream) {.noSideEffect, importcpp: "Dump",
     header: "math_Gauss.hxx".}
 proc `<<`*(o: var StandardOStream; mG: MathGauss): var StandardOStream {.
     importcpp: "(# << #)", header: "math_Gauss.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

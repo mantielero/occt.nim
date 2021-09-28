@@ -18,3 +18,28 @@ type
   StepAP214Array1OfAutoDesignDateAndPersonItem* = NCollectionArray1[
       StepAP214AutoDesignDateAndPersonItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

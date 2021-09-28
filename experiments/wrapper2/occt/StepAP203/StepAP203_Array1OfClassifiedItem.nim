@@ -17,3 +17,28 @@
 type
   StepAP203Array1OfClassifiedItem* = NCollectionArray1[StepAP203ClassifiedItem]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

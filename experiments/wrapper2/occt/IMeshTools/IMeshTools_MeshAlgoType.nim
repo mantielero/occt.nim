@@ -22,3 +22,28 @@ type
     IMeshToolsMeshAlgoTypeDelabella ## !< generate 2D Delaunay triangulation based on Delabella algorithm (BRepMesh_DelabellaMeshAlgoFactory)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

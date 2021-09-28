@@ -28,7 +28,7 @@ proc constructRWStepAP214RWAppliedPresentedItem*(): RWStepAP214RWAppliedPresente
     constructor, importcpp: "RWStepAP214_RWAppliedPresentedItem(@)",
     header: "RWStepAP214_RWAppliedPresentedItem.hxx".}
 proc readStep*(this: RWStepAP214RWAppliedPresentedItem;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepAP214AppliedPresentedItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAppliedPresentedItem.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepAP214RWAppliedPresentedItem;
            ent: Handle[StepAP214AppliedPresentedItem];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedPresentedItem.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

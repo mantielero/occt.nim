@@ -24,14 +24,35 @@ type
                     bycopy.} = object ## ! Constructs a rotation through angle Angle about the axis defined by the line Line.
 
 
-proc constructGC_MakeRotation*(line: Lin; angle: float): GC_MakeRotation {.
+proc constructGC_MakeRotation*(line: Lin; angle: cfloat): GC_MakeRotation {.
     constructor, importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
-proc constructGC_MakeRotation*(axis: Ax1; angle: float): GC_MakeRotation {.
+proc constructGC_MakeRotation*(axis: Ax1; angle: cfloat): GC_MakeRotation {.
     constructor, importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
-proc constructGC_MakeRotation*(point: Pnt; direc: Dir; angle: float): GC_MakeRotation {.
+proc constructGC_MakeRotation*(point: Pnt; direc: Dir; angle: cfloat): GC_MakeRotation {.
     constructor, importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
 proc value*(this: GC_MakeRotation): Handle[GeomTransformation] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeRotation.hxx".}
 converter `constopencascade`*(this: GC_MakeRotation): Handle[GeomTransformation] {.
     noSideEffect, importcpp: "GC_MakeRotation::operator constopencascade",
     header: "GC_MakeRotation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

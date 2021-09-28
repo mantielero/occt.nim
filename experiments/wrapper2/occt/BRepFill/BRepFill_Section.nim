@@ -45,3 +45,28 @@ proc withContact*(this: BRepFillSection): bool {.noSideEffect,
     importcpp: "WithContact", header: "BRepFill_Section.hxx".}
 proc withCorrection*(this: BRepFillSection): bool {.noSideEffect,
     importcpp: "WithCorrection", header: "BRepFill_Section.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

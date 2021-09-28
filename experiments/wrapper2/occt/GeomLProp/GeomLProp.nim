@@ -20,28 +20,25 @@ discard "forward decl of GeomLProp_SurfaceTool"
 discard "forward decl of GeomLProp_CLProps"
 discard "forward decl of GeomLProp_SLProps"
 type
-  GeomLProp* {.importcpp: "GeomLProp", header: "GeomLProp.hxx", bycopy.} = object ## !
-                                                                          ## Computes the
-                                                                          ## regularity at the
-                                                                          ## junction
-                                                                          ## between C1 and
-                                                                          ## ! C2. The
-                                                                          ## booleans r1 and r2 are true if the curves must
-                                                                          ## ! be taken
-                                                                          ## reversed.  The point u1 on C1 and the point
-                                                                          ## ! u2 on C2 must be
-                                                                          ## confused.
-                                                                          ## ! tl and ta are the linear and
-                                                                          ## angular
-                                                                          ## tolerance used two
-                                                                          ## !
-                                                                          ## compare the
-                                                                          ## derivative.
+  GeomLProp* {.importcpp: "GeomLProp", header: "GeomLProp.hxx", bycopy.} = object
 
 
-proc continuity*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]; u1: float; u2: float;
-                r1: bool; r2: bool; tl: float; ta: float): GeomAbsShape {.
+proc `new`*(this: var GeomLProp; theSize: csize_t): pointer {.
+    importcpp: "GeomLProp::operator new", header: "GeomLProp.hxx".}
+proc `delete`*(this: var GeomLProp; theAddress: pointer) {.
+    importcpp: "GeomLProp::operator delete", header: "GeomLProp.hxx".}
+proc `new[]`*(this: var GeomLProp; theSize: csize_t): pointer {.
+    importcpp: "GeomLProp::operator new[]", header: "GeomLProp.hxx".}
+proc `delete[]`*(this: var GeomLProp; theAddress: pointer) {.
+    importcpp: "GeomLProp::operator delete[]", header: "GeomLProp.hxx".}
+proc `new`*(this: var GeomLProp; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomLProp::operator new", header: "GeomLProp.hxx".}
+proc `delete`*(this: var GeomLProp; a2: pointer; a3: pointer) {.
+    importcpp: "GeomLProp::operator delete", header: "GeomLProp.hxx".}
+proc continuity*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]; u1: StandardReal;
+                u2: StandardReal; r1: StandardBoolean; r2: StandardBoolean;
+                tl: StandardReal; ta: StandardReal): GeomAbsShape {.
     importcpp: "GeomLProp::Continuity(@)", header: "GeomLProp.hxx".}
-proc continuity*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]; u1: float; u2: float;
-                r1: bool; r2: bool): GeomAbsShape {.
+proc continuity*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]; u1: StandardReal;
+                u2: StandardReal; r1: StandardBoolean; r2: StandardBoolean): GeomAbsShape {.
     importcpp: "GeomLProp::Continuity(@)", header: "GeomLProp.hxx".}

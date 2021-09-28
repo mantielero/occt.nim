@@ -24,6 +24,31 @@ proc constructHatchLine*(): HatchLine {.constructor, importcpp: "Hatch_Line(@)",
                                      header: "Hatch_Line.hxx".}
 proc constructHatchLine*(L: Lin2d; t: HatchLineForm): HatchLine {.constructor,
     importcpp: "Hatch_Line(@)", header: "Hatch_Line.hxx".}
-proc addIntersection*(this: var HatchLine; par1: float; start: bool; index: int;
-                     par2: float; theToler: float) {.importcpp: "AddIntersection",
+proc addIntersection*(this: var HatchLine; par1: cfloat; start: bool; index: cint;
+                     par2: cfloat; theToler: cfloat) {.importcpp: "AddIntersection",
     header: "Hatch_Line.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

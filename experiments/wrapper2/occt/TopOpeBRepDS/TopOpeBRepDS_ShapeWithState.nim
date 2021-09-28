@@ -39,3 +39,28 @@ proc setIsSplitted*(this: var TopOpeBRepDS_ShapeWithState; anIsSplitted: bool) {
     importcpp: "SetIsSplitted", header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc isSplitted*(this: TopOpeBRepDS_ShapeWithState): bool {.noSideEffect,
     importcpp: "IsSplitted", header: "TopOpeBRepDS_ShapeWithState.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

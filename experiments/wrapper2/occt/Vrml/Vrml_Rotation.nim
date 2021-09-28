@@ -29,3 +29,28 @@ proc rotation*(this: VrmlRotation): VrmlSFRotation {.noSideEffect,
     importcpp: "Rotation", header: "Vrml_Rotation.hxx".}
 proc print*(this: VrmlRotation; anOStream: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "Print", header: "Vrml_Rotation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

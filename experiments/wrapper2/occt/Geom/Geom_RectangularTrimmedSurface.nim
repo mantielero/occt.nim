@@ -29,7 +29,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_RectangularTrimmedSurface"
 discard "forward decl of Geom_RectangularTrimmedSurface"
 type
-  HandleGeomRectangularTrimmedSurface* = Handle[GeomRectangularTrimmedSurface]
+  HandleC1C1* = Handle[GeomRectangularTrimmedSurface]
 
 ## ! Describes a portion of a surface (a patch) limited
 ## ! by two values of the u parameter in the u
@@ -77,75 +77,86 @@ type
                                                                      ## ! others set trim.
 
 
-proc constructGeomRectangularTrimmedSurface*(s: Handle[GeomSurface]; u1: float;
-    u2: float; v1: float; v2: float; uSense: bool = true; vSense: bool = true): GeomRectangularTrimmedSurface {.
+proc constructGeomRectangularTrimmedSurface*(s: Handle[GeomSurface];
+    u1: StandardReal; u2: StandardReal; v1: StandardReal; v2: StandardReal;
+    uSense: StandardBoolean = true; vSense: StandardBoolean = true): GeomRectangularTrimmedSurface {.
     constructor, importcpp: "Geom_RectangularTrimmedSurface(@)",
     header: "Geom_RectangularTrimmedSurface.hxx".}
-proc constructGeomRectangularTrimmedSurface*(s: Handle[GeomSurface]; param1: float;
-    param2: float; uTrim: bool; sense: bool = true): GeomRectangularTrimmedSurface {.
-    constructor, importcpp: "Geom_RectangularTrimmedSurface(@)",
+proc constructGeomRectangularTrimmedSurface*(s: Handle[GeomSurface];
+    param1: StandardReal; param2: StandardReal; uTrim: StandardBoolean;
+    sense: StandardBoolean = true): GeomRectangularTrimmedSurface {.constructor,
+    importcpp: "Geom_RectangularTrimmedSurface(@)",
     header: "Geom_RectangularTrimmedSurface.hxx".}
-proc setTrim*(this: var GeomRectangularTrimmedSurface; u1: float; u2: float; v1: float;
-             v2: float; uSense: bool = true; vSense: bool = true) {.importcpp: "SetTrim",
-    header: "Geom_RectangularTrimmedSurface.hxx".}
-proc setTrim*(this: var GeomRectangularTrimmedSurface; param1: float; param2: float;
-             uTrim: bool; sense: bool = true) {.importcpp: "SetTrim",
+proc setTrim*(this: var GeomRectangularTrimmedSurface; u1: StandardReal;
+             u2: StandardReal; v1: StandardReal; v2: StandardReal;
+             uSense: StandardBoolean = true; vSense: StandardBoolean = true) {.
+    importcpp: "SetTrim", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc setTrim*(this: var GeomRectangularTrimmedSurface; param1: StandardReal;
+             param2: StandardReal; uTrim: StandardBoolean;
+             sense: StandardBoolean = true) {.importcpp: "SetTrim",
     header: "Geom_RectangularTrimmedSurface.hxx".}
 proc basisSurface*(this: GeomRectangularTrimmedSurface): Handle[GeomSurface] {.
     noSideEffect, importcpp: "BasisSurface",
     header: "Geom_RectangularTrimmedSurface.hxx".}
 proc uReverse*(this: var GeomRectangularTrimmedSurface) {.importcpp: "UReverse",
     header: "Geom_RectangularTrimmedSurface.hxx".}
-proc uReversedParameter*(this: GeomRectangularTrimmedSurface; u: float): float {.
+proc uReversedParameter*(this: GeomRectangularTrimmedSurface; u: StandardReal): StandardReal {.
     noSideEffect, importcpp: "UReversedParameter",
     header: "Geom_RectangularTrimmedSurface.hxx".}
 proc vReverse*(this: var GeomRectangularTrimmedSurface) {.importcpp: "VReverse",
     header: "Geom_RectangularTrimmedSurface.hxx".}
-proc vReversedParameter*(this: GeomRectangularTrimmedSurface; v: float): float {.
+proc vReversedParameter*(this: GeomRectangularTrimmedSurface; v: StandardReal): StandardReal {.
     noSideEffect, importcpp: "VReversedParameter",
     header: "Geom_RectangularTrimmedSurface.hxx".}
-proc bounds*(this: GeomRectangularTrimmedSurface; u1: var float; u2: var float;
-            v1: var float; v2: var float) {.noSideEffect, importcpp: "Bounds", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc bounds*(this: GeomRectangularTrimmedSurface; u1: var StandardReal;
+            u2: var StandardReal; v1: var StandardReal; v2: var StandardReal) {.
+    noSideEffect, importcpp: "Bounds", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc continuity*(this: GeomRectangularTrimmedSurface): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc isUClosed*(this: GeomRectangularTrimmedSurface): bool {.noSideEffect,
-    importcpp: "IsUClosed", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc isVClosed*(this: GeomRectangularTrimmedSurface): bool {.noSideEffect,
-    importcpp: "IsVClosed", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc isCNu*(this: GeomRectangularTrimmedSurface; n: int): bool {.noSideEffect,
-    importcpp: "IsCNu", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc isCNv*(this: GeomRectangularTrimmedSurface; n: int): bool {.noSideEffect,
-    importcpp: "IsCNv", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc isUPeriodic*(this: GeomRectangularTrimmedSurface): bool {.noSideEffect,
-    importcpp: "IsUPeriodic", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc uPeriod*(this: GeomRectangularTrimmedSurface): float {.noSideEffect,
-    importcpp: "UPeriod", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc isVPeriodic*(this: GeomRectangularTrimmedSurface): bool {.noSideEffect,
-    importcpp: "IsVPeriodic", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc vPeriod*(this: GeomRectangularTrimmedSurface): float {.noSideEffect,
-    importcpp: "VPeriod", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc uIso*(this: GeomRectangularTrimmedSurface; u: float): Handle[GeomCurve] {.
-    noSideEffect, importcpp: "UIso", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc vIso*(this: GeomRectangularTrimmedSurface; v: float): Handle[GeomCurve] {.
-    noSideEffect, importcpp: "VIso", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc d0*(this: GeomRectangularTrimmedSurface; u: float; v: float; p: var Pnt) {.
-    noSideEffect, importcpp: "D0", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc d1*(this: GeomRectangularTrimmedSurface; u: float; v: float; p: var Pnt;
-        d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
-                                header: "Geom_RectangularTrimmedSurface.hxx".}
-proc d2*(this: GeomRectangularTrimmedSurface; u: float; v: float; p: var Pnt;
-        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
-    importcpp: "D2", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc d3*(this: GeomRectangularTrimmedSurface; u: float; v: float; p: var Pnt;
-        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
-        d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+proc isUClosed*(this: GeomRectangularTrimmedSurface): StandardBoolean {.
+    noSideEffect, importcpp: "IsUClosed",
     header: "Geom_RectangularTrimmedSurface.hxx".}
-proc dn*(this: GeomRectangularTrimmedSurface; u: float; v: float; nu: int; nv: int): Vec {.
-    noSideEffect, importcpp: "DN", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc isVClosed*(this: GeomRectangularTrimmedSurface): StandardBoolean {.
+    noSideEffect, importcpp: "IsVClosed",
+    header: "Geom_RectangularTrimmedSurface.hxx".}
+proc isCNu*(this: GeomRectangularTrimmedSurface; n: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsCNu", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc isCNv*(this: GeomRectangularTrimmedSurface; n: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsCNv", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc isUPeriodic*(this: GeomRectangularTrimmedSurface): StandardBoolean {.
+    noSideEffect, importcpp: "IsUPeriodic",
+    header: "Geom_RectangularTrimmedSurface.hxx".}
+proc uPeriod*(this: GeomRectangularTrimmedSurface): StandardReal {.noSideEffect,
+    importcpp: "UPeriod", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc isVPeriodic*(this: GeomRectangularTrimmedSurface): StandardBoolean {.
+    noSideEffect, importcpp: "IsVPeriodic",
+    header: "Geom_RectangularTrimmedSurface.hxx".}
+proc vPeriod*(this: GeomRectangularTrimmedSurface): StandardReal {.noSideEffect,
+    importcpp: "VPeriod", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc uIso*(this: GeomRectangularTrimmedSurface; u: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "UIso", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc vIso*(this: GeomRectangularTrimmedSurface; v: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "VIso", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc d0*(this: GeomRectangularTrimmedSurface; u: StandardReal; v: StandardReal;
+        p: var Pnt) {.noSideEffect, importcpp: "D0",
+                   header: "Geom_RectangularTrimmedSurface.hxx".}
+proc d1*(this: GeomRectangularTrimmedSurface; u: StandardReal; v: StandardReal;
+        p: var Pnt; d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+    header: "Geom_RectangularTrimmedSurface.hxx".}
+proc d2*(this: GeomRectangularTrimmedSurface; u: StandardReal; v: StandardReal;
+        p: var Pnt; d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc d3*(this: GeomRectangularTrimmedSurface; u: StandardReal; v: StandardReal;
+        p: var Pnt; d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec;
+        d3u: var Vec; d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect,
+    importcpp: "D3", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc dn*(this: GeomRectangularTrimmedSurface; u: StandardReal; v: StandardReal;
+        nu: int; nv: int): Vec {.noSideEffect, importcpp: "DN",
+                            header: "Geom_RectangularTrimmedSurface.hxx".}
 proc transform*(this: var GeomRectangularTrimmedSurface; t: Trsf) {.
     importcpp: "Transform", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc transformParameters*(this: GeomRectangularTrimmedSurface; u: var float;
-                         v: var float; t: Trsf) {.noSideEffect,
+proc transformParameters*(this: GeomRectangularTrimmedSurface; u: var StandardReal;
+                         v: var StandardReal; t: Trsf) {.noSideEffect,
     importcpp: "TransformParameters", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc parametricTransformation*(this: GeomRectangularTrimmedSurface; t: Trsf): GTrsf2d {.
     noSideEffect, importcpp: "ParametricTransformation",

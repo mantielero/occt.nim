@@ -58,14 +58,39 @@ type
                                                                                      ## extension
 
 
-proc constructFairCurveBattenLaw*(heigth: float; slope: float; sliding: float): FairCurveBattenLaw {.
+proc constructFairCurveBattenLaw*(heigth: cfloat; slope: cfloat; sliding: cfloat): FairCurveBattenLaw {.
     constructor, importcpp: "FairCurve_BattenLaw(@)",
     header: "FairCurve_BattenLaw.hxx".}
-proc setSliding*(this: var FairCurveBattenLaw; sliding: float) {.
+proc setSliding*(this: var FairCurveBattenLaw; sliding: cfloat) {.
     importcpp: "SetSliding", header: "FairCurve_BattenLaw.hxx".}
-proc setHeigth*(this: var FairCurveBattenLaw; heigth: float) {.importcpp: "SetHeigth",
+proc setHeigth*(this: var FairCurveBattenLaw; heigth: cfloat) {.
+    importcpp: "SetHeigth", header: "FairCurve_BattenLaw.hxx".}
+proc setSlope*(this: var FairCurveBattenLaw; slope: cfloat) {.importcpp: "SetSlope",
     header: "FairCurve_BattenLaw.hxx".}
-proc setSlope*(this: var FairCurveBattenLaw; slope: float) {.importcpp: "SetSlope",
-    header: "FairCurve_BattenLaw.hxx".}
-proc value*(this: var FairCurveBattenLaw; t: float; tHeigth: var float): bool {.
+proc value*(this: var FairCurveBattenLaw; t: cfloat; tHeigth: var cfloat): bool {.
     importcpp: "Value", header: "FairCurve_BattenLaw.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

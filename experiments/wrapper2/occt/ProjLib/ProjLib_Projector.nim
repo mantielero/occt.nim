@@ -77,7 +77,32 @@ proc project*(this: var ProjLibProjector; p: Parab) {.importcpp: "Project",
     header: "ProjLib_Projector.hxx".}
 proc project*(this: var ProjLibProjector; h: Hypr) {.importcpp: "Project",
     header: "ProjLib_Projector.hxx".}
-proc uFrame*(this: var ProjLibProjector; cFirst: float; cLast: float; uFirst: float;
-            period: float) {.importcpp: "UFrame", header: "ProjLib_Projector.hxx".}
-proc vFrame*(this: var ProjLibProjector; cFirst: float; cLast: float; vFirst: float;
-            period: float) {.importcpp: "VFrame", header: "ProjLib_Projector.hxx".}
+proc uFrame*(this: var ProjLibProjector; cFirst: cfloat; cLast: cfloat; uFirst: cfloat;
+            period: cfloat) {.importcpp: "UFrame", header: "ProjLib_Projector.hxx".}
+proc vFrame*(this: var ProjLibProjector; cFirst: cfloat; cLast: cfloat; vFirst: cfloat;
+            period: cfloat) {.importcpp: "VFrame", header: "ProjLib_Projector.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

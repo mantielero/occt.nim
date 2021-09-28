@@ -26,11 +26,11 @@ type
 
 proc constructIntSurfPathPoint*(): IntSurfPathPoint {.constructor,
     importcpp: "IntSurf_PathPoint(@)", header: "IntSurf_PathPoint.hxx".}
-proc constructIntSurfPathPoint*(p: Pnt; u: float; v: float): IntSurfPathPoint {.
+proc constructIntSurfPathPoint*(p: Pnt; u: cfloat; v: cfloat): IntSurfPathPoint {.
     constructor, importcpp: "IntSurf_PathPoint(@)", header: "IntSurf_PathPoint.hxx".}
-proc setValue*(this: var IntSurfPathPoint; p: Pnt; u: float; v: float) {.
+proc setValue*(this: var IntSurfPathPoint; p: Pnt; u: cfloat; v: cfloat) {.
     importcpp: "SetValue", header: "IntSurf_PathPoint.hxx".}
-proc addUV*(this: var IntSurfPathPoint; u: float; v: float) {.importcpp: "AddUV",
+proc addUV*(this: var IntSurfPathPoint; u: cfloat; v: cfloat) {.importcpp: "AddUV",
     header: "IntSurf_PathPoint.hxx".}
 proc setDirections*(this: var IntSurfPathPoint; v: Vec; d: Dir2d) {.
     importcpp: "SetDirections", header: "IntSurf_PathPoint.hxx".}
@@ -40,7 +40,7 @@ proc setPassing*(this: var IntSurfPathPoint; pass: bool) {.importcpp: "SetPassin
     header: "IntSurf_PathPoint.hxx".}
 proc value*(this: IntSurfPathPoint): Pnt {.noSideEffect, importcpp: "Value",
                                        header: "IntSurf_PathPoint.hxx".}
-proc value2d*(this: IntSurfPathPoint; u: var float; v: var float) {.noSideEffect,
+proc value2d*(this: IntSurfPathPoint; u: var cfloat; v: var cfloat) {.noSideEffect,
     importcpp: "Value2d", header: "IntSurf_PathPoint.hxx".}
 proc isPassingPnt*(this: IntSurfPathPoint): bool {.noSideEffect,
     importcpp: "IsPassingPnt", header: "IntSurf_PathPoint.hxx".}
@@ -50,7 +50,32 @@ proc direction3d*(this: IntSurfPathPoint): Vec {.noSideEffect,
     importcpp: "Direction3d", header: "IntSurf_PathPoint.hxx".}
 proc direction2d*(this: IntSurfPathPoint): Dir2d {.noSideEffect,
     importcpp: "Direction2d", header: "IntSurf_PathPoint.hxx".}
-proc multiplicity*(this: IntSurfPathPoint): int {.noSideEffect,
+proc multiplicity*(this: IntSurfPathPoint): cint {.noSideEffect,
     importcpp: "Multiplicity", header: "IntSurf_PathPoint.hxx".}
-proc parameters*(this: IntSurfPathPoint; index: int; u: var float; v: var float) {.
+proc parameters*(this: IntSurfPathPoint; index: cint; u: var cfloat; v: var cfloat) {.
     noSideEffect, importcpp: "Parameters", header: "IntSurf_PathPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

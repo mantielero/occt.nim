@@ -27,3 +27,28 @@ type
 proc rWGltfGltfParseAlphaMode*(theType: cstring): RWGltfGltfAlphaMode =
   discard
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

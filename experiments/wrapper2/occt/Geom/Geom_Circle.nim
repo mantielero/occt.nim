@@ -25,7 +25,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Circle"
 discard "forward decl of Geom_Circle"
 type
-  HandleGeomCircle* = Handle[GeomCircle]
+  HandleC1C1* = Handle[GeomCircle]
 
 ## ! Describes a circle in 3D space.
 ## ! A circle is defined by its radius and, as with any conic
@@ -74,37 +74,37 @@ type
 
 proc constructGeomCircle*(c: Circ): GeomCircle {.constructor,
     importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
-proc constructGeomCircle*(a2: Ax2; radius: float): GeomCircle {.constructor,
+proc constructGeomCircle*(a2: Ax2; radius: StandardReal): GeomCircle {.constructor,
     importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
 proc setCirc*(this: var GeomCircle; c: Circ) {.importcpp: "SetCirc",
     header: "Geom_Circle.hxx".}
-proc setRadius*(this: var GeomCircle; r: float) {.importcpp: "SetRadius",
+proc setRadius*(this: var GeomCircle; r: StandardReal) {.importcpp: "SetRadius",
     header: "Geom_Circle.hxx".}
 proc circ*(this: GeomCircle): Circ {.noSideEffect, importcpp: "Circ",
                                  header: "Geom_Circle.hxx".}
-proc radius*(this: GeomCircle): float {.noSideEffect, importcpp: "Radius",
-                                    header: "Geom_Circle.hxx".}
-proc reversedParameter*(this: GeomCircle; u: float): float {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom_Circle.hxx".}
-proc eccentricity*(this: GeomCircle): float {.noSideEffect,
-    importcpp: "Eccentricity", header: "Geom_Circle.hxx".}
-proc firstParameter*(this: GeomCircle): float {.noSideEffect,
-    importcpp: "FirstParameter", header: "Geom_Circle.hxx".}
-proc lastParameter*(this: GeomCircle): float {.noSideEffect,
-    importcpp: "LastParameter", header: "Geom_Circle.hxx".}
-proc isClosed*(this: GeomCircle): bool {.noSideEffect, importcpp: "IsClosed",
-                                     header: "Geom_Circle.hxx".}
-proc isPeriodic*(this: GeomCircle): bool {.noSideEffect, importcpp: "IsPeriodic",
-                                       header: "Geom_Circle.hxx".}
-proc d0*(this: GeomCircle; u: float; p: var Pnt) {.noSideEffect, importcpp: "D0",
+proc radius*(this: GeomCircle): StandardReal {.noSideEffect, importcpp: "Radius",
     header: "Geom_Circle.hxx".}
-proc d1*(this: GeomCircle; u: float; p: var Pnt; v1: var Vec) {.noSideEffect,
+proc reversedParameter*(this: GeomCircle; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_Circle.hxx".}
+proc eccentricity*(this: GeomCircle): StandardReal {.noSideEffect,
+    importcpp: "Eccentricity", header: "Geom_Circle.hxx".}
+proc firstParameter*(this: GeomCircle): StandardReal {.noSideEffect,
+    importcpp: "FirstParameter", header: "Geom_Circle.hxx".}
+proc lastParameter*(this: GeomCircle): StandardReal {.noSideEffect,
+    importcpp: "LastParameter", header: "Geom_Circle.hxx".}
+proc isClosed*(this: GeomCircle): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom_Circle.hxx".}
+proc isPeriodic*(this: GeomCircle): StandardBoolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom_Circle.hxx".}
+proc d0*(this: GeomCircle; u: StandardReal; p: var Pnt) {.noSideEffect, importcpp: "D0",
+    header: "Geom_Circle.hxx".}
+proc d1*(this: GeomCircle; u: StandardReal; p: var Pnt; v1: var Vec) {.noSideEffect,
     importcpp: "D1", header: "Geom_Circle.hxx".}
-proc d2*(this: GeomCircle; u: float; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    importcpp: "D2", header: "Geom_Circle.hxx".}
-proc d3*(this: GeomCircle; u: float; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d2*(this: GeomCircle; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Geom_Circle.hxx".}
+proc d3*(this: GeomCircle; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
     noSideEffect, importcpp: "D3", header: "Geom_Circle.hxx".}
-proc dn*(this: GeomCircle; u: float; n: int): Vec {.noSideEffect, importcpp: "DN",
+proc dn*(this: GeomCircle; u: StandardReal; n: int): Vec {.noSideEffect, importcpp: "DN",
     header: "Geom_Circle.hxx".}
 proc transform*(this: var GeomCircle; t: Trsf) {.importcpp: "Transform",
     header: "Geom_Circle.hxx".}

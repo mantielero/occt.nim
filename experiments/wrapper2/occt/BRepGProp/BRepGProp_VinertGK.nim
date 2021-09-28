@@ -47,67 +47,92 @@ type
 proc constructBRepGPropVinertGK*(): BRepGPropVinertGK {.constructor,
     importcpp: "BRepGProp_VinertGK(@)", header: "BRepGProp_VinertGK.hxx".}
 proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace; theLocation: Pnt;
-                                theTolerance: float = 0.001;
+                                theTolerance: cfloat = 0.001;
                                 theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
 proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace; thePoint: Pnt;
-                                theLocation: Pnt; theTolerance: float = 0.001;
+                                theLocation: Pnt; theTolerance: cfloat = 0.001;
                                 theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
 proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace;
                                 theDomain: var BRepGPropDomain; theLocation: Pnt;
-                                theTolerance: float = 0.001;
+                                theTolerance: cfloat = 0.001;
                                 theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
 proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace;
                                 theDomain: var BRepGPropDomain; thePoint: Pnt;
-                                theLocation: Pnt; theTolerance: float = 0.001;
+                                theLocation: Pnt; theTolerance: cfloat = 0.001;
                                 theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
 proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace; thePlane: Pln;
-                                theLocation: Pnt; theTolerance: float = 0.001;
+                                theLocation: Pnt; theTolerance: cfloat = 0.001;
                                 theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
 proc constructBRepGPropVinertGK*(theSurface: var BRepGPropFace;
                                 theDomain: var BRepGPropDomain; thePlane: Pln;
-                                theLocation: Pnt; theTolerance: float = 0.001;
+                                theLocation: Pnt; theTolerance: cfloat = 0.001;
                                 theCGFlag: bool = false; theIFlag: bool = false): BRepGPropVinertGK {.
     constructor, importcpp: "BRepGProp_VinertGK(@)",
     header: "BRepGProp_VinertGK.hxx".}
 proc setLocation*(this: var BRepGPropVinertGK; theLocation: Pnt) {.
     importcpp: "SetLocation", header: "BRepGProp_VinertGK.hxx".}
 proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
-             theTolerance: float = 0.001; theCGFlag: bool = false;
-             theIFlag: bool = false): float {.importcpp: "Perform",
+             theTolerance: cfloat = 0.001; theCGFlag: bool = false;
+             theIFlag: bool = false): cfloat {.importcpp: "Perform",
     header: "BRepGProp_VinertGK.hxx".}
 proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
-             thePoint: Pnt; theTolerance: float = 0.001; theCGFlag: bool = false;
-             theIFlag: bool = false): float {.importcpp: "Perform",
+             thePoint: Pnt; theTolerance: cfloat = 0.001; theCGFlag: bool = false;
+             theIFlag: bool = false): cfloat {.importcpp: "Perform",
     header: "BRepGProp_VinertGK.hxx".}
 proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
-             theDomain: var BRepGPropDomain; theTolerance: float = 0.001;
-             theCGFlag: bool = false; theIFlag: bool = false): float {.
+             theDomain: var BRepGPropDomain; theTolerance: cfloat = 0.001;
+             theCGFlag: bool = false; theIFlag: bool = false): cfloat {.
     importcpp: "Perform", header: "BRepGProp_VinertGK.hxx".}
 proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
              theDomain: var BRepGPropDomain; thePoint: Pnt;
-             theTolerance: float = 0.001; theCGFlag: bool = false;
-             theIFlag: bool = false): float {.importcpp: "Perform",
+             theTolerance: cfloat = 0.001; theCGFlag: bool = false;
+             theIFlag: bool = false): cfloat {.importcpp: "Perform",
     header: "BRepGProp_VinertGK.hxx".}
 proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
-             thePlane: Pln; theTolerance: float = 0.001; theCGFlag: bool = false;
-             theIFlag: bool = false): float {.importcpp: "Perform",
+             thePlane: Pln; theTolerance: cfloat = 0.001; theCGFlag: bool = false;
+             theIFlag: bool = false): cfloat {.importcpp: "Perform",
     header: "BRepGProp_VinertGK.hxx".}
 proc perform*(this: var BRepGPropVinertGK; theSurface: var BRepGPropFace;
              theDomain: var BRepGPropDomain; thePlane: Pln;
-             theTolerance: float = 0.001; theCGFlag: bool = false;
-             theIFlag: bool = false): float {.importcpp: "Perform",
+             theTolerance: cfloat = 0.001; theCGFlag: bool = false;
+             theIFlag: bool = false): cfloat {.importcpp: "Perform",
     header: "BRepGProp_VinertGK.hxx".}
-proc getErrorReached*(this: BRepGPropVinertGK): float {.noSideEffect,
+proc getErrorReached*(this: BRepGPropVinertGK): cfloat {.noSideEffect,
     importcpp: "GetErrorReached", header: "BRepGProp_VinertGK.hxx".}
-proc getAbsolutError*(this: BRepGPropVinertGK): float {.noSideEffect,
+proc getAbsolutError*(this: BRepGPropVinertGK): cfloat {.noSideEffect,
     importcpp: "GetAbsolutError", header: "BRepGProp_VinertGK.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

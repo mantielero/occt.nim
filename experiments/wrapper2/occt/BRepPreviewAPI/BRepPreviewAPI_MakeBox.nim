@@ -46,3 +46,28 @@ proc constructBRepPreviewAPI_MakeBox*(): BRepPreviewAPI_MakeBox {.constructor,
     importcpp: "BRepPreviewAPI_MakeBox(@)", header: "BRepPreviewAPI_MakeBox.hxx".}
 proc build*(this: var BRepPreviewAPI_MakeBox) {.importcpp: "Build",
     header: "BRepPreviewAPI_MakeBox.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -51,7 +51,7 @@ proc status*(this: VrmlDataScene): VrmlDataErrorStatus {.noSideEffect,
     importcpp: "Status", header: "VrmlData_Scene.hxx".}
 proc setVrmlDir*(this: var VrmlDataScene; a2: TCollectionExtendedString) {.
     importcpp: "SetVrmlDir", header: "VrmlData_Scene.hxx".}
-proc setLinearScale*(this: var VrmlDataScene; theScale: float) {.
+proc setLinearScale*(this: var VrmlDataScene; theScale: cfloat) {.
     importcpp: "SetLinearScale", header: "VrmlData_Scene.hxx".}
 proc vrmlDirIterator*(this: VrmlDataScene): VrmlDataSceneIterator[
     TCollectionExtendedString] {.noSideEffect, importcpp: "VrmlDirIterator",
@@ -87,7 +87,7 @@ proc readWord*(theBuffer: var VrmlDataInBuffer; theStr: var TCollectionAsciiStri
 proc dump*(this: VrmlDataScene; theStream: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "VrmlData_Scene.hxx".}
 proc readReal*(this: VrmlDataScene; theBuffer: var VrmlDataInBuffer;
-              theResult: var float; isApplyScale: bool; isOnlyPositive: bool): VrmlDataErrorStatus {.
+              theResult: var cfloat; isApplyScale: bool; isOnlyPositive: bool): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "ReadReal", header: "VrmlData_Scene.hxx".}
 proc readXYZ*(this: VrmlDataScene; theBuffer: var VrmlDataInBuffer; theXYZ: var Xyz;
              isApplyScale: bool; isOnlyPositive: bool): VrmlDataErrorStatus {.
@@ -96,22 +96,47 @@ proc readXY*(this: VrmlDataScene; theBuffer: var VrmlDataInBuffer; theXYZ: var X
             isApplyScale: bool; isOnlyPositive: bool): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "ReadXY", header: "VrmlData_Scene.hxx".}
 proc readArrIndex*(this: VrmlDataScene; theBuffer: var VrmlDataInBuffer;
-                  theArr: ptr ptr int; theNBl: var StandardSize): VrmlDataErrorStatus {.
+                  theArr: ptr ptr cint; theNBl: var StandardSize): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "ReadArrIndex", header: "VrmlData_Scene.hxx".}
-proc getLineError*(this: VrmlDataScene): int {.noSideEffect,
+proc getLineError*(this: VrmlDataScene): cint {.noSideEffect,
     importcpp: "GetLineError", header: "VrmlData_Scene.hxx".}
-proc setIndent*(this: var VrmlDataScene; nSpc: int) {.importcpp: "SetIndent",
+proc setIndent*(this: var VrmlDataScene; nSpc: cint) {.importcpp: "SetIndent",
     header: "VrmlData_Scene.hxx".}
 proc writeXYZ*(this: VrmlDataScene; theXYZ: Xyz; isScale: bool;
               thePostfix: cstring = 0'i64): VrmlDataErrorStatus {.noSideEffect,
     importcpp: "WriteXYZ", header: "VrmlData_Scene.hxx".}
-proc writeArrIndex*(this: VrmlDataScene; thePrefix: cstring; theArr: ptr ptr int;
+proc writeArrIndex*(this: VrmlDataScene; thePrefix: cstring; theArr: ptr ptr cint;
                    theNbBl: StandardSize): VrmlDataErrorStatus {.noSideEffect,
     importcpp: "WriteArrIndex", header: "VrmlData_Scene.hxx".}
 proc writeLine*(this: VrmlDataScene; theLine0: cstring; theLine1: cstring = 0'i64;
-               theIndent: int = 0): VrmlDataErrorStatus {.noSideEffect,
+               theIndent: cint = 0): VrmlDataErrorStatus {.noSideEffect,
     importcpp: "WriteLine", header: "VrmlData_Scene.hxx".}
 proc writeNode*(this: VrmlDataScene; thePrefix: cstring; a3: Handle[VrmlDataNode]): VrmlDataErrorStatus {.
     noSideEffect, importcpp: "WriteNode", header: "VrmlData_Scene.hxx".}
 proc isDummyWrite*(this: VrmlDataScene): bool {.noSideEffect,
     importcpp: "IsDummyWrite", header: "VrmlData_Scene.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

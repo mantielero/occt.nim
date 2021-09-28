@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TSolid"
 discard "forward decl of TopoDS_TSolid"
 type
-  HandleTopoDS_TSolid* = Handle[TopoDS_TSolid]
+  HandleC1C1* = Handle[TopoDS_TSolid]
 
 ## ! A Topological part of 3D space, bounded by shells,
 ## ! edges and vertices.
@@ -48,3 +48,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopoDS_TSolid.hxx".}
 proc dynamicType*(this: TopoDS_TSolid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TSolid.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

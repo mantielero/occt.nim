@@ -12,5 +12,30 @@
 ##  commercial license or contractual agreement.
 
 type
-  Graphic3dBndBox3d* = BVH_Box[float, 3]
+  Graphic3dBndBox3d* = BVH_Box[cfloat, 3]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -24,8 +24,8 @@ proc constructOpenGlIndexBuffer*(): OpenGlIndexBuffer {.constructor,
 proc getTarget*(this: OpenGlIndexBuffer): GLenum {.noSideEffect,
     importcpp: "GetTarget", header: "OpenGl_IndexBuffer.hxx".}
 proc dumpJson*(this: OpenGlIndexBuffer; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "OpenGl_IndexBuffer.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "OpenGl_IndexBuffer.hxx".}
 type
   OpenGlIndexBufferbaseType* = OpenGlVertexBuffer
 
@@ -38,5 +38,30 @@ proc dynamicType*(this: OpenGlIndexBuffer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_IndexBuffer.hxx".}
 discard "forward decl of OpenGl_IndexBuffer"
 type
-  HandleOpenGlIndexBuffer* = Handle[OpenGlIndexBuffer]
+  HandleC1C1* = Handle[OpenGlIndexBuffer]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

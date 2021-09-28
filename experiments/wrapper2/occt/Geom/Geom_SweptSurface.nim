@@ -19,7 +19,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of Geom_SweptSurface"
 discard "forward decl of Geom_SweptSurface"
 type
-  HandleGeomSweptSurface* = Handle[GeomSweptSurface]
+  HandleC1C1* = Handle[GeomSweptSurface]
 
 ## ! Describes the common behavior for surfaces
 ## ! constructed by sweeping a curve with another curve.

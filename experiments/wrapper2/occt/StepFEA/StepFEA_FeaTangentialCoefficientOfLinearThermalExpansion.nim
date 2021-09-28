@@ -18,8 +18,7 @@ discard "forward decl of StepFEA_SymmetricTensor23d"
 discard "forward decl of StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion"
 discard "forward decl of StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion"
 type
-  HandleStepFEA_FeaTangentialCoefficientOfLinearThermalExpansion* = Handle[
-      StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion]
+  HandleC1C1* = Handle[StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion]
 
 ## ! Representation of STEP entity FeaTangentialCoefficientOfLinearThermalExpansion
 
@@ -53,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_FeaTangent
     header: "StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion.hxx".}
 proc dynamicType*(this: StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

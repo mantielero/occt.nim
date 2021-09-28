@@ -52,13 +52,13 @@ type
 
 proc constructMathNewtonFunctionSetRoot*(theFunction: var MathFunctionSetWithDerivatives;
                                         theXTolerance: MathVector;
-                                        theFTolerance: float;
-                                        tehNbIterations: int = 100): MathNewtonFunctionSetRoot {.
+                                        theFTolerance: cfloat;
+                                        tehNbIterations: cint = 100): MathNewtonFunctionSetRoot {.
     constructor, importcpp: "math_NewtonFunctionSetRoot(@)",
     header: "math_NewtonFunctionSetRoot.hxx".}
 proc constructMathNewtonFunctionSetRoot*(theFunction: var MathFunctionSetWithDerivatives;
-                                        theFTolerance: float;
-                                        theNbIterations: int = 100): MathNewtonFunctionSetRoot {.
+                                        theFTolerance: cfloat;
+                                        theNbIterations: cint = 100): MathNewtonFunctionSetRoot {.
     constructor, importcpp: "math_NewtonFunctionSetRoot(@)",
     header: "math_NewtonFunctionSetRoot.hxx".}
 proc destroyMathNewtonFunctionSetRoot*(this: var MathNewtonFunctionSetRoot) {.
@@ -84,7 +84,7 @@ proc root*(this: MathNewtonFunctionSetRoot): MathVector {.noSideEffect,
     importcpp: "Root", header: "math_NewtonFunctionSetRoot.hxx".}
 proc root*(this: MathNewtonFunctionSetRoot; root: var MathVector) {.noSideEffect,
     importcpp: "Root", header: "math_NewtonFunctionSetRoot.hxx".}
-proc stateNumber*(this: MathNewtonFunctionSetRoot): int {.noSideEffect,
+proc stateNumber*(this: MathNewtonFunctionSetRoot): cint {.noSideEffect,
     importcpp: "StateNumber", header: "math_NewtonFunctionSetRoot.hxx".}
 proc derivative*(this: MathNewtonFunctionSetRoot): MathMatrix {.noSideEffect,
     importcpp: "Derivative", header: "math_NewtonFunctionSetRoot.hxx".}
@@ -95,7 +95,32 @@ proc functionSetErrors*(this: MathNewtonFunctionSetRoot): MathVector {.noSideEff
 proc functionSetErrors*(this: MathNewtonFunctionSetRoot; err: var MathVector) {.
     noSideEffect, importcpp: "FunctionSetErrors",
     header: "math_NewtonFunctionSetRoot.hxx".}
-proc nbIterations*(this: MathNewtonFunctionSetRoot): int {.noSideEffect,
+proc nbIterations*(this: MathNewtonFunctionSetRoot): cint {.noSideEffect,
     importcpp: "NbIterations", header: "math_NewtonFunctionSetRoot.hxx".}
 proc dump*(this: MathNewtonFunctionSetRoot; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_NewtonFunctionSetRoot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

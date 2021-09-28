@@ -48,19 +48,20 @@ proc neighboursOf*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
                   theNode: BRepMeshVertex) {.importcpp: "NeighboursOf",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
 proc neighboursOfNode*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
-                      theNodeIndex: int) {.importcpp: "NeighboursOfNode",
+                      theNodeIndex: cint) {.importcpp: "NeighboursOfNode",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
 proc neighboursOf*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
                   theLink: BRepMeshEdge) {.importcpp: "NeighboursOf",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
 proc neighboursOfLink*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
-                      theLinkIndex: int) {.importcpp: "NeighboursOfLink",
+                      theLinkIndex: cint) {.importcpp: "NeighboursOfLink",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
 proc neighboursOf*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
                   theElement: BRepMeshTriangle) {.importcpp: "NeighboursOf",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
 proc neighboursOfElement*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
-                         theElementIndex: int) {.importcpp: "NeighboursOfElement",
+                         theElementIndex: cint) {.
+    importcpp: "NeighboursOfElement",
     header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
 proc neighboursByEdgeOf*(this: var BRepMeshSelectorOfDataStructureOfDelaun;
                         theElement: BRepMeshTriangle) {.
@@ -94,3 +95,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "BRepMesh_SelectorO
 proc dynamicType*(this: BRepMeshSelectorOfDataStructureOfDelaun): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "BRepMesh_SelectorOfDataStructureOfDelaun.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

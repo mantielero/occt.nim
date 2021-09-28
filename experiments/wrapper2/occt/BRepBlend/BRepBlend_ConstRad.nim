@@ -17,3 +17,28 @@
 type
   BRepBlendConstRad* = BlendFuncConstRad
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

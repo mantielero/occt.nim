@@ -17,7 +17,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_IdentificationRole"
 discard "forward decl of StepBasic_IdentificationRole"
 type
-  HandleStepBasicIdentificationRole* = Handle[StepBasicIdentificationRole]
+  HandleC1C1* = Handle[StepBasicIdentificationRole]
 
 ## ! Representation of STEP entity IdentificationRole
 
@@ -60,3 +60,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicIdentificationRole): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_IdentificationRole.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

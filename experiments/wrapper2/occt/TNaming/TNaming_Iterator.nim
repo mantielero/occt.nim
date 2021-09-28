@@ -31,7 +31,7 @@ proc constructTNamingIterator*(anAtt: Handle[TNamingNamedShape]): TNamingIterato
     constructor, importcpp: "TNaming_Iterator(@)", header: "TNaming_Iterator.hxx".}
 proc constructTNamingIterator*(aLabel: TDF_Label): TNamingIterator {.constructor,
     importcpp: "TNaming_Iterator(@)", header: "TNaming_Iterator.hxx".}
-proc constructTNamingIterator*(aLabel: TDF_Label; aTrans: int): TNamingIterator {.
+proc constructTNamingIterator*(aLabel: TDF_Label; aTrans: cint): TNamingIterator {.
     constructor, importcpp: "TNaming_Iterator(@)", header: "TNaming_Iterator.hxx".}
 proc more*(this: TNamingIterator): bool {.noSideEffect, importcpp: "More",
                                       header: "TNaming_Iterator.hxx".}
@@ -45,3 +45,28 @@ proc isModification*(this: TNamingIterator): bool {.noSideEffect,
     importcpp: "IsModification", header: "TNaming_Iterator.hxx".}
 proc evolution*(this: TNamingIterator): TNamingEvolution {.noSideEffect,
     importcpp: "Evolution", header: "TNaming_Iterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

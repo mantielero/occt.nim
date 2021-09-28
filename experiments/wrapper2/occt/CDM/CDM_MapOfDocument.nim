@@ -19,3 +19,28 @@ type
   CDM_MapIteratorOfMapOfDocument* = Iterator[Handle[CDM_Document],
       CDM_DocumentHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,3 +16,28 @@
 type
   IntToolsSequenceOfCurves* = NCollectionSequence[IntToolsCurve]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

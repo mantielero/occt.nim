@@ -14,35 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IGESDrawHArray1OfConnectPoint* {.importcpp: "IGESDraw_HArray1OfConnectPoint",
-                                  header: "IGESDraw_HArray1OfConnectPoint.hxx",
-                                  bycopy.} = object of IGESDrawArray1OfConnectPoint
+## !!!Ignored construct:  # IGESDraw_HArray1OfConnectPoint_HeaderFile [NewLine] # IGESDraw_HArray1OfConnectPoint_HeaderFile [NewLine] # < IGESDraw_ConnectPoint . hxx > [NewLine] # < IGESDraw_Array1OfConnectPoint . hxx > [NewLine] # < NCollection_DefineHArray1 . hxx > [NewLine] DEFINE_HARRAY1 ( IGESDraw_HArray1OfConnectPoint , IGESDraw_Array1OfConnectPoint ) # [NewLine]
+## Error: expected ';'!!!
 
 
-proc constructIGESDrawHArray1OfConnectPoint*(theLower: int; theUpper: int): IGESDrawHArray1OfConnectPoint {.
-    constructor, importcpp: "IGESDraw_HArray1OfConnectPoint(@)",
-    header: "IGESDraw_HArray1OfConnectPoint.hxx".}
-proc constructIGESDrawHArray1OfConnectPoint*(theLower: int; theUpper: int;
-    theValue: ValueType): IGESDrawHArray1OfConnectPoint {.constructor,
-    importcpp: "IGESDraw_HArray1OfConnectPoint(@)",
-    header: "IGESDraw_HArray1OfConnectPoint.hxx".}
-proc constructIGESDrawHArray1OfConnectPoint*(
-    theOther: IGESDrawArray1OfConnectPoint): IGESDrawHArray1OfConnectPoint {.
-    constructor, importcpp: "IGESDraw_HArray1OfConnectPoint(@)",
-    header: "IGESDraw_HArray1OfConnectPoint.hxx".}
-proc array1*(this: IGESDrawHArray1OfConnectPoint): IGESDrawArray1OfConnectPoint {.
-    noSideEffect, importcpp: "Array1", header: "IGESDraw_HArray1OfConnectPoint.hxx".}
-proc changeArray1*(this: var IGESDrawHArray1OfConnectPoint): var IGESDrawArray1OfConnectPoint {.
-    importcpp: "ChangeArray1", header: "IGESDraw_HArray1OfConnectPoint.hxx".}
-type
-  IGESDrawHArray1OfConnectPointbaseType* = MMgtTShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESDraw_HArray1OfConnectPoint::get_type_name(@)",
-                            header: "IGESDraw_HArray1OfConnectPoint.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "IGESDraw_HArray1OfConnectPoint::get_type_descriptor(@)",
-    header: "IGESDraw_HArray1OfConnectPoint.hxx".}
-proc dynamicType*(this: IGESDrawHArray1OfConnectPoint): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESDraw_HArray1OfConnectPoint.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

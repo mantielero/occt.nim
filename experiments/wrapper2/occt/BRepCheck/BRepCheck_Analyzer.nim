@@ -61,3 +61,28 @@ proc isValid*(this: BRepCheckAnalyzer): bool {.noSideEffect, importcpp: "IsValid
     header: "BRepCheck_Analyzer.hxx".}
 proc result*(this: BRepCheckAnalyzer; subS: TopoDS_Shape): Handle[BRepCheckResult] {.
     noSideEffect, importcpp: "Result", header: "BRepCheck_Analyzer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

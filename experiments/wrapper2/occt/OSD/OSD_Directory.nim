@@ -60,3 +60,28 @@ proc constructOSD_Directory*(theName: OSD_Path): OSD_Directory {.constructor,
     importcpp: "OSD_Directory(@)", header: "OSD_Directory.hxx".}
 proc build*(this: var OSD_Directory; protect: OSD_Protection) {.importcpp: "Build",
     header: "OSD_Directory.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

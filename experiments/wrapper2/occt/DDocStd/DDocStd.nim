@@ -51,3 +51,28 @@ proc mTMCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "DDocStd::MTMCommands(@)", header: "DDocStd.hxx".}
 proc shapeSchemaCommands*(theCommands: var DrawInterpretor) {.
     importcpp: "DDocStd::ShapeSchemaCommands(@)", header: "DDocStd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

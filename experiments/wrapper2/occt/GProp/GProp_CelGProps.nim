@@ -26,13 +26,38 @@ proc constructGPropCelGProps*(): GPropCelGProps {.constructor,
     importcpp: "GProp_CelGProps(@)", header: "GProp_CelGProps.hxx".}
 proc constructGPropCelGProps*(c: Circ; cLocation: Pnt): GPropCelGProps {.constructor,
     importcpp: "GProp_CelGProps(@)", header: "GProp_CelGProps.hxx".}
-proc constructGPropCelGProps*(c: Circ; u1: float; u2: float; cLocation: Pnt): GPropCelGProps {.
+proc constructGPropCelGProps*(c: Circ; u1: cfloat; u2: cfloat; cLocation: Pnt): GPropCelGProps {.
     constructor, importcpp: "GProp_CelGProps(@)", header: "GProp_CelGProps.hxx".}
-proc constructGPropCelGProps*(c: Lin; u1: float; u2: float; cLocation: Pnt): GPropCelGProps {.
+proc constructGPropCelGProps*(c: Lin; u1: cfloat; u2: cfloat; cLocation: Pnt): GPropCelGProps {.
     constructor, importcpp: "GProp_CelGProps(@)", header: "GProp_CelGProps.hxx".}
 proc setLocation*(this: var GPropCelGProps; cLocation: Pnt) {.
     importcpp: "SetLocation", header: "GProp_CelGProps.hxx".}
-proc perform*(this: var GPropCelGProps; c: Circ; u1: float; u2: float) {.
+proc perform*(this: var GPropCelGProps; c: Circ; u1: cfloat; u2: cfloat) {.
     importcpp: "Perform", header: "GProp_CelGProps.hxx".}
-proc perform*(this: var GPropCelGProps; c: Lin; u1: float; u2: float) {.
+proc perform*(this: var GPropCelGProps; c: Lin; u1: cfloat; u2: cfloat) {.
     importcpp: "Perform", header: "GProp_CelGProps.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

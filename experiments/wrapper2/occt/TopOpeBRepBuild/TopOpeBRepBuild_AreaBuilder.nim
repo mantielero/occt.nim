@@ -37,13 +37,13 @@ proc initAreaBuilder*(this: var TopOpeBRepBuildAreaBuilder;
                      lc: var TopOpeBRepBuildLoopClassifier;
                      forceClass: bool = false) {.importcpp: "InitAreaBuilder",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc initArea*(this: var TopOpeBRepBuildAreaBuilder): int {.importcpp: "InitArea",
+proc initArea*(this: var TopOpeBRepBuildAreaBuilder): cint {.importcpp: "InitArea",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc moreArea*(this: TopOpeBRepBuildAreaBuilder): bool {.noSideEffect,
     importcpp: "MoreArea", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc nextArea*(this: var TopOpeBRepBuildAreaBuilder) {.importcpp: "NextArea",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
-proc initLoop*(this: var TopOpeBRepBuildAreaBuilder): int {.importcpp: "InitLoop",
+proc initLoop*(this: var TopOpeBRepBuildAreaBuilder): cint {.importcpp: "InitLoop",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc moreLoop*(this: TopOpeBRepBuildAreaBuilder): bool {.noSideEffect,
     importcpp: "MoreLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
@@ -69,3 +69,28 @@ proc aDD_LISTOFLoopTO_LISTOFLoop*(this: TopOpeBRepBuildAreaBuilder;
                                  s2: StandardAddress = nil) {.noSideEffect,
     importcpp: "ADD_LISTOFLoop_TO_LISTOFLoop",
     header: "TopOpeBRepBuild_AreaBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

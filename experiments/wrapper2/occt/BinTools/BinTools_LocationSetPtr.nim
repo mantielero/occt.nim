@@ -17,3 +17,28 @@ discard "forward decl of BinTools_LocationSet"
 type
   BinToolsLocationSetPtr* = ptr BinToolsLocationSet
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

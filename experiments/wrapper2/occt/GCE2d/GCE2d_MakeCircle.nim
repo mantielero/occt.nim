@@ -26,17 +26,17 @@ type
 
 proc constructGCE2dMakeCircle*(c: Circ2d): GCE2dMakeCircle {.constructor,
     importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2dMakeCircle*(a: Ax2d; radius: float; sense: bool = true): GCE2dMakeCircle {.
+proc constructGCE2dMakeCircle*(a: Ax2d; radius: cfloat; sense: bool = true): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2dMakeCircle*(a: Ax22d; radius: float): GCE2dMakeCircle {.
+proc constructGCE2dMakeCircle*(a: Ax22d; radius: cfloat): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2dMakeCircle*(circ: Circ2d; dist: float): GCE2dMakeCircle {.
+proc constructGCE2dMakeCircle*(circ: Circ2d; dist: cfloat): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
 proc constructGCE2dMakeCircle*(circ: Circ2d; point: Pnt2d): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
 proc constructGCE2dMakeCircle*(p1: Pnt2d; p2: Pnt2d; p3: Pnt2d): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
-proc constructGCE2dMakeCircle*(p: Pnt2d; radius: float; sense: bool = true): GCE2dMakeCircle {.
+proc constructGCE2dMakeCircle*(p: Pnt2d; radius: cfloat; sense: bool = true): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
 proc constructGCE2dMakeCircle*(center: Pnt2d; point: Pnt2d; sense: bool = true): GCE2dMakeCircle {.
     constructor, importcpp: "GCE2d_MakeCircle(@)", header: "GCE2d_MakeCircle.hxx".}
@@ -45,3 +45,28 @@ proc value*(this: GCE2dMakeCircle): Handle[Geom2dCircle] {.noSideEffect,
 converter `constopencascade`*(this: GCE2dMakeCircle): Handle[Geom2dCircle] {.
     noSideEffect, importcpp: "GCE2d_MakeCircle::operator constopencascade",
     header: "GCE2d_MakeCircle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

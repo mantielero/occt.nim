@@ -20,3 +20,28 @@ type
     ExtremaExtFlagMIN, ExtremaExtFlagMAX, ExtremaExtFlagMINMAX
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -37,3 +37,28 @@ proc add*(this: var TopOpeBRepDS_EdgeInterferenceTool; e: TopoDS_Shape;
 proc transition*(this: TopOpeBRepDS_EdgeInterferenceTool;
                 i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect,
     importcpp: "Transition", header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

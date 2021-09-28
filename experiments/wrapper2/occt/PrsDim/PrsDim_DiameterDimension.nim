@@ -14,7 +14,7 @@
 
 discard "forward decl of PrsDim_DiameterDimension"
 type
-  HandlePrsDimDiameterDimension* = Handle[PrsDimDiameterDimension]
+  HandleC1C1* = Handle[PrsDimDiameterDimension]
 
 ## ! Diameter dimension. Can be constructued:
 ## ! - On generic circle.
@@ -314,3 +314,28 @@ proc setTextPosition*(this: var PrsDimDiameterDimension; theTextPos: Pnt) {.
     importcpp: "SetTextPosition", header: "PrsDim_DiameterDimension.hxx".}
 proc getTextPosition*(this: PrsDimDiameterDimension): Pnt {.noSideEffect,
     importcpp: "GetTextPosition", header: "PrsDim_DiameterDimension.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

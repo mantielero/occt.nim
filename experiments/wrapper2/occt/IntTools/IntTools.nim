@@ -48,18 +48,43 @@ type
   IntTools* {.importcpp: "IntTools", header: "IntTools.hxx", bycopy.} = object ## ! returns the length of the edge;
 
 
-proc length*(e: TopoDS_Edge): float {.importcpp: "IntTools::Length(@)",
-                                  header: "IntTools.hxx".}
-proc removeIdenticalRoots*(aSeq: var IntToolsSequenceOfRoots; anEpsT: float) {.
+proc length*(e: TopoDS_Edge): cfloat {.importcpp: "IntTools::Length(@)",
+                                   header: "IntTools.hxx".}
+proc removeIdenticalRoots*(aSeq: var IntToolsSequenceOfRoots; anEpsT: cfloat) {.
     importcpp: "IntTools::RemoveIdenticalRoots(@)", header: "IntTools.hxx".}
-proc sortRoots*(aSeq: var IntToolsSequenceOfRoots; anEpsT: float) {.
+proc sortRoots*(aSeq: var IntToolsSequenceOfRoots; anEpsT: cfloat) {.
     importcpp: "IntTools::SortRoots(@)", header: "IntTools.hxx".}
-proc findRootStates*(aSeq: var IntToolsSequenceOfRoots; anEpsNull: float) {.
+proc findRootStates*(aSeq: var IntToolsSequenceOfRoots; anEpsNull: cfloat) {.
     importcpp: "IntTools::FindRootStates(@)", header: "IntTools.hxx".}
-proc parameter*(p: Pnt; curve: Handle[GeomCurve]; aParm: var float): int {.
+proc parameter*(p: Pnt; curve: Handle[GeomCurve]; aParm: var cfloat): cint {.
     importcpp: "IntTools::Parameter(@)", header: "IntTools.hxx".}
-proc getRadius*(c: BRepAdaptorCurve; t1: float; t3: float; r: var float): int {.
+proc getRadius*(c: BRepAdaptorCurve; t1: cfloat; t3: cfloat; r: var cfloat): cint {.
     importcpp: "IntTools::GetRadius(@)", header: "IntTools.hxx".}
-proc prepareArgs*(c: var BRepAdaptorCurve; tMax: float; tMin: float; discret: int;
-                 deflect: float; anArgs: var IntToolsCArray1OfReal): int {.
+proc prepareArgs*(c: var BRepAdaptorCurve; tMax: cfloat; tMin: cfloat; discret: cint;
+                 deflect: cfloat; anArgs: var IntToolsCArray1OfReal): cint {.
     importcpp: "IntTools::PrepareArgs(@)", header: "IntTools.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

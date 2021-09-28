@@ -58,3 +58,28 @@ proc getNormal*(nodes: TColStdArray1OfReal; norm: var Vec): bool {.
     importcpp: "MeshVS_Tool::GetNormal(@)", header: "MeshVS_Tool.hxx".}
 proc getAverageNormal*(nodes: TColStdArray1OfReal; norm: var Vec): bool {.
     importcpp: "MeshVS_Tool::GetAverageNormal(@)", header: "MeshVS_Tool.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

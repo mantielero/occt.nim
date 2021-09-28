@@ -17,3 +17,28 @@
 type
   StepBasicArray1OfDocument* = NCollectionArray1[Handle[StepBasicDocument]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

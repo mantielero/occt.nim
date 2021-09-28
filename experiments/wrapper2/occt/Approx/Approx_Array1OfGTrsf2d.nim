@@ -17,3 +17,28 @@
 type
   ApproxArray1OfGTrsf2d* = NCollectionArray1[GTrsf2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

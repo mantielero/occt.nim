@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_DateRole"
 discard "forward decl of StepBasic_DateRole"
 type
-  HandleStepBasicDateRole* = Handle[StepBasicDateRole]
+  HandleC1C1* = Handle[StepBasicDateRole]
   StepBasicDateRole* {.importcpp: "StepBasic_DateRole",
                       header: "StepBasic_DateRole.hxx", bycopy.} = object of StandardTransient ##
                                                                                         ## !
@@ -45,3 +45,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DateRole.hxx".}
 proc dynamicType*(this: StepBasicDateRole): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_DateRole.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

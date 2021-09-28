@@ -53,3 +53,28 @@ proc value*(this: StepToTopoDS_TranslateCompositeCurve): TopoDS_Wire {.noSideEff
 proc isInfiniteSegment*(this: StepToTopoDS_TranslateCompositeCurve): bool {.
     noSideEffect, importcpp: "IsInfiniteSegment",
     header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

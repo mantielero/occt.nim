@@ -16,27 +16,52 @@
 
 proc `+`*(x: Handle[ExprGeneralExpression]; y: Handle[ExprGeneralExpression]): Handle[
     ExprSum] {.importcpp: "(# + #)", header: "Expr_Operators.hxx".}
-proc `+`*(x: float; y: Handle[ExprGeneralExpression]): Handle[ExprSum] {.
+proc `+`*(x: cfloat; y: Handle[ExprGeneralExpression]): Handle[ExprSum] {.
     importcpp: "(# + #)", header: "Expr_Operators.hxx".}
-proc `+`*(x: Handle[ExprGeneralExpression]; y: float): Handle[ExprSum] {.
+proc `+`*(x: Handle[ExprGeneralExpression]; y: cfloat): Handle[ExprSum] {.
     importcpp: "(# + #)", header: "Expr_Operators.hxx".}
 proc `-`*(x: Handle[ExprGeneralExpression]; y: Handle[ExprGeneralExpression]): Handle[
     ExprDifference] {.importcpp: "(# - #)", header: "Expr_Operators.hxx".}
-proc `-`*(x: float; y: Handle[ExprGeneralExpression]): Handle[ExprDifference] {.
+proc `-`*(x: cfloat; y: Handle[ExprGeneralExpression]): Handle[ExprDifference] {.
     importcpp: "(# - #)", header: "Expr_Operators.hxx".}
-proc `-`*(x: Handle[ExprGeneralExpression]; y: float): Handle[ExprDifference] {.
+proc `-`*(x: Handle[ExprGeneralExpression]; y: cfloat): Handle[ExprDifference] {.
     importcpp: "(# - #)", header: "Expr_Operators.hxx".}
 proc `-`*(x: Handle[ExprGeneralExpression]): Handle[ExprUnaryMinus] {.
     importcpp: "(- #)", header: "Expr_Operators.hxx".}
 proc `*`*(x: Handle[ExprGeneralExpression]; y: Handle[ExprGeneralExpression]): Handle[
     ExprProduct] {.importcpp: "(# * #)", header: "Expr_Operators.hxx".}
-proc `*`*(x: float; y: Handle[ExprGeneralExpression]): Handle[ExprProduct] {.
+proc `*`*(x: cfloat; y: Handle[ExprGeneralExpression]): Handle[ExprProduct] {.
     importcpp: "(# * #)", header: "Expr_Operators.hxx".}
-proc `*`*(x: Handle[ExprGeneralExpression]; y: float): Handle[ExprProduct] {.
+proc `*`*(x: Handle[ExprGeneralExpression]; y: cfloat): Handle[ExprProduct] {.
     importcpp: "(# * #)", header: "Expr_Operators.hxx".}
 proc `/`*(x: Handle[ExprGeneralExpression]; y: Handle[ExprGeneralExpression]): Handle[
     ExprDivision] {.importcpp: "(# / #)", header: "Expr_Operators.hxx".}
-proc `/`*(x: float; y: Handle[ExprGeneralExpression]): Handle[ExprDivision] {.
+proc `/`*(x: cfloat; y: Handle[ExprGeneralExpression]): Handle[ExprDivision] {.
     importcpp: "(# / #)", header: "Expr_Operators.hxx".}
-proc `/`*(x: Handle[ExprGeneralExpression]; y: float): Handle[ExprDivision] {.
+proc `/`*(x: Handle[ExprGeneralExpression]; y: cfloat): Handle[ExprDivision] {.
     importcpp: "(# / #)", header: "Expr_Operators.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,3 +17,28 @@
 type
   IGESSolidArray1OfLoop* = NCollectionArray1[Handle[IGESSolidLoop]]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

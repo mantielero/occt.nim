@@ -64,5 +64,30 @@ proc ownCopy*(this: IGESBasicToolSubfigureDef;
              entto: Handle[IGESBasicSubfigureDef]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESBasic_ToolSubfigureDef.hxx".}
 proc ownDump*(this: IGESBasicToolSubfigureDef; ent: Handle[IGESBasicSubfigureDef];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump", header: "IGESBasic_ToolSubfigureDef.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

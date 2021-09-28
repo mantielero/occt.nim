@@ -17,8 +17,7 @@
 discard "forward decl of StepVisual_SurfaceStyleReflectanceAmbient"
 discard "forward decl of StepVisual_SurfaceStyleReflectanceAmbient"
 type
-  HandleStepVisualSurfaceStyleReflectanceAmbient* = Handle[
-      StepVisualSurfaceStyleReflectanceAmbient]
+  HandleC1C1* = Handle[StepVisualSurfaceStyleReflectanceAmbient]
 
 ## ! Representation of STEP entity SurfaceStyleReflectanceAmbient
 
@@ -35,12 +34,13 @@ proc constructStepVisualSurfaceStyleReflectanceAmbient*(): StepVisualSurfaceStyl
     constructor, importcpp: "StepVisual_SurfaceStyleReflectanceAmbient(@)",
     header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
 proc init*(this: var StepVisualSurfaceStyleReflectanceAmbient;
-          theAmbientReflectance: float) {.importcpp: "Init", header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
-proc ambientReflectance*(this: StepVisualSurfaceStyleReflectanceAmbient): float {.
+          theAmbientReflectance: cfloat) {.importcpp: "Init",
+    header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
+proc ambientReflectance*(this: StepVisualSurfaceStyleReflectanceAmbient): cfloat {.
     noSideEffect, importcpp: "AmbientReflectance",
     header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
 proc setAmbientReflectance*(this: var StepVisualSurfaceStyleReflectanceAmbient;
-                           theAmbientReflectance: float) {.
+                           theAmbientReflectance: cfloat) {.
     importcpp: "SetAmbientReflectance",
     header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
 type
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Surface
 proc dynamicType*(this: StepVisualSurfaceStyleReflectanceAmbient): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

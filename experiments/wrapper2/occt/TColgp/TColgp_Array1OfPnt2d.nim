@@ -17,3 +17,28 @@
 type
   TColgpArray1OfPnt2d* = NCollectionArray1[Pnt2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

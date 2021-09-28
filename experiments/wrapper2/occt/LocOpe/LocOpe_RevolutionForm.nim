@@ -25,11 +25,12 @@ type
 
 proc constructLocOpeRevolutionForm*(): LocOpeRevolutionForm {.constructor,
     importcpp: "LocOpe_RevolutionForm(@)", header: "LocOpe_RevolutionForm.hxx".}
-proc constructLocOpeRevolutionForm*(base: TopoDS_Shape; axe: Ax1; angle: float): LocOpeRevolutionForm {.
+proc constructLocOpeRevolutionForm*(base: TopoDS_Shape; axe: Ax1; angle: cfloat): LocOpeRevolutionForm {.
     constructor, importcpp: "LocOpe_RevolutionForm(@)",
     header: "LocOpe_RevolutionForm.hxx".}
-proc perform*(this: var LocOpeRevolutionForm; base: TopoDS_Shape; axe: Ax1; angle: float) {.
-    importcpp: "Perform", header: "LocOpe_RevolutionForm.hxx".}
+proc perform*(this: var LocOpeRevolutionForm; base: TopoDS_Shape; axe: Ax1;
+             angle: cfloat) {.importcpp: "Perform",
+                            header: "LocOpe_RevolutionForm.hxx".}
 proc firstShape*(this: LocOpeRevolutionForm): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "LocOpe_RevolutionForm.hxx".}
 proc lastShape*(this: LocOpeRevolutionForm): TopoDS_Shape {.noSideEffect,
@@ -38,3 +39,28 @@ proc shape*(this: LocOpeRevolutionForm): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "LocOpe_RevolutionForm.hxx".}
 proc shapes*(this: LocOpeRevolutionForm; s: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "Shapes", header: "LocOpe_RevolutionForm.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

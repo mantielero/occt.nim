@@ -38,3 +38,28 @@ type
 
 proc iDList*(anIDList: var TDF_IDList) {.importcpp: "TDocStd::IDList(@)",
                                      header: "TDocStd.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,13 +38,38 @@ proc next*(this: var TopOpeBRepDS_SurfaceExplorer) {.importcpp: "Next",
     header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc surface*(this: TopOpeBRepDS_SurfaceExplorer): TopOpeBRepDS_Surface {.
     noSideEffect, importcpp: "Surface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc isSurface*(this: TopOpeBRepDS_SurfaceExplorer; i: int): bool {.noSideEffect,
+proc isSurface*(this: TopOpeBRepDS_SurfaceExplorer; i: cint): bool {.noSideEffect,
     importcpp: "IsSurface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc isSurfaceKeep*(this: TopOpeBRepDS_SurfaceExplorer; i: int): bool {.noSideEffect,
+proc isSurfaceKeep*(this: TopOpeBRepDS_SurfaceExplorer; i: cint): bool {.noSideEffect,
     importcpp: "IsSurfaceKeep", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc surface*(this: TopOpeBRepDS_SurfaceExplorer; i: int): TopOpeBRepDS_Surface {.
+proc surface*(this: TopOpeBRepDS_SurfaceExplorer; i: cint): TopOpeBRepDS_Surface {.
     noSideEffect, importcpp: "Surface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc nbSurface*(this: var TopOpeBRepDS_SurfaceExplorer): int {.
+proc nbSurface*(this: var TopOpeBRepDS_SurfaceExplorer): cint {.
     importcpp: "NbSurface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc index*(this: TopOpeBRepDS_SurfaceExplorer): int {.noSideEffect,
+proc index*(this: TopOpeBRepDS_SurfaceExplorer): cint {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

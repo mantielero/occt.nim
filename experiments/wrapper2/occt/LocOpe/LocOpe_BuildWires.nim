@@ -33,3 +33,28 @@ proc isDone*(this: LocOpeBuildWires): bool {.noSideEffect, importcpp: "IsDone",
     header: "LocOpe_BuildWires.hxx".}
 proc result*(this: LocOpeBuildWires): TopToolsListOfShape {.noSideEffect,
     importcpp: "Result", header: "LocOpe_BuildWires.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

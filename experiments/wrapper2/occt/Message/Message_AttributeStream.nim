@@ -40,5 +40,30 @@ proc stream*(this: MessageAttributeStream): StandardSStream {.noSideEffect,
 proc setStream*(this: var MessageAttributeStream; theStream: StandardSStream) {.
     importcpp: "SetStream", header: "Message_AttributeStream.hxx".}
 proc dumpJson*(this: MessageAttributeStream; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Message_AttributeStream.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Message_AttributeStream.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,8 +16,7 @@
 discard "forward decl of StepShape_EdgeBasedWireframeShapeRepresentation"
 discard "forward decl of StepShape_EdgeBasedWireframeShapeRepresentation"
 type
-  HandleStepShapeEdgeBasedWireframeShapeRepresentation* = Handle[
-      StepShapeEdgeBasedWireframeShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeEdgeBasedWireframeShapeRepresentation]
 
 ## ! Representation of STEP entity EdgeBasedWireframeShapeRepresentation
 
@@ -41,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_EdgeBase
     header: "StepShape_EdgeBasedWireframeShapeRepresentation.hxx".}
 proc dynamicType*(this: StepShapeEdgeBasedWireframeShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_EdgeBasedWireframeShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

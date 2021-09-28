@@ -13,138 +13,105 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Font_SystemFont"
+## !!!Ignored construct:  # _Font_FontMgr_HeaderFile [NewLine] # _Font_FontMgr_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Font_FontAspect . hxx > [NewLine] # < Font_NListOfSystemFont . hxx > [NewLine] # < Font_StrictLevel . hxx > [NewLine] # < Font_UnicodeSubset . hxx > [NewLine] # < NCollection_DataMap . hxx > [NewLine] # < NCollection_IndexedMap . hxx > [NewLine] # < NCollection_Shared . hxx > [NewLine] # < TColStd_SequenceOfHAsciiString . hxx > [NewLine] class Font_SystemFont ;
+## Error: expected ';'!!!
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of NCollection_Buffer"
-discard "forward decl of Font_FontMgr"
-type
-  HandleFontFontMgr* = Handle[FontFontMgr]
+## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( Font_FontMgr , Standard_Transient ) ! Collects and provides information about available fonts in system. class Font_FontMgr : public Standard_Transient { public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return Font_FontMgr ; } static const Handle ( Standard_Type ) & get_type_descriptor ( ) ; virtual const Handle ( Standard_Type ) & DynamicType ( ) const ; public : ! Return global instance of font manager. static Handle ( Font_FontMgr ) GetInstance ( ) ; ! Return font aspect as string. static const char * FontAspectToString ( Font_FontAspect theAspect ) { switch ( theAspect ) { case Font_FontAspect_UNDEFINED : return undefined ; case Font_FontAspect_Regular : return regular ; case Font_FontAspect_Bold : return bold ; case Font_FontAspect_Italic : return italic ; case Font_FontAspect_BoldItalic : return bold-italic ; } return invalid ; } ! Return flag to use fallback fonts in case if used font does not include symbols from specific Unicode subset; TRUE by default. static Standard_Boolean & ToUseUnicodeSubsetFallback ( ) ; public : ! Return the list of available fonts. void AvailableFonts ( Font_NListOfSystemFont & theList ) const { for ( Font_FontMap :: Iterator aFontIter ( myFontMap ) ; aFontIter . More ( ) ; aFontIter . Next ( ) ) { theList . Append ( aFontIter . Value ( ) ) ; } } ! Return the list of available fonts. Font_NListOfSystemFont GetAvailableFonts ( ) const { Font_NListOfSystemFont aList ; AvailableFonts ( aList ) ; return aList ; } ! Returns sequence of available fonts names void GetAvailableFontsNames ( TColStd_SequenceOfHAsciiString & theFontsNames ) const ; ! Returns font that match given parameters.
+## ! If theFontName is empty string returned font can have any FontName.
+## ! If theFontAspect is Font_FA_Undefined returned font can have any FontAspect.
+## ! If theFontSize is "-1" returned font can have any FontSize. Handle ( Font_SystemFont ) GetFont ( const Handle ( TCollection_HAsciiString ) & theFontName , const Font_FontAspect theFontAspect , const Standard_Integer theFontSize ) const ; ! Returns font that match given name or NULL if such font family is NOT registered.
+## ! Note that unlike FindFont(), this method ignores font aliases and does not look for fall-back. Handle ( Font_SystemFont ) GetFont ( const TCollection_AsciiString & theFontName ) const ; ! Tries to find font by given parameters.
+## ! If the specified font is not found tries to use font names mapping.
+## ! If the requested family name not found -> search for any font family with given aspect and height.
+## ! If the font is still not found, returns any font available in the system.
+## ! Returns NULL in case when the fonts are not found in the system.
+## ! @param theFontName    [in]       font family to find or alias name
+## ! @param theStrictLevel [in]       search strict level for using aliases and fallback
+## ! @param theFontAspect  [in] [out] font aspect to find (considered only if family name is not found);
+## !                                  can be modified if specified font alias refers to another style (compatibility with obsolete aliases)
+## ! @param theDoFailMsg   [in]       put error message on failure into default messenger Handle ( Font_SystemFont ) FindFont ( const TCollection_AsciiString & theFontName , Font_StrictLevel theStrictLevel , Font_FontAspect & theFontAspect , Standard_Boolean theDoFailMsg = Standard_True ) const ; ! Tries to find font by given parameters. Handle ( Font_SystemFont ) FindFont ( const TCollection_AsciiString & theFontName , Font_FontAspect & theFontAspect ) const { return FindFont ( theFontName , Font_StrictLevel_Any , theFontAspect ) ; } ! Tries to find fallback font for specified Unicode subset.
+## ! Returns NULL in case when fallback font is not found in the system.
+## ! @param theSubset     [in] Unicode subset
+## ! @param theFontAspect [in] font aspect to find Handle ( Font_SystemFont ) FindFallbackFont ( Font_UnicodeSubset theSubset , Font_FontAspect theFontAspect ) const ; ! Read font file and retrieve information from it (the list of font faces). Standard_Boolean CheckFont ( NCollection_Sequence < Handle ( Font_SystemFont ) > & theFonts , const TCollection_AsciiString & theFontPath ) const ; ! Read font file and retrieve information from it. Handle ( Font_SystemFont ) CheckFont ( const Standard_CString theFontPath ) const ; ! Register new font.
+## ! If there is existing entity with the same name and properties but different path
+## ! then font will be overridden or ignored depending on theToOverride flag. Standard_Boolean RegisterFont ( const Handle ( Font_SystemFont ) & theFont , const Standard_Boolean theToOverride ) ; ! Register new fonts. Standard_Boolean RegisterFonts ( const NCollection_Sequence < Handle ( Font_SystemFont ) > & theFonts , const Standard_Boolean theToOverride ) { Standard_Boolean isRegistered = Standard_False ; for ( NCollection_Sequence < Handle ( Font_SystemFont ) > :: Iterator aFontIter ( theFonts ) ; aFontIter . More ( ) ; aFontIter . Next ( ) ) { isRegistered = RegisterFont ( aFontIter . Value ( ) , theToOverride ) || isRegistered ; } return isRegistered ; } public : ! Return flag for tracing font aliases usage via Message_Trace messages; TRUE by default. Standard_Boolean ToTraceAliases ( ) const { return myToTraceAliases ; } ! Set flag for tracing font alias usage; useful to trace which fonts are actually used.
+## ! Can be disabled to avoid redundant messages with Message_Trace level. void SetTraceAliases ( Standard_Boolean theToTrace ) { myToTraceAliases = theToTrace ; } ! Return font names with defined aliases.
+## ! @param theAliases [out] alias names void GetAllAliases ( TColStd_SequenceOfHAsciiString & theAliases ) const ; ! Return aliases to specified font name.
+## ! @param theFontNames [out] font names associated with alias name
+## ! @param theAliasName [in]  alias name void GetFontAliases ( TColStd_SequenceOfHAsciiString & theFontNames , const TCollection_AsciiString & theAliasName ) const ; ! Register font alias.
+## !
+## ! Font alias allows using predefined short-cuts like Font_NOF_MONOSPACE or Font_NOF_SANS_SERIF,
+## ! and defining several fallback fonts like Font_NOF_CJK ("cjk") or "courier" for fonts,
+## ! which availability depends on system.
+## !
+## ! By default, Font_FontMgr registers standard aliases, which could be extended or replaced by application
+## ! basing on better knowledge of the system or basing on additional fonts packaged with application itself.
+## ! Aliases are defined "in advance", so that they could point to non-existing fonts,
+## ! and they are resolved dynamically on request - first existing font is returned in case of multiple aliases to the same name.
+## !
+## ! @param theAliasName [in] alias name or name of another font to be used as alias
+## ! @param theFontName  [in] font to be used as substitution for alias
+## ! @return FALSE if alias has been already registered bool AddFontAlias ( const TCollection_AsciiString & theAliasName , const TCollection_AsciiString & theFontName ) ; ! Unregister font alias.
+## ! @param theAliasName [in] alias name or name of another font to be used as alias;
+## !                          all aliases will be removed in case of empty name
+## ! @param theFontName  [in] font to be used as substitution for alias;
+## !                          all fonts will be removed in case of empty name
+## ! @return TRUE if alias has been removed bool RemoveFontAlias ( const TCollection_AsciiString & theAliasName , const TCollection_AsciiString & theFontName ) ; public : ! Collects available fonts paths. void InitFontDataBase ( ) ; ! Clear registry. Can be used for testing purposes. void ClearFontDataBase ( ) ; ! Return DejaVu font as embed a single fallback font.
+## ! It can be used in cases when there is no own font file.
+## ! Note: result buffer is readonly and should not be changed,
+## !       any data modification can lead to unpredictable consequences. static Handle ( NCollection_Buffer ) EmbedFallbackFont ( ) ; private : ! Creates empty font manager object Font_FontMgr ( ) ; private : ! Map storing registered fonts. class Font_FontMap : public NCollection_IndexedMap < Handle ( Font_SystemFont ) , Font_SystemFont > { public : ! Empty constructor. Font_FontMap ( ) { } ! Try finding font with specified parameters or the closest one.
+## ! @param theFontName [in] font family to find (or empty string if family name can be ignored)
+## ! @return best match font or NULL if not found Handle ( Font_SystemFont ) Find ( const TCollection_AsciiString & theFontName ) const ; public : ! Computes a hash code for the system font, in the range [1, theUpperBound]. Based on Font Family, so that the
+## ! whole family with different aspects can be found within the same bucket of some map
+## ! @param theHExtendedString the handle referred to extended string which hash code is to be computed
+## ! @param theUpperBound the upper bound of the range a computing hash code must be within
+## ! @return a computed hash code, in the range [1, theUpperBound] static Standard_Integer HashCode ( const Handle ( Font_SystemFont ) & theSystemFont , const Standard_Integer theUpperBound ) { return :: HashCode ( theSystemFont -> FontKey ( ) , theUpperBound ) ; } ! Matching two instances, for Map interface. static bool IsEqual ( const Handle ( Font_SystemFont ) & theFont1 , const Handle ( Font_SystemFont ) & theFont2 ) { return theFont1 -> IsEqual ( theFont2 ) ; } } ; ! Structure defining font alias. struct Font_FontAlias { TCollection_AsciiString FontName ; Font_FontAspect FontAspect ; Font_FontAlias ( const TCollection_AsciiString & theFontName , Font_FontAspect theFontAspect = Font_FontAspect_UNDEFINED ) : FontName ( theFontName ) , FontAspect ( theFontAspect ) { } Font_FontAlias ( ) : FontAspect ( Font_FontAspect_UNDEFINED ) { } } ; ! Sequence of font aliases. typedef NCollection_Shared < NCollection_Sequence < Font_FontAlias > > Font_FontAliasSequence ; ! Register font alias. void addFontAlias ( const TCollection_AsciiString & theAliasName , const Handle ( Font_FontAliasSequence ) & theAliases , Font_FontAspect theAspect = Font_FontAspect_UNDEFINED ) ; private : Font_FontMap myFontMap ; NCollection_DataMap < TCollection_AsciiString , Handle ( Font_FontAliasSequence ) > myFontAliases ; Handle ( Font_FontAliasSequence ) myFallbackAlias ; Standard_Boolean myToTraceAliases ; } ;
+## Error: expected ';'!!!
 
-## ! Collects and provides information about available fonts in system.
 
-type
-  FontFontMgr* {.importcpp: "Font_FontMgr", header: "Font_FontMgr.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                     ## !
-                                                                                                     ## Return
-                                                                                                     ## global
-                                                                                                     ## instance
-                                                                                                     ## of
-                                                                                                     ## font
-                                                                                                     ## manager.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Return
-                                                                                                     ## the
-                                                                                                     ## list
-                                                                                                     ## of
-                                                                                                     ## available
-                                                                                                     ## fonts.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Return
-                                                                                                     ## flag
-                                                                                                     ## for
-                                                                                                     ## tracing
-                                                                                                     ## font
-                                                                                                     ## aliases
-                                                                                                     ## usage
-                                                                                                     ## via
-                                                                                                     ## Message_Trace
-                                                                                                     ## messages;
-                                                                                                     ## TRUE
-                                                                                                     ## by
-                                                                                                     ## default.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Collects
-                                                                                                     ## available
-                                                                                                     ## fonts
-                                                                                                     ## paths.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## empty
-                                                                                                     ## font
-                                                                                                     ## manager
-                                                                                                     ## object
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Map
-                                                                                                     ## storing
-                                                                                                     ## registered
-                                                                                                     ## fonts.
 
-  FontFontMgrbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Font_FontMgr::get_type_name(@)",
-                            header: "Font_FontMgr.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
-    importcpp: "Font_FontMgr::get_type_descriptor(@)", header: "Font_FontMgr.hxx".}
-proc dynamicType*(this: FontFontMgr): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Font_FontMgr.hxx".}
-proc getInstance*(): Handle[FontFontMgr] {.importcpp: "Font_FontMgr::GetInstance(@)",
-                                        header: "Font_FontMgr.hxx".}
-proc fontAspectToString*(theAspect: FontFontAspect): cstring {.
-    importcpp: "Font_FontMgr::FontAspectToString(@)", header: "Font_FontMgr.hxx".}
-proc toUseUnicodeSubsetFallback*(): var bool {.
-    importcpp: "Font_FontMgr::ToUseUnicodeSubsetFallback(@)",
-    header: "Font_FontMgr.hxx".}
-proc availableFonts*(this: FontFontMgr; theList: var FontNListOfSystemFont) {.
-    noSideEffect, importcpp: "AvailableFonts", header: "Font_FontMgr.hxx".}
-proc getAvailableFonts*(this: FontFontMgr): FontNListOfSystemFont {.noSideEffect,
-    importcpp: "GetAvailableFonts", header: "Font_FontMgr.hxx".}
-proc getAvailableFontsNames*(this: FontFontMgr;
-                            theFontsNames: var TColStdSequenceOfHAsciiString) {.
-    noSideEffect, importcpp: "GetAvailableFontsNames", header: "Font_FontMgr.hxx".}
-proc getFont*(this: FontFontMgr; theFontName: Handle[TCollectionHAsciiString];
-             theFontAspect: FontFontAspect; theFontSize: int): Handle[FontSystemFont] {.
-    noSideEffect, importcpp: "GetFont", header: "Font_FontMgr.hxx".}
-proc getFont*(this: FontFontMgr; theFontName: TCollectionAsciiString): Handle[
-    FontSystemFont] {.noSideEffect, importcpp: "GetFont", header: "Font_FontMgr.hxx".}
-proc findFont*(this: FontFontMgr; theFontName: TCollectionAsciiString;
-              theStrictLevel: FontStrictLevel; theFontAspect: var FontFontAspect;
-              theDoFailMsg: bool = true): Handle[FontSystemFont] {.noSideEffect,
-    importcpp: "FindFont", header: "Font_FontMgr.hxx".}
-proc findFont*(this: FontFontMgr; theFontName: TCollectionAsciiString;
-              theFontAspect: var FontFontAspect): Handle[FontSystemFont] {.
-    noSideEffect, importcpp: "FindFont", header: "Font_FontMgr.hxx".}
-proc findFallbackFont*(this: FontFontMgr; theSubset: FontUnicodeSubset;
-                      theFontAspect: FontFontAspect): Handle[FontSystemFont] {.
-    noSideEffect, importcpp: "FindFallbackFont", header: "Font_FontMgr.hxx".}
-proc checkFont*(this: FontFontMgr;
-               theFonts: var NCollectionSequence[Handle[FontSystemFont]];
-               theFontPath: TCollectionAsciiString): bool {.noSideEffect,
-    importcpp: "CheckFont", header: "Font_FontMgr.hxx".}
-proc checkFont*(this: FontFontMgr; theFontPath: StandardCString): Handle[
-    FontSystemFont] {.noSideEffect, importcpp: "CheckFont",
-                     header: "Font_FontMgr.hxx".}
-proc registerFont*(this: var FontFontMgr; theFont: Handle[FontSystemFont];
-                  theToOverride: bool): bool {.importcpp: "RegisterFont",
-    header: "Font_FontMgr.hxx".}
-proc registerFonts*(this: var FontFontMgr;
-                   theFonts: NCollectionSequence[Handle[FontSystemFont]];
-                   theToOverride: bool): bool {.importcpp: "RegisterFonts",
-    header: "Font_FontMgr.hxx".}
-proc toTraceAliases*(this: FontFontMgr): bool {.noSideEffect,
-    importcpp: "ToTraceAliases", header: "Font_FontMgr.hxx".}
-proc setTraceAliases*(this: var FontFontMgr; theToTrace: bool) {.
-    importcpp: "SetTraceAliases", header: "Font_FontMgr.hxx".}
-proc getAllAliases*(this: FontFontMgr;
-                   theAliases: var TColStdSequenceOfHAsciiString) {.noSideEffect,
-    importcpp: "GetAllAliases", header: "Font_FontMgr.hxx".}
-proc getFontAliases*(this: FontFontMgr;
-                    theFontNames: var TColStdSequenceOfHAsciiString;
-                    theAliasName: TCollectionAsciiString) {.noSideEffect,
-    importcpp: "GetFontAliases", header: "Font_FontMgr.hxx".}
-proc addFontAlias*(this: var FontFontMgr; theAliasName: TCollectionAsciiString;
-                  theFontName: TCollectionAsciiString): bool {.
-    importcpp: "AddFontAlias", header: "Font_FontMgr.hxx".}
-proc removeFontAlias*(this: var FontFontMgr; theAliasName: TCollectionAsciiString;
-                     theFontName: TCollectionAsciiString): bool {.
-    importcpp: "RemoveFontAlias", header: "Font_FontMgr.hxx".}
-proc initFontDataBase*(this: var FontFontMgr) {.importcpp: "InitFontDataBase",
-    header: "Font_FontMgr.hxx".}
-proc clearFontDataBase*(this: var FontFontMgr) {.importcpp: "ClearFontDataBase",
-    header: "Font_FontMgr.hxx".}
-proc embedFallbackFont*(): Handle[NCollectionBuffer] {.
-    importcpp: "Font_FontMgr::EmbedFallbackFont(@)", header: "Font_FontMgr.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

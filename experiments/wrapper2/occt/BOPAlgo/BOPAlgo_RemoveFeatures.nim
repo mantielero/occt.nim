@@ -330,3 +330,28 @@ proc perform*(this: var BOPAlgoRemoveFeatures) {.importcpp: "Perform",
     header: "BOPAlgo_RemoveFeatures.hxx".}
 proc clear*(this: var BOPAlgoRemoveFeatures) {.importcpp: "Clear",
     header: "BOPAlgo_RemoveFeatures.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

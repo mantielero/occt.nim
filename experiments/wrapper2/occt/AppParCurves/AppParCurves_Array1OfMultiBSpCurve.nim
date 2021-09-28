@@ -17,3 +17,28 @@
 type
   AppParCurvesArray1OfMultiBSpCurve* = NCollectionArray1[AppParCurvesMultiBSpCurve]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

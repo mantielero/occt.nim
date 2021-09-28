@@ -36,29 +36,55 @@ type
 proc constructBRepGPropGauss*(theType: BRepGPropGaussBRepGPropGaussType): BRepGPropGauss {.
     constructor, importcpp: "BRepGProp_Gauss(@)", header: "BRepGProp_Gauss.hxx".}
 proc compute*(this: var BRepGPropGauss; theSurface: BRepGPropFace; theLocation: Pnt;
-             theCoeff: ptr float; theIsByPoint: bool; theOutMass: var float;
+             theCoeff: ptr cfloat; theIsByPoint: bool; theOutMass: var cfloat;
              theOutGravityCenter: var Pnt; theOutInertia: var Mat) {.
     importcpp: "Compute", header: "BRepGProp_Gauss.hxx".}
 proc compute*(this: var BRepGPropGauss; theSurface: BRepGPropFace; theLocation: Pnt;
-             theOutMass: var float; theOutGravityCenter: var Pnt;
+             theOutMass: var cfloat; theOutGravityCenter: var Pnt;
              theOutInertia: var Mat) {.importcpp: "Compute",
                                     header: "BRepGProp_Gauss.hxx".}
 proc compute*(this: var BRepGPropGauss; theSurface: var BRepGPropFace;
-             theDomain: var BRepGPropDomain; theLocation: Pnt; theCoeff: ptr float;
-             theIsByPoint: bool; theOutMass: var float; theOutGravityCenter: var Pnt;
-             theOutInertia: var Mat) {.importcpp: "Compute",
-                                    header: "BRepGProp_Gauss.hxx".}
-proc compute*(this: var BRepGPropGauss; theSurface: var BRepGPropFace;
-             theDomain: var BRepGPropDomain; theLocation: Pnt; theOutMass: var float;
+             theDomain: var BRepGPropDomain; theLocation: Pnt; theCoeff: ptr cfloat;
+             theIsByPoint: bool; theOutMass: var cfloat;
              theOutGravityCenter: var Pnt; theOutInertia: var Mat) {.
     importcpp: "Compute", header: "BRepGProp_Gauss.hxx".}
 proc compute*(this: var BRepGPropGauss; theSurface: var BRepGPropFace;
-             theDomain: var BRepGPropDomain; theLocation: Pnt; theEps: float;
-             theCoeff: ptr float; theByPoint: bool; theOutMass: var float;
-             theOutGravityCenter: var Pnt; theOutInertia: var Mat): float {.
+             theDomain: var BRepGPropDomain; theLocation: Pnt;
+             theOutMass: var cfloat; theOutGravityCenter: var Pnt;
+             theOutInertia: var Mat) {.importcpp: "Compute",
+                                    header: "BRepGProp_Gauss.hxx".}
+proc compute*(this: var BRepGPropGauss; theSurface: var BRepGPropFace;
+             theDomain: var BRepGPropDomain; theLocation: Pnt; theEps: cfloat;
+             theCoeff: ptr cfloat; theByPoint: bool; theOutMass: var cfloat;
+             theOutGravityCenter: var Pnt; theOutInertia: var Mat): cfloat {.
     importcpp: "Compute", header: "BRepGProp_Gauss.hxx".}
 proc compute*(this: var BRepGPropGauss; theSurface: var BRepGPropFace;
-             theDomain: var BRepGPropDomain; theLocation: Pnt; theEps: float;
-             theOutMass: var float; theOutGravityCenter: var Pnt;
-             theOutInertia: var Mat): float {.importcpp: "Compute",
+             theDomain: var BRepGPropDomain; theLocation: Pnt; theEps: cfloat;
+             theOutMass: var cfloat; theOutGravityCenter: var Pnt;
+             theOutInertia: var Mat): cfloat {.importcpp: "Compute",
     header: "BRepGProp_Gauss.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

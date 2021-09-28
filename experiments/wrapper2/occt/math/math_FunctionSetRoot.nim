@@ -34,11 +34,11 @@ type
 
 
 proc constructMathFunctionSetRoot*(f: var MathFunctionSetWithDerivatives;
-                                  tolerance: MathVector; nbIterations: int = 100): MathFunctionSetRoot {.
+                                  tolerance: MathVector; nbIterations: cint = 100): MathFunctionSetRoot {.
     constructor, importcpp: "math_FunctionSetRoot(@)",
     header: "math_FunctionSetRoot.hxx".}
 proc constructMathFunctionSetRoot*(f: var MathFunctionSetWithDerivatives;
-                                  nbIterations: int = 100): MathFunctionSetRoot {.
+                                  nbIterations: cint = 100): MathFunctionSetRoot {.
     constructor, importcpp: "math_FunctionSetRoot(@)",
     header: "math_FunctionSetRoot.hxx".}
 proc destroyMathFunctionSetRoot*(this: var MathFunctionSetRoot) {.
@@ -59,9 +59,9 @@ proc perform*(this: var MathFunctionSetRoot;
     importcpp: "Perform", header: "math_FunctionSetRoot.hxx".}
 proc isDone*(this: MathFunctionSetRoot): bool {.noSideEffect, importcpp: "IsDone",
     header: "math_FunctionSetRoot.hxx".}
-proc nbIterations*(this: MathFunctionSetRoot): int {.noSideEffect,
+proc nbIterations*(this: MathFunctionSetRoot): cint {.noSideEffect,
     importcpp: "NbIterations", header: "math_FunctionSetRoot.hxx".}
-proc stateNumber*(this: MathFunctionSetRoot): int {.noSideEffect,
+proc stateNumber*(this: MathFunctionSetRoot): cint {.noSideEffect,
     importcpp: "StateNumber", header: "math_FunctionSetRoot.hxx".}
 proc root*(this: MathFunctionSetRoot): MathVector {.noSideEffect, importcpp: "Root",
     header: "math_FunctionSetRoot.hxx".}
@@ -80,3 +80,28 @@ proc dump*(this: MathFunctionSetRoot; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "math_FunctionSetRoot.hxx".}
 proc isDivergent*(this: MathFunctionSetRoot): bool {.noSideEffect,
     importcpp: "IsDivergent", header: "math_FunctionSetRoot.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

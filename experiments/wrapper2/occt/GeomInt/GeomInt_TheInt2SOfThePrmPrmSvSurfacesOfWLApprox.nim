@@ -42,15 +42,21 @@ type
                                                                                   ## point
 
 
-proc constructGeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox*(
-    param: TColStdArray1OfReal; s1: Handle[Adaptor3dHSurface];
-    s2: Handle[Adaptor3dHSurface]; tolTangency: float): GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox {.
-    constructor, importcpp: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox(@)",
-    header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc constructGeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox*(
-    s1: Handle[Adaptor3dHSurface]; s2: Handle[Adaptor3dHSurface]; tolTangency: float): GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox {.
-    constructor, importcpp: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox(@)",
-    header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
+## !!!Ignored construct:  public : ! compute the solution point with the close point GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox ( const TColStd_Array1OfReal & Param , const Handle ( Adaptor3d_HSurface ) & S1 , const Handle ( Adaptor3d_HSurface ) & S2 , const Standard_Real TolTangency ) ;
+## Error: token expected: ) but got: &!!!
+
+## !!!Ignored construct:  ! initialize the parameters to compute the solution point
+## ! it 's possible to write to optimize:
+## ! IntImp_Int2S inter(S1,S2,Func,TolTangency);
+## ! math_FunctionSetRoot rsnld(inter.Function());
+## ! while ...{
+## ! Param(1)=...
+## ! Param(2)=...
+## ! param(3)=...
+## ! inter.Perform(Param,rsnld);
+## ! } GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox ( const Handle ( Adaptor3d_HSurface ) & S1 , const Handle ( Adaptor3d_HSurface ) & S2 , const Standard_Real TolTangency ) ;
+## Error: token expected: ) but got: &!!!
+
 proc perform*(this: var GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox;
              param: TColStdArray1OfReal; rsnld: var MathFunctionSetRoot): IntImpConstIsoparametric {.
     importcpp: "Perform",
@@ -87,6 +93,51 @@ proc function*(this: var GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): var Ge
 proc changePoint*(this: var GeomIntTheInt2SOfThePrmPrmSvSurfacesOfWLApprox): var IntSurfPntOn2S {.
     importcpp: "ChangePoint",
     header: "GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_TheFunction GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox [NewLine] # IntImp_TheFunction_hxx < GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # IntImp_Int2S GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox [NewLine] # IntImp_Int2S_hxx < GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # < IntImp_Int2S . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_TheFunction [NewLine] # IntImp_TheFunction_hxx [NewLine] # IntImp_Int2S [NewLine] # IntImp_Int2S_hxx [NewLine] #  _GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox_HeaderFile
+## !!!Ignored construct:  # ThePSurface Handle ( Adaptor3d_HSurface ) [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_TheFunction GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox [NewLine] # IntImp_TheFunction_hxx < GeomInt_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # IntImp_Int2S GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox [NewLine] # IntImp_Int2S_hxx < GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox . hxx > [NewLine] # < IntImp_Int2S . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_TheFunction [NewLine] # IntImp_TheFunction_hxx [NewLine] # IntImp_Int2S [NewLine] # IntImp_Int2S_hxx [NewLine] #  _GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox_HeaderFile
 ## Error: did not expect <!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

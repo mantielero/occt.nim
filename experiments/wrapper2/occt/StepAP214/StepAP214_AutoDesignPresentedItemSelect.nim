@@ -36,7 +36,7 @@ proc constructStepAP214AutoDesignPresentedItemSelect*(): StepAP214AutoDesignPres
     constructor, importcpp: "StepAP214_AutoDesignPresentedItemSelect(@)",
     header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
 proc caseNum*(this: StepAP214AutoDesignPresentedItemSelect;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
 proc productDefinitionRelationship*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
     StepBasicProductDefinitionRelationship] {.noSideEffect,
@@ -57,3 +57,28 @@ proc shapeAspect*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
 proc documentRelationship*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
     StepBasicDocumentRelationship] {.noSideEffect,
                                     importcpp: "DocumentRelationship", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,28 @@ type
   TopLocIndexedMapOfLocation* = NCollectionIndexedMap[TopLocLocation,
       TopLocMapLocationHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

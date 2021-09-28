@@ -34,3 +34,28 @@ proc initFaceAreaBuilder*(this: var TopOpeBRepBuildFaceAreaBuilder;
                          forceClass: bool = false) {.
     importcpp: "InitFaceAreaBuilder",
     header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

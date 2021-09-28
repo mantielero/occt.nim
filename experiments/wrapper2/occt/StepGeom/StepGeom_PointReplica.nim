@@ -20,7 +20,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepGeom_PointReplica"
 discard "forward decl of StepGeom_PointReplica"
 type
-  HandleStepGeomPointReplica* = Handle[StepGeomPointReplica]
+  HandleC1C1* = Handle[StepGeomPointReplica]
   StepGeomPointReplica* {.importcpp: "StepGeom_PointReplica",
                          header: "StepGeom_PointReplica.hxx", bycopy.} = object of StepGeomPoint ##
                                                                                           ## !
@@ -55,3 +55,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_PointReplica.hxx".}
 proc dynamicType*(this: StepGeomPointReplica): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_PointReplica.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -40,7 +40,32 @@ type
                                                                       ##  ---------- PRIVATE FIELDS ----------
 
 
-proc decode*(theSrc: cstring; theLen: var int): cstring {.
+proc decode*(theSrc: cstring; theLen: var cint): cstring {.
     importcpp: "LDOM_CharReference::Decode(@)", header: "LDOM_CharReference.hxx".}
-proc encode*(theSrc: cstring; theLen: var int; isAttribute: bool): cstring {.
+proc encode*(theSrc: cstring; theLen: var cint; isAttribute: bool): cstring {.
     importcpp: "LDOM_CharReference::Encode(@)", header: "LDOM_CharReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

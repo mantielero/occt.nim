@@ -29,7 +29,7 @@ proc constructRWStepVisualRWCameraModelD3MultiClippingIntersection*(): RWStepVis
     importcpp: "RWStepVisual_RWCameraModelD3MultiClippingIntersection(@)",
     header: "RWStepVisual_RWCameraModelD3MultiClippingIntersection.hxx".}
 proc readStep*(this: RWStepVisualRWCameraModelD3MultiClippingIntersection;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualCameraModelD3MultiClippingIntersection]) {.
     noSideEffect, importcpp: "ReadStep",
@@ -43,3 +43,28 @@ proc share*(this: RWStepVisualRWCameraModelD3MultiClippingIntersection;
            ent: Handle[StepVisualCameraModelD3MultiClippingIntersection];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWCameraModelD3MultiClippingIntersection.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

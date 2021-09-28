@@ -27,8 +27,8 @@ type
                                                                                                           ## 4.
 
 
-proc nbVariables*(this: BlendFunction): int {.noSideEffect, importcpp: "NbVariables",
-    header: "Blend_Function.hxx".}
+proc nbVariables*(this: BlendFunction): cint {.noSideEffect,
+    importcpp: "NbVariables", header: "Blend_Function.hxx".}
 proc pnt1*(this: BlendFunction): Pnt {.noSideEffect, importcpp: "Pnt1",
                                    header: "Blend_Function.hxx".}
 proc pnt2*(this: BlendFunction): Pnt {.noSideEffect, importcpp: "Pnt2",
@@ -47,7 +47,7 @@ proc tangentOnS2*(this: BlendFunction): Vec {.noSideEffect, importcpp: "TangentO
     header: "Blend_Function.hxx".}
 proc tangent2dOnS2*(this: BlendFunction): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS2", header: "Blend_Function.hxx".}
-proc tangent*(this: BlendFunction; u1: float; v1: float; u2: float; v2: float;
+proc tangent*(this: BlendFunction; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
              tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
     noSideEffect, importcpp: "Tangent", header: "Blend_Function.hxx".}
 proc twistOnS1*(this: BlendFunction): bool {.noSideEffect, importcpp: "TwistOnS1",
@@ -63,3 +63,28 @@ proc section*(this: var BlendFunction; p: BlendPoint; poles: var TColgpArray1OfP
              d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
              dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): bool {.
     importcpp: "Section", header: "Blend_Function.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

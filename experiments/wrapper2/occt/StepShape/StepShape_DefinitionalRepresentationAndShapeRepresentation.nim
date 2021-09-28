@@ -16,8 +16,7 @@
 discard "forward decl of StepShape_DefinitionalRepresentationAndShapeRepresentation"
 discard "forward decl of StepShape_DefinitionalRepresentationAndShapeRepresentation"
 type
-  HandleStepShapeDefinitionalRepresentationAndShapeRepresentation* = Handle[
-      StepShapeDefinitionalRepresentationAndShapeRepresentation]
+  HandleC1C1* = Handle[StepShapeDefinitionalRepresentationAndShapeRepresentation]
 
 ## ! Implements complex type
 ## ! (DEFINITIONAL_REPRESENTATION,REPRESENTATION,SHAPE_REPRESENTATION)
@@ -41,3 +40,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_Definiti
     header: "StepShape_DefinitionalRepresentationAndShapeRepresentation.hxx".}
 proc dynamicType*(this: StepShapeDefinitionalRepresentationAndShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_DefinitionalRepresentationAndShapeRepresentation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

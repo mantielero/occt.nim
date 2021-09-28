@@ -26,7 +26,7 @@ proc constructStepDimTolDatumSystemOrReference*(): StepDimTolDatumSystemOrRefere
     constructor, importcpp: "StepDimTol_DatumSystemOrReference(@)",
     header: "StepDimTol_DatumSystemOrReference.hxx".}
 proc caseNum*(this: StepDimTolDatumSystemOrReference;
-             ent: Handle[StandardTransient]): int {.noSideEffect,
+             ent: Handle[StandardTransient]): cint {.noSideEffect,
     importcpp: "CaseNum", header: "StepDimTol_DatumSystemOrReference.hxx".}
 proc datumSystem*(this: StepDimTolDatumSystemOrReference): Handle[
     StepDimTolDatumSystem] {.noSideEffect, importcpp: "DatumSystem",
@@ -34,3 +34,28 @@ proc datumSystem*(this: StepDimTolDatumSystemOrReference): Handle[
 proc datumReference*(this: StepDimTolDatumSystemOrReference): Handle[
     StepDimTolDatumReference] {.noSideEffect, importcpp: "DatumReference",
                                header: "StepDimTol_DatumSystemOrReference.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

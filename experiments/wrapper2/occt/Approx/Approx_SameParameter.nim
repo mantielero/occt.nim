@@ -40,24 +40,49 @@ type
 
 proc constructApproxSameParameter*(c3d: Handle[GeomCurve];
                                   c2d: Handle[Geom2dCurve];
-                                  s: Handle[GeomSurface]; tol: float): ApproxSameParameter {.
+                                  s: Handle[GeomSurface]; tol: cfloat): ApproxSameParameter {.
     constructor, importcpp: "Approx_SameParameter(@)",
     header: "Approx_SameParameter.hxx".}
 proc constructApproxSameParameter*(c3d: Handle[Adaptor3dHCurve];
                                   c2d: Handle[Geom2dCurve];
-                                  s: Handle[Adaptor3dHSurface]; tol: float): ApproxSameParameter {.
+                                  s: Handle[Adaptor3dHSurface]; tol: cfloat): ApproxSameParameter {.
     constructor, importcpp: "Approx_SameParameter(@)",
     header: "Approx_SameParameter.hxx".}
 proc constructApproxSameParameter*(c3d: Handle[Adaptor3dHCurve];
                                   c2d: Handle[Adaptor2dHCurve2d];
-                                  s: Handle[Adaptor3dHSurface]; tol: float): ApproxSameParameter {.
+                                  s: Handle[Adaptor3dHSurface]; tol: cfloat): ApproxSameParameter {.
     constructor, importcpp: "Approx_SameParameter(@)",
     header: "Approx_SameParameter.hxx".}
 proc isDone*(this: ApproxSameParameter): bool {.noSideEffect, importcpp: "IsDone",
     header: "Approx_SameParameter.hxx".}
-proc tolReached*(this: ApproxSameParameter): float {.noSideEffect,
+proc tolReached*(this: ApproxSameParameter): cfloat {.noSideEffect,
     importcpp: "TolReached", header: "Approx_SameParameter.hxx".}
 proc isSameParameter*(this: ApproxSameParameter): bool {.noSideEffect,
     importcpp: "IsSameParameter", header: "Approx_SameParameter.hxx".}
 proc curve2d*(this: ApproxSameParameter): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "Curve2d", header: "Approx_SameParameter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

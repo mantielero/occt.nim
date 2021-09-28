@@ -26,3 +26,28 @@ type
   ShapePersistentHArray2Lin2d* = Instance[TColgpHArray2OfLin2d]
   ShapePersistentHArray2Circ2d* = Instance[TColgpHArray2OfCirc2d]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

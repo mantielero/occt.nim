@@ -161,7 +161,7 @@ proc setTransform*(this: var Graphic3dStructureManager;
     header: "Graphic3d_StructureManager.hxx".}
 proc changeDisplayPriority*(this: var Graphic3dStructureManager;
                            theStructure: Handle[Graphic3dStructure];
-                           theOldPriority: int; theNewPriority: int) {.
+                           theOldPriority: cint; theNewPriority: cint) {.
     importcpp: "ChangeDisplayPriority", header: "Graphic3d_StructureManager.hxx".}
 proc changeZLayer*(this: var Graphic3dStructureManager;
                   theStructure: Handle[Graphic3dStructure];
@@ -171,17 +171,17 @@ proc graphicDriver*(this: Graphic3dStructureManager): Handle[Graphic3dGraphicDri
     noSideEffect, importcpp: "GraphicDriver",
     header: "Graphic3d_StructureManager.hxx".}
 proc identification*(this: var Graphic3dStructureManager;
-                    theView: ptr Graphic3dCView): int {.importcpp: "Identification",
-    header: "Graphic3d_StructureManager.hxx".}
+                    theView: ptr Graphic3dCView): cint {.
+    importcpp: "Identification", header: "Graphic3d_StructureManager.hxx".}
 proc unIdentification*(this: var Graphic3dStructureManager;
                       theView: ptr Graphic3dCView) {.importcpp: "UnIdentification",
     header: "Graphic3d_StructureManager.hxx".}
 proc definedViews*(this: Graphic3dStructureManager): Graphic3dIndexedMapOfView {.
     noSideEffect, importcpp: "DefinedViews",
     header: "Graphic3d_StructureManager.hxx".}
-proc maxNumOfViews*(this: Graphic3dStructureManager): int {.noSideEffect,
+proc maxNumOfViews*(this: Graphic3dStructureManager): cint {.noSideEffect,
     importcpp: "MaxNumOfViews", header: "Graphic3d_StructureManager.hxx".}
-proc identification*(this: Graphic3dStructureManager; aId: int): Handle[
+proc identification*(this: Graphic3dStructureManager; aId: cint): Handle[
     Graphic3dStructure] {.noSideEffect, importcpp: "Identification",
                          header: "Graphic3d_StructureManager.hxx".}
 proc unHighlight*(this: var Graphic3dStructureManager;
@@ -210,9 +210,34 @@ proc isDeviceLost*(this: Graphic3dStructureManager): bool {.noSideEffect,
 proc setDeviceLost*(this: var Graphic3dStructureManager) {.
     importcpp: "SetDeviceLost", header: "Graphic3d_StructureManager.hxx".}
 proc dumpJson*(this: Graphic3dStructureManager; theOStream: var StandardOStream;
-              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Graphic3d_StructureManager.hxx".}
+              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
+                                 header: "Graphic3d_StructureManager.hxx".}
 discard "forward decl of Graphic3d_StructureManager"
 type
-  HandleGraphic3dStructureManager* = Handle[Graphic3dStructureManager]
+  HandleC1C1* = Handle[Graphic3dStructureManager]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

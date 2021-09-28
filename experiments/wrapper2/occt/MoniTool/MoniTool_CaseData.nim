@@ -23,7 +23,7 @@ discard "forward decl of Message_Msg"
 discard "forward decl of MoniTool_CaseData"
 discard "forward decl of MoniTool_CaseData"
 type
-  HandleMoniToolCaseData* = Handle[MoniToolCaseData]
+  HandleC1C1* = Handle[MoniToolCaseData]
 
 ## ! This class is intended to record data attached to a case to be
 ## ! exploited.
@@ -104,9 +104,9 @@ proc setFail*(this: var MoniToolCaseData) {.importcpp: "SetFail",
                                         header: "MoniTool_CaseData.hxx".}
 proc setChange*(this: var MoniToolCaseData) {.importcpp: "SetChange",
     header: "MoniTool_CaseData.hxx".}
-proc setReplace*(this: var MoniToolCaseData; num: int) {.importcpp: "SetReplace",
+proc setReplace*(this: var MoniToolCaseData; num: cint) {.importcpp: "SetReplace",
     header: "MoniTool_CaseData.hxx".}
-proc addData*(this: var MoniToolCaseData; val: Handle[StandardTransient]; kind: int;
+proc addData*(this: var MoniToolCaseData; val: Handle[StandardTransient]; kind: cint;
              name: StandardCString = "") {.importcpp: "AddData",
                                        header: "MoniTool_CaseData.hxx".}
 proc addRaised*(this: var MoniToolCaseData; theException: Handle[StandardFailure];
@@ -119,18 +119,19 @@ proc addXYZ*(this: var MoniToolCaseData; aXYZ: Xyz; name: StandardCString = "") 
     importcpp: "AddXYZ", header: "MoniTool_CaseData.hxx".}
 proc addXY*(this: var MoniToolCaseData; aXY: Xy; name: StandardCString = "") {.
     importcpp: "AddXY", header: "MoniTool_CaseData.hxx".}
-proc addReal*(this: var MoniToolCaseData; val: float; name: StandardCString = "") {.
+proc addReal*(this: var MoniToolCaseData; val: cfloat; name: StandardCString = "") {.
     importcpp: "AddReal", header: "MoniTool_CaseData.hxx".}
-proc addReals*(this: var MoniToolCaseData; v1: float; v2: float;
+proc addReals*(this: var MoniToolCaseData; v1: cfloat; v2: cfloat;
               name: StandardCString = "") {.importcpp: "AddReals",
                                         header: "MoniTool_CaseData.hxx".}
-proc addCPU*(this: var MoniToolCaseData; lastCPU: float; curCPU: float = 0;
+proc addCPU*(this: var MoniToolCaseData; lastCPU: cfloat; curCPU: cfloat = 0;
             name: StandardCString = "") {.importcpp: "AddCPU",
                                       header: "MoniTool_CaseData.hxx".}
-proc getCPU*(this: MoniToolCaseData): float {.noSideEffect, importcpp: "GetCPU",
+proc getCPU*(this: MoniToolCaseData): cfloat {.noSideEffect, importcpp: "GetCPU",
     header: "MoniTool_CaseData.hxx".}
-proc largeCPU*(this: MoniToolCaseData; maxCPU: float; lastCPU: float; curCPU: float = 0): bool {.
-    noSideEffect, importcpp: "LargeCPU", header: "MoniTool_CaseData.hxx".}
+proc largeCPU*(this: MoniToolCaseData; maxCPU: cfloat; lastCPU: cfloat;
+              curCPU: cfloat = 0): bool {.noSideEffect, importcpp: "LargeCPU",
+                                     header: "MoniTool_CaseData.hxx".}
 proc addGeom*(this: var MoniToolCaseData; geom: Handle[StandardTransient];
              name: StandardCString = "") {.importcpp: "AddGeom",
                                        header: "MoniTool_CaseData.hxx".}
@@ -140,39 +141,39 @@ proc addEntity*(this: var MoniToolCaseData; ent: Handle[StandardTransient];
 proc addText*(this: var MoniToolCaseData; text: StandardCString;
              name: StandardCString = "") {.importcpp: "AddText",
                                        header: "MoniTool_CaseData.hxx".}
-proc addInteger*(this: var MoniToolCaseData; val: int; name: StandardCString = "") {.
+proc addInteger*(this: var MoniToolCaseData; val: cint; name: StandardCString = "") {.
     importcpp: "AddInteger", header: "MoniTool_CaseData.hxx".}
 proc addAny*(this: var MoniToolCaseData; val: Handle[StandardTransient];
             name: StandardCString = "") {.importcpp: "AddAny",
                                       header: "MoniTool_CaseData.hxx".}
-proc removeData*(this: var MoniToolCaseData; num: int) {.importcpp: "RemoveData",
+proc removeData*(this: var MoniToolCaseData; num: cint) {.importcpp: "RemoveData",
     header: "MoniTool_CaseData.hxx".}
-proc nbData*(this: MoniToolCaseData): int {.noSideEffect, importcpp: "NbData",
-                                        header: "MoniTool_CaseData.hxx".}
-proc data*(this: MoniToolCaseData; nd: int): Handle[StandardTransient] {.noSideEffect,
-    importcpp: "Data", header: "MoniTool_CaseData.hxx".}
-proc getData*(this: MoniToolCaseData; nd: int; `type`: Handle[StandardType];
+proc nbData*(this: MoniToolCaseData): cint {.noSideEffect, importcpp: "NbData",
+    header: "MoniTool_CaseData.hxx".}
+proc data*(this: MoniToolCaseData; nd: cint): Handle[StandardTransient] {.
+    noSideEffect, importcpp: "Data", header: "MoniTool_CaseData.hxx".}
+proc getData*(this: MoniToolCaseData; nd: cint; `type`: Handle[StandardType];
              val: var Handle[StandardTransient]): bool {.noSideEffect,
     importcpp: "GetData", header: "MoniTool_CaseData.hxx".}
-proc kind*(this: MoniToolCaseData; nd: int): int {.noSideEffect, importcpp: "Kind",
+proc kind*(this: MoniToolCaseData; nd: cint): cint {.noSideEffect, importcpp: "Kind",
     header: "MoniTool_CaseData.hxx".}
-proc name*(this: MoniToolCaseData; nd: int): TCollectionAsciiString {.noSideEffect,
+proc name*(this: MoniToolCaseData; nd: cint): TCollectionAsciiString {.noSideEffect,
     importcpp: "Name", header: "MoniTool_CaseData.hxx".}
-proc nameNum*(this: MoniToolCaseData; name: StandardCString): int {.noSideEffect,
+proc nameNum*(this: MoniToolCaseData; name: StandardCString): cint {.noSideEffect,
     importcpp: "NameNum", header: "MoniTool_CaseData.hxx".}
-proc shape*(this: MoniToolCaseData; nd: int): TopoDS_Shape {.noSideEffect,
+proc shape*(this: MoniToolCaseData; nd: cint): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "MoniTool_CaseData.hxx".}
-proc xyz*(this: MoniToolCaseData; nd: int; val: var Xyz): bool {.noSideEffect,
+proc xyz*(this: MoniToolCaseData; nd: cint; val: var Xyz): bool {.noSideEffect,
     importcpp: "XYZ", header: "MoniTool_CaseData.hxx".}
-proc xy*(this: MoniToolCaseData; nd: int; val: var Xy): bool {.noSideEffect,
+proc xy*(this: MoniToolCaseData; nd: cint; val: var Xy): bool {.noSideEffect,
     importcpp: "XY", header: "MoniTool_CaseData.hxx".}
-proc reals*(this: MoniToolCaseData; nd: int; v1: var float; v2: var float): bool {.
+proc reals*(this: MoniToolCaseData; nd: cint; v1: var cfloat; v2: var cfloat): bool {.
     noSideEffect, importcpp: "Reals", header: "MoniTool_CaseData.hxx".}
-proc real*(this: MoniToolCaseData; nd: int; val: var float): bool {.noSideEffect,
+proc real*(this: MoniToolCaseData; nd: cint; val: var cfloat): bool {.noSideEffect,
     importcpp: "Real", header: "MoniTool_CaseData.hxx".}
-proc text*(this: MoniToolCaseData; nd: int; text: var StandardCString): bool {.
+proc text*(this: MoniToolCaseData; nd: cint; text: var StandardCString): bool {.
     noSideEffect, importcpp: "Text", header: "MoniTool_CaseData.hxx".}
-proc integer*(this: MoniToolCaseData; nd: int; val: var int): bool {.noSideEffect,
+proc integer*(this: MoniToolCaseData; nd: cint; val: var cint): bool {.noSideEffect,
     importcpp: "Integer", header: "MoniTool_CaseData.hxx".}
 proc msg*(this: MoniToolCaseData): MessageMsg {.noSideEffect, importcpp: "Msg",
     header: "MoniTool_CaseData.hxx".}
@@ -181,7 +182,7 @@ proc setDefWarning*(acode: StandardCString) {.
     header: "MoniTool_CaseData.hxx".}
 proc setDefFail*(acode: StandardCString) {.importcpp: "MoniTool_CaseData::SetDefFail(@)",
                                         header: "MoniTool_CaseData.hxx".}
-proc defCheck*(acode: StandardCString): int {.
+proc defCheck*(acode: StandardCString): cint {.
     importcpp: "MoniTool_CaseData::DefCheck(@)", header: "MoniTool_CaseData.hxx".}
 proc setDefMsg*(casecode: StandardCString; mesdef: StandardCString) {.
     importcpp: "MoniTool_CaseData::SetDefMsg(@)", header: "MoniTool_CaseData.hxx".}
@@ -197,3 +198,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "MoniTool_CaseData.hxx".}
 proc dynamicType*(this: MoniToolCaseData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_CaseData.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

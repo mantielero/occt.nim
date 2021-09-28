@@ -18,3 +18,28 @@ type
   BRepOffsetAPI_SequenceOfSequenceOfReal* = NCollectionSequence[
       TColStdSequenceOfReal]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

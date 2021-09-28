@@ -36,7 +36,7 @@ type
                                   ## ! access the computed result.
 
 
-proc constructGPropPEquation*(pnts: TColgpArray1OfPnt; tol: float): GPropPEquation {.
+proc constructGPropPEquation*(pnts: TColgpArray1OfPnt; tol: cfloat): GPropPEquation {.
     constructor, importcpp: "GProp_PEquation(@)", header: "GProp_PEquation.hxx".}
 proc isPlanar*(this: GPropPEquation): bool {.noSideEffect, importcpp: "IsPlanar",
     header: "GProp_PEquation.hxx".}
@@ -54,3 +54,28 @@ proc point*(this: GPropPEquation): Pnt {.noSideEffect, importcpp: "Point",
                                      header: "GProp_PEquation.hxx".}
 proc box*(this: GPropPEquation; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
     noSideEffect, importcpp: "Box", header: "GProp_PEquation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -47,9 +47,9 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BVH_Builder.hxx".}
 proc dynamicType*(this: BVH_BuilderTransient): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BVH_Builder.hxx".}
-proc maxTreeDepth*(this: BVH_BuilderTransient): int {.noSideEffect,
+proc maxTreeDepth*(this: BVH_BuilderTransient): cint {.noSideEffect,
     importcpp: "MaxTreeDepth", header: "BVH_Builder.hxx".}
-proc leafNodeSize*(this: BVH_BuilderTransient): int {.noSideEffect,
+proc leafNodeSize*(this: BVH_BuilderTransient): cint {.noSideEffect,
     importcpp: "LeafNodeSize", header: "BVH_Builder.hxx".}
 proc isParallel*(this: BVH_BuilderTransient): bool {.noSideEffect,
     importcpp: "IsParallel", header: "BVH_Builder.hxx".}
@@ -81,3 +81,28 @@ type
 proc build*[T; N: static[cint]](this: BVH_Builder[T, N]; theSet: ptr BVH_Set[T, N];
                              theBVH: ptr BVH_Tree[T, N]; theBox: BVH_Box[T, N]) {.
     noSideEffect, importcpp: "Build", header: "BVH_Builder.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

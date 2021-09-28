@@ -19,7 +19,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of ExprIntrp_GenFct"
 discard "forward decl of ExprIntrp_GenFct"
 type
-  HandleExprIntrpGenFct* = Handle[ExprIntrpGenFct]
+  HandleC1C1* = Handle[ExprIntrpGenFct]
 
 ## ! Implements an interpreter for defining functions.
 ## ! All its functionnalities can be found in class
@@ -46,3 +46,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ExprIntrp_GenFct.hxx".}
 proc dynamicType*(this: ExprIntrpGenFct): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ExprIntrp_GenFct.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

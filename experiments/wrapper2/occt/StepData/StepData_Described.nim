@@ -23,7 +23,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepData_Described"
 discard "forward decl of StepData_Described"
 type
-  HandleStepDataDescribed* = Handle[StepDataDescribed]
+  HandleC1C1* = Handle[StepDataDescribed]
 
 ## ! General frame to describe entities with Description (Simple or
 ## ! Complex)
@@ -88,3 +88,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_Described.hxx".}
 proc dynamicType*(this: StepDataDescribed): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_Described.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

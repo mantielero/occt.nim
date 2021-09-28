@@ -34,13 +34,38 @@ proc add2d*(this: var TopOpeBRepToolCLASSI; s: TopoDS_Shape): bool {.
 proc getBox2d*(this: var TopOpeBRepToolCLASSI; s: TopoDS_Shape; box2d: var BndBox2d): bool {.
     importcpp: "GetBox2d", header: "TopOpeBRepTool_CLASSI.hxx".}
 proc classiBnd2d*(this: var TopOpeBRepToolCLASSI; s1: TopoDS_Shape; s2: TopoDS_Shape;
-                 tol: float; checklarge: bool): int {.importcpp: "ClassiBnd2d",
+                 tol: cfloat; checklarge: bool): cint {.importcpp: "ClassiBnd2d",
     header: "TopOpeBRepTool_CLASSI.hxx".}
 proc classip2d*(this: var TopOpeBRepToolCLASSI; s1: TopoDS_Shape; s2: TopoDS_Shape;
-               stabnd2d12: int): int {.importcpp: "Classip2d",
-                                    header: "TopOpeBRepTool_CLASSI.hxx".}
+               stabnd2d12: cint): cint {.importcpp: "Classip2d",
+                                      header: "TopOpeBRepTool_CLASSI.hxx".}
 proc getface*(this: TopOpeBRepToolCLASSI; s: TopoDS_Shape; fa: var TopOpeBRepToolFace): bool {.
     noSideEffect, importcpp: "Getface", header: "TopOpeBRepTool_CLASSI.hxx".}
 proc classilist*(this: var TopOpeBRepToolCLASSI; lS: TopToolsListOfShape;
                 mapgreasma: var TopToolsDataMapOfShapeListOfShape): bool {.
     importcpp: "Classilist", header: "TopOpeBRepTool_CLASSI.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

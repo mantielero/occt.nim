@@ -16,7 +16,32 @@
 
 type
   TDataStdDataMapOfStringReal* = NCollectionDataMap[TCollectionExtendedString,
-      float, TCollectionExtendedString]
+      cfloat, TCollectionExtendedString]
   TDataStdDataMapIteratorOfDataMapOfStringReal* = Iterator[
-      TCollectionExtendedString, float, TCollectionExtendedString]
+      TCollectionExtendedString, cfloat, TCollectionExtendedString]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

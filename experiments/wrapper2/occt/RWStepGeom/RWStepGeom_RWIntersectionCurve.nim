@@ -29,7 +29,7 @@ proc constructRWStepGeomRWIntersectionCurve*(): RWStepGeomRWIntersectionCurve {.
     constructor, importcpp: "RWStepGeom_RWIntersectionCurve(@)",
     header: "RWStepGeom_RWIntersectionCurve.hxx".}
 proc readStep*(this: RWStepGeomRWIntersectionCurve;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepGeomIntersectionCurve]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWIntersectionCurve.hxx".}
@@ -40,3 +40,28 @@ proc share*(this: RWStepGeomRWIntersectionCurve;
            ent: Handle[StepGeomIntersectionCurve];
            iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWIntersectionCurve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

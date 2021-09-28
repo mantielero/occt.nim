@@ -26,7 +26,7 @@ discard "forward decl of TableauRejection"
 discard "forward decl of HLRBRep_Data"
 discard "forward decl of HLRBRep_Data"
 type
-  HandleHLRBRepData* = Handle[HLRBRepData]
+  HandleC1C1* = Handle[HLRBRepData]
   HLRBRepData* {.importcpp: "HLRBRep_Data", header: "HLRBRep_Data.hxx", bycopy.} = object of StandardTransient ##
                                                                                                      ## !
                                                                                                      ## Create
@@ -75,9 +75,9 @@ type
                                                                                                      ## inverted;
 
 
-proc constructHLRBRepData*(nv: int; ne: int; nf: int): HLRBRepData {.constructor,
+proc constructHLRBRepData*(nv: cint; ne: cint; nf: cint): HLRBRepData {.constructor,
     importcpp: "HLRBRep_Data(@)", header: "HLRBRep_Data.hxx".}
-proc write*(this: var HLRBRepData; ds: Handle[HLRBRepData]; dv: int; de: int; df: int) {.
+proc write*(this: var HLRBRepData; ds: Handle[HLRBRepData]; dv: cint; de: cint; df: cint) {.
     importcpp: "Write", header: "HLRBRep_Data.hxx".}
 proc eDataArray*(this: var HLRBRepData): var HLRBRepArray1OfEData {.
     importcpp: "EDataArray", header: "HLRBRep_Data.hxx".}
@@ -91,26 +91,26 @@ proc update*(this: var HLRBRepData; p: HLRAlgoProjector) {.importcpp: "Update",
     header: "HLRBRep_Data.hxx".}
 proc projector*(this: var HLRBRepData): var HLRAlgoProjector {.importcpp: "Projector",
     header: "HLRBRep_Data.hxx".}
-proc nbVertices*(this: HLRBRepData): int {.noSideEffect, importcpp: "NbVertices",
-                                       header: "HLRBRep_Data.hxx".}
-proc nbEdges*(this: HLRBRepData): int {.noSideEffect, importcpp: "NbEdges",
-                                    header: "HLRBRep_Data.hxx".}
-proc nbFaces*(this: HLRBRepData): int {.noSideEffect, importcpp: "NbFaces",
-                                    header: "HLRBRep_Data.hxx".}
+proc nbVertices*(this: HLRBRepData): cint {.noSideEffect, importcpp: "NbVertices",
+                                        header: "HLRBRep_Data.hxx".}
+proc nbEdges*(this: HLRBRepData): cint {.noSideEffect, importcpp: "NbEdges",
+                                     header: "HLRBRep_Data.hxx".}
+proc nbFaces*(this: HLRBRepData): cint {.noSideEffect, importcpp: "NbFaces",
+                                     header: "HLRBRep_Data.hxx".}
 proc edgeMap*(this: var HLRBRepData): var TopToolsIndexedMapOfShape {.
     importcpp: "EdgeMap", header: "HLRBRep_Data.hxx".}
 proc faceMap*(this: var HLRBRepData): var TopToolsIndexedMapOfShape {.
     importcpp: "FaceMap", header: "HLRBRep_Data.hxx".}
-proc initBoundSort*(this: var HLRBRepData; minMaxTot: MinMaxIndices; e1: int; e2: int) {.
+proc initBoundSort*(this: var HLRBRepData; minMaxTot: MinMaxIndices; e1: cint; e2: cint) {.
     importcpp: "InitBoundSort", header: "HLRBRep_Data.hxx".}
-proc initEdge*(this: var HLRBRepData; fi: int; mst: var BRepTopAdaptorMapOfShapeTool) {.
+proc initEdge*(this: var HLRBRepData; fi: cint; mst: var BRepTopAdaptorMapOfShapeTool) {.
     importcpp: "InitEdge", header: "HLRBRep_Data.hxx".}
 proc moreEdge*(this: var HLRBRepData): bool {.importcpp: "MoreEdge",
     header: "HLRBRep_Data.hxx".}
 proc nextEdge*(this: var HLRBRepData; skip: bool = true) {.importcpp: "NextEdge",
     header: "HLRBRep_Data.hxx".}
-proc edge*(this: HLRBRepData): int {.noSideEffect, importcpp: "Edge",
-                                 header: "HLRBRep_Data.hxx".}
+proc edge*(this: HLRBRepData): cint {.noSideEffect, importcpp: "Edge",
+                                  header: "HLRBRep_Data.hxx".}
 proc hidingTheFace*(this: HLRBRepData): bool {.noSideEffect,
     importcpp: "HidingTheFace", header: "HLRBRep_Data.hxx".}
 proc simpleHidingFace*(this: HLRBRepData): bool {.noSideEffect,
@@ -127,27 +127,27 @@ proc aboveInterference*(this: var HLRBRepData): bool {.
     importcpp: "AboveInterference", header: "HLRBRep_Data.hxx".}
 proc interference*(this: var HLRBRepData): var HLRAlgoInterference {.
     importcpp: "Interference", header: "HLRBRep_Data.hxx".}
-proc localLEGeometry2D*(this: var HLRBRepData; param: float; tg: var Dir2d;
-                       nm: var Dir2d; cu: var float) {.importcpp: "LocalLEGeometry2D",
-    header: "HLRBRep_Data.hxx".}
-proc localFEGeometry2D*(this: var HLRBRepData; fe: int; param: float; tg: var Dir2d;
-                       nm: var Dir2d; cu: var float) {.importcpp: "LocalFEGeometry2D",
-    header: "HLRBRep_Data.hxx".}
-proc edgeState*(this: var HLRBRepData; p1: float; p2: float; stbef: var TopAbsState;
+proc localLEGeometry2D*(this: var HLRBRepData; param: cfloat; tg: var Dir2d;
+                       nm: var Dir2d; cu: var cfloat) {.
+    importcpp: "LocalLEGeometry2D", header: "HLRBRep_Data.hxx".}
+proc localFEGeometry2D*(this: var HLRBRepData; fe: cint; param: cfloat; tg: var Dir2d;
+                       nm: var Dir2d; cu: var cfloat) {.
+    importcpp: "LocalFEGeometry2D", header: "HLRBRep_Data.hxx".}
+proc edgeState*(this: var HLRBRepData; p1: cfloat; p2: cfloat; stbef: var TopAbsState;
                staf: var TopAbsState) {.importcpp: "EdgeState",
                                      header: "HLRBRep_Data.hxx".}
-proc edgeOfTheHidingFace*(this: HLRBRepData; e: int; ed: HLRBRepEdgeData): bool {.
+proc edgeOfTheHidingFace*(this: HLRBRepData; e: cint; ed: HLRBRepEdgeData): bool {.
     noSideEffect, importcpp: "EdgeOfTheHidingFace", header: "HLRBRep_Data.hxx".}
-proc hidingStartLevel*(this: var HLRBRepData; e: int; ed: HLRBRepEdgeData;
-                      il: HLRAlgoInterferenceList): int {.
+proc hidingStartLevel*(this: var HLRBRepData; e: cint; ed: HLRBRepEdgeData;
+                      il: HLRAlgoInterferenceList): cint {.
     importcpp: "HidingStartLevel", header: "HLRBRep_Data.hxx".}
-proc compare*(this: var HLRBRepData; e: int; ed: HLRBRepEdgeData): TopAbsState {.
+proc compare*(this: var HLRBRepData; e: cint; ed: HLRBRepEdgeData): TopAbsState {.
     importcpp: "Compare", header: "HLRBRep_Data.hxx".}
-proc simplClassify*(this: var HLRBRepData; e: int; ed: HLRBRepEdgeData; nbp: int;
-                   p1: float; p2: float): TopAbsState {.importcpp: "SimplClassify",
+proc simplClassify*(this: var HLRBRepData; e: cint; ed: HLRBRepEdgeData; nbp: cint;
+                   p1: cfloat; p2: cfloat): TopAbsState {.importcpp: "SimplClassify",
     header: "HLRBRep_Data.hxx".}
-proc classify*(this: var HLRBRepData; e: int; ed: HLRBRepEdgeData; levelFlag: bool;
-              level: var int; param: float): TopAbsState {.importcpp: "Classify",
+proc classify*(this: var HLRBRepData; e: cint; ed: HLRBRepEdgeData; levelFlag: bool;
+              level: var cint; param: cfloat): TopAbsState {.importcpp: "Classify",
     header: "HLRBRep_Data.hxx".}
 proc isBadFace*(this: HLRBRepData): bool {.noSideEffect, importcpp: "IsBadFace",
                                        header: "HLRBRep_Data.hxx".}
@@ -164,3 +164,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "HLRBRep_Data::get_type_descriptor(@)", header: "HLRBRep_Data.hxx".}
 proc dynamicType*(this: HLRBRepData): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRBRep_Data.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESData_UndefinedEntity"
 discard "forward decl of IGESData_UndefinedEntity"
 type
-  HandleIGESDataUndefinedEntity* = Handle[IGESDataUndefinedEntity]
+  HandleC1C1* = Handle[IGESDataUndefinedEntity]
 
 ## ! undefined (unknown or error) entity specific of IGES
 ## ! DirPart can be correct or not : if it is not, a flag indicates
@@ -53,7 +53,7 @@ proc setNewContent*(this: var IGESDataUndefinedEntity;
     importcpp: "SetNewContent", header: "IGESData_UndefinedEntity.hxx".}
 proc isOKDirPart*(this: IGESDataUndefinedEntity): bool {.noSideEffect,
     importcpp: "IsOKDirPart", header: "IGESData_UndefinedEntity.hxx".}
-proc dirStatus*(this: IGESDataUndefinedEntity): int {.noSideEffect,
+proc dirStatus*(this: IGESDataUndefinedEntity): cint {.noSideEffect,
     importcpp: "DirStatus", header: "IGESData_UndefinedEntity.hxx".}
 proc setOKDirPart*(this: var IGESDataUndefinedEntity) {.importcpp: "SetOKDirPart",
     header: "IGESData_UndefinedEntity.hxx".}
@@ -86,3 +86,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESData_UndefinedEntity.hxx".}
 proc dynamicType*(this: IGESDataUndefinedEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_UndefinedEntity.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

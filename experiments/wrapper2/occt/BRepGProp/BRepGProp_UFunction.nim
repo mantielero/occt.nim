@@ -197,7 +197,32 @@ proc constructBRepGPropUFunction*(theSurface: BRepGPropFace; theVertex: Pnt;
     header: "BRepGProp_UFunction.hxx".}
 proc setValueType*(this: var BRepGPropUFunction; theType: GPropValueType) {.
     importcpp: "SetValueType", header: "BRepGProp_UFunction.hxx".}
-proc setVParam*(this: var BRepGPropUFunction; theVParam: float) {.
+proc setVParam*(this: var BRepGPropUFunction; theVParam: cfloat) {.
     importcpp: "SetVParam", header: "BRepGProp_UFunction.hxx".}
-proc value*(this: var BRepGPropUFunction; x: float; f: var float): bool {.
+proc value*(this: var BRepGPropUFunction; x: cfloat; f: var cfloat): bool {.
     importcpp: "Value", header: "BRepGProp_UFunction.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

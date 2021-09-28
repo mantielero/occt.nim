@@ -18,3 +18,28 @@ type
   ExprMapOfNamedUnknown* = NCollectionIndexedMap[Handle[ExprNamedUnknown],
       TColStdMapTransientHasher]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

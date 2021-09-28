@@ -44,16 +44,17 @@ proc adjustCurve*(this: ShapeConstructCurve; c3d: Handle[GeomCurve]; p1: Pnt; p2
                  take1: bool = true; take2: bool = true): bool {.noSideEffect,
     importcpp: "AdjustCurve", header: "ShapeConstruct_Curve.hxx".}
 proc adjustCurveSegment*(this: ShapeConstructCurve; c3d: Handle[GeomCurve]; p1: Pnt;
-                        p2: Pnt; u1: float; u2: float): bool {.noSideEffect,
+                        p2: Pnt; u1: cfloat; u2: cfloat): bool {.noSideEffect,
     importcpp: "AdjustCurveSegment", header: "ShapeConstruct_Curve.hxx".}
 proc adjustCurve2d*(this: ShapeConstructCurve; c2d: Handle[Geom2dCurve]; p1: Pnt2d;
                    p2: Pnt2d; take1: bool = true; take2: bool = true): bool {.noSideEffect,
     importcpp: "AdjustCurve2d", header: "ShapeConstruct_Curve.hxx".}
-proc convertToBSpline*(this: ShapeConstructCurve; c: Handle[GeomCurve]; first: float;
-                      last: float; prec: float): Handle[GeomBSplineCurve] {.
-    noSideEffect, importcpp: "ConvertToBSpline", header: "ShapeConstruct_Curve.hxx".}
+proc convertToBSpline*(this: ShapeConstructCurve; c: Handle[GeomCurve];
+                      first: cfloat; last: cfloat; prec: cfloat): Handle[
+    GeomBSplineCurve] {.noSideEffect, importcpp: "ConvertToBSpline",
+                       header: "ShapeConstruct_Curve.hxx".}
 proc convertToBSpline*(this: ShapeConstructCurve; c: Handle[Geom2dCurve];
-                      first: float; last: float; prec: float): Handle[
+                      first: cfloat; last: cfloat; prec: cfloat): Handle[
     Geom2dBSplineCurve] {.noSideEffect, importcpp: "ConvertToBSpline",
                          header: "ShapeConstruct_Curve.hxx".}
 proc fixKnots*(knots: var Handle[TColStdHArray1OfReal]): bool {.
@@ -62,3 +63,28 @@ proc fixKnots*(knots: var Handle[TColStdHArray1OfReal]): bool {.
 proc fixKnots*(knots: var TColStdArray1OfReal): bool {.
     importcpp: "ShapeConstruct_Curve::FixKnots(@)",
     header: "ShapeConstruct_Curve.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

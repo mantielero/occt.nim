@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMXCAFDoc_DatumDriver"
 discard "forward decl of XmlMXCAFDoc_DatumDriver"
 type
-  HandleXmlMXCAFDocDatumDriver* = Handle[XmlMXCAFDocDatumDriver]
+  HandleC1C1* = Handle[XmlMXCAFDocDatumDriver]
 
 ## ! Attribute Driver.
 
@@ -51,3 +51,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "XmlMXCAFDoc_DatumDriver.hxx".}
 proc dynamicType*(this: XmlMXCAFDocDatumDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "XmlMXCAFDoc_DatumDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 discard "forward decl of Units_Dimensions"
 discard "forward decl of Units_Dimensions"
 type
-  HandleUnitsDimensions* = Handle[UnitsDimensions]
+  HandleC1C1* = Handle[UnitsDimensions]
 
 ## ! This class includes all  the methods to create and
 ## ! manipulate    the   dimensions  of the    physical
@@ -36,30 +36,30 @@ type
                                                       ## ! physical quantity.
 
 
-proc constructUnitsDimensions*(amass: float; alength: float; atime: float;
-                              anelectriccurrent: float;
-                              athermodynamictemperature: float;
-                              anamountofsubstance: float;
-                              aluminousintensity: float; aplaneangle: float;
-                              asolidangle: float): UnitsDimensions {.constructor,
+proc constructUnitsDimensions*(amass: cfloat; alength: cfloat; atime: cfloat;
+                              anelectriccurrent: cfloat;
+                              athermodynamictemperature: cfloat;
+                              anamountofsubstance: cfloat;
+                              aluminousintensity: cfloat; aplaneangle: cfloat;
+                              asolidangle: cfloat): UnitsDimensions {.constructor,
     importcpp: "Units_Dimensions(@)", header: "Units_Dimensions.hxx".}
-proc mass*(this: UnitsDimensions): float {.noSideEffect, importcpp: "Mass",
-                                       header: "Units_Dimensions.hxx".}
-proc length*(this: UnitsDimensions): float {.noSideEffect, importcpp: "Length",
+proc mass*(this: UnitsDimensions): cfloat {.noSideEffect, importcpp: "Mass",
+                                        header: "Units_Dimensions.hxx".}
+proc length*(this: UnitsDimensions): cfloat {.noSideEffect, importcpp: "Length",
     header: "Units_Dimensions.hxx".}
-proc time*(this: UnitsDimensions): float {.noSideEffect, importcpp: "Time",
-                                       header: "Units_Dimensions.hxx".}
-proc electricCurrent*(this: UnitsDimensions): float {.noSideEffect,
+proc time*(this: UnitsDimensions): cfloat {.noSideEffect, importcpp: "Time",
+                                        header: "Units_Dimensions.hxx".}
+proc electricCurrent*(this: UnitsDimensions): cfloat {.noSideEffect,
     importcpp: "ElectricCurrent", header: "Units_Dimensions.hxx".}
-proc thermodynamicTemperature*(this: UnitsDimensions): float {.noSideEffect,
+proc thermodynamicTemperature*(this: UnitsDimensions): cfloat {.noSideEffect,
     importcpp: "ThermodynamicTemperature", header: "Units_Dimensions.hxx".}
-proc amountOfSubstance*(this: UnitsDimensions): float {.noSideEffect,
+proc amountOfSubstance*(this: UnitsDimensions): cfloat {.noSideEffect,
     importcpp: "AmountOfSubstance", header: "Units_Dimensions.hxx".}
-proc luminousIntensity*(this: UnitsDimensions): float {.noSideEffect,
+proc luminousIntensity*(this: UnitsDimensions): cfloat {.noSideEffect,
     importcpp: "LuminousIntensity", header: "Units_Dimensions.hxx".}
-proc planeAngle*(this: UnitsDimensions): float {.noSideEffect,
+proc planeAngle*(this: UnitsDimensions): cfloat {.noSideEffect,
     importcpp: "PlaneAngle", header: "Units_Dimensions.hxx".}
-proc solidAngle*(this: UnitsDimensions): float {.noSideEffect,
+proc solidAngle*(this: UnitsDimensions): cfloat {.noSideEffect,
     importcpp: "SolidAngle", header: "Units_Dimensions.hxx".}
 proc quantity*(this: UnitsDimensions): StandardCString {.noSideEffect,
     importcpp: "Quantity", header: "Units_Dimensions.hxx".}
@@ -69,13 +69,13 @@ proc multiply*(this: UnitsDimensions; adimensions: Handle[UnitsDimensions]): Han
 proc divide*(this: UnitsDimensions; adimensions: Handle[UnitsDimensions]): Handle[
     UnitsDimensions] {.noSideEffect, importcpp: "Divide",
                       header: "Units_Dimensions.hxx".}
-proc power*(this: UnitsDimensions; anexponent: float): Handle[UnitsDimensions] {.
+proc power*(this: UnitsDimensions; anexponent: cfloat): Handle[UnitsDimensions] {.
     noSideEffect, importcpp: "Power", header: "Units_Dimensions.hxx".}
 proc isEqual*(this: UnitsDimensions; adimensions: Handle[UnitsDimensions]): bool {.
     noSideEffect, importcpp: "IsEqual", header: "Units_Dimensions.hxx".}
 proc isNotEqual*(this: UnitsDimensions; adimensions: Handle[UnitsDimensions]): bool {.
     noSideEffect, importcpp: "IsNotEqual", header: "Units_Dimensions.hxx".}
-proc dump*(this: UnitsDimensions; ashift: int) {.noSideEffect, importcpp: "Dump",
+proc dump*(this: UnitsDimensions; ashift: cint) {.noSideEffect, importcpp: "Dump",
     header: "Units_Dimensions.hxx".}
 proc aLess*(): Handle[UnitsDimensions] {.importcpp: "Units_Dimensions::ALess(@)",
                                       header: "Units_Dimensions.hxx".}
@@ -111,3 +111,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Units_Dimensions.hxx".}
 proc dynamicType*(this: UnitsDimensions): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Units_Dimensions.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

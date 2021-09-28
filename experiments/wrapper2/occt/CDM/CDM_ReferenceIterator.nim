@@ -29,7 +29,32 @@ proc next*(this: var CDM_ReferenceIterator) {.importcpp: "Next",
     header: "CDM_ReferenceIterator.hxx".}
 proc document*(this: CDM_ReferenceIterator): Handle[CDM_Document] {.noSideEffect,
     importcpp: "Document", header: "CDM_ReferenceIterator.hxx".}
-proc referenceIdentifier*(this: CDM_ReferenceIterator): int {.noSideEffect,
+proc referenceIdentifier*(this: CDM_ReferenceIterator): cint {.noSideEffect,
     importcpp: "ReferenceIdentifier", header: "CDM_ReferenceIterator.hxx".}
-proc documentVersion*(this: CDM_ReferenceIterator): int {.noSideEffect,
+proc documentVersion*(this: CDM_ReferenceIterator): cint {.noSideEffect,
     importcpp: "DocumentVersion", header: "CDM_ReferenceIterator.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -35,19 +35,44 @@ type
 
 proc constructPolyTriangle*(): PolyTriangle {.constructor,
     importcpp: "Poly_Triangle(@)", header: "Poly_Triangle.hxx".}
-proc constructPolyTriangle*(theN1: int; theN2: int; theN3: int): PolyTriangle {.
+proc constructPolyTriangle*(theN1: cint; theN2: cint; theN3: cint): PolyTriangle {.
     constructor, importcpp: "Poly_Triangle(@)", header: "Poly_Triangle.hxx".}
-proc set*(this: var PolyTriangle; theN1: int; theN2: int; theN3: int) {.importcpp: "Set",
+proc set*(this: var PolyTriangle; theN1: cint; theN2: cint; theN3: cint) {.
+    importcpp: "Set", header: "Poly_Triangle.hxx".}
+proc set*(this: var PolyTriangle; theIndex: cint; theNode: cint) {.importcpp: "Set",
     header: "Poly_Triangle.hxx".}
-proc set*(this: var PolyTriangle; theIndex: int; theNode: int) {.importcpp: "Set",
-    header: "Poly_Triangle.hxx".}
-proc get*(this: PolyTriangle; theN1: var int; theN2: var int; theN3: var int) {.
+proc get*(this: PolyTriangle; theN1: var cint; theN2: var cint; theN3: var cint) {.
     noSideEffect, importcpp: "Get", header: "Poly_Triangle.hxx".}
-proc value*(this: PolyTriangle; theIndex: int): int {.noSideEffect, importcpp: "Value",
+proc value*(this: PolyTriangle; theIndex: cint): cint {.noSideEffect,
+    importcpp: "Value", header: "Poly_Triangle.hxx".}
+proc `()`*(this: PolyTriangle; index: cint): cint {.noSideEffect, importcpp: "#(@)",
     header: "Poly_Triangle.hxx".}
-proc `()`*(this: PolyTriangle; index: int): int {.noSideEffect, importcpp: "#(@)",
-    header: "Poly_Triangle.hxx".}
-proc changeValue*(this: var PolyTriangle; theIndex: int): var int {.
+proc changeValue*(this: var PolyTriangle; theIndex: cint): var cint {.
     importcpp: "ChangeValue", header: "Poly_Triangle.hxx".}
-proc `()`*(this: var PolyTriangle; index: int): var int {.importcpp: "#(@)",
+proc `()`*(this: var PolyTriangle; index: cint): var cint {.importcpp: "#(@)",
     header: "Poly_Triangle.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

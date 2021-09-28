@@ -19,7 +19,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESGeom_SurfaceOfRevolution"
 discard "forward decl of IGESGeom_SurfaceOfRevolution"
 type
-  HandleIGESGeomSurfaceOfRevolution* = Handle[IGESGeomSurfaceOfRevolution]
+  HandleC1C1* = Handle[IGESGeomSurfaceOfRevolution]
 
 ## ! defines IGESSurfaceOfRevolution, Type <120> Form <0>
 ## ! in package IGESGeom
@@ -37,18 +37,18 @@ proc constructIGESGeomSurfaceOfRevolution*(): IGESGeomSurfaceOfRevolution {.
     constructor, importcpp: "IGESGeom_SurfaceOfRevolution(@)",
     header: "IGESGeom_SurfaceOfRevolution.hxx".}
 proc init*(this: var IGESGeomSurfaceOfRevolution; anAxis: Handle[IGESGeomLine];
-          aGeneratrix: Handle[IGESDataIGESEntity]; aStartAngle: float;
-          anEndAngle: float) {.importcpp: "Init",
-                             header: "IGESGeom_SurfaceOfRevolution.hxx".}
+          aGeneratrix: Handle[IGESDataIGESEntity]; aStartAngle: cfloat;
+          anEndAngle: cfloat) {.importcpp: "Init",
+                              header: "IGESGeom_SurfaceOfRevolution.hxx".}
 proc axisOfRevolution*(this: IGESGeomSurfaceOfRevolution): Handle[IGESGeomLine] {.
     noSideEffect, importcpp: "AxisOfRevolution",
     header: "IGESGeom_SurfaceOfRevolution.hxx".}
 proc generatrix*(this: IGESGeomSurfaceOfRevolution): Handle[IGESDataIGESEntity] {.
     noSideEffect, importcpp: "Generatrix",
     header: "IGESGeom_SurfaceOfRevolution.hxx".}
-proc startAngle*(this: IGESGeomSurfaceOfRevolution): float {.noSideEffect,
+proc startAngle*(this: IGESGeomSurfaceOfRevolution): cfloat {.noSideEffect,
     importcpp: "StartAngle", header: "IGESGeom_SurfaceOfRevolution.hxx".}
-proc endAngle*(this: IGESGeomSurfaceOfRevolution): float {.noSideEffect,
+proc endAngle*(this: IGESGeomSurfaceOfRevolution): cfloat {.noSideEffect,
     importcpp: "EndAngle", header: "IGESGeom_SurfaceOfRevolution.hxx".}
 type
   IGESGeomSurfaceOfRevolutionbaseType* = IGESDataIGESEntity
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESGeomSurfaceOfRevolution): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGeom_SurfaceOfRevolution.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

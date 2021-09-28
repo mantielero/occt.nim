@@ -73,12 +73,37 @@ type
                                                                                         ## point.
 
 
-proc constructExtremaLocECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; u0: float;
-                            v0: float; tolU: float; tolV: float): ExtremaLocECC {.
+proc constructExtremaLocECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; u0: cfloat;
+                            v0: cfloat; tolU: cfloat; tolV: cfloat): ExtremaLocECC {.
     constructor, importcpp: "Extrema_LocECC(@)", header: "Extrema_LocECC.hxx".}
 proc isDone*(this: ExtremaLocECC): bool {.noSideEffect, importcpp: "IsDone",
                                       header: "Extrema_LocECC.hxx".}
-proc squareDistance*(this: ExtremaLocECC): float {.noSideEffect,
+proc squareDistance*(this: ExtremaLocECC): cfloat {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_LocECC.hxx".}
 proc point*(this: ExtremaLocECC; p1: var ExtremaPOnCurv; p2: var ExtremaPOnCurv) {.
     noSideEffect, importcpp: "Point", header: "Extrema_LocECC.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

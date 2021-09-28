@@ -27,7 +27,7 @@ proc constructRWStepVisualRWColourSpecification*(): RWStepVisualRWColourSpecific
     constructor, importcpp: "RWStepVisual_RWColourSpecification(@)",
     header: "RWStepVisual_RWColourSpecification.hxx".}
 proc readStep*(this: RWStepVisualRWColourSpecification;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepVisualColourSpecification]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWColourSpecification.hxx".}
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepVisualRWColourSpecification;
                sw: var StepDataStepWriter;
                ent: Handle[StepVisualColourSpecification]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWColourSpecification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

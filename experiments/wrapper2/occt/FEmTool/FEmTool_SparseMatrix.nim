@@ -18,7 +18,7 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of FEmTool_SparseMatrix"
 discard "forward decl of FEmTool_SparseMatrix"
 type
-  HandleFEmToolSparseMatrix* = Handle[FEmToolSparseMatrix]
+  HandleC1C1* = Handle[FEmToolSparseMatrix]
 
 ## ! Sparse Matrix definition
 
@@ -27,9 +27,9 @@ type
                         header: "FEmTool_SparseMatrix.hxx", bycopy.} = object of StandardTransient
 
 
-proc init*(this: var FEmToolSparseMatrix; value: float) {.importcpp: "Init",
+proc init*(this: var FEmToolSparseMatrix; value: cfloat) {.importcpp: "Init",
     header: "FEmTool_SparseMatrix.hxx".}
-proc changeValue*(this: var FEmToolSparseMatrix; i: int; j: int): var float {.
+proc changeValue*(this: var FEmToolSparseMatrix; i: cint; j: cint): var cfloat {.
     importcpp: "ChangeValue", header: "FEmTool_SparseMatrix.hxx".}
 proc decompose*(this: var FEmToolSparseMatrix): bool {.importcpp: "Decompose",
     header: "FEmTool_SparseMatrix.hxx".}
@@ -38,14 +38,14 @@ proc solve*(this: FEmToolSparseMatrix; b: MathVector; x: var MathVector) {.noSid
 proc prepare*(this: var FEmToolSparseMatrix): bool {.importcpp: "Prepare",
     header: "FEmTool_SparseMatrix.hxx".}
 proc solve*(this: FEmToolSparseMatrix; b: MathVector; init: MathVector;
-           x: var MathVector; residual: var MathVector; tolerance: float = 1.0e-8;
-           nbIterations: int = 50) {.noSideEffect, importcpp: "Solve",
-                                 header: "FEmTool_SparseMatrix.hxx".}
+           x: var MathVector; residual: var MathVector; tolerance: cfloat = 1.0e-8;
+           nbIterations: cint = 50) {.noSideEffect, importcpp: "Solve",
+                                  header: "FEmTool_SparseMatrix.hxx".}
 proc multiplied*(this: FEmToolSparseMatrix; x: MathVector; mx: var MathVector) {.
     noSideEffect, importcpp: "Multiplied", header: "FEmTool_SparseMatrix.hxx".}
-proc rowNumber*(this: FEmToolSparseMatrix): int {.noSideEffect,
+proc rowNumber*(this: FEmToolSparseMatrix): cint {.noSideEffect,
     importcpp: "RowNumber", header: "FEmTool_SparseMatrix.hxx".}
-proc colNumber*(this: FEmToolSparseMatrix): int {.noSideEffect,
+proc colNumber*(this: FEmToolSparseMatrix): cint {.noSideEffect,
     importcpp: "ColNumber", header: "FEmTool_SparseMatrix.hxx".}
 type
   FEmToolSparseMatrixbaseType* = StandardTransient
@@ -57,3 +57,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "FEmTool_SparseMatrix.hxx".}
 proc dynamicType*(this: FEmToolSparseMatrix): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "FEmTool_SparseMatrix.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

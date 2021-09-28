@@ -19,7 +19,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGraph_LineFontDefPattern"
 discard "forward decl of IGESGraph_LineFontDefPattern"
 type
-  HandleIGESGraphLineFontDefPattern* = Handle[IGESGraphLineFontDefPattern]
+  HandleC1C1* = Handle[IGESGraphLineFontDefPattern]
 
 ## ! defines IGESLineFontDefPattern, Type <304> Form <2>
 ## ! in package IGESGraph
@@ -41,14 +41,14 @@ proc init*(this: var IGESGraphLineFontDefPattern;
           allSegLength: Handle[TColStdHArray1OfReal];
           aPattern: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "IGESGraph_LineFontDefPattern.hxx".}
-proc nbSegments*(this: IGESGraphLineFontDefPattern): int {.noSideEffect,
+proc nbSegments*(this: IGESGraphLineFontDefPattern): cint {.noSideEffect,
     importcpp: "NbSegments", header: "IGESGraph_LineFontDefPattern.hxx".}
-proc length*(this: IGESGraphLineFontDefPattern; index: int): float {.noSideEffect,
+proc length*(this: IGESGraphLineFontDefPattern; index: cint): cfloat {.noSideEffect,
     importcpp: "Length", header: "IGESGraph_LineFontDefPattern.hxx".}
 proc displayPattern*(this: IGESGraphLineFontDefPattern): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "DisplayPattern",
                               header: "IGESGraph_LineFontDefPattern.hxx".}
-proc isVisible*(this: IGESGraphLineFontDefPattern; index: int): bool {.noSideEffect,
+proc isVisible*(this: IGESGraphLineFontDefPattern; index: cint): bool {.noSideEffect,
     importcpp: "IsVisible", header: "IGESGraph_LineFontDefPattern.hxx".}
 type
   IGESGraphLineFontDefPatternbaseType* = IGESDataLineFontEntity
@@ -61,3 +61,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: IGESGraphLineFontDefPattern): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGraph_LineFontDefPattern.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

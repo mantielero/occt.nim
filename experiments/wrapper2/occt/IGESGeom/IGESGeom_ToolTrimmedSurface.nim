@@ -67,5 +67,30 @@ proc ownCopy*(this: IGESGeomToolTrimmedSurface;
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolTrimmedSurface.hxx".}
 proc ownDump*(this: IGESGeomToolTrimmedSurface;
              ent: Handle[IGESGeomTrimmedSurface]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESGeom_ToolTrimmedSurface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

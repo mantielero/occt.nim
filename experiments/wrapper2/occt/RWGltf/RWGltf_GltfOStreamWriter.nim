@@ -22,3 +22,28 @@ type
 proc constructRWGltfGltfOStreamWriter*(theOStream: var OStreamWrapper): RWGltfGltfOStreamWriter {.
     constructor, importcpp: "RWGltf_GltfOStreamWriter(@)",
     header: "RWGltf_GltfOStreamWriter.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -60,3 +60,28 @@ proc top*(this: BRepFillEvolved): TopoDS_Shape {.noSideEffect, importcpp: "Top",
     header: "BRepFill_Evolved.hxx".}
 proc bottom*(this: BRepFillEvolved): TopoDS_Shape {.noSideEffect,
     importcpp: "Bottom", header: "BRepFill_Evolved.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

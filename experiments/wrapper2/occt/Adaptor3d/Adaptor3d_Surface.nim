@@ -35,30 +35,30 @@ type
                      header: "Adaptor3d_Surface.hxx", bycopy.} = object
 
 
-proc firstUParameter*(this: Adaptor3dSurface): float {.noSideEffect,
+proc firstUParameter*(this: Adaptor3dSurface): cfloat {.noSideEffect,
     importcpp: "FirstUParameter", header: "Adaptor3d_Surface.hxx".}
-proc lastUParameter*(this: Adaptor3dSurface): float {.noSideEffect,
+proc lastUParameter*(this: Adaptor3dSurface): cfloat {.noSideEffect,
     importcpp: "LastUParameter", header: "Adaptor3d_Surface.hxx".}
-proc firstVParameter*(this: Adaptor3dSurface): float {.noSideEffect,
+proc firstVParameter*(this: Adaptor3dSurface): cfloat {.noSideEffect,
     importcpp: "FirstVParameter", header: "Adaptor3d_Surface.hxx".}
-proc lastVParameter*(this: Adaptor3dSurface): float {.noSideEffect,
+proc lastVParameter*(this: Adaptor3dSurface): cfloat {.noSideEffect,
     importcpp: "LastVParameter", header: "Adaptor3d_Surface.hxx".}
 proc uContinuity*(this: Adaptor3dSurface): GeomAbsShape {.noSideEffect,
     importcpp: "UContinuity", header: "Adaptor3d_Surface.hxx".}
 proc vContinuity*(this: Adaptor3dSurface): GeomAbsShape {.noSideEffect,
     importcpp: "VContinuity", header: "Adaptor3d_Surface.hxx".}
-proc nbUIntervals*(this: Adaptor3dSurface; s: GeomAbsShape): int {.noSideEffect,
+proc nbUIntervals*(this: Adaptor3dSurface; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbUIntervals", header: "Adaptor3d_Surface.hxx".}
-proc nbVIntervals*(this: Adaptor3dSurface; s: GeomAbsShape): int {.noSideEffect,
+proc nbVIntervals*(this: Adaptor3dSurface; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbVIntervals", header: "Adaptor3d_Surface.hxx".}
 proc uIntervals*(this: Adaptor3dSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "UIntervals", header: "Adaptor3d_Surface.hxx".}
 proc vIntervals*(this: Adaptor3dSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "VIntervals", header: "Adaptor3d_Surface.hxx".}
-proc uTrim*(this: Adaptor3dSurface; first: float; last: float; tol: float): Handle[
+proc uTrim*(this: Adaptor3dSurface; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHSurface] {.noSideEffect, importcpp: "UTrim",
                         header: "Adaptor3d_Surface.hxx".}
-proc vTrim*(this: Adaptor3dSurface; first: float; last: float; tol: float): Handle[
+proc vTrim*(this: Adaptor3dSurface; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHSurface] {.noSideEffect, importcpp: "VTrim",
                         header: "Adaptor3d_Surface.hxx".}
 proc isUClosed*(this: Adaptor3dSurface): bool {.noSideEffect, importcpp: "IsUClosed",
@@ -67,30 +67,30 @@ proc isVClosed*(this: Adaptor3dSurface): bool {.noSideEffect, importcpp: "IsVClo
     header: "Adaptor3d_Surface.hxx".}
 proc isUPeriodic*(this: Adaptor3dSurface): bool {.noSideEffect,
     importcpp: "IsUPeriodic", header: "Adaptor3d_Surface.hxx".}
-proc uPeriod*(this: Adaptor3dSurface): float {.noSideEffect, importcpp: "UPeriod",
+proc uPeriod*(this: Adaptor3dSurface): cfloat {.noSideEffect, importcpp: "UPeriod",
     header: "Adaptor3d_Surface.hxx".}
 proc isVPeriodic*(this: Adaptor3dSurface): bool {.noSideEffect,
     importcpp: "IsVPeriodic", header: "Adaptor3d_Surface.hxx".}
-proc vPeriod*(this: Adaptor3dSurface): float {.noSideEffect, importcpp: "VPeriod",
+proc vPeriod*(this: Adaptor3dSurface): cfloat {.noSideEffect, importcpp: "VPeriod",
     header: "Adaptor3d_Surface.hxx".}
-proc value*(this: Adaptor3dSurface; u: float; v: float): Pnt {.noSideEffect,
+proc value*(this: Adaptor3dSurface; u: cfloat; v: cfloat): Pnt {.noSideEffect,
     importcpp: "Value", header: "Adaptor3d_Surface.hxx".}
-proc d0*(this: Adaptor3dSurface; u: float; v: float; p: var Pnt) {.noSideEffect,
+proc d0*(this: Adaptor3dSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect,
     importcpp: "D0", header: "Adaptor3d_Surface.hxx".}
-proc d1*(this: Adaptor3dSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
+proc d1*(this: Adaptor3dSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
     noSideEffect, importcpp: "D1", header: "Adaptor3d_Surface.hxx".}
-proc d2*(this: Adaptor3dSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
-        d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, importcpp: "D2",
-    header: "Adaptor3d_Surface.hxx".}
-proc d3*(this: Adaptor3dSurface; u: float; v: float; p: var Pnt; d1u: var Vec; d1v: var Vec;
-        d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec; d3uuv: var Vec;
-        d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
-                       header: "Adaptor3d_Surface.hxx".}
-proc dn*(this: Adaptor3dSurface; u: float; v: float; nu: int; nv: int): Vec {.noSideEffect,
-    importcpp: "DN", header: "Adaptor3d_Surface.hxx".}
-proc uResolution*(this: Adaptor3dSurface; r3d: float): float {.noSideEffect,
+proc d2*(this: Adaptor3dSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Adaptor3d_Surface.hxx".}
+proc d3*(this: Adaptor3dSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
+        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Adaptor3d_Surface.hxx".}
+proc dn*(this: Adaptor3dSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
+    noSideEffect, importcpp: "DN", header: "Adaptor3d_Surface.hxx".}
+proc uResolution*(this: Adaptor3dSurface; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "UResolution", header: "Adaptor3d_Surface.hxx".}
-proc vResolution*(this: Adaptor3dSurface; r3d: float): float {.noSideEffect,
+proc vResolution*(this: Adaptor3dSurface; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "VResolution", header: "Adaptor3d_Surface.hxx".}
 proc getType*(this: Adaptor3dSurface): GeomAbsSurfaceType {.noSideEffect,
     importcpp: "GetType", header: "Adaptor3d_Surface.hxx".}
@@ -104,17 +104,17 @@ proc sphere*(this: Adaptor3dSurface): Sphere {.noSideEffect, importcpp: "Sphere"
     header: "Adaptor3d_Surface.hxx".}
 proc torus*(this: Adaptor3dSurface): Torus {.noSideEffect, importcpp: "Torus",
     header: "Adaptor3d_Surface.hxx".}
-proc uDegree*(this: Adaptor3dSurface): int {.noSideEffect, importcpp: "UDegree",
+proc uDegree*(this: Adaptor3dSurface): cint {.noSideEffect, importcpp: "UDegree",
     header: "Adaptor3d_Surface.hxx".}
-proc nbUPoles*(this: Adaptor3dSurface): int {.noSideEffect, importcpp: "NbUPoles",
+proc nbUPoles*(this: Adaptor3dSurface): cint {.noSideEffect, importcpp: "NbUPoles",
     header: "Adaptor3d_Surface.hxx".}
-proc vDegree*(this: Adaptor3dSurface): int {.noSideEffect, importcpp: "VDegree",
+proc vDegree*(this: Adaptor3dSurface): cint {.noSideEffect, importcpp: "VDegree",
     header: "Adaptor3d_Surface.hxx".}
-proc nbVPoles*(this: Adaptor3dSurface): int {.noSideEffect, importcpp: "NbVPoles",
+proc nbVPoles*(this: Adaptor3dSurface): cint {.noSideEffect, importcpp: "NbVPoles",
     header: "Adaptor3d_Surface.hxx".}
-proc nbUKnots*(this: Adaptor3dSurface): int {.noSideEffect, importcpp: "NbUKnots",
+proc nbUKnots*(this: Adaptor3dSurface): cint {.noSideEffect, importcpp: "NbUKnots",
     header: "Adaptor3d_Surface.hxx".}
-proc nbVKnots*(this: Adaptor3dSurface): int {.noSideEffect, importcpp: "NbVKnots",
+proc nbVKnots*(this: Adaptor3dSurface): cint {.noSideEffect, importcpp: "NbVKnots",
     header: "Adaptor3d_Surface.hxx".}
 proc isURational*(this: Adaptor3dSurface): bool {.noSideEffect,
     importcpp: "IsURational", header: "Adaptor3d_Surface.hxx".}
@@ -132,7 +132,32 @@ proc basisCurve*(this: Adaptor3dSurface): Handle[Adaptor3dHCurve] {.noSideEffect
     importcpp: "BasisCurve", header: "Adaptor3d_Surface.hxx".}
 proc basisSurface*(this: Adaptor3dSurface): Handle[Adaptor3dHSurface] {.
     noSideEffect, importcpp: "BasisSurface", header: "Adaptor3d_Surface.hxx".}
-proc offsetValue*(this: Adaptor3dSurface): float {.noSideEffect,
+proc offsetValue*(this: Adaptor3dSurface): cfloat {.noSideEffect,
     importcpp: "OffsetValue", header: "Adaptor3d_Surface.hxx".}
 proc destroyAdaptor3dSurface*(this: var Adaptor3dSurface) {.
     importcpp: "#.~Adaptor3d_Surface()", header: "Adaptor3d_Surface.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

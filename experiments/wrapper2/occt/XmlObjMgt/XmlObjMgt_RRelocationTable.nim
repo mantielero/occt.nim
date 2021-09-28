@@ -46,3 +46,28 @@ proc setHeaderData*(this: var XmlObjMgtRRelocationTable;
     importcpp: "SetHeaderData", header: "XmlObjMgt_RRelocationTable.hxx".}
 proc clear*(this: var XmlObjMgtRRelocationTable; doReleaseMemory: bool = true) {.
     importcpp: "Clear", header: "XmlObjMgt_RRelocationTable.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

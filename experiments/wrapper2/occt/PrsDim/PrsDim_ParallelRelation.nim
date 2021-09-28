@@ -16,7 +16,7 @@
 
 discard "forward decl of PrsDim_ParallelRelation"
 type
-  HandlePrsDimParallelRelation* = Handle[PrsDimParallelRelation]
+  HandleC1C1* = Handle[PrsDimParallelRelation]
 
 ## ! A framework to display constraints of parallelism
 ## ! between two or more Interactive Objects. These
@@ -72,8 +72,33 @@ proc constructPrsDimParallelRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Sha
 proc constructPrsDimParallelRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;
                                      aPlane: Handle[GeomPlane]; aPosition: Pnt;
                                      aSymbolPrs: DsgPrsArrowSide;
-                                     anArrowSize: float = 0.01): PrsDimParallelRelation {.
+                                     anArrowSize: cfloat = 0.01): PrsDimParallelRelation {.
     constructor, importcpp: "PrsDim_ParallelRelation(@)",
     header: "PrsDim_ParallelRelation.hxx".}
 proc isMovable*(this: PrsDimParallelRelation): bool {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_ParallelRelation.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ proc constructRWStepBasicRWDimensionalExponents*(): RWStepBasicRWDimensionalExpo
     constructor, importcpp: "RWStepBasic_RWDimensionalExponents(@)",
     header: "RWStepBasic_RWDimensionalExponents.hxx".}
 proc readStep*(this: RWStepBasicRWDimensionalExponents;
-              data: Handle[StepDataStepReaderData]; num: int;
+              data: Handle[StepDataStepReaderData]; num: cint;
               ach: var Handle[InterfaceCheck];
               ent: Handle[StepBasicDimensionalExponents]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDimensionalExponents.hxx".}
@@ -35,3 +35,28 @@ proc writeStep*(this: RWStepBasicRWDimensionalExponents;
                sw: var StepDataStepWriter;
                ent: Handle[StepBasicDimensionalExponents]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWDimensionalExponents.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

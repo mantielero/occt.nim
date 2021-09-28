@@ -18,7 +18,7 @@ discard "forward decl of StepVisual_PreDefinedItem"
 discard "forward decl of StepVisual_PreDefinedColour"
 discard "forward decl of StepVisual_PreDefinedColour"
 type
-  HandleStepVisualPreDefinedColour* = Handle[StepVisualPreDefinedColour]
+  HandleC1C1* = Handle[StepVisualPreDefinedColour]
   StepVisualPreDefinedColour* {.importcpp: "StepVisual_PreDefinedColour",
                                header: "StepVisual_PreDefinedColour.hxx", bycopy.} = object of StepVisualColour ##
                                                                                                          ## !
@@ -47,3 +47,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualPreDefinedColour): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PreDefinedColour.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

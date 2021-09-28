@@ -28,7 +28,7 @@ discard "forward decl of Poly_PolygonOnTriangulation"
 discard "forward decl of BRepTools_Modification"
 discard "forward decl of BRepTools_Modification"
 type
-  HandleBRepToolsModification* = Handle[BRepToolsModification]
+  HandleC1C1* = Handle[BRepToolsModification]
 
 ## ! Defines geometric modifications to a shape, i.e.
 ## ! changes to faces, edges and vertices.
@@ -169,14 +169,14 @@ type
 
 
 proc newSurface*(this: var BRepToolsModification; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var float;
+                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var cfloat;
                 revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
     header: "BRepTools_Modification.hxx".}
 proc newTriangulation*(this: var BRepToolsModification; f: TopoDS_Face;
                       t: var Handle[PolyTriangulation]): bool {.
     importcpp: "NewTriangulation", header: "BRepTools_Modification.hxx".}
 proc newCurve*(this: var BRepToolsModification; e: TopoDS_Edge;
-              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var float): bool {.
+              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var cfloat): bool {.
     importcpp: "NewCurve", header: "BRepTools_Modification.hxx".}
 proc newPolygon*(this: var BRepToolsModification; e: TopoDS_Edge;
                 p: var Handle[PolyPolygon3D]): bool {.importcpp: "NewPolygon",
@@ -186,14 +186,14 @@ proc newPolygonOnTriangulation*(this: var BRepToolsModification; e: TopoDS_Edge;
                                p: var Handle[PolyPolygonOnTriangulation]): bool {.
     importcpp: "NewPolygonOnTriangulation", header: "BRepTools_Modification.hxx".}
 proc newPoint*(this: var BRepToolsModification; v: TopoDS_Vertex; p: var Pnt;
-              tol: var float): bool {.importcpp: "NewPoint",
-                                  header: "BRepTools_Modification.hxx".}
+              tol: var cfloat): bool {.importcpp: "NewPoint",
+                                   header: "BRepTools_Modification.hxx".}
 proc newCurve2d*(this: var BRepToolsModification; e: TopoDS_Edge; f: TopoDS_Face;
                 newE: TopoDS_Edge; newF: TopoDS_Face; c: var Handle[Geom2dCurve];
-                tol: var float): bool {.importcpp: "NewCurve2d",
-                                    header: "BRepTools_Modification.hxx".}
+                tol: var cfloat): bool {.importcpp: "NewCurve2d",
+                                     header: "BRepTools_Modification.hxx".}
 proc newParameter*(this: var BRepToolsModification; v: TopoDS_Vertex; e: TopoDS_Edge;
-                  p: var float; tol: var float): bool {.importcpp: "NewParameter",
+                  p: var cfloat; tol: var cfloat): bool {.importcpp: "NewParameter",
     header: "BRepTools_Modification.hxx".}
 proc continuity*(this: var BRepToolsModification; e: TopoDS_Edge; f1: TopoDS_Face;
                 f2: TopoDS_Face; newE: TopoDS_Edge; newF1: TopoDS_Face;
@@ -209,3 +209,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepTools_Modification.hxx".}
 proc dynamicType*(this: BRepToolsModification): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepTools_Modification.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

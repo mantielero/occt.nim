@@ -18,7 +18,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepShape_ConnectedFaceSubSet"
 discard "forward decl of StepShape_ConnectedFaceSubSet"
 type
-  HandleStepShapeConnectedFaceSubSet* = Handle[StepShapeConnectedFaceSubSet]
+  HandleC1C1* = Handle[StepShapeConnectedFaceSubSet]
 
 ## ! Representation of STEP entity ConnectedFaceSubSet
 
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeConnectedFaceSubSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ConnectedFaceSubSet.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

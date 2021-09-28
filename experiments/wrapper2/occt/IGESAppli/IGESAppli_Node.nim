@@ -21,7 +21,7 @@ discard "forward decl of IGESData_TransfEntity"
 discard "forward decl of IGESAppli_Node"
 discard "forward decl of IGESAppli_Node"
 type
-  HandleIGESAppliNode* = Handle[IGESAppliNode]
+  HandleC1C1* = Handle[IGESAppliNode]
 
 ## ! defines Node, Type <134> Form <0>
 ## ! in package IGESAppli
@@ -40,7 +40,7 @@ proc coord*(this: IGESAppliNode): Pnt {.noSideEffect, importcpp: "Coord",
                                     header: "IGESAppli_Node.hxx".}
 proc system*(this: IGESAppliNode): Handle[IGESDataTransfEntity] {.noSideEffect,
     importcpp: "System", header: "IGESAppli_Node.hxx".}
-proc systemType*(this: IGESAppliNode): int {.noSideEffect, importcpp: "SystemType",
+proc systemType*(this: IGESAppliNode): cint {.noSideEffect, importcpp: "SystemType",
     header: "IGESAppli_Node.hxx".}
 proc transformedNodalCoord*(this: IGESAppliNode): Pnt {.noSideEffect,
     importcpp: "TransformedNodalCoord", header: "IGESAppli_Node.hxx".}
@@ -54,3 +54,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESAppli_Node.hxx".}
 proc dynamicType*(this: IGESAppliNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESAppli_Node.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

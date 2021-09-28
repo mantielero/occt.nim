@@ -19,7 +19,7 @@ discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMFunction_GraphNodeDriver"
 discard "forward decl of BinMFunction_GraphNodeDriver"
 type
-  HandleBinMFunctionGraphNodeDriver* = Handle[BinMFunctionGraphNodeDriver]
+  HandleC1C1* = Handle[BinMFunctionGraphNodeDriver]
 
 ## ! GraphNode attribute Driver.
 
@@ -53,3 +53,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BinMFunctionGraphNodeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMFunction_GraphNodeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

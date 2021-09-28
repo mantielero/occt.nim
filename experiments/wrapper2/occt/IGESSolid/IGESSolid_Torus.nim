@@ -20,7 +20,7 @@ discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_Torus"
 discard "forward decl of IGESSolid_Torus"
 type
-  HandleIGESSolidTorus* = Handle[IGESSolidTorus]
+  HandleC1C1* = Handle[IGESSolidTorus]
 
 ## ! defines Torus, Type <160> Form Number <0>
 ## ! in package IGESSolid
@@ -34,11 +34,11 @@ type
 
 proc constructIGESSolidTorus*(): IGESSolidTorus {.constructor,
     importcpp: "IGESSolid_Torus(@)", header: "IGESSolid_Torus.hxx".}
-proc init*(this: var IGESSolidTorus; r1: float; r2: float; aPoint: Xyz; anAxisdir: Xyz) {.
+proc init*(this: var IGESSolidTorus; r1: cfloat; r2: cfloat; aPoint: Xyz; anAxisdir: Xyz) {.
     importcpp: "Init", header: "IGESSolid_Torus.hxx".}
-proc majorRadius*(this: IGESSolidTorus): float {.noSideEffect,
+proc majorRadius*(this: IGESSolidTorus): cfloat {.noSideEffect,
     importcpp: "MajorRadius", header: "IGESSolid_Torus.hxx".}
-proc discRadius*(this: IGESSolidTorus): float {.noSideEffect,
+proc discRadius*(this: IGESSolidTorus): cfloat {.noSideEffect,
     importcpp: "DiscRadius", header: "IGESSolid_Torus.hxx".}
 proc axisPoint*(this: IGESSolidTorus): Pnt {.noSideEffect, importcpp: "AxisPoint",
     header: "IGESSolid_Torus.hxx".}
@@ -58,3 +58,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "IGESSolid_Torus.hxx".}
 proc dynamicType*(this: IGESSolidTorus): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Torus.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

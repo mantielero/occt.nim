@@ -19,7 +19,7 @@ discard "forward decl of XmlObjMgt_Persistent"
 discard "forward decl of XmlMDataStd_TreeNodeDriver"
 discard "forward decl of XmlMDataStd_TreeNodeDriver"
 type
-  HandleXmlMDataStdTreeNodeDriver* = Handle[XmlMDataStdTreeNodeDriver]
+  HandleC1C1* = Handle[XmlMDataStdTreeNodeDriver]
 
 ## ! Attribute Driver.
 
@@ -52,3 +52,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: XmlMDataStdTreeNodeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "XmlMDataStd_TreeNodeDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

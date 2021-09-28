@@ -22,3 +22,28 @@ type
     StepGeomBscfParabolicArc, StepGeomBscfHyperbolicArc, StepGeomBscfUnspecified
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

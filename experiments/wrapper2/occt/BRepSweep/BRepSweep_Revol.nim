@@ -26,7 +26,7 @@ type
                                   ## ! builds the NumShape.
 
 
-proc constructBRepSweepRevol*(s: TopoDS_Shape; a: Ax1; d: float; c: bool = false): BRepSweepRevol {.
+proc constructBRepSweepRevol*(s: TopoDS_Shape; a: Ax1; d: cfloat; c: bool = false): BRepSweepRevol {.
     constructor, importcpp: "BRepSweep_Revol(@)", header: "BRepSweep_Revol.hxx".}
 proc constructBRepSweepRevol*(s: TopoDS_Shape; a: Ax1; c: bool = false): BRepSweepRevol {.
     constructor, importcpp: "BRepSweep_Revol(@)", header: "BRepSweep_Revol.hxx".}
@@ -44,7 +44,32 @@ proc lastShape*(this: var BRepSweepRevol; aGenS: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepSweep_Revol.hxx".}
 proc axe*(this: BRepSweepRevol): Ax1 {.noSideEffect, importcpp: "Axe",
                                    header: "BRepSweep_Revol.hxx".}
-proc angle*(this: BRepSweepRevol): float {.noSideEffect, importcpp: "Angle",
-                                       header: "BRepSweep_Revol.hxx".}
+proc angle*(this: BRepSweepRevol): cfloat {.noSideEffect, importcpp: "Angle",
+                                        header: "BRepSweep_Revol.hxx".}
 proc isUsed*(this: BRepSweepRevol; aGenS: TopoDS_Shape): bool {.noSideEffect,
     importcpp: "IsUsed", header: "BRepSweep_Revol.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

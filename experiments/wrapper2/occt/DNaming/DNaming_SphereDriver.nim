@@ -19,7 +19,7 @@ discard "forward decl of BRepPrimAPI_MakeSphere"
 discard "forward decl of DNaming_SphereDriver"
 discard "forward decl of DNaming_SphereDriver"
 type
-  HandleDNamingSphereDriver* = Handle[DNamingSphereDriver]
+  HandleC1C1* = Handle[DNamingSphereDriver]
   DNamingSphereDriver* {.importcpp: "DNaming_SphereDriver",
                         header: "DNaming_SphereDriver.hxx", bycopy.} = object of TFunctionDriver ##
                                                                                           ## !
@@ -38,7 +38,7 @@ proc validate*(this: DNamingSphereDriver; theLog: var Handle[TFunctionLogbook]) 
     noSideEffect, importcpp: "Validate", header: "DNaming_SphereDriver.hxx".}
 proc mustExecute*(this: DNamingSphereDriver; theLog: Handle[TFunctionLogbook]): bool {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_SphereDriver.hxx".}
-proc execute*(this: DNamingSphereDriver; theLog: var Handle[TFunctionLogbook]): int {.
+proc execute*(this: DNamingSphereDriver; theLog: var Handle[TFunctionLogbook]): cint {.
     noSideEffect, importcpp: "Execute", header: "DNaming_SphereDriver.hxx".}
 type
   DNamingSphereDriverbaseType* = TFunctionDriver
@@ -50,3 +50,28 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "DNaming_SphereDriver.hxx".}
 proc dynamicType*(this: DNamingSphereDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_SphereDriver.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,5 +61,30 @@ proc ownCopy*(this: IGESDrawToolCircArraySubfigure;
     header: "IGESDraw_ToolCircArraySubfigure.hxx".}
 proc ownDump*(this: IGESDrawToolCircArraySubfigure;
              ent: Handle[IGESDrawCircArraySubfigure]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: int) {.noSideEffect, importcpp: "OwnDump",
+             s: var StandardOStream; own: cint) {.noSideEffect, importcpp: "OwnDump",
     header: "IGESDraw_ToolCircArraySubfigure.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

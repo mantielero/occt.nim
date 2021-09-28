@@ -51,11 +51,11 @@ proc clear*(this: var BRepMAT2dExplorer) {.importcpp: "Clear",
                                        header: "BRepMAT2d_Explorer.hxx".}
 proc perform*(this: var BRepMAT2dExplorer; aFace: TopoDS_Face) {.importcpp: "Perform",
     header: "BRepMAT2d_Explorer.hxx".}
-proc numberOfContours*(this: BRepMAT2dExplorer): int {.noSideEffect,
+proc numberOfContours*(this: BRepMAT2dExplorer): cint {.noSideEffect,
     importcpp: "NumberOfContours", header: "BRepMAT2d_Explorer.hxx".}
-proc numberOfCurves*(this: BRepMAT2dExplorer; indexContour: int): int {.noSideEffect,
-    importcpp: "NumberOfCurves", header: "BRepMAT2d_Explorer.hxx".}
-proc init*(this: var BRepMAT2dExplorer; indexContour: int) {.importcpp: "Init",
+proc numberOfCurves*(this: BRepMAT2dExplorer; indexContour: cint): cint {.
+    noSideEffect, importcpp: "NumberOfCurves", header: "BRepMAT2d_Explorer.hxx".}
+proc init*(this: var BRepMAT2dExplorer; indexContour: cint) {.importcpp: "Init",
     header: "BRepMAT2d_Explorer.hxx".}
 proc more*(this: BRepMAT2dExplorer): bool {.noSideEffect, importcpp: "More",
                                         header: "BRepMAT2d_Explorer.hxx".}
@@ -65,7 +65,7 @@ proc value*(this: BRepMAT2dExplorer): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "Value", header: "BRepMAT2d_Explorer.hxx".}
 proc shape*(this: BRepMAT2dExplorer): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BRepMAT2d_Explorer.hxx".}
-proc contour*(this: BRepMAT2dExplorer; indexContour: int): TColGeom2dSequenceOfCurve {.
+proc contour*(this: BRepMAT2dExplorer; indexContour: cint): TColGeom2dSequenceOfCurve {.
     noSideEffect, importcpp: "Contour", header: "BRepMAT2d_Explorer.hxx".}
 proc isModified*(this: BRepMAT2dExplorer; aShape: TopoDS_Shape): bool {.noSideEffect,
     importcpp: "IsModified", header: "BRepMAT2d_Explorer.hxx".}
@@ -73,3 +73,28 @@ proc modifiedShape*(this: BRepMAT2dExplorer; aShape: TopoDS_Shape): TopoDS_Shape
     noSideEffect, importcpp: "ModifiedShape", header: "BRepMAT2d_Explorer.hxx".}
 proc getIsClosed*(this: BRepMAT2dExplorer): TColStdSequenceOfBoolean {.noSideEffect,
     importcpp: "GetIsClosed", header: "BRepMAT2d_Explorer.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

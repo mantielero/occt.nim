@@ -64,6 +64,31 @@ proc ownCopy*(this: IGESGraphToolIntercharacterSpacing;
              tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
 proc ownDump*(this: IGESGraphToolIntercharacterSpacing;
              ent: Handle[IGESGraphIntercharacterSpacing];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: int) {.
+             dumper: IGESDataIGESDumper; s: var StandardOStream; own: cint) {.
     noSideEffect, importcpp: "OwnDump",
     header: "IGESGraph_ToolIntercharacterSpacing.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

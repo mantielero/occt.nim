@@ -31,7 +31,7 @@ proc constructBlendFuncRuled*(s1: Handle[Adaptor3dHSurface];
                              s2: Handle[Adaptor3dHSurface];
                              c: Handle[Adaptor3dHCurve]): BlendFuncRuled {.
     constructor, importcpp: "BlendFunc_Ruled(@)", header: "BlendFunc_Ruled.hxx".}
-proc nbEquations*(this: BlendFuncRuled): int {.noSideEffect,
+proc nbEquations*(this: BlendFuncRuled): cint {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_Ruled.hxx".}
 proc value*(this: var BlendFuncRuled; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_Ruled.hxx".}
@@ -40,18 +40,18 @@ proc derivatives*(this: var BlendFuncRuled; x: MathVector; d: var MathMatrix): b
 proc values*(this: var BlendFuncRuled; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.importcpp: "Values",
                                    header: "BlendFunc_Ruled.hxx".}
-proc set*(this: var BlendFuncRuled; param: float) {.importcpp: "Set",
+proc set*(this: var BlendFuncRuled; param: cfloat) {.importcpp: "Set",
     header: "BlendFunc_Ruled.hxx".}
-proc set*(this: var BlendFuncRuled; first: float; last: float) {.importcpp: "Set",
+proc set*(this: var BlendFuncRuled; first: cfloat; last: cfloat) {.importcpp: "Set",
     header: "BlendFunc_Ruled.hxx".}
-proc getTolerance*(this: BlendFuncRuled; tolerance: var MathVector; tol: float) {.
+proc getTolerance*(this: BlendFuncRuled; tolerance: var MathVector; tol: cfloat) {.
     noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_Ruled.hxx".}
 proc getBounds*(this: BlendFuncRuled; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
                                         header: "BlendFunc_Ruled.hxx".}
-proc isSolution*(this: var BlendFuncRuled; sol: MathVector; tol: float): bool {.
+proc isSolution*(this: var BlendFuncRuled; sol: MathVector; tol: cfloat): bool {.
     importcpp: "IsSolution", header: "BlendFunc_Ruled.hxx".}
-proc getMinimalDistance*(this: BlendFuncRuled): float {.noSideEffect,
+proc getMinimalDistance*(this: BlendFuncRuled): cfloat {.noSideEffect,
     importcpp: "GetMinimalDistance", header: "BlendFunc_Ruled.hxx".}
 proc pointOnS1*(this: BlendFuncRuled): Pnt {.noSideEffect, importcpp: "PointOnS1",
     header: "BlendFunc_Ruled.hxx".}
@@ -67,27 +67,28 @@ proc tangentOnS2*(this: BlendFuncRuled): Vec {.noSideEffect,
     importcpp: "TangentOnS2", header: "BlendFunc_Ruled.hxx".}
 proc tangent2dOnS2*(this: BlendFuncRuled): Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_Ruled.hxx".}
-proc tangent*(this: BlendFuncRuled; u1: float; v1: float; u2: float; v2: float;
+proc tangent*(this: BlendFuncRuled; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
              tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
     noSideEffect, importcpp: "Tangent", header: "BlendFunc_Ruled.hxx".}
-proc getSection*(this: var BlendFuncRuled; param: float; u1: float; v1: float; u2: float;
-                v2: float; tabP: var TColgpArray1OfPnt; tabV: var TColgpArray1OfVec): bool {.
-    importcpp: "GetSection", header: "BlendFunc_Ruled.hxx".}
+proc getSection*(this: var BlendFuncRuled; param: cfloat; u1: cfloat; v1: cfloat;
+                u2: cfloat; v2: cfloat; tabP: var TColgpArray1OfPnt;
+                tabV: var TColgpArray1OfVec): bool {.importcpp: "GetSection",
+    header: "BlendFunc_Ruled.hxx".}
 proc isRational*(this: BlendFuncRuled): bool {.noSideEffect, importcpp: "IsRational",
     header: "BlendFunc_Ruled.hxx".}
-proc getSectionSize*(this: BlendFuncRuled): float {.noSideEffect,
+proc getSectionSize*(this: BlendFuncRuled): cfloat {.noSideEffect,
     importcpp: "GetSectionSize", header: "BlendFunc_Ruled.hxx".}
 proc getMinimalWeight*(this: BlendFuncRuled; weigths: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "GetMinimalWeight", header: "BlendFunc_Ruled.hxx".}
-proc nbIntervals*(this: BlendFuncRuled; s: GeomAbsShape): int {.noSideEffect,
+proc nbIntervals*(this: BlendFuncRuled; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "BlendFunc_Ruled.hxx".}
 proc intervals*(this: BlendFuncRuled; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "Intervals", header: "BlendFunc_Ruled.hxx".}
-proc getShape*(this: var BlendFuncRuled; nbPoles: var int; nbKnots: var int;
-              degree: var int; nbPoles2d: var int) {.importcpp: "GetShape",
+proc getShape*(this: var BlendFuncRuled; nbPoles: var cint; nbKnots: var cint;
+              degree: var cint; nbPoles2d: var cint) {.importcpp: "GetShape",
     header: "BlendFunc_Ruled.hxx".}
-proc getTolerance*(this: BlendFuncRuled; boundTol: float; surfTol: float;
-                  angleTol: float; tol3d: var MathVector; tol1D: var MathVector) {.
+proc getTolerance*(this: BlendFuncRuled; boundTol: cfloat; surfTol: cfloat;
+                  angleTol: cfloat; tol3d: var MathVector; tol1D: var MathVector) {.
     noSideEffect, importcpp: "GetTolerance", header: "BlendFunc_Ruled.hxx".}
 proc knots*(this: var BlendFuncRuled; tKnots: var TColStdArray1OfReal) {.
     importcpp: "Knots", header: "BlendFunc_Ruled.hxx".}
@@ -107,8 +108,33 @@ proc section*(this: var BlendFuncRuled; p: BlendPoint; poles: var TColgpArray1Of
 proc section*(this: var BlendFuncRuled; p: BlendPoint; poles: var TColgpArray1OfPnt;
              poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal) {.
     importcpp: "Section", header: "BlendFunc_Ruled.hxx".}
-proc axeRot*(this: var BlendFuncRuled; prm: float): Ax1 {.importcpp: "AxeRot",
+proc axeRot*(this: var BlendFuncRuled; prm: cfloat): Ax1 {.importcpp: "AxeRot",
     header: "BlendFunc_Ruled.hxx".}
-proc resolution*(this: BlendFuncRuled; iC2d: int; tol: float; tolU: var float;
-                tolV: var float) {.noSideEffect, importcpp: "Resolution",
-                                header: "BlendFunc_Ruled.hxx".}
+proc resolution*(this: BlendFuncRuled; iC2d: cint; tol: cfloat; tolU: var cfloat;
+                tolV: var cfloat) {.noSideEffect, importcpp: "Resolution",
+                                 header: "BlendFunc_Ruled.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

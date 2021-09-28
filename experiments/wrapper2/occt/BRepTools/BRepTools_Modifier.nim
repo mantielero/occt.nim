@@ -46,3 +46,28 @@ proc setMutableInput*(this: var BRepToolsModifier; theMutableInput: bool) {.
     importcpp: "SetMutableInput", header: "BRepTools_Modifier.hxx".}
 proc modifiedShape*(this: BRepToolsModifier; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape", header: "BRepTools_Modifier.hxx".}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

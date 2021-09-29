@@ -1,3 +1,21 @@
+{.passL: "-lTKBO".}
+{.passL: "-lTKSTEP".}
+{.passL: "-lTKPrim".}
+{.passL: "-lTKSTEPAttr".}
+{.passL: "-lTKSTEP209".}
+{.passL: "-lTKSTEPBase".}
+{.passL: "-lTKXSBase".}
+{.passL: "-lTKShHealing".}
+{.passL: "-lTKTopAlgo".}
+{.passL: "-lTKGeomAlgo".}
+{.passL: "-lTKBRep".}
+{.passL: "-lTKGeomBase".}
+{.passL: "-lTKG3d".}
+{.passL: "-lTKG2d".}
+{.passL: "-lTKMath".}
+{.passL: "-lTKernel".}
+
+{.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 #import occt
 
@@ -9,7 +27,10 @@ include occt/Standard/Standard_includes
 include occt/NCollection/NCollection_includes
 include occt/gp/gp_includes
 include occt/Geom/Geom_includes
+include occt/Geom2d/Geom2d_includes
 include occt/GC/GC_includes
+include occt/TopoDS/TopoDS_includes
+include occt/BRepBuilderAPI/BRepBuilderAPI_includes
 
 #import cinterop
 
@@ -18,42 +39,45 @@ proc main() =
     myWidth = 50.0
     myThickness = 20.0
     myHeight = 70.0
-    aPnt1 = constructPnt(-myWidth / 2.0, 0, 0)
-    aPnt2 = constructPnt(-myWidth / 2.0, -myThickness / 4.0, 0)
-    aPnt3 = constructPnt(0, -myThickness / 2.0, 0)
-    aPnt4 = constructPnt(myWidth / 2.0, -myThickness / 4.0, 0)
-    aPnt5 = constructPnt(myWidth / 2.0, 0, 0)
+    aPnt1 = newPnt(-myWidth / 2.0, 0, 0)
+    aPnt2 = newPnt(-myWidth / 2.0, -myThickness / 4.0, 0)
+    aPnt3 = newPnt(0, -myThickness / 2.0, 0)
+    aPnt4 = newPnt(myWidth / 2.0, -myThickness / 4.0, 0)
+    aPnt5 = newPnt(myWidth / 2.0, 0, 0)
 
-  echo aPnt2
-  echo aPnt3
-  echo aPnt4
+  echo aPnt2.x
+  echo aPnt3.y
+  echo aPnt4.z
 
   let 
-    aArcOfCircle:Handle_Geom_TrimmedCurve  = makeArcOfCircle(aPnt2,aPnt3,aPnt4) 
-    aSegment1:Handle_Geom_TrimmedCurve = makeSegment(aPnt1, aPnt2)
-    aSegment2:Handle_Geom_TrimmedCurve = makeSegment(aPnt4, aPnt5)
+    aArcOfCircle = makeArcOfCircle(aPnt2,aPnt3,aPnt4) # Handle_Geom_TrimmedCurve
+    aSegment1    = makeSegment(aPnt1, aPnt2)
+    aSegment2    = makeSegment(aPnt4, aPnt5)
 
 
   # Profile: Defining the Topology
   # Converting suporting geometry
-  let
-    aEdge1:TopoDS_Edge = makeEdge(aSegment1) # BRepBuilderAPI_
-    aEdge2:TopoDS_Edge = makeEdge(aArcOfCircle)
-    aEdge3:TopoDS_Edge = makeEdge(aSegment2)
+  var
+    #aEdge1:TopoDS_Edge = makeEdge(aSegment1)    # BRepBuilderAPI_MakeEdge
+    #aEdge2:TopoDS_Edge = makeEdge(aArcOfCircle)
+    #aEdge3:TopoDS_Edge = makeEdge(aSegment2)
+    aEdge1:BRepBuilderAPI_MakeEdge = makeEdge(aSegment1)    # BRepBuilderAPI_MakeEdge
+    aEdge2:BRepBuilderAPI_MakeEdge = makeEdge(aArcOfCircle)
+    aEdge3:BRepBuilderAPI_MakeEdge = makeEdge(aSegment2)
 
     #aEdge1 = makeEdge(aPnt1, aPnt3)
     #aEdge3 = makeEdge(aPnt4, aPnt5)
-    aWire:TopoDS_Wire = makeWire(aEdge1, aEdge2, aEdge3)
+    aWire:BRepBuilderAPI_MakeWire = makeWire(aEdge1, aEdge2, aEdge3)
 
 
     # Profile: Completing the Profile
-    aOrigin = constructPnt(0, 0, 0)
+    aOrigin = newPnt(0, 0, 0)
     xDir    = newDir(1, 0, 0)
     xAxis   = newAx1(aOrigin, xDir)
     # gp_Ax1 xAxis = gp::OX();
 
 
-  var aTrsf:gp_Trsf
+  var aTrsf:Trsf
   aTrsf.setMirror(xAxis)
 
   # apply the transformation 
@@ -91,7 +115,7 @@ proc main() =
   let myFilletedBody = mkFillet.shape()
 
   # Adding the Neck
-  let neckLocation = constructPnt(0, 0, myHeight)
+  let neckLocation = newPnt(0, 0, myHeight)
   let neckAxis:Dir = dz()
   let neckAx2 = newAx2(neckLocation, neckAxis)
   

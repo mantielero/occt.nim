@@ -19,14 +19,6 @@ discard "forward decl of gp_VectorWithNullMagnitude"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Vector"
 discard "forward decl of Geom2d_Vector"
-type
-  HandleC1C1* = Handle[Geom2dVector]
-
-## ! The abstract class Vector describes the common
-## ! behavior of vectors in 2D space.
-## ! The Geom2d package provides two concrete
-## ! classes of vectors: Geom2d_Direction (unit vector)
-## ! and Geom2d_VectorWithMagnitude.
 
 type
   Geom2dVector* {.importcpp: "Geom2d_Vector", header: "Geom2d_Vector.hxx", bycopy.} = object of Geom2dGeometry ##
@@ -36,6 +28,19 @@ type
                                                                                                      ## vector
                                                                                                      ## <me>.
 
+
+
+type
+  HandleGeom2dVector* = Handle[Geom2dVector]
+
+## ! The abstract class Vector describes the common
+## ! behavior of vectors in 2D space.
+## ! The Geom2d package provides two concrete
+## ! classes of vectors: Geom2d_Direction (unit vector)
+## ! and Geom2d_VectorWithMagnitude.
+
+type
+  Geom2dVectorbaseType* = Geom2dGeometry
 
 proc reverse*(this: var Geom2dVector) {.importcpp: "Reverse",
                                     header: "Geom2d_Vector.hxx".}
@@ -59,13 +64,12 @@ proc dot*(this: Geom2dVector; other: Handle[Geom2dVector]): StandardReal {.
     noSideEffect, importcpp: "Dot", header: "Geom2d_Vector.hxx".}
 proc vec2d*(this: Geom2dVector): Vec2d {.noSideEffect, importcpp: "Vec2d",
                                      header: "Geom2d_Vector.hxx".}
-type
-  Geom2dVectorbaseType* = Geom2dGeometry
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Vector::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_Vector::get_type_name(@)",
                             header: "Geom2d_Vector.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Vector::get_type_descriptor(@)",
     header: "Geom2d_Vector.hxx".}
 proc dynamicType*(this: Geom2dVector): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Vector.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Vector.hxx".} ]#

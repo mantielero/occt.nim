@@ -22,11 +22,7 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_VectorWithMagnitude"
 discard "forward decl of Geom2d_VectorWithMagnitude"
-type
-  HandleC1C1* = Handle[Geom2dVectorWithMagnitude]
 
-## ! Defines a vector with magnitude.
-## ! A vector with magnitude can have a zero length.
 
 type
   Geom2dVectorWithMagnitude* {.importcpp: "Geom2d_VectorWithMagnitude",
@@ -38,6 +34,16 @@ type
                                                                                                    ## copy
                                                                                                    ## of
                                                                                                    ## V.
+
+
+type
+  HandleGeom2dVectorWithMagnitude* = Handle[Geom2dVectorWithMagnitude]
+
+## ! Defines a vector with magnitude.
+## ! A vector with magnitude can have a zero length.
+
+type
+  Geom2dVectorWithMagnitudebaseType* = Geom2dVector
 
 
 proc constructGeom2dVectorWithMagnitude*(v: Vec2d): Geom2dVectorWithMagnitude {.
@@ -110,14 +116,13 @@ proc transform*(this: var Geom2dVectorWithMagnitude; t: Trsf2d) {.
     importcpp: "Transform", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc copy*(this: Geom2dVectorWithMagnitude): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_VectorWithMagnitude.hxx".}
-type
-  Geom2dVectorWithMagnitudebaseType* = Geom2dVector
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_VectorWithMagnitude::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_VectorWithMagnitude::get_type_name(@)",
                             header: "Geom2d_VectorWithMagnitude.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_VectorWithMagnitude::get_type_descriptor(@)",
     header: "Geom2d_VectorWithMagnitude.hxx".}
 proc dynamicType*(this: Geom2dVectorWithMagnitude): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "Geom2d_VectorWithMagnitude.hxx".}
+    header: "Geom2d_VectorWithMagnitude.hxx".} ]#

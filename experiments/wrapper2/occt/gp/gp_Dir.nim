@@ -36,12 +36,12 @@ proc `new`*(this: var Dir; a2: csize_t; theAddress: pointer): pointer {.
     importcpp: "gp_Dir::operator new", header: "gp_Dir.hxx".}
 proc `delete`*(this: var Dir; a2: pointer; a3: pointer) {.
     importcpp: "gp_Dir::operator delete", header: "gp_Dir.hxx".}
-proc constructDir*(): Dir {.constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
-proc constructDir*(v: Vec): Dir {.constructor, importcpp: "gp_Dir(@)",
+proc newDir*(): Dir {.constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
+proc newDir*(v: Vec): Dir {.constructor, importcpp: "gp_Dir(@)",
                               header: "gp_Dir.hxx".}
-proc constructDir*(coord: Xyz): Dir {.constructor, importcpp: "gp_Dir(@)",
+proc newDir*(coord: Xyz): Dir {.constructor, importcpp: "gp_Dir(@)",
                                   header: "gp_Dir.hxx".}
-proc constructDir*(xv: StandardReal; yv: StandardReal; zv: StandardReal): Dir {.
+proc newDir*(xv: StandardReal; yv: StandardReal; zv: StandardReal): Dir {.
     constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
 proc setCoord*(this: var Dir; index: int; xi: StandardReal) {.importcpp: "SetCoord",
     header: "gp_Dir.hxx".}

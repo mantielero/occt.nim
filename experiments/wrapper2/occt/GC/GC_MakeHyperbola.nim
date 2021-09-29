@@ -29,11 +29,11 @@ type
                                                                            ## conversion.
 
 
-proc constructGC_MakeHyperbola*(h: Hypr): GC_MakeHyperbola {.constructor,
+proc makeHyperbola*(h: Hypr): GC_MakeHyperbola {.constructor,
     importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc constructGC_MakeHyperbola*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GC_MakeHyperbola {.
+proc makeHyperbola*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GC_MakeHyperbola {.
     constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc constructGC_MakeHyperbola*(s1: Pnt; s2: Pnt; center: Pnt): GC_MakeHyperbola {.
+proc makeHyperbola*(s1: Pnt; s2: Pnt; center: Pnt): GC_MakeHyperbola {.
     constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
 proc value*(this: GC_MakeHyperbola): Handle[GeomHyperbola] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeHyperbola.hxx".}

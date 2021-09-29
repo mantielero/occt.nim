@@ -19,36 +19,26 @@
 
 type
   TopoDSToStepRoot* {.importcpp: "TopoDSToStep_Root",
-                     header: "TopoDSToStep_Root.hxx", bycopy.} = object ## ! Returns (modifiable) the tolerance to be used for writing
-                                                                   ## ! If not set, starts at 0.0001
+                     header: "TopoDSToStep_Root.hxx", bycopy.} = object
 
 
-proc tolerance*(this: var TopoDSToStepRoot): var cfloat {.importcpp: "Tolerance",
+proc `new`*(this: var TopoDSToStepRoot; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_Root::operator new", header: "TopoDSToStep_Root.hxx".}
+proc `delete`*(this: var TopoDSToStepRoot; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_Root::operator delete",
     header: "TopoDSToStep_Root.hxx".}
-proc isDone*(this: TopoDSToStepRoot): bool {.noSideEffect, importcpp: "IsDone",
+proc `new[]`*(this: var TopoDSToStepRoot; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_Root::operator new[]",
     header: "TopoDSToStep_Root.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc `delete[]`*(this: var TopoDSToStepRoot; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_Root::operator delete[]",
+    header: "TopoDSToStep_Root.hxx".}
+proc `new`*(this: var TopoDSToStepRoot; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDSToStep_Root::operator new", header: "TopoDSToStep_Root.hxx".}
+proc `delete`*(this: var TopoDSToStepRoot; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_Root::operator delete",
+    header: "TopoDSToStep_Root.hxx".}
+proc tolerance*(this: var TopoDSToStepRoot): var StandardReal {.
+    importcpp: "Tolerance", header: "TopoDSToStep_Root.hxx".}
+proc isDone*(this: TopoDSToStepRoot): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "TopoDSToStep_Root.hxx".}

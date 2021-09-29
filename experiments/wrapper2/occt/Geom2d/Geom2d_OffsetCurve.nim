@@ -27,46 +27,6 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_OffsetCurve"
 discard "forward decl of Geom2d_OffsetCurve"
-type
-  HandleC1C1* = Handle[Geom2dOffsetCurve]
-
-## ! This class implements the basis services for the creation,
-## ! edition, modification and evaluation of planar offset curve.
-## ! The offset curve is obtained by offsetting by distance along
-## ! the normal to a basis curve defined in 2D space.
-## ! The offset curve in this package can be a self intersecting
-## ! curve even if the basis curve does not self-intersect.
-## ! The self intersecting portions are not deleted at the
-## ! construction time.
-## ! An offset curve is a curve at constant distance (Offset) from a
-## ! basis curve and the offset curve takes its parametrization from
-## ! the basis curve. The Offset curve is in the direction of the
-## ! normal to the basis curve N.
-## ! The distance offset may be positive or negative to indicate the
-## ! preferred side of the curve :
-## ! . distance offset >0 => the curve is in the direction of N
-## ! . distance offset >0 => the curve is in the direction of - N
-## ! On the Offset curve :
-## ! Value(u) = BasisCurve.Value(U) + (Offset * (T ^ Z)) / ||T ^ Z||
-## ! where T is the tangent vector to the basis curve and Z the
-## ! direction of the normal vector to the plane of the curve,
-## ! N = T ^ Z defines the offset direction and should not have
-## ! null length.
-## !
-## ! Warnings :
-## ! In this package we suppose that the continuity of the offset
-## ! curve is one degree less than the continuity of the
-## ! basis curve and we don't check that at any point ||T^Z|| != 0.0
-## !
-## ! So to evaluate the curve it is better to check that the offset
-## ! curve is well defined at any point because an exception could
-## ! be raised. The check is not done in this package at the creation
-## ! of the offset curve because the control needs the use of an
-## ! algorithm which cannot be implemented in this package.
-## ! The OffsetCurve is closed if the first point and the last point
-## ! are the same (The distance between these two points is lower or
-## ! equal to the Resolution sea package gp) . The OffsetCurve can be
-## ! closed even if the basis curve is not closed.
 
 type
   Geom2dOffsetCurve* {.importcpp: "Geom2d_OffsetCurve",
@@ -282,6 +242,49 @@ type
                                                                                   ## point.
 
 
+type
+  HandleGeom2dOffsetCurve* = Handle[Geom2dOffsetCurve]
+
+## ! This class implements the basis services for the creation,
+## ! edition, modification and evaluation of planar offset curve.
+## ! The offset curve is obtained by offsetting by distance along
+## ! the normal to a basis curve defined in 2D space.
+## ! The offset curve in this package can be a self intersecting
+## ! curve even if the basis curve does not self-intersect.
+## ! The self intersecting portions are not deleted at the
+## ! construction time.
+## ! An offset curve is a curve at constant distance (Offset) from a
+## ! basis curve and the offset curve takes its parametrization from
+## ! the basis curve. The Offset curve is in the direction of the
+## ! normal to the basis curve N.
+## ! The distance offset may be positive or negative to indicate the
+## ! preferred side of the curve :
+## ! . distance offset >0 => the curve is in the direction of N
+## ! . distance offset >0 => the curve is in the direction of - N
+## ! On the Offset curve :
+## ! Value(u) = BasisCurve.Value(U) + (Offset * (T ^ Z)) / ||T ^ Z||
+## ! where T is the tangent vector to the basis curve and Z the
+## ! direction of the normal vector to the plane of the curve,
+## ! N = T ^ Z defines the offset direction and should not have
+## ! null length.
+## !
+## ! Warnings :
+## ! In this package we suppose that the continuity of the offset
+## ! curve is one degree less than the continuity of the
+## ! basis curve and we don't check that at any point ||T^Z|| != 0.0
+## !
+## ! So to evaluate the curve it is better to check that the offset
+## ! curve is well defined at any point because an exception could
+## ! be raised. The check is not done in this package at the creation
+## ! of the offset curve because the control needs the use of an
+## ! algorithm which cannot be implemented in this package.
+## ! The OffsetCurve is closed if the first point and the last point
+## ! are the same (The distance between these two points is lower or
+## ! equal to the Resolution sea package gp) . The OffsetCurve can be
+## ! closed even if the basis curve is not closed.
+type
+  Geom2dOffsetCurvebaseType* = Geom2dCurve
+
 proc constructGeom2dOffsetCurve*(c: Handle[Geom2dCurve]; offset: StandardReal;
                                 isNotCheckC0: StandardBoolean = false): Geom2dOffsetCurve {.
     constructor, importcpp: "Geom2d_OffsetCurve(@)",
@@ -297,8 +300,8 @@ proc setOffsetValue*(this: var Geom2dOffsetCurve; d: StandardReal) {.
     importcpp: "SetOffsetValue", header: "Geom2d_OffsetCurve.hxx".}
 proc basisCurve*(this: Geom2dOffsetCurve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "Geom2d_OffsetCurve.hxx".}
-proc continuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom2d_OffsetCurve.hxx".}
+#[ proc continuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom2d_OffsetCurve.hxx".} ]#
 proc d0*(this: Geom2dOffsetCurve; u: StandardReal; p: var Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Geom2d_OffsetCurve.hxx".}
 proc d1*(this: Geom2dOffsetCurve; u: StandardReal; p: var Pnt2d; v1: var Vec2d) {.
@@ -335,18 +338,17 @@ proc parametricTransformation*(this: Geom2dOffsetCurve; t: Trsf2d): StandardReal
     header: "Geom2d_OffsetCurve.hxx".}
 proc copy*(this: Geom2dOffsetCurve): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_OffsetCurve.hxx".}
-proc getBasisCurveContinuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect,
-    importcpp: "GetBasisCurveContinuity", header: "Geom2d_OffsetCurve.hxx".}
+#[ proc getBasisCurveContinuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "GetBasisCurveContinuity", header: "Geom2d_OffsetCurve.hxx".} ]#
 proc dumpJson*(this: Geom2dOffsetCurve; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom2d_OffsetCurve.hxx".}
-type
-  Geom2dOffsetCurvebaseType* = Geom2dCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_OffsetCurve::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_OffsetCurve::get_type_name(@)",
                             header: "Geom2d_OffsetCurve.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_OffsetCurve::get_type_descriptor(@)",
     header: "Geom2d_OffsetCurve.hxx".}
 proc dynamicType*(this: Geom2dOffsetCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_OffsetCurve.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_OffsetCurve.hxx".} ]#

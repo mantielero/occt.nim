@@ -26,6 +26,21 @@ type
       header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
+proc `new`*(this: var TopoDSToStepMakeShellBasedSurfaceModel; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel::operator new",
+    header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeShellBasedSurfaceModel; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel::operator delete",
+    header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
+proc `new[]`*(this: var TopoDSToStepMakeShellBasedSurfaceModel; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel::operator new[]",
+    header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
+proc `delete[]`*(this: var TopoDSToStepMakeShellBasedSurfaceModel;
+                theAddress: pointer) {.importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel::operator delete[]", header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
+proc `new`*(this: var TopoDSToStepMakeShellBasedSurfaceModel; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel::operator new", header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeShellBasedSurfaceModel; a2: pointer;
+              a3: pointer) {.importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel::operator delete", header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
 proc constructTopoDSToStepMakeShellBasedSurfaceModel*(f: TopoDS_Face;
     fp: Handle[TransferFinderProcess];
     theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeShellBasedSurfaceModel {.
@@ -43,28 +58,3 @@ proc constructTopoDSToStepMakeShellBasedSurfaceModel*(s: TopoDS_Solid;
     header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
 proc value*(this: TopoDSToStepMakeShellBasedSurfaceModel): Handle[
     StepShapeShellBasedSurfaceModel] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

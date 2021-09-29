@@ -24,6 +24,19 @@ type
       header: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
+proc `new`*(this: var TopoDSToStepMakeFacetedBrepAndBrepWithVoids; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids::operator new",
+    header: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeFacetedBrepAndBrepWithVoids;
+              theAddress: pointer) {.importcpp: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids::operator delete", header: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids.hxx".}
+proc `new[]`*(this: var TopoDSToStepMakeFacetedBrepAndBrepWithVoids;
+             theSize: csize_t): pointer {.importcpp: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids::operator new[]", header: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids.hxx".}
+proc `delete[]`*(this: var TopoDSToStepMakeFacetedBrepAndBrepWithVoids;
+                theAddress: pointer) {.importcpp: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids::operator delete[]", header: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids.hxx".}
+proc `new`*(this: var TopoDSToStepMakeFacetedBrepAndBrepWithVoids; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids::operator new", header: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeFacetedBrepAndBrepWithVoids; a2: pointer;
+              a3: pointer) {.importcpp: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids::operator delete", header: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids.hxx".}
 proc constructTopoDSToStepMakeFacetedBrepAndBrepWithVoids*(s: TopoDS_Solid;
     fp: Handle[TransferFinderProcess];
     theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeFacetedBrepAndBrepWithVoids {.
@@ -32,28 +45,3 @@ proc constructTopoDSToStepMakeFacetedBrepAndBrepWithVoids*(s: TopoDS_Solid;
 proc value*(this: TopoDSToStepMakeFacetedBrepAndBrepWithVoids): Handle[
     StepShapeFacetedBrepAndBrepWithVoids] {.noSideEffect, importcpp: "Value",
     header: "TopoDSToStep_MakeFacetedBrepAndBrepWithVoids.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

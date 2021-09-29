@@ -34,44 +34,26 @@ discard "forward decl of BRepBuilderAPI_GTransform"
 discard "forward decl of BRepBuilderAPI_Copy"
 discard "forward decl of BRepBuilderAPI_Collect"
 type
-  BRepBuilderAPI* {.importcpp: "BRepBuilderAPI", header: "BRepBuilderAPI.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Sets
-                                                                                         ## the
-                                                                                         ## current
-                                                                                         ## plane.
+  BRepBuilderAPI* {.importcpp: "BRepBuilderAPI", header: "BRepBuilderAPI.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepBuilderAPI; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI::operator new", header: "BRepBuilderAPI.hxx".}
+proc `delete`*(this: var BRepBuilderAPI; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI::operator delete", header: "BRepBuilderAPI.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI::operator new[]", header: "BRepBuilderAPI.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI::operator delete[]", header: "BRepBuilderAPI.hxx".}
+proc `new`*(this: var BRepBuilderAPI; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI::operator new", header: "BRepBuilderAPI.hxx".}
+proc `delete`*(this: var BRepBuilderAPI; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI::operator delete", header: "BRepBuilderAPI.hxx".}
 proc plane*(p: Handle[GeomPlane]) {.importcpp: "BRepBuilderAPI::Plane(@)",
                                  header: "BRepBuilderAPI.hxx".}
 proc plane*(): Handle[GeomPlane] {.importcpp: "BRepBuilderAPI::Plane(@)",
                                 header: "BRepBuilderAPI.hxx".}
-proc precision*(p: cfloat) {.importcpp: "BRepBuilderAPI::Precision(@)",
-                          header: "BRepBuilderAPI.hxx".}
-proc precision*(): cfloat {.importcpp: "BRepBuilderAPI::Precision(@)",
-                         header: "BRepBuilderAPI.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc precision*(p: StandardReal) {.importcpp: "BRepBuilderAPI::Precision(@)",
+                                header: "BRepBuilderAPI.hxx".}
+proc precision*(): StandardReal {.importcpp: "BRepBuilderAPI::Precision(@)",
+                               header: "BRepBuilderAPI.hxx".}

@@ -22,8 +22,19 @@ discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Transformation"
 discard "forward decl of Geom2d_Transformation"
+
 type
-  HandleC1C1* = Handle[Geom2dTransformation]
+  Geom2dTransformation* {.importcpp: "Geom2d_Transformation",
+                         header: "Geom2d_Transformation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                              ## !
+                                                                                              ## Creates
+                                                                                              ## an
+                                                                                              ## identity
+                                                                                              ## transformation.
+
+
+type
+  HandleGeom2dTransformation* = Handle[Geom2dTransformation]
 
 ## ! The class Transformation allows to create Translation,
 ## ! Rotation, Symmetry, Scaling and complex transformations
@@ -59,14 +70,7 @@ type
 ## ! several objects contained inside a common data structure.
 
 type
-  Geom2dTransformation* {.importcpp: "Geom2d_Transformation",
-                         header: "Geom2d_Transformation.hxx", bycopy.} = object of StandardTransient ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## identity
-                                                                                              ## transformation.
-
+  Geom2dTransformationbaseType* = StandardTransient
 
 proc constructGeom2dTransformation*(): Geom2dTransformation {.constructor,
     importcpp: "Geom2d_Transformation(@)", header: "Geom2d_Transformation.hxx".}
@@ -126,13 +130,12 @@ proc transforms*(this: Geom2dTransformation; x: var StandardReal; y: var Standar
     noSideEffect, importcpp: "Transforms", header: "Geom2d_Transformation.hxx".}
 proc copy*(this: Geom2dTransformation): Handle[Geom2dTransformation] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_Transformation.hxx".}
-type
-  Geom2dTransformationbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Transformation::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_Transformation::get_type_name(@)",
                             header: "Geom2d_Transformation.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Transformation::get_type_descriptor(@)",
     header: "Geom2d_Transformation.hxx".}
 proc dynamicType*(this: Geom2dTransformation): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Transformation.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Transformation.hxx".} ]#

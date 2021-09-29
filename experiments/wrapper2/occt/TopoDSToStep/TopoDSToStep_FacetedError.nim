@@ -21,29 +21,3 @@ type
     TopoDSToStepFacetedDone, TopoDSToStepSurfaceNotPlane,
     TopoDSToStepPCurveNotLinear
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

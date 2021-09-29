@@ -25,8 +25,24 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Ellipse"
 discard "forward decl of Geom2d_Ellipse"
+
 type
-  HandleC1C1* = Handle[Geom2dEllipse]
+  Geom2dEllipse* {.importcpp: "Geom2d_Ellipse", header: "Geom2d_Ellipse.hxx", bycopy.} = object of Geom2dConic ##
+                                                                                                     ## !
+                                                                                                     ## Creates
+                                                                                                     ## an
+                                                                                                     ## ellipse
+                                                                                                     ## by
+                                                                                                     ## conversion
+                                                                                                     ## of
+                                                                                                     ## the
+                                                                                                     ## gp_Elips2d
+                                                                                                     ## ellipse
+                                                                                                     ## E.
+
+
+type
+  HandleGeom2dEllipse* = Handle[Geom2dEllipse]
 
 ## ! Describes an ellipse in the plane (2D space).
 ## ! An ellipse is defined by its major and minor radii and,
@@ -59,19 +75,7 @@ type
 ## ! gp_Elips2d for an equivalent, non-parameterized data structure
 
 type
-  Geom2dEllipse* {.importcpp: "Geom2d_Ellipse", header: "Geom2d_Ellipse.hxx", bycopy.} = object of Geom2dConic ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## an
-                                                                                                     ## ellipse
-                                                                                                     ## by
-                                                                                                     ## conversion
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## gp_Elips2d
-                                                                                                     ## ellipse
-                                                                                                     ## E.
-
+  Geom2dEllipsebaseType* = Geom2dConic
 
 proc constructGeom2dEllipse*(e: Elips2d): Geom2dEllipse {.constructor,
     importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
@@ -135,13 +139,12 @@ proc copy*(this: Geom2dEllipse): Handle[Geom2dGeometry] {.noSideEffect,
 proc dumpJson*(this: Geom2dEllipse; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom2d_Ellipse.hxx".}
-type
-  Geom2dEllipsebaseType* = Geom2dConic
 
+#[ 
 proc getTypeName*(): cstring {.importcpp: "Geom2d_Ellipse::get_type_name(@)",
                             header: "Geom2d_Ellipse.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Ellipse::get_type_descriptor(@)",
     header: "Geom2d_Ellipse.hxx".}
 proc dynamicType*(this: Geom2dEllipse): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Ellipse.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Ellipse.hxx".} ]#

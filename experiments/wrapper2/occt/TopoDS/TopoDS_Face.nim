@@ -23,36 +23,20 @@
 ## ! of its geometry (as opposed to orientation in relation to other shapes).
 
 type
-  TopoDS_Face* {.importcpp: "TopoDS_Face", header: "TopoDS_Face.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                              ## !
-                                                                                              ## Undefined
-                                                                                              ## Face.
+  TopoDS_Face* {.importcpp: "TopoDS_Face", header: "TopoDS_Face.hxx", bycopy.} = object of TopoDS_Shape
 
 
+proc `new`*(this: var TopoDS_Face; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Face::operator new", header: "TopoDS_Face.hxx".}
+proc `delete`*(this: var TopoDS_Face; theAddress: pointer) {.
+    importcpp: "TopoDS_Face::operator delete", header: "TopoDS_Face.hxx".}
+proc `new[]`*(this: var TopoDS_Face; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Face::operator new[]", header: "TopoDS_Face.hxx".}
+proc `delete[]`*(this: var TopoDS_Face; theAddress: pointer) {.
+    importcpp: "TopoDS_Face::operator delete[]", header: "TopoDS_Face.hxx".}
+proc `new`*(this: var TopoDS_Face; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDS_Face::operator new", header: "TopoDS_Face.hxx".}
+proc `delete`*(this: var TopoDS_Face; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDS_Face::operator delete", header: "TopoDS_Face.hxx".}
 proc constructTopoDS_Face*(): TopoDS_Face {.constructor,
     importcpp: "TopoDS_Face(@)", header: "TopoDS_Face.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

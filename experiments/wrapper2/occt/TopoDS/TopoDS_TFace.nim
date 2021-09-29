@@ -18,13 +18,6 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TFace"
 discard "forward decl of TopoDS_TFace"
 type
-  HandleC1C1* = Handle[TopoDS_TFace]
-
-## ! A  topological part  of a surface   or  of the  2D
-## ! space.  The  boundary  is  a   set of  wires   and
-## ! vertices.
-
-type
   TopoDS_TFace* {.importcpp: "TopoDS_TFace", header: "TopoDS_TFace.hxx", bycopy.} = object of TopoDS_TShape ##
                                                                                                   ## !
                                                                                                   ## Creates
@@ -32,44 +25,27 @@ type
                                                                                                   ## empty
                                                                                                   ## TFace.
 
+type
+  HandleTopoDS_TFace* = Handle[TopoDS_TFace]
+
+## ! A  topological part  of a surface   or  of the  2D
+## ! space.  The  boundary  is  a   set of  wires   and
+## ! vertices.
+
+type
+  TopoDS_TFacebaseType* = TopoDS_TShape
+
 
 proc constructTopoDS_TFace*(): TopoDS_TFace {.constructor,
     importcpp: "TopoDS_TFace(@)", header: "TopoDS_TFace.hxx".}
-proc shapeType*(this: TopoDS_TFace): TopAbsShapeEnum {.noSideEffect,
+#[ proc shapeType*(this: TopoDS_TFace): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TFace.hxx".}
 proc emptyCopy*(this: TopoDS_TFace): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TFace.hxx".}
-type
-  TopoDS_TFacebaseType* = TopoDS_TShape
 
 proc getTypeName*(): cstring {.importcpp: "TopoDS_TFace::get_type_name(@)",
                             header: "TopoDS_TFace.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TFace::get_type_descriptor(@)", header: "TopoDS_TFace.hxx".}
 proc dynamicType*(this: TopoDS_TFace): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "TopoDS_TFace.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "TopoDS_TFace.hxx".} ]#

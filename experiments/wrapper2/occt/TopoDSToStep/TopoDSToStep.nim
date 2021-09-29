@@ -38,6 +38,18 @@ type
   TopoDSToStep* {.importcpp: "TopoDSToStep", header: "TopoDSToStep.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopoDSToStep; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep::operator new", header: "TopoDSToStep.hxx".}
+proc `delete`*(this: var TopoDSToStep; theAddress: pointer) {.
+    importcpp: "TopoDSToStep::operator delete", header: "TopoDSToStep.hxx".}
+proc `new[]`*(this: var TopoDSToStep; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep::operator new[]", header: "TopoDSToStep.hxx".}
+proc `delete[]`*(this: var TopoDSToStep; theAddress: pointer) {.
+    importcpp: "TopoDSToStep::operator delete[]", header: "TopoDSToStep.hxx".}
+proc `new`*(this: var TopoDSToStep; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDSToStep::operator new", header: "TopoDSToStep.hxx".}
+proc `delete`*(this: var TopoDSToStep; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep::operator delete", header: "TopoDSToStep.hxx".}
 proc decodeBuilderError*(e: TopoDSToStepBuilderError): Handle[
     TCollectionHAsciiString] {.importcpp: "TopoDSToStep::DecodeBuilderError(@)",
                               header: "TopoDSToStep.hxx".}
@@ -55,28 +67,3 @@ proc addResult*(fp: Handle[TransferFinderProcess]; shape: TopoDS_Shape;
     importcpp: "TopoDSToStep::AddResult(@)", header: "TopoDSToStep.hxx".}
 proc addResult*(fp: Handle[TransferFinderProcess]; tool: TopoDSToStepTool) {.
     importcpp: "TopoDSToStep::AddResult(@)", header: "TopoDSToStep.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

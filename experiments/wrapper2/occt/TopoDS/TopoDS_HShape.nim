@@ -18,7 +18,9 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_HShape"
 discard "forward decl of TopoDS_HShape"
 type
-  HandleC1C1* = Handle[TopoDS_HShape]
+  TopoDS_HShapebaseType* = StandardTransient
+type
+  HandleTopoDS_HShape* = Handle[TopoDS_HShape]
 
 ## ! Class to manipulate a Shape with  handle.
 
@@ -42,38 +44,12 @@ proc shape*(this: TopoDS_HShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape
     header: "TopoDS_HShape.hxx".}
 proc changeShape*(this: var TopoDS_HShape): var TopoDS_Shape {.
     importcpp: "ChangeShape", header: "TopoDS_HShape.hxx".}
-type
-  TopoDS_HShapebaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "TopoDS_HShape::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "TopoDS_HShape::get_type_name(@)",
                             header: "TopoDS_HShape.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_HShape::get_type_descriptor(@)",
     header: "TopoDS_HShape.hxx".}
 proc dynamicType*(this: TopoDS_HShape): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "TopoDS_HShape.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "TopoDS_HShape.hxx".} ]#

@@ -24,6 +24,24 @@ type
                              header: "TopoDSToStep_MakeStepWire.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
+proc `new`*(this: var TopoDSToStepMakeStepWire; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeStepWire::operator new",
+    header: "TopoDSToStep_MakeStepWire.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeStepWire; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeStepWire::operator delete",
+    header: "TopoDSToStep_MakeStepWire.hxx".}
+proc `new[]`*(this: var TopoDSToStepMakeStepWire; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeStepWire::operator new[]",
+    header: "TopoDSToStep_MakeStepWire.hxx".}
+proc `delete[]`*(this: var TopoDSToStepMakeStepWire; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeStepWire::operator delete[]",
+    header: "TopoDSToStep_MakeStepWire.hxx".}
+proc `new`*(this: var TopoDSToStepMakeStepWire; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDSToStep_MakeStepWire::operator new",
+    header: "TopoDSToStep_MakeStepWire.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeStepWire; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_MakeStepWire::operator delete",
+    header: "TopoDSToStep_MakeStepWire.hxx".}
 proc constructTopoDSToStepMakeStepWire*(): TopoDSToStepMakeStepWire {.constructor,
     importcpp: "TopoDSToStep_MakeStepWire(@)",
     header: "TopoDSToStep_MakeStepWire.hxx".}
@@ -39,28 +57,3 @@ proc value*(this: TopoDSToStepMakeStepWire): Handle[
     header: "TopoDSToStep_MakeStepWire.hxx".}
 proc error*(this: TopoDSToStepMakeStepWire): TopoDSToStepMakeWireError {.
     noSideEffect, importcpp: "Error", header: "TopoDSToStep_MakeStepWire.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

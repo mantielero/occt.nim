@@ -47,14 +47,14 @@ type
                                                                                      ## radians).
 
 
-proc constructGC_MakeArcOfHyperbola*(hypr: Hypr; alpha1: cfloat; alpha2: cfloat;
+proc makeArcOfHyperbola*(hypr: Hypr; alpha1: cfloat; alpha2: cfloat;
                                     sense: bool): GC_MakeArcOfHyperbola {.
     constructor, importcpp: "GC_MakeArcOfHyperbola(@)",
     header: "GC_MakeArcOfHyperbola.hxx".}
-proc constructGC_MakeArcOfHyperbola*(hypr: Hypr; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfHyperbola {.
+proc makeArcOfHyperbola*(hypr: Hypr; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfHyperbola {.
     constructor, importcpp: "GC_MakeArcOfHyperbola(@)",
     header: "GC_MakeArcOfHyperbola.hxx".}
-proc constructGC_MakeArcOfHyperbola*(hypr: Hypr; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfHyperbola {.
+proc makeArcOfHyperbola*(hypr: Hypr; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfHyperbola {.
     constructor, importcpp: "GC_MakeArcOfHyperbola(@)",
     header: "GC_MakeArcOfHyperbola.hxx".}
 proc value*(this: GC_MakeArcOfHyperbola): Handle[GeomTrimmedCurve] {.noSideEffect,

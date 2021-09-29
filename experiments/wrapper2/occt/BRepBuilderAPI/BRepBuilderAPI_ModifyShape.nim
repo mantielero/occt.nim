@@ -22,51 +22,30 @@ type
   BRepBuilderAPI_ModifyShape* {.importcpp: "BRepBuilderAPI_ModifyShape",
                                header: "BRepBuilderAPI_ModifyShape.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
                                                                                                                 ## !
-                                                                                                                ## Returns
-                                                                                                                ## the
-                                                                                                                ## list
-                                                                                                                ## of
-                                                                                                                ## shapes
-                                                                                                                ## modified
-                                                                                                                ## from
-                                                                                                                ## the
-                                                                                                                ## shape
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## <S>.
-                                                                                                                ##
-                                                                                                                ## !
                                                                                                                 ## Empty
                                                                                                                 ## constructor.
 
 
-proc modified*(this: var BRepBuilderAPI_ModifyShape; s: TopoDS_Shape): TopToolsListOfShape {.
-    importcpp: "Modified", header: "BRepBuilderAPI_ModifyShape.hxx".}
+proc `new`*(this: var BRepBuilderAPI_ModifyShape; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_ModifyShape::operator new",
+    header: "BRepBuilderAPI_ModifyShape.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_ModifyShape; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_ModifyShape::operator delete",
+    header: "BRepBuilderAPI_ModifyShape.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_ModifyShape; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_ModifyShape::operator new[]",
+    header: "BRepBuilderAPI_ModifyShape.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_ModifyShape; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_ModifyShape::operator delete[]",
+    header: "BRepBuilderAPI_ModifyShape.hxx".}
+proc `new`*(this: var BRepBuilderAPI_ModifyShape; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_ModifyShape::operator new",
+    header: "BRepBuilderAPI_ModifyShape.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_ModifyShape; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_ModifyShape::operator delete",
+    header: "BRepBuilderAPI_ModifyShape.hxx".}
+#[ proc modified*(this: var BRepBuilderAPI_ModifyShape; s: TopoDS_Shape): TopToolsListOfShape {.
+    importcpp: "Modified", header: "BRepBuilderAPI_ModifyShape.hxx".} ]#
 proc modifiedShape*(this: BRepBuilderAPI_ModifyShape; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepBuilderAPI_ModifyShape.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

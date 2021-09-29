@@ -16,8 +16,14 @@
 
 discard "forward decl of Geom2d_UndefinedValue"
 discard "forward decl of Geom2d_UndefinedValue"
+
 type
-  HandleC1C1* = Handle[Geom2dUndefinedValue]
+  Geom2dUndefinedValue* {.importcpp: "Geom2d_UndefinedValue",
+                         header: "Geom2d_UndefinedValue.hxx", bycopy.} = object of StandardDomainError
+
+
+type
+  HandleGeom2dUndefinedValue* = Handle[Geom2dUndefinedValue]
 
 when not defined(noException) and not defined(noGeom2dUndefinedValue):
   template geom2dUndefinedValueRaiseIf*(condition, message: untyped): void =
@@ -28,7 +34,3 @@ when not defined(noException) and not defined(noGeom2dUndefinedValue):
 
 else:
   discard
-type
-  Geom2dUndefinedValue* {.importcpp: "Geom2d_UndefinedValue",
-                         header: "Geom2d_UndefinedValue.hxx", bycopy.} = object of StandardDomainError
-

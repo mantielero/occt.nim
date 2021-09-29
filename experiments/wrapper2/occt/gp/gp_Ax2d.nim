@@ -32,9 +32,9 @@ proc `new`*(this: var Ax2d; a2: csize_t; theAddress: pointer): pointer {.
     importcpp: "gp_Ax2d::operator new", header: "gp_Ax2d.hxx".}
 proc `delete`*(this: var Ax2d; a2: pointer; a3: pointer) {.
     importcpp: "gp_Ax2d::operator delete", header: "gp_Ax2d.hxx".}
-proc constructAx2d*(): Ax2d {.constructor, importcpp: "gp_Ax2d(@)",
+proc newAx2d*(): Ax2d {.constructor, importcpp: "gp_Ax2d(@)",
                            header: "gp_Ax2d.hxx".}
-proc constructAx2d*(p: Pnt2d; v: Dir2d): Ax2d {.constructor, importcpp: "gp_Ax2d(@)",
+proc newAx2d*(p: Pnt2d; v: Dir2d): Ax2d {.constructor, importcpp: "gp_Ax2d(@)",
     header: "gp_Ax2d.hxx".}
 proc setLocation*(this: var Ax2d; locat: Pnt2d) {.importcpp: "SetLocation",
     header: "gp_Ax2d.hxx".}

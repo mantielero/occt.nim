@@ -16,8 +16,8 @@
 
 discard "forward decl of TopoDS_Iterator"
 discard "forward decl of TopoDS_Builder"
-# when defined(Convex):
-#   discard
+when defined(Convex):
+  discard
 ## ! A TShape  is a topological  structure describing a
 ## ! set of points in a 2D or 3D space.
 ## !
@@ -96,51 +96,54 @@ type
                                                                                                          ## Defined
                                                                                                          ## mask
                                                                                                          ## values
+type
+  HandleTopoDS_TShape* = Handle[TopoDS_TShape]
 
+type
+  TopoDS_TShapebaseType* = StandardTransient
 
-proc free*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Free",
-                                    header: "TopoDS_TShape.hxx".}
-proc free*(this: var TopoDS_TShape; theIsFree: bool) {.importcpp: "Free",
+proc free*(this: TopoDS_TShape): StandardBoolean {.noSideEffect, importcpp: "Free",
     header: "TopoDS_TShape.hxx".}
-proc locked*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Locked",
-                                      header: "TopoDS_TShape.hxx".}
-proc locked*(this: var TopoDS_TShape; theIsLocked: bool) {.importcpp: "Locked",
+proc free*(this: var TopoDS_TShape; theIsFree: StandardBoolean) {.importcpp: "Free",
     header: "TopoDS_TShape.hxx".}
-proc modified*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Modified",
-                                        header: "TopoDS_TShape.hxx".}
-proc modified*(this: var TopoDS_TShape; theIsModified: bool) {.importcpp: "Modified",
-    header: "TopoDS_TShape.hxx".}
-proc checked*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Checked",
-                                       header: "TopoDS_TShape.hxx".}
-proc checked*(this: var TopoDS_TShape; theIsChecked: bool) {.importcpp: "Checked",
-    header: "TopoDS_TShape.hxx".}
-proc orientable*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Orientable",
-    header: "TopoDS_TShape.hxx".}
-proc orientable*(this: var TopoDS_TShape; theIsOrientable: bool) {.
+proc locked*(this: TopoDS_TShape): StandardBoolean {.noSideEffect,
+    importcpp: "Locked", header: "TopoDS_TShape.hxx".}
+proc locked*(this: var TopoDS_TShape; theIsLocked: StandardBoolean) {.
+    importcpp: "Locked", header: "TopoDS_TShape.hxx".}
+proc modified*(this: TopoDS_TShape): StandardBoolean {.noSideEffect,
+    importcpp: "Modified", header: "TopoDS_TShape.hxx".}
+proc modified*(this: var TopoDS_TShape; theIsModified: StandardBoolean) {.
+    importcpp: "Modified", header: "TopoDS_TShape.hxx".}
+proc checked*(this: TopoDS_TShape): StandardBoolean {.noSideEffect,
+    importcpp: "Checked", header: "TopoDS_TShape.hxx".}
+proc checked*(this: var TopoDS_TShape; theIsChecked: StandardBoolean) {.
+    importcpp: "Checked", header: "TopoDS_TShape.hxx".}
+proc orientable*(this: TopoDS_TShape): StandardBoolean {.noSideEffect,
     importcpp: "Orientable", header: "TopoDS_TShape.hxx".}
-proc closed*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Closed",
-                                      header: "TopoDS_TShape.hxx".}
-proc closed*(this: var TopoDS_TShape; theIsClosed: bool) {.importcpp: "Closed",
-    header: "TopoDS_TShape.hxx".}
-proc infinite*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Infinite",
-                                        header: "TopoDS_TShape.hxx".}
-proc infinite*(this: var TopoDS_TShape; theIsInfinite: bool) {.importcpp: "Infinite",
-    header: "TopoDS_TShape.hxx".}
-proc convex*(this: TopoDS_TShape): bool {.noSideEffect, importcpp: "Convex",
-                                      header: "TopoDS_TShape.hxx".}
-proc convex*(this: var TopoDS_TShape; theIsConvex: bool) {.importcpp: "Convex",
-    header: "TopoDS_TShape.hxx".}
-proc shapeType*(this: TopoDS_TShape): TopAbsShapeEnum {.noSideEffect,
+proc orientable*(this: var TopoDS_TShape; theIsOrientable: StandardBoolean) {.
+    importcpp: "Orientable", header: "TopoDS_TShape.hxx".}
+proc closed*(this: TopoDS_TShape): StandardBoolean {.noSideEffect,
+    importcpp: "Closed", header: "TopoDS_TShape.hxx".}
+proc closed*(this: var TopoDS_TShape; theIsClosed: StandardBoolean) {.
+    importcpp: "Closed", header: "TopoDS_TShape.hxx".}
+proc infinite*(this: TopoDS_TShape): StandardBoolean {.noSideEffect,
+    importcpp: "Infinite", header: "TopoDS_TShape.hxx".}
+proc infinite*(this: var TopoDS_TShape; theIsInfinite: StandardBoolean) {.
+    importcpp: "Infinite", header: "TopoDS_TShape.hxx".}
+proc convex*(this: TopoDS_TShape): StandardBoolean {.noSideEffect,
+    importcpp: "Convex", header: "TopoDS_TShape.hxx".}
+proc convex*(this: var TopoDS_TShape; theIsConvex: StandardBoolean) {.
+    importcpp: "Convex", header: "TopoDS_TShape.hxx".}
+#[ proc shapeType*(this: TopoDS_TShape): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TShape.hxx".}
 proc emptyCopy*(this: TopoDS_TShape): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TShape.hxx".}
-proc nbChildren*(this: TopoDS_TShape): cint {.noSideEffect, importcpp: "NbChildren",
+proc nbChildren*(this: TopoDS_TShape): int {.noSideEffect, importcpp: "NbChildren",
     header: "TopoDS_TShape.hxx".}
 proc dumpJson*(this: TopoDS_TShape; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
-                                 header: "TopoDS_TShape.hxx".}
-type
-  TopoDS_TShapebaseType* = StandardTransient
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TopoDS_TShape.hxx".}
+
 
 proc getTypeName*(): cstring {.importcpp: "TopoDS_TShape::get_type_name(@)",
                             header: "TopoDS_TShape.hxx".}
@@ -150,31 +153,5 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopoDS_TShape): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopoDS_TShape.hxx".}
 discard "forward decl of TopoDS_TShape"
-type
-  HandleC1C1* = Handle[TopoDS_TShape]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ ]#

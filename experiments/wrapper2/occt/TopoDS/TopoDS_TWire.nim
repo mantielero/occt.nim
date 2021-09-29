@@ -18,11 +18,6 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TWire"
 discard "forward decl of TopoDS_TWire"
 type
-  HandleC1C1* = Handle[TopoDS_TWire]
-
-## ! A set of edges connected by their vertices.
-
-type
   TopoDS_TWire* {.importcpp: "TopoDS_TWire", header: "TopoDS_TWire.hxx", bycopy.} = object of TopoDS_TShape ##
                                                                                                   ## !
                                                                                                   ## Creates
@@ -31,43 +26,24 @@ type
                                                                                                   ## TWire.
 
 
+type
+  HandleTopoDS_TWire* = Handle[TopoDS_TWire]
+
+## ! A set of edges connected by their vertices.
+type
+  TopoDS_TWirebaseType* = TopoDS_TShape
+
+
 proc constructTopoDS_TWire*(): TopoDS_TWire {.constructor,
     importcpp: "TopoDS_TWire(@)", header: "TopoDS_TWire.hxx".}
-proc shapeType*(this: TopoDS_TWire): TopAbsShapeEnum {.noSideEffect,
+#[ proc shapeType*(this: TopoDS_TWire): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TWire.hxx".}
 proc emptyCopy*(this: TopoDS_TWire): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TWire.hxx".}
-type
-  TopoDS_TWirebaseType* = TopoDS_TShape
 
 proc getTypeName*(): cstring {.importcpp: "TopoDS_TWire::get_type_name(@)",
                             header: "TopoDS_TWire.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TWire::get_type_descriptor(@)", header: "TopoDS_TWire.hxx".}
 proc dynamicType*(this: TopoDS_TWire): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "TopoDS_TWire.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "TopoDS_TWire.hxx".} ]#

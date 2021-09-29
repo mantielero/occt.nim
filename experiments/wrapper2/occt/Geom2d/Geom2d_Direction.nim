@@ -21,17 +21,21 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Direction"
 discard "forward decl of Geom2d_Direction"
-type
-  HandleC1C1* = Handle[Geom2dDirection]
-
-## ! The class Direction specifies a vector that is never null.
-## ! It is a unit vector.
 
 type
   Geom2dDirection* {.importcpp: "Geom2d_Direction", header: "Geom2d_Direction.hxx",
                     bycopy.} = object of Geom2dVector ## ! Creates a unit vector with it 2 cartesian coordinates.
                                                  ## !
                                                  ## ! Raised if Sqrt( X*X + Y*Y) <= Resolution from gp.
+
+type
+  HandleGeom2dDirection* = Handle[Geom2dDirection]
+
+## ! The class Direction specifies a vector that is never null.
+## ! It is a unit vector.
+
+type
+  Geom2dDirectionbaseType* = Geom2dVector
 
 
 proc constructGeom2dDirection*(x: StandardReal; y: StandardReal): Geom2dDirection {.
@@ -60,13 +64,12 @@ proc transform*(this: var Geom2dDirection; t: Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_Direction.hxx".}
 proc copy*(this: Geom2dDirection): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_Direction.hxx".}
-type
-  Geom2dDirectionbaseType* = Geom2dVector
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Direction::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_Direction::get_type_name(@)",
                             header: "Geom2d_Direction.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Direction::get_type_descriptor(@)",
     header: "Geom2d_Direction.hxx".}
 proc dynamicType*(this: Geom2dDirection): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Direction.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Direction.hxx".} ]#

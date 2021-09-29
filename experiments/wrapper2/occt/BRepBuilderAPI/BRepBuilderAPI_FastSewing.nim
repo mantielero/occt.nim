@@ -46,29 +46,32 @@ type
     FS_NotNaturalBoundsFace = 0x00000010, FS_InfiniteSurface = 0x00000020,
     FS_EmptyInput = 0x00000040, FS_Exception = 0x00000080
 
-
-proc constructBRepBuilderAPI_FastSewing*(theTolerance: cfloat = 1.0e-06): BRepBuilderAPI_FastSewing {.
-    constructor, importcpp: "BRepBuilderAPI_FastSewing(@)",
-    header: "BRepBuilderAPI_FastSewing.hxx".}
-proc add*(this: var BRepBuilderAPI_FastSewing; theShape: TopoDS_Shape): bool {.
-    importcpp: "Add", header: "BRepBuilderAPI_FastSewing.hxx".}
-proc add*(this: var BRepBuilderAPI_FastSewing; theSurface: Handle[GeomSurface]): bool {.
-    importcpp: "Add", header: "BRepBuilderAPI_FastSewing.hxx".}
-proc perform*(this: var BRepBuilderAPI_FastSewing) {.importcpp: "Perform",
-    header: "BRepBuilderAPI_FastSewing.hxx".}
-proc setTolerance*(this: var BRepBuilderAPI_FastSewing; theToler: cfloat) {.
-    importcpp: "SetTolerance", header: "BRepBuilderAPI_FastSewing.hxx".}
-proc getTolerance*(this: BRepBuilderAPI_FastSewing): cfloat {.noSideEffect,
-    importcpp: "GetTolerance", header: "BRepBuilderAPI_FastSewing.hxx".}
-proc getResult*(this: BRepBuilderAPI_FastSewing): TopoDS_Shape {.noSideEffect,
-    importcpp: "GetResult", header: "BRepBuilderAPI_FastSewing.hxx".}
-proc getStatuses*(this: var BRepBuilderAPI_FastSewing;
-                 theOS: ptr StandardOStream = 0): BRepBuilderAPI_FastSewingFS_VARStatuses {.
-    importcpp: "GetStatuses", header: "BRepBuilderAPI_FastSewing.hxx".}
+type
+  HandleBRepBuilderAPI_FastSewing* = Handle[BRepBuilderAPI_FastSewing]
 type
   BRepBuilderAPI_FastSewingbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "BRepBuilderAPI_FastSewing::get_type_name(@)",
+proc constructBRepBuilderAPI_FastSewing*(theTolerance: StandardReal = 1.0e-06): BRepBuilderAPI_FastSewing {.
+    constructor, importcpp: "BRepBuilderAPI_FastSewing(@)",
+    header: "BRepBuilderAPI_FastSewing.hxx".}
+proc add*(this: var BRepBuilderAPI_FastSewing; theShape: TopoDS_Shape): StandardBoolean {.
+    importcpp: "Add", header: "BRepBuilderAPI_FastSewing.hxx".}
+proc add*(this: var BRepBuilderAPI_FastSewing; theSurface: Handle[GeomSurface]): StandardBoolean {.
+    importcpp: "Add", header: "BRepBuilderAPI_FastSewing.hxx".}
+proc perform*(this: var BRepBuilderAPI_FastSewing) {.importcpp: "Perform",
+    header: "BRepBuilderAPI_FastSewing.hxx".}
+proc setTolerance*(this: var BRepBuilderAPI_FastSewing; theToler: StandardReal) {.
+    importcpp: "SetTolerance", header: "BRepBuilderAPI_FastSewing.hxx".}
+proc getTolerance*(this: BRepBuilderAPI_FastSewing): StandardReal {.noSideEffect,
+    importcpp: "GetTolerance", header: "BRepBuilderAPI_FastSewing.hxx".}
+proc getResult*(this: BRepBuilderAPI_FastSewing): TopoDS_Shape {.noSideEffect,
+    importcpp: "GetResult", header: "BRepBuilderAPI_FastSewing.hxx".}
+#[ proc getStatuses*(this: var BRepBuilderAPI_FastSewing;
+                 theOS: ptr StandardOStream = 0): BRepBuilderAPI_FastSewingFS_VARStatuses {.
+    importcpp: "GetStatuses", header: "BRepBuilderAPI_FastSewing.hxx".}
+ ]#
+
+#[ proc getTypeName*(): cstring {.importcpp: "BRepBuilderAPI_FastSewing::get_type_name(@)",
                             header: "BRepBuilderAPI_FastSewing.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRepBuilderAPI_FastSewing::get_type_descriptor(@)",
@@ -76,31 +79,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BRepBuilderAPI_FastSewing): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepBuilderAPI_FastSewing.hxx".}
 discard "forward decl of BRepBuilderAPI_FastSewing"
-type
-  HandleC1C1* = Handle[BRepBuilderAPI_FastSewing]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ ]#

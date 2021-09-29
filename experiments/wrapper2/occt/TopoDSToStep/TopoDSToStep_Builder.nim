@@ -24,6 +24,24 @@ type
                         header: "TopoDSToStep_Builder.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
+proc `new`*(this: var TopoDSToStepBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_Builder::operator new",
+    header: "TopoDSToStep_Builder.hxx".}
+proc `delete`*(this: var TopoDSToStepBuilder; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_Builder::operator delete",
+    header: "TopoDSToStep_Builder.hxx".}
+proc `new[]`*(this: var TopoDSToStepBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_Builder::operator new[]",
+    header: "TopoDSToStep_Builder.hxx".}
+proc `delete[]`*(this: var TopoDSToStepBuilder; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_Builder::operator delete[]",
+    header: "TopoDSToStep_Builder.hxx".}
+proc `new`*(this: var TopoDSToStepBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDSToStep_Builder::operator new",
+    header: "TopoDSToStep_Builder.hxx".}
+proc `delete`*(this: var TopoDSToStepBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_Builder::operator delete",
+    header: "TopoDSToStep_Builder.hxx".}
 proc constructTopoDSToStepBuilder*(): TopoDSToStepBuilder {.constructor,
     importcpp: "TopoDSToStep_Builder(@)", header: "TopoDSToStep_Builder.hxx".}
 proc constructTopoDSToStepBuilder*(s: TopoDS_Shape; t: var TopoDSToStepTool;
@@ -39,28 +57,3 @@ proc error*(this: TopoDSToStepBuilder): TopoDSToStepBuilderError {.noSideEffect,
 proc value*(this: TopoDSToStepBuilder): Handle[
     StepShapeTopologicalRepresentationItem] {.noSideEffect, importcpp: "Value",
     header: "TopoDSToStep_Builder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

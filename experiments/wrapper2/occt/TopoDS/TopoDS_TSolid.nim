@@ -18,12 +18,6 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TSolid"
 discard "forward decl of TopoDS_TSolid"
 type
-  HandleC1C1* = Handle[TopoDS_TSolid]
-
-## ! A Topological part of 3D space, bounded by shells,
-## ! edges and vertices.
-
-type
   TopoDS_TSolid* {.importcpp: "TopoDS_TSolid", header: "TopoDS_TSolid.hxx", bycopy.} = object of TopoDS_TShape ##
                                                                                                      ## !
                                                                                                      ## Creates
@@ -31,15 +25,22 @@ type
                                                                                                      ## empty
                                                                                                      ## TSolid.
 
+type
+  HandleTopoDS_TSolid* = Handle[TopoDS_TSolid]
+
+## ! A Topological part of 3D space, bounded by shells,
+## ! edges and vertices.
+
+type
+  TopoDS_TSolidbaseType* = TopoDS_TShape
 
 proc constructTopoDS_TSolid*(): TopoDS_TSolid {.constructor,
     importcpp: "TopoDS_TSolid(@)", header: "TopoDS_TSolid.hxx".}
-proc shapeType*(this: TopoDS_TSolid): TopAbsShapeEnum {.noSideEffect,
+#[ proc shapeType*(this: TopoDS_TSolid): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TSolid.hxx".}
 proc emptyCopy*(this: TopoDS_TSolid): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TSolid.hxx".}
-type
-  TopoDS_TSolidbaseType* = TopoDS_TShape
+
 
 proc getTypeName*(): cstring {.importcpp: "TopoDS_TSolid::get_type_name(@)",
                             header: "TopoDS_TSolid.hxx".}
@@ -47,29 +48,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TSolid::get_type_descriptor(@)",
     header: "TopoDS_TSolid.hxx".}
 proc dynamicType*(this: TopoDS_TSolid): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "TopoDS_TSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "TopoDS_TSolid.hxx".} ]#

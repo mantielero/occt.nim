@@ -25,8 +25,23 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Circle"
 discard "forward decl of Geom2d_Circle"
+
 type
-  HandleC1C1* = Handle[Geom2dCircle]
+  Geom2dCircle* {.importcpp: "Geom2d_Circle", header: "Geom2d_Circle.hxx", bycopy.} = object of Geom2dConic ##
+                                                                                                  ## !
+                                                                                                  ## Constructs
+                                                                                                  ## a
+                                                                                                  ## circle
+                                                                                                  ## by
+                                                                                                  ## conversion
+                                                                                                  ## of
+                                                                                                  ## the
+                                                                                                  ## gp_Circ2d
+                                                                                                  ## circle
+                                                                                                  ## C.
+
+type
+  HandleGeom2dCircle* = Handle[Geom2dCircle]
 
 ## ! Describes a circle in the plane (2D space).
 ## ! A circle is defined by its radius and, as with any conic
@@ -57,18 +72,7 @@ type
 ## ! gp_Ax22d and  gp_Circ2d for an equivalent, non-parameterized data structure.
 
 type
-  Geom2dCircle* {.importcpp: "Geom2d_Circle", header: "Geom2d_Circle.hxx", bycopy.} = object of Geom2dConic ##
-                                                                                                  ## !
-                                                                                                  ## Constructs
-                                                                                                  ## a
-                                                                                                  ## circle
-                                                                                                  ## by
-                                                                                                  ## conversion
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## gp_Circ2d
-                                                                                                  ## circle
-                                                                                                  ## C.
+  Geom2dCirclebaseType* = Geom2dConic
 
 
 proc constructGeom2dCircle*(c: Circ2d): Geom2dCircle {.constructor,
@@ -115,13 +119,12 @@ proc copy*(this: Geom2dCircle): Handle[Geom2dGeometry] {.noSideEffect,
 proc dumpJson*(this: Geom2dCircle; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom2d_Circle.hxx".}
-type
-  Geom2dCirclebaseType* = Geom2dConic
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Circle::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_Circle::get_type_name(@)",
                             header: "Geom2d_Circle.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Circle::get_type_descriptor(@)",
     header: "Geom2d_Circle.hxx".}
 proc dynamicType*(this: Geom2dCircle): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Circle.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Circle.hxx".} ]#

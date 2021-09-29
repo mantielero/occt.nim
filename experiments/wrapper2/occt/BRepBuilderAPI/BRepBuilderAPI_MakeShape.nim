@@ -18,24 +18,27 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shape"
 type
   BRepBuilderAPI_MakeShape* {.importcpp: "BRepBuilderAPI_MakeShape",
-                             header: "BRepBuilderAPI_MakeShape.hxx", bycopy.} = object of BRepBuilderAPI_Command ##
-                                                                                                          ## !
-                                                                                                          ## This
-                                                                                                          ## is
-                                                                                                          ## called
-                                                                                                          ## by
-                                                                                                          ## Shape().
-                                                                                                          ## It
-                                                                                                          ## does
-                                                                                                          ## nothing
-                                                                                                          ## but
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## may
-                                                                                                          ## be
-                                                                                                          ## redefined.
+                             header: "BRepBuilderAPI_MakeShape.hxx", bycopy.} = object of BRepBuilderAPI_Command
 
 
+proc `new`*(this: var BRepBuilderAPI_MakeShape; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_MakeShape::operator new",
+    header: "BRepBuilderAPI_MakeShape.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_MakeShape; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeShape::operator delete",
+    header: "BRepBuilderAPI_MakeShape.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_MakeShape; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_MakeShape::operator new[]",
+    header: "BRepBuilderAPI_MakeShape.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_MakeShape; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeShape::operator delete[]",
+    header: "BRepBuilderAPI_MakeShape.hxx".}
+proc `new`*(this: var BRepBuilderAPI_MakeShape; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_MakeShape::operator new",
+    header: "BRepBuilderAPI_MakeShape.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_MakeShape; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeShape::operator delete",
+    header: "BRepBuilderAPI_MakeShape.hxx".}
 proc build*(this: var BRepBuilderAPI_MakeShape) {.importcpp: "Build",
     header: "BRepBuilderAPI_MakeShape.hxx".}
 proc shape*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.importcpp: "Shape",
@@ -43,34 +46,9 @@ proc shape*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.importcpp: "Shap
 converter `topoDS_Shape`*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.
     importcpp: "BRepBuilderAPI_MakeShape::operator TopoDS_Shape",
     header: "BRepBuilderAPI_MakeShape.hxx".}
-proc generated*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.
+#[ proc generated*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepBuilderAPI_MakeShape.hxx".}
 proc modified*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepBuilderAPI_MakeShape.hxx".}
-proc isDeleted*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): bool {.
-    importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeShape.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc isDeleted*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): StandardBoolean {.
+    importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeShape.hxx".} ]#

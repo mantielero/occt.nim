@@ -14,7 +14,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  BRepBuilderAPI_BndBoxTree* = NCollectionUBTree[cint, BndBox]
+  BRepBuilderAPI_BndBoxTree* = NCollectionUBTree[int, BndBox]
 
 ## =======================================================================
 ## ! Class BRepBuilderAPI_BndBoxTreeSelector
@@ -32,10 +32,10 @@ type
 proc constructBRepBuilderAPI_BndBoxTreeSelector*(): BRepBuilderAPI_BndBoxTreeSelector {.
     constructor, importcpp: "BRepBuilderAPI_BndBoxTreeSelector(@)",
     header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
-proc reject*(this: BRepBuilderAPI_BndBoxTreeSelector; theBox: BndBox): bool {.
+proc reject*(this: BRepBuilderAPI_BndBoxTreeSelector; theBox: BndBox): StandardBoolean {.
     noSideEffect, importcpp: "Reject",
     header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
-proc accept*(this: var BRepBuilderAPI_BndBoxTreeSelector; theObj: cint): bool {.
+proc accept*(this: var BRepBuilderAPI_BndBoxTreeSelector; theObj: int): StandardBoolean {.
     importcpp: "Accept", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
 proc clearResList*(this: var BRepBuilderAPI_BndBoxTreeSelector) {.
     importcpp: "ClearResList", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
@@ -43,28 +43,3 @@ proc setCurrent*(this: var BRepBuilderAPI_BndBoxTreeSelector; theBox: BndBox) {.
     importcpp: "SetCurrent", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
 proc resInd*(this: var BRepBuilderAPI_BndBoxTreeSelector): TColStdListOfInteger {.
     importcpp: "ResInd", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

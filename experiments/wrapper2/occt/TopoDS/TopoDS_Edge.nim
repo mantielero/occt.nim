@@ -24,36 +24,20 @@
 ## ! relation to other shapes).
 
 type
-  TopoDS_Edge* {.importcpp: "TopoDS_Edge", header: "TopoDS_Edge.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                              ## !
-                                                                                              ## Undefined
-                                                                                              ## Edge.
+  TopoDS_Edge* {.importcpp: "TopoDS_Edge", header: "TopoDS_Edge.hxx", bycopy.} = object of TopoDS_Shape
 
 
+proc `new`*(this: var TopoDS_Edge; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Edge::operator new", header: "TopoDS_Edge.hxx".}
+proc `delete`*(this: var TopoDS_Edge; theAddress: pointer) {.
+    importcpp: "TopoDS_Edge::operator delete", header: "TopoDS_Edge.hxx".}
+proc `new[]`*(this: var TopoDS_Edge; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Edge::operator new[]", header: "TopoDS_Edge.hxx".}
+proc `delete[]`*(this: var TopoDS_Edge; theAddress: pointer) {.
+    importcpp: "TopoDS_Edge::operator delete[]", header: "TopoDS_Edge.hxx".}
+proc `new`*(this: var TopoDS_Edge; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDS_Edge::operator new", header: "TopoDS_Edge.hxx".}
+proc `delete`*(this: var TopoDS_Edge; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDS_Edge::operator delete", header: "TopoDS_Edge.hxx".}
 proc constructTopoDS_Edge*(): TopoDS_Edge {.constructor,
     importcpp: "TopoDS_Edge(@)", header: "TopoDS_Edge.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

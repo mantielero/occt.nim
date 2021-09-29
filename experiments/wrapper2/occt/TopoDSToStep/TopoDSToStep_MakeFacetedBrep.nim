@@ -24,6 +24,24 @@ type
                                 header: "TopoDSToStep_MakeFacetedBrep.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
+proc `new`*(this: var TopoDSToStepMakeFacetedBrep; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeFacetedBrep::operator new",
+    header: "TopoDSToStep_MakeFacetedBrep.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeFacetedBrep; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeFacetedBrep::operator delete",
+    header: "TopoDSToStep_MakeFacetedBrep.hxx".}
+proc `new[]`*(this: var TopoDSToStepMakeFacetedBrep; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeFacetedBrep::operator new[]",
+    header: "TopoDSToStep_MakeFacetedBrep.hxx".}
+proc `delete[]`*(this: var TopoDSToStepMakeFacetedBrep; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeFacetedBrep::operator delete[]",
+    header: "TopoDSToStep_MakeFacetedBrep.hxx".}
+proc `new`*(this: var TopoDSToStepMakeFacetedBrep; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDSToStep_MakeFacetedBrep::operator new",
+    header: "TopoDSToStep_MakeFacetedBrep.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeFacetedBrep; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_MakeFacetedBrep::operator delete",
+    header: "TopoDSToStep_MakeFacetedBrep.hxx".}
 proc constructTopoDSToStepMakeFacetedBrep*(s: TopoDS_Shell;
     fp: Handle[TransferFinderProcess];
     theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeFacetedBrep {.
@@ -36,28 +54,3 @@ proc constructTopoDSToStepMakeFacetedBrep*(s: TopoDS_Solid;
     header: "TopoDSToStep_MakeFacetedBrep.hxx".}
 proc value*(this: TopoDSToStepMakeFacetedBrep): Handle[StepShapeFacetedBrep] {.
     noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeFacetedBrep.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

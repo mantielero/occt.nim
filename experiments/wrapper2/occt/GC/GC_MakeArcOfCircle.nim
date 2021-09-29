@@ -43,28 +43,29 @@ type
                                                                                ## radiians.
 
 
-proc constructGC_MakeArcOfCircle*(circ: Circ; alpha1: cfloat; alpha2: cfloat;
+proc makeArcOfCircle*(circ: Circ; alpha1: cfloat; alpha2: cfloat;
                                  sense: bool): GC_MakeArcOfCircle {.constructor,
     importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc constructGC_MakeArcOfCircle*(circ: Circ; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfCircle {.
+proc makeArcOfCircle*(circ: Circ; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfCircle {.
     constructor, importcpp: "GC_MakeArcOfCircle(@)",
     header: "GC_MakeArcOfCircle.hxx".}
-proc constructGC_MakeArcOfCircle*(circ: Circ; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfCircle {.
+proc makeArcOfCircle*(circ: Circ; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfCircle {.
     constructor, importcpp: "GC_MakeArcOfCircle(@)",
     header: "GC_MakeArcOfCircle.hxx".}
-proc constructGC_MakeArcOfCircle*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeArcOfCircle {.
+proc makeArcOfCircle*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeArcOfCircle {.
     constructor, importcpp: "GC_MakeArcOfCircle(@)",
     header: "GC_MakeArcOfCircle.hxx".}
-proc constructGC_MakeArcOfCircle*(p1: Pnt; v: Vec; p2: Pnt): GC_MakeArcOfCircle {.
+proc makeArcOfCircle*(p1: Pnt; v: Vec; p2: Pnt): GC_MakeArcOfCircle {.
     constructor, importcpp: "GC_MakeArcOfCircle(@)",
     header: "GC_MakeArcOfCircle.hxx".}
 proc value*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeArcOfCircle.hxx".}
-converter `constopencascade`*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.
+#[ converter `constopencascade`*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeArcOfCircle::operator constopencascade",
-    header: "GC_MakeArcOfCircle.hxx".}
+    header: "GC_MakeArcOfCircle.hxx".} ]#
 
-
+converter toHandle_Geom_TrimmedCurve*(self: GC_MakeArcOfCircle):Handle_Geom_TrimmedCurve {.noSideEffect, 
+    importcpp:"(Handle_Geom_TrimmedCurve)(#)", header: "GC_MakeArcOfCircle.hxx".}
 
 
 

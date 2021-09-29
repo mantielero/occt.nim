@@ -47,14 +47,14 @@ type
                                                                                    ## radians).
 
 
-proc constructGC_MakeArcOfParabola*(parab: Parab; alpha1: cfloat; alpha2: cfloat;
+proc makeArcOfParabola*(parab: Parab; alpha1: cfloat; alpha2: cfloat;
                                    sense: bool): GC_MakeArcOfParabola {.
     constructor, importcpp: "GC_MakeArcOfParabola(@)",
     header: "GC_MakeArcOfParabola.hxx".}
-proc constructGC_MakeArcOfParabola*(parab: Parab; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfParabola {.
+proc makeArcOfParabola*(parab: Parab; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfParabola {.
     constructor, importcpp: "GC_MakeArcOfParabola(@)",
     header: "GC_MakeArcOfParabola.hxx".}
-proc constructGC_MakeArcOfParabola*(parab: Parab; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfParabola {.
+proc makeArcOfParabola*(parab: Parab; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfParabola {.
     constructor, importcpp: "GC_MakeArcOfParabola(@)",
     header: "GC_MakeArcOfParabola.hxx".}
 proc value*(this: GC_MakeArcOfParabola): Handle[GeomTrimmedCurve] {.noSideEffect,

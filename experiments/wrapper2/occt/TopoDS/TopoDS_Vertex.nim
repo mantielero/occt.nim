@@ -24,36 +24,20 @@
 ## ! relation to other shapes).
 
 type
-  TopoDS_Vertex* {.importcpp: "TopoDS_Vertex", header: "TopoDS_Vertex.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                                    ## !
-                                                                                                    ## Undefined
-                                                                                                    ## Vertex.
+  TopoDS_Vertex* {.importcpp: "TopoDS_Vertex", header: "TopoDS_Vertex.hxx", bycopy.} = object of TopoDS_Shape
 
 
+proc `new`*(this: var TopoDS_Vertex; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Vertex::operator new", header: "TopoDS_Vertex.hxx".}
+proc `delete`*(this: var TopoDS_Vertex; theAddress: pointer) {.
+    importcpp: "TopoDS_Vertex::operator delete", header: "TopoDS_Vertex.hxx".}
+proc `new[]`*(this: var TopoDS_Vertex; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Vertex::operator new[]", header: "TopoDS_Vertex.hxx".}
+proc `delete[]`*(this: var TopoDS_Vertex; theAddress: pointer) {.
+    importcpp: "TopoDS_Vertex::operator delete[]", header: "TopoDS_Vertex.hxx".}
+proc `new`*(this: var TopoDS_Vertex; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDS_Vertex::operator new", header: "TopoDS_Vertex.hxx".}
+proc `delete`*(this: var TopoDS_Vertex; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDS_Vertex::operator delete", header: "TopoDS_Vertex.hxx".}
 proc constructTopoDS_Vertex*(): TopoDS_Vertex {.constructor,
     importcpp: "TopoDS_Vertex(@)", header: "TopoDS_Vertex.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

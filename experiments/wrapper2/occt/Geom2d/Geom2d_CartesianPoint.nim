@@ -19,12 +19,6 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_CartesianPoint"
 discard "forward decl of Geom2d_CartesianPoint"
-type
-  HandleC1C1* = Handle[Geom2dCartesianPoint]
-
-## ! Describes a point in 2D space. A
-## ! Geom2d_CartesianPoint is defined by a gp_Pnt2d
-## ! point, with its two Cartesian coordinates X and Y.
 
 type
   Geom2dCartesianPoint* {.importcpp: "Geom2d_CartesianPoint",
@@ -37,6 +31,15 @@ type
                                                                                         ## of
                                                                                         ## P.
 
+
+type
+  HandleGeom2dCartesianPoint* = Handle[Geom2dCartesianPoint]
+
+## ! Describes a point in 2D space. A
+## ! Geom2d_CartesianPoint is defined by a gp_Pnt2d
+## ! point, with its two Cartesian coordinates X and Y.
+type
+  Geom2dCartesianPointbaseType* = Geom2dPoint
 
 proc constructGeom2dCartesianPoint*(p: Pnt2d): Geom2dCartesianPoint {.constructor,
     importcpp: "Geom2d_CartesianPoint(@)", header: "Geom2d_CartesianPoint.hxx".}
@@ -66,13 +69,12 @@ proc copy*(this: Geom2dCartesianPoint): Handle[Geom2dGeometry] {.noSideEffect,
 proc dumpJson*(this: Geom2dCartesianPoint; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom2d_CartesianPoint.hxx".}
-type
-  Geom2dCartesianPointbaseType* = Geom2dPoint
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_CartesianPoint::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_CartesianPoint::get_type_name(@)",
                             header: "Geom2d_CartesianPoint.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_CartesianPoint::get_type_descriptor(@)",
     header: "Geom2d_CartesianPoint.hxx".}
 proc dynamicType*(this: Geom2dCartesianPoint): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_CartesianPoint.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_CartesianPoint.hxx".} ]#

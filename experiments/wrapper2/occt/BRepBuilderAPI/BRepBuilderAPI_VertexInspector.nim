@@ -28,9 +28,9 @@ type
   BRepBuilderAPI_VertexInspector* {.importcpp: "BRepBuilderAPI_VertexInspector", header: "BRepBuilderAPI_VertexInspector.hxx",
                                    bycopy.} = object of NCollectionCellFilterInspectorXYZ
 
-  BRepBuilderAPI_VertexInspectorTarget* = cint
+  BRepBuilderAPI_VertexInspectorTarget* = int
 
-proc constructBRepBuilderAPI_VertexInspector*(theTol: cfloat): BRepBuilderAPI_VertexInspector {.
+proc constructBRepBuilderAPI_VertexInspector*(theTol: StandardReal): BRepBuilderAPI_VertexInspector {.
     constructor, importcpp: "BRepBuilderAPI_VertexInspector(@)",
     header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc add*(this: var BRepBuilderAPI_VertexInspector; thePnt: Xyz) {.importcpp: "Add",
@@ -41,30 +41,5 @@ proc setCurrent*(this: var BRepBuilderAPI_VertexInspector; theCurPnt: Xyz) {.
     importcpp: "SetCurrent", header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc resInd*(this: var BRepBuilderAPI_VertexInspector): TColStdListOfInteger {.
     importcpp: "ResInd", header: "BRepBuilderAPI_VertexInspector.hxx".}
-proc inspect*(this: var BRepBuilderAPI_VertexInspector; theTarget: cint): NCollectionCellFilterAction {.
+proc inspect*(this: var BRepBuilderAPI_VertexInspector; theTarget: int): NCollectionCellFilterAction {.
     importcpp: "Inspect", header: "BRepBuilderAPI_VertexInspector.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

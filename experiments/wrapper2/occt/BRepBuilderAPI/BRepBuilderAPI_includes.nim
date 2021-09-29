@@ -3,8 +3,8 @@
 {.experimental: "callOperator".}
 
 include BRepBuilderAPI
-include BRepBuilderAPI_BndBoxTreeSelector
-include BRepBuilderAPI_CellFilter
+#include BRepBuilderAPI_BndBoxTreeSelector
+#include BRepBuilderAPI_CellFilter
 include BRepBuilderAPI_Collect
 include BRepBuilderAPI_Command
 include BRepBuilderAPI_Copy
@@ -30,31 +30,5 @@ include BRepBuilderAPI_ShapeModification
 include BRepBuilderAPI_ShellError
 include BRepBuilderAPI_Transform
 include BRepBuilderAPI_TransitionMode
-include BRepBuilderAPI_VertexInspector
+#include BRepBuilderAPI_VertexInspector
 include BRepBuilderAPI_WireError
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

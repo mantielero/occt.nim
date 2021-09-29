@@ -17,10 +17,6 @@
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TCompound"
 discard "forward decl of TopoDS_TCompound"
-type
-  HandleC1C1* = Handle[TopoDS_TCompound]
-
-## ! A TCompound is an all-purpose set of Shapes.
 
 type
   TopoDS_TCompound* {.importcpp: "TopoDS_TCompound",
@@ -32,44 +28,26 @@ type
                                                                                  ## TCompound.
 
 
-proc constructTopoDS_TCompound*(): TopoDS_TCompound {.constructor,
-    importcpp: "TopoDS_TCompound(@)", header: "TopoDS_TCompound.hxx".}
-proc shapeType*(this: TopoDS_TCompound): TopAbsShapeEnum {.noSideEffect,
-    importcpp: "ShapeType", header: "TopoDS_TCompound.hxx".}
-proc emptyCopy*(this: TopoDS_TCompound): Handle[TopoDS_TShape] {.noSideEffect,
-    importcpp: "EmptyCopy", header: "TopoDS_TCompound.hxx".}
+type
+  HandleTopoDS_TCompound* = Handle[TopoDS_TCompound]
+
+## ! A TCompound is an all-purpose set of Shapes.
+
 type
   TopoDS_TCompoundbaseType* = TopoDS_TShape
 
-proc getTypeName*(): cstring {.importcpp: "TopoDS_TCompound::get_type_name(@)",
+proc constructTopoDS_TCompound*(): TopoDS_TCompound {.constructor,
+    importcpp: "TopoDS_TCompound(@)", header: "TopoDS_TCompound.hxx".}
+#[ proc shapeType*(this: TopoDS_TCompound): TopAbsShapeEnum {.noSideEffect,
+    importcpp: "ShapeType", header: "TopoDS_TCompound.hxx".}
+proc emptyCopy*(this: TopoDS_TCompound): Handle[TopoDS_TShape] {.noSideEffect,
+    importcpp: "EmptyCopy", header: "TopoDS_TCompound.hxx".} ]#
+
+
+#[ proc getTypeName*(): cstring {.importcpp: "TopoDS_TCompound::get_type_name(@)",
                             header: "TopoDS_TCompound.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TCompound::get_type_descriptor(@)",
     header: "TopoDS_TCompound.hxx".}
 proc dynamicType*(this: TopoDS_TCompound): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "TopoDS_TCompound.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "TopoDS_TCompound.hxx".} ]#

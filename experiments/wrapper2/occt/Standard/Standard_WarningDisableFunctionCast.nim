@@ -22,8 +22,10 @@
 ## ! suppressing it is the only feasible way to avoid it. As this warning still can point out broken
 ## ! places, it should be suppressed only locally, where usage of function cast has been verified.
 
-# # # when defined(gnuc) and not defined(intel_Compiler) and not defined(clang):
+# # # # # when defined(gnuc) and not defined(intel_Compiler) and not defined(clang):
 #  when (gnuc > 8) or ((gnuc == 8) and (gnuc_Minor >= 1)):
 #    discard
+
+
 
 

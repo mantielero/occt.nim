@@ -20,29 +20,3 @@ type
                               header: "TopoDSToStep_MakeWireError.hxx".} = enum
     TopoDSToStepWireDone, TopoDSToStepNonManifoldWire, TopoDSToStepWireOther
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

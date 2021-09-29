@@ -34,10 +34,10 @@ proc `new`*(this: var Ax2; a2: csize_t; theAddress: pointer): pointer {.
     importcpp: "gp_Ax2::operator new", header: "gp_Ax2.hxx".}
 proc `delete`*(this: var Ax2; a2: pointer; a3: pointer) {.
     importcpp: "gp_Ax2::operator delete", header: "gp_Ax2.hxx".}
-proc constructAx2*(): Ax2 {.constructor, importcpp: "gp_Ax2(@)", header: "gp_Ax2.hxx".}
-proc constructAx2*(p: Pnt; n: Dir; vx: Dir): Ax2 {.constructor, importcpp: "gp_Ax2(@)",
+proc newAx2*(): Ax2 {.constructor, importcpp: "gp_Ax2(@)", header: "gp_Ax2.hxx".}
+proc newAx2*(p: Pnt; n: Dir; vx: Dir): Ax2 {.constructor, importcpp: "gp_Ax2(@)",
     header: "gp_Ax2.hxx".}
-proc constructAx2*(p: Pnt; v: Dir): Ax2 {.constructor, importcpp: "gp_Ax2(@)",
+proc newAx2*(p: Pnt; v: Dir): Ax2 {.constructor, importcpp: "gp_Ax2(@)",
                                     header: "gp_Ax2.hxx".}
 proc setAxis*(this: var Ax2; a1: Ax1) {.importcpp: "SetAxis", header: "gp_Ax2.hxx".}
 proc setDirection*(this: var Ax2; v: Dir) {.importcpp: "SetDirection",

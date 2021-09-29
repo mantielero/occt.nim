@@ -24,25 +24,6 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Line"
 discard "forward decl of Geom2d_Line"
-type
-  HandleC1C1* = Handle[Geom2dLine]
-
-## ! Describes an infinite line in the plane (2D space).
-## ! A line is defined and positioned in the plane with an
-## ! axis (gp_Ax2d object) which gives it an origin and a unit vector.
-## ! The Geom2d_Line line is parameterized as follows:
-## ! P (U) = O + U*Dir
-## ! where:
-## ! - P is the point of parameter U,
-## ! - O is the origin and Dir the unit vector of its positioning axis.
-## ! The parameter range is ] -infinite, +infinite [.
-## ! The orientation of the line is given by the unit vector
-## ! of its positioning axis.
-## ! See Also
-## ! GCE2d_MakeLine which provides functions for more
-## ! complex line constructions
-## ! gp_Ax2d
-## ! gp_Lin2d for an equivalent, non-parameterized data structure.
 
 type
   Geom2dLine* {.importcpp: "Geom2d_Line", header: "Geom2d_Line.hxx", bycopy.} = object of Geom2dCurve ##
@@ -72,6 +53,28 @@ type
                                                                                             ## the
                                                                                             ## line.
 
+type
+  HandleGeom2dLine* = Handle[Geom2dLine]
+
+## ! Describes an infinite line in the plane (2D space).
+## ! A line is defined and positioned in the plane with an
+## ! axis (gp_Ax2d object) which gives it an origin and a unit vector.
+## ! The Geom2d_Line line is parameterized as follows:
+## ! P (U) = O + U*Dir
+## ! where:
+## ! - P is the point of parameter U,
+## ! - O is the origin and Dir the unit vector of its positioning axis.
+## ! The parameter range is ] -infinite, +infinite [.
+## ! The orientation of the line is given by the unit vector
+## ! of its positioning axis.
+## ! See Also
+## ! GCE2d_MakeLine which provides functions for more
+## ! complex line constructions
+## ! gp_Ax2d
+## ! gp_Lin2d for an equivalent, non-parameterized data structure.
+
+type
+  Geom2dLinebaseType* = Geom2dCurve
 
 proc constructGeom2dLine*(a: Ax2d): Geom2dLine {.constructor,
     importcpp: "Geom2d_Line(@)", header: "Geom2d_Line.hxx".}
@@ -106,8 +109,8 @@ proc isClosed*(this: Geom2dLine): StandardBoolean {.noSideEffect,
     importcpp: "IsClosed", header: "Geom2d_Line.hxx".}
 proc isPeriodic*(this: Geom2dLine): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom2d_Line.hxx".}
-proc continuity*(this: Geom2dLine): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom2d_Line.hxx".}
+#[ proc continuity*(this: Geom2dLine): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom2d_Line.hxx".} ]#
 proc distance*(this: Geom2dLine; p: Pnt2d): StandardReal {.noSideEffect,
     importcpp: "Distance", header: "Geom2d_Line.hxx".}
 proc isCN*(this: Geom2dLine; n: int): StandardBoolean {.noSideEffect,
@@ -132,12 +135,11 @@ proc copy*(this: Geom2dLine): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_Line.hxx".}
 proc dumpJson*(this: Geom2dLine; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom2d_Line.hxx".}
-type
-  Geom2dLinebaseType* = Geom2dCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Line::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_Line::get_type_name(@)",
                             header: "Geom2d_Line.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Line::get_type_descriptor(@)", header: "Geom2d_Line.hxx".}
 proc dynamicType*(this: Geom2dLine): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Line.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Line.hxx".} ]#

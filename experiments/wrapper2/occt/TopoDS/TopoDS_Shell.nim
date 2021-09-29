@@ -23,38 +23,20 @@
 ## ! of its geometry (as opposed to orientation in relation to other shapes).
 
 type
-  TopoDS_Shell* {.importcpp: "TopoDS_Shell", header: "TopoDS_Shell.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                                 ## !
-                                                                                                 ## Constructs
-                                                                                                 ## an
-                                                                                                 ## Undefined
-                                                                                                 ## Shell.
+  TopoDS_Shell* {.importcpp: "TopoDS_Shell", header: "TopoDS_Shell.hxx", bycopy.} = object of TopoDS_Shape
 
 
+proc `new`*(this: var TopoDS_Shell; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Shell::operator new", header: "TopoDS_Shell.hxx".}
+proc `delete`*(this: var TopoDS_Shell; theAddress: pointer) {.
+    importcpp: "TopoDS_Shell::operator delete", header: "TopoDS_Shell.hxx".}
+proc `new[]`*(this: var TopoDS_Shell; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Shell::operator new[]", header: "TopoDS_Shell.hxx".}
+proc `delete[]`*(this: var TopoDS_Shell; theAddress: pointer) {.
+    importcpp: "TopoDS_Shell::operator delete[]", header: "TopoDS_Shell.hxx".}
+proc `new`*(this: var TopoDS_Shell; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDS_Shell::operator new", header: "TopoDS_Shell.hxx".}
+proc `delete`*(this: var TopoDS_Shell; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDS_Shell::operator delete", header: "TopoDS_Shell.hxx".}
 proc constructTopoDS_Shell*(): TopoDS_Shell {.constructor,
     importcpp: "TopoDS_Shell(@)", header: "TopoDS_Shell.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -19,71 +19,39 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of TopoDS_Shape"
 type
   BRepBuilderAPI_Transform* {.importcpp: "BRepBuilderAPI_Transform",
-                             header: "BRepBuilderAPI_Transform.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape ##
-                                                                                                              ## !
-                                                                                                              ## Constructs
-                                                                                                              ## a
-                                                                                                              ## framework
-                                                                                                              ## for
-                                                                                                              ## applying
-                                                                                                              ## the
-                                                                                                              ## geometric
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## transformation
-                                                                                                              ## T
-                                                                                                              ## to
-                                                                                                              ## a
-                                                                                                              ## shape.
-                                                                                                              ## Use
-                                                                                                              ## the
-                                                                                                              ## function
-                                                                                                              ## Perform
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## to
-                                                                                                              ## define
-                                                                                                              ## the
-                                                                                                              ## shape
-                                                                                                              ## to
-                                                                                                              ## transform.
+                             header: "BRepBuilderAPI_Transform.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape
 
 
-proc constructBRepBuilderAPI_Transform*(t: Trsf): BRepBuilderAPI_Transform {.
+proc `new`*(this: var BRepBuilderAPI_Transform; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_Transform::operator new",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_Transform; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_Transform::operator delete",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_Transform; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_Transform::operator new[]",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_Transform; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_Transform::operator delete[]",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc `new`*(this: var BRepBuilderAPI_Transform; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_Transform::operator new",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_Transform; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_Transform::operator delete",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc transform*(t: Trsf): BRepBuilderAPI_Transform {.
     constructor, importcpp: "BRepBuilderAPI_Transform(@)",
     header: "BRepBuilderAPI_Transform.hxx".}
-proc constructBRepBuilderAPI_Transform*(s: TopoDS_Shape; t: Trsf; copy: bool = false): BRepBuilderAPI_Transform {.
+proc transform*(s: TopoDS_Shape; t: Trsf;
+                                       copy: StandardBoolean = false): BRepBuilderAPI_Transform {.
     constructor, importcpp: "BRepBuilderAPI_Transform(@)",
     header: "BRepBuilderAPI_Transform.hxx".}
-proc perform*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape; copy: bool = false) {.
-    importcpp: "Perform", header: "BRepBuilderAPI_Transform.hxx".}
+proc perform*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape;
+             copy: StandardBoolean = false) {.importcpp: "Perform",
+    header: "BRepBuilderAPI_Transform.hxx".}
 proc modifiedShape*(this: BRepBuilderAPI_Transform; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepBuilderAPI_Transform.hxx".}
-proc modified*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape): TopToolsListOfShape {.
-    importcpp: "Modified", header: "BRepBuilderAPI_Transform.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#[ proc modified*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape): TopToolsListOfShape {.
+    importcpp: "Modified", header: "BRepBuilderAPI_Transform.hxx".} ]#

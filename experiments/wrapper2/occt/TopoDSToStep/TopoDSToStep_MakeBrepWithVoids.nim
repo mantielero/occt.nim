@@ -24,6 +24,24 @@ type
                                   bycopy.} = object of TopoDSToStepRoot
 
 
+proc `new`*(this: var TopoDSToStepMakeBrepWithVoids; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeBrepWithVoids::operator new",
+    header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeBrepWithVoids; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeBrepWithVoids::operator delete",
+    header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
+proc `new[]`*(this: var TopoDSToStepMakeBrepWithVoids; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeBrepWithVoids::operator new[]",
+    header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
+proc `delete[]`*(this: var TopoDSToStepMakeBrepWithVoids; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeBrepWithVoids::operator delete[]",
+    header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
+proc `new`*(this: var TopoDSToStepMakeBrepWithVoids; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDSToStep_MakeBrepWithVoids::operator new",
+    header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeBrepWithVoids; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_MakeBrepWithVoids::operator delete",
+    header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
 proc constructTopoDSToStepMakeBrepWithVoids*(s: TopoDS_Solid;
     fp: Handle[TransferFinderProcess];
     theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeBrepWithVoids {.
@@ -31,28 +49,3 @@ proc constructTopoDSToStepMakeBrepWithVoids*(s: TopoDS_Solid;
     header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
 proc value*(this: TopoDSToStepMakeBrepWithVoids): Handle[StepShapeBrepWithVoids] {.
     noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeBrepWithVoids.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

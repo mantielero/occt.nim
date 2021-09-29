@@ -20,29 +20,3 @@ type
                                 header: "TopoDSToStep_MakeVertexError.hxx".} = enum
     TopoDSToStepVertexDone, TopoDSToStepVertexOther
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

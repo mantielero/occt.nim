@@ -21,29 +21,3 @@ type
     TopoDSToStepFaceDone, TopoDSToStepInfiniteFace, TopoDSToStepNonManifoldFace,
     TopoDSToStepNoWireMapped, TopoDSToStepFaceOther
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

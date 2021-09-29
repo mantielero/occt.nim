@@ -20,31 +20,24 @@ type
                             header: "TopoDSToStep_FacetedTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopoDSToStepFacetedTool; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_FacetedTool::operator new",
+    header: "TopoDSToStep_FacetedTool.hxx".}
+proc `delete`*(this: var TopoDSToStepFacetedTool; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_FacetedTool::operator delete",
+    header: "TopoDSToStep_FacetedTool.hxx".}
+proc `new[]`*(this: var TopoDSToStepFacetedTool; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_FacetedTool::operator new[]",
+    header: "TopoDSToStep_FacetedTool.hxx".}
+proc `delete[]`*(this: var TopoDSToStepFacetedTool; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_FacetedTool::operator delete[]",
+    header: "TopoDSToStep_FacetedTool.hxx".}
+proc `new`*(this: var TopoDSToStepFacetedTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDSToStep_FacetedTool::operator new",
+    header: "TopoDSToStep_FacetedTool.hxx".}
+proc `delete`*(this: var TopoDSToStepFacetedTool; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_FacetedTool::operator delete",
+    header: "TopoDSToStep_FacetedTool.hxx".}
 proc checkTopoDSShape*(sh: TopoDS_Shape): TopoDSToStepFacetedError {.
     importcpp: "TopoDSToStep_FacetedTool::CheckTopoDSShape(@)",
     header: "TopoDSToStep_FacetedTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

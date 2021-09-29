@@ -17,13 +17,7 @@
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Geom2d_Point"
 discard "forward decl of Geom2d_Point"
-type
-  HandleC1C1* = Handle[Geom2dPoint]
 
-## ! The abstract class Point describes the common
-## ! behavior of geometric points in 2D space.
-## ! The Geom2d package also provides the concrete
-## ! class Geom2d_CartesianPoint.
 
 type
   Geom2dPoint* {.importcpp: "Geom2d_Point", header: "Geom2d_Point.hxx", bycopy.} = object of Geom2dGeometry ##
@@ -34,6 +28,16 @@ type
                                                                                                   ## of
                                                                                                   ## <me>.
 
+type
+  HandleGeom2dPoint* = Handle[Geom2dPoint]
+
+## ! The abstract class Point describes the common
+## ! behavior of geometric points in 2D space.
+## ! The Geom2d package also provides the concrete
+## ! class Geom2d_CartesianPoint.
+
+type
+  Geom2dPointbaseType* = Geom2dGeometry
 
 proc coord*(this: Geom2dPoint; x: var StandardReal; y: var StandardReal) {.noSideEffect,
     importcpp: "Coord", header: "Geom2d_Point.hxx".}
@@ -49,12 +53,11 @@ proc squareDistance*(this: Geom2dPoint; other: Handle[Geom2dPoint]): StandardRea
     noSideEffect, importcpp: "SquareDistance", header: "Geom2d_Point.hxx".}
 proc dumpJson*(this: Geom2dPoint; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom2d_Point.hxx".}
-type
-  Geom2dPointbaseType* = Geom2dGeometry
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Point::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_Point::get_type_name(@)",
                             header: "Geom2d_Point.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Point::get_type_descriptor(@)", header: "Geom2d_Point.hxx".}
 proc dynamicType*(this: Geom2dPoint): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Point.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Point.hxx".} ]#

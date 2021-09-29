@@ -2,8 +2,8 @@
 {.experimental: "codeReordering".}
 {.experimental: "callOperator".}
 
-include TopoDS_AlertAttribute
-include TopoDS_AlertWithShape
+##include TopoDS_AlertAttribute
+#include TopoDS_AlertWithShape
 include TopoDS_Builder
 include TopoDS_CompSolid
 include TopoDS_Compound
@@ -30,29 +30,3 @@ include TopoDS_TWire
 include TopoDS_UnCompatibleShapes
 include TopoDS_Vertex
 include TopoDS_Wire
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

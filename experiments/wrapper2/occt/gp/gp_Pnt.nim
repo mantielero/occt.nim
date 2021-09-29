@@ -34,10 +34,10 @@ proc `new`*(this: var Pnt; a2: csize_t; theAddress: pointer): pointer {.
     importcpp: "gp_Pnt::operator new", header: "gp_Pnt.hxx".}
 proc `delete`*(this: var Pnt; a2: pointer; a3: pointer) {.
     importcpp: "gp_Pnt::operator delete", header: "gp_Pnt.hxx".}
-proc constructPnt*(): Pnt {.constructor, importcpp: "gp_Pnt(@)", header: "gp_Pnt.hxx".}
-proc constructPnt*(coord: Xyz): Pnt {.constructor, importcpp: "gp_Pnt(@)",
+proc newPnt*(): Pnt {.constructor, importcpp: "gp_Pnt(@)", header: "gp_Pnt.hxx".}
+proc newPnt*(coord: Xyz): Pnt {.constructor, importcpp: "gp_Pnt(@)",
                                   header: "gp_Pnt.hxx".}
-proc constructPnt*(xp: StandardReal; yp: StandardReal; zp: StandardReal): Pnt {.
+proc newPnt*(xp: StandardReal; yp: StandardReal; zp: StandardReal): Pnt {.
     constructor, importcpp: "gp_Pnt(@)", header: "gp_Pnt.hxx".}
 proc setCoord*(this: var Pnt; index: int; xi: StandardReal) {.importcpp: "SetCoord",
     header: "gp_Pnt.hxx".}

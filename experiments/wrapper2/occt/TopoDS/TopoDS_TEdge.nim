@@ -17,12 +17,6 @@
 discard "forward decl of TopoDS_TEdge"
 discard "forward decl of TopoDS_TEdge"
 type
-  HandleC1C1* = Handle[TopoDS_TEdge]
-
-## ! A topological part  of a  curve  in 2D or 3D,  the
-## ! boundary    is   a   set  of oriented    Vertices.
-
-type
   TopoDS_TEdge* {.importcpp: "TopoDS_TEdge", header: "TopoDS_TEdge.hxx", bycopy.} = object of TopoDS_TShape ##
                                                                                                   ## !
                                                                                                   ## Returns
@@ -34,39 +28,22 @@ type
                                                                                                   ## edge.
 
 
-proc shapeType*(this: TopoDS_TEdge): TopAbsShapeEnum {.noSideEffect,
-    importcpp: "ShapeType", header: "TopoDS_TEdge.hxx".}
+type
+  HandleTopoDS_TEdge* = Handle[TopoDS_TEdge]
+
+## ! A topological part  of a  curve  in 2D or 3D,  the
+## ! boundary    is   a   set  of oriented    Vertices.
+
 type
   TopoDS_TEdgebaseType* = TopoDS_TShape
 
-proc getTypeName*(): cstring {.importcpp: "TopoDS_TEdge::get_type_name(@)",
+#[ proc shapeType*(this: TopoDS_TEdge): TopAbsShapeEnum {.noSideEffect,
+    importcpp: "ShapeType", header: "TopoDS_TEdge.hxx".}
+
+ ]#
+#[ proc getTypeName*(): cstring {.importcpp: "TopoDS_TEdge::get_type_name(@)",
                             header: "TopoDS_TEdge.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TEdge::get_type_descriptor(@)", header: "TopoDS_TEdge.hxx".}
 proc dynamicType*(this: TopoDS_TEdge): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "TopoDS_TEdge.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "TopoDS_TEdge.hxx".} ]#

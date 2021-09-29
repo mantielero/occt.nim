@@ -34,13 +34,13 @@ proc `new`*(this: var Ax22d; a2: csize_t; theAddress: pointer): pointer {.
     importcpp: "gp_Ax22d::operator new", header: "gp_Ax22d.hxx".}
 proc `delete`*(this: var Ax22d; a2: pointer; a3: pointer) {.
     importcpp: "gp_Ax22d::operator delete", header: "gp_Ax22d.hxx".}
-proc constructAx22d*(): Ax22d {.constructor, importcpp: "gp_Ax22d(@)",
+proc newAx22d*(): Ax22d {.constructor, importcpp: "gp_Ax22d(@)",
                              header: "gp_Ax22d.hxx".}
-proc constructAx22d*(p: Pnt2d; vx: Dir2d; vy: Dir2d): Ax22d {.constructor,
+proc newAx22d*(p: Pnt2d; vx: Dir2d; vy: Dir2d): Ax22d {.constructor,
     importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
-proc constructAx22d*(p: Pnt2d; v: Dir2d; sense: StandardBoolean = true): Ax22d {.
+proc newAx22d*(p: Pnt2d; v: Dir2d; sense: StandardBoolean = true): Ax22d {.
     constructor, importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
-proc constructAx22d*(a: Ax2d; sense: StandardBoolean = true): Ax22d {.constructor,
+proc newAx22d*(a: Ax2d; sense: StandardBoolean = true): Ax22d {.constructor,
     importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
 proc setAxis*(this: var Ax22d; a1: Ax22d) {.importcpp: "SetAxis", header: "gp_Ax22d.hxx".}
 proc setXAxis*(this: var Ax22d; a1: Ax2d) {.importcpp: "SetXAxis",

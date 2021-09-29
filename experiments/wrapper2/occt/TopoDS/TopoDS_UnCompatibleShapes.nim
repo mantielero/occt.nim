@@ -14,63 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _TopoDS_UnCompatibleShapes_HeaderFile [NewLine] # _TopoDS_UnCompatibleShapes_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] ! An incorrect insertion was attempted. class TopoDS_UnCompatibleShapes ;
-## Error: expected ';'!!!
+## ! An incorrect insertion was attempted.
 
 discard "forward decl of TopoDS_UnCompatibleShapes"
+discard "forward decl of TopoDS_UnCompatibleShapes"
 type
-  HandleTopoDS_UnCompatibleShapesTopoDS_UnCompatibleShapes* = Handle[
-      TopoDS_UnCompatibleShapes]
-
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_TopoDS_UnCompatibleShapes [NewLine] # if ( CONDITION ) throw TopoDS_UnCompatibleShapes ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
-
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( TopoDS_UnCompatibleShapes , Standard_DomainError ) #  _TopoDS_UnCompatibleShapes_HeaderFile
-## Error: did not expect [NewLine]!!!
+  TopoDS_UnCompatibleShapes* {.importcpp: "TopoDS_UnCompatibleShapes",
+                              header: "TopoDS_UnCompatibleShapes.hxx", bycopy.} = object of StandardDomainError
 
 
+type
+  HandleTopoDS_UnCompatibleShapes* = Handle[TopoDS_UnCompatibleShapes]
 
+when not defined(noException) and not defined(noTopoDS_UnCompatibleShapes):
+  template topoDS_UnCompatibleShapesRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc topoDS_UnCompatibleShapes*(a1: Message): Throw {.
+          importcpp: "TopoDS_UnCompatibleShapes(@)",
+          header: "TopoDS_UnCompatibleShapes.hxx".}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+else:
+  discard

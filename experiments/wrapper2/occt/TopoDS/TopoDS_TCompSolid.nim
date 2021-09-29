@@ -18,11 +18,6 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TCompSolid"
 discard "forward decl of TopoDS_TCompSolid"
 type
-  HandleC1C1* = Handle[TopoDS_TCompSolid]
-
-## ! A set of solids connected by their faces.
-
-type
   TopoDS_TCompSolid* {.importcpp: "TopoDS_TCompSolid",
                       header: "TopoDS_TCompSolid.hxx", bycopy.} = object of TopoDS_TShape ##
                                                                                    ## !
@@ -31,45 +26,26 @@ type
                                                                                    ## empty
                                                                                    ## TCompSolid.
 
+type
+  HandleTopoDS_TCompSolid* = Handle[TopoDS_TCompSolid]
 
-proc constructTopoDS_TCompSolid*(): TopoDS_TCompSolid {.constructor,
-    importcpp: "TopoDS_TCompSolid(@)", header: "TopoDS_TCompSolid.hxx".}
-proc shapeType*(this: TopoDS_TCompSolid): TopAbsShapeEnum {.noSideEffect,
-    importcpp: "ShapeType", header: "TopoDS_TCompSolid.hxx".}
-proc emptyCopy*(this: TopoDS_TCompSolid): Handle[TopoDS_TShape] {.noSideEffect,
-    importcpp: "EmptyCopy", header: "TopoDS_TCompSolid.hxx".}
+## ! A set of solids connected by their faces.
+
 type
   TopoDS_TCompSolidbaseType* = TopoDS_TShape
 
-proc getTypeName*(): cstring {.importcpp: "TopoDS_TCompSolid::get_type_name(@)",
+proc constructTopoDS_TCompSolid*(): TopoDS_TCompSolid {.constructor,
+    importcpp: "TopoDS_TCompSolid(@)", header: "TopoDS_TCompSolid.hxx".}
+#[ proc shapeType*(this: TopoDS_TCompSolid): TopAbsShapeEnum {.noSideEffect,
+    importcpp: "ShapeType", header: "TopoDS_TCompSolid.hxx".}
+proc emptyCopy*(this: TopoDS_TCompSolid): Handle[TopoDS_TShape] {.noSideEffect,
+    importcpp: "EmptyCopy", header: "TopoDS_TCompSolid.hxx".} ]#
+
+
+#[ proc getTypeName*(): cstring {.importcpp: "TopoDS_TCompSolid::get_type_name(@)",
                             header: "TopoDS_TCompSolid.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TCompSolid::get_type_descriptor(@)",
     header: "TopoDS_TCompSolid.hxx".}
 proc dynamicType*(this: TopoDS_TCompSolid): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "TopoDS_TCompSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "TopoDS_TCompSolid.hxx".} ]#

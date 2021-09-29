@@ -76,9 +76,11 @@ groups &= group
 # 2. Process the files
 #let filter = @["gp_", "GC_", "Geom_", "Standard_", "NCollection_"]
 #let filter = @["gp"]
-let filter = @["Geom"]
+#let filter = @["Geom"]
 #let filter = @["Standard"]
 #let filter = @["NCollection"]
+#let filter = @["BRepBuilderAPI"]
+let filter = @["TopoDS"]
 var errorFiles = newSeq[string]()
 for group in groups:
   var flag = false

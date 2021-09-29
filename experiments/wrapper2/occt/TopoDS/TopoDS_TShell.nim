@@ -18,11 +18,6 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TShell"
 discard "forward decl of TopoDS_TShell"
 type
-  HandleC1C1* = Handle[TopoDS_TShell]
-
-## ! A set of faces connected by their edges.
-
-type
   TopoDS_TShell* {.importcpp: "TopoDS_TShell", header: "TopoDS_TShell.hxx", bycopy.} = object of TopoDS_TShape ##
                                                                                                      ## !
                                                                                                      ## Creates
@@ -30,15 +25,21 @@ type
                                                                                                      ## empty
                                                                                                      ## TShell.
 
+type
+  HandleTopoDS_TShell* = Handle[TopoDS_TShell]
+
+## ! A set of faces connected by their edges.
+type
+  TopoDS_TShellbaseType* = TopoDS_TShape
+
 
 proc constructTopoDS_TShell*(): TopoDS_TShell {.constructor,
     importcpp: "TopoDS_TShell(@)", header: "TopoDS_TShell.hxx".}
-proc shapeType*(this: TopoDS_TShell): TopAbsShapeEnum {.noSideEffect,
+#[ proc shapeType*(this: TopoDS_TShell): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "TopoDS_TShell.hxx".}
 proc emptyCopy*(this: TopoDS_TShell): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "TopoDS_TShell.hxx".}
-type
-  TopoDS_TShellbaseType* = TopoDS_TShape
+
 
 proc getTypeName*(): cstring {.importcpp: "TopoDS_TShell::get_type_name(@)",
                             header: "TopoDS_TShell.hxx".}
@@ -46,29 +47,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TShell::get_type_descriptor(@)",
     header: "TopoDS_TShell.hxx".}
 proc dynamicType*(this: TopoDS_TShell): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "TopoDS_TShell.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "TopoDS_TShell.hxx".} ]#

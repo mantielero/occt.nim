@@ -26,33 +26,20 @@
 
 type
   TopoDS_Compound* {.importcpp: "TopoDS_Compound", header: "TopoDS_Compound.hxx",
-                    bycopy.} = object of TopoDS_Shape ## ! Constructs an Undefined Compound.
+                    bycopy.} = object of TopoDS_Shape
 
 
+proc `new`*(this: var TopoDS_Compound; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Compound::operator new", header: "TopoDS_Compound.hxx".}
+proc `delete`*(this: var TopoDS_Compound; theAddress: pointer) {.
+    importcpp: "TopoDS_Compound::operator delete", header: "TopoDS_Compound.hxx".}
+proc `new[]`*(this: var TopoDS_Compound; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Compound::operator new[]", header: "TopoDS_Compound.hxx".}
+proc `delete[]`*(this: var TopoDS_Compound; theAddress: pointer) {.
+    importcpp: "TopoDS_Compound::operator delete[]", header: "TopoDS_Compound.hxx".}
+proc `new`*(this: var TopoDS_Compound; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDS_Compound::operator new", header: "TopoDS_Compound.hxx".}
+proc `delete`*(this: var TopoDS_Compound; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDS_Compound::operator delete", header: "TopoDS_Compound.hxx".}
 proc constructTopoDS_Compound*(): TopoDS_Compound {.constructor,
     importcpp: "TopoDS_Compound(@)", header: "TopoDS_Compound.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

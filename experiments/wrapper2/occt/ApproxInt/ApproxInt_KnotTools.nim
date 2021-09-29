@@ -11,18 +11,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_HeaderFile):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_DefineAlloc_HeaderFile):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Macro_HeaderFile):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Boolean_HeaderFile):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Real_HeaderFile):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Integer_HeaderFile):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_DefineAlloc_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Macro_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Boolean_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Real_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Integer_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
 discard "forward decl of math_Vector"
 discard "forward decl of NCollection_Sequence"
 discard "forward decl of NCollection_List"
@@ -72,6 +72,8 @@ proc buildKnots*(thePntsXYZ: TColgpArray1OfPnt; thePntsU1V1: TColgpArray1OfPnt2d
                 theMinNbPnts: cint; theKnots: var NCollectionVector[cint]) {.
     importcpp: "ApproxInt_KnotTools::BuildKnots(@)",
     header: "ApproxInt_KnotTools.hxx".}
+
+
 
 
 

@@ -23,34 +23,26 @@ type
                                       bycopy.} = object of TopoDSToStepRoot
 
 
+proc `new`*(this: var TopoDSToStepMakeGeometricCurveSet; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeGeometricCurveSet::operator new",
+    header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeGeometricCurveSet; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeGeometricCurveSet::operator delete",
+    header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
+proc `new[]`*(this: var TopoDSToStepMakeGeometricCurveSet; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeGeometricCurveSet::operator new[]",
+    header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
+proc `delete[]`*(this: var TopoDSToStepMakeGeometricCurveSet; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeGeometricCurveSet::operator delete[]",
+    header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
+proc `new`*(this: var TopoDSToStepMakeGeometricCurveSet; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopoDSToStep_MakeGeometricCurveSet::operator new", header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeGeometricCurveSet; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_MakeGeometricCurveSet::operator delete",
+    header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
 proc constructTopoDSToStepMakeGeometricCurveSet*(sh: TopoDS_Shape;
     fp: Handle[TransferFinderProcess]): TopoDSToStepMakeGeometricCurveSet {.
     constructor, importcpp: "TopoDSToStep_MakeGeometricCurveSet(@)",
     header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
 proc value*(this: TopoDSToStepMakeGeometricCurveSet): Handle[
     StepShapeGeometricCurveSet] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeGeometricCurveSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

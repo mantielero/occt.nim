@@ -14,63 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _TopoDS_FrozenShape_HeaderFile [NewLine] # _TopoDS_FrozenShape_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] ! An  attempt was  made to   modify  a Shape  already
-## ! shared or protected. class TopoDS_FrozenShape ;
-## Error: expected ';'!!!
+## ! An  attempt was  made to   modify  a Shape  already
+## ! shared or protected.
 
 discard "forward decl of TopoDS_FrozenShape"
+discard "forward decl of TopoDS_FrozenShape"
 type
-  HandleTopoDS_FrozenShapeTopoDS_FrozenShape* = Handle[TopoDS_FrozenShape]
-
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_TopoDS_FrozenShape [NewLine] # if ( CONDITION ) throw TopoDS_FrozenShape ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
-
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( TopoDS_FrozenShape , Standard_DomainError ) #  _TopoDS_FrozenShape_HeaderFile
-## Error: did not expect [NewLine]!!!
+  TopoDS_FrozenShape* {.importcpp: "TopoDS_FrozenShape",
+                       header: "TopoDS_FrozenShape.hxx", bycopy.} = object of StandardDomainError
 
 
+type
+  HandleTopoDS_FrozenShape* = Handle[TopoDS_FrozenShape]
 
+when not defined(noException) and not defined(noTopoDS_FrozenShape):
+  template topoDS_FrozenShapeRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc topoDS_FrozenShape*(a1: Message): Throw {.
+          importcpp: "TopoDS_FrozenShape(@)", header: "TopoDS_FrozenShape.hxx".}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+else:
+  discard

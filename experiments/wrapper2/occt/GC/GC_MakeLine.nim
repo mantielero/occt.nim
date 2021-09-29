@@ -48,15 +48,15 @@ type
                                                                                          ## line.
 
 
-proc constructGC_MakeLine*(a1: Ax1): GC_MakeLine {.constructor,
+proc makeLine*(a1: Ax1): GC_MakeLine {.constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc constructGC_MakeLine*(L: Lin): GC_MakeLine {.constructor,
+proc makeLine*(L: Lin): GC_MakeLine {.constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc constructGC_MakeLine*(p: Pnt; v: Dir): GC_MakeLine {.constructor,
+proc makeLine*(p: Pnt; v: Dir): GC_MakeLine {.constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc constructGC_MakeLine*(lin: Lin; point: Pnt): GC_MakeLine {.constructor,
+proc makeLine*(lin: Lin; point: Pnt): GC_MakeLine {.constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc constructGC_MakeLine*(p1: Pnt; p2: Pnt): GC_MakeLine {.constructor,
+proc makeLine*(p1: Pnt; p2: Pnt): GC_MakeLine {.constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
 proc value*(this: GC_MakeLine): Handle[GeomLine] {.noSideEffect, importcpp: "Value",
     header: "GC_MakeLine.hxx".}

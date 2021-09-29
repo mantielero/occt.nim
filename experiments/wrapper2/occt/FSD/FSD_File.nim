@@ -79,10 +79,10 @@ type
 
   FSD_FilebaseType* = StorageBaseDriver
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeName*(): cstring {.importcpp: "FSD_File::get_type_name(@)",
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                             header: "FSD_File.hxx".}
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeDescriptor*(): Handle[StandardType] {.
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_File::get_type_descriptor(@)", header: "FSD_File.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeName*(): cstring {.importcpp: "FSD_File::get_type_name(@)",
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                             header: "FSD_File.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeDescriptor*(): Handle[StandardType] {.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_File::get_type_descriptor(@)", header: "FSD_File.hxx".}
 proc dynamicType*(this: FSD_File): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "FSD_File.hxx".}
 proc constructFSD_File*(): FSD_File {.constructor, importcpp: "FSD_File(@)",
@@ -93,8 +93,8 @@ proc isEnd*(this: var FSD_File): bool {.importcpp: "IsEnd", header: "FSD_File.hx
 proc tell*(this: var FSD_File): StoragePosition {.importcpp: "Tell",
     header: "FSD_File.hxx".}
 proc isGoodFileType*(aName: TCollectionAsciiString): StorageError {.
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_File::IsGoodFileType(@)", header: "FSD_File.hxx".}
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc beginWriteInfoSection*(this: var FSD_File): StorageError {.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_File::IsGoodFileType(@)", header: "FSD_File.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc beginWriteInfoSection*(this: var FSD_File): StorageError {.
     importcpp: "BeginWriteInfoSection", header: "FSD_File.hxx".}
 proc writeInfo*(this: var FSD_File; nbObj: cint; dbVersion: TCollectionAsciiString;
                date: TCollectionAsciiString; schemaName: TCollectionAsciiString;
@@ -256,8 +256,14 @@ proc magicNumber*(): StandardCString {.importcpp: "FSD_File::MagicNumber(@)",
 
 
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+
+
+
+
+
 
 
 

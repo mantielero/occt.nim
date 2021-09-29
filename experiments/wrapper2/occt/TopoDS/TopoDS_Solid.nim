@@ -24,38 +24,20 @@
 ## ! relation to other shapes).
 
 type
-  TopoDS_Solid* {.importcpp: "TopoDS_Solid", header: "TopoDS_Solid.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                                 ## !
-                                                                                                 ## Constructs
-                                                                                                 ## an
-                                                                                                 ## Undefined
-                                                                                                 ## Solid.
+  TopoDS_Solid* {.importcpp: "TopoDS_Solid", header: "TopoDS_Solid.hxx", bycopy.} = object of TopoDS_Shape
 
 
+proc `new`*(this: var TopoDS_Solid; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Solid::operator new", header: "TopoDS_Solid.hxx".}
+proc `delete`*(this: var TopoDS_Solid; theAddress: pointer) {.
+    importcpp: "TopoDS_Solid::operator delete", header: "TopoDS_Solid.hxx".}
+proc `new[]`*(this: var TopoDS_Solid; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Solid::operator new[]", header: "TopoDS_Solid.hxx".}
+proc `delete[]`*(this: var TopoDS_Solid; theAddress: pointer) {.
+    importcpp: "TopoDS_Solid::operator delete[]", header: "TopoDS_Solid.hxx".}
+proc `new`*(this: var TopoDS_Solid; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDS_Solid::operator new", header: "TopoDS_Solid.hxx".}
+proc `delete`*(this: var TopoDS_Solid; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDS_Solid::operator delete", header: "TopoDS_Solid.hxx".}
 proc constructTopoDS_Solid*(): TopoDS_Solid {.constructor,
     importcpp: "TopoDS_Solid(@)", header: "TopoDS_Solid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

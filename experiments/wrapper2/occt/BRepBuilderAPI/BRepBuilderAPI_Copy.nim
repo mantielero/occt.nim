@@ -17,55 +17,34 @@
 discard "forward decl of TopoDS_Shape"
 type
   BRepBuilderAPI_Copy* {.importcpp: "BRepBuilderAPI_Copy",
-                        header: "BRepBuilderAPI_Copy.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape ##
-                                                                                                    ## !
-                                                                                                    ## Constructs
-                                                                                                    ## an
-                                                                                                    ## empty
-                                                                                                    ## copy
-                                                                                                    ## framework.
-                                                                                                    ## Use
-                                                                                                    ## the
-                                                                                                    ## function
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Perform
-                                                                                                    ## to
-                                                                                                    ## copy
-                                                                                                    ## shapes.
+                        header: "BRepBuilderAPI_Copy.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape
 
 
+proc `new`*(this: var BRepBuilderAPI_Copy; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_Copy::operator new",
+    header: "BRepBuilderAPI_Copy.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_Copy; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_Copy::operator delete",
+    header: "BRepBuilderAPI_Copy.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_Copy; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_Copy::operator new[]",
+    header: "BRepBuilderAPI_Copy.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_Copy; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_Copy::operator delete[]",
+    header: "BRepBuilderAPI_Copy.hxx".}
+proc `new`*(this: var BRepBuilderAPI_Copy; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_Copy::operator new",
+    header: "BRepBuilderAPI_Copy.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_Copy; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_Copy::operator delete",
+    header: "BRepBuilderAPI_Copy.hxx".}
 proc constructBRepBuilderAPI_Copy*(): BRepBuilderAPI_Copy {.constructor,
     importcpp: "BRepBuilderAPI_Copy(@)", header: "BRepBuilderAPI_Copy.hxx".}
-proc constructBRepBuilderAPI_Copy*(s: TopoDS_Shape; copyGeom: bool = true;
-                                  copyMesh: bool = false): BRepBuilderAPI_Copy {.
+proc constructBRepBuilderAPI_Copy*(s: TopoDS_Shape;
+                                  copyGeom: StandardBoolean = true;
+                                  copyMesh: StandardBoolean = false): BRepBuilderAPI_Copy {.
     constructor, importcpp: "BRepBuilderAPI_Copy(@)",
     header: "BRepBuilderAPI_Copy.hxx".}
-proc perform*(this: var BRepBuilderAPI_Copy; s: TopoDS_Shape; copyGeom: bool = true;
-             copyMesh: bool = false) {.importcpp: "Perform",
-                                   header: "BRepBuilderAPI_Copy.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc perform*(this: var BRepBuilderAPI_Copy; s: TopoDS_Shape;
+             copyGeom: StandardBoolean = true; copyMesh: StandardBoolean = false) {.
+    importcpp: "Perform", header: "BRepBuilderAPI_Copy.hxx".}

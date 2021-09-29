@@ -37,12 +37,12 @@ proc `new`*(this: var Ax3; a2: csize_t; theAddress: pointer): pointer {.
     importcpp: "gp_Ax3::operator new", header: "gp_Ax3.hxx".}
 proc `delete`*(this: var Ax3; a2: pointer; a3: pointer) {.
     importcpp: "gp_Ax3::operator delete", header: "gp_Ax3.hxx".}
-proc constructAx3*(): Ax3 {.constructor, importcpp: "gp_Ax3(@)", header: "gp_Ax3.hxx".}
-proc constructAx3*(a: Ax2): Ax3 {.constructor, importcpp: "gp_Ax3(@)",
+proc newAx3*(): Ax3 {.constructor, importcpp: "gp_Ax3(@)", header: "gp_Ax3.hxx".}
+proc newAx3*(a: Ax2): Ax3 {.constructor, importcpp: "gp_Ax3(@)",
                               header: "gp_Ax3.hxx".}
-proc constructAx3*(p: Pnt; n: Dir; vx: Dir): Ax3 {.constructor, importcpp: "gp_Ax3(@)",
+proc newAx3*(p: Pnt; n: Dir; vx: Dir): Ax3 {.constructor, importcpp: "gp_Ax3(@)",
     header: "gp_Ax3.hxx".}
-proc constructAx3*(p: Pnt; v: Dir): Ax3 {.constructor, importcpp: "gp_Ax3(@)",
+proc newAx3*(p: Pnt; v: Dir): Ax3 {.constructor, importcpp: "gp_Ax3(@)",
                                     header: "gp_Ax3.hxx".}
 proc xReverse*(this: var Ax3) {.importcpp: "XReverse", header: "gp_Ax3.hxx".}
 proc yReverse*(this: var Ax3) {.importcpp: "YReverse", header: "gp_Ax3.hxx".}

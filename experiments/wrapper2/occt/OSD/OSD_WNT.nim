@@ -12,8 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_INC_WINDOWS):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_INC_WINDOWS):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
 type
   Dir_Response* {.size: sizeof(cint), importcpp: "DIR_RESPONSE",
                  header: "OSD_WNT.hxx".} = enum
@@ -101,6 +101,8 @@ proc setCopyDirectoryProc*(a1: Copy_Dir_Proc) {.
     importcpp: "SetCopyDirectoryProc(@)", header: "OSD_WNT.hxx".}
 proc setResponseDirectoryProc*(a1: Response_Dir_Proc) {.
     importcpp: "SetResponseDirectoryProc(@)", header: "OSD_WNT.hxx".}
+
+
 
 
 

@@ -17,73 +17,39 @@
 discard "forward decl of TopoDS_Shape"
 type
   BRepBuilderAPI_NurbsConvert* {.importcpp: "BRepBuilderAPI_NurbsConvert",
-                                header: "BRepBuilderAPI_NurbsConvert.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape ##
-                                                                                                                    ## !
-                                                                                                                    ## Constructs
-                                                                                                                    ## a
-                                                                                                                    ## framework
-                                                                                                                    ## for
-                                                                                                                    ## converting
-                                                                                                                    ## the
-                                                                                                                    ## geometry
-                                                                                                                    ## of
-                                                                                                                    ## a
-                                                                                                                    ##
-                                                                                                                    ## !
-                                                                                                                    ## shape
-                                                                                                                    ## into
-                                                                                                                    ## NURBS
-                                                                                                                    ## geometry.
-                                                                                                                    ## Use
-                                                                                                                    ## the
-                                                                                                                    ## function
-                                                                                                                    ## Perform
-                                                                                                                    ##
-                                                                                                                    ## !
-                                                                                                                    ## to
-                                                                                                                    ## define
-                                                                                                                    ## the
-                                                                                                                    ## shape
-                                                                                                                    ## to
-                                                                                                                    ## convert.
+                                header: "BRepBuilderAPI_NurbsConvert.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape
 
 
+proc `new`*(this: var BRepBuilderAPI_NurbsConvert; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_NurbsConvert::operator new",
+    header: "BRepBuilderAPI_NurbsConvert.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_NurbsConvert; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_NurbsConvert::operator delete",
+    header: "BRepBuilderAPI_NurbsConvert.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_NurbsConvert; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_NurbsConvert::operator new[]",
+    header: "BRepBuilderAPI_NurbsConvert.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_NurbsConvert; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_NurbsConvert::operator delete[]",
+    header: "BRepBuilderAPI_NurbsConvert.hxx".}
+proc `new`*(this: var BRepBuilderAPI_NurbsConvert; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_NurbsConvert::operator new",
+    header: "BRepBuilderAPI_NurbsConvert.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_NurbsConvert; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_NurbsConvert::operator delete",
+    header: "BRepBuilderAPI_NurbsConvert.hxx".}
 proc constructBRepBuilderAPI_NurbsConvert*(): BRepBuilderAPI_NurbsConvert {.
     constructor, importcpp: "BRepBuilderAPI_NurbsConvert(@)",
     header: "BRepBuilderAPI_NurbsConvert.hxx".}
-proc constructBRepBuilderAPI_NurbsConvert*(s: TopoDS_Shape; copy: bool = false): BRepBuilderAPI_NurbsConvert {.
-    constructor, importcpp: "BRepBuilderAPI_NurbsConvert(@)",
+proc constructBRepBuilderAPI_NurbsConvert*(s: TopoDS_Shape;
+    copy: StandardBoolean = false): BRepBuilderAPI_NurbsConvert {.constructor,
+    importcpp: "BRepBuilderAPI_NurbsConvert(@)",
     header: "BRepBuilderAPI_NurbsConvert.hxx".}
 proc perform*(this: var BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape;
-             copy: bool = false) {.importcpp: "Perform",
-                               header: "BRepBuilderAPI_NurbsConvert.hxx".}
-proc modified*(this: var BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopToolsListOfShape {.
-    importcpp: "Modified", header: "BRepBuilderAPI_NurbsConvert.hxx".}
+             copy: StandardBoolean = false) {.importcpp: "Perform",
+    header: "BRepBuilderAPI_NurbsConvert.hxx".}
+#[ proc modified*(this: var BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopToolsListOfShape {.
+    importcpp: "Modified", header: "BRepBuilderAPI_NurbsConvert.hxx".} ]#
 proc modifiedShape*(this: BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepBuilderAPI_NurbsConvert.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

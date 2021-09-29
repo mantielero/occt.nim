@@ -35,29 +35,3 @@ type
     BRepBuilderAPI_FaceDone, BRepBuilderAPI_NoFace, BRepBuilderAPI_NotPlanar,
     BRepBuilderAPI_CurveProjectionFailed, BRepBuilderAPI_ParametersOutOfRange
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

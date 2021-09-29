@@ -13,8 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # discard "forward decl of Poly_CoherentTriangle"
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(_MSC_VER):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # discard "forward decl of Poly_CoherentTriangle"
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(_MSC_VER):
 ## *
 ##  Implementation of both list node for Poly_CoherentTriangle type and
 ##  round double-linked list of these nodes.
@@ -102,6 +102,10 @@ proc previous*(this: PolyCoherentTriPtr): var PolyCoherentTriPtr {.noSideEffect,
 
 # when defined(_MSC_VER):
 #   discard
+
+
+
+
 
 
 

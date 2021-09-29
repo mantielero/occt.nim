@@ -45,21 +45,23 @@ type
                                                                                                   ## confused.
 
 
-proc constructGC_MakeSegment*(p1: Pnt; p2: Pnt): GC_MakeSegment {.constructor,
+proc makeSegment*(p1: Pnt; p2: Pnt): GC_MakeSegment {.constructor,
     importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc constructGC_MakeSegment*(line: Lin; u1: cfloat; u2: cfloat): GC_MakeSegment {.
+proc makeSegment*(line: Lin; u1: cfloat; u2: cfloat): GC_MakeSegment {.
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc constructGC_MakeSegment*(line: Lin; point: Pnt; ulast: cfloat): GC_MakeSegment {.
+proc makeSegment*(line: Lin; point: Pnt; ulast: cfloat): GC_MakeSegment {.
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc constructGC_MakeSegment*(line: Lin; p1: Pnt; p2: Pnt): GC_MakeSegment {.
+proc makeSegment*(line: Lin; p1: Pnt; p2: Pnt): GC_MakeSegment {.
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 proc value*(this: GC_MakeSegment): Handle[GeomTrimmedCurve] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeSegment.hxx".}
-converter `constopencascade`*(this: GC_MakeSegment): Handle[GeomTrimmedCurve] {.
+
+#[ converter `toHandleGeomTrimmedCurve`*(this: GC_MakeSegment): Handle[GeomTrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeSegment::operator constopencascade",
-    header: "GC_MakeSegment.hxx".}
+    header: "GC_MakeSegment.hxx".} ]#
 
-
+converter toHandle_Geom_TrimmedCurve*(self: GC_MakeSegment):Handle_Geom_TrimmedCurve {.noSideEffect, 
+    importcpp:"(Handle_Geom_TrimmedCurve)(#)", header: "GC_MakeSegment.hxx".}
 
 
 

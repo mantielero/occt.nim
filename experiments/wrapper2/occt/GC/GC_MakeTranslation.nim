@@ -23,9 +23,9 @@ type
                                                                       ## translation along the vector " Vect "
 
 
-proc constructGC_MakeTranslation*(vect: Vec): GC_MakeTranslation {.constructor,
+proc makeTranslation*(vect: Vec): GC_MakeTranslation {.constructor,
     importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
-proc constructGC_MakeTranslation*(point1: Pnt; point2: Pnt): GC_MakeTranslation {.
+proc makeTranslation*(point1: Pnt; point2: Pnt): GC_MakeTranslation {.
     constructor, importcpp: "GC_MakeTranslation(@)",
     header: "GC_MakeTranslation.hxx".}
 proc value*(this: GC_MakeTranslation): Handle[GeomTransformation] {.noSideEffect,

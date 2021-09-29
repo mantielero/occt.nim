@@ -17,25 +17,6 @@
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Geom2d_BoundedCurve"
 discard "forward decl of Geom2d_BoundedCurve"
-type
-  HandleC1C1* = Handle[Geom2dBoundedCurve]
-
-## ! The abstract class BoundedCurve describes the
-## ! common behavior of bounded curves in 2D space. A
-## ! bounded curve is limited by two finite values of the
-## ! parameter, termed respectively "first parameter" and
-## ! "last parameter". The "first parameter" gives the "start
-## ! point" of the bounded curve, and the "last parameter"
-## ! gives the "end point" of the bounded curve.
-## ! The length of a bounded curve is finite.
-## ! The Geom2d package provides three concrete
-## ! classes of bounded curves:
-## ! - two frequently used mathematical formulations of complex curves:
-## ! - Geom2d_BezierCurve,
-## ! - Geom2d_BSplineCurve, and
-## ! - Geom2d_TrimmedCurve to trim a curve, i.e. to
-## ! only take part of the curve limited by two values of
-## ! the parameter of the basis curve.
 
 type
   Geom2dBoundedCurve* {.importcpp: "Geom2d_BoundedCurve",
@@ -68,6 +49,28 @@ type
                                                                                     ## the
                                                                                     ## curve.
 
+type
+  HandleGeom2dBoundedCurve* = Handle[Geom2dBoundedCurve]
+
+## ! The abstract class BoundedCurve describes the
+## ! common behavior of bounded curves in 2D space. A
+## ! bounded curve is limited by two finite values of the
+## ! parameter, termed respectively "first parameter" and
+## ! "last parameter". The "first parameter" gives the "start
+## ! point" of the bounded curve, and the "last parameter"
+## ! gives the "end point" of the bounded curve.
+## ! The length of a bounded curve is finite.
+## ! The Geom2d package provides three concrete
+## ! classes of bounded curves:
+## ! - two frequently used mathematical formulations of complex curves:
+## ! - Geom2d_BezierCurve,
+## ! - Geom2d_BSplineCurve, and
+## ! - Geom2d_TrimmedCurve to trim a curve, i.e. to
+## ! only take part of the curve limited by two values of
+## ! the parameter of the basis curve.
+
+type
+  Geom2dBoundedCurvebaseType* = Geom2dCurve
 
 proc endPoint*(this: Geom2dBoundedCurve): Pnt2d {.noSideEffect,
     importcpp: "EndPoint", header: "Geom2d_BoundedCurve.hxx".}
@@ -76,13 +79,12 @@ proc startPoint*(this: Geom2dBoundedCurve): Pnt2d {.noSideEffect,
 proc dumpJson*(this: Geom2dBoundedCurve; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom2d_BoundedCurve.hxx".}
-type
-  Geom2dBoundedCurvebaseType* = Geom2dCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_BoundedCurve::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_BoundedCurve::get_type_name(@)",
                             header: "Geom2d_BoundedCurve.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_BoundedCurve::get_type_descriptor(@)",
     header: "Geom2d_BoundedCurve.hxx".}
 proc dynamicType*(this: Geom2dBoundedCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_BoundedCurve.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_BoundedCurve.hxx".} ]#

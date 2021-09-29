@@ -26,6 +26,24 @@ type
                                  bycopy.} = object of TopoDSToStepRoot
 
 
+proc `new`*(this: var TopoDSToStepWireframeBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_WireframeBuilder::operator new",
+    header: "TopoDSToStep_WireframeBuilder.hxx".}
+proc `delete`*(this: var TopoDSToStepWireframeBuilder; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_WireframeBuilder::operator delete",
+    header: "TopoDSToStep_WireframeBuilder.hxx".}
+proc `new[]`*(this: var TopoDSToStepWireframeBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_WireframeBuilder::operator new[]",
+    header: "TopoDSToStep_WireframeBuilder.hxx".}
+proc `delete[]`*(this: var TopoDSToStepWireframeBuilder; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_WireframeBuilder::operator delete[]",
+    header: "TopoDSToStep_WireframeBuilder.hxx".}
+proc `new`*(this: var TopoDSToStepWireframeBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDSToStep_WireframeBuilder::operator new",
+    header: "TopoDSToStep_WireframeBuilder.hxx".}
+proc `delete`*(this: var TopoDSToStepWireframeBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_WireframeBuilder::operator delete",
+    header: "TopoDSToStep_WireframeBuilder.hxx".}
 proc constructTopoDSToStepWireframeBuilder*(): TopoDSToStepWireframeBuilder {.
     constructor, importcpp: "TopoDSToStep_WireframeBuilder(@)",
     header: "TopoDSToStep_WireframeBuilder.hxx".}
@@ -43,41 +61,16 @@ proc value*(this: TopoDSToStepWireframeBuilder): Handle[TColStdHSequenceOfTransi
 proc getTrimmedCurveFromEdge*(this: TopoDSToStepWireframeBuilder; e: TopoDS_Edge;
                              f: TopoDS_Face;
                              m: var MoniToolDataMapOfShapeTransient;
-                             L: var Handle[TColStdHSequenceOfTransient]): bool {.
+                             L: var Handle[TColStdHSequenceOfTransient]): StandardBoolean {.
     noSideEffect, importcpp: "GetTrimmedCurveFromEdge",
     header: "TopoDSToStep_WireframeBuilder.hxx".}
 proc getTrimmedCurveFromFace*(this: TopoDSToStepWireframeBuilder; f: TopoDS_Face;
                              m: var MoniToolDataMapOfShapeTransient;
-                             L: var Handle[TColStdHSequenceOfTransient]): bool {.
+                             L: var Handle[TColStdHSequenceOfTransient]): StandardBoolean {.
     noSideEffect, importcpp: "GetTrimmedCurveFromFace",
     header: "TopoDSToStep_WireframeBuilder.hxx".}
 proc getTrimmedCurveFromShape*(this: TopoDSToStepWireframeBuilder; s: TopoDS_Shape;
                               m: var MoniToolDataMapOfShapeTransient;
-                              L: var Handle[TColStdHSequenceOfTransient]): bool {.
+                              L: var Handle[TColStdHSequenceOfTransient]): StandardBoolean {.
     noSideEffect, importcpp: "GetTrimmedCurveFromShape",
     header: "TopoDSToStep_WireframeBuilder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

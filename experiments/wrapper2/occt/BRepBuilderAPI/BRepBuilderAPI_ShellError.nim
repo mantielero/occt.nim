@@ -31,29 +31,3 @@ type
     BRepBuilderAPI_ShellDone, BRepBuilderAPI_EmptyShell,
     BRepBuilderAPI_DisconnectedShell, BRepBuilderAPI_ShellParametersOutOfRange
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

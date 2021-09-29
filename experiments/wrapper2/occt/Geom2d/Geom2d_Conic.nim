@@ -16,24 +16,6 @@
 
 discard "forward decl of Geom2d_Conic"
 discard "forward decl of Geom2d_Conic"
-type
-  HandleC1C1* = Handle[Geom2dConic]
-
-## ! The abstract class Conic describes the common
-## ! behavior of conic curves in 2D space and, in
-## ! particular, their general characteristics. The Geom2d
-## ! package provides four specific classes of conics:
-## ! Geom2d_Circle, Geom2d_Ellipse,
-## ! Geom2d_Hyperbola and Geom2d_Parabola.
-## ! A conic is positioned in the plane with a coordinate
-## ! system (gp_Ax22d object), where the origin is the
-## ! center of the conic (or the apex in case of a parabola).
-## ! This coordinate system is the local coordinate
-## ! system of the conic. It gives the conic an explicit
-## ! orientation, determining the direction in which the
-## ! parameter increases along the conic. The "X Axis" of
-## ! the local coordinate system also defines the origin of
-## ! the parameter of the conic.
 
 type
   Geom2dConic* {.importcpp: "Geom2d_Conic", header: "Geom2d_Conic.hxx", bycopy.} = object of Geom2dCurve ##
@@ -57,6 +39,28 @@ type
                                                                                                ## axis
 
 
+type
+  HandleGeom2dConic* = Handle[Geom2dConic]
+
+## ! The abstract class Conic describes the common
+## ! behavior of conic curves in 2D space and, in
+## ! particular, their general characteristics. The Geom2d
+## ! package provides four specific classes of conics:
+## ! Geom2d_Circle, Geom2d_Ellipse,
+## ! Geom2d_Hyperbola and Geom2d_Parabola.
+## ! A conic is positioned in the plane with a coordinate
+## ! system (gp_Ax22d object), where the origin is the
+## ! center of the conic (or the apex in case of a parabola).
+## ! This coordinate system is the local coordinate
+## ! system of the conic. It gives the conic an explicit
+## ! orientation, determining the direction in which the
+## ! parameter increases along the conic. The "X Axis" of
+## ! the local coordinate system also defines the origin of
+## ! the parameter of the conic.
+
+type
+  Geom2dConicbaseType* = Geom2dCurve
+
 proc setAxis*(this: var Geom2dConic; theA: Ax22d) {.importcpp: "SetAxis",
     header: "Geom2d_Conic.hxx".}
 proc setXAxis*(this: var Geom2dConic; theAX: Ax2d) {.importcpp: "SetXAxis",
@@ -79,18 +83,17 @@ proc reverse*(this: var Geom2dConic) {.importcpp: "Reverse",
                                    header: "Geom2d_Conic.hxx".}
 proc reversedParameter*(this: Geom2dConic; u: StandardReal): StandardReal {.
     noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_Conic.hxx".}
-proc continuity*(this: Geom2dConic): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom2d_Conic.hxx".}
+#[ proc continuity*(this: Geom2dConic): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom2d_Conic.hxx".} ]#
 proc isCN*(this: Geom2dConic; n: int): StandardBoolean {.noSideEffect,
     importcpp: "IsCN", header: "Geom2d_Conic.hxx".}
 proc dumpJson*(this: Geom2dConic; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom2d_Conic.hxx".}
-type
-  Geom2dConicbaseType* = Geom2dCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Conic::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_Conic::get_type_name(@)",
                             header: "Geom2d_Conic.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Conic::get_type_descriptor(@)", header: "Geom2d_Conic.hxx".}
 proc dynamicType*(this: Geom2dConic): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Conic.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Conic.hxx".} ]#

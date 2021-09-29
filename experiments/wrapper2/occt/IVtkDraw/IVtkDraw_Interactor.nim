@@ -15,8 +15,8 @@
 
 # when defined windows:
 #   discard
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # else:
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # else:
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
 ##  prevent disabling some MSVC warning messages by VTK headers
 
 discard "forward decl of vtkWin32RenderWindowInteractor"
@@ -77,6 +77,8 @@ when not defined windows:
 
 ## !!!Ignored construct:  myWindow ;
 ## Error: identifier expected, but got: ;!!!
+
+
 
 
 

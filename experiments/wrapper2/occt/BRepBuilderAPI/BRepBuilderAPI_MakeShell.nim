@@ -19,64 +19,45 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Shell"
 type
   BRepBuilderAPI_MakeShell* {.importcpp: "BRepBuilderAPI_MakeShell",
-                             header: "BRepBuilderAPI_MakeShell.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                            ## !
-                                                                                                            ## Constructs
-                                                                                                            ## an
-                                                                                                            ## empty
-                                                                                                            ## shell
-                                                                                                            ## framework.
-                                                                                                            ## The
-                                                                                                            ## Init
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## function
-                                                                                                            ## is
-                                                                                                            ## used
-                                                                                                            ## to
-                                                                                                            ## define
-                                                                                                            ## the
-                                                                                                            ## construction
-                                                                                                            ## arguments.
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Warning
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## The
-                                                                                                            ## function
-                                                                                                            ## Error
-                                                                                                            ## will
-                                                                                                            ## return
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## BRepBuilderAPI_EmptyShell
-                                                                                                            ## if
-                                                                                                            ## it
-                                                                                                            ## is
-                                                                                                            ## called
-                                                                                                            ## before
-                                                                                                            ## the
-                                                                                                            ## function
-                                                                                                            ## Init.
+                             header: "BRepBuilderAPI_MakeShell.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepBuilderAPI_MakeShell; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_MakeShell::operator new",
+    header: "BRepBuilderAPI_MakeShell.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_MakeShell; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeShell::operator delete",
+    header: "BRepBuilderAPI_MakeShell.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_MakeShell; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_MakeShell::operator new[]",
+    header: "BRepBuilderAPI_MakeShell.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_MakeShell; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeShell::operator delete[]",
+    header: "BRepBuilderAPI_MakeShell.hxx".}
+proc `new`*(this: var BRepBuilderAPI_MakeShell; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_MakeShell::operator new",
+    header: "BRepBuilderAPI_MakeShell.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_MakeShell; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeShell::operator delete",
+    header: "BRepBuilderAPI_MakeShell.hxx".}
 proc constructBRepBuilderAPI_MakeShell*(): BRepBuilderAPI_MakeShell {.constructor,
     importcpp: "BRepBuilderAPI_MakeShell(@)",
     header: "BRepBuilderAPI_MakeShell.hxx".}
 proc constructBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface];
-                                       segment: bool = false): BRepBuilderAPI_MakeShell {.
+                                       segment: StandardBoolean = false): BRepBuilderAPI_MakeShell {.
     constructor, importcpp: "BRepBuilderAPI_MakeShell(@)",
     header: "BRepBuilderAPI_MakeShell.hxx".}
-proc constructBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; uMin: cfloat;
-                                       uMax: cfloat; vMin: cfloat; vMax: cfloat;
-                                       segment: bool = false): BRepBuilderAPI_MakeShell {.
+proc constructBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; uMin: StandardReal;
+                                       uMax: StandardReal; vMin: StandardReal;
+                                       vMax: StandardReal;
+                                       segment: StandardBoolean = false): BRepBuilderAPI_MakeShell {.
     constructor, importcpp: "BRepBuilderAPI_MakeShell(@)",
     header: "BRepBuilderAPI_MakeShell.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeShell; s: Handle[GeomSurface]; uMin: cfloat;
-          uMax: cfloat; vMin: cfloat; vMax: cfloat; segment: bool = false) {.
-    importcpp: "Init", header: "BRepBuilderAPI_MakeShell.hxx".}
-proc isDone*(this: BRepBuilderAPI_MakeShell): bool {.noSideEffect,
+proc init*(this: var BRepBuilderAPI_MakeShell; s: Handle[GeomSurface];
+          uMin: StandardReal; uMax: StandardReal; vMin: StandardReal;
+          vMax: StandardReal; segment: StandardBoolean = false) {.importcpp: "Init",
+    header: "BRepBuilderAPI_MakeShell.hxx".}
+proc isDone*(this: BRepBuilderAPI_MakeShell): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepBuilderAPI_MakeShell.hxx".}
 proc error*(this: BRepBuilderAPI_MakeShell): BRepBuilderAPI_ShellError {.
     noSideEffect, importcpp: "Error", header: "BRepBuilderAPI_MakeShell.hxx".}
@@ -85,28 +66,3 @@ proc shell*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.noSideEffect,
 converter `topoDS_Shell`*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.
     noSideEffect, importcpp: "BRepBuilderAPI_MakeShell::operator TopoDS_Shell",
     header: "BRepBuilderAPI_MakeShell.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

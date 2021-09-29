@@ -24,6 +24,24 @@ type
                              header: "TopoDSToStep_MakeStepFace.hxx", bycopy.} = object of TopoDSToStepRoot
 
 
+proc `new`*(this: var TopoDSToStepMakeStepFace; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeStepFace::operator new",
+    header: "TopoDSToStep_MakeStepFace.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeStepFace; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeStepFace::operator delete",
+    header: "TopoDSToStep_MakeStepFace.hxx".}
+proc `new[]`*(this: var TopoDSToStepMakeStepFace; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeStepFace::operator new[]",
+    header: "TopoDSToStep_MakeStepFace.hxx".}
+proc `delete[]`*(this: var TopoDSToStepMakeStepFace; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeStepFace::operator delete[]",
+    header: "TopoDSToStep_MakeStepFace.hxx".}
+proc `new`*(this: var TopoDSToStepMakeStepFace; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDSToStep_MakeStepFace::operator new",
+    header: "TopoDSToStep_MakeStepFace.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeStepFace; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_MakeStepFace::operator delete",
+    header: "TopoDSToStep_MakeStepFace.hxx".}
 proc constructTopoDSToStepMakeStepFace*(): TopoDSToStepMakeStepFace {.constructor,
     importcpp: "TopoDSToStep_MakeStepFace(@)",
     header: "TopoDSToStep_MakeStepFace.hxx".}
@@ -39,28 +57,3 @@ proc value*(this: TopoDSToStepMakeStepFace): Handle[
     header: "TopoDSToStep_MakeStepFace.hxx".}
 proc error*(this: TopoDSToStepMakeStepFace): TopoDSToStepMakeFaceError {.
     noSideEffect, importcpp: "Error", header: "TopoDSToStep_MakeStepFace.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

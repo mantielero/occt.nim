@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(_MSC_VER):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(_MSC_VER):
 ## ! @class IVtkTools_DisplayModeFilter
 ## ! @brief Cells filter according to the selected display mode by mesh parts types.
 ## ! This filter is used to get parts of a shape according to different
@@ -71,8 +71,10 @@ proc setFaceBoundaryDraw*(this: var IVtkToolsDisplayModeFilter; theToDraw: bool)
     importcpp: "SetFaceBoundaryDraw", header: "IVtkTools_DisplayModeFilter.hxx".}
 proc faceBoundaryDraw*(this: IVtkToolsDisplayModeFilter): bool {.noSideEffect,
     importcpp: "FaceBoundaryDraw", header: "IVtkTools_DisplayModeFilter.hxx".}
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(_MSC_VER):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(_MSC_VER):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+
+
 
 
 

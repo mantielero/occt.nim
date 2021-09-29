@@ -20,29 +20,3 @@ type
                              header: "TopoDSToStep_BuilderError.hxx".} = enum
     TopoDSToStepBuilderDone, TopoDSToStepNoFaceMapped, TopoDSToStepBuilderOther
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

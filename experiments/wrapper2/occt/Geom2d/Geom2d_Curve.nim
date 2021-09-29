@@ -23,35 +23,6 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom2d_Curve"
-type
-  HandleC1C1* = Handle[Geom2dCurve]
-
-## ! The abstract class Curve describes the common
-## ! behavior of curves in 2D space. The Geom2d
-## ! package provides numerous concrete classes of
-## ! derived curves, including lines, circles, conics, Bezier
-## ! or BSpline curves, etc.
-## ! The main characteristic of these curves is that they
-## ! are parameterized. The Geom2d_Curve class shows:
-## ! - how to work with the parametric equation of a
-## ! curve in order to calculate the point of parameter
-## ! u, together with the vector tangent and the
-## ! derivative vectors of order 2, 3,..., N at this point;
-## ! - how to obtain general information about the curve
-## ! (for example, level of continuity, closed
-## ! characteristics, periodicity, bounds of the parameter field);
-## ! - how the parameter changes when a geometric
-## ! transformation is applied to the curve or when the
-## ! orientation of the curve is inverted.
-## ! All curves must have a geometric continuity: a curve is
-## ! at least "C0". Generally, this property is checked at
-## ! the time of construction or when the curve is edited.
-## ! Where this is not the case, the documentation
-## ! explicitly states so.
-## ! Warning
-## ! The Geom2d package does not prevent the
-## ! construction of curves with null length or curves which
-## ! self-intersect.
 
 type
   Geom2dCurve* {.importcpp: "Geom2d_Curve", header: "Geom2d_Curve.hxx", bycopy.} = object of Geom2dGeometry ##
@@ -123,6 +94,39 @@ type
                                                                                                   ## curve.
 
 
+type
+  HandleGeom2dCurve* = Handle[Geom2dCurve]
+
+## ! The abstract class Curve describes the common
+## ! behavior of curves in 2D space. The Geom2d
+## ! package provides numerous concrete classes of
+## ! derived curves, including lines, circles, conics, Bezier
+## ! or BSpline curves, etc.
+## ! The main characteristic of these curves is that they
+## ! are parameterized. The Geom2d_Curve class shows:
+## ! - how to work with the parametric equation of a
+## ! curve in order to calculate the point of parameter
+## ! u, together with the vector tangent and the
+## ! derivative vectors of order 2, 3,..., N at this point;
+## ! - how to obtain general information about the curve
+## ! (for example, level of continuity, closed
+## ! characteristics, periodicity, bounds of the parameter field);
+## ! - how the parameter changes when a geometric
+## ! transformation is applied to the curve or when the
+## ! orientation of the curve is inverted.
+## ! All curves must have a geometric continuity: a curve is
+## ! at least "C0". Generally, this property is checked at
+## ! the time of construction or when the curve is edited.
+## ! Where this is not the case, the documentation
+## ! explicitly states so.
+## ! Warning
+## ! The Geom2d package does not prevent the
+## ! construction of curves with null length or curves which
+## ! self-intersect.
+
+type
+  Geom2dCurvebaseType* = Geom2dGeometry
+  
 proc reverse*(this: var Geom2dCurve) {.importcpp: "Reverse",
                                    header: "Geom2d_Curve.hxx".}
 proc reversedParameter*(this: Geom2dCurve; u: StandardReal): StandardReal {.
@@ -143,8 +147,8 @@ proc isPeriodic*(this: Geom2dCurve): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom2d_Curve.hxx".}
 proc period*(this: Geom2dCurve): StandardReal {.noSideEffect, importcpp: "Period",
     header: "Geom2d_Curve.hxx".}
-proc continuity*(this: Geom2dCurve): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom2d_Curve.hxx".}
+#[ proc continuity*(this: Geom2dCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom2d_Curve.hxx".} ]#
 proc isCN*(this: Geom2dCurve; n: int): StandardBoolean {.noSideEffect,
     importcpp: "IsCN", header: "Geom2d_Curve.hxx".}
 proc d0*(this: Geom2dCurve; u: StandardReal; p: var Pnt2d) {.noSideEffect,
@@ -161,12 +165,11 @@ proc value*(this: Geom2dCurve; u: StandardReal): Pnt2d {.noSideEffect,
     importcpp: "Value", header: "Geom2d_Curve.hxx".}
 proc dumpJson*(this: Geom2dCurve; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom2d_Curve.hxx".}
-type
-  Geom2dCurvebaseType* = Geom2dGeometry
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Curve::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_Curve::get_type_name(@)",
                             header: "Geom2d_Curve.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Curve::get_type_descriptor(@)", header: "Geom2d_Curve.hxx".}
 proc dynamicType*(this: Geom2dCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Curve.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Curve.hxx".} ]#

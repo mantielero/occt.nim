@@ -24,6 +24,23 @@ type
                                       bycopy.} = object of TopoDSToStepRoot
 
 
+proc `new`*(this: var TopoDSToStepMakeManifoldSolidBrep; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeManifoldSolidBrep::operator new",
+    header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeManifoldSolidBrep; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeManifoldSolidBrep::operator delete",
+    header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
+proc `new[]`*(this: var TopoDSToStepMakeManifoldSolidBrep; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_MakeManifoldSolidBrep::operator new[]",
+    header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
+proc `delete[]`*(this: var TopoDSToStepMakeManifoldSolidBrep; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_MakeManifoldSolidBrep::operator delete[]",
+    header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
+proc `new`*(this: var TopoDSToStepMakeManifoldSolidBrep; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopoDSToStep_MakeManifoldSolidBrep::operator new", header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
+proc `delete`*(this: var TopoDSToStepMakeManifoldSolidBrep; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_MakeManifoldSolidBrep::operator delete",
+    header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
 proc constructTopoDSToStepMakeManifoldSolidBrep*(s: TopoDS_Shell;
     fp: Handle[TransferFinderProcess];
     theProgress: MessageProgressRange = messageProgressRange()): TopoDSToStepMakeManifoldSolidBrep {.
@@ -36,28 +53,3 @@ proc constructTopoDSToStepMakeManifoldSolidBrep*(s: TopoDS_Solid;
     header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
 proc value*(this: TopoDSToStepMakeManifoldSolidBrep): Handle[
     StepShapeManifoldSolidBrep] {.noSideEffect, importcpp: "Value", header: "TopoDSToStep_MakeManifoldSolidBrep.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

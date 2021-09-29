@@ -32,29 +32,3 @@ type
     BRepBuilderAPI_WireDone, BRepBuilderAPI_EmptyWire,
     BRepBuilderAPI_DisconnectedWire, BRepBuilderAPI_NonManifoldWire
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

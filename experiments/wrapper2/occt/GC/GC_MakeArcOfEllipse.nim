@@ -42,13 +42,13 @@ type
                                                                                  ## Alpha2.
 
 
-proc constructGC_MakeArcOfEllipse*(elips: Elips; alpha1: cfloat; alpha2: cfloat;
+proc makeArcOfEllipse*(elips: Elips; alpha1: cfloat; alpha2: cfloat;
                                   sense: bool): GC_MakeArcOfEllipse {.constructor,
     importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
-proc constructGC_MakeArcOfEllipse*(elips: Elips; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfEllipse {.
+proc makeArcOfEllipse*(elips: Elips; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfEllipse {.
     constructor, importcpp: "GC_MakeArcOfEllipse(@)",
     header: "GC_MakeArcOfEllipse.hxx".}
-proc constructGC_MakeArcOfEllipse*(elips: Elips; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfEllipse {.
+proc makeArcOfEllipse*(elips: Elips; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfEllipse {.
     constructor, importcpp: "GC_MakeArcOfEllipse(@)",
     header: "GC_MakeArcOfEllipse.hxx".}
 proc value*(this: GC_MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.noSideEffect,

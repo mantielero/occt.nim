@@ -15,14 +15,9 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_TVertex"
-# when defined(Convex):
-#   discard
+when defined(Convex):
+  discard
 discard "forward decl of TopoDS_TVertex"
-type
-  HandleC1C1* = Handle[TopoDS_TVertex]
-
-## ! A  Vertex is a topological  point in  two or three
-## ! dimensions.
 
 type
   TopoDS_TVertex* {.importcpp: "TopoDS_TVertex", header: "TopoDS_TVertex.hxx", bycopy.} = object of TopoDS_TShape ##
@@ -35,11 +30,17 @@ type
                                                                                                         ## a
                                                                                                         ## vertex.
 
-
-proc shapeType*(this: TopoDS_TVertex): TopAbsShapeEnum {.noSideEffect,
-    importcpp: "ShapeType", header: "TopoDS_TVertex.hxx".}
+type
+  HandleTopoDS_TVertex* = Handle[TopoDS_TVertex]
 type
   TopoDS_TVertexbaseType* = TopoDS_TShape
+
+## ! A  Vertex is a topological  point in  two or three
+## ! dimensions.
+
+
+#[ proc shapeType*(this: TopoDS_TVertex): TopAbsShapeEnum {.noSideEffect,
+    importcpp: "ShapeType", header: "TopoDS_TVertex.hxx".}
 
 proc getTypeName*(): cstring {.importcpp: "TopoDS_TVertex::get_type_name(@)",
                             header: "TopoDS_TVertex.hxx".}
@@ -47,29 +48,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopoDS_TVertex::get_type_descriptor(@)",
     header: "TopoDS_TVertex.hxx".}
 proc dynamicType*(this: TopoDS_TVertex): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "TopoDS_TVertex.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "TopoDS_TVertex.hxx".} ]#

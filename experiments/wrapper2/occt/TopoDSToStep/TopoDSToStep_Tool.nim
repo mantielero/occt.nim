@@ -26,14 +26,31 @@ type
                      header: "TopoDSToStep_Tool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopoDSToStepTool; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_Tool::operator new", header: "TopoDSToStep_Tool.hxx".}
+proc `delete`*(this: var TopoDSToStepTool; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_Tool::operator delete",
+    header: "TopoDSToStep_Tool.hxx".}
+proc `new[]`*(this: var TopoDSToStepTool; theSize: csize_t): pointer {.
+    importcpp: "TopoDSToStep_Tool::operator new[]",
+    header: "TopoDSToStep_Tool.hxx".}
+proc `delete[]`*(this: var TopoDSToStepTool; theAddress: pointer) {.
+    importcpp: "TopoDSToStep_Tool::operator delete[]",
+    header: "TopoDSToStep_Tool.hxx".}
+proc `new`*(this: var TopoDSToStepTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDSToStep_Tool::operator new", header: "TopoDSToStep_Tool.hxx".}
+proc `delete`*(this: var TopoDSToStepTool; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDSToStep_Tool::operator delete",
+    header: "TopoDSToStep_Tool.hxx".}
 proc constructTopoDSToStepTool*(): TopoDSToStepTool {.constructor,
     importcpp: "TopoDSToStep_Tool(@)", header: "TopoDSToStep_Tool.hxx".}
 proc constructTopoDSToStepTool*(m: MoniToolDataMapOfShapeTransient;
-                               facetedContext: bool): TopoDSToStepTool {.
+                               facetedContext: StandardBoolean): TopoDSToStepTool {.
     constructor, importcpp: "TopoDSToStep_Tool(@)", header: "TopoDSToStep_Tool.hxx".}
 proc init*(this: var TopoDSToStepTool; m: MoniToolDataMapOfShapeTransient;
-          facetedContext: bool) {.importcpp: "Init", header: "TopoDSToStep_Tool.hxx".}
-proc isBound*(this: var TopoDSToStepTool; s: TopoDS_Shape): bool {.
+          facetedContext: StandardBoolean) {.importcpp: "Init",
+    header: "TopoDSToStep_Tool.hxx".}
+proc isBound*(this: var TopoDSToStepTool; s: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsBound", header: "TopoDSToStep_Tool.hxx".}
 proc `bind`*(this: var TopoDSToStepTool; s: TopoDS_Shape;
             t: Handle[StepShapeTopologicalRepresentationItem]) {.
@@ -41,8 +58,8 @@ proc `bind`*(this: var TopoDSToStepTool; s: TopoDS_Shape;
 proc find*(this: var TopoDSToStepTool; s: TopoDS_Shape): Handle[
     StepShapeTopologicalRepresentationItem] {.importcpp: "Find",
     header: "TopoDSToStep_Tool.hxx".}
-proc faceted*(this: TopoDSToStepTool): bool {.noSideEffect, importcpp: "Faceted",
-    header: "TopoDSToStep_Tool.hxx".}
+proc faceted*(this: TopoDSToStepTool): StandardBoolean {.noSideEffect,
+    importcpp: "Faceted", header: "TopoDSToStep_Tool.hxx".}
 proc setCurrentShell*(this: var TopoDSToStepTool; s: TopoDS_Shell) {.
     importcpp: "SetCurrentShell", header: "TopoDSToStep_Tool.hxx".}
 proc currentShell*(this: TopoDSToStepTool): TopoDS_Shell {.noSideEffect,
@@ -63,38 +80,13 @@ proc setCurrentVertex*(this: var TopoDSToStepTool; v: TopoDS_Vertex) {.
     importcpp: "SetCurrentVertex", header: "TopoDSToStep_Tool.hxx".}
 proc currentVertex*(this: TopoDSToStepTool): TopoDS_Vertex {.noSideEffect,
     importcpp: "CurrentVertex", header: "TopoDSToStep_Tool.hxx".}
-proc lowest3DTolerance*(this: TopoDSToStepTool): cfloat {.noSideEffect,
+proc lowest3DTolerance*(this: TopoDSToStepTool): StandardReal {.noSideEffect,
     importcpp: "Lowest3DTolerance", header: "TopoDSToStep_Tool.hxx".}
-proc setSurfaceReversed*(this: var TopoDSToStepTool; b: bool) {.
+proc setSurfaceReversed*(this: var TopoDSToStepTool; b: StandardBoolean) {.
     importcpp: "SetSurfaceReversed", header: "TopoDSToStep_Tool.hxx".}
-proc surfaceReversed*(this: TopoDSToStepTool): bool {.noSideEffect,
+proc surfaceReversed*(this: TopoDSToStepTool): StandardBoolean {.noSideEffect,
     importcpp: "SurfaceReversed", header: "TopoDSToStep_Tool.hxx".}
 proc map*(this: TopoDSToStepTool): MoniToolDataMapOfShapeTransient {.noSideEffect,
     importcpp: "Map", header: "TopoDSToStep_Tool.hxx".}
-proc pCurveMode*(this: TopoDSToStepTool): cint {.noSideEffect,
+proc pCurveMode*(this: TopoDSToStepTool): int {.noSideEffect,
     importcpp: "PCurveMode", header: "TopoDSToStep_Tool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

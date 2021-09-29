@@ -26,8 +26,15 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Hyperbola"
 discard "forward decl of Geom2d_Hyperbola"
+
 type
-  HandleC1C1* = Handle[Geom2dHyperbola]
+  Geom2dHyperbola* {.importcpp: "Geom2d_Hyperbola", header: "Geom2d_Hyperbola.hxx",
+                    bycopy.} = object of Geom2dConic ## ! Creates  an Hyperbola from a non persistent one from package gp
+
+
+
+type
+  HandleGeom2dHyperbola* = Handle[Geom2dHyperbola]
 
 ## ! Describes a branch of a hyperbola in the plane (2D space).
 ## ! A hyperbola is defined by its major and minor radii
@@ -81,9 +88,7 @@ type
 ## ! gp_Hypr2d for an equivalent, non-parameterized data structure
 
 type
-  Geom2dHyperbola* {.importcpp: "Geom2d_Hyperbola", header: "Geom2d_Hyperbola.hxx",
-                    bycopy.} = object of Geom2dConic ## ! Creates  an Hyperbola from a non persistent one from package gp
-
+  Geom2dHyperbolabaseType* = Geom2dConic
 
 proc constructGeom2dHyperbola*(h: Hypr2d): Geom2dHyperbola {.constructor,
     importcpp: "Geom2d_Hyperbola(@)", header: "Geom2d_Hyperbola.hxx".}
@@ -158,13 +163,12 @@ proc copy*(this: Geom2dHyperbola): Handle[Geom2dGeometry] {.noSideEffect,
 proc dumpJson*(this: Geom2dHyperbola; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom2d_Hyperbola.hxx".}
-type
-  Geom2dHyperbolabaseType* = Geom2dConic
 
+#[ 
 proc getTypeName*(): cstring {.importcpp: "Geom2d_Hyperbola::get_type_name(@)",
                             header: "Geom2d_Hyperbola.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Hyperbola::get_type_descriptor(@)",
     header: "Geom2d_Hyperbola.hxx".}
 proc dynamicType*(this: Geom2dHyperbola): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Hyperbola.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Hyperbola.hxx".} ]#

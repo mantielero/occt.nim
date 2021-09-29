@@ -21,41 +21,27 @@ discard "forward decl of TopoDS_Solid"
 discard "forward decl of TopoDS_Shape"
 type
   BRepBuilderAPI_MakeSolid* {.importcpp: "BRepBuilderAPI_MakeSolid",
-                             header: "BRepBuilderAPI_MakeSolid.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                            ## !
-                                                                                                            ## Initializes
-                                                                                                            ## the
-                                                                                                            ## construction
-                                                                                                            ## of
-                                                                                                            ## a
-                                                                                                            ## solid.
-                                                                                                            ## An
-                                                                                                            ## empty
-                                                                                                            ## solid
-                                                                                                            ## is
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## considered
-                                                                                                            ## to
-                                                                                                            ## cover
-                                                                                                            ## the
-                                                                                                            ## whole
-                                                                                                            ## space.
-                                                                                                            ## The
-                                                                                                            ## Add
-                                                                                                            ## function
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## is
-                                                                                                            ## used
-                                                                                                            ## to
-                                                                                                            ## define
-                                                                                                            ## shells
-                                                                                                            ## to
-                                                                                                            ## bound
-                                                                                                            ## it.
+                             header: "BRepBuilderAPI_MakeSolid.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepBuilderAPI_MakeSolid; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_MakeSolid::operator new",
+    header: "BRepBuilderAPI_MakeSolid.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_MakeSolid; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeSolid::operator delete",
+    header: "BRepBuilderAPI_MakeSolid.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_MakeSolid; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_MakeSolid::operator new[]",
+    header: "BRepBuilderAPI_MakeSolid.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_MakeSolid; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeSolid::operator delete[]",
+    header: "BRepBuilderAPI_MakeSolid.hxx".}
+proc `new`*(this: var BRepBuilderAPI_MakeSolid; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_MakeSolid::operator new",
+    header: "BRepBuilderAPI_MakeSolid.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_MakeSolid; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeSolid::operator delete",
+    header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc constructBRepBuilderAPI_MakeSolid*(): BRepBuilderAPI_MakeSolid {.constructor,
     importcpp: "BRepBuilderAPI_MakeSolid(@)",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
@@ -80,37 +66,12 @@ proc constructBRepBuilderAPI_MakeSolid*(so: TopoDS_Solid; s: TopoDS_Shell): BRep
     header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc add*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shell) {.importcpp: "Add",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc isDone*(this: BRepBuilderAPI_MakeSolid): bool {.noSideEffect,
+proc isDone*(this: BRepBuilderAPI_MakeSolid): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc solid*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.importcpp: "Solid",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
 converter `topoDS_Solid`*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.
     importcpp: "BRepBuilderAPI_MakeSolid::operator TopoDS_Solid",
     header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc isDeleted*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shape): bool {.
+proc isDeleted*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

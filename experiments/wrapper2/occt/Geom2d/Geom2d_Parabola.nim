@@ -25,8 +25,13 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Parabola"
 discard "forward decl of Geom2d_Parabola"
+
 type
-  HandleC1C1* = Handle[Geom2dParabola]
+  Geom2dParabola* {.importcpp: "Geom2d_Parabola", header: "Geom2d_Parabola.hxx",
+                   bycopy.} = object of Geom2dConic ## ! Creates a parabola from a non persistent one.
+
+type
+  HandleGeom2dParabola* = Handle[Geom2dParabola]
 
 ## ! Describes a parabola in the plane (2D space).
 ## ! A parabola is defined by its focal length (i.e. the
@@ -55,9 +60,7 @@ type
 ## ! The parameter range is ] -infinite,+infinite [.
 
 type
-  Geom2dParabola* {.importcpp: "Geom2d_Parabola", header: "Geom2d_Parabola.hxx",
-                   bycopy.} = object of Geom2dConic ## ! Creates a parabola from a non persistent one.
-
+  Geom2dParabolabaseType* = Geom2dConic
 
 proc constructGeom2dParabola*(prb: Parab2d): Geom2dParabola {.constructor,
     importcpp: "Geom2d_Parabola(@)", header: "Geom2d_Parabola.hxx".}
@@ -116,13 +119,12 @@ proc copy*(this: Geom2dParabola): Handle[Geom2dGeometry] {.noSideEffect,
 proc dumpJson*(this: Geom2dParabola; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom2d_Parabola.hxx".}
-type
-  Geom2dParabolabaseType* = Geom2dConic
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Parabola::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_Parabola::get_type_name(@)",
                             header: "Geom2d_Parabola.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_Parabola::get_type_descriptor(@)",
     header: "Geom2d_Parabola.hxx".}
 proc dynamicType*(this: Geom2dParabola): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_Parabola.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_Parabola.hxx".} ]#

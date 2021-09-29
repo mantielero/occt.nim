@@ -13,7 +13,7 @@
 
 ##  Suppress VC9 warning on xsputn() function
 
-# # # ## ! Custom buffer object implementing STL interface std::streambuf for streamed reading from allocated memory block.
+# # # # # ## ! Custom buffer object implementing STL interface std::streambuf for streamed reading from allocated memory block.
 ## ! Implements minimal sub-set of methods for passing buffer to std::istream, including seek support.
 ## !
 ## ! This class can be used for creating a seekable input stream in cases,
@@ -136,4 +136,6 @@ proc xsgetn*(this: var StandardArrayStreamBuffer; thePtr: cstring;
             theCount: Streamsize): Streamsize {.importcpp: "xsgetn",
     header: "Standard_ArrayStreamBuffer.hxx".}
 ]#
+
+
 

@@ -16,8 +16,14 @@
 
 discard "forward decl of Geom2d_UndefinedDerivative"
 discard "forward decl of Geom2d_UndefinedDerivative"
+
 type
-  HandleC1C1* = Handle[Geom2dUndefinedDerivative]
+  Geom2dUndefinedDerivative* {.importcpp: "Geom2d_UndefinedDerivative",
+                              header: "Geom2d_UndefinedDerivative.hxx", bycopy.} = object of StandardDomainError
+
+
+type
+  HandleGeom2dUndefinedDerivative* = Handle[Geom2dUndefinedDerivative]
 
 when not defined(noException) and not defined(noGeom2dUndefinedDerivative):
   template geom2dUndefinedDerivativeRaiseIf*(condition, message: untyped): void =
@@ -28,7 +34,4 @@ when not defined(noException) and not defined(noGeom2dUndefinedDerivative):
 
 else:
   discard
-type
-  Geom2dUndefinedDerivative* {.importcpp: "Geom2d_UndefinedDerivative",
-                              header: "Geom2d_UndefinedDerivative.hxx", bycopy.} = object of StandardDomainError
 

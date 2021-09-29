@@ -20,29 +20,3 @@ type
                               header: "TopoDSToStep_MakeEdgeError.hxx".} = enum
     TopoDSToStepEdgeDone, TopoDSToStepNonManifoldEdge, TopoDSToStepEdgeOther
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -23,36 +23,20 @@
 ## ! of its geometry (as opposed to orientation in relation to other shapes).
 
 type
-  TopoDS_Wire* {.importcpp: "TopoDS_Wire", header: "TopoDS_Wire.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                              ## !
-                                                                                              ## Undefined
-                                                                                              ## Wire.
+  TopoDS_Wire* {.importcpp: "TopoDS_Wire", header: "TopoDS_Wire.hxx", bycopy.} = object of TopoDS_Shape
 
 
+proc `new`*(this: var TopoDS_Wire; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Wire::operator new", header: "TopoDS_Wire.hxx".}
+proc `delete`*(this: var TopoDS_Wire; theAddress: pointer) {.
+    importcpp: "TopoDS_Wire::operator delete", header: "TopoDS_Wire.hxx".}
+proc `new[]`*(this: var TopoDS_Wire; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Wire::operator new[]", header: "TopoDS_Wire.hxx".}
+proc `delete[]`*(this: var TopoDS_Wire; theAddress: pointer) {.
+    importcpp: "TopoDS_Wire::operator delete[]", header: "TopoDS_Wire.hxx".}
+proc `new`*(this: var TopoDS_Wire; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDS_Wire::operator new", header: "TopoDS_Wire.hxx".}
+proc `delete`*(this: var TopoDS_Wire; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDS_Wire::operator delete", header: "TopoDS_Wire.hxx".}
 proc constructTopoDS_Wire*(): TopoDS_Wire {.constructor,
     importcpp: "TopoDS_Wire(@)", header: "TopoDS_Wire.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

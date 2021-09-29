@@ -19,72 +19,39 @@ discard "forward decl of gp_GTrsf"
 discard "forward decl of TopoDS_Shape"
 type
   BRepBuilderAPI_GTransform* {.importcpp: "BRepBuilderAPI_GTransform",
-                              header: "BRepBuilderAPI_GTransform.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape ##
-                                                                                                                ## !
-                                                                                                                ## Constructs
-                                                                                                                ## a
-                                                                                                                ## framework
-                                                                                                                ## for
-                                                                                                                ## applying
-                                                                                                                ## the
-                                                                                                                ## geometric
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## transformation
-                                                                                                                ## T
-                                                                                                                ## to
-                                                                                                                ## a
-                                                                                                                ## shape.
-                                                                                                                ## Use
-                                                                                                                ## the
-                                                                                                                ## function
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Perform
-                                                                                                                ## to
-                                                                                                                ## define
-                                                                                                                ## the
-                                                                                                                ## shape
-                                                                                                                ## to
-                                                                                                                ## transform.
+                              header: "BRepBuilderAPI_GTransform.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape
 
 
+proc `new`*(this: var BRepBuilderAPI_GTransform; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_GTransform::operator new",
+    header: "BRepBuilderAPI_GTransform.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_GTransform; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_GTransform::operator delete",
+    header: "BRepBuilderAPI_GTransform.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_GTransform; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_GTransform::operator new[]",
+    header: "BRepBuilderAPI_GTransform.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_GTransform; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_GTransform::operator delete[]",
+    header: "BRepBuilderAPI_GTransform.hxx".}
+proc `new`*(this: var BRepBuilderAPI_GTransform; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_GTransform::operator new",
+    header: "BRepBuilderAPI_GTransform.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_GTransform; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_GTransform::operator delete",
+    header: "BRepBuilderAPI_GTransform.hxx".}
 proc constructBRepBuilderAPI_GTransform*(t: GTrsf): BRepBuilderAPI_GTransform {.
     constructor, importcpp: "BRepBuilderAPI_GTransform(@)",
     header: "BRepBuilderAPI_GTransform.hxx".}
 proc constructBRepBuilderAPI_GTransform*(s: TopoDS_Shape; t: GTrsf;
-                                        copy: bool = false): BRepBuilderAPI_GTransform {.
+                                        copy: StandardBoolean = false): BRepBuilderAPI_GTransform {.
     constructor, importcpp: "BRepBuilderAPI_GTransform(@)",
     header: "BRepBuilderAPI_GTransform.hxx".}
-proc perform*(this: var BRepBuilderAPI_GTransform; s: TopoDS_Shape; copy: bool = false) {.
-    importcpp: "Perform", header: "BRepBuilderAPI_GTransform.hxx".}
-proc modified*(this: var BRepBuilderAPI_GTransform; s: TopoDS_Shape): TopToolsListOfShape {.
+proc perform*(this: var BRepBuilderAPI_GTransform; s: TopoDS_Shape;
+             copy: StandardBoolean = false) {.importcpp: "Perform",
+    header: "BRepBuilderAPI_GTransform.hxx".}
+#[ proc modified*(this: var BRepBuilderAPI_GTransform; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepBuilderAPI_GTransform.hxx".}
 proc modifiedShape*(this: BRepBuilderAPI_GTransform; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
-    header: "BRepBuilderAPI_GTransform.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "BRepBuilderAPI_GTransform.hxx".} ]#

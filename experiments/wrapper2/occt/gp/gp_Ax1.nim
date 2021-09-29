@@ -33,8 +33,8 @@ proc `new`*(this: var Ax1; a2: csize_t; theAddress: pointer): pointer {.
     importcpp: "gp_Ax1::operator new", header: "gp_Ax1.hxx".}
 proc `delete`*(this: var Ax1; a2: pointer; a3: pointer) {.
     importcpp: "gp_Ax1::operator delete", header: "gp_Ax1.hxx".}
-proc constructAx1*(): Ax1 {.constructor, importcpp: "gp_Ax1(@)", header: "gp_Ax1.hxx".}
-proc constructAx1*(p: Pnt; v: Dir): Ax1 {.constructor, importcpp: "gp_Ax1(@)",
+proc newAx1*(): Ax1 {.constructor, importcpp: "gp_Ax1(@)", header: "gp_Ax1.hxx".}
+proc newAx1*(p: Pnt; v: Dir): Ax1 {.constructor, importcpp: "gp_Ax1(@)",
                                     header: "gp_Ax1.hxx".}
 proc setDirection*(this: var Ax1; v: Dir) {.importcpp: "SetDirection",
                                       header: "gp_Ax1.hxx".}

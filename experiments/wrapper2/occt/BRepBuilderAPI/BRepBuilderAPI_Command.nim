@@ -17,40 +17,33 @@
 discard "forward decl of StdFail_NotDone"
 type
   BRepBuilderAPI_Command* {.importcpp: "BRepBuilderAPI_Command",
-                           header: "BRepBuilderAPI_Command.hxx", bycopy.} = object ## !
+                           header: "BRepBuilderAPI_Command.hxx", bycopy.} = object of RootObj## !
                                                                               ## Set
                                                                               ## done to
                                                                               ## False.
 
 
+proc `new`*(this: var BRepBuilderAPI_Command; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_Command::operator new",
+    header: "BRepBuilderAPI_Command.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_Command; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_Command::operator delete",
+    header: "BRepBuilderAPI_Command.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_Command; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_Command::operator new[]",
+    header: "BRepBuilderAPI_Command.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_Command; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_Command::operator delete[]",
+    header: "BRepBuilderAPI_Command.hxx".}
+proc `new`*(this: var BRepBuilderAPI_Command; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_Command::operator new",
+    header: "BRepBuilderAPI_Command.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_Command; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_Command::operator delete",
+    header: "BRepBuilderAPI_Command.hxx".}
 proc destroyBRepBuilderAPI_Command*(this: var BRepBuilderAPI_Command) {.
     importcpp: "#.~BRepBuilderAPI_Command()", header: "BRepBuilderAPI_Command.hxx".}
-proc isDone*(this: BRepBuilderAPI_Command): bool {.noSideEffect, importcpp: "IsDone",
-    header: "BRepBuilderAPI_Command.hxx".}
+proc isDone*(this: BRepBuilderAPI_Command): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "BRepBuilderAPI_Command.hxx".}
 proc check*(this: BRepBuilderAPI_Command) {.noSideEffect, importcpp: "Check",
     header: "BRepBuilderAPI_Command.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

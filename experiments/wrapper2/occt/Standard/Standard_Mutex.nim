@@ -15,8 +15,8 @@
 
 when defined(win32):
   discard
-# # # else:
-# # #   discard
+# # # # # else:
+# # # # #   discard
 ## *
 ##  @brief Mutex: a class to synchronize access to shared data.
 ##
@@ -98,5 +98,7 @@ proc unlock*(this: var StandardMutex) {.importcpp: "Unlock",
 proc unlock*(this: var StandardMutex) {.importcpp: "Unlock",
                                     header: "Standard_Mutex.hxx".}
 ]#
+
+
 
 

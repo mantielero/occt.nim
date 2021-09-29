@@ -26,38 +26,21 @@
 
 type
   TopoDS_CompSolid* {.importcpp: "TopoDS_CompSolid",
-                     header: "TopoDS_CompSolid.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                ## !
-                                                                                ## Constructs
-                                                                                ## an
-                                                                                ## Undefined
-                                                                                ## CompSolid.
+                     header: "TopoDS_CompSolid.hxx", bycopy.} = object of TopoDS_Shape
 
 
+proc `new`*(this: var TopoDS_CompSolid; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_CompSolid::operator new", header: "TopoDS_CompSolid.hxx".}
+proc `delete`*(this: var TopoDS_CompSolid; theAddress: pointer) {.
+    importcpp: "TopoDS_CompSolid::operator delete", header: "TopoDS_CompSolid.hxx".}
+proc `new[]`*(this: var TopoDS_CompSolid; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_CompSolid::operator new[]", header: "TopoDS_CompSolid.hxx".}
+proc `delete[]`*(this: var TopoDS_CompSolid; theAddress: pointer) {.
+    importcpp: "TopoDS_CompSolid::operator delete[]",
+    header: "TopoDS_CompSolid.hxx".}
+proc `new`*(this: var TopoDS_CompSolid; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDS_CompSolid::operator new", header: "TopoDS_CompSolid.hxx".}
+proc `delete`*(this: var TopoDS_CompSolid; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDS_CompSolid::operator delete", header: "TopoDS_CompSolid.hxx".}
 proc constructTopoDS_CompSolid*(): TopoDS_CompSolid {.constructor,
     importcpp: "TopoDS_CompSolid(@)", header: "TopoDS_CompSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

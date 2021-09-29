@@ -21,22 +21,6 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_AxisPlacement"
 discard "forward decl of Geom2d_AxisPlacement"
-type
-  HandleC1C1* = Handle[Geom2dAxisPlacement]
-
-## ! Describes an axis in 2D space.
-## ! An axis is defined by:
-## ! - its origin, also termed the "Location point" of the axis,
-## ! - its unit vector, termed the "Direction" of the axis.
-## ! Note: Geom2d_AxisPlacement axes provide the
-## ! same kind of "geometric" services as gp_Ax2d axes
-## ! but have more complex data structures. The
-## ! geometric objects provided by the Geom2d package
-## ! use gp_Ax2d objects to include axes in their data
-## ! structures, or to define an axis of symmetry or axis of rotation.
-## ! Geom2d_AxisPlacement axes are used in a context
-## ! where they can be shared by several objects
-## ! contained inside a common data structure.
 
 type
   Geom2dAxisPlacement* {.importcpp: "Geom2d_AxisPlacement",
@@ -53,6 +37,25 @@ type
                                                                                          ## axis
                                                                                          ## A.
 
+type
+  HandleGeom2dAxisPlacement* = Handle[Geom2dAxisPlacement]
+
+## ! Describes an axis in 2D space.
+## ! An axis is defined by:
+## ! - its origin, also termed the "Location point" of the axis,
+## ! - its unit vector, termed the "Direction" of the axis.
+## ! Note: Geom2d_AxisPlacement axes provide the
+## ! same kind of "geometric" services as gp_Ax2d axes
+## ! but have more complex data structures. The
+## ! geometric objects provided by the Geom2d package
+## ! use gp_Ax2d objects to include axes in their data
+## ! structures, or to define an axis of symmetry or axis of rotation.
+## ! Geom2d_AxisPlacement axes are used in a context
+## ! where they can be shared by several objects
+## ! contained inside a common data structure.
+
+type
+  Geom2dAxisPlacementbaseType* = Geom2dGeometry
 
 proc constructGeom2dAxisPlacement*(a: Ax2d): Geom2dAxisPlacement {.constructor,
     importcpp: "Geom2d_AxisPlacement(@)", header: "Geom2d_AxisPlacement.hxx".}
@@ -81,13 +84,12 @@ proc transform*(this: var Geom2dAxisPlacement; t: Trsf2d) {.importcpp: "Transfor
     header: "Geom2d_AxisPlacement.hxx".}
 proc copy*(this: Geom2dAxisPlacement): Handle[Geom2dGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_AxisPlacement.hxx".}
-type
-  Geom2dAxisPlacementbaseType* = Geom2dGeometry
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_AxisPlacement::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom2d_AxisPlacement::get_type_name(@)",
                             header: "Geom2d_AxisPlacement.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom2d_AxisPlacement::get_type_descriptor(@)",
     header: "Geom2d_AxisPlacement.hxx".}
 proc dynamicType*(this: Geom2dAxisPlacement): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_AxisPlacement.hxx".}
+    importcpp: "DynamicType", header: "Geom2d_AxisPlacement.hxx".} ]#

@@ -27,12 +27,6 @@ discard "forward decl of TopoDS_Compound"
 type
   TopoDS_Builder* {.importcpp: "TopoDS_Builder", header: "TopoDS_Builder.hxx", bycopy.} = object ##
                                                                                          ## !
-                                                                                         ## Make
-                                                                                         ## an
-                                                                                         ## empty
-                                                                                         ## Wire.
-                                                                                         ##
-                                                                                         ## !
                                                                                          ## The
                                                                                          ## basic
                                                                                          ## method
@@ -50,6 +44,18 @@ type
                                                                                          ## methods.
 
 
+proc `new`*(this: var TopoDS_Builder; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Builder::operator new", header: "TopoDS_Builder.hxx".}
+proc `delete`*(this: var TopoDS_Builder; theAddress: pointer) {.
+    importcpp: "TopoDS_Builder::operator delete", header: "TopoDS_Builder.hxx".}
+proc `new[]`*(this: var TopoDS_Builder; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Builder::operator new[]", header: "TopoDS_Builder.hxx".}
+proc `delete[]`*(this: var TopoDS_Builder; theAddress: pointer) {.
+    importcpp: "TopoDS_Builder::operator delete[]", header: "TopoDS_Builder.hxx".}
+proc `new`*(this: var TopoDS_Builder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDS_Builder::operator new", header: "TopoDS_Builder.hxx".}
+proc `delete`*(this: var TopoDS_Builder; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDS_Builder::operator delete", header: "TopoDS_Builder.hxx".}
 proc makeWire*(this: TopoDS_Builder; w: var TopoDS_Wire) {.noSideEffect,
     importcpp: "MakeWire", header: "TopoDS_Builder.hxx".}
 proc makeShell*(this: TopoDS_Builder; s: var TopoDS_Shell) {.noSideEffect,
@@ -64,28 +70,3 @@ proc add*(this: TopoDS_Builder; s: var TopoDS_Shape; c: TopoDS_Shape) {.noSideEf
     importcpp: "Add", header: "TopoDS_Builder.hxx".}
 proc remove*(this: TopoDS_Builder; s: var TopoDS_Shape; c: TopoDS_Shape) {.noSideEffect,
     importcpp: "Remove", header: "TopoDS_Builder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

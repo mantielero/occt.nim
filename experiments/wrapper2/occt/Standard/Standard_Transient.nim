@@ -5,7 +5,7 @@ discard "forward decl of handle"
 
 type
   StandardTransient* {.importcpp: "Standard_Transient",
-                      header: "Standard_Transient.hxx", bycopy.} = object of RootObj #of RootObj # of RootObj #of RootObj of RootObj of RootObj of RootObj of RootObj of RootObj of RootObj
+                      header: "Standard_Transient.hxx", bycopy.} = object of RootObj 
 
 #[
 proc `new`*(this: var StandardTransient; theSize: csize_t): pointer {.

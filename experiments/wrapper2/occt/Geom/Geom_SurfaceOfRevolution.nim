@@ -28,46 +28,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_SurfaceOfRevolution"
 discard "forward decl of Geom_SurfaceOfRevolution"
-type
-  HandleC1C1* = Handle[GeomSurfaceOfRevolution]
-
-## ! Describes a surface of revolution (revolved surface).
-## ! Such a surface is obtained by rotating a curve (called
-## ! the "meridian") through a complete revolution about
-## ! an axis (referred to as the "axis of revolution"). The
-## ! curve and the axis must be in the same plane (the
-## ! "reference plane" of the surface).
-## ! Rotation around the axis of revolution in the
-## ! trigonometric sense defines the u parametric
-## ! direction. So the u parameter is an angle, and its
-## ! origin is given by the position of the meridian on the surface.
-## ! The parametric range for the u parameter is: [ 0, 2.*Pi ]
-## ! The v parameter is that of the meridian.
-## ! Note: A surface of revolution is built from a copy of the
-## ! original meridian. As a result the original meridian is
-## ! not modified when the surface is modified.
-## ! The form of a surface of revolution is typically a
-## ! general revolution surface
-## ! (GeomAbs_RevolutionForm). It can be:
-## ! - a conical surface, if the meridian is a line or a
-## ! trimmed line (GeomAbs_ConicalForm),
-## ! - a cylindrical surface, if the meridian is a line or a
-## ! trimmed line parallel to the axis of revolution
-## ! (GeomAbs_CylindricalForm),
-## ! - a planar surface if the meridian is a line or a
-## ! trimmed line perpendicular to the axis of revolution
-## ! of the surface (GeomAbs_PlanarForm),
-## ! - a toroidal surface, if the meridian is a circle or a
-## ! trimmed circle (GeomAbs_ToroidalForm), or
-## ! - a spherical surface, if the meridian is a circle, the
-## ! center of which is located on the axis of the
-## ! revolved surface (GeomAbs_SphericalForm).
-## ! Warning
-## ! Be careful not to construct a surface of revolution
-## ! where the curve and the axis or revolution are not
-## ! defined in the same plane. If you do not have a
-## ! correct configuration, you can correct your initial
-## ! curve, using a cylindrical projection in the reference plane.
 
 type
   GeomSurfaceOfRevolution* {.importcpp: "Geom_SurfaceOfRevolution",
@@ -238,6 +198,49 @@ type
                                                                                                    ## !
                                                                                                    ## self-intersects.
 
+type
+  HandleGeomSurfaceOfRevolution* = Handle[GeomSurfaceOfRevolution]
+
+## ! Describes a surface of revolution (revolved surface).
+## ! Such a surface is obtained by rotating a curve (called
+## ! the "meridian") through a complete revolution about
+## ! an axis (referred to as the "axis of revolution"). The
+## ! curve and the axis must be in the same plane (the
+## ! "reference plane" of the surface).
+## ! Rotation around the axis of revolution in the
+## ! trigonometric sense defines the u parametric
+## ! direction. So the u parameter is an angle, and its
+## ! origin is given by the position of the meridian on the surface.
+## ! The parametric range for the u parameter is: [ 0, 2.*Pi ]
+## ! The v parameter is that of the meridian.
+## ! Note: A surface of revolution is built from a copy of the
+## ! original meridian. As a result the original meridian is
+## ! not modified when the surface is modified.
+## ! The form of a surface of revolution is typically a
+## ! general revolution surface
+## ! (GeomAbs_RevolutionForm). It can be:
+## ! - a conical surface, if the meridian is a line or a
+## ! trimmed line (GeomAbs_ConicalForm),
+## ! - a cylindrical surface, if the meridian is a line or a
+## ! trimmed line parallel to the axis of revolution
+## ! (GeomAbs_CylindricalForm),
+## ! - a planar surface if the meridian is a line or a
+## ! trimmed line perpendicular to the axis of revolution
+## ! of the surface (GeomAbs_PlanarForm),
+## ! - a toroidal surface, if the meridian is a circle or a
+## ! trimmed circle (GeomAbs_ToroidalForm), or
+## ! - a spherical surface, if the meridian is a circle, the
+## ! center of which is located on the axis of the
+## ! revolved surface (GeomAbs_SphericalForm).
+## ! Warning
+## ! Be careful not to construct a surface of revolution
+## ! where the curve and the axis or revolution are not
+## ! defined in the same plane. If you do not have a
+## ! correct configuration, you can correct your initial
+## ! curve, using a cylindrical projection in the reference plane.
+
+type
+  GeomSurfaceOfRevolutionbaseType* = GeomSweptSurface
 
 proc constructGeomSurfaceOfRevolution*(c: Handle[GeomCurve]; a1: Ax1): GeomSurfaceOfRevolution {.
     constructor, importcpp: "Geom_SurfaceOfRevolution(@)",
@@ -313,13 +316,12 @@ proc copy*(this: GeomSurfaceOfRevolution): Handle[GeomGeometry] {.noSideEffect,
 proc dumpJson*(this: GeomSurfaceOfRevolution; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_SurfaceOfRevolution.hxx".}
-type
-  GeomSurfaceOfRevolutionbaseType* = GeomSweptSurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_SurfaceOfRevolution::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_SurfaceOfRevolution::get_type_name(@)",
                             header: "Geom_SurfaceOfRevolution.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_SurfaceOfRevolution::get_type_descriptor(@)",
     header: "Geom_SurfaceOfRevolution.hxx".}
 proc dynamicType*(this: GeomSurfaceOfRevolution): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "Geom_SurfaceOfRevolution.hxx".}
+    noSideEffect, importcpp: "DynamicType", header: "Geom_SurfaceOfRevolution.hxx".} ]#

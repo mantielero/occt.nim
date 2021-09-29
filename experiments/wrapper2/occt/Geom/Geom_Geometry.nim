@@ -22,26 +22,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Geometry"
-type
-  HandleC1C1* = Handle[GeomGeometry]
-
-## ! The abstract class Geometry for 3D space is the root
-## ! class of all geometric objects from the Geom
-## ! package. It describes the common behavior of these objects when:
-## ! - applying geometric transformations to objects, and
-## ! - constructing objects by geometric transformation (including copying).
-## ! Warning
-## ! Only transformations which do not modify the nature
-## ! of the geometry can be applied to Geom objects: this
-## ! is the case with translations, rotations, symmetries
-## ! and scales; this is also the case with gp_Trsf
-## ! composite transformations which are used to define
-## ! the geometric transformations applied using the
-## ! Transform or Transformed functions.
-## ! Note: Geometry defines the "prototype" of the
-## ! abstract method Transform which is defined for each
-## ! concrete type of derived object. All other
-## ! transformations are implemented using the Transform method.
 
 type
   GeomGeometry* {.importcpp: "Geom_Geometry", header: "Geom_Geometry.hxx", bycopy.} = object of StandardTransient ##
@@ -70,6 +50,31 @@ type
                                                                                                         ##
                                                                                                         ## !
                                                                                                         ## symmetry.
+
+
+type
+  HandleGeomGeometry* = Handle[GeomGeometry]
+
+## ! The abstract class Geometry for 3D space is the root
+## ! class of all geometric objects from the Geom
+## ! package. It describes the common behavior of these objects when:
+## ! - applying geometric transformations to objects, and
+## ! - constructing objects by geometric transformation (including copying).
+## ! Warning
+## ! Only transformations which do not modify the nature
+## ! of the geometry can be applied to Geom objects: this
+## ! is the case with translations, rotations, symmetries
+## ! and scales; this is also the case with gp_Trsf
+## ! composite transformations which are used to define
+## ! the geometric transformations applied using the
+## ! Transform or Transformed functions.
+## ! Note: Geometry defines the "prototype" of the
+## ! abstract method Transform which is defined for each
+## ! concrete type of derived object. All other
+## ! transformations are implemented using the Transform method.
+
+type
+  GeomGeometrybaseType* = StandardTransient
 
 
 proc mirror*(this: var GeomGeometry; p: Pnt) {.importcpp: "Mirror",
@@ -109,13 +114,11 @@ proc copy*(this: GeomGeometry): Handle[GeomGeometry] {.noSideEffect,
 proc dumpJson*(this: GeomGeometry; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_Geometry.hxx".}
-type
-  GeomGeometrybaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Geometry::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Geometry::get_type_name(@)",
                             header: "Geom_Geometry.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Geometry::get_type_descriptor(@)",
     header: "Geom_Geometry.hxx".}
 proc dynamicType*(this: GeomGeometry): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Geometry.hxx".}
+    importcpp: "DynamicType", header: "Geom_Geometry.hxx".} ]#

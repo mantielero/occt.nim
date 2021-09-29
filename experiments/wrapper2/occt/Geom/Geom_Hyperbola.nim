@@ -26,8 +26,25 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Hyperbola"
 discard "forward decl of Geom_Hyperbola"
+
 type
-  HandleC1C1* = Handle[GeomHyperbola]
+  GeomHyperbola* {.importcpp: "Geom_Hyperbola", header: "Geom_Hyperbola.hxx", bycopy.} = object of GeomConic ##
+                                                                                                   ## !
+                                                                                                   ## Constructs
+                                                                                                   ## a
+                                                                                                   ## hyperbola
+                                                                                                   ## by
+                                                                                                   ## conversion
+                                                                                                   ## of
+                                                                                                   ## the
+                                                                                                   ## gp_Hypr
+                                                                                                   ## hyperbola
+                                                                                                   ## H.
+
+
+
+type
+  HandleGeomHyperbola* = Handle[GeomHyperbola]
 
 ## ! Describes a branch of a hyperbola in 3D space.
 ## ! A hyperbola is defined by its major and minor radii
@@ -81,19 +98,7 @@ type
 ## ! be less than the value of the minor radius (on the minor axis).
 
 type
-  GeomHyperbola* {.importcpp: "Geom_Hyperbola", header: "Geom_Hyperbola.hxx", bycopy.} = object of GeomConic ##
-                                                                                                   ## !
-                                                                                                   ## Constructs
-                                                                                                   ## a
-                                                                                                   ## hyperbola
-                                                                                                   ## by
-                                                                                                   ## conversion
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## gp_Hypr
-                                                                                                   ## hyperbola
-                                                                                                   ## H.
-
+  GeomHyperbolabaseType* = GeomConic
 
 proc constructGeomHyperbola*(h: Hypr): GeomHyperbola {.constructor,
     importcpp: "Geom_Hyperbola(@)", header: "Geom_Hyperbola.hxx".}
@@ -163,13 +168,12 @@ proc copy*(this: GeomHyperbola): Handle[GeomGeometry] {.noSideEffect,
 proc dumpJson*(this: GeomHyperbola; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_Hyperbola.hxx".}
-type
-  GeomHyperbolabaseType* = GeomConic
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Hyperbola::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Hyperbola::get_type_name(@)",
                             header: "Geom_Hyperbola.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Hyperbola::get_type_descriptor(@)",
     header: "Geom_Hyperbola.hxx".}
 proc dynamicType*(this: GeomHyperbola): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Hyperbola.hxx".}
+    importcpp: "DynamicType", header: "Geom_Hyperbola.hxx".} ]#

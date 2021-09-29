@@ -27,33 +27,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Plane"
 discard "forward decl of Geom_Plane"
-type
-  HandleC1C1* = Handle[GeomPlane]
-
-## ! Describes a plane in 3D space.
-## ! A plane is positioned in space by a coordinate system
-## ! (a gp_Ax3 object) such that the plane is defined by
-## ! the origin, "X Direction" and "Y Direction" of this
-## ! coordinate system.
-## ! This coordinate system is the "local coordinate
-## ! system" of the plane. The following apply:
-## ! - Its "X Direction" and "Y Direction" are respectively
-## ! the u and v parametric directions of the plane.
-## ! - Its origin is the origin of the u and v parameters
-## ! (also called the "origin" of the plane).
-## ! - Its "main Direction" is a vector normal to the plane.
-## ! This normal vector gives the orientation of the
-## ! plane only if the local coordinate system is "direct".
-## ! (The orientation of the plane is always defined by
-## ! the "X Direction" and the "Y Direction" of its local
-## ! coordinate system.)
-## ! The parametric equation of the plane is:
-## ! P(u, v) = O + u*XDir + v*YDir
-## ! where O, XDir and YDir are respectively the
-## ! origin, the "X Direction" and the "Y Direction" of the
-## ! local coordinate system of the plane.
-## ! The parametric range of the two parameters u and v
-## ! is ] -infinity, +infinity [.
 
 type
   GeomPlane* {.importcpp: "Geom_Plane", header: "Geom_Plane.hxx", bycopy.} = object of GeomElementarySurface ##
@@ -122,6 +95,37 @@ type
                                                                                                    ## curves.
 
 
+type
+  HandleGeomPlane* = Handle[GeomPlane]
+
+## ! Describes a plane in 3D space.
+## ! A plane is positioned in space by a coordinate system
+## ! (a gp_Ax3 object) such that the plane is defined by
+## ! the origin, "X Direction" and "Y Direction" of this
+## ! coordinate system.
+## ! This coordinate system is the "local coordinate
+## ! system" of the plane. The following apply:
+## ! - Its "X Direction" and "Y Direction" are respectively
+## ! the u and v parametric directions of the plane.
+## ! - Its origin is the origin of the u and v parameters
+## ! (also called the "origin" of the plane).
+## ! - Its "main Direction" is a vector normal to the plane.
+## ! This normal vector gives the orientation of the
+## ! plane only if the local coordinate system is "direct".
+## ! (The orientation of the plane is always defined by
+## ! the "X Direction" and the "Y Direction" of its local
+## ! coordinate system.)
+## ! The parametric equation of the plane is:
+## ! P(u, v) = O + u*XDir + v*YDir
+## ! where O, XDir and YDir are respectively the
+## ! origin, the "X Direction" and the "Y Direction" of the
+## ! local coordinate system of the plane.
+## ! The parametric range of the two parameters u and v
+## ! is ] -infinity, +infinity [.
+
+type
+  GeomPlanebaseType* = GeomElementarySurface
+
 proc constructGeomPlane*(a3: Ax3): GeomPlane {.constructor,
     importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
 proc constructGeomPlane*(pl: Pln): GeomPlane {.constructor,
@@ -183,12 +187,11 @@ proc copy*(this: GeomPlane): Handle[GeomGeometry] {.noSideEffect, importcpp: "Co
     header: "Geom_Plane.hxx".}
 proc dumpJson*(this: GeomPlane; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom_Plane.hxx".}
-type
-  GeomPlanebaseType* = GeomElementarySurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Plane::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Plane::get_type_name(@)",
                             header: "Geom_Plane.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Plane::get_type_descriptor(@)", header: "Geom_Plane.hxx".}
 proc dynamicType*(this: GeomPlane): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Plane.hxx".}
+    importcpp: "DynamicType", header: "Geom_Plane.hxx".} ]#

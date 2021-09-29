@@ -16,32 +16,6 @@
 
 discard "forward decl of Geom_Conic"
 discard "forward decl of Geom_Conic"
-type
-  HandleC1C1* = Handle[GeomConic]
-
-## ! The abstract class Conic describes the common
-## ! behavior of conic curves in 3D space and, in
-## ! particular, their general characteristics. The Geom
-## ! package provides four concrete classes of conics:
-## ! Geom_Circle, Geom_Ellipse, Geom_Hyperbola and Geom_Parabola.
-## ! A conic is positioned in space with a right-handed
-## ! coordinate system (gp_Ax2 object), where:
-## ! - the origin is the center of the conic (or the apex in
-## ! the case of a parabola),
-## ! - the origin, "X Direction" and "Y Direction" define the
-## ! plane of the conic.
-## ! This coordinate system is the local coordinate
-## ! system of the conic.
-## ! The "main Direction" of this coordinate system is the
-## ! vector normal to the plane of the conic. The axis, of
-## ! which the origin and unit vector are respectively the
-## ! origin and "main Direction" of the local coordinate
-## ! system, is termed the "Axis" or "main Axis" of the conic.
-## ! The "main Direction" of the local coordinate system
-## ! gives an explicit orientation to the conic, determining
-## ! the direction in which the parameter increases along
-## ! the conic. The "X Axis" of the local coordinate system
-## ! also defines the origin of the parameter of the conic.
 
 type
   GeomConic* {.importcpp: "Geom_Conic", header: "Geom_Conic.hxx", bycopy.} = object of GeomCurve ##
@@ -86,6 +60,36 @@ type
                                                                                        ## of
                                                                                        ## the
                                                                                        ## conic.
+type
+  HandleGeomConic* = Handle[GeomConic]
+
+## ! The abstract class Conic describes the common
+## ! behavior of conic curves in 3D space and, in
+## ! particular, their general characteristics. The Geom
+## ! package provides four concrete classes of conics:
+## ! Geom_Circle, Geom_Ellipse, Geom_Hyperbola and Geom_Parabola.
+## ! A conic is positioned in space with a right-handed
+## ! coordinate system (gp_Ax2 object), where:
+## ! - the origin is the center of the conic (or the apex in
+## ! the case of a parabola),
+## ! - the origin, "X Direction" and "Y Direction" define the
+## ! plane of the conic.
+## ! This coordinate system is the local coordinate
+## ! system of the conic.
+## ! The "main Direction" of this coordinate system is the
+## ! vector normal to the plane of the conic. The axis, of
+## ! which the origin and unit vector are respectively the
+## ! origin and "main Direction" of the local coordinate
+## ! system, is termed the "Axis" or "main Axis" of the conic.
+## ! The "main Direction" of the local coordinate system
+## ! gives an explicit orientation to the conic, determining
+## ! the direction in which the parameter increases along
+## ! the conic. The "X Axis" of the local coordinate system
+## ! also defines the origin of the parameter of the conic.
+
+type
+  GeomConicbaseType* = GeomCurve
+
 
 
 proc setAxis*(this: var GeomConic; theA1: Ax1) {.importcpp: "SetAxis",
@@ -109,18 +113,17 @@ proc yAxis*(this: GeomConic): Ax1 {.noSideEffect, importcpp: "YAxis",
 proc reverse*(this: var GeomConic) {.importcpp: "Reverse", header: "Geom_Conic.hxx".}
 proc reversedParameter*(this: GeomConic; u: StandardReal): StandardReal {.
     noSideEffect, importcpp: "ReversedParameter", header: "Geom_Conic.hxx".}
-proc continuity*(this: GeomConic): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_Conic.hxx".}
+#[ proc continuity*(this: GeomConic): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_Conic.hxx".} ]#
 proc isCN*(this: GeomConic; n: int): StandardBoolean {.noSideEffect, importcpp: "IsCN",
     header: "Geom_Conic.hxx".}
 proc dumpJson*(this: GeomConic; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom_Conic.hxx".}
-type
-  GeomConicbaseType* = GeomCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Conic::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Conic::get_type_name(@)",
                             header: "Geom_Conic.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Conic::get_type_descriptor(@)", header: "Geom_Conic.hxx".}
 proc dynamicType*(this: GeomConic): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Conic.hxx".}
+    importcpp: "DynamicType", header: "Geom_Conic.hxx".} ]#

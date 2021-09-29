@@ -27,8 +27,30 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_OffsetCurve"
 discard "forward decl of Geom_OffsetCurve"
+
 type
-  HandleC1C1* = Handle[GeomOffsetCurve]
+  GeomOffsetCurve* {.importcpp: "Geom_OffsetCurve", header: "Geom_OffsetCurve.hxx",
+                    bycopy.} = object of GeomCurve ## ! C is the basis curve, Offset is the distance between <me> and
+                                              ## ! the basis curve at any point. V defines the fixed reference
+                                              ## ! direction (offset direction). If P is a point on the basis
+                                              ## ! curve and T the first derivative with non zero length
+                                              ## ! at this point, the corresponding point on the offset curve is
+                                              ## ! in the direction of the vector-product N = V ^ T   where
+                                              ## ! N is a unitary vector.
+                                              ## ! If isNotCheckC0 = TRUE checking if basis curve has C0-continuity
+                                              ## ! is not made.
+                                              ## ! Warnings :
+                                              ## ! In this package the entities are not shared. The OffsetCurve is
+                                              ## ! built with a copy of the curve C. So when C is modified the
+                                              ## ! OffsetCurve is not modified
+                                              ## !
+                                              ## ! Raised if the basis curve C is not at least C1.
+                                              ## ! Warnings :
+                                              ## ! No check is done to know if ||V^T|| != 0.0 at any point.
+
+
+type
+  HandleGeomOffsetCurve* = Handle[GeomOffsetCurve]
 
 ## ! This class implements the basis services for an offset curve
 ## ! in 3D space. The Offset curve in this package can be a self
@@ -73,25 +95,7 @@ type
 ## ! closed even if the basis curve is not closed.
 
 type
-  GeomOffsetCurve* {.importcpp: "Geom_OffsetCurve", header: "Geom_OffsetCurve.hxx",
-                    bycopy.} = object of GeomCurve ## ! C is the basis curve, Offset is the distance between <me> and
-                                              ## ! the basis curve at any point. V defines the fixed reference
-                                              ## ! direction (offset direction). If P is a point on the basis
-                                              ## ! curve and T the first derivative with non zero length
-                                              ## ! at this point, the corresponding point on the offset curve is
-                                              ## ! in the direction of the vector-product N = V ^ T   where
-                                              ## ! N is a unitary vector.
-                                              ## ! If isNotCheckC0 = TRUE checking if basis curve has C0-continuity
-                                              ## ! is not made.
-                                              ## ! Warnings :
-                                              ## ! In this package the entities are not shared. The OffsetCurve is
-                                              ## ! built with a copy of the curve C. So when C is modified the
-                                              ## ! OffsetCurve is not modified
-                                              ## !
-                                              ## ! Raised if the basis curve C is not at least C1.
-                                              ## ! Warnings :
-                                              ## ! No check is done to know if ||V^T|| != 0.0 at any point.
-
+  GeomOffsetCurvebaseType* = GeomCurve
 
 proc constructGeomOffsetCurve*(c: Handle[GeomCurve]; offset: StandardReal; v: Dir;
                               isNotCheckC0: StandardBoolean = false): GeomOffsetCurve {.
@@ -109,8 +113,8 @@ proc setOffsetValue*(this: var GeomOffsetCurve; d: StandardReal) {.
     importcpp: "SetOffsetValue", header: "Geom_OffsetCurve.hxx".}
 proc basisCurve*(this: GeomOffsetCurve): Handle[GeomCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "Geom_OffsetCurve.hxx".}
-proc continuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_OffsetCurve.hxx".}
+#[ proc continuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_OffsetCurve.hxx".} ]#
 proc direction*(this: GeomOffsetCurve): Dir {.noSideEffect, importcpp: "Direction",
     header: "Geom_OffsetCurve.hxx".}
 proc d0*(this: GeomOffsetCurve; u: StandardReal; p: var Pnt) {.noSideEffect,
@@ -146,18 +150,17 @@ proc parametricTransformation*(this: GeomOffsetCurve; t: Trsf): StandardReal {.
     header: "Geom_OffsetCurve.hxx".}
 proc copy*(this: GeomOffsetCurve): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_OffsetCurve.hxx".}
-proc getBasisCurveContinuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,
-    importcpp: "GetBasisCurveContinuity", header: "Geom_OffsetCurve.hxx".}
+#[ proc getBasisCurveContinuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "GetBasisCurveContinuity", header: "Geom_OffsetCurve.hxx".} ]#
 proc dumpJson*(this: GeomOffsetCurve; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_OffsetCurve.hxx".}
-type
-  GeomOffsetCurvebaseType* = GeomCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom_OffsetCurve::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_OffsetCurve::get_type_name(@)",
                             header: "Geom_OffsetCurve.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_OffsetCurve::get_type_descriptor(@)",
     header: "Geom_OffsetCurve.hxx".}
 proc dynamicType*(this: GeomOffsetCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_OffsetCurve.hxx".}
+    importcpp: "DynamicType", header: "Geom_OffsetCurve.hxx".} ]#

@@ -25,8 +25,22 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Parabola"
 discard "forward decl of Geom_Parabola"
+
+
 type
-  HandleC1C1* = Handle[GeomParabola]
+  GeomParabola* {.importcpp: "Geom_Parabola", header: "Geom_Parabola.hxx", bycopy.} = object of GeomConic ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## a
+                                                                                                ## parabola
+                                                                                                ## from
+                                                                                                ## a
+                                                                                                ## non
+                                                                                                ## transient
+                                                                                                ## one.
+
+type
+  HandleGeomParabola* = Handle[GeomParabola]
 
 ## ! Describes a parabola in 3D space.
 ## ! A parabola is defined by its focal length (i.e. the
@@ -63,17 +77,7 @@ type
 ## ! The parameter range is ] -infinite, +infinite [.
 
 type
-  GeomParabola* {.importcpp: "Geom_Parabola", header: "Geom_Parabola.hxx", bycopy.} = object of GeomConic ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## parabola
-                                                                                                ## from
-                                                                                                ## a
-                                                                                                ## non
-                                                                                                ## transient
-                                                                                                ## one.
-
+  GeomParabolabaseType* = GeomConic
 
 proc constructGeomParabola*(prb: Parab): GeomParabola {.constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
@@ -129,13 +133,12 @@ proc copy*(this: GeomParabola): Handle[GeomGeometry] {.noSideEffect,
 proc dumpJson*(this: GeomParabola; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_Parabola.hxx".}
-type
-  GeomParabolabaseType* = GeomConic
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Parabola::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Parabola::get_type_name(@)",
                             header: "Geom_Parabola.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Parabola::get_type_descriptor(@)",
     header: "Geom_Parabola.hxx".}
 proc dynamicType*(this: GeomParabola): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Parabola.hxx".}
+    importcpp: "DynamicType", header: "Geom_Parabola.hxx".} ]#

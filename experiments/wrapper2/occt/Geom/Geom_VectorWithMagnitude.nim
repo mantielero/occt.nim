@@ -22,11 +22,6 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_VectorWithMagnitude"
 discard "forward decl of Geom_VectorWithMagnitude"
-type
-  HandleC1C1* = Handle[GeomVectorWithMagnitude]
-
-## ! Defines a vector with magnitude.
-## ! A vector with magnitude can have a zero length.
 
 type
   GeomVectorWithMagnitude* {.importcpp: "Geom_VectorWithMagnitude",
@@ -39,6 +34,14 @@ type
                                                                                              ## of
                                                                                              ## V.
 
+type
+  HandleGeomVectorWithMagnitude* = Handle[GeomVectorWithMagnitude]
+
+## ! Defines a vector with magnitude.
+## ! A vector with magnitude can have a zero length.
+
+type
+  GeomVectorWithMagnitudebaseType* = GeomVector
 
 proc constructGeomVectorWithMagnitude*(v: Vec): GeomVectorWithMagnitude {.
     constructor, importcpp: "Geom_VectorWithMagnitude(@)",
@@ -104,13 +107,12 @@ proc transform*(this: var GeomVectorWithMagnitude; t: Trsf) {.importcpp: "Transf
     header: "Geom_VectorWithMagnitude.hxx".}
 proc copy*(this: GeomVectorWithMagnitude): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_VectorWithMagnitude.hxx".}
-type
-  GeomVectorWithMagnitudebaseType* = GeomVector
 
-proc getTypeName*(): cstring {.importcpp: "Geom_VectorWithMagnitude::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_VectorWithMagnitude::get_type_name(@)",
                             header: "Geom_VectorWithMagnitude.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_VectorWithMagnitude::get_type_descriptor(@)",
     header: "Geom_VectorWithMagnitude.hxx".}
 proc dynamicType*(this: GeomVectorWithMagnitude): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "Geom_VectorWithMagnitude.hxx".}
+    noSideEffect, importcpp: "DynamicType", header: "Geom_VectorWithMagnitude.hxx".} ]#

@@ -29,31 +29,6 @@ discard "forward decl of gp_GTrsf2d"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_OffsetSurface"
 discard "forward decl of Geom_OffsetSurface"
-type
-  HandleC1C1* = Handle[GeomOffsetSurface]
-
-## ! Describes an offset surface in 3D space.
-## ! An offset surface is defined by:
-## ! - the basis surface to which it is parallel, and
-## ! - the distance between the offset surface and its basis surface.
-## ! A point on the offset surface is built by measuring the
-## ! offset value along the normal vector at a point on the
-## ! basis surface. This normal vector is given by the cross
-## ! product D1u^D1v, where D1u and D1v are the
-## ! vectors tangential to the basis surface in the u and v
-## ! parametric directions at this point. The side of the
-## ! basis surface on which the offset is measured
-## ! depends on the sign of the offset value.
-## ! A Geom_OffsetSurface surface can be
-## ! self-intersecting, even if the basis surface does not
-## ! self-intersect. The self-intersecting portions are not
-## ! deleted at the time of construction.
-## ! Warning
-## ! There must be only one normal vector defined at any
-## ! point on the basis surface. This must be verified by the
-## ! user as no check is made at the time of construction
-## ! to detect points with multiple possible normal
-## ! directions (for example, the top of a conical surface).
 
 type
   GeomOffsetSurface* {.importcpp: "Geom_OffsetSurface",
@@ -306,6 +281,35 @@ type
                                                                                   ## S.
 
 
+type
+  HandleGeomOffsetSurface* = Handle[GeomOffsetSurface]
+
+## ! Describes an offset surface in 3D space.
+## ! An offset surface is defined by:
+## ! - the basis surface to which it is parallel, and
+## ! - the distance between the offset surface and its basis surface.
+## ! A point on the offset surface is built by measuring the
+## ! offset value along the normal vector at a point on the
+## ! basis surface. This normal vector is given by the cross
+## ! product D1u^D1v, where D1u and D1v are the
+## ! vectors tangential to the basis surface in the u and v
+## ! parametric directions at this point. The side of the
+## ! basis surface on which the offset is measured
+## ! depends on the sign of the offset value.
+## ! A Geom_OffsetSurface surface can be
+## ! self-intersecting, even if the basis surface does not
+## ! self-intersect. The self-intersecting portions are not
+## ! deleted at the time of construction.
+## ! Warning
+## ! There must be only one normal vector defined at any
+## ! point on the basis surface. This must be verified by the
+## ! user as no check is made at the time of construction
+## ! to detect points with multiple possible normal
+## ! directions (for example, the top of a conical surface).
+
+type
+  GeomOffsetSurfacebaseType* = GeomSurface
+
 proc constructGeomOffsetSurface*(s: Handle[GeomSurface]; offset: StandardReal;
                                 isNotCheckC0: StandardBoolean = false): GeomOffsetSurface {.
     constructor, importcpp: "Geom_OffsetSurface(@)",
@@ -332,8 +336,8 @@ proc vReversedParameter*(this: GeomOffsetSurface; v: StandardReal): StandardReal
 proc bounds*(this: GeomOffsetSurface; u1: var StandardReal; u2: var StandardReal;
             v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
     importcpp: "Bounds", header: "Geom_OffsetSurface.hxx".}
-proc continuity*(this: GeomOffsetSurface): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_OffsetSurface.hxx".}
+#[ proc continuity*(this: GeomOffsetSurface): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_OffsetSurface.hxx".} ]#
 proc isCNu*(this: GeomOffsetSurface; n: int): StandardBoolean {.noSideEffect,
     importcpp: "IsCNu", header: "Geom_OffsetSurface.hxx".}
 proc isCNv*(this: GeomOffsetSurface; n: int): StandardBoolean {.noSideEffect,
@@ -388,18 +392,17 @@ proc vOsculatingSurface*(this: GeomOffsetSurface; u: StandardReal; v: StandardRe
                         isOpposite: var StandardBoolean;
                         vOsculSurf: var Handle[GeomBSplineSurface]): StandardBoolean {.
     noSideEffect, importcpp: "VOsculatingSurface", header: "Geom_OffsetSurface.hxx".}
-proc getBasisSurfContinuity*(this: GeomOffsetSurface): GeomAbsShape {.noSideEffect,
-    importcpp: "GetBasisSurfContinuity", header: "Geom_OffsetSurface.hxx".}
+#[ proc getBasisSurfContinuity*(this: GeomOffsetSurface): GeomAbsShape {.noSideEffect,
+    importcpp: "GetBasisSurfContinuity", header: "Geom_OffsetSurface.hxx".} ]#
 proc dumpJson*(this: GeomOffsetSurface; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_OffsetSurface.hxx".}
-type
-  GeomOffsetSurfacebaseType* = GeomSurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_OffsetSurface::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_OffsetSurface::get_type_name(@)",
                             header: "Geom_OffsetSurface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_OffsetSurface::get_type_descriptor(@)",
     header: "Geom_OffsetSurface.hxx".}
 proc dynamicType*(this: GeomOffsetSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_OffsetSurface.hxx".}
+    importcpp: "DynamicType", header: "Geom_OffsetSurface.hxx".} ]#

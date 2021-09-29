@@ -28,28 +28,6 @@ discard "forward decl of gp_GTrsf2d"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_RectangularTrimmedSurface"
 discard "forward decl of Geom_RectangularTrimmedSurface"
-type
-  HandleC1C1* = Handle[GeomRectangularTrimmedSurface]
-
-## ! Describes a portion of a surface (a patch) limited
-## ! by two values of the u parameter in the u
-## ! parametric direction, and two values of the v
-## ! parameter in the v parametric direction. The
-## ! domain of the trimmed surface must be within the
-## ! domain of the surface being trimmed.
-## ! The trimmed surface is defined by:
-## ! - the basis surface, and
-## ! - the values (umin, umax) and (vmin, vmax)
-## ! which limit it in the u and v parametric directions.
-## ! The trimmed surface is built from a copy of the basis
-## ! surface. Therefore, when the basis surface is
-## ! modified the trimmed surface is not changed.
-## ! Consequently, the trimmed surface does not
-## ! necessarily have the same orientation as the basis surface.
-## ! Warning:  The  case of surface   being trimmed is  periodic and
-## ! parametrics values are outside the domain is possible.
-## ! But, domain of the  trimmed surface can be translated
-## ! by (n X) the period.
 
 type
   GeomRectangularTrimmedSurface* {.importcpp: "Geom_RectangularTrimmedSurface",
@@ -75,6 +53,32 @@ type
                                                                      ## ! General set trim,  to implement
                                                                      ## constructors and
                                                                      ## ! others set trim.
+
+
+type
+  HandleGeomRectangularTrimmedSurface* = Handle[GeomRectangularTrimmedSurface]
+
+## ! Describes a portion of a surface (a patch) limited
+## ! by two values of the u parameter in the u
+## ! parametric direction, and two values of the v
+## ! parameter in the v parametric direction. The
+## ! domain of the trimmed surface must be within the
+## ! domain of the surface being trimmed.
+## ! The trimmed surface is defined by:
+## ! - the basis surface, and
+## ! - the values (umin, umax) and (vmin, vmax)
+## ! which limit it in the u and v parametric directions.
+## ! The trimmed surface is built from a copy of the basis
+## ! surface. Therefore, when the basis surface is
+## ! modified the trimmed surface is not changed.
+## ! Consequently, the trimmed surface does not
+## ! necessarily have the same orientation as the basis surface.
+## ! Warning:  The  case of surface   being trimmed is  periodic and
+## ! parametrics values are outside the domain is possible.
+## ! But, domain of the  trimmed surface can be translated
+## ! by (n X) the period.
+type
+  GeomRectangularTrimmedSurfacebaseType* = GeomBoundedSurface
 
 
 proc constructGeomRectangularTrimmedSurface*(s: Handle[GeomSurface];
@@ -111,8 +115,8 @@ proc vReversedParameter*(this: GeomRectangularTrimmedSurface; v: StandardReal): 
 proc bounds*(this: GeomRectangularTrimmedSurface; u1: var StandardReal;
             u2: var StandardReal; v1: var StandardReal; v2: var StandardReal) {.
     noSideEffect, importcpp: "Bounds", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc continuity*(this: GeomRectangularTrimmedSurface): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_RectangularTrimmedSurface.hxx".}
+#[ proc continuity*(this: GeomRectangularTrimmedSurface): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_RectangularTrimmedSurface.hxx".} ]#
 proc isUClosed*(this: GeomRectangularTrimmedSurface): StandardBoolean {.
     noSideEffect, importcpp: "IsUClosed",
     header: "Geom_RectangularTrimmedSurface.hxx".}
@@ -166,9 +170,8 @@ proc copy*(this: GeomRectangularTrimmedSurface): Handle[GeomGeometry] {.
 proc dumpJson*(this: GeomRectangularTrimmedSurface;
               theOStream: var StandardOStream; theDepth: int = -1) {.noSideEffect,
     importcpp: "DumpJson", header: "Geom_RectangularTrimmedSurface.hxx".}
-type
-  GeomRectangularTrimmedSurfacebaseType* = GeomBoundedSurface
 
+#[ 
 proc getTypeName*(): cstring {.importcpp: "Geom_RectangularTrimmedSurface::get_type_name(@)",
                             header: "Geom_RectangularTrimmedSurface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
@@ -176,4 +179,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Geom_RectangularTrimmedSurface.hxx".}
 proc dynamicType*(this: GeomRectangularTrimmedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "Geom_RectangularTrimmedSurface.hxx".}
+    header: "Geom_RectangularTrimmedSurface.hxx".} ]#

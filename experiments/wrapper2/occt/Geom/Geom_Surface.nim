@@ -20,8 +20,32 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Surface"
 discard "forward decl of Geom_Surface"
+
 type
-  HandleC1C1* = Handle[GeomSurface]
+  GeomSurface* {.importcpp: "Geom_Surface", header: "Geom_Surface.hxx", bycopy.} = object of GeomGeometry ##
+                                                                                                ## !
+                                                                                                ## Reverses
+                                                                                                ## the
+                                                                                                ## U
+                                                                                                ## direction
+                                                                                                ## of
+                                                                                                ## parametrization
+                                                                                                ## of
+                                                                                                ## <me>.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## bounds
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## surface
+                                                                                                ## are
+                                                                                                ## not
+                                                                                                ## modified.
+
+
+type
+  HandleGeomSurface* = Handle[GeomSurface]
 
 ## ! Describes the common behavior of surfaces in 3D
 ## ! space. The Geom package provides many
@@ -51,27 +75,7 @@ type
 ## ! surfaces with null areas, or surfaces which self-intersect.
 
 type
-  GeomSurface* {.importcpp: "Geom_Surface", header: "Geom_Surface.hxx", bycopy.} = object of GeomGeometry ##
-                                                                                                ## !
-                                                                                                ## Reverses
-                                                                                                ## the
-                                                                                                ## U
-                                                                                                ## direction
-                                                                                                ## of
-                                                                                                ## parametrization
-                                                                                                ## of
-                                                                                                ## <me>.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## The
-                                                                                                ## bounds
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## surface
-                                                                                                ## are
-                                                                                                ## not
-                                                                                                ## modified.
-
+  GeomSurfacebaseType* = GeomGeometry
 
 proc uReverse*(this: var GeomSurface) {.importcpp: "UReverse",
                                     header: "Geom_Surface.hxx".}
@@ -109,8 +113,8 @@ proc uIso*(this: GeomSurface; u: StandardReal): Handle[GeomCurve] {.noSideEffect
     importcpp: "UIso", header: "Geom_Surface.hxx".}
 proc vIso*(this: GeomSurface; v: StandardReal): Handle[GeomCurve] {.noSideEffect,
     importcpp: "VIso", header: "Geom_Surface.hxx".}
-proc continuity*(this: GeomSurface): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_Surface.hxx".}
+#[ proc continuity*(this: GeomSurface): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_Surface.hxx".} ]#
 proc isCNu*(this: GeomSurface; n: int): StandardBoolean {.noSideEffect,
     importcpp: "IsCNu", header: "Geom_Surface.hxx".}
 proc isCNv*(this: GeomSurface; n: int): StandardBoolean {.noSideEffect,
@@ -132,12 +136,11 @@ proc value*(this: GeomSurface; u: StandardReal; v: StandardReal): Pnt {.noSideEf
     importcpp: "Value", header: "Geom_Surface.hxx".}
 proc dumpJson*(this: GeomSurface; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom_Surface.hxx".}
-type
-  GeomSurfacebaseType* = GeomGeometry
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Surface::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Surface::get_type_name(@)",
                             header: "Geom_Surface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Surface::get_type_descriptor(@)", header: "Geom_Surface.hxx".}
 proc dynamicType*(this: GeomSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Surface.hxx".}
+    importcpp: "DynamicType", header: "Geom_Surface.hxx".} ]#

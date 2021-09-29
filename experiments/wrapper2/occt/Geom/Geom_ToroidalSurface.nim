@@ -26,53 +26,6 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_ToroidalSurface"
 discard "forward decl of Geom_ToroidalSurface"
-type
-  HandleC1C1* = Handle[GeomToroidalSurface]
-
-## ! Describes a torus.
-## ! A torus is defined by its major and minor radii, and
-## ! positioned in space with a coordinate system (a
-## ! gp_Ax3 object) as follows:
-## ! - The origin is the center of the torus.
-## ! - The surface is obtained by rotating a circle around
-## ! the "main Direction". This circle has a radius equal
-## ! to the minor radius, and is located in the plane
-## ! defined by the origin, "X Direction" and "main
-## ! Direction". It is centered on the "X Axis", on its
-## ! positive side, and positioned at a distance from the
-## ! origin equal to the major radius. This circle is the
-## ! "reference circle" of the torus.
-## ! - The plane defined by the origin, the "X Direction"
-## ! and the "Y Direction" is called the "reference plane" of the torus.
-## ! This coordinate system is the "local coordinate
-## ! system" of the torus. The following apply:
-## ! - Rotation around its "main Axis", in the trigonometric
-## ! sense given by "X Direction" and "Y Direction",
-## ! defines the u parametric direction.
-## ! - The "X Axis" gives the origin for the u parameter.
-## ! - Rotation around an axis parallel to the "Y Axis" and
-## ! passing through the center of the "reference circle"
-## ! gives the v parameter on the "reference circle".
-## ! - The "X Axis" gives the origin of the v parameter on
-## ! the "reference circle".
-## ! - The v parametric direction is oriented by the
-## ! inverse of the "main Direction", i.e. near 0, as v
-## ! increases, the Z coordinate decreases. (This
-## ! implies that the "Y Direction" orients the reference
-## ! circle only when the local coordinate system is direct.)
-## ! - The u isoparametric curve is a circle obtained by
-## ! rotating the "reference circle" of the torus through
-## ! an angle u about the "main Axis".
-## ! The parametric equation of the torus is :
-## ! P(u, v) = O + (R + r*cos(v)) * (cos(u)*XDir +
-## ! sin(u)*YDir ) + r*sin(v)*ZDir, where:
-## ! - O, XDir, YDir and ZDir are respectively the
-## ! origin, the "X Direction", the "Y Direction" and the "Z
-## ! Direction" of the local coordinate system,
-## ! - r and R are, respectively, the minor and major radius.
-## ! The parametric range of the two parameters is:
-## ! - [ 0, 2.*Pi ] for u
-## ! - [ 0, 2.*Pi ] for v
 
 type
   GeomToroidalSurface* {.importcpp: "Geom_ToroidalSurface",
@@ -186,6 +139,57 @@ type
                                                                                                 ## <
                                                                                                 ## 0.0
 
+type
+  HandleGeomToroidalSurface* = Handle[GeomToroidalSurface]
+
+## ! Describes a torus.
+## ! A torus is defined by its major and minor radii, and
+## ! positioned in space with a coordinate system (a
+## ! gp_Ax3 object) as follows:
+## ! - The origin is the center of the torus.
+## ! - The surface is obtained by rotating a circle around
+## ! the "main Direction". This circle has a radius equal
+## ! to the minor radius, and is located in the plane
+## ! defined by the origin, "X Direction" and "main
+## ! Direction". It is centered on the "X Axis", on its
+## ! positive side, and positioned at a distance from the
+## ! origin equal to the major radius. This circle is the
+## ! "reference circle" of the torus.
+## ! - The plane defined by the origin, the "X Direction"
+## ! and the "Y Direction" is called the "reference plane" of the torus.
+## ! This coordinate system is the "local coordinate
+## ! system" of the torus. The following apply:
+## ! - Rotation around its "main Axis", in the trigonometric
+## ! sense given by "X Direction" and "Y Direction",
+## ! defines the u parametric direction.
+## ! - The "X Axis" gives the origin for the u parameter.
+## ! - Rotation around an axis parallel to the "Y Axis" and
+## ! passing through the center of the "reference circle"
+## ! gives the v parameter on the "reference circle".
+## ! - The "X Axis" gives the origin of the v parameter on
+## ! the "reference circle".
+## ! - The v parametric direction is oriented by the
+## ! inverse of the "main Direction", i.e. near 0, as v
+## ! increases, the Z coordinate decreases. (This
+## ! implies that the "Y Direction" orients the reference
+## ! circle only when the local coordinate system is direct.)
+## ! - The u isoparametric curve is a circle obtained by
+## ! rotating the "reference circle" of the torus through
+## ! an angle u about the "main Axis".
+## ! The parametric equation of the torus is :
+## ! P(u, v) = O + (R + r*cos(v)) * (cos(u)*XDir +
+## ! sin(u)*YDir ) + r*sin(v)*ZDir, where:
+## ! - O, XDir, YDir and ZDir are respectively the
+## ! origin, the "X Direction", the "Y Direction" and the "Z
+## ! Direction" of the local coordinate system,
+## ! - r and R are, respectively, the minor and major radius.
+## ! The parametric range of the two parameters is:
+## ! - [ 0, 2.*Pi ] for u
+## ! - [ 0, 2.*Pi ] for v
+
+type
+  GeomToroidalSurfacebaseType* = GeomElementarySurface
+
 
 proc constructGeomToroidalSurface*(a3: Ax3; majorRadius: StandardReal;
                                   minorRadius: StandardReal): GeomToroidalSurface {.
@@ -212,8 +216,8 @@ proc area*(this: GeomToroidalSurface): StandardReal {.noSideEffect,
 proc bounds*(this: GeomToroidalSurface; u1: var StandardReal; u2: var StandardReal;
             v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
     importcpp: "Bounds", header: "Geom_ToroidalSurface.hxx".}
-proc coefficients*(this: GeomToroidalSurface; coef: var TColStdArray1OfReal) {.
-    noSideEffect, importcpp: "Coefficients", header: "Geom_ToroidalSurface.hxx".}
+#[ proc coefficients*(this: GeomToroidalSurface; coef: var TColStdArray1OfReal) {.
+    noSideEffect, importcpp: "Coefficients", header: "Geom_ToroidalSurface.hxx".} ]#
 proc majorRadius*(this: GeomToroidalSurface): StandardReal {.noSideEffect,
     importcpp: "MajorRadius", header: "Geom_ToroidalSurface.hxx".}
 proc minorRadius*(this: GeomToroidalSurface): StandardReal {.noSideEffect,
@@ -253,13 +257,12 @@ proc copy*(this: GeomToroidalSurface): Handle[GeomGeometry] {.noSideEffect,
 proc dumpJson*(this: GeomToroidalSurface; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_ToroidalSurface.hxx".}
-type
-  GeomToroidalSurfacebaseType* = GeomElementarySurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_ToroidalSurface::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_ToroidalSurface::get_type_name(@)",
                             header: "Geom_ToroidalSurface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_ToroidalSurface::get_type_descriptor(@)",
     header: "Geom_ToroidalSurface.hxx".}
 proc dynamicType*(this: GeomToroidalSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "DynamicType", header: "Geom_ToroidalSurface.hxx".} ]#

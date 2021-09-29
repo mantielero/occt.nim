@@ -25,8 +25,27 @@ discard "forward decl of gp_GTrsf2d"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_SurfaceOfLinearExtrusion"
 discard "forward decl of Geom_SurfaceOfLinearExtrusion"
+
 type
-  HandleC1C1* = Handle[GeomSurfaceOfLinearExtrusion]
+  GeomSurfaceOfLinearExtrusion* {.importcpp: "Geom_SurfaceOfLinearExtrusion",
+                                 header: "Geom_SurfaceOfLinearExtrusion.hxx",
+                                 bycopy.} = object of GeomSweptSurface ## ! V is the direction of extrusion.
+                                                                  ## ! C is the extruded curve.
+                                                                  ## ! The form of a
+                                                                  ## SurfaceOfLinearExtrusion can be :
+                                                                  ## ! . ruled surface (RuledForm),
+                                                                  ## ! . a cylindrical surface if the extruded curve is a circle or
+                                                                  ## ! a trimmed circle
+                                                                  ## (CylindricalForm),
+                                                                  ## ! . a plane surface if the extruded curve is a Line (PlanarForm).
+                                                                  ## ! Warnings :
+                                                                  ## ! Degenerated surface cases are not detected. For example if the
+                                                                  ## ! curve C is a line and V is parallel to the direction of this
+                                                                  ## ! line.
+
+
+type
+  HandleGeomSurfaceOfLinearExtrusion* = Handle[GeomSurfaceOfLinearExtrusion]
 
 ## ! Describes a surface of linear extrusion ("extruded
 ## ! surface"), e.g. a generalized cylinder. Such a surface
@@ -58,22 +77,7 @@ type
 ## ! to that line.
 
 type
-  GeomSurfaceOfLinearExtrusion* {.importcpp: "Geom_SurfaceOfLinearExtrusion",
-                                 header: "Geom_SurfaceOfLinearExtrusion.hxx",
-                                 bycopy.} = object of GeomSweptSurface ## ! V is the direction of extrusion.
-                                                                  ## ! C is the extruded curve.
-                                                                  ## ! The form of a
-                                                                  ## SurfaceOfLinearExtrusion can be :
-                                                                  ## ! . ruled surface (RuledForm),
-                                                                  ## ! . a cylindrical surface if the extruded curve is a circle or
-                                                                  ## ! a trimmed circle
-                                                                  ## (CylindricalForm),
-                                                                  ## ! . a plane surface if the extruded curve is a Line (PlanarForm).
-                                                                  ## ! Warnings :
-                                                                  ## ! Degenerated surface cases are not detected. For example if the
-                                                                  ## ! curve C is a line and V is parallel to the direction of this
-                                                                  ## ! line.
-
+  GeomSurfaceOfLinearExtrusionbaseType* = GeomSweptSurface
 
 proc constructGeomSurfaceOfLinearExtrusion*(c: Handle[GeomCurve]; v: Dir): GeomSurfaceOfLinearExtrusion {.
     constructor, importcpp: "Geom_SurfaceOfLinearExtrusion(@)",
@@ -142,14 +146,13 @@ proc copy*(this: GeomSurfaceOfLinearExtrusion): Handle[GeomGeometry] {.noSideEff
 proc dumpJson*(this: GeomSurfaceOfLinearExtrusion; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-type
-  GeomSurfaceOfLinearExtrusionbaseType* = GeomSweptSurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_SurfaceOfLinearExtrusion::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_SurfaceOfLinearExtrusion::get_type_name(@)",
                             header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_SurfaceOfLinearExtrusion::get_type_descriptor(@)",
     header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 proc dynamicType*(this: GeomSurfaceOfLinearExtrusion): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".} ]#

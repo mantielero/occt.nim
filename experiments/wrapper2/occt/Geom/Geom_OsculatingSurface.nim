@@ -19,7 +19,6 @@ discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Geom_OsculatingSurface"
 discard "forward decl of Geom_OsculatingSurface"
 type
-  HandleC1C1* = Handle[GeomOsculatingSurface]
   GeomOsculatingSurface* {.importcpp: "Geom_OsculatingSurface",
                           header: "Geom_OsculatingSurface.hxx", bycopy.} = object of StandardTransient ##
                                                                                                 ## !
@@ -32,6 +31,10 @@ type
                                                                                                 ## can't
                                                                                                 ## be
                                                                                                 ## built
+  HandleGeomOsculatingSurface* = Handle[GeomOsculatingSurface]
+                                
+type
+  GeomOsculatingSurfacebaseType* = StandardTransient
 
 
 proc `new`*(this: var GeomOsculatingSurface; theSize: csize_t): pointer {.
@@ -71,14 +74,12 @@ proc vOscSurf*(this: GeomOsculatingSurface; u: StandardReal; v: StandardReal;
     noSideEffect, importcpp: "VOscSurf", header: "Geom_OsculatingSurface.hxx".}
 proc dumpJson*(this: GeomOsculatingSurface; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
-                                header: "Geom_OsculatingSurface.hxx".}
-type
-  GeomOsculatingSurfacebaseType* = StandardTransient
+              header: "Geom_OsculatingSurface.hxx".}
 
-proc getTypeName*(): cstring {.importcpp: "Geom_OsculatingSurface::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_OsculatingSurface::get_type_name(@)",
                             header: "Geom_OsculatingSurface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_OsculatingSurface::get_type_descriptor(@)",
     header: "Geom_OsculatingSurface.hxx".}
 proc dynamicType*(this: GeomOsculatingSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_OsculatingSurface.hxx".}
+    importcpp: "DynamicType", header: "Geom_OsculatingSurface.hxx".} ]#

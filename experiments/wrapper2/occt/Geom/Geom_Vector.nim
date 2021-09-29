@@ -20,13 +20,6 @@ discard "forward decl of gp_VectorWithNullMagnitude"
 discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Vector"
 discard "forward decl of Geom_Vector"
-type
-  HandleC1C1* = Handle[GeomVector]
-
-## ! The abstract class Vector describes the common
-## ! behavior of vectors in 3D space.
-## ! The Geom package provides two concrete classes of
-## ! vectors: Geom_Direction (unit vector) and Geom_VectorWithMagnitude.
 
 type
   GeomVector* {.importcpp: "Geom_Vector", header: "Geom_Vector.hxx", bycopy.} = object of GeomGeometry ##
@@ -36,6 +29,16 @@ type
                                                                                              ## vector
                                                                                              ## <me>.
 
+
+type
+  HandleGeomVector* = Handle[GeomVector]
+
+## ! The abstract class Vector describes the common
+## ! behavior of vectors in 3D space.
+## ! The Geom package provides two concrete classes of
+## ! vectors: Geom_Direction (unit vector) and Geom_VectorWithMagnitude.
+type
+  GeomVectorbaseType* = GeomGeometry
 
 proc reverse*(this: var GeomVector) {.importcpp: "Reverse", header: "Geom_Vector.hxx".}
 proc reversed*(this: GeomVector): Handle[GeomVector] {.noSideEffect,
@@ -72,12 +75,11 @@ proc dotCross*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector])
     noSideEffect, importcpp: "DotCross", header: "Geom_Vector.hxx".}
 proc vec*(this: GeomVector): Vec {.noSideEffect, importcpp: "Vec",
                                header: "Geom_Vector.hxx".}
-type
-  GeomVectorbaseType* = GeomGeometry
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Vector::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Vector::get_type_name(@)",
                             header: "Geom_Vector.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Vector::get_type_descriptor(@)", header: "Geom_Vector.hxx".}
 proc dynamicType*(this: GeomVector): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Vector.hxx".}
+    importcpp: "DynamicType", header: "Geom_Vector.hxx".} ]#

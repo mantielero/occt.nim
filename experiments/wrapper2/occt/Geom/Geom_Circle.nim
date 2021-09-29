@@ -24,8 +24,24 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Circle"
 discard "forward decl of Geom_Circle"
+
 type
-  HandleC1C1* = Handle[GeomCircle]
+  GeomCircle* {.importcpp: "Geom_Circle", header: "Geom_Circle.hxx", bycopy.} = object of GeomConic ##
+                                                                                          ## !
+                                                                                          ## Constructs
+                                                                                          ## a
+                                                                                          ## circle
+                                                                                          ## by
+                                                                                          ## conversion
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## gp_Circ
+                                                                                          ## circle
+                                                                                          ## C.
+
+
+type
+  HandleGeomCircle* = Handle[GeomCircle]
 
 ## ! Describes a circle in 3D space.
 ## ! A circle is defined by its radius and, as with any conic
@@ -58,18 +74,7 @@ type
 ## ! 2.*Pi and the parameter range is [ 0, 2.*Pi [.
 
 type
-  GeomCircle* {.importcpp: "Geom_Circle", header: "Geom_Circle.hxx", bycopy.} = object of GeomConic ##
-                                                                                          ## !
-                                                                                          ## Constructs
-                                                                                          ## a
-                                                                                          ## circle
-                                                                                          ## by
-                                                                                          ## conversion
-                                                                                          ## of
-                                                                                          ## the
-                                                                                          ## gp_Circ
-                                                                                          ## circle
-                                                                                          ## C.
+  GeomCirclebaseType* = GeomConic
 
 
 proc constructGeomCircle*(c: Circ): GeomCircle {.constructor,
@@ -112,12 +117,10 @@ proc copy*(this: GeomCircle): Handle[GeomGeometry] {.noSideEffect, importcpp: "C
     header: "Geom_Circle.hxx".}
 proc dumpJson*(this: GeomCircle; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom_Circle.hxx".}
-type
-  GeomCirclebaseType* = GeomConic
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Circle::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Circle::get_type_name(@)",
                             header: "Geom_Circle.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Circle::get_type_descriptor(@)", header: "Geom_Circle.hxx".}
 proc dynamicType*(this: GeomCircle): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Circle.hxx".}
+    importcpp: "DynamicType", header: "Geom_Circle.hxx".} ]#

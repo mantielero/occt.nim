@@ -16,8 +16,47 @@
 
 discard "forward decl of Geom_ElementarySurface"
 discard "forward decl of Geom_ElementarySurface"
+
 type
-  HandleC1C1* = Handle[GeomElementarySurface]
+  GeomElementarySurface* {.importcpp: "Geom_ElementarySurface",
+                          header: "Geom_ElementarySurface.hxx", bycopy.} = object of GeomSurface ##
+                                                                                          ## !
+                                                                                          ## Changes
+                                                                                          ## the
+                                                                                          ## main
+                                                                                          ## axis
+                                                                                          ## (ZAxis)
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## elementary
+                                                                                          ## surface.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Raised
+                                                                                          ## if
+                                                                                          ## the
+                                                                                          ## direction
+                                                                                          ## of
+                                                                                          ## A1
+                                                                                          ## is
+                                                                                          ## parallel
+                                                                                          ## to
+                                                                                          ## the
+                                                                                          ## XAxis
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## coordinate
+                                                                                          ## system
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## surface.
+
+type
+  HandleGeomElementarySurface* = Handle[GeomElementarySurface]
 
 ## ! Describes the common behavior of surfaces which
 ## ! have a simple parametric equation in a local
@@ -58,43 +97,7 @@ type
 ## ! "main Direction" = - "X Direction" ^ "Y Direction"
 
 type
-  GeomElementarySurface* {.importcpp: "Geom_ElementarySurface",
-                          header: "Geom_ElementarySurface.hxx", bycopy.} = object of GeomSurface ##
-                                                                                          ## !
-                                                                                          ## Changes
-                                                                                          ## the
-                                                                                          ## main
-                                                                                          ## axis
-                                                                                          ## (ZAxis)
-                                                                                          ## of
-                                                                                          ## the
-                                                                                          ## elementary
-                                                                                          ## surface.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Raised
-                                                                                          ## if
-                                                                                          ## the
-                                                                                          ## direction
-                                                                                          ## of
-                                                                                          ## A1
-                                                                                          ## is
-                                                                                          ## parallel
-                                                                                          ## to
-                                                                                          ## the
-                                                                                          ## XAxis
-                                                                                          ## of
-                                                                                          ## the
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## coordinate
-                                                                                          ## system
-                                                                                          ## of
-                                                                                          ## the
-                                                                                          ## surface.
-
+  GeomElementarySurfacebaseType* = GeomSurface
 
 proc setAxis*(this: var GeomElementarySurface; theA1: Ax1) {.importcpp: "SetAxis",
     header: "Geom_ElementarySurface.hxx".}
@@ -118,8 +121,8 @@ proc vReverse*(this: var GeomElementarySurface) {.importcpp: "VReverse",
 proc vReversedParameter*(this: GeomElementarySurface; v: StandardReal): StandardReal {.
     noSideEffect, importcpp: "VReversedParameter",
     header: "Geom_ElementarySurface.hxx".}
-proc continuity*(this: GeomElementarySurface): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_ElementarySurface.hxx".}
+#[ proc continuity*(this: GeomElementarySurface): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_ElementarySurface.hxx".} ]#
 proc isCNu*(this: GeomElementarySurface; n: int): StandardBoolean {.noSideEffect,
     importcpp: "IsCNu", header: "Geom_ElementarySurface.hxx".}
 proc isCNv*(this: GeomElementarySurface; n: int): StandardBoolean {.noSideEffect,
@@ -127,13 +130,12 @@ proc isCNv*(this: GeomElementarySurface; n: int): StandardBoolean {.noSideEffect
 proc dumpJson*(this: GeomElementarySurface; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_ElementarySurface.hxx".}
-type
-  GeomElementarySurfacebaseType* = GeomSurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_ElementarySurface::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_ElementarySurface::get_type_name(@)",
                             header: "Geom_ElementarySurface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_ElementarySurface::get_type_descriptor(@)",
     header: "Geom_ElementarySurface.hxx".}
 proc dynamicType*(this: GeomElementarySurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_ElementarySurface.hxx".}
+    importcpp: "DynamicType", header: "Geom_ElementarySurface.hxx".} ]#

@@ -18,14 +18,6 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of gp_Dir"
 discard "forward decl of Geom_SweptSurface"
 discard "forward decl of Geom_SweptSurface"
-type
-  HandleC1C1* = Handle[GeomSweptSurface]
-
-## ! Describes the common behavior for surfaces
-## ! constructed by sweeping a curve with another curve.
-## ! The Geom package provides two concrete derived
-## ! surfaces: surface of revolution (a revolved surface),
-## ! and surface of linear extrusion (an extruded surface).
 
 type
   GeomSweptSurface* {.importcpp: "Geom_SweptSurface",
@@ -115,9 +107,20 @@ type
                                                                                 ## is
                                                                                 ## infinite.
 
+type
+  HandleGeomSweptSurface* = Handle[GeomSweptSurface]
 
-proc continuity*(this: GeomSweptSurface): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_SweptSurface.hxx".}
+## ! Describes the common behavior for surfaces
+## ! constructed by sweeping a curve with another curve.
+## ! The Geom package provides two concrete derived
+## ! surfaces: surface of revolution (a revolved surface),
+## ! and surface of linear extrusion (an extruded surface).
+
+type
+  GeomSweptSurfacebaseType* = GeomSurface
+
+#[ proc continuity*(this: GeomSweptSurface): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_SweptSurface.hxx".} ]#
 proc direction*(this: GeomSweptSurface): Dir {.noSideEffect, importcpp: "Direction",
     header: "Geom_SweptSurface.hxx".}
 proc basisCurve*(this: GeomSweptSurface): Handle[GeomCurve] {.noSideEffect,
@@ -125,13 +128,12 @@ proc basisCurve*(this: GeomSweptSurface): Handle[GeomCurve] {.noSideEffect,
 proc dumpJson*(this: GeomSweptSurface; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_SweptSurface.hxx".}
-type
-  GeomSweptSurfacebaseType* = GeomSurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_SweptSurface::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_SweptSurface::get_type_name(@)",
                             header: "Geom_SweptSurface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_SweptSurface::get_type_descriptor(@)",
     header: "Geom_SweptSurface.hxx".}
 proc dynamicType*(this: GeomSweptSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_SweptSurface.hxx".}
+    importcpp: "DynamicType", header: "Geom_SweptSurface.hxx".} ]#

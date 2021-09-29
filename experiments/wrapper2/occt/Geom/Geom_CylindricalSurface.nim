@@ -26,36 +26,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_CylindricalSurface"
 discard "forward decl of Geom_CylindricalSurface"
-type
-  HandleC1C1* = Handle[GeomCylindricalSurface]
 
-## ! This class defines the infinite cylindrical surface.
-## !
-## ! Every cylindrical surface is set by the following equation:
-## ! S(U,V) = Location + R*cos(U)*XAxis + R*sin(U)*YAxis + V*ZAxis,
-## ! where R is cylinder radius.
-## !
-## ! The local coordinate system of the CylindricalSurface is defined
-## ! with an axis placement (see class ElementarySurface).
-## !
-## ! The "ZAxis" is the symmetry axis of the CylindricalSurface,
-## ! it gives the direction of increasing parametric value V.
-## !
-## ! The parametrization range is :
-## ! U [0, 2*PI],  V ]- infinite, + infinite[
-## !
-## ! The "XAxis" and the "YAxis" define the placement plane of the
-## ! surface (Z = 0, and parametric value V = 0)  perpendicular to
-## ! the symmetry axis. The "XAxis" defines the origin of the
-## ! parameter U = 0.  The trigonometric sense gives the positive
-## ! orientation for the parameter U.
-## !
-## ! When you create a CylindricalSurface the U and V directions of
-## ! parametrization are such that at each point of the surface the
-## ! normal is oriented towards the "outside region".
-## !
-## ! The methods UReverse VReverse change the orientation of the
-## ! surface.
 
 type
   GeomCylindricalSurface* {.importcpp: "Geom_CylindricalSurface",
@@ -153,6 +124,41 @@ type
                                                                                                       ## 0.0
 
 
+type
+  HandleGeomCylindricalSurface* = Handle[GeomCylindricalSurface]
+
+## ! This class defines the infinite cylindrical surface.
+## !
+## ! Every cylindrical surface is set by the following equation:
+## ! S(U,V) = Location + R*cos(U)*XAxis + R*sin(U)*YAxis + V*ZAxis,
+## ! where R is cylinder radius.
+## !
+## ! The local coordinate system of the CylindricalSurface is defined
+## ! with an axis placement (see class ElementarySurface).
+## !
+## ! The "ZAxis" is the symmetry axis of the CylindricalSurface,
+## ! it gives the direction of increasing parametric value V.
+## !
+## ! The parametrization range is :
+## ! U [0, 2*PI],  V ]- infinite, + infinite[
+## !
+## ! The "XAxis" and the "YAxis" define the placement plane of the
+## ! surface (Z = 0, and parametric value V = 0)  perpendicular to
+## ! the symmetry axis. The "XAxis" defines the origin of the
+## ! parameter U = 0.  The trigonometric sense gives the positive
+## ! orientation for the parameter U.
+## !
+## ! When you create a CylindricalSurface the U and V directions of
+## ! parametrization are such that at each point of the surface the
+## ! normal is oriented towards the "outside region".
+## !
+## ! The methods UReverse VReverse change the orientation of the
+## ! surface.
+
+type
+  GeomCylindricalSurfacebaseType* = GeomElementarySurface
+
+
 proc constructGeomCylindricalSurface*(a3: Ax3; radius: StandardReal): GeomCylindricalSurface {.
     constructor, importcpp: "Geom_CylindricalSurface(@)",
     header: "Geom_CylindricalSurface.hxx".}
@@ -220,13 +226,12 @@ proc copy*(this: GeomCylindricalSurface): Handle[GeomGeometry] {.noSideEffect,
 proc dumpJson*(this: GeomCylindricalSurface; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_CylindricalSurface.hxx".}
-type
-  GeomCylindricalSurfacebaseType* = GeomElementarySurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_CylindricalSurface::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_CylindricalSurface::get_type_name(@)",
                             header: "Geom_CylindricalSurface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_CylindricalSurface::get_type_descriptor(@)",
     header: "Geom_CylindricalSurface.hxx".}
 proc dynamicType*(this: GeomCylindricalSurface): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "Geom_CylindricalSurface.hxx".}
+    noSideEffect, importcpp: "DynamicType", header: "Geom_CylindricalSurface.hxx".} ]#

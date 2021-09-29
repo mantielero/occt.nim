@@ -16,8 +16,14 @@
 
 discard "forward decl of Geom_UndefinedValue"
 discard "forward decl of Geom_UndefinedValue"
+
 type
-  HandleC1C1* = Handle[GeomUndefinedValue]
+  GeomUndefinedValue* {.importcpp: "Geom_UndefinedValue",
+                       header: "Geom_UndefinedValue.hxx", bycopy.} = object of StandardDomainError
+
+
+type
+  HandleGeomUndefinedValue* = Handle[GeomUndefinedValue]
 
 when not defined(noException) and not defined(noGeomUndefinedValue):
   template geomUndefinedValueRaiseIf*(condition, message: untyped): void =
@@ -27,7 +33,3 @@ when not defined(noException) and not defined(noGeomUndefinedValue):
 
 else:
   discard
-type
-  GeomUndefinedValue* {.importcpp: "Geom_UndefinedValue",
-                       header: "Geom_UndefinedValue.hxx", bycopy.} = object of StandardDomainError
-

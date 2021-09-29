@@ -24,19 +24,6 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Line"
 discard "forward decl of Geom_Line"
-type
-  HandleC1C1* = Handle[GeomLine]
-
-## ! Describes an infinite line.
-## ! A line is defined and positioned in space with an axis
-## ! (gp_Ax1 object) which gives it an origin and a unit vector.
-## ! The Geom_Line line is parameterized:
-## ! P (U) = O + U*Dir, where:
-## ! - P is the point of parameter U,
-## ! - O is the origin and Dir the unit vector of its positioning axis.
-## ! The parameter range is ] -infinite, +infinite [.
-## ! The orientation of the line is given by the unit vector
-## ! of its positioning axis.
 
 type
   GeomLine* {.importcpp: "Geom_Line", header: "Geom_Line.hxx", bycopy.} = object of GeomCurve ##
@@ -67,6 +54,25 @@ type
                                                                                     ## line.
 
 
+type
+  HandleGeomLine* = Handle[GeomLine]
+
+## ! Describes an infinite line.
+## ! A line is defined and positioned in space with an axis
+## ! (gp_Ax1 object) which gives it an origin and a unit vector.
+## ! The Geom_Line line is parameterized:
+## ! P (U) = O + U*Dir, where:
+## ! - P is the point of parameter U,
+## ! - O is the origin and Dir the unit vector of its positioning axis.
+## ! The parameter range is ] -infinite, +infinite [.
+## ! The orientation of the line is given by the unit vector
+## ! of its positioning axis.
+
+
+type
+  GeomLinebaseType* = GeomCurve
+
+
 proc constructGeomLine*(a1: Ax1): GeomLine {.constructor, importcpp: "Geom_Line(@)",
     header: "Geom_Line.hxx".}
 proc constructGeomLine*(L: Lin): GeomLine {.constructor, importcpp: "Geom_Line(@)",
@@ -95,8 +101,8 @@ proc isClosed*(this: GeomLine): StandardBoolean {.noSideEffect,
     importcpp: "IsClosed", header: "Geom_Line.hxx".}
 proc isPeriodic*(this: GeomLine): StandardBoolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom_Line.hxx".}
-proc continuity*(this: GeomLine): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_Line.hxx".}
+#[ proc continuity*(this: GeomLine): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_Line.hxx".} ]#
 proc isCN*(this: GeomLine; n: int): StandardBoolean {.noSideEffect, importcpp: "IsCN",
     header: "Geom_Line.hxx".}
 proc d0*(this: GeomLine; u: StandardReal; p: var Pnt) {.noSideEffect, importcpp: "D0",
@@ -119,12 +125,10 @@ proc copy*(this: GeomLine): Handle[GeomGeometry] {.noSideEffect, importcpp: "Cop
     header: "Geom_Line.hxx".}
 proc dumpJson*(this: GeomLine; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom_Line.hxx".}
-type
-  GeomLinebaseType* = GeomCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Line::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Line::get_type_name(@)",
                             header: "Geom_Line.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Line::get_type_descriptor(@)", header: "Geom_Line.hxx".}
 proc dynamicType*(this: GeomLine): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Line.hxx".}
+    importcpp: "DynamicType", header: "Geom_Line.hxx".} ]#

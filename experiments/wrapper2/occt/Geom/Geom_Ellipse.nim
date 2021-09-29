@@ -25,8 +25,24 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Ellipse"
 discard "forward decl of Geom_Ellipse"
+
+
 type
-  HandleC1C1* = Handle[GeomEllipse]
+  GeomEllipse* {.importcpp: "Geom_Ellipse", header: "Geom_Ellipse.hxx", bycopy.} = object of GeomConic ##
+                                                                                             ## !
+                                                                                             ## Constructs
+                                                                                             ## an
+                                                                                             ## ellipse
+                                                                                             ## by
+                                                                                             ## conversion
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## gp_Elips
+                                                                                             ## ellipse
+                                                                                             ## E.
+
+type
+  HandleGeomEllipse* = Handle[GeomEllipse]
 
 ## ! Describes an ellipse in 3D space.
 ## ! An ellipse is defined by its major and minor radii and,
@@ -60,19 +76,7 @@ type
 ## ! is 2.*Pi and the parameter range is [ 0, 2.*Pi [.
 
 type
-  GeomEllipse* {.importcpp: "Geom_Ellipse", header: "Geom_Ellipse.hxx", bycopy.} = object of GeomConic ##
-                                                                                             ## !
-                                                                                             ## Constructs
-                                                                                             ## an
-                                                                                             ## ellipse
-                                                                                             ## by
-                                                                                             ## conversion
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## gp_Elips
-                                                                                             ## ellipse
-                                                                                             ## E.
-
+  GeomEllipsebaseType* = GeomConic
 
 proc constructGeomEllipse*(e: Elips): GeomEllipse {.constructor,
     importcpp: "Geom_Ellipse(@)", header: "Geom_Ellipse.hxx".}
@@ -131,12 +135,11 @@ proc copy*(this: GeomEllipse): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_Ellipse.hxx".}
 proc dumpJson*(this: GeomEllipse; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "Geom_Ellipse.hxx".}
-type
-  GeomEllipsebaseType* = GeomConic
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Ellipse::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Ellipse::get_type_name(@)",
                             header: "Geom_Ellipse.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Ellipse::get_type_descriptor(@)", header: "Geom_Ellipse.hxx".}
 proc dynamicType*(this: GeomEllipse): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Ellipse.hxx".}
+    importcpp: "DynamicType", header: "Geom_Ellipse.hxx".} ]#

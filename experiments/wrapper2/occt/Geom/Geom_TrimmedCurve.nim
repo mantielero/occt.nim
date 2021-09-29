@@ -27,18 +27,6 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_TrimmedCurve"
 discard "forward decl of Geom_TrimmedCurve"
 type
-  HandleC1C1* = Handle[GeomTrimmedCurve]
-
-## ! Describes a portion of a curve (termed the "basis
-## ! curve") limited by two parameter values inside the
-## ! parametric domain of the basis curve.
-## ! The trimmed curve is defined by:
-## ! - the basis curve, and
-## ! - the two parameter values which limit it.
-## ! The trimmed curve can either have the same
-## ! orientation as the basis curve or the opposite orientation.
-
-type
   GeomTrimmedCurve* {.importcpp: "Geom_TrimmedCurve",
                      header: "Geom_TrimmedCurve.hxx", bycopy.} = object of GeomBoundedCurve ##
                                                                                      ## !
@@ -408,6 +396,22 @@ type
                                                                                      ## U2.
 
 
+type
+  HandleGeomTrimmedCurve* = Handle[GeomTrimmedCurve]
+
+## ! Describes a portion of a curve (termed the "basis
+## ! curve") limited by two parameter values inside the
+## ! parametric domain of the basis curve.
+## ! The trimmed curve is defined by:
+## ! - the basis curve, and
+## ! - the two parameter values which limit it.
+## ! The trimmed curve can either have the same
+## ! orientation as the basis curve or the opposite orientation.
+
+type
+  GeomTrimmedCurvebaseType* = GeomBoundedCurve
+
+
 proc constructGeomTrimmedCurve*(c: Handle[GeomCurve]; u1: StandardReal;
                                u2: StandardReal; sense: StandardBoolean = true;
                                theAdjustPeriodic: StandardBoolean = true): GeomTrimmedCurve {.
@@ -422,8 +426,8 @@ proc setTrim*(this: var GeomTrimmedCurve; u1: StandardReal; u2: StandardReal;
     header: "Geom_TrimmedCurve.hxx".}
 proc basisCurve*(this: GeomTrimmedCurve): Handle[GeomCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "Geom_TrimmedCurve.hxx".}
-proc continuity*(this: GeomTrimmedCurve): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom_TrimmedCurve.hxx".}
+#[ proc continuity*(this: GeomTrimmedCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_TrimmedCurve.hxx".} ]#
 proc isCN*(this: GeomTrimmedCurve; n: int): StandardBoolean {.noSideEffect,
     importcpp: "IsCN", header: "Geom_TrimmedCurve.hxx".}
 proc endPoint*(this: GeomTrimmedCurve): Pnt {.noSideEffect, importcpp: "EndPoint",
@@ -463,13 +467,11 @@ proc copy*(this: GeomTrimmedCurve): Handle[GeomGeometry] {.noSideEffect,
 proc dumpJson*(this: GeomTrimmedCurve; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_TrimmedCurve.hxx".}
-type
-  GeomTrimmedCurvebaseType* = GeomBoundedCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom_TrimmedCurve::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_TrimmedCurve::get_type_name(@)",
                             header: "Geom_TrimmedCurve.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_TrimmedCurve::get_type_descriptor(@)",
     header: "Geom_TrimmedCurve.hxx".}
 proc dynamicType*(this: GeomTrimmedCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_TrimmedCurve.hxx".}
+    importcpp: "DynamicType", header: "Geom_TrimmedCurve.hxx".} ]#

@@ -20,13 +20,6 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_CartesianPoint"
 discard "forward decl of Geom_CartesianPoint"
 type
-  HandleC1C1* = Handle[GeomCartesianPoint]
-
-## ! Describes a point in 3D space. A
-## ! Geom_CartesianPoint is defined by a gp_Pnt point,
-## ! with its three Cartesian coordinates X, Y and Z.
-
-type
   GeomCartesianPoint* {.importcpp: "Geom_CartesianPoint",
                        header: "Geom_CartesianPoint.hxx", bycopy.} = object of GeomPoint ##
                                                                                   ## !
@@ -36,6 +29,16 @@ type
                                                                                   ## copy
                                                                                   ## of
                                                                                   ## P.
+                                                                                  
+type
+  HandleGeomCartesianPoint* = Handle[GeomCartesianPoint]
+
+## ! Describes a point in 3D space. A
+## ! Geom_CartesianPoint is defined by a gp_Pnt point,
+## ! with its three Cartesian coordinates X, Y and Z.
+
+type
+  GeomCartesianPointbaseType* = GeomPoint
 
 
 proc constructGeomCartesianPoint*(p: Pnt): GeomCartesianPoint {.constructor,
@@ -69,13 +72,12 @@ proc transform*(this: var GeomCartesianPoint; t: Trsf) {.importcpp: "Transform",
     header: "Geom_CartesianPoint.hxx".}
 proc copy*(this: GeomCartesianPoint): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_CartesianPoint.hxx".}
-type
-  GeomCartesianPointbaseType* = GeomPoint
 
-proc getTypeName*(): cstring {.importcpp: "Geom_CartesianPoint::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_CartesianPoint::get_type_name(@)",
                             header: "Geom_CartesianPoint.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_CartesianPoint::get_type_descriptor(@)",
     header: "Geom_CartesianPoint.hxx".}
 proc dynamicType*(this: GeomCartesianPoint): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_CartesianPoint.hxx".}
+    importcpp: "DynamicType", header: "Geom_CartesianPoint.hxx".} ]#

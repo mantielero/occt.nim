@@ -15,8 +15,18 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom_Transformation"
+
 type
-  HandleC1C1* = Handle[GeomTransformation]
+  GeomTransformation* {.importcpp: "Geom_Transformation",
+                       header: "Geom_Transformation.hxx", bycopy.} = object of StandardTransient ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## an
+                                                                                          ## identity
+                                                                                          ## transformation.
+
+type
+  HandleGeomTransformation* = Handle[GeomTransformation]
 
 ## ! Describes how to construct the following elementary transformations
 ## ! - translations,
@@ -54,23 +64,15 @@ type
 ## ! objects contained inside a common data structure.
 
 type
-  GeomTransformation* {.importcpp: "Geom_Transformation",
-                       header: "Geom_Transformation.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## an
-                                                                                          ## identity
-                                                                                          ## transformation.
-
   GeomTransformationbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Transformation::get_type_name(@)",
-                            header: "Geom_Transformation.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Transformation::get_type_name(@)",
+                            header: "Geom_Transformation.hxx".} ]#
+#[ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Transformation::get_type_descriptor(@)",
-    header: "Geom_Transformation.hxx".}
-proc dynamicType*(this: GeomTransformation): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Transformation.hxx".}
+    header: "Geom_Transformation.hxx".} ]#
+#[ proc dynamicType*(this: GeomTransformation): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_Transformation.hxx".} ]#
 proc constructGeomTransformation*(): GeomTransformation {.constructor,
     importcpp: "Geom_Transformation(@)", header: "Geom_Transformation.hxx".}
 proc constructGeomTransformation*(t: Trsf): GeomTransformation {.constructor,

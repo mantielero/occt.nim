@@ -17,7 +17,13 @@
 discard "forward decl of Geom_BoundedSurface"
 discard "forward decl of Geom_BoundedSurface"
 type
-  HandleC1C1* = Handle[GeomBoundedSurface]
+  GeomBoundedSurface* {.importcpp: "Geom_BoundedSurface",
+                       header: "Geom_BoundedSurface.hxx", bycopy.} = object of GeomSurface
+
+  GeomBoundedSurfacebaseType* = GeomSurface
+
+type
+  HandleGeomBoundedSurface* = Handle[GeomBoundedSurface]
 
 ## ! The root class for bounded surfaces in 3D space. A
 ## ! bounded surface is defined by a rectangle in its 2D parametric space, i.e.
@@ -45,16 +51,11 @@ type
 ## ! limits the variation of its parameters to a rectangle in
 ## ! 2D parametric space.
 
-type
-  GeomBoundedSurface* {.importcpp: "Geom_BoundedSurface",
-                       header: "Geom_BoundedSurface.hxx", bycopy.} = object of GeomSurface
 
-  GeomBoundedSurfacebaseType* = GeomSurface
-
-proc getTypeName*(): cstring {.importcpp: "Geom_BoundedSurface::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_BoundedSurface::get_type_name(@)",
                             header: "Geom_BoundedSurface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_BoundedSurface::get_type_descriptor(@)",
     header: "Geom_BoundedSurface.hxx".}
 proc dynamicType*(this: GeomBoundedSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_BoundedSurface.hxx".}
+    importcpp: "DynamicType", header: "Geom_BoundedSurface.hxx".} ]#

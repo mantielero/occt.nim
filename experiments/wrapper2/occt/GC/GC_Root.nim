@@ -27,8 +27,8 @@ type
 
 proc isDone*(this: GC_Root): bool {.noSideEffect, importcpp: "IsDone",
                                 header: "GC_Root.hxx".}
-proc status*(this: GC_Root): GceErrorType {.noSideEffect, importcpp: "Status",
-                                        header: "GC_Root.hxx".}
+#[ proc status*(this: GC_Root): GceErrorType {.noSideEffect, importcpp: "Status",
+                                        header: "GC_Root.hxx".} ]#
 
 
 

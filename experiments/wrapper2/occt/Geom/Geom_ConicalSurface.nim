@@ -26,41 +26,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_ConicalSurface"
 discard "forward decl of Geom_ConicalSurface"
-type
-  HandleC1C1* = Handle[GeomConicalSurface]
-
-## ! Describes a cone.
-## ! A cone is defined by the half-angle (can be negative) at its apex, and
-## ! is positioned in space by a coordinate system (a
-## ! gp_Ax3 object) and a reference radius as follows:
-## ! - The "main Axis" of the coordinate system is the
-## ! axis of revolution of the cone.
-## ! - The plane defined by the origin, the "X Direction"
-## ! and the "Y Direction" of the coordinate system is
-## ! the reference plane of the cone. The intersection
-## ! of the cone with this reference plane is a circle of
-## ! radius equal to the reference radius.
-## ! - The apex of the cone is on the negative side of
-## ! the "main Axis" of the coordinate system if the
-## ! half-angle is positive, and on the positive side if
-## ! the half-angle is negative.
-## ! This coordinate system is the "local coordinate
-## ! system" of the cone. The following apply:
-## ! - Rotation around its "main Axis", in the
-## ! trigonometric sense given by the "X Direction"
-## ! and the "Y Direction", defines the u parametric direction.
-## ! - Its "X Axis" gives the origin for the u parameter.
-## ! - Its "main Direction" is the v parametric direction of the cone.
-## ! - Its origin is the origin of the v parameter.
-## ! The parametric range of the two parameters is:
-## ! - [ 0, 2.*Pi ] for u, and - ] -infinity, +infinity [ for v
-## ! The parametric equation of the cone is:  P(u, v) =
-## ! O + (R + v*sin(Ang)) * (cos(u)*XDir + sin(u)*YDir) + v*cos(Ang)*ZDir where:
-## ! - O, XDir, YDir and ZDir are respectively
-## ! the origin, the "X Direction", the "Y Direction" and
-## ! the "Z Direction" of the cone's local coordinate system,
-## ! - Ang is the half-angle at the apex of the cone,   and
-## ! - R is the reference radius.
 
 type
   GeomConicalSurface* {.importcpp: "Geom_ConicalSurface",
@@ -215,6 +180,45 @@ type
                                                                                               ## -
                                                                                               ## Resolution
 
+type
+  HandleGeomConicalSurface* = Handle[GeomConicalSurface]
+
+## ! Describes a cone.
+## ! A cone is defined by the half-angle (can be negative) at its apex, and
+## ! is positioned in space by a coordinate system (a
+## ! gp_Ax3 object) and a reference radius as follows:
+## ! - The "main Axis" of the coordinate system is the
+## ! axis of revolution of the cone.
+## ! - The plane defined by the origin, the "X Direction"
+## ! and the "Y Direction" of the coordinate system is
+## ! the reference plane of the cone. The intersection
+## ! of the cone with this reference plane is a circle of
+## ! radius equal to the reference radius.
+## ! - The apex of the cone is on the negative side of
+## ! the "main Axis" of the coordinate system if the
+## ! half-angle is positive, and on the positive side if
+## ! the half-angle is negative.
+## ! This coordinate system is the "local coordinate
+## ! system" of the cone. The following apply:
+## ! - Rotation around its "main Axis", in the
+## ! trigonometric sense given by the "X Direction"
+## ! and the "Y Direction", defines the u parametric direction.
+## ! - Its "X Axis" gives the origin for the u parameter.
+## ! - Its "main Direction" is the v parametric direction of the cone.
+## ! - Its origin is the origin of the v parameter.
+## ! The parametric range of the two parameters is:
+## ! - [ 0, 2.*Pi ] for u, and - ] -infinity, +infinity [ for v
+## ! The parametric equation of the cone is:  P(u, v) =
+## ! O + (R + v*sin(Ang)) * (cos(u)*XDir + sin(u)*YDir) + v*cos(Ang)*ZDir where:
+## ! - O, XDir, YDir and ZDir are respectively
+## ! the origin, the "X Direction", the "Y Direction" and
+## ! the "Z Direction" of the cone's local coordinate system,
+## ! - Ang is the half-angle at the apex of the cone,   and
+## ! - R is the reference radius.
+
+type
+  GeomConicalSurfacebaseType* = GeomElementarySurface
+
 
 proc constructGeomConicalSurface*(a3: Ax3; ang: StandardReal; radius: StandardReal): GeomConicalSurface {.
     constructor, importcpp: "Geom_ConicalSurface(@)",
@@ -290,13 +294,12 @@ proc copy*(this: GeomConicalSurface): Handle[GeomGeometry] {.noSideEffect,
 proc dumpJson*(this: GeomConicalSurface; theOStream: var StandardOStream;
               theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
                                 header: "Geom_ConicalSurface.hxx".}
-type
-  GeomConicalSurfacebaseType* = GeomElementarySurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_ConicalSurface::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_ConicalSurface::get_type_name(@)",
                             header: "Geom_ConicalSurface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_ConicalSurface::get_type_descriptor(@)",
     header: "Geom_ConicalSurface.hxx".}
 proc dynamicType*(this: GeomConicalSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_ConicalSurface.hxx".}
+    importcpp: "DynamicType", header: "Geom_ConicalSurface.hxx".} ]#

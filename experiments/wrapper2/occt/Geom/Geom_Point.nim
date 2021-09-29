@@ -18,14 +18,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Point"
 discard "forward decl of Geom_Point"
 type
-  HandleC1C1* = Handle[GeomPoint]
-
-## ! The abstract class Point describes the common
-## ! behavior of geometric points in 3D space.
-## ! The Geom package also provides the concrete class
-## ! Geom_CartesianPoint.
-
-type
   GeomPoint* {.importcpp: "Geom_Point", header: "Geom_Point.hxx", bycopy.} = object of GeomGeometry ##
                                                                                           ## !
                                                                                           ## returns
@@ -33,6 +25,16 @@ type
                                                                                           ## Coordinates
                                                                                           ## of
                                                                                           ## <me>.
+
+type
+  HandleGeomPoint* = Handle[GeomPoint]
+
+## ! The abstract class Point describes the common
+## ! behavior of geometric points in 3D space.
+## ! The Geom package also provides the concrete class
+## ! Geom_CartesianPoint.
+type
+  GeomPointbaseType* = GeomGeometry
 
 
 proc coord*(this: GeomPoint; x: var StandardReal; y: var StandardReal;
@@ -50,12 +52,11 @@ proc distance*(this: GeomPoint; other: Handle[GeomPoint]): StandardReal {.
     noSideEffect, importcpp: "Distance", header: "Geom_Point.hxx".}
 proc squareDistance*(this: GeomPoint; other: Handle[GeomPoint]): StandardReal {.
     noSideEffect, importcpp: "SquareDistance", header: "Geom_Point.hxx".}
-type
-  GeomPointbaseType* = GeomGeometry
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Point::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Point::get_type_name(@)",
                             header: "Geom_Point.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Point::get_type_descriptor(@)", header: "Geom_Point.hxx".}
 proc dynamicType*(this: GeomPoint): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Point.hxx".}
+    importcpp: "DynamicType", header: "Geom_Point.hxx".} ]#

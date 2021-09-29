@@ -21,11 +21,6 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Direction"
 discard "forward decl of Geom_Direction"
-type
-  HandleC1C1* = Handle[GeomDirection]
-
-## ! The class Direction specifies a vector that is never null.
-## ! It is a unit vector.
 
 type
   GeomDirection* {.importcpp: "Geom_Direction", header: "Geom_Direction.hxx", bycopy.} = object of GeomVector ##
@@ -56,6 +51,14 @@ type
                                                                                                     ## from
                                                                                                     ## gp.
 
+
+type
+  HandleGeomDirection* = Handle[GeomDirection]
+
+## ! The class Direction specifies a vector that is never null.
+## ! It is a unit vector.
+type
+  GeomDirectionbaseType* = GeomVector
 
 proc constructGeomDirection*(x: StandardReal; y: StandardReal; z: StandardReal): GeomDirection {.
     constructor, importcpp: "Geom_Direction(@)", header: "Geom_Direction.hxx".}
@@ -91,13 +94,12 @@ proc transform*(this: var GeomDirection; t: Trsf) {.importcpp: "Transform",
     header: "Geom_Direction.hxx".}
 proc copy*(this: GeomDirection): Handle[GeomGeometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_Direction.hxx".}
-type
-  GeomDirectionbaseType* = GeomVector
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Direction::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Direction::get_type_name(@)",
                             header: "Geom_Direction.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Geom_Direction::get_type_descriptor(@)",
     header: "Geom_Direction.hxx".}
 proc dynamicType*(this: GeomDirection): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_Direction.hxx".}
+    importcpp: "DynamicType", header: "Geom_Direction.hxx".} ]#

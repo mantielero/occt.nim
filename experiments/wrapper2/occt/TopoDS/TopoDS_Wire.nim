@@ -38,5 +38,5 @@ proc `new`*(this: var TopoDS_Wire; a2: csize_t; theAddress: pointer): pointer {.
     importcpp: "TopoDS_Wire::operator new", header: "TopoDS_Wire.hxx".}
 proc `delete`*(this: var TopoDS_Wire; a2: pointer; a3: pointer) {.
     importcpp: "TopoDS_Wire::operator delete", header: "TopoDS_Wire.hxx".}
-proc constructTopoDS_Wire*(): TopoDS_Wire {.constructor,
+proc newTopoDS_Wire*(): TopoDS_Wire {.constructor,
     importcpp: "TopoDS_Wire(@)", header: "TopoDS_Wire.hxx".}

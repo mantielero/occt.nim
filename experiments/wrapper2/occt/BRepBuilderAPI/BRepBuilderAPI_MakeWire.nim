@@ -75,10 +75,13 @@ proc error*(this: BRepBuilderAPI_MakeWire): BRepBuilderAPI_WireError {.noSideEff
     importcpp: "Error", header: "BRepBuilderAPI_MakeWire.hxx".}
 proc wire*(this: var BRepBuilderAPI_MakeWire): TopoDS_Wire {.importcpp: "Wire",
     header: "BRepBuilderAPI_MakeWire.hxx".}
-converter `topoDS_Wire`*(this: var BRepBuilderAPI_MakeWire): TopoDS_Wire {.
-    importcpp: "BRepBuilderAPI_MakeWire::operator TopoDS_Wire",
-    header: "BRepBuilderAPI_MakeWire.hxx".}
+
 proc edge*(this: BRepBuilderAPI_MakeWire): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "BRepBuilderAPI_MakeWire.hxx".}
 proc vertex*(this: BRepBuilderAPI_MakeWire): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepBuilderAPI_MakeWire.hxx".}
+
+converter `toTopoDS_Wire`*(this: var BRepBuilderAPI_MakeWire): TopoDS_Wire {.
+    importcpp: "(TopoDS_Wire)(#)",  
+    header: "BRepBuilderAPI_MakeWire.hxx".}
+    # BRepBuilderAPI_MakeWire::operator TopoDS_Wire

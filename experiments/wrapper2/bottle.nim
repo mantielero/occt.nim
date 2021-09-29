@@ -45,9 +45,9 @@ proc main() =
     aPnt4 = newPnt(myWidth / 2.0, -myThickness / 4.0, 0)
     aPnt5 = newPnt(myWidth / 2.0, 0, 0)
 
-  echo aPnt2.x
+#[   echo aPnt2.x
   echo aPnt3.y
-  echo aPnt4.z
+  echo aPnt4.z ]#
 
   let 
     aArcOfCircle = makeArcOfCircle(aPnt2,aPnt3,aPnt4) # Handle_Geom_TrimmedCurve
@@ -82,15 +82,16 @@ proc main() =
 
   # apply the transformation 
   var aBRepTrsf:BRepBuilderAPI_Transform = transform(aWire, aTrsf)
-  #[
+  
   var aMirroredShape:TopoDS_Shape  = aBRepTrsf.shape  #cexpr[TopoDS_Shape]^aBRepTrsf.Shape()
 
 
   # Get the wire from the shape
-  let aMirroredWire:TopoDS_Wire = aMirroredShape.wire
+  let aMirroredWire:TopoDS_Wire = aMirroredShape.wire  # newTopoDS_Wire(aMirroredShape) #
+
 
   # Join the wires into a shape
-  var mkWire:BRepBuilderAPI_MakeWire
+  var mkWire = makeWire() #:BRepBuilderAPI_MakeWire
   mkWire.add(aWire)
   mkWire.add(aMirroredWire)
   let myWireProfile:TopoDS_Wire = mkWire.wire 
@@ -102,6 +103,7 @@ proc main() =
   let aPrismVec = newVec(0.0, 0.0, myHeight)
   let myBody:TopoDS_Shape = makePrism(myFaceProfile, aPrismVec)
 
+  #[
  # - Applying fillets
   let mkFillet = makeFillet(myBody)
 

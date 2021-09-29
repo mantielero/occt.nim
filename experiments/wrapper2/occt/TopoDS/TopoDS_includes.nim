@@ -30,3 +30,4 @@ include TopoDS_TWire
 include TopoDS_UnCompatibleShapes
 include TopoDS_Vertex
 include TopoDS_Wire
+include TopoDS

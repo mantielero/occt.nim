@@ -38,14 +38,14 @@ proc `new`*(this: var Vec; a2: csize_t; theAddress: pointer): pointer {.
     importcpp: "gp_Vec::operator new", header: "gp_Vec.hxx".}
 proc `delete`*(this: var Vec; a2: pointer; a3: pointer) {.
     importcpp: "gp_Vec::operator delete", header: "gp_Vec.hxx".}
-proc constructVec*(): Vec {.constructor, importcpp: "gp_Vec(@)", header: "gp_Vec.hxx".}
-proc constructVec*(v: Dir): Vec {.constructor, importcpp: "gp_Vec(@)",
+proc newVec*(): Vec {.constructor, importcpp: "gp_Vec(@)", header: "gp_Vec.hxx".}
+proc newVec*(v: Dir): Vec {.constructor, importcpp: "gp_Vec(@)",
                               header: "gp_Vec.hxx".}
-proc constructVec*(coord: Xyz): Vec {.constructor, importcpp: "gp_Vec(@)",
+proc newVec*(coord: Xyz): Vec {.constructor, importcpp: "gp_Vec(@)",
                                   header: "gp_Vec.hxx".}
-proc constructVec*(xv: StandardReal; yv: StandardReal; zv: StandardReal): Vec {.
+proc newVec*(xv: StandardReal; yv: StandardReal; zv: StandardReal): Vec {.
     constructor, importcpp: "gp_Vec(@)", header: "gp_Vec.hxx".}
-proc constructVec*(p1: Pnt; p2: Pnt): Vec {.constructor, importcpp: "gp_Vec(@)",
+proc newVec*(p1: Pnt; p2: Pnt): Vec {.constructor, importcpp: "gp_Vec(@)",
                                       header: "gp_Vec.hxx".}
 proc setCoord*(this: var Vec; index: int; xi: StandardReal) {.importcpp: "SetCoord",
     header: "gp_Vec.hxx".}

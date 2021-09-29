@@ -46,89 +46,89 @@ proc `new`*(this: var BRepBuilderAPI_MakeFace; a2: csize_t; theAddress: pointer)
 proc `delete`*(this: var BRepBuilderAPI_MakeFace; a2: pointer; a3: pointer) {.
     importcpp: "BRepBuilderAPI_MakeFace::operator delete",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(): BRepBuilderAPI_MakeFace {.constructor,
+proc makeFace*(): BRepBuilderAPI_MakeFace {.constructor,
     importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(f: TopoDS_Face): BRepBuilderAPI_MakeFace {.
+proc makeFace*(f: TopoDS_Face): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(p: Pln): BRepBuilderAPI_MakeFace {.
+proc makeFace*(p: Pln): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(c: Cylinder): BRepBuilderAPI_MakeFace {.
+proc makeFace*(c: Cylinder): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(c: Cone): BRepBuilderAPI_MakeFace {.
+proc makeFace*(c: Cone): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(s: Sphere): BRepBuilderAPI_MakeFace {.
+proc makeFace*(s: Sphere): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(c: Torus): BRepBuilderAPI_MakeFace {.
+proc makeFace*(c: Torus): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(s: Handle[GeomSurface];
+proc makeFace*(s: Handle[GeomSurface];
                                       tolDegen: StandardReal): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(p: Pln; uMin: StandardReal;
+proc makeFace*(p: Pln; uMin: StandardReal;
                                       uMax: StandardReal; vMin: StandardReal;
                                       vMax: StandardReal): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(c: Cylinder; uMin: StandardReal;
+proc makeFace*(c: Cylinder; uMin: StandardReal;
                                       uMax: StandardReal; vMin: StandardReal;
                                       vMax: StandardReal): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(c: Cone; uMin: StandardReal;
+proc makeFace*(c: Cone; uMin: StandardReal;
                                       uMax: StandardReal; vMin: StandardReal;
                                       vMax: StandardReal): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(s: Sphere; uMin: StandardReal;
+proc makeFace*(s: Sphere; uMin: StandardReal;
                                       uMax: StandardReal; vMin: StandardReal;
                                       vMax: StandardReal): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(c: Torus; uMin: StandardReal;
+proc makeFace*(c: Torus; uMin: StandardReal;
                                       uMax: StandardReal; vMin: StandardReal;
                                       vMax: StandardReal): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(s: Handle[GeomSurface]; uMin: StandardReal;
+proc makeFace*(s: Handle[GeomSurface]; uMin: StandardReal;
                                       uMax: StandardReal; vMin: StandardReal;
                                       vMax: StandardReal; tolDegen: StandardReal): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(w: TopoDS_Wire;
+proc makeFace*(w: TopoDS_Wire;
                                       onlyPlane: StandardBoolean = false): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(p: Pln; w: TopoDS_Wire;
+proc makeFace*(p: Pln; w: TopoDS_Wire;
                                       inside: StandardBoolean = true): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(c: Cylinder; w: TopoDS_Wire;
+proc makeFace*(c: Cylinder; w: TopoDS_Wire;
                                       inside: StandardBoolean = true): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(c: Cone; w: TopoDS_Wire;
+proc makeFace*(c: Cone; w: TopoDS_Wire;
                                       inside: StandardBoolean = true): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(s: Sphere; w: TopoDS_Wire;
+proc makeFace*(s: Sphere; w: TopoDS_Wire;
                                       inside: StandardBoolean = true): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(c: Torus; w: TopoDS_Wire;
+proc makeFace*(c: Torus; w: TopoDS_Wire;
                                       inside: StandardBoolean = true): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(s: Handle[GeomSurface]; w: TopoDS_Wire;
+proc makeFace*(s: Handle[GeomSurface]; w: TopoDS_Wire;
                                       inside: StandardBoolean = true): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
-proc constructBRepBuilderAPI_MakeFace*(f: TopoDS_Face; w: TopoDS_Wire): BRepBuilderAPI_MakeFace {.
+proc makeFace*(f: TopoDS_Face; w: TopoDS_Wire): BRepBuilderAPI_MakeFace {.
     constructor, importcpp: "BRepBuilderAPI_MakeFace(@)",
     header: "BRepBuilderAPI_MakeFace.hxx".}
 proc init*(this: var BRepBuilderAPI_MakeFace; f: TopoDS_Face) {.importcpp: "Init",

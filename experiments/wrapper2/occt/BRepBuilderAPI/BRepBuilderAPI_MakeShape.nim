@@ -44,8 +44,10 @@ proc build*(this: var BRepBuilderAPI_MakeShape) {.importcpp: "Build",
 proc shape*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.importcpp: "Shape",
     header: "BRepBuilderAPI_MakeShape.hxx".}
 converter `topoDS_Shape`*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.
-    importcpp: "BRepBuilderAPI_MakeShape::operator TopoDS_Shape",
+    importcpp: "(TopoDS_Shape)(#)",
     header: "BRepBuilderAPI_MakeShape.hxx".}
+    # BRepBuilderAPI_MakeShape::operator TopoDS_Shape
+
 #[ proc generated*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepBuilderAPI_MakeShape.hxx".}
 proc modified*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.

@@ -19,29 +19,3 @@ type
       Handle[TPrsStdDriver], StandardGUID]
   TPrsStdDataMapIteratorOfDataMapOfGUIDDriver* = Iterator[StandardGUID,
       Handle[TPrsStdDriver], StandardGUID]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

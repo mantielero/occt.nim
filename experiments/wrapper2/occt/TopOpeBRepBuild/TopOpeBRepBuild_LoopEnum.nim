@@ -20,29 +20,3 @@ type
                             header: "TopOpeBRepBuild_LoopEnum.hxx".} = enum
     TopOpeBRepBuildANYLOOP, TopOpeBRepBuildBOUNDARY, TopOpeBRepBuildBLOCK
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -19,56 +19,38 @@ discard "forward decl of TopOpeBRepBuild_Loop"
 type
   TopOpeBRepBuildPaveClassifier* {.importcpp: "TopOpeBRepBuild_PaveClassifier",
                                   header: "TopOpeBRepBuild_PaveClassifier.hxx",
-                                  bycopy.} = object of TopOpeBRepBuildLoopClassifier ##
-                                                                                ## !
-                                                                                ## Create
-                                                                                ## a
-                                                                                ## Pave
-                                                                                ## classifier
-                                                                                ## to
-                                                                                ## compare
-                                                                                ## vertices
-                                                                                ## on
-                                                                                ## edge
-                                                                                ## <E>.
+                                  bycopy.} = object of TopOpeBRepBuildLoopClassifier
 
 
+proc `new`*(this: var TopOpeBRepBuildPaveClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_PaveClassifier::operator new",
+    header: "TopOpeBRepBuild_PaveClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildPaveClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_PaveClassifier::operator delete",
+    header: "TopOpeBRepBuild_PaveClassifier.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildPaveClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_PaveClassifier::operator new[]",
+    header: "TopOpeBRepBuild_PaveClassifier.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildPaveClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_PaveClassifier::operator delete[]",
+    header: "TopOpeBRepBuild_PaveClassifier.hxx".}
+proc `new`*(this: var TopOpeBRepBuildPaveClassifier; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_PaveClassifier::operator new",
+    header: "TopOpeBRepBuild_PaveClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildPaveClassifier; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_PaveClassifier::operator delete",
+    header: "TopOpeBRepBuild_PaveClassifier.hxx".}
 proc constructTopOpeBRepBuildPaveClassifier*(e: TopoDS_Shape): TopOpeBRepBuildPaveClassifier {.
     constructor, importcpp: "TopOpeBRepBuild_PaveClassifier(@)",
     header: "TopOpeBRepBuild_PaveClassifier.hxx".}
 proc compare*(this: var TopOpeBRepBuildPaveClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
     importcpp: "Compare", header: "TopOpeBRepBuild_PaveClassifier.hxx".}
-proc setFirstParameter*(this: var TopOpeBRepBuildPaveClassifier; p: cfloat) {.
+proc setFirstParameter*(this: var TopOpeBRepBuildPaveClassifier; p: StandardReal) {.
     importcpp: "SetFirstParameter", header: "TopOpeBRepBuild_PaveClassifier.hxx".}
-proc closedVertices*(this: var TopOpeBRepBuildPaveClassifier; b: bool) {.
+proc closedVertices*(this: var TopOpeBRepBuildPaveClassifier; b: StandardBoolean) {.
     importcpp: "ClosedVertices", header: "TopOpeBRepBuild_PaveClassifier.hxx".}
-proc adjustCase*(p1: cfloat; o: TopAbsOrientation; first: cfloat; period: cfloat;
-                tol: cfloat; cas: var cint): cfloat {.
+proc adjustCase*(p1: StandardReal; o: TopAbsOrientation; first: StandardReal;
+                period: StandardReal; tol: StandardReal; cas: var int): StandardReal {.
     importcpp: "TopOpeBRepBuild_PaveClassifier::AdjustCase(@)",
     header: "TopOpeBRepBuild_PaveClassifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

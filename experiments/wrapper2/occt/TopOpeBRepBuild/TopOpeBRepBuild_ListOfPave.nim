@@ -17,29 +17,3 @@
 type
   TopOpeBRepBuildListOfPave* = NCollectionList[Handle[TopOpeBRepBuildPave]]
   TopOpeBRepBuildListIteratorOfListOfPave* = Iterator[Handle[TopOpeBRepBuildPave]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

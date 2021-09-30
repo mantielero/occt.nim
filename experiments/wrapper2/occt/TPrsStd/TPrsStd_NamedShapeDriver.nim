@@ -39,7 +39,7 @@ proc constructTPrsStdNamedShapeDriver*(): TPrsStdNamedShapeDriver {.constructor,
     importcpp: "TPrsStd_NamedShapeDriver(@)",
     header: "TPrsStd_NamedShapeDriver.hxx".}
 proc update*(this: var TPrsStdNamedShapeDriver; aLabel: TDF_Label;
-            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
+            anAISObject: var Handle[AIS_InteractiveObject]): StandardBoolean {.
     importcpp: "Update", header: "TPrsStd_NamedShapeDriver.hxx".}
 type
   TPrsStdNamedShapeDriverbaseType* = TPrsStdDriver
@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_NamedShapeDriver.hxx".}
 proc dynamicType*(this: TPrsStdNamedShapeDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TPrsStd_NamedShapeDriver.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

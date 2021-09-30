@@ -22,39 +22,33 @@ type
                                     bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepVPointInterClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_VPointInterClassifier::operator new",
+    header: "TopOpeBRep_VPointInterClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepVPointInterClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_VPointInterClassifier::operator delete",
+    header: "TopOpeBRep_VPointInterClassifier.hxx".}
+proc `new[]`*(this: var TopOpeBRepVPointInterClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_VPointInterClassifier::operator new[]",
+    header: "TopOpeBRep_VPointInterClassifier.hxx".}
+proc `delete[]`*(this: var TopOpeBRepVPointInterClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_VPointInterClassifier::operator delete[]",
+    header: "TopOpeBRep_VPointInterClassifier.hxx".}
+proc `new`*(this: var TopOpeBRepVPointInterClassifier; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopOpeBRep_VPointInterClassifier::operator new", header: "TopOpeBRep_VPointInterClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepVPointInterClassifier; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_VPointInterClassifier::operator delete",
+    header: "TopOpeBRep_VPointInterClassifier.hxx".}
 proc constructTopOpeBRepVPointInterClassifier*(): TopOpeBRepVPointInterClassifier {.
     constructor, importcpp: "TopOpeBRep_VPointInterClassifier(@)",
     header: "TopOpeBRep_VPointInterClassifier.hxx".}
 proc vPointPosition*(this: var TopOpeBRepVPointInterClassifier; f: TopoDS_Shape;
-                    vp: var TopOpeBRepVPointInter; shapeIndex: cint;
-                    pc: var TopOpeBRepPointClassifier; assumeINON: bool; tol: cfloat): TopAbsState {.
-    importcpp: "VPointPosition", header: "TopOpeBRep_VPointInterClassifier.hxx".}
+                    vp: var TopOpeBRepVPointInter; shapeIndex: int;
+                    pc: var TopOpeBRepPointClassifier; assumeINON: StandardBoolean;
+                    tol: StandardReal): TopAbsState {.importcpp: "VPointPosition",
+    header: "TopOpeBRep_VPointInterClassifier.hxx".}
 proc edge*(this: TopOpeBRepVPointInterClassifier): TopoDS_Shape {.noSideEffect,
     importcpp: "Edge", header: "TopOpeBRep_VPointInterClassifier.hxx".}
-proc edgeParameter*(this: TopOpeBRepVPointInterClassifier): cfloat {.noSideEffect,
-    importcpp: "EdgeParameter", header: "TopOpeBRep_VPointInterClassifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc edgeParameter*(this: TopOpeBRepVPointInterClassifier): StandardReal {.
+    noSideEffect, importcpp: "EdgeParameter",
+    header: "TopOpeBRep_VPointInterClassifier.hxx".}

@@ -31,7 +31,7 @@ type
 proc constructBRepFillDraftLaw*(path: TopoDS_Wire;
                                law: Handle[GeomFillLocationDraft]): BRepFillDraftLaw {.
     constructor, importcpp: "BRepFill_DraftLaw(@)", header: "BRepFill_DraftLaw.hxx".}
-proc cleanLaw*(this: var BRepFillDraftLaw; tolAngular: cfloat) {.
+proc cleanLaw*(this: var BRepFillDraftLaw; tolAngular: StandardReal) {.
     importcpp: "CleanLaw", header: "BRepFill_DraftLaw.hxx".}
 type
   BRepFillDraftLawbaseType* = BRepFillEdge3DLaw
@@ -43,28 +43,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_DraftLaw.hxx".}
 proc dynamicType*(this: BRepFillDraftLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_DraftLaw.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

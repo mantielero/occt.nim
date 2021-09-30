@@ -36,15 +36,15 @@ proc setFailStatus*(this: var BRepCheckResult; s: TopoDS_Shape) {.
     importcpp: "SetFailStatus", header: "BRepCheck_Result.hxx".}
 proc status*(this: BRepCheckResult): BRepCheckListOfStatus {.noSideEffect,
     importcpp: "Status", header: "BRepCheck_Result.hxx".}
-proc isMinimum*(this: BRepCheckResult): bool {.noSideEffect, importcpp: "IsMinimum",
-    header: "BRepCheck_Result.hxx".}
-proc isBlind*(this: BRepCheckResult): bool {.noSideEffect, importcpp: "IsBlind",
-    header: "BRepCheck_Result.hxx".}
+proc isMinimum*(this: BRepCheckResult): StandardBoolean {.noSideEffect,
+    importcpp: "IsMinimum", header: "BRepCheck_Result.hxx".}
+proc isBlind*(this: BRepCheckResult): StandardBoolean {.noSideEffect,
+    importcpp: "IsBlind", header: "BRepCheck_Result.hxx".}
 proc statusOnShape*(this: var BRepCheckResult; s: TopoDS_Shape): BRepCheckListOfStatus {.
     importcpp: "StatusOnShape", header: "BRepCheck_Result.hxx".}
 proc initContextIterator*(this: var BRepCheckResult) {.
     importcpp: "InitContextIterator", header: "BRepCheck_Result.hxx".}
-proc moreShapeInContext*(this: BRepCheckResult): bool {.noSideEffect,
+proc moreShapeInContext*(this: BRepCheckResult): StandardBoolean {.noSideEffect,
     importcpp: "MoreShapeInContext", header: "BRepCheck_Result.hxx".}
 proc contextualShape*(this: BRepCheckResult): TopoDS_Shape {.noSideEffect,
     importcpp: "ContextualShape", header: "BRepCheck_Result.hxx".}
@@ -62,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Result.hxx".}
 proc dynamicType*(this: BRepCheckResult): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Result.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

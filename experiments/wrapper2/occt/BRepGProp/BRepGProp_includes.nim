@@ -15,29 +15,3 @@ include BRepGProp_TFunction
 include BRepGProp_UFunction
 include BRepGProp_Vinert
 include BRepGProp_VinertGK
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

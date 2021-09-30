@@ -12,12 +12,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(win32):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   when defined(DrawText):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     discard
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # elif not defined(android) and not defined(qnx) and not defined(emscripten) and
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     (not defined(apple) or defined(macosx_Use_Glx)):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   ##  exclude modern definitions and system-provided glext.h, should be defined before gl.h inclusion
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(win32):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   when defined(DrawText):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # elif not defined(android) and not defined(qnx) and not defined(emscripten) and
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     (not defined(apple) or defined(macosx_Use_Glx)):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   ##  exclude modern definitions and system-provided glext.h, should be defined before gl.h inclusion
+
 
 
 

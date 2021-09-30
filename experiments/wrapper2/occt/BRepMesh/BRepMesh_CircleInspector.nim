@@ -19,50 +19,26 @@ type
   BRepMeshCircleInspector* {.importcpp: "BRepMesh_CircleInspector",
                             header: "BRepMesh_CircleInspector.hxx", bycopy.} = object of NCollectionCellFilterInspectorXY
 
-  BRepMeshCircleInspectorTarget* = cint
+  BRepMeshCircleInspectorTarget* = int
 
-proc constructBRepMeshCircleInspector*(theTolerance: cfloat; theReservedSize: cint;
-    theAllocator: Handle[NCollectionIncAllocator]): BRepMeshCircleInspector {.
-    constructor, importcpp: "BRepMesh_CircleInspector(@)",
+proc constructBRepMeshCircleInspector*(theTolerance: StandardReal;
+                                      theReservedSize: int; theAllocator: Handle[
+    NCollectionIncAllocator]): BRepMeshCircleInspector {.constructor,
+    importcpp: "BRepMesh_CircleInspector(@)",
     header: "BRepMesh_CircleInspector.hxx".}
-proc `bind`*(this: var BRepMeshCircleInspector; theIndex: cint;
+proc `bind`*(this: var BRepMeshCircleInspector; theIndex: int;
             theCircle: BRepMeshCircle) {.importcpp: "Bind",
                                        header: "BRepMesh_CircleInspector.hxx".}
 proc circles*(this: BRepMeshCircleInspector): VectorOfCircle {.noSideEffect,
     importcpp: "Circles", header: "BRepMesh_CircleInspector.hxx".}
-proc circle*(this: var BRepMeshCircleInspector; theIndex: cint): var BRepMeshCircle {.
+proc circle*(this: var BRepMeshCircleInspector; theIndex: int): var BRepMeshCircle {.
     importcpp: "Circle", header: "BRepMesh_CircleInspector.hxx".}
 proc setPoint*(this: var BRepMeshCircleInspector; thePoint: Xy) {.
     importcpp: "SetPoint", header: "BRepMesh_CircleInspector.hxx".}
 proc getShotCircles*(this: var BRepMeshCircleInspector): var ListOfInteger {.
     importcpp: "GetShotCircles", header: "BRepMesh_CircleInspector.hxx".}
-proc inspect*(this: var BRepMeshCircleInspector; theTargetIndex: cint): NCollectionCellFilterAction {.
+proc inspect*(this: var BRepMeshCircleInspector; theTargetIndex: int): NCollectionCellFilterAction {.
     importcpp: "Inspect", header: "BRepMesh_CircleInspector.hxx".}
-proc isEqual*(theIndex: cint; theTargetIndex: cint): bool {.
+proc isEqual*(theIndex: int; theTargetIndex: int): StandardBoolean {.
     importcpp: "BRepMesh_CircleInspector::IsEqual(@)",
     header: "BRepMesh_CircleInspector.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -175,4 +175,10 @@ public: \
   const NCollection_Vec3<Element_t> theY##theZ##theX() const { return NCollection_Vec3<Element_t>(theY(), theZ(), theX()); } \
   const NCollection_Vec3<Element_t> theZ##theY##theX() const { return NCollection_Vec3<Element_t>(theZ(), theY(), theX()); } \
   const NCollection_Vec3<Element_t> theZ##theX##theY() const { return NCollection_Vec3<Element_t>(theZ(), theX(), theY()); }
+
+#def DEFINE_NCOLLECTION_ALLOC                                                    \
+   void* operator new (size_t theSize,                                           \
+                       const Handle(NCollection_BaseAllocator)& theAllocator);   \
+   void  operator delete (void* theAddress,                                      \
+                          const Handle(NCollection_BaseAllocator)& theAllocator);
 #endif

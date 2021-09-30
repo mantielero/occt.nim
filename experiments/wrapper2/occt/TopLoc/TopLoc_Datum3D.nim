@@ -17,7 +17,16 @@
 discard "forward decl of TopLoc_Datum3D"
 discard "forward decl of TopLoc_Datum3D"
 type
-  HandleC1C1* = Handle[TopLocDatum3D]
+  TopLocDatum3D* {.importcpp: "TopLoc_Datum3D", header: "TopLoc_Datum3D.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                           ## !
+                                                                                                           ## Constructs
+                                                                                                           ## a
+                                                                                                           ## default
+                                                                                                           ## Datum3D.
+
+
+type
+  HandleTopLocDatum3D* = Handle[TopLocDatum3D]
 
 ## ! Describes a coordinate transformation, i.e. a change
 ## ! to an elementary 3D coordinate system, or position in 3D space.
@@ -26,13 +35,7 @@ type
 ## ! origin is (0,0,0), and its axes are (1,0,0) (0,1,0) (0,0,1).
 
 type
-  TopLocDatum3D* {.importcpp: "TopLoc_Datum3D", header: "TopLoc_Datum3D.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                           ## !
-                                                                                                           ## Constructs
-                                                                                                           ## a
-                                                                                                           ## default
-                                                                                                           ## Datum3D.
-
+  TopLocDatum3DbaseType* = StandardTransient
 
 proc constructTopLocDatum3D*(): TopLocDatum3D {.constructor,
     importcpp: "TopLoc_Datum3D(@)", header: "TopLoc_Datum3D.hxx".}
@@ -45,14 +48,12 @@ proc trsf*(this: TopLocDatum3D): Trsf {.noSideEffect, importcpp: "Trsf",
 proc form*(this: TopLocDatum3D): TrsfForm {.noSideEffect, importcpp: "Form",
                                         header: "TopLoc_Datum3D.hxx".}
 proc dumpJson*(this: TopLocDatum3D; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
-                                 header: "TopLoc_Datum3D.hxx".}
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TopLoc_Datum3D.hxx".}
 proc shallowDump*(this: TopLocDatum3D; s: var StandardOStream) {.noSideEffect,
     importcpp: "ShallowDump", header: "TopLoc_Datum3D.hxx".}
-type
-  TopLocDatum3DbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "TopLoc_Datum3D::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "TopLoc_Datum3D::get_type_name(@)",
                             header: "TopLoc_Datum3D.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopLoc_Datum3D::get_type_descriptor(@)",
@@ -60,30 +61,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopLocDatum3D): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopLoc_Datum3D.hxx".}
 proc shallowDump*(me: Handle[TopLocDatum3D]; s: var StandardOStream) =
-  discard
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  discard ]#

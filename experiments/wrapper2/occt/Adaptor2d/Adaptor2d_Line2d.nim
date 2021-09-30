@@ -49,8 +49,8 @@ proc continuity*(this: Adaptor2dLine2d): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor2d_Line2d.hxx".}
 proc nbIntervals*(this: Adaptor2dLine2d; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Adaptor2d_Line2d.hxx".}
-proc intervals*(this: Adaptor2dLine2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "Intervals", header: "Adaptor2d_Line2d.hxx".}
+#[ proc intervals*(this: Adaptor2dLine2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "Adaptor2d_Line2d.hxx".} ]#
 proc trim*(this: Adaptor2dLine2d; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor2dHCurve2d] {.noSideEffect, importcpp: "Trim",
                         header: "Adaptor2d_Line2d.hxx".}

@@ -19,37 +19,39 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Cylinder"
 type
   BRepPrimAPI_MakeCylinder* {.importcpp: "BRepPrimAPI_MakeCylinder",
-                             header: "BRepPrimAPI_MakeCylinder.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis ##
-                                                                                                           ## !
-                                                                                                           ## Make
-                                                                                                           ## a
-                                                                                                           ## cylinder.
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## @param
-                                                                                                           ## R
-                                                                                                           ## [in]
-                                                                                                           ## cylinder
-                                                                                                           ## radius
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## @param
-                                                                                                           ## H
-                                                                                                           ## [in]
-                                                                                                           ## cylinder
-                                                                                                           ## height
+                             header: "BRepPrimAPI_MakeCylinder.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis
 
 
-proc constructBRepPrimAPI_MakeCylinder*(r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
+proc `new`*(this: var BRepPrimAPI_MakeCylinder; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeCylinder::operator new",
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeCylinder; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeCylinder::operator delete",
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
+proc `new[]`*(this: var BRepPrimAPI_MakeCylinder; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeCylinder::operator new[]",
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
+proc `delete[]`*(this: var BRepPrimAPI_MakeCylinder; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeCylinder::operator delete[]",
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
+proc `new`*(this: var BRepPrimAPI_MakeCylinder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrimAPI_MakeCylinder::operator new",
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeCylinder; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrimAPI_MakeCylinder::operator delete",
+    header: "BRepPrimAPI_MakeCylinder.hxx".}
+proc makeCylinder*(r: StandardReal; h: StandardReal): BRepPrimAPI_MakeCylinder {.
     constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)",
     header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc constructBRepPrimAPI_MakeCylinder*(r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
+proc makeCylinder*(r: StandardReal; h: StandardReal;
+                                       angle: StandardReal): BRepPrimAPI_MakeCylinder {.
     constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)",
     header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc constructBRepPrimAPI_MakeCylinder*(axes: Ax2; r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
+proc makeCylinder*(axes: Ax2; r: StandardReal; h: StandardReal): BRepPrimAPI_MakeCylinder {.
     constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)",
     header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc constructBRepPrimAPI_MakeCylinder*(axes: Ax2; r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
+proc makeCylinder*(axes: Ax2; r: StandardReal; h: StandardReal;
+                                       angle: StandardReal): BRepPrimAPI_MakeCylinder {.
     constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)",
     header: "BRepPrimAPI_MakeCylinder.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeCylinder): StandardAddress {.
@@ -58,26 +60,6 @@ proc cylinder*(this: var BRepPrimAPI_MakeCylinder): var BRepPrimCylinder {.
     importcpp: "Cylinder", header: "BRepPrimAPI_MakeCylinder.hxx".}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Manually introduced (inheritance not working)
+#converter `toTopoDS_Shape`*(this: var BRepPrimAPI_MakeCylinder): TopoDS_Shape {.
+#    importcpp: "(TopoDS_Shape)(#)".}

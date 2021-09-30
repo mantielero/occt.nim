@@ -37,19 +37,32 @@ type
   BRepFeat* {.importcpp: "BRepFeat", header: "BRepFeat.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepFeat; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat::operator new", header: "BRepFeat.hxx".}
+proc `delete`*(this: var BRepFeat; theAddress: pointer) {.
+    importcpp: "BRepFeat::operator delete", header: "BRepFeat.hxx".}
+proc `new[]`*(this: var BRepFeat; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat::operator new[]", header: "BRepFeat.hxx".}
+proc `delete[]`*(this: var BRepFeat; theAddress: pointer) {.
+    importcpp: "BRepFeat::operator delete[]", header: "BRepFeat.hxx".}
+proc `new`*(this: var BRepFeat; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFeat::operator new", header: "BRepFeat.hxx".}
+proc `delete`*(this: var BRepFeat; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFeat::operator delete", header: "BRepFeat.hxx".}
 proc sampleEdges*(s: TopoDS_Shape; pt: var TColgpSequenceOfPnt) {.
     importcpp: "BRepFeat::SampleEdges(@)", header: "BRepFeat.hxx".}
 proc barycenter*(s: TopoDS_Shape; pt: var Pnt) {.importcpp: "BRepFeat::Barycenter(@)",
     header: "BRepFeat.hxx".}
-proc parametricBarycenter*(s: TopoDS_Shape; c: Handle[GeomCurve]): cfloat {.
+proc parametricBarycenter*(s: TopoDS_Shape; c: Handle[GeomCurve]): StandardReal {.
     importcpp: "BRepFeat::ParametricBarycenter(@)", header: "BRepFeat.hxx".}
-proc parametricMinMax*(s: TopoDS_Shape; c: Handle[GeomCurve]; prmin: var cfloat;
-                      prmax: var cfloat; prbmin: var cfloat; prbmax: var cfloat;
-                      flag: var bool; ori: bool = false) {.
+proc parametricMinMax*(s: TopoDS_Shape; c: Handle[GeomCurve];
+                      prmin: var StandardReal; prmax: var StandardReal;
+                      prbmin: var StandardReal; prbmax: var StandardReal;
+                      flag: var StandardBoolean; ori: StandardBoolean = false) {.
     importcpp: "BRepFeat::ParametricMinMax(@)", header: "BRepFeat.hxx".}
-proc isInside*(f1: TopoDS_Face; f2: TopoDS_Face): bool {.
+proc isInside*(f1: TopoDS_Face; f2: TopoDS_Face): StandardBoolean {.
     importcpp: "BRepFeat::IsInside(@)", header: "BRepFeat.hxx".}
-proc isInOut*(fc: BRepTopAdaptorFClass2d; ac: Geom2dAdaptorCurve): bool {.
+proc isInOut*(fc: BRepTopAdaptorFClass2d; ac: Geom2dAdaptorCurve): StandardBoolean {.
     importcpp: "BRepFeat::IsInOut(@)", header: "BRepFeat.hxx".}
 proc faceUntil*(s: TopoDS_Shape; f: var TopoDS_Face) {.
     importcpp: "BRepFeat::FaceUntil(@)", header: "BRepFeat.hxx".}
@@ -57,28 +70,3 @@ proc tool*(sRef: TopoDS_Shape; fac: TopoDS_Face; orf: TopAbsOrientation): TopoDS
     importcpp: "BRepFeat::Tool(@)", header: "BRepFeat.hxx".}
 proc print*(se: BRepFeatStatusError; s: var StandardOStream): var StandardOStream {.
     importcpp: "BRepFeat::Print(@)", header: "BRepFeat.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

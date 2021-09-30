@@ -19,11 +19,14 @@ discard "forward decl of TopLoc_SListOfItemLocation"
 discard "forward decl of TopLoc_SListNodeOfItemLocation"
 discard "forward decl of TopLoc_SListNodeOfItemLocation"
 type
-  HandleC1C1* = Handle[TopLocSListNodeOfItemLocation]
   TopLocSListNodeOfItemLocation* {.importcpp: "TopLoc_SListNodeOfItemLocation",
                                   header: "TopLoc_SListNodeOfItemLocation.hxx",
                                   bycopy.} = object of StandardTransient
 
+
+  HandleTopLocSListNodeOfItemLocation* = Handle[TopLocSListNodeOfItemLocation]
+type
+  TopLocSListNodeOfItemLocationbaseType* = StandardTransient
 
 proc constructTopLocSListNodeOfItemLocation*(i: TopLocItemLocation;
     aTail: TopLocSListOfItemLocation): TopLocSListNodeOfItemLocation {.constructor,
@@ -33,39 +36,12 @@ proc tail*(this: TopLocSListNodeOfItemLocation): var TopLocSListOfItemLocation {
     noSideEffect, importcpp: "Tail", header: "TopLoc_SListNodeOfItemLocation.hxx".}
 proc value*(this: TopLocSListNodeOfItemLocation): var TopLocItemLocation {.
     noSideEffect, importcpp: "Value", header: "TopLoc_SListNodeOfItemLocation.hxx".}
-type
-  TopLocSListNodeOfItemLocationbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "TopLoc_SListNodeOfItemLocation::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "TopLoc_SListNodeOfItemLocation::get_type_name(@)",
                             header: "TopLoc_SListNodeOfItemLocation.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "TopLoc_SListNodeOfItemLocation::get_type_descriptor(@)",
     header: "TopLoc_SListNodeOfItemLocation.hxx".}
 proc dynamicType*(this: TopLocSListNodeOfItemLocation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "TopLoc_SListNodeOfItemLocation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "TopLoc_SListNodeOfItemLocation.hxx".} ]#

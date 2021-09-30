@@ -23,7 +23,7 @@ include BRepMesh_DelabellaBaseMeshAlgo
 include BRepMesh_DelabellaMeshAlgoFactory
 include BRepMesh_Delaun
 include BRepMesh_DelaunayBaseMeshAlgo
-include BRepMesh_DelaunayDeflectionControlMeshAlgo
+#include BRepMesh_DelaunayDeflectionControlMeshAlgo
 include BRepMesh_DelaunayNodeInsertionMeshAlgo
 include BRepMesh_DiscretFactory
 include BRepMesh_DiscretRoot
@@ -38,14 +38,14 @@ include BRepMesh_FastDiscret
 include BRepMesh_GeomTool
 include BRepMesh_IncrementalMesh
 include BRepMesh_MeshAlgoFactory
-include BRepMesh_MeshTool
+#include BRepMesh_MeshTool
 include BRepMesh_ModelBuilder
 include BRepMesh_ModelHealer
 include BRepMesh_ModelPostProcessor
 include BRepMesh_ModelPreProcessor
 include BRepMesh_NURBSRangeSplitter
-include BRepMesh_NodeInsertionMeshAlgo
-include BRepMesh_OrientedEdge
+#include BRepMesh_NodeInsertionMeshAlgo
+#include BRepMesh_OrientedEdge
 include BRepMesh_PairOfIndex
 include BRepMesh_PluginEntryType
 include BRepMesh_PluginMacro
@@ -54,34 +54,8 @@ include BRepMesh_ShapeTool
 include BRepMesh_ShapeVisitor
 include BRepMesh_SphereRangeSplitter
 include BRepMesh_TorusRangeSplitter
-include BRepMesh_Triangle
+#include BRepMesh_Triangle
 include BRepMesh_UVParamRangeSplitter
-include BRepMesh_Vertex
+#include BRepMesh_Vertex
 include BRepMesh_VertexInspector
 include BRepMesh_VertexTool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

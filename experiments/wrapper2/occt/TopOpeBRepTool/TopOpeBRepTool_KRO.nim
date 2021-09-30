@@ -25,28 +25,3 @@ when defined(OCCT_DEBUG):
   proc stop*(this: var Topkro) {.importcpp: "Stop", header: "TopOpeBRepTool_KRO.hxx".}
   proc print*(this: var Topkro; os: var StandardOStream) {.importcpp: "Print",
       header: "TopOpeBRepTool_KRO.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

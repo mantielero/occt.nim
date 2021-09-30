@@ -29,35 +29,10 @@ proc fDSSDM_s1s2*(s: TopoDS_Shape; ls1: var TopToolsListOfShape;
 proc fDSSDM_sordor*(s: TopoDS_Shape; lso: var TopToolsListOfShape;
                    ldo: var TopToolsListOfShape) {.importcpp: "FDSSDM_sordor(@)",
     header: "TopOpeBRepDS_samdom.hxx".}
-proc fDSSDM_contains*(s: TopoDS_Shape; L: TopToolsListOfShape): bool {.
+proc fDSSDM_contains*(s: TopoDS_Shape; L: TopToolsListOfShape): StandardBoolean {.
     importcpp: "FDSSDM_contains(@)", header: "TopOpeBRepDS_samdom.hxx".}
-proc fDSSDM_copylist*(lin: TopToolsListOfShape; i1: cint; i2: cint;
+proc fDSSDM_copylist*(lin: TopToolsListOfShape; i1: int; i2: int;
                      lou: var TopToolsListOfShape) {.
     importcpp: "FDSSDM_copylist(@)", header: "TopOpeBRepDS_samdom.hxx".}
 proc fDSSDM_copylist*(lin: TopToolsListOfShape; lou: var TopToolsListOfShape) {.
     importcpp: "FDSSDM_copylist(@)", header: "TopOpeBRepDS_samdom.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

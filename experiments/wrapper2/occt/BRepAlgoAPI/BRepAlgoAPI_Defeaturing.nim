@@ -188,6 +188,24 @@ type
     ## !< Tool for the features removal
 
 
+proc `new`*(this: var BRepAlgoAPI_Defeaturing; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Defeaturing::operator new",
+    header: "BRepAlgoAPI_Defeaturing.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Defeaturing; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Defeaturing::operator delete",
+    header: "BRepAlgoAPI_Defeaturing.hxx".}
+proc `new[]`*(this: var BRepAlgoAPI_Defeaturing; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Defeaturing::operator new[]",
+    header: "BRepAlgoAPI_Defeaturing.hxx".}
+proc `delete[]`*(this: var BRepAlgoAPI_Defeaturing; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Defeaturing::operator delete[]",
+    header: "BRepAlgoAPI_Defeaturing.hxx".}
+proc `new`*(this: var BRepAlgoAPI_Defeaturing; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgoAPI_Defeaturing::operator new",
+    header: "BRepAlgoAPI_Defeaturing.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Defeaturing; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgoAPI_Defeaturing::operator delete",
+    header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc constructBRepAlgoAPI_Defeaturing*(): BRepAlgoAPI_Defeaturing {.constructor,
     importcpp: "BRepAlgoAPI_Defeaturing(@)", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc setShape*(this: var BRepAlgoAPI_Defeaturing; theShape: TopoDS_Shape) {.
@@ -203,46 +221,21 @@ proc facesToRemove*(this: BRepAlgoAPI_Defeaturing): TopToolsListOfShape {.
     noSideEffect, importcpp: "FacesToRemove", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc build*(this: var BRepAlgoAPI_Defeaturing) {.importcpp: "Build",
     header: "BRepAlgoAPI_Defeaturing.hxx".}
-proc setToFillHistory*(this: var BRepAlgoAPI_Defeaturing; theFlag: bool) {.
+proc setToFillHistory*(this: var BRepAlgoAPI_Defeaturing; theFlag: StandardBoolean) {.
     importcpp: "SetToFillHistory", header: "BRepAlgoAPI_Defeaturing.hxx".}
-proc hasHistory*(this: BRepAlgoAPI_Defeaturing): bool {.noSideEffect,
+proc hasHistory*(this: BRepAlgoAPI_Defeaturing): StandardBoolean {.noSideEffect,
     importcpp: "HasHistory", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc modified*(this: var BRepAlgoAPI_Defeaturing; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc generated*(this: var BRepAlgoAPI_Defeaturing; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepAlgoAPI_Defeaturing.hxx".}
-proc isDeleted*(this: var BRepAlgoAPI_Defeaturing; theS: TopoDS_Shape): bool {.
+proc isDeleted*(this: var BRepAlgoAPI_Defeaturing; theS: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsDeleted", header: "BRepAlgoAPI_Defeaturing.hxx".}
-proc hasModified*(this: BRepAlgoAPI_Defeaturing): bool {.noSideEffect,
+proc hasModified*(this: BRepAlgoAPI_Defeaturing): StandardBoolean {.noSideEffect,
     importcpp: "HasModified", header: "BRepAlgoAPI_Defeaturing.hxx".}
-proc hasGenerated*(this: BRepAlgoAPI_Defeaturing): bool {.noSideEffect,
+proc hasGenerated*(this: BRepAlgoAPI_Defeaturing): StandardBoolean {.noSideEffect,
     importcpp: "HasGenerated", header: "BRepAlgoAPI_Defeaturing.hxx".}
-proc hasDeleted*(this: BRepAlgoAPI_Defeaturing): bool {.noSideEffect,
+proc hasDeleted*(this: BRepAlgoAPI_Defeaturing): StandardBoolean {.noSideEffect,
     importcpp: "HasDeleted", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc history*(this: var BRepAlgoAPI_Defeaturing): Handle[BRepToolsHistory] {.
     importcpp: "History", header: "BRepAlgoAPI_Defeaturing.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

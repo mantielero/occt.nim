@@ -17,9 +17,21 @@
 ## ! Provides commands to test BRep.
 
 type
-  BRepTest* {.importcpp: "BRepTest", header: "BRepTest.hxx", bycopy.} = object ## ! Defines all the topology commands.
+  BRepTest* {.importcpp: "BRepTest", header: "BRepTest.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepTest; theSize: csize_t): pointer {.
+    importcpp: "BRepTest::operator new", header: "BRepTest.hxx".}
+proc `delete`*(this: var BRepTest; theAddress: pointer) {.
+    importcpp: "BRepTest::operator delete", header: "BRepTest.hxx".}
+proc `new[]`*(this: var BRepTest; theSize: csize_t): pointer {.
+    importcpp: "BRepTest::operator new[]", header: "BRepTest.hxx".}
+proc `delete[]`*(this: var BRepTest; theAddress: pointer) {.
+    importcpp: "BRepTest::operator delete[]", header: "BRepTest.hxx".}
+proc `new`*(this: var BRepTest; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepTest::operator new", header: "BRepTest.hxx".}
+proc `delete`*(this: var BRepTest; a2: pointer; a3: pointer) {.
+    importcpp: "BRepTest::operator delete", header: "BRepTest.hxx".}
 proc allCommands*(di: var DrawInterpretor) {.importcpp: "BRepTest::AllCommands(@)",
     header: "BRepTest.hxx".}
 proc basicCommands*(di: var DrawInterpretor) {.
@@ -62,28 +74,3 @@ proc projectionCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::ProjectionCommands(@)", header: "BRepTest.hxx".}
 proc historyCommands*(di: var DrawInterpretor) {.
     importcpp: "BRepTest::HistoryCommands(@)", header: "BRepTest.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

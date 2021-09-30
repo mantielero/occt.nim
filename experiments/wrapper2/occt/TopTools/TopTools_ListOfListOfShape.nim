@@ -15,29 +15,3 @@
 type
   TopToolsListOfListOfShape* = NCollectionList[TopToolsListOfShape]
   TopToolsListIteratorOfListOfListOfShape* = Iterator
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

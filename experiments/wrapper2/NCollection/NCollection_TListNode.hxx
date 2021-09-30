@@ -37,12 +37,7 @@ template <class TheItemType> class NCollection_TListNode
 
   //! Static deleter to be passed to BaseList
   static void delNode (NCollection_ListNode * theNode, 
-                       Handle(NCollection_BaseAllocator)& theAl)
-  {
-    ((NCollection_TListNode *) theNode)->myValue.~TheItemType();
-    theAl->Free(theNode);
-  }
-
+                       Handle(NCollection_BaseAllocator)& theAl);
   
  protected:
   TheItemType    myValue; //!< The item stored in the node

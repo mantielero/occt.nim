@@ -20,93 +20,38 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
 type
   BRepPrimCylinder* {.importcpp: "BRepPrim_Cylinder",
-                     header: "BRepPrim_Cylinder.hxx", bycopy.} = object of BRepPrimRevolution ##
-                                                                                       ## !
-                                                                                       ## the
-                                                                                       ## STEP
-                                                                                       ## definition
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Position
-                                                                                       ## :
-                                                                                       ## center
-                                                                                       ## of
-                                                                                       ## a
-                                                                                       ## Face
-                                                                                       ## and
-                                                                                       ## Axis
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Radius
-                                                                                       ## :
-                                                                                       ## radius
-                                                                                       ## of
-                                                                                       ## cylinder
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Height
-                                                                                       ## :
-                                                                                       ## distance
-                                                                                       ## between
-                                                                                       ## faces
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## on
-                                                                                       ## positive
-                                                                                       ## side
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Errors
-                                                                                       ## :
-                                                                                       ## Height
-                                                                                       ## <
-                                                                                       ## Resolution
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Radius
-                                                                                       ## <
-                                                                                       ## Resolution
+                     header: "BRepPrim_Cylinder.hxx", bycopy.} = object of BRepPrimRevolution
     ## !< cylinder radius
 
 
-proc constructBRepPrimCylinder*(position: Ax2; radius: cfloat; height: cfloat): BRepPrimCylinder {.
+proc `new`*(this: var BRepPrimCylinder; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Cylinder::operator new", header: "BRepPrim_Cylinder.hxx".}
+proc `delete`*(this: var BRepPrimCylinder; theAddress: pointer) {.
+    importcpp: "BRepPrim_Cylinder::operator delete",
+    header: "BRepPrim_Cylinder.hxx".}
+proc `new[]`*(this: var BRepPrimCylinder; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Cylinder::operator new[]",
+    header: "BRepPrim_Cylinder.hxx".}
+proc `delete[]`*(this: var BRepPrimCylinder; theAddress: pointer) {.
+    importcpp: "BRepPrim_Cylinder::operator delete[]",
+    header: "BRepPrim_Cylinder.hxx".}
+proc `new`*(this: var BRepPrimCylinder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrim_Cylinder::operator new", header: "BRepPrim_Cylinder.hxx".}
+proc `delete`*(this: var BRepPrimCylinder; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrim_Cylinder::operator delete",
+    header: "BRepPrim_Cylinder.hxx".}
+proc constructBRepPrimCylinder*(position: Ax2; radius: StandardReal;
+                               height: StandardReal): BRepPrimCylinder {.
     constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
-proc constructBRepPrimCylinder*(radius: cfloat): BRepPrimCylinder {.constructor,
-    importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
-proc constructBRepPrimCylinder*(center: Pnt; radius: cfloat): BRepPrimCylinder {.
+proc constructBRepPrimCylinder*(radius: StandardReal): BRepPrimCylinder {.
     constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
-proc constructBRepPrimCylinder*(axes: Ax2; radius: cfloat): BRepPrimCylinder {.
+proc constructBRepPrimCylinder*(center: Pnt; radius: StandardReal): BRepPrimCylinder {.
     constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
-proc constructBRepPrimCylinder*(r: cfloat; h: cfloat): BRepPrimCylinder {.constructor,
-    importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
-proc constructBRepPrimCylinder*(center: Pnt; r: cfloat; h: cfloat): BRepPrimCylinder {.
+proc constructBRepPrimCylinder*(axes: Ax2; radius: StandardReal): BRepPrimCylinder {.
+    constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
+proc constructBRepPrimCylinder*(r: StandardReal; h: StandardReal): BRepPrimCylinder {.
+    constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
+proc constructBRepPrimCylinder*(center: Pnt; r: StandardReal; h: StandardReal): BRepPrimCylinder {.
     constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimCylinder): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Cylinder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

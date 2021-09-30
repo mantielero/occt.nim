@@ -19,13 +19,6 @@ type
   TopTransCurveTransition* {.importcpp: "TopTrans_CurveTransition",
                             header: "TopTrans_CurveTransition.hxx", bycopy.} = object ##
                                                                                  ## !
-                                                                                 ## Create
-                                                                                 ## an
-                                                                                 ## empty
-                                                                                 ## Curve
-                                                                                 ## Transition.
-                                                                                 ##
-                                                                                 ## !
                                                                                  ## Compare
                                                                                  ## two
                                                                                  ## curvature
@@ -45,42 +38,36 @@ type
                                                                                  ## orientation
 
 
+proc `new`*(this: var TopTransCurveTransition; theSize: csize_t): pointer {.
+    importcpp: "TopTrans_CurveTransition::operator new",
+    header: "TopTrans_CurveTransition.hxx".}
+proc `delete`*(this: var TopTransCurveTransition; theAddress: pointer) {.
+    importcpp: "TopTrans_CurveTransition::operator delete",
+    header: "TopTrans_CurveTransition.hxx".}
+proc `new[]`*(this: var TopTransCurveTransition; theSize: csize_t): pointer {.
+    importcpp: "TopTrans_CurveTransition::operator new[]",
+    header: "TopTrans_CurveTransition.hxx".}
+proc `delete[]`*(this: var TopTransCurveTransition; theAddress: pointer) {.
+    importcpp: "TopTrans_CurveTransition::operator delete[]",
+    header: "TopTrans_CurveTransition.hxx".}
+proc `new`*(this: var TopTransCurveTransition; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopTrans_CurveTransition::operator new",
+    header: "TopTrans_CurveTransition.hxx".}
+proc `delete`*(this: var TopTransCurveTransition; a2: pointer; a3: pointer) {.
+    importcpp: "TopTrans_CurveTransition::operator delete",
+    header: "TopTrans_CurveTransition.hxx".}
 proc constructTopTransCurveTransition*(): TopTransCurveTransition {.constructor,
     importcpp: "TopTrans_CurveTransition(@)",
     header: "TopTrans_CurveTransition.hxx".}
-proc reset*(this: var TopTransCurveTransition; tgt: Dir; norm: Dir; curv: cfloat) {.
+proc reset*(this: var TopTransCurveTransition; tgt: Dir; norm: Dir; curv: StandardReal) {.
     importcpp: "Reset", header: "TopTrans_CurveTransition.hxx".}
 proc reset*(this: var TopTransCurveTransition; tgt: Dir) {.importcpp: "Reset",
     header: "TopTrans_CurveTransition.hxx".}
-proc compare*(this: var TopTransCurveTransition; tole: cfloat; tang: Dir; norm: Dir;
-             curv: cfloat; s: TopAbsOrientation; `or`: TopAbsOrientation) {.
-    importcpp: "Compare", header: "TopTrans_CurveTransition.hxx".}
+proc compare*(this: var TopTransCurveTransition; tole: StandardReal; tang: Dir;
+             norm: Dir; curv: StandardReal; s: TopAbsOrientation;
+             `or`: TopAbsOrientation) {.importcpp: "Compare",
+                                      header: "TopTrans_CurveTransition.hxx".}
 proc stateBefore*(this: TopTransCurveTransition): TopAbsState {.noSideEffect,
     importcpp: "StateBefore", header: "TopTrans_CurveTransition.hxx".}
 proc stateAfter*(this: TopTransCurveTransition): TopAbsState {.noSideEffect,
     importcpp: "StateAfter", header: "TopTrans_CurveTransition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

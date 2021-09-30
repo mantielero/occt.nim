@@ -18,46 +18,31 @@ type
   BRepGPropMeshProps* {.importcpp: "BRepGProp_MeshProps",
                        header: "BRepGProp_MeshProps.hxx", bycopy.} = object of GPropGProps ##
                                                                                     ## !
-                                                                                    ## Describes
-                                                                                    ## types
-                                                                                    ## of
-                                                                                    ## geometric
-                                                                                    ## objects.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## -
-                                                                                    ## Vinert
-                                                                                    ## is
-                                                                                    ## 3D
-                                                                                    ## closed
-                                                                                    ## region
-                                                                                    ## of
-                                                                                    ## space
-                                                                                    ## delimited
-                                                                                    ## with
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Point
-                                                                                    ## and
-                                                                                    ## surface
-                                                                                    ## mesh;
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## -
-                                                                                    ## Sinert
-                                                                                    ## is
-                                                                                    ## surface
-                                                                                    ## mesh
-                                                                                    ## in
-                                                                                    ## 3D
-                                                                                    ## space.
-                                                                                    ##
-                                                                                    ## !
                                                                                     ## @name
                                                                                     ## private
                                                                                     ## fields
     ## !< Type of geometric object
 
+
+proc `new`*(this: var BRepGPropMeshProps; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_MeshProps::operator new",
+    header: "BRepGProp_MeshProps.hxx".}
+proc `delete`*(this: var BRepGPropMeshProps; theAddress: pointer) {.
+    importcpp: "BRepGProp_MeshProps::operator delete",
+    header: "BRepGProp_MeshProps.hxx".}
+proc `new[]`*(this: var BRepGPropMeshProps; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_MeshProps::operator new[]",
+    header: "BRepGProp_MeshProps.hxx".}
+proc `delete[]`*(this: var BRepGPropMeshProps; theAddress: pointer) {.
+    importcpp: "BRepGProp_MeshProps::operator delete[]",
+    header: "BRepGProp_MeshProps.hxx".}
+proc `new`*(this: var BRepGPropMeshProps; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepGProp_MeshProps::operator new",
+    header: "BRepGProp_MeshProps.hxx".}
+proc `delete`*(this: var BRepGPropMeshProps; a2: pointer; a3: pointer) {.
+    importcpp: "BRepGProp_MeshProps::operator delete",
+    header: "BRepGProp_MeshProps.hxx".}
+type
   BRepGPropMeshPropsBRepGPropMeshObjType* {.size: sizeof(cint),
       importcpp: "BRepGProp_MeshProps::BRepGProp_MeshObjType",
       header: "BRepGProp_MeshProps.hxx".} = enum
@@ -75,35 +60,10 @@ proc perform*(this: var BRepGPropMeshProps; theMesh: Handle[PolyTriangulation];
 proc perform*(this: var BRepGPropMeshProps; theNodes: TColgpArray1OfPnt;
              theTriangles: PolyArray1OfTriangle; theOri: TopAbsOrientation) {.
     importcpp: "Perform", header: "BRepGProp_MeshProps.hxx".}
-proc calculateProps*(p1: Pnt; p2: Pnt; p3: Pnt; apex: Pnt; isVolume: bool;
-                    gProps: array[10, cfloat]; nbGaussPoints: cint;
-                    gaussPnts: ptr cfloat) {.
+proc calculateProps*(p1: Pnt; p2: Pnt; p3: Pnt; apex: Pnt; isVolume: StandardBoolean;
+                    gProps: array[10, StandardReal]; nbGaussPoints: int;
+                    gaussPnts: ptr StandardReal) {.
     importcpp: "BRepGProp_MeshProps::CalculateProps(@)",
     header: "BRepGProp_MeshProps.hxx".}
 proc getMeshObjType*(this: BRepGPropMeshProps): BRepGPropMeshPropsBRepGPropMeshObjType {.
     noSideEffect, importcpp: "GetMeshObjType", header: "BRepGProp_MeshProps.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

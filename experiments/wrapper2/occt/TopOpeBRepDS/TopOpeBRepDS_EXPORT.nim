@@ -17,26 +17,26 @@
 ##  TopOpeBRepDS_redu.cxx
 
 proc fUN_scanloi*(lII: TopOpeBRepDS_ListOfInterference;
-                 lFOR: var TopOpeBRepDS_ListOfInterference; `for`: var cint;
-                 lREV: var TopOpeBRepDS_ListOfInterference; rev: var cint;
-                 lINT: var TopOpeBRepDS_ListOfInterference; int: var cint) {.
+                 lFOR: var TopOpeBRepDS_ListOfInterference; `for`: var int;
+                 lREV: var TopOpeBRepDS_ListOfInterference; rev: var int;
+                 lINT: var TopOpeBRepDS_ListOfInterference; int: var int) {.
     importcpp: "FUN_scanloi(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_dsRedu2d1d*(bds: TopOpeBRepDS_DataStructure; ise: cint;
+proc fUN_dsRedu2d1d*(bds: TopOpeBRepDS_DataStructure; ise: int;
                     i2d: Handle[TopOpeBRepDS_Interference];
                     l1d: TopOpeBRepDS_ListOfInterference;
-                    newT2d: var TopOpeBRepDS_Transition): bool {.
+                    newT2d: var TopOpeBRepDS_Transition): StandardBoolean {.
     importcpp: "FUN_ds_redu2d1d(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_dsGetTr*(bds: TopOpeBRepDS_DataStructure; ise: cint; g: cint;
+proc fUN_dsGetTr*(bds: TopOpeBRepDS_DataStructure; ise: int; g: int;
                  lig: TopOpeBRepDS_ListOfInterference; stb: var TopAbsState;
-                 isb: var cint; bdim: var cint; sta: var TopAbsState; isa: var cint;
-                 adim: var cint): bool {.importcpp: "FUN_ds_GetTr(@)",
-                                     header: "TopOpeBRepDS_EXPORT.hxx".}
+                 isb: var int; bdim: var int; sta: var TopAbsState; isa: var int;
+                 adim: var int): StandardBoolean {.importcpp: "FUN_ds_GetTr(@)",
+    header: "TopOpeBRepDS_EXPORT.hxx".}
 ##  TopOpeBRepDS_EXPORT.cxx
 
 proc fDS_SetT*(t: var TopOpeBRepDS_Transition; t0: TopOpeBRepDS_Transition) {.
     importcpp: "FDS_SetT(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fDS_hasUNK*(t: TopOpeBRepDS_Transition): bool {.importcpp: "FDS_hasUNK(@)",
-    header: "TopOpeBRepDS_EXPORT.hxx".}
+proc fDS_hasUNK*(t: TopOpeBRepDS_Transition): StandardBoolean {.
+    importcpp: "FDS_hasUNK(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fDS_copy*(li: TopOpeBRepDS_ListOfInterference;
               lii: var TopOpeBRepDS_ListOfInterference) {.importcpp: "FDS_copy(@)",
     header: "TopOpeBRepDS_EXPORT.hxx".}
@@ -47,64 +47,65 @@ proc fDS_assign*(li: TopOpeBRepDS_ListOfInterference;
     importcpp: "FDS_assign(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fDS_assign*(li: TopToolsListOfShape; lii: var TopToolsListOfShape) {.
     importcpp: "FDS_assign(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_dsSamRk*(bds: TopOpeBRepDS_DataStructure; rk: cint;
+proc fUN_dsSamRk*(bds: TopOpeBRepDS_DataStructure; rk: int;
                  li: var TopToolsListOfShape; lIsrk: var TopToolsListOfShape) {.
     importcpp: "FUN_ds_samRk(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fDS_data*(i: Handle[TopOpeBRepDS_Interference]; gt1: var TopOpeBRepDS_Kind;
-              g1: var cint; st1: var TopOpeBRepDS_Kind; s1: var cint) {.
+              g1: var int; st1: var TopOpeBRepDS_Kind; s1: var int) {.
     importcpp: "FDS_data(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fDS_data*(it: TopOpeBRepDS_ListIteratorOfListOfInterference;
               i: var Handle[TopOpeBRepDS_Interference]; gt1: var TopOpeBRepDS_Kind;
-              g1: var cint; st1: var TopOpeBRepDS_Kind; s1: var cint): bool {.
+              g1: var int; st1: var TopOpeBRepDS_Kind; s1: var int): StandardBoolean {.
     importcpp: "FDS_data(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fDS_Tdata*(i: Handle[TopOpeBRepDS_Interference]; sb: var TopAbsShapeEnum;
-               ib: var cint; sa: var TopAbsShapeEnum; ia: var cint) {.
+               ib: var int; sa: var TopAbsShapeEnum; ia: var int) {.
     importcpp: "FDS_Tdata(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fDS_Idata*(i: Handle[TopOpeBRepDS_Interference]; sb: var TopAbsShapeEnum;
-               ib: var cint; sa: var TopAbsShapeEnum; ia: var cint;
-               gt1: var TopOpeBRepDS_Kind; g1: var cint; st1: var TopOpeBRepDS_Kind;
-               s1: var cint) {.importcpp: "FDS_Idata(@)",
-                            header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_dsGetVsdm*(bds: TopOpeBRepDS_DataStructure; iV: cint; iVsdm: var cint): bool {.
+               ib: var int; sa: var TopAbsShapeEnum; ia: var int;
+               gt1: var TopOpeBRepDS_Kind; g1: var int; st1: var TopOpeBRepDS_Kind;
+               s1: var int) {.importcpp: "FDS_Idata(@)",
+                           header: "TopOpeBRepDS_EXPORT.hxx".}
+proc fUN_dsGetVsdm*(bds: TopOpeBRepDS_DataStructure; iV: int; iVsdm: var int): StandardBoolean {.
     importcpp: "FUN_ds_getVsdm(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_dsSdm*(bds: TopOpeBRepDS_DataStructure; s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.
+proc fUN_dsSdm*(bds: TopOpeBRepDS_DataStructure; s1: TopoDS_Shape; s2: TopoDS_Shape): StandardBoolean {.
     importcpp: "FUN_ds_sdm(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fDS_aresamdom*(bds: TopOpeBRepDS_DataStructure; es: TopoDS_Shape;
-                   f1: TopoDS_Shape; f2: TopoDS_Shape): bool {.
+                   f1: TopoDS_Shape; f2: TopoDS_Shape): StandardBoolean {.
     importcpp: "FDS_aresamdom(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fDS_aresamdom*(bds: TopOpeBRepDS_DataStructure; si: cint; isb1: cint; isb2: cint): bool {.
+proc fDS_aresamdom*(bds: TopOpeBRepDS_DataStructure; si: int; isb1: int; isb2: int): StandardBoolean {.
     importcpp: "FDS_aresamdom(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fDS_EdgeIsConnexToSameDomainFaces*(e: TopoDS_Shape;
-                                       hds: Handle[TopOpeBRepDS_HDataStructure]): bool {.
+                                       hds: Handle[TopOpeBRepDS_HDataStructure]): StandardBoolean {.
     importcpp: "FDS_EdgeIsConnexToSameDomainFaces(@)",
     header: "TopOpeBRepDS_EXPORT.hxx".}
 ##  not used
 
-proc fDS_SIisGIofIofSBAofTofI*(bds: TopOpeBRepDS_DataStructure; si: cint;
-                              i: Handle[TopOpeBRepDS_Interference]): bool {.
+proc fDS_SIisGIofIofSBAofTofI*(bds: TopOpeBRepDS_DataStructure; si: int;
+                              i: Handle[TopOpeBRepDS_Interference]): StandardBoolean {.
     importcpp: "FDS_SIisGIofIofSBAofTofI(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fDS_Parameter*(i: Handle[TopOpeBRepDS_Interference]): cfloat {.
+proc fDS_Parameter*(i: Handle[TopOpeBRepDS_Interference]): StandardReal {.
     importcpp: "FDS_Parameter(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fDS_Parameter*(i: Handle[TopOpeBRepDS_Interference]; par: var cfloat): bool {.
+proc fDS_Parameter*(i: Handle[TopOpeBRepDS_Interference]; par: var StandardReal): StandardBoolean {.
     importcpp: "FDS_Parameter(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fDS_HasSameDomain3d*(bds: TopOpeBRepDS_DataStructure; e: TopoDS_Shape;
-                         plsd: ptr TopToolsListOfShape = nil): bool {.
+                         plsd: ptr TopToolsListOfShape = nil): StandardBoolean {.
     importcpp: "FDS_HasSameDomain3d(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fDS_Config3d*(e1: TopoDS_Shape; e2: TopoDS_Shape; c: var TopOpeBRepDS_Config): bool {.
+proc fDS_Config3d*(e1: TopoDS_Shape; e2: TopoDS_Shape; c: var TopOpeBRepDS_Config): StandardBoolean {.
     importcpp: "FDS_Config3d(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fDS_HasSameDomain2d*(bds: TopOpeBRepDS_DataStructure; e: TopoDS_Shape;
-                         plsd: ptr TopToolsListOfShape = nil): bool {.
+                         plsd: ptr TopToolsListOfShape = nil): StandardBoolean {.
     importcpp: "FDS_HasSameDomain2d(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fDS_getupperlower*(hds: Handle[TopOpeBRepDS_HDataStructure]; edgeIndex: cint;
-                       paredge: cfloat; p1: var cfloat; p2: var cfloat) {.
-    importcpp: "FDS_getupperlower(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
+proc fDS_getupperlower*(hds: Handle[TopOpeBRepDS_HDataStructure]; edgeIndex: int;
+                       paredge: StandardReal; p1: var StandardReal;
+                       p2: var StandardReal) {.importcpp: "FDS_getupperlower(@)",
+    header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fUN_dsGetoov*(v: TopoDS_Shape; bds: TopOpeBRepDS_DataStructure;
-                  oov: var TopoDS_Shape): bool {.importcpp: "FUN_ds_getoov(@)",
-    header: "TopOpeBRepDS_EXPORT.hxx".}
+                  oov: var TopoDS_Shape): StandardBoolean {.
+    importcpp: "FUN_ds_getoov(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fUN_dsGetoov*(v: TopoDS_Shape; hds: Handle[TopOpeBRepDS_HDataStructure];
-                  oov: var TopoDS_Shape): bool {.importcpp: "FUN_ds_getoov(@)",
-    header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_selectTRAINTinterference*(li: TopOpeBRepDS_ListOfInterference; liINTERNAL: var TopOpeBRepDS_ListOfInterference): bool {.
+                  oov: var TopoDS_Shape): StandardBoolean {.
+    importcpp: "FUN_ds_getoov(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
+proc fUN_selectTRAINTinterference*(li: TopOpeBRepDS_ListOfInterference; liINTERNAL: var TopOpeBRepDS_ListOfInterference): StandardBoolean {.
     importcpp: "FUN_selectTRAINTinterference(@)",
     header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fUN_dsCompleteforSE1*(hds: Handle[TopOpeBRepDS_HDataStructure]) {.
@@ -135,69 +136,45 @@ proc fUN_dsComplete1dForSESDM*(hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "FUN_ds_complete1dForSESDM(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fUN_dsRedusamsha*(hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "FUN_ds_redusamsha(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_dsShareG*(hds: Handle[TopOpeBRepDS_HDataStructure]; iF1: cint; iF2: cint;
-                  iE2: cint; esp: TopoDS_Edge; shareG: var bool): bool {.
+proc fUN_dsShareG*(hds: Handle[TopOpeBRepDS_HDataStructure]; iF1: int; iF2: int;
+                  iE2: int; esp: TopoDS_Edge; shareG: var StandardBoolean): StandardBoolean {.
     importcpp: "FUN_ds_shareG(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_dsMkTonFsdm*(hds: Handle[TopOpeBRepDS_HDataStructure]; iF1: cint; iF2: cint;
-                     iE2: cint; iEG: cint; paronEG: cfloat; esp: TopoDS_Edge;
-                     pardef: bool; t: var TopOpeBRepDS_Transition): bool {.
+proc fUN_dsMkTonFsdm*(hds: Handle[TopOpeBRepDS_HDataStructure]; iF1: int; iF2: int;
+                     iE2: int; iEG: int; paronEG: StandardReal; esp: TopoDS_Edge;
+                     pardef: StandardBoolean; t: var TopOpeBRepDS_Transition): StandardBoolean {.
     importcpp: "FUN_ds_mkTonFsdm(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fUN_dsOriEinF*(bds: TopOpeBRepDS_DataStructure; e: TopoDS_Edge; f: TopoDS_Shape;
-                   o: var TopAbsOrientation): cint {.importcpp: "FUN_ds_oriEinF(@)",
+                   o: var TopAbsOrientation): int {.importcpp: "FUN_ds_oriEinF(@)",
     header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fUN_dsFillSDMFaces*(hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "FUN_ds_FillSDMFaces(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fUN_dsAddSEsdm1d*(hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "FUN_ds_addSEsdm1d(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_dsHasI2d*(eix: cint; li: TopOpeBRepDS_ListOfInterference;
-                  lI2d: var TopOpeBRepDS_ListOfInterference): cint {.
+proc fUN_dsHasI2d*(eix: int; li: TopOpeBRepDS_ListOfInterference;
+                  lI2d: var TopOpeBRepDS_ListOfInterference): int {.
     importcpp: "FUN_ds_hasI2d(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fUN_dsPointToVertex*(hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "FUN_ds_PointToVertex(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_dsHasFEI*(pDS2d: TopOpeBRepDS_PDataStructure; f: TopoDS_Shape; gi: cint;
-                  itra: cint): bool {.importcpp: "FUN_ds_hasFEI(@)",
-                                   header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fUN_dsONesd*(bds: TopOpeBRepDS_DataStructure; ie: cint; espON: TopoDS_Shape;
-                 iEsd: var cint): bool {.importcpp: "FUN_ds_ONesd(@)",
-                                     header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fDS_stateEwithF2d*(bds: TopOpeBRepDS_DataStructure; e: TopoDS_Edge; pE: cfloat;
-                       kds: TopOpeBRepDS_Kind; gds: cint; f1: TopoDS_Face;
-                       trmemeS: var TopOpeBRepDS_Transition): bool {.
+proc fUN_dsHasFEI*(pDS2d: TopOpeBRepDS_PDataStructure; f: TopoDS_Shape; gi: int;
+                  itra: int): StandardBoolean {.importcpp: "FUN_ds_hasFEI(@)",
+    header: "TopOpeBRepDS_EXPORT.hxx".}
+proc fUN_dsONesd*(bds: TopOpeBRepDS_DataStructure; ie: int; espON: TopoDS_Shape;
+                 iEsd: var int): StandardBoolean {.importcpp: "FUN_ds_ONesd(@)",
+    header: "TopOpeBRepDS_EXPORT.hxx".}
+proc fDS_stateEwithF2d*(bds: TopOpeBRepDS_DataStructure; e: TopoDS_Edge;
+                       pE: StandardReal; kds: TopOpeBRepDS_Kind; gds: int;
+                       f1: TopoDS_Face; trmemeS: var TopOpeBRepDS_Transition): StandardBoolean {.
     importcpp: "FDS_stateEwithF2d(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fDS_parbefaft*(bds: TopOpeBRepDS_DataStructure; e: TopoDS_Edge; pE: cfloat;
-                   pbef: cfloat; paft: cfloat; isonboundper: bool; p1: var cfloat;
-                   p2: var cfloat): bool {.importcpp: "FDS_parbefaft(@)",
-                                       header: "TopOpeBRepDS_EXPORT.hxx".}
-proc fDS_LOIinfsup*(bds: TopOpeBRepDS_DataStructure; e: TopoDS_Edge; pE: cfloat;
-                   kds: TopOpeBRepDS_Kind; gds: cint;
-                   loi: TopOpeBRepDS_ListOfInterference; pbef: var cfloat;
-                   paft: var cfloat; isonboundper: var bool): bool {.
+proc fDS_parbefaft*(bds: TopOpeBRepDS_DataStructure; e: TopoDS_Edge;
+                   pE: StandardReal; pbef: StandardReal; paft: StandardReal;
+                   isonboundper: StandardBoolean; p1: var StandardReal;
+                   p2: var StandardReal): StandardBoolean {.
+    importcpp: "FDS_parbefaft(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
+proc fDS_LOIinfsup*(bds: TopOpeBRepDS_DataStructure; e: TopoDS_Edge;
+                   pE: StandardReal; kds: TopOpeBRepDS_Kind; gds: int;
+                   loi: TopOpeBRepDS_ListOfInterference; pbef: var StandardReal;
+                   paft: var StandardReal; isonboundper: var StandardBoolean): StandardBoolean {.
     importcpp: "FDS_LOIinfsup(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
 proc fUN_dsFEIGb1TO0*(hds: var Handle[TopOpeBRepDS_HDataStructure];
                      mEspON: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     importcpp: "FUN_ds_FEIGb1TO0(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

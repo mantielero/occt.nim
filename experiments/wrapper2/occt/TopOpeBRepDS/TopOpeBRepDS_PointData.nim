@@ -21,40 +21,33 @@ type
                            header: "TopOpeBRepDS_PointData.hxx", bycopy.} = object of TopOpeBRepDS_GeometryData
 
 
+proc `new`*(this: var TopOpeBRepDS_PointData; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_PointData::operator new",
+    header: "TopOpeBRepDS_PointData.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_PointData; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_PointData::operator delete",
+    header: "TopOpeBRepDS_PointData.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_PointData; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_PointData::operator new[]",
+    header: "TopOpeBRepDS_PointData.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_PointData; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_PointData::operator delete[]",
+    header: "TopOpeBRepDS_PointData.hxx".}
+proc `new`*(this: var TopOpeBRepDS_PointData; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_PointData::operator new",
+    header: "TopOpeBRepDS_PointData.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_PointData; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_PointData::operator delete",
+    header: "TopOpeBRepDS_PointData.hxx".}
 proc constructTopOpeBRepDS_PointData*(): TopOpeBRepDS_PointData {.constructor,
     importcpp: "TopOpeBRepDS_PointData(@)", header: "TopOpeBRepDS_PointData.hxx".}
 proc constructTopOpeBRepDS_PointData*(p: TopOpeBRepDS_Point): TopOpeBRepDS_PointData {.
     constructor, importcpp: "TopOpeBRepDS_PointData(@)",
     header: "TopOpeBRepDS_PointData.hxx".}
-proc constructTopOpeBRepDS_PointData*(p: TopOpeBRepDS_Point; i1: cint; i2: cint): TopOpeBRepDS_PointData {.
+proc constructTopOpeBRepDS_PointData*(p: TopOpeBRepDS_Point; i1: int; i2: int): TopOpeBRepDS_PointData {.
     constructor, importcpp: "TopOpeBRepDS_PointData(@)",
     header: "TopOpeBRepDS_PointData.hxx".}
-proc setShapes*(this: var TopOpeBRepDS_PointData; i1: cint; i2: cint) {.
+proc setShapes*(this: var TopOpeBRepDS_PointData; i1: int; i2: int) {.
     importcpp: "SetShapes", header: "TopOpeBRepDS_PointData.hxx".}
-proc getShapes*(this: TopOpeBRepDS_PointData; i1: var cint; i2: var cint) {.noSideEffect,
+proc getShapes*(this: TopOpeBRepDS_PointData; i1: var int; i2: var int) {.noSideEffect,
     importcpp: "GetShapes", header: "TopOpeBRepDS_PointData.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

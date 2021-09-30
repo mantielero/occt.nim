@@ -24,52 +24,46 @@ type
                                   bycopy.} = object of BlendSurfPointFuncInv
 
 
+proc `new`*(this: var BRepBlendSurfPointConstRadInv; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_SurfPointConstRadInv::operator new",
+    header: "BRepBlend_SurfPointConstRadInv.hxx".}
+proc `delete`*(this: var BRepBlendSurfPointConstRadInv; theAddress: pointer) {.
+    importcpp: "BRepBlend_SurfPointConstRadInv::operator delete",
+    header: "BRepBlend_SurfPointConstRadInv.hxx".}
+proc `new[]`*(this: var BRepBlendSurfPointConstRadInv; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_SurfPointConstRadInv::operator new[]",
+    header: "BRepBlend_SurfPointConstRadInv.hxx".}
+proc `delete[]`*(this: var BRepBlendSurfPointConstRadInv; theAddress: pointer) {.
+    importcpp: "BRepBlend_SurfPointConstRadInv::operator delete[]",
+    header: "BRepBlend_SurfPointConstRadInv.hxx".}
+proc `new`*(this: var BRepBlendSurfPointConstRadInv; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBlend_SurfPointConstRadInv::operator new",
+    header: "BRepBlend_SurfPointConstRadInv.hxx".}
+proc `delete`*(this: var BRepBlendSurfPointConstRadInv; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBlend_SurfPointConstRadInv::operator delete",
+    header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc constructBRepBlendSurfPointConstRadInv*(s: Handle[Adaptor3dHSurface];
     c: Handle[Adaptor3dHCurve]): BRepBlendSurfPointConstRadInv {.constructor,
     importcpp: "BRepBlend_SurfPointConstRadInv(@)",
     header: "BRepBlend_SurfPointConstRadInv.hxx".}
-proc set*(this: var BRepBlendSurfPointConstRadInv; r: cfloat; choix: cint) {.
+proc set*(this: var BRepBlendSurfPointConstRadInv; r: StandardReal; choix: int) {.
     importcpp: "Set", header: "BRepBlend_SurfPointConstRadInv.hxx".}
-proc nbEquations*(this: BRepBlendSurfPointConstRadInv): cint {.noSideEffect,
+proc nbEquations*(this: BRepBlendSurfPointConstRadInv): int {.noSideEffect,
     importcpp: "NbEquations", header: "BRepBlend_SurfPointConstRadInv.hxx".}
-proc value*(this: var BRepBlendSurfPointConstRadInv; x: MathVector; f: var MathVector): bool {.
+proc value*(this: var BRepBlendSurfPointConstRadInv; x: MathVector; f: var MathVector): StandardBoolean {.
     importcpp: "Value", header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc derivatives*(this: var BRepBlendSurfPointConstRadInv; x: MathVector;
-                 d: var MathMatrix): bool {.importcpp: "Derivatives", header: "BRepBlend_SurfPointConstRadInv.hxx".}
-proc values*(this: var BRepBlendSurfPointConstRadInv; x: MathVector;
-            f: var MathVector; d: var MathMatrix): bool {.importcpp: "Values",
+                 d: var MathMatrix): StandardBoolean {.importcpp: "Derivatives",
     header: "BRepBlend_SurfPointConstRadInv.hxx".}
+proc values*(this: var BRepBlendSurfPointConstRadInv; x: MathVector;
+            f: var MathVector; d: var MathMatrix): StandardBoolean {.
+    importcpp: "Values", header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc set*(this: var BRepBlendSurfPointConstRadInv; p: Pnt) {.importcpp: "Set",
     header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc getTolerance*(this: BRepBlendSurfPointConstRadInv; tolerance: var MathVector;
-                  tol: cfloat) {.noSideEffect, importcpp: "GetTolerance",
-                               header: "BRepBlend_SurfPointConstRadInv.hxx".}
+                  tol: StandardReal) {.noSideEffect, importcpp: "GetTolerance", header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc getBounds*(this: BRepBlendSurfPointConstRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds", header: "BRepBlend_SurfPointConstRadInv.hxx".}
-proc isSolution*(this: var BRepBlendSurfPointConstRadInv; sol: MathVector; tol: cfloat): bool {.
-    importcpp: "IsSolution", header: "BRepBlend_SurfPointConstRadInv.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc isSolution*(this: var BRepBlendSurfPointConstRadInv; sol: MathVector;
+                tol: StandardReal): StandardBoolean {.importcpp: "IsSolution",
+    header: "BRepBlend_SurfPointConstRadInv.hxx".}

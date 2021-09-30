@@ -23,13 +23,13 @@ when defined(DRAW):
   proc topOpeBRepToolDrawSegment*(p1: Pnt; p2: Pnt) {.
       importcpp: "TopOpeBRepTool_DrawSegment(@)",
       header: "TopOpeBRepTool_DRAW.hxx".}
-  proc topOpeBRepToolDrawSegment*(p: Pnt; a2: Lin; par: cfloat; c: DrawColorKind) {.
+  proc topOpeBRepToolDrawSegment*(p: Pnt; a2: Lin; par: StandardReal; c: DrawColorKind) {.
       importcpp: "TopOpeBRepTool_DrawSegment(@)",
       header: "TopOpeBRepTool_DRAW.hxx".}
   proc topOpeBRepToolColorOnState*(s: TopAbsState): DrawColorKind {.
       importcpp: "TopOpeBRepTool_ColorOnState(@)",
       header: "TopOpeBRepTool_DRAW.hxx".}
-  proc topOpeBRepToolDrawSegment*(p: Pnt; L: Lin; par: cfloat; s: TopAbsState) {.
+  proc topOpeBRepToolDrawSegment*(p: Pnt; L: Lin; par: StandardReal; s: TopAbsState) {.
       importcpp: "TopOpeBRepTool_DrawSegment(@)",
       header: "TopOpeBRepTool_DRAW.hxx".}
   proc fdraw_Dins*(pref: TCollectionAsciiString; ss: TopoDS_Shape;
@@ -43,7 +43,7 @@ when defined(DRAW):
       importcpp: "FDRAW_DINLOE(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; p: Pnt; d: Dir) {.
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: Pnt2d; d: Dir2d; i: cint) {.
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: Pnt2d; d: Dir2d; i: int) {.
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; p2d: Pnt2d) {.
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
@@ -51,50 +51,25 @@ when defined(DRAW):
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; c2d: Handle[Geom2dCurve]) {.
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; c2d: Handle[Geom2dCurve]; f: cfloat;
-                    l: cfloat) {.importcpp: "FUN_tool_draw(@)",
-                               header: "TopOpeBRepTool_DRAW.hxx".}
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; c2d: Handle[Geom2dCurve];
+                    f: StandardReal; l: StandardReal) {.
+      importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; c: Handle[GeomCurve]) {.
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; c: Handle[GeomCurve]; f: cfloat;
-                    l: cfloat) {.importcpp: "FUN_tool_draw(@)",
-                               header: "TopOpeBRepTool_DRAW.hxx".}
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; c: Handle[GeomCurve];
+                    f: StandardReal; l: StandardReal) {.
+      importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; s: TopoDS_Shape) {.
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; s: TopoDS_Shape; `is`: cint) {.
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; s: TopoDS_Shape; `is`: int) {.
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; e: TopoDS_Edge; f: TopoDS_Face;
-                    ie: cint) {.importcpp: "FUN_tool_draw(@)",
-                              header: "TopOpeBRepTool_DRAW.hxx".}
+                    ie: int) {.importcpp: "FUN_tool_draw(@)",
+                             header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; e: TopoDS_Edge; f: TopoDS_Face;
-                    ie: cint) {.importcpp: "FUN_tool_draw(@)",
-                              header: "TopOpeBRepTool_DRAW.hxx".}
+                    ie: int) {.importcpp: "FUN_tool_draw(@)",
+                             header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolPRODINS*(): var TCollectionAsciiString {.
       importcpp: "FUN_tool_PRODINS(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolPRODINP*(): var TCollectionAsciiString {.
       importcpp: "FUN_tool_PRODINP(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

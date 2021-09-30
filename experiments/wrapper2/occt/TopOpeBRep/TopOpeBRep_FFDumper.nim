@@ -30,18 +30,18 @@ proc constructTopOpeBRepFFDumper*(pff: TopOpeBRepPFacesFiller): TopOpeBRepFFDump
     header: "TopOpeBRep_FFDumper.hxx".}
 proc init*(this: var TopOpeBRepFFDumper; pff: TopOpeBRepPFacesFiller) {.
     importcpp: "Init", header: "TopOpeBRep_FFDumper.hxx".}
-proc dumpLine*(this: var TopOpeBRepFFDumper; i: cint) {.importcpp: "DumpLine",
+proc dumpLine*(this: var TopOpeBRepFFDumper; i: int) {.importcpp: "DumpLine",
     header: "TopOpeBRep_FFDumper.hxx".}
 proc dumpLine*(this: var TopOpeBRepFFDumper; L: TopOpeBRepLineInter) {.
     importcpp: "DumpLine", header: "TopOpeBRep_FFDumper.hxx".}
 proc dumpVP*(this: var TopOpeBRepFFDumper; vp: TopOpeBRepVPointInter) {.
     importcpp: "DumpVP", header: "TopOpeBRep_FFDumper.hxx".}
-proc dumpVP*(this: var TopOpeBRepFFDumper; vp: TopOpeBRepVPointInter; isi: cint) {.
+proc dumpVP*(this: var TopOpeBRepFFDumper; vp: TopOpeBRepVPointInter; isi: int) {.
     importcpp: "DumpVP", header: "TopOpeBRep_FFDumper.hxx".}
-proc exploreIndex*(this: TopOpeBRepFFDumper; s: TopoDS_Shape; isi: cint): cint {.
+proc exploreIndex*(this: TopOpeBRepFFDumper; s: TopoDS_Shape; isi: int): int {.
     noSideEffect, importcpp: "ExploreIndex", header: "TopOpeBRep_FFDumper.hxx".}
 proc dumpDSP*(this: TopOpeBRepFFDumper; vp: TopOpeBRepVPointInter;
-             gk: TopOpeBRepDS_Kind; g: cint; newinDS: bool) {.noSideEffect,
+             gk: TopOpeBRepDS_Kind; g: int; newinDS: StandardBoolean) {.noSideEffect,
     importcpp: "DumpDSP", header: "TopOpeBRep_FFDumper.hxx".}
 proc pFacesFillerDummy*(this: TopOpeBRepFFDumper): TopOpeBRepPFacesFiller {.
     noSideEffect, importcpp: "PFacesFillerDummy", header: "TopOpeBRep_FFDumper.hxx".}
@@ -55,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRep_FFDumper.hxx".}
 proc dynamicType*(this: TopOpeBRepFFDumper): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRep_FFDumper.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

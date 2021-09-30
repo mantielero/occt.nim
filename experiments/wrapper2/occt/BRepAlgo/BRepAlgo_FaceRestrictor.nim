@@ -31,47 +31,40 @@ type
                                                                                ## Wires.
 
 
+proc `new`*(this: var BRepAlgoFaceRestrictor; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_FaceRestrictor::operator new",
+    header: "BRepAlgo_FaceRestrictor.hxx".}
+proc `delete`*(this: var BRepAlgoFaceRestrictor; theAddress: pointer) {.
+    importcpp: "BRepAlgo_FaceRestrictor::operator delete",
+    header: "BRepAlgo_FaceRestrictor.hxx".}
+proc `new[]`*(this: var BRepAlgoFaceRestrictor; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_FaceRestrictor::operator new[]",
+    header: "BRepAlgo_FaceRestrictor.hxx".}
+proc `delete[]`*(this: var BRepAlgoFaceRestrictor; theAddress: pointer) {.
+    importcpp: "BRepAlgo_FaceRestrictor::operator delete[]",
+    header: "BRepAlgo_FaceRestrictor.hxx".}
+proc `new`*(this: var BRepAlgoFaceRestrictor; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgo_FaceRestrictor::operator new",
+    header: "BRepAlgo_FaceRestrictor.hxx".}
+proc `delete`*(this: var BRepAlgoFaceRestrictor; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgo_FaceRestrictor::operator delete",
+    header: "BRepAlgo_FaceRestrictor.hxx".}
 proc constructBRepAlgoFaceRestrictor*(): BRepAlgoFaceRestrictor {.constructor,
     importcpp: "BRepAlgo_FaceRestrictor(@)", header: "BRepAlgo_FaceRestrictor.hxx".}
-proc init*(this: var BRepAlgoFaceRestrictor; f: TopoDS_Face; proj: bool = false;
-          controlOrientation: bool = false) {.importcpp: "Init",
-    header: "BRepAlgo_FaceRestrictor.hxx".}
+proc init*(this: var BRepAlgoFaceRestrictor; f: TopoDS_Face;
+          proj: StandardBoolean = false; controlOrientation: StandardBoolean = false) {.
+    importcpp: "Init", header: "BRepAlgo_FaceRestrictor.hxx".}
 proc add*(this: var BRepAlgoFaceRestrictor; w: var TopoDS_Wire) {.importcpp: "Add",
     header: "BRepAlgo_FaceRestrictor.hxx".}
 proc clear*(this: var BRepAlgoFaceRestrictor) {.importcpp: "Clear",
     header: "BRepAlgo_FaceRestrictor.hxx".}
 proc perform*(this: var BRepAlgoFaceRestrictor) {.importcpp: "Perform",
     header: "BRepAlgo_FaceRestrictor.hxx".}
-proc isDone*(this: BRepAlgoFaceRestrictor): bool {.noSideEffect, importcpp: "IsDone",
-    header: "BRepAlgo_FaceRestrictor.hxx".}
-proc more*(this: BRepAlgoFaceRestrictor): bool {.noSideEffect, importcpp: "More",
-    header: "BRepAlgo_FaceRestrictor.hxx".}
+proc isDone*(this: BRepAlgoFaceRestrictor): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "BRepAlgo_FaceRestrictor.hxx".}
+proc more*(this: BRepAlgoFaceRestrictor): StandardBoolean {.noSideEffect,
+    importcpp: "More", header: "BRepAlgo_FaceRestrictor.hxx".}
 proc next*(this: var BRepAlgoFaceRestrictor) {.importcpp: "Next",
     header: "BRepAlgo_FaceRestrictor.hxx".}
 proc current*(this: BRepAlgoFaceRestrictor): TopoDS_Face {.noSideEffect,
     importcpp: "Current", header: "BRepAlgo_FaceRestrictor.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

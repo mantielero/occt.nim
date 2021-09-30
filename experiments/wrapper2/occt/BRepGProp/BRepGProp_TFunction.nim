@@ -17,206 +17,46 @@ discard "forward decl of BRepGProp_Face"
 discard "forward decl of gp_Pnt"
 type
   BRepGPropTFunction* {.importcpp: "BRepGProp_TFunction",
-                       header: "BRepGProp_TFunction.hxx", bycopy.} = object of MathFunction ##
-                                                                                     ## !
-                                                                                     ## Constructor.
-                                                                                     ## Initializes
-                                                                                     ## the
-                                                                                     ## function
-                                                                                     ## with
-                                                                                     ## the
-                                                                                     ## face,
-                                                                                     ## the
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## location
-                                                                                     ## point,
-                                                                                     ## the
-                                                                                     ## flag
-                                                                                     ## IsByPoint,
-                                                                                     ## the
-                                                                                     ## coefficients
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## theCoeff
-                                                                                     ## that
-                                                                                     ## have
-                                                                                     ## different
-                                                                                     ## meaning
-                                                                                     ## depending
-                                                                                     ## on
-                                                                                     ## the
-                                                                                     ## value
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## of
-                                                                                     ## IsByPoint.
-                                                                                     ## The
-                                                                                     ## last
-                                                                                     ## two
-                                                                                     ## parameters
-                                                                                     ## are
-                                                                                     ## theUMin
-                                                                                     ## -
-                                                                                     ## the
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## lower
-                                                                                     ## bound
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## inner
-                                                                                     ## integral.
-                                                                                     ## This
-                                                                                     ## value
-                                                                                     ## is
-                                                                                     ## fixed
-                                                                                     ## for
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## any
-                                                                                     ## integral.
-                                                                                     ## And
-                                                                                     ## the
-                                                                                     ## value
-                                                                                     ## of
-                                                                                     ## tolerance
-                                                                                     ## of
-                                                                                     ## inner
-                                                                                     ## integral
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## computation.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## If
-                                                                                     ## IsByPoint
-                                                                                     ## is
-                                                                                     ## equal
-                                                                                     ## to
-                                                                                     ## Standard_True,
-                                                                                     ## the
-                                                                                     ## number
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## coefficients
-                                                                                     ## is
-                                                                                     ## equal
-                                                                                     ## to
-                                                                                     ## 3
-                                                                                     ## and
-                                                                                     ## they
-                                                                                     ## represent
-                                                                                     ## X,
-                                                                                     ## Y
-                                                                                     ## and
-                                                                                     ## Z
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## coordinates
-                                                                                     ## (theCoeff[0],
-                                                                                     ## theCoeff[1]
-                                                                                     ## and
-                                                                                     ## theCoeff[2]
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## correspondingly)
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## shift
-                                                                                     ## if
-                                                                                     ## the
-                                                                                     ## inertia
-                                                                                     ## is
-                                                                                     ## computed
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## with
-                                                                                     ## respect
-                                                                                     ## to
-                                                                                     ## the
-                                                                                     ## point
-                                                                                     ## different
-                                                                                     ## then
-                                                                                     ## the
-                                                                                     ## location.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## If
-                                                                                     ## IsByPoint
-                                                                                     ## is
-                                                                                     ## equal
-                                                                                     ## to
-                                                                                     ## Standard_False,
-                                                                                     ## the
-                                                                                     ## number
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## coefficients
-                                                                                     ## is
-                                                                                     ## 4
-                                                                                     ## and
-                                                                                     ## they
-                                                                                     ## represent
-                                                                                     ## the
-                                                                                     ## compbination
-                                                                                     ## of
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## plane
-                                                                                     ## parameters
-                                                                                     ## and
-                                                                                     ## shift
-                                                                                     ## values.
+                       header: "BRepGProp_TFunction.hxx", bycopy.} = object of MathFunction
 
 
+proc `new`*(this: var BRepGPropTFunction; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_TFunction::operator new",
+    header: "BRepGProp_TFunction.hxx".}
+proc `delete`*(this: var BRepGPropTFunction; theAddress: pointer) {.
+    importcpp: "BRepGProp_TFunction::operator delete",
+    header: "BRepGProp_TFunction.hxx".}
+proc `new[]`*(this: var BRepGPropTFunction; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_TFunction::operator new[]",
+    header: "BRepGProp_TFunction.hxx".}
+proc `delete[]`*(this: var BRepGPropTFunction; theAddress: pointer) {.
+    importcpp: "BRepGProp_TFunction::operator delete[]",
+    header: "BRepGProp_TFunction.hxx".}
+proc `new`*(this: var BRepGPropTFunction; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepGProp_TFunction::operator new",
+    header: "BRepGProp_TFunction.hxx".}
+proc `delete`*(this: var BRepGPropTFunction; a2: pointer; a3: pointer) {.
+    importcpp: "BRepGProp_TFunction::operator delete",
+    header: "BRepGProp_TFunction.hxx".}
 proc constructBRepGPropTFunction*(theSurface: BRepGPropFace; theVertex: Pnt;
-                                 isByPoint: bool; theCoeffs: StandardAddress;
-                                 theUMin: cfloat; theTolerance: cfloat): BRepGPropTFunction {.
+                                 isByPoint: StandardBoolean;
+                                 theCoeffs: StandardAddress;
+                                 theUMin: StandardReal; theTolerance: StandardReal): BRepGPropTFunction {.
     constructor, importcpp: "BRepGProp_TFunction(@)",
     header: "BRepGProp_TFunction.hxx".}
 proc init*(this: var BRepGPropTFunction) {.importcpp: "Init",
                                        header: "BRepGProp_TFunction.hxx".}
-proc setNbKronrodPoints*(this: var BRepGPropTFunction; theNbPoints: cint) {.
+proc setNbKronrodPoints*(this: var BRepGPropTFunction; theNbPoints: int) {.
     importcpp: "SetNbKronrodPoints", header: "BRepGProp_TFunction.hxx".}
 proc setValueType*(this: var BRepGPropTFunction; aType: GPropValueType) {.
     importcpp: "SetValueType", header: "BRepGProp_TFunction.hxx".}
-proc setTolerance*(this: var BRepGPropTFunction; aTol: cfloat) {.
+proc setTolerance*(this: var BRepGPropTFunction; aTol: StandardReal) {.
     importcpp: "SetTolerance", header: "BRepGProp_TFunction.hxx".}
-proc errorReached*(this: BRepGPropTFunction): cfloat {.noSideEffect,
+proc errorReached*(this: BRepGPropTFunction): StandardReal {.noSideEffect,
     importcpp: "ErrorReached", header: "BRepGProp_TFunction.hxx".}
-proc absolutError*(this: BRepGPropTFunction): cfloat {.noSideEffect,
+proc absolutError*(this: BRepGPropTFunction): StandardReal {.noSideEffect,
     importcpp: "AbsolutError", header: "BRepGProp_TFunction.hxx".}
-proc value*(this: var BRepGPropTFunction; x: cfloat; f: var cfloat): bool {.
+proc value*(this: var BRepGPropTFunction; x: StandardReal; f: var StandardReal): StandardBoolean {.
     importcpp: "Value", header: "BRepGProp_TFunction.hxx".}
-proc getStateNumber*(this: var BRepGPropTFunction): cint {.
+proc getStateNumber*(this: var BRepGPropTFunction): int {.
     importcpp: "GetStateNumber", header: "BRepGProp_TFunction.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

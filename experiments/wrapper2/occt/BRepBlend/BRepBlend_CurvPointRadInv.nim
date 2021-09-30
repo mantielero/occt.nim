@@ -22,53 +22,47 @@ type
                              header: "BRepBlend_CurvPointRadInv.hxx", bycopy.} = object of BlendCurvPointFuncInv
 
 
+proc `new`*(this: var BRepBlendCurvPointRadInv; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_CurvPointRadInv::operator new",
+    header: "BRepBlend_CurvPointRadInv.hxx".}
+proc `delete`*(this: var BRepBlendCurvPointRadInv; theAddress: pointer) {.
+    importcpp: "BRepBlend_CurvPointRadInv::operator delete",
+    header: "BRepBlend_CurvPointRadInv.hxx".}
+proc `new[]`*(this: var BRepBlendCurvPointRadInv; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_CurvPointRadInv::operator new[]",
+    header: "BRepBlend_CurvPointRadInv.hxx".}
+proc `delete[]`*(this: var BRepBlendCurvPointRadInv; theAddress: pointer) {.
+    importcpp: "BRepBlend_CurvPointRadInv::operator delete[]",
+    header: "BRepBlend_CurvPointRadInv.hxx".}
+proc `new`*(this: var BRepBlendCurvPointRadInv; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBlend_CurvPointRadInv::operator new",
+    header: "BRepBlend_CurvPointRadInv.hxx".}
+proc `delete`*(this: var BRepBlendCurvPointRadInv; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBlend_CurvPointRadInv::operator delete",
+    header: "BRepBlend_CurvPointRadInv.hxx".}
 proc constructBRepBlendCurvPointRadInv*(c1: Handle[Adaptor3dHCurve];
                                        c2: Handle[Adaptor3dHCurve]): BRepBlendCurvPointRadInv {.
     constructor, importcpp: "BRepBlend_CurvPointRadInv(@)",
     header: "BRepBlend_CurvPointRadInv.hxx".}
-proc set*(this: var BRepBlendCurvPointRadInv; choix: cint) {.importcpp: "Set",
+proc set*(this: var BRepBlendCurvPointRadInv; choix: int) {.importcpp: "Set",
     header: "BRepBlend_CurvPointRadInv.hxx".}
-proc nbEquations*(this: BRepBlendCurvPointRadInv): cint {.noSideEffect,
+proc nbEquations*(this: BRepBlendCurvPointRadInv): int {.noSideEffect,
     importcpp: "NbEquations", header: "BRepBlend_CurvPointRadInv.hxx".}
-proc value*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector): bool {.
+proc value*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector): StandardBoolean {.
     importcpp: "Value", header: "BRepBlend_CurvPointRadInv.hxx".}
-proc derivatives*(this: var BRepBlendCurvPointRadInv; x: MathVector; d: var MathMatrix): bool {.
+proc derivatives*(this: var BRepBlendCurvPointRadInv; x: MathVector; d: var MathMatrix): StandardBoolean {.
     importcpp: "Derivatives", header: "BRepBlend_CurvPointRadInv.hxx".}
 proc values*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.importcpp: "Values",
-                                   header: "BRepBlend_CurvPointRadInv.hxx".}
+            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+    header: "BRepBlend_CurvPointRadInv.hxx".}
 proc set*(this: var BRepBlendCurvPointRadInv; p: Pnt) {.importcpp: "Set",
     header: "BRepBlend_CurvPointRadInv.hxx".}
 proc getTolerance*(this: BRepBlendCurvPointRadInv; tolerance: var MathVector;
-                  tol: cfloat) {.noSideEffect, importcpp: "GetTolerance",
-                               header: "BRepBlend_CurvPointRadInv.hxx".}
+                  tol: StandardReal) {.noSideEffect, importcpp: "GetTolerance",
+                                     header: "BRepBlend_CurvPointRadInv.hxx".}
 proc getBounds*(this: BRepBlendCurvPointRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
                                         header: "BRepBlend_CurvPointRadInv.hxx".}
-proc isSolution*(this: var BRepBlendCurvPointRadInv; sol: MathVector; tol: cfloat): bool {.
-    importcpp: "IsSolution", header: "BRepBlend_CurvPointRadInv.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc isSolution*(this: var BRepBlendCurvPointRadInv; sol: MathVector;
+                tol: StandardReal): StandardBoolean {.importcpp: "IsSolution",
+    header: "BRepBlend_CurvPointRadInv.hxx".}

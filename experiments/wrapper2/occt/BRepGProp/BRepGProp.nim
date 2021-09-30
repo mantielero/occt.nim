@@ -28,183 +28,54 @@ discard "forward decl of BRepGProp_UFunction"
 discard "forward decl of BRepGProp_TFunction"
 discard "forward decl of gp_XYZ"
 type
-  BRepGProp* {.importcpp: "BRepGProp", header: "BRepGProp.hxx", bycopy.} = object ## !
-                                                                          ## Computes the linear global
-                                                                          ## properties of the shape S,
-                                                                          ## ! i.e. the global
-                                                                          ## properties
-                                                                          ## induced by each edge of the
-                                                                          ## ! shape S, and brings them
-                                                                          ## together with the global
-                                                                          ## !
-                                                                          ## properties still
-                                                                          ## retained by the
-                                                                          ## framework
-                                                                          ## LProps. If
-                                                                          ## ! the
-                                                                          ## current system of LProps was empty, its global
-                                                                          ## !
-                                                                          ## properties become equal to the linear global
-                                                                          ## !
-                                                                          ## properties of S.
-                                                                          ## ! For this
-                                                                          ## computation no linear
-                                                                          ## density is
-                                                                          ## attached to
-                                                                          ## ! the edges. So, for
-                                                                          ## example, the added mass
-                                                                          ## !
-                                                                          ## corresponds to the sum of the
-                                                                          ## lengths of the edges of
-                                                                          ## ! S. The
-                                                                          ## density of the
-                                                                          ## composed
-                                                                          ## systems, i.e. that of
-                                                                          ## ! each
-                                                                          ## component of the
-                                                                          ## current system of
-                                                                          ## LProps, and
-                                                                          ## ! that of S which is
-                                                                          ## considered to be equal to 1, must be
-                                                                          ## coherent.
-                                                                          ## ! Note that this
-                                                                          ## coherence cannot be
-                                                                          ## checked. You are
-                                                                          ## !
-                                                                          ## advised to use a
-                                                                          ## separate
-                                                                          ## framework for each
-                                                                          ## !
-                                                                          ## density, and then to bring these
-                                                                          ## frameworks
-                                                                          ## together
-                                                                          ## ! into a global one.
-                                                                          ## ! The point
-                                                                          ## relative to which the
-                                                                          ## inertia of the system is
-                                                                          ## !
-                                                                          ## computed is the
-                                                                          ## reference point of the
-                                                                          ## framework
-                                                                          ## LProps.
-                                                                          ## ! Note: if your
-                                                                          ## programming
-                                                                          ## ensures that the
-                                                                          ## framework
-                                                                          ## ! LProps
-                                                                          ## retains only linear global
-                                                                          ## properties
-                                                                          ## (brought
-                                                                          ## !
-                                                                          ## together for
-                                                                          ## example, by the
-                                                                          ## function
-                                                                          ## !
-                                                                          ## LinearProperties) for
-                                                                          ## objects the
-                                                                          ## density of which is
-                                                                          ## ! equal to 1 (or is not
-                                                                          ## defined), the
-                                                                          ## function Mass will
-                                                                          ## ! return the total length of edges of the system
-                                                                          ## analysed by
-                                                                          ## LProps.
-                                                                          ## !
-                                                                          ## Warning
-                                                                          ## ! No check is
-                                                                          ## performed to verify that the shape S
-                                                                          ## !
-                                                                          ## retains truly linear
-                                                                          ## properties. If S is simply a
-                                                                          ## vertex, it
-                                                                          ## ! is not
-                                                                          ## considered to
-                                                                          ## present any
-                                                                          ## additional global
-                                                                          ## properties.
-                                                                          ## !
-                                                                          ## SkipShared is a
-                                                                          ## special flag, which allows taking in
-                                                                          ## calculation
-                                                                          ## ! shared
-                                                                          ## topological
-                                                                          ## entities or not.
-                                                                          ## ! For ex., if
-                                                                          ## SkipShared = True, edges, shared by two or more faces,
-                                                                          ## ! are taken into
-                                                                          ## calculation only once.
-                                                                          ## ! If we have cube with sizes 1, 1, 1, its linear
-                                                                          ## properties = 12
-                                                                          ## ! for
-                                                                          ## SkipEdges = true and 24 for
-                                                                          ## SkipEdges = false.
-                                                                          ## !
-                                                                          ## UseTriangulation is a
-                                                                          ## special flag, which
-                                                                          ## defines
-                                                                          ## preferable
-                                                                          ## ! source of
-                                                                          ## geometry data. If
-                                                                          ## UseTriangulation =
-                                                                          ## Standard_False,
-                                                                          ## ! exact
-                                                                          ## geometry
-                                                                          ## objects
-                                                                          ## (curves) are used,
-                                                                          ## otherwise
-                                                                          ## polygons of
-                                                                          ## !
-                                                                          ## triangulation are used first.
+  BRepGProp* {.importcpp: "BRepGProp", header: "BRepGProp.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepGProp; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp::operator new", header: "BRepGProp.hxx".}
+proc `delete`*(this: var BRepGProp; theAddress: pointer) {.
+    importcpp: "BRepGProp::operator delete", header: "BRepGProp.hxx".}
+proc `new[]`*(this: var BRepGProp; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp::operator new[]", header: "BRepGProp.hxx".}
+proc `delete[]`*(this: var BRepGProp; theAddress: pointer) {.
+    importcpp: "BRepGProp::operator delete[]", header: "BRepGProp.hxx".}
+proc `new`*(this: var BRepGProp; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepGProp::operator new", header: "BRepGProp.hxx".}
+proc `delete`*(this: var BRepGProp; a2: pointer; a3: pointer) {.
+    importcpp: "BRepGProp::operator delete", header: "BRepGProp.hxx".}
 proc linearProperties*(s: TopoDS_Shape; lProps: var GPropGProps;
-                      skipShared: bool = false; useTriangulation: bool = false) {.
+                      skipShared: StandardBoolean = false;
+                      useTriangulation: StandardBoolean = false) {.
     importcpp: "BRepGProp::LinearProperties(@)", header: "BRepGProp.hxx".}
 proc surfaceProperties*(s: TopoDS_Shape; sProps: var GPropGProps;
-                       skipShared: bool = false; useTriangulation: bool = false) {.
+                       skipShared: StandardBoolean = false;
+                       useTriangulation: StandardBoolean = false) {.
     importcpp: "BRepGProp::SurfaceProperties(@)", header: "BRepGProp.hxx".}
-proc surfaceProperties*(s: TopoDS_Shape; sProps: var GPropGProps; eps: cfloat;
-                       skipShared: bool = false): cfloat {.
+proc surfaceProperties*(s: TopoDS_Shape; sProps: var GPropGProps; eps: StandardReal;
+                       skipShared: StandardBoolean = false): StandardReal {.
     importcpp: "BRepGProp::SurfaceProperties(@)", header: "BRepGProp.hxx".}
 proc volumeProperties*(s: TopoDS_Shape; vProps: var GPropGProps;
-                      onlyClosed: bool = false; skipShared: bool = false;
-                      useTriangulation: bool = false) {.
+                      onlyClosed: StandardBoolean = false;
+                      skipShared: StandardBoolean = false;
+                      useTriangulation: StandardBoolean = false) {.
     importcpp: "BRepGProp::VolumeProperties(@)", header: "BRepGProp.hxx".}
-proc volumeProperties*(s: TopoDS_Shape; vProps: var GPropGProps; eps: cfloat;
-                      onlyClosed: bool = false; skipShared: bool = false): cfloat {.
+proc volumeProperties*(s: TopoDS_Shape; vProps: var GPropGProps; eps: StandardReal;
+                      onlyClosed: StandardBoolean = false;
+                      skipShared: StandardBoolean = false): StandardReal {.
     importcpp: "BRepGProp::VolumeProperties(@)", header: "BRepGProp.hxx".}
 proc volumePropertiesGK*(s: TopoDS_Shape; vProps: var GPropGProps;
-                        eps: cfloat = 0.001; onlyClosed: bool = false;
-                        isUseSpan: bool = false; cGFlag: bool = false;
-                        iFlag: bool = false; skipShared: bool = false): cfloat {.
+                        eps: StandardReal = 0.001;
+                        onlyClosed: StandardBoolean = false;
+                        isUseSpan: StandardBoolean = false;
+                        cGFlag: StandardBoolean = false;
+                        iFlag: StandardBoolean = false;
+                        skipShared: StandardBoolean = false): StandardReal {.
     importcpp: "BRepGProp::VolumePropertiesGK(@)", header: "BRepGProp.hxx".}
 proc volumePropertiesGK*(s: TopoDS_Shape; vProps: var GPropGProps; thePln: Pln;
-                        eps: cfloat = 0.001; onlyClosed: bool = false;
-                        isUseSpan: bool = false; cGFlag: bool = false;
-                        iFlag: bool = false; skipShared: bool = false): cfloat {.
+                        eps: StandardReal = 0.001;
+                        onlyClosed: StandardBoolean = false;
+                        isUseSpan: StandardBoolean = false;
+                        cGFlag: StandardBoolean = false;
+                        iFlag: StandardBoolean = false;
+                        skipShared: StandardBoolean = false): StandardReal {.
     importcpp: "BRepGProp::VolumePropertiesGK(@)", header: "BRepGProp.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

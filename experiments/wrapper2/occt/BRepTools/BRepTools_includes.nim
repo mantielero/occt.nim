@@ -11,34 +11,8 @@ include BRepTools_Modification
 include BRepTools_Modifier
 include BRepTools_NurbsConvertModification
 include BRepTools_Quilt
-include BRepTools_ReShape
+#include BRepTools_ReShape
 include BRepTools_ShapeSet
 include BRepTools_Substitution
 include BRepTools_TrsfModification
 include BRepTools_WireExplorer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

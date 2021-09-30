@@ -1,1 +1,10 @@
-/usr/include/opencascade/TopoDS_AlertWithShape.hxx
+/usr/include/opencascade/TShort_HArray1OfShortReal.hxx
+/usr/include/opencascade/TShort_HArray2OfShortReal.hxx
+/usr/include/opencascade/TShort_HSequenceOfShortReal.hxx
+/usr/include/opencascade/TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference.hxx
+/usr/include/opencascade/TopOpeBRep_HArray1OfLineInter.hxx
+/usr/include/opencascade/TopOpeBRep_HArray1OfVPointInter.hxx
+/usr/include/opencascade/TopTools_HArray1OfListOfShape.hxx
+/usr/include/opencascade/TopTools_HArray1OfShape.hxx
+/usr/include/opencascade/TopTools_HArray2OfShape.hxx
+/usr/include/opencascade/TopTools_HSequenceOfShape.hxx

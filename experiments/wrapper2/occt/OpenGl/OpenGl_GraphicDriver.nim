@@ -164,18 +164,18 @@ type
                                                                                                  ## State
                                                                                                  ## counter
                                                                                                  ## for
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                                                                                                  ## OpenGl
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                                                                                                  ## structures.
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     standardType* {.importc: "Standard_Type".}: Handle
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     graphic3dCStructure* {.importc: "Graphic3d_CStructure".}: Handle
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     graphic3dCView* {.importc: "Graphic3d_CView".}: Handle
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     openGlWindow* {.importc: "OpenGl_Window".}: Handle
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     openGlContext* {.importc: "OpenGl_Context".}: Handle
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     ## !< indicates that shared context has been created within OpenGl_GraphicDriver
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #         defined(android) or defined(qnx) or defined(emscripten):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #       discard
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                                                                                                  ## OpenGl
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                                                                                                  ## structures.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     standardType* {.importc: "Standard_Type".}: Handle
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     graphic3dCStructure* {.importc: "Graphic3d_CStructure".}: Handle
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     graphic3dCView* {.importc: "Graphic3d_CView".}: Handle
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     openGlWindow* {.importc: "OpenGl_Window".}: Handle
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     openGlContext* {.importc: "OpenGl_Context".}: Handle
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     ## !< indicates that shared context has been created within OpenGl_GraphicDriver
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #         defined(android) or defined(qnx) or defined(emscripten):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #       discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
         defined(android) or defined(qnx) or defined(emscripten):
       discard
     when defined(have_Egl) or defined(have_Gles2) or defined(occt_Uwp) or
@@ -295,6 +295,7 @@ proc getNextPrimitiveArrayUID*(this: OpenGlGraphicDriver): StandardSize {.
 
 ## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( OpenGl_GraphicDriver , Graphic3d_GraphicDriver ) # _OpenGl_GraphicDriver_HeaderFile
 ## Error: expected ';'!!!
+
 
 
 

@@ -36,8 +36,8 @@ proc constructTopOpeBRepBuildLoop*(s: TopoDS_Shape): TopOpeBRepBuildLoop {.
 proc constructTopOpeBRepBuildLoop*(bi: TopOpeBRepBuildBlockIterator): TopOpeBRepBuildLoop {.
     constructor, importcpp: "TopOpeBRepBuild_Loop(@)",
     header: "TopOpeBRepBuild_Loop.hxx".}
-proc isShape*(this: TopOpeBRepBuildLoop): bool {.noSideEffect, importcpp: "IsShape",
-    header: "TopOpeBRepBuild_Loop.hxx".}
+proc isShape*(this: TopOpeBRepBuildLoop): StandardBoolean {.noSideEffect,
+    importcpp: "IsShape", header: "TopOpeBRepBuild_Loop.hxx".}
 proc shape*(this: TopOpeBRepBuildLoop): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TopOpeBRepBuild_Loop.hxx".}
 proc blockIterator*(this: TopOpeBRepBuildLoop): TopOpeBRepBuildBlockIterator {.
@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepBuild_Loop.hxx".}
 proc dynamicType*(this: TopOpeBRepBuildLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRepBuild_Loop.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

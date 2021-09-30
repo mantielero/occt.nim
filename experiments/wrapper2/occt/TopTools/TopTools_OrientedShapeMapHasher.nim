@@ -17,40 +17,30 @@
 discard "forward decl of TopoDS_Shape"
 type
   TopToolsOrientedShapeMapHasher* {.importcpp: "TopTools_OrientedShapeMapHasher", header: "TopTools_OrientedShapeMapHasher.hxx",
-                                   bycopy.} = object ## ! Computes a hash code for the given shape, in the range [1, theUpperBound]
-                                                  ## ! @param theShape the shape which hash code is to be computed
-                                                  ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
-                                                  ## ! @return a computed hash code, in the range [1, theUpperBound]
+                                   bycopy.} = object
 
 
-proc hashCode*(theShape: TopoDS_Shape; theUpperBound: cint): cint {.
+proc `new`*(this: var TopToolsOrientedShapeMapHasher; theSize: csize_t): pointer {.
+    importcpp: "TopTools_OrientedShapeMapHasher::operator new",
+    header: "TopTools_OrientedShapeMapHasher.hxx".}
+proc `delete`*(this: var TopToolsOrientedShapeMapHasher; theAddress: pointer) {.
+    importcpp: "TopTools_OrientedShapeMapHasher::operator delete",
+    header: "TopTools_OrientedShapeMapHasher.hxx".}
+proc `new[]`*(this: var TopToolsOrientedShapeMapHasher; theSize: csize_t): pointer {.
+    importcpp: "TopTools_OrientedShapeMapHasher::operator new[]",
+    header: "TopTools_OrientedShapeMapHasher.hxx".}
+proc `delete[]`*(this: var TopToolsOrientedShapeMapHasher; theAddress: pointer) {.
+    importcpp: "TopTools_OrientedShapeMapHasher::operator delete[]",
+    header: "TopTools_OrientedShapeMapHasher.hxx".}
+proc `new`*(this: var TopToolsOrientedShapeMapHasher; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopTools_OrientedShapeMapHasher::operator new",
+    header: "TopTools_OrientedShapeMapHasher.hxx".}
+proc `delete`*(this: var TopToolsOrientedShapeMapHasher; a2: pointer; a3: pointer) {.
+    importcpp: "TopTools_OrientedShapeMapHasher::operator delete",
+    header: "TopTools_OrientedShapeMapHasher.hxx".}
+proc hashCode*(theShape: TopoDS_Shape; theUpperBound: int): int {.
     importcpp: "TopTools_OrientedShapeMapHasher::HashCode(@)",
     header: "TopTools_OrientedShapeMapHasher.hxx".}
-proc isEqual*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.
+proc isEqual*(s1: TopoDS_Shape; s2: TopoDS_Shape): StandardBoolean {.
     importcpp: "TopTools_OrientedShapeMapHasher::IsEqual(@)",
     header: "TopTools_OrientedShapeMapHasher.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

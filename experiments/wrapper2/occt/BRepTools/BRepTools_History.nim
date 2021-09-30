@@ -329,7 +329,7 @@ type
     TRelationTypeRemoved, TRelationTypeGenerated, TRelationTypeModified
 
 
-proc isSupportedType*(theShape: TopoDS_Shape): bool {.
+proc isSupportedType*(theShape: TopoDS_Shape): StandardBoolean {.
     importcpp: "BRepTools_History::IsSupportedType(@)",
     header: "BRepTools_History.hxx".}
 proc addGenerated*(this: var BRepToolsHistory; theInitial: TopoDS_Shape;
@@ -352,13 +352,13 @@ proc generated*(this: BRepToolsHistory; theInitial: TopoDS_Shape): TopToolsListO
     noSideEffect, importcpp: "Generated", header: "BRepTools_History.hxx".}
 proc modified*(this: BRepToolsHistory; theInitial: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "Modified", header: "BRepTools_History.hxx".}
-proc isRemoved*(this: BRepToolsHistory; theInitial: TopoDS_Shape): bool {.
+proc isRemoved*(this: BRepToolsHistory; theInitial: TopoDS_Shape): StandardBoolean {.
     noSideEffect, importcpp: "IsRemoved", header: "BRepTools_History.hxx".}
-proc hasGenerated*(this: BRepToolsHistory): bool {.noSideEffect,
+proc hasGenerated*(this: BRepToolsHistory): StandardBoolean {.noSideEffect,
     importcpp: "HasGenerated", header: "BRepTools_History.hxx".}
-proc hasModified*(this: BRepToolsHistory): bool {.noSideEffect,
+proc hasModified*(this: BRepToolsHistory): StandardBoolean {.noSideEffect,
     importcpp: "HasModified", header: "BRepTools_History.hxx".}
-proc hasRemoved*(this: BRepToolsHistory): bool {.noSideEffect,
+proc hasRemoved*(this: BRepToolsHistory): StandardBoolean {.noSideEffect,
     importcpp: "HasRemoved", header: "BRepTools_History.hxx".}
 proc merge*(this: var BRepToolsHistory; theHistory23: Handle[BRepToolsHistory]) {.
     importcpp: "Merge", header: "BRepTools_History.hxx".}
@@ -379,28 +379,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepTools_History.hxx".}
 proc dynamicType*(this: BRepToolsHistory): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepTools_History.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

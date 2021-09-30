@@ -22,71 +22,63 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
   ChFiDS_CommonPoint* {.importcpp: "ChFiDS_CommonPoint",
-                       header: "ChFiDS_CommonPoint.hxx", bycopy.} = object ## ! Empty
-                                                                      ## constructor.
+                       header: "ChFiDS_CommonPoint.hxx", bycopy.} = object
 
 
+proc `new`*(this: var ChFiDS_CommonPoint; theSize: csize_t): pointer {.
+    importcpp: "ChFiDS_CommonPoint::operator new",
+    header: "ChFiDS_CommonPoint.hxx".}
+proc `delete`*(this: var ChFiDS_CommonPoint; theAddress: pointer) {.
+    importcpp: "ChFiDS_CommonPoint::operator delete",
+    header: "ChFiDS_CommonPoint.hxx".}
+proc `new[]`*(this: var ChFiDS_CommonPoint; theSize: csize_t): pointer {.
+    importcpp: "ChFiDS_CommonPoint::operator new[]",
+    header: "ChFiDS_CommonPoint.hxx".}
+proc `delete[]`*(this: var ChFiDS_CommonPoint; theAddress: pointer) {.
+    importcpp: "ChFiDS_CommonPoint::operator delete[]",
+    header: "ChFiDS_CommonPoint.hxx".}
+proc `new`*(this: var ChFiDS_CommonPoint; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "ChFiDS_CommonPoint::operator new",
+    header: "ChFiDS_CommonPoint.hxx".}
+proc `delete`*(this: var ChFiDS_CommonPoint; a2: pointer; a3: pointer) {.
+    importcpp: "ChFiDS_CommonPoint::operator delete",
+    header: "ChFiDS_CommonPoint.hxx".}
 proc constructChFiDS_CommonPoint*(): ChFiDS_CommonPoint {.constructor,
     importcpp: "ChFiDS_CommonPoint(@)", header: "ChFiDS_CommonPoint.hxx".}
 proc reset*(this: var ChFiDS_CommonPoint) {.importcpp: "Reset",
                                         header: "ChFiDS_CommonPoint.hxx".}
 proc setVertex*(this: var ChFiDS_CommonPoint; theVertex: TopoDS_Vertex) {.
     importcpp: "SetVertex", header: "ChFiDS_CommonPoint.hxx".}
-proc setArc*(this: var ChFiDS_CommonPoint; tol: cfloat; a: TopoDS_Edge; param: cfloat;
-            tArc: TopAbsOrientation) {.importcpp: "SetArc",
-                                     header: "ChFiDS_CommonPoint.hxx".}
-proc setParameter*(this: var ChFiDS_CommonPoint; param: cfloat) {.
+proc setArc*(this: var ChFiDS_CommonPoint; tol: StandardReal; a: TopoDS_Edge;
+            param: StandardReal; tArc: TopAbsOrientation) {.importcpp: "SetArc",
+    header: "ChFiDS_CommonPoint.hxx".}
+proc setParameter*(this: var ChFiDS_CommonPoint; param: StandardReal) {.
     importcpp: "SetParameter", header: "ChFiDS_CommonPoint.hxx".}
 proc setPoint*(this: var ChFiDS_CommonPoint; thePoint: Pnt) {.importcpp: "SetPoint",
     header: "ChFiDS_CommonPoint.hxx".}
 proc setVector*(this: var ChFiDS_CommonPoint; theVector: Vec) {.
     importcpp: "SetVector", header: "ChFiDS_CommonPoint.hxx".}
-proc setTolerance*(this: var ChFiDS_CommonPoint; tol: cfloat) {.
+proc setTolerance*(this: var ChFiDS_CommonPoint; tol: StandardReal) {.
     importcpp: "SetTolerance", header: "ChFiDS_CommonPoint.hxx".}
-proc tolerance*(this: ChFiDS_CommonPoint): cfloat {.noSideEffect,
+proc tolerance*(this: ChFiDS_CommonPoint): StandardReal {.noSideEffect,
     importcpp: "Tolerance", header: "ChFiDS_CommonPoint.hxx".}
-proc isVertex*(this: ChFiDS_CommonPoint): bool {.noSideEffect, importcpp: "IsVertex",
-    header: "ChFiDS_CommonPoint.hxx".}
+proc isVertex*(this: ChFiDS_CommonPoint): StandardBoolean {.noSideEffect,
+    importcpp: "IsVertex", header: "ChFiDS_CommonPoint.hxx".}
 proc vertex*(this: ChFiDS_CommonPoint): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "ChFiDS_CommonPoint.hxx".}
-proc isOnArc*(this: ChFiDS_CommonPoint): bool {.noSideEffect, importcpp: "IsOnArc",
-    header: "ChFiDS_CommonPoint.hxx".}
+proc isOnArc*(this: ChFiDS_CommonPoint): StandardBoolean {.noSideEffect,
+    importcpp: "IsOnArc", header: "ChFiDS_CommonPoint.hxx".}
 proc arc*(this: ChFiDS_CommonPoint): TopoDS_Edge {.noSideEffect, importcpp: "Arc",
     header: "ChFiDS_CommonPoint.hxx".}
 proc transitionOnArc*(this: ChFiDS_CommonPoint): TopAbsOrientation {.noSideEffect,
     importcpp: "TransitionOnArc", header: "ChFiDS_CommonPoint.hxx".}
-proc parameterOnArc*(this: ChFiDS_CommonPoint): cfloat {.noSideEffect,
+proc parameterOnArc*(this: ChFiDS_CommonPoint): StandardReal {.noSideEffect,
     importcpp: "ParameterOnArc", header: "ChFiDS_CommonPoint.hxx".}
-proc parameter*(this: ChFiDS_CommonPoint): cfloat {.noSideEffect,
+proc parameter*(this: ChFiDS_CommonPoint): StandardReal {.noSideEffect,
     importcpp: "Parameter", header: "ChFiDS_CommonPoint.hxx".}
 proc point*(this: ChFiDS_CommonPoint): Pnt {.noSideEffect, importcpp: "Point",
     header: "ChFiDS_CommonPoint.hxx".}
-proc hasVector*(this: ChFiDS_CommonPoint): bool {.noSideEffect,
+proc hasVector*(this: ChFiDS_CommonPoint): StandardBoolean {.noSideEffect,
     importcpp: "HasVector", header: "ChFiDS_CommonPoint.hxx".}
 proc vector*(this: ChFiDS_CommonPoint): Vec {.noSideEffect, importcpp: "Vector",
     header: "ChFiDS_CommonPoint.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

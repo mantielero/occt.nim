@@ -80,7 +80,12 @@ groups &= group
 #let filter = @["Standard"]
 #let filter = @["NCollection"]
 #let filter = @["BRepBuilderAPI"]
-let filter = @["TopoDS"]
+#let filter = @["TopoDS"]
+#let filter = @["BRepPrim", "BRepPrimAPI"]
+#let filter = @["BRep"]
+#let filter = @["TopAbs", "TopBas", "TopClass", "TopCnx","TopExp", "TopLoc"]
+#let filter = @["ChFi"]
+#let filter = @["TopoDSToStep", "TopOpe","TopTools","TopTrans","TPrsStd", "Trnasfer", "TShort"]
 var errorFiles = newSeq[string]()
 for group in groups:
   var flag = false
@@ -328,7 +333,7 @@ proc globCommentWhens(glb:string) =
   #for fname in walkFiles(glob):
     fname.commentWhens
 
-
+#[ 
 
 #"occt/gp/gp_QuaternionSLerp.nim".comment(31,3)
 #"occt/gp/gp_Vec.nim".comment(31,3)
@@ -507,3 +512,4 @@ type
   TColStdArray1OfExtendedString* = NCollectionArray1[TCollectionExtendedString]
 ]#
 
+ ]#

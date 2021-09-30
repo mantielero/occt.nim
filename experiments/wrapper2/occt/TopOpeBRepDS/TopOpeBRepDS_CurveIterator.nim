@@ -18,61 +18,38 @@ discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of Geom2d_Curve"
 type
   TopOpeBRepDS_CurveIterator* {.importcpp: "TopOpeBRepDS_CurveIterator",
-                               header: "TopOpeBRepDS_CurveIterator.hxx", bycopy.} = object of TopOpeBRepDS_InterferenceIterator ##
-                                                                                                                         ## !
-                                                                                                                         ## Creates
-                                                                                                                         ## an
-                                                                                                                         ## iterator
-                                                                                                                         ## on
-                                                                                                                         ## the
-                                                                                                                         ## curves
-                                                                                                                         ## on
-                                                                                                                         ## surface
-                                                                                                                         ##
-                                                                                                                         ## !
-                                                                                                                         ## described
-                                                                                                                         ## by
-                                                                                                                         ## the
-                                                                                                                         ## interferences
-                                                                                                                         ## in
-                                                                                                                         ## <L>.
+                               header: "TopOpeBRepDS_CurveIterator.hxx", bycopy.} = object of TopOpeBRepDS_InterferenceIterator
 
 
+proc `new`*(this: var TopOpeBRepDS_CurveIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_CurveIterator::operator new",
+    header: "TopOpeBRepDS_CurveIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_CurveIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_CurveIterator::operator delete",
+    header: "TopOpeBRepDS_CurveIterator.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_CurveIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_CurveIterator::operator new[]",
+    header: "TopOpeBRepDS_CurveIterator.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_CurveIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_CurveIterator::operator delete[]",
+    header: "TopOpeBRepDS_CurveIterator.hxx".}
+proc `new`*(this: var TopOpeBRepDS_CurveIterator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_CurveIterator::operator new",
+    header: "TopOpeBRepDS_CurveIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_CurveIterator; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_CurveIterator::operator delete",
+    header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc constructTopOpeBRepDS_CurveIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_CurveIterator {.
     constructor, importcpp: "TopOpeBRepDS_CurveIterator(@)",
     header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc matchInterference*(this: TopOpeBRepDS_CurveIterator;
-                       i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    importcpp: "MatchInterference", header: "TopOpeBRepDS_CurveIterator.hxx".}
-proc current*(this: TopOpeBRepDS_CurveIterator): cint {.noSideEffect,
+                       i: Handle[TopOpeBRepDS_Interference]): StandardBoolean {.
+    noSideEffect, importcpp: "MatchInterference",
+    header: "TopOpeBRepDS_CurveIterator.hxx".}
+proc current*(this: TopOpeBRepDS_CurveIterator): int {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc orientation*(this: TopOpeBRepDS_CurveIterator; s: TopAbsState): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation",
     header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc pCurve*(this: TopOpeBRepDS_CurveIterator): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "PCurve", header: "TopOpeBRepDS_CurveIterator.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

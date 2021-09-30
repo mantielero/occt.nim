@@ -2,7 +2,7 @@
 {.experimental: "codeReordering".}
 {.experimental: "callOperator".}
 
-include BRepLib
+#include BRepLib
 include BRepLib_CheckCurveOnSurface
 include BRepLib_Command
 include BRepLib_EdgeError
@@ -21,29 +21,3 @@ include BRepLib_MakeWire
 include BRepLib_ShapeModification
 include BRepLib_ShellError
 include BRepLib_WireError
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

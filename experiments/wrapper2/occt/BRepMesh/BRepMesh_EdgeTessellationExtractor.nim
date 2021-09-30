@@ -31,11 +31,12 @@ proc destroyBRepMeshEdgeTessellationExtractor*(
     this: var BRepMeshEdgeTessellationExtractor) {.
     importcpp: "#.~BRepMesh_EdgeTessellationExtractor()",
     header: "BRepMesh_EdgeTessellationExtractor.hxx".}
-proc pointsNb*(this: BRepMeshEdgeTessellationExtractor): cint {.noSideEffect,
+proc pointsNb*(this: BRepMeshEdgeTessellationExtractor): int {.noSideEffect,
     importcpp: "PointsNb", header: "BRepMesh_EdgeTessellationExtractor.hxx".}
-proc value*(this: BRepMeshEdgeTessellationExtractor; theIndex: cint;
-           thePoint: var Pnt; theParameter: var cfloat): bool {.noSideEffect,
-    importcpp: "Value", header: "BRepMesh_EdgeTessellationExtractor.hxx".}
+proc value*(this: BRepMeshEdgeTessellationExtractor; theIndex: int;
+           thePoint: var Pnt; theParameter: var StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "Value",
+    header: "BRepMesh_EdgeTessellationExtractor.hxx".}
 type
   BRepMeshEdgeTessellationExtractorbaseType* = IMeshToolsCurveTessellator
 
@@ -47,28 +48,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BRepMeshEdgeTessellationExtractor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_EdgeTessellationExtractor.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

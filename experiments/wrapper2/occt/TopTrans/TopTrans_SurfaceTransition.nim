@@ -17,28 +17,40 @@
 discard "forward decl of gp_Dir"
 type
   TopTransSurfaceTransition* {.importcpp: "TopTrans_SurfaceTransition",
-                              header: "TopTrans_SurfaceTransition.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Create
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## Surface
-                                                                                     ## Transition.
+                              header: "TopTrans_SurfaceTransition.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopTransSurfaceTransition; theSize: csize_t): pointer {.
+    importcpp: "TopTrans_SurfaceTransition::operator new",
+    header: "TopTrans_SurfaceTransition.hxx".}
+proc `delete`*(this: var TopTransSurfaceTransition; theAddress: pointer) {.
+    importcpp: "TopTrans_SurfaceTransition::operator delete",
+    header: "TopTrans_SurfaceTransition.hxx".}
+proc `new[]`*(this: var TopTransSurfaceTransition; theSize: csize_t): pointer {.
+    importcpp: "TopTrans_SurfaceTransition::operator new[]",
+    header: "TopTrans_SurfaceTransition.hxx".}
+proc `delete[]`*(this: var TopTransSurfaceTransition; theAddress: pointer) {.
+    importcpp: "TopTrans_SurfaceTransition::operator delete[]",
+    header: "TopTrans_SurfaceTransition.hxx".}
+proc `new`*(this: var TopTransSurfaceTransition; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopTrans_SurfaceTransition::operator new",
+    header: "TopTrans_SurfaceTransition.hxx".}
+proc `delete`*(this: var TopTransSurfaceTransition; a2: pointer; a3: pointer) {.
+    importcpp: "TopTrans_SurfaceTransition::operator delete",
+    header: "TopTrans_SurfaceTransition.hxx".}
 proc constructTopTransSurfaceTransition*(): TopTransSurfaceTransition {.
     constructor, importcpp: "TopTrans_SurfaceTransition(@)",
     header: "TopTrans_SurfaceTransition.hxx".}
 proc reset*(this: var TopTransSurfaceTransition; tgt: Dir; norm: Dir; maxD: Dir;
-           minD: Dir; maxCurv: cfloat; minCurv: cfloat) {.importcpp: "Reset",
-    header: "TopTrans_SurfaceTransition.hxx".}
+           minD: Dir; maxCurv: StandardReal; minCurv: StandardReal) {.
+    importcpp: "Reset", header: "TopTrans_SurfaceTransition.hxx".}
 proc reset*(this: var TopTransSurfaceTransition; tgt: Dir; norm: Dir) {.
     importcpp: "Reset", header: "TopTrans_SurfaceTransition.hxx".}
-proc compare*(this: var TopTransSurfaceTransition; tole: cfloat; norm: Dir; maxD: Dir;
-             minD: Dir; maxCurv: cfloat; minCurv: cfloat; s: TopAbsOrientation;
-             o: TopAbsOrientation) {.importcpp: "Compare",
-                                   header: "TopTrans_SurfaceTransition.hxx".}
-proc compare*(this: var TopTransSurfaceTransition; tole: cfloat; norm: Dir;
+proc compare*(this: var TopTransSurfaceTransition; tole: StandardReal; norm: Dir;
+             maxD: Dir; minD: Dir; maxCurv: StandardReal; minCurv: StandardReal;
+             s: TopAbsOrientation; o: TopAbsOrientation) {.importcpp: "Compare",
+    header: "TopTrans_SurfaceTransition.hxx".}
+proc compare*(this: var TopTransSurfaceTransition; tole: StandardReal; norm: Dir;
              s: TopAbsOrientation; o: TopAbsOrientation) {.importcpp: "Compare",
     header: "TopTrans_SurfaceTransition.hxx".}
 proc stateBefore*(this: TopTransSurfaceTransition): TopAbsState {.noSideEffect,
@@ -51,28 +63,3 @@ proc getBefore*(tran: TopAbsOrientation): TopAbsState {.
 proc getAfter*(tran: TopAbsOrientation): TopAbsState {.
     importcpp: "TopTrans_SurfaceTransition::GetAfter(@)",
     header: "TopTrans_SurfaceTransition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

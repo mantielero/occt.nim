@@ -33,34 +33,11 @@ proc destroyBRepMeshDelaunayNodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo](
     importcpp: "#.~BRepMesh_DelaunayNodeInsertionMeshAlgo()",
     header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx".}
 proc isPreProcessSurfaceNodes*[RangeSplitter; BaseAlgo](
-    this: BRepMeshDelaunayNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo]): bool {.
+    this: BRepMeshDelaunayNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo]): StandardBoolean {.
     noSideEffect, importcpp: "IsPreProcessSurfaceNodes",
     header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx".}
 proc setPreProcessSurfaceNodes*[RangeSplitter; BaseAlgo](
     this: var BRepMeshDelaunayNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo];
-    isPreProcessSurfaceNodes: bool) {.importcpp: "SetPreProcessSurfaceNodes", header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    isPreProcessSurfaceNodes: StandardBoolean) {.
+    importcpp: "SetPreProcessSurfaceNodes",
+    header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx".}

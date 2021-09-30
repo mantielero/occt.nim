@@ -34,29 +34,3 @@ type
     BRepCheckInvalidPolygonOnTriangulation, BRepCheckInvalidToleranceValue,
     BRepCheckEnclosedRegion, BRepCheckCheckFail
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

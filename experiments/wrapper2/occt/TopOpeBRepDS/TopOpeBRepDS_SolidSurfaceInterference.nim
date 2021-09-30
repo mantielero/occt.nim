@@ -30,7 +30,7 @@ type
 
 proc constructTopOpeBRepDS_SolidSurfaceInterference*(
     transition: TopOpeBRepDS_Transition; supportType: TopOpeBRepDS_Kind;
-    support: cint; geometryType: TopOpeBRepDS_Kind; geometry: cint): TopOpeBRepDS_SolidSurfaceInterference {.
+    support: int; geometryType: TopOpeBRepDS_Kind; geometry: int): TopOpeBRepDS_SolidSurfaceInterference {.
     constructor, importcpp: "TopOpeBRepDS_SolidSurfaceInterference(@)",
     header: "TopOpeBRepDS_SolidSurfaceInterference.hxx".}
 type
@@ -44,28 +44,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopOpeBRepDS_SolidSurfaceInterference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRepDS_SolidSurfaceInterference.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

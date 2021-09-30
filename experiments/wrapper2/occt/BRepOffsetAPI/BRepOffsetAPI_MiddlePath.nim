@@ -16,26 +16,27 @@
 discard "forward decl of TopoDS_Shape"
 type
   BRepOffsetAPI_MiddlePath* {.importcpp: "BRepOffsetAPI_MiddlePath",
-                             header: "BRepOffsetAPI_MiddlePath.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                            ## !
-                                                                                                            ## General
-                                                                                                            ## constructor.
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## StartShape
-                                                                                                            ## and
-                                                                                                            ## EndShape
-                                                                                                            ## may
-                                                                                                            ## be
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## a
-                                                                                                            ## wire
-                                                                                                            ## or
-                                                                                                            ## a
-                                                                                                            ## face
+                             header: "BRepOffsetAPI_MiddlePath.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepOffsetAPI_MiddlePath; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MiddlePath::operator new",
+    header: "BRepOffsetAPI_MiddlePath.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MiddlePath; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MiddlePath::operator delete",
+    header: "BRepOffsetAPI_MiddlePath.hxx".}
+proc `new[]`*(this: var BRepOffsetAPI_MiddlePath; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MiddlePath::operator new[]",
+    header: "BRepOffsetAPI_MiddlePath.hxx".}
+proc `delete[]`*(this: var BRepOffsetAPI_MiddlePath; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MiddlePath::operator delete[]",
+    header: "BRepOffsetAPI_MiddlePath.hxx".}
+proc `new`*(this: var BRepOffsetAPI_MiddlePath; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffsetAPI_MiddlePath::operator new",
+    header: "BRepOffsetAPI_MiddlePath.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MiddlePath; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffsetAPI_MiddlePath::operator delete",
+    header: "BRepOffsetAPI_MiddlePath.hxx".}
 proc constructBRepOffsetAPI_MiddlePath*(aShape: TopoDS_Shape;
                                        startShape: TopoDS_Shape;
                                        endShape: TopoDS_Shape): BRepOffsetAPI_MiddlePath {.
@@ -43,28 +44,3 @@ proc constructBRepOffsetAPI_MiddlePath*(aShape: TopoDS_Shape;
     header: "BRepOffsetAPI_MiddlePath.hxx".}
 proc build*(this: var BRepOffsetAPI_MiddlePath) {.importcpp: "Build",
     header: "BRepOffsetAPI_MiddlePath.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

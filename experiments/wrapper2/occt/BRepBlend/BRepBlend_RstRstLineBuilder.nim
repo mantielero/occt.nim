@@ -30,6 +30,24 @@ type
                                header: "BRepBlend_RstRstLineBuilder.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepBlendRstRstLineBuilder; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_RstRstLineBuilder::operator new",
+    header: "BRepBlend_RstRstLineBuilder.hxx".}
+proc `delete`*(this: var BRepBlendRstRstLineBuilder; theAddress: pointer) {.
+    importcpp: "BRepBlend_RstRstLineBuilder::operator delete",
+    header: "BRepBlend_RstRstLineBuilder.hxx".}
+proc `new[]`*(this: var BRepBlendRstRstLineBuilder; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_RstRstLineBuilder::operator new[]",
+    header: "BRepBlend_RstRstLineBuilder.hxx".}
+proc `delete[]`*(this: var BRepBlendRstRstLineBuilder; theAddress: pointer) {.
+    importcpp: "BRepBlend_RstRstLineBuilder::operator delete[]",
+    header: "BRepBlend_RstRstLineBuilder.hxx".}
+proc `new`*(this: var BRepBlendRstRstLineBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBlend_RstRstLineBuilder::operator new",
+    header: "BRepBlend_RstRstLineBuilder.hxx".}
+proc `delete`*(this: var BRepBlendRstRstLineBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBlend_RstRstLineBuilder::operator delete",
+    header: "BRepBlend_RstRstLineBuilder.hxx".}
 proc constructBRepBlendRstRstLineBuilder*(surf1: Handle[Adaptor3dHSurface];
     rst1: Handle[Adaptor2dHCurve2d]; domain1: Handle[Adaptor3dTopolTool];
     surf2: Handle[Adaptor3dHSurface]; rst2: Handle[Adaptor2dHCurve2d];
@@ -39,58 +57,38 @@ proc constructBRepBlendRstRstLineBuilder*(surf1: Handle[Adaptor3dHSurface];
 proc perform*(this: var BRepBlendRstRstLineBuilder; `func`: var BlendRstRstFunction;
              finv1: var BlendSurfCurvFuncInv; finvP1: var BlendCurvPointFuncInv;
              finv2: var BlendSurfCurvFuncInv; finvP2: var BlendCurvPointFuncInv;
-             pdep: cfloat; pmax: cfloat; maxStep: cfloat; tolGuide: cfloat;
-             soldep: MathVector; tolesp: cfloat; fleche: cfloat; appro: bool = false) {.
+             pdep: StandardReal; pmax: StandardReal; maxStep: StandardReal;
+             tolGuide: StandardReal; soldep: MathVector; tolesp: StandardReal;
+             fleche: StandardReal; appro: StandardBoolean = false) {.
     importcpp: "Perform", header: "BRepBlend_RstRstLineBuilder.hxx".}
 proc performFirstSection*(this: var BRepBlendRstRstLineBuilder;
                          `func`: var BlendRstRstFunction;
                          finv1: var BlendSurfCurvFuncInv;
                          finvP1: var BlendCurvPointFuncInv;
                          finv2: var BlendSurfCurvFuncInv;
-                         finvP2: var BlendCurvPointFuncInv; pdep: cfloat;
-                         pmax: cfloat; soldep: MathVector; tolesp: cfloat;
-                         tolGuide: cfloat; recRst1: bool; recP1: bool; recRst2: bool;
-                         recP2: bool; psol: var cfloat; parSol: var MathVector): bool {.
+                         finvP2: var BlendCurvPointFuncInv; pdep: StandardReal;
+                         pmax: StandardReal; soldep: MathVector;
+                         tolesp: StandardReal; tolGuide: StandardReal;
+                         recRst1: StandardBoolean; recP1: StandardBoolean;
+                         recRst2: StandardBoolean; recP2: StandardBoolean;
+                         psol: var StandardReal; parSol: var MathVector): StandardBoolean {.
     importcpp: "PerformFirstSection", header: "BRepBlend_RstRstLineBuilder.hxx".}
 proc complete*(this: var BRepBlendRstRstLineBuilder;
               `func`: var BlendRstRstFunction; finv1: var BlendSurfCurvFuncInv;
               finvP1: var BlendCurvPointFuncInv; finv2: var BlendSurfCurvFuncInv;
-              finvP2: var BlendCurvPointFuncInv; pmin: cfloat): bool {.
+              finvP2: var BlendCurvPointFuncInv; pmin: StandardReal): StandardBoolean {.
     importcpp: "Complete", header: "BRepBlend_RstRstLineBuilder.hxx".}
-proc isDone*(this: BRepBlendRstRstLineBuilder): bool {.noSideEffect,
+proc isDone*(this: BRepBlendRstRstLineBuilder): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepBlend_RstRstLineBuilder.hxx".}
 proc line*(this: BRepBlendRstRstLineBuilder): Handle[BRepBlendLine] {.noSideEffect,
     importcpp: "Line", header: "BRepBlend_RstRstLineBuilder.hxx".}
-proc decroch1Start*(this: BRepBlendRstRstLineBuilder): bool {.noSideEffect,
-    importcpp: "Decroch1Start", header: "BRepBlend_RstRstLineBuilder.hxx".}
-proc decroch1End*(this: BRepBlendRstRstLineBuilder): bool {.noSideEffect,
+proc decroch1Start*(this: BRepBlendRstRstLineBuilder): StandardBoolean {.
+    noSideEffect, importcpp: "Decroch1Start",
+    header: "BRepBlend_RstRstLineBuilder.hxx".}
+proc decroch1End*(this: BRepBlendRstRstLineBuilder): StandardBoolean {.noSideEffect,
     importcpp: "Decroch1End", header: "BRepBlend_RstRstLineBuilder.hxx".}
-proc decroch2Start*(this: BRepBlendRstRstLineBuilder): bool {.noSideEffect,
-    importcpp: "Decroch2Start", header: "BRepBlend_RstRstLineBuilder.hxx".}
-proc decroch2End*(this: BRepBlendRstRstLineBuilder): bool {.noSideEffect,
+proc decroch2Start*(this: BRepBlendRstRstLineBuilder): StandardBoolean {.
+    noSideEffect, importcpp: "Decroch2Start",
+    header: "BRepBlend_RstRstLineBuilder.hxx".}
+proc decroch2End*(this: BRepBlendRstRstLineBuilder): StandardBoolean {.noSideEffect,
     importcpp: "Decroch2End", header: "BRepBlend_RstRstLineBuilder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

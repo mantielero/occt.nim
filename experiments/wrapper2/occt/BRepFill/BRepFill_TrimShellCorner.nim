@@ -19,33 +19,27 @@ discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Shape"
 type
   BRepFillTrimShellCorner* {.importcpp: "BRepFill_TrimShellCorner",
-                            header: "BRepFill_TrimShellCorner.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Constructor:
-                                                                                 ## takes
-                                                                                 ## faces
-                                                                                 ## to
-                                                                                 ## intersect,
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## type
-                                                                                 ## of
-                                                                                 ## transition
-                                                                                 ## (it
-                                                                                 ## can
-                                                                                 ## be
-                                                                                 ## RightCorner
-                                                                                 ## or
-                                                                                 ## RoundCorner)
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## and
-                                                                                 ## axis
-                                                                                 ## of
-                                                                                 ## bisector
-                                                                                 ## plane
+                            header: "BRepFill_TrimShellCorner.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepFillTrimShellCorner; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_TrimShellCorner::operator new",
+    header: "BRepFill_TrimShellCorner.hxx".}
+proc `delete`*(this: var BRepFillTrimShellCorner; theAddress: pointer) {.
+    importcpp: "BRepFill_TrimShellCorner::operator delete",
+    header: "BRepFill_TrimShellCorner.hxx".}
+proc `new[]`*(this: var BRepFillTrimShellCorner; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_TrimShellCorner::operator new[]",
+    header: "BRepFill_TrimShellCorner.hxx".}
+proc `delete[]`*(this: var BRepFillTrimShellCorner; theAddress: pointer) {.
+    importcpp: "BRepFill_TrimShellCorner::operator delete[]",
+    header: "BRepFill_TrimShellCorner.hxx".}
+proc `new`*(this: var BRepFillTrimShellCorner; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_TrimShellCorner::operator new",
+    header: "BRepFill_TrimShellCorner.hxx".}
+proc `delete`*(this: var BRepFillTrimShellCorner; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_TrimShellCorner::operator delete",
+    header: "BRepFill_TrimShellCorner.hxx".}
 proc constructBRepFillTrimShellCorner*(theFaces: Handle[TopToolsHArray2OfShape];
                                       theTransition: BRepFillTransitionStyle;
                                       theAxeOfBisPlane: Ax2): BRepFillTrimShellCorner {.
@@ -58,39 +52,14 @@ proc addUEdges*(this: var BRepFillTrimShellCorner;
                theUEdges: Handle[TopToolsHArray2OfShape]) {.
     importcpp: "AddUEdges", header: "BRepFill_TrimShellCorner.hxx".}
 proc addVEdges*(this: var BRepFillTrimShellCorner;
-               theVEdges: Handle[TopToolsHArray2OfShape]; theIndex: cint) {.
+               theVEdges: Handle[TopToolsHArray2OfShape]; theIndex: int) {.
     importcpp: "AddVEdges", header: "BRepFill_TrimShellCorner.hxx".}
 proc perform*(this: var BRepFillTrimShellCorner) {.importcpp: "Perform",
     header: "BRepFill_TrimShellCorner.hxx".}
-proc isDone*(this: BRepFillTrimShellCorner): bool {.noSideEffect,
+proc isDone*(this: BRepFillTrimShellCorner): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepFill_TrimShellCorner.hxx".}
-proc hasSection*(this: BRepFillTrimShellCorner): bool {.noSideEffect,
+proc hasSection*(this: BRepFillTrimShellCorner): StandardBoolean {.noSideEffect,
     importcpp: "HasSection", header: "BRepFill_TrimShellCorner.hxx".}
 proc modified*(this: var BRepFillTrimShellCorner; s: TopoDS_Shape;
               theModified: var TopToolsListOfShape) {.importcpp: "Modified",
     header: "BRepFill_TrimShellCorner.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

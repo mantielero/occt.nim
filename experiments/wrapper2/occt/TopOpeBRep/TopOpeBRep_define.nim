@@ -26,29 +26,3 @@ const
   MTPef* = topOpeBRepEdgesFiller
   MTPfef* = topOpeBRepFaceEdgeFiller
   MTPpgt* = topOpeBRepPointGeomTool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

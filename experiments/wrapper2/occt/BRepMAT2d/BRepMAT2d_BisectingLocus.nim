@@ -27,25 +27,44 @@ type
                             header: "BRepMAT2d_BisectingLocus.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepMAT2dBisectingLocus; theSize: csize_t): pointer {.
+    importcpp: "BRepMAT2d_BisectingLocus::operator new",
+    header: "BRepMAT2d_BisectingLocus.hxx".}
+proc `delete`*(this: var BRepMAT2dBisectingLocus; theAddress: pointer) {.
+    importcpp: "BRepMAT2d_BisectingLocus::operator delete",
+    header: "BRepMAT2d_BisectingLocus.hxx".}
+proc `new[]`*(this: var BRepMAT2dBisectingLocus; theSize: csize_t): pointer {.
+    importcpp: "BRepMAT2d_BisectingLocus::operator new[]",
+    header: "BRepMAT2d_BisectingLocus.hxx".}
+proc `delete[]`*(this: var BRepMAT2dBisectingLocus; theAddress: pointer) {.
+    importcpp: "BRepMAT2d_BisectingLocus::operator delete[]",
+    header: "BRepMAT2d_BisectingLocus.hxx".}
+proc `new`*(this: var BRepMAT2dBisectingLocus; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepMAT2d_BisectingLocus::operator new",
+    header: "BRepMAT2d_BisectingLocus.hxx".}
+proc `delete`*(this: var BRepMAT2dBisectingLocus; a2: pointer; a3: pointer) {.
+    importcpp: "BRepMAT2d_BisectingLocus::operator delete",
+    header: "BRepMAT2d_BisectingLocus.hxx".}
 proc constructBRepMAT2dBisectingLocus*(): BRepMAT2dBisectingLocus {.constructor,
     importcpp: "BRepMAT2d_BisectingLocus(@)",
     header: "BRepMAT2d_BisectingLocus.hxx".}
 proc compute*(this: var BRepMAT2dBisectingLocus; anExplo: var BRepMAT2dExplorer;
-             lineIndex: cint = 1; aSide: MAT_Side = mAT_Left;
-             aJoinType: GeomAbsJoinType = geomAbsArc; isOpenResult: bool = false) {.
-    importcpp: "Compute", header: "BRepMAT2d_BisectingLocus.hxx".}
-proc isDone*(this: BRepMAT2dBisectingLocus): bool {.noSideEffect,
+             lineIndex: int = 1; aSide: MAT_Side = mAT_Left;
+             aJoinType: GeomAbsJoinType = geomAbsArc;
+             isOpenResult: StandardBoolean = false) {.importcpp: "Compute",
+    header: "BRepMAT2d_BisectingLocus.hxx".}
+proc isDone*(this: BRepMAT2dBisectingLocus): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepMAT2d_BisectingLocus.hxx".}
 proc graph*(this: BRepMAT2dBisectingLocus): Handle[MAT_Graph] {.noSideEffect,
     importcpp: "Graph", header: "BRepMAT2d_BisectingLocus.hxx".}
-proc numberOfContours*(this: BRepMAT2dBisectingLocus): cint {.noSideEffect,
+proc numberOfContours*(this: BRepMAT2dBisectingLocus): int {.noSideEffect,
     importcpp: "NumberOfContours", header: "BRepMAT2d_BisectingLocus.hxx".}
-proc numberOfElts*(this: BRepMAT2dBisectingLocus; indLine: cint): cint {.noSideEffect,
+proc numberOfElts*(this: BRepMAT2dBisectingLocus; indLine: int): int {.noSideEffect,
     importcpp: "NumberOfElts", header: "BRepMAT2d_BisectingLocus.hxx".}
-proc numberOfSections*(this: BRepMAT2dBisectingLocus; indLine: cint; index: cint): cint {.
+proc numberOfSections*(this: BRepMAT2dBisectingLocus; indLine: int; index: int): int {.
     noSideEffect, importcpp: "NumberOfSections",
     header: "BRepMAT2d_BisectingLocus.hxx".}
-proc basicElt*(this: BRepMAT2dBisectingLocus; indLine: cint; index: cint): Handle[
+proc basicElt*(this: BRepMAT2dBisectingLocus; indLine: int; index: int): Handle[
     MAT_BasicElt] {.noSideEffect, importcpp: "BasicElt",
                    header: "BRepMAT2d_BisectingLocus.hxx".}
 proc geomElt*(this: BRepMAT2dBisectingLocus; aBasicElt: Handle[MAT_BasicElt]): Handle[
@@ -54,30 +73,5 @@ proc geomElt*(this: BRepMAT2dBisectingLocus; aBasicElt: Handle[MAT_BasicElt]): H
 proc geomElt*(this: BRepMAT2dBisectingLocus; aNode: Handle[MAT_Node]): Pnt2d {.
     noSideEffect, importcpp: "GeomElt", header: "BRepMAT2d_BisectingLocus.hxx".}
 proc geomBis*(this: BRepMAT2dBisectingLocus; anArc: Handle[MAT_Arc];
-             reverse: var bool): BisectorBisec {.noSideEffect, importcpp: "GeomBis",
-    header: "BRepMAT2d_BisectingLocus.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+             reverse: var StandardBoolean): BisectorBisec {.noSideEffect,
+    importcpp: "GeomBis", header: "BRepMAT2d_BisectingLocus.hxx".}

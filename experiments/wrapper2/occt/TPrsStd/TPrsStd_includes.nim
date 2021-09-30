@@ -15,29 +15,3 @@ include TPrsStd_GeometryDriver
 include TPrsStd_NamedShapeDriver
 include TPrsStd_PlaneDriver
 include TPrsStd_PointDriver
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,46 +17,28 @@
 discard "forward decl of TopoDS_Shape"
 type
   BRepPrimAPI_MakeSweep* {.importcpp: "BRepPrimAPI_MakeSweep",
-                          header: "BRepPrimAPI_MakeSweep.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                      ## !
-                                                                                                      ## Returns
-                                                                                                      ## the
-                                                                                                      ## TopoDS
-                                                                                                      ## Shape
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## bottom
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## sweep.
+                          header: "BRepPrimAPI_MakeSweep.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepPrimAPI_MakeSweep; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeSweep::operator new",
+    header: "BRepPrimAPI_MakeSweep.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeSweep; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeSweep::operator delete",
+    header: "BRepPrimAPI_MakeSweep.hxx".}
+proc `new[]`*(this: var BRepPrimAPI_MakeSweep; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeSweep::operator new[]",
+    header: "BRepPrimAPI_MakeSweep.hxx".}
+proc `delete[]`*(this: var BRepPrimAPI_MakeSweep; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeSweep::operator delete[]",
+    header: "BRepPrimAPI_MakeSweep.hxx".}
+proc `new`*(this: var BRepPrimAPI_MakeSweep; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrimAPI_MakeSweep::operator new",
+    header: "BRepPrimAPI_MakeSweep.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeSweep; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrimAPI_MakeSweep::operator delete",
+    header: "BRepPrimAPI_MakeSweep.hxx".}
 proc firstShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepPrimAPI_MakeSweep.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepPrimAPI_MakeSweep.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

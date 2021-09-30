@@ -22,47 +22,40 @@ type
                            header: "TopOpeBRepTool_mkTondgE.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepToolMkTondgE; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_mkTondgE::operator new",
+    header: "TopOpeBRepTool_mkTondgE.hxx".}
+proc `delete`*(this: var TopOpeBRepToolMkTondgE; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_mkTondgE::operator delete",
+    header: "TopOpeBRepTool_mkTondgE.hxx".}
+proc `new[]`*(this: var TopOpeBRepToolMkTondgE; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_mkTondgE::operator new[]",
+    header: "TopOpeBRepTool_mkTondgE.hxx".}
+proc `delete[]`*(this: var TopOpeBRepToolMkTondgE; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_mkTondgE::operator delete[]",
+    header: "TopOpeBRepTool_mkTondgE.hxx".}
+proc `new`*(this: var TopOpeBRepToolMkTondgE; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepTool_mkTondgE::operator new",
+    header: "TopOpeBRepTool_mkTondgE.hxx".}
+proc `delete`*(this: var TopOpeBRepToolMkTondgE; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepTool_mkTondgE::operator delete",
+    header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc constructTopOpeBRepToolMkTondgE*(): TopOpeBRepToolMkTondgE {.constructor,
     importcpp: "TopOpeBRepTool_mkTondgE(@)", header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc initialize*(this: var TopOpeBRepToolMkTondgE; dgE: TopoDS_Edge; f: TopoDS_Face;
-                uvi: Pnt2d; fi: TopoDS_Face): bool {.importcpp: "Initialize",
-    header: "TopOpeBRepTool_mkTondgE.hxx".}
-proc setclE*(this: var TopOpeBRepToolMkTondgE; clE: TopoDS_Edge): bool {.
+                uvi: Pnt2d; fi: TopoDS_Face): StandardBoolean {.
+    importcpp: "Initialize", header: "TopOpeBRepTool_mkTondgE.hxx".}
+proc setclE*(this: var TopOpeBRepToolMkTondgE; clE: TopoDS_Edge): StandardBoolean {.
     importcpp: "SetclE", header: "TopOpeBRepTool_mkTondgE.hxx".}
-proc isT2d*(this: TopOpeBRepToolMkTondgE): bool {.noSideEffect, importcpp: "IsT2d",
-    header: "TopOpeBRepTool_mkTondgE.hxx".}
-proc setRest*(this: var TopOpeBRepToolMkTondgE; pari: cfloat; ei: TopoDS_Edge): bool {.
+proc isT2d*(this: TopOpeBRepToolMkTondgE): StandardBoolean {.noSideEffect,
+    importcpp: "IsT2d", header: "TopOpeBRepTool_mkTondgE.hxx".}
+proc setRest*(this: var TopOpeBRepToolMkTondgE; pari: StandardReal; ei: TopoDS_Edge): StandardBoolean {.
     importcpp: "SetRest", header: "TopOpeBRepTool_mkTondgE.hxx".}
-proc getAllRest*(this: var TopOpeBRepToolMkTondgE; lEi: var TopToolsListOfShape): cint {.
+proc getAllRest*(this: var TopOpeBRepToolMkTondgE; lEi: var TopToolsListOfShape): int {.
     importcpp: "GetAllRest", header: "TopOpeBRepTool_mkTondgE.hxx".}
-proc mkTonE*(this: var TopOpeBRepToolMkTondgE; mkT: var cint; par1: var cfloat;
-            par2: var cfloat): bool {.importcpp: "MkTonE",
-                                  header: "TopOpeBRepTool_mkTondgE.hxx".}
-proc mkTonE*(this: var TopOpeBRepToolMkTondgE; ei: TopoDS_Edge; mkT: var cint;
-            par1: var cfloat; par2: var cfloat): bool {.importcpp: "MkTonE",
+proc mkTonE*(this: var TopOpeBRepToolMkTondgE; mkT: var int; par1: var StandardReal;
+            par2: var StandardReal): StandardBoolean {.importcpp: "MkTonE",
     header: "TopOpeBRepTool_mkTondgE.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc mkTonE*(this: var TopOpeBRepToolMkTondgE; ei: TopoDS_Edge; mkT: var int;
+            par1: var StandardReal; par2: var StandardReal): StandardBoolean {.
+    importcpp: "MkTonE", header: "TopOpeBRepTool_mkTondgE.hxx".}

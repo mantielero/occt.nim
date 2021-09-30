@@ -20,24 +20,25 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 type
   BRepLibMakeShape* {.importcpp: "BRepLib_MakeShape",
-                     header: "BRepLib_MakeShape.hxx", bycopy.} = object of BRepLibCommand ##
-                                                                                   ## !
-                                                                                   ## This
-                                                                                   ## is
-                                                                                   ## called
-                                                                                   ## by
-                                                                                   ## Shape().
-                                                                                   ## It
-                                                                                   ## does
-                                                                                   ## nothing
-                                                                                   ## but
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## may
-                                                                                   ## be
-                                                                                   ## redefined.
+                     header: "BRepLib_MakeShape.hxx", bycopy.} = object of BRepLibCommand
 
 
+proc `new`*(this: var BRepLibMakeShape; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_MakeShape::operator new", header: "BRepLib_MakeShape.hxx".}
+proc `delete`*(this: var BRepLibMakeShape; theAddress: pointer) {.
+    importcpp: "BRepLib_MakeShape::operator delete",
+    header: "BRepLib_MakeShape.hxx".}
+proc `new[]`*(this: var BRepLibMakeShape; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_MakeShape::operator new[]",
+    header: "BRepLib_MakeShape.hxx".}
+proc `delete[]`*(this: var BRepLibMakeShape; theAddress: pointer) {.
+    importcpp: "BRepLib_MakeShape::operator delete[]",
+    header: "BRepLib_MakeShape.hxx".}
+proc `new`*(this: var BRepLibMakeShape; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLib_MakeShape::operator new", header: "BRepLib_MakeShape.hxx".}
+proc `delete`*(this: var BRepLibMakeShape; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLib_MakeShape::operator delete",
+    header: "BRepLib_MakeShape.hxx".}
 proc build*(this: var BRepLibMakeShape) {.importcpp: "Build",
                                       header: "BRepLib_MakeShape.hxx".}
 proc shape*(this: var BRepLibMakeShape): TopoDS_Shape {.importcpp: "Shape",
@@ -47,38 +48,13 @@ converter `topoDS_Shape`*(this: var BRepLibMakeShape): TopoDS_Shape {.
     header: "BRepLib_MakeShape.hxx".}
 proc faceStatus*(this: BRepLibMakeShape; f: TopoDS_Face): BRepLibShapeModification {.
     noSideEffect, importcpp: "FaceStatus", header: "BRepLib_MakeShape.hxx".}
-proc hasDescendants*(this: BRepLibMakeShape; f: TopoDS_Face): bool {.noSideEffect,
-    importcpp: "HasDescendants", header: "BRepLib_MakeShape.hxx".}
+proc hasDescendants*(this: BRepLibMakeShape; f: TopoDS_Face): StandardBoolean {.
+    noSideEffect, importcpp: "HasDescendants", header: "BRepLib_MakeShape.hxx".}
 proc descendantFaces*(this: var BRepLibMakeShape; f: TopoDS_Face): TopToolsListOfShape {.
     importcpp: "DescendantFaces", header: "BRepLib_MakeShape.hxx".}
-proc nbSurfaces*(this: BRepLibMakeShape): cint {.noSideEffect,
+proc nbSurfaces*(this: BRepLibMakeShape): int {.noSideEffect,
     importcpp: "NbSurfaces", header: "BRepLib_MakeShape.hxx".}
-proc newFaces*(this: var BRepLibMakeShape; i: cint): TopToolsListOfShape {.
+proc newFaces*(this: var BRepLibMakeShape; i: int): TopToolsListOfShape {.
     importcpp: "NewFaces", header: "BRepLib_MakeShape.hxx".}
 proc facesFromEdges*(this: var BRepLibMakeShape; e: TopoDS_Edge): TopToolsListOfShape {.
     importcpp: "FacesFromEdges", header: "BRepLib_MakeShape.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,42 +21,57 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Wire"
 type
   BRepLibMakePolygon* {.importcpp: "BRepLib_MakePolygon",
-                       header: "BRepLib_MakePolygon.hxx", bycopy.} = object of BRepLibMakeShape ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## an
-                                                                                         ## empty
-                                                                                         ## MakePolygon.
+                       header: "BRepLib_MakePolygon.hxx", bycopy.} = object of BRepLibMakeShape
 
 
+proc `new`*(this: var BRepLibMakePolygon; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_MakePolygon::operator new",
+    header: "BRepLib_MakePolygon.hxx".}
+proc `delete`*(this: var BRepLibMakePolygon; theAddress: pointer) {.
+    importcpp: "BRepLib_MakePolygon::operator delete",
+    header: "BRepLib_MakePolygon.hxx".}
+proc `new[]`*(this: var BRepLibMakePolygon; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_MakePolygon::operator new[]",
+    header: "BRepLib_MakePolygon.hxx".}
+proc `delete[]`*(this: var BRepLibMakePolygon; theAddress: pointer) {.
+    importcpp: "BRepLib_MakePolygon::operator delete[]",
+    header: "BRepLib_MakePolygon.hxx".}
+proc `new`*(this: var BRepLibMakePolygon; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLib_MakePolygon::operator new",
+    header: "BRepLib_MakePolygon.hxx".}
+proc `delete`*(this: var BRepLibMakePolygon; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLib_MakePolygon::operator delete",
+    header: "BRepLib_MakePolygon.hxx".}
 proc constructBRepLibMakePolygon*(): BRepLibMakePolygon {.constructor,
     importcpp: "BRepLib_MakePolygon(@)", header: "BRepLib_MakePolygon.hxx".}
 proc constructBRepLibMakePolygon*(p1: Pnt; p2: Pnt): BRepLibMakePolygon {.constructor,
     importcpp: "BRepLib_MakePolygon(@)", header: "BRepLib_MakePolygon.hxx".}
-proc constructBRepLibMakePolygon*(p1: Pnt; p2: Pnt; p3: Pnt; close: bool = false): BRepLibMakePolygon {.
+proc constructBRepLibMakePolygon*(p1: Pnt; p2: Pnt; p3: Pnt;
+                                 close: StandardBoolean = false): BRepLibMakePolygon {.
     constructor, importcpp: "BRepLib_MakePolygon(@)",
     header: "BRepLib_MakePolygon.hxx".}
-proc constructBRepLibMakePolygon*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt; close: bool = false): BRepLibMakePolygon {.
+proc constructBRepLibMakePolygon*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt;
+                                 close: StandardBoolean = false): BRepLibMakePolygon {.
     constructor, importcpp: "BRepLib_MakePolygon(@)",
     header: "BRepLib_MakePolygon.hxx".}
 proc constructBRepLibMakePolygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepLibMakePolygon {.
     constructor, importcpp: "BRepLib_MakePolygon(@)",
     header: "BRepLib_MakePolygon.hxx".}
 proc constructBRepLibMakePolygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex;
-                                 v3: TopoDS_Vertex; close: bool = false): BRepLibMakePolygon {.
+                                 v3: TopoDS_Vertex; close: StandardBoolean = false): BRepLibMakePolygon {.
     constructor, importcpp: "BRepLib_MakePolygon(@)",
     header: "BRepLib_MakePolygon.hxx".}
 proc constructBRepLibMakePolygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex;
                                  v3: TopoDS_Vertex; v4: TopoDS_Vertex;
-                                 close: bool = false): BRepLibMakePolygon {.
+                                 close: StandardBoolean = false): BRepLibMakePolygon {.
     constructor, importcpp: "BRepLib_MakePolygon(@)",
     header: "BRepLib_MakePolygon.hxx".}
 proc add*(this: var BRepLibMakePolygon; p: Pnt) {.importcpp: "Add",
     header: "BRepLib_MakePolygon.hxx".}
 proc add*(this: var BRepLibMakePolygon; v: TopoDS_Vertex) {.importcpp: "Add",
     header: "BRepLib_MakePolygon.hxx".}
-proc added*(this: BRepLibMakePolygon): bool {.noSideEffect, importcpp: "Added",
-    header: "BRepLib_MakePolygon.hxx".}
+proc added*(this: BRepLibMakePolygon): StandardBoolean {.noSideEffect,
+    importcpp: "Added", header: "BRepLib_MakePolygon.hxx".}
 proc close*(this: var BRepLibMakePolygon) {.importcpp: "Close",
                                         header: "BRepLib_MakePolygon.hxx".}
 proc firstVertex*(this: BRepLibMakePolygon): TopoDS_Vertex {.noSideEffect,
@@ -73,28 +88,3 @@ proc wire*(this: var BRepLibMakePolygon): TopoDS_Wire {.importcpp: "Wire",
 converter `topoDS_Wire`*(this: var BRepLibMakePolygon): TopoDS_Wire {.
     importcpp: "BRepLib_MakePolygon::operator TopoDS_Wire",
     header: "BRepLib_MakePolygon.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -32,15 +32,15 @@ proc minimum*(this: var BRepCheckShell) {.importcpp: "Minimum",
                                       header: "BRepCheck_Shell.hxx".}
 proc blind*(this: var BRepCheckShell) {.importcpp: "Blind",
                                     header: "BRepCheck_Shell.hxx".}
-proc closed*(this: var BRepCheckShell; update: bool = false): BRepCheckStatus {.
+proc closed*(this: var BRepCheckShell; update: StandardBoolean = false): BRepCheckStatus {.
     importcpp: "Closed", header: "BRepCheck_Shell.hxx".}
-proc orientation*(this: var BRepCheckShell; update: bool = false): BRepCheckStatus {.
+proc orientation*(this: var BRepCheckShell; update: StandardBoolean = false): BRepCheckStatus {.
     importcpp: "Orientation", header: "BRepCheck_Shell.hxx".}
 proc setUnorientable*(this: var BRepCheckShell) {.importcpp: "SetUnorientable",
     header: "BRepCheck_Shell.hxx".}
-proc isUnorientable*(this: BRepCheckShell): bool {.noSideEffect,
+proc isUnorientable*(this: BRepCheckShell): StandardBoolean {.noSideEffect,
     importcpp: "IsUnorientable", header: "BRepCheck_Shell.hxx".}
-proc nbConnectedSet*(this: var BRepCheckShell; theSets: var TopToolsListOfShape): cint {.
+proc nbConnectedSet*(this: var BRepCheckShell; theSets: var TopToolsListOfShape): int {.
     importcpp: "NbConnectedSet", header: "BRepCheck_Shell.hxx".}
 type
   BRepCheckShellbaseType* = BRepCheckResult
@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Shell.hxx".}
 proc dynamicType*(this: BRepCheckShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Shell.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

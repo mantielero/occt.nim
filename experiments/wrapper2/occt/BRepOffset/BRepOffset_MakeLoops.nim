@@ -22,6 +22,24 @@ type
                         header: "BRepOffset_MakeLoops.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepOffsetMakeLoops; theSize: csize_t): pointer {.
+    importcpp: "BRepOffset_MakeLoops::operator new",
+    header: "BRepOffset_MakeLoops.hxx".}
+proc `delete`*(this: var BRepOffsetMakeLoops; theAddress: pointer) {.
+    importcpp: "BRepOffset_MakeLoops::operator delete",
+    header: "BRepOffset_MakeLoops.hxx".}
+proc `new[]`*(this: var BRepOffsetMakeLoops; theSize: csize_t): pointer {.
+    importcpp: "BRepOffset_MakeLoops::operator new[]",
+    header: "BRepOffset_MakeLoops.hxx".}
+proc `delete[]`*(this: var BRepOffsetMakeLoops; theAddress: pointer) {.
+    importcpp: "BRepOffset_MakeLoops::operator delete[]",
+    header: "BRepOffset_MakeLoops.hxx".}
+proc `new`*(this: var BRepOffsetMakeLoops; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffset_MakeLoops::operator new",
+    header: "BRepOffset_MakeLoops.hxx".}
+proc `delete`*(this: var BRepOffsetMakeLoops; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffset_MakeLoops::operator delete",
+    header: "BRepOffset_MakeLoops.hxx".}
 proc constructBRepOffsetMakeLoops*(): BRepOffsetMakeLoops {.constructor,
     importcpp: "BRepOffset_MakeLoops(@)", header: "BRepOffset_MakeLoops.hxx".}
 proc build*(this: var BRepOffsetMakeLoops; lf: TopToolsListOfShape;
@@ -30,33 +48,8 @@ proc build*(this: var BRepOffsetMakeLoops; lf: TopToolsListOfShape;
     header: "BRepOffset_MakeLoops.hxx".}
 proc buildOnContext*(this: var BRepOffsetMakeLoops; lContext: TopToolsListOfShape;
                     analyse: BRepOffsetAnalyse; asDes: Handle[BRepAlgoAsDes];
-                    image: var BRepAlgoImage; inSide: bool) {.
+                    image: var BRepAlgoImage; inSide: StandardBoolean) {.
     importcpp: "BuildOnContext", header: "BRepOffset_MakeLoops.hxx".}
 proc buildFaces*(this: var BRepOffsetMakeLoops; lf: TopToolsListOfShape;
                 asDes: Handle[BRepAlgoAsDes]; image: var BRepAlgoImage) {.
     importcpp: "BuildFaces", header: "BRepOffset_MakeLoops.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

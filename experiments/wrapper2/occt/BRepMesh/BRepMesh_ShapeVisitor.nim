@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_ShapeVisitor.hxx".}
 proc dynamicType*(this: BRepMeshShapeVisitor): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_ShapeVisitor.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

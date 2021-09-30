@@ -32,12 +32,12 @@ proc constructBRepApproxApproxLine*(curveXYZ: Handle[GeomBSplineCurve];
     constructor, importcpp: "BRepApprox_ApproxLine(@)",
     header: "BRepApprox_ApproxLine.hxx".}
 proc constructBRepApproxApproxLine*(lin: Handle[IntSurfLineOn2S];
-                                   theTang: bool = false): BRepApproxApproxLine {.
+                                   theTang: StandardBoolean = false): BRepApproxApproxLine {.
     constructor, importcpp: "BRepApprox_ApproxLine(@)",
     header: "BRepApprox_ApproxLine.hxx".}
-proc nbPnts*(this: BRepApproxApproxLine): cint {.noSideEffect, importcpp: "NbPnts",
+proc nbPnts*(this: BRepApproxApproxLine): int {.noSideEffect, importcpp: "NbPnts",
     header: "BRepApprox_ApproxLine.hxx".}
-proc point*(this: var BRepApproxApproxLine; index: cint): IntSurfPntOn2S {.
+proc point*(this: var BRepApproxApproxLine; index: int): IntSurfPntOn2S {.
     importcpp: "Point", header: "BRepApprox_ApproxLine.hxx".}
 type
   BRepApproxApproxLinebaseType* = StandardTransient
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepApprox_ApproxLine.hxx".}
 proc dynamicType*(this: BRepApproxApproxLine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepApprox_ApproxLine.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,31 +21,6 @@ discard "forward decl of TopLoc_Location"
 type
   BRepSweepTrsf* {.importcpp: "BRepSweep_Trsf", header: "BRepSweep_Trsf.hxx", bycopy.} = object of BRepSweepNumLinearRegularSweep ##
                                                                                                                         ## !
-                                                                                                                        ## ends
-                                                                                                                        ## the
-                                                                                                                        ## construction
-                                                                                                                        ## of
-                                                                                                                        ## the
-                                                                                                                        ## swept
-                                                                                                                        ## primitive
-                                                                                                                        ##
-                                                                                                                        ## !
-                                                                                                                        ## calling
-                                                                                                                        ## the
-                                                                                                                        ## virtual
-                                                                                                                        ## geometric
-                                                                                                                        ## functions
-                                                                                                                        ## that
-                                                                                                                        ## can't
-                                                                                                                        ##
-                                                                                                                        ## !
-                                                                                                                        ## be
-                                                                                                                        ## called
-                                                                                                                        ## in
-                                                                                                                        ## the
-                                                                                                                        ## initialize.
-                                                                                                                        ##
-                                                                                                                        ## !
                                                                                                                         ## Initialize
                                                                                                                         ## the
                                                                                                                         ## Trsf
@@ -73,8 +48,20 @@ type
                                                                                                                         ## copied.
 
 
+proc `new`*(this: var BRepSweepTrsf; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Trsf::operator new", header: "BRepSweep_Trsf.hxx".}
+proc `delete`*(this: var BRepSweepTrsf; theAddress: pointer) {.
+    importcpp: "BRepSweep_Trsf::operator delete", header: "BRepSweep_Trsf.hxx".}
+proc `new[]`*(this: var BRepSweepTrsf; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Trsf::operator new[]", header: "BRepSweep_Trsf.hxx".}
+proc `delete[]`*(this: var BRepSweepTrsf; theAddress: pointer) {.
+    importcpp: "BRepSweep_Trsf::operator delete[]", header: "BRepSweep_Trsf.hxx".}
+proc `new`*(this: var BRepSweepTrsf; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepSweep_Trsf::operator new", header: "BRepSweep_Trsf.hxx".}
+proc `delete`*(this: var BRepSweepTrsf; a2: pointer; a3: pointer) {.
+    importcpp: "BRepSweep_Trsf::operator delete", header: "BRepSweep_Trsf.hxx".}
 proc init*(this: var BRepSweepTrsf) {.importcpp: "Init", header: "BRepSweep_Trsf.hxx".}
-proc process*(this: var BRepSweepTrsf; aGenS: TopoDS_Shape; aDirV: SweepNumShape): bool {.
+proc process*(this: var BRepSweepTrsf; aGenS: TopoDS_Shape; aDirV: SweepNumShape): StandardBoolean {.
     importcpp: "Process", header: "BRepSweep_Trsf.hxx".}
 proc makeEmptyVertex*(this: var BRepSweepTrsf; aGenV: TopoDS_Shape;
                      aDirV: SweepNumShape): TopoDS_Shape {.
@@ -115,44 +102,19 @@ proc setDirectingPCurve*(this: var BRepSweepTrsf; aNewFace: TopoDS_Shape;
     importcpp: "SetDirectingPCurve", header: "BRepSweep_Trsf.hxx".}
 proc gGDShapeIsToAdd*(this: BRepSweepTrsf; aNewShape: TopoDS_Shape;
                      aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                     aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+                     aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "GGDShapeIsToAdd", header: "BRepSweep_Trsf.hxx".}
 proc gDDShapeIsToAdd*(this: BRepSweepTrsf; aNewShape: TopoDS_Shape;
                      aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                     aDirS: SweepNumShape; aSubDirS: SweepNumShape): bool {.
+                     aDirS: SweepNumShape; aSubDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "GDDShapeIsToAdd", header: "BRepSweep_Trsf.hxx".}
 proc separatedWires*(this: BRepSweepTrsf; aNewShape: TopoDS_Shape;
                     aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                    aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+                    aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "SeparatedWires", header: "BRepSweep_Trsf.hxx".}
-proc hasShape*(this: BRepSweepTrsf; aGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+proc hasShape*(this: BRepSweepTrsf; aGenS: TopoDS_Shape; aDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "HasShape", header: "BRepSweep_Trsf.hxx".}
-proc isInvariant*(this: BRepSweepTrsf; aGenS: TopoDS_Shape): bool {.noSideEffect,
-    importcpp: "IsInvariant", header: "BRepSweep_Trsf.hxx".}
+proc isInvariant*(this: BRepSweepTrsf; aGenS: TopoDS_Shape): StandardBoolean {.
+    noSideEffect, importcpp: "IsInvariant", header: "BRepSweep_Trsf.hxx".}
 proc setContinuity*(this: var BRepSweepTrsf; aGenS: TopoDS_Shape; aDirS: SweepNumShape) {.
     importcpp: "SetContinuity", header: "BRepSweep_Trsf.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -14,12 +14,7 @@
 discard "forward decl of gp_Circ2d"
 type
   BRepMeshCircleTool* {.importcpp: "BRepMesh_CircleTool",
-                       header: "BRepMesh_CircleTool.hxx", bycopy.} = object ## !
-                                                                       ## Constructor.
-                                                                       ## ! @param
-                                                                       ## theAllocator memory allocator to be used by internal
-                                                                       ## structures.
-                                                                       ## ! Creates circle with the given
+                       header: "BRepMesh_CircleTool.hxx", bycopy.} = object ## ! Creates circle with the given
                                                                        ## parameters and binds it to the tool.
                                                                        ## ! @param theIndex index a circle should be bound with.
                                                                        ## ! @param
@@ -27,60 +22,55 @@ type
                                                                        ## ! @param theRadius radius of a circle.
 
 
+proc `new`*(this: var BRepMeshCircleTool; theSize: csize_t): pointer {.
+    importcpp: "BRepMesh_CircleTool::operator new",
+    header: "BRepMesh_CircleTool.hxx".}
+proc `delete`*(this: var BRepMeshCircleTool; theAddress: pointer) {.
+    importcpp: "BRepMesh_CircleTool::operator delete",
+    header: "BRepMesh_CircleTool.hxx".}
+proc `new[]`*(this: var BRepMeshCircleTool; theSize: csize_t): pointer {.
+    importcpp: "BRepMesh_CircleTool::operator new[]",
+    header: "BRepMesh_CircleTool.hxx".}
+proc `delete[]`*(this: var BRepMeshCircleTool; theAddress: pointer) {.
+    importcpp: "BRepMesh_CircleTool::operator delete[]",
+    header: "BRepMesh_CircleTool.hxx".}
+proc `new`*(this: var BRepMeshCircleTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepMesh_CircleTool::operator new",
+    header: "BRepMesh_CircleTool.hxx".}
+proc `delete`*(this: var BRepMeshCircleTool; a2: pointer; a3: pointer) {.
+    importcpp: "BRepMesh_CircleTool::operator delete",
+    header: "BRepMesh_CircleTool.hxx".}
 proc constructBRepMeshCircleTool*(theAllocator: Handle[NCollectionIncAllocator]): BRepMeshCircleTool {.
     constructor, importcpp: "BRepMesh_CircleTool(@)",
     header: "BRepMesh_CircleTool.hxx".}
-proc constructBRepMeshCircleTool*(theReservedSize: cint;
+proc constructBRepMeshCircleTool*(theReservedSize: int;
                                  theAllocator: Handle[NCollectionIncAllocator]): BRepMeshCircleTool {.
     constructor, importcpp: "BRepMesh_CircleTool(@)",
     header: "BRepMesh_CircleTool.hxx".}
-proc init*(this: var BRepMeshCircleTool; a2: cint) {.importcpp: "Init",
+proc init*(this: var BRepMeshCircleTool; a2: int) {.importcpp: "Init",
     header: "BRepMesh_CircleTool.hxx".}
-proc setCellSize*(this: var BRepMeshCircleTool; theSize: cfloat) {.
+  ## theReservedSize
+proc setCellSize*(this: var BRepMeshCircleTool; theSize: StandardReal) {.
     importcpp: "SetCellSize", header: "BRepMesh_CircleTool.hxx".}
-proc setCellSize*(this: var BRepMeshCircleTool; theSizeX: cfloat; theSizeY: cfloat) {.
-    importcpp: "SetCellSize", header: "BRepMesh_CircleTool.hxx".}
+proc setCellSize*(this: var BRepMeshCircleTool; theSizeX: StandardReal;
+                 theSizeY: StandardReal) {.importcpp: "SetCellSize",
+    header: "BRepMesh_CircleTool.hxx".}
 proc setMinMaxSize*(this: var BRepMeshCircleTool; theMin: Xy; theMax: Xy) {.
     importcpp: "SetMinMaxSize", header: "BRepMesh_CircleTool.hxx".}
-proc isEmpty*(this: BRepMeshCircleTool): bool {.noSideEffect, importcpp: "IsEmpty",
-    header: "BRepMesh_CircleTool.hxx".}
-proc `bind`*(this: var BRepMeshCircleTool; theIndex: cint; theCircle: Circ2d) {.
+proc isEmpty*(this: BRepMeshCircleTool): StandardBoolean {.noSideEffect,
+    importcpp: "IsEmpty", header: "BRepMesh_CircleTool.hxx".}
+proc `bind`*(this: var BRepMeshCircleTool; theIndex: int; theCircle: Circ2d) {.
     importcpp: "Bind", header: "BRepMesh_CircleTool.hxx".}
 proc makeCircle*(thePoint1: Xy; thePoint2: Xy; thePoint3: Xy; theLocation: var Xy;
-                theRadius: var cfloat): bool {.
+                theRadius: var StandardReal): StandardBoolean {.
     importcpp: "BRepMesh_CircleTool::MakeCircle(@)",
     header: "BRepMesh_CircleTool.hxx".}
-proc `bind`*(this: var BRepMeshCircleTool; theIndex: cint; thePoint1: Xy; thePoint2: Xy;
-            thePoint3: Xy): bool {.importcpp: "Bind",
-                                header: "BRepMesh_CircleTool.hxx".}
-proc mocBind*(this: var BRepMeshCircleTool; theIndex: cint) {.importcpp: "MocBind",
+proc `bind`*(this: var BRepMeshCircleTool; theIndex: int; thePoint1: Xy; thePoint2: Xy;
+            thePoint3: Xy): StandardBoolean {.importcpp: "Bind",
     header: "BRepMesh_CircleTool.hxx".}
-proc delete*(this: var BRepMeshCircleTool; theIndex: cint) {.importcpp: "Delete",
+proc mocBind*(this: var BRepMeshCircleTool; theIndex: int) {.importcpp: "MocBind",
+    header: "BRepMesh_CircleTool.hxx".}
+proc delete*(this: var BRepMeshCircleTool; theIndex: int) {.importcpp: "Delete",
     header: "BRepMesh_CircleTool.hxx".}
 proc select*(this: var BRepMeshCircleTool; thePoint: Xy): var ListOfInteger {.
     importcpp: "Select", header: "BRepMesh_CircleTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

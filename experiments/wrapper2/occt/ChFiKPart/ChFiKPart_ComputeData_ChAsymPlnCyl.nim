@@ -16,42 +16,19 @@
 
 proc chFiKPartMakeChAsym*(dStr: var TopOpeBRepDS_DataStructure;
                          data: Handle[ChFiDS_SurfData]; pln: Pln; cyl: Cylinder;
-                         fu: cfloat; lu: cfloat; or1: TopAbsOrientation;
-                         or2: TopAbsOrientation; dis: cfloat; angle: cfloat;
-                         spine: Circ; first: cfloat; ofpl: TopAbsOrientation;
-                         plandab: bool; disOnP: bool): bool {.
+                         fu: StandardReal; lu: StandardReal; or1: TopAbsOrientation;
+                         or2: TopAbsOrientation; dis: StandardReal;
+                         angle: StandardReal; spine: Circ; first: StandardReal;
+                         ofpl: TopAbsOrientation; plandab: StandardBoolean;
+                         disOnP: StandardBoolean): StandardBoolean {.
     importcpp: "ChFiKPart_MakeChAsym(@)",
     header: "ChFiKPart_ComputeData_ChAsymPlnCyl.hxx".}
 proc chFiKPartMakeChAsym*(dStr: var TopOpeBRepDS_DataStructure;
                          data: Handle[ChFiDS_SurfData]; pln: Pln; cyl: Cylinder;
-                         fu: cfloat; lu: cfloat; or1: TopAbsOrientation;
-                         or2: TopAbsOrientation; dis: cfloat; angle: cfloat;
-                         spine: Lin; first: cfloat; ofpl: TopAbsOrientation;
-                         plandab: bool; disOnP: bool): bool {.
+                         fu: StandardReal; lu: StandardReal; or1: TopAbsOrientation;
+                         or2: TopAbsOrientation; dis: StandardReal;
+                         angle: StandardReal; spine: Lin; first: StandardReal;
+                         ofpl: TopAbsOrientation; plandab: StandardBoolean;
+                         disOnP: StandardBoolean): StandardBoolean {.
     importcpp: "ChFiKPart_MakeChAsym(@)",
     header: "ChFiKPart_ComputeData_ChAsymPlnCyl.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -52,32 +52,7 @@ proc init*(this: var ChFi2dAnaFilletAlgo; theWire: TopoDS_Wire; thePlane: Pln) {
 proc init*(this: var ChFi2dAnaFilletAlgo; theEdge1: TopoDS_Edge;
           theEdge2: TopoDS_Edge; thePlane: Pln) {.importcpp: "Init",
     header: "ChFi2d_AnaFilletAlgo.hxx".}
-proc perform*(this: var ChFi2dAnaFilletAlgo; radius: cfloat): bool {.
+proc perform*(this: var ChFi2dAnaFilletAlgo; radius: StandardReal): StandardBoolean {.
     importcpp: "Perform", header: "ChFi2d_AnaFilletAlgo.hxx".}
 proc result*(this: var ChFi2dAnaFilletAlgo; e1: var TopoDS_Edge; e2: var TopoDS_Edge): TopoDS_Edge {.
     importcpp: "Result", header: "ChFi2d_AnaFilletAlgo.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

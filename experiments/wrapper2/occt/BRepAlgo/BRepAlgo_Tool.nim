@@ -16,92 +16,20 @@
 
 discard "forward decl of TopoDS_Shape"
 type
-  BRepAlgoTool* {.importcpp: "BRepAlgo_Tool", header: "BRepAlgo_Tool.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Remove
-                                                                                     ## the
-                                                                                     ## non
-                                                                                     ## valid
-                                                                                     ## part
-                                                                                     ## of
-                                                                                     ## an
-                                                                                     ## offsetshape
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## 1
-                                                                                     ## -
-                                                                                     ## Remove
-                                                                                     ## all
-                                                                                     ## the
-                                                                                     ## free
-                                                                                     ## boundary
-                                                                                     ## and
-                                                                                     ## the
-                                                                                     ## faces
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## connex
-                                                                                     ## to
-                                                                                     ## such
-                                                                                     ## edges.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## 2
-                                                                                     ## -
-                                                                                     ## Remove
-                                                                                     ## all
-                                                                                     ## the
-                                                                                     ## shapes
-                                                                                     ## not
-                                                                                     ## valid
-                                                                                     ## in
-                                                                                     ## the
-                                                                                     ## result
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## (according
-                                                                                     ## to
-                                                                                     ## the
-                                                                                     ## side
-                                                                                     ## of
-                                                                                     ## offseting)
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## in
-                                                                                     ## this
-                                                                                     ## verion
-                                                                                     ## only
-                                                                                     ## the
-                                                                                     ## first
-                                                                                     ## point
-                                                                                     ## is
-                                                                                     ## implemented.
+  BRepAlgoTool* {.importcpp: "BRepAlgo_Tool", header: "BRepAlgo_Tool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepAlgoTool; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Tool::operator new", header: "BRepAlgo_Tool.hxx".}
+proc `delete`*(this: var BRepAlgoTool; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Tool::operator delete", header: "BRepAlgo_Tool.hxx".}
+proc `new[]`*(this: var BRepAlgoTool; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Tool::operator new[]", header: "BRepAlgo_Tool.hxx".}
+proc `delete[]`*(this: var BRepAlgoTool; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Tool::operator delete[]", header: "BRepAlgo_Tool.hxx".}
+proc `new`*(this: var BRepAlgoTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgo_Tool::operator new", header: "BRepAlgo_Tool.hxx".}
+proc `delete`*(this: var BRepAlgoTool; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgo_Tool::operator delete", header: "BRepAlgo_Tool.hxx".}
 proc deboucle3D*(s: TopoDS_Shape; boundary: TopToolsMapOfShape): TopoDS_Shape {.
     importcpp: "BRepAlgo_Tool::Deboucle3D(@)", header: "BRepAlgo_Tool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

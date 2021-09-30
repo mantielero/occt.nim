@@ -19,29 +19,3 @@ type
       TColgpSequenceOfPnt2d, TopToolsShapeMapHasher]
   BRepToolsDataMapIteratorOfMapOfVertexPnt2d* = Iterator[TopoDS_Shape,
       TColgpSequenceOfPnt2d, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

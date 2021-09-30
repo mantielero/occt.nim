@@ -23,50 +23,45 @@ type
                                       bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_FaceInterferenceTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_FaceInterferenceTool::operator new",
+    header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_FaceInterferenceTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_FaceInterferenceTool::operator delete",
+    header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_FaceInterferenceTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_FaceInterferenceTool::operator new[]",
+    header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_FaceInterferenceTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_FaceInterferenceTool::operator delete[]",
+    header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+proc `new`*(this: var TopOpeBRepDS_FaceInterferenceTool; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopOpeBRepDS_FaceInterferenceTool::operator new", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_FaceInterferenceTool; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_FaceInterferenceTool::operator delete",
+    header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc constructTopOpeBRepDS_FaceInterferenceTool*(p: TopOpeBRepDS_PDataStructure): TopOpeBRepDS_FaceInterferenceTool {.
     constructor, importcpp: "TopOpeBRepDS_FaceInterferenceTool(@)",
     header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc init*(this: var TopOpeBRepDS_FaceInterferenceTool; fi: TopoDS_Shape;
-          e: TopoDS_Shape; eisnew: bool; i: Handle[TopOpeBRepDS_Interference]) {.
-    importcpp: "Init", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+          e: TopoDS_Shape; eisnew: StandardBoolean;
+          i: Handle[TopOpeBRepDS_Interference]) {.importcpp: "Init",
+    header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc add*(this: var TopOpeBRepDS_FaceInterferenceTool; fi: TopoDS_Shape;
-         f: TopoDS_Shape; e: TopoDS_Shape; eisnew: bool;
+         f: TopoDS_Shape; e: TopoDS_Shape; eisnew: StandardBoolean;
          i: Handle[TopOpeBRepDS_Interference]) {.importcpp: "Add",
     header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc add*(this: var TopOpeBRepDS_FaceInterferenceTool; e: TopoDS_Shape;
          c: TopOpeBRepDS_Curve; i: Handle[TopOpeBRepDS_Interference]) {.
     importcpp: "Add", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
-proc setEdgePntPar*(this: var TopOpeBRepDS_FaceInterferenceTool; p: Pnt; par: cfloat) {.
-    importcpp: "SetEdgePntPar", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+proc setEdgePntPar*(this: var TopOpeBRepDS_FaceInterferenceTool; p: Pnt;
+                   par: StandardReal) {.importcpp: "SetEdgePntPar", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc getEdgePntPar*(this: TopOpeBRepDS_FaceInterferenceTool; p: var Pnt;
-                   par: var cfloat) {.noSideEffect, importcpp: "GetEdgePntPar", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
-proc isEdgePntParDef*(this: TopOpeBRepDS_FaceInterferenceTool): bool {.noSideEffect,
-    importcpp: "IsEdgePntParDef", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+                   par: var StandardReal) {.noSideEffect,
+    importcpp: "GetEdgePntPar", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+proc isEdgePntParDef*(this: TopOpeBRepDS_FaceInterferenceTool): StandardBoolean {.
+    noSideEffect, importcpp: "IsEdgePntParDef",
+    header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc transition*(this: TopOpeBRepDS_FaceInterferenceTool;
                 i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect,
     importcpp: "Transition", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

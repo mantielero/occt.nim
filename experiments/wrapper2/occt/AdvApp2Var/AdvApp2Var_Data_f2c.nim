@@ -241,7 +241,7 @@ type
 ##  real function with -R not specified
 ##  undef any lower-case symbols that your C compiler predefines, e.g.:
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(Skip_f2c_Undefs):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(Skip_f2c_Undefs):
 ## #endif
 
 

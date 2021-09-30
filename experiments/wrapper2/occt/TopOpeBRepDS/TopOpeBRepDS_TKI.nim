@@ -20,6 +20,19 @@ type
                      header: "TopOpeBRepDS_TKI.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_TKI; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_TKI::operator new", header: "TopOpeBRepDS_TKI.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_TKI; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_TKI::operator delete", header: "TopOpeBRepDS_TKI.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_TKI; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_TKI::operator new[]", header: "TopOpeBRepDS_TKI.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_TKI; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_TKI::operator delete[]",
+    header: "TopOpeBRepDS_TKI.hxx".}
+proc `new`*(this: var TopOpeBRepDS_TKI; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_TKI::operator new", header: "TopOpeBRepDS_TKI.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_TKI; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_TKI::operator delete", header: "TopOpeBRepDS_TKI.hxx".}
 proc constructTopOpeBRepDS_TKI*(): TopOpeBRepDS_TKI {.constructor,
     importcpp: "TopOpeBRepDS_TKI(@)", header: "TopOpeBRepDS_TKI.hxx".}
 proc clear*(this: var TopOpeBRepDS_TKI) {.importcpp: "Clear",
@@ -28,17 +41,17 @@ proc fillOnGeometry*(this: var TopOpeBRepDS_TKI; L: TopOpeBRepDS_ListOfInterfere
     importcpp: "FillOnGeometry", header: "TopOpeBRepDS_TKI.hxx".}
 proc fillOnSupport*(this: var TopOpeBRepDS_TKI; L: TopOpeBRepDS_ListOfInterference) {.
     importcpp: "FillOnSupport", header: "TopOpeBRepDS_TKI.hxx".}
-proc isBound*(this: TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint): bool {.
+proc isBound*(this: TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: int): StandardBoolean {.
     noSideEffect, importcpp: "IsBound", header: "TopOpeBRepDS_TKI.hxx".}
-proc interferences*(this: TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint): TopOpeBRepDS_ListOfInterference {.
+proc interferences*(this: TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: int): TopOpeBRepDS_ListOfInterference {.
     noSideEffect, importcpp: "Interferences", header: "TopOpeBRepDS_TKI.hxx".}
-proc changeInterferences*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint): var TopOpeBRepDS_ListOfInterference {.
+proc changeInterferences*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: int): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "ChangeInterferences", header: "TopOpeBRepDS_TKI.hxx".}
-proc hasInterferences*(this: TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint): bool {.
+proc hasInterferences*(this: TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: int): StandardBoolean {.
     noSideEffect, importcpp: "HasInterferences", header: "TopOpeBRepDS_TKI.hxx".}
-proc add*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint) {.importcpp: "Add",
+proc add*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: int) {.importcpp: "Add",
     header: "TopOpeBRepDS_TKI.hxx".}
-proc add*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint;
+proc add*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: int;
          hi: Handle[TopOpeBRepDS_Interference]) {.importcpp: "Add",
     header: "TopOpeBRepDS_TKI.hxx".}
 proc dumpTKIIterator*(this: var TopOpeBRepDS_TKI; s1: TCollectionAsciiString = "";
@@ -46,36 +59,11 @@ proc dumpTKIIterator*(this: var TopOpeBRepDS_TKI; s1: TCollectionAsciiString = "
     importcpp: "DumpTKIIterator", header: "TopOpeBRepDS_TKI.hxx".}
 proc init*(this: var TopOpeBRepDS_TKI) {.importcpp: "Init",
                                      header: "TopOpeBRepDS_TKI.hxx".}
-proc more*(this: TopOpeBRepDS_TKI): bool {.noSideEffect, importcpp: "More",
-                                       header: "TopOpeBRepDS_TKI.hxx".}
+proc more*(this: TopOpeBRepDS_TKI): StandardBoolean {.noSideEffect,
+    importcpp: "More", header: "TopOpeBRepDS_TKI.hxx".}
 proc next*(this: var TopOpeBRepDS_TKI) {.importcpp: "Next",
                                      header: "TopOpeBRepDS_TKI.hxx".}
-proc value*(this: TopOpeBRepDS_TKI; k: var TopOpeBRepDS_Kind; g: var cint): TopOpeBRepDS_ListOfInterference {.
+proc value*(this: TopOpeBRepDS_TKI; k: var TopOpeBRepDS_Kind; g: var int): TopOpeBRepDS_ListOfInterference {.
     noSideEffect, importcpp: "Value", header: "TopOpeBRepDS_TKI.hxx".}
-proc changeValue*(this: var TopOpeBRepDS_TKI; k: var TopOpeBRepDS_Kind; g: var cint): var TopOpeBRepDS_ListOfInterference {.
+proc changeValue*(this: var TopOpeBRepDS_TKI; k: var TopOpeBRepDS_Kind; g: var int): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "ChangeValue", header: "TopOpeBRepDS_TKI.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

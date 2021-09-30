@@ -16,29 +16,3 @@ type
   TopToolsDataMapOfShapeBox* = NCollectionDataMap[TopoDS_Shape, BndBox,
       TopToolsShapeMapHasher]
   TopToolsDataMapIteratorOfDataMapOfShapeBox* = Iterator
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

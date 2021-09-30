@@ -31,21 +31,21 @@ proc minimum*(this: var BRepCheckFace) {.importcpp: "Minimum",
                                      header: "BRepCheck_Face.hxx".}
 proc blind*(this: var BRepCheckFace) {.importcpp: "Blind",
                                    header: "BRepCheck_Face.hxx".}
-proc intersectWires*(this: var BRepCheckFace; update: bool = false): BRepCheckStatus {.
+proc intersectWires*(this: var BRepCheckFace; update: StandardBoolean = false): BRepCheckStatus {.
     importcpp: "IntersectWires", header: "BRepCheck_Face.hxx".}
-proc classifyWires*(this: var BRepCheckFace; update: bool = false): BRepCheckStatus {.
+proc classifyWires*(this: var BRepCheckFace; update: StandardBoolean = false): BRepCheckStatus {.
     importcpp: "ClassifyWires", header: "BRepCheck_Face.hxx".}
-proc orientationOfWires*(this: var BRepCheckFace; update: bool = false): BRepCheckStatus {.
+proc orientationOfWires*(this: var BRepCheckFace; update: StandardBoolean = false): BRepCheckStatus {.
     importcpp: "OrientationOfWires", header: "BRepCheck_Face.hxx".}
 proc setUnorientable*(this: var BRepCheckFace) {.importcpp: "SetUnorientable",
     header: "BRepCheck_Face.hxx".}
 proc setStatus*(this: var BRepCheckFace; theStatus: BRepCheckStatus) {.
     importcpp: "SetStatus", header: "BRepCheck_Face.hxx".}
-proc isUnorientable*(this: BRepCheckFace): bool {.noSideEffect,
+proc isUnorientable*(this: BRepCheckFace): StandardBoolean {.noSideEffect,
     importcpp: "IsUnorientable", header: "BRepCheck_Face.hxx".}
-proc geometricControls*(this: BRepCheckFace): bool {.noSideEffect,
+proc geometricControls*(this: BRepCheckFace): StandardBoolean {.noSideEffect,
     importcpp: "GeometricControls", header: "BRepCheck_Face.hxx".}
-proc geometricControls*(this: var BRepCheckFace; b: bool) {.
+proc geometricControls*(this: var BRepCheckFace; b: StandardBoolean) {.
     importcpp: "GeometricControls", header: "BRepCheck_Face.hxx".}
 type
   BRepCheckFacebaseType* = BRepCheckResult
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Face.hxx".}
 proc dynamicType*(this: BRepCheckFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Face.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

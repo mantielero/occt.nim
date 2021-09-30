@@ -20,46 +20,33 @@ type
   ChFiDS_Regul* {.importcpp: "ChFiDS_Regul", header: "ChFiDS_Regul.hxx", bycopy.} = object
 
 
+proc `new`*(this: var ChFiDS_Regul; theSize: csize_t): pointer {.
+    importcpp: "ChFiDS_Regul::operator new", header: "ChFiDS_Regul.hxx".}
+proc `delete`*(this: var ChFiDS_Regul; theAddress: pointer) {.
+    importcpp: "ChFiDS_Regul::operator delete", header: "ChFiDS_Regul.hxx".}
+proc `new[]`*(this: var ChFiDS_Regul; theSize: csize_t): pointer {.
+    importcpp: "ChFiDS_Regul::operator new[]", header: "ChFiDS_Regul.hxx".}
+proc `delete[]`*(this: var ChFiDS_Regul; theAddress: pointer) {.
+    importcpp: "ChFiDS_Regul::operator delete[]", header: "ChFiDS_Regul.hxx".}
+proc `new`*(this: var ChFiDS_Regul; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "ChFiDS_Regul::operator new", header: "ChFiDS_Regul.hxx".}
+proc `delete`*(this: var ChFiDS_Regul; a2: pointer; a3: pointer) {.
+    importcpp: "ChFiDS_Regul::operator delete", header: "ChFiDS_Regul.hxx".}
 proc constructChFiDS_Regul*(): ChFiDS_Regul {.constructor,
     importcpp: "ChFiDS_Regul(@)", header: "ChFiDS_Regul.hxx".}
-proc setCurve*(this: var ChFiDS_Regul; ic: cint) {.importcpp: "SetCurve",
+proc setCurve*(this: var ChFiDS_Regul; ic: int) {.importcpp: "SetCurve",
     header: "ChFiDS_Regul.hxx".}
-proc setS1*(this: var ChFiDS_Regul; is1: cint; isFace: bool = true) {.importcpp: "SetS1",
-    header: "ChFiDS_Regul.hxx".}
-proc setS2*(this: var ChFiDS_Regul; is2: cint; isFace: bool = true) {.importcpp: "SetS2",
-    header: "ChFiDS_Regul.hxx".}
-proc isSurface1*(this: ChFiDS_Regul): bool {.noSideEffect, importcpp: "IsSurface1",
-    header: "ChFiDS_Regul.hxx".}
-proc isSurface2*(this: ChFiDS_Regul): bool {.noSideEffect, importcpp: "IsSurface2",
-    header: "ChFiDS_Regul.hxx".}
-proc curve*(this: ChFiDS_Regul): cint {.noSideEffect, importcpp: "Curve",
-                                    header: "ChFiDS_Regul.hxx".}
-proc s1*(this: ChFiDS_Regul): cint {.noSideEffect, importcpp: "S1",
-                                 header: "ChFiDS_Regul.hxx".}
-proc s2*(this: ChFiDS_Regul): cint {.noSideEffect, importcpp: "S2",
-                                 header: "ChFiDS_Regul.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc setS1*(this: var ChFiDS_Regul; is1: int; isFace: StandardBoolean = true) {.
+    importcpp: "SetS1", header: "ChFiDS_Regul.hxx".}
+proc setS2*(this: var ChFiDS_Regul; is2: int; isFace: StandardBoolean = true) {.
+    importcpp: "SetS2", header: "ChFiDS_Regul.hxx".}
+proc isSurface1*(this: ChFiDS_Regul): StandardBoolean {.noSideEffect,
+    importcpp: "IsSurface1", header: "ChFiDS_Regul.hxx".}
+proc isSurface2*(this: ChFiDS_Regul): StandardBoolean {.noSideEffect,
+    importcpp: "IsSurface2", header: "ChFiDS_Regul.hxx".}
+proc curve*(this: ChFiDS_Regul): int {.noSideEffect, importcpp: "Curve",
+                                   header: "ChFiDS_Regul.hxx".}
+proc s1*(this: ChFiDS_Regul): int {.noSideEffect, importcpp: "S1",
+                                header: "ChFiDS_Regul.hxx".}
+proc s2*(this: ChFiDS_Regul): int {.noSideEffect, importcpp: "S2",
+                                header: "ChFiDS_Regul.hxx".}

@@ -29,6 +29,24 @@ type
                                                                                                              ## S2.
 
 
+proc `new`*(this: var BRepAlgoBooleanOperation; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_BooleanOperation::operator new",
+    header: "BRepAlgo_BooleanOperation.hxx".}
+proc `delete`*(this: var BRepAlgoBooleanOperation; theAddress: pointer) {.
+    importcpp: "BRepAlgo_BooleanOperation::operator delete",
+    header: "BRepAlgo_BooleanOperation.hxx".}
+proc `new[]`*(this: var BRepAlgoBooleanOperation; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_BooleanOperation::operator new[]",
+    header: "BRepAlgo_BooleanOperation.hxx".}
+proc `delete[]`*(this: var BRepAlgoBooleanOperation; theAddress: pointer) {.
+    importcpp: "BRepAlgo_BooleanOperation::operator delete[]",
+    header: "BRepAlgo_BooleanOperation.hxx".}
+proc `new`*(this: var BRepAlgoBooleanOperation; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgo_BooleanOperation::operator new",
+    header: "BRepAlgo_BooleanOperation.hxx".}
+proc `delete`*(this: var BRepAlgoBooleanOperation; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgo_BooleanOperation::operator delete",
+    header: "BRepAlgo_BooleanOperation.hxx".}
 proc destroyBRepAlgoBooleanOperation*(this: var BRepAlgoBooleanOperation) {.
     importcpp: "#.~BRepAlgo_BooleanOperation()",
     header: "BRepAlgo_BooleanOperation.hxx".}
@@ -36,38 +54,13 @@ proc performDS*(this: var BRepAlgoBooleanOperation) {.importcpp: "PerformDS",
     header: "BRepAlgo_BooleanOperation.hxx".}
 proc perform*(this: var BRepAlgoBooleanOperation; st1: TopAbsState; st2: TopAbsState) {.
     importcpp: "Perform", header: "BRepAlgo_BooleanOperation.hxx".}
-proc builder*(this: BRepAlgoBooleanOperation): Handle[TopOpeBRepBuildHBuilder] {.
-    noSideEffect, importcpp: "Builder", header: "BRepAlgo_BooleanOperation.hxx".}
+#[ proc builder*(this: BRepAlgoBooleanOperation): Handle[TopOpeBRepBuildHBuilder] {.
+    noSideEffect, importcpp: "Builder", header: "BRepAlgo_BooleanOperation.hxx".} ]#
 proc shape1*(this: BRepAlgoBooleanOperation): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape1", header: "BRepAlgo_BooleanOperation.hxx".}
 proc shape2*(this: BRepAlgoBooleanOperation): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape2", header: "BRepAlgo_BooleanOperation.hxx".}
 proc modified*(this: var BRepAlgoBooleanOperation; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepAlgo_BooleanOperation.hxx".}
-proc isDeleted*(this: var BRepAlgoBooleanOperation; s: TopoDS_Shape): bool {.
+proc isDeleted*(this: var BRepAlgoBooleanOperation; s: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsDeleted", header: "BRepAlgo_BooleanOperation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

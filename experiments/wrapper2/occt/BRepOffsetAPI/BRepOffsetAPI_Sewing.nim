@@ -18,29 +18,3 @@
 
 type
   BRepOffsetAPI_Sewing* = BRepBuilderAPI_Sewing
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

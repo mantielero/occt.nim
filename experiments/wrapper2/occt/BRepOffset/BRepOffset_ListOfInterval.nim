@@ -17,29 +17,3 @@
 type
   BRepOffsetListOfInterval* = NCollectionList[BRepOffsetInterval]
   BRepOffsetListIteratorOfListOfInterval* = Iterator[BRepOffsetInterval]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

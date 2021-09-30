@@ -22,17 +22,20 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_CurveOnSurface"
 discard "forward decl of BRep_CurveOnSurface"
-type
-  HandleC1C1* = Handle[BRepCurveOnSurface]
-
-## ! Representation  of a  curve   by a   curve  in the
-## ! parametric space of a surface.
 
 type
   BRepCurveOnSurface* {.importcpp: "BRep_CurveOnSurface",
                        header: "BRep_CurveOnSurface.hxx", bycopy.} = object of BRepGCurve
 
+type
+  HandleBRepCurveOnSurface* = Handle[BRepCurveOnSurface]
 
+## ! Representation  of a  curve   by a   curve  in the
+## ! parametric space of a surface.
+
+type
+  BRepCurveOnSurfacebaseType* = BRepGCurve
+#[ 
 proc constructBRepCurveOnSurface*(pc: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                                  L: TopLocLocation): BRepCurveOnSurface {.
     constructor, importcpp: "BRep_CurveOnSurface(@)",
@@ -41,12 +44,12 @@ proc setUVPoints*(this: var BRepCurveOnSurface; p1: Pnt2d; p2: Pnt2d) {.
     importcpp: "SetUVPoints", header: "BRep_CurveOnSurface.hxx".}
 proc uVPoints*(this: BRepCurveOnSurface; p1: var Pnt2d; p2: var Pnt2d) {.noSideEffect,
     importcpp: "UVPoints", header: "BRep_CurveOnSurface.hxx".}
-proc d0*(this: BRepCurveOnSurface; u: cfloat; p: var Pnt) {.noSideEffect,
+proc d0*(this: BRepCurveOnSurface; u: StandardReal; p: var Pnt) {.noSideEffect,
     importcpp: "D0", header: "BRep_CurveOnSurface.hxx".}
-proc isCurveOnSurface*(this: BRepCurveOnSurface): bool {.noSideEffect,
+proc isCurveOnSurface*(this: BRepCurveOnSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsCurveOnSurface", header: "BRep_CurveOnSurface.hxx".}
 proc isCurveOnSurface*(this: BRepCurveOnSurface; s: Handle[GeomSurface];
-                      L: TopLocLocation): bool {.noSideEffect,
+                      L: TopLocLocation): StandardBoolean {.noSideEffect,
     importcpp: "IsCurveOnSurface", header: "BRep_CurveOnSurface.hxx".}
 proc surface*(this: BRepCurveOnSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "BRep_CurveOnSurface.hxx".}
@@ -59,10 +62,9 @@ proc copy*(this: BRepCurveOnSurface): Handle[BRepCurveRepresentation] {.
 proc update*(this: var BRepCurveOnSurface) {.importcpp: "Update",
     header: "BRep_CurveOnSurface.hxx".}
 proc dumpJson*(this: BRepCurveOnSurface; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
-                                 header: "BRep_CurveOnSurface.hxx".}
-type
-  BRepCurveOnSurfacebaseType* = BRepGCurve
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_CurveOnSurface.hxx".}
+
 
 proc getTypeName*(): cstring {.importcpp: "BRep_CurveOnSurface::get_type_name(@)",
                             header: "BRep_CurveOnSurface.hxx".}
@@ -70,29 +72,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_CurveOnSurface::get_type_descriptor(@)",
     header: "BRep_CurveOnSurface.hxx".}
 proc dynamicType*(this: BRepCurveOnSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRep_CurveOnSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "BRep_CurveOnSurface.hxx".} ]#

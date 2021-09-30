@@ -19,26 +19,41 @@ discard "forward decl of TopTools_LocationSet"
 discard "forward decl of TCollection_AsciiString"
 type
   TopToolsShapeSet* {.importcpp: "TopTools_ShapeSet",
-                     header: "TopTools_ShapeSet.hxx", bycopy.} = object ## ! Builds an empty ShapeSet.
-                                                                   ## ! Reads  from <IS>  a shape  and  returns  it in  S.
+                     header: "TopTools_ShapeSet.hxx", bycopy.} = object ## ! Reads  from <IS>  a shape  and  returns  it in  S.
                                                                    ## ! <NbShapes> is the number of tshapes in the set.
 
 
+proc `new`*(this: var TopToolsShapeSet; theSize: csize_t): pointer {.
+    importcpp: "TopTools_ShapeSet::operator new", header: "TopTools_ShapeSet.hxx".}
+proc `delete`*(this: var TopToolsShapeSet; theAddress: pointer) {.
+    importcpp: "TopTools_ShapeSet::operator delete",
+    header: "TopTools_ShapeSet.hxx".}
+proc `new[]`*(this: var TopToolsShapeSet; theSize: csize_t): pointer {.
+    importcpp: "TopTools_ShapeSet::operator new[]",
+    header: "TopTools_ShapeSet.hxx".}
+proc `delete[]`*(this: var TopToolsShapeSet; theAddress: pointer) {.
+    importcpp: "TopTools_ShapeSet::operator delete[]",
+    header: "TopTools_ShapeSet.hxx".}
+proc `new`*(this: var TopToolsShapeSet; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopTools_ShapeSet::operator new", header: "TopTools_ShapeSet.hxx".}
+proc `delete`*(this: var TopToolsShapeSet; a2: pointer; a3: pointer) {.
+    importcpp: "TopTools_ShapeSet::operator delete",
+    header: "TopTools_ShapeSet.hxx".}
 proc constructTopToolsShapeSet*(): TopToolsShapeSet {.constructor,
     importcpp: "TopTools_ShapeSet(@)", header: "TopTools_ShapeSet.hxx".}
 proc destroyTopToolsShapeSet*(this: var TopToolsShapeSet) {.
     importcpp: "#.~TopTools_ShapeSet()", header: "TopTools_ShapeSet.hxx".}
-proc setFormatNb*(this: var TopToolsShapeSet; theFormatNb: cint) {.
+proc setFormatNb*(this: var TopToolsShapeSet; theFormatNb: int) {.
     importcpp: "SetFormatNb", header: "TopTools_ShapeSet.hxx".}
-proc formatNb*(this: TopToolsShapeSet): cint {.noSideEffect, importcpp: "FormatNb",
+proc formatNb*(this: TopToolsShapeSet): int {.noSideEffect, importcpp: "FormatNb",
     header: "TopTools_ShapeSet.hxx".}
 proc clear*(this: var TopToolsShapeSet) {.importcpp: "Clear",
                                       header: "TopTools_ShapeSet.hxx".}
-proc add*(this: var TopToolsShapeSet; s: TopoDS_Shape): cint {.importcpp: "Add",
+proc add*(this: var TopToolsShapeSet; s: TopoDS_Shape): int {.importcpp: "Add",
     header: "TopTools_ShapeSet.hxx".}
-proc shape*(this: TopToolsShapeSet; i: cint): TopoDS_Shape {.noSideEffect,
+proc shape*(this: TopToolsShapeSet; i: int): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TopTools_ShapeSet.hxx".}
-proc index*(this: TopToolsShapeSet; s: TopoDS_Shape): cint {.noSideEffect,
+proc index*(this: TopToolsShapeSet; s: TopoDS_Shape): int {.noSideEffect,
     importcpp: "Index", header: "TopTools_ShapeSet.hxx".}
 proc locations*(this: TopToolsShapeSet): TopToolsLocationSet {.noSideEffect,
     importcpp: "Locations", header: "TopTools_ShapeSet.hxx".}
@@ -83,30 +98,5 @@ proc addShapes*(this: var TopToolsShapeSet; s1: var TopoDS_Shape; s2: TopoDS_Sha
     importcpp: "AddShapes", header: "TopTools_ShapeSet.hxx".}
 proc check*(this: var TopToolsShapeSet; t: TopAbsShapeEnum; s: var TopoDS_Shape) {.
     importcpp: "Check", header: "TopTools_ShapeSet.hxx".}
-proc nbShapes*(this: TopToolsShapeSet): cint {.noSideEffect, importcpp: "NbShapes",
+proc nbShapes*(this: TopToolsShapeSet): int {.noSideEffect, importcpp: "NbShapes",
     header: "TopTools_ShapeSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

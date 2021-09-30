@@ -14,61 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BRepAlgo_Fuse_HeaderFile [NewLine] # _BRepAlgo_Fuse_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < BRepAlgo_BooleanOperation . hxx > [NewLine] class TopoDS_Shape ;
-## Error: token expected: ; but got: [identifier]!!!
-
-## ! Describes functions for performing a topological
-## ! fusion operation (Boolean union).
-## ! A Fuse object provides the framework for:
-## ! - defining the construction of a fused shape,
-## ! - implementing the construction algorithm, and
-## ! - consulting the result.
-
-## !!!Ignored construct:  class Standard_DEPRECATED ( This class is deprecated - BRepAlgoAPI_Fuse should be used instead ) BRepAlgo_Fuse : public BRepAlgo_BooleanOperation { public : ! Fuse S1 and S2. BRepAlgo_Fuse ( const TopoDS_Shape & S1 , const TopoDS_Shape & S2 ) ; protected : private : } ;
-## Error: token expected: ; but got: [identifier]!!!
+discard "forward decl of TopoDS_Shape"
+type
+  BRepAlgoFuse* {.importcpp: "BRepAlgo_Fuse", header: "BRepAlgo_Fuse.hxx", bycopy.} = object of BRepAlgoBooleanOperation
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc `new`*(this: var BRepAlgoFuse; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Fuse::operator new", header: "BRepAlgo_Fuse.hxx".}
+proc `delete`*(this: var BRepAlgoFuse; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Fuse::operator delete", header: "BRepAlgo_Fuse.hxx".}
+proc `new[]`*(this: var BRepAlgoFuse; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Fuse::operator new[]", header: "BRepAlgo_Fuse.hxx".}
+proc `delete[]`*(this: var BRepAlgoFuse; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Fuse::operator delete[]", header: "BRepAlgo_Fuse.hxx".}
+proc `new`*(this: var BRepAlgoFuse; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgo_Fuse::operator new", header: "BRepAlgo_Fuse.hxx".}
+proc `delete`*(this: var BRepAlgoFuse; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgo_Fuse::operator delete", header: "BRepAlgo_Fuse.hxx".}
+proc fuse*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoFuse {.
+    constructor, importcpp: "BRepAlgo_Fuse(@)", header: "BRepAlgo_Fuse.hxx".}

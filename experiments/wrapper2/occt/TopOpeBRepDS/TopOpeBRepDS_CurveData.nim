@@ -21,33 +21,26 @@ type
                            header: "TopOpeBRepDS_CurveData.hxx", bycopy.} = object of TopOpeBRepDS_GeometryData
 
 
+proc `new`*(this: var TopOpeBRepDS_CurveData; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_CurveData::operator new",
+    header: "TopOpeBRepDS_CurveData.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_CurveData; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_CurveData::operator delete",
+    header: "TopOpeBRepDS_CurveData.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_CurveData; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_CurveData::operator new[]",
+    header: "TopOpeBRepDS_CurveData.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_CurveData; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_CurveData::operator delete[]",
+    header: "TopOpeBRepDS_CurveData.hxx".}
+proc `new`*(this: var TopOpeBRepDS_CurveData; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_CurveData::operator new",
+    header: "TopOpeBRepDS_CurveData.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_CurveData; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_CurveData::operator delete",
+    header: "TopOpeBRepDS_CurveData.hxx".}
 proc constructTopOpeBRepDS_CurveData*(): TopOpeBRepDS_CurveData {.constructor,
     importcpp: "TopOpeBRepDS_CurveData(@)", header: "TopOpeBRepDS_CurveData.hxx".}
 proc constructTopOpeBRepDS_CurveData*(c: TopOpeBRepDS_Curve): TopOpeBRepDS_CurveData {.
     constructor, importcpp: "TopOpeBRepDS_CurveData(@)",
     header: "TopOpeBRepDS_CurveData.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -29,6 +29,24 @@ type
                             header: "TopOpeBRepBuild_Builder1.hxx", bycopy.} = object of TopOpeBRepBuildBuilder
 
 
+proc `new`*(this: var TopOpeBRepBuildBuilder1; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_Builder1::operator new",
+    header: "TopOpeBRepBuild_Builder1.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildBuilder1; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_Builder1::operator delete",
+    header: "TopOpeBRepBuild_Builder1.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildBuilder1; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_Builder1::operator new[]",
+    header: "TopOpeBRepBuild_Builder1.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildBuilder1; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_Builder1::operator delete[]",
+    header: "TopOpeBRepBuild_Builder1.hxx".}
+proc `new`*(this: var TopOpeBRepBuildBuilder1; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_Builder1::operator new",
+    header: "TopOpeBRepBuild_Builder1.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildBuilder1; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_Builder1::operator delete",
+    header: "TopOpeBRepBuild_Builder1.hxx".}
 proc constructTopOpeBRepBuildBuilder1*(bt: TopOpeBRepDS_BuildTool): TopOpeBRepBuildBuilder1 {.
     constructor, importcpp: "TopOpeBRepBuild_Builder1(@)",
     header: "TopOpeBRepBuild_Builder1.hxx".}
@@ -102,43 +120,18 @@ proc performONParts*(this: var TopOpeBRepBuildBuilder1; f: TopoDS_Shape;
 proc performPieceIn2D*(this: var TopOpeBRepBuildBuilder1;
                       aPieceToPerform: TopoDS_Edge; aOriginalEdge: TopoDS_Edge;
                       edgeFace: TopoDS_Face; toFace: TopoDS_Face;
-                      g: TopOpeBRepBuildGTopo; keep: var bool) {.
+                      g: TopOpeBRepBuildGTopo; keep: var StandardBoolean) {.
     importcpp: "PerformPieceIn2D", header: "TopOpeBRepBuild_Builder1.hxx".}
 proc performPieceOn2D*(this: var TopOpeBRepBuildBuilder1; aPieceObj: TopoDS_Shape;
                       aFaceObj: TopoDS_Shape; aEdgeObj: TopoDS_Shape;
                       aListOfPieces: var TopToolsListOfShape;
                       aListOfFaces: var TopToolsListOfShape;
-                      aListOfPiecesOut2d: var TopToolsListOfShape): cint {.
+                      aListOfPiecesOut2d: var TopToolsListOfShape): int {.
     importcpp: "PerformPieceOn2D", header: "TopOpeBRepBuild_Builder1.hxx".}
 proc twoPiecesON*(this: var TopOpeBRepBuildBuilder1; aSeq: TopToolsSequenceOfShape;
                  aListOfPieces: var TopToolsListOfShape;
                  aListOfFaces: var TopToolsListOfShape;
-                 aListOfPiecesOut2d: var TopToolsListOfShape): cint {.
+                 aListOfPiecesOut2d: var TopToolsListOfShape): int {.
     importcpp: "TwoPiecesON", header: "TopOpeBRepBuild_Builder1.hxx".}
-proc correctResult2d*(this: var TopOpeBRepBuildBuilder1; aResult: var TopoDS_Shape): cint {.
+proc correctResult2d*(this: var TopOpeBRepBuildBuilder1; aResult: var TopoDS_Shape): int {.
     importcpp: "CorrectResult2d", header: "TopOpeBRepBuild_Builder1.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

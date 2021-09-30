@@ -19,30 +19,5 @@ type
 
 
 proc distance*(s1: TopoDS_Shape; s2: TopoDS_Shape; p1: var Pnt; p2: var Pnt;
-              dist: var cfloat): bool {.importcpp: "BRepExtrema_Poly::Distance(@)",
-                                    header: "BRepExtrema_Poly.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              dist: var StandardReal): StandardBoolean {.
+    importcpp: "BRepExtrema_Poly::Distance(@)", header: "BRepExtrema_Poly.hxx".}

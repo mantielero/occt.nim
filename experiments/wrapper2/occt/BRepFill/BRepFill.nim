@@ -51,44 +51,30 @@ discard "forward decl of BRepFill_Filling"
 discard "forward decl of BRepFill_FaceAndOrder"
 discard "forward decl of BRepFill_EdgeFaceAndOrder"
 type
-  BRepFill* {.importcpp: "BRepFill", header: "BRepFill.hxx", bycopy.} = object ## ! Computes a ruled surface between two edges.
-                                                                       ## ! Computes origins and
+  BRepFill* {.importcpp: "BRepFill", header: "BRepFill.hxx", bycopy.} = object ## ! Computes origins and
                                                                        ## orientation on a closed wire
 
 
+proc `new`*(this: var BRepFill; theSize: csize_t): pointer {.
+    importcpp: "BRepFill::operator new", header: "BRepFill.hxx".}
+proc `delete`*(this: var BRepFill; theAddress: pointer) {.
+    importcpp: "BRepFill::operator delete", header: "BRepFill.hxx".}
+proc `new[]`*(this: var BRepFill; theSize: csize_t): pointer {.
+    importcpp: "BRepFill::operator new[]", header: "BRepFill.hxx".}
+proc `delete[]`*(this: var BRepFill; theAddress: pointer) {.
+    importcpp: "BRepFill::operator delete[]", header: "BRepFill.hxx".}
+proc `new`*(this: var BRepFill; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill::operator new", header: "BRepFill.hxx".}
+proc `delete`*(this: var BRepFill; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill::operator delete", header: "BRepFill.hxx".}
 proc face*(edge1: TopoDS_Edge; edge2: TopoDS_Edge): TopoDS_Face {.
     importcpp: "BRepFill::Face(@)", header: "BRepFill.hxx".}
 proc shell*(wire1: TopoDS_Wire; wire2: TopoDS_Wire): TopoDS_Shell {.
     importcpp: "BRepFill::Shell(@)", header: "BRepFill.hxx".}
 proc axe*(spine: TopoDS_Shape; profile: TopoDS_Wire; axeProf: var Ax3;
-         profOnSpine: var bool; tol: cfloat) {.importcpp: "BRepFill::Axe(@)",
-    header: "BRepFill.hxx".}
+         profOnSpine: var StandardBoolean; tol: StandardReal) {.
+    importcpp: "BRepFill::Axe(@)", header: "BRepFill.hxx".}
 proc computeACR*(wire: TopoDS_Wire; acr: var TColStdArray1OfReal) {.
     importcpp: "BRepFill::ComputeACR(@)", header: "BRepFill.hxx".}
-proc insertACR*(wire: TopoDS_Wire; aCRcuts: TColStdArray1OfReal; prec: cfloat): TopoDS_Wire {.
+proc insertACR*(wire: TopoDS_Wire; aCRcuts: TColStdArray1OfReal; prec: StandardReal): TopoDS_Wire {.
     importcpp: "BRepFill::InsertACR(@)", header: "BRepFill.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

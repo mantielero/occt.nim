@@ -20,29 +20,3 @@ type
                            header: "ChFiDS_TypeOfConcavity.hxx".} = enum
     ChFiDS_Concave, ChFiDS_Convex, ChFiDS_Tangential, ChFiDS_FreeBound, ChFiDS_Other
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

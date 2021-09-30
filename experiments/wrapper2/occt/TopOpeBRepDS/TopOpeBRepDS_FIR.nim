@@ -18,36 +18,24 @@ type
                      header: "TopOpeBRepDS_FIR.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_FIR; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_FIR::operator new", header: "TopOpeBRepDS_FIR.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_FIR; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_FIR::operator delete", header: "TopOpeBRepDS_FIR.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_FIR; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_FIR::operator new[]", header: "TopOpeBRepDS_FIR.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_FIR; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_FIR::operator delete[]",
+    header: "TopOpeBRepDS_FIR.hxx".}
+proc `new`*(this: var TopOpeBRepDS_FIR; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_FIR::operator new", header: "TopOpeBRepDS_FIR.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_FIR; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_FIR::operator delete", header: "TopOpeBRepDS_FIR.hxx".}
 proc constructTopOpeBRepDS_FIR*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_FIR {.
     constructor, importcpp: "TopOpeBRepDS_FIR(@)", header: "TopOpeBRepDS_FIR.hxx".}
 proc processFaceInterferences*(this: var TopOpeBRepDS_FIR;
                               m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_FIR.hxx".}
-proc processFaceInterferences*(this: var TopOpeBRepDS_FIR; i: cint;
+proc processFaceInterferences*(this: var TopOpeBRepDS_FIR; i: int;
                               m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_FIR.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

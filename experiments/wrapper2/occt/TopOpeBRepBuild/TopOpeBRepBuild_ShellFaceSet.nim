@@ -19,23 +19,27 @@ discard "forward decl of TopoDS_Solid"
 discard "forward decl of TCollection_AsciiString"
 type
   TopOpeBRepBuildShellFaceSet* {.importcpp: "TopOpeBRepBuild_ShellFaceSet",
-                                header: "TopOpeBRepBuild_ShellFaceSet.hxx", bycopy.} = object of TopOpeBRepBuildShapeSet ##
-                                                                                                                  ## !
-                                                                                                                  ## Creates
-                                                                                                                  ## a
-                                                                                                                  ## ShellFaceSet
-                                                                                                                  ## to
-                                                                                                                  ## build
-                                                                                                                  ## blocks
-                                                                                                                  ## of
-                                                                                                                  ## faces
-                                                                                                                  ##
-                                                                                                                  ## !
-                                                                                                                  ## connected
-                                                                                                                  ## by
-                                                                                                                  ## edges.
+                                header: "TopOpeBRepBuild_ShellFaceSet.hxx", bycopy.} = object of TopOpeBRepBuildShapeSet
 
 
+proc `new`*(this: var TopOpeBRepBuildShellFaceSet; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_ShellFaceSet::operator new",
+    header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildShellFaceSet; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_ShellFaceSet::operator delete",
+    header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildShellFaceSet; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_ShellFaceSet::operator new[]",
+    header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildShellFaceSet; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_ShellFaceSet::operator delete[]",
+    header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
+proc `new`*(this: var TopOpeBRepBuildShellFaceSet; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_ShellFaceSet::operator new",
+    header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildShellFaceSet; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_ShellFaceSet::operator delete",
+    header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc constructTopOpeBRepBuildShellFaceSet*(): TopOpeBRepBuildShellFaceSet {.
     constructor, importcpp: "TopOpeBRepBuild_ShellFaceSet(@)",
     header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
@@ -65,28 +69,3 @@ proc sNameori*(this: TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape;
 proc sNameori*(this: TopOpeBRepBuildShellFaceSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SNameori", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

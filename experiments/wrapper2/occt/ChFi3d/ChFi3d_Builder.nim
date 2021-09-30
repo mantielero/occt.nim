@@ -47,102 +47,90 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of AppBlend_Approx"
 discard "forward decl of Geom2d_Curve"
 type
-  ChFi3dBuilder* {.importcpp: "ChFi3d_Builder", header: "ChFi3d_Builder.hxx", bycopy.} = object
+  ChFi3dBuilder* {.importcpp: "ChFi3d_Builder", header: "ChFi3d_Builder.hxx", bycopy.} = object of RootObj
 
 
+proc `new`*(this: var ChFi3dBuilder; theSize: csize_t): pointer {.
+    importcpp: "ChFi3d_Builder::operator new", header: "ChFi3d_Builder.hxx".}
+proc `delete`*(this: var ChFi3dBuilder; theAddress: pointer) {.
+    importcpp: "ChFi3d_Builder::operator delete", header: "ChFi3d_Builder.hxx".}
+proc `new[]`*(this: var ChFi3dBuilder; theSize: csize_t): pointer {.
+    importcpp: "ChFi3d_Builder::operator new[]", header: "ChFi3d_Builder.hxx".}
+proc `delete[]`*(this: var ChFi3dBuilder; theAddress: pointer) {.
+    importcpp: "ChFi3d_Builder::operator delete[]", header: "ChFi3d_Builder.hxx".}
+proc `new`*(this: var ChFi3dBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "ChFi3d_Builder::operator new", header: "ChFi3d_Builder.hxx".}
+proc `delete`*(this: var ChFi3dBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "ChFi3d_Builder::operator delete", header: "ChFi3d_Builder.hxx".}
 proc destroyChFi3dBuilder*(this: var ChFi3dBuilder) {.
     importcpp: "#.~ChFi3d_Builder()", header: "ChFi3d_Builder.hxx".}
-proc setParams*(this: var ChFi3dBuilder; tang: cfloat; tesp: cfloat; t2d: cfloat;
-               tApp3d: cfloat; tolApp2d: cfloat; fleche: cfloat) {.
-    importcpp: "SetParams", header: "ChFi3d_Builder.hxx".}
-proc setContinuity*(this: var ChFi3dBuilder; internalContinuity: GeomAbsShape;
-                   angularTolerance: cfloat) {.importcpp: "SetContinuity",
-    header: "ChFi3d_Builder.hxx".}
+proc setParams*(this: var ChFi3dBuilder; tang: StandardReal; tesp: StandardReal;
+               t2d: StandardReal; tApp3d: StandardReal; tolApp2d: StandardReal;
+               fleche: StandardReal) {.importcpp: "SetParams",
+                                     header: "ChFi3d_Builder.hxx".}
+#[ proc setContinuity*(this: var ChFi3dBuilder; internalContinuity: GeomAbsShape;
+                   angularTolerance: StandardReal) {.importcpp: "SetContinuity",
+    header: "ChFi3d_Builder.hxx".} ]#
 proc remove*(this: var ChFi3dBuilder; e: TopoDS_Edge) {.importcpp: "Remove",
     header: "ChFi3d_Builder.hxx".}
-proc contains*(this: ChFi3dBuilder; e: TopoDS_Edge): cint {.noSideEffect,
+proc contains*(this: ChFi3dBuilder; e: TopoDS_Edge): int {.noSideEffect,
     importcpp: "Contains", header: "ChFi3d_Builder.hxx".}
-proc contains*(this: ChFi3dBuilder; e: TopoDS_Edge; indexInSpine: var cint): cint {.
+proc contains*(this: ChFi3dBuilder; e: TopoDS_Edge; indexInSpine: var int): int {.
     noSideEffect, importcpp: "Contains", header: "ChFi3d_Builder.hxx".}
-proc nbElements*(this: ChFi3dBuilder): cint {.noSideEffect, importcpp: "NbElements",
+proc nbElements*(this: ChFi3dBuilder): int {.noSideEffect, importcpp: "NbElements",
     header: "ChFi3d_Builder.hxx".}
-proc value*(this: ChFi3dBuilder; i: cint): Handle[ChFiDS_Spine] {.noSideEffect,
-    importcpp: "Value", header: "ChFi3d_Builder.hxx".}
-proc length*(this: ChFi3dBuilder; ic: cint): cfloat {.noSideEffect,
+#[ proc value*(this: ChFi3dBuilder; i: int): Handle[ChFiDS_Spine] {.noSideEffect,
+    importcpp: "Value", header: "ChFi3d_Builder.hxx".} ]#
+proc length*(this: ChFi3dBuilder; ic: int): StandardReal {.noSideEffect,
     importcpp: "Length", header: "ChFi3d_Builder.hxx".}
-proc firstVertex*(this: ChFi3dBuilder; ic: cint): TopoDS_Vertex {.noSideEffect,
+proc firstVertex*(this: ChFi3dBuilder; ic: int): TopoDS_Vertex {.noSideEffect,
     importcpp: "FirstVertex", header: "ChFi3d_Builder.hxx".}
-proc lastVertex*(this: ChFi3dBuilder; ic: cint): TopoDS_Vertex {.noSideEffect,
+proc lastVertex*(this: ChFi3dBuilder; ic: int): TopoDS_Vertex {.noSideEffect,
     importcpp: "LastVertex", header: "ChFi3d_Builder.hxx".}
-proc abscissa*(this: ChFi3dBuilder; ic: cint; v: TopoDS_Vertex): cfloat {.noSideEffect,
-    importcpp: "Abscissa", header: "ChFi3d_Builder.hxx".}
-proc relativeAbscissa*(this: ChFi3dBuilder; ic: cint; v: TopoDS_Vertex): cfloat {.
+proc abscissa*(this: ChFi3dBuilder; ic: int; v: TopoDS_Vertex): StandardReal {.
+    noSideEffect, importcpp: "Abscissa", header: "ChFi3d_Builder.hxx".}
+proc relativeAbscissa*(this: ChFi3dBuilder; ic: int; v: TopoDS_Vertex): StandardReal {.
     noSideEffect, importcpp: "RelativeAbscissa", header: "ChFi3d_Builder.hxx".}
-proc closedAndTangent*(this: ChFi3dBuilder; ic: cint): bool {.noSideEffect,
+proc closedAndTangent*(this: ChFi3dBuilder; ic: int): StandardBoolean {.noSideEffect,
     importcpp: "ClosedAndTangent", header: "ChFi3d_Builder.hxx".}
-proc closed*(this: ChFi3dBuilder; ic: cint): bool {.noSideEffect, importcpp: "Closed",
-    header: "ChFi3d_Builder.hxx".}
+proc closed*(this: ChFi3dBuilder; ic: int): StandardBoolean {.noSideEffect,
+    importcpp: "Closed", header: "ChFi3d_Builder.hxx".}
 proc compute*(this: var ChFi3dBuilder) {.importcpp: "Compute",
                                      header: "ChFi3d_Builder.hxx".}
-proc isDone*(this: ChFi3dBuilder): bool {.noSideEffect, importcpp: "IsDone",
-                                      header: "ChFi3d_Builder.hxx".}
+proc isDone*(this: ChFi3dBuilder): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "ChFi3d_Builder.hxx".}
 proc shape*(this: ChFi3dBuilder): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "ChFi3d_Builder.hxx".}
-proc generated*(this: var ChFi3dBuilder; eouV: TopoDS_Shape): TopToolsListOfShape {.
-    importcpp: "Generated", header: "ChFi3d_Builder.hxx".}
-proc nbFaultyContours*(this: ChFi3dBuilder): cint {.noSideEffect,
+#[ proc generated*(this: var ChFi3dBuilder; eouV: TopoDS_Shape): TopToolsListOfShape {.
+    importcpp: "Generated", header: "ChFi3d_Builder.hxx".} ]#
+proc nbFaultyContours*(this: ChFi3dBuilder): int {.noSideEffect,
     importcpp: "NbFaultyContours", header: "ChFi3d_Builder.hxx".}
-proc faultyContour*(this: ChFi3dBuilder; i: cint): cint {.noSideEffect,
+proc faultyContour*(this: ChFi3dBuilder; i: int): int {.noSideEffect,
     importcpp: "FaultyContour", header: "ChFi3d_Builder.hxx".}
-proc nbComputedSurfaces*(this: ChFi3dBuilder; ic: cint): cint {.noSideEffect,
+proc nbComputedSurfaces*(this: ChFi3dBuilder; ic: int): int {.noSideEffect,
     importcpp: "NbComputedSurfaces", header: "ChFi3d_Builder.hxx".}
-proc computedSurface*(this: ChFi3dBuilder; ic: cint; `is`: cint): Handle[GeomSurface] {.
+proc computedSurface*(this: ChFi3dBuilder; ic: int; `is`: int): Handle[GeomSurface] {.
     noSideEffect, importcpp: "ComputedSurface", header: "ChFi3d_Builder.hxx".}
-proc nbFaultyVertices*(this: ChFi3dBuilder): cint {.noSideEffect,
+proc nbFaultyVertices*(this: ChFi3dBuilder): int {.noSideEffect,
     importcpp: "NbFaultyVertices", header: "ChFi3d_Builder.hxx".}
-proc faultyVertex*(this: ChFi3dBuilder; iv: cint): TopoDS_Vertex {.noSideEffect,
+proc faultyVertex*(this: ChFi3dBuilder; iv: int): TopoDS_Vertex {.noSideEffect,
     importcpp: "FaultyVertex", header: "ChFi3d_Builder.hxx".}
-proc hasResult*(this: ChFi3dBuilder): bool {.noSideEffect, importcpp: "HasResult",
-    header: "ChFi3d_Builder.hxx".}
+proc hasResult*(this: ChFi3dBuilder): StandardBoolean {.noSideEffect,
+    importcpp: "HasResult", header: "ChFi3d_Builder.hxx".}
 proc badShape*(this: ChFi3dBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "BadShape", header: "ChFi3d_Builder.hxx".}
-proc stripeStatus*(this: ChFi3dBuilder; ic: cint): ChFiDS_ErrorStatus {.noSideEffect,
-    importcpp: "StripeStatus", header: "ChFi3d_Builder.hxx".}
+#[ proc stripeStatus*(this: ChFi3dBuilder; ic: int): ChFiDS_ErrorStatus {.noSideEffect,
+    importcpp: "StripeStatus", header: "ChFi3d_Builder.hxx".} ]#
 proc reset*(this: var ChFi3dBuilder) {.importcpp: "Reset",
                                    header: "ChFi3d_Builder.hxx".}
-proc builder*(this: ChFi3dBuilder): Handle[TopOpeBRepBuildHBuilder] {.noSideEffect,
-    importcpp: "Builder", header: "ChFi3d_Builder.hxx".}
-proc splitKPart*(this: var ChFi3dBuilder; data: Handle[ChFiDS_SurfData];
+#[ proc builder*(this: ChFi3dBuilder): Handle[TopOpeBRepBuildHBuilder] {.noSideEffect,
+    importcpp: "Builder", header: "ChFi3d_Builder.hxx".} ]#
+#[ proc splitKPart*(this: var ChFi3dBuilder; data: Handle[ChFiDS_SurfData];
                 setData: var ChFiDS_SequenceOfSurfData;
-                spine: Handle[ChFiDS_Spine]; iedge: cint;
+                spine: Handle[ChFiDS_Spine]; iedge: int;
                 s1: Handle[Adaptor3dHSurface]; i1: Handle[Adaptor3dTopolTool];
                 s2: Handle[Adaptor3dHSurface]; i2: Handle[Adaptor3dTopolTool];
-                intf: var bool; intl: var bool): bool {.importcpp: "SplitKPart",
-    header: "ChFi3d_Builder.hxx".}
-proc performTwoCornerbyInter*(this: var ChFi3dBuilder; index: cint): bool {.
+                intf: var StandardBoolean; intl: var StandardBoolean): StandardBoolean {.
+    importcpp: "SplitKPart", header: "ChFi3d_Builder.hxx".} ]#
+proc performTwoCornerbyInter*(this: var ChFi3dBuilder; index: int): StandardBoolean {.
     importcpp: "PerformTwoCornerbyInter", header: "ChFi3d_Builder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

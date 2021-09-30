@@ -31,8 +31,8 @@ discard "forward decl of TopOpeBRepDS_SurfaceIterator"
 discard "forward decl of TopOpeBRepDS_CurveIterator"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt"
-# when defined(FillSolid):
-#   discard
+when defined(FillSolid):
+  discard
 ## ! The Builder  algorithm    constructs   topological
 ## ! objects  from   an    existing  topology  and  new
 ## ! geometries attached to the topology. It is used to
@@ -61,6 +61,24 @@ type
                                                                                ## <Icurv>.
 
 
+proc `new`*(this: var TopOpeBRepBuildBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_Builder::operator new",
+    header: "TopOpeBRepBuild_Builder.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildBuilder; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_Builder::operator delete",
+    header: "TopOpeBRepBuild_Builder.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_Builder::operator new[]",
+    header: "TopOpeBRepBuild_Builder.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildBuilder; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_Builder::operator delete[]",
+    header: "TopOpeBRepBuild_Builder.hxx".}
+proc `new`*(this: var TopOpeBRepBuildBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_Builder::operator new",
+    header: "TopOpeBRepBuild_Builder.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_Builder::operator delete",
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc constructTopOpeBRepBuildBuilder*(bt: TopOpeBRepDS_BuildTool): TopOpeBRepBuildBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_Builder(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
@@ -85,12 +103,14 @@ proc clear*(this: var TopOpeBRepBuildBuilder) {.importcpp: "Clear",
     header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeEdges*(this: var TopOpeBRepBuildBuilder; l1: TopToolsListOfShape;
                 tb1: TopAbsState; l2: TopToolsListOfShape; tb2: TopAbsState;
-                onA: bool = false; onB: bool = false; onAB: bool = false) {.
-    importcpp: "MergeEdges", header: "TopOpeBRepBuild_Builder.hxx".}
+                onA: StandardBoolean = false; onB: StandardBoolean = false;
+                onAB: StandardBoolean = false) {.importcpp: "MergeEdges",
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeFaces*(this: var TopOpeBRepBuildBuilder; s1: TopToolsListOfShape;
                 tb1: TopAbsState; s2: TopToolsListOfShape; tb2: TopAbsState;
-                onA: bool = false; onB: bool = false; onAB: bool = false) {.
-    importcpp: "MergeFaces", header: "TopOpeBRepBuild_Builder.hxx".}
+                onA: StandardBoolean = false; onB: StandardBoolean = false;
+                onAB: StandardBoolean = false) {.importcpp: "MergeFaces",
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeSolids*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape;
                  tb1: TopAbsState; s2: TopoDS_Shape; tb2: TopAbsState) {.
     importcpp: "MergeSolids", header: "TopOpeBRepBuild_Builder.hxx".}
@@ -99,23 +119,23 @@ proc mergeShapes*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape;
     importcpp: "MergeShapes", header: "TopOpeBRepBuild_Builder.hxx".}
 proc `end`*(this: var TopOpeBRepBuildBuilder) {.importcpp: "End",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc classify*(this: TopOpeBRepBuildBuilder): bool {.noSideEffect,
+proc classify*(this: TopOpeBRepBuildBuilder): StandardBoolean {.noSideEffect,
     importcpp: "Classify", header: "TopOpeBRepBuild_Builder.hxx".}
-proc changeClassify*(this: var TopOpeBRepBuildBuilder; b: bool) {.
+proc changeClassify*(this: var TopOpeBRepBuildBuilder; b: StandardBoolean) {.
     importcpp: "ChangeClassify", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeSolid*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState) {.
     importcpp: "MergeSolid", header: "TopOpeBRepBuild_Builder.hxx".}
-proc newVertex*(this: TopOpeBRepBuildBuilder; i: cint): TopoDS_Shape {.noSideEffect,
+proc newVertex*(this: TopOpeBRepBuildBuilder; i: int): TopoDS_Shape {.noSideEffect,
     importcpp: "NewVertex", header: "TopOpeBRepBuild_Builder.hxx".}
-proc newEdges*(this: TopOpeBRepBuildBuilder; i: cint): TopToolsListOfShape {.
+proc newEdges*(this: TopOpeBRepBuildBuilder; i: int): TopToolsListOfShape {.
     noSideEffect, importcpp: "NewEdges", header: "TopOpeBRepBuild_Builder.hxx".}
-proc newFaces*(this: TopOpeBRepBuildBuilder; i: cint): TopToolsListOfShape {.
+proc newFaces*(this: TopOpeBRepBuildBuilder; i: int): TopToolsListOfShape {.
     noSideEffect, importcpp: "NewFaces", header: "TopOpeBRepBuild_Builder.hxx".}
-proc isSplit*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): bool {.
+proc isSplit*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): StandardBoolean {.
     noSideEffect, importcpp: "IsSplit", header: "TopOpeBRepBuild_Builder.hxx".}
 proc splits*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): TopToolsListOfShape {.
     noSideEffect, importcpp: "Splits", header: "TopOpeBRepBuild_Builder.hxx".}
-proc isMerged*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): bool {.
+proc isMerged*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): StandardBoolean {.
     noSideEffect, importcpp: "IsMerged", header: "TopOpeBRepBuild_Builder.hxx".}
 proc merged*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): TopToolsListOfShape {.
     noSideEffect, importcpp: "Merged", header: "TopOpeBRepBuild_Builder.hxx".}
@@ -129,7 +149,7 @@ proc sectionCurves*(this: var TopOpeBRepBuildBuilder; L: var TopToolsListOfShape
     importcpp: "SectionCurves", header: "TopOpeBRepBuild_Builder.hxx".}
 proc sectionEdges*(this: var TopOpeBRepBuildBuilder; L: var TopToolsListOfShape) {.
     importcpp: "SectionEdges", header: "TopOpeBRepBuild_Builder.hxx".}
-proc fillSecEdgeAncestorMap*(this: TopOpeBRepBuildBuilder; aShapeRank: cint;
+proc fillSecEdgeAncestorMap*(this: TopOpeBRepBuildBuilder; aShapeRank: int;
                             aMapON: TopToolsMapOfShape;
                             anAncMap: var TopToolsDataMapOfShapeShape) {.
     noSideEffect, importcpp: "FillSecEdgeAncestorMap",
@@ -162,27 +182,27 @@ proc makeShells*(this: var TopOpeBRepBuildBuilder;
     importcpp: "MakeShells", header: "TopOpeBRepBuild_Builder.hxx".}
 proc changeSplit*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): var TopToolsListOfShape {.
     importcpp: "ChangeSplit", header: "TopOpeBRepBuild_Builder.hxx".}
-proc opec12*(this: TopOpeBRepBuildBuilder): bool {.noSideEffect, importcpp: "Opec12",
-    header: "TopOpeBRepBuild_Builder.hxx".}
-proc opec21*(this: TopOpeBRepBuildBuilder): bool {.noSideEffect, importcpp: "Opec21",
-    header: "TopOpeBRepBuild_Builder.hxx".}
-proc opecom*(this: TopOpeBRepBuildBuilder): bool {.noSideEffect, importcpp: "Opecom",
-    header: "TopOpeBRepBuild_Builder.hxx".}
-proc opefus*(this: TopOpeBRepBuildBuilder): bool {.noSideEffect, importcpp: "Opefus",
-    header: "TopOpeBRepBuild_Builder.hxx".}
+proc opec12*(this: TopOpeBRepBuildBuilder): StandardBoolean {.noSideEffect,
+    importcpp: "Opec12", header: "TopOpeBRepBuild_Builder.hxx".}
+proc opec21*(this: TopOpeBRepBuildBuilder): StandardBoolean {.noSideEffect,
+    importcpp: "Opec21", header: "TopOpeBRepBuild_Builder.hxx".}
+proc opecom*(this: TopOpeBRepBuildBuilder): StandardBoolean {.noSideEffect,
+    importcpp: "Opecom", header: "TopOpeBRepBuild_Builder.hxx".}
+proc opefus*(this: TopOpeBRepBuildBuilder): StandardBoolean {.noSideEffect,
+    importcpp: "Opefus", header: "TopOpeBRepBuild_Builder.hxx".}
 proc shapePosition*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                    ls: TopToolsListOfShape): TopAbsState {.
     importcpp: "ShapePosition", header: "TopOpeBRepBuild_Builder.hxx".}
 proc keepShape*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape;
-               ls: TopToolsListOfShape; t: TopAbsState): bool {.
+               ls: TopToolsListOfShape; t: TopAbsState): StandardBoolean {.
     importcpp: "KeepShape", header: "TopOpeBRepBuild_Builder.hxx".}
 proc topType*(s: TopoDS_Shape): TopAbsShapeEnum {.
     importcpp: "TopOpeBRepBuild_Builder::TopType(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc reverse*(t1: TopAbsState; t2: TopAbsState): bool {.
+proc reverse*(t1: TopAbsState; t2: TopAbsState): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Builder::Reverse(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc orient*(o: TopAbsOrientation; r: bool): TopAbsOrientation {.
+proc orient*(o: TopAbsOrientation; r: StandardBoolean): TopAbsOrientation {.
     importcpp: "TopOpeBRepBuild_Builder::Orient(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
 proc findSameDomain*(this: TopOpeBRepBuildBuilder; l1: var TopToolsListOfShape;
@@ -197,19 +217,19 @@ proc mapShapes*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape; s2: TopoDS_S
     importcpp: "MapShapes", header: "TopOpeBRepBuild_Builder.hxx".}
 proc clearMaps*(this: var TopOpeBRepBuildBuilder) {.importcpp: "ClearMaps",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc findSameRank*(this: TopOpeBRepBuildBuilder; l1: TopToolsListOfShape; r: cint;
+proc findSameRank*(this: TopOpeBRepBuildBuilder; l1: TopToolsListOfShape; r: int;
                   l2: var TopToolsListOfShape) {.noSideEffect,
     importcpp: "FindSameRank", header: "TopOpeBRepBuild_Builder.hxx".}
-proc shapeRank*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): cint {.noSideEffect,
+proc shapeRank*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): int {.noSideEffect,
     importcpp: "ShapeRank", header: "TopOpeBRepBuild_Builder.hxx".}
-proc isShapeOf*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; i12: cint): bool {.
+proc isShapeOf*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; i12: int): StandardBoolean {.
     noSideEffect, importcpp: "IsShapeOf", header: "TopOpeBRepBuild_Builder.hxx".}
-proc contains*(s: TopoDS_Shape; L: TopToolsListOfShape): bool {.
+proc contains*(s: TopoDS_Shape; L: TopToolsListOfShape): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Builder::Contains(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc findIsKPart*(this: var TopOpeBRepBuildBuilder): cint {.importcpp: "FindIsKPart",
+proc findIsKPart*(this: var TopOpeBRepBuildBuilder): int {.importcpp: "FindIsKPart",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc isKPart*(this: TopOpeBRepBuildBuilder): cint {.noSideEffect,
+proc isKPart*(this: TopOpeBRepBuildBuilder): int {.noSideEffect,
     importcpp: "IsKPart", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeKPart*(this: var TopOpeBRepBuildBuilder) {.importcpp: "MergeKPart",
     header: "TopOpeBRepBuild_Builder.hxx".}
@@ -225,27 +245,27 @@ proc mergeKPartisfafa*(this: var TopOpeBRepBuildBuilder) {.
     importcpp: "MergeKPartisfafa", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeKPartissoso*(this: var TopOpeBRepBuildBuilder) {.
     importcpp: "MergeKPartissoso", header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPiskole*(this: var TopOpeBRepBuildBuilder): cint {.importcpp: "KPiskole",
+proc kPiskole*(this: var TopOpeBRepBuildBuilder): int {.importcpp: "KPiskole",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPiskoletge*(this: var TopOpeBRepBuildBuilder): cint {.importcpp: "KPiskoletge",
+proc kPiskoletge*(this: var TopOpeBRepBuildBuilder): int {.importcpp: "KPiskoletge",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPisdisj*(this: var TopOpeBRepBuildBuilder): cint {.importcpp: "KPisdisj",
+proc kPisdisj*(this: var TopOpeBRepBuildBuilder): int {.importcpp: "KPisdisj",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPisfafa*(this: var TopOpeBRepBuildBuilder): cint {.importcpp: "KPisfafa",
+proc kPisfafa*(this: var TopOpeBRepBuildBuilder): int {.importcpp: "KPisfafa",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPissoso*(this: var TopOpeBRepBuildBuilder): cint {.importcpp: "KPissoso",
+proc kPissoso*(this: var TopOpeBRepBuildBuilder): int {.importcpp: "KPissoso",
     header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPClearMaps*(this: var TopOpeBRepBuildBuilder) {.importcpp: "KPClearMaps",
     header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPlhg*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsShapeEnum;
-           L: var TopToolsListOfShape): cint {.noSideEffect, importcpp: "KPlhg",
+           L: var TopToolsListOfShape): int {.noSideEffect, importcpp: "KPlhg",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPlhg*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsShapeEnum): cint {.
+proc kPlhg*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsShapeEnum): int {.
     noSideEffect, importcpp: "KPlhg", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPlhsd*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsShapeEnum;
-            L: var TopToolsListOfShape): cint {.noSideEffect, importcpp: "KPlhsd",
+            L: var TopToolsListOfShape): int {.noSideEffect, importcpp: "KPlhsd",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPlhsd*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsShapeEnum): cint {.
+proc kPlhsd*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsShapeEnum): int {.
     noSideEffect, importcpp: "KPlhsd", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPclasSS*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape;
               exceptLS1: TopToolsListOfShape; s2: TopoDS_Shape): TopAbsState {.
@@ -256,36 +276,35 @@ proc kPclasSS*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape;
 proc kPclasSS*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape; s2: TopoDS_Shape): TopAbsState {.
     importcpp: "KPclasSS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskolesh*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
-                ls: var TopToolsListOfShape; lf: var TopToolsListOfShape): bool {.
+                ls: var TopToolsListOfShape; lf: var TopToolsListOfShape): StandardBoolean {.
     noSideEffect, importcpp: "KPiskolesh", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskoletgesh*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
-                   ls: var TopToolsListOfShape; lf: var TopToolsListOfShape): bool {.
+                   ls: var TopToolsListOfShape; lf: var TopToolsListOfShape): StandardBoolean {.
     noSideEffect, importcpp: "KPiskoletgesh", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPSameDomain*(this: TopOpeBRepBuildBuilder; l1: var TopToolsListOfShape;
                   l2: var TopToolsListOfShape) {.noSideEffect,
     importcpp: "KPSameDomain", header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPisdisjsh*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): cint {.noSideEffect,
+proc kPisdisjsh*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): int {.noSideEffect,
     importcpp: "KPisdisjsh", header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPisfafash*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): cint {.noSideEffect,
+proc kPisfafash*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): int {.noSideEffect,
     importcpp: "KPisfafash", header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPissososh*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): cint {.noSideEffect,
+proc kPissososh*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): int {.noSideEffect,
     importcpp: "KPissososh", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskoleanalyse*(this: TopOpeBRepBuildBuilder; ft1: TopAbsState;
-                     ft2: TopAbsState; st1: TopAbsState; st2: TopAbsState;
-                     i: var cint; i1: var cint; i2: var cint) {.noSideEffect,
+                     ft2: TopAbsState; st1: TopAbsState; st2: TopAbsState; i: var int;
+                     i1: var int; i2: var int) {.noSideEffect,
     importcpp: "KPiskoleanalyse", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskoletgeanalyse*(this: TopOpeBRepBuildBuilder; conf: TopOpeBRepDS_Config;
-                        st1: TopAbsState; st2: TopAbsState; i: var cint) {.
-    noSideEffect, importcpp: "KPiskoletgeanalyse",
-    header: "TopOpeBRepBuild_Builder.hxx".}
+                        st1: TopAbsState; st2: TopAbsState; i: var int) {.noSideEffect,
+    importcpp: "KPiskoletgeanalyse", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPisdisjanalyse*(this: TopOpeBRepBuildBuilder; st1: TopAbsState;
-                     st2: TopAbsState; i: var cint; ic1: var cint; ic2: var cint) {.
+                     st2: TopAbsState; i: var int; ic1: var int; ic2: var int) {.
     noSideEffect, importcpp: "KPisdisjanalyse",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPls*(s: TopoDS_Shape; t: TopAbsShapeEnum; L: var TopToolsListOfShape): cint {.
+proc kPls*(s: TopoDS_Shape; t: TopAbsShapeEnum; L: var TopToolsListOfShape): int {.
     importcpp: "TopOpeBRepBuild_Builder::KPls(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPls*(s: TopoDS_Shape; t: TopAbsShapeEnum): cint {.
+proc kPls*(s: TopoDS_Shape; t: TopAbsShapeEnum): int {.
     importcpp: "TopOpeBRepBuild_Builder::KPls(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPclassF*(this: var TopOpeBRepBuildBuilder; f1: TopoDS_Shape; f2: TopoDS_Shape): TopAbsState {.
@@ -294,17 +313,17 @@ proc kPclassFF*(this: var TopOpeBRepBuildBuilder; f1: TopoDS_Shape; f2: TopoDS_S
                t1: var TopAbsState; t2: var TopAbsState) {.importcpp: "KPclassFF",
     header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskoleFF*(this: var TopOpeBRepBuildBuilder; f1: TopoDS_Shape; f2: TopoDS_Shape;
-                t1: var TopAbsState; t2: var TopAbsState): bool {.
+                t1: var TopAbsState; t2: var TopAbsState): StandardBoolean {.
     importcpp: "KPiskoleFF", header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPContains*(s: TopoDS_Shape; L: TopToolsListOfShape): bool {.
+proc kPContains*(s: TopoDS_Shape; L: TopToolsListOfShape): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Builder::KPContains(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPmakeface*(this: var TopOpeBRepBuildBuilder; f1: TopoDS_Shape;
-                lf2: TopToolsListOfShape; t1: TopAbsState; t2: TopAbsState; r1: bool;
-                r2: bool): TopoDS_Shape {.importcpp: "KPmakeface",
-                                       header: "TopOpeBRepBuild_Builder.hxx".}
-proc kPreturn*(kp: cint): cint {.importcpp: "TopOpeBRepBuild_Builder::KPreturn(@)",
-                             header: "TopOpeBRepBuild_Builder.hxx".}
+                lf2: TopToolsListOfShape; t1: TopAbsState; t2: TopAbsState;
+                r1: StandardBoolean; r2: StandardBoolean): TopoDS_Shape {.
+    importcpp: "KPmakeface", header: "TopOpeBRepBuild_Builder.hxx".}
+proc kPreturn*(kp: int): int {.importcpp: "TopOpeBRepBuild_Builder::KPreturn(@)",
+                           header: "TopOpeBRepBuild_Builder.hxx".}
 proc splitEvisoONperiodicF*(this: var TopOpeBRepBuildBuilder) {.
     importcpp: "SplitEvisoONperiodicF", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gMergeSolids*(this: var TopOpeBRepBuildBuilder; lso1: TopToolsListOfShape;
@@ -353,7 +372,7 @@ proc fillOnPatches*(this: var TopOpeBRepBuildBuilder;
                    avoidMap: TopToolsIndexedMapOfOrientedShape) {.
     importcpp: "FillOnPatches", header: "TopOpeBRepBuild_Builder.hxx".}
 proc findFacesTouchingEdge*(this: TopOpeBRepBuildBuilder; aFace: TopoDS_Shape;
-                           anEdge: TopoDS_Shape; aShRank: cint;
+                           anEdge: TopoDS_Shape; aShRank: int;
                            aFaces: var TopToolsListOfShape) {.noSideEffect,
     importcpp: "FindFacesTouchingEdge", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gMergeFaces*(this: var TopOpeBRepBuildBuilder; lf1: TopToolsListOfShape;
@@ -365,7 +384,7 @@ proc gFillFacesWES*(this: var TopOpeBRepBuildBuilder; lf1: TopToolsListOfShape;
     importcpp: "GFillFacesWES", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillFacesWESK*(this: var TopOpeBRepBuildBuilder; lf1: TopToolsListOfShape;
                     lf2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
-                    wes: var TopOpeBRepBuildWireEdgeSet; k: cint) {.
+                    wes: var TopOpeBRepBuildWireEdgeSet; k: int) {.
     importcpp: "GFillFacesWESK", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillFacesWESMakeFaces*(this: var TopOpeBRepBuildBuilder;
                             lf1: TopToolsListOfShape; lf2: TopToolsListOfShape;
@@ -427,13 +446,14 @@ proc gFillPointTopologyPVS*(this: TopOpeBRepBuildBuilder; e: TopoDS_Shape;
                            pvs: var TopOpeBRepBuildPaveSet) {.noSideEffect,
     importcpp: "GFillPointTopologyPVS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gParamOnReference*(this: TopOpeBRepBuildBuilder; v: TopoDS_Vertex;
-                       e: TopoDS_Edge; p: var cfloat): bool {.noSideEffect,
-    importcpp: "GParamOnReference", header: "TopOpeBRepBuild_Builder.hxx".}
+                       e: TopoDS_Edge; p: var StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "GParamOnReference",
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc gKeepShape*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape;
-                lref: TopToolsListOfShape; t: TopAbsState): bool {.
+                lref: TopToolsListOfShape; t: TopAbsState): StandardBoolean {.
     importcpp: "GKeepShape", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gKeepShape1*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape;
-                 lref: TopToolsListOfShape; t: TopAbsState; pos: var TopAbsState): bool {.
+                 lref: TopToolsListOfShape; t: TopAbsState; pos: var TopAbsState): StandardBoolean {.
     importcpp: "GKeepShape1", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gKeepShapes*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                  lref: TopToolsListOfShape; t: TopAbsState;
@@ -475,14 +495,14 @@ proc gEDBUMakeEdges*(this: TopOpeBRepBuildBuilder; ef: TopoDS_Shape;
                     edbu: var TopOpeBRepBuildEdgeBuilder;
                     loe: var TopToolsListOfShape) {.noSideEffect,
     importcpp: "GEDBUMakeEdges", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gToSplit*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): bool {.
+proc gToSplit*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): StandardBoolean {.
     noSideEffect, importcpp: "GToSplit", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gToMerge*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): bool {.noSideEffect,
-    importcpp: "GToMerge", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gTakeCommonOfSame*(g: TopOpeBRepBuildGTopo): bool {.
+proc gToMerge*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): StandardBoolean {.
+    noSideEffect, importcpp: "GToMerge", header: "TopOpeBRepBuild_Builder.hxx".}
+proc gTakeCommonOfSame*(g: TopOpeBRepBuildGTopo): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Builder::GTakeCommonOfSame(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc gTakeCommonOfDiff*(g: TopOpeBRepBuildGTopo): bool {.
+proc gTakeCommonOfDiff*(g: TopOpeBRepBuildGTopo): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Builder::GTakeCommonOfDiff(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFindSamDom*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
@@ -502,17 +522,17 @@ proc gMapShapes*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape; s2: TopoDS_
     importcpp: "GMapShapes", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gClearMaps*(this: var TopOpeBRepBuildBuilder) {.importcpp: "GClearMaps",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc gFindSameRank*(this: TopOpeBRepBuildBuilder; l1: TopToolsListOfShape; r: cint;
+proc gFindSameRank*(this: TopOpeBRepBuildBuilder; l1: TopToolsListOfShape; r: int;
                    l2: var TopToolsListOfShape) {.noSideEffect,
     importcpp: "GFindSameRank", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gShapeRank*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): cint {.noSideEffect,
+proc gShapeRank*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): int {.noSideEffect,
     importcpp: "GShapeRank", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gIsShapeOf*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; i12: cint): bool {.
+proc gIsShapeOf*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; i12: int): StandardBoolean {.
     noSideEffect, importcpp: "GIsShapeOf", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gContains*(s: TopoDS_Shape; L: TopToolsListOfShape): bool {.
+proc gContains*(s: TopoDS_Shape; L: TopToolsListOfShape): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Builder::GContains(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc gCopyList*(lin: TopToolsListOfShape; i1: cint; i2: cint;
+proc gCopyList*(lin: TopToolsListOfShape; i1: int; i2: int;
                lou: var TopToolsListOfShape) {.
     importcpp: "TopOpeBRepBuild_Builder::GCopyList(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
@@ -523,7 +543,7 @@ proc gdumpLS*(this: TopOpeBRepBuildBuilder; L: TopToolsListOfShape) {.noSideEffe
     importcpp: "GdumpLS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpPNT*(p: Pnt) {.importcpp: "TopOpeBRepBuild_Builder::GdumpPNT(@)",
                       header: "TopOpeBRepBuild_Builder.hxx".}
-proc gdumpORIPARPNT*(o: TopAbsOrientation; p: cfloat; pnt: Pnt) {.
+proc gdumpORIPARPNT*(o: TopAbsOrientation; p: StandardReal; pnt: Pnt) {.
     importcpp: "TopOpeBRepBuild_Builder::GdumpORIPARPNT(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHA*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
@@ -535,13 +555,13 @@ proc gdumpSHAORI*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
 proc gdumpSHAORIGEO*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                     str: StandardAddress = nil) {.noSideEffect,
     importcpp: "GdumpSHAORIGEO", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gdumpSHASTA*(this: TopOpeBRepBuildBuilder; `iS`: cint; t: TopAbsState;
+proc gdumpSHASTA*(this: TopOpeBRepBuildBuilder; `iS`: int; t: TopAbsState;
                  a: TCollectionAsciiString = ""; b: TCollectionAsciiString = "") {.
     noSideEffect, importcpp: "GdumpSHASTA", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHASTA*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsState;
                  a: TCollectionAsciiString = ""; b: TCollectionAsciiString = "") {.
     noSideEffect, importcpp: "GdumpSHASTA", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gdumpSHASTA*(this: TopOpeBRepBuildBuilder; `iS`: cint; t: TopAbsState;
+proc gdumpSHASTA*(this: TopOpeBRepBuildBuilder; `iS`: int; t: TopAbsState;
                  ss: TopOpeBRepBuildShapeSet; a: TCollectionAsciiString = "";
                  b: TCollectionAsciiString = ""; c: TCollectionAsciiString = "\n") {.
     noSideEffect, importcpp: "GdumpSHASTA", header: "TopOpeBRepBuild_Builder.hxx".}
@@ -562,17 +582,17 @@ proc gdumpFABU*(this: TopOpeBRepBuildBuilder; fb: var TopOpeBRepBuildFaceBuilder
     noSideEffect, importcpp: "GdumpFABU", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpEDBU*(this: TopOpeBRepBuildBuilder; eb: var TopOpeBRepBuildEdgeBuilder) {.
     noSideEffect, importcpp: "GdumpEDBU", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gtraceSPS*(this: TopOpeBRepBuildBuilder; `iS`: cint): bool {.noSideEffect,
-    importcpp: "GtraceSPS", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gtraceSPS*(this: TopOpeBRepBuildBuilder; `iS`: cint; jS: cint): bool {.
+proc gtraceSPS*(this: TopOpeBRepBuildBuilder; `iS`: int): StandardBoolean {.
     noSideEffect, importcpp: "GtraceSPS", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gtraceSPS*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): bool {.noSideEffect,
-    importcpp: "GtraceSPS", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gtraceSPS*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; `is`: var cint): bool {.
+proc gtraceSPS*(this: TopOpeBRepBuildBuilder; `iS`: int; jS: int): StandardBoolean {.
+    noSideEffect, importcpp: "GtraceSPS", header: "TopOpeBRepBuild_Builder.hxx".}
+proc gtraceSPS*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): StandardBoolean {.
+    noSideEffect, importcpp: "GtraceSPS", header: "TopOpeBRepBuild_Builder.hxx".}
+proc gtraceSPS*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; `is`: var int): StandardBoolean {.
     noSideEffect, importcpp: "GtraceSPS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHASETreset*(this: var TopOpeBRepBuildBuilder) {.
     importcpp: "GdumpSHASETreset", header: "TopOpeBRepBuild_Builder.hxx".}
-proc gdumpSHASETindex*(this: var TopOpeBRepBuildBuilder): cint {.
+proc gdumpSHASETindex*(this: var TopOpeBRepBuildBuilder): int {.
     importcpp: "GdumpSHASETindex", header: "TopOpeBRepBuild_Builder.hxx".}
 proc printGeo*(s: TopoDS_Shape) {.importcpp: "TopOpeBRepBuild_Builder::PrintGeo(@)",
                                header: "TopOpeBRepBuild_Builder.hxx".}
@@ -587,31 +607,6 @@ proc printOri*(s: TopoDS_Shape) {.importcpp: "TopOpeBRepBuild_Builder::PrintOri(
 proc stringState*(s: TopAbsState): TCollectionAsciiString {.
     importcpp: "TopOpeBRepBuild_Builder::StringState(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
-proc gcheckNBOUNDS*(e: TopoDS_Shape): bool {.
+proc gcheckNBOUNDS*(e: TopoDS_Shape): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Builder::GcheckNBOUNDS(@)",
     header: "TopOpeBRepBuild_Builder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

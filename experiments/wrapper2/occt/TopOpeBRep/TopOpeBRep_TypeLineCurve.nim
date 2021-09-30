@@ -22,29 +22,3 @@ type
     TopOpeBRepCIRCLE, TopOpeBRepELLIPSE, TopOpeBRepPARABOLA, TopOpeBRepHYPERBOLA,
     TopOpeBRepOTHERTYPE
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

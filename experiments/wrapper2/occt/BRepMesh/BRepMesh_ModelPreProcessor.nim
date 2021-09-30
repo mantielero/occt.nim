@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BRepMeshModelPreProcessor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_ModelPreProcessor.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

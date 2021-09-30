@@ -28,12 +28,13 @@ type
 
 
 proc constructTopOpeBRepDS_CurvePointInterference*(t: TopOpeBRepDS_Transition;
-    st: TopOpeBRepDS_Kind; s: cint; gt: TopOpeBRepDS_Kind; g: cint; p: cfloat): TopOpeBRepDS_CurvePointInterference {.
+    st: TopOpeBRepDS_Kind; s: int; gt: TopOpeBRepDS_Kind; g: int; p: StandardReal): TopOpeBRepDS_CurvePointInterference {.
     constructor, importcpp: "TopOpeBRepDS_CurvePointInterference(@)",
     header: "TopOpeBRepDS_CurvePointInterference.hxx".}
-proc parameter*(this: TopOpeBRepDS_CurvePointInterference): cfloat {.noSideEffect,
-    importcpp: "Parameter", header: "TopOpeBRepDS_CurvePointInterference.hxx".}
-proc parameter*(this: var TopOpeBRepDS_CurvePointInterference; p: cfloat) {.
+proc parameter*(this: TopOpeBRepDS_CurvePointInterference): StandardReal {.
+    noSideEffect, importcpp: "Parameter",
+    header: "TopOpeBRepDS_CurvePointInterference.hxx".}
+proc parameter*(this: var TopOpeBRepDS_CurvePointInterference; p: StandardReal) {.
     importcpp: "Parameter", header: "TopOpeBRepDS_CurvePointInterference.hxx".}
 type
   TopOpeBRepDS_CurvePointInterferencebaseType* = TopOpeBRepDS_Interference
@@ -46,28 +47,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopOpeBRepDS_CurvePointInterference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRepDS_CurvePointInterference.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -22,17 +22,39 @@ type
                           header: "TopOpeBRep_WPointInter.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepWPointInter; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_WPointInter::operator new",
+    header: "TopOpeBRep_WPointInter.hxx".}
+proc `delete`*(this: var TopOpeBRepWPointInter; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_WPointInter::operator delete",
+    header: "TopOpeBRep_WPointInter.hxx".}
+proc `new[]`*(this: var TopOpeBRepWPointInter; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_WPointInter::operator new[]",
+    header: "TopOpeBRep_WPointInter.hxx".}
+proc `delete[]`*(this: var TopOpeBRepWPointInter; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_WPointInter::operator delete[]",
+    header: "TopOpeBRep_WPointInter.hxx".}
+proc `new`*(this: var TopOpeBRepWPointInter; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_WPointInter::operator new",
+    header: "TopOpeBRep_WPointInter.hxx".}
+proc `delete`*(this: var TopOpeBRepWPointInter; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_WPointInter::operator delete",
+    header: "TopOpeBRep_WPointInter.hxx".}
 proc constructTopOpeBRepWPointInter*(): TopOpeBRepWPointInter {.constructor,
     importcpp: "TopOpeBRep_WPointInter(@)", header: "TopOpeBRep_WPointInter.hxx".}
 proc set*(this: var TopOpeBRepWPointInter; p: IntSurfPntOn2S) {.importcpp: "Set",
     header: "TopOpeBRep_WPointInter.hxx".}
-proc parametersOnS1*(this: TopOpeBRepWPointInter; u: var cfloat; v: var cfloat) {.
-    noSideEffect, importcpp: "ParametersOnS1", header: "TopOpeBRep_WPointInter.hxx".}
-proc parametersOnS2*(this: TopOpeBRepWPointInter; u: var cfloat; v: var cfloat) {.
-    noSideEffect, importcpp: "ParametersOnS2", header: "TopOpeBRep_WPointInter.hxx".}
-proc parameters*(this: TopOpeBRepWPointInter; u1: var cfloat; v1: var cfloat;
-                u2: var cfloat; v2: var cfloat) {.noSideEffect,
-    importcpp: "Parameters", header: "TopOpeBRep_WPointInter.hxx".}
+proc parametersOnS1*(this: TopOpeBRepWPointInter; u: var StandardReal;
+                    v: var StandardReal) {.noSideEffect,
+                                        importcpp: "ParametersOnS1",
+                                        header: "TopOpeBRep_WPointInter.hxx".}
+proc parametersOnS2*(this: TopOpeBRepWPointInter; u: var StandardReal;
+                    v: var StandardReal) {.noSideEffect,
+                                        importcpp: "ParametersOnS2",
+                                        header: "TopOpeBRep_WPointInter.hxx".}
+proc parameters*(this: TopOpeBRepWPointInter; u1: var StandardReal;
+                v1: var StandardReal; u2: var StandardReal; v2: var StandardReal) {.
+    noSideEffect, importcpp: "Parameters", header: "TopOpeBRep_WPointInter.hxx".}
 proc valueOnS1*(this: TopOpeBRepWPointInter): Pnt2d {.noSideEffect,
     importcpp: "ValueOnS1", header: "TopOpeBRep_WPointInter.hxx".}
 proc valueOnS2*(this: TopOpeBRepWPointInter): Pnt2d {.noSideEffect,
@@ -41,28 +63,3 @@ proc value*(this: TopOpeBRepWPointInter): Pnt {.noSideEffect, importcpp: "Value"
     header: "TopOpeBRep_WPointInter.hxx".}
 proc pPntOn2SDummy*(this: TopOpeBRepWPointInter): TopOpeBRepPPntOn2S {.noSideEffect,
     importcpp: "PPntOn2SDummy", header: "TopOpeBRep_WPointInter.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

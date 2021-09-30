@@ -16,29 +16,3 @@
 
 type
   BRepTopAdaptorSeqOfPtr* = TColStdSequenceOfAddress
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

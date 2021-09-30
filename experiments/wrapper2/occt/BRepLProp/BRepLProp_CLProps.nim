@@ -25,26 +25,34 @@ discard "forward decl of gp_Dir"
 discard "forward decl of BRepLProp_CurveTool"
 type
   BRepLPropCLProps* {.importcpp: "BRepLProp_CLProps",
-                     header: "BRepLProp_CLProps.hxx", bycopy.} = object ## ! Initializes the local properties of the curve <C>
-                                                                   ## ! The current point and the derivatives are
-                                                                   ## ! computed at the same time, which allows an
-                                                                   ## ! optimization of the computation time.
-                                                                   ## ! <N> indicates the maximum number of derivations to
-                                                                   ## ! be done (0, 1, 2 or 3). For example, to compute
-                                                                   ## ! only the tangent, N should be equal to 1.
-                                                                   ## ! <Resolution> is the linear tolerance (it is used to test
-                                                                   ## ! if a vector is null).
+                     header: "BRepLProp_CLProps.hxx", bycopy.} = object
 
 
-proc constructBRepLPropCLProps*(c: BRepAdaptorCurve; n: cint; resolution: cfloat): BRepLPropCLProps {.
-    constructor, importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
-proc constructBRepLPropCLProps*(c: BRepAdaptorCurve; u: cfloat; n: cint;
-                               resolution: cfloat): BRepLPropCLProps {.constructor,
-    importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
-proc constructBRepLPropCLProps*(n: cint; resolution: cfloat): BRepLPropCLProps {.
-    constructor, importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
-proc setParameter*(this: var BRepLPropCLProps; u: cfloat) {.importcpp: "SetParameter",
+proc `new`*(this: var BRepLPropCLProps; theSize: csize_t): pointer {.
+    importcpp: "BRepLProp_CLProps::operator new", header: "BRepLProp_CLProps.hxx".}
+proc `delete`*(this: var BRepLPropCLProps; theAddress: pointer) {.
+    importcpp: "BRepLProp_CLProps::operator delete",
     header: "BRepLProp_CLProps.hxx".}
+proc `new[]`*(this: var BRepLPropCLProps; theSize: csize_t): pointer {.
+    importcpp: "BRepLProp_CLProps::operator new[]",
+    header: "BRepLProp_CLProps.hxx".}
+proc `delete[]`*(this: var BRepLPropCLProps; theAddress: pointer) {.
+    importcpp: "BRepLProp_CLProps::operator delete[]",
+    header: "BRepLProp_CLProps.hxx".}
+proc `new`*(this: var BRepLPropCLProps; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLProp_CLProps::operator new", header: "BRepLProp_CLProps.hxx".}
+proc `delete`*(this: var BRepLPropCLProps; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLProp_CLProps::operator delete",
+    header: "BRepLProp_CLProps.hxx".}
+proc constructBRepLPropCLProps*(c: BRepAdaptorCurve; n: int; resolution: StandardReal): BRepLPropCLProps {.
+    constructor, importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
+proc constructBRepLPropCLProps*(c: BRepAdaptorCurve; u: StandardReal; n: int;
+                               resolution: StandardReal): BRepLPropCLProps {.
+    constructor, importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
+proc constructBRepLPropCLProps*(n: int; resolution: StandardReal): BRepLPropCLProps {.
+    constructor, importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
+proc setParameter*(this: var BRepLPropCLProps; u: StandardReal) {.
+    importcpp: "SetParameter", header: "BRepLProp_CLProps.hxx".}
 proc setCurve*(this: var BRepLPropCLProps; c: BRepAdaptorCurve) {.
     importcpp: "SetCurve", header: "BRepLProp_CLProps.hxx".}
 proc value*(this: BRepLPropCLProps): Pnt {.noSideEffect, importcpp: "Value",
@@ -55,38 +63,13 @@ proc d2*(this: var BRepLPropCLProps): Vec {.importcpp: "D2",
                                        header: "BRepLProp_CLProps.hxx".}
 proc d3*(this: var BRepLPropCLProps): Vec {.importcpp: "D3",
                                        header: "BRepLProp_CLProps.hxx".}
-proc isTangentDefined*(this: var BRepLPropCLProps): bool {.
+proc isTangentDefined*(this: var BRepLPropCLProps): StandardBoolean {.
     importcpp: "IsTangentDefined", header: "BRepLProp_CLProps.hxx".}
 proc tangent*(this: var BRepLPropCLProps; d: var Dir) {.importcpp: "Tangent",
     header: "BRepLProp_CLProps.hxx".}
-proc curvature*(this: var BRepLPropCLProps): cfloat {.importcpp: "Curvature",
+proc curvature*(this: var BRepLPropCLProps): StandardReal {.importcpp: "Curvature",
     header: "BRepLProp_CLProps.hxx".}
 proc normal*(this: var BRepLPropCLProps; n: var Dir) {.importcpp: "Normal",
     header: "BRepLProp_CLProps.hxx".}
 proc centreOfCurvature*(this: var BRepLPropCLProps; p: var Pnt) {.
     importcpp: "CentreOfCurvature", header: "BRepLProp_CLProps.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -32,27 +32,21 @@
 ## ! * Methods to manage the enumerations.
 
 type
-  TopAbs* {.importcpp: "TopAbs", header: "TopAbs.hxx", bycopy.} = object ## ! Compose  the Orientation    <Or1>  and  <Or2>.    This
-                                                                 ## ! composition is not symmetric (if  you switch <Or1> and
-                                                                 ## ! <Or2> the result  is different). It assumes that <Or1>
-                                                                 ## ! is the Orientation of a Shape S1 containing a Shape S2
-                                                                 ## ! of Orientation   Or2.  The result    is the  cumulated
-                                                                 ## ! orientation of S2 in S1.  The composition law is :
-                                                                 ## !
-                                                                 ## ! \ Or2     FORWARD  REVERSED INTERNAL EXTERNAL
-                                                                 ## ! Or1
-                                                                 ## -------------------------------------
-                                                                 ## ! FORWARD   | FORWARD  REVERSED INTERNAL EXTERNAL
-                                                                 ## ! |
-                                                                 ## ! REVERSED  | REVERSED FORWARD  INTERNAL EXTERNAL
-                                                                 ## ! |
-                                                                 ## ! INTERNAL  | INTERNAL INTERNAL INTERNAL INTERNAL
-                                                                 ## ! |
-                                                                 ## ! EXTERNAL  | EXTERNAL EXTERNAL EXTERNAL EXTERNAL
-                                                                 ## ! Note: The top corner in the table is the most important
-                                                                 ## ! for the purposes of Open CASCADE topology and shape sharing.
+  TopAbs* {.importcpp: "TopAbs", header: "TopAbs.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopAbs; theSize: csize_t): pointer {.
+    importcpp: "TopAbs::operator new", header: "TopAbs.hxx".}
+proc `delete`*(this: var TopAbs; theAddress: pointer) {.
+    importcpp: "TopAbs::operator delete", header: "TopAbs.hxx".}
+proc `new[]`*(this: var TopAbs; theSize: csize_t): pointer {.
+    importcpp: "TopAbs::operator new[]", header: "TopAbs.hxx".}
+proc `delete[]`*(this: var TopAbs; theAddress: pointer) {.
+    importcpp: "TopAbs::operator delete[]", header: "TopAbs.hxx".}
+proc `new`*(this: var TopAbs; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopAbs::operator new", header: "TopAbs.hxx".}
+proc `delete`*(this: var TopAbs; a2: pointer; a3: pointer) {.
+    importcpp: "TopAbs::operator delete", header: "TopAbs.hxx".}
 proc compose*(or1: TopAbsOrientation; or2: TopAbsOrientation): TopAbsOrientation {.
     importcpp: "TopAbs::Compose(@)", header: "TopAbs.hxx".}
 proc reverse*(`or`: TopAbsOrientation): TopAbsOrientation {.
@@ -70,37 +64,12 @@ proc shapeTypeToString*(theType: TopAbsShapeEnum): StandardCString {.
 proc shapeTypeFromString*(theTypeString: StandardCString): TopAbsShapeEnum {.
     importcpp: "TopAbs::ShapeTypeFromString(@)", header: "TopAbs.hxx".}
 proc shapeTypeFromString*(theTypeString: StandardCString;
-                         theType: var TopAbsShapeEnum): bool {.
+                         theType: var TopAbsShapeEnum): StandardBoolean {.
     importcpp: "TopAbs::ShapeTypeFromString(@)", header: "TopAbs.hxx".}
 proc shapeOrientationToString*(theOrientation: TopAbsOrientation): StandardCString {.
     importcpp: "TopAbs::ShapeOrientationToString(@)", header: "TopAbs.hxx".}
 proc shapeOrientationFromString*(theOrientationString: StandardCString): TopAbsOrientation {.
     importcpp: "TopAbs::ShapeOrientationFromString(@)", header: "TopAbs.hxx".}
 proc shapeOrientationFromString*(theOrientationString: StandardCString;
-                                theOrientation: var TopAbsOrientation): bool {.
+                                theOrientation: var TopAbsOrientation): StandardBoolean {.
     importcpp: "TopAbs::ShapeOrientationFromString(@)", header: "TopAbs.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

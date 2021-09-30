@@ -11,10 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_HeaderFile):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Macro_HeaderFile):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when not defined(_Standard_Macro_HeaderFile):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   discard
 ## ! Structure containing two IDs (of nodes) for using as a key in a map
 ## ! (as representation of a mesh link)
 ## !
@@ -43,6 +43,7 @@ proc hashCode*(theTwoNodes: MeshVS_TwoNodes; theUpperBound: cint): cint =
 
 proc `==`*(obj1: MeshVS_TwoNodes; obj2: MeshVS_TwoNodes): bool {.
     importcpp: "(# == #)", header: "MeshVS_TwoNodes.hxx".}
+
 
 
 

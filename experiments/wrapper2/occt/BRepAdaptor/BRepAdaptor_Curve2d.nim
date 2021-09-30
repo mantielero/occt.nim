@@ -19,14 +19,27 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 type
   BRepAdaptorCurve2d* {.importcpp: "BRepAdaptor_Curve2d",
-                       header: "BRepAdaptor_Curve2d.hxx", bycopy.} = object of Geom2dAdaptorCurve ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## an
-                                                                                           ## uninitialized
-                                                                                           ## curve2d.
+                       header: "BRepAdaptor_Curve2d.hxx", bycopy.} = object of Geom2dAdaptorCurve
 
 
+proc `new`*(this: var BRepAdaptorCurve2d; theSize: csize_t): pointer {.
+    importcpp: "BRepAdaptor_Curve2d::operator new",
+    header: "BRepAdaptor_Curve2d.hxx".}
+proc `delete`*(this: var BRepAdaptorCurve2d; theAddress: pointer) {.
+    importcpp: "BRepAdaptor_Curve2d::operator delete",
+    header: "BRepAdaptor_Curve2d.hxx".}
+proc `new[]`*(this: var BRepAdaptorCurve2d; theSize: csize_t): pointer {.
+    importcpp: "BRepAdaptor_Curve2d::operator new[]",
+    header: "BRepAdaptor_Curve2d.hxx".}
+proc `delete[]`*(this: var BRepAdaptorCurve2d; theAddress: pointer) {.
+    importcpp: "BRepAdaptor_Curve2d::operator delete[]",
+    header: "BRepAdaptor_Curve2d.hxx".}
+proc `new`*(this: var BRepAdaptorCurve2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAdaptor_Curve2d::operator new",
+    header: "BRepAdaptor_Curve2d.hxx".}
+proc `delete`*(this: var BRepAdaptorCurve2d; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAdaptor_Curve2d::operator delete",
+    header: "BRepAdaptor_Curve2d.hxx".}
 proc constructBRepAdaptorCurve2d*(): BRepAdaptorCurve2d {.constructor,
     importcpp: "BRepAdaptor_Curve2d(@)", header: "BRepAdaptor_Curve2d.hxx".}
 proc constructBRepAdaptorCurve2d*(e: TopoDS_Edge; f: TopoDS_Face): BRepAdaptorCurve2d {.
@@ -38,28 +51,3 @@ proc edge*(this: BRepAdaptorCurve2d): TopoDS_Edge {.noSideEffect, importcpp: "Ed
     header: "BRepAdaptor_Curve2d.hxx".}
 proc face*(this: BRepAdaptorCurve2d): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "BRepAdaptor_Curve2d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

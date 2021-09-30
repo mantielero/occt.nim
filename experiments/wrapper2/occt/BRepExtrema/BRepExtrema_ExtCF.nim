@@ -20,6 +20,22 @@ type
                      header: "BRepExtrema_ExtCF.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepExtremaExtCF; theSize: csize_t): pointer {.
+    importcpp: "BRepExtrema_ExtCF::operator new", header: "BRepExtrema_ExtCF.hxx".}
+proc `delete`*(this: var BRepExtremaExtCF; theAddress: pointer) {.
+    importcpp: "BRepExtrema_ExtCF::operator delete",
+    header: "BRepExtrema_ExtCF.hxx".}
+proc `new[]`*(this: var BRepExtremaExtCF; theSize: csize_t): pointer {.
+    importcpp: "BRepExtrema_ExtCF::operator new[]",
+    header: "BRepExtrema_ExtCF.hxx".}
+proc `delete[]`*(this: var BRepExtremaExtCF; theAddress: pointer) {.
+    importcpp: "BRepExtrema_ExtCF::operator delete[]",
+    header: "BRepExtrema_ExtCF.hxx".}
+proc `new`*(this: var BRepExtremaExtCF; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepExtrema_ExtCF::operator new", header: "BRepExtrema_ExtCF.hxx".}
+proc `delete`*(this: var BRepExtremaExtCF; a2: pointer; a3: pointer) {.
+    importcpp: "BRepExtrema_ExtCF::operator delete",
+    header: "BRepExtrema_ExtCF.hxx".}
 proc constructBRepExtremaExtCF*(): BRepExtremaExtCF {.constructor,
     importcpp: "BRepExtrema_ExtCF(@)", header: "BRepExtrema_ExtCF.hxx".}
 proc constructBRepExtremaExtCF*(e: TopoDS_Edge; f: TopoDS_Face): BRepExtremaExtCF {.
@@ -28,44 +44,20 @@ proc initialize*(this: var BRepExtremaExtCF; e: TopoDS_Edge; f: TopoDS_Face) {.
     importcpp: "Initialize", header: "BRepExtrema_ExtCF.hxx".}
 proc perform*(this: var BRepExtremaExtCF; e: TopoDS_Edge; f: TopoDS_Face) {.
     importcpp: "Perform", header: "BRepExtrema_ExtCF.hxx".}
-proc isDone*(this: BRepExtremaExtCF): bool {.noSideEffect, importcpp: "IsDone",
-    header: "BRepExtrema_ExtCF.hxx".}
-proc nbExt*(this: BRepExtremaExtCF): cint {.noSideEffect, importcpp: "NbExt",
-                                        header: "BRepExtrema_ExtCF.hxx".}
-proc squareDistance*(this: BRepExtremaExtCF; n: cint): cfloat {.noSideEffect,
+proc isDone*(this: BRepExtremaExtCF): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "BRepExtrema_ExtCF.hxx".}
+proc nbExt*(this: BRepExtremaExtCF): int {.noSideEffect, importcpp: "NbExt",
+                                       header: "BRepExtrema_ExtCF.hxx".}
+proc squareDistance*(this: BRepExtremaExtCF; n: int): StandardReal {.noSideEffect,
     importcpp: "SquareDistance", header: "BRepExtrema_ExtCF.hxx".}
-proc isParallel*(this: BRepExtremaExtCF): bool {.noSideEffect,
+proc isParallel*(this: BRepExtremaExtCF): StandardBoolean {.noSideEffect,
     importcpp: "IsParallel", header: "BRepExtrema_ExtCF.hxx".}
-proc parameterOnEdge*(this: BRepExtremaExtCF; n: cint): cfloat {.noSideEffect,
+proc parameterOnEdge*(this: BRepExtremaExtCF; n: int): StandardReal {.noSideEffect,
     importcpp: "ParameterOnEdge", header: "BRepExtrema_ExtCF.hxx".}
-proc parameterOnFace*(this: BRepExtremaExtCF; n: cint; u: var cfloat; v: var cfloat) {.
-    noSideEffect, importcpp: "ParameterOnFace", header: "BRepExtrema_ExtCF.hxx".}
-proc pointOnEdge*(this: BRepExtremaExtCF; n: cint): Pnt {.noSideEffect,
+proc parameterOnFace*(this: BRepExtremaExtCF; n: int; u: var StandardReal;
+                     v: var StandardReal) {.noSideEffect,
+    importcpp: "ParameterOnFace", header: "BRepExtrema_ExtCF.hxx".}
+proc pointOnEdge*(this: BRepExtremaExtCF; n: int): Pnt {.noSideEffect,
     importcpp: "PointOnEdge", header: "BRepExtrema_ExtCF.hxx".}
-proc pointOnFace*(this: BRepExtremaExtCF; n: cint): Pnt {.noSideEffect,
+proc pointOnFace*(this: BRepExtremaExtCF; n: int): Pnt {.noSideEffect,
     importcpp: "PointOnFace", header: "BRepExtrema_ExtCF.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

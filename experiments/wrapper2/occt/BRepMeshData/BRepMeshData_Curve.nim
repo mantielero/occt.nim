@@ -33,21 +33,22 @@ proc bRepMeshDataCurve*(this: var BRepMeshDataCurve;
   ## ! Constructor.
 proc destroyBRepMeshDataCurve*(this: var BRepMeshDataCurve) {.
     importcpp: "#.~BRepMeshData_Curve()", header: "BRepMeshData_Curve.hxx".}
-proc insertPoint*(this: var BRepMeshDataCurve; thePosition: cint; thePoint: Pnt;
-                 theParamOnPCurve: cfloat) {.importcpp: "InsertPoint",
+proc insertPoint*(this: var BRepMeshDataCurve; thePosition: int; thePoint: Pnt;
+                 theParamOnPCurve: StandardReal) {.importcpp: "InsertPoint",
     header: "BRepMeshData_Curve.hxx".}
-proc addPoint*(this: var BRepMeshDataCurve; thePoint: Pnt; theParamOnCurve: cfloat) {.
-    importcpp: "AddPoint", header: "BRepMeshData_Curve.hxx".}
-proc getPoint*(this: var BRepMeshDataCurve; theIndex: cint): var Pnt {.
+proc addPoint*(this: var BRepMeshDataCurve; thePoint: Pnt;
+              theParamOnCurve: StandardReal) {.importcpp: "AddPoint",
+    header: "BRepMeshData_Curve.hxx".}
+proc getPoint*(this: var BRepMeshDataCurve; theIndex: int): var Pnt {.
     importcpp: "GetPoint", header: "BRepMeshData_Curve.hxx".}
-proc removePoint*(this: var BRepMeshDataCurve; theIndex: cint) {.
+proc removePoint*(this: var BRepMeshDataCurve; theIndex: int) {.
     importcpp: "RemovePoint", header: "BRepMeshData_Curve.hxx".}
-proc getParameter*(this: var BRepMeshDataCurve; theIndex: cint): var cfloat {.
+proc getParameter*(this: var BRepMeshDataCurve; theIndex: int): var StandardReal {.
     importcpp: "GetParameter", header: "BRepMeshData_Curve.hxx".}
-proc parametersNb*(this: BRepMeshDataCurve): cint {.noSideEffect,
+proc parametersNb*(this: BRepMeshDataCurve): int {.noSideEffect,
     importcpp: "ParametersNb", header: "BRepMeshData_Curve.hxx".}
-proc clear*(this: var BRepMeshDataCurve; isKeepEndPoints: bool) {.importcpp: "Clear",
-    header: "BRepMeshData_Curve.hxx".}
+proc clear*(this: var BRepMeshDataCurve; isKeepEndPoints: StandardBoolean) {.
+    importcpp: "Clear", header: "BRepMeshData_Curve.hxx".}
 type
   BRepMeshDataCurvebaseType* = IMeshDataCurve
 
@@ -58,28 +59,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMeshData_Curve.hxx".}
 proc dynamicType*(this: BRepMeshDataCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_Curve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

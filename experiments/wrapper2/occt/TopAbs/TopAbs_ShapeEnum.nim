@@ -46,29 +46,3 @@ type
     TopAbsCOMPOUND, TopAbsCOMPSOLID, TopAbsSOLID, TopAbsSHELL, TopAbsFACE,
     TopAbsWIRE, TopAbsEDGE, TopAbsVERTEX, TopAbsSHAPE
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

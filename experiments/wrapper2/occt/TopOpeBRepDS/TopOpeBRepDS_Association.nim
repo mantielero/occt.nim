@@ -35,15 +35,17 @@ proc associate*(this: var TopOpeBRepDS_Association;
                li: TopOpeBRepDS_ListOfInterference) {.importcpp: "Associate",
     header: "TopOpeBRepDS_Association.hxx".}
 proc hasAssociation*(this: TopOpeBRepDS_Association;
-                    i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    importcpp: "HasAssociation", header: "TopOpeBRepDS_Association.hxx".}
+                    i: Handle[TopOpeBRepDS_Interference]): StandardBoolean {.
+    noSideEffect, importcpp: "HasAssociation",
+    header: "TopOpeBRepDS_Association.hxx".}
 proc associated*(this: var TopOpeBRepDS_Association;
                 i: Handle[TopOpeBRepDS_Interference]): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "Associated", header: "TopOpeBRepDS_Association.hxx".}
 proc areAssociated*(this: TopOpeBRepDS_Association;
                    i: Handle[TopOpeBRepDS_Interference];
-                   k: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    importcpp: "AreAssociated", header: "TopOpeBRepDS_Association.hxx".}
+                   k: Handle[TopOpeBRepDS_Interference]): StandardBoolean {.
+    noSideEffect, importcpp: "AreAssociated",
+    header: "TopOpeBRepDS_Association.hxx".}
 type
   TopOpeBRepDS_AssociationbaseType* = StandardTransient
 
@@ -54,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepDS_Association.hxx".}
 proc dynamicType*(this: TopOpeBRepDS_Association): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TopOpeBRepDS_Association.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

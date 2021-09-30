@@ -19,14 +19,27 @@ discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopLoc_ItemLocation"
 type
   TopLocSListOfItemLocation* {.importcpp: "TopLoc_SListOfItemLocation",
-                              header: "TopLoc_SListOfItemLocation.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Creates
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## List.
+                              header: "TopLoc_SListOfItemLocation.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopLocSListOfItemLocation; theSize: csize_t): pointer {.
+    importcpp: "TopLoc_SListOfItemLocation::operator new",
+    header: "TopLoc_SListOfItemLocation.hxx".}
+proc `delete`*(this: var TopLocSListOfItemLocation; theAddress: pointer) {.
+    importcpp: "TopLoc_SListOfItemLocation::operator delete",
+    header: "TopLoc_SListOfItemLocation.hxx".}
+proc `new[]`*(this: var TopLocSListOfItemLocation; theSize: csize_t): pointer {.
+    importcpp: "TopLoc_SListOfItemLocation::operator new[]",
+    header: "TopLoc_SListOfItemLocation.hxx".}
+proc `delete[]`*(this: var TopLocSListOfItemLocation; theAddress: pointer) {.
+    importcpp: "TopLoc_SListOfItemLocation::operator delete[]",
+    header: "TopLoc_SListOfItemLocation.hxx".}
+proc `new`*(this: var TopLocSListOfItemLocation; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopLoc_SListOfItemLocation::operator new",
+    header: "TopLoc_SListOfItemLocation.hxx".}
+proc `delete`*(this: var TopLocSListOfItemLocation; a2: pointer; a3: pointer) {.
+    importcpp: "TopLoc_SListOfItemLocation::operator delete",
+    header: "TopLoc_SListOfItemLocation.hxx".}
 proc constructTopLocSListOfItemLocation*(): TopLocSListOfItemLocation {.
     constructor, importcpp: "TopLoc_SListOfItemLocation(@)",
     header: "TopLoc_SListOfItemLocation.hxx".}
@@ -39,63 +52,22 @@ proc constructTopLocSListOfItemLocation*(other: TopLocSListOfItemLocation): TopL
     header: "TopLoc_SListOfItemLocation.hxx".}
 proc assign*(this: var TopLocSListOfItemLocation; other: TopLocSListOfItemLocation): var TopLocSListOfItemLocation {.
     importcpp: "Assign", header: "TopLoc_SListOfItemLocation.hxx".}
-## !!!Ignored construct:  # OCCT_NO_RVALUE_REFERENCE [NewLine] ! Move constructor TopLoc_SListOfItemLocation ( TopLoc_SListOfItemLocation && theOther ) : myNode ( std :: move ( theOther . myNode ) ) { } ! Move operator TopLoc_SListOfItemLocation & operator = ( TopLoc_SListOfItemLocation && theOther ) { myNode = std :: move ( theOther . myNode ) ; return * this ; } # [NewLine] ! Returne true if this list is empty Standard_Boolean IsEmpty ( ) const { return myNode . IsNull ( ) ; } ! Sets the list to be empty. void Clear ( ) { myNode . Nullify ( ) ; } ! Destructor ~ TopLoc_SListOfItemLocation ( ) { Clear ( ) ; } ! Returns the current value of the list. An error is
-## ! raised  if the list is empty. const TopLoc_ItemLocation & Value ( ) const ;
-## Error: identifier expected, but got: ! Move constructor!!!
-
+proc isEmpty*(this: TopLocSListOfItemLocation): StandardBoolean {.noSideEffect,
+    importcpp: "IsEmpty", header: "TopLoc_SListOfItemLocation.hxx".}
+proc clear*(this: var TopLocSListOfItemLocation) {.importcpp: "Clear",
+    header: "TopLoc_SListOfItemLocation.hxx".}
+proc destroyTopLocSListOfItemLocation*(this: var TopLocSListOfItemLocation) {.
+    importcpp: "#.~TopLoc_SListOfItemLocation()",
+    header: "TopLoc_SListOfItemLocation.hxx".}
+proc value*(this: TopLocSListOfItemLocation): TopLocItemLocation {.noSideEffect,
+    importcpp: "Value", header: "TopLoc_SListOfItemLocation.hxx".}
 proc tail*(this: TopLocSListOfItemLocation): TopLocSListOfItemLocation {.
     noSideEffect, importcpp: "Tail", header: "TopLoc_SListOfItemLocation.hxx".}
 proc construct*(this: var TopLocSListOfItemLocation; anItem: TopLocItemLocation) {.
     importcpp: "Construct", header: "TopLoc_SListOfItemLocation.hxx".}
 proc toTail*(this: var TopLocSListOfItemLocation) {.importcpp: "ToTail",
     header: "TopLoc_SListOfItemLocation.hxx".}
-proc more*(this: TopLocSListOfItemLocation): bool {.noSideEffect, importcpp: "More",
-    header: "TopLoc_SListOfItemLocation.hxx".}
+proc more*(this: TopLocSListOfItemLocation): StandardBoolean {.noSideEffect,
+    importcpp: "More", header: "TopLoc_SListOfItemLocation.hxx".}
 proc next*(this: var TopLocSListOfItemLocation) {.importcpp: "Next",
     header: "TopLoc_SListOfItemLocation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

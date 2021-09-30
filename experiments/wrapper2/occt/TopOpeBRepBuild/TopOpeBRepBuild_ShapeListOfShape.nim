@@ -20,6 +20,23 @@ type
                                     bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildShapeListOfShape; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_ShapeListOfShape::operator new",
+    header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildShapeListOfShape; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_ShapeListOfShape::operator delete",
+    header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildShapeListOfShape; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_ShapeListOfShape::operator new[]",
+    header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildShapeListOfShape; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_ShapeListOfShape::operator delete[]",
+    header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
+proc `new`*(this: var TopOpeBRepBuildShapeListOfShape; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopOpeBRepBuild_ShapeListOfShape::operator new", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildShapeListOfShape; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_ShapeListOfShape::operator delete",
+    header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
 proc constructTopOpeBRepBuildShapeListOfShape*(): TopOpeBRepBuildShapeListOfShape {.
     constructor, importcpp: "TopOpeBRepBuild_ShapeListOfShape(@)",
     header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
@@ -38,28 +55,3 @@ proc shape*(this: TopOpeBRepBuildShapeListOfShape): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
 proc changeShape*(this: var TopOpeBRepBuildShapeListOfShape): var TopoDS_Shape {.
     importcpp: "ChangeShape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

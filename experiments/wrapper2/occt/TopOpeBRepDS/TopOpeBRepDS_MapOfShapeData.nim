@@ -17,29 +17,3 @@
 type
   TopOpeBRepDS_MapOfShapeData* = NCollectionIndexedDataMap[TopoDS_Shape,
       TopOpeBRepDS_ShapeData, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

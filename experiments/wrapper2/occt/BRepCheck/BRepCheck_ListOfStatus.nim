@@ -17,29 +17,3 @@
 type
   BRepCheckListOfStatus* = NCollectionList[BRepCheckStatus]
   BRepCheckListIteratorOfListOfStatus* = Iterator[BRepCheckStatus]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

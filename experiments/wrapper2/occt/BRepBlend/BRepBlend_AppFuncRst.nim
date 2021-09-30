@@ -32,11 +32,11 @@ type
 
 
 proc constructBRepBlendAppFuncRst*(line: var Handle[BRepBlendLine];
-                                  `func`: var BlendSurfRstFunction; tol3d: cfloat;
-                                  tol2d: cfloat): BRepBlendAppFuncRst {.
+                                  `func`: var BlendSurfRstFunction;
+                                  tol3d: StandardReal; tol2d: StandardReal): BRepBlendAppFuncRst {.
     constructor, importcpp: "BRepBlend_AppFuncRst(@)",
     header: "BRepBlend_AppFuncRst.hxx".}
-proc point*(this: BRepBlendAppFuncRst; `func`: BlendAppFunction; param: cfloat;
+proc point*(this: BRepBlendAppFuncRst; `func`: BlendAppFunction; param: StandardReal;
            sol: MathVector; pnt: var BlendPoint) {.noSideEffect, importcpp: "Point",
     header: "BRepBlend_AppFuncRst.hxx".}
 proc vec*(this: BRepBlendAppFuncRst; sol: var MathVector; pnt: BlendPoint) {.
@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepBlend_AppFuncRst.hxx".}
 proc dynamicType*(this: BRepBlendAppFuncRst): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepBlend_AppFuncRst.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

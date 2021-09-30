@@ -18,12 +18,6 @@ type
   BRepExtremaDistShapeShape* {.importcpp: "BRepExtrema_DistShapeShape",
                               header: "BRepExtrema_DistShapeShape.hxx", bycopy.} = object ##
                                                                                      ## !
-                                                                                     ## create
-                                                                                     ## empty
-                                                                                     ## tool
-                                                                                     ## <br>
-                                                                                     ##
-                                                                                     ## !
                                                                                      ## computes
                                                                                      ## the
                                                                                      ## minimum
@@ -37,6 +31,24 @@ type
                                                                                      ## <br>
 
 
+proc `new`*(this: var BRepExtremaDistShapeShape; theSize: csize_t): pointer {.
+    importcpp: "BRepExtrema_DistShapeShape::operator new",
+    header: "BRepExtrema_DistShapeShape.hxx".}
+proc `delete`*(this: var BRepExtremaDistShapeShape; theAddress: pointer) {.
+    importcpp: "BRepExtrema_DistShapeShape::operator delete",
+    header: "BRepExtrema_DistShapeShape.hxx".}
+proc `new[]`*(this: var BRepExtremaDistShapeShape; theSize: csize_t): pointer {.
+    importcpp: "BRepExtrema_DistShapeShape::operator new[]",
+    header: "BRepExtrema_DistShapeShape.hxx".}
+proc `delete[]`*(this: var BRepExtremaDistShapeShape; theAddress: pointer) {.
+    importcpp: "BRepExtrema_DistShapeShape::operator delete[]",
+    header: "BRepExtrema_DistShapeShape.hxx".}
+proc `new`*(this: var BRepExtremaDistShapeShape; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepExtrema_DistShapeShape::operator new",
+    header: "BRepExtrema_DistShapeShape.hxx".}
+proc `delete`*(this: var BRepExtremaDistShapeShape; a2: pointer; a3: pointer) {.
+    importcpp: "BRepExtrema_DistShapeShape::operator delete",
+    header: "BRepExtrema_DistShapeShape.hxx".}
 proc constructBRepExtremaDistShapeShape*(): BRepExtremaDistShapeShape {.
     constructor, importcpp: "BRepExtrema_DistShapeShape(@)",
     header: "BRepExtrema_DistShapeShape.hxx".}
@@ -47,82 +59,58 @@ proc constructBRepExtremaDistShapeShape*(shape1: TopoDS_Shape;
     header: "BRepExtrema_DistShapeShape.hxx".}
 proc constructBRepExtremaDistShapeShape*(shape1: TopoDS_Shape;
                                         shape2: TopoDS_Shape;
-                                        theDeflection: cfloat; f: ExtremaExtFlag = extremaExtFlagMINMAX;
+                                        theDeflection: StandardReal; f: ExtremaExtFlag = extremaExtFlagMINMAX;
                                         a: ExtremaExtAlgo = extremaExtAlgoGrad): BRepExtremaDistShapeShape {.
     constructor, importcpp: "BRepExtrema_DistShapeShape(@)",
     header: "BRepExtrema_DistShapeShape.hxx".}
-proc setDeflection*(this: var BRepExtremaDistShapeShape; theDeflection: cfloat) {.
+proc setDeflection*(this: var BRepExtremaDistShapeShape; theDeflection: StandardReal) {.
     importcpp: "SetDeflection", header: "BRepExtrema_DistShapeShape.hxx".}
 proc loadS1*(this: var BRepExtremaDistShapeShape; shape1: TopoDS_Shape) {.
     importcpp: "LoadS1", header: "BRepExtrema_DistShapeShape.hxx".}
 proc loadS2*(this: var BRepExtremaDistShapeShape; shape1: TopoDS_Shape) {.
     importcpp: "LoadS2", header: "BRepExtrema_DistShapeShape.hxx".}
-proc perform*(this: var BRepExtremaDistShapeShape): bool {.importcpp: "Perform",
-    header: "BRepExtrema_DistShapeShape.hxx".}
-proc isDone*(this: BRepExtremaDistShapeShape): bool {.noSideEffect,
+proc perform*(this: var BRepExtremaDistShapeShape): StandardBoolean {.
+    importcpp: "Perform", header: "BRepExtrema_DistShapeShape.hxx".}
+proc isDone*(this: BRepExtremaDistShapeShape): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepExtrema_DistShapeShape.hxx".}
-proc nbSolution*(this: BRepExtremaDistShapeShape): cint {.noSideEffect,
+proc nbSolution*(this: BRepExtremaDistShapeShape): int {.noSideEffect,
     importcpp: "NbSolution", header: "BRepExtrema_DistShapeShape.hxx".}
-proc value*(this: BRepExtremaDistShapeShape): cfloat {.noSideEffect,
+proc value*(this: BRepExtremaDistShapeShape): StandardReal {.noSideEffect,
     importcpp: "Value", header: "BRepExtrema_DistShapeShape.hxx".}
-proc innerSolution*(this: BRepExtremaDistShapeShape): bool {.noSideEffect,
-    importcpp: "InnerSolution", header: "BRepExtrema_DistShapeShape.hxx".}
-proc pointOnShape1*(this: BRepExtremaDistShapeShape; n: cint): Pnt {.noSideEffect,
+proc innerSolution*(this: BRepExtremaDistShapeShape): StandardBoolean {.
+    noSideEffect, importcpp: "InnerSolution",
+    header: "BRepExtrema_DistShapeShape.hxx".}
+proc pointOnShape1*(this: BRepExtremaDistShapeShape; n: int): Pnt {.noSideEffect,
     importcpp: "PointOnShape1", header: "BRepExtrema_DistShapeShape.hxx".}
-proc pointOnShape2*(this: BRepExtremaDistShapeShape; n: cint): Pnt {.noSideEffect,
+proc pointOnShape2*(this: BRepExtremaDistShapeShape; n: int): Pnt {.noSideEffect,
     importcpp: "PointOnShape2", header: "BRepExtrema_DistShapeShape.hxx".}
-proc supportTypeShape1*(this: BRepExtremaDistShapeShape; n: cint): BRepExtremaSupportType {.
+proc supportTypeShape1*(this: BRepExtremaDistShapeShape; n: int): BRepExtremaSupportType {.
     noSideEffect, importcpp: "SupportTypeShape1",
     header: "BRepExtrema_DistShapeShape.hxx".}
-proc supportTypeShape2*(this: BRepExtremaDistShapeShape; n: cint): BRepExtremaSupportType {.
+proc supportTypeShape2*(this: BRepExtremaDistShapeShape; n: int): BRepExtremaSupportType {.
     noSideEffect, importcpp: "SupportTypeShape2",
     header: "BRepExtrema_DistShapeShape.hxx".}
-proc supportOnShape1*(this: BRepExtremaDistShapeShape; n: cint): TopoDS_Shape {.
+proc supportOnShape1*(this: BRepExtremaDistShapeShape; n: int): TopoDS_Shape {.
     noSideEffect, importcpp: "SupportOnShape1",
     header: "BRepExtrema_DistShapeShape.hxx".}
-proc supportOnShape2*(this: BRepExtremaDistShapeShape; n: cint): TopoDS_Shape {.
+proc supportOnShape2*(this: BRepExtremaDistShapeShape; n: int): TopoDS_Shape {.
     noSideEffect, importcpp: "SupportOnShape2",
     header: "BRepExtrema_DistShapeShape.hxx".}
-proc parOnEdgeS1*(this: BRepExtremaDistShapeShape; n: cint; t: var cfloat) {.
+proc parOnEdgeS1*(this: BRepExtremaDistShapeShape; n: int; t: var StandardReal) {.
     noSideEffect, importcpp: "ParOnEdgeS1",
     header: "BRepExtrema_DistShapeShape.hxx".}
-proc parOnEdgeS2*(this: BRepExtremaDistShapeShape; n: cint; t: var cfloat) {.
+proc parOnEdgeS2*(this: BRepExtremaDistShapeShape; n: int; t: var StandardReal) {.
     noSideEffect, importcpp: "ParOnEdgeS2",
     header: "BRepExtrema_DistShapeShape.hxx".}
-proc parOnFaceS1*(this: BRepExtremaDistShapeShape; n: cint; u: var cfloat; v: var cfloat) {.
-    noSideEffect, importcpp: "ParOnFaceS1",
-    header: "BRepExtrema_DistShapeShape.hxx".}
-proc parOnFaceS2*(this: BRepExtremaDistShapeShape; n: cint; u: var cfloat; v: var cfloat) {.
-    noSideEffect, importcpp: "ParOnFaceS2",
-    header: "BRepExtrema_DistShapeShape.hxx".}
+proc parOnFaceS1*(this: BRepExtremaDistShapeShape; n: int; u: var StandardReal;
+                 v: var StandardReal) {.noSideEffect, importcpp: "ParOnFaceS1",
+                                     header: "BRepExtrema_DistShapeShape.hxx".}
+proc parOnFaceS2*(this: BRepExtremaDistShapeShape; n: int; u: var StandardReal;
+                 v: var StandardReal) {.noSideEffect, importcpp: "ParOnFaceS2",
+                                     header: "BRepExtrema_DistShapeShape.hxx".}
 proc dump*(this: BRepExtremaDistShapeShape; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "BRepExtrema_DistShapeShape.hxx".}
 proc setFlag*(this: var BRepExtremaDistShapeShape; f: ExtremaExtFlag) {.
     importcpp: "SetFlag", header: "BRepExtrema_DistShapeShape.hxx".}
 proc setAlgo*(this: var BRepExtremaDistShapeShape; a: ExtremaExtAlgo) {.
     importcpp: "SetAlgo", header: "BRepExtrema_DistShapeShape.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

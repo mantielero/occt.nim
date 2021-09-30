@@ -8,30 +8,4 @@ include ChFi3d_Builder_0
 include ChFi3d_ChBuilder
 include ChFi3d_FilBuilder
 include ChFi3d_FilletShape
-include ChFi3d_SearchSing
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include ChFi3d_SearchSing

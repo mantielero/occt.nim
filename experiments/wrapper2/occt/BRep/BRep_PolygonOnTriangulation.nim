@@ -21,25 +21,28 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_PolygonOnTriangulation"
 discard "forward decl of BRep_PolygonOnTriangulation"
 type
-  HandleC1C1* = Handle[BRepPolygonOnTriangulation]
-
-## ! A representation by an array of nodes on a
-## ! triangulation.
-
-type
   BRepPolygonOnTriangulation* {.importcpp: "BRep_PolygonOnTriangulation",
                                header: "BRep_PolygonOnTriangulation.hxx", bycopy.} = object of BRepCurveRepresentation
 
 
+type
+  HandleBRepPolygonOnTriangulation* = Handle[BRepPolygonOnTriangulation]
+
+## ! A representation by an array of nodes on a
+## ! triangulation.
+type
+  BRepPolygonOnTriangulationbaseType* = BRepCurveRepresentation
+
+#[ 
 proc constructBRepPolygonOnTriangulation*(p: Handle[PolyPolygonOnTriangulation];
     t: Handle[PolyTriangulation]; L: TopLocLocation): BRepPolygonOnTriangulation {.
     constructor, importcpp: "BRep_PolygonOnTriangulation(@)",
     header: "BRep_PolygonOnTriangulation.hxx".}
-proc isPolygonOnTriangulation*(this: BRepPolygonOnTriangulation): bool {.
+proc isPolygonOnTriangulation*(this: BRepPolygonOnTriangulation): StandardBoolean {.
     noSideEffect, importcpp: "IsPolygonOnTriangulation",
     header: "BRep_PolygonOnTriangulation.hxx".}
 proc isPolygonOnTriangulation*(this: BRepPolygonOnTriangulation;
-                              t: Handle[PolyTriangulation]; L: TopLocLocation): bool {.
+                              t: Handle[PolyTriangulation]; L: TopLocLocation): StandardBoolean {.
     noSideEffect, importcpp: "IsPolygonOnTriangulation",
     header: "BRep_PolygonOnTriangulation.hxx".}
 proc polygonOnTriangulation*(this: var BRepPolygonOnTriangulation;
@@ -55,10 +58,8 @@ proc polygonOnTriangulation*(this: BRepPolygonOnTriangulation): Handle[
 proc copy*(this: BRepPolygonOnTriangulation): Handle[BRepCurveRepresentation] {.
     noSideEffect, importcpp: "Copy", header: "BRep_PolygonOnTriangulation.hxx".}
 proc dumpJson*(this: BRepPolygonOnTriangulation; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
-                                 header: "BRep_PolygonOnTriangulation.hxx".}
-type
-  BRepPolygonOnTriangulationbaseType* = BRepCurveRepresentation
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_PolygonOnTriangulation.hxx".}
 
 proc getTypeName*(): cstring {.importcpp: "BRep_PolygonOnTriangulation::get_type_name(@)",
                             header: "BRep_PolygonOnTriangulation.hxx".}
@@ -67,29 +68,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_PolygonOnTriangulation.hxx".}
 proc dynamicType*(this: BRepPolygonOnTriangulation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "BRep_PolygonOnTriangulation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "BRep_PolygonOnTriangulation.hxx".} ]#

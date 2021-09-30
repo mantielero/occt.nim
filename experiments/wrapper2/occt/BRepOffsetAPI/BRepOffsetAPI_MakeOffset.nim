@@ -20,67 +20,52 @@ discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Shape"
 type
   BRepOffsetAPI_MakeOffset* {.importcpp: "BRepOffsetAPI_MakeOffset",
-                             header: "BRepOffsetAPI_MakeOffset.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                            ## !
-                                                                                                            ## Constructs
-                                                                                                            ## an
-                                                                                                            ## algorithm
-                                                                                                            ## for
-                                                                                                            ## creating
-                                                                                                            ## an
-                                                                                                            ## empty
-                                                                                                            ## offset
+                             header: "BRepOffsetAPI_MakeOffset.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepOffsetAPI_MakeOffset; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakeOffset::operator new",
+    header: "BRepOffsetAPI_MakeOffset.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakeOffset; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeOffset::operator delete",
+    header: "BRepOffsetAPI_MakeOffset.hxx".}
+proc `new[]`*(this: var BRepOffsetAPI_MakeOffset; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakeOffset::operator new[]",
+    header: "BRepOffsetAPI_MakeOffset.hxx".}
+proc `delete[]`*(this: var BRepOffsetAPI_MakeOffset; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeOffset::operator delete[]",
+    header: "BRepOffsetAPI_MakeOffset.hxx".}
+proc `new`*(this: var BRepOffsetAPI_MakeOffset; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffsetAPI_MakeOffset::operator new",
+    header: "BRepOffsetAPI_MakeOffset.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakeOffset; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeOffset::operator delete",
+    header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc constructBRepOffsetAPI_MakeOffset*(): BRepOffsetAPI_MakeOffset {.constructor,
     importcpp: "BRepOffsetAPI_MakeOffset(@)",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc constructBRepOffsetAPI_MakeOffset*(spine: TopoDS_Face;
                                        join: GeomAbsJoinType = geomAbsArc;
-                                       isOpenResult: bool = false): BRepOffsetAPI_MakeOffset {.
+                                       isOpenResult: StandardBoolean = false): BRepOffsetAPI_MakeOffset {.
     constructor, importcpp: "BRepOffsetAPI_MakeOffset(@)",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc init*(this: var BRepOffsetAPI_MakeOffset; spine: TopoDS_Face;
-          join: GeomAbsJoinType = geomAbsArc; isOpenResult: bool = false) {.
+          join: GeomAbsJoinType = geomAbsArc; isOpenResult: StandardBoolean = false) {.
     importcpp: "Init", header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc constructBRepOffsetAPI_MakeOffset*(spine: TopoDS_Wire;
                                        join: GeomAbsJoinType = geomAbsArc;
-                                       isOpenResult: bool = false): BRepOffsetAPI_MakeOffset {.
+                                       isOpenResult: StandardBoolean = false): BRepOffsetAPI_MakeOffset {.
     constructor, importcpp: "BRepOffsetAPI_MakeOffset(@)",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc init*(this: var BRepOffsetAPI_MakeOffset; join: GeomAbsJoinType = geomAbsArc;
-          isOpenResult: bool = false) {.importcpp: "Init",
-                                    header: "BRepOffsetAPI_MakeOffset.hxx".}
+          isOpenResult: StandardBoolean = false) {.importcpp: "Init",
+    header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc addWire*(this: var BRepOffsetAPI_MakeOffset; spine: TopoDS_Wire) {.
     importcpp: "AddWire", header: "BRepOffsetAPI_MakeOffset.hxx".}
-proc perform*(this: var BRepOffsetAPI_MakeOffset; offset: cfloat; alt: cfloat = 0.0) {.
-    importcpp: "Perform", header: "BRepOffsetAPI_MakeOffset.hxx".}
+proc perform*(this: var BRepOffsetAPI_MakeOffset; offset: StandardReal;
+             alt: StandardReal = 0.0) {.importcpp: "Perform",
+                                    header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc build*(this: var BRepOffsetAPI_MakeOffset) {.importcpp: "Build",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
 proc generated*(this: var BRepOffsetAPI_MakeOffset; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_MakeOffset.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

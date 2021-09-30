@@ -27,46 +27,21 @@ proc constructBRepMeshPairOfIndex*(): BRepMeshPairOfIndex {.constructor,
     importcpp: "BRepMesh_PairOfIndex(@)", header: "BRepMesh_PairOfIndex.hxx".}
 proc clear*(this: var BRepMeshPairOfIndex) {.importcpp: "Clear",
     header: "BRepMesh_PairOfIndex.hxx".}
-proc append*(this: var BRepMeshPairOfIndex; theIndex: cint) {.importcpp: "Append",
+proc append*(this: var BRepMeshPairOfIndex; theIndex: int) {.importcpp: "Append",
     header: "BRepMesh_PairOfIndex.hxx".}
-proc prepend*(this: var BRepMeshPairOfIndex; theIndex: cint) {.importcpp: "Prepend",
+proc prepend*(this: var BRepMeshPairOfIndex; theIndex: int) {.importcpp: "Prepend",
     header: "BRepMesh_PairOfIndex.hxx".}
-proc isEmpty*(this: BRepMeshPairOfIndex): bool {.noSideEffect, importcpp: "IsEmpty",
+proc isEmpty*(this: BRepMeshPairOfIndex): StandardBoolean {.noSideEffect,
+    importcpp: "IsEmpty", header: "BRepMesh_PairOfIndex.hxx".}
+proc extent*(this: BRepMeshPairOfIndex): int {.noSideEffect, importcpp: "Extent",
     header: "BRepMesh_PairOfIndex.hxx".}
-proc extent*(this: BRepMeshPairOfIndex): cint {.noSideEffect, importcpp: "Extent",
-    header: "BRepMesh_PairOfIndex.hxx".}
-proc firstIndex*(this: BRepMeshPairOfIndex): cint {.noSideEffect,
+proc firstIndex*(this: BRepMeshPairOfIndex): int {.noSideEffect,
     importcpp: "FirstIndex", header: "BRepMesh_PairOfIndex.hxx".}
-proc lastIndex*(this: BRepMeshPairOfIndex): cint {.noSideEffect,
+proc lastIndex*(this: BRepMeshPairOfIndex): int {.noSideEffect,
     importcpp: "LastIndex", header: "BRepMesh_PairOfIndex.hxx".}
-proc index*(this: BRepMeshPairOfIndex; thePairPos: cint): cint {.noSideEffect,
+proc index*(this: BRepMeshPairOfIndex; thePairPos: int): int {.noSideEffect,
     importcpp: "Index", header: "BRepMesh_PairOfIndex.hxx".}
-proc setIndex*(this: var BRepMeshPairOfIndex; thePairPos: cint; theIndex: cint) {.
+proc setIndex*(this: var BRepMeshPairOfIndex; thePairPos: int; theIndex: int) {.
     importcpp: "SetIndex", header: "BRepMesh_PairOfIndex.hxx".}
-proc removeIndex*(this: var BRepMeshPairOfIndex; thePairPos: cint) {.
+proc removeIndex*(this: var BRepMeshPairOfIndex; thePairPos: int) {.
     importcpp: "RemoveIndex", header: "BRepMesh_PairOfIndex.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

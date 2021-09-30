@@ -30,19 +30,20 @@ type
 
 proc constructChFiDS_ChamfSpine*(): ChFiDS_ChamfSpine {.constructor,
     importcpp: "ChFiDS_ChamfSpine(@)", header: "ChFiDS_ChamfSpine.hxx".}
-proc constructChFiDS_ChamfSpine*(tol: cfloat): ChFiDS_ChamfSpine {.constructor,
-    importcpp: "ChFiDS_ChamfSpine(@)", header: "ChFiDS_ChamfSpine.hxx".}
-proc setDist*(this: var ChFiDS_ChamfSpine; dis: cfloat) {.importcpp: "SetDist",
+proc constructChFiDS_ChamfSpine*(tol: StandardReal): ChFiDS_ChamfSpine {.
+    constructor, importcpp: "ChFiDS_ChamfSpine(@)", header: "ChFiDS_ChamfSpine.hxx".}
+proc setDist*(this: var ChFiDS_ChamfSpine; dis: StandardReal) {.importcpp: "SetDist",
     header: "ChFiDS_ChamfSpine.hxx".}
-proc getDist*(this: ChFiDS_ChamfSpine; dis: var cfloat) {.noSideEffect,
+proc getDist*(this: ChFiDS_ChamfSpine; dis: var StandardReal) {.noSideEffect,
     importcpp: "GetDist", header: "ChFiDS_ChamfSpine.hxx".}
-proc setDists*(this: var ChFiDS_ChamfSpine; dis1: cfloat; dis2: cfloat) {.
+proc setDists*(this: var ChFiDS_ChamfSpine; dis1: StandardReal; dis2: StandardReal) {.
     importcpp: "SetDists", header: "ChFiDS_ChamfSpine.hxx".}
-proc dists*(this: ChFiDS_ChamfSpine; dis1: var cfloat; dis2: var cfloat) {.noSideEffect,
-    importcpp: "Dists", header: "ChFiDS_ChamfSpine.hxx".}
-proc getDistAngle*(this: ChFiDS_ChamfSpine; dis: var cfloat; angle: var cfloat) {.
-    noSideEffect, importcpp: "GetDistAngle", header: "ChFiDS_ChamfSpine.hxx".}
-proc setDistAngle*(this: var ChFiDS_ChamfSpine; dis: cfloat; angle: cfloat) {.
+proc dists*(this: ChFiDS_ChamfSpine; dis1: var StandardReal; dis2: var StandardReal) {.
+    noSideEffect, importcpp: "Dists", header: "ChFiDS_ChamfSpine.hxx".}
+proc getDistAngle*(this: ChFiDS_ChamfSpine; dis: var StandardReal;
+                  angle: var StandardReal) {.noSideEffect,
+    importcpp: "GetDistAngle", header: "ChFiDS_ChamfSpine.hxx".}
+proc setDistAngle*(this: var ChFiDS_ChamfSpine; dis: StandardReal; angle: StandardReal) {.
     importcpp: "SetDistAngle", header: "ChFiDS_ChamfSpine.hxx".}
 proc setMode*(this: var ChFiDS_ChamfSpine; theMode: ChFiDS_ChamfMode) {.
     importcpp: "SetMode", header: "ChFiDS_ChamfSpine.hxx".}
@@ -58,28 +59,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ChFiDS_ChamfSpine.hxx".}
 proc dynamicType*(this: ChFiDS_ChamfSpine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ChFiDS_ChamfSpine.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

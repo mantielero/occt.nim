@@ -24,29 +24,3 @@ type
     BRepLibFaceDone, BRepLibNoFace, BRepLibNotPlanar, BRepLibCurveProjectionFailed,
     BRepLibParametersOutOfRange
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

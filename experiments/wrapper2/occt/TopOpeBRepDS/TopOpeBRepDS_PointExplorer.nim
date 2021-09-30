@@ -21,54 +21,48 @@ type
                                header: "TopOpeBRepDS_PointExplorer.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_PointExplorer; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_PointExplorer::operator new",
+    header: "TopOpeBRepDS_PointExplorer.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_PointExplorer; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_PointExplorer::operator delete",
+    header: "TopOpeBRepDS_PointExplorer.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_PointExplorer; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_PointExplorer::operator new[]",
+    header: "TopOpeBRepDS_PointExplorer.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_PointExplorer; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_PointExplorer::operator delete[]",
+    header: "TopOpeBRepDS_PointExplorer.hxx".}
+proc `new`*(this: var TopOpeBRepDS_PointExplorer; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_PointExplorer::operator new",
+    header: "TopOpeBRepDS_PointExplorer.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_PointExplorer; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_PointExplorer::operator delete",
+    header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc constructTopOpeBRepDS_PointExplorer*(): TopOpeBRepDS_PointExplorer {.
     constructor, importcpp: "TopOpeBRepDS_PointExplorer(@)",
     header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc constructTopOpeBRepDS_PointExplorer*(ds: TopOpeBRepDS_DataStructure;
-    findOnlyKeep: bool = true): TopOpeBRepDS_PointExplorer {.constructor,
+    findOnlyKeep: StandardBoolean = true): TopOpeBRepDS_PointExplorer {.constructor,
     importcpp: "TopOpeBRepDS_PointExplorer(@)",
     header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc init*(this: var TopOpeBRepDS_PointExplorer; ds: TopOpeBRepDS_DataStructure;
-          findOnlyKeep: bool = true) {.importcpp: "Init",
-                                   header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc more*(this: TopOpeBRepDS_PointExplorer): bool {.noSideEffect, importcpp: "More",
+          findOnlyKeep: StandardBoolean = true) {.importcpp: "Init",
     header: "TopOpeBRepDS_PointExplorer.hxx".}
+proc more*(this: TopOpeBRepDS_PointExplorer): StandardBoolean {.noSideEffect,
+    importcpp: "More", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc next*(this: var TopOpeBRepDS_PointExplorer) {.importcpp: "Next",
     header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc point*(this: TopOpeBRepDS_PointExplorer): TopOpeBRepDS_Point {.noSideEffect,
     importcpp: "Point", header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc isPoint*(this: TopOpeBRepDS_PointExplorer; i: cint): bool {.noSideEffect,
-    importcpp: "IsPoint", header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc isPointKeep*(this: TopOpeBRepDS_PointExplorer; i: cint): bool {.noSideEffect,
-    importcpp: "IsPointKeep", header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc point*(this: TopOpeBRepDS_PointExplorer; i: cint): TopOpeBRepDS_Point {.
-    noSideEffect, importcpp: "Point", header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc nbPoint*(this: var TopOpeBRepDS_PointExplorer): cint {.importcpp: "NbPoint",
+proc isPoint*(this: TopOpeBRepDS_PointExplorer; i: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsPoint", header: "TopOpeBRepDS_PointExplorer.hxx".}
+proc isPointKeep*(this: TopOpeBRepDS_PointExplorer; i: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsPointKeep",
     header: "TopOpeBRepDS_PointExplorer.hxx".}
-proc index*(this: TopOpeBRepDS_PointExplorer): cint {.noSideEffect,
+proc point*(this: TopOpeBRepDS_PointExplorer; i: int): TopOpeBRepDS_Point {.
+    noSideEffect, importcpp: "Point", header: "TopOpeBRepDS_PointExplorer.hxx".}
+proc nbPoint*(this: var TopOpeBRepDS_PointExplorer): int {.importcpp: "NbPoint",
+    header: "TopOpeBRepDS_PointExplorer.hxx".}
+proc index*(this: TopOpeBRepDS_PointExplorer): int {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRepDS_PointExplorer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

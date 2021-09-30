@@ -25,9 +25,9 @@
  */              
 class NCollection_ListNode
 {
-public:
+//public:
   // define new operator for use with NCollection allocators
-  DEFINE_NCOLLECTION_ALLOC
+//  DEFINE_NCOLLECTION_ALLOC
 public:
   //! The only constructor
   NCollection_ListNode (NCollection_ListNode* theNext)

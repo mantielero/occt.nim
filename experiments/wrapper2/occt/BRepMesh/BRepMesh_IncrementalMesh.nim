@@ -100,10 +100,10 @@ proc destroyBRepMeshIncrementalMesh*(this: var BRepMeshIncrementalMesh) {.
     importcpp: "#.~BRepMesh_IncrementalMesh()",
     header: "BRepMesh_IncrementalMesh.hxx".}
 proc constructBRepMeshIncrementalMesh*(theShape: TopoDS_Shape;
-                                      theLinDeflection: cfloat;
-                                      isRelative: bool = false;
-                                      theAngDeflection: cfloat = 0.5;
-                                      isInParallel: bool = false): BRepMeshIncrementalMesh {.
+                                      theLinDeflection: StandardReal;
+                                      isRelative: StandardBoolean = false;
+                                      theAngDeflection: StandardReal = 0.5;
+                                      isInParallel: StandardBoolean = false): BRepMeshIncrementalMesh {.
     constructor, importcpp: "BRepMesh_IncrementalMesh(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
 proc constructBRepMeshIncrementalMesh*(theShape: TopoDS_Shape;
@@ -122,17 +122,18 @@ proc parameters*(this: BRepMeshIncrementalMesh): IMeshToolsParameters {.
     noSideEffect, importcpp: "Parameters", header: "BRepMesh_IncrementalMesh.hxx".}
 proc changeParameters*(this: var BRepMeshIncrementalMesh): var IMeshToolsParameters {.
     importcpp: "ChangeParameters", header: "BRepMesh_IncrementalMesh.hxx".}
-proc isModified*(this: BRepMeshIncrementalMesh): bool {.noSideEffect,
+proc isModified*(this: BRepMeshIncrementalMesh): StandardBoolean {.noSideEffect,
     importcpp: "IsModified", header: "BRepMesh_IncrementalMesh.hxx".}
-proc getStatusFlags*(this: BRepMeshIncrementalMesh): cint {.noSideEffect,
+proc getStatusFlags*(this: BRepMeshIncrementalMesh): int {.noSideEffect,
     importcpp: "GetStatusFlags", header: "BRepMesh_IncrementalMesh.hxx".}
-proc discret*(theShape: TopoDS_Shape; theLinDeflection: cfloat;
-             theAngDeflection: cfloat; theAlgo: ptr BRepMeshDiscretRoot): cint {.
+proc discret*(theShape: TopoDS_Shape; theLinDeflection: StandardReal;
+             theAngDeflection: StandardReal; theAlgo: ptr BRepMeshDiscretRoot): int {.
     importcpp: "BRepMesh_IncrementalMesh::Discret(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
-proc isParallelDefault*(): bool {.importcpp: "BRepMesh_IncrementalMesh::IsParallelDefault(@)",
-                               header: "BRepMesh_IncrementalMesh.hxx".}
-proc setParallelDefault*(isInParallel: bool) {.
+proc isParallelDefault*(): StandardBoolean {.
+    importcpp: "BRepMesh_IncrementalMesh::IsParallelDefault(@)",
+    header: "BRepMesh_IncrementalMesh.hxx".}
+proc setParallelDefault*(isInParallel: StandardBoolean) {.
     importcpp: "BRepMesh_IncrementalMesh::SetParallelDefault(@)",
     header: "BRepMesh_IncrementalMesh.hxx".}
 type
@@ -145,28 +146,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_IncrementalMesh.hxx".}
 proc dynamicType*(this: BRepMeshIncrementalMesh): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepMesh_IncrementalMesh.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

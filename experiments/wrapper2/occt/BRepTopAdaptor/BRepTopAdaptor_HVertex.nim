@@ -37,13 +37,13 @@ proc changeVertex*(this: var BRepTopAdaptorHVertex): var TopoDS_Vertex {.
     importcpp: "ChangeVertex", header: "BRepTopAdaptor_HVertex.hxx".}
 proc value*(this: var BRepTopAdaptorHVertex): Pnt2d {.importcpp: "Value",
     header: "BRepTopAdaptor_HVertex.hxx".}
-proc parameter*(this: var BRepTopAdaptorHVertex; c: Handle[Adaptor2dHCurve2d]): cfloat {.
+proc parameter*(this: var BRepTopAdaptorHVertex; c: Handle[Adaptor2dHCurve2d]): StandardReal {.
     importcpp: "Parameter", header: "BRepTopAdaptor_HVertex.hxx".}
-proc resolution*(this: var BRepTopAdaptorHVertex; c: Handle[Adaptor2dHCurve2d]): cfloat {.
+proc resolution*(this: var BRepTopAdaptorHVertex; c: Handle[Adaptor2dHCurve2d]): StandardReal {.
     importcpp: "Resolution", header: "BRepTopAdaptor_HVertex.hxx".}
 proc orientation*(this: var BRepTopAdaptorHVertex): TopAbsOrientation {.
     importcpp: "Orientation", header: "BRepTopAdaptor_HVertex.hxx".}
-proc isSame*(this: var BRepTopAdaptorHVertex; other: Handle[Adaptor3dHVertex]): bool {.
+proc isSame*(this: var BRepTopAdaptorHVertex; other: Handle[Adaptor3dHVertex]): StandardBoolean {.
     importcpp: "IsSame", header: "BRepTopAdaptor_HVertex.hxx".}
 type
   BRepTopAdaptorHVertexbaseType* = Adaptor3dHVertex
@@ -55,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepTopAdaptor_HVertex.hxx".}
 proc dynamicType*(this: BRepTopAdaptorHVertex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepTopAdaptor_HVertex.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

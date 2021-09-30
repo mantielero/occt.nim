@@ -16,29 +16,3 @@
 
 type
   ChFiDS_StripeArray1* = NCollectionArray1[Handle[ChFiDS_Stripe]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

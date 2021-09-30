@@ -18,8 +18,8 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Pln"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 ## ! Taper-adding transformations on a shape.
 ## ! The resulting shape is constructed by defining one face
 ## ! to be tapered after another one, as well as the
@@ -46,38 +46,27 @@ discard "forward decl of gp_Pln"
 
 type
   BRepOffsetAPI_DraftAngle* {.importcpp: "BRepOffsetAPI_DraftAngle",
-                             header: "BRepOffsetAPI_DraftAngle.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape ##
-                                                                                                              ## !
-                                                                                                              ## Constructs
-                                                                                                              ## an
-                                                                                                              ## empty
-                                                                                                              ## algorithm
-                                                                                                              ## to
-                                                                                                              ## perform
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## taper-adding
-                                                                                                              ## transformations
-                                                                                                              ## on
-                                                                                                              ## faces
-                                                                                                              ## of
-                                                                                                              ## a
-                                                                                                              ## shape.
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## Use
-                                                                                                              ## the
-                                                                                                              ## Init
-                                                                                                              ## function
-                                                                                                              ## to
-                                                                                                              ## define
-                                                                                                              ## the
-                                                                                                              ## shape
-                                                                                                              ## to
-                                                                                                              ## be
-                                                                                                              ## tapered.
+                             header: "BRepOffsetAPI_DraftAngle.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape
 
 
+proc `new`*(this: var BRepOffsetAPI_DraftAngle; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_DraftAngle::operator new",
+    header: "BRepOffsetAPI_DraftAngle.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_DraftAngle; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_DraftAngle::operator delete",
+    header: "BRepOffsetAPI_DraftAngle.hxx".}
+proc `new[]`*(this: var BRepOffsetAPI_DraftAngle; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_DraftAngle::operator new[]",
+    header: "BRepOffsetAPI_DraftAngle.hxx".}
+proc `delete[]`*(this: var BRepOffsetAPI_DraftAngle; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_DraftAngle::operator delete[]",
+    header: "BRepOffsetAPI_DraftAngle.hxx".}
+proc `new`*(this: var BRepOffsetAPI_DraftAngle; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffsetAPI_DraftAngle::operator new",
+    header: "BRepOffsetAPI_DraftAngle.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_DraftAngle; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffsetAPI_DraftAngle::operator delete",
+    header: "BRepOffsetAPI_DraftAngle.hxx".}
 proc constructBRepOffsetAPI_DraftAngle*(): BRepOffsetAPI_DraftAngle {.constructor,
     importcpp: "BRepOffsetAPI_DraftAngle(@)",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
@@ -89,9 +78,9 @@ proc clear*(this: var BRepOffsetAPI_DraftAngle) {.importcpp: "Clear",
 proc init*(this: var BRepOffsetAPI_DraftAngle; s: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
 proc add*(this: var BRepOffsetAPI_DraftAngle; f: TopoDS_Face; direction: Dir;
-         angle: cfloat; neutralPlane: Pln; flag: bool = true) {.importcpp: "Add",
-    header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc addDone*(this: BRepOffsetAPI_DraftAngle): bool {.noSideEffect,
+         angle: StandardReal; neutralPlane: Pln; flag: StandardBoolean = true) {.
+    importcpp: "Add", header: "BRepOffsetAPI_DraftAngle.hxx".}
+proc addDone*(this: BRepOffsetAPI_DraftAngle): StandardBoolean {.noSideEffect,
     importcpp: "AddDone", header: "BRepOffsetAPI_DraftAngle.hxx".}
 proc remove*(this: var BRepOffsetAPI_DraftAngle; f: TopoDS_Face) {.
     importcpp: "Remove", header: "BRepOffsetAPI_DraftAngle.hxx".}
@@ -116,28 +105,3 @@ proc modified*(this: var BRepOffsetAPI_DraftAngle; s: TopoDS_Shape): TopToolsLis
 proc modifiedShape*(this: BRepOffsetAPI_DraftAngle; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

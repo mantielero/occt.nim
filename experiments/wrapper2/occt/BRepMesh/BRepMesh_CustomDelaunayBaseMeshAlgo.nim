@@ -38,28 +38,3 @@ proc destroyBRepMeshCustomDelaunayBaseMeshAlgo*[BaseAlgo](
     this: var BRepMeshCustomDelaunayBaseMeshAlgo[BaseAlgo]) {.
     importcpp: "#.~BRepMesh_CustomDelaunayBaseMeshAlgo()",
     header: "BRepMesh_CustomDelaunayBaseMeshAlgo.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

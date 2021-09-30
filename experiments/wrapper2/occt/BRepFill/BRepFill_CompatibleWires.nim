@@ -49,6 +49,24 @@ type
                                                                                  ## wires.
 
 
+proc `new`*(this: var BRepFillCompatibleWires; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_CompatibleWires::operator new",
+    header: "BRepFill_CompatibleWires.hxx".}
+proc `delete`*(this: var BRepFillCompatibleWires; theAddress: pointer) {.
+    importcpp: "BRepFill_CompatibleWires::operator delete",
+    header: "BRepFill_CompatibleWires.hxx".}
+proc `new[]`*(this: var BRepFillCompatibleWires; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_CompatibleWires::operator new[]",
+    header: "BRepFill_CompatibleWires.hxx".}
+proc `delete[]`*(this: var BRepFillCompatibleWires; theAddress: pointer) {.
+    importcpp: "BRepFill_CompatibleWires::operator delete[]",
+    header: "BRepFill_CompatibleWires.hxx".}
+proc `new`*(this: var BRepFillCompatibleWires; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_CompatibleWires::operator new",
+    header: "BRepFill_CompatibleWires.hxx".}
+proc `delete`*(this: var BRepFillCompatibleWires; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_CompatibleWires::operator delete",
+    header: "BRepFill_CompatibleWires.hxx".}
 proc constructBRepFillCompatibleWires*(): BRepFillCompatibleWires {.constructor,
     importcpp: "BRepFill_CompatibleWires(@)",
     header: "BRepFill_CompatibleWires.hxx".}
@@ -57,11 +75,12 @@ proc constructBRepFillCompatibleWires*(sections: TopToolsSequenceOfShape): BRepF
     header: "BRepFill_CompatibleWires.hxx".}
 proc init*(this: var BRepFillCompatibleWires; sections: TopToolsSequenceOfShape) {.
     importcpp: "Init", header: "BRepFill_CompatibleWires.hxx".}
-proc setPercent*(this: var BRepFillCompatibleWires; percent: cfloat = 0.01) {.
+proc setPercent*(this: var BRepFillCompatibleWires; percent: StandardReal = 0.01) {.
     importcpp: "SetPercent", header: "BRepFill_CompatibleWires.hxx".}
-proc perform*(this: var BRepFillCompatibleWires; withRotation: bool = true) {.
-    importcpp: "Perform", header: "BRepFill_CompatibleWires.hxx".}
-proc isDone*(this: BRepFillCompatibleWires): bool {.noSideEffect,
+proc perform*(this: var BRepFillCompatibleWires;
+             withRotation: StandardBoolean = true) {.importcpp: "Perform",
+    header: "BRepFill_CompatibleWires.hxx".}
+proc isDone*(this: BRepFillCompatibleWires): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepFill_CompatibleWires.hxx".}
 proc shape*(this: BRepFillCompatibleWires): TopToolsSequenceOfShape {.noSideEffect,
     importcpp: "Shape", header: "BRepFill_CompatibleWires.hxx".}
@@ -70,32 +89,9 @@ proc generatedShapes*(this: BRepFillCompatibleWires; subSection: TopoDS_Edge): T
     header: "BRepFill_CompatibleWires.hxx".}
 proc generated*(this: BRepFillCompatibleWires): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, importcpp: "Generated", header: "BRepFill_CompatibleWires.hxx".}
-proc isDegeneratedFirstSection*(this: BRepFillCompatibleWires): bool {.noSideEffect,
-    importcpp: "IsDegeneratedFirstSection", header: "BRepFill_CompatibleWires.hxx".}
-proc isDegeneratedLastSection*(this: BRepFillCompatibleWires): bool {.noSideEffect,
-    importcpp: "IsDegeneratedLastSection", header: "BRepFill_CompatibleWires.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc isDegeneratedFirstSection*(this: BRepFillCompatibleWires): StandardBoolean {.
+    noSideEffect, importcpp: "IsDegeneratedFirstSection",
+    header: "BRepFill_CompatibleWires.hxx".}
+proc isDegeneratedLastSection*(this: BRepFillCompatibleWires): StandardBoolean {.
+    noSideEffect, importcpp: "IsDegeneratedLastSection",
+    header: "BRepFill_CompatibleWires.hxx".}

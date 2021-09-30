@@ -16,43 +16,30 @@
 
 type
   BRepMeshCircle* {.importcpp: "BRepMesh_Circle", header: "BRepMesh_Circle.hxx",
-                   bycopy.} = object ## ! Default constructor.
+                   bycopy.} = object
 
 
+proc `new`*(this: var BRepMeshCircle; theSize: csize_t): pointer {.
+    importcpp: "BRepMesh_Circle::operator new", header: "BRepMesh_Circle.hxx".}
+proc `delete`*(this: var BRepMeshCircle; theAddress: pointer) {.
+    importcpp: "BRepMesh_Circle::operator delete", header: "BRepMesh_Circle.hxx".}
+proc `new[]`*(this: var BRepMeshCircle; theSize: csize_t): pointer {.
+    importcpp: "BRepMesh_Circle::operator new[]", header: "BRepMesh_Circle.hxx".}
+proc `delete[]`*(this: var BRepMeshCircle; theAddress: pointer) {.
+    importcpp: "BRepMesh_Circle::operator delete[]", header: "BRepMesh_Circle.hxx".}
+proc `new`*(this: var BRepMeshCircle; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepMesh_Circle::operator new", header: "BRepMesh_Circle.hxx".}
+proc `delete`*(this: var BRepMeshCircle; a2: pointer; a3: pointer) {.
+    importcpp: "BRepMesh_Circle::operator delete", header: "BRepMesh_Circle.hxx".}
 proc constructBRepMeshCircle*(): BRepMeshCircle {.constructor,
     importcpp: "BRepMesh_Circle(@)", header: "BRepMesh_Circle.hxx".}
-proc constructBRepMeshCircle*(theLocation: Xy; theRadius: cfloat): BRepMeshCircle {.
+proc constructBRepMeshCircle*(theLocation: Xy; theRadius: StandardReal): BRepMeshCircle {.
     constructor, importcpp: "BRepMesh_Circle(@)", header: "BRepMesh_Circle.hxx".}
 proc setLocation*(this: var BRepMeshCircle; theLocation: Xy) {.
     importcpp: "SetLocation", header: "BRepMesh_Circle.hxx".}
-proc setRadius*(this: var BRepMeshCircle; theRadius: cfloat) {.importcpp: "SetRadius",
-    header: "BRepMesh_Circle.hxx".}
+proc setRadius*(this: var BRepMeshCircle; theRadius: StandardReal) {.
+    importcpp: "SetRadius", header: "BRepMesh_Circle.hxx".}
 proc location*(this: BRepMeshCircle): Xy {.noSideEffect, importcpp: "Location",
                                        header: "BRepMesh_Circle.hxx".}
-proc radius*(this: BRepMeshCircle): cfloat {.noSideEffect, importcpp: "Radius",
+proc radius*(this: BRepMeshCircle): StandardReal {.noSideEffect, importcpp: "Radius",
     header: "BRepMesh_Circle.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

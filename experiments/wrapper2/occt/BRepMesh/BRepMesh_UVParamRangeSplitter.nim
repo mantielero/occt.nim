@@ -42,28 +42,3 @@ proc getParametersV*(this: BRepMeshUVParamRangeSplitter): IMapOfReal {.noSideEff
     importcpp: "GetParametersV", header: "BRepMesh_UVParamRangeSplitter.hxx".}
 proc getParametersV*(this: var BRepMeshUVParamRangeSplitter): var IMapOfReal {.
     importcpp: "GetParametersV", header: "BRepMesh_UVParamRangeSplitter.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

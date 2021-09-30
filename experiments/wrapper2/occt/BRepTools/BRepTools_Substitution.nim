@@ -21,6 +21,24 @@ type
                           header: "BRepTools_Substitution.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepToolsSubstitution; theSize: csize_t): pointer {.
+    importcpp: "BRepTools_Substitution::operator new",
+    header: "BRepTools_Substitution.hxx".}
+proc `delete`*(this: var BRepToolsSubstitution; theAddress: pointer) {.
+    importcpp: "BRepTools_Substitution::operator delete",
+    header: "BRepTools_Substitution.hxx".}
+proc `new[]`*(this: var BRepToolsSubstitution; theSize: csize_t): pointer {.
+    importcpp: "BRepTools_Substitution::operator new[]",
+    header: "BRepTools_Substitution.hxx".}
+proc `delete[]`*(this: var BRepToolsSubstitution; theAddress: pointer) {.
+    importcpp: "BRepTools_Substitution::operator delete[]",
+    header: "BRepTools_Substitution.hxx".}
+proc `new`*(this: var BRepToolsSubstitution; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepTools_Substitution::operator new",
+    header: "BRepTools_Substitution.hxx".}
+proc `delete`*(this: var BRepToolsSubstitution; a2: pointer; a3: pointer) {.
+    importcpp: "BRepTools_Substitution::operator delete",
+    header: "BRepTools_Substitution.hxx".}
 proc constructBRepToolsSubstitution*(): BRepToolsSubstitution {.constructor,
     importcpp: "BRepTools_Substitution(@)", header: "BRepTools_Substitution.hxx".}
 proc clear*(this: var BRepToolsSubstitution) {.importcpp: "Clear",
@@ -30,32 +48,7 @@ proc substitute*(this: var BRepToolsSubstitution; oldShape: TopoDS_Shape;
     header: "BRepTools_Substitution.hxx".}
 proc build*(this: var BRepToolsSubstitution; s: TopoDS_Shape) {.importcpp: "Build",
     header: "BRepTools_Substitution.hxx".}
-proc isCopied*(this: BRepToolsSubstitution; s: TopoDS_Shape): bool {.noSideEffect,
-    importcpp: "IsCopied", header: "BRepTools_Substitution.hxx".}
+proc isCopied*(this: BRepToolsSubstitution; s: TopoDS_Shape): StandardBoolean {.
+    noSideEffect, importcpp: "IsCopied", header: "BRepTools_Substitution.hxx".}
 proc copy*(this: BRepToolsSubstitution; s: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "Copy", header: "BRepTools_Substitution.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

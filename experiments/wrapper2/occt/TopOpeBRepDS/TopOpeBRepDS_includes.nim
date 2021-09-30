@@ -49,7 +49,7 @@ include TopOpeBRepDS_Filter
 include TopOpeBRepDS_GapFiller
 include TopOpeBRepDS_GapTool
 include TopOpeBRepDS_GeometryData
-include TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference
+#include TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference
 include TopOpeBRepDS_HDataStructure
 include TopOpeBRepDS_IndexedDataMapOfShapeWithState
 include TopOpeBRepDS_IndexedDataMapOfVertexPoint
@@ -90,29 +90,3 @@ include TopOpeBRepDS_connex
 include TopOpeBRepDS_define
 include TopOpeBRepDS_repvg
 include TopOpeBRepDS_samdom
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

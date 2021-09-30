@@ -24,6 +24,24 @@ type
                            header: "TPrsStd_ConstraintTools.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TPrsStdConstraintTools; theSize: csize_t): pointer {.
+    importcpp: "TPrsStd_ConstraintTools::operator new",
+    header: "TPrsStd_ConstraintTools.hxx".}
+proc `delete`*(this: var TPrsStdConstraintTools; theAddress: pointer) {.
+    importcpp: "TPrsStd_ConstraintTools::operator delete",
+    header: "TPrsStd_ConstraintTools.hxx".}
+proc `new[]`*(this: var TPrsStdConstraintTools; theSize: csize_t): pointer {.
+    importcpp: "TPrsStd_ConstraintTools::operator new[]",
+    header: "TPrsStd_ConstraintTools.hxx".}
+proc `delete[]`*(this: var TPrsStdConstraintTools; theAddress: pointer) {.
+    importcpp: "TPrsStd_ConstraintTools::operator delete[]",
+    header: "TPrsStd_ConstraintTools.hxx".}
+proc `new`*(this: var TPrsStdConstraintTools; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TPrsStd_ConstraintTools::operator new",
+    header: "TPrsStd_ConstraintTools.hxx".}
+proc `delete`*(this: var TPrsStdConstraintTools; a2: pointer; a3: pointer) {.
+    importcpp: "TPrsStd_ConstraintTools::operator delete",
+    header: "TPrsStd_ConstraintTools.hxx".}
 proc updateOnlyValue*(aConst: Handle[TDataXtdConstraint];
                      anAIS: Handle[AIS_InteractiveObject]) {.
     importcpp: "TPrsStd_ConstraintTools::UpdateOnlyValue(@)",
@@ -108,36 +126,13 @@ proc computeOthers*(aConst: Handle[TDataXtdConstraint];
                    anAIS: var Handle[AIS_InteractiveObject]) {.
     importcpp: "TPrsStd_ConstraintTools::ComputeOthers(@)",
     header: "TPrsStd_ConstraintTools.hxx".}
-proc computeTextAndValue*(aConst: Handle[TDataXtdConstraint]; aValue: var cfloat;
-                         aText: var TCollectionExtendedString; anIsAngle: bool) {.
+proc computeTextAndValue*(aConst: Handle[TDataXtdConstraint];
+                         aValue: var StandardReal;
+                         aText: var TCollectionExtendedString;
+                         anIsAngle: StandardBoolean) {.
     importcpp: "TPrsStd_ConstraintTools::ComputeTextAndValue(@)",
     header: "TPrsStd_ConstraintTools.hxx".}
 proc computeAngleForOneFace*(aConst: Handle[TDataXtdConstraint];
                             anAIS: var Handle[AIS_InteractiveObject]) {.
     importcpp: "TPrsStd_ConstraintTools::ComputeAngleForOneFace(@)",
     header: "TPrsStd_ConstraintTools.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

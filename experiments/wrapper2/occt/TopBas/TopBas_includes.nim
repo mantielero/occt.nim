@@ -4,30 +4,4 @@
 
 include TopBas_ListIteratorOfListOfTestInterference
 include TopBas_ListOfTestInterference
-include TopBas_TestInterference
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include TopBas_TestInterference

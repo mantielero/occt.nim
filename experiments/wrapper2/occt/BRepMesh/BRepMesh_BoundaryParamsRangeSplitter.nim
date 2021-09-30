@@ -44,28 +44,3 @@ proc destroyBRepMeshBoundaryParamsRangeSplitter*(
     header: "BRepMesh_BoundaryParamsRangeSplitter.hxx".}
 proc addPoint*(this: var BRepMeshBoundaryParamsRangeSplitter; thePoint: Pnt2d) {.
     importcpp: "AddPoint", header: "BRepMesh_BoundaryParamsRangeSplitter.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

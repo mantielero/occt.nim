@@ -15,33 +15,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopOpeBRepDS_DataMapOfIntegerListOfInterference* = NCollectionDataMap[cint,
+  TopOpeBRepDS_DataMapOfIntegerListOfInterference* = NCollectionDataMap[int,
       TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]
   TopOpeBRepDS_DataMapIteratorOfDataMapOfIntegerListOfInterference* = Iterator[
-      cint, TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      int, TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]

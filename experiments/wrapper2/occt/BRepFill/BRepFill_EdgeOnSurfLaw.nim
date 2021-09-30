@@ -31,7 +31,7 @@ type
 proc constructBRepFillEdgeOnSurfLaw*(path: TopoDS_Wire; surf: TopoDS_Shape): BRepFillEdgeOnSurfLaw {.
     constructor, importcpp: "BRepFill_EdgeOnSurfLaw(@)",
     header: "BRepFill_EdgeOnSurfLaw.hxx".}
-proc hasResult*(this: BRepFillEdgeOnSurfLaw): bool {.noSideEffect,
+proc hasResult*(this: BRepFillEdgeOnSurfLaw): StandardBoolean {.noSideEffect,
     importcpp: "HasResult", header: "BRepFill_EdgeOnSurfLaw.hxx".}
 type
   BRepFillEdgeOnSurfLawbaseType* = BRepFillLocationLaw
@@ -43,28 +43,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_EdgeOnSurfLaw.hxx".}
 proc dynamicType*(this: BRepFillEdgeOnSurfLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_EdgeOnSurfLaw.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

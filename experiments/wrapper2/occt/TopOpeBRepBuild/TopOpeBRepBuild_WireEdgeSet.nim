@@ -24,37 +24,6 @@ type
   TopOpeBRepBuildWireEdgeSet* {.importcpp: "TopOpeBRepBuild_WireEdgeSet",
                                header: "TopOpeBRepBuild_WireEdgeSet.hxx", bycopy.} = object of TopOpeBRepBuildShapeSet ##
                                                                                                                 ## !
-                                                                                                                ## Creates
-                                                                                                                ## a
-                                                                                                                ## WireEdgeSet
-                                                                                                                ## to
-                                                                                                                ## build
-                                                                                                                ## edges
-                                                                                                                ## connected
-                                                                                                                ## by
-                                                                                                                ## vertices
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## on
-                                                                                                                ## face
-                                                                                                                ## F.
-                                                                                                                ## Edges
-                                                                                                                ## of
-                                                                                                                ## the
-                                                                                                                ## WireEdgeSet
-                                                                                                                ## must
-                                                                                                                ## have
-                                                                                                                ## a
-                                                                                                                ## representation
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## on
-                                                                                                                ## surface
-                                                                                                                ## of
-                                                                                                                ## face
-                                                                                                                ## F.
-                                                                                                                ##
-                                                                                                                ## !
                                                                                                                 ## Indicates
                                                                                                                 ## whether
                                                                                                                 ## vertex
@@ -117,6 +86,24 @@ type
                                                                                                                 ## E2
 
 
+proc `new`*(this: var TopOpeBRepBuildWireEdgeSet; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_WireEdgeSet::operator new",
+    header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildWireEdgeSet; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_WireEdgeSet::operator delete",
+    header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildWireEdgeSet; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_WireEdgeSet::operator new[]",
+    header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildWireEdgeSet; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_WireEdgeSet::operator delete[]",
+    header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
+proc `new`*(this: var TopOpeBRepBuildWireEdgeSet; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_WireEdgeSet::operator new",
+    header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildWireEdgeSet; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_WireEdgeSet::operator delete",
+    header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc constructTopOpeBRepBuildWireEdgeSet*(f: TopoDS_Shape;
     `addr`: StandardAddress = nil): TopOpeBRepBuildWireEdgeSet {.constructor,
     importcpp: "TopOpeBRepBuild_WireEdgeSet(@)",
@@ -136,9 +123,8 @@ proc findNeighbours*(this: var TopOpeBRepBuildWireEdgeSet) {.
 proc makeNeighboursList*(this: var TopOpeBRepBuildWireEdgeSet; e: TopoDS_Shape;
                         v: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "MakeNeighboursList", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
-proc isUVISO*(e: TopoDS_Edge; f: TopoDS_Face; uiso: var bool; viso: var bool) {.
-    importcpp: "TopOpeBRepBuild_WireEdgeSet::IsUVISO(@)",
-    header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
+proc isUVISO*(e: TopoDS_Edge; f: TopoDS_Face; uiso: var StandardBoolean;
+             viso: var StandardBoolean) {.importcpp: "TopOpeBRepBuild_WireEdgeSet::IsUVISO(@)", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc dumpSS*(this: var TopOpeBRepBuildWireEdgeSet) {.importcpp: "DumpSS",
     header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc sName*(this: TopOpeBRepBuildWireEdgeSet; s: TopoDS_Shape;
@@ -153,28 +139,3 @@ proc sNameori*(this: TopOpeBRepBuildWireEdgeSet; s: TopoDS_Shape;
 proc sNameori*(this: TopOpeBRepBuildWireEdgeSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
     noSideEffect, importcpp: "SNameori", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

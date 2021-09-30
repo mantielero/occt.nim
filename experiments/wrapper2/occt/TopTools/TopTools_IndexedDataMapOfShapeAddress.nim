@@ -17,29 +17,3 @@
 type
   TopToolsIndexedDataMapOfShapeAddress* = NCollectionIndexedDataMap[TopoDS_Shape,
       StandardAddress, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -22,12 +22,6 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of BRep_PointRepresentation"
 discard "forward decl of BRep_PointRepresentation"
 type
-  HandleC1C1* = Handle[BRepPointRepresentation]
-
-## ! Root  class     for   the points  representations.
-## ! Contains a location and a parameter.
-
-type
   BRepPointRepresentation* {.importcpp: "BRep_PointRepresentation",
                             header: "BRep_PointRepresentation.hxx", bycopy.} = object of StandardTransient ##
                                                                                                     ## !
@@ -38,34 +32,44 @@ type
                                                                                                     ## 3d
                                                                                                     ## curve.
 
+type
+  HandleBRepPointRepresentation* = Handle[BRepPointRepresentation]
 
-proc isPointOnCurve*(this: BRepPointRepresentation): bool {.noSideEffect,
+## ! Root  class     for   the points  representations.
+## ! Contains a location and a parameter.
+
+type
+  BRepPointRepresentationbaseType* = StandardTransient
+
+proc isPointOnCurve*(this: BRepPointRepresentation): StandardBoolean {.noSideEffect,
     importcpp: "IsPointOnCurve", header: "BRep_PointRepresentation.hxx".}
-proc isPointOnCurveOnSurface*(this: BRepPointRepresentation): bool {.noSideEffect,
-    importcpp: "IsPointOnCurveOnSurface", header: "BRep_PointRepresentation.hxx".}
-proc isPointOnSurface*(this: BRepPointRepresentation): bool {.noSideEffect,
-    importcpp: "IsPointOnSurface", header: "BRep_PointRepresentation.hxx".}
-proc isPointOnCurve*(this: BRepPointRepresentation; c: Handle[GeomCurve];
-                    L: TopLocLocation): bool {.noSideEffect,
-    importcpp: "IsPointOnCurve", header: "BRep_PointRepresentation.hxx".}
-proc isPointOnCurveOnSurface*(this: BRepPointRepresentation;
+proc isPointOnCurveOnSurface*(this: BRepPointRepresentation): StandardBoolean {.
+    noSideEffect, importcpp: "IsPointOnCurveOnSurface",
+    header: "BRep_PointRepresentation.hxx".}
+proc isPointOnSurface*(this: BRepPointRepresentation): StandardBoolean {.
+    noSideEffect, importcpp: "IsPointOnSurface",
+    header: "BRep_PointRepresentation.hxx".}
+#[ proc isPointOnCurve*(this: BRepPointRepresentation; c: Handle[GeomCurve];
+                    L: TopLocLocation): StandardBoolean {.noSideEffect,
+    importcpp: "IsPointOnCurve", header: "BRep_PointRepresentation.hxx".} ]#
+#[ proc isPointOnCurveOnSurface*(this: BRepPointRepresentation;
                              pc: Handle[Geom2dCurve]; s: Handle[GeomSurface];
-                             L: TopLocLocation): bool {.noSideEffect,
+                             L: TopLocLocation): StandardBoolean {.noSideEffect,
     importcpp: "IsPointOnCurveOnSurface", header: "BRep_PointRepresentation.hxx".}
 proc isPointOnSurface*(this: BRepPointRepresentation; s: Handle[GeomSurface];
-                      L: TopLocLocation): bool {.noSideEffect,
+                      L: TopLocLocation): StandardBoolean {.noSideEffect,
     importcpp: "IsPointOnSurface", header: "BRep_PointRepresentation.hxx".}
 proc location*(this: BRepPointRepresentation): TopLocLocation {.noSideEffect,
     importcpp: "Location", header: "BRep_PointRepresentation.hxx".}
 proc location*(this: var BRepPointRepresentation; L: TopLocLocation) {.
     importcpp: "Location", header: "BRep_PointRepresentation.hxx".}
-proc parameter*(this: BRepPointRepresentation): cfloat {.noSideEffect,
+proc parameter*(this: BRepPointRepresentation): StandardReal {.noSideEffect,
     importcpp: "Parameter", header: "BRep_PointRepresentation.hxx".}
-proc parameter*(this: var BRepPointRepresentation; p: cfloat) {.
+proc parameter*(this: var BRepPointRepresentation; p: StandardReal) {.
     importcpp: "Parameter", header: "BRep_PointRepresentation.hxx".}
-proc parameter2*(this: BRepPointRepresentation): cfloat {.noSideEffect,
+proc parameter2*(this: BRepPointRepresentation): StandardReal {.noSideEffect,
     importcpp: "Parameter2", header: "BRep_PointRepresentation.hxx".}
-proc parameter2*(this: var BRepPointRepresentation; p: cfloat) {.
+proc parameter2*(this: var BRepPointRepresentation; p: StandardReal) {.
     importcpp: "Parameter2", header: "BRep_PointRepresentation.hxx".}
 proc curve*(this: BRepPointRepresentation): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "BRep_PointRepresentation.hxx".}
@@ -80,10 +84,9 @@ proc surface*(this: BRepPointRepresentation): Handle[GeomSurface] {.noSideEffect
 proc surface*(this: var BRepPointRepresentation; s: Handle[GeomSurface]) {.
     importcpp: "Surface", header: "BRep_PointRepresentation.hxx".}
 proc dumpJson*(this: BRepPointRepresentation; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
-                                 header: "BRep_PointRepresentation.hxx".}
-type
-  BRepPointRepresentationbaseType* = StandardTransient
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_PointRepresentation.hxx".}
+
 
 proc getTypeName*(): cstring {.importcpp: "BRep_PointRepresentation::get_type_name(@)",
                             header: "BRep_PointRepresentation.hxx".}
@@ -91,29 +94,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_PointRepresentation::get_type_descriptor(@)",
     header: "BRep_PointRepresentation.hxx".}
 proc dynamicType*(this: BRepPointRepresentation): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "BRep_PointRepresentation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    noSideEffect, importcpp: "DynamicType", header: "BRep_PointRepresentation.hxx".} ]#

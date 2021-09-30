@@ -1,19 +1,7 @@
-{.passL: "-lTKBO".}
-{.passL: "-lTKSTEP".}
-{.passL: "-lTKPrim".}
-{.passL: "-lTKSTEPAttr".}
-{.passL: "-lTKSTEP209".}
-{.passL: "-lTKSTEPBase".}
-{.passL: "-lTKXSBase".}
-{.passL: "-lTKShHealing".}
-{.passL: "-lTKTopAlgo".}
-{.passL: "-lTKGeomAlgo".}
-{.passL: "-lTKBRep".}
-{.passL: "-lTKGeomBase".}
-{.passL: "-lTKG3d".}
-{.passL: "-lTKG2d".}
-{.passL: "-lTKMath".}
-{.passL: "-lTKernel".}
+{.passL:"-lTKBinXCAF -lTKCAF -lTKDCAF -lTKLCAF -lTKVCAF -lTKXCAF -lTKXmlXCAF".}
+{.passL:"-lTKSTEP -lTKSTEPAttr -lTKSTEP209 -lTKSTEPBase -lTKXDESTEP"}
+{.passL: "-lTKBO -lTKSTEP -lTKPrim -lTKXSBase -lTKShHealing -lTKTopAlgo -lTKGeomAlgo -lTKBRep -lTKGeomBase -lTKG3d -lTKG2d -lTKMath -lTKernel".}
+{.passL:"-lTKFillet -lTKBool"}
 
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
@@ -31,7 +19,20 @@ include occt/Geom2d/Geom2d_includes
 include occt/GC/GC_includes
 include occt/TopoDS/TopoDS_includes
 include occt/BRepBuilderAPI/BRepBuilderAPI_includes
-
+include occt/BRepPrim/BRepPrim_includes
+include occt/BRepPrimAPI/BRepPrimAPI_includes
+include occt/BRepFilletAPI/BRepFilletAPI_includes
+include occt/ChFi3d/ChFi3d_includes
+include occt/BRep/BRep_includes
+#include occt/BRepSweep/BRepSweep_includes
+include occt/TopLoc/TopLoc_includes
+include occt/TopAbs/TopAbs_includes
+include occt/TopExp/TopExp_includes
+include occt/TopTools/TopTools_includes
+include occt/BRepAlgo/BRepAlgo_includes
+include occt/GeomAbs/GeomAbs_includes
+include occt/Adaptor2d/Adaptor2d_includes
+include occt/Adaptor3d/Adaptor3d_includes
 #import cinterop
 
 proc main() =
@@ -87,7 +88,7 @@ proc main() =
 
 
   # Get the wire from the shape
-  let aMirroredWire:TopoDS_Wire = aMirroredShape.wire  # newTopoDS_Wire(aMirroredShape) #
+  let aMirroredWire:TopoDS_Wire = aMirroredShape.wire  # newTopoDS_WBRepAlgo_BooleanOperationire(aMirroredShape) #
 
 
   # Join the wires into a shape
@@ -101,13 +102,13 @@ proc main() =
   #   let myFaceProfile:BRepBuilderAPI_MakeFace = MakeFace(myWireProfile)
   let myFaceProfile:TopoDS_Face = makeFace(myWireProfile)
   let aPrismVec = newVec(0.0, 0.0, myHeight)
-  let myBody:TopoDS_Shape = makePrism(myFaceProfile, aPrismVec)
+  var myBody:BRepPrimAPI_MakePrism = makePrism(myFaceProfile, aPrismVec)  # BRepPrimAPI_MakePrism
 
-  #[
- # - Applying fillets
-  let mkFillet = makeFillet(myBody)
 
-  let anEdgeExplorer = explorer(myBody, sEdge)
+  # - Applying fillets
+  var mkFillet = makeFillet(myBody)
+
+  var anEdgeExplorer = explorer(myBody, TopAbsEDGE)
   while anEdgeExplorer.more():
     var anEdge = anEdgeExplorer.current.edge
     # Add edge to fillet algorithm
@@ -120,16 +121,16 @@ proc main() =
   let neckLocation = newPnt(0, 0, myHeight)
   let neckAxis:Dir = dz()
   let neckAx2 = newAx2(neckLocation, neckAxis)
-  
+
   let myNeckRadius = myThickness / 4.0
   let myNeckHeight = myHeight / 10.0
 
-  let mkCylinder = makeCylinder(neckAx2, myNeckRadius, myNeckHeight)
-  let myNeck:TopoDS_Shape = mkCylinder.shape()
+  var mkCylinder:BRepBuilderAPI_MakeShape = makeCylinder(neckAx2, myNeckRadius, myNeckHeight)
+  var myNeck:TopoDS_Shape = mkCylinder.shape()
+   
 
-
-  let myBodyFused = fuse(myFilletedBody, myNeck)
-  ]#
+  var myBodyFused = fuse(myFilletedBody, myNeck)
+  
   # Creating a Hollowed Solid
 
 

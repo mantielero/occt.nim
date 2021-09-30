@@ -19,29 +19,3 @@ type
       TColStdSequenceOfReal, TopToolsShapeMapHasher]
   BRepFillDataMapIteratorOfDataMapOfShapeSequenceOfReal* = Iterator[TopoDS_Shape,
       TColStdSequenceOfReal, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

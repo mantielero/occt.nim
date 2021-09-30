@@ -40,29 +40,3 @@ type
                       header: "TopAbs_Orientation.hxx".} = enum
     TopAbsFORWARD, TopAbsREVERSED, TopAbsINTERNAL, TopAbsEXTERNAL
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

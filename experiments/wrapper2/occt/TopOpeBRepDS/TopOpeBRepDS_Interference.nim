@@ -53,9 +53,9 @@ proc constructTopOpeBRepDS_Interference*(): TopOpeBRepDS_Interference {.
     header: "TopOpeBRepDS_Interference.hxx".}
 proc constructTopOpeBRepDS_Interference*(transition: TopOpeBRepDS_Transition;
                                         supportType: TopOpeBRepDS_Kind;
-                                        support: cint;
+                                        support: int;
                                         geometryType: TopOpeBRepDS_Kind;
-                                        geometry: cint): TopOpeBRepDS_Interference {.
+                                        geometry: int): TopOpeBRepDS_Interference {.
     constructor, importcpp: "TopOpeBRepDS_Interference(@)",
     header: "TopOpeBRepDS_Interference.hxx".}
 proc constructTopOpeBRepDS_Interference*(i: Handle[TopOpeBRepDS_Interference]): TopOpeBRepDS_Interference {.
@@ -67,33 +67,34 @@ proc changeTransition*(this: var TopOpeBRepDS_Interference): var TopOpeBRepDS_Tr
     importcpp: "ChangeTransition", header: "TopOpeBRepDS_Interference.hxx".}
 proc transition*(this: var TopOpeBRepDS_Interference; t: TopOpeBRepDS_Transition) {.
     importcpp: "Transition", header: "TopOpeBRepDS_Interference.hxx".}
-proc gkgsks*(this: TopOpeBRepDS_Interference; gk: var TopOpeBRepDS_Kind; g: var cint;
-            sk: var TopOpeBRepDS_Kind; s: var cint) {.noSideEffect,
-    importcpp: "GKGSKS", header: "TopOpeBRepDS_Interference.hxx".}
+proc gkgsks*(this: TopOpeBRepDS_Interference; gk: var TopOpeBRepDS_Kind; g: var int;
+            sk: var TopOpeBRepDS_Kind; s: var int) {.noSideEffect, importcpp: "GKGSKS",
+    header: "TopOpeBRepDS_Interference.hxx".}
 proc supportType*(this: TopOpeBRepDS_Interference): TopOpeBRepDS_Kind {.
     noSideEffect, importcpp: "SupportType", header: "TopOpeBRepDS_Interference.hxx".}
-proc support*(this: TopOpeBRepDS_Interference): cint {.noSideEffect,
+proc support*(this: TopOpeBRepDS_Interference): int {.noSideEffect,
     importcpp: "Support", header: "TopOpeBRepDS_Interference.hxx".}
 proc geometryType*(this: TopOpeBRepDS_Interference): TopOpeBRepDS_Kind {.
     noSideEffect, importcpp: "GeometryType",
     header: "TopOpeBRepDS_Interference.hxx".}
-proc geometry*(this: TopOpeBRepDS_Interference): cint {.noSideEffect,
+proc geometry*(this: TopOpeBRepDS_Interference): int {.noSideEffect,
     importcpp: "Geometry", header: "TopOpeBRepDS_Interference.hxx".}
-proc setGeometry*(this: var TopOpeBRepDS_Interference; gi: cint) {.
+proc setGeometry*(this: var TopOpeBRepDS_Interference; gi: int) {.
     importcpp: "SetGeometry", header: "TopOpeBRepDS_Interference.hxx".}
 proc supportType*(this: var TopOpeBRepDS_Interference; st: TopOpeBRepDS_Kind) {.
     importcpp: "SupportType", header: "TopOpeBRepDS_Interference.hxx".}
-proc support*(this: var TopOpeBRepDS_Interference; s: cint) {.importcpp: "Support",
+proc support*(this: var TopOpeBRepDS_Interference; s: int) {.importcpp: "Support",
     header: "TopOpeBRepDS_Interference.hxx".}
 proc geometryType*(this: var TopOpeBRepDS_Interference; gt: TopOpeBRepDS_Kind) {.
     importcpp: "GeometryType", header: "TopOpeBRepDS_Interference.hxx".}
-proc geometry*(this: var TopOpeBRepDS_Interference; g: cint) {.importcpp: "Geometry",
+proc geometry*(this: var TopOpeBRepDS_Interference; g: int) {.importcpp: "Geometry",
     header: "TopOpeBRepDS_Interference.hxx".}
 proc hasSameSupport*(this: TopOpeBRepDS_Interference;
-                    other: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    importcpp: "HasSameSupport", header: "TopOpeBRepDS_Interference.hxx".}
+                    other: Handle[TopOpeBRepDS_Interference]): StandardBoolean {.
+    noSideEffect, importcpp: "HasSameSupport",
+    header: "TopOpeBRepDS_Interference.hxx".}
 proc hasSameGeometry*(this: TopOpeBRepDS_Interference;
-                     other: Handle[TopOpeBRepDS_Interference]): bool {.
+                     other: Handle[TopOpeBRepDS_Interference]): StandardBoolean {.
     noSideEffect, importcpp: "HasSameGeometry",
     header: "TopOpeBRepDS_Interference.hxx".}
 type
@@ -106,28 +107,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepDS_Interference.hxx".}
 proc dynamicType*(this: TopOpeBRepDS_Interference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TopOpeBRepDS_Interference.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

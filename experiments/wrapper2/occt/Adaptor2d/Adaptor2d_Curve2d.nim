@@ -29,7 +29,7 @@ discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 type
   Adaptor2dCurve2d* {.importcpp: "Adaptor2d_Curve2d",
-                     header: "Adaptor2d_Curve2d.hxx", bycopy.} = object
+                     header: "Adaptor2d_Curve2d.hxx", bycopy.} = object of RootObj
 
 
 proc firstParameter*(this: Adaptor2dCurve2d): cfloat {.noSideEffect,
@@ -40,8 +40,8 @@ proc continuity*(this: Adaptor2dCurve2d): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor2d_Curve2d.hxx".}
 proc nbIntervals*(this: Adaptor2dCurve2d; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Adaptor2d_Curve2d.hxx".}
-proc intervals*(this: Adaptor2dCurve2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "Intervals", header: "Adaptor2d_Curve2d.hxx".}
+#[ proc intervals*(this: Adaptor2dCurve2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "Adaptor2d_Curve2d.hxx".} ]#
 proc trim*(this: Adaptor2dCurve2d; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor2dHCurve2d] {.noSideEffect, importcpp: "Trim",
                         header: "Adaptor2d_Curve2d.hxx".}

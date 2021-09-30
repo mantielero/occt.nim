@@ -54,29 +54,3 @@ include TopOpeBRepTool_face
 include TopOpeBRepTool_makeTransition
 include TopOpeBRepTool_mkTondgE
 include TopOpeBRepTool_tol
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

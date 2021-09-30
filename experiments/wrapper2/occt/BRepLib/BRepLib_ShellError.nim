@@ -22,29 +22,3 @@ type
     BRepLibShellDone, BRepLibEmptyShell, BRepLibDisconnectedShell,
     BRepLibShellParametersOutOfRange
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

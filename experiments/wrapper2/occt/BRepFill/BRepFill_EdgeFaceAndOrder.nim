@@ -22,6 +22,24 @@ type
                              header: "BRepFill_EdgeFaceAndOrder.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepFillEdgeFaceAndOrder; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_EdgeFaceAndOrder::operator new",
+    header: "BRepFill_EdgeFaceAndOrder.hxx".}
+proc `delete`*(this: var BRepFillEdgeFaceAndOrder; theAddress: pointer) {.
+    importcpp: "BRepFill_EdgeFaceAndOrder::operator delete",
+    header: "BRepFill_EdgeFaceAndOrder.hxx".}
+proc `new[]`*(this: var BRepFillEdgeFaceAndOrder; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_EdgeFaceAndOrder::operator new[]",
+    header: "BRepFill_EdgeFaceAndOrder.hxx".}
+proc `delete[]`*(this: var BRepFillEdgeFaceAndOrder; theAddress: pointer) {.
+    importcpp: "BRepFill_EdgeFaceAndOrder::operator delete[]",
+    header: "BRepFill_EdgeFaceAndOrder.hxx".}
+proc `new`*(this: var BRepFillEdgeFaceAndOrder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_EdgeFaceAndOrder::operator new",
+    header: "BRepFill_EdgeFaceAndOrder.hxx".}
+proc `delete`*(this: var BRepFillEdgeFaceAndOrder; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_EdgeFaceAndOrder::operator delete",
+    header: "BRepFill_EdgeFaceAndOrder.hxx".}
 proc constructBRepFillEdgeFaceAndOrder*(): BRepFillEdgeFaceAndOrder {.constructor,
     importcpp: "BRepFill_EdgeFaceAndOrder(@)",
     header: "BRepFill_EdgeFaceAndOrder.hxx".}
@@ -29,28 +47,3 @@ proc constructBRepFillEdgeFaceAndOrder*(anEdge: TopoDS_Edge; aFace: TopoDS_Face;
                                        anOrder: GeomAbsShape): BRepFillEdgeFaceAndOrder {.
     constructor, importcpp: "BRepFill_EdgeFaceAndOrder(@)",
     header: "BRepFill_EdgeFaceAndOrder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

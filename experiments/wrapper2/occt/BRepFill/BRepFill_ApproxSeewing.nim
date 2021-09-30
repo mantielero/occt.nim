@@ -22,6 +22,24 @@ type
                           header: "BRepFill_ApproxSeewing.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepFillApproxSeewing; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_ApproxSeewing::operator new",
+    header: "BRepFill_ApproxSeewing.hxx".}
+proc `delete`*(this: var BRepFillApproxSeewing; theAddress: pointer) {.
+    importcpp: "BRepFill_ApproxSeewing::operator delete",
+    header: "BRepFill_ApproxSeewing.hxx".}
+proc `new[]`*(this: var BRepFillApproxSeewing; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_ApproxSeewing::operator new[]",
+    header: "BRepFill_ApproxSeewing.hxx".}
+proc `delete[]`*(this: var BRepFillApproxSeewing; theAddress: pointer) {.
+    importcpp: "BRepFill_ApproxSeewing::operator delete[]",
+    header: "BRepFill_ApproxSeewing.hxx".}
+proc `new`*(this: var BRepFillApproxSeewing; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_ApproxSeewing::operator new",
+    header: "BRepFill_ApproxSeewing.hxx".}
+proc `delete`*(this: var BRepFillApproxSeewing; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_ApproxSeewing::operator delete",
+    header: "BRepFill_ApproxSeewing.hxx".}
 proc constructBRepFillApproxSeewing*(): BRepFillApproxSeewing {.constructor,
     importcpp: "BRepFill_ApproxSeewing(@)", header: "BRepFill_ApproxSeewing.hxx".}
 proc constructBRepFillApproxSeewing*(ml: BRepFillMultiLine): BRepFillApproxSeewing {.
@@ -29,36 +47,11 @@ proc constructBRepFillApproxSeewing*(ml: BRepFillMultiLine): BRepFillApproxSeewi
     header: "BRepFill_ApproxSeewing.hxx".}
 proc perform*(this: var BRepFillApproxSeewing; ml: BRepFillMultiLine) {.
     importcpp: "Perform", header: "BRepFill_ApproxSeewing.hxx".}
-proc isDone*(this: BRepFillApproxSeewing): bool {.noSideEffect, importcpp: "IsDone",
-    header: "BRepFill_ApproxSeewing.hxx".}
+proc isDone*(this: BRepFillApproxSeewing): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "BRepFill_ApproxSeewing.hxx".}
 proc curve*(this: BRepFillApproxSeewing): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "BRepFill_ApproxSeewing.hxx".}
 proc curveOnF1*(this: BRepFillApproxSeewing): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "CurveOnF1", header: "BRepFill_ApproxSeewing.hxx".}
 proc curveOnF2*(this: BRepFillApproxSeewing): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "CurveOnF2", header: "BRepFill_ApproxSeewing.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

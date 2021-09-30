@@ -22,36 +22,29 @@ type
                          header: "BRepClass_Intersector.hxx", bycopy.} = object of Geom2dIntIntConicCurveOfGInter
 
 
+proc `new`*(this: var BRepClassIntersector; theSize: csize_t): pointer {.
+    importcpp: "BRepClass_Intersector::operator new",
+    header: "BRepClass_Intersector.hxx".}
+proc `delete`*(this: var BRepClassIntersector; theAddress: pointer) {.
+    importcpp: "BRepClass_Intersector::operator delete",
+    header: "BRepClass_Intersector.hxx".}
+proc `new[]`*(this: var BRepClassIntersector; theSize: csize_t): pointer {.
+    importcpp: "BRepClass_Intersector::operator new[]",
+    header: "BRepClass_Intersector.hxx".}
+proc `delete[]`*(this: var BRepClassIntersector; theAddress: pointer) {.
+    importcpp: "BRepClass_Intersector::operator delete[]",
+    header: "BRepClass_Intersector.hxx".}
+proc `new`*(this: var BRepClassIntersector; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepClass_Intersector::operator new",
+    header: "BRepClass_Intersector.hxx".}
+proc `delete`*(this: var BRepClassIntersector; a2: pointer; a3: pointer) {.
+    importcpp: "BRepClass_Intersector::operator delete",
+    header: "BRepClass_Intersector.hxx".}
 proc constructBRepClassIntersector*(): BRepClassIntersector {.constructor,
     importcpp: "BRepClass_Intersector(@)", header: "BRepClass_Intersector.hxx".}
-proc perform*(this: var BRepClassIntersector; L: Lin2d; p: cfloat; tol: cfloat;
-             e: BRepClassEdge) {.importcpp: "Perform",
-                               header: "BRepClass_Intersector.hxx".}
-proc localGeometry*(this: BRepClassIntersector; e: BRepClassEdge; u: cfloat;
-                   t: var Dir2d; n: var Dir2d; c: var cfloat) {.noSideEffect,
+proc perform*(this: var BRepClassIntersector; L: Lin2d; p: StandardReal;
+             tol: StandardReal; e: BRepClassEdge) {.importcpp: "Perform",
+    header: "BRepClass_Intersector.hxx".}
+proc localGeometry*(this: BRepClassIntersector; e: BRepClassEdge; u: StandardReal;
+                   t: var Dir2d; n: var Dir2d; c: var StandardReal) {.noSideEffect,
     importcpp: "LocalGeometry", header: "BRepClass_Intersector.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

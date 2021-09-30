@@ -23,49 +23,43 @@ type
                        header: "BRepLib_FindSurface.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepLibFindSurface; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_FindSurface::operator new",
+    header: "BRepLib_FindSurface.hxx".}
+proc `delete`*(this: var BRepLibFindSurface; theAddress: pointer) {.
+    importcpp: "BRepLib_FindSurface::operator delete",
+    header: "BRepLib_FindSurface.hxx".}
+proc `new[]`*(this: var BRepLibFindSurface; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_FindSurface::operator new[]",
+    header: "BRepLib_FindSurface.hxx".}
+proc `delete[]`*(this: var BRepLibFindSurface; theAddress: pointer) {.
+    importcpp: "BRepLib_FindSurface::operator delete[]",
+    header: "BRepLib_FindSurface.hxx".}
+proc `new`*(this: var BRepLibFindSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLib_FindSurface::operator new",
+    header: "BRepLib_FindSurface.hxx".}
+proc `delete`*(this: var BRepLibFindSurface; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLib_FindSurface::operator delete",
+    header: "BRepLib_FindSurface.hxx".}
 proc constructBRepLibFindSurface*(): BRepLibFindSurface {.constructor,
     importcpp: "BRepLib_FindSurface(@)", header: "BRepLib_FindSurface.hxx".}
-proc constructBRepLibFindSurface*(s: TopoDS_Shape; tol: cfloat = -1;
-                                 onlyPlane: bool = false; onlyClosed: bool = false): BRepLibFindSurface {.
+proc constructBRepLibFindSurface*(s: TopoDS_Shape; tol: StandardReal = -1;
+                                 onlyPlane: StandardBoolean = false;
+                                 onlyClosed: StandardBoolean = false): BRepLibFindSurface {.
     constructor, importcpp: "BRepLib_FindSurface(@)",
     header: "BRepLib_FindSurface.hxx".}
-proc init*(this: var BRepLibFindSurface; s: TopoDS_Shape; tol: cfloat = -1;
-          onlyPlane: bool = false; onlyClosed: bool = false) {.importcpp: "Init",
-    header: "BRepLib_FindSurface.hxx".}
-proc found*(this: BRepLibFindSurface): bool {.noSideEffect, importcpp: "Found",
-    header: "BRepLib_FindSurface.hxx".}
+proc init*(this: var BRepLibFindSurface; s: TopoDS_Shape; tol: StandardReal = -1;
+          onlyPlane: StandardBoolean = false; onlyClosed: StandardBoolean = false) {.
+    importcpp: "Init", header: "BRepLib_FindSurface.hxx".}
+proc found*(this: BRepLibFindSurface): StandardBoolean {.noSideEffect,
+    importcpp: "Found", header: "BRepLib_FindSurface.hxx".}
 proc surface*(this: BRepLibFindSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "BRepLib_FindSurface.hxx".}
-proc tolerance*(this: BRepLibFindSurface): cfloat {.noSideEffect,
+proc tolerance*(this: BRepLibFindSurface): StandardReal {.noSideEffect,
     importcpp: "Tolerance", header: "BRepLib_FindSurface.hxx".}
-proc toleranceReached*(this: BRepLibFindSurface): cfloat {.noSideEffect,
+proc toleranceReached*(this: BRepLibFindSurface): StandardReal {.noSideEffect,
     importcpp: "ToleranceReached", header: "BRepLib_FindSurface.hxx".}
-proc existed*(this: BRepLibFindSurface): bool {.noSideEffect, importcpp: "Existed",
-    header: "BRepLib_FindSurface.hxx".}
+proc existed*(this: BRepLibFindSurface): StandardBoolean {.noSideEffect,
+    importcpp: "Existed", header: "BRepLib_FindSurface.hxx".}
 proc location*(this: BRepLibFindSurface): TopLocLocation {.noSideEffect,
     importcpp: "Location", header: "BRepLib_FindSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

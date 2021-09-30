@@ -21,25 +21,29 @@ discard "forward decl of BRepAlgoAPI_BooleanOperation"
 type
   BRepFeatForm* {.importcpp: "BRepFeat_Form", header: "BRepFeat_Form.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
                                                                                                                ## !
-                                                                                                               ## returns
-                                                                                                               ## the
-                                                                                                               ## list
-                                                                                                               ## of
-                                                                                                               ## generated
-                                                                                                               ## Faces.
-                                                                                                               ##
-                                                                                                               ## !
                                                                                                                ## Redefines
                                                                                                                ## the
                                                                                                                ## empty
                                                                                                                ## constructor.
 
 
+proc `new`*(this: var BRepFeatForm; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_Form::operator new", header: "BRepFeat_Form.hxx".}
+proc `delete`*(this: var BRepFeatForm; theAddress: pointer) {.
+    importcpp: "BRepFeat_Form::operator delete", header: "BRepFeat_Form.hxx".}
+proc `new[]`*(this: var BRepFeatForm; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_Form::operator new[]", header: "BRepFeat_Form.hxx".}
+proc `delete[]`*(this: var BRepFeatForm; theAddress: pointer) {.
+    importcpp: "BRepFeat_Form::operator delete[]", header: "BRepFeat_Form.hxx".}
+proc `new`*(this: var BRepFeatForm; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFeat_Form::operator new", header: "BRepFeat_Form.hxx".}
+proc `delete`*(this: var BRepFeatForm; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFeat_Form::operator delete", header: "BRepFeat_Form.hxx".}
 proc modified*(this: var BRepFeatForm; f: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepFeat_Form.hxx".}
 proc generated*(this: var BRepFeatForm; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepFeat_Form.hxx".}
-proc isDeleted*(this: var BRepFeatForm; s: TopoDS_Shape): bool {.
+proc isDeleted*(this: var BRepFeatForm; s: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsDeleted", header: "BRepFeat_Form.hxx".}
 proc firstShape*(this: BRepFeatForm): TopToolsListOfShape {.noSideEffect,
     importcpp: "FirstShape", header: "BRepFeat_Form.hxx".}
@@ -69,28 +73,3 @@ proc barycCurve*(this: var BRepFeatForm): Handle[GeomCurve] {.
     importcpp: "BarycCurve", header: "BRepFeat_Form.hxx".}
 proc currentStatusError*(this: BRepFeatForm): BRepFeatStatusError {.noSideEffect,
     importcpp: "CurrentStatusError", header: "BRepFeat_Form.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

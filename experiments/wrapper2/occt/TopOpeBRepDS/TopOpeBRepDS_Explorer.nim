@@ -26,26 +26,44 @@ type
                           header: "TopOpeBRepDS_Explorer.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_Explorer; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_Explorer::operator new",
+    header: "TopOpeBRepDS_Explorer.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_Explorer; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_Explorer::operator delete",
+    header: "TopOpeBRepDS_Explorer.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_Explorer; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_Explorer::operator new[]",
+    header: "TopOpeBRepDS_Explorer.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_Explorer; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_Explorer::operator delete[]",
+    header: "TopOpeBRepDS_Explorer.hxx".}
+proc `new`*(this: var TopOpeBRepDS_Explorer; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_Explorer::operator new",
+    header: "TopOpeBRepDS_Explorer.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_Explorer; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_Explorer::operator delete",
+    header: "TopOpeBRepDS_Explorer.hxx".}
 proc constructTopOpeBRepDS_Explorer*(): TopOpeBRepDS_Explorer {.constructor,
     importcpp: "TopOpeBRepDS_Explorer(@)", header: "TopOpeBRepDS_Explorer.hxx".}
 proc constructTopOpeBRepDS_Explorer*(hds: Handle[TopOpeBRepDS_HDataStructure];
                                     t: TopAbsShapeEnum = topAbsSHAPE;
-                                    findkeep: bool = true): TopOpeBRepDS_Explorer {.
+                                    findkeep: StandardBoolean = true): TopOpeBRepDS_Explorer {.
     constructor, importcpp: "TopOpeBRepDS_Explorer(@)",
     header: "TopOpeBRepDS_Explorer.hxx".}
 proc init*(this: var TopOpeBRepDS_Explorer;
           hds: Handle[TopOpeBRepDS_HDataStructure];
-          t: TopAbsShapeEnum = topAbsSHAPE; findkeep: bool = true) {.importcpp: "Init",
-    header: "TopOpeBRepDS_Explorer.hxx".}
+          t: TopAbsShapeEnum = topAbsSHAPE; findkeep: StandardBoolean = true) {.
+    importcpp: "Init", header: "TopOpeBRepDS_Explorer.hxx".}
 proc `type`*(this: TopOpeBRepDS_Explorer): TopAbsShapeEnum {.noSideEffect,
     importcpp: "Type", header: "TopOpeBRepDS_Explorer.hxx".}
-proc more*(this: TopOpeBRepDS_Explorer): bool {.noSideEffect, importcpp: "More",
-    header: "TopOpeBRepDS_Explorer.hxx".}
+proc more*(this: TopOpeBRepDS_Explorer): StandardBoolean {.noSideEffect,
+    importcpp: "More", header: "TopOpeBRepDS_Explorer.hxx".}
 proc next*(this: var TopOpeBRepDS_Explorer) {.importcpp: "Next",
     header: "TopOpeBRepDS_Explorer.hxx".}
 proc current*(this: TopOpeBRepDS_Explorer): TopoDS_Shape {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_Explorer.hxx".}
-proc index*(this: TopOpeBRepDS_Explorer): cint {.noSideEffect, importcpp: "Index",
+proc index*(this: TopOpeBRepDS_Explorer): int {.noSideEffect, importcpp: "Index",
     header: "TopOpeBRepDS_Explorer.hxx".}
 proc face*(this: TopOpeBRepDS_Explorer): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "TopOpeBRepDS_Explorer.hxx".}
@@ -53,28 +71,3 @@ proc edge*(this: TopOpeBRepDS_Explorer): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "TopOpeBRepDS_Explorer.hxx".}
 proc vertex*(this: TopOpeBRepDS_Explorer): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRepDS_Explorer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

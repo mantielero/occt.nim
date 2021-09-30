@@ -27,37 +27,6 @@ type
                                                                                         ## Create
                                                                                         ## a
                                                                                         ## revolution
-                                                                                        ## body
-                                                                                        ## <M>
-                                                                                        ## is
-                                                                                        ## the
-                                                                                        ## meridian
-                                                                                        ## nd
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## must
-                                                                                        ## be
-                                                                                        ## in
-                                                                                        ## the
-                                                                                        ## XZ
-                                                                                        ## plane
-                                                                                        ## of
-                                                                                        ## <A>.
-                                                                                        ## <PM>
-                                                                                        ## is
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## meridian
-                                                                                        ## in
-                                                                                        ## the
-                                                                                        ## XZ
-                                                                                        ## plane.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Create
-                                                                                        ## a
-                                                                                        ## revolution
                                                                                         ## body.
                                                                                         ## The
                                                                                         ## meridian
@@ -72,41 +41,34 @@ type
                                                                                         ## classes.
 
 
-proc constructBRepPrimRevolution*(a: Ax2; vMin: cfloat; vMax: cfloat;
+proc `new`*(this: var BRepPrimRevolution; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Revolution::operator new",
+    header: "BRepPrim_Revolution.hxx".}
+proc `delete`*(this: var BRepPrimRevolution; theAddress: pointer) {.
+    importcpp: "BRepPrim_Revolution::operator delete",
+    header: "BRepPrim_Revolution.hxx".}
+proc `new[]`*(this: var BRepPrimRevolution; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Revolution::operator new[]",
+    header: "BRepPrim_Revolution.hxx".}
+proc `delete[]`*(this: var BRepPrimRevolution; theAddress: pointer) {.
+    importcpp: "BRepPrim_Revolution::operator delete[]",
+    header: "BRepPrim_Revolution.hxx".}
+proc `new`*(this: var BRepPrimRevolution; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrim_Revolution::operator new",
+    header: "BRepPrim_Revolution.hxx".}
+proc `delete`*(this: var BRepPrimRevolution; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrim_Revolution::operator delete",
+    header: "BRepPrim_Revolution.hxx".}
+proc constructBRepPrimRevolution*(a: Ax2; vMin: StandardReal; vMax: StandardReal;
                                  m: Handle[GeomCurve]; pm: Handle[Geom2dCurve]): BRepPrimRevolution {.
     constructor, importcpp: "BRepPrim_Revolution(@)",
     header: "BRepPrim_Revolution.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimRevolution): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Revolution.hxx".}
-proc makeEmptyMeridianEdge*(this: BRepPrimRevolution; ang: cfloat): TopoDS_Edge {.
+proc makeEmptyMeridianEdge*(this: BRepPrimRevolution; ang: StandardReal): TopoDS_Edge {.
     noSideEffect, importcpp: "MakeEmptyMeridianEdge",
     header: "BRepPrim_Revolution.hxx".}
-proc meridianValue*(this: BRepPrimRevolution; v: cfloat): Pnt2d {.noSideEffect,
+proc meridianValue*(this: BRepPrimRevolution; v: StandardReal): Pnt2d {.noSideEffect,
     importcpp: "MeridianValue", header: "BRepPrim_Revolution.hxx".}
 proc setMeridianPCurve*(this: BRepPrimRevolution; e: var TopoDS_Edge; f: TopoDS_Face) {.
     noSideEffect, importcpp: "SetMeridianPCurve", header: "BRepPrim_Revolution.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

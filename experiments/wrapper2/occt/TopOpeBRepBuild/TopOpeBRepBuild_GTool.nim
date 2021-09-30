@@ -20,6 +20,24 @@ type
                          header: "TopOpeBRepBuild_GTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildGTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_GTool::operator new",
+    header: "TopOpeBRepBuild_GTool.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildGTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_GTool::operator delete",
+    header: "TopOpeBRepBuild_GTool.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildGTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_GTool::operator new[]",
+    header: "TopOpeBRepBuild_GTool.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildGTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_GTool::operator delete[]",
+    header: "TopOpeBRepBuild_GTool.hxx".}
+proc `new`*(this: var TopOpeBRepBuildGTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_GTool::operator new",
+    header: "TopOpeBRepBuild_GTool.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildGTool; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_GTool::operator delete",
+    header: "TopOpeBRepBuild_GTool.hxx".}
 proc gFusUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
     importcpp: "TopOpeBRepBuild_GTool::GFusUnsh(@)",
     header: "TopOpeBRepBuild_GTool.hxx".}
@@ -49,28 +67,3 @@ proc gComDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {
     header: "TopOpeBRepBuild_GTool.hxx".}
 proc dump*(os: var StandardOStream) {.importcpp: "TopOpeBRepBuild_GTool::Dump(@)",
                                   header: "TopOpeBRepBuild_GTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

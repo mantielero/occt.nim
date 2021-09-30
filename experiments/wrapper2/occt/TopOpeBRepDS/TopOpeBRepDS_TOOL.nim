@@ -22,45 +22,36 @@ type
                       header: "TopOpeBRepDS_TOOL.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_TOOL; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_TOOL::operator new", header: "TopOpeBRepDS_TOOL.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_TOOL; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_TOOL::operator delete",
+    header: "TopOpeBRepDS_TOOL.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_TOOL; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_TOOL::operator new[]",
+    header: "TopOpeBRepDS_TOOL.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_TOOL; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_TOOL::operator delete[]",
+    header: "TopOpeBRepDS_TOOL.hxx".}
+proc `new`*(this: var TopOpeBRepDS_TOOL; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_TOOL::operator new", header: "TopOpeBRepDS_TOOL.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_TOOL; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_TOOL::operator delete",
+    header: "TopOpeBRepDS_TOOL.hxx".}
 proc eShareG*(hds: Handle[TopOpeBRepDS_HDataStructure]; e: TopoDS_Edge;
-             lEsd: var TopToolsListOfShape): cint {.
+             lEsd: var TopToolsListOfShape): int {.
     importcpp: "TopOpeBRepDS_TOOL::EShareG(@)", header: "TopOpeBRepDS_TOOL.hxx".}
-proc shareG*(hds: Handle[TopOpeBRepDS_HDataStructure]; is1: cint; is2: cint): bool {.
+proc shareG*(hds: Handle[TopOpeBRepDS_HDataStructure]; is1: int; is2: int): StandardBoolean {.
     importcpp: "TopOpeBRepDS_TOOL::ShareG(@)", header: "TopOpeBRepDS_TOOL.hxx".}
-proc getEsd*(hds: Handle[TopOpeBRepDS_HDataStructure]; s: TopoDS_Shape; ie: cint;
-            iesd: var cint): bool {.importcpp: "TopOpeBRepDS_TOOL::GetEsd(@)",
-                                header: "TopOpeBRepDS_TOOL.hxx".}
+proc getEsd*(hds: Handle[TopOpeBRepDS_HDataStructure]; s: TopoDS_Shape; ie: int;
+            iesd: var int): StandardBoolean {.
+    importcpp: "TopOpeBRepDS_TOOL::GetEsd(@)", header: "TopOpeBRepDS_TOOL.hxx".}
 proc shareSplitON*(hds: Handle[TopOpeBRepDS_HDataStructure];
-                  mspON: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State; i1: cint;
-                  i2: cint; spON: var TopoDS_Shape): bool {.
+                  mspON: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State; i1: int;
+                  i2: int; spON: var TopoDS_Shape): StandardBoolean {.
     importcpp: "TopOpeBRepDS_TOOL::ShareSplitON(@)",
     header: "TopOpeBRepDS_TOOL.hxx".}
 proc getConfig*(hds: Handle[TopOpeBRepDS_HDataStructure];
-               mEspON: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State; ie: cint;
-               iesd: cint; conf: var cint): bool {.
+               mEspON: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State; ie: int;
+               iesd: int; conf: var int): StandardBoolean {.
     importcpp: "TopOpeBRepDS_TOOL::GetConfig(@)", header: "TopOpeBRepDS_TOOL.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

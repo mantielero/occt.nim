@@ -43,33 +43,8 @@ proc init*(this: var TopOpeBRepToolShapeExplorer; s: TopoDS_Shape;
     importcpp: "Init", header: "TopOpeBRepTool_ShapeExplorer.hxx".}
 proc next*(this: var TopOpeBRepToolShapeExplorer) {.importcpp: "Next",
     header: "TopOpeBRepTool_ShapeExplorer.hxx".}
-proc index*(this: TopOpeBRepToolShapeExplorer): cint {.noSideEffect,
+proc index*(this: TopOpeBRepToolShapeExplorer): int {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRepTool_ShapeExplorer.hxx".}
 proc dumpCurrent*(this: TopOpeBRepToolShapeExplorer; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "DumpCurrent",
     header: "TopOpeBRepTool_ShapeExplorer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -16,29 +16,3 @@
 
 type
   ChFiDS_SequenceOfSpine* = NCollectionSequence[Handle[ChFiDS_Spine]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -22,17 +22,27 @@ discard "forward decl of Sweep_NumShape"
 discard "forward decl of TopLoc_Location"
 type
   BRepSweepPrism* {.importcpp: "BRepSweep_Prism", header: "BRepSweep_Prism.hxx",
-                   bycopy.} = object ## ! Builds the prism of base S and vector V. If C is true,
-                                  ## ! S is copied. If Canonize is true then generated surfaces
-                                  ## ! are attempted to be canonized in simple types
-                                  ## ! used to build the NumShape of a limited prism.
+                   bycopy.} = object ## ! used to build the NumShape of a limited prism.
 
 
-proc constructBRepSweepPrism*(s: TopoDS_Shape; v: Vec; copy: bool = false;
-                             canonize: bool = true): BRepSweepPrism {.constructor,
-    importcpp: "BRepSweep_Prism(@)", header: "BRepSweep_Prism.hxx".}
-proc constructBRepSweepPrism*(s: TopoDS_Shape; d: Dir; inf: bool = true;
-                             copy: bool = false; canonize: bool = true): BRepSweepPrism {.
+proc `new`*(this: var BRepSweepPrism; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Prism::operator new", header: "BRepSweep_Prism.hxx".}
+proc `delete`*(this: var BRepSweepPrism; theAddress: pointer) {.
+    importcpp: "BRepSweep_Prism::operator delete", header: "BRepSweep_Prism.hxx".}
+proc `new[]`*(this: var BRepSweepPrism; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Prism::operator new[]", header: "BRepSweep_Prism.hxx".}
+proc `delete[]`*(this: var BRepSweepPrism; theAddress: pointer) {.
+    importcpp: "BRepSweep_Prism::operator delete[]", header: "BRepSweep_Prism.hxx".}
+proc `new`*(this: var BRepSweepPrism; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepSweep_Prism::operator new", header: "BRepSweep_Prism.hxx".}
+proc `delete`*(this: var BRepSweepPrism; a2: pointer; a3: pointer) {.
+    importcpp: "BRepSweep_Prism::operator delete", header: "BRepSweep_Prism.hxx".}
+proc constructBRepSweepPrism*(s: TopoDS_Shape; v: Vec; copy: StandardBoolean = false;
+                             canonize: StandardBoolean = true): BRepSweepPrism {.
+    constructor, importcpp: "BRepSweep_Prism(@)", header: "BRepSweep_Prism.hxx".}
+proc constructBRepSweepPrism*(s: TopoDS_Shape; d: Dir; inf: StandardBoolean = true;
+                             copy: StandardBoolean = false;
+                             canonize: StandardBoolean = true): BRepSweepPrism {.
     constructor, importcpp: "BRepSweep_Prism(@)", header: "BRepSweep_Prism.hxx".}
 proc shape*(this: var BRepSweepPrism): TopoDS_Shape {.importcpp: "Shape",
     header: "BRepSweep_Prism.hxx".}
@@ -48,32 +58,7 @@ proc lastShape*(this: var BRepSweepPrism; aGenS: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepSweep_Prism.hxx".}
 proc vec*(this: BRepSweepPrism): Vec {.noSideEffect, importcpp: "Vec",
                                    header: "BRepSweep_Prism.hxx".}
-proc isUsed*(this: BRepSweepPrism; aGenS: TopoDS_Shape): bool {.noSideEffect,
-    importcpp: "IsUsed", header: "BRepSweep_Prism.hxx".}
-proc genIsUsed*(this: BRepSweepPrism; theS: TopoDS_Shape): bool {.noSideEffect,
-    importcpp: "GenIsUsed", header: "BRepSweep_Prism.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc isUsed*(this: BRepSweepPrism; aGenS: TopoDS_Shape): StandardBoolean {.
+    noSideEffect, importcpp: "IsUsed", header: "BRepSweep_Prism.hxx".}
+proc genIsUsed*(this: BRepSweepPrism; theS: TopoDS_Shape): StandardBoolean {.
+    noSideEffect, importcpp: "GenIsUsed", header: "BRepSweep_Prism.hxx".}

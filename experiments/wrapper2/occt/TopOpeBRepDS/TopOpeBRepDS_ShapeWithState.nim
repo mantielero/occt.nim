@@ -20,6 +20,24 @@ type
                                 header: "TopOpeBRepDS_ShapeWithState.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_ShapeWithState; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_ShapeWithState::operator new",
+    header: "TopOpeBRepDS_ShapeWithState.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_ShapeWithState; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_ShapeWithState::operator delete",
+    header: "TopOpeBRepDS_ShapeWithState.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_ShapeWithState; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_ShapeWithState::operator new[]",
+    header: "TopOpeBRepDS_ShapeWithState.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_ShapeWithState; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_ShapeWithState::operator delete[]",
+    header: "TopOpeBRepDS_ShapeWithState.hxx".}
+proc `new`*(this: var TopOpeBRepDS_ShapeWithState; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_ShapeWithState::operator new",
+    header: "TopOpeBRepDS_ShapeWithState.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_ShapeWithState; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_ShapeWithState::operator delete",
+    header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc constructTopOpeBRepDS_ShapeWithState*(): TopOpeBRepDS_ShapeWithState {.
     constructor, importcpp: "TopOpeBRepDS_ShapeWithState(@)",
     header: "TopOpeBRepDS_ShapeWithState.hxx".}
@@ -35,32 +53,8 @@ proc setState*(this: var TopOpeBRepDS_ShapeWithState; aState: TopAbsState) {.
     importcpp: "SetState", header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc state*(this: TopOpeBRepDS_ShapeWithState): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRepDS_ShapeWithState.hxx".}
-proc setIsSplitted*(this: var TopOpeBRepDS_ShapeWithState; anIsSplitted: bool) {.
-    importcpp: "SetIsSplitted", header: "TopOpeBRepDS_ShapeWithState.hxx".}
-proc isSplitted*(this: TopOpeBRepDS_ShapeWithState): bool {.noSideEffect,
+proc setIsSplitted*(this: var TopOpeBRepDS_ShapeWithState;
+                   anIsSplitted: StandardBoolean) {.importcpp: "SetIsSplitted",
+    header: "TopOpeBRepDS_ShapeWithState.hxx".}
+proc isSplitted*(this: TopOpeBRepDS_ShapeWithState): StandardBoolean {.noSideEffect,
     importcpp: "IsSplitted", header: "TopOpeBRepDS_ShapeWithState.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

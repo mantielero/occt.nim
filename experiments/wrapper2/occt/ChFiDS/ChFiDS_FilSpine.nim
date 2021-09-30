@@ -35,33 +35,33 @@ type
 
 proc constructChFiDS_FilSpine*(): ChFiDS_FilSpine {.constructor,
     importcpp: "ChFiDS_FilSpine(@)", header: "ChFiDS_FilSpine.hxx".}
-proc constructChFiDS_FilSpine*(tol: cfloat): ChFiDS_FilSpine {.constructor,
+proc constructChFiDS_FilSpine*(tol: StandardReal): ChFiDS_FilSpine {.constructor,
     importcpp: "ChFiDS_FilSpine(@)", header: "ChFiDS_FilSpine.hxx".}
-proc reset*(this: var ChFiDS_FilSpine; allData: bool = false) {.importcpp: "Reset",
-    header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; radius: cfloat; e: TopoDS_Edge) {.
+proc reset*(this: var ChFiDS_FilSpine; allData: StandardBoolean = false) {.
+    importcpp: "Reset", header: "ChFiDS_FilSpine.hxx".}
+proc setRadius*(this: var ChFiDS_FilSpine; radius: StandardReal; e: TopoDS_Edge) {.
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc unSetRadius*(this: var ChFiDS_FilSpine; e: TopoDS_Edge) {.
     importcpp: "UnSetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; radius: cfloat; v: TopoDS_Vertex) {.
+proc setRadius*(this: var ChFiDS_FilSpine; radius: StandardReal; v: TopoDS_Vertex) {.
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc unSetRadius*(this: var ChFiDS_FilSpine; v: TopoDS_Vertex) {.
     importcpp: "UnSetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; uandR: Xy; iinC: cint) {.
+proc setRadius*(this: var ChFiDS_FilSpine; uandR: Xy; iinC: int) {.
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; radius: cfloat) {.importcpp: "SetRadius",
-    header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; c: Handle[LawFunction]; iinC: cint) {.
+proc setRadius*(this: var ChFiDS_FilSpine; radius: StandardReal) {.
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc isConstant*(this: ChFiDS_FilSpine): bool {.noSideEffect,
+proc setRadius*(this: var ChFiDS_FilSpine; c: Handle[LawFunction]; iinC: int) {.
+    importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
+proc isConstant*(this: ChFiDS_FilSpine): StandardBoolean {.noSideEffect,
     importcpp: "IsConstant", header: "ChFiDS_FilSpine.hxx".}
-proc isConstant*(this: ChFiDS_FilSpine; ie: cint): bool {.noSideEffect,
+proc isConstant*(this: ChFiDS_FilSpine; ie: int): StandardBoolean {.noSideEffect,
     importcpp: "IsConstant", header: "ChFiDS_FilSpine.hxx".}
-proc radius*(this: ChFiDS_FilSpine): cfloat {.noSideEffect, importcpp: "Radius",
-    header: "ChFiDS_FilSpine.hxx".}
-proc radius*(this: ChFiDS_FilSpine; ie: cint): cfloat {.noSideEffect,
+proc radius*(this: ChFiDS_FilSpine): StandardReal {.noSideEffect,
     importcpp: "Radius", header: "ChFiDS_FilSpine.hxx".}
-proc radius*(this: ChFiDS_FilSpine; e: TopoDS_Edge): cfloat {.noSideEffect,
+proc radius*(this: ChFiDS_FilSpine; ie: int): StandardReal {.noSideEffect,
+    importcpp: "Radius", header: "ChFiDS_FilSpine.hxx".}
+proc radius*(this: ChFiDS_FilSpine; e: TopoDS_Edge): StandardReal {.noSideEffect,
     importcpp: "Radius", header: "ChFiDS_FilSpine.hxx".}
 proc appendElSpine*(this: var ChFiDS_FilSpine; els: Handle[ChFiDS_HElSpine]) {.
     importcpp: "AppendElSpine", header: "ChFiDS_FilSpine.hxx".}
@@ -69,7 +69,7 @@ proc law*(this: ChFiDS_FilSpine; els: Handle[ChFiDS_HElSpine]): Handle[LawCompos
     noSideEffect, importcpp: "Law", header: "ChFiDS_FilSpine.hxx".}
 proc changeLaw*(this: var ChFiDS_FilSpine; e: TopoDS_Edge): var Handle[LawFunction] {.
     importcpp: "ChangeLaw", header: "ChFiDS_FilSpine.hxx".}
-proc maxRadFromSeqAndLaws*(this: ChFiDS_FilSpine): cfloat {.noSideEffect,
+proc maxRadFromSeqAndLaws*(this: ChFiDS_FilSpine): StandardReal {.noSideEffect,
     importcpp: "MaxRadFromSeqAndLaws", header: "ChFiDS_FilSpine.hxx".}
 type
   ChFiDS_FilSpinebaseType* = ChFiDS_Spine
@@ -81,28 +81,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "ChFiDS_FilSpine.hxx".}
 proc dynamicType*(this: ChFiDS_FilSpine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ChFiDS_FilSpine.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

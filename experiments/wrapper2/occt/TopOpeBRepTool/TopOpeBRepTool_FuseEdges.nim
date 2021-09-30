@@ -23,19 +23,6 @@ type
   TopOpeBRepToolFuseEdges* {.importcpp: "TopOpeBRepTool_FuseEdges",
                             header: "TopOpeBRepTool_FuseEdges.hxx", bycopy.} = object ##
                                                                                  ## !
-                                                                                 ## Initialise
-                                                                                 ## members
-                                                                                 ## and
-                                                                                 ## build
-                                                                                 ## construction
-                                                                                 ## of
-                                                                                 ## map
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## of
-                                                                                 ## ancestors.
-                                                                                 ##
-                                                                                 ## !
                                                                                  ## Build
                                                                                  ## the
                                                                                  ## all
@@ -50,8 +37,26 @@ type
                                                                                  ## fused
 
 
+proc `new`*(this: var TopOpeBRepToolFuseEdges; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_FuseEdges::operator new",
+    header: "TopOpeBRepTool_FuseEdges.hxx".}
+proc `delete`*(this: var TopOpeBRepToolFuseEdges; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_FuseEdges::operator delete",
+    header: "TopOpeBRepTool_FuseEdges.hxx".}
+proc `new[]`*(this: var TopOpeBRepToolFuseEdges; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_FuseEdges::operator new[]",
+    header: "TopOpeBRepTool_FuseEdges.hxx".}
+proc `delete[]`*(this: var TopOpeBRepToolFuseEdges; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_FuseEdges::operator delete[]",
+    header: "TopOpeBRepTool_FuseEdges.hxx".}
+proc `new`*(this: var TopOpeBRepToolFuseEdges; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepTool_FuseEdges::operator new",
+    header: "TopOpeBRepTool_FuseEdges.hxx".}
+proc `delete`*(this: var TopOpeBRepToolFuseEdges; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepTool_FuseEdges::operator delete",
+    header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc constructTopOpeBRepToolFuseEdges*(theShape: TopoDS_Shape;
-                                      performNow: bool = false): TopOpeBRepToolFuseEdges {.
+                                      performNow: StandardBoolean = false): TopOpeBRepToolFuseEdges {.
     constructor, importcpp: "TopOpeBRepTool_FuseEdges(@)",
     header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc avoidEdges*(this: var TopOpeBRepToolFuseEdges;
@@ -68,32 +73,7 @@ proc faces*(this: var TopOpeBRepToolFuseEdges;
     header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc shape*(this: var TopOpeBRepToolFuseEdges): var TopoDS_Shape {.importcpp: "Shape",
     header: "TopOpeBRepTool_FuseEdges.hxx".}
-proc nbVertices*(this: var TopOpeBRepToolFuseEdges): cint {.importcpp: "NbVertices",
+proc nbVertices*(this: var TopOpeBRepToolFuseEdges): int {.importcpp: "NbVertices",
     header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc perform*(this: var TopOpeBRepToolFuseEdges) {.importcpp: "Perform",
     header: "TopOpeBRepTool_FuseEdges.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -4,7 +4,7 @@
 
 include BRepFill
 include BRepFill_ACRLaw
-include BRepFill_AdvancedEvolved
+#include BRepFill_AdvancedEvolved
 include BRepFill_ApproxSeewing
 include BRepFill_CompatibleWires
 include BRepFill_ComputeCLine
@@ -55,29 +55,3 @@ include BRepFill_TrimEdgeTool
 include BRepFill_TrimShellCorner
 include BRepFill_TrimSurfaceTool
 include BRepFill_TypeOfContact
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

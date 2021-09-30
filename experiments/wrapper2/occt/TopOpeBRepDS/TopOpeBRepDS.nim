@@ -62,33 +62,40 @@ discard "forward decl of TopOpeBRepDS_ListOfShapeOn1State"
 discard "forward decl of TopOpeBRepDS_Explorer"
 discard "forward decl of TopOpeBRepDS_ShapeWithState"
 type
-  TopOpeBRepDS* {.importcpp: "TopOpeBRepDS", header: "TopOpeBRepDS.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## IN
-                                                                                   ## OU
-                                                                                   ## ON
-                                                                                   ## UN
+  TopOpeBRepDS* {.importcpp: "TopOpeBRepDS", header: "TopOpeBRepDS.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS::operator new", header: "TopOpeBRepDS.hxx".}
+proc `delete`*(this: var TopOpeBRepDS; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS::operator delete", header: "TopOpeBRepDS.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS::operator new[]", header: "TopOpeBRepDS.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS::operator delete[]", header: "TopOpeBRepDS.hxx".}
+proc `new`*(this: var TopOpeBRepDS; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS::operator new", header: "TopOpeBRepDS.hxx".}
+proc `delete`*(this: var TopOpeBRepDS; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS::operator delete", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(s: TopAbsState): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc print*(s: TopAbsState; os: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(k: TopOpeBRepDS_Kind): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc sPrint*(k: TopOpeBRepDS_Kind; i: cint; b: TCollectionAsciiString = "";
+proc sPrint*(k: TopOpeBRepDS_Kind; i: int; b: TCollectionAsciiString = "";
             a: TCollectionAsciiString = ""): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc print*(k: TopOpeBRepDS_Kind; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
-proc print*(k: TopOpeBRepDS_Kind; i: cint; s: var StandardOStream;
+proc print*(k: TopOpeBRepDS_Kind; i: int; s: var StandardOStream;
            b: TCollectionAsciiString = ""; a: TCollectionAsciiString = ""): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(t: TopAbsShapeEnum): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc sPrint*(t: TopAbsShapeEnum; i: cint): TCollectionAsciiString {.
+proc sPrint*(t: TopAbsShapeEnum; i: int): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
-proc print*(t: TopAbsShapeEnum; i: cint; s: var StandardOStream): var StandardOStream {.
+proc print*(t: TopAbsShapeEnum; i: int; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(o: TopAbsOrientation): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
@@ -96,36 +103,11 @@ proc sPrint*(c: TopOpeBRepDS_Config): TCollectionAsciiString {.
     importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc print*(c: TopOpeBRepDS_Config; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
-proc isGeometry*(k: TopOpeBRepDS_Kind): bool {.
+proc isGeometry*(k: TopOpeBRepDS_Kind): StandardBoolean {.
     importcpp: "TopOpeBRepDS::IsGeometry(@)", header: "TopOpeBRepDS.hxx".}
-proc isTopology*(k: TopOpeBRepDS_Kind): bool {.
+proc isTopology*(k: TopOpeBRepDS_Kind): StandardBoolean {.
     importcpp: "TopOpeBRepDS::IsTopology(@)", header: "TopOpeBRepDS.hxx".}
 proc kindToShape*(k: TopOpeBRepDS_Kind): TopAbsShapeEnum {.
     importcpp: "TopOpeBRepDS::KindToShape(@)", header: "TopOpeBRepDS.hxx".}
 proc shapeToKind*(s: TopAbsShapeEnum): TopOpeBRepDS_Kind {.
     importcpp: "TopOpeBRepDS::ShapeToKind(@)", header: "TopOpeBRepDS.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

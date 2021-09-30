@@ -45,10 +45,10 @@ type
                                                                                         ## face.
 
 
-proc maxFaceTolerance*(theFace: TopoDS_Face): cfloat {.
+proc maxFaceTolerance*(theFace: TopoDS_Face): StandardReal {.
     importcpp: "BRepMesh_ShapeTool::MaxFaceTolerance(@)",
     header: "BRepMesh_ShapeTool.hxx".}
-proc boxMaxDimension*(theBox: BndBox; theMaxDimension: var cfloat) {.
+proc boxMaxDimension*(theBox: BndBox; theMaxDimension: var StandardReal) {.
     importcpp: "BRepMesh_ShapeTool::BoxMaxDimension(@)",
     header: "BRepMesh_ShapeTool.hxx".}
 proc checkAndUpdateFlags*(theEdge: IEdgeHandle; thePCurve: IPCurveHandle) {.
@@ -89,15 +89,16 @@ proc useLocation*(thePnt: Pnt; theLoc: TopLocLocation): Pnt {.
     header: "BRepMesh_ShapeTool.hxx".}
 proc uVPoints*(theEdge: TopoDS_Edge; theFace: TopoDS_Face;
               theFirstPoint2d: var Pnt2d; theLastPoint2d: var Pnt2d;
-              isConsiderOrientation: bool = false): bool {.
+              isConsiderOrientation: StandardBoolean = false): StandardBoolean {.
     importcpp: "BRepMesh_ShapeTool::UVPoints(@)", header: "BRepMesh_ShapeTool.hxx".}
 proc range*(theEdge: TopoDS_Edge; theFace: TopoDS_Face;
-           thePCurve: var Handle[Geom2dCurve]; theFirstParam: var cfloat;
-           theLastParam: var cfloat; isConsiderOrientation: bool = false): bool {.
+           thePCurve: var Handle[Geom2dCurve]; theFirstParam: var StandardReal;
+           theLastParam: var StandardReal;
+           isConsiderOrientation: StandardBoolean = false): StandardBoolean {.
     importcpp: "BRepMesh_ShapeTool::Range(@)", header: "BRepMesh_ShapeTool.hxx".}
 proc range*(theEdge: TopoDS_Edge; theCurve: var Handle[GeomCurve];
-           theFirstParam: var cfloat; theLastParam: var cfloat;
-           isConsiderOrientation: bool = false): bool {.
+           theFirstParam: var StandardReal; theLastParam: var StandardReal;
+           isConsiderOrientation: StandardBoolean = false): StandardBoolean {.
     importcpp: "BRepMesh_ShapeTool::Range(@)", header: "BRepMesh_ShapeTool.hxx".}
 type
   BRepMeshShapeToolbaseType* = StandardTransient
@@ -109,28 +110,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_ShapeTool.hxx".}
 proc dynamicType*(this: BRepMeshShapeTool): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_ShapeTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

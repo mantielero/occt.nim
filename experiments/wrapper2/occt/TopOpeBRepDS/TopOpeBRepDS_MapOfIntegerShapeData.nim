@@ -15,33 +15,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopOpeBRepDS_MapOfIntegerShapeData* = NCollectionDataMap[cint,
+  TopOpeBRepDS_MapOfIntegerShapeData* = NCollectionDataMap[int,
       TopOpeBRepDS_ShapeData, TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfMapOfIntegerShapeData* = Iterator[cint,
+  TopOpeBRepDS_DataMapIteratorOfMapOfIntegerShapeData* = Iterator[int,
       TopOpeBRepDS_ShapeData, TColStdMapIntegerHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -32,29 +32,3 @@ type
     ChFi2dConnexionError, ChFi2dTangencyError, ChFi2dFirstEdgeDegenerated,
     ChFi2dLastEdgeDegenerated, ChFi2dBothEdgesDegenerated, ChFi2dNotAuthorized
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

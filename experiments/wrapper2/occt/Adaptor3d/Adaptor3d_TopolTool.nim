@@ -24,7 +24,11 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of Adaptor3d_TopolTool"
 discard "forward decl of Adaptor3d_TopolTool"
 type
-  HandleC1C1* = Handle[Adaptor3dTopolTool]
+  Adaptor3dTopolTool* {.importcpp: "Adaptor3d_TopolTool",
+                       header: "Adaptor3d_TopolTool.hxx", bycopy.} = object of StandardTransient
+
+type
+  HandleAdaptor3dTopolTool* = Handle[Adaptor3dTopolTool]
 
 ## ! This class provides a default topological tool,
 ## ! based on the Umin,Vmin,Umax,Vmax of an HSurface
@@ -34,9 +38,6 @@ type
 ## ! This class is used to instantiate algorithmes
 ## ! as Intersection, outlines,...
 
-type
-  Adaptor3dTopolTool* {.importcpp: "Adaptor3d_TopolTool",
-                       header: "Adaptor3d_TopolTool.hxx", bycopy.} = object of StandardTransient
 
 
 proc constructAdaptor3dTopolTool*(): Adaptor3dTopolTool {.constructor,
@@ -95,10 +96,10 @@ proc nbSamplesV*(this: var Adaptor3dTopolTool): cint {.importcpp: "NbSamplesV",
     header: "Adaptor3d_TopolTool.hxx".}
 proc nbSamples*(this: var Adaptor3dTopolTool): cint {.importcpp: "NbSamples",
     header: "Adaptor3d_TopolTool.hxx".}
-proc uParameters*(this: Adaptor3dTopolTool; theArray: var TColStdArray1OfReal) {.
+#[ proc uParameters*(this: Adaptor3dTopolTool; theArray: var TColStdArray1OfReal) {.
     noSideEffect, importcpp: "UParameters", header: "Adaptor3d_TopolTool.hxx".}
 proc vParameters*(this: Adaptor3dTopolTool; theArray: var TColStdArray1OfReal) {.
-    noSideEffect, importcpp: "VParameters", header: "Adaptor3d_TopolTool.hxx".}
+    noSideEffect, importcpp: "VParameters", header: "Adaptor3d_TopolTool.hxx".} ]#
 proc samplePoint*(this: var Adaptor3dTopolTool; index: cint; p2d: var Pnt2d; p3d: var Pnt) {.
     importcpp: "SamplePoint", header: "Adaptor3d_TopolTool.hxx".}
 proc domainIsInfinite*(this: var Adaptor3dTopolTool): bool {.
@@ -116,13 +117,13 @@ proc isUniformSampling*(this: Adaptor3dTopolTool): bool {.noSideEffect,
 type
   Adaptor3dTopolToolbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Adaptor3d_TopolTool::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Adaptor3d_TopolTool::get_type_name(@)",
                             header: "Adaptor3d_TopolTool.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Adaptor3d_TopolTool::get_type_descriptor(@)",
     header: "Adaptor3d_TopolTool.hxx".}
 proc dynamicType*(this: Adaptor3dTopolTool): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Adaptor3d_TopolTool.hxx".}
+    importcpp: "DynamicType", header: "Adaptor3d_TopolTool.hxx".} ]#
 
 
 

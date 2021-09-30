@@ -23,29 +23,3 @@ type
     BRepLibWireDone, BRepLibEmptyWire, BRepLibDisconnectedWire,
     BRepLibNonManifoldWire
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

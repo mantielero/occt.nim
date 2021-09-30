@@ -17,10 +17,11 @@
 proc chFiKPartMakeChamfer*(dStr: var TopOpeBRepDS_DataStructure;
                           data: Handle[ChFiDS_SurfData];
                           theMode: ChFiDS_ChamfMode; pln: Pln; cyl: Cylinder;
-                          fu: cfloat; lu: cfloat; or1: TopAbsOrientation;
-                          or2: TopAbsOrientation; dis1: cfloat; dis2: cfloat;
-                          spine: Circ; first: cfloat; ofpl: TopAbsOrientation;
-                          plandab: bool): bool {.
+                          fu: StandardReal; lu: StandardReal;
+                          or1: TopAbsOrientation; or2: TopAbsOrientation;
+                          dis1: StandardReal; dis2: StandardReal; spine: Circ;
+                          first: StandardReal; ofpl: TopAbsOrientation;
+                          plandab: StandardBoolean): StandardBoolean {.
     importcpp: "ChFiKPart_MakeChamfer(@)",
     header: "ChFiKPart_ComputeData_ChPlnCyl.hxx".}
 ##  File:	ChFiKPart_ComputeData_ChPlnCyl.cxx
@@ -31,34 +32,10 @@ proc chFiKPartMakeChamfer*(dStr: var TopOpeBRepDS_DataStructure;
 proc chFiKPartMakeChamfer*(dStr: var TopOpeBRepDS_DataStructure;
                           data: Handle[ChFiDS_SurfData];
                           theMode: ChFiDS_ChamfMode; pln: Pln; cyl: Cylinder;
-                          fu: cfloat; lu: cfloat; or1: TopAbsOrientation;
-                          or2: TopAbsOrientation; dis1: cfloat; dis2: cfloat;
-                          spine: Lin; first: cfloat; ofpl: TopAbsOrientation;
-                          plandab: bool): bool {.
+                          fu: StandardReal; lu: StandardReal;
+                          or1: TopAbsOrientation; or2: TopAbsOrientation;
+                          dis1: StandardReal; dis2: StandardReal; spine: Lin;
+                          first: StandardReal; ofpl: TopAbsOrientation;
+                          plandab: StandardBoolean): StandardBoolean {.
     importcpp: "ChFiKPart_MakeChamfer(@)",
     header: "ChFiKPart_ComputeData_ChPlnCyl.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

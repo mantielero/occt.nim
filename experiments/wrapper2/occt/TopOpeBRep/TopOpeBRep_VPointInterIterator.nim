@@ -22,6 +22,24 @@ type
                                   bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepVPointInterIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_VPointInterIterator::operator new",
+    header: "TopOpeBRep_VPointInterIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepVPointInterIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_VPointInterIterator::operator delete",
+    header: "TopOpeBRep_VPointInterIterator.hxx".}
+proc `new[]`*(this: var TopOpeBRepVPointInterIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_VPointInterIterator::operator new[]",
+    header: "TopOpeBRep_VPointInterIterator.hxx".}
+proc `delete[]`*(this: var TopOpeBRepVPointInterIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_VPointInterIterator::operator delete[]",
+    header: "TopOpeBRep_VPointInterIterator.hxx".}
+proc `new`*(this: var TopOpeBRepVPointInterIterator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_VPointInterIterator::operator new",
+    header: "TopOpeBRep_VPointInterIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepVPointInterIterator; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_VPointInterIterator::operator delete",
+    header: "TopOpeBRep_VPointInterIterator.hxx".}
 proc constructTopOpeBRepVPointInterIterator*(): TopOpeBRepVPointInterIterator {.
     constructor, importcpp: "TopOpeBRep_VPointInterIterator(@)",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
@@ -29,45 +47,20 @@ proc constructTopOpeBRepVPointInterIterator*(li: TopOpeBRepLineInter): TopOpeBRe
     constructor, importcpp: "TopOpeBRep_VPointInterIterator(@)",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
 proc init*(this: var TopOpeBRepVPointInterIterator; li: TopOpeBRepLineInter;
-          checkkeep: bool = false) {.importcpp: "Init",
-                                 header: "TopOpeBRep_VPointInterIterator.hxx".}
+          checkkeep: StandardBoolean = false) {.importcpp: "Init",
+    header: "TopOpeBRep_VPointInterIterator.hxx".}
 proc init*(this: var TopOpeBRepVPointInterIterator) {.importcpp: "Init",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc more*(this: TopOpeBRepVPointInterIterator): bool {.noSideEffect,
+proc more*(this: TopOpeBRepVPointInterIterator): StandardBoolean {.noSideEffect,
     importcpp: "More", header: "TopOpeBRep_VPointInterIterator.hxx".}
 proc next*(this: var TopOpeBRepVPointInterIterator) {.importcpp: "Next",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
 proc currentVP*(this: var TopOpeBRepVPointInterIterator): TopOpeBRepVPointInter {.
     importcpp: "CurrentVP", header: "TopOpeBRep_VPointInterIterator.hxx".}
-proc currentVPIndex*(this: TopOpeBRepVPointInterIterator): cint {.noSideEffect,
+proc currentVPIndex*(this: TopOpeBRepVPointInterIterator): int {.noSideEffect,
     importcpp: "CurrentVPIndex", header: "TopOpeBRep_VPointInterIterator.hxx".}
 proc changeCurrentVP*(this: var TopOpeBRepVPointInterIterator): var TopOpeBRepVPointInter {.
     importcpp: "ChangeCurrentVP", header: "TopOpeBRep_VPointInterIterator.hxx".}
 proc pLineInterDummy*(this: TopOpeBRepVPointInterIterator): TopOpeBRepPLineInter {.
     noSideEffect, importcpp: "PLineInterDummy",
     header: "TopOpeBRep_VPointInterIterator.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

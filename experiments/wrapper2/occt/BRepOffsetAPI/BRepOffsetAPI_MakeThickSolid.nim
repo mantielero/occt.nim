@@ -18,75 +18,51 @@ discard "forward decl of TopoDS_Shape"
 type
   BRepOffsetAPI_MakeThickSolid* {.importcpp: "BRepOffsetAPI_MakeThickSolid",
                                  header: "BRepOffsetAPI_MakeThickSolid.hxx",
-                                 bycopy.} = object of BRepOffsetAPI_MakeOffsetShape ## !
-                                                                               ## Constructor
-                                                                               ## does
-                                                                               ## nothing.
+                                 bycopy.} = object of BRepOffsetAPI_MakeOffsetShape
 
 
+proc `new`*(this: var BRepOffsetAPI_MakeThickSolid; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakeThickSolid::operator new",
+    header: "BRepOffsetAPI_MakeThickSolid.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakeThickSolid; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeThickSolid::operator delete",
+    header: "BRepOffsetAPI_MakeThickSolid.hxx".}
+proc `new[]`*(this: var BRepOffsetAPI_MakeThickSolid; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakeThickSolid::operator new[]",
+    header: "BRepOffsetAPI_MakeThickSolid.hxx".}
+proc `delete[]`*(this: var BRepOffsetAPI_MakeThickSolid; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeThickSolid::operator delete[]",
+    header: "BRepOffsetAPI_MakeThickSolid.hxx".}
+proc `new`*(this: var BRepOffsetAPI_MakeThickSolid; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffsetAPI_MakeThickSolid::operator new",
+    header: "BRepOffsetAPI_MakeThickSolid.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakeThickSolid; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeThickSolid::operator delete",
+    header: "BRepOffsetAPI_MakeThickSolid.hxx".}
 proc constructBRepOffsetAPI_MakeThickSolid*(): BRepOffsetAPI_MakeThickSolid {.
     constructor, importcpp: "BRepOffsetAPI_MakeThickSolid(@)",
     header: "BRepOffsetAPI_MakeThickSolid.hxx".}
-## !!!Ignored construct:  ! Deprecated constructor. Please avoid usage of this constructor. Standard_DEPRECATED ( Deprecated constructor. Please use constructor without parameters and one of make methods. ) BRepOffsetAPI_MakeThickSolid ( const TopoDS_Shape & S , const TopTools_ListOfShape & ClosingFaces , const Standard_Real Offset , const Standard_Real Tol , const BRepOffset_Mode Mode = BRepOffset_Skin , const Standard_Boolean Intersection = Standard_False , const Standard_Boolean SelfInter = Standard_False , const GeomAbs_JoinType Join = GeomAbs_Arc , const Standard_Boolean RemoveIntEdges = Standard_False ) ;
-## Error: identifier expected, but got: Deprecated constructor. Please use constructor without parameters and one of make methods.!!!
-
+proc constructBRepOffsetAPI_MakeThickSolid*(s: TopoDS_Shape;
+    closingFaces: TopToolsListOfShape; offset: StandardReal; tol: StandardReal;
+    mode: BRepOffsetMode = bRepOffsetSkin; intersection: StandardBoolean = false;
+    selfInter: StandardBoolean = false; join: GeomAbsJoinType = geomAbsArc;
+    removeIntEdges: StandardBoolean = false): BRepOffsetAPI_MakeThickSolid {.
+    constructor, importcpp: "BRepOffsetAPI_MakeThickSolid(@)",
+    header: "BRepOffsetAPI_MakeThickSolid.hxx".}
 proc makeThickSolidBySimple*(this: var BRepOffsetAPI_MakeThickSolid;
-                            theS: TopoDS_Shape; theOffsetValue: float) {.
+                            theS: TopoDS_Shape; theOffsetValue: StandardReal) {.
     importcpp: "MakeThickSolidBySimple",
     header: "BRepOffsetAPI_MakeThickSolid.hxx".}
 proc makeThickSolidByJoin*(this: var BRepOffsetAPI_MakeThickSolid; s: TopoDS_Shape;
-                          closingFaces: TopToolsListOfShape; offset: float;
-                          tol: float; mode: BRepOffsetMode = bRepOffsetSkin;
-                          intersection: bool = false; selfInter: bool = false;
+                          closingFaces: TopToolsListOfShape; offset: StandardReal;
+                          tol: StandardReal;
+                          mode: BRepOffsetMode = bRepOffsetSkin;
+                          intersection: StandardBoolean = false;
+                          selfInter: StandardBoolean = false;
                           join: GeomAbsJoinType = geomAbsArc;
-                          removeIntEdges: bool = false) {.
+                          removeIntEdges: StandardBoolean = false) {.
     importcpp: "MakeThickSolidByJoin", header: "BRepOffsetAPI_MakeThickSolid.hxx".}
 proc build*(this: var BRepOffsetAPI_MakeThickSolid) {.importcpp: "Build",
     header: "BRepOffsetAPI_MakeThickSolid.hxx".}
 proc modified*(this: var BRepOffsetAPI_MakeThickSolid; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepOffsetAPI_MakeThickSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

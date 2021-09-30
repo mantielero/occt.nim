@@ -20,9 +20,22 @@ discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Vertex"
 type
   BRepLibMakeWire* {.importcpp: "BRepLib_MakeWire", header: "BRepLib_MakeWire.hxx",
-                    bycopy.} = object of BRepLibMakeShape ## ! NotDone MakeWire.
+                    bycopy.} = object of BRepLibMakeShape
 
 
+proc `new`*(this: var BRepLibMakeWire; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_MakeWire::operator new", header: "BRepLib_MakeWire.hxx".}
+proc `delete`*(this: var BRepLibMakeWire; theAddress: pointer) {.
+    importcpp: "BRepLib_MakeWire::operator delete", header: "BRepLib_MakeWire.hxx".}
+proc `new[]`*(this: var BRepLibMakeWire; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_MakeWire::operator new[]", header: "BRepLib_MakeWire.hxx".}
+proc `delete[]`*(this: var BRepLibMakeWire; theAddress: pointer) {.
+    importcpp: "BRepLib_MakeWire::operator delete[]",
+    header: "BRepLib_MakeWire.hxx".}
+proc `new`*(this: var BRepLibMakeWire; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLib_MakeWire::operator new", header: "BRepLib_MakeWire.hxx".}
+proc `delete`*(this: var BRepLibMakeWire; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLib_MakeWire::operator delete", header: "BRepLib_MakeWire.hxx".}
 proc constructBRepLibMakeWire*(): BRepLibMakeWire {.constructor,
     importcpp: "BRepLib_MakeWire(@)", header: "BRepLib_MakeWire.hxx".}
 proc constructBRepLibMakeWire*(e: TopoDS_Edge): BRepLibMakeWire {.constructor,
@@ -55,28 +68,3 @@ proc edge*(this: BRepLibMakeWire): TopoDS_Edge {.noSideEffect, importcpp: "Edge"
     header: "BRepLib_MakeWire.hxx".}
 proc vertex*(this: BRepLibMakeWire): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepLib_MakeWire.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

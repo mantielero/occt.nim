@@ -11,29 +11,3 @@ include BRepSweep_Rotation
 include BRepSweep_Tool
 include BRepSweep_Translation
 include BRepSweep_Trsf
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

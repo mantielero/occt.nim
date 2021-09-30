@@ -20,29 +20,3 @@ type
     TopOpeBRepDS_UNSHGEOMETRY, TopOpeBRepDS_SAMEORIENTED,
     TopOpeBRepDS_DIFFORIENTED
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

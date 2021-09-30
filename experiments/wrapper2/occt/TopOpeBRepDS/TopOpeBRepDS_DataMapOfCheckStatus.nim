@@ -15,33 +15,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopOpeBRepDS_DataMapOfCheckStatus* = NCollectionDataMap[cint,
+  TopOpeBRepDS_DataMapOfCheckStatus* = NCollectionDataMap[int,
       TopOpeBRepDS_CheckStatus, TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfDataMapOfCheckStatus* = Iterator[cint,
+  TopOpeBRepDS_DataMapIteratorOfDataMapOfCheckStatus* = Iterator[int,
       TopOpeBRepDS_CheckStatus, TColStdMapIntegerHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

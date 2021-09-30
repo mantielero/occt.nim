@@ -58,12 +58,12 @@ proc constructTPrsStdDriverTable*(): TPrsStdDriverTable {.constructor,
 proc initStandardDrivers*(this: var TPrsStdDriverTable) {.
     importcpp: "InitStandardDrivers", header: "TPrsStd_DriverTable.hxx".}
 proc addDriver*(this: var TPrsStdDriverTable; guid: StandardGUID;
-               driver: Handle[TPrsStdDriver]): bool {.importcpp: "AddDriver",
-    header: "TPrsStd_DriverTable.hxx".}
+               driver: Handle[TPrsStdDriver]): StandardBoolean {.
+    importcpp: "AddDriver", header: "TPrsStd_DriverTable.hxx".}
 proc findDriver*(this: TPrsStdDriverTable; guid: StandardGUID;
-                driver: var Handle[TPrsStdDriver]): bool {.noSideEffect,
+                driver: var Handle[TPrsStdDriver]): StandardBoolean {.noSideEffect,
     importcpp: "FindDriver", header: "TPrsStd_DriverTable.hxx".}
-proc removeDriver*(this: var TPrsStdDriverTable; guid: StandardGUID): bool {.
+proc removeDriver*(this: var TPrsStdDriverTable; guid: StandardGUID): StandardBoolean {.
     importcpp: "RemoveDriver", header: "TPrsStd_DriverTable.hxx".}
 proc clear*(this: var TPrsStdDriverTable) {.importcpp: "Clear",
                                         header: "TPrsStd_DriverTable.hxx".}
@@ -77,28 +77,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_DriverTable.hxx".}
 proc dynamicType*(this: TPrsStdDriverTable): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_DriverTable.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

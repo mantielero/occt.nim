@@ -24,9 +24,28 @@ type
                       header: "BRepOffset_Inter3d.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepOffsetInter3d; theSize: csize_t): pointer {.
+    importcpp: "BRepOffset_Inter3d::operator new",
+    header: "BRepOffset_Inter3d.hxx".}
+proc `delete`*(this: var BRepOffsetInter3d; theAddress: pointer) {.
+    importcpp: "BRepOffset_Inter3d::operator delete",
+    header: "BRepOffset_Inter3d.hxx".}
+proc `new[]`*(this: var BRepOffsetInter3d; theSize: csize_t): pointer {.
+    importcpp: "BRepOffset_Inter3d::operator new[]",
+    header: "BRepOffset_Inter3d.hxx".}
+proc `delete[]`*(this: var BRepOffsetInter3d; theAddress: pointer) {.
+    importcpp: "BRepOffset_Inter3d::operator delete[]",
+    header: "BRepOffset_Inter3d.hxx".}
+proc `new`*(this: var BRepOffsetInter3d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffset_Inter3d::operator new",
+    header: "BRepOffset_Inter3d.hxx".}
+proc `delete`*(this: var BRepOffsetInter3d; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffset_Inter3d::operator delete",
+    header: "BRepOffset_Inter3d.hxx".}
 proc constructBRepOffsetInter3d*(asDes: Handle[BRepAlgoAsDes]; side: TopAbsState;
-                                tol: cfloat): BRepOffsetInter3d {.constructor,
-    importcpp: "BRepOffset_Inter3d(@)", header: "BRepOffset_Inter3d.hxx".}
+                                tol: StandardReal): BRepOffsetInter3d {.
+    constructor, importcpp: "BRepOffset_Inter3d(@)",
+    header: "BRepOffset_Inter3d.hxx".}
 proc completInt*(this: var BRepOffsetInter3d; setOfFaces: TopToolsListOfShape;
                 initOffsetFace: BRepAlgoImage) {.importcpp: "CompletInt",
     header: "BRepOffset_Inter3d.hxx".}
@@ -41,25 +60,29 @@ proc connexIntByInt*(this: var BRepOffsetInter3d; si: TopoDS_Shape;
                     mapSF: BRepOffsetDataMapOfShapeOffset; a: BRepOffsetAnalyse;
                     mes: var TopToolsDataMapOfShapeShape;
                     build: var TopToolsDataMapOfShapeShape;
-                    failed: var TopToolsListOfShape; bIsPlanar: bool = false) {.
+                    failed: var TopToolsListOfShape;
+                    bIsPlanar: StandardBoolean = false) {.
     importcpp: "ConnexIntByInt", header: "BRepOffset_Inter3d.hxx".}
 proc contextIntByInt*(this: var BRepOffsetInter3d;
-                     contextFaces: TopToolsIndexedMapOfShape; extentContext: bool;
+                     contextFaces: TopToolsIndexedMapOfShape;
+                     extentContext: StandardBoolean;
                      mapSF: BRepOffsetDataMapOfShapeOffset; a: BRepOffsetAnalyse;
                      mes: var TopToolsDataMapOfShapeShape;
                      build: var TopToolsDataMapOfShapeShape;
-                     failed: var TopToolsListOfShape; bIsPlanar: bool = false) {.
+                     failed: var TopToolsListOfShape;
+                     bIsPlanar: StandardBoolean = false) {.
     importcpp: "ContextIntByInt", header: "BRepOffset_Inter3d.hxx".}
 proc contextIntByArc*(this: var BRepOffsetInter3d;
-                     contextFaces: TopToolsIndexedMapOfShape; extentContext: bool;
-                     analyse: BRepOffsetAnalyse; initOffsetFace: BRepAlgoImage;
+                     contextFaces: TopToolsIndexedMapOfShape;
+                     extentContext: StandardBoolean; analyse: BRepOffsetAnalyse;
+                     initOffsetFace: BRepAlgoImage;
                      initOffsetEdge: var BRepAlgoImage) {.
     importcpp: "ContextIntByArc", header: "BRepOffset_Inter3d.hxx".}
 proc addCommonEdges*(this: var BRepOffsetInter3d; setOfFaces: TopToolsListOfShape) {.
     importcpp: "AddCommonEdges", header: "BRepOffset_Inter3d.hxx".}
 proc setDone*(this: var BRepOffsetInter3d; f1: TopoDS_Face; f2: TopoDS_Face) {.
     importcpp: "SetDone", header: "BRepOffset_Inter3d.hxx".}
-proc isDone*(this: BRepOffsetInter3d; f1: TopoDS_Face; f2: TopoDS_Face): bool {.
+proc isDone*(this: BRepOffsetInter3d; f1: TopoDS_Face; f2: TopoDS_Face): StandardBoolean {.
     noSideEffect, importcpp: "IsDone", header: "BRepOffset_Inter3d.hxx".}
 proc touchedFaces*(this: var BRepOffsetInter3d): var TopToolsIndexedMapOfShape {.
     importcpp: "TouchedFaces", header: "BRepOffset_Inter3d.hxx".}
@@ -67,28 +90,3 @@ proc asDes*(this: BRepOffsetInter3d): Handle[BRepAlgoAsDes] {.noSideEffect,
     importcpp: "AsDes", header: "BRepOffset_Inter3d.hxx".}
 proc newEdges*(this: var BRepOffsetInter3d): var TopToolsIndexedMapOfShape {.
     importcpp: "NewEdges", header: "BRepOffset_Inter3d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

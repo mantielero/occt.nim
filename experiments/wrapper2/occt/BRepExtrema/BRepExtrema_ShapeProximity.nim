@@ -59,25 +59,25 @@ type
     ## ! Overlap tool used for intersection/overlap test.
 
 
-proc constructBRepExtremaShapeProximity*(theTolerance: cfloat = 0.0): BRepExtremaShapeProximity {.
+proc constructBRepExtremaShapeProximity*(theTolerance: StandardReal = 0.0): BRepExtremaShapeProximity {.
     constructor, importcpp: "BRepExtrema_ShapeProximity(@)",
     header: "BRepExtrema_ShapeProximity.hxx".}
 proc constructBRepExtremaShapeProximity*(theShape1: TopoDS_Shape;
                                         theShape2: TopoDS_Shape;
-                                        theTolerance: cfloat = 0.0): BRepExtremaShapeProximity {.
+                                        theTolerance: StandardReal = 0.0): BRepExtremaShapeProximity {.
     constructor, importcpp: "BRepExtrema_ShapeProximity(@)",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc tolerance*(this: BRepExtremaShapeProximity): cfloat {.noSideEffect,
+proc tolerance*(this: BRepExtremaShapeProximity): StandardReal {.noSideEffect,
     importcpp: "Tolerance", header: "BRepExtrema_ShapeProximity.hxx".}
-proc setTolerance*(this: var BRepExtremaShapeProximity; theTolerance: cfloat) {.
+proc setTolerance*(this: var BRepExtremaShapeProximity; theTolerance: StandardReal) {.
     importcpp: "SetTolerance", header: "BRepExtrema_ShapeProximity.hxx".}
-proc loadShape1*(this: var BRepExtremaShapeProximity; theShape1: TopoDS_Shape): bool {.
+proc loadShape1*(this: var BRepExtremaShapeProximity; theShape1: TopoDS_Shape): StandardBoolean {.
     importcpp: "LoadShape1", header: "BRepExtrema_ShapeProximity.hxx".}
-proc loadShape2*(this: var BRepExtremaShapeProximity; theShape2: TopoDS_Shape): bool {.
+proc loadShape2*(this: var BRepExtremaShapeProximity; theShape2: TopoDS_Shape): StandardBoolean {.
     importcpp: "LoadShape2", header: "BRepExtrema_ShapeProximity.hxx".}
 proc perform*(this: var BRepExtremaShapeProximity) {.importcpp: "Perform",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc isDone*(this: BRepExtremaShapeProximity): bool {.noSideEffect,
+proc isDone*(this: BRepExtremaShapeProximity): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepExtrema_ShapeProximity.hxx".}
 proc overlapSubShapes1*(this: BRepExtremaShapeProximity): BRepExtremaMapOfIntegerPackedMapOfInteger {.
     noSideEffect, importcpp: "OverlapSubShapes1",
@@ -85,10 +85,10 @@ proc overlapSubShapes1*(this: BRepExtremaShapeProximity): BRepExtremaMapOfIntege
 proc overlapSubShapes2*(this: BRepExtremaShapeProximity): BRepExtremaMapOfIntegerPackedMapOfInteger {.
     noSideEffect, importcpp: "OverlapSubShapes2",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc getSubShape1*(this: BRepExtremaShapeProximity; theID: cint): TopoDS_Face {.
+proc getSubShape1*(this: BRepExtremaShapeProximity; theID: int): TopoDS_Face {.
     noSideEffect, importcpp: "GetSubShape1",
     header: "BRepExtrema_ShapeProximity.hxx".}
-proc getSubShape2*(this: BRepExtremaShapeProximity; theID: cint): TopoDS_Face {.
+proc getSubShape2*(this: BRepExtremaShapeProximity; theID: int): TopoDS_Face {.
     noSideEffect, importcpp: "GetSubShape2",
     header: "BRepExtrema_ShapeProximity.hxx".}
 proc elementSet1*(this: BRepExtremaShapeProximity): Handle[BRepExtremaTriangleSet] {.
@@ -97,28 +97,3 @@ proc elementSet1*(this: BRepExtremaShapeProximity): Handle[BRepExtremaTriangleSe
 proc elementSet2*(this: BRepExtremaShapeProximity): Handle[BRepExtremaTriangleSet] {.
     noSideEffect, importcpp: "ElementSet2",
     header: "BRepExtrema_ShapeProximity.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

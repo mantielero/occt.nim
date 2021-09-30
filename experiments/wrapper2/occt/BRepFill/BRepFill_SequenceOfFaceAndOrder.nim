@@ -16,29 +16,3 @@
 
 type
   BRepFillSequenceOfFaceAndOrder* = NCollectionSequence[BRepFillFaceAndOrder]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

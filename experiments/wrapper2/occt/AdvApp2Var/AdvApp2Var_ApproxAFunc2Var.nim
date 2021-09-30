@@ -31,6 +31,7 @@
 {.experimental: "callOperator".}
 {.experimental: "callOperator".}
 {.experimental: "callOperator".}
+{.experimental: "callOperator".}
 ##  Created on: 1996-02-14
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -140,6 +141,7 @@ proc critError*(this: AdvApp2VarApproxAFunc2Var; dimension: cint; index: cint): 
     noSideEffect, importcpp: "CritError", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
 proc dump*(this: AdvApp2VarApproxAFunc2Var; o: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "AdvApp2Var_ApproxAFunc2Var.hxx".}
+
 
 
 

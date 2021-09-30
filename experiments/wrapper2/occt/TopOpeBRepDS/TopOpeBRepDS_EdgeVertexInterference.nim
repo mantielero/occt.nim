@@ -124,17 +124,18 @@ type
 
 
 proc constructTopOpeBRepDS_EdgeVertexInterference*(t: TopOpeBRepDS_Transition;
-    st: TopOpeBRepDS_Kind; s: cint; g: cint; gIsBound: bool; c: TopOpeBRepDS_Config;
-    p: cfloat): TopOpeBRepDS_EdgeVertexInterference {.constructor,
-    importcpp: "TopOpeBRepDS_EdgeVertexInterference(@)",
-    header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
-proc constructTopOpeBRepDS_EdgeVertexInterference*(t: TopOpeBRepDS_Transition;
-    s: cint; g: cint; gIsBound: bool; c: TopOpeBRepDS_Config; p: cfloat): TopOpeBRepDS_EdgeVertexInterference {.
+    st: TopOpeBRepDS_Kind; s: int; g: int; gIsBound: StandardBoolean;
+    c: TopOpeBRepDS_Config; p: StandardReal): TopOpeBRepDS_EdgeVertexInterference {.
     constructor, importcpp: "TopOpeBRepDS_EdgeVertexInterference(@)",
     header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
-proc parameter*(this: TopOpeBRepDS_EdgeVertexInterference): cfloat {.noSideEffect,
-    importcpp: "Parameter", header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
-proc parameter*(this: var TopOpeBRepDS_EdgeVertexInterference; p: cfloat) {.
+proc constructTopOpeBRepDS_EdgeVertexInterference*(t: TopOpeBRepDS_Transition;
+    s: int; g: int; gIsBound: StandardBoolean; c: TopOpeBRepDS_Config; p: StandardReal): TopOpeBRepDS_EdgeVertexInterference {.
+    constructor, importcpp: "TopOpeBRepDS_EdgeVertexInterference(@)",
+    header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
+proc parameter*(this: TopOpeBRepDS_EdgeVertexInterference): StandardReal {.
+    noSideEffect, importcpp: "Parameter",
+    header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
+proc parameter*(this: var TopOpeBRepDS_EdgeVertexInterference; p: StandardReal) {.
     importcpp: "Parameter", header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
 type
   TopOpeBRepDS_EdgeVertexInterferencebaseType* = TopOpeBRepDS_ShapeShapeInterference
@@ -147,28 +148,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopOpeBRepDS_EdgeVertexInterference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

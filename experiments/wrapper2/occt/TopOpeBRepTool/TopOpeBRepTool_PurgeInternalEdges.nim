@@ -19,50 +19,41 @@ discard "forward decl of Standard_NullObject"
 discard "forward decl of TopoDS_Shape"
 type
   TopOpeBRepToolPurgeInternalEdges* {.importcpp: "TopOpeBRepTool_PurgeInternalEdges", header: "TopOpeBRepTool_PurgeInternalEdges.hxx",
-                                     bycopy.} = object ## ! Initialize   members and  begin  exploration   of  shape
-                                                    ## ! depending of the value of PerformNow
-                                                    ## ! Do the main job. Explore all the  edges of myShape and
+                                     bycopy.} = object ## ! Do the main job. Explore all the  edges of myShape and
                                                     ## ! build a map with  faces as a key  and list of internal
                                                     ## ! edges(without connected faces) as value.
 
 
+proc `new`*(this: var TopOpeBRepToolPurgeInternalEdges; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_PurgeInternalEdges::operator new",
+    header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+proc `delete`*(this: var TopOpeBRepToolPurgeInternalEdges; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_PurgeInternalEdges::operator delete",
+    header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+proc `new[]`*(this: var TopOpeBRepToolPurgeInternalEdges; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_PurgeInternalEdges::operator new[]",
+    header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+proc `delete[]`*(this: var TopOpeBRepToolPurgeInternalEdges; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_PurgeInternalEdges::operator delete[]",
+    header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+proc `new`*(this: var TopOpeBRepToolPurgeInternalEdges; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopOpeBRepTool_PurgeInternalEdges::operator new", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+proc `delete`*(this: var TopOpeBRepToolPurgeInternalEdges; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepTool_PurgeInternalEdges::operator delete",
+    header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc constructTopOpeBRepToolPurgeInternalEdges*(theShape: TopoDS_Shape;
-    performNow: bool = true): TopOpeBRepToolPurgeInternalEdges {.constructor,
-    importcpp: "TopOpeBRepTool_PurgeInternalEdges(@)",
+    performNow: StandardBoolean = true): TopOpeBRepToolPurgeInternalEdges {.
+    constructor, importcpp: "TopOpeBRepTool_PurgeInternalEdges(@)",
     header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc faces*(this: var TopOpeBRepToolPurgeInternalEdges;
            theMapFacLstEdg: var TopToolsDataMapOfShapeListOfShape) {.
     importcpp: "Faces", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc shape*(this: var TopOpeBRepToolPurgeInternalEdges): var TopoDS_Shape {.
     importcpp: "Shape", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
-proc nbEdges*(this: TopOpeBRepToolPurgeInternalEdges): cint {.noSideEffect,
+proc nbEdges*(this: TopOpeBRepToolPurgeInternalEdges): int {.noSideEffect,
     importcpp: "NbEdges", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
-proc isDone*(this: TopOpeBRepToolPurgeInternalEdges): bool {.noSideEffect,
-    importcpp: "IsDone", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+proc isDone*(this: TopOpeBRepToolPurgeInternalEdges): StandardBoolean {.
+    noSideEffect, importcpp: "IsDone",
+    header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc perform*(this: var TopOpeBRepToolPurgeInternalEdges) {.importcpp: "Perform",
     header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -26,38 +26,31 @@ type
                           header: "TopOpeBRep_EdgesFiller.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepEdgesFiller; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_EdgesFiller::operator new",
+    header: "TopOpeBRep_EdgesFiller.hxx".}
+proc `delete`*(this: var TopOpeBRepEdgesFiller; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_EdgesFiller::operator delete",
+    header: "TopOpeBRep_EdgesFiller.hxx".}
+proc `new[]`*(this: var TopOpeBRepEdgesFiller; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_EdgesFiller::operator new[]",
+    header: "TopOpeBRep_EdgesFiller.hxx".}
+proc `delete[]`*(this: var TopOpeBRepEdgesFiller; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_EdgesFiller::operator delete[]",
+    header: "TopOpeBRep_EdgesFiller.hxx".}
+proc `new`*(this: var TopOpeBRepEdgesFiller; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_EdgesFiller::operator new",
+    header: "TopOpeBRep_EdgesFiller.hxx".}
+proc `delete`*(this: var TopOpeBRepEdgesFiller; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_EdgesFiller::operator delete",
+    header: "TopOpeBRep_EdgesFiller.hxx".}
 proc constructTopOpeBRepEdgesFiller*(): TopOpeBRepEdgesFiller {.constructor,
     importcpp: "TopOpeBRep_EdgesFiller(@)", header: "TopOpeBRep_EdgesFiller.hxx".}
 proc insert*(this: var TopOpeBRepEdgesFiller; e1: TopoDS_Shape; e2: TopoDS_Shape;
             ei: var TopOpeBRepEdgesIntersector;
             hds: Handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Insert",
     header: "TopOpeBRep_EdgesFiller.hxx".}
-proc face*(this: var TopOpeBRepEdgesFiller; i: cint; f: TopoDS_Shape) {.
+proc face*(this: var TopOpeBRepEdgesFiller; i: int; f: TopoDS_Shape) {.
     importcpp: "Face", header: "TopOpeBRep_EdgesFiller.hxx".}
-proc face*(this: TopOpeBRepEdgesFiller; i: cint): TopoDS_Shape {.noSideEffect,
+proc face*(this: TopOpeBRepEdgesFiller; i: int): TopoDS_Shape {.noSideEffect,
     importcpp: "Face", header: "TopOpeBRep_EdgesFiller.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

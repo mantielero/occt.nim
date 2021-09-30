@@ -21,50 +21,43 @@ type
                        header: "TopOpeBRepDS_Point.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_Point; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_Point::operator new",
+    header: "TopOpeBRepDS_Point.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_Point; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_Point::operator delete",
+    header: "TopOpeBRepDS_Point.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_Point; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_Point::operator new[]",
+    header: "TopOpeBRepDS_Point.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_Point; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_Point::operator delete[]",
+    header: "TopOpeBRepDS_Point.hxx".}
+proc `new`*(this: var TopOpeBRepDS_Point; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_Point::operator new",
+    header: "TopOpeBRepDS_Point.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_Point; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_Point::operator delete",
+    header: "TopOpeBRepDS_Point.hxx".}
 proc constructTopOpeBRepDS_Point*(): TopOpeBRepDS_Point {.constructor,
     importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
-proc constructTopOpeBRepDS_Point*(p: Pnt; t: cfloat): TopOpeBRepDS_Point {.
+proc constructTopOpeBRepDS_Point*(p: Pnt; t: StandardReal): TopOpeBRepDS_Point {.
     constructor, importcpp: "TopOpeBRepDS_Point(@)",
     header: "TopOpeBRepDS_Point.hxx".}
 proc constructTopOpeBRepDS_Point*(s: TopoDS_Shape): TopOpeBRepDS_Point {.
     constructor, importcpp: "TopOpeBRepDS_Point(@)",
     header: "TopOpeBRepDS_Point.hxx".}
-proc isEqual*(this: TopOpeBRepDS_Point; other: TopOpeBRepDS_Point): bool {.
+proc isEqual*(this: TopOpeBRepDS_Point; other: TopOpeBRepDS_Point): StandardBoolean {.
     noSideEffect, importcpp: "IsEqual", header: "TopOpeBRepDS_Point.hxx".}
 proc point*(this: TopOpeBRepDS_Point): Pnt {.noSideEffect, importcpp: "Point",
     header: "TopOpeBRepDS_Point.hxx".}
 proc changePoint*(this: var TopOpeBRepDS_Point): var Pnt {.importcpp: "ChangePoint",
     header: "TopOpeBRepDS_Point.hxx".}
-proc tolerance*(this: TopOpeBRepDS_Point): cfloat {.noSideEffect,
+proc tolerance*(this: TopOpeBRepDS_Point): StandardReal {.noSideEffect,
     importcpp: "Tolerance", header: "TopOpeBRepDS_Point.hxx".}
-proc tolerance*(this: var TopOpeBRepDS_Point; tol: cfloat) {.importcpp: "Tolerance",
-    header: "TopOpeBRepDS_Point.hxx".}
-proc keep*(this: TopOpeBRepDS_Point): bool {.noSideEffect, importcpp: "Keep",
-    header: "TopOpeBRepDS_Point.hxx".}
-proc changeKeep*(this: var TopOpeBRepDS_Point; b: bool) {.importcpp: "ChangeKeep",
-    header: "TopOpeBRepDS_Point.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc tolerance*(this: var TopOpeBRepDS_Point; tol: StandardReal) {.
+    importcpp: "Tolerance", header: "TopOpeBRepDS_Point.hxx".}
+proc keep*(this: TopOpeBRepDS_Point): StandardBoolean {.noSideEffect,
+    importcpp: "Keep", header: "TopOpeBRepDS_Point.hxx".}
+proc changeKeep*(this: var TopOpeBRepDS_Point; b: StandardBoolean) {.
+    importcpp: "ChangeKeep", header: "TopOpeBRepDS_Point.hxx".}

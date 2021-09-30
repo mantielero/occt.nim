@@ -17,41 +17,28 @@
 discard "forward decl of TopoDS_Shape"
 type
   TopOpeBRepToolAncestorsTool* {.importcpp: "TopOpeBRepTool_AncestorsTool",
-                                header: "TopOpeBRepTool_AncestorsTool.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## same
-                                                                                         ## as
-                                                                                         ## package
-                                                                                         ## method
-                                                                                         ## TopExp::MapShapeListOfShapes()
+                                header: "TopOpeBRepTool_AncestorsTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepToolAncestorsTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_AncestorsTool::operator new",
+    header: "TopOpeBRepTool_AncestorsTool.hxx".}
+proc `delete`*(this: var TopOpeBRepToolAncestorsTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_AncestorsTool::operator delete",
+    header: "TopOpeBRepTool_AncestorsTool.hxx".}
+proc `new[]`*(this: var TopOpeBRepToolAncestorsTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_AncestorsTool::operator new[]",
+    header: "TopOpeBRepTool_AncestorsTool.hxx".}
+proc `delete[]`*(this: var TopOpeBRepToolAncestorsTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_AncestorsTool::operator delete[]",
+    header: "TopOpeBRepTool_AncestorsTool.hxx".}
+proc `new`*(this: var TopOpeBRepToolAncestorsTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepTool_AncestorsTool::operator new",
+    header: "TopOpeBRepTool_AncestorsTool.hxx".}
+proc `delete`*(this: var TopOpeBRepToolAncestorsTool; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepTool_AncestorsTool::operator delete",
+    header: "TopOpeBRepTool_AncestorsTool.hxx".}
 proc makeAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum; ta: TopAbsShapeEnum;
                    m: var TopToolsIndexedDataMapOfShapeListOfShape) {.
     importcpp: "TopOpeBRepTool_AncestorsTool::MakeAncestors(@)",
     header: "TopOpeBRepTool_AncestorsTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

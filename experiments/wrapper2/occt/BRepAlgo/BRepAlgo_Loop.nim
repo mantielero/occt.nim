@@ -20,6 +20,18 @@ type
   BRepAlgoLoop* {.importcpp: "BRepAlgo_Loop", header: "BRepAlgo_Loop.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepAlgoLoop; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Loop::operator new", header: "BRepAlgo_Loop.hxx".}
+proc `delete`*(this: var BRepAlgoLoop; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Loop::operator delete", header: "BRepAlgo_Loop.hxx".}
+proc `new[]`*(this: var BRepAlgoLoop; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Loop::operator new[]", header: "BRepAlgo_Loop.hxx".}
+proc `delete[]`*(this: var BRepAlgoLoop; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Loop::operator delete[]", header: "BRepAlgo_Loop.hxx".}
+proc `new`*(this: var BRepAlgoLoop; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgo_Loop::operator new", header: "BRepAlgo_Loop.hxx".}
+proc `delete`*(this: var BRepAlgoLoop; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgo_Loop::operator delete", header: "BRepAlgo_Loop.hxx".}
 proc constructBRepAlgoLoop*(): BRepAlgoLoop {.constructor,
     importcpp: "BRepAlgo_Loop(@)", header: "BRepAlgo_Loop.hxx".}
 proc init*(this: var BRepAlgoLoop; f: TopoDS_Face) {.importcpp: "Init",
@@ -48,35 +60,10 @@ proc newFaces*(this: BRepAlgoLoop): TopToolsListOfShape {.noSideEffect,
     importcpp: "NewFaces", header: "BRepAlgo_Loop.hxx".}
 proc newEdges*(this: BRepAlgoLoop; e: TopoDS_Edge): TopToolsListOfShape {.
     noSideEffect, importcpp: "NewEdges", header: "BRepAlgo_Loop.hxx".}
-proc getVerticesForSubstitute*(this: BRepAlgoLoop;
+#[ proc getVerticesForSubstitute*(this: BRepAlgoLoop;
                               verVerMap: var TopToolsDataMapOfShapeShape) {.
     noSideEffect, importcpp: "GetVerticesForSubstitute",
-    header: "BRepAlgo_Loop.hxx".}
-proc verticesForSubstitute*(this: var BRepAlgoLoop;
+    header: "BRepAlgo_Loop.hxx".} ]#
+#[ proc verticesForSubstitute*(this: var BRepAlgoLoop;
                            verVerMap: var TopToolsDataMapOfShapeShape) {.
-    importcpp: "VerticesForSubstitute", header: "BRepAlgo_Loop.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "VerticesForSubstitute", header: "BRepAlgo_Loop.hxx".} ]#

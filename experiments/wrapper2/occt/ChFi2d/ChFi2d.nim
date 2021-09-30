@@ -22,28 +22,15 @@ type
   ChFi2d* {.importcpp: "ChFi2d", header: "ChFi2d.hxx", bycopy.} = object
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc `new`*(this: var ChFi2d; theSize: csize_t): pointer {.
+    importcpp: "ChFi2d::operator new", header: "ChFi2d.hxx".}
+proc `delete`*(this: var ChFi2d; theAddress: pointer) {.
+    importcpp: "ChFi2d::operator delete", header: "ChFi2d.hxx".}
+proc `new[]`*(this: var ChFi2d; theSize: csize_t): pointer {.
+    importcpp: "ChFi2d::operator new[]", header: "ChFi2d.hxx".}
+proc `delete[]`*(this: var ChFi2d; theAddress: pointer) {.
+    importcpp: "ChFi2d::operator delete[]", header: "ChFi2d.hxx".}
+proc `new`*(this: var ChFi2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "ChFi2d::operator new", header: "ChFi2d.hxx".}
+proc `delete`*(this: var ChFi2d; a2: pointer; a3: pointer) {.
+    importcpp: "ChFi2d::operator delete", header: "ChFi2d.hxx".}

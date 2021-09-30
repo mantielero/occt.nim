@@ -19,28 +19,26 @@ discard "forward decl of TopOpeBRepBuild_BlockBuilder"
 discard "forward decl of TopOpeBRepBuild_Loop"
 type
   TopOpeBRepBuildWireEdgeClassifier* {.importcpp: "TopOpeBRepBuild_WireEdgeClassifier", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx",
-                                      bycopy.} = object of TopOpeBRepBuildCompositeClassifier ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## classifier
-                                                                                         ## on
-                                                                                         ## edge
-                                                                                         ## <F>.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Used
-                                                                                         ## to
-                                                                                         ## compare
-                                                                                         ## edges
-                                                                                         ## and
-                                                                                         ## wires
-                                                                                         ## on
-                                                                                         ## the
-                                                                                         ## edge
-                                                                                         ## <F>.
+                                      bycopy.} = object of TopOpeBRepBuildCompositeClassifier
 
 
+proc `new`*(this: var TopOpeBRepBuildWireEdgeClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_WireEdgeClassifier::operator new",
+    header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildWireEdgeClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_WireEdgeClassifier::operator delete",
+    header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildWireEdgeClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_WireEdgeClassifier::operator new[]",
+    header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildWireEdgeClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_WireEdgeClassifier::operator delete[]",
+    header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
+proc `new`*(this: var TopOpeBRepBuildWireEdgeClassifier; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopOpeBRepBuild_WireEdgeClassifier::operator new", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildWireEdgeClassifier; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_WireEdgeClassifier::operator delete",
+    header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc constructTopOpeBRepBuildWireEdgeClassifier*(f: TopoDS_Shape;
     bb: TopOpeBRepBuildBlockBuilder): TopOpeBRepBuildWireEdgeClassifier {.
     constructor, importcpp: "TopOpeBRepBuild_WireEdgeClassifier(@)",
@@ -62,32 +60,7 @@ proc resetShape*(this: var TopOpeBRepBuildWireEdgeClassifier; b: TopoDS_Shape) {
     importcpp: "ResetShape", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc resetElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shape) {.
     importcpp: "ResetElement", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
-proc compareElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shape): bool {.
+proc compareElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shape): StandardBoolean {.
     importcpp: "CompareElement", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildWireEdgeClassifier): TopAbsState {.
     importcpp: "State", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

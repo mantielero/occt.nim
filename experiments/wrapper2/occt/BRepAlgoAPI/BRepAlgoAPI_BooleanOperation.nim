@@ -56,6 +56,24 @@ type
     ## !< Type of Boolean Operation
 
 
+proc `new`*(this: var BRepAlgoAPI_BooleanOperation; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_BooleanOperation::operator new",
+    header: "BRepAlgoAPI_BooleanOperation.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_BooleanOperation; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_BooleanOperation::operator delete",
+    header: "BRepAlgoAPI_BooleanOperation.hxx".}
+proc `new[]`*(this: var BRepAlgoAPI_BooleanOperation; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_BooleanOperation::operator new[]",
+    header: "BRepAlgoAPI_BooleanOperation.hxx".}
+proc `delete[]`*(this: var BRepAlgoAPI_BooleanOperation; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_BooleanOperation::operator delete[]",
+    header: "BRepAlgoAPI_BooleanOperation.hxx".}
+proc `new`*(this: var BRepAlgoAPI_BooleanOperation; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgoAPI_BooleanOperation::operator new",
+    header: "BRepAlgoAPI_BooleanOperation.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_BooleanOperation; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgoAPI_BooleanOperation::operator delete",
+    header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc constructBRepAlgoAPI_BooleanOperation*(): BRepAlgoAPI_BooleanOperation {.
     constructor, importcpp: "BRepAlgoAPI_BooleanOperation(@)",
     header: "BRepAlgoAPI_BooleanOperation.hxx".}
@@ -77,28 +95,3 @@ proc operation*(this: BRepAlgoAPI_BooleanOperation): BOPAlgoOperation {.
     header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc build*(this: var BRepAlgoAPI_BooleanOperation) {.importcpp: "Build",
     header: "BRepAlgoAPI_BooleanOperation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

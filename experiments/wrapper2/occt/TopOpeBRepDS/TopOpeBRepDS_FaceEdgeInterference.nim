@@ -38,7 +38,7 @@ type
 
 
 proc constructTopOpeBRepDS_FaceEdgeInterference*(t: TopOpeBRepDS_Transition;
-    s: cint; g: cint; gIsBound: bool; c: TopOpeBRepDS_Config): TopOpeBRepDS_FaceEdgeInterference {.
+    s: int; g: int; gIsBound: StandardBoolean; c: TopOpeBRepDS_Config): TopOpeBRepDS_FaceEdgeInterference {.
     constructor, importcpp: "TopOpeBRepDS_FaceEdgeInterference(@)",
     header: "TopOpeBRepDS_FaceEdgeInterference.hxx".}
 type
@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TopOpeBRepDS_FaceEdgeInterference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TopOpeBRepDS_FaceEdgeInterference.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

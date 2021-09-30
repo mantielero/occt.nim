@@ -18,12 +18,22 @@ discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
 type
   BRepAlgoAPI_Fuse* {.importcpp: "BRepAlgoAPI_Fuse",
-                     header: "BRepAlgoAPI_Fuse.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor
+                     header: "BRepAlgoAPI_Fuse.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation
 
 
+proc `new`*(this: var BRepAlgoAPI_Fuse; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Fuse::operator new", header: "BRepAlgoAPI_Fuse.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Fuse; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Fuse::operator delete", header: "BRepAlgoAPI_Fuse.hxx".}
+proc `new[]`*(this: var BRepAlgoAPI_Fuse; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Fuse::operator new[]", header: "BRepAlgoAPI_Fuse.hxx".}
+proc `delete[]`*(this: var BRepAlgoAPI_Fuse; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Fuse::operator delete[]",
+    header: "BRepAlgoAPI_Fuse.hxx".}
+proc `new`*(this: var BRepAlgoAPI_Fuse; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgoAPI_Fuse::operator new", header: "BRepAlgoAPI_Fuse.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Fuse; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgoAPI_Fuse::operator delete", header: "BRepAlgoAPI_Fuse.hxx".}
 proc constructBRepAlgoAPI_Fuse*(): BRepAlgoAPI_Fuse {.constructor,
     importcpp: "BRepAlgoAPI_Fuse(@)", header: "BRepAlgoAPI_Fuse.hxx".}
 proc destroyBRepAlgoAPI_Fuse*(this: var BRepAlgoAPI_Fuse) {.
@@ -35,28 +45,3 @@ proc constructBRepAlgoAPI_Fuse*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI
 proc constructBRepAlgoAPI_Fuse*(s1: TopoDS_Shape; s2: TopoDS_Shape;
                                aDSF: BOPAlgoPaveFiller): BRepAlgoAPI_Fuse {.
     constructor, importcpp: "BRepAlgoAPI_Fuse(@)", header: "BRepAlgoAPI_Fuse.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,29 +27,3 @@ type
                               ## ! the length of the leg from apex to top is constant - it is throat
     ChFiDS_ConstThroatWithPenetrationChamfer
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

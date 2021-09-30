@@ -18,9 +18,9 @@ proc basiscurve2d*(c: Handle[Geom2dCurve]): Handle[Geom2dCurve] {.
     importcpp: "BASISCURVE2D(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 ## Standard_EXPORT Standard_Boolean FUN_tool_IsUViso(const Handle(Geom2d_Curve)& PC,Standard_Boolean& isoU,Standard_Boolean& isoV,gp_Dir2d& d2d,gp_Pnt2d& O2d);
 
-proc fUN_toolDirC*(par: cfloat; c: Handle[GeomCurve]): Dir {.
+proc fUN_toolDirC*(par: StandardReal; c: Handle[GeomCurve]): Dir {.
     importcpp: "FUN_tool_dirC(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
-proc fUN_toolOnapex*(p2d: Pnt2d; s: Handle[GeomSurface]): bool {.
+proc fUN_toolOnapex*(p2d: Pnt2d; s: Handle[GeomSurface]): StandardBoolean {.
     importcpp: "FUN_tool_onapex(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolNgS*(p2d: Pnt2d; s: Handle[GeomSurface]): Dir {.
     importcpp: "FUN_tool_ngS(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
@@ -28,20 +28,21 @@ proc fUN_toolNgS*(p2d: Pnt2d; s: Handle[GeomSurface]): Dir {.
 ##  curve type,surface type :
 ##  ----------------------------------------------------------------------
 
-proc fUN_toolLine*(c3d: Handle[GeomCurve]): bool {.importcpp: "FUN_tool_line(@)",
-    header: "TopOpeBRepTool_GEOMETRY.hxx".}
-proc fUN_toolLine*(c2d: Handle[Geom2dCurve]): bool {.importcpp: "FUN_tool_line(@)",
-    header: "TopOpeBRepTool_GEOMETRY.hxx".}
-proc fUN_quadCT*(ct: GeomAbsCurveType): bool {.importcpp: "FUN_quadCT(@)",
-    header: "TopOpeBRepTool_GEOMETRY.hxx".}
-proc fUN_toolQuad*(c3d: Handle[GeomCurve]): bool {.importcpp: "FUN_tool_quad(@)",
-    header: "TopOpeBRepTool_GEOMETRY.hxx".}
-proc fUN_toolQuad*(pc: Handle[Geom2dCurve]): bool {.importcpp: "FUN_tool_quad(@)",
-    header: "TopOpeBRepTool_GEOMETRY.hxx".}
-proc fUN_toolQuad*(s: Handle[GeomSurface]): bool {.importcpp: "FUN_tool_quad(@)",
-    header: "TopOpeBRepTool_GEOMETRY.hxx".}
-proc fUN_toolClosed*(s: Handle[GeomSurface]; uclosed: var bool; uperiod: var cfloat;
-                    vclosed: var bool; vperiod: var cfloat): bool {.
+proc fUN_toolLine*(c3d: Handle[GeomCurve]): StandardBoolean {.
+    importcpp: "FUN_tool_line(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
+proc fUN_toolLine*(c2d: Handle[Geom2dCurve]): StandardBoolean {.
+    importcpp: "FUN_tool_line(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
+proc fUN_quadCT*(ct: GeomAbsCurveType): StandardBoolean {.
+    importcpp: "FUN_quadCT(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
+proc fUN_toolQuad*(c3d: Handle[GeomCurve]): StandardBoolean {.
+    importcpp: "FUN_tool_quad(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
+proc fUN_toolQuad*(pc: Handle[Geom2dCurve]): StandardBoolean {.
+    importcpp: "FUN_tool_quad(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
+proc fUN_toolQuad*(s: Handle[GeomSurface]): StandardBoolean {.
+    importcpp: "FUN_tool_quad(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
+proc fUN_toolClosed*(s: Handle[GeomSurface]; uclosed: var StandardBoolean;
+                    uperiod: var StandardReal; vclosed: var StandardBoolean;
+                    vperiod: var StandardReal): StandardBoolean {.
     importcpp: "FUN_tool_closed(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolUpdateBnd2d*(b2d: var BndBox2d; newB2d: BndBox2d) {.
     importcpp: "FUN_tool_UpdateBnd2d(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
@@ -53,28 +54,3 @@ proc fUN_toolNCinsideS*(tgC: Dir; ngS: Dir): Dir {.importcpp: "FUN_tool_nCinside
     header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolNC2dINSIDES*(tgC2d: Dir2d): Dir2d {.
     importcpp: "FUN_tool_nC2dINSIDES(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

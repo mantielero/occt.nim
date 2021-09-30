@@ -21,82 +21,77 @@ type
                                    bycopy.} = object
 
 
+proc `new`*(this: var BRepApproxTheMultiLineOfApprox; theSize: csize_t): pointer {.
+    importcpp: "BRepApprox_TheMultiLineOfApprox::operator new",
+    header: "BRepApprox_TheMultiLineOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxTheMultiLineOfApprox; theAddress: pointer) {.
+    importcpp: "BRepApprox_TheMultiLineOfApprox::operator delete",
+    header: "BRepApprox_TheMultiLineOfApprox.hxx".}
+proc `new[]`*(this: var BRepApproxTheMultiLineOfApprox; theSize: csize_t): pointer {.
+    importcpp: "BRepApprox_TheMultiLineOfApprox::operator new[]",
+    header: "BRepApprox_TheMultiLineOfApprox.hxx".}
+proc `delete[]`*(this: var BRepApproxTheMultiLineOfApprox; theAddress: pointer) {.
+    importcpp: "BRepApprox_TheMultiLineOfApprox::operator delete[]",
+    header: "BRepApprox_TheMultiLineOfApprox.hxx".}
+proc `new`*(this: var BRepApproxTheMultiLineOfApprox; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepApprox_TheMultiLineOfApprox::operator new",
+    header: "BRepApprox_TheMultiLineOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxTheMultiLineOfApprox; a2: pointer; a3: pointer) {.
+    importcpp: "BRepApprox_TheMultiLineOfApprox::operator delete",
+    header: "BRepApprox_TheMultiLineOfApprox.hxx".}
 proc constructBRepApproxTheMultiLineOfApprox*(): BRepApproxTheMultiLineOfApprox {.
     constructor, importcpp: "BRepApprox_TheMultiLineOfApprox(@)",
     header: "BRepApprox_TheMultiLineOfApprox.hxx".}
 proc constructBRepApproxTheMultiLineOfApprox*(line: Handle[BRepApproxApproxLine];
-    ptrSvSurfaces: StandardAddress; nbP3d: cint; nbP2d: cint; approxU1V1: bool;
-    approxU2V2: bool; xo: cfloat; yo: cfloat; zo: cfloat; u1o: cfloat; v1o: cfloat;
-    u2o: cfloat; v2o: cfloat; p2DOnFirst: bool; indMin: cint = 0; indMax: cint = 0): BRepApproxTheMultiLineOfApprox {.
-    constructor, importcpp: "BRepApprox_TheMultiLineOfApprox(@)",
-    header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc constructBRepApproxTheMultiLineOfApprox*(line: Handle[BRepApproxApproxLine];
-    nbP3d: cint; nbP2d: cint; approxU1V1: bool; approxU2V2: bool; xo: cfloat; yo: cfloat;
-    zo: cfloat; u1o: cfloat; v1o: cfloat; u2o: cfloat; v2o: cfloat; p2DOnFirst: bool;
-    indMin: cint = 0; indMax: cint = 0): BRepApproxTheMultiLineOfApprox {.constructor,
+    ptrSvSurfaces: StandardAddress; nbP3d: int; nbP2d: int;
+    approxU1V1: StandardBoolean; approxU2V2: StandardBoolean; xo: StandardReal;
+    yo: StandardReal; zo: StandardReal; u1o: StandardReal; v1o: StandardReal;
+    u2o: StandardReal; v2o: StandardReal; p2DOnFirst: StandardBoolean;
+    indMin: int = 0; indMax: int = 0): BRepApproxTheMultiLineOfApprox {.constructor,
     importcpp: "BRepApprox_TheMultiLineOfApprox(@)",
     header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc firstPoint*(this: BRepApproxTheMultiLineOfApprox): cint {.noSideEffect,
+proc constructBRepApproxTheMultiLineOfApprox*(line: Handle[BRepApproxApproxLine];
+    nbP3d: int; nbP2d: int; approxU1V1: StandardBoolean; approxU2V2: StandardBoolean;
+    xo: StandardReal; yo: StandardReal; zo: StandardReal; u1o: StandardReal;
+    v1o: StandardReal; u2o: StandardReal; v2o: StandardReal;
+    p2DOnFirst: StandardBoolean; indMin: int = 0; indMax: int = 0): BRepApproxTheMultiLineOfApprox {.
+    constructor, importcpp: "BRepApprox_TheMultiLineOfApprox(@)",
+    header: "BRepApprox_TheMultiLineOfApprox.hxx".}
+proc firstPoint*(this: BRepApproxTheMultiLineOfApprox): int {.noSideEffect,
     importcpp: "FirstPoint", header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc lastPoint*(this: BRepApproxTheMultiLineOfApprox): cint {.noSideEffect,
+proc lastPoint*(this: BRepApproxTheMultiLineOfApprox): int {.noSideEffect,
     importcpp: "LastPoint", header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc nbP2d*(this: BRepApproxTheMultiLineOfApprox): cint {.noSideEffect,
+proc nbP2d*(this: BRepApproxTheMultiLineOfApprox): int {.noSideEffect,
     importcpp: "NbP2d", header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc nbP3d*(this: BRepApproxTheMultiLineOfApprox): cint {.noSideEffect,
+proc nbP3d*(this: BRepApproxTheMultiLineOfApprox): int {.noSideEffect,
     importcpp: "NbP3d", header: "BRepApprox_TheMultiLineOfApprox.hxx".}
 proc whatStatus*(this: BRepApproxTheMultiLineOfApprox): ApproxStatus {.noSideEffect,
     importcpp: "WhatStatus", header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc value*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: cint;
+proc value*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
            tabPt: var TColgpArray1OfPnt) {.noSideEffect, importcpp: "Value", header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc value*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: cint;
+proc value*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
            tabPt2d: var TColgpArray1OfPnt2d) {.noSideEffect, importcpp: "Value",
     header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc value*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: cint;
+proc value*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
            tabPt: var TColgpArray1OfPnt; tabPt2d: var TColgpArray1OfPnt2d) {.
     noSideEffect, importcpp: "Value", header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc tangency*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: cint;
-              tabV: var TColgpArray1OfVec): bool {.noSideEffect,
+proc tangency*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+              tabV: var TColgpArray1OfVec): StandardBoolean {.noSideEffect,
     importcpp: "Tangency", header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc tangency*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: cint;
-              tabV2d: var TColgpArray1OfVec2d): bool {.noSideEffect,
+proc tangency*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+              tabV2d: var TColgpArray1OfVec2d): StandardBoolean {.noSideEffect,
     importcpp: "Tangency", header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc tangency*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: cint;
-              tabV: var TColgpArray1OfVec; tabV2d: var TColgpArray1OfVec2d): bool {.
+proc tangency*(this: BRepApproxTheMultiLineOfApprox; mPointIndex: int;
+              tabV: var TColgpArray1OfVec; tabV2d: var TColgpArray1OfVec2d): StandardBoolean {.
     noSideEffect, importcpp: "Tangency",
     header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc makeMLBetween*(this: BRepApproxTheMultiLineOfApprox; low: cint; high: cint;
-                   nbPointsToInsert: cint): BRepApproxTheMultiLineOfApprox {.
+proc makeMLBetween*(this: BRepApproxTheMultiLineOfApprox; low: int; high: int;
+                   nbPointsToInsert: int): BRepApproxTheMultiLineOfApprox {.
     noSideEffect, importcpp: "MakeMLBetween",
     header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-proc makeMLOneMorePoint*(this: BRepApproxTheMultiLineOfApprox; low: cint; high: cint;
-                        indbad: cint;
-                        otherLine: var BRepApproxTheMultiLineOfApprox): bool {.
+proc makeMLOneMorePoint*(this: BRepApproxTheMultiLineOfApprox; low: int; high: int;
+                        indbad: int; otherLine: var BRepApproxTheMultiLineOfApprox): StandardBoolean {.
     noSideEffect, importcpp: "MakeMLOneMorePoint",
     header: "BRepApprox_TheMultiLineOfApprox.hxx".}
 proc dump*(this: BRepApproxTheMultiLineOfApprox) {.noSideEffect, importcpp: "Dump",
     header: "BRepApprox_TheMultiLineOfApprox.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

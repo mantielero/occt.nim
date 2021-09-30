@@ -42,28 +42,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_ACRLaw.hxx".}
 proc dynamicType*(this: BRepFillACRLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_ACRLaw.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

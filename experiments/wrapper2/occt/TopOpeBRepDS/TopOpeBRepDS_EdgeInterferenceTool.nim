@@ -22,6 +22,23 @@ type
                                       bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_EdgeInterferenceTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_EdgeInterferenceTool::operator new",
+    header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_EdgeInterferenceTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_EdgeInterferenceTool::operator delete",
+    header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_EdgeInterferenceTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_EdgeInterferenceTool::operator new[]",
+    header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_EdgeInterferenceTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_EdgeInterferenceTool::operator delete[]",
+    header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
+proc `new`*(this: var TopOpeBRepDS_EdgeInterferenceTool; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopOpeBRepDS_EdgeInterferenceTool::operator new", header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_EdgeInterferenceTool; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_EdgeInterferenceTool::operator delete",
+    header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
 proc constructTopOpeBRepDS_EdgeInterferenceTool*(): TopOpeBRepDS_EdgeInterferenceTool {.
     constructor, importcpp: "TopOpeBRepDS_EdgeInterferenceTool(@)",
     header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
@@ -37,28 +54,3 @@ proc add*(this: var TopOpeBRepDS_EdgeInterferenceTool; e: TopoDS_Shape;
 proc transition*(this: TopOpeBRepDS_EdgeInterferenceTool;
                 i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect,
     importcpp: "Transition", header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

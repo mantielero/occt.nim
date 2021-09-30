@@ -20,6 +20,24 @@ type
                            header: "TopOpeBRepBuild_LoopSet.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildLoopSet; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_LoopSet::operator new",
+    header: "TopOpeBRepBuild_LoopSet.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildLoopSet; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_LoopSet::operator delete",
+    header: "TopOpeBRepBuild_LoopSet.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildLoopSet; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_LoopSet::operator new[]",
+    header: "TopOpeBRepBuild_LoopSet.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildLoopSet; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_LoopSet::operator delete[]",
+    header: "TopOpeBRepBuild_LoopSet.hxx".}
+proc `new`*(this: var TopOpeBRepBuildLoopSet; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_LoopSet::operator new",
+    header: "TopOpeBRepBuild_LoopSet.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildLoopSet; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_LoopSet::operator delete",
+    header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc constructTopOpeBRepBuildLoopSet*(): TopOpeBRepBuildLoopSet {.constructor,
     importcpp: "TopOpeBRepBuild_LoopSet(@)", header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc destroyTopOpeBRepBuildLoopSet*(this: var TopOpeBRepBuildLoopSet) {.
@@ -29,34 +47,9 @@ proc changeListOfLoop*(this: var TopOpeBRepBuildLoopSet): var TopOpeBRepBuildLis
     importcpp: "ChangeListOfLoop", header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc initLoop*(this: var TopOpeBRepBuildLoopSet) {.importcpp: "InitLoop",
     header: "TopOpeBRepBuild_LoopSet.hxx".}
-proc moreLoop*(this: TopOpeBRepBuildLoopSet): bool {.noSideEffect,
+proc moreLoop*(this: TopOpeBRepBuildLoopSet): StandardBoolean {.noSideEffect,
     importcpp: "MoreLoop", header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc nextLoop*(this: var TopOpeBRepBuildLoopSet) {.importcpp: "NextLoop",
     header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc loop*(this: TopOpeBRepBuildLoopSet): Handle[TopOpeBRepBuildLoop] {.
     noSideEffect, importcpp: "Loop", header: "TopOpeBRepBuild_LoopSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

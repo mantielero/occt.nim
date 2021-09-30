@@ -16,47 +16,32 @@
 
 discard "forward decl of TopoDS_Shape"
 type
-  ChFiDS_Map* {.importcpp: "ChFiDS_Map", header: "ChFiDS_Map.hxx", bycopy.} = object ## !
-                                                                             ## Create an
-                                                                             ## empty Map
+  ChFiDS_Map* {.importcpp: "ChFiDS_Map", header: "ChFiDS_Map.hxx", bycopy.} = object
 
 
+proc `new`*(this: var ChFiDS_Map; theSize: csize_t): pointer {.
+    importcpp: "ChFiDS_Map::operator new", header: "ChFiDS_Map.hxx".}
+proc `delete`*(this: var ChFiDS_Map; theAddress: pointer) {.
+    importcpp: "ChFiDS_Map::operator delete", header: "ChFiDS_Map.hxx".}
+proc `new[]`*(this: var ChFiDS_Map; theSize: csize_t): pointer {.
+    importcpp: "ChFiDS_Map::operator new[]", header: "ChFiDS_Map.hxx".}
+proc `delete[]`*(this: var ChFiDS_Map; theAddress: pointer) {.
+    importcpp: "ChFiDS_Map::operator delete[]", header: "ChFiDS_Map.hxx".}
+proc `new`*(this: var ChFiDS_Map; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "ChFiDS_Map::operator new", header: "ChFiDS_Map.hxx".}
+proc `delete`*(this: var ChFiDS_Map; a2: pointer; a3: pointer) {.
+    importcpp: "ChFiDS_Map::operator delete", header: "ChFiDS_Map.hxx".}
 proc constructChFiDS_Map*(): ChFiDS_Map {.constructor, importcpp: "ChFiDS_Map(@)",
                                        header: "ChFiDS_Map.hxx".}
 proc fill*(this: var ChFiDS_Map; s: TopoDS_Shape; t1: TopAbsShapeEnum;
           t2: TopAbsShapeEnum) {.importcpp: "Fill", header: "ChFiDS_Map.hxx".}
-proc contains*(this: ChFiDS_Map; s: TopoDS_Shape): bool {.noSideEffect,
+proc contains*(this: ChFiDS_Map; s: TopoDS_Shape): StandardBoolean {.noSideEffect,
     importcpp: "Contains", header: "ChFiDS_Map.hxx".}
 proc findFromKey*(this: ChFiDS_Map; s: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "FindFromKey", header: "ChFiDS_Map.hxx".}
 proc `()`*(this: ChFiDS_Map; s: TopoDS_Shape): TopToolsListOfShape {.noSideEffect,
     importcpp: "#(@)", header: "ChFiDS_Map.hxx".}
-proc findFromIndex*(this: ChFiDS_Map; i: cint): TopToolsListOfShape {.noSideEffect,
+proc findFromIndex*(this: ChFiDS_Map; i: int): TopToolsListOfShape {.noSideEffect,
     importcpp: "FindFromIndex", header: "ChFiDS_Map.hxx".}
-proc `()`*(this: ChFiDS_Map; i: cint): TopToolsListOfShape {.noSideEffect,
+proc `()`*(this: ChFiDS_Map; i: int): TopToolsListOfShape {.noSideEffect,
     importcpp: "#(@)", header: "ChFiDS_Map.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

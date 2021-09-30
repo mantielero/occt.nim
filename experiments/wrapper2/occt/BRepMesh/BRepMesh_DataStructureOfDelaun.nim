@@ -35,65 +35,67 @@ type
 
 
 proc constructBRepMeshDataStructureOfDelaun*(
-    theAllocator: Handle[NCollectionIncAllocator]; theReservedNodeSize: cint = 100): BRepMeshDataStructureOfDelaun {.
+    theAllocator: Handle[NCollectionIncAllocator]; theReservedNodeSize: int = 100): BRepMeshDataStructureOfDelaun {.
     constructor, importcpp: "BRepMesh_DataStructureOfDelaun(@)",
     header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc nbNodes*(this: BRepMeshDataStructureOfDelaun): cint {.noSideEffect,
+proc nbNodes*(this: BRepMeshDataStructureOfDelaun): int {.noSideEffect,
     importcpp: "NbNodes", header: "BRepMesh_DataStructureOfDelaun.hxx".}
 proc addNode*(this: var BRepMeshDataStructureOfDelaun; theNode: BRepMeshVertex;
-             isForceAdd: bool = false): cint {.importcpp: "AddNode",
+             isForceAdd: StandardBoolean = false): int {.importcpp: "AddNode",
     header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc indexOf*(this: var BRepMeshDataStructureOfDelaun; theNode: BRepMeshVertex): cint {.
+proc indexOf*(this: var BRepMeshDataStructureOfDelaun; theNode: BRepMeshVertex): int {.
     importcpp: "IndexOf", header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc getNode*(this: var BRepMeshDataStructureOfDelaun; theIndex: cint): BRepMeshVertex {.
+proc getNode*(this: var BRepMeshDataStructureOfDelaun; theIndex: int): BRepMeshVertex {.
     importcpp: "GetNode", header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc `()`*(this: var BRepMeshDataStructureOfDelaun; theIndex: cint): BRepMeshVertex {.
+proc `()`*(this: var BRepMeshDataStructureOfDelaun; theIndex: int): BRepMeshVertex {.
     importcpp: "#(@)", header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc substituteNode*(this: var BRepMeshDataStructureOfDelaun; theIndex: cint;
-                    theNewNode: BRepMeshVertex): bool {.
+proc substituteNode*(this: var BRepMeshDataStructureOfDelaun; theIndex: int;
+                    theNewNode: BRepMeshVertex): StandardBoolean {.
     importcpp: "SubstituteNode", header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc removeNode*(this: var BRepMeshDataStructureOfDelaun; theIndex: cint;
-                isForce: bool = false) {.importcpp: "RemoveNode", header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc linksConnectedTo*(this: BRepMeshDataStructureOfDelaun; theIndex: cint): ListOfInteger {.
+proc removeNode*(this: var BRepMeshDataStructureOfDelaun; theIndex: int;
+                isForce: StandardBoolean = false) {.importcpp: "RemoveNode",
+    header: "BRepMesh_DataStructureOfDelaun.hxx".}
+proc linksConnectedTo*(this: BRepMeshDataStructureOfDelaun; theIndex: int): ListOfInteger {.
     noSideEffect, importcpp: "LinksConnectedTo",
     header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc nbLinks*(this: BRepMeshDataStructureOfDelaun): cint {.noSideEffect,
+proc nbLinks*(this: BRepMeshDataStructureOfDelaun): int {.noSideEffect,
     importcpp: "NbLinks", header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc addLink*(this: var BRepMeshDataStructureOfDelaun; theLink: BRepMeshEdge): cint {.
+proc addLink*(this: var BRepMeshDataStructureOfDelaun; theLink: BRepMeshEdge): int {.
     importcpp: "AddLink", header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc indexOf*(this: BRepMeshDataStructureOfDelaun; theLink: BRepMeshEdge): cint {.
+proc indexOf*(this: BRepMeshDataStructureOfDelaun; theLink: BRepMeshEdge): int {.
     noSideEffect, importcpp: "IndexOf",
     header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc getLink*(this: var BRepMeshDataStructureOfDelaun; theIndex: cint): BRepMeshEdge {.
+proc getLink*(this: var BRepMeshDataStructureOfDelaun; theIndex: int): BRepMeshEdge {.
     importcpp: "GetLink", header: "BRepMesh_DataStructureOfDelaun.hxx".}
 proc linksOfDomain*(this: BRepMeshDataStructureOfDelaun): MapOfInteger {.
     noSideEffect, importcpp: "LinksOfDomain",
     header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc substituteLink*(this: var BRepMeshDataStructureOfDelaun; theIndex: cint;
-                    theNewLink: BRepMeshEdge): bool {.importcpp: "SubstituteLink",
+proc substituteLink*(this: var BRepMeshDataStructureOfDelaun; theIndex: int;
+                    theNewLink: BRepMeshEdge): StandardBoolean {.
+    importcpp: "SubstituteLink", header: "BRepMesh_DataStructureOfDelaun.hxx".}
+proc removeLink*(this: var BRepMeshDataStructureOfDelaun; theIndex: int;
+                isForce: StandardBoolean = false) {.importcpp: "RemoveLink",
     header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc removeLink*(this: var BRepMeshDataStructureOfDelaun; theIndex: cint;
-                isForce: bool = false) {.importcpp: "RemoveLink", header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc elementsConnectedTo*(this: BRepMeshDataStructureOfDelaun; theLinkIndex: cint): BRepMeshPairOfIndex {.
+proc elementsConnectedTo*(this: BRepMeshDataStructureOfDelaun; theLinkIndex: int): BRepMeshPairOfIndex {.
     noSideEffect, importcpp: "ElementsConnectedTo",
     header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc nbElements*(this: BRepMeshDataStructureOfDelaun): cint {.noSideEffect,
+proc nbElements*(this: BRepMeshDataStructureOfDelaun): int {.noSideEffect,
     importcpp: "NbElements", header: "BRepMesh_DataStructureOfDelaun.hxx".}
 proc addElement*(this: var BRepMeshDataStructureOfDelaun;
-                theElement: BRepMeshTriangle): cint {.importcpp: "AddElement",
+                theElement: BRepMeshTriangle): int {.importcpp: "AddElement",
     header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc getElement*(this: var BRepMeshDataStructureOfDelaun; theIndex: cint): BRepMeshTriangle {.
+proc getElement*(this: var BRepMeshDataStructureOfDelaun; theIndex: int): BRepMeshTriangle {.
     importcpp: "GetElement", header: "BRepMesh_DataStructureOfDelaun.hxx".}
 proc elementsOfDomain*(this: BRepMeshDataStructureOfDelaun): MapOfInteger {.
     noSideEffect, importcpp: "ElementsOfDomain",
     header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc substituteElement*(this: var BRepMeshDataStructureOfDelaun; theIndex: cint;
-                       theNewElement: BRepMeshTriangle): bool {.
+proc substituteElement*(this: var BRepMeshDataStructureOfDelaun; theIndex: int;
+                       theNewElement: BRepMeshTriangle): StandardBoolean {.
     importcpp: "SubstituteElement", header: "BRepMesh_DataStructureOfDelaun.hxx".}
-proc removeElement*(this: var BRepMeshDataStructureOfDelaun; theIndex: cint) {.
+proc removeElement*(this: var BRepMeshDataStructureOfDelaun; theIndex: int) {.
     importcpp: "RemoveElement", header: "BRepMesh_DataStructureOfDelaun.hxx".}
 proc elementNodes*(this: var BRepMeshDataStructureOfDelaun;
-                  theElement: BRepMeshTriangle; theNodes: array[3, cint]) {.
+                  theElement: BRepMeshTriangle; theNodes: array[3, int]) {.
     importcpp: "ElementNodes", header: "BRepMesh_DataStructureOfDelaun.hxx".}
 proc dump*(this: var BRepMeshDataStructureOfDelaun; theFileNameStr: StandardCString) {.
     importcpp: "Dump", header: "BRepMesh_DataStructureOfDelaun.hxx".}
@@ -120,28 +122,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BRepMeshDataStructureOfDelaun): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_DataStructureOfDelaun.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

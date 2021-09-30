@@ -19,19 +19,36 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of IntSurf_Transition"
 type
   BRepBlendPointOnRst* {.importcpp: "BRepBlend_PointOnRst",
-                        header: "BRepBlend_PointOnRst.hxx", bycopy.} = object ## ! Empty
-                                                                         ## constructor.
+                        header: "BRepBlend_PointOnRst.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepBlendPointOnRst; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_PointOnRst::operator new",
+    header: "BRepBlend_PointOnRst.hxx".}
+proc `delete`*(this: var BRepBlendPointOnRst; theAddress: pointer) {.
+    importcpp: "BRepBlend_PointOnRst::operator delete",
+    header: "BRepBlend_PointOnRst.hxx".}
+proc `new[]`*(this: var BRepBlendPointOnRst; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_PointOnRst::operator new[]",
+    header: "BRepBlend_PointOnRst.hxx".}
+proc `delete[]`*(this: var BRepBlendPointOnRst; theAddress: pointer) {.
+    importcpp: "BRepBlend_PointOnRst::operator delete[]",
+    header: "BRepBlend_PointOnRst.hxx".}
+proc `new`*(this: var BRepBlendPointOnRst; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBlend_PointOnRst::operator new",
+    header: "BRepBlend_PointOnRst.hxx".}
+proc `delete`*(this: var BRepBlendPointOnRst; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBlend_PointOnRst::operator delete",
+    header: "BRepBlend_PointOnRst.hxx".}
 proc constructBRepBlendPointOnRst*(): BRepBlendPointOnRst {.constructor,
     importcpp: "BRepBlend_PointOnRst(@)", header: "BRepBlend_PointOnRst.hxx".}
-proc constructBRepBlendPointOnRst*(a: Handle[Adaptor2dHCurve2d]; param: cfloat;
-                                  tLine: IntSurfTransition;
+proc constructBRepBlendPointOnRst*(a: Handle[Adaptor2dHCurve2d];
+                                  param: StandardReal; tLine: IntSurfTransition;
                                   tArc: IntSurfTransition): BRepBlendPointOnRst {.
     constructor, importcpp: "BRepBlend_PointOnRst(@)",
     header: "BRepBlend_PointOnRst.hxx".}
 proc setArc*(this: var BRepBlendPointOnRst; a: Handle[Adaptor2dHCurve2d];
-            param: cfloat; tLine: IntSurfTransition; tArc: IntSurfTransition) {.
+            param: StandardReal; tLine: IntSurfTransition; tArc: IntSurfTransition) {.
     importcpp: "SetArc", header: "BRepBlend_PointOnRst.hxx".}
 proc arc*(this: BRepBlendPointOnRst): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "Arc", header: "BRepBlend_PointOnRst.hxx".}
@@ -39,30 +56,5 @@ proc transitionOnLine*(this: BRepBlendPointOnRst): IntSurfTransition {.noSideEff
     importcpp: "TransitionOnLine", header: "BRepBlend_PointOnRst.hxx".}
 proc transitionOnArc*(this: BRepBlendPointOnRst): IntSurfTransition {.noSideEffect,
     importcpp: "TransitionOnArc", header: "BRepBlend_PointOnRst.hxx".}
-proc parameterOnArc*(this: BRepBlendPointOnRst): cfloat {.noSideEffect,
+proc parameterOnArc*(this: BRepBlendPointOnRst): StandardReal {.noSideEffect,
     importcpp: "ParameterOnArc", header: "BRepBlend_PointOnRst.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

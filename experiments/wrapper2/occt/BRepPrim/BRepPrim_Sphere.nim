@@ -20,41 +20,26 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of TopoDS_Face"
 type
   BRepPrimSphere* {.importcpp: "BRepPrim_Sphere", header: "BRepPrim_Sphere.hxx",
-                   bycopy.} = object of BRepPrimRevolution ## ! Creates a Sphere at  origin with  Radius. The axes
-                                                      ## ! of the sphere are the  reference axes. An error is
-                                                      ## ! raised if the radius is < Resolution.
+                   bycopy.} = object of BRepPrimRevolution
 
 
-proc constructBRepPrimSphere*(radius: cfloat): BRepPrimSphere {.constructor,
+proc `new`*(this: var BRepPrimSphere; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Sphere::operator new", header: "BRepPrim_Sphere.hxx".}
+proc `delete`*(this: var BRepPrimSphere; theAddress: pointer) {.
+    importcpp: "BRepPrim_Sphere::operator delete", header: "BRepPrim_Sphere.hxx".}
+proc `new[]`*(this: var BRepPrimSphere; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Sphere::operator new[]", header: "BRepPrim_Sphere.hxx".}
+proc `delete[]`*(this: var BRepPrimSphere; theAddress: pointer) {.
+    importcpp: "BRepPrim_Sphere::operator delete[]", header: "BRepPrim_Sphere.hxx".}
+proc `new`*(this: var BRepPrimSphere; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrim_Sphere::operator new", header: "BRepPrim_Sphere.hxx".}
+proc `delete`*(this: var BRepPrimSphere; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrim_Sphere::operator delete", header: "BRepPrim_Sphere.hxx".}
+proc constructBRepPrimSphere*(radius: StandardReal): BRepPrimSphere {.constructor,
     importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
-proc constructBRepPrimSphere*(center: Pnt; radius: cfloat): BRepPrimSphere {.
+proc constructBRepPrimSphere*(center: Pnt; radius: StandardReal): BRepPrimSphere {.
     constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
-proc constructBRepPrimSphere*(axes: Ax2; radius: cfloat): BRepPrimSphere {.
+proc constructBRepPrimSphere*(axes: Ax2; radius: StandardReal): BRepPrimSphere {.
     constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimSphere): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Sphere.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

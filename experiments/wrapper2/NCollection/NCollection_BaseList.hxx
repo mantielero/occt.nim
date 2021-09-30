@@ -37,8 +37,8 @@ class NCollection_BaseList
 {
 public:
   //! Memory allocation
-  DEFINE_STANDARD_ALLOC
-  DEFINE_NCOLLECTION_ALLOC
+  //DEFINE_STANDARD_ALLOC
+  //DEFINE_NCOLLECTION_ALLOC
 
 public:
   class Iterator

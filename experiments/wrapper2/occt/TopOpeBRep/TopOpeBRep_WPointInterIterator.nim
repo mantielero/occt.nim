@@ -22,6 +22,24 @@ type
                                   bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepWPointInterIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_WPointInterIterator::operator new",
+    header: "TopOpeBRep_WPointInterIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepWPointInterIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_WPointInterIterator::operator delete",
+    header: "TopOpeBRep_WPointInterIterator.hxx".}
+proc `new[]`*(this: var TopOpeBRepWPointInterIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_WPointInterIterator::operator new[]",
+    header: "TopOpeBRep_WPointInterIterator.hxx".}
+proc `delete[]`*(this: var TopOpeBRepWPointInterIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_WPointInterIterator::operator delete[]",
+    header: "TopOpeBRep_WPointInterIterator.hxx".}
+proc `new`*(this: var TopOpeBRepWPointInterIterator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_WPointInterIterator::operator new",
+    header: "TopOpeBRep_WPointInterIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepWPointInterIterator; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_WPointInterIterator::operator delete",
+    header: "TopOpeBRep_WPointInterIterator.hxx".}
 proc constructTopOpeBRepWPointInterIterator*(): TopOpeBRepWPointInterIterator {.
     constructor, importcpp: "TopOpeBRep_WPointInterIterator(@)",
     header: "TopOpeBRep_WPointInterIterator.hxx".}
@@ -32,7 +50,7 @@ proc init*(this: var TopOpeBRepWPointInterIterator; li: TopOpeBRepLineInter) {.
     importcpp: "Init", header: "TopOpeBRep_WPointInterIterator.hxx".}
 proc init*(this: var TopOpeBRepWPointInterIterator) {.importcpp: "Init",
     header: "TopOpeBRep_WPointInterIterator.hxx".}
-proc more*(this: TopOpeBRepWPointInterIterator): bool {.noSideEffect,
+proc more*(this: TopOpeBRepWPointInterIterator): StandardBoolean {.noSideEffect,
     importcpp: "More", header: "TopOpeBRep_WPointInterIterator.hxx".}
 proc next*(this: var TopOpeBRepWPointInterIterator) {.importcpp: "Next",
     header: "TopOpeBRep_WPointInterIterator.hxx".}
@@ -41,28 +59,3 @@ proc currentWP*(this: var TopOpeBRepWPointInterIterator): TopOpeBRepWPointInter 
 proc pLineInterDummy*(this: TopOpeBRepWPointInterIterator): TopOpeBRepPLineInter {.
     noSideEffect, importcpp: "PLineInterDummy",
     header: "TopOpeBRep_WPointInterIterator.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

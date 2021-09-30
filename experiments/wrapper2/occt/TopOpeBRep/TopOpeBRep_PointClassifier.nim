@@ -23,6 +23,24 @@ type
                               header: "TopOpeBRep_PointClassifier.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepPointClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_PointClassifier::operator new",
+    header: "TopOpeBRep_PointClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepPointClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_PointClassifier::operator delete",
+    header: "TopOpeBRep_PointClassifier.hxx".}
+proc `new[]`*(this: var TopOpeBRepPointClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_PointClassifier::operator new[]",
+    header: "TopOpeBRep_PointClassifier.hxx".}
+proc `delete[]`*(this: var TopOpeBRepPointClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_PointClassifier::operator delete[]",
+    header: "TopOpeBRep_PointClassifier.hxx".}
+proc `new`*(this: var TopOpeBRepPointClassifier; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_PointClassifier::operator new",
+    header: "TopOpeBRep_PointClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepPointClassifier; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_PointClassifier::operator delete",
+    header: "TopOpeBRep_PointClassifier.hxx".}
 proc constructTopOpeBRepPointClassifier*(): TopOpeBRepPointClassifier {.
     constructor, importcpp: "TopOpeBRep_PointClassifier(@)",
     header: "TopOpeBRep_PointClassifier.hxx".}
@@ -31,32 +49,7 @@ proc init*(this: var TopOpeBRepPointClassifier) {.importcpp: "Init",
 proc load*(this: var TopOpeBRepPointClassifier; f: TopoDS_Face) {.importcpp: "Load",
     header: "TopOpeBRep_PointClassifier.hxx".}
 proc classify*(this: var TopOpeBRepPointClassifier; f: TopoDS_Face; p: Pnt2d;
-              tol: cfloat): TopAbsState {.importcpp: "Classify",
-                                       header: "TopOpeBRep_PointClassifier.hxx".}
+              tol: StandardReal): TopAbsState {.importcpp: "Classify",
+    header: "TopOpeBRep_PointClassifier.hxx".}
 proc state*(this: TopOpeBRepPointClassifier): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRep_PointClassifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

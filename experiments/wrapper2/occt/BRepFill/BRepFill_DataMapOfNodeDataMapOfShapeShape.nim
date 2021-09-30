@@ -19,29 +19,3 @@ type
       TopToolsDataMapOfShapeShape, TColStdMapTransientHasher]
   BRepFillDataMapIteratorOfDataMapOfNodeDataMapOfShapeShape* = Iterator[
       Handle[MAT_Node], TopToolsDataMapOfShapeShape, TColStdMapTransientHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -22,6 +22,24 @@ type
                       header: "BRepFill_Generator.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepFillGenerator; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_Generator::operator new",
+    header: "BRepFill_Generator.hxx".}
+proc `delete`*(this: var BRepFillGenerator; theAddress: pointer) {.
+    importcpp: "BRepFill_Generator::operator delete",
+    header: "BRepFill_Generator.hxx".}
+proc `new[]`*(this: var BRepFillGenerator; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_Generator::operator new[]",
+    header: "BRepFill_Generator.hxx".}
+proc `delete[]`*(this: var BRepFillGenerator; theAddress: pointer) {.
+    importcpp: "BRepFill_Generator::operator delete[]",
+    header: "BRepFill_Generator.hxx".}
+proc `new`*(this: var BRepFillGenerator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_Generator::operator new",
+    header: "BRepFill_Generator.hxx".}
+proc `delete`*(this: var BRepFillGenerator; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_Generator::operator delete",
+    header: "BRepFill_Generator.hxx".}
 proc constructBRepFillGenerator*(): BRepFillGenerator {.constructor,
     importcpp: "BRepFill_Generator(@)", header: "BRepFill_Generator.hxx".}
 proc addWire*(this: var BRepFillGenerator; wire: TopoDS_Wire) {.importcpp: "AddWire",
@@ -34,28 +52,3 @@ proc generated*(this: BRepFillGenerator): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, importcpp: "Generated", header: "BRepFill_Generator.hxx".}
 proc generatedShapes*(this: BRepFillGenerator; sSection: TopoDS_Shape): TopToolsListOfShape {.
     noSideEffect, importcpp: "GeneratedShapes", header: "BRepFill_Generator.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

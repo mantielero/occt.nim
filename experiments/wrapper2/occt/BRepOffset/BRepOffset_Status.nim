@@ -25,29 +25,3 @@ type
                      header: "BRepOffset_Status.hxx".} = enum
     BRepOffsetGood, BRepOffsetReversed, BRepOffsetDegenerated, BRepOffsetUnknown
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

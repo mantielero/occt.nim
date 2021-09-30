@@ -6,29 +6,3 @@ include TopAbs
 include TopAbs_Orientation
 include TopAbs_ShapeEnum
 include TopAbs_State
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

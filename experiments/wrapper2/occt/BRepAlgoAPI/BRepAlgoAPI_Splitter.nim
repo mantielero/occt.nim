@@ -102,6 +102,24 @@ type
     ## !< Tool arguments of the operation
 
 
+proc `new`*(this: var BRepAlgoAPI_Splitter; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Splitter::operator new",
+    header: "BRepAlgoAPI_Splitter.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Splitter; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Splitter::operator delete",
+    header: "BRepAlgoAPI_Splitter.hxx".}
+proc `new[]`*(this: var BRepAlgoAPI_Splitter; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Splitter::operator new[]",
+    header: "BRepAlgoAPI_Splitter.hxx".}
+proc `delete[]`*(this: var BRepAlgoAPI_Splitter; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Splitter::operator delete[]",
+    header: "BRepAlgoAPI_Splitter.hxx".}
+proc `new`*(this: var BRepAlgoAPI_Splitter; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgoAPI_Splitter::operator new",
+    header: "BRepAlgoAPI_Splitter.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Splitter; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgoAPI_Splitter::operator delete",
+    header: "BRepAlgoAPI_Splitter.hxx".}
 proc constructBRepAlgoAPI_Splitter*(): BRepAlgoAPI_Splitter {.constructor,
     importcpp: "BRepAlgoAPI_Splitter(@)", header: "BRepAlgoAPI_Splitter.hxx".}
 proc constructBRepAlgoAPI_Splitter*(thePF: BOPAlgoPaveFiller): BRepAlgoAPI_Splitter {.
@@ -113,28 +131,3 @@ proc tools*(this: BRepAlgoAPI_Splitter): TopToolsListOfShape {.noSideEffect,
     importcpp: "Tools", header: "BRepAlgoAPI_Splitter.hxx".}
 proc build*(this: var BRepAlgoAPI_Splitter) {.importcpp: "Build",
     header: "BRepAlgoAPI_Splitter.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

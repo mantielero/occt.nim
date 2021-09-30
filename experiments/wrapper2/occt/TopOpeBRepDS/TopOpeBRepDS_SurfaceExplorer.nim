@@ -22,54 +22,49 @@ type
                                  bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_SurfaceExplorer; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_SurfaceExplorer::operator new",
+    header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_SurfaceExplorer; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_SurfaceExplorer::operator delete",
+    header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_SurfaceExplorer; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_SurfaceExplorer::operator new[]",
+    header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_SurfaceExplorer; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_SurfaceExplorer::operator delete[]",
+    header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+proc `new`*(this: var TopOpeBRepDS_SurfaceExplorer; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_SurfaceExplorer::operator new",
+    header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_SurfaceExplorer; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_SurfaceExplorer::operator delete",
+    header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc constructTopOpeBRepDS_SurfaceExplorer*(): TopOpeBRepDS_SurfaceExplorer {.
     constructor, importcpp: "TopOpeBRepDS_SurfaceExplorer(@)",
     header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc constructTopOpeBRepDS_SurfaceExplorer*(ds: TopOpeBRepDS_DataStructure;
-    findOnlyKeep: bool = true): TopOpeBRepDS_SurfaceExplorer {.constructor,
-    importcpp: "TopOpeBRepDS_SurfaceExplorer(@)",
+    findOnlyKeep: StandardBoolean = true): TopOpeBRepDS_SurfaceExplorer {.
+    constructor, importcpp: "TopOpeBRepDS_SurfaceExplorer(@)",
     header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc init*(this: var TopOpeBRepDS_SurfaceExplorer; ds: TopOpeBRepDS_DataStructure;
-          findOnlyKeep: bool = true) {.importcpp: "Init",
-                                   header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc more*(this: TopOpeBRepDS_SurfaceExplorer): bool {.noSideEffect,
+          findOnlyKeep: StandardBoolean = true) {.importcpp: "Init",
+    header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+proc more*(this: TopOpeBRepDS_SurfaceExplorer): StandardBoolean {.noSideEffect,
     importcpp: "More", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc next*(this: var TopOpeBRepDS_SurfaceExplorer) {.importcpp: "Next",
     header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc surface*(this: TopOpeBRepDS_SurfaceExplorer): TopOpeBRepDS_Surface {.
     noSideEffect, importcpp: "Surface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc isSurface*(this: TopOpeBRepDS_SurfaceExplorer; i: cint): bool {.noSideEffect,
-    importcpp: "IsSurface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc isSurfaceKeep*(this: TopOpeBRepDS_SurfaceExplorer; i: cint): bool {.noSideEffect,
-    importcpp: "IsSurfaceKeep", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc surface*(this: TopOpeBRepDS_SurfaceExplorer; i: cint): TopOpeBRepDS_Surface {.
+proc isSurface*(this: TopOpeBRepDS_SurfaceExplorer; i: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsSurface",
+    header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+proc isSurfaceKeep*(this: TopOpeBRepDS_SurfaceExplorer; i: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsSurfaceKeep",
+    header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+proc surface*(this: TopOpeBRepDS_SurfaceExplorer; i: int): TopOpeBRepDS_Surface {.
     noSideEffect, importcpp: "Surface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc nbSurface*(this: var TopOpeBRepDS_SurfaceExplorer): cint {.
+proc nbSurface*(this: var TopOpeBRepDS_SurfaceExplorer): int {.
     importcpp: "NbSurface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-proc index*(this: TopOpeBRepDS_SurfaceExplorer): cint {.noSideEffect,
+proc index*(this: TopOpeBRepDS_SurfaceExplorer): int {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

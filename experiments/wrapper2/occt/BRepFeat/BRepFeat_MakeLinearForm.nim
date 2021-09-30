@@ -25,56 +25,46 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 type
   BRepFeatMakeLinearForm* {.importcpp: "BRepFeat_MakeLinearForm",
-                           header: "BRepFeat_MakeLinearForm.hxx", bycopy.} = object of BRepFeatRibSlot ##
-                                                                                                ## !
-                                                                                                ## initializes
-                                                                                                ## the
-                                                                                                ## linear
-                                                                                                ## form
-                                                                                                ## class
+                           header: "BRepFeat_MakeLinearForm.hxx", bycopy.} = object of BRepFeatRibSlot
 
 
+proc `new`*(this: var BRepFeatMakeLinearForm; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_MakeLinearForm::operator new",
+    header: "BRepFeat_MakeLinearForm.hxx".}
+proc `delete`*(this: var BRepFeatMakeLinearForm; theAddress: pointer) {.
+    importcpp: "BRepFeat_MakeLinearForm::operator delete",
+    header: "BRepFeat_MakeLinearForm.hxx".}
+proc `new[]`*(this: var BRepFeatMakeLinearForm; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_MakeLinearForm::operator new[]",
+    header: "BRepFeat_MakeLinearForm.hxx".}
+proc `delete[]`*(this: var BRepFeatMakeLinearForm; theAddress: pointer) {.
+    importcpp: "BRepFeat_MakeLinearForm::operator delete[]",
+    header: "BRepFeat_MakeLinearForm.hxx".}
+proc `new`*(this: var BRepFeatMakeLinearForm; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFeat_MakeLinearForm::operator new",
+    header: "BRepFeat_MakeLinearForm.hxx".}
+proc `delete`*(this: var BRepFeatMakeLinearForm; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFeat_MakeLinearForm::operator delete",
+    header: "BRepFeat_MakeLinearForm.hxx".}
 proc constructBRepFeatMakeLinearForm*(): BRepFeatMakeLinearForm {.constructor,
     importcpp: "BRepFeat_MakeLinearForm(@)", header: "BRepFeat_MakeLinearForm.hxx".}
 proc constructBRepFeatMakeLinearForm*(sbase: TopoDS_Shape; w: TopoDS_Wire;
                                      p: Handle[GeomPlane]; direction: Vec;
-                                     direction1: Vec; fuse: cint; modify: bool): BRepFeatMakeLinearForm {.
+                                     direction1: Vec; fuse: int;
+                                     modify: StandardBoolean): BRepFeatMakeLinearForm {.
     constructor, importcpp: "BRepFeat_MakeLinearForm(@)",
     header: "BRepFeat_MakeLinearForm.hxx".}
 proc init*(this: var BRepFeatMakeLinearForm; sbase: TopoDS_Shape; w: TopoDS_Wire;
-          p: Handle[GeomPlane]; direction: Vec; direction1: Vec; fuse: cint;
-          modify: bool) {.importcpp: "Init", header: "BRepFeat_MakeLinearForm.hxx".}
+          p: Handle[GeomPlane]; direction: Vec; direction1: Vec; fuse: int;
+          modify: StandardBoolean) {.importcpp: "Init",
+                                   header: "BRepFeat_MakeLinearForm.hxx".}
 proc add*(this: var BRepFeatMakeLinearForm; e: TopoDS_Edge; onFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakeLinearForm.hxx".}
 proc perform*(this: var BRepFeatMakeLinearForm) {.importcpp: "Perform",
     header: "BRepFeat_MakeLinearForm.hxx".}
-proc transformShapeFU*(this: var BRepFeatMakeLinearForm; flag: cint) {.
+proc transformShapeFU*(this: var BRepFeatMakeLinearForm; flag: int) {.
     importcpp: "TransformShapeFU", header: "BRepFeat_MakeLinearForm.hxx".}
 proc propagate*(this: var BRepFeatMakeLinearForm; L: var TopToolsListOfShape;
-               f: TopoDS_Face; fPoint: Pnt; lPoint: Pnt; falseside: var bool): bool {.
+               f: TopoDS_Face; fPoint: Pnt; lPoint: Pnt;
+               falseside: var StandardBoolean): StandardBoolean {.
     importcpp: "Propagate", header: "BRepFeat_MakeLinearForm.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

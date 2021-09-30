@@ -19,14 +19,33 @@ discard "forward decl of TopoDS_Face"
 type
   BRepMeshEdgeParameterProvider*[ParametersCollection] {.
       importcpp: "BRepMesh_EdgeParameterProvider<\'0>",
-      header: "BRepMesh_EdgeParameterProvider.hxx", bycopy.} = object of StandardTransient ##
-                                                                                    ## !
-                                                                                    ## Constructor.
-                                                                                    ## Initializes
-                                                                                    ## empty
-                                                                                    ## provider.
+      header: "BRepMesh_EdgeParameterProvider.hxx", bycopy.} = object of StandardTransient
 
 
+proc `new`*[ParametersCollection](this: var BRepMeshEdgeParameterProvider[
+    ParametersCollection]; theSize: csize_t): pointer {.
+    importcpp: "BRepMesh_EdgeParameterProvider::operator new",
+    header: "BRepMesh_EdgeParameterProvider.hxx".}
+proc `delete`*[ParametersCollection](this: var BRepMeshEdgeParameterProvider[
+    ParametersCollection]; theAddress: pointer) {.
+    importcpp: "BRepMesh_EdgeParameterProvider::operator delete",
+    header: "BRepMesh_EdgeParameterProvider.hxx".}
+proc `new[]`*[ParametersCollection](this: var BRepMeshEdgeParameterProvider[
+    ParametersCollection]; theSize: csize_t): pointer {.
+    importcpp: "BRepMesh_EdgeParameterProvider::operator new[]",
+    header: "BRepMesh_EdgeParameterProvider.hxx".}
+proc `delete[]`*[ParametersCollection](this: var BRepMeshEdgeParameterProvider[
+    ParametersCollection]; theAddress: pointer) {.
+    importcpp: "BRepMesh_EdgeParameterProvider::operator delete[]",
+    header: "BRepMesh_EdgeParameterProvider.hxx".}
+proc `new`*[ParametersCollection](this: var BRepMeshEdgeParameterProvider[
+    ParametersCollection]; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepMesh_EdgeParameterProvider::operator new",
+    header: "BRepMesh_EdgeParameterProvider.hxx".}
+proc `delete`*[ParametersCollection](this: var BRepMeshEdgeParameterProvider[
+    ParametersCollection]; a2: pointer; a3: pointer) {.
+    importcpp: "BRepMesh_EdgeParameterProvider::operator delete",
+    header: "BRepMesh_EdgeParameterProvider.hxx".}
 proc constructBRepMeshEdgeParameterProvider*[ParametersCollection](): BRepMeshEdgeParameterProvider[
     ParametersCollection] {.constructor, importcpp: "BRepMesh_EdgeParameterProvider<\'*0>(@)",
                            header: "BRepMesh_EdgeParameterProvider.hxx".}
@@ -41,33 +60,9 @@ proc init*[ParametersCollection](this: var BRepMeshEdgeParameterProvider[
                                 theParameters: ParametersCollection) {.
     importcpp: "Init", header: "BRepMesh_EdgeParameterProvider.hxx".}
 proc parameter*[ParametersCollection](this: BRepMeshEdgeParameterProvider[
-    ParametersCollection]; theIndex: cint; thePoint3d: Pnt): cfloat {.noSideEffect,
-    importcpp: "Parameter", header: "BRepMesh_EdgeParameterProvider.hxx".}
+    ParametersCollection]; theIndex: int; thePoint3d: Pnt): StandardReal {.
+    noSideEffect, importcpp: "Parameter",
+    header: "BRepMesh_EdgeParameterProvider.hxx".}
 proc getPCurve*[ParametersCollection](this: BRepMeshEdgeParameterProvider[
     ParametersCollection]): Handle[Adaptor2dHCurve2d] {.noSideEffect,
     importcpp: "GetPCurve", header: "BRepMesh_EdgeParameterProvider.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

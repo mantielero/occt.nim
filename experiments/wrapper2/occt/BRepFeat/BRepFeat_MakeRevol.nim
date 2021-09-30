@@ -22,28 +22,41 @@ discard "forward decl of gp_Ax1"
 discard "forward decl of TopoDS_Edge"
 type
   BRepFeatMakeRevol* {.importcpp: "BRepFeat_MakeRevol",
-                      header: "BRepFeat_MakeRevol.hxx", bycopy.} = object of BRepFeatForm ##
-                                                                                   ## !
-                                                                                   ## initializes
-                                                                                   ## the
-                                                                                   ## revolved
-                                                                                   ## shell
-                                                                                   ## class.
+                      header: "BRepFeat_MakeRevol.hxx", bycopy.} = object of BRepFeatForm
 
 
+proc `new`*(this: var BRepFeatMakeRevol; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_MakeRevol::operator new",
+    header: "BRepFeat_MakeRevol.hxx".}
+proc `delete`*(this: var BRepFeatMakeRevol; theAddress: pointer) {.
+    importcpp: "BRepFeat_MakeRevol::operator delete",
+    header: "BRepFeat_MakeRevol.hxx".}
+proc `new[]`*(this: var BRepFeatMakeRevol; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_MakeRevol::operator new[]",
+    header: "BRepFeat_MakeRevol.hxx".}
+proc `delete[]`*(this: var BRepFeatMakeRevol; theAddress: pointer) {.
+    importcpp: "BRepFeat_MakeRevol::operator delete[]",
+    header: "BRepFeat_MakeRevol.hxx".}
+proc `new`*(this: var BRepFeatMakeRevol; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFeat_MakeRevol::operator new",
+    header: "BRepFeat_MakeRevol.hxx".}
+proc `delete`*(this: var BRepFeatMakeRevol; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFeat_MakeRevol::operator delete",
+    header: "BRepFeat_MakeRevol.hxx".}
 proc constructBRepFeatMakeRevol*(): BRepFeatMakeRevol {.constructor,
     importcpp: "BRepFeat_MakeRevol(@)", header: "BRepFeat_MakeRevol.hxx".}
 proc constructBRepFeatMakeRevol*(sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-                                skface: TopoDS_Face; axis: Ax1; fuse: cint;
-                                modify: bool): BRepFeatMakeRevol {.constructor,
-    importcpp: "BRepFeat_MakeRevol(@)", header: "BRepFeat_MakeRevol.hxx".}
-proc init*(this: var BRepFeatMakeRevol; sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-          skface: TopoDS_Face; axis: Ax1; fuse: cint; modify: bool) {.importcpp: "Init",
+                                skface: TopoDS_Face; axis: Ax1; fuse: int;
+                                modify: StandardBoolean): BRepFeatMakeRevol {.
+    constructor, importcpp: "BRepFeat_MakeRevol(@)",
     header: "BRepFeat_MakeRevol.hxx".}
+proc init*(this: var BRepFeatMakeRevol; sbase: TopoDS_Shape; pbase: TopoDS_Shape;
+          skface: TopoDS_Face; axis: Ax1; fuse: int; modify: StandardBoolean) {.
+    importcpp: "Init", header: "BRepFeat_MakeRevol.hxx".}
 proc add*(this: var BRepFeatMakeRevol; e: TopoDS_Edge; onFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakeRevol.hxx".}
-proc perform*(this: var BRepFeatMakeRevol; angle: cfloat) {.importcpp: "Perform",
-    header: "BRepFeat_MakeRevol.hxx".}
+proc perform*(this: var BRepFeatMakeRevol; angle: StandardReal) {.
+    importcpp: "Perform", header: "BRepFeat_MakeRevol.hxx".}
 proc perform*(this: var BRepFeatMakeRevol; until: TopoDS_Shape) {.
     importcpp: "Perform", header: "BRepFeat_MakeRevol.hxx".}
 proc perform*(this: var BRepFeatMakeRevol; `from`: TopoDS_Shape; until: TopoDS_Shape) {.
@@ -51,34 +64,9 @@ proc perform*(this: var BRepFeatMakeRevol; `from`: TopoDS_Shape; until: TopoDS_S
 proc performThruAll*(this: var BRepFeatMakeRevol) {.importcpp: "PerformThruAll",
     header: "BRepFeat_MakeRevol.hxx".}
 proc performUntilAngle*(this: var BRepFeatMakeRevol; until: TopoDS_Shape;
-                       angle: cfloat) {.importcpp: "PerformUntilAngle",
-                                      header: "BRepFeat_MakeRevol.hxx".}
+                       angle: StandardReal) {.importcpp: "PerformUntilAngle",
+    header: "BRepFeat_MakeRevol.hxx".}
 proc curves*(this: var BRepFeatMakeRevol; s: var TColGeomSequenceOfCurve) {.
     importcpp: "Curves", header: "BRepFeat_MakeRevol.hxx".}
 proc barycCurve*(this: var BRepFeatMakeRevol): Handle[GeomCurve] {.
     importcpp: "BarycCurve", header: "BRepFeat_MakeRevol.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

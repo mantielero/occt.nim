@@ -37,7 +37,7 @@ type
 proc constructTPrsStdPointDriver*(): TPrsStdPointDriver {.constructor,
     importcpp: "TPrsStd_PointDriver(@)", header: "TPrsStd_PointDriver.hxx".}
 proc update*(this: var TPrsStdPointDriver; aLabel: TDF_Label;
-            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
+            anAISObject: var Handle[AIS_InteractiveObject]): StandardBoolean {.
     importcpp: "Update", header: "TPrsStd_PointDriver.hxx".}
 type
   TPrsStdPointDriverbaseType* = TPrsStdDriver
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_PointDriver.hxx".}
 proc dynamicType*(this: TPrsStdPointDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_PointDriver.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

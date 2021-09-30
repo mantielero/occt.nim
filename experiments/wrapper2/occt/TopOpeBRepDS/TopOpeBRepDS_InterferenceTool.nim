@@ -23,63 +23,56 @@ type
                                   bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_InterferenceTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_InterferenceTool::operator new",
+    header: "TopOpeBRepDS_InterferenceTool.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_InterferenceTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_InterferenceTool::operator delete",
+    header: "TopOpeBRepDS_InterferenceTool.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_InterferenceTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_InterferenceTool::operator new[]",
+    header: "TopOpeBRepDS_InterferenceTool.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_InterferenceTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_InterferenceTool::operator delete[]",
+    header: "TopOpeBRepDS_InterferenceTool.hxx".}
+proc `new`*(this: var TopOpeBRepDS_InterferenceTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_InterferenceTool::operator new",
+    header: "TopOpeBRepDS_InterferenceTool.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_InterferenceTool; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_InterferenceTool::operator delete",
+    header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc makeEdgeInterference*(t: TopOpeBRepDS_Transition; sk: TopOpeBRepDS_Kind;
-                          si: cint; gk: TopOpeBRepDS_Kind; gi: cint; p: cfloat): Handle[
+                          si: int; gk: TopOpeBRepDS_Kind; gi: int; p: StandardReal): Handle[
     TopOpeBRepDS_Interference] {.importcpp: "TopOpeBRepDS_InterferenceTool::MakeEdgeInterference(@)",
                                 header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc makeCurveInterference*(t: TopOpeBRepDS_Transition; sk: TopOpeBRepDS_Kind;
-                           si: cint; gk: TopOpeBRepDS_Kind; gi: cint; p: cfloat): Handle[
+                           si: int; gk: TopOpeBRepDS_Kind; gi: int; p: StandardReal): Handle[
     TopOpeBRepDS_Interference] {.importcpp: "TopOpeBRepDS_InterferenceTool::MakeCurveInterference(@)",
                                 header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc duplicateCurvePointInterference*(i: Handle[TopOpeBRepDS_Interference]): Handle[
     TopOpeBRepDS_Interference] {.importcpp: "TopOpeBRepDS_InterferenceTool::DuplicateCurvePointInterference(@)",
                                 header: "TopOpeBRepDS_InterferenceTool.hxx".}
-proc makeFaceCurveInterference*(transition: TopOpeBRepDS_Transition; faceI: cint;
-                               curveI: cint; pc: Handle[Geom2dCurve]): Handle[
+proc makeFaceCurveInterference*(transition: TopOpeBRepDS_Transition; faceI: int;
+                               curveI: int; pc: Handle[Geom2dCurve]): Handle[
     TopOpeBRepDS_Interference] {.importcpp: "TopOpeBRepDS_InterferenceTool::MakeFaceCurveInterference(@)",
                                 header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc makeSolidSurfaceInterference*(transition: TopOpeBRepDS_Transition;
-                                  solidI: cint; surfaceI: cint): Handle[
+                                  solidI: int; surfaceI: int): Handle[
     TopOpeBRepDS_Interference] {.importcpp: "TopOpeBRepDS_InterferenceTool::MakeSolidSurfaceInterference(@)",
                                 header: "TopOpeBRepDS_InterferenceTool.hxx".}
-proc makeEdgeVertexInterference*(transition: TopOpeBRepDS_Transition; edgeI: cint;
-                                vertexI: cint; vertexIsBound: bool;
-                                config: TopOpeBRepDS_Config; param: cfloat): Handle[
+proc makeEdgeVertexInterference*(transition: TopOpeBRepDS_Transition; edgeI: int;
+                                vertexI: int; vertexIsBound: StandardBoolean;
+                                config: TopOpeBRepDS_Config; param: StandardReal): Handle[
     TopOpeBRepDS_Interference] {.importcpp: "TopOpeBRepDS_InterferenceTool::MakeEdgeVertexInterference(@)",
                                 header: "TopOpeBRepDS_InterferenceTool.hxx".}
-proc makeFaceEdgeInterference*(transition: TopOpeBRepDS_Transition; faceI: cint;
-                              edgeI: cint; edgeIsBound: bool;
+proc makeFaceEdgeInterference*(transition: TopOpeBRepDS_Transition; faceI: int;
+                              edgeI: int; edgeIsBound: StandardBoolean;
                               config: TopOpeBRepDS_Config): Handle[
     TopOpeBRepDS_Interference] {.importcpp: "TopOpeBRepDS_InterferenceTool::MakeFaceEdgeInterference(@)",
                                 header: "TopOpeBRepDS_InterferenceTool.hxx".}
-proc parameter*(cpi: Handle[TopOpeBRepDS_Interference]): cfloat {.
+proc parameter*(cpi: Handle[TopOpeBRepDS_Interference]): StandardReal {.
     importcpp: "TopOpeBRepDS_InterferenceTool::Parameter(@)",
     header: "TopOpeBRepDS_InterferenceTool.hxx".}
-proc parameter*(cpi: Handle[TopOpeBRepDS_Interference]; par: cfloat) {.
+proc parameter*(cpi: Handle[TopOpeBRepDS_Interference]; par: StandardReal) {.
     importcpp: "TopOpeBRepDS_InterferenceTool::Parameter(@)",
     header: "TopOpeBRepDS_InterferenceTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

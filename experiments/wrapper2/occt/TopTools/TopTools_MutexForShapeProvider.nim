@@ -41,28 +41,3 @@ proc getMutex*(this: TopToolsMutexForShapeProvider; theShape: TopoDS_Shape): ptr
     header: "TopTools_MutexForShapeProvider.hxx".}
 proc removeAllMutexes*(this: var TopToolsMutexForShapeProvider) {.
     importcpp: "RemoveAllMutexes", header: "TopTools_MutexForShapeProvider.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

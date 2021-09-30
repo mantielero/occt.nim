@@ -51,10 +51,10 @@ proc nbUIntervals*(this: Adaptor3dSurface; s: GeomAbsShape): cint {.noSideEffect
     importcpp: "NbUIntervals", header: "Adaptor3d_Surface.hxx".}
 proc nbVIntervals*(this: Adaptor3dSurface; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbVIntervals", header: "Adaptor3d_Surface.hxx".}
-proc uIntervals*(this: Adaptor3dSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+#[ proc uIntervals*(this: Adaptor3dSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, importcpp: "UIntervals", header: "Adaptor3d_Surface.hxx".}
 proc vIntervals*(this: Adaptor3dSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "VIntervals", header: "Adaptor3d_Surface.hxx".}
+    noSideEffect, importcpp: "VIntervals", header: "Adaptor3d_Surface.hxx".} ]#
 proc uTrim*(this: Adaptor3dSurface; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHSurface] {.noSideEffect, importcpp: "UTrim",
                         header: "Adaptor3d_Surface.hxx".}

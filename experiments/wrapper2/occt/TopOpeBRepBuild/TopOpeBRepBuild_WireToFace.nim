@@ -21,6 +21,24 @@ type
                               header: "TopOpeBRepBuild_WireToFace.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildWireToFace; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_WireToFace::operator new",
+    header: "TopOpeBRepBuild_WireToFace.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildWireToFace; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_WireToFace::operator delete",
+    header: "TopOpeBRepBuild_WireToFace.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildWireToFace; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_WireToFace::operator new[]",
+    header: "TopOpeBRepBuild_WireToFace.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildWireToFace; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_WireToFace::operator delete[]",
+    header: "TopOpeBRepBuild_WireToFace.hxx".}
+proc `new`*(this: var TopOpeBRepBuildWireToFace; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_WireToFace::operator new",
+    header: "TopOpeBRepBuild_WireToFace.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildWireToFace; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_WireToFace::operator delete",
+    header: "TopOpeBRepBuild_WireToFace.hxx".}
 proc constructTopOpeBRepBuildWireToFace*(): TopOpeBRepBuildWireToFace {.
     constructor, importcpp: "TopOpeBRepBuild_WireToFace(@)",
     header: "TopOpeBRepBuild_WireToFace.hxx".}
@@ -31,28 +49,3 @@ proc addWire*(this: var TopOpeBRepBuildWireToFace; w: TopoDS_Wire) {.
 proc makeFaces*(this: var TopOpeBRepBuildWireToFace; f: TopoDS_Face;
                lf: var TopToolsListOfShape) {.importcpp: "MakeFaces",
     header: "TopOpeBRepBuild_WireToFace.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

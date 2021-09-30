@@ -17,44 +17,32 @@
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 type
-  BRepPrimWedge* {.importcpp: "BRepPrim_Wedge", header: "BRepPrim_Wedge.hxx", bycopy.} = object of BRepPrimGWedge ##
-                                                                                                        ## !
-                                                                                                        ## Default
-                                                                                                        ## constructor
+  BRepPrimWedge* {.importcpp: "BRepPrim_Wedge", header: "BRepPrim_Wedge.hxx", bycopy.} = object of BRepPrimGWedge
 
 
+proc `new`*(this: var BRepPrimWedge; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Wedge::operator new", header: "BRepPrim_Wedge.hxx".}
+proc `delete`*(this: var BRepPrimWedge; theAddress: pointer) {.
+    importcpp: "BRepPrim_Wedge::operator delete", header: "BRepPrim_Wedge.hxx".}
+proc `new[]`*(this: var BRepPrimWedge; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Wedge::operator new[]", header: "BRepPrim_Wedge.hxx".}
+proc `delete[]`*(this: var BRepPrimWedge; theAddress: pointer) {.
+    importcpp: "BRepPrim_Wedge::operator delete[]", header: "BRepPrim_Wedge.hxx".}
+proc `new`*(this: var BRepPrimWedge; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrim_Wedge::operator new", header: "BRepPrim_Wedge.hxx".}
+proc `delete`*(this: var BRepPrimWedge; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrim_Wedge::operator delete", header: "BRepPrim_Wedge.hxx".}
 proc constructBRepPrimWedge*(): BRepPrimWedge {.constructor,
     importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-proc constructBRepPrimWedge*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimWedge {.
+proc constructBRepPrimWedge*(axes: Ax2; dx: StandardReal; dy: StandardReal;
+                            dz: StandardReal): BRepPrimWedge {.constructor,
+    importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
+proc constructBRepPrimWedge*(axes: Ax2; dx: StandardReal; dy: StandardReal;
+                            dz: StandardReal; ltx: StandardReal): BRepPrimWedge {.
     constructor, importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-proc constructBRepPrimWedge*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat; ltx: cfloat): BRepPrimWedge {.
+proc constructBRepPrimWedge*(axes: Ax2; xmin: StandardReal; ymin: StandardReal;
+                            zmin: StandardReal; z2min: StandardReal;
+                            x2min: StandardReal; xmax: StandardReal;
+                            ymax: StandardReal; zmax: StandardReal;
+                            z2max: StandardReal; x2max: StandardReal): BRepPrimWedge {.
     constructor, importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-proc constructBRepPrimWedge*(axes: Ax2; xmin: cfloat; ymin: cfloat; zmin: cfloat;
-                            z2min: cfloat; x2min: cfloat; xmax: cfloat; ymax: cfloat;
-                            zmax: cfloat; z2max: cfloat; x2max: cfloat): BRepPrimWedge {.
-    constructor, importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

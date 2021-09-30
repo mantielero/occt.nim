@@ -21,7 +21,7 @@ discard "forward decl of TopoDS_TShape"
 discard "forward decl of BRep_TFace"
 discard "forward decl of BRep_TFace"
 type
-  HandleC1C1* = Handle[BRepTFace]
+  HandleBRepTFace* = Handle[BRepTFace]
 
 ## ! The Tface from BRep  is  based  on the TFace  from
 ## ! TopoDS. The TFace contains :
@@ -53,8 +53,10 @@ type
                                                                                           ## an
                                                                                           ## empty
                                                                                           ## TFace.
+type
+  BRepTFacebaseType* = TopoDS_TFace
 
-
+#[ 
 proc constructBRepTFace*(): BRepTFace {.constructor, importcpp: "BRep_TFace(@)",
                                      header: "BRep_TFace.hxx".}
 proc surface*(this: BRepTFace): Handle[GeomSurface] {.noSideEffect,
@@ -63,55 +65,28 @@ proc triangulation*(this: BRepTFace): Handle[PolyTriangulation] {.noSideEffect,
     importcpp: "Triangulation", header: "BRep_TFace.hxx".}
 proc location*(this: BRepTFace): TopLocLocation {.noSideEffect,
     importcpp: "Location", header: "BRep_TFace.hxx".}
-proc tolerance*(this: BRepTFace): cfloat {.noSideEffect, importcpp: "Tolerance",
-                                       header: "BRep_TFace.hxx".}
+proc tolerance*(this: BRepTFace): StandardReal {.noSideEffect,
+    importcpp: "Tolerance", header: "BRep_TFace.hxx".}
 proc surface*(this: var BRepTFace; s: Handle[GeomSurface]) {.importcpp: "Surface",
     header: "BRep_TFace.hxx".}
 proc triangulation*(this: var BRepTFace; t: Handle[PolyTriangulation]) {.
     importcpp: "Triangulation", header: "BRep_TFace.hxx".}
 proc location*(this: var BRepTFace; L: TopLocLocation) {.importcpp: "Location",
     header: "BRep_TFace.hxx".}
-proc tolerance*(this: var BRepTFace; t: cfloat) {.importcpp: "Tolerance",
+proc tolerance*(this: var BRepTFace; t: StandardReal) {.importcpp: "Tolerance",
     header: "BRep_TFace.hxx".}
-proc naturalRestriction*(this: BRepTFace): bool {.noSideEffect,
+proc naturalRestriction*(this: BRepTFace): StandardBoolean {.noSideEffect,
     importcpp: "NaturalRestriction", header: "BRep_TFace.hxx".}
-proc naturalRestriction*(this: var BRepTFace; n: bool) {.
+proc naturalRestriction*(this: var BRepTFace; n: StandardBoolean) {.
     importcpp: "NaturalRestriction", header: "BRep_TFace.hxx".}
 proc emptyCopy*(this: BRepTFace): Handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "BRep_TFace.hxx".}
-proc dumpJson*(this: BRepTFace; theOStream: var StandardOStream; theDepth: cint = -1) {.
+proc dumpJson*(this: BRepTFace; theOStream: var StandardOStream; theDepth: int = -1) {.
     noSideEffect, importcpp: "DumpJson", header: "BRep_TFace.hxx".}
-type
-  BRepTFacebaseType* = TopoDS_TFace
 
 proc getTypeName*(): cstring {.importcpp: "BRep_TFace::get_type_name(@)",
                             header: "BRep_TFace.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "BRep_TFace::get_type_descriptor(@)", header: "BRep_TFace.hxx".}
 proc dynamicType*(this: BRepTFace): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRep_TFace.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "BRep_TFace.hxx".} ]#

@@ -16,29 +16,3 @@
 
 type
   BRepBlendSequenceOfPointOnRst* = NCollectionSequence[BRepBlendPointOnRst]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,36 +21,10 @@ include BRepApprox_ResConstraintOfMyGradientbisOfTheComputeLineOfApprox
 include BRepApprox_SurfaceTool
 include BRepApprox_TheComputeLineBezierOfApprox
 include BRepApprox_TheComputeLineOfApprox
-include BRepApprox_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfApprox
+#include BRepApprox_TheFunctionOfTheInt2SOfThePrmPrmSvSurfacesOfApprox
 include BRepApprox_TheImpPrmSvSurfacesOfApprox
-include BRepApprox_TheInt2SOfThePrmPrmSvSurfacesOfApprox
+#include BRepApprox_TheInt2SOfThePrmPrmSvSurfacesOfApprox
 include BRepApprox_TheMultiLineOfApprox
-include BRepApprox_TheMultiLineToolOfApprox
+#include BRepApprox_TheMultiLineToolOfApprox
 include BRepApprox_ThePrmPrmSvSurfacesOfApprox
-include BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox

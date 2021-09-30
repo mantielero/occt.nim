@@ -25,29 +25,3 @@ type
                 header: "TopAbs_State.hxx".} = enum
     TopAbsIN, TopAbsOUT, TopAbsON, TopAbsUNKNOWN
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

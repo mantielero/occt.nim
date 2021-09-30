@@ -20,29 +20,3 @@ type
                             header: "BRepFill_TransitionStyle.hxx".} = enum
     BRepFillModified, BRepFillRight, BRepFillRound
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

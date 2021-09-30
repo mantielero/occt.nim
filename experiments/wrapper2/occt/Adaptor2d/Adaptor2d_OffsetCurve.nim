@@ -70,9 +70,9 @@ proc continuity*(this: Adaptor2dOffsetCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor2d_OffsetCurve.hxx".}
 proc nbIntervals*(this: Adaptor2dOffsetCurve; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Adaptor2d_OffsetCurve.hxx".}
-proc intervals*(this: Adaptor2dOffsetCurve; t: var TColStdArray1OfReal;
+#[ proc intervals*(this: Adaptor2dOffsetCurve; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
-                                header: "Adaptor2d_OffsetCurve.hxx".}
+                                header: "Adaptor2d_OffsetCurve.hxx".} ]#
 proc trim*(this: Adaptor2dOffsetCurve; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor2dHCurve2d] {.noSideEffect, importcpp: "Trim",
                         header: "Adaptor2d_OffsetCurve.hxx".}

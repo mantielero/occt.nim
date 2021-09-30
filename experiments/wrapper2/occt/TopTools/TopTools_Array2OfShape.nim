@@ -16,29 +16,3 @@
 
 type
   TopToolsArray2OfShape* = NCollectionArray2[TopoDS_Shape]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

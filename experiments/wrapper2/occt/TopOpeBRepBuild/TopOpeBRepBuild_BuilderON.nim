@@ -21,6 +21,24 @@ type
                              header: "TopOpeBRepBuild_BuilderON.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildBuilderON; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_BuilderON::operator new",
+    header: "TopOpeBRepBuild_BuilderON.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildBuilderON; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_BuilderON::operator delete",
+    header: "TopOpeBRepBuild_BuilderON.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildBuilderON; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_BuilderON::operator new[]",
+    header: "TopOpeBRepBuild_BuilderON.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildBuilderON; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_BuilderON::operator delete[]",
+    header: "TopOpeBRepBuild_BuilderON.hxx".}
+proc `new`*(this: var TopOpeBRepBuildBuilderON; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_BuilderON::operator new",
+    header: "TopOpeBRepBuild_BuilderON.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildBuilderON; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_BuilderON::operator delete",
+    header: "TopOpeBRepBuild_BuilderON.hxx".}
 proc constructTopOpeBRepBuildBuilderON*(): TopOpeBRepBuildBuilderON {.constructor,
     importcpp: "TopOpeBRepBuild_BuilderON(@)",
     header: "TopOpeBRepBuild_BuilderON.hxx".}
@@ -35,8 +53,9 @@ proc perform*(this: var TopOpeBRepBuildBuilderON; pb: TopOpeBRepBuildPBuilder;
              pLSclass: TopOpeBRepToolPlos; pwes: TopOpeBRepBuildPWireEdgeSet) {.
     importcpp: "Perform", header: "TopOpeBRepBuild_BuilderON.hxx".}
 proc gFillONCheckI*(this: TopOpeBRepBuildBuilderON;
-                   i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    importcpp: "GFillONCheckI", header: "TopOpeBRepBuild_BuilderON.hxx".}
+                   i: Handle[TopOpeBRepDS_Interference]): StandardBoolean {.
+    noSideEffect, importcpp: "GFillONCheckI",
+    header: "TopOpeBRepBuild_BuilderON.hxx".}
 proc gFillONPartsWES1*(this: var TopOpeBRepBuildBuilderON;
                       i: Handle[TopOpeBRepDS_Interference]) {.
     importcpp: "GFillONPartsWES1", header: "TopOpeBRepBuild_BuilderON.hxx".}
@@ -50,28 +69,3 @@ proc perform2d*(this: var TopOpeBRepBuildBuilderON; pb: TopOpeBRepBuildPBuilder;
 proc gFillONParts2dWES2*(this: var TopOpeBRepBuildBuilderON;
                         i: Handle[TopOpeBRepDS_Interference]; espON: TopoDS_Shape) {.
     importcpp: "GFillONParts2dWES2", header: "TopOpeBRepBuild_BuilderON.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

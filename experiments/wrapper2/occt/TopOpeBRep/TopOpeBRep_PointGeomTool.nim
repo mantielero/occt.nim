@@ -24,6 +24,24 @@ type
                             header: "TopOpeBRep_PointGeomTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepPointGeomTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_PointGeomTool::operator new",
+    header: "TopOpeBRep_PointGeomTool.hxx".}
+proc `delete`*(this: var TopOpeBRepPointGeomTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_PointGeomTool::operator delete",
+    header: "TopOpeBRep_PointGeomTool.hxx".}
+proc `new[]`*(this: var TopOpeBRepPointGeomTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_PointGeomTool::operator new[]",
+    header: "TopOpeBRep_PointGeomTool.hxx".}
+proc `delete[]`*(this: var TopOpeBRepPointGeomTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_PointGeomTool::operator delete[]",
+    header: "TopOpeBRep_PointGeomTool.hxx".}
+proc `new`*(this: var TopOpeBRepPointGeomTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_PointGeomTool::operator new",
+    header: "TopOpeBRep_PointGeomTool.hxx".}
+proc `delete`*(this: var TopOpeBRepPointGeomTool; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_PointGeomTool::operator delete",
+    header: "TopOpeBRep_PointGeomTool.hxx".}
 proc makePoint*(ip: TopOpeBRepVPointInter): TopOpeBRepDS_Point {.
     importcpp: "TopOpeBRep_PointGeomTool::MakePoint(@)",
     header: "TopOpeBRep_PointGeomTool.hxx".}
@@ -36,31 +54,6 @@ proc makePoint*(fei: TopOpeBRepFaceEdgeIntersector): TopOpeBRepDS_Point {.
 proc makePoint*(s: TopoDS_Shape): TopOpeBRepDS_Point {.
     importcpp: "TopOpeBRep_PointGeomTool::MakePoint(@)",
     header: "TopOpeBRep_PointGeomTool.hxx".}
-proc isEqual*(dsp1: TopOpeBRepDS_Point; dsp2: TopOpeBRepDS_Point): bool {.
+proc isEqual*(dsp1: TopOpeBRepDS_Point; dsp2: TopOpeBRepDS_Point): StandardBoolean {.
     importcpp: "TopOpeBRep_PointGeomTool::IsEqual(@)",
     header: "TopOpeBRep_PointGeomTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

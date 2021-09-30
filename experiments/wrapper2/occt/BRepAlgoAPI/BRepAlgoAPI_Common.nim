@@ -18,12 +18,27 @@ discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
 type
   BRepAlgoAPI_Common* {.importcpp: "BRepAlgoAPI_Common",
-                       header: "BRepAlgoAPI_Common.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation ##
-                                                                                                    ## !
-                                                                                                    ## Empty
-                                                                                                    ## constructor
+                       header: "BRepAlgoAPI_Common.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation
 
 
+proc `new`*(this: var BRepAlgoAPI_Common; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Common::operator new",
+    header: "BRepAlgoAPI_Common.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Common; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Common::operator delete",
+    header: "BRepAlgoAPI_Common.hxx".}
+proc `new[]`*(this: var BRepAlgoAPI_Common; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Common::operator new[]",
+    header: "BRepAlgoAPI_Common.hxx".}
+proc `delete[]`*(this: var BRepAlgoAPI_Common; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Common::operator delete[]",
+    header: "BRepAlgoAPI_Common.hxx".}
+proc `new`*(this: var BRepAlgoAPI_Common; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgoAPI_Common::operator new",
+    header: "BRepAlgoAPI_Common.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Common; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgoAPI_Common::operator delete",
+    header: "BRepAlgoAPI_Common.hxx".}
 proc constructBRepAlgoAPI_Common*(): BRepAlgoAPI_Common {.constructor,
     importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}
 proc destroyBRepAlgoAPI_Common*(this: var BRepAlgoAPI_Common) {.
@@ -38,28 +53,3 @@ proc constructBRepAlgoAPI_Common*(s1: TopoDS_Shape; s2: TopoDS_Shape;
                                  pf: BOPAlgoPaveFiller): BRepAlgoAPI_Common {.
     constructor, importcpp: "BRepAlgoAPI_Common(@)",
     header: "BRepAlgoAPI_Common.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

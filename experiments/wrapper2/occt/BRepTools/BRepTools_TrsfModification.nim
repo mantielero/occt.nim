@@ -43,21 +43,22 @@ proc constructBRepToolsTrsfModification*(t: Trsf): BRepToolsTrsfModification {.
 proc trsf*(this: var BRepToolsTrsfModification): var Trsf {.importcpp: "Trsf",
     header: "BRepTools_TrsfModification.hxx".}
 proc newSurface*(this: var BRepToolsTrsfModification; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation; tol: var cfloat;
-                revWires: var bool; revFace: var bool): bool {.importcpp: "NewSurface",
-    header: "BRepTools_TrsfModification.hxx".}
+                s: var Handle[GeomSurface]; L: var TopLocLocation;
+                tol: var StandardReal; revWires: var StandardBoolean;
+                revFace: var StandardBoolean): StandardBoolean {.
+    importcpp: "NewSurface", header: "BRepTools_TrsfModification.hxx".}
 proc newCurve*(this: var BRepToolsTrsfModification; e: TopoDS_Edge;
-              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var cfloat): bool {.
+              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var StandardReal): StandardBoolean {.
     importcpp: "NewCurve", header: "BRepTools_TrsfModification.hxx".}
 proc newPoint*(this: var BRepToolsTrsfModification; v: TopoDS_Vertex; p: var Pnt;
-              tol: var cfloat): bool {.importcpp: "NewPoint",
-                                   header: "BRepTools_TrsfModification.hxx".}
+              tol: var StandardReal): StandardBoolean {.importcpp: "NewPoint",
+    header: "BRepTools_TrsfModification.hxx".}
 proc newCurve2d*(this: var BRepToolsTrsfModification; e: TopoDS_Edge; f: TopoDS_Face;
                 newE: TopoDS_Edge; newF: TopoDS_Face; c: var Handle[Geom2dCurve];
-                tol: var cfloat): bool {.importcpp: "NewCurve2d",
-                                     header: "BRepTools_TrsfModification.hxx".}
+                tol: var StandardReal): StandardBoolean {.importcpp: "NewCurve2d",
+    header: "BRepTools_TrsfModification.hxx".}
 proc newParameter*(this: var BRepToolsTrsfModification; v: TopoDS_Vertex;
-                  e: TopoDS_Edge; p: var cfloat; tol: var cfloat): bool {.
+                  e: TopoDS_Edge; p: var StandardReal; tol: var StandardReal): StandardBoolean {.
     importcpp: "NewParameter", header: "BRepTools_TrsfModification.hxx".}
 proc continuity*(this: var BRepToolsTrsfModification; e: TopoDS_Edge; f1: TopoDS_Face;
                 f2: TopoDS_Face; newE: TopoDS_Edge; newF1: TopoDS_Face;
@@ -74,28 +75,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: BRepToolsTrsfModification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepTools_TrsfModification.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,29 +17,3 @@
 type
   TopOpeBRepListOfBipoint* = NCollectionList[TopOpeBRepBipoint]
   TopOpeBRepListIteratorOfListOfBipoint* = Iterator[TopOpeBRepBipoint]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,182 +21,67 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of Geom_BSplineSurface"
 type
   BRepOffsetAPI_ThruSections* {.importcpp: "BRepOffsetAPI_ThruSections",
-                               header: "BRepOffsetAPI_ThruSections.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                                ## !
-                                                                                                                ## Initializes
-                                                                                                                ## an
-                                                                                                                ## algorithm
-                                                                                                                ## for
-                                                                                                                ## building
-                                                                                                                ## a
-                                                                                                                ## shell
-                                                                                                                ## or
-                                                                                                                ## a
-                                                                                                                ## solid
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## passing
-                                                                                                                ## through
-                                                                                                                ## a
-                                                                                                                ## set
-                                                                                                                ## of
-                                                                                                                ## sections,
-                                                                                                                ## where:
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## -
-                                                                                                                ## isSolid
-                                                                                                                ## is
-                                                                                                                ## set
-                                                                                                                ## to
-                                                                                                                ## true
-                                                                                                                ## if
-                                                                                                                ## the
-                                                                                                                ## construction
-                                                                                                                ## algorithm
-                                                                                                                ## is
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## required
-                                                                                                                ## to
-                                                                                                                ## build
-                                                                                                                ## a
-                                                                                                                ## solid
-                                                                                                                ## or
-                                                                                                                ## to
-                                                                                                                ## false
-                                                                                                                ## if
-                                                                                                                ## it
-                                                                                                                ## is
-                                                                                                                ## required
-                                                                                                                ## to
-                                                                                                                ## build
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## a
-                                                                                                                ## shell
-                                                                                                                ## (the
-                                                                                                                ## default
-                                                                                                                ## value),
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## -
-                                                                                                                ## ruled
-                                                                                                                ## is
-                                                                                                                ## set
-                                                                                                                ## to
-                                                                                                                ## true
-                                                                                                                ## if
-                                                                                                                ## the
-                                                                                                                ## faces
-                                                                                                                ## generated
-                                                                                                                ## between
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## the
-                                                                                                                ## edges
-                                                                                                                ## of
-                                                                                                                ## two
-                                                                                                                ## consecutive
-                                                                                                                ## wires
-                                                                                                                ## are
-                                                                                                                ## ruled
-                                                                                                                ## surfaces
-                                                                                                                ## or
-                                                                                                                ## to
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## false
-                                                                                                                ## (the
-                                                                                                                ## default
-                                                                                                                ## value)
-                                                                                                                ## if
-                                                                                                                ## they
-                                                                                                                ## are
-                                                                                                                ## smoothed
-                                                                                                                ## out
-                                                                                                                ## by
-                                                                                                                ## approximation,
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## -
-                                                                                                                ## pres3d
-                                                                                                                ## defines
-                                                                                                                ## the
-                                                                                                                ## precision
-                                                                                                                ## criterion
-                                                                                                                ## used
-                                                                                                                ## by
-                                                                                                                ## the
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## approximation
-                                                                                                                ## algorithm;
-                                                                                                                ## the
-                                                                                                                ## default
-                                                                                                                ## value
-                                                                                                                ## is
-                                                                                                                ## 1.0e-6.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Use
-                                                                                                                ## AddWire
-                                                                                                                ## and
-                                                                                                                ## AddVertex
-                                                                                                                ## to
-                                                                                                                ## define
-                                                                                                                ## the
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## successive
-                                                                                                                ## sections
-                                                                                                                ## of
-                                                                                                                ## the
-                                                                                                                ## shell
-                                                                                                                ## or
-                                                                                                                ## solid
-                                                                                                                ## to
-                                                                                                                ## be
-                                                                                                                ## built.
+                               header: "BRepOffsetAPI_ThruSections.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
     ## !< List of input wires
     ## !< Working wires
 
 
-proc constructBRepOffsetAPI_ThruSections*(isSolid: bool = false; ruled: bool = false;
-    pres3d: cfloat = 1.0e-06): BRepOffsetAPI_ThruSections {.constructor,
-    importcpp: "BRepOffsetAPI_ThruSections(@)",
+proc `new`*(this: var BRepOffsetAPI_ThruSections; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_ThruSections::operator new",
     header: "BRepOffsetAPI_ThruSections.hxx".}
-proc init*(this: var BRepOffsetAPI_ThruSections; isSolid: bool = false;
-          ruled: bool = false; pres3d: cfloat = 1.0e-06) {.importcpp: "Init",
+proc `delete`*(this: var BRepOffsetAPI_ThruSections; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_ThruSections::operator delete",
     header: "BRepOffsetAPI_ThruSections.hxx".}
+proc `new[]`*(this: var BRepOffsetAPI_ThruSections; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_ThruSections::operator new[]",
+    header: "BRepOffsetAPI_ThruSections.hxx".}
+proc `delete[]`*(this: var BRepOffsetAPI_ThruSections; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_ThruSections::operator delete[]",
+    header: "BRepOffsetAPI_ThruSections.hxx".}
+proc `new`*(this: var BRepOffsetAPI_ThruSections; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffsetAPI_ThruSections::operator new",
+    header: "BRepOffsetAPI_ThruSections.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_ThruSections; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffsetAPI_ThruSections::operator delete",
+    header: "BRepOffsetAPI_ThruSections.hxx".}
+proc constructBRepOffsetAPI_ThruSections*(isSolid: StandardBoolean = false;
+    ruled: StandardBoolean = false; pres3d: StandardReal = 1.0e-06): BRepOffsetAPI_ThruSections {.
+    constructor, importcpp: "BRepOffsetAPI_ThruSections(@)",
+    header: "BRepOffsetAPI_ThruSections.hxx".}
+proc init*(this: var BRepOffsetAPI_ThruSections; isSolid: StandardBoolean = false;
+          ruled: StandardBoolean = false; pres3d: StandardReal = 1.0e-06) {.
+    importcpp: "Init", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc addWire*(this: var BRepOffsetAPI_ThruSections; wire: TopoDS_Wire) {.
     importcpp: "AddWire", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc addVertex*(this: var BRepOffsetAPI_ThruSections; aVertex: TopoDS_Vertex) {.
     importcpp: "AddVertex", header: "BRepOffsetAPI_ThruSections.hxx".}
-proc checkCompatibility*(this: var BRepOffsetAPI_ThruSections; check: bool = true) {.
+proc checkCompatibility*(this: var BRepOffsetAPI_ThruSections;
+                        check: StandardBoolean = true) {.
     importcpp: "CheckCompatibility", header: "BRepOffsetAPI_ThruSections.hxx".}
-proc setSmoothing*(this: var BRepOffsetAPI_ThruSections; useSmoothing: bool) {.
-    importcpp: "SetSmoothing", header: "BRepOffsetAPI_ThruSections.hxx".}
+proc setSmoothing*(this: var BRepOffsetAPI_ThruSections;
+                  useSmoothing: StandardBoolean) {.importcpp: "SetSmoothing",
+    header: "BRepOffsetAPI_ThruSections.hxx".}
 proc setParType*(this: var BRepOffsetAPI_ThruSections;
                 parType: ApproxParametrizationType) {.importcpp: "SetParType",
     header: "BRepOffsetAPI_ThruSections.hxx".}
 proc setContinuity*(this: var BRepOffsetAPI_ThruSections; c: GeomAbsShape) {.
     importcpp: "SetContinuity", header: "BRepOffsetAPI_ThruSections.hxx".}
-proc setCriteriumWeight*(this: var BRepOffsetAPI_ThruSections; w1: cfloat; w2: cfloat;
-                        w3: cfloat) {.importcpp: "SetCriteriumWeight",
-                                    header: "BRepOffsetAPI_ThruSections.hxx".}
-proc setMaxDegree*(this: var BRepOffsetAPI_ThruSections; maxDeg: cint) {.
+proc setCriteriumWeight*(this: var BRepOffsetAPI_ThruSections; w1: StandardReal;
+                        w2: StandardReal; w3: StandardReal) {.
+    importcpp: "SetCriteriumWeight", header: "BRepOffsetAPI_ThruSections.hxx".}
+proc setMaxDegree*(this: var BRepOffsetAPI_ThruSections; maxDeg: int) {.
     importcpp: "SetMaxDegree", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc parType*(this: BRepOffsetAPI_ThruSections): ApproxParametrizationType {.
     noSideEffect, importcpp: "ParType", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc continuity*(this: BRepOffsetAPI_ThruSections): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "BRepOffsetAPI_ThruSections.hxx".}
-proc maxDegree*(this: BRepOffsetAPI_ThruSections): cint {.noSideEffect,
+proc maxDegree*(this: BRepOffsetAPI_ThruSections): int {.noSideEffect,
     importcpp: "MaxDegree", header: "BRepOffsetAPI_ThruSections.hxx".}
-proc useSmoothing*(this: BRepOffsetAPI_ThruSections): bool {.noSideEffect,
-    importcpp: "UseSmoothing", header: "BRepOffsetAPI_ThruSections.hxx".}
-proc criteriumWeight*(this: BRepOffsetAPI_ThruSections; w1: var cfloat;
-                     w2: var cfloat; w3: var cfloat) {.noSideEffect,
+proc useSmoothing*(this: BRepOffsetAPI_ThruSections): StandardBoolean {.
+    noSideEffect, importcpp: "UseSmoothing",
+    header: "BRepOffsetAPI_ThruSections.hxx".}
+proc criteriumWeight*(this: BRepOffsetAPI_ThruSections; w1: var StandardReal;
+                     w2: var StandardReal; w3: var StandardReal) {.noSideEffect,
     importcpp: "CriteriumWeight", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc build*(this: var BRepOffsetAPI_ThruSections) {.importcpp: "Build",
     header: "BRepOffsetAPI_ThruSections.hxx".}
@@ -211,28 +96,3 @@ proc generated*(this: var BRepOffsetAPI_ThruSections; s: TopoDS_Shape): TopTools
     importcpp: "Generated", header: "BRepOffsetAPI_ThruSections.hxx".}
 proc wires*(this: BRepOffsetAPI_ThruSections): TopToolsListOfShape {.noSideEffect,
     importcpp: "Wires", header: "BRepOffsetAPI_ThruSections.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,14 +21,32 @@ type
                            header: "BRepTopAdaptor_FClass2d.hxx", bycopy.} = object
 
 
-proc constructBRepTopAdaptorFClass2d*(f: TopoDS_Face; tol: cfloat): BRepTopAdaptorFClass2d {.
+proc `new`*(this: var BRepTopAdaptorFClass2d; theSize: csize_t): pointer {.
+    importcpp: "BRepTopAdaptor_FClass2d::operator new",
+    header: "BRepTopAdaptor_FClass2d.hxx".}
+proc `delete`*(this: var BRepTopAdaptorFClass2d; theAddress: pointer) {.
+    importcpp: "BRepTopAdaptor_FClass2d::operator delete",
+    header: "BRepTopAdaptor_FClass2d.hxx".}
+proc `new[]`*(this: var BRepTopAdaptorFClass2d; theSize: csize_t): pointer {.
+    importcpp: "BRepTopAdaptor_FClass2d::operator new[]",
+    header: "BRepTopAdaptor_FClass2d.hxx".}
+proc `delete[]`*(this: var BRepTopAdaptorFClass2d; theAddress: pointer) {.
+    importcpp: "BRepTopAdaptor_FClass2d::operator delete[]",
+    header: "BRepTopAdaptor_FClass2d.hxx".}
+proc `new`*(this: var BRepTopAdaptorFClass2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepTopAdaptor_FClass2d::operator new",
+    header: "BRepTopAdaptor_FClass2d.hxx".}
+proc `delete`*(this: var BRepTopAdaptorFClass2d; a2: pointer; a3: pointer) {.
+    importcpp: "BRepTopAdaptor_FClass2d::operator delete",
+    header: "BRepTopAdaptor_FClass2d.hxx".}
+proc constructBRepTopAdaptorFClass2d*(f: TopoDS_Face; tol: StandardReal): BRepTopAdaptorFClass2d {.
     constructor, importcpp: "BRepTopAdaptor_FClass2d(@)",
     header: "BRepTopAdaptor_FClass2d.hxx".}
 proc performInfinitePoint*(this: BRepTopAdaptorFClass2d): TopAbsState {.
     noSideEffect, importcpp: "PerformInfinitePoint",
     header: "BRepTopAdaptor_FClass2d.hxx".}
 proc perform*(this: BRepTopAdaptorFClass2d; puv: Pnt2d;
-             recadreOnPeriodic: bool = true): TopAbsState {.noSideEffect,
+             recadreOnPeriodic: StandardBoolean = true): TopAbsState {.noSideEffect,
     importcpp: "Perform", header: "BRepTopAdaptor_FClass2d.hxx".}
 proc destroy*(this: var BRepTopAdaptorFClass2d) {.importcpp: "Destroy",
     header: "BRepTopAdaptor_FClass2d.hxx".}
@@ -37,31 +55,7 @@ proc destroyBRepTopAdaptorFClass2d*(this: var BRepTopAdaptorFClass2d) {.
     header: "BRepTopAdaptor_FClass2d.hxx".}
 proc copy*(this: BRepTopAdaptorFClass2d; other: BRepTopAdaptorFClass2d): BRepTopAdaptorFClass2d {.
     noSideEffect, importcpp: "Copy", header: "BRepTopAdaptor_FClass2d.hxx".}
-proc testOnRestriction*(this: BRepTopAdaptorFClass2d; puv: Pnt2d; tol: cfloat;
-                       recadreOnPeriodic: bool = true): TopAbsState {.noSideEffect,
-    importcpp: "TestOnRestriction", header: "BRepTopAdaptor_FClass2d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc testOnRestriction*(this: BRepTopAdaptorFClass2d; puv: Pnt2d; tol: StandardReal;
+                       recadreOnPeriodic: StandardBoolean = true): TopAbsState {.
+    noSideEffect, importcpp: "TestOnRestriction",
+    header: "BRepTopAdaptor_FClass2d.hxx".}

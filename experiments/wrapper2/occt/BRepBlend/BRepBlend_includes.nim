@@ -6,12 +6,12 @@ include BRepBlend_AppFunc
 include BRepBlend_AppFuncRoot
 include BRepBlend_AppFuncRst
 include BRepBlend_AppFuncRstRst
-include BRepBlend_AppSurf
+#include BRepBlend_AppSurf
 include BRepBlend_AppSurface
 include BRepBlend_BlendTool
 include BRepBlend_CSCircular
 include BRepBlend_CSConstRad
-include BRepBlend_CSWalking
+#include BRepBlend_CSWalking
 include BRepBlend_ChAsym
 include BRepBlend_ChAsymInv
 include BRepBlend_ChamfInv
@@ -44,30 +44,4 @@ include BRepBlend_SurfPointEvolRadInv
 include BRepBlend_SurfRstConstRad
 include BRepBlend_SurfRstEvolRad
 include BRepBlend_SurfRstLineBuilder
-include BRepBlend_Walking
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include BRepBlend_Walking

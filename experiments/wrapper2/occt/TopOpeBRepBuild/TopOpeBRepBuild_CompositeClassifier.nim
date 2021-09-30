@@ -22,6 +22,23 @@ type
                                        bycopy.} = object of TopOpeBRepBuildLoopClassifier
 
 
+proc `new`*(this: var TopOpeBRepBuildCompositeClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_CompositeClassifier::operator new",
+    header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildCompositeClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_CompositeClassifier::operator delete",
+    header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildCompositeClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_CompositeClassifier::operator new[]",
+    header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildCompositeClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_CompositeClassifier::operator delete[]",
+    header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
+proc `new`*(this: var TopOpeBRepBuildCompositeClassifier; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopOpeBRepBuild_CompositeClassifier::operator new", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildCompositeClassifier; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_CompositeClassifier::operator delete",
+    header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc compare*(this: var TopOpeBRepBuildCompositeClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
     importcpp: "Compare", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
@@ -36,32 +53,7 @@ proc resetShape*(this: var TopOpeBRepBuildCompositeClassifier; b: TopoDS_Shape) 
     importcpp: "ResetShape", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc resetElement*(this: var TopOpeBRepBuildCompositeClassifier; e: TopoDS_Shape) {.
     importcpp: "ResetElement", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
-proc compareElement*(this: var TopOpeBRepBuildCompositeClassifier; e: TopoDS_Shape): bool {.
+proc compareElement*(this: var TopOpeBRepBuildCompositeClassifier; e: TopoDS_Shape): StandardBoolean {.
     importcpp: "CompareElement", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildCompositeClassifier): TopAbsState {.
     importcpp: "State", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

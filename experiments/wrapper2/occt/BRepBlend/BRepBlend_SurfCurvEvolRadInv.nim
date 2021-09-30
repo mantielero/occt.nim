@@ -24,53 +24,48 @@ type
                                 header: "BRepBlend_SurfCurvEvolRadInv.hxx", bycopy.} = object of BlendSurfCurvFuncInv
 
 
+proc `new`*(this: var BRepBlendSurfCurvEvolRadInv; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_SurfCurvEvolRadInv::operator new",
+    header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
+proc `delete`*(this: var BRepBlendSurfCurvEvolRadInv; theAddress: pointer) {.
+    importcpp: "BRepBlend_SurfCurvEvolRadInv::operator delete",
+    header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
+proc `new[]`*(this: var BRepBlendSurfCurvEvolRadInv; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_SurfCurvEvolRadInv::operator new[]",
+    header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
+proc `delete[]`*(this: var BRepBlendSurfCurvEvolRadInv; theAddress: pointer) {.
+    importcpp: "BRepBlend_SurfCurvEvolRadInv::operator delete[]",
+    header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
+proc `new`*(this: var BRepBlendSurfCurvEvolRadInv; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBlend_SurfCurvEvolRadInv::operator new",
+    header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
+proc `delete`*(this: var BRepBlendSurfCurvEvolRadInv; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBlend_SurfCurvEvolRadInv::operator delete",
+    header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
 proc constructBRepBlendSurfCurvEvolRadInv*(s: Handle[Adaptor3dHSurface];
     c: Handle[Adaptor3dHCurve]; cg: Handle[Adaptor3dHCurve];
     evol: Handle[LawFunction]): BRepBlendSurfCurvEvolRadInv {.constructor,
     importcpp: "BRepBlend_SurfCurvEvolRadInv(@)",
     header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
-proc set*(this: var BRepBlendSurfCurvEvolRadInv; choix: cint) {.importcpp: "Set",
+proc set*(this: var BRepBlendSurfCurvEvolRadInv; choix: int) {.importcpp: "Set",
     header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
-proc nbEquations*(this: BRepBlendSurfCurvEvolRadInv): cint {.noSideEffect,
+proc nbEquations*(this: BRepBlendSurfCurvEvolRadInv): int {.noSideEffect,
     importcpp: "NbEquations", header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
-proc value*(this: var BRepBlendSurfCurvEvolRadInv; x: MathVector; f: var MathVector): bool {.
+proc value*(this: var BRepBlendSurfCurvEvolRadInv; x: MathVector; f: var MathVector): StandardBoolean {.
     importcpp: "Value", header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
 proc derivatives*(this: var BRepBlendSurfCurvEvolRadInv; x: MathVector;
-                 d: var MathMatrix): bool {.importcpp: "Derivatives", header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
+                 d: var MathMatrix): StandardBoolean {.importcpp: "Derivatives",
+    header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
 proc values*(this: var BRepBlendSurfCurvEvolRadInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.importcpp: "Values",
-                                   header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
+            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+    header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
 proc set*(this: var BRepBlendSurfCurvEvolRadInv; rst: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "Set", header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
 proc getTolerance*(this: BRepBlendSurfCurvEvolRadInv; tolerance: var MathVector;
-                  tol: cfloat) {.noSideEffect, importcpp: "GetTolerance",
-                               header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
+                  tol: StandardReal) {.noSideEffect, importcpp: "GetTolerance",
+                                     header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
 proc getBounds*(this: BRepBlendSurfCurvEvolRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds", header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
-proc isSolution*(this: var BRepBlendSurfCurvEvolRadInv; sol: MathVector; tol: cfloat): bool {.
-    importcpp: "IsSolution", header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc isSolution*(this: var BRepBlendSurfCurvEvolRadInv; sol: MathVector;
+                tol: StandardReal): StandardBoolean {.importcpp: "IsSolution",
+    header: "BRepBlend_SurfCurvEvolRadInv.hxx".}

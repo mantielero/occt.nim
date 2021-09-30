@@ -27,29 +27,3 @@ include BRep_TEdge
 include BRep_TFace
 include BRep_TVertex
 include BRep_Tool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

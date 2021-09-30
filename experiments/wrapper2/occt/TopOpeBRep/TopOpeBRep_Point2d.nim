@@ -17,57 +17,75 @@
 discard "forward decl of TopOpeBRep_Hctxff2d"
 discard "forward decl of TopOpeBRep_Hctxee2d"
 discard "forward decl of TopOpeBRep_EdgesIntersector"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 type
   TopOpeBRepPoint2d* {.importcpp: "TopOpeBRep_Point2d",
                       header: "TopOpeBRep_Point2d.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepPoint2d; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_Point2d::operator new",
+    header: "TopOpeBRep_Point2d.hxx".}
+proc `delete`*(this: var TopOpeBRepPoint2d; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_Point2d::operator delete",
+    header: "TopOpeBRep_Point2d.hxx".}
+proc `new[]`*(this: var TopOpeBRepPoint2d; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_Point2d::operator new[]",
+    header: "TopOpeBRep_Point2d.hxx".}
+proc `delete[]`*(this: var TopOpeBRepPoint2d; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_Point2d::operator delete[]",
+    header: "TopOpeBRep_Point2d.hxx".}
+proc `new`*(this: var TopOpeBRepPoint2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_Point2d::operator new",
+    header: "TopOpeBRep_Point2d.hxx".}
+proc `delete`*(this: var TopOpeBRepPoint2d; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_Point2d::operator delete",
+    header: "TopOpeBRep_Point2d.hxx".}
 proc constructTopOpeBRepPoint2d*(): TopOpeBRepPoint2d {.constructor,
     importcpp: "TopOpeBRep_Point2d(@)", header: "TopOpeBRep_Point2d.hxx".}
-proc dump*(this: TopOpeBRepPoint2d; ie1: cint = 0; ie2: cint = 0) {.noSideEffect,
+proc dump*(this: TopOpeBRepPoint2d; ie1: int = 0; ie2: int = 0) {.noSideEffect,
     importcpp: "Dump", header: "TopOpeBRep_Point2d.hxx".}
 proc setPint*(this: var TopOpeBRepPoint2d; p: IntRes2dIntersectionPoint) {.
     importcpp: "SetPint", header: "TopOpeBRep_Point2d.hxx".}
-proc hasPint*(this: TopOpeBRepPoint2d): bool {.noSideEffect, importcpp: "HasPint",
-    header: "TopOpeBRep_Point2d.hxx".}
+proc hasPint*(this: TopOpeBRepPoint2d): StandardBoolean {.noSideEffect,
+    importcpp: "HasPint", header: "TopOpeBRep_Point2d.hxx".}
 proc pint*(this: TopOpeBRepPoint2d): IntRes2dIntersectionPoint {.noSideEffect,
     importcpp: "Pint", header: "TopOpeBRep_Point2d.hxx".}
-proc setIsVertex*(this: var TopOpeBRepPoint2d; i: cint; b: bool) {.
+proc setIsVertex*(this: var TopOpeBRepPoint2d; i: int; b: StandardBoolean) {.
     importcpp: "SetIsVertex", header: "TopOpeBRep_Point2d.hxx".}
-proc isVertex*(this: TopOpeBRepPoint2d; i: cint): bool {.noSideEffect,
+proc isVertex*(this: TopOpeBRepPoint2d; i: int): StandardBoolean {.noSideEffect,
     importcpp: "IsVertex", header: "TopOpeBRep_Point2d.hxx".}
-proc setVertex*(this: var TopOpeBRepPoint2d; i: cint; v: TopoDS_Vertex) {.
+proc setVertex*(this: var TopOpeBRepPoint2d; i: int; v: TopoDS_Vertex) {.
     importcpp: "SetVertex", header: "TopOpeBRep_Point2d.hxx".}
-proc vertex*(this: TopOpeBRepPoint2d; i: cint): TopoDS_Vertex {.noSideEffect,
+proc vertex*(this: TopOpeBRepPoint2d; i: int): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRep_Point2d.hxx".}
-proc setTransition*(this: var TopOpeBRepPoint2d; i: cint; t: TopOpeBRepDS_Transition) {.
+proc setTransition*(this: var TopOpeBRepPoint2d; i: int; t: TopOpeBRepDS_Transition) {.
     importcpp: "SetTransition", header: "TopOpeBRep_Point2d.hxx".}
-proc transition*(this: TopOpeBRepPoint2d; i: cint): TopOpeBRepDS_Transition {.
+proc transition*(this: TopOpeBRepPoint2d; i: int): TopOpeBRepDS_Transition {.
     noSideEffect, importcpp: "Transition", header: "TopOpeBRep_Point2d.hxx".}
-proc changeTransition*(this: var TopOpeBRepPoint2d; i: cint): var TopOpeBRepDS_Transition {.
+proc changeTransition*(this: var TopOpeBRepPoint2d; i: int): var TopOpeBRepDS_Transition {.
     importcpp: "ChangeTransition", header: "TopOpeBRep_Point2d.hxx".}
-proc setParameter*(this: var TopOpeBRepPoint2d; i: cint; p: cfloat) {.
+proc setParameter*(this: var TopOpeBRepPoint2d; i: int; p: StandardReal) {.
     importcpp: "SetParameter", header: "TopOpeBRep_Point2d.hxx".}
-proc parameter*(this: TopOpeBRepPoint2d; i: cint): cfloat {.noSideEffect,
+proc parameter*(this: TopOpeBRepPoint2d; i: int): StandardReal {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRep_Point2d.hxx".}
-proc setIsPointOfSegment*(this: var TopOpeBRepPoint2d; b: bool) {.
+proc setIsPointOfSegment*(this: var TopOpeBRepPoint2d; b: StandardBoolean) {.
     importcpp: "SetIsPointOfSegment", header: "TopOpeBRep_Point2d.hxx".}
-proc isPointOfSegment*(this: TopOpeBRepPoint2d): bool {.noSideEffect,
+proc isPointOfSegment*(this: TopOpeBRepPoint2d): StandardBoolean {.noSideEffect,
     importcpp: "IsPointOfSegment", header: "TopOpeBRep_Point2d.hxx".}
-proc setSegmentAncestors*(this: var TopOpeBRepPoint2d; ip1: cint; ip2: cint) {.
+proc setSegmentAncestors*(this: var TopOpeBRepPoint2d; ip1: int; ip2: int) {.
     importcpp: "SetSegmentAncestors", header: "TopOpeBRep_Point2d.hxx".}
-proc segmentAncestors*(this: TopOpeBRepPoint2d; ip1: var cint; ip2: var cint): bool {.
+proc segmentAncestors*(this: TopOpeBRepPoint2d; ip1: var int; ip2: var int): StandardBoolean {.
     noSideEffect, importcpp: "SegmentAncestors", header: "TopOpeBRep_Point2d.hxx".}
 proc setStatus*(this: var TopOpeBRepPoint2d; s: TopOpeBRepP2Dstatus) {.
     importcpp: "SetStatus", header: "TopOpeBRep_Point2d.hxx".}
 proc status*(this: TopOpeBRepPoint2d): TopOpeBRepP2Dstatus {.noSideEffect,
     importcpp: "Status", header: "TopOpeBRep_Point2d.hxx".}
-proc setIndex*(this: var TopOpeBRepPoint2d; x: cint) {.importcpp: "SetIndex",
+proc setIndex*(this: var TopOpeBRepPoint2d; x: int) {.importcpp: "SetIndex",
     header: "TopOpeBRep_Point2d.hxx".}
-proc index*(this: TopOpeBRepPoint2d): cint {.noSideEffect, importcpp: "Index",
-    header: "TopOpeBRep_Point2d.hxx".}
+proc index*(this: TopOpeBRepPoint2d): int {.noSideEffect, importcpp: "Index",
+                                        header: "TopOpeBRep_Point2d.hxx".}
 proc setValue*(this: var TopOpeBRepPoint2d; p: Pnt) {.importcpp: "SetValue",
     header: "TopOpeBRep_Point2d.hxx".}
 proc value*(this: TopOpeBRepPoint2d): Pnt {.noSideEffect, importcpp: "Value",
@@ -76,17 +94,17 @@ proc setValue2d*(this: var TopOpeBRepPoint2d; p: Pnt2d) {.importcpp: "SetValue2d
     header: "TopOpeBRep_Point2d.hxx".}
 proc value2d*(this: TopOpeBRepPoint2d): Pnt2d {.noSideEffect, importcpp: "Value2d",
     header: "TopOpeBRep_Point2d.hxx".}
-proc setKeep*(this: var TopOpeBRepPoint2d; b: bool) {.importcpp: "SetKeep",
+proc setKeep*(this: var TopOpeBRepPoint2d; b: StandardBoolean) {.importcpp: "SetKeep",
     header: "TopOpeBRep_Point2d.hxx".}
-proc keep*(this: TopOpeBRepPoint2d): bool {.noSideEffect, importcpp: "Keep",
-                                        header: "TopOpeBRep_Point2d.hxx".}
+proc keep*(this: TopOpeBRepPoint2d): StandardBoolean {.noSideEffect,
+    importcpp: "Keep", header: "TopOpeBRep_Point2d.hxx".}
 proc setEdgesConfig*(this: var TopOpeBRepPoint2d; c: TopOpeBRepDS_Config) {.
     importcpp: "SetEdgesConfig", header: "TopOpeBRep_Point2d.hxx".}
 proc edgesConfig*(this: TopOpeBRepPoint2d): TopOpeBRepDS_Config {.noSideEffect,
     importcpp: "EdgesConfig", header: "TopOpeBRep_Point2d.hxx".}
-proc setTolerance*(this: var TopOpeBRepPoint2d; t: cfloat) {.
+proc setTolerance*(this: var TopOpeBRepPoint2d; t: StandardReal) {.
     importcpp: "SetTolerance", header: "TopOpeBRep_Point2d.hxx".}
-proc tolerance*(this: TopOpeBRepPoint2d): cfloat {.noSideEffect,
+proc tolerance*(this: TopOpeBRepPoint2d): StandardReal {.noSideEffect,
     importcpp: "Tolerance", header: "TopOpeBRep_Point2d.hxx".}
 proc setHctxff2d*(this: var TopOpeBRepPoint2d; ff2d: Handle[TopOpeBRepHctxff2d]) {.
     importcpp: "SetHctxff2d", header: "TopOpeBRep_Point2d.hxx".}
@@ -96,28 +114,3 @@ proc setHctxee2d*(this: var TopOpeBRepPoint2d; ee2d: Handle[TopOpeBRepHctxee2d])
     importcpp: "SetHctxee2d", header: "TopOpeBRep_Point2d.hxx".}
 proc hctxee2d*(this: TopOpeBRepPoint2d): Handle[TopOpeBRepHctxee2d] {.noSideEffect,
     importcpp: "Hctxee2d", header: "TopOpeBRep_Point2d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

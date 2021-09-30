@@ -23,17 +23,35 @@ type
                        header: "TopOpeBRepDS_Curve.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_Curve; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_Curve::operator new",
+    header: "TopOpeBRepDS_Curve.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_Curve; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_Curve::operator delete",
+    header: "TopOpeBRepDS_Curve.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_Curve; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_Curve::operator new[]",
+    header: "TopOpeBRepDS_Curve.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_Curve; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_Curve::operator delete[]",
+    header: "TopOpeBRepDS_Curve.hxx".}
+proc `new`*(this: var TopOpeBRepDS_Curve; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_Curve::operator new",
+    header: "TopOpeBRepDS_Curve.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_Curve; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_Curve::operator delete",
+    header: "TopOpeBRepDS_Curve.hxx".}
 proc constructTopOpeBRepDS_Curve*(): TopOpeBRepDS_Curve {.constructor,
     importcpp: "TopOpeBRepDS_Curve(@)", header: "TopOpeBRepDS_Curve.hxx".}
-proc constructTopOpeBRepDS_Curve*(p: Handle[GeomCurve]; t: cfloat;
-                                 isWalk: bool = false): TopOpeBRepDS_Curve {.
+proc constructTopOpeBRepDS_Curve*(p: Handle[GeomCurve]; t: StandardReal;
+                                 isWalk: StandardBoolean = false): TopOpeBRepDS_Curve {.
     constructor, importcpp: "TopOpeBRepDS_Curve(@)",
     header: "TopOpeBRepDS_Curve.hxx".}
-proc defineCurve*(this: var TopOpeBRepDS_Curve; p: Handle[GeomCurve]; t: cfloat;
-                 isWalk: bool) {.importcpp: "DefineCurve",
-                               header: "TopOpeBRepDS_Curve.hxx".}
-proc tolerance*(this: var TopOpeBRepDS_Curve; tol: cfloat) {.importcpp: "Tolerance",
+proc defineCurve*(this: var TopOpeBRepDS_Curve; p: Handle[GeomCurve]; t: StandardReal;
+                 isWalk: StandardBoolean) {.importcpp: "DefineCurve",
     header: "TopOpeBRepDS_Curve.hxx".}
+proc tolerance*(this: var TopOpeBRepDS_Curve; tol: StandardReal) {.
+    importcpp: "Tolerance", header: "TopOpeBRepDS_Curve.hxx".}
 proc setSCI*(this: var TopOpeBRepDS_Curve; i1: Handle[TopOpeBRepDS_Interference];
             i2: Handle[TopOpeBRepDS_Interference]) {.importcpp: "SetSCI",
     header: "TopOpeBRepDS_Curve.hxx".}
@@ -58,15 +76,15 @@ proc changeShape2*(this: var TopOpeBRepDS_Curve): var TopoDS_Shape {.
     importcpp: "ChangeShape2", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve*(this: TopOpeBRepDS_Curve): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "TopOpeBRepDS_Curve.hxx".}
-proc setRange*(this: var TopOpeBRepDS_Curve; first: cfloat; last: cfloat) {.
+proc setRange*(this: var TopOpeBRepDS_Curve; first: StandardReal; last: StandardReal) {.
     importcpp: "SetRange", header: "TopOpeBRepDS_Curve.hxx".}
-proc range*(this: TopOpeBRepDS_Curve; first: var cfloat; last: var cfloat): bool {.
+proc range*(this: TopOpeBRepDS_Curve; first: var StandardReal; last: var StandardReal): StandardBoolean {.
     noSideEffect, importcpp: "Range", header: "TopOpeBRepDS_Curve.hxx".}
-proc tolerance*(this: TopOpeBRepDS_Curve): cfloat {.noSideEffect,
+proc tolerance*(this: TopOpeBRepDS_Curve): StandardReal {.noSideEffect,
     importcpp: "Tolerance", header: "TopOpeBRepDS_Curve.hxx".}
 proc changeCurve*(this: var TopOpeBRepDS_Curve): var Handle[GeomCurve] {.
     importcpp: "ChangeCurve", header: "TopOpeBRepDS_Curve.hxx".}
-proc curve*(this: var TopOpeBRepDS_Curve; c3d: Handle[GeomCurve]; tol: cfloat) {.
+proc curve*(this: var TopOpeBRepDS_Curve; c3d: Handle[GeomCurve]; tol: StandardReal) {.
     importcpp: "Curve", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve1*(this: TopOpeBRepDS_Curve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "Curve1", header: "TopOpeBRepDS_Curve.hxx".}
@@ -76,44 +94,19 @@ proc curve2*(this: TopOpeBRepDS_Curve): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "Curve2", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve2*(this: var TopOpeBRepDS_Curve; pc2: Handle[Geom2dCurve]) {.
     importcpp: "Curve2", header: "TopOpeBRepDS_Curve.hxx".}
-proc isWalk*(this: TopOpeBRepDS_Curve): bool {.noSideEffect, importcpp: "IsWalk",
+proc isWalk*(this: TopOpeBRepDS_Curve): StandardBoolean {.noSideEffect,
+    importcpp: "IsWalk", header: "TopOpeBRepDS_Curve.hxx".}
+proc changeIsWalk*(this: var TopOpeBRepDS_Curve; b: StandardBoolean) {.
+    importcpp: "ChangeIsWalk", header: "TopOpeBRepDS_Curve.hxx".}
+proc keep*(this: TopOpeBRepDS_Curve): StandardBoolean {.noSideEffect,
+    importcpp: "Keep", header: "TopOpeBRepDS_Curve.hxx".}
+proc changeKeep*(this: var TopOpeBRepDS_Curve; b: StandardBoolean) {.
+    importcpp: "ChangeKeep", header: "TopOpeBRepDS_Curve.hxx".}
+proc mother*(this: TopOpeBRepDS_Curve): int {.noSideEffect, importcpp: "Mother",
     header: "TopOpeBRepDS_Curve.hxx".}
-proc changeIsWalk*(this: var TopOpeBRepDS_Curve; b: bool) {.importcpp: "ChangeIsWalk",
+proc changeMother*(this: var TopOpeBRepDS_Curve; i: int) {.importcpp: "ChangeMother",
     header: "TopOpeBRepDS_Curve.hxx".}
-proc keep*(this: TopOpeBRepDS_Curve): bool {.noSideEffect, importcpp: "Keep",
+proc dSIndex*(this: TopOpeBRepDS_Curve): int {.noSideEffect, importcpp: "DSIndex",
     header: "TopOpeBRepDS_Curve.hxx".}
-proc changeKeep*(this: var TopOpeBRepDS_Curve; b: bool) {.importcpp: "ChangeKeep",
-    header: "TopOpeBRepDS_Curve.hxx".}
-proc mother*(this: TopOpeBRepDS_Curve): cint {.noSideEffect, importcpp: "Mother",
-    header: "TopOpeBRepDS_Curve.hxx".}
-proc changeMother*(this: var TopOpeBRepDS_Curve; i: cint) {.importcpp: "ChangeMother",
-    header: "TopOpeBRepDS_Curve.hxx".}
-proc dSIndex*(this: TopOpeBRepDS_Curve): cint {.noSideEffect, importcpp: "DSIndex",
-    header: "TopOpeBRepDS_Curve.hxx".}
-proc changeDSIndex*(this: var TopOpeBRepDS_Curve; i: cint) {.
+proc changeDSIndex*(this: var TopOpeBRepDS_Curve; i: int) {.
     importcpp: "ChangeDSIndex", header: "TopOpeBRepDS_Curve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

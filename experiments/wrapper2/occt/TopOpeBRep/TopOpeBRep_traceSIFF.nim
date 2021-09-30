@@ -23,50 +23,24 @@ when defined(OCCT_DEBUG):
       importcpp: "TopOpeBRep_traceSIFF(@)", header: "TopOpeBRep_traceSIFF.hxx".}
   proc reset*(this: var TopOpeBRepTraceSIFF) {.importcpp: "Reset",
       header: "TopOpeBRep_traceSIFF.hxx".}
-  proc set*(this: var TopOpeBRepTraceSIFF; b: bool; n: cint; a: cstringArray) {.
+  proc set*(this: var TopOpeBRepTraceSIFF; b: StandardBoolean; n: int; a: cstringArray) {.
       importcpp: "Set", header: "TopOpeBRep_traceSIFF.hxx".}
   proc set*(this: var TopOpeBRepTraceSIFF; brep1: TCollectionAsciiString;
            brep2: TCollectionAsciiString; n: TCollectionAsciiString) {.
       importcpp: "Set", header: "TopOpeBRep_traceSIFF.hxx".}
-  proc name1*(this: TopOpeBRepTraceSIFF; i: cint): TCollectionAsciiString {.
+  proc name1*(this: TopOpeBRepTraceSIFF; i: int): TCollectionAsciiString {.
       noSideEffect, importcpp: "Name1", header: "TopOpeBRep_traceSIFF.hxx".}
-  proc name2*(this: TopOpeBRepTraceSIFF; i: cint): TCollectionAsciiString {.
+  proc name2*(this: TopOpeBRepTraceSIFF; i: int): TCollectionAsciiString {.
       noSideEffect, importcpp: "Name2", header: "TopOpeBRep_traceSIFF.hxx".}
   proc file*(this: TopOpeBRepTraceSIFF): TCollectionAsciiString {.noSideEffect,
       importcpp: "File", header: "TopOpeBRep_traceSIFF.hxx".}
   proc start*(this: var TopOpeBRepTraceSIFF; s: TCollectionAsciiString;
-             os: var StandardOStream): bool {.importcpp: "Start",
+             os: var StandardOStream): StandardBoolean {.importcpp: "Start",
       header: "TopOpeBRep_traceSIFF.hxx".}
-  proc add*(this: var TopOpeBRepTraceSIFF; i1: cint; i2: cint) {.importcpp: "Add",
+  proc add*(this: var TopOpeBRepTraceSIFF; i1: int; i2: int) {.importcpp: "Add",
       header: "TopOpeBRep_traceSIFF.hxx".}
   proc `end`*(this: var TopOpeBRepTraceSIFF; s: TCollectionAsciiString;
              os: var StandardOStream) {.importcpp: "End",
                                      header: "TopOpeBRep_traceSIFF.hxx".}
   ##  #ifdef OCCT_DEBUG
 ##  #define _TopOpeBRep_traceSIFF_HeaderFile
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

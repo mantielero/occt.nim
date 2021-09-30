@@ -25,28 +25,36 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Dir"
 type
   BRepLPropSLProps* {.importcpp: "BRepLProp_SLProps",
-                     header: "BRepLProp_SLProps.hxx", bycopy.} = object ## ! Initializes the local properties of the surface <S>
-                                                                   ## ! for the parameter values (<U>, <V>).
-                                                                   ## ! The current point and the derivatives are
-                                                                   ## ! computed at the same time, which allows an
-                                                                   ## ! optimization of the computation time.
-                                                                   ## ! <N> indicates the maximum number of derivations to
-                                                                   ## ! be done (0, 1, or 2). For example, to compute
-                                                                   ## ! only the tangent, N should be equal to 1.
-                                                                   ## ! <Resolution> is the linear tolerance (it is used to test
-                                                                   ## ! if a vector is null).
+                     header: "BRepLProp_SLProps.hxx", bycopy.} = object
 
 
-proc constructBRepLPropSLProps*(s: BRepAdaptorSurface; u: cfloat; v: cfloat; n: cint;
-                               resolution: cfloat): BRepLPropSLProps {.constructor,
-    importcpp: "BRepLProp_SLProps(@)", header: "BRepLProp_SLProps.hxx".}
-proc constructBRepLPropSLProps*(s: BRepAdaptorSurface; n: cint; resolution: cfloat): BRepLPropSLProps {.
+proc `new`*(this: var BRepLPropSLProps; theSize: csize_t): pointer {.
+    importcpp: "BRepLProp_SLProps::operator new", header: "BRepLProp_SLProps.hxx".}
+proc `delete`*(this: var BRepLPropSLProps; theAddress: pointer) {.
+    importcpp: "BRepLProp_SLProps::operator delete",
+    header: "BRepLProp_SLProps.hxx".}
+proc `new[]`*(this: var BRepLPropSLProps; theSize: csize_t): pointer {.
+    importcpp: "BRepLProp_SLProps::operator new[]",
+    header: "BRepLProp_SLProps.hxx".}
+proc `delete[]`*(this: var BRepLPropSLProps; theAddress: pointer) {.
+    importcpp: "BRepLProp_SLProps::operator delete[]",
+    header: "BRepLProp_SLProps.hxx".}
+proc `new`*(this: var BRepLPropSLProps; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLProp_SLProps::operator new", header: "BRepLProp_SLProps.hxx".}
+proc `delete`*(this: var BRepLPropSLProps; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLProp_SLProps::operator delete",
+    header: "BRepLProp_SLProps.hxx".}
+proc constructBRepLPropSLProps*(s: BRepAdaptorSurface; u: StandardReal;
+                               v: StandardReal; n: int; resolution: StandardReal): BRepLPropSLProps {.
     constructor, importcpp: "BRepLProp_SLProps(@)", header: "BRepLProp_SLProps.hxx".}
-proc constructBRepLPropSLProps*(n: cint; resolution: cfloat): BRepLPropSLProps {.
+proc constructBRepLPropSLProps*(s: BRepAdaptorSurface; n: int;
+                               resolution: StandardReal): BRepLPropSLProps {.
+    constructor, importcpp: "BRepLProp_SLProps(@)", header: "BRepLProp_SLProps.hxx".}
+proc constructBRepLPropSLProps*(n: int; resolution: StandardReal): BRepLPropSLProps {.
     constructor, importcpp: "BRepLProp_SLProps(@)", header: "BRepLProp_SLProps.hxx".}
 proc setSurface*(this: var BRepLPropSLProps; s: BRepAdaptorSurface) {.
     importcpp: "SetSurface", header: "BRepLProp_SLProps.hxx".}
-proc setParameters*(this: var BRepLPropSLProps; u: cfloat; v: cfloat) {.
+proc setParameters*(this: var BRepLPropSLProps; u: StandardReal; v: StandardReal) {.
     importcpp: "SetParameters", header: "BRepLProp_SLProps.hxx".}
 proc value*(this: BRepLPropSLProps): Pnt {.noSideEffect, importcpp: "Value",
                                        header: "BRepLProp_SLProps.hxx".}
@@ -60,54 +68,29 @@ proc d2v*(this: var BRepLPropSLProps): Vec {.importcpp: "D2V",
                                         header: "BRepLProp_SLProps.hxx".}
 proc duv*(this: var BRepLPropSLProps): Vec {.importcpp: "DUV",
                                         header: "BRepLProp_SLProps.hxx".}
-proc isTangentUDefined*(this: var BRepLPropSLProps): bool {.
+proc isTangentUDefined*(this: var BRepLPropSLProps): StandardBoolean {.
     importcpp: "IsTangentUDefined", header: "BRepLProp_SLProps.hxx".}
 proc tangentU*(this: var BRepLPropSLProps; d: var Dir) {.importcpp: "TangentU",
     header: "BRepLProp_SLProps.hxx".}
-proc isTangentVDefined*(this: var BRepLPropSLProps): bool {.
+proc isTangentVDefined*(this: var BRepLPropSLProps): StandardBoolean {.
     importcpp: "IsTangentVDefined", header: "BRepLProp_SLProps.hxx".}
 proc tangentV*(this: var BRepLPropSLProps; d: var Dir) {.importcpp: "TangentV",
     header: "BRepLProp_SLProps.hxx".}
-proc isNormalDefined*(this: var BRepLPropSLProps): bool {.
+proc isNormalDefined*(this: var BRepLPropSLProps): StandardBoolean {.
     importcpp: "IsNormalDefined", header: "BRepLProp_SLProps.hxx".}
 proc normal*(this: var BRepLPropSLProps): Dir {.importcpp: "Normal",
     header: "BRepLProp_SLProps.hxx".}
-proc isCurvatureDefined*(this: var BRepLPropSLProps): bool {.
+proc isCurvatureDefined*(this: var BRepLPropSLProps): StandardBoolean {.
     importcpp: "IsCurvatureDefined", header: "BRepLProp_SLProps.hxx".}
-proc isUmbilic*(this: var BRepLPropSLProps): bool {.importcpp: "IsUmbilic",
-    header: "BRepLProp_SLProps.hxx".}
-proc maxCurvature*(this: var BRepLPropSLProps): cfloat {.importcpp: "MaxCurvature",
-    header: "BRepLProp_SLProps.hxx".}
-proc minCurvature*(this: var BRepLPropSLProps): cfloat {.importcpp: "MinCurvature",
-    header: "BRepLProp_SLProps.hxx".}
+proc isUmbilic*(this: var BRepLPropSLProps): StandardBoolean {.
+    importcpp: "IsUmbilic", header: "BRepLProp_SLProps.hxx".}
+proc maxCurvature*(this: var BRepLPropSLProps): StandardReal {.
+    importcpp: "MaxCurvature", header: "BRepLProp_SLProps.hxx".}
+proc minCurvature*(this: var BRepLPropSLProps): StandardReal {.
+    importcpp: "MinCurvature", header: "BRepLProp_SLProps.hxx".}
 proc curvatureDirections*(this: var BRepLPropSLProps; maxD: var Dir; minD: var Dir) {.
     importcpp: "CurvatureDirections", header: "BRepLProp_SLProps.hxx".}
-proc meanCurvature*(this: var BRepLPropSLProps): cfloat {.importcpp: "MeanCurvature",
-    header: "BRepLProp_SLProps.hxx".}
-proc gaussianCurvature*(this: var BRepLPropSLProps): cfloat {.
+proc meanCurvature*(this: var BRepLPropSLProps): StandardReal {.
+    importcpp: "MeanCurvature", header: "BRepLProp_SLProps.hxx".}
+proc gaussianCurvature*(this: var BRepLPropSLProps): StandardReal {.
     importcpp: "GaussianCurvature", header: "BRepLProp_SLProps.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

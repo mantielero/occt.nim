@@ -16,17 +16,13 @@
 
 ##  resolve name collisions with X11 headers
 
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 ## ! Provides a tool to make cylindrical holes on a shape.
 
 type
   BRepFeatMakeCylindricalHole* {.importcpp: "BRepFeat_MakeCylindricalHole",
                                 header: "BRepFeat_MakeCylindricalHole.hxx", bycopy.} = object of BRepFeatBuilder ##
-                                                                                                          ## !
-                                                                                                          ## Empty
-                                                                                                          ## constructor.
-                                                                                                          ##
                                                                                                           ## !
                                                                                                           ## Unhide
                                                                                                           ## the
@@ -39,6 +35,24 @@ type
                                                                                                           ## warnings
 
 
+proc `new`*(this: var BRepFeatMakeCylindricalHole; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_MakeCylindricalHole::operator new",
+    header: "BRepFeat_MakeCylindricalHole.hxx".}
+proc `delete`*(this: var BRepFeatMakeCylindricalHole; theAddress: pointer) {.
+    importcpp: "BRepFeat_MakeCylindricalHole::operator delete",
+    header: "BRepFeat_MakeCylindricalHole.hxx".}
+proc `new[]`*(this: var BRepFeatMakeCylindricalHole; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_MakeCylindricalHole::operator new[]",
+    header: "BRepFeat_MakeCylindricalHole.hxx".}
+proc `delete[]`*(this: var BRepFeatMakeCylindricalHole; theAddress: pointer) {.
+    importcpp: "BRepFeat_MakeCylindricalHole::operator delete[]",
+    header: "BRepFeat_MakeCylindricalHole.hxx".}
+proc `new`*(this: var BRepFeatMakeCylindricalHole; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFeat_MakeCylindricalHole::operator new",
+    header: "BRepFeat_MakeCylindricalHole.hxx".}
+proc `delete`*(this: var BRepFeatMakeCylindricalHole; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFeat_MakeCylindricalHole::operator delete",
+    header: "BRepFeat_MakeCylindricalHole.hxx".}
 proc constructBRepFeatMakeCylindricalHole*(): BRepFeatMakeCylindricalHole {.
     constructor, importcpp: "BRepFeat_MakeCylindricalHole(@)",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
@@ -46,48 +60,23 @@ proc init*(this: var BRepFeatMakeCylindricalHole; axis: Ax1) {.importcpp: "Init"
     header: "BRepFeat_MakeCylindricalHole.hxx".}
 proc init*(this: var BRepFeatMakeCylindricalHole; s: TopoDS_Shape; axis: Ax1) {.
     importcpp: "Init", header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc perform*(this: var BRepFeatMakeCylindricalHole; radius: cfloat) {.
+proc perform*(this: var BRepFeatMakeCylindricalHole; radius: StandardReal) {.
     importcpp: "Perform", header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc perform*(this: var BRepFeatMakeCylindricalHole; radius: cfloat; pFrom: cfloat;
-             pTo: cfloat; withControl: bool = true) {.importcpp: "Perform",
+proc perform*(this: var BRepFeatMakeCylindricalHole; radius: StandardReal;
+             pFrom: StandardReal; pTo: StandardReal;
+             withControl: StandardBoolean = true) {.importcpp: "Perform",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc performThruNext*(this: var BRepFeatMakeCylindricalHole; radius: cfloat;
-                     withControl: bool = true) {.importcpp: "PerformThruNext",
-    header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc performUntilEnd*(this: var BRepFeatMakeCylindricalHole; radius: cfloat;
-                     withControl: bool = true) {.importcpp: "PerformUntilEnd",
-    header: "BRepFeat_MakeCylindricalHole.hxx".}
-proc performBlind*(this: var BRepFeatMakeCylindricalHole; radius: cfloat;
-                  length: cfloat; withControl: bool = true) {.
+proc performThruNext*(this: var BRepFeatMakeCylindricalHole; radius: StandardReal;
+                     withControl: StandardBoolean = true) {.
+    importcpp: "PerformThruNext", header: "BRepFeat_MakeCylindricalHole.hxx".}
+proc performUntilEnd*(this: var BRepFeatMakeCylindricalHole; radius: StandardReal;
+                     withControl: StandardBoolean = true) {.
+    importcpp: "PerformUntilEnd", header: "BRepFeat_MakeCylindricalHole.hxx".}
+proc performBlind*(this: var BRepFeatMakeCylindricalHole; radius: StandardReal;
+                  length: StandardReal; withControl: StandardBoolean = true) {.
     importcpp: "PerformBlind", header: "BRepFeat_MakeCylindricalHole.hxx".}
 proc status*(this: BRepFeatMakeCylindricalHole): BRepFeatStatus {.noSideEffect,
     importcpp: "Status", header: "BRepFeat_MakeCylindricalHole.hxx".}
 proc build*(this: var BRepFeatMakeCylindricalHole) {.importcpp: "Build",
     header: "BRepFeat_MakeCylindricalHole.hxx".}
 ## using statement
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

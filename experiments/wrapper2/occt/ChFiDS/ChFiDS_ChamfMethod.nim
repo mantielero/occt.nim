@@ -19,29 +19,3 @@ type
                        header: "ChFiDS_ChamfMethod.hxx".} = enum
     ChFiDS_Sym, ChFiDS_TwoDist, ChFiDS_DistAngle
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -19,7 +19,7 @@ discard "forward decl of AdvApp2Var_Context"
 type
   AdvApp2VarCriterion* {.importcpp: "AdvApp2Var_Criterion",
                         header: "AdvApp2Var_Criterion.hxx", bycopy.} = object
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 proc destroyAdvApp2VarCriterion*(this: var AdvApp2VarCriterion) {.
     importcpp: "#.~AdvApp2Var_Criterion()", header: "AdvApp2Var_Criterion.hxx".}
@@ -33,6 +33,7 @@ proc `type`*(this: AdvApp2VarCriterion): AdvApp2VarCriterionType {.noSideEffect,
     importcpp: "Type", header: "AdvApp2Var_Criterion.hxx".}
 proc repartition*(this: AdvApp2VarCriterion): AdvApp2VarCriterionRepartition {.
     noSideEffect, importcpp: "Repartition", header: "AdvApp2Var_Criterion.hxx".}
+
 
 
 

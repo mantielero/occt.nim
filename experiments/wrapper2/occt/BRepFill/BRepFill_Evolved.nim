@@ -31,24 +31,39 @@ type
                     bycopy.} = object
 
 
+proc `new`*(this: var BRepFillEvolved; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_Evolved::operator new", header: "BRepFill_Evolved.hxx".}
+proc `delete`*(this: var BRepFillEvolved; theAddress: pointer) {.
+    importcpp: "BRepFill_Evolved::operator delete", header: "BRepFill_Evolved.hxx".}
+proc `new[]`*(this: var BRepFillEvolved; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_Evolved::operator new[]", header: "BRepFill_Evolved.hxx".}
+proc `delete[]`*(this: var BRepFillEvolved; theAddress: pointer) {.
+    importcpp: "BRepFill_Evolved::operator delete[]",
+    header: "BRepFill_Evolved.hxx".}
+proc `new`*(this: var BRepFillEvolved; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_Evolved::operator new", header: "BRepFill_Evolved.hxx".}
+proc `delete`*(this: var BRepFillEvolved; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_Evolved::operator delete", header: "BRepFill_Evolved.hxx".}
 proc constructBRepFillEvolved*(): BRepFillEvolved {.constructor,
     importcpp: "BRepFill_Evolved(@)", header: "BRepFill_Evolved.hxx".}
 proc constructBRepFillEvolved*(spine: TopoDS_Wire; profile: TopoDS_Wire;
                               axeProf: Ax3; join: GeomAbsJoinType = geomAbsArc;
-                              solid: bool = false): BRepFillEvolved {.constructor,
-    importcpp: "BRepFill_Evolved(@)", header: "BRepFill_Evolved.hxx".}
+                              solid: StandardBoolean = false): BRepFillEvolved {.
+    constructor, importcpp: "BRepFill_Evolved(@)", header: "BRepFill_Evolved.hxx".}
 proc constructBRepFillEvolved*(spine: TopoDS_Face; profile: TopoDS_Wire;
                               axeProf: Ax3; join: GeomAbsJoinType = geomAbsArc;
-                              solid: bool = false): BRepFillEvolved {.constructor,
-    importcpp: "BRepFill_Evolved(@)", header: "BRepFill_Evolved.hxx".}
+                              solid: StandardBoolean = false): BRepFillEvolved {.
+    constructor, importcpp: "BRepFill_Evolved(@)", header: "BRepFill_Evolved.hxx".}
 proc perform*(this: var BRepFillEvolved; spine: TopoDS_Wire; profile: TopoDS_Wire;
-             axeProf: Ax3; join: GeomAbsJoinType = geomAbsArc; solid: bool = false) {.
-    importcpp: "Perform", header: "BRepFill_Evolved.hxx".}
+             axeProf: Ax3; join: GeomAbsJoinType = geomAbsArc;
+             solid: StandardBoolean = false) {.importcpp: "Perform",
+    header: "BRepFill_Evolved.hxx".}
 proc perform*(this: var BRepFillEvolved; spine: TopoDS_Face; profile: TopoDS_Wire;
-             axeProf: Ax3; join: GeomAbsJoinType = geomAbsArc; solid: bool = false) {.
-    importcpp: "Perform", header: "BRepFill_Evolved.hxx".}
-proc isDone*(this: BRepFillEvolved): bool {.noSideEffect, importcpp: "IsDone",
-                                        header: "BRepFill_Evolved.hxx".}
+             axeProf: Ax3; join: GeomAbsJoinType = geomAbsArc;
+             solid: StandardBoolean = false) {.importcpp: "Perform",
+    header: "BRepFill_Evolved.hxx".}
+proc isDone*(this: BRepFillEvolved): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "BRepFill_Evolved.hxx".}
 proc shape*(this: BRepFillEvolved): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BRepFill_Evolved.hxx".}
 proc generatedShapes*(this: BRepFillEvolved; spineShape: TopoDS_Shape;
@@ -60,28 +75,3 @@ proc top*(this: BRepFillEvolved): TopoDS_Shape {.noSideEffect, importcpp: "Top",
     header: "BRepFill_Evolved.hxx".}
 proc bottom*(this: BRepFillEvolved): TopoDS_Shape {.noSideEffect,
     importcpp: "Bottom", header: "BRepFill_Evolved.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,29 +27,3 @@ type
                    header: "BRepOffset_Mode.hxx".} = enum
     BRepOffsetSkin, BRepOffsetPipe, BRepOffsetRectoVerso
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

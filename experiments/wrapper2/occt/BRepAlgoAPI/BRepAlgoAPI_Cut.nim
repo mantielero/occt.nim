@@ -18,9 +18,21 @@ discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
 type
   BRepAlgoAPI_Cut* {.importcpp: "BRepAlgoAPI_Cut", header: "BRepAlgoAPI_Cut.hxx",
-                    bycopy.} = object of BRepAlgoAPI_BooleanOperation ## ! Empty constructor
+                    bycopy.} = object of BRepAlgoAPI_BooleanOperation
 
 
+proc `new`*(this: var BRepAlgoAPI_Cut; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Cut::operator new", header: "BRepAlgoAPI_Cut.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Cut; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Cut::operator delete", header: "BRepAlgoAPI_Cut.hxx".}
+proc `new[]`*(this: var BRepAlgoAPI_Cut; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Cut::operator new[]", header: "BRepAlgoAPI_Cut.hxx".}
+proc `delete[]`*(this: var BRepAlgoAPI_Cut; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Cut::operator delete[]", header: "BRepAlgoAPI_Cut.hxx".}
+proc `new`*(this: var BRepAlgoAPI_Cut; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgoAPI_Cut::operator new", header: "BRepAlgoAPI_Cut.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Cut; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgoAPI_Cut::operator delete", header: "BRepAlgoAPI_Cut.hxx".}
 proc constructBRepAlgoAPI_Cut*(): BRepAlgoAPI_Cut {.constructor,
     importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
 proc destroyBRepAlgoAPI_Cut*(this: var BRepAlgoAPI_Cut) {.
@@ -30,30 +42,6 @@ proc constructBRepAlgoAPI_Cut*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Cut {.
 proc constructBRepAlgoAPI_Cut*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Cut {.
     constructor, importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
 proc constructBRepAlgoAPI_Cut*(s1: TopoDS_Shape; s2: TopoDS_Shape;
-                              aDSF: BOPAlgoPaveFiller; bFWD: bool = true): BRepAlgoAPI_Cut {.
+                              aDSF: BOPAlgoPaveFiller;
+                              bFWD: StandardBoolean = true): BRepAlgoAPI_Cut {.
     constructor, importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

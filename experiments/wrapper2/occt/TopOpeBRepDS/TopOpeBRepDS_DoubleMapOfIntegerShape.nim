@@ -15,33 +15,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopOpeBRepDS_DoubleMapOfIntegerShape* = NCollectionDoubleMap[cint, TopoDS_Shape,
+  TopOpeBRepDS_DoubleMapOfIntegerShape* = NCollectionDoubleMap[int, TopoDS_Shape,
       TColStdMapIntegerHasher, TopToolsShapeMapHasher]
-  TopOpeBRepDS_DoubleMapIteratorOfDoubleMapOfIntegerShape* = Iterator[cint,
+  TopOpeBRepDS_DoubleMapIteratorOfDoubleMapOfIntegerShape* = Iterator[int,
       TopoDS_Shape, TColStdMapIntegerHasher, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,29 +17,3 @@
 type
   TopOpeBRepBuildIndexedDataMapOfShapeVertexInfo* = NCollectionIndexedDataMap[
       TopoDS_Shape, TopOpeBRepBuildVertexInfo, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

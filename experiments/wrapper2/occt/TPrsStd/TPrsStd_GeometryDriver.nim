@@ -37,7 +37,7 @@ type
 proc constructTPrsStdGeometryDriver*(): TPrsStdGeometryDriver {.constructor,
     importcpp: "TPrsStd_GeometryDriver(@)", header: "TPrsStd_GeometryDriver.hxx".}
 proc update*(this: var TPrsStdGeometryDriver; aLabel: TDF_Label;
-            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
+            anAISObject: var Handle[AIS_InteractiveObject]): StandardBoolean {.
     importcpp: "Update", header: "TPrsStd_GeometryDriver.hxx".}
 type
   TPrsStdGeometryDriverbaseType* = TPrsStdDriver
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_GeometryDriver.hxx".}
 proc dynamicType*(this: TPrsStdGeometryDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_GeometryDriver.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

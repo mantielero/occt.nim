@@ -20,91 +20,55 @@ discard "forward decl of gp_Dir"
 discard "forward decl of BRepSweep_Prism"
 type
   BRepPrimAPI_MakePrism* {.importcpp: "BRepPrimAPI_MakePrism",
-                          header: "BRepPrimAPI_MakePrism.hxx", bycopy.} = object of BRepPrimAPI_MakeSweep ##
-                                                                                                   ## !
-                                                                                                   ## Builds
-                                                                                                   ## the
-                                                                                                   ## prism
-                                                                                                   ## of
-                                                                                                   ## base
-                                                                                                   ## S
-                                                                                                   ## and
-                                                                                                   ## vector
-                                                                                                   ## V.
-                                                                                                   ## If
-                                                                                                   ## C
-                                                                                                   ## is
-                                                                                                   ## true,
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## S
-                                                                                                   ## is
-                                                                                                   ## copied.
-                                                                                                   ## If
-                                                                                                   ## Canonize
-                                                                                                   ## is
-                                                                                                   ## true
-                                                                                                   ## then
-                                                                                                   ## generated
-                                                                                                   ## surfaces
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## are
-                                                                                                   ## attempted
-                                                                                                   ## to
-                                                                                                   ## be
-                                                                                                   ## canonized
-                                                                                                   ## in
-                                                                                                   ## simple
-                                                                                                   ## types
+                          header: "BRepPrimAPI_MakePrism.hxx", bycopy.} = object of BRepPrimAPI_MakeSweep
 
 
-proc constructBRepPrimAPI_MakePrism*(s: TopoDS_Shape; v: Vec; copy: bool = false;
-                                    canonize: bool = true): BRepPrimAPI_MakePrism {.
+proc `new`*(this: var BRepPrimAPI_MakePrism; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakePrism::operator new",
+    header: "BRepPrimAPI_MakePrism.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakePrism; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakePrism::operator delete",
+    header: "BRepPrimAPI_MakePrism.hxx".}
+proc `new[]`*(this: var BRepPrimAPI_MakePrism; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakePrism::operator new[]",
+    header: "BRepPrimAPI_MakePrism.hxx".}
+proc `delete[]`*(this: var BRepPrimAPI_MakePrism; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakePrism::operator delete[]",
+    header: "BRepPrimAPI_MakePrism.hxx".}
+proc `new`*(this: var BRepPrimAPI_MakePrism; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrimAPI_MakePrism::operator new",
+    header: "BRepPrimAPI_MakePrism.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakePrism; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrimAPI_MakePrism::operator delete",
+    header: "BRepPrimAPI_MakePrism.hxx".}
+proc makePrism*(s: TopoDS_Shape; v: Vec;
+                                    copy: StandardBoolean = false;
+                                    canonize: StandardBoolean = true): BRepPrimAPI_MakePrism {.
     constructor, importcpp: "BRepPrimAPI_MakePrism(@)",
     header: "BRepPrimAPI_MakePrism.hxx".}
-proc constructBRepPrimAPI_MakePrism*(s: TopoDS_Shape; d: Dir; inf: bool = true;
-                                    copy: bool = false; canonize: bool = true): BRepPrimAPI_MakePrism {.
+proc makePrism*(s: TopoDS_Shape; d: Dir;
+                                    inf: StandardBoolean = true;
+                                    copy: StandardBoolean = false;
+                                    canonize: StandardBoolean = true): BRepPrimAPI_MakePrism {.
     constructor, importcpp: "BRepPrimAPI_MakePrism(@)",
     header: "BRepPrimAPI_MakePrism.hxx".}
-proc prism*(this: BRepPrimAPI_MakePrism): BRepSweepPrism {.noSideEffect,
-    importcpp: "Prism", header: "BRepPrimAPI_MakePrism.hxx".}
+#[ proc prism*(this: BRepPrimAPI_MakePrism): BRepSweepPrism {.noSideEffect,
+    importcpp: "Prism", header: "BRepPrimAPI_MakePrism.hxx".} ]#
 proc build*(this: var BRepPrimAPI_MakePrism) {.importcpp: "Build",
     header: "BRepPrimAPI_MakePrism.hxx".}
 proc firstShape*(this: var BRepPrimAPI_MakePrism): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepPrimAPI_MakePrism.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakePrism): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepPrimAPI_MakePrism.hxx".}
-proc generated*(this: var BRepPrimAPI_MakePrism; s: TopoDS_Shape): TopToolsListOfShape {.
-    importcpp: "Generated", header: "BRepPrimAPI_MakePrism.hxx".}
-proc isDeleted*(this: var BRepPrimAPI_MakePrism; s: TopoDS_Shape): bool {.
+#[ proc generated*(this: var BRepPrimAPI_MakePrism; s: TopoDS_Shape): TopToolsListOfShape {.
+    importcpp: "Generated", header: "BRepPrimAPI_MakePrism.hxx".} ]#
+proc isDeleted*(this: var BRepPrimAPI_MakePrism; s: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsDeleted", header: "BRepPrimAPI_MakePrism.hxx".}
 proc firstShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepPrimAPI_MakePrism.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepPrimAPI_MakePrism.hxx".}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#----- MANUALLY ADDED (inheritance not working
+converter `toTopoDS_Shape`*(this: var BRepPrimAPI_MakePrism): TopoDS_Shape {.
+    importcpp: "(TopoDS_Shape)(#)".}

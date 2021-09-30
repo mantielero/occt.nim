@@ -19,51 +19,41 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Trsf"
 type
   BRepFillSectionPlacement* {.importcpp: "BRepFill_SectionPlacement",
-                             header: "BRepFill_SectionPlacement.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Automatic
-                                                                                   ## placement
+                             header: "BRepFill_SectionPlacement.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepFillSectionPlacement; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_SectionPlacement::operator new",
+    header: "BRepFill_SectionPlacement.hxx".}
+proc `delete`*(this: var BRepFillSectionPlacement; theAddress: pointer) {.
+    importcpp: "BRepFill_SectionPlacement::operator delete",
+    header: "BRepFill_SectionPlacement.hxx".}
+proc `new[]`*(this: var BRepFillSectionPlacement; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_SectionPlacement::operator new[]",
+    header: "BRepFill_SectionPlacement.hxx".}
+proc `delete[]`*(this: var BRepFillSectionPlacement; theAddress: pointer) {.
+    importcpp: "BRepFill_SectionPlacement::operator delete[]",
+    header: "BRepFill_SectionPlacement.hxx".}
+proc `new`*(this: var BRepFillSectionPlacement; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_SectionPlacement::operator new",
+    header: "BRepFill_SectionPlacement.hxx".}
+proc `delete`*(this: var BRepFillSectionPlacement; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_SectionPlacement::operator delete",
+    header: "BRepFill_SectionPlacement.hxx".}
 proc constructBRepFillSectionPlacement*(law: Handle[BRepFillLocationLaw];
                                        section: TopoDS_Shape;
-                                       withContact: bool = false;
-                                       withCorrection: bool = false): BRepFillSectionPlacement {.
+                                       withContact: StandardBoolean = false;
+                                       withCorrection: StandardBoolean = false): BRepFillSectionPlacement {.
     constructor, importcpp: "BRepFill_SectionPlacement(@)",
     header: "BRepFill_SectionPlacement.hxx".}
 proc constructBRepFillSectionPlacement*(law: Handle[BRepFillLocationLaw];
                                        section: TopoDS_Shape;
                                        vertex: TopoDS_Shape;
-                                       withContact: bool = false;
-                                       withCorrection: bool = false): BRepFillSectionPlacement {.
+                                       withContact: StandardBoolean = false;
+                                       withCorrection: StandardBoolean = false): BRepFillSectionPlacement {.
     constructor, importcpp: "BRepFill_SectionPlacement(@)",
     header: "BRepFill_SectionPlacement.hxx".}
 proc transformation*(this: BRepFillSectionPlacement): Trsf {.noSideEffect,
     importcpp: "Transformation", header: "BRepFill_SectionPlacement.hxx".}
-proc abscissaOnPath*(this: var BRepFillSectionPlacement): cfloat {.
+proc abscissaOnPath*(this: var BRepFillSectionPlacement): StandardReal {.
     importcpp: "AbscissaOnPath", header: "BRepFill_SectionPlacement.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -26,120 +26,44 @@ discard "forward decl of AppParCurves_MultiCurve"
 type
   BRepApproxMyGradientbisOfTheComputeLineOfApprox* {.
       importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox",
-      header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Tries
-                                                                                   ## to
-                                                                                   ## minimize
-                                                                                   ## the
-                                                                                   ## sum
-                                                                                   ## (square(||Qui
-                                                                                   ## -
-                                                                                   ## Bi*Pi||))
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## where
-                                                                                   ## Pui
-                                                                                   ## describe
-                                                                                   ## the
-                                                                                   ## approximating
-                                                                                   ## Bezier
-                                                                                   ## curves'Poles
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## and
-                                                                                   ## Qi
-                                                                                   ## the
-                                                                                   ## MultiLine
-                                                                                   ## points
-                                                                                   ## with
-                                                                                   ## a
-                                                                                   ## parameter
-                                                                                   ## ui.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## In
-                                                                                   ## this
-                                                                                   ## algorithm,
-                                                                                   ## the
-                                                                                   ## parameters
-                                                                                   ## ui
-                                                                                   ## are
-                                                                                   ## the
-                                                                                   ## unknowns.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## The
-                                                                                   ## tolerance
-                                                                                   ## required
-                                                                                   ## on
-                                                                                   ## this
-                                                                                   ## sum
-                                                                                   ## is
-                                                                                   ## given
-                                                                                   ## by
-                                                                                   ## Tol.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## The
-                                                                                   ## desired
-                                                                                   ## degree
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## resulting
-                                                                                   ## curve
-                                                                                   ## is
-                                                                                   ## Deg.
+      header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepApproxMyGradientbisOfTheComputeLineOfApprox;
+           theSize: csize_t): pointer {.importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox::operator new", header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxMyGradientbisOfTheComputeLineOfApprox;
+              theAddress: pointer) {.importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox::operator delete", header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
+proc `new[]`*(this: var BRepApproxMyGradientbisOfTheComputeLineOfApprox;
+             theSize: csize_t): pointer {.importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox::operator new[]", header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
+proc `delete[]`*(this: var BRepApproxMyGradientbisOfTheComputeLineOfApprox;
+                theAddress: pointer) {.importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox::operator delete[]", header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
+proc `new`*(this: var BRepApproxMyGradientbisOfTheComputeLineOfApprox; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox::operator new", header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxMyGradientbisOfTheComputeLineOfApprox;
+              a2: pointer; a3: pointer) {.importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox::operator delete", header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
 proc constructBRepApproxMyGradientbisOfTheComputeLineOfApprox*(
-    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: cint; lastPoint: cint;
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
     theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: var MathVector; deg: cint; tol3d: cfloat; tol2d: cfloat;
-    nbIterations: cint = 200): BRepApproxMyGradientbisOfTheComputeLineOfApprox {.
+    parameters: var MathVector; deg: int; tol3d: StandardReal; tol2d: StandardReal;
+    nbIterations: int = 200): BRepApproxMyGradientbisOfTheComputeLineOfApprox {.
     constructor,
     importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox(@)",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc isDone*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): bool {.
+proc isDone*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): StandardBoolean {.
     noSideEffect, importcpp: "IsDone",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
 proc value*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): AppParCurvesMultiCurve {.
     noSideEffect, importcpp: "Value",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc error*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox; index: cint): cfloat {.
+proc error*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox; index: int): StandardReal {.
     noSideEffect, importcpp: "Error",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc maxError3d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): cfloat {.
+proc maxError3d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): StandardReal {.
     noSideEffect, importcpp: "MaxError3d",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc maxError2d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): cfloat {.
+proc maxError2d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): StandardReal {.
     noSideEffect, importcpp: "MaxError2d",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc averageError*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): cfloat {.
+proc averageError*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): StandardReal {.
     noSideEffect, importcpp: "AverageError",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

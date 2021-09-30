@@ -18,29 +18,3 @@ include BRepOffsetAPI_SequenceOfSequenceOfReal
 include BRepOffsetAPI_SequenceOfSequenceOfShape
 include BRepOffsetAPI_Sewing
 include BRepOffsetAPI_ThruSections
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

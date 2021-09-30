@@ -23,17 +23,34 @@ type
                               header: "BRepOffsetAPI_MakeEvolved.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepOffsetAPI_MakeEvolved; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakeEvolved::operator new",
+    header: "BRepOffsetAPI_MakeEvolved.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakeEvolved; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeEvolved::operator delete",
+    header: "BRepOffsetAPI_MakeEvolved.hxx".}
+proc `new[]`*(this: var BRepOffsetAPI_MakeEvolved; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakeEvolved::operator new[]",
+    header: "BRepOffsetAPI_MakeEvolved.hxx".}
+proc `delete[]`*(this: var BRepOffsetAPI_MakeEvolved; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeEvolved::operator delete[]",
+    header: "BRepOffsetAPI_MakeEvolved.hxx".}
+proc `new`*(this: var BRepOffsetAPI_MakeEvolved; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffsetAPI_MakeEvolved::operator new",
+    header: "BRepOffsetAPI_MakeEvolved.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakeEvolved; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeEvolved::operator delete",
+    header: "BRepOffsetAPI_MakeEvolved.hxx".}
 proc constructBRepOffsetAPI_MakeEvolved*(): BRepOffsetAPI_MakeEvolved {.
     constructor, importcpp: "BRepOffsetAPI_MakeEvolved(@)",
     header: "BRepOffsetAPI_MakeEvolved.hxx".}
 proc constructBRepOffsetAPI_MakeEvolved*(theSpine: TopoDS_Shape;
                                         theProfile: TopoDS_Wire; theJoinType: GeomAbsJoinType = geomAbsArc;
-                                        theIsAxeProf: bool = true;
-                                        theIsSolid: bool = false;
-                                        theIsProfOnSpine: bool = false;
-                                        theTol: cfloat = 0.0000001;
-                                        theIsVolume: bool = false;
-                                        theRunInParallel: bool = false): BRepOffsetAPI_MakeEvolved {.
+                                        theIsAxeProf: StandardBoolean = true;
+                                        theIsSolid: StandardBoolean = false;
+    theIsProfOnSpine: StandardBoolean = false; theTol: StandardReal = 0.0000001;
+                                        theIsVolume: StandardBoolean = false;
+    theRunInParallel: StandardBoolean = false): BRepOffsetAPI_MakeEvolved {.
     constructor, importcpp: "BRepOffsetAPI_MakeEvolved(@)",
     header: "BRepOffsetAPI_MakeEvolved.hxx".}
 proc evolved*(this: BRepOffsetAPI_MakeEvolved): BRepFillEvolved {.noSideEffect,
@@ -47,28 +64,3 @@ proc top*(this: BRepOffsetAPI_MakeEvolved): TopoDS_Shape {.noSideEffect,
     importcpp: "Top", header: "BRepOffsetAPI_MakeEvolved.hxx".}
 proc bottom*(this: BRepOffsetAPI_MakeEvolved): TopoDS_Shape {.noSideEffect,
     importcpp: "Bottom", header: "BRepOffsetAPI_MakeEvolved.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

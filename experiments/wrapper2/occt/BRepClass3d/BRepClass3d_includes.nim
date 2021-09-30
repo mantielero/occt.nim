@@ -10,30 +10,4 @@ include BRepClass3d_MapOfInter
 include BRepClass3d_SClassifier
 include BRepClass3d_SolidClassifier
 include BRepClass3d_SolidExplorer
-include BRepClass3d_SolidPassiveClassifier
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include BRepClass3d_SolidPassiveClassifier

@@ -21,33 +21,26 @@ type
                          header: "BRepFill_FaceAndOrder.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepFillFaceAndOrder; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_FaceAndOrder::operator new",
+    header: "BRepFill_FaceAndOrder.hxx".}
+proc `delete`*(this: var BRepFillFaceAndOrder; theAddress: pointer) {.
+    importcpp: "BRepFill_FaceAndOrder::operator delete",
+    header: "BRepFill_FaceAndOrder.hxx".}
+proc `new[]`*(this: var BRepFillFaceAndOrder; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_FaceAndOrder::operator new[]",
+    header: "BRepFill_FaceAndOrder.hxx".}
+proc `delete[]`*(this: var BRepFillFaceAndOrder; theAddress: pointer) {.
+    importcpp: "BRepFill_FaceAndOrder::operator delete[]",
+    header: "BRepFill_FaceAndOrder.hxx".}
+proc `new`*(this: var BRepFillFaceAndOrder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_FaceAndOrder::operator new",
+    header: "BRepFill_FaceAndOrder.hxx".}
+proc `delete`*(this: var BRepFillFaceAndOrder; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_FaceAndOrder::operator delete",
+    header: "BRepFill_FaceAndOrder.hxx".}
 proc constructBRepFillFaceAndOrder*(): BRepFillFaceAndOrder {.constructor,
     importcpp: "BRepFill_FaceAndOrder(@)", header: "BRepFill_FaceAndOrder.hxx".}
 proc constructBRepFillFaceAndOrder*(aFace: TopoDS_Face; anOrder: GeomAbsShape): BRepFillFaceAndOrder {.
     constructor, importcpp: "BRepFill_FaceAndOrder(@)",
     header: "BRepFill_FaceAndOrder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

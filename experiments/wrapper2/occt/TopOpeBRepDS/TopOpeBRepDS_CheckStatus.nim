@@ -20,29 +20,3 @@ type
                              header: "TopOpeBRepDS_CheckStatus.hxx".} = enum
     TopOpeBRepDS_OK, TopOpeBRepDS_NOK
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

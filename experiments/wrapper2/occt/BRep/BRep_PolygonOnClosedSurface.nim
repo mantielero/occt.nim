@@ -21,21 +21,24 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_PolygonOnClosedSurface"
 discard "forward decl of BRep_PolygonOnClosedSurface"
 type
-  HandleC1C1* = Handle[BRepPolygonOnClosedSurface]
+  BRepPolygonOnClosedSurface* {.importcpp: "BRep_PolygonOnClosedSurface",
+                               header: "BRep_PolygonOnClosedSurface.hxx", bycopy.} = object of BRepPolygonOnSurface
+
+type
+  HandleBRepPolygonOnClosedSurface* = Handle[BRepPolygonOnClosedSurface]
 
 ## ! Representation by two 2d polygons in the parametric
 ## ! space of a surface.
 
 type
-  BRepPolygonOnClosedSurface* {.importcpp: "BRep_PolygonOnClosedSurface",
-                               header: "BRep_PolygonOnClosedSurface.hxx", bycopy.} = object of BRepPolygonOnSurface
+  BRepPolygonOnClosedSurfacebaseType* = BRepPolygonOnSurface
 
-
+#[ 
 proc constructBRepPolygonOnClosedSurface*(p1: Handle[PolyPolygon2D];
     p2: Handle[PolyPolygon2D]; s: Handle[GeomSurface]; L: TopLocLocation): BRepPolygonOnClosedSurface {.
     constructor, importcpp: "BRep_PolygonOnClosedSurface(@)",
     header: "BRep_PolygonOnClosedSurface.hxx".}
-proc isPolygonOnClosedSurface*(this: BRepPolygonOnClosedSurface): bool {.
+proc isPolygonOnClosedSurface*(this: BRepPolygonOnClosedSurface): StandardBoolean {.
     noSideEffect, importcpp: "IsPolygonOnClosedSurface",
     header: "BRep_PolygonOnClosedSurface.hxx".}
 proc polygon2*(this: BRepPolygonOnClosedSurface): Handle[PolyPolygon2D] {.
@@ -45,10 +48,8 @@ proc polygon2*(this: var BRepPolygonOnClosedSurface; p: Handle[PolyPolygon2D]) {
 proc copy*(this: BRepPolygonOnClosedSurface): Handle[BRepCurveRepresentation] {.
     noSideEffect, importcpp: "Copy", header: "BRep_PolygonOnClosedSurface.hxx".}
 proc dumpJson*(this: BRepPolygonOnClosedSurface; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
-                                 header: "BRep_PolygonOnClosedSurface.hxx".}
-type
-  BRepPolygonOnClosedSurfacebaseType* = BRepPolygonOnSurface
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_PolygonOnClosedSurface.hxx".}
 
 proc getTypeName*(): cstring {.importcpp: "BRep_PolygonOnClosedSurface::get_type_name(@)",
                             header: "BRep_PolygonOnClosedSurface.hxx".}
@@ -57,29 +58,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_PolygonOnClosedSurface.hxx".}
 proc dynamicType*(this: BRepPolygonOnClosedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "BRep_PolygonOnClosedSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "BRep_PolygonOnClosedSurface.hxx".} ]#

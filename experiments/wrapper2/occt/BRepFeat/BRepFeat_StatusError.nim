@@ -29,29 +29,3 @@ type
     BRepFeatNotInitialized, BRepFeatNotYetImplemented, BRepFeatNullRealTool,
     BRepFeatNullToolF, BRepFeatNullToolU
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

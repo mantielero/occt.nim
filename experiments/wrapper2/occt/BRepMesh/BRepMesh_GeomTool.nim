@@ -21,18 +21,6 @@ discard "forward decl of Adaptor3d_HSurface"
 type
   BRepMeshGeomTool* {.importcpp: "BRepMesh_GeomTool",
                      header: "BRepMesh_GeomTool.hxx", bycopy.} = object ## ! Enumerates states of segments intersection check.
-                                                                   ## ! Constructor.
-                                                                   ## ! Initiates
-                                                                   ## discretization of the given geometric curve.
-                                                                   ## ! @param theCurve curve to be discretized.
-                                                                   ## ! @param theFirstParam first parameter of the curve.
-                                                                   ## ! @param theLastParam last parameter of the curve.
-                                                                   ## ! @param
-                                                                   ## theLinDeflection linear deflection.
-                                                                   ## ! @param
-                                                                   ## theAngDeflection angular deflection.
-                                                                   ## ! @param
-                                                                   ## theMinPointsNb minimum nuber of points to be produced.
                                                                    ## ! @name static API
                                                                    ## ! Computes normal to the given surface at the specified
                                                                    ## ! position in parametric space.
@@ -56,70 +44,67 @@ type
     NoIntersection, Cross, EndPointTouch, PointOnSegment, Glued, Same
 
 
-proc constructBRepMeshGeomTool*(theCurve: BRepAdaptorCurve; theFirstParam: cfloat;
-                               theLastParam: cfloat; theLinDeflection: cfloat;
-                               theAngDeflection: cfloat; theMinPointsNb: cint = 2;
-                               theMinSize: cfloat = confusion()): BRepMeshGeomTool {.
+proc `new`*(this: var BRepMeshGeomTool; theSize: csize_t): pointer {.
+    importcpp: "BRepMesh_GeomTool::operator new", header: "BRepMesh_GeomTool.hxx".}
+proc `delete`*(this: var BRepMeshGeomTool; theAddress: pointer) {.
+    importcpp: "BRepMesh_GeomTool::operator delete",
+    header: "BRepMesh_GeomTool.hxx".}
+proc `new[]`*(this: var BRepMeshGeomTool; theSize: csize_t): pointer {.
+    importcpp: "BRepMesh_GeomTool::operator new[]",
+    header: "BRepMesh_GeomTool.hxx".}
+proc `delete[]`*(this: var BRepMeshGeomTool; theAddress: pointer) {.
+    importcpp: "BRepMesh_GeomTool::operator delete[]",
+    header: "BRepMesh_GeomTool.hxx".}
+proc `new`*(this: var BRepMeshGeomTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepMesh_GeomTool::operator new", header: "BRepMesh_GeomTool.hxx".}
+proc `delete`*(this: var BRepMeshGeomTool; a2: pointer; a3: pointer) {.
+    importcpp: "BRepMesh_GeomTool::operator delete",
+    header: "BRepMesh_GeomTool.hxx".}
+proc constructBRepMeshGeomTool*(theCurve: BRepAdaptorCurve;
+                               theFirstParam: StandardReal;
+                               theLastParam: StandardReal;
+                               theLinDeflection: StandardReal;
+                               theAngDeflection: StandardReal;
+                               theMinPointsNb: int = 2;
+                               theMinSize: StandardReal = confusion()): BRepMeshGeomTool {.
     constructor, importcpp: "BRepMesh_GeomTool(@)", header: "BRepMesh_GeomTool.hxx".}
 proc constructBRepMeshGeomTool*(theSurface: Handle[BRepAdaptorHSurface];
-                               theIsoType: GeomAbsIsoType; theParamIso: cfloat;
-                               theFirstParam: cfloat; theLastParam: cfloat;
-                               theLinDeflection: cfloat; theAngDeflection: cfloat;
-                               theMinPointsNb: cint = 2;
-                               theMinSize: cfloat = confusion()): BRepMeshGeomTool {.
+                               theIsoType: GeomAbsIsoType;
+                               theParamIso: StandardReal;
+                               theFirstParam: StandardReal;
+                               theLastParam: StandardReal;
+                               theLinDeflection: StandardReal;
+                               theAngDeflection: StandardReal;
+                               theMinPointsNb: int = 2;
+                               theMinSize: StandardReal = confusion()): BRepMeshGeomTool {.
     constructor, importcpp: "BRepMesh_GeomTool(@)", header: "BRepMesh_GeomTool.hxx".}
-proc addPoint*(this: var BRepMeshGeomTool; thePoint: Pnt; theParam: cfloat;
-              theIsReplace: bool = true): cint {.importcpp: "AddPoint",
+proc addPoint*(this: var BRepMeshGeomTool; thePoint: Pnt; theParam: StandardReal;
+              theIsReplace: StandardBoolean = true): int {.importcpp: "AddPoint",
     header: "BRepMesh_GeomTool.hxx".}
-proc nbPoints*(this: BRepMeshGeomTool): cint {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: BRepMeshGeomTool): int {.noSideEffect, importcpp: "NbPoints",
     header: "BRepMesh_GeomTool.hxx".}
-proc value*(this: BRepMeshGeomTool; theIndex: cint; theIsoParam: cfloat;
-           theParam: var cfloat; thePoint: var Pnt; theUV: var Pnt2d): bool {.
+proc value*(this: BRepMeshGeomTool; theIndex: int; theIsoParam: StandardReal;
+           theParam: var StandardReal; thePoint: var Pnt; theUV: var Pnt2d): StandardBoolean {.
     noSideEffect, importcpp: "Value", header: "BRepMesh_GeomTool.hxx".}
-proc value*(this: BRepMeshGeomTool; theIndex: cint;
-           theSurface: Handle[BRepAdaptorHSurface]; theParam: var cfloat;
-           thePoint: var Pnt; theUV: var Pnt2d): bool {.noSideEffect,
+proc value*(this: BRepMeshGeomTool; theIndex: int;
+           theSurface: Handle[BRepAdaptorHSurface]; theParam: var StandardReal;
+           thePoint: var Pnt; theUV: var Pnt2d): StandardBoolean {.noSideEffect,
     importcpp: "Value", header: "BRepMesh_GeomTool.hxx".}
-proc normal*(theSurface: Handle[BRepAdaptorHSurface]; theParamU: cfloat;
-            theParamV: cfloat; thePoint: var Pnt; theNormal: var Dir): bool {.
+proc normal*(theSurface: Handle[BRepAdaptorHSurface]; theParamU: StandardReal;
+            theParamV: StandardReal; thePoint: var Pnt; theNormal: var Dir): StandardBoolean {.
     importcpp: "BRepMesh_GeomTool::Normal(@)", header: "BRepMesh_GeomTool.hxx".}
 proc intLinLin*(theStartPnt1: Xy; theEndPnt1: Xy; theStartPnt2: Xy; theEndPnt2: Xy;
-               theIntPnt: var Xy; theParamOnSegment: array[2, cfloat]): BRepMeshGeomToolIntFlag {.
+               theIntPnt: var Xy; theParamOnSegment: array[2, StandardReal]): BRepMeshGeomToolIntFlag {.
     importcpp: "BRepMesh_GeomTool::IntLinLin(@)", header: "BRepMesh_GeomTool.hxx".}
 proc intSegSeg*(theStartPnt1: Xy; theEndPnt1: Xy; theStartPnt2: Xy; theEndPnt2: Xy;
-               isConsiderEndPointTouch: bool; isConsiderPointOnSegment: bool;
-               theIntPnt: var Pnt2d): BRepMeshGeomToolIntFlag {.
+               isConsiderEndPointTouch: StandardBoolean;
+               isConsiderPointOnSegment: StandardBoolean; theIntPnt: var Pnt2d): BRepMeshGeomToolIntFlag {.
     importcpp: "BRepMesh_GeomTool::IntSegSeg(@)", header: "BRepMesh_GeomTool.hxx".}
 proc squareDeflectionOfSegment*(theFirstPoint: Pnt; theLastPoint: Pnt;
-                               theMidPoint: Pnt): cfloat {.
+                               theMidPoint: Pnt): StandardReal {.
     importcpp: "BRepMesh_GeomTool::SquareDeflectionOfSegment(@)",
     header: "BRepMesh_GeomTool.hxx".}
-proc cellsCount*(theSurface: Handle[Adaptor3dHSurface]; theVerticesNb: cint;
-                theDeflection: cfloat;
-                theRangeSplitter: ptr BRepMeshDefaultRangeSplitter): Pair[cint, cint] {.
+proc cellsCount*(theSurface: Handle[Adaptor3dHSurface]; theVerticesNb: int;
+                theDeflection: StandardReal;
+                theRangeSplitter: ptr BRepMeshDefaultRangeSplitter): Pair[int, int] {.
     importcpp: "BRepMesh_GeomTool::CellsCount(@)", header: "BRepMesh_GeomTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

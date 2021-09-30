@@ -20,29 +20,3 @@ type
     BRepPrimXMin, BRepPrimXMax, BRepPrimYMin, BRepPrimYMax, BRepPrimZMin,
     BRepPrimZMax
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

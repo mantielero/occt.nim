@@ -22,6 +22,24 @@ type
                           header: "TopOpeBRepTool_BoxSort.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepToolBoxSort; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_BoxSort::operator new",
+    header: "TopOpeBRepTool_BoxSort.hxx".}
+proc `delete`*(this: var TopOpeBRepToolBoxSort; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_BoxSort::operator delete",
+    header: "TopOpeBRepTool_BoxSort.hxx".}
+proc `new[]`*(this: var TopOpeBRepToolBoxSort; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_BoxSort::operator new[]",
+    header: "TopOpeBRepTool_BoxSort.hxx".}
+proc `delete[]`*(this: var TopOpeBRepToolBoxSort; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_BoxSort::operator delete[]",
+    header: "TopOpeBRepTool_BoxSort.hxx".}
+proc `new`*(this: var TopOpeBRepToolBoxSort; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepTool_BoxSort::operator new",
+    header: "TopOpeBRepTool_BoxSort.hxx".}
+proc `delete`*(this: var TopOpeBRepToolBoxSort; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepTool_BoxSort::operator delete",
+    header: "TopOpeBRepTool_BoxSort.hxx".}
 proc constructTopOpeBRepToolBoxSort*(): TopOpeBRepToolBoxSort {.constructor,
     importcpp: "TopOpeBRepTool_BoxSort(@)", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc constructTopOpeBRepToolBoxSort*(t: Handle[TopOpeBRepToolHBoxTool]): TopOpeBRepToolBoxSort {.
@@ -44,7 +62,7 @@ proc hab*(this: TopOpeBRepToolBoxSort): Handle[BndHArray1OfBox] {.noSideEffect,
 proc makeHABCOB*(hab: Handle[BndHArray1OfBox]; cob: var BndBox) {.
     importcpp: "TopOpeBRepTool_BoxSort::MakeHABCOB(@)",
     header: "TopOpeBRepTool_BoxSort.hxx".}
-proc hABShape*(this: TopOpeBRepToolBoxSort; i: cint): TopoDS_Shape {.noSideEffect,
+proc hABShape*(this: TopOpeBRepToolBoxSort; i: int): TopoDS_Shape {.noSideEffect,
     importcpp: "HABShape", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc makeCOB*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape; ts: TopAbsShapeEnum;
              ta: TopAbsShapeEnum = topAbsSHAPE) {.importcpp: "MakeCOB",
@@ -61,28 +79,3 @@ proc box*(this: TopOpeBRepToolBoxSort; s: TopoDS_Shape): BndBox {.noSideEffect,
     importcpp: "Box", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc destroyTopOpeBRepToolBoxSort*(this: var TopOpeBRepToolBoxSort) {.
     importcpp: "#.~TopOpeBRepTool_BoxSort()", header: "TopOpeBRepTool_BoxSort.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

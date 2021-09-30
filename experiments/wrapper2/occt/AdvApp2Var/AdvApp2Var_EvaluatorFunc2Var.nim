@@ -31,6 +31,7 @@
 {.experimental: "callOperator".}
 {.experimental: "callOperator".}
 {.experimental: "callOperator".}
+{.experimental: "callOperator".}
 ##  Created on: 1996-04-18
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -95,6 +96,7 @@ proc `()`*(this: AdvApp2VarEvaluatorFunc2Var; theDimension: ptr cint;
           theUOrder: ptr cint; theVOrder: ptr cint; theResult: ptr cfloat;
           theErrorCode: ptr cint) {.noSideEffect, importcpp: "#(@)",
                                  header: "AdvApp2Var_EvaluatorFunc2Var.hxx".}
+
 
 
 

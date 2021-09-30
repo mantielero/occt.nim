@@ -21,14 +21,25 @@ discard "forward decl of TopoDS_Solid"
 discard "forward decl of TopoDS_Face"
 type
   BRepLibMakeSolid* {.importcpp: "BRepLib_MakeSolid",
-                     header: "BRepLib_MakeSolid.hxx", bycopy.} = object of BRepLibMakeShape ##
-                                                                                     ## !
-                                                                                     ## Solid
-                                                                                     ## covers
-                                                                                     ## whole
-                                                                                     ## space.
+                     header: "BRepLib_MakeSolid.hxx", bycopy.} = object of BRepLibMakeShape
 
 
+proc `new`*(this: var BRepLibMakeSolid; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_MakeSolid::operator new", header: "BRepLib_MakeSolid.hxx".}
+proc `delete`*(this: var BRepLibMakeSolid; theAddress: pointer) {.
+    importcpp: "BRepLib_MakeSolid::operator delete",
+    header: "BRepLib_MakeSolid.hxx".}
+proc `new[]`*(this: var BRepLibMakeSolid; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_MakeSolid::operator new[]",
+    header: "BRepLib_MakeSolid.hxx".}
+proc `delete[]`*(this: var BRepLibMakeSolid; theAddress: pointer) {.
+    importcpp: "BRepLib_MakeSolid::operator delete[]",
+    header: "BRepLib_MakeSolid.hxx".}
+proc `new`*(this: var BRepLibMakeSolid; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLib_MakeSolid::operator new", header: "BRepLib_MakeSolid.hxx".}
+proc `delete`*(this: var BRepLibMakeSolid; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLib_MakeSolid::operator delete",
+    header: "BRepLib_MakeSolid.hxx".}
 proc constructBRepLibMakeSolid*(): BRepLibMakeSolid {.constructor,
     importcpp: "BRepLib_MakeSolid(@)", header: "BRepLib_MakeSolid.hxx".}
 proc constructBRepLibMakeSolid*(s: TopoDS_CompSolid): BRepLibMakeSolid {.
@@ -52,28 +63,3 @@ converter `topoDS_Solid`*(this: var BRepLibMakeSolid): TopoDS_Solid {.
     header: "BRepLib_MakeSolid.hxx".}
 proc faceStatus*(this: BRepLibMakeSolid; f: TopoDS_Face): BRepLibShapeModification {.
     noSideEffect, importcpp: "FaceStatus", header: "BRepLib_MakeSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

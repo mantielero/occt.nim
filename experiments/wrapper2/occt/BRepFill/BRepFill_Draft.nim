@@ -23,52 +23,39 @@ type
   BRepFillDraft* {.importcpp: "BRepFill_Draft", header: "BRepFill_Draft.hxx", bycopy.} = object
 
 
-proc constructBRepFillDraft*(shape: TopoDS_Shape; dir: Dir; angle: cfloat): BRepFillDraft {.
+proc `new`*(this: var BRepFillDraft; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_Draft::operator new", header: "BRepFill_Draft.hxx".}
+proc `delete`*(this: var BRepFillDraft; theAddress: pointer) {.
+    importcpp: "BRepFill_Draft::operator delete", header: "BRepFill_Draft.hxx".}
+proc `new[]`*(this: var BRepFillDraft; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_Draft::operator new[]", header: "BRepFill_Draft.hxx".}
+proc `delete[]`*(this: var BRepFillDraft; theAddress: pointer) {.
+    importcpp: "BRepFill_Draft::operator delete[]", header: "BRepFill_Draft.hxx".}
+proc `new`*(this: var BRepFillDraft; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_Draft::operator new", header: "BRepFill_Draft.hxx".}
+proc `delete`*(this: var BRepFillDraft; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_Draft::operator delete", header: "BRepFill_Draft.hxx".}
+proc constructBRepFillDraft*(shape: TopoDS_Shape; dir: Dir; angle: StandardReal): BRepFillDraft {.
     constructor, importcpp: "BRepFill_Draft(@)", header: "BRepFill_Draft.hxx".}
 proc setOptions*(this: var BRepFillDraft;
                 style: BRepFillTransitionStyle = bRepFillRight;
-                angleMin: cfloat = 0.01; angleMax: cfloat = 3.0) {.
+                angleMin: StandardReal = 0.01; angleMax: StandardReal = 3.0) {.
     importcpp: "SetOptions", header: "BRepFill_Draft.hxx".}
-proc setDraft*(this: var BRepFillDraft; isInternal: bool = false) {.
+proc setDraft*(this: var BRepFillDraft; isInternal: StandardBoolean = false) {.
     importcpp: "SetDraft", header: "BRepFill_Draft.hxx".}
-proc perform*(this: var BRepFillDraft; lengthMax: cfloat) {.importcpp: "Perform",
-    header: "BRepFill_Draft.hxx".}
+proc perform*(this: var BRepFillDraft; lengthMax: StandardReal) {.
+    importcpp: "Perform", header: "BRepFill_Draft.hxx".}
 proc perform*(this: var BRepFillDraft; surface: Handle[GeomSurface];
-             keepInsideSurface: bool = true) {.importcpp: "Perform",
+             keepInsideSurface: StandardBoolean = true) {.importcpp: "Perform",
     header: "BRepFill_Draft.hxx".}
 proc perform*(this: var BRepFillDraft; stopShape: TopoDS_Shape;
-             keepOutSide: bool = true) {.importcpp: "Perform",
-                                     header: "BRepFill_Draft.hxx".}
-proc isDone*(this: BRepFillDraft): bool {.noSideEffect, importcpp: "IsDone",
-                                      header: "BRepFill_Draft.hxx".}
+             keepOutSide: StandardBoolean = true) {.importcpp: "Perform",
+    header: "BRepFill_Draft.hxx".}
+proc isDone*(this: BRepFillDraft): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "BRepFill_Draft.hxx".}
 proc shell*(this: BRepFillDraft): TopoDS_Shell {.noSideEffect, importcpp: "Shell",
     header: "BRepFill_Draft.hxx".}
 proc generated*(this: var BRepFillDraft; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepFill_Draft.hxx".}
 proc shape*(this: BRepFillDraft): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BRepFill_Draft.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

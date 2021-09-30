@@ -14,44 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc chFiKPartInPeriod*(u: cfloat; uFirst: cfloat; uLast: cfloat; eps: cfloat): cfloat {.
+proc chFiKPartInPeriod*(u: StandardReal; uFirst: StandardReal; uLast: StandardReal;
+                       eps: StandardReal): StandardReal {.
     importcpp: "ChFiKPart_InPeriod(@)", header: "ChFiKPart_ComputeData_Fcts.hxx".}
-proc chFiKPartPCurve*(uv1: Pnt2d; uv2: Pnt2d; pardeb: cfloat; parfin: cfloat): Handle[
-    Geom2dBSplineCurve] {.importcpp: "ChFiKPart_PCurve(@)",
-                         header: "ChFiKPart_ComputeData_Fcts.hxx".}
+proc chFiKPartPCurve*(uv1: Pnt2d; uv2: Pnt2d; pardeb: StandardReal;
+                     parfin: StandardReal): Handle[Geom2dBSplineCurve] {.
+    importcpp: "ChFiKPart_PCurve(@)", header: "ChFiKPart_ComputeData_Fcts.hxx".}
 proc chFiKPartProjPC*(cg: GeomAdaptorCurve; sg: GeomAdaptorSurface;
                      pcurv: var Handle[Geom2dCurve]) {.
     importcpp: "ChFiKPart_ProjPC(@)", header: "ChFiKPart_ComputeData_Fcts.hxx".}
 proc chFiKPartIndexCurveInDS*(c: Handle[GeomCurve];
-                             dStr: var TopOpeBRepDS_DataStructure): cint {.
+                             dStr: var TopOpeBRepDS_DataStructure): int {.
     importcpp: "ChFiKPart_IndexCurveInDS(@)",
     header: "ChFiKPart_ComputeData_Fcts.hxx".}
 proc chFiKPartIndexSurfaceInDS*(s: Handle[GeomSurface];
-                               dStr: var TopOpeBRepDS_DataStructure): cint {.
+                               dStr: var TopOpeBRepDS_DataStructure): int {.
     importcpp: "ChFiKPart_IndexSurfaceInDS(@)",
     header: "ChFiKPart_ComputeData_Fcts.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

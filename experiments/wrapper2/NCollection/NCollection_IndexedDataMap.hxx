@@ -43,10 +43,10 @@
  *              See  the  class   Map   from NCollection   for   a
  *              discussion about the number of buckets.
  */            
-
+// = NCollection_DefaultHasher<TheKeyType> 
 template < class TheKeyType, 
            class TheItemType, 
-           class Hasher = NCollection_DefaultHasher<TheKeyType> > 
+           class Hasher> 
 class NCollection_IndexedDataMap : public NCollection_BaseMap
 {
 public:
@@ -77,11 +77,7 @@ private:
 
     //! Static deleter to be passed to BaseList
     static void delNode (NCollection_ListNode * theNode, 
-                         Handle(NCollection_BaseAllocator)& theAl)
-    {
-      ((IndexedDataMapNode *) theNode)->~IndexedDataMapNode();
-      theAl->Free(theNode);
-    }
+                         Handle(NCollection_BaseAllocator)& theAl);
   private:
     TheKeyType       myKey1;
     Standard_Integer myIndex;
@@ -186,29 +182,7 @@ private:
 
   //! Assignment.
   //! This method does not change the internal allocator.
-  NCollection_IndexedDataMap& Assign (const NCollection_IndexedDataMap& theOther)
-  { 
-    if (this == &theOther)
-      return *this;
-
-    Clear();
-    Standard_Integer anExt = theOther.Extent();
-    if (anExt)
-    {
-      ReSize (anExt-1); //mySize is same after resize
-      for (Standard_Integer anIndexIter = 1; anIndexIter <= anExt; ++anIndexIter)
-      {
-        const TheKeyType&  aKey1  = theOther.FindKey      (anIndexIter);
-        const TheItemType& anItem = theOther.FindFromIndex(anIndexIter);
-        const Standard_Integer iK1 = Hasher::HashCode (aKey1, NbBuckets());
-        IndexedDataMapNode* pNode = new (this->myAllocator) IndexedDataMapNode (aKey1, anIndexIter, anItem, myData1[iK1]);
-        myData1[iK1]             = pNode;
-        myData2[anIndexIter - 1] = pNode;
-        Increment();
-      }
-    }
-    return *this;
-  }
+  NCollection_IndexedDataMap& Assign (const NCollection_IndexedDataMap& theOther);
 
   //! Assignment operator
   NCollection_IndexedDataMap& operator= (const NCollection_IndexedDataMap& theOther)
@@ -251,30 +225,7 @@ private:
   //! @param theKey1 Key to search (and to bind, if it was not bound already)
   //! @param theItem Item value to set for newly bound Key; ignored if Key was already bound
   //! @return index of Key
-  Standard_Integer Add (const TheKeyType& theKey1, const TheItemType& theItem)
-  {
-    if (Resizable())
-    {
-      ReSize(Extent());
-    }
-
-    const Standard_Integer iK1 = Hasher::HashCode (theKey1, NbBuckets());
-    IndexedDataMapNode* pNode = (IndexedDataMapNode* )myData1[iK1];
-    while (pNode)
-    {
-      if (Hasher::IsEqual (pNode->Key1(), theKey1))
-      {
-        return pNode->Index();
-      }
-      pNode = (IndexedDataMapNode *) pNode->Next();
-    }
-
-    const Standard_Integer aNewIndex = Increment();
-    pNode = new (this->myAllocator) IndexedDataMapNode (theKey1, aNewIndex, theItem, myData1[iK1]);
-    myData1[iK1]           = pNode;
-    myData2[aNewIndex - 1] = pNode;
-    return aNewIndex;
-  }
+  Standard_Integer Add (const TheKeyType& theKey1, const TheItemType& theItem);
 
   //! Contains
   Standard_Boolean Contains (const TheKeyType& theKey1) const
@@ -363,30 +314,7 @@ private:
   }
 
   //! RemoveLast
-  void RemoveLast (void)
-  {
-    const Standard_Integer aLastIndex = Extent();
-    Standard_OutOfRange_Raise_if (aLastIndex == 0, "NCollection_IndexedDataMap::RemoveLast");
-
-    // Find the node for the last index and remove it
-    IndexedDataMapNode* p = (IndexedDataMapNode* )myData2[aLastIndex - 1];
-    myData2[aLastIndex - 1] = NULL;
-    
-    // remove the key
-    const Standard_Integer iK1 = Hasher::HashCode (p->Key1(), NbBuckets());
-    IndexedDataMapNode* q = (IndexedDataMapNode *) myData1[iK1];
-    if (q == p)
-      myData1[iK1] = (IndexedDataMapNode *) p->Next();
-    else 
-    {
-      while (q->Next() != p) 
-        q = (IndexedDataMapNode *) q->Next();
-      q->Next() = p->Next();
-    }
-    p->~IndexedDataMapNode();
-    this->myAllocator->Free(p);
-    Decrement();
-  }
+  void RemoveLast (void);
 
   //! Remove the key of the given index.
   //! Caution! The index of the last key can be changed.

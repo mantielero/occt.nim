@@ -24,29 +24,3 @@ type
     BRepLibDifferentPointsOnClosedCurve, BRepLibPointWithInfiniteParameter,
     BRepLibDifferentsPointAndParameter, BRepLibLineThroughIdenticPoints
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

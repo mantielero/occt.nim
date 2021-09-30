@@ -19,30 +19,30 @@ type
   BRepMeshVertexInspector* {.importcpp: "BRepMesh_VertexInspector",
                             header: "BRepMesh_VertexInspector.hxx", bycopy.} = object of NCollectionCellFilterInspectorXY
 
-  BRepMeshVertexInspectorTarget* = cint
+  BRepMeshVertexInspectorTarget* = int
 
 proc constructBRepMeshVertexInspector*(theAllocator: Handle[
     NCollectionIncAllocator]): BRepMeshVertexInspector {.constructor,
     importcpp: "BRepMesh_VertexInspector(@)",
     header: "BRepMesh_VertexInspector.hxx".}
-proc add*(this: var BRepMeshVertexInspector; theVertex: BRepMeshVertex): cint {.
+proc add*(this: var BRepMeshVertexInspector; theVertex: BRepMeshVertex): int {.
     importcpp: "Add", header: "BRepMesh_VertexInspector.hxx".}
-proc setTolerance*(this: var BRepMeshVertexInspector; theTolerance: cfloat) {.
+proc setTolerance*(this: var BRepMeshVertexInspector; theTolerance: StandardReal) {.
     importcpp: "SetTolerance", header: "BRepMesh_VertexInspector.hxx".}
-proc setTolerance*(this: var BRepMeshVertexInspector; theToleranceX: cfloat;
-                  theToleranceY: cfloat) {.importcpp: "SetTolerance",
+proc setTolerance*(this: var BRepMeshVertexInspector; theToleranceX: StandardReal;
+                  theToleranceY: StandardReal) {.importcpp: "SetTolerance",
     header: "BRepMesh_VertexInspector.hxx".}
 proc clear*(this: var BRepMeshVertexInspector) {.importcpp: "Clear",
     header: "BRepMesh_VertexInspector.hxx".}
-proc delete*(this: var BRepMeshVertexInspector; theIndex: cint) {.importcpp: "Delete",
+proc delete*(this: var BRepMeshVertexInspector; theIndex: int) {.importcpp: "Delete",
     header: "BRepMesh_VertexInspector.hxx".}
-proc nbVertices*(this: BRepMeshVertexInspector): cint {.noSideEffect,
+proc nbVertices*(this: BRepMeshVertexInspector): int {.noSideEffect,
     importcpp: "NbVertices", header: "BRepMesh_VertexInspector.hxx".}
-proc getVertex*(this: var BRepMeshVertexInspector; theIndex: cint): var BRepMeshVertex {.
+proc getVertex*(this: var BRepMeshVertexInspector; theIndex: int): var BRepMeshVertex {.
     importcpp: "GetVertex", header: "BRepMesh_VertexInspector.hxx".}
 proc setPoint*(this: var BRepMeshVertexInspector; thePoint: Xy) {.
     importcpp: "SetPoint", header: "BRepMesh_VertexInspector.hxx".}
-proc getCoincidentPoint*(this: BRepMeshVertexInspector): cint {.noSideEffect,
+proc getCoincidentPoint*(this: BRepMeshVertexInspector): int {.noSideEffect,
     importcpp: "GetCoincidentPoint", header: "BRepMesh_VertexInspector.hxx".}
 proc getListOfDelPoints*(this: BRepMeshVertexInspector): ListOfInteger {.
     noSideEffect, importcpp: "GetListOfDelPoints",
@@ -51,33 +51,8 @@ proc vertices*(this: BRepMeshVertexInspector): Handle[VectorOfVertex] {.
     noSideEffect, importcpp: "Vertices", header: "BRepMesh_VertexInspector.hxx".}
 proc changeVertices*(this: var BRepMeshVertexInspector): var Handle[VectorOfVertex] {.
     importcpp: "ChangeVertices", header: "BRepMesh_VertexInspector.hxx".}
-proc inspect*(this: var BRepMeshVertexInspector; theTargetIndex: cint): NCollectionCellFilterAction {.
+proc inspect*(this: var BRepMeshVertexInspector; theTargetIndex: int): NCollectionCellFilterAction {.
     importcpp: "Inspect", header: "BRepMesh_VertexInspector.hxx".}
-proc isEqual*(theIndex: cint; theTargetIndex: cint): bool {.
+proc isEqual*(theIndex: int; theTargetIndex: int): StandardBoolean {.
     importcpp: "BRepMesh_VertexInspector::IsEqual(@)",
     header: "BRepMesh_VertexInspector.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

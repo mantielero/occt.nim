@@ -19,29 +19,3 @@ type
       BRepTopAdaptorTool, TopToolsShapeMapHasher]
   BRepTopAdaptorDataMapIteratorOfMapOfShapeTool* = Iterator[TopoDS_Shape,
       BRepTopAdaptorTool, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

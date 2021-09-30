@@ -19,87 +19,44 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Cone"
 type
   BRepPrimAPI_MakeCone* {.importcpp: "BRepPrimAPI_MakeCone",
-                         header: "BRepPrimAPI_MakeCone.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis ##
-                                                                                                   ## !
-                                                                                                   ## Make
-                                                                                                   ## a
-                                                                                                   ## cone.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## @param
-                                                                                                   ## R1
-                                                                                                   ## [in]
-                                                                                                   ## cone
-                                                                                                   ## bottom
-                                                                                                   ## radius,
-                                                                                                   ## may
-                                                                                                   ## be
-                                                                                                   ## null
-                                                                                                   ## (z
-                                                                                                   ## =
-                                                                                                   ## 0)
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## @param
-                                                                                                   ## R2
-                                                                                                   ## [in]
-                                                                                                   ## cone
-                                                                                                   ## top
-                                                                                                   ## radius,
-                                                                                                   ## may
-                                                                                                   ## be
-                                                                                                   ## null
-                                                                                                   ## (z
-                                                                                                   ## =
-                                                                                                   ## H)
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## @param
-                                                                                                   ## H
-                                                                                                   ## [in]
-                                                                                                   ## cone
-                                                                                                   ## height
+                         header: "BRepPrimAPI_MakeCone.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis
 
 
-proc constructBRepPrimAPI_MakeCone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.
+proc `new`*(this: var BRepPrimAPI_MakeCone; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeCone::operator new",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeCone; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeCone::operator delete",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc `new[]`*(this: var BRepPrimAPI_MakeCone; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeCone::operator new[]",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc `delete[]`*(this: var BRepPrimAPI_MakeCone; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeCone::operator delete[]",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc `new`*(this: var BRepPrimAPI_MakeCone; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrimAPI_MakeCone::operator new",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeCone; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrimAPI_MakeCone::operator delete",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc constructBRepPrimAPI_MakeCone*(r1: StandardReal; r2: StandardReal;
+                                   h: StandardReal): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(r1: cfloat; r2: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(r1: StandardReal; r2: StandardReal;
+                                   h: StandardReal; angle: StandardReal): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: StandardReal; r2: StandardReal;
+                                   h: StandardReal): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat;
-                                   angle: cfloat): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: StandardReal; r2: StandardReal;
+                                   h: StandardReal; angle: StandardReal): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeCone): StandardAddress {.
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeCone.hxx".}
 proc cone*(this: var BRepPrimAPI_MakeCone): var BRepPrimCone {.importcpp: "Cone",
     header: "BRepPrimAPI_MakeCone.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

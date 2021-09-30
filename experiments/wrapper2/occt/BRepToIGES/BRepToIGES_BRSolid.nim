@@ -25,6 +25,24 @@ type
                        header: "BRepToIGES_BRSolid.hxx", bycopy.} = object of BRepToIGES_BREntity
 
 
+proc `new`*(this: var BRepToIGES_BRSolid; theSize: csize_t): pointer {.
+    importcpp: "BRepToIGES_BRSolid::operator new",
+    header: "BRepToIGES_BRSolid.hxx".}
+proc `delete`*(this: var BRepToIGES_BRSolid; theAddress: pointer) {.
+    importcpp: "BRepToIGES_BRSolid::operator delete",
+    header: "BRepToIGES_BRSolid.hxx".}
+proc `new[]`*(this: var BRepToIGES_BRSolid; theSize: csize_t): pointer {.
+    importcpp: "BRepToIGES_BRSolid::operator new[]",
+    header: "BRepToIGES_BRSolid.hxx".}
+proc `delete[]`*(this: var BRepToIGES_BRSolid; theAddress: pointer) {.
+    importcpp: "BRepToIGES_BRSolid::operator delete[]",
+    header: "BRepToIGES_BRSolid.hxx".}
+proc `new`*(this: var BRepToIGES_BRSolid; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepToIGES_BRSolid::operator new",
+    header: "BRepToIGES_BRSolid.hxx".}
+proc `delete`*(this: var BRepToIGES_BRSolid; a2: pointer; a3: pointer) {.
+    importcpp: "BRepToIGES_BRSolid::operator delete",
+    header: "BRepToIGES_BRSolid.hxx".}
 proc constructBRepToIGES_BRSolid*(): BRepToIGES_BRSolid {.constructor,
     importcpp: "BRepToIGES_BRSolid(@)", header: "BRepToIGES_BRSolid.hxx".}
 proc constructBRepToIGES_BRSolid*(br: BRepToIGES_BREntity): BRepToIGES_BRSolid {.
@@ -46,28 +64,3 @@ proc transferCompound*(this: var BRepToIGES_BRSolid; start: TopoDS_Compound;
     theProgress: MessageProgressRange = messageProgressRange()): Handle[
     IGESDataIGESEntity] {.importcpp: "TransferCompound",
                          header: "BRepToIGES_BRSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

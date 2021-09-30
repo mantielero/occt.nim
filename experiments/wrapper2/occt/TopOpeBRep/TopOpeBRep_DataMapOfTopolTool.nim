@@ -19,29 +19,3 @@ type
       Handle[BRepTopAdaptorTopolTool], TopToolsShapeMapHasher]
   TopOpeBRepDataMapIteratorOfDataMapOfTopolTool* = Iterator[TopoDS_Shape,
       Handle[BRepTopAdaptorTopolTool], TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

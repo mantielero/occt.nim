@@ -37,7 +37,7 @@ type
 proc constructTPrsStdAxisDriver*(): TPrsStdAxisDriver {.constructor,
     importcpp: "TPrsStd_AxisDriver(@)", header: "TPrsStd_AxisDriver.hxx".}
 proc update*(this: var TPrsStdAxisDriver; aLabel: TDF_Label;
-            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
+            anAISObject: var Handle[AIS_InteractiveObject]): StandardBoolean {.
     importcpp: "Update", header: "TPrsStd_AxisDriver.hxx".}
 type
   TPrsStdAxisDriverbaseType* = TPrsStdDriver
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_AxisDriver.hxx".}
 proc dynamicType*(this: TPrsStdAxisDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_AxisDriver.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

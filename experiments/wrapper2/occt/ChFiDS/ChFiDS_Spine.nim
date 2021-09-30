@@ -19,8 +19,8 @@ discard "forward decl of ChFiDS_HElSpine"
 discard "forward decl of gp_Lin"
 discard "forward decl of gp_Circ"
 discard "forward decl of TopoDS_Vertex"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of ChFiDS_Spine"
 discard "forward decl of ChFiDS_Spine"
 type
@@ -56,7 +56,7 @@ type
 
 proc constructChFiDS_Spine*(): ChFiDS_Spine {.constructor,
     importcpp: "ChFiDS_Spine(@)", header: "ChFiDS_Spine.hxx".}
-proc constructChFiDS_Spine*(tol: cfloat): ChFiDS_Spine {.constructor,
+proc constructChFiDS_Spine*(tol: StandardReal): ChFiDS_Spine {.constructor,
     importcpp: "ChFiDS_Spine(@)", header: "ChFiDS_Spine.hxx".}
 proc setEdges*(this: var ChFiDS_Spine; e: TopoDS_Edge) {.importcpp: "SetEdges",
     header: "ChFiDS_Spine.hxx".}
@@ -66,11 +66,11 @@ proc putInFirst*(this: var ChFiDS_Spine; e: TopoDS_Edge) {.importcpp: "PutInFirs
     header: "ChFiDS_Spine.hxx".}
 proc putInFirstOffset*(this: var ChFiDS_Spine; e: TopoDS_Edge) {.
     importcpp: "PutInFirstOffset", header: "ChFiDS_Spine.hxx".}
-proc nbEdges*(this: ChFiDS_Spine): cint {.noSideEffect, importcpp: "NbEdges",
-                                      header: "ChFiDS_Spine.hxx".}
-proc edges*(this: ChFiDS_Spine; i: cint): TopoDS_Edge {.noSideEffect,
+proc nbEdges*(this: ChFiDS_Spine): int {.noSideEffect, importcpp: "NbEdges",
+                                     header: "ChFiDS_Spine.hxx".}
+proc edges*(this: ChFiDS_Spine; i: int): TopoDS_Edge {.noSideEffect,
     importcpp: "Edges", header: "ChFiDS_Spine.hxx".}
-proc offsetEdges*(this: ChFiDS_Spine; i: cint): TopoDS_Edge {.noSideEffect,
+proc offsetEdges*(this: ChFiDS_Spine; i: int): TopoDS_Edge {.noSideEffect,
     importcpp: "OffsetEdges", header: "ChFiDS_Spine.hxx".}
 proc setFirstStatus*(this: var ChFiDS_Spine; s: ChFiDS_State) {.
     importcpp: "SetFirstStatus", header: "ChFiDS_Spine.hxx".}
@@ -80,68 +80,68 @@ proc appendElSpine*(this: var ChFiDS_Spine; els: Handle[ChFiDS_HElSpine]) {.
     importcpp: "AppendElSpine", header: "ChFiDS_Spine.hxx".}
 proc appendOffsetElSpine*(this: var ChFiDS_Spine; els: Handle[ChFiDS_HElSpine]) {.
     importcpp: "AppendOffsetElSpine", header: "ChFiDS_Spine.hxx".}
-proc elSpine*(this: ChFiDS_Spine; ie: cint): Handle[ChFiDS_HElSpine] {.noSideEffect,
+proc elSpine*(this: ChFiDS_Spine; ie: int): Handle[ChFiDS_HElSpine] {.noSideEffect,
     importcpp: "ElSpine", header: "ChFiDS_Spine.hxx".}
 proc elSpine*(this: ChFiDS_Spine; e: TopoDS_Edge): Handle[ChFiDS_HElSpine] {.
     noSideEffect, importcpp: "ElSpine", header: "ChFiDS_Spine.hxx".}
-proc elSpine*(this: ChFiDS_Spine; w: cfloat): Handle[ChFiDS_HElSpine] {.noSideEffect,
-    importcpp: "ElSpine", header: "ChFiDS_Spine.hxx".}
+proc elSpine*(this: ChFiDS_Spine; w: StandardReal): Handle[ChFiDS_HElSpine] {.
+    noSideEffect, importcpp: "ElSpine", header: "ChFiDS_Spine.hxx".}
 proc changeElSpines*(this: var ChFiDS_Spine): var ChFiDS_ListOfHElSpine {.
     importcpp: "ChangeElSpines", header: "ChFiDS_Spine.hxx".}
 proc changeOffsetElSpines*(this: var ChFiDS_Spine): var ChFiDS_ListOfHElSpine {.
     importcpp: "ChangeOffsetElSpines", header: "ChFiDS_Spine.hxx".}
-proc reset*(this: var ChFiDS_Spine; allData: bool = false) {.importcpp: "Reset",
-    header: "ChFiDS_Spine.hxx".}
-proc splitDone*(this: ChFiDS_Spine): bool {.noSideEffect, importcpp: "SplitDone",
-                                        header: "ChFiDS_Spine.hxx".}
-proc splitDone*(this: var ChFiDS_Spine; b: bool) {.importcpp: "SplitDone",
+proc reset*(this: var ChFiDS_Spine; allData: StandardBoolean = false) {.
+    importcpp: "Reset", header: "ChFiDS_Spine.hxx".}
+proc splitDone*(this: ChFiDS_Spine): StandardBoolean {.noSideEffect,
+    importcpp: "SplitDone", header: "ChFiDS_Spine.hxx".}
+proc splitDone*(this: var ChFiDS_Spine; b: StandardBoolean) {.importcpp: "SplitDone",
     header: "ChFiDS_Spine.hxx".}
 proc load*(this: var ChFiDS_Spine) {.importcpp: "Load", header: "ChFiDS_Spine.hxx".}
-proc resolution*(this: ChFiDS_Spine; r3d: cfloat): cfloat {.noSideEffect,
+proc resolution*(this: ChFiDS_Spine; r3d: StandardReal): StandardReal {.noSideEffect,
     importcpp: "Resolution", header: "ChFiDS_Spine.hxx".}
-proc isClosed*(this: ChFiDS_Spine): bool {.noSideEffect, importcpp: "IsClosed",
-                                       header: "ChFiDS_Spine.hxx".}
-proc firstParameter*(this: ChFiDS_Spine): cfloat {.noSideEffect,
+proc isClosed*(this: ChFiDS_Spine): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "ChFiDS_Spine.hxx".}
+proc firstParameter*(this: ChFiDS_Spine): StandardReal {.noSideEffect,
     importcpp: "FirstParameter", header: "ChFiDS_Spine.hxx".}
-proc lastParameter*(this: ChFiDS_Spine): cfloat {.noSideEffect,
+proc lastParameter*(this: ChFiDS_Spine): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "ChFiDS_Spine.hxx".}
-proc setFirstParameter*(this: var ChFiDS_Spine; par: cfloat) {.
+proc setFirstParameter*(this: var ChFiDS_Spine; par: StandardReal) {.
     importcpp: "SetFirstParameter", header: "ChFiDS_Spine.hxx".}
-proc setLastParameter*(this: var ChFiDS_Spine; par: cfloat) {.
+proc setLastParameter*(this: var ChFiDS_Spine; par: StandardReal) {.
     importcpp: "SetLastParameter", header: "ChFiDS_Spine.hxx".}
-proc firstParameter*(this: ChFiDS_Spine; indexSpine: cint): cfloat {.noSideEffect,
-    importcpp: "FirstParameter", header: "ChFiDS_Spine.hxx".}
-proc lastParameter*(this: ChFiDS_Spine; indexSpine: cint): cfloat {.noSideEffect,
+proc firstParameter*(this: ChFiDS_Spine; indexSpine: int): StandardReal {.
+    noSideEffect, importcpp: "FirstParameter", header: "ChFiDS_Spine.hxx".}
+proc lastParameter*(this: ChFiDS_Spine; indexSpine: int): StandardReal {.noSideEffect,
     importcpp: "LastParameter", header: "ChFiDS_Spine.hxx".}
-proc length*(this: ChFiDS_Spine; indexSpine: cint): cfloat {.noSideEffect,
+proc length*(this: ChFiDS_Spine; indexSpine: int): StandardReal {.noSideEffect,
     importcpp: "Length", header: "ChFiDS_Spine.hxx".}
-proc isPeriodic*(this: ChFiDS_Spine): bool {.noSideEffect, importcpp: "IsPeriodic",
+proc isPeriodic*(this: ChFiDS_Spine): StandardBoolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "ChFiDS_Spine.hxx".}
+proc period*(this: ChFiDS_Spine): StandardReal {.noSideEffect, importcpp: "Period",
     header: "ChFiDS_Spine.hxx".}
-proc period*(this: ChFiDS_Spine): cfloat {.noSideEffect, importcpp: "Period",
-                                       header: "ChFiDS_Spine.hxx".}
-proc absc*(this: var ChFiDS_Spine; u: cfloat): cfloat {.importcpp: "Absc",
+proc absc*(this: var ChFiDS_Spine; u: StandardReal): StandardReal {.importcpp: "Absc",
     header: "ChFiDS_Spine.hxx".}
-proc absc*(this: var ChFiDS_Spine; u: cfloat; i: cint): cfloat {.importcpp: "Absc",
+proc absc*(this: var ChFiDS_Spine; u: StandardReal; i: int): StandardReal {.
+    importcpp: "Absc", header: "ChFiDS_Spine.hxx".}
+proc parameter*(this: var ChFiDS_Spine; absC: StandardReal; u: var StandardReal;
+               oriented: StandardBoolean = true) {.importcpp: "Parameter",
     header: "ChFiDS_Spine.hxx".}
-proc parameter*(this: var ChFiDS_Spine; absC: cfloat; u: var cfloat;
-               oriented: bool = true) {.importcpp: "Parameter",
-                                    header: "ChFiDS_Spine.hxx".}
-proc parameter*(this: var ChFiDS_Spine; index: cint; absC: cfloat; u: var cfloat;
-               oriented: bool = true) {.importcpp: "Parameter",
-                                    header: "ChFiDS_Spine.hxx".}
-proc value*(this: var ChFiDS_Spine; absC: cfloat): Pnt {.importcpp: "Value",
+proc parameter*(this: var ChFiDS_Spine; index: int; absC: StandardReal;
+               u: var StandardReal; oriented: StandardBoolean = true) {.
+    importcpp: "Parameter", header: "ChFiDS_Spine.hxx".}
+proc value*(this: var ChFiDS_Spine; absC: StandardReal): Pnt {.importcpp: "Value",
     header: "ChFiDS_Spine.hxx".}
-proc d0*(this: var ChFiDS_Spine; absC: cfloat; p: var Pnt) {.importcpp: "D0",
+proc d0*(this: var ChFiDS_Spine; absC: StandardReal; p: var Pnt) {.importcpp: "D0",
     header: "ChFiDS_Spine.hxx".}
-proc d1*(this: var ChFiDS_Spine; absC: cfloat; p: var Pnt; v1: var Vec) {.importcpp: "D1",
-    header: "ChFiDS_Spine.hxx".}
-proc d2*(this: var ChFiDS_Spine; absC: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d1*(this: var ChFiDS_Spine; absC: StandardReal; p: var Pnt; v1: var Vec) {.
+    importcpp: "D1", header: "ChFiDS_Spine.hxx".}
+proc d2*(this: var ChFiDS_Spine; absC: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
     importcpp: "D2", header: "ChFiDS_Spine.hxx".}
-proc setCurrent*(this: var ChFiDS_Spine; index: cint) {.importcpp: "SetCurrent",
+proc setCurrent*(this: var ChFiDS_Spine; index: int) {.importcpp: "SetCurrent",
     header: "ChFiDS_Spine.hxx".}
-proc currentElementarySpine*(this: var ChFiDS_Spine; index: cint): BRepAdaptorCurve {.
+proc currentElementarySpine*(this: var ChFiDS_Spine; index: int): BRepAdaptorCurve {.
     importcpp: "CurrentElementarySpine", header: "ChFiDS_Spine.hxx".}
-proc currentIndexOfElementarySpine*(this: ChFiDS_Spine): cint {.noSideEffect,
+proc currentIndexOfElementarySpine*(this: ChFiDS_Spine): int {.noSideEffect,
     importcpp: "CurrentIndexOfElementarySpine", header: "ChFiDS_Spine.hxx".}
 proc getType*(this: ChFiDS_Spine): GeomAbsCurveType {.noSideEffect,
     importcpp: "GetType", header: "ChFiDS_Spine.hxx".}
@@ -153,39 +153,40 @@ proc firstStatus*(this: ChFiDS_Spine): ChFiDS_State {.noSideEffect,
     importcpp: "FirstStatus", header: "ChFiDS_Spine.hxx".}
 proc lastStatus*(this: ChFiDS_Spine): ChFiDS_State {.noSideEffect,
     importcpp: "LastStatus", header: "ChFiDS_Spine.hxx".}
-proc status*(this: ChFiDS_Spine; isFirst: bool): ChFiDS_State {.noSideEffect,
-    importcpp: "Status", header: "ChFiDS_Spine.hxx".}
+proc status*(this: ChFiDS_Spine; isFirst: StandardBoolean): ChFiDS_State {.
+    noSideEffect, importcpp: "Status", header: "ChFiDS_Spine.hxx".}
 proc getTypeOfConcavity*(this: ChFiDS_Spine): ChFiDS_TypeOfConcavity {.noSideEffect,
     importcpp: "GetTypeOfConcavity", header: "ChFiDS_Spine.hxx".}
-proc setStatus*(this: var ChFiDS_Spine; s: ChFiDS_State; isFirst: bool) {.
+proc setStatus*(this: var ChFiDS_Spine; s: ChFiDS_State; isFirst: StandardBoolean) {.
     importcpp: "SetStatus", header: "ChFiDS_Spine.hxx".}
 proc setTypeOfConcavity*(this: var ChFiDS_Spine; theType: ChFiDS_TypeOfConcavity) {.
     importcpp: "SetTypeOfConcavity", header: "ChFiDS_Spine.hxx".}
-proc isTangencyExtremity*(this: ChFiDS_Spine; isFirst: bool): bool {.noSideEffect,
-    importcpp: "IsTangencyExtremity", header: "ChFiDS_Spine.hxx".}
-proc setTangencyExtremity*(this: var ChFiDS_Spine; isTangency: bool; isFirst: bool) {.
+proc isTangencyExtremity*(this: ChFiDS_Spine; isFirst: StandardBoolean): StandardBoolean {.
+    noSideEffect, importcpp: "IsTangencyExtremity", header: "ChFiDS_Spine.hxx".}
+proc setTangencyExtremity*(this: var ChFiDS_Spine; isTangency: StandardBoolean;
+                          isFirst: StandardBoolean) {.
     importcpp: "SetTangencyExtremity", header: "ChFiDS_Spine.hxx".}
-proc absc*(this: ChFiDS_Spine; v: TopoDS_Vertex): cfloat {.noSideEffect,
+proc absc*(this: ChFiDS_Spine; v: TopoDS_Vertex): StandardReal {.noSideEffect,
     importcpp: "Absc", header: "ChFiDS_Spine.hxx".}
 proc firstVertex*(this: ChFiDS_Spine): TopoDS_Vertex {.noSideEffect,
     importcpp: "FirstVertex", header: "ChFiDS_Spine.hxx".}
 proc lastVertex*(this: ChFiDS_Spine): TopoDS_Vertex {.noSideEffect,
     importcpp: "LastVertex", header: "ChFiDS_Spine.hxx".}
-proc setFirstTgt*(this: var ChFiDS_Spine; w: cfloat) {.importcpp: "SetFirstTgt",
+proc setFirstTgt*(this: var ChFiDS_Spine; w: StandardReal) {.importcpp: "SetFirstTgt",
     header: "ChFiDS_Spine.hxx".}
-proc setLastTgt*(this: var ChFiDS_Spine; w: cfloat) {.importcpp: "SetLastTgt",
+proc setLastTgt*(this: var ChFiDS_Spine; w: StandardReal) {.importcpp: "SetLastTgt",
     header: "ChFiDS_Spine.hxx".}
-proc hasFirstTgt*(this: ChFiDS_Spine): bool {.noSideEffect, importcpp: "HasFirstTgt",
+proc hasFirstTgt*(this: ChFiDS_Spine): StandardBoolean {.noSideEffect,
+    importcpp: "HasFirstTgt", header: "ChFiDS_Spine.hxx".}
+proc hasLastTgt*(this: ChFiDS_Spine): StandardBoolean {.noSideEffect,
+    importcpp: "HasLastTgt", header: "ChFiDS_Spine.hxx".}
+proc setReference*(this: var ChFiDS_Spine; w: StandardReal) {.
+    importcpp: "SetReference", header: "ChFiDS_Spine.hxx".}
+proc setReference*(this: var ChFiDS_Spine; i: int) {.importcpp: "SetReference",
     header: "ChFiDS_Spine.hxx".}
-proc hasLastTgt*(this: ChFiDS_Spine): bool {.noSideEffect, importcpp: "HasLastTgt",
-    header: "ChFiDS_Spine.hxx".}
-proc setReference*(this: var ChFiDS_Spine; w: cfloat) {.importcpp: "SetReference",
-    header: "ChFiDS_Spine.hxx".}
-proc setReference*(this: var ChFiDS_Spine; i: cint) {.importcpp: "SetReference",
-    header: "ChFiDS_Spine.hxx".}
-proc index*(this: ChFiDS_Spine; w: cfloat; forward: bool = true): cint {.noSideEffect,
-    importcpp: "Index", header: "ChFiDS_Spine.hxx".}
-proc index*(this: ChFiDS_Spine; e: TopoDS_Edge): cint {.noSideEffect,
+proc index*(this: ChFiDS_Spine; w: StandardReal; forward: StandardBoolean = true): int {.
+    noSideEffect, importcpp: "Index", header: "ChFiDS_Spine.hxx".}
+proc index*(this: ChFiDS_Spine; e: TopoDS_Edge): int {.noSideEffect,
     importcpp: "Index", header: "ChFiDS_Spine.hxx".}
 proc unsetReference*(this: var ChFiDS_Spine) {.importcpp: "UnsetReference",
     header: "ChFiDS_Spine.hxx".}
@@ -204,28 +205,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "ChFiDS_Spine::get_type_descriptor(@)", header: "ChFiDS_Spine.hxx".}
 proc dynamicType*(this: ChFiDS_Spine): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "ChFiDS_Spine.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

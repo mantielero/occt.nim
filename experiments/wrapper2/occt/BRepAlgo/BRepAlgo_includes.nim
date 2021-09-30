@@ -14,29 +14,3 @@ include BRepAlgo_Loop
 include BRepAlgo_NormalProjection
 include BRepAlgo_Section
 include BRepAlgo_Tool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

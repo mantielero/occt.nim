@@ -20,6 +20,23 @@ type
                                       bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_InterferenceIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_InterferenceIterator::operator new",
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_InterferenceIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_InterferenceIterator::operator delete",
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_InterferenceIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_InterferenceIterator::operator new[]",
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_InterferenceIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_InterferenceIterator::operator delete[]",
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
+proc `new`*(this: var TopOpeBRepDS_InterferenceIterator; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopOpeBRepDS_InterferenceIterator::operator new", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_InterferenceIterator; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_InterferenceIterator::operator delete",
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc constructTopOpeBRepDS_InterferenceIterator*(): TopOpeBRepDS_InterferenceIterator {.
     constructor, importcpp: "TopOpeBRepDS_InterferenceIterator(@)",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
@@ -33,19 +50,19 @@ proc init*(this: var TopOpeBRepDS_InterferenceIterator;
 proc geometryKind*(this: var TopOpeBRepDS_InterferenceIterator;
                   gk: TopOpeBRepDS_Kind) {.importcpp: "GeometryKind",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc geometry*(this: var TopOpeBRepDS_InterferenceIterator; g: cint) {.
+proc geometry*(this: var TopOpeBRepDS_InterferenceIterator; g: int) {.
     importcpp: "Geometry", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc supportKind*(this: var TopOpeBRepDS_InterferenceIterator; st: TopOpeBRepDS_Kind) {.
     importcpp: "SupportKind", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc support*(this: var TopOpeBRepDS_InterferenceIterator; s: cint) {.
+proc support*(this: var TopOpeBRepDS_InterferenceIterator; s: int) {.
     importcpp: "Support", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc match*(this: var TopOpeBRepDS_InterferenceIterator) {.importcpp: "Match",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc matchInterference*(this: TopOpeBRepDS_InterferenceIterator;
-                       i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    importcpp: "MatchInterference",
+                       i: Handle[TopOpeBRepDS_Interference]): StandardBoolean {.
+    noSideEffect, importcpp: "MatchInterference",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-proc more*(this: TopOpeBRepDS_InterferenceIterator): bool {.noSideEffect,
+proc more*(this: TopOpeBRepDS_InterferenceIterator): StandardBoolean {.noSideEffect,
     importcpp: "More", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc next*(this: var TopOpeBRepDS_InterferenceIterator) {.importcpp: "Next",
     header: "TopOpeBRepDS_InterferenceIterator.hxx".}
@@ -54,28 +71,3 @@ proc value*(this: TopOpeBRepDS_InterferenceIterator): Handle[
                                 header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc changeIterator*(this: var TopOpeBRepDS_InterferenceIterator): var TopOpeBRepDS_ListIteratorOfListOfInterference {.
     importcpp: "ChangeIterator", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

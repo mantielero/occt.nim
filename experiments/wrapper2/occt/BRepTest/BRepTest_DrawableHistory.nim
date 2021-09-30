@@ -50,29 +50,3 @@ proc whatis*(this: BRepTestDrawableHistory; theDI: var DrawInterpretor) {.
 discard "forward decl of BRepTest_DrawableHistory"
 type
   HandleC1C1* = Handle[BRepTestDrawableHistory]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

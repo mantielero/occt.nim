@@ -35,9 +35,9 @@
  *              See  the  class   Map   from NCollection   for   a
  *              discussion about the number of buckets.
  */            
-
+// = NCollection_DefaultHasher<TheKeyType> 
 template < class TheKeyType, 
-           class Hasher = NCollection_DefaultHasher<TheKeyType> > 
+           class Hasher > 
 class NCollection_IndexedMap : public NCollection_BaseMap
 {
 public:
@@ -65,11 +65,7 @@ protected:
     
     //! Static deleter to be passed to BaseList
     static void delNode (NCollection_ListNode * theNode, 
-                         Handle(NCollection_BaseAllocator)& theAl)
-    {
-      ((IndexedMapNode *) theNode)->~IndexedMapNode();
-      theAl->Free(theNode);
-    }
+                         Handle(NCollection_BaseAllocator)& theAl);
 
   private:
     Standard_Integer myIndex;
@@ -146,28 +142,7 @@ protected:
 
   //! Assign.
   //! This method does not change the internal allocator.
-  NCollection_IndexedMap& Assign (const NCollection_IndexedMap& theOther)
-  { 
-    if (this == &theOther)
-      return *this;
-
-    Clear();
-    Standard_Integer anExt = theOther.Extent();
-    if (anExt)
-    {
-      ReSize (anExt-1); //mySize is same after resize
-      for (Standard_Integer anIndexIter = 1; anIndexIter <= anExt; ++anIndexIter)
-      {
-        const TheKeyType& aKey1 = theOther.FindKey (anIndexIter);
-        const Standard_Integer iK1 = Hasher::HashCode (aKey1, NbBuckets());
-        IndexedMapNode* pNode = new (this->myAllocator) IndexedMapNode (aKey1, anIndexIter, myData1[iK1]);
-        myData1[iK1]             = pNode;
-        myData2[anIndexIter - 1] = pNode;
-        Increment();
-      }
-    }
-    return *this;
-  }
+  NCollection_IndexedMap& Assign (const NCollection_IndexedMap& theOther);
 
   //! Assignment operator
   NCollection_IndexedMap& operator= (const NCollection_IndexedMap& theOther)
@@ -207,30 +182,7 @@ protected:
   }
 
   //! Add
-  Standard_Integer Add (const TheKeyType& theKey1)
-  {
-    if (Resizable())
-    {
-      ReSize (Extent());
-    }
-
-    Standard_Integer iK1 = Hasher::HashCode (theKey1, NbBuckets());
-    IndexedMapNode* pNode = (IndexedMapNode* )myData1[iK1];
-    while (pNode)
-    {
-      if (Hasher::IsEqual (pNode->Key1(), theKey1))
-      {
-        return pNode->Index();
-      }
-      pNode = (IndexedMapNode *) pNode->Next();
-    }
-
-    const Standard_Integer aNewIndex = Increment();
-    pNode = new (this->myAllocator) IndexedMapNode (theKey1, aNewIndex, myData1[iK1]);
-    myData1[iK1]           = pNode;
-    myData2[aNewIndex - 1] = pNode;
-    return aNewIndex;
-  }
+  Standard_Integer Add (const TheKeyType& theKey1);
 
   //! Contains
   Standard_Boolean Contains (const TheKeyType& theKey1) const
@@ -316,30 +268,7 @@ protected:
   }
 
   //! RemoveLast
-  void RemoveLast (void)
-  {
-    const Standard_Integer aLastIndex = Extent();
-    Standard_OutOfRange_Raise_if (aLastIndex == 0, "NCollection_IndexedMap::RemoveLast");
-
-    // Find the node for the last index and remove it
-    IndexedMapNode* p = (IndexedMapNode* )myData2[aLastIndex - 1];
-    myData2[aLastIndex - 1] = NULL;
-
-    // remove the key
-    Standard_Integer iK1 = Hasher::HashCode (p->Key1(), NbBuckets());
-    IndexedMapNode* q = (IndexedMapNode *) myData1[iK1];
-    if (q == p)
-      myData1[iK1] = (IndexedMapNode *) p->Next();
-    else 
-    {
-      while (q->Next() != p) 
-        q = (IndexedMapNode *) q->Next();
-      q->Next() = p->Next();
-    }
-    p->~IndexedMapNode();
-    this->myAllocator->Free(p);
-    Decrement();
-  }
+  void RemoveLast (void);
 
   //! Remove the key of the given index.
   //! Caution! The index of the last key can be changed.

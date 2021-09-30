@@ -19,29 +19,3 @@ type
                    header: "BRepFeat_Status.hxx".} = enum
     BRepFeatNoError, BRepFeatInvalidPlacement, BRepFeatHoleTooLong
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

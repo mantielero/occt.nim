@@ -21,6 +21,23 @@ type
                                      bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_ListOfShapeOn1State; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_ListOfShapeOn1State::operator new",
+    header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_ListOfShapeOn1State; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_ListOfShapeOn1State::operator delete",
+    header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_ListOfShapeOn1State; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_ListOfShapeOn1State::operator new[]",
+    header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_ListOfShapeOn1State; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_ListOfShapeOn1State::operator delete[]",
+    header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
+proc `new`*(this: var TopOpeBRepDS_ListOfShapeOn1State; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "TopOpeBRepDS_ListOfShapeOn1State::operator new", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_ListOfShapeOn1State; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_ListOfShapeOn1State::operator delete",
+    header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
 proc constructTopOpeBRepDS_ListOfShapeOn1State*(): TopOpeBRepDS_ListOfShapeOn1State {.
     constructor, importcpp: "TopOpeBRepDS_ListOfShapeOn1State(@)",
     header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
@@ -29,34 +46,10 @@ proc listOnState*(this: TopOpeBRepDS_ListOfShapeOn1State): TopToolsListOfShape {
     header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
 proc changeListOnState*(this: var TopOpeBRepDS_ListOfShapeOn1State): var TopToolsListOfShape {.
     importcpp: "ChangeListOnState", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
-proc isSplit*(this: TopOpeBRepDS_ListOfShapeOn1State): bool {.noSideEffect,
-    importcpp: "IsSplit", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
-proc split*(this: var TopOpeBRepDS_ListOfShapeOn1State; b: bool = true) {.
+proc isSplit*(this: TopOpeBRepDS_ListOfShapeOn1State): StandardBoolean {.
+    noSideEffect, importcpp: "IsSplit",
+    header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
+proc split*(this: var TopOpeBRepDS_ListOfShapeOn1State; b: StandardBoolean = true) {.
     importcpp: "Split", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
 proc clear*(this: var TopOpeBRepDS_ListOfShapeOn1State) {.importcpp: "Clear",
     header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

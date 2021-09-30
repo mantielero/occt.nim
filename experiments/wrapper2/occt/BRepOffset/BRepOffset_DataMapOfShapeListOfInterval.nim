@@ -19,29 +19,3 @@ type
       BRepOffsetListOfInterval, TopToolsShapeMapHasher]
   BRepOffsetDataMapIteratorOfDataMapOfShapeListOfInterval* = Iterator[
       TopoDS_Shape, BRepOffsetListOfInterval, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

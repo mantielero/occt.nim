@@ -18,16 +18,29 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 type
   BRepGPropDomain* {.importcpp: "BRepGProp_Domain", header: "BRepGProp_Domain.hxx",
-                    bycopy.} = object ## ! Empty constructor.
+                    bycopy.} = object
 
 
+proc `new`*(this: var BRepGPropDomain; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_Domain::operator new", header: "BRepGProp_Domain.hxx".}
+proc `delete`*(this: var BRepGPropDomain; theAddress: pointer) {.
+    importcpp: "BRepGProp_Domain::operator delete", header: "BRepGProp_Domain.hxx".}
+proc `new[]`*(this: var BRepGPropDomain; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_Domain::operator new[]", header: "BRepGProp_Domain.hxx".}
+proc `delete[]`*(this: var BRepGPropDomain; theAddress: pointer) {.
+    importcpp: "BRepGProp_Domain::operator delete[]",
+    header: "BRepGProp_Domain.hxx".}
+proc `new`*(this: var BRepGPropDomain; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepGProp_Domain::operator new", header: "BRepGProp_Domain.hxx".}
+proc `delete`*(this: var BRepGPropDomain; a2: pointer; a3: pointer) {.
+    importcpp: "BRepGProp_Domain::operator delete", header: "BRepGProp_Domain.hxx".}
 proc constructBRepGPropDomain*(): BRepGPropDomain {.constructor,
     importcpp: "BRepGProp_Domain(@)", header: "BRepGProp_Domain.hxx".}
 proc constructBRepGPropDomain*(f: TopoDS_Face): BRepGPropDomain {.constructor,
     importcpp: "BRepGProp_Domain(@)", header: "BRepGProp_Domain.hxx".}
 proc init*(this: var BRepGPropDomain; f: TopoDS_Face) {.importcpp: "Init",
     header: "BRepGProp_Domain.hxx".}
-proc more*(this: var BRepGPropDomain): bool {.importcpp: "More",
+proc more*(this: var BRepGPropDomain): StandardBoolean {.importcpp: "More",
     header: "BRepGProp_Domain.hxx".}
 proc init*(this: var BRepGPropDomain) {.importcpp: "Init",
                                     header: "BRepGProp_Domain.hxx".}
@@ -35,28 +48,3 @@ proc value*(this: var BRepGPropDomain): TopoDS_Edge {.importcpp: "Value",
     header: "BRepGProp_Domain.hxx".}
 proc next*(this: var BRepGPropDomain) {.importcpp: "Next",
                                     header: "BRepGProp_Domain.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

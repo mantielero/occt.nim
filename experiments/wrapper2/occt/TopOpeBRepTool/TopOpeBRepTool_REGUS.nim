@@ -22,24 +22,42 @@ type
                         header: "TopOpeBRepTool_REGUS.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepToolREGUS; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_REGUS::operator new",
+    header: "TopOpeBRepTool_REGUS.hxx".}
+proc `delete`*(this: var TopOpeBRepToolREGUS; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_REGUS::operator delete",
+    header: "TopOpeBRepTool_REGUS.hxx".}
+proc `new[]`*(this: var TopOpeBRepToolREGUS; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_REGUS::operator new[]",
+    header: "TopOpeBRepTool_REGUS.hxx".}
+proc `delete[]`*(this: var TopOpeBRepToolREGUS; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_REGUS::operator delete[]",
+    header: "TopOpeBRepTool_REGUS.hxx".}
+proc `new`*(this: var TopOpeBRepToolREGUS; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepTool_REGUS::operator new",
+    header: "TopOpeBRepTool_REGUS.hxx".}
+proc `delete`*(this: var TopOpeBRepToolREGUS; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepTool_REGUS::operator delete",
+    header: "TopOpeBRepTool_REGUS.hxx".}
 proc constructTopOpeBRepToolREGUS*(): TopOpeBRepToolREGUS {.constructor,
     importcpp: "TopOpeBRepTool_REGUS(@)", header: "TopOpeBRepTool_REGUS.hxx".}
 proc init*(this: var TopOpeBRepToolREGUS; s: TopoDS_Shape) {.importcpp: "Init",
     header: "TopOpeBRepTool_REGUS.hxx".}
 proc s*(this: TopOpeBRepToolREGUS): TopoDS_Shape {.noSideEffect, importcpp: "S",
     header: "TopOpeBRepTool_REGUS.hxx".}
-proc mapS*(this: var TopOpeBRepToolREGUS): bool {.importcpp: "MapS",
+proc mapS*(this: var TopOpeBRepToolREGUS): StandardBoolean {.importcpp: "MapS",
     header: "TopOpeBRepTool_REGUS.hxx".}
 proc wireToFace*(fanc: TopoDS_Face; nWs: TopToolsListOfShape;
-                nFs: var TopToolsListOfShape): bool {.
+                nFs: var TopToolsListOfShape): StandardBoolean {.
     importcpp: "TopOpeBRepTool_REGUS::WireToFace(@)",
     header: "TopOpeBRepTool_REGUS.hxx".}
-proc splitF*(fanc: TopoDS_Face; fSplits: var TopToolsListOfShape): bool {.
+proc splitF*(fanc: TopoDS_Face; fSplits: var TopToolsListOfShape): StandardBoolean {.
     importcpp: "TopOpeBRepTool_REGUS::SplitF(@)",
     header: "TopOpeBRepTool_REGUS.hxx".}
-proc splitFaces*(this: var TopOpeBRepToolREGUS): bool {.importcpp: "SplitFaces",
-    header: "TopOpeBRepTool_REGUS.hxx".}
-proc regu*(this: var TopOpeBRepToolREGUS): bool {.importcpp: "REGU",
+proc splitFaces*(this: var TopOpeBRepToolREGUS): StandardBoolean {.
+    importcpp: "SplitFaces", header: "TopOpeBRepTool_REGUS.hxx".}
+proc regu*(this: var TopOpeBRepToolREGUS): StandardBoolean {.importcpp: "REGU",
     header: "TopOpeBRepTool_REGUS.hxx".}
 proc setFsplits*(this: var TopOpeBRepToolREGUS;
                 fsplits: var TopToolsDataMapOfShapeListOfShape) {.
@@ -53,35 +71,10 @@ proc setOshNsh*(this: var TopOpeBRepToolREGUS;
 proc getOshNsh*(this: TopOpeBRepToolREGUS;
                oshNsh: var TopToolsDataMapOfShapeListOfShape) {.noSideEffect,
     importcpp: "GetOshNsh", header: "TopOpeBRepTool_REGUS.hxx".}
-proc initBlock*(this: var TopOpeBRepToolREGUS): bool {.importcpp: "InitBlock",
-    header: "TopOpeBRepTool_REGUS.hxx".}
-proc nextinBlock*(this: var TopOpeBRepToolREGUS): bool {.importcpp: "NextinBlock",
-    header: "TopOpeBRepTool_REGUS.hxx".}
+proc initBlock*(this: var TopOpeBRepToolREGUS): StandardBoolean {.
+    importcpp: "InitBlock", header: "TopOpeBRepTool_REGUS.hxx".}
+proc nextinBlock*(this: var TopOpeBRepToolREGUS): StandardBoolean {.
+    importcpp: "NextinBlock", header: "TopOpeBRepTool_REGUS.hxx".}
 proc nearestF*(this: TopOpeBRepToolREGUS; e: TopoDS_Edge; lof: TopToolsListOfShape;
-              ffound: var TopoDS_Face): bool {.noSideEffect, importcpp: "NearestF",
-    header: "TopOpeBRepTool_REGUS.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              ffound: var TopoDS_Face): StandardBoolean {.noSideEffect,
+    importcpp: "NearestF", header: "TopOpeBRepTool_REGUS.hxx".}

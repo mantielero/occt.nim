@@ -20,64 +20,43 @@ discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
 type
   BRepPrimAPI_MakeOneAxis* {.importcpp: "BRepPrimAPI_MakeOneAxis",
-                            header: "BRepPrimAPI_MakeOneAxis.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                          ## !
-                                                                                                          ## The
-                                                                                                          ## inherited
-                                                                                                          ## commands
-                                                                                                          ## should
-                                                                                                          ## provide
-                                                                                                          ## the
-                                                                                                          ## algorithm.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Returned
-                                                                                                          ## as
-                                                                                                          ## a
-                                                                                                          ## pointer.
+                            header: "BRepPrimAPI_MakeOneAxis.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepPrimAPI_MakeOneAxis; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeOneAxis::operator new",
+    header: "BRepPrimAPI_MakeOneAxis.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeOneAxis; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeOneAxis::operator delete",
+    header: "BRepPrimAPI_MakeOneAxis.hxx".}
+proc `new[]`*(this: var BRepPrimAPI_MakeOneAxis; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeOneAxis::operator new[]",
+    header: "BRepPrimAPI_MakeOneAxis.hxx".}
+proc `delete[]`*(this: var BRepPrimAPI_MakeOneAxis; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeOneAxis::operator delete[]",
+    header: "BRepPrimAPI_MakeOneAxis.hxx".}
+proc `new`*(this: var BRepPrimAPI_MakeOneAxis; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrimAPI_MakeOneAxis::operator new",
+    header: "BRepPrimAPI_MakeOneAxis.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeOneAxis; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrimAPI_MakeOneAxis::operator delete",
+    header: "BRepPrimAPI_MakeOneAxis.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeOneAxis): StandardAddress {.
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeOneAxis.hxx".}
 proc build*(this: var BRepPrimAPI_MakeOneAxis) {.importcpp: "Build",
     header: "BRepPrimAPI_MakeOneAxis.hxx".}
 proc face*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Face {.importcpp: "Face",
     header: "BRepPrimAPI_MakeOneAxis.hxx".}
-converter `topoDS_Face`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Face {.
+converter `toTopoDS_Face`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Face {.
     importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Face",
     header: "BRepPrimAPI_MakeOneAxis.hxx".}
 proc shell*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Shell {.importcpp: "Shell",
     header: "BRepPrimAPI_MakeOneAxis.hxx".}
-converter `topoDS_Shell`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Shell {.
+converter `toTopoDS_Shell`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Shell {.
     importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Shell",
     header: "BRepPrimAPI_MakeOneAxis.hxx".}
 proc solid*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.importcpp: "Solid",
     header: "BRepPrimAPI_MakeOneAxis.hxx".}
-converter `topoDS_Solid`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.
+converter `toTopoDS_Solid`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.
     importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Solid",
     header: "BRepPrimAPI_MakeOneAxis.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

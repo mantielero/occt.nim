@@ -17,29 +17,3 @@
 discard "forward decl of IntRes2d_IntersectionPoint"
 type
   TopOpeBRepPIntRes2dIntersectionPoint* = ptr IntRes2dIntersectionPoint
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

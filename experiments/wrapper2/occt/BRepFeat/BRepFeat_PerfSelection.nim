@@ -31,29 +31,3 @@ type
     BRepFeatNoSelection, BRepFeatSelectionFU, BRepFeatSelectionU,
     BRepFeatSelectionSh, BRepFeatSelectionShU
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

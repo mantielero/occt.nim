@@ -118,14 +118,15 @@ type
 
 
 proc constructBRepFillCurveConstraint*(boundary: Handle[Adaptor3dHCurveOnSurface];
-                                      order: cint; nPt: cint = 10;
-                                      tolDist: cfloat = 0.0001;
-                                      tolAng: cfloat = 0.01; tolCurv: cfloat = 0.1): BRepFillCurveConstraint {.
+                                      order: int; nPt: int = 10;
+                                      tolDist: StandardReal = 0.0001;
+                                      tolAng: StandardReal = 0.01;
+                                      tolCurv: StandardReal = 0.1): BRepFillCurveConstraint {.
     constructor, importcpp: "BRepFill_CurveConstraint(@)",
     header: "BRepFill_CurveConstraint.hxx".}
 proc constructBRepFillCurveConstraint*(boundary: Handle[Adaptor3dHCurve];
-                                      tang: cint; nPt: cint = 10;
-                                      tolDist: cfloat = 0.0001): BRepFillCurveConstraint {.
+                                      tang: int; nPt: int = 10;
+                                      tolDist: StandardReal = 0.0001): BRepFillCurveConstraint {.
     constructor, importcpp: "BRepFill_CurveConstraint(@)",
     header: "BRepFill_CurveConstraint.hxx".}
 type
@@ -138,28 +139,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_CurveConstraint.hxx".}
 proc dynamicType*(this: BRepFillCurveConstraint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepFill_CurveConstraint.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

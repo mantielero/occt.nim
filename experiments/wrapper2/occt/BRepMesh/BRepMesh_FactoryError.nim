@@ -17,29 +17,3 @@ type
     BRepMeshFE_NOERROR, BRepMeshFE_LIBRARYNOTFOUND, BRepMeshFE_FUNCTIONNOTFOUND,
     BRepMeshFE_CANNOTCREATEALGO
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

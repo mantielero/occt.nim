@@ -17,29 +17,3 @@ type
                            header: "BRepExtrema_SupportType.hxx".} = enum
     BRepExtremaIsVertex, BRepExtremaIsOnEdge, BRepExtremaIsInFace
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

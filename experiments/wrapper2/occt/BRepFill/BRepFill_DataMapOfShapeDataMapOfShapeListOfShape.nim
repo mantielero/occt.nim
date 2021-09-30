@@ -19,29 +19,3 @@ type
       TopoDS_Shape, TopToolsDataMapOfShapeListOfShape, TopToolsShapeMapHasher]
   BRepFillDataMapIteratorOfDataMapOfShapeDataMapOfShapeListOfShape* = Iterator[
       TopoDS_Shape, TopToolsDataMapOfShapeListOfShape, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

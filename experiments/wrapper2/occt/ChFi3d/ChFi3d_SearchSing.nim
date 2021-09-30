@@ -20,36 +20,28 @@ type
                      header: "ChFi3d_SearchSing.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
+proc `new`*(this: var ChFi3dSearchSing; theSize: csize_t): pointer {.
+    importcpp: "ChFi3d_SearchSing::operator new", header: "ChFi3d_SearchSing.hxx".}
+proc `delete`*(this: var ChFi3dSearchSing; theAddress: pointer) {.
+    importcpp: "ChFi3d_SearchSing::operator delete",
+    header: "ChFi3d_SearchSing.hxx".}
+proc `new[]`*(this: var ChFi3dSearchSing; theSize: csize_t): pointer {.
+    importcpp: "ChFi3d_SearchSing::operator new[]",
+    header: "ChFi3d_SearchSing.hxx".}
+proc `delete[]`*(this: var ChFi3dSearchSing; theAddress: pointer) {.
+    importcpp: "ChFi3d_SearchSing::operator delete[]",
+    header: "ChFi3d_SearchSing.hxx".}
+proc `new`*(this: var ChFi3dSearchSing; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "ChFi3d_SearchSing::operator new", header: "ChFi3d_SearchSing.hxx".}
+proc `delete`*(this: var ChFi3dSearchSing; a2: pointer; a3: pointer) {.
+    importcpp: "ChFi3d_SearchSing::operator delete",
+    header: "ChFi3d_SearchSing.hxx".}
 proc constructChFi3dSearchSing*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]): ChFi3dSearchSing {.
     constructor, importcpp: "ChFi3d_SearchSing(@)", header: "ChFi3d_SearchSing.hxx".}
-proc value*(this: var ChFi3dSearchSing; x: cfloat; f: var cfloat): bool {.
+proc value*(this: var ChFi3dSearchSing; x: StandardReal; f: var StandardReal): StandardBoolean {.
     importcpp: "Value", header: "ChFi3d_SearchSing.hxx".}
-proc derivative*(this: var ChFi3dSearchSing; x: cfloat; d: var cfloat): bool {.
+proc derivative*(this: var ChFi3dSearchSing; x: StandardReal; d: var StandardReal): StandardBoolean {.
     importcpp: "Derivative", header: "ChFi3d_SearchSing.hxx".}
-proc values*(this: var ChFi3dSearchSing; x: cfloat; f: var cfloat; d: var cfloat): bool {.
-    importcpp: "Values", header: "ChFi3d_SearchSing.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc values*(this: var ChFi3dSearchSing; x: StandardReal; f: var StandardReal;
+            d: var StandardReal): StandardBoolean {.importcpp: "Values",
+    header: "ChFi3d_SearchSing.hxx".}

@@ -26,46 +26,41 @@ type
                          header: "BRepFill_TrimEdgeTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepFillTrimEdgeTool; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_TrimEdgeTool::operator new",
+    header: "BRepFill_TrimEdgeTool.hxx".}
+proc `delete`*(this: var BRepFillTrimEdgeTool; theAddress: pointer) {.
+    importcpp: "BRepFill_TrimEdgeTool::operator delete",
+    header: "BRepFill_TrimEdgeTool.hxx".}
+proc `new[]`*(this: var BRepFillTrimEdgeTool; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_TrimEdgeTool::operator new[]",
+    header: "BRepFill_TrimEdgeTool.hxx".}
+proc `delete[]`*(this: var BRepFillTrimEdgeTool; theAddress: pointer) {.
+    importcpp: "BRepFill_TrimEdgeTool::operator delete[]",
+    header: "BRepFill_TrimEdgeTool.hxx".}
+proc `new`*(this: var BRepFillTrimEdgeTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_TrimEdgeTool::operator new",
+    header: "BRepFill_TrimEdgeTool.hxx".}
+proc `delete`*(this: var BRepFillTrimEdgeTool; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_TrimEdgeTool::operator delete",
+    header: "BRepFill_TrimEdgeTool.hxx".}
 proc constructBRepFillTrimEdgeTool*(): BRepFillTrimEdgeTool {.constructor,
     importcpp: "BRepFill_TrimEdgeTool(@)", header: "BRepFill_TrimEdgeTool.hxx".}
 proc constructBRepFillTrimEdgeTool*(bisec: BisectorBisec;
                                    s1: Handle[Geom2dGeometry];
-                                   s2: Handle[Geom2dGeometry]; offset: cfloat): BRepFillTrimEdgeTool {.
+                                   s2: Handle[Geom2dGeometry];
+                                   offset: StandardReal): BRepFillTrimEdgeTool {.
     constructor, importcpp: "BRepFill_TrimEdgeTool(@)",
     header: "BRepFill_TrimEdgeTool.hxx".}
 proc intersectWith*(this: var BRepFillTrimEdgeTool; edge1: TopoDS_Edge;
                    edge2: TopoDS_Edge; initShape1: TopoDS_Shape;
                    initShape2: TopoDS_Shape; end1: TopoDS_Vertex;
                    end2: TopoDS_Vertex; theJoinType: GeomAbsJoinType;
-                   isOpenResult: bool; params: var TColgpSequenceOfPnt) {.
+                   isOpenResult: StandardBoolean; params: var TColgpSequenceOfPnt) {.
     importcpp: "IntersectWith", header: "BRepFill_TrimEdgeTool.hxx".}
-proc addOrConfuse*(this: BRepFillTrimEdgeTool; start: bool; edge1: TopoDS_Edge;
-                  edge2: TopoDS_Edge; params: var TColgpSequenceOfPnt) {.
-    noSideEffect, importcpp: "AddOrConfuse", header: "BRepFill_TrimEdgeTool.hxx".}
-proc isInside*(this: BRepFillTrimEdgeTool; p: Pnt2d): bool {.noSideEffect,
+proc addOrConfuse*(this: BRepFillTrimEdgeTool; start: StandardBoolean;
+                  edge1: TopoDS_Edge; edge2: TopoDS_Edge;
+                  params: var TColgpSequenceOfPnt) {.noSideEffect,
+    importcpp: "AddOrConfuse", header: "BRepFill_TrimEdgeTool.hxx".}
+proc isInside*(this: BRepFillTrimEdgeTool; p: Pnt2d): StandardBoolean {.noSideEffect,
     importcpp: "IsInside", header: "BRepFill_TrimEdgeTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

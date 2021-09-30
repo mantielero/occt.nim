@@ -30,9 +30,10 @@ proc perform*(this: BRepMeshClassifier; thePoint: Pnt2d): TopAbsState {.noSideEf
     importcpp: "Perform", header: "BRepMesh_Classifier.hxx".}
 proc registerWire*(this: var BRepMeshClassifier;
                   theWire: NCollectionSequence[ptr Pnt2d];
-                  theTolUV: Pair[cfloat, cfloat]; theRangeU: Pair[cfloat, cfloat];
-                  theRangeV: Pair[cfloat, cfloat]) {.importcpp: "RegisterWire",
-    header: "BRepMesh_Classifier.hxx".}
+                  theTolUV: Pair[StandardReal, StandardReal];
+                  theRangeU: Pair[StandardReal, StandardReal];
+                  theRangeV: Pair[StandardReal, StandardReal]) {.
+    importcpp: "RegisterWire", header: "BRepMesh_Classifier.hxx".}
 type
   BRepMeshClassifierbaseType* = StandardTransient
 
@@ -43,28 +44,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_Classifier.hxx".}
 proc dynamicType*(this: BRepMeshClassifier): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_Classifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,6 +27,24 @@ type
                                  bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildCorrectFace2d; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_CorrectFace2d::operator new",
+    header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildCorrectFace2d; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_CorrectFace2d::operator delete",
+    header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildCorrectFace2d; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_CorrectFace2d::operator new[]",
+    header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildCorrectFace2d; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_CorrectFace2d::operator delete[]",
+    header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
+proc `new`*(this: var TopOpeBRepBuildCorrectFace2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_CorrectFace2d::operator new",
+    header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildCorrectFace2d; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_CorrectFace2d::operator delete",
+    header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
 proc constructTopOpeBRepBuildCorrectFace2d*(): TopOpeBRepBuildCorrectFace2d {.
     constructor, importcpp: "TopOpeBRepBuild_CorrectFace2d(@)",
     header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
@@ -39,9 +57,9 @@ proc face*(this: TopOpeBRepBuildCorrectFace2d): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
 proc perform*(this: var TopOpeBRepBuildCorrectFace2d) {.importcpp: "Perform",
     header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
-proc isDone*(this: TopOpeBRepBuildCorrectFace2d): bool {.noSideEffect,
+proc isDone*(this: TopOpeBRepBuildCorrectFace2d): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
-proc errorStatus*(this: TopOpeBRepBuildCorrectFace2d): cint {.noSideEffect,
+proc errorStatus*(this: TopOpeBRepBuildCorrectFace2d): int {.noSideEffect,
     importcpp: "ErrorStatus", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
 proc correctedFace*(this: TopOpeBRepBuildCorrectFace2d): TopoDS_Face {.noSideEffect,
     importcpp: "CorrectedFace", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
@@ -56,28 +74,3 @@ proc getP2dFL*(aFace: TopoDS_Face; anEdge: TopoDS_Edge; p2dF: var Pnt2d; p2dL: v
 proc checkList*(aFace: TopoDS_Face; aHeadList: var TopToolsListOfShape) {.
     importcpp: "TopOpeBRepBuild_CorrectFace2d::CheckList(@)",
     header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

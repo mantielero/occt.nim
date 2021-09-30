@@ -41,29 +41,3 @@ const
   MDSsd* = topOpeBRepDS_ShapeData
   MDSmosd* = topOpeBRepDS_MapOfShapeData
   MDSitl* = topOpeBRepDS_InterferenceTool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

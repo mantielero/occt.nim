@@ -19,48 +19,42 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
   BRepLPropCurveTool* {.importcpp: "BRepLProp_CurveTool",
-                       header: "BRepLProp_CurveTool.hxx", bycopy.} = object ## ! Computes the point <P> of parameter <U> on the curve <C>.
+                       header: "BRepLProp_CurveTool.hxx", bycopy.} = object
 
 
-proc value*(c: BRepAdaptorCurve; u: cfloat; p: var Pnt) {.
+proc `new`*(this: var BRepLPropCurveTool; theSize: csize_t): pointer {.
+    importcpp: "BRepLProp_CurveTool::operator new",
+    header: "BRepLProp_CurveTool.hxx".}
+proc `delete`*(this: var BRepLPropCurveTool; theAddress: pointer) {.
+    importcpp: "BRepLProp_CurveTool::operator delete",
+    header: "BRepLProp_CurveTool.hxx".}
+proc `new[]`*(this: var BRepLPropCurveTool; theSize: csize_t): pointer {.
+    importcpp: "BRepLProp_CurveTool::operator new[]",
+    header: "BRepLProp_CurveTool.hxx".}
+proc `delete[]`*(this: var BRepLPropCurveTool; theAddress: pointer) {.
+    importcpp: "BRepLProp_CurveTool::operator delete[]",
+    header: "BRepLProp_CurveTool.hxx".}
+proc `new`*(this: var BRepLPropCurveTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLProp_CurveTool::operator new",
+    header: "BRepLProp_CurveTool.hxx".}
+proc `delete`*(this: var BRepLPropCurveTool; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLProp_CurveTool::operator delete",
+    header: "BRepLProp_CurveTool.hxx".}
+proc value*(c: BRepAdaptorCurve; u: StandardReal; p: var Pnt) {.
     importcpp: "BRepLProp_CurveTool::Value(@)", header: "BRepLProp_CurveTool.hxx".}
-proc d1*(c: BRepAdaptorCurve; u: cfloat; p: var Pnt; v1: var Vec) {.
+proc d1*(c: BRepAdaptorCurve; u: StandardReal; p: var Pnt; v1: var Vec) {.
     importcpp: "BRepLProp_CurveTool::D1(@)", header: "BRepLProp_CurveTool.hxx".}
-proc d2*(c: BRepAdaptorCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(c: BRepAdaptorCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
     importcpp: "BRepLProp_CurveTool::D2(@)", header: "BRepLProp_CurveTool.hxx".}
-proc d3*(c: BRepAdaptorCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    importcpp: "BRepLProp_CurveTool::D3(@)", header: "BRepLProp_CurveTool.hxx".}
-proc continuity*(c: BRepAdaptorCurve): cint {.
+proc d3*(c: BRepAdaptorCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec;
+        v3: var Vec) {.importcpp: "BRepLProp_CurveTool::D3(@)",
+                    header: "BRepLProp_CurveTool.hxx".}
+proc continuity*(c: BRepAdaptorCurve): int {.
     importcpp: "BRepLProp_CurveTool::Continuity(@)",
     header: "BRepLProp_CurveTool.hxx".}
-proc firstParameter*(c: BRepAdaptorCurve): cfloat {.
+proc firstParameter*(c: BRepAdaptorCurve): StandardReal {.
     importcpp: "BRepLProp_CurveTool::FirstParameter(@)",
     header: "BRepLProp_CurveTool.hxx".}
-proc lastParameter*(c: BRepAdaptorCurve): cfloat {.
+proc lastParameter*(c: BRepAdaptorCurve): StandardReal {.
     importcpp: "BRepLProp_CurveTool::LastParameter(@)",
     header: "BRepLProp_CurveTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

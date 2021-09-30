@@ -16,29 +16,3 @@
 
 type
   ChFiDS_SecArray1* = NCollectionArray1[ChFiDS_CircSection]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

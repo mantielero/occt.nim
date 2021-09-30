@@ -25,35 +25,23 @@ type
       bycopy.} = object of MathBFGS
 
 
+proc `new`*(this: var BRepApproxBSpGradientBFGSOfMyBSplGradientOfTheComputeLineOfApprox;
+           theSize: csize_t): pointer {.importcpp: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox::operator new", header: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxBSpGradientBFGSOfMyBSplGradientOfTheComputeLineOfApprox;
+              theAddress: pointer) {.importcpp: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox::operator delete", header: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc `new[]`*(this: var BRepApproxBSpGradientBFGSOfMyBSplGradientOfTheComputeLineOfApprox;
+             theSize: csize_t): pointer {.importcpp: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox::operator new[]", header: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc `delete[]`*(this: var BRepApproxBSpGradientBFGSOfMyBSplGradientOfTheComputeLineOfApprox;
+                theAddress: pointer) {.importcpp: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox::operator delete[]", header: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc `new`*(this: var BRepApproxBSpGradientBFGSOfMyBSplGradientOfTheComputeLineOfApprox;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox::operator new", header: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxBSpGradientBFGSOfMyBSplGradientOfTheComputeLineOfApprox;
+              a2: pointer; a3: pointer) {.importcpp: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox::operator delete", header: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc constructBRepApproxBSpGradientBFGSOfMyBSplGradientOfTheComputeLineOfApprox*(
     f: var MathMultipleVarFunctionWithGradient; startingPoint: MathVector;
-    tolerance3d: cfloat; tolerance2d: cfloat; eps: cfloat; nbIterations: cint = 200): BRepApproxBSpGradientBFGSOfMyBSplGradientOfTheComputeLineOfApprox {.
+    tolerance3d: StandardReal; tolerance2d: StandardReal; eps: StandardReal;
+    nbIterations: int = 200): BRepApproxBSpGradientBFGSOfMyBSplGradientOfTheComputeLineOfApprox {.
     constructor, importcpp: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox(@)", header: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc isSolutionReached*(this: BRepApproxBSpGradientBFGSOfMyBSplGradientOfTheComputeLineOfApprox;
-                       f: var MathMultipleVarFunctionWithGradient): bool {.
+                       f: var MathMultipleVarFunctionWithGradient): StandardBoolean {.
     noSideEffect, importcpp: "IsSolutionReached", header: "BRepApprox_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

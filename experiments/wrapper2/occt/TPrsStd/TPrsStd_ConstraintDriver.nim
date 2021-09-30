@@ -38,7 +38,7 @@ proc constructTPrsStdConstraintDriver*(): TPrsStdConstraintDriver {.constructor,
     importcpp: "TPrsStd_ConstraintDriver(@)",
     header: "TPrsStd_ConstraintDriver.hxx".}
 proc update*(this: var TPrsStdConstraintDriver; aLabel: TDF_Label;
-            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
+            anAISObject: var Handle[AIS_InteractiveObject]): StandardBoolean {.
     importcpp: "Update", header: "TPrsStd_ConstraintDriver.hxx".}
 type
   TPrsStdConstraintDriverbaseType* = TPrsStdDriver
@@ -50,28 +50,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_ConstraintDriver.hxx".}
 proc dynamicType*(this: TPrsStdConstraintDriver): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TPrsStd_ConstraintDriver.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

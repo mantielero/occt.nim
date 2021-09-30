@@ -42,28 +42,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_Edge3DLaw.hxx".}
 proc dynamicType*(this: BRepFillEdge3DLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_Edge3DLaw.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

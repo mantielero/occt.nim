@@ -20,13 +20,21 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopExp_Explorer"
 type
-  TopExp* {.importcpp: "TopExp", header: "TopExp.hxx", bycopy.} = object ## ! Tool to explore a topological data structure.
-                                                                 ## ! Stores in the map <M> all  the sub-shapes of <S>
-                                                                 ## ! of type <T>.
-                                                                 ## !
-                                                                 ## ! Warning: The map is not cleared at first.
+  TopExp* {.importcpp: "TopExp", header: "TopExp.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopExp; theSize: csize_t): pointer {.
+    importcpp: "TopExp::operator new", header: "TopExp.hxx".}
+proc `delete`*(this: var TopExp; theAddress: pointer) {.
+    importcpp: "TopExp::operator delete", header: "TopExp.hxx".}
+proc `new[]`*(this: var TopExp; theSize: csize_t): pointer {.
+    importcpp: "TopExp::operator new[]", header: "TopExp.hxx".}
+proc `delete[]`*(this: var TopExp; theAddress: pointer) {.
+    importcpp: "TopExp::operator delete[]", header: "TopExp.hxx".}
+proc `new`*(this: var TopExp; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopExp::operator new", header: "TopExp.hxx".}
+proc `delete`*(this: var TopExp; a2: pointer; a3: pointer) {.
+    importcpp: "TopExp::operator delete", header: "TopExp.hxx".}
 proc mapShapes*(s: TopoDS_Shape; t: TopAbsShapeEnum; m: var TopToolsIndexedMapOfShape) {.
     importcpp: "TopExp::MapShapes(@)", header: "TopExp.hxx".}
 proc mapShapes*(s: TopoDS_Shape; m: var TopToolsIndexedMapOfShape) {.
@@ -39,41 +47,16 @@ proc mapShapesAndAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum;
     importcpp: "TopExp::MapShapesAndAncestors(@)", header: "TopExp.hxx".}
 proc mapShapesAndUniqueAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum;
                                  ta: TopAbsShapeEnum; m: var TopToolsIndexedDataMapOfShapeListOfShape;
-                                 useOrientation: bool = false) {.
+                                 useOrientation: StandardBoolean = false) {.
     importcpp: "TopExp::MapShapesAndUniqueAncestors(@)", header: "TopExp.hxx".}
-proc firstVertex*(e: TopoDS_Edge; cumOri: bool = false): TopoDS_Vertex {.
+proc firstVertex*(e: TopoDS_Edge; cumOri: StandardBoolean = false): TopoDS_Vertex {.
     importcpp: "TopExp::FirstVertex(@)", header: "TopExp.hxx".}
-proc lastVertex*(e: TopoDS_Edge; cumOri: bool = false): TopoDS_Vertex {.
+proc lastVertex*(e: TopoDS_Edge; cumOri: StandardBoolean = false): TopoDS_Vertex {.
     importcpp: "TopExp::LastVertex(@)", header: "TopExp.hxx".}
 proc vertices*(e: TopoDS_Edge; vfirst: var TopoDS_Vertex; vlast: var TopoDS_Vertex;
-              cumOri: bool = false) {.importcpp: "TopExp::Vertices(@)",
-                                  header: "TopExp.hxx".}
+              cumOri: StandardBoolean = false) {.importcpp: "TopExp::Vertices(@)",
+    header: "TopExp.hxx".}
 proc vertices*(w: TopoDS_Wire; vfirst: var TopoDS_Vertex; vlast: var TopoDS_Vertex) {.
     importcpp: "TopExp::Vertices(@)", header: "TopExp.hxx".}
-proc commonVertex*(e1: TopoDS_Edge; e2: TopoDS_Edge; v: var TopoDS_Vertex): bool {.
+proc commonVertex*(e1: TopoDS_Edge; e2: TopoDS_Edge; v: var TopoDS_Vertex): StandardBoolean {.
     importcpp: "TopExp::CommonVertex(@)", header: "TopExp.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

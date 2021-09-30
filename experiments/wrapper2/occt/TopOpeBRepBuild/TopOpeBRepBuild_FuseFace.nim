@@ -19,15 +19,33 @@ type
                             header: "TopOpeBRepBuild_FuseFace.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildFuseFace; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_FuseFace::operator new",
+    header: "TopOpeBRepBuild_FuseFace.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildFuseFace; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_FuseFace::operator delete",
+    header: "TopOpeBRepBuild_FuseFace.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildFuseFace; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_FuseFace::operator new[]",
+    header: "TopOpeBRepBuild_FuseFace.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildFuseFace; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_FuseFace::operator delete[]",
+    header: "TopOpeBRepBuild_FuseFace.hxx".}
+proc `new`*(this: var TopOpeBRepBuildFuseFace; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_FuseFace::operator new",
+    header: "TopOpeBRepBuild_FuseFace.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildFuseFace; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_FuseFace::operator delete",
+    header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc constructTopOpeBRepBuildFuseFace*(): TopOpeBRepBuildFuseFace {.constructor,
     importcpp: "TopOpeBRepBuild_FuseFace(@)",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc constructTopOpeBRepBuildFuseFace*(lif: TopToolsListOfShape;
-                                      lrf: TopToolsListOfShape; cxm: cint): TopOpeBRepBuildFuseFace {.
+                                      lrf: TopToolsListOfShape; cxm: int): TopOpeBRepBuildFuseFace {.
     constructor, importcpp: "TopOpeBRepBuild_FuseFace(@)",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc init*(this: var TopOpeBRepBuildFuseFace; lif: TopToolsListOfShape;
-          lrf: TopToolsListOfShape; cxm: cint) {.importcpp: "Init",
+          lrf: TopToolsListOfShape; cxm: int) {.importcpp: "Init",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc performFace*(this: var TopOpeBRepBuildFuseFace) {.importcpp: "PerformFace",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
@@ -37,9 +55,9 @@ proc clearEdge*(this: var TopOpeBRepBuildFuseFace) {.importcpp: "ClearEdge",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc clearVertex*(this: var TopOpeBRepBuildFuseFace) {.importcpp: "ClearVertex",
     header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc isDone*(this: TopOpeBRepBuildFuseFace): bool {.noSideEffect,
+proc isDone*(this: TopOpeBRepBuildFuseFace): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "TopOpeBRepBuild_FuseFace.hxx".}
-proc isModified*(this: TopOpeBRepBuildFuseFace): bool {.noSideEffect,
+proc isModified*(this: TopOpeBRepBuildFuseFace): StandardBoolean {.noSideEffect,
     importcpp: "IsModified", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lFuseFace*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.noSideEffect,
     importcpp: "LFuseFace", header: "TopOpeBRepBuild_FuseFace.hxx".}
@@ -57,28 +75,3 @@ proc lExternVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lModifVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     noSideEffect, importcpp: "LModifVertex", header: "TopOpeBRepBuild_FuseFace.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

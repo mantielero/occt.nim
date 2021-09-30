@@ -22,62 +22,56 @@ type
                                 header: "TopOpeBRepBuild_SolidBuilder.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildSolidBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_SolidBuilder::operator new",
+    header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildSolidBuilder; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_SolidBuilder::operator delete",
+    header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildSolidBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_SolidBuilder::operator new[]",
+    header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildSolidBuilder; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_SolidBuilder::operator delete[]",
+    header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc `new`*(this: var TopOpeBRepBuildSolidBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_SolidBuilder::operator new",
+    header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildSolidBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_SolidBuilder::operator delete",
+    header: "TopOpeBRepBuild_SolidBuilder.hxx".}
 proc constructTopOpeBRepBuildSolidBuilder*(): TopOpeBRepBuildSolidBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_SolidBuilder(@)",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
 proc constructTopOpeBRepBuildSolidBuilder*(fs: var TopOpeBRepBuildShellFaceSet;
-    forceClass: bool = false): TopOpeBRepBuildSolidBuilder {.constructor,
+    forceClass: StandardBoolean = false): TopOpeBRepBuildSolidBuilder {.constructor,
     importcpp: "TopOpeBRepBuild_SolidBuilder(@)",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
 proc initSolidBuilder*(this: var TopOpeBRepBuildSolidBuilder;
-                      fs: var TopOpeBRepBuildShellFaceSet; forceClass: bool) {.
+                      fs: var TopOpeBRepBuildShellFaceSet;
+                      forceClass: StandardBoolean) {.
     importcpp: "InitSolidBuilder", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc initSolid*(this: var TopOpeBRepBuildSolidBuilder): cint {.
-    importcpp: "InitSolid", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc moreSolid*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect,
+proc initSolid*(this: var TopOpeBRepBuildSolidBuilder): int {.importcpp: "InitSolid",
+    header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc moreSolid*(this: TopOpeBRepBuildSolidBuilder): StandardBoolean {.noSideEffect,
     importcpp: "MoreSolid", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
 proc nextSolid*(this: var TopOpeBRepBuildSolidBuilder) {.importcpp: "NextSolid",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc initShell*(this: var TopOpeBRepBuildSolidBuilder): cint {.
-    importcpp: "InitShell", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc moreShell*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect,
+proc initShell*(this: var TopOpeBRepBuildSolidBuilder): int {.importcpp: "InitShell",
+    header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+proc moreShell*(this: TopOpeBRepBuildSolidBuilder): StandardBoolean {.noSideEffect,
     importcpp: "MoreShell", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
 proc nextShell*(this: var TopOpeBRepBuildSolidBuilder) {.importcpp: "NextShell",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc isOldShell*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect,
+proc isOldShell*(this: TopOpeBRepBuildSolidBuilder): StandardBoolean {.noSideEffect,
     importcpp: "IsOldShell", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
 proc oldShell*(this: TopOpeBRepBuildSolidBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "OldShell", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc initFace*(this: var TopOpeBRepBuildSolidBuilder): cint {.importcpp: "InitFace",
+proc initFace*(this: var TopOpeBRepBuildSolidBuilder): int {.importcpp: "InitFace",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-proc moreFace*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect,
+proc moreFace*(this: TopOpeBRepBuildSolidBuilder): StandardBoolean {.noSideEffect,
     importcpp: "MoreFace", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
 proc nextFace*(this: var TopOpeBRepBuildSolidBuilder) {.importcpp: "NextFace",
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
 proc face*(this: TopOpeBRepBuildSolidBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "Face", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

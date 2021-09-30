@@ -14,33 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
+#[ type
   TopLocMapOfLocation* = NCollectionMap[TopLocLocation, TopLocMapLocationHasher]
   TopLocMapIteratorOfMapOfLocation* = Iterator[TopLocLocation,
-      TopLocMapLocationHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      TopLocMapLocationHasher] ]#

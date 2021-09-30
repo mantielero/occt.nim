@@ -39,14 +39,26 @@ type
                                                                                      ## result.
 
 
+proc `new`*(this: var BRepFillPipe; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_Pipe::operator new", header: "BRepFill_Pipe.hxx".}
+proc `delete`*(this: var BRepFillPipe; theAddress: pointer) {.
+    importcpp: "BRepFill_Pipe::operator delete", header: "BRepFill_Pipe.hxx".}
+proc `new[]`*(this: var BRepFillPipe; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_Pipe::operator new[]", header: "BRepFill_Pipe.hxx".}
+proc `delete[]`*(this: var BRepFillPipe; theAddress: pointer) {.
+    importcpp: "BRepFill_Pipe::operator delete[]", header: "BRepFill_Pipe.hxx".}
+proc `new`*(this: var BRepFillPipe; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_Pipe::operator new", header: "BRepFill_Pipe.hxx".}
+proc `delete`*(this: var BRepFillPipe; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_Pipe::operator delete", header: "BRepFill_Pipe.hxx".}
 proc constructBRepFillPipe*(): BRepFillPipe {.constructor,
     importcpp: "BRepFill_Pipe(@)", header: "BRepFill_Pipe.hxx".}
 proc constructBRepFillPipe*(spine: TopoDS_Wire; profile: TopoDS_Shape; aMode: GeomFillTrihedron = geomFillIsCorrectedFrenet;
-                           forceApproxC1: bool = false;
-                           generatePartCase: bool = false): BRepFillPipe {.
+                           forceApproxC1: StandardBoolean = false;
+                           generatePartCase: StandardBoolean = false): BRepFillPipe {.
     constructor, importcpp: "BRepFill_Pipe(@)", header: "BRepFill_Pipe.hxx".}
 proc perform*(this: var BRepFillPipe; spine: TopoDS_Wire; profile: TopoDS_Shape;
-             generatePartCase: bool = false) {.importcpp: "Perform",
+             generatePartCase: StandardBoolean = false) {.importcpp: "Perform",
     header: "BRepFill_Pipe.hxx".}
 proc spine*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect, importcpp: "Spine",
     header: "BRepFill_Pipe.hxx".}
@@ -54,7 +66,7 @@ proc profile*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect, importcpp: "Prof
     header: "BRepFill_Pipe.hxx".}
 proc shape*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BRepFill_Pipe.hxx".}
-proc errorOnSurface*(this: BRepFillPipe): cfloat {.noSideEffect,
+proc errorOnSurface*(this: BRepFillPipe): StandardReal {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "BRepFill_Pipe.hxx".}
 proc firstShape*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "BRepFill_Pipe.hxx".}
@@ -70,28 +82,3 @@ proc section*(this: BRepFillPipe; vSpine: TopoDS_Vertex): TopoDS_Shape {.noSideE
     importcpp: "Section", header: "BRepFill_Pipe.hxx".}
 proc pipeLine*(this: var BRepFillPipe; point: Pnt): TopoDS_Wire {.
     importcpp: "PipeLine", header: "BRepFill_Pipe.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

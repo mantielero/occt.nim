@@ -21,6 +21,24 @@ type
                                   bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildLoopClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_LoopClassifier::operator new",
+    header: "TopOpeBRepBuild_LoopClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildLoopClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_LoopClassifier::operator delete",
+    header: "TopOpeBRepBuild_LoopClassifier.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildLoopClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_LoopClassifier::operator new[]",
+    header: "TopOpeBRepBuild_LoopClassifier.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildLoopClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_LoopClassifier::operator delete[]",
+    header: "TopOpeBRepBuild_LoopClassifier.hxx".}
+proc `new`*(this: var TopOpeBRepBuildLoopClassifier; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_LoopClassifier::operator new",
+    header: "TopOpeBRepBuild_LoopClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildLoopClassifier; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_LoopClassifier::operator delete",
+    header: "TopOpeBRepBuild_LoopClassifier.hxx".}
 proc destroyTopOpeBRepBuildLoopClassifier*(
     this: var TopOpeBRepBuildLoopClassifier) {.
     importcpp: "#.~TopOpeBRepBuild_LoopClassifier()",
@@ -28,28 +46,3 @@ proc destroyTopOpeBRepBuildLoopClassifier*(
 proc compare*(this: var TopOpeBRepBuildLoopClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
     importcpp: "Compare", header: "TopOpeBRepBuild_LoopClassifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

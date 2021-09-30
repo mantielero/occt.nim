@@ -13,12 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(VTK_USE_64BIT_IDS):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   when defined(win32) and not defined(win64):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     discard
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # else:
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   when defined(_WIN64):
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # when defined(VTK_USE_64BIT_IDS):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   when defined(win32) and not defined(win64):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     discard
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # else:
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   when defined(_WIN64):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     discard
 type
   IVtkIdType* = VtkIdType
   IVtkPointId* = IVtkIdType
@@ -81,6 +81,7 @@ type
                     header: "IVtk_Types.hxx".} = enum
     DM_Wireframe = 0,           ## !< Wireframe display mode
     DM_Shading = 1
+
 
 
 

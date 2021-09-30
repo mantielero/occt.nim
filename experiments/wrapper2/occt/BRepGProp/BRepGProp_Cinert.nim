@@ -21,6 +21,19 @@ type
                     bycopy.} = object of GPropGProps
 
 
+proc `new`*(this: var BRepGPropCinert; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_Cinert::operator new", header: "BRepGProp_Cinert.hxx".}
+proc `delete`*(this: var BRepGPropCinert; theAddress: pointer) {.
+    importcpp: "BRepGProp_Cinert::operator delete", header: "BRepGProp_Cinert.hxx".}
+proc `new[]`*(this: var BRepGPropCinert; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_Cinert::operator new[]", header: "BRepGProp_Cinert.hxx".}
+proc `delete[]`*(this: var BRepGPropCinert; theAddress: pointer) {.
+    importcpp: "BRepGProp_Cinert::operator delete[]",
+    header: "BRepGProp_Cinert.hxx".}
+proc `new`*(this: var BRepGPropCinert; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepGProp_Cinert::operator new", header: "BRepGProp_Cinert.hxx".}
+proc `delete`*(this: var BRepGPropCinert; a2: pointer; a3: pointer) {.
+    importcpp: "BRepGProp_Cinert::operator delete", header: "BRepGProp_Cinert.hxx".}
 proc constructBRepGPropCinert*(): BRepGPropCinert {.constructor,
     importcpp: "BRepGProp_Cinert(@)", header: "BRepGProp_Cinert.hxx".}
 proc constructBRepGPropCinert*(c: BRepAdaptorCurve; cLocation: Pnt): BRepGPropCinert {.
@@ -29,28 +42,3 @@ proc setLocation*(this: var BRepGPropCinert; cLocation: Pnt) {.
     importcpp: "SetLocation", header: "BRepGProp_Cinert.hxx".}
 proc perform*(this: var BRepGPropCinert; c: BRepAdaptorCurve) {.importcpp: "Perform",
     header: "BRepGProp_Cinert.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

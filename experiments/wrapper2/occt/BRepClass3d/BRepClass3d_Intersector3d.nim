@@ -19,27 +19,42 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 type
   BRepClass3dIntersector3d* {.importcpp: "BRepClass3d_Intersector3d",
-                             header: "BRepClass3d_Intersector3d.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Empty
-                                                                                   ## constructor.
+                             header: "BRepClass3d_Intersector3d.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepClass3dIntersector3d; theSize: csize_t): pointer {.
+    importcpp: "BRepClass3d_Intersector3d::operator new",
+    header: "BRepClass3d_Intersector3d.hxx".}
+proc `delete`*(this: var BRepClass3dIntersector3d; theAddress: pointer) {.
+    importcpp: "BRepClass3d_Intersector3d::operator delete",
+    header: "BRepClass3d_Intersector3d.hxx".}
+proc `new[]`*(this: var BRepClass3dIntersector3d; theSize: csize_t): pointer {.
+    importcpp: "BRepClass3d_Intersector3d::operator new[]",
+    header: "BRepClass3d_Intersector3d.hxx".}
+proc `delete[]`*(this: var BRepClass3dIntersector3d; theAddress: pointer) {.
+    importcpp: "BRepClass3d_Intersector3d::operator delete[]",
+    header: "BRepClass3d_Intersector3d.hxx".}
+proc `new`*(this: var BRepClass3dIntersector3d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepClass3d_Intersector3d::operator new",
+    header: "BRepClass3d_Intersector3d.hxx".}
+proc `delete`*(this: var BRepClass3dIntersector3d; a2: pointer; a3: pointer) {.
+    importcpp: "BRepClass3d_Intersector3d::operator delete",
+    header: "BRepClass3d_Intersector3d.hxx".}
 proc constructBRepClass3dIntersector3d*(): BRepClass3dIntersector3d {.constructor,
     importcpp: "BRepClass3d_Intersector3d(@)",
     header: "BRepClass3d_Intersector3d.hxx".}
-proc perform*(this: var BRepClass3dIntersector3d; L: Lin; prm: cfloat; tol: cfloat;
-             f: TopoDS_Face) {.importcpp: "Perform",
-                             header: "BRepClass3d_Intersector3d.hxx".}
-proc isDone*(this: BRepClass3dIntersector3d): bool {.noSideEffect,
+proc perform*(this: var BRepClass3dIntersector3d; L: Lin; prm: StandardReal;
+             tol: StandardReal; f: TopoDS_Face) {.importcpp: "Perform",
+    header: "BRepClass3d_Intersector3d.hxx".}
+proc isDone*(this: BRepClass3dIntersector3d): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepClass3d_Intersector3d.hxx".}
-proc hasAPoint*(this: BRepClass3dIntersector3d): bool {.noSideEffect,
+proc hasAPoint*(this: BRepClass3dIntersector3d): StandardBoolean {.noSideEffect,
     importcpp: "HasAPoint", header: "BRepClass3d_Intersector3d.hxx".}
-proc uParameter*(this: BRepClass3dIntersector3d): cfloat {.noSideEffect,
+proc uParameter*(this: BRepClass3dIntersector3d): StandardReal {.noSideEffect,
     importcpp: "UParameter", header: "BRepClass3d_Intersector3d.hxx".}
-proc vParameter*(this: BRepClass3dIntersector3d): cfloat {.noSideEffect,
+proc vParameter*(this: BRepClass3dIntersector3d): StandardReal {.noSideEffect,
     importcpp: "VParameter", header: "BRepClass3d_Intersector3d.hxx".}
-proc wParameter*(this: BRepClass3dIntersector3d): cfloat {.noSideEffect,
+proc wParameter*(this: BRepClass3dIntersector3d): StandardReal {.noSideEffect,
     importcpp: "WParameter", header: "BRepClass3d_Intersector3d.hxx".}
 proc pnt*(this: BRepClass3dIntersector3d): Pnt {.noSideEffect, importcpp: "Pnt",
     header: "BRepClass3d_Intersector3d.hxx".}
@@ -49,28 +64,3 @@ proc state*(this: BRepClass3dIntersector3d): TopAbsState {.noSideEffect,
     importcpp: "State", header: "BRepClass3d_Intersector3d.hxx".}
 proc face*(this: BRepClass3dIntersector3d): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BRepClass3d_Intersector3d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

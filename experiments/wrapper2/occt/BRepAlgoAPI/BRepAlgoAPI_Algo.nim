@@ -21,6 +21,19 @@ type
                                                                                             ## constructor
 
 
+proc `new`*(this: var BRepAlgoAPI_Algo; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Algo::operator new", header: "BRepAlgoAPI_Algo.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Algo; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Algo::operator delete", header: "BRepAlgoAPI_Algo.hxx".}
+proc `new[]`*(this: var BRepAlgoAPI_Algo; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Algo::operator new[]", header: "BRepAlgoAPI_Algo.hxx".}
+proc `delete[]`*(this: var BRepAlgoAPI_Algo; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Algo::operator delete[]",
+    header: "BRepAlgoAPI_Algo.hxx".}
+proc `new`*(this: var BRepAlgoAPI_Algo; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgoAPI_Algo::operator new", header: "BRepAlgoAPI_Algo.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Algo; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgoAPI_Algo::operator delete", header: "BRepAlgoAPI_Algo.hxx".}
 proc shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.importcpp: "Shape",
     header: "BRepAlgoAPI_Algo.hxx".}
 ## using statement
@@ -52,29 +65,3 @@ proc shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.importcpp: "Shape",
 ## using statement
 
 ## using statement
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

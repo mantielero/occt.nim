@@ -19,36 +19,38 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_PointOnCurveOnSurface"
 discard "forward decl of BRep_PointOnCurveOnSurface"
-type
-  HandleC1C1* = Handle[BRepPointOnCurveOnSurface]
-
-## ! Representation by   a parameter on  a curve   on a
-## ! surface.
 
 type
   BRepPointOnCurveOnSurface* {.importcpp: "BRep_PointOnCurveOnSurface",
                               header: "BRep_PointOnCurveOnSurface.hxx", bycopy.} = object of BRepPointsOnSurface
 
+type
+  HandleBRepPointOnCurveOnSurface* = Handle[BRepPointOnCurveOnSurface]
 
-proc constructBRepPointOnCurveOnSurface*(p: cfloat; c: Handle[Geom2dCurve];
+## ! Representation by   a parameter on  a curve   on a
+## ! surface.
+type
+  BRepPointOnCurveOnSurfacebaseType* = BRepPointsOnSurface
+
+#[ 
+proc constructBRepPointOnCurveOnSurface*(p: StandardReal; c: Handle[Geom2dCurve];
                                         s: Handle[GeomSurface]; L: TopLocLocation): BRepPointOnCurveOnSurface {.
     constructor, importcpp: "BRep_PointOnCurveOnSurface(@)",
     header: "BRep_PointOnCurveOnSurface.hxx".}
-proc isPointOnCurveOnSurface*(this: BRepPointOnCurveOnSurface): bool {.noSideEffect,
-    importcpp: "IsPointOnCurveOnSurface", header: "BRep_PointOnCurveOnSurface.hxx".}
+proc isPointOnCurveOnSurface*(this: BRepPointOnCurveOnSurface): StandardBoolean {.
+    noSideEffect, importcpp: "IsPointOnCurveOnSurface",
+    header: "BRep_PointOnCurveOnSurface.hxx".}
 proc isPointOnCurveOnSurface*(this: BRepPointOnCurveOnSurface;
                              pc: Handle[Geom2dCurve]; s: Handle[GeomSurface];
-                             L: TopLocLocation): bool {.noSideEffect,
+                             L: TopLocLocation): StandardBoolean {.noSideEffect,
     importcpp: "IsPointOnCurveOnSurface", header: "BRep_PointOnCurveOnSurface.hxx".}
 proc pCurve*(this: BRepPointOnCurveOnSurface): Handle[Geom2dCurve] {.noSideEffect,
     importcpp: "PCurve", header: "BRep_PointOnCurveOnSurface.hxx".}
 proc pCurve*(this: var BRepPointOnCurveOnSurface; c: Handle[Geom2dCurve]) {.
     importcpp: "PCurve", header: "BRep_PointOnCurveOnSurface.hxx".}
 proc dumpJson*(this: BRepPointOnCurveOnSurface; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
-                                 header: "BRep_PointOnCurveOnSurface.hxx".}
-type
-  BRepPointOnCurveOnSurfacebaseType* = BRepPointsOnSurface
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_PointOnCurveOnSurface.hxx".}
 
 proc getTypeName*(): cstring {.importcpp: "BRep_PointOnCurveOnSurface::get_type_name(@)",
                             header: "BRep_PointOnCurveOnSurface.hxx".}
@@ -57,29 +59,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRep_PointOnCurveOnSurface.hxx".}
 proc dynamicType*(this: BRepPointOnCurveOnSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "BRep_PointOnCurveOnSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "BRep_PointOnCurveOnSurface.hxx".} ]#

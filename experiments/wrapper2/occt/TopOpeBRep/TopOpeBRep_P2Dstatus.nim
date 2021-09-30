@@ -20,29 +20,3 @@ type
     TopOpeBRepP2DUNK, TopOpeBRepP2DINT, TopOpeBRepP2DSGF, TopOpeBRepP2DSGL,
     TopOpeBRepP2DNEW
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

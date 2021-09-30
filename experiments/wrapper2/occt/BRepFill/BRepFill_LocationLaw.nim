@@ -83,43 +83,45 @@ proc getStatus*(this: BRepFillLocationLaw): GeomFillPipeError {.noSideEffect,
 proc transformInG0Law*(this: var BRepFillLocationLaw) {.
     importcpp: "TransformInG0Law", header: "BRepFill_LocationLaw.hxx".}
 proc transformInCompatibleLaw*(this: var BRepFillLocationLaw;
-                              angularTolerance: cfloat) {.
+                              angularTolerance: StandardReal) {.
     importcpp: "TransformInCompatibleLaw", header: "BRepFill_LocationLaw.hxx".}
 proc deleteTransform*(this: var BRepFillLocationLaw) {.importcpp: "DeleteTransform",
     header: "BRepFill_LocationLaw.hxx".}
-proc nbHoles*(this: var BRepFillLocationLaw; tol: cfloat = 1.0e-7): cint {.
+proc nbHoles*(this: var BRepFillLocationLaw; tol: StandardReal = 1.0e-7): int {.
     importcpp: "NbHoles", header: "BRepFill_LocationLaw.hxx".}
 proc holes*(this: BRepFillLocationLaw; interval: var TColStdArray1OfInteger) {.
     noSideEffect, importcpp: "Holes", header: "BRepFill_LocationLaw.hxx".}
-proc nbLaw*(this: BRepFillLocationLaw): cint {.noSideEffect, importcpp: "NbLaw",
+proc nbLaw*(this: BRepFillLocationLaw): int {.noSideEffect, importcpp: "NbLaw",
     header: "BRepFill_LocationLaw.hxx".}
-proc law*(this: BRepFillLocationLaw; index: cint): Handle[GeomFillLocationLaw] {.
+proc law*(this: BRepFillLocationLaw; index: int): Handle[GeomFillLocationLaw] {.
     noSideEffect, importcpp: "Law", header: "BRepFill_LocationLaw.hxx".}
 proc wire*(this: BRepFillLocationLaw): TopoDS_Wire {.noSideEffect, importcpp: "Wire",
     header: "BRepFill_LocationLaw.hxx".}
-proc edge*(this: BRepFillLocationLaw; index: cint): TopoDS_Edge {.noSideEffect,
+proc edge*(this: BRepFillLocationLaw; index: int): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "BRepFill_LocationLaw.hxx".}
-proc vertex*(this: BRepFillLocationLaw; index: cint): TopoDS_Vertex {.noSideEffect,
+proc vertex*(this: BRepFillLocationLaw; index: int): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepFill_LocationLaw.hxx".}
-proc performVertex*(this: BRepFillLocationLaw; index: cint;
-                   inputVertex: TopoDS_Vertex; tolMin: cfloat;
-                   outputVertex: var TopoDS_Vertex; location: cint = 0) {.noSideEffect,
+proc performVertex*(this: BRepFillLocationLaw; index: int;
+                   inputVertex: TopoDS_Vertex; tolMin: StandardReal;
+                   outputVertex: var TopoDS_Vertex; location: int = 0) {.noSideEffect,
     importcpp: "PerformVertex", header: "BRepFill_LocationLaw.hxx".}
-proc curvilinearBounds*(this: BRepFillLocationLaw; index: cint; first: var cfloat;
-                       last: var cfloat) {.noSideEffect,
-                                        importcpp: "CurvilinearBounds",
-                                        header: "BRepFill_LocationLaw.hxx".}
-proc isClosed*(this: BRepFillLocationLaw): bool {.noSideEffect,
-    importcpp: "IsClosed", header: "BRepFill_LocationLaw.hxx".}
-proc isG1*(this: BRepFillLocationLaw; index: cint; spatialTolerance: cfloat = 1.0e-7;
-          angularTolerance: cfloat = 1.0e-4): cint {.noSideEffect, importcpp: "IsG1",
+proc curvilinearBounds*(this: BRepFillLocationLaw; index: int;
+                       first: var StandardReal; last: var StandardReal) {.
+    noSideEffect, importcpp: "CurvilinearBounds",
     header: "BRepFill_LocationLaw.hxx".}
-proc d0*(this: var BRepFillLocationLaw; abscissa: cfloat; section: var TopoDS_Shape) {.
-    importcpp: "D0", header: "BRepFill_LocationLaw.hxx".}
-proc parameter*(this: var BRepFillLocationLaw; abscissa: cfloat; index: var cint;
-               param: var cfloat) {.importcpp: "Parameter",
-                                 header: "BRepFill_LocationLaw.hxx".}
-proc abscissa*(this: var BRepFillLocationLaw; index: cint; param: cfloat): cfloat {.
+proc isClosed*(this: BRepFillLocationLaw): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "BRepFill_LocationLaw.hxx".}
+proc isG1*(this: BRepFillLocationLaw; index: int;
+          spatialTolerance: StandardReal = 1.0e-7;
+          angularTolerance: StandardReal = 1.0e-4): int {.noSideEffect,
+    importcpp: "IsG1", header: "BRepFill_LocationLaw.hxx".}
+proc d0*(this: var BRepFillLocationLaw; abscissa: StandardReal;
+        section: var TopoDS_Shape) {.importcpp: "D0",
+                                  header: "BRepFill_LocationLaw.hxx".}
+proc parameter*(this: var BRepFillLocationLaw; abscissa: StandardReal; index: var int;
+               param: var StandardReal) {.importcpp: "Parameter",
+                                       header: "BRepFill_LocationLaw.hxx".}
+proc abscissa*(this: var BRepFillLocationLaw; index: int; param: StandardReal): StandardReal {.
     importcpp: "Abscissa", header: "BRepFill_LocationLaw.hxx".}
 type
   BRepFillLocationLawbaseType* = StandardTransient
@@ -131,28 +133,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_LocationLaw.hxx".}
 proc dynamicType*(this: BRepFillLocationLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_LocationLaw.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

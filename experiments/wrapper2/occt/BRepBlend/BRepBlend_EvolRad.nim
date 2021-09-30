@@ -16,29 +16,3 @@
 
 type
   BRepBlendEvolRad* = BlendFuncEvolRad
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

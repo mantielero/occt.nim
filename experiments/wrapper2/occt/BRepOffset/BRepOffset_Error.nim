@@ -22,29 +22,3 @@ type
     BRepOffsetCannotFuseVertices, ## !< exception while fuse vertices
     BRepOffsetCannotExtentEdge ## !< exception while extent edges
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

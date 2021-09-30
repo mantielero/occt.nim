@@ -18,6 +18,24 @@ type
                          header: "TopOpeBRepDS_Reducer.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_Reducer; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_Reducer::operator new",
+    header: "TopOpeBRepDS_Reducer.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_Reducer; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_Reducer::operator delete",
+    header: "TopOpeBRepDS_Reducer.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_Reducer; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_Reducer::operator new[]",
+    header: "TopOpeBRepDS_Reducer.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_Reducer; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_Reducer::operator delete[]",
+    header: "TopOpeBRepDS_Reducer.hxx".}
+proc `new`*(this: var TopOpeBRepDS_Reducer; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_Reducer::operator new",
+    header: "TopOpeBRepDS_Reducer.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_Reducer; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_Reducer::operator delete",
+    header: "TopOpeBRepDS_Reducer.hxx".}
 proc constructTopOpeBRepDS_Reducer*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Reducer {.
     constructor, importcpp: "TopOpeBRepDS_Reducer(@)",
     header: "TopOpeBRepDS_Reducer.hxx".}
@@ -26,28 +44,3 @@ proc processFaceInterferences*(this: var TopOpeBRepDS_Reducer;
     importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_Reducer.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_Reducer) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_Reducer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

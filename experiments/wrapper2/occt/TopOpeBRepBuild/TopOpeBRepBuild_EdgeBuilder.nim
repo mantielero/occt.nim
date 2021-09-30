@@ -24,56 +24,49 @@ type
                                header: "TopOpeBRepBuild_EdgeBuilder.hxx", bycopy.} = object of TopOpeBRepBuildArea1dBuilder
 
 
+proc `new`*(this: var TopOpeBRepBuildEdgeBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_EdgeBuilder::operator new",
+    header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildEdgeBuilder; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_EdgeBuilder::operator delete",
+    header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildEdgeBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_EdgeBuilder::operator new[]",
+    header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildEdgeBuilder; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_EdgeBuilder::operator delete[]",
+    header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+proc `new`*(this: var TopOpeBRepBuildEdgeBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_EdgeBuilder::operator new",
+    header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildEdgeBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_EdgeBuilder::operator delete",
+    header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc constructTopOpeBRepBuildEdgeBuilder*(): TopOpeBRepBuildEdgeBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_EdgeBuilder(@)",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc constructTopOpeBRepBuildEdgeBuilder*(ls: var TopOpeBRepBuildPaveSet;
-    lc: var TopOpeBRepBuildPaveClassifier; forceClass: bool = false): TopOpeBRepBuildEdgeBuilder {.
+    lc: var TopOpeBRepBuildPaveClassifier; forceClass: StandardBoolean = false): TopOpeBRepBuildEdgeBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_EdgeBuilder(@)",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc initEdgeBuilder*(this: var TopOpeBRepBuildEdgeBuilder;
                      ls: var TopOpeBRepBuildLoopSet;
                      lc: var TopOpeBRepBuildLoopClassifier;
-                     forceClass: bool = false) {.importcpp: "InitEdgeBuilder",
-    header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+                     forceClass: StandardBoolean = false) {.
+    importcpp: "InitEdgeBuilder", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc initEdge*(this: var TopOpeBRepBuildEdgeBuilder) {.importcpp: "InitEdge",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc moreEdge*(this: TopOpeBRepBuildEdgeBuilder): bool {.noSideEffect,
+proc moreEdge*(this: TopOpeBRepBuildEdgeBuilder): StandardBoolean {.noSideEffect,
     importcpp: "MoreEdge", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc nextEdge*(this: var TopOpeBRepBuildEdgeBuilder) {.importcpp: "NextEdge",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc initVertex*(this: var TopOpeBRepBuildEdgeBuilder) {.importcpp: "InitVertex",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc moreVertex*(this: TopOpeBRepBuildEdgeBuilder): bool {.noSideEffect,
+proc moreVertex*(this: TopOpeBRepBuildEdgeBuilder): StandardBoolean {.noSideEffect,
     importcpp: "MoreVertex", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc nextVertex*(this: var TopOpeBRepBuildEdgeBuilder) {.importcpp: "NextVertex",
     header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc vertex*(this: TopOpeBRepBuildEdgeBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-proc parameter*(this: TopOpeBRepBuildEdgeBuilder): cfloat {.noSideEffect,
+proc parameter*(this: TopOpeBRepBuildEdgeBuilder): StandardReal {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

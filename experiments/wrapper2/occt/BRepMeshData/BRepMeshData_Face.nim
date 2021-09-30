@@ -26,11 +26,11 @@ proc bRepMeshDataFace*(this: var BRepMeshDataFace; theFace: TopoDS_Face;
   ## ! Constructor.
 proc destroyBRepMeshDataFace*(this: var BRepMeshDataFace) {.
     importcpp: "#.~BRepMeshData_Face()", header: "BRepMeshData_Face.hxx".}
-proc wiresNb*(this: BRepMeshDataFace): cint {.noSideEffect, importcpp: "WiresNb",
+proc wiresNb*(this: BRepMeshDataFace): int {.noSideEffect, importcpp: "WiresNb",
     header: "BRepMeshData_Face.hxx".}
-proc getWire*(this: BRepMeshDataFace; theIndex: cint): IWireHandle {.noSideEffect,
+proc getWire*(this: BRepMeshDataFace; theIndex: int): IWireHandle {.noSideEffect,
     importcpp: "GetWire", header: "BRepMeshData_Face.hxx".}
-proc addWire*(this: var BRepMeshDataFace; theWire: TopoDS_Wire; theEdgeNb: cint = 0): IWireHandle {.
+proc addWire*(this: var BRepMeshDataFace; theWire: TopoDS_Wire; theEdgeNb: int = 0): IWireHandle {.
     importcpp: "AddWire", header: "BRepMeshData_Face.hxx".}
 type
   BRepMeshDataFacebaseType* = IMeshDataFace
@@ -42,28 +42,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMeshData_Face.hxx".}
 proc dynamicType*(this: BRepMeshDataFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_Face.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

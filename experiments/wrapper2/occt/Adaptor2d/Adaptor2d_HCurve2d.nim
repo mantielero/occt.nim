@@ -20,7 +20,7 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor2d_HCurve2d"
 type
-  HandleC1C1* = Handle[Adaptor2dHCurve2d]
+  HandleAdaptor2dHCurve2d* = Handle[Adaptor2dHCurve2d]
 
 ## ! Root class for 2D curves manipulated by handles, on
 ## ! which geometric algorithms work.
@@ -55,8 +55,8 @@ proc continuity*(this: Adaptor2dHCurve2d): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor2d_HCurve2d.hxx".}
 proc nbIntervals*(this: Adaptor2dHCurve2d; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Adaptor2d_HCurve2d.hxx".}
-proc intervals*(this: Adaptor2dHCurve2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "Intervals", header: "Adaptor2d_HCurve2d.hxx".}
+#[ proc intervals*(this: Adaptor2dHCurve2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "Adaptor2d_HCurve2d.hxx".} ]#
 proc trim*(this: Adaptor2dHCurve2d; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor2dHCurve2d] {.noSideEffect, importcpp: "Trim",
                         header: "Adaptor2d_HCurve2d.hxx".}
@@ -108,13 +108,13 @@ proc bSpline*(this: Adaptor2dHCurve2d): Handle[Geom2dBSplineCurve] {.noSideEffec
 type
   Adaptor2dHCurve2dbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Adaptor2d_HCurve2d::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Adaptor2d_HCurve2d::get_type_name(@)",
                             header: "Adaptor2d_HCurve2d.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Adaptor2d_HCurve2d::get_type_descriptor(@)",
     header: "Adaptor2d_HCurve2d.hxx".}
 proc dynamicType*(this: Adaptor2dHCurve2d): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Adaptor2d_HCurve2d.hxx".}
+    importcpp: "DynamicType", header: "Adaptor2d_HCurve2d.hxx".} ]#
 
 
 

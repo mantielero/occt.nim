@@ -23,6 +23,24 @@ type
                                   bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepToolSolidClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_SolidClassifier::operator new",
+    header: "TopOpeBRepTool_SolidClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepToolSolidClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_SolidClassifier::operator delete",
+    header: "TopOpeBRepTool_SolidClassifier.hxx".}
+proc `new[]`*(this: var TopOpeBRepToolSolidClassifier; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_SolidClassifier::operator new[]",
+    header: "TopOpeBRepTool_SolidClassifier.hxx".}
+proc `delete[]`*(this: var TopOpeBRepToolSolidClassifier; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_SolidClassifier::operator delete[]",
+    header: "TopOpeBRepTool_SolidClassifier.hxx".}
+proc `new`*(this: var TopOpeBRepToolSolidClassifier; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepTool_SolidClassifier::operator new",
+    header: "TopOpeBRepTool_SolidClassifier.hxx".}
+proc `delete`*(this: var TopOpeBRepToolSolidClassifier; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepTool_SolidClassifier::operator delete",
+    header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc constructTopOpeBRepToolSolidClassifier*(): TopOpeBRepToolSolidClassifier {.
     constructor, importcpp: "TopOpeBRepTool_SolidClassifier(@)",
     header: "TopOpeBRepTool_SolidClassifier.hxx".}
@@ -35,35 +53,12 @@ proc destroyTopOpeBRepToolSolidClassifier*(
 proc loadSolid*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid) {.
     importcpp: "LoadSolid", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid; p: Pnt;
-              tol: cfloat): TopAbsState {.importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
+              tol: StandardReal): TopAbsState {.importcpp: "Classify",
+    header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc loadShell*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell) {.
     importcpp: "LoadShell", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell; p: Pnt;
-              tol: cfloat): TopAbsState {.importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
+              tol: StandardReal): TopAbsState {.importcpp: "Classify",
+    header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc state*(this: TopOpeBRepToolSolidClassifier): TopAbsState {.noSideEffect,
     importcpp: "State", header: "TopOpeBRepTool_SolidClassifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

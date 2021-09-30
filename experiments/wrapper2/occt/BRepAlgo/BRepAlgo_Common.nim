@@ -14,61 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BRepAlgo_Common_HeaderFile [NewLine] # _BRepAlgo_Common_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < BRepAlgo_BooleanOperation . hxx > [NewLine] class TopoDS_Shape ;
-## Error: token expected: ; but got: [identifier]!!!
-
-## ! Describes functions for performing a topological
-## ! common operation (Boolean intersection).
-## ! A Common object provides the framework for:
-## ! - defining the construction of a common shape,
-## ! - implementing the construction algorithm, and
-## ! - consulting the result.
-
-## !!!Ignored construct:  class Standard_DEPRECATED ( This class is deprecated - BRepAlgoAPI_Common should be used instead ) BRepAlgo_Common : public BRepAlgo_BooleanOperation { public : ! Constructs the common part of shapes S1 and S2. BRepAlgo_Common ( const TopoDS_Shape & S1 , const TopoDS_Shape & S2 ) ; protected : private : } ;
-## Error: token expected: ; but got: [identifier]!!!
+discard "forward decl of TopoDS_Shape"
+type
+  BRepAlgoCommon* {.importcpp: "BRepAlgo_Common", header: "BRepAlgo_Common.hxx",
+                   bycopy.} = object of BRepAlgoBooleanOperation
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc `new`*(this: var BRepAlgoCommon; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Common::operator new", header: "BRepAlgo_Common.hxx".}
+proc `delete`*(this: var BRepAlgoCommon; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Common::operator delete", header: "BRepAlgo_Common.hxx".}
+proc `new[]`*(this: var BRepAlgoCommon; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Common::operator new[]", header: "BRepAlgo_Common.hxx".}
+proc `delete[]`*(this: var BRepAlgoCommon; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Common::operator delete[]", header: "BRepAlgo_Common.hxx".}
+proc `new`*(this: var BRepAlgoCommon; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgo_Common::operator new", header: "BRepAlgo_Common.hxx".}
+proc `delete`*(this: var BRepAlgoCommon; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgo_Common::operator delete", header: "BRepAlgo_Common.hxx".}
+proc constructBRepAlgoCommon*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoCommon {.
+    constructor, importcpp: "BRepAlgo_Common(@)", header: "BRepAlgo_Common.hxx".}

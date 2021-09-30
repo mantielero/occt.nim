@@ -30,33 +30,8 @@ proc addHistory*[TheAlgo](theArguments: TopToolsListOfShape; theAlgo: var TheAlg
     importcpp: "BRepTest_Objects::AddHistory(@)", header: "BRepTest_Objects.hxx".}
 proc history*(): Handle[BRepToolsHistory] {.
     importcpp: "BRepTest_Objects::History(@)", header: "BRepTest_Objects.hxx".}
-proc setToFillHistory*(theFillHist: bool) {.
+proc setToFillHistory*(theFillHist: StandardBoolean) {.
     importcpp: "BRepTest_Objects::SetToFillHistory(@)",
     header: "BRepTest_Objects.hxx".}
-proc isHistoryNeeded*(): bool {.importcpp: "BRepTest_Objects::IsHistoryNeeded(@)",
-                             header: "BRepTest_Objects.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc isHistoryNeeded*(): StandardBoolean {.importcpp: "BRepTest_Objects::IsHistoryNeeded(@)",
+                                        header: "BRepTest_Objects.hxx".}

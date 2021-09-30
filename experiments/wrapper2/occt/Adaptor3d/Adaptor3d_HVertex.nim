@@ -19,10 +19,9 @@ discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HVertex"
 discard "forward decl of Adaptor3d_HVertex"
 type
-  HandleC1C1* = Handle[Adaptor3dHVertex]
   Adaptor3dHVertex* {.importcpp: "Adaptor3d_HVertex",
                      header: "Adaptor3d_HVertex.hxx", bycopy.} = object of StandardTransient
-
+  HandleAdaptor3dHVertex* = Handle[Adaptor3dHVertex]
 
 proc constructAdaptor3dHVertex*(): Adaptor3dHVertex {.constructor,
     importcpp: "Adaptor3d_HVertex(@)", header: "Adaptor3d_HVertex.hxx".}
@@ -41,13 +40,13 @@ proc isSame*(this: var Adaptor3dHVertex; other: Handle[Adaptor3dHVertex]): bool 
 type
   Adaptor3dHVertexbaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Adaptor3d_HVertex::get_type_name(@)",
+#[ proc getTypeName*(): cstring {.importcpp: "Adaptor3d_HVertex::get_type_name(@)",
                             header: "Adaptor3d_HVertex.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Adaptor3d_HVertex::get_type_descriptor(@)",
     header: "Adaptor3d_HVertex.hxx".}
 proc dynamicType*(this: Adaptor3dHVertex): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Adaptor3d_HVertex.hxx".}
+    importcpp: "DynamicType", header: "Adaptor3d_HVertex.hxx".} ]#
 
 
 

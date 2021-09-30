@@ -21,9 +21,27 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of Standard_Transient"
 type
   BRepToIGES_BREntity* {.importcpp: "BRepToIGES_BREntity",
-                        header: "BRepToIGES_BREntity.hxx", bycopy.} = object ## ! Creates a tool BREntity
+                        header: "BRepToIGES_BREntity.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepToIGES_BREntity; theSize: csize_t): pointer {.
+    importcpp: "BRepToIGES_BREntity::operator new",
+    header: "BRepToIGES_BREntity.hxx".}
+proc `delete`*(this: var BRepToIGES_BREntity; theAddress: pointer) {.
+    importcpp: "BRepToIGES_BREntity::operator delete",
+    header: "BRepToIGES_BREntity.hxx".}
+proc `new[]`*(this: var BRepToIGES_BREntity; theSize: csize_t): pointer {.
+    importcpp: "BRepToIGES_BREntity::operator new[]",
+    header: "BRepToIGES_BREntity.hxx".}
+proc `delete[]`*(this: var BRepToIGES_BREntity; theAddress: pointer) {.
+    importcpp: "BRepToIGES_BREntity::operator delete[]",
+    header: "BRepToIGES_BREntity.hxx".}
+proc `new`*(this: var BRepToIGES_BREntity; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepToIGES_BREntity::operator new",
+    header: "BRepToIGES_BREntity.hxx".}
+proc `delete`*(this: var BRepToIGES_BREntity; a2: pointer; a3: pointer) {.
+    importcpp: "BRepToIGES_BREntity::operator delete",
+    header: "BRepToIGES_BREntity.hxx".}
 proc constructBRepToIGES_BREntity*(): BRepToIGES_BREntity {.constructor,
     importcpp: "BRepToIGES_BREntity(@)", header: "BRepToIGES_BREntity.hxx".}
 proc init*(this: var BRepToIGES_BREntity) {.importcpp: "Init",
@@ -32,7 +50,7 @@ proc setModel*(this: var BRepToIGES_BREntity; model: Handle[IGESDataIGESModel]) 
     importcpp: "SetModel", header: "BRepToIGES_BREntity.hxx".}
 proc getModel*(this: BRepToIGES_BREntity): Handle[IGESDataIGESModel] {.noSideEffect,
     importcpp: "GetModel", header: "BRepToIGES_BREntity.hxx".}
-proc getUnit*(this: BRepToIGES_BREntity): cfloat {.noSideEffect,
+proc getUnit*(this: BRepToIGES_BREntity): StandardReal {.noSideEffect,
     importcpp: "GetUnit", header: "BRepToIGES_BREntity.hxx".}
 proc setTransferProcess*(this: var BRepToIGES_BREntity;
                         tp: Handle[TransferFinderProcess]) {.
@@ -56,7 +74,7 @@ proc addFail*(this: var BRepToIGES_BREntity; start: Handle[StandardTransient];
 proc addWarning*(this: var BRepToIGES_BREntity; start: Handle[StandardTransient];
                 amess: StandardCString) {.importcpp: "AddWarning",
                                         header: "BRepToIGES_BREntity.hxx".}
-proc hasShapeResult*(this: BRepToIGES_BREntity; start: TopoDS_Shape): bool {.
+proc hasShapeResult*(this: BRepToIGES_BREntity; start: TopoDS_Shape): StandardBoolean {.
     noSideEffect, importcpp: "HasShapeResult", header: "BRepToIGES_BREntity.hxx".}
 proc getShapeResult*(this: BRepToIGES_BREntity; start: TopoDS_Shape): Handle[
     StandardTransient] {.noSideEffect, importcpp: "GetShapeResult",
@@ -64,7 +82,7 @@ proc getShapeResult*(this: BRepToIGES_BREntity; start: TopoDS_Shape): Handle[
 proc setShapeResult*(this: var BRepToIGES_BREntity; start: TopoDS_Shape;
                     result: Handle[StandardTransient]) {.
     importcpp: "SetShapeResult", header: "BRepToIGES_BREntity.hxx".}
-proc hasShapeResult*(this: BRepToIGES_BREntity; start: Handle[StandardTransient]): bool {.
+proc hasShapeResult*(this: BRepToIGES_BREntity; start: Handle[StandardTransient]): StandardBoolean {.
     noSideEffect, importcpp: "HasShapeResult", header: "BRepToIGES_BREntity.hxx".}
 proc getShapeResult*(this: BRepToIGES_BREntity; start: Handle[StandardTransient]): Handle[
     StandardTransient] {.noSideEffect, importcpp: "GetShapeResult",
@@ -73,34 +91,10 @@ proc setShapeResult*(this: var BRepToIGES_BREntity;
                     start: Handle[StandardTransient];
                     result: Handle[StandardTransient]) {.
     importcpp: "SetShapeResult", header: "BRepToIGES_BREntity.hxx".}
-proc getConvertSurfaceMode*(this: BRepToIGES_BREntity): bool {.noSideEffect,
-    importcpp: "GetConvertSurfaceMode", header: "BRepToIGES_BREntity.hxx".}
-proc getPCurveMode*(this: BRepToIGES_BREntity): bool {.noSideEffect,
+proc getConvertSurfaceMode*(this: BRepToIGES_BREntity): StandardBoolean {.
+    noSideEffect, importcpp: "GetConvertSurfaceMode",
+    header: "BRepToIGES_BREntity.hxx".}
+proc getPCurveMode*(this: BRepToIGES_BREntity): StandardBoolean {.noSideEffect,
     importcpp: "GetPCurveMode", header: "BRepToIGES_BREntity.hxx".}
 proc destroyBRepToIGES_BREntity*(this: var BRepToIGES_BREntity) {.
     importcpp: "#.~BRepToIGES_BREntity()", header: "BRepToIGES_BREntity.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

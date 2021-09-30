@@ -22,43 +22,18 @@ when defined(OCCT_DEBUG):
     TopOpeBRepToolSTATE* {.importcpp: "TopOpeBRepTool_STATE",
                           header: "TopOpeBRepTool_STATE.hxx", bycopy.} = object
 
-  proc constructTopOpeBRepToolSTATE*(name: cstring; b: bool = false): TopOpeBRepToolSTATE {.
+  proc constructTopOpeBRepToolSTATE*(name: cstring; b: StandardBoolean = false): TopOpeBRepToolSTATE {.
       constructor, importcpp: "TopOpeBRepTool_STATE(@)",
       header: "TopOpeBRepTool_STATE.hxx".}
-  proc set*(this: var TopOpeBRepToolSTATE; b: bool) {.importcpp: "Set",
+  proc set*(this: var TopOpeBRepToolSTATE; b: StandardBoolean) {.importcpp: "Set",
       header: "TopOpeBRepTool_STATE.hxx".}
-  proc set*(this: var TopOpeBRepToolSTATE; s: TopAbsState; b: bool) {.importcpp: "Set",
-      header: "TopOpeBRepTool_STATE.hxx".}
-  proc set*(this: var TopOpeBRepToolSTATE; b: bool; n: cint; a: cstringArray) {.
+  proc set*(this: var TopOpeBRepToolSTATE; s: TopAbsState; b: StandardBoolean) {.
       importcpp: "Set", header: "TopOpeBRepTool_STATE.hxx".}
-  proc get*(this: var TopOpeBRepToolSTATE; s: TopAbsState): bool {.importcpp: "Get",
-      header: "TopOpeBRepTool_STATE.hxx".}
-  proc get*(this: var TopOpeBRepToolSTATE): bool {.importcpp: "Get",
+  proc set*(this: var TopOpeBRepToolSTATE; b: StandardBoolean; n: int; a: cstringArray) {.
+      importcpp: "Set", header: "TopOpeBRepTool_STATE.hxx".}
+  proc get*(this: var TopOpeBRepToolSTATE; s: TopAbsState): StandardBoolean {.
+      importcpp: "Get", header: "TopOpeBRepTool_STATE.hxx".}
+  proc get*(this: var TopOpeBRepToolSTATE): StandardBoolean {.importcpp: "Get",
       header: "TopOpeBRepTool_STATE.hxx".}
   proc print*(this: var TopOpeBRepToolSTATE) {.importcpp: "Print",
       header: "TopOpeBRepTool_STATE.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

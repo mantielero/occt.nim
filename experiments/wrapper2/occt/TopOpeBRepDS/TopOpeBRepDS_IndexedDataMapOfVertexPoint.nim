@@ -17,29 +17,3 @@
 type
   TopOpeBRepDS_IndexedDataMapOfVertexPoint* = NCollectionIndexedDataMap[
       TopoDS_Shape, TopOpeBRepDS_Point, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -24,52 +24,46 @@ type
                                  bycopy.} = object of BlendSurfCurvFuncInv
 
 
+proc `new`*(this: var BRepBlendSurfCurvConstRadInv; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_SurfCurvConstRadInv::operator new",
+    header: "BRepBlend_SurfCurvConstRadInv.hxx".}
+proc `delete`*(this: var BRepBlendSurfCurvConstRadInv; theAddress: pointer) {.
+    importcpp: "BRepBlend_SurfCurvConstRadInv::operator delete",
+    header: "BRepBlend_SurfCurvConstRadInv.hxx".}
+proc `new[]`*(this: var BRepBlendSurfCurvConstRadInv; theSize: csize_t): pointer {.
+    importcpp: "BRepBlend_SurfCurvConstRadInv::operator new[]",
+    header: "BRepBlend_SurfCurvConstRadInv.hxx".}
+proc `delete[]`*(this: var BRepBlendSurfCurvConstRadInv; theAddress: pointer) {.
+    importcpp: "BRepBlend_SurfCurvConstRadInv::operator delete[]",
+    header: "BRepBlend_SurfCurvConstRadInv.hxx".}
+proc `new`*(this: var BRepBlendSurfCurvConstRadInv; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBlend_SurfCurvConstRadInv::operator new",
+    header: "BRepBlend_SurfCurvConstRadInv.hxx".}
+proc `delete`*(this: var BRepBlendSurfCurvConstRadInv; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBlend_SurfCurvConstRadInv::operator delete",
+    header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc constructBRepBlendSurfCurvConstRadInv*(s: Handle[Adaptor3dHSurface];
     c: Handle[Adaptor3dHCurve]; cg: Handle[Adaptor3dHCurve]): BRepBlendSurfCurvConstRadInv {.
     constructor, importcpp: "BRepBlend_SurfCurvConstRadInv(@)",
     header: "BRepBlend_SurfCurvConstRadInv.hxx".}
-proc set*(this: var BRepBlendSurfCurvConstRadInv; r: cfloat; choix: cint) {.
+proc set*(this: var BRepBlendSurfCurvConstRadInv; r: StandardReal; choix: int) {.
     importcpp: "Set", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
-proc nbEquations*(this: BRepBlendSurfCurvConstRadInv): cint {.noSideEffect,
+proc nbEquations*(this: BRepBlendSurfCurvConstRadInv): int {.noSideEffect,
     importcpp: "NbEquations", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
-proc value*(this: var BRepBlendSurfCurvConstRadInv; x: MathVector; f: var MathVector): bool {.
+proc value*(this: var BRepBlendSurfCurvConstRadInv; x: MathVector; f: var MathVector): StandardBoolean {.
     importcpp: "Value", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc derivatives*(this: var BRepBlendSurfCurvConstRadInv; x: MathVector;
-                 d: var MathMatrix): bool {.importcpp: "Derivatives", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
+                 d: var MathMatrix): StandardBoolean {.importcpp: "Derivatives",
+    header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc values*(this: var BRepBlendSurfCurvConstRadInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.importcpp: "Values",
-                                   header: "BRepBlend_SurfCurvConstRadInv.hxx".}
+            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+    header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc set*(this: var BRepBlendSurfCurvConstRadInv; rst: Handle[Adaptor2dHCurve2d]) {.
     importcpp: "Set", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc getTolerance*(this: BRepBlendSurfCurvConstRadInv; tolerance: var MathVector;
-                  tol: cfloat) {.noSideEffect, importcpp: "GetTolerance",
-                               header: "BRepBlend_SurfCurvConstRadInv.hxx".}
+                  tol: StandardReal) {.noSideEffect, importcpp: "GetTolerance", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc getBounds*(this: BRepBlendSurfCurvConstRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
-proc isSolution*(this: var BRepBlendSurfCurvConstRadInv; sol: MathVector; tol: cfloat): bool {.
-    importcpp: "IsSolution", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc isSolution*(this: var BRepBlendSurfCurvConstRadInv; sol: MathVector;
+                tol: StandardReal): StandardBoolean {.importcpp: "IsSolution",
+    header: "BRepBlend_SurfCurvConstRadInv.hxx".}

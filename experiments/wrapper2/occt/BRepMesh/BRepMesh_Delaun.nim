@@ -16,13 +16,25 @@ discard "forward decl of Bnd_Box2d"
 discard "forward decl of BRepMesh_Vertex"
 type
   BRepMeshDelaun* {.importcpp: "BRepMesh_Delaun", header: "BRepMesh_Delaun.hxx",
-                   bycopy.} = object ## ! Creates instance of triangulator, but do not run the algorithm automatically.
+                   bycopy.} = object
 
 
+proc `new`*(this: var BRepMeshDelaun; theSize: csize_t): pointer {.
+    importcpp: "BRepMesh_Delaun::operator new", header: "BRepMesh_Delaun.hxx".}
+proc `delete`*(this: var BRepMeshDelaun; theAddress: pointer) {.
+    importcpp: "BRepMesh_Delaun::operator delete", header: "BRepMesh_Delaun.hxx".}
+proc `new[]`*(this: var BRepMeshDelaun; theSize: csize_t): pointer {.
+    importcpp: "BRepMesh_Delaun::operator new[]", header: "BRepMesh_Delaun.hxx".}
+proc `delete[]`*(this: var BRepMeshDelaun; theAddress: pointer) {.
+    importcpp: "BRepMesh_Delaun::operator delete[]", header: "BRepMesh_Delaun.hxx".}
+proc `new`*(this: var BRepMeshDelaun; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepMesh_Delaun::operator new", header: "BRepMesh_Delaun.hxx".}
+proc `delete`*(this: var BRepMeshDelaun; a2: pointer; a3: pointer) {.
+    importcpp: "BRepMesh_Delaun::operator delete", header: "BRepMesh_Delaun.hxx".}
 proc constructBRepMeshDelaun*(theOldMesh: Handle[BRepMeshDataStructureOfDelaun];
-                             theCellsCountU: cint; theCellsCountV: cint;
-                             isFillCircles: bool): BRepMeshDelaun {.constructor,
-    importcpp: "BRepMesh_Delaun(@)", header: "BRepMesh_Delaun.hxx".}
+                             theCellsCountU: int; theCellsCountV: int;
+                             isFillCircles: StandardBoolean): BRepMeshDelaun {.
+    constructor, importcpp: "BRepMesh_Delaun(@)", header: "BRepMesh_Delaun.hxx".}
 proc constructBRepMeshDelaun*(theVertices: var Array1OfVertexOfDelaun): BRepMeshDelaun {.
     constructor, importcpp: "BRepMesh_Delaun(@)", header: "BRepMesh_Delaun.hxx".}
 proc constructBRepMeshDelaun*(theOldMesh: Handle[BRepMeshDataStructureOfDelaun];
@@ -33,20 +45,20 @@ proc constructBRepMeshDelaun*(theOldMesh: Handle[BRepMeshDataStructureOfDelaun];
     constructor, importcpp: "BRepMesh_Delaun(@)", header: "BRepMesh_Delaun.hxx".}
 proc constructBRepMeshDelaun*(theOldMesh: Handle[BRepMeshDataStructureOfDelaun];
                              theVertexIndices: var VectorOfInteger;
-                             theCellsCountU: cint; theCellsCountV: cint): BRepMeshDelaun {.
+                             theCellsCountU: int; theCellsCountV: int): BRepMeshDelaun {.
     constructor, importcpp: "BRepMesh_Delaun(@)", header: "BRepMesh_Delaun.hxx".}
 proc init*(this: var BRepMeshDelaun; theVertices: var Array1OfVertexOfDelaun) {.
     importcpp: "Init", header: "BRepMesh_Delaun.hxx".}
-proc initCirclesTool*(this: var BRepMeshDelaun; theCellsCountU: cint;
-                     theCellsCountV: cint) {.importcpp: "InitCirclesTool",
+proc initCirclesTool*(this: var BRepMeshDelaun; theCellsCountU: int;
+                     theCellsCountV: int) {.importcpp: "InitCirclesTool",
     header: "BRepMesh_Delaun.hxx".}
 proc removeVertex*(this: var BRepMeshDelaun; theVertex: BRepMeshVertex) {.
     importcpp: "RemoveVertex", header: "BRepMesh_Delaun.hxx".}
 proc addVertices*(this: var BRepMeshDelaun; theVerticesIndices: var VectorOfInteger;
                  theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "AddVertices", header: "BRepMesh_Delaun.hxx".}
-proc useEdge*(this: var BRepMeshDelaun; theEdge: cint): bool {.importcpp: "UseEdge",
-    header: "BRepMesh_Delaun.hxx".}
+proc useEdge*(this: var BRepMeshDelaun; theEdge: int): StandardBoolean {.
+    importcpp: "UseEdge", header: "BRepMesh_Delaun.hxx".}
 proc result*(this: BRepMeshDelaun): Handle[BRepMeshDataStructureOfDelaun] {.
     noSideEffect, importcpp: "Result", header: "BRepMesh_Delaun.hxx".}
 proc processConstraints*(this: var BRepMeshDelaun) {.
@@ -57,43 +69,18 @@ proc internalEdges*(this: BRepMeshDelaun): Handle[MapOfInteger] {.noSideEffect,
     importcpp: "InternalEdges", header: "BRepMesh_Delaun.hxx".}
 proc freeEdges*(this: BRepMeshDelaun): Handle[MapOfInteger] {.noSideEffect,
     importcpp: "FreeEdges", header: "BRepMesh_Delaun.hxx".}
-proc getVertex*(this: BRepMeshDelaun; theIndex: cint): BRepMeshVertex {.noSideEffect,
+proc getVertex*(this: BRepMeshDelaun; theIndex: int): BRepMeshVertex {.noSideEffect,
     importcpp: "GetVertex", header: "BRepMesh_Delaun.hxx".}
-proc getEdge*(this: BRepMeshDelaun; theIndex: cint): BRepMeshEdge {.noSideEffect,
+proc getEdge*(this: BRepMeshDelaun; theIndex: int): BRepMeshEdge {.noSideEffect,
     importcpp: "GetEdge", header: "BRepMesh_Delaun.hxx".}
-proc getTriangle*(this: BRepMeshDelaun; theIndex: cint): BRepMeshTriangle {.
+proc getTriangle*(this: BRepMeshDelaun; theIndex: int): BRepMeshTriangle {.
     noSideEffect, importcpp: "GetTriangle", header: "BRepMesh_Delaun.hxx".}
 proc circles*(this: BRepMeshDelaun): BRepMeshCircleTool {.noSideEffect,
     importcpp: "Circles", header: "BRepMesh_Delaun.hxx".}
-proc contains*(this: BRepMeshDelaun; theTriangleId: cint; theVertex: BRepMeshVertex;
-              theSqTolerance: cfloat; theEdgeOn: var cint): bool {.noSideEffect,
-    importcpp: "Contains", header: "BRepMesh_Delaun.hxx".}
+proc contains*(this: BRepMeshDelaun; theTriangleId: int; theVertex: BRepMeshVertex;
+              theSqTolerance: StandardReal; theEdgeOn: var int): StandardBoolean {.
+    noSideEffect, importcpp: "Contains", header: "BRepMesh_Delaun.hxx".}
 proc setAuxVertices*(this: var BRepMeshDelaun; theSupVert: VectorOfInteger) {.
     importcpp: "SetAuxVertices", header: "BRepMesh_Delaun.hxx".}
 proc removeAuxElements*(this: var BRepMeshDelaun) {.importcpp: "RemoveAuxElements",
     header: "BRepMesh_Delaun.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

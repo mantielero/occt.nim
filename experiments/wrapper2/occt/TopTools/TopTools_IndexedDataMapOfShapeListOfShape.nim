@@ -17,29 +17,3 @@
 type
   TopToolsIndexedDataMapOfShapeListOfShape* = NCollectionIndexedDataMap[
       TopoDS_Shape, TopToolsListOfShape, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

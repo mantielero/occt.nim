@@ -18,29 +18,3 @@ type
   TopOpeBRepBuildListOfListOfLoop* = NCollectionList[TopOpeBRepBuildListOfLoop]
   TopOpeBRepBuildListIteratorOfListOfListOfLoop* = Iterator[
       TopOpeBRepBuildListOfLoop]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

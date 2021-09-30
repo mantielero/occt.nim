@@ -17,32 +17,8 @@
 proc chFiKPartMakeChAsym*(dStr: var TopOpeBRepDS_DataStructure;
                          data: Handle[ChFiDS_SurfData]; pl1: Pln; pl2: Pln;
                          or1: TopAbsOrientation; or2: TopAbsOrientation;
-                         dis: cfloat; angle: cfloat; spine: Lin; first: cfloat;
-                         of1: TopAbsOrientation; disOnP1: bool): bool {.
+                         dis: StandardReal; angle: StandardReal; spine: Lin;
+                         first: StandardReal; of1: TopAbsOrientation;
+                         disOnP1: StandardBoolean): StandardBoolean {.
     importcpp: "ChFiKPart_MakeChAsym(@)",
     header: "ChFiKPart_ComputeData_ChAsymPlnPln.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

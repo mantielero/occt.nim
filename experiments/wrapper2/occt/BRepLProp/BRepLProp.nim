@@ -20,48 +20,24 @@ discard "forward decl of BRepLProp_SurfaceTool"
 discard "forward decl of BRepLProp_CLProps"
 discard "forward decl of BRepLProp_SLProps"
 type
-  BRepLProp* {.importcpp: "BRepLProp", header: "BRepLProp.hxx", bycopy.} = object ## !
-                                                                          ## Computes the
-                                                                          ## regularity at the
-                                                                          ## junction
-                                                                          ## between C1 and
-                                                                          ## ! C2. The point u1 on C1 and the point u2 on  C2 must be
-                                                                          ## !
-                                                                          ## confused.   tl  and ta  are  the  linear  and
-                                                                          ## angular
-                                                                          ## !
-                                                                          ## tolerance used two
-                                                                          ## compare the
-                                                                          ## derivative.
+  BRepLProp* {.importcpp: "BRepLProp", header: "BRepLProp.hxx", bycopy.} = object
 
 
-proc continuity*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve; u1: cfloat; u2: cfloat;
-                tl: cfloat; ta: cfloat): GeomAbsShape {.
+proc `new`*(this: var BRepLProp; theSize: csize_t): pointer {.
+    importcpp: "BRepLProp::operator new", header: "BRepLProp.hxx".}
+proc `delete`*(this: var BRepLProp; theAddress: pointer) {.
+    importcpp: "BRepLProp::operator delete", header: "BRepLProp.hxx".}
+proc `new[]`*(this: var BRepLProp; theSize: csize_t): pointer {.
+    importcpp: "BRepLProp::operator new[]", header: "BRepLProp.hxx".}
+proc `delete[]`*(this: var BRepLProp; theAddress: pointer) {.
+    importcpp: "BRepLProp::operator delete[]", header: "BRepLProp.hxx".}
+proc `new`*(this: var BRepLProp; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLProp::operator new", header: "BRepLProp.hxx".}
+proc `delete`*(this: var BRepLProp; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLProp::operator delete", header: "BRepLProp.hxx".}
+proc continuity*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve; u1: StandardReal;
+                u2: StandardReal; tl: StandardReal; ta: StandardReal): GeomAbsShape {.
     importcpp: "BRepLProp::Continuity(@)", header: "BRepLProp.hxx".}
-proc continuity*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve; u1: cfloat; u2: cfloat): GeomAbsShape {.
+proc continuity*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve; u1: StandardReal;
+                u2: StandardReal): GeomAbsShape {.
     importcpp: "BRepLProp::Continuity(@)", header: "BRepLProp.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

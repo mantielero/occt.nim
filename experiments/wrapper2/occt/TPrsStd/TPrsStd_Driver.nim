@@ -61,8 +61,8 @@ type
 
 
 proc update*(this: var TPrsStdDriver; L: TDF_Label;
-            ais: var Handle[AIS_InteractiveObject]): bool {.importcpp: "Update",
-    header: "TPrsStd_Driver.hxx".}
+            ais: var Handle[AIS_InteractiveObject]): StandardBoolean {.
+    importcpp: "Update", header: "TPrsStd_Driver.hxx".}
 type
   TPrsStdDriverbaseType* = StandardTransient
 
@@ -73,28 +73,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_Driver.hxx".}
 proc dynamicType*(this: TPrsStdDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_Driver.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

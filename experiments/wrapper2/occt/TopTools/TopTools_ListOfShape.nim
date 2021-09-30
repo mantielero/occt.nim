@@ -16,30 +16,4 @@
 
 type
   TopToolsListOfShape* = NCollectionList[TopoDS_Shape]
-  TopToolsListIteratorOfListOfShape* = Iterator[TopoDS_Shape]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  #TopToolsListIteratorOfListOfShape* = Iterator[TopoDS_Shape]

@@ -22,68 +22,20 @@ discard "forward decl of BRepClass3d_SolidPassiveClassifier"
 discard "forward decl of BRepClass3d_SClassifier"
 discard "forward decl of BRepClass3d_SolidClassifier"
 type
-  BRepClass3d* {.importcpp: "BRepClass3d", header: "BRepClass3d.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Returns
-                                                                                ## the
-                                                                                ## outer
-                                                                                ## most
-                                                                                ## shell
-                                                                                ## of
-                                                                                ## <S>.
-                                                                                ## Returns
-                                                                                ## a
-                                                                                ## Null
-                                                                                ##
-                                                                                ## !
-                                                                                ## shell
-                                                                                ## if
-                                                                                ## <S>
-                                                                                ## has
-                                                                                ## no
-                                                                                ## outer
-                                                                                ## shell.
-                                                                                ##
-                                                                                ## !
-                                                                                ## If
-                                                                                ## <S>
-                                                                                ## has
-                                                                                ## only
-                                                                                ## one
-                                                                                ## shell,
-                                                                                ## then
-                                                                                ## it
-                                                                                ## will
-                                                                                ## return,
-                                                                                ## without
-                                                                                ## checking
-                                                                                ## orientation.
+  BRepClass3d* {.importcpp: "BRepClass3d", header: "BRepClass3d.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepClass3d; theSize: csize_t): pointer {.
+    importcpp: "BRepClass3d::operator new", header: "BRepClass3d.hxx".}
+proc `delete`*(this: var BRepClass3d; theAddress: pointer) {.
+    importcpp: "BRepClass3d::operator delete", header: "BRepClass3d.hxx".}
+proc `new[]`*(this: var BRepClass3d; theSize: csize_t): pointer {.
+    importcpp: "BRepClass3d::operator new[]", header: "BRepClass3d.hxx".}
+proc `delete[]`*(this: var BRepClass3d; theAddress: pointer) {.
+    importcpp: "BRepClass3d::operator delete[]", header: "BRepClass3d.hxx".}
+proc `new`*(this: var BRepClass3d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepClass3d::operator new", header: "BRepClass3d.hxx".}
+proc `delete`*(this: var BRepClass3d; a2: pointer; a3: pointer) {.
+    importcpp: "BRepClass3d::operator delete", header: "BRepClass3d.hxx".}
 proc outerShell*(s: TopoDS_Solid): TopoDS_Shell {.
     importcpp: "BRepClass3d::OuterShell(@)", header: "BRepClass3d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

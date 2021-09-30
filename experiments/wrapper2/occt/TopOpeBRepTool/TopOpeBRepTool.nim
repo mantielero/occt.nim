@@ -38,159 +38,51 @@ discard "forward decl of TopOpeBRepTool_mkTondgE"
 discard "forward decl of TopOpeBRepTool_PurgeInternalEdges"
 discard "forward decl of TopOpeBRepTool_FuseEdges"
 type
-  TopOpeBRepTool* {.importcpp: "TopOpeBRepTool", header: "TopOpeBRepTool.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Fuse
-                                                                                         ## edges
-                                                                                         ## (in
-                                                                                         ## a
-                                                                                         ## wire)
-                                                                                         ## of
-                                                                                         ## a
-                                                                                         ## shape
-                                                                                         ## where
-                                                                                         ## we
-                                                                                         ## have
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## useless
-                                                                                         ## vertex.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## In
-                                                                                         ## case
-                                                                                         ## face
-                                                                                         ## <FF>
-                                                                                         ## is
-                                                                                         ## built
-                                                                                         ## on
-                                                                                         ## UV-non-connexed
-                                                                                         ## wires
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## (with
-                                                                                         ## the
-                                                                                         ## two
-                                                                                         ## closing
-                                                                                         ## edges
-                                                                                         ## FORWARD
-                                                                                         ## and
-                                                                                         ## REVERSED,
-                                                                                         ## in
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## spite
-                                                                                         ## of
-                                                                                         ## one
-                                                                                         ## only),
-                                                                                         ## we
-                                                                                         ## find
-                                                                                         ## out
-                                                                                         ## the
-                                                                                         ## faulty
-                                                                                         ## edge,
-                                                                                         ## add
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## the
-                                                                                         ## faulty
-                                                                                         ## shapes
-                                                                                         ## (edge,wire,face)
-                                                                                         ## to
-                                                                                         ## <MshNOK>.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## <FF>
-                                                                                         ## is
-                                                                                         ## a
-                                                                                         ## face
-                                                                                         ## descendant
-                                                                                         ## of
-                                                                                         ## <F>.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## <MWisOld>(wire)
-                                                                                         ## =
-                                                                                         ## 1
-                                                                                         ## if
-                                                                                         ## wire
-                                                                                         ## is
-                                                                                         ## wire
-                                                                                         ## of
-                                                                                         ## <F>
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## 0
-                                                                                         ## wire
-                                                                                         ## results
-                                                                                         ## from
-                                                                                         ## <F>'s
-                                                                                         ## wire
-                                                                                         ## splitted.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## returns
-                                                                                         ## false
-                                                                                         ## if
-                                                                                         ## purge
-                                                                                         ## fails
+  TopOpeBRepTool* {.importcpp: "TopOpeBRepTool", header: "TopOpeBRepTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool::operator new", header: "TopOpeBRepTool.hxx".}
+proc `delete`*(this: var TopOpeBRepTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool::operator delete", header: "TopOpeBRepTool.hxx".}
+proc `new[]`*(this: var TopOpeBRepTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool::operator new[]", header: "TopOpeBRepTool.hxx".}
+proc `delete[]`*(this: var TopOpeBRepTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool::operator delete[]", header: "TopOpeBRepTool.hxx".}
+proc `new`*(this: var TopOpeBRepTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepTool::operator new", header: "TopOpeBRepTool.hxx".}
+proc `delete`*(this: var TopOpeBRepTool; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepTool::operator delete", header: "TopOpeBRepTool.hxx".}
 proc purgeClosingEdges*(f: TopoDS_Face; ff: TopoDS_Face;
                        mWisOld: TopToolsDataMapOfShapeInteger;
-                       mshNOK: var TopToolsIndexedMapOfOrientedShape): bool {.
+                       mshNOK: var TopToolsIndexedMapOfOrientedShape): StandardBoolean {.
     importcpp: "TopOpeBRepTool::PurgeClosingEdges(@)",
     header: "TopOpeBRepTool.hxx".}
 proc purgeClosingEdges*(f: TopoDS_Face; lof: TopToolsListOfShape;
                        mWisOld: TopToolsDataMapOfShapeInteger;
-                       mshNOK: var TopToolsIndexedMapOfOrientedShape): bool {.
+                       mshNOK: var TopToolsIndexedMapOfOrientedShape): StandardBoolean {.
     importcpp: "TopOpeBRepTool::PurgeClosingEdges(@)",
     header: "TopOpeBRepTool.hxx".}
-proc correctONUVISO*(f: TopoDS_Face; fsp: var TopoDS_Face): bool {.
+proc correctONUVISO*(f: TopoDS_Face; fsp: var TopoDS_Face): StandardBoolean {.
     importcpp: "TopOpeBRepTool::CorrectONUVISO(@)", header: "TopOpeBRepTool.hxx".}
 proc makeFaces*(f: TopoDS_Face; lof: TopToolsListOfShape;
                mshNOK: TopToolsIndexedMapOfOrientedShape;
-               loff: var TopToolsListOfShape): bool {.
+               loff: var TopToolsListOfShape): StandardBoolean {.
     importcpp: "TopOpeBRepTool::MakeFaces(@)", header: "TopOpeBRepTool.hxx".}
 proc regularize*(aFace: TopoDS_Face; aListOfFaces: var TopToolsListOfShape;
-                eSplits: var TopToolsDataMapOfShapeListOfShape): bool {.
+                eSplits: var TopToolsDataMapOfShapeListOfShape): StandardBoolean {.
     importcpp: "TopOpeBRepTool::Regularize(@)", header: "TopOpeBRepTool.hxx".}
 proc regularizeWires*(aFace: TopoDS_Face;
                      oldWiresNewWires: var TopToolsDataMapOfShapeListOfShape;
-                     eSplits: var TopToolsDataMapOfShapeListOfShape): bool {.
+                     eSplits: var TopToolsDataMapOfShapeListOfShape): StandardBoolean {.
     importcpp: "TopOpeBRepTool::RegularizeWires(@)", header: "TopOpeBRepTool.hxx".}
 proc regularizeFace*(aFace: TopoDS_Face;
                     oldWiresnewWires: TopToolsDataMapOfShapeListOfShape;
-                    aListOfFaces: var TopToolsListOfShape): bool {.
+                    aListOfFaces: var TopToolsListOfShape): StandardBoolean {.
     importcpp: "TopOpeBRepTool::RegularizeFace(@)", header: "TopOpeBRepTool.hxx".}
 proc regularizeShells*(aSolid: TopoDS_Solid;
                       oldSheNewShe: var TopToolsDataMapOfShapeListOfShape;
-                      fSplits: var TopToolsDataMapOfShapeListOfShape): bool {.
+                      fSplits: var TopToolsDataMapOfShapeListOfShape): StandardBoolean {.
     importcpp: "TopOpeBRepTool::RegularizeShells(@)", header: "TopOpeBRepTool.hxx".}
 proc print*(oct: TopOpeBRepToolOutCurveType; s: var StandardOStream): var StandardOStream {.
     importcpp: "TopOpeBRepTool::Print(@)", header: "TopOpeBRepTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -523,6 +523,24 @@ type
     ## !< History of result shape simplification
 
 
+proc `new`*(this: var BRepAlgoAPI_BuilderAlgo; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_BuilderAlgo::operator new",
+    header: "BRepAlgoAPI_BuilderAlgo.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_BuilderAlgo; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_BuilderAlgo::operator delete",
+    header: "BRepAlgoAPI_BuilderAlgo.hxx".}
+proc `new[]`*(this: var BRepAlgoAPI_BuilderAlgo; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_BuilderAlgo::operator new[]",
+    header: "BRepAlgoAPI_BuilderAlgo.hxx".}
+proc `delete[]`*(this: var BRepAlgoAPI_BuilderAlgo; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_BuilderAlgo::operator delete[]",
+    header: "BRepAlgoAPI_BuilderAlgo.hxx".}
+proc `new`*(this: var BRepAlgoAPI_BuilderAlgo; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgoAPI_BuilderAlgo::operator new",
+    header: "BRepAlgoAPI_BuilderAlgo.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_BuilderAlgo; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgoAPI_BuilderAlgo::operator delete",
+    header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc constructBRepAlgoAPI_BuilderAlgo*(): BRepAlgoAPI_BuilderAlgo {.constructor,
     importcpp: "BRepAlgoAPI_BuilderAlgo(@)", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc destroyBRepAlgoAPI_BuilderAlgo*(this: var BRepAlgoAPI_BuilderAlgo) {.
@@ -535,38 +553,41 @@ proc setArguments*(this: var BRepAlgoAPI_BuilderAlgo; theLS: TopToolsListOfShape
     importcpp: "SetArguments", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc arguments*(this: BRepAlgoAPI_BuilderAlgo): TopToolsListOfShape {.noSideEffect,
     importcpp: "Arguments", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc setNonDestructive*(this: var BRepAlgoAPI_BuilderAlgo; theFlag: bool) {.
+proc setNonDestructive*(this: var BRepAlgoAPI_BuilderAlgo; theFlag: StandardBoolean) {.
     importcpp: "SetNonDestructive", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc nonDestructive*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect,
+proc nonDestructive*(this: BRepAlgoAPI_BuilderAlgo): StandardBoolean {.noSideEffect,
     importcpp: "NonDestructive", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc setGlue*(this: var BRepAlgoAPI_BuilderAlgo; theGlue: BOPAlgoGlueEnum) {.
     importcpp: "SetGlue", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc glue*(this: BRepAlgoAPI_BuilderAlgo): BOPAlgoGlueEnum {.noSideEffect,
     importcpp: "Glue", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc setCheckInverted*(this: var BRepAlgoAPI_BuilderAlgo; theCheck: bool) {.
+proc setCheckInverted*(this: var BRepAlgoAPI_BuilderAlgo; theCheck: StandardBoolean) {.
     importcpp: "SetCheckInverted", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc checkInverted*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect,
+proc checkInverted*(this: BRepAlgoAPI_BuilderAlgo): StandardBoolean {.noSideEffect,
     importcpp: "CheckInverted", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc build*(this: var BRepAlgoAPI_BuilderAlgo) {.importcpp: "Build",
     header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc simplifyResult*(this: var BRepAlgoAPI_BuilderAlgo; theUnifyEdges: bool = true;
-                    theUnifyFaces: bool = true; theAngularTol: cfloat = angular()) {.
+proc simplifyResult*(this: var BRepAlgoAPI_BuilderAlgo;
+                    theUnifyEdges: StandardBoolean = true;
+                    theUnifyFaces: StandardBoolean = true;
+                    theAngularTol: StandardReal = angular()) {.
     importcpp: "SimplifyResult", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc modified*(this: var BRepAlgoAPI_BuilderAlgo; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc generated*(this: var BRepAlgoAPI_BuilderAlgo; theS: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc isDeleted*(this: var BRepAlgoAPI_BuilderAlgo; `aS`: TopoDS_Shape): bool {.
+proc isDeleted*(this: var BRepAlgoAPI_BuilderAlgo; `aS`: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsDeleted", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc hasModified*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect,
+proc hasModified*(this: BRepAlgoAPI_BuilderAlgo): StandardBoolean {.noSideEffect,
     importcpp: "HasModified", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc hasGenerated*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect,
+proc hasGenerated*(this: BRepAlgoAPI_BuilderAlgo): StandardBoolean {.noSideEffect,
     importcpp: "HasGenerated", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc hasDeleted*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect,
+proc hasDeleted*(this: BRepAlgoAPI_BuilderAlgo): StandardBoolean {.noSideEffect,
     importcpp: "HasDeleted", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc setToFillHistory*(this: var BRepAlgoAPI_BuilderAlgo; theHistFlag: bool) {.
+proc setToFillHistory*(this: var BRepAlgoAPI_BuilderAlgo;
+                      theHistFlag: StandardBoolean) {.
     importcpp: "SetToFillHistory", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-proc hasHistory*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect,
+proc hasHistory*(this: BRepAlgoAPI_BuilderAlgo): StandardBoolean {.noSideEffect,
     importcpp: "HasHistory", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc sectionEdges*(this: var BRepAlgoAPI_BuilderAlgo): TopToolsListOfShape {.
     importcpp: "SectionEdges", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
@@ -576,28 +597,3 @@ proc builder*(this: BRepAlgoAPI_BuilderAlgo): BOPAlgoPBuilder {.noSideEffect,
     importcpp: "Builder", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc history*(this: BRepAlgoAPI_BuilderAlgo): Handle[BRepToolsHistory] {.
     noSideEffect, importcpp: "History", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

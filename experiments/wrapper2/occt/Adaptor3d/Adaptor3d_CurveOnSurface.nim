@@ -69,9 +69,9 @@ proc continuity*(this: Adaptor3dCurveOnSurface): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor3d_CurveOnSurface.hxx".}
 proc nbIntervals*(this: Adaptor3dCurveOnSurface; s: GeomAbsShape): cint {.
     noSideEffect, importcpp: "NbIntervals", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc intervals*(this: Adaptor3dCurveOnSurface; t: var TColStdArray1OfReal;
+#[ proc intervals*(this: Adaptor3dCurveOnSurface; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
-                                header: "Adaptor3d_CurveOnSurface.hxx".}
+                                header: "Adaptor3d_CurveOnSurface.hxx".} ]#
 proc trim*(this: Adaptor3dCurveOnSurface; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHCurve] {.noSideEffect, importcpp: "Trim",
                       header: "Adaptor3d_CurveOnSurface.hxx".}

@@ -7,29 +7,3 @@ include BRepLProp_CLProps
 include BRepLProp_CurveTool
 include BRepLProp_SLProps
 include BRepLProp_SurfaceTool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

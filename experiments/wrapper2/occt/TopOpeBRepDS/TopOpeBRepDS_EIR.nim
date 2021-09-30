@@ -18,34 +18,22 @@ type
                      header: "TopOpeBRepDS_EIR.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_EIR; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_EIR::operator new", header: "TopOpeBRepDS_EIR.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_EIR; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_EIR::operator delete", header: "TopOpeBRepDS_EIR.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_EIR; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_EIR::operator new[]", header: "TopOpeBRepDS_EIR.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_EIR; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_EIR::operator delete[]",
+    header: "TopOpeBRepDS_EIR.hxx".}
+proc `new`*(this: var TopOpeBRepDS_EIR; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_EIR::operator new", header: "TopOpeBRepDS_EIR.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_EIR; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_EIR::operator delete", header: "TopOpeBRepDS_EIR.hxx".}
 proc constructTopOpeBRepDS_EIR*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_EIR {.
     constructor, importcpp: "TopOpeBRepDS_EIR(@)", header: "TopOpeBRepDS_EIR.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_EIR.hxx".}
-proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR; i: cint) {.
+proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR; i: int) {.
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_EIR.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -23,6 +23,18 @@ type
                    bycopy.} = object
 
 
+proc `new`*(this: var BRepToolsQuilt; theSize: csize_t): pointer {.
+    importcpp: "BRepTools_Quilt::operator new", header: "BRepTools_Quilt.hxx".}
+proc `delete`*(this: var BRepToolsQuilt; theAddress: pointer) {.
+    importcpp: "BRepTools_Quilt::operator delete", header: "BRepTools_Quilt.hxx".}
+proc `new[]`*(this: var BRepToolsQuilt; theSize: csize_t): pointer {.
+    importcpp: "BRepTools_Quilt::operator new[]", header: "BRepTools_Quilt.hxx".}
+proc `delete[]`*(this: var BRepToolsQuilt; theAddress: pointer) {.
+    importcpp: "BRepTools_Quilt::operator delete[]", header: "BRepTools_Quilt.hxx".}
+proc `new`*(this: var BRepToolsQuilt; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepTools_Quilt::operator new", header: "BRepTools_Quilt.hxx".}
+proc `delete`*(this: var BRepToolsQuilt; a2: pointer; a3: pointer) {.
+    importcpp: "BRepTools_Quilt::operator delete", header: "BRepTools_Quilt.hxx".}
 proc constructBRepToolsQuilt*(): BRepToolsQuilt {.constructor,
     importcpp: "BRepTools_Quilt(@)", header: "BRepTools_Quilt.hxx".}
 proc `bind`*(this: var BRepToolsQuilt; eold: TopoDS_Edge; enew: TopoDS_Edge) {.
@@ -31,34 +43,9 @@ proc `bind`*(this: var BRepToolsQuilt; vold: TopoDS_Vertex; vnew: TopoDS_Vertex)
     importcpp: "Bind", header: "BRepTools_Quilt.hxx".}
 proc add*(this: var BRepToolsQuilt; s: TopoDS_Shape) {.importcpp: "Add",
     header: "BRepTools_Quilt.hxx".}
-proc isCopied*(this: BRepToolsQuilt; s: TopoDS_Shape): bool {.noSideEffect,
+proc isCopied*(this: BRepToolsQuilt; s: TopoDS_Shape): StandardBoolean {.noSideEffect,
     importcpp: "IsCopied", header: "BRepTools_Quilt.hxx".}
 proc copy*(this: BRepToolsQuilt; s: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
     importcpp: "Copy", header: "BRepTools_Quilt.hxx".}
 proc shells*(this: BRepToolsQuilt): TopoDS_Shape {.noSideEffect, importcpp: "Shells",
     header: "BRepTools_Quilt.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

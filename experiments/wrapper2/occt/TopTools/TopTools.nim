@@ -20,37 +20,21 @@ discard "forward decl of TopTools_OrientedShapeMapHasher"
 discard "forward decl of TopTools_LocationSet"
 discard "forward decl of TopTools_ShapeSet"
 type
-  TopTools* {.importcpp: "TopTools", header: "TopTools.hxx", bycopy.} = object ## ! A set of Shapes. Can be dump, wrote or read.
-                                                                       ## ! Dumps the
-                                                                       ## topological structure  of <Sh>  on the
-                                                                       ## ! stream <S>.
+  TopTools* {.importcpp: "TopTools", header: "TopTools.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopTools; theSize: csize_t): pointer {.
+    importcpp: "TopTools::operator new", header: "TopTools.hxx".}
+proc `delete`*(this: var TopTools; theAddress: pointer) {.
+    importcpp: "TopTools::operator delete", header: "TopTools.hxx".}
+proc `new[]`*(this: var TopTools; theSize: csize_t): pointer {.
+    importcpp: "TopTools::operator new[]", header: "TopTools.hxx".}
+proc `delete[]`*(this: var TopTools; theAddress: pointer) {.
+    importcpp: "TopTools::operator delete[]", header: "TopTools.hxx".}
+proc `new`*(this: var TopTools; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopTools::operator new", header: "TopTools.hxx".}
+proc `delete`*(this: var TopTools; a2: pointer; a3: pointer) {.
+    importcpp: "TopTools::operator delete", header: "TopTools.hxx".}
 proc dump*(sh: TopoDS_Shape; s: var StandardOStream) {.importcpp: "TopTools::Dump(@)",
     header: "TopTools.hxx".}
-proc dummy*(i: cint) {.importcpp: "TopTools::Dummy(@)", header: "TopTools.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc dummy*(i: int) {.importcpp: "TopTools::Dummy(@)", header: "TopTools.hxx".}

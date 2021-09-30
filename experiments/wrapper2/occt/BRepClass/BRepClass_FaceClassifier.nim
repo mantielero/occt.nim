@@ -20,53 +20,43 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 type
   BRepClassFaceClassifier* {.importcpp: "BRepClass_FaceClassifier",
-                            header: "BRepClass_FaceClassifier.hxx", bycopy.} = object of BRepClassFClassifier ##
-                                                                                                       ## !
-                                                                                                       ## Empty
-                                                                                                       ## constructor,
-                                                                                                       ## undefined
-                                                                                                       ## algorithm.
+                            header: "BRepClass_FaceClassifier.hxx", bycopy.} = object of BRepClassFClassifier
 
 
+proc `new`*(this: var BRepClassFaceClassifier; theSize: csize_t): pointer {.
+    importcpp: "BRepClass_FaceClassifier::operator new",
+    header: "BRepClass_FaceClassifier.hxx".}
+proc `delete`*(this: var BRepClassFaceClassifier; theAddress: pointer) {.
+    importcpp: "BRepClass_FaceClassifier::operator delete",
+    header: "BRepClass_FaceClassifier.hxx".}
+proc `new[]`*(this: var BRepClassFaceClassifier; theSize: csize_t): pointer {.
+    importcpp: "BRepClass_FaceClassifier::operator new[]",
+    header: "BRepClass_FaceClassifier.hxx".}
+proc `delete[]`*(this: var BRepClassFaceClassifier; theAddress: pointer) {.
+    importcpp: "BRepClass_FaceClassifier::operator delete[]",
+    header: "BRepClass_FaceClassifier.hxx".}
+proc `new`*(this: var BRepClassFaceClassifier; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepClass_FaceClassifier::operator new",
+    header: "BRepClass_FaceClassifier.hxx".}
+proc `delete`*(this: var BRepClassFaceClassifier; a2: pointer; a3: pointer) {.
+    importcpp: "BRepClass_FaceClassifier::operator delete",
+    header: "BRepClass_FaceClassifier.hxx".}
 proc constructBRepClassFaceClassifier*(): BRepClassFaceClassifier {.constructor,
     importcpp: "BRepClass_FaceClassifier(@)",
     header: "BRepClass_FaceClassifier.hxx".}
 proc constructBRepClassFaceClassifier*(f: var BRepClassFaceExplorer; p: Pnt2d;
-                                      tol: cfloat): BRepClassFaceClassifier {.
+                                      tol: StandardReal): BRepClassFaceClassifier {.
     constructor, importcpp: "BRepClass_FaceClassifier(@)",
     header: "BRepClass_FaceClassifier.hxx".}
-proc constructBRepClassFaceClassifier*(f: TopoDS_Face; p: Pnt2d; tol: cfloat): BRepClassFaceClassifier {.
+proc constructBRepClassFaceClassifier*(f: TopoDS_Face; p: Pnt2d; tol: StandardReal): BRepClassFaceClassifier {.
     constructor, importcpp: "BRepClass_FaceClassifier(@)",
     header: "BRepClass_FaceClassifier.hxx".}
-proc perform*(this: var BRepClassFaceClassifier; f: TopoDS_Face; p: Pnt2d; tol: cfloat) {.
-    importcpp: "Perform", header: "BRepClass_FaceClassifier.hxx".}
-proc constructBRepClassFaceClassifier*(f: TopoDS_Face; p: Pnt; tol: cfloat): BRepClassFaceClassifier {.
+proc perform*(this: var BRepClassFaceClassifier; f: TopoDS_Face; p: Pnt2d;
+             tol: StandardReal) {.importcpp: "Perform",
+                                header: "BRepClass_FaceClassifier.hxx".}
+proc constructBRepClassFaceClassifier*(f: TopoDS_Face; p: Pnt; tol: StandardReal): BRepClassFaceClassifier {.
     constructor, importcpp: "BRepClass_FaceClassifier(@)",
     header: "BRepClass_FaceClassifier.hxx".}
-proc perform*(this: var BRepClassFaceClassifier; f: TopoDS_Face; p: Pnt; tol: cfloat) {.
-    importcpp: "Perform", header: "BRepClass_FaceClassifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc perform*(this: var BRepClassFaceClassifier; f: TopoDS_Face; p: Pnt;
+             tol: StandardReal) {.importcpp: "Perform",
+                                header: "BRepClass_FaceClassifier.hxx".}

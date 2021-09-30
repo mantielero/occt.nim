@@ -19,29 +19,3 @@ type
       TColStdMapTransientHasher]
   BRepFillDataMapIteratorOfDataMapOfNodeShape* = Iterator[Handle[MAT_Node],
       TopoDS_Shape, TColStdMapTransientHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -19,29 +19,3 @@ type
                         header: "BRepAlgo_CheckStatus.hxx".} = enum
     BRepAlgoOK, BRepAlgoNOK
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

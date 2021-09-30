@@ -163,52 +163,45 @@ type
     ## !< Found faulty shapes
 
 
+proc `new`*(this: var BRepAlgoAPI_Check; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Check::operator new", header: "BRepAlgoAPI_Check.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Check; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Check::operator delete",
+    header: "BRepAlgoAPI_Check.hxx".}
+proc `new[]`*(this: var BRepAlgoAPI_Check; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Check::operator new[]",
+    header: "BRepAlgoAPI_Check.hxx".}
+proc `delete[]`*(this: var BRepAlgoAPI_Check; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Check::operator delete[]",
+    header: "BRepAlgoAPI_Check.hxx".}
+proc `new`*(this: var BRepAlgoAPI_Check; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgoAPI_Check::operator new", header: "BRepAlgoAPI_Check.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Check; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgoAPI_Check::operator delete",
+    header: "BRepAlgoAPI_Check.hxx".}
 proc constructBRepAlgoAPI_Check*(): BRepAlgoAPI_Check {.constructor,
     importcpp: "BRepAlgoAPI_Check(@)", header: "BRepAlgoAPI_Check.hxx".}
 proc destroyBRepAlgoAPI_Check*(this: var BRepAlgoAPI_Check) {.
     importcpp: "#.~BRepAlgoAPI_Check()", header: "BRepAlgoAPI_Check.hxx".}
-proc constructBRepAlgoAPI_Check*(theS: TopoDS_Shape; bTestSE: bool = true;
-                                bTestSI: bool = true): BRepAlgoAPI_Check {.
+proc constructBRepAlgoAPI_Check*(theS: TopoDS_Shape;
+                                bTestSE: StandardBoolean = true;
+                                bTestSI: StandardBoolean = true): BRepAlgoAPI_Check {.
     constructor, importcpp: "BRepAlgoAPI_Check(@)", header: "BRepAlgoAPI_Check.hxx".}
 proc constructBRepAlgoAPI_Check*(theS1: TopoDS_Shape; theS2: TopoDS_Shape;
                                 theOp: BOPAlgoOperation = bOPAlgoUNKNOWN;
-                                bTestSE: bool = true; bTestSI: bool = true): BRepAlgoAPI_Check {.
+                                bTestSE: StandardBoolean = true;
+                                bTestSI: StandardBoolean = true): BRepAlgoAPI_Check {.
     constructor, importcpp: "BRepAlgoAPI_Check(@)", header: "BRepAlgoAPI_Check.hxx".}
-proc setData*(this: var BRepAlgoAPI_Check; theS: TopoDS_Shape; bTestSE: bool = true;
-             bTestSI: bool = true) {.importcpp: "SetData",
-                                 header: "BRepAlgoAPI_Check.hxx".}
+proc setData*(this: var BRepAlgoAPI_Check; theS: TopoDS_Shape;
+             bTestSE: StandardBoolean = true; bTestSI: StandardBoolean = true) {.
+    importcpp: "SetData", header: "BRepAlgoAPI_Check.hxx".}
 proc setData*(this: var BRepAlgoAPI_Check; theS1: TopoDS_Shape; theS2: TopoDS_Shape;
-             theOp: BOPAlgoOperation = bOPAlgoUNKNOWN; bTestSE: bool = true;
-             bTestSI: bool = true) {.importcpp: "SetData",
-                                 header: "BRepAlgoAPI_Check.hxx".}
+             theOp: BOPAlgoOperation = bOPAlgoUNKNOWN;
+             bTestSE: StandardBoolean = true; bTestSI: StandardBoolean = true) {.
+    importcpp: "SetData", header: "BRepAlgoAPI_Check.hxx".}
 proc perform*(this: var BRepAlgoAPI_Check) {.importcpp: "Perform",
     header: "BRepAlgoAPI_Check.hxx".}
-proc isValid*(this: var BRepAlgoAPI_Check): bool {.importcpp: "IsValid",
+proc isValid*(this: var BRepAlgoAPI_Check): StandardBoolean {.importcpp: "IsValid",
     header: "BRepAlgoAPI_Check.hxx".}
 proc result*(this: var BRepAlgoAPI_Check): BOPAlgoListOfCheckResult {.
     importcpp: "Result", header: "BRepAlgoAPI_Check.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

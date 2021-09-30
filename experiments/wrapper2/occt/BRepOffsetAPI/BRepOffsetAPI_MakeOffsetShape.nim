@@ -19,24 +19,46 @@ discard "forward decl of BRepOffset_MakeOffset"
 type
   BRepOffsetAPI_MakeOffsetShape* {.importcpp: "BRepOffsetAPI_MakeOffsetShape",
                                   header: "BRepOffsetAPI_MakeOffsetShape.hxx",
-                                  bycopy.} = object of BRepBuilderAPI_MakeShape ## !
-                                                                           ## Constructor does
-                                                                           ## nothing.
+                                  bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepOffsetAPI_MakeOffsetShape; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakeOffsetShape::operator new",
+    header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakeOffsetShape; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeOffsetShape::operator delete",
+    header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
+proc `new[]`*(this: var BRepOffsetAPI_MakeOffsetShape; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakeOffsetShape::operator new[]",
+    header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
+proc `delete[]`*(this: var BRepOffsetAPI_MakeOffsetShape; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeOffsetShape::operator delete[]",
+    header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
+proc `new`*(this: var BRepOffsetAPI_MakeOffsetShape; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffsetAPI_MakeOffsetShape::operator new",
+    header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakeOffsetShape; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeOffsetShape::operator delete",
+    header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
 proc constructBRepOffsetAPI_MakeOffsetShape*(): BRepOffsetAPI_MakeOffsetShape {.
     constructor, importcpp: "BRepOffsetAPI_MakeOffsetShape(@)",
     header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
-## !!!Ignored construct:  ! Deprecated constructor. Please avoid usage of this constructor. Standard_DEPRECATED ( Deprecated constructor. Please use constructor without parameters and one of perform methods. ) BRepOffsetAPI_MakeOffsetShape ( const TopoDS_Shape & S , const Standard_Real Offset , const Standard_Real Tol , const BRepOffset_Mode Mode = BRepOffset_Skin , const Standard_Boolean Intersection = Standard_False , const Standard_Boolean SelfInter = Standard_False , const GeomAbs_JoinType Join = GeomAbs_Arc , const Standard_Boolean RemoveIntEdges = Standard_False ) ;
-## Error: identifier expected, but got: Deprecated constructor. Please use constructor without parameters and one of perform methods.!!!
-
+proc constructBRepOffsetAPI_MakeOffsetShape*(s: TopoDS_Shape; offset: StandardReal;
+    tol: StandardReal; mode: BRepOffsetMode = bRepOffsetSkin;
+    intersection: StandardBoolean = false; selfInter: StandardBoolean = false;
+    join: GeomAbsJoinType = geomAbsArc; removeIntEdges: StandardBoolean = false): BRepOffsetAPI_MakeOffsetShape {.
+    constructor, importcpp: "BRepOffsetAPI_MakeOffsetShape(@)",
+    header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
 proc performBySimple*(this: var BRepOffsetAPI_MakeOffsetShape; theS: TopoDS_Shape;
-                     theOffsetValue: float) {.importcpp: "PerformBySimple",
+                     theOffsetValue: StandardReal) {.importcpp: "PerformBySimple",
     header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
 proc performByJoin*(this: var BRepOffsetAPI_MakeOffsetShape; s: TopoDS_Shape;
-                   offset: float; tol: float; mode: BRepOffsetMode = bRepOffsetSkin;
-                   intersection: bool = false; selfInter: bool = false;
-                   join: GeomAbsJoinType = geomAbsArc; removeIntEdges: bool = false) {.
+                   offset: StandardReal; tol: StandardReal;
+                   mode: BRepOffsetMode = bRepOffsetSkin;
+                   intersection: StandardBoolean = false;
+                   selfInter: StandardBoolean = false;
+                   join: GeomAbsJoinType = geomAbsArc;
+                   removeIntEdges: StandardBoolean = false) {.
     importcpp: "PerformByJoin", header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
 proc makeOffset*(this: BRepOffsetAPI_MakeOffsetShape): BRepOffsetMakeOffset {.
     noSideEffect, importcpp: "MakeOffset",
@@ -47,53 +69,8 @@ proc generated*(this: var BRepOffsetAPI_MakeOffsetShape; s: TopoDS_Shape): TopTo
     importcpp: "Generated", header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
 proc modified*(this: var BRepOffsetAPI_MakeOffsetShape; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
-proc isDeleted*(this: var BRepOffsetAPI_MakeOffsetShape; s: TopoDS_Shape): bool {.
+proc isDeleted*(this: var BRepOffsetAPI_MakeOffsetShape; s: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsDeleted", header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
 proc getJoinType*(this: BRepOffsetAPI_MakeOffsetShape): GeomAbsJoinType {.
     noSideEffect, importcpp: "GetJoinType",
     header: "BRepOffsetAPI_MakeOffsetShape.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

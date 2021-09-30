@@ -33,11 +33,11 @@ proc minimum*(this: var BRepCheckEdge) {.importcpp: "Minimum",
                                      header: "BRepCheck_Edge.hxx".}
 proc blind*(this: var BRepCheckEdge) {.importcpp: "Blind",
                                    header: "BRepCheck_Edge.hxx".}
-proc geometricControls*(this: BRepCheckEdge): bool {.noSideEffect,
+proc geometricControls*(this: BRepCheckEdge): StandardBoolean {.noSideEffect,
     importcpp: "GeometricControls", header: "BRepCheck_Edge.hxx".}
-proc geometricControls*(this: var BRepCheckEdge; b: bool) {.
+proc geometricControls*(this: var BRepCheckEdge; b: StandardBoolean) {.
     importcpp: "GeometricControls", header: "BRepCheck_Edge.hxx".}
-proc tolerance*(this: var BRepCheckEdge): cfloat {.importcpp: "Tolerance",
+proc tolerance*(this: var BRepCheckEdge): StandardReal {.importcpp: "Tolerance",
     header: "BRepCheck_Edge.hxx".}
 proc setStatus*(this: var BRepCheckEdge; theStatus: BRepCheckStatus) {.
     importcpp: "SetStatus", header: "BRepCheck_Edge.hxx".}
@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Edge.hxx".}
 proc dynamicType*(this: BRepCheckEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Edge.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

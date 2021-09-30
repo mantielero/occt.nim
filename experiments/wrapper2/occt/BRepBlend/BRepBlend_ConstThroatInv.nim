@@ -14,29 +14,3 @@
 
 type
   BRepBlendConstThroatInv* = BlendFuncConstThroatInv
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

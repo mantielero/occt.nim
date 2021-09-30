@@ -20,12 +20,27 @@ discard "forward decl of gp_Pln"
 discard "forward decl of Geom_Surface"
 type
   BRepAlgoAPI_Section* {.importcpp: "BRepAlgoAPI_Section",
-                        header: "BRepAlgoAPI_Section.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor
+                        header: "BRepAlgoAPI_Section.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation
 
 
+proc `new`*(this: var BRepAlgoAPI_Section; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Section::operator new",
+    header: "BRepAlgoAPI_Section.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Section; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Section::operator delete",
+    header: "BRepAlgoAPI_Section.hxx".}
+proc `new[]`*(this: var BRepAlgoAPI_Section; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgoAPI_Section::operator new[]",
+    header: "BRepAlgoAPI_Section.hxx".}
+proc `delete[]`*(this: var BRepAlgoAPI_Section; theAddress: pointer) {.
+    importcpp: "BRepAlgoAPI_Section::operator delete[]",
+    header: "BRepAlgoAPI_Section.hxx".}
+proc `new`*(this: var BRepAlgoAPI_Section; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgoAPI_Section::operator new",
+    header: "BRepAlgoAPI_Section.hxx".}
+proc `delete`*(this: var BRepAlgoAPI_Section; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgoAPI_Section::operator delete",
+    header: "BRepAlgoAPI_Section.hxx".}
 proc constructBRepAlgoAPI_Section*(): BRepAlgoAPI_Section {.constructor,
     importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc destroyBRepAlgoAPI_Section*(this: var BRepAlgoAPI_Section) {.
@@ -34,27 +49,29 @@ proc constructBRepAlgoAPI_Section*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Section {
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
 proc constructBRepAlgoAPI_Section*(s1: TopoDS_Shape; s2: TopoDS_Shape;
-                                  performNow: bool = true): BRepAlgoAPI_Section {.
+                                  performNow: StandardBoolean = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
 proc constructBRepAlgoAPI_Section*(s1: TopoDS_Shape; s2: TopoDS_Shape;
-                                  aDSF: BOPAlgoPaveFiller; performNow: bool = true): BRepAlgoAPI_Section {.
+                                  aDSF: BOPAlgoPaveFiller;
+                                  performNow: StandardBoolean = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
-proc constructBRepAlgoAPI_Section*(s1: TopoDS_Shape; pl: Pln; performNow: bool = true): BRepAlgoAPI_Section {.
+proc constructBRepAlgoAPI_Section*(s1: TopoDS_Shape; pl: Pln;
+                                  performNow: StandardBoolean = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
 proc constructBRepAlgoAPI_Section*(s1: TopoDS_Shape; sf: Handle[GeomSurface];
-                                  performNow: bool = true): BRepAlgoAPI_Section {.
+                                  performNow: StandardBoolean = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
 proc constructBRepAlgoAPI_Section*(sf: Handle[GeomSurface]; s2: TopoDS_Shape;
-                                  performNow: bool = true): BRepAlgoAPI_Section {.
+                                  performNow: StandardBoolean = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
 proc constructBRepAlgoAPI_Section*(sf1: Handle[GeomSurface];
                                   sf2: Handle[GeomSurface];
-                                  performNow: bool = true): BRepAlgoAPI_Section {.
+                                  performNow: StandardBoolean = true): BRepAlgoAPI_Section {.
     constructor, importcpp: "BRepAlgoAPI_Section(@)",
     header: "BRepAlgoAPI_Section.hxx".}
 proc init1*(this: var BRepAlgoAPI_Section; s1: TopoDS_Shape) {.importcpp: "Init1",
@@ -69,42 +86,17 @@ proc init2*(this: var BRepAlgoAPI_Section; pl: Pln) {.importcpp: "Init2",
     header: "BRepAlgoAPI_Section.hxx".}
 proc init2*(this: var BRepAlgoAPI_Section; sf: Handle[GeomSurface]) {.
     importcpp: "Init2", header: "BRepAlgoAPI_Section.hxx".}
-proc approximation*(this: var BRepAlgoAPI_Section; b: bool) {.
+proc approximation*(this: var BRepAlgoAPI_Section; b: StandardBoolean) {.
     importcpp: "Approximation", header: "BRepAlgoAPI_Section.hxx".}
-proc computePCurveOn1*(this: var BRepAlgoAPI_Section; b: bool) {.
+proc computePCurveOn1*(this: var BRepAlgoAPI_Section; b: StandardBoolean) {.
     importcpp: "ComputePCurveOn1", header: "BRepAlgoAPI_Section.hxx".}
-proc computePCurveOn2*(this: var BRepAlgoAPI_Section; b: bool) {.
+proc computePCurveOn2*(this: var BRepAlgoAPI_Section; b: StandardBoolean) {.
     importcpp: "ComputePCurveOn2", header: "BRepAlgoAPI_Section.hxx".}
 proc build*(this: var BRepAlgoAPI_Section) {.importcpp: "Build",
     header: "BRepAlgoAPI_Section.hxx".}
 proc hasAncestorFaceOn1*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
-                        f: var TopoDS_Shape): bool {.noSideEffect,
+                        f: var TopoDS_Shape): StandardBoolean {.noSideEffect,
     importcpp: "HasAncestorFaceOn1", header: "BRepAlgoAPI_Section.hxx".}
 proc hasAncestorFaceOn2*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
-                        f: var TopoDS_Shape): bool {.noSideEffect,
+                        f: var TopoDS_Shape): StandardBoolean {.noSideEffect,
     importcpp: "HasAncestorFaceOn2", header: "BRepAlgoAPI_Section.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

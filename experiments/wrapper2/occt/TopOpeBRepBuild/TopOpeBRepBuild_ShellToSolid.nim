@@ -21,6 +21,24 @@ type
                                 header: "TopOpeBRepBuild_ShellToSolid.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildShellToSolid; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_ShellToSolid::operator new",
+    header: "TopOpeBRepBuild_ShellToSolid.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildShellToSolid; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_ShellToSolid::operator delete",
+    header: "TopOpeBRepBuild_ShellToSolid.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildShellToSolid; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_ShellToSolid::operator new[]",
+    header: "TopOpeBRepBuild_ShellToSolid.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildShellToSolid; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_ShellToSolid::operator delete[]",
+    header: "TopOpeBRepBuild_ShellToSolid.hxx".}
+proc `new`*(this: var TopOpeBRepBuildShellToSolid; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_ShellToSolid::operator new",
+    header: "TopOpeBRepBuild_ShellToSolid.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildShellToSolid; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_ShellToSolid::operator delete",
+    header: "TopOpeBRepBuild_ShellToSolid.hxx".}
 proc constructTopOpeBRepBuildShellToSolid*(): TopOpeBRepBuildShellToSolid {.
     constructor, importcpp: "TopOpeBRepBuild_ShellToSolid(@)",
     header: "TopOpeBRepBuild_ShellToSolid.hxx".}
@@ -31,28 +49,3 @@ proc addShell*(this: var TopOpeBRepBuildShellToSolid; sh: TopoDS_Shell) {.
 proc makeSolids*(this: var TopOpeBRepBuildShellToSolid; so: TopoDS_Solid;
                 lSo: var TopToolsListOfShape) {.importcpp: "MakeSolids",
     header: "TopOpeBRepBuild_ShellToSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

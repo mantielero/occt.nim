@@ -17,56 +17,32 @@
 type
   TopOpeBRepDS_SurfaceIterator* {.importcpp: "TopOpeBRepDS_SurfaceIterator",
                                  header: "TopOpeBRepDS_SurfaceIterator.hxx",
-                                 bycopy.} = object of TopOpeBRepDS_InterferenceIterator ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## an
-                                                                                   ## iterator
-                                                                                   ## on
-                                                                                   ## the
-                                                                                   ## Surfaces
-                                                                                   ## on
-                                                                                   ## solid
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## described
-                                                                                   ## by
-                                                                                   ## the
-                                                                                   ## interferences
-                                                                                   ## in
-                                                                                   ## <L>.
+                                 bycopy.} = object of TopOpeBRepDS_InterferenceIterator
 
 
+proc `new`*(this: var TopOpeBRepDS_SurfaceIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_SurfaceIterator::operator new",
+    header: "TopOpeBRepDS_SurfaceIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_SurfaceIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_SurfaceIterator::operator delete",
+    header: "TopOpeBRepDS_SurfaceIterator.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_SurfaceIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_SurfaceIterator::operator new[]",
+    header: "TopOpeBRepDS_SurfaceIterator.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_SurfaceIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_SurfaceIterator::operator delete[]",
+    header: "TopOpeBRepDS_SurfaceIterator.hxx".}
+proc `new`*(this: var TopOpeBRepDS_SurfaceIterator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_SurfaceIterator::operator new",
+    header: "TopOpeBRepDS_SurfaceIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_SurfaceIterator; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_SurfaceIterator::operator delete",
+    header: "TopOpeBRepDS_SurfaceIterator.hxx".}
 proc constructTopOpeBRepDS_SurfaceIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_SurfaceIterator {.
     constructor, importcpp: "TopOpeBRepDS_SurfaceIterator(@)",
     header: "TopOpeBRepDS_SurfaceIterator.hxx".}
-proc current*(this: TopOpeBRepDS_SurfaceIterator): cint {.noSideEffect,
+proc current*(this: TopOpeBRepDS_SurfaceIterator): int {.noSideEffect,
     importcpp: "Current", header: "TopOpeBRepDS_SurfaceIterator.hxx".}
 proc orientation*(this: TopOpeBRepDS_SurfaceIterator; s: TopAbsState): TopAbsOrientation {.
     noSideEffect, importcpp: "Orientation",
     header: "TopOpeBRepDS_SurfaceIterator.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -92,6 +92,24 @@ type
                                                                                    ## point.
 
 
+proc `new`*(this: var TopOpeBRepFaceEdgeFiller; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_FaceEdgeFiller::operator new",
+    header: "TopOpeBRep_FaceEdgeFiller.hxx".}
+proc `delete`*(this: var TopOpeBRepFaceEdgeFiller; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_FaceEdgeFiller::operator delete",
+    header: "TopOpeBRep_FaceEdgeFiller.hxx".}
+proc `new[]`*(this: var TopOpeBRepFaceEdgeFiller; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_FaceEdgeFiller::operator new[]",
+    header: "TopOpeBRep_FaceEdgeFiller.hxx".}
+proc `delete[]`*(this: var TopOpeBRepFaceEdgeFiller; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_FaceEdgeFiller::operator delete[]",
+    header: "TopOpeBRep_FaceEdgeFiller.hxx".}
+proc `new`*(this: var TopOpeBRepFaceEdgeFiller; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_FaceEdgeFiller::operator new",
+    header: "TopOpeBRep_FaceEdgeFiller.hxx".}
+proc `delete`*(this: var TopOpeBRepFaceEdgeFiller; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_FaceEdgeFiller::operator delete",
+    header: "TopOpeBRep_FaceEdgeFiller.hxx".}
 proc constructTopOpeBRepFaceEdgeFiller*(): TopOpeBRepFaceEdgeFiller {.constructor,
     importcpp: "TopOpeBRep_FaceEdgeFiller(@)",
     header: "TopOpeBRep_FaceEdgeFiller.hxx".}
@@ -99,28 +117,3 @@ proc insert*(this: var TopOpeBRepFaceEdgeFiller; f: TopoDS_Shape; e: TopoDS_Shap
             feint: var TopOpeBRepFaceEdgeIntersector;
             hds: Handle[TopOpeBRepDS_HDataStructure]) {.importcpp: "Insert",
     header: "TopOpeBRep_FaceEdgeFiller.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

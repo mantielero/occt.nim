@@ -15,33 +15,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  TopOpeBRepDS_MapOfCurve* = NCollectionDataMap[cint, TopOpeBRepDS_CurveData,
+  TopOpeBRepDS_MapOfCurve* = NCollectionDataMap[int, TopOpeBRepDS_CurveData,
       TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfMapOfCurve* = Iterator[cint,
-      TopOpeBRepDS_CurveData, TColStdMapIntegerHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  TopOpeBRepDS_DataMapIteratorOfMapOfCurve* = Iterator[int, TopOpeBRepDS_CurveData,
+      TColStdMapIntegerHasher]

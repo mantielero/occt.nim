@@ -27,25 +27,44 @@ type
                        header: "BRepFill_OffsetWire.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepFillOffsetWire; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_OffsetWire::operator new",
+    header: "BRepFill_OffsetWire.hxx".}
+proc `delete`*(this: var BRepFillOffsetWire; theAddress: pointer) {.
+    importcpp: "BRepFill_OffsetWire::operator delete",
+    header: "BRepFill_OffsetWire.hxx".}
+proc `new[]`*(this: var BRepFillOffsetWire; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_OffsetWire::operator new[]",
+    header: "BRepFill_OffsetWire.hxx".}
+proc `delete[]`*(this: var BRepFillOffsetWire; theAddress: pointer) {.
+    importcpp: "BRepFill_OffsetWire::operator delete[]",
+    header: "BRepFill_OffsetWire.hxx".}
+proc `new`*(this: var BRepFillOffsetWire; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_OffsetWire::operator new",
+    header: "BRepFill_OffsetWire.hxx".}
+proc `delete`*(this: var BRepFillOffsetWire; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_OffsetWire::operator delete",
+    header: "BRepFill_OffsetWire.hxx".}
 proc constructBRepFillOffsetWire*(): BRepFillOffsetWire {.constructor,
     importcpp: "BRepFill_OffsetWire(@)", header: "BRepFill_OffsetWire.hxx".}
 proc constructBRepFillOffsetWire*(spine: TopoDS_Face;
                                  join: GeomAbsJoinType = geomAbsArc;
-                                 isOpenResult: bool = false): BRepFillOffsetWire {.
+                                 isOpenResult: StandardBoolean = false): BRepFillOffsetWire {.
     constructor, importcpp: "BRepFill_OffsetWire(@)",
     header: "BRepFill_OffsetWire.hxx".}
 proc init*(this: var BRepFillOffsetWire; spine: TopoDS_Face;
-          join: GeomAbsJoinType = geomAbsArc; isOpenResult: bool = false) {.
+          join: GeomAbsJoinType = geomAbsArc; isOpenResult: StandardBoolean = false) {.
     importcpp: "Init", header: "BRepFill_OffsetWire.hxx".}
-proc perform*(this: var BRepFillOffsetWire; offset: cfloat; alt: cfloat = 0.0) {.
-    importcpp: "Perform", header: "BRepFill_OffsetWire.hxx".}
-proc performWithBiLo*(this: var BRepFillOffsetWire; wsp: TopoDS_Face; offset: cfloat;
-                     locus: BRepMAT2dBisectingLocus;
+proc perform*(this: var BRepFillOffsetWire; offset: StandardReal;
+             alt: StandardReal = 0.0) {.importcpp: "Perform",
+                                    header: "BRepFill_OffsetWire.hxx".}
+proc performWithBiLo*(this: var BRepFillOffsetWire; wsp: TopoDS_Face;
+                     offset: StandardReal; locus: BRepMAT2dBisectingLocus;
                      link: var BRepMAT2dLinkTopoBilo;
-                     join: GeomAbsJoinType = geomAbsArc; alt: cfloat = 0.0) {.
+                     join: GeomAbsJoinType = geomAbsArc; alt: StandardReal = 0.0) {.
     importcpp: "PerformWithBiLo", header: "BRepFill_OffsetWire.hxx".}
-proc isDone*(this: BRepFillOffsetWire): bool {.noSideEffect, importcpp: "IsDone",
-    header: "BRepFill_OffsetWire.hxx".}
+proc isDone*(this: BRepFillOffsetWire): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "BRepFill_OffsetWire.hxx".}
 proc spine*(this: BRepFillOffsetWire): TopoDS_Face {.noSideEffect,
     importcpp: "Spine", header: "BRepFill_OffsetWire.hxx".}
 proc shape*(this: BRepFillOffsetWire): TopoDS_Shape {.noSideEffect,
@@ -54,28 +73,3 @@ proc generatedShapes*(this: var BRepFillOffsetWire; spineShape: TopoDS_Shape): T
     importcpp: "GeneratedShapes", header: "BRepFill_OffsetWire.hxx".}
 proc joinType*(this: BRepFillOffsetWire): GeomAbsJoinType {.noSideEffect,
     importcpp: "JoinType", header: "BRepFill_OffsetWire.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

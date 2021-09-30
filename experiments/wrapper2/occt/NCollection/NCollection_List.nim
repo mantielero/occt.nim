@@ -53,14 +53,14 @@ type
                                                                                                      ## given
                                                                                                      ## ListNode
 
-  NCollection_Listvalue_type*[TheItemType] = TheItemType
-  NCollection_ListListNode* = NCollection_TListNode[TheItemType]
-  NCollection_ListIterator* = NCollection_TListIterator[TheItemType]
-  NCollection_Listiterator* = NCollection_StlIterator[forward_iterator_tag,
-      NCollection_ListIterator, TheItemType, false]
-  NCollection_Listconst_iterator* = NCollection_StlIterator[forward_iterator_tag,
-      NCollection_ListIterator, TheItemType, true]
-
+  #NCollection_Listvalue_type*[TheItemType] = TheItemType
+  #NCollection_ListListNode* = NCollection_TListNode[TheItemType]
+  #NCollection_ListIterator* = NCollection_TListIterator[TheItemType]
+  #NCollection_Listiterator* = NCollection_StlIterator[forward_iterator_tag,
+  #    NCollection_ListIterator, TheItemType, false]
+  #NCollection_Listconst_iterator* = NCollection_StlIterator[forward_iterator_tag,
+  #    NCollection_ListIterator, TheItemType, true]
+#[ 
 proc begin*[TheItemType](this: NCollection_List[TheItemType]): NCollection_Listiterator {.
     noSideEffect, importcpp: "begin", header: "NCollection_List.hxx".}
 proc `end`*[TheItemType](this: NCollection_List[TheItemType]): NCollection_Listiterator {.
@@ -84,9 +84,9 @@ proc Size*[TheItemType](this: NCollection_List[TheItemType]): int {.noSideEffect
 proc Assign*[TheItemType](this: var NCollection_List[TheItemType];
                          theOther: NCollection_List): var NCollection_List {.
     importcpp: "Assign", header: "NCollection_List.hxx".}
-proc Clear*[TheItemType](this: var NCollection_List[TheItemType]; theAllocator: handle[
+#[ proc Clear*[TheItemType](this: var NCollection_List[TheItemType]; theAllocator: handle[
     NCollection_BaseAllocator] = 0L'i64) {.importcpp: "Clear",
-                                        header: "NCollection_List.hxx".}
+                                        header: "NCollection_List.hxx".} ]#
 proc First*[TheItemType](this: NCollection_List[TheItemType]): TheItemType {.
     noSideEffect, importcpp: "First", header: "NCollection_List.hxx".}
 proc First*[TheItemType](this: var NCollection_List[TheItemType]): var TheItemType {.
@@ -136,4 +136,4 @@ proc Reverse*[TheItemType](this: var NCollection_List[TheItemType]) {.
     importcpp: "Reverse", header: "NCollection_List.hxx".}
 proc destroyNCollection_List*[TheItemType](
     this: var NCollection_List[TheItemType]) {.importcpp: "#.~NCollection_List()",
-    header: "NCollection_List.hxx".}
+    header: "NCollection_List.hxx".} ]#

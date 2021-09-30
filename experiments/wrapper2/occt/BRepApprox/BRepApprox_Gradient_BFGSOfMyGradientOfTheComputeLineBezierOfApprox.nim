@@ -26,35 +26,23 @@ type
       bycopy.} = object of MathBFGS
 
 
+proc `new`*(this: var BRepApproxGradientBFGSOfMyGradientOfTheComputeLineBezierOfApprox;
+           theSize: csize_t): pointer {.importcpp: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox::operator new", header: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxGradientBFGSOfMyGradientOfTheComputeLineBezierOfApprox;
+              theAddress: pointer) {.importcpp: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox::operator delete", header: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+proc `new[]`*(this: var BRepApproxGradientBFGSOfMyGradientOfTheComputeLineBezierOfApprox;
+             theSize: csize_t): pointer {.importcpp: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox::operator new[]", header: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+proc `delete[]`*(this: var BRepApproxGradientBFGSOfMyGradientOfTheComputeLineBezierOfApprox;
+                theAddress: pointer) {.importcpp: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox::operator delete[]", header: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+proc `new`*(this: var BRepApproxGradientBFGSOfMyGradientOfTheComputeLineBezierOfApprox;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox::operator new", header: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxGradientBFGSOfMyGradientOfTheComputeLineBezierOfApprox;
+              a2: pointer; a3: pointer) {.importcpp: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox::operator delete", header: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
 proc constructBRepApproxGradientBFGSOfMyGradientOfTheComputeLineBezierOfApprox*(
     f: var MathMultipleVarFunctionWithGradient; startingPoint: MathVector;
-    tolerance3d: cfloat; tolerance2d: cfloat; eps: cfloat; nbIterations: cint = 200): BRepApproxGradientBFGSOfMyGradientOfTheComputeLineBezierOfApprox {.
+    tolerance3d: StandardReal; tolerance2d: StandardReal; eps: StandardReal;
+    nbIterations: int = 200): BRepApproxGradientBFGSOfMyGradientOfTheComputeLineBezierOfApprox {.
     constructor, importcpp: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox(@)", header: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
 proc isSolutionReached*(this: BRepApproxGradientBFGSOfMyGradientOfTheComputeLineBezierOfApprox;
-                       f: var MathMultipleVarFunctionWithGradient): bool {.
+                       f: var MathMultipleVarFunctionWithGradient): StandardBoolean {.
     noSideEffect, importcpp: "IsSolutionReached", header: "BRepApprox_Gradient_BFGSOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

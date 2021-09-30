@@ -20,6 +20,18 @@ type
   BRepClassEdge* {.importcpp: "BRepClass_Edge", header: "BRepClass_Edge.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepClassEdge; theSize: csize_t): pointer {.
+    importcpp: "BRepClass_Edge::operator new", header: "BRepClass_Edge.hxx".}
+proc `delete`*(this: var BRepClassEdge; theAddress: pointer) {.
+    importcpp: "BRepClass_Edge::operator delete", header: "BRepClass_Edge.hxx".}
+proc `new[]`*(this: var BRepClassEdge; theSize: csize_t): pointer {.
+    importcpp: "BRepClass_Edge::operator new[]", header: "BRepClass_Edge.hxx".}
+proc `delete[]`*(this: var BRepClassEdge; theAddress: pointer) {.
+    importcpp: "BRepClass_Edge::operator delete[]", header: "BRepClass_Edge.hxx".}
+proc `new`*(this: var BRepClassEdge; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepClass_Edge::operator new", header: "BRepClass_Edge.hxx".}
+proc `delete`*(this: var BRepClassEdge; a2: pointer; a3: pointer) {.
+    importcpp: "BRepClass_Edge::operator delete", header: "BRepClass_Edge.hxx".}
 proc constructBRepClassEdge*(): BRepClassEdge {.constructor,
     importcpp: "BRepClass_Edge(@)", header: "BRepClass_Edge.hxx".}
 proc constructBRepClassEdge*(e: TopoDS_Edge; f: TopoDS_Face): BRepClassEdge {.
@@ -32,28 +44,3 @@ proc face*(this: var BRepClassEdge): var TopoDS_Face {.importcpp: "Face",
     header: "BRepClass_Edge.hxx".}
 proc face*(this: BRepClassEdge): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "BRepClass_Edge.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,6 +17,24 @@ type
                         header: "BRepGProp_MeshCinert.hxx", bycopy.} = object of GPropGProps
 
 
+proc `new`*(this: var BRepGPropMeshCinert; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_MeshCinert::operator new",
+    header: "BRepGProp_MeshCinert.hxx".}
+proc `delete`*(this: var BRepGPropMeshCinert; theAddress: pointer) {.
+    importcpp: "BRepGProp_MeshCinert::operator delete",
+    header: "BRepGProp_MeshCinert.hxx".}
+proc `new[]`*(this: var BRepGPropMeshCinert; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_MeshCinert::operator new[]",
+    header: "BRepGProp_MeshCinert.hxx".}
+proc `delete[]`*(this: var BRepGPropMeshCinert; theAddress: pointer) {.
+    importcpp: "BRepGProp_MeshCinert::operator delete[]",
+    header: "BRepGProp_MeshCinert.hxx".}
+proc `new`*(this: var BRepGPropMeshCinert; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepGProp_MeshCinert::operator new",
+    header: "BRepGProp_MeshCinert.hxx".}
+proc `delete`*(this: var BRepGPropMeshCinert; a2: pointer; a3: pointer) {.
+    importcpp: "BRepGProp_MeshCinert::operator delete",
+    header: "BRepGProp_MeshCinert.hxx".}
 proc constructBRepGPropMeshCinert*(): BRepGPropMeshCinert {.constructor,
     importcpp: "BRepGProp_MeshCinert(@)", header: "BRepGProp_MeshCinert.hxx".}
 proc setLocation*(this: var BRepGPropMeshCinert; cLocation: Pnt) {.
@@ -26,28 +44,3 @@ proc perform*(this: var BRepGPropMeshCinert; theNodes: TColgpArray1OfPnt) {.
 proc preparePolygon*(theE: TopoDS_Edge; thePolyg: var Handle[TColgpHArray1OfPnt]) {.
     importcpp: "BRepGProp_MeshCinert::PreparePolygon(@)",
     header: "BRepGProp_MeshCinert.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

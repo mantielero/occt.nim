@@ -30,8 +30,8 @@ proc setShape*(this: var BRepMeshDiscretRoot; theShape: TopoDS_Shape) {.
     importcpp: "SetShape", header: "BRepMesh_DiscretRoot.hxx".}
 proc shape*(this: BRepMeshDiscretRoot): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BRepMesh_DiscretRoot.hxx".}
-proc isDone*(this: BRepMeshDiscretRoot): bool {.noSideEffect, importcpp: "IsDone",
-    header: "BRepMesh_DiscretRoot.hxx".}
+proc isDone*(this: BRepMeshDiscretRoot): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "BRepMesh_DiscretRoot.hxx".}
 proc perform*(this: var BRepMeshDiscretRoot;
              theRange: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Perform", header: "BRepMesh_DiscretRoot.hxx".}
@@ -48,29 +48,3 @@ proc dynamicType*(this: BRepMeshDiscretRoot): Handle[StandardType] {.noSideEffec
 discard "forward decl of BRepMesh_DiscretRoot"
 type
   HandleC1C1* = Handle[BRepMeshDiscretRoot]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

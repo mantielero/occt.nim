@@ -16,29 +16,3 @@
 
 type
   TopToolsSequenceOfShape* = NCollectionSequence[TopoDS_Shape]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -23,12 +23,28 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of Sweep_NumShape"
 type
   BRepSweepNumLinearRegularSweep* {.importcpp: "BRepSweep_NumLinearRegularSweep", header: "BRepSweep_NumLinearRegularSweep.hxx",
-                                   bycopy.} = object ## ! Builds the vertex addressed by [aGenV,aDirV], with its
-                                                  ## ! geometric part, but without subcomponents.
-                                                  ## ! Creates a NumLinearRegularSweep.    <aBuilder>  gives
+                                   bycopy.} = object ## ! Creates a NumLinearRegularSweep.    <aBuilder>  gives
                                                   ## ! basic topological services.
 
 
+proc `new`*(this: var BRepSweepNumLinearRegularSweep; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_NumLinearRegularSweep::operator new",
+    header: "BRepSweep_NumLinearRegularSweep.hxx".}
+proc `delete`*(this: var BRepSweepNumLinearRegularSweep; theAddress: pointer) {.
+    importcpp: "BRepSweep_NumLinearRegularSweep::operator delete",
+    header: "BRepSweep_NumLinearRegularSweep.hxx".}
+proc `new[]`*(this: var BRepSweepNumLinearRegularSweep; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_NumLinearRegularSweep::operator new[]",
+    header: "BRepSweep_NumLinearRegularSweep.hxx".}
+proc `delete[]`*(this: var BRepSweepNumLinearRegularSweep; theAddress: pointer) {.
+    importcpp: "BRepSweep_NumLinearRegularSweep::operator delete[]",
+    header: "BRepSweep_NumLinearRegularSweep.hxx".}
+proc `new`*(this: var BRepSweepNumLinearRegularSweep; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepSweep_NumLinearRegularSweep::operator new",
+    header: "BRepSweep_NumLinearRegularSweep.hxx".}
+proc `delete`*(this: var BRepSweepNumLinearRegularSweep; a2: pointer; a3: pointer) {.
+    importcpp: "BRepSweep_NumLinearRegularSweep::operator delete",
+    header: "BRepSweep_NumLinearRegularSweep.hxx".}
 proc makeEmptyVertex*(this: var BRepSweepNumLinearRegularSweep; aGenV: TopoDS_Shape;
                      aDirV: SweepNumShape): TopoDS_Shape {.
     importcpp: "MakeEmptyVertex", header: "BRepSweep_NumLinearRegularSweep.hxx".}
@@ -84,16 +100,16 @@ proc directSolid*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape;
 proc gGDShapeIsToAdd*(this: BRepSweepNumLinearRegularSweep;
                      aNewShape: TopoDS_Shape; aNewSubShape: TopoDS_Shape;
                      aGenS: TopoDS_Shape; aSubGenS: TopoDS_Shape;
-                     aDirS: SweepNumShape): bool {.noSideEffect,
+                     aDirS: SweepNumShape): StandardBoolean {.noSideEffect,
     importcpp: "GGDShapeIsToAdd", header: "BRepSweep_NumLinearRegularSweep.hxx".}
 proc gDDShapeIsToAdd*(this: BRepSweepNumLinearRegularSweep;
                      aNewShape: TopoDS_Shape; aNewSubShape: TopoDS_Shape;
                      aGenS: TopoDS_Shape; aDirS: SweepNumShape;
-                     aSubDirS: SweepNumShape): bool {.noSideEffect,
+                     aSubDirS: SweepNumShape): StandardBoolean {.noSideEffect,
     importcpp: "GDDShapeIsToAdd", header: "BRepSweep_NumLinearRegularSweep.hxx".}
 proc separatedWires*(this: BRepSweepNumLinearRegularSweep; aNewShape: TopoDS_Shape;
                     aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                    aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+                    aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "SeparatedWires",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
 proc splitShell*(this: BRepSweepNumLinearRegularSweep; aNewShape: TopoDS_Shape): TopoDS_Shape {.
@@ -103,9 +119,9 @@ proc setContinuity*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shap
                    aDirS: SweepNumShape) {.importcpp: "SetContinuity",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
 proc hasShape*(this: BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape;
-              aDirS: SweepNumShape): bool {.noSideEffect, importcpp: "HasShape",
-    header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc isInvariant*(this: BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): bool {.
+              aDirS: SweepNumShape): StandardBoolean {.noSideEffect,
+    importcpp: "HasShape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
+proc isInvariant*(this: BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): StandardBoolean {.
     noSideEffect, importcpp: "IsInvariant",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
 proc shape*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape;
@@ -113,10 +129,10 @@ proc shape*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape;
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
 proc shape*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "Shape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc isUsed*(this: BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): bool {.
+proc isUsed*(this: BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): StandardBoolean {.
     noSideEffect, importcpp: "IsUsed",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc genIsUsed*(this: BRepSweepNumLinearRegularSweep; theS: TopoDS_Shape): bool {.
+proc genIsUsed*(this: BRepSweepNumLinearRegularSweep; theS: TopoDS_Shape): StandardBoolean {.
     noSideEffect, importcpp: "GenIsUsed",
     header: "BRepSweep_NumLinearRegularSweep.hxx".}
 proc shape*(this: var BRepSweepNumLinearRegularSweep): TopoDS_Shape {.
@@ -129,30 +145,5 @@ proc firstShape*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape):
     importcpp: "FirstShape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
 proc lastShape*(this: var BRepSweepNumLinearRegularSweep; aGenS: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-proc closed*(this: BRepSweepNumLinearRegularSweep): bool {.noSideEffect,
+proc closed*(this: BRepSweepNumLinearRegularSweep): StandardBoolean {.noSideEffect,
     importcpp: "Closed", header: "BRepSweep_NumLinearRegularSweep.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

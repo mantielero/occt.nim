@@ -17,29 +17,3 @@
 discard "forward decl of TopTools_LocationSet"
 type
   TopToolsLocationSetPtr* = ptr TopToolsLocationSet
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

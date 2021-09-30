@@ -20,6 +20,24 @@ type
                          header: "TopOpeBRepBuild_GIter.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildGIter; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_GIter::operator new",
+    header: "TopOpeBRepBuild_GIter.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildGIter; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_GIter::operator delete",
+    header: "TopOpeBRepBuild_GIter.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildGIter; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_GIter::operator new[]",
+    header: "TopOpeBRepBuild_GIter.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildGIter; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_GIter::operator delete[]",
+    header: "TopOpeBRepBuild_GIter.hxx".}
+proc `new`*(this: var TopOpeBRepBuildGIter; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_GIter::operator new",
+    header: "TopOpeBRepBuild_GIter.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildGIter; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_GIter::operator delete",
+    header: "TopOpeBRepBuild_GIter.hxx".}
 proc constructTopOpeBRepBuildGIter*(): TopOpeBRepBuildGIter {.constructor,
     importcpp: "TopOpeBRepBuild_GIter(@)", header: "TopOpeBRepBuild_GIter.hxx".}
 proc constructTopOpeBRepBuildGIter*(g: TopOpeBRepBuildGTopo): TopOpeBRepBuildGIter {.
@@ -29,36 +47,11 @@ proc init*(this: var TopOpeBRepBuildGIter) {.importcpp: "Init",
     header: "TopOpeBRepBuild_GIter.hxx".}
 proc init*(this: var TopOpeBRepBuildGIter; g: TopOpeBRepBuildGTopo) {.
     importcpp: "Init", header: "TopOpeBRepBuild_GIter.hxx".}
-proc more*(this: TopOpeBRepBuildGIter): bool {.noSideEffect, importcpp: "More",
-    header: "TopOpeBRepBuild_GIter.hxx".}
+proc more*(this: TopOpeBRepBuildGIter): StandardBoolean {.noSideEffect,
+    importcpp: "More", header: "TopOpeBRepBuild_GIter.hxx".}
 proc next*(this: var TopOpeBRepBuildGIter) {.importcpp: "Next",
     header: "TopOpeBRepBuild_GIter.hxx".}
 proc current*(this: TopOpeBRepBuildGIter; s1: var TopAbsState; s2: var TopAbsState) {.
     noSideEffect, importcpp: "Current", header: "TopOpeBRepBuild_GIter.hxx".}
 proc dump*(this: TopOpeBRepBuildGIter; os: var StandardOStream) {.noSideEffect,
     importcpp: "Dump", header: "TopOpeBRepBuild_GIter.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

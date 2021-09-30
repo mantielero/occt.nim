@@ -19,39 +19,30 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of TopLoc_SListOfItemLocation"
 type
   TopLocItemLocation* {.importcpp: "TopLoc_ItemLocation",
-                       header: "TopLoc_ItemLocation.hxx", bycopy.} = object ## ! Sets the
-                                                                       ## elementary Datum to <D>
-                                                                       ## ! Sets the exponent to <P>
+                       header: "TopLoc_ItemLocation.hxx", bycopy.} = object
 
 
-proc constructTopLocItemLocation*(d: Handle[TopLocDatum3D]; p: cint): TopLocItemLocation {.
+proc `new`*(this: var TopLocItemLocation; theSize: csize_t): pointer {.
+    importcpp: "TopLoc_ItemLocation::operator new",
+    header: "TopLoc_ItemLocation.hxx".}
+proc `delete`*(this: var TopLocItemLocation; theAddress: pointer) {.
+    importcpp: "TopLoc_ItemLocation::operator delete",
+    header: "TopLoc_ItemLocation.hxx".}
+proc `new[]`*(this: var TopLocItemLocation; theSize: csize_t): pointer {.
+    importcpp: "TopLoc_ItemLocation::operator new[]",
+    header: "TopLoc_ItemLocation.hxx".}
+proc `delete[]`*(this: var TopLocItemLocation; theAddress: pointer) {.
+    importcpp: "TopLoc_ItemLocation::operator delete[]",
+    header: "TopLoc_ItemLocation.hxx".}
+proc `new`*(this: var TopLocItemLocation; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopLoc_ItemLocation::operator new",
+    header: "TopLoc_ItemLocation.hxx".}
+proc `delete`*(this: var TopLocItemLocation; a2: pointer; a3: pointer) {.
+    importcpp: "TopLoc_ItemLocation::operator delete",
+    header: "TopLoc_ItemLocation.hxx".}
+proc constructTopLocItemLocation*(d: Handle[TopLocDatum3D]; p: int): TopLocItemLocation {.
     constructor, importcpp: "TopLoc_ItemLocation(@)",
     header: "TopLoc_ItemLocation.hxx".}
 proc dumpJson*(this: TopLocItemLocation; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
-                                 header: "TopLoc_ItemLocation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TopLoc_ItemLocation.hxx".}

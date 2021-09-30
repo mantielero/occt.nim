@@ -76,12 +76,12 @@ proc constructBRepMeshFaceChecker*(theFace: IFaceHandle;
     header: "BRepMesh_FaceChecker.hxx".}
 proc destroyBRepMeshFaceChecker*(this: var BRepMeshFaceChecker) {.
     importcpp: "#.~BRepMesh_FaceChecker()", header: "BRepMesh_FaceChecker.hxx".}
-proc perform*(this: var BRepMeshFaceChecker): bool {.importcpp: "Perform",
+proc perform*(this: var BRepMeshFaceChecker): StandardBoolean {.importcpp: "Perform",
     header: "BRepMesh_FaceChecker.hxx".}
 proc getIntersectingEdges*(this: BRepMeshFaceChecker): Handle[MapOfIEdgePtr] {.
     noSideEffect, importcpp: "GetIntersectingEdges",
     header: "BRepMesh_FaceChecker.hxx".}
-proc `()`*(this: BRepMeshFaceChecker; theWireIndex: cint) {.noSideEffect,
+proc `()`*(this: BRepMeshFaceChecker; theWireIndex: int) {.noSideEffect,
     importcpp: "#(@)", header: "BRepMesh_FaceChecker.hxx".}
 type
   BRepMeshFaceCheckerbaseType* = StandardTransient
@@ -93,28 +93,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_FaceChecker.hxx".}
 proc dynamicType*(this: BRepMeshFaceChecker): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_FaceChecker.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

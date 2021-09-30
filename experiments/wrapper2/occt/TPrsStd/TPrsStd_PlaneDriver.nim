@@ -37,7 +37,7 @@ type
 proc constructTPrsStdPlaneDriver*(): TPrsStdPlaneDriver {.constructor,
     importcpp: "TPrsStd_PlaneDriver(@)", header: "TPrsStd_PlaneDriver.hxx".}
 proc update*(this: var TPrsStdPlaneDriver; aLabel: TDF_Label;
-            anAISObject: var Handle[AIS_InteractiveObject]): bool {.
+            anAISObject: var Handle[AIS_InteractiveObject]): StandardBoolean {.
     importcpp: "Update", header: "TPrsStd_PlaneDriver.hxx".}
 type
   TPrsStdPlaneDriverbaseType* = TPrsStdDriver
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_PlaneDriver.hxx".}
 proc dynamicType*(this: TPrsStdPlaneDriver): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_PlaneDriver.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

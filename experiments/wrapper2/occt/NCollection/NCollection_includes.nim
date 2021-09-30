@@ -7,8 +7,8 @@ include NCollection_AlignedAllocator
 include NCollection_Array1
 #include NCollection_Array2
 include NCollection_BaseAllocator
-#include NCollection_BaseList
-#include NCollection_BaseMap
+include NCollection_BaseList
+include NCollection_BaseMap
 #include NCollection_BaseSequence
 #include NCollection_BaseVector
 #include NCollection_Buffer
@@ -37,23 +37,23 @@ include NCollection_HArray2
 include NCollection_Handle
 include NCollection_HeapAllocator
 include NCollection_IncAllocator
-#include NCollection_IndexedDataMap
-#include NCollection_IndexedMap
+include NCollection_IndexedDataMap
+include NCollection_IndexedMap
 include NCollection_Lerp
-#include NCollection_List              # Manual
-#include NCollection_ListNode
+include NCollection_List              # Manual
+include NCollection_ListNode
 #include NCollection_LocalArray
-#include NCollection_Map
+include NCollection_Map
 include NCollection_Mat4              # Manual
 #include NCollection_Sequence
 #include NCollection_Shared
 #include NCollection_SparseArray
 #include NCollection_SparseArrayBase
 #include NCollection_StdAllocator
-#include NCollection_StlIterator
+include NCollection_StlIterator
 include NCollection_String
 include NCollection_TListIterator
-#include NCollection_TListNode
+include NCollection_TListNode
 include NCollection_TypeDef
 #include NCollection_UBTree
 #include NCollection_UBTreeFiller

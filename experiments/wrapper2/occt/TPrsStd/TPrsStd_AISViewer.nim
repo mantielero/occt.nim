@@ -42,18 +42,18 @@ type
 
 proc getID*(): StandardGUID {.importcpp: "TPrsStd_AISViewer::GetID(@)",
                            header: "TPrsStd_AISViewer.hxx".}
-proc has*(acces: TDF_Label): bool {.importcpp: "TPrsStd_AISViewer::Has(@)",
-                                header: "TPrsStd_AISViewer.hxx".}
+proc has*(acces: TDF_Label): StandardBoolean {.
+    importcpp: "TPrsStd_AISViewer::Has(@)", header: "TPrsStd_AISViewer.hxx".}
 proc new*(access: TDF_Label; selector: Handle[AIS_InteractiveContext]): Handle[
     TPrsStdAISViewer] {.importcpp: "TPrsStd_AISViewer::New(@)",
                        header: "TPrsStd_AISViewer.hxx".}
 proc new*(acces: TDF_Label; viewer: Handle[V3dViewer]): Handle[TPrsStdAISViewer] {.
     importcpp: "TPrsStd_AISViewer::New(@)", header: "TPrsStd_AISViewer.hxx".}
-proc find*(acces: TDF_Label; a: var Handle[TPrsStdAISViewer]): bool {.
+proc find*(acces: TDF_Label; a: var Handle[TPrsStdAISViewer]): StandardBoolean {.
     importcpp: "TPrsStd_AISViewer::Find(@)", header: "TPrsStd_AISViewer.hxx".}
-proc find*(acces: TDF_Label; ic: var Handle[AIS_InteractiveContext]): bool {.
+proc find*(acces: TDF_Label; ic: var Handle[AIS_InteractiveContext]): StandardBoolean {.
     importcpp: "TPrsStd_AISViewer::Find(@)", header: "TPrsStd_AISViewer.hxx".}
-proc find*(acces: TDF_Label; v: var Handle[V3dViewer]): bool {.
+proc find*(acces: TDF_Label; v: var Handle[V3dViewer]): StandardBoolean {.
     importcpp: "TPrsStd_AISViewer::Find(@)", header: "TPrsStd_AISViewer.hxx".}
 proc update*(acces: TDF_Label) {.importcpp: "TPrsStd_AISViewer::Update(@)",
                               header: "TPrsStd_AISViewer.hxx".}
@@ -86,28 +86,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TPrsStd_AISViewer.hxx".}
 proc dynamicType*(this: TPrsStdAISViewer): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TPrsStd_AISViewer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

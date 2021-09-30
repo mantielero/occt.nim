@@ -19,10 +19,6 @@ type
   BRepLibCheckCurveOnSurface* {.importcpp: "BRepLib_CheckCurveOnSurface",
                                header: "BRepLib_CheckCurveOnSurface.hxx", bycopy.} = object ##
                                                                                        ## !
-                                                                                       ## Default
-                                                                                       ## contructor
-                                                                                       ##
-                                                                                       ## !
                                                                                        ## Computes
                                                                                        ## the
                                                                                        ## max
@@ -57,6 +53,24 @@ type
                                                                                        ## parallelization.
 
 
+proc `new`*(this: var BRepLibCheckCurveOnSurface; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_CheckCurveOnSurface::operator new",
+    header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc `delete`*(this: var BRepLibCheckCurveOnSurface; theAddress: pointer) {.
+    importcpp: "BRepLib_CheckCurveOnSurface::operator delete",
+    header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc `new[]`*(this: var BRepLibCheckCurveOnSurface; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_CheckCurveOnSurface::operator new[]",
+    header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc `delete[]`*(this: var BRepLibCheckCurveOnSurface; theAddress: pointer) {.
+    importcpp: "BRepLib_CheckCurveOnSurface::operator delete[]",
+    header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc `new`*(this: var BRepLibCheckCurveOnSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLib_CheckCurveOnSurface::operator new",
+    header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc `delete`*(this: var BRepLibCheckCurveOnSurface; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLib_CheckCurveOnSurface::operator delete",
+    header: "BRepLib_CheckCurveOnSurface.hxx".}
 proc constructBRepLibCheckCurveOnSurface*(): BRepLibCheckCurveOnSurface {.
     constructor, importcpp: "BRepLib_CheckCurveOnSurface(@)",
     header: "BRepLib_CheckCurveOnSurface.hxx".}
@@ -68,8 +82,8 @@ proc init*(this: var BRepLibCheckCurveOnSurface; theEdge: TopoDS_Edge;
           theFace: TopoDS_Face) {.importcpp: "Init",
                                 header: "BRepLib_CheckCurveOnSurface.hxx".}
 proc perform*(this: var BRepLibCheckCurveOnSurface;
-             isTheMultyTheradDisabled: bool = false) {.importcpp: "Perform",
-    header: "BRepLib_CheckCurveOnSurface.hxx".}
+             isTheMultyTheradDisabled: StandardBoolean = false) {.
+    importcpp: "Perform", header: "BRepLib_CheckCurveOnSurface.hxx".}
 proc curve*(this: BRepLibCheckCurveOnSurface): Handle[GeomCurve] {.noSideEffect,
     importcpp: "Curve", header: "BRepLib_CheckCurveOnSurface.hxx".}
 proc pCurve*(this: BRepLibCheckCurveOnSurface): Handle[Geom2dCurve] {.noSideEffect,
@@ -78,39 +92,14 @@ proc pCurve2*(this: BRepLibCheckCurveOnSurface): Handle[Geom2dCurve] {.noSideEff
     importcpp: "PCurve2", header: "BRepLib_CheckCurveOnSurface.hxx".}
 proc surface*(this: BRepLibCheckCurveOnSurface): Handle[GeomSurface] {.noSideEffect,
     importcpp: "Surface", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc range*(this: var BRepLibCheckCurveOnSurface; theFirst: var cfloat;
-           theLast: var cfloat) {.importcpp: "Range",
-                               header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc isDone*(this: BRepLibCheckCurveOnSurface): bool {.noSideEffect,
+proc range*(this: var BRepLibCheckCurveOnSurface; theFirst: var StandardReal;
+           theLast: var StandardReal) {.importcpp: "Range",
+                                     header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc isDone*(this: BRepLibCheckCurveOnSurface): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc errorStatus*(this: BRepLibCheckCurveOnSurface): cint {.noSideEffect,
+proc errorStatus*(this: BRepLibCheckCurveOnSurface): int {.noSideEffect,
     importcpp: "ErrorStatus", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc maxDistance*(this: BRepLibCheckCurveOnSurface): cfloat {.noSideEffect,
+proc maxDistance*(this: BRepLibCheckCurveOnSurface): StandardReal {.noSideEffect,
     importcpp: "MaxDistance", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc maxParameter*(this: BRepLibCheckCurveOnSurface): cfloat {.noSideEffect,
+proc maxParameter*(this: BRepLibCheckCurveOnSurface): StandardReal {.noSideEffect,
     importcpp: "MaxParameter", header: "BRepLib_CheckCurveOnSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

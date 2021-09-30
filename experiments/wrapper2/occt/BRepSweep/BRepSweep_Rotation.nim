@@ -21,26 +21,30 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of gp_Ax1"
 type
   BRepSweepRotation* {.importcpp: "BRepSweep_Rotation",
-                      header: "BRepSweep_Rotation.hxx", bycopy.} = object of BRepSweepTrsf ##
-                                                                                    ## !
-                                                                                    ## Creates
-                                                                                    ## a
-                                                                                    ## topology
-                                                                                    ## by
-                                                                                    ## rotating
-                                                                                    ## <S>
-                                                                                    ## around
-                                                                                    ## A
-                                                                                    ## with
-                                                                                    ## the
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## angle
-                                                                                    ## D.
+                      header: "BRepSweep_Rotation.hxx", bycopy.} = object of BRepSweepTrsf
 
 
+proc `new`*(this: var BRepSweepRotation; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Rotation::operator new",
+    header: "BRepSweep_Rotation.hxx".}
+proc `delete`*(this: var BRepSweepRotation; theAddress: pointer) {.
+    importcpp: "BRepSweep_Rotation::operator delete",
+    header: "BRepSweep_Rotation.hxx".}
+proc `new[]`*(this: var BRepSweepRotation; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Rotation::operator new[]",
+    header: "BRepSweep_Rotation.hxx".}
+proc `delete[]`*(this: var BRepSweepRotation; theAddress: pointer) {.
+    importcpp: "BRepSweep_Rotation::operator delete[]",
+    header: "BRepSweep_Rotation.hxx".}
+proc `new`*(this: var BRepSweepRotation; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepSweep_Rotation::operator new",
+    header: "BRepSweep_Rotation.hxx".}
+proc `delete`*(this: var BRepSweepRotation; a2: pointer; a3: pointer) {.
+    importcpp: "BRepSweep_Rotation::operator delete",
+    header: "BRepSweep_Rotation.hxx".}
 proc constructBRepSweepRotation*(s: TopoDS_Shape; n: SweepNumShape;
-                                L: TopLocLocation; a: Ax1; d: cfloat; c: bool): BRepSweepRotation {.
+                                L: TopLocLocation; a: Ax1; d: StandardReal;
+                                c: StandardBoolean): BRepSweepRotation {.
     constructor, importcpp: "BRepSweep_Rotation(@)",
     header: "BRepSweep_Rotation.hxx".}
 proc makeEmptyVertex*(this: var BRepSweepRotation; aGenV: TopoDS_Shape;
@@ -86,48 +90,23 @@ proc directSolid*(this: var BRepSweepRotation; aGenS: TopoDS_Shape;
     importcpp: "DirectSolid", header: "BRepSweep_Rotation.hxx".}
 proc gGDShapeIsToAdd*(this: BRepSweepRotation; aNewShape: TopoDS_Shape;
                      aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                     aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+                     aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "GGDShapeIsToAdd", header: "BRepSweep_Rotation.hxx".}
 proc gDDShapeIsToAdd*(this: BRepSweepRotation; aNewShape: TopoDS_Shape;
                      aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                     aDirS: SweepNumShape; aSubDirS: SweepNumShape): bool {.
+                     aDirS: SweepNumShape; aSubDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "GDDShapeIsToAdd", header: "BRepSweep_Rotation.hxx".}
 proc separatedWires*(this: BRepSweepRotation; aNewShape: TopoDS_Shape;
                     aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                    aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+                    aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "SeparatedWires", header: "BRepSweep_Rotation.hxx".}
 proc splitShell*(this: BRepSweepRotation; aNewShape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "SplitShell", header: "BRepSweep_Rotation.hxx".}
-proc hasShape*(this: BRepSweepRotation; aGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+proc hasShape*(this: BRepSweepRotation; aGenS: TopoDS_Shape; aDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "HasShape", header: "BRepSweep_Rotation.hxx".}
-proc isInvariant*(this: BRepSweepRotation; aGenS: TopoDS_Shape): bool {.noSideEffect,
-    importcpp: "IsInvariant", header: "BRepSweep_Rotation.hxx".}
+proc isInvariant*(this: BRepSweepRotation; aGenS: TopoDS_Shape): StandardBoolean {.
+    noSideEffect, importcpp: "IsInvariant", header: "BRepSweep_Rotation.hxx".}
 proc axe*(this: BRepSweepRotation): Ax1 {.noSideEffect, importcpp: "Axe",
                                       header: "BRepSweep_Rotation.hxx".}
-proc angle*(this: BRepSweepRotation): cfloat {.noSideEffect, importcpp: "Angle",
-    header: "BRepSweep_Rotation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc angle*(this: BRepSweepRotation): StandardReal {.noSideEffect,
+    importcpp: "Angle", header: "BRepSweep_Rotation.hxx".}

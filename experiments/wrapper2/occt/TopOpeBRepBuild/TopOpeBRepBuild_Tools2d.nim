@@ -20,6 +20,24 @@ type
                            header: "TopOpeBRepBuild_Tools2d.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildTools2d; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_Tools2d::operator new",
+    header: "TopOpeBRepBuild_Tools2d.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildTools2d; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_Tools2d::operator delete",
+    header: "TopOpeBRepBuild_Tools2d.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildTools2d; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_Tools2d::operator new[]",
+    header: "TopOpeBRepBuild_Tools2d.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildTools2d; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_Tools2d::operator delete[]",
+    header: "TopOpeBRepBuild_Tools2d.hxx".}
+proc `new`*(this: var TopOpeBRepBuildTools2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_Tools2d::operator new",
+    header: "TopOpeBRepBuild_Tools2d.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildTools2d; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_Tools2d::operator delete",
+    header: "TopOpeBRepBuild_Tools2d.hxx".}
 proc makeMapOfShapeVertexInfo*(aWire: TopoDS_Wire; aMap: var TopOpeBRepBuildIndexedDataMapOfShapeVertexInfo) {.
     importcpp: "TopOpeBRepBuild_Tools2d::MakeMapOfShapeVertexInfo(@)",
     header: "TopOpeBRepBuild_Tools2d.hxx".}
@@ -29,28 +47,3 @@ proc dumpMapOfShapeVertexInfo*(aMap: TopOpeBRepBuildIndexedDataMapOfShapeVertexI
 proc path*(aWire: TopoDS_Wire; aResList: var TopToolsListOfShape) {.
     importcpp: "TopOpeBRepBuild_Tools2d::Path(@)",
     header: "TopOpeBRepBuild_Tools2d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

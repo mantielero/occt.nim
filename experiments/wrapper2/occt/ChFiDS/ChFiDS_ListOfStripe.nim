@@ -17,29 +17,3 @@
 type
   ChFiDS_ListOfStripe* = NCollectionList[Handle[ChFiDS_Stripe]]
   ChFiDS_ListIteratorOfListOfStripe* = Iterator[Handle[ChFiDS_Stripe]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

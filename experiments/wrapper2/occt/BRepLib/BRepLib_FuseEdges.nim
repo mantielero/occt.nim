@@ -20,16 +20,32 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
 type
   BRepLibFuseEdges* {.importcpp: "BRepLib_FuseEdges",
-                     header: "BRepLib_FuseEdges.hxx", bycopy.} = object ## ! Initialise members  and build  construction of map
-                                                                   ## ! of ancestors.
-                                                                   ## ! Build the all the lists of edges that are to be fused
+                     header: "BRepLib_FuseEdges.hxx", bycopy.} = object ## ! Build the all the lists of edges that are to be fused
 
 
-proc constructBRepLibFuseEdges*(theShape: TopoDS_Shape; performNow: bool = false): BRepLibFuseEdges {.
+proc `new`*(this: var BRepLibFuseEdges; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_FuseEdges::operator new", header: "BRepLib_FuseEdges.hxx".}
+proc `delete`*(this: var BRepLibFuseEdges; theAddress: pointer) {.
+    importcpp: "BRepLib_FuseEdges::operator delete",
+    header: "BRepLib_FuseEdges.hxx".}
+proc `new[]`*(this: var BRepLibFuseEdges; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_FuseEdges::operator new[]",
+    header: "BRepLib_FuseEdges.hxx".}
+proc `delete[]`*(this: var BRepLibFuseEdges; theAddress: pointer) {.
+    importcpp: "BRepLib_FuseEdges::operator delete[]",
+    header: "BRepLib_FuseEdges.hxx".}
+proc `new`*(this: var BRepLibFuseEdges; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLib_FuseEdges::operator new", header: "BRepLib_FuseEdges.hxx".}
+proc `delete`*(this: var BRepLibFuseEdges; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLib_FuseEdges::operator delete",
+    header: "BRepLib_FuseEdges.hxx".}
+proc constructBRepLibFuseEdges*(theShape: TopoDS_Shape;
+                               performNow: StandardBoolean = false): BRepLibFuseEdges {.
     constructor, importcpp: "BRepLib_FuseEdges(@)", header: "BRepLib_FuseEdges.hxx".}
 proc avoidEdges*(this: var BRepLibFuseEdges; theMapEdg: TopToolsIndexedMapOfShape) {.
     importcpp: "AvoidEdges", header: "BRepLib_FuseEdges.hxx".}
-proc setConcatBSpl*(this: var BRepLibFuseEdges; theConcatBSpl: bool = true) {.
+proc setConcatBSpl*(this: var BRepLibFuseEdges;
+                   theConcatBSpl: StandardBoolean = true) {.
     importcpp: "SetConcatBSpl", header: "BRepLib_FuseEdges.hxx".}
 proc edges*(this: var BRepLibFuseEdges;
            theMapLstEdg: var TopToolsDataMapOfIntegerListOfShape) {.
@@ -41,32 +57,7 @@ proc faces*(this: var BRepLibFuseEdges; theMapFac: var TopToolsDataMapOfShapeSha
     importcpp: "Faces", header: "BRepLib_FuseEdges.hxx".}
 proc shape*(this: var BRepLibFuseEdges): var TopoDS_Shape {.importcpp: "Shape",
     header: "BRepLib_FuseEdges.hxx".}
-proc nbVertices*(this: var BRepLibFuseEdges): cint {.importcpp: "NbVertices",
+proc nbVertices*(this: var BRepLibFuseEdges): int {.importcpp: "NbVertices",
     header: "BRepLib_FuseEdges.hxx".}
 proc perform*(this: var BRepLibFuseEdges) {.importcpp: "Perform",
                                         header: "BRepLib_FuseEdges.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

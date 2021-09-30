@@ -16,29 +16,3 @@
 
 type
   TopOpeBRepArray1OfVPointInter* = NCollectionArray1[TopOpeBRepVPointInter]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

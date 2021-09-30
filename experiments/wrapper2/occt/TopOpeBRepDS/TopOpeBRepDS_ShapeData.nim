@@ -20,38 +20,31 @@ type
                            header: "TopOpeBRepDS_ShapeData.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_ShapeData; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_ShapeData::operator new",
+    header: "TopOpeBRepDS_ShapeData.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_ShapeData; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_ShapeData::operator delete",
+    header: "TopOpeBRepDS_ShapeData.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_ShapeData; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_ShapeData::operator new[]",
+    header: "TopOpeBRepDS_ShapeData.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_ShapeData; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_ShapeData::operator delete[]",
+    header: "TopOpeBRepDS_ShapeData.hxx".}
+proc `new`*(this: var TopOpeBRepDS_ShapeData; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_ShapeData::operator new",
+    header: "TopOpeBRepDS_ShapeData.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_ShapeData; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_ShapeData::operator delete",
+    header: "TopOpeBRepDS_ShapeData.hxx".}
 proc constructTopOpeBRepDS_ShapeData*(): TopOpeBRepDS_ShapeData {.constructor,
     importcpp: "TopOpeBRepDS_ShapeData(@)", header: "TopOpeBRepDS_ShapeData.hxx".}
 proc interferences*(this: TopOpeBRepDS_ShapeData): TopOpeBRepDS_ListOfInterference {.
     noSideEffect, importcpp: "Interferences", header: "TopOpeBRepDS_ShapeData.hxx".}
 proc changeInterferences*(this: var TopOpeBRepDS_ShapeData): var TopOpeBRepDS_ListOfInterference {.
     importcpp: "ChangeInterferences", header: "TopOpeBRepDS_ShapeData.hxx".}
-proc keep*(this: TopOpeBRepDS_ShapeData): bool {.noSideEffect, importcpp: "Keep",
-    header: "TopOpeBRepDS_ShapeData.hxx".}
-proc changeKeep*(this: var TopOpeBRepDS_ShapeData; b: bool) {.importcpp: "ChangeKeep",
-    header: "TopOpeBRepDS_ShapeData.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc keep*(this: TopOpeBRepDS_ShapeData): StandardBoolean {.noSideEffect,
+    importcpp: "Keep", header: "TopOpeBRepDS_ShapeData.hxx".}
+proc changeKeep*(this: var TopOpeBRepDS_ShapeData; b: StandardBoolean) {.
+    importcpp: "ChangeKeep", header: "TopOpeBRepDS_ShapeData.hxx".}

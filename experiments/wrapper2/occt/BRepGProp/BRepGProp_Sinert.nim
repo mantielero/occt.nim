@@ -22,6 +22,19 @@ type
                     bycopy.} = object of GPropGProps
 
 
+proc `new`*(this: var BRepGPropSinert; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_Sinert::operator new", header: "BRepGProp_Sinert.hxx".}
+proc `delete`*(this: var BRepGPropSinert; theAddress: pointer) {.
+    importcpp: "BRepGProp_Sinert::operator delete", header: "BRepGProp_Sinert.hxx".}
+proc `new[]`*(this: var BRepGPropSinert; theSize: csize_t): pointer {.
+    importcpp: "BRepGProp_Sinert::operator new[]", header: "BRepGProp_Sinert.hxx".}
+proc `delete[]`*(this: var BRepGPropSinert; theAddress: pointer) {.
+    importcpp: "BRepGProp_Sinert::operator delete[]",
+    header: "BRepGProp_Sinert.hxx".}
+proc `new`*(this: var BRepGPropSinert; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepGProp_Sinert::operator new", header: "BRepGProp_Sinert.hxx".}
+proc `delete`*(this: var BRepGPropSinert; a2: pointer; a3: pointer) {.
+    importcpp: "BRepGProp_Sinert::operator delete", header: "BRepGProp_Sinert.hxx".}
 proc constructBRepGPropSinert*(): BRepGPropSinert {.constructor,
     importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
 proc constructBRepGPropSinert*(s: BRepGPropFace; sLocation: Pnt): BRepGPropSinert {.
@@ -29,10 +42,10 @@ proc constructBRepGPropSinert*(s: BRepGPropFace; sLocation: Pnt): BRepGPropSiner
 proc constructBRepGPropSinert*(s: var BRepGPropFace; d: var BRepGPropDomain;
                               sLocation: Pnt): BRepGPropSinert {.constructor,
     importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
-proc constructBRepGPropSinert*(s: var BRepGPropFace; sLocation: Pnt; eps: cfloat): BRepGPropSinert {.
+proc constructBRepGPropSinert*(s: var BRepGPropFace; sLocation: Pnt; eps: StandardReal): BRepGPropSinert {.
     constructor, importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
 proc constructBRepGPropSinert*(s: var BRepGPropFace; d: var BRepGPropDomain;
-                              sLocation: Pnt; eps: cfloat): BRepGPropSinert {.
+                              sLocation: Pnt; eps: StandardReal): BRepGPropSinert {.
     constructor, importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
 proc setLocation*(this: var BRepGPropSinert; sLocation: Pnt) {.
     importcpp: "SetLocation", header: "BRepGProp_Sinert.hxx".}
@@ -40,35 +53,10 @@ proc perform*(this: var BRepGPropSinert; s: BRepGPropFace) {.importcpp: "Perform
     header: "BRepGProp_Sinert.hxx".}
 proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; d: var BRepGPropDomain) {.
     importcpp: "Perform", header: "BRepGProp_Sinert.hxx".}
-proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; eps: cfloat): cfloat {.
+proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; eps: StandardReal): StandardReal {.
     importcpp: "Perform", header: "BRepGProp_Sinert.hxx".}
 proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; d: var BRepGPropDomain;
-             eps: cfloat): cfloat {.importcpp: "Perform",
-                                 header: "BRepGProp_Sinert.hxx".}
-proc getEpsilon*(this: var BRepGPropSinert): cfloat {.importcpp: "GetEpsilon",
+             eps: StandardReal): StandardReal {.importcpp: "Perform",
     header: "BRepGProp_Sinert.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc getEpsilon*(this: var BRepGPropSinert): StandardReal {.importcpp: "GetEpsilon",
+    header: "BRepGProp_Sinert.hxx".}

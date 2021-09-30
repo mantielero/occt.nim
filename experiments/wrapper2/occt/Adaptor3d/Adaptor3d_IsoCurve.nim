@@ -73,8 +73,8 @@ proc continuity*(this: Adaptor3dIsoCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor3d_IsoCurve.hxx".}
 proc nbIntervals*(this: Adaptor3dIsoCurve; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Adaptor3d_IsoCurve.hxx".}
-proc intervals*(this: Adaptor3dIsoCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "Intervals", header: "Adaptor3d_IsoCurve.hxx".}
+#[ proc intervals*(this: Adaptor3dIsoCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "Adaptor3d_IsoCurve.hxx".} ]#
 proc trim*(this: Adaptor3dIsoCurve; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHCurve] {.noSideEffect, importcpp: "Trim",
                       header: "Adaptor3d_IsoCurve.hxx".}

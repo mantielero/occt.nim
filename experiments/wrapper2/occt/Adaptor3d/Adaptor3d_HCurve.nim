@@ -25,8 +25,14 @@ discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_OffsetCurve"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor3d_HCurve"
+
 type
-  HandleC1C1* = Handle[Adaptor3dHCurve]
+  Adaptor3dHCurve* {.importcpp: "Adaptor3d_HCurve", header: "Adaptor3d_HCurve.hxx",
+                    bycopy.} = object of StandardTransient ## ! Returns a pointer to the Curve inside the HCurve.
+
+
+type
+  HandleAdaptor3dHCurve* = Handle[Adaptor3dHCurve]
 
 ## ! Root class for 3D curves manipulated by handles, on
 ## ! which geometric algorithms work.
@@ -39,9 +45,7 @@ type
 ## ! on a surface from the Geom package.
 
 type
-  Adaptor3dHCurve* {.importcpp: "Adaptor3d_HCurve", header: "Adaptor3d_HCurve.hxx",
-                    bycopy.} = object of StandardTransient ## ! Returns a pointer to the Curve inside the HCurve.
-
+  Adaptor3dHCurvebaseType* = StandardTransient
 
 proc curve*(this: Adaptor3dHCurve): Adaptor3dCurve {.noSideEffect,
     importcpp: "Curve", header: "Adaptor3d_HCurve.hxx".}
@@ -55,8 +59,8 @@ proc continuity*(this: Adaptor3dHCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor3d_HCurve.hxx".}
 proc nbIntervals*(this: Adaptor3dHCurve; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Adaptor3d_HCurve.hxx".}
-proc intervals*(this: Adaptor3dHCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "Intervals", header: "Adaptor3d_HCurve.hxx".}
+#[ proc intervals*(this: Adaptor3dHCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "Adaptor3d_HCurve.hxx".} ]#
 proc trim*(this: Adaptor3dHCurve; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHCurve] {.noSideEffect, importcpp: "Trim",
                       header: "Adaptor3d_HCurve.hxx".}
@@ -106,17 +110,16 @@ proc bSpline*(this: Adaptor3dHCurve): Handle[GeomBSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "Adaptor3d_HCurve.hxx".}
 proc offsetCurve*(this: Adaptor3dHCurve): Handle[GeomOffsetCurve] {.noSideEffect,
     importcpp: "OffsetCurve", header: "Adaptor3d_HCurve.hxx".}
-type
-  Adaptor3dHCurvebaseType* = StandardTransient
 
-proc getTypeName*(): cstring {.importcpp: "Adaptor3d_HCurve::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "Adaptor3d_HCurve::get_type_name(@)",
                             header: "Adaptor3d_HCurve.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Adaptor3d_HCurve::get_type_descriptor(@)",
     header: "Adaptor3d_HCurve.hxx".}
 proc dynamicType*(this: Adaptor3dHCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Adaptor3d_HCurve.hxx".}
-
+ ]#
 
 
 

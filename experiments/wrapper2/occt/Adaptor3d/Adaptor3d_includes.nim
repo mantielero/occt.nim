@@ -12,7 +12,7 @@ include Adaptor3d_HIsoCurve
 include Adaptor3d_HSurface
 include Adaptor3d_HSurfaceTool
 include Adaptor3d_HVertex
-include Adaptor3d_InterFunc
+#include Adaptor3d_InterFunc
 include Adaptor3d_IsoCurve
 include Adaptor3d_Surface
 include Adaptor3d_SurfacePtr

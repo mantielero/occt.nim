@@ -9,29 +9,3 @@ include BRepTopAdaptor_MapOfShapeTool
 include BRepTopAdaptor_SeqOfPtr
 include BRepTopAdaptor_Tool
 include BRepTopAdaptor_TopolTool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

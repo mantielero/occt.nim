@@ -19,29 +19,3 @@ type
       BRepCheckListOfStatus, TopToolsShapeMapHasher]
   BRepCheckDataMapIteratorOfDataMapOfShapeListOfStatus* = Iterator[TopoDS_Shape,
       BRepCheckListOfStatus, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

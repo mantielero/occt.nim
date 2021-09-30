@@ -19,29 +19,3 @@ type
       Handle[TopToolsHArray2OfShape], TopToolsShapeMapHasher]
   BRepFillDataMapIteratorOfDataMapOfShapeHArray2OfShape* = Iterator[TopoDS_Shape,
       Handle[TopToolsHArray2OfShape], TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

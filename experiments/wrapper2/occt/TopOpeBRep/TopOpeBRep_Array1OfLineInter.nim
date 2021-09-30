@@ -16,29 +16,3 @@
 
 type
   TopOpeBRepArray1OfLineInter* = NCollectionArray1[TopOpeBRepLineInter]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

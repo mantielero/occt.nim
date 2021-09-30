@@ -20,6 +20,24 @@ type
                               header: "TopOpeBRepDS_GeometryData.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepDS_GeometryData; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_GeometryData::operator new",
+    header: "TopOpeBRepDS_GeometryData.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_GeometryData; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_GeometryData::operator delete",
+    header: "TopOpeBRepDS_GeometryData.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_GeometryData; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_GeometryData::operator new[]",
+    header: "TopOpeBRepDS_GeometryData.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_GeometryData; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_GeometryData::operator delete[]",
+    header: "TopOpeBRepDS_GeometryData.hxx".}
+proc `new`*(this: var TopOpeBRepDS_GeometryData; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_GeometryData::operator new",
+    header: "TopOpeBRepDS_GeometryData.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_GeometryData; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_GeometryData::operator delete",
+    header: "TopOpeBRepDS_GeometryData.hxx".}
 proc constructTopOpeBRepDS_GeometryData*(): TopOpeBRepDS_GeometryData {.
     constructor, importcpp: "TopOpeBRepDS_GeometryData(@)",
     header: "TopOpeBRepDS_GeometryData.hxx".}
@@ -36,28 +54,3 @@ proc changeInterferences*(this: var TopOpeBRepDS_GeometryData): var TopOpeBRepDS
 proc addInterference*(this: var TopOpeBRepDS_GeometryData;
                      i: Handle[TopOpeBRepDS_Interference]) {.
     importcpp: "AddInterference", header: "TopOpeBRepDS_GeometryData.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,20 +21,27 @@ discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
 type
   BRepPrimAPI_MakeHalfSpace* {.importcpp: "BRepPrimAPI_MakeHalfSpace",
-                              header: "BRepPrimAPI_MakeHalfSpace.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                              ## !
-                                                                                                              ## Make
-                                                                                                              ## a
-                                                                                                              ## HalfSpace
-                                                                                                              ## defined
-                                                                                                              ## with
-                                                                                                              ## a
-                                                                                                              ## Face
-                                                                                                              ## and
-                                                                                                              ## a
-                                                                                                              ## Point.
+                              header: "BRepPrimAPI_MakeHalfSpace.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepPrimAPI_MakeHalfSpace; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeHalfSpace::operator new",
+    header: "BRepPrimAPI_MakeHalfSpace.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeHalfSpace; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeHalfSpace::operator delete",
+    header: "BRepPrimAPI_MakeHalfSpace.hxx".}
+proc `new[]`*(this: var BRepPrimAPI_MakeHalfSpace; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeHalfSpace::operator new[]",
+    header: "BRepPrimAPI_MakeHalfSpace.hxx".}
+proc `delete[]`*(this: var BRepPrimAPI_MakeHalfSpace; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeHalfSpace::operator delete[]",
+    header: "BRepPrimAPI_MakeHalfSpace.hxx".}
+proc `new`*(this: var BRepPrimAPI_MakeHalfSpace; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrimAPI_MakeHalfSpace::operator new",
+    header: "BRepPrimAPI_MakeHalfSpace.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeHalfSpace; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrimAPI_MakeHalfSpace::operator delete",
+    header: "BRepPrimAPI_MakeHalfSpace.hxx".}
 proc constructBRepPrimAPI_MakeHalfSpace*(face: TopoDS_Face; refPnt: Pnt): BRepPrimAPI_MakeHalfSpace {.
     constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)",
     header: "BRepPrimAPI_MakeHalfSpace.hxx".}
@@ -46,28 +53,3 @@ proc solid*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.noSideEffect,
 converter `topoDS_Solid`*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.
     noSideEffect, importcpp: "BRepPrimAPI_MakeHalfSpace::operator TopoDS_Solid",
     header: "BRepPrimAPI_MakeHalfSpace.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

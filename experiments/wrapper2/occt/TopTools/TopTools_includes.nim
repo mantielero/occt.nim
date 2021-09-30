@@ -2,7 +2,7 @@
 {.experimental: "codeReordering".}
 {.experimental: "callOperator".}
 
-include TopTools
+#[ include TopTools
 include TopTools_Array1OfListOfShape
 include TopTools_Array1OfShape
 include TopTools_Array2OfShape
@@ -27,53 +27,38 @@ include TopTools_DataMapOfShapeListOfShape
 include TopTools_DataMapOfShapeReal
 include TopTools_DataMapOfShapeSequenceOfShape
 include TopTools_DataMapOfShapeShape
-include TopTools_HArray1OfListOfShape
-include TopTools_HArray1OfShape
-include TopTools_HArray2OfShape
-include TopTools_HSequenceOfShape
+#include TopTools_HArray1OfListOfShape
+#include TopTools_HArray1OfShape
+#include TopTools_HArray2OfShape
+#include TopTools_HSequenceOfShape
 include TopTools_IndexedDataMapOfShapeAddress
+]#
 include TopTools_IndexedDataMapOfShapeListOfShape
+#[
 include TopTools_IndexedDataMapOfShapeReal
 include TopTools_IndexedDataMapOfShapeShape
-include TopTools_IndexedMapOfOrientedShape
+include TopTools_IndexedMapOfOrientedShape ]#
+
 include TopTools_IndexedMapOfShape
-include TopTools_ListIteratorOfListOfShape
+
+#[ include TopTools_ListIteratorOfListOfShape
 include TopTools_ListOfListOfShape
+ ]#
 include TopTools_ListOfShape
+#[
 include TopTools_LocationSet
 include TopTools_LocationSetPtr
 include TopTools_MapIteratorOfMapOfOrientedShape
 include TopTools_MapIteratorOfMapOfShape
 include TopTools_MapOfOrientedShape
+]#
 include TopTools_MapOfShape
+#[
 include TopTools_MutexForShapeProvider
 include TopTools_OrientedShapeMapHasher
 include TopTools_SequenceOfShape
+]#
+
+
 include TopTools_ShapeMapHasher
-include TopTools_ShapeSet
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include TopTools_ShapeSet 

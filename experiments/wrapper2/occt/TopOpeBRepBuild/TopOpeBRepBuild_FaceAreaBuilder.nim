@@ -21,41 +21,34 @@ type
                                    bycopy.} = object of TopOpeBRepBuildArea2dBuilder
 
 
+proc `new`*(this: var TopOpeBRepBuildFaceAreaBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_FaceAreaBuilder::operator new",
+    header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildFaceAreaBuilder; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_FaceAreaBuilder::operator delete",
+    header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildFaceAreaBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_FaceAreaBuilder::operator new[]",
+    header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildFaceAreaBuilder; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_FaceAreaBuilder::operator delete[]",
+    header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
+proc `new`*(this: var TopOpeBRepBuildFaceAreaBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_FaceAreaBuilder::operator new",
+    header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildFaceAreaBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_FaceAreaBuilder::operator delete",
+    header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
 proc constructTopOpeBRepBuildFaceAreaBuilder*(): TopOpeBRepBuildFaceAreaBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_FaceAreaBuilder(@)",
     header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
 proc constructTopOpeBRepBuildFaceAreaBuilder*(ls: var TopOpeBRepBuildLoopSet;
-    lc: var TopOpeBRepBuildLoopClassifier; forceClass: bool = false): TopOpeBRepBuildFaceAreaBuilder {.
+    lc: var TopOpeBRepBuildLoopClassifier; forceClass: StandardBoolean = false): TopOpeBRepBuildFaceAreaBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_FaceAreaBuilder(@)",
     header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
 proc initFaceAreaBuilder*(this: var TopOpeBRepBuildFaceAreaBuilder;
                          ls: var TopOpeBRepBuildLoopSet;
                          lc: var TopOpeBRepBuildLoopClassifier;
-                         forceClass: bool = false) {.
+                         forceClass: StandardBoolean = false) {.
     importcpp: "InitFaceAreaBuilder",
     header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

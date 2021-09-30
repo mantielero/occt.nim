@@ -34,23 +34,24 @@ proc bRepMeshDataPCurve*(this: var BRepMeshDataPCurve; theDFace: IFacePtr;
   ## ! Constructor.
 proc destroyBRepMeshDataPCurve*(this: var BRepMeshDataPCurve) {.
     importcpp: "#.~BRepMeshData_PCurve()", header: "BRepMeshData_PCurve.hxx".}
-proc insertPoint*(this: var BRepMeshDataPCurve; thePosition: cint; thePoint: Pnt2d;
-                 theParamOnPCurve: cfloat) {.importcpp: "InsertPoint",
+proc insertPoint*(this: var BRepMeshDataPCurve; thePosition: int; thePoint: Pnt2d;
+                 theParamOnPCurve: StandardReal) {.importcpp: "InsertPoint",
     header: "BRepMeshData_PCurve.hxx".}
-proc addPoint*(this: var BRepMeshDataPCurve; thePoint: Pnt2d; theParamOnPCurve: cfloat) {.
-    importcpp: "AddPoint", header: "BRepMeshData_PCurve.hxx".}
-proc getPoint*(this: var BRepMeshDataPCurve; theIndex: cint): var Pnt2d {.
+proc addPoint*(this: var BRepMeshDataPCurve; thePoint: Pnt2d;
+              theParamOnPCurve: StandardReal) {.importcpp: "AddPoint",
+    header: "BRepMeshData_PCurve.hxx".}
+proc getPoint*(this: var BRepMeshDataPCurve; theIndex: int): var Pnt2d {.
     importcpp: "GetPoint", header: "BRepMeshData_PCurve.hxx".}
-proc getIndex*(this: var BRepMeshDataPCurve; theIndex: cint): var cint {.
+proc getIndex*(this: var BRepMeshDataPCurve; theIndex: int): var int {.
     importcpp: "GetIndex", header: "BRepMeshData_PCurve.hxx".}
-proc removePoint*(this: var BRepMeshDataPCurve; theIndex: cint) {.
+proc removePoint*(this: var BRepMeshDataPCurve; theIndex: int) {.
     importcpp: "RemovePoint", header: "BRepMeshData_PCurve.hxx".}
-proc getParameter*(this: var BRepMeshDataPCurve; theIndex: cint): var cfloat {.
+proc getParameter*(this: var BRepMeshDataPCurve; theIndex: int): var StandardReal {.
     importcpp: "GetParameter", header: "BRepMeshData_PCurve.hxx".}
-proc parametersNb*(this: BRepMeshDataPCurve): cint {.noSideEffect,
+proc parametersNb*(this: BRepMeshDataPCurve): int {.noSideEffect,
     importcpp: "ParametersNb", header: "BRepMeshData_PCurve.hxx".}
-proc clear*(this: var BRepMeshDataPCurve; isKeepEndPoints: bool) {.importcpp: "Clear",
-    header: "BRepMeshData_PCurve.hxx".}
+proc clear*(this: var BRepMeshDataPCurve; isKeepEndPoints: StandardBoolean) {.
+    importcpp: "Clear", header: "BRepMeshData_PCurve.hxx".}
 type
   BRepMeshDataPCurvebaseType* = IMeshDataPCurve
 
@@ -61,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMeshData_PCurve.hxx".}
 proc dynamicType*(this: BRepMeshDataPCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_PCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

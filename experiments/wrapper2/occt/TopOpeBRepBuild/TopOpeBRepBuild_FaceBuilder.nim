@@ -22,16 +22,35 @@ type
                                header: "TopOpeBRepBuild_FaceBuilder.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildFaceBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_FaceBuilder::operator new",
+    header: "TopOpeBRepBuild_FaceBuilder.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildFaceBuilder; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_FaceBuilder::operator delete",
+    header: "TopOpeBRepBuild_FaceBuilder.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildFaceBuilder; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_FaceBuilder::operator new[]",
+    header: "TopOpeBRepBuild_FaceBuilder.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildFaceBuilder; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_FaceBuilder::operator delete[]",
+    header: "TopOpeBRepBuild_FaceBuilder.hxx".}
+proc `new`*(this: var TopOpeBRepBuildFaceBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_FaceBuilder::operator new",
+    header: "TopOpeBRepBuild_FaceBuilder.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildFaceBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_FaceBuilder::operator delete",
+    header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc constructTopOpeBRepBuildFaceBuilder*(): TopOpeBRepBuildFaceBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_FaceBuilder(@)",
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc constructTopOpeBRepBuildFaceBuilder*(es: var TopOpeBRepBuildWireEdgeSet;
-    f: TopoDS_Shape; forceClass: bool = false): TopOpeBRepBuildFaceBuilder {.
+    f: TopoDS_Shape; forceClass: StandardBoolean = false): TopOpeBRepBuildFaceBuilder {.
     constructor, importcpp: "TopOpeBRepBuild_FaceBuilder(@)",
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc initFaceBuilder*(this: var TopOpeBRepBuildFaceBuilder;
                      es: var TopOpeBRepBuildWireEdgeSet; f: TopoDS_Shape;
-                     forceClass: bool) {.importcpp: "InitFaceBuilder", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
+                     forceClass: StandardBoolean) {.importcpp: "InitFaceBuilder",
+    header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc detectUnclosedWire*(this: var TopOpeBRepBuildFaceBuilder;
                         mapVVsameG: var TopToolsIndexedDataMapOfShapeShape;
                         mapVon1Edge: var TopToolsIndexedDataMapOfShapeShape) {.
@@ -46,60 +65,35 @@ proc detectPseudoInternalEdge*(this: var TopOpeBRepBuildFaceBuilder;
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc face*(this: TopOpeBRepBuildFaceBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "Face", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
-proc initFace*(this: var TopOpeBRepBuildFaceBuilder): cint {.importcpp: "InitFace",
+proc initFace*(this: var TopOpeBRepBuildFaceBuilder): int {.importcpp: "InitFace",
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
-proc moreFace*(this: TopOpeBRepBuildFaceBuilder): bool {.noSideEffect,
+proc moreFace*(this: TopOpeBRepBuildFaceBuilder): StandardBoolean {.noSideEffect,
     importcpp: "MoreFace", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc nextFace*(this: var TopOpeBRepBuildFaceBuilder) {.importcpp: "NextFace",
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
-proc initWire*(this: var TopOpeBRepBuildFaceBuilder): cint {.importcpp: "InitWire",
+proc initWire*(this: var TopOpeBRepBuildFaceBuilder): int {.importcpp: "InitWire",
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
-proc moreWire*(this: TopOpeBRepBuildFaceBuilder): bool {.noSideEffect,
+proc moreWire*(this: TopOpeBRepBuildFaceBuilder): StandardBoolean {.noSideEffect,
     importcpp: "MoreWire", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc nextWire*(this: var TopOpeBRepBuildFaceBuilder) {.importcpp: "NextWire",
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
-proc isOldWire*(this: TopOpeBRepBuildFaceBuilder): bool {.noSideEffect,
+proc isOldWire*(this: TopOpeBRepBuildFaceBuilder): StandardBoolean {.noSideEffect,
     importcpp: "IsOldWire", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc oldWire*(this: TopOpeBRepBuildFaceBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "OldWire", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc findNextValidElement*(this: var TopOpeBRepBuildFaceBuilder) {.
     importcpp: "FindNextValidElement", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
-proc initEdge*(this: var TopOpeBRepBuildFaceBuilder): cint {.importcpp: "InitEdge",
+proc initEdge*(this: var TopOpeBRepBuildFaceBuilder): int {.importcpp: "InitEdge",
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
-proc moreEdge*(this: TopOpeBRepBuildFaceBuilder): bool {.noSideEffect,
+proc moreEdge*(this: TopOpeBRepBuildFaceBuilder): StandardBoolean {.noSideEffect,
     importcpp: "MoreEdge", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc nextEdge*(this: var TopOpeBRepBuildFaceBuilder) {.importcpp: "NextEdge",
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc edge*(this: TopOpeBRepBuildFaceBuilder): TopoDS_Shape {.noSideEffect,
     importcpp: "Edge", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
-proc edgeConnexity*(this: TopOpeBRepBuildFaceBuilder; e: TopoDS_Shape): cint {.
+proc edgeConnexity*(this: TopOpeBRepBuildFaceBuilder; e: TopoDS_Shape): int {.
     noSideEffect, importcpp: "EdgeConnexity",
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
 proc addEdgeWire*(this: TopOpeBRepBuildFaceBuilder; e: TopoDS_Shape;
-                 w: var TopoDS_Shape): cint {.noSideEffect, importcpp: "AddEdgeWire",
+                 w: var TopoDS_Shape): int {.noSideEffect, importcpp: "AddEdgeWire",
     header: "TopOpeBRepBuild_FaceBuilder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

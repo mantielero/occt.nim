@@ -35,10 +35,10 @@ type
 
   FSD_CmpFilebaseType* = FSD_File
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeName*(): cstring {.importcpp: "FSD_CmpFile::get_type_name(@)",
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                             header: "FSD_CmpFile.hxx".}
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeDescriptor*(): Handle[StandardType] {.
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_CmpFile::get_type_descriptor(@)", header: "FSD_CmpFile.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeName*(): cstring {.importcpp: "FSD_CmpFile::get_type_name(@)",
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                             header: "FSD_CmpFile.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeDescriptor*(): Handle[StandardType] {.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_CmpFile::get_type_descriptor(@)", header: "FSD_CmpFile.hxx".}
 proc dynamicType*(this: FSD_CmpFile): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "FSD_CmpFile.hxx".}
 proc constructFSD_CmpFile*(): FSD_CmpFile {.constructor,
@@ -46,8 +46,8 @@ proc constructFSD_CmpFile*(): FSD_CmpFile {.constructor,
 proc open*(this: var FSD_CmpFile; aName: TCollectionAsciiString;
           aMode: StorageOpenMode): StorageError {.importcpp: "Open",
     header: "FSD_CmpFile.hxx".}
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc isGoodFileType*(aName: TCollectionAsciiString): StorageError {.
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_CmpFile::IsGoodFileType(@)", header: "FSD_CmpFile.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc isGoodFileType*(aName: TCollectionAsciiString): StorageError {.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "FSD_CmpFile::IsGoodFileType(@)", header: "FSD_CmpFile.hxx".}
 proc beginWriteInfoSection*(this: var FSD_CmpFile): StorageError {.
     importcpp: "BeginWriteInfoSection", header: "FSD_CmpFile.hxx".}
 proc beginReadInfoSection*(this: var FSD_CmpFile): StorageError {.
@@ -77,8 +77,11 @@ proc destroyFSD_CmpFile*(this: var FSD_CmpFile) {.importcpp: "#.~FSD_CmpFile()",
     header: "FSD_CmpFile.hxx".}
 proc magicNumber*(): StandardCString {.importcpp: "FSD_CmpFile::MagicNumber(@)",
                                     header: "FSD_CmpFile.hxx".}
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+
+
 
 
 

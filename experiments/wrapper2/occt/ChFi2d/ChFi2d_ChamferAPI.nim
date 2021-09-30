@@ -30,33 +30,9 @@ proc init*(this: var ChFi2dChamferAPI; theWire: TopoDS_Wire) {.importcpp: "Init"
     header: "ChFi2d_ChamferAPI.hxx".}
 proc init*(this: var ChFi2dChamferAPI; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge) {.
     importcpp: "Init", header: "ChFi2d_ChamferAPI.hxx".}
-proc perform*(this: var ChFi2dChamferAPI): bool {.importcpp: "Perform",
+proc perform*(this: var ChFi2dChamferAPI): StandardBoolean {.importcpp: "Perform",
     header: "ChFi2d_ChamferAPI.hxx".}
 proc result*(this: var ChFi2dChamferAPI; theEdge1: var TopoDS_Edge;
-            theEdge2: var TopoDS_Edge; theLength1: cfloat; theLength2: cfloat): TopoDS_Edge {.
-    importcpp: "Result", header: "ChFi2d_ChamferAPI.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            theEdge2: var TopoDS_Edge; theLength1: StandardReal;
+            theLength2: StandardReal): TopoDS_Edge {.importcpp: "Result",
+    header: "ChFi2d_ChamferAPI.hxx".}

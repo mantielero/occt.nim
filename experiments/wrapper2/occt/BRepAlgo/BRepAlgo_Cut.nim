@@ -14,61 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BRepAlgo_Cut_HeaderFile [NewLine] # _BRepAlgo_Cut_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < BRepAlgo_BooleanOperation . hxx > [NewLine] class TopoDS_Shape ;
-## Error: token expected: ; but got: [identifier]!!!
-
-## ! Describes functions for performing a topological cut
-## ! operation (Boolean subtraction).
-## ! A Cut object provides the framework for:
-## ! - defining the construction of a cut shape,
-## ! - implementing the construction algorithm, and
-## ! - consulting the result.
-
-## !!!Ignored construct:  class Standard_DEPRECATED ( This class is deprecated - BRepAlgoAPI_Cut should be used instead ) BRepAlgo_Cut : public BRepAlgo_BooleanOperation { public : ! Cuts the shape S2 from the shape S1. BRepAlgo_Cut ( const TopoDS_Shape & S1 , const TopoDS_Shape & S2 ) ; protected : private : } ;
-## Error: token expected: ; but got: [identifier]!!!
+discard "forward decl of TopoDS_Shape"
+type
+  BRepAlgoCut* {.importcpp: "BRepAlgo_Cut", header: "BRepAlgo_Cut.hxx", bycopy.} = object of BRepAlgoBooleanOperation
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc `new`*(this: var BRepAlgoCut; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Cut::operator new", header: "BRepAlgo_Cut.hxx".}
+proc `delete`*(this: var BRepAlgoCut; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Cut::operator delete", header: "BRepAlgo_Cut.hxx".}
+proc `new[]`*(this: var BRepAlgoCut; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Cut::operator new[]", header: "BRepAlgo_Cut.hxx".}
+proc `delete[]`*(this: var BRepAlgoCut; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Cut::operator delete[]", header: "BRepAlgo_Cut.hxx".}
+proc `new`*(this: var BRepAlgoCut; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgo_Cut::operator new", header: "BRepAlgo_Cut.hxx".}
+proc `delete`*(this: var BRepAlgoCut; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgo_Cut::operator delete", header: "BRepAlgo_Cut.hxx".}
+proc constructBRepAlgoCut*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoCut {.
+    constructor, importcpp: "BRepAlgo_Cut(@)", header: "BRepAlgo_Cut.hxx".}

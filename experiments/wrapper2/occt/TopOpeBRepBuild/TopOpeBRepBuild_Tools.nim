@@ -25,6 +25,24 @@ type
                          header: "TopOpeBRepBuild_Tools.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildTools; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_Tools::operator new",
+    header: "TopOpeBRepBuild_Tools.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildTools; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_Tools::operator delete",
+    header: "TopOpeBRepBuild_Tools.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildTools; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_Tools::operator new[]",
+    header: "TopOpeBRepBuild_Tools.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildTools; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_Tools::operator delete[]",
+    header: "TopOpeBRepBuild_Tools.hxx".}
+proc `new`*(this: var TopOpeBRepBuildTools; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_Tools::operator new",
+    header: "TopOpeBRepBuild_Tools.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildTools; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_Tools::operator delete",
+    header: "TopOpeBRepBuild_Tools.hxx".}
 proc findState*(aVertex: TopoDS_Shape; aState: TopAbsState;
                aShapeEnum: TopAbsShapeEnum;
                aMapVertexEdges: TopToolsIndexedDataMapOfShapeListOfShape;
@@ -67,7 +85,7 @@ proc findState2*(anEdge: TopoDS_Shape; aState: TopAbsState;
     header: "TopOpeBRepBuild_Tools.hxx".}
 proc getAdjacentFace*(aFaceObj: TopoDS_Shape; anEObj: TopoDS_Shape;
                      anEdgeFaceMap: TopToolsIndexedDataMapOfShapeListOfShape;
-                     anAdjFaceObj: var TopoDS_Shape): bool {.
+                     anAdjFaceObj: var TopoDS_Shape): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Tools::GetAdjacentFace(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
 proc getNormalToFaceOnEdge*(aFObj: TopoDS_Face; anEdgeObj: TopoDS_Edge;
@@ -79,10 +97,10 @@ proc getNormalInNearestPoint*(aFace: TopoDS_Face; anEdge: TopoDS_Edge;
     importcpp: "TopOpeBRepBuild_Tools::GetNormalInNearestPoint(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
 proc getTangentToEdgeEdge*(aFObj: TopoDS_Face; anEdgeObj: TopoDS_Edge;
-                          aOriEObj: TopoDS_Edge; aTangent: var Vec): bool {.
+                          aOriEObj: TopoDS_Edge; aTangent: var Vec): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Tools::GetTangentToEdgeEdge(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc getTangentToEdge*(anEdgeObj: TopoDS_Edge; aTangent: var Vec): bool {.
+proc getTangentToEdge*(anEdgeObj: TopoDS_Edge; aTangent: var Vec): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Tools::GetTangentToEdge(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
 proc updatePCurves*(aWire: TopoDS_Wire; fromFace: TopoDS_Face; toFace: TopoDS_Face) {.
@@ -96,7 +114,7 @@ proc updateEdgeOnFace*(aEdgeToUpdate: TopoDS_Edge; oldFace: TopoDS_Face;
                       newFace: TopoDS_Face) {.
     importcpp: "TopOpeBRepBuild_Tools::UpdateEdgeOnFace(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc isDegEdgesTheSame*(anE1: TopoDS_Shape; anE2: TopoDS_Shape): bool {.
+proc isDegEdgesTheSame*(anE1: TopoDS_Shape; anE2: TopoDS_Shape): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Tools::IsDegEdgesTheSame(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
 proc normalizeFace*(oldFace: TopoDS_Shape; corrFace: var TopoDS_Shape) {.
@@ -107,40 +125,15 @@ proc correctFace2d*(oldFace: TopoDS_Shape; corrFace: var TopoDS_Shape;
                    aMapOfCorrect2dEdges: var TopToolsIndexedDataMapOfShapeShape) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectFace2d(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc correctTolerances*(`aS`: TopoDS_Shape; aTolMax: cfloat = 0.0001) {.
+proc correctTolerances*(`aS`: TopoDS_Shape; aTolMax: StandardReal = 0.0001) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectTolerances(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc correctCurveOnSurface*(`aS`: TopoDS_Shape; aTolMax: cfloat = 0.0001) {.
+proc correctCurveOnSurface*(`aS`: TopoDS_Shape; aTolMax: StandardReal = 0.0001) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectCurveOnSurface(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc correctPointOnCurve*(`aS`: TopoDS_Shape; aTolMax: cfloat = 0.0001) {.
+proc correctPointOnCurve*(`aS`: TopoDS_Shape; aTolMax: StandardReal = 0.0001) {.
     importcpp: "TopOpeBRepBuild_Tools::CorrectPointOnCurve(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-proc checkFaceClosed2d*(theFace: TopoDS_Face): bool {.
+proc checkFaceClosed2d*(theFace: TopoDS_Face): StandardBoolean {.
     importcpp: "TopOpeBRepBuild_Tools::CheckFaceClosed2d(@)",
     header: "TopOpeBRepBuild_Tools.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

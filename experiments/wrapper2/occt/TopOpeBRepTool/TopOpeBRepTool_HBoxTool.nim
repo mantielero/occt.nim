@@ -43,15 +43,15 @@ proc dumpB*(b: BndBox) {.importcpp: "TopOpeBRepTool_HBoxTool::DumpB(@)",
                       header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc box*(this: var TopOpeBRepToolHBoxTool; s: TopoDS_Shape): BndBox {.
     importcpp: "Box", header: "TopOpeBRepTool_HBoxTool.hxx".}
-proc box*(this: TopOpeBRepToolHBoxTool; i: cint): BndBox {.noSideEffect,
+proc box*(this: TopOpeBRepToolHBoxTool; i: int): BndBox {.noSideEffect,
     importcpp: "Box", header: "TopOpeBRepTool_HBoxTool.hxx".}
-proc hasBox*(this: TopOpeBRepToolHBoxTool; s: TopoDS_Shape): bool {.noSideEffect,
-    importcpp: "HasBox", header: "TopOpeBRepTool_HBoxTool.hxx".}
-proc shape*(this: TopOpeBRepToolHBoxTool; i: cint): TopoDS_Shape {.noSideEffect,
+proc hasBox*(this: TopOpeBRepToolHBoxTool; s: TopoDS_Shape): StandardBoolean {.
+    noSideEffect, importcpp: "HasBox", header: "TopOpeBRepTool_HBoxTool.hxx".}
+proc shape*(this: TopOpeBRepToolHBoxTool; i: int): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TopOpeBRepTool_HBoxTool.hxx".}
-proc index*(this: TopOpeBRepToolHBoxTool; s: TopoDS_Shape): cint {.noSideEffect,
+proc index*(this: TopOpeBRepToolHBoxTool; s: TopoDS_Shape): int {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRepTool_HBoxTool.hxx".}
-proc extent*(this: TopOpeBRepToolHBoxTool): cint {.noSideEffect, importcpp: "Extent",
+proc extent*(this: TopOpeBRepToolHBoxTool): int {.noSideEffect, importcpp: "Extent",
     header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc changeIMS*(this: var TopOpeBRepToolHBoxTool): var TopOpeBRepToolIndexedDataMapOfShapeBox {.
     importcpp: "ChangeIMS", header: "TopOpeBRepTool_HBoxTool.hxx".}
@@ -67,28 +67,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc dynamicType*(this: TopOpeBRepToolHBoxTool): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "TopOpeBRepTool_HBoxTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

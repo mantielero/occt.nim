@@ -20,6 +20,18 @@ type
   BRepAlgoImage* {.importcpp: "BRepAlgo_Image", header: "BRepAlgo_Image.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepAlgoImage; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Image::operator new", header: "BRepAlgo_Image.hxx".}
+proc `delete`*(this: var BRepAlgoImage; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Image::operator delete", header: "BRepAlgo_Image.hxx".}
+proc `new[]`*(this: var BRepAlgoImage; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_Image::operator new[]", header: "BRepAlgo_Image.hxx".}
+proc `delete[]`*(this: var BRepAlgoImage; theAddress: pointer) {.
+    importcpp: "BRepAlgo_Image::operator delete[]", header: "BRepAlgo_Image.hxx".}
+proc `new`*(this: var BRepAlgoImage; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgo_Image::operator new", header: "BRepAlgo_Image.hxx".}
+proc `delete`*(this: var BRepAlgoImage; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgo_Image::operator delete", header: "BRepAlgo_Image.hxx".}
 proc constructBRepAlgoImage*(): BRepAlgoImage {.constructor,
     importcpp: "BRepAlgo_Image(@)", header: "BRepAlgo_Image.hxx".}
 proc setRoot*(this: var BRepAlgoImage; s: TopoDS_Shape) {.importcpp: "SetRoot",
@@ -43,13 +55,13 @@ proc replaceRoot*(this: var BRepAlgoImage; oldRoot: TopoDS_Shape;
                                         header: "BRepAlgo_Image.hxx".}
 proc roots*(this: BRepAlgoImage): TopToolsListOfShape {.noSideEffect,
     importcpp: "Roots", header: "BRepAlgo_Image.hxx".}
-proc isImage*(this: BRepAlgoImage; s: TopoDS_Shape): bool {.noSideEffect,
+proc isImage*(this: BRepAlgoImage; s: TopoDS_Shape): StandardBoolean {.noSideEffect,
     importcpp: "IsImage", header: "BRepAlgo_Image.hxx".}
 proc imageFrom*(this: BRepAlgoImage; s: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
     importcpp: "ImageFrom", header: "BRepAlgo_Image.hxx".}
 proc root*(this: BRepAlgoImage; s: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
     importcpp: "Root", header: "BRepAlgo_Image.hxx".}
-proc hasImage*(this: BRepAlgoImage; s: TopoDS_Shape): bool {.noSideEffect,
+proc hasImage*(this: BRepAlgoImage; s: TopoDS_Shape): StandardBoolean {.noSideEffect,
     importcpp: "HasImage", header: "BRepAlgo_Image.hxx".}
 proc image*(this: BRepAlgoImage; s: TopoDS_Shape): TopToolsListOfShape {.noSideEffect,
     importcpp: "Image", header: "BRepAlgo_Image.hxx".}
@@ -59,28 +71,3 @@ proc compact*(this: var BRepAlgoImage) {.importcpp: "Compact",
                                      header: "BRepAlgo_Image.hxx".}
 proc filter*(this: var BRepAlgoImage; s: TopoDS_Shape; shapeType: TopAbsShapeEnum) {.
     importcpp: "Filter", header: "BRepAlgo_Image.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -24,6 +24,24 @@ type
                        header: "BRepToIGES_BRShell.hxx", bycopy.} = object of BRepToIGES_BREntity
 
 
+proc `new`*(this: var BRepToIGES_BRShell; theSize: csize_t): pointer {.
+    importcpp: "BRepToIGES_BRShell::operator new",
+    header: "BRepToIGES_BRShell.hxx".}
+proc `delete`*(this: var BRepToIGES_BRShell; theAddress: pointer) {.
+    importcpp: "BRepToIGES_BRShell::operator delete",
+    header: "BRepToIGES_BRShell.hxx".}
+proc `new[]`*(this: var BRepToIGES_BRShell; theSize: csize_t): pointer {.
+    importcpp: "BRepToIGES_BRShell::operator new[]",
+    header: "BRepToIGES_BRShell.hxx".}
+proc `delete[]`*(this: var BRepToIGES_BRShell; theAddress: pointer) {.
+    importcpp: "BRepToIGES_BRShell::operator delete[]",
+    header: "BRepToIGES_BRShell.hxx".}
+proc `new`*(this: var BRepToIGES_BRShell; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepToIGES_BRShell::operator new",
+    header: "BRepToIGES_BRShell.hxx".}
+proc `delete`*(this: var BRepToIGES_BRShell; a2: pointer; a3: pointer) {.
+    importcpp: "BRepToIGES_BRShell::operator delete",
+    header: "BRepToIGES_BRShell.hxx".}
 proc constructBRepToIGES_BRShell*(): BRepToIGES_BRShell {.constructor,
     importcpp: "BRepToIGES_BRShell(@)", header: "BRepToIGES_BRShell.hxx".}
 proc constructBRepToIGES_BRShell*(br: BRepToIGES_BREntity): BRepToIGES_BRShell {.
@@ -41,28 +59,3 @@ proc transferFace*(this: var BRepToIGES_BRShell; start: TopoDS_Face;
                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
     IGESDataIGESEntity] {.importcpp: "TransferFace",
                          header: "BRepToIGES_BRShell.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

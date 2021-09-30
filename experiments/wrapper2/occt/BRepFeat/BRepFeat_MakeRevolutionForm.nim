@@ -24,56 +24,44 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 type
   BRepFeatMakeRevolutionForm* {.importcpp: "BRepFeat_MakeRevolutionForm",
-                               header: "BRepFeat_MakeRevolutionForm.hxx", bycopy.} = object of BRepFeatRibSlot ##
-                                                                                                        ## !
-                                                                                                        ## initializes
-                                                                                                        ## the
-                                                                                                        ## linear
-                                                                                                        ## form
-                                                                                                        ## class.
+                               header: "BRepFeat_MakeRevolutionForm.hxx", bycopy.} = object of BRepFeatRibSlot
 
 
+proc `new`*(this: var BRepFeatMakeRevolutionForm; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_MakeRevolutionForm::operator new",
+    header: "BRepFeat_MakeRevolutionForm.hxx".}
+proc `delete`*(this: var BRepFeatMakeRevolutionForm; theAddress: pointer) {.
+    importcpp: "BRepFeat_MakeRevolutionForm::operator delete",
+    header: "BRepFeat_MakeRevolutionForm.hxx".}
+proc `new[]`*(this: var BRepFeatMakeRevolutionForm; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_MakeRevolutionForm::operator new[]",
+    header: "BRepFeat_MakeRevolutionForm.hxx".}
+proc `delete[]`*(this: var BRepFeatMakeRevolutionForm; theAddress: pointer) {.
+    importcpp: "BRepFeat_MakeRevolutionForm::operator delete[]",
+    header: "BRepFeat_MakeRevolutionForm.hxx".}
+proc `new`*(this: var BRepFeatMakeRevolutionForm; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFeat_MakeRevolutionForm::operator new",
+    header: "BRepFeat_MakeRevolutionForm.hxx".}
+proc `delete`*(this: var BRepFeatMakeRevolutionForm; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFeat_MakeRevolutionForm::operator delete",
+    header: "BRepFeat_MakeRevolutionForm.hxx".}
 proc constructBRepFeatMakeRevolutionForm*(): BRepFeatMakeRevolutionForm {.
     constructor, importcpp: "BRepFeat_MakeRevolutionForm(@)",
     header: "BRepFeat_MakeRevolutionForm.hxx".}
 proc constructBRepFeatMakeRevolutionForm*(sbase: TopoDS_Shape; w: TopoDS_Wire;
-    plane: Handle[GeomPlane]; axis: Ax1; height1: cfloat; height2: cfloat; fuse: cint;
-    sliding: var bool): BRepFeatMakeRevolutionForm {.constructor,
-    importcpp: "BRepFeat_MakeRevolutionForm(@)",
+    plane: Handle[GeomPlane]; axis: Ax1; height1: StandardReal; height2: StandardReal;
+    fuse: int; sliding: var StandardBoolean): BRepFeatMakeRevolutionForm {.
+    constructor, importcpp: "BRepFeat_MakeRevolutionForm(@)",
     header: "BRepFeat_MakeRevolutionForm.hxx".}
 proc init*(this: var BRepFeatMakeRevolutionForm; sbase: TopoDS_Shape; w: TopoDS_Wire;
-          plane: Handle[GeomPlane]; axis: Ax1; height1: cfloat; height2: cfloat;
-          fuse: cint; sliding: var bool) {.importcpp: "Init",
-                                      header: "BRepFeat_MakeRevolutionForm.hxx".}
+          plane: Handle[GeomPlane]; axis: Ax1; height1: StandardReal;
+          height2: StandardReal; fuse: int; sliding: var StandardBoolean) {.
+    importcpp: "Init", header: "BRepFeat_MakeRevolutionForm.hxx".}
 proc add*(this: var BRepFeatMakeRevolutionForm; e: TopoDS_Edge; onFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakeRevolutionForm.hxx".}
 proc perform*(this: var BRepFeatMakeRevolutionForm) {.importcpp: "Perform",
     header: "BRepFeat_MakeRevolutionForm.hxx".}
 proc propagate*(this: var BRepFeatMakeRevolutionForm; L: var TopToolsListOfShape;
-               f: TopoDS_Face; fPoint: Pnt; lPoint: Pnt; falseside: var bool): bool {.
+               f: TopoDS_Face; fPoint: Pnt; lPoint: Pnt;
+               falseside: var StandardBoolean): StandardBoolean {.
     importcpp: "Propagate", header: "BRepFeat_MakeRevolutionForm.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

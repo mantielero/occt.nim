@@ -31,39 +31,26 @@ type
   BRepCheck* {.importcpp: "BRepCheck", header: "BRepCheck.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepCheck; theSize: csize_t): pointer {.
+    importcpp: "BRepCheck::operator new", header: "BRepCheck.hxx".}
+proc `delete`*(this: var BRepCheck; theAddress: pointer) {.
+    importcpp: "BRepCheck::operator delete", header: "BRepCheck.hxx".}
+proc `new[]`*(this: var BRepCheck; theSize: csize_t): pointer {.
+    importcpp: "BRepCheck::operator new[]", header: "BRepCheck.hxx".}
+proc `delete[]`*(this: var BRepCheck; theAddress: pointer) {.
+    importcpp: "BRepCheck::operator delete[]", header: "BRepCheck.hxx".}
+proc `new`*(this: var BRepCheck; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepCheck::operator new", header: "BRepCheck.hxx".}
+proc `delete`*(this: var BRepCheck; a2: pointer; a3: pointer) {.
+    importcpp: "BRepCheck::operator delete", header: "BRepCheck.hxx".}
 proc add*(list: var BRepCheckListOfStatus; stat: BRepCheckStatus) {.
     importcpp: "BRepCheck::Add(@)", header: "BRepCheck.hxx".}
 proc print*(stat: BRepCheckStatus; os: var StandardOStream) {.
     importcpp: "BRepCheck::Print(@)", header: "BRepCheck.hxx".}
 proc selfIntersection*(w: TopoDS_Wire; f: TopoDS_Face; e1: var TopoDS_Edge;
-                      e2: var TopoDS_Edge): bool {.
+                      e2: var TopoDS_Edge): StandardBoolean {.
     importcpp: "BRepCheck::SelfIntersection(@)", header: "BRepCheck.hxx".}
-proc precCurve*(aAC3D: Adaptor3dCurve): cfloat {.
+proc precCurve*(aAC3D: Adaptor3dCurve): StandardReal {.
     importcpp: "BRepCheck::PrecCurve(@)", header: "BRepCheck.hxx".}
-proc precSurface*(aAHSurf: Handle[Adaptor3dHSurface]): cfloat {.
+proc precSurface*(aAHSurf: Handle[Adaptor3dHSurface]): StandardReal {.
     importcpp: "BRepCheck::PrecSurface(@)", header: "BRepCheck.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

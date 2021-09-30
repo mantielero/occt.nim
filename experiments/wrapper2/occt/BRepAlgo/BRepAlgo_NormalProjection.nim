@@ -25,6 +25,24 @@ type
                              header: "BRepAlgo_NormalProjection.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepAlgoNormalProjection; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_NormalProjection::operator new",
+    header: "BRepAlgo_NormalProjection.hxx".}
+proc `delete`*(this: var BRepAlgoNormalProjection; theAddress: pointer) {.
+    importcpp: "BRepAlgo_NormalProjection::operator delete",
+    header: "BRepAlgo_NormalProjection.hxx".}
+proc `new[]`*(this: var BRepAlgoNormalProjection; theSize: csize_t): pointer {.
+    importcpp: "BRepAlgo_NormalProjection::operator new[]",
+    header: "BRepAlgo_NormalProjection.hxx".}
+proc `delete[]`*(this: var BRepAlgoNormalProjection; theAddress: pointer) {.
+    importcpp: "BRepAlgo_NormalProjection::operator delete[]",
+    header: "BRepAlgo_NormalProjection.hxx".}
+proc `new`*(this: var BRepAlgoNormalProjection; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepAlgo_NormalProjection::operator new",
+    header: "BRepAlgo_NormalProjection.hxx".}
+proc `delete`*(this: var BRepAlgoNormalProjection; a2: pointer; a3: pointer) {.
+    importcpp: "BRepAlgo_NormalProjection::operator delete",
+    header: "BRepAlgo_NormalProjection.hxx".}
 proc constructBRepAlgoNormalProjection*(): BRepAlgoNormalProjection {.constructor,
     importcpp: "BRepAlgo_NormalProjection(@)",
     header: "BRepAlgo_NormalProjection.hxx".}
@@ -35,20 +53,22 @@ proc init*(this: var BRepAlgoNormalProjection; s: TopoDS_Shape) {.importcpp: "In
     header: "BRepAlgo_NormalProjection.hxx".}
 proc add*(this: var BRepAlgoNormalProjection; toProj: TopoDS_Shape) {.
     importcpp: "Add", header: "BRepAlgo_NormalProjection.hxx".}
-proc setParams*(this: var BRepAlgoNormalProjection; tol3D: cfloat; tol2D: cfloat;
-               internalContinuity: GeomAbsShape; maxDegree: cint; maxSeg: cint) {.
-    importcpp: "SetParams", header: "BRepAlgo_NormalProjection.hxx".}
+proc setParams*(this: var BRepAlgoNormalProjection; tol3D: StandardReal;
+               tol2D: StandardReal; internalContinuity: GeomAbsShape;
+               maxDegree: int; maxSeg: int) {.importcpp: "SetParams",
+    header: "BRepAlgo_NormalProjection.hxx".}
 proc setDefaultParams*(this: var BRepAlgoNormalProjection) {.
     importcpp: "SetDefaultParams", header: "BRepAlgo_NormalProjection.hxx".}
-proc setMaxDistance*(this: var BRepAlgoNormalProjection; maxDist: cfloat) {.
+proc setMaxDistance*(this: var BRepAlgoNormalProjection; maxDist: StandardReal) {.
     importcpp: "SetMaxDistance", header: "BRepAlgo_NormalProjection.hxx".}
-proc compute3d*(this: var BRepAlgoNormalProjection; with3d: bool = true) {.
+proc compute3d*(this: var BRepAlgoNormalProjection; with3d: StandardBoolean = true) {.
     importcpp: "Compute3d", header: "BRepAlgo_NormalProjection.hxx".}
-proc setLimit*(this: var BRepAlgoNormalProjection; faceBoundaries: bool = true) {.
-    importcpp: "SetLimit", header: "BRepAlgo_NormalProjection.hxx".}
+proc setLimit*(this: var BRepAlgoNormalProjection;
+              faceBoundaries: StandardBoolean = true) {.importcpp: "SetLimit",
+    header: "BRepAlgo_NormalProjection.hxx".}
 proc build*(this: var BRepAlgoNormalProjection) {.importcpp: "Build",
     header: "BRepAlgo_NormalProjection.hxx".}
-proc isDone*(this: BRepAlgoNormalProjection): bool {.noSideEffect,
+proc isDone*(this: BRepAlgoNormalProjection): StandardBoolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepAlgo_NormalProjection.hxx".}
 proc projection*(this: BRepAlgoNormalProjection): TopoDS_Shape {.noSideEffect,
     importcpp: "Projection", header: "BRepAlgo_NormalProjection.hxx".}
@@ -58,33 +78,8 @@ proc couple*(this: BRepAlgoNormalProjection; e: TopoDS_Edge): TopoDS_Shape {.
     noSideEffect, importcpp: "Couple", header: "BRepAlgo_NormalProjection.hxx".}
 proc generated*(this: var BRepAlgoNormalProjection; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepAlgo_NormalProjection.hxx".}
-proc isElementary*(this: BRepAlgoNormalProjection; c: Adaptor3dCurve): bool {.
+proc isElementary*(this: BRepAlgoNormalProjection; c: Adaptor3dCurve): StandardBoolean {.
     noSideEffect, importcpp: "IsElementary",
     header: "BRepAlgo_NormalProjection.hxx".}
-proc buildWire*(this: BRepAlgoNormalProjection; liste: var TopToolsListOfShape): bool {.
+proc buildWire*(this: BRepAlgoNormalProjection; liste: var TopToolsListOfShape): StandardBoolean {.
     noSideEffect, importcpp: "BuildWire", header: "BRepAlgo_NormalProjection.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

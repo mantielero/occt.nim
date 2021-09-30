@@ -22,6 +22,24 @@ type
                            header: "TopOpeBRep_ShapeScanner.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepShapeScanner; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_ShapeScanner::operator new",
+    header: "TopOpeBRep_ShapeScanner.hxx".}
+proc `delete`*(this: var TopOpeBRepShapeScanner; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_ShapeScanner::operator delete",
+    header: "TopOpeBRep_ShapeScanner.hxx".}
+proc `new[]`*(this: var TopOpeBRepShapeScanner; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_ShapeScanner::operator new[]",
+    header: "TopOpeBRep_ShapeScanner.hxx".}
+proc `delete[]`*(this: var TopOpeBRepShapeScanner; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_ShapeScanner::operator delete[]",
+    header: "TopOpeBRep_ShapeScanner.hxx".}
+proc `new`*(this: var TopOpeBRepShapeScanner; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_ShapeScanner::operator new",
+    header: "TopOpeBRep_ShapeScanner.hxx".}
+proc `delete`*(this: var TopOpeBRepShapeScanner; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_ShapeScanner::operator delete",
+    header: "TopOpeBRep_ShapeScanner.hxx".}
 proc constructTopOpeBRepShapeScanner*(): TopOpeBRepShapeScanner {.constructor,
     importcpp: "TopOpeBRep_ShapeScanner(@)", header: "TopOpeBRep_ShapeScanner.hxx".}
 proc clear*(this: var TopOpeBRepShapeScanner) {.importcpp: "Clear",
@@ -33,8 +51,8 @@ proc init*(this: var TopOpeBRepShapeScanner; e: TopoDS_Shape) {.importcpp: "Init
     header: "TopOpeBRep_ShapeScanner.hxx".}
 proc init*(this: var TopOpeBRepShapeScanner; x: var TopOpeBRepToolShapeExplorer) {.
     importcpp: "Init", header: "TopOpeBRep_ShapeScanner.hxx".}
-proc more*(this: TopOpeBRepShapeScanner): bool {.noSideEffect, importcpp: "More",
-    header: "TopOpeBRep_ShapeScanner.hxx".}
+proc more*(this: TopOpeBRepShapeScanner): StandardBoolean {.noSideEffect,
+    importcpp: "More", header: "TopOpeBRep_ShapeScanner.hxx".}
 proc next*(this: var TopOpeBRepShapeScanner) {.importcpp: "Next",
     header: "TopOpeBRep_ShapeScanner.hxx".}
 proc current*(this: TopOpeBRepShapeScanner): TopoDS_Shape {.noSideEffect,
@@ -43,32 +61,7 @@ proc boxSort*(this: TopOpeBRepShapeScanner): TopOpeBRepToolBoxSort {.noSideEffec
     importcpp: "BoxSort", header: "TopOpeBRep_ShapeScanner.hxx".}
 proc changeBoxSort*(this: var TopOpeBRepShapeScanner): var TopOpeBRepToolBoxSort {.
     importcpp: "ChangeBoxSort", header: "TopOpeBRep_ShapeScanner.hxx".}
-proc index*(this: TopOpeBRepShapeScanner): cint {.noSideEffect, importcpp: "Index",
+proc index*(this: TopOpeBRepShapeScanner): int {.noSideEffect, importcpp: "Index",
     header: "TopOpeBRep_ShapeScanner.hxx".}
 proc dumpCurrent*(this: TopOpeBRepShapeScanner; os: var StandardOStream): var StandardOStream {.
     noSideEffect, importcpp: "DumpCurrent", header: "TopOpeBRep_ShapeScanner.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

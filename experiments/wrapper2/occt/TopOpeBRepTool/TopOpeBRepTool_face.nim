@@ -21,42 +21,35 @@ type
                        header: "TopOpeBRepTool_face.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepToolFace; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_face::operator new",
+    header: "TopOpeBRepTool_face.hxx".}
+proc `delete`*(this: var TopOpeBRepToolFace; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_face::operator delete",
+    header: "TopOpeBRepTool_face.hxx".}
+proc `new[]`*(this: var TopOpeBRepToolFace; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_face::operator new[]",
+    header: "TopOpeBRepTool_face.hxx".}
+proc `delete[]`*(this: var TopOpeBRepToolFace; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_face::operator delete[]",
+    header: "TopOpeBRepTool_face.hxx".}
+proc `new`*(this: var TopOpeBRepToolFace; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepTool_face::operator new",
+    header: "TopOpeBRepTool_face.hxx".}
+proc `delete`*(this: var TopOpeBRepToolFace; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepTool_face::operator delete",
+    header: "TopOpeBRepTool_face.hxx".}
 proc constructTopOpeBRepToolFace*(): TopOpeBRepToolFace {.constructor,
     importcpp: "TopOpeBRepTool_face(@)", header: "TopOpeBRepTool_face.hxx".}
-proc init*(this: var TopOpeBRepToolFace; w: TopoDS_Wire; fref: TopoDS_Face): bool {.
+proc init*(this: var TopOpeBRepToolFace; w: TopoDS_Wire; fref: TopoDS_Face): StandardBoolean {.
     importcpp: "Init", header: "TopOpeBRepTool_face.hxx".}
 proc w*(this: TopOpeBRepToolFace): TopoDS_Wire {.noSideEffect, importcpp: "W",
     header: "TopOpeBRepTool_face.hxx".}
-proc isDone*(this: TopOpeBRepToolFace): bool {.noSideEffect, importcpp: "IsDone",
-    header: "TopOpeBRepTool_face.hxx".}
-proc finite*(this: TopOpeBRepToolFace): bool {.noSideEffect, importcpp: "Finite",
-    header: "TopOpeBRepTool_face.hxx".}
+proc isDone*(this: TopOpeBRepToolFace): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "TopOpeBRepTool_face.hxx".}
+proc finite*(this: TopOpeBRepToolFace): StandardBoolean {.noSideEffect,
+    importcpp: "Finite", header: "TopOpeBRepTool_face.hxx".}
 proc ffinite*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect,
     importcpp: "Ffinite", header: "TopOpeBRepTool_face.hxx".}
 proc realF*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect,
     importcpp: "RealF", header: "TopOpeBRepTool_face.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

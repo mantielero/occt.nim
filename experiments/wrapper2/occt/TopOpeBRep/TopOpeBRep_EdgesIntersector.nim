@@ -30,6 +30,24 @@ type
                                header: "TopOpeBRep_EdgesIntersector.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepEdgesIntersector; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_EdgesIntersector::operator new",
+    header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc `delete`*(this: var TopOpeBRepEdgesIntersector; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_EdgesIntersector::operator delete",
+    header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc `new[]`*(this: var TopOpeBRepEdgesIntersector; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_EdgesIntersector::operator new[]",
+    header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc `delete[]`*(this: var TopOpeBRepEdgesIntersector; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_EdgesIntersector::operator delete[]",
+    header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc `new`*(this: var TopOpeBRepEdgesIntersector; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_EdgesIntersector::operator new",
+    header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc `delete`*(this: var TopOpeBRepEdgesIntersector; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_EdgesIntersector::operator delete",
+    header: "TopOpeBRep_EdgesIntersector.hxx".}
 proc constructTopOpeBRepEdgesIntersector*(): TopOpeBRepEdgesIntersector {.
     constructor, importcpp: "TopOpeBRep_EdgesIntersector(@)",
     header: "TopOpeBRep_EdgesIntersector.hxx".}
@@ -42,48 +60,51 @@ proc setFaces*(this: var TopOpeBRepEdgesIntersector; f1: TopoDS_Shape;
 proc setFaces*(this: var TopOpeBRepEdgesIntersector; f1: TopoDS_Shape;
               f2: TopoDS_Shape; b1: BndBox; b2: BndBox) {.importcpp: "SetFaces",
     header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc forceTolerances*(this: var TopOpeBRepEdgesIntersector; tol1: cfloat; tol2: cfloat) {.
-    importcpp: "ForceTolerances", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc dimension*(this: var TopOpeBRepEdgesIntersector; d: cint) {.
+proc forceTolerances*(this: var TopOpeBRepEdgesIntersector; tol1: StandardReal;
+                     tol2: StandardReal) {.importcpp: "ForceTolerances",
+    header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc dimension*(this: var TopOpeBRepEdgesIntersector; d: int) {.
     importcpp: "Dimension", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc dimension*(this: TopOpeBRepEdgesIntersector): cint {.noSideEffect,
+proc dimension*(this: TopOpeBRepEdgesIntersector): int {.noSideEffect,
     importcpp: "Dimension", header: "TopOpeBRep_EdgesIntersector.hxx".}
 proc perform*(this: var TopOpeBRepEdgesIntersector; e1: TopoDS_Shape;
-             e2: TopoDS_Shape; reduceSegments: bool = true) {.importcpp: "Perform",
-    header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc isEmpty*(this: var TopOpeBRepEdgesIntersector): bool {.importcpp: "IsEmpty",
-    header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc hasSegment*(this: TopOpeBRepEdgesIntersector): bool {.noSideEffect,
+             e2: TopoDS_Shape; reduceSegments: StandardBoolean = true) {.
+    importcpp: "Perform", header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc isEmpty*(this: var TopOpeBRepEdgesIntersector): StandardBoolean {.
+    importcpp: "IsEmpty", header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc hasSegment*(this: TopOpeBRepEdgesIntersector): StandardBoolean {.noSideEffect,
     importcpp: "HasSegment", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc sameDomain*(this: TopOpeBRepEdgesIntersector): bool {.noSideEffect,
+proc sameDomain*(this: TopOpeBRepEdgesIntersector): StandardBoolean {.noSideEffect,
     importcpp: "SameDomain", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc edge*(this: TopOpeBRepEdgesIntersector; index: cint): TopoDS_Shape {.
-    noSideEffect, importcpp: "Edge", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc curve*(this: TopOpeBRepEdgesIntersector; index: cint): Geom2dAdaptorCurve {.
+proc edge*(this: TopOpeBRepEdgesIntersector; index: int): TopoDS_Shape {.noSideEffect,
+    importcpp: "Edge", header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc curve*(this: TopOpeBRepEdgesIntersector; index: int): Geom2dAdaptorCurve {.
     noSideEffect, importcpp: "Curve", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc face*(this: TopOpeBRepEdgesIntersector; index: cint): TopoDS_Shape {.
-    noSideEffect, importcpp: "Face", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc surface*(this: TopOpeBRepEdgesIntersector; index: cint): BRepAdaptorSurface {.
+proc face*(this: TopOpeBRepEdgesIntersector; index: int): TopoDS_Shape {.noSideEffect,
+    importcpp: "Face", header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc surface*(this: TopOpeBRepEdgesIntersector; index: int): BRepAdaptorSurface {.
     noSideEffect, importcpp: "Surface", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc surfacesSameOriented*(this: TopOpeBRepEdgesIntersector): bool {.noSideEffect,
-    importcpp: "SurfacesSameOriented", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc facesSameOriented*(this: TopOpeBRepEdgesIntersector): bool {.noSideEffect,
-    importcpp: "FacesSameOriented", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc toleranceMax*(this: TopOpeBRepEdgesIntersector): cfloat {.noSideEffect,
-    importcpp: "ToleranceMax", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc tolerances*(this: TopOpeBRepEdgesIntersector; tol1: var cfloat; tol2: var cfloat) {.
-    noSideEffect, importcpp: "Tolerances",
+proc surfacesSameOriented*(this: TopOpeBRepEdgesIntersector): StandardBoolean {.
+    noSideEffect, importcpp: "SurfacesSameOriented",
     header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc nbPoints*(this: TopOpeBRepEdgesIntersector): cint {.noSideEffect,
+proc facesSameOriented*(this: TopOpeBRepEdgesIntersector): StandardBoolean {.
+    noSideEffect, importcpp: "FacesSameOriented",
+    header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc toleranceMax*(this: TopOpeBRepEdgesIntersector): StandardReal {.noSideEffect,
+    importcpp: "ToleranceMax", header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc tolerances*(this: TopOpeBRepEdgesIntersector; tol1: var StandardReal;
+                tol2: var StandardReal) {.noSideEffect, importcpp: "Tolerances", header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc nbPoints*(this: TopOpeBRepEdgesIntersector): int {.noSideEffect,
     importcpp: "NbPoints", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc nbSegments*(this: TopOpeBRepEdgesIntersector): cint {.noSideEffect,
+proc nbSegments*(this: TopOpeBRepEdgesIntersector): int {.noSideEffect,
     importcpp: "NbSegments", header: "TopOpeBRep_EdgesIntersector.hxx".}
 proc dump*(this: var TopOpeBRepEdgesIntersector; str: TCollectionAsciiString;
-          ie1: cint = 0; ie2: cint = 0) {.importcpp: "Dump",
-                                  header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc initPoint*(this: var TopOpeBRepEdgesIntersector; selectkeep: bool = true) {.
-    importcpp: "InitPoint", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc morePoint*(this: TopOpeBRepEdgesIntersector): bool {.noSideEffect,
+          ie1: int = 0; ie2: int = 0) {.importcpp: "Dump",
+                                header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc initPoint*(this: var TopOpeBRepEdgesIntersector;
+               selectkeep: StandardBoolean = true) {.importcpp: "InitPoint",
+    header: "TopOpeBRep_EdgesIntersector.hxx".}
+proc morePoint*(this: TopOpeBRepEdgesIntersector): StandardBoolean {.noSideEffect,
     importcpp: "MorePoint", header: "TopOpeBRep_EdgesIntersector.hxx".}
 proc nextPoint*(this: var TopOpeBRepEdgesIntersector) {.importcpp: "NextPoint",
     header: "TopOpeBRep_EdgesIntersector.hxx".}
@@ -91,36 +112,11 @@ proc points*(this: TopOpeBRepEdgesIntersector): TopOpeBRepSequenceOfPoint2d {.
     noSideEffect, importcpp: "Points", header: "TopOpeBRep_EdgesIntersector.hxx".}
 proc point*(this: TopOpeBRepEdgesIntersector): TopOpeBRepPoint2d {.noSideEffect,
     importcpp: "Point", header: "TopOpeBRep_EdgesIntersector.hxx".}
-proc point*(this: TopOpeBRepEdgesIntersector; i: cint): TopOpeBRepPoint2d {.
+proc point*(this: TopOpeBRepEdgesIntersector; i: int): TopOpeBRepPoint2d {.
     noSideEffect, importcpp: "Point", header: "TopOpeBRep_EdgesIntersector.hxx".}
 proc reduceSegment*(this: TopOpeBRepEdgesIntersector; p1: var TopOpeBRepPoint2d;
-                   p2: var TopOpeBRepPoint2d; pn: var TopOpeBRepPoint2d): bool {.
+                   p2: var TopOpeBRepPoint2d; pn: var TopOpeBRepPoint2d): StandardBoolean {.
     noSideEffect, importcpp: "ReduceSegment",
     header: "TopOpeBRep_EdgesIntersector.hxx".}
 proc status1*(this: TopOpeBRepEdgesIntersector): TopOpeBRepP2Dstatus {.noSideEffect,
     importcpp: "Status1", header: "TopOpeBRep_EdgesIntersector.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

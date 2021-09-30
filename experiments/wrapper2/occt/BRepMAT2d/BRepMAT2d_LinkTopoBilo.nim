@@ -25,6 +25,24 @@ type
                           header: "BRepMAT2d_LinkTopoBilo.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepMAT2dLinkTopoBilo; theSize: csize_t): pointer {.
+    importcpp: "BRepMAT2d_LinkTopoBilo::operator new",
+    header: "BRepMAT2d_LinkTopoBilo.hxx".}
+proc `delete`*(this: var BRepMAT2dLinkTopoBilo; theAddress: pointer) {.
+    importcpp: "BRepMAT2d_LinkTopoBilo::operator delete",
+    header: "BRepMAT2d_LinkTopoBilo.hxx".}
+proc `new[]`*(this: var BRepMAT2dLinkTopoBilo; theSize: csize_t): pointer {.
+    importcpp: "BRepMAT2d_LinkTopoBilo::operator new[]",
+    header: "BRepMAT2d_LinkTopoBilo.hxx".}
+proc `delete[]`*(this: var BRepMAT2dLinkTopoBilo; theAddress: pointer) {.
+    importcpp: "BRepMAT2d_LinkTopoBilo::operator delete[]",
+    header: "BRepMAT2d_LinkTopoBilo.hxx".}
+proc `new`*(this: var BRepMAT2dLinkTopoBilo; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepMAT2d_LinkTopoBilo::operator new",
+    header: "BRepMAT2d_LinkTopoBilo.hxx".}
+proc `delete`*(this: var BRepMAT2dLinkTopoBilo; a2: pointer; a3: pointer) {.
+    importcpp: "BRepMAT2d_LinkTopoBilo::operator delete",
+    header: "BRepMAT2d_LinkTopoBilo.hxx".}
 proc constructBRepMAT2dLinkTopoBilo*(): BRepMAT2dLinkTopoBilo {.constructor,
     importcpp: "BRepMAT2d_LinkTopoBilo(@)", header: "BRepMAT2d_LinkTopoBilo.hxx".}
 proc constructBRepMAT2dLinkTopoBilo*(explo: BRepMAT2dExplorer;
@@ -36,7 +54,7 @@ proc perform*(this: var BRepMAT2dLinkTopoBilo; explo: BRepMAT2dExplorer;
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
 proc init*(this: var BRepMAT2dLinkTopoBilo; s: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
-proc more*(this: var BRepMAT2dLinkTopoBilo): bool {.importcpp: "More",
+proc more*(this: var BRepMAT2dLinkTopoBilo): StandardBoolean {.importcpp: "More",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
 proc next*(this: var BRepMAT2dLinkTopoBilo) {.importcpp: "Next",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
@@ -45,28 +63,3 @@ proc value*(this: BRepMAT2dLinkTopoBilo): Handle[MAT_BasicElt] {.noSideEffect,
 proc generatingShape*(this: BRepMAT2dLinkTopoBilo; aBE: Handle[MAT_BasicElt]): TopoDS_Shape {.
     noSideEffect, importcpp: "GeneratingShape",
     header: "BRepMAT2d_LinkTopoBilo.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

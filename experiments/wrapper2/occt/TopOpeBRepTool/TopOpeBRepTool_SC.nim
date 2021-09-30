@@ -25,31 +25,6 @@ proc fSC_GetPSC*(s: TopoDS_Shape): var TopOpeBRepToolShapeClassifier {.
 proc fSC_StatePonFace*(p: Pnt; f: TopoDS_Shape;
                       psc: var TopOpeBRepToolShapeClassifier): TopAbsState {.
     importcpp: "FSC_StatePonFace(@)", header: "TopOpeBRepTool_SC.hxx".}
-proc fSC_StateEonFace*(e: TopoDS_Shape; t: cfloat; f: TopoDS_Shape;
+proc fSC_StateEonFace*(e: TopoDS_Shape; t: StandardReal; f: TopoDS_Shape;
                       psc: var TopOpeBRepToolShapeClassifier): TopAbsState {.
     importcpp: "FSC_StateEonFace(@)", header: "TopOpeBRepTool_SC.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

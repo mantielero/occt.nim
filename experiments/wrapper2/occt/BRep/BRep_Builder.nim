@@ -30,40 +30,48 @@ discard "forward decl of Poly_Polygon2D"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt"
 type
-  BRepBuilder* {.importcpp: "BRep_Builder", header: "BRep_Builder.hxx", bycopy.} = object of TopoDS_Builder ##
-                                                                                                  ## !
-                                                                                                  ## Makes
-                                                                                                  ## an
-                                                                                                  ## undefined
-                                                                                                  ## Face.
+  BRepBuilder* {.importcpp: "BRep_Builder", header: "BRep_Builder.hxx", bycopy.} = object of TopoDS_Builder
 
 
+proc `new`*(this: var BRepBuilder; theSize: csize_t): pointer {.
+    importcpp: "BRep_Builder::operator new", header: "BRep_Builder.hxx".}
+proc `delete`*(this: var BRepBuilder; theAddress: pointer) {.
+    importcpp: "BRep_Builder::operator delete", header: "BRep_Builder.hxx".}
+proc `new[]`*(this: var BRepBuilder; theSize: csize_t): pointer {.
+    importcpp: "BRep_Builder::operator new[]", header: "BRep_Builder.hxx".}
+proc `delete[]`*(this: var BRepBuilder; theAddress: pointer) {.
+    importcpp: "BRep_Builder::operator delete[]", header: "BRep_Builder.hxx".}
+proc `new`*(this: var BRepBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRep_Builder::operator new", header: "BRep_Builder.hxx".}
+proc `delete`*(this: var BRepBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "BRep_Builder::operator delete", header: "BRep_Builder.hxx".}
 proc makeFace*(this: BRepBuilder; f: var TopoDS_Face) {.noSideEffect,
     importcpp: "MakeFace", header: "BRep_Builder.hxx".}
 proc makeFace*(this: BRepBuilder; f: var TopoDS_Face; s: Handle[GeomSurface];
-              tol: cfloat) {.noSideEffect, importcpp: "MakeFace",
-                           header: "BRep_Builder.hxx".}
-proc makeFace*(this: BRepBuilder; f: var TopoDS_Face; s: Handle[GeomSurface];
-              L: TopLocLocation; tol: cfloat) {.noSideEffect, importcpp: "MakeFace",
-    header: "BRep_Builder.hxx".}
-proc makeFace*(this: BRepBuilder; f: var TopoDS_Face; t: Handle[PolyTriangulation]) {.
-    noSideEffect, importcpp: "MakeFace", header: "BRep_Builder.hxx".}
-proc updateFace*(this: BRepBuilder; f: TopoDS_Face; s: Handle[GeomSurface];
-                L: TopLocLocation; tol: cfloat) {.noSideEffect,
+              tol: StandardReal) {.noSideEffect, importcpp: "MakeFace",
+                                 header: "BRep_Builder.hxx".}
+#[ proc makeFace*(this: BRepBuilder; f: var TopoDS_Face; s: Handle[GeomSurface];
+              L: TopLocLocation; tol: StandardReal) {.noSideEffect,
+    importcpp: "MakeFace", header: "BRep_Builder.hxx".} ]#
+#[ proc makeFace*(this: BRepBuilder; f: var TopoDS_Face; t: Handle[PolyTriangulation]) {.
+    noSideEffect, importcpp: "MakeFace", header: "BRep_Builder.hxx".} ]#
+#[ proc updateFace*(this: BRepBuilder; f: TopoDS_Face; s: Handle[GeomSurface];
+                L: TopLocLocation; tol: StandardReal) {.noSideEffect,
     importcpp: "UpdateFace", header: "BRep_Builder.hxx".}
 proc updateFace*(this: BRepBuilder; f: TopoDS_Face; t: Handle[PolyTriangulation]) {.
     noSideEffect, importcpp: "UpdateFace", header: "BRep_Builder.hxx".}
-proc updateFace*(this: BRepBuilder; f: TopoDS_Face; tol: cfloat) {.noSideEffect,
+proc updateFace*(this: BRepBuilder; f: TopoDS_Face; tol: StandardReal) {.noSideEffect,
     importcpp: "UpdateFace", header: "BRep_Builder.hxx".}
-proc naturalRestriction*(this: BRepBuilder; f: TopoDS_Face; n: bool) {.noSideEffect,
-    importcpp: "NaturalRestriction", header: "BRep_Builder.hxx".}
+proc naturalRestriction*(this: BRepBuilder; f: TopoDS_Face; n: StandardBoolean) {.
+    noSideEffect, importcpp: "NaturalRestriction", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge) {.noSideEffect,
     importcpp: "MakeEdge", header: "BRep_Builder.hxx".}
-proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge; c: Handle[GeomCurve]; tol: cfloat) {.
-    noSideEffect, importcpp: "MakeEdge", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge; c: Handle[GeomCurve];
-              L: TopLocLocation; tol: cfloat) {.noSideEffect, importcpp: "MakeEdge",
-    header: "BRep_Builder.hxx".}
+              tol: StandardReal) {.noSideEffect, importcpp: "MakeEdge",
+                                 header: "BRep_Builder.hxx".}
+proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge; c: Handle[GeomCurve];
+              L: TopLocLocation; tol: StandardReal) {.noSideEffect,
+    importcpp: "MakeEdge", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge; p: Handle[PolyPolygon3D]) {.
     noSideEffect, importcpp: "MakeEdge", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge;
@@ -73,31 +81,32 @@ proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge;
               n: Handle[PolyPolygonOnTriangulation]; t: Handle[PolyTriangulation];
               L: TopLocLocation) {.noSideEffect, importcpp: "MakeEdge",
                                  header: "BRep_Builder.hxx".}
-proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[GeomCurve]; tol: cfloat) {.
-    noSideEffect, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[GeomCurve];
-                L: TopLocLocation; tol: cfloat) {.noSideEffect,
+                tol: StandardReal) {.noSideEffect, importcpp: "UpdateEdge",
+                                   header: "BRep_Builder.hxx".}
+proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[GeomCurve];
+                L: TopLocLocation; tol: StandardReal) {.noSideEffect,
     importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
-                f: TopoDS_Face; tol: cfloat) {.noSideEffect, importcpp: "UpdateEdge",
-    header: "BRep_Builder.hxx".}
+                f: TopoDS_Face; tol: StandardReal) {.noSideEffect,
+    importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
-                c2: Handle[Geom2dCurve]; f: TopoDS_Face; tol: cfloat) {.noSideEffect,
-    importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
-proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
-                s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat) {.
+                c2: Handle[Geom2dCurve]; f: TopoDS_Face; tol: StandardReal) {.
     noSideEffect, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
-                s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat; pf: Pnt2d;
-                pl: Pnt2d) {.noSideEffect, importcpp: "UpdateEdge",
-                           header: "BRep_Builder.hxx".}
+                s: Handle[GeomSurface]; L: TopLocLocation; tol: StandardReal) {.
+    noSideEffect, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
+proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
+                s: Handle[GeomSurface]; L: TopLocLocation; tol: StandardReal;
+                pf: Pnt2d; pl: Pnt2d) {.noSideEffect, importcpp: "UpdateEdge",
+                                    header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                 c2: Handle[Geom2dCurve]; s: Handle[GeomSurface]; L: TopLocLocation;
-                tol: cfloat) {.noSideEffect, importcpp: "UpdateEdge",
-                             header: "BRep_Builder.hxx".}
+                tol: StandardReal) {.noSideEffect, importcpp: "UpdateEdge",
+                                   header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                 c2: Handle[Geom2dCurve]; s: Handle[GeomSurface]; L: TopLocLocation;
-                tol: cfloat; pf: Pnt2d; pl: Pnt2d) {.noSideEffect,
+                tol: StandardReal; pf: Pnt2d; pl: Pnt2d) {.noSideEffect,
     importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p: Handle[PolyPolygon3D]) {.
     noSideEffect, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
@@ -134,7 +143,7 @@ proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p1: Handle[PolyPolygon2D];
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p1: Handle[PolyPolygon2D];
                 p2: Handle[PolyPolygon2D]; s: Handle[GeomSurface]; L: TopLocLocation) {.
     noSideEffect, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
-proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; tol: cfloat) {.noSideEffect,
+proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; tol: StandardReal) {.noSideEffect,
     importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc continuity*(this: BRepBuilder; e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face;
                 c: GeomAbsShape) {.noSideEffect, importcpp: "Continuity",
@@ -143,68 +152,44 @@ proc continuity*(this: BRepBuilder; e: TopoDS_Edge; s1: Handle[GeomSurface];
                 s2: Handle[GeomSurface]; l1: TopLocLocation; l2: TopLocLocation;
                 c: GeomAbsShape) {.noSideEffect, importcpp: "Continuity",
                                  header: "BRep_Builder.hxx".}
-proc sameParameter*(this: BRepBuilder; e: TopoDS_Edge; s: bool) {.noSideEffect,
-    importcpp: "SameParameter", header: "BRep_Builder.hxx".}
-proc sameRange*(this: BRepBuilder; e: TopoDS_Edge; s: bool) {.noSideEffect,
+proc sameParameter*(this: BRepBuilder; e: TopoDS_Edge; s: StandardBoolean) {.
+    noSideEffect, importcpp: "SameParameter", header: "BRep_Builder.hxx".}
+proc sameRange*(this: BRepBuilder; e: TopoDS_Edge; s: StandardBoolean) {.noSideEffect,
     importcpp: "SameRange", header: "BRep_Builder.hxx".}
-proc degenerated*(this: BRepBuilder; e: TopoDS_Edge; d: bool) {.noSideEffect,
-    importcpp: "Degenerated", header: "BRep_Builder.hxx".}
-proc range*(this: BRepBuilder; e: TopoDS_Edge; first: cfloat; last: cfloat;
-           only3d: bool = false) {.noSideEffect, importcpp: "Range",
-                               header: "BRep_Builder.hxx".}
+proc degenerated*(this: BRepBuilder; e: TopoDS_Edge; d: StandardBoolean) {.
+    noSideEffect, importcpp: "Degenerated", header: "BRep_Builder.hxx".}
+proc range*(this: BRepBuilder; e: TopoDS_Edge; first: StandardReal; last: StandardReal;
+           only3d: StandardBoolean = false) {.noSideEffect, importcpp: "Range",
+    header: "BRep_Builder.hxx".}
 proc range*(this: BRepBuilder; e: TopoDS_Edge; s: Handle[GeomSurface];
-           L: TopLocLocation; first: cfloat; last: cfloat) {.noSideEffect,
+           L: TopLocLocation; first: StandardReal; last: StandardReal) {.noSideEffect,
     importcpp: "Range", header: "BRep_Builder.hxx".}
-proc range*(this: BRepBuilder; e: TopoDS_Edge; f: TopoDS_Face; first: cfloat;
-           last: cfloat) {.noSideEffect, importcpp: "Range",
-                         header: "BRep_Builder.hxx".}
+proc range*(this: BRepBuilder; e: TopoDS_Edge; f: TopoDS_Face; first: StandardReal;
+           last: StandardReal) {.noSideEffect, importcpp: "Range",
+                               header: "BRep_Builder.hxx".}
 proc transfert*(this: BRepBuilder; ein: TopoDS_Edge; eout: TopoDS_Edge) {.noSideEffect,
     importcpp: "Transfert", header: "BRep_Builder.hxx".}
 proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex) {.noSideEffect,
     importcpp: "MakeVertex", header: "BRep_Builder.hxx".}
-proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex; p: Pnt; tol: cfloat) {.
+proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex; p: Pnt; tol: StandardReal) {.
     noSideEffect, importcpp: "MakeVertex", header: "BRep_Builder.hxx".}
-proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: Pnt; tol: cfloat) {.
+proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: Pnt; tol: StandardReal) {.
     noSideEffect, importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
-proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: cfloat; e: TopoDS_Edge;
-                  tol: cfloat) {.noSideEffect, importcpp: "UpdateVertex",
-                               header: "BRep_Builder.hxx".}
-proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: cfloat; e: TopoDS_Edge;
-                  f: TopoDS_Face; tol: cfloat) {.noSideEffect,
+proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: StandardReal;
+                  e: TopoDS_Edge; tol: StandardReal) {.noSideEffect,
     importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
-proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: cfloat; e: TopoDS_Edge;
-                  s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat) {.
+proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: StandardReal;
+                  e: TopoDS_Edge; f: TopoDS_Face; tol: StandardReal) {.noSideEffect,
+    importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
+proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: StandardReal;
+                  e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation;
+                  tol: StandardReal) {.noSideEffect, importcpp: "UpdateVertex",
+                                     header: "BRep_Builder.hxx".}
+proc updateVertex*(this: BRepBuilder; ve: TopoDS_Vertex; u: StandardReal;
+                  v: StandardReal; f: TopoDS_Face; tol: StandardReal) {.noSideEffect,
+    importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
+proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; tol: StandardReal) {.
     noSideEffect, importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
-proc updateVertex*(this: BRepBuilder; ve: TopoDS_Vertex; u: cfloat; v: cfloat;
-                  f: TopoDS_Face; tol: cfloat) {.noSideEffect,
-    importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
-proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; tol: cfloat) {.noSideEffect,
-    importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
 proc transfert*(this: BRepBuilder; ein: TopoDS_Edge; eout: TopoDS_Edge;
                vin: TopoDS_Vertex; vout: TopoDS_Vertex) {.noSideEffect,
-    importcpp: "Transfert", header: "BRep_Builder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "Transfert", header: "BRep_Builder.hxx".} ]#

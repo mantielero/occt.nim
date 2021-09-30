@@ -21,52 +21,30 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of gp_Vec"
 type
   BRepSweepTranslation* {.importcpp: "BRepSweep_Translation",
-                         header: "BRepSweep_Translation.hxx", bycopy.} = object of BRepSweepTrsf ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## topology
-                                                                                          ## by
-                                                                                          ## translating
-                                                                                          ## <S>
-                                                                                          ## with
-                                                                                          ## the
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## vector
-                                                                                          ## <V>.
-                                                                                          ## If
-                                                                                          ## C
-                                                                                          ## is
-                                                                                          ## true
-                                                                                          ## S
-                                                                                          ## Sucomponents
-                                                                                          ## are
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## copied.
-                                                                                          ## If
-                                                                                          ## Canonize
-                                                                                          ## is
-                                                                                          ## true
-                                                                                          ## then
-                                                                                          ## generated
-                                                                                          ## surfaces
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## are
-                                                                                          ## attempted
-                                                                                          ## to
-                                                                                          ## be
-                                                                                          ## canonized
-                                                                                          ## in
-                                                                                          ## simple
-                                                                                          ## types
+                         header: "BRepSweep_Translation.hxx", bycopy.} = object of BRepSweepTrsf
 
 
+proc `new`*(this: var BRepSweepTranslation; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Translation::operator new",
+    header: "BRepSweep_Translation.hxx".}
+proc `delete`*(this: var BRepSweepTranslation; theAddress: pointer) {.
+    importcpp: "BRepSweep_Translation::operator delete",
+    header: "BRepSweep_Translation.hxx".}
+proc `new[]`*(this: var BRepSweepTranslation; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Translation::operator new[]",
+    header: "BRepSweep_Translation.hxx".}
+proc `delete[]`*(this: var BRepSweepTranslation; theAddress: pointer) {.
+    importcpp: "BRepSweep_Translation::operator delete[]",
+    header: "BRepSweep_Translation.hxx".}
+proc `new`*(this: var BRepSweepTranslation; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepSweep_Translation::operator new",
+    header: "BRepSweep_Translation.hxx".}
+proc `delete`*(this: var BRepSweepTranslation; a2: pointer; a3: pointer) {.
+    importcpp: "BRepSweep_Translation::operator delete",
+    header: "BRepSweep_Translation.hxx".}
 proc constructBRepSweepTranslation*(s: TopoDS_Shape; n: SweepNumShape;
-                                   L: TopLocLocation; v: Vec; c: bool;
-                                   canonize: bool = true): BRepSweepTranslation {.
+                                   L: TopLocLocation; v: Vec; c: StandardBoolean;
+                                   canonize: StandardBoolean = true): BRepSweepTranslation {.
     constructor, importcpp: "BRepSweep_Translation(@)",
     header: "BRepSweep_Translation.hxx".}
 proc makeEmptyVertex*(this: var BRepSweepTranslation; aGenV: TopoDS_Shape;
@@ -112,44 +90,19 @@ proc directSolid*(this: var BRepSweepTranslation; aGenS: TopoDS_Shape;
     importcpp: "DirectSolid", header: "BRepSweep_Translation.hxx".}
 proc gGDShapeIsToAdd*(this: BRepSweepTranslation; aNewShape: TopoDS_Shape;
                      aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                     aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+                     aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "GGDShapeIsToAdd", header: "BRepSweep_Translation.hxx".}
 proc gDDShapeIsToAdd*(this: BRepSweepTranslation; aNewShape: TopoDS_Shape;
                      aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                     aDirS: SweepNumShape; aSubDirS: SweepNumShape): bool {.
+                     aDirS: SweepNumShape; aSubDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "GDDShapeIsToAdd", header: "BRepSweep_Translation.hxx".}
 proc separatedWires*(this: BRepSweepTranslation; aNewShape: TopoDS_Shape;
                     aNewSubShape: TopoDS_Shape; aGenS: TopoDS_Shape;
-                    aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+                    aSubGenS: TopoDS_Shape; aDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "SeparatedWires", header: "BRepSweep_Translation.hxx".}
-proc hasShape*(this: BRepSweepTranslation; aGenS: TopoDS_Shape; aDirS: SweepNumShape): bool {.
+proc hasShape*(this: BRepSweepTranslation; aGenS: TopoDS_Shape; aDirS: SweepNumShape): StandardBoolean {.
     noSideEffect, importcpp: "HasShape", header: "BRepSweep_Translation.hxx".}
-proc isInvariant*(this: BRepSweepTranslation; aGenS: TopoDS_Shape): bool {.
+proc isInvariant*(this: BRepSweepTranslation; aGenS: TopoDS_Shape): StandardBoolean {.
     noSideEffect, importcpp: "IsInvariant", header: "BRepSweep_Translation.hxx".}
 proc vec*(this: BRepSweepTranslation): Vec {.noSideEffect, importcpp: "Vec",
     header: "BRepSweep_Translation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -18,14 +18,21 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 type
-  BRepFeatGluer* {.importcpp: "BRepFeat_Gluer", header: "BRepFeat_Gluer.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                                  ## !
-                                                                                                                  ## Initializes
-                                                                                                                  ## an
-                                                                                                                  ## empty
-                                                                                                                  ## constructor
+  BRepFeatGluer* {.importcpp: "BRepFeat_Gluer", header: "BRepFeat_Gluer.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepFeatGluer; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_Gluer::operator new", header: "BRepFeat_Gluer.hxx".}
+proc `delete`*(this: var BRepFeatGluer; theAddress: pointer) {.
+    importcpp: "BRepFeat_Gluer::operator delete", header: "BRepFeat_Gluer.hxx".}
+proc `new[]`*(this: var BRepFeatGluer; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_Gluer::operator new[]", header: "BRepFeat_Gluer.hxx".}
+proc `delete[]`*(this: var BRepFeatGluer; theAddress: pointer) {.
+    importcpp: "BRepFeat_Gluer::operator delete[]", header: "BRepFeat_Gluer.hxx".}
+proc `new`*(this: var BRepFeatGluer; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFeat_Gluer::operator new", header: "BRepFeat_Gluer.hxx".}
+proc `delete`*(this: var BRepFeatGluer; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFeat_Gluer::operator delete", header: "BRepFeat_Gluer.hxx".}
 proc constructBRepFeatGluer*(): BRepFeatGluer {.constructor,
     importcpp: "BRepFeat_Gluer(@)", header: "BRepFeat_Gluer.hxx".}
 proc constructBRepFeatGluer*(snew: TopoDS_Shape; sbase: TopoDS_Shape): BRepFeatGluer {.
@@ -44,32 +51,7 @@ proc gluedShape*(this: BRepFeatGluer): TopoDS_Shape {.noSideEffect,
     importcpp: "GluedShape", header: "BRepFeat_Gluer.hxx".}
 proc build*(this: var BRepFeatGluer) {.importcpp: "Build",
                                    header: "BRepFeat_Gluer.hxx".}
-proc isDeleted*(this: var BRepFeatGluer; f: TopoDS_Shape): bool {.
+proc isDeleted*(this: var BRepFeatGluer; f: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsDeleted", header: "BRepFeat_Gluer.hxx".}
 proc modified*(this: var BRepFeatGluer; f: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepFeat_Gluer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

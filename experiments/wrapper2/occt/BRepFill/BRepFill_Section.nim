@@ -22,12 +22,26 @@ type
                     bycopy.} = object
 
 
+proc `new`*(this: var BRepFillSection; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_Section::operator new", header: "BRepFill_Section.hxx".}
+proc `delete`*(this: var BRepFillSection; theAddress: pointer) {.
+    importcpp: "BRepFill_Section::operator delete", header: "BRepFill_Section.hxx".}
+proc `new[]`*(this: var BRepFillSection; theSize: csize_t): pointer {.
+    importcpp: "BRepFill_Section::operator new[]", header: "BRepFill_Section.hxx".}
+proc `delete[]`*(this: var BRepFillSection; theAddress: pointer) {.
+    importcpp: "BRepFill_Section::operator delete[]",
+    header: "BRepFill_Section.hxx".}
+proc `new`*(this: var BRepFillSection; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFill_Section::operator new", header: "BRepFill_Section.hxx".}
+proc `delete`*(this: var BRepFillSection; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFill_Section::operator delete", header: "BRepFill_Section.hxx".}
 proc constructBRepFillSection*(): BRepFillSection {.constructor,
     importcpp: "BRepFill_Section(@)", header: "BRepFill_Section.hxx".}
 proc constructBRepFillSection*(profile: TopoDS_Shape; v: TopoDS_Vertex;
-                              withContact: bool; withCorrection: bool): BRepFillSection {.
+                              withContact: StandardBoolean;
+                              withCorrection: StandardBoolean): BRepFillSection {.
     constructor, importcpp: "BRepFill_Section(@)", header: "BRepFill_Section.hxx".}
-proc set*(this: var BRepFillSection; isLaw: bool) {.importcpp: "Set",
+proc set*(this: var BRepFillSection; isLaw: StandardBoolean) {.importcpp: "Set",
     header: "BRepFill_Section.hxx".}
 proc originalShape*(this: BRepFillSection): TopoDS_Shape {.noSideEffect,
     importcpp: "OriginalShape", header: "BRepFill_Section.hxx".}
@@ -37,36 +51,11 @@ proc vertex*(this: BRepFillSection): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepFill_Section.hxx".}
 proc modifiedShape*(this: BRepFillSection; theShape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape", header: "BRepFill_Section.hxx".}
-proc isLaw*(this: BRepFillSection): bool {.noSideEffect, importcpp: "IsLaw",
-                                       header: "BRepFill_Section.hxx".}
-proc isPunctual*(this: BRepFillSection): bool {.noSideEffect,
+proc isLaw*(this: BRepFillSection): StandardBoolean {.noSideEffect,
+    importcpp: "IsLaw", header: "BRepFill_Section.hxx".}
+proc isPunctual*(this: BRepFillSection): StandardBoolean {.noSideEffect,
     importcpp: "IsPunctual", header: "BRepFill_Section.hxx".}
-proc withContact*(this: BRepFillSection): bool {.noSideEffect,
+proc withContact*(this: BRepFillSection): StandardBoolean {.noSideEffect,
     importcpp: "WithContact", header: "BRepFill_Section.hxx".}
-proc withCorrection*(this: BRepFillSection): bool {.noSideEffect,
+proc withCorrection*(this: BRepFillSection): StandardBoolean {.noSideEffect,
     importcpp: "WithCorrection", header: "BRepFill_Section.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

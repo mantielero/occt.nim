@@ -16,8 +16,8 @@
 
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 ## ! This class compute elemenary offset surface.
 ## ! Evaluate the offset generated :
 ## ! 1 - from a face.
@@ -29,53 +29,77 @@ type
                      header: "BRepOffset_Offset.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepOffsetOffset; theSize: csize_t): pointer {.
+    importcpp: "BRepOffset_Offset::operator new", header: "BRepOffset_Offset.hxx".}
+proc `delete`*(this: var BRepOffsetOffset; theAddress: pointer) {.
+    importcpp: "BRepOffset_Offset::operator delete",
+    header: "BRepOffset_Offset.hxx".}
+proc `new[]`*(this: var BRepOffsetOffset; theSize: csize_t): pointer {.
+    importcpp: "BRepOffset_Offset::operator new[]",
+    header: "BRepOffset_Offset.hxx".}
+proc `delete[]`*(this: var BRepOffsetOffset; theAddress: pointer) {.
+    importcpp: "BRepOffset_Offset::operator delete[]",
+    header: "BRepOffset_Offset.hxx".}
+proc `new`*(this: var BRepOffsetOffset; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffset_Offset::operator new", header: "BRepOffset_Offset.hxx".}
+proc `delete`*(this: var BRepOffsetOffset; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffset_Offset::operator delete",
+    header: "BRepOffset_Offset.hxx".}
 proc constructBRepOffsetOffset*(): BRepOffsetOffset {.constructor,
     importcpp: "BRepOffset_Offset(@)", header: "BRepOffset_Offset.hxx".}
-proc constructBRepOffsetOffset*(face: TopoDS_Face; offset: cfloat;
-                               offsetOutside: bool = true;
+proc constructBRepOffsetOffset*(face: TopoDS_Face; offset: StandardReal;
+                               offsetOutside: StandardBoolean = true;
                                joinType: GeomAbsJoinType = geomAbsArc): BRepOffsetOffset {.
     constructor, importcpp: "BRepOffset_Offset(@)", header: "BRepOffset_Offset.hxx".}
-proc constructBRepOffsetOffset*(face: TopoDS_Face; offset: cfloat;
+proc constructBRepOffsetOffset*(face: TopoDS_Face; offset: StandardReal;
                                created: TopToolsDataMapOfShapeShape;
-                               offsetOutside: bool = true;
+                               offsetOutside: StandardBoolean = true;
                                joinType: GeomAbsJoinType = geomAbsArc): BRepOffsetOffset {.
     constructor, importcpp: "BRepOffset_Offset(@)", header: "BRepOffset_Offset.hxx".}
 proc constructBRepOffsetOffset*(path: TopoDS_Edge; edge1: TopoDS_Edge;
-                               edge2: TopoDS_Edge; offset: cfloat;
-                               polynomial: bool = false; tol: cfloat = 1.0e-4;
+                               edge2: TopoDS_Edge; offset: StandardReal;
+                               polynomial: StandardBoolean = false;
+                               tol: StandardReal = 1.0e-4;
                                conti: GeomAbsShape = geomAbsC1): BRepOffsetOffset {.
     constructor, importcpp: "BRepOffset_Offset(@)", header: "BRepOffset_Offset.hxx".}
 proc constructBRepOffsetOffset*(path: TopoDS_Edge; edge1: TopoDS_Edge;
-                               edge2: TopoDS_Edge; offset: cfloat;
+                               edge2: TopoDS_Edge; offset: StandardReal;
                                firstEdge: TopoDS_Edge; lastEdge: TopoDS_Edge;
-                               polynomial: bool = false; tol: cfloat = 1.0e-4;
+                               polynomial: StandardBoolean = false;
+                               tol: StandardReal = 1.0e-4;
                                conti: GeomAbsShape = geomAbsC1): BRepOffsetOffset {.
     constructor, importcpp: "BRepOffset_Offset(@)", header: "BRepOffset_Offset.hxx".}
 proc constructBRepOffsetOffset*(vertex: TopoDS_Vertex; lEdge: TopToolsListOfShape;
-                               offset: cfloat; polynomial: bool = false;
-                               tol: cfloat = 1.0e-4; conti: GeomAbsShape = geomAbsC1): BRepOffsetOffset {.
+                               offset: StandardReal;
+                               polynomial: StandardBoolean = false;
+                               tol: StandardReal = 1.0e-4;
+                               conti: GeomAbsShape = geomAbsC1): BRepOffsetOffset {.
     constructor, importcpp: "BRepOffset_Offset(@)", header: "BRepOffset_Offset.hxx".}
-proc init*(this: var BRepOffsetOffset; face: TopoDS_Face; offset: cfloat;
-          offsetOutside: bool = true; joinType: GeomAbsJoinType = geomAbsArc) {.
-    importcpp: "Init", header: "BRepOffset_Offset.hxx".}
-proc init*(this: var BRepOffsetOffset; face: TopoDS_Face; offset: cfloat;
-          created: TopToolsDataMapOfShapeShape; offsetOutside: bool = true;
+proc init*(this: var BRepOffsetOffset; face: TopoDS_Face; offset: StandardReal;
+          offsetOutside: StandardBoolean = true;
+          joinType: GeomAbsJoinType = geomAbsArc) {.importcpp: "Init",
+    header: "BRepOffset_Offset.hxx".}
+proc init*(this: var BRepOffsetOffset; face: TopoDS_Face; offset: StandardReal;
+          created: TopToolsDataMapOfShapeShape;
+          offsetOutside: StandardBoolean = true;
           joinType: GeomAbsJoinType = geomAbsArc) {.importcpp: "Init",
     header: "BRepOffset_Offset.hxx".}
 proc init*(this: var BRepOffsetOffset; path: TopoDS_Edge; edge1: TopoDS_Edge;
-          edge2: TopoDS_Edge; offset: cfloat; polynomial: bool = false;
-          tol: cfloat = 1.0e-4; conti: GeomAbsShape = geomAbsC1) {.importcpp: "Init",
-    header: "BRepOffset_Offset.hxx".}
-proc init*(this: var BRepOffsetOffset; path: TopoDS_Edge; edge1: TopoDS_Edge;
-          edge2: TopoDS_Edge; offset: cfloat; firstEdge: TopoDS_Edge;
-          lastEdge: TopoDS_Edge; polynomial: bool = false; tol: cfloat = 1.0e-4;
+          edge2: TopoDS_Edge; offset: StandardReal;
+          polynomial: StandardBoolean = false; tol: StandardReal = 1.0e-4;
           conti: GeomAbsShape = geomAbsC1) {.importcpp: "Init",
     header: "BRepOffset_Offset.hxx".}
+proc init*(this: var BRepOffsetOffset; path: TopoDS_Edge; edge1: TopoDS_Edge;
+          edge2: TopoDS_Edge; offset: StandardReal; firstEdge: TopoDS_Edge;
+          lastEdge: TopoDS_Edge; polynomial: StandardBoolean = false;
+          tol: StandardReal = 1.0e-4; conti: GeomAbsShape = geomAbsC1) {.
+    importcpp: "Init", header: "BRepOffset_Offset.hxx".}
 proc init*(this: var BRepOffsetOffset; vertex: TopoDS_Vertex;
-          lEdge: TopToolsListOfShape; offset: cfloat; polynomial: bool = false;
-          tol: cfloat = 1.0e-4; conti: GeomAbsShape = geomAbsC1) {.importcpp: "Init",
+          lEdge: TopToolsListOfShape; offset: StandardReal;
+          polynomial: StandardBoolean = false; tol: StandardReal = 1.0e-4;
+          conti: GeomAbsShape = geomAbsC1) {.importcpp: "Init",
     header: "BRepOffset_Offset.hxx".}
-proc init*(this: var BRepOffsetOffset; edge: TopoDS_Edge; offset: cfloat) {.
+proc init*(this: var BRepOffsetOffset; edge: TopoDS_Edge; offset: StandardReal) {.
     importcpp: "Init", header: "BRepOffset_Offset.hxx".}
 proc initialShape*(this: BRepOffsetOffset): TopoDS_Shape {.noSideEffect,
     importcpp: "InitialShape", header: "BRepOffset_Offset.hxx".}
@@ -85,28 +109,3 @@ proc generated*(this: BRepOffsetOffset; shape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "Generated", header: "BRepOffset_Offset.hxx".}
 proc status*(this: BRepOffsetOffset): BRepOffsetStatus {.noSideEffect,
     importcpp: "Status", header: "BRepOffset_Offset.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

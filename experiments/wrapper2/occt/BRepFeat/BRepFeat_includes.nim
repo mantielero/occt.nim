@@ -18,29 +18,3 @@ include BRepFeat_RibSlot
 include BRepFeat_SplitShape
 include BRepFeat_Status
 include BRepFeat_StatusError
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

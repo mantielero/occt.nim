@@ -22,106 +22,46 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Shell"
 type
   BRepOffsetAPI_MakeDraft* {.importcpp: "BRepOffsetAPI_MakeDraft",
-                            header: "BRepOffsetAPI_MakeDraft.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                          ## !
-                                                                                                          ## Constructs
-                                                                                                          ## the
-                                                                                                          ## draft
-                                                                                                          ## surface
-                                                                                                          ## object
-                                                                                                          ## defined
-                                                                                                          ## by
-                                                                                                          ## the
-                                                                                                          ## shape
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Shape,
-                                                                                                          ## the
-                                                                                                          ## direction
-                                                                                                          ## Dir,
-                                                                                                          ## and
-                                                                                                          ## the
-                                                                                                          ## angle
-                                                                                                          ## Angle.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Shape
-                                                                                                          ## must
-                                                                                                          ## be
-                                                                                                          ## a
-                                                                                                          ## TopoDS_Wire,
-                                                                                                          ## Topo_DS_Face
-                                                                                                          ## or
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## TopoDS_Shell
-                                                                                                          ## with
-                                                                                                          ## free
-                                                                                                          ## boundaries.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Exceptions
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Standard_NotDone
-                                                                                                          ## if
-                                                                                                          ## Shape
-                                                                                                          ## is
-                                                                                                          ## not
-                                                                                                          ## a
-                                                                                                          ## TopoDS_Wire,
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Topo_DS_Face
-                                                                                                          ## or
-                                                                                                          ## TopoDS_Shell
-                                                                                                          ## with
-                                                                                                          ## free
-                                                                                                          ## boundaries.
+                            header: "BRepOffsetAPI_MakeDraft.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
-proc constructBRepOffsetAPI_MakeDraft*(shape: TopoDS_Shape; dir: Dir; angle: cfloat): BRepOffsetAPI_MakeDraft {.
+proc `new`*(this: var BRepOffsetAPI_MakeDraft; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakeDraft::operator new",
+    header: "BRepOffsetAPI_MakeDraft.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakeDraft; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeDraft::operator delete",
+    header: "BRepOffsetAPI_MakeDraft.hxx".}
+proc `new[]`*(this: var BRepOffsetAPI_MakeDraft; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakeDraft::operator new[]",
+    header: "BRepOffsetAPI_MakeDraft.hxx".}
+proc `delete[]`*(this: var BRepOffsetAPI_MakeDraft; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeDraft::operator delete[]",
+    header: "BRepOffsetAPI_MakeDraft.hxx".}
+proc `new`*(this: var BRepOffsetAPI_MakeDraft; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffsetAPI_MakeDraft::operator new",
+    header: "BRepOffsetAPI_MakeDraft.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakeDraft; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffsetAPI_MakeDraft::operator delete",
+    header: "BRepOffsetAPI_MakeDraft.hxx".}
+proc constructBRepOffsetAPI_MakeDraft*(shape: TopoDS_Shape; dir: Dir;
+                                      angle: StandardReal): BRepOffsetAPI_MakeDraft {.
     constructor, importcpp: "BRepOffsetAPI_MakeDraft(@)",
     header: "BRepOffsetAPI_MakeDraft.hxx".}
 proc setOptions*(this: var BRepOffsetAPI_MakeDraft; style: BRepBuilderAPI_TransitionMode = bRepBuilderAPI_RightCorner;
-                angleMin: cfloat = 0.01; angleMax: cfloat = 3.0) {.
+                angleMin: StandardReal = 0.01; angleMax: StandardReal = 3.0) {.
     importcpp: "SetOptions", header: "BRepOffsetAPI_MakeDraft.hxx".}
-proc setDraft*(this: var BRepOffsetAPI_MakeDraft; isInternal: bool = false) {.
-    importcpp: "SetDraft", header: "BRepOffsetAPI_MakeDraft.hxx".}
-proc perform*(this: var BRepOffsetAPI_MakeDraft; lengthMax: cfloat) {.
+proc setDraft*(this: var BRepOffsetAPI_MakeDraft;
+              isInternal: StandardBoolean = false) {.importcpp: "SetDraft",
+    header: "BRepOffsetAPI_MakeDraft.hxx".}
+proc perform*(this: var BRepOffsetAPI_MakeDraft; lengthMax: StandardReal) {.
     importcpp: "Perform", header: "BRepOffsetAPI_MakeDraft.hxx".}
 proc perform*(this: var BRepOffsetAPI_MakeDraft; surface: Handle[GeomSurface];
-             keepInsideSurface: bool = true) {.importcpp: "Perform",
+             keepInsideSurface: StandardBoolean = true) {.importcpp: "Perform",
     header: "BRepOffsetAPI_MakeDraft.hxx".}
 proc perform*(this: var BRepOffsetAPI_MakeDraft; stopShape: TopoDS_Shape;
-             keepOutSide: bool = true) {.importcpp: "Perform",
-                                     header: "BRepOffsetAPI_MakeDraft.hxx".}
+             keepOutSide: StandardBoolean = true) {.importcpp: "Perform",
+    header: "BRepOffsetAPI_MakeDraft.hxx".}
 proc shell*(this: BRepOffsetAPI_MakeDraft): TopoDS_Shell {.noSideEffect,
     importcpp: "Shell", header: "BRepOffsetAPI_MakeDraft.hxx".}
 proc generated*(this: var BRepOffsetAPI_MakeDraft; s: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_MakeDraft.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

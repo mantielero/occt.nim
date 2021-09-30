@@ -22,51 +22,37 @@ discard "forward decl of ChFi3d_ChBuilder"
 discard "forward decl of ChFi3d_FilBuilder"
 discard "forward decl of ChFi3d_SearchSing"
 type
-  ChFi3d* {.importcpp: "ChFi3d", header: "ChFi3d.hxx", bycopy.} = object ## ! Defines the type of concavity in the edge of connection of two faces
+  ChFi3d* {.importcpp: "ChFi3d", header: "ChFi3d.hxx", bycopy.} = object
 
 
-proc defineConnectType*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face;
-                       sinTol: cfloat; correctPoint: bool): ChFiDS_TypeOfConcavity {.
-    importcpp: "ChFi3d::DefineConnectType(@)", header: "ChFi3d.hxx".}
-proc isTangentFaces*(theEdge: TopoDS_Edge; theFace1: TopoDS_Face;
-                    theFace2: TopoDS_Face; order: GeomAbsShape = geomAbsG1): bool {.
+proc `new`*(this: var ChFi3d; theSize: csize_t): pointer {.
+    importcpp: "ChFi3d::operator new", header: "ChFi3d.hxx".}
+proc `delete`*(this: var ChFi3d; theAddress: pointer) {.
+    importcpp: "ChFi3d::operator delete", header: "ChFi3d.hxx".}
+proc `new[]`*(this: var ChFi3d; theSize: csize_t): pointer {.
+    importcpp: "ChFi3d::operator new[]", header: "ChFi3d.hxx".}
+proc `delete[]`*(this: var ChFi3d; theAddress: pointer) {.
+    importcpp: "ChFi3d::operator delete[]", header: "ChFi3d.hxx".}
+proc `new`*(this: var ChFi3d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "ChFi3d::operator new", header: "ChFi3d.hxx".}
+proc `delete`*(this: var ChFi3d; a2: pointer; a3: pointer) {.
+    importcpp: "ChFi3d::operator delete", header: "ChFi3d.hxx".}
+#[ proc defineConnectType*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face;
+                       sinTol: StandardReal; correctPoint: StandardBoolean): ChFiDS_TypeOfConcavity {.
+    importcpp: "ChFi3d::DefineConnectType(@)", header: "ChFi3d.hxx".} ]#
+#[ proc isTangentFaces*(theEdge: TopoDS_Edge; theFace1: TopoDS_Face;
+                    theFace2: TopoDS_Face; order: GeomAbsShape = geomAbsG1): StandardBoolean {.
     importcpp: "ChFi3d::IsTangentFaces(@)", header: "ChFi3d.hxx".}
 proc concaveSide*(s1: BRepAdaptorSurface; s2: BRepAdaptorSurface; e: TopoDS_Edge;
-                 or1: var TopAbsOrientation; or2: var TopAbsOrientation): cint {.
+                 or1: var TopAbsOrientation; or2: var TopAbsOrientation): int {.
     importcpp: "ChFi3d::ConcaveSide(@)", header: "ChFi3d.hxx".}
 proc nextSide*(or1: var TopAbsOrientation; or2: var TopAbsOrientation;
-              orSave1: TopAbsOrientation; orSave2: TopAbsOrientation;
-              choixSauv: cint): cint {.importcpp: "ChFi3d::NextSide(@)",
-                                    header: "ChFi3d.hxx".}
+              orSave1: TopAbsOrientation; orSave2: TopAbsOrientation; choixSauv: int): int {.
+    importcpp: "ChFi3d::NextSide(@)", header: "ChFi3d.hxx".}
 proc nextSide*(`or`: var TopAbsOrientation; orSave: TopAbsOrientation;
               orFace: TopAbsOrientation) {.importcpp: "ChFi3d::NextSide(@)",
     header: "ChFi3d.hxx".}
 proc sameSide*(`or`: TopAbsOrientation; orSave1: TopAbsOrientation;
               orSave2: TopAbsOrientation; orFace1: TopAbsOrientation;
-              orFace2: TopAbsOrientation): bool {.importcpp: "ChFi3d::SameSide(@)",
-    header: "ChFi3d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              orFace2: TopAbsOrientation): StandardBoolean {.
+    importcpp: "ChFi3d::SameSide(@)", header: "ChFi3d.hxx".} ]#

@@ -21,44 +21,37 @@ type
                                  bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildBlockIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_BlockIterator::operator new",
+    header: "TopOpeBRepBuild_BlockIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildBlockIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_BlockIterator::operator delete",
+    header: "TopOpeBRepBuild_BlockIterator.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildBlockIterator; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_BlockIterator::operator new[]",
+    header: "TopOpeBRepBuild_BlockIterator.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildBlockIterator; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_BlockIterator::operator delete[]",
+    header: "TopOpeBRepBuild_BlockIterator.hxx".}
+proc `new`*(this: var TopOpeBRepBuildBlockIterator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_BlockIterator::operator new",
+    header: "TopOpeBRepBuild_BlockIterator.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildBlockIterator; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_BlockIterator::operator delete",
+    header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc constructTopOpeBRepBuildBlockIterator*(): TopOpeBRepBuildBlockIterator {.
     constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc constructTopOpeBRepBuildBlockIterator*(lower: cint; upper: cint): TopOpeBRepBuildBlockIterator {.
+proc constructTopOpeBRepBuildBlockIterator*(lower: int; upper: int): TopOpeBRepBuildBlockIterator {.
     constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc initialize*(this: var TopOpeBRepBuildBlockIterator) {.importcpp: "Initialize",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc more*(this: TopOpeBRepBuildBlockIterator): bool {.noSideEffect,
+proc more*(this: TopOpeBRepBuildBlockIterator): StandardBoolean {.noSideEffect,
     importcpp: "More", header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc next*(this: var TopOpeBRepBuildBlockIterator) {.importcpp: "Next",
     header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc value*(this: TopOpeBRepBuildBlockIterator): cint {.noSideEffect,
+proc value*(this: TopOpeBRepBuildBlockIterator): int {.noSideEffect,
     importcpp: "Value", header: "TopOpeBRepBuild_BlockIterator.hxx".}
-proc extent*(this: TopOpeBRepBuildBlockIterator): cint {.noSideEffect,
+proc extent*(this: TopOpeBRepBuildBlockIterator): int {.noSideEffect,
     importcpp: "Extent", header: "TopOpeBRepBuild_BlockIterator.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

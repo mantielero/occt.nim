@@ -32,7 +32,7 @@ proc minimum*(this: var BRepCheckVertex) {.importcpp: "Minimum",
                                        header: "BRepCheck_Vertex.hxx".}
 proc blind*(this: var BRepCheckVertex) {.importcpp: "Blind",
                                      header: "BRepCheck_Vertex.hxx".}
-proc tolerance*(this: var BRepCheckVertex): cfloat {.importcpp: "Tolerance",
+proc tolerance*(this: var BRepCheckVertex): StandardReal {.importcpp: "Tolerance",
     header: "BRepCheck_Vertex.hxx".}
 type
   BRepCheckVertexbaseType* = BRepCheckResult
@@ -44,28 +44,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Vertex.hxx".}
 proc dynamicType*(this: BRepCheckVertex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Vertex.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

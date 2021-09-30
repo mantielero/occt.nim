@@ -33,18 +33,20 @@ proc minimum*(this: var BRepCheckWire) {.importcpp: "Minimum",
                                      header: "BRepCheck_Wire.hxx".}
 proc blind*(this: var BRepCheckWire) {.importcpp: "Blind",
                                    header: "BRepCheck_Wire.hxx".}
-proc closed*(this: var BRepCheckWire; update: bool = false): BRepCheckStatus {.
+proc closed*(this: var BRepCheckWire; update: StandardBoolean = false): BRepCheckStatus {.
     importcpp: "Closed", header: "BRepCheck_Wire.hxx".}
-proc closed2d*(this: var BRepCheckWire; f: TopoDS_Face; update: bool = false): BRepCheckStatus {.
+proc closed2d*(this: var BRepCheckWire; f: TopoDS_Face;
+              update: StandardBoolean = false): BRepCheckStatus {.
     importcpp: "Closed2d", header: "BRepCheck_Wire.hxx".}
-proc orientation*(this: var BRepCheckWire; f: TopoDS_Face; update: bool = false): BRepCheckStatus {.
+proc orientation*(this: var BRepCheckWire; f: TopoDS_Face;
+                 update: StandardBoolean = false): BRepCheckStatus {.
     importcpp: "Orientation", header: "BRepCheck_Wire.hxx".}
 proc selfIntersect*(this: var BRepCheckWire; f: TopoDS_Face; e1: var TopoDS_Edge;
-                   e2: var TopoDS_Edge; update: bool = false): BRepCheckStatus {.
+                   e2: var TopoDS_Edge; update: StandardBoolean = false): BRepCheckStatus {.
     importcpp: "SelfIntersect", header: "BRepCheck_Wire.hxx".}
-proc geometricControls*(this: BRepCheckWire): bool {.noSideEffect,
+proc geometricControls*(this: BRepCheckWire): StandardBoolean {.noSideEffect,
     importcpp: "GeometricControls", header: "BRepCheck_Wire.hxx".}
-proc geometricControls*(this: var BRepCheckWire; b: bool) {.
+proc geometricControls*(this: var BRepCheckWire; b: StandardBoolean) {.
     importcpp: "GeometricControls", header: "BRepCheck_Wire.hxx".}
 proc setStatus*(this: var BRepCheckWire; theStatus: BRepCheckStatus) {.
     importcpp: "SetStatus", header: "BRepCheck_Wire.hxx".}
@@ -58,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Wire.hxx".}
 proc dynamicType*(this: BRepCheckWire): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Wire.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

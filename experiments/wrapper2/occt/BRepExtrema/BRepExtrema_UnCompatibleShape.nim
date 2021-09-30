@@ -14,57 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BRepExtrema_UnCompatibleShape_HeaderFile [NewLine] # _BRepExtrema_UnCompatibleShape_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class BRepExtrema_UnCompatibleShape ;
-## Error: expected ';'!!!
+discard "forward decl of BRepExtrema_UnCompatibleShape"
+discard "forward decl of BRepExtrema_UnCompatibleShape"
+type
+  HandleC1C1* = Handle[BRepExtremaUnCompatibleShape]
 
-## !!!Ignored construct:  DEFINE_STANDARD_HANDLE ( BRepExtrema_UnCompatibleShape , Standard_DomainError ) # ! defined No_Exception && ! defined No_BRepExtrema_UnCompatibleShape [NewLine] # BRepExtrema_UnCompatibleShape_Raise_if ( CONDITION , MESSAGE ) if ( CONDITION ) throw BRepExtrema_UnCompatibleShape ( MESSAGE ) ;
-## Error: expected ';'!!!
+when not defined(noException) and not defined(noBRepExtremaUnCompatibleShape):
+  template bRepExtremaUnCompatibleShapeRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc bRepExtremaUnCompatibleShape*(a1: Message): Throw {.
+          importcpp: "BRepExtrema_UnCompatibleShape(@)",
+          header: "BRepExtrema_UnCompatibleShape.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # BRepExtrema_UnCompatibleShape_Raise_if ( CONDITION , MESSAGE ) [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( BRepExtrema_UnCompatibleShape , Standard_DomainError ) #  _BRepExtrema_UnCompatibleShape_HeaderFile
-## Error: did not expect [NewLine]!!!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+else:
+  discard
+type
+  BRepExtremaUnCompatibleShape* {.importcpp: "BRepExtrema_UnCompatibleShape",
+                                 header: "BRepExtrema_UnCompatibleShape.hxx",
+                                 bycopy.} = object of StandardDomainError
 

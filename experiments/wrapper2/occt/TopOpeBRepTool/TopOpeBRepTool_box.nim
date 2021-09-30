@@ -15,7 +15,7 @@
 ##  commercial license or contractual agreement.
 
 when defined(OCCT_DEBUG):
-  proc topOpeBRepToolGettraceBOX*(): bool {.
+  proc topOpeBRepToolGettraceBOX*(): StandardBoolean {.
       importcpp: "TopOpeBRepTool_GettraceBOX(@)", header: "TopOpeBRepTool_box.hxx".}
 proc fBOX_Prepare*() {.importcpp: "FBOX_Prepare(@)",
                      header: "TopOpeBRepTool_box.hxx".}
@@ -23,28 +23,3 @@ proc fBOX_GetHBoxTool*(): Handle[TopOpeBRepToolHBoxTool] {.
     importcpp: "FBOX_GetHBoxTool(@)", header: "TopOpeBRepTool_box.hxx".}
 proc fBOX_Box*(s: TopoDS_Shape): var BndBox {.importcpp: "FBOX_Box(@)",
     header: "TopOpeBRepTool_box.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

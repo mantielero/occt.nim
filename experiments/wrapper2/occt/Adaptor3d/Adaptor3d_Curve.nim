@@ -30,7 +30,7 @@ discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_OffsetCurve"
 type
   Adaptor3dCurve* {.importcpp: "Adaptor3d_Curve", header: "Adaptor3d_Curve.hxx",
-                   bycopy.} = object
+                   bycopy.} = object of RootObj
 
 
 proc firstParameter*(this: Adaptor3dCurve): cfloat {.noSideEffect,
@@ -41,8 +41,8 @@ proc continuity*(this: Adaptor3dCurve): GeomAbsShape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor3d_Curve.hxx".}
 proc nbIntervals*(this: Adaptor3dCurve; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbIntervals", header: "Adaptor3d_Curve.hxx".}
-proc intervals*(this: Adaptor3dCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "Intervals", header: "Adaptor3d_Curve.hxx".}
+#[ proc intervals*(this: Adaptor3dCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "Intervals", header: "Adaptor3d_Curve.hxx".} ]#
 proc trim*(this: Adaptor3dCurve; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHCurve] {.noSideEffect, importcpp: "Trim",
                       header: "Adaptor3d_Curve.hxx".}

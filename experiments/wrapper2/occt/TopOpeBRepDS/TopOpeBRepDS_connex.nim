@@ -16,7 +16,7 @@
 
 proc fDSCNX_EdgeConnexityShapeIndex*(e: TopoDS_Shape;
                                     hds: Handle[TopOpeBRepDS_HDataStructure];
-                                    si: cint): var TopToolsListOfShape {.
+                                    si: int): var TopToolsListOfShape {.
     importcpp: "FDSCNX_EdgeConnexityShapeIndex(@)",
     header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_EdgeConnexitySameShape*(e: TopoDS_Shape;
@@ -27,7 +27,7 @@ proc fDSCNX_Prepare*(s1: TopoDS_Shape; s2: TopoDS_Shape;
                     hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "FDSCNX_Prepare(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_HasConnexFace*(s: TopoDS_Shape;
-                          hds: Handle[TopOpeBRepDS_HDataStructure]): bool {.
+                          hds: Handle[TopOpeBRepDS_HDataStructure]): StandardBoolean {.
     importcpp: "FDSCNX_HasConnexFace(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_FaceEdgeConnexFaces*(f: TopoDS_Shape; e: TopoDS_Shape;
                                 hds: Handle[TopOpeBRepDS_HDataStructure];
@@ -35,32 +35,7 @@ proc fDSCNX_FaceEdgeConnexFaces*(f: TopoDS_Shape; e: TopoDS_Shape;
     importcpp: "FDSCNX_FaceEdgeConnexFaces(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_Dump*(hds: Handle[TopOpeBRepDS_HDataStructure]) {.
     importcpp: "FDSCNX_Dump(@)", header: "TopOpeBRepDS_connex.hxx".}
-proc fDSCNX_Dump*(hds: Handle[TopOpeBRepDS_HDataStructure]; i: cint) {.
+proc fDSCNX_Dump*(hds: Handle[TopOpeBRepDS_HDataStructure]; i: int) {.
     importcpp: "FDSCNX_Dump(@)", header: "TopOpeBRepDS_connex.hxx".}
-proc fDSCNX_DumpIndex*(hds: Handle[TopOpeBRepDS_HDataStructure]; i: cint) {.
+proc fDSCNX_DumpIndex*(hds: Handle[TopOpeBRepDS_HDataStructure]; i: int) {.
     importcpp: "FDSCNX_DumpIndex(@)", header: "TopOpeBRepDS_connex.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

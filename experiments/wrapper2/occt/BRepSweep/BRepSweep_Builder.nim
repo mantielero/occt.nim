@@ -18,9 +18,25 @@ discard "forward decl of BRep_Builder"
 discard "forward decl of TopoDS_Shape"
 type
   BRepSweepBuilder* {.importcpp: "BRepSweep_Builder",
-                     header: "BRepSweep_Builder.hxx", bycopy.} = object ## ! Creates a Builder.
+                     header: "BRepSweep_Builder.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepSweepBuilder; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Builder::operator new", header: "BRepSweep_Builder.hxx".}
+proc `delete`*(this: var BRepSweepBuilder; theAddress: pointer) {.
+    importcpp: "BRepSweep_Builder::operator delete",
+    header: "BRepSweep_Builder.hxx".}
+proc `new[]`*(this: var BRepSweepBuilder; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Builder::operator new[]",
+    header: "BRepSweep_Builder.hxx".}
+proc `delete[]`*(this: var BRepSweepBuilder; theAddress: pointer) {.
+    importcpp: "BRepSweep_Builder::operator delete[]",
+    header: "BRepSweep_Builder.hxx".}
+proc `new`*(this: var BRepSweepBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepSweep_Builder::operator new", header: "BRepSweep_Builder.hxx".}
+proc `delete`*(this: var BRepSweepBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "BRepSweep_Builder::operator delete",
+    header: "BRepSweep_Builder.hxx".}
 proc constructBRepSweepBuilder*(aBuilder: BRepBuilder): BRepSweepBuilder {.
     constructor, importcpp: "BRepSweep_Builder(@)", header: "BRepSweep_Builder.hxx".}
 proc builder*(this: BRepSweepBuilder): BRepBuilder {.noSideEffect,
@@ -40,28 +56,3 @@ proc add*(this: BRepSweepBuilder; aShape1: var TopoDS_Shape; aShape2: TopoDS_Sha
                                     header: "BRepSweep_Builder.hxx".}
 proc add*(this: BRepSweepBuilder; aShape1: var TopoDS_Shape; aShape2: TopoDS_Shape) {.
     noSideEffect, importcpp: "Add", header: "BRepSweep_Builder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

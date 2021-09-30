@@ -25,6 +25,24 @@ type
                                header: "TopOpeBRep_ShapeIntersector.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepShapeIntersector; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_ShapeIntersector::operator new",
+    header: "TopOpeBRep_ShapeIntersector.hxx".}
+proc `delete`*(this: var TopOpeBRepShapeIntersector; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_ShapeIntersector::operator delete",
+    header: "TopOpeBRep_ShapeIntersector.hxx".}
+proc `new[]`*(this: var TopOpeBRepShapeIntersector; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRep_ShapeIntersector::operator new[]",
+    header: "TopOpeBRep_ShapeIntersector.hxx".}
+proc `delete[]`*(this: var TopOpeBRepShapeIntersector; theAddress: pointer) {.
+    importcpp: "TopOpeBRep_ShapeIntersector::operator delete[]",
+    header: "TopOpeBRep_ShapeIntersector.hxx".}
+proc `new`*(this: var TopOpeBRepShapeIntersector; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRep_ShapeIntersector::operator new",
+    header: "TopOpeBRep_ShapeIntersector.hxx".}
+proc `delete`*(this: var TopOpeBRepShapeIntersector; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRep_ShapeIntersector::operator delete",
+    header: "TopOpeBRep_ShapeIntersector.hxx".}
 proc constructTopOpeBRepShapeIntersector*(): TopOpeBRepShapeIntersector {.
     constructor, importcpp: "TopOpeBRep_ShapeIntersector(@)",
     header: "TopOpeBRep_ShapeIntersector.hxx".}
@@ -33,10 +51,11 @@ proc initIntersection*(this: var TopOpeBRepShapeIntersector; s1: TopoDS_Shape;
 proc initIntersection*(this: var TopOpeBRepShapeIntersector; s1: TopoDS_Shape;
                       s2: TopoDS_Shape; f1: TopoDS_Face; f2: TopoDS_Face) {.
     importcpp: "InitIntersection", header: "TopOpeBRep_ShapeIntersector.hxx".}
-proc shape*(this: TopOpeBRepShapeIntersector; index: cint): TopoDS_Shape {.
+proc shape*(this: TopOpeBRepShapeIntersector; index: int): TopoDS_Shape {.
     noSideEffect, importcpp: "Shape", header: "TopOpeBRep_ShapeIntersector.hxx".}
-proc moreIntersection*(this: TopOpeBRepShapeIntersector): bool {.noSideEffect,
-    importcpp: "MoreIntersection", header: "TopOpeBRep_ShapeIntersector.hxx".}
+proc moreIntersection*(this: TopOpeBRepShapeIntersector): StandardBoolean {.
+    noSideEffect, importcpp: "MoreIntersection",
+    header: "TopOpeBRep_ShapeIntersector.hxx".}
 proc nextIntersection*(this: var TopOpeBRepShapeIntersector) {.
     importcpp: "NextIntersection", header: "TopOpeBRep_ShapeIntersector.hxx".}
 proc changeFacesIntersector*(this: var TopOpeBRepShapeIntersector): var TopOpeBRepFacesIntersector {.
@@ -46,41 +65,16 @@ proc changeEdgesIntersector*(this: var TopOpeBRepShapeIntersector): var TopOpeBR
 proc changeFaceEdgeIntersector*(this: var TopOpeBRepShapeIntersector): var TopOpeBRepFaceEdgeIntersector {.
     importcpp: "ChangeFaceEdgeIntersector",
     header: "TopOpeBRep_ShapeIntersector.hxx".}
-proc currentGeomShape*(this: TopOpeBRepShapeIntersector; index: cint): TopoDS_Shape {.
+proc currentGeomShape*(this: TopOpeBRepShapeIntersector; index: int): TopoDS_Shape {.
     noSideEffect, importcpp: "CurrentGeomShape",
     header: "TopOpeBRep_ShapeIntersector.hxx".}
-proc getTolerances*(this: TopOpeBRepShapeIntersector; tol1: var cfloat;
-                   tol2: var cfloat) {.noSideEffect, importcpp: "GetTolerances",
-                                    header: "TopOpeBRep_ShapeIntersector.hxx".}
-proc dumpCurrent*(this: TopOpeBRepShapeIntersector; k: cint) {.noSideEffect,
+proc getTolerances*(this: TopOpeBRepShapeIntersector; tol1: var StandardReal;
+                   tol2: var StandardReal) {.noSideEffect,
+    importcpp: "GetTolerances", header: "TopOpeBRep_ShapeIntersector.hxx".}
+proc dumpCurrent*(this: TopOpeBRepShapeIntersector; k: int) {.noSideEffect,
     importcpp: "DumpCurrent", header: "TopOpeBRep_ShapeIntersector.hxx".}
-proc index*(this: TopOpeBRepShapeIntersector; k: cint): cint {.noSideEffect,
+proc index*(this: TopOpeBRepShapeIntersector; k: int): int {.noSideEffect,
     importcpp: "Index", header: "TopOpeBRep_ShapeIntersector.hxx".}
 proc rejectedFaces*(this: var TopOpeBRepShapeIntersector; anObj: TopoDS_Shape;
                    aReference: TopoDS_Shape; aListOfShape: var TopToolsListOfShape) {.
     importcpp: "RejectedFaces", header: "TopOpeBRep_ShapeIntersector.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

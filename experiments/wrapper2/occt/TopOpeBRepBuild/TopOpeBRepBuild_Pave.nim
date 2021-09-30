@@ -55,14 +55,15 @@ type
                                                                                               ## vertex
 
 
-proc constructTopOpeBRepBuildPave*(v: TopoDS_Shape; p: cfloat; bound: bool): TopOpeBRepBuildPave {.
+proc constructTopOpeBRepBuildPave*(v: TopoDS_Shape; p: StandardReal;
+                                  bound: StandardBoolean): TopOpeBRepBuildPave {.
     constructor, importcpp: "TopOpeBRepBuild_Pave(@)",
     header: "TopOpeBRepBuild_Pave.hxx".}
-proc hasSameDomain*(this: var TopOpeBRepBuildPave; b: bool) {.
+proc hasSameDomain*(this: var TopOpeBRepBuildPave; b: StandardBoolean) {.
     importcpp: "HasSameDomain", header: "TopOpeBRepBuild_Pave.hxx".}
 proc sameDomain*(this: var TopOpeBRepBuildPave; vsd: TopoDS_Shape) {.
     importcpp: "SameDomain", header: "TopOpeBRepBuild_Pave.hxx".}
-proc hasSameDomain*(this: TopOpeBRepBuildPave): bool {.noSideEffect,
+proc hasSameDomain*(this: TopOpeBRepBuildPave): StandardBoolean {.noSideEffect,
     importcpp: "HasSameDomain", header: "TopOpeBRepBuild_Pave.hxx".}
 proc sameDomain*(this: TopOpeBRepBuildPave): TopoDS_Shape {.noSideEffect,
     importcpp: "SameDomain", header: "TopOpeBRepBuild_Pave.hxx".}
@@ -70,14 +71,14 @@ proc vertex*(this: TopOpeBRepBuildPave): TopoDS_Shape {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRepBuild_Pave.hxx".}
 proc changeVertex*(this: var TopOpeBRepBuildPave): var TopoDS_Shape {.
     importcpp: "ChangeVertex", header: "TopOpeBRepBuild_Pave.hxx".}
-proc parameter*(this: TopOpeBRepBuildPave): cfloat {.noSideEffect,
+proc parameter*(this: TopOpeBRepBuildPave): StandardReal {.noSideEffect,
     importcpp: "Parameter", header: "TopOpeBRepBuild_Pave.hxx".}
-proc parameter*(this: var TopOpeBRepBuildPave; par: cfloat) {.importcpp: "Parameter",
-    header: "TopOpeBRepBuild_Pave.hxx".}
+proc parameter*(this: var TopOpeBRepBuildPave; par: StandardReal) {.
+    importcpp: "Parameter", header: "TopOpeBRepBuild_Pave.hxx".}
 proc interferenceType*(this: var TopOpeBRepBuildPave): var TopOpeBRepDS_Kind {.
     importcpp: "InterferenceType", header: "TopOpeBRepBuild_Pave.hxx".}
-proc isShape*(this: TopOpeBRepBuildPave): bool {.noSideEffect, importcpp: "IsShape",
-    header: "TopOpeBRepBuild_Pave.hxx".}
+proc isShape*(this: TopOpeBRepBuildPave): StandardBoolean {.noSideEffect,
+    importcpp: "IsShape", header: "TopOpeBRepBuild_Pave.hxx".}
 proc shape*(this: TopOpeBRepBuildPave): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "TopOpeBRepBuild_Pave.hxx".}
 proc dump*(this: TopOpeBRepBuildPave) {.noSideEffect, importcpp: "Dump",
@@ -92,28 +93,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "TopOpeBRepBuild_Pave.hxx".}
 proc dynamicType*(this: TopOpeBRepBuildPave): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "TopOpeBRepBuild_Pave.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

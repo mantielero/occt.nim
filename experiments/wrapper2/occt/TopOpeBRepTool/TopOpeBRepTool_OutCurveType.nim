@@ -20,29 +20,3 @@ type
                                header: "TopOpeBRepTool_OutCurveType.hxx".} = enum
     TopOpeBRepToolBSPLINE1, TopOpeBRepToolAPPROX, TopOpeBRepToolINTERPOL
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

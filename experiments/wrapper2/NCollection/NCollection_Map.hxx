@@ -51,9 +51,9 @@
  *              method. This should be  consider only for  crucial
  *              optimisation issues.
  */            
-
+// = NCollection_DefaultHasher<TheKeyType> >
 template < class TheKeyType, 
-           class Hasher = NCollection_DefaultHasher<TheKeyType> >
+           class Hasher > 
 class NCollection_Map : public NCollection_BaseMap
 {
 public:
@@ -198,43 +198,11 @@ public:
   }
 
   //! Add
-  Standard_Boolean Add(const TheKeyType& K)
-  {
-    if (Resizable()) 
-      ReSize(Extent());
-    MapNode** data = (MapNode**)myData1;
-    Standard_Integer k = Hasher::HashCode(K,NbBuckets());
-    MapNode* p = data[k];
-    while (p) 
-    {
-      if (Hasher::IsEqual(p->Key(),K))
-        return Standard_False;
-      p = (MapNode *) p->Next();
-    }
-    data[k] = new (this->myAllocator) MapNode(K,data[k]);
-    Increment();
-    return Standard_True;
-  }
+  Standard_Boolean Add(const TheKeyType& K);
 
   //! Added: add a new key if not yet in the map, and return 
   //! reference to either newly added or previously existing object
-  const TheKeyType& Added(const TheKeyType& K)
-  {
-    if (Resizable()) 
-      ReSize(Extent());
-    MapNode** data = (MapNode**)myData1;
-    Standard_Integer k = Hasher::HashCode(K,NbBuckets());
-    MapNode* p = data[k];
-    while (p) 
-    {
-      if (Hasher::IsEqual(p->Key(),K))
-        return p->Key();
-      p = (MapNode *) p->Next();
-    }
-    data[k] = new (this->myAllocator) MapNode(K,data[k]);
-    Increment();
-    return data[k]->Key();
-  }
+  const TheKeyType& Added(const TheKeyType& K);
 
   //! Contains
   Standard_Boolean Contains(const TheKeyType& K) const
@@ -253,33 +221,8 @@ public:
   }
 
   //! Remove
-  Standard_Boolean Remove(const TheKeyType& K)
-  {
-    if (IsEmpty()) 
-      return Standard_False;
-    MapNode** data = (MapNode**) myData1;
-    Standard_Integer k = Hasher::HashCode(K,NbBuckets());
-    MapNode* p = data[k];
-    MapNode* q = NULL;
-    while (p) 
-    {
-      if (Hasher::IsEqual(p->Key(),K)) 
-      {
-        Decrement();
-        if (q) 
-          q->Next() = p->Next();
-        else
-          data[k] = (MapNode*) p->Next();
-        p->~MapNode();
-        this->myAllocator->Free(p);
-        return Standard_True;
-      }
-      q = p;
-      p = (MapNode*) p->Next();
-    }
-    return Standard_False;
-  }
-
+  Standard_Boolean Remove(const TheKeyType& K);
+  
   //! Clear data. If doReleaseMemory is false then the table of
   //! buckets is not released and will be reused.
   void Clear(const Standard_Boolean doReleaseMemory = Standard_True)

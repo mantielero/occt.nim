@@ -27,7 +27,7 @@ discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HSurface"
 type
-  HandleC1C1* = Handle[Adaptor3dHSurface]
+  HandleAdaptor3dHSurface* = Handle[Adaptor3dHSurface]
 
 ## ! Root class for surfaces manipulated by handles, on
 ## ! which geometric algorithms work.
@@ -70,10 +70,10 @@ proc nbUIntervals*(this: Adaptor3dHSurface; s: GeomAbsShape): cint {.noSideEffec
     importcpp: "NbUIntervals", header: "Adaptor3d_HSurface.hxx".}
 proc nbVIntervals*(this: Adaptor3dHSurface; s: GeomAbsShape): cint {.noSideEffect,
     importcpp: "NbVIntervals", header: "Adaptor3d_HSurface.hxx".}
-proc uIntervals*(this: Adaptor3dHSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "UIntervals", header: "Adaptor3d_HSurface.hxx".}
-proc vIntervals*(this: Adaptor3dHSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "VIntervals", header: "Adaptor3d_HSurface.hxx".}
+#[ proc uIntervals*(this: Adaptor3dHSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "UIntervals", header: "Adaptor3d_HSurface.hxx".} ]#
+#[ proc vIntervals*(this: Adaptor3dHSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+    noSideEffect, importcpp: "VIntervals", header: "Adaptor3d_HSurface.hxx".} ]#
 proc uTrim*(this: Adaptor3dHSurface; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHSurface] {.noSideEffect, importcpp: "UTrim",
                         header: "Adaptor3d_HSurface.hxx".}
@@ -156,14 +156,14 @@ proc offsetValue*(this: Adaptor3dHSurface): cfloat {.noSideEffect,
     importcpp: "OffsetValue", header: "Adaptor3d_HSurface.hxx".}
 type
   Adaptor3dHSurfacebaseType* = StandardTransient
-
+#[ 
 proc getTypeName*(): cstring {.importcpp: "Adaptor3d_HSurface::get_type_name(@)",
                             header: "Adaptor3d_HSurface.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Adaptor3d_HSurface::get_type_descriptor(@)",
     header: "Adaptor3d_HSurface.hxx".}
 proc dynamicType*(this: Adaptor3dHSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Adaptor3d_HSurface.hxx".}
+    importcpp: "DynamicType", header: "Adaptor3d_HSurface.hxx".} ]#
 
 
 

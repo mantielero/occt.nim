@@ -14,68 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc fC2D_Prepare*(s1: TopoDS_Shape; s2: TopoDS_Shape): cint {.
+proc fC2D_Prepare*(s1: TopoDS_Shape; s2: TopoDS_Shape): int {.
     importcpp: "FC2D_Prepare(@)", header: "TopOpeBRepTool_2d.hxx".}
-proc fC2D_HasC3D*(e: TopoDS_Edge): bool {.importcpp: "FC2D_HasC3D(@)",
-                                      header: "TopOpeBRepTool_2d.hxx".}
-proc fC2D_HasCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face): bool {.
+proc fC2D_HasC3D*(e: TopoDS_Edge): StandardBoolean {.importcpp: "FC2D_HasC3D(@)",
+    header: "TopOpeBRepTool_2d.hxx".}
+proc fC2D_HasCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face): StandardBoolean {.
     importcpp: "FC2D_HasCurveOnSurface(@)", header: "TopOpeBRepTool_2d.hxx".}
 proc fC2D_HasOldCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face;
-                               c2d: var Handle[Geom2dCurve]; f: var cfloat;
-                               l: var cfloat; tol: var cfloat): bool {.
+                               c2d: var Handle[Geom2dCurve]; f: var StandardReal;
+                               l: var StandardReal; tol: var StandardReal): StandardBoolean {.
     importcpp: "FC2D_HasOldCurveOnSurface(@)", header: "TopOpeBRepTool_2d.hxx".}
 proc fC2D_HasOldCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face;
-                               c2d: var Handle[Geom2dCurve]): bool {.
+                               c2d: var Handle[Geom2dCurve]): StandardBoolean {.
     importcpp: "FC2D_HasOldCurveOnSurface(@)", header: "TopOpeBRepTool_2d.hxx".}
 proc fC2D_HasNewCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face;
-                               c2d: var Handle[Geom2dCurve]; f: var cfloat;
-                               l: var cfloat; tol: var cfloat): bool {.
+                               c2d: var Handle[Geom2dCurve]; f: var StandardReal;
+                               l: var StandardReal; tol: var StandardReal): StandardBoolean {.
     importcpp: "FC2D_HasNewCurveOnSurface(@)", header: "TopOpeBRepTool_2d.hxx".}
 proc fC2D_HasNewCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face;
-                               c2d: var Handle[Geom2dCurve]): bool {.
+                               c2d: var Handle[Geom2dCurve]): StandardBoolean {.
     importcpp: "FC2D_HasNewCurveOnSurface(@)", header: "TopOpeBRepTool_2d.hxx".}
-proc fC2D_CurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f: var cfloat; l: var cfloat;
-                         tol: var cfloat; trim3d: bool = false): Handle[Geom2dCurve] {.
+proc fC2D_CurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f: var StandardReal;
+                         l: var StandardReal; tol: var StandardReal;
+                         trim3d: StandardBoolean = false): Handle[Geom2dCurve] {.
     importcpp: "FC2D_CurveOnSurface(@)", header: "TopOpeBRepTool_2d.hxx".}
 proc fC2D_CurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; ef: TopoDS_Edge;
-                         f: var cfloat; l: var cfloat; tol: var cfloat;
-                         trim3d: bool = false): Handle[Geom2dCurve] {.
-    importcpp: "FC2D_CurveOnSurface(@)", header: "TopOpeBRepTool_2d.hxx".}
+                         f: var StandardReal; l: var StandardReal;
+                         tol: var StandardReal; trim3d: StandardBoolean = false): Handle[
+    Geom2dCurve] {.importcpp: "FC2D_CurveOnSurface(@)",
+                  header: "TopOpeBRepTool_2d.hxx".}
 ## modified by NIZHNY-MZV
 
-proc fC2D_MakeCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f: var cfloat;
-                             l: var cfloat; tol: var cfloat; trim3d: bool = false): Handle[
-    Geom2dCurve] {.importcpp: "FC2D_MakeCurveOnSurface(@)",
-                  header: "TopOpeBRepTool_2d.hxx".}
-proc fC2D_EditableCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f: var cfloat;
-                                 l: var cfloat; tol: var cfloat; trim3d: bool = false): Handle[
+proc fC2D_MakeCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f: var StandardReal;
+                             l: var StandardReal; tol: var StandardReal;
+                             trim3d: StandardBoolean = false): Handle[Geom2dCurve] {.
+    importcpp: "FC2D_MakeCurveOnSurface(@)", header: "TopOpeBRepTool_2d.hxx".}
+proc fC2D_EditableCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face;
+                                 f: var StandardReal; l: var StandardReal;
+                                 tol: var StandardReal;
+                                 trim3d: StandardBoolean = false): Handle[
     Geom2dCurve] {.importcpp: "FC2D_EditableCurveOnSurface(@)",
                   header: "TopOpeBRepTool_2d.hxx".}
 proc fC2D_AddNewCurveOnSurface*(pc: Handle[Geom2dCurve]; e: TopoDS_Edge;
-                               f: TopoDS_Face; f: cfloat; l: cfloat; tol: cfloat): cint {.
+                               f: TopoDS_Face; f: StandardReal; l: StandardReal;
+                               tol: StandardReal): int {.
     importcpp: "FC2D_AddNewCurveOnSurface(@)", header: "TopOpeBRepTool_2d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -22,40 +22,33 @@ type
                       header: "BRepSweep_Iterator.hxx", bycopy.} = object
 
 
+proc `new`*(this: var BRepSweepIterator; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Iterator::operator new",
+    header: "BRepSweep_Iterator.hxx".}
+proc `delete`*(this: var BRepSweepIterator; theAddress: pointer) {.
+    importcpp: "BRepSweep_Iterator::operator delete",
+    header: "BRepSweep_Iterator.hxx".}
+proc `new[]`*(this: var BRepSweepIterator; theSize: csize_t): pointer {.
+    importcpp: "BRepSweep_Iterator::operator new[]",
+    header: "BRepSweep_Iterator.hxx".}
+proc `delete[]`*(this: var BRepSweepIterator; theAddress: pointer) {.
+    importcpp: "BRepSweep_Iterator::operator delete[]",
+    header: "BRepSweep_Iterator.hxx".}
+proc `new`*(this: var BRepSweepIterator; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepSweep_Iterator::operator new",
+    header: "BRepSweep_Iterator.hxx".}
+proc `delete`*(this: var BRepSweepIterator; a2: pointer; a3: pointer) {.
+    importcpp: "BRepSweep_Iterator::operator delete",
+    header: "BRepSweep_Iterator.hxx".}
 proc constructBRepSweepIterator*(): BRepSweepIterator {.constructor,
     importcpp: "BRepSweep_Iterator(@)", header: "BRepSweep_Iterator.hxx".}
 proc init*(this: var BRepSweepIterator; aShape: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepSweep_Iterator.hxx".}
-proc more*(this: BRepSweepIterator): bool {.noSideEffect, importcpp: "More",
-                                        header: "BRepSweep_Iterator.hxx".}
+proc more*(this: BRepSweepIterator): StandardBoolean {.noSideEffect,
+    importcpp: "More", header: "BRepSweep_Iterator.hxx".}
 proc next*(this: var BRepSweepIterator) {.importcpp: "Next",
                                       header: "BRepSweep_Iterator.hxx".}
 proc value*(this: BRepSweepIterator): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "BRepSweep_Iterator.hxx".}
 proc orientation*(this: BRepSweepIterator): TopAbsOrientation {.noSideEffect,
     importcpp: "Orientation", header: "BRepSweep_Iterator.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

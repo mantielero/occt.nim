@@ -26,11 +26,23 @@ discard "forward decl of LocOpe_Gluer"
 discard "forward decl of BRepAlgoAPI_BooleanOperation"
 type
   BRepFeatRibSlot* {.importcpp: "BRepFeat_RibSlot", header: "BRepFeat_RibSlot.hxx",
-                    bycopy.} = object of BRepBuilderAPI_MakeShape ## ! Returns true if F a TopoDS_Shape of type edge or face has been deleted.
-                                                             ## ! Redefines the empty constructor.
+                    bycopy.} = object of BRepBuilderAPI_MakeShape ## ! Redefines the empty constructor.
 
 
-proc isDeleted*(this: var BRepFeatRibSlot; f: TopoDS_Shape): bool {.
+proc `new`*(this: var BRepFeatRibSlot; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_RibSlot::operator new", header: "BRepFeat_RibSlot.hxx".}
+proc `delete`*(this: var BRepFeatRibSlot; theAddress: pointer) {.
+    importcpp: "BRepFeat_RibSlot::operator delete", header: "BRepFeat_RibSlot.hxx".}
+proc `new[]`*(this: var BRepFeatRibSlot; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_RibSlot::operator new[]", header: "BRepFeat_RibSlot.hxx".}
+proc `delete[]`*(this: var BRepFeatRibSlot; theAddress: pointer) {.
+    importcpp: "BRepFeat_RibSlot::operator delete[]",
+    header: "BRepFeat_RibSlot.hxx".}
+proc `new`*(this: var BRepFeatRibSlot; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFeat_RibSlot::operator new", header: "BRepFeat_RibSlot.hxx".}
+proc `delete`*(this: var BRepFeatRibSlot; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFeat_RibSlot::operator delete", header: "BRepFeat_RibSlot.hxx".}
+proc isDeleted*(this: var BRepFeatRibSlot; f: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsDeleted", header: "BRepFeat_RibSlot.hxx".}
 proc modified*(this: var BRepFeatRibSlot; f: TopoDS_Shape): TopToolsListOfShape {.
     importcpp: "Modified", header: "BRepFeat_RibSlot.hxx".}
@@ -46,36 +58,11 @@ proc newEdges*(this: BRepFeatRibSlot): TopToolsListOfShape {.noSideEffect,
     importcpp: "NewEdges", header: "BRepFeat_RibSlot.hxx".}
 proc tgtEdges*(this: BRepFeatRibSlot): TopToolsListOfShape {.noSideEffect,
     importcpp: "TgtEdges", header: "BRepFeat_RibSlot.hxx".}
-proc intPar*(c: Handle[GeomCurve]; p: Pnt): cfloat {.
+proc intPar*(c: Handle[GeomCurve]; p: Pnt): StandardReal {.
     importcpp: "BRepFeat_RibSlot::IntPar(@)", header: "BRepFeat_RibSlot.hxx".}
 proc choiceOfFaces*(faces: var TopToolsListOfShape; cc: Handle[GeomCurve];
-                   par: cfloat; bnd: cfloat; pln: Handle[GeomPlane]): TopoDS_Face {.
+                   par: StandardReal; bnd: StandardReal; pln: Handle[GeomPlane]): TopoDS_Face {.
     importcpp: "BRepFeat_RibSlot::ChoiceOfFaces(@)",
     header: "BRepFeat_RibSlot.hxx".}
 proc currentStatusError*(this: BRepFeatRibSlot): BRepFeatStatusError {.noSideEffect,
     importcpp: "CurrentStatusError", header: "BRepFeat_RibSlot.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

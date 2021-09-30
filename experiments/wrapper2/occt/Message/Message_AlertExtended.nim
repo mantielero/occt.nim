@@ -120,15 +120,16 @@ type
   MessageAlertExtendedbaseType* = MessageAlert
 
 proc getTypeName*(): cstring {.importcpp: "Message_AlertExtended::get_type_name(@)",
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                             header: "Message_AlertExtended.hxx".}
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeDescriptor*(): Handle[StandardType] {.
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "Message_AlertExtended::get_type_descriptor(@)",
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     header: "Message_AlertExtended.hxx".}
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc dynamicType*(this: MessageAlertExtended): Handle[StandardType] {.noSideEffect,
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                             header: "Message_AlertExtended.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc getTypeDescriptor*(): Handle[StandardType] {.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     importcpp: "Message_AlertExtended::get_type_descriptor(@)",
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     header: "Message_AlertExtended.hxx".}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # proc dynamicType*(this: MessageAlertExtended): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "Message_AlertExtended.hxx".}
 discard "forward decl of Message_AlertExtended"
 type
   HandleC1C1* = Handle[MessageAlertExtended]
+
 
 
 

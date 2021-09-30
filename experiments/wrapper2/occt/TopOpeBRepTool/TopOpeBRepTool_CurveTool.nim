@@ -23,6 +23,24 @@ type
                             header: "TopOpeBRepTool_CurveTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepToolCurveTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_CurveTool::operator new",
+    header: "TopOpeBRepTool_CurveTool.hxx".}
+proc `delete`*(this: var TopOpeBRepToolCurveTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_CurveTool::operator delete",
+    header: "TopOpeBRepTool_CurveTool.hxx".}
+proc `new[]`*(this: var TopOpeBRepToolCurveTool; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepTool_CurveTool::operator new[]",
+    header: "TopOpeBRepTool_CurveTool.hxx".}
+proc `delete[]`*(this: var TopOpeBRepToolCurveTool; theAddress: pointer) {.
+    importcpp: "TopOpeBRepTool_CurveTool::operator delete[]",
+    header: "TopOpeBRepTool_CurveTool.hxx".}
+proc `new`*(this: var TopOpeBRepToolCurveTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepTool_CurveTool::operator new",
+    header: "TopOpeBRepTool_CurveTool.hxx".}
+proc `delete`*(this: var TopOpeBRepToolCurveTool; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepTool_CurveTool::operator delete",
+    header: "TopOpeBRepTool_CurveTool.hxx".}
 proc constructTopOpeBRepToolCurveTool*(): TopOpeBRepToolCurveTool {.constructor,
     importcpp: "TopOpeBRepTool_CurveTool(@)",
     header: "TopOpeBRepTool_CurveTool.hxx".}
@@ -38,47 +56,24 @@ proc getGeomTool*(this: TopOpeBRepToolCurveTool): TopOpeBRepToolGeomTool {.
     noSideEffect, importcpp: "GetGeomTool", header: "TopOpeBRepTool_CurveTool.hxx".}
 proc setGeomTool*(this: var TopOpeBRepToolCurveTool; gt: TopOpeBRepToolGeomTool) {.
     importcpp: "SetGeomTool", header: "TopOpeBRepTool_CurveTool.hxx".}
-proc makeCurves*(this: TopOpeBRepToolCurveTool; min: cfloat; max: cfloat;
+proc makeCurves*(this: TopOpeBRepToolCurveTool; min: StandardReal; max: StandardReal;
                 c3d: Handle[GeomCurve]; pc1: Handle[Geom2dCurve];
                 pc2: Handle[Geom2dCurve]; s1: TopoDS_Shape; s2: TopoDS_Shape;
                 c3dn: var Handle[GeomCurve]; pc1n: var Handle[Geom2dCurve];
-                pc2n: var Handle[Geom2dCurve]; tol3d: var cfloat; tol2d: var cfloat): bool {.
-    noSideEffect, importcpp: "MakeCurves", header: "TopOpeBRepTool_CurveTool.hxx".}
+                pc2n: var Handle[Geom2dCurve]; tol3d: var StandardReal;
+                tol2d: var StandardReal): StandardBoolean {.noSideEffect,
+    importcpp: "MakeCurves", header: "TopOpeBRepTool_CurveTool.hxx".}
 proc makeBSpline1fromPnt*(p: TColgpArray1OfPnt): Handle[GeomCurve] {.
     importcpp: "TopOpeBRepTool_CurveTool::MakeBSpline1fromPnt(@)",
     header: "TopOpeBRepTool_CurveTool.hxx".}
 proc makeBSpline1fromPnt2d*(p: TColgpArray1OfPnt2d): Handle[Geom2dCurve] {.
     importcpp: "TopOpeBRepTool_CurveTool::MakeBSpline1fromPnt2d(@)",
     header: "TopOpeBRepTool_CurveTool.hxx".}
-proc isProjectable*(s: TopoDS_Shape; c: Handle[GeomCurve]): bool {.
+proc isProjectable*(s: TopoDS_Shape; c: Handle[GeomCurve]): StandardBoolean {.
     importcpp: "TopOpeBRepTool_CurveTool::IsProjectable(@)",
     header: "TopOpeBRepTool_CurveTool.hxx".}
 proc makePCurveOnFace*(s: TopoDS_Shape; c: Handle[GeomCurve];
-                      tolReached2d: var cfloat; first: cfloat = 0.0; last: cfloat = 0.0): Handle[
-    Geom2dCurve] {.importcpp: "TopOpeBRepTool_CurveTool::MakePCurveOnFace(@)",
-                  header: "TopOpeBRepTool_CurveTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                      tolReached2d: var StandardReal; first: StandardReal = 0.0;
+                      last: StandardReal = 0.0): Handle[Geom2dCurve] {.
+    importcpp: "TopOpeBRepTool_CurveTool::MakePCurveOnFace(@)",
+    header: "TopOpeBRepTool_CurveTool.hxx".}

@@ -19,94 +19,60 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Torus"
 type
   BRepPrimAPI_MakeTorus* {.importcpp: "BRepPrimAPI_MakeTorus",
-                          header: "BRepPrimAPI_MakeTorus.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis ##
-                                                                                                     ## !
-                                                                                                     ## Make
-                                                                                                     ## a
-                                                                                                     ## torus.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## R1
-                                                                                                     ## [in]
-                                                                                                     ## distance
-                                                                                                     ## from
-                                                                                                     ## the
-                                                                                                     ## center
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## pipe
-                                                                                                     ## to
-                                                                                                     ## the
-                                                                                                     ## center
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## torus
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## R2
-                                                                                                     ## [in]
-                                                                                                     ## radius
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## pipe
+                          header: "BRepPrimAPI_MakeTorus.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis
 
 
-proc constructBRepPrimAPI_MakeTorus*(r1: cfloat; r2: cfloat): BRepPrimAPI_MakeTorus {.
+proc `new`*(this: var BRepPrimAPI_MakeTorus; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeTorus::operator new",
+    header: "BRepPrimAPI_MakeTorus.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeTorus; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeTorus::operator delete",
+    header: "BRepPrimAPI_MakeTorus.hxx".}
+proc `new[]`*(this: var BRepPrimAPI_MakeTorus; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeTorus::operator new[]",
+    header: "BRepPrimAPI_MakeTorus.hxx".}
+proc `delete[]`*(this: var BRepPrimAPI_MakeTorus; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeTorus::operator delete[]",
+    header: "BRepPrimAPI_MakeTorus.hxx".}
+proc `new`*(this: var BRepPrimAPI_MakeTorus; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrimAPI_MakeTorus::operator new",
+    header: "BRepPrimAPI_MakeTorus.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeTorus; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrimAPI_MakeTorus::operator delete",
+    header: "BRepPrimAPI_MakeTorus.hxx".}
+proc constructBRepPrimAPI_MakeTorus*(r1: StandardReal; r2: StandardReal): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(r1: cfloat; r2: cfloat; angle: cfloat): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(r1: StandardReal; r2: StandardReal;
+                                    angle: StandardReal): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(r1: cfloat; r2: cfloat; angle1: cfloat;
-                                    angle2: cfloat): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(r1: StandardReal; r2: StandardReal;
+                                    angle1: StandardReal; angle2: StandardReal): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(r1: cfloat; r2: cfloat; angle1: cfloat;
-                                    angle2: cfloat; angle: cfloat): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(r1: StandardReal; r2: StandardReal;
+                                    angle1: StandardReal; angle2: StandardReal;
+                                    angle: StandardReal): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(axes: Ax2; r1: cfloat; r2: cfloat): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(axes: Ax2; r1: StandardReal; r2: StandardReal): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(axes: Ax2; r1: cfloat; r2: cfloat; angle: cfloat): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(axes: Ax2; r1: StandardReal; r2: StandardReal;
+                                    angle: StandardReal): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(axes: Ax2; r1: cfloat; r2: cfloat; angle1: cfloat;
-                                    angle2: cfloat): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(axes: Ax2; r1: StandardReal; r2: StandardReal;
+                                    angle1: StandardReal; angle2: StandardReal): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(axes: Ax2; r1: cfloat; r2: cfloat; angle1: cfloat;
-                                    angle2: cfloat; angle: cfloat): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(axes: Ax2; r1: StandardReal; r2: StandardReal;
+                                    angle1: StandardReal; angle2: StandardReal;
+                                    angle: StandardReal): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeTorus): StandardAddress {.
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeTorus.hxx".}
 proc torus*(this: var BRepPrimAPI_MakeTorus): var BRepPrimTorus {.importcpp: "Torus",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

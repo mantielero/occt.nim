@@ -29,29 +29,3 @@ type
                       header: "ChFi3d_FilletShape.hxx".} = enum
     ChFi3dRational, ChFi3dQuasiAngular, ChFi3dPolynomial
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

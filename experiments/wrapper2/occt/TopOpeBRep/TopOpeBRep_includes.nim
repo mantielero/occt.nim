@@ -18,8 +18,8 @@ include TopOpeBRep_FaceEdgeIntersector
 include TopOpeBRep_FacesFiller
 include TopOpeBRep_FacesIntersector
 include TopOpeBRep_GeomTool
-include TopOpeBRep_HArray1OfLineInter
-include TopOpeBRep_HArray1OfVPointInter
+#include TopOpeBRep_HArray1OfLineInter
+#include TopOpeBRep_HArray1OfVPointInter
 include TopOpeBRep_Hctxee2d
 include TopOpeBRep_Hctxff2d
 include TopOpeBRep_LineInter
@@ -48,29 +48,3 @@ include TopOpeBRep_WPointInter
 include TopOpeBRep_WPointInterIterator
 include TopOpeBRep_define
 include TopOpeBRep_traceSIFF
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

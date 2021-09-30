@@ -45,12 +45,12 @@ proc nbUIntervals*(s: Handle[Adaptor3dHSurface]; sh: GeomAbsShape): cint {.
 proc nbVIntervals*(s: Handle[Adaptor3dHSurface]; sh: GeomAbsShape): cint {.
     importcpp: "Adaptor3d_HSurfaceTool::NbVIntervals(@)",
     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc uIntervals*(s: Handle[Adaptor3dHSurface]; t: var TColStdArray1OfReal;
+#[ proc uIntervals*(s: Handle[Adaptor3dHSurface]; t: var TColStdArray1OfReal;
                 sh: GeomAbsShape) {.importcpp: "Adaptor3d_HSurfaceTool::UIntervals(@)",
-                                  header: "Adaptor3d_HSurfaceTool.hxx".}
-proc vIntervals*(s: Handle[Adaptor3dHSurface]; t: var TColStdArray1OfReal;
+                                  header: "Adaptor3d_HSurfaceTool.hxx".} ]#
+#[ proc vIntervals*(s: Handle[Adaptor3dHSurface]; t: var TColStdArray1OfReal;
                 sh: GeomAbsShape) {.importcpp: "Adaptor3d_HSurfaceTool::VIntervals(@)",
-                                  header: "Adaptor3d_HSurfaceTool.hxx".}
+                                  header: "Adaptor3d_HSurfaceTool.hxx".} ]#
 proc uTrim*(s: Handle[Adaptor3dHSurface]; first: cfloat; last: cfloat; tol: cfloat): Handle[
     Adaptor3dHSurface] {.importcpp: "Adaptor3d_HSurfaceTool::UTrim(@)",
                         header: "Adaptor3d_HSurfaceTool.hxx".}

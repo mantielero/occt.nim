@@ -22,22 +22,33 @@ discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Edge"
 type
   BRepFeatMakePipe* {.importcpp: "BRepFeat_MakePipe",
-                     header: "BRepFeat_MakePipe.hxx", bycopy.} = object of BRepFeatForm ##
-                                                                                 ## !
-                                                                                 ## initializes
-                                                                                 ## the
-                                                                                 ## pipe
-                                                                                 ## class.
+                     header: "BRepFeat_MakePipe.hxx", bycopy.} = object of BRepFeatForm
 
 
+proc `new`*(this: var BRepFeatMakePipe; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_MakePipe::operator new", header: "BRepFeat_MakePipe.hxx".}
+proc `delete`*(this: var BRepFeatMakePipe; theAddress: pointer) {.
+    importcpp: "BRepFeat_MakePipe::operator delete",
+    header: "BRepFeat_MakePipe.hxx".}
+proc `new[]`*(this: var BRepFeatMakePipe; theSize: csize_t): pointer {.
+    importcpp: "BRepFeat_MakePipe::operator new[]",
+    header: "BRepFeat_MakePipe.hxx".}
+proc `delete[]`*(this: var BRepFeatMakePipe; theAddress: pointer) {.
+    importcpp: "BRepFeat_MakePipe::operator delete[]",
+    header: "BRepFeat_MakePipe.hxx".}
+proc `new`*(this: var BRepFeatMakePipe; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepFeat_MakePipe::operator new", header: "BRepFeat_MakePipe.hxx".}
+proc `delete`*(this: var BRepFeatMakePipe; a2: pointer; a3: pointer) {.
+    importcpp: "BRepFeat_MakePipe::operator delete",
+    header: "BRepFeat_MakePipe.hxx".}
 proc constructBRepFeatMakePipe*(): BRepFeatMakePipe {.constructor,
     importcpp: "BRepFeat_MakePipe(@)", header: "BRepFeat_MakePipe.hxx".}
 proc constructBRepFeatMakePipe*(sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-                               skface: TopoDS_Face; spine: TopoDS_Wire; fuse: cint;
-                               modify: bool): BRepFeatMakePipe {.constructor,
-    importcpp: "BRepFeat_MakePipe(@)", header: "BRepFeat_MakePipe.hxx".}
+                               skface: TopoDS_Face; spine: TopoDS_Wire; fuse: int;
+                               modify: StandardBoolean): BRepFeatMakePipe {.
+    constructor, importcpp: "BRepFeat_MakePipe(@)", header: "BRepFeat_MakePipe.hxx".}
 proc init*(this: var BRepFeatMakePipe; sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-          skface: TopoDS_Face; spine: TopoDS_Wire; fuse: cint; modify: bool) {.
+          skface: TopoDS_Face; spine: TopoDS_Wire; fuse: int; modify: StandardBoolean) {.
     importcpp: "Init", header: "BRepFeat_MakePipe.hxx".}
 proc add*(this: var BRepFeatMakePipe; e: TopoDS_Edge; onFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakePipe.hxx".}
@@ -51,28 +62,3 @@ proc curves*(this: var BRepFeatMakePipe; s: var TColGeomSequenceOfCurve) {.
     importcpp: "Curves", header: "BRepFeat_MakePipe.hxx".}
 proc barycCurve*(this: var BRepFeatMakePipe): Handle[GeomCurve] {.
     importcpp: "BarycCurve", header: "BRepFeat_MakePipe.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

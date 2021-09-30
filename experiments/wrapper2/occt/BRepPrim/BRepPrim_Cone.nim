@@ -19,123 +19,37 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
 type
-  BRepPrimCone* {.importcpp: "BRepPrim_Cone", header: "BRepPrim_Cone.hxx", bycopy.} = object of BRepPrimRevolution ##
-                                                                                                         ## !
-                                                                                                         ## the
-                                                                                                         ## STEP
-                                                                                                         ## definition
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Angle
-                                                                                                         ## =
-                                                                                                         ## semi-angle
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ## cone
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Position
-                                                                                                         ## :
-                                                                                                         ## the
-                                                                                                         ## coordinate
-                                                                                                         ## system
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Height
-                                                                                                         ## :
-                                                                                                         ## height
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ## cone.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Radius
-                                                                                                         ## :
-                                                                                                         ## radius
-                                                                                                         ## of
-                                                                                                         ## truncated
-                                                                                                         ## face
-                                                                                                         ## at
-                                                                                                         ## z
-                                                                                                         ## =
-                                                                                                         ## 0
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## The
-                                                                                                         ## apex
-                                                                                                         ## is
-                                                                                                         ## on
-                                                                                                         ## z
-                                                                                                         ## <
-                                                                                                         ## 0
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Errors
-                                                                                                         ## :
-                                                                                                         ## Height
-                                                                                                         ## <
-                                                                                                         ## Resolution
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Angle
-                                                                                                         ## <
-                                                                                                         ## Resolution
-                                                                                                         ## /
-                                                                                                         ## Height
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Angle
-                                                                                                         ## >
-                                                                                                         ## PI/2
-                                                                                                         ## -
-                                                                                                         ## Resolution
-                                                                                                         ## /
-                                                                                                         ## Height
+  BRepPrimCone* {.importcpp: "BRepPrim_Cone", header: "BRepPrim_Cone.hxx", bycopy.} = object of BRepPrimRevolution
 
 
-proc constructBRepPrimCone*(angle: cfloat; position: Ax2; height: cfloat;
-                           radius: cfloat = 0): BRepPrimCone {.constructor,
+proc `new`*(this: var BRepPrimCone; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Cone::operator new", header: "BRepPrim_Cone.hxx".}
+proc `delete`*(this: var BRepPrimCone; theAddress: pointer) {.
+    importcpp: "BRepPrim_Cone::operator delete", header: "BRepPrim_Cone.hxx".}
+proc `new[]`*(this: var BRepPrimCone; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Cone::operator new[]", header: "BRepPrim_Cone.hxx".}
+proc `delete[]`*(this: var BRepPrimCone; theAddress: pointer) {.
+    importcpp: "BRepPrim_Cone::operator delete[]", header: "BRepPrim_Cone.hxx".}
+proc `new`*(this: var BRepPrimCone; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrim_Cone::operator new", header: "BRepPrim_Cone.hxx".}
+proc `delete`*(this: var BRepPrimCone; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrim_Cone::operator delete", header: "BRepPrim_Cone.hxx".}
+proc constructBRepPrimCone*(angle: StandardReal; position: Ax2; height: StandardReal;
+                           radius: StandardReal = 0): BRepPrimCone {.constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(angle: cfloat): BRepPrimCone {.constructor,
+proc constructBRepPrimCone*(angle: StandardReal): BRepPrimCone {.constructor,
     importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(angle: cfloat; apex: Pnt): BRepPrimCone {.constructor,
-    importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(angle: cfloat; axes: Ax2): BRepPrimCone {.constructor,
-    importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.
+proc constructBRepPrimCone*(angle: StandardReal; apex: Pnt): BRepPrimCone {.
     constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(center: Pnt; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.
+proc constructBRepPrimCone*(angle: StandardReal; axes: Ax2): BRepPrimCone {.
     constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
-proc constructBRepPrimCone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.
+proc constructBRepPrimCone*(r1: StandardReal; r2: StandardReal; h: StandardReal): BRepPrimCone {.
     constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
+proc constructBRepPrimCone*(center: Pnt; r1: StandardReal; r2: StandardReal;
+                           h: StandardReal): BRepPrimCone {.constructor,
+    importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
+proc constructBRepPrimCone*(axes: Ax2; r1: StandardReal; r2: StandardReal;
+                           h: StandardReal): BRepPrimCone {.constructor,
+    importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimCone): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Cone.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

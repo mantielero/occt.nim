@@ -20,23 +20,34 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of TopLoc_Datum3D"
 type
   TopLocLocation* {.importcpp: "TopLoc_Location", header: "TopLoc_Location.hxx",
-                   bycopy.} = object ## ! Constructs an empty local coordinate system object.
-                                  ## ! Note: A Location constructed from a default datum is said to be "empty".
+                   bycopy.} = object
 
 
+proc `new`*(this: var TopLocLocation; theSize: csize_t): pointer {.
+    importcpp: "TopLoc_Location::operator new", header: "TopLoc_Location.hxx".}
+proc `delete`*(this: var TopLocLocation; theAddress: pointer) {.
+    importcpp: "TopLoc_Location::operator delete", header: "TopLoc_Location.hxx".}
+proc `new[]`*(this: var TopLocLocation; theSize: csize_t): pointer {.
+    importcpp: "TopLoc_Location::operator new[]", header: "TopLoc_Location.hxx".}
+proc `delete[]`*(this: var TopLocLocation; theAddress: pointer) {.
+    importcpp: "TopLoc_Location::operator delete[]", header: "TopLoc_Location.hxx".}
+proc `new`*(this: var TopLocLocation; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopLoc_Location::operator new", header: "TopLoc_Location.hxx".}
+proc `delete`*(this: var TopLocLocation; a2: pointer; a3: pointer) {.
+    importcpp: "TopLoc_Location::operator delete", header: "TopLoc_Location.hxx".}
 proc constructTopLocLocation*(): TopLocLocation {.constructor,
     importcpp: "TopLoc_Location(@)", header: "TopLoc_Location.hxx".}
 proc constructTopLocLocation*(t: Trsf): TopLocLocation {.constructor,
     importcpp: "TopLoc_Location(@)", header: "TopLoc_Location.hxx".}
 proc constructTopLocLocation*(d: Handle[TopLocDatum3D]): TopLocLocation {.
     constructor, importcpp: "TopLoc_Location(@)", header: "TopLoc_Location.hxx".}
-proc isIdentity*(this: TopLocLocation): bool {.noSideEffect, importcpp: "IsIdentity",
-    header: "TopLoc_Location.hxx".}
+proc isIdentity*(this: TopLocLocation): StandardBoolean {.noSideEffect,
+    importcpp: "IsIdentity", header: "TopLoc_Location.hxx".}
 proc identity*(this: var TopLocLocation) {.importcpp: "Identity",
                                        header: "TopLoc_Location.hxx".}
 proc firstDatum*(this: TopLocLocation): Handle[TopLocDatum3D] {.noSideEffect,
     importcpp: "FirstDatum", header: "TopLoc_Location.hxx".}
-proc firstPower*(this: TopLocLocation): cint {.noSideEffect, importcpp: "FirstPower",
+proc firstPower*(this: TopLocLocation): int {.noSideEffect, importcpp: "FirstPower",
     header: "TopLoc_Location.hxx".}
 proc nextLocation*(this: TopLocLocation): TopLocLocation {.noSideEffect,
     importcpp: "NextLocation", header: "TopLoc_Location.hxx".}
@@ -56,19 +67,19 @@ proc `/`*(this: TopLocLocation; other: TopLocLocation): TopLocLocation {.noSideE
     importcpp: "(# / #)", header: "TopLoc_Location.hxx".}
 proc predivided*(this: TopLocLocation; other: TopLocLocation): TopLocLocation {.
     noSideEffect, importcpp: "Predivided", header: "TopLoc_Location.hxx".}
-proc powered*(this: TopLocLocation; pwr: cint): TopLocLocation {.noSideEffect,
+proc powered*(this: TopLocLocation; pwr: int): TopLocLocation {.noSideEffect,
     importcpp: "Powered", header: "TopLoc_Location.hxx".}
-proc hashCode*(this: TopLocLocation; theUpperBound: cint): cint {.noSideEffect,
+proc hashCode*(this: TopLocLocation; theUpperBound: int): int {.noSideEffect,
     importcpp: "HashCode", header: "TopLoc_Location.hxx".}
-proc isEqual*(this: TopLocLocation; other: TopLocLocation): bool {.noSideEffect,
-    importcpp: "IsEqual", header: "TopLoc_Location.hxx".}
-proc `==`*(this: TopLocLocation; other: TopLocLocation): bool {.noSideEffect,
-    importcpp: "(# == #)", header: "TopLoc_Location.hxx".}
-proc isDifferent*(this: TopLocLocation; other: TopLocLocation): bool {.noSideEffect,
-    importcpp: "IsDifferent", header: "TopLoc_Location.hxx".}
+proc isEqual*(this: TopLocLocation; other: TopLocLocation): StandardBoolean {.
+    noSideEffect, importcpp: "IsEqual", header: "TopLoc_Location.hxx".}
+proc `==`*(this: TopLocLocation; other: TopLocLocation): StandardBoolean {.
+    noSideEffect, importcpp: "(# == #)", header: "TopLoc_Location.hxx".}
+proc isDifferent*(this: TopLocLocation; other: TopLocLocation): StandardBoolean {.
+    noSideEffect, importcpp: "IsDifferent", header: "TopLoc_Location.hxx".}
 proc dumpJson*(this: TopLocLocation; theOStream: var StandardOStream;
-              theDepth: cint = -1) {.noSideEffect, importcpp: "DumpJson",
-                                 header: "TopLoc_Location.hxx".}
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "TopLoc_Location.hxx".}
 proc shallowDump*(this: TopLocLocation; s: var StandardOStream) {.noSideEffect,
     importcpp: "ShallowDump", header: "TopLoc_Location.hxx".}
 ## ! Computes a hash code for the given location, in the range [1, theUpperBound]
@@ -76,34 +87,8 @@ proc shallowDump*(this: TopLocLocation; s: var StandardOStream) {.noSideEffect,
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theLocation: TopLocLocation; theUpperBound: cint): cint =
+proc hashCode*(theLocation: TopLocLocation; theUpperBound: int): int =
   discard
 
 proc shallowDump*(me: TopLocLocation; s: var StandardOStream) =
   discard
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

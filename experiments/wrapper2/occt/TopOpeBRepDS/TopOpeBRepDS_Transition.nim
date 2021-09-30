@@ -39,6 +39,24 @@ type
                                                                                 ## ON)
 
 
+proc `new`*(this: var TopOpeBRepDS_Transition; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_Transition::operator new",
+    header: "TopOpeBRepDS_Transition.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_Transition; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_Transition::operator delete",
+    header: "TopOpeBRepDS_Transition.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_Transition; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_Transition::operator new[]",
+    header: "TopOpeBRepDS_Transition.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_Transition; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_Transition::operator delete[]",
+    header: "TopOpeBRepDS_Transition.hxx".}
+proc `new`*(this: var TopOpeBRepDS_Transition; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_Transition::operator new",
+    header: "TopOpeBRepDS_Transition.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_Transition; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_Transition::operator delete",
+    header: "TopOpeBRepDS_Transition.hxx".}
 proc constructTopOpeBRepDS_Transition*(): TopOpeBRepDS_Transition {.constructor,
     importcpp: "TopOpeBRepDS_Transition(@)", header: "TopOpeBRepDS_Transition.hxx".}
 proc constructTopOpeBRepDS_Transition*(stateBefore: TopAbsState;
@@ -67,12 +85,12 @@ proc before*(this: var TopOpeBRepDS_Transition; s: TopAbsState;
 proc after*(this: var TopOpeBRepDS_Transition; s: TopAbsState;
            shapeAfter: TopAbsShapeEnum = topAbsFACE) {.importcpp: "After",
     header: "TopOpeBRepDS_Transition.hxx".}
-proc index*(this: var TopOpeBRepDS_Transition; i: cint) {.importcpp: "Index",
+proc index*(this: var TopOpeBRepDS_Transition; i: int) {.importcpp: "Index",
     header: "TopOpeBRepDS_Transition.hxx".}
-proc indexBefore*(this: var TopOpeBRepDS_Transition; i: cint) {.
+proc indexBefore*(this: var TopOpeBRepDS_Transition; i: int) {.
     importcpp: "IndexBefore", header: "TopOpeBRepDS_Transition.hxx".}
-proc indexAfter*(this: var TopOpeBRepDS_Transition; i: cint) {.
-    importcpp: "IndexAfter", header: "TopOpeBRepDS_Transition.hxx".}
+proc indexAfter*(this: var TopOpeBRepDS_Transition; i: int) {.importcpp: "IndexAfter",
+    header: "TopOpeBRepDS_Transition.hxx".}
 proc before*(this: TopOpeBRepDS_Transition): TopAbsState {.noSideEffect,
     importcpp: "Before", header: "TopOpeBRepDS_Transition.hxx".}
 proc oNBefore*(this: TopOpeBRepDS_Transition): TopAbsShapeEnum {.noSideEffect,
@@ -85,11 +103,11 @@ proc shapeBefore*(this: TopOpeBRepDS_Transition): TopAbsShapeEnum {.noSideEffect
     importcpp: "ShapeBefore", header: "TopOpeBRepDS_Transition.hxx".}
 proc shapeAfter*(this: TopOpeBRepDS_Transition): TopAbsShapeEnum {.noSideEffect,
     importcpp: "ShapeAfter", header: "TopOpeBRepDS_Transition.hxx".}
-proc index*(this: TopOpeBRepDS_Transition): cint {.noSideEffect, importcpp: "Index",
+proc index*(this: TopOpeBRepDS_Transition): int {.noSideEffect, importcpp: "Index",
     header: "TopOpeBRepDS_Transition.hxx".}
-proc indexBefore*(this: TopOpeBRepDS_Transition): cint {.noSideEffect,
+proc indexBefore*(this: TopOpeBRepDS_Transition): int {.noSideEffect,
     importcpp: "IndexBefore", header: "TopOpeBRepDS_Transition.hxx".}
-proc indexAfter*(this: TopOpeBRepDS_Transition): cint {.noSideEffect,
+proc indexAfter*(this: TopOpeBRepDS_Transition): int {.noSideEffect,
     importcpp: "IndexAfter", header: "TopOpeBRepDS_Transition.hxx".}
 proc set*(this: var TopOpeBRepDS_Transition; o: TopAbsOrientation) {.importcpp: "Set",
     header: "TopOpeBRepDS_Transition.hxx".}
@@ -98,30 +116,5 @@ proc orientation*(this: TopOpeBRepDS_Transition; s: TopAbsState;
     importcpp: "Orientation", header: "TopOpeBRepDS_Transition.hxx".}
 proc complement*(this: TopOpeBRepDS_Transition): TopOpeBRepDS_Transition {.
     noSideEffect, importcpp: "Complement", header: "TopOpeBRepDS_Transition.hxx".}
-proc isUnknown*(this: TopOpeBRepDS_Transition): bool {.noSideEffect,
+proc isUnknown*(this: TopOpeBRepDS_Transition): StandardBoolean {.noSideEffect,
     importcpp: "IsUnknown", header: "TopOpeBRepDS_Transition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

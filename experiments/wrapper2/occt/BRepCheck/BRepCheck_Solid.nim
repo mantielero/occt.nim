@@ -45,28 +45,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepCheck_Solid.hxx".}
 proc dynamicType*(this: BRepCheckSolid): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Solid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

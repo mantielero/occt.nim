@@ -16,30 +16,4 @@
 
 type
   TopToolsIndexedMapOfShape* = NCollectionIndexedMap[TopoDS_Shape,
-      TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      TopToolsShapeMapHasher] 

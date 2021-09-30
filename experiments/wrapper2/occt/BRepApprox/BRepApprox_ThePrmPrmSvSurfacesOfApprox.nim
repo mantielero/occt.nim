@@ -28,52 +28,47 @@ type
       header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx", bycopy.} = object of ApproxIntSvSurfaces
 
 
+proc `new`*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; theSize: csize_t): pointer {.
+    importcpp: "BRepApprox_ThePrmPrmSvSurfacesOfApprox::operator new",
+    header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; theAddress: pointer) {.
+    importcpp: "BRepApprox_ThePrmPrmSvSurfacesOfApprox::operator delete",
+    header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
+proc `new[]`*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; theSize: csize_t): pointer {.
+    importcpp: "BRepApprox_ThePrmPrmSvSurfacesOfApprox::operator new[]",
+    header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
+proc `delete[]`*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox;
+                theAddress: pointer) {.importcpp: "BRepApprox_ThePrmPrmSvSurfacesOfApprox::operator delete[]", header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
+proc `new`*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "BRepApprox_ThePrmPrmSvSurfacesOfApprox::operator new", header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; a2: pointer;
+              a3: pointer) {.importcpp: "BRepApprox_ThePrmPrmSvSurfacesOfApprox::operator delete",
+                           header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
 proc constructBRepApproxThePrmPrmSvSurfacesOfApprox*(surf1: BRepAdaptorSurface;
     surf2: BRepAdaptorSurface): BRepApproxThePrmPrmSvSurfacesOfApprox {.
     constructor, importcpp: "BRepApprox_ThePrmPrmSvSurfacesOfApprox(@)",
     header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
-proc compute*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; u1: var cfloat;
-             v1: var cfloat; u2: var cfloat; v2: var cfloat; pt: var Pnt; tg: var Vec;
-             tguv1: var Vec2d; tguv2: var Vec2d): bool {.importcpp: "Compute",
+proc compute*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; u1: var StandardReal;
+             v1: var StandardReal; u2: var StandardReal; v2: var StandardReal;
+             pt: var Pnt; tg: var Vec; tguv1: var Vec2d; tguv2: var Vec2d): StandardBoolean {.
+    importcpp: "Compute", header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
+proc pnt*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; u1: StandardReal;
+         v1: StandardReal; u2: StandardReal; v2: StandardReal; p: var Pnt) {.
+    importcpp: "Pnt", header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
+proc seekPoint*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; u1: StandardReal;
+               v1: StandardReal; u2: StandardReal; v2: StandardReal;
+               point: var IntSurfPntOn2S): StandardBoolean {.importcpp: "SeekPoint",
     header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
-proc pnt*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; u1: cfloat; v1: cfloat;
-         u2: cfloat; v2: cfloat; p: var Pnt) {.importcpp: "Pnt", header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
-proc seekPoint*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; u1: cfloat;
-               v1: cfloat; u2: cfloat; v2: cfloat; point: var IntSurfPntOn2S): bool {.
-    importcpp: "SeekPoint", header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
-proc tangency*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; u1: cfloat;
-              v1: cfloat; u2: cfloat; v2: cfloat; tg: var Vec): bool {.
+proc tangency*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; u1: StandardReal;
+              v1: StandardReal; u2: StandardReal; v2: StandardReal; tg: var Vec): StandardBoolean {.
     importcpp: "Tangency", header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
-proc tangencyOnSurf1*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; u1: cfloat;
-                     v1: cfloat; u2: cfloat; v2: cfloat; tg: var Vec2d): bool {.
+proc tangencyOnSurf1*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox;
+                     u1: StandardReal; v1: StandardReal; u2: StandardReal;
+                     v2: StandardReal; tg: var Vec2d): StandardBoolean {.
     importcpp: "TangencyOnSurf1",
     header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
-proc tangencyOnSurf2*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox; u1: cfloat;
-                     v1: cfloat; u2: cfloat; v2: cfloat; tg: var Vec2d): bool {.
+proc tangencyOnSurf2*(this: var BRepApproxThePrmPrmSvSurfacesOfApprox;
+                     u1: StandardReal; v1: StandardReal; u2: StandardReal;
+                     v2: StandardReal; tg: var Vec2d): StandardBoolean {.
     importcpp: "TangencyOnSurf2",
     header: "BRepApprox_ThePrmPrmSvSurfacesOfApprox.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

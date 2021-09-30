@@ -21,34 +21,27 @@ type
                              header: "TopOpeBRepDS_SurfaceData.hxx", bycopy.} = object of TopOpeBRepDS_GeometryData
 
 
+proc `new`*(this: var TopOpeBRepDS_SurfaceData; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_SurfaceData::operator new",
+    header: "TopOpeBRepDS_SurfaceData.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_SurfaceData; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_SurfaceData::operator delete",
+    header: "TopOpeBRepDS_SurfaceData.hxx".}
+proc `new[]`*(this: var TopOpeBRepDS_SurfaceData; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepDS_SurfaceData::operator new[]",
+    header: "TopOpeBRepDS_SurfaceData.hxx".}
+proc `delete[]`*(this: var TopOpeBRepDS_SurfaceData; theAddress: pointer) {.
+    importcpp: "TopOpeBRepDS_SurfaceData::operator delete[]",
+    header: "TopOpeBRepDS_SurfaceData.hxx".}
+proc `new`*(this: var TopOpeBRepDS_SurfaceData; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepDS_SurfaceData::operator new",
+    header: "TopOpeBRepDS_SurfaceData.hxx".}
+proc `delete`*(this: var TopOpeBRepDS_SurfaceData; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepDS_SurfaceData::operator delete",
+    header: "TopOpeBRepDS_SurfaceData.hxx".}
 proc constructTopOpeBRepDS_SurfaceData*(): TopOpeBRepDS_SurfaceData {.constructor,
     importcpp: "TopOpeBRepDS_SurfaceData(@)",
     header: "TopOpeBRepDS_SurfaceData.hxx".}
 proc constructTopOpeBRepDS_SurfaceData*(s: TopOpeBRepDS_Surface): TopOpeBRepDS_SurfaceData {.
     constructor, importcpp: "TopOpeBRepDS_SurfaceData(@)",
     header: "TopOpeBRepDS_SurfaceData.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

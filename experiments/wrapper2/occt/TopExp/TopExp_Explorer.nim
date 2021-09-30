@@ -19,19 +19,31 @@ discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
 type
   TopExpExplorer* {.importcpp: "TopExp_Explorer", header: "TopExp_Explorer.hxx",
-                   bycopy.} = object ## ! Creates an empty explorer, becomes usefull after Init.
+                   bycopy.} = object
 
 
-proc constructTopExpExplorer*(): TopExpExplorer {.constructor,
+proc `new`*(this: var TopExpExplorer; theSize: csize_t): pointer {.
+    importcpp: "TopExp_Explorer::operator new", header: "TopExp_Explorer.hxx".}
+proc `delete`*(this: var TopExpExplorer; theAddress: pointer) {.
+    importcpp: "TopExp_Explorer::operator delete", header: "TopExp_Explorer.hxx".}
+proc `new[]`*(this: var TopExpExplorer; theSize: csize_t): pointer {.
+    importcpp: "TopExp_Explorer::operator new[]", header: "TopExp_Explorer.hxx".}
+proc `delete[]`*(this: var TopExpExplorer; theAddress: pointer) {.
+    importcpp: "TopExp_Explorer::operator delete[]", header: "TopExp_Explorer.hxx".}
+proc `new`*(this: var TopExpExplorer; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopExp_Explorer::operator new", header: "TopExp_Explorer.hxx".}
+proc `delete`*(this: var TopExpExplorer; a2: pointer; a3: pointer) {.
+    importcpp: "TopExp_Explorer::operator delete", header: "TopExp_Explorer.hxx".}
+proc explorer*(): TopExpExplorer {.constructor,
     importcpp: "TopExp_Explorer(@)", header: "TopExp_Explorer.hxx".}
-proc constructTopExpExplorer*(s: TopoDS_Shape; toFind: TopAbsShapeEnum;
-                             toAvoid: TopAbsShapeEnum = topAbsSHAPE): TopExpExplorer {.
+proc explorer*(s: TopoDS_Shape; toFind: TopAbsShapeEnum;
+                             toAvoid: TopAbsShapeEnum = TopAbsSHAPE): TopExpExplorer {.
     constructor, importcpp: "TopExp_Explorer(@)", header: "TopExp_Explorer.hxx".}
 proc init*(this: var TopExpExplorer; s: TopoDS_Shape; toFind: TopAbsShapeEnum;
-          toAvoid: TopAbsShapeEnum = topAbsSHAPE) {.importcpp: "Init",
+          toAvoid: TopAbsShapeEnum = TopAbsSHAPE) {.importcpp: "Init",
     header: "TopExp_Explorer.hxx".}
 proc more*(this: TopExpExplorer): bool {.noSideEffect, importcpp: "More",
-                                     header: "TopExp_Explorer.hxx".}
+    header: "TopExp_Explorer.hxx".}
 proc next*(this: var TopExpExplorer) {.importcpp: "Next",
                                    header: "TopExp_Explorer.hxx".}
 proc value*(this: TopExpExplorer): TopoDS_Shape {.noSideEffect, importcpp: "Value",
@@ -40,36 +52,11 @@ proc current*(this: TopExpExplorer): TopoDS_Shape {.noSideEffect,
     importcpp: "Current", header: "TopExp_Explorer.hxx".}
 proc reInit*(this: var TopExpExplorer) {.importcpp: "ReInit",
                                      header: "TopExp_Explorer.hxx".}
-proc depth*(this: TopExpExplorer): cint {.noSideEffect, importcpp: "Depth",
-                                      header: "TopExp_Explorer.hxx".}
+proc depth*(this: TopExpExplorer): int {.noSideEffect, importcpp: "Depth",
+                                     header: "TopExp_Explorer.hxx".}
 proc clear*(this: var TopExpExplorer) {.importcpp: "Clear",
                                     header: "TopExp_Explorer.hxx".}
 proc destroy*(this: var TopExpExplorer) {.importcpp: "Destroy",
                                       header: "TopExp_Explorer.hxx".}
 proc destroyTopExpExplorer*(this: var TopExpExplorer) {.
     importcpp: "#.~TopExp_Explorer()", header: "TopExp_Explorer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

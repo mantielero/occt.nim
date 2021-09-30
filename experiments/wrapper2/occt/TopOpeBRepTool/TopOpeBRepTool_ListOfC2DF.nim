@@ -17,29 +17,3 @@
 type
   TopOpeBRepToolListOfC2DF* = NCollectionList[TopOpeBRepToolC2DF]
   TopOpeBRepToolListIteratorOfListOfC2DF* = Iterator[TopOpeBRepToolC2DF]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

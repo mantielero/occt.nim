@@ -62,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepMesh_FaceDiscret.hxx".}
 proc dynamicType*(this: BRepMeshFaceDiscret): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_FaceDiscret.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

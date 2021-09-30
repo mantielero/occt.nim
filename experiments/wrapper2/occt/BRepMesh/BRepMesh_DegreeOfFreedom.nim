@@ -18,29 +18,3 @@ type
     BRepMeshFree, BRepMeshInVolume, BRepMeshOnSurface, BRepMeshOnCurve,
     BRepMeshFixed, BRepMeshFrontier, BRepMeshDeleted
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

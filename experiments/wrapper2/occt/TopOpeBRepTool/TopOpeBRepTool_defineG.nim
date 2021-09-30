@@ -23,29 +23,3 @@ const
   Mgtc* = geomTrimmedCurve
   Mg2c* = geom2dCurve
   Mg2tc* = geomTrimmedCurve
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

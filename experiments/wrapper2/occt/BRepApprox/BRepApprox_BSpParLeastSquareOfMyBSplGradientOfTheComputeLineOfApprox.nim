@@ -25,57 +25,54 @@ discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of math_Matrix"
 type
   BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox* {.importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx",
-      bycopy.} = object ## ! given a MultiLine, this algorithm computes the least
-                     ## ! square resolution using the Householder-QR method.
-                     ## ! If the first and/or the last point is a constraint
-                     ## ! point, the value of the tangency or curvature is
-                     ## ! computed in the resolution.
-                     ## ! NbPol is the number of control points wanted
-                     ## ! for the approximating curves.
-                     ## ! The system to solve is the following:
-                     ## ! A X = B.
-                     ## ! Where A is the Bernstein matrix computed with the
-                     ## ! parameters, B the points coordinates and X the poles
-                     ## ! solutions.
-                     ## ! The matrix A is the same for each coordinate x, y and z
-                     ## ! and is also the same for each MultiLine point because
-                     ## ! they are approximated in parallel(so with the same
-                     ## ! parameter, only the vector B changes).
-                     ## ! is used by the constuctors above.
+      bycopy.} = object         ## ! is used by the constuctors above.
 
 
+proc `new`*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
+           theSize: csize_t): pointer {.importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox::operator new", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
+              theAddress: pointer) {.importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox::operator delete", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc `new[]`*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
+             theSize: csize_t): pointer {.importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox::operator new[]", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc `delete[]`*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
+                theAddress: pointer) {.importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox::operator delete[]", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc `new`*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox::operator new", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc `delete`*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
+              a2: pointer; a3: pointer) {.importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox::operator delete", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc constructBRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox*(
-    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: cint; lastPoint: cint;
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
     firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    parameters: MathVector; nbPol: cint): BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox {.
+    parameters: MathVector; nbPol: int): BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox {.
     constructor, importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox(@)", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc constructBRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox*(
-    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: cint; lastPoint: cint;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint; nbPol: cint): BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox {.
+    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: int; lastPoint: int;
+    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint; nbPol: int): BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox {.
     constructor, importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox(@)", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc constructBRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox*(
     ssp: BRepApproxTheMultiLineOfApprox; knots: TColStdArray1OfReal;
-    mults: TColStdArray1OfInteger; firstPoint: cint; lastPoint: cint;
+    mults: TColStdArray1OfInteger; firstPoint: int; lastPoint: int;
     firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    parameters: MathVector; nbPol: cint): BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox {.
+    parameters: MathVector; nbPol: int): BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox {.
     constructor, importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox(@)", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc constructBRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox*(
     ssp: BRepApproxTheMultiLineOfApprox; knots: TColStdArray1OfReal;
-    mults: TColStdArray1OfInteger; firstPoint: cint; lastPoint: cint;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint; nbPol: cint): BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox {.
+    mults: TColStdArray1OfInteger; firstPoint: int; lastPoint: int;
+    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint; nbPol: int): BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox {.
     constructor, importcpp: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox(@)", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc perform*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
              parameters: MathVector) {.importcpp: "Perform", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc perform*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
-             parameters: MathVector; l1: cfloat; l2: cfloat) {.importcpp: "Perform", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc perform*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
-             parameters: MathVector; v1t: MathVector; v2t: MathVector; l1: cfloat;
-             l2: cfloat) {.importcpp: "Perform", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+             parameters: MathVector; l1: StandardReal; l2: StandardReal) {.
+    importcpp: "Perform", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc perform*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
              parameters: MathVector; v1t: MathVector; v2t: MathVector;
-             v1c: MathVector; v2c: MathVector; l1: cfloat; l2: cfloat) {.
+             l1: StandardReal; l2: StandardReal) {.importcpp: "Perform", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc perform*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
+             parameters: MathVector; v1t: MathVector; v2t: MathVector;
+             v1c: MathVector; v2c: MathVector; l1: StandardReal; l2: StandardReal) {.
     importcpp: "Perform", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc isDone*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): bool {.
+proc isDone*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): StandardBoolean {.
     noSideEffect, importcpp: "IsDone", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc bezierValue*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): AppParCurvesMultiCurve {.
     importcpp: "BezierValue", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
@@ -86,15 +83,17 @@ proc functionMatrix*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheCompu
 proc derivativeFunctionMatrix*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): MathMatrix {.
     noSideEffect, importcpp: "DerivativeFunctionMatrix", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc errorGradient*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
-                   grad: var MathVector; f: var cfloat; maxE3d: var cfloat;
-                   maxE2d: var cfloat) {.importcpp: "ErrorGradient", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+                   grad: var MathVector; f: var StandardReal;
+                   maxE3d: var StandardReal; maxE2d: var StandardReal) {.
+    importcpp: "ErrorGradient", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc distance*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): MathMatrix {.
     importcpp: "Distance", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc error*(this: var BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox;
-           f: var cfloat; maxE3d: var cfloat; maxE2d: var cfloat) {.importcpp: "Error", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc firstLambda*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): cfloat {.
+           f: var StandardReal; maxE3d: var StandardReal; maxE2d: var StandardReal) {.
+    importcpp: "Error", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
+proc firstLambda*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): StandardReal {.
     noSideEffect, importcpp: "FirstLambda", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-proc lastLambda*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): cfloat {.
+proc lastLambda*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): StandardReal {.
     noSideEffect, importcpp: "LastLambda", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc points*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): MathMatrix {.
     noSideEffect, importcpp: "Points", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
@@ -102,28 +101,3 @@ proc poles*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfA
     noSideEffect, importcpp: "Poles", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
 proc kIndex*(this: BRepApproxBSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox): MathIntegerVector {.
     noSideEffect, importcpp: "KIndex", header: "BRepApprox_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfApprox.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

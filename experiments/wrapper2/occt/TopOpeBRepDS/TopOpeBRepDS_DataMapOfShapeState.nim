@@ -19,29 +19,3 @@ type
       TopToolsShapeMapHasher]
   TopOpeBRepDS_DataMapIteratorOfDataMapOfShapeState* = Iterator[TopoDS_Shape,
       TopAbsState, TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

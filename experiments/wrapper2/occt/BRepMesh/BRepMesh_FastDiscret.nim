@@ -11,51 +11,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BRepMesh_FastDiscret_HeaderFile [NewLine] # _BRepMesh_FastDiscret_HeaderFile [NewLine] # < IMeshTools_Parameters . hxx > [NewLine] class Standard_DEPRECATED ( The class BRepMesh_FastDiscret is deprecated. Please use IMeshTools package ) BRepMesh_FastDiscret { public : Standard_DEPRECATED ( The class BRepMesh_FastDiscret is deprecated. Please use IMeshTools package ) typedef IMeshTools_Parameters Parameters ; } ;
-## Error: token expected: ; but got: [identifier]!!!
+type
+  BRepMeshFastDiscret* {.importcpp: "BRepMesh_FastDiscret",
+                        header: "BRepMesh_FastDiscret.hxx", bycopy.} = object
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  BRepMeshFastDiscretParameters* = IMeshToolsParameters

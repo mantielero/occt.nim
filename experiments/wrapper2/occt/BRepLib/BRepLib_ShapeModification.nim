@@ -23,29 +23,3 @@ type
     BRepLibPreserved, BRepLibDeleted, BRepLibTrimmed, BRepLibMerged,
     BRepLibBoundaryModified
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

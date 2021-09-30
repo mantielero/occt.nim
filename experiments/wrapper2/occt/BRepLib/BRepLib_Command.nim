@@ -20,34 +20,21 @@ type
                    bycopy.} = object ## ! Set done to False.
 
 
+proc `new`*(this: var BRepLibCommand; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_Command::operator new", header: "BRepLib_Command.hxx".}
+proc `delete`*(this: var BRepLibCommand; theAddress: pointer) {.
+    importcpp: "BRepLib_Command::operator delete", header: "BRepLib_Command.hxx".}
+proc `new[]`*(this: var BRepLibCommand; theSize: csize_t): pointer {.
+    importcpp: "BRepLib_Command::operator new[]", header: "BRepLib_Command.hxx".}
+proc `delete[]`*(this: var BRepLibCommand; theAddress: pointer) {.
+    importcpp: "BRepLib_Command::operator delete[]", header: "BRepLib_Command.hxx".}
+proc `new`*(this: var BRepLibCommand; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepLib_Command::operator new", header: "BRepLib_Command.hxx".}
+proc `delete`*(this: var BRepLibCommand; a2: pointer; a3: pointer) {.
+    importcpp: "BRepLib_Command::operator delete", header: "BRepLib_Command.hxx".}
 proc destroyBRepLibCommand*(this: var BRepLibCommand) {.
     importcpp: "#.~BRepLib_Command()", header: "BRepLib_Command.hxx".}
-proc isDone*(this: BRepLibCommand): bool {.noSideEffect, importcpp: "IsDone",
-                                       header: "BRepLib_Command.hxx".}
+proc isDone*(this: BRepLibCommand): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "BRepLib_Command.hxx".}
 proc check*(this: BRepLibCommand) {.noSideEffect, importcpp: "Check",
                                  header: "BRepLib_Command.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -25,34 +25,55 @@ discard "forward decl of TopoDS_Solid"
 discard "forward decl of TopoDS_Face"
 type
   BRepPrimAPI_MakeBox* {.importcpp: "BRepPrimAPI_MakeBox",
-                        header: "BRepPrimAPI_MakeBox.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                  ## !
-                                                                                                  ## Default
-                                                                                                  ## constructor
+                        header: "BRepPrimAPI_MakeBox.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
+proc `new`*(this: var BRepPrimAPI_MakeBox; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeBox::operator new",
+    header: "BRepPrimAPI_MakeBox.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeBox; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeBox::operator delete",
+    header: "BRepPrimAPI_MakeBox.hxx".}
+proc `new[]`*(this: var BRepPrimAPI_MakeBox; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeBox::operator new[]",
+    header: "BRepPrimAPI_MakeBox.hxx".}
+proc `delete[]`*(this: var BRepPrimAPI_MakeBox; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeBox::operator delete[]",
+    header: "BRepPrimAPI_MakeBox.hxx".}
+proc `new`*(this: var BRepPrimAPI_MakeBox; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrimAPI_MakeBox::operator new",
+    header: "BRepPrimAPI_MakeBox.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeBox; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrimAPI_MakeBox::operator delete",
+    header: "BRepPrimAPI_MakeBox.hxx".}
 proc constructBRepPrimAPI_MakeBox*(): BRepPrimAPI_MakeBox {.constructor,
     importcpp: "BRepPrimAPI_MakeBox(@)", header: "BRepPrimAPI_MakeBox.hxx".}
-proc constructBRepPrimAPI_MakeBox*(dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
+proc constructBRepPrimAPI_MakeBox*(dx: StandardReal; dy: StandardReal;
+                                  dz: StandardReal): BRepPrimAPI_MakeBox {.
     constructor, importcpp: "BRepPrimAPI_MakeBox(@)",
     header: "BRepPrimAPI_MakeBox.hxx".}
-proc constructBRepPrimAPI_MakeBox*(p: Pnt; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
+proc constructBRepPrimAPI_MakeBox*(p: Pnt; dx: StandardReal; dy: StandardReal;
+                                  dz: StandardReal): BRepPrimAPI_MakeBox {.
     constructor, importcpp: "BRepPrimAPI_MakeBox(@)",
     header: "BRepPrimAPI_MakeBox.hxx".}
 proc constructBRepPrimAPI_MakeBox*(p1: Pnt; p2: Pnt): BRepPrimAPI_MakeBox {.
     constructor, importcpp: "BRepPrimAPI_MakeBox(@)",
     header: "BRepPrimAPI_MakeBox.hxx".}
-proc constructBRepPrimAPI_MakeBox*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimAPI_MakeBox {.
+proc constructBRepPrimAPI_MakeBox*(axes: Ax2; dx: StandardReal; dy: StandardReal;
+                                  dz: StandardReal): BRepPrimAPI_MakeBox {.
     constructor, importcpp: "BRepPrimAPI_MakeBox(@)",
     header: "BRepPrimAPI_MakeBox.hxx".}
-proc init*(this: var BRepPrimAPI_MakeBox; theDX: cfloat; theDY: cfloat; theDZ: cfloat) {.
-    importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
-proc init*(this: var BRepPrimAPI_MakeBox; thePnt: Pnt; theDX: cfloat; theDY: cfloat;
-          theDZ: cfloat) {.importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
+proc init*(this: var BRepPrimAPI_MakeBox; theDX: StandardReal; theDY: StandardReal;
+          theDZ: StandardReal) {.importcpp: "Init",
+                               header: "BRepPrimAPI_MakeBox.hxx".}
+proc init*(this: var BRepPrimAPI_MakeBox; thePnt: Pnt; theDX: StandardReal;
+          theDY: StandardReal; theDZ: StandardReal) {.importcpp: "Init",
+    header: "BRepPrimAPI_MakeBox.hxx".}
 proc init*(this: var BRepPrimAPI_MakeBox; thePnt1: Pnt; thePnt2: Pnt) {.
     importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
-proc init*(this: var BRepPrimAPI_MakeBox; theAxes: Ax2; theDX: cfloat; theDY: cfloat;
-          theDZ: cfloat) {.importcpp: "Init", header: "BRepPrimAPI_MakeBox.hxx".}
+proc init*(this: var BRepPrimAPI_MakeBox; theAxes: Ax2; theDX: StandardReal;
+          theDY: StandardReal; theDZ: StandardReal) {.importcpp: "Init",
+    header: "BRepPrimAPI_MakeBox.hxx".}
 proc wedge*(this: var BRepPrimAPI_MakeBox): var BRepPrimWedge {.importcpp: "Wedge",
     header: "BRepPrimAPI_MakeBox.hxx".}
 proc build*(this: var BRepPrimAPI_MakeBox) {.importcpp: "Build",
@@ -79,28 +100,3 @@ proc rightFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.importcpp: "RightF
     header: "BRepPrimAPI_MakeBox.hxx".}
 proc topFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.importcpp: "TopFace",
     header: "BRepPrimAPI_MakeBox.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

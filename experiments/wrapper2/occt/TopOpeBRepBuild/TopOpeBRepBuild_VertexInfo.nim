@@ -21,6 +21,24 @@ type
                               header: "TopOpeBRepBuild_VertexInfo.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TopOpeBRepBuildVertexInfo; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_VertexInfo::operator new",
+    header: "TopOpeBRepBuild_VertexInfo.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildVertexInfo; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_VertexInfo::operator delete",
+    header: "TopOpeBRepBuild_VertexInfo.hxx".}
+proc `new[]`*(this: var TopOpeBRepBuildVertexInfo; theSize: csize_t): pointer {.
+    importcpp: "TopOpeBRepBuild_VertexInfo::operator new[]",
+    header: "TopOpeBRepBuild_VertexInfo.hxx".}
+proc `delete[]`*(this: var TopOpeBRepBuildVertexInfo; theAddress: pointer) {.
+    importcpp: "TopOpeBRepBuild_VertexInfo::operator delete[]",
+    header: "TopOpeBRepBuild_VertexInfo.hxx".}
+proc `new`*(this: var TopOpeBRepBuildVertexInfo; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopOpeBRepBuild_VertexInfo::operator new",
+    header: "TopOpeBRepBuild_VertexInfo.hxx".}
+proc `delete`*(this: var TopOpeBRepBuildVertexInfo; a2: pointer; a3: pointer) {.
+    importcpp: "TopOpeBRepBuild_VertexInfo::operator delete",
+    header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc constructTopOpeBRepBuildVertexInfo*(): TopOpeBRepBuildVertexInfo {.
     constructor, importcpp: "TopOpeBRepBuild_VertexInfo(@)",
     header: "TopOpeBRepBuild_VertexInfo.hxx".}
@@ -28,13 +46,13 @@ proc setVertex*(this: var TopOpeBRepBuildVertexInfo; aV: TopoDS_Vertex) {.
     importcpp: "SetVertex", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc vertex*(this: TopOpeBRepBuildVertexInfo): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "TopOpeBRepBuild_VertexInfo.hxx".}
-proc setSmart*(this: var TopOpeBRepBuildVertexInfo; aFlag: bool) {.
+proc setSmart*(this: var TopOpeBRepBuildVertexInfo; aFlag: StandardBoolean) {.
     importcpp: "SetSmart", header: "TopOpeBRepBuild_VertexInfo.hxx".}
-proc smart*(this: TopOpeBRepBuildVertexInfo): bool {.noSideEffect,
+proc smart*(this: TopOpeBRepBuildVertexInfo): StandardBoolean {.noSideEffect,
     importcpp: "Smart", header: "TopOpeBRepBuild_VertexInfo.hxx".}
-proc nbCases*(this: TopOpeBRepBuildVertexInfo): cint {.noSideEffect,
+proc nbCases*(this: TopOpeBRepBuildVertexInfo): int {.noSideEffect,
     importcpp: "NbCases", header: "TopOpeBRepBuild_VertexInfo.hxx".}
-proc foundOut*(this: TopOpeBRepBuildVertexInfo): cint {.noSideEffect,
+proc foundOut*(this: TopOpeBRepBuildVertexInfo): int {.noSideEffect,
     importcpp: "FoundOut", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc addIn*(this: var TopOpeBRepBuildVertexInfo; anE: TopoDS_Edge) {.
     importcpp: "AddIn", header: "TopOpeBRepBuild_VertexInfo.hxx".}
@@ -60,28 +78,3 @@ proc listPassed*(this: TopOpeBRepBuildVertexInfo): TopToolsListOfShape {.
     noSideEffect, importcpp: "ListPassed", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc prepare*(this: var TopOpeBRepBuildVertexInfo; aL: TopToolsListOfShape) {.
     importcpp: "Prepare", header: "TopOpeBRepBuild_VertexInfo.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

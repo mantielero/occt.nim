@@ -14,29 +14,3 @@
 
 type
   BRepBlendConstThroatWithPenetration* = BlendFuncConstThroatWithPenetration
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

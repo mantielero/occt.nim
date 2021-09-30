@@ -19,115 +19,33 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepFill_Pipe"
 type
   BRepOffsetAPI_MakePipe* {.importcpp: "BRepOffsetAPI_MakePipe",
-                           header: "BRepOffsetAPI_MakePipe.hxx", bycopy.} = object of BRepPrimAPI_MakeSweep ##
-                                                                                                     ## !
-                                                                                                     ## Constructs
-                                                                                                     ## a
-                                                                                                     ## pipe
-                                                                                                     ## by
-                                                                                                     ## sweeping
-                                                                                                     ## the
-                                                                                                     ## shape
-                                                                                                     ## Profile
-                                                                                                     ## along
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## the
-                                                                                                     ## wire
-                                                                                                     ## Spine.The
-                                                                                                     ## angle
-                                                                                                     ## made
-                                                                                                     ## by
-                                                                                                     ## the
-                                                                                                     ## spine
-                                                                                                     ## with
-                                                                                                     ## the
-                                                                                                     ## profile
-                                                                                                     ## is
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## maintained
-                                                                                                     ## along
-                                                                                                     ## the
-                                                                                                     ## length
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## pipe.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Warning
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Spine
-                                                                                                     ## must
-                                                                                                     ## be
-                                                                                                     ## G1
-                                                                                                     ## continuous;
-                                                                                                     ## that
-                                                                                                     ## is,
-                                                                                                     ## on
-                                                                                                     ## the
-                                                                                                     ## connection
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## vertex
-                                                                                                     ## of
-                                                                                                     ## two
-                                                                                                     ## edges
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## wire,
-                                                                                                     ## the
-                                                                                                     ## tangent
-                                                                                                     ## vectors
-                                                                                                     ## on
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## the
-                                                                                                     ## left
-                                                                                                     ## and
-                                                                                                     ## on
-                                                                                                     ## the
-                                                                                                     ## right
-                                                                                                     ## must
-                                                                                                     ## have
-                                                                                                     ## the
-                                                                                                     ## same
-                                                                                                     ## direction,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## though
-                                                                                                     ## not
-                                                                                                     ## necessarily
-                                                                                                     ## the
-                                                                                                     ## same
-                                                                                                     ## magnitude.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Exceptions
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Standard_DomainError
-                                                                                                     ## if
-                                                                                                     ## the
-                                                                                                     ## profile
-                                                                                                     ## is
-                                                                                                     ## a
-                                                                                                     ## solid
-                                                                                                     ## or
-                                                                                                     ## a
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## composite
-                                                                                                     ## solid.
+                           header: "BRepOffsetAPI_MakePipe.hxx", bycopy.} = object of BRepPrimAPI_MakeSweep
 
 
+proc `new`*(this: var BRepOffsetAPI_MakePipe; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakePipe::operator new",
+    header: "BRepOffsetAPI_MakePipe.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakePipe; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakePipe::operator delete",
+    header: "BRepOffsetAPI_MakePipe.hxx".}
+proc `new[]`*(this: var BRepOffsetAPI_MakePipe; theSize: csize_t): pointer {.
+    importcpp: "BRepOffsetAPI_MakePipe::operator new[]",
+    header: "BRepOffsetAPI_MakePipe.hxx".}
+proc `delete[]`*(this: var BRepOffsetAPI_MakePipe; theAddress: pointer) {.
+    importcpp: "BRepOffsetAPI_MakePipe::operator delete[]",
+    header: "BRepOffsetAPI_MakePipe.hxx".}
+proc `new`*(this: var BRepOffsetAPI_MakePipe; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepOffsetAPI_MakePipe::operator new",
+    header: "BRepOffsetAPI_MakePipe.hxx".}
+proc `delete`*(this: var BRepOffsetAPI_MakePipe; a2: pointer; a3: pointer) {.
+    importcpp: "BRepOffsetAPI_MakePipe::operator delete",
+    header: "BRepOffsetAPI_MakePipe.hxx".}
 proc constructBRepOffsetAPI_MakePipe*(spine: TopoDS_Wire; profile: TopoDS_Shape): BRepOffsetAPI_MakePipe {.
     constructor, importcpp: "BRepOffsetAPI_MakePipe(@)",
     header: "BRepOffsetAPI_MakePipe.hxx".}
 proc constructBRepOffsetAPI_MakePipe*(spine: TopoDS_Wire; profile: TopoDS_Shape;
                                      aMode: GeomFillTrihedron;
-                                     forceApproxC1: bool = false): BRepOffsetAPI_MakePipe {.
+                                     forceApproxC1: StandardBoolean = false): BRepOffsetAPI_MakePipe {.
     constructor, importcpp: "BRepOffsetAPI_MakePipe(@)",
     header: "BRepOffsetAPI_MakePipe.hxx".}
 proc pipe*(this: BRepOffsetAPI_MakePipe): BRepFillPipe {.noSideEffect,
@@ -143,30 +61,5 @@ proc generated*(this: var BRepOffsetAPI_MakePipe; s: TopoDS_Shape): TopToolsList
 proc generated*(this: var BRepOffsetAPI_MakePipe; sSpine: TopoDS_Shape;
                sProfile: TopoDS_Shape): TopoDS_Shape {.importcpp: "Generated",
     header: "BRepOffsetAPI_MakePipe.hxx".}
-proc errorOnSurface*(this: BRepOffsetAPI_MakePipe): cfloat {.noSideEffect,
+proc errorOnSurface*(this: BRepOffsetAPI_MakePipe): StandardReal {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "BRepOffsetAPI_MakePipe.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

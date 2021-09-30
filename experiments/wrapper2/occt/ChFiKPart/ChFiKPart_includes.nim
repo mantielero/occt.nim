@@ -18,29 +18,3 @@ include ChFiKPart_ComputeData_Rotule
 include ChFiKPart_ComputeData_Sphere
 include ChFiKPart_DataMapIteratorOfRstMap
 include ChFiKPart_RstMap
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

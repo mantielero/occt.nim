@@ -20,32 +20,6 @@ include BRepOffset_MakeOffset
 include BRepOffset_MakeSimpleOffset
 include BRepOffset_Mode
 include BRepOffset_Offset
-include BRepOffset_SimpleOffset
+#include BRepOffset_SimpleOffset
 include BRepOffset_Status
 include BRepOffset_Tool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

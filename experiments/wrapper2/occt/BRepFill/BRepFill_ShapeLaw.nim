@@ -37,28 +37,28 @@ type
                                                                                        ## Law
 
 
-proc constructBRepFillShapeLaw*(v: TopoDS_Vertex; build: bool = true): BRepFillShapeLaw {.
+proc constructBRepFillShapeLaw*(v: TopoDS_Vertex; build: StandardBoolean = true): BRepFillShapeLaw {.
     constructor, importcpp: "BRepFill_ShapeLaw(@)", header: "BRepFill_ShapeLaw.hxx".}
-proc constructBRepFillShapeLaw*(w: TopoDS_Wire; build: bool = true): BRepFillShapeLaw {.
+proc constructBRepFillShapeLaw*(w: TopoDS_Wire; build: StandardBoolean = true): BRepFillShapeLaw {.
     constructor, importcpp: "BRepFill_ShapeLaw(@)", header: "BRepFill_ShapeLaw.hxx".}
 proc constructBRepFillShapeLaw*(w: TopoDS_Wire; L: Handle[LawFunction];
-                               build: bool = true): BRepFillShapeLaw {.constructor,
-    importcpp: "BRepFill_ShapeLaw(@)", header: "BRepFill_ShapeLaw.hxx".}
-proc isVertex*(this: BRepFillShapeLaw): bool {.noSideEffect, importcpp: "IsVertex",
-    header: "BRepFill_ShapeLaw.hxx".}
-proc isConstant*(this: BRepFillShapeLaw): bool {.noSideEffect,
+                               build: StandardBoolean = true): BRepFillShapeLaw {.
+    constructor, importcpp: "BRepFill_ShapeLaw(@)", header: "BRepFill_ShapeLaw.hxx".}
+proc isVertex*(this: BRepFillShapeLaw): StandardBoolean {.noSideEffect,
+    importcpp: "IsVertex", header: "BRepFill_ShapeLaw.hxx".}
+proc isConstant*(this: BRepFillShapeLaw): StandardBoolean {.noSideEffect,
     importcpp: "IsConstant", header: "BRepFill_ShapeLaw.hxx".}
 proc concatenedLaw*(this: BRepFillShapeLaw): Handle[GeomFillSectionLaw] {.
     noSideEffect, importcpp: "ConcatenedLaw", header: "BRepFill_ShapeLaw.hxx".}
-proc continuity*(this: BRepFillShapeLaw; index: cint; tolAngular: cfloat): GeomAbsShape {.
+proc continuity*(this: BRepFillShapeLaw; index: int; tolAngular: StandardReal): GeomAbsShape {.
     noSideEffect, importcpp: "Continuity", header: "BRepFill_ShapeLaw.hxx".}
-proc vertexTol*(this: BRepFillShapeLaw; index: cint; param: cfloat): cfloat {.
+proc vertexTol*(this: BRepFillShapeLaw; index: int; param: StandardReal): StandardReal {.
     noSideEffect, importcpp: "VertexTol", header: "BRepFill_ShapeLaw.hxx".}
-proc vertex*(this: BRepFillShapeLaw; index: cint; param: cfloat): TopoDS_Vertex {.
+proc vertex*(this: BRepFillShapeLaw; index: int; param: StandardReal): TopoDS_Vertex {.
     noSideEffect, importcpp: "Vertex", header: "BRepFill_ShapeLaw.hxx".}
-proc d0*(this: var BRepFillShapeLaw; param: cfloat; s: var TopoDS_Shape) {.
+proc d0*(this: var BRepFillShapeLaw; param: StandardReal; s: var TopoDS_Shape) {.
     importcpp: "D0", header: "BRepFill_ShapeLaw.hxx".}
-proc edge*(this: BRepFillShapeLaw; index: cint): TopoDS_Edge {.noSideEffect,
+proc edge*(this: BRepFillShapeLaw; index: int): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "BRepFill_ShapeLaw.hxx".}
 type
   BRepFillShapeLawbaseType* = BRepFillSectionLaw
@@ -70,28 +70,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "BRepFill_ShapeLaw.hxx".}
 proc dynamicType*(this: BRepFillShapeLaw): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_ShapeLaw.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

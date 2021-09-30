@@ -9,29 +9,3 @@ include BRepMAT2d_DataMapOfBasicEltShape
 include BRepMAT2d_DataMapOfShapeSequenceOfBasicElt
 include BRepMAT2d_Explorer
 include BRepMAT2d_LinkTopoBilo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

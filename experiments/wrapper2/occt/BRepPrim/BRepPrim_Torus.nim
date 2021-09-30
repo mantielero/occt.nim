@@ -19,72 +19,28 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
 type
-  BRepPrimTorus* {.importcpp: "BRepPrim_Torus", header: "BRepPrim_Torus.hxx", bycopy.} = object of BRepPrimRevolution ##
-                                                                                                            ## !
-                                                                                                            ## the
-                                                                                                            ## STEP
-                                                                                                            ## definition
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Position
-                                                                                                            ## :
-                                                                                                            ## center
-                                                                                                            ## and
-                                                                                                            ## axes
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Major,
-                                                                                                            ## Minor
-                                                                                                            ## :
-                                                                                                            ## Radii
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Errors
-                                                                                                            ## :
-                                                                                                            ## Major
-                                                                                                            ## <
-                                                                                                            ## Resolution
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Minor
-                                                                                                            ## <
-                                                                                                            ## Resolution
+  BRepPrimTorus* {.importcpp: "BRepPrim_Torus", header: "BRepPrim_Torus.hxx", bycopy.} = object of BRepPrimRevolution
     ## !< distance from the center of the pipe to the center of the torus
     ## !< radius of the pipe
 
 
-proc constructBRepPrimTorus*(position: Ax2; major: cfloat; minor: cfloat): BRepPrimTorus {.
+proc `new`*(this: var BRepPrimTorus; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Torus::operator new", header: "BRepPrim_Torus.hxx".}
+proc `delete`*(this: var BRepPrimTorus; theAddress: pointer) {.
+    importcpp: "BRepPrim_Torus::operator delete", header: "BRepPrim_Torus.hxx".}
+proc `new[]`*(this: var BRepPrimTorus; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Torus::operator new[]", header: "BRepPrim_Torus.hxx".}
+proc `delete[]`*(this: var BRepPrimTorus; theAddress: pointer) {.
+    importcpp: "BRepPrim_Torus::operator delete[]", header: "BRepPrim_Torus.hxx".}
+proc `new`*(this: var BRepPrimTorus; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrim_Torus::operator new", header: "BRepPrim_Torus.hxx".}
+proc `delete`*(this: var BRepPrimTorus; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrim_Torus::operator delete", header: "BRepPrim_Torus.hxx".}
+proc constructBRepPrimTorus*(position: Ax2; major: StandardReal; minor: StandardReal): BRepPrimTorus {.
     constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
-proc constructBRepPrimTorus*(major: cfloat; minor: cfloat): BRepPrimTorus {.
+proc constructBRepPrimTorus*(major: StandardReal; minor: StandardReal): BRepPrimTorus {.
     constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
-proc constructBRepPrimTorus*(center: Pnt; major: cfloat; minor: cfloat): BRepPrimTorus {.
+proc constructBRepPrimTorus*(center: Pnt; major: StandardReal; minor: StandardReal): BRepPrimTorus {.
     constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimTorus): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Torus.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
